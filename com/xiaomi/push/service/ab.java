@@ -1,42 +1,28 @@
 package com.xiaomi.push.service;
 
-import android.content.SharedPreferences;
-import com.xiaomi.mipush.sdk.Constants;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.Map;
-import java.util.Queue;
+import android.app.NotificationManager;
+import com.xiaomi.push.ai;
 /* loaded from: classes8.dex */
-public class ab {
-    private static Object a = new Object();
+final class ab extends ai.a {
+    final /* synthetic */ int a;
 
     /* renamed from: a  reason: collision with other field name */
-    private static Map<String, Queue<String>> f841a = new HashMap();
+    final /* synthetic */ NotificationManager f834a;
 
-    public static boolean a(XMPushService xMPushService, String str, String str2) {
-        synchronized (a) {
-            SharedPreferences sharedPreferences = xMPushService.getSharedPreferences("push_message_ids", 0);
-            Queue<String> queue = f841a.get(str);
-            if (queue == null) {
-                String[] split = sharedPreferences.getString(str, "").split(Constants.ACCEPT_TIME_SEPARATOR_SP);
-                queue = new LinkedList<>();
-                for (String str3 : split) {
-                    queue.add(str3);
-                }
-                f841a.put(str, queue);
-            }
-            if (queue.contains(str2)) {
-                return true;
-            }
-            queue.add(str2);
-            if (queue.size() > 25) {
-                queue.poll();
-            }
-            String a2 = com.xiaomi.push.ay.a(queue, Constants.ACCEPT_TIME_SEPARATOR_SP);
-            SharedPreferences.Editor edit = sharedPreferences.edit();
-            edit.putString(str, a2);
-            edit.commit();
-            return false;
-        }
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ab(int i, NotificationManager notificationManager) {
+        this.a = i;
+        this.f834a = notificationManager;
+    }
+
+    @Override // com.xiaomi.push.ai.a
+    /* renamed from: a */
+    public int mo162a() {
+        return this.a;
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        this.f834a.cancel(this.a);
     }
 }

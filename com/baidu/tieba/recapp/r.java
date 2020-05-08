@@ -29,9 +29,9 @@ public class r {
         if (context == null || advertAppInfo == null) {
             return false;
         }
-        String str = advertAppInfo.dmp;
-        if (StringUtils.isNull(str) && advertAppInfo.dmx != null) {
-            str = advertAppInfo.dmx.userName;
+        String str = advertAppInfo.dmt;
+        if (StringUtils.isNull(str) && advertAppInfo.dmB != null) {
+            str = advertAppInfo.dmB.userName;
         }
         if (StringUtils.isNull(str)) {
             str = "";
@@ -47,20 +47,20 @@ public class r {
         if (context == null || advertAppInfo == null) {
             return false;
         }
-        com.baidu.tbadk.distribute.a.aWD().b(advertAppInfo);
-        String str2 = advertAppInfo.dmp;
+        com.baidu.tbadk.distribute.a.aWB().b(advertAppInfo);
+        String str2 = advertAppInfo.dmt;
         if (StringUtils.isNull(str2)) {
             str2 = str;
         }
-        com.baidu.tieba.recapp.download.e.cNu().a(advertAppInfo.dmr, advertAppInfo.apkUrl, str2, i, com.baidu.tieba.recapp.download.e.Js(advertAppInfo.dmr).intValue(), null, true, false, true, advertAppInfo.dmx.userPortrait, downloadStaticsData, advertAppInfo.dmx.userName);
+        com.baidu.tieba.recapp.download.e.cNr().a(advertAppInfo.dmv, advertAppInfo.apkUrl, str2, i, com.baidu.tieba.recapp.download.e.Jv(advertAppInfo.dmv).intValue(), null, true, false, true, advertAppInfo.dmB.userPortrait, downloadStaticsData, advertAppInfo.dmB.userName);
         return true;
     }
 
     public static final void f(AdvertAppInfo advertAppInfo) {
-        com.baidu.tieba.recapp.download.e.cNu().z(advertAppInfo.apkUrl, advertAppInfo.dmr, true);
+        com.baidu.tieba.recapp.download.e.cNr().z(advertAppInfo.apkUrl, advertAppInfo.dmv, true);
     }
 
-    public static final void aY(Context context, String str) {
+    public static final void aM(Context context, String str) {
         if (TextUtils.isEmpty(str)) {
             com.baidu.adp.lib.util.l.showToast(context, (int) R.string.download_error);
             return;
@@ -169,15 +169,15 @@ public class r {
     }
 
     public static void sendFRS(boolean z, String str, String str2, String str3, List<a.b> list, String str4) {
-        q.cNo().sendFRS(z, str, str2, str3, list, str4);
+        q.cNl().sendFRS(z, str, str2, str3, list, str4);
     }
 
     public static void sendPB(boolean z, String str, String str2, String str3, String str4, List<a.b> list, String str5) {
-        q.cNo().a(z, str, str2, str3, str4, list, str5);
+        q.cNl().a(z, str, str2, str3, str4, list, str5);
     }
 
     public static int b(TbPageContext tbPageContext, String str, String str2) {
-        if (com.baidu.tieba.a.bdC().bdD() != 1) {
+        if (com.baidu.tieba.a.bdA().bdB() != 1) {
             return f(tbPageContext, str);
         }
         if (tbPageContext == null || TextUtils.isEmpty(str)) {
@@ -232,41 +232,41 @@ public class r {
 
     private static boolean g(TbPageContext tbPageContext, String str) {
         String[] strArr = {str};
-        g cNl = q.cNo().cNl();
-        if (cNl == null) {
+        g cNi = q.cNl().cNi();
+        if (cNi == null) {
             return false;
         }
-        if (cNl.yg(str)) {
-            cNl.a(tbPageContext.getPageActivity(), strArr, true);
+        if (cNi.yj(str)) {
+            cNi.a(tbPageContext.getPageActivity(), strArr, true);
             return true;
         }
-        return cNl.c(tbPageContext.getPageActivity(), strArr);
+        return cNi.c(tbPageContext.getPageActivity(), strArr);
     }
 
-    public static int aZ(Context context, String str) {
+    public static int aN(Context context, String str) {
         if (context == null || TextUtils.isEmpty(str)) {
             return 0;
         }
         if (!str.startsWith("tieba://deeplink?")) {
-            return ba(context, str) ? 3 : 0;
+            return aO(context, str) ? 3 : 0;
         }
         Uri parse = Uri.parse(str);
         if (e(context, Uri.parse(parse.getQueryParameter(TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT)))) {
             return 1;
         }
-        return ba(context, parse.getQueryParameter("wap")) ? 2 : 0;
+        return aO(context, parse.getQueryParameter("wap")) ? 2 : 0;
     }
 
-    private static boolean ba(Context context, String str) {
+    private static boolean aO(Context context, String str) {
         String[] strArr = {str};
-        g cNl = q.cNo().cNl();
-        if (cNl == null) {
+        g cNi = q.cNl().cNi();
+        if (cNi == null) {
             return false;
         }
-        if (cNl.yg(str)) {
-            cNl.a(context, strArr, true);
+        if (cNi.yj(str)) {
+            cNi.a(context, strArr, true);
             return true;
         }
-        return cNl.c(context, strArr);
+        return cNi.c(context, strArr);
     }
 }

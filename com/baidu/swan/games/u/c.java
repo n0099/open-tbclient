@@ -53,7 +53,7 @@ public class c {
         com.baidu.swan.games.u.a.a aVar = new com.baidu.swan.games.u.a.a();
         aVar.url = str;
         aVar.errCode = i;
-        aVar.cRw = z ? 1 : 0;
+        aVar.cRB = z ? 1 : 0;
         aVar.errMsg = str2;
         b.axS().a(new a(70000, aVar));
     }
@@ -62,7 +62,7 @@ public class c {
         com.baidu.swan.games.u.a.a aVar = new com.baidu.swan.games.u.a.a();
         aVar.url = str;
         aVar.errCode = i;
-        aVar.cRw = z ? 1 : 0;
+        aVar.cRB = z ? 1 : 0;
         aVar.errMsg = str2;
         b.axS().a(new a(100000, aVar));
     }
@@ -71,7 +71,7 @@ public class c {
         com.baidu.swan.games.u.a.a aVar = new com.baidu.swan.games.u.a.a();
         aVar.url = str;
         aVar.errCode = i;
-        aVar.cRw = z ? 1 : 0;
+        aVar.cRB = z ? 1 : 0;
         aVar.errMsg = str2;
         b.axS().a(new a(110000, aVar));
     }

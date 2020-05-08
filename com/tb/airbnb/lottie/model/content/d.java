@@ -4,56 +4,56 @@ import android.graphics.Path;
 import android.support.annotation.Nullable;
 /* loaded from: classes6.dex */
 public class d implements b {
-    private final Path.FillType DC;
-    private final GradientType mPA;
-    private final com.tb.airbnb.lottie.model.a.c mPB;
-    private final com.tb.airbnb.lottie.model.a.f mPC;
-    private final com.tb.airbnb.lottie.model.a.f mPD;
+    private final Path.FillType DG;
+    private final GradientType mPD;
+    private final com.tb.airbnb.lottie.model.a.c mPE;
+    private final com.tb.airbnb.lottie.model.a.f mPF;
+    private final com.tb.airbnb.lottie.model.a.f mPG;
     @Nullable
-    private final com.tb.airbnb.lottie.model.a.b mPE;
+    private final com.tb.airbnb.lottie.model.a.b mPH;
     @Nullable
-    private final com.tb.airbnb.lottie.model.a.b mPF;
-    private final com.tb.airbnb.lottie.model.a.d mPw;
+    private final com.tb.airbnb.lottie.model.a.b mPI;
+    private final com.tb.airbnb.lottie.model.a.d mPz;
     private final String name;
 
     public d(String str, GradientType gradientType, Path.FillType fillType, com.tb.airbnb.lottie.model.a.c cVar, com.tb.airbnb.lottie.model.a.d dVar, com.tb.airbnb.lottie.model.a.f fVar, com.tb.airbnb.lottie.model.a.f fVar2, com.tb.airbnb.lottie.model.a.b bVar, com.tb.airbnb.lottie.model.a.b bVar2) {
-        this.mPA = gradientType;
-        this.DC = fillType;
-        this.mPB = cVar;
-        this.mPw = dVar;
-        this.mPC = fVar;
-        this.mPD = fVar2;
+        this.mPD = gradientType;
+        this.DG = fillType;
+        this.mPE = cVar;
+        this.mPz = dVar;
+        this.mPF = fVar;
+        this.mPG = fVar2;
         this.name = str;
-        this.mPE = bVar;
-        this.mPF = bVar2;
+        this.mPH = bVar;
+        this.mPI = bVar2;
     }
 
     public String getName() {
         return this.name;
     }
 
-    public GradientType dBD() {
-        return this.mPA;
+    public GradientType dBz() {
+        return this.mPD;
     }
 
     public Path.FillType hX() {
-        return this.DC;
+        return this.DG;
     }
 
-    public com.tb.airbnb.lottie.model.a.c dBE() {
-        return this.mPB;
+    public com.tb.airbnb.lottie.model.a.c dBA() {
+        return this.mPE;
     }
 
-    public com.tb.airbnb.lottie.model.a.d dBy() {
-        return this.mPw;
+    public com.tb.airbnb.lottie.model.a.d dBu() {
+        return this.mPz;
     }
 
-    public com.tb.airbnb.lottie.model.a.f dBF() {
-        return this.mPC;
+    public com.tb.airbnb.lottie.model.a.f dBB() {
+        return this.mPF;
     }
 
-    public com.tb.airbnb.lottie.model.a.f dBG() {
-        return this.mPD;
+    public com.tb.airbnb.lottie.model.a.f dBC() {
+        return this.mPG;
     }
 
     @Override // com.tb.airbnb.lottie.model.content.b

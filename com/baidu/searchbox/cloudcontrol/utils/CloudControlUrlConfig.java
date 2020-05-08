@@ -28,7 +28,7 @@ public class CloudControlUrlConfig {
         if (AppConfig.isDebug() && !TextUtils.isEmpty(mDebugHost)) {
             searchboxHostForHttps = mDebugHost;
         }
-        String processUrl = b.sk().processUrl(String.format(mUrl, searchboxHostForHttps));
+        String processUrl = b.sj().processUrl(String.format(mUrl, searchboxHostForHttps));
         if (!TextUtils.isEmpty(str)) {
             processUrl = UrlUtil.addParam(processUrl, KEY_RUN_TYPE, str);
         }

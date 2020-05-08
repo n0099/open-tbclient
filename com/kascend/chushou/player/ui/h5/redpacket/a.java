@@ -13,11 +13,11 @@ import tv.chushou.zues.utils.h;
 public class a {
     private final List<e> a = new ArrayList();
     private io.reactivex.disposables.a c = new io.reactivex.disposables.a();
-    private InterfaceC0731a mBj;
+    private InterfaceC0752a mBo;
 
     /* renamed from: com.kascend.chushou.player.ui.h5.redpacket.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public interface InterfaceC0731a {
+    public interface InterfaceC0752a {
         void D();
 
         void a(int i);
@@ -25,9 +25,9 @@ public class a {
 
     public a(Context context) {
         try {
-            this.mBj = (InterfaceC0731a) context;
+            this.mBo = (InterfaceC0752a) context;
         } catch (Exception e) {
-            this.mBj = null;
+            this.mBo = null;
         }
     }
 
@@ -63,8 +63,8 @@ public class a {
                 it.remove();
             }
         }
-        if (this.mBj != null) {
-            this.mBj.a(this.a.size());
+        if (this.mBo != null) {
+            this.mBo.a(this.a.size());
         }
     }
 
@@ -90,13 +90,13 @@ public class a {
         RxExecutor.post(this.c, EventThread.MAIN_THREAD, new Runnable() { // from class: com.kascend.chushou.player.ui.h5.redpacket.a.1
             @Override // java.lang.Runnable
             public void run() {
-                if (a.this.mBj != null) {
-                    a.this.mBj.a(a.this.a.size());
+                if (a.this.mBo != null) {
+                    a.this.mBo.a(a.this.a.size());
                 }
             }
         });
-        if (com.kascend.chushou.d.h.dwK().q() && this.a.size() > 0 && this.mBj != null) {
-            this.mBj.D();
+        if (com.kascend.chushou.d.h.dwH().q() && this.a.size() > 0 && this.mBo != null) {
+            this.mBo.D();
         }
     }
 
@@ -106,10 +106,10 @@ public class a {
         }
         e eVar = this.a.get(0);
         if (i == 2) {
-            return eVar.dyD();
+            return eVar.dyz();
         }
         if (i == 1) {
-            return eVar.dyC();
+            return eVar.dyy();
         }
         return null;
     }

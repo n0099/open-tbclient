@@ -17,20 +17,20 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes13.dex */
 public class a extends BaseAdapter {
-    private PersonalGroupFragment itm;
-    private List<GroupInfoData> itn = new ArrayList();
+    private PersonalGroupFragment its;
+    private List<GroupInfoData> itt = new ArrayList();
 
     public void dp(List<GroupInfoData> list) {
-        this.itn = list;
+        this.itt = list;
     }
 
     public a(PersonalGroupFragment personalGroupFragment) {
-        this.itm = personalGroupFragment;
+        this.its = personalGroupFragment;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return this.itn.size();
+        return this.itt.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -38,10 +38,10 @@ public class a extends BaseAdapter {
     /* renamed from: xw */
     public GroupInfoData getItem(int i) {
         int itemId = (int) getItemId(i);
-        if (itemId < 0 || itemId >= this.itn.size()) {
+        if (itemId < 0 || itemId >= this.itt.size()) {
             return null;
         }
-        return this.itn.get(itemId);
+        return this.itt.get(itemId);
     }
 
     @Override // android.widget.Adapter
@@ -51,63 +51,63 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0572a c0572a;
-        if (view == null || view.getTag() == null || !(view.getTag() instanceof C0572a)) {
-            view = LayoutInflater.from(this.itm.getActivity()).inflate(R.layout.tab_my_group_item, viewGroup, false);
-            c0572a = new C0572a();
-            c0572a.ito = (LinearLayout) view.findViewById(R.id.click_head);
-            c0572a.itq = (ImageView) view.findViewById(R.id.diver_top);
-            c0572a.itr = (ImageView) view.findViewById(R.id.diver_buttom_px);
-            c0572a.its = (ImageView) view.findViewById(R.id.diver_top_px);
-            c0572a.ilq = (GroupImageView) view.findViewById(R.id.item_head);
-            c0572a.ilr = (TextView) view.findViewById(R.id.item_group_name);
-            c0572a.ilt = (TextView) view.findViewById(R.id.item_group_num);
-            c0572a.ilu = (TextView) view.findViewById(R.id.item_introduce);
-            c0572a.itp = (TextView) view.findViewById(R.id.isCreator);
-            c0572a.ilv = (ImageView) view.findViewById(R.id.item_grade1);
-            c0572a.ilw = (ImageView) view.findViewById(R.id.item_grade2);
-            c0572a.ilx = (ImageView) view.findViewById(R.id.item_grade3);
-            c0572a.ily = new ImageView[4];
-            c0572a.ily[1] = c0572a.ilv;
-            c0572a.ily[2] = c0572a.ilw;
-            c0572a.ily[3] = c0572a.ilx;
-            view.setTag(c0572a);
+        C0593a c0593a;
+        if (view == null || view.getTag() == null || !(view.getTag() instanceof C0593a)) {
+            view = LayoutInflater.from(this.its.getActivity()).inflate(R.layout.tab_my_group_item, viewGroup, false);
+            c0593a = new C0593a();
+            c0593a.itu = (LinearLayout) view.findViewById(R.id.click_head);
+            c0593a.itw = (ImageView) view.findViewById(R.id.diver_top);
+            c0593a.itx = (ImageView) view.findViewById(R.id.diver_buttom_px);
+            c0593a.ity = (ImageView) view.findViewById(R.id.diver_top_px);
+            c0593a.ilw = (GroupImageView) view.findViewById(R.id.item_head);
+            c0593a.ilx = (TextView) view.findViewById(R.id.item_group_name);
+            c0593a.ilz = (TextView) view.findViewById(R.id.item_group_num);
+            c0593a.ilA = (TextView) view.findViewById(R.id.item_introduce);
+            c0593a.itv = (TextView) view.findViewById(R.id.isCreator);
+            c0593a.ilB = (ImageView) view.findViewById(R.id.item_grade1);
+            c0593a.ilC = (ImageView) view.findViewById(R.id.item_grade2);
+            c0593a.ilD = (ImageView) view.findViewById(R.id.item_grade3);
+            c0593a.ilE = new ImageView[4];
+            c0593a.ilE[1] = c0593a.ilB;
+            c0593a.ilE[2] = c0593a.ilC;
+            c0593a.ilE[3] = c0593a.ilD;
+            view.setTag(c0593a);
         } else {
-            c0572a = (C0572a) view.getTag();
+            c0593a = (C0593a) view.getTag();
         }
-        GroupInfoData groupInfoData = this.itn.get(i);
-        c0572a.ilq.setTag(null);
-        c0572a.ilq.setDrawBorder(true);
-        c0572a.ilq.setPlaceHolder(1);
+        GroupInfoData groupInfoData = this.itt.get(i);
+        c0593a.ilw.setTag(null);
+        c0593a.ilw.setDrawBorder(true);
+        c0593a.ilw.setPlaceHolder(1);
         if (groupInfoData != null) {
             String portrait = groupInfoData.getPortrait();
             if (!TextUtils.isEmpty(portrait)) {
-                c0572a.ilq.startLoad(portrait, 10, false);
+                c0593a.ilw.startLoad(portrait, 10, false);
             } else {
-                c0572a.ilq.startLoad("", 10, false);
+                c0593a.ilw.startLoad("", 10, false);
             }
-            c0572a.ito.setOnClickListener(this.itm);
-            c0572a.ito.setTag(groupInfoData);
-            c0572a.itq.setVisibility(8);
-            c0572a.its.setVisibility(8);
-            c0572a.itr.setVisibility(0);
-            c0572a.ilr.setText(groupInfoData.getName());
-            c0572a.ilt.setText(groupInfoData.getMemberNum() + "/" + groupInfoData.getMaxMemberNum());
-            c0572a.ilu.setText(groupInfoData.getIntro());
+            c0593a.itu.setOnClickListener(this.its);
+            c0593a.itu.setTag(groupInfoData);
+            c0593a.itw.setVisibility(8);
+            c0593a.ity.setVisibility(8);
+            c0593a.itx.setVisibility(0);
+            c0593a.ilx.setText(groupInfoData.getName());
+            c0593a.ilz.setText(groupInfoData.getMemberNum() + "/" + groupInfoData.getMaxMemberNum());
+            c0593a.ilA.setText(groupInfoData.getIntro());
             if (groupInfoData.getIsGroupManager() == 1) {
-                c0572a.itp.setVisibility(0);
+                c0593a.itv.setVisibility(0);
             } else {
-                c0572a.itp.setVisibility(8);
+                c0593a.itv.setVisibility(8);
             }
-            a(c0572a.ily, groupInfoData.getGrade());
+            a(c0593a.ilE, groupInfoData.getGrade());
         }
-        this.itm.getBaseFragmentActivity().getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
-        this.itm.getBaseFragmentActivity().getLayoutMode().onModeChanged(view);
+        this.its.getBaseFragmentActivity().getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
+        this.its.getBaseFragmentActivity().getLayoutMode().onModeChanged(view);
         if (groupInfoData != null && groupInfoData.isMemGroup()) {
-            am.setViewTextColor(c0572a.ilr, R.color.common_color_10009, 1);
-            am.setImageResource(c0572a.ilv, R.drawable.icon_vip_grade_big_small_s);
-            am.setImageResource(c0572a.ilw, R.drawable.icon_vip_grade_big_small_s);
-            am.setImageResource(c0572a.ilx, R.drawable.icon_vip_grade_big_small_s);
+            am.setViewTextColor(c0593a.ilx, R.color.common_color_10009, 1);
+            am.setImageResource(c0593a.ilB, R.drawable.icon_vip_grade_big_small_s);
+            am.setImageResource(c0593a.ilC, R.drawable.icon_vip_grade_big_small_s);
+            am.setImageResource(c0593a.ilD, R.drawable.icon_vip_grade_big_small_s);
         }
         return view;
     }
@@ -128,22 +128,22 @@ public class a extends BaseAdapter {
 
     /* renamed from: com.baidu.tieba.im.mygroup.a$a  reason: collision with other inner class name */
     /* loaded from: classes13.dex */
-    static class C0572a {
-        GroupImageView ilq;
-        TextView ilr;
-        TextView ilt;
-        TextView ilu;
-        ImageView ilv;
-        ImageView ilw;
-        ImageView ilx;
-        ImageView[] ily;
-        LinearLayout ito;
-        TextView itp;
-        ImageView itq;
-        ImageView itr;
-        ImageView its;
+    static class C0593a {
+        TextView ilA;
+        ImageView ilB;
+        ImageView ilC;
+        ImageView ilD;
+        ImageView[] ilE;
+        GroupImageView ilw;
+        TextView ilx;
+        TextView ilz;
+        LinearLayout itu;
+        TextView itv;
+        ImageView itw;
+        ImageView itx;
+        ImageView ity;
 
-        C0572a() {
+        C0593a() {
         }
     }
 }

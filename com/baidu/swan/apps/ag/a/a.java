@@ -12,10 +12,10 @@ import java.io.File;
 import java.util.Set;
 /* loaded from: classes11.dex */
 public class a extends j {
-    private b<Boolean> cgX;
-    private String cgY;
-    private String cgZ;
-    private c<h> cha = new com.baidu.swan.pms.a.b<h>() { // from class: com.baidu.swan.apps.ag.a.a.1
+    private b<Boolean> chd;
+    private String che;
+    private String chf;
+    private c<h> chg = new com.baidu.swan.pms.a.b<h>() { // from class: com.baidu.swan.apps.ag.a.a.1
         @Override // com.baidu.swan.pms.a.e
         @NonNull
         public Bundle a(@NonNull Bundle bundle, Set<String> set) {
@@ -25,25 +25,25 @@ public class a extends j {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.swan.pms.a.c
         /* renamed from: a */
-        public String L(h hVar) {
-            return e.d.abI().getAbsolutePath();
+        public String M(h hVar) {
+            return e.d.abH().getAbsolutePath();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.swan.pms.a.b, com.baidu.swan.pms.a.c
         /* renamed from: b */
-        public void J(h hVar) {
-            super.J(hVar);
+        public void K(h hVar) {
+            super.K(hVar);
             if (hVar != null) {
-                com.baidu.swan.apps.ag.d.a.print("plugin download start: bundleId = " + hVar.dai);
+                com.baidu.swan.apps.ag.d.a.print("plugin download start: bundleId = " + hVar.dan);
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.swan.pms.a.b, com.baidu.swan.pms.a.c
         /* renamed from: c */
-        public void K(h hVar) {
-            super.K(hVar);
+        public void L(h hVar) {
+            super.L(hVar);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -53,26 +53,26 @@ public class a extends j {
             if (aVar != null) {
                 com.baidu.swan.apps.ag.d.a.print("plugin download error: " + aVar.toString());
             }
-            a.this.cgX.G(false);
+            a.this.chd.H(false);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.swan.pms.a.b, com.baidu.swan.pms.a.c
         /* renamed from: d */
-        public void H(h hVar) {
-            super.H(hVar);
+        public void I(h hVar) {
+            super.I(hVar);
             if (hVar == null) {
                 com.baidu.swan.apps.ag.d.a.print("download finish, plugin is null");
-                a.this.cgX.G(false);
+                a.this.chd.H(false);
             } else if (!ab.e(new File(hVar.filePath), hVar.sign)) {
                 com.baidu.swan.apps.ag.d.a.print("download finish, check zip sign failure");
-                a.this.cgX.G(false);
+                a.this.chd.H(false);
             } else {
-                File aQ = e.aQ(hVar.dai, String.valueOf(com.baidu.swan.apps.swancore.b.nB(hVar.versionName)));
+                File aQ = e.aQ(hVar.dan, String.valueOf(com.baidu.swan.apps.swancore.b.nB(hVar.versionName)));
                 com.baidu.swan.d.c.ensureDirectoryExist(aQ);
                 if (aQ == null || !aQ.exists()) {
-                    com.baidu.swan.apps.ag.d.a.print("download finish, create file failure, name = " + hVar.dai + " ; version = " + hVar.versionCode);
-                    a.this.cgX.G(false);
+                    com.baidu.swan.apps.ag.d.a.print("download finish, create file failure, name = " + hVar.dan + " ; version = " + hVar.versionCode);
+                    a.this.chd.H(false);
                     return;
                 }
                 boolean unzipFile = com.baidu.swan.d.c.unzipFile(hVar.filePath, aQ.getAbsolutePath());
@@ -81,20 +81,20 @@ public class a extends j {
                 com.baidu.swan.pms.database.a.aBI().c(hVar);
                 com.baidu.swan.d.c.deleteFile(hVar.filePath);
                 com.baidu.swan.apps.ag.d.a.print("download finish, unZipSuccess = " + unzipFile);
-                a.this.cgX.G(Boolean.valueOf(unzipFile));
+                a.this.chd.H(Boolean.valueOf(unzipFile));
             }
         }
     };
 
     public a(String str, String str2, b<Boolean> bVar) {
-        this.cgX = bVar;
-        this.cgY = str;
-        this.cgZ = str2;
+        this.chd = bVar;
+        this.che = str;
+        this.chf = str2;
     }
 
     @Override // com.baidu.swan.pms.a.g
-    public void Xe() {
-        super.Xe();
+    public void Xd() {
+        super.Xd();
         com.baidu.swan.apps.ag.d.a.print("fetch plugin success");
     }
 
@@ -103,7 +103,7 @@ public class a extends j {
         h cn;
         super.a(aVar);
         if (aVar != null) {
-            if (aVar.errorNo == 1010 && (cn = com.baidu.swan.pms.database.a.aBI().cn(this.cgY, this.cgZ)) != null) {
+            if (aVar.errorNo == 1010 && (cn = com.baidu.swan.pms.database.a.aBI().cn(this.che, this.chf)) != null) {
                 cn.updateTime = cn.aBW();
                 com.baidu.swan.pms.database.a.aBI().g(cn);
             }
@@ -111,14 +111,14 @@ public class a extends j {
         } else {
             com.baidu.swan.apps.ag.d.a.print("fetch plugin error");
         }
-        this.cgX.G(false);
+        this.chd.H(false);
     }
 
     @Override // com.baidu.swan.pms.a.g
-    public void Xa() {
-        super.Xa();
+    public void WZ() {
+        super.WZ();
         com.baidu.swan.apps.ag.d.a.print("no package");
-        this.cgX.G(false);
+        this.chd.H(false);
     }
 
     @Override // com.baidu.swan.pms.a.g
@@ -127,7 +127,7 @@ public class a extends j {
     }
 
     @Override // com.baidu.swan.pms.a.g
-    public c<h> ail() {
-        return this.cha;
+    public c<h> aik() {
+        return this.chg;
     }
 }

@@ -23,101 +23,101 @@ import com.baidu.live.u.a;
 import com.baidu.tieba.ala.liveroom.views.e;
 /* loaded from: classes3.dex */
 public abstract class a implements e {
-    protected AlaLiveRecorder aXW;
-    private LinearLayout aeq;
-    protected EditText fQF;
-    private LinearLayout fQG;
-    private CheckBox fQH;
-    private CheckBox fQI;
-    private TextView fQJ;
-    protected Button fQK;
-    protected d fQL;
-    public boolean fQM;
-    protected e.b fQO;
+    protected AlaLiveRecorder aYb;
+    private LinearLayout aet;
+    protected EditText fQK;
+    private LinearLayout fQL;
+    private CheckBox fQM;
+    private CheckBox fQN;
+    private TextView fQO;
+    protected Button fQP;
+    protected d fQQ;
+    public boolean fQR;
+    protected e.b fQT;
     protected TbPageContext mPageContext;
     protected ViewGroup mRootView;
-    private boolean fQN = false;
+    private boolean fQS = false;
     private View.OnFocusChangeListener focusChangeListener = new View.OnFocusChangeListener() { // from class: com.baidu.tieba.ala.liveroom.views.a.4
         @Override // android.view.View.OnFocusChangeListener
         public void onFocusChange(View view, boolean z) {
-            if (view == a.this.fQF) {
+            if (view == a.this.fQK) {
                 if (z) {
-                    BdUtilHelper.showSoftKeyPad(a.this.mPageContext.getPageActivity(), a.this.fQF);
+                    BdUtilHelper.showSoftKeyPad(a.this.mPageContext.getPageActivity(), a.this.fQK);
                 } else {
-                    BdUtilHelper.hideSoftKeyPad(a.this.mPageContext.getPageActivity(), a.this.fQF);
+                    BdUtilHelper.hideSoftKeyPad(a.this.mPageContext.getPageActivity(), a.this.fQK);
                 }
             }
         }
     };
 
-    protected abstract int bAu();
+    protected abstract int bAs();
 
-    protected abstract boolean bAv();
+    protected abstract boolean bAt();
 
-    protected abstract int bvj();
+    protected abstract int bvh();
 
     public a(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
-        this.fQL = new d(this.mPageContext);
+        this.fQQ = new d(this.mPageContext);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void bAm() {
-        this.fQF = (EditText) this.mRootView.findViewById(a.g.ala_liveroom_prepare_title);
-        this.fQF.setOnFocusChangeListener(this.focusChangeListener);
-        this.fQG = (LinearLayout) this.mRootView.findViewById(a.g.ala_live_prepare_locate_layout);
-        this.fQL.ap(this.fQG);
-        this.fQH = (CheckBox) this.mRootView.findViewById(a.g.ala_live_prepare_personal_check);
-        this.fQI = (CheckBox) this.mRootView.findViewById(a.g.ala_live_prepare_licence);
-        this.fQJ = (TextView) this.mRootView.findViewById(a.g.ala_live_prepare_licence_detail);
-        this.aeq = (LinearLayout) this.mRootView.findViewById(a.g.ala_prepare_main_layout);
-        this.fQK = (Button) this.mRootView.findViewById(a.g.ala_live_prepare_start);
-        wD();
+    public void bAk() {
+        this.fQK = (EditText) this.mRootView.findViewById(a.g.ala_liveroom_prepare_title);
+        this.fQK.setOnFocusChangeListener(this.focusChangeListener);
+        this.fQL = (LinearLayout) this.mRootView.findViewById(a.g.ala_live_prepare_locate_layout);
+        this.fQQ.ap(this.fQL);
+        this.fQM = (CheckBox) this.mRootView.findViewById(a.g.ala_live_prepare_personal_check);
+        this.fQN = (CheckBox) this.mRootView.findViewById(a.g.ala_live_prepare_licence);
+        this.fQO = (TextView) this.mRootView.findViewById(a.g.ala_live_prepare_licence_detail);
+        this.aet = (LinearLayout) this.mRootView.findViewById(a.g.ala_prepare_main_layout);
+        this.fQP = (Button) this.mRootView.findViewById(a.g.ala_live_prepare_start);
+        wC();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(AlaLiveRecorder alaLiveRecorder) {
-        this.aXW = alaLiveRecorder;
+        this.aYb = alaLiveRecorder;
     }
 
-    protected void bAn() {
-        this.aXW.setVideoConfig(LiveRecorderConfigHelper.Ei().d(bAu(), bvj(), bAv()));
+    protected void bAl() {
+        this.aYb.setVideoConfig(LiveRecorderConfigHelper.Eh().d(bAs(), bvh(), bAt()));
     }
 
-    protected boolean bAo() {
+    protected boolean bAm() {
         return false;
     }
 
-    protected boolean bAp() {
+    protected boolean bAn() {
         return false;
     }
 
-    public String bAq() {
-        return com.baidu.live.c.tH().getString(com.baidu.live.c.getSharedPrefKeyWithAccount("key_default_cover"), "");
+    public String bAo() {
+        return com.baidu.live.c.tG().getString(com.baidu.live.c.getSharedPrefKeyWithAccount("key_default_cover"), "");
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean bAr() {
+    public boolean bAp() {
         if (TextUtils.isEmpty(getLiveTitle().trim())) {
-            this.fQF.setText(this.mPageContext.getString(a.i.ala_live_prepare_title));
+            this.fQK.setText(this.mPageContext.getString(a.i.ala_live_prepare_title));
         }
-        if (TextUtils.isEmpty(bAq())) {
+        if (TextUtils.isEmpty(bAo())) {
             this.mPageContext.showToast(a.i.hk_live_upload_cover);
             return false;
         }
-        boolean bAp = bAp();
-        boolean bAo = bAo();
-        if (bAp || bAo) {
+        boolean bAn = bAn();
+        boolean bAm = bAm();
+        if (bAn || bAm) {
             return false;
         }
         if (!BdNetTypeUtil.isNetWorkAvailable()) {
             this.mPageContext.showToast(a.i.ala_create_to_retry);
             return false;
-        } else if (this.fQO != null) {
-            this.fQM = true;
-            bAn();
-            this.fQO.byb();
-            if (!TextUtils.isEmpty(this.fQF.getText().toString())) {
+        } else if (this.fQT != null) {
+            this.fQR = true;
+            bAl();
+            this.fQT.bxZ();
+            if (!TextUtils.isEmpty(this.fQK.getText().toString())) {
                 TiebaInitialize.log(new StatisticItem("c11869").param("uid", TbadkCoreApplication.getCurrentAccount()));
             }
             return true;
@@ -126,36 +126,36 @@ public abstract class a implements e {
         }
     }
 
-    private void wD() {
-        this.fQH.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() { // from class: com.baidu.tieba.ala.liveroom.views.a.1
+    private void wC() {
+        this.fQM.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() { // from class: com.baidu.tieba.ala.liveroom.views.a.1
             @Override // android.widget.CompoundButton.OnCheckedChangeListener
             public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
-                a.this.bAt();
+                a.this.bAr();
                 if (z) {
-                    a.this.fQH.setCompoundDrawablesWithIntrinsicBounds(a.this.mPageContext.getResources().getDrawable(a.f.icon_live_video_choose_s), (Drawable) null, (Drawable) null, (Drawable) null);
+                    a.this.fQM.setCompoundDrawablesWithIntrinsicBounds(a.this.mPageContext.getResources().getDrawable(a.f.icon_live_video_choose_s), (Drawable) null, (Drawable) null, (Drawable) null);
                 } else {
-                    a.this.fQH.setCompoundDrawablesWithIntrinsicBounds(a.this.mPageContext.getResources().getDrawable(a.f.icon_live_video_choose_n), (Drawable) null, (Drawable) null, (Drawable) null);
+                    a.this.fQM.setCompoundDrawablesWithIntrinsicBounds(a.this.mPageContext.getResources().getDrawable(a.f.icon_live_video_choose_n), (Drawable) null, (Drawable) null, (Drawable) null);
                 }
             }
         });
-        if (this.fQI != null) {
-            this.fQI.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() { // from class: com.baidu.tieba.ala.liveroom.views.a.2
+        if (this.fQN != null) {
+            this.fQN.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() { // from class: com.baidu.tieba.ala.liveroom.views.a.2
                 @Override // android.widget.CompoundButton.OnCheckedChangeListener
                 public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
-                    a.this.bAt();
+                    a.this.bAr();
                     if (z) {
-                        a.this.fQI.setCompoundDrawablesWithIntrinsicBounds(a.this.mPageContext.getResources().getDrawable(a.f.icon_live_video_choose_s), (Drawable) null, (Drawable) null, (Drawable) null);
+                        a.this.fQN.setCompoundDrawablesWithIntrinsicBounds(a.this.mPageContext.getResources().getDrawable(a.f.icon_live_video_choose_s), (Drawable) null, (Drawable) null, (Drawable) null);
                     } else {
-                        a.this.fQI.setCompoundDrawablesWithIntrinsicBounds(a.this.mPageContext.getResources().getDrawable(a.f.icon_live_video_choose_n), (Drawable) null, (Drawable) null, (Drawable) null);
+                        a.this.fQN.setCompoundDrawablesWithIntrinsicBounds(a.this.mPageContext.getResources().getDrawable(a.f.icon_live_video_choose_n), (Drawable) null, (Drawable) null, (Drawable) null);
                     }
                 }
             });
         }
-        if (this.fQJ != null) {
-            this.fQJ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.views.a.3
+        if (this.fQO != null) {
+            this.fQO.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.views.a.3
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    a.this.fQO.bye();
+                    a.this.fQT.byc();
                     LogManager.getLiveRecordLogger().doClickLiveRulesButtonLog("");
                 }
             });
@@ -163,13 +163,13 @@ public abstract class a implements e {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void bAs() {
-        if (this.fQN) {
+    public void bAq() {
+        if (this.fQS) {
             BdUtilHelper.hideSoftKeyPad(this.mPageContext.getPageActivity(), this.mRootView);
         }
     }
 
-    protected void bAt() {
+    protected void bAr() {
     }
 
     public View getView() {
@@ -177,39 +177,39 @@ public abstract class a implements e {
     }
 
     public String getLiveTitle() {
-        return this.fQF.getText().toString();
-    }
-
-    public boolean bvc() {
-        return this.fQL.isShowLocation();
-    }
-
-    public void a(e.b bVar) {
-        this.fQO = bVar;
-    }
-
-    public void kq(boolean z) {
-        this.fQH.setVisibility(8);
-        this.fQH.setChecked(false);
-    }
-
-    public boolean buZ() {
-        return this.fQH.isChecked();
+        return this.fQK.getText().toString();
     }
 
     public boolean bva() {
-        return this.fQI.isChecked();
+        return this.fQQ.isShowLocation();
+    }
+
+    public void a(e.b bVar) {
+        this.fQT = bVar;
+    }
+
+    public void kq(boolean z) {
+        this.fQM.setVisibility(8);
+        this.fQM.setChecked(false);
+    }
+
+    public boolean buX() {
+        return this.fQM.isChecked();
+    }
+
+    public boolean buY() {
+        return this.fQN.isChecked();
     }
 
     public void onKeyboardVisibilityChanged(boolean z) {
-        if (this.fQN != z) {
-            this.fQN = z;
+        if (this.fQS != z) {
+            this.fQS = z;
         }
     }
 
     public void destroy() {
-        if (this.fQL != null) {
-            this.fQL.destroy();
+        if (this.fQQ != null) {
+            this.fQQ.destroy();
         }
     }
 }

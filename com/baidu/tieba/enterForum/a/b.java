@@ -22,16 +22,16 @@ import com.baidu.tieba.enterForum.data.k;
 import java.util.ArrayList;
 /* loaded from: classes9.dex */
 public class b extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-    private ArrayList<com.baidu.tbadk.mvc.b.a> caB = new ArrayList<>();
-    private InterfaceC0529b gzd;
-    private boolean gze;
+    private ArrayList<com.baidu.tbadk.mvc.b.a> caH = new ArrayList<>();
+    private InterfaceC0550b gzj;
+    private boolean gzk;
     private int mFrom;
     private TbPageContext<?> mPageContext;
     private String mTabName;
 
     /* renamed from: com.baidu.tieba.enterForum.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public interface InterfaceC0529b {
+    public interface InterfaceC0550b {
         void a(View view, k kVar);
 
         void bN(View view);
@@ -44,8 +44,8 @@ public class b extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     public void setData(ArrayList<? extends com.baidu.tbadk.mvc.b.a> arrayList) {
         if (arrayList != null) {
-            this.caB.clear();
-            this.caB.addAll(arrayList);
+            this.caH.clear();
+            this.caH.addAll(arrayList);
             notifyDataSetChanged();
         }
     }
@@ -59,8 +59,8 @@ public class b extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     @Override // android.support.v7.widget.RecyclerView.Adapter
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
-        if (this.caB != null && this.caB.size() > 0) {
-            com.baidu.tbadk.mvc.b.a aVar = this.caB.get(i);
+        if (this.caH != null && this.caH.size() > 0) {
+            com.baidu.tbadk.mvc.b.a aVar = this.caH.get(i);
             if ((viewHolder instanceof a) && (aVar instanceof com.baidu.tieba.enterForum.data.a)) {
                 ((a) viewHolder).a((com.baidu.tieba.enterForum.data.a) aVar);
             } else if ((viewHolder instanceof c) && (aVar instanceof k)) {
@@ -70,7 +70,7 @@ public class b extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                 anVar.t("fid", ((k) aVar).getForumId());
                 if (this.mFrom == 0) {
                     anVar.af("obj_locate", 1);
-                    anVar.af("obj_type", this.gze ? 3 : 1);
+                    anVar.af("obj_type", this.gzk ? 3 : 1);
                 } else if (this.mFrom == 1) {
                     anVar.af("obj_locate", 2);
                     anVar.cI("resource_id", this.mTabName);
@@ -82,10 +82,10 @@ public class b extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     @Override // android.support.v7.widget.RecyclerView.Adapter
     public int getItemViewType(int i) {
-        if (this.caB.get(i) instanceof k) {
+        if (this.caH.get(i) instanceof k) {
             return 1;
         }
-        if (this.caB.get(i) instanceof com.baidu.tieba.enterForum.data.a) {
+        if (this.caH.get(i) instanceof com.baidu.tieba.enterForum.data.a) {
             return 2;
         }
         return 0;
@@ -93,39 +93,39 @@ public class b extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     @Override // android.support.v7.widget.RecyclerView.Adapter
     public int getItemCount() {
-        if (this.caB == null) {
+        if (this.caH == null) {
             return 0;
         }
-        return this.caB.size();
+        return this.caH.size();
     }
 
-    public void a(InterfaceC0529b interfaceC0529b) {
-        this.gzd = interfaceC0529b;
+    public void a(InterfaceC0550b interfaceC0550b) {
+        this.gzj = interfaceC0550b;
     }
 
     /* loaded from: classes9.dex */
     class c extends RecyclerView.ViewHolder {
-        private TextView aDI;
+        private TextView aDO;
         private String attention;
-        private TextView dHz;
-        private BarImageView gzf;
-        private ImageView gzg;
-        private k gzk;
+        private TextView dHD;
+        private BarImageView gzl;
+        private ImageView gzm;
+        private k gzq;
         private View mRootView;
 
         public c(View view) {
             super(view);
             this.mRootView = view;
             this.attention = TbadkCoreApplication.getInst().getString(R.string.attention);
-            this.gzf = (BarImageView) this.mRootView.findViewById(R.id.forum_icon);
-            this.gzg = (ImageView) this.mRootView.findViewById(R.id.square_icon);
-            this.dHz = (TextView) this.mRootView.findViewById(R.id.forum_name);
-            this.aDI = (TextView) this.mRootView.findViewById(R.id.desc);
+            this.gzl = (BarImageView) this.mRootView.findViewById(R.id.forum_icon);
+            this.gzm = (ImageView) this.mRootView.findViewById(R.id.square_icon);
+            this.dHD = (TextView) this.mRootView.findViewById(R.id.forum_name);
+            this.aDO = (TextView) this.mRootView.findViewById(R.id.desc);
             this.mRootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.a.b.c.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (b.this.gzd != null) {
-                        b.this.gzd.a(view2, c.this.gzk);
+                    if (b.this.gzj != null) {
+                        b.this.gzj.a(view2, c.this.gzq);
                     }
                 }
             });
@@ -133,53 +133,53 @@ public class b extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
         public void a(k kVar) {
             if (kVar != null) {
-                this.gzk = kVar;
-                this.gzf.setShowOval(true);
-                this.gzf.setShowOuterBorder(false);
-                this.gzf.setShowInnerBorder(true);
-                this.gzf.setStrokeWith(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds1));
-                this.gzf.setStrokeColorResId(R.color.cp_border_a);
-                this.gzg.setVisibility(8);
-                this.gzf.setVisibility(0);
-                this.gzf.startLoad(kVar.getAvatar(), 10, false);
+                this.gzq = kVar;
+                this.gzl.setShowOval(true);
+                this.gzl.setShowOuterBorder(false);
+                this.gzl.setShowInnerBorder(true);
+                this.gzl.setStrokeWith(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds1));
+                this.gzl.setStrokeColorResId(R.color.cp_border_a);
+                this.gzm.setVisibility(8);
+                this.gzl.setVisibility(0);
+                this.gzl.startLoad(kVar.getAvatar(), 10, false);
                 if (aq.getChineseAndEnglishLength(kVar.getForumName()) <= 10) {
-                    this.dHz.setText(kVar.getForumName());
+                    this.dHD.setText(kVar.getForumName());
                 } else {
-                    this.dHz.setText(aq.cutChineseAndEnglishWithSuffix(kVar.getForumName(), 8, StringHelper.STRING_MORE));
+                    this.dHD.setText(aq.cutChineseAndEnglishWithSuffix(kVar.getForumName(), 8, StringHelper.STRING_MORE));
                 }
-                this.aDI.setText(this.attention + " " + aq.cl(kVar.bHW()));
+                this.aDO.setText(this.attention + " " + aq.cl(kVar.bHU()));
                 onChangeSkinType();
             }
         }
 
         public void onChangeSkinType() {
-            am.setViewTextColor(this.dHz, (int) R.color.cp_cont_b);
-            am.setViewTextColor(this.aDI, (int) R.color.cp_cont_d);
+            am.setViewTextColor(this.dHD, (int) R.color.cp_cont_b);
+            am.setViewTextColor(this.aDO, (int) R.color.cp_cont_d);
         }
     }
 
     /* loaded from: classes9.dex */
     class a extends RecyclerView.ViewHolder {
-        private TextView aDI;
+        private TextView aDO;
         private String attention;
-        private TextView dHz;
-        private BarImageView gzf;
-        private ImageView gzg;
+        private TextView dHD;
+        private BarImageView gzl;
+        private ImageView gzm;
         private View mRootView;
 
         public a(View view) {
             super(view);
             this.mRootView = view;
             this.attention = TbadkCoreApplication.getInst().getString(R.string.attention);
-            this.gzf = (BarImageView) this.mRootView.findViewById(R.id.forum_icon);
-            this.gzg = (ImageView) this.mRootView.findViewById(R.id.square_icon);
-            this.dHz = (TextView) this.mRootView.findViewById(R.id.forum_name);
-            this.aDI = (TextView) this.mRootView.findViewById(R.id.desc);
+            this.gzl = (BarImageView) this.mRootView.findViewById(R.id.forum_icon);
+            this.gzm = (ImageView) this.mRootView.findViewById(R.id.square_icon);
+            this.dHD = (TextView) this.mRootView.findViewById(R.id.forum_name);
+            this.aDO = (TextView) this.mRootView.findViewById(R.id.desc);
             this.mRootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.a.b.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (b.this.gzd != null) {
-                        b.this.gzd.bN(view2);
+                    if (b.this.gzj != null) {
+                        b.this.gzj.bN(view2);
                     }
                 }
             });
@@ -187,18 +187,18 @@ public class b extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
         public void a(com.baidu.tieba.enterForum.data.a aVar) {
             if (aVar != null) {
-                this.gzg.setVisibility(0);
-                this.gzf.setVisibility(8);
-                SvgManager.aOU().a(this.gzg, R.drawable.ic_icon_pure_square28, (SvgManager.SvgResourceStateType) null);
-                this.dHz.setText(R.string.forum_square_title);
-                this.aDI.setText(R.string.forum_square_desc_1);
+                this.gzm.setVisibility(0);
+                this.gzl.setVisibility(8);
+                SvgManager.aOR().a(this.gzm, R.drawable.ic_icon_pure_square28, (SvgManager.SvgResourceStateType) null);
+                this.dHD.setText(R.string.forum_square_title);
+                this.aDO.setText(R.string.forum_square_desc_1);
                 onChangeSkinType();
             }
         }
 
         public void onChangeSkinType() {
-            am.setViewTextColor(this.dHz, (int) R.color.cp_cont_b);
-            am.setViewTextColor(this.aDI, (int) R.color.cp_cont_d);
+            am.setViewTextColor(this.dHD, (int) R.color.cp_cont_b);
+            am.setViewTextColor(this.aDO, (int) R.color.cp_cont_d);
         }
     }
 
@@ -207,6 +207,6 @@ public class b extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     }
 
     public void setHasLikeForum(boolean z) {
-        this.gze = z;
+        this.gzk = z;
     }
 }

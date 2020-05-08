@@ -23,17 +23,17 @@ public class h extends a {
             com.baidu.swan.apps.console.c.e("setTabBarItem", "paramsJson is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
-        } else if (RE()) {
+        } else if (RD()) {
             com.baidu.swan.apps.console.c.e("SetTabBarItemAction", "fail not TabBar page");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "fail not TabBar page");
             return false;
         } else {
-            com.baidu.swan.apps.tabbar.b.a RD = RD();
-            if (RD == null) {
+            com.baidu.swan.apps.tabbar.b.a RC = RC();
+            if (RC == null) {
                 com.baidu.swan.apps.console.c.e("SetTabBarItemAction", "tabBarViewController is null");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
-            } else if (!RD.b(optParamsAsJo.optInt("index"), optParamsAsJo.optString("text"), optParamsAsJo.optString("iconPath"), optParamsAsJo.optString("selectedIconPath"))) {
+            } else if (!RC.b(optParamsAsJo.optInt("index"), optParamsAsJo.optString("text"), optParamsAsJo.optString("iconPath"), optParamsAsJo.optString("selectedIconPath"))) {
                 com.baidu.swan.apps.console.c.e("setTabBarItem", "set tab bar item fail");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;

@@ -7,12 +7,12 @@ import io.reactivex.y;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
 public final class SingleDoOnDispose<T> extends w<T> {
-    final io.reactivex.c.a mUe;
+    final io.reactivex.c.a mUh;
     final aa<T> source;
 
     @Override // io.reactivex.w
     protected void b(y<? super T> yVar) {
-        this.source.a(new DoOnDisposeObserver(yVar, this.mUe));
+        this.source.a(new DoOnDisposeObserver(yVar, this.mUh));
     }
 
     /* loaded from: classes7.dex */

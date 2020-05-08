@@ -4,10 +4,10 @@ import android.content.Context;
 import android.os.Build;
 import android.support.media.ExifInterface;
 import android.text.TextUtils;
-import com.baidu.android.common.security.MD5Util;
 import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.mobstat.Config;
+import com.baidu.pass.common.SecurityUtil;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiConfiguration;
 import com.baidu.sapi2.SapiContext;
@@ -165,7 +165,7 @@ public class SapiDeviceInfo implements com.baidu.sapi2.c {
             strArr[0] = a2;
             strArr[1] = base64Encode;
             strArr[2] = "check";
-            return TextUtils.join(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS, new String[]{a2, base64Encode, MD5Util.toMd5(TextUtils.join(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS, strArr).getBytes(), false).substring(0, 6)});
+            return TextUtils.join(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS, new String[]{a2, base64Encode, SecurityUtil.md5(TextUtils.join(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS, strArr).getBytes(), false).substring(0, 6)});
         } catch (Throwable th) {
             Log.e(th);
             return "";

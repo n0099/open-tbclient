@@ -14,7 +14,7 @@ public class b extends com.baidu.swan.pms.database.a.b<com.baidu.swan.pms.b.a> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.pms.database.a.b
     /* renamed from: e */
-    public ContentValues aa(@NonNull com.baidu.swan.pms.b.a aVar) {
+    public ContentValues ab(@NonNull com.baidu.swan.pms.b.a aVar) {
         ContentValues contentValues = new ContentValues();
         contentValues.put("app_id", aVar.getAppId());
         contentValues.put("bundle_id", aVar.getBundleId());

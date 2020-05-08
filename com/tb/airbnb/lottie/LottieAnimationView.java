@@ -296,7 +296,7 @@ public class LottieAnimationView extends ImageView {
     public void setAnimation(String str) {
         this.animationName = str;
         this.animationResId = 0;
-        setCompositionTask(e.bn(getContext(), str));
+        setCompositionTask(e.bb(getContext(), str));
     }
 
     @Deprecated
@@ -313,7 +313,7 @@ public class LottieAnimationView extends ImageView {
     }
 
     public void setAnimationFromUrl(String str) {
-        setCompositionTask(e.bm(getContext(), str));
+        setCompositionTask(e.ba(getContext(), str));
     }
 
     private void setCompositionTask(l<d> lVar) {

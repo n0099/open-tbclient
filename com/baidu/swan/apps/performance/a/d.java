@@ -7,11 +7,11 @@ public class d implements com.baidu.swan.apps.as.d.b<HybridUbcFlow> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.apps.as.d.b
     /* renamed from: a */
-    public void E(HybridUbcFlow hybridUbcFlow) {
+    public void F(HybridUbcFlow hybridUbcFlow) {
         ai.c(new Runnable() { // from class: com.baidu.swan.apps.performance.a.d.1
             @Override // java.lang.Runnable
             public void run() {
-                ai.apq();
+                ai.app();
             }
         }, 5000L);
     }

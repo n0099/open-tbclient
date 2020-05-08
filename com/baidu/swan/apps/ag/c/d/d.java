@@ -23,7 +23,7 @@ public class d extends b {
     }
 
     @Override // com.baidu.swan.apps.ag.c.d.b
-    boolean aiq() {
+    boolean aip() {
         return true;
     }
 
@@ -34,7 +34,7 @@ public class d extends b {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.baidu.swan.apps.ag.c.d.b
-    public String air() {
+    public String aiq() {
         return null;
     }
 
@@ -45,23 +45,23 @@ public class d extends b {
         if (bVar == null) {
             return null;
         }
-        String str = bVar.chl;
-        String str2 = bVar.chn;
+        String str = bVar.chr;
+        String str2 = bVar.cht;
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return null;
         }
         com.baidu.swan.apps.ag.c.b.a aVar = new com.baidu.swan.apps.ag.c.b.a();
         aVar.appKey = str;
-        aVar.chg = str2;
-        if (com.baidu.swan.apps.console.debugger.a.e.TG()) {
-            file = e.C0332e.Tt();
-        } else if (com.baidu.swan.apps.ah.a.a.aiL()) {
-            file = e.a.Tt();
-        } else if (TextUtils.equals(bVar.cho, "develop")) {
+        aVar.chm = str2;
+        if (com.baidu.swan.apps.console.debugger.a.e.TF()) {
+            file = e.C0353e.Ts();
+        } else if (com.baidu.swan.apps.ah.a.a.aiK()) {
+            file = e.a.Ts();
+        } else if (TextUtils.equals(bVar.chu, "develop")) {
             String hv = com.baidu.swan.apps.e.a.hv(str);
-            File abF = com.baidu.swan.apps.t.e.abF();
-            String[] list = abF.list();
-            if (list == null || abF.length() == 0) {
+            File abE = com.baidu.swan.apps.t.e.abE();
+            String[] list = abE.list();
+            if (list == null || abE.length() == 0) {
                 return aVar;
             }
             String str3 = hv + "_dev";
@@ -81,17 +81,17 @@ public class d extends b {
             }
             if (i2 > -1) {
                 aVar.appKey = str3 + i2;
-                aVar.chj = true;
-                file = new File(abF, aVar.appKey + File.separator + i2);
-                aVar.chh = file.getAbsolutePath();
-                aVar.chi = i2;
+                aVar.chp = true;
+                file = new File(abE, aVar.appKey + File.separator + i2);
+                aVar.chn = file.getAbsolutePath();
+                aVar.cho = i2;
             } else {
-                aVar.chj = false;
-                aVar.chh = null;
+                aVar.chp = false;
+                aVar.chn = null;
                 file = null;
             }
         } else {
-            File file2 = new File(com.baidu.swan.apps.t.e.abF(), str);
+            File file2 = new File(com.baidu.swan.apps.t.e.abE(), str);
             if (!file2.exists()) {
                 return aVar;
             }
@@ -127,10 +127,10 @@ public class d extends b {
             if (i3 == -1) {
                 file = null;
             } else {
-                aVar.chi = i3;
-                aVar.chj = true;
+                aVar.cho = i3;
+                aVar.chp = true;
                 File file3 = new File(file2, str5);
-                aVar.chh = file3.getAbsolutePath();
+                aVar.chn = file3.getAbsolutePath();
                 file = file3;
             }
         }
@@ -139,8 +139,8 @@ public class d extends b {
         }
         File file4 = new File(file, str2);
         if (x(file4)) {
-            aVar.chk = true;
-            aVar.chh = file4.getAbsolutePath();
+            aVar.chq = true;
+            aVar.chn = file4.getAbsolutePath();
             return aVar;
         }
         return aVar;
@@ -151,12 +151,12 @@ public class d extends b {
         if (bVar == null) {
             return new com.baidu.swan.apps.api.b.b(201, "pay args is null");
         }
-        SwanAppActivity akJ = com.baidu.swan.apps.runtime.d.akK().akJ();
-        if (akJ == null) {
+        SwanAppActivity akI = com.baidu.swan.apps.runtime.d.akJ().akI();
+        if (akI == null) {
             return new com.baidu.swan.apps.api.b.b(1001, "runtime exception, try reopen this app");
         }
-        final com.baidu.swan.apps.core.d.e Ou = akJ.Ou();
-        if (Ou == null) {
+        final com.baidu.swan.apps.core.d.e Ot = akI.Ot();
+        if (Ot == null) {
             return new com.baidu.swan.apps.api.b.b(1001, "runtime exception, page manager breakdown");
         }
         com.baidu.swan.apps.ag.d.a.print("jump to fun page");
@@ -166,7 +166,7 @@ public class d extends b {
                 com.baidu.swan.apps.model.b bVar2 = new com.baidu.swan.apps.model.b();
                 bVar2.mBaseUrl = str;
                 bVar2.mParams = com.baidu.swan.apps.ag.c.c.a.a(bVar);
-                Ou.io("navigateTo").ab(com.baidu.swan.apps.core.d.e.bMz, com.baidu.swan.apps.core.d.e.bMB).a("pluginFunPage", bVar2).commit();
+                Ot.io("navigateTo").ab(com.baidu.swan.apps.core.d.e.bME, com.baidu.swan.apps.core.d.e.bMG).a("pluginFunPage", bVar2).commit();
             }
         });
         return new com.baidu.swan.apps.api.b.b(0);

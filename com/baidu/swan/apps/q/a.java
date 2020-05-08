@@ -9,29 +9,29 @@ import com.baidu.swan.apps.statistic.f;
 /* loaded from: classes11.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile a bUh;
+    private static volatile a bUn;
     private String mContent;
 
     private a() {
     }
 
-    public static a aaV() {
-        if (bUh == null) {
+    public static a aaU() {
+        if (bUn == null) {
             synchronized (a.class) {
-                if (bUh == null) {
-                    bUh = new a();
+                if (bUn == null) {
+                    bUn = new a();
                 }
             }
         }
-        return bUh;
+        return bUn;
     }
 
     public static void release() {
-        if (bUh != null) {
-            if (bUh.mContent != null) {
-                bUh.mContent = null;
+        if (bUn != null) {
+            if (bUn.mContent != null) {
+                bUn.mContent = null;
             }
-            bUh = null;
+            bUn = null;
         }
     }
 
@@ -43,19 +43,19 @@ public class a {
         return this.mContent;
     }
 
-    public boolean aaW() {
+    public boolean aaV() {
         return !TextUtils.isEmpty(this.mContent);
     }
 
     public void a(Activity activity, final com.baidu.swan.apps.core.f.b<Boolean> bVar) {
         g.a aVar = new g.a(activity);
-        aVar.eI(a.h.aiapps_confirm_close_title).lV(aaV().getContent()).a(new com.baidu.swan.apps.view.c.a()).eA(true);
+        aVar.eI(a.h.aiapps_confirm_close_title).lV(aaU().getContent()).a(new com.baidu.swan.apps.view.c.a()).eA(true);
         aVar.gd(a.c.aiapps_modal_confirm_color);
         aVar.c(a.h.aiapps_dialog_positive_button_text, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.q.a.1
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i) {
                 f.mV("confirm");
-                bVar.G(true);
+                bVar.H(true);
             }
         });
         aVar.d(a.h.aiapps_dialog_nagtive_button_text, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.q.a.2
@@ -70,6 +70,6 @@ public class a {
                 f.mV("show");
             }
         });
-        aVar.akx();
+        aVar.akw();
     }
 }

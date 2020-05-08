@@ -10,10 +10,10 @@ import java.util.List;
 import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes6.dex */
 public class l implements aj<com.airbnb.lottie.model.content.c> {
-    private int Fr;
+    private int Fu;
 
     public l(int i) {
-        this.Fr = i;
+        this.Fu = i;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -31,14 +31,14 @@ public class l implements aj<com.airbnb.lottie.model.content.c> {
         if (z) {
             jsonReader.endArray();
         }
-        if (this.Fr == -1) {
-            this.Fr = arrayList.size() / 4;
+        if (this.Fu == -1) {
+            this.Fu = arrayList.size() / 4;
         }
-        float[] fArr = new float[this.Fr];
-        int[] iArr = new int[this.Fr];
+        float[] fArr = new float[this.Fu];
+        int[] iArr = new int[this.Fu];
         int i = 0;
         int i2 = 0;
-        for (int i3 = 0; i3 < this.Fr * 4; i3++) {
+        for (int i3 = 0; i3 < this.Fu * 4; i3++) {
             int i4 = i3 / 4;
             double floatValue = arrayList.get(i3).floatValue();
             switch (i3 % 4) {
@@ -63,7 +63,7 @@ public class l implements aj<com.airbnb.lottie.model.content.c> {
 
     private void a(com.airbnb.lottie.model.content.c cVar, List<Float> list) {
         int i;
-        int i2 = this.Fr * 4;
+        int i2 = this.Fu * 4;
         if (list.size() > i2) {
             int size = (list.size() - i2) / 2;
             double[] dArr = new double[size];

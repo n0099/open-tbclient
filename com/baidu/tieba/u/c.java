@@ -7,7 +7,7 @@ import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public class c {
-    public static boolean f(byte[] bArr, String str) {
+    public static boolean e(byte[] bArr, String str) {
         if (bArr == null) {
             return false;
         }

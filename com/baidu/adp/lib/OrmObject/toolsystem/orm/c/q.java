@@ -3,14 +3,14 @@ package com.baidu.adp.lib.OrmObject.toolsystem.orm.c;
 import java.util.Queue;
 /* loaded from: classes.dex */
 public class q implements h {
-    private Queue<Object> Ii;
+    private Queue<Object> Il;
 
     public q(Queue<Object> queue) {
-        this.Ii = queue;
+        this.Il = queue;
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.c.h
     public Object g(com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c cVar) {
-        return com.baidu.adp.lib.OrmObject.toolsystem.orm.d.b.a(this.Ii, cVar);
+        return com.baidu.adp.lib.OrmObject.toolsystem.orm.d.b.a(this.Il, cVar);
     }
 }

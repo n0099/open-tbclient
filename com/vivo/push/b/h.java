@@ -2,17 +2,16 @@ package com.vivo.push.b;
 /* loaded from: classes8.dex */
 public final class h extends com.vivo.push.y {
     public h() {
-        super(2010);
+        super(101);
     }
 
     @Override // com.vivo.push.y
     public final String toString() {
-        return "KillProcessCommand";
+        return "InitCommand";
     }
 
     @Override // com.vivo.push.y
     protected final void c(com.vivo.push.a aVar) {
-        aVar.a("extra_stop_service_flag", 2);
     }
 
     @Override // com.vivo.push.y

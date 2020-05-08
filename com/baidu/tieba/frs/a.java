@@ -7,39 +7,39 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    private AntiData dMz;
+    private AntiData dMD;
     private String forumId;
-    private final ArrayList<bj> gXg;
-    private boolean gXh;
-    private b gXi;
-    private boolean gXj;
+    private final ArrayList<bj> gXm;
+    private boolean gXn;
+    private b gXo;
+    private boolean gXp;
 
     /* loaded from: classes.dex */
     public interface b {
         void J(boolean z, boolean z2);
 
-        void bNJ();
+        void bNH();
 
         void sY(int i);
     }
 
     private a() {
-        this.gXh = false;
-        this.gXg = new ArrayList<>();
+        this.gXn = false;
+        this.gXm = new ArrayList<>();
     }
 
-    public static a bND() {
-        return C0540a.gXk;
+    public static a bNB() {
+        return C0561a.gXq;
     }
 
-    public boolean bNE() {
-        return this.gXh;
+    public boolean bNC() {
+        return this.gXn;
     }
 
     public void I(boolean z, boolean z2) {
-        this.gXh = z;
-        if (this.gXi != null) {
-            this.gXi.J(this.gXh, z2);
+        this.gXn = z;
+        if (this.gXo != null) {
+            this.gXo.J(this.gXn, z2);
         }
     }
 
@@ -47,42 +47,42 @@ public class a {
         if (bjVar == null) {
             return false;
         }
-        if (this.gXg.size() > 29) {
-            if (this.gXi != null) {
-                this.gXi.bNJ();
+        if (this.gXm.size() > 29) {
+            if (this.gXo != null) {
+                this.gXo.bNH();
                 return false;
             }
             return false;
         }
-        this.gXg.add(bjVar);
-        if (this.gXi != null) {
-            this.gXi.sY(this.gXg.size());
+        this.gXm.add(bjVar);
+        if (this.gXo != null) {
+            this.gXo.sY(this.gXm.size());
         }
         return true;
     }
 
-    public List<bj> bNF() {
-        return this.gXg;
+    public List<bj> bND() {
+        return this.gXm;
     }
 
     public void al(bj bjVar) {
-        this.gXg.remove(bjVar);
-        if (this.gXi != null) {
-            this.gXi.sY(this.gXg.size());
+        this.gXm.remove(bjVar);
+        if (this.gXo != null) {
+            this.gXo.sY(this.gXm.size());
         }
     }
 
     public void clearData() {
-        Iterator<bj> it = this.gXg.iterator();
+        Iterator<bj> it = this.gXm.iterator();
         while (it.hasNext()) {
             bj next = it.next();
             if (next != null) {
                 next.gA(false);
             }
         }
-        this.gXg.clear();
-        if (this.gXi != null) {
-            this.gXi.sY(0);
+        this.gXm.clear();
+        if (this.gXo != null) {
+            this.gXo.sY(0);
         }
     }
 
@@ -92,22 +92,22 @@ public class a {
     }
 
     public void a(b bVar) {
-        this.gXi = bVar;
+        this.gXo = bVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.frs.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0540a {
-        private static a gXk = new a();
+    public static class C0561a {
+        private static a gXq = new a();
     }
 
-    public AntiData bNG() {
-        return this.dMz;
+    public AntiData bNE() {
+        return this.dMD;
     }
 
     public void b(AntiData antiData) {
-        this.dMz = antiData;
+        this.dMD = antiData;
     }
 
     public String getForumId() {
@@ -119,12 +119,12 @@ public class a {
     }
 
     public void ml(boolean z) {
-        this.gXj = z;
+        this.gXp = z;
     }
 
     public void co(List<String> list) {
-        if (!com.baidu.tbadk.core.util.v.isEmpty(list) && !com.baidu.tbadk.core.util.v.isEmpty(this.gXg)) {
-            Iterator<bj> it = this.gXg.iterator();
+        if (!com.baidu.tbadk.core.util.v.isEmpty(list) && !com.baidu.tbadk.core.util.v.isEmpty(this.gXm)) {
+            Iterator<bj> it = this.gXm.iterator();
             while (it.hasNext()) {
                 bj next = it.next();
                 int i = 0;
@@ -140,13 +140,13 @@ public class a {
                     }
                 }
             }
-            if (this.gXi != null) {
-                this.gXi.sY(this.gXg.size());
+            if (this.gXo != null) {
+                this.gXo.sY(this.gXm.size());
             }
         }
     }
 
-    public boolean bNH() {
-        return this.dMz != null && this.dMz.isMultiDeleteEnable() && this.gXj;
+    public boolean bNF() {
+        return this.dMD != null && this.dMD.isMultiDeleteEnable() && this.gXp;
     }
 }

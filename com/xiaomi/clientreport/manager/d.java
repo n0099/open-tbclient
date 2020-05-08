@@ -1,22 +1,31 @@
 package com.xiaomi.clientreport.manager;
 
-import com.xiaomi.push.ba;
+import com.xiaomi.push.ai;
+import java.util.concurrent.ExecutorService;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes8.dex */
-public class d implements Runnable {
+public class d extends ai.a {
     final /* synthetic */ a a;
 
-    /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ ba f15a;
-
     /* JADX INFO: Access modifiers changed from: package-private */
-    public d(a aVar, ba baVar) {
+    public d(a aVar) {
         this.a = aVar;
-        this.f15a = baVar;
+    }
+
+    @Override // com.xiaomi.push.ai.a
+    /* renamed from: a */
+    public int mo162a() {
+        return 100888;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f15a.run();
+        int a;
+        ExecutorService executorService;
+        a = this.a.a();
+        if (a > 0) {
+            executorService = this.a.f16a;
+            executorService.execute(new e(this));
+        }
     }
 }

@@ -7,16 +7,16 @@ import kotlin.jvm.internal.q;
 @kotlin.h
 /* loaded from: classes11.dex */
 public final class j {
-    private long ayV;
-    private int cKp;
-    private volatile int cKq;
-    private Integer cKr;
-    private Integer cKs;
-    private Integer cKt;
-    private Integer cKu;
-    private byte[] cKv;
-    private byte[] cKw;
-    private byte[] cKx;
+    private long azb;
+    private Integer cKA;
+    private byte[] cKB;
+    private byte[] cKC;
+    private byte[] cKD;
+    private int cKv;
+    private volatile int cKw;
+    private Integer cKx;
+    private Integer cKy;
+    private Integer cKz;
 
     public j() {
         this(null, null, null, null, null, null, 0L, null, 255, null);
@@ -28,10 +28,10 @@ public final class j {
                 return false;
             }
             j jVar = (j) obj;
-            if (!q.k(this.cKr, jVar.cKr) || !q.k(this.cKs, jVar.cKs) || !q.k(this.cKt, jVar.cKt) || !q.k(this.cKu, jVar.cKu) || !q.k(this.cKv, jVar.cKv) || !q.k(this.cKw, jVar.cKw)) {
+            if (!q.k(this.cKx, jVar.cKx) || !q.k(this.cKy, jVar.cKy) || !q.k(this.cKz, jVar.cKz) || !q.k(this.cKA, jVar.cKA) || !q.k(this.cKB, jVar.cKB) || !q.k(this.cKC, jVar.cKC)) {
                 return false;
             }
-            if (!(this.ayV == jVar.ayV) || !q.k(this.cKx, jVar.cKx)) {
+            if (!(this.azb == jVar.azb) || !q.k(this.cKD, jVar.cKD)) {
                 return false;
             }
         }
@@ -39,37 +39,37 @@ public final class j {
     }
 
     public int hashCode() {
-        Integer num = this.cKr;
+        Integer num = this.cKx;
         int hashCode = (num != null ? num.hashCode() : 0) * 31;
-        Integer num2 = this.cKs;
+        Integer num2 = this.cKy;
         int hashCode2 = ((num2 != null ? num2.hashCode() : 0) + hashCode) * 31;
-        Integer num3 = this.cKt;
+        Integer num3 = this.cKz;
         int hashCode3 = ((num3 != null ? num3.hashCode() : 0) + hashCode2) * 31;
-        Integer num4 = this.cKu;
+        Integer num4 = this.cKA;
         int hashCode4 = ((num4 != null ? num4.hashCode() : 0) + hashCode3) * 31;
-        byte[] bArr = this.cKv;
+        byte[] bArr = this.cKB;
         int hashCode5 = ((bArr != null ? Arrays.hashCode(bArr) : 0) + hashCode4) * 31;
-        byte[] bArr2 = this.cKw;
+        byte[] bArr2 = this.cKC;
         int hashCode6 = bArr2 != null ? Arrays.hashCode(bArr2) : 0;
-        long j = this.ayV;
+        long j = this.azb;
         int i = (((hashCode6 + hashCode5) * 31) + ((int) (j ^ (j >>> 32)))) * 31;
-        byte[] bArr3 = this.cKx;
+        byte[] bArr3 = this.cKD;
         return i + (bArr3 != null ? Arrays.hashCode(bArr3) : 0);
     }
 
     public String toString() {
-        return "SessionParams(dhGroupId=" + this.cKr + ", dhSecretKey=" + this.cKs + ", dhPublicKey=" + this.cKt + ", dhServerPublicKey=" + this.cKu + ", aesSecretKey=" + Arrays.toString(this.cKv) + ", sessionTicket=" + Arrays.toString(this.cKw) + ", expireTime=" + this.ayV + ", entryType=" + Arrays.toString(this.cKx) + ")";
+        return "SessionParams(dhGroupId=" + this.cKx + ", dhSecretKey=" + this.cKy + ", dhPublicKey=" + this.cKz + ", dhServerPublicKey=" + this.cKA + ", aesSecretKey=" + Arrays.toString(this.cKB) + ", sessionTicket=" + Arrays.toString(this.cKC) + ", expireTime=" + this.azb + ", entryType=" + Arrays.toString(this.cKD) + ")";
     }
 
     public j(Integer num, Integer num2, Integer num3, Integer num4, byte[] bArr, byte[] bArr2, long j, byte[] bArr3) {
-        this.cKr = num;
-        this.cKs = num2;
-        this.cKt = num3;
-        this.cKu = num4;
-        this.cKv = bArr;
-        this.cKw = bArr2;
-        this.ayV = j;
-        this.cKx = bArr3;
+        this.cKx = num;
+        this.cKy = num2;
+        this.cKz = num3;
+        this.cKA = num4;
+        this.cKB = bArr;
+        this.cKC = bArr2;
+        this.azb = j;
+        this.cKD = bArr3;
     }
 
     public /* synthetic */ j(Integer num, Integer num2, Integer num3, Integer num4, byte[] bArr, byte[] bArr2, long j, byte[] bArr3, int i, o oVar) {
@@ -77,88 +77,88 @@ public final class j {
     }
 
     public final Integer avd() {
-        return this.cKr;
+        return this.cKx;
     }
 
     public final void c(Integer num) {
-        this.cKr = num;
+        this.cKx = num;
     }
 
     public final Integer ave() {
-        return this.cKs;
+        return this.cKy;
     }
 
     public final void d(Integer num) {
-        this.cKs = num;
+        this.cKy = num;
     }
 
     public final Integer avf() {
-        return this.cKt;
+        return this.cKz;
     }
 
     public final void e(Integer num) {
-        this.cKt = num;
+        this.cKz = num;
     }
 
     public final Integer avg() {
-        return this.cKu;
+        return this.cKA;
     }
 
     public final void f(Integer num) {
-        this.cKu = num;
+        this.cKA = num;
     }
 
     public final void K(byte[] bArr) {
-        this.cKv = bArr;
+        this.cKB = bArr;
     }
 
     public final byte[] avh() {
-        return this.cKv;
+        return this.cKB;
     }
 
     public final void L(byte[] bArr) {
-        this.cKw = bArr;
+        this.cKC = bArr;
     }
 
     public final byte[] avi() {
-        return this.cKw;
+        return this.cKC;
     }
 
     public final void E(long j) {
-        this.ayV = j;
+        this.azb = j;
     }
 
     public final void M(byte[] bArr) {
-        this.cKx = bArr;
+        this.cKD = bArr;
     }
 
     public final int auZ() {
-        return this.cKp;
+        return this.cKv;
     }
 
     public final void hU(int i) {
-        this.cKp = i;
+        this.cKv = i;
     }
 
     public final void ava() {
-        this.cKq++;
+        this.cKw++;
     }
 
     public final synchronized boolean avb() {
         boolean z = true;
         synchronized (this) {
             long currentTimeMillis = System.currentTimeMillis() / 1000;
-            if (this.cKv == null || this.cKw == null || this.ayV <= currentTimeMillis || this.cKp != 1) {
+            if (this.cKB == null || this.cKC == null || this.azb <= currentTimeMillis || this.cKv != 1) {
                 z = false;
             }
             if (com.baidu.swan.games.bdtls.a.DEBUG) {
-                Log.d("BDTLS", "isSessionEnable " + this.cKv + ' ' + this.cKw + ' ' + this.ayV + ' ' + this.cKp);
+                Log.d("BDTLS", "isSessionEnable " + this.cKB + ' ' + this.cKC + ' ' + this.azb + ' ' + this.cKv);
             }
         }
         return z;
     }
 
     public final boolean avc() {
-        return this.cKq < 3;
+        return this.cKw < 3;
     }
 }

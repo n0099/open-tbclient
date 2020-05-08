@@ -25,7 +25,7 @@ public class FrsGameStrategyActivity extends BaseFragmentActivity {
         beginTransaction.commit();
     }
 
-    public static void s(Context context, String str, String str2) {
+    public static void u(Context context, String str, String str2) {
         Intent intent = new Intent(context, FrsGameStrategyActivity.class);
         intent.putExtra("fid", str);
         intent.putExtra("name", str2);

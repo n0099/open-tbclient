@@ -9,11 +9,11 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes8.dex */
 public class c {
-    private boolean eya = false;
+    private boolean eyg = false;
     private int mChannel;
 
     public c() {
-        bfM();
+        bfK();
     }
 
     public void a(ArrayList<Integer> arrayList, b bVar) {
@@ -41,7 +41,7 @@ public class c {
 
     private int os(int i) {
         String ot = ot(i);
-        return (!aq.isEmpty(ot) && com.baidu.tbadk.core.sharedPref.b.aNV().getInt(ot, 0) == 1) ? 1 : 0;
+        return (!aq.isEmpty(ot) && com.baidu.tbadk.core.sharedPref.b.aNT().getInt(ot, 0) == 1) ? 1 : 0;
     }
 
     private String ot(int i) {
@@ -59,8 +59,8 @@ public class c {
         if (aq.isEmpty(ov)) {
             return 0;
         }
-        SampleResult Nz = com.baidu.ubs.analytics.a.Nz(ov);
-        return (Nz == SampleResult.T1 || Nz == SampleResult.T2 || Nz == SampleResult.T3 || Nz == SampleResult.T4 || Nz == SampleResult.T5) ? 1 : 0;
+        SampleResult NC = com.baidu.ubs.analytics.a.NC(ov);
+        return (NC == SampleResult.T1 || NC == SampleResult.T2 || NC == SampleResult.T3 || NC == SampleResult.T4 || NC == SampleResult.T5) ? 1 : 0;
     }
 
     private String ov(int i) {
@@ -70,37 +70,37 @@ public class c {
         return null;
     }
 
-    private void bfM() {
-        this.mChannel = com.baidu.tbadk.core.sharedPref.b.aNV().getInt(SharedPrefConfig.KEY_ABTEST_CHANNEL, 0);
+    private void bfK() {
+        this.mChannel = com.baidu.tbadk.core.sharedPref.b.aNT().getInt(SharedPrefConfig.KEY_ABTEST_CHANNEL, 0);
         initSdk();
     }
 
     public void ow(int i) {
         if (i == 1 || i == 0) {
             this.mChannel = i;
-            com.baidu.tbadk.core.sharedPref.b.aNV().putInt(SharedPrefConfig.KEY_ABTEST_CHANNEL, this.mChannel);
+            com.baidu.tbadk.core.sharedPref.b.aNT().putInt(SharedPrefConfig.KEY_ABTEST_CHANNEL, this.mChannel);
             initSdk();
         }
     }
 
     private void initSdk() {
-        if (!this.eya && this.mChannel == 1) {
-            this.eya = bfO();
-            if (!this.eya) {
+        if (!this.eyg && this.mChannel == 1) {
+            this.eyg = bfM();
+            if (!this.eyg) {
                 this.mChannel = 0;
             }
         }
     }
 
-    public boolean bfN() {
-        return this.eya;
+    public boolean bfL() {
+        return this.eyg;
     }
 
-    public boolean bfO() {
+    public boolean bfM() {
         boolean z = true;
         if (TbadkCoreApplication.getInst().isMainProcess(true)) {
             try {
-                com.baidu.ubs.analytics.a.a(new c.a().fF(TbadkCoreApplication.getInst()).vq(false).fA(30L).FM(1).vr(false).fB(15L).FN(1000).dkU());
+                com.baidu.ubs.analytics.a.a(new c.a().ft(TbadkCoreApplication.getInst()).vq(false).fA(30L).FM(1).vr(false).fB(15L).FN(1000).dkR());
             } catch (Exception e) {
                 e.printStackTrace();
                 z = false;

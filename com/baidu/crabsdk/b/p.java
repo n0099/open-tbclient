@@ -6,45 +6,45 @@ import android.content.pm.PackageManager;
 import android.text.TextUtils;
 /* loaded from: classes8.dex */
 public final class p {
-    private static PackageManager aku;
-    private static PackageInfo akv;
-    private static String akw;
+    private static PackageManager akA;
+    private static PackageInfo akB;
+    private static String akC;
     private static Context mContext;
 
     public static String L() {
-        return TextUtils.isEmpty(com.baidu.crabsdk.a.o) ? akv == null ? "N/A" : akv.versionName : com.baidu.crabsdk.a.o;
+        return TextUtils.isEmpty(com.baidu.crabsdk.a.o) ? akB == null ? "N/A" : akB.versionName : com.baidu.crabsdk.a.o;
     }
 
     public static void e(Context context) {
         if (mContext == null) {
             mContext = context;
-            aku = context.getPackageManager();
+            akA = context.getPackageManager();
             try {
-                akv = aku.getPackageInfo(mContext.getPackageName(), 0);
+                akB = akA.getPackageInfo(mContext.getPackageName(), 0);
             } catch (PackageManager.NameNotFoundException e) {
-                com.baidu.crabsdk.c.a.f("PackageCollector.init fail.", e);
+                com.baidu.crabsdk.c.a.a("PackageCollector.init fail.", e);
             }
         }
     }
 
-    public static String sC() {
+    public static String sB() {
         return mContext.getPackageName();
     }
 
-    public static String sD() {
-        if (akw == null) {
-            if (akv == null) {
+    public static String sC() {
+        if (akC == null) {
+            if (akB == null) {
                 return "N/A";
             }
-            akw = akv.applicationInfo.loadLabel(aku).toString();
+            akC = akB.applicationInfo.loadLabel(akA).toString();
         }
-        return akw;
+        return akC;
     }
 
-    public static int sE() {
-        if (akv == null) {
+    public static int sD() {
+        if (akB == null) {
             return 0;
         }
-        return akv.versionCode;
+        return akB.versionCode;
     }
 }

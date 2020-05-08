@@ -16,28 +16,28 @@ public class s extends com.baidu.swan.apps.setting.oauth.a.f {
     public s(Activity activity, String str, boolean z, boolean z2) {
         super(activity, str, null, z);
         this.mIsLogin = z2;
-        amK();
+        amJ();
     }
 
     @Override // com.baidu.swan.apps.setting.oauth.b
-    protected boolean amn() {
+    protected boolean amm() {
         a(new a());
         return true;
     }
 
     @Override // com.baidu.swan.apps.setting.oauth.a.f
-    public JSONObject amI() {
-        JSONObject amI = super.amI();
+    public JSONObject amH() {
+        JSONObject amH = super.amH();
         if (!TextUtils.isEmpty(this.mStoken)) {
             try {
-                amI.put("stoken", this.mStoken);
+                amH.put("stoken", this.mStoken);
             } catch (JSONException e) {
                 if (DEBUG) {
                     e.printStackTrace();
                 }
             }
         }
-        return amI;
+        return amH;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -47,7 +47,7 @@ public class s extends com.baidu.swan.apps.setting.oauth.a.f {
         }
 
         @Override // com.baidu.swan.apps.setting.oauth.d
-        protected boolean amt() throws Exception {
+        protected boolean ams() throws Exception {
             if (!s.this.mIsLogin) {
                 s.this.mStoken = null;
                 if (s.DEBUG) {
@@ -60,18 +60,18 @@ public class s extends com.baidu.swan.apps.setting.oauth.a.f {
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.as.d.b
                 /* renamed from: z */
-                public void E(Bundle bundle) {
+                public void F(Bundle bundle) {
                     if (bundle == null) {
-                        a.this.l(new OAuthException("null stoken", 10001));
+                        a.this.m(new OAuthException("null stoken", 10001));
                         return;
                     }
                     String string = bundle.getString("dev", "");
                     if (!TextUtils.isEmpty(string)) {
                         s.this.mStoken = string;
-                        a.this.amv();
+                        a.this.amu();
                         return;
                     }
-                    a.this.l(new OAuthException("empty stoken", 10001));
+                    a.this.m(new OAuthException("empty stoken", 10001));
                 }
             }, "dev");
             return false;

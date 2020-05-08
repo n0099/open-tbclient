@@ -11,11 +11,11 @@ import java.net.MalformedURLException;
 import java.net.URL;
 /* loaded from: classes3.dex */
 public class i {
-    public static boolean P(Context context, String str) {
+    public static boolean D(Context context, String str) {
         return c(context, str, "BAIDUZID", ao(ExtraParamsManager.getBaiduzid(), fk(str)));
     }
 
-    public static boolean Q(Context context, String str) {
+    public static boolean E(Context context, String str) {
         return c(context, str, "BAIDUCUID", ap(ExtraParamsManager.getBase64(ExtraParamsManager.getInstance().buildParamsExtra().getCuid()), fk(str)));
     }
 

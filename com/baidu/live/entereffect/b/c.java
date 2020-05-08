@@ -17,10 +17,10 @@ import org.json.JSONException;
 /* loaded from: classes3.dex */
 public class c {
     private final String DIR_PATH;
-    private List<com.baidu.live.entereffect.a.a> axY;
+    private List<com.baidu.live.entereffect.a.a> aye;
 
-    public static c vt() {
-        return a.ayb;
+    public static c vs() {
+        return a.ayh;
     }
 
     public void s(final List<com.baidu.live.entereffect.a.a> list) {
@@ -31,21 +31,21 @@ public class c {
             /* renamed from: c */
             public List<com.baidu.live.entereffect.a.a> doInBackground(Void... voidArr) {
                 if (list == null || list.isEmpty()) {
-                    c.this.vu();
+                    c.this.vt();
                     return null;
                 }
-                List<com.baidu.live.entereffect.a.a> vv = c.this.vv();
-                if (vv == null || vv.isEmpty()) {
-                    c.this.vu();
+                List<com.baidu.live.entereffect.a.a> vu = c.this.vu();
+                if (vu == null || vu.isEmpty()) {
+                    c.this.vt();
                     return null;
                 }
-                List c = c.this.c(list, vv);
-                if (vv.isEmpty()) {
-                    c.this.vu();
+                List c = c.this.c(list, vu);
+                if (vu.isEmpty()) {
+                    c.this.vt();
                     return null;
                 }
                 c.this.u(c);
-                return vv;
+                return vu;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -55,7 +55,7 @@ public class c {
             public void onPostExecute(List<com.baidu.live.entereffect.a.a> list2) {
                 super.onPostExecute(list2);
                 c.this.a(true, list2 != null ? (com.baidu.live.entereffect.a.a[]) list2.toArray(new com.baidu.live.entereffect.a.a[list2.size()]) : null);
-                com.baidu.live.entereffect.a.vo().q(list);
+                com.baidu.live.entereffect.a.vn().q(list);
                 c.this.a(c.this.d(list, list2));
             }
         }.execute(new Void[0]);
@@ -65,7 +65,7 @@ public class c {
         if (list == null || list.isEmpty()) {
             return;
         }
-        a(d(new ArrayList(list), this.axY != null ? new ArrayList(this.axY) : null));
+        a(d(new ArrayList(list), this.aye != null ? new ArrayList(this.aye) : null));
     }
 
     public void a(com.baidu.live.entereffect.a.a... aVarArr) {
@@ -79,10 +79,10 @@ public class c {
     }
 
     public com.baidu.live.entereffect.a.a dR(String str) {
-        if (this.axY == null || this.axY.isEmpty()) {
+        if (this.aye == null || this.aye.isEmpty()) {
             return null;
         }
-        for (com.baidu.live.entereffect.a.a aVar : this.axY) {
+        for (com.baidu.live.entereffect.a.a aVar : this.aye) {
             if (aVar.id.equals(str)) {
                 return aVar;
             }
@@ -100,17 +100,17 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void vu() {
-        if (this.axY != null) {
-            this.axY.clear();
+    public void vt() {
+        if (this.aye != null) {
+            this.aye.clear();
         }
-        com.baidu.live.c.tH().putString("enter_effect_dynamic_available_list", "");
+        com.baidu.live.c.tG().putString("enter_effect_dynamic_available_list", "");
         com.baidu.live.f.a.cleanDir(new File(this.DIR_PATH));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public List<com.baidu.live.entereffect.a.a> vv() {
-        String string = com.baidu.live.c.tH().getString("enter_effect_dynamic_available_list", "");
+    public List<com.baidu.live.entereffect.a.a> vu() {
+        String string = com.baidu.live.c.tG().getString("enter_effect_dynamic_available_list", "");
         if (TextUtils.isEmpty(string)) {
             return null;
         }
@@ -119,7 +119,7 @@ public class c {
             if (jSONArray == null || jSONArray.length() == 0) {
                 return null;
             }
-            return com.baidu.live.entereffect.a.vo().i(jSONArray);
+            return com.baidu.live.entereffect.a.vn().i(jSONArray);
         } catch (JSONException e) {
             e.printStackTrace();
             return null;
@@ -137,8 +137,8 @@ public class c {
                 if (next.frameCount <= 0) {
                     z = true;
                 } else {
-                    next.axH.upZipDirPath = dV(next.id);
-                    ArrayList<String> dynamicGiftPicPathList = next.axH.getDynamicGiftPicPathList();
+                    next.axN.upZipDirPath = dV(next.id);
+                    ArrayList<String> dynamicGiftPicPathList = next.axN.getDynamicGiftPicPathList();
                     if (dynamicGiftPicPathList == null || dynamicGiftPicPathList.size() != next.frameCount) {
                         z = true;
                     } else {
@@ -180,20 +180,20 @@ public class c {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(boolean z, com.baidu.live.entereffect.a.a... aVarArr) {
         if (aVarArr != null && aVarArr.length != 0) {
-            if (this.axY == null) {
-                this.axY = new ArrayList();
+            if (this.aye == null) {
+                this.aye = new ArrayList();
             }
             if (z) {
-                this.axY.clear();
+                this.aye.clear();
             }
-            Collections.addAll(this.axY, aVarArr);
+            Collections.addAll(this.aye, aVarArr);
             JSONArray jSONArray = new JSONArray();
-            for (com.baidu.live.entereffect.a.a aVar : this.axY) {
-                if (aVar.vr() != null) {
-                    jSONArray.put(aVar.vr());
+            for (com.baidu.live.entereffect.a.a aVar : this.aye) {
+                if (aVar.vq() != null) {
+                    jSONArray.put(aVar.vq());
                 }
             }
-            com.baidu.live.c.tH().putString("enter_effect_dynamic_available_list", jSONArray.toString());
+            com.baidu.live.c.tG().putString("enter_effect_dynamic_available_list", jSONArray.toString());
         }
     }
 
@@ -223,6 +223,6 @@ public class c {
 
     /* loaded from: classes3.dex */
     private static class a {
-        private static c ayb = new c();
+        private static c ayh = new c();
     }
 }

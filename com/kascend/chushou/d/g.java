@@ -21,8 +21,8 @@ public class g {
             return d();
         }
         if (lowerCase.contains(RomUtils.MANUFACTURER_OPPO)) {
-            if (tv.chushou.basis.d.b.dJt() != null) {
-                return tv.chushou.basis.d.b.dJt().getPackageManager().hasSystemFeature("com.oppo.feature.screen.heteromorphism");
+            if (tv.chushou.basis.d.b.dJp() != null) {
+                return tv.chushou.basis.d.b.dJp().getPackageManager().hasSystemFeature("com.oppo.feature.screen.heteromorphism");
             }
             return false;
         } else if (lowerCase.contains(RomUtils.MANUFACTURER_XIAOMI)) {
@@ -72,7 +72,7 @@ public class g {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [101=4] */
-    public static int[] dwJ() {
+    public static int[] dwG() {
         int[] iArr = {0, 0};
         try {
             Class<?> cls = Class.forName("com.huawei.android.util.HwNotchSizeUtil");

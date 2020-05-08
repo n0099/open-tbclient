@@ -1,29 +1,37 @@
 package com.xiaomi.push.service;
 
-import com.xiaomi.push.service.XMPushService;
-import com.xiaomi.push.service.al;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.xiaomi.push.hs;
+import com.xiaomi.push.ht;
 /* loaded from: classes8.dex */
-public class am implements al.b.a {
-    final /* synthetic */ al.b a;
+/* synthetic */ class am {
+    static final /* synthetic */ int[] a;
+    static final /* synthetic */ int[] b = new int[ht.values().length];
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public am(al.b bVar) {
-        this.a = bVar;
-    }
-
-    @Override // com.xiaomi.push.service.al.b.a
-    public void a(al.c cVar, al.c cVar2, int i) {
-        XMPushService.b bVar;
-        XMPushService.b bVar2;
-        if (cVar2 == al.c.binding) {
-            XMPushService xMPushService = this.a.f857a;
-            bVar2 = this.a.f856a;
-            xMPushService.a(bVar2, 60000L);
-            return;
+    static {
+        try {
+            b[ht.INT.ordinal()] = 1;
+        } catch (NoSuchFieldError e) {
         }
-        XMPushService xMPushService2 = this.a.f857a;
-        bVar = this.a.f856a;
-        xMPushService2.b(bVar);
+        try {
+            b[ht.LONG.ordinal()] = 2;
+        } catch (NoSuchFieldError e2) {
+        }
+        try {
+            b[ht.STRING.ordinal()] = 3;
+        } catch (NoSuchFieldError e3) {
+        }
+        try {
+            b[ht.BOOLEAN.ordinal()] = 4;
+        } catch (NoSuchFieldError e4) {
+        }
+        a = new int[hs.values().length];
+        try {
+            a[hs.MISC_CONFIG.ordinal()] = 1;
+        } catch (NoSuchFieldError e5) {
+        }
+        try {
+            a[hs.PLUGIN_CONFIG.ordinal()] = 2;
+        } catch (NoSuchFieldError e6) {
+        }
     }
 }

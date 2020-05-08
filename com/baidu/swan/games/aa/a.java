@@ -18,8 +18,8 @@ public class a {
     public static void getUUAPInfo(JsObject jsObject) {
         final c c = c.c(jsObject);
         if (c != null) {
-            e akO = e.akO();
-            if (akO == null) {
+            e akN = e.akN();
+            if (akN == null) {
                 c(c, "internal error");
                 return;
             }
@@ -27,12 +27,12 @@ public class a {
             if (DEBUG) {
                 Log.i("SwanGameUuapApi", "getUUAPInfo-domain: " + optString);
             }
-            akO.akX().d("mapp_uuap_info", new com.baidu.swan.apps.as.d.b<com.baidu.swan.apps.setting.oauth.e>() { // from class: com.baidu.swan.games.aa.a.1
+            akN.akW().d("mapp_uuap_info", new com.baidu.swan.apps.as.d.b<com.baidu.swan.apps.setting.oauth.e>() { // from class: com.baidu.swan.games.aa.a.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.as.d.b
                 /* renamed from: c */
-                public void E(com.baidu.swan.apps.setting.oauth.e eVar) {
-                    if (eVar == null || eVar.forbidden || eVar.csr != 1) {
+                public void F(com.baidu.swan.apps.setting.oauth.e eVar) {
+                    if (eVar == null || eVar.forbidden || eVar.csx != 1) {
                         a.c(c.this, "system deny");
                     } else {
                         a.d(c.this, optString);

@@ -28,7 +28,7 @@ public class j extends i {
 
     public static final int c(byte[] bArr, byte b) {
         kotlin.jvm.internal.q.j(bArr, "receiver$0");
-        for (Number number : o.d(f.am(bArr))) {
+        for (Number number : o.e(f.am(bArr))) {
             int intValue = number.intValue();
             if (b == bArr[intValue]) {
                 return intValue;
@@ -52,7 +52,7 @@ public class j extends i {
     public static final List<Byte> a(byte[] bArr, kotlin.b.h hVar) {
         kotlin.jvm.internal.q.j(bArr, "receiver$0");
         kotlin.jvm.internal.q.j(hVar, "indices");
-        return hVar.isEmpty() ? o.dDD() : f.al(f.n(bArr, hVar.dEh().intValue(), hVar.dEi().intValue() + 1));
+        return hVar.isEmpty() ? o.dDz() : f.al(f.n(bArr, hVar.dEd().intValue(), hVar.dEe().intValue() + 1));
     }
 
     public static final kotlin.b.h am(byte[] bArr) {
@@ -83,9 +83,9 @@ public class j extends i {
         kotlin.jvm.internal.q.j(tArr, "receiver$0");
         switch (tArr.length) {
             case 0:
-                return al.dDK();
+                return al.dDG();
             case 1:
-                return al.bC(tArr[0]);
+                return al.bD(tArr[0]);
             default:
                 return (Set) f.a(tArr, new LinkedHashSet(af.Je(tArr.length)));
         }

@@ -33,21 +33,21 @@ public class f extends com.baidu.swan.apps.api.a.c {
         ai.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.api.module.e.f.1
             @Override // java.lang.Runnable
             public void run() {
-                com.baidu.swan.apps.core.d.e Ou = com.baidu.swan.apps.y.f.aeK().Ou();
-                if (Ou == null) {
+                com.baidu.swan.apps.core.d.e Ot = com.baidu.swan.apps.y.f.aeJ().Ot();
+                if (Ot == null) {
                     com.baidu.swan.apps.console.c.e("Api-PullDownRefresh", "manager is null");
                     f.this.a(optString, new com.baidu.swan.apps.api.b.b(1001));
-                } else if (!(Ou.We() instanceof com.baidu.swan.apps.core.d.d)) {
+                } else if (!(Ot.Wd() instanceof com.baidu.swan.apps.core.d.d)) {
                     com.baidu.swan.apps.console.c.e("Api-PullDownRefresh", "top fragment error");
                     f.this.a(optString, new com.baidu.swan.apps.api.b.b(1001));
                 } else {
-                    com.baidu.swan.apps.core.d.d dVar = (com.baidu.swan.apps.core.d.d) Ou.We();
-                    if (dVar.Qx() == null) {
+                    com.baidu.swan.apps.core.d.d dVar = (com.baidu.swan.apps.core.d.d) Ot.Wd();
+                    if (dVar.Qw() == null) {
                         com.baidu.swan.apps.console.c.e("Api-PullDownRefresh", "view is null");
                         f.this.a(optString, new com.baidu.swan.apps.api.b.b(1001));
                         return;
                     }
-                    dVar.Qx().er(false);
+                    dVar.Qw().er(false);
                     com.baidu.swan.apps.console.c.i("Api-PullDownRefresh", "refresh complete");
                     f.this.a(optString, new com.baidu.swan.apps.api.b.b(0));
                 }

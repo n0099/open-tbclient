@@ -45,14 +45,14 @@ public class PassPermissions {
 
                 @Override // com.baidu.sapi2.permissions.PermissionsCallback
                 public void onFailure() {
-                    permissionsCallback.onFailure();
                     PassPermissions.this.a();
+                    permissionsCallback.onFailure();
                 }
 
                 @Override // com.baidu.sapi2.permissions.PermissionsCallback
                 public void onSuccess() {
-                    permissionsCallback.onSuccess();
                     PassPermissions.this.a();
+                    permissionsCallback.onSuccess();
                 }
             };
             if (a(permissionsDTO.permissions)) {

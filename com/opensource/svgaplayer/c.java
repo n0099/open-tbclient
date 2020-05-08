@@ -12,57 +12,57 @@ import kotlin.jvm.internal.q;
 @h
 /* loaded from: classes.dex */
 public final class c {
-    private HashMap<String, Boolean> mJm = new HashMap<>();
-    private HashMap<String, Bitmap> mJn = new HashMap<>();
-    private HashMap<String, String> mJo = new HashMap<>();
-    private HashMap<String, TextPaint> mJp = new HashMap<>();
-    private HashMap<String, StaticLayout> mJq = new HashMap<>();
-    private HashMap<String, m<Canvas, Integer, Boolean>> mJr = new HashMap<>();
-    private HashMap<String, r<Canvas, Integer, Integer, Integer, Boolean>> mJs = new HashMap<>();
-    private boolean mJt;
+    private HashMap<String, Boolean> mJp = new HashMap<>();
+    private HashMap<String, Bitmap> mJq = new HashMap<>();
+    private HashMap<String, String> mJr = new HashMap<>();
+    private HashMap<String, TextPaint> mJs = new HashMap<>();
+    private HashMap<String, StaticLayout> mJt = new HashMap<>();
+    private HashMap<String, m<Canvas, Integer, Boolean>> mJu = new HashMap<>();
+    private HashMap<String, r<Canvas, Integer, Integer, Integer, Boolean>> mJv = new HashMap<>();
+    private boolean mJw;
 
-    public final HashMap<String, Boolean> dzk() {
-        return this.mJm;
-    }
-
-    public final HashMap<String, Bitmap> dzl() {
-        return this.mJn;
-    }
-
-    public final HashMap<String, String> dzm() {
-        return this.mJo;
-    }
-
-    public final HashMap<String, TextPaint> dzn() {
+    public final HashMap<String, Boolean> dzg() {
         return this.mJp;
     }
 
-    public final HashMap<String, StaticLayout> dzo() {
+    public final HashMap<String, Bitmap> dzh() {
         return this.mJq;
     }
 
-    public final HashMap<String, m<Canvas, Integer, Boolean>> dzp() {
+    public final HashMap<String, String> dzi() {
         return this.mJr;
     }
 
-    public final HashMap<String, r<Canvas, Integer, Integer, Integer, Boolean>> dzq() {
+    public final HashMap<String, TextPaint> dzj() {
         return this.mJs;
     }
 
-    public final boolean dzr() {
+    public final HashMap<String, StaticLayout> dzk() {
         return this.mJt;
     }
 
+    public final HashMap<String, m<Canvas, Integer, Boolean>> dzl() {
+        return this.mJu;
+    }
+
+    public final HashMap<String, r<Canvas, Integer, Integer, Integer, Boolean>> dzm() {
+        return this.mJv;
+    }
+
+    public final boolean dzn() {
+        return this.mJw;
+    }
+
     public final void wl(boolean z) {
-        this.mJt = z;
+        this.mJw = z;
     }
 
     public final void a(String str, TextPaint textPaint, String str2) {
         q.j(str, "text");
         q.j(textPaint, "textPaint");
         q.j(str2, "forKey");
-        this.mJt = true;
-        this.mJo.put(str2, str);
-        this.mJp.put(str2, textPaint);
+        this.mJw = true;
+        this.mJr.put(str2, str);
+        this.mJs.put(str2, textPaint);
     }
 }

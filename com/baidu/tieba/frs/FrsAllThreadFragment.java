@@ -18,8 +18,8 @@ import com.baidu.tieba.R;
 /* loaded from: classes9.dex */
 public class FrsAllThreadFragment extends BaseFragment implements al {
     private String forumId;
-    private View gXD;
-    private RecyclerView gXE;
+    private View gXJ;
+    private RecyclerView gXK;
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     @Nullable
@@ -28,36 +28,36 @@ public class FrsAllThreadFragment extends BaseFragment implements al {
         if (arguments != null) {
             this.forumId = arguments.getString("forum_id", "");
         }
-        bOd();
-        return this.gXD;
+        bOb();
+        return this.gXJ;
     }
 
     public void setView(View view) {
-        this.gXD = view;
-        this.gXE = (RecyclerView) this.gXD.findViewById(R.id.frs_lv_thread);
-        bOd();
+        this.gXJ = view;
+        this.gXK = (RecyclerView) this.gXJ.findViewById(R.id.frs_lv_thread);
+        bOb();
     }
 
-    private void bOd() {
-        if (this.gXD != null && (this.gXD.getParent() instanceof ViewGroup)) {
-            ((ViewGroup) this.gXD.getParent()).removeView(this.gXD);
-            this.gXD.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
+    private void bOb() {
+        if (this.gXJ != null && (this.gXJ.getParent() instanceof ViewGroup)) {
+            ((ViewGroup) this.gXJ.getParent()).removeView(this.gXJ);
+            this.gXJ.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
         }
     }
 
     @Override // com.baidu.tieba.frs.al
-    public void bOe() {
-        if (this.gXE != null) {
-            this.gXE.scrollToPosition(0);
+    public void bOc() {
+        if (this.gXK != null) {
+            this.gXK.scrollToPosition(0);
         }
     }
 
     @Override // com.baidu.tieba.frs.al
-    public void bmn() {
-        bOe();
+    public void bml() {
+        bOc();
         s sVar = new s();
         sVar.tabId = 1;
-        sVar.etK = true;
+        sVar.etP = true;
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921449, sVar));
     }
 

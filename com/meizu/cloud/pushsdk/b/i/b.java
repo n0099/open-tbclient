@@ -7,7 +7,7 @@ import android.os.NetworkOnMainThreadException;
 import android.widget.ImageView;
 import com.meizu.cloud.pushsdk.b.a.c;
 import com.meizu.cloud.pushsdk.b.c.k;
-import com.meizu.cloud.pushsdk.b.g.f;
+import com.meizu.cloud.pushsdk.b.g.g;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -44,7 +44,7 @@ public class b {
         Bitmap bitmap;
         byte[] bArr = new byte[0];
         try {
-            bArr = f.a(kVar.b().a()).i();
+            bArr = g.a(kVar.b().a()).i();
         } catch (IOException e) {
             e.printStackTrace();
         }

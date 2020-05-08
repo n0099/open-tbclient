@@ -1,63 +1,51 @@
 package com.baidu.sapi2;
 
-import android.os.Looper;
-import com.baidu.android.util.io.BaseJsonData;
-import com.baidu.sapi2.callback.SapiCallback;
-import com.baidu.sapi2.httpwrap.HttpHandlerWrap;
-import com.baidu.sapi2.result.SapiResult;
+import android.os.AsyncTask;
+import com.baidu.sapi2.callback.SsoHashCallback;
+import com.baidu.sapi2.result.SsoHashResult;
 import com.baidu.sapi2.utils.Log;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.net.URL;
+import java.net.URLConnection;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes6.dex */
-public class w extends HttpHandlerWrap {
-    final /* synthetic */ SapiCallback a;
-    final /* synthetic */ SapiResult b;
-    final /* synthetic */ G c;
+public class w extends AsyncTask<String, Void, Long> {
+    final /* synthetic */ String a;
+    final /* synthetic */ String b;
+    final /* synthetic */ SsoHashCallback c;
+    final /* synthetic */ L d;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public w(G g, Looper looper, SapiCallback sapiCallback, SapiResult sapiResult) {
-        super(looper);
-        this.c = g;
-        this.a = sapiCallback;
-        this.b = sapiResult;
+    public w(L l, String str, String str2, SsoHashCallback ssoHashCallback) {
+        this.d = l;
+        this.a = str;
+        this.b = str2;
+        this.c = ssoHashCallback;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
-    public void onFailure(Throwable th, int i, String str) {
-        this.b.setResultCode(i);
-        this.b.setResultMsg(str);
-        this.a.onFailure(this.b);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
-    public void onFinish() {
-        this.a.onFinish();
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
-    public void onStart() {
-        this.a.onStart();
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
-    public void onSuccess(int i, String str) {
+    @Override // android.os.AsyncTask
+    /* renamed from: a */
+    public Long doInBackground(String... strArr) {
         try {
-            JSONObject jSONObject = new JSONObject(str);
-            this.b.setResultCode(jSONObject.optInt(BaseJsonData.TAG_ERRNO));
-            this.b.setResultMsg(jSONObject.optString(BaseJsonData.TAG_ERRMSG));
-        } catch (JSONException e) {
+            URLConnection openConnection = new URL(strArr[0]).openConnection();
+            openConnection.setConnectTimeout(3000);
+            openConnection.connect();
+            return Long.valueOf(openConnection.getDate() / 1000);
+        } catch (Exception e) {
             Log.e(e);
+            return 0L;
         }
-        if (this.b.getResultCode() == 0) {
-            this.a.onSuccess(this.b);
-        } else {
-            this.a.onFailure(this.b);
-        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // android.os.AsyncTask
+    /* renamed from: a */
+    public void onPostExecute(Long l) {
+        SsoHashResult ssoHashResult = new SsoHashResult();
+        ssoHashResult.ssoHash = new com.baidu.sapi2.utils.n().a(l, this.a, this.b);
+        ssoHashResult.setResultCode(0);
+        this.c.onSuccess(ssoHashResult);
     }
 }

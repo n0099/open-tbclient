@@ -12,23 +12,23 @@ public class d implements b<ImageView> {
 
     /* loaded from: classes6.dex */
     private static class a {
-        private static final d btE = new d();
+        private static final d btI = new d();
     }
 
-    public static b<ImageView> Mr() {
-        return a.btE;
+    public static b<ImageView> Mq() {
+        return a.btI;
     }
 
     @Override // com.baidu.prologue.image.b
     public void a(String str, ImageView imageView) {
-        c.aL(com.baidu.prologue.a.b.a.brQ.get().Lh()).asBitmap().load(str).apply(new RequestOptions().placeholder(aM(imageView.getContext())).error(aN(imageView.getContext())).centerCrop()).transition(new BitmapTransitionOptions().crossFade(300)).into(imageView);
+        c.az(com.baidu.prologue.a.b.a.brU.get().Lg()).asBitmap().load(str).apply(new RequestOptions().placeholder(aA(imageView.getContext())).error(aB(imageView.getContext())).centerCrop()).transition(new BitmapTransitionOptions().crossFade(300)).into(imageView);
     }
 
-    private Drawable aM(Context context) {
+    private Drawable aA(Context context) {
         return null;
     }
 
-    private Drawable aN(Context context) {
+    private Drawable aB(Context context) {
         return null;
     }
 }

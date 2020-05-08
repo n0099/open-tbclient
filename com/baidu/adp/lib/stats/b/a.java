@@ -5,9 +5,9 @@ import com.baidu.live.adp.lib.stats.BdStatsConstant;
 public class a extends com.baidu.adp.lib.stats.base.a {
     public a(j jVar) {
         super(jVar);
-        this.Ml = 10;
+        this.Mp = 10;
         this.mMustSuccess = true;
-        this.Mm = "alert";
+        this.Mq = "alert";
     }
 
     @Override // com.baidu.adp.lib.stats.base.a

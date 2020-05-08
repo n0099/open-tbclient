@@ -1,6 +1,5 @@
 package com.baidu.tieba.square.data;
 
-import com.baidu.android.pushservice.PushConstants;
 import com.baidu.android.util.io.BaseJsonData;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import java.util.Date;
@@ -9,7 +8,7 @@ import org.json.JSONObject;
 public abstract class a {
     private int errorCode;
     private String errorMsg;
-    private Date kLx;
+    private Date kLB;
 
     protected abstract void ds(JSONObject jSONObject) throws Exception;
 
@@ -42,7 +41,7 @@ public abstract class a {
         try {
             this.errorCode = jSONObject.optInt("error_code", 0);
             if (this.errorCode != 0) {
-                setErrorMsg(jSONObject.optString(PushConstants.EXTRA_ERROR_CODE, "网络不给力呀"));
+                setErrorMsg(jSONObject.optString("error_msg", "网络不给力呀"));
                 return;
             }
             JSONObject optJSONObject = jSONObject.optJSONObject(BdStatsConstant.StatsType.ERROR);
@@ -55,7 +54,7 @@ public abstract class a {
             }
             long optLong = jSONObject.optLong("ctime", 0L);
             if (optLong > 0) {
-                this.kLx = new Date(optLong * 1000);
+                this.kLB = new Date(optLong * 1000);
             }
             ds(jSONObject);
         } catch (Exception e) {

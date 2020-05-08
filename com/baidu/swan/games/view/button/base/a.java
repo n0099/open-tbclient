@@ -17,7 +17,7 @@ public class a {
     public double borderRadius;
     @V8JavascriptField
     public int borderWidth;
-    private InterfaceC0379a cSk;
+    private InterfaceC0400a cSp;
     @V8JavascriptField
     public String color;
     @V8JavascriptField
@@ -35,7 +35,7 @@ public class a {
     @V8JavascriptField
 
     /* renamed from: top  reason: collision with root package name */
-    public int f1016top;
+    public int f1008top;
     @V8JavascriptField
     public int width;
     @V8JavascriptField
@@ -45,7 +45,7 @@ public class a {
 
     /* renamed from: com.baidu.swan.games.view.button.base.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public interface InterfaceC0379a {
+    public interface InterfaceC0400a {
         void ayY();
     }
 
@@ -55,7 +55,7 @@ public class a {
 
     private void m(@NonNull com.baidu.swan.games.binding.model.c cVar) {
         this.left = cVar.optInt("left", this.left);
-        this.f1016top = cVar.optInt(VerticalTranslateLayout.TOP, this.f1016top);
+        this.f1008top = cVar.optInt(VerticalTranslateLayout.TOP, this.f1008top);
         this.width = cVar.optInt("width", this.width);
         this.height = cVar.optInt("height", this.height);
         this.backgroundColor = cVar.optString("backgroundColor", this.backgroundColor);
@@ -79,13 +79,13 @@ public class a {
         if (com.baidu.swan.apps.b.DEBUG) {
             Log.d("ApiButtonStyle", "onFieldChangedCallback fieldName=" + str);
         }
-        if (this.cSk != null) {
-            this.cSk.ayY();
+        if (this.cSp != null) {
+            this.cSp.ayY();
         }
     }
 
-    public void a(InterfaceC0379a interfaceC0379a) {
-        this.cSk = interfaceC0379a;
+    public void a(InterfaceC0400a interfaceC0400a) {
+        this.cSp = interfaceC0400a;
     }
 
     public static int ih(@ColorInt int i) {
@@ -100,6 +100,6 @@ public class a {
     }
 
     public String toString() {
-        return "left:" + this.left + ";top:" + this.f1016top + ";width:" + this.width + ";height:" + this.height + ";backgroundColor:" + this.backgroundColor + ";borderColor:" + this.borderColor + ";borderWidth:" + this.borderWidth + ";borderRadius:" + this.borderRadius + ";textAlign:" + this.textAlign + ";fontSize:" + this.fontSize + ";lineHeight:" + this.lineHeight + ";fontWeight:" + this.fontWeight + ";hidden;" + this.hidden + ";opacity:" + this.opacity + ";color:" + this.color;
+        return "left:" + this.left + ";top:" + this.f1008top + ";width:" + this.width + ";height:" + this.height + ";backgroundColor:" + this.backgroundColor + ";borderColor:" + this.borderColor + ";borderWidth:" + this.borderWidth + ";borderRadius:" + this.borderRadius + ";textAlign:" + this.textAlign + ";fontSize:" + this.fontSize + ";lineHeight:" + this.lineHeight + ";fontWeight:" + this.fontWeight + ";hidden;" + this.hidden + ";opacity:" + this.opacity + ";color:" + this.color;
     }
 }

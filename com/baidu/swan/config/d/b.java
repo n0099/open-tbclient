@@ -17,7 +17,7 @@ public class b extends com.baidu.swan.config.core.b.a {
                 JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                 hashMap.put(optJSONObject.optString("tipno"), optJSONObject.optString("tipmsg"));
             }
-            c.art().c(hashMap, optInt);
+            c.ars().c(hashMap, optInt);
         }
     }
 }

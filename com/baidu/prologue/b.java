@@ -6,44 +6,44 @@ public final class b {
 
     /* loaded from: classes.dex */
     public static final class a {
-        public static final int splash_ad_lable_bg = 2130844324;
-        public static final int splash_skip_selector = 2130844325;
-        public static final int splash_video_mute = 2130844326;
-        public static final int splash_video_unmute = 2130844327;
+        public static final int splash_ad_lable_bg = 2130844326;
+        public static final int splash_skip_selector = 2130844327;
+        public static final int splash_video_mute = 2130844328;
+        public static final int splash_video_unmute = 2130844329;
     }
 
     /* renamed from: com.baidu.prologue.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static final class C0194b {
-        public static final int image_logo_img = 2131697528;
-        public static final int image_logo_view = 2131697521;
-        public static final int image_small_logo_img = 2131697522;
-        public static final int image_splash_background_view = 2131697535;
-        public static final int image_splash_clickable = 2131697532;
-        public static final int iv_video_splash_voice = 2131697541;
-        public static final int splash_ad_btn_skip = 2131697526;
-        public static final int splash_ad_common = 2131697533;
-        public static final int splash_ad_countdown = 2131697527;
-        public static final int splash_ad_image = 2131697531;
-        public static final int splash_ad_image_back = 2131697530;
-        public static final int splash_ad_image_content = 2131697529;
-        public static final int splash_ad_label = 2131697523;
-        public static final int splash_countdown_skip = 2131697525;
-        public static final int splash_countdown_skip_click = 2131697524;
-        public static final int video_mask_view = 2131697538;
-        public static final int video_splash_clickable = 2131697537;
-        public static final int video_splash_view_bs = 2131697536;
-        public static final int video_splash_view_content = 2131697534;
-        public static final int video_splash_view_fl = 2131697539;
-        public static final int video_splash_voice_click = 2131697540;
+    public static final class C0216b {
+        public static final int image_logo_img = 2131697527;
+        public static final int image_logo_view = 2131697520;
+        public static final int image_small_logo_img = 2131697521;
+        public static final int image_splash_background_view = 2131697534;
+        public static final int image_splash_clickable = 2131697531;
+        public static final int iv_video_splash_voice = 2131697540;
+        public static final int splash_ad_btn_skip = 2131697525;
+        public static final int splash_ad_common = 2131697532;
+        public static final int splash_ad_countdown = 2131697526;
+        public static final int splash_ad_image = 2131697530;
+        public static final int splash_ad_image_back = 2131697529;
+        public static final int splash_ad_image_content = 2131697528;
+        public static final int splash_ad_label = 2131697522;
+        public static final int splash_countdown_skip = 2131697524;
+        public static final int splash_countdown_skip_click = 2131697523;
+        public static final int video_mask_view = 2131697537;
+        public static final int video_splash_clickable = 2131697536;
+        public static final int video_splash_view_bs = 2131697535;
+        public static final int video_splash_view_content = 2131697533;
+        public static final int video_splash_view_fl = 2131697538;
+        public static final int video_splash_voice_click = 2131697539;
     }
 
     /* loaded from: classes.dex */
     public static final class c {
-        public static final int splash_ad_common = 2130904895;
-        public static final int splash_ad_image = 2130904896;
-        public static final int splash_ad_video = 2130904897;
-        public static final int splash_ad_video_decoration = 2130904898;
+        public static final int splash_ad_common = 2130904893;
+        public static final int splash_ad_image = 2130904894;
+        public static final int splash_ad_video = 2130904895;
+        public static final int splash_ad_video_decoration = 2130904896;
     }
 
     /* loaded from: classes.dex */

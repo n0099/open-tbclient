@@ -6,10 +6,10 @@ public class w {
     }
 
     public static void k(Object obj, String str) {
-        Pz((obj == null ? "null" : obj.getClass().getName()) + " cannot be cast to " + str);
+        PC((obj == null ? "null" : obj.getClass().getName()) + " cannot be cast to " + str);
     }
 
-    public static void Pz(String str) {
+    public static void PC(String str) {
         throw a(new ClassCastException(str));
     }
 
@@ -17,7 +17,7 @@ public class w {
         throw ((ClassCastException) S(classCastException));
     }
 
-    public static int bD(Object obj) {
+    public static int bE(Object obj) {
         if (obj instanceof p) {
             return ((p) obj).getArity();
         }
@@ -94,7 +94,7 @@ public class w {
     }
 
     public static boolean j(Object obj, int i) {
-        return (obj instanceof kotlin.c) && bD(obj) == i;
+        return (obj instanceof kotlin.c) && bE(obj) == i;
     }
 
     public static Object k(Object obj, int i) {

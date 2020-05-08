@@ -3,7 +3,6 @@ package com.baidu.ar.auth;
 import android.content.Context;
 import android.os.Build;
 import android.text.TextUtils;
-import com.baidu.android.pushservice.PushConstants;
 import com.baidu.ar.auth.l;
 import com.baidu.ar.bean.ARConfig;
 import com.baidu.ar.bean.DuMixARConfig;
@@ -106,9 +105,9 @@ class c implements l {
                 if (jSONObject == null) {
                     return;
                 }
-                if (jSONObject != null && jSONObject.has(PushConstants.EXTRA_ERROR_CODE)) {
+                if (jSONObject != null && jSONObject.has("error_msg")) {
                     try {
-                        message = jSONObject.getString(PushConstants.EXTRA_ERROR_CODE);
+                        message = jSONObject.getString("error_msg");
                     } catch (JSONException e2) {
                         message = e2.getMessage();
                     }

@@ -9,11 +9,11 @@ public class DH {
 
     private static native byte[] getSecretKey(int i, int i2, int i3);
 
-    public static int are() {
+    public static int ard() {
         return getSecret();
     }
 
-    public static int arf() {
+    public static int are() {
         return getGroupId();
     }
 

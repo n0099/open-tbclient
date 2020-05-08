@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.util.an;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 /* loaded from: classes.dex */
 public class r {
-    public static final boolean bav() {
+    public static final boolean bat() {
         Message message;
         int i = 0;
         Object valueForField = com.baidu.adp.lib.OrmObject.a.a.getValueForField(Looper.myQueue(), "mMessages");
@@ -48,7 +48,7 @@ public class r {
         return (obj == null || (valueForField = com.baidu.adp.lib.OrmObject.a.a.getValueForField(obj, "intent")) == null || !(valueForField instanceof Intent) || (component = ((Intent) valueForField).getComponent()) == null || !"com.baidu.tieba.LogoActivity".equals(component.getClassName())) ? false : true;
     }
 
-    public static boolean dV(Context context) {
+    public static boolean dJ(Context context) {
         for (ActivityManager.RunningTaskInfo runningTaskInfo : ((ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getRunningTasks(100)) {
             if ("com.baidu.tieba.LogoActivity".equals(runningTaskInfo.baseActivity.getClassName()) && "com.baidu.tieba.LogoActivity".equals(runningTaskInfo.topActivity.getClassName())) {
                 return true;

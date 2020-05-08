@@ -12,44 +12,44 @@ import com.baidu.tieba.recapp.k;
 import com.baidu.tieba.recapp.q;
 /* loaded from: classes.dex */
 public class c {
-    private static volatile c etn;
-    private long etk;
-    private final int eti = 2;
-    private final int etj = 3;
-    private int aqT = -1;
-    private CustomMessageListener eto = new CustomMessageListener(CmdConfigCustom.CMD_HOT_SPLASH_SHOW) { // from class: com.baidu.tieba.c.1
+    private static volatile c ets;
+    private long etp;
+    private final int etn = 2;
+    private final int eto = 3;
+    private int aqZ = -1;
+    private CustomMessageListener ett = new CustomMessageListener(CmdConfigCustom.CMD_HOT_SPLASH_SHOW) { // from class: com.baidu.tieba.c.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016522 && q.cNo().cNj() != null) {
-                q.cNo().cNj().cNc();
+            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016522 && q.cNl().cNg() != null) {
+                q.cNl().cNg().cMZ();
             }
         }
     };
-    private CustomMessageListener etp = new CustomMessageListener(CmdConfigCustom.CMD_APP_ENTER_BACKGROUND) { // from class: com.baidu.tieba.c.2
+    private CustomMessageListener etu = new CustomMessageListener(CmdConfigCustom.CMD_APP_ENTER_BACKGROUND) { // from class: com.baidu.tieba.c.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016521) {
-                c.this.bdH();
+                c.this.bdF();
             }
         }
     };
-    private CustomMessageListener etq = new CustomMessageListener(CmdConfigCustom.CMD_APP_ENTER_FOREGROUND) { // from class: com.baidu.tieba.c.3
+    private CustomMessageListener etv = new CustomMessageListener(CmdConfigCustom.CMD_APP_ENTER_FOREGROUND) { // from class: com.baidu.tieba.c.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016520 && c.this.etk != 0) {
+            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016520 && c.this.etp != 0) {
                 Object data = customResponsedMessage.getData();
                 if (data instanceof BaseActivity) {
-                    if (!data.getClass().getSimpleName().equals("LoginActivity") && c.this.bdI()) {
+                    if (!data.getClass().getSimpleName().equals("LoginActivity") && c.this.bdG()) {
                         BaseActivity baseActivity = (BaseActivity) data;
                         Intent intent = new Intent(baseActivity.getActivity(), LogoActivity.class);
                         intent.putExtra("splash", true);
                         intent.setFlags(65536);
                         baseActivity.startActivity(intent);
                     }
-                } else if ((data instanceof BaseFragmentActivity) && c.this.bdI()) {
+                } else if ((data instanceof BaseFragmentActivity) && c.this.bdG()) {
                     BaseFragmentActivity baseFragmentActivity = (BaseFragmentActivity) data;
                     Intent intent2 = new Intent(baseFragmentActivity.getActivity(), LogoActivity.class);
                     intent2.putExtra("splash", true);
@@ -59,7 +59,7 @@ public class c {
             }
         }
     };
-    private CustomMessageListener etr = new CustomMessageListener(CmdConfigCustom.CMD_APP_SCREEN_LOCK_STATE_CHANGED) { // from class: com.baidu.tieba.c.4
+    private CustomMessageListener etw = new CustomMessageListener(CmdConfigCustom.CMD_APP_SCREEN_LOCK_STATE_CHANGED) { // from class: com.baidu.tieba.c.4
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -68,69 +68,69 @@ public class c {
                 if (data instanceof Boolean) {
                     long currentTimeMillis = System.currentTimeMillis() / 1000;
                     if (((Boolean) data).booleanValue()) {
-                        c.this.etl = currentTimeMillis - c.this.etk <= 1;
+                        c.this.etq = currentTimeMillis - c.this.etp <= 1;
                     }
                 }
             }
         }
     };
-    private boolean etl = false;
-    private boolean etm = false;
+    private boolean etq = false;
+    private boolean etr = false;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static c bdG() {
-        if (etn == null) {
+    public static c bdE() {
+        if (ets == null) {
             synchronized (c.class) {
-                if (etn == null) {
-                    etn = new c();
+                if (ets == null) {
+                    ets = new c();
                 }
             }
         }
-        return etn;
+        return ets;
     }
 
     private c() {
-        MessageManager.getInstance().registerListener(this.etp);
-        MessageManager.getInstance().registerListener(this.etq);
-        MessageManager.getInstance().registerListener(this.eto);
-        MessageManager.getInstance().registerListener(this.etr);
-        if (q.cNo().cNj() != null) {
-            q.cNo().cNj().cNb();
+        MessageManager.getInstance().registerListener(this.etu);
+        MessageManager.getInstance().registerListener(this.etv);
+        MessageManager.getInstance().registerListener(this.ett);
+        MessageManager.getInstance().registerListener(this.etw);
+        if (q.cNl().cNg() != null) {
+            q.cNl().cNg().cMY();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bdH() {
-        this.etm = true;
-        this.etk = System.currentTimeMillis() / 1000;
+    public void bdF() {
+        this.etr = true;
+        this.etp = System.currentTimeMillis() / 1000;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean bdI() {
-        bdJ();
-        this.etm = false;
+    public boolean bdG() {
+        bdH();
+        this.etr = false;
         long currentTimeMillis = System.currentTimeMillis() / 1000;
-        if (this.etl) {
-            this.etl = false;
+        if (this.etq) {
+            this.etq = false;
             return false;
-        } else if (currentTimeMillis - this.etk <= 2 || currentTimeMillis - this.etk <= this.aqT) {
+        } else if (currentTimeMillis - this.etp <= 2 || currentTimeMillis - this.etp <= this.aqZ) {
             return false;
         } else {
-            k cNj = q.cNo().cNj();
-            return (cNj != null ? cNj.cNd() : 3) < 3;
+            k cNg = q.cNl().cNg();
+            return (cNg != null ? cNg.cNa() : 3) < 3;
         }
     }
 
-    private void bdJ() {
+    private void bdH() {
         com.baidu.tbadk.coreExtra.data.d adAdSense = TbadkCoreApplication.getInst().getAdAdSense();
         if (adAdSense != null) {
-            this.aqT = adAdSense.aRK();
-            if (this.aqT <= 0) {
-                this.aqT = 86400;
+            this.aqZ = adAdSense.aRH();
+            if (this.aqZ <= 0) {
+                this.aqZ = 86400;
                 return;
             }
             return;
         }
-        this.aqT = 300;
+        this.aqZ = 300;
     }
 }

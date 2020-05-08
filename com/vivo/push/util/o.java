@@ -7,6 +7,8 @@ public interface o {
 
     int a(String str, String str2, Throwable th);
 
+    int a(String str, Throwable th);
+
     String a(Throwable th);
 
     void a(Context context, String str);

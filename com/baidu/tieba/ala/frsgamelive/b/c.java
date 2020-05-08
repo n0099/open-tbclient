@@ -4,12 +4,12 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.data.bj;
 /* loaded from: classes3.dex */
 public class c extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId fgI = BdUniqueId.gen();
-    public static final BdUniqueId fgJ = BdUniqueId.gen();
-    public bj dqA;
+    public static final BdUniqueId fgN = BdUniqueId.gen();
+    public static final BdUniqueId fgO = BdUniqueId.gen();
+    public bj dqE;
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return (this.dqA == null || this.dqA.aKX() == null || this.dqA.aKX().live_type != 1) ? fgI : fgJ;
+        return (this.dqE == null || this.dqE.aKV() == null || this.dqE.aKV().live_type != 1) ? fgN : fgO;
     }
 }

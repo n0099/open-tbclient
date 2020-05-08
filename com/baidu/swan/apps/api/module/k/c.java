@@ -26,17 +26,17 @@ public class c extends com.baidu.swan.apps.api.a.c {
             }
             return bVar;
         }
-        aj.cD(getContext()).setText(((JSONObject) az.second).optString("data"));
+        aj.cr(getContext()).setText(((JSONObject) az.second).optString("data"));
         return new com.baidu.swan.apps.api.b.b(0);
     }
 
-    public com.baidu.swan.apps.api.b.b RR() {
+    public com.baidu.swan.apps.api.b.b RQ() {
         if (DEBUG) {
             Log.d("Api-ClipboardApi", "start get clipboard data");
         }
         JSONObject jSONObject = new JSONObject();
         try {
-            CharSequence text = aj.cD(getContext()).getText();
+            CharSequence text = aj.cr(getContext()).getText();
             jSONObject.put("data", TextUtils.isEmpty(text) ? "" : text.toString());
             if (DEBUG) {
                 Log.i("Api-ClipboardApi", "getClipboardData:  " + jSONObject);

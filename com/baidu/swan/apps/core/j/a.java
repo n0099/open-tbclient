@@ -13,20 +13,20 @@ import java.nio.channels.FileChannel;
 import java.nio.channels.FileLock;
 /* loaded from: classes11.dex */
 public class a {
-    public static final String bPA = AppRuntime.getAppContext().getFilesDir().getAbsolutePath() + File.separator + "zeus" + File.separator + "libs";
-    private static final String bPB = AppRuntime.getAppContext().getFilesDir().getAbsolutePath() + File.separator + "libs";
-    public static final String bPC = AppRuntime.getAppContext().getFilesDir().getAbsolutePath() + File.separator + "swan_so_lite" + File.separator + "libs";
+    public static final String bPF = AppRuntime.getAppContext().getFilesDir().getAbsolutePath() + File.separator + "zeus" + File.separator + "libs";
+    private static final String bPG = AppRuntime.getAppContext().getFilesDir().getAbsolutePath() + File.separator + "libs";
+    public static final String bPH = AppRuntime.getAppContext().getFilesDir().getAbsolutePath() + File.separator + "swan_so_lite" + File.separator + "libs";
 
     public static void du(boolean z) {
         if (z) {
             SoLoader.load(AppRuntime.getAppContext(), "v8.engine");
-        } else if (XT()) {
-            XS();
-            d.i("zeusv8", bPB, true);
-            d.i("v8.engine", bPA, false);
+        } else if (XS()) {
+            XR();
+            d.i("zeusv8", bPG, true);
+            d.i("v8.engine", bPF, false);
         } else {
-            d.i("zeusv8", bPC, true);
-            d.i("v8.engine", bPC, true);
+            d.i("zeusv8", bPH, true);
+            d.i("v8.engine", bPH, true);
         }
     }
 
@@ -36,7 +36,7 @@ public class a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private static void XS() {
+    private static void XR() {
         FileChannel fileChannel;
         FileOutputStream fileOutputStream;
         FileInputStream fileInputStream;
@@ -48,11 +48,11 @@ public class a {
         fileLock = null;
         fileLock = null;
         fileLock = null;
-        File file = new File(bPA + File.separator + GlobalConstants.LIB_ZEUS_V8);
+        File file = new File(bPF + File.separator + GlobalConstants.LIB_ZEUS_V8);
         if (!file.exists() || file.length() <= 0) {
             return;
         }
-        File file2 = new File(bPB);
+        File file2 = new File(bPG);
         if (!file2.exists()) {
             file2.mkdirs();
         }
@@ -212,7 +212,7 @@ public class a {
         }
     }
 
-    public static boolean XT() {
+    public static boolean XS() {
         return PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext()).getBoolean("swan_full_install", true);
     }
 }

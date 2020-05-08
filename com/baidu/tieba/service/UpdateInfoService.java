@@ -8,7 +8,6 @@ import com.baidu.adp.base.BdBaseService;
 import com.baidu.adp.lib.c.a;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.keepLive.jobScheduler.KeepJobService;
 import com.baidu.tieba.model.ReportUserInfoModel;
 /* loaded from: classes.dex */
 public class UpdateInfoService extends BdBaseService {
@@ -20,12 +19,12 @@ public class UpdateInfoService extends BdBaseService {
                     if (address != null) {
                         float longitude = (float) address.getLongitude();
                         float latitude = (float) address.getLatitude();
-                        com.baidu.tieba.recapp.d.a.cOb().Em(String.valueOf(longitude));
-                        com.baidu.tieba.recapp.d.a.cOb().En(String.valueOf(latitude));
-                        com.baidu.tieba.recapp.d.a.cOb().fm(System.currentTimeMillis());
-                        if (UpdateInfoService.this.mModel.crt() && TbadkCoreApplication.getInst().getLocationShared() && !TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
+                        com.baidu.tieba.recapp.d.a.cNY().Ep(String.valueOf(longitude));
+                        com.baidu.tieba.recapp.d.a.cNY().Eq(String.valueOf(latitude));
+                        com.baidu.tieba.recapp.d.a.cNY().fm(System.currentTimeMillis());
+                        if (UpdateInfoService.this.mModel.crq() && TbadkCoreApplication.getInst().getLocationShared() && !TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
                             UpdateInfoService.this.mModel.a(1, longitude, latitude);
-                            UpdateInfoService.this.mModel.cru();
+                            UpdateInfoService.this.mModel.crr();
                             return;
                         }
                         return;
@@ -50,7 +49,7 @@ public class UpdateInfoService extends BdBaseService {
     public void onCreate() {
         super.onCreate();
         this.mModel = new ReportUserInfoModel(null);
-        this.mModel.crv();
+        this.mModel.crs();
         this.mModel.eU(540000L);
         this.mModel.a(new ReportUserInfoModel.a() { // from class: com.baidu.tieba.service.UpdateInfoService.1
             @Override // com.baidu.tieba.model.ReportUserInfoModel.a
@@ -68,7 +67,7 @@ public class UpdateInfoService extends BdBaseService {
             @Override // com.baidu.tieba.model.ReportUserInfoModel.a
             public void onError(int i, String str) {
                 BdLog.i("location_errorCode&errorCode=" + i + "&errorMsg" + str);
-                UpdateInfoService.this.mModel.eU(KeepJobService.JOB_CHECK_PERIODIC);
+                UpdateInfoService.this.mModel.eU(600000L);
             }
         });
     }
@@ -76,7 +75,7 @@ public class UpdateInfoService extends BdBaseService {
     @Override // android.app.Service
     public void onStart(Intent intent, int i) {
         super.onStart(intent, i);
-        if (this.mModel.crt()) {
+        if (this.mModel.crq()) {
             findLocationFromLocal();
         }
     }

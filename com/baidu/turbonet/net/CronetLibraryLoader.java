@@ -13,11 +13,11 @@ import java.util.List;
 /* loaded from: classes.dex */
 class CronetLibraryLoader {
     static final /* synthetic */ boolean $assertionsDisabled;
-    private static final Object lIQ;
-    private static final HandlerThread lIR;
-    private static volatile boolean lIS;
-    private static boolean lIT;
-    private static List<Runnable> lIU;
+    private static final Object lIU;
+    private static final HandlerThread lIV;
+    private static volatile boolean lIW;
+    private static boolean lIX;
+    private static List<Runnable> lIY;
 
     private static native void nativeCronetInitOnInitThread();
 
@@ -29,19 +29,19 @@ class CronetLibraryLoader {
 
     static {
         $assertionsDisabled = !CronetLibraryLoader.class.desiredAssertionStatus();
-        lIQ = new Object();
-        lIR = new HandlerThread("TurboNetInit");
-        lIS = false;
-        lIT = false;
-        lIU = new ArrayList();
+        lIU = new Object();
+        lIV = new HandlerThread("TurboNetInit");
+        lIW = false;
+        lIX = false;
+        lIY = new ArrayList();
     }
 
     CronetLibraryLoader() {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static long diQ() {
-        if (lIT) {
+    public static long diN() {
+        if (lIX) {
             return nativeGetTurboNetHandler();
         }
         return 0L;
@@ -49,57 +49,57 @@ class CronetLibraryLoader {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(final Context context, TurbonetEngine.Builder builder) {
-        synchronized (lIQ) {
-            if (!lIS) {
-                lIS = true;
-                ContextUtils.fy(context.getApplicationContext());
-                builder.djI();
-                ContextUtils.diA();
+        synchronized (lIU) {
+            if (!lIW) {
+                lIW = true;
+                ContextUtils.fm(context.getApplicationContext());
+                builder.djF();
+                ContextUtils.dix();
                 com.baidu.turbonet.base.a.g("TurboNetLibraryLoader", "TurboNet version: %s, arch: %s", nativeGetTurboNetVersion(), System.getProperty("os.arch"));
-                ContextUtils.fy(context.getApplicationContext());
-                if (!lIR.isAlive()) {
-                    lIR.start();
+                ContextUtils.fm(context.getApplicationContext());
+                if (!lIV.isAlive()) {
+                    lIV.start();
                 }
                 B(new Runnable() { // from class: com.baidu.turbonet.net.CronetLibraryLoader.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        CronetLibraryLoader.fB(context);
+                        CronetLibraryLoader.fp(context);
                     }
                 });
             }
         }
     }
 
-    private static boolean diR() {
-        return lIR.getLooper() == Looper.myLooper();
+    private static boolean diO() {
+        return lIV.getLooper() == Looper.myLooper();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static void fB(Context context) {
-        if (!$assertionsDisabled && !lIS) {
+    public static void fp(Context context) {
+        if (!$assertionsDisabled && !lIW) {
             throw new AssertionError();
         }
-        if (!$assertionsDisabled && !diR()) {
+        if (!$assertionsDisabled && !diO()) {
             throw new AssertionError();
         }
-        if (!lIT) {
+        if (!lIX) {
             NetworkChangeNotifier.init(context);
-            NetworkChangeNotifier.djn();
+            NetworkChangeNotifier.djk();
             nativeCronetInitOnInitThread();
-            for (Runnable runnable : lIU) {
+            for (Runnable runnable : lIY) {
                 runnable.run();
             }
-            lIU.clear();
-            lIT = true;
+            lIY.clear();
+            lIX = true;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void B(Runnable runnable) {
-        if (diR()) {
+        if (diO()) {
             runnable.run();
         } else {
-            new Handler(lIR.getLooper()).post(runnable);
+            new Handler(lIV.getLooper()).post(runnable);
         }
     }
 }

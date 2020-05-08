@@ -28,7 +28,8 @@ public final class x implements c {
     public final void b(String str, String str2) {
         SharedPreferences.Editor edit = this.c.edit();
         if (edit != null) {
-            edit.putString(str, str2).apply();
+            edit.putString(str, str2);
+            a.a(edit);
             p.d(a, "putString by " + str);
             return;
         }
@@ -38,7 +39,8 @@ public final class x implements c {
     public final void a() {
         SharedPreferences.Editor edit = this.c.edit();
         if (edit != null) {
-            edit.clear().apply();
+            edit.clear();
+            a.a(edit);
         }
         p.d(a, "system cache is cleared");
     }

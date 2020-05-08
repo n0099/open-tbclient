@@ -29,8 +29,8 @@ import com.tencent.mm.sdk.openapi.IWXAPIEventHandler;
 import com.tencent.mm.sdk.openapi.WXAPIFactory;
 /* loaded from: classes8.dex */
 public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IWXAPIEventHandler {
-    private IWXAPI lHp;
-    private Intent lHq;
+    private IWXAPI lHt;
+    private Intent lHu;
     private NavigationBar mNavigationBar;
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -42,13 +42,13 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.setTitleText(getResources().getString(R.string.login));
         try {
-            this.lHp = WXAPIFactory.createWXAPI(getActivity(), TbConfig.WEIXIN_SHARE_APP_ID, false);
+            this.lHt = WXAPIFactory.createWXAPI(getActivity(), TbConfig.WEIXIN_SHARE_APP_ID, false);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        this.lHq = getIntent();
-        if (this.lHq != null && this.lHp != null) {
-            this.lHp.handleIntent(getIntent(), this);
+        this.lHu = getIntent();
+        if (this.lHu != null && this.lHt != null) {
+            this.lHt.handleIntent(getIntent(), this);
         }
     }
 
@@ -56,9 +56,9 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
         setIntent(intent);
-        this.lHq = intent;
-        if (this.lHq != null && this.lHp != null) {
-            this.lHp.handleIntent(intent, this);
+        this.lHu = intent;
+        if (this.lHu != null && this.lHt != null) {
+            this.lHt.handleIntent(intent, this);
         }
     }
 
@@ -97,8 +97,8 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
             int type = baseResp.getType();
             if (1 == type) {
                 a aVar = new a();
-                aVar.jjM = this;
-                aVar.jjN = baseResp;
+                aVar.jjQ = this;
+                aVar.jjR = baseResp;
                 MessageManager.getInstance().runTask(2921351, null, aVar);
                 closeActivity();
             } else if (2 == type && (baseResp instanceof SendMessageToWX.Resp)) {
@@ -146,10 +146,10 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
                         }
                     }
                 }
-                if (str.startsWith(f.dhl) && f.n(Uri.parse(str))) {
+                if (str.startsWith(f.dhq) && f.n(Uri.parse(str))) {
                     UtilHelper.dealOneScheme(getPageContext().getPageActivity(), str);
                 } else {
-                    ba.aOY().b(getPageContext(), new String[]{str});
+                    ba.aOV().b(getPageContext(), new String[]{str});
                 }
             } finally {
                 closeActivity();

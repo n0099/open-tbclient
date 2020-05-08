@@ -3,17 +3,17 @@ package com.baidu.live.message;
 import com.baidu.live.adp.framework.message.HttpMessage;
 /* loaded from: classes3.dex */
 public class b extends HttpMessage {
-    private String aQf;
-    private long aQg;
+    private String aQl;
+    private long aQm;
     private long mAlaId;
     private long mTime;
 
     public void setFrom(String str) {
-        this.aQf = str;
+        this.aQl = str;
     }
 
     public void setLiveId(long j) {
-        this.aQg = j;
+        this.aQm = j;
     }
 
     public void aj(long j) {
@@ -22,15 +22,15 @@ public class b extends HttpMessage {
 
     public b() {
         super(1021007);
-        this.aQf = "";
-        this.aQg = 0L;
+        this.aQl = "";
+        this.aQm = 0L;
         this.mAlaId = 0L;
         this.mTime = 0L;
     }
 
     public void setParams() {
-        addParam("from_type", this.aQf);
-        addParam("live_id", this.aQg);
+        addParam("from_type", this.aQl);
+        addParam("live_id", this.aQm);
         addParam("enter_time", this.mTime);
     }
 }

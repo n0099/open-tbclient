@@ -9,20 +9,20 @@ import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class CtrlPoint extends CtrlPointProvider {
     private long b;
-    CtrlPointProvider.CtrlPointListener bhD;
+    CtrlPointProvider.CtrlPointListener bhI;
     private Handler c = new Handler(Looper.getMainLooper()) { // from class: com.baidu.media.dlna.CtrlPoint.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             switch (message.what) {
                 case 1:
-                    if (CtrlPoint.this.bhD != null) {
-                        CtrlPoint.this.bhD.onPrepared();
+                    if (CtrlPoint.this.bhI != null) {
+                        CtrlPoint.this.bhI.onPrepared();
                         break;
                     }
                     break;
                 case 2:
-                    if (CtrlPoint.this.bhD != null) {
-                        CtrlPoint.this.bhD.onComplete();
+                    if (CtrlPoint.this.bhI != null) {
+                        CtrlPoint.this.bhI.onComplete();
                         break;
                     }
                     break;
@@ -112,7 +112,7 @@ public class CtrlPoint extends CtrlPointProvider {
 
     @Override // com.baidu.cyberplayer.sdk.dlna.CtrlPointProvider
     public void setListener(CtrlPointProvider.CtrlPointListener ctrlPointListener) {
-        this.bhD = ctrlPointListener;
+        this.bhI = ctrlPointListener;
         nativeCtrlPointSetListener(this.b, new WeakReference(this));
     }
 

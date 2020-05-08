@@ -76,15 +76,6 @@ public final class k {
         return Build.MANUFACTURER.toLowerCase().contains("bbk") || Build.MANUFACTURER.toLowerCase().startsWith(RomUtils.MANUFACTURER_VIVO);
     }
 
-    public static boolean c() {
-        if (TextUtils.isEmpty(Build.MANUFACTURER)) {
-            p.d("Device", "Build.MANUFACTURER is null");
-            return false;
-        }
-        p.d("Device", "Build.MANUFACTURER is " + Build.MANUFACTURER);
-        return Build.MANUFACTURER.toLowerCase().contains(RomUtils.MANUFACTURER_OPPO);
-    }
-
     static {
         String b2;
         if (Build.VERSION.SDK_INT >= 26) {

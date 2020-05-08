@@ -1,7 +1,6 @@
 package com.baidu.mobads.vo;
 
 import android.text.TextUtils;
-import com.baidu.android.pushservice.PushConstants;
 import com.baidu.mobads.interfaces.IXAdInstanceInfo;
 import com.baidu.mobads.interfaces.IXAdResponseInfo;
 import com.baidu.mobstat.Config;
@@ -63,7 +62,7 @@ public class c implements IXAdResponseInfo {
         this.k = jSONObject.optString("ck", "");
         this.l = jSONObject.optString("req_id");
         this.m = jSONObject.optString("error_code", "");
-        this.n = jSONObject.optString(PushConstants.EXTRA_ERROR_CODE, "");
+        this.n = jSONObject.optString("error_msg", "");
         try {
             this.h = jSONObject.getString("theme");
         } catch (JSONException e3) {

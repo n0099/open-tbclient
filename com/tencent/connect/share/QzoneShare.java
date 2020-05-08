@@ -9,7 +9,6 @@ import android.os.SystemClock;
 import android.text.TextUtils;
 import android.util.Base64;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
-import com.baidu.android.pushservice.PushConstants;
 import com.baidu.live.tbadk.core.util.StringHelper;
 import com.tencent.connect.auth.QQToken;
 import com.tencent.connect.common.BaseApi;
@@ -349,7 +348,7 @@ public class QzoneShare extends BaseApi {
                 com.tencent.connect.a.a.a(e.a(), this.b, "requireApi", "shareToNativeQQ");
                 intent = new Intent("android.intent.action.VIEW");
                 intent.setData(Uri.parse(stringBuffer.toString()));
-                intent.putExtra(PushConstants.PACKAGE_NAME, activity.getPackageName());
+                intent.putExtra("pkg_name", activity.getPackageName());
                 if (!j.g(activity, "4.6.0")) {
                     if (a(intent)) {
                         UIListenerManager.getInstance().setListenerWithRequestcode(Constants.REQUEST_OLD_QZSHARE, iUiListener);
@@ -406,7 +405,7 @@ public class QzoneShare extends BaseApi {
         com.tencent.connect.a.a.a(e.a(), this.b, "requireApi", "shareToNativeQQ");
         intent = new Intent("android.intent.action.VIEW");
         intent.setData(Uri.parse(stringBuffer.toString()));
-        intent.putExtra(PushConstants.PACKAGE_NAME, activity.getPackageName());
+        intent.putExtra("pkg_name", activity.getPackageName());
         if (!j.g(activity, "4.6.0")) {
         }
         if (!a(intent)) {

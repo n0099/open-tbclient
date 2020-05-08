@@ -16,7 +16,6 @@ import android.os.PowerManager;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
-import com.baidu.tieba.keepLive.jobScheduler.KeepJobService;
 import java.util.ArrayList;
 import java.util.HashMap;
 /* loaded from: classes6.dex */
@@ -130,7 +129,7 @@ public abstract class JobIntentService extends Service {
             synchronized (this) {
                 if (!this.mServiceProcessing) {
                     this.mServiceProcessing = true;
-                    this.mRunWakeLock.acquire(KeepJobService.JOB_CHECK_PERIODIC);
+                    this.mRunWakeLock.acquire(600000L);
                     this.mLaunchWakeLock.release();
                 }
             }

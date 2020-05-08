@@ -23,54 +23,54 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
 /* loaded from: classes9.dex */
 public class FrsGameCommentActivity extends BaseActivity<FrsGameCommentActivity> {
-    private NavigationBar hlA;
-    private TextView hlB;
-    private RadioButton hlC;
-    private RadioButton hlD;
-    private RadioButton hlE;
-    private RadioButton hlF;
-    private RadioButton hlG;
-    private EditText hlH;
-    private int hlI;
+    private NavigationBar hlG;
+    private TextView hlH;
+    private RadioButton hlI;
+    private RadioButton hlJ;
+    private RadioButton hlK;
+    private RadioButton hlL;
+    private RadioButton hlM;
+    private EditText hlN;
+    private int hlO;
     private int mScore;
     private TextView mTitle;
     private View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.frs.gamecomment.FrsGameCommentActivity.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (view == FrsGameCommentActivity.this.hlC) {
-                FrsGameCommentActivity.this.hlD.setChecked(false);
-                FrsGameCommentActivity.this.hlE.setChecked(false);
-                FrsGameCommentActivity.this.hlF.setChecked(false);
-                FrsGameCommentActivity.this.hlG.setChecked(false);
+            if (view == FrsGameCommentActivity.this.hlI) {
+                FrsGameCommentActivity.this.hlJ.setChecked(false);
+                FrsGameCommentActivity.this.hlK.setChecked(false);
+                FrsGameCommentActivity.this.hlL.setChecked(false);
+                FrsGameCommentActivity.this.hlM.setChecked(false);
                 FrsGameCommentActivity.this.mScore = 2;
-            } else if (view == FrsGameCommentActivity.this.hlD) {
-                FrsGameCommentActivity.this.hlC.setChecked(true);
-                FrsGameCommentActivity.this.hlE.setChecked(false);
-                FrsGameCommentActivity.this.hlF.setChecked(false);
-                FrsGameCommentActivity.this.hlG.setChecked(false);
+            } else if (view == FrsGameCommentActivity.this.hlJ) {
+                FrsGameCommentActivity.this.hlI.setChecked(true);
+                FrsGameCommentActivity.this.hlK.setChecked(false);
+                FrsGameCommentActivity.this.hlL.setChecked(false);
+                FrsGameCommentActivity.this.hlM.setChecked(false);
                 FrsGameCommentActivity.this.mScore = 4;
-            } else if (view == FrsGameCommentActivity.this.hlE) {
-                FrsGameCommentActivity.this.hlC.setChecked(true);
-                FrsGameCommentActivity.this.hlD.setChecked(true);
-                FrsGameCommentActivity.this.hlF.setChecked(false);
-                FrsGameCommentActivity.this.hlG.setChecked(false);
+            } else if (view == FrsGameCommentActivity.this.hlK) {
+                FrsGameCommentActivity.this.hlI.setChecked(true);
+                FrsGameCommentActivity.this.hlJ.setChecked(true);
+                FrsGameCommentActivity.this.hlL.setChecked(false);
+                FrsGameCommentActivity.this.hlM.setChecked(false);
                 FrsGameCommentActivity.this.mScore = 6;
-            } else if (view == FrsGameCommentActivity.this.hlF) {
-                FrsGameCommentActivity.this.hlC.setChecked(true);
-                FrsGameCommentActivity.this.hlD.setChecked(true);
-                FrsGameCommentActivity.this.hlE.setChecked(true);
-                FrsGameCommentActivity.this.hlG.setChecked(false);
+            } else if (view == FrsGameCommentActivity.this.hlL) {
+                FrsGameCommentActivity.this.hlI.setChecked(true);
+                FrsGameCommentActivity.this.hlJ.setChecked(true);
+                FrsGameCommentActivity.this.hlK.setChecked(true);
+                FrsGameCommentActivity.this.hlM.setChecked(false);
                 FrsGameCommentActivity.this.mScore = 8;
-            } else if (view == FrsGameCommentActivity.this.hlG) {
-                FrsGameCommentActivity.this.hlC.setChecked(true);
-                FrsGameCommentActivity.this.hlD.setChecked(true);
-                FrsGameCommentActivity.this.hlE.setChecked(true);
-                FrsGameCommentActivity.this.hlF.setChecked(true);
+            } else if (view == FrsGameCommentActivity.this.hlM) {
+                FrsGameCommentActivity.this.hlI.setChecked(true);
+                FrsGameCommentActivity.this.hlJ.setChecked(true);
+                FrsGameCommentActivity.this.hlK.setChecked(true);
+                FrsGameCommentActivity.this.hlL.setChecked(true);
                 FrsGameCommentActivity.this.mScore = 10;
             }
         }
     };
-    private TextWatcher hlJ = new TextWatcher() { // from class: com.baidu.tieba.frs.gamecomment.FrsGameCommentActivity.3
+    private TextWatcher hlP = new TextWatcher() { // from class: com.baidu.tieba.frs.gamecomment.FrsGameCommentActivity.3
         @Override // android.text.TextWatcher
         public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
         }
@@ -81,16 +81,16 @@ public class FrsGameCommentActivity extends BaseActivity<FrsGameCommentActivity>
 
         @Override // android.text.TextWatcher
         public void afterTextChanged(Editable editable) {
-            if (FrsGameCommentActivity.this.hlH.getText().length() > 0) {
-                FrsGameCommentActivity.this.hlB.setEnabled(true);
-                am.setViewTextColor(FrsGameCommentActivity.this.hlB, (int) R.color.cp_link_tip_g);
+            if (FrsGameCommentActivity.this.hlN.getText().length() > 0) {
+                FrsGameCommentActivity.this.hlH.setEnabled(true);
+                am.setViewTextColor(FrsGameCommentActivity.this.hlH, (int) R.color.cp_link_tip_g);
                 return;
             }
-            FrsGameCommentActivity.this.hlB.setEnabled(false);
-            am.setViewTextColor(FrsGameCommentActivity.this.hlB, (int) R.color.cp_cont_e);
+            FrsGameCommentActivity.this.hlH.setEnabled(false);
+            am.setViewTextColor(FrsGameCommentActivity.this.hlH, (int) R.color.cp_cont_e);
         }
     };
-    private HttpMessageListener hlK = new HttpMessageListener(1001712) { // from class: com.baidu.tieba.frs.gamecomment.FrsGameCommentActivity.4
+    private HttpMessageListener hlQ = new HttpMessageListener(1001712) { // from class: com.baidu.tieba.frs.gamecomment.FrsGameCommentActivity.4
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -112,20 +112,20 @@ public class FrsGameCommentActivity extends BaseActivity<FrsGameCommentActivity>
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         this.mScore = getIntent().getIntExtra(GestureAR.SDK_TO_LUA_GESTURE_RESULT_SCORE, 0);
-        this.hlI = getIntent().getIntExtra("forum_id", -1);
+        this.hlO = getIntent().getIntExtra("forum_id", -1);
         initView();
-        xC();
+        xB();
         registerListener();
-        TiebaStatic.log(new an("c12340").af("fid", this.hlI));
+        TiebaStatic.log(new an("c12340").af("fid", this.hlO));
     }
 
     private void initView() {
         setContentView(R.layout.frs_game_comment_layout);
-        this.hlA = (NavigationBar) findViewById(R.id.frs_game_comment_navigation_bar);
-        this.hlA.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.mTitle = this.hlA.setCenterTextTitle(getPageContext().getPageActivity().getString(R.string.frs_game_comment_title));
-        this.hlA.showBottomLine(true);
-        this.hlB = this.hlA.addCreateGroupButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, new View.OnClickListener() { // from class: com.baidu.tieba.frs.gamecomment.FrsGameCommentActivity.1
+        this.hlG = (NavigationBar) findViewById(R.id.frs_game_comment_navigation_bar);
+        this.hlG.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.mTitle = this.hlG.setCenterTextTitle(getPageContext().getPageActivity().getString(R.string.frs_game_comment_title));
+        this.hlG.showBottomLine(true);
+        this.hlH = this.hlG.addCreateGroupButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, new View.OnClickListener() { // from class: com.baidu.tieba.frs.gamecomment.FrsGameCommentActivity.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (!j.isNetWorkAvailable()) {
@@ -134,31 +134,31 @@ public class FrsGameCommentActivity extends BaseActivity<FrsGameCommentActivity>
                 }
                 FrsGameCommentActivity.this.closeLoadingDialog();
                 FrsGameCommentActivity.this.showLoadingDialog(FrsGameCommentActivity.this.getPageContext().getPageActivity().getString(R.string.frs_game_comment_loading_tip));
-                FrsGameCommentActivity.this.bSz();
+                FrsGameCommentActivity.this.bSx();
             }
         });
-        this.hlB.setText(getPageContext().getPageActivity().getString(R.string.send_post));
-        this.hlB.setTextColor(getPageContext().getPageActivity().getResources().getColor(R.color.cp_cont_e));
-        this.hlB.setEnabled(false);
-        this.hlC = (RadioButton) findViewById(R.id.frs_game_comment_grade_1);
-        this.hlC.setOnClickListener(this.mOnClickListener);
-        this.hlD = (RadioButton) findViewById(R.id.frs_game_comment_grade_2);
-        this.hlD.setOnClickListener(this.mOnClickListener);
-        this.hlE = (RadioButton) findViewById(R.id.frs_game_comment_grade_3);
-        this.hlE.setOnClickListener(this.mOnClickListener);
-        this.hlF = (RadioButton) findViewById(R.id.frs_game_comment_grade_4);
-        this.hlF.setOnClickListener(this.mOnClickListener);
-        this.hlG = (RadioButton) findViewById(R.id.frs_game_comment_grade_5);
-        this.hlG.setOnClickListener(this.mOnClickListener);
-        this.hlH = (EditText) findViewById(R.id.frs_game_comment_edit);
-        this.hlH.addTextChangedListener(this.hlJ);
+        this.hlH.setText(getPageContext().getPageActivity().getString(R.string.send_post));
+        this.hlH.setTextColor(getPageContext().getPageActivity().getResources().getColor(R.color.cp_cont_e));
+        this.hlH.setEnabled(false);
+        this.hlI = (RadioButton) findViewById(R.id.frs_game_comment_grade_1);
+        this.hlI.setOnClickListener(this.mOnClickListener);
+        this.hlJ = (RadioButton) findViewById(R.id.frs_game_comment_grade_2);
+        this.hlJ.setOnClickListener(this.mOnClickListener);
+        this.hlK = (RadioButton) findViewById(R.id.frs_game_comment_grade_3);
+        this.hlK.setOnClickListener(this.mOnClickListener);
+        this.hlL = (RadioButton) findViewById(R.id.frs_game_comment_grade_4);
+        this.hlL.setOnClickListener(this.mOnClickListener);
+        this.hlM = (RadioButton) findViewById(R.id.frs_game_comment_grade_5);
+        this.hlM.setOnClickListener(this.mOnClickListener);
+        this.hlN = (EditText) findViewById(R.id.frs_game_comment_edit);
+        this.hlN.addTextChangedListener(this.hlP);
         switch (this.mScore) {
             case 2:
-                this.hlC.setChecked(true);
-                this.hlD.setChecked(false);
-                this.hlE.setChecked(false);
-                this.hlF.setChecked(false);
-                this.hlG.setChecked(false);
+                this.hlI.setChecked(true);
+                this.hlJ.setChecked(false);
+                this.hlK.setChecked(false);
+                this.hlL.setChecked(false);
+                this.hlM.setChecked(false);
                 return;
             case 3:
             case 5:
@@ -167,46 +167,46 @@ public class FrsGameCommentActivity extends BaseActivity<FrsGameCommentActivity>
             default:
                 return;
             case 4:
-                this.hlC.setChecked(true);
-                this.hlD.setChecked(true);
-                this.hlE.setChecked(false);
-                this.hlF.setChecked(false);
-                this.hlG.setChecked(false);
+                this.hlI.setChecked(true);
+                this.hlJ.setChecked(true);
+                this.hlK.setChecked(false);
+                this.hlL.setChecked(false);
+                this.hlM.setChecked(false);
                 return;
             case 6:
-                this.hlC.setChecked(true);
-                this.hlD.setChecked(true);
-                this.hlE.setChecked(true);
-                this.hlF.setChecked(false);
-                this.hlG.setChecked(false);
+                this.hlI.setChecked(true);
+                this.hlJ.setChecked(true);
+                this.hlK.setChecked(true);
+                this.hlL.setChecked(false);
+                this.hlM.setChecked(false);
                 return;
             case 8:
-                this.hlC.setChecked(true);
-                this.hlD.setChecked(true);
-                this.hlE.setChecked(true);
-                this.hlF.setChecked(true);
-                this.hlG.setChecked(false);
+                this.hlI.setChecked(true);
+                this.hlJ.setChecked(true);
+                this.hlK.setChecked(true);
+                this.hlL.setChecked(true);
+                this.hlM.setChecked(false);
                 return;
             case 10:
-                this.hlC.setChecked(true);
-                this.hlD.setChecked(true);
-                this.hlE.setChecked(true);
-                this.hlF.setChecked(true);
-                this.hlG.setChecked(true);
+                this.hlI.setChecked(true);
+                this.hlJ.setChecked(true);
+                this.hlK.setChecked(true);
+                this.hlL.setChecked(true);
+                this.hlM.setChecked(true);
                 return;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bSz() {
+    public void bSx() {
         HttpMessage httpMessage = new HttpMessage(1001712);
         httpMessage.addParam(GestureAR.SDK_TO_LUA_GESTURE_RESULT_SCORE, this.mScore);
-        httpMessage.addParam("forum_id", this.hlI);
-        httpMessage.addParam("content", this.hlH.getText().toString().trim());
+        httpMessage.addParam("forum_id", this.hlO);
+        httpMessage.addParam("content", this.hlN.getText().toString().trim());
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
-    private void xC() {
+    private void xB() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1001712, "http://tieba.baidu.com/game/forum/addComment");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -216,7 +216,7 @@ public class FrsGameCommentActivity extends BaseActivity<FrsGameCommentActivity>
     }
 
     private void registerListener() {
-        MessageManager.getInstance().registerListener(this.hlK);
+        MessageManager.getInstance().registerListener(this.hlQ);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -224,24 +224,24 @@ public class FrsGameCommentActivity extends BaseActivity<FrsGameCommentActivity>
     public void onDestroy() {
         super.onDestroy();
         MessageManager.getInstance().unRegisterTask(1001712);
-        MessageManager.getInstance().unRegisterListener(this.hlK);
+        MessageManager.getInstance().unRegisterListener(this.hlQ);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        am.setBackgroundResource(this.hlC, R.drawable.game_comment_score_btn_bg);
-        am.setBackgroundResource(this.hlD, R.drawable.game_comment_score_btn_bg);
-        am.setBackgroundResource(this.hlE, R.drawable.game_comment_score_btn_bg);
-        am.setBackgroundResource(this.hlF, R.drawable.game_comment_score_btn_bg);
-        am.setBackgroundResource(this.hlG, R.drawable.game_comment_score_btn_bg);
-        if (this.hlB.isEnabled()) {
-            am.setViewTextColor(this.hlB, (int) R.color.cp_link_tip_g);
+        am.setBackgroundResource(this.hlI, R.drawable.game_comment_score_btn_bg);
+        am.setBackgroundResource(this.hlJ, R.drawable.game_comment_score_btn_bg);
+        am.setBackgroundResource(this.hlK, R.drawable.game_comment_score_btn_bg);
+        am.setBackgroundResource(this.hlL, R.drawable.game_comment_score_btn_bg);
+        am.setBackgroundResource(this.hlM, R.drawable.game_comment_score_btn_bg);
+        if (this.hlH.isEnabled()) {
+            am.setViewTextColor(this.hlH, (int) R.color.cp_link_tip_g);
         } else {
-            am.setViewTextColor(this.hlB, (int) R.color.cp_cont_e);
+            am.setViewTextColor(this.hlH, (int) R.color.cp_cont_e);
         }
         am.setViewTextColor(this.mTitle, (int) R.color.cp_cont_b);
-        this.hlH.setHintTextColor(am.getColor(R.color.cp_cont_d));
+        this.hlN.setHintTextColor(am.getColor(R.color.cp_cont_d));
     }
 }

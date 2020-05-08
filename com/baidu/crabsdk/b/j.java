@@ -31,11 +31,11 @@ public final class j {
             }
             return jSONObject;
         } catch (Exception e) {
-            com.baidu.crabsdk.c.a.f("wrap trace to anrRecord error!", e);
+            com.baidu.crabsdk.c.a.a("wrap trace to anrRecord error!", e);
             onUploadFilesCallback.onFailed(e.getMessage());
             return null;
         } catch (OutOfMemoryError e2) {
-            com.baidu.crabsdk.c.a.f("OutOfMemoryError!", e2);
+            com.baidu.crabsdk.c.a.a("OutOfMemoryError!", e2);
             onUploadFilesCallback.onFailed(e2.getMessage());
             return null;
         }
@@ -49,18 +49,18 @@ public final class j {
             jSONObject.put("phoneTime", System.currentTimeMillis());
             jSONObject.put("networkInfo", o.H());
             jSONObject.put(BdStatsConstant.StatsKey.UNAME, t.getUserName());
-            jSONObject.put("uid", t.sH());
+            jSONObject.put("uid", t.sG());
             jSONObject.put("batVN", "7.5.1");
             jSONObject.put("nativeVN", CrabSDK.NDK_VERSION);
-            jSONObject.put("isRoot", q.sF());
-            jSONObject.put(PushClientConstants.TAG_PKG_NAME, p.sC());
-            jSONObject.put("appLabel", p.sD());
+            jSONObject.put("isRoot", q.sE());
+            jSONObject.put(PushClientConstants.TAG_PKG_NAME, p.sB());
+            jSONObject.put("appLabel", p.sC());
             if (TextUtils.isEmpty(com.baidu.crabsdk.a.o)) {
                 jSONObject.put("appVN", p.L());
             } else {
                 jSONObject.put("appVN", com.baidu.crabsdk.a.o);
             }
-            jSONObject.put("appVC", p.sE());
+            jSONObject.put("appVC", p.sD());
             jSONObject.put("model", Build.MODEL);
             jSONObject.put(Constants.PHONE_BRAND, Build.BRAND);
             jSONObject.put("os", "Android");
@@ -75,8 +75,8 @@ public final class j {
             jSONObject.put("romVN", str);
             jSONObject.put("launcherVN", str2);
             jSONObject.put("type", str3);
-            if (!TextUtils.isEmpty(t.sJ())) {
-                jSONObject.put("usersCustom", t.sJ());
+            if (!TextUtils.isEmpty(t.sI())) {
+                jSONObject.put("usersCustom", t.sI());
             }
         } catch (JSONException e) {
             e.printStackTrace();

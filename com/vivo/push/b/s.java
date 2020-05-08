@@ -1,39 +1,53 @@
 package com.vivo.push.b;
-/* loaded from: classes8.dex */
-public class s extends com.vivo.push.y {
-    private String a;
-    private int b;
 
-    public s(int i) {
-        super(i);
-        this.a = null;
-        this.b = 0;
+import android.text.TextUtils;
+import com.vivo.push.model.InsideNotificationItem;
+/* loaded from: classes8.dex */
+public final class s extends x {
+    protected InsideNotificationItem a;
+    private String b;
+
+    public s() {
+        super(4);
     }
 
-    public final String g() {
+    public final InsideNotificationItem d() {
         return this.a;
     }
 
-    public final int h() {
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.vivo.push.b.x, com.vivo.push.b.u, com.vivo.push.y
+    public final void c(com.vivo.push.a aVar) {
+        super.c(aVar);
+        this.b = com.vivo.push.util.q.b(this.a);
+        aVar.a("notification_v1", this.b);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.vivo.push.b.x, com.vivo.push.b.u, com.vivo.push.y
+    public final void d(com.vivo.push.a aVar) {
+        super.d(aVar);
+        this.b = aVar.a("notification_v1");
+        if (!TextUtils.isEmpty(this.b)) {
+            this.a = com.vivo.push.util.q.a(this.b);
+            if (this.a != null) {
+                this.a.setMsgId(f());
+            }
+        }
+    }
+
+    public final String e() {
+        if (TextUtils.isEmpty(this.b)) {
+            if (this.a == null) {
+                return null;
+            }
+            return com.vivo.push.util.q.b(this.a);
+        }
         return this.b;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.vivo.push.y
-    public void c(com.vivo.push.a aVar) {
-        aVar.a("req_id", this.a);
-        aVar.a("status_msg_code", this.b);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.vivo.push.y
-    public void d(com.vivo.push.a aVar) {
-        this.a = aVar.a("req_id");
-        this.b = aVar.b("status_msg_code", this.b);
-    }
-
-    @Override // com.vivo.push.y
-    public String toString() {
-        return "OnReceiveCommand";
+    @Override // com.vivo.push.b.u, com.vivo.push.y
+    public final String toString() {
+        return "OnNotifyArrivedCommand";
     }
 }

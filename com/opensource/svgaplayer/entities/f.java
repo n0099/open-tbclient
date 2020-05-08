@@ -16,11 +16,11 @@ public final class f {
     private final List<g> frames;
     private final String imageKey;
 
-    public final String dzG() {
+    public final String dzC() {
         return this.imageKey;
     }
 
-    public final List<g> dAe() {
+    public final List<g> dAa() {
         return this.frames;
     }
 
@@ -35,18 +35,18 @@ public final class f {
                 JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                 if (optJSONObject != null) {
                     g gVar = new g(optJSONObject);
-                    if ((!gVar.hG().isEmpty()) && ((SVGAVideoShapeEntity) o.fl(gVar.hG())).dzU() && arrayList.size() > 0) {
+                    if ((!gVar.hG().isEmpty()) && ((SVGAVideoShapeEntity) o.fl(gVar.hG())).dzQ() && arrayList.size() > 0) {
                         gVar.fb(((g) o.fm(arrayList)).hG());
                     }
                     arrayList.add(gVar);
                 }
             }
         }
-        this.frames = o.f(arrayList);
+        this.frames = o.g(arrayList);
     }
 
     public f(SpriteEntity spriteEntity) {
-        ArrayList dDD;
+        ArrayList dDz;
         q.j(spriteEntity, "obj");
         this.imageKey = spriteEntity.imageKey;
         g gVar = null;
@@ -58,16 +58,16 @@ public final class f {
             for (FrameEntity frameEntity : list2) {
                 q.i(frameEntity, AdvanceSetting.NETWORK_TYPE);
                 g gVar3 = new g(frameEntity);
-                if ((!gVar3.hG().isEmpty()) && ((SVGAVideoShapeEntity) o.fl(gVar3.hG())).dzU() && gVar2 != null) {
+                if ((!gVar3.hG().isEmpty()) && ((SVGAVideoShapeEntity) o.fl(gVar3.hG())).dzQ() && gVar2 != null) {
                     gVar3.fb(gVar2.hG());
                 }
                 arrayList.add(gVar3);
                 gVar2 = gVar3;
             }
-            dDD = arrayList;
+            dDz = arrayList;
         } else {
-            dDD = o.dDD();
+            dDz = o.dDz();
         }
-        this.frames = dDD;
+        this.frames = dDz;
     }
 }

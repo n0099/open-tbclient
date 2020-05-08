@@ -21,7 +21,7 @@ public class MarioSDK {
 
     /* loaded from: classes11.dex */
     public interface b {
-        void NU();
+        void NT();
     }
 
     public void setMarioInitListener(b bVar) {
@@ -74,7 +74,7 @@ public class MarioSDK {
         }
         MarioSDK marioSDK = new MarioSDK(v8Engine, aREngineDelegate);
         if (bVar != null) {
-            bVar.NU();
+            bVar.NT();
         }
         return marioSDK;
     }
@@ -125,11 +125,11 @@ public class MarioSDK {
         if (aVar.mContext != null) {
             aVar2.setContext(aVar.mContext);
         }
-        if (aVar.bxa != null) {
-            aVar2.setRenderer(aVar.bxa);
+        if (aVar.bxf != null) {
+            aVar2.setRenderer(aVar.bxf);
         }
-        if (aVar.NT() != null) {
-            for (DebugConsole debugConsole : aVar.NT()) {
+        if (aVar.NS() != null) {
+            for (DebugConsole debugConsole : aVar.NS()) {
                 aVar2.addDebugConsole(debugConsole);
             }
         }
@@ -138,8 +138,8 @@ public class MarioSDK {
 
     /* loaded from: classes11.dex */
     public static class a {
-        private List<DebugConsole> bxD = new ArrayList();
-        private GLSurfaceView.Renderer bxa;
+        private List<DebugConsole> bxI = new ArrayList();
+        private GLSurfaceView.Renderer bxf;
         private Context mContext;
         private ArBridge.FirstFrameListener mFirstFrameListener;
         private int mRenderMode;
@@ -154,17 +154,17 @@ public class MarioSDK {
         }
 
         public void setRenderer(GLSurfaceView.Renderer renderer) {
-            this.bxa = renderer;
+            this.bxf = renderer;
         }
 
         public void addDebugConsole(DebugConsole debugConsole) {
             if (debugConsole != null) {
-                this.bxD.add(debugConsole);
+                this.bxI.add(debugConsole);
             }
         }
 
-        public List<DebugConsole> NT() {
-            return this.bxD;
+        public List<DebugConsole> NS() {
+            return this.bxI;
         }
 
         public void setFirstFrameListener(ArBridge.FirstFrameListener firstFrameListener) {

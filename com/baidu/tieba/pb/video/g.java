@@ -8,48 +8,48 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tieba.R;
 /* loaded from: classes9.dex */
 public class g {
-    private BaseFragmentActivity gCG;
-    private d jJk;
+    private BaseFragmentActivity gCM;
+    private d jJo;
     private int mSkinType = 3;
 
     public g(BaseFragmentActivity baseFragmentActivity) {
-        this.gCG = baseFragmentActivity;
+        this.gCM = baseFragmentActivity;
     }
 
     public void b(com.baidu.tieba.pb.data.e eVar, String str) {
-        if (eVar != null && eVar.cvu() != null) {
+        if (eVar != null && eVar.cvr() != null) {
             c(eVar, str);
         }
     }
 
     private void c(com.baidu.tieba.pb.data.e eVar, String str) {
         if (eVar != null) {
-            if (this.jJk == null) {
-                this.jJk = new d(LayoutInflater.from(this.gCG.getPageContext().getPageActivity()).inflate(R.layout.pb_header_video_abstract_layout, (ViewGroup) null));
+            if (this.jJo == null) {
+                this.jJo = new d(LayoutInflater.from(this.gCM.getPageContext().getPageActivity()).inflate(R.layout.pb_header_video_abstract_layout, (ViewGroup) null));
             }
-            this.jJk.a(eVar, str);
+            this.jJo.a(eVar, str);
         }
     }
 
-    public View cDn() {
-        if (this.jJk == null) {
+    public View cDk() {
+        if (this.jJo == null) {
             return null;
         }
-        return this.jJk.mRootView;
+        return this.jJo.mRootView;
     }
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
-            if (this.jJk != null) {
-                this.jJk.aVd();
+            if (this.jJo != null) {
+                this.jJo.aVb();
             }
             this.mSkinType = i;
         }
     }
 
     public void e(BdTypeListView bdTypeListView) {
-        if (this.jJk != null) {
-            bdTypeListView.removeHeaderView(this.jJk.mRootView);
+        if (this.jJo != null) {
+            bdTypeListView.removeHeaderView(this.jJo.mRootView);
         }
     }
 }

@@ -7,7 +7,7 @@ import java.util.regex.Matcher;
 /* loaded from: classes7.dex */
 public final class k {
     /* JADX INFO: Access modifiers changed from: private */
-    public static final int i(Iterable<? extends e> iterable) {
+    public static final int j(Iterable<? extends e> iterable) {
         int i = 0;
         Iterator<? extends e> it = iterable.iterator();
         while (true) {

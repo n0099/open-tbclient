@@ -25,29 +25,29 @@ import java.util.List;
 /* loaded from: classes9.dex */
 public class a implements com.baidu.tbadk.m.a {
     private boolean isActive;
-    final PbFragment jpl;
-    private d jpm;
-    private c jpn;
-    private an jpo;
-    private j jpp;
-    private View.OnClickListener jpq;
-    private View.OnClickListener jpr;
-    private TbRichTextView.i jps;
-    private com.baidu.tieba.pb.a.c jpt;
-    private final MoreGodReplyModel jpu;
-    private long jpv;
+    final PbFragment jpp;
+    private d jpq;
+    private c jpr;
+    private an jps;
+    private j jpt;
+    private View.OnClickListener jpu;
+    private View.OnClickListener jpv;
+    private TbRichTextView.i jpw;
+    private com.baidu.tieba.pb.a.c jpx;
+    private final MoreGodReplyModel jpy;
+    private long jpz;
     private View.OnLongClickListener onLongClickListener;
     private com.baidu.tbadk.m.d pageStayDurationItem;
-    private BdListView.e fhr = new BdListView.e() { // from class: com.baidu.tieba.pb.pb.godreply.a.1
+    private BdListView.e fhw = new BdListView.e() { // from class: com.baidu.tieba.pb.pb.godreply.a.1
         @Override // com.baidu.adp.widget.ListView.BdListView.e
         public void onScrollToBottom() {
-            if (!a.this.jpu.isLoading()) {
-                a.this.jpu.cwC();
+            if (!a.this.jpy.isLoading()) {
+                a.this.jpy.cwz();
             }
         }
     };
-    private AbsListView.OnScrollListener jpw = new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.pb.pb.godreply.a.2
-        private int jpA = -1;
+    private AbsListView.OnScrollListener jpA = new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.pb.pb.godreply.a.2
+        private int jpE = -1;
 
         private boolean zn(int i) {
             return i == 2 || i == 1;
@@ -55,69 +55,69 @@ public class a implements com.baidu.tbadk.m.a {
 
         @Override // android.widget.AbsListView.OnScrollListener
         public void onScrollStateChanged(AbsListView absListView, int i) {
-            if (!zn(this.jpA) && zn(i) && a.this.jpl != null && a.this.jpl.cxv() != null) {
-                a.this.jpl.cxv().cAm();
-                a.this.jpl.cxv().cBk();
+            if (!zn(this.jpE) && zn(i) && a.this.jpp != null && a.this.jpp.cxs() != null) {
+                a.this.jpp.cxs().cAj();
+                a.this.jpp.cxs().cBh();
             }
-            this.jpA = i;
+            this.jpE = i;
         }
 
         @Override // android.widget.AbsListView.OnScrollListener
         public void onScroll(AbsListView absListView, int i, int i2, int i3) {
         }
     };
-    private x.a jpx = new x.a() { // from class: com.baidu.tieba.pb.pb.godreply.a.3
+    private x.a jpB = new x.a() { // from class: com.baidu.tieba.pb.pb.godreply.a.3
         @Override // com.baidu.tieba.pb.pb.main.x.a
         public void m(int i, String str, String str2) {
             if (!StringUtils.isNull(str)) {
-                a.this.jpo.showToast(str);
+                a.this.jps.showToast(str);
             }
         }
 
         @Override // com.baidu.tieba.pb.pb.main.x.a
         public void aS(List<PostData> list) {
-            a.this.cwA();
+            a.this.cwx();
         }
     };
-    private PbFragment.a jpy = new PbFragment.a() { // from class: com.baidu.tieba.pb.pb.godreply.a.8
+    private PbFragment.a jpC = new PbFragment.a() { // from class: com.baidu.tieba.pb.pb.godreply.a.8
         @Override // com.baidu.tieba.pb.pb.main.PbFragment.a
         public boolean onBackPressed() {
-            a.this.cwx();
+            a.this.cwu();
             return true;
         }
     };
 
     public a(PbFragment pbFragment, an anVar, ViewStub viewStub) {
-        this.jpu = new MoreGodReplyModel(pbFragment.getPageContext(), pbFragment.cwD());
-        this.jpu.a(this.jpx);
-        this.jpo = anVar;
-        this.jpl = pbFragment;
-        this.jpm = new d(pbFragment, viewStub);
-        this.jpn = new c(this);
+        this.jpy = new MoreGodReplyModel(pbFragment.getPageContext(), pbFragment.cwA());
+        this.jpy.a(this.jpB);
+        this.jps = anVar;
+        this.jpp = pbFragment;
+        this.jpq = new d(pbFragment, viewStub);
+        this.jpr = new c(this);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void v(final Runnable runnable) {
-        this.jpu.cancelLoadData();
-        this.jpl.cyf();
+        this.jpy.cancelLoadData();
+        this.jpp.cyc();
         if (!isActive() && runnable != null) {
             runnable.run();
             return;
         }
-        if (isActive() && !this.jpn.cwF()) {
-            this.jpm.x(new Runnable() { // from class: com.baidu.tieba.pb.pb.godreply.a.4
+        if (isActive() && !this.jpr.cwC()) {
+            this.jpq.x(new Runnable() { // from class: com.baidu.tieba.pb.pb.godreply.a.4
                 @Override // java.lang.Runnable
                 public void run() {
-                    a.this.jpm.hide();
+                    a.this.jpq.hide();
                     a.this.isActive = false;
-                    if (a.this.jpl != null) {
-                        if (a.this.jpl.cxv() != null) {
-                            a.this.jpl.cxv().rB(false);
-                            f cAD = a.this.jpl.cxv().cAD();
-                            cAD.a(a.this.jpl.cwD().getPbData(), true);
-                            cAD.notifyDataSetChanged();
+                    if (a.this.jpp != null) {
+                        if (a.this.jpp.cxs() != null) {
+                            a.this.jpp.cxs().rB(false);
+                            f cAA = a.this.jpp.cxs().cAA();
+                            cAA.a(a.this.jpp.cwA().getPbData(), true);
+                            cAA.notifyDataSetChanged();
                         }
-                        a.this.jpl.c(a.this.jpy);
+                        a.this.jpp.c(a.this.jpC);
                     }
                     if (runnable != null) {
                         runnable.run();
@@ -125,87 +125,87 @@ public class a implements com.baidu.tbadk.m.a {
                 }
             });
         }
-        if (this.jpv != 0) {
-            long currentTimeMillis = System.currentTimeMillis() - this.jpv;
+        if (this.jpz != 0) {
+            long currentTimeMillis = System.currentTimeMillis() - this.jpz;
             com.baidu.tbadk.m.d pageStayDurationItem = getPageStayDurationItem();
             pageStayDurationItem.setStayDurationTime(currentTimeMillis);
-            e.aZm().a(this.jpl.getContext(), pageStayDurationItem, getPageStayFilter());
+            e.aZk().a(this.jpp.getContext(), pageStayDurationItem, getPageStayFilter());
         }
     }
 
-    void cwx() {
+    void cwu() {
         v(null);
     }
 
     private void showView() {
-        boolean cwI = this.jpm.cwI();
-        this.jpm.show();
-        if (!cwI) {
-            this.jpm.cwJ().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.godreply.a.5
+        boolean cwF = this.jpq.cwF();
+        this.jpq.show();
+        if (!cwF) {
+            this.jpq.cwG().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.godreply.a.5
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    a.this.cwx();
+                    a.this.cwu();
                 }
             });
-            this.jpm.cwK().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.godreply.a.6
+            this.jpq.cwH().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.godreply.a.6
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    a.this.cwx();
+                    a.this.cwu();
                 }
             });
-            this.jpm.cwM().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.godreply.a.7
+            this.jpq.cwJ().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.godreply.a.7
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (!a.this.jpu.isLoading()) {
-                        a.this.jpu.cwC();
+                    if (!a.this.jpy.isLoading()) {
+                        a.this.jpy.cwz();
                     }
                 }
             });
-            this.jpm.getListView().setOnScrollListener(this.jpw);
+            this.jpq.getListView().setOnScrollListener(this.jpA);
         }
-        this.jpv = System.currentTimeMillis();
+        this.jpz = System.currentTimeMillis();
     }
 
-    public void cwy() {
+    public void cwv() {
         if (!isActive()) {
-            this.jpl.cyf();
+            this.jpp.cyc();
             this.isActive = true;
-            this.jpn.setFullscreen(false);
-            this.jpn.qJ(true);
+            this.jpr.setFullscreen(false);
+            this.jpr.qJ(true);
             showView();
-            cwA();
-            this.jpm.y(new Runnable() { // from class: com.baidu.tieba.pb.pb.godreply.a.9
+            cwx();
+            this.jpq.y(new Runnable() { // from class: com.baidu.tieba.pb.pb.godreply.a.9
                 @Override // java.lang.Runnable
                 public void run() {
-                    a.this.jpn.qJ(false);
+                    a.this.jpr.qJ(false);
                 }
             });
-            this.jpl.b(this.jpy);
-            this.jpu.cwC();
+            this.jpp.b(this.jpC);
+            this.jpy.cwz();
         }
-        this.jpl.cxv().cBk();
+        this.jpp.cxs().cBh();
     }
 
-    public void cwz() {
+    public void cww() {
         if (isActive()) {
-            cwA();
+            cwx();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cwA() {
-        List<m> cwE = this.jpu.cwE();
-        if (cwE != null) {
-            com.baidu.tieba.pb.data.e pbData = this.jpu.cwD().getPbData();
-            this.jpm.show();
-            this.jpm.getListView().setOnSrollToBottomListener(this.fhr);
-            BdTypeListView listView = this.jpm.getListView();
-            this.jpn.initialize();
+    public void cwx() {
+        List<m> cwB = this.jpy.cwB();
+        if (cwB != null) {
+            com.baidu.tieba.pb.data.e pbData = this.jpy.cwA().getPbData();
+            this.jpq.show();
+            this.jpq.getListView().setOnSrollToBottomListener(this.fhw);
+            BdTypeListView listView = this.jpq.getListView();
+            this.jpr.initialize();
             a(listView);
             b(pbData);
-            listView.setData(new ArrayList(cwE));
-            this.jpm.boh().setCenterTextTitle(String.format(this.jpl.getResources().getString(R.string.more_god_reply_count), aq.numFormatOver10000(pbData.cvF().joM.size())));
-            this.jpm.qK(this.jpu.aki());
+            listView.setData(new ArrayList(cwB));
+            this.jpq.bof().setCenterTextTitle(String.format(this.jpp.getResources().getString(R.string.more_god_reply_count), aq.numFormatOver10000(pbData.cvC().joQ.size())));
+            this.jpq.qK(this.jpy.akh());
             if (listView.getAdapter() instanceof com.baidu.adp.widget.ListView.e) {
                 listView.getAdapter().notifyDataSetChanged();
             }
@@ -213,42 +213,42 @@ public class a implements com.baidu.tbadk.m.a {
     }
 
     private void a(BdTypeListView bdTypeListView) {
-        if (this.jpp == null) {
-            this.jpp = new j(this.jpl, PostData.kSo);
-            this.jpp.setDuiEnabled(false);
+        if (this.jpt == null) {
+            this.jpt = new j(this.jpp, PostData.kSs);
+            this.jpt.setDuiEnabled(false);
             ArrayList arrayList = new ArrayList(1);
-            arrayList.add(this.jpp);
+            arrayList.add(this.jpt);
             bdTypeListView.addAdapters(arrayList);
         }
     }
 
     private void b(com.baidu.tieba.pb.data.e eVar) {
-        this.jpp.setData(eVar);
-        f cAD = this.jpo.cAD();
-        this.jpp.setFromCDN(cAD.isFromCDN());
-        this.jpp.eA(eVar.cvu().aKE().getUserId());
-        this.jpp.qG(cAD.cxf());
-        this.jpp.z(this.jpq);
-        this.jpp.Q(this.jpr);
-        this.jpp.setOnImageClickListener(this.jps);
-        this.jpp.setOnLongClickListener(this.onLongClickListener);
-        this.jpp.setTbGestureDetector(this.jpt);
+        this.jpt.setData(eVar);
+        f cAA = this.jps.cAA();
+        this.jpt.setFromCDN(cAA.isFromCDN());
+        this.jpt.eA(eVar.cvr().aKC().getUserId());
+        this.jpt.qG(cAA.cxc());
+        this.jpt.z(this.jpu);
+        this.jpt.Q(this.jpv);
+        this.jpt.setOnImageClickListener(this.jpw);
+        this.jpt.setOnLongClickListener(this.onLongClickListener);
+        this.jpt.setTbGestureDetector(this.jpx);
     }
 
     public void onChangeSkinType(int i) {
-        this.jpm.onChangeSkinType(i);
+        this.jpq.onChangeSkinType(i);
     }
 
     public void z(View.OnClickListener onClickListener) {
-        this.jpq = onClickListener;
+        this.jpu = onClickListener;
     }
 
     public void Q(View.OnClickListener onClickListener) {
-        this.jpr = onClickListener;
+        this.jpv = onClickListener;
     }
 
     public void setOnImageClickListener(TbRichTextView.i iVar) {
-        this.jps = iVar;
+        this.jpw = iVar;
     }
 
     public void setOnLongClickListener(View.OnLongClickListener onLongClickListener) {
@@ -256,15 +256,15 @@ public class a implements com.baidu.tbadk.m.a {
     }
 
     public void setTbGestureDetector(com.baidu.tieba.pb.a.c cVar) {
-        this.jpt = cVar;
+        this.jpx = cVar;
     }
 
     public boolean isActive() {
         return this.isActive;
     }
 
-    public d cwB() {
-        return this.jpm;
+    public d cwy() {
+        return this.jpq;
     }
 
     @Override // com.baidu.tbadk.m.a
@@ -274,10 +274,10 @@ public class a implements com.baidu.tbadk.m.a {
 
     @Override // com.baidu.tbadk.m.a
     public List<String> getCurrentPageSourceKeyList() {
-        if (this.jpl == null) {
+        if (this.jpp == null) {
             return null;
         }
-        return this.jpl.getNextPageSourceKeyList();
+        return this.jpp.getNextPageSourceKeyList();
     }
 
     @Override // com.baidu.tbadk.m.a
@@ -306,10 +306,10 @@ public class a implements com.baidu.tbadk.m.a {
             this.pageStayDurationItem = new com.baidu.tbadk.m.d();
             this.pageStayDurationItem.setSorceKeyList(getCurrentPageSourceKeyList());
             this.pageStayDurationItem.setCurrentPageKey(getCurrentPageKey());
-            PbModel cwD = this.jpl.cwD();
-            if (cwD != null) {
-                this.pageStayDurationItem.setFid(com.baidu.adp.lib.f.b.toLong(cwD.getForumId(), 0L));
-                this.pageStayDurationItem.setTid(com.baidu.adp.lib.f.b.toLong(cwD.cyA(), 0L));
+            PbModel cwA = this.jpp.cwA();
+            if (cwA != null) {
+                this.pageStayDurationItem.setFid(com.baidu.adp.lib.f.b.toLong(cwA.getForumId(), 0L));
+                this.pageStayDurationItem.setTid(com.baidu.adp.lib.f.b.toLong(cwA.cyx(), 0L));
             }
         }
         return this.pageStayDurationItem;

@@ -7,40 +7,40 @@ import java.util.Map;
 /* loaded from: classes8.dex */
 public class FCMPushHelper {
     public static void clearToken(Context context) {
-        j.m107a(context, f.ASSEMBLE_PUSH_FCM);
+        h.m109a(context, d.ASSEMBLE_PUSH_FCM);
     }
 
     public static void convertMessage(Intent intent) {
-        j.a(intent);
+        h.a(intent);
     }
 
     public static boolean isFCMSwitchOpen(Context context) {
-        return j.m109a(context, f.ASSEMBLE_PUSH_FCM) && MiPushClient.getOpenFCMPush(context);
+        return h.m111a(context, d.ASSEMBLE_PUSH_FCM) && MiPushClient.getOpenFCMPush(context);
     }
 
     public static void notifyFCMNotificationCome(Context context, Map<String, String> map) {
         PushMessageReceiver a;
         String str = map.get("pushMsg");
-        if (TextUtils.isEmpty(str) || (a = j.a(context)) == null) {
+        if (TextUtils.isEmpty(str) || (a = h.a(context)) == null) {
             return;
         }
-        a.onNotificationMessageArrived(context, j.a(str));
+        a.onNotificationMessageArrived(context, h.a(str));
     }
 
     public static void notifyFCMPassThoughMessageCome(Context context, Map<String, String> map) {
         PushMessageReceiver a;
         String str = map.get("pushMsg");
-        if (TextUtils.isEmpty(str) || (a = j.a(context)) == null) {
+        if (TextUtils.isEmpty(str) || (a = h.a(context)) == null) {
             return;
         }
-        a.onReceivePassThroughMessage(context, j.a(str));
+        a.onReceivePassThroughMessage(context, h.a(str));
     }
 
     public static void reportFCMMessageDelete() {
-        MiTinyDataClient.upload(j.b(f.ASSEMBLE_PUSH_FCM), "fcm", 1L, "some fcm messages was deleted ");
+        MiTinyDataClient.upload(h.b(d.ASSEMBLE_PUSH_FCM), "fcm", 1L, "some fcm messages was deleted ");
     }
 
     public static void uploadToken(Context context, String str) {
-        j.a(context, f.ASSEMBLE_PUSH_FCM, str);
+        h.a(context, d.ASSEMBLE_PUSH_FCM, str);
     }
 }

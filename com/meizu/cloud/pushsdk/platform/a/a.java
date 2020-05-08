@@ -3,7 +3,7 @@ package com.meizu.cloud.pushsdk.platform.a;
 import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
-import com.coloros.mcssdk.mode.CommandMessage;
+import com.heytap.mcssdk.mode.CommandMessage;
 import com.meizu.cloud.pushsdk.b.a.c;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.meizu.cloud.pushsdk.util.MzSystemUtils;

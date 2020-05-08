@@ -51,8 +51,8 @@ public class d extends c {
     }
 
     @Override // com.baidu.ar.libloader.c, com.baidu.ar.libloader.a
-    public /* bridge */ /* synthetic */ void a(ARType aRType, String str, String str2, a.InterfaceC0061a interfaceC0061a) {
-        super.a(aRType, str, str2, interfaceC0061a);
+    public /* bridge */ /* synthetic */ void a(ARType aRType, String str, String str2, a.InterfaceC0082a interfaceC0082a) {
+        super.a(aRType, str, str2, interfaceC0082a);
     }
 
     public void a(a aVar) {

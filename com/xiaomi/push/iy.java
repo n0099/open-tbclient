@@ -1,356 +1,194 @@
 package com.xiaomi.push;
 
-import java.io.UnsupportedEncodingException;
+import com.baidu.live.tbadk.core.util.StringHelper;
 import java.nio.ByteBuffer;
+import java.util.Comparator;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeMap;
+import java.util.TreeSet;
 /* loaded from: classes8.dex */
-public class iy extends jc {
-    private static final jh a = new jh();
-
-    /* renamed from: a  reason: collision with other field name */
-    protected int f782a;
-
-    /* renamed from: a  reason: collision with other field name */
-    protected boolean f783a;
-
-    /* renamed from: a  reason: collision with other field name */
-    private byte[] f784a;
-    protected boolean b;
-
-    /* renamed from: b  reason: collision with other field name */
-    private byte[] f785b;
-    protected boolean c;
-
-    /* renamed from: c  reason: collision with other field name */
-    private byte[] f786c;
-    private byte[] d;
-    private byte[] e;
-    private byte[] f;
-    private byte[] g;
-    private byte[] h;
+public final class iy {
+    private static final Comparator a = new a();
 
     /* loaded from: classes8.dex */
-    public static class a implements je {
-        protected int a;
-
-        /* renamed from: a  reason: collision with other field name */
-        protected boolean f787a;
-        protected boolean b;
-
-        public a() {
-            this(false, true);
+    private static class a implements Comparator {
+        private a() {
         }
 
-        public a(boolean z, boolean z2) {
-            this(z, z2, 0);
-        }
-
-        public a(boolean z, boolean z2, int i) {
-            this.f787a = false;
-            this.b = true;
-            this.f787a = z;
-            this.b = z2;
-            this.a = i;
-        }
-
-        @Override // com.xiaomi.push.je
-        public jc a(jm jmVar) {
-            iy iyVar = new iy(jmVar, this.f787a, this.b);
-            if (this.a != 0) {
-                iyVar.b(this.a);
+        @Override // java.util.Comparator
+        public int compare(Object obj, Object obj2) {
+            if (obj == null && obj2 == null) {
+                return 0;
             }
-            return iyVar;
+            if (obj == null) {
+                return -1;
+            }
+            if (obj2 == null) {
+                return 1;
+            }
+            return obj instanceof List ? iy.a((List) obj, (List) obj2) : obj instanceof Set ? iy.a((Set) obj, (Set) obj2) : obj instanceof Map ? iy.a((Map) obj, (Map) obj2) : obj instanceof byte[] ? iy.a((byte[]) obj, (byte[]) obj2) : iy.a((Comparable) obj, (Comparable) obj2);
         }
     }
 
-    public iy(jm jmVar, boolean z, boolean z2) {
-        super(jmVar);
-        this.f783a = false;
-        this.b = true;
-        this.c = false;
-        this.f784a = new byte[1];
-        this.f785b = new byte[2];
-        this.f786c = new byte[4];
-        this.d = new byte[8];
-        this.e = new byte[1];
-        this.f = new byte[2];
-        this.g = new byte[4];
-        this.h = new byte[8];
-        this.f783a = z;
-        this.b = z2;
-    }
-
-    private int a(byte[] bArr, int i, int i2) {
-        c(i2);
-        return this.a.b(bArr, i, i2);
-    }
-
-    @Override // com.xiaomi.push.jc
-    public byte a() {
-        if (this.a.b() < 1) {
-            a(this.e, 0, 1);
-            return this.e[0];
+    public static int a(byte b, byte b2) {
+        if (b < b2) {
+            return -1;
         }
-        byte b = this.a.m482a()[this.a.a()];
-        this.a.a(1);
-        return b;
+        return b2 < b ? 1 : 0;
     }
 
-    @Override // com.xiaomi.push.jc
-    public double a() {
-        return Double.longBitsToDouble(a());
-    }
-
-    @Override // com.xiaomi.push.jc
-    public int a() {
-        int i = 0;
-        byte[] bArr = this.g;
-        if (this.a.b() >= 4) {
-            bArr = this.a.m482a();
-            i = this.a.a();
-            this.a.a(4);
-        } else {
-            a(this.g, 0, 4);
+    public static int a(int i, int i2) {
+        if (i < i2) {
+            return -1;
         }
-        return (bArr[i + 3] & 255) | ((bArr[i] & 255) << 24) | ((bArr[i + 1] & 255) << 16) | ((bArr[i + 2] & 255) << 8);
+        return i2 < i ? 1 : 0;
     }
 
-    @Override // com.xiaomi.push.jc
-    public long a() {
-        int i = 0;
-        byte[] bArr = this.h;
-        if (this.a.b() >= 8) {
-            bArr = this.a.m482a();
-            i = this.a.a();
-            this.a.a(8);
-        } else {
-            a(this.h, 0, 8);
+    public static int a(long j, long j2) {
+        if (j < j2) {
+            return -1;
         }
-        return (bArr[i + 7] & 255) | ((bArr[i] & 255) << 56) | ((bArr[i + 1] & 255) << 48) | ((bArr[i + 2] & 255) << 40) | ((bArr[i + 3] & 255) << 32) | ((bArr[i + 4] & 255) << 24) | ((bArr[i + 5] & 255) << 16) | ((bArr[i + 6] & 255) << 8);
+        return j2 < j ? 1 : 0;
     }
 
-    @Override // com.xiaomi.push.jc
-    public iz a() {
-        byte a2 = a();
-        return new iz("", a2, a2 == 0 ? (short) 0 : a());
+    public static int a(Comparable comparable, Comparable comparable2) {
+        return comparable.compareTo(comparable2);
     }
 
-    @Override // com.xiaomi.push.jc
-    public ja a() {
-        return new ja(a(), a());
+    public static int a(String str, String str2) {
+        return str.compareTo(str2);
     }
 
-    @Override // com.xiaomi.push.jc
-    public jb a() {
-        return new jb(a(), a(), a());
+    public static int a(ByteBuffer byteBuffer, byte[] bArr, int i) {
+        int remaining = byteBuffer.remaining();
+        System.arraycopy(byteBuffer.array(), byteBuffer.arrayOffset() + byteBuffer.position(), bArr, i, remaining);
+        return remaining;
     }
 
-    @Override // com.xiaomi.push.jc
-    public jg a() {
-        return new jg(a(), a());
-    }
-
-    @Override // com.xiaomi.push.jc
-    public jh a() {
-        return a;
-    }
-
-    @Override // com.xiaomi.push.jc
-    public String a() {
-        int a2 = a();
-        if (this.a.b() >= a2) {
-            try {
-                String str = new String(this.a.m482a(), this.a.a(), a2, "UTF-8");
-                this.a.a(a2);
-                return str;
-            } catch (UnsupportedEncodingException e) {
-                throw new iw("JVM DOES NOT SUPPORT UTF-8");
+    public static int a(List list, List list2) {
+        int a2 = a(list.size(), list2.size());
+        if (a2 != 0) {
+            return a2;
+        }
+        for (int i = 0; i < list.size(); i++) {
+            int compare = a.compare(list.get(i), list2.get(i));
+            if (compare != 0) {
+                return compare;
             }
         }
-        return a(a2);
+        return 0;
     }
 
-    @Override // com.xiaomi.push.jc
-    public String a(int i) {
-        try {
-            c(i);
-            byte[] bArr = new byte[i];
-            this.a.b(bArr, 0, i);
-            return new String(bArr, "UTF-8");
-        } catch (UnsupportedEncodingException e) {
-            throw new iw("JVM DOES NOT SUPPORT UTF-8");
+    public static int a(Map map, Map map2) {
+        int a2 = a(map.size(), map2.size());
+        if (a2 != 0) {
+            return a2;
         }
-    }
-
-    @Override // com.xiaomi.push.jc
-    public ByteBuffer a() {
-        int a2 = a();
-        c(a2);
-        if (this.a.b() >= a2) {
-            ByteBuffer wrap = ByteBuffer.wrap(this.a.m482a(), this.a.a(), a2);
-            this.a.a(a2);
-            return wrap;
-        }
-        byte[] bArr = new byte[a2];
-        this.a.b(bArr, 0, a2);
-        return ByteBuffer.wrap(bArr);
-    }
-
-    @Override // com.xiaomi.push.jc
-    public short a() {
-        int i = 0;
-        byte[] bArr = this.f;
-        if (this.a.b() >= 2) {
-            bArr = this.a.m482a();
-            i = this.a.a();
-            this.a.a(2);
-        } else {
-            a(this.f, 0, 2);
-        }
-        return (short) ((bArr[i + 1] & 255) | ((bArr[i] & 255) << 8));
-    }
-
-    @Override // com.xiaomi.push.jc
-    public void a() {
-    }
-
-    @Override // com.xiaomi.push.jc
-    public void a(byte b) {
-        this.f784a[0] = b;
-        this.a.m481a(this.f784a, 0, 1);
-    }
-
-    @Override // com.xiaomi.push.jc
-    public void a(int i) {
-        this.f786c[0] = (byte) ((i >> 24) & 255);
-        this.f786c[1] = (byte) ((i >> 16) & 255);
-        this.f786c[2] = (byte) ((i >> 8) & 255);
-        this.f786c[3] = (byte) (i & 255);
-        this.a.m481a(this.f786c, 0, 4);
-    }
-
-    @Override // com.xiaomi.push.jc
-    public void a(long j) {
-        this.d[0] = (byte) ((j >> 56) & 255);
-        this.d[1] = (byte) ((j >> 48) & 255);
-        this.d[2] = (byte) ((j >> 40) & 255);
-        this.d[3] = (byte) ((j >> 32) & 255);
-        this.d[4] = (byte) ((j >> 24) & 255);
-        this.d[5] = (byte) ((j >> 16) & 255);
-        this.d[6] = (byte) ((j >> 8) & 255);
-        this.d[7] = (byte) (255 & j);
-        this.a.m481a(this.d, 0, 8);
-    }
-
-    @Override // com.xiaomi.push.jc
-    public void a(iz izVar) {
-        a(izVar.a);
-        a(izVar.f789a);
-    }
-
-    @Override // com.xiaomi.push.jc
-    public void a(ja jaVar) {
-        a(jaVar.a);
-        a(jaVar.f792a);
-    }
-
-    @Override // com.xiaomi.push.jc
-    public void a(jb jbVar) {
-        a(jbVar.a);
-        a(jbVar.b);
-        a(jbVar.f793a);
-    }
-
-    @Override // com.xiaomi.push.jc
-    public void a(jh jhVar) {
-    }
-
-    @Override // com.xiaomi.push.jc
-    public void a(String str) {
-        try {
-            byte[] bytes = str.getBytes("UTF-8");
-            a(bytes.length);
-            this.a.m481a(bytes, 0, bytes.length);
-        } catch (UnsupportedEncodingException e) {
-            throw new iw("JVM DOES NOT SUPPORT UTF-8");
-        }
-    }
-
-    @Override // com.xiaomi.push.jc
-    public void a(ByteBuffer byteBuffer) {
-        int limit = (byteBuffer.limit() - byteBuffer.position()) - byteBuffer.arrayOffset();
-        a(limit);
-        this.a.m481a(byteBuffer.array(), byteBuffer.position() + byteBuffer.arrayOffset(), limit);
-    }
-
-    @Override // com.xiaomi.push.jc
-    public void a(short s) {
-        this.f785b[0] = (byte) ((s >> 8) & 255);
-        this.f785b[1] = (byte) (s & 255);
-        this.a.m481a(this.f785b, 0, 2);
-    }
-
-    @Override // com.xiaomi.push.jc
-    public void a(boolean z) {
-        a(z ? (byte) 1 : (byte) 0);
-    }
-
-    @Override // com.xiaomi.push.jc
-    public boolean a() {
-        return a() == 1;
-    }
-
-    @Override // com.xiaomi.push.jc
-    public void b() {
-    }
-
-    public void b(int i) {
-        this.f782a = i;
-        this.c = true;
-    }
-
-    @Override // com.xiaomi.push.jc
-    public void c() {
-        a((byte) 0);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void c(int i) {
-        if (i < 0) {
-            throw new iw("Negative length: " + i);
-        }
-        if (this.c) {
-            this.f782a -= i;
-            if (this.f782a < 0) {
-                throw new iw("Message length exceeded: " + i);
+        TreeMap treeMap = new TreeMap(a);
+        treeMap.putAll(map);
+        Iterator it = treeMap.entrySet().iterator();
+        TreeMap treeMap2 = new TreeMap(a);
+        treeMap2.putAll(map2);
+        Iterator it2 = treeMap2.entrySet().iterator();
+        while (it.hasNext() && it2.hasNext()) {
+            Map.Entry entry = (Map.Entry) it.next();
+            Map.Entry entry2 = (Map.Entry) it2.next();
+            int compare = a.compare(entry.getKey(), entry2.getKey());
+            if (compare != 0) {
+                return compare;
+            }
+            int compare2 = a.compare(entry.getValue(), entry2.getValue());
+            if (compare2 != 0) {
+                return compare2;
             }
         }
+        return 0;
     }
 
-    @Override // com.xiaomi.push.jc
-    public void d() {
+    public static int a(Set set, Set set2) {
+        int a2 = a(set.size(), set2.size());
+        if (a2 != 0) {
+            return a2;
+        }
+        TreeSet treeSet = new TreeSet(a);
+        treeSet.addAll(set);
+        TreeSet treeSet2 = new TreeSet(a);
+        treeSet2.addAll(set2);
+        Iterator it = treeSet.iterator();
+        Iterator it2 = treeSet2.iterator();
+        while (it.hasNext() && it2.hasNext()) {
+            int compare = a.compare(it.next(), it2.next());
+            if (compare != 0) {
+                return compare;
+            }
+        }
+        return 0;
     }
 
-    @Override // com.xiaomi.push.jc
-    public void e() {
+    public static int a(short s, short s2) {
+        if (s < s2) {
+            return -1;
+        }
+        return s2 < s ? 1 : 0;
     }
 
-    @Override // com.xiaomi.push.jc
-    public void f() {
+    public static int a(boolean z, boolean z2) {
+        return Boolean.valueOf(z).compareTo(Boolean.valueOf(z2));
     }
 
-    @Override // com.xiaomi.push.jc
-    public void g() {
+    public static int a(byte[] bArr, byte[] bArr2) {
+        int a2 = a(bArr.length, bArr2.length);
+        if (a2 != 0) {
+            return a2;
+        }
+        for (int i = 0; i < bArr.length; i++) {
+            int a3 = a(bArr[i], bArr2[i]);
+            if (a3 != 0) {
+                return a3;
+            }
+        }
+        return 0;
     }
 
-    @Override // com.xiaomi.push.jc
-    public void h() {
+    public static String a(byte b) {
+        return Integer.toHexString((b | 256) & 511).toUpperCase().substring(1);
     }
 
-    @Override // com.xiaomi.push.jc
-    public void i() {
+    public static ByteBuffer a(ByteBuffer byteBuffer) {
+        return m475a(byteBuffer) ? byteBuffer : ByteBuffer.wrap(m476a(byteBuffer));
     }
 
-    @Override // com.xiaomi.push.jc
-    public void j() {
+    public static void a(ByteBuffer byteBuffer, StringBuilder sb) {
+        byte[] array = byteBuffer.array();
+        int arrayOffset = byteBuffer.arrayOffset();
+        int limit = byteBuffer.limit();
+        int i = limit - arrayOffset > 128 ? arrayOffset + 128 : limit;
+        for (int i2 = arrayOffset; i2 < i; i2++) {
+            if (i2 > arrayOffset) {
+                sb.append(" ");
+            }
+            sb.append(a(array[i2]));
+        }
+        if (limit != i) {
+            sb.append(StringHelper.STRING_MORE);
+        }
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public static boolean m475a(ByteBuffer byteBuffer) {
+        return byteBuffer.hasArray() && byteBuffer.position() == 0 && byteBuffer.arrayOffset() == 0 && byteBuffer.remaining() == byteBuffer.capacity();
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public static byte[] m476a(ByteBuffer byteBuffer) {
+        if (m475a(byteBuffer)) {
+            return byteBuffer.array();
+        }
+        byte[] bArr = new byte[byteBuffer.remaining()];
+        a(byteBuffer, bArr, 0);
+        return bArr;
     }
 }

@@ -28,7 +28,7 @@ public class c implements e<a> {
         if (aVar != null) {
             com.baidu.tbadk.core.util.c.e eVar = new com.baidu.tbadk.core.util.c.e();
             eVar.f(diskFileOperate);
-            aVar.KR = eVar;
+            aVar.KU = eVar;
         }
         diskFileOperate.call();
         if (!diskFileOperate.isSuccess()) {
@@ -53,15 +53,15 @@ public class c implements e<a> {
         a aVar2 = new a();
         i iVar = new i();
         if (aVar != null) {
-            aVar.KR = iVar;
+            aVar.KU = iVar;
         }
         String str4 = TbConfig.SERVER_ADDRESS + TbConfig.VOICE_DATA + "?voice_md5=" + str;
-        byte[] uS = iVar.uS(!TextUtils.isEmpty(str3) ? str4 + "&play_from=" + str3 : str4);
-        if (!iVar.aPh()) {
+        byte[] uV = iVar.uV(!TextUtils.isEmpty(str3) ? str4 + "&play_from=" + str3 : str4);
+        if (!iVar.aPe()) {
             aVar2.error_code = 3;
             aVar2.error_msg = h.getString(R.string.neterror);
             return aVar2;
-        } else if (uS == null || uS.length == 0) {
+        } else if (uV == null || uV.length == 0) {
             aVar2.error_code = 4;
             aVar2.error_msg = h.getString(R.string.voice_cache_error_no_file);
             return aVar2;
@@ -69,23 +69,23 @@ public class c implements e<a> {
             String str5 = null;
             if (str == null) {
                 i3 = 5;
-            } else if (uS == null || uS.length == 0) {
+            } else if (uV == null || uV.length == 0) {
                 i3 = 6;
             } else {
                 DiskFileOperate diskFileOperate = new DiskFileOperate("voice", str, DiskFileOperate.Action.WRITE);
                 diskFileOperate.a(DiskFileOperate.OperateType.MUST_SUCCESS);
                 diskFileOperate.setSubFolder(false);
-                diskFileOperate.setData(uS);
+                diskFileOperate.setData(uV);
                 if (aVar != null) {
                     com.baidu.tbadk.core.util.c.e eVar = new com.baidu.tbadk.core.util.c.e();
                     eVar.f(diskFileOperate);
-                    aVar.KR = eVar;
+                    aVar.KU = eVar;
                 }
                 diskFileOperate.call();
                 if (diskFileOperate.isSuccess() && diskFileOperate.getFileInfo() != null) {
                     str5 = diskFileOperate.getFileInfo().getAbsolutePath();
                     i3 = 0;
-                } else if (m.getAvailableSize() < uS.length) {
+                } else if (m.getAvailableSize() < uV.length) {
                     i3 = 2;
                 } else {
                     i3 = 1;

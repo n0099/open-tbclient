@@ -47,7 +47,7 @@ public class RGStateCar3D extends RGState {
         MapStatus i = b.a().G().i();
         if (i != null) {
             MapStatus.Builder builder = new MapStatus.Builder(i);
-            builder.targetScreen(new Point((i.winRound.right + i.winRound.left) / 2, ((i.winRound.f999top + i.winRound.bottom) / 2) - ((int) (0.0f - (Math.abs(i.winRound.bottom - i.winRound.f999top) * 0.2f)))));
+            builder.targetScreen(new Point((i.winRound.right + i.winRound.left) / 2, ((i.winRound.f991top + i.winRound.bottom) / 2) - ((int) (0.0f - (Math.abs(i.winRound.bottom - i.winRound.f991top) * 0.2f)))));
             builder.rotate(b.a().D().d());
             if (com.baidu.platform.comapi.wnplatform.a.a().f()) {
                 builder.overlook(-50.0f);

@@ -9,7 +9,7 @@ import com.baidu.swan.pms.PMSConstants;
 import com.baidu.swan.pms.model.PMSAppInfo;
 /* loaded from: classes11.dex */
 public class b implements a<PMSAppInfo> {
-    private static final int bRr = PMSConstants.PayProtected.NO_PAY_PROTECTED.type;
+    private static final int bRw = PMSConstants.PayProtected.NO_PAY_PROTECTED.type;
 
     public String aBM() {
         return "swan_app";
@@ -41,7 +41,7 @@ public class b implements a<PMSAppInfo> {
 
     private void q(SQLiteDatabase sQLiteDatabase) {
         try {
-            sQLiteDatabase.execSQL("ALTER TABLE " + aBM() + " ADD pay_protected INTEGER default " + bRr + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
+            sQLiteDatabase.execSQL("ALTER TABLE " + aBM() + " ADD pay_protected INTEGER default " + bRw + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
         } catch (SQLException e) {
         }
     }

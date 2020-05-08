@@ -3,7 +3,6 @@ package com.baidu.tbadk.core.hybrid;
 import android.text.TextUtils;
 import com.baidu.android.common.others.IStringUtil;
 import com.baidu.down.common.intercepter.IIntercepter;
-import com.coloros.mcssdk.PushManager;
 import com.sina.weibo.sdk.constant.WBConstants;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicLong;
@@ -11,11 +10,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class m {
-    private static final AtomicLong dww = new AtomicLong((System.currentTimeMillis() / 1000) * 1000);
+    private static final AtomicLong dwA = new AtomicLong((System.currentTimeMillis() / 1000) * 1000);
     final String cmd;
-    final Map<String, Object> dwx;
-    final Map<String, Object> dwy;
-    final String dwz;
+    final Map<String, Object> dwB;
+    final Map<String, Object> dwC;
+    final String dwD;
     final String method;
     final long start;
     final long timeout;
@@ -24,21 +23,21 @@ public class m {
     private m(int i, String str, String str2, Map<String, Object> map, Map<String, Object> map2, String str3, long j) {
         this.cmd = str;
         this.method = str2;
-        this.dwx = map;
-        this.dwy = map2;
+        this.dwB = map;
+        this.dwC = map2;
         this.type = i;
-        this.dwz = str3;
+        this.dwD = str3;
         this.timeout = j;
         this.start = System.currentTimeMillis();
     }
 
     private static m a(int i, String str, String str2, Map<String, Object> map, long j, boolean z) {
-        return new m(i, str, str2, map, null, z ? aNG() : null, j);
+        return new m(i, str, str2, map, null, z ? aNE() : null, j);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static m a(Map<String, Object> map, long j, k kVar) {
-        return new a(1, null, null, map, null, aNG(), kVar, j);
+        return new a(1, null, null, map, null, aNE(), kVar, j);
     }
 
     public static m a(String str, String str2, Map<String, Object> map, long j, boolean z) {
@@ -49,7 +48,7 @@ public class m {
         return new m(3, null, null, null, map, str, -1L);
     }
 
-    private String aNE() {
+    private String aNC() {
         switch (this.type) {
             case 1:
                 return "ping";
@@ -62,7 +61,7 @@ public class m {
         }
     }
 
-    public String aNF() throws JSONException {
+    public String aND() throws JSONException {
         JSONObject jSONObject = new JSONObject();
         if (!TextUtils.isEmpty(this.cmd)) {
             jSONObject.put("cmd", this.cmd);
@@ -70,19 +69,19 @@ public class m {
         if (!TextUtils.isEmpty(this.method)) {
             jSONObject.put("method", this.method);
         }
-        if (this.dwx != null && !this.dwx.isEmpty()) {
+        if (this.dwB != null && !this.dwB.isEmpty()) {
             JSONObject jSONObject2 = new JSONObject();
-            b(this.dwx, jSONObject2);
+            b(this.dwB, jSONObject2);
             jSONObject.put("inputData", jSONObject2);
         }
-        if (this.dwy != null && !this.dwy.isEmpty()) {
+        if (this.dwC != null && !this.dwC.isEmpty()) {
             JSONObject jSONObject3 = new JSONObject();
-            b(this.dwy, jSONObject3);
+            b(this.dwC, jSONObject3);
             jSONObject.put("outputData", jSONObject3);
         }
-        jSONObject.put(PushManager.MESSAGE_TYPE, aNE());
-        if (!TextUtils.isEmpty(this.dwz)) {
-            jSONObject.put(WBConstants.SHARE_CALLBACK_ID, this.dwz);
+        jSONObject.put("messageType", aNC());
+        if (!TextUtils.isEmpty(this.dwD)) {
+            jSONObject.put(WBConstants.SHARE_CALLBACK_ID, this.dwD);
         }
         return encode(jSONObject.toString());
     }
@@ -91,8 +90,8 @@ public class m {
     public void cw(JSONObject jSONObject) {
     }
 
-    private static String aNG() {
-        return "TBCWebViewJsBridge_callback_ID_" + dww.getAndIncrement();
+    private static String aNE() {
+        return "TBCWebViewJsBridge_callback_ID_" + dwA.getAndIncrement();
     }
 
     private void b(Map<String, Object> map, JSONObject jSONObject) throws JSONException {
@@ -111,21 +110,21 @@ public class m {
 
     /* loaded from: classes.dex */
     private static final class a extends m {
-        private final k dwA;
+        private final k dwE;
 
         private a(int i, String str, String str2, Map<String, Object> map, Map<String, Object> map2, String str3, k kVar, long j) {
             super(i, str, str2, map, map2, str3, j);
-            this.dwA = kVar;
+            this.dwE = kVar;
         }
 
         @Override // com.baidu.tbadk.core.hybrid.m
         protected void cw(JSONObject jSONObject) {
-            this.dwA.a(this, jSONObject);
+            this.dwE.a(this, jSONObject);
         }
 
         @Override // com.baidu.tbadk.core.hybrid.m
         void b(int i, Throwable th) {
-            this.dwA.b(i, th);
+            this.dwE.b(i, th);
         }
     }
 }

@@ -13,8 +13,8 @@ import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class c {
     private Context context;
-    private a fXn;
-    private b fXo;
+    private a fXs;
+    private b fXt;
     private boolean hasMore;
     private TbPageContext mTbPageContext;
     private int pn = 0;
@@ -39,8 +39,8 @@ public class c {
 
     public void h(int i, String str, String str2) {
         if (!BdNetTypeUtil.isNetWorkAvailable() || TextUtils.isEmpty(str)) {
-            if (this.fXn != null) {
-                this.fXn.onFail(this.context.getResources().getString(a.i.sdk_no_network));
+            if (this.fXs != null) {
+                this.fXs.onFail(this.context.getResources().getString(a.i.sdk_no_network));
                 return;
             }
             return;
@@ -52,21 +52,21 @@ public class c {
             this.url = TbConfig.SERVER_ADDRESS + "ala/user/followList";
         }
         this.pn++;
-        this.fXo = new b();
-        this.fXo.execute(str, str2);
+        this.fXt = new b();
+        this.fXt.execute(str, str2);
     }
 
     public void cancel() {
-        if (this.fXo != null && !this.fXo.isCancelled()) {
-            this.fXo.cancel();
+        if (this.fXt != null && !this.fXt.isCancelled()) {
+            this.fXt.cancel();
         }
-        if (this.fXn != null) {
-            this.fXn.onFail(null);
+        if (this.fXs != null) {
+            this.fXs.onFail(null);
         }
     }
 
     public void a(a aVar) {
-        this.fXn = aVar;
+        this.fXs = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -118,8 +118,8 @@ public class c {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.live.adp.lib.asynctask.BdAsyncTask
         public void onPostExecute(Object obj) {
-            if (c.this.fXn != null) {
-                c.this.fXn.c((com.baidu.tieba.ala.person.a.d) obj);
+            if (c.this.fXs != null) {
+                c.this.fXs.c((com.baidu.tieba.ala.person.a.d) obj);
             }
         }
     }
@@ -130,7 +130,7 @@ public class c {
             for (com.baidu.tieba.ala.person.a.b bVar : dVar.user_list) {
                 String currentAccount = TbadkCoreApplication.getCurrentAccount();
                 if (currentAccount != null && currentAccount.equals(str)) {
-                    bVar.fqC = 1;
+                    bVar.fqH = 1;
                 }
             }
         }

@@ -23,11 +23,11 @@ public class d extends com.meizu.cloud.pushsdk.handler.a.a<com.meizu.cloud.pushs
         switch (cVar.c()) {
             case -2:
                 com.meizu.cloud.a.a.e("AbstractMessageHandler", "notification STATE_NOTIFICATION_SHOW_ACCESS_DENY");
-                com.meizu.cloud.pushsdk.util.c.g(c(), cVar.a().getUploadDataPackageName(), cVar.a().getDeviceId(), cVar.a().getTaskId(), cVar.a().getSeqId(), cVar.a().getPushTimestamp());
+                com.meizu.cloud.pushsdk.util.d.g(c(), cVar.a().getUploadDataPackageName(), cVar.a().getDeviceId(), cVar.a().getTaskId(), cVar.a().getSeqId(), cVar.a().getPushTimestamp());
                 return;
             case -1:
                 com.meizu.cloud.a.a.e("AbstractMessageHandler", "notification STATE_NOTIFICATION_SHOW_INBOX");
-                com.meizu.cloud.pushsdk.util.c.f(c(), cVar.a().getUploadDataPackageName(), cVar.a().getDeviceId(), cVar.a().getTaskId(), cVar.a().getSeqId(), cVar.a().getPushTimestamp());
+                com.meizu.cloud.pushsdk.util.d.f(c(), cVar.a().getUploadDataPackageName(), cVar.a().getDeviceId(), cVar.a().getTaskId(), cVar.a().getSeqId(), cVar.a().getPushTimestamp());
                 return;
             case 0:
                 com.meizu.cloud.a.a.e("AbstractMessageHandler", "notification STATE_NOTIFICATION_SHOW_NORMAL");

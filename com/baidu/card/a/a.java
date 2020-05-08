@@ -7,31 +7,31 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes8.dex */
 public class a {
-    private SparseArray<List<b>> afE = new SparseArray<>();
+    private SparseArray<List<b>> afH = new SparseArray<>();
 
     /* loaded from: classes8.dex */
     public interface b {
-        boolean a(C0074a c0074a);
+        boolean a(C0095a c0095a);
     }
 
     public void c(int i, b bVar) {
-        if (this.afE == null) {
-            this.afE = new SparseArray<>();
+        if (this.afH == null) {
+            this.afH = new SparseArray<>();
         }
-        List<b> list = this.afE.get(i);
+        List<b> list = this.afH.get(i);
         if (list == null) {
             list = new ArrayList<>();
-            this.afE.put(i, list);
+            this.afH.put(i, list);
         }
         list.add(bVar);
     }
 
     public void d(int i, b bVar) {
         if (bVar == null) {
-            this.afE.remove(i);
+            this.afH.remove(i);
             return;
         }
-        List<b> list = this.afE.get(i);
+        List<b> list = this.afH.get(i);
         if (!v.isEmpty(list)) {
             Iterator<b> it = list.iterator();
             while (it.hasNext()) {
@@ -42,13 +42,13 @@ public class a {
         }
     }
 
-    public boolean b(C0074a c0074a) {
-        List<b> list = this.afE.get(c0074a.afF);
+    public boolean b(C0095a c0095a) {
+        List<b> list = this.afH.get(c0095a.afI);
         if (v.isEmpty(list)) {
             return false;
         }
         for (b bVar : list) {
-            if (bVar != null && bVar.a(c0074a)) {
+            if (bVar != null && bVar.a(c0095a)) {
                 return true;
             }
         }
@@ -57,29 +57,29 @@ public class a {
 
     /* renamed from: com.baidu.card.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static class C0074a {
-        private int afF;
-        private Object afG;
+    public static class C0095a {
+        private int afI;
+        private Object afJ;
 
-        public C0074a(int i, Object obj) {
-            this.afF = i;
-            this.afG = obj;
+        public C0095a(int i, Object obj) {
+            this.afI = i;
+            this.afJ = obj;
         }
 
-        public C0074a(int i) {
-            this.afF = i;
+        public C0095a(int i) {
+            this.afI = i;
         }
 
         public int getActionType() {
-            return this.afF;
+            return this.afI;
         }
 
         public void setExtraData(Object obj) {
-            this.afG = obj;
+            this.afJ = obj;
         }
 
         public Object rJ() {
-            return this.afG;
+            return this.afJ;
         }
     }
 }

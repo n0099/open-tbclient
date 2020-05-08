@@ -11,22 +11,22 @@ import com.tencent.tauth.IUiListener;
 import java.util.ArrayList;
 /* loaded from: classes11.dex */
 public class c extends b {
-    private IUiListener kGM;
-    private final com.baidu.adp.lib.e.b<f.a> kGO;
+    private IUiListener kGQ;
+    private final com.baidu.adp.lib.e.b<f.a> kGS;
 
     public c(Context context) {
         super(context);
-        this.kGO = new com.baidu.adp.lib.e.b<f.a>() { // from class: com.baidu.tieba.sharesdk.a.c.1
+        this.kGS = new com.baidu.adp.lib.e.b<f.a>() { // from class: com.baidu.tieba.sharesdk.a.c.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.e.b
             /* renamed from: a */
             public void onLoaded(f.a aVar, String str, int i) {
                 super.onLoaded(aVar, str, i);
-                if (aVar == null || aVar.dBt == null || TextUtils.isEmpty(aVar.path)) {
+                if (aVar == null || aVar.dBx == null || TextUtils.isEmpty(aVar.path)) {
                     c.this.cL(2, 4);
                 }
-                c.this.Kg(aVar.path);
+                c.this.Kj(aVar.path);
             }
 
             /* JADX INFO: Access modifiers changed from: protected */
@@ -36,12 +36,12 @@ public class c extends b {
                 c.this.cL(3, 4);
             }
         };
-        this.kGE = 4;
+        this.kGI = 4;
     }
 
     @Override // com.baidu.tieba.sharesdk.a.b, com.baidu.tieba.sharesdk.b.a
     public void a(ShareEntity shareEntity, com.baidu.tieba.sharesdk.b.b bVar) {
-        if (shareEntity == null || this.kGL == null) {
+        if (shareEntity == null || this.kGP == null) {
             cL(2, 4);
             if (bVar != null) {
                 bVar.cK(0, 2);
@@ -52,8 +52,8 @@ public class c extends b {
                 bVar.cK(0, 2);
             }
         } else {
-            this.kGM = new b.a(bVar);
-            if (shareEntity.cSo() != 0) {
+            this.kGQ = new b.a(bVar);
+            if (shareEntity.cSl() != 0) {
                 b(shareEntity);
             } else {
                 c(shareEntity);
@@ -62,23 +62,23 @@ public class c extends b {
     }
 
     private void b(ShareEntity shareEntity) {
-        if (vN(shareEntity.cSm())) {
-            Kg(shareEntity.cSm());
+        if (vQ(shareEntity.cSj())) {
+            Kj(shareEntity.cSj());
         } else if (y(shareEntity.getImageUri())) {
-            Kg(shareEntity.getImageUri().getPath());
+            Kj(shareEntity.getImageUri().getPath());
         } else {
-            com.baidu.adp.lib.e.c.kV().a(shareEntity.aIW(), 34, this.kGO, 0, 0, getPageId(), new Object[0]);
+            com.baidu.adp.lib.e.c.kV().a(shareEntity.aIU(), 34, this.kGS, 0, 0, getPageId(), new Object[0]);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Kg(String str) {
+    public void Kj(String str) {
         Bundle bundle = new Bundle();
         bundle.putString("imageLocalUrl", str);
         bundle.putInt("req_type", 5);
         bundle.putInt("cflag", 1);
-        if (this.kGM != null) {
-            this.kGL.shareToQQ((Activity) this.context, bundle, this.kGM);
+        if (this.kGQ != null) {
+            this.kGP.shareToQQ((Activity) this.context, bundle, this.kGQ);
         }
     }
 
@@ -89,12 +89,12 @@ public class c extends b {
         bundle.putString("summary", shareEntity.getContent());
         bundle.putString("targetUrl", shareEntity.getLinkUrl());
         ArrayList<String> arrayList = new ArrayList<>();
-        if (!TextUtils.isEmpty(shareEntity.aIW())) {
-            arrayList.add(shareEntity.aIW());
+        if (!TextUtils.isEmpty(shareEntity.aIU())) {
+            arrayList.add(shareEntity.aIU());
         }
         bundle.putStringArrayList("imageUrl", arrayList);
-        if (this.kGM != null) {
-            this.kGL.shareToQzone((Activity) this.context, bundle, this.kGM);
+        if (this.kGQ != null) {
+            this.kGP.shareToQzone((Activity) this.context, bundle, this.kGQ);
         }
     }
 }

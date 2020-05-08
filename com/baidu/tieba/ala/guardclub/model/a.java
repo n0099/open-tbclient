@@ -6,7 +6,7 @@ import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class a {
     public String date = "";
-    public int flI = 0;
+    public int flN = 0;
     public String id;
 
     public static a cG(JSONObject jSONObject) {
@@ -20,7 +20,7 @@ public class a {
         a aVar = new a();
         aVar.id = optString;
         aVar.date = jSONObject.optString("date");
-        aVar.flI = jSONObject.optInt("times");
+        aVar.flN = jSONObject.optInt("times");
         return aVar;
     }
 
@@ -29,7 +29,7 @@ public class a {
         try {
             jSONObject.put("id", this.id);
             jSONObject.put("date", this.date);
-            jSONObject.put("times", this.flI);
+            jSONObject.put("times", this.flN);
             return jSONObject.toString();
         } catch (JSONException e) {
             e.printStackTrace();

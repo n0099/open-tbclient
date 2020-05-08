@@ -1,12 +1,11 @@
 package com.baidu.sapi2.utils.enums;
 
 import com.baidu.sapi2.utils.SapiUtils;
-import com.baidu.sapi2.utils.h;
+import com.baidu.sapi2.utils.j;
 /* loaded from: classes6.dex */
 public enum Domain {
-    DOMAIN_ONLINE("aHR0cDovL3Bhc3Nwb3J0LmJhaWR1LmNvbQ==", h.b, h.c, h.d, h.e),
-    DOMAIN_RD(h.f, "aHR0cDovL3dhcHBhc3MtcmR0ZXN0LmJhaWR1LmNvbQ==", h.h, "aHR0cDovL3dhcHBhc3MtcmR0ZXN0LmJhaWR1LmNvbQ==", "aHR0cDovL3Bhc3Nwb3J0LmJhaWR1LmNvbQ=="),
-    DOMAIN_QA(h.k, h.l, h.m, h.n, "aHR0cDovL3Bhc3Nwb3J0LmJhaWR1LmNvbQ==");
+    DOMAIN_ONLINE("aHR0cDovL3Bhc3Nwb3J0LmJhaWR1LmNvbQ==", j.b, j.c, j.d, j.e),
+    DOMAIN_QA(j.f, j.g, j.h, j.i, "aHR0cDovL3Bhc3Nwb3J0LmJhaWR1LmNvbQ==");
     
     private String b;
     private String c;
@@ -16,11 +15,11 @@ public enum Domain {
     private boolean g;
 
     Domain(String str, String str2, String str3, String str4, String str5) {
-        this.b = h.a(str);
-        this.c = h.a(str2);
-        this.d = h.a(str3);
-        this.e = h.a(str4);
-        this.f = h.a(str5);
+        this.b = j.a(str);
+        this.c = j.a(str2);
+        this.d = j.a(str3);
+        this.e = j.a(str4);
+        this.f = j.a(str5);
     }
 
     public Domain forceHttps(boolean z) {

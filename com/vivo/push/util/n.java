@@ -13,6 +13,11 @@ public final class n implements o {
     }
 
     @Override // com.vivo.push.util.o
+    public final int a(String str, Throwable th) {
+        return Log.e("VivoPush." + str, Log.getStackTraceString(th));
+    }
+
+    @Override // com.vivo.push.util.o
     public final int a(String str, String str2, Throwable th) {
         return Log.e("VivoPush." + str, a + str2, th);
     }
@@ -78,26 +83,26 @@ public final class n implements o {
     }
 
     private void a(Context context, String str, int i) {
-        com.vivo.push.b.n nVar = new com.vivo.push.b.n();
-        nVar.b(str);
-        nVar.a(i);
+        com.vivo.push.b.p pVar = new com.vivo.push.b.p();
+        pVar.b(str);
+        pVar.a(i);
         if (i > 0) {
             d("LogController", str);
         }
         if (z.a(context)) {
-            nVar.a(true);
+            pVar.a(true);
             for (String str2 : s.c(context)) {
-                a(context, nVar, str2);
+                a(context, pVar, str2);
             }
             return;
         }
-        nVar.a(false);
-        a(context, nVar, context.getPackageName());
+        pVar.a(false);
+        a(context, pVar, context.getPackageName());
     }
 
-    private static void a(Context context, com.vivo.push.b.n nVar, String str) {
+    private static void a(Context context, com.vivo.push.b.p pVar, String str) {
         if (str.contains("test") || str.equals(s.b(context))) {
-            com.vivo.push.a.a.a(context, nVar, str);
+            com.vivo.push.a.a.a(context, pVar, str);
         }
     }
 }

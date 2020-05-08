@@ -1,5 +1,6 @@
 package org.conscrypt;
 
+import com.baidu.sapi2.utils.h;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidParameterException;
 import java.security.SecureRandom;
@@ -132,7 +133,7 @@ public abstract class KeyGeneratorImpl extends KeyGeneratorSpi {
     /* loaded from: classes7.dex */
     public static final class AES extends KeyGeneratorImpl {
         public AES() {
-            super("AES", 128);
+            super(h.q, 128);
         }
 
         @Override // org.conscrypt.KeyGeneratorImpl

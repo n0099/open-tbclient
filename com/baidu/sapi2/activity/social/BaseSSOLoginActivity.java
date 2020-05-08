@@ -36,9 +36,14 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class BaseSSOLoginActivity extends SocialLoginBase {
+    public static final String EXTRA_PARAM_EXTRAS_JSON = "extraJson";
+    public static final String LOAD_THIRD_PARTY_SCENE_FROM = "sceneFrom";
     protected int businessFrom;
+    protected String extraJson;
     private boolean isClose;
     protected Dialog loadingDialog;
     private Handler mainHandler;
@@ -126,11 +131,11 @@ public class BaseSSOLoginActivity extends SocialLoginBase {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void authorizeSuccess(AccountType accountType) {
-        if (!TextUtils.isEmpty(this.sapiWebView.touchidPortraitAndSign[0])) {
-            SapiAccount currentAccount = SapiContext.getInstance(this.configuration.context).getCurrentAccount();
+        if (this.sapiWebView != null && !TextUtils.isEmpty(this.sapiWebView.touchidPortraitAndSign[0])) {
+            SapiAccount currentAccount = SapiContext.getInstance().getCurrentAccount();
             currentAccount.phone = this.sapiWebView.touchidPortraitAndSign[0];
             currentAccount.email = this.sapiWebView.touchidPortraitAndSign[1];
-            SapiContext.getInstance(this.configuration.context).addTouchidAccounts(currentAccount);
+            SapiContext.getInstance().addTouchidAccounts(currentAccount);
         }
         SapiUtils.reportGid(10002);
         if (this.authorizationListener != null) {
@@ -150,6 +155,7 @@ public class BaseSSOLoginActivity extends SocialLoginBase {
     private void initData() {
         super.init();
         this.businessFrom = getIntent().getIntExtra(BaseActivity.EXTRA_PARAM_BUSINESS_FROM, 2001);
+        this.extraJson = getIntent().getStringExtra("extraJson");
         this.webAuthResult.activity = this;
         this.mainHandler = new Handler();
     }
@@ -163,6 +169,20 @@ public class BaseSSOLoginActivity extends SocialLoginBase {
         } catch (Throwable th) {
             Log.e(th);
         }
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public PassNameValuePair getSceneFromParam() {
+        if (!TextUtils.isEmpty(this.extraJson)) {
+            try {
+                return new PassNameValuePair(LOAD_THIRD_PARTY_SCENE_FROM, new JSONObject(this.extraJson).optString(LOAD_THIRD_PARTY_SCENE_FROM));
+            } catch (JSONException e) {
+                Log.e(e);
+            } catch (Exception e2) {
+                Log.e(e2);
+            }
+        }
+        return null;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -313,7 +333,7 @@ public class BaseSSOLoginActivity extends SocialLoginBase {
     public void setupViews() {
         super.setupViews();
         configTitle();
-        this.rootView = (RelativeLayout) findViewById(a.C0091a.root_view);
+        this.rootView = (RelativeLayout) findViewById(a.C0112a.root_view);
         this.sapiWebView.setOnBackCallback(new SapiWebView.OnBackCallback() { // from class: com.baidu.sapi2.activity.social.BaseSSOLoginActivity.3
             @Override // com.baidu.sapi2.SapiWebView.OnBackCallback
             public void onBack() {

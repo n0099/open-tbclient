@@ -4,20 +4,20 @@ import android.support.annotation.NonNull;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class c extends com.baidu.swan.apps.n.a.b {
-    private String cLh;
+    private String cLn;
     private String data;
     private String logType;
 
     public c(@NonNull String str, String str2, String str3, String str4) {
         super(str);
-        this.cLh = str2;
+        this.cLn = str2;
         this.logType = str3;
         this.data = str4;
     }
 
     @Override // com.baidu.swan.apps.n.a.b, com.baidu.swan.apps.n.a.a
     public String iW(String str) {
-        String str2 = this.cLh;
+        String str2 = this.cLn;
         char c = 65535;
         switch (str2.hashCode()) {
             case -2011830027:
@@ -41,7 +41,7 @@ public class c extends com.baidu.swan.apps.n.a.b {
         }
         switch (c) {
             case 0:
-                return String.format("%s.message = { type:'log',logType:'%s',logs:[%s, %s] };", str, this.logType, JSONObject.quote(com.baidu.swan.apps.as.h.a(com.baidu.swan.apps.as.h.aoQ(), "yyyy-MM-dd HH:mm:ss")), JSONObject.quote(this.data));
+                return String.format("%s.message = { type:'log',logType:'%s',logs:[%s, %s] };", str, this.logType, JSONObject.quote(com.baidu.swan.apps.as.h.a(com.baidu.swan.apps.as.h.aoP(), "yyyy-MM-dd HH:mm:ss")), JSONObject.quote(this.data));
             case 1:
                 return String.format("%s.message = { type:'log',logType:'%s',logs:[%s] };", str, this.logType, JSONObject.quote(this.data));
             case 2:

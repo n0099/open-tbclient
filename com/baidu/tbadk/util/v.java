@@ -16,9 +16,9 @@ public final class v {
             return false;
         }
         try {
-            a bay = a.bay();
+            a baw = a.baw();
             for (String str : strArr) {
-                if (bay.getProperty(str) != null) {
+                if (baw.getProperty(str) != null) {
                     return true;
                 }
             }
@@ -31,26 +31,26 @@ public final class v {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static final class a {
-        private static a egT;
-        private final Properties egU = new Properties();
+        private static a egY;
+        private final Properties egZ = new Properties();
 
         private a() throws IOException {
-            this.egU.load(new FileInputStream(new File(Environment.getRootDirectory(), "build.prop")));
+            this.egZ.load(new FileInputStream(new File(Environment.getRootDirectory(), "build.prop")));
         }
 
-        public static a bay() throws IOException {
-            if (egT == null) {
+        public static a baw() throws IOException {
+            if (egY == null) {
                 synchronized (a.class) {
-                    if (egT == null) {
-                        egT = new a();
+                    if (egY == null) {
+                        egY = new a();
                     }
                 }
             }
-            return egT;
+            return egY;
         }
 
         public String getProperty(String str) {
-            return this.egU.getProperty(str);
+            return this.egZ.getProperty(str);
         }
     }
 }

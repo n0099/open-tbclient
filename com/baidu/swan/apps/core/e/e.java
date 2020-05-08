@@ -8,7 +8,7 @@ import android.widget.FrameLayout;
 /* loaded from: classes11.dex */
 public class e {
     private static final FrameLayout.LayoutParams COVER_SCREEN_PARAMS = new FrameLayout.LayoutParams(-1, -1);
-    private a bNS;
+    private a bNX;
     private Context mContext;
     private View mCustomView;
     private FrameLayout mFullscreenContainer;
@@ -40,7 +40,7 @@ public class e {
             ((FrameLayout) activity.getWindow().getDecorView()).addView(this.mFullscreenContainer, COVER_SCREEN_PARAMS);
             this.mCustomView = view;
             setFullscreen(activity, true);
-            this.bNS = aVar;
+            this.bNX = aVar;
             activity.setRequestedOrientation(i);
         }
     }
@@ -54,7 +54,7 @@ public class e {
                 ((FrameLayout) activity.getWindow().getDecorView()).removeView(this.mFullscreenContainer);
                 this.mFullscreenContainer = null;
                 this.mCustomView = null;
-                this.bNS.onCustomViewHidden();
+                this.bNX.onCustomViewHidden();
                 activity.setRequestedOrientation(this.mOriginalOrientation);
             }
         }

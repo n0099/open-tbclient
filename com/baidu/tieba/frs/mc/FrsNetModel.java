@@ -18,21 +18,21 @@ import com.baidu.tieba.tbadkCore.FrsPageHttpResponseMessage;
 import com.baidu.tieba.tbadkCore.FrsRequestData;
 /* loaded from: classes.dex */
 public class FrsNetModel<T> extends NetAutoModel<FrsRequestData, com.baidu.tieba.tbadkCore.m, T> implements NetModel.b<FrsRequestData, com.baidu.tieba.tbadkCore.m> {
-    private ResponsedMessage hse;
-    private Message hsf;
-    private MvcNetMessage hsg;
+    private ResponsedMessage hsk;
+    private Message hsl;
+    private MvcNetMessage hsm;
 
     public FrsNetModel(TbPageContext<T> tbPageContext, FrsRequestData frsRequestData) {
         super(tbPageContext, frsRequestData);
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetAutoModel, com.baidu.tbadk.mvc.model.NetModel
-    protected Class<? extends MvcProtobufHttpResponsedMessage> KD() {
+    protected Class<? extends MvcProtobufHttpResponsedMessage> KC() {
         return FrsPageHttpResponseMessage.class;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetAutoModel, com.baidu.tbadk.mvc.model.NetModel
-    protected Class<? extends MvcSocketResponsedMessage> KF() {
+    protected Class<? extends MvcSocketResponsedMessage> KE() {
         return FRSPageSocketResponsedMessage.class;
     }
 
@@ -42,22 +42,22 @@ public class FrsNetModel<T> extends NetAutoModel<FrsRequestData, com.baidu.tieba
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected int KA() {
+    protected int Kz() {
         return 1001703;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected int Kz() {
+    protected int Ky() {
         return CmdConfigSocket.CMD_FRS_PAGE;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected String Ku() {
+    protected String Kt() {
         return TbConfig.FRS_ADDRESS;
     }
 
     public void a(FrsRequestData frsRequestData) {
-        this.blL = frsRequestData;
+        this.blQ = frsRequestData;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
@@ -67,15 +67,15 @@ public class FrsNetModel<T> extends NetAutoModel<FrsRequestData, com.baidu.tieba
 
     @Override // com.baidu.tbadk.mvc.model.NetModel.c
     public void a(MvcHttpResponsedMessage<com.baidu.tieba.tbadkCore.m> mvcHttpResponsedMessage, MvcHttpMessage<FrsRequestData, com.baidu.tieba.tbadkCore.m> mvcHttpMessage, MvcNetMessage<FrsRequestData, com.baidu.tieba.tbadkCore.m> mvcNetMessage) {
-        this.hse = mvcHttpResponsedMessage;
-        this.hsf = mvcHttpMessage;
-        this.hsg = mvcNetMessage;
+        this.hsk = mvcHttpResponsedMessage;
+        this.hsl = mvcHttpMessage;
+        this.hsm = mvcNetMessage;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel.d
     public void a(MvcSocketResponsedMessage<com.baidu.tieba.tbadkCore.m, ?> mvcSocketResponsedMessage, MvcSocketMessage<FrsRequestData, com.baidu.tieba.tbadkCore.m> mvcSocketMessage, MvcNetMessage<FrsRequestData, com.baidu.tieba.tbadkCore.m> mvcNetMessage) {
-        this.hse = mvcSocketResponsedMessage;
-        this.hsf = mvcSocketMessage;
-        this.hsg = mvcNetMessage;
+        this.hsk = mvcSocketResponsedMessage;
+        this.hsl = mvcSocketMessage;
+        this.hsm = mvcNetMessage;
     }
 }

@@ -22,8 +22,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class b extends BdBaseModel {
-    private HttpMessageListener aFk;
-    private a aFm;
+    private HttpMessageListener aFq;
+    private a aFs;
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -32,7 +32,7 @@ public class b extends BdBaseModel {
 
     public b(BdPageContext bdPageContext) {
         super(bdPageContext);
-        this.aFk = new HttpMessageListener(1021120) { // from class: com.baidu.live.gift.giftList.b.3
+        this.aFq = new HttpMessageListener(1021120) { // from class: com.baidu.live.gift.giftList.b.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -42,15 +42,15 @@ public class b extends BdBaseModel {
                 }
             }
         };
-        this.aFk.setTag(bdPageContext.getUniqueId());
-        registerListener(this.aFk);
+        this.aFq.setTag(bdPageContext.getUniqueId());
+        registerListener(this.aFq);
     }
 
     public void m(final String str, final boolean z) {
         TbSingleExecutor.execute(new SingleRunnable<AlaSdkGetGiftListHttpResponseMessage>() { // from class: com.baidu.live.gift.giftList.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.tbadk.util.SingleRunnable
-            /* renamed from: yQ */
+            /* renamed from: yP */
             public AlaSdkGetGiftListHttpResponseMessage doInBackground() {
                 BdKVCache<String> stringCacheWithSapce = DBKVCacheManager.getInstance().getStringCacheWithSapce(DBKVCacheManager.ALA_GIFT_LIST_CACHE_KEY);
                 if (stringCacheWithSapce == null) {
@@ -73,7 +73,7 @@ public class b extends BdBaseModel {
             @Override // com.baidu.live.tbadk.util.ISingleRunnableCallback
             /* renamed from: a */
             public void onReturnDataInUI(AlaSdkGetGiftListHttpResponseMessage alaSdkGetGiftListHttpResponseMessage) {
-                if (alaSdkGetGiftListHttpResponseMessage != null && !ListUtils.isEmpty(alaSdkGetGiftListHttpResponseMessage.zg())) {
+                if (alaSdkGetGiftListHttpResponseMessage != null && !ListUtils.isEmpty(alaSdkGetGiftListHttpResponseMessage.zf())) {
                     b.this.a(str, alaSdkGetGiftListHttpResponseMessage, true);
                     if (z) {
                         b.this.et(str);
@@ -88,16 +88,16 @@ public class b extends BdBaseModel {
 
     public void et(String str) {
         if (StringUtils.isNull(str)) {
-            str = com.baidu.live.gift.b.b.yT().xb();
+            str = com.baidu.live.gift.b.b.yS().xa();
         }
         sendMessage(new com.baidu.live.message.e(str));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str, AlaSdkGetGiftListHttpResponseMessage alaSdkGetGiftListHttpResponseMessage, boolean z) {
-        com.baidu.live.gift.b.b.yT().e(str, alaSdkGetGiftListHttpResponseMessage.zg());
-        if (this.aFm != null) {
-            this.aFm.a(alaSdkGetGiftListHttpResponseMessage.getError(), alaSdkGetGiftListHttpResponseMessage.getErrorString(), z, alaSdkGetGiftListHttpResponseMessage.zg(), alaSdkGetGiftListHttpResponseMessage.getCategoryList(), alaSdkGetGiftListHttpResponseMessage.zh());
+        com.baidu.live.gift.b.b.yS().e(str, alaSdkGetGiftListHttpResponseMessage.zf());
+        if (this.aFs != null) {
+            this.aFs.a(alaSdkGetGiftListHttpResponseMessage.getError(), alaSdkGetGiftListHttpResponseMessage.getErrorString(), z, alaSdkGetGiftListHttpResponseMessage.zf(), alaSdkGetGiftListHttpResponseMessage.getCategoryList(), alaSdkGetGiftListHttpResponseMessage.zg());
         }
     }
 
@@ -114,10 +114,10 @@ public class b extends BdBaseModel {
 
     public void onDestroy() {
         cancelLoadData();
-        MessageManager.getInstance().unRegisterListener(this.aFk);
+        MessageManager.getInstance().unRegisterListener(this.aFq);
     }
 
     public void a(a aVar) {
-        this.aFm = aVar;
+        this.aFs = aVar;
     }
 }

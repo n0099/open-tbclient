@@ -8,25 +8,25 @@ import com.baidu.tbadk.core.data.BaijiahaoData;
 import com.baidu.tbadk.core.data.OriginalThreadInfo;
 /* loaded from: classes11.dex */
 public class ForumSearchActivity extends BaseActivity {
-    b gWl;
+    b gWr;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.gWl = new b(getPageContext());
-        setContentView(this.gWl.bNo().mRoot);
+        this.gWr = new b(getPageContext());
+        setContentView(this.gWr.bNm().mRoot);
         Intent intent = getIntent();
         if (intent != null) {
-            this.gWl.setFrom(intent.getIntExtra(SelectForumActivityConfig.EXTRA_KEY_FROM, 0));
-            this.gWl.setLiveId(intent.getLongExtra("extra_key_live_id", 0L));
-            this.gWl.setOriginalThread((OriginalThreadInfo.ShareInfo) intent.getSerializableExtra(SelectForumActivityConfig.EXTRA_KEY_ORIGINAL_THREAD));
-            this.gWl.setBaijiahaoData((BaijiahaoData) intent.getSerializableExtra(SelectForumActivityConfig.EXTRA_KEY_BAIJIAHAO_DATA));
-            this.gWl.setTransmitOriginThreadComment(intent.getStringExtra(SelectForumActivityConfig.EXTRA_KEY_TRANSMIT_ORIGIN_THREAD_CONTENT));
-            this.gWl.setTransmitThreadAuthorNameShow(intent.getStringExtra(SelectForumActivityConfig.EXTRA_KEY_TRANSMIT_THREAD_AUTHOR_NAME_SHOW));
-            this.gWl.setMoreForumImg(intent.getStringExtra("more_forum_img"));
-            this.gWl.setMoreForumUrl(intent.getStringExtra("more_forum_url"));
-            this.gWl.setMoreForumTitle(intent.getStringExtra("more_forum_title"));
+            this.gWr.setFrom(intent.getIntExtra(SelectForumActivityConfig.EXTRA_KEY_FROM, 0));
+            this.gWr.setLiveId(intent.getLongExtra("extra_key_live_id", 0L));
+            this.gWr.setOriginalThread((OriginalThreadInfo.ShareInfo) intent.getSerializableExtra(SelectForumActivityConfig.EXTRA_KEY_ORIGINAL_THREAD));
+            this.gWr.setBaijiahaoData((BaijiahaoData) intent.getSerializableExtra(SelectForumActivityConfig.EXTRA_KEY_BAIJIAHAO_DATA));
+            this.gWr.setTransmitOriginThreadComment(intent.getStringExtra(SelectForumActivityConfig.EXTRA_KEY_TRANSMIT_ORIGIN_THREAD_CONTENT));
+            this.gWr.setTransmitThreadAuthorNameShow(intent.getStringExtra(SelectForumActivityConfig.EXTRA_KEY_TRANSMIT_THREAD_AUTHOR_NAME_SHOW));
+            this.gWr.setMoreForumImg(intent.getStringExtra("more_forum_img"));
+            this.gWr.setMoreForumUrl(intent.getStringExtra("more_forum_url"));
+            this.gWr.setMoreForumTitle(intent.getStringExtra("more_forum_title"));
         }
     }
 
@@ -34,6 +34,6 @@ public class ForumSearchActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        this.gWl.onDestory();
+        this.gWr.onDestory();
     }
 }

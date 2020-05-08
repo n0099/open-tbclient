@@ -4,15 +4,15 @@ import java.util.List;
 import tbclient.ManagerElection;
 /* loaded from: classes9.dex */
 public class h {
-    private boolean giY;
-    private int jon;
-    private int joo;
-    private List<String> jop;
-    private List<String> joq;
-    private List<String> jor;
-    private String jos;
-    private boolean jot;
-    private int jou;
+    private boolean gje;
+    private int jor;
+    private int jos;
+    private List<String> jot;
+    private List<String> jou;
+    private List<String> jov;
+    private String jow;
+    private boolean jox;
+    private int joy;
     private int status;
 
     public static h b(ManagerElection managerElection) {
@@ -20,16 +20,16 @@ public class h {
             return null;
         }
         h hVar = new h();
-        hVar.joo = managerElection.begin_vote_time.intValue();
-        hVar.giY = managerElection.can_vote.intValue() == 1;
-        hVar.jon = managerElection.vote_num.intValue();
-        hVar.jot = managerElection.is_show_distribute.intValue() == 1;
-        hVar.jou = managerElection.remainder_time.intValue();
+        hVar.jos = managerElection.begin_vote_time.intValue();
+        hVar.gje = managerElection.can_vote.intValue() == 1;
+        hVar.jor = managerElection.vote_num.intValue();
+        hVar.jox = managerElection.is_show_distribute.intValue() == 1;
+        hVar.joy = managerElection.remainder_time.intValue();
         hVar.status = managerElection.status.intValue();
-        hVar.jos = managerElection.tail_text;
-        hVar.jop = managerElection.vote_condition_pic;
-        hVar.joq = managerElection.vote_condition_title;
-        hVar.jor = managerElection.vote_condition;
+        hVar.jow = managerElection.tail_text;
+        hVar.jot = managerElection.vote_condition_pic;
+        hVar.jou = managerElection.vote_condition_title;
+        hVar.jov = managerElection.vote_condition;
         return hVar;
     }
 
@@ -37,36 +37,36 @@ public class h {
         return this.status;
     }
 
-    public boolean cvY() {
-        return this.jot;
+    public boolean cvV() {
+        return this.jox;
     }
 
-    public int cvZ() {
-        return this.jou;
+    public int cvW() {
+        return this.joy;
     }
 
-    public int cwa() {
-        return this.jon;
-    }
-
-    public List<String> cwb() {
-        return this.joq;
-    }
-
-    public List<String> cwc() {
+    public int cvX() {
         return this.jor;
     }
 
-    public String cwd() {
-        return this.jos;
+    public List<String> cvY() {
+        return this.jou;
     }
 
-    public boolean bDV() {
-        return this.giY;
+    public List<String> cvZ() {
+        return this.jov;
+    }
+
+    public String cwa() {
+        return this.jow;
+    }
+
+    public boolean bDT() {
+        return this.gje;
     }
 
     public void lm(boolean z) {
-        this.giY = z;
+        this.gje = z;
     }
 
     public void setStatus(int i) {
@@ -74,6 +74,6 @@ public class h {
     }
 
     public void zk(int i) {
-        this.jon = i;
+        this.jor = i;
     }
 }

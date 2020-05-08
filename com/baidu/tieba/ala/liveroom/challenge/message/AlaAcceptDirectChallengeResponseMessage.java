@@ -4,8 +4,8 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class AlaAcceptDirectChallengeResponseMessage extends JsonHttpResponsedMessage {
-    private int fzq;
-    private com.baidu.live.challenge.a fzr;
+    private int fzv;
+    private com.baidu.live.challenge.a fzw;
 
     public AlaAcceptDirectChallengeResponseMessage() {
         super(1021109);
@@ -16,17 +16,17 @@ public class AlaAcceptDirectChallengeResponseMessage extends JsonHttpResponsedMe
         JSONObject optJSONObject;
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && jSONObject.optJSONObject("data") != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-            this.fzq = optJSONObject.optInt("accept_status");
-            this.fzr = new com.baidu.live.challenge.a();
-            this.fzr.parseJson(optJSONObject.optJSONObject("match_info"));
+            this.fzv = optJSONObject.optInt("accept_status");
+            this.fzw = new com.baidu.live.challenge.a();
+            this.fzw.parseJson(optJSONObject.optJSONObject("match_info"));
         }
     }
 
-    public com.baidu.live.challenge.a btM() {
-        return this.fzr;
+    public com.baidu.live.challenge.a btK() {
+        return this.fzw;
     }
 
-    public boolean btN() {
-        return this.fzq == 1;
+    public boolean btL() {
+        return this.fzv == 1;
     }
 }

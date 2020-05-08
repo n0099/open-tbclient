@@ -17,28 +17,28 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes11.dex */
 public class d extends y.a {
-    public int afT;
-    public TextView dkk;
-    public View jSk;
-    public HTypeListView jSl;
-    public e jSm;
+    public int afW;
+    public TextView dko;
+    public View jSo;
+    public HTypeListView jSp;
+    public e jSq;
     public TbPageContext mPageContext;
     public View rootView;
 
     public d(View view, TbPageContext tbPageContext) {
         super(view);
-        this.afT = 3;
+        this.afW = 3;
         this.rootView = view;
         this.mPageContext = tbPageContext;
-        this.jSk = view.findViewById(R.id.divider_view_under_photo_album);
-        this.dkk = (TextView) view.findViewById(R.id.text_view_photo_album);
-        this.jSl = (HTypeListView) view.findViewById(R.id.listview_photo_album);
-        this.jSm = new e(this.mPageContext, this.jSl);
+        this.jSo = view.findViewById(R.id.divider_view_under_photo_album);
+        this.dko = (TextView) view.findViewById(R.id.text_view_photo_album);
+        this.jSp = (HTypeListView) view.findViewById(R.id.listview_photo_album);
+        this.jSq = new e(this.mPageContext, this.jSp);
     }
 
     public void a(f fVar) {
         if (fVar != null) {
-            this.jSm.setDatas(dW(fVar.getPhotoAlbum()));
+            this.jSq.setDatas(dW(fVar.getPhotoAlbum()));
         }
     }
 
@@ -53,13 +53,13 @@ public class d extends y.a {
         return list;
     }
 
-    public void cGb() {
-        if (this.afT != TbadkCoreApplication.getInst().getSkinType()) {
-            this.afT = TbadkCoreApplication.getInst().getSkinType();
+    public void cFY() {
+        if (this.afW != TbadkCoreApplication.getInst().getSkinType()) {
+            this.afW = TbadkCoreApplication.getInst().getSkinType();
             am.setBackgroundColor(this.rootView, R.color.cp_bg_line_d);
-            am.setBackgroundColor(this.jSk, R.color.cp_bg_line_c);
-            am.setViewTextColor(this.dkk, R.color.cp_cont_d, 1);
-            this.jSm.notifyDataSetChanged();
+            am.setBackgroundColor(this.jSo, R.color.cp_bg_line_c);
+            am.setViewTextColor(this.dko, R.color.cp_cont_d, 1);
+            this.jSq.notifyDataSetChanged();
         }
     }
 }

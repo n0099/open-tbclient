@@ -10,39 +10,39 @@ import com.baidu.tieba.play.QuickVideoView;
 import java.io.File;
 /* loaded from: classes10.dex */
 public class b implements e {
-    private String jcG;
-    private boolean jcH = false;
-    private boolean jcI = false;
-    private e.a jcJ;
+    private String jcK;
+    private boolean jcL = false;
+    private boolean jcM = false;
+    private e.a jcN;
 
     public b(String str) {
-        this.jcG = str;
+        this.jcK = str;
     }
 
     @Override // com.baidu.tieba.k.e
     public void a(e.a aVar) {
-        this.jcJ = aVar;
+        this.jcN = aVar;
     }
 
     @Override // com.baidu.tieba.k.e
-    public void crz() {
-        if (f.aUB()) {
-            if (StringUtils.isNull(this.jcG) || !QuickVideoView.vN(this.jcG)) {
-                if (this.jcJ != null) {
-                    this.jcJ.yP(2);
+    public void crw() {
+        if (f.aUz()) {
+            if (StringUtils.isNull(this.jcK) || !QuickVideoView.vQ(this.jcK)) {
+                if (this.jcN != null) {
+                    this.jcN.yP(2);
                     return;
                 }
                 return;
             }
-            a.a(this.jcG, new a.b() { // from class: com.baidu.tieba.l.b.1
+            a.a(this.jcK, new a.b() { // from class: com.baidu.tieba.l.b.1
                 @Override // com.baidu.tieba.l.a.b
                 public void m(Integer num) {
                     if (num != null && num.intValue() == 1) {
-                        b.this.jcH = true;
-                        b.this.csg();
+                        b.this.jcL = true;
+                        b.this.csd();
                     }
-                    if (b.this.jcJ != null) {
-                        b.this.jcJ.yP(num.intValue());
+                    if (b.this.jcN != null) {
+                        b.this.jcN.yP(num.intValue());
                     }
                 }
             });
@@ -50,23 +50,23 @@ public class b implements e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void csg() {
-        if (f.aUB()) {
-            if (StringUtils.isNull(this.jcG) || !QuickVideoView.vN(this.jcG)) {
-                if (this.jcJ != null) {
-                    this.jcJ.onChange(false);
+    public void csd() {
+        if (f.aUz()) {
+            if (StringUtils.isNull(this.jcK) || !QuickVideoView.vQ(this.jcK)) {
+                if (this.jcN != null) {
+                    this.jcN.onChange(false);
                     return;
                 }
                 return;
             }
-            a.a(this.jcG, this.jcG + "_moov_head_suffix", new a.InterfaceC0583a() { // from class: com.baidu.tieba.l.b.2
-                @Override // com.baidu.tieba.l.a.InterfaceC0583a
+            a.a(this.jcK, this.jcK + "_moov_head_suffix", new a.InterfaceC0604a() { // from class: com.baidu.tieba.l.b.2
+                @Override // com.baidu.tieba.l.a.InterfaceC0604a
                 public void qc(boolean z) {
-                    if (b.this.jcH && z) {
-                        b.this.jcI = true;
+                    if (b.this.jcL && z) {
+                        b.this.jcM = true;
                     }
-                    if (b.this.jcJ != null) {
-                        b.this.jcJ.onChange(z);
+                    if (b.this.jcN != null) {
+                        b.this.jcN.onChange(z);
                     }
                 }
             });
@@ -74,11 +74,11 @@ public class b implements e {
     }
 
     @Override // com.baidu.tieba.k.e
-    public void crA() {
-        if (f.aUB()) {
-            if (StringUtils.isNull(this.jcG) || !new File(this.jcG).exists() || !new File(this.jcG + "_moov_head_suffix").exists() || !this.jcH || !this.jcI) {
-                if (this.jcJ != null) {
-                    this.jcJ.pZ(false);
+    public void crx() {
+        if (f.aUz()) {
+            if (StringUtils.isNull(this.jcK) || !new File(this.jcK).exists() || !new File(this.jcK + "_moov_head_suffix").exists() || !this.jcL || !this.jcM) {
+                if (this.jcN != null) {
+                    this.jcN.pZ(false);
                     return;
                 }
                 return;
@@ -99,19 +99,19 @@ public class b implements e {
                 @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                 public void onPostExecute(Boolean bool) {
                     super.onPostExecute((AnonymousClass3) bool);
-                    if (b.this.jcJ != null) {
-                        b.this.jcJ.pZ(bool.booleanValue());
+                    if (b.this.jcN != null) {
+                        b.this.jcN.pZ(bool.booleanValue());
                     }
                 }
-            }.execute(this.jcG);
+            }.execute(this.jcK);
         }
     }
 
     @Override // com.baidu.tieba.k.e
-    public void crB() {
-        if (StringUtils.isNull(this.jcG) || !QuickVideoView.vN(this.jcG)) {
-            if (this.jcJ != null) {
-                this.jcJ.yP(2);
+    public void cry() {
+        if (StringUtils.isNull(this.jcK) || !QuickVideoView.vQ(this.jcK)) {
+            if (this.jcN != null) {
+                this.jcN.yP(2);
                 return;
             }
             return;
@@ -123,9 +123,9 @@ public class b implements e {
             public Void doInBackground(String... strArr) {
                 if (strArr != null && strArr.length == 1 && !StringUtils.isNull(strArr[0])) {
                     String str = strArr[0];
-                    int GR = a.GR(str);
-                    publishProgress(new c(1, GR));
-                    if (GR == 1) {
+                    int GU = a.GU(str);
+                    publishProgress(new c(1, GU));
+                    if (GU == 1) {
                         boolean ek = a.ek(str, str + "_moov_head_suffix");
                         c[] cVarArr = new c[1];
                         cVarArr[0] = new c(2, ek ? 1 : 0);
@@ -150,19 +150,19 @@ public class b implements e {
                 if (cVarArr != null && cVarArr.length == 1 && cVarArr[0] != null) {
                     c cVar = cVarArr[0];
                     if (cVar.type == 1) {
-                        if (b.this.jcJ != null) {
-                            b.this.jcJ.yP(cVar.value);
+                        if (b.this.jcN != null) {
+                            b.this.jcN.yP(cVar.value);
                         }
                     } else if (cVar.type == 2) {
-                        if (b.this.jcJ != null) {
-                            b.this.jcJ.onChange(cVar.value == 1);
+                        if (b.this.jcN != null) {
+                            b.this.jcN.onChange(cVar.value == 1);
                         }
-                    } else if (cVar.type == 3 && b.this.jcJ != null) {
-                        b.this.jcJ.pZ(cVar.value == 1);
+                    } else if (cVar.type == 3 && b.this.jcN != null) {
+                        b.this.jcN.pZ(cVar.value == 1);
                     }
                 }
             }
-        }.execute(this.jcG);
+        }.execute(this.jcK);
     }
 
     /* JADX INFO: Access modifiers changed from: private */

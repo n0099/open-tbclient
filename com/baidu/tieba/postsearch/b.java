@@ -8,15 +8,15 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class b {
-    public List<a> kmE = new ArrayList();
-    public ap gTx = new ap();
+    public List<a> kmI = new ArrayList();
+    public ap gTD = new ap();
 
     /* loaded from: classes11.dex */
     public static class a {
         public String content;
         public String fname;
-        public int kmF;
-        public int kmG;
+        public int kmJ;
+        public int kmK;
         public String name;
         public String name_show;
         public long pid;
@@ -26,21 +26,21 @@ public class b {
         public String title;
     }
 
-    public boolean ciH() {
-        return (this.kmE == null || this.kmE.size() == 0) ? false : true;
+    public boolean ciF() {
+        return (this.kmI == null || this.kmI.size() == 0) ? false : true;
     }
 
     public boolean isHasMore() {
-        return this.gTx != null && this.gTx.aJA() == 1;
+        return this.gTD != null && this.gTD.aJy() == 1;
     }
 
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.gTx.parserJson(jSONObject.getJSONObject("page"));
+                this.gTD.parserJson(jSONObject.getJSONObject("page"));
                 JSONArray optJSONArray = jSONObject.optJSONArray("post_list");
                 if (optJSONArray != null && optJSONArray.length() != 0) {
-                    this.kmE.clear();
+                    this.kmI.clear();
                     for (int i = 0; i < optJSONArray.length(); i++) {
                         JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
                         if (jSONObject2 != null) {
@@ -64,12 +64,12 @@ public class b {
                                 aVar.content = optString4;
                                 aVar.fname = optString5;
                                 aVar.tid = optLong3;
-                                aVar.kmF = optInt;
-                                aVar.kmG = optInt2;
+                                aVar.kmJ = optInt;
+                                aVar.kmK = optInt2;
                                 aVar.name = optString2;
                                 aVar.name_show = optString;
                                 aVar.thread_type = optInt3;
-                                this.kmE.add(aVar);
+                                this.kmI.add(aVar);
                             }
                         }
                     }

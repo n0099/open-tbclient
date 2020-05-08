@@ -60,12 +60,12 @@ public class r extends ab {
         }
         switch (c) {
             case 0:
-                com.baidu.swan.apps.performance.f.aid().ah(r(optParamsAsJo.optJSONArray("data"))).ahK();
+                com.baidu.swan.apps.performance.f.aic().ah(r(optParamsAsJo.optJSONArray("data"))).ahJ();
                 UnitedSchemeUtility.isInvokedFromSwanGame(callbackHandler);
                 ai.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.scheme.actions.r.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        ai.apq();
+                        ai.app();
                     }
                 });
                 break;
@@ -118,7 +118,7 @@ public class r extends ab {
                     SearchFlowEvent searchFlowEvent = new SearchFlowEvent(optString);
                     searchFlowEvent.timestamp = Long.valueOf(optString3).longValue();
                     searchFlowEvent.data = optString2;
-                    searchFlowEvent.cuE = SearchFlowEvent.EventType.END;
+                    searchFlowEvent.cuK = SearchFlowEvent.EventType.END;
                     com.baidu.swan.apps.statistic.search.b.a(searchFlowEvent);
                 }
             } catch (NumberFormatException e) {
@@ -131,8 +131,8 @@ public class r extends ab {
 
     private void t(JSONArray jSONArray) {
         long longValue;
-        com.baidu.swan.apps.core.d.d Wf = com.baidu.swan.apps.y.f.aeK().Wf();
-        if (Wf != null) {
+        com.baidu.swan.apps.core.d.d We = com.baidu.swan.apps.y.f.aeJ().We();
+        if (We != null) {
             try {
                 JSONObject jSONObject = jSONArray.getJSONObject(0);
                 if (jSONObject != null) {
@@ -144,10 +144,10 @@ public class r extends ab {
                         } catch (NumberFormatException e) {
                             e.printStackTrace();
                         }
-                        Wf.a(new com.baidu.swan.apps.statistic.a.g(string, longValue));
+                        We.a(new com.baidu.swan.apps.statistic.a.g(string, longValue));
                     }
                     longValue = 0;
-                    Wf.a(new com.baidu.swan.apps.statistic.a.g(string, longValue));
+                    We.a(new com.baidu.swan.apps.statistic.a.g(string, longValue));
                 }
             } catch (JSONException e2) {
                 e2.printStackTrace();

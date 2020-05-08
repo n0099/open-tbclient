@@ -10,57 +10,57 @@ import tbclient.Tabfeedlist.DataRes;
 import tbclient.ThreadInfo;
 /* loaded from: classes9.dex */
 public class a {
-    private ArrayList<m> gGU;
-    private ArrayList<d> gGV;
-    private l gGW;
-    private c gGX;
-    private boolean gGY;
+    private ArrayList<m> gHa;
+    private ArrayList<d> gHb;
+    private l gHc;
+    private c gHd;
+    private boolean gHe;
 
     public void a(DataRes dataRes) {
         if (dataRes != null) {
-            this.gGU = new ArrayList<>(v.getCount(dataRes.thread_list));
+            this.gHa = new ArrayList<>(v.getCount(dataRes.thread_list));
             for (ThreadInfo threadInfo : dataRes.thread_list) {
                 bj bjVar = new bj();
                 bjVar.a(threadInfo);
-                this.gGU.add(bjVar);
+                this.gHa.add(bjVar);
             }
-            this.gGV = new ArrayList<>();
+            this.gHb = new ArrayList<>();
             if (!v.isEmpty(dataRes.resource_list)) {
                 for (GeneralResource generalResource : dataRes.resource_list) {
                     d dVar = new d();
                     dVar.a(generalResource);
-                    this.gGV.add(dVar);
+                    this.gHb.add(dVar);
                 }
             }
-            this.gGW = new l();
-            this.gGW.bU(dataRes.recommend_forum_info);
+            this.gHc = new l();
+            this.gHc.bU(dataRes.recommend_forum_info);
             if (dataRes.hot_userrank_entry != null) {
-                this.gGX = new c();
-                this.gGX.hot_user = dataRes.hot_userrank_entry.hot_user;
-                this.gGX.module_name = dataRes.hot_userrank_entry.module_name;
-                this.gGX.module_icon = dataRes.hot_userrank_entry.module_icon;
+                this.gHd = new c();
+                this.gHd.hot_user = dataRes.hot_userrank_entry.hot_user;
+                this.gHd.module_name = dataRes.hot_userrank_entry.module_name;
+                this.gHd.module_icon = dataRes.hot_userrank_entry.module_icon;
             }
-            this.gGY = dataRes.is_new_url.intValue() == 1;
+            this.gHe = dataRes.is_new_url.intValue() == 1;
         }
     }
 
-    public ArrayList<m> bJy() {
-        return this.gGU;
+    public ArrayList<m> bJw() {
+        return this.gHa;
     }
 
-    public ArrayList<d> bJz() {
-        return this.gGV;
+    public ArrayList<d> bJx() {
+        return this.gHb;
     }
 
-    public l bJA() {
-        return this.gGW;
+    public l bJy() {
+        return this.gHc;
     }
 
-    public c bJB() {
-        return this.gGX;
+    public c bJz() {
+        return this.gHd;
     }
 
-    public boolean bJC() {
-        return this.gGY;
+    public boolean bJA() {
+        return this.gHe;
     }
 }

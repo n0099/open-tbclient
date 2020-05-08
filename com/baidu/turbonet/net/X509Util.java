@@ -40,16 +40,16 @@ import javax.security.auth.x500.X500Principal;
 public class X509Util {
     static final /* synthetic */ boolean $assertionsDisabled;
     private static final char[] HEX_DIGITS;
-    private static CertificateFactory lLZ;
-    private static c lMa;
-    private static a lMb;
-    private static c lMc;
-    private static KeyStore lMd;
-    private static KeyStore lMe;
-    private static File lMf;
-    private static Set<Pair<X500Principal, PublicKey>> lMg;
-    private static boolean lMh;
-    private static boolean lMi;
+    private static CertificateFactory lMd;
+    private static c lMe;
+    private static a lMf;
+    private static c lMg;
+    private static KeyStore lMh;
+    private static KeyStore lMi;
+    private static File lMj;
+    private static Set<Pair<X500Principal, PublicKey>> lMk;
+    private static boolean lMl;
+    private static boolean lMm;
     private static final Object sLock;
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -65,7 +65,7 @@ public class X509Util {
     static {
         $assertionsDisabled = !X509Util.class.desiredAssertionStatus();
         sLock = new Object();
-        lMi = false;
+        lMm = false;
         HEX_DIGITS = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
     }
 
@@ -79,7 +79,7 @@ public class X509Util {
         public void onReceive(Context context, Intent intent) {
             if (intent.getAction().equals("android.security.STORAGE_CHANGED")) {
                 try {
-                    X509Util.dke();
+                    X509Util.dkb();
                 } catch (KeyStoreException e) {
                     Log.e("X509Util", "Unable to reload the default TrustManager", e);
                 } catch (NoSuchAlgorithmException e2) {
@@ -94,15 +94,15 @@ public class X509Util {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static final class b implements c {
-        private final X509TrustManager lMj;
+        private final X509TrustManager lMn;
 
         public b(X509TrustManager x509TrustManager) {
-            this.lMj = x509TrustManager;
+            this.lMn = x509TrustManager;
         }
 
         @Override // com.baidu.turbonet.net.X509Util.c
         public List<X509Certificate> checkServerTrusted(X509Certificate[] x509CertificateArr, String str, String str2) throws CertificateException {
-            this.lMj.checkServerTrusted(x509CertificateArr, str);
+            this.lMn.checkServerTrusted(x509CertificateArr, str);
             return Collections.emptyList();
         }
     }
@@ -110,66 +110,66 @@ public class X509Util {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static final class d implements c {
-        private final X509TrustManagerExtensions lMk;
+        private final X509TrustManagerExtensions lMo;
 
         @SuppressLint({"NewApi"})
         public d(X509TrustManager x509TrustManager) {
-            this.lMk = new X509TrustManagerExtensions(x509TrustManager);
+            this.lMo = new X509TrustManagerExtensions(x509TrustManager);
         }
 
         @Override // com.baidu.turbonet.net.X509Util.c
         public List<X509Certificate> checkServerTrusted(X509Certificate[] x509CertificateArr, String str, String str2) throws CertificateException {
-            return this.lMk.checkServerTrusted(x509CertificateArr, str, str2);
+            return this.lMo.checkServerTrusted(x509CertificateArr, str, str2);
         }
     }
 
     private static void ensureInitialized() throws CertificateException, KeyStoreException, NoSuchAlgorithmException {
         synchronized (sLock) {
-            dkc();
+            djZ();
         }
     }
 
-    private static void dkc() throws CertificateException, KeyStoreException, NoSuchAlgorithmException {
+    private static void djZ() throws CertificateException, KeyStoreException, NoSuchAlgorithmException {
         if (!$assertionsDisabled && !Thread.holdsLock(sLock)) {
             throw new AssertionError();
         }
-        if (lLZ == null) {
-            lLZ = CertificateFactory.getInstance("X.509");
+        if (lMd == null) {
+            lMd = CertificateFactory.getInstance("X.509");
         }
-        if (lMa == null) {
-            lMa = b((KeyStore) null);
+        if (lMe == null) {
+            lMe = b((KeyStore) null);
         }
-        if (!lMh) {
+        if (!lMl) {
             try {
-                lMe = KeyStore.getInstance("AndroidCAStore");
+                lMi = KeyStore.getInstance("AndroidCAStore");
                 try {
-                    lMe.load(null);
+                    lMi.load(null);
                 } catch (IOException e) {
                 }
-                lMf = new File(System.getenv("ANDROID_ROOT") + "/etc/security/cacerts");
+                lMj = new File(System.getenv("ANDROID_ROOT") + "/etc/security/cacerts");
             } catch (KeyStoreException e2) {
             }
-            if (!lMi) {
-                nativeRecordCertVerifyCapabilitiesHistogram(lMe != null);
+            if (!lMm) {
+                nativeRecordCertVerifyCapabilitiesHistogram(lMi != null);
             }
-            lMh = true;
+            lMl = true;
         }
-        if (lMg == null) {
-            lMg = new HashSet();
+        if (lMk == null) {
+            lMk = new HashSet();
         }
-        if (lMd == null) {
-            lMd = KeyStore.getInstance(KeyStore.getDefaultType());
+        if (lMh == null) {
+            lMh = KeyStore.getInstance(KeyStore.getDefaultType());
             try {
-                lMd.load(null);
+                lMh.load(null);
             } catch (IOException e3) {
             }
         }
-        if (lMc == null) {
-            lMc = b(lMd);
+        if (lMg == null) {
+            lMg = b(lMh);
         }
-        if (!lMi && lMb == null) {
-            lMb = new a();
-            ContextUtils.getApplicationContext().registerReceiver(lMb, new IntentFilter("android.security.STORAGE_CHANGED"));
+        if (!lMm && lMf == null) {
+            lMf = new a();
+            ContextUtils.getApplicationContext().registerReceiver(lMf, new IntentFilter("android.security.STORAGE_CHANGED"));
         }
     }
 
@@ -196,34 +196,34 @@ public class X509Util {
         return null;
     }
 
-    private static void dkd() throws KeyStoreException, NoSuchAlgorithmException {
+    private static void dka() throws KeyStoreException, NoSuchAlgorithmException {
         if (!$assertionsDisabled && !Thread.holdsLock(sLock)) {
             throw new AssertionError();
         }
-        lMc = b(lMd);
+        lMg = b(lMh);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void dke() throws KeyStoreException, NoSuchAlgorithmException, CertificateException {
+    public static void dkb() throws KeyStoreException, NoSuchAlgorithmException, CertificateException {
         synchronized (sLock) {
-            lMa = null;
-            lMg = null;
-            dkc();
+            lMe = null;
+            lMk = null;
+            djZ();
         }
         nativeNotifyKeyChainChanged();
     }
 
     public static X509Certificate aa(byte[] bArr) throws CertificateException, KeyStoreException, NoSuchAlgorithmException {
         ensureInitialized();
-        return (X509Certificate) lLZ.generateCertificate(new ByteArrayInputStream(bArr));
+        return (X509Certificate) lMd.generateCertificate(new ByteArrayInputStream(bArr));
     }
 
     public static void addTestRootCertificate(byte[] bArr) throws CertificateException, KeyStoreException, NoSuchAlgorithmException {
         ensureInitialized();
         X509Certificate aa = aa(bArr);
         synchronized (sLock) {
-            lMd.setCertificateEntry("root_cert_" + Integer.toString(lMd.size()), aa);
-            dkd();
+            lMh.setCertificateEntry("root_cert_" + Integer.toString(lMh.size()), aa);
+            dka();
         }
     }
 
@@ -231,8 +231,8 @@ public class X509Util {
         ensureInitialized();
         synchronized (sLock) {
             try {
-                lMd.load(null);
-                dkd();
+                lMh.load(null);
+                dka();
             } catch (IOException e) {
             }
         }
@@ -252,28 +252,28 @@ public class X509Util {
         if (!$assertionsDisabled && !Thread.holdsLock(sLock)) {
             throw new AssertionError();
         }
-        if (lMe == null) {
+        if (lMi == null) {
             return false;
         }
         Pair<X500Principal, PublicKey> pair = new Pair<>(x509Certificate.getSubjectX500Principal(), x509Certificate.getPublicKey());
-        if (lMg.contains(pair)) {
+        if (lMk.contains(pair)) {
             return true;
         }
         String a2 = a(x509Certificate.getSubjectX500Principal());
         int i = 0;
         while (true) {
             String str = a2 + '.' + i;
-            if (!new File(lMf, str).exists()) {
+            if (!new File(lMj, str).exists()) {
                 return false;
             }
-            Certificate certificate = lMe.getCertificate("system:" + str);
+            Certificate certificate = lMi.getCertificate("system:" + str);
             if (certificate != null) {
                 if (!(certificate instanceof X509Certificate)) {
                     Log.e("X509Util", "Anchor " + str + " not an X509Certificate: " + certificate.getClass().getName());
                 } else {
                     X509Certificate x509Certificate2 = (X509Certificate) certificate;
                     if (x509Certificate.getSubjectX500Principal().equals(x509Certificate2.getSubjectX500Principal()) && x509Certificate.getPublicKey().equals(x509Certificate2.getPublicKey())) {
-                        lMg.add(pair);
+                        lMk.add(pair);
                         return true;
                     }
                 }
@@ -336,15 +336,15 @@ public class X509Util {
                     return new AndroidCertVerifyResult(-6);
                 }
                 synchronized (sLock) {
-                    if (lMa == null) {
+                    if (lMe == null) {
                         return new AndroidCertVerifyResult(-1);
                     }
                     try {
-                        emptyList = lMa.checkServerTrusted(x509CertificateArr, str, str2);
+                        emptyList = lMe.checkServerTrusted(x509CertificateArr, str, str2);
                         z = false;
                     } catch (CertificateException e2) {
                         try {
-                            emptyList = lMc.checkServerTrusted(x509CertificateArr, str, str2);
+                            emptyList = lMg.checkServerTrusted(x509CertificateArr, str, str2);
                             z = false;
                         } catch (CertificateException e3) {
                             Log.i("X509Util", "Failed to validate the certificate chain, error: " + e2.getMessage());

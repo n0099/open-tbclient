@@ -22,7 +22,7 @@ public class y extends a {
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void a(b bVar, Canvas canvas) {
         if (this.mFontSize > 0) {
-            bVar.bET.setTextSize(this.mFontSize);
+            bVar.bEY.setTextSize(this.mFontSize);
         }
     }
 }

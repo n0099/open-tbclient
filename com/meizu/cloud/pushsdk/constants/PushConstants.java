@@ -47,6 +47,7 @@ public interface PushConstants {
     public static final String EXTRA_REGISTRATION_ERROR = "registration_error";
     public static final String EXTRA_REGISTRATION_ID = "registration_id";
     public static final String EXTRA_SENDER = "sender";
+    public static final String EXTRA_SUBSTITUTE_APP_NAME = "android.substName";
     public static final String EXTRA_UNREGISTERED = "unregistered";
     public static final String INTENT_ACTIVITY_NAME = "activity";
     public static final String IS_DISCARD = "isDiscard";

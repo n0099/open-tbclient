@@ -159,7 +159,7 @@ public class b {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private c b(String str, Map<String, String> map, String str2) throws IOException {
+    private c b(String str, Map<String, String> map, String str2) throws Exception {
         c cVar;
         InputStream inputStream;
         byte[] a2;
@@ -297,7 +297,7 @@ public class b {
     public c a(String str, Map<String, String> map, String str2) {
         try {
             return b(str, a(map), str2);
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
             return null;
         }

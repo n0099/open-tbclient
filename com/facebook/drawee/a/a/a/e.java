@@ -4,48 +4,48 @@ import com.facebook.imagepipeline.request.ImageRequest;
 import javax.annotation.Nullable;
 /* loaded from: classes13.dex */
 public class e {
-    private final boolean SL;
-    private final long lTA;
-    private final long lTB;
+    private final boolean SQ;
+    @Nullable
+    private final ImageRequest lTA;
+    @Nullable
+    private final com.facebook.imagepipeline.g.f lTB;
     private final long lTC;
     private final long lTD;
     private final long lTE;
-    private final int lTF;
-    private final boolean lTG;
-    private final int lTH;
-    private final int lTI;
+    private final long lTF;
+    private final long lTG;
+    private final long lTH;
+    private final long lTI;
+    private final int lTJ;
+    private final boolean lTK;
+    private final int lTL;
+    private final int lTM;
     @Nullable
-    private final String lTt;
+    private final String lTx;
     @Nullable
-    private final Object lTv;
-    @Nullable
-    private final ImageRequest lTw;
-    @Nullable
-    private final com.facebook.imagepipeline.g.f lTx;
-    private final long lTy;
-    private final long lTz;
+    private final Object lTz;
     private final boolean mIsCanceled;
     @Nullable
     private final String mRequestId;
 
     public e(@Nullable String str, @Nullable String str2, @Nullable ImageRequest imageRequest, @Nullable Object obj, @Nullable com.facebook.imagepipeline.g.f fVar, long j, long j2, long j3, long j4, long j5, long j6, long j7, int i, boolean z, boolean z2, boolean z3, int i2, int i3) {
-        this.lTt = str;
+        this.lTx = str;
         this.mRequestId = str2;
-        this.lTw = imageRequest;
-        this.lTv = obj;
-        this.lTx = fVar;
-        this.lTy = j;
-        this.lTz = j2;
-        this.lTA = j3;
-        this.lTB = j4;
-        this.lTC = j5;
-        this.lTD = j6;
-        this.lTE = j7;
-        this.lTF = i;
+        this.lTA = imageRequest;
+        this.lTz = obj;
+        this.lTB = fVar;
+        this.lTC = j;
+        this.lTD = j2;
+        this.lTE = j3;
+        this.lTF = j4;
+        this.lTG = j5;
+        this.lTH = j6;
+        this.lTI = j7;
+        this.lTJ = i;
         this.mIsCanceled = z;
-        this.SL = z2;
-        this.lTG = z3;
-        this.lTH = i2;
-        this.lTI = i3;
+        this.SQ = z2;
+        this.lTK = z3;
+        this.lTL = i2;
+        this.lTM = i3;
     }
 }

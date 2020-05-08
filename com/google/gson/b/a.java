@@ -6,19 +6,19 @@ import java.lang.reflect.Type;
 /* loaded from: classes7.dex */
 public class a<T> {
     final int hashCode;
-    final Class<? super T> mlN;
+    final Class<? super T> mlR;
     final Type type;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public a() {
         this.type = I(getClass());
-        this.mlN = (Class<? super T>) C$Gson$Types.f(this.type);
+        this.mlR = (Class<? super T>) C$Gson$Types.f(this.type);
         this.hashCode = this.type.hashCode();
     }
 
     a(Type type) {
         this.type = C$Gson$Types.e((Type) com.google.gson.internal.a.checkNotNull(type));
-        this.mlN = (Class<? super T>) C$Gson$Types.f(this.type);
+        this.mlR = (Class<? super T>) C$Gson$Types.f(this.type);
         this.hashCode = this.type.hashCode();
     }
 
@@ -30,8 +30,8 @@ public class a<T> {
         return C$Gson$Types.e(((ParameterizedType) genericSuperclass).getActualTypeArguments()[0]);
     }
 
-    public final Class<? super T> dwc() {
-        return this.mlN;
+    public final Class<? super T> dvZ() {
+        return this.mlR;
     }
 
     public final Type getType() {

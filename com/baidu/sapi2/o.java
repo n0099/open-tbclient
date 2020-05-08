@@ -1,48 +1,38 @@
 package com.baidu.sapi2;
+
+import com.baidu.pass.biometrics.face.liveness.callback.PassFaceRecogCallback;
+import com.baidu.pass.biometrics.face.liveness.result.PassFaceRecogResult;
+import com.baidu.sapi2.callback.ExtendSysWebViewMethodCallback;
+import com.baidu.sapi2.result.ExtendSysWebViewMethodResult;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes6.dex */
-final class o extends com.baidu.sapi2.share.k {
-    @Override // com.baidu.sapi2.share.k
-    protected String a(SapiAccount sapiAccount) {
-        return sapiAccount.extra;
+public class o extends PassFaceRecogCallback {
+    final /* synthetic */ ExtendSysWebViewMethodResult a;
+    final /* synthetic */ ExtendSysWebViewMethodCallback b;
+    final /* synthetic */ PassportSDK c;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public o(PassportSDK passportSDK, ExtendSysWebViewMethodResult extendSysWebViewMethodResult, ExtendSysWebViewMethodCallback extendSysWebViewMethodCallback) {
+        this.c = passportSDK;
+        this.a = extendSysWebViewMethodResult;
+        this.b = extendSysWebViewMethodCallback;
     }
 
-    @Override // com.baidu.sapi2.share.k
-    protected String b(SapiAccount sapiAccount) {
-        return sapiAccount.ptoken;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.pass.biometrics.base.callback.PassBiometricCallback
+    /* renamed from: a */
+    public void onFailure(PassFaceRecogResult passFaceRecogResult) {
+        ExtendSysWebViewMethodResult extendSysWebViewMethodResult = this.a;
+        extendSysWebViewMethodResult.recogResult = passFaceRecogResult;
+        this.b.onFinish(extendSysWebViewMethodResult);
     }
 
-    @Override // com.baidu.sapi2.share.k
-    protected void c(SapiAccount sapiAccount, String str) {
-        sapiAccount.ptoken = str;
-    }
-
-    @Override // com.baidu.sapi2.share.k
-    protected void d(SapiAccount sapiAccount, String str) {
-        sapiAccount.stoken = str;
-    }
-
-    @Override // com.baidu.sapi2.share.k
-    protected void a(SapiAccount sapiAccount, SapiAccount sapiAccount2) {
-        sapiAccount.updateSession(sapiAccount2);
-    }
-
-    @Override // com.baidu.sapi2.share.k
-    protected void b(SapiAccount sapiAccount, String str) {
-        sapiAccount.extra = str;
-    }
-
-    @Override // com.baidu.sapi2.share.k
-    protected String c(SapiAccount sapiAccount) {
-        return sapiAccount.stoken;
-    }
-
-    @Override // com.baidu.sapi2.share.k
-    protected void d(SapiAccount sapiAccount) {
-        sapiAccount.a();
-    }
-
-    @Override // com.baidu.sapi2.share.k
-    protected void a(SapiAccount sapiAccount, String str) {
-        sapiAccount.setAccountPkg(str);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.pass.biometrics.base.callback.PassBiometricCallback
+    /* renamed from: b */
+    public void onSuccess(PassFaceRecogResult passFaceRecogResult) {
+        ExtendSysWebViewMethodResult extendSysWebViewMethodResult = this.a;
+        extendSysWebViewMethodResult.recogResult = passFaceRecogResult;
+        this.b.onFinish(extendSysWebViewMethodResult);
     }
 }

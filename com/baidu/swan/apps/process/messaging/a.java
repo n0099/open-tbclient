@@ -9,13 +9,13 @@ import com.baidu.swan.apps.runtime.d;
 /* loaded from: classes11.dex */
 public final class a {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private b chV;
+    private b cib;
 
     /* loaded from: classes11.dex */
     public interface b {
         void a(@NonNull c cVar);
 
-        void aiW();
+        void aiV();
 
         void clear(String str);
 
@@ -25,23 +25,23 @@ public final class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.swan.apps.process.messaging.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public static class C0302a {
-        private static a chY = new a();
+    public static class C0323a {
+        private static a cif = new a();
     }
 
-    public static a aiT() {
-        return C0302a.chY;
+    public static a aiS() {
+        return C0323a.cif;
     }
 
     public void a(@NonNull final c cVar) {
-        long ajc = cVar.ajc();
-        if (ajc > 0 || Looper.getMainLooper() != Looper.myLooper()) {
+        long ajb = cVar.ajb();
+        if (ajb > 0 || Looper.getMainLooper() != Looper.myLooper()) {
             d.getMainHandler().postDelayed(new Runnable() { // from class: com.baidu.swan.apps.process.messaging.a.1
                 @Override // java.lang.Runnable
                 public void run() {
                     a.this.b(cVar);
                 }
-            }, ajc >= 0 ? ajc : 0L);
+            }, ajb >= 0 ? ajb : 0L);
         } else {
             b(cVar);
         }
@@ -54,30 +54,30 @@ public final class a {
             log("send: return by process check");
             return;
         }
-        if (this.chV == null) {
-            this.chV = isMainProcess ? new com.baidu.swan.apps.process.messaging.service.d() : new com.baidu.swan.apps.process.messaging.client.b();
+        if (this.cib == null) {
+            this.cib = isMainProcess ? new com.baidu.swan.apps.process.messaging.service.d() : new com.baidu.swan.apps.process.messaging.client.b();
         }
-        log("send: sender=" + this.chV);
-        this.chV.aiW();
-        this.chV.a(cVar);
-        this.chV.aiW();
+        log("send: sender=" + this.cib);
+        this.cib.aiV();
+        this.cib.a(cVar);
+        this.cib.aiV();
     }
 
     public void lD(String str) {
-        if (this.chV != null) {
-            this.chV.clear(str);
+        if (this.cib != null) {
+            this.cib.clear(str);
         }
     }
 
-    public void aiU() {
-        if (this.chV != null) {
-            this.chV.aiW();
+    public void aiT() {
+        if (this.cib != null) {
+            this.cib.aiV();
         }
     }
 
     public void lE(String str) {
-        if (this.chV != null) {
-            this.chV.lF(str);
+        if (this.cib != null) {
+            this.cib.lF(str);
         }
     }
 

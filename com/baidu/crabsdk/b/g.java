@@ -8,17 +8,17 @@ import android.os.Build;
 import com.baidu.searchbox.ui.animview.praise.resource.ComboPraiseProvider;
 /* loaded from: classes8.dex */
 public final class g {
-    private static Intent akk;
+    private static Intent akq;
 
     public static void e(Context context) {
-        if (akk != null || context == null) {
+        if (akq != null || context == null) {
             return;
         }
         try {
-            akk = context.registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
+            akq = context.registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
             com.baidu.crabsdk.c.a.v("Battery Broadcast Regist Success");
         } catch (Exception e) {
-            com.baidu.crabsdk.c.a.f("Register Battery Error!", e);
+            com.baidu.crabsdk.c.a.a("Register Battery Error!", e);
         }
     }
 
@@ -45,13 +45,13 @@ public final class g {
     }
 
     public static String y() {
-        if (akk == null) {
+        if (akq == null) {
             return "N/A";
         }
         try {
-            return ((int) ((akk.getIntExtra(ComboPraiseProvider.RES_KEY_PREFIX_PRAISE_LEVEL, 0) * 100.0f) / akk.getIntExtra("scale", 100))) + "%";
+            return ((int) ((akq.getIntExtra(ComboPraiseProvider.RES_KEY_PREFIX_PRAISE_LEVEL, 0) * 100.0f) / akq.getIntExtra("scale", 100))) + "%";
         } catch (Exception e) {
-            com.baidu.crabsdk.c.a.f("Get Battery Error!", e);
+            com.baidu.crabsdk.c.a.a("Get Battery Error!", e);
             return "N/A";
         }
     }

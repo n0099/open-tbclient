@@ -4,7 +4,7 @@ import com.baidu.cesium.a.i;
 import java.lang.reflect.Method;
 /* loaded from: classes13.dex */
 final class g extends f {
-    private a ahS;
+    private a ahV;
 
     /* loaded from: classes13.dex */
     private static class a {
@@ -17,7 +17,7 @@ final class g extends f {
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public long B(Object obj) {
+        public long C(Object obj) {
             try {
                 return ((Long) this.c.invoke(obj, new Object[0])).longValue();
             } catch (Exception e) {
@@ -56,16 +56,16 @@ final class g extends f {
         this.e = 32;
         this.f = i;
         this.g = i2;
-        this.ahS = new a();
+        this.ahV = new a();
     }
 
     @Override // com.baidu.cesium.a.f
     public b i(byte[] bArr, int i, int i2) {
         long j = 4294967295L;
         try {
-            Object b = this.ahS.b();
-            this.ahS.a(b, bArr, i, i2);
-            j = this.ahS.B(b);
+            Object b = this.ahV.b();
+            this.ahV.a(b, bArr, i, i2);
+            j = this.ahV.C(b);
         } catch (Exception e) {
         }
         return b.a(new long[]{j});

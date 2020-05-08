@@ -6,6 +6,7 @@ import android.text.TextUtils;
 import com.baidu.mobstat.Config;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiContext;
+import com.baidu.sapi2.dto.FaceBaseDTO;
 import com.baidu.sapi2.dto.PassNameValuePair;
 import com.baidu.sapi2.share.ShareStorage;
 import com.baidu.sapi2.share.m;
@@ -23,10 +24,6 @@ public class SapiStatUtil {
     public static final String LOGIN_STATUS_BDUSS_VALIDATE = "0";
     public static final String LOGIN_STATUS_NO_LOGIN = "1";
     public static final String LOGIN_STATUS_UNKNOWN = "3";
-    private static final String a = "cm_pre_phone";
-    private static final String b = "cm_pre_phone_errno";
-    private static final String c = "operator";
-    private static final String d = "scene";
 
     public static void buildStatExtraMap(Map<String, String> map, List<PassNameValuePair> list) {
         if (list != null && !list.isEmpty()) {
@@ -38,30 +35,39 @@ public class SapiStatUtil {
         }
     }
 
-    public static void statChinaMobile(int i, String str, String str2, String str3) {
-        HashMap hashMap = new HashMap();
-        hashMap.put(a, i + "");
-        hashMap.put(b, str + "");
-        hashMap.put(c, str2);
-        hashMap.put("scene", str3);
-        r.a("pass_sdk_init", hashMap);
-    }
-
     public static void statLoadLogin(String str) {
         HashMap hashMap = new HashMap();
         if (!TextUtils.isEmpty(str)) {
-            hashMap.put("scene", str);
+            hashMap.put(FaceBaseDTO.KEY_BUSINESS_SCENE, str);
         }
-        r.a("load_login", hashMap);
+        t.a("load_login", hashMap);
+    }
+
+    public static void statPreGetPhoneInfo(int i, String str, String str2, String str3, String str4) {
+        String str5;
+        HashMap hashMap = new HashMap();
+        hashMap.put("cm_pre_phone", i + "");
+        hashMap.put("cm_pre_phone_errno", str + "");
+        hashMap.put("operator", str2);
+        if ("1".equals(str4)) {
+            str5 = "data";
+        } else if ("2".equals(str4)) {
+            str5 = "wifi";
+        } else {
+            str5 = "3".equals(str4) ? "dataAndWifi" : "unknown";
+        }
+        hashMap.put(FaceBaseDTO.KEY_BUSINESS_SCENE, str3);
+        hashMap.put("netType", str5);
+        t.a("pass_sdk_init", hashMap);
     }
 
     public static void statShareClickOther(String str, List<PassNameValuePair> list) {
         HashMap hashMap = new HashMap();
         buildStatExtraMap(hashMap, list);
         if (str.equals("v2")) {
-            r.a("share_v2_click_other", hashMap);
+            t.a("share_v2_click_other", hashMap);
         } else if (str.equals(AbstractBceClient.URL_PREFIX)) {
-            r.a("share_v1_click_other", hashMap);
+            t.a("share_v1_click_other", hashMap);
         }
     }
 
@@ -71,18 +77,18 @@ public class SapiStatUtil {
         hashMap.put("index", i + "");
         hashMap.put(m.b.b, str);
         hashMap.put(m.b.c, str2);
-        r.a("share_v1_account_click", hashMap);
+        t.a("share_v1_account_click", hashMap);
     }
 
-    public static void statShareV1Login(Context context, SapiAccount sapiAccount, List<PassNameValuePair> list) {
-        if (com.baidu.sapi2.share.m.i.equals(SapiContext.getInstance(context).getAccountActionType())) {
-            SapiContext.getInstance(context).put(SapiContext.KEY_PRE_LOGIN_TYPE, com.baidu.sapi2.share.m.i);
+    public static void statShareV1Login(SapiAccount sapiAccount, List<PassNameValuePair> list) {
+        if (com.baidu.sapi2.share.m.i.equals(SapiContext.getInstance().getAccountActionType())) {
+            SapiContext.getInstance().put(SapiContext.KEY_PRE_LOGIN_TYPE, com.baidu.sapi2.share.m.i);
             HashMap hashMap = new HashMap();
             buildStatExtraMap(hashMap, list);
             hashMap.put(m.b.b, sapiAccount.getShareAccountTpl());
             hashMap.put(m.b.c, sapiAccount.app);
             hashMap.put("uid", sapiAccount.uid);
-            r.a("share_v1_account_suc", hashMap);
+            t.a("share_v1_account_suc", hashMap);
         }
     }
 
@@ -102,11 +108,11 @@ public class SapiStatUtil {
         hashMap.put("account_size", list.size() + "");
         hashMap.put("account_tpls", TextUtils.join(Constants.ACCEPT_TIME_SEPARATOR_SP, arrayList));
         hashMap.put("account_apps", TextUtils.join(Constants.ACCEPT_TIME_SEPARATOR_SP, arrayList2));
-        r.a("share_v1_account_open", hashMap);
+        t.a("share_v1_account_open", hashMap);
     }
 
     public static void statShareV2ActiveLoginSuc() {
-        r.a("share_v2_active_login_suc", new HashMap());
+        t.a("share_v2_active_login_suc", new HashMap());
     }
 
     public static void statShareV2Click(m.b bVar, List<PassNameValuePair> list) {
@@ -115,21 +121,21 @@ public class SapiStatUtil {
         hashMap.put("index", bVar.d + "");
         hashMap.put(m.b.b, bVar.e);
         hashMap.put(m.b.c, bVar.f);
-        r.a("share_account_click", hashMap);
+        t.a("share_account_click", hashMap);
     }
 
     public static void statShareV2Invoke(String str) {
         HashMap hashMap = new HashMap();
-        hashMap.put("login", str);
-        r.a("share_v2_invoke", hashMap);
+        hashMap.put(com.baidu.sapi2.outsdk.c.k, str);
+        t.a("share_v2_invoke", hashMap);
     }
 
     public static void statShareV2Oauth() {
-        r.a("share_v2_oauth", new HashMap());
+        t.a("share_v2_oauth", new HashMap());
     }
 
     public static void statShareV2OauthSuc() {
-        r.a("share_v2_oauth_suc", new HashMap());
+        t.a("share_v2_oauth_suc", new HashMap());
     }
 
     public static void statShareV2Open(List<ShareStorage.StorageModel> list, String str, List<PassNameValuePair> list2) {
@@ -146,13 +152,13 @@ public class SapiStatUtil {
         HashMap hashMap = new HashMap();
         buildStatExtraMap(hashMap, list2);
         if (!TextUtils.isEmpty(str)) {
-            hashMap.put("scene", str);
+            hashMap.put(FaceBaseDTO.KEY_BUSINESS_SCENE, str);
         }
         hashMap.put(Config.DEVICE_PART, Build.MODEL);
         hashMap.put("account_size", list.size() + "");
         hashMap.put("account_tpls", TextUtils.join(Constants.ACCEPT_TIME_SEPARATOR_SP, arrayList));
         hashMap.put("account_apps", TextUtils.join(Constants.ACCEPT_TIME_SEPARATOR_SP, arrayList2));
-        r.a("share_account_open", hashMap);
+        t.a("share_account_open", hashMap);
     }
 
     public static void statShareV2OpenMax(Context context, int i, int i2, int i3, int i4, ShareStorage shareStorage, List<ShareStorage.StorageModel> list) {
@@ -166,13 +172,13 @@ public class SapiStatUtil {
         hashMap.put("share_count", list.size() + "");
         hashMap.put("os_version", Build.VERSION.RELEASE);
         hashMap.put("chmod", shareStorage.readSpFromChmodFile ? "1" : "0");
-        r.a("share_read", hashMap);
+        t.a("share_read", hashMap);
     }
 
     public static void statShareV2OtherFail(int i) {
         HashMap hashMap = new HashMap();
         hashMap.put("error_code", i + "");
-        r.a("share_v2_oauth_fail", hashMap);
+        t.a("share_v2_oauth_fail", hashMap);
     }
 
     public static void statShareV2Result(m.b bVar, String str, int i, String str2, List<PassNameValuePair> list) {
@@ -185,7 +191,7 @@ public class SapiStatUtil {
             hashMap.put(m.b.c, bVar.f);
         }
         hashMap.put("uid", str2);
-        r.a("share_account_result", hashMap);
+        t.a("share_account_result", hashMap);
     }
 
     public static void statSmsCodeClip(Context context, String str) {
@@ -194,7 +200,7 @@ public class SapiStatUtil {
         hashMap.put(Config.DEVICE_PART, Build.MODEL);
         hashMap.put("os_version", Build.VERSION.RELEASE);
         hashMap.put("success", str);
-        r.a("get_sms_check_code_from_clip", hashMap);
+        t.a("get_sms_check_code_from_clip", hashMap);
     }
 
     public static void statThirdLoginEnter(SocialType socialType) {
@@ -206,6 +212,6 @@ public class SapiStatUtil {
             hashMap.put("is_sso", "1");
         }
         hashMap.put(LoginActivityConfig.SOCIAL_TYPE, socialType.getType() + "");
-        r.a("thirdlogin_enter", hashMap);
+        t.a("thirdlogin_enter", hashMap);
     }
 }

@@ -2,7 +2,7 @@ package com.xiaomi.clientreport.data;
 
 import android.content.Context;
 import android.text.TextUtils;
-import com.xiaomi.push.be;
+import com.xiaomi.push.bj;
 /* loaded from: classes8.dex */
 public class Config {
     public static final boolean DEFAULT_EVENT_ENCRYPTED = true;
@@ -93,7 +93,7 @@ public class Config {
             this.mEventEncrypted = true;
         }
         if (TextUtils.isEmpty(builder.mAESKey)) {
-            this.mAESKey = be.a(context);
+            this.mAESKey = bj.a(context);
         } else {
             this.mAESKey = builder.mAESKey;
         }
@@ -129,7 +129,7 @@ public class Config {
     }
 
     public static Config defaultConfig(Context context) {
-        return getBuilder().setEventEncrypted(true).setAESKey(be.a(context)).setMaxFileLength(1048576L).setEventUploadSwitchOpen(false).setEventUploadFrequency(86400L).setPerfUploadSwitchOpen(false).setPerfUploadFrequency(86400L).build(context);
+        return getBuilder().setEventEncrypted(true).setAESKey(bj.a(context)).setMaxFileLength(1048576L).setEventUploadSwitchOpen(false).setEventUploadFrequency(86400L).setPerfUploadSwitchOpen(false).setPerfUploadFrequency(86400L).build(context);
     }
 
     public static Builder getBuilder() {

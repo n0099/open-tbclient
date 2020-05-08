@@ -79,7 +79,7 @@ public final class R {
         public static final int start = 0x7f0f015c;
 
         /* renamed from: top  reason: collision with root package name */
-        public static final int f960top = 0x7f0f015d;
+        public static final int f952top = 0x7f0f015d;
         public static final int wrap = 0x7f0f016b;
     }
 

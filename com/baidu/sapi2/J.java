@@ -1,27 +1,33 @@
 package com.baidu.sapi2;
 
-import android.content.Context;
-import com.baidu.sapi2.P;
-import com.baidu.sapi2.S;
+import android.os.Looper;
+import com.baidu.sapi2.httpwrap.HttpHandlerWrap;
+import com.baidu.sapi2.shell.callback.SapiCallBack;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes6.dex */
-public class J implements P.a {
-    final /* synthetic */ Context a;
-    final /* synthetic */ P b;
+public class J extends HttpHandlerWrap {
+    final /* synthetic */ SapiCallBack a;
+    final /* synthetic */ L b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public J(P p, Context context) {
-        this.b = p;
-        this.a = context;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public J(L l, Looper looper, SapiCallBack sapiCallBack) {
+        super(looper);
+        this.b = l;
+        this.a = sapiCallBack;
     }
 
-    @Override // com.baidu.sapi2.P.a
-    public void a(S.a.C0203a c0203a, String str) {
-        this.b.a(c0203a.a, str);
+    @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
+    public void onFailure(Throwable th, int i, String str) {
+        if (i == -203) {
+            this.a.onSystemError(i);
+        } else {
+            this.b.b(this.a, str);
+        }
     }
 
-    @Override // com.baidu.sapi2.P.a
-    public void a(S.a.C0203a c0203a) {
-        this.b.a(this.a, c0203a);
+    @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
+    public void onSuccess(int i, String str) {
+        this.b.b(this.a, str);
     }
 }

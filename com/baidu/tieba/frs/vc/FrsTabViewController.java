@@ -66,37 +66,37 @@ import tbclient.FrsTabInfo;
 import tbclient.ThemeColorInfo;
 /* loaded from: classes9.dex */
 public class FrsTabViewController implements TbTabLayout.b, n {
-    private View eRx;
-    private TbTabLayout gCH;
-    private FrsFragment hah;
-    private RelativeLayout hfR;
-    private RelativeLayout hxW;
-    private View hxX;
-    private FrsTabViewPager hxY;
-    private LinearGradientView hxZ;
-    private TabData hya;
-    private FrsViewData hyb;
-    private FragmentAdapter hyc;
-    private com.baidu.tieba.frs.e hyd;
-    private com.baidu.tieba.frs.entelechy.tabView.frsTabFollowPost.b hye;
-    private a hyf;
-    private com.baidu.tieba.c.d hyh;
-    private int hyk;
+    private View eRC;
+    private TbTabLayout gCN;
+    private FrsFragment han;
+    private RelativeLayout hfX;
+    private RelativeLayout hyc;
+    private View hyd;
+    private FrsTabViewPager hye;
+    private LinearGradientView hyf;
+    private TabData hyg;
+    private FrsViewData hyh;
+    private FragmentAdapter hyi;
+    private com.baidu.tieba.frs.e hyj;
+    private com.baidu.tieba.frs.entelechy.tabView.frsTabFollowPost.b hyk;
+    private a hyl;
+    private com.baidu.tieba.c.d hyn;
+    private int hyq;
     private List<b> mFragments;
     private ThemeColorInfo mThemeColorInfo;
-    private int hbc = 0;
-    private int hyg = -1;
-    private boolean hyi = false;
-    public boolean hyj = true;
-    private boolean hyl = false;
-    private boolean hym = false;
-    CustomMessageListener hyn = new CustomMessageListener(CmdConfigCustom.CMD_FRS_ADD_TAB) { // from class: com.baidu.tieba.frs.vc.FrsTabViewController.1
+    private int hbi = 0;
+    private int hym = -1;
+    private boolean hyo = false;
+    public boolean hyp = true;
+    private boolean hyr = false;
+    private boolean hys = false;
+    CustomMessageListener hyt = new CustomMessageListener(CmdConfigCustom.CMD_FRS_ADD_TAB) { // from class: com.baidu.tieba.frs.vc.FrsTabViewController.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tieba.frs.e) && !FrsTabViewController.this.hyi) {
-                FrsTabViewController.this.bVO();
-                FrsTabViewController.this.hyi = true;
+            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tieba.frs.e) && !FrsTabViewController.this.hyo) {
+                FrsTabViewController.this.bVM();
+                FrsTabViewController.this.hyo = true;
             }
         }
     };
@@ -107,14 +107,14 @@ public class FrsTabViewController implements TbTabLayout.b, n {
 
         @Override // android.support.v4.view.ViewPager.OnPageChangeListener
         public void onPageSelected(int i) {
-            if (FrsTabViewController.this.hxY != null) {
-                FrsTabViewController.this.hxY.bQs();
+            if (FrsTabViewController.this.hye != null) {
+                FrsTabViewController.this.hye.bQq();
                 if (!v.isEmpty(FrsTabViewController.this.mFragments) && FrsTabViewController.this.mFragments.size() > i) {
                     b bVar = (b) v.getItem(FrsTabViewController.this.mFragments, i);
                     if (bVar.fragment instanceof an) {
                         y yVar = new y();
                         yVar.tabId = bVar.tabId;
-                        yVar.hbN = (an) bVar.fragment;
+                        yVar.hbT = (an) bVar.fragment;
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921448, yVar));
                         return;
                     }
@@ -129,7 +129,7 @@ public class FrsTabViewController implements TbTabLayout.b, n {
         public void onPageScrollStateChanged(int i) {
         }
     };
-    private CustomMessageListener hyo = new CustomMessageListener(CmdConfigCustom.CMD_FRS_TAB_SHOW_RED_POINT) { // from class: com.baidu.tieba.frs.vc.FrsTabViewController.5
+    private CustomMessageListener hyu = new CustomMessageListener(CmdConfigCustom.CMD_FRS_TAB_SHOW_RED_POINT) { // from class: com.baidu.tieba.frs.vc.FrsTabViewController.5
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -137,13 +137,13 @@ public class FrsTabViewController implements TbTabLayout.b, n {
                 Object data = customResponsedMessage.getData();
                 if (data instanceof Boolean) {
                     boolean booleanValue = ((Boolean) data).booleanValue();
-                    if (FrsTabViewController.this.hyb != null && FrsTabViewController.this.hyb.isShowRedTip() != booleanValue && FrsTabViewController.this.gCH.getTabCount() > 0 && !v.isEmpty(FrsTabViewController.this.hya)) {
-                        FrsTabViewController.this.hyb.setIsShowRedTip(booleanValue);
-                        int min = Math.min(FrsTabViewController.this.hya.size(), FrsTabViewController.this.gCH.getTabCount());
+                    if (FrsTabViewController.this.hyh != null && FrsTabViewController.this.hyh.isShowRedTip() != booleanValue && FrsTabViewController.this.gCN.getTabCount() > 0 && !v.isEmpty(FrsTabViewController.this.hyg)) {
+                        FrsTabViewController.this.hyh.setIsShowRedTip(booleanValue);
+                        int min = Math.min(FrsTabViewController.this.hyg.size(), FrsTabViewController.this.gCN.getTabCount());
                         for (int i = 0; i < min; i++) {
-                            TbTabLayout.e aE = FrsTabViewController.this.gCH.aE(i);
+                            TbTabLayout.e aE = FrsTabViewController.this.gCN.aE(i);
                             if (aE != null) {
-                                if (FrsTabViewController.this.hya.get(i).tabId == 89) {
+                                if (FrsTabViewController.this.hyg.get(i).tabId == 89) {
                                     aE.j(0, booleanValue);
                                 } else {
                                     aE.j(0, false);
@@ -155,31 +155,31 @@ public class FrsTabViewController implements TbTabLayout.b, n {
             }
         }
     };
-    private CustomMessageListener eVf = new CustomMessageListener(0) { // from class: com.baidu.tieba.frs.vc.FrsTabViewController.6
+    private CustomMessageListener eVk = new CustomMessageListener(0) { // from class: com.baidu.tieba.frs.vc.FrsTabViewController.6
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            b bVR;
+            b bVP;
             if (customResponsedMessage != null && !TextUtils.isEmpty((String) customResponsedMessage.getData())) {
                 String[] split = ((String) customResponsedMessage.getData()).split(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
                 if (split.length == 2) {
                     String str = split[0];
                     String str2 = split[1];
-                    if ("FrsGameLive".equals(str) && 1 == Integer.valueOf(str2).intValue() && (bVR = FrsTabViewController.this.bVR()) != null && bVR.fragment != null && (bVR.fragment instanceof al)) {
-                        ((al) bVR.fragment).bmn();
+                    if ("FrsGameLive".equals(str) && 1 == Integer.valueOf(str2).intValue() && (bVP = FrsTabViewController.this.bVP()) != null && bVP.fragment != null && (bVP.fragment instanceof al)) {
+                        ((al) bVP.fragment).bml();
                     }
                 }
             }
         }
     };
-    private CustomMessageListener hyp = new CustomMessageListener(2921384) { // from class: com.baidu.tieba.frs.vc.FrsTabViewController.2
+    private CustomMessageListener hyv = new CustomMessageListener(2921384) { // from class: com.baidu.tieba.frs.vc.FrsTabViewController.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             int i;
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2921384) {
                 int i2 = 0;
-                Iterator it = FrsTabViewController.this.hya.iterator();
+                Iterator it = FrsTabViewController.this.hyg.iterator();
                 while (true) {
                     i = i2;
                     if (!it.hasNext() || ((com.baidu.tieba.frs.tab.d) it.next()).tabId == 301) {
@@ -187,16 +187,16 @@ public class FrsTabViewController implements TbTabLayout.b, n {
                     }
                     i2 = i + 1;
                 }
-                if (i <= FrsTabViewController.this.hya.size()) {
-                    FrsTabViewController.this.hxY.setCurrentItem(i, true);
+                if (i <= FrsTabViewController.this.hyg.size()) {
+                    FrsTabViewController.this.hye.setCurrentItem(i, true);
                 }
             }
         }
     };
-    private View.OnClickListener hyq = new View.OnClickListener() { // from class: com.baidu.tieba.frs.vc.FrsTabViewController.3
+    private View.OnClickListener hyw = new View.OnClickListener() { // from class: com.baidu.tieba.frs.vc.FrsTabViewController.3
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            FrsTabViewController.this.hyh.EE();
+            FrsTabViewController.this.hyn.ED();
         }
     };
 
@@ -206,60 +206,60 @@ public class FrsTabViewController implements TbTabLayout.b, n {
     }
 
     public void nr(boolean z) {
-        this.gCH.setDisableTabSelect(z);
+        this.gCN.setDisableTabSelect(z);
     }
 
-    public FrsTabViewPager bVJ() {
-        return this.hxY;
+    public FrsTabViewPager bVH() {
+        return this.hye;
     }
 
     public FrsTabViewController(FrsFragment frsFragment, View view) {
-        this.hah = frsFragment;
-        this.hxW = (RelativeLayout) view.findViewById(R.id.frs_tab_view_container);
-        this.hxX = view.findViewById(R.id.frs_tab_bg);
-        this.eRx = view.findViewById(R.id.divider_shadow);
-        this.hxZ = (LinearGradientView) view.findViewById(R.id.frs_tab_linear_bg);
-        this.gCH = (TbTabLayout) view.findViewById(R.id.frs_tab_layout);
-        this.gCH.setOnTabSelectedListener(this);
-        this.gCH.setSelectedTabTextBlod(true);
-        this.gCH.setTabTextSize(uT(R.dimen.tbds46));
-        this.hyh = new com.baidu.tieba.c.d(frsFragment.getPageContext(), this.gCH);
-        this.hyh.cz(R.drawable.bg_tip_blue_up_left);
-        this.hyh.cy(16);
-        this.hyh.setUseDirectOffset(true);
-        this.hyh.rS(uT(R.dimen.tbds34));
-        this.hyh.setYOffset(uT(R.dimen.tbds10));
-        this.hyh.c(this.hyq);
-        this.hxY = (FrsTabViewPager) view.findViewById(R.id.frs_viewpager);
+        this.han = frsFragment;
+        this.hyc = (RelativeLayout) view.findViewById(R.id.frs_tab_view_container);
+        this.hyd = view.findViewById(R.id.frs_tab_bg);
+        this.eRC = view.findViewById(R.id.divider_shadow);
+        this.hyf = (LinearGradientView) view.findViewById(R.id.frs_tab_linear_bg);
+        this.gCN = (TbTabLayout) view.findViewById(R.id.frs_tab_layout);
+        this.gCN.setOnTabSelectedListener(this);
+        this.gCN.setSelectedTabTextBlod(true);
+        this.gCN.setTabTextSize(uT(R.dimen.tbds46));
+        this.hyn = new com.baidu.tieba.c.d(frsFragment.getPageContext(), this.gCN);
+        this.hyn.cz(R.drawable.bg_tip_blue_up_left);
+        this.hyn.cy(16);
+        this.hyn.setUseDirectOffset(true);
+        this.hyn.rS(uT(R.dimen.tbds34));
+        this.hyn.setYOffset(uT(R.dimen.tbds10));
+        this.hyn.c(this.hyw);
+        this.hye = (FrsTabViewPager) view.findViewById(R.id.frs_viewpager);
         this.mFragments = new ArrayList();
-        this.hyc = new FragmentAdapter(this.hah.getActivity().getSupportFragmentManager(), this.mFragments);
-        this.hxY.addOnPageChangeListener(this.mOnPageChangeListener);
-        this.hfR = new RelativeLayout(this.hah.getContext());
-        this.hye = new com.baidu.tieba.frs.entelechy.tabView.frsTabFollowPost.b(frsFragment, this.hfR);
+        this.hyi = new FragmentAdapter(this.han.getActivity().getSupportFragmentManager(), this.mFragments);
+        this.hye.addOnPageChangeListener(this.mOnPageChangeListener);
+        this.hfX = new RelativeLayout(this.han.getContext());
+        this.hyk = new com.baidu.tieba.frs.entelechy.tabView.frsTabFollowPost.b(frsFragment, this.hfX);
     }
 
     private int uT(int i) {
         return com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), i);
     }
 
-    public RelativeLayout bVK() {
-        return this.hfR;
+    public RelativeLayout bVI() {
+        return this.hfX;
     }
 
-    public View bVL() {
-        return this.hxZ;
+    public View bVJ() {
+        return this.hyf;
     }
 
     private boolean isBrandForum() {
-        return this.hyb != null && this.hyb.getIsBrandForum();
+        return this.hyh != null && this.hyh.getIsBrandForum();
     }
 
     public void registerListener() {
-        this.hyn.setPriority(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
-        this.hah.registerListener(this.hyn);
-        this.hah.registerListener(this.hyo);
-        this.hah.registerListener(CmdConfigCustom.CMD_FORCE_REFRESH, this.eVf, this.hah.getBaseFragmentActivity().getUniqueId());
-        this.hah.registerListener(this.hyp);
+        this.hyt.setPriority(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
+        this.han.registerListener(this.hyt);
+        this.han.registerListener(this.hyu);
+        this.han.registerListener(CmdConfigCustom.CMD_FORCE_REFRESH, this.eVk, this.han.getBaseFragmentActivity().getUniqueId());
+        this.han.registerListener(this.hyv);
     }
 
     @Override // com.baidu.tieba.frs.vc.n
@@ -296,18 +296,18 @@ public class FrsTabViewController implements TbTabLayout.b, n {
                             } else {
                                 str2 = frsViewData.getForum().getName();
                             }
-                            int Dv = com.baidu.tieba.frs.f.g.Dv("503~" + str + str2);
-                            if (Dv == -1) {
+                            int Dy = com.baidu.tieba.frs.f.g.Dy("503~" + str + str2);
+                            if (Dy == -1) {
                                 Iterator<FrsTabInfo> it = frsViewData.getEntelechyTabInfo().menu.iterator();
                                 while (true) {
                                     if (it.hasNext()) {
                                         FrsTabInfo next = it.next();
                                         if (next.tab_type == frsTabInfo.tab_type) {
                                             com.baidu.tieba.frs.f.g.aM("503~" + str + str2, next.tab_id.intValue());
-                                            if (7 == Dv) {
-                                                com.baidu.tieba.tbadkCore.util.e.cXr();
+                                            if (7 == Dy) {
+                                                com.baidu.tieba.tbadkCore.util.e.cXo();
                                             } else {
-                                                com.baidu.tieba.tbadkCore.util.e.cXs();
+                                                com.baidu.tieba.tbadkCore.util.e.cXp();
                                             }
                                         }
                                     }
@@ -345,7 +345,7 @@ public class FrsTabViewController implements TbTabLayout.b, n {
                         dVar5.tabId = frsTabInfo.tab_id.intValue();
                         dVar5.name = frsTabInfo.tab_name;
                         dVar5.url = frsTabInfo.tab_url;
-                        if (com.baidu.tbadk.browser.d.tx(dVar5.url)) {
+                        if (com.baidu.tbadk.browser.d.tA(dVar5.url)) {
                             if (MessageManager.getInstance().findTask(CmdConfigCustom.CMD_LEGO_LIST) != null) {
                                 tabData.add(dVar5);
                                 arrayList.add(frsTabInfo);
@@ -354,28 +354,28 @@ public class FrsTabViewController implements TbTabLayout.b, n {
                             tabData.add(dVar5);
                             arrayList.add(frsTabInfo);
                         }
-                    } else if (frsTabInfo.tab_id.intValue() != 1 && ae.bQr().tB(frsTabInfo.tab_id.intValue()) && frsTabInfo.tab_id.intValue() != 49) {
+                    } else if (frsTabInfo.tab_id.intValue() != 1 && ae.bQp().tB(frsTabInfo.tab_id.intValue()) && frsTabInfo.tab_id.intValue() != 49) {
                         com.baidu.tieba.frs.tab.d dVar6 = new com.baidu.tieba.frs.tab.d();
                         dVar6.tabId = frsTabInfo.tab_id.intValue();
                         dVar6.name = frsTabInfo.tab_name;
-                        ac ty = ab.bQq().ty(dVar6.tabId);
-                        if (ty != null && ty.hcd != null && ty.hcd.size() > 0) {
-                            dVar6.huC = new ay();
-                            dVar6.huC.hcc = ty.hcc;
-                            dVar6.huC.hcd = new LinkedList();
+                        ac ty = ab.bQo().ty(dVar6.tabId);
+                        if (ty != null && ty.hcj != null && ty.hcj.size() > 0) {
+                            dVar6.huI = new ay();
+                            dVar6.huI.hci = ty.hci;
+                            dVar6.huI.hcj = new LinkedList();
                             boolean z2 = true;
-                            for (aa aaVar : ty.hcd) {
+                            for (aa aaVar : ty.hcj) {
                                 if (aaVar != null) {
                                     ax axVar = new ax();
                                     axVar.name = aaVar.name;
-                                    axVar.hbZ = aaVar.hbZ;
+                                    axVar.hcf = aaVar.hcf;
                                     if (z2) {
                                         axVar.isSelected = true;
                                         z = false;
                                     } else {
                                         z = z2;
                                     }
-                                    dVar6.huC.hcd.add(axVar);
+                                    dVar6.huI.hcj.add(axVar);
                                     z2 = z;
                                 }
                             }
@@ -386,34 +386,34 @@ public class FrsTabViewController implements TbTabLayout.b, n {
                         com.baidu.tieba.frs.tab.d dVar7 = new com.baidu.tieba.frs.tab.d();
                         dVar7.tabId = frsTabInfo.tab_id.intValue();
                         dVar7.name = frsTabInfo.tab_name;
-                        ac ty2 = ab.bQq().ty(dVar7.tabId);
-                        if (ty2 != null && ty2.hcd != null && ty2.hcd.size() > 0) {
-                            dVar7.huC = new ay();
-                            dVar7.huC.hcc = ty2.hcc;
-                            dVar7.huC.hcd = new LinkedList();
-                            for (aa aaVar2 : ty2.hcd) {
+                        ac ty2 = ab.bQo().ty(dVar7.tabId);
+                        if (ty2 != null && ty2.hcj != null && ty2.hcj.size() > 0) {
+                            dVar7.huI = new ay();
+                            dVar7.huI.hci = ty2.hci;
+                            dVar7.huI.hcj = new LinkedList();
+                            for (aa aaVar2 : ty2.hcj) {
                                 if (aaVar2 != null) {
                                     ax axVar2 = new ax();
                                     axVar2.name = aaVar2.name;
-                                    axVar2.hbZ = aaVar2.hbZ;
-                                    dVar7.huC.hcd.add(axVar2);
+                                    axVar2.hcf = aaVar2.hcf;
+                                    dVar7.huI.hcj.add(axVar2);
                                 }
                             }
                         }
                         tabData.add(dVar7);
                         arrayList.add(frsTabInfo);
                     } else if (frsTabInfo.tab_id.intValue() == 49) {
-                        if (this.hah.bOx().bPR().p(bj.dqW)) {
+                        if (this.han.bOv().bPP().p(bj.dra)) {
                             com.baidu.tieba.frs.tab.d dVar8 = new com.baidu.tieba.frs.tab.d();
                             dVar8.name = frsTabInfo.tab_name;
                             if (frsViewData.getAlaLiveCount() != 0 && frsViewData.getAlaLiveCount() <= 99) {
                                 dVar8.name = frsTabInfo.tab_name + "(" + frsViewData.getAlaLiveCount() + ")";
                             }
-                            if (this.hyg > 0 && this.hyg != frsViewData.getAlaLiveCount() && this.hyg <= 99) {
-                                dVar8.name = frsTabInfo.tab_name + "(" + this.hyg + ")";
-                            } else if (this.hyg > 99 || frsViewData.getAlaLiveCount() > 99) {
+                            if (this.hym > 0 && this.hym != frsViewData.getAlaLiveCount() && this.hym <= 99) {
+                                dVar8.name = frsTabInfo.tab_name + "(" + this.hym + ")";
+                            } else if (this.hym > 99 || frsViewData.getAlaLiveCount() > 99) {
                                 dVar8.name = frsTabInfo.tab_name + "(99+)";
-                            } else if (this.hyg == 0 && this.hyg != frsViewData.getAlaLiveCount()) {
+                            } else if (this.hym == 0 && this.hym != frsViewData.getAlaLiveCount()) {
                                 dVar8.name = frsTabInfo.tab_name;
                             }
                             dVar8.tabId = frsTabInfo.tab_id.intValue();
@@ -421,7 +421,7 @@ public class FrsTabViewController implements TbTabLayout.b, n {
                             arrayList.add(frsTabInfo);
                         }
                     } else if (frsTabInfo.tab_id.intValue() == 1121) {
-                        if (com.baidu.tbadk.core.sharedPref.b.aNV().getInt("chushou_game_tab", 1) == 1) {
+                        if (com.baidu.tbadk.core.sharedPref.b.aNT().getInt("chushou_game_tab", 1) == 1) {
                             com.baidu.tieba.frs.tab.d dVar9 = new com.baidu.tieba.frs.tab.d();
                             dVar9.tabId = frsTabInfo.tab_id.intValue();
                             dVar9.name = frsTabInfo.tab_name;
@@ -456,16 +456,16 @@ public class FrsTabViewController implements TbTabLayout.b, n {
                 }
             }
             if (tabData.size() != 0 && arrayList.size() != 0) {
-                this.hyb = frsViewData;
-                if (this.hyb.getForum() != null) {
-                    this.mThemeColorInfo = this.hyb.getForum().getThemeColorInfo();
+                this.hyh = frsViewData;
+                if (this.hyh.getForum() != null) {
+                    this.mThemeColorInfo = this.hyh.getForum().getThemeColorInfo();
                 }
-                if (!c(tabData) && this.gCH.getTabCount() > 0 && !v.isEmpty(this.hya)) {
-                    int min = Math.min(this.hya.size(), this.gCH.getTabCount());
+                if (!c(tabData) && this.gCN.getTabCount() > 0 && !v.isEmpty(this.hyg)) {
+                    int min = Math.min(this.hyg.size(), this.gCN.getTabCount());
                     for (int i2 = 0; i2 < min; i2++) {
-                        TbTabLayout.e aE = this.gCH.aE(i2);
+                        TbTabLayout.e aE = this.gCN.aE(i2);
                         if (aE != null) {
-                            if (frsViewData.isShowRedTip() && this.hya.get(i2).tabId == 89) {
+                            if (frsViewData.isShowRedTip() && this.hyg.get(i2).tabId == 89) {
                                 aE.j(0, true);
                             } else {
                                 aE.j(0, false);
@@ -477,41 +477,41 @@ public class FrsTabViewController implements TbTabLayout.b, n {
                     List<FrsTabInfo> f = f(frsViewData);
                     if (isBrandForum()) {
                         FrsTabInfo frsTabInfo2 = (FrsTabInfo) v.getItem(f, 0);
-                        if (this.hah != null && this.hah.bOs() != null && frsTabInfo2 != null) {
-                            this.hah.bOs().ur(frsTabInfo2.tab_id.intValue());
+                        if (this.han != null && this.han.bOq() != null && frsTabInfo2 != null) {
+                            this.han.bOq().ur(frsTabInfo2.tab_id.intValue());
                         }
-                    } else if (this.hah != null && this.hah.aQI() != null) {
+                    } else if (this.han != null && this.han.aQF() != null) {
                         if (f != null && f.size() < 2) {
-                            this.hah.aQI().removeHeaderView(this.hfR);
+                            this.han.aQF().removeHeaderView(this.hfX);
                         } else {
-                            this.hah.aQI().removeHeaderView(this.hfR);
-                            this.hah.aQI().addHeaderView(this.hfR);
-                            if (this.hye != null && frsViewData.getForum() != null) {
-                                this.hye.setData(f);
-                                this.hye.setFid(frsViewData.getForum().getId());
+                            this.han.aQF().removeHeaderView(this.hfX);
+                            this.han.aQF().addHeaderView(this.hfX);
+                            if (this.hyk != null && frsViewData.getForum() != null) {
+                                this.hyk.setData(f);
+                                this.hyk.setFid(frsViewData.getForum().getId());
                             }
                         }
                     }
                 }
                 if (a(tabData)) {
-                    this.hya = tabData;
-                    bVM();
+                    this.hyg = tabData;
+                    bVK();
                     cD(arrayList);
                 }
             }
         }
     }
 
-    private void bVM() {
+    private void bVK() {
         int i = -1;
-        if (!v.isEmpty(this.hya)) {
-            i = this.hya.get(0).tabId;
+        if (!v.isEmpty(this.hyg)) {
+            i = this.hyg.get(0).tabId;
         }
-        if (this.hyb != null) {
-            this.hyb.mHeadLineDefaultNavTabId = i;
+        if (this.hyh != null) {
+            this.hyh.mHeadLineDefaultNavTabId = i;
         }
-        if (this.hah != null) {
-            this.hah.mHeadLineDefaultNavTabId = i;
+        if (this.han != null) {
+            this.han.mHeadLineDefaultNavTabId = i;
         }
     }
 
@@ -546,10 +546,10 @@ public class FrsTabViewController implements TbTabLayout.b, n {
             return false;
         }
         b(tabData);
-        if (!v.isEmpty(this.hyc.mFragments) && tabData.size() == this.hyc.mFragments.size()) {
+        if (!v.isEmpty(this.hyi.mFragments) && tabData.size() == this.hyi.mFragments.size()) {
             int size = tabData.size();
             for (int i = 0; i < size; i++) {
-                if (tabData.get(i) != null && this.hyc.mFragments.get(i) != null && tabData.get(i).tabId != ((b) this.hyc.mFragments.get(i)).tabId) {
+                if (tabData.get(i) != null && this.hyi.mFragments.get(i) != null && tabData.get(i).tabId != ((b) this.hyi.mFragments.get(i)).tabId) {
                     return true;
                 }
             }
@@ -573,8 +573,8 @@ public class FrsTabViewController implements TbTabLayout.b, n {
         }
     }
 
-    public int bVN() {
-        Iterator it = this.hya.iterator();
+    public int bVL() {
+        Iterator it = this.hyg.iterator();
         while (it.hasNext()) {
             com.baidu.tieba.frs.tab.d dVar = (com.baidu.tieba.frs.tab.d) it.next();
             if (dVar != null && (dVar.tabId == 1 || dVar.tabId == 503)) {
@@ -595,24 +595,24 @@ public class FrsTabViewController implements TbTabLayout.b, n {
 
     @Override // com.baidu.tieba.frs.vc.n
     public boolean uV(int i) {
-        if (i < 0 || this.hya == null || this.hya.size() == 0) {
+        if (i < 0 || this.hyg == null || this.hyg.size() == 0) {
             return false;
         }
         int i2 = 0;
         while (true) {
-            if (i2 >= this.hya.size()) {
+            if (i2 >= this.hyg.size()) {
                 i2 = -1;
                 break;
-            } else if (this.hya.get(i2).tabId == i) {
+            } else if (this.hyg.get(i2).tabId == i) {
                 break;
             } else {
                 i2++;
             }
         }
-        if (i2 < 0 || i2 >= this.gCH.getTabCount()) {
+        if (i2 < 0 || i2 >= this.gCN.getTabCount()) {
             return false;
         }
-        TbTabLayout.e aE = this.gCH.aE(i2);
+        TbTabLayout.e aE = this.gCN.aE(i2);
         if (aE != null && !aE.isSelected()) {
             aE.select();
         }
@@ -620,10 +620,10 @@ public class FrsTabViewController implements TbTabLayout.b, n {
     }
 
     public com.baidu.tieba.frs.tab.d uW(int i) {
-        if (i < 0 || this.hya == null || this.hya.size() <= 0) {
+        if (i < 0 || this.hyg == null || this.hyg.size() <= 0) {
             return null;
         }
-        Iterator it = this.hya.iterator();
+        Iterator it = this.hyg.iterator();
         while (it.hasNext()) {
             com.baidu.tieba.frs.tab.d dVar = (com.baidu.tieba.frs.tab.d) it.next();
             if (dVar.tabId == i) {
@@ -635,10 +635,10 @@ public class FrsTabViewController implements TbTabLayout.b, n {
 
     public void onChangeSkinType(int i) {
         int color;
-        SvgManager.aOU().a(R.drawable.icon_pure_arrow12_right_svg, R.color.cp_cont_j, (SvgManager.SvgResourceStateType) null);
-        am.setBackgroundResource(this.eRx, R.drawable.personalize_tab_shadow);
-        bVW();
-        if (this.gCH != null) {
+        SvgManager.aOR().a(R.drawable.icon_pure_arrow12_right_svg, R.color.cp_cont_j, (SvgManager.SvgResourceStateType) null);
+        am.setBackgroundResource(this.eRC, R.drawable.personalize_tab_shadow);
+        bVU();
+        if (this.gCN != null) {
             if (this.mThemeColorInfo != null) {
                 if (this.mThemeColorInfo.dark != null && i == 4) {
                     color = com.baidu.tieba.lego.card.d.a.dA(this.mThemeColorInfo.dark.font_color);
@@ -652,15 +652,15 @@ public class FrsTabViewController implements TbTabLayout.b, n {
             } else {
                 color = am.getColor(R.color.plugin_button_shadow_red);
             }
-            this.gCH.setSelectedTabIndicatorColor(color);
-            am.setBackgroundColor(this.gCH, R.color.transparent);
-            this.gCH.setTabTextColors(am.getColor(R.color.cp_cont_j), am.getColor(R.color.cp_cont_b));
+            this.gCN.setSelectedTabIndicatorColor(color);
+            am.setBackgroundColor(this.gCN, R.color.transparent);
+            this.gCN.setTabTextColors(am.getColor(R.color.cp_cont_j), am.getColor(R.color.cp_cont_b));
         }
-        if (this.hye != null && !isBrandForum()) {
-            this.hye.onChangeSkinType();
+        if (this.hyk != null && !isBrandForum()) {
+            this.hyk.onChangeSkinType();
         }
-        if (this.hxZ != null) {
-            this.hxZ.changeSkinType(i);
+        if (this.hyf != null) {
+            this.hyf.changeSkinType(i);
         }
         if (!v.isEmpty(this.mFragments)) {
             for (b bVar : this.mFragments) {
@@ -672,44 +672,44 @@ public class FrsTabViewController implements TbTabLayout.b, n {
     }
 
     public void uX(int i) {
-        this.hyg = i;
+        this.hym = i;
     }
 
     @Override // com.baidu.adp.widget.design.TbTabLayout.b
     public void h(TbTabLayout.e eVar) {
         int position = eVar.getPosition();
-        if (this.hya != null && position >= 0 && position < this.hya.size()) {
+        if (this.hyg != null && position >= 0 && position < this.hyg.size()) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921397, 0));
-            com.baidu.tieba.frs.tab.d dVar = this.hya.get(position);
+            com.baidu.tieba.frs.tab.d dVar = this.hyg.get(position);
             if (dVar != null) {
-                this.hyk = dVar.tabId;
+                this.hyq = dVar.tabId;
                 if (dVar.tabId != 1 && !com.baidu.adp.lib.util.j.isNetWorkAvailable()) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_FRS_EXPAND_BAR_HEADER, true));
                 }
-                if (com.baidu.adp.lib.util.j.isNetworkAvailableForImmediately() && dVar.tabId == 89 && this.hyb != null && this.hyb.isShowRedTip()) {
-                    this.hyb.setIsShowRedTip(false);
+                if (com.baidu.adp.lib.util.j.isNetworkAvailableForImmediately() && dVar.tabId == 89 && this.hyh != null && this.hyh.isShowRedTip()) {
+                    this.hyh.setIsShowRedTip(false);
                     eVar.j(0, false);
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_FRS_TAB_SELECTED, Integer.valueOf(dVar.tabId)));
                 }
                 if (dVar.tabId == 502) {
-                    if (this.hah.bPf() != null) {
-                        this.hah.bPf().setIconFade(R.drawable.btn_frs_professional_edit_n);
+                    if (this.han.bPd() != null) {
+                        this.han.bPd().setIconFade(R.drawable.btn_frs_professional_edit_n);
                     }
-                } else if (this.hah.bPf() != null) {
-                    this.hah.bPf().setIconFade(0);
+                } else if (this.han.bPd() != null) {
+                    this.han.bPd().setIconFade(0);
                 }
-                if (this.hyf != null) {
-                    this.hyf.mN(dVar.tabId);
+                if (this.hyl != null) {
+                    this.hyl.mN(dVar.tabId);
                 }
-                com.baidu.tieba.frs.a.bND().ml(dVar.tabId == 503);
-                TiebaStatic.log(new com.baidu.tbadk.core.util.an("c12398").cI("fid", this.hah.forumId).af("tab_id", dVar.tabId));
+                com.baidu.tieba.frs.a.bNB().ml(dVar.tabId == 503);
+                TiebaStatic.log(new com.baidu.tbadk.core.util.an("c12398").cI("fid", this.han.forumId).af("tab_id", dVar.tabId));
             }
         }
     }
 
     @Override // com.baidu.adp.widget.design.TbTabLayout.b
     public void i(TbTabLayout.e eVar) {
-        bVT();
+        bVR();
     }
 
     @Override // com.baidu.adp.widget.design.TbTabLayout.b
@@ -717,11 +717,11 @@ public class FrsTabViewController implements TbTabLayout.b, n {
         com.baidu.tieba.frs.tab.d dVar;
         if (eVar != null) {
             int position = eVar.getPosition();
-            if (this.hya != null && position >= 0 && position < this.hya.size() && (dVar = this.hya.get(position)) != null) {
+            if (this.hyg != null && position >= 0 && position < this.hyg.size() && (dVar = this.hyg.get(position)) != null) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_FRS_TAB_CLICK, Integer.valueOf(dVar.tabId)));
-                TiebaStatic.log(new com.baidu.tbadk.core.util.an("c12398").cI("fid", this.hah.forumId).af("tab_id", dVar.tabId));
-                if (com.baidu.adp.lib.util.j.isNetworkAvailableForImmediately() && dVar.tabId == 89 && this.hyb != null && this.hyb.isShowRedTip()) {
-                    this.hyb.setIsShowRedTip(false);
+                TiebaStatic.log(new com.baidu.tbadk.core.util.an("c12398").cI("fid", this.han.forumId).af("tab_id", dVar.tabId));
+                if (com.baidu.adp.lib.util.j.isNetworkAvailableForImmediately() && dVar.tabId == 89 && this.hyh != null && this.hyh.isShowRedTip()) {
+                    this.hyh.setIsShowRedTip(false);
                     eVar.j(0, false);
                 }
             }
@@ -732,7 +732,7 @@ public class FrsTabViewController implements TbTabLayout.b, n {
         if (v.isEmpty(tabData)) {
             return false;
         }
-        return (!v.isEmpty(this.hya) && tabData.size() == this.hya.size() && this.hya.containsAll(tabData)) ? false : true;
+        return (!v.isEmpty(this.hyg) && tabData.size() == this.hyg.size() && this.hyg.containsAll(tabData)) ? false : true;
     }
 
     private boolean a(FrsTabInfo frsTabInfo) {
@@ -783,12 +783,12 @@ public class FrsTabViewController implements TbTabLayout.b, n {
                 @Override // com.baidu.tbadk.mainTab.b
                 public com.baidu.tbadk.mainTab.c createFragmentTabStructure() {
                     FrsAllThreadFragment frsAllThreadFragment = new FrsAllThreadFragment();
-                    if (FrsTabViewController.this.hah != null && FrsTabViewController.this.hah.bOx() != null) {
-                        frsAllThreadFragment.setView(FrsTabViewController.this.hah.bOx().bPS());
+                    if (FrsTabViewController.this.han != null && FrsTabViewController.this.han.bOv() != null) {
+                        frsAllThreadFragment.setView(FrsTabViewController.this.han.bOv().bPQ());
                     }
                     Bundle bundle = new Bundle();
-                    if (FrsTabViewController.this.hah != null) {
-                        bundle.putString("forum_id", FrsTabViewController.this.hah.getForumId());
+                    if (FrsTabViewController.this.han != null) {
+                        bundle.putString("forum_id", FrsTabViewController.this.han.getForumId());
                     }
                     bundle.putInt("tab_id", intValue);
                     bundle.putBoolean("isAdded", false);
@@ -817,12 +817,12 @@ public class FrsTabViewController implements TbTabLayout.b, n {
                 public com.baidu.tbadk.mainTab.c createFragmentTabStructure() {
                     FrsGoodFragment frsGoodFragment = new FrsGoodFragment();
                     Bundle bundle = new Bundle();
-                    bundle.putString("name", FrsTabViewController.this.hah.getForumName());
-                    bundle.putString("from", FrsTabViewController.this.hah.getFrom());
+                    bundle.putString("name", FrsTabViewController.this.han.getForumName());
+                    bundle.putString("from", FrsTabViewController.this.han.getFrom());
                     bundle.putBoolean("back_special", false);
                     bundle.putBoolean(FrsActivityConfig.GOOD, true);
                     bundle.putLong("TibaStatic.StartTime", System.currentTimeMillis());
-                    bundle.putString("forum_id", FrsTabViewController.this.hah.getForumId());
+                    bundle.putString("forum_id", FrsTabViewController.this.han.getForumId());
                     bundle.putBoolean("isAdded", false);
                     frsGoodFragment.setArguments(bundle);
                     com.baidu.tbadk.mainTab.c cVar = new com.baidu.tbadk.mainTab.c();
@@ -849,11 +849,11 @@ public class FrsTabViewController implements TbTabLayout.b, n {
                 public com.baidu.tbadk.mainTab.c createFragmentTabStructure() {
                     FrsNewAreaFragment frsNewAreaFragment = new FrsNewAreaFragment();
                     Bundle bundle = new Bundle();
-                    bundle.putString("name", FrsTabViewController.this.hah.getForumName());
-                    bundle.putString("from", FrsTabViewController.this.hah.getFrom());
+                    bundle.putString("name", FrsTabViewController.this.han.getForumName());
+                    bundle.putString("from", FrsTabViewController.this.han.getFrom());
                     bundle.putBoolean("back_special", false);
                     bundle.putLong("TibaStatic.StartTime", System.currentTimeMillis());
-                    bundle.putString("forum_id", FrsTabViewController.this.hah.getForumId());
+                    bundle.putString("forum_id", FrsTabViewController.this.han.getForumId());
                     bundle.putBoolean("isAdded", false);
                     frsNewAreaFragment.setArguments(bundle);
                     com.baidu.tbadk.mainTab.c cVar = new com.baidu.tbadk.mainTab.c();
@@ -880,9 +880,9 @@ public class FrsTabViewController implements TbTabLayout.b, n {
                 public com.baidu.tbadk.mainTab.c createFragmentTabStructure() {
                     FrsADFragment frsADFragment = new FrsADFragment();
                     Bundle bundle = new Bundle();
-                    bundle.putString("name", FrsTabViewController.this.hah.getForumName());
-                    bundle.putString("from", FrsTabViewController.this.hah.getFrom());
-                    bundle.putString("forum_id", FrsTabViewController.this.hah.getForumId());
+                    bundle.putString("name", FrsTabViewController.this.han.getForumName());
+                    bundle.putString("from", FrsTabViewController.this.han.getFrom());
+                    bundle.putString("forum_id", FrsTabViewController.this.han.getForumId());
                     bundle.putBoolean("isAdded", false);
                     frsADFragment.setArguments(bundle);
                     com.baidu.tbadk.mainTab.c cVar = new com.baidu.tbadk.mainTab.c();
@@ -909,16 +909,16 @@ public class FrsTabViewController implements TbTabLayout.b, n {
                 public com.baidu.tbadk.mainTab.c createFragmentTabStructure() {
                     FrsCommonTabFragment frsCommonTabFragment = new FrsCommonTabFragment();
                     Bundle bundle = new Bundle();
-                    bundle.putString("name", FrsTabViewController.this.hah.getForumName());
-                    bundle.putString("from", FrsTabViewController.this.hah.getFrom());
-                    bundle.putString("forum_id", FrsTabViewController.this.hah.getForumId());
+                    bundle.putString("name", FrsTabViewController.this.han.getForumName());
+                    bundle.putString("from", FrsTabViewController.this.han.getFrom());
+                    bundle.putString("forum_id", FrsTabViewController.this.han.getForumId());
                     bundle.putInt("tab_id", intValue);
                     bundle.putString("tab_name", frsTabInfo.tab_name);
                     bundle.putInt("is_general_tab", frsTabInfo.is_general_tab.intValue());
-                    bundle.putBoolean("can_auto_play_video", FrsTabViewController.this.hyb.isFrsVideoAutoPlay);
-                    bundle.putBoolean("need_log", FrsTabViewController.this.hyb.needLog == 1);
-                    bundle.putBoolean("is_brand_forum", FrsTabViewController.this.hyb.isBrandForum);
-                    bundle.putSerializable("view_data", FrsTabViewController.this.hyb);
+                    bundle.putBoolean("can_auto_play_video", FrsTabViewController.this.hyh.isFrsVideoAutoPlay);
+                    bundle.putBoolean("need_log", FrsTabViewController.this.hyh.needLog == 1);
+                    bundle.putBoolean("is_brand_forum", FrsTabViewController.this.hyh.isBrandForum);
+                    bundle.putSerializable("view_data", FrsTabViewController.this.hyh);
                     bundle.putBoolean("isAdded", false);
                     frsCommonTabFragment.setArguments(bundle);
                     com.baidu.tbadk.mainTab.c cVar = new com.baidu.tbadk.mainTab.c();
@@ -939,14 +939,14 @@ public class FrsTabViewController implements TbTabLayout.b, n {
 
     private void cD(List<FrsTabInfo> list) {
         if (!v.isEmpty(list)) {
-            this.hyd = new com.baidu.tieba.frs.e(this.hah.getActivity().getApplicationContext(), list);
-            this.hyd.setForumId(this.hah.getForumId());
-            this.hyd.setForumName(this.hah.getForumName());
-            this.hyd.setFrom(this.hah.getFrom());
-            if (this.hyb != null && this.hyb.getForum() != null) {
-                this.hyd.tY(this.hyb.getForum().getFirst_class());
-                this.hyd.tZ(this.hyb.getForum().getSecond_class());
-                this.hyd.setForumGameLabel(this.hyb.getForum().getForumGameLabel());
+            this.hyj = new com.baidu.tieba.frs.e(this.han.getActivity().getApplicationContext(), list);
+            this.hyj.setForumId(this.han.getForumId());
+            this.hyj.setForumName(this.han.getForumName());
+            this.hyj.setFrom(this.han.getFrom());
+            if (this.hyh != null && this.hyh.getForum() != null) {
+                this.hyj.ub(this.hyh.getForum().getFirst_class());
+                this.hyj.uc(this.hyh.getForum().getSecond_class());
+                this.hyj.setForumGameLabel(this.hyh.getForum().getForumGameLabel());
             }
             int i = 0;
             for (FrsTabInfo frsTabInfo : list) {
@@ -956,18 +956,18 @@ public class FrsTabViewController implements TbTabLayout.b, n {
                 i++;
                 com.baidu.tbadk.mainTab.b c = c(frsTabInfo);
                 if (c != null) {
-                    this.hyd.b(c);
+                    this.hyj.b(c);
                 }
             }
-            this.hyi = false;
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_FRS_ADD_TAB, this.hyd));
+            this.hyo = false;
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_FRS_ADD_TAB, this.hyj));
         }
     }
 
     private void bN(int i, int i2) {
         com.baidu.tbadk.core.util.an anVar = new com.baidu.tbadk.core.util.an("c13008");
         anVar.cI("uid", TbadkCoreApplication.getCurrentAccount());
-        anVar.cI("fid", this.hah.getForumId());
+        anVar.cI("fid", this.han.getForumId());
         if (i == 89) {
             anVar.af("obj_type", 1);
         } else if (i == 302) {
@@ -992,20 +992,20 @@ public class FrsTabViewController implements TbTabLayout.b, n {
             anVar.af("obj_type", 11);
         }
         anVar.af("obj_locate", i2);
-        anVar.aOR();
+        anVar.aOO();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bVO() {
+    public void bVM() {
         int color;
         int i;
-        if (this.hyd != null) {
-            List<com.baidu.tbadk.mainTab.b> bOc = this.hyd.bOc();
-            if (!v.isEmpty(bOc) && !v.isEmpty(this.hya)) {
-                if (this.gCH.getTabCount() > 0) {
-                    this.gCH.removeAllTabs();
+        if (this.hyj != null) {
+            List<com.baidu.tbadk.mainTab.b> bOa = this.hyj.bOa();
+            if (!v.isEmpty(bOa) && !v.isEmpty(this.hyg)) {
+                if (this.gCN.getTabCount() > 0) {
+                    this.gCN.removeAllTabs();
                 }
-                bVP();
+                bVN();
                 if (this.mFragments.size() > 0) {
                     this.mFragments.clear();
                 }
@@ -1023,25 +1023,25 @@ public class FrsTabViewController implements TbTabLayout.b, n {
                 } else {
                     color = am.getColor(R.color.plugin_button_shadow_red);
                 }
-                this.gCH.setSelectedTabIndicatorColor(color);
-                Iterator it = this.hya.iterator();
+                this.gCN.setSelectedTabIndicatorColor(color);
+                Iterator it = this.hyg.iterator();
                 int i2 = 0;
                 int i3 = 0;
                 while (it.hasNext()) {
                     com.baidu.tieba.frs.tab.d dVar = (com.baidu.tieba.frs.tab.d) it.next();
-                    Fragment m = m(dVar.tabId, bOc);
+                    Fragment m = m(dVar.tabId, bOa);
                     if (m != null) {
-                        TbTabLayout.e b2 = this.gCH.ph().b(dVar.name);
-                        boolean z = this.hyb.defaultShowTab == dVar.tabId;
+                        TbTabLayout.e b2 = this.gCN.ph().b(dVar.name);
+                        boolean z = this.hyh.defaultShowTab == dVar.tabId;
                         if (z) {
                             i3 = i2;
                         }
-                        if (this.hyb != null && this.hyb.isShowRedTip() && dVar.tabId == 89) {
+                        if (this.hyh != null && this.hyh.isShowRedTip() && dVar.tabId == 89) {
                             b2.j(0, true);
                         } else {
                             b2.j(0, false);
                         }
-                        this.gCH.a(b2, z);
+                        this.gCN.a(b2, z);
                         b bVar = new b();
                         bVar.tabId = dVar.tabId;
                         bVar.title = dVar.name;
@@ -1055,24 +1055,24 @@ public class FrsTabViewController implements TbTabLayout.b, n {
                     i3 = i3;
                     i2 = i;
                 }
-                if (this.gCH.getTabCount() > 0 && this.hxW.getVisibility() != 0) {
-                    this.hxW.setVisibility(0);
+                if (this.gCN.getTabCount() > 0 && this.hyc.getVisibility() != 0) {
+                    this.hyc.setVisibility(0);
                 }
-                this.hyc = new FragmentAdapter(this.hah.getActivity().getSupportFragmentManager(), this.mFragments);
-                this.hxY.setAdapter(this.hyc);
-                this.hyc.notifyDataSetChanged();
-                this.gCH.setupWithViewPager(this.hxY);
-                this.hxY.setOffscreenPageLimit(this.mFragments.size());
-                this.hxY.setCurrentItem(i3, false);
-                this.hxY.bQs();
+                this.hyi = new FragmentAdapter(this.han.getActivity().getSupportFragmentManager(), this.mFragments);
+                this.hye.setAdapter(this.hyi);
+                this.hyi.notifyDataSetChanged();
+                this.gCN.setupWithViewPager(this.hye);
+                this.hye.setOffscreenPageLimit(this.mFragments.size());
+                this.hye.setCurrentItem(i3, false);
+                this.hye.bQq();
             }
         }
     }
 
-    private void bVP() {
-        if (this.hxY != null && this.hyc != null && this.mFragments != null) {
+    private void bVN() {
+        if (this.hye != null && this.hyi != null && this.mFragments != null) {
             try {
-                FragmentManager supportFragmentManager = this.hah.getActivity().getSupportFragmentManager();
+                FragmentManager supportFragmentManager = this.han.getActivity().getSupportFragmentManager();
                 FragmentTransaction beginTransaction = supportFragmentManager.beginTransaction();
                 int size = this.mFragments.size();
                 for (int i = 0; i < size; i++) {
@@ -1101,11 +1101,11 @@ public class FrsTabViewController implements TbTabLayout.b, n {
         return null;
     }
 
-    public View bVQ() {
-        if (isBrandForum() || this.hye == null) {
+    public View bVO() {
+        if (isBrandForum() || this.hyk == null) {
             return null;
         }
-        return this.hye.bSe();
+        return this.hyk.bSc();
     }
 
     public static boolean uC(int i) {
@@ -1113,17 +1113,17 @@ public class FrsTabViewController implements TbTabLayout.b, n {
     }
 
     public void a(a aVar) {
-        this.hyf = aVar;
+        this.hyl = aVar;
     }
 
     public void R(boolean z, boolean z2) {
-        if (this.hyl != z) {
-            this.hyl = z;
+        if (this.hyr != z) {
+            this.hyr = z;
         }
-        if (this.hym != z2) {
-            this.hym = z2;
+        if (this.hys != z2) {
+            this.hys = z2;
         }
-        bVX();
+        bVV();
     }
 
     /* loaded from: classes9.dex */
@@ -1159,7 +1159,7 @@ public class FrsTabViewController implements TbTabLayout.b, n {
                 if (this.mPrimaryPosition != -1) {
                     BaseFragment baseFragment = (BaseFragment) getItem(this.mPrimaryPosition);
                     if (baseFragment instanceof FrsAllThreadFragment) {
-                        FrsTabViewController.this.hah.setPrimary(false);
+                        FrsTabViewController.this.han.setPrimary(false);
                     } else {
                         baseFragment.setPrimary(false);
                     }
@@ -1168,7 +1168,7 @@ public class FrsTabViewController implements TbTabLayout.b, n {
                 if (obj instanceof BaseFragment) {
                     BaseFragment baseFragment2 = (BaseFragment) obj;
                     if (baseFragment2 instanceof FrsAllThreadFragment) {
-                        FrsTabViewController.this.hah.setPrimary(true);
+                        FrsTabViewController.this.han.setPrimary(true);
                     } else {
                         baseFragment2.setPrimary(true);
                     }
@@ -1187,61 +1187,61 @@ public class FrsTabViewController implements TbTabLayout.b, n {
         }
     }
 
-    public b bVR() {
-        if (this.hxY == null) {
+    public b bVP() {
+        if (this.hye == null) {
             return null;
         }
-        return (b) v.getItem(this.mFragments, this.hxY.getCurrentItem());
+        return (b) v.getItem(this.mFragments, this.hye.getCurrentItem());
     }
 
-    public void bVS() {
-        this.hyh.al(this.hah.getString(R.string.click_here_to_refresh), SharedPrefConfig.KEY_SHOW_FRS_TAB_CLICK_TO_REFRESH_TIP);
+    public void bVQ() {
+        this.hyn.al(this.han.getString(R.string.click_here_to_refresh), SharedPrefConfig.KEY_SHOW_FRS_TAB_CLICK_TO_REFRESH_TIP);
     }
 
-    public void bVT() {
-        this.hyh.EE();
+    public void bVR() {
+        this.hyn.ED();
     }
 
     @Override // com.baidu.tieba.frs.vc.n
     public void uY(int i) {
-        this.hbc = i;
-        bVW();
+        this.hbi = i;
+        bVU();
     }
 
-    public int bVU() {
-        return this.hbc;
+    public int bVS() {
+        return this.hbi;
     }
 
-    public int bVV() {
-        return this.hyk;
+    public int bVT() {
+        return this.hyq;
     }
 
-    private void bVW() {
-        if (this.hbc == 2) {
-            am.setBackgroundColor(this.hxW, R.color.cp_bg_line_e);
-            am.setBackgroundColor(this.hxX, R.color.cp_bg_line_e);
-            this.eRx.setVisibility(0);
-            this.hah.bOW();
-        } else if (this.hbc == 1) {
-            am.setBackgroundColor(this.hxW, R.color.cp_bg_line_e);
-            am.setBackgroundColor(this.hxX, R.color.cp_bg_line_e);
-            this.eRx.setVisibility(0);
+    private void bVU() {
+        if (this.hbi == 2) {
+            am.setBackgroundColor(this.hyc, R.color.cp_bg_line_e);
+            am.setBackgroundColor(this.hyd, R.color.cp_bg_line_e);
+            this.eRC.setVisibility(0);
+            this.han.bOU();
+        } else if (this.hbi == 1) {
+            am.setBackgroundColor(this.hyc, R.color.cp_bg_line_e);
+            am.setBackgroundColor(this.hyd, R.color.cp_bg_line_e);
+            this.eRC.setVisibility(0);
         } else {
-            bVX();
-            this.eRx.setVisibility(8);
-            if (this.hah != null) {
-                this.hah.bOW();
+            bVV();
+            this.eRC.setVisibility(8);
+            if (this.han != null) {
+                this.han.bOU();
             }
         }
     }
 
-    private void bVX() {
-        if (!this.hyl && !this.hym) {
-            am.setBackgroundColor(this.hxW, R.color.transparent);
-            am.setBackgroundResource(this.hxX, R.drawable.top_corners_bg);
+    private void bVV() {
+        if (!this.hyr && !this.hys) {
+            am.setBackgroundColor(this.hyc, R.color.transparent);
+            am.setBackgroundResource(this.hyd, R.drawable.top_corners_bg);
             return;
         }
-        am.setBackgroundColor(this.hxX, R.color.cp_bg_line_e);
-        am.setBackgroundColor(this.hxW, R.color.cp_bg_line_e);
+        am.setBackgroundColor(this.hyd, R.color.cp_bg_line_e);
+        am.setBackgroundColor(this.hyc, R.color.cp_bg_line_e);
     }
 }

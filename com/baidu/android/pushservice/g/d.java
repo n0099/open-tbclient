@@ -1,128 +1,51 @@
 package com.baidu.android.pushservice.g;
 
-import android.text.TextUtils;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes8.dex */
 public class d {
-    private int a;
-    private String b;
-    private long c;
-    private String d;
-    private int e;
-    private String f;
-    private int g;
-    private String h;
-    private String i;
-    private int j;
-    private int k;
-    private String l;
-    private String m;
-    private String n;
-    private String o;
+    private static a a;
+    private static d b;
+    private static final int c = Runtime.getRuntime().availableProcessors();
+    private static final int d = Math.max(2, Math.min(c - 1, 4));
+    private static final int e = c << 3;
 
-    public String a() {
-        return this.b;
+    public d() {
+        Runtime.getRuntime().addShutdownHook(new Thread() { // from class: com.baidu.android.pushservice.g.d.1
+            @Override // java.lang.Thread, java.lang.Runnable
+            public void run() {
+                d.this.b();
+            }
+        });
+        a = new a(d, e, 2L, TimeUnit.MINUTES, new b());
+        a.allowCoreThreadTimeOut(true);
     }
 
-    public void a(int i) {
-        this.a = i;
-    }
-
-    public void a(long j) {
-        this.c = j;
-    }
-
-    public void a(String str) {
-        this.b = str;
-    }
-
-    public String b() {
-        return this.o;
-    }
-
-    public void b(int i) {
-        this.e = i;
-    }
-
-    public void b(String str) {
-        this.d = str;
-    }
-
-    public j c() {
-        return new j(this.b, this.c, this.d, this.k, this.l);
-    }
-
-    public void c(int i) {
-        this.g = i;
-    }
-
-    public void c(String str) {
-        this.f = str;
-    }
-
-    public f d() {
-        f fVar = new f(c());
-        fVar.a = this.j;
-        fVar.i = this.h;
-        fVar.b = this.f;
-        fVar.c = this.n;
-        return fVar;
-    }
-
-    public void d(int i) {
-        this.j = i;
-    }
-
-    public void d(String str) {
-        this.h = str;
-    }
-
-    public h e() {
-        h hVar = new h(c());
-        hVar.c = this.e;
-        hVar.a = this.f;
-        hVar.b = this.g;
-        String str = this.n;
-        if (!TextUtils.isEmpty(str)) {
-            hVar.k = str;
+    public static d a() {
+        if (b == null || a == null || a.isShutdown() || a.isTerminated()) {
+            b = new d();
         }
-        return hVar;
+        return b;
     }
 
-    public void e(int i) {
-        this.k = i;
+    public boolean a(c cVar) {
+        try {
+            a.submit(cVar);
+            return true;
+        } catch (Exception e2) {
+            if (a == null || a.getCorePoolSize() == 0 || a.getPoolSize() == 0) {
+                a = new a(d, e, 2L, TimeUnit.MINUTES, new b());
+            }
+            return false;
+        }
     }
 
-    public void e(String str) {
-        this.i = str;
-    }
-
-    public a f() {
-        a aVar = new a(c());
-        aVar.a = this.h;
-        aVar.b = this.i;
-        aVar.c = this.m;
-        return aVar;
-    }
-
-    public void f(String str) {
-        this.l = str;
-    }
-
-    public e g() {
-        e eVar = new e(c());
-        eVar.a = this.h;
-        return eVar;
-    }
-
-    public void g(String str) {
-        this.m = str;
-    }
-
-    public void h(String str) {
-        this.o = str;
-    }
-
-    public void i(String str) {
-        this.n = str;
+    public void b() {
+        if (a != null) {
+            try {
+                a.getQueue().clear();
+                a.shutdown();
+            } catch (Exception e2) {
+            }
+        }
     }
 }

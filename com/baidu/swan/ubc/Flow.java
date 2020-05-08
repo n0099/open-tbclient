@@ -76,7 +76,7 @@ public class Flow implements Parcelable {
 
     public final void addEvent(String str, String str2) {
         if (this.mValid) {
-            if (com.baidu.pyramid.runtime.multiprocess.a.MG()) {
+            if (com.baidu.pyramid.runtime.multiprocess.a.MF()) {
                 if (com.baidu.swan.c.d.aEt()) {
                     m.aDT().a(this.mId, str, this.mHandle, str2, this.mOption);
                 }
@@ -96,7 +96,7 @@ public class Flow implements Parcelable {
 
     public final void addEvent(String str, String str2, long j) {
         if (this.mValid) {
-            if (com.baidu.pyramid.runtime.multiprocess.a.MG()) {
+            if (com.baidu.pyramid.runtime.multiprocess.a.MF()) {
                 if (com.baidu.swan.c.d.aEt()) {
                     m.aDT().a(this.mId, str, this.mHandle, str2, j, this.mOption);
                 }
@@ -116,7 +116,7 @@ public class Flow implements Parcelable {
 
     public final void setValue(String str) {
         if (this.mValid) {
-            if (com.baidu.pyramid.runtime.multiprocess.a.MG()) {
+            if (com.baidu.pyramid.runtime.multiprocess.a.MF()) {
                 if (com.baidu.swan.c.d.aEt()) {
                     m.aDT().f(this.mId, this.mHandle, str);
                 }
@@ -136,7 +136,7 @@ public class Flow implements Parcelable {
 
     public void setValueWithDuration(String str) {
         if (this.mValid) {
-            if (com.baidu.pyramid.runtime.multiprocess.a.MG()) {
+            if (com.baidu.pyramid.runtime.multiprocess.a.MF()) {
                 JSONObject jSONObject = new JSONObject();
                 try {
                     float currentTimeMillis = ((float) (System.currentTimeMillis() - this.mStartTime)) / 1000.0f;
@@ -171,7 +171,7 @@ public class Flow implements Parcelable {
 
     public final void end() {
         if (this.mValid) {
-            if (com.baidu.pyramid.runtime.multiprocess.a.MG()) {
+            if (com.baidu.pyramid.runtime.multiprocess.a.MF()) {
                 JSONArray jSONArray = new JSONArray();
                 if (this.mSlotMaps != null && (r3 = this.mSlotMaps.entrySet().iterator()) != null) {
                     for (Map.Entry<String, Slot> entry : this.mSlotMaps.entrySet()) {
@@ -204,7 +204,7 @@ public class Flow implements Parcelable {
 
     public final void cancel() {
         if (this.mValid) {
-            if (com.baidu.pyramid.runtime.multiprocess.a.MG()) {
+            if (com.baidu.pyramid.runtime.multiprocess.a.MF()) {
                 if (com.baidu.swan.c.d.aEt()) {
                     m.aDT().C(this.mId, this.mHandle);
                 }

@@ -16,29 +16,27 @@ import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
 import com.baidu.swan.apps.y.e;
 /* loaded from: classes11.dex */
 public interface d extends e.b {
-    void I(Intent intent);
-
     FullScreenFloatView K(Activity activity);
 
     SwanAppPropertyWindow L(Activity activity);
 
-    com.baidu.swan.apps.core.d.e Ou();
+    com.baidu.swan.apps.core.d.e Ot();
 
-    void Ox();
+    void Ow();
+
+    void Qm();
 
     void Qn();
 
-    void Qo();
+    String VP();
 
-    String VQ();
+    com.baidu.swan.games.view.d WF();
 
     com.baidu.swan.games.view.d WG();
 
-    com.baidu.swan.games.view.d WH();
+    com.baidu.swan.apps.core.d.d We();
 
-    com.baidu.swan.apps.core.d.d Wf();
-
-    com.baidu.swan.apps.runtime.e Wr();
+    com.baidu.swan.apps.runtime.e Wq();
 
     void a(int i, @NonNull String[] strArr, c.a aVar);
 
@@ -50,45 +48,45 @@ public interface d extends e.b {
 
     void a(String str, com.baidu.swan.apps.n.a.a aVar);
 
+    void aek();
+
     void ael();
 
-    void aem();
-
-    SwanCoreVersion aen();
+    SwanCoreVersion aem();
 
     @DebugTrace
-    com.baidu.swan.apps.adaptation.b.a aeo();
+    com.baidu.swan.apps.adaptation.b.a aen();
 
-    boolean aep();
+    boolean aeo();
 
-    SwanAppConfigData aeq();
+    SwanAppConfigData aep();
 
     @NonNull
-    com.baidu.swan.apps.storage.b.c aer();
+    com.baidu.swan.apps.storage.b.c aeq();
+
+    String aer();
 
     String aes();
 
     String aet();
 
-    String aeu();
+    SwanAppActivity aeu();
 
-    SwanAppActivity aev();
+    com.baidu.swan.apps.adaptation.b.d aev();
 
-    com.baidu.swan.apps.adaptation.b.d aew();
+    @NonNull
+    Pair<Integer, Integer> aew();
 
     @NonNull
     Pair<Integer, Integer> aex();
 
-    @NonNull
-    Pair<Integer, Integer> aey();
-
-    com.baidu.swan.games.p.a aez();
+    com.baidu.swan.games.p.a aey();
 
     void b(com.baidu.swan.apps.x.b.b bVar, com.baidu.swan.apps.t.b bVar2);
 
-    void bT(Context context);
+    void bH(Context context);
 
-    void bU(Context context);
+    void bI(Context context);
 
     void doRelease();
 
@@ -104,4 +102,6 @@ public interface d extends e.b {
     AbsoluteLayout kf(String str);
 
     void showLoadingView();
+
+    void v(Intent intent);
 }

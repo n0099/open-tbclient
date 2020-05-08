@@ -2,17 +2,17 @@ package com.baidu.tbadk.core.data;
 /* loaded from: classes8.dex */
 public class ab {
     public int accountType;
-    public int apT;
+    public int apZ;
     public long beginTime;
     public String desc;
-    public long doA;
-    public int doB;
-    public int doC;
-    public int doD;
-    public int doE;
-    public long dox;
-    public String doy;
-    public long doz;
+    public long doB;
+    public String doC;
+    public long doD;
+    public long doE;
+    public int doF;
+    public int doG;
+    public int doH;
+    public int doI;
     public long endTime;
     public int id;
     public String name;

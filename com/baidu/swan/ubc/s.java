@@ -11,10 +11,10 @@ import org.json.JSONObject;
 @Deprecated
 /* loaded from: classes7.dex */
 public class s {
-    private static volatile IRemoteUBCService deK;
+    private static volatile IRemoteUBCService deP;
 
     public static final k aEh() {
-        return com.baidu.swan.apps.ad.b.ahB();
+        return com.baidu.swan.apps.ad.b.ahA();
     }
 
     public static final void onEvent(String str) {
@@ -37,7 +37,7 @@ public class s {
         k aEh = aEh();
         if (com.baidu.swan.c.d.aEt()) {
             o.aDV().onEvent(str, map, i);
-            if (com.baidu.pyramid.runtime.multiprocess.a.MG() && aEh != null) {
+            if (com.baidu.pyramid.runtime.multiprocess.a.MF() && aEh != null) {
                 aEh.c(str, map, i);
             }
         } else if (aEh != null) {
@@ -49,7 +49,7 @@ public class s {
         k aEh = aEh();
         if (com.baidu.swan.c.d.aEt()) {
             o.aDV().onEvent(str, str2, i);
-            if (com.baidu.pyramid.runtime.multiprocess.a.MG() && aEh != null) {
+            if (com.baidu.pyramid.runtime.multiprocess.a.MF() && aEh != null) {
                 aEh.c(str, str2, i);
             }
         } else if (aEh != null) {
@@ -61,7 +61,7 @@ public class s {
         k aEh = aEh();
         if (com.baidu.swan.c.d.aEt()) {
             o.aDV().onEvent(str, jSONObject, i);
-            if (com.baidu.pyramid.runtime.multiprocess.a.MG() && aEh != null) {
+            if (com.baidu.pyramid.runtime.multiprocess.a.MF() && aEh != null) {
                 aEh.c(str, jSONObject, i);
             }
         } else if (aEh != null) {
@@ -84,19 +84,19 @@ public class s {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static IRemoteUBCService aDX() throws RemoteException {
-        if (deK == null) {
+        if (deP == null) {
             synchronized (s.class) {
-                if (deK == null) {
+                if (deP == null) {
                     IBinder t = IPCServiceManager.t("open_log", true);
                     if (t == null) {
                         throw new RemoteException("UBC get remote service empty !");
                     }
                     if (t != null) {
-                        deK = IRemoteUBCService.Stub.asInterface(t);
+                        deP = IRemoteUBCService.Stub.asInterface(t);
                     }
                 }
             }
         }
-        return deK;
+        return deP;
     }
 }

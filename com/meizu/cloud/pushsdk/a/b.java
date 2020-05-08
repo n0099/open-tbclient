@@ -35,4 +35,5 @@ public class b {
     public static String B = "lt";
     public static String C = "at";
     public static String D = "lat";
+    public static String E = "wl";
 }

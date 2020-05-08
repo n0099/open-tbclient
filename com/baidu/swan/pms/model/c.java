@@ -6,6 +6,6 @@ public abstract class c {
     public long createTime = 0;
     public long updateTime = 0;
     public int state = 0;
-    public long daj = 0;
-    public int dar = 0;
+    public long dao = 0;
+    public int dax = 0;
 }

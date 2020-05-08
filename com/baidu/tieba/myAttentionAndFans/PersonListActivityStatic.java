@@ -17,22 +17,22 @@ public class PersonListActivityStatic {
     static {
         TbadkCoreApplication.getInst().RegisterIntent(PersonListActivityConfig.class, PersonListActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(MyForbiddenFansActivityConfig.class, MyForbiddenFansActivity.class);
-        bNW();
+        bNU();
     }
 
-    public static void bNW() {
-        com.baidu.tbadk.ala.b.aGP().a(5, new e() { // from class: com.baidu.tieba.myAttentionAndFans.PersonListActivityStatic.1
+    public static void bNU() {
+        com.baidu.tbadk.ala.b.aGN().a(5, new e() { // from class: com.baidu.tieba.myAttentionAndFans.PersonListActivityStatic.1
             @Override // com.baidu.tbadk.ala.e
             public View createView(Context context) {
-                TextView dv = com.baidu.tbadk.ala.c.dv(context);
-                if (dv != null) {
+                TextView dj = com.baidu.tbadk.ala.c.dj(context);
+                if (dj != null) {
                     LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-                    am.setViewTextColor(dv, (int) R.color.cp_link_tip_a);
+                    am.setViewTextColor(dj, (int) R.color.cp_link_tip_a);
                     layoutParams.setMargins(l.getDimens(context, R.dimen.ds8), 0, l.getDimens(context, R.dimen.ds8), 0);
                     layoutParams.gravity = 16;
-                    dv.setLayoutParams(layoutParams);
+                    dj.setLayoutParams(layoutParams);
                 }
-                return dv;
+                return dj;
             }
         });
     }

@@ -13,9 +13,9 @@ public class g {
     public interface a<T> {
         void a(T t, int i, int i2, String str);
 
-        void ap(T t);
-
         void aq(T t);
+
+        void ar(T t);
     }
 
     public static final void a(FuFaceItem fuFaceItem, a<FuFaceItem> aVar) {
@@ -34,7 +34,7 @@ public class g {
                 final File file = new File(loadingFile);
                 if (file.exists()) {
                     if (aVar != null) {
-                        aVar.ap(duFileFaceItem);
+                        aVar.aq(duFileFaceItem);
                     }
                     new Thread() { // from class: com.baidu.tieba.ala.alaar.sticker.a.g.1
                         @Override // java.lang.Thread, java.lang.Runnable
@@ -53,7 +53,7 @@ public class g {
                                     @Override // java.lang.Runnable
                                     public void run() {
                                         if (z) {
-                                            aVar.aq(DuFileFaceItem.this);
+                                            aVar.ar(DuFileFaceItem.this);
                                         } else {
                                             aVar.a(DuFileFaceItem.this, 0, 0, "本地贴纸独立文件解压导出失败");
                                         }

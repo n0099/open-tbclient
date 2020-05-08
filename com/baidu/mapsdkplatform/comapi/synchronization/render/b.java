@@ -111,8 +111,8 @@ public class b extends Handler {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.mapsdkplatform.comapi.synchronization.render.b$b  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public class RunnableC0145b implements Runnable {
-        private RunnableC0145b() {
+    public class RunnableC0166b implements Runnable {
+        private RunnableC0166b() {
         }
 
         @Override // java.lang.Runnable
@@ -291,7 +291,7 @@ public class b extends Handler {
         this.V = false;
         this.W = 0;
         this.X = false;
-        this.q = new Thread(new RunnableC0145b(), "Car moving");
+        this.q = new Thread(new RunnableC0166b(), "Car moving");
         this.x = new Thread(new c(), "Passenger marker");
         this.B = new Thread(new a(), "Adjust visible span");
     }
@@ -913,7 +913,7 @@ public class b extends Handler {
                 } else {
                     WinRound winRound = mapStatus.winRound;
                     int abs = Math.abs(winRound.right - winRound.left);
-                    int abs2 = Math.abs(winRound.bottom - winRound.f999top);
+                    int abs2 = Math.abs(winRound.bottom - winRound.f991top);
                     if (e != null) {
                         i3 = e.getPaddingLeft();
                         i2 = e.getPaddingTop();
@@ -1004,7 +1004,7 @@ public class b extends Handler {
                 this.q.start();
             } else if (Thread.State.TERMINATED == this.q.getState()) {
                 this.q = null;
-                this.q = new Thread(new RunnableC0145b(), "Car moving");
+                this.q = new Thread(new RunnableC0166b(), "Car moving");
                 this.q.start();
             }
         }

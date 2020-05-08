@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class b {
-    private InterfaceC0050b ch;
+    private InterfaceC0071b ch;
     private HandlerThread ci;
     private a cj;
     private FramePixels cf = null;
@@ -64,13 +64,13 @@ public class b {
 
     /* renamed from: com.baidu.ar.anime.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC0050b {
+    public interface InterfaceC0071b {
         void a(int i, String str, long j);
     }
 
-    public b(InterfaceC0050b interfaceC0050b) {
+    public b(InterfaceC0071b interfaceC0071b) {
         this.ch = null;
-        this.ch = interfaceC0050b;
+        this.ch = interfaceC0071b;
         if (this.ci == null) {
             this.ci = new HandlerThread("AnimeHandlerThread");
             this.ci.start();

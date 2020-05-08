@@ -22,9 +22,9 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.l;
 /* loaded from: classes.dex */
 public class SwipeBackLayout extends FrameLayout {
-    private boolean Vr;
-    private boolean Vs;
-    private b Vt;
+    private boolean Vu;
+    private boolean Vv;
+    private b Vw;
     private int mActivePointerId;
     private Activity mActivity;
     private int mAlphaBgColor;
@@ -76,8 +76,8 @@ public class SwipeBackLayout extends FrameLayout {
         this.mIsTouchModeMargin = false;
         this.mAlphaBgColor = 0;
         this.mColorRect = new Rect();
-        this.Vr = false;
-        this.Vs = false;
+        this.Vu = false;
+        this.Vv = false;
         this.mIsSupportNight = true;
         init(context);
     }
@@ -92,8 +92,8 @@ public class SwipeBackLayout extends FrameLayout {
         this.mIsTouchModeMargin = false;
         this.mAlphaBgColor = 0;
         this.mColorRect = new Rect();
-        this.Vr = false;
-        this.Vs = false;
+        this.Vu = false;
+        this.Vv = false;
         this.mIsSupportNight = true;
         init(context);
     }
@@ -108,8 +108,8 @@ public class SwipeBackLayout extends FrameLayout {
         this.mIsTouchModeMargin = false;
         this.mAlphaBgColor = 0;
         this.mColorRect = new Rect();
-        this.Vr = false;
-        this.Vs = false;
+        this.Vu = false;
+        this.Vv = false;
         this.mIsSupportNight = true;
         init(context);
     }
@@ -144,7 +144,7 @@ public class SwipeBackLayout extends FrameLayout {
 
     public void onChangeSkinType(int i) {
         if (this.mIsSwipeBackEnabled) {
-            if (this.Vs) {
+            if (this.Vv) {
                 this.mRealContentView.setBackgroundResource(R.color.transparent);
             } else if (this.mIsSupportNight && i == 1) {
                 this.mRealContentView.setBackgroundResource(R.color.swipe_layout_night_bg);
@@ -155,7 +155,7 @@ public class SwipeBackLayout extends FrameLayout {
     }
 
     public void forceChangeSkinType(int i) {
-        if (this.Vs) {
+        if (this.Vv) {
             this.mRealContentView.setBackgroundResource(R.color.transparent);
         } else if (this.mIsSupportNight && i == 1) {
             this.mRealContentView.setBackgroundResource(R.color.swipe_layout_night_bg);
@@ -166,7 +166,7 @@ public class SwipeBackLayout extends FrameLayout {
 
     public void setIsSupportNight(boolean z) {
         if (!z) {
-            if (this.Vs) {
+            if (this.Vv) {
                 this.mRealContentView.setBackgroundResource(R.color.transparent);
             } else {
                 this.mRealContentView.setBackgroundResource(R.color.swipe_layout_normal_bg);
@@ -204,8 +204,8 @@ public class SwipeBackLayout extends FrameLayout {
 
     private boolean j(MotionEvent motionEvent) {
         int action = motionEvent.getAction() & 255;
-        if ((action == 1 || action == 3) && this.Vr) {
-            this.Vr = false;
+        if ((action == 1 || action == 3) && this.Vu) {
+            this.Vu = false;
             this.mIsSwipeBackEnabled = true;
             return true;
         }
@@ -281,8 +281,8 @@ public class SwipeBackLayout extends FrameLayout {
                         scrollOrigin();
                         this.mIsFinish = false;
                     }
-                    if (this.Vt != null) {
-                        this.Vt.onSlidingEnd(this.mIsFinish);
+                    if (this.Vw != null) {
+                        this.Vw.onSlidingEnd(this.mIsFinish);
                         return true;
                     }
                     return true;
@@ -294,8 +294,8 @@ public class SwipeBackLayout extends FrameLayout {
                     scrollOrigin();
                     this.mIsFinish = false;
                 }
-                if (this.Vt != null) {
-                    this.Vt.onSlidingEnd(this.mIsFinish);
+                if (this.Vw != null) {
+                    this.Vw.onSlidingEnd(this.mIsFinish);
                     break;
                 }
                 break;
@@ -338,8 +338,8 @@ public class SwipeBackLayout extends FrameLayout {
             float abs2 = Math.abs(y - this.mLastMotionY);
             if (f > 0.0f && abs > this.mMoveDistance && abs > abs2) {
                 this.mIsSilding = true;
-                if (this.Vt != null) {
-                    this.Vt.onSlidingStart();
+                if (this.Vw != null) {
+                    this.Vw.onSlidingStart();
                 }
                 this.mLastMotionX = x;
                 this.mLastMotionY = y;
@@ -441,7 +441,7 @@ public class SwipeBackLayout extends FrameLayout {
     }
 
     public void disableSwipeJustOnce() {
-        this.Vr = true;
+        this.Vu = true;
         this.mIsSwipeBackEnabled = false;
     }
 
@@ -454,7 +454,7 @@ public class SwipeBackLayout extends FrameLayout {
     }
 
     public void setBgTransparent() {
-        this.Vs = true;
+        this.Vv = true;
         if (this.mRealContentView != null) {
             this.mRealContentView.setBackgroundResource(R.color.transparent);
         }
@@ -480,6 +480,6 @@ public class SwipeBackLayout extends FrameLayout {
     }
 
     public void setOnSlidingStateChangeListener(b bVar) {
-        this.Vt = bVar;
+        this.Vw = bVar;
     }
 }

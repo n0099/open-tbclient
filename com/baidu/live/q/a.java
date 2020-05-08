@@ -16,5 +16,5 @@ public interface a {
 
     void setCanVisible(boolean z);
 
-    void xj();
+    void xi();
 }

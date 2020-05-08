@@ -19,29 +19,29 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class d extends BaseAdapter {
-    private int aPa;
-    private int eKZ;
-    private FuFaceItem eLL;
-    private c.a eLM;
-    private int eLN;
+    private int aPg;
+    private FuFaceItem eLQ;
+    private c.a eLR;
+    private int eLS;
+    private int eLe;
     private Context mContext;
     private LinkedList<FuFaceItem> mList = new LinkedList<>();
-    private int eLJ = -1;
-    private int eLK = -1;
+    private int eLO = -1;
+    private int eLP = -1;
 
     public d(Context context, int i, c.a aVar) {
         this.mContext = context;
-        this.eKZ = i;
-        this.eLM = aVar;
-        if (this.eKZ == 2) {
-            this.aPa = BdUtilHelper.dip2px(this.mContext, 110.0f);
-            this.eLN = BdUtilHelper.dip2px(this.mContext, 75.0f);
-        } else if (this.eKZ == 1) {
-            this.aPa = BdUtilHelper.dip2px(this.mContext, 170.0f);
-            this.eLN = BdUtilHelper.dip2px(this.mContext, 72.0f);
-        } else if (this.eKZ == 3) {
-            this.aPa = BdUtilHelper.dip2px(this.mContext, 60.0f);
-            this.eLN = BdUtilHelper.dip2px(this.mContext, 60.0f);
+        this.eLe = i;
+        this.eLR = aVar;
+        if (this.eLe == 2) {
+            this.aPg = BdUtilHelper.dip2px(this.mContext, 110.0f);
+            this.eLS = BdUtilHelper.dip2px(this.mContext, 75.0f);
+        } else if (this.eLe == 1) {
+            this.aPg = BdUtilHelper.dip2px(this.mContext, 170.0f);
+            this.eLS = BdUtilHelper.dip2px(this.mContext, 72.0f);
+        } else if (this.eLe == 3) {
+            this.aPg = BdUtilHelper.dip2px(this.mContext, 60.0f);
+            this.eLS = BdUtilHelper.dip2px(this.mContext, 60.0f);
         }
     }
 
@@ -75,11 +75,11 @@ public class d extends BaseAdapter {
         final g gVar;
         View view2;
         if (view == null) {
-            if (this.eKZ == 2) {
+            if (this.eLe == 2) {
                 View inflate = LayoutInflater.from(this.mContext).inflate(a.h.ala_sticker_pic_item_layout, (ViewGroup) null);
                 view2 = inflate;
                 gVar = new g(inflate);
-            } else if (this.eKZ == 1) {
+            } else if (this.eLe == 1) {
                 View inflate2 = LayoutInflater.from(this.mContext).inflate(a.h.ala_sticker_txt_item_layout, (ViewGroup) null);
                 view2 = inflate2;
                 gVar = new h(inflate2);
@@ -90,10 +90,10 @@ public class d extends BaseAdapter {
             }
             AbsListView.LayoutParams layoutParams = (AbsListView.LayoutParams) view2.getLayoutParams();
             if (layoutParams == null) {
-                view2.setLayoutParams(new AbsListView.LayoutParams(this.aPa, this.eLN));
+                view2.setLayoutParams(new AbsListView.LayoutParams(this.aPg, this.eLS));
             } else {
-                layoutParams.width = this.aPa;
-                layoutParams.height = this.eLN;
+                layoutParams.width = this.aPg;
+                layoutParams.height = this.eLS;
             }
             view2.setTag(gVar);
         } else {
@@ -104,14 +104,14 @@ public class d extends BaseAdapter {
             @Override // android.view.View.OnClickListener
             public void onClick(View view3) {
                 if ((gVar instanceof g) || (gVar instanceof h)) {
-                    if (d.this.eLM != null) {
-                        d.this.eLM.a(d.this.getItem(i), d.this.getItem(i).getFilePath());
+                    if (d.this.eLR != null) {
+                        d.this.eLR.a(d.this.getItem(i), d.this.getItem(i).getFilePath());
                     }
-                    d.this.eLJ = i;
+                    d.this.eLO = i;
                     d.this.notifyDataSetChanged();
                 } else if (i != 0 || !d.this.getItem(i).isCancelItem) {
-                    d.this.eLL = null;
-                    if (i != d.this.eLJ) {
+                    d.this.eLQ = null;
+                    if (i != d.this.eLO) {
                         d.this.a(d.this.getItem(i), i, (f) gVar);
                     }
                 } else {
@@ -121,31 +121,31 @@ public class d extends BaseAdapter {
         });
         gVar.c(getItem(i));
         if ((gVar instanceof g) || (gVar instanceof h)) {
-            if (this.eLJ == i) {
-                gVar.eMA.setVisibility(0);
+            if (this.eLO == i) {
+                gVar.eMF.setVisibility(0);
             } else {
-                gVar.eMA.setVisibility(4);
+                gVar.eMF.setVisibility(4);
             }
-        } else if (i != 0 && this.eLJ == i && this.eLL == null) {
-            gVar.eMA.setVisibility(0);
+        } else if (i != 0 && this.eLO == i && this.eLQ == null) {
+            gVar.eMF.setVisibility(0);
         } else {
-            gVar.eMA.setVisibility(4);
+            gVar.eMF.setVisibility(4);
         }
         return view2;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(FuFaceItem fuFaceItem, int i, f fVar) {
-        this.eLK = i;
+        this.eLP = i;
         if (fuFaceItem.isResLoaded()) {
-            if (this.eLM != null) {
-                this.eLM.a(fuFaceItem, fuFaceItem.getFilePath());
+            if (this.eLR != null) {
+                this.eLR.a(fuFaceItem, fuFaceItem.getFilePath());
             }
-            this.eLJ = i;
+            this.eLO = i;
             notifyDataSetChanged();
-        } else if (TextUtils.isEmpty(fuFaceItem.file) || !com.baidu.tieba.ala.alaar.sticker.download.b.bkk().isRunning(fuFaceItem.file)) {
-            if (this.eLM != null) {
-                this.eLM.bkF();
+        } else if (TextUtils.isEmpty(fuFaceItem.file) || !com.baidu.tieba.ala.alaar.sticker.download.b.bki().isRunning(fuFaceItem.file)) {
+            if (this.eLR != null) {
+                this.eLR.bkD();
             }
             a(fuFaceItem, fVar, i);
         }
@@ -159,7 +159,7 @@ public class d extends BaseAdapter {
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.tieba.ala.alaar.sticker.a.g.a
                 /* renamed from: a */
-                public void ap(FuFaceItem fuFaceItem2) {
+                public void aq(FuFaceItem fuFaceItem2) {
                     Log.e("AlaSticker Adapter", "onStarted:" + fuFaceItem2.name);
                     if (fVar != null) {
                         fVar.startLoadingAnim();
@@ -169,16 +169,16 @@ public class d extends BaseAdapter {
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.tieba.ala.alaar.sticker.a.g.a
                 /* renamed from: b */
-                public void aq(FuFaceItem fuFaceItem2) {
+                public void ar(FuFaceItem fuFaceItem2) {
                     Log.e("AlaSticker Adapter", "onCompleted:" + fuFaceItem2.name);
-                    if (d.this.eLK != i) {
+                    if (d.this.eLP != i) {
                         d.this.notifyDataSetChanged();
                         return;
                     }
-                    d.this.eLJ = i;
+                    d.this.eLO = i;
                     d.this.notifyDataSetChanged();
-                    if (d.this.eLM != null) {
-                        d.this.eLM.a(fuFaceItem, fuFaceItem2.getFilePath());
+                    if (d.this.eLR != null) {
+                        d.this.eLR.a(fuFaceItem, fuFaceItem2.getFilePath());
                     }
                 }
 
@@ -193,12 +193,12 @@ public class d extends BaseAdapter {
     }
 
     public void a(boolean z, FuFaceItem fuFaceItem) {
-        this.eLL = null;
-        this.eLJ = -1;
-        this.eLK = -1;
+        this.eLQ = null;
+        this.eLO = -1;
+        this.eLP = -1;
         notifyDataSetChanged();
-        if (z && this.eLM != null) {
-            this.eLM.a(fuFaceItem, "none");
+        if (z && this.eLR != null) {
+            this.eLR.a(fuFaceItem, "none");
         }
     }
 }

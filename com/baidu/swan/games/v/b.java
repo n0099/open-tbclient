@@ -14,7 +14,7 @@ import java.util.Set;
 /* loaded from: classes11.dex */
 public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private File cuJ;
+    private File cuP;
     private SharedPreferences mPref;
 
     public b() {
@@ -23,40 +23,40 @@ public class b {
             Log.i("SwanGameStorageManager", "preferencesName:" + axW);
         }
         if (axW != null) {
-            this.mPref = com.baidu.swan.apps.w.a.abO().getSharedPreferences(axW, 0);
-            this.cuJ = new File(aya(), axW + ".xml");
+            this.mPref = com.baidu.swan.apps.w.a.abN().getSharedPreferences(axW, 0);
+            this.cuP = new File(aya(), axW + ".xml");
         }
-        e.cwU.a(new c.a<Long>() { // from class: com.baidu.swan.games.v.b.1
+        e.cxa.a(new c.a<Long>() { // from class: com.baidu.swan.games.v.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.ap.c.a
-            /* renamed from: anu */
-            public Long anv() throws IllegalStateException {
-                return Long.valueOf(b.this.ans());
+            /* renamed from: ant */
+            public Long anu() throws IllegalStateException {
+                return Long.valueOf(b.this.anr());
             }
         });
     }
 
     @Nullable
     private String axW() {
-        String akP = com.baidu.swan.apps.runtime.e.akP();
-        if (TextUtils.isEmpty(akP)) {
+        String akO = com.baidu.swan.apps.runtime.e.akO();
+        if (TextUtils.isEmpty(akO)) {
             return null;
         }
-        return String.format("aigame_storage_%s_anonymous", akP);
+        return String.format("aigame_storage_%s_anonymous", akO);
     }
 
     private boolean axX() {
         return this.mPref != null;
     }
 
-    public long ans() {
-        if (this.cuJ != null) {
-            return this.cuJ.length();
+    public long anr() {
+        if (this.cuP != null) {
+            return this.cuP.length();
         }
         return 0L;
     }
 
-    public long ant() {
+    public long ans() {
         return 10485760L;
     }
 

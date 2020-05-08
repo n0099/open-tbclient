@@ -1,94 +1,74 @@
 package com.xiaomi.push;
 
-import android.app.AlarmManager;
-import android.app.PendingIntent;
+import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
-import android.os.Build;
-import android.os.SystemClock;
-import android.support.v4.app.NotificationCompat;
-import com.xiaomi.push.ew;
+import android.text.TextUtils;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes8.dex */
-public class ex implements ew.a {
-
-    /* renamed from: a  reason: collision with other field name */
-    protected Context f329a;
-
-    /* renamed from: a  reason: collision with other field name */
-    private PendingIntent f328a = null;
-    private volatile long a = 0;
-
-    public ex(Context context) {
-        this.f329a = null;
-        this.f329a = context;
-    }
-
-    private void a(AlarmManager alarmManager, long j, PendingIntent pendingIntent) {
-        try {
-            AlarmManager.class.getMethod("setExact", Integer.TYPE, Long.TYPE, PendingIntent.class).invoke(alarmManager, 0, Long.valueOf(j), pendingIntent);
-        } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.a(e);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    @Override // com.xiaomi.push.ew.a
-    public long a() {
-        return fs.b();
-    }
-
-    @Override // com.xiaomi.push.ew.a
-    public void a() {
-        if (this.f328a != null) {
-            try {
-                ((AlarmManager) this.f329a.getSystemService(NotificationCompat.CATEGORY_ALARM)).cancel(this.f328a);
-            } catch (Exception e) {
-            } finally {
-                this.f328a = null;
-                com.xiaomi.channel.commonutils.logger.b.c("unregister timer");
-                this.a = 0L;
-            }
-        }
-        this.a = 0L;
-    }
-
-    public void a(Intent intent, long j) {
-        AlarmManager alarmManager = (AlarmManager) this.f329a.getSystemService(NotificationCompat.CATEGORY_ALARM);
-        this.f328a = PendingIntent.getBroadcast(this.f329a, 0, intent, 0);
-        if (Build.VERSION.SDK_INT >= 23) {
-            at.a(alarmManager, "setExactAndAllowWhileIdle", 0, Long.valueOf(j), this.f328a);
-        } else if (Build.VERSION.SDK_INT >= 19) {
-            a(alarmManager, j, this.f328a);
-        } else {
-            alarmManager.set(0, j, this.f328a);
-        }
-        com.xiaomi.channel.commonutils.logger.b.c("register timer " + j);
-    }
-
-    @Override // com.xiaomi.push.ew.a
-    public void a(boolean z) {
-        long a = a();
-        if (z || this.a != 0) {
-            if (z) {
-                a();
-            }
-            if (z || this.a == 0) {
-                this.a = (a - (SystemClock.elapsedRealtime() % a)) + System.currentTimeMillis();
+public class ex implements et {
+    private void a(Service service, Intent intent) {
+        if ("com.xiaomi.mipush.sdk.WAKEUP".equals(intent.getAction())) {
+            String stringExtra = intent.getStringExtra("waker_pkgname");
+            String stringExtra2 = intent.getStringExtra("awake_info");
+            if (TextUtils.isEmpty(stringExtra)) {
+                em.a(service.getApplicationContext(), "service", 1007, "old version message");
+            } else if (TextUtils.isEmpty(stringExtra2)) {
+                em.a(service.getApplicationContext(), stringExtra, 1007, "play with service ");
             } else {
-                this.a += a;
-                if (this.a < System.currentTimeMillis()) {
-                    this.a = a + System.currentTimeMillis();
+                String b = el.b(stringExtra2);
+                if (TextUtils.isEmpty(b)) {
+                    em.a(service.getApplicationContext(), "service", 1008, "B get a incorrect message");
+                } else {
+                    em.a(service.getApplicationContext(), b, 1007, "old version message ");
                 }
             }
-            Intent intent = new Intent(com.xiaomi.push.service.ap.o);
-            intent.setPackage(this.f329a.getPackageName());
-            a(intent, this.a);
         }
     }
 
-    @Override // com.xiaomi.push.ew.a
-    public boolean a() {
-        return this.a != 0;
+    private void a(Context context, String str, String str2, String str3) {
+        if (context == null || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+            if (TextUtils.isEmpty(str3)) {
+                em.a(context, "service", 1008, "argument error");
+            } else {
+                em.a(context, str3, 1008, "argument error");
+            }
+        } else if (!com.xiaomi.push.service.f.a(context, str)) {
+            em.a(context, str3, 1003, "B is not ready");
+        } else {
+            em.a(context, str3, 1002, "B is ready");
+            em.a(context, str3, 1004, "A is ready");
+            try {
+                Intent intent = new Intent();
+                intent.setClassName(str, str2);
+                intent.setAction("com.xiaomi.mipush.sdk.WAKEUP");
+                intent.putExtra("waker_pkgname", context.getPackageName());
+                intent.putExtra("awake_info", el.a(str3));
+                if (context.startService(intent) != null) {
+                    em.a(context, str3, 1005, "A is successful");
+                    em.a(context, str3, 1006, "The job is finished");
+                } else {
+                    em.a(context, str3, 1008, "A is fail to help B's service");
+                }
+            } catch (Exception e) {
+                com.xiaomi.channel.commonutils.logger.b.a(e);
+                em.a(context, str3, 1008, "A meet a exception when help B's service");
+            }
+        }
+    }
+
+    @Override // com.xiaomi.push.et
+    public void a(Context context, Intent intent, String str) {
+        if (context == null || !(context instanceof Service)) {
+            return;
+        }
+        a((Service) context, intent);
+    }
+
+    @Override // com.xiaomi.push.et
+    public void a(Context context, ep epVar) {
+        if (epVar != null) {
+            a(context, epVar.m262a(), epVar.c(), epVar.d());
+        }
     }
 }

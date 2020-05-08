@@ -11,26 +11,26 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.pb.data.j;
 /* loaded from: classes9.dex */
 public class b {
-    private int aIg;
-    private int aIh;
-    private View.OnClickListener dFV;
-    private TextView jMV;
-    private TextView jMW;
-    private TextView jzf;
-    private j jzr;
+    private int aIm;
+    private int aIn;
+    private View.OnClickListener dFZ;
+    private TextView jMZ;
+    private TextView jNa;
+    private TextView jzj;
+    private j jzv;
     private View mRootView;
-    private int jzp = 0;
-    private int jMX = 0;
-    private View.OnClickListener jzu = new View.OnClickListener() { // from class: com.baidu.tieba.pb.videopb.videoView.b.1
+    private int jzt = 0;
+    private int jNb = 0;
+    private View.OnClickListener jzy = new View.OnClickListener() { // from class: com.baidu.tieba.pb.videopb.videoView.b.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (b.this.dFV != null) {
-                b.this.dFV.onClick(view);
+            if (b.this.dFZ != null) {
+                b.this.dFZ.onClick(view);
             }
             if (com.baidu.adp.lib.util.j.isNetWorkAvailable()) {
                 if (view == null || !(view.getTag() instanceof Boolean) || ((Boolean) view.getTag()).booleanValue()) {
-                    if (view != b.this.jMV) {
-                        if (view == b.this.jMW) {
+                    if (view != b.this.jMZ) {
+                        if (view == b.this.jNa) {
                             b.this.setSelection(1);
                             return;
                         }
@@ -41,11 +41,11 @@ public class b {
             }
         }
     };
-    private View.OnClickListener jzv = new View.OnClickListener() { // from class: com.baidu.tieba.pb.videopb.videoView.b.2
+    private View.OnClickListener jzz = new View.OnClickListener() { // from class: com.baidu.tieba.pb.videopb.videoView.b.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (b.this.dFV != null) {
-                b.this.dFV.onClick(view);
+            if (b.this.dFZ != null) {
+                b.this.dFZ.onClick(view);
             }
         }
     };
@@ -53,13 +53,13 @@ public class b {
     public b(View view) {
         if (view != null) {
             this.mRootView = view;
-            this.jMV = (TextView) this.mRootView.findViewById(R.id.all_reply);
-            this.jMV.setOnClickListener(this.jzu);
-            this.jMW = (TextView) this.mRootView.findViewById(R.id.owner_reply);
-            this.jMW.setOnClickListener(this.jzu);
-            this.jzf = (TextView) this.mRootView.findViewById(R.id.pb_sort_type);
-            this.jzf.setOnClickListener(this.jzv);
-            if (com.baidu.tbadk.util.a.aZZ().aRA()) {
+            this.jMZ = (TextView) this.mRootView.findViewById(R.id.all_reply);
+            this.jMZ.setOnClickListener(this.jzy);
+            this.jNa = (TextView) this.mRootView.findViewById(R.id.owner_reply);
+            this.jNa.setOnClickListener(this.jzy);
+            this.jzj = (TextView) this.mRootView.findViewById(R.id.pb_sort_type);
+            this.jzj.setOnClickListener(this.jzz);
+            if (com.baidu.tbadk.util.a.aZX().aRx()) {
                 bk(2, "");
             } else {
                 bk(0, "");
@@ -69,27 +69,27 @@ public class b {
     }
 
     public void setSelection(int i) {
-        this.jMX = i;
+        this.jNb = i;
         if (i == 0) {
-            this.jMV.setTypeface(Typeface.defaultFromStyle(1));
-            this.jMW.setTypeface(Typeface.defaultFromStyle(0));
-            this.jMV.setTextColor(this.aIg);
-            this.jMW.setTextColor(this.aIh);
+            this.jMZ.setTypeface(Typeface.defaultFromStyle(1));
+            this.jNa.setTypeface(Typeface.defaultFromStyle(0));
+            this.jMZ.setTextColor(this.aIm);
+            this.jNa.setTextColor(this.aIn);
         } else if (i == 1) {
-            this.jMV.setTypeface(Typeface.defaultFromStyle(0));
-            this.jMW.setTypeface(Typeface.defaultFromStyle(1));
-            this.jMV.setTextColor(this.aIh);
-            this.jMW.setTextColor(this.aIg);
+            this.jMZ.setTypeface(Typeface.defaultFromStyle(0));
+            this.jNa.setTypeface(Typeface.defaultFromStyle(1));
+            this.jMZ.setTextColor(this.aIn);
+            this.jNa.setTextColor(this.aIm);
         }
     }
 
     public void onChangeSkinType(int i) {
         am.setBackgroundColor(this.mRootView, R.color.cp_bg_line_h);
-        this.aIg = am.getColor(R.color.cp_cont_b);
-        this.aIh = am.getColor(R.color.cp_cont_j);
-        setSelection(this.jMX);
-        am.setViewTextColor(this.jzf, (int) R.color.cp_cont_j);
-        this.jzf.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SvgManager.aOU().a(R.drawable.icon_pure_unfold12_svg, R.color.cp_cont_j, SvgManager.SvgResourceStateType.NORMAL_PRESS), (Drawable) null);
+        this.aIm = am.getColor(R.color.cp_cont_b);
+        this.aIn = am.getColor(R.color.cp_cont_j);
+        setSelection(this.jNb);
+        am.setViewTextColor(this.jzj, (int) R.color.cp_cont_j);
+        this.jzj.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SvgManager.aOR().a(R.drawable.icon_pure_unfold12_svg, R.color.cp_cont_j, SvgManager.SvgResourceStateType.NORMAL_PRESS), (Drawable) null);
     }
 
     public void ro(boolean z) {
@@ -101,41 +101,41 @@ public class b {
     }
 
     public void bk(int i, String str) {
-        this.jzp = i;
-        this.jzf.setVisibility(0);
+        this.jzt = i;
+        this.jzj.setVisibility(0);
         if (str.length() > 0) {
-            this.jzf.setText(str);
-        } else if (this.jzp == 0) {
-            this.jzf.setText(R.string.sort_type_new);
-        } else if (this.jzp == 1) {
-            this.jzf.setText(R.string.sort_type_old);
-        } else if (this.jzp == 2) {
-            this.jzf.setText(R.string.sort_type_hot);
+            this.jzj.setText(str);
+        } else if (this.jzt == 0) {
+            this.jzj.setText(R.string.sort_type_new);
+        } else if (this.jzt == 1) {
+            this.jzj.setText(R.string.sort_type_old);
+        } else if (this.jzt == 2) {
+            this.jzj.setText(R.string.sort_type_hot);
         }
     }
 
     public void a(j jVar) {
-        this.jzr = jVar;
+        this.jzv = jVar;
         if (jVar != null) {
-            if (jVar.Tv == j.jow) {
-                this.jMV.setClickable(true);
-                this.jMV.setText(TbadkCoreApplication.getInst().getString(R.string.all_reply));
-                this.jMW.setVisibility(0);
-                ro(jVar.joB);
-                bk(jVar.sortType, jVar.joA);
+            if (jVar.Ty == j.joA) {
+                this.jMZ.setClickable(true);
+                this.jMZ.setText(TbadkCoreApplication.getInst().getString(R.string.all_reply));
+                this.jNa.setVisibility(0);
+                ro(jVar.joF);
+                bk(jVar.sortType, jVar.joE);
             }
             if (jVar.isDynamic) {
-                this.jMW.setVisibility(8);
-                this.jzf.setVisibility(8);
+                this.jNa.setVisibility(8);
+                this.jzj.setVisibility(8);
             } else {
-                this.jMW.setVisibility(0);
-                this.jzf.setVisibility(0);
+                this.jNa.setVisibility(0);
+                this.jzj.setVisibility(0);
             }
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
     public void U(View.OnClickListener onClickListener) {
-        this.dFV = onClickListener;
+        this.dFZ = onClickListener;
     }
 }

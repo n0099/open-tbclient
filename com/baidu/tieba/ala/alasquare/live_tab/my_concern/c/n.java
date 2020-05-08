@@ -11,18 +11,18 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
 public class n extends com.baidu.tieba.card.a<com.baidu.tieba.ala.alasquare.special_forum.data.g> {
-    private a eSw;
+    private a eSB;
 
     public n(TbPageContext<?> tbPageContext, ViewGroup viewGroup) {
         super(tbPageContext, viewGroup);
-        this.eSw = new a(this);
+        this.eSB = new a(this);
         onChangeSkinType(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        am.setBackgroundColor(this.eSw.cTp, R.color.cp_bg_line_d);
-        am.setViewTextColor(this.eSw.mTitle, (int) R.color.cp_cont_b);
+        am.setBackgroundColor(this.eSB.cTu, R.color.cp_bg_line_d);
+        am.setViewTextColor(this.eSB.mTitle, (int) R.color.cp_cont_b);
     }
 
     @Override // com.baidu.tieba.card.a
@@ -33,8 +33,8 @@ public class n extends com.baidu.tieba.card.a<com.baidu.tieba.ala.alasquare.spec
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.a
     public void a(com.baidu.tieba.ala.alasquare.special_forum.data.g gVar) {
-        if (gVar != null && !StringUtils.isNull(gVar.eVA) && this.eSw != null) {
-            this.eSw.mTitle.setText(gVar.eVA);
+        if (gVar != null && !StringUtils.isNull(gVar.eVF) && this.eSB != null) {
+            this.eSB.mTitle.setText(gVar.eVF);
         }
     }
 
@@ -44,15 +44,15 @@ public class n extends com.baidu.tieba.card.a<com.baidu.tieba.ala.alasquare.spec
 
     /* loaded from: classes3.dex */
     public static class a extends y.a {
-        public View cTp;
-        public n eSx;
+        public View cTu;
+        public n eSC;
         public TextView mTitle;
 
         public a(n nVar) {
             super(nVar.getView());
-            this.eSx = nVar;
-            this.cTp = nVar.getView();
-            this.mTitle = (TextView) this.cTp.findViewById(R.id.tab_sub_rec_title_tv);
+            this.eSC = nVar;
+            this.cTu = nVar.getView();
+            this.mTitle = (TextView) this.cTu.findViewById(R.id.tab_sub_rec_title_tv);
         }
     }
 }

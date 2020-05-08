@@ -15,7 +15,7 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes3.dex */
 public class o {
-    public static long aXR;
+    public static long aXW;
 
     public static void g(String str, long j) {
         if (TbadkCoreApplication.sAlaLiveSwitchData == null || !TbadkCoreApplication.sAlaLiveSwitchData.isVideoGoodslistUnabled()) {
@@ -25,17 +25,17 @@ public class o {
 
     public static void a(String str, long j, boolean z) {
         com.baidu.live.message.h hVar = new com.baidu.live.message.h();
-        hVar.azz = str;
+        hVar.azF = str;
         hVar.liveId = j;
-        hVar.aQB = z;
+        hVar.aQG = z;
         hVar.setParams();
         MessageManager.getInstance().sendMessage(hVar);
     }
 
-    public static void k(Context context, String str, String str2) {
-        as asVar = com.baidu.live.v.a.Eo().aRw;
-        if (asVar != null && asVar.avy != null) {
-            String str3 = asVar.avy.axh;
+    public static void m(Context context, String str, String str2) {
+        as asVar = com.baidu.live.v.a.En().aRB;
+        if (asVar != null && asVar.avE != null) {
+            String str3 = asVar.avE.axn;
             if (!TextUtils.isEmpty(str3)) {
                 BrowserHelper.startInternalWebActivity(context, str3 + (str3.contains("?") ? ETAG.ITEM_SEPARATOR : "?") + "feed_id=" + str + "&live_id=" + str2 + "&subapp_type=" + TbConfig.getSubappType());
             }
@@ -43,16 +43,16 @@ public class o {
     }
 
     public static String a(String str, String str2, long j, boolean z, int i, String str3, String str4, String str5, String str6, String str7, String str8, String str9, String str10, String str11) {
-        as asVar = com.baidu.live.v.a.Eo().aRw;
-        if (asVar == null || asVar.avy == null) {
+        as asVar = com.baidu.live.v.a.En().aRB;
+        if (asVar == null || asVar.avE == null) {
             return "";
         }
-        String str12 = asVar.avy.axg;
+        String str12 = asVar.avE.axm;
         if (TextUtils.isEmpty(str12)) {
             return "";
         }
-        String str13 = asVar.avy.appKey;
-        String str14 = asVar.avy.axi;
+        String str13 = asVar.avE.appKey;
+        String str14 = asVar.avE.axo;
         String str15 = str14 == null ? "" : str14;
         StringBuffer stringBuffer = new StringBuffer(str12);
         stringBuffer.append(str12.contains("?") ? ETAG.ITEM_SEPARATOR : "?");

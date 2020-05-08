@@ -7,5 +7,5 @@ public interface b {
 
     void setViewTouchable(boolean z);
 
-    boolean vn();
+    boolean vm();
 }

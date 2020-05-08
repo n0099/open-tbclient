@@ -31,19 +31,19 @@ public class a extends ab {
                 if (TextUtils.isEmpty(optString)) {
                     showToast(a.h.aiapps_debug_swan_core_url_empty);
                 } else {
-                    b.ZM();
+                    b.ZL();
                     e.c cVar = new e.c();
-                    cVar.mDownloadUrl = ap(context, optString);
-                    new com.baidu.swan.apps.l.a().a(cVar, b.ZN().getPath(), new e.b() { // from class: com.baidu.swan.games.d.a.1
+                    cVar.mDownloadUrl = ad(context, optString);
+                    new com.baidu.swan.apps.l.a().a(cVar, b.ZM().getPath(), new e.b() { // from class: com.baidu.swan.games.d.a.1
                         @Override // com.baidu.swan.apps.t.e.b
                         public void dm(int i) {
                         }
 
                         @Override // com.baidu.swan.apps.t.e.b
                         public void onSuccess() {
-                            File ZN = b.ZN();
-                            File ZL = b.ZL();
-                            if (!ZN.exists() || !c.unzipFile(ZN.getPath(), ZL.getPath())) {
+                            File ZM = b.ZM();
+                            File ZK = b.ZK();
+                            if (!ZM.exists() || !c.unzipFile(ZM.getPath(), ZK.getPath())) {
                                 a.this.showToast(a.h.swangame_dashboard_download_failed);
                             } else {
                                 a.this.showToast(a.h.swangame_dashboard_download_success);
@@ -61,12 +61,12 @@ public class a extends ab {
         return false;
     }
 
-    private String ap(Context context, String str) {
-        return str + (str.contains("?") ? ETAG.ITEM_SEPARATOR : "?") + "cuid" + ETAG.EQUAL + new String(com.baidu.swan.games.l.a.axa().h("BASE64", (com.baidu.swan.apps.w.a.abT().be(context) + "\u0000\u0000").getBytes()));
+    private String ad(Context context, String str) {
+        return str + (str.contains("?") ? ETAG.ITEM_SEPARATOR : "?") + "cuid" + ETAG.EQUAL + new String(com.baidu.swan.games.l.a.axa().h("BASE64", (com.baidu.swan.apps.w.a.abS().aS(context) + "\u0000\u0000").getBytes()));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void showToast(int i) {
-        Toast.makeText(com.baidu.swan.apps.w.a.abO(), i, 1).show();
+        Toast.makeText(com.baidu.swan.apps.w.a.abN(), i, 1).show();
     }
 }

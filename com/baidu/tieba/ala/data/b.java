@@ -4,63 +4,63 @@ import com.baidu.live.tbadk.log.LogConfig;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class b {
-    public h fen;
-    public a feo;
+    public h fes;
+    public a fet;
 
     public void parserJson(JSONObject jSONObject) {
         JSONObject optJSONObject = jSONObject.optJSONObject("red_packet_info");
         if (optJSONObject != null) {
-            this.fen = new h();
-            this.fen.parserJson(optJSONObject);
+            this.fes = new h();
+            this.fes.parserJson(optJSONObject);
         }
         JSONObject optJSONObject2 = jSONObject.optJSONObject("user_cond");
         if (optJSONObject2 != null) {
-            this.feo = new a();
-            this.feo.parserJson(optJSONObject2);
+            this.fet = new a();
+            this.fet.parserJson(optJSONObject2);
         }
     }
 
-    public boolean bnE() {
-        return this.fen != null && this.fen.status == 5;
+    public boolean bnC() {
+        return this.fes != null && this.fes.status == 5;
     }
 
-    public boolean bnF() {
-        return this.fen != null && this.fen.status == 4;
+    public boolean bnD() {
+        return this.fes != null && this.fes.status == 4;
     }
 
     public boolean isValid() {
-        return this.fen != null && (this.fen.status == 2 || this.fen.status == 3);
+        return this.fes != null && (this.fes.status == 2 || this.fes.status == 3);
     }
 
-    public boolean bnG() {
-        return (this.fen == null || this.feo == null || this.fen.status != 2) ? false : true;
+    public boolean bnE() {
+        return (this.fes == null || this.fet == null || this.fes.status != 2) ? false : true;
     }
 
-    public boolean bnH() {
-        return this.feo != null && this.feo.fep == 1;
+    public boolean bnF() {
+        return this.fet != null && this.fet.feu == 1;
     }
 
-    public long bnI() {
-        if (this.feo != null) {
-            return this.feo.feq;
+    public long bnG() {
+        if (this.fet != null) {
+            return this.fet.fev;
         }
         return 0L;
     }
 
+    public boolean bnH() {
+        return this.fet != null && ((this.fet.few && !this.fet.aJm) || (this.fet.fex && !this.fet.fey));
+    }
+
+    public boolean bnI() {
+        return this.fet != null && (this.fet.few || this.fet.fex);
+    }
+
     public boolean bnJ() {
-        return this.feo != null && ((this.feo.fer && !this.feo.aJg) || (this.feo.fes && !this.feo.fet));
+        return (this.fet == null || !this.fet.few || this.fet.aJm) ? false : true;
     }
 
     public boolean bnK() {
-        return this.feo != null && (this.feo.fer || this.feo.fes);
-    }
-
-    public boolean bnL() {
-        return (this.feo == null || !this.feo.fer || this.feo.aJg) ? false : true;
-    }
-
-    public boolean bnM() {
-        return (this.feo == null || !this.feo.fes || this.feo.fet) ? false : true;
+        return (this.fet == null || !this.fet.fex || this.fet.fey) ? false : true;
     }
 
     public int dn(long j) {
@@ -99,26 +99,26 @@ public class b {
 
     /* loaded from: classes3.dex */
     public static class a {
-        public boolean aJg;
-        public int fep;
-        public long feq;
-        public boolean fer;
-        public boolean fes;
-        public boolean fet;
-        public boolean feu;
-        public String fev;
+        public boolean aJm;
+        public String feA;
+        public boolean feB;
+        public int feu;
+        public long fev;
         public boolean few;
+        public boolean fex;
+        public boolean fey;
+        public boolean fez;
 
         public void parserJson(JSONObject jSONObject) {
-            this.fer = jSONObject.optInt("need_follow") == 1;
-            this.fes = jSONObject.optInt("need_send_gift") == 1;
-            this.aJg = jSONObject.optInt("follow") == 1;
-            this.fet = jSONObject.optInt("send_gift") == 1;
-            this.feu = jSONObject.optInt("need_follow_sender") == 1;
-            this.fev = jSONObject.optString("sender_user_id");
-            this.few = jSONObject.optInt("follow_sender") == 1;
-            this.fep = jSONObject.optInt("loot_result");
-            this.feq = jSONObject.optLong(LogConfig.LOG_AMOUNT);
+            this.few = jSONObject.optInt("need_follow") == 1;
+            this.fex = jSONObject.optInt("need_send_gift") == 1;
+            this.aJm = jSONObject.optInt("follow") == 1;
+            this.fey = jSONObject.optInt("send_gift") == 1;
+            this.fez = jSONObject.optInt("need_follow_sender") == 1;
+            this.feA = jSONObject.optString("sender_user_id");
+            this.feB = jSONObject.optInt("follow_sender") == 1;
+            this.feu = jSONObject.optInt("loot_result");
+            this.fev = jSONObject.optLong(LogConfig.LOG_AMOUNT);
         }
     }
 }

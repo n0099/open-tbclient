@@ -32,7 +32,7 @@ public class a extends ab {
         if (eVar == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal swanApp");
             return false;
-        } else if (eVar.Ru()) {
+        } else if (eVar.Rt()) {
             if (DEBUG) {
                 Log.d("SwanAppAction", "SwanAppAction does not supported when app is invisible.");
             }
@@ -73,11 +73,11 @@ public class a extends ab {
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "the context is not an activity");
                     return false;
                 } else {
-                    eVar.akX().b(context, "mapp_images", new com.baidu.swan.apps.as.d.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.apps.media.c.a.a.1
+                    eVar.akW().b(context, "mapp_images", new com.baidu.swan.apps.as.d.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.apps.media.c.a.a.1
                         /* JADX DEBUG: Method merged with bridge method */
                         @Override // com.baidu.swan.apps.as.d.b
                         /* renamed from: a */
-                        public void E(com.baidu.swan.apps.setting.oauth.h<b.d> hVar) {
+                        public void F(com.baidu.swan.apps.setting.oauth.h<b.d> hVar) {
                             if (com.baidu.swan.apps.setting.oauth.c.b(hVar)) {
                                 a.this.a(context, file, unitedSchemeEntity, callbackHandler, optString2);
                             } else {
@@ -121,18 +121,18 @@ public class a extends ab {
         if (file == null) {
             callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(1001, "can not save to album : " + file).toString());
         } else {
-            rx.d.bK(file).d(new rx.functions.f<File, File>() { // from class: com.baidu.swan.apps.media.c.a.a.4
+            rx.d.bL(file).d(new rx.functions.f<File, File>() { // from class: com.baidu.swan.apps.media.c.a.a.4
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // rx.functions.f
                 /* renamed from: w */
                 public File call(File file2) {
-                    String nk = com.baidu.swan.apps.storage.b.nk(com.baidu.swan.apps.runtime.e.akP());
+                    String nk = com.baidu.swan.apps.storage.b.nk(com.baidu.swan.apps.runtime.e.akO());
                     if (!TextUtils.isEmpty(nk) && file2.getPath().startsWith(nk)) {
                         return a.this.d(context, file2);
                     }
                     return null;
                 }
-            }).d(Schedulers.io()).c(rx.a.b.a.dHE()).c(new rx.functions.b<File>() { // from class: com.baidu.swan.apps.media.c.a.a.3
+            }).d(Schedulers.io()).c(rx.a.b.a.dHA()).c(new rx.functions.b<File>() { // from class: com.baidu.swan.apps.media.c.a.a.3
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // rx.functions.b
                 /* renamed from: v */
@@ -204,18 +204,18 @@ public class a extends ab {
 
     /* JADX INFO: Access modifiers changed from: private */
     public File d(Context context, @NonNull File file) {
-        File cb = cb(context);
-        if (cb == null) {
+        File bP = bP(context);
+        if (bP == null) {
             return null;
         }
-        File file2 = new File(cb, file.getName());
+        File file2 = new File(bP, file.getName());
         if (com.baidu.swan.d.c.copyFile(file, file2) <= 0) {
             file2 = null;
         }
         return file2;
     }
 
-    public static File cb(Context context) {
+    public static File bP(Context context) {
         File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).getPath());
         if (file.exists()) {
             String str = "Video";

@@ -45,17 +45,17 @@ public final class StringMap {
     /* renamed from: com.qiniu.android.utils.StringMap$1  reason: invalid class name */
     /* loaded from: classes5.dex */
     class AnonymousClass1 implements Consumer {
-        private boolean mNA;
-        final /* synthetic */ StringBuilder mNB;
+        private boolean mND;
+        final /* synthetic */ StringBuilder mNE;
 
         @Override // com.qiniu.android.utils.StringMap.Consumer
         public void K(String str, Object obj) {
-            if (this.mNA) {
-                this.mNB.append(ETAG.ITEM_SEPARATOR);
+            if (this.mND) {
+                this.mNE.append(ETAG.ITEM_SEPARATOR);
             }
             try {
-                this.mNB.append(URLEncoder.encode(str, "UTF-8")).append('=').append(URLEncoder.encode(obj.toString(), "UTF-8"));
-                this.mNA = true;
+                this.mNE.append(URLEncoder.encode(str, "UTF-8")).append('=').append(URLEncoder.encode(obj.toString(), "UTF-8"));
+                this.mND = true;
             } catch (UnsupportedEncodingException e) {
                 throw new AssertionError(e);
             }

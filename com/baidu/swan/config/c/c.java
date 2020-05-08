@@ -14,30 +14,30 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class c {
-    private static volatile c cEC;
-    private volatile boolean cEE = false;
-    private a cED = new a();
+    private static volatile c cEI;
+    private volatile boolean cEK = false;
+    private a cEJ = new a();
 
-    public static c arp() {
-        if (cEC == null) {
+    public static c aro() {
+        if (cEI == null) {
             synchronized (c.class) {
-                if (cEC == null) {
-                    cEC = new c();
+                if (cEI == null) {
+                    cEI = new c();
                 }
             }
         }
-        return cEC;
+        return cEI;
     }
 
     private c() {
     }
 
-    public int arq() {
-        if (this.cED.contains("version")) {
-            return this.cED.getInt("version", 0);
+    public int arp() {
+        if (this.cEJ.contains("version")) {
+            return this.cEJ.getInt("version", 0);
         }
-        if (ars()) {
-            return this.cED.getInt("version", 0);
+        if (arr()) {
+            return this.cEJ.getInt("version", 0);
         }
         return 0;
     }
@@ -53,7 +53,7 @@ public class c {
         return oH;
     }
 
-    public String sq() {
+    public String sp() {
         String oH = oH("schemeHead");
         if (TextUtils.isEmpty(oH)) {
             if (e.DEBUG) {
@@ -64,11 +64,11 @@ public class c {
         return oH;
     }
 
-    public Set<String> arr() {
-        Set<String> stringSet = this.cED.getStringSet(SocialOperation.GAME_SIGNATURE, null);
+    public Set<String> arq() {
+        Set<String> stringSet = this.cEJ.getStringSet(SocialOperation.GAME_SIGNATURE, null);
         if (stringSet == null) {
-            if (ars()) {
-                return this.cED.getStringSet(SocialOperation.GAME_SIGNATURE, null);
+            if (arr()) {
+                return this.cEJ.getStringSet(SocialOperation.GAME_SIGNATURE, null);
             }
             return null;
         }
@@ -96,7 +96,7 @@ public class c {
 
     private void a(String str, String str2, String str3, int i, Set<String> set) {
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && i >= 0) {
-            SharedPreferences.Editor putInt = this.cED.edit().putString("hostName", str).putString("schemeHead", str2).putString("shareCallBackUrl", str3).putInt("version", i);
+            SharedPreferences.Editor putInt = this.cEJ.edit().putString("hostName", str).putString("schemeHead", str2).putString("shareCallBackUrl", str3).putInt("version", i);
             if (set != null && !set.isEmpty()) {
                 putInt.putStringSet(SocialOperation.GAME_SIGNATURE, set);
             }
@@ -108,10 +108,10 @@ public class c {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        String string = this.cED.getString(str, "");
+        String string = this.cEJ.getString(str, "");
         if (TextUtils.isEmpty(string)) {
-            if (ars()) {
-                String string2 = this.cED.getString(str, "");
+            if (arr()) {
+                String string2 = this.cEJ.getString(str, "");
                 if (TextUtils.isEmpty(string2)) {
                     return null;
                 }
@@ -122,11 +122,11 @@ public class c {
         return string;
     }
 
-    private synchronized boolean ars() {
+    private synchronized boolean arr() {
         boolean z;
         HashSet hashSet = null;
         synchronized (this) {
-            if (this.cEE) {
+            if (this.cEK) {
                 z = true;
             } else {
                 String readAssetData = com.baidu.swan.d.c.readAssetData(AppRuntime.getAppContext(), "config/union-cfg.json");
@@ -151,7 +151,7 @@ public class c {
                             }
                         }
                         a(optString, optString2, optString3, optInt, hashSet);
-                        this.cEE = true;
+                        this.cEK = true;
                         z = true;
                     } catch (JSONException e) {
                         if (e.DEBUG) {

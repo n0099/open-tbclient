@@ -4,21 +4,7 @@ import com.baidu.live.tbadk.core.util.NetWorkErr;
 import com.baidu.mapapi.synchronization.histroytrace.HistoryTraceConstant;
 /* loaded from: classes8.dex */
 public final class PushConstants {
-    public static final String ACTION_MESSAGE = "com.baidu.android.pushservice.action.MESSAGE";
-    public static final String ACTION_METHOD = "com.baidu.android.pushservice.action.METHOD";
-    public static final String ACTION_RECEIVE = "com.baidu.android.pushservice.action.RECEIVE";
-    public static final int ERROR_SUCCESS = 0;
-    public static final String EXTRA_APP = "app";
-    public static final String EXTRA_CONTENT = "content";
-    public static final String EXTRA_ERROR_CODE = "error_msg";
-    public static final String EXTRA_METHOD = "method";
-    public static final String EXTRA_PUSH_MESSAGE = "message";
     public static final int LOGIN_TYPE_API_KEY = 0;
-    public static final String METHOD_BIND = "method_bind";
-    public static final String PACKAGE_NAME = "pkg_name";
-    public static final int SWITCH_SYNC_TYPE_BY_USER = 0;
-    public static final int SWITCH_SYNC_TYPE_INSTALL = 1;
-    public static final int SWITCH_SYNC_TYPE_UPDATE = 2;
 
     public static String a(int i) {
         switch (i) {
@@ -69,33 +55,5 @@ public final class PushConstants {
             default:
                 return "Unknown";
         }
-    }
-
-    private static byte[] decryptB(byte[] bArr, String str) {
-        try {
-            return com.baidu.android.pushservice.j.e.a(bArr, str);
-        } catch (Exception e) {
-            return null;
-        }
-    }
-
-    private static byte[] encryptB(byte[] bArr, String str) {
-        try {
-            return com.baidu.android.pushservice.j.e.b(bArr, str);
-        } catch (Exception e) {
-            return null;
-        }
-    }
-
-    private static byte[] encryptL(byte[] bArr, String str) {
-        try {
-            return com.baidu.android.pushservice.j.e.c(bArr, str);
-        } catch (Exception e) {
-            return null;
-        }
-    }
-
-    private static boolean verify(byte[] bArr, String str, String str2) {
-        return com.baidu.android.pushservice.j.e.a(bArr, str, str2);
     }
 }

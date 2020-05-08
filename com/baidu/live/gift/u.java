@@ -3,7 +3,7 @@ package com.baidu.live.gift;
 import com.baidu.live.adp.base.BdPageContext;
 /* loaded from: classes3.dex */
 public abstract class u {
-    private static u aAk;
+    private static u aAq;
 
     protected abstract void a(BdPageContext bdPageContext);
 
@@ -29,104 +29,104 @@ public abstract class u {
 
     protected abstract void onDestroy();
 
-    protected abstract String xb();
+    protected abstract String xa();
+
+    protected abstract void xb();
 
     protected abstract void xc();
 
-    protected abstract void xd();
-
     public static final void b(String str, long j, String str2, String str3, String str4, String str5, String str6, String str7, String str8, boolean z, String str9, String str10, String str11, String str12, String str13, long j2) {
-        if (aAk != null) {
-            aAk.a(str, j, str2, str3, str4, str5, str6, str7, str8, z, str9, str10, str11, str12, str13, j2);
+        if (aAq != null) {
+            aAq.a(str, j, str2, str3, str4, str5, str6, str7, str8, z, str9, str10, str11, str12, str13, j2);
         }
     }
 
     public static final void b(String str, String str2, String str3, String str4, String str5, String str6, boolean z, String str7, String str8, String str9, String str10, String str11, long j) {
-        if (aAk != null) {
-            aAk.a(str, str2, str3, str4, str5, str6, z, str7, str8, str9, str10, str11, j);
+        if (aAq != null) {
+            aAq.a(str, str2, str3, str4, str5, str6, z, str7, str8, str9, str10, str11, j);
         }
     }
 
     public static void b(String str, long j, String str2, String str3, String str4, String str5, String str6, String str7, String str8, boolean z, String str9, String str10, String str11, boolean z2, boolean z3, boolean z4, long j2) {
-        if (aAk != null) {
-            aAk.a(str, j, str2, str3, str4, str5, str6, str7, str8, z, str9, str10, str11, z2, z3, z4, j2);
+        if (aAq != null) {
+            aAq.a(str, j, str2, str3, str4, str5, str6, str7, str8, z, str9, str10, str11, z2, z3, z4, j2);
         }
     }
 
-    public static void xe() {
-        if (aAk != null) {
-            aAk.xc();
+    public static void xd() {
+        if (aAq != null) {
+            aAq.xb();
         }
     }
 
     public static void b(String str, String str2, String str3, String str4, int i, int i2, String str5) {
-        if (aAk != null) {
-            aAk.a(str, str2, str3, str4, i, i2, str5);
+        if (aAq != null) {
+            aAq.a(str, str2, str3, str4, i, i2, str5);
         }
     }
 
     public static final g ef(String str) {
-        if (aAk != null) {
-            return aAk.ea(str);
+        if (aAq != null) {
+            return aAq.ea(str);
         }
         return null;
     }
 
     public static final void b(BdPageContext bdPageContext) {
-        if (aAk != null) {
-            aAk.a(bdPageContext);
+        if (aAq != null) {
+            aAq.a(bdPageContext);
         }
     }
 
-    public static final void xf() {
-        if (aAk != null) {
-            aAk.onDestroy();
+    public static final void xe() {
+        if (aAq != null) {
+            aAq.onDestroy();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public static final void a(u uVar) {
-        aAk = uVar;
+        aAq = uVar;
     }
 
     public static boolean eg(String str) {
-        if (aAk != null) {
-            return aAk.ec(str);
+        if (aAq != null) {
+            return aAq.ec(str);
         }
         return false;
     }
 
     public static boolean eh(String str) {
-        if (aAk != null) {
-            return aAk.ed(str);
+        if (aAq != null) {
+            return aAq.ed(str);
         }
         return false;
     }
 
     public static boolean ei(String str) {
-        if (aAk != null) {
-            return aAk.ee(str);
+        if (aAq != null) {
+            return aAq.ee(str);
         }
         return false;
     }
 
-    public static String xg() {
-        return aAk != null ? aAk.xb() : "";
+    public static String xf() {
+        return aAq != null ? aAq.xa() : "";
     }
 
     public static void b(g gVar, long j, String str, String str2, String str3, String str4, String str5, String str6, String str7, long j2) {
-        if (aAk != null) {
-            aAk.a(gVar, j, str, str2, str3, str4, str5, str6, str7, j2);
+        if (aAq != null) {
+            aAq.a(gVar, j, str, str2, str3, str4, str5, str6, str7, j2);
         }
     }
 
-    public static void xh() {
-        if (aAk != null) {
-            aAk.xd();
+    public static void xg() {
+        if (aAq != null) {
+            aAq.xc();
         }
     }
 
     public static String ej(String str) {
-        return aAk != null ? aAk.eb(str) : "";
+        return aAq != null ? aAq.eb(str) : "";
     }
 }

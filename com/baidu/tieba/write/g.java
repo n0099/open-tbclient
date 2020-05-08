@@ -5,54 +5,54 @@ import android.graphics.Rect;
 import android.view.View;
 /* loaded from: classes.dex */
 public abstract class g {
-    protected View dxV;
-    protected com.baidu.tieba.write.a lxk;
-    protected a lxp;
+    protected View dxZ;
+    protected com.baidu.tieba.write.a lxo;
+    protected a lxt;
     protected View mAnchorView;
     protected Context mContext;
     protected int mState = 4;
-    protected Rect lxu = new Rect();
-    protected Rect lxv = new Rect();
+    protected Rect lxy = new Rect();
+    protected Rect lxz = new Rect();
 
     /* loaded from: classes.dex */
     public interface a {
         void DA(int i);
     }
 
-    public abstract void afp();
+    public abstract void afo();
 
-    public abstract void dfa();
+    public abstract void deX();
 
-    public abstract void dfb();
+    public abstract void deY();
 
     public abstract void onDestroy();
 
     public g(Context context, com.baidu.tieba.write.a aVar) {
         this.mContext = context;
-        this.lxk = aVar;
+        this.lxo = aVar;
     }
 
     public void b(a aVar) {
-        this.lxp = aVar;
+        this.lxt = aVar;
     }
 
     public void c(View view, View view2) {
         this.mAnchorView = view;
-        this.dxV = view2;
-        if (this.dxV != null) {
-            this.dxV.getGlobalVisibleRect(this.lxu);
+        this.dxZ = view2;
+        if (this.dxZ != null) {
+            this.dxZ.getGlobalVisibleRect(this.lxy);
         }
     }
 
     public void show() {
-        dfa();
+        deX();
     }
 
     public void eq(boolean z) {
         if (z) {
-            afp();
+            afo();
         } else {
-            dfb();
+            deY();
         }
     }
 }

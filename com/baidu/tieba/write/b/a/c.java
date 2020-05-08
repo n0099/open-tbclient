@@ -8,15 +8,15 @@ import com.baidu.searchbox.http.cookie.CookieManager;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class c implements CookieManager {
-    private static String lzY;
-    private boolean lAa;
-    private boolean lzZ;
+    private static String lAc;
+    private boolean lAd;
+    private boolean lAe;
 
     public c(boolean z, boolean z2) {
-        this.lzZ = true;
-        this.lAa = false;
-        this.lzZ = z;
-        this.lAa = z2;
+        this.lAd = true;
+        this.lAe = false;
+        this.lAd = z;
+        this.lAe = z2;
     }
 
     @Override // com.baidu.searchbox.http.cookie.CookieManager
@@ -24,7 +24,7 @@ public class c implements CookieManager {
         if (TextUtils.isEmpty(str2)) {
             return false;
         }
-        return this.lAa || !My(str2);
+        return this.lAe || !MB(str2);
     }
 
     @Override // com.baidu.searchbox.http.cookie.CookieManager
@@ -41,7 +41,7 @@ public class c implements CookieManager {
                 for (String str2 : list) {
                     cookieManager.setCookie(str, str2);
                 }
-                if (this.lzZ && (cookieSyncManager = CookieSyncManager.getInstance()) != null) {
+                if (this.lAd && (cookieSyncManager = CookieSyncManager.getInstance()) != null) {
                     cookieSyncManager.sync();
                 }
             } catch (Exception e) {
@@ -52,18 +52,18 @@ public class c implements CookieManager {
 
     @Override // com.baidu.searchbox.http.cookie.CookieManager
     public String getCookie(String str) {
-        return lzY;
+        return lAc;
     }
 
     public static void bJ(String str) {
-        lzY = "BAIDUCUID=" + AppCuidRuntime.getAppCuidManager().getCuid() + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR + "BDUSS=" + str;
+        lAc = "BAIDUCUID=" + AppCuidRuntime.getAppCuidManager().getCuid() + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR + "BDUSS=" + str;
     }
 
-    public static void dfO() {
-        lzY = "";
+    public static void dfL() {
+        lAc = "";
     }
 
-    public static boolean My(String str) {
+    public static boolean MB(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }

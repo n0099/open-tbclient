@@ -6,7 +6,7 @@ import com.baidu.swan.pms.model.PMSAppInfo;
 import java.util.HashMap;
 /* loaded from: classes11.dex */
 public class a {
-    public static HashMap<String, PMSAppInfo> arJ() {
+    public static HashMap<String, PMSAppInfo> arI() {
         Cursor query = com.baidu.swan.pms.database.provider.a.aBP().getReadableDatabase().query("swan_app", null, null, null, null, null, null);
         HashMap<String, PMSAppInfo> hashMap = new HashMap<>();
         if (query != null && query.moveToFirst()) {

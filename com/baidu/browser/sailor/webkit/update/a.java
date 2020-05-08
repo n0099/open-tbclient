@@ -25,7 +25,7 @@ import java.io.InputStream;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class a {
-    private static a acR = null;
+    private static a acU = null;
     protected String a;
     protected String b;
     protected String c;
@@ -33,10 +33,10 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.browser.sailor.webkit.update.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public class C0070a extends BdNetTask implements INetListener {
-        protected ByteArrayOutputStream acS;
+    public class C0091a extends BdNetTask implements INetListener {
+        protected ByteArrayOutputStream acV;
 
-        public C0070a(Context context, String str) {
+        public C0091a(Context context, String str) {
             setUrl(a.a(str, context));
             setMethod(BdNet.HttpMethod.METHOD_GET);
         }
@@ -47,16 +47,16 @@ public class a {
 
         @Override // com.baidu.webkit.net.INetListener
         public void onNetDownloadError(BdNet bdNet, BdNetTask bdNetTask, BdNet.NetError netError, int i) {
-            this.acS.reset();
+            this.acV.reset();
         }
 
         @Override // com.baidu.webkit.net.INetListener
         public void onNetReceiveData(BdNet bdNet, BdNetTask bdNetTask, byte[] bArr, int i) {
-            if (this.acS == null) {
-                this.acS = new ByteArrayOutputStream();
+            if (this.acV == null) {
+                this.acV = new ByteArrayOutputStream();
             }
             if (i > 0) {
-                this.acS.write(bArr, 0, i);
+                this.acV.write(bArr, 0, i);
             }
         }
 
@@ -79,9 +79,9 @@ public class a {
 
         @Override // com.baidu.webkit.net.INetListener
         public void onNetTaskComplete(BdNet bdNet, BdNetTask bdNetTask) {
-            if (this.acS != null) {
+            if (this.acV != null) {
                 try {
-                    String byteArrayOutputStream = this.acS.toString("utf-8");
+                    String byteArrayOutputStream = this.acV.toString("utf-8");
                     Log.d(EngineManager.LOG_TAG, "received data = " + byteArrayOutputStream);
                     if (byteArrayOutputStream.length() > 0) {
                         JSONObject jSONObject = new JSONObject(byteArrayOutputStream);
@@ -119,19 +119,28 @@ public class a {
         }
 
         public void release() {
-            if (this.acS != null) {
+            if (this.acV != null) {
                 try {
-                    this.acS.reset();
-                    this.acS.close();
+                    this.acV.reset();
+                    this.acV.close();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
-            this.acS = null;
+            this.acV = null;
         }
     }
 
     protected a() {
+    }
+
+    private static PackageInfo P(Context context) {
+        try {
+            return context.getPackageManager().getPackageInfo(context.getPackageName(), 16384);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
     private static String a(Context context) {
@@ -253,9 +262,9 @@ public class a {
         if (!TextUtils.isEmpty(packageName)) {
             a(sb, "app", packageName);
         }
-        PackageInfo ac = ac(context);
-        if (ac != null) {
-            String str5 = ac.versionName;
+        PackageInfo P = P(context);
+        if (P != null) {
+            String str5 = P.versionName;
             if (!TextUtils.isEmpty(str5)) {
                 a(sb, ETAG.KEY_APP_VERSION, str5);
             }
@@ -310,24 +319,15 @@ public class a {
         return jArr[0] == jArr[4] && jArr[1] <= jArr[5] && jArr[2] == jArr[6] && jArr[3] < jArr[7];
     }
 
-    private static PackageInfo ac(Context context) {
-        try {
-            return context.getPackageManager().getPackageInfo(context.getPackageName(), 16384);
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
-        }
-    }
-
     public static a ri() {
-        if (acR == null) {
+        if (acU == null) {
             synchronized (a.class) {
-                if (acR == null) {
-                    acR = new a();
+                if (acU == null) {
+                    acU = new a();
                 }
             }
         }
-        return acR;
+        return acU;
     }
 
     protected final void b() {
@@ -338,7 +338,7 @@ public class a {
             if (WebKitFactory.getCurEngine() == 1) {
                 if (a(zeusVersionName, this.b)) {
                     Log.d(EngineManager.LOG_TAG, "start download update zeus");
-                    BdZeusDownloadHelper.ab(BdSailor.getInstance().getAppContext()).a(this.a, this.c);
+                    BdZeusDownloadHelper.O(BdSailor.getInstance().getAppContext()).a(this.a, this.c);
                     return;
                 }
                 return;
@@ -360,7 +360,7 @@ public class a {
             BdSailorPlatform.getStatic().b("download-webkit-start", String.valueOf(System.currentTimeMillis()));
             BdSailorPlatform.getStatic().a();
             Log.d(EngineManager.LOG_TAG, "start download zeus");
-            BdZeusDownloadHelper.ab(BdSailor.getInstance().getAppContext()).a(this.a, this.c);
+            BdZeusDownloadHelper.O(BdSailor.getInstance().getAppContext()).a(this.a, this.c);
         }
     }
 }

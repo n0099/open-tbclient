@@ -14,7 +14,7 @@ public class h extends g {
 
     @Override // com.baidu.swan.apps.media.c.a.g
     public boolean a(com.baidu.swan.apps.media.c.a aVar, com.baidu.swan.apps.media.c.c cVar, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
-        com.baidu.swan.apps.console.c.i("video", "remove, video id:" + cVar.bYS + " slave id: " + cVar.bGJ);
+        com.baidu.swan.apps.console.c.i("video", "remove, video id:" + cVar.bYY + " slave id: " + cVar.bGO);
         b(aVar, cVar, unitedSchemeEntity, callbackHandler);
         return true;
     }
@@ -22,7 +22,7 @@ public class h extends g {
     private void b(com.baidu.swan.apps.media.c.a aVar, com.baidu.swan.apps.media.c.c cVar, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
         com.baidu.swan.apps.component.b.a d = com.baidu.swan.apps.component.container.a.d(cVar);
         if (d != null) {
-            d.Sy();
+            d.Sx();
         } else {
             com.baidu.swan.apps.component.e.a.aC("VideoPlayerAction", "remove with a null component");
         }

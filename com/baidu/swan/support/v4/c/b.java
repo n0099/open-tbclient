@@ -9,20 +9,20 @@ class b {
 
     /* loaded from: classes11.dex */
     static class a implements LayoutInflater.Factory {
-        final e ddb;
+        final e ddg;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public a(e eVar) {
-            this.ddb = eVar;
+            this.ddg = eVar;
         }
 
         @Override // android.view.LayoutInflater.Factory
         public View onCreateView(String str, Context context, AttributeSet attributeSet) {
-            return this.ddb.onCreateView(null, str, context, attributeSet);
+            return this.ddg.onCreateView(null, str, context, attributeSet);
         }
 
         public String toString() {
-            return getClass().getName() + "{" + this.ddb + "}";
+            return getClass().getName() + "{" + this.ddg + "}";
         }
     }
 

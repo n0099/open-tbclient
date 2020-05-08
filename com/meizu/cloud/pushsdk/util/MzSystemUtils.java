@@ -3,25 +3,16 @@ package com.meizu.cloud.pushsdk.util;
 import android.app.ActivityManager;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.content.pm.ServiceInfo;
-import android.database.Cursor;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.net.Uri;
-import android.net.wifi.WifiInfo;
-import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.os.Process;
-import android.telephony.TelephonyManager;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.IMConstants;
 import com.baidu.android.util.devices.RomUtils;
-import com.meizu.cloud.pushsdk.base.k;
+import com.meizu.cloud.pushsdk.base.j;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
-import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -67,7 +58,7 @@ public class MzSystemUtils {
     public static int getAppVersionCode(Context context) {
         try {
             return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionCode;
-        } catch (PackageManager.NameNotFoundException e) {
+        } catch (Exception e) {
             return 0;
         }
     }
@@ -75,7 +66,7 @@ public class MzSystemUtils {
     public static String getAppVersionName(Context context) {
         try {
             return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
-        } catch (PackageManager.NameNotFoundException e) {
+        } catch (Exception e) {
             return "";
         }
     }
@@ -96,16 +87,12 @@ public class MzSystemUtils {
     }
 
     public static String getBSSID(Context context) {
-        WifiInfo connectionInfo;
         try {
-            WifiManager wifiManager = (WifiManager) context.getSystemService("wifi");
-            if (wifiManager != null && (connectionInfo = wifiManager.getConnectionInfo()) != null) {
-                return connectionInfo.getBSSID();
-            }
+            return (String) Class.forName("com.meizu.cloud.pushsdk.util.AllergySystemUtils").getDeclaredMethod("getBSSID", Context.class).invoke(null, context);
         } catch (Exception e) {
-            com.meizu.cloud.a.a.e(TAG, "getOperator error " + e.getMessage());
+            com.meizu.cloud.a.a.e(TAG, "getBSSID error " + e.getMessage());
+            return null;
         }
-        return null;
     }
 
     public static String getCurrentLanguage() {
@@ -126,75 +113,23 @@ public class MzSystemUtils {
         }
     }
 
-    public static String getDeviceId(Context context, int i) {
-        Object phoneInfo = getPhoneInfo(context, i, "getDeviceId");
-        return phoneInfo != null ? (String) phoneInfo : "";
-    }
-
     public static List<String> getInstalledPackage(Context context) {
-        List<PackageInfo> installedPackages;
         ArrayList arrayList = new ArrayList();
         try {
-            PackageManager packageManager = context.getPackageManager();
-            if (packageManager != null && (installedPackages = packageManager.getInstalledPackages(0)) != null) {
-                for (PackageInfo packageInfo : installedPackages) {
-                    arrayList.add(packageInfo.packageName);
-                }
-            }
+            return (List) Class.forName("com.meizu.cloud.pushsdk.util.AllergySystemUtils").getDeclaredMethod("getInstalledPackage", Context.class).invoke(null, context);
         } catch (Exception e) {
             com.meizu.cloud.a.a.e(TAG, "getInstalledPackage error " + e.getMessage());
+            return arrayList;
         }
-        return arrayList;
     }
 
     public static String getLineNumber(Context context) {
         try {
-            TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
-            if (telephonyManager != null) {
-                return telephonyManager.getLine1Number();
-            }
+            return (String) Class.forName("com.meizu.cloud.pushsdk.util.AllergySystemUtils").getDeclaredMethod("getLineNumber", Context.class).invoke(null, context);
         } catch (Exception e) {
             com.meizu.cloud.a.a.e(TAG, "getLineNumber error " + e.getMessage());
+            return null;
         }
-        return null;
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:11:0x0024, code lost:
-        com.meizu.cloud.a.a.d(com.meizu.cloud.pushsdk.util.MzSystemUtils.TAG, "getMethodParamTypes " + r0.length);
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static Class[] getMethodParamTypes(String str) {
-        Class<?>[] clsArr;
-        Exception e;
-        try {
-            Method[] declaredMethods = TelephonyManager.class.getDeclaredMethods();
-            clsArr = null;
-            int i = 0;
-            while (true) {
-                try {
-                    if (i >= declaredMethods.length) {
-                        break;
-                    }
-                    if (str.equals(declaredMethods[i].getName())) {
-                        clsArr = declaredMethods[i].getParameterTypes();
-                        if (clsArr.length >= 1) {
-                            break;
-                        }
-                    }
-                    i++;
-                } catch (Exception e2) {
-                    e = e2;
-                    com.meizu.cloud.a.a.d(TAG, "getMethodParamTypes " + e.toString());
-                    return clsArr;
-                }
-            }
-        } catch (Exception e3) {
-            clsArr = null;
-            e = e3;
-        }
-        return clsArr;
     }
 
     public static String getMzPushServicePackageName(Context context) {
@@ -232,7 +167,7 @@ public class MzSystemUtils {
                 return "OTHER";
             }
             return "";
-        } catch (SecurityException e) {
+        } catch (Exception e) {
             com.meizu.cloud.a.a.e(TAG, "Security exception checking connection: " + e.getMessage());
             return "";
         }
@@ -240,29 +175,11 @@ public class MzSystemUtils {
 
     public static String getOperator(Context context) {
         try {
-            TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
-            if (telephonyManager != null) {
-                return telephonyManager.getSimOperator();
-            }
+            return (String) Class.forName("com.meizu.cloud.pushsdk.util.AllergySystemUtils").getDeclaredMethod("getOperator", Context.class).invoke(null, context);
         } catch (Exception e) {
             com.meizu.cloud.a.a.e(TAG, "getOperator error " + e.getMessage());
+            return null;
         }
-        return null;
-    }
-
-    public static Object getPhoneInfo(Context context, int i, String str) {
-        try {
-            TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
-            if (Build.VERSION.SDK_INT >= 21) {
-                Method method = telephonyManager.getClass().getMethod(str, getMethodParamTypes(str));
-                if (i >= 0) {
-                    return method.invoke(telephonyManager, Integer.valueOf(i));
-                }
-            }
-        } catch (Exception e) {
-            com.meizu.cloud.a.a.d(TAG, e.toString());
-        }
-        return null;
     }
 
     public static String getProcessName(Context context) {
@@ -281,23 +198,11 @@ public class MzSystemUtils {
         }
     }
 
-    public static List<String> getRunningProcess(Context context) {
-        ArrayList arrayList = new ArrayList();
-        try {
-            for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : ((ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getRunningAppProcesses()) {
-                arrayList.add(runningAppProcessInfo.processName);
-            }
-        } catch (Exception e) {
-            com.meizu.cloud.a.a.e(TAG, "can not get running process info so set running true");
-        }
-        return arrayList;
-    }
-
     private static String getServicesByPackageName(Context context, String str) {
         ServiceInfo[] serviceInfoArr;
         try {
             serviceInfoArr = context.getPackageManager().getPackageInfo(str, 4).services;
-        } catch (PackageManager.NameNotFoundException e) {
+        } catch (Exception e) {
             serviceInfoArr = null;
         }
         if (serviceInfoArr == null) {
@@ -311,90 +216,32 @@ public class MzSystemUtils {
         return null;
     }
 
-    public static String getSn() {
-        String a = k.a("ro.serialno");
-        return !TextUtils.isEmpty(a) ? a : Build.SERIAL;
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:22:0x0077  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     public static int getSubId(Context context, int i) {
-        Cursor cursor;
         try {
-            cursor = context.getContentResolver().query(Uri.parse("content://telephony/siminfo"), new String[]{IMConstants.MSG_ROW_ID, "sim_id"}, "sim_id = ?", new String[]{String.valueOf(i)}, null);
-            if (cursor != null) {
-                try {
-                    try {
-                        if (cursor.moveToFirst()) {
-                            int i2 = cursor.getInt(cursor.getColumnIndex(IMConstants.MSG_ROW_ID));
-                            if (cursor != null) {
-                                cursor.close();
-                                return i2;
-                            }
-                            return i2;
-                        }
-                    } catch (Exception e) {
-                        e = e;
-                        com.meizu.cloud.a.a.d(TAG, "getSubId " + e.toString());
-                        if (cursor != null) {
-                            cursor.close();
-                        }
-                        return -1;
-                    }
-                } catch (Throwable th) {
-                    th = th;
-                    if (cursor != null) {
-                        cursor.close();
-                    }
-                    throw th;
-                }
-            }
-            if (cursor != null) {
-                cursor.close();
-            }
-        } catch (Exception e2) {
-            e = e2;
-            cursor = null;
-        } catch (Throwable th2) {
-            th = th2;
-            cursor = null;
-            if (cursor != null) {
-            }
-            throw th;
-        }
-        return -1;
-    }
-
-    public static String getSubscriberId(Context context) {
-        try {
-            TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
-            if (telephonyManager != null) {
-                return telephonyManager.getSubscriberId();
-            }
+            return ((Integer) Class.forName("com.meizu.cloud.pushsdk.util.AllergySystemUtils").getDeclaredMethod("getSubId", Context.class, Integer.TYPE).invoke(null, context, Integer.valueOf(i))).intValue();
         } catch (Exception e) {
-            com.meizu.cloud.a.a.e(TAG, "getSubscribeId error " + e.getMessage());
+            com.meizu.cloud.a.a.e(TAG, "getSubId error " + e.getMessage());
+            return -1;
         }
-        return null;
     }
 
     public static String getSubscriberId(Context context, int i) {
-        Object phoneInfo = getPhoneInfo(context, i, "getSubscriberId");
-        return phoneInfo != null ? (String) phoneInfo : "";
+        try {
+            return (String) Class.forName("com.meizu.cloud.pushsdk.util.AllergySystemUtils").getDeclaredMethod("getSubscriberId", Context.class, Integer.TYPE).invoke(null, context, Integer.valueOf(i));
+        } catch (Exception e) {
+            com.meizu.cloud.a.a.e(TAG, "getSubscriberId error " + e.getMessage());
+            return null;
+        }
     }
 
-    public static String getWifiMac(Context context) {
-        WifiInfo connectionInfo;
+    public static List<String> getWifiList(Context context) {
+        ArrayList arrayList = new ArrayList();
         try {
-            WifiManager wifiManager = (WifiManager) context.getSystemService("wifi");
-            if (wifiManager != null && (connectionInfo = wifiManager.getConnectionInfo()) != null) {
-                return connectionInfo.getMacAddress();
-            }
+            return (List) Class.forName("com.meizu.cloud.pushsdk.util.AllergySystemUtils").getDeclaredMethod("getWifiList", Context.class).invoke(null, context);
         } catch (Exception e) {
-            com.meizu.cloud.a.a.e(TAG, "getWifiMac error " + e.getMessage());
+            com.meizu.cloud.a.a.e(TAG, "getWifiList error " + e.getMessage());
+            return arrayList;
         }
-        return null;
     }
 
     public static boolean isApplicationDebug(Context context) {
@@ -407,7 +254,7 @@ public class MzSystemUtils {
     }
 
     public static boolean isBrandMeizu(Context context) {
-        boolean z = !TextUtils.isEmpty(k.a("ro.meizu.product.model")) || RomUtils.MANUFACTURER_MEIZU.equalsIgnoreCase(Build.BRAND) || "22c4185e".equalsIgnoreCase(Build.BRAND);
+        boolean z = !TextUtils.isEmpty(j.a("ro.meizu.product.model")) || RomUtils.MANUFACTURER_MEIZU.equalsIgnoreCase(Build.BRAND) || "22c4185e".equalsIgnoreCase(Build.BRAND);
         if (!z) {
             com.meizu.cloud.pushsdk.a.a.b(context.getApplicationContext());
         }
@@ -415,13 +262,13 @@ public class MzSystemUtils {
     }
 
     public static boolean isHuaWei() {
-        String a = k.a("ro.build.version.emui");
+        String a = j.a("ro.build.version.emui");
         com.meizu.cloud.a.a.e(TAG, "huawei eui " + a);
         return !TextUtils.isEmpty(a);
     }
 
     public static boolean isIndiaLocal() {
-        return "india".equals(k.a("ro.meizu.locale.region"));
+        return "india".equals(j.a("ro.meizu.locale.region"));
     }
 
     public static boolean isInternational() {
@@ -439,7 +286,7 @@ public class MzSystemUtils {
         try {
             context.getPackageManager().getPackageInfo(str, 0);
             return true;
-        } catch (PackageManager.NameNotFoundException e) {
+        } catch (Exception e) {
             return false;
         }
     }

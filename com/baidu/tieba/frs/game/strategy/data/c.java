@@ -8,8 +8,8 @@ import java.util.List;
 /* loaded from: classes9.dex */
 public class c {
     public boolean hasMore;
-    public int hks;
-    public List<m> hkt;
+    public int hky;
+    public List<m> hkz;
     public String key;
     public int labelId;
     public int pn;
@@ -19,9 +19,9 @@ public class c {
         if (v.isEmpty(list)) {
             return 0;
         }
-        if (v.isEmpty(this.hkt)) {
-            this.hkt = new LinkedList();
-            this.hkt.addAll(list);
+        if (v.isEmpty(this.hkz)) {
+            this.hkz = new LinkedList();
+            this.hkz.addAll(list);
             return list.size();
         }
         LinkedList linkedList = new LinkedList();
@@ -29,15 +29,15 @@ public class c {
             m mVar = list.get(i);
             int i2 = 0;
             while (true) {
-                if (i2 >= this.hkt.size()) {
+                if (i2 >= this.hkz.size()) {
                     z = false;
                     break;
                 }
-                m mVar2 = this.hkt.get(i2);
+                m mVar2 = this.hkz.get(i2);
                 if (mVar != null && (mVar instanceof b) && mVar2 != null && (mVar2 instanceof b)) {
-                    bj aIw = ((b) mVar).aIw();
-                    bj aIw2 = ((b) mVar2).aIw();
-                    if (aIw != null && aIw2 != null && aIw.getTid() != null && aIw2.getTid() != null && aIw.getTid().equals(aIw2.getTid())) {
+                    bj aIu = ((b) mVar).aIu();
+                    bj aIu2 = ((b) mVar2).aIu();
+                    if (aIu != null && aIu2 != null && aIu.getTid() != null && aIu2.getTid() != null && aIu.getTid().equals(aIu2.getTid())) {
                         z = true;
                         break;
                     }
@@ -49,7 +49,7 @@ public class c {
             }
         }
         if (linkedList.size() != 0) {
-            v.addAll(this.hkt, 0, linkedList);
+            v.addAll(this.hkz, 0, linkedList);
         }
         return linkedList.size();
     }

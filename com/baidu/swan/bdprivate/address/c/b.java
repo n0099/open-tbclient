@@ -12,14 +12,14 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public d cBA;
-    public d cBB;
-    public String cBC;
     public String cBD;
-    public boolean cBE;
-    public String cBx;
-    public String cBy;
-    public d cBz;
+    public String cBE;
+    public d cBF;
+    public d cBG;
+    public d cBH;
+    public String cBI;
+    public String cBJ;
+    public boolean cBK;
     public String id;
     public String userName;
 
@@ -30,23 +30,23 @@ public class b {
         b bVar = new b();
         bVar.id = jSONObject.optString("id");
         bVar.userName = jSONObject.optString("name");
-        bVar.cBx = jSONObject.optString("phone");
-        bVar.cBy = jSONObject.optString("phone_cipher");
+        bVar.cBD = jSONObject.optString("phone");
+        bVar.cBE = jSONObject.optString("phone_cipher");
         JSONObject optJSONObject = jSONObject.optJSONObject("l1");
         if (optJSONObject != null) {
-            bVar.cBz = d.bo(optJSONObject);
+            bVar.cBF = d.bo(optJSONObject);
         }
         JSONObject optJSONObject2 = jSONObject.optJSONObject("l2");
         if (optJSONObject2 != null) {
-            bVar.cBA = d.bo(optJSONObject2);
+            bVar.cBG = d.bo(optJSONObject2);
         }
         JSONObject optJSONObject3 = jSONObject.optJSONObject("l3");
         if (optJSONObject3 != null) {
-            bVar.cBB = d.bo(optJSONObject3);
+            bVar.cBH = d.bo(optJSONObject3);
         }
-        bVar.cBC = jSONObject.optString("street");
-        bVar.cBD = jSONObject.optString("zipcode");
-        bVar.cBE = TextUtils.equals(jSONObject.optString("default"), "1");
+        bVar.cBI = jSONObject.optString("street");
+        bVar.cBJ = jSONObject.optString("zipcode");
+        bVar.cBK = TextUtils.equals(jSONObject.optString("default"), "1");
         return bVar;
     }
 
@@ -62,30 +62,30 @@ public class b {
             bVar.userName = String.valueOf(map.get("name"));
         }
         if (map.containsKey("phone")) {
-            bVar.cBx = String.valueOf(map.get("phone"));
+            bVar.cBD = String.valueOf(map.get("phone"));
         }
         if (map.containsKey("street")) {
-            bVar.cBC = String.valueOf(map.get("street"));
+            bVar.cBI = String.valueOf(map.get("street"));
         }
         if (map.containsKey("zipcode")) {
-            bVar.cBD = String.valueOf(map.get("zipcode"));
+            bVar.cBJ = String.valueOf(map.get("zipcode"));
         }
         if (map.containsKey("l1")) {
             Object obj = map.get("l1");
             if (obj instanceof d) {
-                bVar.cBz = (d) obj;
+                bVar.cBF = (d) obj;
             }
         }
         if (map.containsKey("l2")) {
             Object obj2 = map.get("l2");
             if (obj2 instanceof d) {
-                bVar.cBA = (d) obj2;
+                bVar.cBG = (d) obj2;
             }
         }
         if (map.containsKey("l3")) {
             Object obj3 = map.get("l3");
             if (obj3 instanceof d) {
-                bVar.cBB = (d) obj3;
+                bVar.cBH = (d) obj3;
             }
         }
         return bVar;
@@ -95,9 +95,9 @@ public class b {
         HashMap hashMap = new HashMap(4);
         if (bVar != null) {
             hashMap.put("name", Boolean.valueOf(!TextUtils.isEmpty(bVar.userName)));
-            hashMap.put("phone", Boolean.valueOf(!TextUtils.isEmpty(bVar.cBx)));
-            hashMap.put("region", Boolean.valueOf(!TextUtils.isEmpty(bVar.aqB())));
-            hashMap.put("street", Boolean.valueOf(TextUtils.isEmpty(bVar.cBC) ? false : true));
+            hashMap.put("phone", Boolean.valueOf(!TextUtils.isEmpty(bVar.cBD)));
+            hashMap.put("region", Boolean.valueOf(!TextUtils.isEmpty(bVar.aqA())));
+            hashMap.put("street", Boolean.valueOf(TextUtils.isEmpty(bVar.cBI) ? false : true));
         }
         return hashMap;
     }
@@ -114,31 +114,31 @@ public class b {
             if (!TextUtils.isEmpty(bVar.userName)) {
                 jSONObject.put("name", bVar.userName);
             }
-            if (!TextUtils.isEmpty(bVar.cBx)) {
-                jSONObject.put("phone", bVar.cBx);
+            if (!TextUtils.isEmpty(bVar.cBD)) {
+                jSONObject.put("phone", bVar.cBD);
             }
-            if (!TextUtils.isEmpty(bVar.cBy)) {
-                jSONObject.put("phone_cipher", bVar.cBy);
+            if (!TextUtils.isEmpty(bVar.cBE)) {
+                jSONObject.put("phone_cipher", bVar.cBE);
             }
-            JSONObject a = d.a(bVar.cBz);
+            JSONObject a = d.a(bVar.cBF);
             if (a != null) {
                 jSONObject.put("l1", a);
             }
-            JSONObject a2 = d.a(bVar.cBA);
+            JSONObject a2 = d.a(bVar.cBG);
             if (a2 != null) {
                 jSONObject.put("l2", a2);
             }
-            JSONObject a3 = d.a(bVar.cBB);
+            JSONObject a3 = d.a(bVar.cBH);
             if (a3 != null) {
                 jSONObject.put("l3", a3);
             }
-            if (!TextUtils.isEmpty(bVar.cBC)) {
-                jSONObject.put("street", bVar.cBC);
+            if (!TextUtils.isEmpty(bVar.cBI)) {
+                jSONObject.put("street", bVar.cBI);
             }
-            if (!TextUtils.isEmpty(bVar.cBD)) {
-                jSONObject.put("zipcode", bVar.cBD);
+            if (!TextUtils.isEmpty(bVar.cBJ)) {
+                jSONObject.put("zipcode", bVar.cBJ);
             }
-            jSONObject.put("default", bVar.cBE);
+            jSONObject.put("default", bVar.cBK);
             return jSONObject;
         } catch (JSONException e) {
             if (DEBUG) {
@@ -158,26 +158,26 @@ public class b {
             if (!TextUtils.isEmpty(bVar.userName)) {
                 jSONObject.put(TbEnum.SystemMessage.KEY_USER_NAME, bVar.userName);
             }
+            if (!TextUtils.isEmpty(bVar.cBJ)) {
+                jSONObject.put("postalCode", bVar.cBJ);
+            }
+            if (bVar.cBF != null && !TextUtils.isEmpty(bVar.cBF.name)) {
+                jSONObject.put("provinceName", bVar.cBF.name);
+            }
+            if (bVar.cBG != null && !TextUtils.isEmpty(bVar.cBG.name)) {
+                jSONObject.put("cityName", bVar.cBG.name);
+            }
+            if (bVar.cBH != null && !TextUtils.isEmpty(bVar.cBH.name)) {
+                jSONObject.put("countyName", bVar.cBH.name);
+            }
+            if (bVar.cBH != null && !TextUtils.isEmpty(bVar.cBH.code)) {
+                jSONObject.put("nationalCode", bVar.cBH.code);
+            }
+            if (!TextUtils.isEmpty(bVar.cBI)) {
+                jSONObject.put("detailInfo", bVar.cBI);
+            }
             if (!TextUtils.isEmpty(bVar.cBD)) {
-                jSONObject.put("postalCode", bVar.cBD);
-            }
-            if (bVar.cBz != null && !TextUtils.isEmpty(bVar.cBz.name)) {
-                jSONObject.put("provinceName", bVar.cBz.name);
-            }
-            if (bVar.cBA != null && !TextUtils.isEmpty(bVar.cBA.name)) {
-                jSONObject.put("cityName", bVar.cBA.name);
-            }
-            if (bVar.cBB != null && !TextUtils.isEmpty(bVar.cBB.name)) {
-                jSONObject.put("countyName", bVar.cBB.name);
-            }
-            if (bVar.cBB != null && !TextUtils.isEmpty(bVar.cBB.code)) {
-                jSONObject.put("nationalCode", bVar.cBB.code);
-            }
-            if (!TextUtils.isEmpty(bVar.cBC)) {
-                jSONObject.put("detailInfo", bVar.cBC);
-            }
-            if (!TextUtils.isEmpty(bVar.cBx)) {
-                jSONObject.put("telNumber", bVar.cBx);
+                jSONObject.put("telNumber", bVar.cBD);
                 return jSONObject;
             }
             return jSONObject;
@@ -198,46 +198,46 @@ public class b {
         a aVar = new a("收货人", bVar.userName, "姓名");
         aVar.type = "name";
         arrayList.add(aVar);
-        a aVar2 = new a("联系电话", bVar.cBx, "手机号码或座机");
+        a aVar2 = new a("联系电话", bVar.cBD, "手机号码或座机");
         aVar2.type = "phone";
-        aVar2.cBw = true;
+        aVar2.cBC = true;
         arrayList.add(aVar2);
-        a aVar3 = new a("所在地区", bVar.aqB(), "地区选择");
+        a aVar3 = new a("所在地区", bVar.aqA(), "地区选择");
         aVar3.type = "region";
         arrayList.add(aVar3);
-        a aVar4 = new a("详细地址", bVar.cBC, "街道门牌信息");
+        a aVar4 = new a("详细地址", bVar.cBI, "街道门牌信息");
         aVar4.type = "street";
         arrayList.add(aVar4);
-        a aVar5 = new a("邮政编码", bVar.cBD, "邮政编码");
+        a aVar5 = new a("邮政编码", bVar.cBJ, "邮政编码");
         aVar5.type = "zipcode";
-        aVar5.cBw = true;
+        aVar5.cBC = true;
         arrayList.add(aVar5);
         return arrayList;
     }
 
-    private String aqB() {
+    private String aqA() {
         StringBuilder sb = new StringBuilder();
-        if (this.cBz != null && !TextUtils.isEmpty(this.cBz.name)) {
-            sb.append(this.cBz.name);
+        if (this.cBF != null && !TextUtils.isEmpty(this.cBF.name)) {
+            sb.append(this.cBF.name);
         }
-        if (this.cBA != null && !TextUtils.isEmpty(this.cBA.name)) {
-            sb.append(" " + this.cBA.name);
+        if (this.cBG != null && !TextUtils.isEmpty(this.cBG.name)) {
+            sb.append(" " + this.cBG.name);
         }
-        if (this.cBB != null && !TextUtils.isEmpty(this.cBB.name)) {
-            sb.append(" " + this.cBB.name);
+        if (this.cBH != null && !TextUtils.isEmpty(this.cBH.name)) {
+            sb.append(" " + this.cBH.name);
         }
         return sb.toString();
     }
 
-    public String aqC() {
+    public String aqB() {
         StringBuilder sb = new StringBuilder();
-        sb.append(aqB());
-        sb.append(" " + this.cBC);
+        sb.append(aqA());
+        sb.append(" " + this.cBI);
         return sb.toString();
     }
 
     public boolean isValid() {
-        return (TextUtils.isEmpty(this.userName) || TextUtils.isEmpty(this.cBx) || TextUtils.isEmpty(aqB()) || TextUtils.isEmpty(this.cBC) || this.cBx.length() != 11 || !this.cBx.startsWith("1")) ? false : true;
+        return (TextUtils.isEmpty(this.userName) || TextUtils.isEmpty(this.cBD) || TextUtils.isEmpty(aqA()) || TextUtils.isEmpty(this.cBI) || this.cBD.length() != 11 || !this.cBD.startsWith("1")) ? false : true;
     }
 
     public static boolean os(String str) {
@@ -252,26 +252,26 @@ public class b {
             if (!TextUtils.isEmpty(bVar.userName)) {
                 this.userName = bVar.userName;
             }
-            if (!TextUtils.isEmpty(bVar.cBx)) {
-                this.cBx = bVar.cBx;
-            }
-            if (!TextUtils.isEmpty(bVar.cBy)) {
-                this.cBy = bVar.cBy;
-            }
-            if (!TextUtils.isEmpty(bVar.cBC)) {
-                this.cBC = bVar.cBC;
-            }
             if (!TextUtils.isEmpty(bVar.cBD)) {
                 this.cBD = bVar.cBD;
             }
-            if (bVar.cBz != null && bVar.cBz.isValid()) {
-                this.cBz = bVar.cBz;
+            if (!TextUtils.isEmpty(bVar.cBE)) {
+                this.cBE = bVar.cBE;
             }
-            if (bVar.cBA != null && bVar.cBA.isValid()) {
-                this.cBA = bVar.cBA;
+            if (!TextUtils.isEmpty(bVar.cBI)) {
+                this.cBI = bVar.cBI;
             }
-            if (bVar.cBB != null && bVar.cBB.isValid()) {
-                this.cBB = bVar.cBB;
+            if (!TextUtils.isEmpty(bVar.cBJ)) {
+                this.cBJ = bVar.cBJ;
+            }
+            if (bVar.cBF != null && bVar.cBF.isValid()) {
+                this.cBF = bVar.cBF;
+            }
+            if (bVar.cBG != null && bVar.cBG.isValid()) {
+                this.cBG = bVar.cBG;
+            }
+            if (bVar.cBH != null && bVar.cBH.isValid()) {
+                this.cBH = bVar.cBH;
             }
         }
     }
@@ -284,9 +284,9 @@ public class b {
         return Pattern.compile("[0-9]*").matcher(str).matches();
     }
 
-    public void aqD() {
-        if (os(this.cBx)) {
-            this.cBy = this.cBx.substring(0, 3) + "*****" + this.cBx.substring(8);
+    public void aqC() {
+        if (os(this.cBD)) {
+            this.cBE = this.cBD.substring(0, 3) + "*****" + this.cBD.substring(8);
         }
     }
 }

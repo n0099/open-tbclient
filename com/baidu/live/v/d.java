@@ -8,15 +8,15 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class d {
-    private long aRH;
-    private f.a aRI;
-    private List<String> aRJ;
+    private long aRM;
+    private f.a aRN;
+    private List<String> aRO;
 
-    public static d Ev() {
-        return a.aRK;
+    public static d Eu() {
+        return a.aRP;
     }
 
-    public void c(long j, long j2, int i) {
+    public void a(long j, long j2, int i) {
         g gVar = new g();
         gVar.setId(i);
         gVar.addParam("benefit_userid", j);
@@ -26,18 +26,18 @@ public class d {
     }
 
     public void b(f.a aVar) {
-        if (this.aRJ != null) {
-            this.aRJ.clear();
+        if (this.aRO != null) {
+            this.aRO.clear();
         }
         ak(0L);
-        this.aRI = aVar;
-        if (this.aRI != null) {
-            List<String> list = aVar.aqb;
+        this.aRN = aVar;
+        if (this.aRN != null) {
+            List<String> list = aVar.aqh;
             if (list != null && !list.isEmpty()) {
-                if (this.aRJ == null) {
-                    this.aRJ = new ArrayList();
+                if (this.aRO == null) {
+                    this.aRO = new ArrayList();
                 }
-                this.aRJ.addAll(list);
+                this.aRO.addAll(list);
             }
             ak(aVar.endTime - aVar.currentTime);
         }
@@ -45,17 +45,17 @@ public class d {
 
     public double f(boolean z, String str) {
         double a2;
-        if (this.aRI == null || this.aRI.apY != 1) {
+        if (this.aRN == null || this.aRN.aqe != 1) {
             return 0.0d;
         }
         if (z) {
-            if (Ew()) {
-                a2 = Math.max(a(str, this.aRI.aqa), a(str, this.aRI.apZ));
+            if (Ev()) {
+                a2 = Math.max(a(str, this.aRN.aqg), a(str, this.aRN.aqf));
             } else {
-                a2 = a(str, this.aRI.apZ);
+                a2 = a(str, this.aRN.aqf);
             }
         } else {
-            a2 = Ew() ? a(str, this.aRI.aqa) : 0.0d;
+            a2 = Ev() ? a(str, this.aRN.aqg) : 0.0d;
         }
         if (a2 == 1.0d || a2 < 0.0d) {
             return 0.0d;
@@ -64,9 +64,9 @@ public class d {
     }
 
     private double a(String str, double d) {
-        if (!TextUtils.isEmpty(str) && this.aRI != null) {
-            if (this.aRI.aqc != null && !this.aRI.aqc.isEmpty()) {
-                for (String str2 : this.aRI.aqc) {
+        if (!TextUtils.isEmpty(str) && this.aRN != null) {
+            if (this.aRN.aqi != null && !this.aRN.aqi.isEmpty()) {
+                for (String str2 : this.aRN.aqi) {
                     if (str.equals(str2)) {
                         return d;
                     }
@@ -78,31 +78,31 @@ public class d {
         return 0.0d;
     }
 
-    public boolean Ew() {
-        return this.aRH > 0;
+    public boolean Ev() {
+        return this.aRM > 0;
     }
 
-    public void Ex() {
-        this.aRH = 0L;
+    public void Ew() {
+        this.aRM = 0L;
     }
 
     public void ak(long j) {
-        this.aRH = j;
+        this.aRM = j;
     }
 
     public boolean eQ(String str) {
-        if (this.aRJ == null || this.aRJ.isEmpty()) {
+        if (this.aRO == null || this.aRO.isEmpty()) {
             return false;
         }
-        return this.aRJ.contains(str);
+        return this.aRO.contains(str);
     }
 
     public void release() {
-        this.aRH = 0L;
-        if (this.aRJ != null) {
-            this.aRJ.clear();
+        this.aRM = 0L;
+        if (this.aRO != null) {
+            this.aRO.clear();
         }
-        this.aRI = null;
+        this.aRN = null;
     }
 
     private d() {
@@ -110,6 +110,6 @@ public class d {
 
     /* loaded from: classes3.dex */
     private static class a {
-        private static final d aRK = new d();
+        private static final d aRP = new d();
     }
 }

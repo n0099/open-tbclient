@@ -6,15 +6,15 @@ import android.util.AttributeSet;
 import android.widget.TextView;
 /* loaded from: classes3.dex */
 public class AlaLiveCountDownView extends TextView {
-    private a fQQ;
-    private Runnable fQR;
+    private a fQV;
+    private Runnable fQW;
     private Handler handler;
     private int mCount;
     private int mInterval;
 
     /* loaded from: classes3.dex */
     public interface a {
-        void byg();
+        void bye();
     }
 
     static /* synthetic */ int e(AlaLiveCountDownView alaLiveCountDownView) {
@@ -28,17 +28,17 @@ public class AlaLiveCountDownView extends TextView {
         this.mCount = 0;
         this.mInterval = 0;
         this.handler = new Handler();
-        this.fQR = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.views.AlaLiveCountDownView.1
+        this.fQW = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.views.AlaLiveCountDownView.1
             @Override // java.lang.Runnable
             public void run() {
-                if (AlaLiveCountDownView.this.mCount > 0 || AlaLiveCountDownView.this.fQQ == null) {
+                if (AlaLiveCountDownView.this.mCount > 0 || AlaLiveCountDownView.this.fQV == null) {
                     AlaLiveCountDownView.this.setText(Integer.toString(AlaLiveCountDownView.this.mCount));
                     AlaLiveCountDownView.e(AlaLiveCountDownView.this);
-                    AlaLiveCountDownView.this.handler.postDelayed(AlaLiveCountDownView.this.fQR, AlaLiveCountDownView.this.mInterval);
+                    AlaLiveCountDownView.this.handler.postDelayed(AlaLiveCountDownView.this.fQW, AlaLiveCountDownView.this.mInterval);
                     return;
                 }
-                AlaLiveCountDownView.this.fQQ.byg();
-                AlaLiveCountDownView.this.handler.removeCallbacks(AlaLiveCountDownView.this.fQR);
+                AlaLiveCountDownView.this.fQV.bye();
+                AlaLiveCountDownView.this.handler.removeCallbacks(AlaLiveCountDownView.this.fQW);
             }
         };
     }
@@ -48,17 +48,17 @@ public class AlaLiveCountDownView extends TextView {
         this.mCount = 0;
         this.mInterval = 0;
         this.handler = new Handler();
-        this.fQR = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.views.AlaLiveCountDownView.1
+        this.fQW = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.views.AlaLiveCountDownView.1
             @Override // java.lang.Runnable
             public void run() {
-                if (AlaLiveCountDownView.this.mCount > 0 || AlaLiveCountDownView.this.fQQ == null) {
+                if (AlaLiveCountDownView.this.mCount > 0 || AlaLiveCountDownView.this.fQV == null) {
                     AlaLiveCountDownView.this.setText(Integer.toString(AlaLiveCountDownView.this.mCount));
                     AlaLiveCountDownView.e(AlaLiveCountDownView.this);
-                    AlaLiveCountDownView.this.handler.postDelayed(AlaLiveCountDownView.this.fQR, AlaLiveCountDownView.this.mInterval);
+                    AlaLiveCountDownView.this.handler.postDelayed(AlaLiveCountDownView.this.fQW, AlaLiveCountDownView.this.mInterval);
                     return;
                 }
-                AlaLiveCountDownView.this.fQQ.byg();
-                AlaLiveCountDownView.this.handler.removeCallbacks(AlaLiveCountDownView.this.fQR);
+                AlaLiveCountDownView.this.fQV.bye();
+                AlaLiveCountDownView.this.handler.removeCallbacks(AlaLiveCountDownView.this.fQW);
             }
         };
     }
@@ -68,41 +68,41 @@ public class AlaLiveCountDownView extends TextView {
         this.mCount = 0;
         this.mInterval = 0;
         this.handler = new Handler();
-        this.fQR = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.views.AlaLiveCountDownView.1
+        this.fQW = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.views.AlaLiveCountDownView.1
             @Override // java.lang.Runnable
             public void run() {
-                if (AlaLiveCountDownView.this.mCount > 0 || AlaLiveCountDownView.this.fQQ == null) {
+                if (AlaLiveCountDownView.this.mCount > 0 || AlaLiveCountDownView.this.fQV == null) {
                     AlaLiveCountDownView.this.setText(Integer.toString(AlaLiveCountDownView.this.mCount));
                     AlaLiveCountDownView.e(AlaLiveCountDownView.this);
-                    AlaLiveCountDownView.this.handler.postDelayed(AlaLiveCountDownView.this.fQR, AlaLiveCountDownView.this.mInterval);
+                    AlaLiveCountDownView.this.handler.postDelayed(AlaLiveCountDownView.this.fQW, AlaLiveCountDownView.this.mInterval);
                     return;
                 }
-                AlaLiveCountDownView.this.fQQ.byg();
-                AlaLiveCountDownView.this.handler.removeCallbacks(AlaLiveCountDownView.this.fQR);
+                AlaLiveCountDownView.this.fQV.bye();
+                AlaLiveCountDownView.this.handler.removeCallbacks(AlaLiveCountDownView.this.fQW);
             }
         };
     }
 
     public void setCount(int i) {
-        this.handler.removeCallbacks(this.fQR);
+        this.handler.removeCallbacks(this.fQW);
         this.mCount = i;
         if (i <= 0) {
         }
     }
 
     public void qZ(int i) {
-        this.handler.removeCallbacks(this.fQR);
+        this.handler.removeCallbacks(this.fQW);
         if (i >= 0) {
             this.mInterval = i;
-            this.handler.post(this.fQR);
+            this.handler.post(this.fQW);
         }
     }
 
     public void setOnCountDownListener(a aVar) {
-        this.fQQ = aVar;
+        this.fQV = aVar;
     }
 
     public void stopCountDown() {
-        this.handler.removeCallbacks(this.fQR);
+        this.handler.removeCallbacks(this.fQW);
     }
 }

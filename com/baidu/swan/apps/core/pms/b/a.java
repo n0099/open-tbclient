@@ -11,18 +11,18 @@ import java.util.HashSet;
 /* loaded from: classes11.dex */
 public class a extends f {
     private static final boolean DEBUG = b.DEBUG;
-    private a.InterfaceC0273a bOU;
+    private a.InterfaceC0294a bOZ;
 
-    public a(String str, a.InterfaceC0273a interfaceC0273a) {
+    public a(String str, a.InterfaceC0294a interfaceC0294a) {
         super(str);
-        this.bOU = interfaceC0273a;
+        this.bOZ = interfaceC0294a;
     }
 
     @Override // com.baidu.swan.pms.a.g
-    public void Xa() {
-        super.Xa();
-        if (this.bOw != null) {
-            Xq();
+    public void WZ() {
+        super.WZ();
+        if (this.bOB != null) {
+            Xp();
         }
     }
 
@@ -32,43 +32,43 @@ public class a extends f {
         if (DEBUG) {
             Log.e("SwanAppPkgPreDownloadCallback", "onFetchError: " + aVar.toString());
         }
-        if (this.bOU != null) {
+        if (this.bOZ != null) {
             if (aVar.errorNo == 1010) {
-                this.bOU.UU();
+                this.bOZ.UT();
             } else {
-                this.bOU.ev(0);
+                this.bOZ.ev(0);
             }
         }
         eM(aVar.errorNo);
     }
 
     @Override // com.baidu.swan.apps.core.pms.f
-    protected void Xg() {
-        this.bOx.add(new UbcFlowEvent("na_start_update_db"));
-        com.baidu.swan.apps.ap.a Xp = Xp();
-        this.bOx.add(new UbcFlowEvent("na_end_update_db"));
-        if (Xp == null) {
-            if (this.bOU != null) {
-                this.bOU.UU();
+    protected void Xf() {
+        this.bOC.add(new UbcFlowEvent("na_start_update_db"));
+        com.baidu.swan.apps.ap.a Xo = Xo();
+        this.bOC.add(new UbcFlowEvent("na_end_update_db"));
+        if (Xo == null) {
+            if (this.bOZ != null) {
+                this.bOZ.UT();
             }
-        } else if (this.bOU != null) {
-            this.bOU.ev(5);
+        } else if (this.bOZ != null) {
+            this.bOZ.ev(5);
         }
-        aJ("main_pre_download", this.bOy);
+        aJ("main_pre_download", this.bOD);
         HashSet hashSet = new HashSet();
         hashSet.add(this.mAppId);
-        e.Zv().Zw().d(hashSet);
+        e.Zu().Zv().d(hashSet);
     }
 
     @Override // com.baidu.swan.apps.core.pms.f
     protected void o(Throwable th) {
-        if (this.bOU != null) {
-            this.bOU.ev(0);
+        if (this.bOZ != null) {
+            this.bOZ.ev(0);
         }
     }
 
     @Override // com.baidu.swan.apps.core.pms.f
-    protected PMSDownloadType Xh() {
+    protected PMSDownloadType Xg() {
         return PMSDownloadType.PRE;
     }
 }

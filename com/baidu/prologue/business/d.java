@@ -4,14 +4,14 @@ import android.support.annotation.NonNull;
 import android.view.ViewGroup;
 /* loaded from: classes6.dex */
 public interface d {
-    void LI();
+    void LH();
 
     @NonNull
-    ViewGroup LJ();
+    ViewGroup LI();
+
+    void LJ();
 
     void LK();
-
-    void LL();
 
     void onAdClick();
 

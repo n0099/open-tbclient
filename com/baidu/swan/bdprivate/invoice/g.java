@@ -1,15 +1,15 @@
 package com.baidu.swan.bdprivate.invoice;
 /* loaded from: classes7.dex */
 public class g {
-    private static volatile f cCT;
+    private static volatile f cCZ;
 
-    public static synchronized f aqR() {
+    public static synchronized f aqQ() {
         f fVar;
         synchronized (g.class) {
-            if (cCT == null) {
-                cCT = new f();
+            if (cCZ == null) {
+                cCZ = new f();
             }
-            fVar = cCT;
+            fVar = cCZ;
         }
         return fVar;
     }

@@ -14,7 +14,7 @@ import com.airbnb.lottie.k;
 public class f extends a {
     @Nullable
     private com.airbnb.lottie.a.b.a<ColorFilter, ColorFilter> Bt;
-    private final Layer Ev;
+    private final Layer Ey;
     private final Paint paint;
     private final Path path;
     private final float[] points;
@@ -27,7 +27,7 @@ public class f extends a {
         this.paint = new Paint();
         this.points = new float[8];
         this.path = new Path();
-        this.Ev = layer;
+        this.Ey = layer;
         this.paint.setAlpha(0);
         this.paint.setStyle(Paint.Style.FILL);
         this.paint.setColor(layer.getSolidColor());
@@ -35,7 +35,7 @@ public class f extends a {
 
     @Override // com.airbnb.lottie.model.layer.a
     public void b(Canvas canvas, Matrix matrix, int i) {
-        int alpha = Color.alpha(this.Ev.getSolidColor());
+        int alpha = Color.alpha(this.Ey.getSolidColor());
         if (alpha != 0) {
             int intValue = (int) (((this.Ca.hy().getValue().intValue() * (alpha / 255.0f)) / 100.0f) * (i / 255.0f) * 255.0f);
             this.paint.setAlpha(intValue);
@@ -45,12 +45,12 @@ public class f extends a {
             if (intValue > 0) {
                 this.points[0] = 0.0f;
                 this.points[1] = 0.0f;
-                this.points[2] = this.Ev.iQ();
+                this.points[2] = this.Ey.iQ();
                 this.points[3] = 0.0f;
-                this.points[4] = this.Ev.iQ();
-                this.points[5] = this.Ev.iP();
+                this.points[4] = this.Ey.iQ();
+                this.points[5] = this.Ey.iP();
                 this.points[6] = 0.0f;
-                this.points[7] = this.Ev.iP();
+                this.points[7] = this.Ey.iP();
                 matrix.mapPoints(this.points);
                 this.path.reset();
                 this.path.moveTo(this.points[0], this.points[1]);
@@ -67,8 +67,8 @@ public class f extends a {
     @Override // com.airbnb.lottie.model.layer.a, com.airbnb.lottie.a.a.d
     public void a(RectF rectF, Matrix matrix) {
         super.a(rectF, matrix);
-        this.rect.set(0.0f, 0.0f, this.Ev.iQ(), this.Ev.iP());
-        this.Eu.mapRect(this.rect);
+        this.rect.set(0.0f, 0.0f, this.Ey.iQ(), this.Ey.iP());
+        this.Ex.mapRect(this.rect);
         rectF.set(this.rect);
     }
 

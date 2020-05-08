@@ -8,10 +8,10 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class a {
-    private static a Re;
-    private c Rf;
-    private ArrayList<b> Rg = new ArrayList<>();
-    private C0025a Rh;
+    private static a Rh;
+    private c Ri;
+    private ArrayList<b> Rj = new ArrayList<>();
+    private C0025a Rk;
 
     /* loaded from: classes.dex */
     public interface c {
@@ -22,25 +22,25 @@ public class a {
     }
 
     public static a nO() {
-        if (Re == null) {
+        if (Rh == null) {
             synchronized (a.class) {
-                if (Re == null) {
-                    Re = new a();
+                if (Rh == null) {
+                    Rh = new a();
                 }
             }
         }
-        return Re;
+        return Rh;
     }
 
     public void a(ArrayList<b> arrayList, c cVar) {
         boolean z;
         if (arrayList != null && arrayList.size() != 0) {
-            this.Rf = cVar;
+            this.Ri = cVar;
             Iterator<b> it = arrayList.iterator();
             while (it.hasNext()) {
                 b next = it.next();
                 if (next != null && !TextUtils.isEmpty(next.apkPath) && !TextUtils.isEmpty(next.packageName)) {
-                    Iterator<b> it2 = this.Rg.iterator();
+                    Iterator<b> it2 = this.Rj.iterator();
                     while (true) {
                         if (!it2.hasNext()) {
                             z = false;
@@ -51,7 +51,7 @@ public class a {
                         }
                     }
                     if (!z) {
-                        this.Rg.add(next);
+                        this.Rj.add(next);
                     }
                 }
             }
@@ -61,9 +61,9 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void nP() {
-        if (this.Rg.size() != 0 && this.Rh == null) {
-            this.Rh = new C0025a(this.Rg.get(0));
-            this.Rh.execute(new String[0]);
+        if (this.Rj.size() != 0 && this.Rk == null) {
+            this.Rk = new C0025a(this.Rj.get(0));
+            this.Rk.execute(new String[0]);
         }
     }
 
@@ -71,18 +71,18 @@ public class a {
     /* renamed from: com.baidu.adp.plugin.packageManager.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public class C0025a extends BdAsyncTask<String, Integer, Boolean> {
-        private b Ri;
+        private b Rl;
 
         public C0025a(b bVar) {
-            this.Ri = bVar;
+            this.Rl = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Boolean doInBackground(String... strArr) {
-            if (this.Ri != null) {
-                return Boolean.valueOf(cn(this.Ri.apkPath));
+            if (this.Rl != null) {
+                return Boolean.valueOf(cn(this.Rl.apkPath));
             }
             return false;
         }
@@ -92,22 +92,22 @@ public class a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
             super.onPostExecute((C0025a) bool);
-            a.this.Rh = null;
-            if (a.this.Rg.size() > 0) {
-                Iterator it = a.this.Rg.iterator();
+            a.this.Rk = null;
+            if (a.this.Rj.size() > 0) {
+                Iterator it = a.this.Rj.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
                     }
                     b bVar = (b) it.next();
-                    if (a.this.a(this.Ri, bVar)) {
-                        a.this.Rg.remove(bVar);
+                    if (a.this.a(this.Rl, bVar)) {
+                        a.this.Rj.remove(bVar);
                         break;
                     }
                 }
             }
-            if (bool != null && bool.booleanValue() && a.this.Rf != null) {
-                a.this.Rf.F(this.Ri.packageName, this.Ri.apkPath);
+            if (bool != null && bool.booleanValue() && a.this.Ri != null) {
+                a.this.Ri.F(this.Rl.packageName, this.Rl.apkPath);
             }
             a.this.nP();
         }

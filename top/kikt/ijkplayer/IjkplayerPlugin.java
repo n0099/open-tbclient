@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.media.AudioManager;
 import android.view.Window;
 import android.view.WindowManager;
+import com.baidu.sapi2.outsdk.c;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
@@ -35,7 +36,7 @@ public class IjkplayerPlugin implements MethodChannel.MethodCallHandler {
     }
 
     private void handleMethodCall(MethodCall methodCall, MethodChannel.Result result) {
-        if ("init".equals(methodCall.method)) {
+        if (c.l.equals(methodCall.method)) {
             this.manager.disposeAll();
             result.success(true);
         } else if ("create".equals(methodCall.method)) {

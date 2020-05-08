@@ -14,57 +14,57 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 /* loaded from: classes9.dex */
 public class f extends a {
-    private com.baidu.tbadk.core.data.a jET;
-    private z jEU;
-    private bj jEW;
-    private ak jFc;
-    private int jsJ;
+    private com.baidu.tbadk.core.data.a jEX;
+    private z jEY;
+    private bj jFa;
+    private ak jFg;
+    private int jsN;
     private LinearLayout mRootView;
 
     public f(TbPageContext tbPageContext, int i) {
         super(tbPageContext);
-        this.jsJ = i;
+        this.jsN = i;
     }
 
     @Override // com.baidu.tieba.pb.pb.main.c.a
     public View getView() {
         if (this.mRootView == null) {
-            this.mRootView = new LinearLayout(this.duG.getPageActivity());
+            this.mRootView = new LinearLayout(this.duK.getPageActivity());
             am.setBackgroundColor(this.mRootView, R.color.cp_bg_line_g);
             this.mRootView.setOrientation(1);
             this.mRootView.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
         }
         this.mRootView.removeAllViews();
-        if (this.jEU == null) {
-            this.jEU = new z(this.duG);
-            this.jEU.b((Boolean) true);
+        if (this.jEY == null) {
+            this.jEY = new z(this.duK);
+            this.jEY.b((Boolean) true);
         }
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-        layoutParams.topMargin = this.duG.getResources().getDimensionPixelOffset(R.dimen.tbds39);
-        layoutParams.leftMargin = this.duG.getResources().getDimensionPixelOffset(R.dimen.tbds44);
-        layoutParams.rightMargin = this.duG.getResources().getDimensionPixelOffset(R.dimen.tbds44);
-        this.mRootView.addView(this.jEU.getView(), layoutParams);
-        if (this.jFc == null) {
-            this.jFc = new ak(this.duG.getPageActivity());
+        layoutParams.topMargin = this.duK.getResources().getDimensionPixelOffset(R.dimen.tbds39);
+        layoutParams.leftMargin = this.duK.getResources().getDimensionPixelOffset(R.dimen.tbds44);
+        layoutParams.rightMargin = this.duK.getResources().getDimensionPixelOffset(R.dimen.tbds44);
+        this.mRootView.addView(this.jEY.getView(), layoutParams);
+        if (this.jFg == null) {
+            this.jFg = new ak(this.duK.getPageActivity());
         }
         LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-1, -2);
-        layoutParams2.topMargin = this.duG.getResources().getDimensionPixelOffset(R.dimen.tbds22);
-        this.mRootView.addView(this.jFc.getView(), layoutParams2);
+        layoutParams2.topMargin = this.duK.getResources().getDimensionPixelOffset(R.dimen.tbds22);
+        this.mRootView.addView(this.jFg.getView(), layoutParams2);
         return this.mRootView;
     }
 
     @Override // com.baidu.tieba.pb.pb.main.c.a
     public void g(OriginalThreadInfo originalThreadInfo) {
-        this.jES = originalThreadInfo;
-        this.jEW = originalThreadInfo == null ? null : originalThreadInfo.aJm();
-        this.jET = new com.baidu.tbadk.core.data.a() { // from class: com.baidu.tieba.pb.pb.main.c.f.1
+        this.jEW = originalThreadInfo;
+        this.jFa = originalThreadInfo == null ? null : originalThreadInfo.aJk();
+        this.jEX = new com.baidu.tbadk.core.data.a() { // from class: com.baidu.tieba.pb.pb.main.c.f.1
             @Override // com.baidu.tbadk.core.data.a
-            public bj aIw() {
-                return f.this.jEW;
+            public bj aIu() {
+                return f.this.jFa;
             }
 
             @Override // com.baidu.tbadk.core.data.a
-            public al aIy() {
+            public al aIw() {
                 return null;
             }
 
@@ -73,37 +73,37 @@ public class f extends a {
                 return null;
             }
         };
-        if (this.jFc != null) {
-            this.jFc.A(this.jET);
+        if (this.jFg != null) {
+            this.jFg.B(this.jEX);
         }
-        if (this.jEU != null) {
-            this.jEU.A(this.jET);
+        if (this.jEY != null) {
+            this.jEY.B(this.jEX);
         }
     }
 
     @Override // com.baidu.tieba.pb.pb.main.c.a
     public void a(com.baidu.tieba.card.z zVar) {
         super.a(zVar);
-        if (this.jFc != null) {
-            this.jFc.setOnCardSubClickListener(this.jER);
+        if (this.jFg != null) {
+            this.jFg.setOnCardSubClickListener(this.jEV);
         }
     }
 
     @Override // com.baidu.tieba.pb.pb.main.c.a
     public void a(b.a aVar) {
         super.a(aVar);
-        if (this.jFc != null) {
-            this.jFc.a(aVar);
+        if (this.jFg != null) {
+            this.jFg.a(aVar);
         }
-        if (this.jEU != null) {
-            this.jEU.a(aVar);
+        if (this.jEY != null) {
+            this.jEY.a(aVar);
         }
         if (this.mRootView != null) {
             this.mRootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.c.f.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (f.this.acY != null) {
-                        f.this.acY.a(f.this.jET);
+                    if (f.this.adb != null) {
+                        f.this.adb.a(f.this.jEX);
                     }
                 }
             });
@@ -115,11 +115,11 @@ public class f extends a {
         if (this.mSkinType != i) {
             this.mSkinType = i;
             am.setBackgroundColor(this.mRootView, R.color.cp_bg_line_g);
-            if (this.jEU != null) {
-                this.jEU.onChangeSkinType(tbPageContext, i);
+            if (this.jEY != null) {
+                this.jEY.onChangeSkinType(tbPageContext, i);
             }
-            if (this.jFc != null) {
-                this.jFc.onChangeSkinType(tbPageContext, i);
+            if (this.jFg != null) {
+                this.jFg.onChangeSkinType(tbPageContext, i);
             }
         }
     }

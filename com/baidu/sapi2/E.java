@@ -3,31 +3,38 @@ package com.baidu.sapi2;
 import android.os.Looper;
 import com.baidu.sapi2.httpwrap.HttpHandlerWrap;
 import com.baidu.sapi2.shell.callback.SapiCallBack;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.sapi2.utils.SapiDataEncryptor;
 /* loaded from: classes6.dex */
-public class E extends HttpHandlerWrap {
+class E extends HttpHandlerWrap {
     final /* synthetic */ SapiCallBack a;
-    final /* synthetic */ G b;
+    final /* synthetic */ boolean b;
+    final /* synthetic */ SapiDataEncryptor c;
+    final /* synthetic */ L d;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public E(G g, Looper looper, SapiCallBack sapiCallBack) {
+    public E(L l, Looper looper, SapiCallBack sapiCallBack, boolean z, SapiDataEncryptor sapiDataEncryptor) {
         super(looper);
-        this.b = g;
+        this.d = l;
         this.a = sapiCallBack;
+        this.b = z;
+        this.c = sapiDataEncryptor;
     }
 
     @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
     public void onFailure(Throwable th, int i, String str) {
-        if (i == -203) {
-            this.a.onSystemError(i);
+        super.onFailure(th, i, str);
+        if (i == -201) {
+            this.a.onNetworkFailed();
         } else {
-            this.b.b(this.a, str);
+            this.a.onSystemError(i);
         }
     }
 
     @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
     public void onSuccess(int i, String str) {
-        this.b.b(this.a, str);
+        super.onSuccess(i, str);
+        L l = this.d;
+        l.a(l.b(str), this.a, str, this.b, this.c);
     }
 }

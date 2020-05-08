@@ -6,10 +6,10 @@ import com.baidu.searchbox.unitedscheme.CallbackHandler;
 /* loaded from: classes11.dex */
 public interface b {
     @NonNull
-    CallbackHandler Rr();
+    CallbackHandler Rq();
 
     @NonNull
-    com.baidu.swan.apps.core.container.a Rs();
+    com.baidu.swan.apps.core.container.a Rr();
 
     @NonNull
     Context getContext();

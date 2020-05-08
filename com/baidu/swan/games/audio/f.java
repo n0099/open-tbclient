@@ -14,23 +14,23 @@ import java.util.HashMap;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class f {
-    private static final HashMap<String, String> cJf = new HashMap<>();
+    private static final HashMap<String, String> cJl = new HashMap<>();
 
     static {
-        cJf.put("494433", ".mp3");
-        cJf.put("524946", ".wav");
+        cJl.put("494433", ".mp3");
+        cJl.put("524946", ".wav");
     }
 
     public static d a(g gVar) {
         d dVar = new d();
-        dVar.bYS = gVar.bYS;
-        dVar.bZa = gVar.autoplay;
+        dVar.bYY = gVar.bYY;
+        dVar.bZg = gVar.autoplay;
         dVar.mLoop = gVar.loop;
         dVar.mUrl = gVar.src;
-        dVar.cJc = gVar.startTime;
-        dVar.bZb = gVar.obeyMuteSwitch;
+        dVar.cJi = gVar.startTime;
+        dVar.bZh = gVar.obeyMuteSwitch;
         dVar.mVolume = gVar.volume;
-        dVar.bYX = atL().toString();
+        dVar.bZd = atL().toString();
         return dVar;
     }
 
@@ -66,7 +66,7 @@ public class f {
         if (lastIndexOf != -1) {
             str2 = str.substring(lastIndexOf, str.length());
         }
-        return "/" + com.baidu.swan.apps.runtime.e.akP() + "/" + String.valueOf(str.hashCode() + str2);
+        return "/" + com.baidu.swan.apps.runtime.e.akO() + "/" + String.valueOf(str.hashCode() + str2);
     }
 
     public static String atM() {
@@ -103,7 +103,7 @@ public class f {
         for (int i = 0; i < 3; i++) {
             bArr2[i] = bArr[i];
         }
-        return cJf.get(bytesToHexString(bArr2));
+        return cJl.get(bytesToHexString(bArr2));
     }
 
     private static String bytesToHexString(byte[] bArr) {

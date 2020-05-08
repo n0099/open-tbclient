@@ -9,7 +9,7 @@ import com.baidu.tieba.ala.live.personcenter.forbidden.b.b;
 /* loaded from: classes3.dex */
 public class a extends AbsDelegateAdapter<b, com.baidu.tieba.ala.live.personcenter.forbidden.d.b> {
     public a(Context context, BdUniqueId bdUniqueId) {
-        super(context, b.fre, bdUniqueId);
+        super(context, b.frj, bdUniqueId);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

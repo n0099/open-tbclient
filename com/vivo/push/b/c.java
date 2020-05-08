@@ -44,7 +44,7 @@ public class c extends com.vivo.push.y {
     public void c(com.vivo.push.a aVar) {
         aVar.a("req_id", this.a);
         aVar.a("package_name", this.b);
-        aVar.a(SapiContext.KEY_SDK_VERSION, 280L);
+        aVar.a(SapiContext.KEY_SDK_VERSION, 293L);
         aVar.a("PUSH_APP_STATUS", this.d);
         if (!TextUtils.isEmpty(this.f)) {
             aVar.a("BaseAppCommand.EXTRA__HYBRIDVERSION", this.f);

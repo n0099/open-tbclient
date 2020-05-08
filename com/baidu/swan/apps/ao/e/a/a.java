@@ -56,11 +56,11 @@ public class a extends ab {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 return false;
             }
-            c.i("compass", "init");
-            com.baidu.swan.apps.ao.e.a anW = com.baidu.swan.apps.ao.e.a.anW();
-            anW.init(context);
-            anW.a(new a.InterfaceC0237a() { // from class: com.baidu.swan.apps.ao.e.a.a.1
-                @Override // com.baidu.swan.apps.ao.e.a.InterfaceC0237a
+            c.i("compass", com.baidu.sapi2.outsdk.c.l);
+            com.baidu.swan.apps.ao.e.a anV = com.baidu.swan.apps.ao.e.a.anV();
+            anV.init(context);
+            anV.a(new a.InterfaceC0258a() { // from class: com.baidu.swan.apps.ao.e.a.a.1
+                @Override // com.baidu.swan.apps.ao.e.a.InterfaceC0258a
                 public void B(float f) {
                     c.i("compass", "handle compass change, angle:" + f);
                     a.this.a(unitedSchemeEntity, callbackHandler, optString, f);
@@ -70,7 +70,7 @@ public class a extends ab {
                 }
             });
             c.i("compass", "start listen compass");
-            anW.anX();
+            anV.anW();
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             return true;
         }

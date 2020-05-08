@@ -29,7 +29,7 @@ public class a {
 
     public static List<e> j(JSONObject jSONObject, String str) throws ParseError {
         List<e> list;
-        List<e> LU;
+        List<e> LT;
         if (DEBUG) {
             Log.d("AfdResponseParser", "AFD response : " + jSONObject.toString());
         }
@@ -59,9 +59,9 @@ public class a {
                     list = a(optJSONArray, str, true);
                 } else {
                     String optString3 = optJSONObject2.optString("ukey");
-                    if (!TextUtils.isEmpty(optString3) && (LU = d.LU()) != null) {
-                        for (e eVar : LU) {
-                            if (TextUtils.equals(eVar.bsq, optString3)) {
+                    if (!TextUtils.isEmpty(optString3) && (LT = d.LT()) != null) {
+                        for (e eVar : LT) {
+                            if (TextUtils.equals(eVar.bsu, optString3)) {
                                 arrayList.add(eVar);
                                 list = arrayList;
                                 break;
@@ -85,15 +85,15 @@ public class a {
         List<e> o = e.o(jSONArray);
         if (z) {
             for (e eVar : o) {
-                eVar.bsA = true;
+                eVar.bsE = true;
             }
         } else {
             new ArrayList();
-            HashMap<String, e> LV = d.LV();
-            if (LV == null || LV.size() == 0) {
+            HashMap<String, e> LU = d.LU();
+            if (LU == null || LU.size() == 0) {
                 d.Q(o);
             } else {
-                d.LT();
+                d.LS();
                 d.Q(o);
             }
             d.R(o);

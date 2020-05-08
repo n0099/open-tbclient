@@ -1,52 +1,72 @@
 package com.baidu.sapi2;
 
 import android.os.Looper;
+import com.baidu.android.util.io.BaseJsonData;
+import com.baidu.sapi2.callback.OneKeyLoginCallback;
 import com.baidu.sapi2.httpwrap.HttpHandlerWrap;
-import com.baidu.sapi2.shell.callback.SapiCallBack;
+import com.baidu.sapi2.result.OneKeyLoginResult;
 import com.baidu.sapi2.utils.Log;
-import com.baidu.sapi2.utils.SapiDataEncryptor;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes6.dex */
 public class y extends HttpHandlerWrap {
-    final /* synthetic */ SapiCallBack a;
+    final /* synthetic */ OneKeyLoginResult a;
     final /* synthetic */ String b;
-    final /* synthetic */ String c;
-    final /* synthetic */ boolean d;
-    final /* synthetic */ SapiDataEncryptor e;
-    final /* synthetic */ G f;
+    final /* synthetic */ OneKeyLoginCallback c;
+    final /* synthetic */ L d;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public y(G g, Looper looper, SapiCallBack sapiCallBack, String str, String str2, boolean z, SapiDataEncryptor sapiDataEncryptor) {
+    public y(L l, Looper looper, OneKeyLoginResult oneKeyLoginResult, String str, OneKeyLoginCallback oneKeyLoginCallback) {
         super(looper);
-        this.f = g;
-        this.a = sapiCallBack;
+        this.d = l;
+        this.a = oneKeyLoginResult;
         this.b = str;
-        this.c = str2;
-        this.d = z;
-        this.e = sapiDataEncryptor;
+        this.c = oneKeyLoginCallback;
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
     public void onFailure(Throwable th, int i, String str) {
-        if (i == -201) {
-            this.a.onNetworkFailed();
-        } else {
-            this.a.onSystemError(i);
-        }
+        String str2;
+        str2 = L.a;
+        Log.d(str2, "onFailure, error = " + th + ", errorCode = " + i + ", responseBody = " + str);
+        new com.baidu.sapi2.outsdk.c().b(this.c, i, null);
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
     public void onSuccess(int i, String str) {
-        super.onSuccess(i, str);
+        String str2;
+        JSONObject optJSONObject;
+        str2 = L.a;
+        Log.d(str2, "onSuccess, statusCode = " + i + ", response = " + str);
         try {
             JSONObject jSONObject = new JSONObject(str);
-            String optString = jSONObject.optString("cert");
-            this.f.a(this.a, optString, jSONObject.optString("cert_id"), this.b, this.c, this.d, this.e);
+            int optInt = jSONObject.optInt(BaseJsonData.TAG_ERRNO);
+            String optString = jSONObject.optString(BaseJsonData.TAG_ERRMSG);
+            if (optInt == 0 && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
+                this.a.enable = optJSONObject.optInt(com.baidu.fsg.face.base.b.c.l, -1) == 1;
+                this.a.hasHistory = optJSONObject.optInt("hasHistory", -1) == 1;
+                this.a.encryptPhoneNum = this.b;
+                this.a.sign = optJSONObject.optString("sign");
+                this.a.operator = new com.baidu.sapi2.outsdk.c().c();
+                String optString2 = optJSONObject.optString("js");
+                String optString3 = optJSONObject.optString("md5");
+                String optString4 = optJSONObject.optString("url");
+                String onekeyLoginJsMd5 = SapiContext.getInstance().getOnekeyLoginJsMd5();
+                if (optString3 == null || !optString3.equals(onekeyLoginJsMd5)) {
+                    this.d.a(this.c, optString4, optString3, optString2, this.a);
+                } else {
+                    OneKeyLoginResult.secondJsCode = optString2;
+                    this.c.available(this.a);
+                }
+            } else {
+                new com.baidu.sapi2.outsdk.c().b(this.c, optInt, optString);
+            }
         } catch (Exception e) {
-            this.f.a(-100, this.a, str, this.d, this.e);
             Log.e(e);
+            new com.baidu.sapi2.outsdk.c().b(this.c, -100, null);
         }
     }
 }

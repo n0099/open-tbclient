@@ -1,49 +1,49 @@
 package com.baidu.swan.apps.ac.a;
 /* loaded from: classes11.dex */
 public class c {
-    protected int ceR;
-    protected String ceS;
-    protected long ceT;
-    protected boolean ceh;
+    protected int ceX;
+    protected String ceY;
+    protected long ceZ;
+    protected boolean cen;
 
     public c(int i) {
         this(i, null);
     }
 
     public c(int i, String str) {
-        this.ceh = false;
-        this.ceR = i;
-        this.ceS = str;
+        this.cen = false;
+        this.ceX = i;
+        this.ceY = str;
     }
 
     public c(int i, String str, long j) {
-        this.ceh = false;
-        this.ceR = i;
-        this.ceS = str;
-        this.ceT = j;
+        this.cen = false;
+        this.ceX = i;
+        this.ceY = str;
+        this.ceZ = j;
     }
 
     public c(int i, String str, long j, boolean z) {
-        this.ceh = false;
-        this.ceR = i;
-        this.ceS = str;
-        this.ceT = j;
-        this.ceh = z;
+        this.cen = false;
+        this.ceX = i;
+        this.ceY = str;
+        this.ceZ = j;
+        this.cen = z;
     }
 
     public int getId() {
-        return this.ceR;
+        return this.ceX;
     }
 
-    public String aha() {
-        return this.ceS;
+    public String agZ() {
+        return this.ceY;
     }
 
-    public long ahb() {
-        return this.ceT;
+    public long aha() {
+        return this.ceZ;
     }
 
-    public boolean ahc() {
-        return this.ceh;
+    public boolean ahb() {
+        return this.cen;
     }
 }

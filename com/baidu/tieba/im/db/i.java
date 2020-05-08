@@ -17,21 +17,21 @@ import java.util.LinkedList;
 import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes.dex */
 public class i {
-    private static i ijB;
-    private static long ijE = -1;
-    private static int ijF = 0;
-    private a ijC = new a();
-    private b ijD = null;
+    private static i ijH;
+    private static long ijK = -1;
+    private static int ijL = 0;
+    private a ijI = new a();
+    private b ijJ = null;
 
-    public static i cfp() {
-        if (ijB == null) {
+    public static i cfn() {
+        if (ijH == null) {
             synchronized (i.class) {
-                if (ijB == null) {
-                    ijB = new i();
+                if (ijH == null) {
+                    ijH = new i();
                 }
             }
         }
-        return ijB;
+        return ijH;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -45,8 +45,8 @@ public class i {
             super.handleMessage(message);
             switch (message.what) {
                 case 1:
-                    i.cfp().ijC.removeMessages(1);
-                    i.cfp().execute();
+                    i.cfn().ijI.removeMessages(1);
+                    i.cfn().execute();
                     return;
                 default:
                     return;
@@ -61,10 +61,10 @@ public class i {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && (customResponsedMessage instanceof BackgroundSwitchMessage)) {
                     if (((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
-                        i.this.ijC.sendMessageDelayed(i.this.ijC.obtainMessage(1), 30000L);
+                        i.this.ijI.sendMessageDelayed(i.this.ijI.obtainMessage(1), 30000L);
                         return;
                     }
-                    i.this.ijC.removeMessages(1);
+                    i.this.ijI.removeMessages(1);
                     i.this.stop();
                 }
             }
@@ -73,21 +73,21 @@ public class i {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void execute() {
-        if (this.ijD != null) {
-            this.ijD.cancel();
-            this.ijD = null;
+        if (this.ijJ != null) {
+            this.ijJ.cancel();
+            this.ijJ = null;
         }
-        this.ijD = new b();
-        this.ijD.setParallel(TiebaIMConfig.getParallel());
-        this.ijD.setPriority(4);
-        this.ijD.execute(new String[0]);
+        this.ijJ = new b();
+        this.ijJ.setParallel(TiebaIMConfig.getParallel());
+        this.ijJ.setPriority(4);
+        this.ijJ.execute(new String[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void stop() {
-        if (this.ijD != null) {
-            this.ijD.cancel();
-            this.ijD = null;
+        if (this.ijJ != null) {
+            this.ijJ.cancel();
+            this.ijJ = null;
         }
     }
 
@@ -102,48 +102,48 @@ public class i {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Boolean doInBackground(String... strArr) {
-            LinkedList<ImMessageCenterPojo> cft = j.cfq().cft();
-            if (cft == null || cft.size() == 0) {
+            LinkedList<ImMessageCenterPojo> cfr = j.cfo().cfr();
+            if (cfr == null || cfr.size() == 0) {
                 return false;
             }
-            if (i.ijE < 0) {
+            if (i.ijK < 0) {
                 try {
                     StatFs statFs = new StatFs(Environment.getDataDirectory().getPath());
-                    long unused = i.ijE = statFs.getAvailableBlocks() * statFs.getBlockSize();
-                    if (i.ijE > IjkMediaMeta.AV_CH_WIDE_LEFT) {
-                        int unused2 = i.ijF = 5000;
-                    } else if (i.ijE > IjkMediaMeta.AV_CH_STEREO_RIGHT) {
-                        int unused3 = i.ijF = 3000;
+                    long unused = i.ijK = statFs.getAvailableBlocks() * statFs.getBlockSize();
+                    if (i.ijK > IjkMediaMeta.AV_CH_WIDE_LEFT) {
+                        int unused2 = i.ijL = 5000;
+                    } else if (i.ijK > IjkMediaMeta.AV_CH_STEREO_RIGHT) {
+                        int unused3 = i.ijL = 3000;
                     } else {
-                        int unused4 = i.ijF = 1000;
+                        int unused4 = i.ijL = 1000;
                     }
                 } catch (Exception e) {
                     BdLog.e(e);
                 }
             }
-            if (i.ijF < 1000) {
-                int unused5 = i.ijF = 1000;
+            if (i.ijL < 1000) {
+                int unused5 = i.ijL = 1000;
             }
             try {
-                h.cfm().cfn();
-                for (ImMessageCenterPojo imMessageCenterPojo : cft) {
+                h.cfk().cfl();
+                for (ImMessageCenterPojo imMessageCenterPojo : cfr) {
                     if (isCancelled()) {
-                        h.cfm().cfo();
+                        h.cfk().cfm();
                         return false;
                     } else if (imMessageCenterPojo.getCustomGroupType() == 1) {
-                        c.cff().aU(imMessageCenterPojo.getGid(), i.ijF);
+                        c.cfd().aU(imMessageCenterPojo.getGid(), i.ijL);
                     } else if (imMessageCenterPojo.getCustomGroupType() == 2) {
-                        m.cfy().aU(imMessageCenterPojo.getGid(), i.ijF);
+                        m.cfw().aU(imMessageCenterPojo.getGid(), i.ijL);
                     } else if (imMessageCenterPojo.getCustomGroupType() == 4) {
-                        l.cfw().aU(imMessageCenterPojo.getGid(), i.ijF);
+                        l.cfu().aU(imMessageCenterPojo.getGid(), i.ijL);
                     } else if (imMessageCenterPojo.getCustomGroupType() == -2) {
-                        d.cfg().aU(imMessageCenterPojo.getGid(), i.ijF);
+                        d.cfe().aU(imMessageCenterPojo.getGid(), i.ijL);
                     }
                 }
             } catch (Exception e2) {
                 BdLog.e(e2.getMessage());
             } finally {
-                h.cfm().cfo();
+                h.cfk().cfm();
             }
             return true;
         }

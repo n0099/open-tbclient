@@ -3,10 +3,10 @@ package com.tb.airbnb.lottie.model.content;
 import com.tb.airbnb.lottie.a.a.r;
 /* loaded from: classes6.dex */
 public class ShapeTrimPath implements b {
-    private final Type mOM;
-    private final com.tb.airbnb.lottie.model.a.b mPU;
+    private final Type mOP;
     private final com.tb.airbnb.lottie.model.a.b mPX;
-    private final com.tb.airbnb.lottie.model.a.b mPY;
+    private final com.tb.airbnb.lottie.model.a.b mQa;
+    private final com.tb.airbnb.lottie.model.a.b mQb;
     private final String name;
 
     /* loaded from: classes6.dex */
@@ -28,30 +28,30 @@ public class ShapeTrimPath implements b {
 
     public ShapeTrimPath(String str, Type type, com.tb.airbnb.lottie.model.a.b bVar, com.tb.airbnb.lottie.model.a.b bVar2, com.tb.airbnb.lottie.model.a.b bVar3) {
         this.name = str;
-        this.mOM = type;
-        this.mPX = bVar;
-        this.mPY = bVar2;
-        this.mPU = bVar3;
+        this.mOP = type;
+        this.mQa = bVar;
+        this.mQb = bVar2;
+        this.mPX = bVar3;
     }
 
     public String getName() {
         return this.name;
     }
 
-    public Type dBi() {
-        return this.mOM;
-    }
-
-    public com.tb.airbnb.lottie.model.a.b dCa() {
-        return this.mPY;
-    }
-
-    public com.tb.airbnb.lottie.model.a.b dCb() {
-        return this.mPX;
+    public Type dBe() {
+        return this.mOP;
     }
 
     public com.tb.airbnb.lottie.model.a.b dBW() {
-        return this.mPU;
+        return this.mQb;
+    }
+
+    public com.tb.airbnb.lottie.model.a.b dBX() {
+        return this.mQa;
+    }
+
+    public com.tb.airbnb.lottie.model.a.b dBS() {
+        return this.mPX;
     }
 
     @Override // com.tb.airbnb.lottie.model.content.b
@@ -60,6 +60,6 @@ public class ShapeTrimPath implements b {
     }
 
     public String toString() {
-        return "Trim Path: {start: " + this.mPX + ", end: " + this.mPY + ", offset: " + this.mPU + "}";
+        return "Trim Path: {start: " + this.mQa + ", end: " + this.mQb + ", offset: " + this.mPX + "}";
     }
 }

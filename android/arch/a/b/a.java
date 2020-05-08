@@ -11,15 +11,15 @@ public class a<K, V> extends b<K, V> {
     private HashMap<K, b.c<K, V>> mHashMap = new HashMap<>();
 
     @Override // android.arch.a.b.b
-    protected b.c<K, V> g(K k) {
+    protected b.c<K, V> h(K k) {
         return this.mHashMap.get(k);
     }
 
     @Override // android.arch.a.b.b
     public V c(@NonNull K k, @NonNull V v) {
-        b.c<K, V> g = g(k);
-        if (g != null) {
-            return g.mValue;
+        b.c<K, V> h = h(k);
+        if (h != null) {
+            return h.mValue;
         }
         this.mHashMap.put(k, d(k, v));
         return null;
@@ -36,7 +36,7 @@ public class a<K, V> extends b<K, V> {
         return this.mHashMap.containsKey(k);
     }
 
-    public Map.Entry<K, V> h(K k) {
+    public Map.Entry<K, V> i(K k) {
         if (contains(k)) {
             return this.mHashMap.get(k).xF;
         }

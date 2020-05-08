@@ -1,13 +1,13 @@
 package com.baidu.swan.ubc;
 /* loaded from: classes11.dex */
 class f {
-    private String ddQ;
-    private String ddR;
-    private int ddS;
-    private String ddT;
-    private int ddU;
-    private int ddV;
+    private String ddV;
     private String ddW;
+    private int ddX;
+    private String ddY;
+    private int ddZ;
+    private int dea;
+    private String deb;
     private String mCategory;
     private String mId;
     private int mRate;
@@ -15,11 +15,11 @@ class f {
 
     public f(String str, String str2, String str3, int i, String str4, String str5) {
         this.mId = str;
-        this.ddQ = str2;
-        this.ddR = str3;
-        this.ddS = i;
+        this.ddV = str2;
+        this.ddW = str3;
+        this.ddX = i;
         this.mType = str4;
-        this.ddT = str5;
+        this.ddY = str5;
     }
 
     public void jb(int i) {
@@ -31,11 +31,11 @@ class f {
     }
 
     public void jc(int i) {
-        this.ddU = i;
+        this.ddZ = i;
     }
 
     public void jd(int i) {
-        this.ddV = i;
+        this.dea = i;
     }
 
     public String getId() {
@@ -43,15 +43,15 @@ class f {
     }
 
     public String aDA() {
-        return this.ddQ;
+        return this.ddV;
     }
 
     public String aDB() {
-        return this.ddR;
+        return this.ddW;
     }
 
     public int getTimeout() {
-        return this.ddS;
+        return this.ddX;
     }
 
     public String getType() {
@@ -59,7 +59,7 @@ class f {
     }
 
     public String aDC() {
-        return this.ddT;
+        return this.ddY;
     }
 
     public int aDD() {
@@ -71,18 +71,18 @@ class f {
     }
 
     public int aDE() {
-        return this.ddU;
+        return this.ddZ;
     }
 
     public int aDF() {
-        return this.ddV;
+        return this.dea;
     }
 
     public void si(String str) {
-        this.ddW = str;
+        this.deb = str;
     }
 
     public String aDG() {
-        return this.ddW;
+        return this.deb;
     }
 }

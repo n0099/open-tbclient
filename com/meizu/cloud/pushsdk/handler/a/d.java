@@ -36,7 +36,7 @@ public class d extends a<String> {
     /* renamed from: j */
     public String c(Intent intent) {
         String stringExtra = intent.getStringExtra("registration_id");
-        com.meizu.cloud.pushsdk.util.b.f(c(), stringExtra, c().getPackageName());
+        com.meizu.cloud.pushsdk.util.b.g(c(), stringExtra, c().getPackageName());
         com.meizu.cloud.pushsdk.util.b.a(c(), 0, c().getPackageName());
         return stringExtra;
     }

@@ -6,14 +6,14 @@ public interface l {
 
     /* loaded from: classes3.dex */
     public interface a {
-        void Bo();
+        void Bn();
     }
 
-    void AK();
+    void AJ();
 
-    View Bm();
+    View Bl();
 
-    void Bn();
+    void Bm();
 
     void a(com.baidu.live.data.n nVar);
 

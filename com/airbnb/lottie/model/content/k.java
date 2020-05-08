@@ -3,14 +3,14 @@ package com.airbnb.lottie.model.content;
 import com.airbnb.lottie.a.a.p;
 /* loaded from: classes6.dex */
 public class k implements b {
-    private final com.airbnb.lottie.model.a.h Eg;
+    private final com.airbnb.lottie.model.a.h Ej;
     private final int index;
     private final String name;
 
     public k(String str, int i, com.airbnb.lottie.model.a.h hVar) {
         this.name = str;
         this.index = i;
-        this.Eg = hVar;
+        this.Ej = hVar;
     }
 
     public String getName() {
@@ -18,7 +18,7 @@ public class k implements b {
     }
 
     public com.airbnb.lottie.model.a.h iz() {
-        return this.Eg;
+        return this.Ej;
     }
 
     @Override // com.airbnb.lottie.model.content.b

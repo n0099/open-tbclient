@@ -16,12 +16,12 @@ import java.util.concurrent.locks.ReentrantLock;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class WeiboSsoSdk {
-    private static WeiboSsoSdk mQD;
-    private static b mQE;
-    private volatile ReentrantLock mQC = new ReentrantLock(true);
-    private boolean mQF = true;
-    private a mQG;
-    private int mQH;
+    private static WeiboSsoSdk mQG;
+    private static b mQH;
+    private volatile ReentrantLock mQF = new ReentrantLock(true);
+    private boolean mQI = true;
+    private a mQJ;
+    private int mQK;
 
     private native String riseWind(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, String str10, int i, int i2);
 
@@ -30,17 +30,17 @@ public class WeiboSsoSdk {
     }
 
     private WeiboSsoSdk() throws Exception {
-        if (mQE == null || !mQE.dCz()) {
+        if (mQH == null || !mQH.dCv()) {
             throw new Exception("config error");
         }
-        this.mQH = 0;
+        this.mQK = 0;
         new Thread(new Runnable() { // from class: com.weibo.ssosdk.WeiboSsoSdk.1
             @Override // java.lang.Runnable
             public void run() {
                 while (true) {
                     try {
                         Thread.sleep(86400000L);
-                        WeiboSsoSdk.dCv().bP((WeiboSsoSdk.this.mQG == null || TextUtils.isEmpty(WeiboSsoSdk.this.mQG.dCx())) ? WeiboSsoSdk.this.dCy() : WeiboSsoSdk.this.mQG.dCx(), 2);
+                        WeiboSsoSdk.dCr().bP((WeiboSsoSdk.this.mQJ == null || TextUtils.isEmpty(WeiboSsoSdk.this.mQJ.dCt())) ? WeiboSsoSdk.this.dCu() : WeiboSsoSdk.this.mQJ.dCt(), 2);
                     } catch (Exception e) {
                     }
                 }
@@ -51,8 +51,8 @@ public class WeiboSsoSdk {
             public void run() {
                 try {
                     Thread.sleep(60000L);
-                    if (WeiboSsoSdk.this.mQF) {
-                        WeiboSsoSdk.this.bP((WeiboSsoSdk.this.mQG == null || TextUtils.isEmpty(WeiboSsoSdk.this.mQG.dCx())) ? WeiboSsoSdk.this.dCy() : WeiboSsoSdk.this.mQG.dCx(), 2);
+                    if (WeiboSsoSdk.this.mQI) {
+                        WeiboSsoSdk.this.bP((WeiboSsoSdk.this.mQJ == null || TextUtils.isEmpty(WeiboSsoSdk.this.mQJ.dCt())) ? WeiboSsoSdk.this.dCu() : WeiboSsoSdk.this.mQJ.dCt(), 2);
                     }
                 } catch (Exception e) {
                 }
@@ -64,9 +64,9 @@ public class WeiboSsoSdk {
         boolean z = false;
         synchronized (WeiboSsoSdk.class) {
             if (bVar != null) {
-                if (bVar.dCz() && mQE == null) {
-                    mQE = (b) bVar.clone();
-                    com.weibo.ssosdk.a.init(mQE.getApplicationContext());
+                if (bVar.dCv() && mQH == null) {
+                    mQH = (b) bVar.clone();
+                    com.weibo.ssosdk.a.init(mQH.getApplicationContext());
                     z = true;
                 }
             }
@@ -74,13 +74,13 @@ public class WeiboSsoSdk {
         return z;
     }
 
-    public static synchronized WeiboSsoSdk dCv() throws Exception {
+    public static synchronized WeiboSsoSdk dCr() throws Exception {
         WeiboSsoSdk weiboSsoSdk;
         synchronized (WeiboSsoSdk.class) {
-            if (mQD == null) {
-                mQD = new WeiboSsoSdk();
+            if (mQG == null) {
+                mQG = new WeiboSsoSdk();
             }
-            weiboSsoSdk = mQD;
+            weiboSsoSdk = mQG;
         }
         return weiboSsoSdk;
     }
@@ -88,13 +88,13 @@ public class WeiboSsoSdk {
     /* loaded from: classes6.dex */
     public static final class a {
         private String mAid;
-        private String mQJ;
+        private String mQM;
 
-        public String dCx() {
+        public String dCt() {
             return this.mAid;
         }
 
-        static a Pm(String str) throws Exception {
+        static a Pp(String str) throws Exception {
             a aVar = new a();
             try {
                 JSONObject jSONObject = new JSONObject(str);
@@ -104,7 +104,7 @@ public class WeiboSsoSdk {
                     throw new Exception("error： " + optString + " msg:" + jSONObject.optString("msg", ""));
                 }
                 aVar.mAid = jSONObject2.optString("aid", "");
-                aVar.mQJ = jSONObject2.optString("sub", "");
+                aVar.mQM = jSONObject2.optString("sub", "");
                 return aVar;
             } catch (Exception e) {
                 throw e;
@@ -112,7 +112,7 @@ public class WeiboSsoSdk {
         }
     }
 
-    private String Pk(String str) {
+    private String Pn(String str) {
         try {
             HttpURLConnection httpURLConnection = (HttpURLConnection) new URL("https://login.sina.com.cn/visitor/signin").openConnection();
             httpURLConnection.setRequestMethod("POST");
@@ -148,44 +148,44 @@ public class WeiboSsoSdk {
     /* JADX INFO: Access modifiers changed from: private */
     public void bP(String str, int i) throws Exception {
         String str2;
-        if (!TextUtils.isEmpty(mQE.wr(false))) {
-            if (!this.mQC.tryLock()) {
-                this.mQC.lock();
-                this.mQC.unlock();
+        if (!TextUtils.isEmpty(mQH.wr(false))) {
+            if (!this.mQF.tryLock()) {
+                this.mQF.lock();
+                this.mQF.unlock();
                 return;
             }
-            this.mQF = false;
-            String mfp = com.weibo.ssosdk.a.getMfp(mQE.getApplicationContext());
+            this.mQI = false;
+            String mfp = com.weibo.ssosdk.a.getMfp(mQH.getApplicationContext());
             try {
                 str2 = URLEncoder.encode(str, "utf-8");
             } catch (UnsupportedEncodingException e) {
                 str2 = "";
             }
-            String Pk = Pk(riseWind(mQE.wr(true), mQE.getApplicationContext().getPackageName(), str2, mfp, mQE.wq(true), mQE.wp(true), mQE.wo(true), mQE.wn(true), mQE.ws(true), mQE.wm(true), i, this.mQH));
-            this.mQH++;
-            if (Pk != null) {
+            String Pn = Pn(riseWind(mQH.wr(true), mQH.getApplicationContext().getPackageName(), str2, mfp, mQH.wq(true), mQH.wp(true), mQH.wo(true), mQH.wn(true), mQH.ws(true), mQH.wm(true), i, this.mQK));
+            this.mQK++;
+            if (Pn != null) {
                 try {
-                    a Pm = a.Pm(Pk);
-                    if (Pm != null && !TextUtils.isEmpty(Pm.dCx())) {
-                        Pl(Pm.dCx());
+                    a Pp = a.Pp(Pn);
+                    if (Pp != null && !TextUtils.isEmpty(Pp.dCt())) {
+                        Po(Pp.dCt());
                     }
                     if (i == 1) {
-                        this.mQG = Pm;
+                        this.mQJ = Pp;
                     }
-                    this.mQC.unlock();
+                    this.mQF.unlock();
                     return;
                 } catch (Exception e2) {
-                    this.mQC.unlock();
+                    this.mQF.unlock();
                     throw e2;
                 }
             }
-            this.mQC.unlock();
+            this.mQF.unlock();
             throw new Exception("network error.");
         }
     }
 
-    public a dCw() throws Exception {
-        if (this.mQG == null) {
+    public a dCs() throws Exception {
+        if (this.mQJ == null) {
             Thread thread = new Thread(new Runnable() { // from class: com.weibo.ssosdk.WeiboSsoSdk.3
                 @Override // java.lang.Runnable
                 public void run() {
@@ -198,16 +198,16 @@ public class WeiboSsoSdk {
             thread.start();
             thread.join();
         }
-        if (this.mQG == null) {
+        if (this.mQJ == null) {
             throw new Exception("visitor login failed");
         }
-        return this.mQG;
+        return this.mQJ;
     }
 
-    public String dCx() throws Exception {
-        String dCy = dCy();
-        if (TextUtils.isEmpty(dCy)) {
-            if (this.mQG == null || TextUtils.isEmpty(this.mQG.dCx())) {
+    public String dCt() throws Exception {
+        String dCu = dCu();
+        if (TextUtils.isEmpty(dCu)) {
+            if (this.mQJ == null || TextUtils.isEmpty(this.mQJ.dCt())) {
                 Thread thread = new Thread(new Runnable() { // from class: com.weibo.ssosdk.WeiboSsoSdk.4
                     @Override // java.lang.Runnable
                     public void run() {
@@ -220,17 +220,17 @@ public class WeiboSsoSdk {
                 thread.start();
                 thread.join();
             }
-            if (this.mQG == null) {
+            if (this.mQJ == null) {
                 throw new Exception("visitor login failed");
             }
-            return this.mQG.dCx();
+            return this.mQJ.dCt();
         }
-        return dCy;
+        return dCu;
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [378=4] */
     /* JADX INFO: Access modifiers changed from: private */
-    public String dCy() {
+    public String dCu() {
         FileInputStream fileInputStream;
         Throwable th;
         FileInputStream fileInputStream2 = null;
@@ -276,11 +276,11 @@ public class WeiboSsoSdk {
     }
 
     private File IU(int i) {
-        return new File(mQE.getApplicationContext().getFilesDir(), "weibo_sso_sdk_aid" + i);
+        return new File(mQH.getApplicationContext().getFilesDir(), "weibo_sso_sdk_aid" + i);
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [406=4] */
-    private synchronized void Pl(String str) {
+    private synchronized void Po(String str) {
         FileOutputStream fileOutputStream;
         if (!TextUtils.isEmpty(str)) {
             FileOutputStream fileOutputStream2 = null;

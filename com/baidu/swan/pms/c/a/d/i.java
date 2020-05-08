@@ -7,29 +7,29 @@ import java.util.List;
 /* loaded from: classes11.dex */
 public class i implements b {
     private static final boolean DEBUG = com.baidu.swan.pms.d.DEBUG;
-    private com.baidu.swan.pms.a.d bVM;
-    private List<com.baidu.swan.pms.model.e> daW = new ArrayList();
-    private List<com.baidu.swan.pms.model.e> daX = new ArrayList();
-    private List<com.baidu.swan.pms.model.e> daY = new ArrayList();
-    private List<com.baidu.swan.pms.c.a.b> daV = new ArrayList();
+    private com.baidu.swan.pms.a.d bVS;
+    private List<com.baidu.swan.pms.model.e> dbb = new ArrayList();
+    private List<com.baidu.swan.pms.model.e> dbc = new ArrayList();
+    private List<com.baidu.swan.pms.model.e> dbd = new ArrayList();
+    private List<com.baidu.swan.pms.c.a.b> dba = new ArrayList();
 
     public i(com.baidu.swan.pms.a.d dVar) {
-        this.bVM = dVar;
+        this.bVS = dVar;
         d.aCi().c(this);
     }
 
     public void a(com.baidu.swan.pms.c.a.b bVar) {
         if (bVar != null) {
-            this.daV.add(bVar);
+            this.dba.add(bVar);
         }
     }
 
     public void aCu() {
         if (!aCv()) {
             if (DEBUG) {
-                Log.i("PMSTaskGroup", com.baidu.swan.pms.d.aBC().getProcessName() + " startDownload: total=" + this.daV.size());
+                Log.i("PMSTaskGroup", com.baidu.swan.pms.d.aBC().getProcessName() + " startDownload: total=" + this.dba.size());
             }
-            for (com.baidu.swan.pms.c.a.b bVar : this.daV) {
+            for (com.baidu.swan.pms.c.a.b bVar : this.dba) {
                 if (DEBUG) {
                     Log.i("PMSTaskGroup", com.baidu.swan.pms.d.aBC().getProcessName() + " startDownload: for handler=" + bVar);
                 }
@@ -45,7 +45,7 @@ public class i implements b {
     @Override // com.baidu.swan.pms.c.a.d.b
     public <T> void e(f<T> fVar) {
         if (!fVar.aCt()) {
-            Iterator<com.baidu.swan.pms.c.a.b> it = this.daV.iterator();
+            Iterator<com.baidu.swan.pms.c.a.b> it = this.dba.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
@@ -53,16 +53,16 @@ public class i implements b {
                 com.baidu.swan.pms.c.a.b next = it.next();
                 if (next.a(fVar)) {
                     int aCl = fVar.aCl();
-                    this.daV.remove(next);
+                    this.dba.remove(next);
                     switch (aCl) {
                         case 2:
-                            this.daY.add(next.aCd().daO.daN);
+                            this.dbd.add(next.aCd().daT.daS);
                             break;
                         case 3:
-                            this.daX.add(next.aCd().daO.daN);
+                            this.dbc.add(next.aCd().daT.daS);
                             break;
                         case 10:
-                            this.daW.add(next.aCd().daO.daN);
+                            this.dbb.add(next.aCd().daT.daS);
                             break;
                         default:
                             if (com.baidu.swan.pms.d.DEBUG) {
@@ -78,8 +78,8 @@ public class i implements b {
     }
 
     private boolean aCv() {
-        if (this.daV.isEmpty()) {
-            this.bVM.WZ();
+        if (this.dba.isEmpty()) {
+            this.bVS.WY();
             d.aCi().d(this);
             return true;
         }

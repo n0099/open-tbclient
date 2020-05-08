@@ -9,10 +9,10 @@ public class h extends com.airbnb.lottie.e.a<PointF> {
     private Path path;
 
     public h(com.airbnb.lottie.e eVar, com.airbnb.lottie.e.a<PointF> aVar) {
-        super(eVar, aVar.FL, aVar.FM, aVar.FN, aVar.zN, aVar.FO);
-        boolean z = (this.FM == 0 || this.FL == 0 || !((PointF) this.FL).equals(((PointF) this.FM).x, ((PointF) this.FM).y)) ? false : true;
-        if (this.FM != 0 && !z) {
-            this.path = com.airbnb.lottie.d.f.a((PointF) this.FL, (PointF) this.FM, aVar.FR, aVar.FT);
+        super(eVar, aVar.FO, aVar.FP, aVar.FQ, aVar.zN, aVar.FR);
+        boolean z = (this.FP == 0 || this.FO == 0 || !((PointF) this.FO).equals(((PointF) this.FP).x, ((PointF) this.FP).y)) ? false : true;
+        if (this.FP != 0 && !z) {
+            this.path = com.airbnb.lottie.d.f.a((PointF) this.FO, (PointF) this.FP, aVar.FV, aVar.FW);
         }
     }
 

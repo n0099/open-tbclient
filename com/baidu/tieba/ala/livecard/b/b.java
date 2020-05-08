@@ -18,54 +18,54 @@ import com.baidu.tieba.card.x;
 @SuppressLint({"ResourceAsColor"})
 /* loaded from: classes3.dex */
 public class b extends com.baidu.tieba.card.a<bj> implements x {
-    private bj adG;
-    private View czf;
-    private TbPageContext<?> duG;
-    private View fsS;
-    private TextView fsT;
-    private TextView fsU;
-    private TextView fsV;
-    private RelativeLayout fsW;
-    private final View.OnClickListener fsX;
-    private RelativeLayout fsp;
+    private bj adJ;
+    private View czl;
+    private TbPageContext<?> duK;
+    private View fsX;
+    private TextView fsY;
+    private TextView fsZ;
+    private RelativeLayout fsu;
+    private TextView fta;
+    private RelativeLayout ftb;
+    private final View.OnClickListener ftc;
     private View mDivider;
     private String mForumName;
 
     public b(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
-        this.fsX = new View.OnClickListener() { // from class: com.baidu.tieba.ala.livecard.b.b.1
+        this.ftc = new View.OnClickListener() { // from class: com.baidu.tieba.ala.livecard.b.b.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (b.this.adG != null && b.this.bEy() != null) {
-                    b.this.bEy().a(view, b.this.adG);
-                    TiebaStatic.log(new an("c11844").cI("uid", TbadkCoreApplication.getCurrentAccount()).t("fid", b.this.adG.getFid()));
+                if (b.this.adJ != null && b.this.bEw() != null) {
+                    b.this.bEw().a(view, b.this.adJ);
+                    TiebaStatic.log(new an("c11844").cI("uid", TbadkCoreApplication.getCurrentAccount()).t("fid", b.this.adJ.getFid()));
                 }
             }
         };
-        this.duG = tbPageContext;
+        this.duK = tbPageContext;
         View view = getView();
         this.mDivider = view.findViewById(R.id.divider);
-        this.fsS = view.findViewById(R.id.recommend_left_line);
-        this.czf = view.findViewById(R.id.recommend_right_line);
-        this.fsp = (RelativeLayout) view.findViewById(R.id.ala_live_empty_layout_root);
-        this.fsT = (TextView) view.findViewById(R.id.ala_live_title);
-        this.fsU = (TextView) view.findViewById(R.id.start_live_btn);
-        this.fsW = (RelativeLayout) view.findViewById(R.id.ala_bottom_container);
-        this.fsV = (TextView) view.findViewById(R.id.ala_recommend_live);
+        this.fsX = view.findViewById(R.id.recommend_left_line);
+        this.czl = view.findViewById(R.id.recommend_right_line);
+        this.fsu = (RelativeLayout) view.findViewById(R.id.ala_live_empty_layout_root);
+        this.fsY = (TextView) view.findViewById(R.id.ala_live_title);
+        this.fsZ = (TextView) view.findViewById(R.id.start_live_btn);
+        this.ftb = (RelativeLayout) view.findViewById(R.id.ala_bottom_container);
+        this.fta = (TextView) view.findViewById(R.id.ala_recommend_live);
     }
 
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
-            am.setBackgroundResource(this.fsU, R.drawable.ala_live_card_start_live_selector);
-            am.setViewTextColor(this.fsU, (int) R.color.cp_cont_a);
-            am.setBackgroundColor(this.fsp, R.color.cp_bg_line_d);
+            am.setBackgroundResource(this.fsZ, R.drawable.ala_live_card_start_live_selector);
+            am.setViewTextColor(this.fsZ, (int) R.color.cp_cont_a);
+            am.setBackgroundColor(this.fsu, R.color.cp_bg_line_d);
             am.setBackgroundColor(this.mDivider, R.color.cp_bg_line_c);
-            am.setBackgroundColor(this.fsS, R.color.cp_bg_line_c);
-            am.setBackgroundColor(this.czf, R.color.cp_bg_line_c);
-            am.setViewTextColor(this.fsT, (int) R.color.cp_cont_d);
-            am.setViewTextColor(this.fsV, (int) R.color.cp_cont_c);
-            am.setBackgroundColor(this.fsW, R.color.cp_bg_line_d);
+            am.setBackgroundColor(this.fsX, R.color.cp_bg_line_c);
+            am.setBackgroundColor(this.czl, R.color.cp_bg_line_c);
+            am.setViewTextColor(this.fsY, (int) R.color.cp_cont_d);
+            am.setViewTextColor(this.fta, (int) R.color.cp_cont_c);
+            am.setBackgroundColor(this.ftb, R.color.cp_bg_line_d);
             this.mSkinType = i;
         }
     }
@@ -78,7 +78,7 @@ public class b extends com.baidu.tieba.card.a<bj> implements x {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.a
     public void a(bj bjVar) {
-        this.adG = bjVar;
+        this.adJ = bjVar;
         refreshView();
     }
 
@@ -96,25 +96,25 @@ public class b extends com.baidu.tieba.card.a<bj> implements x {
     }
 
     private void refreshView() {
-        if (!this.adG.dtd) {
-            this.fsV.setVisibility(8);
-            this.fsS.setVisibility(8);
-            this.czf.setVisibility(8);
-            ViewGroup.LayoutParams layoutParams = this.fsW.getLayoutParams();
-            layoutParams.height = l.getEquipmentHeight(this.duG.getPageActivity()) / 4;
-            this.fsW.setLayoutParams(layoutParams);
+        if (!this.adJ.dth) {
+            this.fta.setVisibility(8);
+            this.fsX.setVisibility(8);
+            this.czl.setVisibility(8);
+            ViewGroup.LayoutParams layoutParams = this.ftb.getLayoutParams();
+            layoutParams.height = l.getEquipmentHeight(this.duK.getPageActivity()) / 4;
+            this.ftb.setLayoutParams(layoutParams);
         } else {
-            this.fsV.setVisibility(0);
-            this.fsS.setVisibility(0);
-            this.czf.setVisibility(0);
-            ViewGroup.LayoutParams layoutParams2 = this.fsW.getLayoutParams();
-            layoutParams2.height = this.duG.getPageActivity().getResources().getDimensionPixelSize(R.dimen.ds30);
-            this.fsW.setLayoutParams(layoutParams2);
+            this.fta.setVisibility(0);
+            this.fsX.setVisibility(0);
+            this.czl.setVisibility(0);
+            ViewGroup.LayoutParams layoutParams2 = this.ftb.getLayoutParams();
+            layoutParams2.height = this.duK.getPageActivity().getResources().getDimensionPixelSize(R.dimen.ds30);
+            this.ftb.setLayoutParams(layoutParams2);
         }
-        onChangeSkinType(this.duG, TbadkCoreApplication.getInst().getSkinType());
+        onChangeSkinType(this.duK, TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void m(BdUniqueId bdUniqueId) {
-        this.fsU.setOnClickListener(this.fsX);
+        this.fsZ.setOnClickListener(this.ftc);
     }
 }

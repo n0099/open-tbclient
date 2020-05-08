@@ -26,9 +26,9 @@ public class b {
         if (bundle == null) {
             bundle = new Bundle();
         }
-        lB.chL = bundle;
-        lB.chM = i;
-        lB.chN = str2;
+        lB.chR = bundle;
+        lB.chS = i;
+        lB.chT = str2;
         lB.y(bundle);
     }
 

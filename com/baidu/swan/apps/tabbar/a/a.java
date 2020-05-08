@@ -10,12 +10,12 @@ abstract class a extends ab {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public static com.baidu.swan.apps.tabbar.b.a RD() {
-        return com.baidu.swan.apps.api.module.e.g.RD();
+    public static com.baidu.swan.apps.tabbar.b.a RC() {
+        return com.baidu.swan.apps.api.module.e.g.RC();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public static boolean RE() {
-        return com.baidu.swan.apps.api.module.e.g.RE();
+    public static boolean RD() {
+        return com.baidu.swan.apps.api.module.e.g.RD();
     }
 }

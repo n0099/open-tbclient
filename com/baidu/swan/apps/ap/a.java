@@ -4,22 +4,22 @@ import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import java.util.Locale;
 /* loaded from: classes11.dex */
 public final class a {
-    private a cwI = null;
-    private long cwJ = 0;
-    private long cwK = 0;
-    private long cwL = 2;
+    private a cwO = null;
+    private long cwP = 0;
+    private long cwQ = 0;
+    private long cwR = 2;
     private String mDesc = "";
     private final StringBuilder mDetails = new StringBuilder();
-    private boolean cwM = false;
+    private boolean cwS = false;
 
     public String toString(int i) {
         StringBuilder sb = new StringBuilder();
-        sb.append(String.format(Locale.getDefault(), "%s :: code(%08d) desc(%s) \n", super.toString(), Long.valueOf(aos()), Long.valueOf(aon()), Long.valueOf(aoo()), Long.valueOf(aop()), aoq()));
+        sb.append(String.format(Locale.getDefault(), "%s :: code(%08d) desc(%s) \n", super.toString(), Long.valueOf(aor()), Long.valueOf(aom()), Long.valueOf(aon()), Long.valueOf(aoo()), aop()));
         if (i >= -200) {
-            sb.append(String.format(Locale.getDefault(), "  p(%01d) f(%03d) e(%04d) \n", Long.valueOf(aon()), Long.valueOf(aoo()), Long.valueOf(aop())));
+            sb.append(String.format(Locale.getDefault(), "  p(%01d) f(%03d) e(%04d) \n", Long.valueOf(aom()), Long.valueOf(aon()), Long.valueOf(aoo())));
         }
         if (i >= -100) {
-            sb.append(String.format(Locale.getDefault(), "  details(%s) \n", aor()));
+            sb.append(String.format(Locale.getDefault(), "  details(%s) \n", aoq()));
         }
         return sb.toString();
     }
@@ -29,30 +29,30 @@ public final class a {
     }
 
     public a bm(long j) {
-        this.cwL = a(j, 9L, "platform");
+        this.cwR = a(j, 9L, "platform");
+        return this;
+    }
+
+    public long aom() {
+        return this.cwR;
+    }
+
+    public a bn(long j) {
+        this.cwP = a(j, 999L, "feature");
         return this;
     }
 
     public long aon() {
-        return this.cwL;
+        return this.cwP;
     }
 
-    public a bn(long j) {
-        this.cwJ = a(j, 999L, "feature");
+    public a bo(long j) {
+        this.cwQ = a(j, 9999L, BdStatsConstant.StatsType.ERROR);
         return this;
     }
 
     public long aoo() {
-        return this.cwJ;
-    }
-
-    public a bo(long j) {
-        this.cwK = a(j, 9999L, BdStatsConstant.StatsType.ERROR);
-        return this;
-    }
-
-    public long aop() {
-        return this.cwK;
+        return this.cwQ;
     }
 
     public a nK(String str) {
@@ -63,7 +63,7 @@ public final class a {
         return this;
     }
 
-    public String aoq() {
+    public String aop() {
         return this.mDesc;
     }
 
@@ -72,12 +72,12 @@ public final class a {
         return this;
     }
 
-    public StringBuilder aor() {
+    public StringBuilder aoq() {
         return this.mDetails;
     }
 
-    public long aos() {
-        return (aon() * 10000000) + (aoo() * 10000) + (aop() * 1);
+    public long aor() {
+        return (aom() * 10000000) + (aon() * 10000) + (aoo() * 1);
     }
 
     public a bp(long j) {
@@ -88,12 +88,12 @@ public final class a {
         return this;
     }
 
-    public boolean aot() {
-        return this.cwM;
+    public boolean aos() {
+        return this.cwS;
     }
 
-    public void aou() {
-        this.cwM = true;
+    public void aot() {
+        this.cwS = true;
     }
 
     private long a(long j, long j2, String str) {

@@ -1,33 +1,27 @@
 package com.vivo.push.b;
 
-import com.coloros.mcssdk.mode.CommandMessage;
-import java.io.Serializable;
-import java.util.ArrayList;
+import com.baidu.mapapi.UIMsg;
 /* loaded from: classes8.dex */
-public final class ab extends c {
-    private ArrayList<String> a;
-
-    public ab(boolean z, String str, String str2, ArrayList<String> arrayList) {
-        super(z ? 2004 : 2005, str, str2);
-        this.a = arrayList;
+public final class ab extends com.vivo.push.y {
+    public ab() {
+        super(UIMsg.m_AppUI.MSG_APP_VERSION_COMMEND_NAV_MODULE);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.vivo.push.b.c, com.vivo.push.y
-    public final void c(com.vivo.push.a aVar) {
-        super.c(aVar);
-        aVar.a(CommandMessage.TYPE_TAGS, (Serializable) this.a);
+    @Override // com.vivo.push.y
+    protected final void c(com.vivo.push.a aVar) {
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.vivo.push.b.c, com.vivo.push.y
-    public final void d(com.vivo.push.a aVar) {
-        super.d(aVar);
-        this.a = aVar.b(CommandMessage.TYPE_TAGS);
+    @Override // com.vivo.push.y
+    protected final void d(com.vivo.push.a aVar) {
     }
 
-    @Override // com.vivo.push.b.c, com.vivo.push.y
+    @Override // com.vivo.push.y
     public final String toString() {
-        return "TagCommand";
+        return "ResetCommand";
+    }
+
+    @Override // com.vivo.push.y
+    public final boolean c() {
+        return true;
     }
 }

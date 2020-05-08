@@ -1,18 +1,61 @@
 package com.xiaomi.push;
 
-import com.meizu.cloud.pushsdk.constants.PushConstants;
+import android.content.Context;
+import android.text.TextUtils;
+import com.baidu.ar.pose.PoseAR;
+import java.util.HashMap;
 /* loaded from: classes8.dex */
-public enum em {
-    ACTIVITY(PushConstants.INTENT_ACTIVITY_NAME),
-    SERVICE_ACTION("service_action"),
-    SERVICE_COMPONENT("service_component"),
-    PROVIDER("provider");
-    
+public class em {
+    public static void a(Context context, String str, int i, String str2) {
+        ai.a(context).a(new en(context, str, i, str2));
+    }
 
-    /* renamed from: a  reason: collision with other field name */
-    public String f323a;
+    private static void a(Context context, HashMap<String, String> hashMap) {
+        eu m264a = eq.a(context).m264a();
+        if (m264a != null) {
+            m264a.a(context, hashMap);
+        }
+    }
 
-    em(String str) {
-        this.f323a = str;
+    private static void b(Context context, HashMap<String, String> hashMap) {
+        eu m264a = eq.a(context).m264a();
+        if (m264a != null) {
+            m264a.c(context, hashMap);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public static void c(Context context, String str, int i, String str2) {
+        if (context == null || TextUtils.isEmpty(str)) {
+            return;
+        }
+        try {
+            HashMap hashMap = new HashMap();
+            hashMap.put("awake_info", str);
+            hashMap.put(PoseAR.MDL_START_POSE_FUN_EVENT_TYPE_KEY, String.valueOf(i));
+            hashMap.put("description", str2);
+            switch (eq.a(context).a()) {
+                case 1:
+                    a(context, hashMap);
+                    break;
+                case 2:
+                    c(context, hashMap);
+                    break;
+                case 3:
+                    a(context, hashMap);
+                    c(context, hashMap);
+                    break;
+            }
+            b(context, hashMap);
+        } catch (Exception e) {
+            com.xiaomi.channel.commonutils.logger.b.a(e);
+        }
+    }
+
+    private static void c(Context context, HashMap<String, String> hashMap) {
+        eu m264a = eq.a(context).m264a();
+        if (m264a != null) {
+            m264a.b(context, hashMap);
+        }
     }
 }

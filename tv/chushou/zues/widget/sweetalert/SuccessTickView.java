@@ -13,47 +13,47 @@ import tv.chushou.zues.b;
 public class SuccessTickView extends View {
     private float mDensity;
     private Paint mPaint;
-    private float nwA;
-    private boolean nwB;
-    private final float nws;
-    private final float nwt;
-    private final float nwu;
+    private final float nwA;
+    private float nwB;
+    private float nwC;
+    private float nwD;
+    private boolean nwE;
     private final float nwv;
     private final float nww;
     private final float nwx;
-    private float nwy;
-    private float nwz;
+    private final float nwy;
+    private final float nwz;
 
     public SuccessTickView(Context context) {
         super(context);
         this.mDensity = -1.0f;
-        this.nws = aS(1.2f);
-        this.nwt = aS(3.0f);
-        this.nwu = aS(15.0f);
-        this.nwv = aS(25.0f);
-        this.nww = aS(3.3f);
-        this.nwx = this.nwv + aS(6.7f);
+        this.nwv = aS(1.2f);
+        this.nww = aS(3.0f);
+        this.nwx = aS(15.0f);
+        this.nwy = aS(25.0f);
+        this.nwz = aS(3.3f);
+        this.nwA = this.nwy + aS(6.7f);
         init();
     }
 
     public SuccessTickView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mDensity = -1.0f;
-        this.nws = aS(1.2f);
-        this.nwt = aS(3.0f);
-        this.nwu = aS(15.0f);
-        this.nwv = aS(25.0f);
-        this.nww = aS(3.3f);
-        this.nwx = this.nwv + aS(6.7f);
+        this.nwv = aS(1.2f);
+        this.nww = aS(3.0f);
+        this.nwx = aS(15.0f);
+        this.nwy = aS(25.0f);
+        this.nwz = aS(3.3f);
+        this.nwA = this.nwy + aS(6.7f);
         init();
     }
 
     private void init() {
         this.mPaint = new Paint();
-        this.mPaint.setColor(getResources().getColor(b.C0831b.success_stroke_color));
-        this.nwz = this.nwu;
-        this.nwA = this.nwv;
-        this.nwB = false;
+        this.mPaint.setColor(getResources().getColor(b.C0852b.success_stroke_color));
+        this.nwC = this.nwx;
+        this.nwD = this.nwy;
+        this.nwE = false;
     }
 
     @Override // android.view.View
@@ -64,26 +64,26 @@ public class SuccessTickView extends View {
         canvas.rotate(45.0f, width / 2, height / 2);
         int i = (int) (width / 1.2d);
         int i2 = (int) (height / 1.4d);
-        this.nwy = (((i + this.nwu) / 2.0f) + this.nwt) - 1.0f;
+        this.nwB = (((i + this.nwx) / 2.0f) + this.nww) - 1.0f;
         RectF rectF = new RectF();
-        if (this.nwB) {
+        if (this.nwE) {
             rectF.left = 0.0f;
-            rectF.right = rectF.left + this.nwz;
-            rectF.top = (i2 + this.nwv) / 2.0f;
-            rectF.bottom = rectF.top + this.nwt;
+            rectF.right = rectF.left + this.nwC;
+            rectF.top = (i2 + this.nwy) / 2.0f;
+            rectF.bottom = rectF.top + this.nww;
         } else {
-            rectF.right = (((i + this.nwu) / 2.0f) + this.nwt) - 1.0f;
-            rectF.left = rectF.right - this.nwz;
-            rectF.top = (i2 + this.nwv) / 2.0f;
-            rectF.bottom = rectF.top + this.nwt;
+            rectF.right = (((i + this.nwx) / 2.0f) + this.nww) - 1.0f;
+            rectF.left = rectF.right - this.nwC;
+            rectF.top = (i2 + this.nwy) / 2.0f;
+            rectF.bottom = rectF.top + this.nww;
         }
-        canvas.drawRoundRect(rectF, this.nws, this.nws, this.mPaint);
+        canvas.drawRoundRect(rectF, this.nwv, this.nwv, this.mPaint);
         RectF rectF2 = new RectF();
-        rectF2.bottom = (((i2 + this.nwv) / 2.0f) + this.nwt) - 1.0f;
-        rectF2.left = (i + this.nwu) / 2.0f;
-        rectF2.right = rectF2.left + this.nwt;
-        rectF2.top = rectF2.bottom - this.nwA;
-        canvas.drawRoundRect(rectF2, this.nws, this.nws, this.mPaint);
+        rectF2.bottom = (((i2 + this.nwy) / 2.0f) + this.nww) - 1.0f;
+        rectF2.left = (i + this.nwx) / 2.0f;
+        rectF2.right = rectF2.left + this.nww;
+        rectF2.top = rectF2.bottom - this.nwD;
+        canvas.drawRoundRect(rectF2, this.nwv, this.nwv, this.mPaint);
     }
 
     public float aS(float f) {
@@ -93,31 +93,31 @@ public class SuccessTickView extends View {
         return (this.mDensity * f) + 0.5f;
     }
 
-    public void dKw() {
-        this.nwz = 0.0f;
-        this.nwA = 0.0f;
+    public void dKs() {
+        this.nwC = 0.0f;
+        this.nwD = 0.0f;
         invalidate();
         Animation animation = new Animation() { // from class: tv.chushou.zues.widget.sweetalert.SuccessTickView.1
             @Override // android.view.animation.Animation
             protected void applyTransformation(float f, Transformation transformation) {
                 super.applyTransformation(f, transformation);
                 if (0.54d < f && 0.7d >= f) {
-                    SuccessTickView.this.nwB = true;
-                    SuccessTickView.this.nwz = SuccessTickView.this.nwy * ((f - 0.54f) / 0.16f);
+                    SuccessTickView.this.nwE = true;
+                    SuccessTickView.this.nwC = SuccessTickView.this.nwB * ((f - 0.54f) / 0.16f);
                     if (0.65d < f) {
-                        SuccessTickView.this.nwA = SuccessTickView.this.nwx * ((f - 0.65f) / 0.19f);
+                        SuccessTickView.this.nwD = SuccessTickView.this.nwA * ((f - 0.65f) / 0.19f);
                     }
                     SuccessTickView.this.invalidate();
                 } else if (0.7d < f && 0.84d >= f) {
-                    SuccessTickView.this.nwB = false;
-                    SuccessTickView.this.nwz = SuccessTickView.this.nwy * (1.0f - ((f - 0.7f) / 0.14f));
-                    SuccessTickView.this.nwz = SuccessTickView.this.nwz < SuccessTickView.this.nww ? SuccessTickView.this.nww : SuccessTickView.this.nwz;
-                    SuccessTickView.this.nwA = SuccessTickView.this.nwx * ((f - 0.65f) / 0.19f);
+                    SuccessTickView.this.nwE = false;
+                    SuccessTickView.this.nwC = SuccessTickView.this.nwB * (1.0f - ((f - 0.7f) / 0.14f));
+                    SuccessTickView.this.nwC = SuccessTickView.this.nwC < SuccessTickView.this.nwz ? SuccessTickView.this.nwz : SuccessTickView.this.nwC;
+                    SuccessTickView.this.nwD = SuccessTickView.this.nwA * ((f - 0.65f) / 0.19f);
                     SuccessTickView.this.invalidate();
                 } else if (0.84d < f && 1.0f >= f) {
-                    SuccessTickView.this.nwB = false;
-                    SuccessTickView.this.nwz = SuccessTickView.this.nww + ((SuccessTickView.this.nwu - SuccessTickView.this.nww) * ((f - 0.84f) / 0.16f));
-                    SuccessTickView.this.nwA = SuccessTickView.this.nwv + ((SuccessTickView.this.nwx - SuccessTickView.this.nwv) * (1.0f - ((f - 0.84f) / 0.16f)));
+                    SuccessTickView.this.nwE = false;
+                    SuccessTickView.this.nwC = SuccessTickView.this.nwz + ((SuccessTickView.this.nwx - SuccessTickView.this.nwz) * ((f - 0.84f) / 0.16f));
+                    SuccessTickView.this.nwD = SuccessTickView.this.nwy + ((SuccessTickView.this.nwA - SuccessTickView.this.nwy) * (1.0f - ((f - 0.84f) / 0.16f)));
                     SuccessTickView.this.invalidate();
                 }
             }

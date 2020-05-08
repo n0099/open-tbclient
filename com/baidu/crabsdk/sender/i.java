@@ -22,23 +22,6 @@ import org.json.JSONObject;
 import org.json.JSONStringer;
 /* loaded from: classes8.dex */
 public final class i {
-    public static synchronized List<String> K(Context context, String str) {
-        ArrayList arrayList;
-        File[] listFiles;
-        synchronized (i.class) {
-            arrayList = new ArrayList();
-            File filesDir = context.getFilesDir();
-            if (filesDir != null && (listFiles = filesDir.listFiles()) != null && listFiles.length > 0) {
-                for (File file : listFiles) {
-                    if (file.getName().startsWith(str)) {
-                        arrayList.add(file.getAbsolutePath());
-                    }
-                }
-            }
-        }
-        return arrayList;
-    }
-
     public static synchronized void a(Context context, String str) {
         synchronized (i.class) {
             a(context, "crab_anr_" + System.currentTimeMillis(), str);
@@ -69,7 +52,7 @@ public final class i {
                 try {
                     str2 = com.baidu.crabsdk.c.d.S(str2, c);
                 } catch (Exception e) {
-                    com.baidu.crabsdk.c.a.f("crash content AES failed!", e);
+                    com.baidu.crabsdk.c.a.a("crash content AES failed!", e);
                 }
                 try {
                     h.b("key_" + str, com.baidu.crabsdk.c.e.dl(c));
@@ -238,31 +221,6 @@ public final class i {
         }
     }
 
-    public static synchronized List<String> aj(Context context) {
-        ArrayList arrayList;
-        synchronized (i.class) {
-            arrayList = new ArrayList();
-            File filesDir = context.getFilesDir();
-            if (filesDir != null) {
-                File[] listFiles = filesDir.listFiles();
-                for (File file : listFiles) {
-                    if (file.getName().contains("crab_crash_")) {
-                        arrayList.add(file.getAbsolutePath());
-                    } else if (file.getName().contains("crab_anr_")) {
-                        arrayList.add(file.getAbsolutePath());
-                    } else if (file.getName().contains("crab_catched_")) {
-                        arrayList.add(file.getAbsolutePath());
-                    } else if (file.getName().contains("crab_block_")) {
-                        arrayList.add(file.getAbsolutePath());
-                    } else if (file.getName().contains("native_count")) {
-                        arrayList.add(file.getAbsolutePath());
-                    }
-                }
-            }
-        }
-        return arrayList;
-    }
-
     public static synchronized void b(Context context, String str) {
         synchronized (i.class) {
             a(context, "crab_catched_" + System.currentTimeMillis(), str);
@@ -315,7 +273,7 @@ public final class i {
                     com.baidu.crabsdk.c.a.df("mapRecord2JSON: unexpected key[" + str + "]'s value " + obj);
                 }
             } catch (JSONException e) {
-                com.baidu.crabsdk.c.a.f("Could not create JSON object for key " + str, e);
+                com.baidu.crabsdk.c.a.a("Could not create JSON object for key " + str, e);
             }
         }
         return jSONObject.toString();
@@ -388,7 +346,7 @@ public final class i {
                     }
                 } catch (Exception e3) {
                     e = e3;
-                    com.baidu.crabsdk.c.a.f("Get filebytes error!", e);
+                    com.baidu.crabsdk.c.a.a("Get filebytes error!", e);
                     if (fileInputStream != null) {
                         try {
                             fileInputStream.close();
@@ -466,5 +424,47 @@ public final class i {
         }
         com.baidu.crabsdk.c.a.de("All so libs: " + sb.toString());
         return sb.toString();
+    }
+
+    public static synchronized List<String> i(Context context) {
+        ArrayList arrayList;
+        synchronized (i.class) {
+            arrayList = new ArrayList();
+            File filesDir = context.getFilesDir();
+            if (filesDir != null) {
+                File[] listFiles = filesDir.listFiles();
+                for (File file : listFiles) {
+                    if (file.getName().contains("crab_crash_")) {
+                        arrayList.add(file.getAbsolutePath());
+                    } else if (file.getName().contains("crab_anr_")) {
+                        arrayList.add(file.getAbsolutePath());
+                    } else if (file.getName().contains("crab_catched_")) {
+                        arrayList.add(file.getAbsolutePath());
+                    } else if (file.getName().contains("crab_block_")) {
+                        arrayList.add(file.getAbsolutePath());
+                    } else if (file.getName().contains("native_count")) {
+                        arrayList.add(file.getAbsolutePath());
+                    }
+                }
+            }
+        }
+        return arrayList;
+    }
+
+    public static synchronized List<String> y(Context context, String str) {
+        ArrayList arrayList;
+        File[] listFiles;
+        synchronized (i.class) {
+            arrayList = new ArrayList();
+            File filesDir = context.getFilesDir();
+            if (filesDir != null && (listFiles = filesDir.listFiles()) != null && listFiles.length > 0) {
+                for (File file : listFiles) {
+                    if (file.getName().startsWith(str)) {
+                        arrayList.add(file.getAbsolutePath());
+                    }
+                }
+            }
+        }
+        return arrayList;
     }
 }

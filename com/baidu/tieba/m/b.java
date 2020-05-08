@@ -25,7 +25,7 @@ import java.util.zip.ZipFile;
 import java.util.zip.ZipOutputStream;
 /* loaded from: classes.dex */
 final class b {
-    private static Method jcL;
+    private static Method jcP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static List<File> a(Context context, ApplicationInfo applicationInfo, File file, boolean z) throws IOException {
@@ -39,18 +39,18 @@ final class b {
             } catch (IOException e) {
                 Log.w("MultiDex", "Failed to reload existing extracted secondary dex files, falling back to fresh extraction", e);
                 if (context instanceof c.a) {
-                    ((c.a) context).getSplash().csh();
+                    ((c.a) context).getSplash().cse();
                 }
                 performExtractions = performExtractions(file2, file);
-                b(context, getTimeStamp(file2), zipCrc, performExtractions.size() + 1);
+                a(context, getTimeStamp(file2), zipCrc, performExtractions.size() + 1);
             }
         } else {
             Log.i("MultiDex", "Detected that extraction must be performed.");
             if (context instanceof c.a) {
-                ((c.a) context).getSplash().csh();
+                ((c.a) context).getSplash().cse();
             }
             performExtractions = performExtractions(file2, file);
-            b(context, getTimeStamp(file2), zipCrc, performExtractions.size() + 1);
+            a(context, getTimeStamp(file2), zipCrc, performExtractions.size() + 1);
         }
         Log.i("MultiDex", "load found " + performExtractions.size() + " secondary dex files");
         return performExtractions;
@@ -143,7 +143,7 @@ final class b {
         }
     }
 
-    private static void b(Context context, long j, long j2, int i) {
+    private static void a(Context context, long j, long j2, int i) {
         SharedPreferences.Editor edit = getMultiDexPreferences(context).edit();
         edit.putLong("timestamp", j);
         edit.putLong("crc", j2);
@@ -242,9 +242,9 @@ final class b {
     }
 
     private static void apply(SharedPreferences.Editor editor) {
-        if (jcL != null) {
+        if (jcP != null) {
             try {
-                jcL.invoke(editor, new Object[0]);
+                jcP.invoke(editor, new Object[0]);
                 return;
             } catch (IllegalAccessException e) {
             } catch (InvocationTargetException e2) {
@@ -255,9 +255,9 @@ final class b {
 
     static {
         try {
-            jcL = SharedPreferences.Editor.class.getMethod(AuthoritySharedPreferences.KEY_CONFIG_PRIVILEGE_APPLY, new Class[0]);
+            jcP = SharedPreferences.Editor.class.getMethod(AuthoritySharedPreferences.KEY_CONFIG_PRIVILEGE_APPLY, new Class[0]);
         } catch (NoSuchMethodException e) {
-            jcL = null;
+            jcP = null;
         }
     }
 }

@@ -29,8 +29,8 @@ import tv.chushou.basis.http.HttpConsts;
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    public static boolean PK() {
-        return com.baidu.swan.apps.w.a.aca().PK();
+    public static boolean PJ() {
+        return com.baidu.swan.apps.w.a.abZ().PJ();
     }
 
     public static void e(File file, File file2) throws IOException {
@@ -179,7 +179,7 @@ public class a {
         }
     }
 
-    public static void bG(@NonNull Context context) {
+    public static void bu(@NonNull Context context) {
         JSONObject jSONObject = new JSONObject();
         try {
             Class<?> cls = Class.forName("android.content.res.AssetManager");
@@ -236,7 +236,7 @@ public class a {
         if (DEBUG) {
             Log.d("SwanAppCoreUtils", "reportFatalInfo: " + jSONObject2);
         }
-        new a.C0327a(10006).mR(jSONObject2).mQ(e.akP()).aee();
+        new a.C0348a(10006).mR(jSONObject2).mQ(e.akO()).aed();
     }
 
     public static void r(String str, String str2, String str3) {
@@ -256,7 +256,7 @@ public class a {
             if (DEBUG) {
                 Log.d("SwanAppCoreUtils", "reportInsertHistoryCrash: " + jSONObject2);
             }
-            new a.C0327a(10008).mR(jSONObject2).mQ(e.akP()).aee();
+            new a.C0348a(10008).mR(jSONObject2).mQ(e.akO()).aed();
         } catch (Exception e) {
             if (DEBUG) {
                 e.printStackTrace();

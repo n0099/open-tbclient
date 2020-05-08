@@ -17,25 +17,25 @@ import java.util.Arrays;
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    public static C0330a c(String str, String str2, String str3, int i) {
+    public static C0351a c(String str, String str2, String str3, int i) {
         if (DEBUG) {
             Log.d("RemoteSwanCoreControl", "doRemoteUpdate start.");
             Log.d("RemoteSwanCoreControl", "doRemoteUpdate version: " + str + " ,filePath: " + str2 + " ,sign:" + str3);
         }
         long nB = com.baidu.swan.apps.swancore.b.nB(str);
         if (nB == 0) {
-            return C0330a.nC("invalid version code : " + str);
+            return C0351a.nC("invalid version code : " + str);
         }
         if (!ab.e(new File(str2), str3)) {
-            return C0330a.nC("sign failed.");
+            return C0351a.nC("sign failed.");
         }
         if (!c.unzipFile(str2, g(nB, i).getPath())) {
-            return C0330a.nC("unzip bundle failed.");
+            return C0351a.nC("unzip bundle failed.");
         }
         if (DEBUG) {
             String md5 = d.toMd5(new File(str2), false);
             if (!TextUtils.isEmpty(md5)) {
-                h.anz().putString(com.baidu.swan.apps.swancore.a.gA(i), md5);
+                h.any().putString(com.baidu.swan.apps.swancore.a.gA(i), md5);
             }
         }
         com.baidu.swan.apps.swancore.b.b(gZ(i), m(gX(i), nB));
@@ -43,20 +43,20 @@ public class a {
         if (DEBUG) {
             Log.d("RemoteSwanCoreControl", "doRemoteUpdate end. version = " + nB);
         }
-        return C0330a.anM();
+        return C0351a.anL();
     }
 
     private static ArrayList<Long> m(long j, long j2) {
-        SwanCoreVersion YI;
+        SwanCoreVersion YH;
         ArrayList<Long> arrayList = new ArrayList<>();
         if (j != 0) {
             arrayList.add(Long.valueOf(j));
         }
         arrayList.add(Long.valueOf(j2));
-        for (com.baidu.swan.apps.process.messaging.service.c cVar : e.ajC().ajE()) {
-            SwanAppCores ajs = cVar.ajs();
-            if (cVar.ajt() && ajs != null && (YI = ajs.YI()) != null && !arrayList.contains(Long.valueOf(YI.swanCoreVersion))) {
-                arrayList.add(Long.valueOf(YI.swanCoreVersion));
+        for (com.baidu.swan.apps.process.messaging.service.c cVar : e.ajB().ajD()) {
+            SwanAppCores ajr = cVar.ajr();
+            if (cVar.ajs() && ajr != null && (YH = ajr.YH()) != null && !arrayList.contains(Long.valueOf(YH.swanCoreVersion))) {
+                arrayList.add(Long.valueOf(YH.swanCoreVersion));
             }
         }
         arrayList.addAll(com.baidu.swan.mini.a.aBr());
@@ -75,7 +75,7 @@ public class a {
     }
 
     public static long gX(int i) {
-        return h.anz().getLong(gY(i), 0L);
+        return h.any().getLong(gY(i), 0L);
     }
 
     private static String gY(int i) {
@@ -83,12 +83,12 @@ public class a {
     }
 
     private static void f(final long j, final int i) {
-        h.anz().putLong(gY(i), j);
+        h.any().putLong(gY(i), j);
         m.postOnIO(new Runnable() { // from class: com.baidu.swan.apps.swancore.e.a.1
             @Override // java.lang.Runnable
             public void run() {
                 try {
-                    com.baidu.swan.apps.swancore.a.anA().c(j, i);
+                    com.baidu.swan.apps.swancore.a.anz().c(j, i);
                 } catch (Exception e) {
                     if (a.DEBUG) {
                         e.printStackTrace();
@@ -108,7 +108,7 @@ public class a {
 
     /* renamed from: com.baidu.swan.apps.swancore.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public static class C0330a {
+    public static class C0351a {
         public String message;
         public int statusCode = 0;
 
@@ -116,19 +116,19 @@ public class a {
             return this.statusCode == 0;
         }
 
-        public static C0330a anM() {
+        public static C0351a anL() {
             return T(0, "");
         }
 
-        public static C0330a nC(String str) {
+        public static C0351a nC(String str) {
             return T(1, str);
         }
 
-        public static C0330a T(int i, String str) {
-            C0330a c0330a = new C0330a();
-            c0330a.statusCode = i;
-            c0330a.message = str;
-            return c0330a;
+        public static C0351a T(int i, String str) {
+            C0351a c0351a = new C0351a();
+            c0351a.statusCode = i;
+            c0351a.message = str;
+            return c0351a;
         }
 
         public String toString() {

@@ -1,42 +1,33 @@
 package com.baidu.sapi2;
 
-import com.baidu.pass.biometrics.face.liveness.callback.PassFaceRecogCallback;
-import com.baidu.pass.biometrics.face.liveness.result.PassFaceRecogResult;
-import com.baidu.sapi2.callback.VerifyUserFaceIDCallback;
-import com.baidu.sapi2.result.RealNameFaceIDResult;
+import com.baidu.sapi2.callback.AuthWidgetCallback;
+import com.baidu.sapi2.callback.RegisterUserFaceIDCallback;
+import com.baidu.sapi2.dto.FaceIDRegDTO;
+import com.baidu.sapi2.result.SapiResult;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes6.dex */
-public class j extends PassFaceRecogCallback {
-    final /* synthetic */ RealNameFaceIDResult a;
-    final /* synthetic */ VerifyUserFaceIDCallback b;
+public class j extends AuthWidgetCallback {
+    final /* synthetic */ RegisterUserFaceIDCallback a;
+    final /* synthetic */ FaceIDRegDTO b;
     final /* synthetic */ PassportSDK c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public j(PassportSDK passportSDK, RealNameFaceIDResult realNameFaceIDResult, VerifyUserFaceIDCallback verifyUserFaceIDCallback) {
+    public j(PassportSDK passportSDK, RegisterUserFaceIDCallback registerUserFaceIDCallback, FaceIDRegDTO faceIDRegDTO) {
         this.c = passportSDK;
-        this.a = realNameFaceIDResult;
-        this.b = verifyUserFaceIDCallback;
+        this.a = registerUserFaceIDCallback;
+        this.b = faceIDRegDTO;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.pass.biometrics.base.callback.PassBiometricCallback
-    /* renamed from: a */
-    public void onFailure(PassFaceRecogResult passFaceRecogResult) {
-        this.a.setResultCode(passFaceRecogResult.getResultCode());
-        this.a.setResultMsg(passFaceRecogResult.getResultMsg());
-        this.b.onFailure(this.a);
+    @Override // com.baidu.sapi2.callback.AuthWidgetCallback
+    public void onFailure(SapiResult sapiResult) {
+        this.a.onFailure(sapiResult);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.pass.biometrics.base.callback.PassBiometricCallback
-    /* renamed from: b */
-    public void onSuccess(PassFaceRecogResult passFaceRecogResult) {
-        this.a.setResultCode(passFaceRecogResult.getResultCode());
-        this.a.setResultMsg(passFaceRecogResult.getResultMsg());
-        RealNameFaceIDResult realNameFaceIDResult = this.a;
-        realNameFaceIDResult.authSid = passFaceRecogResult.authSid;
-        realNameFaceIDResult.callBackKey = passFaceRecogResult.callbackkey;
-        realNameFaceIDResult.setResultCode(0);
-        this.b.onSuccess(this.a);
+    @Override // com.baidu.sapi2.callback.AuthWidgetCallback
+    public void onSuccess(String str) {
+        PassportSDK passportSDK = this.c;
+        RegisterUserFaceIDCallback registerUserFaceIDCallback = this.a;
+        FaceIDRegDTO faceIDRegDTO = this.b;
+        passportSDK.b(registerUserFaceIDCallback, "faceDetect", str, faceIDRegDTO.livingUname, faceIDRegDTO.showGuidePage, faceIDRegDTO.subpro, faceIDRegDTO.businessSence);
     }
 }

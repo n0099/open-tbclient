@@ -1,48 +1,35 @@
 package com.xiaomi.push;
 
 import android.content.Context;
-import android.text.TextUtils;
+import com.xiaomi.push.ai;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes8.dex */
-public class bq extends bs {
-    public bq(String str, String str2, String[] strArr, String str3) {
-        super(str, str2, strArr, str3);
+public class bq extends ai.a {
+    final /* synthetic */ bp a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public bq(bp bpVar) {
+        this.a = bpVar;
     }
 
-    public static bq a(Context context, String str, int i) {
-        com.xiaomi.channel.commonutils.logger.b.b("delete  messages when db size is too bigger");
-        String m170a = bw.a(context).m170a(str);
-        if (TextUtils.isEmpty(m170a)) {
-            return null;
-        }
-        StringBuilder sb = new StringBuilder();
-        sb.append("rowDataId in (select ");
-        sb.append("rowDataId from " + m170a);
-        sb.append(" order by createTimeStamp asc");
-        sb.append(" limit ?)");
-        return new bq(str, sb.toString(), new String[]{String.valueOf(i)}, "a job build to delete history message");
+    @Override // com.xiaomi.push.ai.a
+    /* renamed from: a */
+    public int mo162a() {
+        return 10052;
     }
 
-    private void a(long j) {
-        if (this.f173a == null || this.f173a.length <= 0) {
-            return;
-        }
-        this.f173a[0] = String.valueOf(j);
-    }
-
-    @Override // com.xiaomi.push.bw.a
-    public void a(Context context, Object obj) {
-        if (obj instanceof Long) {
-            long longValue = ((Long) obj).longValue();
-            long a = cc.a(a());
-            long j = bo.f156a;
-            if (a <= j) {
-                com.xiaomi.channel.commonutils.logger.b.b("db size is suitable");
-                return;
-            }
-            long j2 = (long) (longValue * (((a - j) * 1.2d) / j));
-            a(j2);
-            bk.a(context).a("begin delete " + j2 + "noUpload messages , because db size is " + a + "B");
-            super.a(context, obj);
+    @Override // java.lang.Runnable
+    public void run() {
+        cf cfVar;
+        cf cfVar2;
+        Context context;
+        com.xiaomi.channel.commonutils.logger.b.c("exec== mUploadJob");
+        cfVar = this.a.f136a;
+        if (cfVar != null) {
+            cfVar2 = this.a.f136a;
+            context = this.a.f133a;
+            cfVar2.a(context);
+            this.a.b("upload_time");
         }
     }
 }

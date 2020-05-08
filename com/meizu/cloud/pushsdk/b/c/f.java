@@ -29,27 +29,27 @@ public class f {
     /* renamed from: com.meizu.cloud.pushsdk.b.c.f$1  reason: invalid class name */
     /* loaded from: classes8.dex */
     public static /* synthetic */ class AnonymousClass1 {
-        static final /* synthetic */ int[] a = new int[a.EnumC0754a.values().length];
+        static final /* synthetic */ int[] a = new int[a.EnumC0775a.values().length];
 
         static {
             try {
-                a[a.EnumC0754a.SUCCESS.ordinal()] = 1;
+                a[a.EnumC0775a.SUCCESS.ordinal()] = 1;
             } catch (NoSuchFieldError e) {
             }
             try {
-                a[a.EnumC0754a.INVALID_HOST.ordinal()] = 2;
+                a[a.EnumC0775a.INVALID_HOST.ordinal()] = 2;
             } catch (NoSuchFieldError e2) {
             }
             try {
-                a[a.EnumC0754a.UNSUPPORTED_SCHEME.ordinal()] = 3;
+                a[a.EnumC0775a.UNSUPPORTED_SCHEME.ordinal()] = 3;
             } catch (NoSuchFieldError e3) {
             }
             try {
-                a[a.EnumC0754a.MISSING_SCHEME.ordinal()] = 4;
+                a[a.EnumC0775a.MISSING_SCHEME.ordinal()] = 4;
             } catch (NoSuchFieldError e4) {
             }
             try {
-                a[a.EnumC0754a.INVALID_PORT.ordinal()] = 5;
+                a[a.EnumC0775a.INVALID_PORT.ordinal()] = 5;
             } catch (NoSuchFieldError e5) {
             }
         }
@@ -69,7 +69,7 @@ public class f {
         /* JADX INFO: Access modifiers changed from: package-private */
         /* renamed from: com.meizu.cloud.pushsdk.b.c.f$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public enum EnumC0754a {
+        public enum EnumC0775a {
             SUCCESS,
             MISSING_SCHEME,
             UNSUPPORTED_SCHEME,
@@ -98,23 +98,23 @@ public class f {
                 }
                 i4 = i5 + 2;
             }
-            com.meizu.cloud.pushsdk.b.g.a aVar = new com.meizu.cloud.pushsdk.b.g.a();
+            com.meizu.cloud.pushsdk.b.g.b bVar = new com.meizu.cloud.pushsdk.b.g.b();
             while (i < bArr.length) {
                 if (i == i3) {
-                    aVar.b(58);
+                    bVar.b(58);
                     i += i2;
                     if (i == 16) {
-                        aVar.b(58);
+                        bVar.b(58);
                     }
                 } else {
                     if (i > 0) {
-                        aVar.b(58);
+                        bVar.b(58);
                     }
-                    aVar.d(((bArr[i] & 255) << 8) | (bArr[i + 1] & 255));
+                    bVar.d(((bArr[i] & 255) << 8) | (bArr[i + 1] & 255));
                     i += 2;
                 }
             }
-            return aVar.h();
+            return bVar.h();
         }
 
         private void a(String str, int i, int i2) {
@@ -388,7 +388,7 @@ public class f {
             return this.e != -1 ? this.e : f.a(this.a);
         }
 
-        EnumC0754a a(f fVar, String str) {
+        EnumC0775a a(f fVar, String str) {
             int i;
             int a = m.a(str, 0, str.length());
             int b = m.b(str, a, str.length());
@@ -397,13 +397,13 @@ public class f {
                     this.a = "https";
                     a += UrlSchemaHelper.SCHEMA_TYPE_HTTPS.length();
                 } else if (!str.regionMatches(true, a, UrlSchemaHelper.SCHEMA_TYPE_HTTP, 0, 5)) {
-                    return EnumC0754a.UNSUPPORTED_SCHEME;
+                    return EnumC0775a.UNSUPPORTED_SCHEME;
                 } else {
                     this.a = HttpHost.DEFAULT_SCHEME_NAME;
                     a += UrlSchemaHelper.SCHEMA_TYPE_HTTP.length();
                 }
             } else if (fVar == null) {
-                return EnumC0754a.MISSING_SCHEME;
+                return EnumC0775a.MISSING_SCHEME;
             } else {
                 this.a = fVar.b;
             }
@@ -428,7 +428,7 @@ public class f {
                                 this.d = e(str, i3, d);
                                 this.e = g(str, d + 1, a2);
                                 if (this.e == -1) {
-                                    return EnumC0754a.INVALID_PORT;
+                                    return EnumC0775a.INVALID_PORT;
                                 }
                             } else {
                                 this.d = e(str, i3, d);
@@ -438,7 +438,7 @@ public class f {
                                 a = a2;
                                 break;
                             } else {
-                                return EnumC0754a.INVALID_HOST;
+                                return EnumC0775a.INVALID_HOST;
                             }
                         case '@':
                             if (z3) {
@@ -488,7 +488,7 @@ public class f {
             if (i < b && str.charAt(i) == '#') {
                 this.h = f.a(str, i + 1, b, "", true, false, false, false);
             }
-            return EnumC0754a.SUCCESS;
+            return EnumC0775a.SUCCESS;
         }
 
         public a a(String str) {
@@ -599,10 +599,10 @@ public class f {
         while (i3 < i2) {
             int codePointAt = str.codePointAt(i3);
             if (codePointAt < 32 || codePointAt == 127 || ((codePointAt >= 128 && z4) || str2.indexOf(codePointAt) != -1 || ((codePointAt == 37 && (!z || (z2 && !a(str, i3, i2)))) || (codePointAt == 43 && z3)))) {
-                com.meizu.cloud.pushsdk.b.g.a aVar = new com.meizu.cloud.pushsdk.b.g.a();
-                aVar.a(str, i, i3);
-                a(aVar, str, i3, i2, str2, z, z2, z3, z4);
-                return aVar.h();
+                com.meizu.cloud.pushsdk.b.g.b bVar = new com.meizu.cloud.pushsdk.b.g.b();
+                bVar.a(str, i, i3);
+                a(bVar, str, i3, i2, str2, z, z2, z3, z4);
+                return bVar.h();
             }
             i3 += Character.charCount(codePointAt);
         }
@@ -613,10 +613,10 @@ public class f {
         for (int i3 = i; i3 < i2; i3++) {
             char charAt = str.charAt(i3);
             if (charAt == '%' || (charAt == '+' && z)) {
-                com.meizu.cloud.pushsdk.b.g.a aVar = new com.meizu.cloud.pushsdk.b.g.a();
-                aVar.a(str, i, i3);
-                a(aVar, str, i3, i2, z);
-                return aVar.h();
+                com.meizu.cloud.pushsdk.b.g.b bVar = new com.meizu.cloud.pushsdk.b.g.b();
+                bVar.a(str, i, i3);
+                a(bVar, str, i3, i2, z);
+                return bVar.h();
             }
         }
         return str.substring(i, i2);
@@ -641,49 +641,49 @@ public class f {
         return Collections.unmodifiableList(arrayList);
     }
 
-    static void a(com.meizu.cloud.pushsdk.b.g.a aVar, String str, int i, int i2, String str2, boolean z, boolean z2, boolean z3, boolean z4) {
-        com.meizu.cloud.pushsdk.b.g.a aVar2 = null;
+    static void a(com.meizu.cloud.pushsdk.b.g.b bVar, String str, int i, int i2, String str2, boolean z, boolean z2, boolean z3, boolean z4) {
+        com.meizu.cloud.pushsdk.b.g.b bVar2 = null;
         while (i < i2) {
             int codePointAt = str.codePointAt(i);
             if (!z || (codePointAt != 9 && codePointAt != 10 && codePointAt != 12 && codePointAt != 13)) {
                 if (codePointAt == 43 && z3) {
-                    aVar.b(z ? "+" : "%2B");
+                    bVar.b(z ? "+" : "%2B");
                 } else if (codePointAt < 32 || codePointAt == 127 || ((codePointAt >= 128 && z4) || str2.indexOf(codePointAt) != -1 || (codePointAt == 37 && (!z || (z2 && !a(str, i, i2)))))) {
-                    if (aVar2 == null) {
-                        aVar2 = new com.meizu.cloud.pushsdk.b.g.a();
+                    if (bVar2 == null) {
+                        bVar2 = new com.meizu.cloud.pushsdk.b.g.b();
                     }
-                    aVar2.a(codePointAt);
-                    while (!aVar2.c()) {
-                        int f = aVar2.f() & 255;
-                        aVar.b(37);
-                        aVar.b((int) a[(f >> 4) & 15]);
-                        aVar.b((int) a[f & 15]);
+                    bVar2.a(codePointAt);
+                    while (!bVar2.c()) {
+                        int f = bVar2.f() & 255;
+                        bVar.b(37);
+                        bVar.b((int) a[(f >> 4) & 15]);
+                        bVar.b((int) a[f & 15]);
                     }
                 } else {
-                    aVar.a(codePointAt);
+                    bVar.a(codePointAt);
                 }
             }
             i += Character.charCount(codePointAt);
         }
     }
 
-    static void a(com.meizu.cloud.pushsdk.b.g.a aVar, String str, int i, int i2, boolean z) {
+    static void a(com.meizu.cloud.pushsdk.b.g.b bVar, String str, int i, int i2, boolean z) {
         int i3 = i;
         while (i3 < i2) {
             int codePointAt = str.codePointAt(i3);
             if (codePointAt != 37 || i3 + 2 >= i2) {
                 if (codePointAt == 43 && z) {
-                    aVar.b(32);
+                    bVar.b(32);
                 }
-                aVar.a(codePointAt);
+                bVar.a(codePointAt);
             } else {
                 int a2 = a(str.charAt(i3 + 1));
                 int a3 = a(str.charAt(i3 + 2));
                 if (a2 != -1 && a3 != -1) {
-                    aVar.b((a2 << 4) + a3);
+                    bVar.b((a2 << 4) + a3);
                     i3 += 2;
                 }
-                aVar.a(codePointAt);
+                bVar.a(codePointAt);
             }
             i3 += Character.charCount(codePointAt);
         }
@@ -740,7 +740,7 @@ public class f {
 
     public static f c(String str) {
         a aVar = new a();
-        if (aVar.a((f) null, str) == a.EnumC0754a.SUCCESS) {
+        if (aVar.a((f) null, str) == a.EnumC0775a.SUCCESS) {
             return aVar.b();
         }
         return null;

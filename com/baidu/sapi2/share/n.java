@@ -6,7 +6,6 @@ import android.os.Environment;
 import android.os.StatFs;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
-import com.baidu.android.pushservice.PushConstants;
 import com.baidu.mobstat.Config;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.utils.AES;
@@ -25,14 +24,14 @@ final class n {
             return null;
         }
         try {
-            return new String(new AES("AES", "AES/CBC/PKCS5Padding").decrypt(SapiDataEncryptor.hexToByte(str), com.baidu.sapi2.utils.f.s, a(context))).trim();
+            return new String(new AES(com.baidu.sapi2.utils.h.q, com.baidu.sapi2.utils.h.p).decrypt(SapiDataEncryptor.hexToByte(str), com.baidu.sapi2.utils.h.r, a(context))).trim();
         } catch (Exception e) {
             Log.e(e);
             HashMap hashMap = new HashMap();
             hashMap.put(Config.DEVICE_PART, Build.MODEL);
             hashMap.put("device_ver", Build.VERSION.RELEASE);
-            hashMap.put(PushConstants.EXTRA_ERROR_CODE, android.util.Log.getStackTraceString(e));
-            com.baidu.sapi2.utils.r.a("aes_decrypt_error", hashMap);
+            hashMap.put("error_msg", android.util.Log.getStackTraceString(e));
+            com.baidu.sapi2.utils.t.a("aes_decrypt_error", hashMap);
             return null;
         }
     }
@@ -42,14 +41,14 @@ final class n {
             return null;
         }
         try {
-            return SapiDataEncryptor.byteToHex(new AES("AES", "AES/CBC/PKCS5Padding").encrypt(str, com.baidu.sapi2.utils.f.s, a(context)));
+            return SapiDataEncryptor.byteToHex(new AES(com.baidu.sapi2.utils.h.q, com.baidu.sapi2.utils.h.p).encrypt(str, com.baidu.sapi2.utils.h.r, a(context)));
         } catch (Exception e) {
             Log.e(e);
             HashMap hashMap = new HashMap();
             hashMap.put(Config.DEVICE_PART, Build.MODEL);
             hashMap.put("device_ver", Build.VERSION.RELEASE);
-            hashMap.put(PushConstants.EXTRA_ERROR_CODE, android.util.Log.getStackTraceString(e));
-            com.baidu.sapi2.utils.r.a("aes_encrypt_error", hashMap);
+            hashMap.put("error_msg", android.util.Log.getStackTraceString(e));
+            com.baidu.sapi2.utils.t.a("aes_encrypt_error", hashMap);
             return null;
         }
     }

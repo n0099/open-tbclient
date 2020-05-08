@@ -13,10 +13,10 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.pb.data.e;
 /* loaded from: classes9.dex */
 public class PbThreadPostView extends LinearLayout {
-    public View jGa;
-    public TextView jGb;
-    public TextView jGc;
-    private e jqV;
+    public View jGe;
+    public TextView jGf;
+    public TextView jGg;
+    private e jqZ;
     private Context mContext;
     private View.OnClickListener mOnClickListener;
 
@@ -40,26 +40,26 @@ public class PbThreadPostView extends LinearLayout {
     }
 
     private void rL() {
-        this.jGa = findViewById(R.id.pb_thread_post_container);
-        this.jGb = (TextView) findViewById(R.id.pb_thread_post_content);
-        this.jGc = (TextView) findViewById(R.id.pb_thread_post_button);
+        this.jGe = findViewById(R.id.pb_thread_post_container);
+        this.jGf = (TextView) findViewById(R.id.pb_thread_post_content);
+        this.jGg = (TextView) findViewById(R.id.pb_thread_post_button);
     }
 
     public void setData(e eVar) {
-        this.jqV = eVar;
+        this.jqZ = eVar;
         pH(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void setChildOnClickLinstener(View.OnClickListener onClickListener) {
         if (this.mOnClickListener == null) {
             this.mOnClickListener = onClickListener;
-            this.jGc.setOnClickListener(this.mOnClickListener);
+            this.jGg.setOnClickListener(this.mOnClickListener);
         }
     }
 
     public void pH(int i) {
-        am.setBackgroundColor(this.jGa, R.color.cp_bg_line_e, i);
-        am.setViewTextColor(this.jGb, (int) R.color.cp_cont_j);
-        am.setViewTextColor(this.jGc, (int) R.color.cp_link_tip_a);
+        am.setBackgroundColor(this.jGe, R.color.cp_bg_line_e, i);
+        am.setViewTextColor(this.jGf, (int) R.color.cp_cont_j);
+        am.setViewTextColor(this.jGg, (int) R.color.cp_link_tip_a);
     }
 }

@@ -22,17 +22,17 @@ public class a extends b {
 
     @Override // com.baidu.swan.apps.network.c.b.b
     public void aG(JSONObject jSONObject) {
-        e akN;
+        e akM;
         if (DEBUG) {
             Log.d("SwanAppAccreditNode", "onUpdate: ");
         }
-        if (jSONObject != null && (akN = e.akN()) != null) {
-            akN.akX().putString("node_data_accredit_list", jSONObject.toString());
+        if (jSONObject != null && (akM = e.akM()) != null) {
+            akM.akW().putString("node_data_accredit_list", jSONObject.toString());
         }
     }
 
     @Override // com.baidu.swan.apps.network.c.b.b
-    public void aht() {
+    public void ahs() {
         if (DEBUG) {
             Log.d("SwanAppAccreditNode", "onFiltered: ");
         }
@@ -46,17 +46,17 @@ public class a extends b {
     }
 
     public static void d(@NonNull final com.baidu.swan.apps.as.d.b<Map<String, com.baidu.swan.apps.setting.oauth.e>> bVar) {
-        com.baidu.swan.apps.network.c.a.ahk().a(new com.baidu.swan.apps.network.c.a.a() { // from class: com.baidu.swan.apps.network.c.b.a.1
+        com.baidu.swan.apps.network.c.a.ahj().a(new com.baidu.swan.apps.network.c.a.a() { // from class: com.baidu.swan.apps.network.c.b.a.1
             @Override // com.baidu.swan.apps.network.c.a.a
-            public void aho() {
-                Map<String, com.baidu.swan.apps.setting.oauth.e> ahv = a.ahv();
-                if (ahv.size() > 0) {
-                    com.baidu.swan.apps.as.d.b.this.E(ahv);
+            public void ahn() {
+                Map<String, com.baidu.swan.apps.setting.oauth.e> ahu = a.ahu();
+                if (ahu.size() > 0) {
+                    com.baidu.swan.apps.as.d.b.this.F(ahu);
                 } else {
-                    com.baidu.swan.apps.network.c.a.ahk().b(new com.baidu.swan.apps.network.c.a.a() { // from class: com.baidu.swan.apps.network.c.b.a.1.1
+                    com.baidu.swan.apps.network.c.a.ahj().b(new com.baidu.swan.apps.network.c.a.a() { // from class: com.baidu.swan.apps.network.c.b.a.1.1
                         @Override // com.baidu.swan.apps.network.c.a.a
-                        public void aho() {
-                            com.baidu.swan.apps.as.d.b.this.E(a.ahv());
+                        public void ahn() {
+                            com.baidu.swan.apps.as.d.b.this.F(a.ahu());
                         }
                     });
                 }
@@ -65,17 +65,17 @@ public class a extends b {
     }
 
     public static void a(final String str, @NonNull final com.baidu.swan.apps.as.d.b<com.baidu.swan.apps.setting.oauth.e> bVar) {
-        com.baidu.swan.apps.network.c.a.ahk().a(new com.baidu.swan.apps.network.c.a.a() { // from class: com.baidu.swan.apps.network.c.b.a.2
+        com.baidu.swan.apps.network.c.a.ahj().a(new com.baidu.swan.apps.network.c.a.a() { // from class: com.baidu.swan.apps.network.c.b.a.2
             @Override // com.baidu.swan.apps.network.c.a.a
-            public void aho() {
-                com.baidu.swan.apps.setting.oauth.e eVar = a.ahv().get(str);
+            public void ahn() {
+                com.baidu.swan.apps.setting.oauth.e eVar = a.ahu().get(str);
                 if (eVar != null) {
-                    bVar.E(eVar);
+                    bVar.F(eVar);
                 } else {
-                    com.baidu.swan.apps.network.c.a.ahk().b(new com.baidu.swan.apps.network.c.a.a() { // from class: com.baidu.swan.apps.network.c.b.a.2.1
+                    com.baidu.swan.apps.network.c.a.ahj().b(new com.baidu.swan.apps.network.c.a.a() { // from class: com.baidu.swan.apps.network.c.b.a.2.1
                         @Override // com.baidu.swan.apps.network.c.a.a
-                        public void aho() {
-                            bVar.E(a.ahv().get(str));
+                        public void ahn() {
+                            bVar.F(a.ahu().get(str));
                         }
                     });
                 }
@@ -85,27 +85,27 @@ public class a extends b {
 
     @Nullable
     public static com.baidu.swan.apps.setting.oauth.e kU(String str) {
-        return ahv().get(str);
+        return ahu().get(str);
     }
 
-    public static void ahu() {
-        e akN = e.akN();
-        if (akN != null) {
-            com.baidu.swan.apps.network.c.a.ahk().a(new a());
-            akN.akX().putString("node_data_accredit_list", "");
-            com.baidu.swan.apps.network.c.a.ahk().update();
+    public static void aht() {
+        e akM = e.akM();
+        if (akM != null) {
+            com.baidu.swan.apps.network.c.a.ahj().a(new a());
+            akM.akW().putString("node_data_accredit_list", "");
+            com.baidu.swan.apps.network.c.a.ahj().update();
         }
     }
 
     @NonNull
-    public static Map<String, com.baidu.swan.apps.setting.oauth.e> ahv() {
+    public static Map<String, com.baidu.swan.apps.setting.oauth.e> ahu() {
         JSONObject optJSONObject;
         ArrayMap arrayMap = new ArrayMap();
-        e akN = e.akN();
-        if (akN == null) {
+        e akM = e.akM();
+        if (akM == null) {
             return arrayMap;
         }
-        String string = akN.akX().getString("node_data_accredit_list", "");
+        String string = akM.akW().getString("node_data_accredit_list", "");
         if (TextUtils.isEmpty(string)) {
             return arrayMap;
         }

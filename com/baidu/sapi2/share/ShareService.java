@@ -68,7 +68,7 @@ public final class ShareService extends Service {
                 }
                 String string = readBundle.getString("IQIYI_TOKEN");
                 boolean z = readBundle.getBoolean("EXTRA_OTHER_INFO");
-                if (SapiContext.getInstance(ShareService.this.a).shareLivingunameEnable()) {
+                if (SapiContext.getInstance().shareLivingunameEnable()) {
                     ArrayList arrayList = new ArrayList();
                     String string2 = readBundle.getString("V2_FACE_LOGIN_UIDS_TIMES");
                     if (!TextUtils.isEmpty(string2)) {
@@ -86,7 +86,7 @@ public final class ShareService extends Service {
                     int i4 = q.a[shareModel.a().ordinal()];
                     if (i4 != 1) {
                         if (i4 != 2) {
-                            if (i4 == 3 && (!com.baidu.sapi2.utils.enums.a.a.equals(loginShareDirection) || !SapiContext.getInstance(ShareService.this.a).getCurrentAccount().isGuestAccount())) {
+                            if (i4 == 3 && (!com.baidu.sapi2.utils.enums.a.a.equals(loginShareDirection) || !SapiContext.getInstance().getCurrentAccount().isGuestAccount())) {
                                 ShareService.this.a(parcel2);
                             }
                         } else if (!com.baidu.sapi2.utils.enums.a.b.equals(loginShareDirection)) {
@@ -142,7 +142,7 @@ public final class ShareService extends Service {
     void a(Context context) {
         try {
             this.a = context;
-            this.c = SapiContext.getInstance(context);
+            this.c = SapiContext.getInstance();
             this.b = SapiAccountManager.getInstance().getSapiConfiguration().loginShareStrategy();
             this.d = true;
         } catch (IllegalStateException e) {
@@ -180,12 +180,12 @@ public final class ShareService extends Service {
         x.a(this.a, this.b, shareModel);
         bundle.putParcelable("LOGIN_SHARE_MODEL", shareModel);
         bundle.putSerializable("RUNTIME_ENVIRONMENT", SapiAccountManager.getInstance().getSapiConfiguration().environment);
-        bundle.putInt(m.f, SapiAccountManager.VERSION_CODE);
-        if (SapiContext.getInstance(this.a).shareLivingunameEnable()) {
-            bundle.putString("V2_FACE_LOGIN_UIDS_TIMES", SapiContext.getInstance(this.a).getV2FaceLivingUnames());
+        bundle.putInt(m.f, 242);
+        if (SapiContext.getInstance().shareLivingunameEnable()) {
+            bundle.putString("V2_FACE_LOGIN_UIDS_TIMES", SapiContext.getInstance().getV2FaceLivingUnames());
         }
         bundle.putString("PKG", getPackageName());
-        if (x.a()) {
+        if (x.b()) {
             bundle.putBoolean("VEHICLE_SYSTEM", true);
         }
         parcel.writeBundle(bundle);

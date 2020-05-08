@@ -15,50 +15,50 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes9.dex */
 public class d extends i {
-    private h gIZ;
-    private final k grq;
-    private final List<g> grt;
-    private final k.c gry;
-    private ViewEventCenter gyO;
+    private h gJf;
+    private final k.c grE;
+    private final k grw;
+    private final List<g> grz;
+    private ViewEventCenter gyU;
     private Context mContext;
     private TbPageContext mPageContext;
 
     public d(TbPageContext tbPageContext, ViewEventCenter viewEventCenter) {
         super(tbPageContext);
-        this.gry = new k.c() { // from class: com.baidu.tieba.enterForum.view.d.1
+        this.grE = new k.c() { // from class: com.baidu.tieba.enterForum.view.d.1
             @Override // com.baidu.tbadk.core.dialog.k.c
             public void a(k kVar, int i, View view) {
                 d.this.dismiss();
                 if (!j.isNetWorkAvailable()) {
                     l.showToast(d.this.mContext, (int) R.string.network_not_available);
                 } else if (i == 2) {
-                    d.this.gyO.dispatchMvcEvent(new com.baidu.tbadk.mvc.c.b(4, d.this.gIZ, null, null));
+                    d.this.gyU.dispatchMvcEvent(new com.baidu.tbadk.mvc.c.b(4, d.this.gJf, null, null));
                 } else if (i == 1) {
-                    d.this.gyO.dispatchMvcEvent(new com.baidu.tbadk.mvc.c.b(13, d.this.gIZ, null, null));
+                    d.this.gyU.dispatchMvcEvent(new com.baidu.tbadk.mvc.c.b(13, d.this.gJf, null, null));
                 }
             }
         };
         this.mPageContext = tbPageContext;
         this.mContext = this.mPageContext.getPageActivity();
-        this.gyO = viewEventCenter;
-        this.grt = new ArrayList();
-        this.grq = new k(this.mContext);
-        this.grq.a(this.gry);
-        a(this.grq);
+        this.gyU = viewEventCenter;
+        this.grz = new ArrayList();
+        this.grw = new k(this.mContext);
+        this.grw.a(this.grE);
+        a(this.grw);
     }
 
     public void onChangeSkinType() {
-        if (this.grq != null) {
-            this.grq.onChangeSkinType();
+        if (this.grw != null) {
+            this.grw.onChangeSkinType();
         }
     }
 
     private void createView() {
-        if (this.gIZ != null && this.grt != null && this.grq != null) {
-            this.grt.clear();
-            this.grt.add(new g(1, getString(this.gIZ.bHK() == 1 ? R.string.cancel_top : R.string.f1287top, new Object[0]), this.grq));
-            this.grt.add(new g(2, getString(R.string.delete, new Object[0]), this.grq));
-            this.grq.aI(this.grt);
+        if (this.gJf != null && this.grz != null && this.grw != null) {
+            this.grz.clear();
+            this.grz.add(new g(1, getString(this.gJf.bHI() == 1 ? R.string.cancel_top : R.string.f1279top, new Object[0]), this.grw));
+            this.grz.add(new g(2, getString(R.string.delete, new Object[0]), this.grw));
+            this.grw.aI(this.grz);
         }
     }
 
@@ -70,7 +70,7 @@ public class d extends i {
     }
 
     public void c(h hVar) {
-        this.gIZ = hVar;
+        this.gJf = hVar;
         createView();
     }
 }

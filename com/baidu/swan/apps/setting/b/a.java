@@ -19,19 +19,19 @@ import java.util.Set;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public final class a {
-    private static final Map<String, a> ctr = new HashMap();
-    private e cfX;
-    public JSONObject csD;
-    private final String csR;
-    private boolean csU;
+    private static final Map<String, a> cty = new HashMap();
+    private e cgd;
+    public JSONObject csJ;
+    private final String csX;
+    private boolean cta;
     public final Activity mActivity;
     private final String mScope;
-    private final Set<b<a>> ciJ = new HashSet();
-    private TaskState cts = TaskState.INIT;
+    private final Set<b<a>> ciP = new HashSet();
+    private TaskState ctz = TaskState.INIT;
     private boolean mIsLogin = false;
-    public final com.baidu.swan.apps.ap.a ctt = new com.baidu.swan.apps.ap.a().bn(8).nL("OpenData");
-    private boolean ctu = false;
-    private final com.baidu.swan.apps.as.c.a ctv = new com.baidu.swan.apps.as.c.a() { // from class: com.baidu.swan.apps.setting.b.a.1
+    public final com.baidu.swan.apps.ap.a ctA = new com.baidu.swan.apps.ap.a().bn(8).nL("OpenData");
+    private boolean ctB = false;
+    private final com.baidu.swan.apps.as.c.a ctC = new com.baidu.swan.apps.as.c.a() { // from class: com.baidu.swan.apps.setting.b.a.1
         @Override // java.lang.Runnable
         public void run() {
             a.this.onStart();
@@ -39,12 +39,12 @@ public final class a {
     };
 
     public static void a(Activity activity, String str, String str2, boolean z, b<a> bVar) {
-        synchronized (ctr) {
+        synchronized (cty) {
             String H = H(str, z);
-            a aVar = ctr.get(H);
+            a aVar = cty.get(H);
             if (aVar == null) {
                 a aVar2 = new a(activity, str, str2, z);
-                ctr.put(H, aVar2);
+                cty.put(H, aVar2);
                 aVar2.j(bVar);
             } else {
                 c.i("OpenData", "reuse session : " + aVar.toString());
@@ -57,25 +57,25 @@ public final class a {
         return str + "/" + (z ? "1" : "0");
     }
 
-    public boolean amM() {
-        return TaskState.FINISHED == this.cts && 0 == this.ctt.aos() && this.csD != null;
+    public boolean amL() {
+        return TaskState.FINISHED == this.ctz && 0 == this.ctA.aor() && this.csJ != null;
     }
 
-    public boolean amN() {
-        return TaskState.FINISHED == this.cts && this.csD != null;
+    public boolean amM() {
+        return TaskState.FINISHED == this.ctz && this.csJ != null;
     }
 
     private a(Activity activity, String str, String str2, boolean z) {
         this.mActivity = activity;
         this.mScope = str;
-        this.csR = str2;
-        this.csU = z;
+        this.csX = str2;
+        this.cta = z;
     }
 
     private a i(b<a> bVar) {
         if (bVar != null) {
-            synchronized (this.ciJ) {
-                this.ciJ.add(bVar);
+            synchronized (this.ciP) {
+                this.ciP.add(bVar);
             }
         }
         return this;
@@ -83,77 +83,77 @@ public final class a {
 
     private void j(b<a> bVar) {
         c.i("OpenData", "start session : " + this.mScope);
-        this.cts = TaskState.CALLING;
-        this.ctu = TextUtils.equals(this.mScope, "snsapi_userinfo");
+        this.ctz = TaskState.CALLING;
+        this.ctB = TextUtils.equals(this.mScope, "snsapi_userinfo");
         i(bVar);
-        this.cfX = e.akN();
-        if (this.cfX == null) {
+        this.cgd = e.akM();
+        if (this.cgd == null) {
             com.baidu.swan.apps.setting.oauth.c.c("SwanApp is null", true);
-            this.ctt.bp(10001L);
+            this.ctA.bp(10001L);
             finish();
             return;
         }
-        this.cfX.akX().crz.b(this.ctv);
+        this.cgd.akW().crF.b(this.ctC);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void onStart() {
-        this.mIsLogin = this.cfX.akY().isLogin(this.mActivity);
-        amO();
+        this.mIsLogin = this.cgd.akX().isLogin(this.mActivity);
+        amN();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void amO() {
-        d.akK().akM().ON().PH().a(this.mActivity, this.mScope, this.csR, this.csU, this.mIsLogin).h(new b<h<JSONObject>>() { // from class: com.baidu.swan.apps.setting.b.a.2
+    public void amN() {
+        d.akJ().akL().OM().PG().a(this.mActivity, this.mScope, this.csX, this.cta, this.mIsLogin).h(new b<h<JSONObject>>() { // from class: com.baidu.swan.apps.setting.b.a.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.as.d.b
             /* renamed from: a */
-            public void E(h<JSONObject> hVar) {
+            public void F(h<JSONObject> hVar) {
                 if (hVar == null || !hVar.isOk() || hVar.mData == null) {
                     com.baidu.swan.apps.setting.oauth.c.c("bad MaOpenData response", true);
-                    a.this.ctt.bp(10001L);
+                    a.this.ctA.bp(10001L);
                     a.this.finish();
                     return;
                 }
                 c.i("OpenData", hVar.mData.toString());
-                a.this.ctt.bp(hVar.mData.optInt(BaseJsonData.TAG_ERRNO, 10001));
-                a.this.ctt.nL(hVar.mData.optString(BaseJsonData.TAG_ERRMSG, "internal error"));
-                if (0 != a.this.ctt.aop()) {
+                a.this.ctA.bp(hVar.mData.optInt(BaseJsonData.TAG_ERRNO, 10001));
+                a.this.ctA.nL(hVar.mData.optString(BaseJsonData.TAG_ERRMSG, "internal error"));
+                if (0 != a.this.ctA.aoo()) {
                     com.baidu.swan.apps.setting.oauth.c.c("by errno", true);
-                    a.this.ctt.bp(10001L);
+                    a.this.ctA.bp(10001L);
                     a.this.finish();
                     return;
                 }
                 JSONObject optJSONObject = hVar.mData.optJSONObject("data");
                 if (optJSONObject == null) {
                     com.baidu.swan.apps.setting.oauth.c.c("by data parse", true);
-                    a.this.ctt.bp(10001L);
+                    a.this.ctA.bp(10001L);
                     a.this.finish();
                     return;
                 }
                 com.baidu.swan.apps.setting.oauth.e bb = com.baidu.swan.apps.setting.oauth.e.bb(optJSONObject.optJSONObject("scope"));
                 if (bb == null) {
                     com.baidu.swan.apps.setting.oauth.c.c("illegal scope", true);
-                    a.this.ctt.bp(10001L);
+                    a.this.ctA.bp(10001L);
                     a.this.finish();
                     return;
                 }
-                a.this.csD = optJSONObject.optJSONObject("opendata");
-                if (!a.this.csU && bb.csr < 0) {
-                    if (bb.csr == -2) {
-                        a.this.ctt.bp(10006L);
+                a.this.csJ = optJSONObject.optJSONObject("opendata");
+                if (!a.this.cta && bb.csx < 0) {
+                    if (bb.csx == -2) {
+                        a.this.ctA.bp(10006L);
                     } else {
-                        a.this.ctt.bp(10005L);
+                        a.this.ctA.bp(10005L);
                     }
                     a.this.finish();
-                } else if (bb.csr <= 0) {
-                    if (!a.this.cfX.Ru()) {
-                        if (a.this.mIsLogin || !bb.amy()) {
-                            com.baidu.swan.apps.setting.oauth.c.a(a.this.mActivity, a.this.cfX, bb, a.this.csD, new com.baidu.swan.apps.setting.oauth.a() { // from class: com.baidu.swan.apps.setting.b.a.2.1
+                } else if (bb.csx <= 0) {
+                    if (!a.this.cgd.Rt()) {
+                        if (a.this.mIsLogin || !bb.amx()) {
+                            com.baidu.swan.apps.setting.oauth.c.a(a.this.mActivity, a.this.cgd, bb, a.this.csJ, new com.baidu.swan.apps.setting.oauth.a() { // from class: com.baidu.swan.apps.setting.b.a.2.1
                                 @Override // com.baidu.swan.apps.setting.oauth.a
                                 public void onResult(boolean z) {
                                     if (!z) {
-                                        a.this.ctt.bp(10003L);
+                                        a.this.ctA.bp(10003L);
                                     }
                                     a.this.eN(z);
                                 }
@@ -164,38 +164,38 @@ public final class a {
                             return;
                         }
                     }
-                    a.this.ctt.bp(10005L);
+                    a.this.ctA.bp(10005L);
                     a.this.finish();
                 } else {
-                    a.this.csD = optJSONObject.optJSONObject("opendata");
+                    a.this.csJ = optJSONObject.optJSONObject("opendata");
                     a.this.finish();
                 }
             }
-        }).amq();
+        }).amp();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void login() {
-        this.cfX.akY().a(this.mActivity, null, new com.baidu.swan.apps.a.a() { // from class: com.baidu.swan.apps.setting.b.a.3
+        this.cgd.akX().a(this.mActivity, null, new com.baidu.swan.apps.a.a() { // from class: com.baidu.swan.apps.setting.b.a.3
             @Override // com.baidu.swan.apps.a.a
             public void onResult(int i) {
                 com.baidu.swan.apps.setting.oauth.c.c("onResult :: " + i, false);
                 switch (i) {
                     case -2:
                         com.baidu.swan.apps.setting.oauth.c.c("login error ERR_BY_UESR_REFUSE", true);
-                        a.this.ctt.bp(10004L);
+                        a.this.ctA.bp(10004L);
                         a.this.finish();
                         return;
                     case -1:
                     default:
                         com.baidu.swan.apps.setting.oauth.c.c("login error ERR_BY_LOGIN", true);
-                        a.this.ctt.bp(10004L);
+                        a.this.ctA.bp(10004L);
                         a.this.finish();
                         return;
                     case 0:
                         com.baidu.swan.apps.setting.oauth.c.c("Login Preparation ok, is already login", false);
                         a.this.mIsLogin = true;
-                        a.this.amO();
+                        a.this.amN();
                         return;
                 }
             }
@@ -204,61 +204,61 @@ public final class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void eN(final boolean z) {
-        if (TextUtils.isEmpty(this.csR)) {
-            d.akK().akM().ON().PH().a(this.mActivity, z, this.mScope, this.csR).h(new b<h<a.C0324a>>() { // from class: com.baidu.swan.apps.setting.b.a.4
+        if (TextUtils.isEmpty(this.csX)) {
+            d.akJ().akL().OM().PG().a(this.mActivity, z, this.mScope, this.csX).h(new b<h<a.C0345a>>() { // from class: com.baidu.swan.apps.setting.b.a.4
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.as.d.b
                 /* renamed from: a */
-                public void E(h<a.C0324a> hVar) {
-                    if (!z && !a.this.ctu) {
+                public void F(h<a.C0345a> hVar) {
+                    if (!z && !a.this.ctB) {
                         a.this.finish();
-                    } else if (hVar == null || !hVar.isOk() || hVar.mData == null || hVar.mData.csS == null) {
-                        a.this.ctt.bp(10002L).nL("bad Accredit response");
+                    } else if (hVar == null || !hVar.isOk() || hVar.mData == null || hVar.mData.csY == null) {
+                        a.this.ctA.bp(10002L).nL("bad Accredit response");
                         a.this.finish();
                     } else {
-                        a.this.csD = hVar.mData.csS;
+                        a.this.csJ = hVar.mData.csY;
                         a.this.finish();
                     }
                 }
-            }).amq();
+            }).amp();
         } else {
-            d.akK().akM().ON().PH().a(this.mActivity, true, z, new String[]{this.mScope}, this.csR, true).h(new b<h<b.d>>() { // from class: com.baidu.swan.apps.setting.b.a.5
+            d.akJ().akL().OM().PG().a(this.mActivity, true, z, new String[]{this.mScope}, this.csX, true).h(new b<h<b.d>>() { // from class: com.baidu.swan.apps.setting.b.a.5
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.as.d.b
                 /* renamed from: a */
-                public void E(h<b.d> hVar) {
+                public void F(h<b.d> hVar) {
                     if (hVar == null || !hVar.isOk()) {
-                        a.this.ctt.bp(10002L).nL("bad authorize response");
+                        a.this.ctA.bp(10002L).nL("bad authorize response");
                     }
                     a.this.finish();
                 }
-            }).amq();
+            }).amp();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void finish() {
-        this.ctv.finish();
-        synchronized (ctr) {
-            ctr.remove(H(this.mScope, this.csU));
+        this.ctC.finish();
+        synchronized (cty) {
+            cty.remove(H(this.mScope, this.cta));
         }
-        this.cts = TaskState.FINISHED;
-        if (this.csD == null && 0 == this.ctt.aos()) {
+        this.ctz = TaskState.FINISHED;
+        if (this.csJ == null && 0 == this.ctA.aor()) {
             if (this.mIsLogin) {
-                this.ctt.bp(10001L);
+                this.ctA.bp(10001L);
             } else {
-                this.ctt.bp(10004L);
+                this.ctA.bp(10004L);
             }
         }
         c.i("OpenData", "onFinish" + toString());
         com.baidu.swan.apps.setting.oauth.c.j(new Runnable() { // from class: com.baidu.swan.apps.setting.b.a.6
             @Override // java.lang.Runnable
             public void run() {
-                synchronized (a.this.ciJ) {
-                    for (com.baidu.swan.apps.as.d.b bVar : a.this.ciJ) {
-                        bVar.E(a.this);
+                synchronized (a.this.ciP) {
+                    for (com.baidu.swan.apps.as.d.b bVar : a.this.ciP) {
+                        bVar.F(a.this);
                     }
-                    a.this.ciJ.clear();
+                    a.this.ciP.clear();
                 }
             }
         });
@@ -266,12 +266,12 @@ public final class a {
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append(String.format(Locale.getDefault(), "%s(%s) isResultOK(%s) %s\n", "OpenData", this.mScope, Boolean.valueOf(amM()), super.toString()));
-        sb.append(String.format(Locale.getDefault(), "Err(%s)\n", this.ctt));
-        if (this.csD != null) {
-            sb.append(String.format(Locale.getDefault(), "Data(%s)\n", this.csD));
+        sb.append(String.format(Locale.getDefault(), "%s(%s) isResultOK(%s) %s\n", "OpenData", this.mScope, Boolean.valueOf(amL()), super.toString()));
+        sb.append(String.format(Locale.getDefault(), "Err(%s)\n", this.ctA));
+        if (this.csJ != null) {
+            sb.append(String.format(Locale.getDefault(), "Data(%s)\n", this.csJ));
         }
-        sb.append(String.format(Locale.getDefault(), "state=%s\n", this.cts));
+        sb.append(String.format(Locale.getDefault(), "state=%s\n", this.ctz));
         return sb.toString();
     }
 }

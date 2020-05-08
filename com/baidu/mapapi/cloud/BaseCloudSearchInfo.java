@@ -3,7 +3,7 @@ package com.baidu.mapapi.cloud;
 import com.baidu.live.tbadk.img.effect.FilterImageAction;
 import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.webkit.internal.ETAG;
-import com.coloros.mcssdk.mode.CommandMessage;
+import com.heytap.mcssdk.mode.CommandMessage;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 /* loaded from: classes8.dex */

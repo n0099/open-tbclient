@@ -7,41 +7,41 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a {
-    private List<AbsDelegateAdapter> aMd = new ArrayList();
-    private BdTypeListView aMf;
-    private b fVK;
-    private c fVL;
-    private e fVM;
-    private f fVN;
-    private d fVO;
+    private List<AbsDelegateAdapter> aMj = new ArrayList();
+    private BdTypeListView aMl;
+    private b fVP;
+    private c fVQ;
+    private e fVR;
+    private f fVS;
+    private d fVT;
     private TbPageContext mPageContext;
 
     public a(TbPageContext tbPageContext, BdTypeListView bdTypeListView) {
         this.mPageContext = tbPageContext;
-        this.aMf = bdTypeListView;
-        BC();
+        this.aMl = bdTypeListView;
+        BB();
     }
 
-    private void BC() {
-        this.fVK = new b(this.mPageContext, com.baidu.tieba.ala.person.hosttabpanel.b.a.fVR);
-        this.fVL = new c(this.mPageContext, com.baidu.tieba.ala.person.hosttabpanel.b.b.fVU);
-        this.fVM = new e(this.mPageContext, com.baidu.tieba.ala.person.hosttabpanel.b.d.fVW);
-        this.fVN = new f(this.mPageContext, com.baidu.tieba.ala.person.hosttabpanel.b.e.fVX);
-        this.fVO = new d(this.mPageContext, com.baidu.tieba.ala.person.hosttabpanel.b.c.fVV);
-        this.aMd.add(this.fVK);
-        this.aMd.add(this.fVL);
-        this.aMd.add(this.fVM);
-        this.aMd.add(this.fVN);
-        this.aMd.add(this.fVO);
-        this.aMf.addAdapters(this.aMd);
+    private void BB() {
+        this.fVP = new b(this.mPageContext, com.baidu.tieba.ala.person.hosttabpanel.b.a.fVW);
+        this.fVQ = new c(this.mPageContext, com.baidu.tieba.ala.person.hosttabpanel.b.b.fVZ);
+        this.fVR = new e(this.mPageContext, com.baidu.tieba.ala.person.hosttabpanel.b.d.fWb);
+        this.fVS = new f(this.mPageContext, com.baidu.tieba.ala.person.hosttabpanel.b.e.fWc);
+        this.fVT = new d(this.mPageContext, com.baidu.tieba.ala.person.hosttabpanel.b.c.fWa);
+        this.aMj.add(this.fVP);
+        this.aMj.add(this.fVQ);
+        this.aMj.add(this.fVR);
+        this.aMj.add(this.fVS);
+        this.aMj.add(this.fVT);
+        this.aMl.addAdapters(this.aMj);
     }
 
     public void onDestroy() {
-        if (this.fVK != null) {
-            this.fVK.onDestroy();
+        if (this.fVP != null) {
+            this.fVP.onDestroy();
         }
-        if (this.fVL != null) {
-            this.fVL.onDestroy();
+        if (this.fVQ != null) {
+            this.fVQ.onDestroy();
         }
     }
 }

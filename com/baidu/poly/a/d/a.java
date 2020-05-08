@@ -11,31 +11,31 @@ import java.io.FileInputStream;
 import java.io.IOException;
 /* loaded from: classes11.dex */
 public class a {
-    private com.baidu.poly.a.e.a bmS;
+    private com.baidu.poly.a.e.a bmX;
 
     public a(Context context) {
-        File S = S(context, "bitmap");
-        if (!S.exists()) {
-            S.mkdirs();
+        File G = G(context, "bitmap");
+        if (!G.exists()) {
+            G.mkdirs();
         }
         try {
-            this.bmS = com.baidu.poly.a.e.a.a(S, 1, 1, 10485760L);
+            this.bmX = com.baidu.poly.a.e.a.a(G, 1, 1, 10485760L);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
     public void e(String str) {
-        if (this.bmS != null) {
+        if (this.bmX != null) {
             try {
-                a.c fJ = this.bmS.fJ(com.baidu.poly.a.f.b.h(str));
+                a.c fJ = this.bmX.fJ(com.baidu.poly.a.f.b.h(str));
                 if (fJ != null) {
                     if (d.a(str, fJ.dA(0))) {
                         fJ.commit();
                     } else {
                         fJ.abort();
                     }
-                    this.bmS.flush();
+                    this.bmX.flush();
                 }
             } catch (IOException e) {
                 e.printStackTrace();
@@ -44,10 +44,10 @@ public class a {
     }
 
     public Bitmap k(String str, int i, int i2) {
-        if (this.bmS == null) {
+        if (this.bmX == null) {
             return null;
         }
-        a.e fI = this.bmS.fI(com.baidu.poly.a.f.b.h(str));
+        a.e fI = this.bmX.fI(com.baidu.poly.a.f.b.h(str));
         if (fI != null) {
             FileInputStream fileInputStream = (FileInputStream) fI.dD(0);
             if (i > 0 && i2 > 0) {
@@ -58,7 +58,7 @@ public class a {
         return null;
     }
 
-    public File S(Context context, String str) {
+    public File G(Context context, String str) {
         String path;
         if ("mounted".equals(Environment.getExternalStorageState()) && context.getExternalCacheDir() != null) {
             path = context.getExternalCacheDir().getPath();

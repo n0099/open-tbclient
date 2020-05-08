@@ -104,9 +104,9 @@ public final class DeviceId {
         if (aVar == null) {
             throw new NullPointerException("cuidV270Info should not be null");
         }
-        e sg = aVar.sg();
+        e sf = aVar.sf();
         this.e.a(aVar, true, false);
-        this.f.a(sg);
+        this.f.a(sf);
         this.e.a(aVar);
     }
 

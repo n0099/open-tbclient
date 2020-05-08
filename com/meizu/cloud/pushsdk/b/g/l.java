@@ -1,11 +1,14 @@
 package com.meizu.cloud.pushsdk.b.g;
 
 import java.io.Closeable;
+import java.io.Flushable;
 import java.io.IOException;
 /* loaded from: classes8.dex */
-public interface l extends Closeable {
-    long b(a aVar, long j) throws IOException;
+public interface l extends Closeable, Flushable {
+    void a(b bVar, long j) throws IOException;
 
-    @Override // java.lang.AutoCloseable, com.meizu.cloud.pushsdk.b.g.l
+    @Override // java.io.Closeable, java.lang.AutoCloseable, com.meizu.cloud.pushsdk.b.g.m
     void close() throws IOException;
+
+    void flush() throws IOException;
 }

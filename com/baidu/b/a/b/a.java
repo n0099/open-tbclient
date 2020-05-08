@@ -5,37 +5,37 @@ import android.text.TextUtils;
 import android.view.View;
 /* loaded from: classes13.dex */
 public class a implements b {
-    private static volatile a alv = null;
-    private b alw;
+    private static volatile a alB = null;
+    private b alC;
 
-    public static a sX() {
-        if (alv == null) {
+    public static a sW() {
+        if (alB == null) {
             synchronized (a.class) {
-                if (alv == null) {
-                    alv = new a();
+                if (alB == null) {
+                    alB = new a();
                 }
             }
         }
-        return alv;
+        return alB;
     }
 
     public void b(b bVar) {
-        this.alw = bVar;
+        this.alC = bVar;
     }
 
     @Override // com.baidu.b.a.b.b
-    public View M(Context context, String str) {
-        if (this.alw == null || str == null || TextUtils.isEmpty(str)) {
+    public View A(Context context, String str) {
+        if (this.alC == null || str == null || TextUtils.isEmpty(str)) {
             return null;
         }
-        return this.alw.M(context, str);
+        return this.alC.A(context, str);
     }
 
     @Override // com.baidu.b.a.b.b
     public boolean a(String str, View view, com.baidu.b.a.a.a aVar, boolean z) {
-        if (this.alw == null || view == null || aVar == null) {
+        if (this.alC == null || view == null || aVar == null) {
             return false;
         }
-        return this.alw.a(str, view, aVar, z);
+        return this.alC.a(str, view, aVar, z);
     }
 }

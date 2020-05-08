@@ -10,8 +10,8 @@ import android.widget.ListView;
 import com.baidu.tbadk.widget.dragsort.a;
 /* loaded from: classes.dex */
 public class e implements a.h {
-    private Bitmap ekX;
-    private int ekY = ViewCompat.MEASURED_STATE_MASK;
+    private Bitmap elc;
+    private int eld = ViewCompat.MEASURED_STATE_MASK;
     private ImageView mImageView;
     private ListView mListView;
 
@@ -20,7 +20,7 @@ public class e implements a.h {
     }
 
     public void setBackgroundColor(int i) {
-        this.ekY = i;
+        this.eld = i;
     }
 
     @Override // com.baidu.tbadk.widget.dragsort.a.h
@@ -31,14 +31,14 @@ public class e implements a.h {
         }
         childAt.setPressed(false);
         childAt.setDrawingCacheEnabled(true);
-        this.ekX = Bitmap.createBitmap(childAt.getDrawingCache());
+        this.elc = Bitmap.createBitmap(childAt.getDrawingCache());
         childAt.setDrawingCacheEnabled(false);
         if (this.mImageView == null) {
             this.mImageView = new ImageView(this.mListView.getContext());
         }
-        this.mImageView.setBackgroundColor(this.ekY);
+        this.mImageView.setBackgroundColor(this.eld);
         this.mImageView.setPadding(0, 0, 0, 0);
-        this.mImageView.setImageBitmap(this.ekX);
+        this.mImageView.setImageBitmap(this.elc);
         this.mImageView.setLayoutParams(new ViewGroup.LayoutParams(childAt.getWidth(), childAt.getHeight()));
         return this.mImageView;
     }
@@ -50,7 +50,7 @@ public class e implements a.h {
     @Override // com.baidu.tbadk.widget.dragsort.a.h
     public void bk(View view) {
         ((ImageView) view).setImageDrawable(null);
-        this.ekX.recycle();
-        this.ekX = null;
+        this.elc.recycle();
+        this.elc = null;
     }
 }

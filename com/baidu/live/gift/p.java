@@ -5,12 +5,12 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes3.dex */
 public class p extends HttpMessage {
-    public String azA;
-    public long azB;
-    public Map<Long, Long> azC;
-    public long azx;
-    public long azy;
-    public String azz;
+    public long azD;
+    public long azE;
+    public String azF;
+    public String azG;
+    public long azH;
+    public Map<Long, Long> azI;
     public String giftId;
     public String giftName;
     public String liveId;
@@ -19,6 +19,6 @@ public class p extends HttpMessage {
 
     public p() {
         super(1021014);
-        this.azC = new HashMap();
+        this.azI = new HashMap();
     }
 }

@@ -33,11 +33,11 @@ import java.util.Set;
 /* loaded from: classes11.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final Set<String> bRH = i.N("sc9Tq1iKawTnj5GhG6i77vzeIt4Crt5u");
-    private static final String[] bRI = {IMConstants.MSG_ROW_ID, SwanAppDbControl.SwanAppTable.app_id.name(), SwanAppDbControl.SwanAppTable.app_key.name(), SwanAppDbControl.SwanAppTable.version.name(), SwanAppDbControl.SwanAppTable.description.name(), SwanAppDbControl.SwanAppTable.error_code.name(), SwanAppDbControl.SwanAppTable.error_detail.name(), SwanAppDbControl.SwanAppTable.error_msg.name(), SwanAppDbControl.SwanAppTable.resume_date.name(), SwanAppDbControl.SwanAppTable.icon.name(), SwanAppDbControl.SwanAppTable.icon_url.name(), SwanAppDbControl.SwanAppTable.max_swan_version.name(), SwanAppDbControl.SwanAppTable.min_swan_version.name(), SwanAppDbControl.SwanAppTable.name.name(), SwanAppDbControl.SwanAppTable.service_category.name(), SwanAppDbControl.SwanAppTable.subject_info.name(), SwanAppDbControl.SwanAppTable.bear_info.name(), SwanAppDbControl.SwanAppTable.sign.name(), SwanAppDbControl.SwanAppTable.type.name(), SwanAppDbControl.SwanAppTable.is_have_zip.name(), SwanAppDbControl.SwanAppTable.app_open_url.name(), SwanAppDbControl.SwanAppTable.app_download_url.name(), SwanAppDbControl.SwanAppTable.target_swan_version.name(), SwanAppDbControl.SwanAppTable.app_zip_size.name(), SwanAppDbControl.SwanAppTable.pending_aps_errcode.name(), SwanAppDbControl.SwanAppTable.version_code.name(), SwanAppDbControl.SwanAppTable.app_category.name(), SwanAppDbControl.SwanAppTable.orientation.name(), SwanAppDbControl.SwanAppTable.max_age.name(), SwanAppDbControl.SwanAppTable.create_time.name(), SwanAppDbControl.SwanAppTable.force_fetch_meta_info.name(), "favorite_time", SwanAppDbControl.SwanAppTable.pay_protected.name(), "customer_service", "global_notice", "global_private", "pa_number"};
+    private static final Set<String> bRN = i.N("sc9Tq1iKawTnj5GhG6i77vzeIt4Crt5u");
+    private static final String[] bRO = {IMConstants.MSG_ROW_ID, SwanAppDbControl.SwanAppTable.app_id.name(), SwanAppDbControl.SwanAppTable.app_key.name(), SwanAppDbControl.SwanAppTable.version.name(), SwanAppDbControl.SwanAppTable.description.name(), SwanAppDbControl.SwanAppTable.error_code.name(), SwanAppDbControl.SwanAppTable.error_detail.name(), SwanAppDbControl.SwanAppTable.error_msg.name(), SwanAppDbControl.SwanAppTable.resume_date.name(), SwanAppDbControl.SwanAppTable.icon.name(), SwanAppDbControl.SwanAppTable.icon_url.name(), SwanAppDbControl.SwanAppTable.max_swan_version.name(), SwanAppDbControl.SwanAppTable.min_swan_version.name(), SwanAppDbControl.SwanAppTable.name.name(), SwanAppDbControl.SwanAppTable.service_category.name(), SwanAppDbControl.SwanAppTable.subject_info.name(), SwanAppDbControl.SwanAppTable.bear_info.name(), SwanAppDbControl.SwanAppTable.sign.name(), SwanAppDbControl.SwanAppTable.type.name(), SwanAppDbControl.SwanAppTable.is_have_zip.name(), SwanAppDbControl.SwanAppTable.app_open_url.name(), SwanAppDbControl.SwanAppTable.app_download_url.name(), SwanAppDbControl.SwanAppTable.target_swan_version.name(), SwanAppDbControl.SwanAppTable.app_zip_size.name(), SwanAppDbControl.SwanAppTable.pending_aps_errcode.name(), SwanAppDbControl.SwanAppTable.version_code.name(), SwanAppDbControl.SwanAppTable.app_category.name(), SwanAppDbControl.SwanAppTable.orientation.name(), SwanAppDbControl.SwanAppTable.max_age.name(), SwanAppDbControl.SwanAppTable.create_time.name(), SwanAppDbControl.SwanAppTable.force_fetch_meta_info.name(), "favorite_time", SwanAppDbControl.SwanAppTable.pay_protected.name(), "customer_service", "global_notice", "global_private", "pa_number"};
 
     private static boolean a(@NonNull SwanFavorItemData swanFavorItemData, int i) {
-        Uri Zg = Zg();
+        Uri Zf = Zf();
         ContentValues contentValues = new ContentValues();
         contentValues.put("app_id", swanFavorItemData.getAppKey());
         contentValues.put("sort_index", Integer.valueOf(i));
@@ -46,11 +46,11 @@ public class a {
         contentValues.put("app_icon", swanFavorItemData.getIconUrl());
         contentValues.put("app_type", Integer.valueOf(swanFavorItemData.getAppType()));
         contentValues.put("frame_type", Integer.valueOf(swanFavorItemData.getAppFrameType()));
-        if (AppRuntime.getAppContext().getContentResolver().insert(Zg, contentValues) != null) {
+        if (AppRuntime.getAppContext().getContentResolver().insert(Zf, contentValues) != null) {
             if (DEBUG) {
                 Log.d("SwanAppFavoriteHelper", "数据库收藏成功： " + swanFavorItemData.getAppKey());
             }
-            h.anz().putString("favorite_guide_count_" + swanFavorItemData.getAppKey(), "-1");
+            h.any().putString("favorite_guide_count_" + swanFavorItemData.getAppKey(), "-1");
             return true;
         }
         return false;
@@ -62,7 +62,7 @@ public class a {
         if (list == null || list.size() <= 0) {
             return false;
         }
-        SQLiteDatabase writableDatabase = SwanAppDbControl.bO(com.baidu.swan.apps.w.a.abO()).YQ().getWritableDatabase();
+        SQLiteDatabase writableDatabase = SwanAppDbControl.bC(com.baidu.swan.apps.w.a.abN()).YP().getWritableDatabase();
         try {
             writableDatabase.beginTransaction();
             for (int i = 0; i < list.size(); i++) {
@@ -119,45 +119,45 @@ public class a {
     public static boolean a(@NonNull SwanFavorItemData swanFavorItemData, int i, com.baidu.swan.apps.favordata.a.a aVar) {
         if (i < 0) {
             if (aVar != null) {
-                aVar.aaf();
+                aVar.aae();
                 return false;
             }
             return false;
         }
-        List<SwanFavorItemData> YX = YX();
-        if (YX.size() == 0) {
+        List<SwanFavorItemData> YW = YW();
+        if (YW.size() == 0) {
             if (a(swanFavorItemData, 1)) {
                 if (aVar != null) {
-                    aVar.aae();
+                    aVar.aad();
                 }
-                Zb();
+                Za();
                 return true;
             } else if (aVar != null) {
-                aVar.aaf();
+                aVar.aae();
                 return false;
             } else {
                 return false;
             }
-        } else if (YX.size() + 1 == i) {
-            if (a(swanFavorItemData, YX.get(YX.size() - 1).getIndex() + 1)) {
+        } else if (YW.size() + 1 == i) {
+            if (a(swanFavorItemData, YW.get(YW.size() - 1).getIndex() + 1)) {
                 if (aVar != null) {
-                    aVar.aae();
+                    aVar.aad();
                 }
-                Zb();
+                Za();
                 return true;
             } else if (aVar != null) {
-                aVar.aaf();
+                aVar.aae();
                 return false;
             } else {
                 return false;
             }
         } else {
-            for (int i2 = 0; i2 < YX.size(); i2++) {
+            for (int i2 = 0; i2 < YW.size(); i2++) {
                 if (i2 + 1 == i) {
-                    swanFavorItemData.setIndex(YX.get(i2).getIndex());
+                    swanFavorItemData.setIndex(YW.get(i2).getIndex());
                     if (!a(swanFavorItemData, swanFavorItemData.getIndex())) {
                         if (aVar != null) {
-                            aVar.aaf();
+                            aVar.aae();
                             return false;
                         }
                         return false;
@@ -166,26 +166,26 @@ public class a {
             }
             ArrayList arrayList = new ArrayList();
             ArrayList arrayList2 = new ArrayList();
-            for (int i3 = 0; i3 < YX.size(); i3++) {
+            for (int i3 = 0; i3 < YW.size(); i3++) {
                 if (i3 + 1 >= i) {
-                    int index = YX.get(i3).getIndex() + 1;
-                    YX.get(i3).setIndex(index);
-                    arrayList.add(YX.get(i3).getAppKey());
+                    int index = YW.get(i3).getIndex() + 1;
+                    YW.get(i3).setIndex(index);
+                    arrayList.add(YW.get(i3).getAppKey());
                     arrayList2.add(Integer.valueOf(index));
                 }
             }
             boolean e2 = e(arrayList, arrayList2);
             if (!e2) {
                 if (aVar != null) {
-                    aVar.aaf();
+                    aVar.aae();
                     return false;
                 }
                 return false;
             }
             if (aVar != null) {
-                aVar.aae();
+                aVar.aad();
             }
-            Zb();
+            Za();
             return e2;
         }
     }
@@ -193,28 +193,28 @@ public class a {
     public static boolean a(String str, int i, com.baidu.swan.apps.favordata.a.a aVar) {
         if (TextUtils.isEmpty(str) || i < 1) {
             if (aVar != null) {
-                aVar.aaf();
+                aVar.aae();
                 return false;
             }
             return false;
         }
-        List<SwanFavorItemData> YX = YX();
-        if (YX.size() < i) {
+        List<SwanFavorItemData> YW = YW();
+        if (YW.size() < i) {
             if (aVar != null) {
-                aVar.aaf();
+                aVar.aae();
                 return false;
             }
             return false;
         }
         ArrayList arrayList = new ArrayList();
         ArrayList arrayList2 = new ArrayList();
-        for (int i2 = 0; i2 < YX.size(); i2++) {
+        for (int i2 = 0; i2 < YW.size(); i2++) {
             if (i2 + 1 == i) {
                 arrayList.add(str);
-                arrayList2.add(Integer.valueOf(YX.get(i2).getIndex()));
+                arrayList2.add(Integer.valueOf(YW.get(i2).getIndex()));
                 if (!e(arrayList, arrayList2)) {
                     if (aVar != null) {
-                        aVar.aaf();
+                        aVar.aae();
                         return false;
                     }
                     return false;
@@ -223,24 +223,24 @@ public class a {
         }
         arrayList.clear();
         arrayList2.clear();
-        for (int i3 = 0; i3 < YX.size(); i3++) {
-            if (i3 + 1 >= i && !TextUtils.equals(YX.get(i3).getAppKey(), str)) {
-                arrayList2.add(Integer.valueOf(YX.get(i3).getIndex() + 1));
-                arrayList.add(YX.get(i3).getAppKey());
+        for (int i3 = 0; i3 < YW.size(); i3++) {
+            if (i3 + 1 >= i && !TextUtils.equals(YW.get(i3).getAppKey(), str)) {
+                arrayList2.add(Integer.valueOf(YW.get(i3).getIndex() + 1));
+                arrayList.add(YW.get(i3).getAppKey());
             }
         }
         boolean e2 = e(arrayList, arrayList2);
         if (!e2) {
             if (aVar != null) {
-                aVar.aaf();
+                aVar.aae();
                 return false;
             }
             return false;
         }
         if (aVar != null) {
-            aVar.aae();
+            aVar.aad();
         }
-        Zb();
+        Za();
         return e2;
     }
 
@@ -250,7 +250,7 @@ public class a {
         if (list == null || list.size() <= 0 || list2 == null || list2.size() <= 0) {
             return false;
         }
-        SQLiteDatabase writableDatabase = SwanAppDbControl.bO(com.baidu.swan.apps.w.a.abO()).YQ().getWritableDatabase();
+        SQLiteDatabase writableDatabase = SwanAppDbControl.bC(com.baidu.swan.apps.w.a.abN()).YP().getWritableDatabase();
         writableDatabase.beginTransaction();
         for (int i = 0; i < list.size(); i++) {
             try {
@@ -296,14 +296,14 @@ public class a {
 
     private static void a(@NonNull SwanFavorItemData swanFavorItemData) {
         if (!TextUtils.isEmpty(swanFavorItemData.getAppKey())) {
-            Uri Zg = Zg();
+            Uri Zf = Zf();
             String[] strArr = {swanFavorItemData.getAppKey()};
             ContentValues contentValues = new ContentValues();
             contentValues.put("app_name", swanFavorItemData.getAppName());
             contentValues.put("app_icon", swanFavorItemData.getIconUrl());
             contentValues.put("app_type", Integer.valueOf(swanFavorItemData.getAppType()));
             contentValues.put("frame_type", Integer.valueOf(swanFavorItemData.getAppFrameType()));
-            if (AppRuntime.getAppContext().getContentResolver().update(Zg, contentValues, "app_id = ?", strArr) > 0 && DEBUG) {
+            if (AppRuntime.getAppContext().getContentResolver().update(Zf, contentValues, "app_id = ?", strArr) > 0 && DEBUG) {
                 Log.d("SwanAppFavoriteHelper", "更新收藏");
             }
         }
@@ -312,47 +312,47 @@ public class a {
     public static void a(@NonNull String str, com.baidu.swan.apps.favordata.a.b bVar) {
         if (TextUtils.isEmpty(str)) {
             if (bVar != null) {
-                bVar.aah();
+                bVar.aag();
             }
-        } else if (AppRuntime.getAppContext().getContentResolver().delete(Zg(), "app_id = ?", new String[]{str}) > 0) {
+        } else if (AppRuntime.getAppContext().getContentResolver().delete(Zf(), "app_id = ?", new String[]{str}) > 0) {
             if (DEBUG) {
                 Log.d("SwanAppFavoriteHelper", "删除收藏，检查是否需要清理包");
             }
             if (!TextUtils.equals(str, "sc9Tq1iKawTnj5GhG6i77vzeIt4Crt5u")) {
                 if (ProcessUtils.isMainProcess()) {
-                    com.baidu.swan.apps.env.c Zw = com.baidu.swan.apps.env.e.Zv().Zw();
-                    if (Zw != null) {
-                        Zw.z(str, true);
+                    com.baidu.swan.apps.env.c Zv = com.baidu.swan.apps.env.e.Zu().Zv();
+                    if (Zv != null) {
+                        Zv.z(str, true);
                     }
                 } else {
-                    com.baidu.swan.apps.process.messaging.client.a.ajd().a(8, new SwanAppDeleteInfo(str));
+                    com.baidu.swan.apps.process.messaging.client.a.ajc().a(8, new SwanAppDeleteInfo(str));
                 }
             }
             if (DEBUG) {
                 Log.d("SwanAppFavoriteHelper", "取消收藏成功： " + str);
             }
-            Zb();
+            Za();
             if (bVar != null) {
-                bVar.aag();
+                bVar.aaf();
             }
         }
     }
 
     @NonNull
-    public static List<com.baidu.swan.apps.database.a> YW() {
+    public static List<com.baidu.swan.apps.database.a> YV() {
         ArrayList arrayList = new ArrayList();
-        Cursor Ze = Ze();
+        Cursor Zd = Zd();
         try {
-            if (Ze != null) {
-                if (Ze.getCount() > 0) {
-                    Ze.moveToFirst();
+            if (Zd != null) {
+                if (Zd.getCount() > 0) {
+                    Zd.moveToFirst();
                     do {
                         com.baidu.swan.apps.database.a aVar = new com.baidu.swan.apps.database.a();
-                        SwanAppDbControl.bO(AppRuntime.getAppContext()).a(Ze, aVar);
+                        SwanAppDbControl.bC(AppRuntime.getAppContext()).a(Zd, aVar);
                         if (!TextUtils.isEmpty(aVar.appId)) {
                             arrayList.add(aVar);
                         }
-                    } while (Ze.moveToNext());
+                    } while (Zd.moveToNext());
                 }
             }
         } catch (Exception e2) {
@@ -360,31 +360,31 @@ public class a {
                 e2.printStackTrace();
             }
         } finally {
-            com.baidu.swan.d.c.closeSafely(Ze);
+            com.baidu.swan.d.c.closeSafely(Zd);
         }
         return arrayList;
     }
 
     @NonNull
-    public static List<SwanFavorItemData> YX() {
-        Cursor YY = YY();
-        ArrayList arrayList = new ArrayList(YY.getCount());
+    public static List<SwanFavorItemData> YW() {
+        Cursor YX = YX();
+        ArrayList arrayList = new ArrayList(YX.getCount());
         try {
         } catch (Exception e2) {
             if (DEBUG) {
                 e2.printStackTrace();
             }
         } finally {
-            com.baidu.swan.d.c.closeSafely(YY);
+            com.baidu.swan.d.c.closeSafely(YX);
         }
-        if (YY.getCount() > 0) {
-            YY.moveToFirst();
+        if (YX.getCount() > 0) {
+            YX.moveToFirst();
             do {
-                SwanFavorItemData b2 = b(YY);
+                SwanFavorItemData b2 = b(YX);
                 if (!TextUtils.isEmpty(b2.getAppKey()) && !TextUtils.isEmpty(b2.getAppName())) {
                     arrayList.add(b2);
                 }
-            } while (YY.moveToNext());
+            } while (YX.moveToNext());
             return arrayList;
         }
         return arrayList;
@@ -402,9 +402,9 @@ public class a {
             Log.v("favorite_migrate_pms", "Favotite == " + swanFavorItemData.getAppKey());
         }
         if (TextUtils.isEmpty(swanFavorItemData.getAppName()) || TextUtils.isEmpty(swanFavorItemData.getIconUrl())) {
-            List<com.baidu.swan.apps.database.a> YW = YW();
-            if (YW.size() > 0) {
-                Iterator<com.baidu.swan.apps.database.a> it = YW.iterator();
+            List<com.baidu.swan.apps.database.a> YV = YV();
+            if (YV.size() > 0) {
+                Iterator<com.baidu.swan.apps.database.a> it = YV.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
@@ -427,39 +427,39 @@ public class a {
 
     public static void V(List<SwanFavorItemData> list) {
         boolean z = true;
-        Cursor YY = YY();
+        Cursor YX = YX();
         if (list == null || list.size() <= 0) {
-            if (YY != null && YY.getCount() > 0) {
-                AppRuntime.getAppContext().getContentResolver().delete(Zg(), null, null);
-                Zb();
+            if (YX != null && YX.getCount() > 0) {
+                AppRuntime.getAppContext().getContentResolver().delete(Zf(), null, null);
+                Za();
             }
-        } else if (YY != null) {
+        } else if (YX != null) {
             boolean z2 = false;
             try {
-                YY.moveToFirst();
+                YX.moveToFirst();
                 while (true) {
-                    if (!YY.moveToNext()) {
+                    if (!YX.moveToNext()) {
                         break;
                     }
-                    if (!a(list, YY.getString(YY.getColumnIndex("app_id")), YY.getString(YY.getColumnIndex("app_name")), YY.getString(YY.getColumnIndex("app_icon")))) {
+                    if (!a(list, YX.getString(YX.getColumnIndex("app_id")), YX.getString(YX.getColumnIndex("app_name")), YX.getString(YX.getColumnIndex("app_icon")))) {
                         z2 = true;
                         break;
                     }
                 }
-                if (z2 || YY.getCount() == list.size()) {
+                if (z2 || YX.getCount() == list.size()) {
                     z = z2;
                 }
                 if (z) {
-                    AppRuntime.getAppContext().getContentResolver().delete(Zg(), null, null);
+                    AppRuntime.getAppContext().getContentResolver().delete(Zf(), null, null);
                     U(list);
-                    Zb();
+                    Za();
                 }
             } catch (Exception e2) {
                 if (DEBUG) {
                     e2.printStackTrace();
                 }
             } finally {
-                com.baidu.swan.d.c.closeSafely(YY);
+                com.baidu.swan.d.c.closeSafely(YX);
             }
         }
     }
@@ -476,15 +476,15 @@ public class a {
         return false;
     }
 
-    public static Cursor YY() {
-        YZ();
-        return AppRuntime.getAppContext().getContentResolver().query(Zg(), null, null, null, "sort_index");
+    public static Cursor YX() {
+        YY();
+        return AppRuntime.getAppContext().getContentResolver().query(Zf(), null, null, null, "sort_index");
     }
 
-    private static void YZ() {
-        if (h.anz().getBoolean("key_first_sort", true)) {
-            h.anz().putBoolean("key_first_sort", false);
-            Cursor query = AppRuntime.getAppContext().getContentResolver().query(Zg(), null, null, null, "favorite_time DESC");
+    private static void YY() {
+        if (h.any().getBoolean("key_first_sort", true)) {
+            h.any().putBoolean("key_first_sort", false);
+            Cursor query = AppRuntime.getAppContext().getContentResolver().query(Zf(), null, null, null, "favorite_time DESC");
             try {
                 if (query != null) {
                     query.moveToFirst();
@@ -518,7 +518,7 @@ public class a {
         boolean z;
         Cursor query;
         try {
-            query = AppRuntime.getAppContext().getContentResolver().query(Zg(), null, "app_id = ?", new String[]{str}, null);
+            query = AppRuntime.getAppContext().getContentResolver().query(Zf(), null, "app_id = ?", new String[]{str}, null);
         } catch (Exception e2) {
             z = false;
             if (DEBUG) {
@@ -551,24 +551,24 @@ public class a {
         return z;
     }
 
-    public static Uri Za() {
+    public static Uri YZ() {
         return com.baidu.swan.apps.database.favorite.b.CONTENT_URI.buildUpon().appendPath("favorite_and_aps").build();
     }
 
-    private static void Zb() {
-        AppRuntime.getAppContext().getContentResolver().notifyChange(Zg(), (ContentObserver) null, false);
-        AppRuntime.getAppContext().getContentResolver().notifyChange(Za(), (ContentObserver) null, false);
+    private static void Za() {
         AppRuntime.getAppContext().getContentResolver().notifyChange(Zf(), (ContentObserver) null, false);
+        AppRuntime.getAppContext().getContentResolver().notifyChange(YZ(), (ContentObserver) null, false);
+        AppRuntime.getAppContext().getContentResolver().notifyChange(Ze(), (ContentObserver) null, false);
     }
 
-    public static void Zc() {
+    public static void Zb() {
         if (DEBUG) {
             Log.d("SwanAppFavoriteHelper", "记录用户在小程序框架菜单中点击收藏");
         }
         DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), f.class, null);
     }
 
-    public static int Zd() {
+    public static int Zc() {
         if (DEBUG) {
             Log.v("SwanAppFavoriteHelper", "调用获取收藏次数");
         }
@@ -633,23 +633,23 @@ public class a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static Cursor Ze() {
+    public static Cursor Zd() {
         Cursor query;
         MatrixCursor matrixCursor;
         int i;
         Iterator it;
         HashMap hashMap = new HashMap();
-        Cursor query2 = AppRuntime.getAppContext().getContentResolver().query(Za(), null, null, null, "favorite_time DESC");
+        Cursor query2 = AppRuntime.getAppContext().getContentResolver().query(YZ(), null, null, null, "favorite_time DESC");
         if (query2 != null && query2.moveToFirst()) {
             do {
                 com.baidu.swan.apps.database.a aVar = new com.baidu.swan.apps.database.a();
-                SwanAppDbControl.bO(AppRuntime.getAppContext()).a(query2, aVar);
+                SwanAppDbControl.bC(AppRuntime.getAppContext()).a(query2, aVar);
                 if (!TextUtils.isEmpty(aVar.appId)) {
-                    C0287a c0287a = new C0287a();
-                    c0287a.bRJ = aVar;
-                    c0287a.bRL.id = aVar.appId;
-                    c0287a.bRL.bRK = query2.getLong(query2.getColumnIndex("favorite_time"));
-                    hashMap.put(c0287a.bRL.id, c0287a);
+                    C0308a c0308a = new C0308a();
+                    c0308a.bRP = aVar;
+                    c0308a.bRR.id = aVar.appId;
+                    c0308a.bRR.bRQ = query2.getLong(query2.getColumnIndex("favorite_time"));
+                    hashMap.put(c0308a.bRR.id, c0308a);
                     if (DEBUG) {
                         Log.v("favorite_migrate_pms", "Aps&Favotite == " + aVar.appId);
                     }
@@ -658,7 +658,7 @@ public class a {
             com.baidu.swan.d.c.closeSafely(query2);
             if (DEBUG) {
             }
-            query = AppRuntime.getAppContext().getContentResolver().query(Zg(), null, null, null, null);
+            query = AppRuntime.getAppContext().getContentResolver().query(Zf(), null, null, null, null);
             HashMap hashMap2 = new HashMap();
             if (query == null) {
             }
@@ -676,7 +676,7 @@ public class a {
             }
             ArrayList arrayList2 = new ArrayList(hashMap.values());
             Collections.sort(arrayList2, new d());
-            matrixCursor = new MatrixCursor(bRI, 50);
+            matrixCursor = new MatrixCursor(bRO, 50);
             i = 0;
             it = arrayList2.iterator();
             while (true) {
@@ -691,13 +691,13 @@ public class a {
             if (DEBUG) {
                 Log.d("favorite_migrate_pms", "^ Aps & Favorite 查询到 " + hashMap.size() + " 条收藏");
             }
-            query = AppRuntime.getAppContext().getContentResolver().query(Zg(), null, null, null, null);
+            query = AppRuntime.getAppContext().getContentResolver().query(Zf(), null, null, null, null);
             HashMap hashMap22 = new HashMap();
             if (query == null && query.moveToFirst()) {
                 do {
                     b bVar = new b();
                     bVar.id = query.getString(query.getColumnIndex("app_id"));
-                    bVar.bRK = query.getLong(query.getColumnIndex("favorite_time"));
+                    bVar.bRQ = query.getLong(query.getColumnIndex("favorite_time"));
                     hashMap22.put(bVar.id, bVar);
                     if (DEBUG) {
                         Log.v("favorite_migrate_pms", "Favotite == " + bVar.id);
@@ -717,7 +717,7 @@ public class a {
                 }
                 ArrayList arrayList22 = new ArrayList(hashMap.values());
                 Collections.sort(arrayList22, new d());
-                matrixCursor = new MatrixCursor(bRI, 50);
+                matrixCursor = new MatrixCursor(bRO, 50);
                 i = 0;
                 it = arrayList22.iterator();
                 while (true) {
@@ -739,8 +739,8 @@ public class a {
                     }
                     if (hashMap22.containsKey(pMSAppInfo.appId)) {
                         g gVar = new g();
-                        gVar.bRL = (b) hashMap22.get(pMSAppInfo.appId);
-                        gVar.bRM = pMSAppInfo;
+                        gVar.bRR = (b) hashMap22.get(pMSAppInfo.appId);
+                        gVar.bRS = pMSAppInfo;
                         arrayList32.add(gVar);
                     }
                 }
@@ -748,18 +748,18 @@ public class a {
                     Log.d("favorite_migrate_pms", "^ Pms & Favorite 查询到 " + arrayList32.size() + " 条收藏");
                 }
                 for (c cVar : arrayList32) {
-                    hashMap.put(cVar.bRL.id, cVar);
+                    hashMap.put(cVar.bRR.id, cVar);
                 }
                 if (DEBUG) {
                     Log.d("favorite_migrate_pms", "合并后有 " + hashMap.size() + " 条收藏");
                     Iterator it2 = hashMap.values().iterator();
                     while (it2.hasNext()) {
-                        Log.v("favorite_migrate_pms", "Migrate == " + ((c) it2.next()).bRL.id);
+                        Log.v("favorite_migrate_pms", "Migrate == " + ((c) it2.next()).bRR.id);
                     }
                 }
                 ArrayList arrayList222 = new ArrayList(hashMap.values());
                 Collections.sort(arrayList222, new d());
-                matrixCursor = new MatrixCursor(bRI, 50);
+                matrixCursor = new MatrixCursor(bRO, 50);
                 i = 0;
                 it = arrayList222.iterator();
                 while (true) {
@@ -775,28 +775,28 @@ public class a {
         }
     }
 
-    public static Uri Zf() {
+    public static Uri Ze() {
         return com.baidu.swan.apps.database.favorite.b.CONTENT_URI.buildUpon().appendPath("favorite_with_aps_pms").build();
     }
 
-    public static Uri Zg() {
+    public static Uri Zf() {
         return com.baidu.swan.apps.database.favorite.b.CONTENT_URI.buildUpon().appendPath("favorite").build();
     }
 
     private static void a(MatrixCursor matrixCursor, int i, c cVar) {
-        if (cVar instanceof C0287a) {
-            C0287a c0287a = (C0287a) cVar;
-            matrixCursor.newRow().add(IMConstants.MSG_ROW_ID, Integer.valueOf(i)).add(SwanAppDbControl.SwanAppTable.app_id.name(), c0287a.bRJ.appId).add(SwanAppDbControl.SwanAppTable.app_key.name(), c0287a.bRJ.appKey).add(SwanAppDbControl.SwanAppTable.version.name(), c0287a.bRJ.version).add(SwanAppDbControl.SwanAppTable.description.name(), c0287a.bRJ.description).add(SwanAppDbControl.SwanAppTable.error_code.name(), Integer.valueOf(c0287a.bRJ.errorCode)).add(SwanAppDbControl.SwanAppTable.error_detail.name(), c0287a.bRJ.errorDetail).add(SwanAppDbControl.SwanAppTable.error_msg.name(), c0287a.bRJ.errorMsg).add(SwanAppDbControl.SwanAppTable.resume_date.name(), c0287a.bRJ.resumeDate).add(SwanAppDbControl.SwanAppTable.icon.name(), c0287a.bRJ.icon).add(SwanAppDbControl.SwanAppTable.icon_url.name(), c0287a.bRJ.iconUrl).add(SwanAppDbControl.SwanAppTable.max_swan_version.name(), c0287a.bRJ.bRs).add(SwanAppDbControl.SwanAppTable.min_swan_version.name(), c0287a.bRJ.bRt).add(SwanAppDbControl.SwanAppTable.name.name(), c0287a.bRJ.name).add(SwanAppDbControl.SwanAppTable.service_category.name(), c0287a.bRJ.serviceCategory).add(SwanAppDbControl.SwanAppTable.subject_info.name(), c0287a.bRJ.subjectInfo).add(SwanAppDbControl.SwanAppTable.bear_info.name(), c0287a.bRJ.bearInfo).add(SwanAppDbControl.SwanAppTable.sign.name(), c0287a.bRJ.sign).add(SwanAppDbControl.SwanAppTable.type.name(), Integer.valueOf(c0287a.bRJ.type)).add(SwanAppDbControl.SwanAppTable.is_have_zip.name(), Integer.valueOf(c0287a.bRJ.bRu)).add(SwanAppDbControl.SwanAppTable.app_open_url.name(), c0287a.bRJ.bRv).add(SwanAppDbControl.SwanAppTable.app_download_url.name(), c0287a.bRJ.bRw).add(SwanAppDbControl.SwanAppTable.target_swan_version.name(), c0287a.bRJ.bRx).add(SwanAppDbControl.SwanAppTable.app_zip_size.name(), Long.valueOf(c0287a.bRJ.bRy)).add(SwanAppDbControl.SwanAppTable.pending_aps_errcode.name(), Integer.valueOf(c0287a.bRJ.bRz)).add(SwanAppDbControl.SwanAppTable.version_code.name(), c0287a.bRJ.bRA).add(SwanAppDbControl.SwanAppTable.app_category.name(), Integer.valueOf(c0287a.bRJ.category)).add(SwanAppDbControl.SwanAppTable.orientation.name(), Integer.valueOf(c0287a.bRJ.orientation)).add(SwanAppDbControl.SwanAppTable.max_age.name(), Long.valueOf(c0287a.bRJ.maxAge)).add(SwanAppDbControl.SwanAppTable.create_time.name(), Long.valueOf(c0287a.bRJ.createTime)).add(SwanAppDbControl.SwanAppTable.force_fetch_meta_info.name(), Integer.valueOf(c0287a.bRJ.bRB ? 1 : 0)).add("favorite_time", Long.valueOf(c0287a.bRL.bRK)).add(SwanAppDbControl.SwanAppTable.pay_protected.name(), Integer.valueOf(c0287a.bRJ.payProtected));
+        if (cVar instanceof C0308a) {
+            C0308a c0308a = (C0308a) cVar;
+            matrixCursor.newRow().add(IMConstants.MSG_ROW_ID, Integer.valueOf(i)).add(SwanAppDbControl.SwanAppTable.app_id.name(), c0308a.bRP.appId).add(SwanAppDbControl.SwanAppTable.app_key.name(), c0308a.bRP.appKey).add(SwanAppDbControl.SwanAppTable.version.name(), c0308a.bRP.version).add(SwanAppDbControl.SwanAppTable.description.name(), c0308a.bRP.description).add(SwanAppDbControl.SwanAppTable.error_code.name(), Integer.valueOf(c0308a.bRP.errorCode)).add(SwanAppDbControl.SwanAppTable.error_detail.name(), c0308a.bRP.errorDetail).add(SwanAppDbControl.SwanAppTable.error_msg.name(), c0308a.bRP.errorMsg).add(SwanAppDbControl.SwanAppTable.resume_date.name(), c0308a.bRP.resumeDate).add(SwanAppDbControl.SwanAppTable.icon.name(), c0308a.bRP.icon).add(SwanAppDbControl.SwanAppTable.icon_url.name(), c0308a.bRP.iconUrl).add(SwanAppDbControl.SwanAppTable.max_swan_version.name(), c0308a.bRP.bRx).add(SwanAppDbControl.SwanAppTable.min_swan_version.name(), c0308a.bRP.bRy).add(SwanAppDbControl.SwanAppTable.name.name(), c0308a.bRP.name).add(SwanAppDbControl.SwanAppTable.service_category.name(), c0308a.bRP.serviceCategory).add(SwanAppDbControl.SwanAppTable.subject_info.name(), c0308a.bRP.subjectInfo).add(SwanAppDbControl.SwanAppTable.bear_info.name(), c0308a.bRP.bearInfo).add(SwanAppDbControl.SwanAppTable.sign.name(), c0308a.bRP.sign).add(SwanAppDbControl.SwanAppTable.type.name(), Integer.valueOf(c0308a.bRP.type)).add(SwanAppDbControl.SwanAppTable.is_have_zip.name(), Integer.valueOf(c0308a.bRP.bRz)).add(SwanAppDbControl.SwanAppTable.app_open_url.name(), c0308a.bRP.bRA).add(SwanAppDbControl.SwanAppTable.app_download_url.name(), c0308a.bRP.bRB).add(SwanAppDbControl.SwanAppTable.target_swan_version.name(), c0308a.bRP.bRC).add(SwanAppDbControl.SwanAppTable.app_zip_size.name(), Long.valueOf(c0308a.bRP.bRD)).add(SwanAppDbControl.SwanAppTable.pending_aps_errcode.name(), Integer.valueOf(c0308a.bRP.bRE)).add(SwanAppDbControl.SwanAppTable.version_code.name(), c0308a.bRP.bRF).add(SwanAppDbControl.SwanAppTable.app_category.name(), Integer.valueOf(c0308a.bRP.category)).add(SwanAppDbControl.SwanAppTable.orientation.name(), Integer.valueOf(c0308a.bRP.orientation)).add(SwanAppDbControl.SwanAppTable.max_age.name(), Long.valueOf(c0308a.bRP.maxAge)).add(SwanAppDbControl.SwanAppTable.create_time.name(), Long.valueOf(c0308a.bRP.createTime)).add(SwanAppDbControl.SwanAppTable.force_fetch_meta_info.name(), Integer.valueOf(c0308a.bRP.bRG ? 1 : 0)).add("favorite_time", Long.valueOf(c0308a.bRR.bRQ)).add(SwanAppDbControl.SwanAppTable.pay_protected.name(), Integer.valueOf(c0308a.bRP.payProtected));
             return;
         }
         g gVar = (g) cVar;
-        matrixCursor.newRow().add(IMConstants.MSG_ROW_ID, Integer.valueOf(i)).add(SwanAppDbControl.SwanAppTable.app_id.name(), gVar.bRM.appId).add(SwanAppDbControl.SwanAppTable.app_key.name(), gVar.bRM.appKey).add(SwanAppDbControl.SwanAppTable.version.name(), Integer.valueOf(gVar.bRM.versionCode)).add(SwanAppDbControl.SwanAppTable.description.name(), gVar.bRM.description).add(SwanAppDbControl.SwanAppTable.error_code.name(), Integer.valueOf(gVar.bRM.appStatus)).add(SwanAppDbControl.SwanAppTable.error_detail.name(), gVar.bRM.statusDetail).add(SwanAppDbControl.SwanAppTable.error_msg.name(), gVar.bRM.statusDesc).add(SwanAppDbControl.SwanAppTable.resume_date.name(), gVar.bRM.resumeDate).add(SwanAppDbControl.SwanAppTable.icon.name(), "").add(SwanAppDbControl.SwanAppTable.icon_url.name(), gVar.bRM.iconUrl).add(SwanAppDbControl.SwanAppTable.max_swan_version.name(), "").add(SwanAppDbControl.SwanAppTable.min_swan_version.name(), "").add(SwanAppDbControl.SwanAppTable.name.name(), gVar.bRM.appName).add(SwanAppDbControl.SwanAppTable.service_category.name(), gVar.bRM.serviceCategory).add(SwanAppDbControl.SwanAppTable.subject_info.name(), gVar.bRM.subjectInfo).add(SwanAppDbControl.SwanAppTable.bear_info.name(), gVar.bRM.bearInfo).add(SwanAppDbControl.SwanAppTable.sign.name(), "").add(SwanAppDbControl.SwanAppTable.type.name(), Integer.valueOf(gVar.bRM.type)).add(SwanAppDbControl.SwanAppTable.is_have_zip.name(), 0).add(SwanAppDbControl.SwanAppTable.app_open_url.name(), "").add(SwanAppDbControl.SwanAppTable.app_download_url.name(), "").add(SwanAppDbControl.SwanAppTable.target_swan_version.name(), "").add(SwanAppDbControl.SwanAppTable.app_zip_size.name(), Long.valueOf(gVar.bRM.pkgSize)).add(SwanAppDbControl.SwanAppTable.pending_aps_errcode.name(), Integer.valueOf(gVar.bRM.pendingErrCode)).add(SwanAppDbControl.SwanAppTable.version_code.name(), gVar.bRM.versionName).add(SwanAppDbControl.SwanAppTable.app_category.name(), Integer.valueOf(gVar.bRM.appCategory)).add(SwanAppDbControl.SwanAppTable.orientation.name(), Integer.valueOf(gVar.bRM.getOrientation())).add(SwanAppDbControl.SwanAppTable.max_age.name(), Long.valueOf(gVar.bRM.maxAge)).add(SwanAppDbControl.SwanAppTable.create_time.name(), Long.valueOf(gVar.bRM.createTime)).add(SwanAppDbControl.SwanAppTable.force_fetch_meta_info.name(), 0).add("favorite_time", Long.valueOf(gVar.bRL.bRK)).add(SwanAppDbControl.SwanAppTable.pay_protected.name(), Integer.valueOf(gVar.bRM.payProtected)).add("customer_service", Integer.valueOf(gVar.bRM.customerService)).add("global_notice", Integer.valueOf(gVar.bRM.globalNotice)).add("global_private", Integer.valueOf(gVar.bRM.globalPrivate)).add("pa_number", gVar.bRM.paNumber);
+        matrixCursor.newRow().add(IMConstants.MSG_ROW_ID, Integer.valueOf(i)).add(SwanAppDbControl.SwanAppTable.app_id.name(), gVar.bRS.appId).add(SwanAppDbControl.SwanAppTable.app_key.name(), gVar.bRS.appKey).add(SwanAppDbControl.SwanAppTable.version.name(), Integer.valueOf(gVar.bRS.versionCode)).add(SwanAppDbControl.SwanAppTable.description.name(), gVar.bRS.description).add(SwanAppDbControl.SwanAppTable.error_code.name(), Integer.valueOf(gVar.bRS.appStatus)).add(SwanAppDbControl.SwanAppTable.error_detail.name(), gVar.bRS.statusDetail).add(SwanAppDbControl.SwanAppTable.error_msg.name(), gVar.bRS.statusDesc).add(SwanAppDbControl.SwanAppTable.resume_date.name(), gVar.bRS.resumeDate).add(SwanAppDbControl.SwanAppTable.icon.name(), "").add(SwanAppDbControl.SwanAppTable.icon_url.name(), gVar.bRS.iconUrl).add(SwanAppDbControl.SwanAppTable.max_swan_version.name(), "").add(SwanAppDbControl.SwanAppTable.min_swan_version.name(), "").add(SwanAppDbControl.SwanAppTable.name.name(), gVar.bRS.appName).add(SwanAppDbControl.SwanAppTable.service_category.name(), gVar.bRS.serviceCategory).add(SwanAppDbControl.SwanAppTable.subject_info.name(), gVar.bRS.subjectInfo).add(SwanAppDbControl.SwanAppTable.bear_info.name(), gVar.bRS.bearInfo).add(SwanAppDbControl.SwanAppTable.sign.name(), "").add(SwanAppDbControl.SwanAppTable.type.name(), Integer.valueOf(gVar.bRS.type)).add(SwanAppDbControl.SwanAppTable.is_have_zip.name(), 0).add(SwanAppDbControl.SwanAppTable.app_open_url.name(), "").add(SwanAppDbControl.SwanAppTable.app_download_url.name(), "").add(SwanAppDbControl.SwanAppTable.target_swan_version.name(), "").add(SwanAppDbControl.SwanAppTable.app_zip_size.name(), Long.valueOf(gVar.bRS.pkgSize)).add(SwanAppDbControl.SwanAppTable.pending_aps_errcode.name(), Integer.valueOf(gVar.bRS.pendingErrCode)).add(SwanAppDbControl.SwanAppTable.version_code.name(), gVar.bRS.versionName).add(SwanAppDbControl.SwanAppTable.app_category.name(), Integer.valueOf(gVar.bRS.appCategory)).add(SwanAppDbControl.SwanAppTable.orientation.name(), Integer.valueOf(gVar.bRS.getOrientation())).add(SwanAppDbControl.SwanAppTable.max_age.name(), Long.valueOf(gVar.bRS.maxAge)).add(SwanAppDbControl.SwanAppTable.create_time.name(), Long.valueOf(gVar.bRS.createTime)).add(SwanAppDbControl.SwanAppTable.force_fetch_meta_info.name(), 0).add("favorite_time", Long.valueOf(gVar.bRR.bRQ)).add(SwanAppDbControl.SwanAppTable.pay_protected.name(), Integer.valueOf(gVar.bRS.payProtected)).add("customer_service", Integer.valueOf(gVar.bRS.customerService)).add("global_notice", Integer.valueOf(gVar.bRS.globalNotice)).add("global_private", Integer.valueOf(gVar.bRS.globalPrivate)).add("pa_number", gVar.bRS.paNumber);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes11.dex */
     public static class b {
-        long bRK;
+        long bRQ;
         String id;
 
         private b() {
@@ -806,10 +806,10 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.swan.apps.database.favorite.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public static class C0287a extends c {
-        com.baidu.swan.apps.database.a bRJ;
+    public static class C0308a extends c {
+        com.baidu.swan.apps.database.a bRP;
 
-        private C0287a() {
+        private C0308a() {
             super();
         }
     }
@@ -817,7 +817,7 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes11.dex */
     public static class g extends c {
-        PMSAppInfo bRM;
+        PMSAppInfo bRS;
 
         private g() {
             super();
@@ -827,10 +827,10 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes11.dex */
     public static abstract class c {
-        b bRL;
+        b bRR;
 
         private c() {
-            this.bRL = new b();
+            this.bRR = new b();
         }
     }
 
@@ -844,7 +844,7 @@ public class a {
         @Override // java.util.Comparator
         /* renamed from: a */
         public int compare(c cVar, c cVar2) {
-            return Long.compare(cVar2.bRL.bRK, cVar.bRL.bRK);
+            return Long.compare(cVar2.bRR.bRQ, cVar.bRR.bRQ);
         }
     }
 }

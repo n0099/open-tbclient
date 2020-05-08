@@ -11,7 +11,7 @@ import rx.k;
 public abstract class SyncOnSubscribe<S, T> implements d.a<T> {
     protected abstract S a(S s, e<? super T> eVar);
 
-    protected abstract S dIr();
+    protected abstract S dIn();
 
     @Override // rx.functions.b
     public /* bridge */ /* synthetic */ void call(Object obj) {
@@ -20,7 +20,7 @@ public abstract class SyncOnSubscribe<S, T> implements d.a<T> {
 
     public final void call(j<? super T> jVar) {
         try {
-            SubscriptionProducer subscriptionProducer = new SubscriptionProducer(jVar, this, dIr());
+            SubscriptionProducer subscriptionProducer = new SubscriptionProducer(jVar, this, dIn());
             jVar.add(subscriptionProducer);
             jVar.setProducer(subscriptionProducer);
         } catch (Throwable th) {
@@ -29,7 +29,7 @@ public abstract class SyncOnSubscribe<S, T> implements d.a<T> {
         }
     }
 
-    protected void bU(S s) {
+    protected void bV(S s) {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -59,24 +59,24 @@ public abstract class SyncOnSubscribe<S, T> implements d.a<T> {
             do {
                 j = get();
                 if (compareAndSet(0L, -1L)) {
-                    dIt();
+                    dIp();
                     return;
                 }
             } while (!compareAndSet(j, -2L));
         }
 
-        private boolean dIs() {
+        private boolean dIo() {
             if (this.hasTerminated || get() < -1) {
                 set(-1L);
-                dIt();
+                dIp();
                 return true;
             }
             return false;
         }
 
-        private void dIt() {
+        private void dIp() {
             try {
-                this.parent.bU(this.state);
+                this.parent.bV(this.state);
             } catch (Throwable th) {
                 rx.exceptions.a.L(th);
                 c.onError(th);
@@ -105,7 +105,7 @@ public abstract class SyncOnSubscribe<S, T> implements d.a<T> {
                     a(jVar, th);
                     return;
                 }
-            } while (!dIs());
+            } while (!dIo());
         }
 
         private void a(j<? super T> jVar, Throwable th) {
@@ -127,7 +127,7 @@ public abstract class SyncOnSubscribe<S, T> implements d.a<T> {
                     try {
                         this.onNextCalled = false;
                         a(syncOnSubscribe);
-                        if (!dIs()) {
+                        if (!dIo()) {
                             if (this.onNextCalled) {
                                 j2--;
                             }
@@ -141,7 +141,7 @@ public abstract class SyncOnSubscribe<S, T> implements d.a<T> {
                 } while (j2 != 0);
                 j = addAndGet(-j);
             } while (j > 0);
-            dIs();
+            dIo();
         }
 
         private void a(SyncOnSubscribe<S, T> syncOnSubscribe) {

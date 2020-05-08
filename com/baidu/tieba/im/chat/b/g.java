@@ -15,18 +15,18 @@ import com.baidu.tieba.im.message.chat.ChatMessage;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class g {
-    private static g ihh;
+    private static g ihn;
 
     private g() {
     }
 
-    public static synchronized g cdC() {
+    public static synchronized g cdA() {
         g gVar;
         synchronized (g.class) {
-            if (ihh == null) {
-                ihh = new g();
+            if (ihn == null) {
+                ihn = new g();
             }
-            gVar = ihh;
+            gVar = ihn;
         }
         return gVar;
     }
@@ -82,7 +82,7 @@ public class g {
     public static void a(GroupMsgData groupMsgData, ImMessageCenterPojo imMessageCenterPojo, a.b bVar) {
         a.a(groupMsgData, imMessageCenterPojo, bVar, new a.c() { // from class: com.baidu.tieba.im.chat.b.g.1
             @Override // com.baidu.tieba.im.chat.b.a.c
-            public boolean Ei(String str) {
+            public boolean El(String str) {
                 return true;
             }
         }, false);

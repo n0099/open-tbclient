@@ -1,6 +1,6 @@
 package com.vivo.push.c;
 /* loaded from: classes8.dex */
-final class g extends aa {
+final class g extends ab {
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(com.vivo.push.y yVar) {
         super(yVar);

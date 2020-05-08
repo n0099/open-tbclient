@@ -32,36 +32,36 @@ public class a extends com.baidu.swan.apps.api.a.c {
             return bVar;
         }
         int optInt = ((JSONObject) az.second).optInt("delta", 1);
-        final e Ou = f.aeK().Ou();
-        if (Ou == null) {
+        final e Ot = f.aeJ().Ot();
+        if (Ot == null) {
             com.baidu.swan.apps.console.c.e("Api-NavigateBack", "manager is null");
             return new com.baidu.swan.apps.api.b.b(1001, "manager is null");
         }
         if (DEBUG) {
             Log.d("Api-NavigateBack", "back delta: " + optInt);
         }
-        if (optInt >= Ou.Wh()) {
-            optInt = Ou.Wh() - 1;
+        if (optInt >= Ot.Wg()) {
+            optInt = Ot.Wg() - 1;
         }
         if (DEBUG) {
             Log.d("Api-NavigateBack", "real back delta: " + optInt);
         }
-        final e.b eD = Ou.io("navigateBack").ab(e.bMB, e.bMA).eD(optInt);
+        final e.b eD = Ot.io("navigateBack").ab(e.bMG, e.bMF).eD(optInt);
         ai.o(new Runnable() { // from class: com.baidu.swan.apps.api.module.h.a.1
             @Override // java.lang.Runnable
             public void run() {
-                com.baidu.swan.apps.as.d.a(Ou, a.this.getContext(), 1);
+                com.baidu.swan.apps.as.d.a(Ot, a.this.getContext(), 1);
                 eD.commit();
             }
         });
         com.baidu.swan.apps.performance.f.bh("route", uuid).f(new UbcFlowEvent("na_push_page_end"));
         g.R(1, uuid);
         g.lo(uuid);
-        if (!(Ou.We() instanceof com.baidu.swan.apps.core.d.d)) {
+        if (!(Ot.Wd() instanceof com.baidu.swan.apps.core.d.d)) {
             com.baidu.swan.apps.console.c.e("Api-NavigateBack", "top fragment error");
             return new com.baidu.swan.apps.api.b.b(1001, "top fragment error");
         }
-        com.baidu.swan.apps.core.d.d dVar = (com.baidu.swan.apps.core.d.d) Ou.We();
-        return new com.baidu.swan.apps.api.b.b(0, com.baidu.swan.apps.scheme.actions.k.a.mF(dVar != null ? dVar.VQ() : ""));
+        com.baidu.swan.apps.core.d.d dVar = (com.baidu.swan.apps.core.d.d) Ot.Wd();
+        return new com.baidu.swan.apps.api.b.b(0, com.baidu.swan.apps.scheme.actions.k.a.mF(dVar != null ? dVar.VP() : ""));
     }
 }

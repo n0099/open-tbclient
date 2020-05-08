@@ -21,16 +21,16 @@ public class c extends com.baidu.swan.pms.c.d<com.baidu.swan.pms.c.c.c> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.pms.c.d
     /* renamed from: a */
-    public com.baidu.swan.pms.model.a S(com.baidu.swan.pms.c.c.c cVar) {
-        this.dax.Xe();
+    public com.baidu.swan.pms.model.a T(com.baidu.swan.pms.c.c.c cVar) {
+        this.daD.Xd();
         com.baidu.swan.pms.f.e eVar = new com.baidu.swan.pms.f.e();
-        a(cVar.dbj, eVar);
+        a(cVar.dbo, eVar);
         if (eVar.aCH() == 0) {
-            this.dax.Xa();
+            this.daD.WZ();
             return null;
         }
-        this.dax.a(eVar);
-        com.baidu.swan.pms.c.a.a.a(cVar, this.dax);
+        this.daD.a(eVar);
+        com.baidu.swan.pms.c.a.a.a(cVar, this.daD);
         return null;
     }
 
@@ -38,15 +38,15 @@ public class c extends com.baidu.swan.pms.c.d<com.baidu.swan.pms.c.c.c> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.pms.c.d
     /* renamed from: b */
-    public boolean R(com.baidu.swan.pms.c.c.c cVar) {
+    public boolean S(com.baidu.swan.pms.c.c.c cVar) {
         if (cVar == null) {
             return false;
         }
-        return cVar.dbj == null || cVar.dbj.XM();
+        return cVar.dbo == null || cVar.dbo.XL();
     }
 
     @Override // com.baidu.swan.pms.c.d
-    protected String arw() {
+    protected String arv() {
         return "getplugin";
     }
 }

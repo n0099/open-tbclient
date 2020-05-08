@@ -25,14 +25,14 @@ public class g {
         
 
         /* renamed from: a  reason: collision with other field name */
-        private final int f400a;
+        private final int f380a;
 
         a(int i) {
-            this.f400a = i;
+            this.f380a = i;
         }
 
         public int a() {
-            return this.f400a;
+            return this.f380a;
         }
     }
 
@@ -52,17 +52,17 @@ public class g {
 
     @TargetApi(19)
     /* renamed from: a  reason: collision with other method in class */
-    public static a m298a(Context context, String str) {
+    public static a m302a(Context context, String str) {
         a aVar;
         if (context == null || TextUtils.isEmpty(str) || Build.VERSION.SDK_INT < 19) {
             return a.UNKNOWN;
         }
         try {
-            Integer num = (Integer) at.a((Class<? extends Object>) AppOpsManager.class, "OP_POST_NOTIFICATION");
+            Integer num = (Integer) ba.a((Class<? extends Object>) AppOpsManager.class, "OP_POST_NOTIFICATION");
             if (num == null) {
                 aVar = a.UNKNOWN;
             } else {
-                Integer num2 = (Integer) at.a((AppOpsManager) context.getSystemService("appops"), "checkOpNoThrow", num, Integer.valueOf(context.getPackageManager().getApplicationInfo(str, 0).uid), str);
+                Integer num2 = (Integer) ba.a((AppOpsManager) context.getSystemService("appops"), "checkOpNoThrow", num, Integer.valueOf(context.getPackageManager().getApplicationInfo(str, 0).uid), str);
                 aVar = (num2 == null || num2.intValue() != 0) ? a.NOT_ALLOWED : a.ALLOWED;
             }
             return aVar;
@@ -86,7 +86,7 @@ public class g {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static String m299a(Context context, String str) {
+    public static String m303a(Context context, String str) {
         PackageInfo packageInfo;
         try {
             packageInfo = context.getPackageManager().getPackageInfo(str, 16384);
@@ -98,7 +98,7 @@ public class g {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m300a(Context context) {
+    public static boolean m304a(Context context) {
         List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getRunningAppProcesses();
         if (runningAppProcesses == null || runningAppProcesses.size() < 1) {
             return false;
@@ -112,7 +112,7 @@ public class g {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m301a(Context context, String str) {
+    public static boolean m305a(Context context, String str) {
         List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getRunningAppProcesses();
         if (runningAppProcesses != null) {
             for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
@@ -159,7 +159,7 @@ public class g {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public static boolean m302b(Context context, String str) {
+    public static boolean m306b(Context context, String str) {
         PackageInfo packageInfo;
         try {
             packageInfo = context.getPackageManager().getPackageInfo(str, 0);

@@ -8,35 +8,35 @@ import java.util.List;
 import rx.k;
 /* loaded from: classes6.dex */
 public final class i implements k {
-    private volatile boolean njf;
-    private List<k> nok;
+    private volatile boolean nji;
+    private List<k> non;
 
     public i() {
     }
 
     public i(k... kVarArr) {
-        this.nok = new LinkedList(Arrays.asList(kVarArr));
+        this.non = new LinkedList(Arrays.asList(kVarArr));
     }
 
     public i(k kVar) {
-        this.nok = new LinkedList();
-        this.nok.add(kVar);
+        this.non = new LinkedList();
+        this.non.add(kVar);
     }
 
     @Override // rx.k
     public boolean isUnsubscribed() {
-        return this.njf;
+        return this.nji;
     }
 
     public void add(k kVar) {
         if (!kVar.isUnsubscribed()) {
-            if (!this.njf) {
+            if (!this.nji) {
                 synchronized (this) {
-                    if (!this.njf) {
-                        List list = this.nok;
+                    if (!this.nji) {
+                        List list = this.non;
                         if (list == null) {
                             list = new LinkedList();
-                            this.nok = list;
+                            this.non = list;
                         }
                         list.add(kVar);
                         return;
@@ -48,10 +48,10 @@ public final class i implements k {
     }
 
     public void a(k kVar) {
-        if (!this.njf) {
+        if (!this.nji) {
             synchronized (this) {
-                List<k> list = this.nok;
-                if (!this.njf && list != null) {
+                List<k> list = this.non;
+                if (!this.nji && list != null) {
                     boolean remove = list.remove(kVar);
                     if (remove) {
                         kVar.unsubscribe();
@@ -63,12 +63,12 @@ public final class i implements k {
 
     @Override // rx.k
     public void unsubscribe() {
-        if (!this.njf) {
+        if (!this.nji) {
             synchronized (this) {
-                if (!this.njf) {
-                    this.njf = true;
-                    List<k> list = this.nok;
-                    this.nok = null;
+                if (!this.nji) {
+                    this.nji = true;
+                    List<k> list = this.non;
+                    this.non = null;
                     r(list);
                 }
             }

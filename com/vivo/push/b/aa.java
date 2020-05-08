@@ -1,31 +1,39 @@
 package com.vivo.push.b;
 
-import com.baidu.mapapi.UIMsg;
+import com.baidu.android.imsdk.IMConstants;
+import java.util.HashMap;
 /* loaded from: classes8.dex */
 public final class aa extends com.vivo.push.y {
-    private String a;
-
-    public aa(String str) {
-        super(UIMsg.m_AppUI.MSG_APP_VERSION_FORCE_NAV_MODULE);
-        this.a = str;
-    }
+    private HashMap<String, String> a;
+    private long b;
 
     public aa() {
-        super(UIMsg.m_AppUI.MSG_APP_VERSION_FORCE_NAV_MODULE);
+        super(IMConstants.IM_MSG_TYPE_SHIELD_ME);
+    }
+
+    public aa(long j) {
+        this();
+        this.b = j;
+    }
+
+    public final void a(HashMap<String, String> hashMap) {
+        this.a = hashMap;
     }
 
     @Override // com.vivo.push.y
-    protected final void c(com.vivo.push.a aVar) {
-        aVar.a("package_name", this.a);
+    public final void c(com.vivo.push.a aVar) {
+        aVar.a("ReporterCommand.EXTRA_PARAMS", this.a);
+        aVar.a("ReporterCommand.EXTRA_REPORTER_TYPE", this.b);
     }
 
     @Override // com.vivo.push.y
-    protected final void d(com.vivo.push.a aVar) {
-        this.a = aVar.a("package_name");
+    public final void d(com.vivo.push.a aVar) {
+        this.a = (HashMap) aVar.c("ReporterCommand.EXTRA_PARAMS");
+        this.b = aVar.b("ReporterCommand.EXTRA_REPORTER_TYPE", this.b);
     }
 
     @Override // com.vivo.push.y
     public final String toString() {
-        return "StopServiceCommand";
+        return "ReporterCommand（" + this.b + ")";
     }
 }

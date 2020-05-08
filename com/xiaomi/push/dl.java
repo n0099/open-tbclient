@@ -1,28 +1,39 @@
 package com.xiaomi.push;
+
+import com.xiaomi.channel.commonutils.logger.LoggerInterface;
 /* loaded from: classes8.dex */
-public class dl {
-    private static volatile dl a;
+public class dl implements LoggerInterface {
+    private LoggerInterface a;
+    private LoggerInterface b;
 
-    /* renamed from: a  reason: collision with other field name */
-    private dk f241a;
+    public dl(LoggerInterface loggerInterface, LoggerInterface loggerInterface2) {
+        this.a = null;
+        this.b = null;
+        this.a = loggerInterface;
+        this.b = loggerInterface2;
+    }
 
-    public static dl a() {
-        if (a == null) {
-            synchronized (dl.class) {
-                if (a == null) {
-                    a = new dl();
-                }
-            }
+    @Override // com.xiaomi.channel.commonutils.logger.LoggerInterface
+    public void log(String str) {
+        if (this.a != null) {
+            this.a.log(str);
         }
-        return a;
+        if (this.b != null) {
+            this.b.log(str);
+        }
     }
 
-    /* renamed from: a  reason: collision with other method in class */
-    public dk m226a() {
-        return this.f241a;
+    @Override // com.xiaomi.channel.commonutils.logger.LoggerInterface
+    public void log(String str, Throwable th) {
+        if (this.a != null) {
+            this.a.log(str, th);
+        }
+        if (this.b != null) {
+            this.b.log(str, th);
+        }
     }
 
-    public void a(dk dkVar) {
-        this.f241a = dkVar;
+    @Override // com.xiaomi.channel.commonutils.logger.LoggerInterface
+    public void setTag(String str) {
     }
 }

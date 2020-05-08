@@ -6,10 +6,10 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes9.dex */
 public class e implements AbsListView.OnScrollListener {
-    private a gJb;
-    private b gJd;
+    private a gJh;
+    private b gJj;
     private int mScrollState = -1;
-    private int gJc = 0;
+    private int gJi = 0;
 
     /* loaded from: classes9.dex */
     public interface b {
@@ -28,34 +28,34 @@ public class e implements AbsListView.OnScrollListener {
         View childAt;
         if (absListView != null && i >= 0 && absListView.getChildCount() > 0 && (childAt = absListView.getChildAt(0)) != null) {
             if (i == 0 && childAt.getTop() == absListView.getPaddingTop()) {
-                if (this.gJc != 0 && this.gJd != null) {
-                    this.gJd.a(absListView, 0, -this.gJc);
+                if (this.gJi != 0 && this.gJj != null) {
+                    this.gJj.a(absListView, 0, -this.gJi);
                 }
-                this.gJc = 0;
-                this.gJb = null;
+                this.gJi = 0;
+                this.gJh = null;
                 return;
             }
             a aVar = new a(absListView, i);
-            if (this.gJb == null) {
-                this.gJb = aVar;
-                this.gJc = absListView.getPaddingTop() - childAt.getTop();
-                if (this.gJd != null) {
-                    this.gJd.a(absListView, this.gJc, 0);
+            if (this.gJh == null) {
+                this.gJh = aVar;
+                this.gJi = absListView.getPaddingTop() - childAt.getTop();
+                if (this.gJj != null) {
+                    this.gJj.a(absListView, this.gJi, 0);
                     return;
                 }
                 return;
             }
-            int a2 = this.gJb.a(aVar);
-            this.gJb = aVar;
-            this.gJc += a2;
-            if (this.gJd != null) {
-                this.gJd.a(absListView, this.gJc, a2);
+            int a2 = this.gJh.a(aVar);
+            this.gJh = aVar;
+            this.gJi += a2;
+            if (this.gJj != null) {
+                this.gJj.a(absListView, this.gJi, a2);
             }
         }
     }
 
     public void a(b bVar) {
-        this.gJd = bVar;
+        this.gJj = bVar;
     }
 
     /* loaded from: classes9.dex */
@@ -81,7 +81,7 @@ public class e implements AbsListView.OnScrollListener {
             for (c cVar : this.list) {
                 for (c cVar2 : aVar.list) {
                     if (cVar.position == cVar2.position) {
-                        return cVar.f1023top - cVar2.f1023top;
+                        return cVar.f1015top - cVar2.f1015top;
                     }
                 }
             }
@@ -96,11 +96,11 @@ public class e implements AbsListView.OnScrollListener {
         private int position;
 
         /* renamed from: top  reason: collision with root package name */
-        private int f1023top;
+        private int f1015top;
 
         private c(View view, int i) {
             this.position = i;
-            this.f1023top = view.getTop();
+            this.f1015top = view.getTop();
             this.bottom = view.getBottom();
         }
     }

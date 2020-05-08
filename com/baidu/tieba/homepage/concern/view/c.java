@@ -32,7 +32,7 @@ public class c extends com.baidu.card.b<com.baidu.tbadk.core.data.a> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.card.m
     /* renamed from: b */
-    public void A(com.baidu.tbadk.core.data.a aVar) {
+    public void B(com.baidu.tbadk.core.data.a aVar) {
         this.mNoDataView.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 

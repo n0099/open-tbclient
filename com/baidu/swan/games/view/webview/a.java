@@ -21,8 +21,8 @@ import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes11.dex */
 public class a extends EventTargetImpl {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private g cUg;
-    private C0384a cUh;
+    private g cUl;
+    private C0405a cUm;
     private volatile String mCurrentUrl;
 
     public a(com.baidu.swan.games.e.b bVar) {
@@ -49,13 +49,13 @@ public class a extends EventTargetImpl {
             ai.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.view.webview.a.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (a.this.cUg == null) {
+                    if (a.this.cUl == null) {
                         a.this.azB();
                     }
-                    if (!a.this.cUg.Qw()) {
-                        a.this.cUg.QJ();
+                    if (!a.this.cUl.Qv()) {
+                        a.this.cUl.QI();
                     }
-                    a.this.cUg.loadUrl(optString);
+                    a.this.cUl.loadUrl(optString);
                     a.this.t("open", new b.a(optString));
                 }
             });
@@ -67,10 +67,10 @@ public class a extends EventTargetImpl {
         ai.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.view.webview.a.2
             @Override // java.lang.Runnable
             public void run() {
-                if (a.this.cUg != null && a.this.cUg.Qw()) {
-                    a.this.cUg.QK();
-                    a.this.cUg.destroy();
-                    a.this.cUg = null;
+                if (a.this.cUl != null && a.this.cUl.Qv()) {
+                    a.this.cUl.QJ();
+                    a.this.cUl.destroy();
+                    a.this.cUl = null;
                     a.this.t("close", new b.a(a.this.mCurrentUrl));
                 }
             }
@@ -88,11 +88,11 @@ public class a extends EventTargetImpl {
         ai.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.view.webview.a.3
             @Override // java.lang.Runnable
             public void run() {
-                if (a.this.cUg != null) {
+                if (a.this.cUl != null) {
                     if (TextUtils.equals("1", optString)) {
-                        a.this.cUg.cU(true);
+                        a.this.cUl.cU(true);
                     } else {
-                        a.this.cUg.cU(false);
+                        a.this.cUl.cU(false);
                     }
                 }
             }
@@ -109,36 +109,36 @@ public class a extends EventTargetImpl {
                 com.baidu.swan.games.utils.b.a(c, false, null);
                 return;
             }
-            this.cUh = new C0384a(optString, optString2, System.currentTimeMillis());
+            this.cUm = new C0405a(optString, optString2, System.currentTimeMillis());
             if (DEBUG) {
-                Log.d("GameWebViewApi", "onGameLoadingStart: " + this.cUh);
+                Log.d("GameWebViewApi", "onGameLoadingStart: " + this.cUm);
             }
             com.baidu.swan.games.utils.b.a(c, true, null);
         }
     }
 
     public void onGameLoadingFinish() {
-        if (this.cUh == null) {
+        if (this.cUm == null) {
             if (DEBUG) {
                 Log.d("GameWebViewApi", "onGameLoadingFinish: H5GameInfo is null.");
                 return;
             }
             return;
         }
-        e akO = e.akO();
-        if (akO == null) {
+        e akN = e.akN();
+        if (akN == null) {
             if (DEBUG) {
                 Log.d("GameWebViewApi", "onGameLoadingFinish: SwanApp is null.");
                 return;
             }
             return;
         }
-        this.cUh.cUl = System.currentTimeMillis();
+        this.cUm.cUq = System.currentTimeMillis();
         if (DEBUG) {
-            Log.d("GameWebViewApi", "onGameLoadingFinish: " + this.cUh);
+            Log.d("GameWebViewApi", "onGameLoadingFinish: " + this.cUm);
         }
-        c.a(akO, this.cUh);
-        this.cUh = null;
+        c.a(akN, this.cUm);
+        this.cUm = null;
     }
 
     private boolean rl(String str) {
@@ -151,9 +151,9 @@ public class a extends EventTargetImpl {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void azB() {
-        if (this.cUg == null) {
-            this.cUg = d.Yo().Yp().bn(com.baidu.swan.apps.w.a.abO());
-            this.cUg.d(new View.OnClickListener() { // from class: com.baidu.swan.games.view.webview.a.4
+        if (this.cUl == null) {
+            this.cUl = d.Yn().Yo().bb(com.baidu.swan.apps.w.a.abN());
+            this.cUl.d(new View.OnClickListener() { // from class: com.baidu.swan.games.view.webview.a.4
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     a.this.close();
@@ -162,7 +162,7 @@ public class a extends EventTargetImpl {
         }
     }
 
-    private b.C0385b ci(String str, @NonNull String str2) {
+    private b.C0406b ci(String str, @NonNull String str2) {
         char c = 65535;
         switch (str2.hashCode()) {
             case 1507424:
@@ -180,9 +180,9 @@ public class a extends EventTargetImpl {
         }
         switch (c) {
             case 0:
-                return new b.C0385b(str, str2, "open:url is invalid");
+                return new b.C0406b(str, str2, "open:url is invalid");
             case 1:
-                return new b.C0385b(str, str2, "open:host not in white list");
+                return new b.C0406b(str, str2, "open:host not in white list");
             default:
                 return null;
         }
@@ -211,20 +211,20 @@ public class a extends EventTargetImpl {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.swan.games.view.webview.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public static class C0384a {
-        long cUk;
-        long cUl;
+    public static class C0405a {
+        long cUp;
+        long cUq;
         String mGameId;
         String mGameName;
 
-        private C0384a(String str, String str2, long j) {
+        private C0405a(String str, String str2, long j) {
             this.mGameId = str;
             this.mGameName = str2;
-            this.cUk = j;
+            this.cUp = j;
         }
 
         public String toString() {
-            return "H5GameInfo{mGameId='" + this.mGameId + "', mGameName='" + this.mGameName + "', mStartLoadingTimestamp=" + this.cUk + ", mFinishLoadingTimestamp=" + this.cUl + '}';
+            return "H5GameInfo{mGameId='" + this.mGameId + "', mGameName='" + this.mGameName + "', mStartLoadingTimestamp=" + this.cUp + ", mFinishLoadingTimestamp=" + this.cUq + '}';
         }
     }
 }

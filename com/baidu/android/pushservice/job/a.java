@@ -7,22 +7,22 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.os.Build;
 import android.os.SystemClock;
-import com.baidu.android.pushservice.i.l;
+import android.util.Log;
+import com.baidu.android.pushservice.h.a.b;
 @TargetApi(21)
 /* loaded from: classes8.dex */
 public class a {
-    private static C0047a a;
+    private static C0068a a;
     private static boolean b;
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.android.pushservice.job.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static class C0047a {
+    private static class C0068a {
         private final Context a;
         private final JobScheduler b;
         private boolean c;
 
-        C0047a(Context context) {
+        C0068a(Context context) {
             this.a = context;
             this.b = (JobScheduler) this.a.getSystemService("jobscheduler");
         }
@@ -57,43 +57,46 @@ public class a {
         }
     }
 
-    public static synchronized void a() {
-        synchronized (a.class) {
-            if (a != null) {
-                try {
-                    a.b();
-                } catch (Exception e) {
-                }
-                a = null;
-                b = false;
-            }
-        }
-    }
-
     public static synchronized void a(Context context) {
         synchronized (a.class) {
-            if (a == null && Build.VERSION.SDK_INT >= 21 && !l.E(context)) {
+            if (a == null && Build.VERSION.SDK_INT >= 21) {
                 try {
-                    a = new C0047a(context);
+                    a = new C0068a(context);
                 } catch (Exception e) {
+                    new b.c(context).a(Log.getStackTraceString(e)).a();
                 }
             }
         }
     }
 
-    public static synchronized void a(boolean z) {
+    public static synchronized void a(Context context, boolean z) {
         synchronized (a.class) {
             if (a != null) {
                 try {
                     b = true;
                     a.a(z);
                 } catch (Exception e) {
+                    new b.c(context).a(Log.getStackTraceString(e)).a();
                 }
             }
         }
     }
 
-    public static boolean b() {
+    public static boolean a() {
         return b;
+    }
+
+    public static synchronized void b(Context context) {
+        synchronized (a.class) {
+            if (a != null) {
+                try {
+                    a.b();
+                } catch (Exception e) {
+                    new b.c(context).a(Log.getStackTraceString(e)).a();
+                }
+                a = null;
+                b = false;
+            }
+        }
     }
 }

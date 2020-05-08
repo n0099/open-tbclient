@@ -15,8 +15,8 @@ import java.util.Date;
 public class d {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static final String TAG = d.class.getSimpleName();
-    private static d cLi;
-    private boolean cLj;
+    private static d cLo;
+    private boolean cLp;
 
     /* loaded from: classes11.dex */
     public interface a {
@@ -24,23 +24,23 @@ public class d {
     }
 
     private d() {
-        this.cLj = DEBUG && com.baidu.swan.apps.ah.a.a.aiA();
+        this.cLp = DEBUG && com.baidu.swan.apps.ah.a.a.aiz();
     }
 
     public static d avn() {
-        if (cLi == null) {
+        if (cLo == null) {
             synchronized (d.class) {
-                if (cLi == null) {
-                    cLi = new d();
+                if (cLo == null) {
+                    cLo = new d();
                 }
             }
         }
-        return cLi;
+        return cLo;
     }
 
     private File avo() {
-        File file = new File(com.baidu.swan.games.k.a.abF(), "game_core_console");
-        File file2 = (DEBUG && this.cLj) ? new File(file, "debug") : file;
+        File file = new File(com.baidu.swan.games.k.a.abE(), "game_core_console");
+        File file2 = (DEBUG && this.cLp) ? new File(file, "debug") : file;
         if (!file2.exists()) {
             file2.mkdirs();
         }
@@ -52,7 +52,7 @@ public class d {
     }
 
     public File avq() {
-        return new File(com.baidu.swan.apps.t.e.abG(), "sConsole-core");
+        return new File(com.baidu.swan.apps.t.e.abF(), "sConsole-core");
     }
 
     private File avr() {
@@ -77,7 +77,7 @@ public class d {
         File avu = avu();
         if (!avu.exists() && avs.exists()) {
             String format = String.format("%s%s%s", "res", File.separator, "swan-game-sconsole.js");
-            String readAssetData = com.baidu.swan.d.c.readAssetData(com.baidu.swan.apps.w.a.abO(), "aigames/sConsole.html");
+            String readAssetData = com.baidu.swan.d.c.readAssetData(com.baidu.swan.apps.w.a.abN(), "aigames/sConsole.html");
             if (readAssetData != null) {
                 com.baidu.swan.d.c.saveFile(String.format(readAssetData, format), avu);
             }
@@ -86,8 +86,8 @@ public class d {
 
     public void a(String str, final a aVar) {
         if (DEBUG) {
-            final boolean z = this.cLj;
-            this.cLj = true;
+            final boolean z = this.cLp;
+            this.cLp = true;
             e.c cVar = new e.c();
             cVar.mDownloadUrl = str;
             final File avr = avr();
@@ -109,13 +109,13 @@ public class d {
                     }
                     com.baidu.swan.d.c.deleteFile(avr);
                     aVar.dk(unzipFile);
-                    d.this.cLj = z;
+                    d.this.cLp = z;
                 }
 
                 @Override // com.baidu.swan.apps.t.e.b
                 public void onFailed() {
                     aVar.dk(false);
-                    d.this.cLj = z;
+                    d.this.cLp = z;
                 }
             });
         }
@@ -149,7 +149,7 @@ public class d {
     }
 
     public void a(@NonNull final a aVar) {
-        if (DEBUG && this.cLj) {
+        if (DEBUG && this.cLp) {
             ai.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.b.d.2
                 @Override // java.lang.Runnable
                 public void run() {
@@ -160,7 +160,7 @@ public class d {
             com.baidu.swan.pms.c.a(new com.baidu.swan.pms.c.d.a(avw()), new com.baidu.swan.games.b.a.a(new com.baidu.swan.games.b.b.a() { // from class: com.baidu.swan.games.b.d.3
                 @Override // com.baidu.swan.games.b.b.a
                 @NonNull
-                public File Vf() {
+                public File Ve() {
                     return d.avn().avp();
                 }
 
@@ -185,6 +185,6 @@ public class d {
     }
 
     public void a(@NonNull Activity activity, @Nullable DialogInterface.OnClickListener onClickListener) {
-        new g.a(activity).eI(a.h.aiapps_debug_switch_title).eH(a.h.aiapps_sconsole_load_error).a(new com.baidu.swan.apps.view.c.a()).eA(false).c(a.h.aiapps_ok, onClickListener).akx();
+        new g.a(activity).eI(a.h.aiapps_debug_switch_title).eH(a.h.aiapps_sconsole_load_error).a(new com.baidu.swan.apps.view.c.a()).eA(false).c(a.h.aiapps_ok, onClickListener).akw();
     }
 }

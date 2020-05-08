@@ -4,10 +4,10 @@ public class z {
     public String category;
     public String forumId;
     public String forumName;
-    public boolean gBs;
+    public boolean gBy;
     public String imageUrl;
     public int index;
-    public aa kRv;
+    public aa kRz;
     public String link;
     public String name;
     public String version;

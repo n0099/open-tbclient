@@ -18,7 +18,7 @@ public class c {
         HashMap hashMap = new HashMap();
         hashMap.put("Content-Type", "application/octet-stream");
         hashMap.put("Bdtls", "Bdtls");
-        HttpManager.getDefault(AppRuntime.getAppContext()).postByteRequest().url("https://mbd.baidu.com/ma/bdtls").cookieManager(com.baidu.swan.apps.w.a.acm().Qj()).headers(hashMap).content(bArr).build().executeAsync(new ResponseCallback<byte[]>() { // from class: com.baidu.swan.games.bdtls.b.c.1
+        HttpManager.getDefault(AppRuntime.getAppContext()).postByteRequest().url("https://mbd.baidu.com/ma/bdtls").cookieManager(com.baidu.swan.apps.w.a.acl().Qi()).headers(hashMap).content(bArr).build().executeAsync(new ResponseCallback<byte[]>() { // from class: com.baidu.swan.games.bdtls.b.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.searchbox.http.callback.ResponseCallback
             public byte[] parseResponse(Response response, int i) throws Exception {

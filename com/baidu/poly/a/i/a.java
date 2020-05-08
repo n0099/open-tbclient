@@ -17,26 +17,26 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class a {
-    private static volatile a bnJ;
-    private long bnK;
-    private com.baidu.poly.a.k.c bnL;
-    private com.baidu.poly.widget.c bnM;
-    private com.baidu.poly.widget.c bnN;
+    private static volatile a bnO;
+    private long bnP;
+    private com.baidu.poly.a.k.c bnQ;
+    private com.baidu.poly.widget.c bnR;
+    private com.baidu.poly.widget.c bnS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.poly.a.i.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public class C0182a extends com.baidu.poly.a.a.a<JSONObject> {
-        final /* synthetic */ l bnE;
-        final /* synthetic */ boolean bnF;
-        final /* synthetic */ Context bnG;
-        final /* synthetic */ Bundle bnH;
+    public class C0204a extends com.baidu.poly.a.a.a<JSONObject> {
+        final /* synthetic */ l bnJ;
+        final /* synthetic */ boolean bnK;
+        final /* synthetic */ Context bnL;
+        final /* synthetic */ Bundle bnM;
 
-        C0182a(l lVar, boolean z, Context context, Bundle bundle) {
-            this.bnE = lVar;
-            this.bnF = z;
-            this.bnG = context;
-            this.bnH = bundle;
+        C0204a(l lVar, boolean z, Context context, Bundle bundle) {
+            this.bnJ = lVar;
+            this.bnK = z;
+            this.bnL = context;
+            this.bnM = bundle;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -45,56 +45,56 @@ public class a {
             int optInt = jSONObject.optInt("payStatus", 3);
             a.this.b("1", String.valueOf(optInt));
             if (optInt == 2) {
-                this.bnE.a(0, com.baidu.poly.util.a.a(0, jSONObject.optString("payOrderNo"), jSONObject.optString("msg")));
-            } else if (this.bnF) {
-                a.this.a(this.bnG, this.bnH, this.bnE);
+                this.bnJ.a(0, com.baidu.poly.util.a.a(0, jSONObject.optString("payOrderNo"), jSONObject.optString("msg")));
+            } else if (this.bnK) {
+                a.this.a(this.bnL, this.bnM, this.bnJ);
             } else {
-                a.this.a(this.bnG, this.bnE);
+                a.this.a(this.bnL, this.bnJ);
             }
         }
 
         @Override // com.baidu.poly.a.a.a
         public void a(Throwable th, String str) {
             a.this.b("2", str);
-            this.bnE.a("get trade state failed : " + str);
+            this.bnJ.a("get trade state failed : " + str);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes11.dex */
     public class b implements View.OnClickListener {
-        final /* synthetic */ l bnE;
+        final /* synthetic */ l bnJ;
 
         b(l lVar) {
-            this.bnE = lVar;
+            this.bnJ = lVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            a.this.bnM.dismiss();
+            a.this.bnR.dismiss();
             com.baidu.poly.a.g.c.a(new com.baidu.poly.a.g.a(TbEnum.SystemMessage.EVENT_ID_INTRO_MODIFY).fK("1"));
-            this.bnE.a(3, "pay failed , click choose window");
+            this.bnJ.a(3, "pay failed , click choose window");
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes11.dex */
     public class c implements View.OnClickListener {
-        final /* synthetic */ l bnE;
-        final /* synthetic */ Context bnG;
-        final /* synthetic */ Bundle bnH;
+        final /* synthetic */ l bnJ;
+        final /* synthetic */ Context bnL;
+        final /* synthetic */ Bundle bnM;
 
         c(Context context, Bundle bundle, l lVar) {
-            this.bnG = context;
-            this.bnH = bundle;
-            this.bnE = lVar;
+            this.bnL = context;
+            this.bnM = bundle;
+            this.bnJ = lVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            a.this.bnM.dismiss();
+            a.this.bnR.dismiss();
             com.baidu.poly.a.g.c.a(new com.baidu.poly.a.g.a(TbEnum.SystemMessage.EVENT_ID_INTRO_MODIFY).fK("2"));
-            a.this.a(this.bnG, this.bnH, this.bnE, false);
+            a.this.a(this.bnL, this.bnM, this.bnJ, false);
         }
     }
 
@@ -106,47 +106,47 @@ public class a {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (a.this.bnN == null || !a.this.bnN.isShowing()) {
+            if (a.this.bnS == null || !a.this.bnS.isShowing()) {
                 return;
             }
-            a.this.bnN.dismiss();
+            a.this.bnS.dismiss();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes11.dex */
     public class e implements c.b {
-        final /* synthetic */ l bnE;
+        final /* synthetic */ l bnJ;
 
         e(l lVar) {
-            this.bnE = lVar;
+            this.bnJ = lVar;
         }
 
         @Override // com.baidu.poly.widget.c.b
         public void onDismiss() {
-            this.bnE.a(3, "pay failed , click error window");
+            this.bnJ.a(3, "pay failed , click error window");
         }
     }
 
     private a() {
     }
 
-    public static a KZ() {
-        if (bnJ == null) {
+    public static a KY() {
+        if (bnO == null) {
             synchronized (a.class) {
-                if (bnJ == null) {
-                    bnJ = new a();
+                if (bnO == null) {
+                    bnO = new a();
                 }
             }
         }
-        return bnJ;
+        return bnO;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(String str, String str2) {
-        com.baidu.poly.a.k.a.a(this.bnL);
+        com.baidu.poly.a.k.a.a(this.bnQ);
         try {
-            if (this.bnK != 0) {
+            if (this.bnP != 0) {
                 JSONObject jSONObject = new JSONObject();
                 if (!TextUtils.isEmpty(str)) {
                     jSONObject.put("rt", str);
@@ -154,18 +154,18 @@ public class a {
                 if (!TextUtils.isEmpty(str2)) {
                     jSONObject.put("msg", str2);
                 }
-                Long valueOf = Long.valueOf(System.currentTimeMillis() - this.bnK);
+                Long valueOf = Long.valueOf(System.currentTimeMillis() - this.bnP);
                 if (valueOf.longValue() >= 0) {
                     jSONObject.put("du", String.valueOf(valueOf));
                 }
                 com.baidu.poly.a.g.c.a(new com.baidu.poly.a.g.a(TbEnum.SystemMessage.EVENT_ID_GROUP_JOIN).P(jSONObject));
             }
         } catch (JSONException e2) {
-            if (com.baidu.poly.util.c.bos) {
+            if (com.baidu.poly.util.c.box) {
                 e2.printStackTrace();
             }
         } finally {
-            this.bnK = 0L;
+            this.bnP = 0L;
         }
     }
 
@@ -173,9 +173,9 @@ public class a {
         if (context != null && bundle != null && lVar != null) {
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.gravity = 17;
-            this.bnL = com.baidu.poly.a.k.a.a((ViewGroup) a((Activity) context), layoutParams, (String) null, -1L);
-            this.bnK = System.currentTimeMillis();
-            com.baidu.poly.a.b.a.KR().c(bundle, new C0182a(lVar, z, context, bundle));
+            this.bnQ = com.baidu.poly.a.k.a.a((ViewGroup) a((Activity) context), layoutParams, (String) null, -1L);
+            this.bnP = System.currentTimeMillis();
+            com.baidu.poly.a.b.a.KQ().c(bundle, new C0204a(lVar, z, context, bundle));
         }
     }
 
@@ -189,12 +189,12 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Context context, Bundle bundle, l lVar) {
         View inflate = View.inflate(lVar.getContext(), b.f.pay_confirm, null);
-        this.bnM = new com.baidu.poly.widget.c(inflate, -1, -1, true);
-        this.bnM.setClippingEnabled(false);
-        this.bnM.setOutsideTouchable(false);
+        this.bnR = new com.baidu.poly.widget.c(inflate, -1, -1, true);
+        this.bnR.setClippingEnabled(false);
+        this.bnR.setOutsideTouchable(false);
         ((TextView) inflate.findViewById(b.e.bt_pay_meet_problems)).setOnClickListener(new b(lVar));
         ((TextView) inflate.findViewById(b.e.bt_pay_already_finish)).setOnClickListener(new c(context, bundle, lVar));
-        this.bnM.showAtLocation(((Activity) context).getWindow().getDecorView(), 0, 0, 0);
+        this.bnR.showAtLocation(((Activity) context).getWindow().getDecorView(), 0, 0, 0);
         com.baidu.poly.a.g.c.a(new com.baidu.poly.a.g.a(TbEnum.SystemMessage.EVENT_ID_NOTICE_MODIFY));
     }
 
@@ -203,12 +203,12 @@ public class a {
         View inflate = View.inflate(lVar.getContext(), b.f.default_pop_window, null);
         ((TextView) inflate.findViewById(b.e.pop_title)).setText(b.g.pay_failed);
         ((TextView) inflate.findViewById(b.e.pop_tips)).setText(b.g.pay_failed_sub_text);
-        this.bnN = new com.baidu.poly.widget.c(inflate, -1, -1, true);
-        this.bnN.setClippingEnabled(false);
-        this.bnN.setOutsideTouchable(false);
-        this.bnN.setBackgroundDrawable(new ColorDrawable(0));
+        this.bnS = new com.baidu.poly.widget.c(inflate, -1, -1, true);
+        this.bnS.setClippingEnabled(false);
+        this.bnS.setOutsideTouchable(false);
+        this.bnS.setBackgroundDrawable(new ColorDrawable(0));
         ((TextView) inflate.findViewById(b.e.pop_button)).setOnClickListener(new d());
-        this.bnN.a(new e(lVar));
-        this.bnN.showAtLocation(((Activity) context).getWindow().getDecorView(), 0, 0, 0);
+        this.bnS.a(new e(lVar));
+        this.bnS.showAtLocation(((Activity) context).getWindow().getDecorView(), 0, 0, 0);
     }
 }

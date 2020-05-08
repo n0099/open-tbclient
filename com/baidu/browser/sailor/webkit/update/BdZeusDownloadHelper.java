@@ -15,7 +15,7 @@ import java.io.File;
 /* loaded from: classes11.dex */
 public final class BdZeusDownloadHelper {
     public static final String a = BdZeusDownloadHelper.class.getSimpleName();
-    private static BdZeusDownloadHelper acQ = null;
+    private static BdZeusDownloadHelper acT = null;
     protected static final String d = Environment.getExternalStorageDirectory().getAbsolutePath() + "/baidu/zeus/";
     protected static String e = d + "updateZeus.zes";
     protected static String f = "com.baidu.android.appswitchsdk:web";
@@ -124,6 +124,17 @@ public final class BdZeusDownloadHelper {
         this.h = context;
     }
 
+    public static BdZeusDownloadHelper O(Context context) {
+        if (acT == null) {
+            synchronized (BdZeusDownloadHelper.class) {
+                if (acT == null) {
+                    acT = new BdZeusDownloadHelper(context);
+                }
+            }
+        }
+        return acT;
+    }
+
     public static void a() {
         try {
             File file = new File(e);
@@ -133,17 +144,6 @@ public final class BdZeusDownloadHelper {
             Log.e(EngineManager.LOG_TAG, "delete zeus download file failed");
         } catch (Throwable th) {
         }
-    }
-
-    public static BdZeusDownloadHelper ab(Context context) {
-        if (acQ == null) {
-            synchronized (BdZeusDownloadHelper.class) {
-                if (acQ == null) {
-                    acQ = new BdZeusDownloadHelper(context);
-                }
-            }
-        }
-        return acQ;
     }
 
     public final void a(String str) {

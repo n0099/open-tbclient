@@ -14,9 +14,9 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes11.dex */
 public class a {
-    private static final int eoD = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds44);
-    private static final int kcC = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds36);
-    private static final int kcD = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds58);
+    private static final int eoI = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds44);
+    private static final int kcG = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds36);
+    private static final int kcH = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds58);
 
     public static List<m> ed(List<m> list) {
         bj bjVar;
@@ -32,7 +32,7 @@ public class a {
                 return arrayList;
             }
             m mVar = (m) v.getItem(list, i2);
-            if ((mVar instanceof CardPersonDynamicThreadData) && (bjVar = ((CardPersonDynamicThreadData) mVar).dqA) != null && (aX = aX(bjVar)) != null) {
+            if ((mVar instanceof CardPersonDynamicThreadData) && (bjVar = ((CardPersonDynamicThreadData) mVar).dqE) != null && (aX = aX(bjVar)) != null) {
                 arrayList.add(aX);
             }
             i = i2 + 1;
@@ -64,16 +64,16 @@ public class a {
             return null;
         }
         if (mVar instanceof e) {
-            return ((e) mVar).dqA;
+            return ((e) mVar).dqE;
         }
         if (mVar instanceof f) {
-            return ((f) mVar).dqA;
+            return ((f) mVar).dqE;
         }
         if (mVar instanceof k) {
-            return ((k) mVar).dqA;
+            return ((k) mVar).dqE;
         }
         if (mVar instanceof l) {
-            return ((l) mVar).dqA;
+            return ((l) mVar).dqE;
         }
         return null;
     }
@@ -84,7 +84,7 @@ public class a {
         }
         if (bjVar.isShareThread) {
             k kVar = new k();
-            kVar.dqA = bjVar;
+            kVar.dqE = bjVar;
             return kVar;
         } else if (e.ab(bjVar)) {
             return new e(bjVar);
@@ -96,18 +96,18 @@ public class a {
                 k kVar2 = new k();
                 if (bjVar.isLinkThread()) {
                     kVar2.isLinkThread = true;
-                } else if (bjVar.aLE()) {
-                    kVar2.dqy = true;
+                } else if (bjVar.aLC()) {
+                    kVar2.dqC = true;
                 } else {
                     kVar2.isLinkThread = false;
-                    if (bjVar.aKH()) {
-                        kVar2.gsK = true;
+                    if (bjVar.aKF()) {
+                        kVar2.gsQ = true;
                     } else {
-                        kVar2.gsK = false;
+                        kVar2.gsQ = false;
                     }
                 }
-                kVar2.dqA = bjVar;
-                kVar2.gsL = true;
+                kVar2.dqE = bjVar;
+                kVar2.gsR = true;
                 return kVar2;
             } else if (l.ab(bjVar)) {
                 return new l(bjVar);
@@ -122,9 +122,9 @@ public class a {
         ArrayList arrayList = new ArrayList();
         if (!v.isEmpty(list)) {
             com.baidu.tieba.personPolymeric.c.k kVar = new com.baidu.tieba.personPolymeric.c.k();
-            kVar.paddingBottom = kcD;
-            kVar.paddingTop = kcC;
-            kVar.paddingLeft = eoD;
+            kVar.paddingBottom = kcH;
+            kVar.paddingTop = kcG;
+            kVar.paddingLeft = eoI;
             kVar.titleId = R.string.person_center_tab_main_list_title;
             arrayList.add(kVar);
             int i = 0;

@@ -33,7 +33,7 @@ public class a extends b<PMSAppInfo> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.pms.database.a.b
     /* renamed from: n */
-    public ContentValues aa(PMSAppInfo pMSAppInfo) throws IllegalArgumentException {
+    public ContentValues ab(PMSAppInfo pMSAppInfo) throws IllegalArgumentException {
         ContentValues contentValues = new ContentValues();
         if (pMSAppInfo != null) {
             contentValues.put("app_id", pMSAppInfo.appId);

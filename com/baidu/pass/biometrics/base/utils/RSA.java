@@ -1,7 +1,7 @@
 package com.baidu.pass.biometrics.base.utils;
 
 import android.text.TextUtils;
-import com.baidu.android.common.security.Base64;
+import com.baidu.pass.common.SecurityUtil;
 import java.io.ByteArrayInputStream;
 import java.security.PublicKey;
 import javax.crypto.Cipher;
@@ -32,10 +32,10 @@ public class RSA {
         PublicKey publicKey = getPublicKey(SO_UPDATE_PUBLIC_KEY_STR);
         Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
         cipher.init(2, publicKey);
-        return new String(cipher.doFinal(Base64.decode(str.getBytes("UTF-8"))), "UTF-8").trim();
+        return new String(cipher.doFinal(SecurityUtil.base64Decode(str.getBytes("UTF-8"))), "UTF-8").trim();
     }
 
     public static PublicKey getPublicKey(String str) throws Exception {
-        return X509Certificate.getInstance(new ByteArrayInputStream(Base64.decode(str.getBytes()))).getPublicKey();
+        return X509Certificate.getInstance(new ByteArrayInputStream(SecurityUtil.base64Decode(str.getBytes()))).getPublicKey();
     }
 }

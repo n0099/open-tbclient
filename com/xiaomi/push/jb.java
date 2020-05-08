@@ -1,19 +1,28 @@
 package com.xiaomi.push;
+
+import com.xiaomi.push.je;
 /* loaded from: classes8.dex */
-public final class jb {
-    public final byte a;
+public class jb {
+    private final ji a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final int f793a;
-    public final byte b;
+    private final jr f767a;
 
     public jb() {
-        this((byte) 0, (byte) 0, 0);
+        this(new je.a());
     }
 
-    public jb(byte b, byte b2, int i) {
-        this.a = b;
-        this.b = b2;
-        this.f793a = i;
+    public jb(jk jkVar) {
+        this.f767a = new jr();
+        this.a = jkVar.a(this.f767a);
+    }
+
+    public void a(ix ixVar, byte[] bArr) {
+        try {
+            this.f767a.a(bArr);
+            ixVar.a(this.a);
+        } finally {
+            this.a.k();
+        }
     }
 }

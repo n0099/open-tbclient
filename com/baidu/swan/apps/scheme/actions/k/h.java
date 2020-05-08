@@ -34,31 +34,31 @@ public class h extends ab {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
         }
-        final com.baidu.swan.apps.y.f aeK = com.baidu.swan.apps.y.f.aeK();
-        final com.baidu.swan.apps.core.d.e Ou = aeK.Ou();
-        if (Ou == null) {
+        final com.baidu.swan.apps.y.f aeJ = com.baidu.swan.apps.y.f.aeJ();
+        final com.baidu.swan.apps.core.d.e Ot = aeJ.Ot();
+        if (Ot == null) {
             com.baidu.swan.apps.console.c.e("relaunch", "manager is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        final com.baidu.swan.apps.model.b bg = com.baidu.swan.apps.model.b.bg(a, aeK.aes());
-        if (!ai.a(aeK.aeq(), bg, true)) {
+        final com.baidu.swan.apps.model.b bg = com.baidu.swan.apps.model.b.bg(a, aeJ.aer());
+        if (!ai.a(aeJ.aep(), bg, true)) {
             com.baidu.swan.apps.console.c.e("relaunch", "page params error : pageParam=" + bg.mPage);
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
         }
         String a2 = a.a(unitedSchemeEntity, "params", "initData");
-        if (!TextUtils.isEmpty(a2) && bg != null && !TextUtils.isEmpty(bg.mPage) && com.baidu.swan.apps.runtime.e.akN() != null) {
-            com.baidu.swan.apps.runtime.e.akN().bp(a2, bg.mPage);
+        if (!TextUtils.isEmpty(a2) && bg != null && !TextUtils.isEmpty(bg.mPage) && com.baidu.swan.apps.runtime.e.akM() != null) {
+            com.baidu.swan.apps.runtime.e.akM().bp(a2, bg.mPage);
         }
         String a3 = a.a(unitedSchemeEntity, "params", "startTime");
         if (!TextUtils.isEmpty(a3)) {
             com.baidu.swan.apps.performance.f.bh("route", uuid).f(new UbcFlowEvent("fe_route_start").aZ(Long.valueOf(a3).longValue()));
         }
-        final b.a G = com.baidu.swan.apps.core.slave.b.G(aeK.aev());
-        final String QG = G.bQe.QG();
+        final b.a G = com.baidu.swan.apps.core.slave.b.G(aeJ.aeu());
+        final String QF = G.bQj.QF();
         if (DEBUG) {
-            Log.d("ReLaunchAction", "webview idx: " + QG);
+            Log.d("ReLaunchAction", "webview idx: " + QF);
         }
         final String optString = s.parseString(unitedSchemeEntity.getParam("params")).optString("cb");
         if (TextUtils.isEmpty(optString)) {
@@ -67,21 +67,21 @@ public class h extends ab {
             return false;
         }
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-        aeK.showLoadingView();
-        g.a(eVar, bg.mPage, QG, new g.a() { // from class: com.baidu.swan.apps.scheme.actions.k.h.1
+        aeJ.showLoadingView();
+        g.a(eVar, bg.mPage, QF, new g.a() { // from class: com.baidu.swan.apps.scheme.actions.k.h.1
             @Override // com.baidu.swan.apps.scheme.actions.k.g.a
             public void gt(String str) {
                 com.baidu.swan.apps.performance.g.lm(uuid);
                 com.baidu.swan.apps.console.c.i("relaunch", "check pages success");
-                aeK.Ox();
-                a.a(unitedSchemeEntity, callbackHandler, eVar, QG, bg.mPage, optString);
-                h.this.b(G, bg, Ou, uuid);
+                aeJ.Ow();
+                a.a(unitedSchemeEntity, callbackHandler, eVar, QF, bg.mPage, optString);
+                h.this.b(G, bg, Ot, uuid);
             }
 
             @Override // com.baidu.swan.apps.scheme.actions.k.g.a
             public void ed(int i) {
                 com.baidu.swan.apps.console.c.e("relaunch", "check pages failed");
-                aeK.Ox();
+                aeJ.Ow();
                 if (h.DEBUG) {
                     com.baidu.swan.apps.res.widget.b.d.a(context, context.getString(a.h.aiapps_open_pages_failed) + i).showToast();
                 }
@@ -98,14 +98,14 @@ public class h extends ab {
         if (DEBUG) {
             Log.d("ReLaunchAction", "tryToExecutePageRoute start. isReady : " + z);
         }
-        com.baidu.swan.apps.core.slave.b.a(aVar, new b.InterfaceC0285b() { // from class: com.baidu.swan.apps.scheme.actions.k.h.2
-            @Override // com.baidu.swan.apps.core.slave.b.InterfaceC0285b
+        com.baidu.swan.apps.core.slave.b.a(aVar, new b.InterfaceC0306b() { // from class: com.baidu.swan.apps.scheme.actions.k.h.2
+            @Override // com.baidu.swan.apps.core.slave.b.InterfaceC0306b
             public void onReady() {
                 if (h.DEBUG) {
                     Log.d("ReLaunchAction", "tryToExecutePageRoute onReady start.");
                 }
                 com.baidu.swan.apps.performance.g.a(aVar, str);
-                a.a(aVar.bQe, bVar, str);
+                a.a(aVar.bQj, bVar, str);
                 h.a(eVar, bVar, str);
                 if (h.DEBUG) {
                     Log.d("ReLaunchAction", "tryToExecutePageRoute onReady end.");
@@ -119,7 +119,7 @@ public class h extends ab {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void a(com.baidu.swan.apps.core.d.e eVar, com.baidu.swan.apps.model.b bVar, String str) {
-        eVar.io("reLaunch").ab(0, 0).Wo().a("normal", bVar).Wq();
+        eVar.io("reLaunch").ab(0, 0).Wn().a("normal", bVar).Wp();
         com.baidu.swan.apps.performance.f.bh("route", str).f(new UbcFlowEvent("na_push_page_end"));
         com.baidu.swan.apps.performance.g.R(3, str);
         com.baidu.swan.apps.performance.g.lo(str);

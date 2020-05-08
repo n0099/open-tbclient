@@ -80,7 +80,7 @@ public class y {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m570a(File file) {
+    public static void m585a(File file) {
         if (!file.isDirectory()) {
             if (file.exists()) {
                 file.delete();
@@ -89,7 +89,7 @@ public class y {
             return;
         }
         for (File file2 : file.listFiles()) {
-            m570a(file2);
+            m585a(file2);
         }
         file.delete();
     }
@@ -221,7 +221,7 @@ public class y {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m571a(File file) {
+    public static boolean m586a(File file) {
         try {
             if (file.isDirectory()) {
                 return false;

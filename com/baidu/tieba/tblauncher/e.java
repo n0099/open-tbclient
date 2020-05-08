@@ -19,10 +19,10 @@ public class e {
                 String queryParameter5 = uri.getQueryParameter(TiebaInitialize.Params.OBJ_PARAM2);
                 String queryParameter6 = uri.getQueryParameter("tid");
                 String queryParameter7 = uri.getQueryParameter("kw");
-                String queryParameter8 = uri.getQueryParameter(f.dhx);
-                String queryParameter9 = uri.getQueryParameter(f.dhy);
-                String queryParameter10 = uri.getQueryParameter(f.dhz);
-                String queryParameter11 = uri.getQueryParameter(f.dhA);
+                String queryParameter8 = uri.getQueryParameter(f.dhC);
+                String queryParameter9 = uri.getQueryParameter(f.dhD);
+                String queryParameter10 = uri.getQueryParameter(f.dhE);
+                String queryParameter11 = uri.getQueryParameter(f.dhF);
                 an anVar = new an("c13561");
                 anVar.cI("obj_locate", queryParameter2);
                 anVar.cI("obj_type", queryParameter3);
@@ -30,10 +30,10 @@ public class e {
                 anVar.cI(TiebaInitialize.Params.OBJ_PARAM2, queryParameter5);
                 anVar.cI("tid", queryParameter6);
                 anVar.cI("fname", queryParameter7);
-                anVar.cI(f.dhx, queryParameter8);
-                anVar.cI(f.dhy, queryParameter9);
-                anVar.cI(f.dhz, queryParameter10);
-                anVar.cI(f.dhA, queryParameter11);
+                anVar.cI(f.dhC, queryParameter8);
+                anVar.cI(f.dhD, queryParameter9);
+                anVar.cI(f.dhE, queryParameter10);
+                anVar.cI(f.dhF, queryParameter11);
                 anVar.cI("obj_source", queryParameter);
                 TiebaStatic.log(anVar);
             }

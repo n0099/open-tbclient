@@ -1,30 +1,43 @@
 package com.baidu.sapi2.utils;
-
-import android.util.Base64;
 /* loaded from: classes6.dex */
-public class h {
-    public static final String a = "aHR0cDovL3Bhc3Nwb3J0LmJhaWR1LmNvbQ==";
-    public static final String b = "aHR0cDovL3dhcHBhc3MuYmFpZHUuY29t";
-    public static final String c = "aHR0cHM6Ly9vcGVuYXBpLmJhaWR1LmNvbQ==";
-    public static final String d = "aHR0cHM6Ly93YXBwYXNzLmJkaW1nLmNvbQ==";
-    public static final String e = "aHR0cHM6Ly9wYXNzcG9ydC5iYWlkdS5jb20=";
-    public static final String f = "aHR0cDovL3Bhc3Nwb3J0LXJkdGVzdC5iYWlkdS5jb20=";
-    public static final String g = "aHR0cDovL3dhcHBhc3MtcmR0ZXN0LmJhaWR1LmNvbQ==";
-    public static final String h = "aHR0cDovL2RibC1kZXYtcmQyMy52bS5iYWlkdS5jb206ODA4MA==";
-    public static final String i = "aHR0cDovL3dhcHBhc3MtcmR0ZXN0LmJhaWR1LmNvbQ==";
-    public static final String j = "aHR0cDovL3Bhc3Nwb3J0LmJhaWR1LmNvbQ==";
-    public static final String k = "aHR0cDovL3Bhc3Nwb3J0LnFhdGVzdC5iYWlkdS5jb20=";
-    public static final String m = "aHR0cDovL2RiLWluZmJrLW9ubGluZS0xNy5kYjAxLmJhaWR1LmNvbTo4MDgw";
-    public static final String o = "aHR0cDovL3Bhc3Nwb3J0LmJhaWR1LmNvbQ==";
-    public static final String p = "aHR0cHM6Ly9uc2NsaWNrLmJhaWR1LmNvbS92LmdpZg==";
-    public static final String q = "aHR0cDovL2hpbWcuYmRpbWcuY29t";
-    public static final String r = "aHR0cHM6Ly9zczAuYmRzdGF0aWMuY29tLzdMczBhOFNtMUE1QnBoR2xuWUc=";
-    public static final String s = "aHR0cHM6Ly93d3cuYmFpZHUuY29t";
-    public static final String t = "aHR0cHM6Ly93YXAuYmFpZHUuY29tL2FjdGlvbl9pbnRlcmNlcHRfYW5kcm9pZA==";
-    public static String l = "aHR0cDovL3dhcHBhc3MucWF0ZXN0LmJhaWR1LmNvbQ==";
-    public static final String n = l;
-
-    public static String a(String str) {
-        return new String(Base64.decode(str.getBytes(), 0));
-    }
+public interface h {
+    public static final String A = "/static/appsapi/img/default_portrait.png";
+    public static final String B = "/phoenix/account/guidetouristnormalize";
+    public static final String C = "/v3/security/sapi/faceCheck";
+    public static final String D = "/v3/security/faceloginswitchresult";
+    public static final String E = "/v3/security/sapi/faceLoginStatus";
+    public static final String F = "https://openapi.baidu.com/oauth/2.0/token";
+    public static final String G = "/v3/security/sapi/appFaceCheck";
+    public static final String H = "/v3/ucenter/contacts/upload";
+    public static final String I = "/v3/ucenter/contacts/get";
+    public static final String J = "/v3/login/api/authopenbduss";
+    public static final String K = "/v3/login/api/ability";
+    public static final String L = "/v3/login/onekeylogin";
+    public static final String M = "/v6/changeAccount";
+    public static final String a = "/v2/sapi/login";
+    public static final String b = "/v2/sapi/center/getuinfo";
+    public static final String c = "/cgi-bin/genimage?";
+    public static final String d = "/phoenix/account/ssologin";
+    public static final String e = "/phoenix/account/ssologin";
+    public static final String f = "/phoenix/account/startlogin";
+    public static final String g = "/phoenix/account/afterauth";
+    public static final String h = "/phoenix/account/finishbind";
+    public static final String i = "/v2/sapi/qrlogin";
+    public static final String j = "/v2/api/getqrcode";
+    public static final String k = "/channel/unicast";
+    public static final String l = "/v2/api/bdusslogin";
+    public static final String m = "/v3/login/main/qrbdusslogin";
+    public static final String n = "/v2/sapi/center/filluname";
+    public static final String o = "/v2/sapi/getdpass";
+    public static final String p = "AES/CBC/PKCS5Padding";
+    public static final String q = "AES";
+    public static final String r = "8070605040302010";
+    public static final String s = "/static/appsapi/conf/android-conf.txt";
+    public static final String t = "/static/appsapi/conf/android-conf.txt";
+    public static final String u = "/v2/sapi/bdussexchangeaccesstoken";
+    public static final String v = "/v3/login/api/auth/";
+    public static final String w = "/wp/v3/ucenter/edituser";
+    public static final String x = "/wp/passwordresult";
+    public static final String y = "/wp/v3/ucenter/accountbind";
+    public static final String z = "/v3/phoenix/iqiyiat";
 }

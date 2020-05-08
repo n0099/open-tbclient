@@ -12,6 +12,7 @@ public class SapiAccountResponse extends SapiResponse {
     public String extra;
     public String livingUname;
     public boolean newReg;
+    public String portraitSign;
     public String bduss = "";
     public String ptoken = "";
     public String stoken = "";

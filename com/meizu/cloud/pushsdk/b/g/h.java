@@ -1,107 +1,145 @@
 package com.meizu.cloud.pushsdk.b.g;
 
 import java.io.IOException;
-import java.io.InputStream;
 /* loaded from: classes8.dex */
 final class h implements c {
-    public final a a;
+    public final b a;
     public final l b;
     private boolean c;
 
     public h(l lVar) {
-        this(lVar, new a());
+        this(lVar, new b());
     }
 
-    public h(l lVar, a aVar) {
+    public h(l lVar, b bVar) {
         if (lVar == null) {
-            throw new IllegalArgumentException("source == null");
+            throw new IllegalArgumentException("sink == null");
         }
-        this.a = aVar;
+        this.a = bVar;
         this.b = lVar;
     }
 
-    @Override // com.meizu.cloud.pushsdk.b.g.l
-    public long b(a aVar, long j) throws IOException {
-        if (aVar == null) {
-            throw new IllegalArgumentException("sink == null");
+    @Override // com.meizu.cloud.pushsdk.b.g.c
+    public long a(m mVar) throws IOException {
+        if (mVar == null) {
+            throw new IllegalArgumentException("source == null");
         }
-        if (j < 0) {
-            throw new IllegalArgumentException("byteCount < 0: " + j);
+        long j = 0;
+        while (true) {
+            long b = mVar.b(this.a, 2048L);
+            if (b == -1) {
+                return j;
+            }
+            j += b;
+            a();
         }
+    }
+
+    public c a() throws IOException {
         if (this.c) {
             throw new IllegalStateException("closed");
         }
-        if (this.a.b == 0 && this.b.b(this.a, 2048L) == -1) {
-            return -1L;
+        long e = this.a.e();
+        if (e > 0) {
+            this.b.a(this.a, e);
         }
-        return this.a.b(aVar, Math.min(j, this.a.b));
+        return this;
     }
 
-    @Override // com.meizu.cloud.pushsdk.b.g.l, java.lang.AutoCloseable
+    @Override // com.meizu.cloud.pushsdk.b.g.l
+    public void a(b bVar, long j) throws IOException {
+        if (this.c) {
+            throw new IllegalStateException("closed");
+        }
+        this.a.a(bVar, j);
+        a();
+    }
+
+    @Override // com.meizu.cloud.pushsdk.b.g.c
+    public b b() {
+        return this.a;
+    }
+
+    @Override // com.meizu.cloud.pushsdk.b.g.c
+    public c b(e eVar) throws IOException {
+        if (this.c) {
+            throw new IllegalStateException("closed");
+        }
+        this.a.b(eVar);
+        return a();
+    }
+
+    @Override // com.meizu.cloud.pushsdk.b.g.c
+    public c b(String str) throws IOException {
+        if (this.c) {
+            throw new IllegalStateException("closed");
+        }
+        this.a.b(str);
+        return a();
+    }
+
+    @Override // com.meizu.cloud.pushsdk.b.g.c
+    public c c(byte[] bArr) throws IOException {
+        if (this.c) {
+            throw new IllegalStateException("closed");
+        }
+        this.a.c(bArr);
+        return a();
+    }
+
+    @Override // com.meizu.cloud.pushsdk.b.g.c
+    public c c(byte[] bArr, int i, int i2) throws IOException {
+        if (this.c) {
+            throw new IllegalStateException("closed");
+        }
+        this.a.c(bArr, i, i2);
+        return a();
+    }
+
+    @Override // com.meizu.cloud.pushsdk.b.g.l, java.io.Closeable, java.lang.AutoCloseable, com.meizu.cloud.pushsdk.b.g.m
     public void close() throws IOException {
         if (this.c) {
             return;
         }
+        Throwable th = null;
+        try {
+            if (this.a.b > 0) {
+                this.b.a(this.a, this.a.b);
+            }
+        } catch (Throwable th2) {
+            th = th2;
+        }
+        try {
+            this.b.close();
+        } catch (Throwable th3) {
+            if (th == null) {
+                th = th3;
+            }
+        }
         this.c = true;
-        this.b.close();
-        this.a.j();
+        if (th != null) {
+            o.a(th);
+        }
     }
 
     @Override // com.meizu.cloud.pushsdk.b.g.c
-    public InputStream d() {
-        return new InputStream() { // from class: com.meizu.cloud.pushsdk.b.g.h.1
-            @Override // java.io.InputStream
-            public int available() throws IOException {
-                if (h.this.c) {
-                    throw new IOException("closed");
-                }
-                return (int) Math.min(h.this.a.b, 2147483647L);
-            }
-
-            @Override // java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
-            public void close() throws IOException {
-                h.this.close();
-            }
-
-            @Override // java.io.InputStream
-            public int read() throws IOException {
-                if (h.this.c) {
-                    throw new IOException("closed");
-                }
-                if (h.this.a.b == 0 && h.this.b.b(h.this.a, 2048L) == -1) {
-                    return -1;
-                }
-                return h.this.a.f() & 255;
-            }
-
-            @Override // java.io.InputStream
-            public int read(byte[] bArr, int i, int i2) throws IOException {
-                if (h.this.c) {
-                    throw new IOException("closed");
-                }
-                n.a(bArr.length, i, i2);
-                if (h.this.a.b == 0 && h.this.b.b(h.this.a, 2048L) == -1) {
-                    return -1;
-                }
-                return h.this.a.a(bArr, i, i2);
-            }
-
-            public String toString() {
-                return h.this + ".inputStream()";
-            }
-        };
+    public c e(long j) throws IOException {
+        if (this.c) {
+            throw new IllegalStateException("closed");
+        }
+        this.a.e(j);
+        return a();
     }
 
-    @Override // com.meizu.cloud.pushsdk.b.g.c
-    public String h() throws IOException {
-        this.a.a(this.b);
-        return this.a.h();
-    }
-
-    @Override // com.meizu.cloud.pushsdk.b.g.c
-    public byte[] i() throws IOException {
-        this.a.a(this.b);
-        return this.a.i();
+    @Override // com.meizu.cloud.pushsdk.b.g.l, java.io.Flushable
+    public void flush() throws IOException {
+        if (this.c) {
+            throw new IllegalStateException("closed");
+        }
+        if (this.a.b > 0) {
+            this.b.a(this.a, this.a.b);
+        }
+        this.b.flush();
     }
 
     public String toString() {

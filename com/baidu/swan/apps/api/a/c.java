@@ -29,12 +29,12 @@ public abstract class c implements com.baidu.swan.apps.api.a.a {
 
     public c(@NonNull b bVar) {
         this.mSwanApiContext = bVar;
-        this.mCallbackHandler = bVar.Rr();
+        this.mCallbackHandler = bVar.Rq();
     }
 
     @Override // com.baidu.swan.apps.api.a.a
     @NonNull
-    public final b Rt() {
+    public final b Rs() {
         return this.mSwanApiContext;
     }
 
@@ -75,12 +75,12 @@ public abstract class c implements com.baidu.swan.apps.api.a.a {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final boolean Ru() {
-        e akO = e.akO();
-        if (akO == null) {
+    public final boolean Rt() {
+        e akN = e.akN();
+        if (akN == null) {
             return true;
         }
-        return akO.Ru();
+        return akN.Rt();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -98,8 +98,8 @@ public abstract class c implements com.baidu.swan.apps.api.a.a {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public com.baidu.swan.apps.api.b.b a(String str, boolean z, a aVar) {
-        e akN = e.akN();
-        if (akN == null) {
+        e akM = e.akM();
+        if (akM == null) {
             return new com.baidu.swan.apps.api.b.b(1001, "swan app is null");
         }
         Pair<com.baidu.swan.apps.api.b.b, JSONObject> az = com.baidu.swan.apps.api.c.b.az("Api-Base", str);
@@ -117,7 +117,7 @@ public abstract class c implements com.baidu.swan.apps.api.a.a {
                 return new com.baidu.swan.apps.api.b.b(1001, "callback is null");
             }
         }
-        return aVar.a(akN, jSONObject, str2);
+        return aVar.a(akM, jSONObject, str2);
     }
 
     @Nullable

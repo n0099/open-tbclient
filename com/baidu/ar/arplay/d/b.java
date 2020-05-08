@@ -24,7 +24,6 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import com.baidu.ala.dumixar.utils.LuaMessageHelper;
-import com.baidu.android.pushservice.PushConstants;
 import com.baidu.ar.arplay.core.engine.ARPEngine;
 import com.baidu.ar.arplay.core.message.ARPMessage;
 import com.baidu.ar.arplay.core.message.ARPMessageType;
@@ -49,16 +48,16 @@ public class b {
         public void handleMessage(Message message) {
             final com.baidu.ar.arplay.d.a n;
             super.handleMessage(message);
-            a.C0053a c0053a = message.obj instanceof a.C0053a ? (a.C0053a) message.obj : null;
+            a.C0074a c0074a = message.obj instanceof a.C0074a ? (a.C0074a) message.obj : null;
             switch (message.what) {
                 case 103:
-                    b.this.a(c0053a);
+                    b.this.a(c0074a);
                     return;
                 case 104:
-                    if (c0053a == null || (n = b.this.n(c0053a.dL)) == null || c0053a.gq == null) {
+                    if (c0074a == null || (n = b.this.n(c0074a.dL)) == null || c0074a.gq == null) {
                         return;
                     }
-                    n.evaluateJavascript(c0053a.gq, new ValueCallback<String>() { // from class: com.baidu.ar.arplay.d.b.1.1
+                    n.evaluateJavascript(c0074a.gq, new ValueCallback<String>() { // from class: com.baidu.ar.arplay.d.b.1.1
                         /* JADX DEBUG: Method merged with bridge method */
                         @Override // android.webkit.ValueCallback
                         /* renamed from: H */
@@ -78,7 +77,7 @@ public class b {
                     }
                     return;
                 case 106:
-                    b.this.b(c0053a);
+                    b.this.b(c0074a);
                     return;
                 default:
                     return;
@@ -158,7 +157,7 @@ public class b {
         HashMap hashMap3 = new HashMap();
         hashMap3.put("platform", aVar.gF);
         hashMap3.put("error_code", Integer.valueOf(aVar.dX));
-        hashMap3.put(PushConstants.EXTRA_ERROR_CODE, aVar.gG);
+        hashMap3.put("error_msg", aVar.gG);
         hashMap2.put("data", hashMap3);
         hashMap.put("event_data", hashMap2);
         ARPMessage.getInstance().sendMessage(ARPMessageType.MSG_TYPE_SDK_LUA_BRIDGE, hashMap);
@@ -166,22 +165,22 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(a.C0053a c0053a) {
-        if (c0053a == null || !isValid()) {
+    public void a(a.C0074a c0074a) {
+        if (c0074a == null || !isValid()) {
             return;
         }
-        com.baidu.ar.arplay.d.a e = e(c0053a.width, c0053a.height);
-        e.setWebViewData(c0053a);
-        d.aW().b(c0053a.dL, c0053a.width, c0053a.height);
-        e.setTag(Integer.valueOf(c0053a.dL));
-        String str = c0053a.url;
-        if (!c0053a.gp) {
+        com.baidu.ar.arplay.d.a e = e(c0074a.width, c0074a.height);
+        e.setWebViewData(c0074a);
+        d.aW().b(c0074a.dL, c0074a.width, c0074a.height);
+        e.setTag(Integer.valueOf(c0074a.dL));
+        String str = c0074a.url;
+        if (!c0074a.gp) {
             str = "file://" + this.mContext.getFilesDir().getAbsolutePath().concat(File.separator) + "ar/" + str;
         }
         e.loadUrl(str);
         e.invalidate();
         e.setIsNeedRender(true);
-        e(c0053a);
+        e(c0074a);
     }
 
     public static b aT() {
@@ -204,8 +203,8 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void b(a.C0053a c0053a) {
-        if (c0053a == null || !aU()) {
+    public void b(a.C0074a c0074a) {
+        if (c0074a == null || !aU()) {
             return;
         }
         if (this.gy == null) {
@@ -228,8 +227,8 @@ public class b {
             });
             this.gx.addView(this.gy, layoutParams);
         }
-        String str = c0053a.url;
-        if (!c0053a.gp) {
+        String str = c0074a.url;
+        if (!c0074a.gp) {
             str = "file://" + this.mContext.getFilesDir().getAbsolutePath().concat(File.separator) + "ar/" + str;
         }
         this.gy.loadUrl(str);
@@ -350,27 +349,27 @@ public class b {
         this.gu = onTouchListener;
     }
 
-    public void c(a.C0053a c0053a) {
+    public void c(a.C0074a c0074a) {
         Message obtainMessage = this.gz.obtainMessage();
         obtainMessage.what = 103;
-        obtainMessage.obj = c0053a;
+        obtainMessage.obj = c0074a;
         this.gz.sendMessage(obtainMessage);
     }
 
-    public void d(a.C0053a c0053a) {
+    public void d(a.C0074a c0074a) {
         Message obtainMessage = this.gz.obtainMessage();
         obtainMessage.what = 106;
-        obtainMessage.obj = c0053a;
+        obtainMessage.obj = c0074a;
         this.gz.sendMessage(obtainMessage);
     }
 
-    public void e(a.C0053a c0053a) {
+    public void e(a.C0074a c0074a) {
         Message obtainMessage = this.gz.obtainMessage();
         obtainMessage.what = 104;
-        obtainMessage.obj = c0053a;
-        com.baidu.ar.arplay.d.a n = n(c0053a.dL);
+        obtainMessage.obj = c0074a;
+        com.baidu.ar.arplay.d.a n = n(c0074a.dL);
         if (n != null) {
-            n.setWebViewData(c0053a);
+            n.setWebViewData(c0074a);
             this.gz.sendMessage(obtainMessage);
         }
     }

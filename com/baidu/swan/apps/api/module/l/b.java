@@ -23,7 +23,7 @@ public class b extends com.baidu.swan.apps.api.a.c {
         if (DEBUG) {
             Log.d("PreviewImageApi", "params = " + str);
         }
-        if (Ru()) {
+        if (Rt()) {
             com.baidu.swan.apps.console.c.e("PreviewImageApi", "PreviewImageApi does not supported when app is invisible.");
             return new com.baidu.swan.apps.api.b.b(1001, "PreviewImageApi does not supported when app is invisible.");
         } else if (TextUtils.isEmpty(str)) {
@@ -51,16 +51,16 @@ public class b extends com.baidu.swan.apps.api.a.c {
                         JSONObject jSONObject2 = new JSONObject();
                         String optString3 = optJSONArray.optString(i);
                         jSONObject2.put("url", optString3);
-                        String apd = y.apd();
-                        if (y.nZ(optString3) && !TextUtils.isEmpty(apd)) {
-                            jSONObject2.put(Config.LAUNCH_REFERER, apd);
+                        String apc = y.apc();
+                        if (y.nZ(optString3) && !TextUtils.isEmpty(apc)) {
+                            jSONObject2.put(Config.LAUNCH_REFERER, apc);
                         }
-                        String YL = com.baidu.swan.apps.core.k.d.Yo().YL();
+                        String YK = com.baidu.swan.apps.core.k.d.Yn().YK();
                         if (DEBUG) {
-                            Log.d("PreviewImageApi", "userAgent: " + YL);
+                            Log.d("PreviewImageApi", "userAgent: " + YK);
                         }
-                        if (!TextUtils.isEmpty(YL)) {
-                            jSONObject2.put("user_agent", YL);
+                        if (!TextUtils.isEmpty(YK)) {
+                            jSONObject2.put("user_agent", YK);
                         }
                         jSONArray.put(jSONObject2);
                     }
@@ -86,7 +86,7 @@ public class b extends com.baidu.swan.apps.api.a.c {
                 if (arrayMap.keySet().size() > 0) {
                     a(jSONObject, arrayMap, optJSONArray3, optJSONArray4, optJSONArray5);
                 } else {
-                    com.baidu.swan.apps.w.a.acd().i(getContext(), jSONObject);
+                    com.baidu.swan.apps.w.a.acc().i(getContext(), jSONObject);
                 }
                 return new com.baidu.swan.apps.api.b.b(0);
             } catch (JSONException e) {
@@ -104,13 +104,13 @@ public class b extends com.baidu.swan.apps.api.a.c {
             for (String str : arrayMap.values()) {
                 jSONArray4.put(str);
             }
-            n aci = com.baidu.swan.apps.w.a.aci();
-            if (aci != null) {
-                aci.a(getContext(), jSONArray4, new com.baidu.swan.apps.as.d.b<String>() { // from class: com.baidu.swan.apps.api.module.l.b.1
+            n ach = com.baidu.swan.apps.w.a.ach();
+            if (ach != null) {
+                ach.a(getContext(), jSONArray4, new com.baidu.swan.apps.as.d.b<String>() { // from class: com.baidu.swan.apps.api.module.l.b.1
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // com.baidu.swan.apps.as.d.b
                     /* renamed from: onCallback */
-                    public void E(String str2) {
+                    public void F(String str2) {
                         if (!TextUtils.isEmpty(str2)) {
                             JSONArray jSONArray5 = null;
                             try {
@@ -141,7 +141,7 @@ public class b extends com.baidu.swan.apps.api.a.c {
                                         e2.printStackTrace();
                                     }
                                 }
-                                com.baidu.swan.apps.w.a.acd().i(b.this.getContext(), jSONObject);
+                                com.baidu.swan.apps.w.a.acc().i(b.this.getContext(), jSONObject);
                             }
                         }
                     }
@@ -209,17 +209,17 @@ public class b extends com.baidu.swan.apps.api.a.c {
     }
 
     private JSONArray p(JSONArray jSONArray) {
-        com.baidu.swan.apps.runtime.e akN;
+        com.baidu.swan.apps.runtime.e akM;
         int length = jSONArray.length();
-        if (jSONArray != null && length > 0 && (akN = com.baidu.swan.apps.runtime.e.akN()) != null && !TextUtils.isEmpty(akN.id) && !TextUtils.isEmpty(akN.getVersion())) {
+        if (jSONArray != null && length > 0 && (akM = com.baidu.swan.apps.runtime.e.akM()) != null && !TextUtils.isEmpty(akM.id) && !TextUtils.isEmpty(akM.getVersion())) {
             for (int i = 0; i < length; i++) {
                 try {
                     String optString = jSONArray.optString(i);
                     PathType nm = com.baidu.swan.apps.storage.b.nm(optString);
                     if (nm == PathType.BD_FILE) {
-                        optString = com.baidu.swan.apps.storage.b.by(optString, akN.id);
+                        optString = com.baidu.swan.apps.storage.b.by(optString, akM.id);
                     } else if (nm == PathType.RELATIVE) {
-                        optString = com.baidu.swan.apps.storage.b.a(optString, akN, akN.getVersion());
+                        optString = com.baidu.swan.apps.storage.b.a(optString, akM, akM.getVersion());
                     }
                     if (!TextUtils.isEmpty(optString)) {
                         jSONArray.put(i, optString);
@@ -244,16 +244,16 @@ public class b extends com.baidu.swan.apps.api.a.c {
                 JSONObject optJSONObject = jSONArray.optJSONObject(i);
                 if (optJSONObject != null) {
                     String optString = optJSONObject.optString("url");
-                    String apd = y.apd();
-                    if (y.nZ(optString) && !TextUtils.isEmpty(apd)) {
-                        optJSONObject.put(Config.LAUNCH_REFERER, apd);
+                    String apc = y.apc();
+                    if (y.nZ(optString) && !TextUtils.isEmpty(apc)) {
+                        optJSONObject.put(Config.LAUNCH_REFERER, apc);
                     }
-                    String YL = com.baidu.swan.apps.core.k.d.Yo().YL();
+                    String YK = com.baidu.swan.apps.core.k.d.Yn().YK();
                     if (DEBUG) {
-                        Log.d("PreviewImageApi", "userAgent: " + YL);
+                        Log.d("PreviewImageApi", "userAgent: " + YK);
                     }
-                    if (!TextUtils.isEmpty(YL)) {
-                        optJSONObject.put("user_agent", YL);
+                    if (!TextUtils.isEmpty(YK)) {
+                        optJSONObject.put("user_agent", YK);
                     }
                 }
             } catch (JSONException e) {

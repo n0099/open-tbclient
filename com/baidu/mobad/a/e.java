@@ -8,16 +8,16 @@ import com.baidu.mobads.interfaces.IXAdManager;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 /* loaded from: classes10.dex */
 public class e implements IXAdManager {
-    private static IXAdManager bkz;
+    private static IXAdManager bkE;
     private String a;
     private Location b;
     private Context c;
 
-    public static IXAdManager aF(Context context) {
-        if (bkz == null) {
-            bkz = new e(context);
+    public static IXAdManager at(Context context) {
+        if (bkE == null) {
+            bkE = new e(context);
         }
-        return bkz;
+        return bkE;
     }
 
     private e(Context context) {

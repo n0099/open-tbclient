@@ -6,7 +6,7 @@ import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.common.util.CommonParam;
 import com.baidu.tieba.advert.sdk.data.AdInfo;
-import com.coloros.mcssdk.mode.CommandMessage;
+import com.heytap.mcssdk.mode.CommandMessage;
 import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public class c {

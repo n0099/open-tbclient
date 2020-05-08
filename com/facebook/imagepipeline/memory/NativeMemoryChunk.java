@@ -112,7 +112,7 @@ public class NativeMemoryChunk implements Closeable {
         }
     }
 
-    public long dng() {
+    public long dnd() {
         return this.mNativePtr;
     }
 

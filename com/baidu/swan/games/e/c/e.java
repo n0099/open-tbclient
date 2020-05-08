@@ -25,15 +25,15 @@ public class e implements PermissionProxy {
             return;
         }
         final String pY = pY(str);
-        com.baidu.swan.apps.runtime.e akN = com.baidu.swan.apps.runtime.e.akN();
-        if (TextUtils.isEmpty(pY) || akN == null || akN.akJ() == null) {
+        com.baidu.swan.apps.runtime.e akM = com.baidu.swan.apps.runtime.e.akM();
+        if (TextUtils.isEmpty(pY) || akM == null || akM.akI() == null) {
             permissionListener.onPermissionResult(str, 2);
         } else {
-            akN.akX().b(akN.akJ(), str, new com.baidu.swan.apps.as.d.b<h<b.d>>() { // from class: com.baidu.swan.games.e.c.e.1
+            akM.akW().b(akM.akI(), str, new com.baidu.swan.apps.as.d.b<h<b.d>>() { // from class: com.baidu.swan.games.e.c.e.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.as.d.b
                 /* renamed from: a */
-                public void E(h<b.d> hVar) {
+                public void F(h<b.d> hVar) {
                     if (com.baidu.swan.apps.setting.oauth.c.b(hVar)) {
                         e.this.a(str, pY, permissionListener);
                     } else {

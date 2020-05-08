@@ -37,7 +37,7 @@ public class ResponseGetMaskInfoMessage extends SocketResponsedMessage {
                     blackListItemData.fl(list.get(i2).portrait);
                     blackListItemData.setUserId(list.get(i2).uid.longValue());
                     blackListItemData.setUserName(list.get(i2).name);
-                    blackListItemData.vL(list.get(i2).nameShow);
+                    blackListItemData.vO(list.get(i2).nameShow);
                     this.blackList.add(blackListItemData);
                 }
             }

@@ -14,7 +14,6 @@ import com.baidu.android.imsdk.internal.ListenerManager;
 import com.baidu.android.imsdk.task.TaskManager;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
-import com.baidu.android.pushservice.PushConstants;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -45,7 +44,7 @@ public class IMQueryMemberRequest extends GroupBaseHttpRequest {
             try {
                 JSONObject jSONObject = new JSONObject(this.mJson);
                 int i2 = jSONObject.getInt("error_code");
-                String optString = jSONObject.optString(PushConstants.EXTRA_ERROR_CODE, "");
+                String optString = jSONObject.optString("error_msg", "");
                 if (i2 == 0 && jSONObject.has("response_params")) {
                     JSONArray jSONArray = jSONObject.getJSONObject("response_params").getJSONArray("members");
                     for (int i3 = 0; i3 < jSONArray.length(); i3++) {

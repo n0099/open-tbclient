@@ -10,13 +10,13 @@ import com.baidu.tbadk.util.l;
 import com.baidu.tieba.im.pushNotify.ChatSetting;
 /* loaded from: classes.dex */
 public class b extends a {
-    private static b iva = new b();
+    private static b ivg = new b();
 
     private b() {
     }
 
-    public static b ciT() {
-        return iva;
+    public static b ciR() {
+        return ivg;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -28,8 +28,8 @@ public class b extends a {
             return null;
         }
         String str3 = str + UgcConstant.AT_RULE_TAG + str2;
-        synchronized (this.iuY) {
-            ChatSetting chatSetting = this.iuY.get(str3);
+        synchronized (this.ive) {
+            ChatSetting chatSetting = this.ive.get(str3);
             groupSettingItemData = chatSetting instanceof GroupSettingItemData ? (GroupSettingItemData) chatSetting : null;
         }
         if (groupSettingItemData == null) {
@@ -43,7 +43,7 @@ public class b extends a {
         return groupSettingItemData;
     }
 
-    public void cfe() {
+    public void cfc() {
         super.y(GroupSettingItemData.class);
     }
 
@@ -82,8 +82,8 @@ public class b extends a {
     }
 
     @Override // com.baidu.tieba.im.settingcache.a
-    protected com.baidu.adp.lib.cache.l<String> ciS() {
-        return com.baidu.tbadk.core.c.a.aMT().ud("tb.im_group_setting");
+    protected com.baidu.adp.lib.cache.l<String> ciQ() {
+        return com.baidu.tbadk.core.c.a.aMR().ug("tb.im_group_setting");
     }
 
     @Override // com.baidu.tieba.im.settingcache.a
@@ -98,13 +98,13 @@ public class b extends a {
                 }
                 return;
             }
-            com.baidu.adp.lib.cache.l<String> ciS = ciS();
+            com.baidu.adp.lib.cache.l<String> ciQ = ciQ();
             String str = uid + UgcConstant.AT_RULE_TAG + gid;
             String jsonStrWithObject = OrmObject.jsonStrWithObject(groupSettingItemData);
-            synchronized (this.iuY) {
-                this.iuY.put(str, groupSettingItemData);
+            synchronized (this.ive) {
+                this.ive.put(str, groupSettingItemData);
             }
-            ciS.setForever(str, jsonStrWithObject);
+            ciQ.setForever(str, jsonStrWithObject);
         }
     }
 
@@ -121,15 +121,15 @@ public class b extends a {
                 return;
             }
             final String str = uid + UgcConstant.AT_RULE_TAG + gid;
-            synchronized (this.iuY) {
-                this.iuY.put(str, groupSettingItemData);
+            synchronized (this.ive) {
+                this.ive.put(str, groupSettingItemData);
             }
             ac.b(new ab<Void>() { // from class: com.baidu.tieba.im.settingcache.b.2
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.tbadk.util.ab
-                /* renamed from: bgQ */
+                /* renamed from: bgO */
                 public Void doInBackground() {
-                    b.this.ciS().setForever(str, OrmObject.jsonStrWithObject(groupSettingItemData));
+                    b.this.ciQ().setForever(str, OrmObject.jsonStrWithObject(groupSettingItemData));
                     return null;
                 }
             }, lVar);
@@ -139,15 +139,15 @@ public class b extends a {
     public void b(String str, String str2, l<Void> lVar) {
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
             final String str3 = str + UgcConstant.AT_RULE_TAG + str2;
-            synchronized (this.iuY) {
-                this.iuY.remove(str3);
+            synchronized (this.ive) {
+                this.ive.remove(str3);
             }
             ac.b(new ab<Void>() { // from class: com.baidu.tieba.im.settingcache.b.3
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.tbadk.util.ab
-                /* renamed from: bgQ */
+                /* renamed from: bgO */
                 public Void doInBackground() {
-                    b.this.ciS().remove(str3);
+                    b.this.ciQ().remove(str3);
                     return null;
                 }
             }, lVar);

@@ -6,19 +6,19 @@ import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 import com.baidu.swan.games.binding.model.JSTypeMismatchException;
 /* loaded from: classes11.dex */
 public class c {
-    public int cOR;
-    public String cOS;
-    public String cOO = "";
+    public int cOW;
+    public String cOX;
+    public String cOT = "";
     public int maxLength = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
-    public boolean cOP = false;
-    public boolean cOQ = false;
+    public boolean cOU = false;
+    public boolean cOV = false;
 
     public boolean h(com.baidu.swan.games.binding.model.c cVar) throws JSTypeMismatchException {
         try {
-            this.cOO = cVar.optString("defaultValue");
+            this.cOT = cVar.optString("defaultValue");
             this.maxLength = cVar.optInt("maxLength");
-            this.cOP = cVar.optBoolean("multiple");
-            this.cOQ = cVar.optBoolean("confirmHold");
+            this.cOU = cVar.optBoolean("multiple");
+            this.cOV = cVar.optBoolean("confirmHold");
             String optString = cVar.optString("confirmType");
             char c = 65535;
             switch (optString.hashCode()) {
@@ -55,28 +55,28 @@ public class c {
             }
             switch (c) {
                 case 0:
-                    this.cOR = 6;
-                    this.cOS = AuthoritySharedPreferences.KEY_CONFIG_PRIVILEGE_DONE;
+                    this.cOW = 6;
+                    this.cOX = AuthoritySharedPreferences.KEY_CONFIG_PRIVILEGE_DONE;
                     return true;
                 case 1:
-                    this.cOR = 5;
-                    this.cOS = UnitedSchemeConstants.UNITED_SCHEME_NEXT;
+                    this.cOW = 5;
+                    this.cOX = UnitedSchemeConstants.UNITED_SCHEME_NEXT;
                     return true;
                 case 2:
-                    this.cOR = 3;
-                    this.cOS = "search";
+                    this.cOW = 3;
+                    this.cOX = "search";
                     return true;
                 case 3:
-                    this.cOR = 2;
-                    this.cOS = "go";
+                    this.cOW = 2;
+                    this.cOX = "go";
                     return true;
                 case 4:
-                    this.cOR = 4;
-                    this.cOS = "send";
+                    this.cOW = 4;
+                    this.cOX = "send";
                     return true;
                 default:
-                    this.cOR = 6;
-                    this.cOS = AuthoritySharedPreferences.KEY_CONFIG_PRIVILEGE_DONE;
+                    this.cOW = 6;
+                    this.cOX = AuthoritySharedPreferences.KEY_CONFIG_PRIVILEGE_DONE;
                     return true;
             }
         } catch (Exception e) {

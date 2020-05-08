@@ -8,19 +8,19 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class p {
-    private String bVL;
-    private int dep;
-    private JSONObject deq;
-    private List<f> der = new ArrayList();
+    private String bVR;
+    private int dev;
+    private JSONObject dew;
+    private List<f> dex = new ArrayList();
     private int mThreshold;
 
     public p(String str, JSONObject jSONObject) {
-        this.bVL = str;
-        this.deq = jSONObject;
+        this.bVR = str;
+        this.dew = jSONObject;
     }
 
     public String getSign() {
-        return this.bVL;
+        return this.bVR;
     }
 
     public int aDZ() {
@@ -28,18 +28,18 @@ public class p {
     }
 
     public int aEa() {
-        return this.dep;
+        return this.dev;
     }
 
     public List<f> aEb() {
-        return this.der;
+        return this.dex;
     }
 
     public boolean aEc() {
         try {
-            JSONObject jSONObject = this.deq;
+            JSONObject jSONObject = this.dew;
             this.mThreshold = jSONObject.getInt("threshold");
-            this.dep = jSONObject.getInt("timeup");
+            this.dev = jSONObject.getInt("timeup");
             JSONArray jSONArray = new JSONArray(jSONObject.getString("item"));
             int length = jSONArray.length();
             for (int i = 0; i < length; i++) {
@@ -65,7 +65,7 @@ public class p {
                     if (jSONObject2.has("idtype")) {
                         fVar.si(jSONObject2.getString("idtype"));
                     }
-                    this.der.add(fVar);
+                    this.dex.add(fVar);
                 }
             }
             return true;

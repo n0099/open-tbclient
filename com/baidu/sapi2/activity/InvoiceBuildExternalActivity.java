@@ -53,8 +53,10 @@ public class InvoiceBuildExternalActivity extends InvoiceBuildActivity {
         this.sapiWebView.setOnSlidePageFinishCallback(new SapiWebView.OnSlidePageFinishCallback() { // from class: com.baidu.sapi2.activity.InvoiceBuildExternalActivity.3
             @Override // com.baidu.sapi2.SapiWebView.OnSlidePageFinishCallback
             public void onFinish(String str) {
-                if (SlideActiviy.INVOICE_PAGE_NAME.equals(str)) {
-                    InvoiceBuildExternalActivity.this.startActivity(new Intent(InvoiceBuildExternalActivity.this, InvoiceBuildActivity.class));
+                if ("invoice".equals(str)) {
+                    Intent intent = new Intent(InvoiceBuildExternalActivity.this, InvoiceBuildActivity.class);
+                    intent.setFlags(67108864);
+                    InvoiceBuildExternalActivity.this.startActivity(intent);
                 }
             }
         });

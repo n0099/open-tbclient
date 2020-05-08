@@ -46,17 +46,17 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class ImBarrageItemView extends RelativeLayout {
-    private HeadImageView aAm;
-    private String aMr;
-    private TextView aNH;
-    private ImageView aOA;
-    private ImageView aOB;
-    private LottieAnimationView aOD;
-    private ObjectAnimator aOE;
-    private com.baidu.live.data.a aOG;
-    private a aOS;
-    private View aOy;
-    private View aOz;
+    private HeadImageView aAs;
+    private String aMx;
+    private TextView aNN;
+    private View aOE;
+    private View aOF;
+    private ImageView aOG;
+    private ImageView aOH;
+    private LottieAnimationView aOJ;
+    private ObjectAnimator aOK;
+    private com.baidu.live.data.a aOM;
+    private a aOY;
     private String mContent;
 
     /* loaded from: classes3.dex */
@@ -75,7 +75,7 @@ public class ImBarrageItemView extends RelativeLayout {
     }
 
     public void setCallback(a aVar) {
-        this.aOS = aVar;
+        this.aOY = aVar;
     }
 
     public void setPreview() {
@@ -85,16 +85,16 @@ public class ImBarrageItemView extends RelativeLayout {
             aVar.name_show = currentAccountInfo.getAccountNameShow();
             aVar.portrait = currentAccountInfo.getPortrait();
             aVar.level_id = currentAccountInfo.getLiveLevel();
-            aVar.apy = m.Bp().Bt();
+            aVar.apE = m.Bo().Bs();
             setDisplayInfo(aVar, "", "弹幕是这个样子的哟～");
         }
     }
 
     public void setDisplayInfo(com.baidu.live.data.a aVar, String str, String str2) {
-        this.aOG = aVar;
-        this.aMr = str;
+        this.aOM = aVar;
+        this.aMx = str;
         this.mContent = str2;
-        CY();
+        CX();
     }
 
     public void setUIInfo(be beVar, boolean z) {
@@ -108,61 +108,61 @@ public class ImBarrageItemView extends RelativeLayout {
                 }
             }
             k(i, z);
-            setAvatarBg(beVar.vj());
-            e(beVar.vk(), beVar.vl());
+            setAvatarBg(beVar.vi());
+            e(beVar.vj(), beVar.vk());
         }
     }
 
     public void release() {
-        if (this.aAm != null) {
-            this.aAm.stopLoad();
+        if (this.aAs != null) {
+            this.aAs.stopLoad();
         }
-        if (this.aOE != null) {
-            this.aOE.cancel();
+        if (this.aOK != null) {
+            this.aOK.cancel();
         }
-        if (this.aOD != null) {
-            this.aOD.cancelAnimation();
+        if (this.aOJ != null) {
+            this.aOJ.cancelAnimation();
         }
     }
 
     private void init() {
         setBackgroundColor(0);
         LayoutInflater.from(getContext()).inflate(a.h.ala_im_barrage_item, (ViewGroup) this, true);
-        this.aOy = findViewById(a.g.bg_avatar);
-        this.aAm = (HeadImageView) findViewById(a.g.iv_avatar);
-        this.aOz = findViewById(a.g.mask_avatar);
-        this.aNH = (TextView) findViewById(a.g.tv_content);
-        this.aOA = (ImageView) findViewById(a.g.iv_light);
-        this.aOB = (ImageView) findViewById(a.g.iv_sweep);
-        this.aOD = (LottieAnimationView) findViewById(a.g.lottie_star);
-        this.aAm.setIsRound(true);
-        this.aAm.setAutoChangeStyle(false);
-        this.aAm.setDefaultBgResource(a.f.sdk_default_avatar);
-        this.aOD.loop(true);
-        this.aOD.setAnimation("im_barrage_item_star.json");
-        this.aOy.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.im.view.barrage.ImBarrageItemView.1
+        this.aOE = findViewById(a.g.bg_avatar);
+        this.aAs = (HeadImageView) findViewById(a.g.iv_avatar);
+        this.aOF = findViewById(a.g.mask_avatar);
+        this.aNN = (TextView) findViewById(a.g.tv_content);
+        this.aOG = (ImageView) findViewById(a.g.iv_light);
+        this.aOH = (ImageView) findViewById(a.g.iv_sweep);
+        this.aOJ = (LottieAnimationView) findViewById(a.g.lottie_star);
+        this.aAs.setIsRound(true);
+        this.aAs.setAutoChangeStyle(false);
+        this.aAs.setDefaultBgResource(a.f.sdk_default_avatar);
+        this.aOJ.loop(true);
+        this.aOJ.setAnimation("im_barrage_item_star.json");
+        this.aOE.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.im.view.barrage.ImBarrageItemView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (ImBarrageItemView.this.aOS != null) {
-                    ImBarrageItemView.this.aOS.c(ImBarrageItemView.this.aOG);
+                if (ImBarrageItemView.this.aOY != null) {
+                    ImBarrageItemView.this.aOY.c(ImBarrageItemView.this.aOM);
                 }
             }
         });
-        this.aOE = ObjectAnimator.ofFloat(this.aOB, "translationX", 0.0f, 0.0f);
-        this.aOE.setDuration(800L);
-        this.aOE.setInterpolator(new AccelerateInterpolator());
-        this.aOE.setRepeatCount(-1);
-        this.aOE.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.live.im.view.barrage.ImBarrageItemView.2
+        this.aOK = ObjectAnimator.ofFloat(this.aOH, "translationX", 0.0f, 0.0f);
+        this.aOK.setDuration(800L);
+        this.aOK.setInterpolator(new AccelerateInterpolator());
+        this.aOK.setRepeatCount(-1);
+        this.aOK.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.live.im.view.barrage.ImBarrageItemView.2
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationCancel(Animator animator) {
                 super.onAnimationCancel(animator);
-                ImBarrageItemView.this.aOB.setVisibility(8);
+                ImBarrageItemView.this.aOH.setVisibility(8);
             }
 
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
                 super.onAnimationStart(animator);
-                ImBarrageItemView.this.aOB.setVisibility(0);
+                ImBarrageItemView.this.aOH.setVisibility(0);
             }
 
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
@@ -171,38 +171,38 @@ public class ImBarrageItemView extends RelativeLayout {
                 animator.setStartDelay(0L);
             }
         });
-        this.aOE.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.live.im.view.barrage.ImBarrageItemView.3
+        this.aOK.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.live.im.view.barrage.ImBarrageItemView.3
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 if (valueAnimator.getAnimatedFraction() <= 0.5f) {
-                    ImBarrageItemView.this.aOB.setAlpha(valueAnimator.getAnimatedFraction() * 2.0f * 0.8f);
+                    ImBarrageItemView.this.aOH.setAlpha(valueAnimator.getAnimatedFraction() * 2.0f * 0.8f);
                 } else {
-                    ImBarrageItemView.this.aOB.setAlpha((2.0f - (valueAnimator.getAnimatedFraction() * 2.0f)) * 0.8f);
+                    ImBarrageItemView.this.aOH.setAlpha((2.0f - (valueAnimator.getAnimatedFraction() * 2.0f)) * 0.8f);
                 }
             }
         });
     }
 
-    private void CY() {
+    private void CX() {
+        CY();
         CZ();
-        Da();
-        De();
+        Dd();
+    }
+
+    private void CY() {
+        if (this.aAs != null && this.aOM != null) {
+            this.aAs.stopLoad();
+            this.aAs.startLoad(this.aOM.portrait, 12, false, false);
+        }
     }
 
     private void CZ() {
-        if (this.aAm != null && this.aOG != null) {
-            this.aAm.stopLoad();
-            this.aAm.startLoad(this.aOG.portrait, 12, false, false);
-        }
-    }
-
-    private void Da() {
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-        SpannableStringBuilder Df = Df();
-        if (Df != null) {
-            spannableStringBuilder.append((CharSequence) Df);
+        SpannableStringBuilder De = De();
+        if (De != null) {
+            spannableStringBuilder.append((CharSequence) De);
         }
-        String nameShow = this.aOG.getNameShow();
+        String nameShow = this.aOM.getNameShow();
         if (nameShow != null) {
             if (TextHelper.getTextLengthWithEmoji(nameShow) > 20) {
                 nameShow = TextHelper.subStringWithEmoji(nameShow, 20) + StringHelper.STRING_MORE;
@@ -212,26 +212,26 @@ public class ImBarrageItemView extends RelativeLayout {
         }
         SpannableString valueOf = SpannableString.valueOf(nameShow + "：");
         valueOf.setSpan(new ForegroundColorSpan(Color.parseColor("#FFF7E51B")), 0, valueOf.length(), 33);
-        this.aNH.setText(spannableStringBuilder.append((CharSequence) valueOf).append((CharSequence) this.mContent));
+        this.aNN.setText(spannableStringBuilder.append((CharSequence) valueOf).append((CharSequence) this.mContent));
     }
 
-    private void De() {
+    private void Dd() {
         if (UtilHelper.getRealScreenOrientation(getContext()) == 1) {
             int screenWidth = (int) (ScreenHelper.getScreenWidth(getContext()) * 0.75d);
-            float measureText = this.aNH.getPaint().measureText(this.aNH.getText().toString());
-            ViewGroup.LayoutParams layoutParams = this.aNH.getLayoutParams();
+            float measureText = this.aNN.getPaint().measureText(this.aNN.getText().toString());
+            ViewGroup.LayoutParams layoutParams = this.aNN.getLayoutParams();
             layoutParams.height = -2;
             if (measureText > screenWidth) {
                 layoutParams.width = screenWidth;
             } else {
                 layoutParams.width = -2;
             }
-            this.aNH.setLayoutParams(layoutParams);
+            this.aNN.setLayoutParams(layoutParams);
         }
     }
 
-    private SpannableStringBuilder Df() {
-        List<AlaLiveMarkData> list = this.aOG.apy;
+    private SpannableStringBuilder De() {
+        List<AlaLiveMarkData> list = this.aOM.apE;
         if (ListUtils.isEmpty(list)) {
             return null;
         }
@@ -251,37 +251,37 @@ public class ImBarrageItemView extends RelativeLayout {
                 int i3 = i2 * length;
                 int i4 = i3 + 1;
                 if (1 == alaLiveMarkData.type) {
-                    String str2 = BdResourceLoader.getInstance().genCacheKey(alaLiveMarkData.mark_pic, 10) + "*_*" + this.aOG.level_id;
-                    c cVar = ALaImInitialize.aKv.get(str2);
+                    String str2 = BdResourceLoader.getInstance().genCacheKey(alaLiveMarkData.mark_pic, 10) + "*_*" + this.aOM.level_id;
+                    c cVar = ALaImInitialize.aKB.get(str2);
                     if (cVar == null) {
-                        cVar = new b(getContext(), alaLiveMarkData, this.aOG.level_id, false, new c.a() { // from class: com.baidu.live.im.view.barrage.ImBarrageItemView.4
+                        cVar = new b(getContext(), alaLiveMarkData, this.aOM.level_id, false, new c.a() { // from class: com.baidu.live.im.view.barrage.ImBarrageItemView.4
                             @Override // com.baidu.live.view.c.a
                             public void d(Bitmap bitmap) {
-                                ImBarrageItemView.this.aNH.setText(ImBarrageItemView.this.aNH.getText());
+                                ImBarrageItemView.this.aNN.setText(ImBarrageItemView.this.aNN.getText());
                             }
 
                             @Override // com.baidu.live.view.c.a
                             public void a(c cVar2, Bitmap bitmap) {
                             }
                         });
-                        ALaImInitialize.aKv.put(str2, cVar);
+                        ALaImInitialize.aKB.put(str2, cVar);
                     }
                     spannableStringBuilder.setSpan(cVar, i3, i4, 17);
                 } else {
                     String genCacheKey = BdResourceLoader.getInstance().genCacheKey(alaLiveMarkData.mark_pic, 10);
-                    c cVar2 = ALaImInitialize.aKv.get(genCacheKey);
+                    c cVar2 = ALaImInitialize.aKB.get(genCacheKey);
                     if (cVar2 == null) {
                         cVar2 = new c(getContext(), alaLiveMarkData, false, new c.a() { // from class: com.baidu.live.im.view.barrage.ImBarrageItemView.5
                             @Override // com.baidu.live.view.c.a
                             public void d(Bitmap bitmap) {
-                                ImBarrageItemView.this.aNH.setText(ImBarrageItemView.this.aNH.getText());
+                                ImBarrageItemView.this.aNN.setText(ImBarrageItemView.this.aNN.getText());
                             }
 
                             @Override // com.baidu.live.view.c.a
                             public void a(c cVar3, Bitmap bitmap) {
                             }
                         });
-                        ALaImInitialize.aKv.put(genCacheKey, cVar2);
+                        ALaImInitialize.aKB.put(genCacheKey, cVar2);
                     }
                     spannableStringBuilder.setSpan(cVar2, i3, i4, 17);
                 }
@@ -297,7 +297,7 @@ public class ImBarrageItemView extends RelativeLayout {
                 if (alaLiveMarkData != null && !TextUtils.isEmpty(alaLiveMarkData.mark_pic) && 3 != alaLiveMarkData.type && 4 != alaLiveMarkData.type && 6 != alaLiveMarkData.type) {
                     if (StringUtils.isNull(alaLiveMarkData.anchor_user_id) || "0".equals(alaLiveMarkData.anchor_user_id)) {
                         linkedList.add(alaLiveMarkData);
-                    } else if (alaLiveMarkData.anchor_user_id.equals(this.aMr)) {
+                    } else if (alaLiveMarkData.anchor_user_id.equals(this.aMx)) {
                         linkedList.add(alaLiveMarkData);
                     }
                 }
@@ -309,7 +309,7 @@ public class ImBarrageItemView extends RelativeLayout {
 
     private void setAvatarBg(int[] iArr) {
         GradientDrawable gradientDrawable;
-        Drawable background = this.aOy.getBackground();
+        Drawable background = this.aOE.getBackground();
         if (background instanceof GradientDrawable) {
             gradientDrawable = (GradientDrawable) background;
         } else {
@@ -325,12 +325,12 @@ public class ImBarrageItemView extends RelativeLayout {
         } else {
             gradientDrawable.setColor(iArr[0]);
         }
-        this.aOy.setBackgroundDrawable(gradientDrawable);
+        this.aOE.setBackgroundDrawable(gradientDrawable);
     }
 
     private void e(int[] iArr, int[] iArr2) {
         g gVar;
-        Drawable background = this.aNH.getBackground();
+        Drawable background = this.aNN.getBackground();
         if (background instanceof g) {
             gVar = (g) background;
         } else {
@@ -340,36 +340,36 @@ public class ImBarrageItemView extends RelativeLayout {
             gVar.G((int) TypedValue.applyDimension(1, 1.0f, getContext().getResources().getDisplayMetrics()), 205);
         }
         gVar.f(iArr, iArr2);
-        this.aNH.setBackgroundDrawable(gVar);
+        this.aNN.setBackgroundDrawable(gVar);
     }
 
     private void k(int i, boolean z) {
-        if (this.aOE != null) {
-            this.aOE.cancel();
+        if (this.aOK != null) {
+            this.aOK.cancel();
         }
-        if (this.aOD != null) {
-            this.aOD.cancelAnimation();
+        if (this.aOJ != null) {
+            this.aOJ.cancelAnimation();
         }
-        this.aOA.setVisibility(i >= 1 ? 0 : 8);
+        this.aOG.setVisibility(i >= 1 ? 0 : 8);
         if (i == 2) {
-            this.aOz.setVisibility(0);
-            this.aOE.setStartDelay(z ? 300L : 0L);
+            this.aOF.setVisibility(0);
+            this.aOK.setStartDelay(z ? 300L : 0L);
             post(new Runnable() { // from class: com.baidu.live.im.view.barrage.ImBarrageItemView.6
                 @Override // java.lang.Runnable
                 public void run() {
-                    ImBarrageItemView.this.aOE.setFloatValues(0.0f, (ImBarrageItemView.this.aNH.getWidth() - ImBarrageItemView.this.aNH.getPaddingLeft()) - ImBarrageItemView.this.aNH.getPaddingRight());
-                    ImBarrageItemView.this.aOE.start();
+                    ImBarrageItemView.this.aOK.setFloatValues(0.0f, (ImBarrageItemView.this.aNN.getWidth() - ImBarrageItemView.this.aNN.getPaddingLeft()) - ImBarrageItemView.this.aNN.getPaddingRight());
+                    ImBarrageItemView.this.aOK.start();
                 }
             });
-            this.aOD.setVisibility(0);
-            this.aOD.playAnimation();
-            this.aNH.setTextColor(-531173);
+            this.aOJ.setVisibility(0);
+            this.aOJ.playAnimation();
+            this.aNN.setTextColor(-531173);
             return;
         }
-        this.aOz.setVisibility(8);
-        this.aOB.setVisibility(8);
-        this.aOD.setVisibility(4);
-        this.aOD.cancelAnimation();
-        this.aNH.setTextColor(-1);
+        this.aOF.setVisibility(8);
+        this.aOH.setVisibility(8);
+        this.aOJ.setVisibility(4);
+        this.aOJ.cancelAnimation();
+        this.aNN.setTextColor(-1);
     }
 }

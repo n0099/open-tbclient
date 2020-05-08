@@ -9,8 +9,8 @@ public interface a extends d {
 
     /* renamed from: com.baidu.swan.apps.r.e.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public interface InterfaceC0307a {
-        void abx();
+    public interface InterfaceC0328a {
+        void abw();
 
         void fi(int i);
 
@@ -25,13 +25,13 @@ public interface a extends d {
         void onPrepared();
     }
 
-    void a(@NonNull InterfaceC0307a interfaceC0307a);
+    void a(@NonNull InterfaceC0328a interfaceC0328a);
 
-    boolean abA();
+    void abx();
 
     void aby();
 
-    void abz();
+    boolean abz();
 
     boolean c(String str, String str2, String str3, boolean z);
 

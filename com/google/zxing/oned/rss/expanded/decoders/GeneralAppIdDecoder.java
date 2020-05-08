@@ -245,7 +245,7 @@ public final class GeneralAppIdDecoder {
             case BaseActivity.DIALOG_PROMPT /* 241 */:
                 c = ',';
                 break;
-            case BaseActivity.DIALOG_LOADING /* 242 */:
+            case 242:
                 c = '-';
                 break;
             case 243:

@@ -8,61 +8,61 @@ import com.baidu.tieba.R;
 import java.util.List;
 /* loaded from: classes11.dex */
 public class HotForumModel extends BdBaseModel {
-    private com.baidu.adp.base.e dvc;
-    private a iQH;
-    private List<b> iQI;
+    private com.baidu.adp.base.e dvg;
+    private a iQL;
+    private List<b> iQM;
     private HotSearchInfoData mHotSearchInfo;
     private List<c> mTopicInfoList;
     private String mTopicInfoTitle;
 
     /* loaded from: classes11.dex */
     public interface a {
-        void FV(String str);
+        void FY(String str);
 
         void a(List<b> list, List<c> list2, HotSearchInfoData hotSearchInfoData, String str);
     }
 
     public HotForumModel(com.baidu.adp.base.e eVar, a aVar) {
         super(eVar);
-        this.dvc = eVar;
-        this.iQH = aVar;
-        coS();
+        this.dvg = eVar;
+        this.iQL = aVar;
+        coP();
     }
 
-    public void coR() {
+    public void coO() {
         sendMessage(new HotForumNetMessage());
     }
 
-    private void coS() {
+    private void coP() {
         registerListener(new com.baidu.adp.framework.listener.a(1001534, CmdConfigSocket.CMD_GET_HOTFORUM) { // from class: com.baidu.tieba.mainentrance.HotForumModel.1
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 if (!(responsedMessage instanceof HotForumSocketResponseMessage) && !(responsedMessage instanceof HotForumHttpResponseMessage)) {
-                    HotForumModel.this.iQH.FV(HotForumModel.this.dvc.getString(R.string.neterror));
+                    HotForumModel.this.iQL.FY(HotForumModel.this.dvg.getString(R.string.neterror));
                 } else if (responsedMessage.getOrginalMessage() == null || !(responsedMessage.getOrginalMessage().getExtra() instanceof HotForumNetMessage)) {
-                    HotForumModel.this.iQH.FV(HotForumModel.this.dvc.getString(R.string.neterror));
+                    HotForumModel.this.iQL.FY(HotForumModel.this.dvg.getString(R.string.neterror));
                 } else if (responsedMessage.hasError() || responsedMessage.getError() != 0) {
                     if (!TextUtils.isEmpty(responsedMessage.getErrorString())) {
-                        HotForumModel.this.iQH.FV(responsedMessage.getErrorString());
+                        HotForumModel.this.iQL.FY(responsedMessage.getErrorString());
                     } else {
-                        HotForumModel.this.iQH.FV(HotForumModel.this.dvc.getString(R.string.neterror));
+                        HotForumModel.this.iQL.FY(HotForumModel.this.dvg.getString(R.string.neterror));
                     }
                 } else {
                     if (responsedMessage instanceof HotForumHttpResponseMessage) {
                         HotForumHttpResponseMessage hotForumHttpResponseMessage = (HotForumHttpResponseMessage) responsedMessage;
-                        HotForumModel.this.iQI = hotForumHttpResponseMessage.getForumInfoList();
+                        HotForumModel.this.iQM = hotForumHttpResponseMessage.getForumInfoList();
                         HotForumModel.this.mTopicInfoList = hotForumHttpResponseMessage.getTopicInfoList();
                         HotForumModel.this.mHotSearchInfo = hotForumHttpResponseMessage.getHotSearchInfo();
                         HotForumModel.this.mTopicInfoTitle = hotForumHttpResponseMessage.getTopicInfoTitle();
-                        HotForumModel.this.iQH.a(HotForumModel.this.iQI, HotForumModel.this.mTopicInfoList, HotForumModel.this.mHotSearchInfo, HotForumModel.this.mTopicInfoTitle);
+                        HotForumModel.this.iQL.a(HotForumModel.this.iQM, HotForumModel.this.mTopicInfoList, HotForumModel.this.mHotSearchInfo, HotForumModel.this.mTopicInfoTitle);
                     }
                     if (responsedMessage instanceof HotForumSocketResponseMessage) {
                         HotForumSocketResponseMessage hotForumSocketResponseMessage = (HotForumSocketResponseMessage) responsedMessage;
-                        HotForumModel.this.iQI = hotForumSocketResponseMessage.getForumInfoList();
+                        HotForumModel.this.iQM = hotForumSocketResponseMessage.getForumInfoList();
                         HotForumModel.this.mTopicInfoList = hotForumSocketResponseMessage.getTopicInfoList();
                         HotForumModel.this.mHotSearchInfo = hotForumSocketResponseMessage.getSearchInfo();
                         HotForumModel.this.mTopicInfoTitle = hotForumSocketResponseMessage.getTopicInfoTitle();
-                        HotForumModel.this.iQH.a(HotForumModel.this.iQI, HotForumModel.this.mTopicInfoList, HotForumModel.this.mHotSearchInfo, HotForumModel.this.mTopicInfoTitle);
+                        HotForumModel.this.iQL.a(HotForumModel.this.iQM, HotForumModel.this.mTopicInfoList, HotForumModel.this.mHotSearchInfo, HotForumModel.this.mTopicInfoTitle);
                     }
                 }
             }

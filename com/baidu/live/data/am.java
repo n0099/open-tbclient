@@ -3,8 +3,8 @@ package com.baidu.live.data;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class am {
-    public JSONObject auY;
-    public JSONObject auZ;
+    public JSONObject ave;
+    public JSONObject avf;
 
     public am(JSONObject jSONObject) {
         parseData(jSONObject);
@@ -12,8 +12,8 @@ public class am {
 
     private void parseData(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.auY = jSONObject.optJSONObject("bubble_effect");
-            this.auZ = jSONObject.optJSONObject("nickname_effect");
+            this.ave = jSONObject.optJSONObject("bubble_effect");
+            this.avf = jSONObject.optJSONObject("nickname_effect");
         }
     }
 }

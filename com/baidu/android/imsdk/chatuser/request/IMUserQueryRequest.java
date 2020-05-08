@@ -11,7 +11,6 @@ import com.baidu.android.imsdk.group.db.GroupInfoDAOImpl;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
-import com.baidu.android.pushservice.PushConstants;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -86,7 +85,7 @@ public class IMUserQueryRequest extends IMUserBaseHttpRequest {
                 i3 = i4;
             } else {
                 i3 = jSONObject.getInt("error_code");
-                str3 = jSONObject.optString(PushConstants.EXTRA_ERROR_CODE, "");
+                str3 = jSONObject.optString("error_msg", "");
             }
             i2 = i3;
             str = str3;

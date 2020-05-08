@@ -9,6 +9,7 @@ import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.media.MimeType;
 import com.baidu.live.tbadk.core.atomdata.BuyTBeanActivityConfig;
+import com.baidu.sapi2.utils.h;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
@@ -78,7 +79,7 @@ public class a extends com.baidu.swan.apps.network.a implements f {
             if (DEBUG) {
                 Log.d("aiRequestAction", "build request : " + a.url().toString());
             }
-            eVar.akZ().a(a, new Callback() { // from class: com.baidu.swan.bdprivate.c.c.a.1
+            eVar.akY().a(a, new Callback() { // from class: com.baidu.swan.bdprivate.c.c.a.1
                 @Override // okhttp3.Callback
                 public void onFailure(Call call, IOException iOException) {
                     callbackHandler.handleSchemeDispatchCallback(param, UnitedSchemeUtility.wrapCallbackParams(1001, "request IOException").toString());
@@ -109,13 +110,13 @@ public class a extends com.baidu.swan.apps.network.a implements f {
                             }
                         }
                         e eVar2 = eVar;
-                        String H = com.baidu.swan.apps.storage.b.H(e.akP(), String.valueOf(System.currentTimeMillis()), "");
+                        String H = com.baidu.swan.apps.storage.b.H(e.akO(), String.valueOf(System.currentTimeMillis()), "");
                         if (TextUtils.isEmpty(H)) {
                             callbackHandler.handleSchemeDispatchCallback(param, UnitedSchemeUtility.wrapCallbackParams(1001, "bdfile error").toString());
                             return;
                         }
                         e eVar3 = eVar;
-                        String bA = com.baidu.swan.apps.storage.b.bA(H, e.akP());
+                        String bA = com.baidu.swan.apps.storage.b.bA(H, e.akO());
                         if (TextUtils.isEmpty(bA)) {
                             callbackHandler.handleSchemeDispatchCallback(param, UnitedSchemeUtility.wrapCallbackParams(1001, "bdfile error").toString());
                             return;
@@ -178,7 +179,7 @@ public class a extends com.baidu.swan.apps.network.a implements f {
                 Iterator<String> keys2 = optJSONObject2.keys();
                 while (keys2.hasNext()) {
                     String next2 = keys2.next();
-                    String by = com.baidu.swan.apps.storage.b.by(optJSONObject2.optString(next2), e.akP());
+                    String by = com.baidu.swan.apps.storage.b.by(optJSONObject2.optString(next2), e.akO());
                     if (!TextUtils.isEmpty(by)) {
                         File file = new File(by);
                         if (!file.exists() || file.length() == 0) {
@@ -188,19 +189,19 @@ public class a extends com.baidu.swan.apps.network.a implements f {
                             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "upload file too large");
                             return null;
                         } else {
-                            type.addFormDataPart(next2, file.getName(), new C0349a(file));
+                            type.addFormDataPart(next2, file.getName(), new C0370a(file));
                         }
                     }
                 }
             }
             String appKey = eVar.getAppKey();
-            long j = com.baidu.swan.apps.h.b.SS().serverTime;
-            String a = a(optJSONObject, appKey, j, dc(com.baidu.swan.apps.w.a.abT().be(AppRuntime.getAppContext())));
+            long j = com.baidu.swan.apps.h.b.SR().serverTime;
+            String a = a(optJSONObject, appKey, j, dc(com.baidu.swan.apps.w.a.abS().aS(AppRuntime.getAppContext())));
             if (a == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "sign error");
                 return null;
             }
-            HttpUrl parse = HttpUrl.parse(c.processCommonParams(com.baidu.swan.apps.h.a.SQ() + "/" + optString + optString2));
+            HttpUrl parse = HttpUrl.parse(c.processCommonParams(com.baidu.swan.apps.h.a.SP() + "/" + optString + optString2));
             if (parse == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "request url error");
                 return null;
@@ -250,7 +251,7 @@ public class a extends com.baidu.swan.apps.network.a implements f {
             byte[] copyOf = Arrays.copyOf(Base64.decode(d.toMd5(str.getBytes(), false), 0), 24);
             byte[] copyOf2 = Arrays.copyOf(Base64.decode(d.toMd5(String.format("%s%d", str2, Long.valueOf(j)).getBytes(), false).getBytes(), 0), 16);
             Cipher cipher = Cipher.getInstance("AES/CBC/NoPadding");
-            cipher.init(1, new SecretKeySpec(copyOf, "AES"), new IvParameterSpec(copyOf2));
+            cipher.init(1, new SecretKeySpec(copyOf, h.q), new IvParameterSpec(copyOf2));
             String str4 = new String(Base64.encode(cipher.doFinal(md5.getBytes()), 0), "UTF-8");
             return str4.endsWith("\n") ? str4.substring(0, str4.length() - 1) : str4;
         } catch (Exception e) {
@@ -260,28 +261,28 @@ public class a extends com.baidu.swan.apps.network.a implements f {
 
     /* renamed from: com.baidu.swan.bdprivate.c.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public static class C0349a extends RequestBody {
-        private final File cfa;
+    public static class C0370a extends RequestBody {
+        private final File cfg;
 
-        public C0349a(File file) {
-            this.cfa = file;
+        public C0370a(File file) {
+            this.cfg = file;
         }
 
         @Override // okhttp3.RequestBody
         public long contentLength() {
-            return this.cfa.length();
+            return this.cfg.length();
         }
 
         @Override // okhttp3.RequestBody
         public MediaType contentType() {
-            return MediaType.parse(getMimeType(this.cfa.getPath()));
+            return MediaType.parse(getMimeType(this.cfg.getPath()));
         }
 
         @Override // okhttp3.RequestBody
         public void writeTo(BufferedSink bufferedSink) throws IOException {
             Source source = null;
             try {
-                source = Okio.source(this.cfa);
+                source = Okio.source(this.cfg);
                 int i = 0;
                 while (true) {
                     long read = source.read(bufferedSink.buffer(), 2048L);

@@ -1,65 +1,65 @@
 package com.baidu.adp.widget.ListView;
 /* loaded from: classes.dex */
 public class i {
-    private float UF = 8.0f;
-    private float UG = 15.0f;
-    private float UH = 4.0f;
-    private float UJ = 60.0f;
-    private int UL = 150;
-    private int UM = 150;
-    private int UN = 500;
-    private float UO = 0.4f;
-    private float UQ = 1.0f;
-    private float UR = 20.0f;
-    private float US = 10.0f;
-    private int UT = 360;
-    private float UU = 5.0f;
+    private float UJ = 8.0f;
+    private float UL = 15.0f;
+    private float UM = 4.0f;
+    private float UN = 60.0f;
+    private int UO = 150;
+    private int UQ = 150;
+    private int UR = 500;
+    private float US = 0.4f;
+    private float UT = 1.0f;
+    private float UU = 20.0f;
+    private float UV = 10.0f;
+    private int UW = 360;
+    private float UX = 5.0f;
 
     public float oT() {
-        return this.UF;
-    }
-
-    public float oU() {
-        return this.UG;
-    }
-
-    public float oV() {
-        return this.UH;
-    }
-
-    public float oW() {
         return this.UJ;
     }
 
-    public int oX() {
+    public float oU() {
         return this.UL;
     }
 
-    public int oY() {
+    public float oV() {
         return this.UM;
     }
 
-    public int oZ() {
+    public float oW() {
         return this.UN;
     }
 
-    public float pa() {
+    public int oX() {
         return this.UO;
     }
 
-    public float pb() {
+    public int oY() {
         return this.UQ;
     }
 
-    public float pc() {
+    public int oZ() {
         return this.UR;
     }
 
-    public float pd() {
+    public float pa() {
         return this.US;
     }
 
-    public int pe() {
+    public float pb() {
         return this.UT;
+    }
+
+    public float pc() {
+        return this.UU;
+    }
+
+    public float pd() {
+        return this.UV;
+    }
+
+    public int pe() {
+        return this.UW;
     }
 }

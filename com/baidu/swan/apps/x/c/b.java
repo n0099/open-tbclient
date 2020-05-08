@@ -7,35 +7,35 @@ import java.util.List;
 /* loaded from: classes11.dex */
 public final class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private String bXu;
-    public com.baidu.swan.apps.as.d.b<b> bXw;
-    private final List<String> bXv = new ArrayList();
-    private final List<a> bXx = new ArrayList();
-    private String bXy = b.class.getPackage().getName();
+    private String bXA;
+    public com.baidu.swan.apps.as.d.b<b> bXC;
+    private final List<String> bXB = new ArrayList();
+    private final List<a> bXD = new ArrayList();
+    private String bXE = b.class.getPackage().getName();
 
     public b ka(String str) {
-        this.bXu = str;
+        this.bXA = str;
         return this;
     }
 
-    public String aef() {
-        return this.bXu;
+    public String aee() {
+        return this.bXA;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public synchronized List<a> aeg() {
-        return new ArrayList(this.bXx);
+    public synchronized List<a> aef() {
+        return new ArrayList(this.bXD);
     }
 
-    public synchronized a aeb() {
+    public synchronized a aea() {
         a aVar;
         aVar = new a();
-        this.bXx.add(aVar);
+        this.bXD.add(aVar);
         return aVar;
     }
 
     public synchronized a jZ(String str) {
-        return aeb().kc(str);
+        return aea().kc(str);
     }
 
     public synchronized a bc(String str, String str2) {
@@ -43,41 +43,41 @@ public final class b {
     }
 
     public b b(com.baidu.swan.apps.as.d.b<b> bVar) {
-        this.bXw = bVar;
+        this.bXC = bVar;
         return this;
     }
 
-    public synchronized b aeh() {
-        return c(this.bXw);
+    public synchronized b aeg() {
+        return c(this.bXC);
     }
 
     public synchronized b c(com.baidu.swan.apps.as.d.b<b> bVar) {
         if (bVar == null) {
-            bVar = new C0339b();
+            bVar = new C0360b();
         }
-        bVar.E(this);
+        bVar.F(this);
         return this;
     }
 
     /* loaded from: classes11.dex */
     public class a {
-        final /* synthetic */ b bXA;
-        final List<String> bXv;
-        private final List<StackTraceElement> bXz;
+        final List<String> bXB;
+        private final List<StackTraceElement> bXF;
+        final /* synthetic */ b bXG;
         final List<String> msgs;
         String tag;
 
         private a(b bVar) {
             StackTraceElement[] stackTrace;
-            this.bXA = bVar;
+            this.bXG = bVar;
             this.msgs = new ArrayList();
-            this.bXv = new ArrayList();
-            this.bXz = new ArrayList();
+            this.bXB = new ArrayList();
+            this.bXF = new ArrayList();
             int i = 0;
             for (StackTraceElement stackTraceElement : Thread.currentThread().getStackTrace()) {
                 i++;
-                if (i > 2 && !stackTraceElement.getClassName().startsWith(bVar.bXy)) {
-                    this.bXz.add(stackTraceElement);
+                if (i > 2 && !stackTraceElement.getClassName().startsWith(bVar.bXE)) {
+                    this.bXF.add(stackTraceElement);
                 }
             }
         }
@@ -96,22 +96,22 @@ public final class b {
             return this;
         }
 
-        public synchronized a aei() {
-            return fr(this.bXz.size());
+        public synchronized a aeh() {
+            return fr(this.bXF.size());
         }
 
         public synchronized a fr(int i) {
             synchronized (this) {
                 int i2 = i >= 1 ? i : 1;
-                int size = i2 > this.bXz.size() ? this.bXz.size() : i2;
+                int size = i2 > this.bXF.size() ? this.bXF.size() : i2;
                 for (int i3 = 0; i3 < size; i3++) {
-                    this.bXA.jZ("[Trace]==> " + this.bXz.get(i3).toString());
+                    this.bXG.jZ("[Trace]==> " + this.bXF.get(i3).toString());
                 }
             }
             return this;
         }
 
-        public synchronized a aej() {
+        public synchronized a aei() {
             return fr(1);
         }
     }
@@ -119,19 +119,19 @@ public final class b {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.swan.apps.x.c.b$b  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public class C0339b implements com.baidu.swan.apps.as.d.b<b> {
-        private C0339b() {
+    public class C0360b implements com.baidu.swan.apps.as.d.b<b> {
+        private C0360b() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.swan.apps.as.d.b
         /* renamed from: a */
-        public void E(b bVar) {
+        public void F(b bVar) {
             if (b.DEBUG) {
-                for (a aVar : bVar.bXx) {
+                for (a aVar : bVar.bXD) {
                     for (String str : aVar.msgs) {
-                        String aef = bVar.aef();
-                        D(TextUtils.isEmpty(aVar.tag) ? aef : aVar.tag, aef + " >>> " + str);
+                        String aee = bVar.aee();
+                        D(TextUtils.isEmpty(aVar.tag) ? aee : aVar.tag, aee + " >>> " + str);
                     }
                 }
             }

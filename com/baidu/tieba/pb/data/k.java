@@ -5,46 +5,46 @@ import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.core.data.bj;
 /* loaded from: classes9.dex */
 public class k implements com.baidu.adp.widget.ListView.m {
-    public static final BdUniqueId joC = BdUniqueId.gen();
-    private bj agz;
-    private AntiData dGy;
-    private boolean joD = false;
-    public boolean joE = false;
+    public static final BdUniqueId joG = BdUniqueId.gen();
+    private bj agC;
+    private AntiData dGC;
+    private boolean joH = false;
+    public boolean joI = false;
 
     public k(bj bjVar, AntiData antiData) {
-        this.agz = bjVar;
-        this.dGy = antiData;
+        this.agC = bjVar;
+        this.dGC = antiData;
     }
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return joC;
+        return joG;
     }
 
-    public int aMc() {
-        if (this.agz != null) {
-            return this.agz.aMc();
+    public int aMa() {
+        if (this.agC != null) {
+            return this.agC.aMa();
         }
         return 0;
     }
 
-    public boolean cwe() {
-        return this.agz != null && this.agz.aMb() == 1;
+    public boolean cwb() {
+        return this.agC != null && this.agC.aLZ() == 1;
     }
 
     public AntiData getAnti() {
-        return this.dGy;
+        return this.dGC;
     }
 
-    public bj aIw() {
-        return this.agz;
+    public bj aIu() {
+        return this.agC;
     }
 
     public void qF(boolean z) {
-        this.joD = z;
+        this.joH = z;
     }
 
-    public boolean cwf() {
-        return this.joD;
+    public boolean cwc() {
+        return this.joH;
     }
 }

@@ -12,15 +12,15 @@ import com.baidu.tieba.tbadkCore.r;
 /* loaded from: classes.dex */
 public abstract class e<D, S extends com.baidu.tbadk.mvc.d.b> implements r {
     private D data;
-    private final ViewEventCenter ecJ;
-    private S ece;
+    private final ViewEventCenter ecO;
+    private S ecj;
     private TbPageContext<?> pageContext;
     private final View rootView;
 
     public e(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         this.pageContext = tbPageContext;
         this.rootView = view;
-        this.ecJ = viewEventCenter;
+        this.ecO = viewEventCenter;
     }
 
     public View getRootView() {
@@ -28,12 +28,12 @@ public abstract class e<D, S extends com.baidu.tbadk.mvc.d.b> implements r {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public ViewEventCenter aZe() {
-        return this.ecJ;
+    public ViewEventCenter aZc() {
+        return this.ecO;
     }
 
     public void a(D d, S s) {
-        ai(d);
+        aj(d);
         b(s);
     }
 
@@ -41,16 +41,16 @@ public abstract class e<D, S extends com.baidu.tbadk.mvc.d.b> implements r {
         return this.data;
     }
 
-    public S aYL() {
-        return this.ece;
+    public S aYJ() {
+        return this.ecj;
     }
 
-    public void ai(D d) {
+    public void aj(D d) {
         this.data = d;
     }
 
     public void b(S s) {
-        this.ece = s;
+        this.ecj = s;
     }
 
     public TbPageContext<?> getPageContext() {

@@ -3800,7 +3800,7 @@ public final class IMPushPb {
         private int bitField0;
 
         /* renamed from: common  reason: collision with root package name */
-        private Common f977common;
+        private Common f969common;
         private byte memoizedIsInitialized;
         private int memoizedSerializedSize;
         private MetaData metadata;
@@ -3868,11 +3868,11 @@ public final class IMPushPb {
                                 z2 = z5;
                                 break;
                             case 330:
-                                Common.Builder builder2 = (this.bitField0 & 2) == 2 ? this.f977common.toBuilder() : null;
-                                this.f977common = (Common) codedInputStream.readMessage(Common.PARSER, extensionRegistryLite);
+                                Common.Builder builder2 = (this.bitField0 & 2) == 2 ? this.f969common.toBuilder() : null;
+                                this.f969common = (Common) codedInputStream.readMessage(Common.PARSER, extensionRegistryLite);
                                 if (builder2 != null) {
-                                    builder2.mergeFrom(this.f977common);
-                                    this.f977common = builder2.buildPartial();
+                                    builder2.mergeFrom(this.f969common);
+                                    this.f969common = builder2.buildPartial();
                                 }
                                 this.bitField0 |= 2;
                                 z3 = z4;
@@ -3972,7 +3972,7 @@ public final class IMPushPb {
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.PushImClientOrBuilder
         public Common getCommon() {
-            return this.f977common;
+            return this.f969common;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.PushImClientOrBuilder
@@ -4040,7 +4040,7 @@ public final class IMPushPb {
 
         private void initFields() {
             this.metadata = MetaData.getDefaultInstance();
-            this.f977common = Common.getDefaultInstance();
+            this.f969common = Common.getDefaultInstance();
             this.sdkName = "";
             this.sdkVersion = 0L;
             this.actions = Collections.emptyList();
@@ -4070,7 +4070,7 @@ public final class IMPushPb {
                 codedOutputStream.writeMessage(25, this.metadata);
             }
             if ((this.bitField0 & 2) == 2) {
-                codedOutputStream.writeMessage(41, this.f977common);
+                codedOutputStream.writeMessage(41, this.f969common);
             }
             if ((this.bitField0 & 4) == 4) {
                 codedOutputStream.writeBytes(SDK_NAME_FIELD_NUMBER, getSdkNameBytes());
@@ -4097,7 +4097,7 @@ public final class IMPushPb {
             if (i2 == -1) {
                 int computeMessageSize = (this.bitField0 & 1) == 1 ? CodedOutputStream.computeMessageSize(25, this.metadata) + 0 : 0;
                 if ((this.bitField0 & 2) == 2) {
-                    computeMessageSize += CodedOutputStream.computeMessageSize(41, this.f977common);
+                    computeMessageSize += CodedOutputStream.computeMessageSize(41, this.f969common);
                 }
                 if ((this.bitField0 & 4) == 4) {
                     computeMessageSize += CodedOutputStream.computeBytesSize(SDK_NAME_FIELD_NUMBER, getSdkNameBytes());
@@ -4191,7 +4191,7 @@ public final class IMPushPb {
             private MetaData metadata = MetaData.getDefaultInstance();
 
             /* renamed from: common  reason: collision with root package name */
-            private Common f978common = Common.getDefaultInstance();
+            private Common f970common = Common.getDefaultInstance();
             private Object sdkName = "";
             private List<Action> actions = Collections.emptyList();
 
@@ -4213,7 +4213,7 @@ public final class IMPushPb {
                 super.clear();
                 this.metadata = MetaData.getDefaultInstance();
                 this.bitField0 &= -2;
-                this.f978common = Common.getDefaultInstance();
+                this.f970common = Common.getDefaultInstance();
                 this.bitField0 &= -3;
                 this.sdkName = "";
                 this.bitField0 &= -5;
@@ -4256,7 +4256,7 @@ public final class IMPushPb {
                 if ((i & 2) == 2) {
                     i2 |= 2;
                 }
-                pushImClient.f977common = this.f978common;
+                pushImClient.f969common = this.f970common;
                 if ((i & 4) == 4) {
                     i2 |= 4;
                 }
@@ -4395,36 +4395,36 @@ public final class IMPushPb {
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.PushImClientOrBuilder
             public Common getCommon() {
-                return this.f978common;
+                return this.f970common;
             }
 
             public Builder setCommon(Common common2) {
                 if (common2 == null) {
                     throw new NullPointerException();
                 }
-                this.f978common = common2;
+                this.f970common = common2;
                 this.bitField0 |= 2;
                 return this;
             }
 
             public Builder setCommon(Common.Builder builder) {
-                this.f978common = builder.build();
+                this.f970common = builder.build();
                 this.bitField0 |= 2;
                 return this;
             }
 
             public Builder mergeCommon(Common common2) {
-                if ((this.bitField0 & 2) == 2 && this.f978common != Common.getDefaultInstance()) {
-                    this.f978common = Common.newBuilder(this.f978common).mergeFrom(common2).buildPartial();
+                if ((this.bitField0 & 2) == 2 && this.f970common != Common.getDefaultInstance()) {
+                    this.f970common = Common.newBuilder(this.f970common).mergeFrom(common2).buildPartial();
                 } else {
-                    this.f978common = common2;
+                    this.f970common = common2;
                 }
                 this.bitField0 |= 2;
                 return this;
             }
 
             public Builder clearCommon() {
-                this.f978common = Common.getDefaultInstance();
+                this.f970common = Common.getDefaultInstance();
                 this.bitField0 &= -3;
                 return this;
             }

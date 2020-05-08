@@ -33,85 +33,85 @@ public class ResponseGroupInfoLocalMessage extends CustomResponsedMessage<a> {
 
     /* loaded from: classes10.dex */
     public static class a {
-        private boolean iqa;
-        private boolean iqb;
+        private boolean iqg;
+        private boolean iqh;
+        private GroupActivityData isA;
         private boolean isMemGroup;
-        private GroupData isn;
-        private List<MemberData> iso;
-        private List<PhotoUrlData> isp;
-        private int isq;
-        private int isr;
-        private boolean iss;
-        private boolean ist;
-        private GroupActivityData isu;
+        private GroupData ist;
+        private List<MemberData> isu;
+        private List<PhotoUrlData> isv;
+        private int isw;
+        private int isx;
+        private boolean isy;
+        private boolean isz;
 
-        public GroupActivityData chR() {
-            return this.isu;
+        public GroupActivityData chP() {
+            return this.isA;
         }
 
         public void a(GroupActivityData groupActivityData) {
-            this.isu = groupActivityData;
+            this.isA = groupActivityData;
         }
 
         public GroupData getGroup() {
-            return this.isn;
+            return this.ist;
         }
 
         public void setGroup(GroupData groupData) {
-            this.isn = groupData;
+            this.ist = groupData;
         }
 
-        public List<MemberData> chS() {
-            return this.iso;
+        public List<MemberData> chQ() {
+            return this.isu;
         }
 
         public void dn(List<MemberData> list) {
-            this.iso = list;
+            this.isu = list;
         }
 
-        public List<PhotoUrlData> chT() {
-            return this.isp;
+        public List<PhotoUrlData> chR() {
+            return this.isv;
         }
 
         /* renamed from: do  reason: not valid java name */
         public void m34do(List<PhotoUrlData> list) {
-            this.isp = list;
+            this.isv = list;
         }
 
-        public int chU() {
-            return this.isq;
+        public int chS() {
+            return this.isw;
         }
 
         public void xo(int i) {
-            this.isq = i;
+            this.isw = i;
         }
 
-        public int chV() {
-            return this.isr;
+        public int chT() {
+            return this.isx;
         }
 
         public void xp(int i) {
-            this.isr = i;
+            this.isx = i;
         }
 
-        public boolean chW() {
-            return this.iqa;
+        public boolean chU() {
+            return this.iqg;
         }
 
         public void oX(boolean z) {
-            this.iqa = z;
+            this.iqg = z;
         }
 
-        public boolean chX() {
-            return this.iqb;
+        public boolean chV() {
+            return this.iqh;
         }
 
         public void oY(boolean z) {
-            this.iqb = z;
+            this.iqh = z;
         }
 
         public void oZ(boolean z) {
-            this.iss = z;
+            this.isy = z;
         }
 
         public boolean isMemGroup() {
@@ -122,12 +122,12 @@ public class ResponseGroupInfoLocalMessage extends CustomResponsedMessage<a> {
             this.isMemGroup = z;
         }
 
-        public boolean chY() {
-            return this.ist;
+        public boolean chW() {
+            return this.isz;
         }
 
         public void pa(boolean z) {
-            this.ist = z;
+            this.isz = z;
         }
     }
 

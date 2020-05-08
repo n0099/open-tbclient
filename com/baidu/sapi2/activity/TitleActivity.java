@@ -27,8 +27,8 @@ import com.baidu.sapi2.SapiConfiguration;
 import com.baidu.sapi2.callback.TitleBtnCallback;
 import com.baidu.sapi2.dto.SapiWebDTO;
 import com.baidu.sapi2.utils.SapiUtils;
-import com.baidu.sapi2.utils.n;
-import com.baidu.sapi2.utils.r;
+import com.baidu.sapi2.utils.p;
+import com.baidu.sapi2.utils.t;
 import com.baidu.sapi2.views.ViewUtility;
 import java.util.HashMap;
 /* loaded from: classes6.dex */
@@ -67,17 +67,17 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
         if (webDTO == null || (i2 = webDTO.closeExitAnimId) == 0) {
             i2 = i6;
         }
-        int i7 = i == 0 ? a.C0090a.sapi_sdk_slide_right_in : i;
-        int i8 = i2 == 0 ? a.C0090a.sapi_sdk_slide_right_out : i2;
+        int i7 = i == 0 ? a.C0111a.sapi_sdk_slide_right_in : i;
+        int i8 = i2 == 0 ? a.C0111a.sapi_sdk_slide_right_out : i2;
         if (z) {
-            int i9 = a.C0090a.sapi_sdk_slide_left_out;
+            int i9 = a.C0111a.sapi_sdk_slide_left_out;
             if (webDTO == null || (i4 = webDTO.openExitAnimId) == 0) {
                 i4 = i9;
             }
             overridePendingTransition(i7, i4);
             return;
         }
-        int i10 = a.C0090a.sapi_sdk_slide_left_in;
+        int i10 = a.C0111a.sapi_sdk_slide_left_in;
         if (webDTO == null || (i3 = webDTO.closeEnterAnimId) == 0) {
             i3 = i10;
         }
@@ -205,7 +205,7 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
         hashMap.put(BdStatsConstant.StatsType.ERROR, Log.getStackTraceString(th));
         hashMap.put(Config.DEVICE_PART, Build.MODEL);
         hashMap.put("os_version", Build.VERSION.RELEASE);
-        r.a("webview_init_error", hashMap);
+        t.a("webview_init_error", hashMap);
     }
 
     public void setBtnVisibility(int i, int i2, int i3) {
@@ -367,8 +367,8 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
             ((ViewGroup) this.mTitleBgLayout.getRootView()).addView(((LayoutInflater) getSystemService("layout_inflater")).inflate(a.f.layout_sapi_sdk_night_mode_mask, (ViewGroup) null), new AbsoluteLayout.LayoutParams(-1, -1, 0, 0));
         }
         if (this.bottomBackView != null) {
-            n.a(this, new n.a() { // from class: com.baidu.sapi2.activity.TitleActivity.1
-                @Override // com.baidu.sapi2.utils.n.a
+            p.a(this, new p.a() { // from class: com.baidu.sapi2.activity.TitleActivity.1
+                @Override // com.baidu.sapi2.utils.p.a
                 public void keyBoardHide(int i) {
                     View view = TitleActivity.this.bottomBackView;
                     if (view != null) {
@@ -376,7 +376,7 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
                     }
                 }
 
-                @Override // com.baidu.sapi2.utils.n.a
+                @Override // com.baidu.sapi2.utils.p.a
                 public void keyBoardShow(int i) {
                     View view = TitleActivity.this.bottomBackView;
                     if (view != null) {

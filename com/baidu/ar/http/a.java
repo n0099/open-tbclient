@@ -5,14 +5,14 @@ import com.baidu.ar.ihttp.HttpException;
 class a implements l {
 
     /* renamed from: pl  reason: collision with root package name */
-    private com.baidu.ar.ihttp.a f984pl;
+    private com.baidu.ar.ihttp.a f976pl;
     private HttpException pm;
     private Object mLock = new Object();
     private volatile boolean pn = false;
 
     public a(HttpException httpException, com.baidu.ar.ihttp.a aVar) {
         this.pm = httpException;
-        this.f984pl = aVar;
+        this.f976pl = aVar;
     }
 
     @Override // com.baidu.ar.http.l
@@ -37,8 +37,8 @@ class a implements l {
             if (this.pn) {
                 return;
             }
-            if (this.f984pl != null) {
-                this.f984pl.a(this.pm);
+            if (this.f976pl != null) {
+                this.f976pl.a(this.pm);
             }
         }
     }

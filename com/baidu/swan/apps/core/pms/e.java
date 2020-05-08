@@ -30,20 +30,20 @@ public class e extends f {
     }
 
     @Override // com.baidu.swan.pms.a.g
-    public void Xa() {
-        super.Xa();
-        if (this.bOw != null) {
-            Xq();
+    public void WZ() {
+        super.WZ();
+        if (this.bOB != null) {
+            Xp();
             w("checkForUpdate", false);
         }
     }
 
     @Override // com.baidu.swan.apps.core.pms.f
-    protected void Xg() {
-        this.bOx.add(new UbcFlowEvent("na_start_update_db"));
-        com.baidu.swan.apps.ap.a Xp = Xp();
-        this.bOx.add(new UbcFlowEvent("na_end_update_db"));
-        if (Xp == null) {
+    protected void Xf() {
+        this.bOC.add(new UbcFlowEvent("na_start_update_db"));
+        com.baidu.swan.apps.ap.a Xo = Xo();
+        this.bOC.add(new UbcFlowEvent("na_end_update_db"));
+        if (Xo == null) {
             if (DEBUG) {
                 Log.d("SwanAppPkgAsyncDownloadCallback", "swanAsyncUpdate :: 异步更新-> DB 存储成功");
             }
@@ -68,7 +68,7 @@ public class e extends f {
     }
 
     @Override // com.baidu.swan.apps.core.pms.f
-    protected PMSDownloadType Xh() {
+    protected PMSDownloadType Xg() {
         return PMSDownloadType.ASYNC;
     }
 

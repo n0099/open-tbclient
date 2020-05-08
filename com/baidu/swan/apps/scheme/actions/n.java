@@ -30,13 +30,13 @@ public class n extends ab {
             com.baidu.swan.apps.console.c.i("OpenAdAppAction", "empty package name");
             return false;
         }
-        ResolveInfo ah = ah(context, optString);
-        if (ah == null) {
+        ResolveInfo V = V(context, optString);
+        if (V == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "app not installed");
             com.baidu.swan.apps.console.c.i("OpenAdAppAction", "app not installed");
             return false;
         }
-        a(context, ah);
+        a(context, V);
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
         return true;
     }
@@ -57,7 +57,7 @@ public class n extends ab {
         }
     }
 
-    private static ResolveInfo ah(Context context, String str) {
+    private static ResolveInfo V(Context context, String str) {
         if (context == null || TextUtils.isEmpty(str)) {
             return null;
         }

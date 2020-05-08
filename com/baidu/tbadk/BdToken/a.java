@@ -10,13 +10,13 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class a {
     public static final a aFj() {
-        return C0400a.dfH;
+        return C0421a.dfM;
     }
 
     /* renamed from: com.baidu.tbadk.BdToken.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    private static class C0400a {
-        private static final a dfH = new a();
+    private static class C0421a {
+        private static final a dfM = new a();
     }
 
     public synchronized long a(b bVar) {

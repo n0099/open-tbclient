@@ -72,7 +72,7 @@ public class b {
             if (nVar.aDH()) {
                 jSONObject.put("of", "1");
             }
-            jSONObject.put("idtype", g.dkB().sh(nVar.getId()));
+            jSONObject.put("idtype", g.dky().sh(nVar.getId()));
         } catch (JSONException e) {
             if (DEBUG) {
                 Log.d("UBCFileData", e.getMessage());

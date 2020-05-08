@@ -1,8 +1,15 @@
 package com.xiaomi.push;
 /* loaded from: classes8.dex */
-final class gm extends gb {
-    @Override // com.xiaomi.push.gb, com.xiaomi.push.gd
-    public String b() {
-        return null;
+public class gm {
+    private String a;
+
+    public gm(String str) {
+        this.a = str;
+    }
+
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("stream:error (").append(this.a).append(")");
+        return sb.toString();
     }
 }

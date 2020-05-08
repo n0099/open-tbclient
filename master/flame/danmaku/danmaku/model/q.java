@@ -1,21 +1,21 @@
 package master.flame.danmaku.danmaku.model;
 /* loaded from: classes5.dex */
 public class q extends d {
-    public float esG;
-    public float esH;
-    public float jvP;
-    public float jvQ;
-    public float nbJ;
-    public float nbK;
-    public long nbL;
-    public long nbM;
-    public int nbO;
-    public int nbP;
-    public int nbQ;
-    public long nbR;
-    public a[] nbT;
-    public boolean nbN = false;
-    private float[] nbS = new float[4];
+    public float esL;
+    public float esM;
+    public float jvT;
+    public float jvU;
+    public float nbM;
+    public float nbN;
+    public long nbO;
+    public long nbP;
+    public int nbR;
+    public int nbS;
+    public int nbT;
+    public long nbU;
+    public a[] nbW;
+    public boolean nbQ = false;
+    private float[] nbV = new float[4];
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes5.dex */
@@ -40,60 +40,60 @@ public class q extends d {
         public long beginTime;
         public long duration;
         public long endTime;
-        float esH;
-        b nbU;
-        b nbV;
-        float nbW;
+        float esM;
+        b nbX;
+        b nbY;
+        float nbZ;
 
         public a() {
         }
 
         public void a(b bVar, b bVar2) {
-            this.nbU = bVar;
-            this.nbV = bVar2;
-            this.nbW = bVar2.x - bVar.x;
-            this.esH = bVar2.y - bVar.y;
+            this.nbX = bVar;
+            this.nbY = bVar2;
+            this.nbZ = bVar2.x - bVar.x;
+            this.esM = bVar2.y - bVar.y;
         }
 
-        public float dFM() {
-            return this.nbV.a(this.nbU);
+        public float dFI() {
+            return this.nbY.a(this.nbX);
         }
 
-        public float[] dFN() {
-            return new float[]{this.nbU.x, this.nbU.y};
+        public float[] dFJ() {
+            return new float[]{this.nbX.x, this.nbX.y};
         }
 
-        public float[] dFO() {
-            return new float[]{this.nbV.x, this.nbV.y};
+        public float[] dFK() {
+            return new float[]{this.nbY.x, this.nbY.y};
         }
     }
 
     @Override // master.flame.danmaku.danmaku.model.d
     public void a(m mVar, float f, float f2) {
-        a(mVar, this.naA.nbs);
+        a(mVar, this.naD.nbv);
     }
 
     @Override // master.flame.danmaku.danmaku.model.d
     public float[] a(m mVar, long j) {
         float f;
         a aVar;
-        if (!dFi()) {
+        if (!dFe()) {
             return null;
         }
-        long dFt = j - dFt();
-        if (this.nbR > 0 && this.nbQ != 0) {
-            if (dFt >= this.nbR) {
-                this.alpha = this.nbP;
+        long dFp = j - dFp();
+        if (this.nbU > 0 && this.nbT != 0) {
+            if (dFp >= this.nbU) {
+                this.alpha = this.nbS;
             } else {
-                this.alpha = ((int) ((((float) dFt) / ((float) this.nbR)) * this.nbQ)) + this.nbO;
+                this.alpha = ((int) ((((float) dFp) / ((float) this.nbU)) * this.nbT)) + this.nbR;
             }
         }
-        float f2 = this.nbJ;
-        float f3 = this.nbK;
-        long j2 = dFt - this.nbM;
-        if (this.nbL > 0 && j2 >= 0 && j2 <= this.nbL) {
-            if (this.nbT != null) {
-                a[] aVarArr = this.nbT;
+        float f2 = this.nbM;
+        float f3 = this.nbN;
+        long j2 = dFp - this.nbP;
+        if (this.nbO > 0 && j2 >= 0 && j2 <= this.nbO) {
+            if (this.nbW != null) {
+                a[] aVarArr = this.nbW;
                 int length = aVarArr.length;
                 int i = 0;
                 f = f3;
@@ -106,16 +106,16 @@ public class q extends d {
                     if (j2 >= aVar.beginTime && j2 < aVar.endTime) {
                         break;
                     }
-                    f2 = aVar.nbV.x;
+                    f2 = aVar.nbY.x;
                     i++;
-                    f = aVar.nbV.y;
+                    f = aVar.nbY.y;
                 }
                 if (aVar != null) {
-                    float f4 = aVar.nbW;
-                    float f5 = aVar.esH;
-                    float f6 = ((float) (dFt - aVar.beginTime)) / ((float) aVar.duration);
-                    float f7 = aVar.nbU.x;
-                    float f8 = aVar.nbU.y;
+                    float f4 = aVar.nbZ;
+                    float f5 = aVar.esM;
+                    float f6 = ((float) (dFp - aVar.beginTime)) / ((float) aVar.duration);
+                    float f7 = aVar.nbX.x;
+                    float f8 = aVar.nbX.y;
                     if (f4 != 0.0f) {
                         f2 = (f4 * f6) + f7;
                     }
@@ -124,28 +124,28 @@ public class q extends d {
                     }
                 }
             } else {
-                float Q = this.nbN ? Q(j2, this.nbL) : ((float) j2) / ((float) this.nbL);
-                if (this.esG != 0.0f) {
-                    f2 = (this.esG * Q) + this.nbJ;
+                float Q = this.nbQ ? Q(j2, this.nbO) : ((float) j2) / ((float) this.nbO);
+                if (this.esL != 0.0f) {
+                    f2 = (this.esL * Q) + this.nbM;
                 }
-                if (this.esH != 0.0f) {
-                    f = (Q * this.esH) + this.nbK;
+                if (this.esM != 0.0f) {
+                    f = (Q * this.esM) + this.nbN;
                 }
                 f = f3;
             }
         } else {
-            if (j2 > this.nbL) {
-                f2 = this.jvP;
-                f = this.jvQ;
+            if (j2 > this.nbO) {
+                f2 = this.jvT;
+                f = this.jvU;
             }
             f = f3;
         }
-        this.nbS[0] = f2;
-        this.nbS[1] = f;
-        this.nbS[2] = f2 + this.nba;
-        this.nbS[3] = f + this.nbb;
-        setVisibility(!dFk());
-        return this.nbS;
+        this.nbV[0] = f2;
+        this.nbV[1] = f;
+        this.nbV[2] = f2 + this.nbd;
+        this.nbV[3] = f + this.nbe;
+        setVisibility(!dFg());
+        return this.nbV;
     }
 
     private static final float Q(long j, long j2) {
@@ -154,23 +154,23 @@ public class q extends d {
     }
 
     @Override // master.flame.danmaku.danmaku.model.d
-    public float dFo() {
-        return this.nbS[0];
+    public float dFk() {
+        return this.nbV[0];
     }
 
     @Override // master.flame.danmaku.danmaku.model.d
-    public float dFp() {
-        return this.nbS[1];
+    public float dFl() {
+        return this.nbV[1];
     }
 
     @Override // master.flame.danmaku.danmaku.model.d
-    public float dFq() {
-        return this.nbS[2];
+    public float dFm() {
+        return this.nbV[2];
     }
 
     @Override // master.flame.danmaku.danmaku.model.d
-    public float dFr() {
-        return this.nbS[3];
+    public float dFn() {
+        return this.nbV[3];
     }
 
     @Override // master.flame.danmaku.danmaku.model.d
@@ -179,44 +179,44 @@ public class q extends d {
     }
 
     public void a(float f, float f2, float f3, float f4, long j, long j2) {
-        this.nbJ = f;
-        this.nbK = f2;
-        this.jvP = f3;
-        this.jvQ = f4;
-        this.esG = f3 - f;
-        this.esH = f4 - f2;
-        this.nbL = j;
-        this.nbM = j2;
+        this.nbM = f;
+        this.nbN = f2;
+        this.jvT = f3;
+        this.jvU = f4;
+        this.esL = f3 - f;
+        this.esM = f4 - f2;
+        this.nbO = j;
+        this.nbP = j2;
     }
 
     public void a(float[][] fArr) {
         if (fArr != null) {
             int length = fArr.length;
-            this.nbJ = fArr[0][0];
-            this.nbK = fArr[0][1];
-            this.jvP = fArr[length - 1][0];
-            this.jvQ = fArr[length - 1][1];
+            this.nbM = fArr[0][0];
+            this.nbN = fArr[0][1];
+            this.jvT = fArr[length - 1][0];
+            this.jvU = fArr[length - 1][1];
             if (fArr.length > 1) {
-                this.nbT = new a[fArr.length - 1];
-                for (int i = 0; i < this.nbT.length; i++) {
-                    this.nbT[i] = new a();
-                    this.nbT[i].a(new b(fArr[i][0], fArr[i][1]), new b(fArr[i + 1][0], fArr[i + 1][1]));
+                this.nbW = new a[fArr.length - 1];
+                for (int i = 0; i < this.nbW.length; i++) {
+                    this.nbW[i] = new a();
+                    this.nbW[i].a(new b(fArr[i][0], fArr[i][1]), new b(fArr[i + 1][0], fArr[i + 1][1]));
                 }
-                a[] aVarArr = this.nbT;
+                a[] aVarArr = this.nbW;
                 int length2 = aVarArr.length;
                 float f = 0.0f;
                 int i2 = 0;
                 while (i2 < length2) {
                     i2++;
-                    f = aVarArr[i2].dFM() + f;
+                    f = aVarArr[i2].dFI() + f;
                 }
                 a aVar = null;
-                a[] aVarArr2 = this.nbT;
+                a[] aVarArr2 = this.nbW;
                 int length3 = aVarArr2.length;
                 int i3 = 0;
                 while (i3 < length3) {
                     a aVar2 = aVarArr2[i3];
-                    aVar2.duration = (aVar2.dFM() / f) * ((float) this.nbL);
+                    aVar2.duration = (aVar2.dFI() / f) * ((float) this.nbO);
                     aVar2.beginTime = aVar == null ? 0L : aVar.endTime;
                     aVar2.endTime = aVar2.beginTime + aVar2.duration;
                     i3++;

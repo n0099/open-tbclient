@@ -41,7 +41,7 @@ public interface g {
 
     /* renamed from: com.baidu.tieba.play.g$g  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0630g {
+    public interface InterfaceC0651g {
         void b(@Nullable g gVar);
     }
 
@@ -69,11 +69,11 @@ public interface g {
 
     void a(i iVar);
 
-    int beR();
+    int beP();
 
-    boolean beS();
+    boolean beQ();
 
-    void beT();
+    void beR();
 
     void forceUseSystemMediaPlayer(boolean z);
 
@@ -113,7 +113,7 @@ public interface g {
 
     void setOnPreparedListener(f fVar);
 
-    void setOnSeekCompleteListener(InterfaceC0630g interfaceC0630g);
+    void setOnSeekCompleteListener(InterfaceC0651g interfaceC0651g);
 
     void setSurface(SurfaceTexture surfaceTexture);
 

@@ -3,25 +3,25 @@ package com.baidu.tieba.play;
 public interface d {
     void AX(int i);
 
-    void IG(String str);
+    void IJ(String str);
 
-    boolean cJA();
+    j cJA();
 
-    int cJB();
+    String cJs();
 
-    void cJC();
+    void cJt();
 
-    j cJD();
+    boolean cJu();
 
-    String cJv();
+    boolean cJv();
 
-    void cJw();
+    boolean cJw();
 
     boolean cJx();
 
-    boolean cJy();
+    int cJy();
 
-    boolean cJz();
+    void cJz();
 
     void fj(long j);
 
@@ -33,7 +33,7 @@ public interface d {
 
     void onStart();
 
-    String xS(String str);
+    String xV(String str);
 
-    void xX(String str);
+    void ya(String str);
 }

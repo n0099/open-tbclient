@@ -7,21 +7,21 @@ import com.baidu.swan.apps.as.s;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class c extends com.baidu.swan.apps.process.a.a.a {
-    private JSONObject cIm;
-    private String cIr;
+    private JSONObject cIs;
+    private String cIx;
     private String mPackageName;
 
     @Override // com.baidu.swan.apps.process.a.a.a
     public void y(@NonNull Bundle bundle) {
-        this.cIr = bundle.getString("operation", "");
-        this.cIm = s.parseString(bundle.getString("ubc_params", ""));
+        this.cIx = bundle.getString("operation", "");
+        this.cIs = s.parseString(bundle.getString("ubc_params", ""));
         final JSONObject parseString = s.parseString(bundle.getString("data", ""));
         this.mPackageName = parseString.optString("packageName");
         com.baidu.swan.b.a.a.a.sExecutorService.execute(new Runnable() { // from class: com.baidu.swan.b.a.b.c.1
             @Override // java.lang.Runnable
             public void run() {
-                com.baidu.swan.b.a.a.ati().bB(c.this.cIm);
-                String str = c.this.cIr;
+                com.baidu.swan.b.a.a.ati().bB(c.this.cIs);
+                String str = c.this.cIx;
                 char c = 65535;
                 switch (str.hashCode()) {
                     case -1261560102:
@@ -90,7 +90,7 @@ public class c extends com.baidu.swan.apps.process.a.a.a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void bC(@NonNull JSONObject jSONObject) {
-        com.baidu.swan.b.a.f.c.a(this.mPackageName, this.cIr, null, null, new com.baidu.swan.b.a.f.a(this.cIm));
+        com.baidu.swan.b.a.f.c.a(this.mPackageName, this.cIx, null, null, new com.baidu.swan.b.a.f.a(this.cIs));
         com.baidu.swan.b.a.a.ati().a(jSONObject.optString("url"), jSONObject.optString("packageName"), jSONObject.optString("apkId"), new a());
     }
 
@@ -106,35 +106,35 @@ public class c extends com.baidu.swan.apps.process.a.a.a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void bE(@NonNull JSONObject jSONObject) {
-        com.baidu.swan.b.a.f.c.a(this.mPackageName, this.cIr, null, null, new com.baidu.swan.b.a.f.a(this.cIm));
+        com.baidu.swan.b.a.f.c.a(this.mPackageName, this.cIx, null, null, new com.baidu.swan.b.a.f.a(this.cIs));
         com.baidu.swan.b.a.a.ati().c(jSONObject.optString("url"), new a());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void bF(@NonNull JSONObject jSONObject) {
-        com.baidu.swan.b.a.f.c.a(this.mPackageName, this.cIr, null, null, new com.baidu.swan.b.a.f.a(this.cIm));
+        com.baidu.swan.b.a.f.c.a(this.mPackageName, this.cIx, null, null, new com.baidu.swan.b.a.f.a(this.cIs));
         com.baidu.swan.b.a.a.ati().d(jSONObject.optString("url"), new a());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void bG(@NonNull JSONObject jSONObject) {
-        com.baidu.swan.b.a.f.c.a(this.mPackageName, this.cIr, null, null, new com.baidu.swan.b.a.f.a(this.cIm));
+        com.baidu.swan.b.a.f.c.a(this.mPackageName, this.cIx, null, null, new com.baidu.swan.b.a.f.a(this.cIs));
         com.baidu.swan.b.a.a.ati().b(jSONObject.optString("url"), new a());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.swan.b.a.e.b bVar) {
-        this.chO.clear();
+        this.chU.clear();
         if (bVar != null) {
-            this.chO.putString("functionType", bVar.atw());
-            this.chO.putString("resultData", bVar.getResult());
-            this.chO.putInt("resultStatus", bVar.getStatus());
+            this.chU.putString("functionType", bVar.atw());
+            this.chU.putString("resultData", bVar.getResult());
+            this.chU.putInt("resultStatus", bVar.getStatus());
             if (bVar.atv()) {
-                if (!TextUtils.equals(this.cIr, "startDownload")) {
-                    com.baidu.swan.b.a.f.c.a(this.mPackageName, this.cIr, "success", null, new com.baidu.swan.b.a.f.a(this.cIm));
+                if (!TextUtils.equals(this.cIx, "startDownload")) {
+                    com.baidu.swan.b.a.f.c.a(this.mPackageName, this.cIx, "success", null, new com.baidu.swan.b.a.f.a(this.cIs));
                 }
             } else {
-                com.baidu.swan.b.a.f.c.a(this.mPackageName, this.cIr, "fail", String.valueOf(bVar.getStatus()), new com.baidu.swan.b.a.f.a(this.cIm));
+                com.baidu.swan.b.a.f.c.a(this.mPackageName, this.cIx, "fail", String.valueOf(bVar.getStatus()), new com.baidu.swan.b.a.f.a(this.cIs));
             }
         }
         finish();

@@ -30,23 +30,23 @@ import org.json.JSONObject;
 /* loaded from: classes13.dex */
 class a extends e {
     @Override // com.baidu.tieba.lego.card.e
-    protected void cmF() {
-        iJl.put(17, iJl.size() + 1);
-        iJl.put(26, iJl.size() + 1);
-        iJl.put(27, iJl.size() + 1);
-        iJl.put(31, iJl.size() + 1);
-        iJl.put(32, iJl.size() + 1);
-        iJl.put(33, iJl.size() + 1);
-        iJl.put(34, iJl.size() + 1);
-        iJl.put(99, iJl.size() + 1);
-        iJm.put(17, BdUniqueId.gen());
-        iJm.put(26, BdUniqueId.gen());
-        iJm.put(27, BdUniqueId.gen());
-        iJm.put(31, BdUniqueId.gen());
-        iJm.put(32, BdUniqueId.gen());
-        iJm.put(33, BdUniqueId.gen());
-        iJm.put(34, BdUniqueId.gen());
-        iJm.put(99, BdUniqueId.gen());
+    protected void cmC() {
+        iJp.put(17, iJp.size() + 1);
+        iJp.put(26, iJp.size() + 1);
+        iJp.put(27, iJp.size() + 1);
+        iJp.put(31, iJp.size() + 1);
+        iJp.put(32, iJp.size() + 1);
+        iJp.put(33, iJp.size() + 1);
+        iJp.put(34, iJp.size() + 1);
+        iJp.put(99, iJp.size() + 1);
+        iJq.put(17, BdUniqueId.gen());
+        iJq.put(26, BdUniqueId.gen());
+        iJq.put(27, BdUniqueId.gen());
+        iJq.put(31, BdUniqueId.gen());
+        iJq.put(32, BdUniqueId.gen());
+        iJq.put(33, BdUniqueId.gen());
+        iJq.put(34, BdUniqueId.gen());
+        iJq.put(99, BdUniqueId.gen());
     }
 
     @Override // com.baidu.tieba.lego.card.e

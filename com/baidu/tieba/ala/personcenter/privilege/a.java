@@ -7,8 +7,8 @@ import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes3.dex */
 public class a {
-    private InterfaceC0513a gaf;
-    private HttpMessageListener gag = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_ENTER_EFFECT_BUY_PROP) { // from class: com.baidu.tieba.ala.personcenter.privilege.a.1
+    private InterfaceC0534a gak;
+    private HttpMessageListener gal = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_ENTER_EFFECT_BUY_PROP) { // from class: com.baidu.tieba.ala.personcenter.privilege.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -16,8 +16,8 @@ public class a {
                 AlaTDouBuyPrivilegeResponsedMessage alaTDouBuyPrivilegeResponsedMessage = (AlaTDouBuyPrivilegeResponsedMessage) httpResponsedMessage;
                 boolean z = alaTDouBuyPrivilegeResponsedMessage.getError() == 0;
                 String errorString = alaTDouBuyPrivilegeResponsedMessage.getErrorString();
-                if (a.this.gaf != null) {
-                    a.this.gaf.m(z, errorString);
+                if (a.this.gak != null) {
+                    a.this.gak.m(z, errorString);
                 }
             }
         }
@@ -26,14 +26,14 @@ public class a {
 
     /* renamed from: com.baidu.tieba.ala.personcenter.privilege.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC0513a {
+    public interface InterfaceC0534a {
         void m(boolean z, String str);
     }
 
-    public a(TbPageContext tbPageContext, InterfaceC0513a interfaceC0513a) {
+    public a(TbPageContext tbPageContext, InterfaceC0534a interfaceC0534a) {
         this.mPageContext = tbPageContext;
-        this.gaf = interfaceC0513a;
-        this.mPageContext.registerListener(this.gag);
+        this.gak = interfaceC0534a;
+        this.mPageContext.registerListener(this.gal);
     }
 
     public void aE(String str, int i) {

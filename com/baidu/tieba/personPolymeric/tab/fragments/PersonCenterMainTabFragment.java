@@ -15,10 +15,10 @@ import tbclient.User;
 /* loaded from: classes11.dex */
 public class PersonCenterMainTabFragment extends PersonCenterTabBaseFragment {
     private boolean isHost = false;
-    private com.baidu.tieba.personPolymeric.tab.view.a kcl;
-    private User kcn;
-    private b kcu;
-    private com.baidu.tieba.personPolymeric.c.a kcv;
+    private com.baidu.tieba.personPolymeric.tab.view.a kcp;
+    private User kcr;
+    private b kcy;
+    private com.baidu.tieba.personPolymeric.c.a kcz;
     private long mUserId;
 
     public static PersonCenterMainTabFragment k(long j, boolean z) {
@@ -40,9 +40,9 @@ public class PersonCenterMainTabFragment extends PersonCenterTabBaseFragment {
     @Nullable
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
         View inflate = layoutInflater.inflate(R.layout.person_center_common_tab_layout, viewGroup, false);
-        this.kcl = new com.baidu.tieba.personPolymeric.tab.view.a(getPageContext(), inflate, this);
-        this.kcu = new b(getPageContext(), this.isHost);
-        this.kcl.addHeaderView(this.kcu.getView());
+        this.kcp = new com.baidu.tieba.personPolymeric.tab.view.a(getPageContext(), inflate, this);
+        this.kcy = new b(getPageContext(), this.isHost);
+        this.kcp.addHeaderView(this.kcy.getView());
         return inflate;
     }
 
@@ -60,10 +60,10 @@ public class PersonCenterMainTabFragment extends PersonCenterTabBaseFragment {
     }
 
     public void d(com.baidu.tieba.personPolymeric.c.a aVar) {
-        if (aVar != null && this.kcl != null && isAdded()) {
+        if (aVar != null && this.kcp != null && isAdded()) {
             f(aVar);
         } else if (aVar != null) {
-            this.kcv = aVar;
+            this.kcz = aVar;
         }
     }
 
@@ -79,28 +79,28 @@ public class PersonCenterMainTabFragment extends PersonCenterTabBaseFragment {
 
     @Override // com.baidu.tieba.personPolymeric.tab.fragments.PersonCenterTabBaseFragment
     public void sH(boolean z) {
-        bOe();
+        bOc();
     }
 
-    public void bOe() {
-        if (this.kcl != null && isAdded()) {
-            this.kcl.bOe();
+    public void bOc() {
+        if (this.kcp != null && isAdded()) {
+            this.kcp.bOc();
         }
     }
 
     @Override // com.baidu.tieba.personPolymeric.tab.fragments.PersonCenterTabBaseFragment
     public void d(User user) {
-        this.kcn = user;
+        this.kcr = user;
     }
 
     @Override // com.baidu.tieba.personPolymeric.tab.fragments.PersonCenterTabBaseFragment, com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.kcl != null) {
-            this.kcl.onChangeSkinType(i);
+        if (this.kcp != null) {
+            this.kcp.onChangeSkinType(i);
         }
-        if (this.kcu != null) {
-            this.kcu.onChangeSkinType(i);
+        if (this.kcy != null) {
+            this.kcy.onChangeSkinType(i);
         }
     }
 
@@ -114,21 +114,21 @@ public class PersonCenterMainTabFragment extends PersonCenterTabBaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onResume() {
         super.onResume();
-        if (this.kcl != null && this.kcu != null && this.kcv != null) {
-            f(this.kcv);
-            this.kcv = null;
+        if (this.kcp != null && this.kcy != null && this.kcz != null) {
+            f(this.kcz);
+            this.kcz = null;
         }
     }
 
     private void f(com.baidu.tieba.personPolymeric.c.a aVar) {
-        if (this.kcl != null && this.kcu != null && aVar != null) {
+        if (this.kcp != null && this.kcy != null && aVar != null) {
             List<m> ef = com.baidu.tieba.personPolymeric.tab.b.a.ef(aVar.getNewestThreadList());
             if (!v.isEmpty(ef)) {
-                this.kcl.AM(R.string.person_center_tab_main_footer_text);
+                this.kcp.AM(R.string.person_center_tab_main_footer_text);
             }
-            this.kcl.eg(ef);
-            this.kcu.b(aVar);
-            this.kcu.aj(v.isEmpty(ef), isHost());
+            this.kcp.eg(ef);
+            this.kcy.b(aVar);
+            this.kcy.aj(v.isEmpty(ef), isHost());
         }
     }
 }

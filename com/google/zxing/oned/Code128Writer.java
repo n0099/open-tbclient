@@ -53,7 +53,7 @@ public final class Code128Writer extends OneDimensionalCodeWriter {
             if (charAt < ' ' || charAt > '~') {
                 switch (charAt) {
                     case BaseActivity.DIALOG_PROMPT /* 241 */:
-                    case BaseActivity.DIALOG_LOADING /* 242 */:
+                    case 242:
                     case 243:
                     case 244:
                         break;
@@ -74,7 +74,7 @@ public final class Code128Writer extends OneDimensionalCodeWriter {
                     case BaseActivity.DIALOG_PROMPT /* 241 */:
                         i = 102;
                         break;
-                    case BaseActivity.DIALOG_LOADING /* 242 */:
+                    case 242:
                         i = 97;
                         break;
                     case 243:

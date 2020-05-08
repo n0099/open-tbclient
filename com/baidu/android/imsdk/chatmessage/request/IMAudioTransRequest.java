@@ -14,7 +14,6 @@ import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.HttpHelper;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.android.pushservice.PushConstants;
 import com.baidubce.http.Headers;
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
@@ -72,7 +71,7 @@ public class IMAudioTransRequest implements HttpHelper.ResponseHandler {
                 str3 = jSONObject.optString("base64_file");
             } else {
                 i2 = jSONObject.getInt("error_code");
-                str2 = jSONObject.getString(PushConstants.EXTRA_ERROR_CODE);
+                str2 = jSONObject.getString("error_msg");
             }
         } catch (Exception e) {
             LogUtils.e(TAG, "deleteExpiredReliableMsgs :", e);

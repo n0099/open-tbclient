@@ -10,13 +10,13 @@ import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.im.p;
 /* loaded from: classes3.dex */
 public class a {
-    private static Application.ActivityLifecycleCallbacks anw;
+    private static Application.ActivityLifecycleCallbacks anC;
 
     public static void d(Application application) {
-        if (anw == null) {
-            anw = new C0102a();
+        if (anC == null) {
+            anC = new C0123a();
         }
-        application.registerActivityLifecycleCallbacks(anw);
+        application.registerActivityLifecycleCallbacks(anC);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -37,17 +37,17 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.live.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0102a implements Application.ActivityLifecycleCallbacks {
-        private p anx;
-        private CustomMessageListener any;
+    public static class C0123a implements Application.ActivityLifecycleCallbacks {
+        private p anD;
+        private CustomMessageListener anE;
 
-        private C0102a() {
-            this.any = new CustomMessageListener(2913191) { // from class: com.baidu.live.a.a.a.1
+        private C0123a() {
+            this.anE = new CustomMessageListener(2913191) { // from class: com.baidu.live.a.a.a.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.live.adp.framework.listener.MessageListener
                 public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                    if (C0102a.this.anx != null) {
-                        C0102a.this.anx.Bz();
+                    if (C0123a.this.anD != null) {
+                        C0123a.this.anD.By();
                     }
                 }
             };
@@ -60,11 +60,11 @@ public class a {
         @Override // android.app.Application.ActivityLifecycleCallbacks
         public void onActivityStarted(Activity activity) {
             if (a.o(activity)) {
-                if (this.anx == null) {
-                    this.anx = new p();
+                if (this.anD == null) {
+                    this.anD = new p();
                 }
-                this.anx.init(String.valueOf(activity.hashCode()));
-                MessageManager.getInstance().registerListener(this.any);
+                this.anD.init(String.valueOf(activity.hashCode()));
+                MessageManager.getInstance().registerListener(this.anE);
             }
         }
 
@@ -87,10 +87,10 @@ public class a {
         @Override // android.app.Application.ActivityLifecycleCallbacks
         public void onActivityDestroyed(Activity activity) {
             if (a.o(activity)) {
-                if (this.anx != null) {
-                    this.anx.destroy(String.valueOf(activity.hashCode()));
+                if (this.anD != null) {
+                    this.anD.destroy(String.valueOf(activity.hashCode()));
                 }
-                MessageManager.getInstance().unRegisterListener(this.any);
+                MessageManager.getInstance().unRegisterListener(this.anE);
             }
         }
     }

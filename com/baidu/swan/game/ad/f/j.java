@@ -4,27 +4,27 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public final class j {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public com.baidu.swan.games.binding.model.a cIe;
+    public com.baidu.swan.games.binding.model.a cIk;
 
     public static j d(com.baidu.swan.games.binding.model.c cVar) {
         if (cVar == null) {
             return null;
         }
         j jVar = new j();
-        jVar.cIe = com.baidu.swan.games.binding.model.a.f(cVar);
+        jVar.cIk = com.baidu.swan.games.binding.model.a.f(cVar);
         return jVar;
     }
 
     public void atg() {
-        if (this.cIe != null) {
-            this.cIe.onSuccess();
+        if (this.cIk != null) {
+            this.cIk.onSuccess();
         }
     }
 
     public void pj(String str) {
         JSONObject ph = ph(str);
-        if (this.cIe != null) {
-            this.cIe.T(ph);
+        if (this.cIk != null) {
+            this.cIk.U(ph);
         }
     }
 

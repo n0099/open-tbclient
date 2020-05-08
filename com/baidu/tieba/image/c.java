@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes8.dex */
 public class c {
-    private AdvertAppInfo iCy;
+    private AdvertAppInfo iCE;
     private Context mContext;
     private String mForumId;
     private String mPostId;
@@ -17,34 +17,34 @@ public class c {
     }
 
     public void d(AdvertAppInfo advertAppInfo) {
-        this.iCy = advertAppInfo;
+        this.iCE = advertAppInfo;
+    }
+
+    public void ckZ() {
+        Fy("click");
+        com.baidu.tieba.recapp.report.d.cOi().a(com.baidu.tieba.recapp.report.g.c(this.iCE, 2, 0));
+    }
+
+    public void cla() {
+        Fy("click");
+        com.baidu.tieba.recapp.report.c c = com.baidu.tieba.recapp.report.g.c(this.iCE, 2, 0);
+        c.JR("title");
+        com.baidu.tieba.recapp.report.d.cOi().a(c);
     }
 
     public void clb() {
-        Fv("click");
-        com.baidu.tieba.recapp.report.d.cOl().a(com.baidu.tieba.recapp.report.g.c(this.iCy, 2, 0));
+        Fy("show");
+        com.baidu.tieba.recapp.report.d.cOi().a(com.baidu.tieba.recapp.report.g.c(this.iCE, 3, 0));
     }
 
     public void clc() {
-        Fv("click");
-        com.baidu.tieba.recapp.report.c c = com.baidu.tieba.recapp.report.g.c(this.iCy, 2, 0);
-        c.JO("title");
-        com.baidu.tieba.recapp.report.d.cOl().a(c);
     }
 
-    public void cld() {
-        Fv("show");
-        com.baidu.tieba.recapp.report.d.cOl().a(com.baidu.tieba.recapp.report.g.c(this.iCy, 3, 0));
-    }
-
-    public void cle() {
-    }
-
-    public void Fu(String str) {
+    public void Fx(String str) {
         TiebaStatic.eventStat(this.mContext, "pb_dl_app", null, 1, "app_name", str);
     }
 
-    public void Fv(String str) {
-        com.baidu.tbadk.distribute.a.aWD().a(this.iCy, this.mForumId, com.baidu.adp.lib.f.b.toLong(this.mPostId, 0L), "PB", str, 1);
+    public void Fy(String str) {
+        com.baidu.tbadk.distribute.a.aWB().a(this.iCE, this.mForumId, com.baidu.adp.lib.f.b.toLong(this.mPostId, 0L), "PB", str, 1);
     }
 }

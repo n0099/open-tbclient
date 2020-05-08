@@ -5,9 +5,9 @@ import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class d {
     public long alaId;
-    public boolean apm;
-    public long apn;
-    public long apo;
+    public boolean apt;
+    public long apu;
+    public long apv;
     public String avatar;
     public long charmCount;
     public long userId;
@@ -20,9 +20,9 @@ public class d {
             this.userName = jSONObject.optString("user_name");
             this.avatar = jSONObject.optString(TableDefine.PaSubscribeColumns.COLUMN_AVATAR);
             this.charmCount = jSONObject.optLong("charm_count");
-            this.apm = jSONObject.optInt("can_challenge") == 1;
-            this.apn = jSONObject.optLong("challenge_end_time");
-            this.apo = jSONObject.optLong("challenge_time");
+            this.apt = jSONObject.optInt("can_challenge") == 1;
+            this.apu = jSONObject.optLong("challenge_end_time");
+            this.apv = jSONObject.optLong("challenge_time");
         }
     }
 

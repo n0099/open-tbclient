@@ -6,24 +6,24 @@ import java.util.List;
 import javax.annotation.Nullable;
 /* loaded from: classes13.dex */
 public class d {
-    private final b lZg;
-    private final int lZh;
+    private final b lZk;
+    private final int lZl;
     @Nullable
-    private com.facebook.common.references.a<Bitmap> lZi;
+    private com.facebook.common.references.a<Bitmap> lZm;
     @Nullable
-    private List<com.facebook.common.references.a<Bitmap>> lZj;
+    private List<com.facebook.common.references.a<Bitmap>> lZn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(e eVar) {
-        this.lZg = (b) g.checkNotNull(eVar.dqc());
-        this.lZh = eVar.dqe();
-        this.lZi = eVar.dqd();
-        this.lZj = eVar.dqf();
+        this.lZk = (b) g.checkNotNull(eVar.dpZ());
+        this.lZl = eVar.dqb();
+        this.lZm = eVar.dqa();
+        this.lZn = eVar.dqc();
     }
 
     private d(b bVar) {
-        this.lZg = (b) g.checkNotNull(bVar);
-        this.lZh = 0;
+        this.lZk = (b) g.checkNotNull(bVar);
+        this.lZl = 0;
     }
 
     public static d a(b bVar) {
@@ -34,14 +34,14 @@ public class d {
         return new e(bVar);
     }
 
-    public b dqc() {
-        return this.lZg;
+    public b dpZ() {
+        return this.lZk;
     }
 
     public synchronized void dispose() {
-        com.facebook.common.references.a.c((com.facebook.common.references.a<?>) this.lZi);
-        this.lZi = null;
-        com.facebook.common.references.a.a(this.lZj);
-        this.lZj = null;
+        com.facebook.common.references.a.c((com.facebook.common.references.a<?>) this.lZm);
+        this.lZm = null;
+        com.facebook.common.references.a.b(this.lZn);
+        this.lZn = null;
     }
 }

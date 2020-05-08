@@ -5,23 +5,23 @@ import com.baidu.tieba.enterForum.data.l;
 import com.baidu.tieba.enterForum.view.RecommendForumHorizontalView;
 /* loaded from: classes9.dex */
 public class d {
-    private RecommendForumHorizontalView gKn;
+    private RecommendForumHorizontalView gKt;
     private TbPageContext<?> mPageContext;
 
     public d(TbPageContext<?> tbPageContext) {
         this.mPageContext = tbPageContext;
-        this.gKn = new RecommendForumHorizontalView(tbPageContext);
-        this.gKn.setShowMore(true);
-        this.gKn.setSquareEntranceAtStart(true);
-        this.gKn.setTabName(null);
-        this.gKn.setFrom(0);
+        this.gKt = new RecommendForumHorizontalView(tbPageContext);
+        this.gKt.setShowMore(true);
+        this.gKt.setSquareEntranceAtStart(true);
+        this.gKt.setTabName(null);
+        this.gKt.setFrom(0);
     }
 
-    public RecommendForumHorizontalView bKt() {
-        return this.gKn;
+    public RecommendForumHorizontalView bKr() {
+        return this.gKt;
     }
 
     public void c(l lVar) {
-        this.gKn.b(lVar);
+        this.gKt.b(lVar);
     }
 }

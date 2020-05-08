@@ -5,68 +5,68 @@ import com.baidu.tbadk.download.DownloadData;
 import java.io.File;
 /* loaded from: classes3.dex */
 public class b extends g implements j {
-    private d eZE;
-    private String eZF;
-    private float czy = 0.0f;
+    private d eZJ;
+    private String eZK;
+    private float czE = 0.0f;
     private boolean mIsLoading = false;
 
     public b(String str) {
-        this.eZF = str;
-        bmN();
+        this.eZK = str;
+        bmL();
     }
 
-    private void bmN() {
-        this.eZE = c.zr(this.eZF);
+    private void bmL() {
+        this.eZJ = c.zu(this.eZK);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void aES() {
-        if (bnd() != null) {
-            bnd().b(this);
+        if (bnb() != null) {
+            bnb().b(this);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bmO() {
-        if (bnd() != null) {
-            bnd().a(this);
+    public void bmM() {
+        if (bnb() != null) {
+            bnb().a(this);
         }
     }
 
     @Override // com.baidu.tieba.ala.a.j
     public boolean isReady() {
-        if (this.eZE == null) {
+        if (this.eZJ == null) {
             return false;
         }
-        return this.eZE.isLoaded();
+        return this.eZJ.isLoaded();
     }
 
     @Override // com.baidu.tieba.ala.a.j
     public void load() {
-        if (bnd() != null) {
-            bnd().a(this, getProgress());
+        if (bnb() != null) {
+            bnb().a(this, getProgress());
         }
-        bmP();
+        bmN();
     }
 
-    public void bmP() {
-        if (this.eZE == null) {
+    public void bmN() {
+        if (this.eZJ == null) {
             aES();
         } else if (!this.mIsLoading) {
             this.mIsLoading = true;
-            if (!this.eZE.isLoaded()) {
-                bmQ();
-            } else {
+            if (!this.eZJ.isLoaded()) {
                 bmO();
+            } else {
+                bmM();
             }
         }
     }
 
-    private void bmQ() {
+    private void bmO() {
         DownloadData downloadData = new DownloadData();
         downloadData.setType(20);
-        downloadData.setUrl(this.eZE.mUrl);
-        downloadData.setPath(this.eZE.getLoadingFile());
+        downloadData.setUrl(this.eZJ.mUrl);
+        downloadData.setPath(this.eZJ.getLoadingFile());
         downloadData.setCallback(new com.baidu.tbadk.download.c() { // from class: com.baidu.tieba.ala.a.b.1
             @Override // com.baidu.tbadk.download.c
             public void onFileUpdateProgress(DownloadData downloadData2) {
@@ -78,9 +78,9 @@ public class b extends g implements j {
                     b.this.aES();
                     return;
                 }
-                b.this.czy = downloadData2.getProcess();
-                if (b.this.bnd() != null) {
-                    b.this.bnd().a(b.this, b.this.getProgress());
+                b.this.czE = downloadData2.getProcess();
+                if (b.this.bnb() != null) {
+                    b.this.bnb().a(b.this, b.this.getProgress());
                 }
             }
 
@@ -97,10 +97,10 @@ public class b extends g implements j {
             @Override // com.baidu.tbadk.download.c
             public void onFileDownloadSucceed(DownloadData downloadData2) {
                 if (downloadData2 != null && !StringUtils.isNull(downloadData2.getPath())) {
-                    if (!b.this.eZE.onResLoaded(downloadData2.getPath())) {
+                    if (!b.this.eZJ.onResLoaded(downloadData2.getPath())) {
                         b.this.aES();
                     } else {
-                        b.this.bmO();
+                        b.this.bmM();
                     }
                 }
             }
@@ -114,11 +114,11 @@ public class b extends g implements j {
                 b.this.aES();
             }
         });
-        com.baidu.tbadk.download.d.aWL().f(downloadData);
+        com.baidu.tbadk.download.d.aWJ().f(downloadData);
     }
 
     @Override // com.baidu.tieba.ala.a.j
-    public g bmR() {
+    public g bmP() {
         return this;
     }
 
@@ -132,7 +132,7 @@ public class b extends g implements j {
 
     @Override // com.baidu.tieba.ala.a.g
     public float getProgress() {
-        return this.czy;
+        return this.czE;
     }
 
     @Override // com.baidu.tieba.ala.a.g

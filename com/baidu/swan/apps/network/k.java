@@ -9,8 +9,8 @@ import kotlin.jvm.internal.q;
 @kotlin.h
 /* loaded from: classes11.dex */
 public final class k {
-    public static final a cfs = new a(null);
-    private volatile Set<String> cfr;
+    public static final a cfy = new a(null);
+    private volatile Set<String> cfx;
 
     @kotlin.h
     /* loaded from: classes11.dex */
@@ -25,10 +25,10 @@ public final class k {
 
     public final synchronized void a(WebSocketTask webSocketTask) {
         q.j(webSocketTask, "task");
-        if (this.cfr == null) {
-            this.cfr = new LinkedHashSet();
+        if (this.cfx == null) {
+            this.cfx = new LinkedHashSet();
         }
-        Set<String> set = this.cfr;
+        Set<String> set = this.cfx;
         if (set != null) {
             set.add(webSocketTask.getTaskId());
         }
@@ -36,14 +36,14 @@ public final class k {
 
     public final synchronized void kT(String str) {
         q.j(str, "taskId");
-        Set<String> set = this.cfr;
+        Set<String> set = this.cfx;
         if (set != null) {
             set.remove(str);
         }
     }
 
     public final synchronized void release() {
-        Set<String> set = this.cfr;
+        Set<String> set = this.cfx;
         if (set != null) {
             for (String str : set) {
                 try {
@@ -53,16 +53,16 @@ public final class k {
                 }
             }
         }
-        Set<String> set2 = this.cfr;
+        Set<String> set2 = this.cfx;
         if (set2 != null) {
             set2.clear();
         }
     }
 
-    public final synchronized boolean ahj() {
+    public final synchronized boolean ahi() {
         boolean z;
         synchronized (this) {
-            Set<String> set = this.cfr;
+            Set<String> set = this.cfx;
             z = (set != null ? set.size() : 0) < 5;
         }
         return z;

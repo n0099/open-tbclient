@@ -8,27 +8,27 @@ import java.util.regex.Matcher;
 @kotlin.h
 /* loaded from: classes7.dex */
 public final class j implements i {
-    private final CharSequence mYJ;
-    private final g mYR;
-    private final Matcher mYS;
+    private final CharSequence mYM;
+    private final g mYU;
+    private final Matcher mYV;
 
     public j(Matcher matcher, CharSequence charSequence) {
         kotlin.jvm.internal.q.j(matcher, "matcher");
         kotlin.jvm.internal.q.j(charSequence, Config.INPUT_PART);
-        this.mYS = matcher;
-        this.mYJ = charSequence;
-        this.mYR = new a();
+        this.mYV = matcher;
+        this.mYM = charSequence;
+        this.mYU = new a();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public final MatchResult dEs() {
-        return this.mYS;
+    public final MatchResult dEo() {
+        return this.mYV;
     }
 
     @Override // kotlin.text.i
-    public kotlin.b.h dEq() {
+    public kotlin.b.h dEm() {
         kotlin.b.h a2;
-        a2 = k.a(dEs());
+        a2 = k.a(dEo());
         return a2;
     }
 
@@ -53,7 +53,7 @@ public final class j implements i {
 
         @Override // kotlin.collections.a
         public int getSize() {
-            return j.this.dEs().groupCount() + 1;
+            return j.this.dEo().groupCount() + 1;
         }
 
         @Override // kotlin.collections.a, java.util.Collection
@@ -63,14 +63,14 @@ public final class j implements i {
 
         @Override // java.util.Collection, java.lang.Iterable
         public Iterator<f> iterator() {
-            return kotlin.sequences.e.c(kotlin.collections.o.h(kotlin.collections.o.k(this)), new MatcherMatchResult$groups$1$iterator$1(this)).iterator();
+            return kotlin.sequences.e.c(kotlin.collections.o.i(kotlin.collections.o.k(this)), new MatcherMatchResult$groups$1$iterator$1(this)).iterator();
         }
 
         public f Ji(int i) {
             kotlin.b.h a;
-            a = k.a(j.this.dEs(), i);
-            if (a.dEh().intValue() >= 0) {
-                String group = j.this.dEs().group(i);
+            a = k.a(j.this.dEo(), i);
+            if (a.dEd().intValue() >= 0) {
+                String group = j.this.dEo().group(i);
                 kotlin.jvm.internal.q.i(group, "matchResult.group(index)");
                 return new f(group, a);
             }
@@ -79,13 +79,13 @@ public final class j implements i {
     }
 
     @Override // kotlin.text.i
-    public i dEr() {
+    public i dEn() {
         i a2;
-        int end = (dEs().end() == dEs().start() ? 1 : 0) + dEs().end();
-        if (end <= this.mYJ.length()) {
-            Matcher matcher = this.mYS.pattern().matcher(this.mYJ);
+        int end = (dEo().end() == dEo().start() ? 1 : 0) + dEo().end();
+        if (end <= this.mYM.length()) {
+            Matcher matcher = this.mYV.pattern().matcher(this.mYM);
             kotlin.jvm.internal.q.i(matcher, "matcher.pattern().matcher(input)");
-            a2 = k.a(matcher, end, this.mYJ);
+            a2 = k.a(matcher, end, this.mYM);
             return a2;
         }
         return null;

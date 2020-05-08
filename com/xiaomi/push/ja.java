@@ -1,17 +1,21 @@
 package com.xiaomi.push;
+
+import java.io.ByteArrayOutputStream;
 /* loaded from: classes8.dex */
-public final class ja {
-    public final byte a;
-
-    /* renamed from: a  reason: collision with other field name */
-    public final int f792a;
-
+public class ja extends ByteArrayOutputStream {
     public ja() {
-        this((byte) 0, 0);
     }
 
-    public ja(byte b, int i) {
-        this.a = b;
-        this.f792a = i;
+    public ja(int i) {
+        super(i);
+    }
+
+    public int a() {
+        return this.count;
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public byte[] m477a() {
+        return this.buf;
     }
 }

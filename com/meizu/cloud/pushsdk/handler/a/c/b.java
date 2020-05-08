@@ -89,7 +89,7 @@ public class b extends com.meizu.cloud.pushsdk.handler.a.a<MessageV3> {
             b().a(c(), MzPushMessage.fromMessageV3(messageV3));
         }
         if (!MinSdkChecker.isSupportSetDrawableSmallIcon()) {
-            a(messageV3);
+            b(messageV3);
             return;
         }
         com.meizu.cloud.pushsdk.notification.model.a a2 = com.meizu.cloud.pushsdk.notification.model.a.a(messageV3);
@@ -112,9 +112,17 @@ public class b extends com.meizu.cloud.pushsdk.handler.a.a<MessageV3> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.meizu.cloud.pushsdk.handler.a.a
-    /* renamed from: c */
+    /* renamed from: d */
+    public boolean g(MessageV3 messageV3) {
+        return a(messageV3);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.meizu.cloud.pushsdk.handler.a.a
+    /* renamed from: e */
     public void b(MessageV3 messageV3) {
-        com.meizu.cloud.pushsdk.util.c.e(c(), messageV3.getUploadDataPackageName(), TextUtils.isEmpty(messageV3.getDeviceId()) ? d((Intent) null) : messageV3.getDeviceId(), messageV3.getTaskId(), messageV3.getSeqId(), messageV3.getPushTimestamp());
+        com.meizu.cloud.pushsdk.util.d.e(c(), messageV3.getUploadDataPackageName(), TextUtils.isEmpty(messageV3.getDeviceId()) ? d((Intent) null) : messageV3.getDeviceId(), messageV3.getTaskId(), messageV3.getSeqId(), messageV3.getPushTimestamp());
     }
 
     /* JADX DEBUG: Method merged with bridge method */

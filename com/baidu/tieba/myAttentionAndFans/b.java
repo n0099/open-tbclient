@@ -6,8 +6,8 @@ import com.baidu.tbadk.core.data.av;
 import java.util.ArrayList;
 /* loaded from: classes10.dex */
 public abstract class b extends BaseAdapter {
-    protected ArrayList<UserData> dvq = null;
-    boolean fqE = false;
+    protected ArrayList<UserData> dvu = null;
+    boolean fqJ = false;
     private boolean mHasMore = false;
 
     public abstract void a(av avVar);
@@ -15,13 +15,13 @@ public abstract class b extends BaseAdapter {
     public abstract boolean eX(long j);
 
     public void resetData() {
-        this.dvq.clear();
+        this.dvu.clear();
     }
 
-    public void bqg() {
-        this.fqE = false;
-        if (this.dvq != null && this.dvq.size() == 0) {
-            this.fqE = true;
+    public void bqe() {
+        this.fqJ = false;
+        if (this.dvu != null && this.dvu.size() == 0) {
+            this.fqJ = true;
         }
     }
 

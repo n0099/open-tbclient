@@ -1,25 +1,25 @@
 package com.baidu.swan.pms.c.d;
 /* loaded from: classes11.dex */
 public class d extends f {
-    private String cgY;
-    private String dbr;
+    private String che;
+    private String dbw;
 
     public d(String str, String str2, int i) {
         super(i);
-        this.cgY = str;
-        this.dbr = str2;
+        this.che = str;
+        this.dbw = str2;
     }
 
     public d rL(String str) {
-        this.dbr = str;
+        this.dbw = str;
         return this;
     }
 
     public String aCD() {
-        return this.cgY;
+        return this.che;
     }
 
     public String aCE() {
-        return this.dbr;
+        return this.dbw;
     }
 }

@@ -11,7 +11,7 @@ public class a {
         this.b = i2;
     }
 
-    public a OG(String str) {
+    public a OJ(String str) {
         this.d = str;
         return this;
     }

@@ -1,223 +1,95 @@
 package com.xiaomi.push;
-
-import com.baidu.android.imsdk.internal.Constants;
-import java.io.Serializable;
-import java.util.BitSet;
 /* loaded from: classes8.dex */
-public class ho implements ir<ho, Object>, Serializable, Cloneable {
+public enum ho {
+    DeviceInfo(1),
+    AppInstallList(2),
+    AppActiveList(3),
+    Bluetooth(4),
+    Location(5),
+    Account(6),
+    WIFI(7),
+    Cellular(8),
+    TopApp(9),
+    BroadcastAction(10),
+    BroadcastActionAdded(11),
+    BroadcastActionRemoved(12),
+    BroadcastActionReplaced(13),
+    BroadcastActionDataCleared(14),
+    BroadcastActionRestarted(15),
+    BroadcastActionChanged(16),
+    AppPermission(17),
+    WifiDevicesMac(18),
+    ActivityActiveTimeStamp(19),
+    DeviceBaseInfo(20),
+    DeviceInfoV2(21),
+    Battery(22),
+    Storage(23),
+    AppIsInstalled(24);
+    
 
     /* renamed from: a  reason: collision with other field name */
-    public long f480a;
+    private final int f442a;
 
-    /* renamed from: a  reason: collision with other field name */
-    public hi f481a;
-
-    /* renamed from: a  reason: collision with other field name */
-    public String f482a;
-
-    /* renamed from: a  reason: collision with other field name */
-    private BitSet f483a = new BitSet(1);
-
-    /* renamed from: a  reason: collision with other field name */
-    private static final jh f479a = new jh("DataCollectionItem");
-    private static final iz a = new iz("", (byte) 10, 1);
-    private static final iz b = new iz("", (byte) 8, 2);
-    private static final iz c = new iz("", Constants.GZIP_CAST_TYPE, 3);
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.lang.Comparable
-    /* renamed from: a */
-    public int compareTo(ho hoVar) {
-        int a2;
-        int a3;
-        int a4;
-        if (getClass().equals(hoVar.getClass())) {
-            int compareTo = Boolean.valueOf(m348a()).compareTo(Boolean.valueOf(hoVar.m348a()));
-            if (compareTo == 0) {
-                if (!m348a() || (a4 = is.a(this.f480a, hoVar.f480a)) == 0) {
-                    int compareTo2 = Boolean.valueOf(b()).compareTo(Boolean.valueOf(hoVar.b()));
-                    if (compareTo2 == 0) {
-                        if (!b() || (a3 = is.a(this.f481a, hoVar.f481a)) == 0) {
-                            int compareTo3 = Boolean.valueOf(c()).compareTo(Boolean.valueOf(hoVar.c()));
-                            if (compareTo3 == 0) {
-                                if (!c() || (a2 = is.a(this.f482a, hoVar.f482a)) == 0) {
-                                    return 0;
-                                }
-                                return a2;
-                            }
-                            return compareTo3;
-                        }
-                        return a3;
-                    }
-                    return compareTo2;
-                }
-                return a4;
-            }
-            return compareTo;
-        }
-        return getClass().getName().compareTo(hoVar.getClass().getName());
+    ho(int i) {
+        this.f442a = i;
     }
 
-    public ho a(long j) {
-        this.f480a = j;
-        a(true);
-        return this;
-    }
-
-    public ho a(hi hiVar) {
-        this.f481a = hiVar;
-        return this;
-    }
-
-    public ho a(String str) {
-        this.f482a = str;
-        return this;
-    }
-
-    public String a() {
-        return this.f482a;
-    }
-
-    /* renamed from: a  reason: collision with other method in class */
-    public void m347a() {
-        if (this.f481a == null) {
-            throw new jd("Required field 'collectionType' was not present! Struct: " + toString());
-        }
-        if (this.f482a == null) {
-            throw new jd("Required field 'content' was not present! Struct: " + toString());
+    public static ho a(int i) {
+        switch (i) {
+            case 1:
+                return DeviceInfo;
+            case 2:
+                return AppInstallList;
+            case 3:
+                return AppActiveList;
+            case 4:
+                return Bluetooth;
+            case 5:
+                return Location;
+            case 6:
+                return Account;
+            case 7:
+                return WIFI;
+            case 8:
+                return Cellular;
+            case 9:
+                return TopApp;
+            case 10:
+                return BroadcastAction;
+            case 11:
+                return BroadcastActionAdded;
+            case 12:
+                return BroadcastActionRemoved;
+            case 13:
+                return BroadcastActionReplaced;
+            case 14:
+                return BroadcastActionDataCleared;
+            case 15:
+                return BroadcastActionRestarted;
+            case 16:
+                return BroadcastActionChanged;
+            case 17:
+                return AppPermission;
+            case 18:
+                return WifiDevicesMac;
+            case 19:
+                return ActivityActiveTimeStamp;
+            case 20:
+                return DeviceBaseInfo;
+            case 21:
+                return DeviceInfoV2;
+            case 22:
+                return Battery;
+            case 23:
+                return Storage;
+            case 24:
+                return AppIsInstalled;
+            default:
+                return null;
         }
     }
 
-    @Override // com.xiaomi.push.ir
-    public void a(jc jcVar) {
-        jcVar.m475a();
-        while (true) {
-            iz m471a = jcVar.m471a();
-            if (m471a.a == 0) {
-                jcVar.f();
-                if (!m348a()) {
-                    throw new jd("Required field 'collectedAt' was not found in serialized data! Struct: " + toString());
-                }
-                m347a();
-                return;
-            }
-            switch (m471a.f789a) {
-                case 1:
-                    if (m471a.a != 10) {
-                        jf.a(jcVar, m471a.a);
-                        break;
-                    } else {
-                        this.f480a = jcVar.m470a();
-                        a(true);
-                        break;
-                    }
-                case 2:
-                    if (m471a.a != 8) {
-                        jf.a(jcVar, m471a.a);
-                        break;
-                    } else {
-                        this.f481a = hi.a(jcVar.m469a());
-                        break;
-                    }
-                case 3:
-                    if (m471a.a != 11) {
-                        jf.a(jcVar, m471a.a);
-                        break;
-                    } else {
-                        this.f482a = jcVar.m476a();
-                        break;
-                    }
-                default:
-                    jf.a(jcVar, m471a.a);
-                    break;
-            }
-            jcVar.g();
-        }
-    }
-
-    public void a(boolean z) {
-        this.f483a.set(0, z);
-    }
-
-    /* renamed from: a  reason: collision with other method in class */
-    public boolean m348a() {
-        return this.f483a.get(0);
-    }
-
-    /* renamed from: a  reason: collision with other method in class */
-    public boolean m349a(ho hoVar) {
-        if (hoVar != null && this.f480a == hoVar.f480a) {
-            boolean b2 = b();
-            boolean b3 = hoVar.b();
-            if ((b2 || b3) && !(b2 && b3 && this.f481a.equals(hoVar.f481a))) {
-                return false;
-            }
-            boolean c2 = c();
-            boolean c3 = hoVar.c();
-            return !(c2 || c3) || (c2 && c3 && this.f482a.equals(hoVar.f482a));
-        }
-        return false;
-    }
-
-    @Override // com.xiaomi.push.ir
-    public void b(jc jcVar) {
-        m347a();
-        jcVar.a(f479a);
-        jcVar.a(a);
-        jcVar.a(this.f480a);
-        jcVar.b();
-        if (this.f481a != null) {
-            jcVar.a(b);
-            jcVar.a(this.f481a.a());
-            jcVar.b();
-        }
-        if (this.f482a != null) {
-            jcVar.a(c);
-            jcVar.a(this.f482a);
-            jcVar.b();
-        }
-        jcVar.c();
-        jcVar.m479a();
-    }
-
-    public boolean b() {
-        return this.f481a != null;
-    }
-
-    public boolean c() {
-        return this.f482a != null;
-    }
-
-    public boolean equals(Object obj) {
-        if (obj != null && (obj instanceof ho)) {
-            return m349a((ho) obj);
-        }
-        return false;
-    }
-
-    public int hashCode() {
-        return 0;
-    }
-
-    public String toString() {
-        StringBuilder sb = new StringBuilder("DataCollectionItem(");
-        sb.append("collectedAt:");
-        sb.append(this.f480a);
-        sb.append(", ");
-        sb.append("collectionType:");
-        if (this.f481a == null) {
-            sb.append("null");
-        } else {
-            sb.append(this.f481a);
-        }
-        sb.append(", ");
-        sb.append("content:");
-        if (this.f482a == null) {
-            sb.append("null");
-        } else {
-            sb.append(this.f482a);
-        }
-        sb.append(")");
-        return sb.toString();
+    public int a() {
+        return this.f442a;
     }
 }

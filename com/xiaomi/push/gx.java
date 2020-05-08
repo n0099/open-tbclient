@@ -1,150 +1,205 @@
 package com.xiaomi.push;
 
+import android.content.ContentValues;
 import android.content.Context;
-import android.net.TrafficStats;
-import android.os.Process;
-import android.os.SystemClock;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteException;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.text.TextUtils;
-import com.xiaomi.push.service.XMPushService;
+import com.baidu.ar.constants.HttpConstants;
+import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 /* loaded from: classes8.dex */
-public class gx implements fp {
-    private int a;
+public class gx {
 
     /* renamed from: a  reason: collision with other field name */
-    fm f438a;
+    private static al f407a = new al(true);
+    private static volatile int a = -1;
 
     /* renamed from: a  reason: collision with other field name */
-    XMPushService f439a;
+    private static long f406a = System.currentTimeMillis();
 
     /* renamed from: a  reason: collision with other field name */
-    private Exception f440a;
-    private long e;
-    private long f;
+    private static final Object f409a = new Object();
 
     /* renamed from: a  reason: collision with other field name */
-    private long f437a = 0;
-    private long b = 0;
-    private long c = 0;
-    private long d = 0;
+    private static List<a> f411a = Collections.synchronizedList(new ArrayList());
 
     /* renamed from: a  reason: collision with other field name */
-    private String f441a = "";
+    private static String f410a = "";
+
+    /* renamed from: a  reason: collision with other field name */
+    private static com.xiaomi.push.providers.a f408a = null;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public gx(XMPushService xMPushService) {
-        this.e = 0L;
-        this.f = 0L;
-        this.f439a = xMPushService;
-        b();
-        int myUid = Process.myUid();
-        this.f = TrafficStats.getUidRxBytes(myUid);
-        this.e = TrafficStats.getUidTxBytes(myUid);
-    }
+    /* loaded from: classes8.dex */
+    public static class a {
+        public int a;
 
-    private void b() {
-        this.b = 0L;
-        this.d = 0L;
-        this.f437a = 0L;
-        this.c = 0L;
-        long elapsedRealtime = SystemClock.elapsedRealtime();
-        if (as.b(this.f439a)) {
-            this.f437a = elapsedRealtime;
+        /* renamed from: a  reason: collision with other field name */
+        public long f412a;
+
+        /* renamed from: a  reason: collision with other field name */
+        public String f413a;
+        public int b;
+
+        /* renamed from: b  reason: collision with other field name */
+        public long f414b;
+
+        /* renamed from: b  reason: collision with other field name */
+        public String f415b;
+
+        public a(String str, long j, int i, int i2, String str2, long j2) {
+            this.f413a = "";
+            this.f412a = 0L;
+            this.a = -1;
+            this.b = -1;
+            this.f415b = "";
+            this.f414b = 0L;
+            this.f413a = str;
+            this.f412a = j;
+            this.a = i;
+            this.b = i2;
+            this.f415b = str2;
+            this.f414b = j2;
         }
-        if (this.f439a.m509c()) {
-            this.c = elapsedRealtime;
+
+        public boolean a(a aVar) {
+            return TextUtils.equals(aVar.f413a, this.f413a) && TextUtils.equals(aVar.f415b, this.f415b) && aVar.a == this.a && aVar.b == this.b && Math.abs(aVar.f412a - this.f412a) <= 5000;
         }
     }
 
-    private synchronized void c() {
-        com.xiaomi.channel.commonutils.logger.b.c("stat connpt = " + this.f441a + " netDuration = " + this.b + " ChannelDuration = " + this.d + " channelConnectedTime = " + this.c);
-        fc fcVar = new fc();
-        fcVar.f337a = (byte) 0;
-        fcVar.a(fb.CHANNEL_ONLINE_RATE.a());
-        fcVar.a(this.f441a);
-        fcVar.d((int) (System.currentTimeMillis() / 1000));
-        fcVar.b((int) (this.b / 1000));
-        fcVar.c((int) (this.d / 1000));
-        gy.m326a().a(fcVar);
-        b();
+    public static int a(Context context) {
+        if (a == -1) {
+            a = b(context);
+        }
+        return a;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public Exception a() {
-        return this.f440a;
+    public static int a(String str) {
+        try {
+            return str.getBytes("UTF-8").length;
+        } catch (UnsupportedEncodingException e) {
+            return str.getBytes().length;
+        }
+    }
+
+    private static long a(int i, long j, boolean z, long j2, boolean z2) {
+        if (z && z2) {
+            long j3 = f406a;
+            f406a = j2;
+            if (j2 - j3 > 30000 && j > 1024) {
+                return 2 * j;
+            }
+        }
+        return ((i == 0 ? 13 : 11) * j) / 10;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized void m325a() {
-        if (this.f439a != null) {
-            String m135a = as.m135a((Context) this.f439a);
-            boolean b = as.b(this.f439a);
-            long elapsedRealtime = SystemClock.elapsedRealtime();
-            if (this.f437a > 0) {
-                this.b += elapsedRealtime - this.f437a;
-                this.f437a = 0L;
+    private static com.xiaomi.push.providers.a m323a(Context context) {
+        if (f408a != null) {
+            return f408a;
+        }
+        f408a = new com.xiaomi.push.providers.a(context);
+        return f408a;
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    private static synchronized String m324a(Context context) {
+        String str;
+        synchronized (gx.class) {
+            str = !TextUtils.isEmpty(f410a) ? f410a : "";
+        }
+        return str;
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public static void m326a(Context context) {
+        a = b(context);
+    }
+
+    private static void a(Context context, String str, long j, boolean z, long j2) {
+        int a2;
+        boolean isEmpty;
+        if (context == null || TextUtils.isEmpty(str) || !"com.xiaomi.xmsf".equals(context.getPackageName()) || "com.xiaomi.xmsf".equals(str) || -1 == (a2 = a(context))) {
+            return;
+        }
+        synchronized (f409a) {
+            isEmpty = f411a.isEmpty();
+            a(new a(str, j2, a2, z ? 1 : 0, a2 == 0 ? m324a(context) : "", j));
+        }
+        if (isEmpty) {
+            f407a.a(new gy(context), 5000L);
+        }
+    }
+
+    public static void a(Context context, String str, long j, boolean z, boolean z2, long j2) {
+        a(context, str, a(a(context), j, z, j2, z2), z, j2);
+    }
+
+    private static void a(a aVar) {
+        for (a aVar2 : f411a) {
+            if (aVar2.a(aVar)) {
+                aVar2.f414b += aVar.f414b;
+                return;
             }
-            if (this.c != 0) {
-                this.d += elapsedRealtime - this.c;
-                this.c = 0L;
-            }
-            if (b) {
-                if ((!TextUtils.equals(this.f441a, m135a) && this.b > 30000) || this.b > 5400000) {
-                    c();
-                }
-                this.f441a = m135a;
-                if (this.f437a == 0) {
-                    this.f437a = elapsedRealtime;
-                }
-                if (this.f439a.m509c()) {
-                    this.c = elapsedRealtime;
-                }
+        }
+        f411a.add(aVar);
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public static synchronized void m327a(String str) {
+        synchronized (gx.class) {
+            if (!l.d() && !TextUtils.isEmpty(str)) {
+                f410a = str;
             }
         }
     }
 
-    @Override // com.xiaomi.push.fp
-    public void a(fm fmVar) {
-        m325a();
-        this.c = SystemClock.elapsedRealtime();
-        ha.a(0, fb.CONN_SUCCESS.a(), fmVar.m286a(), fmVar.a());
-    }
-
-    @Override // com.xiaomi.push.fp
-    public void a(fm fmVar, int i, Exception exc) {
-        if (this.a == 0 && this.f440a == null) {
-            this.a = i;
-            this.f440a = exc;
-            ha.b(fmVar.m286a(), exc);
-        }
-        if (i == 22 && this.c != 0) {
-            long m284a = fmVar.m284a() - this.c;
-            if (m284a < 0) {
-                m284a = 0;
+    private static int b(Context context) {
+        try {
+            ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
+            if (connectivityManager == null) {
+                return -1;
             }
-            this.d = m284a + (fs.b() / 2) + this.d;
-            this.c = 0L;
+            try {
+                NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+                if (activeNetworkInfo == null) {
+                    return -1;
+                }
+                return activeNetworkInfo.getType();
+            } catch (Exception e) {
+                return -1;
+            }
+        } catch (Exception e2) {
+            return -1;
         }
-        m325a();
-        int myUid = Process.myUid();
-        long uidRxBytes = TrafficStats.getUidRxBytes(myUid);
-        long uidTxBytes = TrafficStats.getUidTxBytes(myUid);
-        com.xiaomi.channel.commonutils.logger.b.c("Stats rx=" + (uidRxBytes - this.f) + ", tx=" + (uidTxBytes - this.e));
-        this.f = uidRxBytes;
-        this.e = uidTxBytes;
     }
 
-    @Override // com.xiaomi.push.fp
-    public void a(fm fmVar, Exception exc) {
-        ha.a(0, fb.CHANNEL_CON_FAIL.a(), 1, fmVar.m286a(), as.b(this.f439a) ? 1 : 0);
-        m325a();
-    }
-
-    @Override // com.xiaomi.push.fp
-    public void b(fm fmVar) {
-        this.a = 0;
-        this.f440a = null;
-        this.f438a = fmVar;
-        this.f441a = as.m135a((Context) this.f439a);
-        ha.a(0, fb.CONN_SUCCESS.a());
+    /* JADX INFO: Access modifiers changed from: private */
+    public static void b(Context context, List<a> list) {
+        try {
+            synchronized (com.xiaomi.push.providers.a.f791a) {
+                SQLiteDatabase writableDatabase = m323a(context).getWritableDatabase();
+                writableDatabase.beginTransaction();
+                for (a aVar : list) {
+                    ContentValues contentValues = new ContentValues();
+                    contentValues.put("package_name", aVar.f413a);
+                    contentValues.put("message_ts", Long.valueOf(aVar.f412a));
+                    contentValues.put(HttpConstants.NETWORK_TYPE, Integer.valueOf(aVar.a));
+                    contentValues.put("bytes", Long.valueOf(aVar.f414b));
+                    contentValues.put("rcv", Integer.valueOf(aVar.b));
+                    contentValues.put("imsi", aVar.f415b);
+                    writableDatabase.insert("traffic", null, contentValues);
+                }
+                writableDatabase.setTransactionSuccessful();
+                writableDatabase.endTransaction();
+            }
+        } catch (SQLiteException e) {
+            com.xiaomi.channel.commonutils.logger.b.a(e);
+        }
     }
 }

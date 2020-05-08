@@ -8,16 +8,16 @@ import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class f {
     private AgreeData agreeData;
-    private boolean iDp;
+    private boolean iDv;
     private boolean isBlockedPic;
     private boolean isFirstPost;
     private boolean isLongPic;
-    private String iDn = null;
+    private String iDt = null;
     private String imageUrl = null;
-    private String epi = null;
+    private String epn = null;
     private int width = 0;
     private int height = 0;
-    private String iDo = null;
+    private String iDu = null;
     private long originalSize = 0;
     private int picType = 0;
     private String tagName = "";
@@ -25,17 +25,17 @@ public class f {
     private long overAllIndex = 0;
     private String postId = null;
     private String commentNum = null;
-    private JSONArray iDq = null;
+    private JSONArray iDw = null;
 
     public String getImageUrl() {
         return this.imageUrl;
     }
 
-    public String cli() {
-        return this.iDn;
+    public String clg() {
+        return this.iDt;
     }
 
-    public String clj() {
+    public String clh() {
         return this.postId;
     }
 
@@ -51,12 +51,12 @@ public class f {
         return this.index;
     }
 
-    public String bcx() {
-        return this.epi;
+    public String bcv() {
+        return this.epn;
     }
 
-    public String bcD() {
-        return this.iDo;
+    public String bcB() {
+        return this.iDu;
     }
 
     public long getOriginalSize() {
@@ -71,11 +71,11 @@ public class f {
         return this.tagName;
     }
 
-    public boolean clk() {
-        return this.iDp;
+    public boolean cli() {
+        return this.iDv;
     }
 
-    public boolean cll() {
+    public boolean clj() {
         return this.isBlockedPic;
     }
 
@@ -83,23 +83,23 @@ public class f {
         return this.isLongPic;
     }
 
-    public long clm() {
+    public long clk() {
         return this.overAllIndex;
     }
 
-    public String cln() {
+    public String cll() {
         return this.commentNum;
     }
 
-    public AgreeData aMs() {
+    public AgreeData aMq() {
         return this.agreeData;
     }
 
-    public JSONArray clo() {
-        return this.iDq;
+    public JSONArray clm() {
+        return this.iDw;
     }
 
-    public boolean clp() {
+    public boolean cln() {
         return this.isFirstPost;
     }
 
@@ -108,7 +108,7 @@ public class f {
         try {
             this.overAllIndex = jSONObject.optLong("overall_index", 0L);
             this.postId = jSONObject.optString("post_id");
-            this.iDp = jSONObject.optInt("show_original_btn") == 1;
+            this.iDv = jSONObject.optInt("show_original_btn") == 1;
             this.isBlockedPic = jSONObject.optInt("is_blocked_pic") == 1;
             this.isLongPic = jSONObject.optInt("is_long_pic") == 1;
             this.index = jSONObject.optInt("index", -1);
@@ -127,15 +127,15 @@ public class f {
                 this.agreeData.hasAgree = z;
                 this.agreeData.agreeNum = optInt;
             }
-            this.iDq = jSONObject.optJSONArray("post_content");
+            this.iDw = jSONObject.optJSONArray("post_content");
             JSONObject optJSONObject3 = jSONObject.optJSONObject("img");
             if (optJSONObject3 != null && (optJSONObject = optJSONObject3.optJSONObject("original")) != null) {
-                this.iDn = optJSONObject.optString("id");
+                this.iDt = optJSONObject.optString("id");
                 this.imageUrl = optJSONObject.optString("url");
                 this.width = optJSONObject.optInt("width", 0);
                 this.height = optJSONObject.optInt("height", 0);
-                this.epi = optJSONObject.optString("big_cdn_src", null);
-                this.iDo = optJSONObject.optString("original_src");
+                this.epn = optJSONObject.optString("big_cdn_src", null);
+                this.iDu = optJSONObject.optString("original_src");
                 this.originalSize = optJSONObject.optInt(TiebaInitialize.LogFields.SIZE);
             }
             JSONObject optJSONObject4 = jSONObject.optJSONObject("pic_tagname");

@@ -1,71 +1,113 @@
 package com.xiaomi.push;
 
-import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
-/* JADX INFO: Access modifiers changed from: package-private */
+import java.util.HashMap;
 /* loaded from: classes8.dex */
-public class eq implements en {
-    private void a(Service service, Intent intent) {
-        String stringExtra = intent.getStringExtra("awake_info");
-        if (TextUtils.isEmpty(stringExtra)) {
-            eg.a(service.getApplicationContext(), "service", 1008, "B get a incorrect message");
+public final class eq {
+    private static volatile eq a;
+
+    /* renamed from: a  reason: collision with other field name */
+    private int f300a;
+
+    /* renamed from: a  reason: collision with other field name */
+    private Context f301a;
+
+    /* renamed from: a  reason: collision with other field name */
+    private eu f302a;
+
+    /* renamed from: a  reason: collision with other field name */
+    private String f303a;
+
+    /* renamed from: a  reason: collision with other field name */
+    private HashMap<es, et> f304a = new HashMap<>();
+    private String b;
+
+    private eq(Context context) {
+        this.f301a = context;
+        this.f304a.put(es.SERVICE_ACTION, new ew());
+        this.f304a.put(es.SERVICE_COMPONENT, new ex());
+        this.f304a.put(es.ACTIVITY, new eo());
+        this.f304a.put(es.PROVIDER, new ev());
+    }
+
+    public static eq a(Context context) {
+        if (a == null) {
+            synchronized (eq.class) {
+                if (a == null) {
+                    a = new eq(context);
+                }
+            }
+        }
+        return a;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(es esVar, Context context, ep epVar) {
+        this.f304a.get(esVar).a(context, epVar);
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public static boolean m263a(Context context) {
+        return com.xiaomi.push.service.aa.m528a(context, context.getPackageName());
+    }
+
+    public int a() {
+        return this.f300a;
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public eu m264a() {
+        return this.f302a;
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public String m265a() {
+        return this.f303a;
+    }
+
+    public void a(int i) {
+        this.f300a = i;
+    }
+
+    public void a(Context context, String str, int i, String str2, String str3) {
+        if (context == null || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3)) {
+            em.a(context, "" + str, 1008, "A receive a incorrect message");
             return;
         }
-        String b = ef.b(stringExtra);
-        if (TextUtils.isEmpty(b)) {
-            eg.a(service.getApplicationContext(), "service", 1008, "B get a incorrect message");
+        a(i);
+        ai.a(this.f301a).a(new er(this, str, context, str2, str3));
+    }
+
+    public void a(es esVar, Context context, Intent intent, String str) {
+        if (esVar != null) {
+            this.f304a.get(esVar).a(context, intent, str);
         } else {
-            eg.a(service.getApplicationContext(), b, 1007, "play with service successfully");
+            em.a(context, "null", 1008, "A receive a incorrect message with empty type");
         }
     }
 
-    private void a(Context context, String str, String str2, String str3) {
-        if (context == null || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3)) {
-            if (TextUtils.isEmpty(str3)) {
-                eg.a(context, "service", 1008, "argument error");
-            } else {
-                eg.a(context, str3, 1008, "argument error");
-            }
-        } else if (!com.xiaomi.push.service.f.a(context, str, str2)) {
-            eg.a(context, str3, 1003, "B is not ready");
-        } else {
-            eg.a(context, str3, 1002, "B is ready");
-            eg.a(context, str3, 1004, "A is ready");
-            try {
-                Intent intent = new Intent();
-                intent.setAction(str2);
-                intent.setPackage(str);
-                intent.putExtra("awake_info", ef.a(str3));
-                if (context.startService(intent) != null) {
-                    eg.a(context, str3, 1005, "A is successful");
-                    eg.a(context, str3, 1006, "The job is finished");
-                } else {
-                    eg.a(context, str3, 1008, "A is fail to help B's service");
-                }
-            } catch (Exception e) {
-                com.xiaomi.channel.commonutils.logger.b.a(e);
-                eg.a(context, str3, 1008, "A meet a exception when help B's service");
-            }
-        }
+    public void a(eu euVar) {
+        this.f302a = euVar;
     }
 
-    @Override // com.xiaomi.push.en
-    public void a(Context context, Intent intent, String str) {
-        if (context == null || !(context instanceof Service)) {
-            eg.a(context, "service", 1008, "A receive incorrect message");
-        } else {
-            a((Service) context, intent);
-        }
+    public void a(String str) {
+        this.f303a = str;
     }
 
-    @Override // com.xiaomi.push.en
-    public void a(Context context, ej ejVar) {
-        if (ejVar != null) {
-            a(context, ejVar.a(), ejVar.b(), ejVar.d());
-        } else {
-            eg.a(context, "service", 1008, "A receive incorrect message");
-        }
+    public void a(String str, String str2, int i, eu euVar) {
+        a(str);
+        b(str2);
+        a(i);
+        a(euVar);
+    }
+
+    public String b() {
+        return this.b;
+    }
+
+    public void b(String str) {
+        this.b = str;
     }
 }

@@ -3,59 +3,59 @@ package com.baidu.swan.games.binding.model;
 import com.baidu.searchbox.v8engine.JsFunction;
 /* loaded from: classes11.dex */
 public final class a {
-    public JsFunction cLa;
-    public JsFunction cLb;
-    public JsFunction cLc;
+    public JsFunction cLg;
+    public JsFunction cLh;
+    public JsFunction cLi;
 
     public static a f(c cVar) {
         if (cVar == null) {
             return null;
         }
         a aVar = new a();
-        aVar.cLa = cVar.pR("success");
-        aVar.cLb = cVar.pR("fail");
-        aVar.cLc = cVar.pR(com.baidu.mobads.openad.c.b.COMPLETE);
+        aVar.cLg = cVar.pR("success");
+        aVar.cLh = cVar.pR("fail");
+        aVar.cLi = cVar.pR(com.baidu.mobads.openad.c.b.COMPLETE);
         return aVar;
     }
 
     public void onSuccess(Object obj) {
-        if (this.cLa != null) {
-            this.cLa.call(obj);
+        if (this.cLg != null) {
+            this.cLg.call(obj);
         }
-        if (this.cLc != null) {
-            this.cLc.call(obj);
+        if (this.cLi != null) {
+            this.cLi.call(obj);
         }
-        a(this.cLb);
+        a(this.cLh);
     }
 
-    public void T(Object obj) {
-        if (this.cLb != null) {
-            this.cLb.call(obj);
+    public void U(Object obj) {
+        if (this.cLh != null) {
+            this.cLh.call(obj);
         }
-        if (this.cLc != null) {
-            this.cLc.call(obj);
+        if (this.cLi != null) {
+            this.cLi.call(obj);
         }
-        a(this.cLa);
+        a(this.cLg);
     }
 
     public void onSuccess() {
-        if (this.cLa != null) {
-            this.cLa.call();
+        if (this.cLg != null) {
+            this.cLg.call();
         }
-        if (this.cLc != null) {
-            this.cLc.call();
+        if (this.cLi != null) {
+            this.cLi.call();
         }
-        a(this.cLb);
+        a(this.cLh);
     }
 
     public void onFail() {
-        if (this.cLb != null) {
-            this.cLb.call();
+        if (this.cLh != null) {
+            this.cLh.call();
         }
-        if (this.cLc != null) {
-            this.cLc.call();
+        if (this.cLi != null) {
+            this.cLi.call();
         }
-        a(this.cLa);
+        a(this.cLg);
     }
 
     private void a(JsFunction jsFunction) {

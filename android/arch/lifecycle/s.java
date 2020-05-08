@@ -42,7 +42,7 @@ public class s implements j {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void init(Context context) {
-        yA.P(context);
+        yA.C(context);
     }
 
     void fX() {
@@ -96,7 +96,7 @@ public class s implements j {
     private s() {
     }
 
-    void P(Context context) {
+    void C(Context context) {
         this.mHandler = new Handler();
         this.yx.b(Lifecycle.Event.ON_CREATE);
         ((Application) context.getApplicationContext()).registerActivityLifecycleCallbacks(new d() { // from class: android.arch.lifecycle.s.3

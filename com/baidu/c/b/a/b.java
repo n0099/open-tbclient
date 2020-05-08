@@ -14,7 +14,7 @@ public class b implements d {
     }
 
     @Override // com.baidu.c.a.b.d
-    public c l(Context context, String str, String str2) {
+    public c n(Context context, String str, String str2) {
         return new a(context, BIMManager.getConversation(this.mContext, str, BIMManager.CATEGORY.STUDIO, str2, 2));
     }
 
@@ -36,7 +36,7 @@ public class b implements d {
     }
 
     @Override // com.baidu.c.a.b.d
-    public void HV() {
+    public void HU() {
         BIMManager.tryConnection(this.mContext);
     }
 }

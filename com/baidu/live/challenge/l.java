@@ -3,11 +3,11 @@ package com.baidu.live.challenge;
 public interface l {
     void a(a aVar);
 
+    void uB();
+
     void uC();
 
     void uD();
 
     void uE();
-
-    void uF();
 }

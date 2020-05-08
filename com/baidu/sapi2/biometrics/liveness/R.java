@@ -9,8 +9,8 @@ public final class R {
         public static final int sapi_liveness_tip_slide_bottom_to_midd = 0x7f0400cc;
         public static final int sapi_liveness_tip_slide_midd_to_top = 0x7f0400cd;
         public static final int sapi_liveness_tip_warning = 0x7f0400ce;
-        public static final int spai_liveness_push_bottom_in = 0x7f040118;
-        public static final int spai_liveness_video_scale_count_down = 0x7f040119;
+        public static final int spai_liveness_push_bottom_in = 0x7f040119;
+        public static final int spai_liveness_video_scale_count_down = 0x7f04011a;
     }
 
     /* loaded from: classes.dex */
@@ -35,7 +35,7 @@ public final class R {
         public static final int sapi_liveness_separator_line_color = 0x7f0d07bf;
         public static final int sapi_liveness_transparent = 0x7f0d07c0;
         public static final int sapi_liveness_video_guide_tip_color = 0x7f0d07c1;
-        public static final int video_guide_hint_color = 0x7f0d0a63;
+        public static final int video_guide_hint_color = 0x7f0d0a64;
     }
 
     /* loaded from: classes.dex */
@@ -185,21 +185,21 @@ public final class R {
         public static final int positive_btn = 0x7f0f0f40;
         public static final int re_video_container = 0x7f0f16cf;
         public static final int record_video_close_iv = 0x7f0f16e7;
-        public static final int rim_face_guide_indicator1_wrapper = 0x7f0f1dcb;
-        public static final int rim_face_guide_indicator2_content = 0x7f0f1dcf;
-        public static final int rim_face_guide_indicator2_wrapper = 0x7f0f1dce;
+        public static final int rim_face_guide_indicator1_wrapper = 0x7f0f1dca;
+        public static final int rim_face_guide_indicator2_content = 0x7f0f1dce;
+        public static final int rim_face_guide_indicator2_wrapper = 0x7f0f1dcd;
         public static final int rim_face_guide_indicator_1 = 0x7f0f16ef;
         public static final int rim_face_guide_indicator_2 = 0x7f0f16f0;
-        public static final int rim_face_guide_video_page1 = 0x7f0f1dca;
-        public static final int rim_face_guide_video_page2 = 0x7f0f1dcc;
-        public static final int rim_face_result_tips_btn_ll = 0x7f0f1dc7;
-        public static final int rim_face_result_tips_cancel = 0x7f0f1dc9;
-        public static final int rim_face_result_tips_confirm = 0x7f0f1dc8;
-        public static final int rim_face_result_tips_pages_img = 0x7f0f1dc3;
-        public static final int rim_face_result_tips_pages_tips_msg = 0x7f0f1dc5;
-        public static final int rim_face_result_tips_pages_tips_title = 0x7f0f1dc4;
-        public static final int rim_face_result_tips_time_tv = 0x7f0f1dc6;
-        public static final int rim_face_video_guide_indicator2_title_hint = 0x7f0f1dcd;
+        public static final int rim_face_guide_video_page1 = 0x7f0f1dc9;
+        public static final int rim_face_guide_video_page2 = 0x7f0f1dcb;
+        public static final int rim_face_result_tips_btn_ll = 0x7f0f1dc6;
+        public static final int rim_face_result_tips_cancel = 0x7f0f1dc8;
+        public static final int rim_face_result_tips_confirm = 0x7f0f1dc7;
+        public static final int rim_face_result_tips_pages_img = 0x7f0f1dc2;
+        public static final int rim_face_result_tips_pages_tips_msg = 0x7f0f1dc4;
+        public static final int rim_face_result_tips_pages_tips_title = 0x7f0f1dc3;
+        public static final int rim_face_result_tips_time_tv = 0x7f0f1dc5;
+        public static final int rim_face_video_guide_indicator2_title_hint = 0x7f0f1dcc;
         public static final int rim_face_video_guide_vp = 0x7f0f16ee;
         public static final int sapi_bio_title_btn_left = 0x7f0f1699;
         public static final int sapi_bio_title_btn_right = 0x7f0f169b;
@@ -234,25 +234,25 @@ public final class R {
 
     /* loaded from: classes.dex */
     public static final class layout {
-        public static final int layout_liveness_video_activity = 0x7f0304a1;
-        public static final int layout_liveness_video_upload_view = 0x7f0304a2;
-        public static final int layout_sap_liveness_upload_video = 0x7f0304bb;
-        public static final int layout_sap_liveness_video_tip = 0x7f0304bc;
-        public static final int layout_sapi_liveness_alert_dialog = 0x7f0304be;
-        public static final int layout_sapi_liveness_constrast_loading = 0x7f0304bf;
-        public static final int layout_sapi_liveness_dialog_alert = 0x7f0304c0;
-        public static final int layout_sapi_liveness_dialog_loading = 0x7f0304c1;
-        public static final int layout_sapi_liveness_guide_page = 0x7f0304c2;
-        public static final int layout_sapi_liveness_loading = 0x7f0304c3;
-        public static final int layout_sapi_liveness_recognize = 0x7f0304c4;
-        public static final int layout_sapi_liveness_record_video_guide_page = 0x7f0304c5;
-        public static final int layout_sapi_liveness_record_video_tip_dialog = 0x7f0304c6;
-        public static final int layout_sapi_liveness_title_bar = 0x7f0304c7;
-        public static final int layout_sapi_liveness_uploading_file_view = 0x7f0304c8;
-        public static final int layout_sapi_liveness_video_guide_page = 0x7f0304c9;
-        public static final int rim_face_result_tips_pages = 0x7f03069f;
-        public static final int rim_face_video_loading_indicator1 = 0x7f0306a0;
-        public static final int rim_face_video_loading_indicator2 = 0x7f0306a1;
+        public static final int layout_liveness_video_activity = 0x7f0304a0;
+        public static final int layout_liveness_video_upload_view = 0x7f0304a1;
+        public static final int layout_sap_liveness_upload_video = 0x7f0304ba;
+        public static final int layout_sap_liveness_video_tip = 0x7f0304bb;
+        public static final int layout_sapi_liveness_alert_dialog = 0x7f0304bd;
+        public static final int layout_sapi_liveness_constrast_loading = 0x7f0304be;
+        public static final int layout_sapi_liveness_dialog_alert = 0x7f0304bf;
+        public static final int layout_sapi_liveness_dialog_loading = 0x7f0304c0;
+        public static final int layout_sapi_liveness_guide_page = 0x7f0304c1;
+        public static final int layout_sapi_liveness_loading = 0x7f0304c2;
+        public static final int layout_sapi_liveness_recognize = 0x7f0304c3;
+        public static final int layout_sapi_liveness_record_video_guide_page = 0x7f0304c4;
+        public static final int layout_sapi_liveness_record_video_tip_dialog = 0x7f0304c5;
+        public static final int layout_sapi_liveness_title_bar = 0x7f0304c6;
+        public static final int layout_sapi_liveness_uploading_file_view = 0x7f0304c7;
+        public static final int layout_sapi_liveness_video_guide_page = 0x7f0304c8;
+        public static final int rim_face_result_tips_pages = 0x7f03069d;
+        public static final int rim_face_video_loading_indicator1 = 0x7f03069e;
+        public static final int rim_face_video_loading_indicator2 = 0x7f03069f;
     }
 
     /* loaded from: classes.dex */

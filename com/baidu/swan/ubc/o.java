@@ -13,11 +13,11 @@ public class o {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes11.dex */
     public static class a {
-        private static final o deo = new o();
+        private static final o deu = new o();
     }
 
     public static o aDV() {
-        return a.deo;
+        return a.deu;
     }
 
     public final void onEvent(String str) {
@@ -36,7 +36,7 @@ public class o {
     }
 
     public void onEvent(String str, String str2, int i) {
-        if (com.baidu.pyramid.runtime.multiprocess.a.MG()) {
+        if (com.baidu.pyramid.runtime.multiprocess.a.MF()) {
             if (s.aEh() != null || !TextUtils.isEmpty(str)) {
                 m.aDT().i(str, str2, i);
                 return;
@@ -51,7 +51,7 @@ public class o {
     }
 
     public void onEvent(String str, JSONObject jSONObject, int i) {
-        if (com.baidu.pyramid.runtime.multiprocess.a.MG()) {
+        if (com.baidu.pyramid.runtime.multiprocess.a.MF()) {
             if (s.aEh() != null || !TextUtils.isEmpty(str)) {
                 m.aDT().a(str, jSONObject, i);
                 return;
@@ -66,7 +66,7 @@ public class o {
     }
 
     public Flow j(String str, String str2, int i) {
-        if (com.baidu.pyramid.runtime.multiprocess.a.MG()) {
+        if (com.baidu.pyramid.runtime.multiprocess.a.MF()) {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }

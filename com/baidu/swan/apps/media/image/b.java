@@ -79,11 +79,11 @@ public final class b {
         return new b(bitmap, true);
     }
 
-    public b afX() {
+    public b afW() {
         return dT(true);
     }
 
-    public b afY() {
+    public b afX() {
         return dT(false);
     }
 
@@ -128,7 +128,7 @@ public final class b {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final boolean afZ() {
+    public final boolean afY() {
         return this.cached;
     }
 }

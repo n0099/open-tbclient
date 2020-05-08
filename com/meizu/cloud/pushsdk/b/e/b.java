@@ -2,14 +2,13 @@ package com.meizu.cloud.pushsdk.b.e;
 
 import com.meizu.cloud.pushsdk.b.c.g;
 import com.meizu.cloud.pushsdk.b.c.j;
-import com.meizu.cloud.pushsdk.b.g.e;
 import com.meizu.cloud.pushsdk.b.g.f;
-import com.meizu.cloud.pushsdk.b.g.k;
+import com.meizu.cloud.pushsdk.b.g.l;
 import java.io.IOException;
 /* loaded from: classes8.dex */
 public class b extends j {
     private final j a;
-    private com.meizu.cloud.pushsdk.b.g.b b;
+    private com.meizu.cloud.pushsdk.b.g.c b;
     private d c;
 
     public b(j jVar, com.meizu.cloud.pushsdk.b.d.a aVar) {
@@ -19,14 +18,14 @@ public class b extends j {
         }
     }
 
-    private k a(k kVar) {
-        return new e(kVar) { // from class: com.meizu.cloud.pushsdk.b.e.b.1
+    private l a(l lVar) {
+        return new f(lVar) { // from class: com.meizu.cloud.pushsdk.b.e.b.1
             long a = 0;
             long b = 0;
 
-            @Override // com.meizu.cloud.pushsdk.b.g.e, com.meizu.cloud.pushsdk.b.g.k
-            public void a(com.meizu.cloud.pushsdk.b.g.a aVar, long j) throws IOException {
-                super.a(aVar, j);
+            @Override // com.meizu.cloud.pushsdk.b.g.f, com.meizu.cloud.pushsdk.b.g.l
+            public void a(com.meizu.cloud.pushsdk.b.g.b bVar, long j) throws IOException {
+                super.a(bVar, j);
                 if (this.b == 0) {
                     this.b = b.this.b();
                 }
@@ -44,9 +43,9 @@ public class b extends j {
     }
 
     @Override // com.meizu.cloud.pushsdk.b.c.j
-    public void a(com.meizu.cloud.pushsdk.b.g.b bVar) throws IOException {
+    public void a(com.meizu.cloud.pushsdk.b.g.c cVar) throws IOException {
         if (this.b == null) {
-            this.b = f.a(a((k) bVar));
+            this.b = com.meizu.cloud.pushsdk.b.g.g.a(a((l) cVar));
         }
         this.a.a(this.b);
         this.b.flush();

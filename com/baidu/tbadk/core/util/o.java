@@ -5,7 +5,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class o {
-    public static String uA(String str) {
+    public static String uD(String str) {
         if (StringUtils.isNull(str)) {
             return "";
         }

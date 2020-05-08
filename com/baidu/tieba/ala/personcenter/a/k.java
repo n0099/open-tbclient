@@ -13,14 +13,14 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.ala.personcenter.c.n;
 /* loaded from: classes3.dex */
 public class k extends com.baidu.adp.widget.ListView.a<n, com.baidu.tieba.card.a.a<com.baidu.tieba.ala.personcenter.e.a>> {
-    private com.baidu.tieba.ala.personcenter.d.a fYU;
+    private com.baidu.tieba.ala.personcenter.d.a fYZ;
     private TbPageContext mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public k(TbPageContext tbPageContext, com.baidu.tieba.ala.personcenter.d.a aVar) {
-        super(tbPageContext.getPageActivity(), n.fZM);
+        super(tbPageContext.getPageActivity(), n.fZR);
         this.mPageContext = tbPageContext;
-        this.fYU = aVar;
+        this.fYZ = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -35,36 +35,36 @@ public class k extends com.baidu.adp.widget.ListView.a<n, com.baidu.tieba.card.a
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, final n nVar, com.baidu.tieba.card.a.a<com.baidu.tieba.ala.personcenter.e.a> aVar) {
-        if (aVar.bFB() == null) {
+        if (aVar.bFz() == null) {
             return null;
         }
-        a(nVar, aVar.bFB());
-        aVar.bFB().getView().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.personcenter.a.k.1
+        a(nVar, aVar.bFz());
+        aVar.bFz().getView().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.personcenter.a.k.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 k.this.a(nVar);
             }
         });
-        return aVar.bFB().getView();
+        return aVar.bFz().getView();
     }
 
     private void a(n nVar, com.baidu.tieba.ala.personcenter.e.a aVar) {
         com.baidu.tieba.ala.personcenter.c.c personCenterData = nVar.getPersonCenterData();
-        if (personCenterData != null && personCenterData.bBW() != null) {
+        if (personCenterData != null && personCenterData.bBU() != null) {
             aVar.rl(0);
             aVar.setTitle(this.mContext.getResources().getString(R.string.ala_person_live_real_authen));
-            AlaUserInfoData bBW = personCenterData.bBW();
-            if (bBW.certify_status == 0) {
-                aVar.Bq(this.mContext.getResources().getString(R.string.ala_person_live_real_authen_unauthorized));
+            AlaUserInfoData bBU = personCenterData.bBU();
+            if (bBU.certify_status == 0) {
+                aVar.Bt(this.mContext.getResources().getString(R.string.ala_person_live_real_authen_unauthorized));
                 aVar.rm(0);
-            } else if (1 == bBW.certify_status) {
-                aVar.Bq(this.mContext.getResources().getString(R.string.ala_person_live_real_authen_in_review));
+            } else if (1 == bBU.certify_status) {
+                aVar.Bt(this.mContext.getResources().getString(R.string.ala_person_live_real_authen_in_review));
                 aVar.rm(4);
-            } else if (2 == bBW.certify_status) {
-                aVar.Bq(this.mContext.getResources().getString(R.string.ala_person_live_real_authen_authenticated));
+            } else if (2 == bBU.certify_status) {
+                aVar.Bt(this.mContext.getResources().getString(R.string.ala_person_live_real_authen_authenticated));
                 aVar.rm(4);
-            } else if (3 == bBW.certify_status) {
-                aVar.Bq(this.mContext.getResources().getString(R.string.ala_person_live_real_authen_denied));
+            } else if (3 == bBU.certify_status) {
+                aVar.Bt(this.mContext.getResources().getString(R.string.ala_person_live_real_authen_denied));
                 aVar.rm(0);
             }
             aVar.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
@@ -73,12 +73,12 @@ public class k extends com.baidu.adp.widget.ListView.a<n, com.baidu.tieba.card.a
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(n nVar) {
-        if (nVar != null && nVar.getPersonCenterData() != null && nVar.getPersonCenterData().bBW() != null) {
-            AlaUserInfoData bBW = nVar.getPersonCenterData().bBW();
-            if (1 != bBW.certify_status && 2 != bBW.certify_status) {
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaPersonCenterRealAuthenConfig(this.mContext, bBW.user_id, bBW.certify_status + "")));
-                if (this.fYU != null) {
-                    this.fYU.rh(1);
+        if (nVar != null && nVar.getPersonCenterData() != null && nVar.getPersonCenterData().bBU() != null) {
+            AlaUserInfoData bBU = nVar.getPersonCenterData().bBU();
+            if (1 != bBU.certify_status && 2 != bBU.certify_status) {
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaPersonCenterRealAuthenConfig(this.mContext, bBU.user_id, bBU.certify_status + "")));
+                if (this.fYZ != null) {
+                    this.fYZ.rh(1);
                 }
             }
         }

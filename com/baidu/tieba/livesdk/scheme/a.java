@@ -11,12 +11,12 @@ public class a implements g {
     public void openScheme(String str) {
         Activity currentActivity;
         if (!StringUtils.isNull(str) && (currentActivity = com.baidu.adp.base.a.jm().currentActivity()) != null) {
-            ba.aOY().a((TbPageContext) i.T(currentActivity), new String[]{str}, true);
+            ba.aOV().a((TbPageContext) i.G(currentActivity), new String[]{str}, true);
         }
     }
 
     @Override // com.baidu.tieba.sdk.a.g
-    public void FS(String str) {
+    public void FV(String str) {
         openScheme(str);
     }
 }

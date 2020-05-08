@@ -11,8 +11,8 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
 /* loaded from: classes13.dex */
 public final class a<T> implements Closeable, Cloneable {
-    private static Class<a> lQm = a.class;
-    private static final c<Closeable> lRS = new c<Closeable>() { // from class: com.facebook.common.references.a.1
+    private static Class<a> lQq = a.class;
+    private static final c<Closeable> lRW = new c<Closeable>() { // from class: com.facebook.common.references.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.facebook.common.references.c
         /* renamed from: d */
@@ -24,16 +24,16 @@ public final class a<T> implements Closeable, Cloneable {
         }
     };
     @GuardedBy("this")
-    private boolean Ot = false;
-    private final SharedReference<T> lRR;
+    private boolean Ox = false;
+    private final SharedReference<T> lRV;
 
     private a(SharedReference<T> sharedReference) {
-        this.lRR = (SharedReference) g.checkNotNull(sharedReference);
-        sharedReference.dnm();
+        this.lRV = (SharedReference) g.checkNotNull(sharedReference);
+        sharedReference.dnj();
     }
 
     private a(T t, c<T> cVar) {
-        this.lRR = new SharedReference<>(t, cVar);
+        this.lRV = new SharedReference<>(t, cVar);
     }
 
     /* JADX WARN: Incorrect types in method signature: <T::Ljava/io/Closeable;>(TT;)Lcom/facebook/common/references/a<TT;>; */
@@ -41,7 +41,7 @@ public final class a<T> implements Closeable, Cloneable {
         if (closeable == null) {
             return null;
         }
-        return new a(closeable, lRS);
+        return new a(closeable, lRW);
     }
 
     public static <T> a<T> a(@PropagatesNullable T t, c<T> cVar) {
@@ -52,29 +52,29 @@ public final class a<T> implements Closeable, Cloneable {
     }
 
     public synchronized T get() {
-        g.checkState(!this.Ot);
-        return this.lRR.get();
+        g.checkState(!this.Ox);
+        return this.lRV.get();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: dnj */
+    /* renamed from: dng */
     public synchronized a<T> clone() {
         g.checkState(isValid());
-        return new a<>(this.lRR);
+        return new a<>(this.lRV);
     }
 
     @Nullable
-    public synchronized a<T> dnk() {
+    public synchronized a<T> dnh() {
         return isValid() ? clone() : null;
     }
 
     public synchronized boolean isValid() {
-        return !this.Ot;
+        return !this.Ox;
     }
 
-    public int dnl() {
+    public int dni() {
         if (isValid()) {
-            return System.identityHashCode(this.lRR.get());
+            return System.identityHashCode(this.lRV.get());
         }
         return 0;
     }
@@ -82,9 +82,9 @@ public final class a<T> implements Closeable, Cloneable {
     @Override // java.io.Closeable, java.lang.AutoCloseable
     public void close() {
         synchronized (this) {
-            if (!this.Ot) {
-                this.Ot = true;
-                this.lRR.dnn();
+            if (!this.Ox) {
+                this.Ox = true;
+                this.lRV.dnk();
             }
         }
     }
@@ -96,7 +96,7 @@ public final class a<T> implements Closeable, Cloneable {
     @Nullable
     public static <T> a<T> b(@Nullable a<T> aVar) {
         if (aVar != null) {
-            return aVar.dnk();
+            return aVar.dnh();
         }
         return null;
     }
@@ -118,7 +118,7 @@ public final class a<T> implements Closeable, Cloneable {
         }
     }
 
-    public static void a(@Nullable Iterable<? extends a<?>> iterable) {
+    public static void b(@Nullable Iterable<? extends a<?>> iterable) {
         if (iterable != null) {
             for (a<?> aVar : iterable) {
                 c(aVar);
@@ -129,8 +129,8 @@ public final class a<T> implements Closeable, Cloneable {
     protected void finalize() throws Throwable {
         try {
             synchronized (this) {
-                if (!this.Ot) {
-                    com.facebook.common.c.a.c(lQm, "Finalized without closing: %x %x (type = %s)", Integer.valueOf(System.identityHashCode(this)), Integer.valueOf(System.identityHashCode(this.lRR)), this.lRR.get().getClass().getName());
+                if (!this.Ox) {
+                    com.facebook.common.c.a.c(lQq, "Finalized without closing: %x %x (type = %s)", Integer.valueOf(System.identityHashCode(this)), Integer.valueOf(System.identityHashCode(this.lRV)), this.lRV.get().getClass().getName());
                     close();
                 }
             }

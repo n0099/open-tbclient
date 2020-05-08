@@ -10,20 +10,20 @@ import java.util.List;
 public final class c {
     private static String sProcessName = null;
 
-    public static String Y(Context context) {
-        ActivityManager.RunningAppProcessInfo aa;
-        if (TextUtils.isEmpty(sProcessName) && (aa = aa(context)) != null) {
-            sProcessName = aa.processName;
+    public static String L(Context context) {
+        ActivityManager.RunningAppProcessInfo N;
+        if (TextUtils.isEmpty(sProcessName) && (N = N(context)) != null) {
+            sProcessName = N.processName;
         }
         return sProcessName;
     }
 
-    public static boolean Z(Context context) {
-        String Y = Y(context);
-        return Y != null && Y.equals("com.baidu.browser.apps");
+    public static boolean M(Context context) {
+        String L = L(context);
+        return L != null && L.equals("com.baidu.browser.apps");
     }
 
-    public static ActivityManager.RunningAppProcessInfo aa(Context context) {
+    public static ActivityManager.RunningAppProcessInfo N(Context context) {
         int myPid = Process.myPid();
         List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getRunningAppProcesses();
         if (runningAppProcesses != null && !runningAppProcesses.isEmpty()) {

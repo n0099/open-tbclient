@@ -74,16 +74,16 @@ public final class MaybeFlatMapSingle<T, R> extends w<R> {
     /* loaded from: classes7.dex */
     static final class a<R> implements y<R> {
         final y<? super R> actual;
-        final AtomicReference<io.reactivex.disposables.b> mRB;
+        final AtomicReference<io.reactivex.disposables.b> mRE;
 
         a(AtomicReference<io.reactivex.disposables.b> atomicReference, y<? super R> yVar) {
-            this.mRB = atomicReference;
+            this.mRE = atomicReference;
             this.actual = yVar;
         }
 
         @Override // io.reactivex.y
         public void onSubscribe(io.reactivex.disposables.b bVar) {
-            DisposableHelper.replace(this.mRB, bVar);
+            DisposableHelper.replace(this.mRE, bVar);
         }
 
         @Override // io.reactivex.y

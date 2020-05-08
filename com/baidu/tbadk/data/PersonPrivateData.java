@@ -6,37 +6,37 @@ import org.json.JSONObject;
 import tbclient.PrivSets;
 /* loaded from: classes.dex */
 public class PersonPrivateData extends OrmObject {
-    private int dVC = 1;
-    private int dVD = 1;
-    private int dVE = 1;
-    private int dVF = 1;
-    private int dVG = 1;
     private int dVH = 1;
+    private int dVI = 1;
+    private int dVJ = 1;
+    private int dVK = 1;
+    private int dVL = 1;
+    private int dVM = 1;
 
-    public int aWp() {
-        return this.dVD;
+    public int aWn() {
+        return this.dVI;
     }
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.dVC = jSONObject.optInt("location", 1);
-            this.dVD = jSONObject.optInt("like", 1);
-            this.dVE = jSONObject.optInt(TbEnum.ParamKey.GROUP, 1);
-            this.dVF = jSONObject.optInt("post", 1);
-            this.dVG = jSONObject.optInt("friend", 1);
-            this.dVH = jSONObject.optInt("live", 1);
+            this.dVH = jSONObject.optInt("location", 1);
+            this.dVI = jSONObject.optInt("like", 1);
+            this.dVJ = jSONObject.optInt(TbEnum.ParamKey.GROUP, 1);
+            this.dVK = jSONObject.optInt("post", 1);
+            this.dVL = jSONObject.optInt("friend", 1);
+            this.dVM = jSONObject.optInt("live", 1);
         }
     }
 
     public void a(PrivSets privSets) {
         if (privSets != null) {
             try {
-                this.dVC = privSets.location.intValue();
-                this.dVD = privSets.like.intValue();
-                this.dVE = privSets.group.intValue();
-                this.dVF = privSets.post.intValue();
-                this.dVG = privSets.friend.intValue();
-                this.dVH = privSets.live.intValue();
+                this.dVH = privSets.location.intValue();
+                this.dVI = privSets.like.intValue();
+                this.dVJ = privSets.group.intValue();
+                this.dVK = privSets.post.intValue();
+                this.dVL = privSets.friend.intValue();
+                this.dVM = privSets.live.intValue();
             } catch (Exception e) {
                 e.printStackTrace();
             }

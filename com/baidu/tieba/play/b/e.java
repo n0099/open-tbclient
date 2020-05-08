@@ -42,7 +42,7 @@ public class e {
         TiebaStatic.log(new an("c12029").af("obj_type", i2).af("obj_param1", j.isWifiNet() ? 0 : 1).af(TiebaInitialize.Params.OBJ_PARAM2, i3));
     }
 
-    public static void IP(String str) {
+    public static void IS(String str) {
         TiebaStatic.log(new an("c12026").cI("tid", str));
     }
 

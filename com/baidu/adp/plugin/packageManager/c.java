@@ -11,19 +11,19 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class c {
-    private static volatile c Rp;
-    private ArrayList<String> Rg = new ArrayList<>();
-    private a Rq;
+    private static volatile c Rs;
+    private ArrayList<String> Rj = new ArrayList<>();
+    private a Rt;
 
     public static c nT() {
-        if (Rp == null) {
+        if (Rs == null) {
             synchronized (c.class) {
-                if (Rp == null) {
-                    Rp = new c();
+                if (Rs == null) {
+                    Rs = new c();
                 }
             }
         }
-        return Rp;
+        return Rs;
     }
 
     private c() {
@@ -32,7 +32,7 @@ public class c {
     public void a(PluginSetting pluginSetting) {
         boolean z;
         if (pluginSetting != null && !TextUtils.isEmpty(pluginSetting.packageName)) {
-            Iterator<String> it = this.Rg.iterator();
+            Iterator<String> it = this.Rj.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     z = false;
@@ -45,7 +45,7 @@ public class c {
                 }
             }
             if (!z) {
-                this.Rg.add(pluginSetting.packageName);
+                this.Rj.add(pluginSetting.packageName);
             }
             nP();
         }
@@ -53,9 +53,9 @@ public class c {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void nP() {
-        if (this.Rg.size() > 0 && this.Rq == null) {
-            this.Rq = new a(this.Rg.get(0));
-            this.Rq.execute(new String[0]);
+        if (this.Rj.size() > 0 && this.Rt == null) {
+            this.Rt = new a(this.Rj.get(0));
+            this.Rt.execute(new String[0]);
         }
     }
 
@@ -83,16 +83,16 @@ public class c {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
             super.onPostExecute((a) bool);
-            c.this.Rq = null;
-            if (c.this.Rg.size() > 0) {
-                Iterator it = c.this.Rg.iterator();
+            c.this.Rt = null;
+            if (c.this.Rj.size() > 0) {
+                Iterator it = c.this.Rj.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
                     }
                     String str = (String) it.next();
                     if (str != null && str.equals(this.packageName)) {
-                        c.this.Rg.remove(str);
+                        c.this.Rj.remove(str);
                         break;
                     }
                 }

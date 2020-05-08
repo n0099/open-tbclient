@@ -17,8 +17,8 @@ import tv.chushou.widget.ToggleButton;
 public class OnlineToggleButton extends RelativeLayout {
     private ImageView b;
     private TextView c;
-    private ToggleButton mFI;
-    private RotateAnimation mFJ;
+    private ToggleButton mFN;
+    private RotateAnimation mFO;
 
     public OnlineToggleButton(Context context) {
         this(context, null);
@@ -31,14 +31,14 @@ public class OnlineToggleButton extends RelativeLayout {
 
     private void a(Context context) {
         View inflate = LayoutInflater.from(context).inflate(a.h.view_online_toggle_btn, (ViewGroup) this, false);
-        this.mFI = (ToggleButton) inflate.findViewById(a.f.btn_toggle);
-        this.mFI.setClickable(false);
+        this.mFN = (ToggleButton) inflate.findViewById(a.f.btn_toggle);
+        this.mFN.setClickable(false);
         this.b = (ImageView) inflate.findViewById(a.f.iv_progress);
-        if (this.mFJ == null) {
-            this.mFJ = new RotateAnimation(0.0f, 360.0f, 1, 0.5f, 1, 0.5f);
-            this.mFJ.setRepeatCount(-1);
-            this.mFJ.setInterpolator(new LinearInterpolator());
-            this.mFJ.setDuration(1000L);
+        if (this.mFO == null) {
+            this.mFO = new RotateAnimation(0.0f, 360.0f, 1, 0.5f, 1, 0.5f);
+            this.mFO.setRepeatCount(-1);
+            this.mFO.setInterpolator(new LinearInterpolator());
+            this.mFO.setDuration(1000L);
         }
         this.c = (TextView) inflate.findViewById(a.f.tv_unknown);
         addView(inflate);
@@ -49,10 +49,10 @@ public class OnlineToggleButton extends RelativeLayout {
             d();
         } else if (privacyItem.mState == 1) {
             e();
-            this.mFI.dJI();
+            this.mFN.dJE();
         } else if (privacyItem.mState == 0) {
             e();
-            this.mFI.dJJ();
+            this.mFN.dJF();
         } else if (privacyItem.mState == 3) {
             f();
         }
@@ -60,13 +60,13 @@ public class OnlineToggleButton extends RelativeLayout {
 
     private void d() {
         this.b.setVisibility(0);
-        this.b.startAnimation(this.mFJ);
-        this.mFI.setVisibility(8);
+        this.b.startAnimation(this.mFO);
+        this.mFN.setVisibility(8);
         this.c.setVisibility(8);
     }
 
     private void e() {
-        this.mFI.setVisibility(0);
+        this.mFN.setVisibility(0);
         this.b.setVisibility(8);
         this.b.clearAnimation();
         this.c.setVisibility(8);
@@ -74,22 +74,22 @@ public class OnlineToggleButton extends RelativeLayout {
 
     private void f() {
         this.c.setVisibility(0);
-        this.mFI.setVisibility(8);
+        this.mFN.setVisibility(8);
         this.b.setVisibility(8);
         this.b.clearAnimation();
     }
 
     public void a() {
-        this.mFI.toggle();
+        this.mFN.toggle();
     }
 
     public void b() {
         e();
-        this.mFI.dJI();
+        this.mFN.dJE();
     }
 
     public void c() {
         e();
-        this.mFI.dJJ();
+        this.mFN.dJF();
     }
 }

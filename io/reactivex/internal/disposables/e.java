@@ -8,7 +8,7 @@ import java.util.List;
 /* loaded from: classes7.dex */
 public final class e implements io.reactivex.disposables.b, a {
     volatile boolean disposed;
-    List<io.reactivex.disposables.b> mRm;
+    List<io.reactivex.disposables.b> mRp;
 
     @Override // io.reactivex.disposables.b
     public void dispose() {
@@ -16,8 +16,8 @@ public final class e implements io.reactivex.disposables.b, a {
             synchronized (this) {
                 if (!this.disposed) {
                     this.disposed = true;
-                    List<io.reactivex.disposables.b> list = this.mRm;
-                    this.mRm = null;
+                    List<io.reactivex.disposables.b> list = this.mRp;
+                    this.mRp = null;
                     fh(list);
                 }
             }
@@ -35,10 +35,10 @@ public final class e implements io.reactivex.disposables.b, a {
         if (!this.disposed) {
             synchronized (this) {
                 if (!this.disposed) {
-                    List list = this.mRm;
+                    List list = this.mRp;
                     if (list == null) {
                         list = new LinkedList();
-                        this.mRm = list;
+                        this.mRp = list;
                     }
                     list.add(bVar);
                     return true;
@@ -65,7 +65,7 @@ public final class e implements io.reactivex.disposables.b, a {
         if (!this.disposed) {
             synchronized (this) {
                 if (!this.disposed) {
-                    List<io.reactivex.disposables.b> list = this.mRm;
+                    List<io.reactivex.disposables.b> list = this.mRp;
                     if (list != null && list.remove(bVar)) {
                         z = true;
                     }

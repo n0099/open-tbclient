@@ -28,10 +28,10 @@ public class a {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        aVar.axH = new com.baidu.live.gift.c();
+        aVar.axN = new com.baidu.live.gift.c();
         com.baidu.live.gift.b bVar = new com.baidu.live.gift.b();
         bVar.parseJson(jSONObject);
-        aVar.axH.aym = bVar;
+        aVar.axN.ays = bVar;
         return aVar;
     }
 
@@ -48,20 +48,20 @@ public class a {
             if (!TextUtils.isEmpty(optString) && optString.charAt(0) != '#') {
                 optString = UgcConstant.TOPIC_PATTERN_TAG + optString;
             }
-            bVar.axJ = optString;
+            bVar.axP = optString;
             String optString2 = jSONObject.optString("bg_color_end");
             if (!TextUtils.isEmpty(optString2) && optString2.charAt(0) != '#') {
                 optString2 = UgcConstant.TOPIC_PATTERN_TAG + optString2;
             }
-            bVar.axK = optString2;
-            bVar.axL = jSONObject.optString("transparency_begin");
-            bVar.axM = jSONObject.optString("transparency_end");
-            bVar.avc = jSONObject.optString("text_color");
-            bVar.axN = jSONObject.optString("nickname_preix");
-            bVar.axO = jSONObject.optString("nickname_suffix");
+            bVar.axQ = optString2;
+            bVar.axR = jSONObject.optString("transparency_begin");
+            bVar.axS = jSONObject.optString("transparency_end");
+            bVar.avi = jSONObject.optString("text_color");
+            bVar.axT = jSONObject.optString("nickname_preix");
+            bVar.axU = jSONObject.optString("nickname_suffix");
             bVar.iconUrl = jSONObject.optString("icon_url");
-            bVar.axP = jSONObject.optInt("icon_width");
-            bVar.axQ = jSONObject.optInt("icon_height");
+            bVar.axV = jSONObject.optInt("icon_width");
+            bVar.axW = jSONObject.optInt("icon_height");
             return bVar;
         } catch (JSONException e) {
             e.printStackTrace();

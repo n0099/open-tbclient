@@ -603,7 +603,7 @@ public class g extends Drawable implements Animatable, Drawable.Callback {
         if (getCallback() == null) {
             return null;
         }
-        if (this.Ab != null && !this.Ab.Q(getContext())) {
+        if (this.Ab != null && !this.Ab.D(getContext())) {
             this.Ab.recycleBitmaps();
             this.Ab = null;
         }

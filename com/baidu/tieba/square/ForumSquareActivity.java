@@ -18,34 +18,34 @@ import com.baidu.tieba.square.model.ForumSquareModel;
 import java.util.List;
 /* loaded from: classes9.dex */
 public class ForumSquareActivity extends BaseActivity<ForumSquareActivity> implements c {
-    private ForumSquareModel kKY;
-    private a kKZ;
-    private b kLa;
-    private String kLb = "";
+    private ForumSquareModel kLc;
+    private a kLd;
+    private b kLe;
+    private String kLf = "";
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        al(getIntent());
-        this.kKY = new ForumSquareModel(this, this);
-        this.kKZ = new a(this);
-        this.kLa = new b(this, this.kKZ);
-        this.kLa.cUB();
-        bTx();
+        Y(getIntent());
+        this.kLc = new ForumSquareModel(this, this);
+        this.kLd = new a(this);
+        this.kLe = new b(this, this.kLd);
+        this.kLe.cUy();
+        bTv();
     }
 
-    private void bTx() {
-        this.kKZ.cUv();
-        this.kKY.Kt(this.kLb);
+    private void bTv() {
+        this.kLd.cUs();
+        this.kLc.Kw(this.kLf);
     }
 
-    private void al(Intent intent) {
+    private void Y(Intent intent) {
         Uri uri;
         if (intent != null) {
-            this.kLb = intent.getStringExtra(ForumSquareActivityConfig.FORUM_CLASS_NAME);
-            if (TextUtils.isEmpty(this.kLb) && (uri = (Uri) intent.getParcelableExtra(IntentConfig.KEY_URI)) != null) {
-                this.kLb = uri.getQueryParameter("tab_name");
+            this.kLf = intent.getStringExtra(ForumSquareActivityConfig.FORUM_CLASS_NAME);
+            if (TextUtils.isEmpty(this.kLf) && (uri = (Uri) intent.getParcelableExtra(IntentConfig.KEY_URI)) != null) {
+                this.kLf = uri.getQueryParameter("tab_name");
             }
         }
     }
@@ -53,113 +53,113 @@ public class ForumSquareActivity extends BaseActivity<ForumSquareActivity> imple
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.kKZ != null) {
-            this.kKZ.changeSkinType(i);
+        if (this.kLd != null) {
+            this.kLd.changeSkinType(i);
         }
     }
 
     @Override // com.baidu.tieba.square.c
     public void c(String str, List<String> list, List<m> list2) {
         boolean z = true;
-        if (this.kKY != null && this.kKZ != null) {
-            if (TextUtils.isEmpty(str) || str.equals(this.kLb)) {
-                String cUs = this.kKZ.cUs();
-                if (TextUtils.isEmpty(str) || str.equals(cUs)) {
+        if (this.kLc != null && this.kLd != null) {
+            if (TextUtils.isEmpty(str) || str.equals(this.kLf)) {
+                String cUp = this.kLd.cUp();
+                if (TextUtils.isEmpty(str) || str.equals(cUp)) {
                     z = false;
                 }
             }
-            this.kLb = str;
-            this.kKZ.cUw();
-            this.kKZ.b(str, list, z);
-            this.kKZ.o(list2, this.kKY.p(list2, 300));
+            this.kLf = str;
+            this.kLd.cUt();
+            this.kLd.b(str, list, z);
+            this.kLd.o(list2, this.kLc.p(list2, 300));
             r(str, list2);
         }
     }
 
     @Override // com.baidu.tieba.square.c
     public void a(String str, ErrorData errorData) {
-        if (this.kKZ != null && this.kKY != null) {
-            this.kKZ.cUw();
-            com.baidu.tieba.square.data.c Ks = this.kKY.Ks(str);
-            if (Ks == null || (Ks.hasMore && v.isEmpty(Ks.getDataList()))) {
-                this.kKZ.bmq();
-                this.kKZ.cUt();
+        if (this.kLd != null && this.kLc != null) {
+            this.kLd.cUt();
+            com.baidu.tieba.square.data.c Kv = this.kLc.Kv(str);
+            if (Kv == null || (Kv.hasMore && v.isEmpty(Kv.getDataList()))) {
+                this.kLd.bmo();
+                this.kLd.cUq();
                 return;
             }
-            this.kKZ.er(Ks.getDataList());
-            r(str, Ks.getDataList());
+            this.kLd.er(Kv.getDataList());
+            r(str, Kv.getDataList());
         }
     }
 
     private void r(String str, List<m> list) {
-        if (this.kKZ != null && this.kKY != null) {
+        if (this.kLd != null && this.kLc != null) {
             if (v.isEmpty(list)) {
-                this.kKZ.bmq();
+                this.kLd.bmo();
             } else if (v.getCount(list) < 10) {
-                this.kKZ.cUz();
+                this.kLd.cUw();
             } else {
-                this.kKZ.tL(this.kKY.Ku(str));
+                this.kLd.tL(this.kLc.Kx(str));
             }
         }
     }
 
     @Override // com.baidu.tieba.square.c
     public void b(ErrorData errorData) {
-        if (this.kKZ != null) {
-            this.kKZ.cUu();
+        if (this.kLd != null) {
+            this.kLd.cUr();
         }
     }
 
-    public void bpg() {
+    public void bpe() {
         String className = getClassName();
-        if (this.kKY != null && this.kKZ != null) {
-            boolean isLoading = this.kKY.isLoading();
-            boolean tL = this.kKZ.tL(this.kKY.Ku(className));
+        if (this.kLc != null && this.kLd != null) {
+            boolean isLoading = this.kLc.isLoading();
+            boolean tL = this.kLd.tL(this.kLc.Kx(className));
             if (!isLoading && tL) {
-                this.kKY.Kt(className);
+                this.kLc.Kw(className);
             }
         }
     }
 
-    public void cUp() {
-        if (this.kKZ != null) {
-            this.kKZ.cUv();
+    public void cUm() {
+        if (this.kLd != null) {
+            this.kLd.cUs();
         }
-        if (this.kKY != null) {
-            this.kKY.Kt(getClassName());
+        if (this.kLc != null) {
+            this.kLc.Kw(getClassName());
         }
     }
 
-    public void Kp(String str) {
-        Kq(this.kLb);
-        this.kLb = str;
-        if (this.kKY != null && this.kKZ != null) {
-            com.baidu.tieba.square.data.c Ks = this.kKY.Ks(str);
-            if (Ks == null || (Ks.hasMore && v.isEmpty(Ks.getDataList()))) {
-                this.kKZ.cUx();
+    public void Ks(String str) {
+        Kt(this.kLf);
+        this.kLf = str;
+        if (this.kLc != null && this.kLd != null) {
+            com.baidu.tieba.square.data.c Kv = this.kLc.Kv(str);
+            if (Kv == null || (Kv.hasMore && v.isEmpty(Kv.getDataList()))) {
+                this.kLd.cUu();
                 r(str, null);
-                this.kKY.Kt(str);
-                this.kKZ.scrollToPositionWithOffset(0, 0);
+                this.kLc.Kw(str);
+                this.kLd.scrollToPositionWithOffset(0, 0);
                 return;
             }
-            this.kKZ.cUw();
-            r(str, Ks.getDataList());
-            this.kKZ.er(Ks.getDataList());
-            this.kKZ.scrollToPositionWithOffset(Ks.kLy, Ks.dEq);
+            this.kLd.cUt();
+            r(str, Kv.getDataList());
+            this.kLd.er(Kv.getDataList());
+            this.kLd.scrollToPositionWithOffset(Kv.kLC, Kv.dEu);
         }
     }
 
-    public void Kq(String str) {
-        com.baidu.tieba.square.data.c Ks;
-        Pair<Integer, Integer> cUr;
-        if (this.kKZ != null && this.kKY != null && !TextUtils.isEmpty(str) && (Ks = this.kKY.Ks(str)) != null && (cUr = this.kKZ.cUr()) != null) {
-            Ks.kLy = ((Integer) cUr.first).intValue();
-            Ks.dEq = ((Integer) cUr.second).intValue();
+    public void Kt(String str) {
+        com.baidu.tieba.square.data.c Kv;
+        Pair<Integer, Integer> cUo;
+        if (this.kLd != null && this.kLc != null && !TextUtils.isEmpty(str) && (Kv = this.kLc.Kv(str)) != null && (cUo = this.kLd.cUo()) != null) {
+            Kv.kLC = ((Integer) cUo.first).intValue();
+            Kv.dEu = ((Integer) cUo.second).intValue();
         }
     }
 
     public String getClassName() {
-        return this.kLb;
+        return this.kLf;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

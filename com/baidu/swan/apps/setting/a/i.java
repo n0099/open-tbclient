@@ -21,7 +21,7 @@ public class i extends ab {
         if (eVar == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
             return false;
-        } else if (eVar.Ru()) {
+        } else if (eVar.Rt()) {
             if (DEBUG) {
                 Log.d("SwanAppAction", "SwanAppAction does not supported when app is invisible.");
             }
@@ -38,15 +38,15 @@ public class i extends ab {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty cb");
                 return false;
             }
-            final com.baidu.swan.apps.setting.a akX = eVar.akX();
-            if (!eVar.akX().amh()) {
+            final com.baidu.swan.apps.setting.a akW = eVar.akW();
+            if (!eVar.akW().amg()) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "can not open setting page");
                 return false;
             }
-            akX.a(new a.b() { // from class: com.baidu.swan.apps.setting.a.i.1
+            akW.a(new a.b() { // from class: com.baidu.swan.apps.setting.a.i.1
                 @Override // com.baidu.swan.apps.setting.a.b
-                public void amk() {
-                    akX.b(this);
+                public void amj() {
+                    akW.b(this);
                     com.baidu.swan.apps.api.module.i.a.a(callbackHandler, optString);
                 }
             });

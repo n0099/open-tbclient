@@ -15,7 +15,7 @@ import com.tb.airbnb.lottie.j;
 public class c extends a {
     private final Rect dst;
     @Nullable
-    private com.tb.airbnb.lottie.a.b.a<ColorFilter, ColorFilter> mOo;
+    private com.tb.airbnb.lottie.a.b.a<ColorFilter, ColorFilter> mOr;
     private final Paint paint;
     private final Rect src;
 
@@ -33,8 +33,8 @@ public class c extends a {
         if (bitmap != null && !bitmap.isRecycled()) {
             float jk = com.tb.airbnb.lottie.d.f.jk();
             this.paint.setAlpha(i);
-            if (this.mOo != null) {
-                this.paint.setColorFilter(this.mOo.getValue());
+            if (this.mOr != null) {
+                this.paint.setColorFilter(this.mOr.getValue());
             }
             canvas.save();
             canvas.concat(matrix);
@@ -51,13 +51,13 @@ public class c extends a {
         Bitmap bitmap = getBitmap();
         if (bitmap != null) {
             rectF.set(rectF.left, rectF.top, Math.min(rectF.right, bitmap.getWidth()), Math.min(rectF.bottom, bitmap.getHeight()));
-            this.Eu.mapRect(rectF);
+            this.Ex.mapRect(rectF);
         }
     }
 
     @Nullable
     private Bitmap getBitmap() {
-        return this.lottieDrawable.aZ(this.mPZ.getRefId());
+        return this.lottieDrawable.aZ(this.mQc.getRefId());
     }
 
     @Override // com.tb.airbnb.lottie.model.layer.a, com.tb.airbnb.lottie.model.f
@@ -65,9 +65,9 @@ public class c extends a {
         super.a((c) t, (com.tb.airbnb.lottie.e.c<c>) cVar);
         if (t == j.AV) {
             if (cVar == null) {
-                this.mOo = null;
+                this.mOr = null;
             } else {
-                this.mOo = new p(cVar);
+                this.mOr = new p(cVar);
             }
         }
     }

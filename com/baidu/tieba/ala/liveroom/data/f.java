@@ -7,63 +7,63 @@ import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.tieba.ala.liveroom.views.AlaLiveView;
 /* loaded from: classes3.dex */
 public class f {
-    public AlaLiveRecorder fFC;
-    public FrameLayout fFD;
-    public com.baidu.tieba.ala.liveroom.master.a.d fFE;
-    public com.baidu.live.ar.f fFF;
-    public AlaLiveRecorderPerfData fFG;
-    public com.baidu.live.tieba.e.b fFH;
-    public com.baidu.live.liveroom.middleware.a fFI;
-    public com.baidu.tieba.ala.liveroom.m.c fFc;
-    public AlaLiveView fFd;
+    public AlaLiveRecorder fFH;
+    public FrameLayout fFI;
+    public com.baidu.tieba.ala.liveroom.master.a.d fFJ;
+    public com.baidu.live.ar.f fFK;
+    public AlaLiveRecorderPerfData fFL;
+    public com.baidu.live.tieba.e.b fFM;
+    public com.baidu.live.liveroom.middleware.a fFN;
+    public com.baidu.tieba.ala.liveroom.m.c fFh;
+    public AlaLiveView fFi;
     private int liveType;
     public TbPageContext pageContext;
     public ViewGroup rootView;
 
-    public int bvj() {
+    public int bvh() {
         return this.liveType;
     }
 
     public void qs(int i) {
         this.liveType = i;
-        if (this.fFE != null) {
-            this.fFE.qQ(i);
+        if (this.fFJ != null) {
+            this.fFJ.qQ(i);
         }
     }
 
     public void f(short s) {
-        if (this.fFE != null) {
-            this.fFE.f(s);
+        if (this.fFJ != null) {
+            this.fFJ.f(s);
         }
     }
 
-    public void Hp() {
-        if (this.fFE != null) {
-            this.fFE.Hp();
+    public void Ho() {
+        if (this.fFJ != null) {
+            this.fFJ.Ho();
         }
     }
 
     public void aFe() {
-        if (this.fFE != null) {
-            this.fFE.aFe();
+        if (this.fFJ != null) {
+            this.fFJ.aFe();
+        }
+    }
+
+    public void bvi() {
+        if (this.fFJ != null) {
+            this.fFJ.bvi();
+        }
+    }
+
+    public void bvj() {
+        if (this.fFJ != null) {
+            this.fFJ.bvj();
         }
     }
 
     public void bvk() {
-        if (this.fFE != null) {
-            this.fFE.bvk();
-        }
-    }
-
-    public void bvl() {
-        if (this.fFE != null) {
-            this.fFE.bvl();
-        }
-    }
-
-    public void bvm() {
-        if (this.fFE != null) {
-            this.fFE.bvm();
+        if (this.fFJ != null) {
+            this.fFJ.bvk();
         }
     }
 }

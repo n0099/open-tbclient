@@ -36,11 +36,11 @@ public class d extends ab {
             return false;
         } else {
             final boolean aZ = com.baidu.swan.apps.setting.oauth.c.aZ(optParamsAsJo);
-            eVar.akX().a(context, "ppcert", aZ, new com.baidu.swan.apps.as.d.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.bdprivate.c.a.d.1
+            eVar.akW().a(context, "ppcert", aZ, new com.baidu.swan.apps.as.d.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.bdprivate.c.a.d.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.as.d.b
                 /* renamed from: a */
-                public void E(com.baidu.swan.apps.setting.oauth.h<b.d> hVar) {
+                public void F(com.baidu.swan.apps.setting.oauth.h<b.d> hVar) {
                     if (com.baidu.swan.apps.setting.oauth.c.b(hVar)) {
                         d.this.a((Activity) context, aZ, callbackHandler, optString);
                     } else {
@@ -59,12 +59,12 @@ public class d extends ab {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.as.d.b
             /* renamed from: a */
-            public void E(com.baidu.swan.apps.setting.b.a aVar) {
+            public void F(com.baidu.swan.apps.setting.b.a aVar) {
                 com.baidu.swan.apps.console.c.i("OpenData", "onOpenDataCallback:: " + aVar.toString());
-                if (!aVar.amN()) {
+                if (!aVar.amM()) {
                     com.baidu.swan.apps.setting.oauth.c.a(aVar, callbackHandler, str);
                 } else {
-                    callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(aVar.csD, 0).toString());
+                    callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(aVar.csJ, 0).toString());
                 }
             }
         });

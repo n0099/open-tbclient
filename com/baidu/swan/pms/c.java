@@ -22,7 +22,7 @@ public class c {
                     if (gVar.aBF() != null) {
                         a.putAll(gVar.aBF());
                     }
-                    gVar.UR();
+                    gVar.UQ();
                     com.baidu.swan.pms.c.a.a(e.aBY(), a, gVar.aBG(), new com.baidu.swan.pms.c.b.b(gVar, cVar));
                 }
             }
@@ -54,7 +54,7 @@ public class c {
                                 e.printStackTrace();
                             }
                         }
-                        gVar.UR();
+                        gVar.UQ();
                         com.baidu.swan.pms.c.a.a(e.aCa(), a, gVar.aBG(), b, new com.baidu.swan.pms.c.b.a(gVar, bVar));
                     }
                 }
@@ -76,7 +76,7 @@ public class c {
                     if (gVar.aBF() != null) {
                         a.putAll(gVar.aBF());
                     }
-                    gVar.UR();
+                    gVar.UQ();
                     com.baidu.swan.pms.c.a.a(e.aBY(), a, gVar.aBG(), new com.baidu.swan.pms.c.b.d(gVar, eVar));
                 }
             }
@@ -93,7 +93,7 @@ public class c {
                     if (gVar2.aBF() != null) {
                         a.putAll(gVar2.aBF());
                     }
-                    gVar2.UR();
+                    gVar2.UQ();
                     com.baidu.swan.pms.c.a.a(e.aBZ(), a, gVar2.aBG(), new com.baidu.swan.pms.c.b.e(gVar2, gVar));
                 }
             }
@@ -110,7 +110,7 @@ public class c {
                     if (gVar.aBF() != null) {
                         a.putAll(gVar.aBF());
                     }
-                    gVar.UR();
+                    gVar.UQ();
                     com.baidu.swan.pms.c.a.a(e.aCb(), a, gVar.aBG(), new com.baidu.swan.pms.c.b.c(gVar, dVar));
                 }
             }

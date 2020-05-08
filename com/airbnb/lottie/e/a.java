@@ -7,73 +7,73 @@ import android.view.animation.Interpolator;
 /* loaded from: classes6.dex */
 public class a<T> {
     @Nullable
-    public final T FL;
+    public final T FO;
     @Nullable
-    public final T FM;
+    public final T FP;
     @Nullable
-    public final Interpolator FN;
+    public final Interpolator FQ;
     @Nullable
-    public Float FO;
-    private float FP;
-    private float FQ;
-    public PointF FR;
-    public PointF FT;
+    public Float FR;
+    private float FT;
+    private float FU;
+    public PointF FV;
+    public PointF FW;
     @Nullable
     private final com.airbnb.lottie.e composition;
     public final float zN;
 
     public a(com.airbnb.lottie.e eVar, @Nullable T t, @Nullable T t2, @Nullable Interpolator interpolator, float f, @Nullable Float f2) {
-        this.FP = Float.MIN_VALUE;
-        this.FQ = Float.MIN_VALUE;
-        this.FR = null;
-        this.FT = null;
+        this.FT = Float.MIN_VALUE;
+        this.FU = Float.MIN_VALUE;
+        this.FV = null;
+        this.FW = null;
         this.composition = eVar;
-        this.FL = t;
-        this.FM = t2;
-        this.FN = interpolator;
+        this.FO = t;
+        this.FP = t2;
+        this.FQ = interpolator;
         this.zN = f;
-        this.FO = f2;
+        this.FR = f2;
     }
 
     public a(T t) {
-        this.FP = Float.MIN_VALUE;
-        this.FQ = Float.MIN_VALUE;
-        this.FR = null;
-        this.FT = null;
+        this.FT = Float.MIN_VALUE;
+        this.FU = Float.MIN_VALUE;
+        this.FV = null;
+        this.FW = null;
         this.composition = null;
-        this.FL = t;
-        this.FM = t;
-        this.FN = null;
+        this.FO = t;
+        this.FP = t;
+        this.FQ = null;
         this.zN = Float.MIN_VALUE;
-        this.FO = Float.valueOf(Float.MAX_VALUE);
+        this.FR = Float.valueOf(Float.MAX_VALUE);
     }
 
     public float iI() {
         if (this.composition == null) {
             return 0.0f;
         }
-        if (this.FP == Float.MIN_VALUE) {
-            this.FP = (this.zN - this.composition.gE()) / this.composition.gL();
+        if (this.FT == Float.MIN_VALUE) {
+            this.FT = (this.zN - this.composition.gE()) / this.composition.gL();
         }
-        return this.FP;
+        return this.FT;
     }
 
     public float ht() {
         if (this.composition == null) {
             return 1.0f;
         }
-        if (this.FQ == Float.MIN_VALUE) {
-            if (this.FO == null) {
-                this.FQ = 1.0f;
+        if (this.FU == Float.MIN_VALUE) {
+            if (this.FR == null) {
+                this.FU = 1.0f;
             } else {
-                this.FQ = iI() + ((this.FO.floatValue() - this.zN) / this.composition.gL());
+                this.FU = iI() + ((this.FR.floatValue() - this.zN) / this.composition.gL());
             }
         }
-        return this.FQ;
+        return this.FU;
     }
 
     public boolean jl() {
-        return this.FN == null;
+        return this.FQ == null;
     }
 
     public boolean k(@FloatRange(from = 0.0d, to = 1.0d) float f) {
@@ -81,6 +81,6 @@ public class a<T> {
     }
 
     public String toString() {
-        return "Keyframe{startValue=" + this.FL + ", endValue=" + this.FM + ", startFrame=" + this.zN + ", endFrame=" + this.FO + ", interpolator=" + this.FN + '}';
+        return "Keyframe{startValue=" + this.FO + ", endValue=" + this.FP + ", startFrame=" + this.zN + ", endFrame=" + this.FR + ", interpolator=" + this.FQ + '}';
     }
 }

@@ -13,32 +13,32 @@ import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.R;
 /* loaded from: classes9.dex */
 public class a extends y.a implements View.OnClickListener {
-    private bj agz;
-    CardForumHeadLayout jMZ;
+    private bj agC;
+    CardForumHeadLayout jNd;
 
     public a(View view) {
         super(view);
-        this.jMZ = (CardForumHeadLayout) ((ViewGroup) view).getChildAt(0);
-        if (this.jMZ != null) {
-            this.jMZ.setOnClickListener(this.jMZ);
-            this.jMZ.setAfterClickListener(this);
+        this.jNd = (CardForumHeadLayout) ((ViewGroup) view).getChildAt(0);
+        if (this.jNd != null) {
+            this.jNd.setOnClickListener(this.jNd);
+            this.jNd.setAfterClickListener(this);
         }
     }
 
     public void setData(bj bjVar) {
-        this.agz = bjVar;
-        this.jMZ.setData(bjVar);
+        this.agC = bjVar;
+        this.jNd.setData(bjVar);
     }
 
-    public void aQp() {
-        this.jMZ.onChangeSkinType();
-        am.c(this.jMZ, l.getDimens(this.itemView.getContext(), R.dimen.tbds10), R.color.cp_bg_line_g, R.color.cp_bg_line_g);
+    public void aQm() {
+        this.jNd.onChangeSkinType();
+        am.c(this.jNd, l.getDimens(this.itemView.getContext(), R.dimen.tbds10), R.color.cp_bg_line_g, R.color.cp_bg_line_g);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.agz != null) {
-            TiebaStatic.log(new an("c13399").cI("tid", this.agz.getTid()).t("fid", this.agz.getFid()).cI("uid", TbadkCoreApplication.getCurrentAccount()));
+        if (this.agC != null) {
+            TiebaStatic.log(new an("c13399").cI("tid", this.agC.getTid()).t("fid", this.agC.getFid()).cI("uid", TbadkCoreApplication.getCurrentAccount()));
         }
     }
 }

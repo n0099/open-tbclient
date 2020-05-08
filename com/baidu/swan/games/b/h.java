@@ -7,16 +7,16 @@ import android.view.View;
 public class h extends com.baidu.swan.apps.core.c.d {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static final String TAG = h.class.getSimpleName();
-    private View cLt;
+    private View cLz;
 
     public h(Context context) {
         super(context);
     }
 
     @Override // com.baidu.swan.apps.core.c.d
-    protected void Ve() {
-        QE().setVisibility(8);
-        QE().setBackgroundColor(0);
+    protected void Vd() {
+        QD().setVisibility(8);
+        QD().setBackgroundColor(0);
         i.avC();
         avB();
         String avx = d.avn().avx();
@@ -41,7 +41,7 @@ public class h extends com.baidu.swan.apps.core.c.d {
 
     @Override // com.baidu.swan.apps.core.c.d, com.baidu.swan.apps.adaptation.b.a
     public void ad(View view) {
-        this.cLt = view;
+        this.cLz = view;
     }
 
     @Override // com.baidu.swan.apps.core.c.d, com.baidu.swan.apps.adaptation.b.a
@@ -50,30 +50,30 @@ public class h extends com.baidu.swan.apps.core.c.d {
     }
 
     @Override // com.baidu.swan.apps.core.c.d, com.baidu.swan.apps.adaptation.b.a
-    public void Qv() {
+    public void Qu() {
         i.de(false);
-        this.cLt = null;
-        super.Qv();
+        this.cLz = null;
+        super.Qu();
     }
 
     @Override // com.baidu.swan.apps.core.c.d, com.baidu.swan.apps.adaptation.b.a
     public void cT(boolean z) {
-        if (QE().getVisibility() != (z ? 0 : 8)) {
+        if (QD().getVisibility() != (z ? 0 : 8)) {
             if (DEBUG) {
                 Log.i(TAG, "setConsoleVisible:" + z);
             }
             if (z) {
-                com.baidu.swan.apps.y.f.aeK().a("console", c.fz(true));
+                com.baidu.swan.apps.y.f.aeJ().a("console", c.fz(true));
             }
-            if (this.cLt != null) {
-                this.cLt.setVisibility(z ? 4 : 0);
+            if (this.cLz != null) {
+                this.cLz.setVisibility(z ? 4 : 0);
             }
             super.cT(z);
         }
     }
 
     @Override // com.baidu.swan.apps.core.c.d, com.baidu.swan.apps.core.SwanAppWebViewManager, com.baidu.swan.apps.adaptation.b.e
-    public String QG() {
+    public String QF() {
         return "console";
     }
 }

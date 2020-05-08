@@ -7,22 +7,22 @@ import com.baidu.live.tbadk.log.LogConfig;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class m implements Cloneable {
-    private int aAa;
-    private int aAb;
-    public Bitmap aAc;
-    public g aAd;
-    private String azZ;
+    private String aAf;
+    private int aAg;
+    private int aAh;
+    public Bitmap aAi;
+    public g aAj;
     private int mGiftId;
 
-    public String wM() {
+    public String wL() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(LogConfig.LOG_GIFT_ID, this.mGiftId);
-            if (!TextUtils.isEmpty(this.azZ)) {
-                jSONObject.put("gift_img_url", Base64.encodeBytes(this.azZ.getBytes()));
+            if (!TextUtils.isEmpty(this.aAf)) {
+                jSONObject.put("gift_img_url", Base64.encodeBytes(this.aAf.getBytes()));
             }
-            jSONObject.put("gift_index", this.aAa);
-            jSONObject.put("gift_count", this.aAb);
+            jSONObject.put("gift_index", this.aAg);
+            jSONObject.put("gift_count", this.aAh);
             return jSONObject.toString();
         } catch (Exception e) {
             return null;
@@ -38,10 +38,10 @@ public class m implements Cloneable {
             this.mGiftId = jSONObject.optInt(LogConfig.LOG_GIFT_ID);
             String optString = jSONObject.optString("gift_img_url");
             if (!TextUtils.isEmpty(optString)) {
-                this.azZ = new String(Base64.decode(optString.getBytes()));
+                this.aAf = new String(Base64.decode(optString.getBytes()));
             }
-            this.aAa = jSONObject.optInt("gift_index");
-            this.aAb = jSONObject.optInt("gift_count");
+            this.aAg = jSONObject.optInt("gift_index");
+            this.aAh = jSONObject.optInt("gift_count");
             return true;
         } catch (Exception e) {
             return false;
@@ -50,7 +50,7 @@ public class m implements Cloneable {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    /* renamed from: wP */
+    /* renamed from: wO */
     public m clone() {
         try {
             return (m) super.clone();
@@ -68,19 +68,19 @@ public class m implements Cloneable {
         this.mGiftId = i;
     }
 
-    public String wQ() {
-        return this.azZ;
+    public String wP() {
+        return this.aAf;
     }
 
     public void dZ(String str) {
-        this.azZ = str;
+        this.aAf = str;
     }
 
-    public int wR() {
-        return this.aAb;
+    public int wQ() {
+        return this.aAh;
     }
 
     public void bF(int i) {
-        this.aAb = i;
+        this.aAh = i;
     }
 }

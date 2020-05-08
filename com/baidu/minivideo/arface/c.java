@@ -6,89 +6,89 @@ import android.text.TextUtils;
 public class c {
     private static String bjA;
     private static String bjB;
-    private static String bjk;
-    private static String bjl;
-    private static String bjm;
-    private static String bjn;
-    private static String bjo;
+    private static String bjC;
+    private static String bjD;
+    private static String bjE;
+    private static String bjF;
+    private static String bjG;
     private static String bjp;
+    private static String bjq;
     private static String bjr;
     private static String bjs;
     private static String bjt;
     private static String bju;
-    private static String bjv;
     private static String bjw;
     private static String bjx;
     private static String bjy;
     private static String bjz;
-    public static String bjh = "arface_main_res_version";
-    public static int bji = 0;
-    public static boolean bjj = true;
-    public static String bjq = "global/res/filter";
+    public static String bjm = "arface_main_res_version";
+    public static int bjn = 0;
+    public static boolean bjo = true;
+    public static String bjv = "global/res/filter";
 
     public c(String str) {
         setPath(str);
     }
 
     private static void setPath(String str) {
-        bjk = str + "/";
-        bjl = bjk;
-        bjm = bjk + "ext/";
-        bjn = bjl + "faceModels/";
+        bjp = str + "/";
+        bjq = bjp;
+        bjr = bjp + "ext/";
+        bjs = bjq + "faceModels/";
         if (TextUtils.isEmpty(str)) {
-            bjw = "file:///android_asset/arsource/filters/yuantu/yuantu.png";
-            bju = "file:///android_asset/arsource/filter/beauty_skin_stream.png";
-            bjv = "file:///android_asset/arsource/filter/beauty_skin_small_video.png";
-            bjn = "file:///android_asset/arsource/faceModels/";
+            bjB = "file:///android_asset/arsource/filters/yuantu/yuantu.png";
+            bjz = "file:///android_asset/arsource/filter/beauty_skin_stream.png";
+            bjA = "file:///android_asset/arsource/filter/beauty_skin_small_video.png";
+            bjs = "file:///android_asset/arsource/faceModels/";
             String str2 = Environment.getExternalStorageDirectory() + "/baidu/quanminvideo/arsource";
-            bjx = str2 + "/makeup";
-            bjy = str2 + "/beauty";
-            bjz = str2 + "/arFilterInit";
-            bjA = str2 + "/arFilterEditInit";
-            bjB = bjy + "/liveVideoFace/face_knead.json";
+            bjC = str2 + "/makeup";
+            bjD = str2 + "/beauty";
+            bjE = str2 + "/arFilterInit";
+            bjF = str2 + "/arFilterEditInit";
+            bjG = bjD + "/liveVideoFace/face_knead.json";
         } else {
-            bjw = bjl + "filters/yuantu/yuantu.png";
-            bju = bjl + "filter/beauty_skin_stream.png";
-            bjv = bjl + "filter/beauty_skin_small_video.png";
-            bjx = bjk + "makeup/";
-            bjy = bjk + "beauty/";
-            bjz = bjk + "arFilterInit/";
-            bjA = bjk + "arFilterEditInit/";
-            bjB = bjy + "liveVideoFace/face_knead.json";
+            bjB = bjq + "filters/yuantu/yuantu.png";
+            bjz = bjq + "filter/beauty_skin_stream.png";
+            bjA = bjq + "filter/beauty_skin_small_video.png";
+            bjC = bjp + "makeup/";
+            bjD = bjp + "beauty/";
+            bjE = bjp + "arFilterInit/";
+            bjF = bjp + "arFilterEditInit/";
+            bjG = bjD + "liveVideoFace/face_knead.json";
         }
-        bjp = bjl + "global";
-        bjt = bjl + "vip_list.json";
-        bjs = bjl + "filters";
-        bjo = bjl + "dlModels/";
-        bjr = bjs + "/all";
-        bjq = bjl + "global/res/filter";
+        bju = bjq + "global";
+        bjy = bjq + "vip_list.json";
+        bjx = bjq + "filters";
+        bjt = bjq + "dlModels/";
+        bjw = bjx + "/all";
+        bjv = bjq + "global/res/filter";
     }
 
-    public static String Kb() {
-        return bjw;
-    }
-
-    public static String Kc() {
-        return bjl;
-    }
-
-    public static String Kd() {
-        return bjn;
-    }
-
-    public static String Ke() {
-        return bjp;
-    }
-
-    public static String Kf() {
-        return "/filter_config.json";
-    }
-
-    public static String Kg() {
+    public static String Ka() {
         return bjB;
     }
 
+    public static String Kb() {
+        return bjq;
+    }
+
+    public static String Kc() {
+        return bjs;
+    }
+
+    public static String Kd() {
+        return bju;
+    }
+
+    public static String Ke() {
+        return "/filter_config.json";
+    }
+
+    public static String Kf() {
+        return bjG;
+    }
+
     public static String cv(boolean z) {
-        return z ? bjz : bjA;
+        return z ? bjE : bjF;
     }
 }

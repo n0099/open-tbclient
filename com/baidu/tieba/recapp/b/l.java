@@ -5,38 +5,38 @@ import android.view.View;
 import com.baidu.adp.widget.ListView.y;
 /* loaded from: classes13.dex */
 public class l extends y.a implements com.baidu.tieba.play.f {
-    com.baidu.tieba.lego.card.view.e<?> hqz;
-    private com.baidu.tieba.recapp.h krT;
+    com.baidu.tieba.lego.card.view.e<?> hqF;
+    private com.baidu.tieba.recapp.h krX;
 
     public l(com.baidu.tieba.lego.card.view.e<?> eVar) {
         super((View) eVar);
-        this.hqz = eVar;
+        this.hqF = eVar;
     }
 
-    public void cng() {
-        if (this.hqz != null) {
-            this.hqz.cng();
+    public void cnd() {
+        if (this.hqF != null) {
+            this.hqF.cnd();
         }
     }
 
     public void a(com.baidu.tieba.recapp.h hVar) {
-        this.krT = hVar;
+        this.krX = hVar;
     }
 
     @Override // com.baidu.tieba.play.f
     public boolean isPlayStarted() {
-        if (this.krT == null) {
+        if (this.krX == null) {
             return false;
         }
-        return this.krT.isPlayStarted();
+        return this.krX.isPlayStarted();
     }
 
     @Override // com.baidu.tieba.play.f
     public boolean isPlaying() {
-        if (this.krT == null) {
+        if (this.krX == null) {
             return false;
         }
-        return this.krT.isPlaying();
+        return this.krX.isPlaying();
     }
 
     @Override // com.baidu.tieba.play.f
@@ -46,58 +46,58 @@ public class l extends y.a implements com.baidu.tieba.play.f {
 
     @Override // com.baidu.tieba.play.f
     public void startPlay() {
-        if (this.krT != null) {
-            this.krT.startPlay();
+        if (this.krX != null) {
+            this.krX.startPlay();
         }
     }
 
     @Override // com.baidu.tieba.play.f
     public void stopPlay() {
-        if (this.krT != null) {
-            this.krT.stopPlay();
+        if (this.krX != null) {
+            this.krX.stopPlay();
         }
     }
 
     @Override // com.baidu.tieba.play.f
     public View getVideoContainer() {
-        if (this.krT == null) {
+        if (this.krX == null) {
             return null;
         }
-        return this.krT.getVideoContainer();
+        return this.krX.getVideoContainer();
     }
 
     @Override // com.baidu.tieba.play.f
     public String getPlayUrl() {
-        return this.krT == null ? "" : this.krT.getPlayUrl();
+        return this.krX == null ? "" : this.krX.getPlayUrl();
     }
 
     @Override // com.baidu.tieba.play.f
     public int getCurrentPosition() {
-        if (this.krT == null) {
+        if (this.krX == null) {
             return 0;
         }
-        return (int) this.krT.getCurrentPosition();
+        return (int) this.krX.getCurrentPosition();
     }
 
     public int getPlayStatus() {
-        if (this.krT != null) {
-            return this.krT.getPlayStatus();
+        if (this.krX != null) {
+            return this.krX.getPlayStatus();
         }
         return -2;
     }
 
     public void autoPlay(int i) {
-        if (this.krT != null) {
-            this.krT.autoPlay(i);
+        if (this.krX != null) {
+            this.krX.autoPlay(i);
         }
     }
 
-    public boolean ff(Context context) {
-        if (this.krT == null) {
+    public boolean eT(Context context) {
+        if (this.krX == null) {
             return false;
         }
         int[] iArr = new int[2];
-        this.krT.getLocationInWindow(iArr);
-        return iArr[1] + this.krT.getHeight() >= 0 && iArr[1] <= com.baidu.adp.lib.util.l.getEquipmentHeight(context);
+        this.krX.getLocationInWindow(iArr);
+        return iArr[1] + this.krX.getHeight() >= 0 && iArr[1] <= com.baidu.adp.lib.util.l.getEquipmentHeight(context);
     }
 }

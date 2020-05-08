@@ -24,7 +24,7 @@ public class c extends com.meizu.cloud.pushsdk.handler.a.a<MessageV3> {
             return;
         }
         b().c(c(), MzPushMessage.fromMessageV3(messageV3));
-        a(messageV3);
+        b(messageV3);
     }
 
     @Override // com.meizu.cloud.pushsdk.handler.c
@@ -36,9 +36,9 @@ public class c extends com.meizu.cloud.pushsdk.handler.a.a<MessageV3> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.meizu.cloud.pushsdk.handler.a.a
-    /* renamed from: c */
+    /* renamed from: d */
     public void b(MessageV3 messageV3) {
-        com.meizu.cloud.pushsdk.util.c.b(c(), messageV3.getUploadDataPackageName(), messageV3.getDeviceId(), messageV3.getTaskId(), messageV3.getSeqId(), messageV3.getPushTimestamp());
+        com.meizu.cloud.pushsdk.util.d.b(c(), messageV3.getUploadDataPackageName(), messageV3.getDeviceId(), messageV3.getTaskId(), messageV3.getSeqId(), messageV3.getPushTimestamp());
     }
 
     /* JADX DEBUG: Method merged with bridge method */

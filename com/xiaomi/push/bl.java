@@ -1,35 +1,12 @@
 package com.xiaomi.push;
 
-import android.content.Context;
-import com.xiaomi.push.ai;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.text.TextUtils;
+import java.io.File;
+import java.io.FilenameFilter;
 /* loaded from: classes8.dex */
-public class bl extends ai.a {
-    final /* synthetic */ bk a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bl(bk bkVar) {
-        this.a = bkVar;
-    }
-
-    @Override // com.xiaomi.push.ai.a
-    /* renamed from: a */
-    public int mo160a() {
-        return 10052;
-    }
-
-    @Override // java.lang.Runnable
-    public void run() {
-        ca caVar;
-        ca caVar2;
-        Context context;
-        com.xiaomi.channel.commonutils.logger.b.c("exec== mUploadJob");
-        caVar = this.a.f152a;
-        if (caVar != null) {
-            caVar2 = this.a.f152a;
-            context = this.a.f149a;
-            caVar2.a(context);
-            this.a.b("upload_time");
-        }
+final class bl implements FilenameFilter {
+    @Override // java.io.FilenameFilter
+    public boolean accept(File file, String str) {
+        return (TextUtils.isEmpty(str) || str.toLowerCase().endsWith(".lock")) ? false : true;
     }
 }

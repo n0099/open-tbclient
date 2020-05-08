@@ -12,14 +12,14 @@ import java.net.ProtocolException;
 import java.net.URL;
 /* loaded from: classes3.dex */
 public class f implements com.baidu.tieba.ala.alaar.sticker.download.a.g {
-    private final g.a eKu;
+    private final g.a eKz;
     private volatile long mStartTime;
     private volatile int mStatus;
     private final String mUri;
 
     public f(String str, g.a aVar) {
         this.mUri = str;
-        this.eKu = aVar;
+        this.eKz = aVar;
     }
 
     @Override // com.baidu.tieba.ala.alaar.sticker.download.a.g
@@ -46,7 +46,7 @@ public class f implements com.baidu.tieba.ala.alaar.sticker.download.a.g {
     public void run() {
         Process.setThreadPriority(10);
         this.mStatus = 102;
-        this.eKu.onConnecting();
+        this.eKz.onConnecting();
         try {
             executeConnection();
         } catch (DownloadException e) {
@@ -126,7 +126,7 @@ public class f implements com.baidu.tieba.ala.alaar.sticker.download.a.g {
         }
         checkCanceledOrPaused();
         this.mStatus = 103;
-        this.eKu.onConnected(System.currentTimeMillis() - this.mStartTime, contentLength, z);
+        this.eKz.onConnected(System.currentTimeMillis() - this.mStartTime, contentLength, z);
     }
 
     private void checkCanceledOrPaused() throws DownloadException {
@@ -140,19 +140,19 @@ public class f implements com.baidu.tieba.ala.alaar.sticker.download.a.g {
 
     private void e(DownloadException downloadException) {
         if (downloadException.getErrorCode() == 108) {
-            synchronized (this.eKu) {
+            synchronized (this.eKz) {
                 this.mStatus = 108;
-                this.eKu.b(downloadException);
+                this.eKz.b(downloadException);
             }
         } else if (downloadException.getErrorCode() == 106) {
-            synchronized (this.eKu) {
+            synchronized (this.eKz) {
                 this.mStatus = 106;
-                this.eKu.onConnectPaused();
+                this.eKz.onConnectPaused();
             }
         } else if (downloadException.getErrorCode() == 107) {
-            synchronized (this.eKu) {
+            synchronized (this.eKz) {
                 this.mStatus = 107;
-                this.eKu.onConnectCanceled();
+                this.eKz.onConnectCanceled();
             }
         } else {
             throw new IllegalArgumentException("Unknown state");

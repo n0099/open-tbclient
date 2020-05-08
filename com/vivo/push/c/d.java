@@ -2,7 +2,7 @@ package com.vivo.push.c;
 
 import android.text.TextUtils;
 /* loaded from: classes8.dex */
-final class d extends aa {
+final class d extends ab {
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(com.vivo.push.y yVar) {
         super(yVar);
@@ -10,12 +10,12 @@ final class d extends aa {
 
     @Override // com.vivo.push.v
     protected final void a(com.vivo.push.y yVar) {
-        com.vivo.push.b.j jVar = (com.vivo.push.b.j) yVar;
-        String e = jVar.e();
-        com.vivo.push.p.a().a(jVar.g(), jVar.h(), e);
-        if (TextUtils.isEmpty(jVar.g()) && !TextUtils.isEmpty(e)) {
+        com.vivo.push.b.k kVar = (com.vivo.push.b.k) yVar;
+        String e = kVar.e();
+        com.vivo.push.p.a().a(kVar.g(), kVar.h(), e);
+        if (TextUtils.isEmpty(kVar.g()) && !TextUtils.isEmpty(e)) {
             com.vivo.push.p.a().a(e);
         }
-        com.vivo.push.w.b(new e(this, e, jVar));
+        com.vivo.push.w.b(new e(this, e, kVar));
     }
 }

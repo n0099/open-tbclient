@@ -6,38 +6,38 @@ import android.util.AttributeSet;
 import android.widget.ImageView;
 /* loaded from: classes.dex */
 public class AlaPlayAnimationView extends ImageView {
-    private ObjectAnimator aVr;
-    private boolean aVs;
-    private boolean aVt;
+    private ObjectAnimator aVw;
+    private boolean aVx;
+    private boolean aVy;
 
     public AlaPlayAnimationView(Context context) {
         super(context);
-        this.aVs = false;
-        this.aVt = false;
+        this.aVx = false;
+        this.aVy = false;
         init();
     }
 
     public AlaPlayAnimationView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aVs = false;
-        this.aVt = false;
+        this.aVx = false;
+        this.aVy = false;
         init();
     }
 
     private void init() {
-        this.aVr = ObjectAnimator.ofFloat(this, "alpha", 1.0f, 0.0f, 1.0f);
-        this.aVr.setRepeatMode(1);
-        this.aVr.setRepeatCount(-1);
-        this.aVr.setDuration(700L);
+        this.aVw = ObjectAnimator.ofFloat(this, "alpha", 1.0f, 0.0f, 1.0f);
+        this.aVw.setRepeatMode(1);
+        this.aVw.setRepeatCount(-1);
+        this.aVw.setDuration(700L);
         setVisibility(8);
-        this.aVs = false;
+        this.aVx = false;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.widget.ImageView, android.view.View
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
-        if (this.aVt) {
+        if (this.aVy) {
             startPlayAnimation();
         }
     }
@@ -46,30 +46,30 @@ public class AlaPlayAnimationView extends ImageView {
     @Override // android.widget.ImageView, android.view.View
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        Fk();
+        Fj();
     }
 
     public void setAutoStartPlay(boolean z) {
-        this.aVt = z;
+        this.aVy = z;
     }
 
     public void startPlayAnimation() {
-        if (!this.aVs) {
-            this.aVs = true;
-            if (this.aVr != null) {
+        if (!this.aVx) {
+            this.aVx = true;
+            if (this.aVw != null) {
                 setVisibility(0);
-                this.aVr.start();
+                this.aVw.start();
             }
         }
     }
 
-    public void Fk() {
-        if (this.aVr != null) {
-            this.aVr.setRepeatCount(-1);
-            this.aVr.cancel();
+    public void Fj() {
+        if (this.aVw != null) {
+            this.aVw.setRepeatCount(-1);
+            this.aVw.cancel();
             clearAnimation();
         }
-        this.aVs = false;
+        this.aVx = false;
         setVisibility(8);
     }
 }

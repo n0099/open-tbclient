@@ -51,21 +51,21 @@ public class d extends h<e, f> {
         if (eVar != null && fVar != null) {
             if (fVar.mSkinType != this.mSkinType) {
                 am.setBackgroundResource(fVar.getView(), R.drawable.frs_member_manito_bg);
-                am.setViewTextColor(fVar.cTr, R.color.cp_cont_f, 1);
-                am.setViewTextColor(fVar.gUx, R.color.cp_cont_d, 1);
+                am.setViewTextColor(fVar.cTw, R.color.cp_cont_f, 1);
+                am.setViewTextColor(fVar.gUD, R.color.cp_cont_d, 1);
                 am.setBackgroundColor(fVar.dividerLine, R.color.cp_bg_line_c);
-                am.setViewTextColor(fVar.gUy, R.color.cp_cont_d, 1);
+                am.setViewTextColor(fVar.gUE, R.color.cp_cont_d, 1);
             }
-            fVar.gUw.startLoad(eVar.getHeadUrl(), 12, false);
-            fVar.cTr.setText(ad.interceptString(eVar.getNameShow(), 16));
+            fVar.gUC.startLoad(eVar.getHeadUrl(), 12, false);
+            fVar.cTw.setText(ad.interceptString(eVar.getNameShow(), 16));
             if (StringUtils.isNull(eVar.getIntro())) {
-                fVar.gUx.setText(R.string.god_intro_default);
+                fVar.gUD.setText(R.string.god_intro_default);
             } else {
-                fVar.gUx.setText(ad.interceptString(eVar.getIntro(), 30));
+                fVar.gUD.setText(ad.interceptString(eVar.getIntro(), 30));
             }
             int color = am.getColor(R.color.cp_cont_h);
             String numberUniformFormat = aq.numberUniformFormat(eVar.getFansNum());
-            fVar.gUy.setText(a(String.format(this.mContext.getResources().getString(R.string.fans_count), numberUniformFormat), new String[]{numberUniformFormat}, new int[]{color}));
+            fVar.gUE.setText(a(String.format(this.mContext.getResources().getString(R.string.fans_count), numberUniformFormat), new String[]{numberUniformFormat}, new int[]{color}));
             fVar.getView().setTag(eVar);
             fVar.getView().setOnClickListener(this.mOnItemClickListener);
             fVar.mSkinType = this.mSkinType;

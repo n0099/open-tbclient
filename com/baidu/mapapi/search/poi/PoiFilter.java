@@ -49,14 +49,14 @@ public final class PoiFilter implements Parcelable {
         }
 
         public Builder industryType(IndustryType industryType) {
-            switch (d.a[industryType.ordinal()]) {
-                case 1:
+            switch (industryType) {
+                case HOTEL:
                     this.a = "hotel";
                     break;
-                case 2:
+                case CATER:
                     this.a = "cater";
                     break;
-                case 3:
+                case LIFE:
                     this.a = "life";
                     break;
                 default:

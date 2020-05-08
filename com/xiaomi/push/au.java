@@ -1,55 +1,81 @@
 package com.xiaomi.push;
 
-import java.util.LinkedList;
+import android.content.Context;
+import android.text.TextUtils;
+import java.util.Map;
 /* loaded from: classes8.dex */
-public class au {
-    private LinkedList<a> a = new LinkedList<>();
+public class au implements ar {
+    private static volatile au a;
 
-    /* loaded from: classes8.dex */
-    public static class a {
-        private static final au a = new au();
+    /* renamed from: a  reason: collision with other field name */
+    private ar f113a;
 
-        /* renamed from: a  reason: collision with other field name */
-        public int f131a;
+    private au(Context context) {
+        this.f113a = at.a(context);
+        com.xiaomi.channel.commonutils.logger.b.m50a("create id manager is: " + this.f113a);
+    }
 
-        /* renamed from: a  reason: collision with other field name */
-        public Object f132a;
-
-        /* renamed from: a  reason: collision with other field name */
-        public String f133a;
-
-        a(int i, Object obj) {
-            this.f131a = i;
-            this.f132a = obj;
+    public static au a(Context context) {
+        if (a == null) {
+            synchronized (au.class) {
+                if (a == null) {
+                    a = new au(context.getApplicationContext());
+                }
+            }
         }
+        return a;
     }
 
-    public static au a() {
-        return a.a;
+    private String a(String str) {
+        return str == null ? "" : str;
     }
 
-    /* renamed from: a  reason: collision with other method in class */
-    private void m140a() {
-        if (this.a.size() > 100) {
-            this.a.removeFirst();
+    @Override // com.xiaomi.push.ar
+    public String a() {
+        return a(this.f113a.a());
+    }
+
+    public void a(Map<String, String> map) {
+        if (map == null) {
+            return;
         }
+        String a2 = a();
+        if (!TextUtils.isEmpty(a2)) {
+            map.put("udid", a2);
+        }
+        String mo131b = mo131b();
+        if (!TextUtils.isEmpty(mo131b)) {
+            map.put("oaid", mo131b);
+        }
+        String c = c();
+        if (!TextUtils.isEmpty(c)) {
+            map.put("vaid", c);
+        }
+        String d = d();
+        if (TextUtils.isEmpty(d)) {
+            return;
+        }
+        map.put("aaid", d);
     }
 
-    /* renamed from: a  reason: collision with other method in class */
-    public synchronized int m141a() {
-        return this.a.size();
+    @Override // com.xiaomi.push.ar
+    public boolean a() {
+        return this.f113a.m133a();
     }
 
-    /* renamed from: a  reason: collision with other method in class */
-    public synchronized LinkedList<a> m142a() {
-        LinkedList<a> linkedList;
-        linkedList = this.a;
-        this.a = new LinkedList<>();
-        return linkedList;
+    @Override // com.xiaomi.push.ar
+    /* renamed from: b */
+    public String mo131b() {
+        return a(this.f113a.mo131b());
     }
 
-    public synchronized void a(Object obj) {
-        this.a.add(new a(0, obj));
-        m140a();
+    @Override // com.xiaomi.push.ar
+    public String c() {
+        return a(this.f113a.c());
+    }
+
+    @Override // com.xiaomi.push.ar
+    public String d() {
+        return a(this.f113a.d());
     }
 }

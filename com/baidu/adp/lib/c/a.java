@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class a {
-    private static a Ju = null;
+    private static a Jx = null;
     public long mTimeOutValue = 10000;
     public long lastLocationTime = 0;
     private long location_expiration = 300000;
@@ -25,7 +25,7 @@ public class a {
     private ArrayList<SoftReference<InterfaceC0018a>> mLocationCallBacks = null;
     private ArrayList<com.baidu.adp.lib.c.b> mLocationProviders = new ArrayList<>();
     private Handler handler = null;
-    private b Jv = new b() { // from class: com.baidu.adp.lib.c.a.1
+    private b Jy = new b() { // from class: com.baidu.adp.lib.c.a.1
         @Override // com.baidu.adp.lib.c.a.b
         public void onProviderGetLocation(int i, String str, Address address, long j, boolean z) {
             a.this.lastLocationTime = j;
@@ -78,21 +78,21 @@ public class a {
     }
 
     public static a ko() {
-        if (Ju == null) {
+        if (Jx == null) {
             synchronized (a.class) {
-                if (Ju == null) {
-                    Ju = new a();
+                if (Jx == null) {
+                    Jx = new a();
                 }
             }
         }
-        return Ju;
+        return Jx;
     }
 
     public void a(com.baidu.adp.lib.c.b bVar) {
         if (bVar != null) {
             synchronized (this.mLocationProviders) {
                 if (!this.mLocationProviders.contains(bVar)) {
-                    bVar.a(this.Jv);
+                    bVar.a(this.Jy);
                     this.mLocationProviders.add(bVar);
                 }
             }

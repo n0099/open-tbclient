@@ -8,35 +8,35 @@ import com.baidu.swan.apps.process.SwanAppProcessInfo;
 import com.baidu.swan.menu.MainMenuView;
 /* loaded from: classes11.dex */
 public class b implements com.baidu.swan.menu.a {
-    private FrameLayout ctC = null;
+    private FrameLayout ctI = null;
 
     @Override // com.baidu.swan.menu.a
     public void a(MainMenuView mainMenuView) {
         if (mainMenuView != null && !ProcessUtils.isMainProcess() && SwanAppProcessInfo.isSwanAppProcess(ProcessUtils.getCurProcessName())) {
-            if (com.baidu.swan.apps.w.a.ack().getNightModeSwitcherState()) {
+            if (com.baidu.swan.apps.w.a.acj().getNightModeSwitcherState()) {
                 r(mainMenuView);
             } else {
                 s(mainMenuView);
             }
-            mainMenuView.setCoverView(this.ctC);
+            mainMenuView.setCoverView(this.ctI);
         }
     }
 
     private void r(ViewGroup viewGroup) {
         if (viewGroup != null && (viewGroup instanceof FrameLayout)) {
-            if (this.ctC == null) {
-                this.ctC = new FrameLayout(viewGroup.getContext());
-                this.ctC.setBackgroundResource(a.c.aiapps_night_mode_cover_layer);
+            if (this.ctI == null) {
+                this.ctI = new FrameLayout(viewGroup.getContext());
+                this.ctI.setBackgroundResource(a.c.aiapps_night_mode_cover_layer);
             }
-            viewGroup.removeView(this.ctC);
-            viewGroup.addView(this.ctC, new FrameLayout.LayoutParams(-1, -1));
+            viewGroup.removeView(this.ctI);
+            viewGroup.addView(this.ctI, new FrameLayout.LayoutParams(-1, -1));
         }
     }
 
     private void s(ViewGroup viewGroup) {
-        if (viewGroup != null && this.ctC != null) {
-            viewGroup.removeView(this.ctC);
-            this.ctC = null;
+        if (viewGroup != null && this.ctI != null) {
+            viewGroup.removeView(this.ctI);
+            this.ctI = null;
         }
     }
 }

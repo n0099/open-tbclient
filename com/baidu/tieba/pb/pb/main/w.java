@@ -11,74 +11,74 @@ import com.baidu.tieba.pb.pb.sub.NewSubPbActivity;
 import com.baidu.tieba.tbadkCore.data.PostData;
 /* loaded from: classes9.dex */
 public class w extends com.baidu.tbadk.core.dialog.i {
-    private TbPageContext<?> duG;
-    private View.OnClickListener gVL;
-    private TextView jxn;
-    private TextView jxo;
-    private TextView jxp;
-    private TextView jxq;
+    private TbPageContext<?> duK;
+    private View.OnClickListener gVR;
     private TextView jxr;
     private TextView jxs;
     private TextView jxt;
     private TextView jxu;
-    private boolean jxv;
+    private TextView jxv;
+    private TextView jxw;
+    private TextView jxx;
+    private TextView jxy;
+    private boolean jxz;
 
     public w(TbPageContext<?> tbPageContext, View.OnClickListener onClickListener) {
         super(tbPageContext);
-        this.jxv = false;
-        this.duG = tbPageContext;
-        this.gVL = onClickListener;
-        WQ();
+        this.jxz = false;
+        this.duK = tbPageContext;
+        this.gVR = onClickListener;
+        WP();
     }
 
-    public TextView czy() {
-        return this.jxn;
-    }
-
-    public TextView czz() {
-        return this.jxo;
-    }
-
-    public TextView czA() {
-        return this.jxp;
-    }
-
-    public TextView czB() {
-        return this.jxq;
-    }
-
-    public TextView czC() {
+    public TextView czv() {
         return this.jxr;
     }
 
-    public TextView czD() {
-        return this.jxu;
-    }
-
-    public TextView czE() {
+    public TextView czw() {
         return this.jxs;
     }
 
-    public TextView czF() {
+    public TextView czx() {
         return this.jxt;
     }
 
-    private void WQ() {
-        a((String) null, new String[]{this.duG.getString(R.string.no_interesting), this.duG.getString(R.string.save_to_emotion), this.duG.getString(R.string.save_to_local), this.duG.getString(R.string.copy), this.duG.getString(R.string.mark), this.duG.getString(R.string.report_text), this.duG.getString(R.string.delete), this.duG.getString(R.string.mute)}, new k.c() { // from class: com.baidu.tieba.pb.pb.main.w.1
+    public TextView czy() {
+        return this.jxu;
+    }
+
+    public TextView czz() {
+        return this.jxv;
+    }
+
+    public TextView czA() {
+        return this.jxy;
+    }
+
+    public TextView czB() {
+        return this.jxw;
+    }
+
+    public TextView czC() {
+        return this.jxx;
+    }
+
+    private void WP() {
+        a((String) null, new String[]{this.duK.getString(R.string.no_interesting), this.duK.getString(R.string.save_to_emotion), this.duK.getString(R.string.save_to_local), this.duK.getString(R.string.copy), this.duK.getString(R.string.mark), this.duK.getString(R.string.report_text), this.duK.getString(R.string.delete), this.duK.getString(R.string.mute)}, new k.c() { // from class: com.baidu.tieba.pb.pb.main.w.1
             @Override // com.baidu.tbadk.core.dialog.k.c
             public void a(com.baidu.tbadk.core.dialog.k kVar, int i, View view) {
                 w.this.dismiss();
-                w.this.gVL.onClick(view);
+                w.this.gVR.onClick(view);
             }
         });
-        this.jxu = cH(getItemView(0));
-        this.jxn = cH(getItemView(4));
-        this.jxo = cH(getItemView(7));
-        this.jxp = cH(getItemView(5));
-        this.jxq = cH(getItemView(6));
-        this.jxr = cH(getItemView(3));
-        this.jxs = cH(getItemView(1));
-        this.jxt = cH(getItemView(2));
+        this.jxy = cH(getItemView(0));
+        this.jxr = cH(getItemView(4));
+        this.jxs = cH(getItemView(7));
+        this.jxt = cH(getItemView(5));
+        this.jxu = cH(getItemView(6));
+        this.jxv = cH(getItemView(3));
+        this.jxw = cH(getItemView(1));
+        this.jxx = cH(getItemView(2));
     }
 
     private TextView cH(View view) {
@@ -86,7 +86,7 @@ public class w extends com.baidu.tbadk.core.dialog.i {
     }
 
     public void ri(boolean z) {
-        this.jxp.setVisibility(z ? 0 : 8);
+        this.jxt.setVisibility(z ? 0 : 8);
     }
 
     public View getView() {
@@ -115,10 +115,10 @@ public class w extends com.baidu.tbadk.core.dialog.i {
             SparseArray sparseArray2 = new SparseArray();
             sparseArray2.put(R.id.tag_clip_board, (PostData) sparseArray.get(R.id.tag_clip_board));
             sparseArray2.put(R.id.tag_is_subpb, false);
-            czy().setTag(sparseArray2);
+            czv().setTag(sparseArray2);
             SparseArray sparseArray3 = new SparseArray();
             sparseArray3.put(R.id.tag_clip_board, (PostData) sparseArray.get(R.id.tag_clip_board));
-            czC().setTag(sparseArray3);
+            czz().setTag(sparseArray3);
             boolean booleanValue = sparseArray.get(R.id.tag_should_manage_visible) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.tag_should_manage_visible)).booleanValue() : false;
             boolean booleanValue2 = sparseArray.get(R.id.tag_user_mute_visible) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.tag_user_mute_visible)).booleanValue() : false;
             boolean booleanValue3 = sparseArray.get(R.id.tag_should_delete_visible) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.tag_should_delete_visible)).booleanValue() : false;
@@ -151,15 +151,15 @@ public class w extends com.baidu.tbadk.core.dialog.i {
                     sparseArray4.put(R.id.tag_del_post_is_self, Boolean.valueOf(booleanValue4));
                     sparseArray4.put(R.id.tag_del_post_id, sparseArray.get(R.id.tag_del_post_id));
                     sparseArray4.put(R.id.tag_del_post_type, sparseArray.get(R.id.tag_del_post_type));
-                    czB().setVisibility(0);
+                    czy().setVisibility(0);
                 } else {
                     sparseArray4.put(R.id.tag_should_delete_visible, false);
-                    czB().setVisibility(8);
+                    czy().setVisibility(8);
                 }
-                czz().setTag(sparseArray4);
-                czB().setTag(sparseArray4);
-                czz().setText(R.string.bar_manager);
-                czz().setVisibility(0);
+                czw().setTag(sparseArray4);
+                czy().setTag(sparseArray4);
+                czw().setText(R.string.bar_manager);
+                czw().setVisibility(0);
             } else if (booleanValue3) {
                 SparseArray sparseArray5 = new SparseArray();
                 sparseArray5.put(R.id.tag_should_manage_visible, false);
@@ -169,19 +169,19 @@ public class w extends com.baidu.tbadk.core.dialog.i {
                 sparseArray5.put(R.id.tag_del_post_is_self, Boolean.valueOf(booleanValue4));
                 sparseArray5.put(R.id.tag_del_post_id, sparseArray.get(R.id.tag_del_post_id));
                 sparseArray5.put(R.id.tag_del_post_type, sparseArray.get(R.id.tag_del_post_type));
-                czz().setTag(sparseArray5);
-                czB().setTag(sparseArray5);
-                czz().setText(R.string.delete);
-                czB().setVisibility(0);
+                czw().setTag(sparseArray5);
+                czy().setTag(sparseArray5);
+                czw().setText(R.string.delete);
+                czy().setVisibility(0);
                 if (i == 1002 && !booleanValue4) {
-                    czB().setText(R.string.report_text);
+                    czy().setText(R.string.report_text);
                 } else {
-                    czB().setText(R.string.delete);
+                    czy().setText(R.string.delete);
                 }
-                czz().setVisibility(8);
+                czw().setVisibility(8);
             } else {
-                czz().setVisibility(8);
-                czB().setVisibility(8);
+                czw().setVisibility(8);
+                czy().setVisibility(8);
             }
             boolean booleanValue5 = sparseArray.get(R.id.tag_user_mute_visible) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.tag_user_mute_visible)).booleanValue() : false;
             if (!(sparseArray.get(R.id.tag_should_manage_visible) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.tag_should_manage_visible)).booleanValue() : false) && booleanValue5) {
@@ -197,10 +197,10 @@ public class w extends com.baidu.tbadk.core.dialog.i {
                 sparseArray6.put(R.id.tag_del_post_type, sparseArray.get(R.id.tag_del_post_type));
                 sparseArray6.put(R.id.tag_del_post_id, sparseArray.get(R.id.tag_del_post_id));
                 sparseArray6.put(R.id.tag_manage_user_identity, sparseArray.get(R.id.tag_manage_user_identity));
-                czA().setTag(sparseArray6);
-                czA().setVisibility(0);
-                czz().setVisibility(8);
-                czA().setText(R.string.mute_option);
+                czx().setTag(sparseArray6);
+                czx().setVisibility(0);
+                czw().setVisibility(8);
+                czx().setText(R.string.mute_option);
             } else {
                 if (sparseArray.get(R.id.tag_del_post_is_self) instanceof Boolean) {
                     ((Boolean) sparseArray.get(R.id.tag_del_post_is_self)).booleanValue();
@@ -210,10 +210,10 @@ public class w extends com.baidu.tbadk.core.dialog.i {
                     str2 = (String) sparseArray.get(R.id.tag_forbid_user_post_id);
                 }
                 if (z) {
-                    czA().setVisibility(0);
-                    czA().setTag(str2);
+                    czx().setVisibility(0);
+                    czx().setTag(str2);
                 } else {
-                    czA().setVisibility(8);
+                    czx().setVisibility(8);
                 }
             }
             long j = 0;
@@ -227,37 +227,37 @@ public class w extends com.baidu.tbadk.core.dialog.i {
             }
             int intValue = sparseArray.get(R.id.tag_chudian_hide_day) instanceof Integer ? ((Integer) sparseArray.get(R.id.tag_chudian_hide_day)).intValue() : 0;
             if (booleanValue6) {
-                czD().setVisibility(0);
-                czD().setTag(R.id.tag_chudian_template_id, Long.valueOf(j));
-                czD().setTag(R.id.tag_chudian_monitor_id, str3);
-                czD().setTag(R.id.tag_chudian_hide_day, Integer.valueOf(intValue));
+                czA().setVisibility(0);
+                czA().setTag(R.id.tag_chudian_template_id, Long.valueOf(j));
+                czA().setTag(R.id.tag_chudian_monitor_id, str3);
+                czA().setTag(R.id.tag_chudian_hide_day, Integer.valueOf(intValue));
             } else {
-                czD().setVisibility(8);
+                czA().setVisibility(8);
             }
             if (sparseArray.get(R.id.tag_richtext_emotion) instanceof Boolean) {
                 z2 = ((Boolean) sparseArray.get(R.id.tag_richtext_emotion)).booleanValue();
-                if (this.duG.getPageActivity() instanceof NewSubPbActivity) {
-                    NewSubPbActivity newSubPbActivity = (NewSubPbActivity) this.duG.getPageActivity();
-                    z2 = (!z2 || newSubPbActivity.cCs() == null || newSubPbActivity.cCs().cCQ() == null || newSubPbActivity.cCs().cCQ().aIw() == null || newSubPbActivity.cCs().cCQ().aIw().isBjh()) ? false : true;
+                if (this.duK.getPageActivity() instanceof NewSubPbActivity) {
+                    NewSubPbActivity newSubPbActivity = (NewSubPbActivity) this.duK.getPageActivity();
+                    z2 = (!z2 || newSubPbActivity.cCp() == null || newSubPbActivity.cCp().cCN() == null || newSubPbActivity.cCp().cCN().aIu() == null || newSubPbActivity.cCp().cCN().aIu().isBjh()) ? false : true;
                 }
             } else {
                 z2 = false;
             }
             boolean booleanValue7 = sparseArray.get(R.id.tag_richtext_image) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.tag_richtext_image)).booleanValue() : false;
             if (z2) {
-                czE().setVisibility(0);
+                czB().setVisibility(0);
             } else {
-                czE().setVisibility(8);
+                czB().setVisibility(8);
             }
             if (booleanValue7) {
-                czF().setVisibility(0);
+                czC().setVisibility(0);
             } else {
-                czF().setVisibility(8);
+                czC().setVisibility(8);
             }
             if (z2 || booleanValue7) {
-                czC().setVisibility(8);
+                czz().setVisibility(8);
             } else {
-                czC().setVisibility(0);
+                czz().setVisibility(0);
             }
         }
     }

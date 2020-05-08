@@ -25,44 +25,44 @@ import tv.chushou.zues.b;
 import tv.chushou.zues.utils.f;
 /* loaded from: classes5.dex */
 public class b {
-    public static final int nsK = b.C0831b.status_color_dark;
-    public static final int nsL = b.C0831b.status_color_lignt;
-    private static boolean nsM = false;
-    private static int nsN = 50;
+    public static final int nsN = b.C0852b.status_color_dark;
+    public static final int nsO = b.C0852b.status_color_lignt;
+    private static boolean nsP = false;
+    private static int nsQ = 50;
 
     public static int aw(Activity activity) {
         int aC = aC(activity);
         if (aC > 0) {
-            a(activity, ContextCompat.getColor(activity, nsL), 0);
+            a(activity, ContextCompat.getColor(activity, nsO), 0);
         } else {
-            a(activity, ContextCompat.getColor(activity, nsK), 0);
+            a(activity, ContextCompat.getColor(activity, nsN), 0);
         }
         return aC;
     }
 
     public static int ax(Activity activity) {
         if (ay(activity)) {
-            return br(activity, "navigation_bar_height");
+            return bf(activity, "navigation_bar_height");
         }
         return 0;
     }
 
-    public static int gl(Context context) {
-        if (!gp(context) || gq(context) || gr(context)) {
+    public static int fY(Context context) {
+        if (!gc(context) || ge(context) || gf(context)) {
             return 0;
         }
-        return br(context, "navigation_bar_height");
+        return bf(context, "navigation_bar_height");
     }
 
-    public static int gm(Context context) {
-        if (!gp(context) || gq(context) || gr(context)) {
+    public static int fZ(Context context) {
+        if (!gc(context) || ge(context) || gf(context)) {
             return 0;
         }
-        return br(context, "navigation_bar_width");
+        return bf(context, "navigation_bar_width");
     }
 
-    public static boolean gn(Context context) {
-        return gp(context) && !gq(context) && !gr(context) && br(context, "navigation_bar_width") > 0;
+    public static boolean ga(Context context) {
+        return gc(context) && !ge(context) && !gf(context) && bf(context, "navigation_bar_width") > 0;
     }
 
     public static boolean ay(Activity activity) {
@@ -90,16 +90,16 @@ public class b {
     }
 
     public static int getStatusBarHeight(Context context) {
-        if (!nsM) {
-            nsN = br(context, "status_bar_height");
-            if (nsN > 0) {
-                nsM = true;
+        if (!nsP) {
+            nsQ = bf(context, "status_bar_height");
+            if (nsQ > 0) {
+                nsP = true;
             }
         }
-        return nsN;
+        return nsQ;
     }
 
-    public static int go(Context context) {
+    public static int gb(Context context) {
         TypedValue typedValue = new TypedValue();
         if (!context.getTheme().resolveAttribute(16843499, typedValue, true)) {
             return 0;
@@ -107,7 +107,7 @@ public class b {
         return TypedValue.complexToDimensionPixelSize(typedValue.data, context.getResources().getDisplayMetrics());
     }
 
-    private static boolean gp(Context context) {
+    private static boolean gc(Context context) {
         if (Build.VERSION.SDK_INT >= 14) {
             Resources resources = context.getResources();
             int identifier = resources.getIdentifier("config_showNavigationBar", "bool", "android");
@@ -122,7 +122,7 @@ public class b {
                         r0 = false;
                     } else if (!"0".equals(str)) {
                         if (!z) {
-                            if (tv.chushou.zues.utils.a.gi(context).y == tv.chushou.zues.utils.a.gh(context).y) {
+                            if (tv.chushou.zues.utils.a.fV(context).y == tv.chushou.zues.utils.a.fU(context).y) {
                                 r0 = false;
                             }
                         }
@@ -137,7 +137,7 @@ public class b {
         return false;
     }
 
-    public static boolean gq(Context context) {
+    public static boolean ge(Context context) {
         int i;
         try {
             i = Settings.Secure.getInt(context.getContentResolver(), "navigation_gesture_on", 0);
@@ -147,7 +147,7 @@ public class b {
         return i != 0;
     }
 
-    public static boolean gr(Context context) {
+    public static boolean gf(Context context) {
         int i;
         try {
             i = Build.VERSION.SDK_INT >= 17 ? Settings.Global.getInt(context.getContentResolver(), "force_fsg_nav_bar", 0) : 0;
@@ -214,7 +214,7 @@ public class b {
         return ((int) ((f * (i & 255)) + 0.5d)) | (((int) ((((i >> 16) & 255) * f) + 0.5d)) << 16) | ViewCompat.MEASURED_STATE_MASK | (((int) ((((i >> 8) & 255) * f) + 0.5d)) << 8);
     }
 
-    private static int br(Context context, String str) {
+    private static int bf(Context context, String str) {
         Resources resources = context.getResources();
         int identifier = resources.getIdentifier(str, "dimen", "android");
         if (identifier <= 0) {

@@ -11,7 +11,7 @@ import com.baidu.swan.game.ad.entity.AdResponseInfo;
 import okhttp3.Response;
 /* loaded from: classes11.dex */
 public class a {
-    private a.InterfaceC0357a cGH;
+    private a.InterfaceC0378a cGN;
     private Context mContext;
 
     public a(Context context) {
@@ -48,12 +48,12 @@ public class a {
                     if (adResponseInfo == null) {
                         a.this.pb("200000");
                     } else if (adResponseInfo.getAdInstanceList().size() > 0) {
-                        final AdElementInfo asF = adResponseInfo.asF();
+                        final AdElementInfo asE = adResponseInfo.asE();
                         ai.runOnUiThread(new Runnable() { // from class: com.baidu.swan.game.ad.c.a.1.1
                             @Override // java.lang.Runnable
                             public void run() {
-                                if (a.this.cGH != null) {
-                                    a.this.cGH.b(asF);
+                                if (a.this.cGN != null) {
+                                    a.this.cGN.b(asE);
                                 }
                             }
                         });
@@ -72,9 +72,9 @@ public class a {
                 }
             };
             if (SwanAppNetworkUtils.isNetworkConnected(this.mContext)) {
-                String asQ = dVar.asQ();
+                String asP = dVar.asP();
                 if (bVar != null) {
-                    bVar.a(asQ, responseCallback);
+                    bVar.a(asP, responseCallback);
                     return;
                 }
                 return;
@@ -83,8 +83,8 @@ public class a {
         }
     }
 
-    public void a(a.InterfaceC0357a interfaceC0357a) {
-        this.cGH = interfaceC0357a;
+    public void a(a.InterfaceC0378a interfaceC0378a) {
+        this.cGN = interfaceC0378a;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -92,8 +92,8 @@ public class a {
         ai.runOnUiThread(new Runnable() { // from class: com.baidu.swan.game.ad.c.a.2
             @Override // java.lang.Runnable
             public void run() {
-                if (a.this.cGH != null) {
-                    a.this.cGH.oW(str);
+                if (a.this.cGN != null) {
+                    a.this.cGN.oW(str);
                 }
             }
         });

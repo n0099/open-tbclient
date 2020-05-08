@@ -5,11 +5,11 @@ import org.json.JSONArray;
 /* loaded from: classes.dex */
 public class al {
     public int cardType;
-    private long doU;
-    public int doW;
-    public JSONArray doX;
-    public String doY;
-    public int doZ;
+    private long doY;
+    public int dpa;
+    public JSONArray dpb;
+    public String dpc;
+    public int dpd;
     public String extra;
     private String fid;
     public String source;
@@ -18,7 +18,7 @@ public class al {
     private String type;
     public String weight;
     public SparseArray<String> feedBackReasonMap = null;
-    public SparseArray<String> doV = null;
+    public SparseArray<String> doZ = null;
 
     public String getTid() {
         return this.tid;
@@ -57,26 +57,26 @@ public class al {
     }
 
     public void jF(int i) {
-        this.doW = i;
+        this.dpa = i;
     }
 
-    public int aJi() {
-        return this.doW;
+    public int aJg() {
+        return this.dpa;
     }
 
     public void N(JSONArray jSONArray) {
-        this.doX = jSONArray;
+        this.dpb = jSONArray;
     }
 
-    public JSONArray aJj() {
-        return this.doX;
+    public JSONArray aJh() {
+        return this.dpb;
     }
 
-    public long aJk() {
-        return this.doU;
+    public long aJi() {
+        return this.doY;
     }
 
     public void bY(long j) {
-        this.doU = j;
+        this.doY = j;
     }
 }

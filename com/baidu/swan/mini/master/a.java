@@ -9,10 +9,10 @@ import com.baidu.swan.games.e.h;
 /* loaded from: classes11.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private com.baidu.swan.games.e.a bJA;
-    private com.baidu.swan.games.binding.a bNU = new com.baidu.swan.games.binding.a();
-    private b cZw;
-    private String cZx;
+    private com.baidu.swan.games.e.a bJF;
+    private com.baidu.swan.games.binding.a bNZ = new com.baidu.swan.games.binding.a();
+    private b cZB;
+    private String cZC;
 
     /* loaded from: classes11.dex */
     public interface b {
@@ -20,49 +20,49 @@ public class a {
     }
 
     public a(@NonNull String str, @NonNull String str2, @Nullable Object obj) {
-        this.bJA = g.a(WV(), new C0393a(str, str2, obj), null);
+        this.bJF = g.a(WU(), new C0414a(str, str2, obj), null);
     }
 
     public void setCodeCacheSetting(V8EngineConfiguration.CodeCacheSetting codeCacheSetting) {
-        this.bJA.setCodeCacheSetting(codeCacheSetting);
+        this.bJF.setCodeCacheSetting(codeCacheSetting);
     }
 
     public com.baidu.swan.games.e.a getV8Engine() {
-        return this.bJA;
+        return this.bJF;
     }
 
     public void finish() {
-        this.bJA.finish();
+        this.bJF.finish();
     }
 
-    private h WV() {
+    private h WU() {
         return new h.a().hX(1).pV("master").avU();
     }
 
     public void a(b bVar) {
-        this.cZw = bVar;
+        this.cZB = bVar;
     }
 
     @Nullable
     public String aBw() {
-        return this.cZx;
+        return this.cZC;
     }
 
     public void rv(@NonNull String str) {
-        this.cZx = str;
+        this.cZC = str;
     }
 
     /* renamed from: com.baidu.swan.mini.master.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    private class C0393a extends com.baidu.swan.games.e.d.a {
-        private Object cZy;
+    private class C0414a extends com.baidu.swan.games.e.d.a {
+        private Object cZD;
         private String mBasePath;
         private String mFileName;
 
-        C0393a(@NonNull String str, @NonNull String str2, @Nullable Object obj) {
+        C0414a(@NonNull String str, @NonNull String str2, @Nullable Object obj) {
             this.mBasePath = str;
             this.mFileName = str2;
-            this.cZy = obj;
+            this.cZD = obj;
             if (a.DEBUG) {
                 Log.d("SwanAppV8Master", "basePath: " + str + ", jsFile: " + str2);
             }
@@ -70,8 +70,8 @@ public class a {
 
         @Override // com.baidu.swan.games.e.d.a, com.baidu.swan.games.e.d.b
         @Nullable
-        public V8EngineConfiguration.CodeCacheSetting WW() {
-            if (com.baidu.swan.apps.w.a.abR().dY(0)) {
+        public V8EngineConfiguration.CodeCacheSetting WV() {
+            if (com.baidu.swan.apps.w.a.abQ().dY(0)) {
                 if (a.DEBUG) {
                     Log.d("SwanAppV8Master", "pathList item: " + this.mBasePath);
                 }
@@ -86,21 +86,21 @@ public class a {
         }
 
         @Override // com.baidu.swan.games.e.d.a, com.baidu.swan.games.e.d.b
-        public String WX() {
+        public String WW() {
             return this.mFileName;
         }
 
         @Override // com.baidu.swan.games.e.d.a, com.baidu.swan.games.e.d.b
         public void a(com.baidu.swan.games.e.a aVar) {
-            if (this.cZy != null) {
-                aVar.addJavascriptInterface(this.cZy, "___NA_SWAN_MINI___");
+            if (this.cZD != null) {
+                aVar.addJavascriptInterface(this.cZD, "___NA_SWAN_MINI___");
             }
         }
 
         @Override // com.baidu.swan.games.e.d.a, com.baidu.swan.games.e.d.b
         public void b(com.baidu.swan.games.e.a aVar) {
-            if (a.this.cZw != null) {
-                a.this.cZw.c(aVar);
+            if (a.this.cZB != null) {
+                a.this.cZB.c(aVar);
             }
             aVar.onLoad();
         }

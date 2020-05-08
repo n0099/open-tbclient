@@ -12,12 +12,14 @@ public class a {
             return "";
         }
         StringWriter stringWriter = new StringWriter();
-        th.printStackTrace(new PrintWriter(stringWriter));
+        PrintWriter printWriter = new PrintWriter(stringWriter);
+        th.printStackTrace(printWriter);
+        printWriter.close();
         return stringWriter.toString();
     }
 
     public static void a(String str, String str2, Context context) {
-        if (!PushSettings.d(context) || str2 == null) {
+        if (!PushSettings.e(context) || str2 == null) {
             return;
         }
         Log.d("BDPushSDK-" + str, str2);
@@ -28,23 +30,16 @@ public class a {
     }
 
     public static void b(String str, String str2, Context context) {
-        if (!PushSettings.d(context) || str2 == null) {
+        if (!PushSettings.e(context) || str2 == null) {
             return;
         }
         Log.e("BDPushSDK-" + str, str2);
     }
 
     public static void c(String str, String str2, Context context) {
-        if (!PushSettings.d(context) || str2 == null) {
+        if (!PushSettings.e(context) || str2 == null) {
             return;
         }
         Log.i("BDPushSDK-" + str, str2);
-    }
-
-    public static void d(String str, String str2, Context context) {
-        if (!PushSettings.d(context) || str2 == null) {
-            return;
-        }
-        Log.w("BDPushSDK-" + str, str2);
     }
 }

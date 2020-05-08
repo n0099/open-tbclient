@@ -16,7 +16,7 @@ import android.widget.FrameLayout;
 import com.baidu.fsg.base.widget.textfilter.EditTextPasteFilterUtils;
 import com.baidu.live.adp.R;
 import com.baidu.live.adp.lib.util.BdLog;
-import com.baidu.sapi2.shell.SapiErrorCode;
+import com.baidu.sapi2.result.OneKeyLoginResult;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
@@ -327,9 +327,9 @@ public class VerticalTranslateLayout extends FrameLayout {
                     this.mLastDownX = x;
                     this.mLastDownY = y;
                     this.mHandler.removeMessages(-100);
-                    this.mHandler.removeMessages(MSG_ANIMATE_TOP_OPEN);
+                    this.mHandler.removeMessages(-104);
                     this.mHandler.removeMessages(-101);
-                    this.mHandler.removeMessages(MSG_ANIMATE_BOTTOM_OPEN);
+                    this.mHandler.removeMessages(-105);
                     return false;
                 case 1:
                 default:
@@ -489,14 +489,14 @@ public class VerticalTranslateLayout extends FrameLayout {
         public void handleMessage(Message message) {
             if (VerticalTranslateLayout.this.mAnimator.iAnimating) {
                 switch (message.what) {
-                    case VerticalTranslateLayout.MSG_ANIMATE_BOTTOM_OPEN /* -105 */:
+                    case -105:
                         VerticalTranslateLayout.this.mAnimator.computeBottomOpenAnimation();
                         return;
-                    case VerticalTranslateLayout.MSG_ANIMATE_TOP_OPEN /* -104 */:
+                    case -104:
                         VerticalTranslateLayout.this.mAnimator.computeTopOpenAnimation();
                         return;
-                    case SapiErrorCode.INVALID_ARG /* -103 */:
-                    case -102:
+                    case -103:
+                    case OneKeyLoginResult.ONE_KEY_LOGIN_CODE_GET_TOKEN_FAIL /* -102 */:
                     default:
                         return;
                     case -101:
@@ -725,7 +725,7 @@ public class VerticalTranslateLayout extends FrameLayout {
             }
             VerticalTranslateLayout.this.mTopTranslate = (int) (AnimationConfig.computeInterpolator(this.iAnimationDistance, this.iAnimatingPosition, false) + this.iAnimationStart);
             VerticalTranslateLayout.this.invalidate();
-            VerticalTranslateLayout.this.mHandler.sendEmptyMessageAtTime(VerticalTranslateLayout.MSG_ANIMATE_TOP_OPEN, this.iCurrentAnimationTime);
+            VerticalTranslateLayout.this.mHandler.sendEmptyMessageAtTime(-104, this.iCurrentAnimationTime);
         }
 
         void computeBottomOpenAnimation() {
@@ -743,7 +743,7 @@ public class VerticalTranslateLayout extends FrameLayout {
             }
             VerticalTranslateLayout.this.mTopTranslate = (int) (AnimationConfig.computeInterpolator(this.iAnimationDistance, this.iAnimatingPosition, false) + this.iAnimationStart);
             VerticalTranslateLayout.this.invalidate();
-            VerticalTranslateLayout.this.mHandler.sendEmptyMessageAtTime(VerticalTranslateLayout.MSG_ANIMATE_BOTTOM_OPEN, this.iCurrentAnimationTime);
+            VerticalTranslateLayout.this.mHandler.sendEmptyMessageAtTime(-105, this.iCurrentAnimationTime);
         }
 
         void animateTopOpen(float f) {
@@ -760,10 +760,10 @@ public class VerticalTranslateLayout extends FrameLayout {
             this.iAnimatingPosition = 0.0f;
             this.iAnimationDistance = 0 - VerticalTranslateLayout.this.mTopTranslate;
             this.iAnimationStart = VerticalTranslateLayout.this.mTopTranslate;
-            VerticalTranslateLayout.this.mHandler.removeMessages(VerticalTranslateLayout.MSG_ANIMATE_TOP_OPEN);
+            VerticalTranslateLayout.this.mHandler.removeMessages(-104);
             BdLog.d("Animator@animateTopOpen " + this.iAnimationDistance);
             BdLog.d("Animator@animateTopOpen " + f);
-            VerticalTranslateLayout.this.mHandler.sendEmptyMessageAtTime(VerticalTranslateLayout.MSG_ANIMATE_TOP_OPEN, this.iCurrentAnimationTime);
+            VerticalTranslateLayout.this.mHandler.sendEmptyMessageAtTime(-104, this.iCurrentAnimationTime);
         }
 
         void animateBottomOpen(float f) {
@@ -782,8 +782,8 @@ public class VerticalTranslateLayout extends FrameLayout {
             this.iAnimationStart = VerticalTranslateLayout.this.mTopTranslate;
             BdLog.d("Animator@animateBottomOpen " + this.iAnimationDistance);
             BdLog.d("Animator@animateBottomOpen " + f);
-            VerticalTranslateLayout.this.mHandler.removeMessages(VerticalTranslateLayout.MSG_ANIMATE_BOTTOM_OPEN);
-            VerticalTranslateLayout.this.mHandler.sendEmptyMessageAtTime(VerticalTranslateLayout.MSG_ANIMATE_BOTTOM_OPEN, this.iCurrentAnimationTime);
+            VerticalTranslateLayout.this.mHandler.removeMessages(-105);
+            VerticalTranslateLayout.this.mHandler.sendEmptyMessageAtTime(-105, this.iCurrentAnimationTime);
         }
 
         void animateTop(float f) {

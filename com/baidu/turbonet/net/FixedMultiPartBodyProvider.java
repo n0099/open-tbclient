@@ -28,6 +28,6 @@ public class FixedMultiPartBodyProvider extends UploadDataProvider {
     @Override // com.baidu.turbonet.net.UploadDataProvider
     public void a(UploadDataSink uploadDataSink) {
         this.mOffset = 0;
-        uploadDataSink.diS();
+        uploadDataSink.diP();
     }
 }

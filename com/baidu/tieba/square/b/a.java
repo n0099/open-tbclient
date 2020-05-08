@@ -4,23 +4,23 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.d;
 /* loaded from: classes10.dex */
 public class a extends d {
-    private static final String kLA = TbConfig.SERVER_ADDRESS + TbConfig.FORUM_SQUARE;
+    private static final String kLE = TbConfig.SERVER_ADDRESS + TbConfig.FORUM_SQUARE;
 
-    public String cUG() {
-        setUrl(kLA);
+    public String cUD() {
+        setUrl(kLE);
         return getResult();
     }
 
-    public long cUH() {
-        if (this.blF != null) {
-            return this.blF.aOy().aPb().dAq.JN;
+    public long cUE() {
+        if (this.blK != null) {
+            return this.blK.aOw().aOY().dAu.JQ;
         }
         return 0L;
     }
 
-    public long cUI() {
-        if (this.blF != null) {
-            return this.blF.aOy().aPb().dAq.connectTime;
+    public long cUF() {
+        if (this.blK != null) {
+            return this.blK.aOw().aOY().dAu.connectTime;
         }
         return 0L;
     }

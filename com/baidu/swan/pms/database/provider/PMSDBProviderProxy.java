@@ -15,17 +15,17 @@ import com.baidu.swan.pms.d;
 import java.util.ArrayList;
 /* loaded from: classes11.dex */
 public class PMSDBProviderProxy extends ContentProvider {
-    private volatile b dah;
+    private volatile b dam;
 
     public b aBQ() {
-        if (this.dah == null) {
+        if (this.dam == null) {
             synchronized (b.class) {
-                if (this.dah == null) {
-                    this.dah = new b(getContext());
+                if (this.dam == null) {
+                    this.dam = new b(getContext());
                 }
             }
         }
-        return this.dah;
+        return this.dam;
     }
 
     @Override // android.content.ContentProvider
@@ -65,7 +65,7 @@ public class PMSDBProviderProxy extends ContentProvider {
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [104=4, 105=4, 106=4] */
     @Override // android.content.ContentProvider
     public ContentProviderResult[] applyBatch(@NonNull ArrayList<ContentProviderOperation> arrayList) throws OperationApplicationException {
-        SQLiteDatabase writableDatabase = aBQ().YQ().getWritableDatabase();
+        SQLiteDatabase writableDatabase = aBQ().YP().getWritableDatabase();
         try {
             try {
                 if (d.DEBUG) {

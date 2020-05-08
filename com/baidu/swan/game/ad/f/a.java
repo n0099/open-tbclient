@@ -4,18 +4,18 @@ import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 /* loaded from: classes11.dex */
 public class a {
-    private static volatile a cHC;
+    private static volatile a cHI;
     private List<j> mCallbacks = new CopyOnWriteArrayList();
 
     public static a asS() {
-        if (cHC == null) {
+        if (cHI == null) {
             synchronized (a.class) {
-                if (cHC == null) {
-                    cHC = new a();
+                if (cHI == null) {
+                    cHI = new a();
                 }
             }
         }
-        return cHC;
+        return cHI;
     }
 
     public void a(j jVar) {

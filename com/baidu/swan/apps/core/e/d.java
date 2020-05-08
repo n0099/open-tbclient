@@ -10,42 +10,42 @@ import com.baidu.swan.apps.res.widget.dialog.b;
 import com.baidu.swan.apps.res.widget.dialog.g;
 /* loaded from: classes11.dex */
 public class d extends com.baidu.swan.apps.res.widget.dialog.b {
-    private FrameLayout bMQ;
-    private a bNR;
+    private FrameLayout bMV;
+    private a bNW;
 
     protected d(Context context) {
         super(context);
     }
 
     public void a(a aVar) {
-        this.bNR = aVar;
+        this.bNW = aVar;
     }
 
     @Override // com.baidu.swan.apps.res.widget.dialog.b
     protected View createContentView(ViewGroup viewGroup) {
         View inflate = LayoutInflater.from(this.mContext).inflate(a.g.aiapps_view_ssl_certificate_dialog, viewGroup, false);
-        this.bMQ = (FrameLayout) inflate.findViewById(a.f.ssl_certificate_container);
-        WT();
+        this.bMV = (FrameLayout) inflate.findViewById(a.f.ssl_certificate_container);
+        WS();
         return inflate;
     }
 
-    private void WT() {
-        if (this.bNR == null) {
+    private void WS() {
+        if (this.bNW == null) {
             return;
         }
-        this.bMQ.addView(this.bNR.contentView);
+        this.bMV.addView(this.bNW.contentView);
     }
 
     /* loaded from: classes11.dex */
-    public static class a extends b.C0312b {
+    public static class a extends b.C0333b {
         private View contentView;
 
         public a(Context context) {
             super(context);
         }
 
-        @Override // com.baidu.swan.apps.res.widget.dialog.b.C0312b, com.baidu.swan.apps.res.widget.dialog.g.a
-        protected g bK(Context context) {
+        @Override // com.baidu.swan.apps.res.widget.dialog.b.C0333b, com.baidu.swan.apps.res.widget.dialog.g.a
+        protected g by(Context context) {
             return new d(context);
         }
 
@@ -62,9 +62,9 @@ public class d extends com.baidu.swan.apps.res.widget.dialog.b {
             return this;
         }
 
-        @Override // com.baidu.swan.apps.res.widget.dialog.b.C0312b, com.baidu.swan.apps.res.widget.dialog.g.a
-        public g WU() {
-            d dVar = (d) super.WU();
+        @Override // com.baidu.swan.apps.res.widget.dialog.b.C0333b, com.baidu.swan.apps.res.widget.dialog.g.a
+        public g WT() {
+            d dVar = (d) super.WT();
             dVar.a(this);
             return dVar;
         }

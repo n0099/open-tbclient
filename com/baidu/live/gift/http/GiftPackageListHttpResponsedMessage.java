@@ -12,9 +12,9 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class GiftPackageListHttpResponsedMessage extends JsonHttpResponsedMessage {
-    private ArrayList<d> aCu;
-    private ArrayList<e> aCv;
-    private ArrayList<i> aGx;
+    private ArrayList<d> aCA;
+    private ArrayList<e> aCB;
+    private ArrayList<i> aGD;
     private String scene_from;
 
     public GiftPackageListHttpResponsedMessage() {
@@ -40,8 +40,8 @@ public class GiftPackageListHttpResponsedMessage extends JsonHttpResponsedMessag
 
     private void j(JSONArray jSONArray) {
         if (jSONArray != null && jSONArray.length() > 0) {
-            this.aGx = new ArrayList<>();
-            this.aCu = new ArrayList<>();
+            this.aGD = new ArrayList<>();
+            this.aCA = new ArrayList<>();
             for (int i = 0; i < jSONArray.length(); i++) {
                 JSONObject optJSONObject = jSONArray.optJSONObject(i);
                 int optInt = optJSONObject.optInt("category_id");
@@ -58,7 +58,7 @@ public class GiftPackageListHttpResponsedMessage extends JsonHttpResponsedMessag
                     dVar.setCategoryName(optString);
                     dVar.f(arrayList);
                     dVar.aU(z);
-                    this.aCu.add(dVar);
+                    this.aCA.add(dVar);
                 }
                 JSONArray optJSONArray2 = optJSONObject.optJSONArray("gift_list");
                 if (optJSONArray2 != null) {
@@ -70,7 +70,7 @@ public class GiftPackageListHttpResponsedMessage extends JsonHttpResponsedMessag
                             gVar.parseJson(optJSONObject2);
                             gVar.setSceneFrom(this.scene_from);
                             gVar.v(optJSONObject2);
-                            if (gVar.ayN != null && gVar.ayN.ayU > 0) {
+                            if (gVar.ayT != null && gVar.ayT.aza > 0) {
                                 arrayList2.add(gVar);
                             }
                         }
@@ -80,7 +80,7 @@ public class GiftPackageListHttpResponsedMessage extends JsonHttpResponsedMessag
                     iVar.setCategoryName(optString);
                     iVar.v(arrayList2);
                     iVar.aU(z);
-                    this.aGx.add(iVar);
+                    this.aGD.add(iVar);
                 }
             }
         }
@@ -88,27 +88,27 @@ public class GiftPackageListHttpResponsedMessage extends JsonHttpResponsedMessag
 
     private void k(JSONArray jSONArray) {
         if (jSONArray != null && jSONArray.length() > 0) {
-            this.aCv = new ArrayList<>();
+            this.aCB = new ArrayList<>();
             for (int i = 0; i < jSONArray.length(); i++) {
                 JSONObject optJSONObject = jSONArray.optJSONObject(i);
                 if (optJSONObject != null) {
                     e eVar = new e();
                     eVar.parser(optJSONObject);
-                    this.aCv.add(eVar);
+                    this.aCB.add(eVar);
                 }
             }
         }
     }
 
-    public ArrayList<i> zg() {
-        return this.aGx;
+    public ArrayList<i> zf() {
+        return this.aGD;
     }
 
     public ArrayList<d> getCategoryList() {
-        return this.aCu;
+        return this.aCA;
     }
 
-    public ArrayList<e> zh() {
-        return this.aCv;
+    public ArrayList<e> zg() {
+        return this.aCB;
     }
 }

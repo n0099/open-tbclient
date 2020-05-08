@@ -5,18 +5,18 @@ import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.tbadk.core.util.an;
 /* loaded from: classes.dex */
 public class y {
-    public String ahL;
-    public String dol;
-    public String eQf;
-    public String kin;
-    public String kio;
-    public String kip;
-    public int kiq;
+    public String ahO;
+    public String dop;
+    public String eQk;
     public String kir;
     public String kis;
     public String kit;
-    public String kiu;
+    public int kiu;
     public String kiv;
+    public String kiw;
+    public String kix;
+    public String kiy;
+    public String kiz;
     public String mExtra;
     public String mFloor;
     public String mGroupId;
@@ -32,11 +32,11 @@ public class y {
             if (!StringUtils.isNull(this.mLocate)) {
                 anVar.cI("obj_locate", this.mLocate);
             }
-            if (!StringUtils.isNull(this.ahL)) {
-                anVar.cI("tid", this.ahL);
+            if (!StringUtils.isNull(this.ahO)) {
+                anVar.cI("tid", this.ahO);
             }
-            if (!StringUtils.isNull(this.eQf)) {
-                anVar.cI("fid", this.eQf);
+            if (!StringUtils.isNull(this.eQk)) {
+                anVar.cI("fid", this.eQk);
             }
             if (!StringUtils.isNull(this.mUid)) {
                 anVar.cI("uid", this.mUid);
@@ -46,44 +46,44 @@ public class y {
             } else {
                 anVar.af("obj_source", 0);
             }
-            if (!StringUtils.isNull(this.kin)) {
-                anVar.cI("obj_param1", this.kin);
+            if (!StringUtils.isNull(this.kir)) {
+                anVar.cI("obj_param1", this.kir);
             } else {
                 anVar.af("obj_param1", 0);
             }
-            if (!StringUtils.isNull(this.kio)) {
-                anVar.cI(TiebaInitialize.Params.OBJ_PARAM2, this.kio);
+            if (!StringUtils.isNull(this.kis)) {
+                anVar.cI(TiebaInitialize.Params.OBJ_PARAM2, this.kis);
             }
-            if (!StringUtils.isNull(this.kip)) {
-                anVar.cI(TiebaInitialize.Params.OBJ_PARAM3, this.kip);
+            if (!StringUtils.isNull(this.kit)) {
+                anVar.cI(TiebaInitialize.Params.OBJ_PARAM3, this.kit);
             }
-            if (this.kiq > 0) {
-                anVar.af("obj_param5", this.kiq);
+            if (this.kiu > 0) {
+                anVar.af("obj_param5", this.kiu);
             }
-            if (!StringUtils.isNull(this.dol)) {
-                anVar.cI("obj_id", this.dol);
+            if (!StringUtils.isNull(this.dop)) {
+                anVar.cI("obj_id", this.dop);
             }
-            if (!StringUtils.isNull(this.kir)) {
-                anVar.cI(TiebaInitialize.Params.AB_TAG, this.kir);
+            if (!StringUtils.isNull(this.kiv)) {
+                anVar.cI(TiebaInitialize.Params.AB_TAG, this.kiv);
             } else {
                 anVar.af(TiebaInitialize.Params.AB_TAG, 0);
             }
-            if (!StringUtils.isNull(this.kit)) {
-                anVar.cI("topic_type", this.kit);
+            if (!StringUtils.isNull(this.kix)) {
+                anVar.cI("topic_type", this.kix);
             }
             if (!StringUtils.isNull(this.mExtra)) {
                 anVar.cI("extra", this.mExtra);
             } else {
                 anVar.af("extra", 0);
             }
-            if (!StringUtils.isNull(this.kiu)) {
-                anVar.cI("is_vertical", this.kiu);
+            if (!StringUtils.isNull(this.kiy)) {
+                anVar.cI("is_vertical", this.kiy);
             }
             if (!StringUtils.isNull(this.mFloor)) {
                 anVar.cI("obj_floor", this.mFloor);
             }
-            if (!StringUtils.isNull(this.kiv)) {
-                anVar.cI("resource_id", this.kiv);
+            if (!StringUtils.isNull(this.kiz)) {
+                anVar.cI("resource_id", this.kiz);
             }
             if (!StringUtils.isNull(this.mGroupId)) {
                 anVar.cI("group_id", this.mGroupId);
@@ -94,23 +94,23 @@ public class y {
         return anVar;
     }
 
-    public y cKs() {
+    public y cKp() {
         y yVar = new y();
         yVar.mLocate = this.mLocate;
         yVar.mType = this.mType;
-        yVar.ahL = this.ahL;
-        yVar.eQf = this.eQf;
+        yVar.ahO = this.ahO;
+        yVar.eQk = this.eQk;
         yVar.mUid = this.mUid;
         yVar.mSource = this.mSource;
-        yVar.kin = this.kin;
-        yVar.kio = this.kio;
-        yVar.kip = this.kip;
-        yVar.dol = this.dol;
         yVar.kir = this.kir;
         yVar.kis = this.kis;
         yVar.kit = this.kit;
-        yVar.mFloor = this.mFloor;
+        yVar.dop = this.dop;
         yVar.kiv = this.kiv;
+        yVar.kiw = this.kiw;
+        yVar.kix = this.kix;
+        yVar.mFloor = this.mFloor;
+        yVar.kiz = this.kiz;
         yVar.mGroupId = this.mGroupId;
         yVar.mNid = this.mNid;
         yVar.mVid = this.mVid;

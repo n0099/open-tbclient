@@ -10,56 +10,56 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a {
-    private static a eTY;
-    private List<an> eyd;
+    private static a eUd;
+    private List<an> eyj;
 
-    public static a blU() {
-        if (eTY == null) {
+    public static a blS() {
+        if (eUd == null) {
             synchronized (a.class) {
-                if (eTY == null) {
-                    eTY = new a();
+                if (eUd == null) {
+                    eUd = new a();
                 }
             }
         }
-        return eTY;
+        return eUd;
     }
 
     public void e(an anVar) {
         if (anVar != null) {
-            if (this.eyd == null) {
-                this.eyd = new ArrayList();
+            if (this.eyj == null) {
+                this.eyj = new ArrayList();
             }
-            if (this.eyd != null) {
-                this.eyd.add(anVar);
+            if (this.eyj != null) {
+                this.eyj.add(anVar);
             }
         }
     }
 
-    public void zo(String str) {
+    public void zr(String str) {
         if (str != null) {
-            if (this.eyd == null) {
-                this.eyd = new ArrayList();
+            if (this.eyj == null) {
+                this.eyj = new ArrayList();
             }
-            if (this.eyd != null) {
-                this.eyd.add(new an(str));
+            if (this.eyj != null) {
+                this.eyj.add(new an(str));
             }
         }
     }
 
-    public void bjZ() {
-        if (v.getCount(this.eyd) != 0) {
-            for (an anVar : this.eyd) {
+    public void bjX() {
+        if (v.getCount(this.eyj) != 0) {
+            for (an anVar : this.eyj) {
                 if (anVar != null) {
                     TiebaStatic.log(anVar);
                 }
             }
-            this.eyd.clear();
+            this.eyj.clear();
         }
     }
 
     public void jd(boolean z) {
-        if (v.getCount(this.eyd) != 0) {
-            for (an anVar : this.eyd) {
+        if (v.getCount(this.eyj) != 0) {
+            for (an anVar : this.eyj) {
                 if (anVar != null) {
                     int i = 0;
                     if (z) {
@@ -71,7 +71,7 @@ public class a {
                     TiebaStatic.log(anVar);
                 }
             }
-            this.eyd.clear();
+            this.eyj.clear();
         }
     }
 
@@ -80,8 +80,8 @@ public class a {
             return null;
         }
         String str3 = "";
-        if (bjVar.aKX() != null && !StringUtils.isNull(bjVar.aKX().appId)) {
-            str3 = bjVar.aKX().appId;
+        if (bjVar.aKV() != null && !StringUtils.isNull(bjVar.aKV().appId)) {
+            str3 = bjVar.aKV().appId;
         }
         an anVar = new an(str);
         anVar.af("obj_type", 1);
@@ -95,10 +95,10 @@ public class a {
     }
 
     private long S(bj bjVar) {
-        if (bjVar == null || bjVar.aKX() == null) {
+        if (bjVar == null || bjVar.aKV() == null) {
             return -1L;
         }
-        return bjVar.aKX().live_id;
+        return bjVar.aKV().live_id;
     }
 
     public void c(String str, int i, int i2, String str2) {

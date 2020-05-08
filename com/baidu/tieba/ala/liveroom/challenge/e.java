@@ -6,9 +6,9 @@ import com.baidu.live.data.ah;
 public interface e {
     void a(ag agVar, ah ahVar, ah ahVar2);
 
-    void btE();
+    void btC();
 
-    void btF();
+    void btD();
 
-    void un();
+    void um();
 }

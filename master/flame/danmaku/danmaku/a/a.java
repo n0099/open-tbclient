@@ -6,76 +6,76 @@ import master.flame.danmaku.danmaku.model.l;
 import master.flame.danmaku.danmaku.model.m;
 /* loaded from: classes5.dex */
 public abstract class a {
-    protected DanmakuContext mZR;
-    protected f naA;
-    protected b<?> ndM;
-    protected int ndN;
-    protected int ndO;
-    protected float ndP;
-    protected float ndQ;
-    private l ndR;
-    protected m ndS;
-    protected InterfaceC0799a ndT;
+    protected DanmakuContext mZU;
+    protected f naD;
+    protected b<?> ndP;
+    protected int ndQ;
+    protected int ndR;
+    protected float ndS;
+    protected float ndT;
+    private l ndU;
+    protected m ndV;
+    protected InterfaceC0820a ndW;
 
     /* renamed from: master.flame.danmaku.danmaku.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public interface InterfaceC0799a {
+    public interface InterfaceC0820a {
     }
 
-    protected abstract l dGm();
+    protected abstract l dGi();
 
     public a c(m mVar) {
-        this.ndS = mVar;
-        this.ndN = mVar.getWidth();
-        this.ndO = mVar.getHeight();
-        this.ndP = mVar.getDensity();
-        this.ndQ = mVar.dFF();
-        this.mZR.nde.j(this.ndN, this.ndO, dGj());
-        this.mZR.nde.dFZ();
+        this.ndV = mVar;
+        this.ndQ = mVar.getWidth();
+        this.ndR = mVar.getHeight();
+        this.ndS = mVar.getDensity();
+        this.ndT = mVar.dFB();
+        this.mZU.ndh.j(this.ndQ, this.ndR, dGf());
+        this.mZU.ndh.dFV();
         return this;
     }
 
-    public a a(InterfaceC0799a interfaceC0799a) {
-        this.ndT = interfaceC0799a;
+    public a a(InterfaceC0820a interfaceC0820a) {
+        this.ndW = interfaceC0820a;
         return this;
     }
 
-    protected float dGj() {
-        return 1.0f / (this.ndP - 0.6f);
+    protected float dGf() {
+        return 1.0f / (this.ndS - 0.6f);
     }
 
     public a d(f fVar) {
-        this.naA = fVar;
+        this.naD = fVar;
         return this;
     }
 
-    public l dGk() {
-        if (this.ndR != null) {
-            return this.ndR;
+    public l dGg() {
+        if (this.ndU != null) {
+            return this.ndU;
         }
-        this.mZR.nde.dFY();
-        this.ndR = dGm();
-        dGl();
-        this.mZR.nde.dFZ();
-        return this.ndR;
+        this.mZU.ndh.dFU();
+        this.ndU = dGi();
+        dGh();
+        this.mZU.ndh.dFV();
+        return this.ndU;
     }
 
-    protected void dGl() {
-        if (this.ndM != null) {
-            this.ndM.release();
+    protected void dGh() {
+        if (this.ndP != null) {
+            this.ndP.release();
         }
-        this.ndM = null;
+        this.ndP = null;
     }
 
     public void release() {
-        dGl();
+        dGh();
     }
 
     public a c(DanmakuContext danmakuContext) {
-        if (this.mZR != null && this.mZR != danmakuContext) {
-            this.ndR = null;
+        if (this.mZU != null && this.mZU != danmakuContext) {
+            this.ndU = null;
         }
-        this.mZR = danmakuContext;
+        this.mZU = danmakuContext;
         return this;
     }
 }

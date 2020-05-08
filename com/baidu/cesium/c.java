@@ -20,7 +20,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes13.dex */
 public class c {
-    private com.baidu.cesium.c.d.d aiN;
+    private com.baidu.cesium.c.d.d aiS;
     private List<b> g;
 
     public c() {
@@ -40,7 +40,7 @@ public class c {
     }
 
     private void a() {
-        this.aiN = new com.baidu.cesium.c.d.e(d.a(), d.b());
+        this.aiS = new com.baidu.cesium.c.d.e(d.a(), d.b());
     }
 
     private boolean a(String[] strArr, String[] strArr2) {
@@ -59,9 +59,9 @@ public class c {
     }
 
     private static byte[] a(byte[] bArr, com.baidu.cesium.c.d.d dVar) {
-        com.baidu.cesium.c.d.a rZ = com.baidu.cesium.c.d.a.rZ();
-        rZ.a(2, dVar);
-        return rZ.a(bArr);
+        com.baidu.cesium.c.d.a rY = com.baidu.cesium.c.d.a.rY();
+        rY.a(2, dVar);
+        return rY.a(bArr);
     }
 
     private String[] a(Signature[] signatureArr) {
@@ -72,36 +72,18 @@ public class c {
         return strArr;
     }
 
-    boolean a(Context context) {
-        List<b> b = b(context, new Intent("com.baidu.intent.action.GALAXY").setPackage(context.getPackageName()), true);
-        if (b == null || b.size() == 0) {
-            for (int i = 0; i < 3; i++) {
-                Log.w("CuidBuddyInfoManager", "galaxy lib host missing meta-data,make sure you know the right way to integrate galaxy");
-            }
-            return false;
-        }
-        b bVar = b.get(0);
-        boolean z = bVar.c;
-        if (!bVar.c) {
-            for (int i2 = 0; i2 < 3; i2++) {
-                Log.w("CuidBuddyInfoManager", "galaxy config err, In the release version of the signature should be matched");
-            }
-        }
-        return z;
-    }
-
     /* JADX INFO: Access modifiers changed from: package-private */
-    public List<b> ad(Context context) {
+    public List<b> Q(Context context) {
         if (this.g != null) {
             return this.g;
         }
         a(context);
-        List<b> b = b(context, new Intent("com.baidu.intent.action.GALAXY"), true);
-        this.g = b;
-        return b;
+        List<b> a = a(context, new Intent("com.baidu.intent.action.GALAXY"), true);
+        this.g = a;
+        return a;
     }
 
-    List<b> b(Context context, Intent intent, boolean z) {
+    List<b> a(Context context, Intent intent, boolean z) {
         ArrayList arrayList = new ArrayList();
         PackageManager packageManager = context.getPackageManager();
         List<ResolveInfo> queryBroadcastReceivers = packageManager.queryBroadcastReceivers(intent, 0);
@@ -131,7 +113,7 @@ public class c {
                                             strArr[i] = jSONArray.getString(i);
                                         }
                                         if (a(strArr, a(packageInfo.signatures))) {
-                                            byte[] a2 = a(com.baidu.cesium.d.a.a(string2.getBytes()), this.aiN);
+                                            byte[] a2 = a(com.baidu.cesium.d.a.a(string2.getBytes()), this.aiS);
                                             if (a2 != null && Arrays.equals(a2, com.baidu.cesium.d.c.a(a))) {
                                                 bVar.c = true;
                                             }
@@ -168,5 +150,23 @@ public class c {
             }
         });
         return arrayList;
+    }
+
+    boolean a(Context context) {
+        List<b> a = a(context, new Intent("com.baidu.intent.action.GALAXY").setPackage(context.getPackageName()), true);
+        if (a == null || a.size() == 0) {
+            for (int i = 0; i < 3; i++) {
+                Log.w("CuidBuddyInfoManager", "galaxy lib host missing meta-data,make sure you know the right way to integrate galaxy");
+            }
+            return false;
+        }
+        b bVar = a.get(0);
+        boolean z = bVar.c;
+        if (!bVar.c) {
+            for (int i2 = 0; i2 < 3; i2++) {
+                Log.w("CuidBuddyInfoManager", "galaxy config err, In the release version of the signature should be matched");
+            }
+        }
+        return z;
     }
 }

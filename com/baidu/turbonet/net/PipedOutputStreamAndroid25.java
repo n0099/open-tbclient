@@ -4,19 +4,19 @@ import java.io.IOException;
 import java.io.OutputStream;
 /* loaded from: classes.dex */
 public class PipedOutputStreamAndroid25 extends OutputStream {
-    private PipedInputStreamAndroid25 lLk;
+    private PipedInputStreamAndroid25 lLo;
 
     @Override // java.io.OutputStream
     public void write(int i) throws IOException {
-        if (this.lLk == null) {
+        if (this.lLo == null) {
             throw new IOException("Pipe not connected");
         }
-        this.lLk.FA(i);
+        this.lLo.FA(i);
     }
 
     @Override // java.io.OutputStream
     public void write(byte[] bArr, int i, int i2) throws IOException {
-        if (this.lLk == null) {
+        if (this.lLo == null) {
             throw new IOException("Pipe not connected");
         }
         if (bArr == null) {
@@ -26,23 +26,23 @@ public class PipedOutputStreamAndroid25 extends OutputStream {
             throw new IndexOutOfBoundsException();
         }
         if (i2 != 0) {
-            this.lLk.q(bArr, i, i2);
+            this.lLo.q(bArr, i, i2);
         }
     }
 
     @Override // java.io.OutputStream, java.io.Flushable
     public synchronized void flush() throws IOException {
-        if (this.lLk != null) {
-            synchronized (this.lLk) {
-                this.lLk.notifyAll();
+        if (this.lLo != null) {
+            synchronized (this.lLo) {
+                this.lLo.notifyAll();
             }
         }
     }
 
     @Override // java.io.OutputStream, java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
-        if (this.lLk != null) {
-            this.lLk.djB();
+        if (this.lLo != null) {
+            this.lLo.djy();
         }
     }
 }

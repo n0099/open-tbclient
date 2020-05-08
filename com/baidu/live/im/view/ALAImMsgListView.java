@@ -19,14 +19,14 @@ import com.baidu.live.u.a;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class ALAImMsgListView extends BdTypeListView implements j {
-    private int aLv;
-    private boolean aMl;
-    private com.baidu.live.im.a.a aNM;
-    private boolean aNN;
-    private boolean aNO;
-    private Paint aNP;
-    private a aNQ;
-    private boolean aNR;
+    private int aLB;
+    private boolean aMr;
+    private com.baidu.live.im.a.a aNS;
+    private boolean aNT;
+    private boolean aNU;
+    private Paint aNV;
+    private a aNW;
+    private boolean aNX;
     private boolean isScrolling;
     private int mLastMotionY;
     private int mShadowHeight;
@@ -34,46 +34,46 @@ public class ALAImMsgListView extends BdTypeListView implements j {
 
     /* loaded from: classes3.dex */
     public interface a {
-        void CH();
+        void CG();
     }
 
     public ALAImMsgListView(Context context) {
         super(context);
         this.isScrolling = false;
-        this.aNN = true;
-        this.aNO = false;
+        this.aNT = true;
+        this.aNU = false;
         this.showShadow = false;
-        this.aNR = false;
+        this.aNX = false;
         init();
     }
 
     public ALAImMsgListView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.isScrolling = false;
-        this.aNN = true;
-        this.aNO = false;
+        this.aNT = true;
+        this.aNU = false;
         this.showShadow = false;
-        this.aNR = false;
+        this.aNX = false;
         init();
     }
 
     public ALAImMsgListView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.isScrolling = false;
-        this.aNN = true;
-        this.aNO = false;
+        this.aNT = true;
+        this.aNU = false;
         this.showShadow = false;
-        this.aNR = false;
+        this.aNX = false;
         init();
     }
 
     public void setMode(boolean z) {
-        this.aNM.setMode(z);
+        this.aNS.setMode(z);
     }
 
     public void setPageContext(TbPageContext tbPageContext) {
-        if (this.aNM == null) {
-            this.aNM = new com.baidu.live.im.a.a(tbPageContext, this);
+        if (this.aNS == null) {
+            this.aNS = new com.baidu.live.im.a.a(tbPageContext, this);
         }
     }
 
@@ -93,10 +93,10 @@ public class ALAImMsgListView extends BdTypeListView implements j {
                     ALAImMsgListView.this.showShadow = true;
                 }
                 if (i == 1) {
-                    ALAImMsgListView.this.aNR = true;
-                } else if (i == 0 && ALAImMsgListView.this.aNR) {
-                    ALAImMsgListView.this.aNR = false;
-                    ALAImMsgListView.this.CE();
+                    ALAImMsgListView.this.aNX = true;
+                } else if (i == 0 && ALAImMsgListView.this.aNX) {
+                    ALAImMsgListView.this.aNX = false;
+                    ALAImMsgListView.this.CD();
                 }
             }
 
@@ -108,39 +108,39 @@ public class ALAImMsgListView extends BdTypeListView implements j {
 
     @Override // com.baidu.live.im.j
     public void setMsgData(List<com.baidu.live.im.data.a> list) {
-        if (this.aNM != null) {
-            this.aNM.setDatas(list);
-            this.aNM.notifyDataSetChanged();
+        if (this.aNS != null) {
+            this.aNS.setDatas(list);
+            this.aNS.notifyDataSetChanged();
         }
     }
 
-    public boolean CD() {
-        return this.aNO;
+    public boolean CC() {
+        return this.aNU;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void CE() {
+    public void CD() {
         if (getLastVisiblePosition() + 1 == getCount()) {
-            this.aNO = false;
-            if (this.aNQ != null) {
-                this.aNQ.CH();
+            this.aNU = false;
+            if (this.aNW != null) {
+                this.aNW.CG();
             }
         } else {
-            this.aNO = true;
+            this.aNU = true;
         }
-        this.aNN = this.aNO ? false : true;
+        this.aNT = this.aNU ? false : true;
     }
 
-    public void CF() {
+    public void CE() {
         this.isScrolling = false;
-        this.aNN = true;
-        this.aNO = false;
+        this.aNT = true;
+        this.aNU = false;
         smoothScrollToPosition(getBottom());
     }
 
     @Override // com.baidu.live.im.j
-    public void Be() {
-        if (!this.isScrolling && this.aNN) {
+    public void Bd() {
+        if (!this.isScrolling && this.aNT) {
             post(new Runnable() { // from class: com.baidu.live.im.view.ALAImMsgListView.2
                 @Override // java.lang.Runnable
                 public void run() {
@@ -150,18 +150,18 @@ public class ALAImMsgListView extends BdTypeListView implements j {
         }
     }
 
-    public void BB() {
+    public void BA() {
         this.showShadow = false;
-        this.aNO = false;
-        if (this.aNM != null) {
-            this.aNM.BB();
+        this.aNU = false;
+        if (this.aNS != null) {
+            this.aNS.BA();
         }
     }
 
     @Override // com.baidu.live.im.j
     public void a(String str, String str2, boolean z, String str3) {
-        if (this.aNM != null) {
-            this.aNM.a(str, str2, z, str3);
+        if (this.aNS != null) {
+            this.aNS.a(str, str2, z, str3);
         }
     }
 
@@ -169,13 +169,13 @@ public class ALAImMsgListView extends BdTypeListView implements j {
     public void setNeedTopAlphaShade(boolean z) {
         if (z) {
             this.mShadowHeight = getResources().getDimensionPixelSize(a.e.sdk_ds50);
-            this.aNP = new Paint();
-            this.aNP.setStyle(Paint.Style.FILL_AND_STROKE);
-            this.aNP.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.MULTIPLY));
-            this.aNP.setShader(new LinearGradient(0.0f, 0.0f, 0.0f, this.mShadowHeight, getResources().getColor(a.d.sdk_white_alpha0), getResources().getColor(a.d.sdk_white_alpha100), Shader.TileMode.CLAMP));
+            this.aNV = new Paint();
+            this.aNV.setStyle(Paint.Style.FILL_AND_STROKE);
+            this.aNV.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.MULTIPLY));
+            this.aNV.setShader(new LinearGradient(0.0f, 0.0f, 0.0f, this.mShadowHeight, getResources().getColor(a.d.sdk_white_alpha0), getResources().getColor(a.d.sdk_white_alpha100), Shader.TileMode.CLAMP));
         } else {
             this.mShadowHeight = 0;
-            this.aNP = null;
+            this.aNV = null;
         }
         invalidate();
     }
@@ -184,11 +184,11 @@ public class ALAImMsgListView extends BdTypeListView implements j {
     public void onKeyboardVisibilityChanged(boolean z) {
     }
 
-    public void CG() {
-        this.aNO = false;
-        this.aNN = true;
-        if (this.aNM != null) {
-            this.aNM.release();
+    public void CF() {
+        this.aNU = false;
+        this.aNT = true;
+        if (this.aNS != null) {
+            this.aNS.release();
         }
     }
 
@@ -201,8 +201,8 @@ public class ALAImMsgListView extends BdTypeListView implements j {
     @Override // com.baidu.live.adp.widget.listview.BdListView, android.widget.ListView, android.widget.AbsListView, android.view.ViewGroup, android.view.View
     public void dispatchDraw(Canvas canvas) {
         super.dispatchDraw(canvas);
-        if (this.aNP != null && this.showShadow) {
-            canvas.drawRect(0.0f, 0.0f, getWidth(), this.mShadowHeight, this.aNP);
+        if (this.aNV != null && this.showShadow) {
+            canvas.drawRect(0.0f, 0.0f, getWidth(), this.mShadowHeight, this.aNV);
         }
     }
 
@@ -211,29 +211,29 @@ public class ALAImMsgListView extends BdTypeListView implements j {
         int x = (int) motionEvent.getX();
         int y = (int) motionEvent.getY();
         if (motionEvent.getAction() == 0) {
-            this.aLv = x;
+            this.aLB = x;
             this.mLastMotionY = y;
-            this.aNN = false;
+            this.aNT = false;
             getParent().requestDisallowInterceptTouchEvent(true);
         } else if (motionEvent.getAction() == 2) {
-            if (Math.abs(this.aLv - x) > 20 || Math.abs(this.mLastMotionY - y) > 20) {
-                this.aNN = false;
+            if (Math.abs(this.aLB - x) > 20 || Math.abs(this.mLastMotionY - y) > 20) {
+                this.aNT = false;
             }
         } else if (motionEvent.getAction() == 3 || motionEvent.getAction() == 1) {
-            CE();
+            CD();
             getParent().requestDisallowInterceptTouchEvent(false);
         }
         return super.dispatchTouchEvent(motionEvent);
     }
 
     public void setFromMaster(boolean z) {
-        this.aMl = z;
-        if (this.aNM != null) {
-            this.aNM.setFromMaster(this.aMl);
+        this.aMr = z;
+        if (this.aNS != null) {
+            this.aNS.setFromMaster(this.aMr);
         }
     }
 
     public void setOnUserMoveToBottomIMCallBack(a aVar) {
-        this.aNQ = aVar;
+        this.aNW = aVar;
     }
 }

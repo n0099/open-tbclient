@@ -7,15 +7,15 @@ import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
 public final class FlowableWithLatestFrom<T, U, R> extends io.reactivex.internal.operators.flowable.a<T, R> {
     final io.reactivex.c.c<? super T, ? super U, ? extends R> combiner;
-    final org.a.b<? extends U> mSk;
+    final org.a.b<? extends U> mSn;
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super R> cVar) {
         io.reactivex.subscribers.b bVar = new io.reactivex.subscribers.b(cVar);
         WithLatestFromSubscriber withLatestFromSubscriber = new WithLatestFromSubscriber(bVar, this.combiner);
         bVar.onSubscribe(withLatestFromSubscriber);
-        this.mSk.subscribe(new a(withLatestFromSubscriber));
-        this.mRJ.a((j) withLatestFromSubscriber);
+        this.mSn.subscribe(new a(withLatestFromSubscriber));
+        this.mRM.a((j) withLatestFromSubscriber);
     }
 
     /* loaded from: classes7.dex */
@@ -96,27 +96,27 @@ public final class FlowableWithLatestFrom<T, U, R> extends io.reactivex.internal
 
     /* loaded from: classes7.dex */
     final class a implements j<U> {
-        private final WithLatestFromSubscriber<T, U, R> mSN;
+        private final WithLatestFromSubscriber<T, U, R> mSR;
 
         a(WithLatestFromSubscriber<T, U, R> withLatestFromSubscriber) {
-            this.mSN = withLatestFromSubscriber;
+            this.mSR = withLatestFromSubscriber;
         }
 
         @Override // io.reactivex.j, org.a.c
         public void onSubscribe(org.a.d dVar) {
-            if (this.mSN.setOther(dVar)) {
+            if (this.mSR.setOther(dVar)) {
                 dVar.request(Long.MAX_VALUE);
             }
         }
 
         @Override // org.a.c
         public void onNext(U u) {
-            this.mSN.lazySet(u);
+            this.mSR.lazySet(u);
         }
 
         @Override // org.a.c
         public void onError(Throwable th) {
-            this.mSN.otherError(th);
+            this.mSR.otherError(th);
         }
 
         @Override // org.a.c

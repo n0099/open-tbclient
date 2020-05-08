@@ -23,10 +23,10 @@ public class d extends com.baidu.swan.b.d.a {
             bVar.onFail(31010, "package name is empty");
         } else {
             com.baidu.swan.b.a.f.c.a(optString, "openApp", null, null, null);
-            if (!com.baidu.swan.b.a.c.a.an(AppRuntime.getAppContext(), optString)) {
+            if (!com.baidu.swan.b.a.c.a.ab(AppRuntime.getAppContext(), optString)) {
                 bVar.onFail(31011, "app is not installed");
                 com.baidu.swan.b.a.f.c.a(optString, "openApp", "fail", String.valueOf(31011), null);
-            } else if (com.baidu.swan.b.a.c.a.ao(AppRuntime.getAppContext(), optString)) {
+            } else if (com.baidu.swan.b.a.c.a.ac(AppRuntime.getAppContext(), optString)) {
                 bVar.V(null);
                 com.baidu.swan.b.a.f.c.a(optString, "openApp", "success", null, null);
             } else {

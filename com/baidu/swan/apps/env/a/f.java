@@ -30,13 +30,13 @@ public class f {
             if (DEBUG) {
                 Log.w("SwanAppDiskCleaner", "非主进程调用，不执行操作");
             }
-        } else if (Zx()) {
-            m.aoU().execute(new Runnable() { // from class: com.baidu.swan.apps.env.a.f.1
+        } else if (Zw()) {
+            m.aoT().execute(new Runnable() { // from class: com.baidu.swan.apps.env.a.f.1
                 @Override // java.lang.Runnable
                 public void run() {
                     List<String> list;
                     List<String> aa;
-                    h.anz().putLong("clean_disk_check_time", System.currentTimeMillis());
+                    h.any().putLong("clean_disk_check_time", System.currentTimeMillis());
                     Map aI = f.this.aI(0L);
                     if (aI.isEmpty()) {
                         if (f.DEBUG) {
@@ -100,7 +100,7 @@ public class f {
                     if (f.DEBUG) {
                         Log.i("SwanAppDiskCleaner", "deleteSwanAppList=" + aa2);
                     }
-                    com.baidu.swan.apps.env.e.Zv().Zw().b(aa2, false, false);
+                    com.baidu.swan.apps.env.e.Zu().Zv().b(aa2, false, false);
                 }
             }, "cleanDiskSpace");
         }
@@ -112,8 +112,8 @@ public class f {
         return j2 <= 0 ? j : j2;
     }
 
-    private boolean Zx() {
-        long j = h.anz().getLong("clean_disk_check_time", 0L);
+    private boolean Zw() {
+        long j = h.any().getLong("clean_disk_check_time", 0L);
         boolean z = System.currentTimeMillis() - j >= 86400000;
         if (DEBUG && !z) {
             Log.w("SwanAppDiskCleaner", "未达到指定频率不清理, lastTime=" + j + ", now=" + System.currentTimeMillis());

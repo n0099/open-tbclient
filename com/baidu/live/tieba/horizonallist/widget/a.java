@@ -4,16 +4,16 @@ import android.widget.ExpandableListView;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 class a {
-    private static ArrayList<a> aTy = new ArrayList<>(5);
-    public int aTC;
-    public int aTD;
-    int aTE;
+    private static ArrayList<a> aTD = new ArrayList<>(5);
+    public int aTH;
+    public int aTI;
+    int aTJ;
     public int type;
 
     private void resetState() {
-        this.aTC = 0;
-        this.aTD = 0;
-        this.aTE = 0;
+        this.aTH = 0;
+        this.aTI = 0;
+        this.aTJ = 0;
         this.type = 0;
     }
 
@@ -21,8 +21,8 @@ class a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public long EV() {
-        return this.type == 1 ? ExpandableListView.getPackedPositionForChild(this.aTC, this.aTD) : ExpandableListView.getPackedPositionForGroup(this.aTC);
+    public long EU() {
+        return this.type == 1 ? ExpandableListView.getPackedPositionForChild(this.aTH, this.aTI) : ExpandableListView.getPackedPositionForGroup(this.aTH);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -32,19 +32,19 @@ class a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static a g(int i, int i2, int i3, int i4) {
-        a EW = EW();
-        EW.type = i;
-        EW.aTC = i2;
-        EW.aTD = i3;
-        EW.aTE = i4;
-        return EW;
+        a EV = EV();
+        EV.type = i;
+        EV.aTH = i2;
+        EV.aTI = i3;
+        EV.aTJ = i4;
+        return EV;
     }
 
-    private static a EW() {
+    private static a EV() {
         a aVar;
-        synchronized (aTy) {
-            if (aTy.size() > 0) {
-                aVar = aTy.remove(0);
+        synchronized (aTD) {
+            if (aTD.size() > 0) {
+                aVar = aTD.remove(0);
                 aVar.resetState();
             } else {
                 aVar = new a();
@@ -54,9 +54,9 @@ class a {
     }
 
     public void recycle() {
-        synchronized (aTy) {
-            if (aTy.size() < 5) {
-                aTy.add(this);
+        synchronized (aTD) {
+            if (aTD.size() < 5) {
+                aTD.add(this);
             }
         }
     }

@@ -6,9 +6,9 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class AlaGetChallengeInfoResponseMessage extends JsonHttpResponsedMessage {
-    private ag aub;
-    private ah auc;
-    private ah aud;
+    private ag auh;
+    private ah aui;
+    private ah auj;
 
     public AlaGetChallengeInfoResponseMessage() {
         super(1021112);
@@ -22,18 +22,18 @@ public class AlaGetChallengeInfoResponseMessage extends JsonHttpResponsedMessage
             if (optJSONObject != null && getError() == 0) {
                 JSONObject optJSONObject2 = optJSONObject.optJSONObject("challenge_info");
                 if (optJSONObject2 != null) {
-                    this.aub = new ag();
-                    this.aub.parseJson(optJSONObject2);
+                    this.auh = new ag();
+                    this.auh.parseJson(optJSONObject2);
                 }
                 JSONObject optJSONObject3 = optJSONObject.optJSONObject("anchor_info");
                 if (optJSONObject3 != null) {
-                    this.auc = new ah();
-                    this.auc.parseJson(optJSONObject3);
+                    this.aui = new ah();
+                    this.aui.parseJson(optJSONObject3);
                 }
                 JSONObject optJSONObject4 = optJSONObject.optJSONObject("rival_info");
                 if (optJSONObject4 != null) {
-                    this.aud = new ah();
-                    this.aud.parseJson(optJSONObject4);
+                    this.auj = new ah();
+                    this.auj.parseJson(optJSONObject4);
                 }
             }
             jSONObject.optString("logid");
@@ -41,26 +41,26 @@ public class AlaGetChallengeInfoResponseMessage extends JsonHttpResponsedMessage
     }
 
     public void a(ag agVar) {
-        this.aub = agVar;
+        this.auh = agVar;
     }
 
     public void a(ah ahVar) {
-        this.auc = ahVar;
+        this.aui = ahVar;
     }
 
     public void b(ah ahVar) {
-        this.aud = ahVar;
+        this.auj = ahVar;
     }
 
-    public ag btP() {
-        return this.aub;
+    public ag btN() {
+        return this.auh;
     }
 
-    public ah btQ() {
-        return this.auc;
+    public ah btO() {
+        return this.aui;
     }
 
-    public ah btR() {
-        return this.aud;
+    public ah btP() {
+        return this.auj;
     }
 }

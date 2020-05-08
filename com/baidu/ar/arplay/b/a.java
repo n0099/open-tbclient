@@ -191,22 +191,22 @@ public class a implements ARPMessage.MessageHandler {
             return;
         }
         String a = com.baidu.ar.arplay.c.c.a(hashMap.get(LuaMessageHelper.KEY_EVENT_NAME), "");
-        a.C0053a c0053a = new a.C0053a();
+        a.C0074a c0074a = new a.C0074a();
         if ("load_webview".equals(a)) {
-            c0053a.dL = com.baidu.ar.arplay.c.c.a(hashMap.get("texture_id"), 0);
-            c0053a.width = com.baidu.ar.arplay.c.c.a(hashMap.get("width"), 0);
-            c0053a.height = com.baidu.ar.arplay.c.c.a(hashMap.get("height"), 0);
-            c0053a.url = com.baidu.ar.arplay.c.c.a(hashMap.get("url"), (String) null);
-            c0053a.gp = com.baidu.ar.arplay.c.c.a(hashMap.get("is_remote"), 0) == 1;
-            b.aT().c(c0053a);
+            c0074a.dL = com.baidu.ar.arplay.c.c.a(hashMap.get("texture_id"), 0);
+            c0074a.width = com.baidu.ar.arplay.c.c.a(hashMap.get("width"), 0);
+            c0074a.height = com.baidu.ar.arplay.c.c.a(hashMap.get("height"), 0);
+            c0074a.url = com.baidu.ar.arplay.c.c.a(hashMap.get("url"), (String) null);
+            c0074a.gp = com.baidu.ar.arplay.c.c.a(hashMap.get("is_remote"), 0) == 1;
+            b.aT().c(c0074a);
         } else if ("update_webview_js".equals(a)) {
-            c0053a.dL = com.baidu.ar.arplay.c.c.a(hashMap.get("texture_id"), 0);
-            c0053a.gq = com.baidu.ar.arplay.c.c.a(hashMap.get("js_code"), (String) null);
-            b.aT().e(c0053a);
+            c0074a.dL = com.baidu.ar.arplay.c.c.a(hashMap.get("texture_id"), 0);
+            c0074a.gq = com.baidu.ar.arplay.c.c.a(hashMap.get("js_code"), (String) null);
+            b.aT().e(c0074a);
         } else if ("load_native_webview".equals(a)) {
-            c0053a.url = com.baidu.ar.arplay.c.c.a(hashMap.get("url"), (String) null);
-            c0053a.gp = com.baidu.ar.arplay.c.c.a(hashMap.get("is_remote"), 0) == 1;
-            b.aT().d(c0053a);
+            c0074a.url = com.baidu.ar.arplay.c.c.a(hashMap.get("url"), (String) null);
+            c0074a.gp = com.baidu.ar.arplay.c.c.a(hashMap.get("is_remote"), 0) == 1;
+            b.aT().d(c0074a);
         }
     }
 

@@ -11,19 +11,19 @@ import java.util.TreeMap;
 /* loaded from: classes11.dex */
 public class e {
     public static void a(int i, @NonNull ResponseCallback responseCallback) {
-        com.baidu.swan.apps.runtime.e akN = com.baidu.swan.apps.runtime.e.akN();
-        if (akN == null) {
+        com.baidu.swan.apps.runtime.e akM = com.baidu.swan.apps.runtime.e.akM();
+        if (akM == null) {
             responseCallback.onFail(new Exception("framework error: swan app is null."));
             return;
         }
-        akN.ala().getRequest().cookieManager(com.baidu.swan.apps.w.a.acm().Qj()).url(com.baidu.swan.apps.w.a.aca().Qa()).addUrlParam("app_key", akN.getAppKey()).addUrlParam(Constants.EXTRA_CONFIG_LIMIT, String.valueOf(5)).addUrlParam("source", String.valueOf(i)).build().executeAsync(responseCallback);
+        akM.akZ().getRequest().cookieManager(com.baidu.swan.apps.w.a.acl().Qi()).url(com.baidu.swan.apps.w.a.abZ().PZ()).addUrlParam("app_key", akM.getAppKey()).addUrlParam(Constants.EXTRA_CONFIG_LIMIT, String.valueOf(5)).addUrlParam("source", String.valueOf(i)).build().executeAsync(responseCallback);
     }
 
     public static void ac(int i, String str) {
-        com.baidu.swan.apps.runtime.e akN = com.baidu.swan.apps.runtime.e.akN();
-        if (akN != null) {
-            String Qb = com.baidu.swan.apps.w.a.aca().Qb();
-            ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) akN.ala().postFormRequest().cookieManager(com.baidu.swan.apps.w.a.acm().Qj())).url(Qb)).addParams(a(akN, i, str)).build().executeAsync(new StringResponseCallback() { // from class: com.baidu.swan.games.view.recommend.a.e.1
+        com.baidu.swan.apps.runtime.e akM = com.baidu.swan.apps.runtime.e.akM();
+        if (akM != null) {
+            String Qa = com.baidu.swan.apps.w.a.abZ().Qa();
+            ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) akM.akZ().postFormRequest().cookieManager(com.baidu.swan.apps.w.a.acl().Qi())).url(Qa)).addParams(a(akM, i, str)).build().executeAsync(new StringResponseCallback() { // from class: com.baidu.swan.games.view.recommend.a.e.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.searchbox.http.callback.ResponseCallback
                 public void onSuccess(String str2, int i2) {

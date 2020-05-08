@@ -1,25 +1,27 @@
 package com.baidu.sapi2;
 
 import android.os.Looper;
-import com.baidu.android.util.io.BaseJsonData;
-import com.baidu.sapi2.callback.SapiCallback;
+import com.baidu.sapi2.callback.IqiyiLoginCallback;
 import com.baidu.sapi2.httpwrap.HttpHandlerWrap;
-import com.baidu.sapi2.result.CheckUserFaceIdResult;
+import com.baidu.sapi2.result.IqiyiLoginResult;
+import com.baidu.sapi2.share.SapiShareClient;
+import com.baidu.sapi2.shell.response.SocialResponse;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes6.dex */
 public class r extends HttpHandlerWrap {
-    final /* synthetic */ SapiCallback a;
-    final /* synthetic */ CheckUserFaceIdResult b;
-    final /* synthetic */ G c;
+    final /* synthetic */ IqiyiLoginCallback a;
+    final /* synthetic */ IqiyiLoginResult b;
+    final /* synthetic */ L c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public r(G g, Looper looper, SapiCallback sapiCallback, CheckUserFaceIdResult checkUserFaceIdResult) {
+    public r(L l, Looper looper, IqiyiLoginCallback iqiyiLoginCallback, IqiyiLoginResult iqiyiLoginResult) {
         super(looper);
-        this.c = g;
-        this.a = sapiCallback;
-        this.b = checkUserFaceIdResult;
+        this.c = l;
+        this.a = iqiyiLoginCallback;
+        this.b = iqiyiLoginResult;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -38,29 +40,45 @@ public class r extends HttpHandlerWrap {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
     public void onStart() {
-        this.a.onStart();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
     public void onSuccess(int i, String str) {
+        SapiConfiguration sapiConfiguration;
+        SapiConfiguration sapiConfiguration2;
+        if (this.c.b(str) != 302) {
+            sapiConfiguration = this.c.d;
+            SocialResponse b = SapiWebView.b(str, sapiConfiguration.context);
+            if (b == null) {
+                this.b.setResultCode(-100);
+                this.b.setResultMsg("登录失败");
+                this.a.onFailure(this.b);
+                return;
+            } else if (b.errorCode != -100) {
+                this.b.setResultCode(-100);
+                this.b.setResultMsg("登录失败");
+                this.a.onFailure(this.b);
+                return;
+            } else {
+                SapiAccount a = this.c.a(b);
+                a.addSocialInfo(b.socialType, b.socialPortraitUrl);
+                a.putExtra("account_type", Integer.valueOf(b.accountType.getType()));
+                a.addDispersionCertification(b.tplStokenMap);
+                a.addIsGuestAccount(b.isGuestAccount);
+                sapiConfiguration2 = this.c.d;
+                a.putExtra("tpl", sapiConfiguration2.tpl);
+                SapiShareClient.getInstance().validate(a);
+                this.a.onSuccess(this.b);
+                return;
+            }
+        }
         try {
             JSONObject jSONObject = new JSONObject(str);
-            int parseInt = Integer.parseInt(jSONObject.optString(BaseJsonData.TAG_ERRNO));
-            this.b.setResultCode(parseInt);
-            this.b.setResultMsg(jSONObject.optString(BaseJsonData.TAG_ERRMSG));
-            if (parseInt == 0) {
-                this.b.status = jSONObject.optInt("status");
-                this.b.livingUname = jSONObject.optString("livinguname");
-                this.b.authsid = jSONObject.optString("authsid");
-                this.b.authWidgetURL = jSONObject.optString("authurl");
-                this.a.onSuccess(this.b);
-            } else {
-                this.a.onFailure(this.b);
-            }
-        } catch (Throwable th) {
-            this.b.setResultCode(-202);
-            this.a.onFailure(this.b);
+            this.b.nextUrl = jSONObject.optString("next_url");
+            this.a.onBindWebview(this.b);
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
     }
 }

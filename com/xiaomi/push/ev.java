@@ -2,100 +2,91 @@ package com.xiaomi.push;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.text.TextUtils;
-import com.baidu.ar.arplay.core.message.ARPMessageType;
-import com.baidu.ar.recorder.MovieRecorder;
-import com.xiaomi.clientreport.data.EventClientReport;
-import com.xiaomi.clientreport.data.PerfClientReport;
-import com.xiaomi.clientreport.manager.ClientReportClient;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes8.dex */
-public class ev {
-    private static volatile ev a;
-
-    /* renamed from: a  reason: collision with other field name */
-    private Context f325a;
-
-    private ev(Context context) {
-        this.f325a = context;
-    }
-
-    public static ev a(Context context) {
-        if (a == null) {
-            synchronized (ev.class) {
-                if (a == null) {
-                    a = new ev(context);
+public class ev implements et {
+    private void a(Context context, String str) {
+        try {
+            if (TextUtils.isEmpty(str) || context == null) {
+                em.a(context, "provider", 1008, "B get a incorrect message");
+            } else {
+                String[] split = str.split("/");
+                if (split.length <= 0 || TextUtils.isEmpty(split[split.length - 1])) {
+                    em.a(context, "provider", 1008, "B get a incorrect message");
+                } else {
+                    String str2 = split[split.length - 1];
+                    if (TextUtils.isEmpty(str2)) {
+                        em.a(context, "provider", 1008, "B get a incorrect message");
+                    } else {
+                        String decode = Uri.decode(str2);
+                        if (TextUtils.isEmpty(decode)) {
+                            em.a(context, "provider", 1008, "B get a incorrect message");
+                        } else {
+                            String b = el.b(decode);
+                            if (TextUtils.isEmpty(b)) {
+                                em.a(context, "provider", 1008, "B get a incorrect message");
+                            } else {
+                                em.a(context, b, 1007, "play with provider successfully");
+                            }
+                        }
+                    }
                 }
             }
-        }
-        return a;
-    }
-
-    private void a(com.xiaomi.clientreport.data.a aVar) {
-        if (aVar instanceof PerfClientReport) {
-            ClientReportClient.reportPerf(this.f325a, (PerfClientReport) aVar);
-        } else if (aVar instanceof EventClientReport) {
-            ClientReportClient.reportEvent(this.f325a, (EventClientReport) aVar);
+        } catch (Exception e) {
+            em.a(context, "provider", 1008, "B meet a exception" + e.getMessage());
         }
     }
 
-    public void a(String str, int i, long j, long j2) {
-        if (i < 0 || j2 < 0 || j <= 0) {
-            return;
+    private void b(Context context, ep epVar) {
+        String b = epVar.b();
+        String d = epVar.d();
+        int a = epVar.a();
+        if (context == null || TextUtils.isEmpty(b) || TextUtils.isEmpty(d)) {
+            if (TextUtils.isEmpty(d)) {
+                em.a(context, "provider", 1008, "argument error");
+            } else {
+                em.a(context, d, 1008, "argument error");
+            }
+        } else if (!com.xiaomi.push.service.f.b(context, b)) {
+            em.a(context, d, 1003, "B is not ready");
+        } else {
+            em.a(context, d, 1002, "B is ready");
+            em.a(context, d, 1004, "A is ready");
+            String a2 = el.a(d);
+            try {
+                if (TextUtils.isEmpty(a2)) {
+                    em.a(context, d, 1008, "info is empty");
+                } else if (a != 1 || eq.m263a(context)) {
+                    String type = context.getContentResolver().getType(el.a(b, a2));
+                    if (TextUtils.isEmpty(type) || !"success".equals(type)) {
+                        em.a(context, d, 1008, "A is fail to help B's provider");
+                    } else {
+                        em.a(context, d, 1005, "A is successful");
+                        em.a(context, d, 1006, "The job is finished");
+                    }
+                } else {
+                    em.a(context, d, 1008, "A not in foreground");
+                }
+            } catch (Exception e) {
+                com.xiaomi.channel.commonutils.logger.b.a(e);
+                em.a(context, d, 1008, "A meet a exception when help B's provider");
+            }
         }
-        PerfClientReport a2 = eu.a(this.f325a, i, j, j2);
-        a2.setAppPackageName(str);
-        a2.setSdkVersion("3_6_19");
-        a(a2);
     }
 
-    public void a(String str, Intent intent, int i, String str2) {
-        if (intent == null) {
-            return;
+    @Override // com.xiaomi.push.et
+    public void a(Context context, Intent intent, String str) {
+        a(context, str);
+    }
+
+    @Override // com.xiaomi.push.et
+    public void a(Context context, ep epVar) {
+        if (epVar != null) {
+            b(context, epVar);
+        } else {
+            em.a(context, "provider", 1008, "A receive incorrect message");
         }
-        a(str, eu.m263a(intent.getIntExtra("eventMessageType", -1)), intent.getStringExtra("messageId"), i, System.currentTimeMillis(), str2);
-    }
-
-    public void a(String str, Intent intent, String str2) {
-        if (intent == null) {
-            return;
-        }
-        a(str, eu.m263a(intent.getIntExtra("eventMessageType", -1)), intent.getStringExtra("messageId"), ARPMessageType.MSG_TYPE_RES_REQUEST, System.currentTimeMillis(), str2);
-    }
-
-    public void a(String str, Intent intent, Throwable th) {
-        if (intent == null) {
-            return;
-        }
-        a(str, eu.m263a(intent.getIntExtra("eventMessageType", -1)), intent.getStringExtra("messageId"), ARPMessageType.MSG_TYPE_RES_REQUEST, System.currentTimeMillis(), th.getMessage());
-    }
-
-    public void a(String str, String str2, String str3, int i, long j, String str4) {
-        if (TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3)) {
-            return;
-        }
-        EventClientReport a2 = eu.a(this.f325a, str2, str3, i, j, str4);
-        a2.setAppPackageName(str);
-        a2.setSdkVersion("3_6_19");
-        a(a2);
-    }
-
-    public void a(String str, String str2, String str3, int i, String str4) {
-        a(str, str2, str3, i, System.currentTimeMillis(), str4);
-    }
-
-    public void a(String str, String str2, String str3, String str4) {
-        a(str, str2, str3, 5002, System.currentTimeMillis(), str4);
-    }
-
-    public void a(String str, String str2, String str3, Throwable th) {
-        a(str, str2, str3, ARPMessageType.MSG_TYPE_RES_REQUEST, System.currentTimeMillis(), th.getMessage());
-    }
-
-    public void b(String str, String str2, String str3, String str4) {
-        a(str, str2, str3, ARPMessageType.MSG_TYPE_RES_REQUEST, System.currentTimeMillis(), str4);
-    }
-
-    public void c(String str, String str2, String str3, String str4) {
-        a(str, str2, str3, MovieRecorder.ERROR_CODE_ON_STOP, System.currentTimeMillis(), str4);
     }
 }

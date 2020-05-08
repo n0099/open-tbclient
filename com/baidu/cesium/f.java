@@ -22,7 +22,7 @@ import java.util.List;
 import java.util.Random;
 /* loaded from: classes13.dex */
 public class f {
-    private c aiR;
+    private c aiW;
     private Context l;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -43,28 +43,15 @@ public class f {
 
     public f(Context context, c cVar) {
         this.l = context;
-        this.aiR = cVar;
+        this.aiW = cVar;
     }
 
-    private boolean a() {
-        return c("android.permission.WRITE_SETTINGS");
-    }
-
-    private boolean a(String str, String str2) {
-        try {
-            return Settings.System.putString(this.l.getContentResolver(), str, str2);
-        } catch (Exception e) {
-            com.baidu.cesium.f.c.a(e);
-            return false;
-        }
-    }
-
-    private e ae(Context context) {
+    private e R(Context context) {
         String str;
         e eVar;
         e eVar2 = null;
-        List<b> ad = this.aiR.ad(context);
-        if (ad != null) {
+        List<b> Q = this.aiW.Q(context);
+        if (Q != null) {
             File filesDir = context.getFilesDir();
             if (com.baidu.fsg.face.base.b.c.g.equals(filesDir.getName())) {
                 str = com.baidu.fsg.face.base.b.c.g;
@@ -72,7 +59,7 @@ public class f {
                 Log.e("CuidV266Manager", "fetal error:: app files dir name is unexpectedly :: " + filesDir.getAbsolutePath());
                 str = filesDir.getName();
             }
-            for (b bVar : ad) {
+            for (b bVar : Q) {
                 if (!bVar.d) {
                     File file = new File(new File(bVar.a.dataDir, str), "libcuid.so");
                     if (file.exists()) {
@@ -89,6 +76,19 @@ public class f {
             return eVar2;
         }
         return null;
+    }
+
+    private boolean a() {
+        return c("android.permission.WRITE_SETTINGS");
+    }
+
+    private boolean a(String str, String str2) {
+        try {
+            return Settings.System.putString(this.l.getContentResolver(), str, str2);
+        } catch (Exception e) {
+            com.baidu.cesium.f.c.a(e);
+            return false;
+        }
     }
 
     private static void b(String str, String str2) {
@@ -265,7 +265,7 @@ public class f {
         return "0";
     }
 
-    private e se() {
+    private e sd() {
         File file = new File(Environment.getExternalStorageDirectory(), "backups/.SystemConfig/.cuid2");
         if (file.exists()) {
             return e.cY(com.baidu.cesium.f.c.a(file));
@@ -273,7 +273,7 @@ public class f {
         return null;
     }
 
-    private e sf() {
+    private e se() {
         return e.Q(d("com.baidu.deviceid"), d("bd_setting_i"));
     }
 
@@ -311,12 +311,12 @@ public class f {
         boolean c2 = c("android.permission.WRITE_EXTERNAL_STORAGE");
         if (c2) {
             if (new File(Environment.getExternalStorageDirectory(), "backups/.SystemConfig/.cuid2").exists()) {
-                e se = se();
-                if (se != null) {
-                    if (se.e()) {
-                        e(se.c());
+                e sd = sd();
+                if (sd != null) {
+                    if (sd.e()) {
+                        e(sd.c());
                     }
-                } else if (se == null) {
+                } else if (sd == null) {
                     e(c);
                 }
             } else {
@@ -343,26 +343,26 @@ public class f {
     }
 
     public e da(String str) {
-        e ae = 0 == 0 ? ae(this.l) : null;
-        if (ae == null) {
-            ae = e.cY(d("com.baidu.deviceid.v2"));
+        e R = 0 == 0 ? R(this.l) : null;
+        if (R == null) {
+            R = e.cY(d("com.baidu.deviceid.v2"));
         }
         boolean c = c("android.permission.READ_EXTERNAL_STORAGE");
-        e se = (ae == null && c) ? se() : ae;
-        if (se == null) {
-            se = sf();
+        e sd = (R == null && c) ? sd() : R;
+        if (sd == null) {
+            sd = se();
         }
         boolean z = false;
-        if (se == null && c) {
+        if (sd == null && c) {
             z = true;
-            se = db(f(""));
+            sd = db(f(""));
         }
         if (!z) {
             f("");
         }
-        if (se != null) {
-            se.e();
+        if (sd != null) {
+            sd.e();
         }
-        return se;
+        return sd;
     }
 }

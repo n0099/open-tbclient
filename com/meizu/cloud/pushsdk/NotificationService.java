@@ -6,10 +6,9 @@ import android.content.Intent;
 import android.content.pm.ResolveInfo;
 import android.os.Process;
 import android.text.TextUtils;
-import com.meizu.cloud.pushsdk.base.a.d;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.meizu.cloud.pushsdk.handler.a.b.b;
-import com.meizu.cloud.pushsdk.util.c;
+import com.meizu.cloud.pushsdk.util.d;
 import java.util.List;
 /* loaded from: classes8.dex */
 public class NotificationService extends IntentService {
@@ -39,16 +38,16 @@ public class NotificationService extends IntentService {
     public void a(Intent intent) {
         String a = a(getPackageName(), intent.getAction());
         if (TextUtils.isEmpty(a)) {
-            c.a(this, intent, "reflectReceiver sendbroadcast", 2005);
+            d.a(this, intent, "reflectReceiver sendbroadcast", 2005);
             com.meizu.cloud.a.a.i("NotificationService", " reflectReceiver error: receiver for: " + intent.getAction() + " not found, package: " + getPackageName());
             intent.setPackage(getPackageName());
             sendBroadcast(intent);
             return;
         }
         try {
-            c.a(this, intent, "reflectReceiver startservice", 2003);
+            d.a(this, intent, "reflectReceiver startservice", 2003);
             intent.setClassName(getPackageName(), a);
-            d a2 = com.meizu.cloud.pushsdk.base.a.a.a(a).a((Class<?>[]) null).a(null);
+            com.meizu.cloud.pushsdk.base.a.d a2 = com.meizu.cloud.pushsdk.base.a.a.a(a).a((Class<?>[]) null).a(null);
             if (!a2.a || a2.b == 0) {
                 return;
             }
@@ -56,7 +55,7 @@ public class NotificationService extends IntentService {
             com.meizu.cloud.pushsdk.base.a.a.a(a2.b).a("onReceive", Context.class, Intent.class).a(a2.b, getApplicationContext(), intent);
         } catch (Exception e) {
             com.meizu.cloud.a.a.i("NotificationService", "reflect e: " + e);
-            c.a(this, intent, e.getMessage(), 2004);
+            d.a(this, intent, e.getMessage(), 2004);
         }
     }
 

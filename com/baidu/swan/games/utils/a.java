@@ -18,8 +18,8 @@ public class a {
             }
             bundle2.putLong("launch_flag_for_statistic", System.currentTimeMillis());
             bundle2.putLong("page_display_flag_for_statistic", System.currentTimeMillis());
-            com.baidu.swan.apps.runtime.d.akK().v(new String[0]);
-            com.baidu.swan.apps.runtime.d.akK().c(bundle, "update_tag_by_activity_on_relaunch");
+            com.baidu.swan.apps.runtime.d.akJ().v(new String[0]);
+            com.baidu.swan.apps.runtime.d.akJ().c(bundle, "update_tag_by_activity_on_relaunch");
         }
     }
 }

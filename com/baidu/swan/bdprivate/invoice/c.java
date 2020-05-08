@@ -17,7 +17,7 @@ public interface c {
 
     /* renamed from: com.baidu.swan.bdprivate.invoice.c$c  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public interface InterfaceC0351c extends c {
+    public interface InterfaceC0372c extends c {
         void aq(List<InvoiceInfo> list);
     }
 

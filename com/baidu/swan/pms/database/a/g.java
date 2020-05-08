@@ -31,7 +31,7 @@ public class g extends b<com.baidu.swan.pms.model.g> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.pms.database.a.b
     /* renamed from: k */
-    public ContentValues aa(com.baidu.swan.pms.model.g gVar) {
+    public ContentValues ab(com.baidu.swan.pms.model.g gVar) {
         ContentValues e = super.e(gVar);
         e.put("independent", Integer.valueOf(gVar.independent ? 1 : 0));
         e.put("sub_pkg_name", gVar.pkgName);

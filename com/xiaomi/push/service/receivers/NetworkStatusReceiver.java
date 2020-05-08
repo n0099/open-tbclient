@@ -4,18 +4,17 @@ import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import com.xiaomi.channel.commonutils.logger.b;
 import com.xiaomi.mipush.sdk.COSPushHelper;
 import com.xiaomi.mipush.sdk.FTOSPushHelper;
 import com.xiaomi.mipush.sdk.HWPushHelper;
 import com.xiaomi.mipush.sdk.MiPushClient;
-import com.xiaomi.mipush.sdk.ao;
-import com.xiaomi.mipush.sdk.ay;
-import com.xiaomi.mipush.sdk.bd;
-import com.xiaomi.mipush.sdk.d;
-import com.xiaomi.push.as;
-import com.xiaomi.push.gr;
-import com.xiaomi.push.service.ax;
+import com.xiaomi.mipush.sdk.ag;
+import com.xiaomi.mipush.sdk.aq;
+import com.xiaomi.mipush.sdk.av;
+import com.xiaomi.mipush.sdk.b;
+import com.xiaomi.push.az;
+import com.xiaomi.push.gx;
+import com.xiaomi.push.service.bb;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
@@ -24,63 +23,63 @@ import java.util.concurrent.TimeUnit;
 public class NetworkStatusReceiver extends BroadcastReceiver {
 
     /* renamed from: b  reason: collision with other field name */
-    private boolean f929b;
+    private boolean f926b;
     private static int a = 1;
     private static int b = 1;
     private static int c = 2;
 
     /* renamed from: a  reason: collision with other field name */
-    private static BlockingQueue<Runnable> f926a = new LinkedBlockingQueue();
+    private static BlockingQueue<Runnable> f923a = new LinkedBlockingQueue();
 
     /* renamed from: a  reason: collision with other field name */
-    private static ThreadPoolExecutor f927a = new ThreadPoolExecutor(a, b, c, TimeUnit.SECONDS, f926a);
+    private static ThreadPoolExecutor f924a = new ThreadPoolExecutor(a, b, c, TimeUnit.SECONDS, f923a);
 
     /* renamed from: a  reason: collision with other field name */
-    private static boolean f928a = false;
+    private static boolean f925a = false;
 
     public NetworkStatusReceiver() {
-        this.f929b = false;
-        this.f929b = true;
+        this.f926b = false;
+        this.f926b = true;
     }
 
     public NetworkStatusReceiver(Object obj) {
-        this.f929b = false;
-        f928a = true;
+        this.f926b = false;
+        f925a = true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Context context) {
-        if (!ay.a(context).m79a() && d.m88a(context).m97c() && !d.m88a(context).m99e()) {
+        if (!aq.a(context).m83a() && b.m90a(context).m99c() && !b.m90a(context).m101e()) {
             try {
                 Intent intent = new Intent();
                 intent.setComponent(new ComponentName(context, "com.xiaomi.push.service.XMPushService"));
                 intent.setAction("com.xiaomi.push.network_status_changed");
-                ax.a(context).m528a(intent);
+                bb.a(context).m554a(intent);
             } catch (Exception e) {
-                b.a(e);
+                com.xiaomi.channel.commonutils.logger.b.a(e);
             }
         }
-        gr.m322a(context);
-        if (as.b(context) && ay.a(context).m82b()) {
-            ay.a(context).m83c();
+        gx.m326a(context);
+        if (az.b(context) && aq.a(context).m86b()) {
+            aq.a(context).m87c();
         }
-        if (as.b(context)) {
-            if ("syncing".equals(ao.a(context).a(bd.DISABLE_PUSH))) {
+        if (az.b(context)) {
+            if ("syncing".equals(ag.a(context).a(av.DISABLE_PUSH))) {
                 MiPushClient.disablePush(context);
             }
-            if ("syncing".equals(ao.a(context).a(bd.ENABLE_PUSH))) {
+            if ("syncing".equals(ag.a(context).a(av.ENABLE_PUSH))) {
                 MiPushClient.enablePush(context);
             }
-            if ("syncing".equals(ao.a(context).a(bd.UPLOAD_HUAWEI_TOKEN))) {
+            if ("syncing".equals(ag.a(context).a(av.UPLOAD_HUAWEI_TOKEN))) {
                 MiPushClient.syncAssemblePushToken(context);
             }
-            if ("syncing".equals(ao.a(context).a(bd.UPLOAD_FCM_TOKEN))) {
+            if ("syncing".equals(ag.a(context).a(av.UPLOAD_FCM_TOKEN))) {
                 MiPushClient.syncAssembleFCMPushToken(context);
             }
-            if ("syncing".equals(ao.a(context).a(bd.UPLOAD_COS_TOKEN))) {
+            if ("syncing".equals(ag.a(context).a(av.UPLOAD_COS_TOKEN))) {
                 MiPushClient.syncAssembleCOSPushToken(context);
             }
-            if ("syncing".equals(ao.a(context).a(bd.UPLOAD_FTOS_TOKEN))) {
+            if ("syncing".equals(ag.a(context).a(av.UPLOAD_FTOS_TOKEN))) {
                 MiPushClient.syncAssembleFTOSPushToken(context);
             }
             if (HWPushHelper.needConnect() && HWPushHelper.shouldTryConnect(context)) {
@@ -93,14 +92,14 @@ public class NetworkStatusReceiver extends BroadcastReceiver {
     }
 
     public static boolean a() {
-        return f928a;
+        return f925a;
     }
 
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
-        if (this.f929b) {
+        if (this.f926b) {
             return;
         }
-        f927a.execute(new a(this, context));
+        f924a.execute(new a(this, context));
     }
 }

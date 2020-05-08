@@ -7,13 +7,13 @@ import com.baidu.tieba.ala.alasquare.special_forum.subtab.a.g;
 import com.baidu.tieba.ala.alasquare.subtablist.c.h;
 /* loaded from: classes3.dex */
 public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasquare.live_tab.b.e, g> {
-    private String eRS;
-    private com.baidu.tieba.ala.alasquare.special_forum.subtab.a.f eVm;
-    private h eVn;
+    private String eRX;
+    private com.baidu.tieba.ala.alasquare.special_forum.subtab.a.f eVr;
+    private h eVs;
     private TbPageContext<?> mPageContext;
 
     public d(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.alasquare.live_tab.b.e.ePM);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.alasquare.live_tab.b.e.ePR);
         this.mPageContext = tbPageContext;
     }
 
@@ -22,29 +22,29 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasq
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: L */
     public g b(ViewGroup viewGroup) {
-        this.eVm = new com.baidu.tieba.ala.alasquare.special_forum.subtab.a.f(this.mPageContext, viewGroup);
-        if (this.eVn != null) {
-            this.eVm.c(this.eVn);
+        this.eVr = new com.baidu.tieba.ala.alasquare.special_forum.subtab.a.f(this.mPageContext, viewGroup);
+        if (this.eVs != null) {
+            this.eVr.c(this.eVs);
         }
-        return new g(this.eVm);
+        return new g(this.eVr);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.ala.alasquare.live_tab.b.e eVar, g gVar) {
-        gVar.eVm.a(eVar, this.eRS);
+        gVar.eVr.a(eVar, this.eRX);
         return gVar.getView();
     }
 
     public void a(h hVar) {
-        this.eVn = hVar;
-        if (this.eVm != null) {
-            this.eVm.c(this.eVn);
+        this.eVs = hVar;
+        if (this.eVr != null) {
+            this.eVr.c(this.eVs);
         }
     }
 
     public void setEntryName(String str) {
-        this.eRS = str;
+        this.eRX = str;
     }
 }

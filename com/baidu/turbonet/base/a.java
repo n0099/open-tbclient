@@ -14,7 +14,7 @@ public class a {
         return str;
     }
 
-    public static String MQ(String str) {
+    public static String MT(String str) {
         if (!str.startsWith("cr_")) {
             int i = 0;
             if (str.startsWith("cr.")) {
@@ -26,16 +26,16 @@ public class a {
     }
 
     private static String k(String str, Object... objArr) {
-        return "[" + diB() + "] " + j(str, objArr);
+        return "[" + diy() + "] " + j(str, objArr);
     }
 
     private static void f(String str, String str2, Object... objArr) {
         String k = k(str2, objArr);
         Throwable L = L(objArr);
         if (L != null) {
-            Log.d(MQ(str), k, L);
+            Log.d(MT(str), k, L);
         } else {
-            Log.d(MQ(str), k);
+            Log.d(MT(str), k);
         }
     }
 
@@ -47,9 +47,9 @@ public class a {
         String j = j(str2, objArr);
         Throwable L = L(objArr);
         if (L != null) {
-            Log.i(MQ(str), j, L);
+            Log.i(MT(str), j, L);
         } else {
-            Log.i(MQ(str), j);
+            Log.i(MT(str), j);
         }
     }
 
@@ -57,9 +57,9 @@ public class a {
         String j = j(str2, objArr);
         Throwable L = L(objArr);
         if (L != null) {
-            Log.e(MQ(str), j, L);
+            Log.e(MT(str), j, L);
         } else {
-            Log.e(MQ(str), j);
+            Log.e(MT(str), j);
         }
     }
 
@@ -74,7 +74,7 @@ public class a {
         return null;
     }
 
-    private static String diB() {
+    private static String diy() {
         StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
         String name = a.class.getName();
         int i = 0;

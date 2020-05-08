@@ -16,7 +16,7 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class c {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    protected static final Set<String> bDt = i.N("localhost", "127.0.0.1");
+    protected static final Set<String> bDy = i.N("localhost", "127.0.0.1");
 
     public static String gV(String str) {
         return str + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + System.currentTimeMillis();
@@ -24,12 +24,12 @@ public class c {
 
     public static HttpUrl gW(String str) {
         HttpUrl parse = HttpUrl.parse(str);
-        if (d.akK().akJ() == null) {
+        if (d.akJ().akI() == null) {
             if (a(parse)) {
                 return parse;
             }
             return null;
-        } else if (com.baidu.swan.apps.ah.a.a.aiE() || a(parse)) {
+        } else if (com.baidu.swan.apps.ah.a.a.aiD() || a(parse)) {
             return parse;
         } else {
             return null;
@@ -37,12 +37,12 @@ public class c {
     }
 
     public static boolean a(@Nullable HttpUrl httpUrl) {
-        boolean alO = com.baidu.swan.apps.aj.a.b.alO();
-        if (!com.baidu.swan.apps.w.a.abR().Pc()) {
-            alO = false;
+        boolean alN = com.baidu.swan.apps.aj.a.b.alN();
+        if (!com.baidu.swan.apps.w.a.abQ().Pb()) {
+            alN = false;
         }
         if (httpUrl != null) {
-            return (!alO || HttpUrl.defaultPort(httpUrl.scheme()) == httpUrl.port()) && !bDt.contains(httpUrl.host().toLowerCase());
+            return (!alN || HttpUrl.defaultPort(httpUrl.scheme()) == httpUrl.port()) && !bDy.contains(httpUrl.host().toLowerCase());
         }
         return false;
     }
@@ -84,7 +84,7 @@ public class c {
         return jSONObject;
     }
 
-    public static String RJ() {
-        return y.ape() == 2 ? y.oa("https://smartapps.cn/%s/%s/page-frame.html") : y.oa("https://smartapp.baidu.com/%s/%s/page-frame.html");
+    public static String RI() {
+        return y.apd() == 2 ? y.oa("https://smartapps.cn/%s/%s/page-frame.html") : y.oa("https://smartapp.baidu.com/%s/%s/page-frame.html");
     }
 }

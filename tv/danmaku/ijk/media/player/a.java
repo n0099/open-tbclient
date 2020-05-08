@@ -5,7 +5,7 @@ import tv.danmaku.ijk.media.player.misc.IMediaDataSource;
 /* loaded from: classes.dex */
 public abstract class a implements b {
     private b.e a;
-    private b.InterfaceC0843b b;
+    private b.InterfaceC0864b b;
     private b.a c;
     private b.f d;
     private b.h e;
@@ -42,8 +42,8 @@ public abstract class a implements b {
         this.c = aVar;
     }
 
-    public final void a(b.InterfaceC0843b interfaceC0843b) {
-        this.b = interfaceC0843b;
+    public final void a(b.InterfaceC0864b interfaceC0864b) {
+        this.b = interfaceC0864b;
     }
 
     public final void a(b.c cVar) {

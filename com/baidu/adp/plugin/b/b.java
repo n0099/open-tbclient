@@ -10,10 +10,10 @@ import java.util.Locale;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class b {
-    private static final Map<String, b> QT = new HashMap();
-    private static final Object QU = new Object();
-    private static DateFormat QV = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS", Locale.CHINESE);
-    private LinkedList<a> QW = new LinkedList<>();
+    private static final Map<String, b> QW = new HashMap();
+    private static final Object QX = new Object();
+    private static DateFormat QY = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS", Locale.CHINESE);
+    private LinkedList<a> QZ = new LinkedList<>();
     private long startTime;
     private String type;
 
@@ -21,16 +21,16 @@ public class b {
         if (TextUtils.isEmpty(str)) {
             str = "Default";
         }
-        if (!QT.containsKey(str)) {
-            synchronized (QU) {
-                if (!QT.containsKey(str)) {
+        if (!QW.containsKey(str)) {
+            synchronized (QX) {
+                if (!QW.containsKey(str)) {
                     b bVar = new b(str);
-                    QT.put(str, bVar);
+                    QW.put(str, bVar);
                     return bVar;
                 }
             }
         }
-        return QT.get(str);
+        return QW.get(str);
     }
 
     public static b nI() {
@@ -48,7 +48,7 @@ public class b {
     public void trace(String str, String str2) {
         nJ();
         nK();
-        this.QW.add(new a(str, str2));
+        this.QZ.add(new a(str, str2));
     }
 
     private void nJ() {
@@ -58,18 +58,18 @@ public class b {
     }
 
     private void nK() {
-        while (this.QW.size() >= 70) {
-            this.QW.poll();
+        while (this.QZ.size() >= 70) {
+            this.QZ.poll();
         }
     }
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("trace_" + this.type + "{begin@" + QV.format(new Date(this.startTime)) + "->");
-        for (int i = 0; i < this.QW.size(); i++) {
-            a aVar = this.QW.get(i);
-            sb.append(String.format("%s(%s)@%s", aVar.method, aVar.QX, QV.format(new Date(aVar.time))));
-            if (i < this.QW.size() - 1) {
+        sb.append("trace_" + this.type + "{begin@" + QY.format(new Date(this.startTime)) + "->");
+        for (int i = 0; i < this.QZ.size(); i++) {
+            a aVar = this.QZ.get(i);
+            sb.append(String.format("%s(%s)@%s", aVar.method, aVar.Ra, QY.format(new Date(aVar.time))));
+            if (i < this.QZ.size() - 1) {
                 sb.append("->");
             }
         }
@@ -80,13 +80,13 @@ public class b {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public static class a {
-        private String QX;
+        private String Ra;
         private String method;
         private long time;
 
         a(String str, String str2, long j) {
             this.method = str;
-            this.QX = str2;
+            this.Ra = str2;
             this.time = j;
         }
 

@@ -10,6 +10,7 @@ import com.baidu.sapi2.callback.SetPopularPortraitCallback;
 import com.baidu.sapi2.callback.SetPortraitCallback;
 import com.baidu.sapi2.dto.GetHistoryPortraitsDTO;
 import com.baidu.sapi2.dto.SetPopularPortraitDTO;
+import com.baidu.sapi2.dto.SetPortraitDTO;
 import com.baidu.sapi2.httpwrap.HttpClientWrap;
 import com.baidu.sapi2.httpwrap.HttpHandlerWrap;
 import com.baidu.sapi2.httpwrap.HttpHashMapWrap;
@@ -204,21 +205,21 @@ public class PortraitService extends AbstractService {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void setPortrait(final SetPortraitCallback setPortraitCallback, String str, byte[] bArr, String str2) {
-        SapiUtils.notNull(setPortraitCallback, SetPortraitCallback.class.getSimpleName() + " can't be null");
-        SapiUtils.notEmpty(str, "bduss can't be empty");
+    public void setPortrait(SetPortraitDTO setPortraitDTO, final SetPortraitCallback setPortraitCallback) {
+        SapiUtils.notNull(setPortraitDTO, "SetPortraitDTO can't be null");
+        SapiUtils.notNull(setPortraitCallback, "SetPortraitCallback can't be null");
+        SapiUtils.notEmpty(setPortraitDTO.bduss, "bduss can't be empty");
+        byte[] bArr = setPortraitDTO.file;
         if (bArr != null && bArr.length != 0) {
             final SetPortraitResult setPortraitResult = new SetPortraitResult();
             MultipartHashMapWrap multipartHashMapWrap = new MultipartHashMapWrap();
-            multipartHashMapWrap.put("bduss", str);
-            if (TextUtils.isEmpty(str2)) {
-                str2 = MimeType.Image.JPEG;
-            }
-            multipartHashMapWrap.put("file", new ByteArrayInputStream(bArr), "portrait.jpg", str2);
+            multipartHashMapWrap.put("bduss", setPortraitDTO.bduss);
+            multipartHashMapWrap.put("portrait_type", setPortraitDTO.portraitType + "");
+            multipartHashMapWrap.put("file", new ByteArrayInputStream(setPortraitDTO.file), "portrait.jpg", TextUtils.isEmpty(setPortraitDTO.contentType) ? MimeType.Image.JPEG : setPortraitDTO.contentType);
             new HttpClientWrap().post(d(), multipartHashMapWrap, null, getUaInfo(), new HttpHandlerWrap(Looper.getMainLooper()) { // from class: com.baidu.sapi2.PortraitService.1
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
-                public void onFailure(Throwable th, int i, String str3) {
+                public void onFailure(Throwable th, int i, String str) {
                     setPortraitResult.setResultCode(i);
                     setPortraitCallback.onFailure(setPortraitResult);
                 }
@@ -237,9 +238,9 @@ public class PortraitService extends AbstractService {
 
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
-                public void onSuccess(int i, String str3) {
-                    setPortraitResult.setResultCode(PortraitService.this.getErrorCode(str3));
-                    setPortraitResult.setResultMsg(PortraitService.this.getErrorMsg(str3));
+                public void onSuccess(int i, String str) {
+                    setPortraitResult.setResultCode(PortraitService.this.getErrorCode(str));
+                    setPortraitResult.setResultMsg(PortraitService.this.getErrorMsg(str));
                     int resultCode = setPortraitResult.getResultCode();
                     if (resultCode != 0) {
                         if (resultCode != 160103) {
@@ -251,7 +252,7 @@ public class PortraitService extends AbstractService {
                         }
                     }
                     try {
-                        JSONObject jSONObject = new JSONObject(str3);
+                        JSONObject jSONObject = new JSONObject(str);
                         setPortraitResult.portraitSign = jSONObject.optString("portrait_tag");
                         String optString = jSONObject.optString("portrait");
                         if (!TextUtils.isEmpty(optString)) {

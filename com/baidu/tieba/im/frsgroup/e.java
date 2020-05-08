@@ -18,11 +18,11 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.im.data.GroupInfoData;
 /* loaded from: classes10.dex */
 public class e extends com.baidu.tieba.frs.h<GroupInfoData, f> {
-    private View.OnClickListener dFV;
+    private View.OnClickListener dFZ;
 
     public e(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
-        this.dFV = new View.OnClickListener() { // from class: com.baidu.tieba.im.frsgroup.e.1
+        this.dFZ = new View.OnClickListener() { // from class: com.baidu.tieba.im.frsgroup.e.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (view != null) {
@@ -50,7 +50,7 @@ public class e extends com.baidu.tieba.frs.h<GroupInfoData, f> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: bA */
     public f b(ViewGroup viewGroup) {
-        return new f(LayoutInflater.from(this.mContext).inflate(R.layout.frs_group_item_view, (ViewGroup) null), this.dFV);
+        return new f(LayoutInflater.from(this.mContext).inflate(R.layout.frs_group_item_view, (ViewGroup) null), this.dFZ);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -59,24 +59,24 @@ public class e extends com.baidu.tieba.frs.h<GroupInfoData, f> {
         super.a(i, view, viewGroup, (ViewGroup) groupInfoData, (GroupInfoData) fVar);
         this.mPageContext.getLayoutMode().setNightMode(this.mSkinType == 1);
         this.mPageContext.getLayoutMode().onModeChanged(view);
-        if (fVar.afT != this.mSkinType) {
+        if (fVar.afW != this.mSkinType) {
             this.mPageContext.getLayoutMode().setNightMode(this.mSkinType == 1);
             this.mPageContext.getLayoutMode().onModeChanged(view);
-            fVar.afT = this.mSkinType;
+            fVar.afW = this.mSkinType;
         }
         if (groupInfoData != null) {
             fVar.rootView.setTag(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, Integer.valueOf(i));
             fVar.a(groupInfoData);
             am.setBackgroundResource(fVar.rootView, R.drawable.frs_group_item_bg);
-            am.setViewTextColor(fVar.ilr, R.color.cp_cont_b, 1);
-            am.setViewTextColor(fVar.ils, R.color.cp_cont_b, 1);
-            am.setBackgroundResource(fVar.ils, R.drawable.bg_jinqun_meizi);
-            fVar.ils.setCompoundDrawablesWithIntrinsicBounds(am.getDrawable(R.drawable.icon_jinqun_meizi), (Drawable) null, (Drawable) null, (Drawable) null);
-            am.setViewTextColor(fVar.ilt, R.color.cp_cont_b, 1);
-            am.setBackgroundResource(fVar.ilv, R.drawable.icon_grade_small_star);
-            am.setBackgroundResource(fVar.ilw, R.drawable.icon_grade_small_star);
-            am.setBackgroundResource(fVar.ilx, R.drawable.icon_grade_small_star);
-            am.setViewTextColor(fVar.ilu, R.color.cp_cont_c, 1);
+            am.setViewTextColor(fVar.ilx, R.color.cp_cont_b, 1);
+            am.setViewTextColor(fVar.ily, R.color.cp_cont_b, 1);
+            am.setBackgroundResource(fVar.ily, R.drawable.bg_jinqun_meizi);
+            fVar.ily.setCompoundDrawablesWithIntrinsicBounds(am.getDrawable(R.drawable.icon_jinqun_meizi), (Drawable) null, (Drawable) null, (Drawable) null);
+            am.setViewTextColor(fVar.ilz, R.color.cp_cont_b, 1);
+            am.setBackgroundResource(fVar.ilB, R.drawable.icon_grade_small_star);
+            am.setBackgroundResource(fVar.ilC, R.drawable.icon_grade_small_star);
+            am.setBackgroundResource(fVar.ilD, R.drawable.icon_grade_small_star);
+            am.setViewTextColor(fVar.ilA, R.color.cp_cont_c, 1);
             am.setBackgroundColor(fVar.dividerLine, R.color.cp_bg_line_c);
         }
         return view;

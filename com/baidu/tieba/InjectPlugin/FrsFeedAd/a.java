@@ -8,21 +8,21 @@ import com.baidu.tieba.InjectPlugin.a.f;
 import com.baidu.tieba.recapp.m;
 /* loaded from: classes8.dex */
 public class a extends f {
-    protected m etu;
+    protected m etz;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public a(m mVar, BdUniqueId bdUniqueId) {
         super(mVar.getTbPageContext().getPageActivity(), bdUniqueId);
-        this.etu = mVar;
+        this.etz = mVar;
     }
 
     @Override // com.baidu.tieba.InjectPlugin.a.f, com.baidu.adp.widget.ListView.a
     public View getView(int i, View view, ViewGroup viewGroup, Object obj) {
         if (obj instanceof b) {
             b bVar = (b) obj;
-            com.baidu.tieba.InjectPlugin.a.a oh = ((com.baidu.tieba.InjectPlugin.a.b) this.etu).oh(1);
+            com.baidu.tieba.InjectPlugin.a.a oh = ((com.baidu.tieba.InjectPlugin.a.b) this.etz).oh(1);
             if (oh instanceof d) {
-                return ((d) oh).getView(i, view, viewGroup, bVar.bdL());
+                return ((d) oh).getView(i, view, viewGroup, bVar.bdJ());
             }
             return null;
         }
@@ -32,9 +32,9 @@ public class a extends f {
     @Override // com.baidu.adp.widget.ListView.a
     public y.a a(ViewGroup viewGroup, Object obj) {
         if (b.l(getType()) != -1 && (obj instanceof b)) {
-            com.baidu.tieba.InjectPlugin.a.a oh = ((com.baidu.tieba.InjectPlugin.a.b) this.etu).oh(1);
+            com.baidu.tieba.InjectPlugin.a.a oh = ((com.baidu.tieba.InjectPlugin.a.b) this.etz).oh(1);
             if (oh instanceof d) {
-                return ((d) oh).a(viewGroup, ((b) obj).bdL());
+                return ((d) oh).a(viewGroup, ((b) obj).bdJ());
             }
             return null;
         }
@@ -44,9 +44,9 @@ public class a extends f {
     @Override // com.baidu.adp.widget.ListView.a
     public void a(int i, ViewGroup viewGroup, y.a aVar, Object obj) {
         if (obj instanceof b) {
-            com.baidu.tieba.InjectPlugin.a.a oh = ((com.baidu.tieba.InjectPlugin.a.b) this.etu).oh(1);
+            com.baidu.tieba.InjectPlugin.a.a oh = ((com.baidu.tieba.InjectPlugin.a.b) this.etz).oh(1);
             if (oh instanceof d) {
-                ((d) oh).a(i, viewGroup, aVar, ((b) obj).bdL());
+                ((d) oh).a(i, viewGroup, aVar, ((b) obj).bdJ());
             }
         }
     }

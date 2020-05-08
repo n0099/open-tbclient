@@ -3,26 +3,26 @@ package com.baidu.tieba.advert.sdk.widget.scalablevideoview;
 import android.graphics.Matrix;
 /* loaded from: classes10.dex */
 public class a {
-    private b eDs;
-    private b eDt;
+    private b eDx;
+    private b eDy;
 
     public a(b bVar, b bVar2) {
-        this.eDs = bVar;
-        this.eDt = bVar2;
+        this.eDx = bVar;
+        this.eDy = bVar2;
     }
 
     public Matrix a(ScalableType scalableType) {
         switch (scalableType) {
             case NONE:
-                return bhL();
+                return bhJ();
             case FIT_XY:
-                return bhE();
+                return bhC();
             case FIT_CENTER:
-                return bhG();
+                return bhE();
             case FIT_START:
-                return bhF();
+                return bhD();
             case FIT_END:
-                return bhH();
+                return bhF();
             case LEFT_TOP:
                 return b(PivotPoint.LEFT_TOP);
             case LEFT_CENTER:
@@ -60,64 +60,64 @@ public class a {
             case RIGHT_BOTTOM_CROP:
                 return c(PivotPoint.RIGHT_BOTTOM);
             case START_INSIDE:
-                return bhI();
+                return bhG();
             case CENTER_INSIDE:
-                return bhJ();
+                return bhH();
             case END_INSIDE:
-                return bhK();
+                return bhI();
             default:
                 return null;
         }
     }
 
-    private Matrix bhE() {
+    private Matrix bhC() {
         return a(1.0f, 1.0f, PivotPoint.LEFT_TOP);
     }
 
-    private Matrix bhF() {
+    private Matrix bhD() {
         return a(PivotPoint.LEFT_TOP);
     }
 
-    private Matrix bhG() {
+    private Matrix bhE() {
         return a(PivotPoint.CENTER);
     }
 
-    private Matrix bhH() {
+    private Matrix bhF() {
         return a(PivotPoint.RIGHT_BOTTOM);
     }
 
     private Matrix a(PivotPoint pivotPoint) {
-        float width = this.eDs.getWidth() / this.eDt.getWidth();
-        float height = this.eDs.getHeight() / this.eDt.getHeight();
+        float width = this.eDx.getWidth() / this.eDy.getWidth();
+        float height = this.eDx.getHeight() / this.eDy.getHeight();
         float min = Math.min(width, height);
         return a(min / width, min / height, pivotPoint);
     }
 
     private Matrix b(PivotPoint pivotPoint) {
-        return a(this.eDt.getWidth() / this.eDs.getWidth(), this.eDt.getHeight() / this.eDs.getHeight(), pivotPoint);
+        return a(this.eDy.getWidth() / this.eDx.getWidth(), this.eDy.getHeight() / this.eDx.getHeight(), pivotPoint);
     }
 
     private Matrix c(PivotPoint pivotPoint) {
-        float width = this.eDs.getWidth() / this.eDt.getWidth();
-        float height = this.eDs.getHeight() / this.eDt.getHeight();
+        float width = this.eDx.getWidth() / this.eDy.getWidth();
+        float height = this.eDx.getHeight() / this.eDy.getHeight();
         float max = Math.max(width, height);
         return a(max / width, max / height, pivotPoint);
     }
 
+    private Matrix bhG() {
+        return (this.eDy.getHeight() > this.eDx.getWidth() || this.eDy.getHeight() > this.eDx.getHeight()) ? bhD() : b(PivotPoint.LEFT_TOP);
+    }
+
+    private Matrix bhH() {
+        return (this.eDy.getHeight() > this.eDx.getWidth() || this.eDy.getHeight() > this.eDx.getHeight()) ? bhE() : b(PivotPoint.CENTER);
+    }
+
     private Matrix bhI() {
-        return (this.eDt.getHeight() > this.eDs.getWidth() || this.eDt.getHeight() > this.eDs.getHeight()) ? bhF() : b(PivotPoint.LEFT_TOP);
+        return (this.eDy.getHeight() > this.eDx.getWidth() || this.eDy.getHeight() > this.eDx.getHeight()) ? bhF() : b(PivotPoint.RIGHT_BOTTOM);
     }
 
     private Matrix bhJ() {
-        return (this.eDt.getHeight() > this.eDs.getWidth() || this.eDt.getHeight() > this.eDs.getHeight()) ? bhG() : b(PivotPoint.CENTER);
-    }
-
-    private Matrix bhK() {
-        return (this.eDt.getHeight() > this.eDs.getWidth() || this.eDt.getHeight() > this.eDs.getHeight()) ? bhH() : b(PivotPoint.RIGHT_BOTTOM);
-    }
-
-    private Matrix bhL() {
-        return a(this.eDt.getWidth() / this.eDs.getWidth(), this.eDt.getHeight() / this.eDs.getHeight(), PivotPoint.LEFT_TOP);
+        return a(this.eDy.getWidth() / this.eDx.getWidth(), this.eDy.getHeight() / this.eDx.getHeight(), PivotPoint.LEFT_TOP);
     }
 
     private Matrix a(float f, float f2, PivotPoint pivotPoint) {
@@ -125,21 +125,21 @@ public class a {
             case LEFT_TOP:
                 return e(f, f2, 0.0f, 0.0f);
             case LEFT_CENTER:
-                return e(f, f2, 0.0f, this.eDs.getHeight() / 2.0f);
+                return e(f, f2, 0.0f, this.eDx.getHeight() / 2.0f);
             case LEFT_BOTTOM:
-                return e(f, f2, 0.0f, this.eDs.getHeight());
+                return e(f, f2, 0.0f, this.eDx.getHeight());
             case CENTER_TOP:
-                return e(f, f2, this.eDs.getWidth() / 2.0f, 0.0f);
+                return e(f, f2, this.eDx.getWidth() / 2.0f, 0.0f);
             case CENTER:
-                return e(f, f2, this.eDs.getWidth() / 2.0f, this.eDs.getHeight() / 2.0f);
+                return e(f, f2, this.eDx.getWidth() / 2.0f, this.eDx.getHeight() / 2.0f);
             case CENTER_BOTTOM:
-                return e(f, f2, this.eDs.getWidth() / 2.0f, this.eDs.getHeight());
+                return e(f, f2, this.eDx.getWidth() / 2.0f, this.eDx.getHeight());
             case RIGHT_TOP:
-                return e(f, f2, this.eDs.getWidth(), 0.0f);
+                return e(f, f2, this.eDx.getWidth(), 0.0f);
             case RIGHT_CENTER:
-                return e(f, f2, this.eDs.getWidth(), this.eDs.getHeight() / 2.0f);
+                return e(f, f2, this.eDx.getWidth(), this.eDx.getHeight() / 2.0f);
             case RIGHT_BOTTOM:
-                return e(f, f2, this.eDs.getWidth(), this.eDs.getHeight());
+                return e(f, f2, this.eDx.getWidth(), this.eDx.getHeight());
             default:
                 throw new IllegalArgumentException("Illegal PivotPoint");
         }

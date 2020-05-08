@@ -9,5 +9,5 @@ public interface p<K, V> {
     boolean b(com.facebook.common.internal.h<K> hVar);
 
     @Nullable
-    com.facebook.common.references.a<V> bd(K k);
+    com.facebook.common.references.a<V> be(K k);
 }

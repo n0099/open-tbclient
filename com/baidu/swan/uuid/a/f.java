@@ -28,7 +28,7 @@ public class f implements b<String> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.uuid.a.b
-    /* renamed from: aoS */
+    /* renamed from: aoR */
     public String get() {
         return aEB();
     }

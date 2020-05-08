@@ -6,7 +6,7 @@ import android.support.annotation.RestrictTo;
 public class c<T> {
     private final b<T> CF;
     @Nullable
-    private com.airbnb.lottie.a.b.a<?, ?> FX;
+    private com.airbnb.lottie.a.b.a<?, ?> Ga;
     @Nullable
     protected T value;
 
@@ -34,6 +34,6 @@ public class c<T> {
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
     public final void b(@Nullable com.airbnb.lottie.a.b.a<?, ?> aVar) {
-        this.FX = aVar;
+        this.Ga = aVar;
     }
 }

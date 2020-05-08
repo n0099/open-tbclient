@@ -5,7 +5,6 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Looper;
 import android.text.TextUtils;
-import com.baidu.android.common.security.MD5Util;
 import com.baidu.pass.biometrics.base.debug.Log;
 import com.baidu.pass.biometrics.base.http.utils.HttpUtils;
 import com.baidu.pass.biometrics.base.restnet.RestNameValuePair;
@@ -14,6 +13,7 @@ import com.baidu.pass.biometrics.base.utils.Crypto;
 import com.baidu.pass.biometrics.base.utils.PassBioDataEncryptor;
 import com.baidu.pass.biometrics.base.utils.PassBiometricUtil;
 import com.baidu.pass.biometrics.base.utils.PhoneUtils;
+import com.baidu.pass.common.SecurityUtil;
 import com.baidu.pass.http.BinaryHttpResponseHandler;
 import com.baidu.pass.http.HttpHashMap;
 import com.baidu.pass.http.HttpResponseHandler;
@@ -177,7 +177,7 @@ public class HttpClientWrap {
             }
         }
         sb.append("sign_key=").append(str);
-        return MD5Util.toMd5(sb.toString().getBytes(), false);
+        return SecurityUtil.md5(sb.toString().getBytes(), false);
     }
 
     public static String getNonce(Context context, String str, Map<String, String> map) {

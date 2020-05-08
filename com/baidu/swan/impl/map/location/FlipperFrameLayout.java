@@ -12,9 +12,9 @@ import android.widget.FrameLayout;
 import com.baidu.swan.impl.map.location.h;
 /* loaded from: classes12.dex */
 public class FlipperFrameLayout extends FrameLayout implements h.a {
-    private float UZ;
-    private h cVR;
-    private boolean cVZ;
+    private float Vc;
+    private h cVW;
+    private boolean cWe;
 
     public FlipperFrameLayout(@NonNull Context context) {
         super(context);
@@ -29,31 +29,31 @@ public class FlipperFrameLayout extends FrameLayout implements h.a {
     }
 
     public void setViewFlipper(h hVar) {
-        this.cVR = hVar;
+        this.cVW = hVar;
     }
 
     @Override // android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (this.cVZ || this.cVR == null) {
-            this.UZ = motionEvent.getRawY();
+        if (this.cWe || this.cVW == null) {
+            this.Vc = motionEvent.getRawY();
             return super.onInterceptTouchEvent(motionEvent);
         }
         switch (motionEvent.getAction()) {
             case 0:
-                this.UZ = motionEvent.getRawY();
+                this.Vc = motionEvent.getRawY();
                 break;
             case 1:
             case 3:
-                this.UZ = motionEvent.getRawY();
+                this.Vc = motionEvent.getRawY();
                 break;
             case 2:
-                float rawY = motionEvent.getRawY() - this.UZ;
+                float rawY = motionEvent.getRawY() - this.Vc;
                 boolean z = rawY <= 0.0f;
-                if (z && !this.cVR.isFlipped() && N(rawY)) {
-                    this.cVR.fO(true);
+                if (z && !this.cVW.isFlipped() && N(rawY)) {
+                    this.cVW.fO(true);
                     return true;
-                } else if (!z && aAv() && this.cVR.isFlipped() && N(rawY)) {
-                    this.cVR.fO(false);
+                } else if (!z && aAv() && this.cVW.isFlipped() && N(rawY)) {
+                    this.cVW.fO(false);
                     return true;
                 }
                 break;
@@ -75,11 +75,11 @@ public class FlipperFrameLayout extends FrameLayout implements h.a {
 
     @Override // com.baidu.swan.impl.map.location.h.a
     public void fM(boolean z) {
-        this.cVZ = false;
+        this.cWe = false;
     }
 
     @Override // com.baidu.swan.impl.map.location.h.a
     public void fN(boolean z) {
-        this.cVZ = true;
+        this.cWe = true;
     }
 }

@@ -21,12 +21,12 @@ public class b extends com.baidu.swan.pms.c.d<c> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.pms.c.d
     /* renamed from: a */
-    public com.baidu.swan.pms.model.a S(c cVar) {
-        this.dax.Xe();
+    public com.baidu.swan.pms.model.a T(c cVar) {
+        this.daD.Xd();
         e eVar = new e();
         eVar.a(cVar, PMSPkgStatus.WAIT);
-        this.dax.a(eVar);
-        com.baidu.swan.a.d.a(cVar, (com.baidu.swan.a.a) this.dax);
+        this.daD.a(eVar);
+        com.baidu.swan.a.d.a(cVar, (com.baidu.swan.a.a) this.daD);
         return null;
     }
 
@@ -34,12 +34,12 @@ public class b extends com.baidu.swan.pms.c.d<c> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.pms.c.d
     /* renamed from: b */
-    public boolean R(c cVar) {
-        return cVar != null && cVar.XM();
+    public boolean S(c cVar) {
+        return cVar != null && cVar.XL();
     }
 
     @Override // com.baidu.swan.pms.c.d
-    protected String arw() {
+    protected String arv() {
         return "getSailor";
     }
 }

@@ -1,17 +1,35 @@
 package com.xiaomi.push;
 
-import com.xiaomi.push.bw;
+import android.content.Context;
+import com.baidu.android.imsdk.db.DBTableDefine;
+import com.xiaomi.push.ai;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes8.dex */
-public class bs extends bw.d {
-    protected String a;
+public class bs extends ai.a {
+    final /* synthetic */ bp a;
 
-    public bs(String str, String str2, String[] strArr, String str3) {
-        super(str, str2, strArr);
-        this.a = "MessageDeleteJob";
-        this.a = str3;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public bs(bp bpVar) {
+        this.a = bpVar;
     }
 
-    public static bs a(String str) {
-        return new bs(str, "status = ?", new String[]{String.valueOf(2)}, "a job build to delete uploaded job");
+    @Override // com.xiaomi.push.ai.a
+    /* renamed from: a */
+    public int mo162a() {
+        return 10053;
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        cf cfVar;
+        cf cfVar2;
+        Context context;
+        cfVar = this.a.f136a;
+        if (cfVar != null) {
+            cfVar2 = this.a.f136a;
+            context = this.a.f133a;
+            cfVar2.b(context);
+            this.a.b(DBTableDefine.GroupInfoColumns.COLUMN_DELETE_TIEM);
+        }
     }
 }

@@ -7,8 +7,8 @@ import com.baidu.webkit.internal.GlobalConstants;
 import java.io.File;
 /* loaded from: classes11.dex */
 public class b {
-    private static final String dfi = AppRuntime.getAppContext().getFilesDir().getAbsolutePath() + File.separator + "zeus" + File.separator + "libs";
-    public static final String bPC = AppRuntime.getAppContext().getFilesDir().getAbsolutePath() + File.separator + "swan_so_lite" + File.separator + "libs";
+    private static final String dfn = AppRuntime.getAppContext().getFilesDir().getAbsolutePath() + File.separator + "zeus" + File.separator + "libs";
+    public static final String bPH = AppRuntime.getAppContext().getFilesDir().getAbsolutePath() + File.separator + "swan_so_lite" + File.separator + "libs";
 
     public static boolean aEJ() {
         if (PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext()).getBoolean("swan_t7_success", false)) {
@@ -36,14 +36,14 @@ public class b {
     }
 
     public static boolean aEN() {
-        return new File(new StringBuilder().append(dfi).append(File.separator).append(GlobalConstants.LIB_ZEUS_CHROMIUM).toString()).exists() && XT();
+        return new File(new StringBuilder().append(dfn).append(File.separator).append(GlobalConstants.LIB_ZEUS_CHROMIUM).toString()).exists() && XS();
     }
 
     public static boolean aEO() {
-        return new File(new StringBuilder().append(bPC).append(File.separator).append(GlobalConstants.LIB_ZEUS_V8).toString()).exists() && !XT();
+        return new File(new StringBuilder().append(bPH).append(File.separator).append(GlobalConstants.LIB_ZEUS_V8).toString()).exists() && !XS();
     }
 
-    public static boolean XT() {
+    public static boolean XS() {
         return PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext()).getBoolean("swan_full_install", true);
     }
 

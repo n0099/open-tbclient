@@ -49,7 +49,7 @@ public class a extends com.baidu.swan.apps.network.a {
         if (TextUtils.isEmpty(optString2)) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "callbackKey is empty");
             return false;
-        } else if (!eVar.akY().isLogin(context)) {
+        } else if (!eVar.akX().isLogin(context)) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "not login");
             return false;
         } else {
@@ -59,7 +59,7 @@ public class a extends com.baidu.swan.apps.network.a {
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.as.d.b
                 /* renamed from: z */
-                public void E(Bundle bundle) {
+                public void F(Bundle bundle) {
                     if (bundle != null && !TextUtils.isEmpty(bundle.getString("dev"))) {
                         String string = bundle.getString("dev");
                         if (a.DEBUG) {
@@ -99,7 +99,7 @@ public class a extends com.baidu.swan.apps.network.a {
         if (d == null) {
             callbackHandler.handleSchemeDispatchCallback(str4, UnitedSchemeUtility.wrapCallbackParams(1001, "illegal request").toString());
         } else {
-            com.baidu.swan.apps.setting.oauth.c.ahf().newCall(d).enqueue(new Callback() { // from class: com.baidu.swan.bdprivate.c.a.a.2
+            com.baidu.swan.apps.setting.oauth.c.ahe().newCall(d).enqueue(new Callback() { // from class: com.baidu.swan.bdprivate.c.a.a.2
                 @Override // okhttp3.Callback
                 public void onFailure(@Nullable Call call, @Nullable IOException iOException) {
                     a.this.b(iOException == null ? "" : iOException.getMessage(), str4, callbackHandler);
@@ -162,12 +162,12 @@ public class a extends com.baidu.swan.apps.network.a {
 
     @Nullable
     private Request d(@Nullable String str, Map<String, String> map) {
-        HttpUrl parse = HttpUrl.parse(com.baidu.swan.apps.h.c.bIa);
+        HttpUrl parse = HttpUrl.parse(com.baidu.swan.apps.h.c.bIf);
         if (parse == null) {
             return null;
         }
         HttpUrl.Builder addPathSegments = parse.newBuilder().addPathSegments("ma/authentication/facecheck");
-        for (Map.Entry<String, String> entry : com.baidu.swan.apps.h.b.SS().bHZ.entrySet()) {
+        for (Map.Entry<String, String> entry : com.baidu.swan.apps.h.b.SR().bIe.entrySet()) {
             addPathSegments.addQueryParameter(entry.getKey(), entry.getValue());
         }
         HttpUrl build = addPathSegments.build();

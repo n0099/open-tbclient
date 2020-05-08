@@ -1,26 +1,26 @@
 package com.baidu.adp.lib.network.http.a;
 /* loaded from: classes.dex */
 public class c {
-    private int JW;
-    private String KA;
+    private int JZ;
     private String KE;
-    private int KF;
-    private long KG;
+    private String KH;
+    private int KI;
+    private long KJ;
     private String exception;
-    private boolean KC = false;
-    private boolean KD = false;
-    private int JL = 0;
+    private boolean KF = false;
+    private boolean KG = false;
+    private int JO = 0;
 
     public void ai(boolean z) {
-        this.KC = z;
+        this.KF = z;
     }
 
     public boolean kM() {
-        return this.KD;
+        return this.KG;
     }
 
     public void aj(boolean z) {
-        this.KD = z;
+        this.KG = z;
     }
 
     public void bF(String str) {
@@ -28,7 +28,7 @@ public class c {
     }
 
     public void ad(int i) {
-        this.JL = i;
+        this.JO = i;
     }
 
     public void kN() {
@@ -36,34 +36,34 @@ public class c {
     }
 
     public void bG(String str) {
-        this.KE = str;
+        this.KH = str;
     }
 
     public String kO() {
-        return this.KE;
+        return this.KH;
     }
 
     public void ae(int i) {
-        this.KF = i;
+        this.KI = i;
     }
 
     public void G(long j) {
-        this.KG = j;
+        this.KJ = j;
     }
 
     public String toString() {
-        return "isFromNet_" + this.KC + "-statType_" + this.KF + "-dnsErr_" + this.exception + "-hasRetry_" + this.JL + "-cost_" + this.KG + "-ipIndex_" + this.JW + "-ipResult_" + this.KA;
+        return "isFromNet_" + this.KF + "-statType_" + this.KI + "-dnsErr_" + this.exception + "-hasRetry_" + this.JO + "-cost_" + this.KJ + "-ipIndex_" + this.JZ + "-ipResult_" + this.KE;
     }
 
     public String kP() {
-        return this.KA;
+        return this.KE;
     }
 
     public void bH(String str) {
-        this.KA = str;
+        this.KE = str;
     }
 
     public void aa(int i) {
-        this.JW = i;
+        this.JZ = i;
     }
 }

@@ -8,13 +8,13 @@ public class h extends e {
     private static HashMap<String, String> redirectSchemes = new HashMap<>();
     private static HashMap<String, e> mDynamicDispatchers = new HashMap<>();
 
-    public static h Mw() {
-        return a.btM;
+    public static h Mv() {
+        return a.btQ;
     }
 
     /* loaded from: classes6.dex */
     private static class a {
-        private static final h btM = new h();
+        private static final h btQ = new h();
     }
 
     private h() {

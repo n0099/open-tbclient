@@ -1,6 +1,7 @@
 package com.baidu.searchbox.websocket;
 
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
+import com.heytap.mcssdk.mode.Message;
 import java.nio.ByteBuffer;
 import java.util.Map;
 import kotlin.h;
@@ -84,7 +85,7 @@ public final class WebSocketTask implements IWebSocketClient {
                 if (jSONObject == null) {
                     jSONObject = new JSONObject();
                 }
-                iWebSocketListener2.onClose(jSONObject.put("taskID", WebSocketTask.this.getTaskId()));
+                iWebSocketListener2.onClose(jSONObject.put(Message.TASK_ID, WebSocketTask.this.getTaskId()));
             }
 
             @Override // com.baidu.searchbox.websocket.IWebSocketListener
@@ -94,7 +95,7 @@ public final class WebSocketTask implements IWebSocketClient {
                 if (jSONObject == null) {
                     jSONObject = new JSONObject();
                 }
-                iWebSocketListener2.onError(th, jSONObject.put("taskID", WebSocketTask.this.getTaskId()));
+                iWebSocketListener2.onError(th, jSONObject.put(Message.TASK_ID, WebSocketTask.this.getTaskId()));
             }
         });
     }

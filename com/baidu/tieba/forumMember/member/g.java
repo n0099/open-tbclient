@@ -24,7 +24,7 @@ public class g extends com.baidu.tieba.frs.h<com.baidu.tieba.frs.k, h> {
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.frs.k kVar, h hVar) {
         super.a(i, view, viewGroup, (ViewGroup) kVar, (com.baidu.tieba.frs.k) hVar);
         hVar.sP(kVar.getHeight());
-        hVar.setBackground(kVar.bOn());
+        hVar.setBackground(kVar.bOl());
         return view;
     }
 }

@@ -11,9 +11,9 @@ import com.baidu.live.tbadk.core.util.UtilHelper;
 import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class PersonEmptyView extends LinearLayout {
-    private ImageView fbU;
-    private TextView fbV;
-    private TextView fbW;
+    private ImageView fbZ;
+    private TextView fca;
+    private TextView fcb;
 
     public PersonEmptyView(Context context) {
         super(context);
@@ -33,33 +33,33 @@ public class PersonEmptyView extends LinearLayout {
     private void init() {
         setOrientation(1);
         LayoutInflater.from(getContext()).inflate(a.h.ala_person_empty_view, this);
-        this.fbU = (ImageView) findViewById(a.g.empty_image);
+        this.fbZ = (ImageView) findViewById(a.g.empty_image);
         if (UtilHelper.getRealScreenOrientation(getContext()) == 2) {
-            ViewGroup.LayoutParams layoutParams = this.fbU.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams = this.fbZ.getLayoutParams();
             layoutParams.height = (int) getContext().getResources().getDimension(a.e.sdk_ds250);
             layoutParams.width = (int) getContext().getResources().getDimension(a.e.sdk_ds334);
-            this.fbU.setPadding(0, (int) getContext().getResources().getDimension(a.e.sdk_ds64), 0, 0);
-            this.fbU.setLayoutParams(layoutParams);
+            this.fbZ.setPadding(0, (int) getContext().getResources().getDimension(a.e.sdk_ds64), 0, 0);
+            this.fbZ.setLayoutParams(layoutParams);
         }
-        this.fbV = (TextView) findViewById(a.g.empty_text);
-        this.fbW = (TextView) findViewById(a.g.empty_sub_text);
+        this.fca = (TextView) findViewById(a.g.empty_text);
+        this.fcb = (TextView) findViewById(a.g.empty_sub_text);
     }
 
     public void setParams(int i, int i2, int i3) {
         if (i != -1) {
-            this.fbU.setImageResource(i);
+            this.fbZ.setImageResource(i);
         } else {
-            this.fbU.setVisibility(8);
+            this.fbZ.setVisibility(8);
         }
         if (i2 != -1) {
-            this.fbV.setText(i2);
+            this.fca.setText(i2);
         } else {
-            this.fbV.setVisibility(8);
+            this.fca.setVisibility(8);
         }
         if (i3 != -1) {
-            this.fbW.setText(i3);
+            this.fcb.setText(i3);
         } else {
-            this.fbW.setVisibility(8);
+            this.fcb.setVisibility(8);
         }
     }
 }

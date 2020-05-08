@@ -35,7 +35,7 @@ public class b extends ab {
             return false;
         } else {
             c.i("accelerometer", "stop listen accelerometer");
-            com.baidu.swan.apps.ao.a.a.anP().anR();
+            com.baidu.swan.apps.ao.a.a.anO().anQ();
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             return true;
         }

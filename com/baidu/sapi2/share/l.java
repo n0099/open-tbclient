@@ -16,7 +16,7 @@ public class l implements Runnable {
     @Override // java.lang.Runnable
     public void run() {
         new ShareStorage().a(this.a);
-        x.b();
+        x.c();
         SapiAccountManager.getInstance().getAccountService().refreshOpenidToUid();
     }
 }

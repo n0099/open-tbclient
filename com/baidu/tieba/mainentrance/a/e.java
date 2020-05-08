@@ -45,27 +45,27 @@ import java.util.Map;
 import tbclient.SearchSug.ForumInfo;
 /* loaded from: classes11.dex */
 public class e implements b {
-    private String gWq;
-    private d iRV;
-    private boolean iSi;
-    private c iSk;
+    private String gWw;
+    private d iRZ;
+    private boolean iSm;
+    private c iSo;
     private BaseActivity mActivity;
     private HotSearchInfoData mHotSearchInfo;
     private View mRootView;
-    private boolean iSj = true;
-    private CustomMessageListener iSl = new CustomMessageListener(2921444) { // from class: com.baidu.tieba.mainentrance.a.e.1
+    private boolean iSn = true;
+    private CustomMessageListener iSp = new CustomMessageListener(2921444) { // from class: com.baidu.tieba.mainentrance.a.e.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
-                e.this.iRV.pQ(!((Boolean) customResponsedMessage.getData()).booleanValue());
+                e.this.iRZ.pQ(!((Boolean) customResponsedMessage.getData()).booleanValue());
             }
         }
     };
 
     public e(BaseActivity baseActivity, boolean z) {
         this.mActivity = baseActivity;
-        this.iSi = z;
+        this.iSm = z;
         init();
     }
 
@@ -76,17 +76,17 @@ public class e implements b {
             this.mActivity.setContentView(this.mRootView);
         } catch (Exception e) {
             e.printStackTrace();
-            Map<String, String> cps = com.baidu.tieba.mainentrance.a.a.cps();
-            if (cps != null) {
-                int size = cps.size();
+            Map<String, String> cpp = com.baidu.tieba.mainentrance.a.a.cpp();
+            if (cpp != null) {
+                int size = cpp.size();
                 int i2 = 0;
-                Iterator<String> it = cps.keySet().iterator();
+                Iterator<String> it = cpp.keySet().iterator();
                 while (true) {
                     i = i2;
                     if (!it.hasNext()) {
                         break;
                     }
-                    com.baidu.tieba.mainentrance.a.a.FY(it.next());
+                    com.baidu.tieba.mainentrance.a.a.Gb(it.next());
                     try {
                         this.mRootView = LayoutInflater.from(this.mActivity).inflate(R.layout.new_home_dialog_search, (ViewGroup) null);
                         this.mActivity.setContentView(this.mRootView);
@@ -109,33 +109,33 @@ public class e implements b {
             this.mActivity.finish();
             return;
         }
-        this.iRV = new d(this.mRootView, this.mActivity.getPageContext().getPageActivity());
-        this.iSk = new c(this.mActivity, this, this.iRV);
+        this.iRZ = new d(this.mRootView, this.mActivity.getPageContext().getPageActivity());
+        this.iSo = new c(this.mActivity, this, this.iRZ);
+        cpE();
+        cpF();
+        cpG();
         cpH();
-        cpI();
-        cpJ();
+        coY();
         cpK();
-        cpb();
-        cpN();
-        ag.a(this.iRV.cpE(), this.mActivity.getUniqueId());
-        ag.a(this.iRV.cpF(), this.mActivity.getUniqueId());
-        this.mActivity.registerListener(this.iSl);
+        ag.a(this.iRZ.cpB(), this.mActivity.getUniqueId());
+        ag.a(this.iRZ.cpC(), this.mActivity.getUniqueId());
+        this.mActivity.registerListener(this.iSp);
     }
 
     public void onResume() {
-        if (this.iRV != null) {
-            this.iRV.onResume();
+        if (this.iRZ != null) {
+            this.iRZ.onResume();
         }
     }
 
-    public void cpH() {
+    public void cpE() {
         View.OnFocusChangeListener onFocusChangeListener = new View.OnFocusChangeListener() { // from class: com.baidu.tieba.mainentrance.a.e.4
             @Override // android.view.View.OnFocusChangeListener
             public void onFocusChange(View view, boolean z) {
                 if (!z) {
                     l.hideSoftKeyPad(e.this.mActivity.getPageContext().getPageActivity(), view);
                 } else {
-                    e.this.cpM();
+                    e.this.cpJ();
                 }
             }
         };
@@ -143,13 +143,13 @@ public class e implements b {
             @Override // android.widget.TextView.OnEditorActionListener
             public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
                 if (i == 3) {
-                    if (StringUtils.isNull(e.this.gWq)) {
+                    if (StringUtils.isNull(e.this.gWw)) {
                         l.hideSoftKeyPad(e.this.mActivity.getPageContext().getPageActivity(), textView);
-                        e.this.cpL();
+                        e.this.cpI();
                         return true;
                     }
-                    e.this.b(e.this.gWq, false, 1);
-                    TiebaStatic.log(new an("c12842").cI("obj_name", e.this.gWq).cI("obj_source", "1").cI("obj_type", "1"));
+                    e.this.b(e.this.gWw, false, 1);
+                    TiebaStatic.log(new an("c12842").cI("obj_name", e.this.gWw).cI("obj_source", "1").cI("obj_type", "1"));
                     return true;
                 }
                 return false;
@@ -167,20 +167,20 @@ public class e implements b {
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
                 if (editable != null) {
-                    if (e.this.iSj) {
-                        e.this.gWq = editable.toString();
-                        e.this.cpN();
+                    if (e.this.iSn) {
+                        e.this.gWw = editable.toString();
+                        e.this.cpK();
                     }
-                    e.this.iRV.lk(!StringUtils.isNull(editable.toString()));
+                    e.this.iRZ.lk(!StringUtils.isNull(editable.toString()));
                 }
             }
         };
         View.OnClickListener onClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.mainentrance.a.e.7
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (view != e.this.iRV.cpC() || e.this.iRV.cpC().getText() == null) {
-                    if (view == e.this.iRV.cpD()) {
-                        l.hideSoftKeyPad(e.this.mActivity.getPageContext().getPageActivity(), e.this.iRV.cpC());
+                if (view != e.this.iRZ.cpz() || e.this.iRZ.cpz().getText() == null) {
+                    if (view == e.this.iRZ.cpA()) {
+                        l.hideSoftKeyPad(e.this.mActivity.getPageContext().getPageActivity(), e.this.iRZ.cpz());
                         com.baidu.adp.lib.f.e.lb().postDelayed(new Runnable() { // from class: com.baidu.tieba.mainentrance.a.e.7.1
                             @Override // java.lang.Runnable
                             public void run() {
@@ -191,19 +191,19 @@ public class e implements b {
                     }
                     return;
                 }
-                e.this.gWq = e.this.iRV.cpC().getText().toString();
-                if (StringUtils.isNull(e.this.gWq)) {
-                    e.this.cpv();
+                e.this.gWw = e.this.iRZ.cpz().getText().toString();
+                if (StringUtils.isNull(e.this.gWw)) {
+                    e.this.cps();
                 }
             }
         };
-        this.iRV.a(onFocusChangeListener);
-        this.iRV.a(onEditorActionListener);
-        this.iRV.e(textWatcher);
-        this.iRV.setOnClickListener(onClickListener);
+        this.iRZ.a(onFocusChangeListener);
+        this.iRZ.a(onEditorActionListener);
+        this.iRZ.e(textWatcher);
+        this.iRZ.setOnClickListener(onClickListener);
     }
 
-    private void cpI() {
+    private void cpF() {
         AdapterView.OnItemClickListener onItemClickListener = new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.mainentrance.a.e.8
             /* JADX WARN: Type inference failed for: r0v0, types: [android.widget.Adapter] */
             @Override // android.widget.AdapterView.OnItemClickListener
@@ -215,7 +215,7 @@ public class e implements b {
                         String str = (String) item;
                         e.this.b(str, true, 3);
                         TiebaStatic.eventStat(e.this.mActivity.getPageContext().getPageActivity(), "search_bar_result_click", "click", 1, new Object[0]);
-                        TiebaStatic.log(new an("c12842").cI("obj_name", str).cI("obj_source", "2").cI("obj_type", "1").af("obj_locate", i + 1).cI("obj_param1", e.this.gWq));
+                        TiebaStatic.log(new an("c12842").cI("obj_name", str).cI("obj_source", "2").cI("obj_type", "1").af("obj_locate", i + 1).cI("obj_param1", e.this.gWw));
                     } else if (item instanceof ForumInfo) {
                         ForumInfo forumInfo = (ForumInfo) item;
                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(e.this.mActivity.getPageContext().getPageActivity()).createNormalCfg(forumInfo.forum_name, FrsActivityConfig.FRS_CALL_SEARCH)));
@@ -236,15 +236,15 @@ public class e implements b {
             public void onScroll(AbsListView absListView, int i, int i2, int i3) {
             }
         };
-        this.iRV.c(onItemClickListener);
-        this.iRV.a(onScrollListener);
+        this.iRZ.c(onItemClickListener);
+        this.iRZ.a(onScrollListener);
     }
 
     public void onChangeSkinType(int i) {
-        this.iRV.onChangeSkinType(this.mActivity.getPageContext(), i);
+        this.iRZ.onChangeSkinType(this.mActivity.getPageContext(), i);
     }
 
-    private void cpJ() {
+    private void cpG() {
         BaseWebView.c cVar = new BaseWebView.c() { // from class: com.baidu.tieba.mainentrance.a.e.10
             @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.c
             public void onPageFinished(WebView webView, String str) {
@@ -258,27 +258,27 @@ public class e implements b {
         BaseWebView.b bVar = new BaseWebView.b() { // from class: com.baidu.tieba.mainentrance.a.e.2
             @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.b
             public boolean shouldOverrideUrlLoading(WebView webView, String str) {
-                if (ba.aOY().a(e.this.mActivity.getPageContext(), new String[]{str}) != 3) {
+                if (ba.aOV().a(e.this.mActivity.getPageContext(), new String[]{str}) != 3) {
                     return true;
                 }
                 if (str == null || !str.contains(UrlSchemaHelper.JUMP_TO_NEW_PAGE)) {
                     return false;
                 }
-                ba.aOY().a(e.this.mActivity.getPageContext(), new String[]{str}, true);
+                ba.aOV().a(e.this.mActivity.getPageContext(), new String[]{str}, true);
                 return true;
             }
         };
-        this.iRV.a(cVar);
-        this.iRV.a(fVar);
-        this.iRV.a(bVar);
+        this.iRZ.a(cVar);
+        this.iRZ.a(fVar);
+        this.iRZ.a(bVar);
     }
 
-    private void cpK() {
-        this.iRV.cpE().addJsPromptInterface(new a());
+    private void cpH() {
+        this.iRZ.cpB().addJsPromptInterface(new a());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cpL() {
+    public void cpI() {
         if (this.mHotSearchInfo == null) {
             this.mActivity.showToast(this.mActivity.getResources().getString(R.string.write_keyword));
             return;
@@ -297,95 +297,95 @@ public class e implements b {
             this.mActivity.showToast(R.string.neterror);
         } else if (!StringUtils.isNull(str)) {
             if (z) {
-                this.iSj = false;
-                this.iRV.Gd(str);
-                this.iSj = true;
+                this.iSn = false;
+                this.iRZ.Gg(str);
+                this.iSn = true;
             }
-            l.hideSoftKeyPad(this.mActivity.getPageContext().getPageActivity(), this.iRV.cpC());
-            this.iRV.cpB();
+            l.hideSoftKeyPad(this.mActivity.getPageContext().getPageActivity(), this.iRZ.cpz());
+            this.iRZ.cpy();
             String str2 = TbConfig.SQUARE_SEARCH_PAGE + str + ETAG.ITEM_SEPARATOR + FuFaceItem.JK_SUB_TYPE + ETAG.EQUAL + i;
             try {
                 str2 = TbConfig.SQUARE_SEARCH_PAGE + URLEncoder.encode(str, "utf-8");
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            this.iRV.cpE().loadUrl(str2);
+            this.iRZ.cpB().loadUrl(str2);
             ac.a(new ab<Boolean>() { // from class: com.baidu.tieba.mainentrance.a.e.3
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
                 @Override // com.baidu.tbadk.util.ab
                 public Boolean doInBackground() {
-                    com.baidu.tieba.tbadkCore.util.a.KS(str);
+                    com.baidu.tieba.tbadkCore.util.a.KV(str);
                     return true;
                 }
             }, null);
-            this.iSk.FZ(str);
+            this.iSo.Gc(str);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_TURN_TAB_LOC, str));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cpM() {
-        if (!this.iRV.cpG()) {
-            cph();
+    public void cpJ() {
+        if (!this.iRZ.cpD()) {
+            cpe();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cpv() {
-        this.iSk.cpv();
+    public void cps() {
+        this.iSo.cps();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cpN() {
-        if (!StringUtils.isNull(this.gWq)) {
-            cph();
+    public void cpK() {
+        if (!StringUtils.isNull(this.gWw)) {
+            cpe();
         } else {
-            cpv();
+            cps();
         }
     }
 
-    private void cph() {
-        if (StringUtils.isNull(this.gWq)) {
-            cpv();
+    private void cpe() {
+        if (StringUtils.isNull(this.gWw)) {
+            cps();
             return;
         }
         SearchListNetMessage searchListNetMessage = new SearchListNetMessage();
-        searchListNetMessage.mKey = this.gWq.trim();
-        searchListNetMessage.isForum = Integer.valueOf(this.iSi ? 1 : 0);
+        searchListNetMessage.mKey = this.gWw.trim();
+        searchListNetMessage.isForum = Integer.valueOf(this.iSm ? 1 : 0);
         this.mActivity.sendMessage(searchListNetMessage);
     }
 
     public void b(HotSearchInfoData hotSearchInfoData) {
         this.mHotSearchInfo = hotSearchInfoData;
-        cpb();
+        coY();
     }
 
-    public BaseWebView cpO() {
-        return this.iRV.cpE();
+    public BaseWebView cpL() {
+        return this.iRZ.cpB();
     }
 
-    private void cpb() {
-        if (this.iRV != null) {
+    private void coY() {
+        if (this.iRZ != null) {
             if (this.mHotSearchInfo == null) {
-                this.iRV.Gc(this.mActivity.getResources().getString(R.string.search_bar));
+                this.iRZ.Gf(this.mActivity.getResources().getString(R.string.search_bar));
             } else {
-                this.iRV.Gc(this.mHotSearchInfo.bHI());
+                this.iRZ.Gf(this.mHotSearchInfo.bHG());
             }
         }
     }
 
     public void dB(List<String> list) {
-        this.iRV.j(list, this.gWq);
+        this.iRZ.j(list, this.gWw);
     }
 
     public void dC(List<ForumInfo> list) {
-        this.iRV.k(list, this.gWq);
+        this.iRZ.k(list, this.gWw);
     }
 
     public void onDestroy() {
-        if (this.iRV != null) {
-            this.iRV.onDestroy();
+        if (this.iRZ != null) {
+            this.iRZ.onDestroy();
         }
     }
 

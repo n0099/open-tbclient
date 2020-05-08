@@ -52,7 +52,7 @@ class b implements Closeable {
                 throw new IOException("LineReader is closed");
             }
             if (this.pos >= this.end) {
-                dJR();
+                dJN();
             }
             int i2 = this.pos;
             while (true) {
@@ -77,7 +77,7 @@ class b implements Closeable {
                     loop1: while (true) {
                         byteArrayOutputStream2.write(this.buf, this.pos, this.end - this.pos);
                         this.end = -1;
-                        dJR();
+                        dJN();
                         i = this.pos;
                         while (i != this.end) {
                             if (this.buf[i] == 10) {
@@ -97,11 +97,11 @@ class b implements Closeable {
         }
     }
 
-    public boolean dJQ() {
+    public boolean dJM() {
         return this.end == -1;
     }
 
-    private void dJR() throws IOException {
+    private void dJN() throws IOException {
         int read = this.in.read(this.buf, 0, this.buf.length);
         if (read == -1) {
             throw new EOFException();

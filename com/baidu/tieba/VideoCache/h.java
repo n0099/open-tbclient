@@ -1,67 +1,67 @@
 package com.baidu.tieba.VideoCache;
 /* loaded from: classes9.dex */
 public class h {
-    private String dji;
-    private String exs;
-    private boolean exu;
-    private long exv = -1;
-    private long exw = -1;
-    private long exx = 0;
-    private long exy = 0;
+    private String djm;
+    private long exA = -1;
+    private long exB = -1;
+    private long exC = 0;
+    private long exD = 0;
+    private String exy;
+    private boolean exz;
 
-    public String bfs() {
-        return this.exs;
+    public String bfq() {
+        return this.exy;
     }
 
-    public void xL(String str) {
-        this.exs = str;
+    public void xO(String str) {
+        this.exy = str;
     }
 
     public String getOriginUrl() {
-        return this.dji;
+        return this.djm;
     }
 
-    public void xM(String str) {
-        this.dji = str;
+    public void xP(String str) {
+        this.djm = str;
     }
 
-    public boolean bft() {
-        return this.exu;
+    public boolean bfr() {
+        return this.exz;
     }
 
     public void iA(boolean z) {
-        this.exu = z;
+        this.exz = z;
     }
 
-    public long bfu() {
-        return this.exv;
+    public long bfs() {
+        return this.exA;
     }
 
     public void cU(long j) {
-        this.exv = j;
+        this.exA = j;
     }
 
-    public long bfv() {
-        return this.exw;
+    public long bft() {
+        return this.exB;
     }
 
     public void cV(long j) {
-        this.exw = j;
+        this.exB = j;
     }
 
     public long getTotalLength() {
-        return this.exx;
+        return this.exC;
     }
 
     public void setTotalLength(long j) {
-        this.exx = j;
+        this.exC = j;
     }
 
     public void cW(long j) {
-        this.exy = j;
+        this.exD = j;
     }
 
-    public long bfw() {
-        return this.exy;
+    public long bfu() {
+        return this.exD;
     }
 }

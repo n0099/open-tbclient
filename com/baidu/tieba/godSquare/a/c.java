@@ -11,27 +11,27 @@ import com.baidu.tieba.card.data.h;
 import com.baidu.tieba.card.z;
 /* loaded from: classes11.dex */
 public class c extends com.baidu.adp.widget.ListView.a<h, a> {
-    private z fsa;
-    private com.baidu.tieba.godSquare.b.b hGj;
+    private z fsf;
+    private com.baidu.tieba.godSquare.b.b hGp;
     private TbPageContext<?> mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public c(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), h.gse);
-        this.fsa = new z() { // from class: com.baidu.tieba.godSquare.a.c.1
+        super(tbPageContext.getPageActivity(), h.gsk);
+        this.fsf = new z() { // from class: com.baidu.tieba.godSquare.a.c.1
             @Override // com.baidu.tieba.card.z
             public void a(View view, com.baidu.tieba.card.data.b bVar) {
-                if (view != null && c.this.hGj != null && (bVar instanceof h)) {
+                if (view != null && c.this.hGp != null && (bVar instanceof h)) {
                     h hVar = (h) bVar;
-                    if (hVar.drK != null && !StringUtils.isNull(hVar.drK.getUserId())) {
-                        if (view.getId() != c.this.hGj.hGr.getId()) {
-                            if (view.getId() == c.this.hGj.getView().getId() || view.getId() == c.this.hGj.hCx.getId()) {
-                                TiebaStatic.log(new an("c10951").cI("obj_id", hVar.drK.getUserId()));
+                    if (hVar.drO != null && !StringUtils.isNull(hVar.drO.getUserId())) {
+                        if (view.getId() != c.this.hGp.hGx.getId()) {
+                            if (view.getId() == c.this.hGp.getView().getId() || view.getId() == c.this.hGp.hCD.getId()) {
+                                TiebaStatic.log(new an("c10951").cI("obj_id", hVar.drO.getUserId()));
                                 return;
                             }
                             return;
                         }
-                        TiebaStatic.log(new an("c10803").af("obj_locate", 4).cI("obj_id", hVar.drK.getUserId()));
+                        TiebaStatic.log(new an("c10803").af("obj_locate", 4).cI("obj_id", hVar.drO.getUserId()));
                     }
                 }
             }
@@ -44,30 +44,30 @@ public class c extends com.baidu.adp.widget.ListView.a<h, a> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: bi */
     public a b(ViewGroup viewGroup) {
-        this.hGj = new com.baidu.tieba.godSquare.b.b(this.mPageContext);
-        this.hGj.j(this.mPageContext.getUniqueId());
-        this.hGj.c(this.fsa);
-        return new a(this.hGj);
+        this.hGp = new com.baidu.tieba.godSquare.b.b(this.mPageContext);
+        this.hGp.j(this.mPageContext.getUniqueId());
+        this.hGp.c(this.fsf);
+        return new a(this.hGp);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, h hVar, a aVar) {
-        if (aVar == null || aVar.hGl == null) {
+        if (aVar == null || aVar.hGr == null) {
             return null;
         }
-        aVar.hGl.a(hVar);
+        aVar.hGr.a(hVar);
         return aVar.getView();
     }
 
     /* loaded from: classes11.dex */
     public class a extends y.a {
-        public com.baidu.tieba.godSquare.b.b hGl;
+        public com.baidu.tieba.godSquare.b.b hGr;
 
         public a(com.baidu.tieba.godSquare.b.b bVar) {
             super(bVar.getView());
-            this.hGl = bVar;
+            this.hGr = bVar;
         }
     }
 }

@@ -1,19 +1,47 @@
 package com.xiaomi.mipush.sdk;
 
-import android.content.Context;
-import android.text.TextUtils;
-import com.xiaomi.mipush.sdk.m;
+import android.content.ComponentName;
+import android.content.ServiceConnection;
+import android.os.IBinder;
+import android.os.Message;
+import android.os.Messenger;
+import android.os.RemoteException;
+import java.util.List;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes8.dex */
-public class at {
-    public static AbstractPushManager a(Context context, f fVar) {
-        return b(context, fVar);
+public class at implements ServiceConnection {
+    final /* synthetic */ aq a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public at(aq aqVar) {
+        this.a = aqVar;
     }
 
-    private static AbstractPushManager b(Context context, f fVar) {
-        m.a m110a = m.m110a(fVar);
-        if (m110a == null || TextUtils.isEmpty(m110a.a) || TextUtils.isEmpty(m110a.b)) {
-            return null;
+    @Override // android.content.ServiceConnection
+    public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+        List<Message> list;
+        List list2;
+        Messenger messenger;
+        synchronized (this.a) {
+            this.a.f52a = new Messenger(iBinder);
+            this.a.c = false;
+            list = this.a.f55a;
+            for (Message message : list) {
+                try {
+                    messenger = this.a.f52a;
+                    messenger.send(message);
+                } catch (RemoteException e) {
+                    com.xiaomi.channel.commonutils.logger.b.a(e);
+                }
+            }
+            list2 = this.a.f55a;
+            list2.clear();
         }
-        return (AbstractPushManager) com.xiaomi.push.at.a(m110a.a, m110a.b, context);
+    }
+
+    @Override // android.content.ServiceConnection
+    public void onServiceDisconnected(ComponentName componentName) {
+        this.a.f52a = null;
+        this.a.c = false;
     }
 }

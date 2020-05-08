@@ -4,33 +4,33 @@ import com.baidu.adp.BdUniqueId;
 import java.util.ArrayList;
 /* loaded from: classes11.dex */
 public class a extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId gWH = BdUniqueId.gen();
-    public static final BdUniqueId gWI = BdUniqueId.gen();
-    public static final BdUniqueId gWJ = BdUniqueId.gen();
-    private BdUniqueId Tv;
-    private ArrayList<String> gWK;
+    public static final BdUniqueId gWN = BdUniqueId.gen();
+    public static final BdUniqueId gWO = BdUniqueId.gen();
+    public static final BdUniqueId gWP = BdUniqueId.gen();
+    private BdUniqueId Ty;
+    private ArrayList<String> gWQ;
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return this.Tv;
+        return this.Ty;
     }
 
     public void o(BdUniqueId bdUniqueId) {
-        this.Tv = bdUniqueId;
+        this.Ty = bdUniqueId;
     }
 
     public a() {
-        this.Tv = gWI;
-        this.Tv = gWI;
+        this.Ty = gWO;
+        this.Ty = gWO;
     }
 
     public a(ArrayList<String> arrayList) {
-        this.Tv = gWI;
-        this.gWK = arrayList;
-        this.Tv = gWH;
+        this.Ty = gWO;
+        this.gWQ = arrayList;
+        this.Ty = gWN;
     }
 
-    public ArrayList<String> bNw() {
-        return this.gWK;
+    public ArrayList<String> bNu() {
+        return this.gWQ;
     }
 }

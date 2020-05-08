@@ -28,17 +28,17 @@ import tv.chushou.zues.utils.e;
 import tv.chushou.zues.utils.h;
 /* loaded from: classes5.dex */
 public class a {
-    private static volatile boolean lQi = false;
+    private static volatile boolean lQm = false;
 
     /* renamed from: tv.chushou.zues.widget.fresco.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public interface InterfaceC0839a {
+    public interface InterfaceC0860a {
         void onComplete(boolean z, String str);
     }
 
     /* loaded from: classes5.dex */
     public interface b {
-        void dyz();
+        void dyv();
 
         void finish();
     }
@@ -51,17 +51,17 @@ public class a {
             public void a(com.facebook.common.memory.b bVar) {
                 bVar.a(MemoryTrimType.OnSystemLowMemoryWhileAppInForeground);
             }
-        }).drD());
-        lQi = true;
+        }).drA());
+        lQm = true;
         e.d("ImageLoader", "initialize imageloader");
     }
 
     public static void resume() {
-        com.facebook.drawee.a.a.c.dnR().resume();
+        com.facebook.drawee.a.a.c.dnO().resume();
     }
 
     public static void pause() {
-        com.facebook.drawee.a.a.c.dnR().pause();
+        com.facebook.drawee.a.a.c.dnO().pause();
     }
 
     public static File ad(Uri uri) {
@@ -69,13 +69,13 @@ public class a {
         if (uri == null) {
             return null;
         }
-        com.facebook.cache.common.b c = j.dqw().c(ImageRequest.X(uri), null);
-        if (com.facebook.imagepipeline.d.j.drS().drZ().g(c)) {
-            com.facebook.a.a d2 = com.facebook.imagepipeline.d.j.drS().drZ().d(c);
+        com.facebook.cache.common.b c = j.dqt().c(ImageRequest.X(uri), null);
+        if (com.facebook.imagepipeline.d.j.drP().drW().g(c)) {
+            com.facebook.a.a d2 = com.facebook.imagepipeline.d.j.drP().drW().d(c);
             if (d2 != null) {
                 return ((com.facebook.a.b) d2).getFile();
             }
-        } else if (com.facebook.imagepipeline.d.j.drS().dse().g(c) && (d = com.facebook.imagepipeline.d.j.drS().dse().d(c)) != null) {
+        } else if (com.facebook.imagepipeline.d.j.drP().dsb().g(c) && (d = com.facebook.imagepipeline.d.j.drP().dsb().d(c)) != null) {
             return ((com.facebook.a.b) d).getFile();
         }
         return null;
@@ -142,11 +142,11 @@ public class a {
     }
 
     @SuppressLint({"CheckResult"})
-    public static void a(final String str, final String str2, final InterfaceC0839a interfaceC0839a) {
+    public static void a(final String str, final String str2, final InterfaceC0860a interfaceC0860a) {
         String str3;
         if (h.isEmpty(str) || h.isEmpty(str2)) {
-            if (interfaceC0839a != null) {
-                interfaceC0839a.onComplete(false, null);
+            if (interfaceC0860a != null) {
+                interfaceC0860a.onComplete(false, null);
                 return;
             }
             return;
@@ -212,7 +212,7 @@ public class a {
                 hVar.onNext(Boolean.valueOf(z));
                 hVar.onComplete();
             }
-        }, BackpressureStrategy.BUFFER).b(io.reactivex.f.a.dDm()).a(io.reactivex.a.b.a.dCH()).a(new io.reactivex.c.g<Boolean>() { // from class: tv.chushou.zues.widget.fresco.a.2
+        }, BackpressureStrategy.BUFFER).b(io.reactivex.f.a.dDi()).a(io.reactivex.a.b.a.dCD()).a(new io.reactivex.c.g<Boolean>() { // from class: tv.chushou.zues.widget.fresco.a.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // io.reactivex.c.g
             /* renamed from: r */
@@ -220,12 +220,12 @@ public class a {
                 if (bool.booleanValue()) {
                     Intent intent = new Intent("android.intent.action.MEDIA_SCANNER_SCAN_FILE");
                     intent.setData(Uri.fromFile(file));
-                    h.dJt().sendBroadcast(intent);
-                    if (interfaceC0839a != null) {
-                        interfaceC0839a.onComplete(true, file.getAbsolutePath());
+                    h.dJp().sendBroadcast(intent);
+                    if (interfaceC0860a != null) {
+                        interfaceC0860a.onComplete(true, file.getAbsolutePath());
                     }
-                } else if (interfaceC0839a != null) {
-                    interfaceC0839a.onComplete(false, null);
+                } else if (interfaceC0860a != null) {
+                    interfaceC0860a.onComplete(false, null);
                 }
             }
         }, new io.reactivex.c.g<Throwable>() { // from class: tv.chushou.zues.widget.fresco.a.3
@@ -233,15 +233,15 @@ public class a {
             @Override // io.reactivex.c.g
             public void accept(Throwable th) throws Exception {
                 e.e("ImageLoader", "", th);
-                if (InterfaceC0839a.this != null) {
-                    InterfaceC0839a.this.onComplete(false, null);
+                if (InterfaceC0860a.this != null) {
+                    InterfaceC0860a.this.onComplete(false, null);
                 }
             }
         });
     }
 
     public static com.facebook.datasource.b<Void> a(String str, Context context, final b bVar) {
-        com.facebook.datasource.b<Void> a = com.facebook.drawee.a.a.c.dnR().a(ImageRequestBuilder.Z(Uri.parse(str)).duW(), context, Priority.HIGH);
+        com.facebook.datasource.b<Void> a = com.facebook.drawee.a.a.c.dnO().a(ImageRequestBuilder.Z(Uri.parse(str)).duT(), context, Priority.HIGH);
         a.a(new com.facebook.datasource.a<Void>() { // from class: tv.chushou.zues.widget.fresco.a.5
             @Override // com.facebook.datasource.a
             protected void g(com.facebook.datasource.b<Void> bVar2) {
@@ -250,9 +250,9 @@ public class a {
 
             @Override // com.facebook.datasource.a
             protected void a(com.facebook.datasource.b<Void> bVar2) {
-                b.this.dyz();
+                b.this.dyv();
             }
-        }, com.facebook.common.b.a.dmR());
+        }, com.facebook.common.b.a.dmO());
         return a;
     }
 

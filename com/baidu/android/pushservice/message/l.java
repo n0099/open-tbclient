@@ -9,7 +9,7 @@ public class l extends c {
 
     @Override // com.baidu.android.pushservice.message.c
     public g a(e eVar) {
-        eVar.e = true;
+        eVar.d = true;
         g gVar = new g();
         gVar.a(0);
         return gVar;

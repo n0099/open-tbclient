@@ -3,11 +3,11 @@ package com.baidu.l.a.a;
 import android.content.Context;
 /* loaded from: classes6.dex */
 public abstract class d implements c {
-    protected boolean lPO;
-    protected boolean lPl;
-    protected String lPn;
-    protected String lPo;
-    protected String lPp;
+    protected boolean lPS;
+    protected boolean lPp;
+    protected String lPr;
+    protected String lPs;
+    protected String lPt;
     protected Context mCtx;
     protected int mStatusCode = -200;
 
@@ -18,28 +18,28 @@ public abstract class d implements c {
     }
 
     @Override // com.baidu.l.a.a.c
-    public boolean dlC() {
-        return this.lPl;
+    public boolean dlz() {
+        return this.lPp;
     }
 
     @Override // com.baidu.l.a.a.c
     public boolean isSupport() {
-        return this.lPO;
+        return this.lPS;
     }
 
     @Override // com.baidu.l.a.a.c
-    public String dlN() {
-        return this.lPn;
+    public String dlK() {
+        return this.lPr;
     }
 
     @Override // com.baidu.l.a.a.c
-    public String dlO() {
-        return this.lPo;
+    public String dlL() {
+        return this.lPs;
     }
 
     @Override // com.baidu.l.a.a.c
-    public String dlP() {
-        return this.lPp;
+    public String dlM() {
+        return this.lPt;
     }
 
     @Override // com.baidu.l.a.a.c
@@ -49,27 +49,27 @@ public abstract class d implements c {
 
     @Override // com.baidu.l.a.a.c
     public void vt(boolean z) {
-        this.lPl = z;
+        this.lPp = z;
     }
 
     @Override // com.baidu.l.a.a.c
     public void vu(boolean z) {
-        this.lPO = z;
+        this.lPS = z;
     }
 
     @Override // com.baidu.l.a.a.c
-    public void NL(String str) {
-        this.lPn = str;
+    public void NO(String str) {
+        this.lPr = str;
     }
 
     @Override // com.baidu.l.a.a.c
-    public void NM(String str) {
-        this.lPo = str;
+    public void NP(String str) {
+        this.lPs = str;
     }
 
     @Override // com.baidu.l.a.a.c
-    public void NN(String str) {
-        this.lPp = str;
+    public void NQ(String str) {
+        this.lPt = str;
     }
 
     @Override // com.baidu.l.a.a.c

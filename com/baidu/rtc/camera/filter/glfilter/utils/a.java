@@ -124,7 +124,7 @@ public class a {
         return i2;
     }
 
-    public static int ND() {
+    public static int NC() {
         return dP(36197);
     }
 }

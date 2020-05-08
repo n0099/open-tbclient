@@ -11,9 +11,9 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public final class a {
-    private static a FY;
+    private static a Gb;
     private static ArrayList<SoftReference<Activity>> sActivityStack;
-    private InterfaceC0014a FZ;
+    private InterfaceC0014a Gc;
     private int mActivityStackMaxSize = 0;
 
     /* renamed from: com.baidu.adp.base.a$a  reason: collision with other inner class name */
@@ -23,7 +23,7 @@ public final class a {
     }
 
     public void a(InterfaceC0014a interfaceC0014a) {
-        this.FZ = interfaceC0014a;
+        this.Gc = interfaceC0014a;
     }
 
     private a() {
@@ -33,10 +33,10 @@ public final class a {
     }
 
     public static a jm() {
-        if (FY == null) {
-            FY = new a();
+        if (Gb == null) {
+            Gb = new a();
         }
-        return FY;
+        return Gb;
     }
 
     public int getSize() {
@@ -69,8 +69,8 @@ public final class a {
         if (activity != null) {
             int size = sActivityStack.size();
             if (size == 0) {
-                if (this.FZ != null) {
-                    this.FZ.onActivityClosed();
+                if (this.Gc != null) {
+                    this.Gc.onActivityClosed();
                     return;
                 }
                 return;
@@ -81,13 +81,13 @@ public final class a {
                     sActivityStack.remove(i);
                 } else if (activity.equals(softReference.get())) {
                     sActivityStack.remove(i);
-                    if (sActivityStack.size() == 0 && this.FZ != null) {
-                        this.FZ.onActivityClosed();
+                    if (sActivityStack.size() == 0 && this.Gc != null) {
+                        this.Gc.onActivityClosed();
                         return;
                     }
                     return;
-                } else if (sActivityStack.size() == 0 && this.FZ != null) {
-                    this.FZ.onActivityClosed();
+                } else if (sActivityStack.size() == 0 && this.Gc != null) {
+                    this.Gc.onActivityClosed();
                 }
             }
         }
@@ -136,8 +136,8 @@ public final class a {
                 }
             }
         }
-        if (this.FZ != null) {
-            this.FZ.onActivityClosed();
+        if (this.Gc != null) {
+            this.Gc.onActivityClosed();
         }
     }
 

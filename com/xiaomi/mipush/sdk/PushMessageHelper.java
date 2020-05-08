@@ -4,8 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ResolveInfo;
 import android.text.TextUtils;
-import com.xiaomi.push.ht;
-import com.xiaomi.push.ij;
+import com.xiaomi.push.hz;
+import com.xiaomi.push.ip;
 import java.util.List;
 /* loaded from: classes8.dex */
 public class PushMessageHelper {
@@ -34,54 +34,54 @@ public class PushMessageHelper {
         return miPushCommandMessage;
     }
 
-    public static MiPushMessage generateMessage(ij ijVar, ht htVar, boolean z) {
+    public static MiPushMessage generateMessage(ip ipVar, hz hzVar, boolean z) {
         MiPushMessage miPushMessage = new MiPushMessage();
-        miPushMessage.setMessageId(ijVar.m439a());
-        if (!TextUtils.isEmpty(ijVar.d())) {
+        miPushMessage.setMessageId(ipVar.m449a());
+        if (!TextUtils.isEmpty(ipVar.d())) {
             miPushMessage.setMessageType(1);
-            miPushMessage.setAlias(ijVar.d());
-        } else if (!TextUtils.isEmpty(ijVar.c())) {
+            miPushMessage.setAlias(ipVar.d());
+        } else if (!TextUtils.isEmpty(ipVar.c())) {
             miPushMessage.setMessageType(2);
-            miPushMessage.setTopic(ijVar.c());
-        } else if (TextUtils.isEmpty(ijVar.f())) {
+            miPushMessage.setTopic(ipVar.c());
+        } else if (TextUtils.isEmpty(ipVar.f())) {
             miPushMessage.setMessageType(0);
         } else {
             miPushMessage.setMessageType(3);
-            miPushMessage.setUserAccount(ijVar.f());
+            miPushMessage.setUserAccount(ipVar.f());
         }
-        miPushMessage.setCategory(ijVar.e());
-        if (ijVar.a() != null) {
-            miPushMessage.setContent(ijVar.a().c());
+        miPushMessage.setCategory(ipVar.e());
+        if (ipVar.a() != null) {
+            miPushMessage.setContent(ipVar.a().c());
         }
-        if (htVar != null) {
+        if (hzVar != null) {
             if (TextUtils.isEmpty(miPushMessage.getMessageId())) {
-                miPushMessage.setMessageId(htVar.m369a());
+                miPushMessage.setMessageId(hzVar.m373a());
             }
             if (TextUtils.isEmpty(miPushMessage.getTopic())) {
-                miPushMessage.setTopic(htVar.m374b());
+                miPushMessage.setTopic(hzVar.m378b());
             }
-            miPushMessage.setDescription(htVar.d());
-            miPushMessage.setTitle(htVar.m377c());
-            miPushMessage.setNotifyType(htVar.a());
-            miPushMessage.setNotifyId(htVar.c());
-            miPushMessage.setPassThrough(htVar.b());
-            miPushMessage.setExtra(htVar.m370a());
+            miPushMessage.setDescription(hzVar.d());
+            miPushMessage.setTitle(hzVar.m381c());
+            miPushMessage.setNotifyType(hzVar.a());
+            miPushMessage.setNotifyId(hzVar.c());
+            miPushMessage.setPassThrough(hzVar.b());
+            miPushMessage.setExtra(hzVar.m374a());
         }
         miPushMessage.setNotified(z);
         return miPushMessage;
     }
 
-    public static ht generateMessage(MiPushMessage miPushMessage) {
-        ht htVar = new ht();
-        htVar.a(miPushMessage.getMessageId());
-        htVar.b(miPushMessage.getTopic());
-        htVar.d(miPushMessage.getDescription());
-        htVar.c(miPushMessage.getTitle());
-        htVar.c(miPushMessage.getNotifyId());
-        htVar.a(miPushMessage.getNotifyType());
-        htVar.b(miPushMessage.getPassThrough());
-        htVar.a(miPushMessage.getExtra());
-        return htVar;
+    public static hz generateMessage(MiPushMessage miPushMessage) {
+        hz hzVar = new hz();
+        hzVar.a(miPushMessage.getMessageId());
+        hzVar.b(miPushMessage.getTopic());
+        hzVar.d(miPushMessage.getDescription());
+        hzVar.c(miPushMessage.getTitle());
+        hzVar.c(miPushMessage.getNotifyId());
+        hzVar.a(miPushMessage.getNotifyType());
+        hzVar.b(miPushMessage.getPassThrough());
+        hzVar.a(miPushMessage.getExtra());
+        return hzVar;
     }
 
     public static int getPushMode(Context context) {

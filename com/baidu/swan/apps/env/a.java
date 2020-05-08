@@ -28,9 +28,9 @@ public abstract class a {
             arrayMap.put("ma_ids", list);
             JSONObject jSONObject = new JSONObject();
             try {
-                com.baidu.swan.apps.setting.oauth.g Qj = com.baidu.swan.apps.w.a.acm().Qj();
+                com.baidu.swan.apps.setting.oauth.g Qi = com.baidu.swan.apps.w.a.acl().Qi();
                 jSONObject.put("accredit", new JSONObject(arrayMap));
-                ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) HttpManager.getDefault(AppRuntime.getAppContext()).postFormRequest().url(com.baidu.swan.apps.w.a.aca().PL())).addParam("data", jSONObject.toString()).cookieManager(Qj)).build().executeAsyncOnUIBack(Zp());
+                ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) HttpManager.getDefault(AppRuntime.getAppContext()).postFormRequest().url(com.baidu.swan.apps.w.a.abZ().PK())).addParam("data", jSONObject.toString()).cookieManager(Qi)).build().executeAsyncOnUIBack(Zo());
             } catch (JSONException e) {
                 e.printStackTrace();
                 if (DEBUG) {
@@ -78,7 +78,7 @@ public abstract class a {
     }
 
     @NonNull
-    private ResponseCallback<JSONObject> Zp() {
+    private ResponseCallback<JSONObject> Zo() {
         return new ResponseCallback<JSONObject>() { // from class: com.baidu.swan.apps.env.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.searchbox.http.callback.ResponseCallback

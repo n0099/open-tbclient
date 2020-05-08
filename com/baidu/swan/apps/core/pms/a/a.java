@@ -5,26 +5,26 @@ import com.baidu.swan.apps.core.pms.PMSDownloadType;
 import com.baidu.swan.apps.core.pms.f;
 /* loaded from: classes11.dex */
 public class a extends f {
-    private InterfaceC0279a bOR;
+    private InterfaceC0300a bOW;
 
     /* renamed from: com.baidu.swan.apps.core.pms.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public interface InterfaceC0279a {
-        void Xx();
+    public interface InterfaceC0300a {
+        void Xw();
 
         void onError();
 
         void onSuccess();
     }
 
-    public a(String str, InterfaceC0279a interfaceC0279a) {
+    public a(String str, InterfaceC0300a interfaceC0300a) {
         super(str);
-        this.bOR = interfaceC0279a;
+        this.bOW = interfaceC0300a;
     }
 
     @Override // com.baidu.swan.pms.a.g
-    public void Xa() {
-        super.Xa();
+    public void WZ() {
+        super.WZ();
         eN(0);
     }
 
@@ -35,8 +35,8 @@ public class a extends f {
     }
 
     @Override // com.baidu.swan.apps.core.pms.f
-    protected void Xg() {
-        if (Xp() == null) {
+    protected void Xf() {
+        if (Xo() == null) {
             eN(1);
         } else {
             eN(-1);
@@ -44,7 +44,7 @@ public class a extends f {
     }
 
     @Override // com.baidu.swan.apps.core.pms.f
-    protected PMSDownloadType Xh() {
+    protected PMSDownloadType Xg() {
         return null;
     }
 
@@ -57,16 +57,16 @@ public class a extends f {
         ai.o(new Runnable() { // from class: com.baidu.swan.apps.core.pms.a.a.1
             @Override // java.lang.Runnable
             public void run() {
-                if (a.this.bOR != null) {
+                if (a.this.bOW != null) {
                     switch (i) {
                         case -1:
-                            a.this.bOR.onError();
+                            a.this.bOW.onError();
                             return;
                         case 0:
-                            a.this.bOR.Xx();
+                            a.this.bOW.Xw();
                             return;
                         case 1:
-                            a.this.bOR.onSuccess();
+                            a.this.bOW.onSuccess();
                             return;
                         default:
                             return;

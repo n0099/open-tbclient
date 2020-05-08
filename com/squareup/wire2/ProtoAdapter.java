@@ -277,7 +277,7 @@ public abstract class ProtoAdapter<E> {
     public static final ProtoAdapter<String> STRING = new ProtoAdapter<String>(FieldEncoding.LENGTH_DELIMITED, String.class) { // from class: com.squareup.wire2.ProtoAdapter.4
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire2.ProtoAdapter
-        /* renamed from: Ph */
+        /* renamed from: Pk */
         public int encodedSize(String str) {
             return d.utf8Length(str);
         }
@@ -315,7 +315,7 @@ public abstract class ProtoAdapter<E> {
         @Override // com.squareup.wire2.ProtoAdapter
         /* renamed from: e */
         public ByteString decode(c cVar) throws IOException {
-            return cVar.dAU();
+            return cVar.dAQ();
         }
     };
 
@@ -596,11 +596,11 @@ public abstract class ProtoAdapter<E> {
 
     /* loaded from: classes.dex */
     private static final class b<K, V> extends ProtoAdapter<Map<K, V>> {
-        private final a<K, V> mNN;
+        private final a<K, V> mNQ;
 
         b(ProtoAdapter<K> protoAdapter, ProtoAdapter<V> protoAdapter2) {
             super(FieldEncoding.LENGTH_DELIMITED, null);
-            this.mNN = new a<>(protoAdapter, protoAdapter2);
+            this.mNQ = new a<>(protoAdapter, protoAdapter2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -619,7 +619,7 @@ public abstract class ProtoAdapter<E> {
             while (true) {
                 int i3 = i2;
                 if (it.hasNext()) {
-                    i2 = this.mNN.encodedSizeWithTag(i, it.next()) + i3;
+                    i2 = this.mNQ.encodedSizeWithTag(i, it.next()) + i3;
                 } else {
                     return i3;
                 }
@@ -638,7 +638,7 @@ public abstract class ProtoAdapter<E> {
         /* renamed from: a */
         public void encodeWithTag(d dVar, int i, Map<K, V> map) throws IOException {
             for (Map.Entry<K, V> entry : map.entrySet()) {
-                this.mNN.encodeWithTag(dVar, i, entry);
+                this.mNQ.encodeWithTag(dVar, i, entry);
             }
         }
 
@@ -647,21 +647,21 @@ public abstract class ProtoAdapter<E> {
         /* renamed from: j */
         public Map<K, V> decode(c cVar) throws IOException {
             V v = null;
-            long dAR = cVar.dAR();
+            long dAN = cVar.dAN();
             K k = null;
             while (true) {
-                int dAS = cVar.dAS();
-                if (dAS != -1) {
-                    switch (dAS) {
+                int dAO = cVar.dAO();
+                if (dAO != -1) {
+                    switch (dAO) {
                         case 1:
-                            k = this.mNN.mNJ.decode(cVar);
+                            k = this.mNQ.mNM.decode(cVar);
                             break;
                         case 2:
-                            v = this.mNN.mNM.decode(cVar);
+                            v = this.mNQ.mNP.decode(cVar);
                             break;
                     }
                 } else {
-                    cVar.gc(dAR);
+                    cVar.gc(dAN);
                     if (k == null) {
                         throw new IllegalStateException("Map entry with null key");
                     }
@@ -684,28 +684,28 @@ public abstract class ProtoAdapter<E> {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static final class a<K, V> extends ProtoAdapter<Map.Entry<K, V>> {
-        final ProtoAdapter<K> mNJ;
-        final ProtoAdapter<V> mNM;
+        final ProtoAdapter<K> mNM;
+        final ProtoAdapter<V> mNP;
 
         a(ProtoAdapter<K> protoAdapter, ProtoAdapter<V> protoAdapter2) {
             super(FieldEncoding.LENGTH_DELIMITED, null);
-            this.mNJ = protoAdapter;
-            this.mNM = protoAdapter2;
+            this.mNM = protoAdapter;
+            this.mNP = protoAdapter2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire2.ProtoAdapter
         /* renamed from: a */
         public int encodedSize(Map.Entry<K, V> entry) {
-            return this.mNJ.encodedSizeWithTag(1, entry.getKey()) + this.mNM.encodedSizeWithTag(2, entry.getValue());
+            return this.mNM.encodedSizeWithTag(1, entry.getKey()) + this.mNP.encodedSizeWithTag(2, entry.getValue());
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire2.ProtoAdapter
         /* renamed from: a */
         public void encode(d dVar, Map.Entry<K, V> entry) throws IOException {
-            this.mNJ.encodeWithTag(dVar, 1, entry.getKey());
-            this.mNM.encodeWithTag(dVar, 2, entry.getValue());
+            this.mNM.encodeWithTag(dVar, 1, entry.getKey());
+            this.mNP.encodeWithTag(dVar, 2, entry.getValue());
         }
 
         /* JADX DEBUG: Method merged with bridge method */

@@ -17,11 +17,11 @@ import com.baidu.swan.apps.a;
 @UiThread
 /* loaded from: classes11.dex */
 public class a implements b {
-    protected com.baidu.swan.games.view.recommend.model.a cTb;
-    protected InterfaceC0380a cTc;
-    private int cTd;
-    private ObjectAnimator cTe;
-    private d cTf;
+    protected com.baidu.swan.games.view.recommend.model.a cTg;
+    protected InterfaceC0401a cTh;
+    private int cTi;
+    private ObjectAnimator cTj;
+    private d cTk;
     protected Context mContext;
     protected Handler mHandler;
     private boolean mIsShowing;
@@ -29,7 +29,7 @@ public class a implements b {
 
     /* renamed from: com.baidu.swan.games.view.recommend.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public interface InterfaceC0380a {
+    public interface InterfaceC0401a {
         void azp();
 
         void azq();
@@ -39,7 +39,7 @@ public class a implements b {
 
     public a(@NonNull Context context, @NonNull d dVar) {
         this.mContext = context;
-        this.cTf = dVar;
+        this.cTk = dVar;
         aB(azj());
         initAnimation();
         azn();
@@ -52,7 +52,7 @@ public class a implements b {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void azk() {
-        this.cTe.start();
+        this.cTj.start();
     }
 
     protected int azl() {
@@ -60,16 +60,16 @@ public class a implements b {
     }
 
     private void aB(View view) {
-        this.cTd = (int) this.mContext.getResources().getDimension(a.d.swangame_recommend_button_root_padding);
+        this.cTi = (int) this.mContext.getResources().getDimension(a.d.swangame_recommend_button_root_padding);
         this.mRootView = new FrameLayout(this.mContext);
-        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(com.baidu.swan.games.utils.d.C(this.cTf.width), com.baidu.swan.games.utils.d.C(this.cTf.height));
-        layoutParams.setMargins(this.cTd, this.cTd, this.cTd, this.cTd);
+        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(com.baidu.swan.games.utils.d.C(this.cTk.width), com.baidu.swan.games.utils.d.C(this.cTk.height));
+        layoutParams.setMargins(this.cTi, this.cTi, this.cTi, this.cTi);
         this.mRootView.setBackgroundColor(0);
         this.mRootView.addView(view, layoutParams);
     }
 
     private void initAnimation() {
-        this.cTe = azm();
+        this.cTj = azm();
         this.mHandler = new Handler(Looper.getMainLooper()) { // from class: com.baidu.swan.games.view.recommend.a.a.1
             @Override // android.os.Handler
             public void handleMessage(Message message) {
@@ -101,8 +101,8 @@ public class a implements b {
 
     private com.baidu.swan.apps.model.a.a.a azo() {
         com.baidu.swan.apps.model.a.a.a aVar = new com.baidu.swan.apps.model.a.a.a();
-        aVar.fF(com.baidu.swan.games.utils.d.C(this.cTf.left) - this.cTd);
-        aVar.fG(com.baidu.swan.games.utils.d.C(this.cTf.f1017top) - this.cTd);
+        aVar.fF(com.baidu.swan.games.utils.d.C(this.cTk.left) - this.cTi);
+        aVar.fG(com.baidu.swan.games.utils.d.C(this.cTk.f1009top) - this.cTi);
         aVar.setWidth(-2);
         aVar.setHeight(-2);
         return aVar;
@@ -110,12 +110,12 @@ public class a implements b {
 
     @Override // com.baidu.swan.games.view.recommend.a.b
     public void a(com.baidu.swan.games.view.recommend.model.a aVar) {
-        this.cTb = aVar;
+        this.cTg = aVar;
     }
 
     @Override // com.baidu.swan.games.view.recommend.a.b
-    public void a(InterfaceC0380a interfaceC0380a) {
-        this.cTc = interfaceC0380a;
+    public void a(InterfaceC0401a interfaceC0401a) {
+        this.cTh = interfaceC0401a;
     }
 
     @Override // com.baidu.swan.games.view.recommend.a.b

@@ -308,7 +308,7 @@ public class LottieAnimationView extends AppCompatImageView {
     public void setAnimation(String str) {
         this.animationName = str;
         this.animationResId = 0;
-        setCompositionTask(f.F(getContext(), str));
+        setCompositionTask(f.t(getContext(), str));
     }
 
     @Deprecated
@@ -325,7 +325,7 @@ public class LottieAnimationView extends AppCompatImageView {
     }
 
     public void setAnimationFromUrl(String str) {
-        setCompositionTask(f.E(getContext(), str));
+        setCompositionTask(f.s(getContext(), str));
     }
 
     private void setCompositionTask(m<e> mVar) {

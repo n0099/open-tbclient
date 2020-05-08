@@ -6,7 +6,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 /* loaded from: classes6.dex */
 public class b {
-    private static final c mQO;
+    private static final c mQR;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes6.dex */
@@ -16,15 +16,15 @@ public class b {
 
     static {
         if (Build.VERSION.SDK_INT >= 23) {
-            mQO = new C0781b();
+            mQR = new C0802b();
         } else {
-            mQO = new a();
+            mQR = new a();
         }
     }
 
     @NonNull
-    public static h gc(@NonNull Context context) {
-        return mQO.a(new com.yanzhenjie.permission.b.a(context));
+    public static h fQ(@NonNull Context context) {
+        return mQR.a(new com.yanzhenjie.permission.b.a(context));
     }
 
     /* loaded from: classes6.dex */
@@ -41,8 +41,8 @@ public class b {
     @RequiresApi(api = 23)
     /* renamed from: com.yanzhenjie.permission.b$b  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    private static class C0781b implements c {
-        private C0781b() {
+    private static class C0802b implements c {
+        private C0802b() {
         }
 
         @Override // com.yanzhenjie.permission.b.c

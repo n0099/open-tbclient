@@ -14,7 +14,7 @@ public final class f {
         return Arrays.hashCode(objArr);
     }
 
-    public static a aI(Object obj) {
+    public static a aJ(Object obj) {
         return new a(z(obj.getClass()));
     }
 
@@ -30,14 +30,14 @@ public final class f {
     /* loaded from: classes13.dex */
     public static final class a {
         private final String className;
-        private C0697a lRx;
-        private C0697a lRy;
-        private boolean lRz;
+        private C0718a lRB;
+        private C0718a lRC;
+        private boolean lRD;
 
         private a(String str) {
-            this.lRx = new C0697a();
-            this.lRy = this.lRx;
-            this.lRz = false;
+            this.lRB = new C0718a();
+            this.lRC = this.lRB;
+            this.lRD = false;
             this.className = (String) g.checkNotNull(str);
         }
 
@@ -54,47 +54,47 @@ public final class f {
         }
 
         public String toString() {
-            boolean z = this.lRz;
+            boolean z = this.lRD;
             StringBuilder append = new StringBuilder(32).append(this.className).append('{');
             String str = "";
-            for (C0697a c0697a = this.lRx.lRA; c0697a != null; c0697a = c0697a.lRA) {
-                if (!z || c0697a.value != null) {
+            for (C0718a c0718a = this.lRB.lRE; c0718a != null; c0718a = c0718a.lRE) {
+                if (!z || c0718a.value != null) {
                     append.append(str);
                     str = ", ";
-                    if (c0697a.name != null) {
-                        append.append(c0697a.name).append('=');
+                    if (c0718a.name != null) {
+                        append.append(c0718a.name).append('=');
                     }
-                    append.append(c0697a.value);
+                    append.append(c0718a.value);
                 }
             }
             return append.append('}').toString();
         }
 
-        private C0697a dmX() {
-            C0697a c0697a = new C0697a();
-            this.lRy.lRA = c0697a;
-            this.lRy = c0697a;
-            return c0697a;
+        private C0718a dmU() {
+            C0718a c0718a = new C0718a();
+            this.lRC.lRE = c0718a;
+            this.lRC = c0718a;
+            return c0718a;
         }
 
         private a D(String str, @Nullable Object obj) {
-            C0697a dmX = dmX();
-            dmX.value = obj;
-            dmX.name = (String) g.checkNotNull(str);
+            C0718a dmU = dmU();
+            dmU.value = obj;
+            dmU.name = (String) g.checkNotNull(str);
             return this;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         /* renamed from: com.facebook.common.internal.f$a$a  reason: collision with other inner class name */
         /* loaded from: classes13.dex */
-        public static final class C0697a {
-            C0697a lRA;
+        public static final class C0718a {
+            C0718a lRE;
             @Nullable
             String name;
             @Nullable
             Object value;
 
-            private C0697a() {
+            private C0718a() {
             }
         }
     }

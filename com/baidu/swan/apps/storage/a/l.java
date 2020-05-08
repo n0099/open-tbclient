@@ -31,13 +31,13 @@ public class l extends ab {
             return false;
         }
         String optString2 = optParamsAsJo.optString("data");
-        com.baidu.swan.apps.storage.c akV = eVar.akV();
-        if (!akV.available() && akV.anq().getString(optString, "").length() < optString2.length()) {
+        com.baidu.swan.apps.storage.c akU = eVar.akU();
+        if (!akU.available() && akU.anp().getString(optString, "").length() < optString2.length()) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "not available");
             return false;
         }
-        akV.anq().putString(optString, optString2);
-        com.baidu.swan.apps.ap.e.cwU.update();
+        akU.anp().putString(optString, optString2);
+        com.baidu.swan.apps.ap.e.cxa.update();
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
         return true;
     }

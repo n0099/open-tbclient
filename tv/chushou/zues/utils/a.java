@@ -42,19 +42,19 @@ public class a {
         }
     }
 
-    public static Point gh(Context context) {
+    public static Point fU(Context context) {
         Point point = new Point();
         ((WindowManager) context.getSystemService("window")).getDefaultDisplay().getSize(point);
         return point;
     }
 
-    public static Point gi(Context context) {
+    public static Point fV(Context context) {
         if (Build.VERSION.SDK_INT >= 17) {
             Point point = new Point();
             ((WindowManager) context.getSystemService("window")).getDefaultDisplay().getRealSize(point);
             return point;
         }
-        return gh(context);
+        return fU(context);
     }
 
     public static boolean isIntentAvailable(Context context, Intent intent) {
@@ -74,16 +74,16 @@ public class a {
         return packageInfo != null;
     }
 
-    public static boolean dJS() {
-        Application dJt = h.dJt();
-        if (dJt == null) {
+    public static boolean dJO() {
+        Application dJp = h.dJp();
+        if (dJp == null) {
             return false;
         }
-        NetworkInfo activeNetworkInfo = ((ConnectivityManager) dJt.getSystemService("connectivity")).getActiveNetworkInfo();
+        NetworkInfo activeNetworkInfo = ((ConnectivityManager) dJp.getSystemService("connectivity")).getActiveNetworkInfo();
         return activeNetworkInfo != null && activeNetworkInfo.isAvailable();
     }
 
-    public static boolean gj(Context context) {
+    public static boolean fW(Context context) {
         try {
             NetworkInfo networkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getNetworkInfo(1);
             if (networkInfo != null) {
@@ -95,12 +95,12 @@ public class a {
         }
     }
 
-    public static boolean gk(Context context) {
+    public static boolean fX(Context context) {
         NetworkInfo networkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getNetworkInfo(0);
         return networkInfo != null && networkInfo.getState() == NetworkInfo.State.CONNECTED;
     }
 
-    public static boolean dJT() {
+    public static boolean dJP() {
         FileInputStream fileInputStream;
         boolean z = false;
         try {

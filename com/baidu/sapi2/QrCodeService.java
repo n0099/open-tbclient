@@ -60,7 +60,7 @@ public class QrCodeService extends AbstractService {
         }
         httpHashMapWrap.put("needQrCodeContent", getQrCodeImageDTO.needQrCodeContent ? "1" : "0");
         httpHashMapWrap.put("hostDeviceId", getQrCodeImageDTO.hostDeviceId);
-        new HttpClientWrap().get(com.baidu.sapi2.utils.f.j, httpHashMapWrap, null, getUaInfo(), new HttpHandlerWrap(Looper.getMainLooper()) { // from class: com.baidu.sapi2.QrCodeService.1
+        new HttpClientWrap().get(com.baidu.sapi2.utils.h.j, httpHashMapWrap, null, getUaInfo(), new HttpHandlerWrap(Looper.getMainLooper()) { // from class: com.baidu.sapi2.QrCodeService.1
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
             public void onFailure(Throwable th, int i, String str) {
@@ -115,7 +115,7 @@ public class QrCodeService extends AbstractService {
         httpHashMapWrap.put("bduss", str);
         httpHashMapWrap.put(PushConstants.PUSH_NOTIFICATION_CREATE_TIMES_TAMP, String.valueOf(System.currentTimeMillis()));
         httpHashMapWrap.put("hostDeviceId", str2);
-        String str3 = z ? com.baidu.sapi2.utils.f.m : com.baidu.sapi2.utils.f.l;
+        String str3 = z ? com.baidu.sapi2.utils.h.m : com.baidu.sapi2.utils.h.l;
         this.b = new HttpClientWrap();
         this.b.get(str3, httpHashMapWrap, null, getUaInfo(), new HttpHandlerWrap(Looper.getMainLooper()) { // from class: com.baidu.sapi2.QrCodeService.3
             /* JADX INFO: Access modifiers changed from: protected */
@@ -177,7 +177,7 @@ public class QrCodeService extends AbstractService {
         Map<String, String> urlParamsToMap = SapiUtils.urlParamsToMap(str);
         httpHashMapWrap.put("sign", urlParamsToMap.get("sign"));
         httpHashMapWrap.put("cmd", str2);
-        SapiAccount currentAccount = SapiContext.getInstance(this.configuration.context).getCurrentAccount();
+        SapiAccount currentAccount = SapiContext.getInstance().getCurrentAccount();
         if (currentAccount != null) {
             httpHashMapWrap.put("bduss", currentAccount.bduss);
             httpHashMapWrap.put("stoken", currentAccount.stoken);
@@ -239,7 +239,7 @@ public class QrCodeService extends AbstractService {
         httpHashMapWrap.put(SharedPrefConfig.CHANNEL_ID, qrLoginStstusCheckDTO.channelId);
         httpHashMapWrap.put(PushConstants.PUSH_NOTIFICATION_CREATE_TIMES_TAMP, String.valueOf(System.currentTimeMillis()));
         this.b = new HttpClientWrap();
-        this.b.get(com.baidu.sapi2.utils.f.k, httpHashMapWrap, null, getUaInfo(), 40000, new HttpHandlerWrap(Looper.getMainLooper()) { // from class: com.baidu.sapi2.QrCodeService.2
+        this.b.get(com.baidu.sapi2.utils.h.k, httpHashMapWrap, null, getUaInfo(), 40000, new HttpHandlerWrap(Looper.getMainLooper()) { // from class: com.baidu.sapi2.QrCodeService.2
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
             public void onFailure(Throwable th, int i, String str) {

@@ -18,7 +18,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 /* loaded from: classes.dex */
 public class a {
-    private C0416a dPp;
+    private C0437a dPu;
     private com.baidu.adp.base.d mLoadDataCallBack;
     private TbPageContext mPageContext;
 
@@ -35,25 +35,25 @@ public class a {
     }
 
     public void a(boolean z, String str, String str2, boolean z2, String str3, BdUniqueId bdUniqueId, String str4, String str5) {
-        if (this.dPp == null) {
-            this.dPp = new C0416a();
-            this.dPp.setPriority(2);
-            this.dPp.hk(z);
-            this.dPp.setPortrait(str);
-            this.dPp.setToUid(str2);
-            this.dPp.setIsGod(z2);
-            this.dPp.setFrom(str3);
-            this.dPp.setPageId(bdUniqueId);
-            this.dPp.setForumId(str4);
-            this.dPp.setInLive(str5);
-            this.dPp.execute(new Integer[0]);
+        if (this.dPu == null) {
+            this.dPu = new C0437a();
+            this.dPu.setPriority(2);
+            this.dPu.hk(z);
+            this.dPu.setPortrait(str);
+            this.dPu.setToUid(str2);
+            this.dPu.setIsGod(z2);
+            this.dPu.setFrom(str3);
+            this.dPu.setPageId(bdUniqueId);
+            this.dPu.setForumId(str4);
+            this.dPu.setInLive(str5);
+            this.dPu.execute(new Integer[0]);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tbadk.coreExtra.model.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0416a extends BdAsyncTask<Integer, Integer, String> {
+    public class C0437a extends BdAsyncTask<Integer, Integer, String> {
         private String authSid;
         private String forumId;
         private String from;
@@ -67,7 +67,7 @@ public class a {
         private String toUid;
         private AuthTokenData tokenData;
 
-        private C0416a() {
+        private C0437a() {
             this.mNetwork = null;
             this.isGod = false;
             this.from = "0";
@@ -133,7 +133,7 @@ public class a {
                     }
                     this.mNetwork.addPostData("in_live", this.inLive);
                     this.mNetwork.addPostData("authsid", this.authSid);
-                    this.mNetwork.aOy().aOZ().mIsNeedTbs = true;
+                    this.mNetwork.aOw().aOW().mIsNeedTbs = true;
                     String postNetData = this.mNetwork.postNetData();
                     this.tokenData = AuthTokenData.parse(postNetData);
                     return postNetData;
@@ -149,20 +149,20 @@ public class a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
             boolean[] g;
-            super.onPostExecute((C0416a) str);
-            a.this.dPp = null;
+            super.onPostExecute((C0437a) str);
+            a.this.dPu = null;
             if (this.mNetwork != null) {
                 UpdateAttentionMessage.a aVar = new UpdateAttentionMessage.a();
-                aVar.isSucc = this.mNetwork.aOy().aPa().isRequestSuccess();
+                aVar.isSucc = this.mNetwork.aOw().aOX().isRequestSuccess();
                 aVar.errorString = this.mNetwork.getErrorString();
                 aVar.isAttention = this.isAttention;
                 aVar.toUid = this.toUid;
                 aVar.isGod = this.isGod;
                 aVar.parserJson(str, this.showToastAfterAttentionSuc);
-                if (this.mNetwork.aOy().aPa().isRequestSuccess()) {
-                    aVar.dOo = null;
+                if (this.mNetwork.aOw().aOX().isRequestSuccess()) {
+                    aVar.dOt = null;
                 }
-                if (!AntiHelper.d(a.this.getContext(), this.mNetwork.getServerErrorCode(), aVar.blockUrl)) {
+                if (!AntiHelper.c(a.this.getContext(), this.mNetwork.getServerErrorCode(), aVar.blockUrl)) {
                     UpdateAttentionMessage updateAttentionMessage = new UpdateAttentionMessage(aVar);
                     updateAttentionMessage.setOrginalMessage(new CustomMessage((int) MessageConfig.BASE_CUSTOM_CMD, this.pageId));
                     MessageManager.getInstance().dispatchResponsedMessageToUI(updateAttentionMessage);
@@ -183,9 +183,9 @@ public class a {
                 this.mNetwork.cancelNetConnect();
                 this.mNetwork = null;
             }
-            if (a.this.dPp != null) {
-                a.this.dPp.cancel();
-                a.this.dPp = null;
+            if (a.this.dPu != null) {
+                a.this.dPu.cancel();
+                a.this.dPu = null;
             }
             if (a.this.mLoadDataCallBack != null) {
                 a.this.mLoadDataCallBack.callback(false);
@@ -201,8 +201,8 @@ public class a {
     }
 
     public void cancel() {
-        if (this.dPp != null) {
-            this.dPp.cancel();
+        if (this.dPu != null) {
+            this.dPu.cancel();
         }
     }
 
@@ -210,11 +210,11 @@ public class a {
     public boolean[] g(TbPageContext tbPageContext) {
         boolean[] zArr = null;
         String localClassName = (tbPageContext == null || tbPageContext.getPageActivity() == null) ? null : tbPageContext.getPageActivity().getLocalClassName();
-        if (("pb.pb.main.PbActivity".equals(localClassName) || "personPolymeric.PersonPolymericActivity".equals(localClassName) || "enterForum.hotuserrank.HotUserRankActivity".equals(localClassName)) && com.baidu.tbadk.core.sharedPref.b.aNV().getBoolean("first_call_attention", true)) {
-            com.baidu.tbadk.core.sharedPref.b.aNV().putBoolean("first_call_attention", false);
+        if (("pb.pb.main.PbActivity".equals(localClassName) || "personPolymeric.PersonPolymericActivity".equals(localClassName) || "enterForum.hotuserrank.HotUserRankActivity".equals(localClassName)) && com.baidu.tbadk.core.sharedPref.b.aNT().getBoolean("first_call_attention", true)) {
+            com.baidu.tbadk.core.sharedPref.b.aNT().putBoolean("first_call_attention", false);
             zArr = new boolean[2];
             zArr[0] = !NotificationManagerCompat.from(this.mPageContext.getPageActivity()).areNotificationsEnabled();
-            zArr[1] = !com.baidu.tbadk.coreExtra.messageCenter.d.aTN().aTP();
+            zArr[1] = !com.baidu.tbadk.coreExtra.messageCenter.d.aTL().aTN();
             if (!zArr[0] && !zArr[1] && tbPageContext != null) {
                 tbPageContext.showToast(R.string.attention_success);
             }

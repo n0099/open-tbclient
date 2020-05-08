@@ -5,6 +5,7 @@ import android.util.Log;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.Utility;
+import com.baidu.sapi2.outsdk.c;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -100,7 +101,7 @@ public class IMManagerImpl {
         Method method;
         try {
             Class<?> cls = Class.forName(str);
-            if (cls != null && (method = cls.getMethod("init", Context.class)) != null) {
+            if (cls != null && (method = cls.getMethod(c.l, Context.class)) != null) {
                 method.invoke(cls, sContext);
             }
         } catch (Exception e) {

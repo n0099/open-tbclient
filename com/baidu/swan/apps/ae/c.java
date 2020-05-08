@@ -17,12 +17,12 @@ public class c extends h {
     }
 
     @Override // com.baidu.swan.apps.core.d.h
-    public f Qy() {
-        return d.Yo().Yp().bk(getContext());
+    public f Qx() {
+        return d.Yn().Yo().aY(getContext());
     }
 
     @Override // com.baidu.swan.apps.core.d.h
-    protected com.baidu.swan.apps.core.f.d QT() {
+    protected com.baidu.swan.apps.core.f.d QS() {
         return new com.baidu.swan.apps.core.f.a() { // from class: com.baidu.swan.apps.ae.c.1
             @Override // com.baidu.swan.apps.core.f.a, com.baidu.swan.apps.core.f.d
             public boolean fg(String str) {
@@ -30,7 +30,7 @@ public class c extends h {
                     return super.fg(str);
                 }
                 com.baidu.swan.apps.console.c.d("SwanAppWxPayFragment", " weixin  url:   " + str);
-                h.Wv();
+                h.Wu();
                 return false;
             }
         };
@@ -39,7 +39,7 @@ public class c extends h {
     @Override // com.baidu.swan.apps.core.d.h, com.baidu.swan.apps.core.d.b
     protected void ae(View view) {
         super.ae(view);
-        this.bLR.setTitle(getResources().getString(a.h.aiapps_wx_pay_title));
+        this.bLW.setTitle(getResources().getString(a.h.aiapps_wx_pay_title));
         dn(false);
     }
 }

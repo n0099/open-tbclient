@@ -1,29 +1,22 @@
 package com.xiaomi.push;
 
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes8.dex */
 public class ax {
-    private static String a(byte b) {
-        int i = (b & Byte.MAX_VALUE) + (b < 0 ? 128 : 0);
-        return (i < 16 ? "0" : "") + Integer.toHexString(i).toLowerCase();
+    public int a;
+
+    /* renamed from: a  reason: collision with other field name */
+    public String f114a;
+
+    /* renamed from: a  reason: collision with other field name */
+    public Map<String, String> f115a = new HashMap();
+
+    public String a() {
+        return this.f114a;
     }
 
-    public static String a(String str) {
-        try {
-            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-            StringBuffer stringBuffer = new StringBuffer();
-            messageDigest.update(str.getBytes(), 0, str.length());
-            for (byte b : messageDigest.digest()) {
-                stringBuffer.append(a(b));
-            }
-            return stringBuffer.toString();
-        } catch (NoSuchAlgorithmException e) {
-            return null;
-        }
-    }
-
-    public static String b(String str) {
-        return a(str).subSequence(8, 24).toString();
+    public String toString() {
+        return String.format("resCode = %1$d, headers = %2$s, response = %3$s", Integer.valueOf(this.a), this.f115a.toString(), this.f114a);
     }
 }

@@ -3,21 +3,21 @@ package com.baidu.a.a;
 import android.text.TextUtils;
 /* loaded from: classes12.dex */
 public class a {
-    private static a aiX;
+    private static a ajc;
     private String mAppName;
 
     private a() {
     }
 
-    public static a sh() {
-        if (aiX == null) {
+    public static a sg() {
+        if (ajc == null) {
             synchronized (a.class) {
-                if (aiX == null) {
-                    aiX = new a();
+                if (ajc == null) {
+                    ajc = new a();
                 }
             }
         }
-        return aiX;
+        return ajc;
     }
 
     public void setAppName(String str) {
@@ -25,6 +25,6 @@ public class a {
     }
 
     public String getAppName() {
-        return !TextUtils.isEmpty(this.mAppName) ? this.mAppName : b.si().getAppName();
+        return !TextUtils.isEmpty(this.mAppName) ? this.mAppName : b.sh().getAppName();
     }
 }

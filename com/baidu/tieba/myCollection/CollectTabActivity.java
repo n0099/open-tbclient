@@ -19,8 +19,8 @@ import com.baidu.tieba.R;
 import java.util.Map;
 /* loaded from: classes11.dex */
 public class CollectTabActivity extends BaseFragmentActivity {
-    private a jdW;
-    private CustomMessageListener jdX = new CustomMessageListener(CmdConfigCustom.COLLECT_TAB_NAVI_EDIT_ENABLE) { // from class: com.baidu.tieba.myCollection.CollectTabActivity.1
+    private a jea;
+    private CustomMessageListener jeb = new CustomMessageListener(CmdConfigCustom.COLLECT_TAB_NAVI_EDIT_ENABLE) { // from class: com.baidu.tieba.myCollection.CollectTabActivity.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -28,8 +28,8 @@ public class CollectTabActivity extends BaseFragmentActivity {
                 Bundle bundle = (Bundle) customResponsedMessage.getData();
                 boolean z = bundle.getBoolean("is_enable_edit", true);
                 int i = bundle.getInt("fragment_type", -1);
-                if (i != -1 && i == CollectTabActivity.this.jdW.cst()) {
-                    CollectTabActivity.this.jdW.qf(z);
+                if (i != -1 && i == CollectTabActivity.this.jea.csq()) {
+                    CollectTabActivity.this.jea.qf(z);
                 }
             }
         }
@@ -40,13 +40,13 @@ public class CollectTabActivity extends BaseFragmentActivity {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.collect_tab_activity);
-        this.jdW = new a(this);
-        registerListener(this.jdX);
-        css();
-        aq(getIntent());
+        this.jea = new a(this);
+        registerListener(this.jeb);
+        csp();
+        ad(getIntent());
     }
 
-    protected void css() {
+    protected void csp() {
         com.baidu.tbadk.collectTab.a aVar = new com.baidu.tbadk.collectTab.a(getPageContext().getPageActivity());
         ThreadDelegateStatic threadDelegateStatic = new ThreadDelegateStatic();
         aVar.a(threadDelegateStatic);
@@ -58,19 +58,19 @@ public class CollectTabActivity extends BaseFragmentActivity {
                 return;
             }
         }
-        this.jdW.aH(aVar.getList());
+        this.jea.aH(aVar.getList());
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     protected void onChangeSkinType(int i) {
         super.changeSkinType(i);
-        this.jdW.onChangeSkinType(i);
+        this.jea.onChangeSkinType(i);
     }
 
     @Override // com.baidu.adp.base.BdBaseFragmentActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.jdW.csv()) {
-            this.jdW.qe(!this.jdW.csw());
+        if (view == this.jea.css()) {
+            this.jea.qe(!this.jea.cst());
         }
     }
 
@@ -78,8 +78,8 @@ public class CollectTabActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        b.csx().qg(true);
-        b.csx().qh(false);
+        b.csu().qg(true);
+        b.csu().qh(false);
         NotificationHelper.cancelNotification(getPageContext().getPageActivity(), 28);
     }
 
@@ -87,16 +87,16 @@ public class CollectTabActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        b.csx().qg(false);
+        b.csu().qg(false);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        Fragment csu = this.jdW.csu();
-        if (csu != null) {
-            csu.onActivityResult(i, i2, intent);
+        Fragment csr = this.jea.csr();
+        if (csr != null) {
+            csr.onActivityResult(i, i2, intent);
         }
     }
 
@@ -116,11 +116,11 @@ public class CollectTabActivity extends BaseFragmentActivity {
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
-        aq(intent);
+        ad(intent);
         setIntent(intent);
     }
 
-    private void aq(Intent intent) {
+    private void ad(Intent intent) {
         if (intent != null) {
             String dataString = intent.getDataString();
             if (!StringUtils.isNull(dataString) && dataString.startsWith("tbmycollection://")) {

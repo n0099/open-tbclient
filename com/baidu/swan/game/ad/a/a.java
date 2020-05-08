@@ -6,7 +6,7 @@ public interface a {
 
     /* renamed from: com.baidu.swan.game.ad.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public interface InterfaceC0357a {
+    public interface InterfaceC0378a {
         void b(AdElementInfo adElementInfo);
 
         void oW(String str);
@@ -14,7 +14,7 @@ public interface a {
 
     /* loaded from: classes11.dex */
     public interface b {
-        void asG();
+        void asF();
     }
 
     /* loaded from: classes11.dex */

@@ -14,7 +14,7 @@ import com.uodis.opendevice.aidl.OpenDeviceIdentifierService;
 public class a {
     private Context mContext;
     private Handler mHandler;
-    private b mIZ;
+    private b mJc;
     ServiceConnection mServiceConnection = new ServiceConnection() { // from class: com.b.a.a.1
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
@@ -40,7 +40,7 @@ public class a {
 
     private a(Context context, b bVar, Handler handler) {
         this.mContext = context;
-        this.mIZ = bVar;
+        this.mJc = bVar;
         this.mHandler = new HandlerC0012a(handler == null ? Looper.getMainLooper() : handler.getLooper());
     }
 
@@ -55,22 +55,22 @@ public class a {
         public void handleMessage(Message message) {
             switch (message.what) {
                 case 0:
-                    a.this.mIZ.d(-1, null);
+                    a.this.mJc.d(-1, null);
                     return;
                 case 1:
                     OpenDeviceIdentifierService openDeviceIdentifierService = (OpenDeviceIdentifierService) message.obj;
                     try {
                         try {
-                            a.this.mIZ.aI(openDeviceIdentifierService.getOaid(), openDeviceIdentifierService.isOaidTrackLimited());
+                            a.this.mJc.aI(openDeviceIdentifierService.getOaid(), openDeviceIdentifierService.isOaidTrackLimited());
                             try {
                                 a.this.mContext.unbindService(a.this.mServiceConnection);
                                 return;
                             } catch (Exception e) {
-                                a.this.mIZ.d(-4, e);
+                                a.this.mJc.d(-4, e);
                                 return;
                             }
                         } catch (RemoteException e2) {
-                            a.this.mIZ.d(-3, e2);
+                            a.this.mJc.d(-3, e2);
                             try {
                                 a.this.mContext.unbindService(a.this.mServiceConnection);
                                 return;
@@ -82,12 +82,12 @@ public class a {
                         try {
                             a.this.mContext.unbindService(a.this.mServiceConnection);
                         } catch (Exception e4) {
-                            a.this.mIZ.d(-4, e4);
+                            a.this.mJc.d(-4, e4);
                         }
                         throw th;
                     }
                 case 2:
-                    a.this.mIZ.d(-2, null);
+                    a.this.mJc.d(-2, null);
                     return;
                 default:
                     return;
@@ -100,10 +100,10 @@ public class a {
     }
 
     public static void a(Context context, b bVar, Handler handler) {
-        new a(context.getApplicationContext(), bVar, handler).dzh();
+        new a(context.getApplicationContext(), bVar, handler).dzd();
     }
 
-    private void dzh() {
+    private void dzd() {
         Intent intent = new Intent("com.uodis.opendevice.OPENIDS_SERVICE");
         intent.setPackage("com.huawei.hwid");
         if (this.mContext.bindService(intent, this.mServiceConnection, 1)) {

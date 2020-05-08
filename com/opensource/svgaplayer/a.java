@@ -4,7 +4,7 @@ import kotlin.h;
 @h
 /* loaded from: classes.dex */
 public interface a {
-    void Oj();
+    void Oi();
 
     void b(int i, double d);
 

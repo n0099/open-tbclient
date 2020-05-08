@@ -60,7 +60,7 @@ public class i {
                 while (it3.hasNext()) {
                     com.baidu.adp.lib.stats.base.d next2 = it3.next();
                     if (next2 != null) {
-                        long j = next2.Ms;
+                        long j = next2.Mw;
                         if (j != 0 && j + 604800000 < currentTimeMillis && !arrayList.contains(next2.mFileName)) {
                             arrayList.add(next2.mFileName);
                         }

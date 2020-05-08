@@ -9,9 +9,9 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.an;
 /* loaded from: classes11.dex */
 public class PostSearchActivity extends BaseFragmentActivity {
-    public String gWq;
-    private g kmB;
-    private d kmC;
+    public String gWw;
+    private g kmF;
+    private d kmG;
     public String mForumId;
     public String mForumName;
     private ViewPager.OnPageChangeListener mOnPageChangeListener = new ViewPager.OnPageChangeListener() { // from class: com.baidu.tieba.postsearch.PostSearchActivity.1
@@ -33,58 +33,58 @@ public class PostSearchActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.kmB = new g(this);
-        this.kmB.initView();
-        this.kmB.setOnPageChangeListener(this.mOnPageChangeListener);
-        this.kmC = new d(this);
+        this.kmF = new g(this);
+        this.kmF.initView();
+        this.kmF.setOnPageChangeListener(this.mOnPageChangeListener);
+        this.kmG = new d(this);
         initData();
     }
 
     public void rp(String str) {
-        this.gWq = str;
-        this.kmB.Bn(1);
-        this.kmC.cLU();
-        this.kmB.showLoadingView();
+        this.gWw = str;
+        this.kmF.Bn(1);
+        this.kmG.cLR();
+        this.kmF.showLoadingView();
     }
 
-    public void IU(String str) {
-        this.kmB.IU(str);
+    public void IX(String str) {
+        this.kmF.IX(str);
     }
 
-    public void cLE() {
-        this.kmB.aQ(this.kmC.kna);
+    public void cLB() {
+        this.kmF.aQ(this.kmG.kne);
     }
 
     public void a(int i, b bVar, boolean z) {
-        if (i == 1 && (bVar == null || !bVar.ciH())) {
-            this.kmB.hideLoadingView();
-            this.kmB.cLY();
+        if (i == 1 && (bVar == null || !bVar.ciF())) {
+            this.kmF.hideLoadingView();
+            this.kmF.cLV();
             return;
         }
-        this.kmB.hideLoadingView();
-        this.kmB.cLM();
-        this.kmB.a(i, bVar, z);
+        this.kmF.hideLoadingView();
+        this.kmF.cLJ();
+        this.kmF.a(i, bVar, z);
     }
 
-    public boolean cLF() {
-        return this.kmB.cLF();
+    public boolean cLC() {
+        return this.kmF.cLC();
     }
 
     public void hideSoftKeyPad() {
-        this.kmB.hideSoftKeyPad();
+        this.kmF.hideSoftKeyPad();
     }
 
-    public d cLG() {
-        return this.kmC;
+    public d cLD() {
+        return this.kmG;
     }
 
-    public g cLH() {
-        return this.kmB;
+    public g cLE() {
+        return this.kmF;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     protected void onChangeSkinType(int i) {
-        this.kmB.onChangeSkinType(i);
+        this.kmF.onChangeSkinType(i);
     }
 
     private void initData() {
@@ -93,14 +93,14 @@ public class PostSearchActivity extends BaseFragmentActivity {
             this.mForumName = intent.getStringExtra("forum_name");
             this.mForumId = intent.getStringExtra("forum_id");
         }
-        this.kmC.cLR();
+        this.kmG.cLO();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
-        if (this.kmB != null) {
-            this.kmB.onDestroy();
+        if (this.kmF != null) {
+            this.kmF.onDestroy();
         }
         super.onDestroy();
     }

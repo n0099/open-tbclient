@@ -7,54 +7,54 @@ import android.widget.RelativeLayout;
 import tv.chushou.zues.widget.kpswitch.a.c;
 /* loaded from: classes5.dex */
 public class KPSwitchRootRelativeLayout extends RelativeLayout {
-    public boolean nvF;
-    private c nvG;
+    public boolean nvI;
+    private c nvJ;
 
     public KPSwitchRootRelativeLayout(Context context) {
         super(context);
-        this.nvF = true;
+        this.nvI = true;
         init();
     }
 
     public KPSwitchRootRelativeLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.nvF = true;
+        this.nvI = true;
         init();
     }
 
     public KPSwitchRootRelativeLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.nvF = true;
+        this.nvI = true;
         init();
     }
 
     private void init() {
-        this.nvG = new c(this);
+        this.nvJ = new c(this);
     }
 
     @Override // android.widget.RelativeLayout, android.view.View
     protected void onMeasure(int i, int i2) {
-        if (this.nvF) {
-            this.nvG.V(View.MeasureSpec.getSize(i), View.MeasureSpec.getSize(i2));
+        if (this.nvI) {
+            this.nvJ.V(View.MeasureSpec.getSize(i), View.MeasureSpec.getSize(i2));
         }
         super.onMeasure(i, i2);
     }
 
     public void setIsTranslucentStatus(boolean z) {
-        if (this.nvG != null) {
-            this.nvG.setIsTranslucentStatus(z);
+        if (this.nvJ != null) {
+            this.nvJ.setIsTranslucentStatus(z);
         }
     }
 
-    public void dKt() {
-        if (this.nvG != null) {
-            this.nvG.dKt();
+    public void dKp() {
+        if (this.nvJ != null) {
+            this.nvJ.dKp();
         }
     }
 
-    public void dwZ() {
-        if (this.nvG != null) {
-            this.nvG.dwZ();
+    public void dwW() {
+        if (this.nvJ != null) {
+            this.nvJ.dwW();
         }
     }
 }

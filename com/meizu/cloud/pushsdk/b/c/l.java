@@ -4,7 +4,7 @@ import java.io.Closeable;
 import java.io.InputStream;
 /* loaded from: classes8.dex */
 public abstract class l implements Closeable {
-    public abstract com.meizu.cloud.pushsdk.b.g.c a();
+    public abstract com.meizu.cloud.pushsdk.b.g.d a();
 
     public final InputStream b() {
         return a().d();

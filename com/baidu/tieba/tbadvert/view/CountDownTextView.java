@@ -7,9 +7,9 @@ import android.widget.TextView;
 import java.lang.ref.WeakReference;
 /* loaded from: classes13.dex */
 public class CountDownTextView extends TextView {
-    private int bLZ;
-    private final Runnable eDp;
-    private b kWG;
+    private int bMe;
+    private final Runnable eDu;
+    private b kWK;
     private Handler mHandler;
     private String mText;
 
@@ -20,15 +20,15 @@ public class CountDownTextView extends TextView {
 
     /* loaded from: classes13.dex */
     private static class a implements Runnable {
-        private final WeakReference<CountDownTextView> eCH;
+        private final WeakReference<CountDownTextView> eCM;
 
         private a(CountDownTextView countDownTextView) {
-            this.eCH = new WeakReference<>(countDownTextView);
+            this.eCM = new WeakReference<>(countDownTextView);
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            CountDownTextView countDownTextView = this.eCH.get();
+            CountDownTextView countDownTextView = this.eCM.get();
             if (countDownTextView != null) {
                 countDownTextView.oC(1);
             }
@@ -37,15 +37,15 @@ public class CountDownTextView extends TextView {
 
     public CountDownTextView(Context context) {
         super(context);
-        this.bLZ = 0;
+        this.bMe = 0;
         this.mText = "";
-        this.kWG = null;
+        this.kWK = null;
         this.mHandler = new Handler();
-        this.eDp = new a();
+        this.eDu = new a();
     }
 
     public void setTimeoutListener(b bVar) {
-        this.kWG = bVar;
+        this.kWK = bVar;
     }
 
     @Override // android.widget.TextView, android.view.View
@@ -57,7 +57,7 @@ public class CountDownTextView extends TextView {
     @Override // android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        bhC();
+        bhA();
     }
 
     @Override // android.view.View
@@ -66,35 +66,35 @@ public class CountDownTextView extends TextView {
         if (i == 0) {
             oC(0);
         } else {
-            bhC();
+            bhA();
         }
     }
 
     public void au(String str, int i) {
         this.mText = str;
         if (i > 0) {
-            this.bLZ = i;
+            this.bMe = i;
         }
     }
 
-    private void bhC() {
+    private void bhA() {
         this.mHandler.removeCallbacksAndMessages(null);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void oC(int i) {
-        this.bLZ -= i;
-        if (this.bLZ == 0) {
-            if (this.kWG != null) {
-                this.kWG.br(this);
+        this.bMe -= i;
+        if (this.bMe == 0) {
+            if (this.kWK != null) {
+                this.kWK.br(this);
             }
             this.mHandler.removeCallbacksAndMessages(null);
             return;
         }
-        if (this.bLZ > 0) {
-            setText(String.format("%s %s", this.mText, Integer.valueOf(this.bLZ)));
+        if (this.bMe > 0) {
+            setText(String.format("%s %s", this.mText, Integer.valueOf(this.bMe)));
         }
-        this.mHandler.removeCallbacks(this.eDp);
-        this.mHandler.postDelayed(this.eDp, 1000L);
+        this.mHandler.removeCallbacks(this.eDu);
+        this.mHandler.postDelayed(this.eDu, 1000L);
     }
 }

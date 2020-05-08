@@ -2,7 +2,7 @@ package com.baidu.searchbox.v8engine;
 
 import android.util.Xml;
 import com.baidu.android.imsdk.db.TableDefine;
-import com.coloros.mcssdk.mode.CommandMessage;
+import com.heytap.mcssdk.mode.CommandMessage;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;

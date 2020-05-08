@@ -1,14 +1,14 @@
 package com.baidu.b.a.a;
 /* loaded from: classes13.dex */
 public class a {
-    public float aln;
-    public float alo;
-    public float alp;
-    public float alq;
-    public float alr;
-    public int als;
+    public String alA;
     public float alt;
-    public String alu;
+    public float alu;
+    public float alv;
+    public float alw;
+    public float alx;
+    public int aly;
+    public float alz;
     public int color;
     public int height;
     public String poster;

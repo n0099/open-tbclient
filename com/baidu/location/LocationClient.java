@@ -14,6 +14,7 @@ import android.os.Messenger;
 import android.text.TextUtils;
 import android.util.Log;
 import android.webkit.WebView;
+import com.baidu.android.util.io.ActionJsonData;
 import com.baidu.ar.auth.FeatureCodes;
 import com.baidu.location.a.c;
 import com.baidu.location.a.j;
@@ -174,7 +175,7 @@ public final class LocationClient implements c.a {
                         Bundle data4 = message.getData();
                         int i4 = data4.getInt("id", 0);
                         if (i4 > 0) {
-                            locationClient.a(i4, (Notification) data4.getParcelable("notification"));
+                            locationClient.a(i4, (Notification) data4.getParcelable(ActionJsonData.TAG_NOTIFICATION));
                             return;
                         }
                         return;
@@ -312,7 +313,7 @@ public final class LocationClient implements c.a {
     public void a(int i, Notification notification) {
         try {
             Intent intent = new Intent(this.f, f.class);
-            intent.putExtra("notification", notification);
+            intent.putExtra(ActionJsonData.TAG_NOTIFICATION, notification);
             intent.putExtra("id", i);
             intent.putExtra("command", 1);
             if (Build.VERSION.SDK_INT >= 26) {
@@ -608,7 +609,7 @@ public final class LocationClient implements c.a {
         }
         Bundle bundle = new Bundle();
         bundle.putInt("id", i);
-        bundle.putParcelable("notification", notification);
+        bundle.putParcelable(ActionJsonData.TAG_NOTIFICATION, notification);
         Message obtainMessage = this.h.obtainMessage(703);
         obtainMessage.setData(bundle);
         obtainMessage.sendToTarget();

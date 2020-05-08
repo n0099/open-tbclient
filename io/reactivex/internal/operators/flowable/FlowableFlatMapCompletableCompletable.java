@@ -10,13 +10,13 @@ import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
 public final class FlowableFlatMapCompletableCompletable<T> extends io.reactivex.a {
     final boolean delayErrors;
-    final io.reactivex.g<T> mRJ;
+    final io.reactivex.g<T> mRM;
     final h<? super T, ? extends io.reactivex.e> mapper;
     final int maxConcurrency;
 
     @Override // io.reactivex.a
     protected void b(io.reactivex.c cVar) {
-        this.mRJ.a((j) new FlatMapCompletableMainSubscriber(cVar, this.mapper, this.delayErrors, this.maxConcurrency));
+        this.mRM.a((j) new FlatMapCompletableMainSubscriber(cVar, this.mapper, this.delayErrors, this.maxConcurrency));
     }
 
     /* loaded from: classes7.dex */

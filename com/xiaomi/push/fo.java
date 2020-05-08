@@ -1,50 +1,52 @@
 package com.xiaomi.push;
 
-import com.alibaba.fastjson.asm.Opcodes;
-import java.net.SocketException;
-import java.net.SocketTimeoutException;
-import java.net.UnknownHostException;
+import com.baidu.live.adp.lib.stats.BdStatsConstant;
+import java.io.ByteArrayInputStream;
+import java.io.InputStreamReader;
+import org.xmlpull.v1.XmlPullParser;
+import org.xmlpull.v1.XmlPullParserException;
+import org.xmlpull.v1.XmlPullParserFactory;
 /* loaded from: classes8.dex */
 public class fo {
-    public static int a(Throwable th) {
-        Throwable a = (!(th instanceof fx) || ((fx) th).a() == null) ? th : ((fx) th).a();
-        String message = a.getMessage();
-        if (a.getCause() != null) {
-            message = a.getCause().getMessage();
+    private XmlPullParser a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public fo() {
+        try {
+            this.a = XmlPullParserFactory.newInstance().newPullParser();
+            this.a.setFeature("http://xmlpull.org/v1/doc/features.html#process-namespaces", true);
+        } catch (XmlPullParserException e) {
         }
-        if (a instanceof SocketTimeoutException) {
-            return 105;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public gj a(byte[] bArr, fs fsVar) {
+        this.a.setInput(new InputStreamReader(new ByteArrayInputStream(bArr)));
+        this.a.next();
+        int eventType = this.a.getEventType();
+        String name = this.a.getName();
+        if (eventType == 2) {
+            if (name.equals("message")) {
+                return gr.a(this.a);
+            }
+            if (name.equals("iq")) {
+                return gr.a(this.a, fsVar);
+            }
+            if (name.equals("presence")) {
+                return gr.m319a(this.a);
+            }
+            if (!this.a.getName().equals("stream")) {
+                if (this.a.getName().equals(BdStatsConstant.StatsType.ERROR)) {
+                    throw new gd(gr.m320a(this.a));
+                }
+                if (this.a.getName().equals("warning")) {
+                    this.a.next();
+                    if (this.a.getName().equals("multi-login")) {
+                    }
+                } else if (this.a.getName().equals("bind")) {
+                }
+            }
         }
-        if (!(a instanceof SocketException)) {
-            if (a instanceof UnknownHostException) {
-                return 107;
-            }
-            return th instanceof fx ? 399 : 0;
-        } else if (message.indexOf("Network is unreachable") != -1) {
-            return 102;
-        } else {
-            if (message.indexOf("Connection refused") != -1) {
-                return 103;
-            }
-            if (message.indexOf("Connection timed out") != -1) {
-                return 105;
-            }
-            if (message.endsWith("EACCES (Permission denied)")) {
-                return 101;
-            }
-            if (message.indexOf("Connection reset by peer") != -1) {
-                return 109;
-            }
-            if (message.indexOf("Broken pipe") != -1) {
-                return 110;
-            }
-            if (message.indexOf("No route to host") != -1) {
-                return 104;
-            }
-            if (message.endsWith("EINVAL (Invalid argument)")) {
-                return 106;
-            }
-            return Opcodes.IFNONNULL;
-        }
+        return null;
     }
 }

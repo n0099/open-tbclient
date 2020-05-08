@@ -8,13 +8,13 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 /* loaded from: classes8.dex */
 final class a {
-    private static final a lOp = new a();
+    private static final a lOt = new a();
     private boolean ac;
-    private final Set<InterfaceC0691a> lOq = new LinkedHashSet();
+    private final Set<InterfaceC0712a> lOu = new LinkedHashSet();
 
     /* renamed from: com.baidu.ubs.analytics.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public interface InterfaceC0691a {
+    public interface InterfaceC0712a {
         void T();
 
         void U();
@@ -28,26 +28,26 @@ final class a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static a dla() {
-        return lOp;
+    public static a dkX() {
+        return lOt;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final Set<InterfaceC0691a> dlb() {
-        return this.lOq;
+    public final Set<InterfaceC0712a> dkY() {
+        return this.lOu;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final void a(InterfaceC0691a interfaceC0691a) {
-        synchronized (this.lOq) {
-            this.lOq.add(interfaceC0691a);
+    public final void a(InterfaceC0712a interfaceC0712a) {
+        synchronized (this.lOu) {
+            this.lOu.add(interfaceC0712a);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final void dlc() {
-        synchronized (this.lOq) {
-            this.lOq.clear();
+    public final void dkZ() {
+        synchronized (this.lOu) {
+            this.lOu.clear();
         }
     }
 

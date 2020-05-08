@@ -3,7 +3,7 @@ package com.baidu.live.guardclub;
 import android.content.Context;
 /* loaded from: classes3.dex */
 public interface i {
-    void Ax();
+    void Aw();
 
     String ac(long j);
 

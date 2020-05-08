@@ -17,21 +17,21 @@ import com.baidu.tieba.R;
 import tbclient.HotThread.tinfo;
 /* loaded from: classes10.dex */
 public class b extends com.baidu.tbadk.mvc.f.a<tinfo, com.baidu.tbadk.mvc.d.b> {
-    private TextView dkk;
-    private TextView gug;
-    private TextView guh;
-    private TextView gul;
-    private LinearLayout gum;
+    private TextView dko;
+    private TextView gum;
+    private TextView gun;
+    private TextView gur;
+    private LinearLayout gus;
     private TextView subTextView;
 
     public b(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
-        this.dkk = (TextView) view.findViewById(R.id.chosen_no_picture_title);
-        this.gug = (TextView) view.findViewById(R.id.chosen_no_picture_praise);
-        this.guh = (TextView) view.findViewById(R.id.chosen_no_picture_comment);
-        this.gul = (TextView) view.findViewById(R.id.chosen_no_picture_head);
+        this.dko = (TextView) view.findViewById(R.id.chosen_no_picture_title);
+        this.gum = (TextView) view.findViewById(R.id.chosen_no_picture_praise);
+        this.gun = (TextView) view.findViewById(R.id.chosen_no_picture_comment);
+        this.gur = (TextView) view.findViewById(R.id.chosen_no_picture_head);
         this.subTextView = (TextView) view.findViewById(R.id.chosen_no_picture_sub);
-        this.gum = (LinearLayout) view.findViewById(R.id.chosen_no_picture_comment_line);
+        this.gus = (LinearLayout) view.findViewById(R.id.chosen_no_picture_comment_line);
     }
 
     @Override // com.baidu.tieba.tbadkCore.r
@@ -45,21 +45,21 @@ public class b extends com.baidu.tbadk.mvc.f.a<tinfo, com.baidu.tbadk.mvc.d.b> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.mvc.f.e
     /* renamed from: a */
-    public void ai(final tinfo tinfoVar) {
-        super.ai(tinfoVar);
+    public void aj(final tinfo tinfoVar) {
+        super.aj(tinfoVar);
         if (StringUtils.isNull(tinfoVar.title)) {
-            this.gul.setVisibility(8);
+            this.gur.setVisibility(8);
         } else {
-            this.gul.setVisibility(0);
-            this.gul.setText(tinfoVar.title);
+            this.gur.setVisibility(0);
+            this.gur.setText(tinfoVar.title);
         }
         if (StringUtils.isNull(tinfoVar.forum_name)) {
-            this.gum.setVisibility(8);
+            this.gus.setVisibility(8);
         } else {
-            this.gum.setVisibility(0);
-            this.dkk.setVisibility(0);
-            this.dkk.setText(UtilHelper.getFixedText(getContext().getString(R.string.chosen_pb_original_bar, tinfoVar.forum_name), 7, false));
-            this.dkk.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.chosen.posts.a.b.1
+            this.gus.setVisibility(0);
+            this.dko.setVisibility(0);
+            this.dko.setText(UtilHelper.getFixedText(getContext().getString(R.string.chosen_pb_original_bar, tinfoVar.forum_name), 7, false));
+            this.dko.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.chosen.posts.a.b.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     String str = tinfoVar.forum_name;
@@ -70,16 +70,16 @@ public class b extends com.baidu.tbadk.mvc.f.a<tinfo, com.baidu.tbadk.mvc.d.b> {
                 }
             });
             if (tinfoVar.zan_num == null) {
-                this.gug.setVisibility(8);
+                this.gum.setVisibility(8);
             } else {
-                this.gug.setVisibility(0);
-                this.gug.setText(tinfoVar.zan_num + "");
+                this.gum.setVisibility(0);
+                this.gum.setText(tinfoVar.zan_num + "");
             }
             if (tinfoVar.reply_num == null) {
-                this.guh.setVisibility(8);
+                this.gun.setVisibility(8);
             } else {
-                this.guh.setVisibility(0);
-                this.guh.setText(tinfoVar.reply_num + "");
+                this.gun.setVisibility(0);
+                this.gun.setText(tinfoVar.reply_num + "");
             }
         }
         if (StringUtils.isNull(tinfoVar._abstract)) {

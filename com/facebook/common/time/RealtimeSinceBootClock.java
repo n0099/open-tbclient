@@ -5,14 +5,14 @@ import com.facebook.common.internal.d;
 @d
 /* loaded from: classes13.dex */
 public class RealtimeSinceBootClock implements b {
-    private static final RealtimeSinceBootClock lSk = new RealtimeSinceBootClock();
+    private static final RealtimeSinceBootClock lSo = new RealtimeSinceBootClock();
 
     private RealtimeSinceBootClock() {
     }
 
     @d
     public static RealtimeSinceBootClock get() {
-        return lSk;
+        return lSo;
     }
 
     @Override // com.facebook.common.time.b

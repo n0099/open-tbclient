@@ -18,16 +18,16 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes12.dex */
 public class d implements k {
-    k.a eGw;
-    private CustomMessageListener eGx = new CustomMessageListener(2921366) { // from class: com.baidu.tieba.aiapps.apps.share.d.1
+    k.a eGB;
+    private CustomMessageListener eGC = new CustomMessageListener(2921366) { // from class: com.baidu.tieba.aiapps.apps.share.d.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (d.this.eGw != null && (customResponsedMessage.getData() instanceof Boolean)) {
+            if (d.this.eGB != null && (customResponsedMessage.getData() instanceof Boolean)) {
                 if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                    d.this.eGw.adb();
+                    d.this.eGB.ada();
                 } else {
-                    d.this.eGw.adc();
+                    d.this.eGB.adb();
                 }
             }
         }
@@ -35,13 +35,13 @@ public class d implements k {
 
     public d() {
         TbadkCoreApplication.getInst().setSkinType(0);
-        MessageManager.getInstance().registerListener(this.eGx);
+        MessageManager.getInstance().registerListener(this.eGC);
     }
 
     @Override // com.baidu.swan.apps.w.b.k
     public void a(Context context, JSONObject jSONObject, final k.a aVar) {
         if (context instanceof Activity) {
-            this.eGw = aVar;
+            this.eGB = aVar;
             Bundle bundle = new Bundle();
             try {
                 String optString = jSONObject.optString("shareUrl");
@@ -66,9 +66,9 @@ public class d implements k {
                 public void onDelegateCallBack(@NonNull DelegateResult delegateResult) {
                     if (delegateResult.isOk()) {
                         if (delegateResult.mResult.getBoolean("share_result")) {
-                            aVar.adb();
+                            aVar.ada();
                         } else {
-                            aVar.adc();
+                            aVar.adb();
                         }
                     }
                 }

@@ -13,7 +13,7 @@ public class H5Activity extends BaseActivity {
     public static int d = 0;
     public String b;
     private String f;
-    private a mEf;
+    private a mEk;
     public boolean a = true;
     public boolean c = false;
 
@@ -27,9 +27,9 @@ public class H5Activity extends BaseActivity {
         h5Options.c = this.c;
         h5Options.b = this.a;
         h5Options.a = this.b;
-        this.mEf = a.a(h5Options);
+        this.mEk = a.a(h5Options);
         FragmentTransaction beginTransaction = getSupportFragmentManager().beginTransaction();
-        beginTransaction.add(a.f.fl_fragment, this.mEf);
+        beginTransaction.add(a.f.fl_fragment, this.mEk);
         beginTransaction.commitAllowingStateLoss();
     }
 
@@ -43,9 +43,9 @@ public class H5Activity extends BaseActivity {
         super.onNewIntent(intent);
         e.i(this.v, "onNewIntent");
         a(intent);
-        if (this.mEf != null) {
-            this.mEf.a(this.a);
-            this.mEf.a(this.b);
+        if (this.mEk != null) {
+            this.mEk.a(this.a);
+            this.mEk.a(this.b);
         }
     }
 
@@ -70,8 +70,8 @@ public class H5Activity extends BaseActivity {
 
     @Override // android.support.v7.app.AppCompatActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (i == 4 && this.mEf != null && this.mEf.a()) {
-            this.mEf.a(i, keyEvent);
+        if (i == 4 && this.mEk != null && this.mEk.a()) {
+            this.mEk.a(i, keyEvent);
             return true;
         }
         return super.onKeyDown(i, keyEvent);
@@ -82,8 +82,8 @@ public class H5Activity extends BaseActivity {
     public void onActivityResult(int i, int i2, Intent intent) {
         e.d(this.v, "onActivityResult");
         super.onActivityResult(i, i2, intent);
-        if (this.mEf != null) {
-            this.mEf.onActivityResult(i, i2, intent);
+        if (this.mEk != null) {
+            this.mEk.onActivityResult(i, i2, intent);
         }
     }
 
@@ -93,6 +93,6 @@ public class H5Activity extends BaseActivity {
         if (this.b != null && this.b.contains("bizCode")) {
             d--;
         }
-        this.mEf = null;
+        this.mEk = null;
     }
 }

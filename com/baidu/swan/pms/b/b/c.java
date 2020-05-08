@@ -11,7 +11,7 @@ import java.io.OutputStream;
 /* loaded from: classes11.dex */
 class c {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static File abI() {
+    public static File abH() {
         File file = new File(AppRuntime.getAppContext().getFilesDir(), "swan_mini_zip");
         if (!file.exists()) {
             file.mkdirs();

@@ -12,41 +12,41 @@ import com.baidu.tbadk.widget.ContinuousAnimationView;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class PullRefreshFrameLayout extends FrameLayout {
-    private static final int dGA = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds62);
-    private static final int dGB = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds210);
-    private static final int dGC = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds250);
-    public static final int dGD = dGB + dGA;
-    public static final int dGE = dGC + dGA;
-    private static final int dGF = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds135);
-    private static final int dGG = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds230);
-    private static final float dGH = (float) ((dGF * 1.0d) / dGB);
-    private static final float dGI = (float) ((dGG * 1.0d) / dGC);
-    private int cYy;
-    private int cYz;
-    private double ceX;
-    boolean dGJ;
-    boolean dGK;
-    boolean dGL;
-    private int dGM;
-    private boolean dGN;
-    private int dGO;
-    private int dGP;
-    private float dGQ;
-    private ContinuousAnimationView dGR;
-    private FrameLayout.LayoutParams dGS;
-    private b dGT;
-    private a dGU;
-    private ValueAnimator dGV;
+    private static final int dGE = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds62);
+    private static final int dGF = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds210);
+    private static final int dGG = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds250);
+    public static final int dGH = dGF + dGE;
+    public static final int dGI = dGG + dGE;
+    private static final int dGJ = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds135);
+    private static final int dGK = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds230);
+    private static final float dGL = (float) ((dGJ * 1.0d) / dGF);
+    private static final float dGM = (float) ((dGK * 1.0d) / dGG);
+    private int cYD;
+    private int cYE;
+    private double cfd;
+    boolean dGN;
+    boolean dGO;
+    boolean dGP;
+    private int dGQ;
+    private boolean dGR;
+    private int dGS;
+    private int dGT;
+    private float dGU;
+    private ContinuousAnimationView dGV;
+    private FrameLayout.LayoutParams dGW;
+    private b dGX;
+    private a dGY;
+    private ValueAnimator dGZ;
     private boolean isLoading;
 
     /* loaded from: classes.dex */
     public interface a {
-        void aQn();
+        void aQk();
     }
 
     /* loaded from: classes.dex */
     public interface b {
-        void aQo();
+        void aQl();
 
         void c(int i, double d);
 
@@ -55,100 +55,100 @@ public class PullRefreshFrameLayout extends FrameLayout {
 
     public PullRefreshFrameLayout(Context context) {
         super(context);
-        this.dGJ = false;
-        this.dGK = false;
-        this.dGL = false;
+        this.dGN = false;
+        this.dGO = false;
+        this.dGP = false;
         this.isLoading = false;
-        this.dGN = true;
-        this.dGO = dGD;
-        this.dGP = dGF;
-        this.dGQ = dGH;
+        this.dGR = true;
+        this.dGS = dGH;
+        this.dGT = dGJ;
+        this.dGU = dGL;
         init();
     }
 
     public PullRefreshFrameLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.dGJ = false;
-        this.dGK = false;
-        this.dGL = false;
+        this.dGN = false;
+        this.dGO = false;
+        this.dGP = false;
         this.isLoading = false;
-        this.dGN = true;
-        this.dGO = dGD;
-        this.dGP = dGF;
-        this.dGQ = dGH;
+        this.dGR = true;
+        this.dGS = dGH;
+        this.dGT = dGJ;
+        this.dGU = dGL;
         init();
     }
 
     public PullRefreshFrameLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.dGJ = false;
-        this.dGK = false;
-        this.dGL = false;
+        this.dGN = false;
+        this.dGO = false;
+        this.dGP = false;
         this.isLoading = false;
-        this.dGN = true;
-        this.dGO = dGD;
-        this.dGP = dGF;
-        this.dGQ = dGH;
+        this.dGR = true;
+        this.dGS = dGH;
+        this.dGT = dGJ;
+        this.dGU = dGL;
         init();
     }
 
     private void init() {
-        this.dGR = new ContinuousAnimationView(getContext());
-        this.dGS = new FrameLayout.LayoutParams(dGA, dGA);
-        this.dGS.gravity = 49;
-        this.dGS.topMargin = -dGA;
-        this.dGR.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        addView(this.dGR, this.dGS);
-        this.dGR.bringToFront();
-        this.dGR.setAnimation(R.raw.ad_refresh_load);
+        this.dGV = new ContinuousAnimationView(getContext());
+        this.dGW = new FrameLayout.LayoutParams(dGE, dGE);
+        this.dGW.gravity = 49;
+        this.dGW.topMargin = -dGE;
+        this.dGV.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        addView(this.dGV, this.dGW);
+        this.dGV.bringToFront();
+        this.dGV.setAnimation(R.raw.ad_refresh_load);
     }
 
     public void setInterceptScrollDown(boolean z) {
-        this.dGL = z;
+        this.dGP = z;
     }
 
     public void setFromFrs() {
-        this.dGO = dGE;
-        this.dGP = dGG;
-        this.dGQ = dGI;
+        this.dGS = dGI;
+        this.dGT = dGK;
+        this.dGU = dGM;
     }
 
     @Override // android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
         boolean z = false;
-        if (!this.isLoading && this.dGN) {
+        if (!this.isLoading && this.dGR) {
             int x = (int) motionEvent.getX();
             int y = (int) motionEvent.getY();
             switch (motionEvent.getAction()) {
                 case 0:
-                    this.dGJ = false;
-                    this.dGK = false;
-                    this.cYz = y;
-                    this.cYy = x;
+                    this.dGN = false;
+                    this.dGO = false;
+                    this.cYE = y;
+                    this.cYD = x;
                     break;
                 case 1:
                 case 3:
                     reset();
                     break;
                 case 2:
-                    int i = y - this.cYz;
-                    int i2 = x - this.cYy;
-                    if (!this.dGJ) {
-                        if (!this.dGK) {
-                            if (this.dGL) {
+                    int i = y - this.cYE;
+                    int i2 = x - this.cYD;
+                    if (!this.dGN) {
+                        if (!this.dGO) {
+                            if (this.dGP) {
                                 if (i > 0 && Math.abs(i) > Math.abs(i2)) {
-                                    this.dGK = false;
-                                    this.dGJ = true;
+                                    this.dGO = false;
+                                    this.dGN = true;
                                     z = true;
                                     break;
                                 } else if (i < 0) {
-                                    this.dGK = true;
-                                    this.dGJ = false;
+                                    this.dGO = true;
+                                    this.dGN = false;
                                     break;
                                 }
                             } else {
-                                this.dGK = true;
-                                this.dGJ = false;
+                                this.dGO = true;
+                                this.dGN = false;
                                 break;
                             }
                         }
@@ -158,8 +158,8 @@ public class PullRefreshFrameLayout extends FrameLayout {
                     }
                     break;
             }
-            this.cYz = y;
-            this.cYy = x;
+            this.cYE = y;
+            this.cYD = x;
         }
         return z;
     }
@@ -177,19 +177,19 @@ public class PullRefreshFrameLayout extends FrameLayout {
         int y = (int) motionEvent.getY();
         switch (motionEvent.getAction()) {
             case 0:
-                this.cYz = y;
-                this.cYy = x;
+                this.cYE = y;
+                this.cYD = x;
                 return true;
             case 1:
             case 3:
-                aQk();
+                aQh();
                 reset();
                 return true;
             case 2:
-                int i = x - this.cYy;
-                lw(y - this.cYz);
-                this.cYz = y;
-                this.cYy = x;
+                int i = x - this.cYD;
+                lw(y - this.cYE);
+                this.cYE = y;
+                this.cYD = x;
                 return true;
             default:
                 return true;
@@ -197,49 +197,49 @@ public class PullRefreshFrameLayout extends FrameLayout {
     }
 
     private void lw(int i) {
-        int i2 = this.dGS.topMargin + i;
-        if (i2 > this.dGO - dGA) {
-            i2 = this.dGO - dGA;
-        } else if (i2 < (-dGA)) {
-            i2 = -dGA;
+        int i2 = this.dGW.topMargin + i;
+        if (i2 > this.dGS - dGE) {
+            i2 = this.dGS - dGE;
+        } else if (i2 < (-dGE)) {
+            i2 = -dGE;
         }
-        this.dGS.topMargin = i2;
-        this.dGR.setLayoutParams(this.dGS);
-        this.dGM += i;
-        if (this.dGM > this.dGO) {
-            this.dGM = this.dGO;
-        } else if (this.dGM < 0) {
-            this.dGM = 0;
+        this.dGW.topMargin = i2;
+        this.dGV.setLayoutParams(this.dGW);
+        this.dGQ += i;
+        if (this.dGQ > this.dGS) {
+            this.dGQ = this.dGS;
+        } else if (this.dGQ < 0) {
+            this.dGQ = 0;
         }
-        this.ceX = (this.dGM * 1.0d) / this.dGO;
-        if (this.dGT != null) {
-            this.dGT.m(this.ceX);
+        this.cfd = (this.dGQ * 1.0d) / this.dGS;
+        if (this.dGX != null) {
+            this.dGX.m(this.cfd);
         }
     }
 
-    private void aQk() {
-        if (this.ceX >= this.dGQ) {
+    private void aQh() {
+        if (this.cfd >= this.dGU) {
             this.isLoading = true;
-            this.dGV = ValueAnimator.ofFloat(this.dGS.topMargin, this.dGP);
-            this.dGV.setDuration(150L);
-            this.dGV.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tbadk.core.view.PullRefreshFrameLayout.1
+            this.dGZ = ValueAnimator.ofFloat(this.dGW.topMargin, this.dGT);
+            this.dGZ.setDuration(150L);
+            this.dGZ.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tbadk.core.view.PullRefreshFrameLayout.1
                 @Override // android.animation.ValueAnimator.AnimatorUpdateListener
                 public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                    PullRefreshFrameLayout.this.dGS.topMargin = (int) ((Float) valueAnimator.getAnimatedValue()).floatValue();
-                    PullRefreshFrameLayout.this.dGR.setLayoutParams(PullRefreshFrameLayout.this.dGS);
+                    PullRefreshFrameLayout.this.dGW.topMargin = (int) ((Float) valueAnimator.getAnimatedValue()).floatValue();
+                    PullRefreshFrameLayout.this.dGV.setLayoutParams(PullRefreshFrameLayout.this.dGW);
                 }
             });
-            this.dGV.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tbadk.core.view.PullRefreshFrameLayout.2
+            this.dGZ.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tbadk.core.view.PullRefreshFrameLayout.2
                 @Override // android.animation.Animator.AnimatorListener
                 public void onAnimationStart(Animator animator) {
                 }
 
                 @Override // android.animation.Animator.AnimatorListener
                 public void onAnimationEnd(Animator animator) {
-                    if (PullRefreshFrameLayout.this.dGU != null) {
-                        PullRefreshFrameLayout.this.dGU.aQn();
+                    if (PullRefreshFrameLayout.this.dGY != null) {
+                        PullRefreshFrameLayout.this.dGY.aQk();
                     }
-                    PullRefreshFrameLayout.this.dGR.playAnimation();
+                    PullRefreshFrameLayout.this.dGV.playAnimation();
                 }
 
                 @Override // android.animation.Animator.AnimatorListener
@@ -250,55 +250,55 @@ public class PullRefreshFrameLayout extends FrameLayout {
                 public void onAnimationRepeat(Animator animator) {
                 }
             });
-            this.dGV.start();
-            this.dGT.c(this.dGS.topMargin - this.dGP, (this.dGP * 1.0d) / this.dGS.topMargin);
+            this.dGZ.start();
+            this.dGX.c(this.dGW.topMargin - this.dGT, (this.dGT * 1.0d) / this.dGW.topMargin);
             return;
         }
-        aQl();
+        aQi();
     }
 
-    public void aQl() {
-        asi();
-        if (this.dGT != null) {
-            this.dGT.aQo();
+    public void aQi() {
+        ash();
+        if (this.dGX != null) {
+            this.dGX.aQl();
         }
     }
 
-    public void aqh() {
+    public void aqg() {
         if (this.isLoading) {
-            asi();
+            ash();
         }
     }
 
-    private void asi() {
+    private void ash() {
         this.isLoading = false;
-        if (this.dGS.topMargin > (-dGA)) {
-            this.dGV = ValueAnimator.ofFloat(1.0f, 0.0f);
-            this.dGV.setDuration(300L);
-            final int i = this.dGS.topMargin;
-            this.dGV.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tbadk.core.view.PullRefreshFrameLayout.3
+        if (this.dGW.topMargin > (-dGE)) {
+            this.dGZ = ValueAnimator.ofFloat(1.0f, 0.0f);
+            this.dGZ.setDuration(300L);
+            final int i = this.dGW.topMargin;
+            this.dGZ.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tbadk.core.view.PullRefreshFrameLayout.3
                 @Override // android.animation.ValueAnimator.AnimatorUpdateListener
                 public void onAnimationUpdate(ValueAnimator valueAnimator) {
                     float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
                     if (((float) (floatValue * 0.3d)) <= 0.0f) {
                     }
-                    PullRefreshFrameLayout.this.dGR.setAlpha(floatValue);
-                    PullRefreshFrameLayout.this.dGS.topMargin = (int) (floatValue * i);
-                    PullRefreshFrameLayout.this.dGR.setLayoutParams(PullRefreshFrameLayout.this.dGS);
+                    PullRefreshFrameLayout.this.dGV.setAlpha(floatValue);
+                    PullRefreshFrameLayout.this.dGW.topMargin = (int) (floatValue * i);
+                    PullRefreshFrameLayout.this.dGV.setLayoutParams(PullRefreshFrameLayout.this.dGW);
                 }
             });
-            this.dGV.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tbadk.core.view.PullRefreshFrameLayout.4
+            this.dGZ.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tbadk.core.view.PullRefreshFrameLayout.4
                 @Override // android.animation.Animator.AnimatorListener
                 public void onAnimationStart(Animator animator) {
                 }
 
                 @Override // android.animation.Animator.AnimatorListener
                 public void onAnimationEnd(Animator animator) {
-                    PullRefreshFrameLayout.this.dGS.topMargin = -PullRefreshFrameLayout.dGA;
-                    PullRefreshFrameLayout.this.dGR.setLayoutParams(PullRefreshFrameLayout.this.dGS);
-                    PullRefreshFrameLayout.this.dGR.cancelAnimation();
-                    PullRefreshFrameLayout.this.dGR.setFrame(0);
-                    PullRefreshFrameLayout.this.dGR.setAlpha(1.0f);
+                    PullRefreshFrameLayout.this.dGW.topMargin = -PullRefreshFrameLayout.dGE;
+                    PullRefreshFrameLayout.this.dGV.setLayoutParams(PullRefreshFrameLayout.this.dGW);
+                    PullRefreshFrameLayout.this.dGV.cancelAnimation();
+                    PullRefreshFrameLayout.this.dGV.setFrame(0);
+                    PullRefreshFrameLayout.this.dGV.setAlpha(1.0f);
                 }
 
                 @Override // android.animation.Animator.AnimatorListener
@@ -309,60 +309,60 @@ public class PullRefreshFrameLayout extends FrameLayout {
                 public void onAnimationRepeat(Animator animator) {
                 }
             });
-            this.dGV.start();
+            this.dGZ.start();
         }
     }
 
     private void reset() {
-        this.ceX = 0.0d;
-        this.cYz = 0;
-        this.cYy = 0;
-        this.dGM = 0;
-        this.dGJ = false;
-        this.dGK = false;
+        this.cfd = 0.0d;
+        this.cYE = 0;
+        this.cYD = 0;
+        this.dGQ = 0;
+        this.dGN = false;
+        this.dGO = false;
     }
 
     public void setOnTouchCallback(b bVar) {
-        this.dGT = bVar;
+        this.dGX = bVar;
     }
 
     public void setOnPullRefreshListener(a aVar) {
-        this.dGU = aVar;
+        this.dGY = aVar;
     }
 
     public void onDestroy() {
-        if (this.dGR != null) {
-            this.dGR.clearAnimation();
-        }
         if (this.dGV != null) {
-            this.dGV.cancel();
-            this.dGV.removeAllListeners();
-            this.dGV.removeAllUpdateListeners();
-            this.dGV = null;
+            this.dGV.clearAnimation();
         }
-        this.dGT = null;
-        this.dGU = null;
+        if (this.dGZ != null) {
+            this.dGZ.cancel();
+            this.dGZ.removeAllListeners();
+            this.dGZ.removeAllUpdateListeners();
+            this.dGZ = null;
+        }
+        this.dGX = null;
+        this.dGY = null;
     }
 
-    public void aQm() {
-        this.dGR.bringToFront();
+    public void aQj() {
+        this.dGV.bringToFront();
     }
 
     public void setRefreshing(boolean z) {
-        if (z && this.dGN) {
-            this.dGS.topMargin = this.dGP;
-            this.dGR.setLayoutParams(this.dGS);
-            this.dGR.playAnimation();
+        if (z && this.dGR) {
+            this.dGW.topMargin = this.dGT;
+            this.dGV.setLayoutParams(this.dGW);
+            this.dGV.playAnimation();
             return;
         }
-        asi();
+        ash();
     }
 
     public void setEnable(boolean z) {
-        this.dGN = z;
+        this.dGR = z;
     }
 
     public boolean isEnable() {
-        return this.dGN;
+        return this.dGR;
     }
 }

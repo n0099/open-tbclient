@@ -10,7 +10,6 @@ import android.os.SystemClock;
 import android.text.TextUtils;
 import android.util.Base64;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
-import com.baidu.android.pushservice.PushConstants;
 import com.baidu.live.tbadk.core.util.StringHelper;
 import com.tencent.connect.auth.QQToken;
 import com.tencent.connect.common.BaseApi;
@@ -225,7 +224,7 @@ public class QzonePublish extends BaseApi {
                 com.tencent.connect.a.a.a(e.a(), this.b, "requireApi", "shareToNativeQQ");
                 intent = new Intent("android.intent.action.VIEW");
                 intent.setData(Uri.parse(stringBuffer.toString()));
-                intent.putExtra(PushConstants.PACKAGE_NAME, activity.getPackageName());
+                intent.putExtra("pkg_name", activity.getPackageName());
                 if (!a(intent)) {
                     a(activity, Constants.REQUEST_QZONE_SHARE, intent, false);
                     d.a().a(0, "SHARE_CHECK_SDK", "1000", this.b.getAppId(), String.valueOf(4), Long.valueOf(SystemClock.elapsedRealtime()), 0, 1, "hasActivityForIntent success");
@@ -275,7 +274,7 @@ public class QzonePublish extends BaseApi {
         com.tencent.connect.a.a.a(e.a(), this.b, "requireApi", "shareToNativeQQ");
         intent = new Intent("android.intent.action.VIEW");
         intent.setData(Uri.parse(stringBuffer.toString()));
-        intent.putExtra(PushConstants.PACKAGE_NAME, activity.getPackageName());
+        intent.putExtra("pkg_name", activity.getPackageName());
         if (!a(intent)) {
         }
         f.c("openSDK_LOG", "doPublishToQzone() --end");

@@ -10,7 +10,7 @@ import com.baidu.ar.child.b.b;
 public class a implements com.baidu.a {
     private CropAlgo kt;
     private Handler kv;
-    private InterfaceC0057a kw;
+    private InterfaceC0078a kw;
     private boolean ky;
     private com.baidu.ar.child.b.b kz;
     private boolean kx = true;
@@ -18,7 +18,7 @@ public class a implements com.baidu.a {
 
     /* renamed from: com.baidu.ar.child.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC0057a {
+    public interface InterfaceC0078a {
         void k(long j);
     }
 
@@ -89,8 +89,8 @@ public class a implements com.baidu.a {
         return this.kt.nativeWriteCameraDataToHandel(j, bArr, i, i2, i3, f);
     }
 
-    public void a(InterfaceC0057a interfaceC0057a) {
-        this.kw = interfaceC0057a;
+    public void a(InterfaceC0078a interfaceC0078a) {
+        this.kw = interfaceC0078a;
     }
 
     public void a(com.baidu.ar.child.b bVar) {

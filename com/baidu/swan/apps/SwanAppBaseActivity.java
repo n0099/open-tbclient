@@ -10,13 +10,13 @@ import com.baidu.swan.support.v4.app.FragmentActivity;
 /* loaded from: classes11.dex */
 public class SwanAppBaseActivity extends FragmentActivity {
     private static final boolean DEBUG = b.DEBUG;
-    private com.baidu.swan.apps.am.b bzu = null;
+    private com.baidu.swan.apps.am.b bzz = null;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.app.Activity
     public void onPostCreate(Bundle bundle) {
         super.onPostCreate(bundle);
-        i(com.baidu.swan.apps.w.a.ack().getNightModeSwitcherState(), false);
+        i(com.baidu.swan.apps.w.a.acj().getNightModeSwitcherState(), false);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -36,21 +36,21 @@ public class SwanAppBaseActivity extends FragmentActivity {
             }
             return;
         }
-        if (this.bzu == null) {
-            this.bzu = new com.baidu.swan.apps.am.b();
+        if (this.bzz == null) {
+            this.bzz = new com.baidu.swan.apps.am.b();
         }
         ViewGroup viewGroup = (ViewGroup) window.getDecorView();
         if (z) {
-            this.bzu.r(viewGroup);
+            this.bzz.r(viewGroup);
         } else {
-            this.bzu.s(viewGroup);
+            this.bzz.s(viewGroup);
         }
         if (z2) {
-            com.baidu.swan.apps.process.messaging.a.aiT().a(new com.baidu.swan.apps.process.messaging.c(5).ep(true));
+            com.baidu.swan.apps.process.messaging.a.aiS().a(new com.baidu.swan.apps.process.messaging.c(5).ep(true));
         }
     }
 
-    public com.baidu.swan.apps.am.b OI() {
-        return this.bzu;
+    public com.baidu.swan.apps.am.b OH() {
+        return this.bzz;
     }
 }

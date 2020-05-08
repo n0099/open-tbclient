@@ -1,6 +1,5 @@
 package com.qiniu.android.http;
 
-import com.baidu.live.adp.framework.MessageConfig;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.qiniu.android.http.CancellationHandler;
 import com.qiniu.android.storage.UpToken;
@@ -30,7 +29,7 @@ import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public final class Client {
     private OkHttpClient httpClient;
-    private final UrlConverter mLI;
+    private final UrlConverter mLL;
 
     public Client() {
         this(null, 10, 30, null, null);
@@ -38,12 +37,12 @@ public final class Client {
 
     public Client(ProxyConfiguration proxyConfiguration, int i, int i2, UrlConverter urlConverter, final Dns dns) {
         OkHttpClient.Builder newBuilder;
-        this.mLI = urlConverter;
-        OkHttpClient dAH = UploadManager.dAH();
-        if (dAH == null) {
+        this.mLL = urlConverter;
+        OkHttpClient dAD = UploadManager.dAD();
+        if (dAD == null) {
             newBuilder = new OkHttpClient.Builder();
         } else {
-            newBuilder = dAH.newBuilder();
+            newBuilder = dAD.newBuilder();
             newBuilder.interceptors().clear();
             newBuilder.networkInterceptors().clear();
         }
@@ -111,7 +110,7 @@ public final class Client {
 
     private static JSONObject aj(byte[] bArr) throws Exception {
         String str = new String(bArr, "utf-8");
-        return StringUtils.Pe(str) ? new JSONObject() : new JSONObject(str);
+        return StringUtils.Ph(str) ? new JSONObject() : new JSONObject(str);
     }
 
     private static ResponseInfo a(Response response, String str, long j, UpToken upToken, long j2) {
@@ -179,7 +178,7 @@ public final class Client {
         AsyncRun.G(new Runnable() { // from class: com.qiniu.android.http.Client.3
             @Override // java.lang.Runnable
             public void run() {
-                CompletionHandler.this.a(a, a.mMf);
+                CompletionHandler.this.a(a, a.mMi);
             }
         });
     }
@@ -194,9 +193,9 @@ public final class Client {
             });
         }
         if (upToken != null) {
-            builder.header("User-Agent", UserAgent.dAz().Pa(upToken.mLx));
+            builder.header("User-Agent", UserAgent.dAv().Pd(upToken.mLA));
         } else {
-            builder.header("User-Agent", UserAgent.dAz().Pa("pandora"));
+            builder.header("User-Agent", UserAgent.dAv().Pd("pandora"));
         }
         final ResponseTag responseTag = new ResponseTag();
         this.httpClient.newCall(builder.tag(responseTag).build()).enqueue(new Callback() { // from class: com.qiniu.android.http.Client.5
@@ -212,7 +211,7 @@ public final class Client {
                 } else if (message != null && message.indexOf("Broken pipe") == 0) {
                     i = -1005;
                 } else if (iOException instanceof SocketTimeoutException) {
-                    i = MessageConfig.ERROR_TASK_OUTTIME;
+                    i = -1001;
                 } else if (iOException instanceof ConnectException) {
                     i = -1004;
                 }
@@ -231,8 +230,8 @@ public final class Client {
     public void a(String str, byte[] bArr, int i, int i2, StringMap stringMap, UpToken upToken, long j, ProgressHandler progressHandler, CompletionHandler completionHandler, CancellationHandler cancellationHandler) {
         CountingRequestBody create;
         Object obj;
-        if (this.mLI != null) {
-            str = this.mLI.Gv(str);
+        if (this.mLL != null) {
+            str = this.mLL.Gy(str);
         }
         if (bArr != null && bArr.length > 0) {
             MediaType parse = MediaType.parse("application/octet-stream");
@@ -259,12 +258,12 @@ public final class Client {
             create = RequestBody.create(MediaType.parse(postArgs.mimeType), postArgs.data);
             length = postArgs.data.length;
         }
-        a(str, postArgs.mLX, upToken, length, progressHandler, postArgs.fileName, create, completionHandler, cancellationHandler);
+        a(str, postArgs.mMa, upToken, length, progressHandler, postArgs.fileName, create, completionHandler, cancellationHandler);
     }
 
     private void a(String str, StringMap stringMap, UpToken upToken, long j, ProgressHandler progressHandler, String str2, RequestBody requestBody, CompletionHandler completionHandler, CancellationHandler cancellationHandler) {
-        if (this.mLI != null) {
-            str = this.mLI.Gv(str);
+        if (this.mLL != null) {
+            str = this.mLL.Gy(str);
         }
         final MultipartBody.Builder builder = new MultipartBody.Builder();
         builder.addFormDataPart("file", str2, requestBody);
@@ -289,33 +288,33 @@ public final class Client {
     /* renamed from: com.qiniu.android.http.Client$7  reason: invalid class name */
     /* loaded from: classes5.dex */
     class AnonymousClass7 implements StringMap.Consumer {
-        final /* synthetic */ Request.Builder mLN;
+        final /* synthetic */ Request.Builder mLQ;
 
         @Override // com.qiniu.android.utils.StringMap.Consumer
         public void K(String str, Object obj) {
-            this.mLN.header(str, obj.toString());
+            this.mLQ.header(str, obj.toString());
         }
     }
 
     /* renamed from: com.qiniu.android.http.Client$8  reason: invalid class name */
     /* loaded from: classes5.dex */
     class AnonymousClass8 implements StringMap.Consumer {
-        final /* synthetic */ MultipartBody.Builder mLQ;
+        final /* synthetic */ MultipartBody.Builder mLT;
 
         @Override // com.qiniu.android.utils.StringMap.Consumer
         public void K(String str, Object obj) {
-            this.mLQ.addFormDataPart(str, obj.toString());
+            this.mLT.addFormDataPart(str, obj.toString());
         }
     }
 
     /* renamed from: com.qiniu.android.http.Client$9  reason: invalid class name */
     /* loaded from: classes5.dex */
     class AnonymousClass9 implements StringMap.Consumer {
-        final /* synthetic */ Request.Builder mLN;
+        final /* synthetic */ Request.Builder mLQ;
 
         @Override // com.qiniu.android.utils.StringMap.Consumer
         public void K(String str, Object obj) {
-            this.mLN.header(str, obj.toString());
+            this.mLQ.header(str, obj.toString());
         }
     }
 

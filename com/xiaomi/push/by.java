@@ -1,74 +1,32 @@
 package com.xiaomi.push;
 
+import android.content.ContentValues;
 import android.content.Context;
-import android.database.sqlite.SQLiteDatabase;
-import com.xiaomi.push.bw;
+import com.xiaomi.push.cb;
 /* loaded from: classes8.dex */
-class by implements Runnable {
-    final /* synthetic */ Context a;
+public class by extends cb.e {
+    private String a;
 
-    /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ bw.a f174a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public by(bw.a aVar, Context context) {
-        this.f174a = aVar;
-        this.a = context;
+    public by(String str, ContentValues contentValues, String str2) {
+        super(str, contentValues);
+        this.a = "MessageInsertJob";
+        this.a = str2;
     }
 
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, IGET, IGET, INVOKE, IGET, IGET, INVOKE, INVOKE, MOVE_EXCEPTION, IGET, IGET, INVOKE, IGET, IGET, INVOKE, IF, IGET, IGET, IGET, IGET, INVOKE, IGET, IGET, INVOKE, INVOKE, MOVE_EXCEPTION, IGET, IGET, INVOKE, IGET, IGET, INVOKE, IF, IGET, IGET, INVOKE, IGET, IGET, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
-    @Override // java.lang.Runnable
-    public void run() {
-        SQLiteDatabase sQLiteDatabase = null;
-        try {
-            try {
-                sQLiteDatabase = this.f174a.a();
-                if (sQLiteDatabase != null && sQLiteDatabase.isOpen()) {
-                    sQLiteDatabase.beginTransaction();
-                    this.f174a.a(this.a, sQLiteDatabase);
-                    sQLiteDatabase.setTransactionSuccessful();
-                }
-                if (sQLiteDatabase != null) {
-                    try {
-                        sQLiteDatabase.endTransaction();
-                    } catch (Exception e) {
-                        com.xiaomi.channel.commonutils.logger.b.a(e);
-                    }
-                }
-                if (this.f174a.f165a != null) {
-                    this.f174a.f165a.close();
-                }
-                this.f174a.a(this.a);
-            } catch (Exception e2) {
-                com.xiaomi.channel.commonutils.logger.b.a(e2);
-                if (sQLiteDatabase != null) {
-                    try {
-                        sQLiteDatabase.endTransaction();
-                    } catch (Exception e3) {
-                        com.xiaomi.channel.commonutils.logger.b.a(e3);
-                        this.f174a.a(this.a);
-                    }
-                }
-                if (this.f174a.f165a != null) {
-                    this.f174a.f165a.close();
-                }
-                this.f174a.a(this.a);
-            }
-        } catch (Throwable th) {
-            if (sQLiteDatabase != null) {
-                try {
-                    sQLiteDatabase.endTransaction();
-                } catch (Exception e4) {
-                    com.xiaomi.channel.commonutils.logger.b.a(e4);
-                    this.f174a.a(this.a);
-                    throw th;
-                }
-            }
-            if (this.f174a.f165a != null) {
-                this.f174a.f165a.close();
-            }
-            this.f174a.a(this.a);
-            throw th;
+    public static by a(Context context, String str, hq hqVar) {
+        byte[] a = iw.a(hqVar);
+        if (a == null || a.length <= 0) {
+            return null;
         }
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("status", (Integer) 0);
+        contentValues.put("messageId", "");
+        contentValues.put("messageItemId", hqVar.d());
+        contentValues.put("messageItem", a);
+        contentValues.put("appId", bp.a(context).b());
+        contentValues.put("packageName", bp.a(context).m171a());
+        contentValues.put("createTimeStamp", Long.valueOf(System.currentTimeMillis()));
+        contentValues.put("uploadTimestamp", (Integer) 0);
+        return new by(str, contentValues, "a job build to insert message to db");
     }
 }

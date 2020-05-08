@@ -25,16 +25,16 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a implements ak {
-    private BdUniqueId ebv;
-    private int fsx;
-    private av fsy;
-    private ao fsz;
+    private BdUniqueId ebA;
+    private int fsC;
+    private av fsD;
+    private ao fsE;
     ArrayList<m> dataList = new ArrayList<>();
-    private com.baidu.adp.framework.listener.a fsA = new com.baidu.adp.framework.listener.a(AlaCmdConfigHttp.CMD_ALA_LIVE_GET_CLOSED_STATUS, AlaCmdConfigSocket.ALA_SOCKET_GET_LIVE_STATUS2) { // from class: com.baidu.tieba.ala.livecard.models.a.1
+    private com.baidu.adp.framework.listener.a fsF = new com.baidu.adp.framework.listener.a(AlaCmdConfigHttp.CMD_ALA_LIVE_GET_CLOSED_STATUS, AlaCmdConfigSocket.ALA_SOCKET_GET_LIVE_STATUS2) { // from class: com.baidu.tieba.ala.livecard.models.a.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             boolean z;
-            if (responsedMessage != null && responsedMessage.getOrginalMessage().getTag() == a.this.ebv) {
+            if (responsedMessage != null && responsedMessage.getOrginalMessage().getTag() == a.this.ebA) {
                 List<Long> list = null;
                 if (responsedMessage instanceof AlaMGetLiveStatusHttpResponseMessage) {
                     list = ((AlaMGetLiveStatusHttpResponseMessage) responsedMessage).getClosedIds();
@@ -44,14 +44,14 @@ public class a implements ak {
                     boolean z2 = false;
                     int size = a.this.dataList.size() - 1;
                     while (size >= 0) {
-                        if (a.this.dataList.get(size).getType() != bj.dqW) {
+                        if (a.this.dataList.get(size).getType() != bj.dra) {
                             z = z2;
                         } else {
                             bj bjVar = (bj) a.this.dataList.get(size);
                             if (bjVar != null) {
-                                if (bjVar.aKX() == null) {
+                                if (bjVar.aKV() == null) {
                                     z = z2;
-                                } else if (closedIds.contains(Long.valueOf(bjVar.aKX().live_id))) {
+                                } else if (closedIds.contains(Long.valueOf(bjVar.aKV().live_id))) {
                                     a.this.dataList.remove(size);
                                     z = true;
                                 }
@@ -61,38 +61,38 @@ public class a implements ak {
                         size--;
                         z2 = z;
                     }
-                    if (z2 && a.this.fsz != null) {
-                        a.this.fsz.a(49, a.this.fsx, a.this.fsy, a.this.dataList);
+                    if (z2 && a.this.fsE != null) {
+                        a.this.fsE.a(49, a.this.fsC, a.this.fsD, a.this.dataList);
                     }
                 }
             }
         }
     };
-    private HttpMessageListener egm = new HttpMessageListener(AlaCmdConfigHttp.FRS_ALA_LIVE_TAB_CMD) { // from class: com.baidu.tieba.ala.livecard.models.a.2
+    private HttpMessageListener egr = new HttpMessageListener(AlaCmdConfigHttp.FRS_ALA_LIVE_TAB_CMD) { // from class: com.baidu.tieba.ala.livecard.models.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021038) {
                 if (httpResponsedMessage.getStatusCode() != 200 || !(httpResponsedMessage instanceof FrsPageAlaTabResponseMessage)) {
-                    a.this.fsz.a(49, a.this.fsx, null, null);
+                    a.this.fsE.a(49, a.this.fsC, null, null);
                 } else if (((FrsPageAlaTabResponseMessage) httpResponsedMessage).errCode != 0) {
-                    if (a.this.fsz != null) {
-                        a.this.fsz.a(49, a.this.fsx, null, null);
+                    if (a.this.fsE != null) {
+                        a.this.fsE.a(49, a.this.fsC, null, null);
                     }
                 } else {
                     ArrayList<m> arrayList = ((FrsPageAlaTabResponseMessage) httpResponsedMessage).mThreadList;
                     ArrayList<m> arrayList2 = ((FrsPageAlaTabResponseMessage) httpResponsedMessage).mAltList;
                     av avVar = ((FrsPageAlaTabResponseMessage) httpResponsedMessage).pageInfo;
                     int i = ((FrsPageAlaTabResponseMessage) httpResponsedMessage).alaLiveCount;
-                    a.this.fsy = avVar;
+                    a.this.fsD = avVar;
                     if (avVar.pn == 1) {
                         a.this.dataList.clear();
                     }
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_UPDATE_FRS_LIVE_COUNT, Integer.valueOf(i)));
-                    if (a.this.fsz != null) {
+                    if (a.this.fsE != null) {
                         if (arrayList != null && arrayList.size() > 0) {
                             a.this.dataList.addAll(arrayList);
-                            a.this.fsz.a(49, a.this.fsx, avVar, a.this.dataList);
+                            a.this.fsE.a(49, a.this.fsC, avVar, a.this.dataList);
                             return;
                         }
                         bj bjVar = new bj();
@@ -101,13 +101,13 @@ public class a implements ak {
                             a.this.dataList.add(0, bjVar);
                         }
                         if (arrayList2 != null && arrayList2.size() > 0) {
-                            bjVar.dtd = true;
+                            bjVar.dth = true;
                             if (arrayList2.get(0) != null) {
-                                ((bj) arrayList2.get(0)).dtc = true;
+                                ((bj) arrayList2.get(0)).dtg = true;
                             }
                             a.this.dataList.addAll(arrayList2);
                         }
-                        a.this.fsz.a(49, a.this.fsx, avVar, a.this.dataList);
+                        a.this.fsE.a(49, a.this.fsC, avVar, a.this.dataList);
                     }
                 }
             }
@@ -116,13 +116,13 @@ public class a implements ak {
 
     public void setTag(BdUniqueId bdUniqueId) {
         if (bdUniqueId != null) {
-            this.ebv = bdUniqueId;
+            this.ebA = bdUniqueId;
         }
     }
 
     @Override // com.baidu.tieba.frs.ak
     public void a(int i, int i2, as asVar) {
-        this.fsx = i2;
+        this.fsC = i2;
         if (asVar != null && !TextUtils.isEmpty(asVar.forumName) && !TextUtils.isEmpty(asVar.forumId)) {
             if (asVar.pn <= 0) {
                 asVar.pn = 1;
@@ -130,12 +130,12 @@ public class a implements ak {
             MessageManager.getInstance().sendMessage(new FrsPageAlaTabRequestMessage(AlaCmdConfigHttp.FRS_ALA_LIVE_TAB_CMD, asVar.forumName, asVar.forumId, asVar.pn));
             return;
         }
-        this.fsz.a(49, this.fsx, null, null);
+        this.fsE.a(49, this.fsC, null, null);
     }
 
     @Override // com.baidu.tieba.frs.ak
     public void a(ao aoVar) {
-        this.fsz = aoVar;
+        this.fsE = aoVar;
     }
 
     @Override // com.baidu.tieba.frs.ak
@@ -147,21 +147,21 @@ public class a implements ak {
     }
 
     private void registerListener() {
-        if (this.ebv != null) {
-            this.egm.setTag(this.ebv);
-            this.fsA.setTag(this.ebv);
+        if (this.ebA != null) {
+            this.egr.setTag(this.ebA);
+            this.fsF.setTag(this.ebA);
         }
-        MessageManager.getInstance().registerListener(this.fsA);
-        MessageManager.getInstance().registerListener(this.egm);
+        MessageManager.getInstance().registerListener(this.fsF);
+        MessageManager.getInstance().registerListener(this.egr);
     }
 
     private void unRegisterListener() {
-        MessageManager.getInstance().unRegisterListener(this.fsA);
-        MessageManager.getInstance().unRegisterListener(this.egm);
+        MessageManager.getInstance().unRegisterListener(this.fsF);
+        MessageManager.getInstance().unRegisterListener(this.egr);
     }
 
     @Override // com.baidu.tieba.frs.ak
-    public void bqt() {
+    public void bqr() {
         MessageManager.getInstance().unRegisterTask(AlaCmdConfigHttp.FRS_ALA_LIVE_TAB_CMD);
         unRegisterListener();
     }

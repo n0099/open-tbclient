@@ -26,45 +26,45 @@ public class n {
     }
 
     public static boolean a(TbPageContext tbPageContext, com.baidu.live.data.n nVar, g gVar, String str) {
-        if (tbPageContext == null || tbPageContext.getPageActivity() == null || gVar == null || nVar == null || nVar.mLiveInfo == null || nVar.aqx == null) {
+        if (tbPageContext == null || tbPageContext.getPageActivity() == null || gVar == null || nVar == null || nVar.mLiveInfo == null || nVar.aqD == null) {
             return false;
         }
-        if (gVar.wv()) {
-            if (gVar.wr() == 6 && nVar.aqx.levelId < 3) {
+        if (gVar.wu()) {
+            if (gVar.wq() == 6 && nVar.aqD.levelId < 3) {
                 return false;
             }
-            if (gVar.wr() == 7 && nVar.aqx.levelId < 7) {
+            if (gVar.wq() == 7 && nVar.aqD.levelId < 7) {
                 return false;
             }
-            if (gVar.wr() == 8 && nVar.aqx.levelId < 13) {
+            if (gVar.wq() == 8 && nVar.aqD.levelId < 13) {
                 return false;
             }
-            if (gVar.wr() == 9 && nVar.aqx.levelId < 22) {
+            if (gVar.wq() == 9 && nVar.aqD.levelId < 22) {
                 return false;
             }
-            if (gVar.wr() == 10 && nVar.aqx.levelId < 29) {
+            if (gVar.wq() == 10 && nVar.aqD.levelId < 29) {
                 return false;
             }
-            if (gVar.wr() == 11 && nVar.aqx.levelId < 39) {
+            if (gVar.wq() == 11 && nVar.aqD.levelId < 39) {
                 return false;
             }
-            if (gVar.wr() == 12 && nVar.aqx.levelId < 47) {
+            if (gVar.wq() == 12 && nVar.aqD.levelId < 47) {
                 return false;
             }
         }
         if (a(tbPageContext.getPageActivity(), gVar, 1, nVar)) {
-            if (gVar.wg()) {
+            if (gVar.wf()) {
                 if (TbadkCoreApplication.getInst().currentAccountFlowerNum <= 0 || TbadkCoreApplication.getInst().currentAccountFlowerNum < JavaTypesHelper.toLong(gVar.getPrice(), 0L) * 1) {
                     BdUtilHelper.showToast(tbPageContext.getPageActivity(), tbPageContext.getPageActivity().getResources().getString(a.i.ala_free_gift_flower_no_enough), 1000);
                     return false;
                 }
-                u.b(gVar, 1, nVar.aqe.userId + "", nVar.aqe.userName, nVar.mLiveInfo.live_id + "", nVar.mLiveInfo.room_id + "", nVar.mLiveInfo.appId + "", nVar.mLiveInfo.feed_id + "", str, 0L);
+                u.b(gVar, 1, nVar.aqk.userId + "", nVar.aqk.userName, nVar.mLiveInfo.live_id + "", nVar.mLiveInfo.room_id + "", nVar.mLiveInfo.appId + "", nVar.mLiveInfo.feed_id + "", str, 0L);
                 a(gVar, nVar.mLiveInfo.feed_id, nVar.mLiveInfo.live_id + "", str);
             } else if (TbadkCoreApplication.getInst().currentAccountTdouNum <= 0 || TbadkCoreApplication.getInst().currentAccountTdouNum < JavaTypesHelper.toLong(gVar.getPrice(), 0L) * 1) {
                 a(tbPageContext, str);
                 return false;
             } else {
-                u.b(gVar, 1, nVar.aqe.userId + "", nVar.aqe.userName, nVar.mLiveInfo.live_id + "", nVar.mLiveInfo.room_id + "", nVar.mLiveInfo.appId + "", nVar.mLiveInfo.feed_id + "", str, 0L);
+                u.b(gVar, 1, nVar.aqk.userId + "", nVar.aqk.userName, nVar.mLiveInfo.live_id + "", nVar.mLiveInfo.room_id + "", nVar.mLiveInfo.appId + "", nVar.mLiveInfo.feed_id + "", str, 0L);
                 a(gVar, nVar.mLiveInfo.feed_id, nVar.mLiveInfo.live_id + "", str);
             }
         }
@@ -88,8 +88,8 @@ public class n {
             if (TbadkCoreApplication.getInst().isHaokan() || TbadkCoreApplication.getInst().isQuanmin()) {
                 AlaStaticItem alaStaticItem = new AlaStaticItem(SdkStaticKeys.QUICK_GIFT_SUCCESS);
                 alaStaticItem.addParams("gifts_value", gVar.getPrice());
-                alaStaticItem.addParams(SdkStaticKeys.KEY_GIFTS_ID, gVar.vV());
-                alaStaticItem.addParams(QMStaticKeys.KEY_QM_GIFTS_NAME, gVar.vW());
+                alaStaticItem.addParams(SdkStaticKeys.KEY_GIFTS_ID, gVar.vU());
+                alaStaticItem.addParams(QMStaticKeys.KEY_QM_GIFTS_NAME, gVar.vV());
                 alaStaticItem.addParams("other_params", str3);
                 alaStaticItem.addParams("feed_id", str);
                 alaStaticItem.addParams("live_id", str2);

@@ -3,16 +3,16 @@ package com.baidu.live.data;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class ag {
-    public int aug;
-    public int auh;
-    public long aui;
-    public long auj;
-    public long auk;
-    public long aul;
-    public long aum;
+    public int aum;
     public int aun;
-    public int auo;
-    public String aup;
+    public long auo;
+    public long aup;
+    public long auq;
+    public long aur;
+    public long aus;
+    public int aut;
+    public int auu;
+    public String auv;
     public long challengeId;
     public int challengeResult;
     public long endTime;
@@ -21,19 +21,19 @@ public class ag {
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             this.challengeId = jSONObject.optLong("challenge_id");
-            this.aug = jSONObject.optInt("challenge_status");
+            this.aum = jSONObject.optInt("challenge_status");
             this.challengeResult = jSONObject.optInt("challenge_ret");
-            this.auh = jSONObject.optInt("challenge_ret_type");
+            this.aun = jSONObject.optInt("challenge_ret_type");
             this.startTime = jSONObject.optLong("start_time");
             this.endTime = jSONObject.optLong("end_time");
-            this.aui = jSONObject.optLong("stage_start_time");
-            this.auj = jSONObject.optLong("stage_end_time");
-            this.auk = jSONObject.optLong("now_time");
-            this.aul = jSONObject.optLong("anchor_score");
-            this.aum = jSONObject.optLong("rival_score");
-            this.aun = jSONObject.optInt("winning_num");
-            this.auo = jSONObject.optInt("anchor_rank");
-            this.aup = jSONObject.optString("rank_url");
+            this.auo = jSONObject.optLong("stage_start_time");
+            this.aup = jSONObject.optLong("stage_end_time");
+            this.auq = jSONObject.optLong("now_time");
+            this.aur = jSONObject.optLong("anchor_score");
+            this.aus = jSONObject.optLong("rival_score");
+            this.aut = jSONObject.optInt("winning_num");
+            this.auu = jSONObject.optInt("anchor_rank");
+            this.auv = jSONObject.optString("rank_url");
         }
     }
 }

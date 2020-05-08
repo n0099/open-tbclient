@@ -86,7 +86,7 @@ public class a {
         }
     }
 
-    public static boolean an(Context context, String str) {
+    public static boolean ab(Context context, String str) {
         if (context != null) {
             try {
                 if (context.getPackageManager() != null) {
@@ -100,7 +100,7 @@ public class a {
         return false;
     }
 
-    public static boolean ao(Context context, String str) {
+    public static boolean ac(Context context, String str) {
         if (context == null || TextUtils.isEmpty(str)) {
             return false;
         }
@@ -129,7 +129,7 @@ public class a {
     private static boolean processFileUriIntent(Context context, File file, Intent intent) {
         if (Build.VERSION.SDK_INT >= 24) {
             try {
-                Uri uriForFile = FileProvider.getUriForFile(context, dh(context), file);
+                Uri uriForFile = FileProvider.getUriForFile(context, cV(context), file);
                 if (uriForFile == null) {
                     return false;
                 }
@@ -153,7 +153,7 @@ public class a {
         return true;
     }
 
-    private static String dh(Context context) {
+    private static String cV(Context context) {
         return d.aEG() ? d.aEH() + ".fileprovider" : context.getPackageName() + ".swan.fileprovider";
     }
 }

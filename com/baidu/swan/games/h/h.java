@@ -11,28 +11,28 @@ import java.util.concurrent.TimeUnit;
 /* loaded from: classes11.dex */
 public class h {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile h cMY;
-    private ArrayList<g> cMW = new ArrayList<>();
-    private f cMX = new f();
+    private static volatile h cNe;
+    private ArrayList<g> cNc = new ArrayList<>();
+    private f cNd = new f();
 
     private h() {
     }
 
     public static h awg() {
-        if (cMY == null) {
+        if (cNe == null) {
             synchronized (h.class) {
-                if (cMY == null) {
-                    cMY = new h();
+                if (cNe == null) {
+                    cNe = new h();
                 }
             }
         }
-        return cMY;
+        return cNe;
     }
 
     public synchronized void a(@NonNull Runnable runnable, String str, String... strArr) {
         g gVar = new g(this, runnable, str, strArr);
-        ArrayList<g> x = this.cMX.x(strArr);
-        this.cMX.a(gVar, strArr);
+        ArrayList<g> x = this.cNd.x(strArr);
+        this.cNd.a(gVar, strArr);
         if (x == null || x.size() == 0) {
             gVar.awb();
         } else {
@@ -42,16 +42,16 @@ public class h {
 
     public synchronized void c(g gVar) {
         if (gVar != null) {
-            this.cMX.b(gVar, gVar.awc());
+            this.cNd.b(gVar, gVar.awc());
             if (gVar.awd()) {
                 if (DEBUG) {
-                    Log.i("FileSystemTaskManager", "onTaskComplete: " + gVar + Constants.ACCEPT_TIME_SEPARATOR_SP + this.cMW.size());
+                    Log.i("FileSystemTaskManager", "onTaskComplete: " + gVar + Constants.ACCEPT_TIME_SEPARATOR_SP + this.cNc.size());
                 }
-                for (int size = this.cMW.size() - 1; size >= 0; size--) {
-                    g gVar2 = this.cMW.get(size);
+                for (int size = this.cNc.size() - 1; size >= 0; size--) {
+                    g gVar2 = this.cNc.get(size);
                     gVar2.b(gVar);
                     if (gVar2.awf()) {
-                        this.cMW.remove(size);
+                        this.cNc.remove(size);
                         gVar2.awb();
                     }
                 }
@@ -60,22 +60,22 @@ public class h {
     }
 
     private synchronized void onDestroy() {
-        this.cMX.avZ();
-        Iterator<g> it = this.cMW.iterator();
+        this.cNd.avZ();
+        Iterator<g> it = this.cNc.iterator();
         while (it.hasNext()) {
             g next = it.next();
             if (d(next)) {
                 next.awa();
             }
         }
-        this.cMW.clear();
+        this.cNc.clear();
     }
 
     public static synchronized void release() {
         synchronized (h.class) {
-            if (cMY != null) {
-                cMY.onDestroy();
-                cMY = null;
+            if (cNe != null) {
+                cNe.onDestroy();
+                cNe = null;
             }
         }
     }
@@ -92,7 +92,7 @@ public class h {
 
     private synchronized boolean a(Semaphore semaphore, String... strArr) {
         boolean z;
-        ArrayList<g> x = this.cMX.x(strArr);
+        ArrayList<g> x = this.cNd.x(strArr);
         if (x == null || x.size() == 0) {
             z = false;
         } else {
@@ -104,7 +104,7 @@ public class h {
 
     private void a(@NonNull g gVar, @NonNull ArrayList<g> arrayList) {
         if (DEBUG) {
-            Log.i("FileSystemTaskManager", "addToWaitList: " + gVar + Constants.ACCEPT_TIME_SEPARATOR_SP + arrayList.size() + Constants.ACCEPT_TIME_SEPARATOR_SP + this.cMW.size());
+            Log.i("FileSystemTaskManager", "addToWaitList: " + gVar + Constants.ACCEPT_TIME_SEPARATOR_SP + arrayList.size() + Constants.ACCEPT_TIME_SEPARATOR_SP + this.cNc.size());
         }
         Iterator<g> it = arrayList.iterator();
         while (it.hasNext()) {
@@ -112,7 +112,7 @@ public class h {
             next.awe();
             gVar.a(next);
         }
-        this.cMW.add(gVar);
+        this.cNc.add(gVar);
     }
 
     private void a(Semaphore semaphore) {

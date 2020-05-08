@@ -1,9 +1,9 @@
 package com.airbnb.lottie.model.content;
 /* loaded from: classes6.dex */
 public class Mask {
-    private final MaskMode DR;
-    private final com.airbnb.lottie.model.a.h DS;
-    private final com.airbnb.lottie.model.a.d Du;
+    private final MaskMode DU;
+    private final com.airbnb.lottie.model.a.h DV;
+    private final com.airbnb.lottie.model.a.d Dx;
 
     /* loaded from: classes6.dex */
     public enum MaskMode {
@@ -13,20 +13,20 @@ public class Mask {
     }
 
     public Mask(MaskMode maskMode, com.airbnb.lottie.model.a.h hVar, com.airbnb.lottie.model.a.d dVar) {
-        this.DR = maskMode;
-        this.DS = hVar;
-        this.Du = dVar;
+        this.DU = maskMode;
+        this.DV = hVar;
+        this.Dx = dVar;
     }
 
     public MaskMode ii() {
-        return this.DR;
+        return this.DU;
     }
 
     public com.airbnb.lottie.model.a.h ij() {
-        return this.DS;
+        return this.DV;
     }
 
     public com.airbnb.lottie.model.a.d hQ() {
-        return this.Du;
+        return this.Dx;
     }
 }

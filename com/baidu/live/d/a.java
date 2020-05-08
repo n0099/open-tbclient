@@ -9,12 +9,12 @@ public interface a {
 
     /* renamed from: com.baidu.live.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC0106a {
+    public interface InterfaceC0127a {
     }
 
     void a(ViewGroup viewGroup, n nVar);
 
-    void a(InterfaceC0106a interfaceC0106a);
+    void a(InterfaceC0127a interfaceC0127a);
 
     void a(d dVar, boolean z, boolean z2);
 
@@ -32,9 +32,9 @@ public interface a {
 
     void setVisible(int i);
 
-    boolean uf();
+    boolean ue();
+
+    void uf();
 
     void ug();
-
-    void uh();
 }

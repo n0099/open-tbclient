@@ -14,34 +14,34 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class h extends a {
-    protected TextView aHO;
-    protected TbImageView ebj;
-    protected TBSpecificationBtn ebk;
-    private LinearLayout ebl;
-    private int ebq;
+    protected TextView aHU;
+    protected TbImageView ebo;
+    protected TBSpecificationBtn ebp;
+    private LinearLayout ebq;
+    private int ebv;
     protected TextView subTextView;
 
     public TextView getTitleView() {
-        return this.aHO;
+        return this.aHU;
     }
 
-    public View aYq() {
-        return this.ebk;
+    public View aYo() {
+        return this.ebp;
     }
 
     public h(Context context, View.OnClickListener onClickListener) {
         super(LayoutInflater.from(context).inflate(R.layout.net_refresh_view_layout, (ViewGroup) null));
-        this.ebj = (TbImageView) this.attachedView.findViewById(R.id.net_refresh_image);
+        this.ebo = (TbImageView) this.attachedView.findViewById(R.id.net_refresh_image);
         this.subTextView = (TextView) this.attachedView.findViewById(R.id.net_refresh_desc);
-        this.aHO = (TextView) this.attachedView.findViewById(R.id.net_refresh_title);
-        this.ebl = (LinearLayout) this.attachedView.findViewById(R.id.net_refresh_info_layout);
-        this.ebk = (TBSpecificationBtn) this.attachedView.findViewById(R.id.net_refresh_button);
+        this.aHU = (TextView) this.attachedView.findViewById(R.id.net_refresh_title);
+        this.ebq = (LinearLayout) this.attachedView.findViewById(R.id.net_refresh_info_layout);
+        this.ebp = (TBSpecificationBtn) this.attachedView.findViewById(R.id.net_refresh_button);
         com.baidu.tbadk.core.view.commonBtn.b bVar = new com.baidu.tbadk.core.view.commonBtn.b();
-        this.ebk.setText(context.getResources().getString(R.string.refresh_view_button_text));
-        this.ebk.setTextSize(R.dimen.tbds42);
-        this.ebk.setConfig(bVar);
-        this.ebq = R.drawable.new_pic_emotion_08;
-        this.ebk.setOnClickListener(onClickListener);
+        this.ebp.setText(context.getResources().getString(R.string.refresh_view_button_text));
+        this.ebp.setTextSize(R.dimen.tbds42);
+        this.ebp.setConfig(bVar);
+        this.ebv = R.drawable.new_pic_emotion_08;
+        this.ebp.setOnClickListener(onClickListener);
         this.attachedView.setOnClickListener(null);
         mT(0);
     }
@@ -57,28 +57,28 @@ public class h extends a {
 
     public void setTitle(String str) {
         if (str != null) {
-            this.aHO.setText(str);
+            this.aHU.setText(str);
         }
     }
 
-    public void wO(String str) {
+    public void wR(String str) {
         if (str != null) {
-            this.aHO.setText(str);
-            this.aHO.setVisibility(0);
+            this.aHU.setText(str);
+            this.aHU.setVisibility(0);
         }
     }
 
     public void mR(int i) {
-        this.ebq = i;
+        this.ebv = i;
     }
 
     public void mS(int i) {
-        this.ebj.setImageResource(i);
+        this.ebo.setImageResource(i);
     }
 
     public void setButtonText(String str) {
         if (str != null) {
-            this.ebk.setText(str);
+            this.ebp.setText(str);
         }
     }
 
@@ -93,15 +93,15 @@ public class h extends a {
     @Override // com.baidu.tbadk.k.a
     public void onViewDettached() {
         super.onViewDettached();
-        this.ebj.setImageResource(0);
+        this.ebo.setImageResource(0);
     }
 
     public void setLayoutMargin(int i) {
-        ViewGroup.LayoutParams layoutParams = this.ebj.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams = this.ebo.getLayoutParams();
         if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
             marginLayoutParams.topMargin = i;
-            this.ebj.setLayoutParams(marginLayoutParams);
+            this.ebo.setLayoutParams(marginLayoutParams);
         }
     }
 
@@ -116,34 +116,34 @@ public class h extends a {
         } else {
             i2 = (int) (equipmentHeight * 0.11d);
         }
-        ViewGroup.LayoutParams layoutParams = this.ebj.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams = this.ebo.getLayoutParams();
         if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
             marginLayoutParams.topMargin = i2 + i;
-            this.ebj.setLayoutParams(marginLayoutParams);
+            this.ebo.setLayoutParams(marginLayoutParams);
         }
     }
 
     public void showRefreshButton() {
-        this.ebk.setVisibility(0);
-        this.aHO.setVisibility(0);
+        this.ebp.setVisibility(0);
+        this.aHU.setVisibility(0);
         am.setViewTextColor(this.subTextView, R.color.cp_cont_d, 1);
     }
 
     public void hideRefreshButton() {
-        this.ebk.setVisibility(8);
-        this.aHO.setVisibility(8);
+        this.ebp.setVisibility(8);
+        this.aHU.setVisibility(8);
         am.setViewTextColor(this.subTextView, R.color.cp_cont_b, 1);
     }
 
     public void onChangeSkinType() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        am.setImageResource(this.ebj, this.ebq);
+        am.setImageResource(this.ebo, this.ebv);
         am.setViewTextColor(this.subTextView, R.color.cp_cont_d, 1, skinType);
-        am.setViewTextColor(this.aHO, R.color.cp_cont_j, 1, skinType);
+        am.setViewTextColor(this.aHU, R.color.cp_cont_j, 1, skinType);
         am.setBackgroundColor(this.attachedView, R.color.cp_bg_line_d);
-        if (this.ebk != null) {
-            this.ebk.aQp();
+        if (this.ebp != null) {
+            this.ebp.aQm();
         }
     }
 

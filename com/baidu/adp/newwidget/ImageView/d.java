@@ -16,5 +16,5 @@ public class d {
     public boolean mIsShowGifIcon = true;
     public float mAlpha = 1.0f;
     public boolean isChatPage = false;
-    public boolean Pw = false;
+    public boolean PD = false;
 }

@@ -12,8 +12,8 @@ public class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     String appId;
     String appKey;
-    JSONArray bIv;
-    String bIw;
+    JSONArray bIA;
+    String bIB;
     String page;
 
     private c() {
@@ -21,12 +21,12 @@ public class c {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String ep(int i) {
-        if (this.bIv == null) {
+        if (this.bIA == null) {
             return "";
         }
-        String optString = this.bIv.optString(i);
+        String optString = this.bIA.optString(i);
         if (!TextUtils.isEmpty(optString)) {
-            return "http://" + optString + ":" + this.bIw;
+            return "http://" + optString + ":" + this.bIB;
         }
         return "";
     }
@@ -34,10 +34,10 @@ public class c {
     public static c ap(JSONObject jSONObject) {
         c cVar = new c();
         try {
-            cVar.bIv = jSONObject.getJSONArray("host");
+            cVar.bIA = jSONObject.getJSONArray("host");
             cVar.appKey = jSONObject.getString("appKey");
             cVar.appId = jSONObject.getString("appId");
-            cVar.bIw = jSONObject.getString(ClientCookie.PORT_ATTR);
+            cVar.bIB = jSONObject.getString(ClientCookie.PORT_ATTR);
             cVar.page = Uri.decode(jSONObject.optString("url"));
             return cVar;
         } catch (JSONException e) {

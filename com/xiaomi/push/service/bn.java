@@ -1,21 +1,27 @@
 package com.xiaomi.push.service;
 
 import com.xiaomi.push.service.XMPushService;
-import com.xiaomi.push.service.al;
 /* loaded from: classes8.dex */
-class bn implements al.a {
+class bn extends XMPushService.i {
     final /* synthetic */ XMPushService a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bn(XMPushService xMPushService) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bn(XMPushService xMPushService, int i) {
+        super(i);
         this.a = xMPushService;
     }
 
-    @Override // com.xiaomi.push.service.al.a
+    @Override // com.xiaomi.push.service.XMPushService.i
+    public String a() {
+        return "disconnect for service destroy.";
+    }
+
+    @Override // com.xiaomi.push.service.XMPushService.i
     public void a() {
-        this.a.e();
-        if (al.a().m513a() <= 0) {
-            this.a.a(new XMPushService.f(12, null));
+        if (this.a.f800a != null) {
+            this.a.f800a.b(15, (Exception) null);
+            this.a.f800a = null;
         }
     }
 }

@@ -6,22 +6,22 @@ import java.util.concurrent.TimeUnit;
 import java.util.zip.CRC32;
 /* loaded from: classes11.dex */
 public class b {
-    public final String bHY;
-    public final Map<String, String> bHZ = new HashMap();
+    public final String bId;
+    public final Map<String, String> bIe = new HashMap();
     public final long delta;
     public final long serverTime;
 
-    public static b SS() {
+    public static b SR() {
         return new b(0L);
     }
 
     private b(long j) {
         this.delta = TimeUnit.MILLISECONDS.toSeconds(j);
         this.serverTime = TimeUnit.MILLISECONDS.toSeconds(System.currentTimeMillis() - j);
-        this.bHY = Long.toHexString(hJ(this.serverTime + "#" + this.delta));
-        this.bHZ.put("timestamp", Long.toString(this.serverTime));
-        this.bHZ.put("delta", Long.toString(this.delta));
-        this.bHZ.put("rasign", this.bHY);
+        this.bId = Long.toHexString(hJ(this.serverTime + "#" + this.delta));
+        this.bIe.put("timestamp", Long.toString(this.serverTime));
+        this.bIe.put("delta", Long.toString(this.delta));
+        this.bIe.put("rasign", this.bId);
     }
 
     private long hJ(String str) {
@@ -32,7 +32,7 @@ public class b {
     }
 
     public String toString() {
-        return super.toString() + " serverTime:" + this.serverTime + " delta:" + this.delta + " rasign:" + this.bHY;
+        return super.toString() + " serverTime:" + this.serverTime + " delta:" + this.delta + " rasign:" + this.bId;
     }
 
     public String aG(long j) {

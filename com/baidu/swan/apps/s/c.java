@@ -9,14 +9,14 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static a.InterfaceC0262a bVE;
+    private static a.InterfaceC0283a bVK;
 
-    public static void a(a.InterfaceC0262a interfaceC0262a) {
-        bVE = interfaceC0262a;
+    public static void a(a.InterfaceC0283a interfaceC0283a) {
+        bVK = interfaceC0283a;
     }
 
     public static void a(EditText editText, int i) {
-        if (editText != null && bVE != null) {
+        if (editText != null && bVK != null) {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("value", editText.getText());
@@ -28,7 +28,7 @@ public class c {
                     e.printStackTrace();
                 }
             }
-            bVE.c(String.valueOf(editText.getTag()), jSONObject);
+            bVK.c(String.valueOf(editText.getTag()), jSONObject);
         }
     }
 
@@ -45,7 +45,7 @@ public class c {
     }
 
     private static void a(EditText editText, String str, int i) {
-        if (editText != null && bVE != null) {
+        if (editText != null && bVK != null) {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("value", editText.getText());
@@ -57,7 +57,7 @@ public class c {
                     e.printStackTrace();
                 }
             }
-            bVE.c(String.valueOf(editText.getTag()), jSONObject);
+            bVK.c(String.valueOf(editText.getTag()), jSONObject);
         }
     }
 }

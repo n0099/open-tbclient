@@ -11,29 +11,29 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private String cIu;
-    private long cIv;
+    private String cIA;
+    private long cIB;
     private String mPackageName;
     private String mUrl;
 
     public a() {
         this.mUrl = "";
-        this.cIu = "";
-        this.cIv = System.currentTimeMillis();
+        this.cIA = "";
+        this.cIB = System.currentTimeMillis();
     }
 
     public a(@NonNull Download download) {
         this.mUrl = "";
-        this.cIu = "";
-        this.cIv = System.currentTimeMillis();
+        this.cIA = "";
+        this.cIB = System.currentTimeMillis();
         this.mUrl = download.getUrl();
         this.mPackageName = download.getKeyByUser();
         String fromParam = download.getFromParam();
         if (!TextUtils.isEmpty(fromParam)) {
             try {
                 JSONObject jSONObject = new JSONObject(fromParam);
-                this.cIu = jSONObject.optString("apk_id");
-                this.cIv = jSONObject.optLong("download_time", System.currentTimeMillis());
+                this.cIA = jSONObject.optString("apk_id");
+                this.cIB = jSONObject.optLong("download_time", System.currentTimeMillis());
             } catch (JSONException e) {
                 if (DEBUG) {
                     e.printStackTrace();
@@ -48,8 +48,8 @@ public class a {
         download.setKeyByUser(this.mPackageName);
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("apk_id", this.cIu);
-            jSONObject.put("download_time", this.cIv);
+            jSONObject.put("apk_id", this.cIA);
+            jSONObject.put("download_time", this.cIB);
         } catch (JSONException e) {
             if (DEBUG) {
                 e.printStackTrace();
@@ -77,16 +77,16 @@ public class a {
     }
 
     public String atp() {
-        return this.cIu;
+        return this.cIA;
     }
 
     public a pp(String str) {
-        this.cIu = str;
+        this.cIA = str;
         return this;
     }
 
     public long getDownloadTime() {
-        return this.cIv;
+        return this.cIB;
     }
 
     private static String getDownloadDir() {

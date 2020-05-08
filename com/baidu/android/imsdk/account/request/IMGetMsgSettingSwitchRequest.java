@@ -10,7 +10,6 @@ import com.baidu.android.imsdk.internal.IMConfigInternal;
 import com.baidu.android.imsdk.utils.BaseHttpRequest;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.android.pushservice.PushConstants;
 import com.baidu.ar.constants.HttpConstants;
 import com.baidu.sapi2.SapiContext;
 import com.baidu.sapi2.utils.SapiUtils;
@@ -107,7 +106,7 @@ public class IMGetMsgSettingSwitchRequest extends BaseHttpRequest {
         try {
             JSONObject jSONObject = new JSONObject(str2);
             i3 = jSONObject.getInt("error_code");
-            str = jSONObject.optString(PushConstants.EXTRA_ERROR_CODE, "");
+            str = jSONObject.optString("error_msg", "");
             i2 = jSONObject.optInt("push_privacy", 0);
             try {
                 i4 = jSONObject.optInt("block_stranger", 0);

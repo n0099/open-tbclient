@@ -6,38 +6,38 @@ import java.util.concurrent.Executor;
 /* loaded from: classes12.dex */
 public class at {
     private final Executor mExecutor;
-    private boolean mgs = false;
-    private final Deque<Runnable> mgt = new ArrayDeque();
+    private boolean mgw = false;
+    private final Deque<Runnable> mgx = new ArrayDeque();
 
     public at(Executor executor) {
         this.mExecutor = (Executor) com.facebook.common.internal.g.checkNotNull(executor);
     }
 
     public synchronized void E(Runnable runnable) {
-        if (this.mgs) {
-            this.mgt.add(runnable);
+        if (this.mgw) {
+            this.mgx.add(runnable);
         } else {
             this.mExecutor.execute(runnable);
         }
     }
 
-    public synchronized void duH() {
-        this.mgs = true;
+    public synchronized void duE() {
+        this.mgw = true;
     }
 
-    public synchronized void duI() {
-        this.mgs = false;
-        duJ();
+    public synchronized void duF() {
+        this.mgw = false;
+        duG();
     }
 
-    private void duJ() {
-        while (!this.mgt.isEmpty()) {
-            this.mExecutor.execute(this.mgt.pop());
+    private void duG() {
+        while (!this.mgx.isEmpty()) {
+            this.mExecutor.execute(this.mgx.pop());
         }
-        this.mgt.clear();
+        this.mgx.clear();
     }
 
     public synchronized void F(Runnable runnable) {
-        this.mgt.remove(runnable);
+        this.mgx.remove(runnable);
     }
 }

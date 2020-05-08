@@ -9,15 +9,15 @@ import com.baidu.webkit.sdk.Log;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes11.dex */
 public class g extends AsyncTask<Uri, Void, String> {
-    final /* synthetic */ int acp;
-    final /* synthetic */ BdLightappKernelClient acq;
-    final /* synthetic */ ContentResolver acr;
+    final /* synthetic */ int acs;
+    final /* synthetic */ BdLightappKernelClient act;
+    final /* synthetic */ ContentResolver acu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(BdLightappKernelClient bdLightappKernelClient, ContentResolver contentResolver, int i) {
-        this.acq = bdLightappKernelClient;
-        this.acr = contentResolver;
-        this.acp = i;
+        this.act = bdLightappKernelClient;
+        this.acu = contentResolver;
+        this.acs = i;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -27,7 +27,7 @@ public class g extends AsyncTask<Uri, Void, String> {
     public String doInBackground(Uri... uriArr) {
         Cursor cursor = null;
         try {
-            Cursor query = this.acr.query(uriArr[0], new String[]{"_data"}, null, null, null);
+            Cursor query = this.acu.query(uriArr[0], new String[]{"_data"}, null, null, null);
             if (query != null) {
                 try {
                     if (query.moveToNext()) {
@@ -60,10 +60,10 @@ public class g extends AsyncTask<Uri, Void, String> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.os.AsyncTask
     public void onPostExecute(String str) {
-        if (this.acq.mActivity == null || this.acq.mActivity.isFinishing()) {
+        if (this.act.mActivity == null || this.act.mActivity.isFinishing()) {
             Log.w("BdLightappKernelClient", "mActivity is null or finished.");
         } else {
-            this.acq.cloudaHandleResult(this.acp, str, !TextUtils.isEmpty(str));
+            this.act.cloudaHandleResult(this.acs, str, !TextUtils.isEmpty(str));
         }
     }
 }

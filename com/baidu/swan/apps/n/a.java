@@ -19,11 +19,11 @@ public final class a {
         if (aVar != null && aVar2 != null) {
             e.D("postMessage", "dispatchJSEvent start.");
             if (aVar.isWebView()) {
-                format = String.format(Locale.getDefault(), "var %s = new Event('%s');", NotificationCompat.CATEGORY_EVENT, aVar2.bSM);
+                format = String.format(Locale.getDefault(), "var %s = new Event('%s');", NotificationCompat.CATEGORY_EVENT, aVar2.bSS);
                 s = "";
             } else {
                 format = String.format(Locale.getDefault(), "var %s = new Object();", NotificationCompat.CATEGORY_EVENT);
-                s = s(NotificationCompat.CATEGORY_EVENT, "type", aVar2.bSM);
+                s = s(NotificationCompat.CATEGORY_EVENT, "type", aVar2.bSS);
             }
             final String format2 = String.format(Locale.getDefault(), "javascript:(function(){%s %s %s})();", format, s + aVar2.iW(NotificationCompat.CATEGORY_EVENT), String.format(Locale.getDefault(), "%s.dispatchEvent(%s);", b(aVar), NotificationCompat.CATEGORY_EVENT));
             e.D("postMessage", "dispatchJSEvent buildEvent");

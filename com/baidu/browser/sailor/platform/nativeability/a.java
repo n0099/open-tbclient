@@ -28,7 +28,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public final class a {
-    private static BroadcastReceiver acE;
+    private static BroadcastReceiver acH;
     private static final SparseArray<BdLightappKernelJsCallback> b = new SparseArray<>();
 
     public static String a() {
@@ -109,9 +109,9 @@ public final class a {
     }
 
     public static void b() {
-        if (acE != null) {
-            BdSailorPlatform.getInstance().getAppContext().unregisterReceiver(acE);
-            acE = null;
+        if (acH != null) {
+            BdSailorPlatform.getInstance().getAppContext().unregisterReceiver(acH);
+            acH = null;
         }
     }
 
@@ -150,10 +150,10 @@ public final class a {
         BdLightappKernelJsCallback bdLightappKernelJsCallback = new BdLightappKernelJsCallback(str, str2);
         bdLightappKernelJsCallback.setCallbackListener(aVar);
         b.put(10, bdLightappKernelJsCallback);
-        if (acE == null) {
-            acE = new d();
+        if (acH == null) {
+            acH = new d();
         }
-        BdSailorPlatform.getInstance().getAppContext().registerReceiver(acE, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
+        BdSailorPlatform.getInstance().getAppContext().registerReceiver(acH, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
     }
 
     public static void d(String str, String str2, BdLightappKernelJsCallback.a aVar) {
@@ -164,12 +164,12 @@ public final class a {
             return;
         }
         b.remove(10);
-        if (acE == null) {
+        if (acH == null) {
             bdLightappKernelJsCallback.sendFailCallBack("not start yet");
             return;
         }
-        BdSailorPlatform.getInstance().getAppContext().unregisterReceiver(acE);
-        acE = null;
+        BdSailorPlatform.getInstance().getAppContext().unregisterReceiver(acH);
+        acH = null;
         bdLightappKernelJsCallback.sendSuccCallBack();
     }
 

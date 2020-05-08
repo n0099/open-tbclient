@@ -12,25 +12,25 @@ import org.json.JSONObject;
 public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     public static String ccA;
-    public static String ccu;
-    public static String ccv;
-    public static String ccw;
-    public static String ccx;
-    public static String ccy;
-    public static String ccz;
-    private UnitedSchemeEntity bXZ;
-    private CallbackHandler bYa;
+    public static String ccB;
+    public static String ccC;
+    public static String ccD;
+    public static String ccE;
+    public static String ccF;
+    public static String ccG;
+    private UnitedSchemeEntity bYf;
+    private CallbackHandler bYg;
 
     private b(CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str, String str2, String str3, String str4, String str5, String str6, String str7) {
-        this.bYa = callbackHandler;
-        this.bXZ = unitedSchemeEntity;
-        ccu = str;
-        ccv = str2;
-        ccw = str3;
-        ccx = str4;
-        ccy = str5;
-        ccz = str6;
-        ccA = str7;
+        this.bYg = callbackHandler;
+        this.bYf = unitedSchemeEntity;
+        ccA = str;
+        ccB = str2;
+        ccC = str3;
+        ccD = str4;
+        ccE = str5;
+        ccF = str6;
+        ccG = str7;
     }
 
     public static b a(CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str, b bVar) {
@@ -63,7 +63,7 @@ public class b {
     public void e(String str, JSONObject jSONObject) {
         if (!TextUtils.isEmpty(str)) {
             JSONObject wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0);
-            UnitedSchemeUtility.safeCallback(this.bYa, this.bXZ, wrapCallbackParams.toString(), str);
+            UnitedSchemeUtility.safeCallback(this.bYg, this.bYf, wrapCallbackParams.toString(), str);
             if (DEBUG) {
                 Log.d("AudioStatusCallBack", "Audio callback type is : " + str + " , data is : " + wrapCallbackParams.toString());
             }
@@ -79,7 +79,7 @@ public class b {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            e(ccy, jSONObject);
+            e(ccE, jSONObject);
         }
     }
 }

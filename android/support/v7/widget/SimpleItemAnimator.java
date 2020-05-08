@@ -34,10 +34,10 @@ public abstract class SimpleItemAnimator extends RecyclerView.ItemAnimator {
     @Override // android.support.v7.widget.RecyclerView.ItemAnimator
     public boolean animateDisappearance(@NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ItemAnimator.ItemHolderInfo itemHolderInfo, @Nullable RecyclerView.ItemAnimator.ItemHolderInfo itemHolderInfo2) {
         int i = itemHolderInfo.left;
-        int i2 = itemHolderInfo.f970top;
+        int i2 = itemHolderInfo.f962top;
         View view = viewHolder.itemView;
         int left = itemHolderInfo2 == null ? view.getLeft() : itemHolderInfo2.left;
-        int top2 = itemHolderInfo2 == null ? view.getTop() : itemHolderInfo2.f970top;
+        int top2 = itemHolderInfo2 == null ? view.getTop() : itemHolderInfo2.f962top;
         if (!viewHolder.isRemoved() && (i != left || i2 != top2)) {
             view.layout(left, top2, view.getWidth() + left, view.getHeight() + top2);
             return animateMove(viewHolder, i, i2, left, top2);
@@ -47,13 +47,13 @@ public abstract class SimpleItemAnimator extends RecyclerView.ItemAnimator {
 
     @Override // android.support.v7.widget.RecyclerView.ItemAnimator
     public boolean animateAppearance(@NonNull RecyclerView.ViewHolder viewHolder, @Nullable RecyclerView.ItemAnimator.ItemHolderInfo itemHolderInfo, @NonNull RecyclerView.ItemAnimator.ItemHolderInfo itemHolderInfo2) {
-        return (itemHolderInfo == null || (itemHolderInfo.left == itemHolderInfo2.left && itemHolderInfo.f970top == itemHolderInfo2.f970top)) ? animateAdd(viewHolder) : animateMove(viewHolder, itemHolderInfo.left, itemHolderInfo.f970top, itemHolderInfo2.left, itemHolderInfo2.f970top);
+        return (itemHolderInfo == null || (itemHolderInfo.left == itemHolderInfo2.left && itemHolderInfo.f962top == itemHolderInfo2.f962top)) ? animateAdd(viewHolder) : animateMove(viewHolder, itemHolderInfo.left, itemHolderInfo.f962top, itemHolderInfo2.left, itemHolderInfo2.f962top);
     }
 
     @Override // android.support.v7.widget.RecyclerView.ItemAnimator
     public boolean animatePersistence(@NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ItemAnimator.ItemHolderInfo itemHolderInfo, @NonNull RecyclerView.ItemAnimator.ItemHolderInfo itemHolderInfo2) {
-        if (itemHolderInfo.left != itemHolderInfo2.left || itemHolderInfo.f970top != itemHolderInfo2.f970top) {
-            return animateMove(viewHolder, itemHolderInfo.left, itemHolderInfo.f970top, itemHolderInfo2.left, itemHolderInfo2.f970top);
+        if (itemHolderInfo.left != itemHolderInfo2.left || itemHolderInfo.f962top != itemHolderInfo2.f962top) {
+            return animateMove(viewHolder, itemHolderInfo.left, itemHolderInfo.f962top, itemHolderInfo2.left, itemHolderInfo2.f962top);
         }
         dispatchMoveFinished(viewHolder);
         return false;
@@ -64,13 +64,13 @@ public abstract class SimpleItemAnimator extends RecyclerView.ItemAnimator {
         int i;
         int i2;
         int i3 = itemHolderInfo.left;
-        int i4 = itemHolderInfo.f970top;
+        int i4 = itemHolderInfo.f962top;
         if (viewHolder2.shouldIgnore()) {
             i = itemHolderInfo.left;
-            i2 = itemHolderInfo.f970top;
+            i2 = itemHolderInfo.f962top;
         } else {
             i = itemHolderInfo2.left;
-            i2 = itemHolderInfo2.f970top;
+            i2 = itemHolderInfo2.f962top;
         }
         return animateChange(viewHolder, viewHolder2, i3, i4, i, i2);
     }

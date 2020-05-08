@@ -1,11 +1,10 @@
 package com.baidu.tieba.ala.live.personcenter.guardian;
 
-import com.baidu.android.pushservice.PushConstants;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class AlaGuardianListHttpResponseMessage extends JsonHttpResponsedMessage {
-    public c frS;
+    public c frX;
     private int mErrCode;
     private String mErrMsg;
 
@@ -15,8 +14,8 @@ public class AlaGuardianListHttpResponseMessage extends JsonHttpResponsedMessage
         this.mErrMsg = "";
     }
 
-    public c bqp() {
-        return this.frS;
+    public c bqn() {
+        return this.frX;
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
@@ -25,9 +24,9 @@ public class AlaGuardianListHttpResponseMessage extends JsonHttpResponsedMessage
         int error = getError();
         if (statusCode == 200 && error == 0) {
             this.mErrCode = jSONObject.optInt("error_code");
-            this.mErrMsg = jSONObject.optString(PushConstants.EXTRA_ERROR_CODE);
-            this.frS = new c();
-            this.frS.parserJson(jSONObject);
+            this.mErrMsg = jSONObject.optString("error_msg");
+            this.frX = new c();
+            this.frX.parserJson(jSONObject);
         }
     }
 }

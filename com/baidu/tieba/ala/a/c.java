@@ -8,7 +8,7 @@ import java.io.File;
 @TargetApi(14)
 /* loaded from: classes3.dex */
 public class c {
-    private static File bmS() {
+    private static File bmQ() {
         File file = new File(BdBaseApplication.getInst().getFilesDir(), "duar");
         if (!file.exists()) {
             file.mkdirs();
@@ -16,7 +16,7 @@ public class c {
         return file;
     }
 
-    private static File bmT() {
+    private static File bmR() {
         File file = new File(Environment.getExternalStorageState().equals("mounted") ? BdBaseApplication.getInst().getExternalFilesDir(null) : null, "duar");
         if (!file.exists()) {
             file.mkdirs();
@@ -24,35 +24,35 @@ public class c {
         return file;
     }
 
-    public static File bmU() {
-        File file = new File(bmS(), "ar-solibs");
+    public static File bmS() {
+        File file = new File(bmQ(), "ar-solibs");
         if (!file.exists()) {
             file.mkdirs();
         }
         return file;
     }
 
-    public static File bmV() {
-        File file = new File(bmT(), "ar-resource");
+    public static File bmT() {
+        File file = new File(bmR(), "ar-resource");
         if (!file.exists()) {
             file.mkdirs();
         }
         return file;
     }
 
-    public static d zr(String str) {
+    public static d zu(String str) {
         return d.dc("4.5-v1", str);
     }
 
-    public static boolean et(Context context) {
-        d zr = zr("so");
-        if (zr == null) {
+    public static boolean eh(Context context) {
+        d zu = zu("so");
+        if (zu == null) {
             return false;
         }
-        if (com.baidu.tieba.ala.a.a.a.f.h(context, zr.bmW())) {
+        if (com.baidu.tieba.ala.a.a.a.f.h(context, zu.bmU())) {
             return true;
         }
-        com.baidu.tieba.ala.a.a.a.f.g(context, zr.bmW());
-        return com.baidu.tieba.ala.a.a.a.f.h(context, zr.bmW());
+        com.baidu.tieba.ala.a.a.a.f.g(context, zu.bmU());
+        return com.baidu.tieba.ala.a.a.a.f.h(context, zu.bmU());
     }
 }

@@ -2,9 +2,6 @@ package com.meizu.cloud.pushsdk.handler.a.b;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
@@ -24,57 +21,81 @@ public class f implements Parcelable {
             return new f[i];
         }
     };
-    private int a;
-    private boolean b;
-    private List<String> c;
-    private b d;
+    private String a;
+    private String b;
+    private boolean c;
+    private String d;
     private String e;
 
+    public f() {
+        this.c = false;
+    }
+
     protected f(Parcel parcel) {
-        this.a = parcel.readInt();
-        this.b = parcel.readByte() != 0;
-        this.c = parcel.createStringArrayList();
-        this.d = (b) parcel.readParcelable(b.class.getClassLoader());
+        this.c = false;
+        this.a = parcel.readString();
+        this.b = parcel.readString();
+        this.c = parcel.readByte() != 0;
+        this.d = parcel.readString();
         this.e = parcel.readString();
     }
 
-    public f(String str, String str2, String str3, String str4) {
-        this.e = str;
-        try {
-            JSONObject jSONObject = new JSONObject(str);
-            if (!jSONObject.isNull("max_size")) {
-                this.a = jSONObject.getInt("max_size");
-            }
-            if (!jSONObject.isNull("wifi_upload")) {
-                this.b = jSONObject.getBoolean("wifi_upload");
-            }
-            if (!jSONObject.isNull("upload_files")) {
-                JSONArray jSONArray = jSONObject.getJSONArray("upload_files");
-                this.c = new ArrayList();
-                for (int i = 0; i < jSONArray.length(); i++) {
-                    this.c.add(jSONArray.getString(i));
+    public static f a(JSONObject jSONObject) {
+        f fVar = new f();
+        if (jSONObject != null) {
+            try {
+                if (!jSONObject.isNull("taskId")) {
+                    fVar.a(jSONObject.getString("taskId"));
                 }
+                if (!jSONObject.isNull("time")) {
+                    fVar.b(jSONObject.getString("time"));
+                }
+                if (!jSONObject.isNull("pushExtra")) {
+                    fVar.a(jSONObject.getInt("pushExtra") != 0);
+                }
+            } catch (JSONException e) {
+                com.meizu.cloud.a.a.e("statics", " parse statics message error " + e.getMessage());
             }
-        } catch (JSONException e) {
-            com.meizu.cloud.a.a.e("UploadLogMessage", "parse upload message error " + e.getMessage());
+        } else {
+            com.meizu.cloud.a.a.e("statics", "no control statics can parse ");
         }
-        this.d = new b(str2, str3, str4);
+        return fVar;
     }
 
-    public int a() {
+    public String a() {
         return this.a;
     }
 
-    public boolean b() {
+    public void a(String str) {
+        this.a = str;
+    }
+
+    public void a(boolean z) {
+        this.c = z;
+    }
+
+    public String b() {
         return this.b;
     }
 
-    public List<String> c() {
+    public void b(String str) {
+        this.b = str;
+    }
+
+    public void c(String str) {
+        this.d = str;
+    }
+
+    public boolean c() {
         return this.c;
     }
 
-    public b d() {
+    public String d() {
         return this.d;
+    }
+
+    public void d(String str) {
+        this.e = str;
     }
 
     @Override // android.os.Parcelable
@@ -82,16 +103,20 @@ public class f implements Parcelable {
         return 0;
     }
 
+    public String e() {
+        return this.e;
+    }
+
     public String toString() {
-        return "UploadLogMessage{maxSize=" + this.a + ", wifiUpload=" + this.b + ", fileList=" + this.c + ", controlMessage=" + this.d + ", uploadMessage='" + this.e + "'}";
+        return "Statics{taskId='" + this.a + "', time='" + this.b + "', pushExtra=" + this.c + ", deviceId='" + this.d + "', seqId='" + this.e + "'}";
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeInt(this.a);
-        parcel.writeByte((byte) (this.b ? 1 : 0));
-        parcel.writeStringList(this.c);
-        parcel.writeParcelable(this.d, i);
+        parcel.writeString(this.a);
+        parcel.writeString(this.b);
+        parcel.writeByte((byte) (this.c ? 1 : 0));
+        parcel.writeString(this.d);
         parcel.writeString(this.e);
     }
 }

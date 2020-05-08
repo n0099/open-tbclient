@@ -12,36 +12,36 @@ import tbclient.Abstract;
 import tbclient.ThreadInfo;
 /* loaded from: classes.dex */
 public class b {
-    private static b kwA;
-    private List<JSONObject> kwB;
-    private List<JSONObject> kwC;
-    private List<JSONObject> kwD;
+    private static b kwE;
+    private List<JSONObject> kwF;
+    private List<JSONObject> kwG;
+    private List<JSONObject> kwH;
 
-    public static b cOf() {
-        if (kwA == null) {
+    public static b cOc() {
+        if (kwE == null) {
             synchronized (b.class) {
-                if (kwA == null) {
-                    kwA = new b();
+                if (kwE == null) {
+                    kwE = new b();
                 }
             }
         }
-        return kwA;
+        return kwE;
     }
 
     public void el(List<JSONObject> list) {
-        if (this.kwB == null) {
-            this.kwB = new ArrayList();
+        if (this.kwF == null) {
+            this.kwF = new ArrayList();
         }
-        this.kwB.clear();
-        this.kwB.addAll(list);
+        this.kwF.clear();
+        this.kwF.addAll(list);
     }
 
-    public String cOg() {
-        if (v.isEmpty(this.kwB)) {
+    public String cOd() {
+        if (v.isEmpty(this.kwF)) {
             return "";
         }
         JSONArray jSONArray = new JSONArray();
-        for (JSONObject jSONObject : this.kwB) {
+        for (JSONObject jSONObject : this.kwF) {
             if (jSONObject != null) {
                 jSONArray.put(jSONObject);
             }
@@ -55,19 +55,19 @@ public class b {
     }
 
     public void em(List<JSONObject> list) {
-        if (this.kwC == null) {
-            this.kwC = new ArrayList();
+        if (this.kwG == null) {
+            this.kwG = new ArrayList();
         }
-        this.kwC.clear();
-        this.kwC.addAll(list);
+        this.kwG.clear();
+        this.kwG.addAll(list);
     }
 
-    public String cOh() {
-        if (v.isEmpty(this.kwC)) {
+    public String cOe() {
+        if (v.isEmpty(this.kwG)) {
             return "";
         }
         JSONArray jSONArray = new JSONArray();
-        for (JSONObject jSONObject : this.kwC) {
+        for (JSONObject jSONObject : this.kwG) {
             if (jSONObject != null) {
                 jSONArray.put(jSONObject);
             }
@@ -81,19 +81,19 @@ public class b {
     }
 
     public void en(List<JSONObject> list) {
-        if (this.kwD == null) {
-            this.kwD = new ArrayList();
+        if (this.kwH == null) {
+            this.kwH = new ArrayList();
         }
-        this.kwD.clear();
-        this.kwD.addAll(list);
+        this.kwH.clear();
+        this.kwH.addAll(list);
     }
 
-    public String cOi() {
-        if (v.isEmpty(this.kwD)) {
+    public String cOf() {
+        if (v.isEmpty(this.kwH)) {
             return "";
         }
         JSONArray jSONArray = new JSONArray();
-        for (JSONObject jSONObject : this.kwD) {
+        for (JSONObject jSONObject : this.kwH) {
             if (jSONObject != null) {
                 jSONArray.put(jSONObject);
             }
@@ -106,10 +106,10 @@ public class b {
         }
     }
 
-    public void cOj() {
-        if (this.kwD != null) {
-            this.kwD.clear();
-            this.kwD = null;
+    public void cOg() {
+        if (this.kwH != null) {
+            this.kwH.clear();
+            this.kwH = null;
         }
     }
 

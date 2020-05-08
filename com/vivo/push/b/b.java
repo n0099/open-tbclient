@@ -25,7 +25,7 @@ public final class b extends c {
     public final void c(com.vivo.push.a aVar) {
         super.c(aVar);
         aVar.a("sdk_clients", this.a);
-        aVar.a(SapiContext.KEY_SDK_VERSION, 280L);
+        aVar.a(SapiContext.KEY_SDK_VERSION, 293L);
         aVar.a("BaseAppCommand.EXTRA_APPID", this.c);
         aVar.a("BaseAppCommand.EXTRA_APPKEY", this.b);
         aVar.a("PUSH_REGID", this.d);

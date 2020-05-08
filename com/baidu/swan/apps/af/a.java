@@ -18,7 +18,7 @@ public class a {
     public static void a(@NonNull String str, @NonNull String[] strArr, @NonNull int i, @NonNull b bVar) {
         if (!com.baidu.swan.apps.as.a.hasMarshMallow()) {
             bVar.gQ("it's no need system granted");
-        } else if (ActivityCompat.checkSelfPermission(com.baidu.swan.apps.w.a.abO(), str) == 0) {
+        } else if (ActivityCompat.checkSelfPermission(com.baidu.swan.apps.w.a.abN(), str) == 0) {
             bVar.gQ("permission has already granted");
         } else {
             a(strArr, i, bVar);
@@ -26,7 +26,7 @@ public class a {
     }
 
     public static void a(@NonNull String[] strArr, @NonNull final int i, @NonNull final b bVar) {
-        f.aeK().a(i, strArr, new c.a() { // from class: com.baidu.swan.apps.af.a.1
+        f.aeJ().a(i, strArr, new c.a() { // from class: com.baidu.swan.apps.af.a.1
             @Override // com.baidu.swan.apps.af.c.a
             public void onRequestPermissionsResult(int i2, @NonNull String[] strArr2, @NonNull int[] iArr) {
                 if (i2 != i) {

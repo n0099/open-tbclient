@@ -20,14 +20,14 @@ import org.json.JSONObject;
 public final class f {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     @Deprecated
-    private static b cgE;
+    private static b cgK;
 
-    private static b aic() {
-        if (cgE == null) {
-            cgE = new b();
-            a(cgE);
+    private static b aib() {
+        if (cgK == null) {
+            cgK = new b();
+            a(cgK);
         }
-        return cgE;
+        return cgK;
     }
 
     private static void a(b bVar) {
@@ -42,7 +42,7 @@ public final class f {
     }
 
     @Deprecated
-    public static synchronized HybridUbcFlow aid() {
+    public static synchronized HybridUbcFlow aic() {
         HybridUbcFlow lb;
         synchronized (f.class) {
             lb = lb("startup");
@@ -53,7 +53,7 @@ public final class f {
     public static synchronized HybridUbcFlow lb(String str) {
         HybridUbcFlow lb;
         synchronized (f.class) {
-            lb = aic().lb(str);
+            lb = aib().lb(str);
         }
         return lb;
     }
@@ -61,28 +61,28 @@ public final class f {
     public static synchronized HybridUbcFlow bh(String str, String str2) {
         HybridUbcFlow bh;
         synchronized (f.class) {
-            bh = aic().bh(str, str2);
+            bh = aib().bh(str, str2);
         }
         return bh;
     }
 
     public static synchronized void lh(String str) {
         synchronized (f.class) {
-            aic().lc(str);
+            aib().lc(str);
         }
     }
 
     public static synchronized void bl(String str, String str2) {
         synchronized (f.class) {
-            aic().bi(str, str2);
+            aib().bi(str, str2);
         }
     }
 
     public static synchronized void bm(String str, String str2) {
         synchronized (f.class) {
-            HybridUbcFlow ld = aic().ld(str);
+            HybridUbcFlow ld = aib().ld(str);
             if (ld != null) {
-                aic().lb(str2).c(ld);
+                aib().lb(str2).c(ld);
                 lh(str);
             }
         }
@@ -102,22 +102,22 @@ public final class f {
         if (DEBUG) {
             Log.i("SwanAppPerformanceUBC", "recordFromLaunchInfoForStartup: info=" + bVar);
         }
-        if (bVar != null && bVar.adG() != null) {
+        if (bVar != null && bVar.adF() != null) {
             final String page = bVar.getPage();
             m.postOnComputation(new Runnable() { // from class: com.baidu.swan.apps.performance.f.2
                 @Override // java.lang.Runnable
                 public void run() {
                     HybridUbcFlow lb = f.lb("startup");
-                    String adB = TextUtils.isEmpty(com.baidu.swan.apps.x.b.b.this.adB()) ? "NA" : com.baidu.swan.apps.x.b.b.this.adB();
+                    String adA = TextUtils.isEmpty(com.baidu.swan.apps.x.b.b.this.adA()) ? "NA" : com.baidu.swan.apps.x.b.b.this.adA();
                     if (com.baidu.swan.apps.x.b.b.this.getAppFrameType() == 1) {
                         lb.a(HybridUbcFlow.SubmitStrategy.NA_ONLY);
                     }
                     lb.p("from", "swan");
-                    lb.p("source", adB);
+                    lb.p("source", adA);
                     lb.bk("appid", com.baidu.swan.apps.x.b.b.this.getAppId());
-                    lb.bk("swan", com.baidu.swan.apps.swancore.b.a(com.baidu.swan.apps.x.b.b.this.YI(), com.baidu.swan.apps.x.b.b.this.getAppFrameType()));
-                    lb.bk("mobile", j.aoS());
-                    lb.bk("net", SwanAppNetworkUtils.ahi().type);
+                    lb.bk("swan", com.baidu.swan.apps.swancore.b.a(com.baidu.swan.apps.x.b.b.this.YH(), com.baidu.swan.apps.x.b.b.this.getAppFrameType()));
+                    lb.bk("mobile", j.aoR());
+                    lb.bk("net", SwanAppNetworkUtils.ahh().type);
                     lb.bk(ETAG.KEY_APP_VERSION, com.baidu.swan.apps.x.b.b.this.getVersion());
                     lb.bk("thirdversion", com.baidu.swan.apps.x.b.b.this.getVersionCode());
                     lb.p("from", com.baidu.swan.apps.x.b.b.this.getAppFrameType() == 1 ? "swangame" : "swan");
@@ -132,9 +132,9 @@ public final class f {
                         deleteQueryParam = "";
                     }
                     lb.bk("path", deleteQueryParam);
-                    lb.bk("launchid", com.baidu.swan.apps.x.b.b.this.adU());
+                    lb.bk("launchid", com.baidu.swan.apps.x.b.b.this.adT());
                     if (com.baidu.swan.apps.x.b.b.this.getAppFrameType() == 0) {
-                        lb.ahI();
+                        lb.ahH();
                     }
                 }
             }, "recordFromLaunchInfo");
@@ -183,9 +183,9 @@ public final class f {
 
     /* loaded from: classes11.dex */
     public static class a extends com.baidu.swan.apps.statistic.a.e {
-        private static int cgF = 35;
-        public JSONObject cgG;
-        private boolean cgH = true;
+        private static int cgL = 35;
+        public JSONObject cgM;
+        private boolean cgN = true;
         final String eventId;
 
         public a(String str) {
@@ -210,18 +210,18 @@ public final class f {
         @Override // com.baidu.swan.apps.statistic.a.e
         public JSONObject toJSONObject() {
             this.mSource = TextUtils.isEmpty(this.mSource) ? "NA" : this.mSource;
-            if (this.cun == null) {
-                this.cun = new JSONObject();
+            if (this.cuv == null) {
+                this.cuv = new JSONObject();
             }
             try {
-                if (this.cgG != null) {
-                    if (this.cgH) {
-                        String hm = ai.hm(cgF);
+                if (this.cgM != null) {
+                    if (this.cgN) {
+                        String hm = ai.hm(cgL);
                         if (!TextUtils.isEmpty(hm)) {
-                            this.cgG.put("stacktrace", hm);
+                            this.cgM.put("stacktrace", hm);
                         }
                     }
-                    this.cun.put("info", this.cgG);
+                    this.cuv.put("info", this.cgM);
                 }
             } catch (JSONException e) {
                 if (DEBUG) {

@@ -5,27 +5,27 @@ import com.baidu.swan.apps.adaptation.a.o;
 /* loaded from: classes11.dex */
 public abstract class a implements o {
     @Override // com.baidu.swan.apps.adaptation.a.o
-    public String PT() {
+    public String PS() {
         return "https://ossapi.baidu.com/pms";
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.o
-    public String Qg() {
-        return com.baidu.swan.apps.w.a.acz().getHostName();
+    public String Qf() {
+        return com.baidu.swan.apps.w.a.acy().getHostName();
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.o
-    public String Qh() {
+    public String Qg() {
         return "https://ossapi.baidu.com/ma/landingpage?t=service_agreement_m";
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.o
-    public String Qi() {
-        return com.baidu.swan.apps.h.c.processCommonParams(String.format("%s/ma/navigate", com.baidu.swan.apps.h.c.bIa));
+    public String Qh() {
+        return com.baidu.swan.apps.h.c.processCommonParams(String.format("%s/ma/navigate", com.baidu.swan.apps.h.c.bIf));
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.o
-    public boolean PK() {
+    public boolean PJ() {
         return isDebug();
     }
 
@@ -35,13 +35,17 @@ public abstract class a implements o {
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.o
+    public String PM() {
+        return null;
+    }
+
+    @Override // com.baidu.swan.apps.adaptation.a.o
     public String PN() {
         return null;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.o
-    public String PO() {
-        return null;
+    public void PO() {
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.o
@@ -49,11 +53,12 @@ public abstract class a implements o {
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.o
-    public void PQ() {
+    public String aU(Context context) {
+        return null;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.o
-    public String bg(Context context) {
+    public String PQ() {
         return null;
     }
 
@@ -63,7 +68,7 @@ public abstract class a implements o {
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.o
-    public String PS() {
+    public String Qb() {
         return null;
     }
 
@@ -78,12 +83,7 @@ public abstract class a implements o {
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.o
-    public String Qe() {
-        return null;
-    }
-
-    @Override // com.baidu.swan.apps.adaptation.a.o
-    public boolean Qf() {
+    public boolean Qe() {
         return false;
     }
 }

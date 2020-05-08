@@ -21,7 +21,7 @@ public class a {
     /* renamed from: com.baidu.adp.plugin.util.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public static class C0028a {
-        public boolean SL;
+        public boolean SQ;
         public String mErrMsg;
     }
 
@@ -121,7 +121,7 @@ public class a {
                 Method declaredMethod = pathList.getClass().getDeclaredMethod("addDexPath", String.class, File.class);
                 declaredMethod.setAccessible(true);
                 declaredMethod.invoke(pathList, str2, null);
-                Object combineArray = combineArray(z(pathList), z(pathList2));
+                Object combineArray = combineArray(A(pathList), A(pathList2));
                 if (combineArray instanceof File[]) {
                     Arrays.sort((File[]) combineArray, oH());
                     list = combineArray;
@@ -141,8 +141,8 @@ public class a {
                 declaredMethod2.setAccessible(true);
                 setField(pathList, pathList.getClass(), "nativeLibraryPathElements", declaredMethod2.invoke(pathList.getClass(), arrayList));
             } else if (Build.VERSION.SDK_INT >= 23) {
-                setField(pathList, pathList.getClass(), "dexElements", z ? combineArray(y(pathList), y(pathList2)) : combineArray(y(pathList2), y(pathList)));
-                Object combineArray2 = combineArray(z(pathList), z(pathList2));
+                setField(pathList, pathList.getClass(), "dexElements", z ? combineArray(z(pathList), z(pathList2)) : combineArray(z(pathList2), z(pathList)));
+                Object combineArray2 = combineArray(A(pathList), A(pathList2));
                 if (combineArray2 instanceof File[]) {
                     Arrays.sort((File[]) combineArray2, oH());
                     list3 = combineArray2;
@@ -162,8 +162,8 @@ public class a {
                 declaredMethod3.setAccessible(true);
                 setField(pathList, pathList.getClass(), "nativeLibraryPathElements", declaredMethod3.invoke(pathList.getClass(), arrayList2, null, new ArrayList()));
             } else {
-                setField(pathList, pathList.getClass(), "dexElements", z ? combineArray(y(pathList), y(pathList2)) : combineArray(y(pathList2), y(pathList)));
-                Object combineArray3 = combineArray(z(pathList), z(pathList2));
+                setField(pathList, pathList.getClass(), "dexElements", z ? combineArray(z(pathList), z(pathList2)) : combineArray(z(pathList2), z(pathList)));
+                Object combineArray3 = combineArray(A(pathList), A(pathList2));
                 if (combineArray3 instanceof File[]) {
                     Arrays.sort((File[]) combineArray3, oH());
                     list2 = combineArray3;
@@ -276,7 +276,7 @@ public class a {
 
     private static C0028a a(boolean z, Throwable th) {
         C0028a c0028a = new C0028a();
-        c0028a.SL = z;
+        c0028a.SQ = z;
         c0028a.mErrMsg = th != null ? th.getLocalizedMessage() : null;
         return c0028a;
     }
@@ -285,11 +285,11 @@ public class a {
         return getField(obj, Class.forName("dalvik.system.BaseDexClassLoader"), "pathList");
     }
 
-    private static Object y(Object obj) throws IllegalArgumentException, NoSuchFieldException, NoSuchFieldError, IllegalAccessException {
+    private static Object z(Object obj) throws IllegalArgumentException, NoSuchFieldException, NoSuchFieldError, IllegalAccessException {
         return getField(obj, obj.getClass(), "dexElements");
     }
 
-    private static Object z(Object obj) throws IllegalArgumentException, NoSuchFieldException, NoSuchFieldError, IllegalAccessException {
+    private static Object A(Object obj) throws IllegalArgumentException, NoSuchFieldException, NoSuchFieldError, IllegalAccessException {
         return getField(obj, obj.getClass(), "nativeLibraryDirectories");
     }
 

@@ -3,7 +3,7 @@ package com.xiaomi.push.service;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Pair;
-import com.xiaomi.push.fx;
+import com.xiaomi.push.gd;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -12,15 +12,15 @@ import java.util.Map;
 public class o {
 
     /* renamed from: a  reason: collision with other field name */
-    private static final Map<String, byte[]> f923a = new HashMap();
+    private static final Map<String, byte[]> f920a = new HashMap();
     private static ArrayList<Pair<String, byte[]>> a = new ArrayList<>();
 
     public static void a(Context context, int i, String str) {
-        synchronized (f923a) {
-            for (String str2 : f923a.keySet()) {
-                a(context, str2, f923a.get(str2), i, str);
+        synchronized (f920a) {
+            for (String str2 : f920a.keySet()) {
+                a(context, str2, f920a.get(str2), i, str);
             }
-            f923a.clear();
+            f920a.clear();
         }
     }
 
@@ -35,21 +35,21 @@ public class o {
 
     public static void a(XMPushService xMPushService) {
         try {
-            synchronized (f923a) {
-                for (String str : f923a.keySet()) {
-                    w.a(xMPushService, str, f923a.get(str));
+            synchronized (f920a) {
+                for (String str : f920a.keySet()) {
+                    w.a(xMPushService, str, f920a.get(str));
                 }
-                f923a.clear();
+                f920a.clear();
             }
-        } catch (fx e) {
+        } catch (gd e) {
             com.xiaomi.channel.commonutils.logger.b.a(e);
             xMPushService.a(10, e);
         }
     }
 
     public static void a(String str, byte[] bArr) {
-        synchronized (f923a) {
-            f923a.put(str, bArr);
+        synchronized (f920a) {
+            f920a.put(str, bArr);
         }
     }
 
@@ -65,7 +65,7 @@ public class o {
                 Pair<String, byte[]> next = it.next();
                 w.a(xMPushService, (String) next.first, (byte[]) next.second);
             }
-        } catch (fx e) {
+        } catch (gd e) {
             com.xiaomi.channel.commonutils.logger.b.a(e);
             xMPushService.a(10, e);
         }

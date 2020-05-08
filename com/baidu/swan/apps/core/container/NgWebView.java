@@ -121,7 +121,7 @@ public class NgWebView extends BdSailorWebView implements SlideInterceptor, d, S
 
     @Override // com.baidu.browser.sailor.BdSailorWebView, com.baidu.swan.apps.adaptation.b.d
     public void goBack() {
-        if (this.mWebViewHookHandler == null || !this.mWebViewHookHandler.UK()) {
+        if (this.mWebViewHookHandler == null || !this.mWebViewHookHandler.UJ()) {
             super.goBack();
         }
     }
@@ -389,6 +389,6 @@ public class NgWebView extends BdSailorWebView implements SlideInterceptor, d, S
 
     @Override // com.baidu.swan.apps.core.container.a
     public String getContainerId() {
-        return this.mWebViewManager != null ? this.mWebViewManager.QG() : "";
+        return this.mWebViewManager != null ? this.mWebViewManager.QF() : "";
     }
 }

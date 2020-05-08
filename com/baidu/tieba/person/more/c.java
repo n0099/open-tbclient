@@ -13,9 +13,9 @@ import com.baidu.tieba.personCenter.c.g;
 import java.util.List;
 /* loaded from: classes11.dex */
 public class c {
-    private BdTypeListView eOe;
-    private z<g> hmb;
-    private a jSD;
+    private BdTypeListView eOj;
+    private z<g> hmh;
+    private a jSH;
     private NavigationBar mNavigationBar;
     private TbPageContext mPageContext;
 
@@ -25,12 +25,12 @@ public class c {
 
     public void ag(View view) {
         this.mNavigationBar = (NavigationBar) view.findViewById(R.id.person_more_navigation_bar);
-        this.eOe = (BdTypeListView) view.findViewById(R.id.person_more_listview);
-        this.jSD = new a(this.mPageContext, this.eOe, this.hmb);
-        blF();
+        this.eOj = (BdTypeListView) view.findViewById(R.id.person_more_listview);
+        this.jSH = new a(this.mPageContext, this.eOj, this.hmh);
+        blD();
     }
 
-    private void blF() {
+    private void blD() {
         this.mNavigationBar.setCenterTextTitle(this.mPageContext.getString(R.string.person_center_more));
         this.mNavigationBar.showBottomLine();
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View.OnClickListener() { // from class: com.baidu.tieba.person.more.c.1
@@ -43,16 +43,16 @@ public class c {
     }
 
     public void setData(List<m> list) {
-        this.eOe.setData(list);
+        this.eOj.setData(list);
     }
 
     public void onChangeSkinType() {
-        this.jSD.notifyDataSetChanged();
-        am.setBackgroundColor(this.eOe, R.color.cp_bg_line_d);
+        this.jSH.notifyDataSetChanged();
+        am.setBackgroundColor(this.eOj, R.color.cp_bg_line_d);
         this.mNavigationBar.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void c(z<g> zVar) {
-        this.hmb = zVar;
+        this.hmh = zVar;
     }
 }

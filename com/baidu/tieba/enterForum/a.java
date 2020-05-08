@@ -19,10 +19,10 @@ public class a {
     }
 
     private static int ai(bj bjVar) {
-        if (bjVar.getType() == bj.dqN || bjVar.aMz()) {
+        if (bjVar.getType() == bj.dqR || bjVar.aMx()) {
             return 2;
         }
-        if (bjVar.aJt() || bjVar.aJu()) {
+        if (bjVar.aJr() || bjVar.aJs()) {
             return 3;
         }
         return 1;
@@ -34,21 +34,21 @@ public class a {
         }
         an a = a("c13629", bjVar, str);
         a.t("uid", TbadkApplication.getCurrentAccountId());
-        a.af("obj_locate", bjVar.doZ);
+        a.af("obj_locate", bjVar.dpd);
         a.af("obj_source", bjVar.threadType);
         a.t(TiebaInitialize.Params.OBJ_PARAM3, System.currentTimeMillis());
         a.af("obj_param5", ai(bjVar));
-        a.af("obj_type", bjVar.aLH());
-        if (bjVar.aMe() != null) {
-            a.af("obj_name", bjVar.aMe().kTl ? 1 : 0);
+        a.af("obj_type", bjVar.aLF());
+        if (bjVar.aMc() != null) {
+            a.af("obj_name", bjVar.aMc().kTp ? 1 : 0);
         }
         if (bjVar.getBaijiahaoData() != null) {
             a.cI("obj_param4", bjVar.getBaijiahaoData().oriUgcNid);
         }
-        if (bjVar.aKE() != null) {
-            a.af(TiebaInitialize.Params.AB_TYPE, bjVar.aKE().getIsLike() ? 1 : 0);
+        if (bjVar.aKC() != null) {
+            a.af(TiebaInitialize.Params.AB_TYPE, bjVar.aKC().getIsLike() ? 1 : 0);
         }
-        a.af("is_full", bjVar.aMr() ? 1 : 0);
+        a.af("is_full", bjVar.aMp() ? 1 : 0);
         return a;
     }
 
@@ -57,7 +57,7 @@ public class a {
             return null;
         }
         an a = a("c13628", bjVar, str);
-        a.af("obj_locate", bjVar.doZ);
+        a.af("obj_locate", bjVar.dpd);
         a.af("obj_source", bjVar.threadType);
         a.t(TiebaInitialize.Params.OBJ_PARAM3, System.currentTimeMillis());
         a.af("obj_param5", ai(bjVar));
@@ -66,13 +66,13 @@ public class a {
             a.cI("obj_param4", bjVar.getBaijiahaoData().oriUgcNid);
             a.cI("obj_param6", bjVar.getBaijiahaoData().oriUgcVid);
         }
-        if (bjVar.dtm > 0) {
+        if (bjVar.dtq > 0) {
             a.af("midpageflag", 1);
         } else {
             a.af("midpageflag", 0);
         }
-        if (bjVar.aKE() != null) {
-            a.af(TiebaInitialize.Params.AB_TYPE, bjVar.aKE().getIsLike() ? 1 : 0);
+        if (bjVar.aKC() != null) {
+            a.af(TiebaInitialize.Params.AB_TYPE, bjVar.aKC().getIsLike() ? 1 : 0);
         }
         return a;
     }
@@ -82,17 +82,17 @@ public class a {
         if (bjVar == null) {
             return null;
         }
-        if (bjVar.getType() == bj.dqV) {
+        if (bjVar.getType() == bj.dqZ) {
             a = a("c13636", bjVar, str);
             if (bjVar.getBaijiahaoData() != null) {
                 a.cI("obj_param6", bjVar.getBaijiahaoData().oriUgcVid);
             }
         } else {
             a = a("c13633", bjVar, str);
-            a.af("obj_type", bjVar.aLH());
+            a.af("obj_type", bjVar.aLF());
         }
         a.t("uid", TbadkApplication.getCurrentAccountId());
-        a.af("obj_locate", bjVar.doZ);
+        a.af("obj_locate", bjVar.dpd);
         a.t(TiebaInitialize.Params.OBJ_PARAM3, System.currentTimeMillis());
         a.af("obj_param5", ai(bjVar));
         if (bjVar.getBaijiahaoData() != null) {
@@ -107,12 +107,12 @@ public class a {
         if (bjVar == null) {
             return null;
         }
-        if (bjVar.getType() == bj.dqV) {
+        if (bjVar.getType() == bj.dqZ) {
             an a = a("c13637", bjVar, str);
             if (bjVar.getBaijiahaoData() != null) {
                 a.cI("obj_param6", bjVar.getBaijiahaoData().oriUgcVid);
             }
-            if (bjVar.dtm > 0) {
+            if (bjVar.dtq > 0) {
                 a.af("midpageflag", 1);
                 anVar = a;
             } else {
@@ -121,12 +121,12 @@ public class a {
             }
         } else {
             an a2 = a("c13631", bjVar, str);
-            a2.af("obj_type", bjVar.aLH());
-            a2.af("is_full", bjVar.aMr() ? 1 : 0);
+            a2.af("obj_type", bjVar.aLF());
+            a2.af("is_full", bjVar.aMp() ? 1 : 0);
             anVar = a2;
         }
         anVar.t("uid", TbadkApplication.getCurrentAccountId());
-        anVar.af("obj_locate", bjVar.doZ);
+        anVar.af("obj_locate", bjVar.dpd);
         anVar.t(TiebaInitialize.Params.OBJ_PARAM3, System.currentTimeMillis());
         anVar.af("obj_param5", ai(bjVar));
         if (bjVar.getBaijiahaoData() != null) {
@@ -142,14 +142,14 @@ public class a {
         }
         an a = a("c13632", bjVar, str);
         a.t("uid", TbadkApplication.getCurrentAccountId());
-        a.af("obj_locate", bjVar.doZ);
+        a.af("obj_locate", bjVar.dpd);
         a.t(TiebaInitialize.Params.OBJ_PARAM3, System.currentTimeMillis());
         a.af("obj_param5", ai(bjVar));
-        a.af("obj_type", bjVar.aLH());
+        a.af("obj_type", bjVar.aLF());
         if (bjVar.getBaijiahaoData() != null) {
             a.cI("obj_param4", bjVar.getBaijiahaoData().oriUgcNid);
         }
-        a.af("is_full", bjVar.aMr() ? 1 : 0);
+        a.af("is_full", bjVar.aMp() ? 1 : 0);
         return a;
     }
 
@@ -159,7 +159,7 @@ public class a {
         }
         an a = a("c13638", bjVar, str);
         a.t("uid", TbadkApplication.getCurrentAccountId());
-        a.af("obj_locate", bjVar.doZ);
+        a.af("obj_locate", bjVar.dpd);
         a.t(TiebaInitialize.Params.OBJ_PARAM3, System.currentTimeMillis());
         a.af("obj_param5", ai(bjVar));
         if (bjVar.getBaijiahaoData() != null) {
@@ -175,7 +175,7 @@ public class a {
         if (bjVar == null) {
             return null;
         }
-        if (bjVar.getType() == bj.dqV) {
+        if (bjVar.getType() == bj.dqZ) {
             a = a("c13639", bjVar, str);
             a.af("obj_type", 1);
             if (bjVar.getBaijiahaoData() != null) {
@@ -183,10 +183,10 @@ public class a {
             }
         } else {
             a = a("c13634", bjVar, str);
-            a.af("obj_type", bjVar.aLH());
+            a.af("obj_type", bjVar.aLF());
         }
         a.t("uid", TbadkApplication.getCurrentAccountId());
-        a.af("obj_locate", bjVar.doZ);
+        a.af("obj_locate", bjVar.dpd);
         a.t(TiebaInitialize.Params.OBJ_PARAM3, System.currentTimeMillis());
         a.af("obj_param5", ai(bjVar));
         if (bjVar.getBaijiahaoData() != null) {

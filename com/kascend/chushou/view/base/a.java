@@ -18,7 +18,7 @@ import com.kascend.chushou.a;
 /* loaded from: classes5.dex */
 public abstract class a extends DialogFragment {
     protected Context b;
-    protected ProgressDialog mDZ = null;
+    protected ProgressDialog mEe = null;
 
     public abstract View a(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle);
 

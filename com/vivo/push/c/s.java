@@ -1,118 +1,77 @@
 package com.vivo.push.c;
 
-import android.content.Intent;
-import android.net.Uri;
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.text.TextUtils;
-import com.baidu.sapi2.utils.SapiUtils;
 import com.vivo.push.model.InsideNotificationItem;
-import com.vivo.push.model.UPSNotificationMessage;
-import com.vivo.push.util.NotifyAdapterUtil;
-import java.util.HashMap;
-import java.util.Map;
+import com.vivo.push.sdk.PushMessageCallback;
 /* loaded from: classes8.dex */
-final class s extends aa {
+final class s implements Runnable {
+    final /* synthetic */ InsideNotificationItem a;
+    final /* synthetic */ com.vivo.push.b.s b;
+    final /* synthetic */ r c;
+
     /* JADX INFO: Access modifiers changed from: package-private */
-    public s(com.vivo.push.y yVar) {
-        super(yVar);
+    public s(r rVar, InsideNotificationItem insideNotificationItem, com.vivo.push.b.s sVar) {
+        this.c = rVar;
+        this.a = insideNotificationItem;
+        this.b = sVar;
     }
 
-    @Override // com.vivo.push.v
-    protected final void a(com.vivo.push.y yVar) {
-        Intent parseUri;
-        String str;
-        boolean z = true;
-        com.vivo.push.b.p pVar = (com.vivo.push.b.p) yVar;
-        InsideNotificationItem f = pVar.f();
-        if (f == null) {
-            com.vivo.push.util.p.d("OnNotificationClickTask", "current notification item is null");
-            return;
-        }
-        UPSNotificationMessage a = com.vivo.push.util.q.a(f);
-        boolean equals = this.a.getPackageName().equals(pVar.d());
-        if (equals) {
-            NotifyAdapterUtil.cancelNotify(this.a);
-        }
-        if (equals) {
-            com.vivo.push.b.y yVar2 = new com.vivo.push.b.y(1030L);
-            HashMap<String, String> hashMap = new HashMap<>();
-            hashMap.put("type", "2");
-            hashMap.put("messageID", String.valueOf(pVar.e()));
-            hashMap.put("platform", this.a.getPackageName());
-            String b = com.vivo.push.util.z.b(this.a, this.a.getPackageName());
-            if (!TextUtils.isEmpty(b)) {
-                hashMap.put("remoteAppId", b);
-            }
-            yVar2.a(hashMap);
-            com.vivo.push.p.a().a(yVar2);
-            com.vivo.push.util.p.d("OnNotificationClickTask", "notification is clicked by skip type[" + a.getSkipType() + "]");
-            switch (a.getSkipType()) {
-                case 1:
-                    new Thread(new x(this, this.a, a.getParams())).start();
-                    com.vivo.push.w.b(new t(this, a));
-                    return;
-                case 2:
-                    String skipContent = a.getSkipContent();
-                    if (!skipContent.startsWith("http://") && !skipContent.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX)) {
-                        z = false;
-                    }
-                    if (z) {
-                        Uri parse = Uri.parse(skipContent);
-                        Intent intent = new Intent("android.intent.action.VIEW", parse);
-                        intent.setFlags(268435456);
-                        b(intent, a.getParams());
-                        try {
-                            this.a.startActivity(intent);
-                        } catch (Exception e) {
-                            com.vivo.push.util.p.a("OnNotificationClickTask", "startActivity error : " + parse);
-                        }
+    @Override // java.lang.Runnable
+    public final void run() {
+        Context context;
+        Context context2;
+        Context context3;
+        Context context4;
+        Context context5;
+        Context context6;
+        char c;
+        PushMessageCallback pushMessageCallback = this.c.b;
+        context = this.c.a;
+        if (!pushMessageCallback.onNotificationMessageArrived(context, com.vivo.push.util.q.a(this.a))) {
+            context2 = this.c.a;
+            InsideNotificationItem insideNotificationItem = this.a;
+            long f = this.b.f();
+            PushMessageCallback pushMessageCallback2 = this.c.b;
+            context3 = this.c.a;
+            com.vivo.push.util.l lVar = new com.vivo.push.util.l(context2, insideNotificationItem, f, pushMessageCallback2.isAllowNet(context3));
+            boolean isShowBigPicOnMobileNet = this.a.isShowBigPicOnMobileNet();
+            String purePicUrl = this.a.getPurePicUrl();
+            String coverUrl = TextUtils.isEmpty(purePicUrl) ? this.a.getCoverUrl() : purePicUrl;
+            if (!TextUtils.isEmpty(coverUrl)) {
+                com.vivo.push.util.p.c("OnNotificationArrivedTask", "showCode=" + isShowBigPicOnMobileNet);
+                if (!isShowBigPicOnMobileNet) {
+                    context5 = this.c.a;
+                    com.vivo.push.util.p.a(context5, "mobile net unshow");
+                    context6 = this.c.a;
+                    NetworkInfo activeNetworkInfo = ((ConnectivityManager) context6.getSystemService("connectivity")).getActiveNetworkInfo();
+                    if (activeNetworkInfo == null) {
+                        c = 0;
+                    } else if (activeNetworkInfo.getState() != NetworkInfo.State.CONNECTED) {
+                        c = 0;
                     } else {
-                        com.vivo.push.util.p.a("OnNotificationClickTask", "url not legal");
+                        int type = activeNetworkInfo.getType();
+                        if (type == 1) {
+                            c = 2;
+                        } else {
+                            c = type == 0 ? (char) 1 : (char) 3;
+                        }
                     }
-                    com.vivo.push.w.b(new u(this, a));
-                    return;
-                case 3:
-                    com.vivo.push.w.b(new v(this, a));
-                    return;
-                case 4:
-                    String skipContent2 = a.getSkipContent();
-                    try {
-                        parseUri = Intent.parseUri(skipContent2, 1);
-                        str = parseUri.getPackage();
-                    } catch (Exception e2) {
-                        com.vivo.push.util.p.a("OnNotificationClickTask", "open activity error : " + skipContent2, e2);
+                    if (c == 1) {
+                        coverUrl = null;
+                        this.a.clearCoverUrl();
+                        this.a.clearPurePicUrl();
                     }
-                    if (!TextUtils.isEmpty(str) && !this.a.getPackageName().equals(str)) {
-                        com.vivo.push.util.p.a("OnNotificationClickTask", "open activity error : local pkgName is " + this.a.getPackageName() + "; but remote pkgName is " + parseUri.getPackage());
-                        return;
-                    }
-                    String packageName = parseUri.getComponent() == null ? null : parseUri.getComponent().getPackageName();
-                    if (!TextUtils.isEmpty(packageName) && !this.a.getPackageName().equals(packageName)) {
-                        com.vivo.push.util.p.a("OnNotificationClickTask", "open activity component error : local pkgName is " + this.a.getPackageName() + "; but remote pkgName is " + parseUri.getPackage());
-                        return;
-                    }
-                    parseUri.setPackage(this.a.getPackageName());
-                    parseUri.addFlags(268435456);
-                    b(parseUri, a.getParams());
-                    this.a.startActivity(parseUri);
-                    com.vivo.push.w.b(new w(this, a));
-                    return;
-                default:
-                    com.vivo.push.util.p.a("OnNotificationClickTask", "illegitmacy skip type error : " + a.getSkipType());
-                    return;
-            }
-        }
-        com.vivo.push.util.p.a("OnNotificationClickTask", "notify is " + a + " ; isMatch is " + equals);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public static Intent b(Intent intent, Map<String, String> map) {
-        if (map != null && map.entrySet() != null) {
-            for (Map.Entry<String, String> entry : map.entrySet()) {
-                if (entry != null && entry.getKey() != null) {
-                    intent.putExtra(entry.getKey(), entry.getValue());
+                } else {
+                    context4 = this.c.a;
+                    com.vivo.push.util.p.a(context4, "mobile net show");
                 }
             }
+            lVar.execute(this.a.getIconUrl(), coverUrl);
+            return;
         }
-        return intent;
+        com.vivo.push.util.p.d("OnNotificationArrivedTask", "this notification has Intercept");
     }
 }

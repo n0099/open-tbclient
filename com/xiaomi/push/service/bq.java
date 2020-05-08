@@ -1,23 +1,43 @@
 package com.xiaomi.push.service;
 
-import com.xiaomi.push.service.XMPushService;
-import com.xiaomi.push.service.l;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.Intent;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 /* loaded from: classes8.dex */
-public class bq implements l.a {
-    final /* synthetic */ XMPushService.i a;
-
-    /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ XMPushService f899a;
+class bq extends Handler {
+    final /* synthetic */ XMPushService a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bq(XMPushService xMPushService, XMPushService.i iVar) {
-        this.f899a = xMPushService;
-        this.a = iVar;
+    public bq(XMPushService xMPushService) {
+        this.a = xMPushService;
     }
 
-    @Override // com.xiaomi.push.service.l.a
-    public void a() {
-        this.f899a.a(this.a);
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
+        String str;
+        super.handleMessage(message);
+        if (message != null) {
+            try {
+                switch (message.what) {
+                    case 17:
+                        if (message.obj != null) {
+                            this.a.onStart((Intent) message.obj, XMPushService.a);
+                            break;
+                        }
+                        break;
+                    case 18:
+                        Message obtain = Message.obtain((Handler) null, 0);
+                        obtain.what = 18;
+                        Bundle bundle = new Bundle();
+                        str = this.a.f810a;
+                        bundle.putString("xmsf_region", str);
+                        obtain.setData(bundle);
+                        message.replyTo.send(obtain);
+                        break;
+                }
+            } catch (Throwable th) {
+            }
+        }
     }
 }

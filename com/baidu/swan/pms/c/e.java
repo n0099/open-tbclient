@@ -24,7 +24,7 @@ public class e {
     }
 
     public static String aCc() {
-        return com.baidu.swan.pms.d.aBC().acJ();
+        return com.baidu.swan.pms.d.aBC().acI();
     }
 
     public static String h(String str, Map<String, String> map) {
@@ -43,14 +43,14 @@ public class e {
     }
 
     private static String rF(String str) {
-        String addParam = h.addParam(h.addParam(h.addParam(h.addParam(h.addParam(h.addParam(h.addParam(h.addParam(h.addParam(str, "cuid", com.baidu.swan.pms.d.aBC().acK()), "uuid", com.baidu.swan.pms.d.aBC().getUUID()), j.c, h.sx(com.baidu.swan.pms.d.aBC().acM())), "host_app", com.baidu.swan.pms.d.aBC().acL()), "host_app_ver", com.baidu.swan.pms.d.aBC().acM()), "host_os", com.baidu.swan.d.a.getOS()), "host_os_ver", com.baidu.swan.d.a.getOsVersion()), "network", com.baidu.swan.d.a.getNetworkInfo()), "sdk_ver", com.baidu.swan.pms.d.aBC().acN());
+        String addParam = h.addParam(h.addParam(h.addParam(h.addParam(h.addParam(h.addParam(h.addParam(h.addParam(h.addParam(str, "cuid", com.baidu.swan.pms.d.aBC().acJ()), "uuid", com.baidu.swan.pms.d.aBC().getUUID()), j.c, h.sx(com.baidu.swan.pms.d.aBC().acL())), "host_app", com.baidu.swan.pms.d.aBC().acK()), "host_app_ver", com.baidu.swan.pms.d.aBC().acL()), "host_os", com.baidu.swan.d.a.getOS()), "host_os_ver", com.baidu.swan.d.a.getOsVersion()), "network", com.baidu.swan.d.a.getNetworkInfo()), "sdk_ver", com.baidu.swan.pms.d.aBC().acM());
         String aBB = com.baidu.swan.pms.d.aBD().aBB();
         if (!TextUtils.isEmpty(aBB)) {
             addParam = h.addParam(addParam, "extension_rule", aBB);
         }
-        String acT = com.baidu.swan.pms.d.aBC().acT();
-        if (!TextUtils.isEmpty(acT)) {
-            return h.addParam(addParam, UbcStatConstant.KEY_CONTENT_EXT_SID, acT);
+        String acS = com.baidu.swan.pms.d.aBC().acS();
+        if (!TextUtils.isEmpty(acS)) {
+            return h.addParam(addParam, UbcStatConstant.KEY_CONTENT_EXT_SID, acS);
         }
         return addParam;
     }

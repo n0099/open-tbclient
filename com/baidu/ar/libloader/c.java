@@ -23,9 +23,9 @@ class c implements a {
     }
 
     @Override // com.baidu.ar.libloader.a
-    public void a(ARType aRType, String str, String str2, a.InterfaceC0061a interfaceC0061a) {
-        if (interfaceC0061a != null) {
-            interfaceC0061a.a(aRType, str, str2);
+    public void a(ARType aRType, String str, String str2, a.InterfaceC0082a interfaceC0082a) {
+        if (interfaceC0082a != null) {
+            interfaceC0082a.a(aRType, str, str2);
         }
     }
 

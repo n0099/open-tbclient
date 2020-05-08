@@ -49,12 +49,12 @@ public class BDNetworkStateChangeReceiver extends BroadcastReceiver {
         l.a("Network change, clearCache(%b) httpDnsPrefetch(%b)", Boolean.valueOf(this.b), Boolean.valueOf(this.c));
         i qL = i.qL();
         qL.b();
-        BDHttpDns X = BDHttpDns.X(context);
+        BDHttpDns K = BDHttpDns.K(context);
         refreshIpReachable();
-        ArrayList<String> b = X.qC().b();
+        ArrayList<String> b = K.qC().b();
         if (this.b) {
-            X.qC().a();
-            X.qD().a();
+            K.qC().a();
+            K.qD().a();
         }
         if (this.c) {
             if (isIPv6Only()) {

@@ -1,16 +1,16 @@
 package com.tb.airbnb.lottie.model.content;
 /* loaded from: classes6.dex */
 public class c {
-    private final float[] Dz;
+    private final float[] DD;
     private final int[] colors;
 
     public c(float[] fArr, int[] iArr) {
-        this.Dz = fArr;
+        this.DD = fArr;
         this.colors = iArr;
     }
 
     public float[] hV() {
-        return this.Dz;
+        return this.DD;
     }
 
     public int[] getColors() {
@@ -26,7 +26,7 @@ public class c {
             throw new IllegalArgumentException("Cannot interpolate between gradients. Lengths vary (" + cVar.colors.length + " vs " + cVar2.colors.length + ")");
         }
         for (int i = 0; i < cVar.colors.length; i++) {
-            this.Dz[i] = com.tb.airbnb.lottie.d.e.lerp(cVar.Dz[i], cVar2.Dz[i], f);
+            this.DD[i] = com.tb.airbnb.lottie.d.e.lerp(cVar.DD[i], cVar2.DD[i], f);
             this.colors[i] = com.tb.airbnb.lottie.d.b.b(f, cVar.colors[i], cVar2.colors[i]);
         }
     }

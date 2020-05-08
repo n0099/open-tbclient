@@ -12,11 +12,11 @@ import android.text.TextUtils;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 /* loaded from: classes11.dex */
 public class VeloceAppIpcProvider extends ContentProvider {
-    public static final String cEQ = AppRuntime.getAppContext().getPackageName() + ".veloce.ipc";
-    public static final Uri deZ = Uri.parse("content://" + cEQ);
-    public static final Uri dfa = Uri.parse("content://com.baidu.searchbox.veloce.ipc");
-    public static String dfb = "ipc_veloce_call_app";
-    public static String dfc = "ipc_app_call_veloce";
+    public static final String cEW = AppRuntime.getAppContext().getPackageName() + ".veloce.ipc";
+    public static final Uri dfe = Uri.parse("content://" + cEW);
+    public static final Uri dff = Uri.parse("content://com.baidu.searchbox.veloce.ipc");
+    public static String dfg = "ipc_veloce_call_app";
+    public static String dfh = "ipc_app_call_veloce";
 
     @Override // android.content.ContentProvider
     public boolean onCreate() {
@@ -28,10 +28,10 @@ public class VeloceAppIpcProvider extends ContentProvider {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        if (dfb.equals(str)) {
+        if (dfg.equals(str)) {
             return X(bundle);
         }
-        if (dfc.equals(str)) {
+        if (dfh.equals(str)) {
             return f(AppRuntime.getAppContext(), bundle);
         }
         return null;
@@ -96,7 +96,7 @@ public class VeloceAppIpcProvider extends ContentProvider {
         bundle3.putString("action", string);
         bundle3.putBundle("data", bundle2);
         try {
-            return context.getContentResolver().call(dfa, dfc, (String) null, bundle3);
+            return context.getContentResolver().call(dff, dfh, (String) null, bundle3);
         } catch (Exception e) {
             return null;
         }

@@ -5,61 +5,61 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d {
-    private int dKU;
-    private List<m> dLa;
-    private List<m> dLb;
-    private boolean dLc;
-    private boolean dLd;
-    private int dLe = 2;
-    private int dLf = 1;
+    private int dKY;
+    private List<m> dLe;
+    private List<m> dLf;
+    private boolean dLg;
+    private boolean dLh;
+    private int dLi = 2;
+    private int dLj = 1;
 
     public d(List<m> list, boolean z, int i) {
-        this.dKU = 2;
-        this.dLa = list;
-        this.dLd = z;
-        this.dKU = i;
+        this.dKY = 2;
+        this.dLe = list;
+        this.dLh = z;
+        this.dKY = i;
         aM(list);
     }
 
     public void aM(List<m> list) {
-        if (list != null && list.size() >= this.dLe && list.size() <= this.dKU) {
-            this.dLc = true;
-        } else if (list.size() > this.dKU && this.dLd) {
-            this.dLc = true;
+        if (list != null && list.size() >= this.dLi && list.size() <= this.dKY) {
+            this.dLg = true;
+        } else if (list.size() > this.dKY && this.dLh) {
+            this.dLg = true;
         } else {
-            this.dLc = false;
+            this.dLg = false;
         }
-        this.dLb = aRd();
+        this.dLf = aRa();
     }
 
-    private List<m> aRd() {
+    private List<m> aRa() {
         ArrayList arrayList = new ArrayList();
-        if (this.dLa != null) {
-            if (this.dLc) {
-                if (this.dLa.size() > this.dKU && this.dLa.size() >= this.dLf) {
-                    arrayList.addAll(this.dLa.subList(0, this.dKU));
-                    arrayList.addAll(0, this.dLa.subList(this.dKU - this.dLf, this.dKU));
-                    arrayList.addAll(this.dLa.subList(0, this.dLf));
+        if (this.dLe != null) {
+            if (this.dLg) {
+                if (this.dLe.size() > this.dKY && this.dLe.size() >= this.dLj) {
+                    arrayList.addAll(this.dLe.subList(0, this.dKY));
+                    arrayList.addAll(0, this.dLe.subList(this.dKY - this.dLj, this.dKY));
+                    arrayList.addAll(this.dLe.subList(0, this.dLj));
                 } else {
-                    arrayList.addAll(this.dLa);
-                    arrayList.addAll(0, this.dLa.subList(this.dLa.size() - this.dLf, this.dLa.size()));
-                    arrayList.addAll(this.dLa.subList(0, this.dLf));
+                    arrayList.addAll(this.dLe);
+                    arrayList.addAll(0, this.dLe.subList(this.dLe.size() - this.dLj, this.dLe.size()));
+                    arrayList.addAll(this.dLe.subList(0, this.dLj));
                 }
-            } else if (this.dLa != null && this.dLa.size() > 0 && this.dLa.size() >= this.dLf) {
-                arrayList.addAll(this.dLa.subList(0, this.dLf));
+            } else if (this.dLe != null && this.dLe.size() > 0 && this.dLe.size() >= this.dLj) {
+                arrayList.addAll(this.dLe.subList(0, this.dLj));
             }
         }
         return arrayList;
     }
 
     public int lP(int i) {
-        if (this.dLc) {
-            int size = this.dLb.size();
+        if (this.dLg) {
+            int size = this.dLf.size();
             if (i == 0) {
-                return (size - 1) - this.dLf;
+                return (size - 1) - this.dLj;
             }
-            if (i == size - this.dLf) {
-                return this.dLf;
+            if (i == size - this.dLj) {
+                return this.dLj;
             }
             return i;
         }
@@ -67,42 +67,42 @@ public class d {
     }
 
     public int lQ(int i) {
-        if (this.dLc) {
-            return i - this.dLf;
+        if (this.dLg) {
+            return i - this.dLj;
         }
         return i;
     }
 
-    public int aRe() {
-        if (this.dLa == null) {
+    public int aRb() {
+        if (this.dLe == null) {
             return 0;
         }
-        return this.dLa.size();
+        return this.dLe.size();
     }
 
-    public int aRf() {
-        if (this.dLc) {
-            return this.dLf;
+    public int aRc() {
+        if (this.dLg) {
+            return this.dLj;
         }
         return 0;
     }
 
     public void lR(int i) {
-        this.dKU = i;
-        aM(this.dLa);
+        this.dKY = i;
+        aM(this.dLe);
     }
 
     public void lS(int i) {
-        this.dLe = i;
-        aM(this.dLa);
+        this.dLi = i;
+        aM(this.dLe);
     }
 
-    public List<m> aRg() {
-        return this.dLb;
+    public List<m> aRd() {
+        return this.dLf;
     }
 
     public void lT(int i) {
-        this.dLf = i;
-        aM(this.dLa);
+        this.dLj = i;
+        aM(this.dLe);
     }
 }

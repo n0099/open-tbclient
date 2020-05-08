@@ -6,4 +6,6 @@ public class InvoiceBuildDTO extends SapiWebDTO {
     public String TYPE = "0";
     public boolean isExamineVAT = false;
     public boolean showCheckTag = false;
+    public String tplse;
+    public String tplt;
 }

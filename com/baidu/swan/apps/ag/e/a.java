@@ -52,7 +52,7 @@ public class a {
     private static void n(String str, long j) {
         if (!TextUtils.isEmpty(str)) {
             h hVar = new h();
-            hVar.dai = str;
+            hVar.dan = str;
             hVar.versionName = b.bk(j);
             com.baidu.swan.pms.database.a.aBI().f(hVar);
         }

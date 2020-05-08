@@ -11,9 +11,9 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class d {
-    public static void btD() {
-        String str = com.baidu.live.v.a.Eo().aQp.asL;
-        String str2 = com.baidu.live.v.a.Eo().aQp.asK;
+    public static void btB() {
+        String str = com.baidu.live.v.a.En().aQu.asR;
+        String str2 = com.baidu.live.v.a.En().aQu.asQ;
         if (!StringUtils.isNull(str) && !StringUtils.isNull(str2)) {
             d("ala_live_challenge_res_id_android", str, "challenge_res", str2, true);
         }
@@ -38,14 +38,14 @@ public class d {
         }
         String str5 = (TbadkCoreApplication.getInst().getApp().getFilesDir() + "/" + TbConfig.getTempDirName() + "/.ala_challenge/") + str3;
         String str6 = "ala_live_challenge_res_md5_" + str3;
-        if (!com.baidu.live.f.b.b(str5, com.baidu.live.f.b.dQ(str6)) || AA(str)) {
+        if (!com.baidu.live.f.b.b(str5, com.baidu.live.f.b.dQ(str6)) || AD(str)) {
             return false;
         }
         com.baidu.live.f.b.a(str, str2, str5, str6, str3, str4, 19, z);
         return true;
     }
 
-    private static boolean AA(String str) {
+    private static boolean AD(String str) {
         List<DownloadData> downloadList = FileSerialDownLoader.getInstance().getDownloadList();
         if (ListUtils.isEmpty(downloadList) || StringUtils.isNull(str)) {
             return false;

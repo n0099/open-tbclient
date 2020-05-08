@@ -16,8 +16,8 @@ import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class f extends ClickableSpan {
-    private String epr;
-    private int eps;
+    private String epw;
+    private int epx;
     private int mType;
     private String mUrl;
     private int color = -1;
@@ -43,7 +43,7 @@ public class f extends ClickableSpan {
     }
 
     public void nJ(int i) {
-        this.eps = i;
+        this.epx = i;
     }
 
     public void setColor(int i) {
@@ -58,8 +58,8 @@ public class f extends ClickableSpan {
         this.urlType = i;
     }
 
-    public void xt(String str) {
-        this.epr = str;
+    public void xw(String str) {
+        this.epw = str;
     }
 
     public String getLink() {
@@ -70,7 +70,7 @@ public class f extends ClickableSpan {
     public void updateDrawState(TextPaint textPaint) {
         if (this.textColor != -1) {
             textPaint.setColor(am.getColor(this.textColor));
-        } else if (bcG()) {
+        } else if (bcE()) {
             textPaint.setColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.cp_link_tip_c));
         } else {
             textPaint.setColor(textPaint.linkColor);
@@ -78,18 +78,18 @@ public class f extends ClickableSpan {
         textPaint.setUnderlineText(false);
         if (this.color != -1) {
             textPaint.bgColor = this.color;
-        } else if (this.eps == 1 && bcG()) {
+        } else if (this.epx == 1 && bcE()) {
             if (TbadkCoreApplication.getInst().getSkinType() == 1) {
                 textPaint.bgColor = am.getColor(R.color.cp_bg_line_c);
             } else {
                 textPaint.bgColor = am.getColor(R.color.cp_bg_line_z);
             }
-        } else if (this.eps == 2) {
+        } else if (this.epx == 2) {
             textPaint.bgColor = am.getColor(R.color.transparent);
         }
     }
 
-    private boolean bcG() {
+    private boolean bcE() {
         switch (this.mType) {
             case 2:
             case 16:
@@ -104,7 +104,7 @@ public class f extends ClickableSpan {
     public void onClick(View view) {
         int i = 2;
         int i2 = 1;
-        CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(CmdConfigCustom.CMD_RICHTEXT_INTENTSPAN_CLICK, new a(this.mType, this.mUrl, this.epr));
+        CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(CmdConfigCustom.CMD_RICHTEXT_INTENTSPAN_CLICK, new a(this.mType, this.mUrl, this.epw));
         if (this.mType == 2) {
             if (this.urlType != 1) {
                 if (this.urlType == 2) {
@@ -126,25 +126,25 @@ public class f extends ClickableSpan {
                     hVar.e(context, str, false);
                     return;
                 case 16:
-                    hVar.aw(context, str);
+                    hVar.ak(context, str);
                     return;
                 case 18:
                     hVar.e(context, str, true);
                     return;
                 case 32:
-                    hVar.ax(context, str);
+                    hVar.al(context, str);
                     return;
                 case 64:
-                    hVar.ay(context, str);
+                    hVar.am(context, str);
                     return;
                 case 128:
-                    hVar.az(context, str);
+                    hVar.an(context, str);
                     return;
                 case 256:
-                    hVar.r(context, str, str2);
+                    hVar.t(context, str, str2);
                     return;
                 case 1024:
-                    hVar.aA(context, str);
+                    hVar.ao(context, str);
                     return;
                 default:
                     return;

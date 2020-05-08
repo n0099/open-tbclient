@@ -7,20 +7,20 @@ import android.view.ViewGroup;
 import com.baidu.live.tbadk.core.BaseFragment;
 /* loaded from: classes3.dex */
 public abstract class GuardClubRankBaseFragment extends BaseFragment {
-    private c fmi;
+    private c fmn;
     protected boolean mInitialed;
     private boolean mVisible;
 
-    protected abstract c boY();
+    protected abstract c boW();
 
-    protected abstract int boZ();
+    protected abstract int boX();
 
     protected abstract void onInflate(View view, Bundle bundle);
 
     @Override // android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.fmi = boY();
-        View inflate = layoutInflater.inflate(boZ(), viewGroup, false);
+        this.fmn = boW();
+        View inflate = layoutInflater.inflate(boX(), viewGroup, false);
         onInflate(inflate, bundle);
         return inflate;
     }
@@ -48,23 +48,23 @@ public abstract class GuardClubRankBaseFragment extends BaseFragment {
     @Override // com.baidu.live.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onResume() {
         super.onResume();
-        if (this.fmi != null) {
-            this.fmi.onResume();
+        if (this.fmn != null) {
+            this.fmn.onResume();
         }
     }
 
     @Override // com.baidu.live.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onPause() {
-        if (this.fmi != null) {
-            this.fmi.onPause();
+        if (this.fmn != null) {
+            this.fmn.onPause();
         }
         super.onPause();
     }
 
     @Override // com.baidu.live.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroyView() {
-        if (this.fmi != null) {
-            this.fmi.onDestoryView();
+        if (this.fmn != null) {
+            this.fmn.onDestoryView();
         }
         this.mInitialed = false;
         super.onDestroyView();
@@ -72,23 +72,23 @@ public abstract class GuardClubRankBaseFragment extends BaseFragment {
 
     @Override // com.baidu.live.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
-        if (this.fmi != null) {
-            this.fmi.onDestroy();
+        if (this.fmn != null) {
+            this.fmn.onDestroy();
         }
         super.onDestroy();
     }
 
     private void initData() {
         this.mInitialed = true;
-        if (this.fmi != null) {
-            this.fmi.onInitial();
+        if (this.fmn != null) {
+            this.fmn.onInitial();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void onVisibilityChanged(boolean z) {
-        if (this.fmi != null) {
-            this.fmi.onVisibilityChanged(z);
+        if (this.fmn != null) {
+            this.fmn.onVisibilityChanged(z);
         }
     }
 }

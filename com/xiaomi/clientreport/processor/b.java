@@ -4,7 +4,7 @@ import android.content.Context;
 import android.text.TextUtils;
 import com.coremedia.iso.boxes.PerformerBox;
 import com.xiaomi.clientreport.data.PerfClientReport;
-import com.xiaomi.push.be;
+import com.xiaomi.push.bj;
 import java.io.File;
 import java.util.HashMap;
 import java.util.List;
@@ -13,7 +13,7 @@ public class b implements IPerfProcessor {
     protected Context a;
 
     /* renamed from: a  reason: collision with other field name */
-    private HashMap<String, HashMap<String, com.xiaomi.clientreport.data.a>> f18a;
+    private HashMap<String, HashMap<String, com.xiaomi.clientreport.data.a>> f22a;
 
     public b(Context context) {
         this.a = context;
@@ -55,7 +55,7 @@ public class b implements IPerfProcessor {
                 break;
             }
             str = b + i2;
-            if (be.m162a(this.a, str)) {
+            if (bj.m164a(this.a, str)) {
                 break;
             }
             i = i2 + 1;
@@ -65,12 +65,12 @@ public class b implements IPerfProcessor {
 
     @Override // com.xiaomi.clientreport.processor.c
     public void a() {
-        be.a(this.a, PerformerBox.TYPE, "perfUploading");
-        File[] m163a = be.m163a(this.a, "perfUploading");
-        if (m163a == null || m163a.length <= 0) {
+        bj.a(this.a, PerformerBox.TYPE, "perfUploading");
+        File[] m165a = bj.m165a(this.a, "perfUploading");
+        if (m165a == null || m165a.length <= 0) {
             return;
         }
-        for (File file : m163a) {
+        for (File file : m165a) {
             if (file != null) {
                 List<String> a = e.a(this.a, file.getAbsolutePath());
                 file.delete();
@@ -81,12 +81,12 @@ public class b implements IPerfProcessor {
 
     @Override // com.xiaomi.clientreport.processor.d
     /* renamed from: a */
-    public void mo55a(com.xiaomi.clientreport.data.a aVar) {
-        if ((aVar instanceof PerfClientReport) && this.f18a != null) {
+    public void mo57a(com.xiaomi.clientreport.data.a aVar) {
+        if ((aVar instanceof PerfClientReport) && this.f22a != null) {
             PerfClientReport perfClientReport = (PerfClientReport) aVar;
             String a = a((com.xiaomi.clientreport.data.a) perfClientReport);
             String a2 = e.a(perfClientReport);
-            HashMap<String, com.xiaomi.clientreport.data.a> hashMap = this.f18a.get(a);
+            HashMap<String, com.xiaomi.clientreport.data.a> hashMap = this.f22a.get(a);
             HashMap<String, com.xiaomi.clientreport.data.a> hashMap2 = hashMap == null ? new HashMap<>() : hashMap;
             PerfClientReport perfClientReport2 = (PerfClientReport) hashMap2.get(a2);
             if (perfClientReport2 != null) {
@@ -94,12 +94,12 @@ public class b implements IPerfProcessor {
                 perfClientReport.perfLatencies += perfClientReport2.perfLatencies;
             }
             hashMap2.put(a2, perfClientReport);
-            this.f18a.put(a, hashMap2);
+            this.f22a.put(a, hashMap2);
         }
     }
 
     public void a(List<String> list) {
-        be.a(this.a, list);
+        bj.a(this.a, list);
     }
 
     public void a(com.xiaomi.clientreport.data.a[] aVarArr) {
@@ -112,12 +112,12 @@ public class b implements IPerfProcessor {
 
     @Override // com.xiaomi.clientreport.processor.d
     public void b() {
-        if (this.f18a == null) {
+        if (this.f22a == null) {
             return;
         }
-        if (this.f18a.size() > 0) {
-            for (String str : this.f18a.keySet()) {
-                HashMap<String, com.xiaomi.clientreport.data.a> hashMap = this.f18a.get(str);
+        if (this.f22a.size() > 0) {
+            for (String str : this.f22a.keySet()) {
+                HashMap<String, com.xiaomi.clientreport.data.a> hashMap = this.f22a.get(str);
                 if (hashMap != null && hashMap.size() > 0) {
                     com.xiaomi.clientreport.data.a[] aVarArr = new com.xiaomi.clientreport.data.a[hashMap.size()];
                     hashMap.values().toArray(aVarArr);
@@ -125,11 +125,11 @@ public class b implements IPerfProcessor {
                 }
             }
         }
-        this.f18a.clear();
+        this.f22a.clear();
     }
 
     @Override // com.xiaomi.clientreport.processor.IPerfProcessor
     public void setPerfMap(HashMap<String, HashMap<String, com.xiaomi.clientreport.data.a>> hashMap) {
-        this.f18a = hashMap;
+        this.f22a = hashMap;
     }
 }

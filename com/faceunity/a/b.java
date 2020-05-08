@@ -6,19 +6,19 @@ import com.baidu.ala.player.StreamConfig;
 import java.nio.ByteBuffer;
 /* loaded from: classes10.dex */
 public class b {
-    private static b mhe;
+    private static b mhi;
     private AudioRecord mAudioRecord;
-    private boolean mhf;
-    private static final int[] mhc = {1, 0, 5, 7, 6};
+    private boolean mhj;
+    private static final int[] mhg = {1, 0, 5, 7, 6};
     public static int SAMPLE_RATE = StreamConfig.Audio.AUDIO_RTC_FREQUENCY_48K;
     public static int SAMPLES_PER_FRAME = 2048;
-    public static int mhd = 24;
+    public static int mhh = 24;
 
     public b() {
         int minBufferSize = AudioRecord.getMinBufferSize(SAMPLE_RATE, 16, 2);
-        int i = SAMPLES_PER_FRAME * mhd;
+        int i = SAMPLES_PER_FRAME * mhh;
         i = i < minBufferSize ? ((minBufferSize / SAMPLES_PER_FRAME) + 1) * SAMPLES_PER_FRAME * 2 : i;
-        for (int i2 : mhc) {
+        for (int i2 : mhg) {
             try {
                 this.mAudioRecord = new AudioRecord(i2, SAMPLE_RATE, 16, 2, i);
                 if (this.mAudioRecord.getState() != 1) {
@@ -31,8 +31,8 @@ public class b {
     }
 
     public void release() {
-        if (!this.mhf) {
-            this.mhf = true;
+        if (!this.mhj) {
+            this.mhj = true;
             if (this.mAudioRecord != null) {
                 this.mAudioRecord.release();
                 this.mAudioRecord = null;
@@ -49,11 +49,11 @@ public class b {
 
     public void startRecording() {
         if (this.mAudioRecord != null) {
-            if (mhe != null && !mhe.JT()) {
-                mhe.release();
+            if (mhi != null && !mhi.JS()) {
+                mhi.release();
             }
             this.mAudioRecord.startRecording();
-            mhe = this;
+            mhi = this;
         }
     }
 
@@ -63,11 +63,11 @@ public class b {
         }
     }
 
-    public boolean JT() {
-        return this.mhf;
+    public boolean JS() {
+        return this.mhj;
     }
 
-    public AudioRecord duZ() {
+    public AudioRecord duW() {
         return this.mAudioRecord;
     }
 }

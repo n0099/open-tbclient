@@ -8,8 +8,8 @@ import com.baidu.swan.bdprivate.invoice.model.InvoiceInfo;
 import com.baidu.swan.bdprivate.invoice.ui.InvoiceInfoItemView;
 /* loaded from: classes11.dex */
 public class InvoicePersonalInfoView extends InvoiceBaseInfoView {
-    private InvoiceInfoItemView cCZ;
-    private InvoiceInfoItemView cDc;
+    private InvoiceInfoItemView cDf;
+    private InvoiceInfoItemView cDi;
 
     public InvoicePersonalInfoView(Context context) {
         this(context, null);
@@ -26,23 +26,23 @@ public class InvoicePersonalInfoView extends InvoiceBaseInfoView {
 
     private void init(Context context) {
         setOrientation(1);
-        this.cCZ = new InvoiceInfoItemView(context).a(new InvoiceInfoItemView.a().fo(true).oC(context.getString(b.g.invoice_desc_name)).fp(true).oD(context.getString(b.g.invoice_hint_personal_name)).oE(InvoiceInfo.REG_NON_EMPTY).oF(context.getString(b.g.invoice_err_msg_personal_name)));
-        this.cDc = new InvoiceInfoItemView(context).a(new InvoiceInfoItemView.a().oC(context.getString(b.g.invoice_desc_mobile)).fp(true).hC(2).oD(context.getString(b.g.invoice_hint_mobile)));
-        this.cCY = new InvoiceInfoItemView[]{this.cCZ, this.cDc};
-        for (int i = 0; i < this.cCY.length; i++) {
-            addView(this.cCY[i], i);
+        this.cDf = new InvoiceInfoItemView(context).a(new InvoiceInfoItemView.a().fo(true).oC(context.getString(b.g.invoice_desc_name)).fp(true).oD(context.getString(b.g.invoice_hint_personal_name)).oE(InvoiceInfo.REG_NON_EMPTY).oF(context.getString(b.g.invoice_err_msg_personal_name)));
+        this.cDi = new InvoiceInfoItemView(context).a(new InvoiceInfoItemView.a().oC(context.getString(b.g.invoice_desc_mobile)).fp(true).hC(2).oD(context.getString(b.g.invoice_hint_mobile)));
+        this.cDe = new InvoiceInfoItemView[]{this.cDf, this.cDi};
+        for (int i = 0; i < this.cDe.length; i++) {
+            addView(this.cDe[i], i);
         }
     }
 
     @Override // com.baidu.swan.bdprivate.invoice.e
     public InvoiceInfo getInvoiceInfo() {
-        return new InvoiceInfo(1, this.cCZ.getContent(), this.cDc.getContent());
+        return new InvoiceInfo(1, this.cDf.getContent(), this.cDi.getContent());
     }
 
     public void d(InvoiceInfo invoiceInfo) {
         if (invoiceInfo != null) {
-            this.cCZ.setContent(invoiceInfo.mTitle);
-            this.cDc.setContent(invoiceInfo.mTelephone);
+            this.cDf.setContent(invoiceInfo.mTitle);
+            this.cDi.setContent(invoiceInfo.mTelephone);
         }
     }
 }

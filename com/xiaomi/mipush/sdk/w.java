@@ -1,59 +1,83 @@
 package com.xiaomi.mipush.sdk;
 
 import android.content.Context;
-import com.xiaomi.push.dh;
+import com.xiaomi.push.az;
 import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes8.dex */
-public final class w implements Runnable {
-    final /* synthetic */ Context a;
-
-    /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ boolean f78a;
+public class w implements Runnable {
+    final /* synthetic */ v a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public w(Context context, boolean z) {
-        this.a = context;
-        this.f78a = z;
+    public w(v vVar) {
+        this.a = vVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        HashMap<String, String> a;
-        String absolutePath;
-        File logFile;
+        Object obj;
+        Object obj2;
+        Context context;
+        ArrayList<File> a;
+        Context context2;
+        Context context3;
+        Context context4;
+        Context context5;
         File file = null;
         try {
-            a = ak.a(this.a, "");
-            absolutePath = this.f78a ? this.a.getFilesDir().getAbsolutePath() : this.a.getExternalFilesDir(null).getAbsolutePath() + dh.f236a;
-            logFile = Logger.getLogFile(absolutePath);
+            context = this.a.f82a;
+            a = s.a(context).a();
+        } catch (IOException e) {
+            e = e;
         } catch (Throwable th) {
-            th = th;
         }
-        if (logFile == null) {
-            com.xiaomi.channel.commonutils.logger.b.m50a("log file null");
+        if (a == null || a.size() < 1) {
+            com.xiaomi.channel.commonutils.logger.b.m50a("no crash file to upload");
             return;
         }
-        File file2 = new File(absolutePath, this.a.getPackageName() + ".zip");
-        try {
-            com.xiaomi.push.y.a(file2, logFile);
-            if (file2.exists()) {
-                com.xiaomi.push.as.a((this.f78a ? "https://api.xmpush.xiaomi.com/upload/xmsf_log?file=" : "https://api.xmpush.xiaomi.com/upload/app_log?file=") + file2.getName(), a, file2, "file");
-            } else {
-                com.xiaomi.channel.commonutils.logger.b.m50a("zip log file failed");
+        context2 = this.a.f82a;
+        HashMap<String, String> a2 = ac.a(context2, "C100000");
+        int i = 0;
+        File file2 = null;
+        while (i < a.size()) {
+            try {
+                File file3 = a.get(i);
+                context3 = this.a.f82a;
+                String a3 = s.a(context3).a(file3);
+                StringBuilder sb = new StringBuilder();
+                context4 = this.a.f82a;
+                File file4 = new File(sb.append(context4.getFilesDir()).append("/crash").append("/").append(file3.getName()).append(".zip").toString());
+                com.xiaomi.push.y.a(file4, file3);
+                if (file4.exists()) {
+                    az.a("https://api.xmpush.xiaomi.com/upload/crash_log?file=" + file4.getName(), a2, file4, "file");
+                    StringBuilder sb2 = new StringBuilder();
+                    context5 = this.a.f82a;
+                    file3.renameTo(new File(sb2.append(context5.getFilesDir()).append("/crash").toString(), a3 + ":0"));
+                    this.a.b();
+                } else {
+                    com.xiaomi.channel.commonutils.logger.b.m50a("zip crash file failed");
+                }
+                i++;
+                file2 = file4;
+            } catch (IOException e2) {
+                e = e2;
+                file = file2;
+                com.xiaomi.channel.commonutils.logger.b.a(e);
+            } catch (Throwable th2) {
+                file = file2;
             }
-        } catch (Throwable th2) {
-            th = th2;
-            file = file2;
-            com.xiaomi.channel.commonutils.logger.b.a(th);
-            file2 = file;
-            if (file2 == null) {
-            }
-            return;
         }
-        if (file2 == null && file2.exists()) {
-            file2.delete();
+        file = file2;
+        if (file != null && file.exists() && !file.delete()) {
+            com.xiaomi.channel.commonutils.logger.b.m50a("delete zip crash file failed");
+        }
+        obj = v.a;
+        synchronized (obj) {
+            obj2 = v.a;
+            obj2.notifyAll();
         }
     }
 }

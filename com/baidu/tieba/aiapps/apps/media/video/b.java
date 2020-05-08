@@ -35,8 +35,8 @@ public class b {
     }
 
     public static void a(final String str, final String str2, final boolean z, VideoContainerManager videoContainerManager) {
-        final SwanAppComponentContainerView biy = videoContainerManager.biy();
-        biy.post(new Runnable() { // from class: com.baidu.tieba.aiapps.apps.media.video.b.1
+        final SwanAppComponentContainerView biw = videoContainerManager.biw();
+        biw.post(new Runnable() { // from class: com.baidu.tieba.aiapps.apps.media.video.b.1
             @Override // java.lang.Runnable
             public void run() {
                 JSONObject jSONObject = new JSONObject();

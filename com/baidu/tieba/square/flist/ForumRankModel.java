@@ -13,13 +13,13 @@ import com.baidu.tbadk.core.util.x;
 /* loaded from: classes10.dex */
 public class ForumRankModel extends BdBaseModel {
     private String id;
-    private a kNp;
+    private a kNt;
     private String stType;
 
     public ForumRankModel(Bundle bundle) {
         super(null);
         this.id = null;
-        this.kNp = null;
+        this.kNt = null;
         this.stType = null;
         this.id = bundle.getString("id");
         this.stType = bundle.getString("st_type");
@@ -28,7 +28,7 @@ public class ForumRankModel extends BdBaseModel {
     public ForumRankModel(Intent intent) {
         super(null);
         this.id = null;
-        this.kNp = null;
+        this.kNt = null;
         this.stType = null;
         this.id = intent.getStringExtra("id");
         this.stType = intent.getStringExtra("st_type");
@@ -45,17 +45,17 @@ public class ForumRankModel extends BdBaseModel {
         if (this.id == null) {
             return false;
         }
-        if (this.kNp == null) {
-            this.kNp = new a();
-            this.kNp.execute(new Void[0]);
+        if (this.kNt == null) {
+            this.kNt = new a();
+            this.kNt.execute(new Void[0]);
         }
         return true;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        if (this.kNp != null) {
-            this.kNp.cancel();
+        if (this.kNt != null) {
+            this.kNt.cancel();
             return false;
         }
         return false;
@@ -72,8 +72,8 @@ public class ForumRankModel extends BdBaseModel {
         /* renamed from: m */
         public ForumRankData doInBackground(Void... voidArr) {
             ForumRankData forumRankData;
-            l<String> ud = com.baidu.tbadk.core.c.a.aMT().ud("tb.forum_rank");
-            String str = ud != null ? ud.get("forum_rank_cache_key_" + ForumRankModel.this.id) : null;
+            l<String> ug = com.baidu.tbadk.core.c.a.aMR().ug("tb.forum_rank");
+            String str = ug != null ? ug.get("forum_rank_cache_key_" + ForumRankModel.this.id) : null;
             if (!StringUtils.isNull(str) && (forumRankData = (ForumRankData) OrmObject.objectWithJsonStr(str, ForumRankData.class)) != null) {
                 publishProgress(forumRankData);
             }
@@ -84,8 +84,8 @@ public class ForumRankModel extends BdBaseModel {
             if (StringUtils.isNull(postNetData)) {
                 return null;
             }
-            if (ud != null) {
-                ud.set("forum_rank_cache_key_" + ForumRankModel.this.id, postNetData, 86400000L);
+            if (ug != null) {
+                ug.set("forum_rank_cache_key_" + ForumRankModel.this.id, postNetData, 86400000L);
             }
             return (ForumRankData) OrmObject.objectWithJsonStr(postNetData, ForumRankData.class);
         }
@@ -93,7 +93,7 @@ public class ForumRankModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             super.cancel(true);
-            ForumRankModel.this.kNp = null;
+            ForumRankModel.this.kNt = null;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -112,7 +112,7 @@ public class ForumRankModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: a */
         public void onPostExecute(ForumRankData forumRankData) {
-            ForumRankModel.this.kNp = null;
+            ForumRankModel.this.kNt = null;
             if (ForumRankModel.this.mLoadDataCallBack != null) {
                 ForumRankModel.this.mLoadDataCallBack.callback(forumRankData);
             }

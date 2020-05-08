@@ -38,17 +38,17 @@ import java.util.ArrayList;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes8.dex */
 public class InterviewLiveLayout extends FrameLayout implements m<com.baidu.tbadk.core.data.a> {
-    private com.baidu.tbadk.core.data.a ada;
-    private z<com.baidu.tbadk.core.data.a> aez;
-    private View.OnClickListener agA;
-    private TbImageView.c agB;
-    private boolean agt;
-    private TbImageView agu;
-    private LinearLayout agv;
-    private ImageView agw;
-    private TextView agx;
-    private ArrayList<String> agy;
-    private bj agz;
+    private com.baidu.tbadk.core.data.a ade;
+    private z<com.baidu.tbadk.core.data.a> aeC;
+    private TextView agA;
+    private ArrayList<String> agB;
+    private bj agC;
+    private View.OnClickListener agD;
+    private TbImageView.c agE;
+    private boolean agw;
+    private TbImageView agx;
+    private LinearLayout agy;
+    private ImageView agz;
     private long forumId;
     private int mSkinType;
     private String taskId;
@@ -60,18 +60,18 @@ public class InterviewLiveLayout extends FrameLayout implements m<com.baidu.tbad
     public InterviewLiveLayout(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mSkinType = 3;
-        this.agt = true;
-        this.ada = null;
-        this.agy = new ArrayList<>();
-        this.agA = new View.OnClickListener() { // from class: com.baidu.card.view.InterviewLiveLayout.1
+        this.agw = true;
+        this.ade = null;
+        this.agB = new ArrayList<>();
+        this.agD = new View.OnClickListener() { // from class: com.baidu.card.view.InterviewLiveLayout.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (v.getCount(InterviewLiveLayout.this.agy) > 0) {
+                if (v.getCount(InterviewLiveLayout.this.agB) > 0) {
                     if (TbadkCoreApplication.getInst().appResponseToCmd(CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD)) {
-                        String str = (String) InterviewLiveLayout.this.agy.get(0);
+                        String str = (String) InterviewLiveLayout.this.agB.get(0);
                         ConcurrentHashMap<String, ImageUrlData> concurrentHashMap = new ConcurrentHashMap<>();
                         ImageUrlData imageUrlData = new ImageUrlData();
-                        imageUrlData.urlType = InterviewLiveLayout.this.agt ? 13 : 14;
+                        imageUrlData.urlType = InterviewLiveLayout.this.agw ? 13 : 14;
                         imageUrlData.imageUrl = str;
                         imageUrlData.originalUrl = str;
                         imageUrlData.originalSize = 0L;
@@ -80,20 +80,20 @@ public class InterviewLiveLayout extends FrameLayout implements m<com.baidu.tbad
                         imageUrlData.threadId = 0L;
                         imageUrlData.postId = 0L;
                         concurrentHashMap.put(str, imageUrlData);
-                        ImageViewerConfig createConfig = new ImageViewerConfig(InterviewLiveLayout.this.getContext()).createConfig(InterviewLiveLayout.this.agy, 0, "", "", "", InterviewLiveLayout.this.agt, str, false, concurrentHashMap, false);
+                        ImageViewerConfig createConfig = new ImageViewerConfig(InterviewLiveLayout.this.getContext()).createConfig(InterviewLiveLayout.this.agB, 0, "", "", "", InterviewLiveLayout.this.agw, str, false, concurrentHashMap, false);
                         createConfig.getIntent().putExtra("from", "frs");
                         Rect rect = new Rect();
                         view.getGlobalVisibleRect(rect);
                         createConfig.getIntent().putExtra("source_rect_in_screen", rect);
                         createConfig.setIsShowHost(false);
-                        createConfig.setThreadData(InterviewLiveLayout.this.agz);
+                        createConfig.setThreadData(InterviewLiveLayout.this.agC);
                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, createConfig));
                         an anVar = new an("c13327");
                         anVar.t("fid", InterviewLiveLayout.this.forumId);
                         anVar.cI("obj_id", InterviewLiveLayout.this.taskId);
                         TiebaStatic.log(anVar);
-                        if (InterviewLiveLayout.this.aez != null) {
-                            InterviewLiveLayout.this.aez.a(InterviewLiveLayout.this.agu, InterviewLiveLayout.this.ada);
+                        if (InterviewLiveLayout.this.aeC != null) {
+                            InterviewLiveLayout.this.aeC.a(InterviewLiveLayout.this.agx, InterviewLiveLayout.this.ade);
                             return;
                         }
                         return;
@@ -102,7 +102,7 @@ public class InterviewLiveLayout extends FrameLayout implements m<com.baidu.tbad
                 }
             }
         };
-        this.agB = new TbImageView.c() { // from class: com.baidu.card.view.InterviewLiveLayout.2
+        this.agE = new TbImageView.c() { // from class: com.baidu.card.view.InterviewLiveLayout.2
             @Override // com.baidu.tbadk.widget.TbImageView.c
             public void a(TbImageView tbImageView, Canvas canvas) {
                 int i;
@@ -112,10 +112,10 @@ public class InterviewLiveLayout extends FrameLayout implements m<com.baidu.tbad
                 float f3;
                 float f4;
                 if (tbImageView != null && tbImageView.getImageMatrix() != null) {
-                    com.baidu.adp.widget.ImageView.a wM = c.aYm().wM(com.baidu.adp.lib.e.c.kV().genCacheKey(tbImageView.getUrl(), InterviewLiveLayout.this.agt ? 13 : 14));
-                    if (wM != null) {
-                        int width = wM.getWidth();
-                        i = wM.getHeight();
+                    com.baidu.adp.widget.ImageView.a wP = c.aYk().wP(com.baidu.adp.lib.e.c.kV().genCacheKey(tbImageView.getUrl(), InterviewLiveLayout.this.agw ? 13 : 14));
+                    if (wP != null) {
+                        int width = wP.getWidth();
+                        i = wP.getHeight();
                         i2 = width;
                     } else {
                         i = 0;
@@ -166,45 +166,45 @@ public class InterviewLiveLayout extends FrameLayout implements m<com.baidu.tbad
     private void initUI() {
         LayoutInflater.from(getContext()).inflate(R.layout.interview_live_layout, (ViewGroup) this, true);
         setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-        this.agu = (TbImageView) findViewById(R.id.img_interview_live);
-        this.agu.ni(15);
-        this.agu.setPlaceHolder(3);
-        this.agv = (LinearLayout) findViewById(R.id.interview_live_tip_bg);
-        this.agw = (ImageView) findViewById(R.id.interview_live_tip_img);
-        this.agx = (TextView) findViewById(R.id.interview_live_tip);
+        this.agx = (TbImageView) findViewById(R.id.img_interview_live);
+        this.agx.ni(15);
+        this.agx.setPlaceHolder(3);
+        this.agy = (LinearLayout) findViewById(R.id.interview_live_tip_bg);
+        this.agz = (ImageView) findViewById(R.id.interview_live_tip_img);
+        this.agA = (TextView) findViewById(R.id.interview_live_tip);
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void setFromCDN(boolean z) {
-        this.agt = z;
+        this.agw = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.card.m
     /* renamed from: b */
-    public void A(com.baidu.tbadk.core.data.a aVar) {
-        this.ada = aVar;
-        if (aVar == null || this.agu == null) {
+    public void B(com.baidu.tbadk.core.data.a aVar) {
+        this.ade = aVar;
+        if (aVar == null || this.agx == null) {
             setVisibility(8);
             return;
         }
-        bj aIw = aVar.aIw();
-        bh aKk = aIw.aKk();
-        if (aKk == null) {
+        bj aIu = aVar.aIu();
+        bh aKi = aIu.aKi();
+        if (aKi == null) {
             setVisibility(8);
             return;
         }
-        this.agz = aIw;
-        this.forumId = aIw.getFid();
-        this.taskId = aKk.getTaskId();
-        if (i.aIe().isShowImages() && aKk != null && !StringUtils.isNull(aKk.getThreadImgUrl())) {
-            this.agy.clear();
-            this.agy.add(aKk.getThreadImgUrl());
+        this.agC = aIu;
+        this.forumId = aIu.getFid();
+        this.taskId = aKi.getTaskId();
+        if (i.aIc().isShowImages() && aKi != null && !StringUtils.isNull(aKi.getThreadImgUrl())) {
+            this.agB.clear();
+            this.agB.add(aKi.getThreadImgUrl());
             setVisibility(0);
-            this.agu.setSupportNoImage(true);
-            this.agu.setScaleType(ImageView.ScaleType.MATRIX);
-            this.agu.setOnDrawListener(this.agB);
-            this.agu.startLoad(aKk.getThreadImgUrl(), this.agt ? 13 : 14, false);
+            this.agx.setSupportNoImage(true);
+            this.agx.setScaleType(ImageView.ScaleType.MATRIX);
+            this.agx.setOnDrawListener(this.agE);
+            this.agx.startLoad(aKi.getThreadImgUrl(), this.agw ? 13 : 14, false);
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) getLayoutParams();
             layoutParams.width = l.getEquipmentWidth(getContext()) - l.getDimens(getContext(), R.dimen.tbds88);
             layoutParams.height = (int) ((layoutParams.width * 428.0f) / 760.0f);
@@ -212,24 +212,24 @@ public class InterviewLiveLayout extends FrameLayout implements m<com.baidu.tbad
         } else {
             setVisibility(8);
         }
-        this.agu.setOnClickListener(this.agA);
+        this.agx.setOnClickListener(this.agD);
     }
 
     public void setSubClickListener(z<com.baidu.tbadk.core.data.a> zVar) {
-        this.aez = zVar;
+        this.aeC = zVar;
     }
 
     public void onChangeSkinType(int i) {
         if (i != this.mSkinType) {
-            am.setViewTextColor(this.agx, (int) R.color.cp_cont_a);
-            am.setImageResource(this.agw, R.drawable.interview_live_circle_share);
-            am.setBackgroundResource(this.agv, R.drawable.interview_live_circle_bg_shape);
+            am.setViewTextColor(this.agA, (int) R.color.cp_cont_a);
+            am.setImageResource(this.agz, R.drawable.interview_live_circle_share);
+            am.setBackgroundResource(this.agy, R.drawable.interview_live_circle_bg_shape);
         }
     }
 
     public void setPageId(BdUniqueId bdUniqueId) {
-        if (this.agu != null) {
-            this.agu.setPageId(bdUniqueId);
+        if (this.agx != null) {
+            this.agx.setPageId(bdUniqueId);
         }
     }
 }

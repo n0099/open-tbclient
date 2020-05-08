@@ -13,5 +13,5 @@ public interface x {
 
     void onResume();
 
-    View xk();
+    View xj();
 }

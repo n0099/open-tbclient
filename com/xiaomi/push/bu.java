@@ -1,7 +1,34 @@
 package com.xiaomi.push;
 
-import android.database.sqlite.SQLiteOpenHelper;
+import android.content.Context;
+import com.xiaomi.push.cb;
+import java.lang.ref.WeakReference;
 /* loaded from: classes8.dex */
-public abstract class bu extends SQLiteOpenHelper {
-    public abstract String a();
+public class bu implements Runnable {
+    private String a;
+
+    /* renamed from: a  reason: collision with other field name */
+    private WeakReference<Context> f142a;
+
+    public bu(String str, WeakReference<Context> weakReference) {
+        this.a = str;
+        this.f142a = weakReference;
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        Context context;
+        if (this.f142a == null || (context = this.f142a.get()) == null) {
+            return;
+        }
+        if (ch.a(this.a) <= bt.f140a) {
+            com.xiaomi.channel.commonutils.logger.b.b("=====> do not need clean db");
+            return;
+        }
+        bx a = bx.a(this.a);
+        bw a2 = bw.a(this.a);
+        a.a(a2);
+        a2.a(bv.a(context, this.a, 1000));
+        cb.a(context).a((cb.a) a);
+    }
 }

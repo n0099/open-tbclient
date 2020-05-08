@@ -1,28 +1,28 @@
 package com.facebook.imagepipeline.g;
 /* loaded from: classes13.dex */
 public class a extends c {
-    private com.facebook.imagepipeline.animated.base.d mdq;
+    private com.facebook.imagepipeline.animated.base.d mdu;
 
     public a(com.facebook.imagepipeline.animated.base.d dVar) {
-        this.mdq = dVar;
+        this.mdu = dVar;
     }
 
     @Override // com.facebook.imagepipeline.g.f
     public synchronized int getWidth() {
-        return isClosed() ? 0 : this.mdq.dqc().getWidth();
+        return isClosed() ? 0 : this.mdu.dpZ().getWidth();
     }
 
     @Override // com.facebook.imagepipeline.g.f
     public synchronized int getHeight() {
-        return isClosed() ? 0 : this.mdq.dqc().getHeight();
+        return isClosed() ? 0 : this.mdu.dpZ().getHeight();
     }
 
     @Override // com.facebook.imagepipeline.g.c, java.io.Closeable, java.lang.AutoCloseable
     public void close() {
         synchronized (this) {
-            if (this.mdq != null) {
-                com.facebook.imagepipeline.animated.base.d dVar = this.mdq;
-                this.mdq = null;
+            if (this.mdu != null) {
+                com.facebook.imagepipeline.animated.base.d dVar = this.mdu;
+                this.mdu = null;
                 dVar.dispose();
             }
         }
@@ -30,12 +30,12 @@ public class a extends c {
 
     @Override // com.facebook.imagepipeline.g.c
     public synchronized boolean isClosed() {
-        return this.mdq == null;
+        return this.mdu == null;
     }
 
     @Override // com.facebook.imagepipeline.g.c
     public synchronized int getSizeInBytes() {
-        return isClosed() ? 0 : this.mdq.dqc().getSizeInBytes();
+        return isClosed() ? 0 : this.mdu.dpZ().getSizeInBytes();
     }
 
     @Override // com.facebook.imagepipeline.g.c
@@ -43,7 +43,7 @@ public class a extends c {
         return true;
     }
 
-    public synchronized com.facebook.imagepipeline.animated.base.d dsM() {
-        return this.mdq;
+    public synchronized com.facebook.imagepipeline.animated.base.d dsJ() {
+        return this.mdu;
     }
 }

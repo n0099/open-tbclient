@@ -1,40 +1,77 @@
 package com.xiaomi.push.service;
 
-import android.app.Service;
-import android.content.ComponentName;
 import android.content.Context;
-import android.content.ServiceConnection;
-import android.os.IBinder;
+import com.xiaomi.push.hq;
+import java.io.File;
+import java.io.IOException;
+import java.io.RandomAccessFile;
+import java.nio.channels.FileLock;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes8.dex */
-public class bk implements ServiceConnection {
-    final /* synthetic */ XMPushService a;
+public final class bk implements Runnable {
+    final /* synthetic */ Context a;
+
+    /* renamed from: a  reason: collision with other field name */
+    final /* synthetic */ hq f895a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bk(XMPushService xMPushService) {
-        this.a = xMPushService;
+    public bk(Context context, hq hqVar) {
+        this.a = context;
+        this.f895a = hqVar;
     }
 
-    @Override // android.content.ServiceConnection
-    public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-        int i;
-        int i2;
-        com.xiaomi.channel.commonutils.logger.b.b("onServiceConnected " + iBinder);
-        Service a = XMJobService.a();
-        if (a == null) {
-            com.xiaomi.channel.commonutils.logger.b.m50a("XMService connected but innerService is null " + iBinder);
-            return;
+    @Override // java.lang.Runnable
+    public void run() {
+        RandomAccessFile randomAccessFile;
+        FileLock fileLock = null;
+        synchronized (bj.a) {
+            try {
+            } catch (Throwable th) {
+                th = th;
+            }
+            try {
+                File file = new File(this.a.getFilesDir(), "tiny_data.lock");
+                com.xiaomi.push.y.m586a(file);
+                randomAccessFile = new RandomAccessFile(file, "rw");
+                try {
+                    fileLock = randomAccessFile.getChannel().lock();
+                    bj.c(this.a, this.f895a);
+                    if (fileLock != null && fileLock.isValid()) {
+                        try {
+                            fileLock.release();
+                        } catch (IOException e) {
+                            com.xiaomi.channel.commonutils.logger.b.a(e);
+                        }
+                    }
+                    com.xiaomi.push.y.a(randomAccessFile);
+                } catch (Exception e2) {
+                    e = e2;
+                    com.xiaomi.channel.commonutils.logger.b.a(e);
+                    if (fileLock != null && fileLock.isValid()) {
+                        try {
+                            fileLock.release();
+                        } catch (IOException e3) {
+                            com.xiaomi.channel.commonutils.logger.b.a(e3);
+                        }
+                    }
+                    com.xiaomi.push.y.a(randomAccessFile);
+                }
+            } catch (Exception e4) {
+                e = e4;
+                randomAccessFile = null;
+            } catch (Throwable th2) {
+                th = th2;
+                randomAccessFile = null;
+                if (fileLock != null && fileLock.isValid()) {
+                    try {
+                        fileLock.release();
+                    } catch (IOException e5) {
+                        com.xiaomi.channel.commonutils.logger.b.a(e5);
+                    }
+                }
+                com.xiaomi.push.y.a(randomAccessFile);
+                throw th;
+            }
         }
-        XMPushService xMPushService = this.a;
-        i = XMPushService.b;
-        xMPushService.startForeground(i, XMPushService.a((Context) this.a));
-        i2 = XMPushService.b;
-        a.startForeground(i2, XMPushService.a((Context) this.a));
-        a.stopForeground(true);
-        this.a.unbindService(this);
-    }
-
-    @Override // android.content.ServiceConnection
-    public void onServiceDisconnected(ComponentName componentName) {
     }
 }

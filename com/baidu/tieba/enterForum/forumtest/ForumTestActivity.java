@@ -42,21 +42,21 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes9.dex */
 public class ForumTestActivity extends BaseActivity implements b {
-    private NoNetworkView ePl;
-    private ForumTestWebView gAk;
-    private long gAl;
-    private g gAm;
-    private i gpR;
-    private k gpS;
-    private List<g> gpW;
+    private NoNetworkView ePq;
+    private ForumTestWebView gAq;
+    private long gAr;
+    private g gAs;
+    private i gpX;
+    private k gpY;
+    private List<g> gqc;
     private PermissionJudgePolicy mPermissionJudgement;
     private View mStatusBarView;
     private String mUrl = "https://tieba.baidu.com/mo/q/recomforum?testId=";
-    private k.b gAn = new k.b() { // from class: com.baidu.tieba.enterForum.forumtest.ForumTestActivity.4
+    private k.b gAt = new k.b() { // from class: com.baidu.tieba.enterForum.forumtest.ForumTestActivity.4
         @Override // com.baidu.tbadk.core.dialog.k.b
         public void onClick() {
-            ForumTestActivity.this.saveImage(ForumTestActivity.this.gAk.getHitTestResult().getExtra());
-            ForumTestActivity.this.bET();
+            ForumTestActivity.this.saveImage(ForumTestActivity.this.gAq.getHitTestResult().getExtra());
+            ForumTestActivity.this.bER();
         }
     };
 
@@ -67,48 +67,48 @@ public class ForumTestActivity extends BaseActivity implements b {
         setSwipeBackEnabled(false);
         super.onCreate(bundle);
         setContentView(R.layout.activity_forum_test_layout);
-        this.ePl = (NoNetworkView) findViewById(R.id.activity_forum_test_net);
+        this.ePq = (NoNetworkView) findViewById(R.id.activity_forum_test_net);
         this.mStatusBarView = findViewById(R.id.status_bar_view);
-        this.gAk = (ForumTestWebView) findViewById(R.id.activity_forum_test_web);
-        this.gAk.a(this);
-        bId();
+        this.gAq = (ForumTestWebView) findViewById(R.id.activity_forum_test_web);
+        this.gAq.a(this);
+        bIb();
         initData();
-        this.gAk.loadUrl(this.mUrl);
-        this.gAk.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.enterForum.forumtest.ForumTestActivity.1
+        this.gAq.loadUrl(this.mUrl);
+        this.gAq.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.enterForum.forumtest.ForumTestActivity.1
             @Override // android.view.View.OnLongClickListener
             public boolean onLongClick(View view) {
                 return ForumTestActivity.this.handleLongClick();
             }
         });
-        bIc();
+        bIa();
     }
 
     private void initData() {
         Intent intent = getIntent();
         if (intent != null) {
-            this.gAl = intent.getLongExtra(ForumTestActivityConfig.TEST_ID, 0L);
-            this.mUrl += this.gAl;
+            this.gAr = intent.getLongExtra(ForumTestActivityConfig.TEST_ID, 0L);
+            this.mUrl += this.gAr;
         }
     }
 
-    private void bIc() {
-        if (this.gpR == null) {
-            this.gpS = new k(this);
+    private void bIa() {
+        if (this.gpX == null) {
+            this.gpY = new k(this);
         }
-        if (this.gpW == null) {
-            this.gpW = new ArrayList();
+        if (this.gqc == null) {
+            this.gqc = new ArrayList();
         }
-        this.gpR = new i(getPageContext(), this.gpS);
+        this.gpX = new i(getPageContext(), this.gpY);
     }
 
-    private void bId() {
+    private void bIb() {
         ViewGroup.LayoutParams layoutParams = this.mStatusBarView.getLayoutParams();
         layoutParams.height = UtilHelper.getStatusBarHeight();
         this.mStatusBarView.setLayoutParams(layoutParams);
         if (TbSingleton.getInstance().isNotchScreen(getActivity()) || TbSingleton.getInstance().isCutoutScreen(getActivity())) {
-            RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.gAk.getLayoutParams();
+            RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.gAq.getLayoutParams();
             layoutParams2.addRule(3, R.id.status_bar_view);
-            this.gAk.setLayoutParams(layoutParams2);
+            this.gAq.setLayoutParams(layoutParams2);
         }
     }
 
@@ -149,11 +149,11 @@ public class ForumTestActivity extends BaseActivity implements b {
                 return true;
             } else if ("finishTestAnswer".equals(str2)) {
                 try {
-                    this.gAl = new JSONObject(str3).optLong("testId");
+                    this.gAr = new JSONObject(str3).optLong("testId");
                 } catch (JSONException e2) {
                     e2.printStackTrace();
                 }
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921383, Long.valueOf(this.gAl)));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921383, Long.valueOf(this.gAr)));
                 finish();
                 jsPromptResult.confirm("finishTestAnswer");
                 return true;
@@ -166,20 +166,20 @@ public class ForumTestActivity extends BaseActivity implements b {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.gAk.onResume();
+        this.gAq.onResume();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        this.gAk.onPause();
+        this.gAq.onPause();
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (i == 4 && this.gAk.canGoBack()) {
-            this.gAk.goBack();
+        if (i == 4 && this.gAq.canGoBack()) {
+            this.gAq.goBack();
             return true;
         }
         return super.onKeyDown(i, keyEvent);
@@ -188,12 +188,12 @@ public class ForumTestActivity extends BaseActivity implements b {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
-        if (this.gAk != null) {
-            this.gAk.loadDataWithBaseURL(null, "", "text/html", "utf-8", null);
-            this.gAk.clearHistory();
-            ((ViewGroup) this.gAk.getParent()).removeView(this.gAk);
-            this.gAk.destroy();
-            this.gAk = null;
+        if (this.gAq != null) {
+            this.gAq.loadDataWithBaseURL(null, "", "text/html", "utf-8", null);
+            this.gAq.clearHistory();
+            ((ViewGroup) this.gAq.getParent()).removeView(this.gAq);
+            this.gAq.destroy();
+            this.gAq = null;
         }
         super.onDestroy();
     }
@@ -201,26 +201,26 @@ public class ForumTestActivity extends BaseActivity implements b {
     /* JADX INFO: Access modifiers changed from: private */
     public boolean handleLongClick() {
         WebView.HitTestResult hitTestResult;
-        if (this.gAk == null || (hitTestResult = this.gAk.getHitTestResult()) == null || hitTestResult.getType() != 5) {
+        if (this.gAq == null || (hitTestResult = this.gAq.getHitTestResult()) == null || hitTestResult.getType() != 5) {
             return false;
         }
-        bIe();
+        bIc();
         show();
         return true;
     }
 
-    private void bIe() {
-        this.gpW.clear();
-        this.gAm = new g(getString(R.string.save_this_image), this.gpS);
-        this.gAm.a(this.gAn);
-        this.gpW.add(this.gAm);
-        this.gpS.a(new k.a() { // from class: com.baidu.tieba.enterForum.forumtest.ForumTestActivity.3
+    private void bIc() {
+        this.gqc.clear();
+        this.gAs = new g(getString(R.string.save_this_image), this.gpY);
+        this.gAs.a(this.gAt);
+        this.gqc.add(this.gAs);
+        this.gpY.a(new k.a() { // from class: com.baidu.tieba.enterForum.forumtest.ForumTestActivity.3
             @Override // com.baidu.tbadk.core.dialog.k.a
             public void onClick() {
-                ForumTestActivity.this.bET();
+                ForumTestActivity.this.bER();
             }
         });
-        this.gpS.aI(this.gpW);
+        this.gpY.aI(this.gqc);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -247,15 +247,15 @@ public class ForumTestActivity extends BaseActivity implements b {
     }
 
     private void show() {
-        if (this.gpR != null && !isFinishing()) {
-            this.gpR.showDialog();
+        if (this.gpX != null && !isFinishing()) {
+            this.gpX.showDialog();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bET() {
-        if (this.gpR != null && this.gpR.isShowing()) {
-            this.gpR.dismiss();
+    public void bER() {
+        if (this.gpX != null && this.gpX.isShowing()) {
+            this.gpX.dismiss();
         }
     }
 

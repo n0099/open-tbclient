@@ -19,20 +19,20 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes9.dex */
 public class j extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.enterForum.tabfeed.b.d, com.baidu.tieba.card.a.a<a>> {
-    private r ahv;
-    public BdUniqueId ebv;
+    private r ahy;
+    public BdUniqueId ebA;
     private TbPageContext<?> mPageContext;
     private String mTabName;
 
     public j(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, String str) {
         super(tbPageContext.getPageActivity(), bdUniqueId, bdUniqueId2);
         this.mPageContext = tbPageContext;
-        this.ebv = bdUniqueId2;
+        this.ebA = bdUniqueId2;
         this.mTabName = str;
     }
 
     public void a(r rVar) {
-        this.ahv = rVar;
+        this.ahy = rVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -44,7 +44,7 @@ public class j extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.enterForu
         a(new v() { // from class: com.baidu.tieba.enterForum.tabfeed.a.j.1
             @Override // com.baidu.adp.widget.ListView.v
             public void a(View view, m mVar, BdUniqueId bdUniqueId, ViewGroup viewGroup2, int i, long j) {
-                aVar.bJx();
+                aVar.bJv();
                 an anVar = new an("c13647");
                 anVar.t("uid", TbadkApplication.getCurrentAccountId());
                 anVar.af("obj_id", j.this.getPositionByType(i) + 1);
@@ -59,35 +59,35 @@ public class j extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.enterForu
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.enterForum.tabfeed.b.d dVar, com.baidu.tieba.card.a.a<a> aVar) {
-        if (dVar == null || aVar == null || aVar.bFB() == null) {
+        if (dVar == null || aVar == null || aVar.bFz() == null) {
             return null;
         }
-        aVar.bFB().a(dVar);
+        aVar.bFz().a(dVar);
         an anVar = new an("c13646");
         anVar.t("uid", TbadkApplication.getCurrentAccountId());
         anVar.af("obj_id", getPositionByType(i) + 1);
         anVar.cI("resource_id", this.mTabName);
         TiebaStatic.log(anVar);
-        return aVar.bFB().getView();
+        return aVar.bFz().getView();
     }
 
     /* loaded from: classes9.dex */
     public static class a extends com.baidu.tieba.card.a<com.baidu.tieba.enterForum.tabfeed.b.d> {
-        private TbImageView gGS;
-        private String gGT;
+        private TbImageView gGY;
+        private String gGZ;
         private TbPageContext<?> mPageContext;
 
         public a(TbPageContext<?> tbPageContext, ViewGroup viewGroup) {
             super(tbPageContext, viewGroup);
             this.mPageContext = tbPageContext;
-            this.gGS = (TbImageView) getView().findViewById(R.id.image);
-            this.gGS.setOnClickListener(this);
-            this.gGS.setConrers(15);
-            this.gGS.setScaleType(ImageView.ScaleType.FIT_XY);
-            this.gGS.setRadius(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds10));
-            this.gGS.setDrawCorner(true);
-            this.gGS.setAutoChangeStyle(true);
-            this.gGS.setPlaceHolder(2);
+            this.gGY = (TbImageView) getView().findViewById(R.id.image);
+            this.gGY.setOnClickListener(this);
+            this.gGY.setConrers(15);
+            this.gGY.setScaleType(ImageView.ScaleType.FIT_XY);
+            this.gGY.setRadius(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds10));
+            this.gGY.setDrawCorner(true);
+            this.gGY.setAutoChangeStyle(true);
+            this.gGY.setPlaceHolder(2);
         }
 
         @Override // com.baidu.tieba.card.a
@@ -103,24 +103,24 @@ public class j extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.enterForu
         @Override // com.baidu.tieba.card.a
         public void a(com.baidu.tieba.enterForum.tabfeed.b.d dVar) {
             if (dVar != null) {
-                this.gGT = dVar.res_link;
-                this.gGS.setScaleType(ImageView.ScaleType.FIT_XY);
-                this.gGS.setPlaceHolder(2);
-                this.gGS.startLoad(dVar.res_image, 10, false);
+                this.gGZ = dVar.res_link;
+                this.gGY.setScaleType(ImageView.ScaleType.FIT_XY);
+                this.gGY.setPlaceHolder(2);
+                this.gGY.startLoad(dVar.res_image, 10, false);
             }
             onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         }
 
-        public void bJx() {
-            if (!TextUtils.isEmpty(this.gGT)) {
-                ba.aOY().b(this.mPageContext, new String[]{this.gGT});
+        public void bJv() {
+            if (!TextUtils.isEmpty(this.gGZ)) {
+                ba.aOV().b(this.mPageContext, new String[]{this.gGZ});
             }
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (view == this.gGS) {
-                bJx();
+            if (view == this.gGY) {
+                bJv();
             }
         }
     }

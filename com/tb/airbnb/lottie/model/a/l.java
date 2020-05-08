@@ -5,61 +5,61 @@ import android.support.annotation.Nullable;
 import com.tb.airbnb.lottie.a.b.o;
 /* loaded from: classes6.dex */
 public class l implements com.tb.airbnb.lottie.model.content.b {
-    private final e mPs;
-    private final m<PointF, PointF> mPt;
-    private final g mPu;
-    private final b mPv;
-    private final d mPw;
     @Nullable
-    private final b mPx;
+    private final b mPA;
     @Nullable
+    private final b mPB;
+    private final e mPv;
+    private final m<PointF, PointF> mPw;
+    private final g mPx;
     private final b mPy;
+    private final d mPz;
 
     public l() {
         this(new e(), new e(), new g(), new b(), new d(), new b(), new b());
     }
 
     public l(e eVar, m<PointF, PointF> mVar, g gVar, b bVar, d dVar, @Nullable b bVar2, @Nullable b bVar3) {
-        this.mPs = eVar;
-        this.mPt = mVar;
-        this.mPu = gVar;
-        this.mPv = bVar;
-        this.mPw = dVar;
-        this.mPx = bVar2;
-        this.mPy = bVar3;
+        this.mPv = eVar;
+        this.mPw = mVar;
+        this.mPx = gVar;
+        this.mPy = bVar;
+        this.mPz = dVar;
+        this.mPA = bVar2;
+        this.mPB = bVar3;
     }
 
-    public e dBu() {
-        return this.mPs;
-    }
-
-    public m<PointF, PointF> dBv() {
-        return this.mPt;
-    }
-
-    public g dBw() {
-        return this.mPu;
-    }
-
-    public b dBx() {
+    public e dBq() {
         return this.mPv;
     }
 
-    public d dBy() {
+    public m<PointF, PointF> dBr() {
         return this.mPw;
     }
 
-    @Nullable
-    public b dBz() {
+    public g dBs() {
         return this.mPx;
     }
 
-    @Nullable
-    public b dBA() {
+    public b dBt() {
         return this.mPy;
     }
 
-    public o dBB() {
+    public d dBu() {
+        return this.mPz;
+    }
+
+    @Nullable
+    public b dBv() {
+        return this.mPA;
+    }
+
+    @Nullable
+    public b dBw() {
+        return this.mPB;
+    }
+
+    public o dBx() {
         return new o(this);
     }
 

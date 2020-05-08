@@ -7,26 +7,26 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class e extends com.baidu.swan.apps.media.audio.b.a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private EventTargetImpl cJd;
-    private b cJe;
+    private EventTargetImpl cJj;
+    private b cJk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(EventTargetImpl eventTargetImpl, JSONObject jSONObject) {
         super(null, jSONObject);
-        this.cJd = eventTargetImpl;
+        this.cJj = eventTargetImpl;
     }
 
     public void a(b bVar) {
-        this.cJe = bVar;
+        this.cJk = bVar;
     }
 
     @Override // com.baidu.swan.apps.media.audio.b.a
     public void e(String str, JSONObject jSONObject) {
-        String optString = this.bZJ.optString(str);
-        if (this.cJe != null) {
-            this.cJe.e(optString, jSONObject);
+        String optString = this.bZP.optString(str);
+        if (this.cJk != null) {
+            this.cJk.e(optString, jSONObject);
         }
-        if (this.cJd.hasEventListener(optString)) {
+        if (this.cJj.hasEventListener(optString)) {
             JSEvent jSEvent = new JSEvent(optString);
             if (jSONObject != null) {
                 jSEvent.data = jSONObject;
@@ -34,12 +34,12 @@ public class e extends com.baidu.swan.apps.media.audio.b.a {
             if (DEBUG && !"onTimeUpdate".equals(str)) {
                 Log.d("AudioCallbackForV8", "type = " + str + "  result = " + (jSONObject != null ? jSONObject.toString() : "null"));
             }
-            this.cJd.dispatchEvent(jSEvent);
+            this.cJj.dispatchEvent(jSEvent);
         }
     }
 
     @Override // com.baidu.swan.apps.media.audio.b.a
-    public boolean afk() {
+    public boolean afj() {
         return true;
     }
 }

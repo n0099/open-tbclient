@@ -5,18 +5,18 @@ import java.util.Map;
 import java.util.Random;
 /* loaded from: classes.dex */
 public class f {
-    private static f Hd = null;
+    private static f Hg = null;
     private int mSequenceId = 0;
 
     public static f jB() {
-        if (Hd == null) {
+        if (Hg == null) {
             synchronized (f.class) {
-                if (Hd == null) {
-                    Hd = new f();
+                if (Hg == null) {
+                    Hg = new f();
                 }
             }
         }
-        return Hd;
+        return Hg;
     }
 
     public synchronized void setSequenceId(Map<String, String> map) {

@@ -6,7 +6,7 @@ import org.json.JSONObject;
 public abstract class b {
     public abstract void aG(JSONObject jSONObject);
 
-    public abstract void aht();
+    public abstract void ahs();
 
     @NonNull
     public abstract String getNodeName();

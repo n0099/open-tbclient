@@ -1,281 +1,229 @@
 package com.xiaomi.push;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
-import android.text.TextUtils;
-import android.util.Log;
-import android.util.Pair;
-import com.xiaomi.channel.commonutils.logger.LoggerInterface;
+import android.os.Build;
+import com.xiaomi.mipush.sdk.Constants;
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-import java.io.RandomAccessFile;
-import java.nio.channels.FileLock;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Date;
-import java.util.List;
+import java.util.Iterator;
+import java.util.Locale;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 /* loaded from: classes8.dex */
-public class dh implements LoggerInterface {
+class dh {
+    private static String a = "/MiPushLog";
 
     /* renamed from: a  reason: collision with other field name */
-    private Context f239a;
-    private String b;
-    private String c = "";
+    private int f201a;
 
     /* renamed from: a  reason: collision with other field name */
-    private static final SimpleDateFormat f237a = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss aaa");
-    private static al a = new al(true);
+    private boolean f204a;
+
+    /* renamed from: b  reason: collision with other field name */
+    private String f205b;
+    private String c;
+    @SuppressLint({"SimpleDateFormat"})
 
     /* renamed from: a  reason: collision with other field name */
-    public static String f236a = "/MiPushLog";
+    private final SimpleDateFormat f202a = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    private int b = 2097152;
 
     /* renamed from: a  reason: collision with other field name */
-    private static List<Pair<String, Throwable>> f238a = Collections.synchronizedList(new ArrayList());
+    private ArrayList<File> f203a = new ArrayList<>();
 
-    public dh(Context context) {
-        this.f239a = context;
-        if (context.getApplicationContext() != null) {
-            this.f239a = context.getApplicationContext();
+    private void a(BufferedReader bufferedReader, BufferedWriter bufferedWriter, Pattern pattern) {
+        int i;
+        boolean z;
+        char[] cArr = new char[4096];
+        int read = bufferedReader.read(cArr);
+        boolean z2 = false;
+        while (read != -1 && !z2) {
+            String str = new String(cArr, 0, read);
+            Matcher matcher = pattern.matcher(str);
+            int i2 = 0;
+            int i3 = 0;
+            while (i2 < read && matcher.find(i2)) {
+                i = matcher.start();
+                String substring = str.substring(i, this.f205b.length() + i);
+                if (this.f204a) {
+                    if (substring.compareTo(this.c) > 0) {
+                        z = true;
+                        break;
+                    }
+                } else if (substring.compareTo(this.f205b) >= 0) {
+                    this.f204a = true;
+                    i3 = i;
+                }
+                int indexOf = str.indexOf(10, i);
+                i2 = indexOf != -1 ? i + indexOf : i + this.f205b.length();
+            }
+            i = read;
+            z = z2;
+            if (this.f204a) {
+                int i4 = i - i3;
+                this.f201a += i4;
+                if (z) {
+                    bufferedWriter.write(cArr, i3, i4);
+                    return;
+                }
+                bufferedWriter.write(cArr, i3, i4);
+                if (this.f201a > this.b) {
+                    return;
+                }
+            }
+            z2 = z;
+            read = bufferedReader.read(cArr);
         }
-        this.b = this.f239a.getPackageName();
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:109:0x021e */
-    /* JADX DEBUG: Multi-variable search result rejected for r2v1, resolved type: java.io.BufferedWriter */
-    /* JADX INFO: Access modifiers changed from: private */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:41:0x0086 */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:136:0x01f9 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:150:0x01e9 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Type inference failed for: r2v0, types: [java.nio.channels.FileLock] */
-    /* JADX WARN: Type inference failed for: r2v11 */
-    /* JADX WARN: Type inference failed for: r2v13 */
-    /* JADX WARN: Type inference failed for: r2v23 */
-    /* JADX WARN: Type inference failed for: r2v25 */
-    /* JADX WARN: Type inference failed for: r2v6 */
-    /* renamed from: a  reason: collision with other method in class */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void m224a() {
-        FileLock fileLock;
-        RandomAccessFile randomAccessFile;
+    /* JADX WARN: Type inference failed for: r3v17, types: [java.lang.String] */
+    private void a(File file) {
         BufferedWriter bufferedWriter;
-        RandomAccessFile randomAccessFile2;
-        File externalFilesDir;
-        BufferedWriter bufferedWriter2 = 0;
-        bufferedWriter2 = 0;
-        r2 = null;
-        bufferedWriter2 = 0;
-        FileLock fileLock2 = null;
-        RandomAccessFile randomAccessFile3 = null;
-        FileLock fileLock3 = null;
-        BufferedWriter bufferedWriter3 = null;
+        BufferedReader bufferedReader = null;
+        Pattern compile = Pattern.compile("\\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}:\\d{2}");
         try {
-            if (TextUtils.isEmpty(this.c) && (externalFilesDir = this.f239a.getExternalFilesDir(null)) != null) {
-                this.c = externalFilesDir.getAbsolutePath() + "";
-            }
-            File file = new File(this.c + f236a);
-            if ((!file.exists() || !file.isDirectory()) && !file.mkdirs()) {
-                Log.w(this.b, "Create mipushlog directory fail.");
-                if (0 != 0) {
-                    try {
-                        bufferedWriter3.close();
-                    } catch (IOException e) {
-                        Log.e(this.b, "", e);
-                    }
-                }
-                if (0 != 0 && bufferedWriter2.isValid()) {
-                    try {
-                        fileLock3.release();
-                    } catch (IOException e2) {
-                        Log.e(this.b, "", e2);
-                    }
-                }
-                if (0 != 0) {
-                    try {
-                        randomAccessFile3.close();
-                        return;
-                    } catch (IOException e3) {
-                        Log.e(this.b, "", e3);
-                        return;
-                    }
-                }
-                return;
-            }
-            File file2 = new File(file, "log.lock");
-            if (!file2.exists() || file2.isDirectory()) {
-                file2.createNewFile();
-            }
-            randomAccessFile = new RandomAccessFile(file2, "rw");
             try {
-                fileLock = randomAccessFile.getChannel().lock();
+                bufferedWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file)));
                 try {
-                    BufferedWriter bufferedWriter4 = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(new File(file, "log1.txt"), true)));
-                    while (!f238a.isEmpty()) {
+                    StringBuilder sb = new StringBuilder();
+                    sb.append("model :").append(Build.MODEL);
+                    sb.append("; os :").append(Build.VERSION.INCREMENTAL);
+                    sb.append("; uid :").append(com.xiaomi.push.service.be.m555a());
+                    sb.append("; lng :").append(Locale.getDefault().toString());
+                    sb.append("; sdk :").append(39);
+                    sb.append("; andver :").append(Build.VERSION.SDK_INT);
+                    sb.append("\n");
+                    bufferedWriter.write(sb.toString());
+                    this.f201a = 0;
+                    Iterator<File> it = this.f203a.iterator();
+                    BufferedReader bufferedReader2 = "\n";
+                    while (true) {
                         try {
-                            Pair<String, Throwable> remove = f238a.remove(0);
-                            String str = (String) remove.first;
-                            if (remove.second != null) {
-                                str = (str + "\n") + Log.getStackTraceString((Throwable) remove.second);
+                            bufferedReader2 = bufferedReader;
+                            if (!it.hasNext()) {
+                                bufferedWriter.write(cz.a().c());
+                                y.a(bufferedWriter);
+                                y.a(bufferedReader2);
+                                return;
                             }
-                            bufferedWriter4.write(str + "\n");
-                        } catch (Exception e4) {
-                            e = e4;
-                            bufferedWriter = bufferedWriter4;
-                            fileLock2 = fileLock;
-                            randomAccessFile2 = randomAccessFile;
+                            bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(it.next())));
+                            a(bufferedReader, bufferedWriter, compile);
+                            bufferedReader.close();
+                            bufferedReader2 = bufferedReader2;
+                        } catch (FileNotFoundException e) {
+                            e = e;
+                            bufferedReader = bufferedReader2;
+                            com.xiaomi.channel.commonutils.logger.b.c("LOG: filter error = " + e.getMessage());
+                            y.a(bufferedWriter);
+                            y.a(bufferedReader);
+                            return;
+                        } catch (IOException e2) {
+                            e = e2;
+                            bufferedReader = bufferedReader2;
+                            com.xiaomi.channel.commonutils.logger.b.c("LOG: filter error = " + e.getMessage());
+                            y.a(bufferedWriter);
+                            y.a(bufferedReader);
+                            return;
                         } catch (Throwable th) {
                             th = th;
-                            bufferedWriter2 = bufferedWriter4;
-                        }
-                    }
-                    bufferedWriter4.flush();
-                    if (bufferedWriter4 != null) {
-                        bufferedWriter4.close();
-                        bufferedWriter = null;
-                    } else {
-                        bufferedWriter = bufferedWriter4;
-                    }
-                    try {
-                        File file3 = new File(file, "log1.txt");
-                        if (file3.length() >= 1048576) {
-                            File file4 = new File(file, "log0.txt");
-                            if (file4.exists() && file4.isFile()) {
-                                file4.delete();
-                            }
-                            file3.renameTo(file4);
-                        }
-                        if (bufferedWriter != null) {
-                            try {
-                                bufferedWriter.close();
-                            } catch (IOException e5) {
-                                Log.e(this.b, "", e5);
-                            }
-                        }
-                        if (fileLock != null && fileLock.isValid()) {
-                            try {
-                                fileLock.release();
-                            } catch (IOException e6) {
-                                Log.e(this.b, "", e6);
-                            }
-                        }
-                        if (randomAccessFile != null) {
-                            try {
-                                randomAccessFile.close();
-                            } catch (IOException e7) {
-                                Log.e(this.b, "", e7);
-                            }
-                        }
-                    } catch (Exception e8) {
-                        e = e8;
-                        fileLock2 = fileLock;
-                        randomAccessFile2 = randomAccessFile;
-                        try {
-                            Log.e(this.b, "", e);
-                            if (bufferedWriter != null) {
-                                try {
-                                    bufferedWriter.close();
-                                } catch (IOException e9) {
-                                    Log.e(this.b, "", e9);
-                                }
-                            }
-                            if (fileLock2 != null && fileLock2.isValid()) {
-                                try {
-                                    fileLock2.release();
-                                } catch (IOException e10) {
-                                    Log.e(this.b, "", e10);
-                                }
-                            }
-                            if (randomAccessFile2 != null) {
-                                try {
-                                    randomAccessFile2.close();
-                                } catch (IOException e11) {
-                                    Log.e(this.b, "", e11);
-                                }
-                            }
-                        } catch (Throwable th2) {
-                            th = th2;
-                            fileLock = fileLock2;
-                            randomAccessFile = randomAccessFile2;
-                            bufferedWriter2 = bufferedWriter;
-                            if (bufferedWriter2 != 0) {
-                                try {
-                                    bufferedWriter2.close();
-                                } catch (IOException e12) {
-                                    Log.e(this.b, "", e12);
-                                }
-                            }
-                            if (fileLock != null && fileLock.isValid()) {
-                                try {
-                                    fileLock.release();
-                                } catch (IOException e13) {
-                                    Log.e(this.b, "", e13);
-                                }
-                            }
-                            if (randomAccessFile != null) {
-                                try {
-                                    randomAccessFile.close();
-                                } catch (IOException e14) {
-                                    Log.e(this.b, "", e14);
-                                }
-                            }
+                            bufferedReader = bufferedReader2;
+                            y.a(bufferedWriter);
+                            y.a(bufferedReader);
                             throw th;
                         }
-                    } catch (Throwable th3) {
-                        th = th3;
-                        bufferedWriter2 = bufferedWriter;
-                        if (bufferedWriter2 != 0) {
-                        }
-                        if (fileLock != null) {
-                            fileLock.release();
-                        }
-                        if (randomAccessFile != null) {
-                        }
-                        throw th;
                     }
-                } catch (Exception e15) {
-                    e = e15;
-                    bufferedWriter = null;
-                    randomAccessFile2 = randomAccessFile;
-                    fileLock2 = fileLock;
-                } catch (Throwable th4) {
-                    th = th4;
+                } catch (FileNotFoundException e3) {
+                    e = e3;
+                } catch (IOException e4) {
+                    e = e4;
                 }
-            } catch (Exception e16) {
-                e = e16;
-                bufferedWriter = null;
-                randomAccessFile2 = randomAccessFile;
-            } catch (Throwable th5) {
-                th = th5;
-                fileLock = null;
+            } catch (Throwable th2) {
+                th = th2;
             }
-        } catch (Exception e17) {
-            e = e17;
+        } catch (FileNotFoundException e5) {
+            e = e5;
             bufferedWriter = null;
-            randomAccessFile2 = null;
-        } catch (Throwable th6) {
-            th = th6;
-            fileLock = null;
-            randomAccessFile = null;
+        } catch (IOException e6) {
+            e = e6;
+            bufferedWriter = null;
+        } catch (Throwable th3) {
+            th = th3;
+            bufferedWriter = null;
         }
     }
 
-    @Override // com.xiaomi.channel.commonutils.logger.LoggerInterface
-    public final void log(String str) {
-        log(str, null);
+    /* renamed from: a  reason: collision with other method in class */
+    dh m222a(File file) {
+        if (file.exists()) {
+            this.f203a.add(file);
+        }
+        return this;
     }
 
-    @Override // com.xiaomi.channel.commonutils.logger.LoggerInterface
-    public final void log(String str, Throwable th) {
-        f238a.add(new Pair<>(String.format("%1$s %2$s %3$s ", f237a.format(new Date()), this.b, str), th));
-        a.a(new di(this));
+    dh a(Date date, Date date2) {
+        if (date.after(date2)) {
+            this.f205b = this.f202a.format(date2);
+            this.c = this.f202a.format(date);
+        } else {
+            this.f205b = this.f202a.format(date);
+            this.c = this.f202a.format(date2);
+        }
+        return this;
     }
 
-    @Override // com.xiaomi.channel.commonutils.logger.LoggerInterface
-    public final void setTag(String str) {
-        this.b = str;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public File a(Context context, Date date, Date date2, File file) {
+        File file2;
+        if ("com.xiaomi.xmsf".equalsIgnoreCase(context.getPackageName())) {
+            file2 = context.getFilesDir();
+            m222a(new File(file2, "xmsf.log.1"));
+            m222a(new File(file2, "xmsf.log"));
+        } else {
+            file2 = new File(context.getExternalFilesDir(null) + a);
+            m222a(new File(file2, "log0.txt"));
+            m222a(new File(file2, "log1.txt"));
+        }
+        if (file2.isDirectory()) {
+            File file3 = new File(file, date.getTime() + Constants.ACCEPT_TIME_SEPARATOR_SERVER + date2.getTime() + ".zip");
+            if (file3.exists()) {
+                return null;
+            }
+            a(date, date2);
+            long currentTimeMillis = System.currentTimeMillis();
+            File file4 = new File(file, "log.txt");
+            a(file4);
+            com.xiaomi.channel.commonutils.logger.b.c("LOG: filter cost = " + (System.currentTimeMillis() - currentTimeMillis));
+            if (file4.exists()) {
+                long currentTimeMillis2 = System.currentTimeMillis();
+                y.a(file3, file4);
+                com.xiaomi.channel.commonutils.logger.b.c("LOG: zip cost = " + (System.currentTimeMillis() - currentTimeMillis2));
+                file4.delete();
+                if (file3.exists()) {
+                    return file3;
+                }
+            }
+            return null;
+        }
+        return null;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public void a(int i) {
+        if (i != 0) {
+            this.b = i;
+        }
     }
 }

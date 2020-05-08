@@ -3,6 +3,8 @@ package com.baidu.mario.gldraw2d.c;
 import com.baidu.mario.gldraw2d.d.d;
 /* loaded from: classes11.dex */
 public abstract class a {
+    protected abstract void Im();
+
     protected abstract void In();
 
     protected abstract void Io();
@@ -10,8 +12,6 @@ public abstract class a {
     protected abstract void Ip();
 
     protected abstract void Iq();
-
-    protected abstract void Ir();
 
     protected abstract void a(com.baidu.mario.gldraw2d.d.a aVar, com.baidu.mario.gldraw2d.params.b bVar);
 

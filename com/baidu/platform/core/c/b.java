@@ -7,7 +7,6 @@ import com.baidu.mapapi.search.poi.OnGetPoiSearchResultListener;
 import com.baidu.mapapi.search.poi.PoiIndoorInfo;
 import com.baidu.mapapi.search.poi.PoiIndoorResult;
 import com.baidu.mobads.interfaces.IXAdRequestInfo;
-import com.baidu.sapi2.activity.SlideActiviy;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -36,7 +35,7 @@ public class b extends com.baidu.platform.base.d {
                                     JSONObject jSONObject2 = (JSONObject) optJSONArray.opt(i2);
                                     if (jSONObject2 != null) {
                                         PoiIndoorInfo poiIndoorInfo = new PoiIndoorInfo();
-                                        poiIndoorInfo.address = jSONObject2.optString(SlideActiviy.ADDRESS_PAGE_NAME);
+                                        poiIndoorInfo.address = jSONObject2.optString("address");
                                         poiIndoorInfo.bid = jSONObject2.optString("bd_id");
                                         poiIndoorInfo.cid = jSONObject2.optInt(IXAdRequestInfo.CELL_ID);
                                         poiIndoorInfo.discount = jSONObject2.optInt("discount");

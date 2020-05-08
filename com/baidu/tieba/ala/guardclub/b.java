@@ -18,18 +18,18 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class b implements com.baidu.live.guardclub.i {
-    private static volatile b fjc = null;
+    private static volatile b fjh = null;
     private long currLiveId;
 
-    public static b boy() {
-        if (fjc == null) {
+    public static b bow() {
+        if (fjh == null) {
             synchronized (b.class) {
-                if (fjc == null) {
-                    fjc = new b();
+                if (fjh == null) {
+                    fjh = new b();
                 }
             }
         }
-        return fjc;
+        return fjh;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:21:0x0058  */
@@ -42,16 +42,16 @@ public class b implements com.baidu.live.guardclub.i {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void b(Context context, final long j, long j2, String str, String str2) {
-        ak Au;
+        ak At;
         JSONArray jSONArray;
         int i;
         Map<String, Object> process;
-        if ((TbadkCoreApplication.sAlaLiveSwitchData == null || !TbadkCoreApplication.sAlaLiveSwitchData.isGuardFansUnabled()) && (Au = com.baidu.live.guardclub.g.As().Au()) != null) {
+        if ((TbadkCoreApplication.sAlaLiveSwitchData == null || !TbadkCoreApplication.sAlaLiveSwitchData.isGuardFansUnabled()) && (At = com.baidu.live.guardclub.g.Ar().At()) != null) {
             this.currLiveId = j;
-            int i2 = Au.auS;
-            int i3 = Au.auT;
+            int i2 = At.auY;
+            int i3 = At.auZ;
             String b = com.baidu.live.utils.j.b(new Date());
-            String string = com.baidu.live.c.tH().getString("guardclub_im_entry_show_trace", "");
+            String string = com.baidu.live.c.tG().getString("guardclub_im_entry_show_trace", "");
             if (!TextUtils.isEmpty(string)) {
                 try {
                     jSONArray = new JSONArray(string);
@@ -86,7 +86,7 @@ public class b implements com.baidu.live.guardclub.i {
                         }
                     }
                     this.currLiveId = j;
-                    int i5 = Au.auU;
+                    int i5 = At.ava;
                     boolean z = false;
                     HashMap hashMap = new HashMap();
                     hashMap.put("test_guardClub_im_entry", false);
@@ -121,7 +121,7 @@ public class b implements com.baidu.live.guardclub.i {
             if (i3 >= 0) {
             }
             this.currLiveId = j;
-            int i52 = Au.auU;
+            int i52 = At.ava;
             boolean z2 = false;
             HashMap hashMap2 = new HashMap();
             hashMap2.put("test_guardClub_im_entry", false);
@@ -144,21 +144,21 @@ public class b implements com.baidu.live.guardclub.i {
     }
 
     @Override // com.baidu.live.guardclub.i
-    public void Ax() {
+    public void Aw() {
         int i;
         JSONArray jSONArray;
         int i2 = 0;
         try {
-            ak Au = com.baidu.live.guardclub.g.As().Au();
-            if (Au != null) {
-                i = Au.auS;
-                i2 = Au.auT;
+            ak At = com.baidu.live.guardclub.g.Ar().At();
+            if (At != null) {
+                i = At.auY;
+                i2 = At.auZ;
             } else {
                 i = 0;
             }
             if (i >= 0 || i2 >= 0) {
                 String b = com.baidu.live.utils.j.b(new Date());
-                String string = com.baidu.live.c.tH().getString("guardclub_im_entry_show_trace", "");
+                String string = com.baidu.live.c.tG().getString("guardclub_im_entry_show_trace", "");
                 if (!TextUtils.isEmpty(string)) {
                     jSONArray = new JSONArray(string);
                 } else {
@@ -167,7 +167,7 @@ public class b implements com.baidu.live.guardclub.i {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("date", b);
                 jSONArray.put(jSONObject);
-                com.baidu.live.c.tH().putString("guardclub_im_entry_show_trace", jSONArray.toString());
+                com.baidu.live.c.tG().putString("guardclub_im_entry_show_trace", jSONArray.toString());
             }
         } catch (JSONException e) {
             e.printStackTrace();

@@ -183,20 +183,20 @@ public class b {
 
     private static String iM(int i) {
         if (i == 1) {
-            return com.baidu.swan.pms.d.aBC().acQ();
+            return com.baidu.swan.pms.d.aBC().acP();
         }
         if (i == 0) {
-            return com.baidu.swan.pms.d.aBC().acO();
+            return com.baidu.swan.pms.d.aBC().acN();
         }
         return null;
     }
 
     private static String iN(int i) {
         if (i == 1) {
-            return com.baidu.swan.pms.d.aBC().acR();
+            return com.baidu.swan.pms.d.aBC().acQ();
         }
         if (i == 0) {
-            return com.baidu.swan.pms.d.aBC().acP();
+            return com.baidu.swan.pms.d.aBC().acO();
         }
         return null;
     }

@@ -1,8 +1,8 @@
 package com.xiaomi.clientreport.data;
 
-import com.coloros.mcssdk.mode.CommandMessage;
+import com.heytap.mcssdk.mode.CommandMessage;
 import com.vivo.push.PushClientConstants;
-import com.xiaomi.push.be;
+import com.xiaomi.push.bj;
 import com.xiaomi.push.l;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -13,8 +13,8 @@ public class a {
     public int production;
     public int reportType;
     private String sdkVersion;
-    private String os = be.a();
-    private String miuiVersion = l.m483a();
+    private String os = bj.a();
+    private String miuiVersion = l.m493a();
 
     public String getPackageName() {
         return this.pkgName;

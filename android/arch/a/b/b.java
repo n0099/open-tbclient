@@ -20,7 +20,7 @@ public class b<K, V> implements Iterable<Map.Entry<K, V>> {
         void c(@NonNull c<K, V> cVar);
     }
 
-    protected c<K, V> g(K k) {
+    protected c<K, V> h(K k) {
         c<K, V> cVar = this.xA;
         while (cVar != null && !cVar.xD.equals(k)) {
             cVar = cVar.xE;
@@ -29,9 +29,9 @@ public class b<K, V> implements Iterable<Map.Entry<K, V>> {
     }
 
     public V c(@NonNull K k, @NonNull V v) {
-        c<K, V> g = g(k);
-        if (g != null) {
-            return g.mValue;
+        c<K, V> h = h(k);
+        if (h != null) {
+            return h.mValue;
         }
         d(k, v);
         return null;
@@ -53,29 +53,29 @@ public class b<K, V> implements Iterable<Map.Entry<K, V>> {
     }
 
     public V remove(@NonNull K k) {
-        c<K, V> g = g(k);
-        if (g == null) {
+        c<K, V> h = h(k);
+        if (h == null) {
             return null;
         }
         this.mSize--;
         if (!this.xC.isEmpty()) {
             for (f<K, V> fVar : this.xC.keySet()) {
-                fVar.c(g);
+                fVar.c(h);
             }
         }
-        if (g.xF != null) {
-            g.xF.xE = g.xE;
+        if (h.xF != null) {
+            h.xF.xE = h.xE;
         } else {
-            this.xA = g.xE;
+            this.xA = h.xE;
         }
-        if (g.xE != null) {
-            g.xE.xF = g.xF;
+        if (h.xE != null) {
+            h.xE.xF = h.xF;
         } else {
-            this.xB = g.xF;
+            this.xB = h.xF;
         }
-        g.xE = null;
-        g.xF = null;
-        return g.mValue;
+        h.xE = null;
+        h.xF = null;
+        return h.mValue;
     }
 
     public int size() {

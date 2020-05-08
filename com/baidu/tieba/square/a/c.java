@@ -11,13 +11,13 @@ import com.baidu.tieba.card.z;
 import com.baidu.tieba.square.ForumSquareActivity;
 /* loaded from: classes9.dex */
 public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.square.data.b, com.baidu.tieba.card.a.a<com.baidu.tieba.square.view.c>> {
-    private z<com.baidu.tieba.square.data.b> fsd;
+    private z<com.baidu.tieba.square.data.b> fsi;
     private TbPageContext<?> mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public c(TbPageContext tbPageContext) {
         super(tbPageContext.getPageActivity(), com.baidu.tieba.square.data.b.TYPE);
-        this.fsd = new z<com.baidu.tieba.square.data.b>() { // from class: com.baidu.tieba.square.a.c.1
+        this.fsi = new z<com.baidu.tieba.square.data.b>() { // from class: com.baidu.tieba.square.a.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.z
             public void a(View view, com.baidu.tieba.square.data.b bVar) {
@@ -56,11 +56,11 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.square.da
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.square.data.b bVar, com.baidu.tieba.card.a.a<com.baidu.tieba.square.view.c> aVar) {
-        if (bVar == null || aVar == null || aVar.bFB() == null) {
+        if (bVar == null || aVar == null || aVar.bFz() == null) {
             return null;
         }
-        aVar.bFB().a(bVar);
-        aVar.bFB().c(this.fsd);
+        aVar.bFz().a(bVar);
+        aVar.bFz().c(this.fsi);
         if (this.mPageContext.getPageActivity() instanceof ForumSquareActivity) {
             String className = ((ForumSquareActivity) this.mPageContext.getPageActivity()).getClassName();
             if (!"推荐".equals(className)) {

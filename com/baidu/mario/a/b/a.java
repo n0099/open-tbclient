@@ -11,16 +11,16 @@ import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes11.dex */
 public class a extends b {
     private static final String TAG = a.class.getSimpleName();
-    private long bgU = 0;
+    private long bgZ = 0;
 
     @Override // com.baidu.mario.a.b.b
-    public /* bridge */ /* synthetic */ long IY() {
-        return super.IY();
+    public /* bridge */ /* synthetic */ long IX() {
+        return super.IX();
     }
 
     @Override // com.baidu.mario.a.b.b
-    public /* bridge */ /* synthetic */ void JA() {
-        super.JA();
+    public /* bridge */ /* synthetic */ void Jx() {
+        super.Jx();
     }
 
     @Override // com.baidu.mario.a.b.b
@@ -56,7 +56,7 @@ public class a extends b {
     public void a(d dVar, e eVar) {
         boolean z = true;
         if (dVar != null && eVar != null) {
-            this.bgX = eVar;
+            this.bhc = eVar;
             MediaFormat mediaFormat = new MediaFormat();
             mediaFormat.setString(IMediaFormat.KEY_MIME, dVar.getAudioCodec());
             mediaFormat.setInteger("aac-profile", 2);
@@ -68,46 +68,46 @@ public class a extends b {
                 this.mEncoder = MediaCodec.createEncoderByType(dVar.getAudioCodec());
                 this.mEncoder.configure(mediaFormat, (Surface) null, (MediaCrypto) null, 1);
                 if (!dVar.isVideoIncluded()) {
-                    this.bgZ = true;
+                    this.bhe = true;
                 } else {
-                    this.bgZ = false;
+                    this.bhe = false;
                 }
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            if (this.bgY == null) {
-                this.bgY.cm(z);
+            if (this.bhd == null) {
+                this.bhd.cm(z);
                 return;
             }
             return;
         }
         z = false;
-        if (this.bgY == null) {
+        if (this.bhd == null) {
         }
     }
 
     @Override // com.baidu.mario.a.b.b
-    protected void Jx() {
-        if (this.bha == 0) {
-            this.bha = this.mBufferInfo.presentationTimeUs;
+    protected void Jw() {
+        if (this.bhf == 0) {
+            this.bhf = this.mBufferInfo.presentationTimeUs;
         }
-        this.mBufferInfo.presentationTimeUs -= this.bha;
-        if (this.mBufferInfo.presentationTimeUs < this.bgU) {
+        this.mBufferInfo.presentationTimeUs -= this.bhf;
+        if (this.mBufferInfo.presentationTimeUs < this.bgZ) {
             MediaCodec.BufferInfo bufferInfo = this.mBufferInfo;
-            long j = this.bgU + 10000;
-            this.bgU = j;
+            long j = this.bgZ + 10000;
+            this.bgZ = j;
             bufferInfo.presentationTimeUs = j;
         }
-        if (this.mBufferInfo.presentationTimeUs > bhb + 500000) {
-            if (bhb > this.bgU) {
-                this.mBufferInfo.presentationTimeUs = bhb + 5000;
+        if (this.mBufferInfo.presentationTimeUs > bhg + 500000) {
+            if (bhg > this.bgZ) {
+                this.mBufferInfo.presentationTimeUs = bhg + 5000;
             } else {
-                this.mBufferInfo.presentationTimeUs = this.bgU + 5000;
+                this.mBufferInfo.presentationTimeUs = this.bgZ + 5000;
             }
         }
-        if (bhb > this.mBufferInfo.presentationTimeUs + 500000) {
-            bhc = FeatureCodes.FACE;
+        if (bhg > this.mBufferInfo.presentationTimeUs + 500000) {
+            bhh = FeatureCodes.FACE;
         }
-        this.bgU = this.mBufferInfo.presentationTimeUs;
+        this.bgZ = this.mBufferInfo.presentationTimeUs;
     }
 }

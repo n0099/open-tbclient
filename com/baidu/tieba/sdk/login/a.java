@@ -21,62 +21,62 @@ import com.baidu.live.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.sdk.login.message.GetLoginTbsResponsedMessage;
 /* loaded from: classes3.dex */
 public class a {
-    private static volatile a kBe;
-    private c aFy;
-    private int kBf;
-    private com.baidu.tieba.sdk.a.a kBg;
-    private CustomMessageTask.CustomRunnable<Object> kBh = new CustomMessageTask.CustomRunnable<Object>() { // from class: com.baidu.tieba.sdk.login.a.1
+    private static volatile a kBi;
+    private c aFE;
+    private int kBj;
+    private com.baidu.tieba.sdk.a.a kBk;
+    private CustomMessageTask.CustomRunnable<Object> kBl = new CustomMessageTask.CustomRunnable<Object>() { // from class: com.baidu.tieba.sdk.login.a.1
         @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
         public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
-            a.this.coz();
+            a.this.cow();
             return null;
         }
     };
-    private final HttpMessageListener kBi = new HttpMessageListener(1003402) { // from class: com.baidu.tieba.sdk.login.a.2
+    private final HttpMessageListener kBm = new HttpMessageListener(1003402) { // from class: com.baidu.tieba.sdk.login.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && (httpResponsedMessage instanceof GetLoginTbsResponsedMessage)) {
                 if (httpResponsedMessage.getError() != 0 || httpResponsedMessage.hasError()) {
-                    if (a.this.kBf < 3) {
+                    if (a.this.kBj < 3) {
                         a.b(a.this);
-                        a.this.a(a.this.kBg.coy());
+                        a.this.a(a.this.kBk.cov());
                         return;
                     }
                     return;
                 }
-                a.this.kBf = 0;
+                a.this.kBj = 0;
             }
         }
     };
 
     static /* synthetic */ int b(a aVar) {
-        int i = aVar.kBf;
-        aVar.kBf = i + 1;
+        int i = aVar.kBj;
+        aVar.kBj = i + 1;
         return i;
     }
 
-    public static a cPt() {
-        if (kBe == null) {
+    public static a cPq() {
+        if (kBi == null) {
             synchronized (a.class) {
-                if (kBe == null) {
-                    kBe = new a();
+                if (kBi == null) {
+                    kBi = new a();
                 }
             }
         }
-        return kBe;
+        return kBi;
     }
 
     private a() {
         MessageManager.getInstance().addResponsedMessageRule(new com.baidu.tieba.sdk.login.a.a(0));
-        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.METHOD_ACCOUNT_START_LOGIN, this.kBh);
+        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.METHOD_ACCOUNT_START_LOGIN, this.kBl);
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
-        MessageManager.getInstance().registerListener(this.kBi);
-        xC();
+        MessageManager.getInstance().registerListener(this.kBm);
+        xB();
     }
 
-    private void xC() {
+    private void xB() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003402, TbConfig.SERVER_ADDRESS + "ala/sdk/login");
         tbHttpMessageTask.setNeedGzip(true);
         tbHttpMessageTask.setIsNeedAddCommenParam(false);
@@ -86,32 +86,32 @@ public class a {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void coz() {
-        if (this.kBg != null) {
-            this.kBg.coz();
+    public void cow() {
+        if (this.kBk != null) {
+            this.kBk.cow();
         }
     }
 
     public void b(com.baidu.tieba.sdk.a.a aVar) {
-        this.kBg = aVar;
+        this.kBk = aVar;
     }
 
-    public void cPu() {
-        if (this.kBg != null) {
-            cPx();
-            if (this.aFy == null) {
-                this.aFy = new c();
+    public void cPr() {
+        if (this.kBk != null) {
+            cPu();
+            if (this.aFE == null) {
+                this.aFE = new c();
             }
-            this.aFy.initListener();
-            this.aFy.a(new d() { // from class: com.baidu.tieba.sdk.login.a.3
+            this.aFE.initListener();
+            this.aFE.a(new d() { // from class: com.baidu.tieba.sdk.login.a.3
                 @Override // com.baidu.live.d
-                public void tI() {
-                    if (a.this.aFy != null) {
-                        a.this.aFy.onDestroy();
+                public void tH() {
+                    if (a.this.aFE != null) {
+                        a.this.aFE.onDestroy();
                     }
                 }
             });
-            this.aFy.refreshCurUserScores();
+            this.aFE.refreshCurUserScores();
             Intent intent = new Intent("action_callback_live_login_result");
             intent.putExtra("status", TbadkCoreApplication.isLogin());
             ExtraParamsManager.getInstance();
@@ -119,96 +119,96 @@ public class a {
         }
     }
 
-    public void EB() {
-        if (this.kBg != null) {
-            cPx();
+    public void EA() {
+        if (this.kBk != null) {
+            cPu();
         }
     }
 
-    public boolean cPv() {
-        if (this.kBg == null) {
+    public boolean cPs() {
+        if (this.kBk == null) {
             return false;
         }
-        boolean cPx = cPx();
-        if (!cPx) {
-            this.kBg.coz();
-            return cPx;
+        boolean cPu = cPu();
+        if (!cPu) {
+            this.kBk.cow();
+            return cPu;
         }
-        return cPx;
+        return cPu;
     }
 
-    public com.baidu.tieba.sdk.b.a cPw() {
-        if (this.kBg != null) {
-            return this.kBg.coy();
+    public com.baidu.tieba.sdk.b.a cPt() {
+        if (this.kBk != null) {
+            return this.kBk.cov();
         }
         return null;
     }
 
-    private boolean cPx() {
-        com.baidu.tieba.sdk.b.a coy = this.kBg.coy();
-        if (coy != null && coy.isValid()) {
-            cPy();
+    private boolean cPu() {
+        com.baidu.tieba.sdk.b.a cov = this.kBk.cov();
+        if (cov != null && cov.isValid()) {
+            cPv();
             if (AccountHelper.getOnSyncAccountCallback() != null) {
                 AccountHelper.getOnSyncAccountCallback().onSyncAccount(true);
                 return true;
             }
             return true;
         }
-        cPA();
-        cPz();
+        cPx();
+        cPw();
         if (AccountHelper.getOnSyncAccountCallback() != null) {
             AccountHelper.getOnSyncAccountCallback().onSyncAccount(false);
         }
         return false;
     }
 
-    private void cPy() {
+    private void cPv() {
         boolean z = true;
-        com.baidu.tieba.sdk.b.a coy = this.kBg.coy();
-        if (coy != null) {
-            String string = com.baidu.live.c.tH().getString("ala_account_user_id", "");
-            String string2 = com.baidu.live.c.tH().getString("ala_account_user_bduss", "");
-            boolean z2 = !StringUtils.isNull(coy.userId) && coy.userId.equals(string);
-            if (StringUtils.isNull(coy.bduss) || !coy.bduss.equals(string2)) {
+        com.baidu.tieba.sdk.b.a cov = this.kBk.cov();
+        if (cov != null) {
+            String string = com.baidu.live.c.tG().getString("ala_account_user_id", "");
+            String string2 = com.baidu.live.c.tG().getString("ala_account_user_bduss", "");
+            boolean z2 = !StringUtils.isNull(cov.userId) && cov.userId.equals(string);
+            if (StringUtils.isNull(cov.bduss) || !cov.bduss.equals(string2)) {
                 z = false;
             }
             if (z2 && z) {
                 AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
-                C0642a c0642a = new C0642a(currentAccountInfo);
-                String string3 = com.baidu.live.c.tH().getString("ala_account_user_bduss", "");
+                C0663a c0663a = new C0663a(currentAccountInfo);
+                String string3 = com.baidu.live.c.tG().getString("ala_account_user_bduss", "");
                 if (!StringUtils.isNull(string3)) {
-                    c0642a.JX(string3);
+                    c0663a.Ka(string3);
                 } else {
-                    c0642a.JX(coy.bduss);
+                    c0663a.Ka(cov.bduss);
                 }
-                String string4 = com.baidu.live.c.tH().getString("ala_account_user_tbs", "");
+                String string4 = com.baidu.live.c.tG().getString("ala_account_user_tbs", "");
                 if (!StringUtils.isNull(string4)) {
-                    c0642a.JY(string4);
+                    c0663a.Kb(string4);
                 }
-                c0642a.JU(coy.userId);
-                c0642a.JV(coy.userName);
-                c0642a.JW(coy.nickName);
-                c0642a.JZ(coy.portrait);
+                c0663a.JX(cov.userId);
+                c0663a.JY(cov.userName);
+                c0663a.JZ(cov.nickName);
+                c0663a.Kc(cov.portrait);
                 if (currentAccountInfo == null) {
-                    TbadkCoreApplication.setCurrentAccount(c0642a.cPB(), TbadkCoreApplication.getInst().getApp().getApplicationContext());
+                    TbadkCoreApplication.setCurrentAccount(c0663a.cPy(), TbadkCoreApplication.getInst().getApp().getApplicationContext());
                     return;
                 } else {
-                    c0642a.cPB();
+                    c0663a.cPy();
                     return;
                 }
             }
-            this.kBf = 0;
-            cPz();
-            C0642a c0642a2 = new C0642a();
-            c0642a2.JX(coy.bduss);
-            c0642a2.JV(coy.userName);
-            c0642a2.JW(coy.nickName);
-            c0642a2.JU(coy.userId);
-            c0642a2.JZ(coy.portrait);
-            com.baidu.live.c.tH().putString("ala_account_user_id", coy.userId);
-            com.baidu.live.c.tH().putString("ala_account_user_bduss", coy.bduss);
-            TbadkCoreApplication.setCurrentAccount(c0642a2.cPB(), TbadkCoreApplication.getInst().getApp().getApplicationContext());
-            a(coy);
+            this.kBj = 0;
+            cPw();
+            C0663a c0663a2 = new C0663a();
+            c0663a2.Ka(cov.bduss);
+            c0663a2.JY(cov.userName);
+            c0663a2.JZ(cov.nickName);
+            c0663a2.JX(cov.userId);
+            c0663a2.Kc(cov.portrait);
+            com.baidu.live.c.tG().putString("ala_account_user_id", cov.userId);
+            com.baidu.live.c.tG().putString("ala_account_user_bduss", cov.bduss);
+            TbadkCoreApplication.setCurrentAccount(c0663a2.cPy(), TbadkCoreApplication.getInst().getApp().getApplicationContext());
+            a(cov);
         }
     }
 
@@ -225,22 +225,22 @@ public class a {
         }
     }
 
-    private void cPz() {
-        com.baidu.live.c.tH().remove("ala_account_user_id");
-        com.baidu.live.c.tH().remove("ala_account_user_bduss");
-        com.baidu.live.c.tH().remove("ala_account_user_tbs");
+    private void cPw() {
+        com.baidu.live.c.tG().remove("ala_account_user_id");
+        com.baidu.live.c.tG().remove("ala_account_user_bduss");
+        com.baidu.live.c.tG().remove("ala_account_user_tbs");
     }
 
-    private void cPA() {
+    private void cPx() {
         TbadkCoreApplication.setCurrentAccount(null, TbadkCoreApplication.getInst().getApp().getApplicationContext());
     }
 
     /* renamed from: com.baidu.tieba.sdk.login.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0642a {
+    public static class C0663a {
         private String BDUSS;
-        private int kBk;
-        private AccountData kBl;
+        private int kBo;
+        private AccountData kBp;
         private String nickName;
         private String portrait;
         private int sex;
@@ -248,68 +248,68 @@ public class a {
         private String userId;
         private String userName;
 
-        public C0642a() {
-            this.kBl = new AccountData();
+        public C0663a() {
+            this.kBp = new AccountData();
         }
 
-        public C0642a(AccountData accountData) {
+        public C0663a(AccountData accountData) {
             if (accountData == null) {
-                this.kBl = new AccountData();
+                this.kBp = new AccountData();
             } else {
-                this.kBl = accountData;
+                this.kBp = accountData;
             }
         }
 
-        public C0642a JU(String str) {
+        public C0663a JX(String str) {
             this.userId = str;
             return this;
         }
 
-        public C0642a JV(String str) {
+        public C0663a JY(String str) {
             this.userName = str;
             return this;
         }
 
-        public C0642a JW(String str) {
+        public C0663a JZ(String str) {
             this.nickName = str;
             return this;
         }
 
-        public C0642a JX(String str) {
+        public C0663a Ka(String str) {
             this.BDUSS = str;
             return this;
         }
 
-        public C0642a JY(String str) {
+        public C0663a Kb(String str) {
             this.tbs = str;
             return this;
         }
 
-        public C0642a JZ(String str) {
+        public C0663a Kc(String str) {
             this.portrait = str;
             return this;
         }
 
-        public C0642a BY(int i) {
+        public C0663a BY(int i) {
             this.sex = i;
             return this;
         }
 
-        public C0642a BZ(int i) {
-            this.kBk = i;
+        public C0663a BZ(int i) {
+            this.kBo = i;
             return this;
         }
 
-        public AccountData cPB() {
-            this.kBl.setBDUSS(this.BDUSS);
-            this.kBl.setAccount(this.userName);
-            this.kBl.setDisplayName(this.nickName);
-            this.kBl.setID(this.userId);
-            this.kBl.setPortrait(this.portrait);
-            this.kBl.setTbs(this.tbs);
-            this.kBl.setSex(this.sex);
-            this.kBl.setIsActive(this.kBk);
-            return this.kBl;
+        public AccountData cPy() {
+            this.kBp.setBDUSS(this.BDUSS);
+            this.kBp.setAccount(this.userName);
+            this.kBp.setDisplayName(this.nickName);
+            this.kBp.setID(this.userId);
+            this.kBp.setPortrait(this.portrait);
+            this.kBp.setTbs(this.tbs);
+            this.kBp.setSex(this.sex);
+            this.kBp.setIsActive(this.kBo);
+            return this.kBp;
         }
     }
 }

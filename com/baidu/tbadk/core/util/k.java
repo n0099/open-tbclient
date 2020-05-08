@@ -5,7 +5,7 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class k extends Thread {
-    private String dyb = "1";
+    private String dyf = "1";
 
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
@@ -15,12 +15,12 @@ public class k extends Thread {
             xVar.addPostData("st_type", TbConfig.ST_TYPE_ENTER_FORE);
             xVar.addPostData("os_version", Build.VERSION.RELEASE);
             xVar.addPostData("android_sdk", String.valueOf(Build.VERSION.SDK_INT));
-            xVar.addPostData("op_type", this.dyb);
+            xVar.addPostData("op_type", this.dyf);
             xVar.postNetData();
         }
     }
 
     public void setOpType(String str) {
-        this.dyb = str;
+        this.dyf = str;
     }
 }

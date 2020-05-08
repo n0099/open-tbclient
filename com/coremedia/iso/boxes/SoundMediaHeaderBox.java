@@ -10,8 +10,8 @@ import org.aspectj.lang.a;
 /* loaded from: classes7.dex */
 public class SoundMediaHeaderBox extends AbstractMediaHeaderBox {
     public static final String TYPE = "smhd";
-    private static final /* synthetic */ a.InterfaceC0805a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0805a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0826a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0826a ajc$tjp_1 = null;
     private float balance;
 
     static {

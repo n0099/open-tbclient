@@ -17,8 +17,8 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class d {
     private static final String SPLASH = File.separator;
-    private static final String dfn = "zeus" + SPLASH + "libs" + SPLASH;
-    private Method dfp;
+    private static final String dfs = "zeus" + SPLASH + "libs" + SPLASH;
+    private Method dfu;
     private Context mContext;
     private JSONObject mJson_elf;
     private JSONObject mJson_meta;
@@ -35,12 +35,12 @@ public class d {
     private int mOffset_7z = 0;
     private boolean mHooked = false;
     private String mTempPath = null;
-    private boolean dfo = false;
+    private boolean dft = false;
 
     private void init() {
         try {
             System.load(aFb() + "libzeuslzma.so");
-            this.dfo = true;
+            this.dft = true;
         } catch (Throwable th) {
         }
     }
@@ -62,7 +62,7 @@ public class d {
 
     public boolean aEV() {
         if (aEU()) {
-            if (this.dfo && aEW() && isEnoughSpace(this.m7zTotal)) {
+            if (this.dft && aEW() && isEnoughSpace(this.m7zTotal)) {
                 hook(true);
                 return aEX() && aEZ() && aEY();
             }
@@ -241,7 +241,7 @@ public class d {
     }
 
     private String aFb() {
-        return this.mContext.getFilesDir() + SPLASH + dfn;
+        return this.mContext.getFilesDir() + SPLASH + dfs;
     }
 
     private boolean deleteDir(File file) {
@@ -282,7 +282,7 @@ public class d {
     private int doInit(String str, String str2, int i, int i2, int i3, int i4) {
         SevenZipUtils sevenZipUtils = SevenZipUtils.getInstance();
         try {
-            Method declaredMethod = SevenZipUtils.class.getDeclaredMethod("init", String.class, String.class, Integer.TYPE, Integer.TYPE, Integer.TYPE, Integer.TYPE);
+            Method declaredMethod = SevenZipUtils.class.getDeclaredMethod(com.baidu.sapi2.outsdk.c.l, String.class, String.class, Integer.TYPE, Integer.TYPE, Integer.TYPE, Integer.TYPE);
             declaredMethod.setAccessible(true);
             return ((Integer) declaredMethod.invoke(sevenZipUtils, str, str2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4))).intValue();
         } catch (Exception e) {
@@ -292,16 +292,16 @@ public class d {
 
     private void a(AssetManager assetManager, String str, int i, int i2, int i3) {
         SevenZipUtils sevenZipUtils = SevenZipUtils.getInstance();
-        if (this.dfp == null) {
+        if (this.dfu == null) {
             try {
-                this.dfp = SevenZipUtils.class.getDeclaredMethod("decodeAndMerge", AssetManager.class, String.class, Integer.TYPE, Integer.TYPE, Integer.TYPE);
+                this.dfu = SevenZipUtils.class.getDeclaredMethod("decodeAndMerge", AssetManager.class, String.class, Integer.TYPE, Integer.TYPE, Integer.TYPE);
             } catch (Exception e) {
             }
         }
-        if (this.dfp != null) {
+        if (this.dfu != null) {
             try {
-                this.dfp.setAccessible(true);
-                this.dfp.invoke(sevenZipUtils, assetManager, str, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3));
+                this.dfu.setAccessible(true);
+                this.dfu.invoke(sevenZipUtils, assetManager, str, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3));
             } catch (Exception e2) {
             }
         }

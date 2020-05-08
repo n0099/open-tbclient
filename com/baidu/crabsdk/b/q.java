@@ -37,7 +37,7 @@ public final class q {
         }
     }
 
-    public static int sF() {
+    public static int sE() {
         if (new File("/system/bin/su").exists() && b("/system/bin/su")) {
             return 1;
         }

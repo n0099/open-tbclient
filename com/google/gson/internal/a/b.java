@@ -19,36 +19,36 @@ public final class b implements TypeAdapterFactory {
     @Override // com.google.gson.TypeAdapterFactory
     public <T> TypeAdapter<T> create(Gson gson, com.google.gson.b.a<T> aVar) {
         Type type = aVar.getType();
-        Class<? super T> dwc = aVar.dwc();
-        if (!Collection.class.isAssignableFrom(dwc)) {
+        Class<? super T> dvZ = aVar.dvZ();
+        if (!Collection.class.isAssignableFrom(dvZ)) {
             return null;
         }
-        Type a2 = C$Gson$Types.a(type, (Class<?>) dwc);
+        Type a2 = C$Gson$Types.a(type, (Class<?>) dvZ);
         return new a(gson, a2, gson.getAdapter(com.google.gson.b.a.k(a2)), this.constructorConstructor.a(aVar));
     }
 
     /* loaded from: classes7.dex */
     private static final class a<E> extends TypeAdapter<Collection<E>> {
-        private final TypeAdapter<E> mjL;
-        private final com.google.gson.internal.f<? extends Collection<E>> mjM;
+        private final TypeAdapter<E> mjP;
+        private final com.google.gson.internal.f<? extends Collection<E>> mjQ;
 
         public a(Gson gson, Type type, TypeAdapter<E> typeAdapter, com.google.gson.internal.f<? extends Collection<E>> fVar) {
-            this.mjL = new m(gson, typeAdapter, type);
-            this.mjM = fVar;
+            this.mjP = new m(gson, typeAdapter, type);
+            this.mjQ = fVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.gson.TypeAdapter
         /* renamed from: b */
         public Collection<E> read(com.google.gson.stream.a aVar) throws IOException {
-            if (aVar.dvJ() == JsonToken.NULL) {
-                aVar.dvO();
+            if (aVar.dvG() == JsonToken.NULL) {
+                aVar.dvL();
                 return null;
             }
-            Collection<E> construct = this.mjM.construct();
-            aVar.dvH();
+            Collection<E> construct = this.mjQ.construct();
+            aVar.dvE();
             while (aVar.hasNext()) {
-                construct.add(this.mjL.read(aVar));
+                construct.add(this.mjP.read(aVar));
             }
             aVar.endArray();
             return construct;
@@ -59,14 +59,14 @@ public final class b implements TypeAdapterFactory {
         /* renamed from: a */
         public void write(com.google.gson.stream.b bVar, Collection<E> collection) throws IOException {
             if (collection == null) {
-                bVar.dvY();
+                bVar.dvV();
                 return;
             }
-            bVar.dvU();
+            bVar.dvR();
             for (E e : collection) {
-                this.mjL.write(bVar, e);
+                this.mjP.write(bVar, e);
             }
-            bVar.dvV();
+            bVar.dvS();
         }
     }
 }

@@ -7,10 +7,11 @@ import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.ar.constants.HttpConstants;
 import com.baidu.live.tbadk.core.util.TbEnum;
+import com.baidu.mobstat.Config;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.webkit.internal.ETAG;
 import com.xiaomi.mipush.sdk.Constants;
-import com.xiaomi.push.fn;
+import com.xiaomi.push.ft;
 import java.util.TreeMap;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
@@ -18,7 +19,7 @@ public class l {
     private static k a;
 
     /* renamed from: a  reason: collision with other field name */
-    private static a f918a;
+    private static a f915a;
 
     /* loaded from: classes8.dex */
     public interface a {
@@ -40,7 +41,7 @@ public class l {
                 String string6 = sharedPreferences.getString("package_name", null);
                 String string7 = sharedPreferences.getString("device_id", null);
                 int i = sharedPreferences.getInt("env_type", 1);
-                if (!TextUtils.isEmpty(string7) && string7.startsWith("a-")) {
+                if (!TextUtils.isEmpty(string7) && com.xiaomi.push.i.m387a(string7)) {
                     string7 = com.xiaomi.push.i.k(context);
                     sharedPreferences.edit().putString("device_id", string7).commit();
                 }
@@ -58,28 +59,28 @@ public class l {
     }
 
     /* JADX WARN: Can't wrap try/catch for region: R(30:3|4|(2:8|(27:10|11|(1:13)|14|(1:16)|17|(1:19)(1:73)|20|(1:22)(1:72)|23|(1:25)(1:71)|26|27|28|29|(1:31)(1:67)|32|(6:34|(1:36)|37|(1:41)|42|(1:44))|45|(1:47)|48|(1:50)|51|(1:53)|54|(2:56|(3:58|(1:60)(1:62)|61)(1:63))|64))|74|11|(0)|14|(0)|17|(0)(0)|20|(0)(0)|23|(0)(0)|26|27|28|29|(0)(0)|32|(0)|45|(0)|48|(0)|51|(0)|54|(0)|64) */
-    /* JADX WARN: Code restructure failed: missing block: B:66:0x022f, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:66:0x0261, code lost:
         r1 = move-exception;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:67:0x0230, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:67:0x0262, code lost:
         com.xiaomi.channel.commonutils.logger.b.a(r1);
         r1 = null;
      */
-    /* JADX WARN: Removed duplicated region for block: B:13:0x0054 A[Catch: all -> 0x0250, TryCatch #0 {, blocks: (B:4:0x0004, B:6:0x0022, B:8:0x002c, B:10:0x0044, B:11:0x004e, B:13:0x0054, B:14:0x005a, B:16:0x0064, B:17:0x006a, B:20:0x0073, B:23:0x007c, B:26:0x0085, B:27:0x0091, B:30:0x00a0, B:31:0x00a6, B:33:0x00d1, B:35:0x00de, B:36:0x00f3, B:38:0x00fd, B:40:0x0103, B:41:0x011b, B:43:0x0121, B:44:0x0127, B:46:0x014f, B:47:0x0159, B:49:0x0163, B:50:0x016d, B:52:0x01a0, B:53:0x01a4, B:55:0x01aa, B:57:0x01b8, B:59:0x01da, B:60:0x01f4, B:69:0x023b, B:67:0x0230), top: B:76:0x0004, inners: #1 }] */
-    /* JADX WARN: Removed duplicated region for block: B:16:0x0064 A[Catch: all -> 0x0250, TryCatch #0 {, blocks: (B:4:0x0004, B:6:0x0022, B:8:0x002c, B:10:0x0044, B:11:0x004e, B:13:0x0054, B:14:0x005a, B:16:0x0064, B:17:0x006a, B:20:0x0073, B:23:0x007c, B:26:0x0085, B:27:0x0091, B:30:0x00a0, B:31:0x00a6, B:33:0x00d1, B:35:0x00de, B:36:0x00f3, B:38:0x00fd, B:40:0x0103, B:41:0x011b, B:43:0x0121, B:44:0x0127, B:46:0x014f, B:47:0x0159, B:49:0x0163, B:50:0x016d, B:52:0x01a0, B:53:0x01a4, B:55:0x01aa, B:57:0x01b8, B:59:0x01da, B:60:0x01f4, B:69:0x023b, B:67:0x0230), top: B:76:0x0004, inners: #1 }] */
-    /* JADX WARN: Removed duplicated region for block: B:19:0x0070  */
-    /* JADX WARN: Removed duplicated region for block: B:22:0x0079  */
-    /* JADX WARN: Removed duplicated region for block: B:25:0x0082  */
-    /* JADX WARN: Removed duplicated region for block: B:30:0x00a0 A[Catch: all -> 0x0250, TryCatch #0 {, blocks: (B:4:0x0004, B:6:0x0022, B:8:0x002c, B:10:0x0044, B:11:0x004e, B:13:0x0054, B:14:0x005a, B:16:0x0064, B:17:0x006a, B:20:0x0073, B:23:0x007c, B:26:0x0085, B:27:0x0091, B:30:0x00a0, B:31:0x00a6, B:33:0x00d1, B:35:0x00de, B:36:0x00f3, B:38:0x00fd, B:40:0x0103, B:41:0x011b, B:43:0x0121, B:44:0x0127, B:46:0x014f, B:47:0x0159, B:49:0x0163, B:50:0x016d, B:52:0x01a0, B:53:0x01a4, B:55:0x01aa, B:57:0x01b8, B:59:0x01da, B:60:0x01f4, B:69:0x023b, B:67:0x0230), top: B:76:0x0004, inners: #1 }] */
-    /* JADX WARN: Removed duplicated region for block: B:33:0x00d1 A[Catch: all -> 0x0250, TryCatch #0 {, blocks: (B:4:0x0004, B:6:0x0022, B:8:0x002c, B:10:0x0044, B:11:0x004e, B:13:0x0054, B:14:0x005a, B:16:0x0064, B:17:0x006a, B:20:0x0073, B:23:0x007c, B:26:0x0085, B:27:0x0091, B:30:0x00a0, B:31:0x00a6, B:33:0x00d1, B:35:0x00de, B:36:0x00f3, B:38:0x00fd, B:40:0x0103, B:41:0x011b, B:43:0x0121, B:44:0x0127, B:46:0x014f, B:47:0x0159, B:49:0x0163, B:50:0x016d, B:52:0x01a0, B:53:0x01a4, B:55:0x01aa, B:57:0x01b8, B:59:0x01da, B:60:0x01f4, B:69:0x023b, B:67:0x0230), top: B:76:0x0004, inners: #1 }] */
-    /* JADX WARN: Removed duplicated region for block: B:46:0x014f A[Catch: all -> 0x0250, TryCatch #0 {, blocks: (B:4:0x0004, B:6:0x0022, B:8:0x002c, B:10:0x0044, B:11:0x004e, B:13:0x0054, B:14:0x005a, B:16:0x0064, B:17:0x006a, B:20:0x0073, B:23:0x007c, B:26:0x0085, B:27:0x0091, B:30:0x00a0, B:31:0x00a6, B:33:0x00d1, B:35:0x00de, B:36:0x00f3, B:38:0x00fd, B:40:0x0103, B:41:0x011b, B:43:0x0121, B:44:0x0127, B:46:0x014f, B:47:0x0159, B:49:0x0163, B:50:0x016d, B:52:0x01a0, B:53:0x01a4, B:55:0x01aa, B:57:0x01b8, B:59:0x01da, B:60:0x01f4, B:69:0x023b, B:67:0x0230), top: B:76:0x0004, inners: #1 }] */
-    /* JADX WARN: Removed duplicated region for block: B:49:0x0163 A[Catch: all -> 0x0250, TryCatch #0 {, blocks: (B:4:0x0004, B:6:0x0022, B:8:0x002c, B:10:0x0044, B:11:0x004e, B:13:0x0054, B:14:0x005a, B:16:0x0064, B:17:0x006a, B:20:0x0073, B:23:0x007c, B:26:0x0085, B:27:0x0091, B:30:0x00a0, B:31:0x00a6, B:33:0x00d1, B:35:0x00de, B:36:0x00f3, B:38:0x00fd, B:40:0x0103, B:41:0x011b, B:43:0x0121, B:44:0x0127, B:46:0x014f, B:47:0x0159, B:49:0x0163, B:50:0x016d, B:52:0x01a0, B:53:0x01a4, B:55:0x01aa, B:57:0x01b8, B:59:0x01da, B:60:0x01f4, B:69:0x023b, B:67:0x0230), top: B:76:0x0004, inners: #1 }] */
-    /* JADX WARN: Removed duplicated region for block: B:52:0x01a0 A[Catch: all -> 0x0250, TryCatch #0 {, blocks: (B:4:0x0004, B:6:0x0022, B:8:0x002c, B:10:0x0044, B:11:0x004e, B:13:0x0054, B:14:0x005a, B:16:0x0064, B:17:0x006a, B:20:0x0073, B:23:0x007c, B:26:0x0085, B:27:0x0091, B:30:0x00a0, B:31:0x00a6, B:33:0x00d1, B:35:0x00de, B:36:0x00f3, B:38:0x00fd, B:40:0x0103, B:41:0x011b, B:43:0x0121, B:44:0x0127, B:46:0x014f, B:47:0x0159, B:49:0x0163, B:50:0x016d, B:52:0x01a0, B:53:0x01a4, B:55:0x01aa, B:57:0x01b8, B:59:0x01da, B:60:0x01f4, B:69:0x023b, B:67:0x0230), top: B:76:0x0004, inners: #1 }] */
-    /* JADX WARN: Removed duplicated region for block: B:55:0x01aa A[Catch: all -> 0x0250, TryCatch #0 {, blocks: (B:4:0x0004, B:6:0x0022, B:8:0x002c, B:10:0x0044, B:11:0x004e, B:13:0x0054, B:14:0x005a, B:16:0x0064, B:17:0x006a, B:20:0x0073, B:23:0x007c, B:26:0x0085, B:27:0x0091, B:30:0x00a0, B:31:0x00a6, B:33:0x00d1, B:35:0x00de, B:36:0x00f3, B:38:0x00fd, B:40:0x0103, B:41:0x011b, B:43:0x0121, B:44:0x0127, B:46:0x014f, B:47:0x0159, B:49:0x0163, B:50:0x016d, B:52:0x01a0, B:53:0x01a4, B:55:0x01aa, B:57:0x01b8, B:59:0x01da, B:60:0x01f4, B:69:0x023b, B:67:0x0230), top: B:76:0x0004, inners: #1 }] */
-    /* JADX WARN: Removed duplicated region for block: B:63:0x0226  */
-    /* JADX WARN: Removed duplicated region for block: B:64:0x0229  */
-    /* JADX WARN: Removed duplicated region for block: B:65:0x022c  */
-    /* JADX WARN: Removed duplicated region for block: B:68:0x0236  */
+    /* JADX WARN: Removed duplicated region for block: B:13:0x0072 A[Catch: all -> 0x0282, TryCatch #0 {, blocks: (B:4:0x0004, B:6:0x0039, B:8:0x0043, B:10:0x005b, B:11:0x0065, B:13:0x0072, B:14:0x0078, B:16:0x0082, B:17:0x0088, B:20:0x0091, B:23:0x009a, B:26:0x00a3, B:27:0x00af, B:30:0x00be, B:31:0x00c4, B:33:0x00ef, B:35:0x00fc, B:36:0x0111, B:38:0x011b, B:40:0x0121, B:41:0x0139, B:43:0x013f, B:44:0x0145, B:46:0x016d, B:47:0x0177, B:49:0x0181, B:50:0x018b, B:52:0x01d2, B:53:0x01d6, B:55:0x01dc, B:57:0x01ea, B:59:0x020c, B:60:0x0226, B:69:0x026d, B:67:0x0262), top: B:76:0x0004, inners: #1 }] */
+    /* JADX WARN: Removed duplicated region for block: B:16:0x0082 A[Catch: all -> 0x0282, TryCatch #0 {, blocks: (B:4:0x0004, B:6:0x0039, B:8:0x0043, B:10:0x005b, B:11:0x0065, B:13:0x0072, B:14:0x0078, B:16:0x0082, B:17:0x0088, B:20:0x0091, B:23:0x009a, B:26:0x00a3, B:27:0x00af, B:30:0x00be, B:31:0x00c4, B:33:0x00ef, B:35:0x00fc, B:36:0x0111, B:38:0x011b, B:40:0x0121, B:41:0x0139, B:43:0x013f, B:44:0x0145, B:46:0x016d, B:47:0x0177, B:49:0x0181, B:50:0x018b, B:52:0x01d2, B:53:0x01d6, B:55:0x01dc, B:57:0x01ea, B:59:0x020c, B:60:0x0226, B:69:0x026d, B:67:0x0262), top: B:76:0x0004, inners: #1 }] */
+    /* JADX WARN: Removed duplicated region for block: B:19:0x008e  */
+    /* JADX WARN: Removed duplicated region for block: B:22:0x0097  */
+    /* JADX WARN: Removed duplicated region for block: B:25:0x00a0  */
+    /* JADX WARN: Removed duplicated region for block: B:30:0x00be A[Catch: all -> 0x0282, TryCatch #0 {, blocks: (B:4:0x0004, B:6:0x0039, B:8:0x0043, B:10:0x005b, B:11:0x0065, B:13:0x0072, B:14:0x0078, B:16:0x0082, B:17:0x0088, B:20:0x0091, B:23:0x009a, B:26:0x00a3, B:27:0x00af, B:30:0x00be, B:31:0x00c4, B:33:0x00ef, B:35:0x00fc, B:36:0x0111, B:38:0x011b, B:40:0x0121, B:41:0x0139, B:43:0x013f, B:44:0x0145, B:46:0x016d, B:47:0x0177, B:49:0x0181, B:50:0x018b, B:52:0x01d2, B:53:0x01d6, B:55:0x01dc, B:57:0x01ea, B:59:0x020c, B:60:0x0226, B:69:0x026d, B:67:0x0262), top: B:76:0x0004, inners: #1 }] */
+    /* JADX WARN: Removed duplicated region for block: B:33:0x00ef A[Catch: all -> 0x0282, TryCatch #0 {, blocks: (B:4:0x0004, B:6:0x0039, B:8:0x0043, B:10:0x005b, B:11:0x0065, B:13:0x0072, B:14:0x0078, B:16:0x0082, B:17:0x0088, B:20:0x0091, B:23:0x009a, B:26:0x00a3, B:27:0x00af, B:30:0x00be, B:31:0x00c4, B:33:0x00ef, B:35:0x00fc, B:36:0x0111, B:38:0x011b, B:40:0x0121, B:41:0x0139, B:43:0x013f, B:44:0x0145, B:46:0x016d, B:47:0x0177, B:49:0x0181, B:50:0x018b, B:52:0x01d2, B:53:0x01d6, B:55:0x01dc, B:57:0x01ea, B:59:0x020c, B:60:0x0226, B:69:0x026d, B:67:0x0262), top: B:76:0x0004, inners: #1 }] */
+    /* JADX WARN: Removed duplicated region for block: B:46:0x016d A[Catch: all -> 0x0282, TryCatch #0 {, blocks: (B:4:0x0004, B:6:0x0039, B:8:0x0043, B:10:0x005b, B:11:0x0065, B:13:0x0072, B:14:0x0078, B:16:0x0082, B:17:0x0088, B:20:0x0091, B:23:0x009a, B:26:0x00a3, B:27:0x00af, B:30:0x00be, B:31:0x00c4, B:33:0x00ef, B:35:0x00fc, B:36:0x0111, B:38:0x011b, B:40:0x0121, B:41:0x0139, B:43:0x013f, B:44:0x0145, B:46:0x016d, B:47:0x0177, B:49:0x0181, B:50:0x018b, B:52:0x01d2, B:53:0x01d6, B:55:0x01dc, B:57:0x01ea, B:59:0x020c, B:60:0x0226, B:69:0x026d, B:67:0x0262), top: B:76:0x0004, inners: #1 }] */
+    /* JADX WARN: Removed duplicated region for block: B:49:0x0181 A[Catch: all -> 0x0282, TryCatch #0 {, blocks: (B:4:0x0004, B:6:0x0039, B:8:0x0043, B:10:0x005b, B:11:0x0065, B:13:0x0072, B:14:0x0078, B:16:0x0082, B:17:0x0088, B:20:0x0091, B:23:0x009a, B:26:0x00a3, B:27:0x00af, B:30:0x00be, B:31:0x00c4, B:33:0x00ef, B:35:0x00fc, B:36:0x0111, B:38:0x011b, B:40:0x0121, B:41:0x0139, B:43:0x013f, B:44:0x0145, B:46:0x016d, B:47:0x0177, B:49:0x0181, B:50:0x018b, B:52:0x01d2, B:53:0x01d6, B:55:0x01dc, B:57:0x01ea, B:59:0x020c, B:60:0x0226, B:69:0x026d, B:67:0x0262), top: B:76:0x0004, inners: #1 }] */
+    /* JADX WARN: Removed duplicated region for block: B:52:0x01d2 A[Catch: all -> 0x0282, TryCatch #0 {, blocks: (B:4:0x0004, B:6:0x0039, B:8:0x0043, B:10:0x005b, B:11:0x0065, B:13:0x0072, B:14:0x0078, B:16:0x0082, B:17:0x0088, B:20:0x0091, B:23:0x009a, B:26:0x00a3, B:27:0x00af, B:30:0x00be, B:31:0x00c4, B:33:0x00ef, B:35:0x00fc, B:36:0x0111, B:38:0x011b, B:40:0x0121, B:41:0x0139, B:43:0x013f, B:44:0x0145, B:46:0x016d, B:47:0x0177, B:49:0x0181, B:50:0x018b, B:52:0x01d2, B:53:0x01d6, B:55:0x01dc, B:57:0x01ea, B:59:0x020c, B:60:0x0226, B:69:0x026d, B:67:0x0262), top: B:76:0x0004, inners: #1 }] */
+    /* JADX WARN: Removed duplicated region for block: B:55:0x01dc A[Catch: all -> 0x0282, TryCatch #0 {, blocks: (B:4:0x0004, B:6:0x0039, B:8:0x0043, B:10:0x005b, B:11:0x0065, B:13:0x0072, B:14:0x0078, B:16:0x0082, B:17:0x0088, B:20:0x0091, B:23:0x009a, B:26:0x00a3, B:27:0x00af, B:30:0x00be, B:31:0x00c4, B:33:0x00ef, B:35:0x00fc, B:36:0x0111, B:38:0x011b, B:40:0x0121, B:41:0x0139, B:43:0x013f, B:44:0x0145, B:46:0x016d, B:47:0x0177, B:49:0x0181, B:50:0x018b, B:52:0x01d2, B:53:0x01d6, B:55:0x01dc, B:57:0x01ea, B:59:0x020c, B:60:0x0226, B:69:0x026d, B:67:0x0262), top: B:76:0x0004, inners: #1 }] */
+    /* JADX WARN: Removed duplicated region for block: B:63:0x0258  */
+    /* JADX WARN: Removed duplicated region for block: B:64:0x025b  */
+    /* JADX WARN: Removed duplicated region for block: B:65:0x025e  */
+    /* JADX WARN: Removed duplicated region for block: B:68:0x0268  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -94,13 +95,16 @@ public class l {
         k kVar = null;
         synchronized (l.class) {
             TreeMap treeMap = new TreeMap();
-            treeMap.put("devid", com.xiaomi.push.i.a(context, false));
+            String a4 = com.xiaomi.push.i.a(context, false);
+            com.xiaomi.channel.commonutils.logger.b.m50a("account register:" + a4);
+            treeMap.put("devid", a4);
             treeMap.put("devid1", com.xiaomi.push.i.a(context));
-            if (a != null && !TextUtils.isEmpty(a.f917a)) {
-                treeMap.put("uuid", a.f917a);
-                int lastIndexOf = a.f917a.lastIndexOf("/");
+            if (a != null && !TextUtils.isEmpty(a.f914a)) {
+                treeMap.put("uuid", a.f914a);
+                int lastIndexOf = a.f914a.lastIndexOf("/");
                 if (lastIndexOf != -1) {
-                    str4 = a.f917a.substring(lastIndexOf + 1);
+                    str4 = a.f914a.substring(lastIndexOf + 1);
+                    com.xiaomi.push.au.a(context).a(treeMap);
                     c = com.xiaomi.push.i.c(context);
                     if (c != null) {
                         treeMap.put("vdevid", c);
@@ -109,19 +113,19 @@ public class l {
                     if (!TextUtils.isEmpty(b)) {
                         treeMap.put("gaid", b);
                     }
-                    String str5 = !m549a(context) ? "1000271" : str2;
-                    String str6 = !m549a(context) ? "420100086271" : str3;
-                    String str7 = !m549a(context) ? "com.xiaomi.xmsf" : str;
+                    String str5 = !m575a(context) ? "1000271" : str2;
+                    String str6 = !m575a(context) ? "420100086271" : str3;
+                    String str7 = !m575a(context) ? "com.xiaomi.xmsf" : str;
                     treeMap.put("appid", str5);
                     treeMap.put("apptoken", str6);
                     PackageInfo packageInfo = context.getPackageManager().getPackageInfo(str7, 16384);
                     treeMap.put(ETAG.KEY_APP_VERSION, packageInfo == null ? String.valueOf(packageInfo.versionCode) : "0");
-                    treeMap.put("sdkversion", Integer.toString(30619));
+                    treeMap.put("sdkversion", Integer.toString(30705));
                     treeMap.put("packagename", str7);
                     treeMap.put("model", Build.MODEL);
                     treeMap.put(HttpConstants.HTTP_BOARD, Build.BOARD);
                     if (!com.xiaomi.push.l.d()) {
-                        String str8 = TextUtils.isEmpty(com.xiaomi.push.i.f(context)) ? "" : "" + com.xiaomi.push.ay.a(f);
+                        String str8 = TextUtils.isEmpty(com.xiaomi.push.i.f(context)) ? "" : "" + com.xiaomi.push.bf.a(f);
                         String h = com.xiaomi.push.i.h(context);
                         if (!TextUtils.isEmpty(str8) && !TextUtils.isEmpty(h)) {
                             str8 = str8 + Constants.ACCEPT_TIME_SEPARATOR_SP + h;
@@ -137,17 +141,19 @@ public class l {
                     }
                     n = com.xiaomi.push.i.n(context);
                     if (!TextUtils.isEmpty(n)) {
-                        treeMap.put("mac_address", com.xiaomi.push.ay.a(n));
+                        treeMap.put("mac_address", com.xiaomi.push.bf.a(n));
                     }
                     treeMap.put("android_id", com.xiaomi.push.i.e(context));
                     treeMap.put(Constants.PHONE_BRAND, Build.BRAND + "");
-                    com.xiaomi.push.aq a4 = com.xiaomi.push.as.a(context, m547a(context), treeMap);
-                    a3 = a4 != null ? a4.a() : "";
+                    treeMap.put("ram", com.xiaomi.push.i.m388b());
+                    treeMap.put(Config.ROM, com.xiaomi.push.i.m390c());
+                    com.xiaomi.push.ax a5 = com.xiaomi.push.az.a(context, m573a(context), treeMap);
+                    a3 = a5 != null ? a5.a() : "";
                     if (!TextUtils.isEmpty(a3)) {
                         JSONObject jSONObject = new JSONObject(a3);
                         if (jSONObject.getInt("code") == 0) {
                             JSONObject jSONObject2 = jSONObject.getJSONObject("data");
-                            kVar = new k(jSONObject2.getString(TbEnum.SystemMessage.KEY_USER_ID) + "@xiaomi.com/" + (TextUtils.isEmpty(str4) ? "an" + com.xiaomi.push.ay.a(6) : str4), jSONObject2.getString("token"), jSONObject2.getString("ssecurity"), str5, str6, str7, com.xiaomi.push.ab.a());
+                            kVar = new k(jSONObject2.getString(TbEnum.SystemMessage.KEY_USER_ID) + "@xiaomi.com/" + (TextUtils.isEmpty(str4) ? "an" + com.xiaomi.push.bf.a(6) : str4), jSONObject2.getString("token"), jSONObject2.getString("ssecurity"), str5, str6, str7, com.xiaomi.push.ab.a());
                             a(context, kVar);
                             com.xiaomi.push.i.a(context, jSONObject2.optString("vdevid"));
                             a = kVar;
@@ -159,23 +165,24 @@ public class l {
                 }
             }
             str4 = null;
+            com.xiaomi.push.au.a(context).a(treeMap);
             c = com.xiaomi.push.i.c(context);
             if (c != null) {
             }
             b = com.xiaomi.push.i.b(context);
             if (!TextUtils.isEmpty(b)) {
             }
-            if (!m549a(context)) {
+            if (!m575a(context)) {
             }
-            if (!m549a(context)) {
+            if (!m575a(context)) {
             }
-            if (!m549a(context)) {
+            if (!m575a(context)) {
             }
             treeMap.put("appid", str5);
             treeMap.put("apptoken", str6);
             PackageInfo packageInfo2 = context.getPackageManager().getPackageInfo(str7, 16384);
             treeMap.put(ETAG.KEY_APP_VERSION, packageInfo2 == null ? String.valueOf(packageInfo2.versionCode) : "0");
-            treeMap.put("sdkversion", Integer.toString(30619));
+            treeMap.put("sdkversion", Integer.toString(30705));
             treeMap.put("packagename", str7);
             treeMap.put("model", Build.MODEL);
             treeMap.put(HttpConstants.HTTP_BOARD, Build.BOARD);
@@ -190,8 +197,10 @@ public class l {
             }
             treeMap.put("android_id", com.xiaomi.push.i.e(context));
             treeMap.put(Constants.PHONE_BRAND, Build.BRAND + "");
-            com.xiaomi.push.aq a42 = com.xiaomi.push.as.a(context, m547a(context), treeMap);
-            if (a42 != null) {
+            treeMap.put("ram", com.xiaomi.push.i.m388b());
+            treeMap.put(Config.ROM, com.xiaomi.push.i.m390c());
+            com.xiaomi.push.ax a52 = com.xiaomi.push.az.a(context, m573a(context), treeMap);
+            if (a52 != null) {
             }
             if (!TextUtils.isEmpty(a3)) {
             }
@@ -200,10 +209,10 @@ public class l {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static String m547a(Context context) {
+    public static String m573a(Context context) {
         String a2 = com.xiaomi.push.service.a.a(context).a();
         if (com.xiaomi.push.ab.b()) {
-            return "http://" + fn.b + ":9085/pass/v2/register";
+            return "http://" + ft.b + ":9085/pass/v2/register";
         }
         if (com.xiaomi.push.o.China.name().equals(a2)) {
             return "https://cn.register.xmpush.xiaomi.com/pass/v2/register";
@@ -220,17 +229,17 @@ public class l {
         if (com.xiaomi.push.o.India.name().equals(a2)) {
             return "https://idmb.register.xmpush.global.xiaomi.com/pass/v2/register";
         }
-        return SapiUtils.COOKIE_HTTPS_URL_PREFIX + (com.xiaomi.push.ab.m127a() ? "sandbox.xmpush.xiaomi.com" : "register.xmpush.xiaomi.com") + "/pass/v2/register";
+        return SapiUtils.COOKIE_HTTPS_URL_PREFIX + (com.xiaomi.push.ab.m121a() ? "sandbox.xmpush.xiaomi.com" : "register.xmpush.xiaomi.com") + "/pass/v2/register";
     }
 
     public static void a() {
-        if (f918a != null) {
-            f918a.a();
+        if (f915a != null) {
+            f915a.a();
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m548a(Context context) {
+    public static void m574a(Context context) {
         context.getSharedPreferences("mipush_account", 0).edit().clear().commit();
         a = null;
         a();
@@ -238,7 +247,7 @@ public class l {
 
     public static void a(Context context, k kVar) {
         SharedPreferences.Editor edit = context.getSharedPreferences("mipush_account", 0).edit();
-        edit.putString("uuid", kVar.f917a);
+        edit.putString("uuid", kVar.f914a);
         edit.putString("security", kVar.c);
         edit.putString("token", kVar.b);
         edit.putString("app_id", kVar.d);
@@ -251,11 +260,11 @@ public class l {
     }
 
     public static void a(a aVar) {
-        f918a = aVar;
+        f915a = aVar;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private static boolean m549a(Context context) {
+    private static boolean m575a(Context context) {
         return context.getPackageName().equals("com.xiaomi.xmsf");
     }
 }

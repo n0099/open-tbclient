@@ -1,11 +1,11 @@
 package com.baidu.tieba.videoEasterEgg;
 /* loaded from: classes9.dex */
 public interface b {
-    void Mg(String str);
+    void Mj(String str);
 
-    void Mh(String str);
+    void Mk(String str);
 
-    void Ym();
+    void Yl();
 
     void eZ(String str, String str2);
 

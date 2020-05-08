@@ -14,41 +14,41 @@ import com.baidu.prologue.b.a;
 import com.baidu.prologue.business.a.a;
 import java.io.File;
 /* loaded from: classes6.dex */
-public class d extends b<com.baidu.prologue.business.b.c> implements a.InterfaceC0195a {
-    private static final boolean DEBUG = com.baidu.prologue.a.b.a.brQ.get().Lr();
-    private String bsG;
-    private com.baidu.prologue.b.b bsL;
-    private View btl;
-    private FrameLayout btn;
-    private ImageView bto;
-    private File btp;
-    private String btq;
-    private String btr;
-    private boolean bts;
-    private boolean btt;
-    private Bitmap btu;
-    private com.baidu.prologue.business.a.a btv;
-    protected boolean btw;
-    protected boolean btx;
-    private a.InterfaceC0193a bty;
+public class d extends b<com.baidu.prologue.business.b.c> implements a.InterfaceC0217a {
+    private static final boolean DEBUG = com.baidu.prologue.a.b.a.brU.get().Lq();
+    private String bsK;
+    private com.baidu.prologue.b.b bsP;
+    protected boolean btA;
+    protected boolean btB;
+    private a.InterfaceC0215a btC;
+    private View btp;
+    private FrameLayout btr;
+    private ImageView bts;
+    private File btt;
+    private String btu;
+    private String btv;
+    private boolean btw;
+    private boolean btx;
+    private Bitmap bty;
+    private com.baidu.prologue.business.a.a btz;
     private View mMaskView;
     private int mVideoHeight;
     private int mVideoWidth;
 
     public d(@NonNull Context context) {
         super(context);
-        this.btl = null;
-        this.bts = true;
-        this.btt = true;
+        this.btp = null;
+        this.btw = true;
+        this.btx = true;
         this.mVideoHeight = 0;
         this.mVideoWidth = 0;
-        this.btu = null;
-        this.btw = true;
-        this.btx = false;
-        this.bsL = new com.baidu.prologue.b.b() { // from class: com.baidu.prologue.business.c.d.1
+        this.bty = null;
+        this.btA = true;
+        this.btB = false;
+        this.bsP = new com.baidu.prologue.b.b() { // from class: com.baidu.prologue.business.c.d.1
             @Override // com.baidu.prologue.b.b
             public void onPrepared() {
-                d.this.btv.play();
+                d.this.btz.play();
             }
 
             @Override // com.baidu.prologue.b.b
@@ -69,8 +69,8 @@ public class d extends b<com.baidu.prologue.business.b.c> implements a.Interface
 
             @Override // com.baidu.prologue.b.b
             public boolean onError(int i, int i2) {
-                d.this.Mi().Me();
-                d.this.Ml();
+                d.this.Mh().Md();
+                d.this.Mk();
                 return false;
             }
 
@@ -88,46 +88,46 @@ public class d extends b<com.baidu.prologue.business.b.c> implements a.Interface
                 return false;
             }
         };
-        this.bty = new a.InterfaceC0193a() { // from class: com.baidu.prologue.business.c.d.2
-            @Override // com.baidu.prologue.b.a.InterfaceC0193a
+        this.btC = new a.InterfaceC0215a() { // from class: com.baidu.prologue.business.c.d.2
+            @Override // com.baidu.prologue.b.a.InterfaceC0215a
             public void dL(int i) {
-                d.this.Mi().Me();
+                d.this.Mh().Md();
             }
         };
     }
 
     public d m(@NonNull File file) {
-        this.btp = file;
+        this.btt = file;
         return this;
     }
 
     public d fW(String str) {
-        this.btr = str;
+        this.btv = str;
         return this;
     }
 
     public d fX(String str) {
-        this.btq = str;
+        this.btu = str;
         return this;
     }
 
     public d fY(@NonNull String str) {
-        this.bsG = str;
+        this.bsK = str;
         return this;
     }
 
     public d cI(boolean z) {
-        this.bts = z;
+        this.btw = z;
         return this;
     }
 
     public d b(@NonNull com.baidu.prologue.business.a.a aVar) {
-        this.btv = aVar;
+        this.btz = aVar;
         return this;
     }
 
     public d cJ(boolean z) {
-        this.btt = z;
+        this.btx = z;
         return this;
     }
 
@@ -137,25 +137,25 @@ public class d extends b<com.baidu.prologue.business.b.c> implements a.Interface
     }
 
     @Override // com.baidu.prologue.business.c.a
-    public void Mf() {
-        this.btn = (FrameLayout) this.mRootView.findViewById(b.C0194b.video_splash_view_content);
-        this.btl = this.mRootView.findViewById(b.C0194b.video_splash_clickable);
-        this.mMaskView = this.mRootView.findViewById(b.C0194b.video_mask_view);
-        this.bto = (ImageView) this.mRootView.findViewById(b.C0194b.video_splash_view_bs);
-        if (this.btt) {
-            Mo();
+    public void Me() {
+        this.btr = (FrameLayout) this.mRootView.findViewById(b.C0216b.video_splash_view_content);
+        this.btp = this.mRootView.findViewById(b.C0216b.video_splash_clickable);
+        this.mMaskView = this.mRootView.findViewById(b.C0216b.video_mask_view);
+        this.bts = (ImageView) this.mRootView.findViewById(b.C0216b.video_splash_view_bs);
+        if (this.btx) {
+            Mn();
         }
-        Mp();
-        if (this.bts) {
-            Mq();
+        Mo();
+        if (this.btw) {
+            Mp();
         }
     }
 
-    private void Mo() {
+    private void Mn() {
         Bitmap bitmap;
         MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
         try {
-            mediaMetadataRetriever.setDataSource(this.btp.getAbsolutePath());
+            mediaMetadataRetriever.setDataSource(this.btt.getAbsolutePath());
             this.mVideoHeight = Integer.parseInt(mediaMetadataRetriever.extractMetadata(19));
             this.mVideoWidth = Integer.parseInt(mediaMetadataRetriever.extractMetadata(18));
             bitmap = mediaMetadataRetriever.getFrameAtTime(0L);
@@ -164,63 +164,63 @@ public class d extends b<com.baidu.prologue.business.b.c> implements a.Interface
             bitmap = null;
         }
         if (bitmap != null) {
-            this.bto.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.bto.setImageBitmap(bitmap);
+            this.bts.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            this.bts.setImageBitmap(bitmap);
             cK(true);
         }
     }
 
-    private void Mp() {
-        View rq = this.btv.rq();
-        if (rq != null && rq.getParent() != this.btn) {
+    private void Mo() {
+        View rq = this.btz.rq();
+        if (rq != null && rq.getParent() != this.btr) {
             if (rq.getParent() != null) {
                 ((ViewGroup) rq.getParent()).removeView(rq);
             }
-            int width = this.btn.getWidth();
+            int width = this.btr.getWidth();
             if (width <= 0) {
                 width = -1;
             }
-            int height = this.btn.getHeight();
+            int height = this.btr.getHeight();
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(new ViewGroup.LayoutParams(width, height > 0 ? height : -1));
             layoutParams.gravity = 17;
-            this.btn.addView(rq, 1, layoutParams);
+            this.btr.addView(rq, 1, layoutParams);
         }
     }
 
-    private void Mq() {
-        if (this.btv != null) {
-            this.btx = false;
-            this.btv.a(this.btp, this.btq, this.bsL, this.bsG, this, this.bty, this.bsM);
-            this.btv.prepare();
+    private void Mp() {
+        if (this.btz != null) {
+            this.btB = false;
+            this.btz.a(this.btt, this.btu, this.bsP, this.bsK, this, this.btC, this.bsQ);
+            this.btz.prepare();
         }
     }
 
     @Override // com.baidu.prologue.business.c.b
-    public void Mk() {
-        super.Mk();
-        this.btx = true;
-        if (this.btv != null && this.btv.Ma()) {
-            this.btv.pause();
-            this.btv.release();
+    public void Mj() {
+        super.Mj();
+        this.btB = true;
+        if (this.btz != null && this.btz.LZ()) {
+            this.btz.pause();
+            this.btz.release();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void cK(boolean z) {
         if (z) {
-            this.bto.setVisibility(0);
+            this.bts.setVisibility(0);
         } else {
-            this.bto.setVisibility(8);
+            this.bts.setVisibility(8);
         }
     }
 
     @Override // com.baidu.prologue.business.c.a
-    public View Mb() {
-        return this.btv != null ? this.btv.Mb() : this.btl;
+    public View Ma() {
+        return this.btz != null ? this.btz.Ma() : this.btp;
     }
 
-    @Override // com.baidu.prologue.business.a.a.InterfaceC0195a
+    @Override // com.baidu.prologue.business.a.a.InterfaceC0217a
     public void fQ(String str) {
-        this.bsG = str;
+        this.bsK = str;
     }
 }

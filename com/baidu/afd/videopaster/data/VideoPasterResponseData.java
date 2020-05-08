@@ -138,8 +138,8 @@ public class VideoPasterResponseData extends JsonHttpResponsedMessage {
             for (int i = 0; i < optJSONArray.length(); i++) {
                 JSONObject optJSONObject4 = optJSONArray.optJSONObject(i);
                 if (optJSONObject4 != null) {
-                    this.pasterData.Xz.add(optJSONObject4.optString("show_url"));
-                    this.pasterData.XA.add(optJSONObject4.optString("click_url"));
+                    this.pasterData.XC.add(optJSONObject4.optString("show_url"));
+                    this.pasterData.XD.add(optJSONObject4.optString("click_url"));
                 }
             }
         }
@@ -147,14 +147,14 @@ public class VideoPasterResponseData extends JsonHttpResponsedMessage {
         String optString5 = optJSONObject3.optString(BigdayActivityConfig.JUMP_URL);
         String str = null;
         if (TextUtils.isEmpty(optString4)) {
-            this.pasterData.Xw = true;
-            this.pasterData.Xx = 10;
-            this.pasterData.Xy = 2;
+            this.pasterData.Xz = true;
+            this.pasterData.XA = 10;
+            this.pasterData.XB = 2;
             this.pasterData.aK(3);
         } else if (TextUtils.isEmpty(optString5)) {
-            this.pasterData.Xw = true;
-            this.pasterData.Xx = 10;
-            this.pasterData.Xy = 1;
+            this.pasterData.Xz = true;
+            this.pasterData.XA = 10;
+            this.pasterData.XB = 1;
             this.pasterData.aK(3);
         } else {
             JSONArray optJSONArray2 = optJSONObject3.optJSONArray("image_list");
@@ -168,9 +168,9 @@ public class VideoPasterResponseData extends JsonHttpResponsedMessage {
                 }
                 str = optJSONObject5.optString("image");
                 if (TextUtils.isEmpty(str)) {
-                    this.pasterData.Xw = true;
-                    this.pasterData.Xx = 10;
-                    this.pasterData.Xy = 3;
+                    this.pasterData.Xz = true;
+                    this.pasterData.XA = 10;
+                    this.pasterData.XB = 3;
                     throw new ParseError(2, "image has no data");
                 }
             }
@@ -191,9 +191,9 @@ public class VideoPasterResponseData extends JsonHttpResponsedMessage {
                 str2 = optJSONObject7.optString("url");
                 str3 = optJSONObject7.optString("cover");
                 if (TextUtils.isEmpty(str2)) {
-                    this.pasterData.Xw = true;
-                    this.pasterData.Xx = 10;
-                    this.pasterData.Xy = 4;
+                    this.pasterData.Xz = true;
+                    this.pasterData.XA = 10;
+                    this.pasterData.XB = 4;
                     throw new ParseError(2, "video url or cover has no data");
                 }
             }
@@ -203,20 +203,20 @@ public class VideoPasterResponseData extends JsonHttpResponsedMessage {
                 i2 = optJSONObject8.optInt("time");
             }
             if (this.type == 3) {
-                this.pasterData.Xw = true;
-                this.pasterData.Xx = 10;
-                this.pasterData.Xy = 24;
+                this.pasterData.Xz = true;
+                this.pasterData.XA = 10;
+                this.pasterData.XB = 24;
             }
             this.pasterData.adid = optString3;
             this.pasterData.aK(this.type);
             this.pasterData.tplName = optString2;
-            this.pasterData.Xr = i2;
-            this.pasterData.Xq = optString5;
-            this.pasterData.Xp = optString4;
-            this.pasterData.Xu = optString7;
-            this.pasterData.Xt = optString6;
-            this.pasterData.Xv = optString8;
-            this.pasterData.Xs = str3;
+            this.pasterData.Xu = i2;
+            this.pasterData.Xt = optString5;
+            this.pasterData.Xs = optString4;
+            this.pasterData.Xx = optString7;
+            this.pasterData.Xw = optString6;
+            this.pasterData.Xy = optString8;
+            this.pasterData.Xv = str3;
             this.pasterData.videoUrl = str2;
             this.pasterData.picUrl = str;
         }

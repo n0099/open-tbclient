@@ -1,10 +1,11 @@
 package com.baidu.sapi2.utils.enums;
 
 import com.baidu.live.tbadk.log.LogConfig;
+import com.baidu.sapi2.outsdk.c;
 /* loaded from: classes6.dex */
 public enum QrLoginAction {
     NOTICE(LogConfig.KEY_NOTICE),
-    LOGIN("login"),
+    LOGIN(c.k),
     CANCEL("cancel");
     
     private String b;

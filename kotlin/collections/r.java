@@ -16,14 +16,14 @@ public class r extends q {
         return collection.size() > 2 && (collection instanceof ArrayList);
     }
 
-    public static final <T> Collection<T> b(Iterable<? extends T> iterable) {
+    public static final <T> Collection<T> c(Iterable<? extends T> iterable) {
         kotlin.jvm.internal.q.j(iterable, "receiver$0");
         if (iterable instanceof Set) {
             return (Collection) iterable;
         }
         if (iterable instanceof Collection) {
-            return l((Collection) iterable) ? o.e(iterable) : (Collection) iterable;
+            return l((Collection) iterable) ? o.f(iterable) : (Collection) iterable;
         }
-        return o.e(iterable);
+        return o.f(iterable);
     }
 }

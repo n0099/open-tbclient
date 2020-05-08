@@ -1,101 +1,18 @@
 package com.baidu.sapi2.utils;
 
-import android.annotation.TargetApi;
-import android.os.Build;
-import android.text.TextUtils;
-import android.util.Base64;
-import com.baidu.mobstat.Config;
-import com.baidu.sapi2.httpwrap.HttpClientWrap;
 import com.baidu.sapi2.httpwrap.HttpHashMapWrap;
-import com.baidu.searchbox.performance.speed.launcher.NetworkRequestScheduler;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes6.dex */
-public final class r {
-    public static final String a = "qrlogin_enter";
-    private static final Map<String, String> b = new HashMap();
-    private static List<String> c;
+public class r implements Runnable {
+    final /* synthetic */ HttpHashMapWrap a;
 
-    static {
-        b.put("pid", "111");
-        b.put("type", "1023");
-        b.put(Config.DEVICE_PART, Build.MODEL);
-        c = new ArrayList();
-        c.add("share_read");
-        c.add("share_silent_account");
-        c.add("share_silent_account_success");
-        c.add("load_login");
-        c.add("share_account_open");
-        c.add("pass_sdk_init");
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public r(HttpHashMapWrap httpHashMapWrap) {
+        this.a = httpHashMapWrap;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public static void b(HttpHashMapWrap httpHashMapWrap) {
-        new HttpClientWrap().get(h.a(h.p), httpHashMapWrap, null, null, new q(true));
-    }
-
-    public static void a(String str, Map<String, String> map) {
-        if (!TextUtils.isEmpty(str)) {
-            try {
-                HttpHashMapWrap httpHashMapWrap = new HttpHashMapWrap();
-                httpHashMapWrap.putAll(b);
-                httpHashMapWrap.put("name", str);
-                httpHashMapWrap.put("v", String.valueOf(System.currentTimeMillis()));
-                httpHashMapWrap.put("clientfrom", "mobilesdk_enhanced");
-                if (map != null) {
-                    for (Map.Entry<String, String> entry : map.entrySet()) {
-                        if (!TextUtils.isEmpty(entry.getKey()) && !TextUtils.isEmpty(entry.getValue())) {
-                            httpHashMapWrap.put(entry.getKey(), entry.getValue());
-                        }
-                    }
-                }
-                if (c.contains(str) && a()) {
-                    NetworkRequestScheduler.execute(new p(httpHashMapWrap), "pass_sdk_".concat(str), 60000L, false);
-                    return;
-                }
-                b(httpHashMapWrap);
-            } catch (Throwable th) {
-                Log.e(th);
-            }
-        }
-    }
-
-    private static boolean a() {
-        try {
-            Class.forName("com.baidu.searchbox.performance.speed.launcher.NetworkRequestScheduler");
-            return true;
-        } catch (Throwable th) {
-            return false;
-        }
-    }
-
-    public static void a(String str) {
-        LinkedHashMap linkedHashMap = new LinkedHashMap(1);
-        linkedHashMap.put("name", str);
-        a(linkedHashMap);
-    }
-
-    public static void a(LinkedHashMap<String, String> linkedHashMap) {
-        a(linkedHashMap, (Map<String, String>) null);
-    }
-
-    @TargetApi(8)
-    public static void a(LinkedHashMap<String, String> linkedHashMap, Map<String, String> map) {
-        if (map == null) {
-            map = new HashMap<>();
-        }
-        StringBuilder sb = new StringBuilder();
-        sb.append("{");
-        for (String str : linkedHashMap.keySet()) {
-            sb.append(str).append(":").append(linkedHashMap.get(str));
-        }
-        sb.append("}");
-        map.put("auto_statistic", Base64.encodeToString(sb.toString().getBytes(), 0));
-        map.put("source", "native");
-        map.put("data_source", "client");
-        a("auto_statistic", map);
+    @Override // java.lang.Runnable
+    public void run() {
+        t.b(this.a);
     }
 }

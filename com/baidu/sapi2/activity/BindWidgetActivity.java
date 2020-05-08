@@ -148,6 +148,6 @@ public class BindWidgetActivity extends BaseActivity {
                 BindWidgetActivity.this.startActivityForResult(intent, BindWidgetActivity.REQUEST_CODE_LOGIN);
             }
         });
-        this.sapiWebView.loadBindWidget(this.r, this.s, Collections.singletonList(SapiWebView.EXTRA_BIND_WIDGET_CONFLICT_DETECT));
+        this.sapiWebView.loadBindWidget(this.r, this.s, null, true, Collections.singletonList(SapiWebView.EXTRA_BIND_WIDGET_CONFLICT_DETECT));
     }
 }

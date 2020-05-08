@@ -1,48 +1,48 @@
 package com.baidu.swan.pms.c.d;
 /* loaded from: classes11.dex */
 public class c extends f {
-    private String dbl;
-    private int dbm;
-    private long dbn;
-    private String dbo;
-    private String dbp;
-    private int dbq;
+    private String dbq;
+    private int dbr;
+    private long dbs;
+    private String dbt;
+    private String dbu;
+    private int dbv;
     private String mPath;
 
     public c(String str, int i) {
         super(i);
-        this.dbm = -1;
-        this.dbn = -1L;
-        this.dbq = -1;
-        this.dbl = str;
+        this.dbr = -1;
+        this.dbs = -1L;
+        this.dbv = -1;
+        this.dbq = str;
     }
 
     public c iQ(int i) {
-        this.dbq = i;
+        this.dbv = i;
         return this;
     }
 
     public int aCA() {
-        return this.dbq;
+        return this.dbv;
     }
 
     public c rI(String str) {
-        this.dbo = str;
+        this.dbt = str;
         return this;
     }
 
     public c iR(int i) {
-        this.dbm = i;
+        this.dbr = i;
         return this;
     }
 
     public c bQ(long j) {
-        this.dbn = j;
+        this.dbs = j;
         return this;
     }
 
     public c rJ(String str) {
-        this.dbp = str;
+        this.dbu = str;
         return this;
     }
 
@@ -52,23 +52,23 @@ public class c extends f {
     }
 
     public String getBundleId() {
-        return this.dbl;
+        return this.dbq;
     }
 
     public int aCy() {
-        return this.dbm;
+        return this.dbr;
     }
 
     public long aCz() {
-        return this.dbn;
+        return this.dbs;
     }
 
     public String aCB() {
-        return this.dbo;
+        return this.dbt;
     }
 
     public String aCC() {
-        return this.dbp;
+        return this.dbu;
     }
 
     public String getPath() {

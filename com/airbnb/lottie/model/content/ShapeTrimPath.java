@@ -4,9 +4,9 @@ import com.airbnb.lottie.a.a.r;
 /* loaded from: classes6.dex */
 public class ShapeTrimPath implements b {
     private final Type Cd;
-    private final com.airbnb.lottie.model.a.b Eb;
-    private final com.airbnb.lottie.model.a.b Ej;
-    private final com.airbnb.lottie.model.a.b Ek;
+    private final com.airbnb.lottie.model.a.b Ee;
+    private final com.airbnb.lottie.model.a.b Em;
+    private final com.airbnb.lottie.model.a.b En;
     private final String name;
 
     /* loaded from: classes6.dex */
@@ -29,9 +29,9 @@ public class ShapeTrimPath implements b {
     public ShapeTrimPath(String str, Type type, com.airbnb.lottie.model.a.b bVar, com.airbnb.lottie.model.a.b bVar2, com.airbnb.lottie.model.a.b bVar3) {
         this.name = str;
         this.Cd = type;
-        this.Ej = bVar;
-        this.Ek = bVar2;
-        this.Eb = bVar3;
+        this.Em = bVar;
+        this.En = bVar2;
+        this.Ee = bVar3;
     }
 
     public String getName() {
@@ -43,15 +43,15 @@ public class ShapeTrimPath implements b {
     }
 
     public com.airbnb.lottie.model.a.b iA() {
-        return this.Ek;
+        return this.En;
     }
 
     public com.airbnb.lottie.model.a.b iB() {
-        return this.Ej;
+        return this.Em;
     }
 
     public com.airbnb.lottie.model.a.b iu() {
-        return this.Eb;
+        return this.Ee;
     }
 
     @Override // com.airbnb.lottie.model.content.b
@@ -60,6 +60,6 @@ public class ShapeTrimPath implements b {
     }
 
     public String toString() {
-        return "Trim Path: {start: " + this.Ej + ", end: " + this.Ek + ", offset: " + this.Eb + "}";
+        return "Trim Path: {start: " + this.Em + ", end: " + this.En + ", offset: " + this.Ee + "}";
     }
 }

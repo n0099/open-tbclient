@@ -45,7 +45,7 @@ public class MiPushMessage implements PushMessageHandler.a {
     public static MiPushMessage fromBundle(Bundle bundle) {
         MiPushMessage miPushMessage = new MiPushMessage();
         miPushMessage.messageId = bundle.getString(KEY_MESSAGE_ID);
-        miPushMessage.messageType = bundle.getInt("messageType");
+        miPushMessage.messageType = bundle.getInt(KEY_MESSAGE_TYPE);
         miPushMessage.passThrough = bundle.getInt(KEY_PASS_THROUGH);
         miPushMessage.alias = bundle.getString("alias");
         miPushMessage.userAccount = bundle.getString(KEY_USER_ACCOUNT);
@@ -188,7 +188,7 @@ public class MiPushMessage implements PushMessageHandler.a {
         Bundle bundle = new Bundle();
         bundle.putString(KEY_MESSAGE_ID, this.messageId);
         bundle.putInt(KEY_PASS_THROUGH, this.passThrough);
-        bundle.putInt("messageType", this.messageType);
+        bundle.putInt(KEY_MESSAGE_TYPE, this.messageType);
         if (!TextUtils.isEmpty(this.alias)) {
             bundle.putString("alias", this.alias);
         }

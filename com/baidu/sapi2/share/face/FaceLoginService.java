@@ -3,7 +3,7 @@ package com.baidu.sapi2.share.face;
 import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
-import com.baidu.android.common.security.MD5Util;
+import com.baidu.pass.common.SecurityUtil;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiContext;
 import com.baidu.sapi2.share.ShareStorage;
@@ -38,11 +38,11 @@ public class FaceLoginService {
     }
 
     private List<a> b() {
-        return str2ShareModelV2List(SapiContext.getInstance(this.e).getV2FaceLivingUnames());
+        return str2ShareModelV2List(SapiContext.getInstance().getV2FaceLivingUnames());
     }
 
     public boolean isSupFaceLogin() {
-        JSONObject v2FaceLoginCheckResults = SapiContext.getInstance(this.e).getV2FaceLoginCheckResults();
+        JSONObject v2FaceLoginCheckResults = SapiContext.getInstance().getV2FaceLoginCheckResults();
         return v2FaceLoginCheckResults != null && v2FaceLoginCheckResults.has("list") && v2FaceLoginCheckResults.optJSONArray("list").length() > 0 && SapiAccountManager.getInstance().getConfignation().supportFaceLogin;
     }
 
@@ -96,15 +96,15 @@ public class FaceLoginService {
         }
         String a3 = a(a2);
         a(a3);
-        SapiContext.getInstance(context).setV2FaceLivingunames(a3);
-        SapiContext.getInstance(context).setV2FaceLoginCheckResults(jSONObject.toString());
+        SapiContext.getInstance().setV2FaceLivingunames(a3);
+        SapiContext.getInstance().setV2FaceLoginCheckResults(jSONObject.toString());
     }
 
     private void a(String str) {
-        if (SapiContext.getInstance(this.e).getShareCommonStorageEnabel() && !TextUtils.isEmpty(str) && SapiContext.getInstance(this.e).shareLivingunameEnable()) {
+        if (SapiContext.getInstance().getShareCommonStorageEnabel() && !TextUtils.isEmpty(str) && SapiContext.getInstance().shareLivingunameEnable()) {
             ShareStorage shareStorage = new ShareStorage();
             shareStorage.setSp(b, str);
-            shareStorage.setSd(MD5Util.toMd5(b.getBytes(), false), str);
+            shareStorage.setSd(SecurityUtil.md5(b.getBytes(), false), str);
             return;
         }
         Log.i(a, "setV2ShareFaceUids false");
@@ -134,16 +134,16 @@ public class FaceLoginService {
 
     private List<a> a() {
         ArrayList arrayList = new ArrayList();
-        if (SapiContext.getInstance(this.e).shareLivingunameEnable()) {
-            List<Intent> d2 = x.d(this.e);
-            if (d2.isEmpty()) {
+        if (SapiContext.getInstance().shareLivingunameEnable()) {
+            List<Intent> c2 = x.c(this.e);
+            if (c2.isEmpty()) {
                 return arrayList;
             }
             ShareStorage shareStorage = new ShareStorage();
-            for (Intent intent : d2) {
+            for (Intent intent : c2) {
                 arrayList.addAll(str2ShareModelV2List(shareStorage.getSp(intent.getComponent().getPackageName(), b)));
             }
-            arrayList.addAll(str2ShareModelV2List(shareStorage.getSd(MD5Util.toMd5(b.getBytes(), false))));
+            arrayList.addAll(str2ShareModelV2List(shareStorage.getSd(SecurityUtil.md5(b.getBytes(), false))));
             return arrayList;
         }
         return arrayList;

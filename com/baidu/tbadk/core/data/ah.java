@@ -7,19 +7,19 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ah {
-    private ArrayList<String> doP;
-    private int doQ = 0;
-    private UserData doO = new UserData();
+    private ArrayList<String> doT;
+    private int doU = 0;
+    private UserData doS = new UserData();
     private AntiData anti = new AntiData();
 
     public ah() {
-        this.doP = null;
-        this.doP = new ArrayList<>();
+        this.doT = null;
+        this.doT = new ArrayList<>();
         jE(0);
     }
 
     public UserData getUser() {
-        return this.doO;
+        return this.doS;
     }
 
     public AntiData getAnti() {
@@ -36,12 +36,12 @@ public class ah {
 
     public void parserJson(JSONObject jSONObject) {
         try {
-            this.doO.parserJson(jSONObject.optJSONObject("user"));
+            this.doS.parserJson(jSONObject.optJSONObject("user"));
             this.anti.parserJson(jSONObject.optJSONObject(SubPbActivityConfig.KEY_ANTI));
             JSONArray optJSONArray = jSONObject.optJSONArray("suggnames");
             if (optJSONArray != null) {
                 for (int i = 0; i < optJSONArray.length(); i++) {
-                    this.doP.add(optJSONArray.optString(i, null));
+                    this.doT.add(optJSONArray.optString(i, null));
                 }
             }
             jE(jSONObject.optInt("retrytime"));
@@ -51,6 +51,6 @@ public class ah {
     }
 
     public void jE(int i) {
-        this.doQ = i;
+        this.doU = i;
     }
 }

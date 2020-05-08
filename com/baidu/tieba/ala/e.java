@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class e extends BaseAdapter {
-    private ArrayList<l> dvq = new ArrayList<>();
+    private ArrayList<l> dvu = new ArrayList<>();
     private TbPageContext mPageContext;
 
     public e(TbPageContext tbPageContext) {
@@ -26,21 +26,21 @@ public class e extends BaseAdapter {
     }
 
     public void setData(List<l> list) {
-        if (list != null && this.dvq.size() < 4) {
-            this.dvq.clear();
-            this.dvq.addAll(list);
+        if (list != null && this.dvu.size() < 4) {
+            this.dvu.clear();
+            this.dvu.addAll(list);
         }
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return this.dvq.size();
+        return this.dvu.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        return this.dvq.get(i);
+        return this.dvu.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -55,7 +55,7 @@ public class e extends BaseAdapter {
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i) {
-        return ((l) getItem(i)).bnN();
+        return ((l) getItem(i)).bnL();
     }
 
     @Override // android.widget.Adapter
@@ -98,7 +98,7 @@ public class e extends BaseAdapter {
         }
         final l lVar = (l) getItem(i);
         if (lVar != null) {
-            switch (lVar.bnN()) {
+            switch (lVar.bnL()) {
                 case 0:
                     if (aVar != null && aVar.rootView != null) {
                         aVar.rootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.e.1
@@ -112,22 +112,22 @@ public class e extends BaseAdapter {
                     break;
                 case 1:
                     if (bVar != null) {
-                        bVar.aBB.setText(lVar.getmName());
-                        bVar.eJy.setText(lVar.bnO() + "个");
-                        bVar.eJz.setText(lVar.bnQ() + "小时");
+                        bVar.aBH.setText(lVar.getmName());
+                        bVar.eJD.setText(lVar.bnM() + "个");
+                        bVar.eJE.setText(lVar.bnO() + "小时");
                         String string = this.mPageContext.getResources().getString(a.i.add_wish_thank_way_txt);
-                        if (!TextUtils.isEmpty(lVar.bnR())) {
-                            string = lVar.bnR();
+                        if (!TextUtils.isEmpty(lVar.bnP())) {
+                            string = lVar.bnP();
                         }
-                        bVar.eJA.setText(string);
-                        bVar.eJB.startLoad(lVar.bnP(), 10, false);
-                        if (lVar.bnN() == 1) {
+                        bVar.eJF.setText(string);
+                        bVar.eJG.startLoad(lVar.bnN(), 10, false);
+                        if (lVar.bnL() == 1) {
                             if (getItemId(i) == 0) {
-                                bVar.eJD.setImageResource(a.f.ala_wish_list_item_num_icon_no1);
+                                bVar.eJI.setImageResource(a.f.ala_wish_list_item_num_icon_no1);
                             } else if (getItemId(i) == 1) {
-                                bVar.eJD.setImageResource(a.f.ala_wish_list_item_num_icon_no2);
+                                bVar.eJI.setImageResource(a.f.ala_wish_list_item_num_icon_no2);
                             } else if (getItemId(i) == 2) {
-                                bVar.eJD.setImageResource(a.f.ala_wish_list_item_num_icon_no3);
+                                bVar.eJI.setImageResource(a.f.ala_wish_list_item_num_icon_no3);
                             }
                         }
                         if (bVar != null && bVar.rootView != null) {
@@ -137,10 +137,10 @@ public class e extends BaseAdapter {
                                 }
                             });
                         }
-                        bVar.eJC.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.e.3
+                        bVar.eJH.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.e.3
                             @Override // android.view.View.OnClickListener
                             public void onClick(View view2) {
-                                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new com.baidu.live.c.d(e.this.mPageContext.getPageActivity(), lVar.bnS(), 1001, e.this.getItemId(i))));
+                                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new com.baidu.live.c.d(e.this.mPageContext.getPageActivity(), lVar.bnQ(), 1001, e.this.getItemId(i))));
                             }
                         });
                         break;
@@ -162,24 +162,24 @@ public class e extends BaseAdapter {
 
     /* loaded from: classes3.dex */
     public static class b {
-        public TextView aBB;
-        public TextView eJA;
-        public TbImageView eJB;
-        public TbImageView eJC;
-        public TbImageView eJD;
-        public TextView eJy;
-        public TextView eJz;
+        public TextView aBH;
+        public TextView eJD;
+        public TextView eJE;
+        public TextView eJF;
+        public TbImageView eJG;
+        public TbImageView eJH;
+        public TbImageView eJI;
         public View rootView;
 
         public b(View view) {
             this.rootView = view;
-            this.aBB = (TextView) view.findViewById(a.g.ala_wish_list_item_center_content_first_name);
-            this.eJy = (TextView) view.findViewById(a.g.ala_wish_list_item_center_content_first_num);
-            this.eJz = (TextView) view.findViewById(a.g.ala_wish_list_item_center_content_deadline_num);
-            this.eJA = (TextView) view.findViewById(a.g.ala_wish_list_item_center_content_thank_way);
-            this.eJB = (TbImageView) view.findViewById(a.g.ala_wish_list_item_icon);
-            this.eJC = (TbImageView) view.findViewById(a.g.ala_wish_list_item_top_delete);
-            this.eJD = (TbImageView) view.findViewById(a.g.ala_wish_list_item_num_icon);
+            this.aBH = (TextView) view.findViewById(a.g.ala_wish_list_item_center_content_first_name);
+            this.eJD = (TextView) view.findViewById(a.g.ala_wish_list_item_center_content_first_num);
+            this.eJE = (TextView) view.findViewById(a.g.ala_wish_list_item_center_content_deadline_num);
+            this.eJF = (TextView) view.findViewById(a.g.ala_wish_list_item_center_content_thank_way);
+            this.eJG = (TbImageView) view.findViewById(a.g.ala_wish_list_item_icon);
+            this.eJH = (TbImageView) view.findViewById(a.g.ala_wish_list_item_top_delete);
+            this.eJI = (TbImageView) view.findViewById(a.g.ala_wish_list_item_num_icon);
         }
     }
 }

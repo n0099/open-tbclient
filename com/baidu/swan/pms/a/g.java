@@ -10,31 +10,31 @@ import java.util.Set;
 import okhttp3.Response;
 /* loaded from: classes11.dex */
 public abstract class g implements d {
-    public c<com.baidu.swan.pms.model.f> Xi() {
+    public c<com.baidu.swan.pms.model.f> Xh() {
         return null;
     }
 
-    public c<com.baidu.swan.pms.model.g> Xj() {
+    public c<com.baidu.swan.pms.model.g> Xi() {
         return null;
     }
 
-    public c<com.baidu.swan.pms.model.d> Xk() {
+    public c<com.baidu.swan.pms.model.d> Xj() {
         return null;
     }
 
-    public c<com.baidu.swan.pms.model.b> Xl() {
+    public c<com.baidu.swan.pms.model.b> Xk() {
         return null;
     }
 
-    public c<com.baidu.swan.pms.model.h> ail() {
+    public c<com.baidu.swan.pms.model.h> aik() {
         return null;
     }
 
-    public a<a.C0394a> Xf() {
+    public a<a.C0415a> Xe() {
         return null;
     }
 
-    public f Xm() {
+    public f Xl() {
         return null;
     }
 
@@ -49,23 +49,23 @@ public abstract class g implements d {
         return bundle2;
     }
 
-    public void UR() {
+    public void UQ() {
     }
 
-    public void Xe() {
+    public void Xd() {
     }
 
     public void a(com.baidu.swan.pms.model.a aVar) {
     }
 
-    public void Xa() {
+    public void WZ() {
     }
 
     public void a(com.baidu.swan.pms.f.e eVar) {
     }
 
     @Override // com.baidu.swan.pms.a.d
-    public void WZ() {
+    public void WY() {
     }
 
     @Override // com.baidu.swan.pms.a.d

@@ -9,12 +9,12 @@ import android.webkit.WebView;
 import com.baidu.ar.arplay.core.filter.ARPFilter;
 /* loaded from: classes3.dex */
 public class a extends WebView {
-    private C0053a gl;
+    private C0074a gl;
     private boolean gm;
 
     /* renamed from: com.baidu.ar.arplay.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0053a {
+    public static class C0074a {
         public int dL;
         public boolean gp;
         public String gq;
@@ -58,7 +58,7 @@ public class a extends WebView {
         });
     }
 
-    public C0053a getWebViewData() {
+    public C0074a getWebViewData() {
         return this.gl;
     }
 
@@ -71,7 +71,7 @@ public class a extends WebView {
         this.gm = z;
     }
 
-    public void setWebViewData(C0053a c0053a) {
-        this.gl = c0053a;
+    public void setWebViewData(C0074a c0074a) {
+        this.gl = c0074a;
     }
 }

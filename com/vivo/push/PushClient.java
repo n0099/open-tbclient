@@ -66,7 +66,7 @@ public class PushClient {
     }
 
     public String getVersion() {
-        return "2.4.0";
+        return "2.5.3";
     }
 
     public void setTopic(String str, IPushActionListener iPushActionListener) {

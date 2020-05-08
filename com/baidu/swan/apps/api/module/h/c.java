@@ -42,21 +42,21 @@ public class c extends com.baidu.swan.apps.api.a.c {
             com.baidu.swan.apps.console.c.e("Api-RedirectTo", "url is null");
             return new com.baidu.swan.apps.api.b.b(202, "url is null");
         }
-        final f aeK = f.aeK();
-        final e Ou = aeK.Ou();
-        if (Ou == null) {
+        final f aeJ = f.aeJ();
+        final e Ot = aeJ.Ot();
+        if (Ot == null) {
             com.baidu.swan.apps.console.c.e("Api-RedirectTo", "manager is null");
             return new com.baidu.swan.apps.api.b.b(1001, "manager is null");
         }
-        final com.baidu.swan.apps.model.b bg = com.baidu.swan.apps.model.b.bg(aX, aeK.aes());
-        if (!ai.a(aeK.aeq(), bg, false)) {
+        final com.baidu.swan.apps.model.b bg = com.baidu.swan.apps.model.b.bg(aX, aeJ.aer());
+        if (!ai.a(aeJ.aep(), bg, false)) {
             String str2 = "page params error : pageParam=" + bg.mPage;
             com.baidu.swan.apps.console.c.e("Api-RedirectTo", str2);
             return new com.baidu.swan.apps.api.b.b(202, str2);
         }
         String optString = jSONObject.optString("initData");
-        if (!TextUtils.isEmpty(optString) && bg != null && !TextUtils.isEmpty(bg.mPage) && com.baidu.swan.apps.runtime.e.akN() != null) {
-            com.baidu.swan.apps.runtime.e.akN().bp(optString, bg.mPage);
+        if (!TextUtils.isEmpty(optString) && bg != null && !TextUtils.isEmpty(bg.mPage) && com.baidu.swan.apps.runtime.e.akM() != null) {
+            com.baidu.swan.apps.runtime.e.akM().bp(optString, bg.mPage);
         }
         String optString2 = jSONObject.optString("startTime");
         if (!TextUtils.isEmpty(optString2)) {
@@ -73,34 +73,34 @@ public class c extends com.baidu.swan.apps.api.a.c {
                 if (com.baidu.swan.apps.api.a.c.DEBUG) {
                     Log.d("Api-RedirectTo", "PreloadSlaveManager start.");
                 }
-                final b.a G = com.baidu.swan.apps.core.slave.b.G(aeK.aev());
-                final String QG = G.bQe.QG();
+                final b.a G = com.baidu.swan.apps.core.slave.b.G(aeJ.aeu());
+                final String QF = G.bQj.QF();
                 if (com.baidu.swan.apps.api.a.c.DEBUG) {
-                    Log.d("Api-RedirectTo", "webview id: " + QG);
+                    Log.d("Api-RedirectTo", "webview id: " + QF);
                 }
-                final com.baidu.swan.apps.runtime.e akN = com.baidu.swan.apps.runtime.e.akN();
-                if (akN == null) {
+                final com.baidu.swan.apps.runtime.e akM = com.baidu.swan.apps.runtime.e.akM();
+                if (akM == null) {
                     if (!com.baidu.swan.apps.api.a.c.DEBUG) {
                         c.this.a(optString3, new com.baidu.swan.apps.api.b.b(1001, "swan app is null"));
                         return;
                     }
                     throw new RuntimeException("swan app is null");
                 }
-                aeK.showLoadingView();
-                com.baidu.swan.apps.scheme.actions.k.g.a(akN, bg.mPage, QG, new g.a() { // from class: com.baidu.swan.apps.api.module.h.c.1.1
+                aeJ.showLoadingView();
+                com.baidu.swan.apps.scheme.actions.k.g.a(akM, bg.mPage, QF, new g.a() { // from class: com.baidu.swan.apps.api.module.h.c.1.1
                     @Override // com.baidu.swan.apps.scheme.actions.k.g.a
                     public void gt(String str3) {
                         com.baidu.swan.apps.performance.g.lm(uuid);
                         com.baidu.swan.apps.console.c.i("Api-RedirectTo", "check pages success");
-                        aeK.Ox();
-                        com.baidu.swan.apps.scheme.actions.k.a.a(c.this, akN, QG, bg.mPage, optString3);
-                        c.this.b(G, bg, Ou, uuid);
+                        aeJ.Ow();
+                        com.baidu.swan.apps.scheme.actions.k.a.a(c.this, akM, QF, bg.mPage, optString3);
+                        c.this.b(G, bg, Ot, uuid);
                     }
 
                     @Override // com.baidu.swan.apps.scheme.actions.k.g.a
                     public void ed(int i) {
                         com.baidu.swan.apps.console.c.e("Api-RedirectTo", "check pages failed");
-                        aeK.Ox();
+                        aeJ.Ow();
                         if (com.baidu.swan.apps.api.a.c.DEBUG) {
                             Context context = c.this.getContext();
                             com.baidu.swan.apps.res.widget.b.d.a(context, context.getString(a.h.aiapps_open_pages_failed) + i).showToast();
@@ -120,14 +120,14 @@ public class c extends com.baidu.swan.apps.api.a.c {
         if (DEBUG) {
             Log.d("Api-RedirectTo", "tryToExecutePageRoute start. isReady : " + z);
         }
-        com.baidu.swan.apps.core.slave.b.a(aVar, new b.InterfaceC0285b() { // from class: com.baidu.swan.apps.api.module.h.c.2
-            @Override // com.baidu.swan.apps.core.slave.b.InterfaceC0285b
+        com.baidu.swan.apps.core.slave.b.a(aVar, new b.InterfaceC0306b() { // from class: com.baidu.swan.apps.api.module.h.c.2
+            @Override // com.baidu.swan.apps.core.slave.b.InterfaceC0306b
             public void onReady() {
                 if (com.baidu.swan.apps.api.a.c.DEBUG) {
                     Log.d("Api-RedirectTo", "tryToExecutePageRoute onReady start.");
                 }
                 com.baidu.swan.apps.performance.g.a(aVar, str);
-                com.baidu.swan.apps.scheme.actions.k.a.a(aVar.bQe, bVar, str);
+                com.baidu.swan.apps.scheme.actions.k.a.a(aVar.bQj, bVar, str);
                 c.a(eVar, bVar, str, false);
                 if (com.baidu.swan.apps.api.a.c.DEBUG) {
                     Log.d("Api-RedirectTo", "tryToExecutePageRoute onReady end.");
@@ -140,7 +140,7 @@ public class c extends com.baidu.swan.apps.api.a.c {
     }
 
     public static void a(e eVar, com.baidu.swan.apps.model.b bVar, String str, boolean z) {
-        eVar.io("redirectTo").ab(0, 0).a("normal", bVar).eC(eVar.Wh() - 2).Wq();
+        eVar.io("redirectTo").ab(0, 0).a("normal", bVar).eC(eVar.Wg() - 2).Wp();
         int i = 2;
         if (z) {
             i = 8;

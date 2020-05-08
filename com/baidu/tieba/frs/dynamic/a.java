@@ -60,8 +60,8 @@ public class a implements c {
                         bj bjVar = new bj();
                         bjVar.setUserMap(this.userMap);
                         bjVar.a(threadInfo);
-                        bjVar.aLz();
-                        if (bjVar.getType() == bj.dqE || bjVar.getType() == bj.dqU || bjVar.getType() == bj.dqZ || bjVar.getType() == bj.dqV || bjVar.getType() == bj.drd || bjVar.getType() == bj.dre) {
+                        bjVar.aLx();
+                        if (bjVar.getType() == bj.dqI || bjVar.getType() == bj.dqY || bjVar.getType() == bj.drd || bjVar.getType() == bj.dqZ || bjVar.getType() == bj.drh || bjVar.getType() == bj.dri) {
                             this.threadList.add(bjVar);
                         }
                     }

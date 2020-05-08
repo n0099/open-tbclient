@@ -8,12 +8,12 @@ public class a implements com.baidu.tieba.r.a {
 
     /* renamed from: com.baidu.tieba.ad.statis.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    private static class C0437a {
-        private static a eAu = new a();
+    private static class C0458a {
+        private static a eAz = new a();
     }
 
-    public static a bgG() {
-        return C0437a.eAu;
+    public static a bgE() {
+        return C0458a.eAz;
     }
 
     @Override // com.baidu.tieba.r.a
@@ -54,7 +54,7 @@ public class a implements com.baidu.tieba.r.a {
     }
 
     @Override // com.baidu.tieba.r.a
-    public void a(long j, String str, String str2, long j2) {
+    public void b(long j, String str, String str2, long j2) {
         CustomALSHttpMessage init = new CustomALSHttpMessage().init(PayHelper.STATUS_SUCC, "every_log");
         init.addParam("f1", "pagetime");
         init.addParam("f2", str2);

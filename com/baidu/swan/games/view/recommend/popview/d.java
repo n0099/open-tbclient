@@ -6,7 +6,7 @@ import android.util.StateSet;
 import android.view.View;
 /* loaded from: classes11.dex */
 public class d extends StateListDrawable {
-    private a cTT;
+    private a cTY;
     private View mView = null;
 
     /* loaded from: classes11.dex */
@@ -26,16 +26,16 @@ public class d extends StateListDrawable {
     }
 
     public void a(a aVar) {
-        this.cTT = aVar;
+        this.cTY = aVar;
     }
 
     @Override // android.graphics.drawable.StateListDrawable, android.graphics.drawable.DrawableContainer, android.graphics.drawable.Drawable
     protected boolean onStateChange(int[] iArr) {
-        if (this.mView != null && this.cTT != null) {
+        if (this.mView != null && this.cTY != null) {
             if (StateSet.stateSetMatches(new int[]{16842919}, iArr)) {
-                this.cTT.aD(this.mView);
+                this.cTY.aD(this.mView);
             } else {
-                this.cTT.aE(this.mView);
+                this.cTY.aE(this.mView);
             }
         }
         return super.onStateChange(iArr);

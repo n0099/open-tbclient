@@ -23,7 +23,7 @@ public class g implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        bfr();
+        bfp();
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:47:0x0144, code lost:
@@ -66,24 +66,24 @@ public class g implements Runnable {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private synchronized void bfr() {
+    private synchronized void bfp() {
         File file;
-        long xK;
+        long xN;
         File[] fileArr;
         int i;
         long j;
         long fileSize;
         long j2;
         j.D(TAG, "merge ...");
-        String xQ = m.xQ(this.mVideoUrl);
-        if (xQ != null && !xQ.isEmpty() && ((file = new File(i.exD + xQ + "/completed")) == null || !file.exists())) {
-            File file2 = new File(i.exD + xQ + "/completed.temp");
+        String xT = m.xT(this.mVideoUrl);
+        if (xT != null && !xT.isEmpty() && ((file = new File(i.exI + xT + "/completed")) == null || !file.exists())) {
+            File file2 = new File(i.exI + xT + "/completed.temp");
             if (file2 != null && file2.exists()) {
                 file2.delete();
             }
-            File file3 = new File(i.exD + xQ + "/segments");
+            File file3 = new File(i.exI + xT + "/segments");
             if (file3 != null && file3.exists()) {
-                xK = xK(xQ);
+                xN = xN(xT);
                 File[] listFiles = file3.listFiles();
                 if (listFiles != null && listFiles.length != 0) {
                     ArrayList arrayList = new ArrayList();
@@ -130,7 +130,7 @@ public class g implements Runnable {
             }
             if (j + fileSize == j2) {
             }
-        } else if (m.getFileSize(fileArr[i]) + j == xK) {
+        } else if (m.getFileSize(fileArr[i]) + j == xN) {
             i++;
         }
     }
@@ -244,12 +244,12 @@ public class g implements Runnable {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private long xK(String str) {
+    private long xN(String str) {
         FileInputStream fileInputStream;
         FileInputStream fileInputStream2;
         DataInputStream dataInputStream;
         DataInputStream dataInputStream2 = null;
-        File file = new File(i.exD + str + "/content_length");
+        File file = new File(i.exI + str + "/content_length");
         if (file.exists()) {
             try {
                 fileInputStream = new FileInputStream(file);

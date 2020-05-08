@@ -1,51 +1,58 @@
 package com.xiaomi.mipush.sdk;
 
-import android.content.Context;
-import android.text.TextUtils;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.xiaomi.push.hr;
+import java.util.HashMap;
 /* loaded from: classes8.dex */
-public final class k implements Runnable {
-    final /* synthetic */ Context a;
-
-    /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ f f73a;
-
-    /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ String f74a;
+public class k {
+    private static HashMap<d, a> a = new HashMap<>();
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public k(String str, Context context, f fVar) {
-        this.f74a = str;
-        this.a = context;
-        this.f73a = fVar;
+    /* loaded from: classes8.dex */
+    public static class a {
+        public String a;
+        public String b;
+
+        public a(String str, String str2) {
+            this.a = str;
+            this.b = str2;
+        }
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        if (TextUtils.isEmpty(this.f74a)) {
-            return;
+    static {
+        a(d.ASSEMBLE_PUSH_HUAWEI, new a("com.xiaomi.assemble.control.HmsPushManager", "newInstance"));
+        a(d.ASSEMBLE_PUSH_FCM, new a("com.xiaomi.assemble.control.FCMPushManager", "newInstance"));
+        a(d.ASSEMBLE_PUSH_COS, new a("com.xiaomi.assemble.control.COSPushManager", "newInstance"));
+        a(d.ASSEMBLE_PUSH_FTOS, new a("com.xiaomi.assemble.control.FTOSPushManager", "newInstance"));
+    }
+
+    public static av a(d dVar) {
+        switch (dVar) {
+            case ASSEMBLE_PUSH_HUAWEI:
+                return av.UPLOAD_HUAWEI_TOKEN;
+            case ASSEMBLE_PUSH_FCM:
+                return av.UPLOAD_FCM_TOKEN;
+            case ASSEMBLE_PUSH_COS:
+                return av.UPLOAD_COS_TOKEN;
+            case ASSEMBLE_PUSH_FTOS:
+                return av.UPLOAD_FTOS_TOKEN;
+            default:
+                return null;
         }
-        String str = "";
-        String[] split = this.f74a.split(Constants.WAVE_SEPARATOR);
-        int length = split.length;
-        int i = 0;
-        while (true) {
-            if (i >= length) {
-                break;
-            }
-            String str2 = split[i];
-            if (!TextUtils.isEmpty(str2) && str2.startsWith("token:")) {
-                str = str2.substring(str2.indexOf(":") + 1);
-                break;
-            }
-            i++;
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public static a m112a(d dVar) {
+        return a.get(dVar);
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public static hr m113a(d dVar) {
+        return hr.AggregatePushSwitch;
+    }
+
+    private static void a(d dVar, a aVar) {
+        if (aVar != null) {
+            a.put(dVar, aVar);
         }
-        if (TextUtils.isEmpty(str)) {
-            com.xiaomi.channel.commonutils.logger.b.m50a("ASSEMBLE_PUSH : receive incorrect token");
-            return;
-        }
-        com.xiaomi.channel.commonutils.logger.b.m50a("ASSEMBLE_PUSH : receive correct token");
-        j.d(this.a, this.f73a, str);
-        j.m106a(this.a);
     }
 }

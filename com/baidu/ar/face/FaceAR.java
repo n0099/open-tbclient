@@ -36,7 +36,7 @@ public class FaceAR extends c implements ARPEngine.f, IFace {
     private h lV;
     private e lb;
     private int[] ma;
-    private a.C0060a mc;
+    private a.C0081a mc;
     private com.baidu.ar.face.attributes.a mr;
     private List<String> lW = new ArrayList();
     private String lX = null;
@@ -255,7 +255,7 @@ public class FaceAR extends c implements ARPEngine.f, IFace {
         eVar.W(this.mb.ot);
         eVar.ac(this.mb.oy);
         eVar.ad(this.mb.oz);
-        a.C0060a c0060a = null;
+        a.C0081a c0081a = null;
         String str = this.mb.ov;
         String str2 = this.mb.ow;
         String str3 = this.mb.ox;
@@ -263,32 +263,32 @@ public class FaceAR extends c implements ARPEngine.f, IFace {
         switch (this.mb.oE) {
             case 0:
                 this.ml = 1;
-                c0060a = this.mb.oB;
+                c0081a = this.mb.oB;
                 break;
             case 1:
                 this.ml = 1;
-                c0060a = this.mb.oC;
+                c0081a = this.mb.oC;
                 break;
             case 2:
                 this.ml = 4;
-                c0060a = this.mb.oD;
+                c0081a = this.mb.oD;
                 break;
             default:
                 com.baidu.ar.f.b.b(TAG, "createFaceParams() device not support!!!");
                 break;
         }
         this.mm = this.ml;
-        if (c0060a != null) {
-            this.mc = c0060a;
-            this.md = b.a(c0060a.on, str, str2, str3);
-            eVar.X(c0060a.om);
+        if (c0081a != null) {
+            this.mc = c0081a;
+            this.md = b.a(c0081a.on, str, str2, str3);
+            eVar.X(c0081a.om);
             eVar.Y(str);
             eVar.Z(str2);
             eVar.aa(str3);
-            eVar.ab(c0060a.oo);
-            eVar.setTrackingSmoothAlpha(Float.parseFloat(c0060a.op));
-            eVar.setTrackingSmoothThreshold(Float.parseFloat(c0060a.oq));
-            eVar.setTrackingMouthThreshold(Float.parseFloat(c0060a.or));
+            eVar.ab(c0081a.oo);
+            eVar.setTrackingSmoothAlpha(Float.parseFloat(c0081a.op));
+            eVar.setTrackingSmoothThreshold(Float.parseFloat(c0081a.oq));
+            eVar.setTrackingMouthThreshold(Float.parseFloat(c0081a.or));
         }
         return eVar;
     }

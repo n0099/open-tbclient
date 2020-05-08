@@ -34,7 +34,7 @@ public enum h {
         }
     }
 
-    public short a() {
+    public short b() {
         return this.h;
     }
 }

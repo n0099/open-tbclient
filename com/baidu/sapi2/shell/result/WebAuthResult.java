@@ -1,6 +1,7 @@
 package com.baidu.sapi2.shell.result;
 
 import android.app.Activity;
+import com.baidu.sapi2.outsdk.c;
 import com.baidu.sapi2.result.SapiResult;
 import com.baidu.sapi2.share.m;
 import com.baidu.sapi2.utils.SapiUtils;
@@ -16,7 +17,7 @@ public class WebAuthResult extends SapiResult {
     /* loaded from: classes6.dex */
     public enum LoginType {
         PHONE_REG("phonereg"),
-        LOGIN("login"),
+        LOGIN(c.k),
         LOGIN_PROTECT("apilogin"),
         FORCE_BIND("AccountBind"),
         GUIDE_BIND("apibind"),

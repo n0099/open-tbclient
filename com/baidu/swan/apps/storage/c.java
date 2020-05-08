@@ -16,52 +16,52 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes11.dex */
 public class c extends f {
-    private g crw;
-    public final String crx;
-    public final File cuJ;
-    private final c.a<Long> cuL;
+    private g crC;
+    public final String crD;
+    public final File cuP;
+    private final c.a<Long> cuR;
     public final String name;
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public static int cuK = 1024;
+    public static int cuQ = 1024;
     public static int INVALID_INDEX = -1;
     public static int ONE_INCREAMENT = 1;
 
     public c(e eVar) {
         super(eVar);
-        this.cuL = new c.a<Long>() { // from class: com.baidu.swan.apps.storage.c.1
+        this.cuR = new c.a<Long>() { // from class: com.baidu.swan.apps.storage.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.ap.c.a
-            /* renamed from: anu */
-            public Long anv() throws IllegalStateException {
-                return Long.valueOf(c.this.ans());
+            /* renamed from: ant */
+            public Long anu() throws IllegalStateException {
+                return Long.valueOf(c.this.anr());
             }
         };
         this.name = b.c(eVar);
-        this.crx = "aiapp_" + this.name;
-        this.cuJ = new File(getApplicationInfo().dataDir, "shared_prefs/" + this.crx + ".xml");
-        com.baidu.swan.apps.ap.e.cwU.a(this.cuL);
+        this.crD = "aiapp_" + this.name;
+        this.cuP = new File(getApplicationInfo().dataDir, "shared_prefs/" + this.crD + ".xml");
+        com.baidu.swan.apps.ap.e.cxa.a(this.cuR);
     }
 
     public boolean available() {
-        return ans() < ant();
+        return anr() < ans();
     }
 
-    public g anq() {
-        if (this.crw == null) {
-            this.crw = new g(this.crx);
+    public g anp() {
+        if (this.crC == null) {
+            this.crC = new g(this.crD);
         }
-        return this.crw;
+        return this.crC;
     }
 
     public void as(boolean z) {
         if (z) {
-            anq().edit().clear().commit();
+            anp().edit().clear().commit();
         } else {
-            anq().edit().clear().apply();
+            anp().edit().clear().apply();
         }
-        com.baidu.swan.d.c.deleteFile(b.nk(e.akP()));
-        com.baidu.swan.d.c.deleteFile(b.nf(e.akP()));
-        com.baidu.swan.apps.ap.e.cwU.update();
+        com.baidu.swan.d.c.deleteFile(b.nk(e.akO()));
+        com.baidu.swan.d.c.deleteFile(b.nf(e.akO()));
+        com.baidu.swan.apps.ap.e.cxa.update();
     }
 
     public int no(@NonNull String str) {
@@ -95,7 +95,7 @@ public class c extends f {
         FileInputStream fileInputStream2;
         FileOutputStream fileOutputStream;
         FileInputStream fileInputStream3 = null;
-        String nf = b.nf(e.akP());
+        String nf = b.nf(e.akO());
         try {
             if (TextUtils.isEmpty(nf)) {
                 return "";
@@ -113,7 +113,7 @@ public class c extends f {
                     e = e2;
                 }
                 try {
-                    byte[] bArr = new byte[cuK];
+                    byte[] bArr = new byte[cuQ];
                     while (true) {
                         int read = fileInputStream.read(bArr);
                         if (read == -1) {
@@ -194,8 +194,8 @@ public class c extends f {
         return aVar;
     }
 
-    public List<a> anr() {
-        String nf = b.nf(e.akP());
+    public List<a> anq() {
+        String nf = b.nf(e.akO());
         if (TextUtils.isEmpty(nf)) {
             return null;
         }
@@ -242,23 +242,23 @@ public class c extends f {
         return arrayList;
     }
 
-    public long ans() {
-        if (this.cuJ == null) {
+    public long anr() {
+        if (this.cuP == null) {
             if (DEBUG) {
                 Log.i("SwanAppStorage", this.name + " isNull");
             }
             return 0L;
         }
         if (DEBUG) {
-            Log.i("SwanAppStorage", this.name + " exists = " + this.cuJ.exists());
-            Log.i("SwanAppStorage", this.name + " isFile = " + this.cuJ.isFile());
-            Log.i("SwanAppStorage", this.name + " path = " + this.cuJ.getPath());
-            Log.i("SwanAppStorage", this.name + " size = " + this.cuJ.length());
+            Log.i("SwanAppStorage", this.name + " exists = " + this.cuP.exists());
+            Log.i("SwanAppStorage", this.name + " isFile = " + this.cuP.isFile());
+            Log.i("SwanAppStorage", this.name + " path = " + this.cuP.getPath());
+            Log.i("SwanAppStorage", this.name + " size = " + this.cuP.length());
         }
-        return this.cuJ.length();
+        return this.cuP.length();
     }
 
-    public long ant() {
+    public long ans() {
         return 10485760L;
     }
 }

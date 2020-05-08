@@ -1,28 +1,22 @@
 package com.xiaomi.clientreport.manager;
 
-import android.content.Context;
-import com.xiaomi.clientreport.processor.IPerfProcessor;
-import com.xiaomi.push.bd;
-import java.util.concurrent.ExecutorService;
+import com.xiaomi.clientreport.data.PerfClientReport;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes8.dex */
 public class c implements Runnable {
-    final /* synthetic */ a a;
+    final /* synthetic */ PerfClientReport a;
+
+    /* renamed from: a  reason: collision with other field name */
+    final /* synthetic */ a f18a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public c(a aVar) {
-        this.a = aVar;
+    public c(a aVar, PerfClientReport perfClientReport) {
+        this.f18a = aVar;
+        this.a = perfClientReport;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        Context context;
-        IPerfProcessor iPerfProcessor;
-        ExecutorService executorService;
-        context = this.a.f9a;
-        iPerfProcessor = this.a.f12a;
-        bd bdVar = new bd(context, iPerfProcessor);
-        executorService = this.a.f14a;
-        executorService.execute(bdVar);
+        this.f18a.b(this.a);
     }
 }

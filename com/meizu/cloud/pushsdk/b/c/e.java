@@ -1,6 +1,8 @@
 package com.meizu.cloud.pushsdk.b.c;
 
+import android.net.TrafficStats;
 import com.meizu.cloud.pushsdk.b.c.k;
+import com.meizu.cloud.pushsdk.util.MinSdkChecker;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -14,10 +16,10 @@ public class e implements a {
 
     private static l a(final HttpURLConnection httpURLConnection) throws IOException {
         if (httpURLConnection.getDoInput()) {
-            final com.meizu.cloud.pushsdk.b.g.c a = com.meizu.cloud.pushsdk.b.g.f.a(com.meizu.cloud.pushsdk.b.g.f.a(a(httpURLConnection.getResponseCode()) ? httpURLConnection.getInputStream() : httpURLConnection.getErrorStream()));
+            final com.meizu.cloud.pushsdk.b.g.d a = com.meizu.cloud.pushsdk.b.g.g.a(com.meizu.cloud.pushsdk.b.g.g.a(a(httpURLConnection.getResponseCode()) ? httpURLConnection.getInputStream() : httpURLConnection.getErrorStream()));
             return new l() { // from class: com.meizu.cloud.pushsdk.b.c.e.1
                 @Override // com.meizu.cloud.pushsdk.b.c.l
-                public com.meizu.cloud.pushsdk.b.g.c a() {
+                public com.meizu.cloud.pushsdk.b.g.d a() {
                     return a;
                 }
             };
@@ -59,7 +61,11 @@ public class e implements a {
 
     private HttpURLConnection b(i iVar) throws IOException {
         String fVar = iVar.a().toString();
-        HttpURLConnection a = a(new URL(fVar));
+        URL url = new URL(fVar);
+        if (MinSdkChecker.isSupportNotificationChannel()) {
+            TrafficStats.setThreadStatsTag("HttpURLConnectionCall".hashCode());
+        }
+        HttpURLConnection a = a(url);
         a.setConnectTimeout(60000);
         a.setReadTimeout(60000);
         a.setUseCaches(false);
@@ -75,7 +81,7 @@ public class e implements a {
         if (e != null) {
             httpURLConnection.setDoOutput(true);
             httpURLConnection.addRequestProperty("Content-Type", e.a().toString());
-            com.meizu.cloud.pushsdk.b.g.b a = com.meizu.cloud.pushsdk.b.g.f.a(com.meizu.cloud.pushsdk.b.g.f.a(httpURLConnection.getOutputStream()));
+            com.meizu.cloud.pushsdk.b.g.c a = com.meizu.cloud.pushsdk.b.g.g.a(com.meizu.cloud.pushsdk.b.g.g.a(httpURLConnection.getOutputStream()));
             e.a(a);
             a.close();
         }

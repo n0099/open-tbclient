@@ -3,7 +3,7 @@ package com.baidu.tieba.r;
 public interface a {
     void Y(String str, String str2, String str3);
 
-    void a(long j, String str, String str2, long j2);
+    void b(long j, String str, String str2, long j2);
 
     void c(long j, String str, String str2);
 

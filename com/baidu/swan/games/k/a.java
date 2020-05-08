@@ -17,23 +17,23 @@ import java.util.concurrent.Executors;
 /* loaded from: classes11.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static ExecutorService bVN = Executors.newSingleThreadExecutor();
+    private static ExecutorService bVT = Executors.newSingleThreadExecutor();
 
     /* loaded from: classes11.dex */
     public static class b extends com.baidu.swan.apps.t.a {
         public String appBundlePath;
-        public String cOA;
-        public com.baidu.swan.games.s.a.a cOB;
+        public String cOF;
+        public com.baidu.swan.games.s.a.a cOG;
     }
 
     public static void c(final com.baidu.swan.apps.x.b.b bVar, final com.baidu.swan.apps.t.b bVar2) {
-        bVN.execute(new Runnable() { // from class: com.baidu.swan.games.k.a.1
+        bVT.execute(new Runnable() { // from class: com.baidu.swan.games.k.a.1
             @Override // java.lang.Runnable
             public void run() {
                 b c2;
                 com.baidu.swan.apps.as.a.b bVar3 = new com.baidu.swan.apps.as.a.b();
-                if (com.baidu.swan.apps.x.b.b.this.isDebug() && (com.baidu.swan.apps.ah.a.a.aiH() || a.DEBUG)) {
-                    c2 = C0368a.b(com.baidu.swan.apps.x.b.b.this, bVar3);
+                if (com.baidu.swan.apps.x.b.b.this.isDebug() && (com.baidu.swan.apps.ah.a.a.aiG() || a.DEBUG)) {
+                    c2 = C0389a.b(com.baidu.swan.apps.x.b.b.this, bVar3);
                 } else {
                     c2 = c.c(com.baidu.swan.apps.x.b.b.this, bVar3);
                 }
@@ -42,7 +42,7 @@ public class a {
         });
     }
 
-    public static File abF() {
+    public static File abE() {
         return new File(AppRuntime.getAppContext().getFilesDir() + File.separator + "aigames_folder");
     }
 
@@ -54,63 +54,63 @@ public class a {
     public static void c(String str, e.b bVar) {
         e.c cVar = new e.c();
         cVar.mDownloadUrl = str;
-        com.baidu.swan.games.j.a.b.ZM();
-        new com.baidu.swan.apps.l.a().a(cVar, com.baidu.swan.games.j.a.b.ZN().getPath(), bVar);
+        com.baidu.swan.games.j.a.b.ZL();
+        new com.baidu.swan.apps.l.a().a(cVar, com.baidu.swan.games.j.a.b.ZM().getPath(), bVar);
     }
 
     public static void b(String str, e.b bVar) {
         e.c cVar = new e.c();
         cVar.mDownloadUrl = str;
-        com.baidu.swan.games.g.a.b.ZM();
-        new com.baidu.swan.apps.l.a().a(cVar, com.baidu.swan.games.g.a.b.ZN().getPath(), bVar);
+        com.baidu.swan.games.g.a.b.ZL();
+        new com.baidu.swan.apps.l.a().a(cVar, com.baidu.swan.games.g.a.b.ZM().getPath(), bVar);
     }
 
     /* renamed from: com.baidu.swan.games.k.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public static class C0368a {
+    public static class C0389a {
         public static b b(com.baidu.swan.apps.x.b.b bVar, com.baidu.swan.apps.as.a.b bVar2) {
             File a = a(bVar2);
             if (a == null) {
                 return null;
             }
-            com.baidu.swan.apps.runtime.e akN = com.baidu.swan.apps.runtime.e.akN();
+            com.baidu.swan.apps.runtime.e akM = com.baidu.swan.apps.runtime.e.akM();
             String md5 = d.toMd5(a, false);
             File qu = qu(md5);
-            if (akN == null) {
+            if (akM == null) {
                 if (!a.c(a, qu, bVar, bVar2)) {
                     com.baidu.swan.apps.res.widget.b.d.a(AppRuntime.getAppContext(), "小游戏bundle解压失败!").showToast();
                     com.baidu.swan.apps.ap.a nL = new com.baidu.swan.apps.ap.a().bn(5L).bo(7L).nL("小游戏bundle解压失败! for debug");
-                    com.baidu.swan.apps.ap.e.aow().f(nL);
-                    if (bVar2 == null || bVar2.cxK != null) {
+                    com.baidu.swan.apps.ap.e.aov().f(nL);
+                    if (bVar2 == null || bVar2.cxQ != null) {
                         return null;
                     }
-                    bVar2.cxK = nL;
+                    bVar2.cxQ = nL;
                     return null;
                 }
-            } else if (!TextUtils.equals(akN.akX().getString("installed_debug_game_bundle_md5", ""), md5)) {
+            } else if (!TextUtils.equals(akM.akW().getString("installed_debug_game_bundle_md5", ""), md5)) {
                 if (!a.c(a, qu, bVar, bVar2)) {
                     com.baidu.swan.apps.res.widget.b.d.a(AppRuntime.getAppContext(), "小游戏bundle解压失败!").showToast();
                     com.baidu.swan.apps.ap.a nL2 = new com.baidu.swan.apps.ap.a().bn(5L).bo(7L).nL("小游戏bundle解压失败! for debug");
-                    com.baidu.swan.apps.ap.e.aow().f(nL2);
-                    if (bVar2 == null || bVar2.cxK != null) {
+                    com.baidu.swan.apps.ap.e.aov().f(nL2);
+                    if (bVar2 == null || bVar2.cxQ != null) {
                         return null;
                     }
-                    bVar2.cxK = nL2;
+                    bVar2.cxQ = nL2;
                     return null;
                 }
-                akN.akX().putString("installed_debug_game_bundle_md5", md5);
+                akM.akW().putString("installed_debug_game_bundle_md5", md5);
             }
             b bVar3 = new b();
             File file = new File(qu, "game.json");
             com.baidu.swan.games.s.a.a qH = com.baidu.swan.games.s.a.a.qH(com.baidu.swan.d.c.readFileData(file));
             if (qH != null) {
                 bVar3.appBundlePath = qu.getPath() + File.separator;
-                bVar3.cOB = qH;
-                if (!TextUtils.isEmpty(qH.cQt)) {
-                    bVar3.cOA = bVar3.appBundlePath + qH.cQt + File.separator;
+                bVar3.cOG = qH;
+                if (!TextUtils.isEmpty(qH.cQy)) {
+                    bVar3.cOF = bVar3.appBundlePath + qH.cQy + File.separator;
                     f.axr().fD(true);
-                    f.axr().qF(bVar3.cOA);
-                    f.axr().qG(qH.cQt);
+                    f.axr().qF(bVar3.cOF);
+                    f.axr().qG(qH.cQy);
                 } else {
                     f.axr().fD(false);
                 }
@@ -118,7 +118,7 @@ public class a {
                     Log.d("SwanAppBundleHelper", "configFile path: " + file.getPath());
                     Log.d("SwanAppBundleHelper", "configFile exist: " + file.exists());
                     Log.d("SwanAppBundleHelper", "info.appBundlePath path: " + bVar3.appBundlePath);
-                    Log.d("SwanAppBundleHelper", "info.mAppOpenDataBundle path: " + bVar3.cOA);
+                    Log.d("SwanAppBundleHelper", "info.mAppOpenDataBundle path: " + bVar3.cOF);
                 }
                 return bVar3;
             }
@@ -132,14 +132,14 @@ public class a {
         }
 
         public static File a(com.baidu.swan.apps.as.a.b bVar) {
-            File TO = TO();
-            File[] listFiles = TO.listFiles();
+            File TN = TN();
+            File[] listFiles = TN.listFiles();
             if (listFiles == null || listFiles.length == 0) {
-                com.baidu.swan.apps.res.widget.b.d.a(AppRuntime.getAppContext(), TO.getPath() + " 没有测试程序包!").showToast();
+                com.baidu.swan.apps.res.widget.b.d.a(AppRuntime.getAppContext(), TN.getPath() + " 没有测试程序包!").showToast();
                 com.baidu.swan.apps.ap.a nL = new com.baidu.swan.apps.ap.a().bn(5L).bo(4L).nL("没有小游戏包! for debug, bundle files are empty");
-                com.baidu.swan.apps.ap.e.aow().f(nL);
+                com.baidu.swan.apps.ap.e.aov().f(nL);
                 if (bVar != null) {
-                    bVar.cxK = nL;
+                    bVar.cxQ = nL;
                 }
                 return null;
             }
@@ -156,7 +156,7 @@ public class a {
             return file;
         }
 
-        public static File TO() {
+        public static File TN() {
             File qt = a.qt("aigames_debug");
             if (!qt.exists()) {
                 qt.mkdirs();
@@ -175,16 +175,16 @@ public class a {
         if (!file.exists() || file.length() == 0) {
             com.baidu.swan.apps.ap.a nL = new com.baidu.swan.apps.ap.a().bn(5L).bo(4L).nL("小游戏bundle文件不存在或者空文件! ");
             if (bVar2 != null) {
-                bVar2.cxK = nL;
+                bVar2.cxQ = nL;
                 return false;
             }
             return false;
         }
-        com.baidu.swan.apps.performance.f.aid().f(new UbcFlowEvent("package_start_unzip"));
+        com.baidu.swan.apps.performance.f.aic().f(new UbcFlowEvent("package_start_unzip"));
         long currentTimeMillis = System.currentTimeMillis();
         a.b s = com.baidu.swan.apps.t.a.a.s(file);
         if (s.type != -1) {
-            unzipFile = com.baidu.swan.apps.t.a.a.a(s.bWc, file2, s.type).isSuccess;
+            unzipFile = com.baidu.swan.apps.t.a.a.a(s.bWi, file2, s.type).isSuccess;
             i = s.type;
         } else {
             unzipFile = com.baidu.swan.d.c.unzipFile(file.getPath(), file2.getPath());
@@ -196,15 +196,15 @@ public class a {
         if (!unzipFile) {
             com.baidu.swan.apps.ap.a nL2 = new com.baidu.swan.apps.ap.a().bn(5L).bo(7L).nL("小游戏bundle解压失败! PkgType=" + i);
             if (bVar2 != null) {
-                bVar2.cxK = nL2;
+                bVar2.cxQ = nL2;
             }
         }
-        com.baidu.swan.apps.performance.f.aid().f(new UbcFlowEvent("package_end_unzip")).bk("app_package_version", String.valueOf(i));
+        com.baidu.swan.apps.performance.f.aic().f(new UbcFlowEvent("package_end_unzip")).bk("app_package_version", String.valueOf(i));
         return unzipFile;
     }
 
     public static void a(e.c cVar, e.b bVar) {
-        new com.baidu.swan.apps.l.a().a(cVar, C0368a.TO().getPath() + File.separator + String.valueOf(System.currentTimeMillis()) + ".aibundle", bVar);
+        new com.baidu.swan.apps.l.a().a(cVar, C0389a.TN().getPath() + File.separator + String.valueOf(System.currentTimeMillis()) + ".aibundle", bVar);
     }
 
     /* loaded from: classes11.dex */
@@ -220,15 +220,15 @@ public class a {
                     if (!a.c(a, r(aT), bVar, bVar2)) {
                         com.baidu.swan.apps.res.widget.b.d.a(AppRuntime.getAppContext(), "小游戏bundle解压失败!").showToast();
                         com.baidu.swan.apps.ap.a nL = new com.baidu.swan.apps.ap.a().bn(5L).bo(7L).nL("小游戏bundle解压失败! for release");
-                        com.baidu.swan.apps.ap.e.aow().f(nL);
-                        if (bVar2 == null || bVar2.cxK != null) {
+                        com.baidu.swan.apps.ap.e.aov().f(nL);
+                        if (bVar2 == null || bVar2.cxQ != null) {
                             return null;
                         }
-                        bVar2.cxK = nL;
+                        bVar2.cxQ = nL;
                         return null;
                     }
                 } else {
-                    com.baidu.swan.apps.process.messaging.client.a.ajd().a(8, new SwanAppDeleteInfo(bVar.getAppId(), 1));
+                    com.baidu.swan.apps.process.messaging.client.a.ajc().a(8, new SwanAppDeleteInfo(bVar.getAppId(), 1));
                     return null;
                 }
             }
@@ -238,12 +238,12 @@ public class a {
             com.baidu.swan.games.s.a.a qH = com.baidu.swan.games.s.a.a.qH(com.baidu.swan.d.c.readFileData(file));
             if (qH != null) {
                 bVar3.appBundlePath = aT.getPath() + File.separator;
-                bVar3.cOB = qH;
-                if (!TextUtils.isEmpty(qH.cQt)) {
-                    bVar3.cOA = bVar3.appBundlePath + File.separator + qH.cQt + File.separator;
+                bVar3.cOG = qH;
+                if (!TextUtils.isEmpty(qH.cQy)) {
+                    bVar3.cOF = bVar3.appBundlePath + File.separator + qH.cQy + File.separator;
                     f.axr().fD(true);
-                    f.axr().qF(bVar3.cOA);
-                    f.axr().qG(qH.cQt);
+                    f.axr().qF(bVar3.cOF);
+                    f.axr().qG(qH.cQy);
                 } else {
                     f.axr().fD(false);
                 }
@@ -251,7 +251,7 @@ public class a {
                     Log.d("SwanAppBundleHelper", "configFile path: " + file.getPath());
                     Log.d("SwanAppBundleHelper", "configFile exist: " + file.exists());
                     Log.d("SwanAppBundleHelper", "info.appBundlePath path: " + bVar3.appBundlePath);
-                    Log.d("SwanAppBundleHelper", "info.mAppOpenDataBundle path: " + bVar3.cOA);
+                    Log.d("SwanAppBundleHelper", "info.mAppOpenDataBundle path: " + bVar3.cOF);
                 }
                 return bVar3;
             }
@@ -308,19 +308,19 @@ public class a {
         }
 
         public static File a(String str, boolean z, com.baidu.swan.apps.as.a.b bVar) {
-            File abI;
+            File abH;
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            File[] listFiles = abI().listFiles();
+            File[] listFiles = abH().listFiles();
             if (listFiles == null || listFiles.length == 0) {
                 if (a.DEBUG && z) {
-                    com.baidu.swan.apps.res.widget.b.d.a(AppRuntime.getAppContext(), abI.getPath() + " 没有小游戏包!").showToast();
+                    com.baidu.swan.apps.res.widget.b.d.a(AppRuntime.getAppContext(), abH.getPath() + " 没有小游戏包!").showToast();
                 }
                 com.baidu.swan.apps.ap.a nL = new com.baidu.swan.apps.ap.a().bn(5L).bo(4L).nL("没有小游戏包! for release, bundle files are empty");
-                com.baidu.swan.apps.ap.e.aow().f(nL);
+                com.baidu.swan.apps.ap.e.aov().f(nL);
                 if (bVar != null) {
-                    bVar.cxK = nL;
+                    bVar.cxQ = nL;
                 }
                 return null;
             }
@@ -330,17 +330,17 @@ public class a {
                 }
             }
             if (a.DEBUG && z) {
-                com.baidu.swan.apps.res.widget.b.d.a(AppRuntime.getAppContext(), abI.getPath() + " 没有小游戏包!").showToast();
+                com.baidu.swan.apps.res.widget.b.d.a(AppRuntime.getAppContext(), abH.getPath() + " 没有小游戏包!").showToast();
             }
             com.baidu.swan.apps.ap.a nL2 = new com.baidu.swan.apps.ap.a().bn(5L).bo(4L).nL("没有小游戏包! for release, no such bundle file");
-            com.baidu.swan.apps.ap.e.aow().f(nL2);
+            com.baidu.swan.apps.ap.e.aov().f(nL2);
             if (bVar != null) {
-                bVar.cxK = nL2;
+                bVar.cxQ = nL2;
             }
             return null;
         }
 
-        public static File abI() {
+        public static File abH() {
             File file = new File(AppRuntime.getAppContext().getFilesDir(), "aigames_zip");
             if (!file.exists()) {
                 file.mkdirs();

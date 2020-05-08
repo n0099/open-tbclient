@@ -15,8 +15,8 @@ public final class g {
     }
 
     public static byte[] a(String str, String str2, byte[] bArr) throws Exception {
-        SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes("utf-8"), "AES");
-        Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+        SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes("utf-8"), com.baidu.sapi2.utils.h.q);
+        Cipher cipher = Cipher.getInstance(com.baidu.sapi2.utils.h.p);
         cipher.init(2, secretKeySpec, new IvParameterSpec(str.getBytes("utf-8")));
         return cipher.doFinal(bArr);
     }

@@ -7,7 +7,7 @@ import android.text.TextUtils;
 public class c {
     private static String _ANDROID_ID = "";
 
-    public static String aK(Context context) {
+    public static String ay(Context context) {
         if (TextUtils.isEmpty(_ANDROID_ID)) {
             try {
                 _ANDROID_ID = Settings.System.getString(context.getContentResolver(), "android_id");

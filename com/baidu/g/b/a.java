@@ -12,21 +12,21 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class a implements com.baidu.g.c.a {
     private static final String TAG = a.class.getSimpleName();
-    private static final String bmi = SchemeConfig.getSchemeHead() + "://swan/";
+    private static final String bmn = SchemeConfig.getSchemeHead() + "://swan/";
 
     @Override // com.baidu.g.c.a
     public void e(Activity activity, String str, com.baidu.g.a.a aVar) {
-        com.baidu.swan.apps.w.a.ace().e(activity, str, aVar);
+        com.baidu.swan.apps.w.a.acd().e(activity, str, aVar);
     }
 
     @Override // com.baidu.g.c.a
     public void f(Activity activity, String str, com.baidu.g.a.a aVar) {
-        com.baidu.swan.apps.w.a.ace().f(activity, str, aVar);
+        com.baidu.swan.apps.w.a.acd().f(activity, str, aVar);
     }
 
     @Override // com.baidu.g.c.a
     public void b(Context context, JSONObject jSONObject, com.baidu.g.a.a aVar) {
-        com.baidu.swan.apps.w.a.ace().b(context, jSONObject, aVar);
+        com.baidu.swan.apps.w.a.acd().b(context, jSONObject, aVar);
     }
 
     @Override // com.baidu.g.c.a
@@ -40,27 +40,27 @@ public class a implements com.baidu.g.c.a {
         if (TextUtils.isEmpty(optString) || TextUtils.isEmpty(optString2)) {
             com.baidu.g.a.J(3, "支付信息不能为空");
         } else {
-            SchemeRouter.invoke(context, bmi + optString + optString2);
+            SchemeRouter.invoke(context, bmn + optString + optString2);
         }
     }
 
     @Override // com.baidu.g.c.a
-    public boolean aG(Context context) {
-        return com.baidu.swan.apps.w.a.ace().aG(context);
+    public boolean au(Context context) {
+        return com.baidu.swan.apps.w.a.acd().au(context);
     }
 
     @Override // com.baidu.g.c.a
     public void fE(String str) {
-        com.baidu.swan.apps.ae.a.ahC().appId = str;
+        com.baidu.swan.apps.ae.a.ahB().appId = str;
     }
 
     @Override // com.baidu.g.c.a
     public void i(Bundle bundle) {
-        String str = com.baidu.swan.apps.ae.a.ahC().appId;
+        String str = com.baidu.swan.apps.ae.a.ahB().appId;
         if (TextUtils.isEmpty(str)) {
             d.j(bundle);
         } else {
-            com.baidu.swan.apps.process.messaging.a.aiT().a(new c(119, bundle).u(str).eo(true));
+            com.baidu.swan.apps.process.messaging.a.aiS().a(new c(119, bundle).u(str).eo(true));
         }
     }
 }

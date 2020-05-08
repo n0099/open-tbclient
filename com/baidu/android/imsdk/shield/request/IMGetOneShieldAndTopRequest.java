@@ -9,7 +9,6 @@ import com.baidu.android.imsdk.shield.ShieldAndTopManager;
 import com.baidu.android.imsdk.shield.model.GetShieldAndTopResult;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.android.pushservice.PushConstants;
 import com.baidu.ar.constants.HttpConstants;
 import com.baidu.sapi2.SapiContext;
 import com.baidu.tieba.ala.alaar.sticker.model.FuFaceItem;
@@ -81,7 +80,7 @@ public class IMGetOneShieldAndTopRequest extends IMSettingBaseHttpRequest {
         try {
             JSONObject jSONObject = new JSONObject(str2);
             int optInt = jSONObject.optInt("error_code");
-            String optString = jSONObject.optString(PushConstants.EXTRA_ERROR_CODE);
+            String optString = jSONObject.optString("error_msg");
             JSONArray optJSONArray = jSONObject.optJSONArray("contacter");
             if (optJSONArray != null) {
                 for (int i3 = 0; i3 < optJSONArray.length(); i3++) {

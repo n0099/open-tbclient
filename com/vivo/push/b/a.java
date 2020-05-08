@@ -1,6 +1,6 @@
 package com.vivo.push.b;
 
-import com.coloros.mcssdk.mode.CommandMessage;
+import com.heytap.mcssdk.mode.CommandMessage;
 import java.util.ArrayList;
 /* loaded from: classes8.dex */
 public final class a extends c {

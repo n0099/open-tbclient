@@ -6,40 +6,40 @@ import com.baidu.live.data.AlaLiveInfoData;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class a {
-    public int aYJ;
-    public String aYK;
-    public long aYL;
-    public long ape;
-    public String apf;
-    public String apg;
-    public AlaAvtsData api;
-    public AlaAvtsConfigInfo apj;
-    public AlaLiveInfoData auq;
+    public int aYO;
+    public String aYP;
+    public long aYQ;
+    public long apk;
+    public String apl;
+    public String apm;
+    public AlaAvtsData apo;
+    public AlaAvtsConfigInfo apq;
+    public AlaLiveInfoData auw;
     public long chatId;
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.aYJ = jSONObject.optInt("match_status");
-            this.aYK = jSONObject.optString("status_text");
-            this.ape = jSONObject.optLong("match_user_id");
-            this.apf = jSONObject.optString("match_user_name");
-            this.apg = jSONObject.optString("match_avatar");
-            this.aYL = jSONObject.optLong("match_time");
+            this.aYO = jSONObject.optInt("match_status");
+            this.aYP = jSONObject.optString("status_text");
+            this.apk = jSONObject.optLong("match_user_id");
+            this.apl = jSONObject.optString("match_user_name");
+            this.apm = jSONObject.optString("match_avatar");
+            this.aYQ = jSONObject.optLong("match_time");
             this.chatId = jSONObject.optLong("chat_id");
             JSONObject optJSONObject = jSONObject.optJSONObject("avts_addr");
             if (optJSONObject != null) {
-                this.api = new AlaAvtsData();
-                this.api.parserJson(optJSONObject);
+                this.apo = new AlaAvtsData();
+                this.apo.parserJson(optJSONObject);
             }
             JSONObject optJSONObject2 = jSONObject.optJSONObject("avts_conf");
             if (optJSONObject2 != null) {
-                this.apj = new AlaAvtsConfigInfo();
-                this.apj.parserJson(optJSONObject2);
+                this.apq = new AlaAvtsConfigInfo();
+                this.apq.parserJson(optJSONObject2);
             }
             JSONObject optJSONObject3 = jSONObject.optJSONObject("match_live_info");
             if (optJSONObject3 != null) {
-                this.auq = new AlaLiveInfoData();
-                this.auq.parserJson(optJSONObject3);
+                this.auw = new AlaLiveInfoData();
+                this.auw.parserJson(optJSONObject3);
             }
         }
     }

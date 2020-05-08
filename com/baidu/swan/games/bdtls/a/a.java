@@ -22,24 +22,24 @@ public class a {
         int currentTimeMillis = (int) (System.currentTimeMillis() / 1000);
         byte[] bArr = new byte[32];
         new Random().nextBytes(bArr);
-        Bdtls.Random build = Bdtls.Random.newBuilder().hR(currentTimeMillis).g(ByteString.copyFrom(bArr)).build();
-        int arf = DH.arf();
+        Bdtls.Random build = Bdtls.Random.newBuilder().hR(currentTimeMillis).h(ByteString.copyFrom(bArr)).build();
         int are = DH.are();
-        int am = DH.am(arf, are);
-        jVar.c(Integer.valueOf(arf));
-        jVar.d(Integer.valueOf(are));
+        int ard = DH.ard();
+        int am = DH.am(are, ard);
+        jVar.c(Integer.valueOf(are));
+        jVar.d(Integer.valueOf(ard));
         jVar.e(Integer.valueOf(am));
         byte[] hN = d.hN(am);
         if (hN == null || (encrypt = RSA.encrypt(hN)) == null) {
             return null;
         }
-        Bdtls.Extension[] extensionArr = {Bdtls.Extension.newBuilder().hQ(0).f(ByteString.copyFrom(encrypt)).build(), Bdtls.Extension.newBuilder().hQ(1).f(ByteString.copyFrom(new byte[]{0})).build(), Bdtls.Extension.newBuilder().hQ(2).f(ByteString.copyFrom(d.hN(arf))).build()};
+        Bdtls.Extension[] extensionArr = {Bdtls.Extension.newBuilder().hQ(0).g(ByteString.copyFrom(encrypt)).build(), Bdtls.Extension.newBuilder().hQ(1).g(ByteString.copyFrom(new byte[]{0})).build(), Bdtls.Extension.newBuilder().hQ(2).g(ByteString.copyFrom(d.hN(are))).build()};
         if (com.baidu.swan.games.bdtls.a.DEBUG) {
-            Log.d("BDTLS", "groupId encode=" + arf);
-            Log.d("BDTLS", "secretC encode=" + are);
+            Log.d("BDTLS", "groupId encode=" + are);
+            Log.d("BDTLS", "secretC encode=" + ard);
             Log.d("BDTLS", "pubKey encode=" + am);
         }
-        byte[] byteArray = Bdtls.ClientHello.newBuilder().a(build).a(extensionArr[0]).a(extensionArr[1]).a(extensionArr[2]).d(ByteString.copyFrom(com.baidu.swan.games.bdtls.b.cJP)).build().toByteArray();
+        byte[] byteArray = Bdtls.ClientHello.newBuilder().a(build).a(extensionArr[0]).a(extensionArr[1]).a(extensionArr[2]).e(ByteString.copyFrom(com.baidu.swan.games.bdtls.b.cJV)).build().toByteArray();
         ByteBuffer allocate = ByteBuffer.allocate(byteArray.length + 1);
         allocate.put((byte) 1);
         allocate.put(byteArray);
@@ -93,7 +93,7 @@ public class a {
                 if (parseFrom.getSKR() == null) {
                     return null;
                 }
-                jVar.L(Bdtls.ApplicationData.newBuilder().c(parseFrom.getSKR()).build().toByteArray());
+                jVar.L(Bdtls.ApplicationData.newBuilder().d(parseFrom.getSKR()).build().toByteArray());
                 if (jVar.avh() == null) {
                     return null;
                 }

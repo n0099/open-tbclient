@@ -24,15 +24,15 @@ import com.baidu.tieba.R;
 import java.util.ArrayList;
 /* loaded from: classes9.dex */
 public class n extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.concern.b.b, af<com.baidu.tieba.homepage.concern.b.b>> implements com.baidu.tieba.a.f {
-    private String aey;
-    private com.baidu.adp.widget.ListView.r ahv;
-    public BdUniqueId ebv;
-    private NEGFeedBackView.a fsE;
+    private String aeB;
+    private com.baidu.adp.widget.ListView.r ahy;
+    public BdUniqueId ebA;
+    private NEGFeedBackView.a fsJ;
     private TbPageContext<?> mPageContext;
 
     public n(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.fsE = new NEGFeedBackView.a() { // from class: com.baidu.tieba.homepage.concern.a.n.1
+        this.fsJ = new NEGFeedBackView.a() { // from class: com.baidu.tieba.homepage.concern.a.n.1
             @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.a
             public void b(al alVar) {
             }
@@ -57,7 +57,7 @@ public class n extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     }
 
     public void a(com.baidu.adp.widget.ListView.r rVar) {
-        this.ahv = rVar;
+        this.ahy = rVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -66,15 +66,15 @@ public class n extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     /* renamed from: aA */
     public af b(ViewGroup viewGroup) {
         ad.a aVar = new ad.a(this.mPageContext.getPageActivity(), false);
-        aVar.c(new com.baidu.tieba.homepage.concern.view.d(this.mPageContext, this.ebv));
+        aVar.c(new com.baidu.tieba.homepage.concern.view.d(this.mPageContext, this.ebA));
         aVar.rB().bh(0);
         aVar.rB().bj(0);
         aVar.rB().bi(0);
         aVar.rB().bd(0);
-        af afVar = new af(aVar.a(true, viewGroup, this.ahv));
-        afVar.setPageId(this.ebv);
+        af afVar = new af(aVar.a(true, viewGroup, this.ahy));
+        afVar.setPageId(this.ebA);
         w aF = afVar.aF(false);
-        aF.a(this.fsE);
+        aF.a(this.fsJ);
         aF.setAutoProcess(false);
         aF.setHeadText(this.mContext.getString(R.string.concern_recommend_dialog_title));
         aF.aD(true);
@@ -89,11 +89,11 @@ public class n extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
             return null;
         }
         an anVar = new an("c13565");
-        anVar.af("obj_source", bVar.bYe() ? 1 : 2);
-        com.baidu.tieba.card.r.bEY().e(anVar);
+        anVar.af("obj_source", bVar.bYc() ? 1 : 2);
+        com.baidu.tieba.card.r.bEW().e(anVar);
         afVar.rD().setPosition(i);
         if (afVar.rD() instanceof com.baidu.tieba.a.e) {
-            afVar.rD().setPage(this.aey);
+            afVar.rD().setPage(this.aeB);
         }
         afVar.b((af<com.baidu.tieba.homepage.concern.b.b>) bVar);
         afVar.rD().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
@@ -117,7 +117,7 @@ public class n extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
                 this.mNetwork.setUrl(TbConfig.SERVER_ADDRESS + TbConfig.CONCERN_RECOMMEND_FEEDBACK);
                 this.mNetwork.addPostData("dislike_from", "concernpage");
                 this.mNetwork.addPostData("dislike_type", "1");
-                this.mNetwork.aOy().aOZ().mIsNeedTbs = true;
+                this.mNetwork.aOw().aOW().mIsNeedTbs = true;
                 return this.mNetwork.postNetData();
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
@@ -143,7 +143,7 @@ public class n extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     }
 
     @Override // com.baidu.tieba.a.f
-    public void yc(String str) {
-        this.aey = str;
+    public void yf(String str) {
+        this.aeB = str;
     }
 }

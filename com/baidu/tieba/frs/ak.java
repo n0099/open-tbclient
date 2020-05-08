@@ -5,7 +5,7 @@ public interface ak {
 
     void a(ao aoVar);
 
-    void bqt();
+    void bqr();
 
     void init();
 }

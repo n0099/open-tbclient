@@ -7,12 +7,12 @@ import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes13.dex */
 public class p {
-    private long YB;
-    private int ddY;
-    private JSONObject ddZ;
-    private String dea;
-    private boolean deb = false;
-    private JSONArray ded;
+    private long YE;
+    private int ded;
+    private JSONObject dee;
+    private String def;
+    private boolean deg = false;
+    private JSONArray dei;
     private String mCategory;
     private String mContent;
     private long mEndTime;
@@ -25,15 +25,15 @@ public class p {
 
     public p(String str, int i, String str2, int i2) {
         this.mId = str;
-        this.ddY = i;
+        this.ded = i;
         this.mContent = str2;
         this.mOption = i2;
     }
 
     public p(String str, int i, JSONObject jSONObject, int i2) {
         this.mId = str;
-        this.ddY = i;
-        this.ddZ = jSONObject;
+        this.ded = i;
+        this.dee = jSONObject;
         this.mOption = i2;
     }
 
@@ -42,7 +42,7 @@ public class p {
     }
 
     public int aDJ() {
-        return this.ddY;
+        return this.ded;
     }
 
     public String getContent() {
@@ -50,11 +50,11 @@ public class p {
     }
 
     public JSONObject aDL() {
-        return this.ddZ;
+        return this.dee;
     }
 
     public long aDQ() {
-        return this.YB;
+        return this.YE;
     }
 
     public long getEndTime() {
@@ -70,7 +70,7 @@ public class p {
     }
 
     public String aDK() {
-        return this.dea;
+        return this.def;
     }
 
     public void setId(String str) {
@@ -78,7 +78,7 @@ public class p {
     }
 
     public void jf(int i) {
-        this.ddY = i;
+        this.ded = i;
     }
 
     public void setContent(String str) {
@@ -86,7 +86,7 @@ public class p {
     }
 
     public void bR(long j) {
-        this.YB = j;
+        this.YE = j;
     }
 
     public void setEndTime(long j) {
@@ -98,7 +98,7 @@ public class p {
     }
 
     public void sk(String str) {
-        this.dea = str;
+        this.def = str;
     }
 
     public void setCategory(String str) {
@@ -110,23 +110,23 @@ public class p {
     }
 
     public void gc(boolean z) {
-        this.deb = z;
+        this.deg = z;
     }
 
     public boolean aDH() {
-        return this.deb;
+        return this.deg;
     }
 
     public void aDN() {
-        if (g.dkB().sc(this.mId)) {
-            this.dea = UBC.getUBCContext().ahy();
+        if (g.dky().sc(this.mId)) {
+            this.def = UBC.getUBCContext().ahx();
         }
     }
 
     public void sl(String str) {
         if (!TextUtils.isEmpty(str)) {
             try {
-                this.ded = new JSONArray(str);
+                this.dei = new JSONArray(str);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -134,6 +134,6 @@ public class p {
     }
 
     public JSONArray aDS() {
-        return this.ded;
+        return this.dei;
     }
 }

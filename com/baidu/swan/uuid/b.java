@@ -9,39 +9,39 @@ import com.baidu.swan.uuid.a.f;
 import com.baidu.swan.uuid.a.g;
 /* loaded from: classes11.dex */
 public class b {
-    private static b deW;
-    private final a<String> deX = new a<>();
-    private String deY;
+    private static b dfb;
+    private final a<String> dfc = new a<>();
+    private String dfd;
 
     private b(Context context) {
-        this.deX.a(new c(context));
-        this.deX.a(new e(context));
-        this.deX.a(new d(context));
-        this.deX.a(new g(context));
-        this.deX.a(new com.baidu.swan.uuid.a.a(context));
-        this.deX.a(new f(context));
+        this.dfc.a(new c(context));
+        this.dfc.a(new e(context));
+        this.dfc.a(new d(context));
+        this.dfc.a(new g(context));
+        this.dfc.a(new com.baidu.swan.uuid.a.a(context));
+        this.dfc.a(new f(context));
     }
 
-    public static b du(Context context) {
-        if (deW == null) {
+    public static b di(Context context) {
+        if (dfb == null) {
             synchronized (b.class) {
-                if (deW == null) {
-                    deW = new b(context);
+                if (dfb == null) {
+                    dfb = new b(context);
                 }
             }
         }
-        return deW;
+        return dfb;
     }
 
     public String getUUID() {
-        if (TextUtils.isEmpty(this.deY)) {
+        if (TextUtils.isEmpty(this.dfd)) {
             synchronized (this) {
-                if (TextUtils.isEmpty(this.deY)) {
-                    this.deY = this.deX.aEw();
-                    this.deX.ae(this.deY);
+                if (TextUtils.isEmpty(this.dfd)) {
+                    this.dfd = this.dfc.aEw();
+                    this.dfc.af(this.dfd);
                 }
             }
         }
-        return this.deY;
+        return this.dfd;
     }
 }

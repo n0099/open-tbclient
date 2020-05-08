@@ -13,18 +13,18 @@ public class b implements i {
 
     @Override // com.baidu.swan.games.e.i
     public String getUserAgent() {
-        return a.Zo();
+        return a.Zn();
     }
 
     /* loaded from: classes11.dex */
     private static class a {
-        private static String KI;
+        private static String KL;
 
-        static String Zo() {
-            if (TextUtils.isEmpty(KI)) {
-                KI = com.baidu.swan.apps.aq.b.Zo();
+        static String Zn() {
+            if (TextUtils.isEmpty(KL)) {
+                KL = com.baidu.swan.apps.aq.b.Zn();
             }
-            return KI;
+            return KL;
         }
     }
 }

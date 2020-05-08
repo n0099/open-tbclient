@@ -9,9 +9,9 @@ import java.util.Set;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes11.dex */
 public abstract class e<K, V> {
-    e<K, V>.b dcW;
-    e<K, V>.c dcX;
-    e<K, V>.C0396e dcY;
+    e<K, V>.b ddb;
+    e<K, V>.c ddc;
+    e<K, V>.C0417e ddd;
 
     protected abstract void colClear();
 
@@ -361,8 +361,8 @@ public abstract class e<K, V> {
 
     /* renamed from: com.baidu.swan.support.v4.b.e$e  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    final class C0396e implements Collection<V> {
-        C0396e() {
+    final class C0417e implements Collection<V> {
+        C0417e() {
         }
 
         @Override // java.util.Collection
@@ -547,23 +547,23 @@ public abstract class e<K, V> {
     }
 
     public Set<Map.Entry<K, V>> getEntrySet() {
-        if (this.dcW == null) {
-            this.dcW = new b();
+        if (this.ddb == null) {
+            this.ddb = new b();
         }
-        return this.dcW;
+        return this.ddb;
     }
 
     public Set<K> getKeySet() {
-        if (this.dcX == null) {
-            this.dcX = new c();
+        if (this.ddc == null) {
+            this.ddc = new c();
         }
-        return this.dcX;
+        return this.ddc;
     }
 
     public Collection<V> getValues() {
-        if (this.dcY == null) {
-            this.dcY = new C0396e();
+        if (this.ddd == null) {
+            this.ddd = new C0417e();
         }
-        return this.dcY;
+        return this.ddd;
     }
 }

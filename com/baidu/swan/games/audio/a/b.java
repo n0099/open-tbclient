@@ -6,18 +6,18 @@ import java.util.HashMap;
 /* loaded from: classes11.dex */
 public class b implements a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private String cJn;
-    private HashMap<String, c> cJm = new HashMap<>();
+    private String cJt;
+    private HashMap<String, c> cJs = new HashMap<>();
     private HashMap<String, ArrayList<a>> mCallbackMap = new HashMap<>();
     private final Object mObject = new Object();
-    private com.baidu.swan.games.network.b cJo = com.baidu.swan.games.network.b.axh();
+    private com.baidu.swan.games.network.b cJu = com.baidu.swan.games.network.b.axh();
 
     public b(String str) {
-        this.cJn = str;
+        this.cJt = str;
     }
 
     private boolean pC(String str) {
-        return this.cJm.containsKey(str);
+        return this.cJs.containsKey(str);
     }
 
     public void a(String str, a aVar) {
@@ -38,8 +38,8 @@ public class b implements a {
         if (DEBUG) {
             Log.d("AudioDownloadManager", "AudioDownloader SwanGamePreloadManager url:" + str);
         }
-        c cVar = new c(this.cJo, this.cJn, str, this);
-        this.cJm.put(str, cVar);
+        c cVar = new c(this.cJu, this.cJt, str, this);
+        this.cJs.put(str, cVar);
         cVar.load();
     }
 
@@ -65,7 +65,7 @@ public class b implements a {
                         Log.e("AudioDownloadManager", i + " load success url = " + str + " path = " + str2);
                     }
                 }
-                this.cJm.remove(str);
+                this.cJs.remove(str);
             }
         }
     }
@@ -79,7 +79,7 @@ public class b implements a {
                 for (int i2 = 0; i2 < size; i2++) {
                     arrayList.get(i2).X(i, str);
                 }
-                this.cJm.remove(str);
+                this.cJs.remove(str);
             }
         }
     }

@@ -9,61 +9,61 @@ import com.baidu.tieba.tbadkCore.videoupload.a.d;
 import com.baidu.tieba.tbadkCore.videoupload.a.e;
 /* loaded from: classes.dex */
 public class a {
-    private static int kVr = 524288;
-    private static int kVs = 6144000;
-    private static int kVt = 524288;
-    private h kTI;
-    private com.baidu.tieba.tbadkCore.videoupload.a.b kVu;
+    private static int kVv = 524288;
+    private static int kVw = 6144000;
+    private static int kVx = 524288;
+    private h kTM;
+    private com.baidu.tieba.tbadkCore.videoupload.a.b kVy;
 
     public a(h hVar) {
-        this.kTI = hVar;
+        this.kTM = hVar;
     }
 
     public VideoFinishResult a(String str, String str2, int i, e eVar) {
         try {
             if (SwitchManager.getInstance().findType(ChunkUploadSwitch.KEY) == 1) {
-                this.kVu = new d(str2, kVt, this.kTI);
+                this.kVy = new d(str2, kVx, this.kTM);
             } else {
-                this.kVu = new com.baidu.tieba.tbadkCore.videoupload.a.c(str, kVr, kVs, this.kTI);
+                this.kVy = new com.baidu.tieba.tbadkCore.videoupload.a.c(str, kVv, kVw, this.kTM);
             }
-            this.kVu.a(eVar);
-            return this.kVu.bF(str2, i);
+            this.kVy.a(eVar);
+            return this.kVy.bF(str2, i);
         } catch (Exception e) {
             BdLog.e(e.getMessage());
-            if (this.kTI != null) {
-                this.kTI.l(ARPMessageType.MSG_TYPE_IMU_MIRROR_DATA, -4399, com.baidu.tieba.k.a.s(e));
+            if (this.kTM != null) {
+                this.kTM.l(ARPMessageType.MSG_TYPE_IMU_MIRROR_DATA, -4399, com.baidu.tieba.k.a.s(e));
             }
             return null;
         }
     }
 
     public void cancelUpload() {
-        if (this.kVu != null) {
-            this.kVu.cancel();
+        if (this.kVy != null) {
+            this.kVy.cancel();
         }
     }
 
     public static void Du(int i) {
         if (i <= 0) {
-            kVt = 524288;
+            kVx = 524288;
         } else {
-            kVt = i;
+            kVx = i;
         }
     }
 
     public static void Dv(int i) {
         if (i <= 0) {
-            kVr = 524288;
+            kVv = 524288;
         } else {
-            kVr = i;
+            kVv = i;
         }
     }
 
     public static void Dw(int i) {
         if (i <= 0) {
-            kVs = 6144000;
+            kVw = 6144000;
         } else {
-            kVs = i;
+            kVw = i;
         }
     }
 }

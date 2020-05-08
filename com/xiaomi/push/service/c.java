@@ -1,7 +1,7 @@
 package com.xiaomi.push.service;
 
-import com.xiaomi.push.ff;
-import com.xiaomi.push.fx;
+import com.xiaomi.push.fl;
+import com.xiaomi.push.gd;
 import com.xiaomi.push.service.XMPushService;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes8.dex */
@@ -9,13 +9,13 @@ public class c extends XMPushService.i {
     private XMPushService a;
 
     /* renamed from: a  reason: collision with other field name */
-    private ff[] f904a;
+    private fl[] f901a;
 
-    public c(XMPushService xMPushService, ff[] ffVarArr) {
+    public c(XMPushService xMPushService, fl[] flVarArr) {
         super(4);
         this.a = null;
         this.a = xMPushService;
-        this.f904a = ffVarArr;
+        this.f901a = flVarArr;
     }
 
     @Override // com.xiaomi.push.service.XMPushService.i
@@ -26,10 +26,10 @@ public class c extends XMPushService.i {
     @Override // com.xiaomi.push.service.XMPushService.i
     public void a() {
         try {
-            if (this.f904a != null) {
-                this.a.a(this.f904a);
+            if (this.f901a != null) {
+                this.a.a(this.f901a);
             }
-        } catch (fx e) {
+        } catch (gd e) {
             com.xiaomi.channel.commonutils.logger.b.a(e);
             this.a.a(10, e);
         }

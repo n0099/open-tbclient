@@ -98,8 +98,8 @@ public class f {
                     throw new ParseError(1, "info array has no first element");
                 }
                 e eVar = new e();
-                eVar.WL = z;
-                eVar.WM = com.baidu.tieba.lego.card.b.FH(optJSONObject4.optJSONObject("lego_card").toString());
+                eVar.WO = z;
+                eVar.WP = com.baidu.tieba.lego.card.b.FK(optJSONObject4.optJSONObject("lego_card").toString());
                 eVar.ext = str2;
                 return eVar;
             } catch (JSONException e) {

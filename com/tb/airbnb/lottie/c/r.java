@@ -61,11 +61,11 @@ class r {
             if (i2 >= size - 1) {
                 break;
             }
-            list.get(i2).FO = Float.valueOf(list.get(i2 + 1).zN);
+            list.get(i2).FR = Float.valueOf(list.get(i2 + 1).zN);
             i = i2 + 1;
         }
         com.tb.airbnb.lottie.e.a<?> aVar = list.get(size - 1);
-        if (aVar.FL == 0) {
+        if (aVar.FO == 0) {
             list.remove(aVar);
         }
     }

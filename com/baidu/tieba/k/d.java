@@ -48,7 +48,7 @@ public class d {
         }
     }
 
-    public static void GB(String str) {
+    public static void GE(String str) {
         if (!StringUtils.isNull(str)) {
             File file = new File(str);
             if (!file.exists()) {
@@ -96,7 +96,7 @@ public class d {
         return sb.toString();
     }
 
-    public static JSONArray GC(String str) {
+    public static JSONArray GF(String str) {
         JSONArray jSONArray = new JSONArray();
         if (StringUtils.isNull(str)) {
             return jSONArray;
@@ -131,9 +131,9 @@ public class d {
         }
     }
 
-    public static void GD(String str) {
+    public static void GG(String str) {
         if (!StringUtils.isNull(str)) {
-            com.baidu.tbadk.core.util.m.deleteFileOrDir(new File(g.a.jbH + g.a.jby + str));
+            com.baidu.tbadk.core.util.m.deleteFileOrDir(new File(g.a.jbL + g.a.jbC + str));
         }
     }
 }

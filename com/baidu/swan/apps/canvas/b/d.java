@@ -4,21 +4,21 @@ import com.baidu.swan.apps.as.af;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class d extends a {
-    public String bFq;
-    public float bFr;
-    public boolean bFs;
-    public boolean bFt;
+    public String bFv;
+    public float bFw;
+    public boolean bFx;
+    public boolean bFy;
     public boolean mItalic;
     public String mText;
 
     public d(String str) {
         super(str);
         String[] split;
-        this.bFq = "sans-serif";
-        this.bFr = af.C(10.0f);
-        this.bFs = false;
+        this.bFv = "sans-serif";
+        this.bFw = af.C(10.0f);
+        this.bFx = false;
         this.mItalic = false;
-        this.bFt = true;
+        this.bFy = true;
         try {
             JSONObject jSONObject = new JSONObject(str);
             this.mText = jSONObject.optString("text");
@@ -30,9 +30,9 @@ public class d extends a {
                     } else if (str2.contains("oblique")) {
                         this.mItalic = true;
                     } else if (str2.contains("bold")) {
-                        this.bFs = true;
+                        this.bFx = true;
                     } else if (str2.contains("normal")) {
-                        this.bFt = true;
+                        this.bFy = true;
                     } else if (Character.isDigit(str2.charAt(0))) {
                         int length = str2.length();
                         int i = 0;
@@ -46,9 +46,9 @@ public class d extends a {
                                 i++;
                             }
                         }
-                        this.bFr = af.C(Float.parseFloat(str2.substring(0, i)));
+                        this.bFw = af.C(Float.parseFloat(str2.substring(0, i)));
                     } else {
-                        this.bFq = str2;
+                        this.bFv = str2;
                     }
                 }
             }

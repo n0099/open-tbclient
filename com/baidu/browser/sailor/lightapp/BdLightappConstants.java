@@ -7,7 +7,7 @@ public final class BdLightappConstants implements INoProGuard {
 
     /* loaded from: classes11.dex */
     public static final class a {
-        public static final String[] acm = {"base64", "quality", "height", "width", "mediaType"};
+        public static final String[] acp = {"base64", "quality", "height", "width", "mediaType"};
     }
 
     private BdLightappConstants() {

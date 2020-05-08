@@ -1,18 +1,24 @@
 package com.xiaomi.mipush.sdk;
 
-import android.content.Context;
+import com.xiaomi.mipush.sdk.MiTinyDataClient;
+import com.xiaomi.push.hq;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes8.dex */
-public final class ad implements Runnable {
-    final /* synthetic */ Context a;
+public class ad implements Runnable {
+    final /* synthetic */ MiTinyDataClient.a.C0799a a;
+
+    /* renamed from: a  reason: collision with other field name */
+    final /* synthetic */ hq f38a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ad(Context context) {
-        this.a = context;
+    public ad(MiTinyDataClient.a.C0799a c0799a, hq hqVar) {
+        this.a = c0799a;
+        this.f38a = hqVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        MessageHandleService.c(this.a);
+        this.a.f33a.add(this.f38a);
+        this.a.a();
     }
 }

@@ -11,76 +11,76 @@ import org.json.JSONObject;
 @SuppressLint({"SwanCommentWar"})
 /* loaded from: classes11.dex */
 public class d implements com.baidu.swan.apps.model.a {
-    public b bYG;
-    public c bYH;
-    public a bYI;
-    int bYJ;
-    public com.baidu.swan.apps.z.a.a.c bYd;
+    public b bYM;
+    public c bYN;
+    public a bYO;
+    int bYP;
+    public com.baidu.swan.apps.z.a.a.c bYj;
     public String id = "";
     public String title = "";
-    public String bYD = "";
-    public double bYy = 0.0d;
-    public double bYF = 1.0d;
+    public String bYJ = "";
+    public double bYE = 0.0d;
+    public double bYL = 1.0d;
     public int width = -1;
     public int height = -1;
 
     @Override // com.baidu.swan.apps.model.a
     public void parseFromJson(JSONObject jSONObject) throws JSONException {
         if (jSONObject != null) {
-            this.bYd = new com.baidu.swan.apps.z.a.a.c();
-            this.bYd.parseFromJson(jSONObject);
-            if (this.bYd.isValid()) {
+            this.bYj = new com.baidu.swan.apps.z.a.a.c();
+            this.bYj.parseFromJson(jSONObject);
+            if (this.bYj.isValid()) {
                 this.id = jSONObject.optString("markerId");
                 if (TextUtils.isEmpty(this.id)) {
                     this.id = jSONObject.optString("id");
                 }
                 this.title = jSONObject.optString("title");
-                this.bYD = jSONObject.optString("iconPath");
-                this.bYy = jSONObject.optDouble(RotateImageAction.ACTION_NAME, 0.0d);
-                this.bYF = Math.abs(jSONObject.optDouble("alpha", 1.0d));
+                this.bYJ = jSONObject.optString("iconPath");
+                this.bYE = jSONObject.optDouble(RotateImageAction.ACTION_NAME, 0.0d);
+                this.bYL = Math.abs(jSONObject.optDouble("alpha", 1.0d));
                 this.width = jSONObject.has("width") ? Math.abs(af.C(jSONObject.optInt("width"))) : -1;
                 this.height = jSONObject.has("height") ? Math.abs(af.C(jSONObject.optInt("height"))) : -1;
-                this.bYJ = jSONObject.optInt("zIndex", 0) * 10;
-                this.bYG = new b(this);
-                this.bYG.parseFromJson(jSONObject.optJSONObject("callout"));
-                this.bYH = new c(this);
-                this.bYH.parseFromJson(jSONObject.optJSONObject("label"));
-                this.bYI = new a();
-                this.bYI.parseFromJson(jSONObject.optJSONObject("anchor"));
+                this.bYP = jSONObject.optInt("zIndex", 0) * 10;
+                this.bYM = new b(this);
+                this.bYM.parseFromJson(jSONObject.optJSONObject("callout"));
+                this.bYN = new c(this);
+                this.bYN.parseFromJson(jSONObject.optJSONObject("label"));
+                this.bYO = new a();
+                this.bYO.parseFromJson(jSONObject.optJSONObject("anchor"));
             }
         }
     }
 
     @Override // com.baidu.swan.apps.model.a
     public boolean isValid() {
-        return this.bYd != null && this.bYd.isValid();
+        return this.bYj != null && this.bYj.isValid();
     }
 
     @SuppressLint({"SwanCommentWar"})
     /* loaded from: classes11.dex */
-    public static class b extends C0341d {
-        public String alT;
-        public float aln;
+    public static class b extends C0362d {
+        public String alZ;
+        public float alt;
         public int bgColor;
 
-        @Override // com.baidu.swan.apps.z.a.a.d.C0341d, com.baidu.swan.apps.model.a
+        @Override // com.baidu.swan.apps.z.a.a.d.C0362d, com.baidu.swan.apps.model.a
         public /* bridge */ /* synthetic */ boolean isValid() {
             return super.isValid();
         }
 
         b(d dVar) {
             super(dVar);
-            this.aln = 0.0f;
-            this.alT = "BYCLICK";
+            this.alt = 0.0f;
+            this.alZ = "BYCLICK";
             this.bgColor = -1;
         }
 
-        @Override // com.baidu.swan.apps.z.a.a.d.C0341d, com.baidu.swan.apps.model.a
+        @Override // com.baidu.swan.apps.z.a.a.d.C0362d, com.baidu.swan.apps.model.a
         public void parseFromJson(JSONObject jSONObject) throws JSONException {
             if (jSONObject != null) {
                 super.parseFromJson(jSONObject);
-                this.aln = (float) jSONObject.optDouble("borderRadius", 0.0d);
-                this.alT = jSONObject.has("display") ? jSONObject.optString("display") : "BYCLICK";
+                this.alt = (float) jSONObject.optDouble("borderRadius", 0.0d);
+                this.alZ = jSONObject.has("display") ? jSONObject.optString("display") : "BYCLICK";
                 this.bgColor = com.baidu.swan.apps.z.a.d.J(jSONObject.optString("bgColor"), -1);
             }
         }
@@ -88,14 +88,14 @@ public class d implements com.baidu.swan.apps.model.a {
 
     @SuppressLint({"SwanCommentWar"})
     /* loaded from: classes11.dex */
-    public static class c extends C0341d implements com.baidu.swan.apps.model.a {
-        public float aln;
-        public float bYK;
+    public static class c extends C0362d implements com.baidu.swan.apps.model.a {
+        public float alt;
+        public float bYQ;
         public int borderColor;
         public float x;
         public float y;
 
-        @Override // com.baidu.swan.apps.z.a.a.d.C0341d, com.baidu.swan.apps.model.a
+        @Override // com.baidu.swan.apps.z.a.a.d.C0362d, com.baidu.swan.apps.model.a
         public /* bridge */ /* synthetic */ boolean isValid() {
             return super.isValid();
         }
@@ -104,12 +104,12 @@ public class d implements com.baidu.swan.apps.model.a {
             super(dVar);
             this.x = 0.0f;
             this.y = 0.0f;
-            this.bYK = 0.0f;
+            this.bYQ = 0.0f;
             this.borderColor = 0;
-            this.aln = 0.0f;
+            this.alt = 0.0f;
         }
 
-        @Override // com.baidu.swan.apps.z.a.a.d.C0341d, com.baidu.swan.apps.model.a
+        @Override // com.baidu.swan.apps.z.a.a.d.C0362d, com.baidu.swan.apps.model.a
         public void parseFromJson(JSONObject jSONObject) throws JSONException {
             if (jSONObject != null) {
                 super.parseFromJson(jSONObject);
@@ -119,9 +119,9 @@ public class d implements com.baidu.swan.apps.model.a {
                     this.x = com.baidu.swan.apps.z.a.d.k(jSONObject.optDouble("anchorX", 0.0d));
                     this.y = com.baidu.swan.apps.z.a.d.k(jSONObject.optDouble("anchorY", 0.0d));
                 }
-                this.bYK = (float) jSONObject.optDouble("borderWidth", 0.0d);
+                this.bYQ = (float) jSONObject.optDouble("borderWidth", 0.0d);
                 this.borderColor = com.baidu.swan.apps.z.a.d.J(jSONObject.optString("borderColor"), 0);
-                this.aln = (float) jSONObject.optDouble("borderRadius", 0.0d);
+                this.alt = (float) jSONObject.optDouble("borderRadius", 0.0d);
             }
         }
     }
@@ -162,17 +162,17 @@ public class d implements com.baidu.swan.apps.model.a {
     @SuppressLint({"SwanCommentWar"})
     /* renamed from: com.baidu.swan.apps.z.a.a.d$d  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public static class C0341d implements com.baidu.swan.apps.model.a {
-        private final d bYM;
+    public static class C0362d implements com.baidu.swan.apps.model.a {
+        private final d bYS;
         public String content = "";
         public int color = ViewCompat.MEASURED_STATE_MASK;
-        public float alt = com.baidu.swan.apps.z.a.d.k(10.0d);
+        public float alz = com.baidu.swan.apps.z.a.d.k(10.0d);
         public int bgColor = 0;
-        public float bYL = 0.0f;
+        public float bYR = 0.0f;
         public String textAlign = "center";
 
-        C0341d(d dVar) {
-            this.bYM = dVar;
+        C0362d(d dVar) {
+            this.bYS = dVar;
         }
 
         @Override // com.baidu.swan.apps.model.a
@@ -180,9 +180,9 @@ public class d implements com.baidu.swan.apps.model.a {
             if (jSONObject != null && jSONObject.has("content")) {
                 this.content = jSONObject.optString("content");
                 this.color = com.baidu.swan.apps.z.a.d.J(jSONObject.optString("color"), ViewCompat.MEASURED_STATE_MASK);
-                this.alt = jSONObject.has("fontSize") ? Math.abs(com.baidu.swan.apps.z.a.d.k(jSONObject.optDouble("fontSize", 0.0d))) : com.baidu.swan.apps.z.a.d.k(10.0d);
+                this.alz = jSONObject.has("fontSize") ? Math.abs(com.baidu.swan.apps.z.a.d.k(jSONObject.optDouble("fontSize", 0.0d))) : com.baidu.swan.apps.z.a.d.k(10.0d);
                 this.bgColor = com.baidu.swan.apps.z.a.d.J(jSONObject.optString("bgColor"), 0);
-                this.bYL = com.baidu.swan.apps.z.a.d.k(jSONObject.optDouble("padding", 0.0d));
+                this.bYR = com.baidu.swan.apps.z.a.d.k(jSONObject.optDouble("padding", 0.0d));
                 this.textAlign = jSONObject.has("textAlign") ? jSONObject.optString("textAlign") : "center";
             }
         }

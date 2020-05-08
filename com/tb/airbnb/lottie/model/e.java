@@ -8,38 +8,38 @@ import java.util.Arrays;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class e {
-    private final List<String> Dg;
+    private final List<String> Dj;
     @Nullable
-    private f mPi;
+    private f mPl;
 
     public e(String... strArr) {
-        this.Dg = Arrays.asList(strArr);
+        this.Dj = Arrays.asList(strArr);
     }
 
     private e(e eVar) {
-        this.Dg = new ArrayList(eVar.Dg);
-        this.mPi = eVar.mPi;
+        this.Dj = new ArrayList(eVar.Dj);
+        this.mPl = eVar.mPl;
     }
 
     @CheckResult
     @RestrictTo({RestrictTo.Scope.LIBRARY})
-    public e Pi(String str) {
+    public e Pl(String str) {
         e eVar = new e(this);
-        eVar.Dg.add(str);
+        eVar.Dj.add(str);
         return eVar;
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
     public e a(f fVar) {
         e eVar = new e(this);
-        eVar.mPi = fVar;
+        eVar.mPl = fVar;
         return eVar;
     }
 
     @Nullable
     @RestrictTo({RestrictTo.Scope.LIBRARY})
-    public f dBq() {
-        return this.mPi;
+    public f dBm() {
+        return this.mPl;
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
@@ -47,10 +47,10 @@ public class e {
         if (bf(str)) {
             return true;
         }
-        if (i >= this.Dg.size()) {
+        if (i >= this.Dj.size()) {
             return false;
         }
-        return this.Dg.get(i).equals(str) || this.Dg.get(i).equals("**") || this.Dg.get(i).equals("*");
+        return this.Dj.get(i).equals(str) || this.Dj.get(i).equals("**") || this.Dj.get(i).equals("*");
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
@@ -58,29 +58,29 @@ public class e {
         if (bf(str)) {
             return 0;
         }
-        if (this.Dg.get(i).equals("**")) {
-            return (i != this.Dg.size() + (-1) && this.Dg.get(i + 1).equals(str)) ? 2 : 0;
+        if (this.Dj.get(i).equals("**")) {
+            return (i != this.Dj.size() + (-1) && this.Dj.get(i + 1).equals(str)) ? 2 : 0;
         }
         return 1;
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
     public boolean i(String str, int i) {
-        if (i >= this.Dg.size()) {
+        if (i >= this.Dj.size()) {
             return false;
         }
-        boolean z = i == this.Dg.size() + (-1);
-        String str2 = this.Dg.get(i);
+        boolean z = i == this.Dj.size() + (-1);
+        String str2 = this.Dj.get(i);
         if (!str2.equals("**")) {
-            return (z || (i == this.Dg.size() + (-2) && hI())) && (str2.equals(str) || str2.equals("*"));
+            return (z || (i == this.Dj.size() + (-2) && hI())) && (str2.equals(str) || str2.equals("*"));
         }
-        if (!z && this.Dg.get(i + 1).equals(str)) {
-            return i == this.Dg.size() + (-2) || (i == this.Dg.size() + (-3) && hI());
+        if (!z && this.Dj.get(i + 1).equals(str)) {
+            return i == this.Dj.size() + (-2) || (i == this.Dj.size() + (-3) && hI());
         } else if (z) {
             return true;
         } else {
-            if (i + 1 >= this.Dg.size() - 1) {
-                return this.Dg.get(i + 1).equals(str);
+            if (i + 1 >= this.Dj.size() - 1) {
+                return this.Dj.get(i + 1).equals(str);
             }
             return false;
         }
@@ -91,7 +91,7 @@ public class e {
         if (str.equals("__container")) {
             return true;
         }
-        return i < this.Dg.size() + (-1) || this.Dg.get(i).equals("**");
+        return i < this.Dj.size() + (-1) || this.Dj.get(i).equals("**");
     }
 
     private boolean bf(String str) {
@@ -99,10 +99,10 @@ public class e {
     }
 
     private boolean hI() {
-        return this.Dg.get(this.Dg.size() - 1).equals("**");
+        return this.Dj.get(this.Dj.size() - 1).equals("**");
     }
 
     public String toString() {
-        return "KeyPath{keys=" + this.Dg + ",resolved=" + (this.mPi != null) + '}';
+        return "KeyPath{keys=" + this.Dj + ",resolved=" + (this.mPl != null) + '}';
     }
 }

@@ -11,89 +11,87 @@ import master.flame.danmaku.danmaku.model.m;
 import master.flame.danmaku.danmaku.model.n;
 /* loaded from: classes5.dex */
 public class a extends master.flame.danmaku.danmaku.b.b {
-    private final DanmakuContext mZR;
-    private f nel;
-    private b.f nem;
-    private final b neo;
-    private k nep;
-    private a.InterfaceC0800a neq;
-    private final b.f nen = new b.f() { // from class: master.flame.danmaku.danmaku.b.a.a.1
+    private final DanmakuContext mZU;
+    private f neo;
+    private b.f nep;
+    private final b ner;
+    private k nes;
+    private a.InterfaceC0821a neu;
+    private final b.f neq = new b.f() { // from class: master.flame.danmaku.danmaku.b.a.a.1
         @Override // master.flame.danmaku.danmaku.b.a.b.f
         public boolean a(d dVar, float f, int i, boolean z) {
-            if (dVar.naZ == 0 && a.this.mZR.ndd.b(dVar, i, 0, a.this.nel, z, a.this.mZR)) {
+            if (dVar.nbc == 0 && a.this.mZU.ndg.b(dVar, i, 0, a.this.neo, z, a.this.mZU)) {
                 dVar.setVisibility(false);
                 return true;
             }
             return false;
         }
     };
-    private C0801a ner = new C0801a();
+    private C0822a nev = new C0822a();
 
     /* renamed from: master.flame.danmaku.danmaku.b.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    private class C0801a extends l.c<d> {
-        private d neu;
-        public m nev;
+    private class C0822a extends l.c<d> {
+        public long neA;
+        private d nex;
+        public m ney;
+        public a.b nez;
 
-        /* renamed from: new  reason: not valid java name */
-        public a.b f953new;
-        public long nex;
-
-        private C0801a() {
+        private C0822a() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // master.flame.danmaku.danmaku.model.l.b
         /* renamed from: e */
-        public int bE(d dVar) {
-            this.neu = dVar;
+        public int bF(d dVar) {
+            this.nex = dVar;
             if (dVar.isTimeOut()) {
-                this.nev.o(dVar);
+                this.ney.o(dVar);
                 return 0;
-            } else if (this.f953new.ndU || !dVar.dFu()) {
-                if (!dVar.dFm()) {
-                    a.this.mZR.ndd.a(dVar, this.f953new.ndV, this.f953new.ndW, this.f953new.mZW, false, a.this.mZR);
+            } else if (this.nez.ndX || !dVar.dFq()) {
+                if (!dVar.dFi()) {
+                    a.this.mZU.ndg.a(dVar, this.nez.ndY, this.nez.ndZ, this.nez.mZZ, false, a.this.mZU);
                 }
-                if (dVar.dFt() >= this.nex) {
-                    if (dVar.naZ == 0 && dVar.dFn()) {
+                if (dVar.dFp() >= this.neA) {
+                    if (dVar.nbc == 0 && dVar.dFj()) {
                         return 0;
                     }
-                    if (dVar.dFl()) {
-                        n<?> dFj = dVar.dFj();
-                        if (a.this.nep != null && (dFj == null || dFj.get() == null)) {
-                            a.this.nep.a(dVar);
+                    if (dVar.dFh()) {
+                        n<?> dFf = dVar.dFf();
+                        if (a.this.nes != null && (dFf == null || dFf.get() == null)) {
+                            a.this.nes.a(dVar);
                         }
                         return 1;
                     }
                     if (dVar.getType() == 1) {
-                        this.f953new.ndV++;
+                        this.nez.ndY++;
                     }
-                    if (!dVar.dFi()) {
-                        dVar.a(this.nev, false);
+                    if (!dVar.dFe()) {
+                        dVar.a(this.ney, false);
                     }
                     if (!dVar.isPrepared()) {
-                        dVar.b(this.nev, false);
+                        dVar.b(this.ney, false);
                     }
-                    a.this.neo.a(dVar, this.nev, a.this.nem);
+                    a.this.ner.a(dVar, this.ney, a.this.nep);
                     if (dVar.isShown()) {
-                        if (dVar.naV != null || dVar.dFr() <= this.nev.getHeight()) {
-                            int a = dVar.a(this.nev);
+                        if (dVar.naY != null || dVar.dFn() <= this.ney.getHeight()) {
+                            int a = dVar.a(this.ney);
                             if (a == 1) {
-                                this.f953new.neh++;
+                                this.nez.nek++;
                             } else if (a == 2) {
-                                this.f953new.nei++;
-                                if (a.this.nep != null) {
-                                    a.this.nep.a(dVar);
+                                this.nez.nel++;
+                                if (a.this.nes != null) {
+                                    a.this.nes.a(dVar);
                                 }
                             }
-                            this.f953new.dN(dVar.getType(), 1);
-                            this.f953new.Jn(1);
-                            this.f953new.v(dVar);
-                            if (a.this.neq == null || dVar.nbq == a.this.mZR.ndc.nbD) {
+                            this.nez.dN(dVar.getType(), 1);
+                            this.nez.Jn(1);
+                            this.nez.v(dVar);
+                            if (a.this.neu == null || dVar.nbt == a.this.mZU.ndf.nbG) {
                                 return 0;
                             }
-                            dVar.nbq = a.this.mZR.ndc.nbD;
-                            a.this.neq.i(dVar);
+                            dVar.nbt = a.this.mZU.ndf.nbG;
+                            a.this.neu.i(dVar);
                             return 0;
                         }
                         return 0;
@@ -107,62 +105,62 @@ public class a extends master.flame.danmaku.danmaku.b.b {
         }
 
         @Override // master.flame.danmaku.danmaku.model.l.b
-        public void dFE() {
-            this.f953new.ndX = this.neu;
-            super.dFE();
+        public void dFA() {
+            this.nez.nea = this.nex;
+            super.dFA();
         }
     }
 
     public a(DanmakuContext danmakuContext) {
-        this.mZR = danmakuContext;
-        this.neo = new b(danmakuContext.dFT());
+        this.mZU = danmakuContext;
+        this.ner = new b(danmakuContext.dFP());
     }
 
     @Override // master.flame.danmaku.danmaku.b.a
     public void clear() {
-        dGn();
-        this.mZR.ndd.clear();
+        dGj();
+        this.mZU.ndg.clear();
     }
 
     @Override // master.flame.danmaku.danmaku.b.a
-    public void dGn() {
-        this.neo.clear();
+    public void dGj() {
+        this.ner.clear();
     }
 
     @Override // master.flame.danmaku.danmaku.b.a
     public void release() {
-        this.neo.release();
-        this.mZR.ndd.clear();
+        this.ner.release();
+        this.mZU.ndg.clear();
     }
 
     @Override // master.flame.danmaku.danmaku.b.a
     public void wD(boolean z) {
-        this.nem = z ? this.nen : null;
+        this.nep = z ? this.neq : null;
     }
 
     @Override // master.flame.danmaku.danmaku.b.a
     public void a(m mVar, l lVar, long j, a.b bVar) {
-        this.nel = bVar.mZW;
-        this.ner.nev = mVar;
-        this.ner.f953new = bVar;
-        this.ner.nex = j;
-        lVar.a(this.ner);
+        this.neo = bVar.mZZ;
+        this.nev.ney = mVar;
+        this.nev.nez = bVar;
+        this.nev.neA = j;
+        lVar.a(this.nev);
     }
 
     @Override // master.flame.danmaku.danmaku.b.a
     public void a(k kVar) {
-        this.nep = kVar;
+        this.nes = kVar;
     }
 
     @Override // master.flame.danmaku.danmaku.b.a
-    public void a(a.InterfaceC0800a interfaceC0800a) {
-        this.neq = interfaceC0800a;
+    public void a(a.InterfaceC0821a interfaceC0821a) {
+        this.neu = interfaceC0821a;
     }
 
     @Override // master.flame.danmaku.danmaku.b.a
     public void wE(boolean z) {
-        if (this.neo != null) {
-            this.neo.wE(z);
+        if (this.ner != null) {
+            this.ner.wE(z);
         }
     }
 }

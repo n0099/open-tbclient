@@ -9,11 +9,11 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 /* loaded from: classes6.dex */
 public class a extends com.baidu.swan.apps.component.a.d.a<View, b> {
-    private com.baidu.swan.apps.y.a dfw;
+    private com.baidu.swan.apps.y.a dfB;
 
     public a(@Nullable Context context, @NonNull b bVar) {
         super(context, bVar);
-        this.dfw = new com.baidu.swan.apps.y.a() { // from class: com.baidu.j.b.a.1
+        this.dfB = new com.baidu.swan.apps.y.a() { // from class: com.baidu.j.b.a.1
             @Override // com.baidu.swan.apps.y.a, android.app.Application.ActivityLifecycleCallbacks
             public void onActivityStopped(Activity activity) {
                 super.onActivityStopped(activity);
@@ -30,7 +30,7 @@ public class a extends com.baidu.swan.apps.component.a.d.a<View, b> {
 
     @Override // com.baidu.swan.apps.component.b.a
     @NonNull
-    protected View ba(@NonNull Context context) {
+    protected View aO(@NonNull Context context) {
         LinearLayout linearLayout = new LinearLayout(context);
         linearLayout.setOrientation(0);
         linearLayout.addView(com.baidu.j.d.b.aFh().getRecorderView(), aFd());
@@ -48,22 +48,22 @@ public class a extends com.baidu.swan.apps.component.a.d.a<View, b> {
     @Override // com.baidu.swan.apps.component.b.a
     public void da(boolean z) {
         super.da(z);
-        com.baidu.swan.apps.w.a.abO().registerActivityLifecycleCallbacks(this.dfw);
+        com.baidu.swan.apps.w.a.abN().registerActivityLifecycleCallbacks(this.dfB);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.component.b.a
     public void onRemove() {
         super.onRemove();
-        com.baidu.swan.apps.w.a.abO().unregisterActivityLifecycleCallbacks(this.dfw);
+        com.baidu.swan.apps.w.a.abN().unregisterActivityLifecycleCallbacks(this.dfB);
     }
 
     private LinearLayout.LayoutParams aFd() {
         int i;
-        if (Sz() == 0 || ((b) Sz()).bGM == null) {
+        if (Sy() == 0 || ((b) Sy()).bGR == null) {
             i = 200;
         } else {
-            i = ((b) Sz()).bGM.getWidth() / 2;
+            i = ((b) Sy()).bGR.getWidth() / 2;
         }
         return new LinearLayout.LayoutParams(i, -1);
     }

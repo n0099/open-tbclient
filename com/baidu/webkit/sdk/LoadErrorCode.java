@@ -3,6 +3,7 @@ package com.baidu.webkit.sdk;
 import android.content.Context;
 import com.a.a.a.a.a.a.a;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.sapi2.outsdk.c;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -345,7 +346,7 @@ public class LoadErrorCode {
 
         public static synchronized void init(Context context) {
             synchronized (Statistics.class) {
-                addInfo("init");
+                addInfo(c.l);
                 if (context == null) {
                     Log.e(TAG, "[ERROR]init ctx null");
                 } else if (!sIsInited) {

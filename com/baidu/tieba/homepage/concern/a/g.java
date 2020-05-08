@@ -13,7 +13,7 @@ import com.baidu.tieba.R;
 /* loaded from: classes9.dex */
 public class g extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.concern.b.c, a> {
     public g(Context context) {
-        super(context, com.baidu.tieba.homepage.concern.b.c.hJr);
+        super(context, com.baidu.tieba.homepage.concern.b.c.hJx);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -31,7 +31,7 @@ public class g extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
         if (cVar.tipString != null) {
             aVar.tipText.setText(cVar.tipString);
         }
-        switch (cVar.hJs) {
+        switch (cVar.hJy) {
             case 2:
                 aVar.bZ(TbadkCoreApplication.getInst().getSkinType(), R.drawable.new_pic_emotion_07);
                 break;
@@ -44,25 +44,25 @@ public class g extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
 
     /* loaded from: classes9.dex */
     public static class a extends y.a {
-        private int afT;
-        public ViewGroup hIH;
-        public ImageView hII;
+        private int afW;
+        public ViewGroup hIN;
+        public ImageView hIO;
         public TextView tipText;
 
         public a(View view) {
             super(view);
-            this.afT = 3;
-            this.hIH = (ViewGroup) view.findViewById(R.id.ll_concern_emotion_tip);
-            this.hII = (ImageView) view.findViewById(R.id.iv_concern_emotion_tip_pic);
+            this.afW = 3;
+            this.hIN = (ViewGroup) view.findViewById(R.id.ll_concern_emotion_tip);
+            this.hIO = (ImageView) view.findViewById(R.id.iv_concern_emotion_tip_pic);
             this.tipText = (TextView) view.findViewById(R.id.tv_concern_emotion_tip);
         }
 
         protected void bZ(int i, int i2) {
-            if (this.afT != i) {
+            if (this.afW != i) {
                 am.setViewTextColor(this.tipText, (int) R.color.cp_cont_j);
             }
-            am.setImageResource(this.hII, i2);
-            this.afT = i;
+            am.setImageResource(this.hIO, i2);
+            this.afW = i;
         }
     }
 }

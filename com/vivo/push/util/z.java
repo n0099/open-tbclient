@@ -166,9 +166,9 @@ public final class z {
         }
         if (c2 || d2) {
             long a2 = a(context, context.getPackageName());
-            long j = 280;
+            long j = 293;
             if (context.getPackageName().equals(b2)) {
-                j = 1280;
+                j = 1293;
             }
             if (a2 == -1) {
                 throw new VivoPushException("AndroidManifest.xml中未配置sdk_version");
@@ -178,9 +178,9 @@ public final class z {
             }
         }
         g(context);
-        f(context, b2);
-        d(context, b2);
         e(context, b2);
+        c(context, b2);
+        d(context, b2);
         String packageName = context.getPackageName();
         Object b4 = b(context, packageName, "com.vivo.push.api_key");
         if (b4 != null) {
@@ -208,7 +208,7 @@ public final class z {
         }
     }
 
-    private static void d(Context context, String str) throws VivoPushException {
+    private static void c(Context context, String str) throws VivoPushException {
         try {
             if (context.getPackageManager() == null) {
                 throw new VivoPushException("localPackageManager is null");
@@ -225,7 +225,7 @@ public final class z {
         }
     }
 
-    private static void e(Context context, String str) throws VivoPushException {
+    private static void d(Context context, String str) throws VivoPushException {
         if (f.length > 0) {
             try {
                 if (context.getPackageManager() == null) {
@@ -299,7 +299,7 @@ public final class z {
         }
     }
 
-    private static void f(Context context, String str) throws VivoPushException {
+    private static void e(Context context, String str) throws VivoPushException {
         try {
             if (context.getPackageManager() == null) {
                 throw new VivoPushException("localPackageManager is null");
@@ -409,25 +409,6 @@ public final class z {
         return publicKey;
     }
 
-    public static boolean c(Context context, String str) {
-        PackageManager packageManager;
-        List<ApplicationInfo> installedApplications;
-        if (context != null && (packageManager = context.getPackageManager()) != null && (installedApplications = packageManager.getInstalledApplications(128)) != null) {
-            String packageName = context.getPackageName();
-            for (ApplicationInfo applicationInfo : installedApplications) {
-                String str2 = applicationInfo.packageName;
-                if (packageName.equals(str2) || str.equals(str2)) {
-                    if ((applicationInfo.flags & 129) != 0) {
-                        p.d("Utility", " matching " + str2 + " is system app");
-                        return true;
-                    }
-                }
-            }
-            return false;
-        }
-        return false;
-    }
-
     public static void a(Context context, Intent intent) {
         String b2 = s.b(context);
         String stringExtra = intent.getStringExtra("client_pkgname");
@@ -508,7 +489,7 @@ public final class z {
             return false;
         }
         String packageName = context.getPackageName();
-        r1 = context.getContentResolver().query(com.vivo.push.z.b, null, "pushVersion = ? and appPkgName = ? and appCode = ? ", new String[]{"280", packageName, String.valueOf(context.getPackageManager().getPackageInfo(packageName, 0).versionCode)}, null);
+        r1 = context.getContentResolver().query(com.vivo.push.z.b, null, "pushVersion = ? and appPkgName = ? and appCode = ? ", new String[]{"293", packageName, String.valueOf(context.getPackageManager().getPackageInfo(packageName, 0).versionCode)}, null);
         try {
         } catch (Exception e4) {
             e = e4;
@@ -572,31 +553,34 @@ public final class z {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [794=5, 795=5, 797=5, 798=5] */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:42:0x00ab */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:44:0x00ad */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:43:0x00b3 */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:46:0x009c A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:50:0x0089 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Not initialized variable reg: 1, insn: 0x00b1: MOVE  (r7 I:??[OBJECT, ARRAY]) = (r1 I:??[OBJECT, ARRAY]), block:B:42:0x00b1 */
+    /* JADX WARN: Removed duplicated region for block: B:50:0x00a1 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:54:0x008f A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Type inference failed for: r1v10, types: [java.lang.String] */
+    /* JADX WARN: Type inference failed for: r1v11, types: [java.lang.Throwable, java.lang.Exception] */
     /* JADX WARN: Type inference failed for: r1v12, types: [java.lang.String] */
-    /* JADX WARN: Type inference failed for: r1v13, types: [java.lang.Throwable, java.lang.Exception] */
-    /* JADX WARN: Type inference failed for: r1v14, types: [java.lang.String] */
-    /* JADX WARN: Type inference failed for: r1v6, types: [java.lang.String] */
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:44:0x00ad -> B:29:0x007e). Please submit an issue!!! */
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:52:0x000e -> B:5:0x000e). Please submit an issue!!! */
+    /* JADX WARN: Type inference failed for: r1v4, types: [java.lang.String] */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:43:0x00b3 -> B:29:0x0084). Please submit an issue!!! */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:56:0x000e -> B:5:0x000e). Please submit an issue!!! */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static boolean a(Context context, String str, String str2) {
         Cursor cursor;
         Cursor cursor2;
+        Cursor cursor3;
         boolean z;
+        Cursor cursor4 = null;
         try {
             try {
             } catch (Throwable th) {
                 th = th;
-                if (cursor != null) {
+                cursor4 = cursor2;
+                if (cursor4 != null) {
                     try {
-                        cursor.close();
+                        cursor4.close();
                     } catch (Exception e2) {
                         p.a("Utility", "close", e2);
                     }
@@ -607,16 +591,15 @@ public final class z {
             e = e3;
             cursor = null;
             p.a("Utility", "isOverdue", e);
-            cursor2 = cursor;
+            cursor3 = cursor;
             if (cursor != null) {
             }
             z = false;
-            cursor = cursor2;
+            cursor = cursor3;
             return z;
         } catch (Throwable th2) {
             th = th2;
-            cursor = null;
-            if (cursor != null) {
+            if (cursor4 != null) {
             }
             throw th;
         }
@@ -624,42 +607,42 @@ public final class z {
             p.a("Utility", "context is null");
             return false;
         }
-        Cursor query = context.getContentResolver().query(com.vivo.push.z.c, null, "appPkgName = ? and regId = ? ", new String[]{str, str2}, null);
+        Cursor query = context.getContentResolver().query(com.vivo.push.z.c, null, "appPkgName = ? and regId = ? sdkVersion = ? ", new String[]{str, str2, "293"}, null);
         try {
         } catch (Exception e4) {
             e = e4;
             p.a("Utility", "isOverdue", e);
-            cursor2 = cursor;
+            cursor3 = cursor;
             if (cursor != null) {
                 try {
                     cursor.close();
-                    cursor2 = cursor;
+                    cursor3 = cursor;
                 } catch (Exception e5) {
                     p.a("Utility", "close", e5);
-                    cursor2 = "Utility";
-                }
-            }
-            z = false;
-            cursor = cursor2;
-            return z;
-        }
-        if (query == null) {
-            p.a("Utility", "cursor is null");
-            Cursor cursor3 = query;
-            if (query != null) {
-                try {
-                    query.close();
-                    cursor3 = query;
-                } catch (Exception e6) {
-                    p.a("Utility", "close", e6);
                     cursor3 = "Utility";
                 }
             }
             z = false;
             cursor = cursor3;
+            return z;
+        }
+        if (query == null) {
+            p.a("Utility", "cursor is null");
+            Cursor cursor5 = query;
+            if (query != null) {
+                try {
+                    query.close();
+                    cursor5 = query;
+                } catch (Exception e6) {
+                    p.a("Utility", "close", e6);
+                    cursor5 = "Utility";
+                }
+            }
+            z = false;
+            cursor = cursor5;
         } else {
             boolean moveToFirst = query.moveToFirst();
-            cursor2 = query;
+            cursor3 = query;
             if (moveToFirst) {
                 z = Boolean.parseBoolean(query.getString(query.getColumnIndex("clientState")));
                 cursor = query;
@@ -676,14 +659,14 @@ public final class z {
                 if (query != null) {
                     try {
                         query.close();
-                        cursor2 = query;
+                        cursor3 = query;
                     } catch (Exception e8) {
                         p.a("Utility", "close", e8);
-                        cursor2 = "Utility";
+                        cursor3 = "Utility";
                     }
                 }
                 z = false;
-                cursor = cursor2;
+                cursor = cursor3;
             }
         }
         return z;

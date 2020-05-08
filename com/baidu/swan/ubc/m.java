@@ -14,18 +14,18 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class m {
-    private static volatile m dee;
-    private com.baidu.swan.ubc.d ddD;
-    private ExecutorService def;
-    private com.baidu.swan.ubc.c deg;
-    private int deh;
-    private boolean dei = false;
+    private static volatile m dej;
+    private com.baidu.swan.ubc.d ddI;
+    private ExecutorService dek;
+    private com.baidu.swan.ubc.c del;
+    private int dem;
+    private boolean den = false;
     private Context mContext;
     private ExecutorService mExecutorService;
 
     static /* synthetic */ int d(m mVar) {
-        int i = mVar.deh;
-        mVar.deh = i + 1;
+        int i = mVar.dem;
+        mVar.dem = i + 1;
         return i;
     }
 
@@ -34,14 +34,14 @@ public class m {
     }
 
     public static m aDT() {
-        if (dee == null) {
+        if (dej == null) {
             synchronized (m.class) {
-                if (dee == null) {
-                    dee = new m();
+                if (dej == null) {
+                    dej = new m();
                 }
             }
         }
-        return dee;
+        return dej;
     }
 
     private void init(Context context) {
@@ -51,19 +51,19 @@ public class m {
             } else {
                 this.mContext = context.getApplicationContext();
             }
-            this.deh = com.baidu.swan.config.b.arg().getInt(QuickPersistConfigConst.KEY_FLOW_HANDLE, 0);
-            if (this.deh > 1073741823) {
-                this.deh -= 1073741823;
+            this.dem = com.baidu.swan.config.b.arf().getInt(QuickPersistConfigConst.KEY_FLOW_HANDLE, 0);
+            if (this.dem > 1073741823) {
+                this.dem -= 1073741823;
             } else {
-                this.deh = 1073741823 + this.deh;
+                this.dem = 1073741823 + this.dem;
             }
-            if (s.aEh() == null || s.aEh().PD() == null) {
+            if (s.aEh() == null || s.aEh().PC() == null) {
                 this.mExecutorService = Executors.newSingleThreadExecutor();
             } else {
-                this.mExecutorService = s.aEh().PD();
+                this.mExecutorService = s.aEh().PC();
             }
             this.mExecutorService.execute(new g());
-            this.def = Executors.newSingleThreadExecutor();
+            this.dek = Executors.newSingleThreadExecutor();
         }
     }
 
@@ -71,7 +71,7 @@ public class m {
     public void a(String str, JSONObject jSONObject, int i) {
         if (!aa(str, i)) {
             b bVar = new b(str, jSONObject, i);
-            if (this.ddD != null && this.ddD.sg(str)) {
+            if (this.ddI != null && this.ddI.sg(str)) {
                 bVar.gc(true);
             }
             this.mExecutorService.execute(bVar);
@@ -82,7 +82,7 @@ public class m {
     public void i(String str, String str2, int i) {
         if (!aa(str, i)) {
             b bVar = new b(str, str2, i);
-            if (this.ddD != null && this.ddD.sg(str)) {
+            if (this.ddI != null && this.ddI.sg(str)) {
                 bVar.gc(true);
             }
             this.mExecutorService.execute(bVar);
@@ -109,7 +109,7 @@ public class m {
         ab = ab(str, i);
         if (ab != null && ab.getValid()) {
             d dVar = new d(ab, str2);
-            if (this.ddD != null && this.ddD.sg(str)) {
+            if (this.ddI != null && this.ddI.sg(str)) {
                 dVar.gc(true);
             }
             this.mExecutorService.execute(dVar);
@@ -118,18 +118,18 @@ public class m {
     }
 
     Flow ab(String str, int i) {
-        Flow flow = new Flow(str, this.deh, i);
-        if (this.ddD != null && !this.ddD.Z(str, i)) {
+        Flow flow = new Flow(str, this.dem, i);
+        if (this.ddI != null && !this.ddI.Z(str, i)) {
             flow.setValid(false);
         } else if ((i & 16) != 0 && !s.aEh().kV(str)) {
             flow.setValid(false);
         } else {
-            if (this.ddD != null && this.ddD.se(str) > 0) {
-                if (new Random().nextInt(100) >= this.ddD.se(str)) {
+            if (this.ddI != null && this.ddI.se(str) > 0) {
+                if (new Random().nextInt(100) >= this.ddI.se(str)) {
                     flow.gd(true);
                 }
             }
-            if (this.ddD != null && this.ddD.sf(str)) {
+            if (this.ddI != null && this.ddI.sf(str)) {
                 flow.setValid(false);
             }
         }
@@ -153,13 +153,13 @@ public class m {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void upload() {
-        if (!this.dei) {
-            this.dei = true;
+        if (!this.den) {
+            this.den = true;
             this.mExecutorService.execute(new Runnable() { // from class: com.baidu.swan.ubc.m.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (m.this.deg != null) {
-                        m.this.deg.aDr();
+                    if (m.this.del != null) {
+                        m.this.del.aDr();
                     }
                 }
             });
@@ -172,7 +172,7 @@ public class m {
 
     public void initConfig() {
         aDU();
-        if (!com.baidu.swan.config.b.arg().getBoolean("init_done", false)) {
+        if (!com.baidu.swan.config.b.arf().getBoolean("init_done", false)) {
             String readAssetData = com.baidu.swan.d.c.readAssetData(AppRuntime.getAppContext(), "ubc_config.json");
             if (!TextUtils.isEmpty(readAssetData)) {
                 try {
@@ -195,11 +195,11 @@ public class m {
     /* JADX INFO: Access modifiers changed from: package-private */
     public void c(final JSONArray jSONArray, final String str) {
         r.J(jSONArray);
-        this.def.execute(new Runnable() { // from class: com.baidu.swan.ubc.m.2
+        this.dek.execute(new Runnable() { // from class: com.baidu.swan.ubc.m.2
             @Override // java.lang.Runnable
             public void run() {
-                if (m.this.deg != null) {
-                    m.this.deg.c(jSONArray, str);
+                if (m.this.del != null) {
+                    m.this.del.c(jSONArray, str);
                 }
             }
         });
@@ -208,11 +208,11 @@ public class m {
     /* JADX INFO: Access modifiers changed from: package-private */
     public void I(final JSONArray jSONArray) {
         r.J(jSONArray);
-        this.def.execute(new Runnable() { // from class: com.baidu.swan.ubc.m.3
+        this.dek.execute(new Runnable() { // from class: com.baidu.swan.ubc.m.3
             @Override // java.lang.Runnable
             public void run() {
-                if (m.this.deg != null) {
-                    m.this.deg.I(jSONArray);
+                if (m.this.del != null) {
+                    m.this.del.I(jSONArray);
                 }
             }
         });
@@ -223,8 +223,8 @@ public class m {
         this.mExecutorService.execute(new Runnable() { // from class: com.baidu.swan.ubc.m.4
             @Override // java.lang.Runnable
             public void run() {
-                if (m.this.deg != null) {
-                    m.this.deg.aDu();
+                if (m.this.del != null) {
+                    m.this.del.aDu();
                 }
             }
         });
@@ -235,11 +235,11 @@ public class m {
         this.mExecutorService.execute(new Runnable() { // from class: com.baidu.swan.ubc.m.5
             @Override // java.lang.Runnable
             public void run() {
-                if (m.this.deg != null) {
+                if (m.this.del != null) {
                     if (z) {
-                        m.this.deg.rY(str);
+                        m.this.del.rY(str);
                     } else {
-                        m.this.deg.rZ(str);
+                        m.this.del.rZ(str);
                     }
                 }
             }
@@ -255,50 +255,50 @@ public class m {
         @Override // java.lang.Runnable
         public void run() {
             Process.setThreadPriority(10);
-            m.this.ddD = com.baidu.swan.ubc.d.aDw();
-            m.this.deg = new com.baidu.swan.ubc.c(m.this.mContext);
-            m.this.deg.aDv();
+            m.this.ddI = com.baidu.swan.ubc.d.aDw();
+            m.this.del = new com.baidu.swan.ubc.c(m.this.mContext);
+            m.this.del.aDv();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes11.dex */
     public class b implements Runnable {
-        private h dem;
+        private h der;
 
         b(String str, String str2, int i) {
-            this.dem = new h(str, str2, i);
+            this.der = new h(str, str2, i);
         }
 
         b(String str, JSONObject jSONObject, int i) {
-            this.dem = new h(str, jSONObject, i);
+            this.der = new h(str, jSONObject, i);
         }
 
         b(String str, String str2, int i, String str3, int i2) {
-            this.dem = new h(str, str2, i, str3, i2);
+            this.der = new h(str, str2, i, str3, i2);
         }
 
         b(String str, String str2, int i, String str3, long j, int i2) {
-            this.dem = new h(str, str2, i, str3, j, i2);
+            this.der = new h(str, str2, i, str3, j, i2);
         }
 
         public void gc(boolean z) {
-            if (this.dem != null) {
-                this.dem.gc(z);
+            if (this.der != null) {
+                this.der.gc(z);
             }
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (m.this.deg != null) {
-                this.dem.aDN();
-                if (!TextUtils.isEmpty(m.this.ddD.sd(this.dem.getId()))) {
-                    this.dem.setCategory(m.this.ddD.sd(this.dem.getId()));
+            if (m.this.del != null) {
+                this.der.aDN();
+                if (!TextUtils.isEmpty(m.this.ddI.sd(this.der.getId()))) {
+                    this.der.setCategory(m.this.ddI.sd(this.der.getId()));
                 }
-                if ((this.dem.getOption() & 8) != 0) {
-                    m.this.deg.b(this.dem);
+                if ((this.der.getOption() & 8) != 0) {
+                    m.this.del.b(this.der);
                 } else {
-                    m.this.deg.a(this.dem);
+                    m.this.del.a(this.der);
                 }
             }
         }
@@ -306,29 +306,29 @@ public class m {
 
     /* loaded from: classes11.dex */
     private class d implements Runnable {
-        private j den;
+        private j det;
 
         d(Flow flow, String str) {
-            this.den = new j(flow.getId(), flow.getHandle(), str, flow.getOption(), flow.aDP());
-            this.den.bR(flow.getStartTime());
-            this.den.sj("1");
+            this.det = new j(flow.getId(), flow.getHandle(), str, flow.getOption(), flow.aDP());
+            this.det.bR(flow.getStartTime());
+            this.det.sj("1");
             m.d(m.this);
         }
 
         public void gc(boolean z) {
-            if (this.den != null) {
-                this.den.gc(z);
+            if (this.det != null) {
+                this.det.gc(z);
             }
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (m.this.deg != null) {
-                this.den.aDN();
-                if (!TextUtils.isEmpty(m.this.ddD.sd(this.den.getId()))) {
-                    this.den.setCategory(m.this.ddD.sd(this.den.getId()));
+            if (m.this.del != null) {
+                this.det.aDN();
+                if (!TextUtils.isEmpty(m.this.ddI.sd(this.det.getId()))) {
+                    this.det.setCategory(m.this.ddI.sd(this.det.getId()));
                 }
-                m.this.deg.b(this.den);
+                m.this.del.b(this.det);
             }
         }
     }
@@ -336,20 +336,20 @@ public class m {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes11.dex */
     public class f implements Runnable {
-        private String cgl;
-        private int ddY;
+        private String cgr;
+        private int ded;
         private String mValue;
 
         f(String str, int i, String str2) {
-            this.cgl = str;
-            this.ddY = i;
+            this.cgr = str;
+            this.ded = i;
             this.mValue = str2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (m.this.deg != null) {
-                m.this.deg.f(this.cgl, this.ddY, this.mValue);
+            if (m.this.del != null) {
+                m.this.del.f(this.cgr, this.ded, this.mValue);
             }
         }
     }
@@ -357,21 +357,21 @@ public class m {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes11.dex */
     public class e implements Runnable {
-        private String cgl;
-        private int ddY;
-        private JSONArray ded;
+        private String cgr;
+        private int ded;
+        private JSONArray dei;
         private long mEndTime = System.currentTimeMillis();
 
         e(String str, int i, JSONArray jSONArray) {
-            this.cgl = str;
-            this.ddY = i;
-            this.ded = jSONArray;
+            this.cgr = str;
+            this.ded = i;
+            this.dei = jSONArray;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (m.this.deg != null) {
-                m.this.deg.a(this.cgl, this.ddY, this.mEndTime, this.ded);
+            if (m.this.del != null) {
+                m.this.del.a(this.cgr, this.ded, this.mEndTime, this.dei);
             }
         }
     }
@@ -379,18 +379,18 @@ public class m {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes11.dex */
     public class c implements Runnable {
-        private String cgl;
-        private int ddY;
+        private String cgr;
+        private int ded;
 
         c(String str, int i) {
-            this.cgl = str;
-            this.ddY = i;
+            this.cgr = str;
+            this.ded = i;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (m.this.deg != null) {
-                m.this.deg.C(this.cgl, this.ddY);
+            if (m.this.del != null) {
+                m.this.del.C(this.cgr, this.ded);
             }
         }
     }
@@ -398,17 +398,17 @@ public class m {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes11.dex */
     public class a implements Runnable {
-        private p del;
+        private p deq;
 
         a(p pVar) {
-            this.del = pVar;
+            this.deq = pVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (m.this.deg != null) {
-                m.this.deg.a(this.del);
-                com.baidu.swan.config.b.arg().putBoolean("init_done", true);
+            if (m.this.del != null) {
+                m.this.del.a(this.deq);
+                com.baidu.swan.config.b.arf().putBoolean("init_done", true);
             }
         }
     }

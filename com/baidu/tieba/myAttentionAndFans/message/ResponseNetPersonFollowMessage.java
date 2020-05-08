@@ -3,7 +3,6 @@ package com.baidu.tieba.myAttentionAndFans.message;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.lib.cache.l;
-import com.baidu.android.pushservice.PushConstants;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.tbadk.core.c.a;
 import com.baidu.tbadk.core.data.av;
@@ -45,7 +44,7 @@ public class ResponseNetPersonFollowMessage extends JsonHttpResponsedMessage {
         int error = getError();
         if (statusCode == 200 && error == 0) {
             this.mErrCode = jSONObject.optInt("error_code");
-            this.mErrMsg = jSONObject.optString(PushConstants.EXTRA_ERROR_CODE);
+            this.mErrMsg = jSONObject.optString("error_msg");
             this.data = new av();
             this.data.parserJson(jSONObject);
         }
@@ -59,9 +58,9 @@ public class ResponseNetPersonFollowMessage extends JsonHttpResponsedMessage {
             BdUniqueId tag = ((HttpMessage) getOrginalMessage()).getTag();
             boolean z = tag != null && tag.equals(PersonListModel.FOLLOWME);
             String str = new String(bArr);
-            l<String> ud = a.aMT().ud("tb.my_pages");
-            if (ud != null) {
-                ud.set((z ? "personal_followme" : "personal_myfollow") + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + this.mModel.getId(), str, 604800000L);
+            l<String> ug = a.aMR().ug("tb.my_pages");
+            if (ug != null) {
+                ug.set((z ? "personal_followme" : "personal_myfollow") + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + this.mModel.getId(), str, 604800000L);
             }
         }
     }

@@ -18,7 +18,7 @@ public class d extends ab {
 
     @Override // com.baidu.swan.apps.scheme.actions.ab
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
-        if (context == null || callbackHandler == null || eVar == null || eVar.akV() == null) {
+        if (context == null || callbackHandler == null || eVar == null || eVar.akU() == null) {
             com.baidu.swan.apps.console.c.e("getSavedFile", "execute fail");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
@@ -29,7 +29,7 @@ public class d extends ab {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
         }
-        String by = com.baidu.swan.apps.storage.b.by(optParamsAsJo.optString("filePath"), com.baidu.swan.apps.runtime.e.akP());
+        String by = com.baidu.swan.apps.storage.b.by(optParamsAsJo.optString("filePath"), com.baidu.swan.apps.runtime.e.akO());
         if (DEBUG) {
             Log.d("GetSavedFileInfoAction", "——> handle: fileUrl " + optParamsAsJo.optString("filePath"));
             Log.d("GetSavedFileInfoAction", "——> handle: filePath " + by);
@@ -39,7 +39,7 @@ public class d extends ab {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
         }
-        com.baidu.swan.apps.storage.a nq = eVar.akV().nq(by);
+        com.baidu.swan.apps.storage.a nq = eVar.akU().nq(by);
         if (nq == null) {
             com.baidu.swan.apps.console.c.e("getSavedFile", "file info is null");
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(2001, com.baidu.swan.apps.scheme.f.getErrMessage(2001)));
@@ -51,7 +51,7 @@ public class d extends ab {
         }
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("createTime", Math.round((float) (nq.ann() / 1000)));
+            jSONObject.put("createTime", Math.round((float) (nq.anm() / 1000)));
             jSONObject.put(TiebaInitialize.LogFields.SIZE, nq.getSize());
             if (DEBUG) {
                 Log.d("GetSavedFileInfoAction", "——> handle: fileInfo (" + jSONObject.get("createTime") + " , " + jSONObject.get(TiebaInitialize.LogFields.SIZE) + ")");

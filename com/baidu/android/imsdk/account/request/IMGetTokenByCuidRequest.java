@@ -7,7 +7,6 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.utils.BaseHttpRequest;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.android.pushservice.PushConstants;
 import com.baidu.sapi2.utils.SapiUtils;
 import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
@@ -41,8 +40,8 @@ public class IMGetTokenByCuidRequest extends BaseHttpRequest {
             JSONObject jSONObject = new JSONObject(str);
             if (jSONObject.has("error_code")) {
                 i2 = jSONObject.getInt("error_code");
-                if (jSONObject.has(PushConstants.EXTRA_ERROR_CODE)) {
-                    str2 = jSONObject.getString(PushConstants.EXTRA_ERROR_CODE);
+                if (jSONObject.has("error_msg")) {
+                    str2 = jSONObject.getString("error_msg");
                 }
                 if (i2 == 0) {
                     str3 = jSONObject.getString("token");

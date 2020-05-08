@@ -12,23 +12,23 @@ public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     public static e.f d(com.baidu.swan.apps.x.b.b bVar) {
-        File file = new File(Environment.getExternalStorageDirectory() + "/" + b.Tu());
-        e.a(file, Tt(), bVar);
+        File file = new File(Environment.getExternalStorageDirectory() + "/" + b.Tt());
+        e.a(file, Ts(), bVar);
         c.deleteFile(file);
         e.f fVar = new e.f();
-        File file2 = new File(Tt(), "app.json");
-        SwanAppConfigData k = SwanAppConfigData.k(c.readFileData(file2), Tt());
-        fVar.bVR = Tt().getPath() + File.separator;
-        fVar.bVS = k;
+        File file2 = new File(Ts(), "app.json");
+        SwanAppConfigData k = SwanAppConfigData.k(c.readFileData(file2), Ts());
+        fVar.bVX = Ts().getPath() + File.separator;
+        fVar.bVY = k;
         if (DEBUG) {
             Log.d("ADBDebugBundleHelper", "configFile path: " + file2.getPath());
             Log.d("ADBDebugBundleHelper", "configFile exist: " + file2.exists());
-            Log.d("ADBDebugBundleHelper", "info.mAppBundlePath path: " + fVar.bVR);
+            Log.d("ADBDebugBundleHelper", "info.mAppBundlePath path: " + fVar.bVX);
         }
         return fVar;
     }
 
-    public static File Tt() {
+    public static File Ts() {
         File file = new File(AppRuntime.getAppContext().getFilesDir(), "aiapps_adb_debug");
         if (!file.exists()) {
             file.mkdirs();

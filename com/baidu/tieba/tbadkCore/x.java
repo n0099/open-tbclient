@@ -13,7 +13,7 @@ import com.baidu.tieba.R;
 import java.io.File;
 /* loaded from: classes.dex */
 public class x {
-    public static final void aY(Context context, String str) {
+    public static final void aM(Context context, String str) {
         if (TextUtils.isEmpty(str)) {
             com.baidu.adp.lib.util.l.showToast(context, (int) R.string.download_error);
             return;

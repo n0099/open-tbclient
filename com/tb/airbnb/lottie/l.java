@@ -23,7 +23,7 @@ public class l<T> {
     private final FutureTask<k<T>> Ba;
     private final Handler handler;
     @Nullable
-    private volatile k<T> mOh;
+    private volatile k<T> mOk;
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
     public l(Callable<k<T>> callable) {
@@ -35,7 +35,7 @@ public class l<T> {
         this.AY = new LinkedHashSet(1);
         this.AZ = new LinkedHashSet(1);
         this.handler = new Handler(Looper.getMainLooper());
-        this.mOh = null;
+        this.mOk = null;
         this.Ba = new FutureTask<>(callable);
         if (z) {
             try {
@@ -52,16 +52,16 @@ public class l<T> {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(@Nullable k<T> kVar) {
-        if (this.mOh != null) {
+        if (this.mOk != null) {
             throw new IllegalStateException("A task may only be set once.");
         }
-        this.mOh = kVar;
+        this.mOk = kVar;
         gW();
     }
 
     public synchronized l<T> a(h<T> hVar) {
-        if (this.mOh != null && this.mOh.getValue() != null) {
-            hVar.onResult(this.mOh.getValue());
+        if (this.mOk != null && this.mOk.getValue() != null) {
+            hVar.onResult(this.mOk.getValue());
         }
         this.AY.add(hVar);
         gX();
@@ -75,8 +75,8 @@ public class l<T> {
     }
 
     public synchronized l<T> c(h<Throwable> hVar) {
-        if (this.mOh != null && this.mOh.gV() != null) {
-            hVar.onResult(this.mOh.gV());
+        if (this.mOk != null && this.mOk.gV() != null) {
+            hVar.onResult(this.mOk.gV());
         }
         this.AZ.add(hVar);
         gX();
@@ -93,10 +93,10 @@ public class l<T> {
         this.handler.post(new Runnable() { // from class: com.tb.airbnb.lottie.l.1
             @Override // java.lang.Runnable
             public void run() {
-                if (l.this.mOh != null && !l.this.Ba.isCancelled()) {
-                    k kVar = l.this.mOh;
+                if (l.this.mOk != null && !l.this.Ba.isCancelled()) {
+                    k kVar = l.this.mOk;
                     if (kVar.getValue() != null) {
-                        l.this.m(kVar.getValue());
+                        l.this.n(kVar.getValue());
                     } else {
                         l.this.g(kVar.gV());
                     }
@@ -106,7 +106,7 @@ public class l<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void m(T t) {
+    public void n(T t) {
         for (h hVar : new ArrayList(this.AY)) {
             hVar.onResult(t);
         }
@@ -125,7 +125,7 @@ public class l<T> {
     }
 
     private synchronized void gX() {
-        if (!gZ() && this.mOh == null) {
+        if (!gZ() && this.mOk == null) {
             this.AX = new Thread("LottieTaskObserver") { // from class: com.tb.airbnb.lottie.l.2
                 private boolean Bd = false;
 
@@ -151,7 +151,7 @@ public class l<T> {
 
     /* JADX INFO: Access modifiers changed from: private */
     public synchronized void gY() {
-        if (gZ() && (this.AY.isEmpty() || this.mOh != null)) {
+        if (gZ() && (this.AY.isEmpty() || this.mOk != null)) {
             this.AX.interrupt();
             this.AX = null;
             c.debug("Stopping TaskObserver thread");

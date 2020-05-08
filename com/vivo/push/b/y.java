@@ -1,39 +1,27 @@
 package com.vivo.push.b;
 
 import com.baidu.android.imsdk.IMConstants;
-import java.util.HashMap;
 /* loaded from: classes8.dex */
 public final class y extends com.vivo.push.y {
-    private HashMap<String, String> a;
-    private long b;
-
     public y() {
-        super(IMConstants.IM_MSG_TYPE_SHIELD_ME);
-    }
-
-    public y(long j) {
-        this();
-        this.b = j;
-    }
-
-    public final void a(HashMap<String, String> hashMap) {
-        this.a = hashMap;
+        super(IMConstants.IM_MSG_TYPE_UNSUBSCRIBE_ME_SEND_FAIL);
     }
 
     @Override // com.vivo.push.y
-    public final void c(com.vivo.push.a aVar) {
-        aVar.a("ReporterCommand.EXTRA_PARAMS", this.a);
-        aVar.a("ReporterCommand.EXTRA_REPORTER_TYPE", this.b);
+    protected final void c(com.vivo.push.a aVar) {
     }
 
     @Override // com.vivo.push.y
-    public final void d(com.vivo.push.a aVar) {
-        this.a = (HashMap) aVar.c("ReporterCommand.EXTRA_PARAMS");
-        this.b = aVar.b("ReporterCommand.EXTRA_REPORTER_TYPE", this.b);
+    protected final void d(com.vivo.push.a aVar) {
     }
 
     @Override // com.vivo.push.y
     public final String toString() {
-        return "ReporterCommand（" + this.b + ")";
+        return "PushDebugCommand";
+    }
+
+    @Override // com.vivo.push.y
+    public final boolean c() {
+        return true;
     }
 }

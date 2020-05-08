@@ -36,7 +36,7 @@ public class c extends ab {
 
     @Override // com.baidu.swan.apps.scheme.actions.ab
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
-        if (eVar != null && eVar.Ru()) {
+        if (eVar != null && eVar.Rt()) {
             if (DEBUG) {
                 Log.d("ShowActionSheet", "ShowActionSheet does not supported when app is invisible.");
             }
@@ -133,18 +133,18 @@ public class c extends ab {
                 }
             });
             a.ao(inflate);
-            a.akv();
+            a.aku();
             a.ga(l(context, arrayList.size()));
-            final g WU = a.WU();
-            Window window = WU.getWindow();
+            final g WT = a.WT();
+            Window window = WT.getWindow();
             if (window != null) {
                 window.setGravity(80);
                 window.setDimAmount(0.65f);
-                window.setLayout(af.cx(context), -2);
+                window.setLayout(af.cl(context), -2);
                 window.setWindowAnimations(a.i.action_sheet_animation);
             }
-            WU.setEnableImmersion(false);
-            WU.setCanceledOnTouchOutside(true);
+            WT.setEnableImmersion(false);
+            WT.setCanceledOnTouchOutside(true);
             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.swan.apps.scheme.actions.e.c.4
                 @Override // android.widget.AdapterView.OnItemClickListener
                 public void onItemClick(AdapterView<?> adapterView, View view, int i3, long j) {
@@ -152,7 +152,7 @@ public class c extends ab {
                     try {
                         jSONObject.put("tapIndex", i3);
                         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
-                        WU.dismiss();
+                        WT.dismiss();
                     } catch (JSONException e2) {
                         if (c.DEBUG) {
                             e2.printStackTrace();
@@ -161,7 +161,7 @@ public class c extends ab {
                     }
                 }
             });
-            WU.show();
+            WT.show();
             return true;
         }
         i = -1;
@@ -170,9 +170,9 @@ public class c extends ab {
     }
 
     private int l(Context context, int i) {
-        int cx;
+        int cl;
         Resources resources = context.getResources();
         int dimensionPixelSize = ((resources.getDimensionPixelSize(a.d.aiapps_action_sheet_bottom_divider) + ((i + 1) * resources.getDimensionPixelSize(a.d.aiapps_action_sheet_list_item))) + i) - 1;
-        return (!af.isScreenLand() || dimensionPixelSize <= (cx = af.cx(context) - af.getStatusBarHeight())) ? dimensionPixelSize : cx;
+        return (!af.isScreenLand() || dimensionPixelSize <= (cl = af.cl(context) - af.getStatusBarHeight())) ? dimensionPixelSize : cl;
     }
 }

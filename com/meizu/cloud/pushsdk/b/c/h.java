@@ -14,7 +14,7 @@ public final class h extends j {
     private static final byte[] f = {58, 32};
     private static final byte[] g = {13, 10};
     private static final byte[] h = {45, 45};
-    private final com.meizu.cloud.pushsdk.b.g.d i;
+    private final com.meizu.cloud.pushsdk.b.g.e i;
     private final g j;
     private final g k;
     private final List<b> l;
@@ -22,7 +22,7 @@ public final class h extends j {
 
     /* loaded from: classes8.dex */
     public static final class a {
-        private final com.meizu.cloud.pushsdk.b.g.d a;
+        private final com.meizu.cloud.pushsdk.b.g.e a;
         private g b;
         private final List<b> c;
 
@@ -33,7 +33,7 @@ public final class h extends j {
         public a(String str) {
             this.b = h.a;
             this.c = new ArrayList();
-            this.a = com.meizu.cloud.pushsdk.b.g.d.a(str);
+            this.a = com.meizu.cloud.pushsdk.b.g.e.a(str);
         }
 
         public a a(c cVar, j jVar) {
@@ -91,63 +91,63 @@ public final class h extends j {
         }
     }
 
-    h(com.meizu.cloud.pushsdk.b.g.d dVar, g gVar, List<b> list) {
-        this.i = dVar;
+    h(com.meizu.cloud.pushsdk.b.g.e eVar, g gVar, List<b> list) {
+        this.i = eVar;
         this.j = gVar;
-        this.k = g.a(gVar + "; boundary=" + dVar.a());
+        this.k = g.a(gVar + "; boundary=" + eVar.a());
         this.l = m.a(list);
     }
 
-    private long a(com.meizu.cloud.pushsdk.b.g.b bVar, boolean z) throws IOException {
-        com.meizu.cloud.pushsdk.b.g.a aVar;
+    private long a(com.meizu.cloud.pushsdk.b.g.c cVar, boolean z) throws IOException {
+        com.meizu.cloud.pushsdk.b.g.b bVar;
         long j = 0;
         if (z) {
-            com.meizu.cloud.pushsdk.b.g.a aVar2 = new com.meizu.cloud.pushsdk.b.g.a();
-            aVar = aVar2;
-            bVar = aVar2;
+            com.meizu.cloud.pushsdk.b.g.b bVar2 = new com.meizu.cloud.pushsdk.b.g.b();
+            bVar = bVar2;
+            cVar = bVar2;
         } else {
-            aVar = null;
+            bVar = null;
         }
         int size = this.l.size();
         for (int i = 0; i < size; i++) {
-            b bVar2 = this.l.get(i);
-            c cVar = bVar2.a;
-            j jVar = bVar2.b;
-            bVar.c(h);
-            bVar.b(this.i);
-            bVar.c(g);
-            if (cVar != null) {
-                int a2 = cVar.a();
+            b bVar3 = this.l.get(i);
+            c cVar2 = bVar3.a;
+            j jVar = bVar3.b;
+            cVar.c(h);
+            cVar.b(this.i);
+            cVar.c(g);
+            if (cVar2 != null) {
+                int a2 = cVar2.a();
                 for (int i2 = 0; i2 < a2; i2++) {
-                    bVar.b(cVar.a(i2)).c(f).b(cVar.b(i2)).c(g);
+                    cVar.b(cVar2.a(i2)).c(f).b(cVar2.b(i2)).c(g);
                 }
             }
             g a3 = jVar.a();
             if (a3 != null) {
-                bVar.b("Content-Type: ").b(a3.toString()).c(g);
+                cVar.b("Content-Type: ").b(a3.toString()).c(g);
             }
             long b2 = jVar.b();
             if (b2 != -1) {
-                bVar.b("Content-Length: ").e(b2).c(g);
+                cVar.b("Content-Length: ").e(b2).c(g);
             } else if (z) {
-                aVar.j();
+                bVar.j();
                 return -1L;
             }
-            bVar.c(g);
+            cVar.c(g);
             if (z) {
                 j += b2;
             } else {
-                jVar.a(bVar);
+                jVar.a(cVar);
             }
-            bVar.c(g);
+            cVar.c(g);
         }
-        bVar.c(h);
-        bVar.b(this.i);
-        bVar.c(h);
-        bVar.c(g);
+        cVar.c(h);
+        cVar.b(this.i);
+        cVar.c(h);
+        cVar.c(g);
         if (z) {
-            long a4 = j + aVar.a();
-            aVar.j();
+            long a4 = j + bVar.a();
+            bVar.j();
             return a4;
         }
         return j;
@@ -159,8 +159,8 @@ public final class h extends j {
     }
 
     @Override // com.meizu.cloud.pushsdk.b.c.j
-    public void a(com.meizu.cloud.pushsdk.b.g.b bVar) throws IOException {
-        a(bVar, false);
+    public void a(com.meizu.cloud.pushsdk.b.g.c cVar) throws IOException {
+        a(cVar, false);
     }
 
     @Override // com.meizu.cloud.pushsdk.b.c.j
@@ -169,7 +169,7 @@ public final class h extends j {
         if (j != -1) {
             return j;
         }
-        long a2 = a((com.meizu.cloud.pushsdk.b.g.b) null, true);
+        long a2 = a((com.meizu.cloud.pushsdk.b.g.c) null, true);
         this.m = a2;
         return a2;
     }

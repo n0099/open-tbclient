@@ -23,7 +23,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class a implements Executor {
     private Handler mHandler;
     private HandlerThread sHandlerThread;
-    private static a IF = null;
+    private static a II = null;
     private static final ThreadFactory sThreadFactory = new ThreadFactory() { // from class: com.baidu.adp.lib.asyncTask.a.1
         private final AtomicInteger mCount = new AtomicInteger(1);
 
@@ -76,14 +76,14 @@ public class a implements Executor {
     }
 
     public static a jV() {
-        if (IF == null) {
+        if (II == null) {
             synchronized (a.class) {
-                if (IF == null) {
-                    IF = new a();
+                if (II == null) {
+                    II = new a();
                 }
             }
         }
-        return IF;
+        return II;
     }
 
     @Override // java.util.concurrent.Executor
@@ -450,76 +450,76 @@ public class a implements Executor {
     /* renamed from: com.baidu.adp.lib.asyncTask.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public static abstract class AbstractRunnableC0017a implements Runnable {
-        private b<?> IH;
+        private b<?> IK;
 
         public AbstractRunnableC0017a(b<?> bVar) {
-            this.IH = null;
+            this.IK = null;
             if (bVar == null || bVar.jW() == null) {
                 throw new InvalidParameterException("parameter is null");
             }
-            this.IH = bVar;
+            this.IK = bVar;
         }
 
         public void runTask() {
             try {
-                this.IH.run();
+                this.IK.run();
             } catch (OutOfMemoryError e) {
                 BdBaseApplication.getInst().onAppMemoryLow();
             }
         }
 
         public void cancelTask() {
-            this.IH.cancelTask();
+            this.IK.cancelTask();
         }
 
         public boolean isCancelled() {
-            return this.IH.isCancelled();
+            return this.IK.isCancelled();
         }
 
         public BdAsyncTask<?, ?, ?> jW() {
-            return this.IH.jW();
+            return this.IK.jW();
         }
 
         public int getPriority() {
-            return this.IH.jW().getPriority();
+            return this.IK.jW().getPriority();
         }
 
         public void setTimeout(boolean z) {
-            this.IH.jW().setTimeout(z);
+            this.IK.jW().setTimeout(z);
         }
 
         public boolean IsTimeout() {
-            return this.IH.jW().isTimeout();
+            return this.IK.jW().isTimeout();
         }
 
         public int getTag() {
-            return this.IH.jW().getTag();
+            return this.IK.jW().getTag();
         }
 
         public int getParallelTag() {
-            if (this.IH.jW().getParallel() != null) {
-                return this.IH.jW().getParallel().getTag();
+            if (this.IK.jW().getParallel() != null) {
+                return this.IK.jW().getParallel().getTag();
             }
             return 0;
         }
 
         public String getKey() {
-            return this.IH.jW().getKey();
+            return this.IK.jW().getKey();
         }
 
         public BdAsyncTaskParallel.BdAsyncTaskParallelType jX() {
-            return this.IH.jW().getParallel() != null ? this.IH.jW().getParallel().jY() : BdAsyncTaskParallel.BdAsyncTaskParallelType.MAX_PARALLEL;
+            return this.IK.jW().getParallel() != null ? this.IK.jW().getParallel().jY() : BdAsyncTaskParallel.BdAsyncTaskParallelType.MAX_PARALLEL;
         }
 
         public int getExcuteNum() {
-            if (this.IH.jW().getParallel() != null) {
-                return this.IH.jW().getParallel().getExecuteNum();
+            if (this.IK.jW().getParallel() != null) {
+                return this.IK.jW().getParallel().getExecuteNum();
             }
             return 1;
         }
 
         public boolean isSelfExecute() {
-            return this.IH.jW().isSelfExecute();
+            return this.IK.jW().isSelfExecute();
         }
     }
 }

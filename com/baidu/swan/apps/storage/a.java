@@ -1,7 +1,7 @@
 package com.baidu.swan.apps.storage;
 /* loaded from: classes11.dex */
 public class a {
-    private long cuH;
+    private long cuN;
     private String mPath;
     private long mSize;
 
@@ -21,11 +21,11 @@ public class a {
         this.mSize = j;
     }
 
-    public long ann() {
-        return this.cuH;
+    public long anm() {
+        return this.cuN;
     }
 
     public void bh(long j) {
-        this.cuH = j;
+        this.cuN = j;
     }
 }

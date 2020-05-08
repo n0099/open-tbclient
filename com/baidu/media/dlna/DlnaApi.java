@@ -11,16 +11,16 @@ import java.util.Map;
 @Keep
 /* loaded from: classes.dex */
 public class DlnaApi {
-    private static DlnaProvider.DlnaSearchListener bhF = null;
+    private static DlnaProvider.DlnaSearchListener bhK = null;
     private static Handler b = new Handler(Looper.getMainLooper()) { // from class: com.baidu.media.dlna.DlnaApi.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             switch (message.what) {
                 case 1:
-                    DlnaApi.bhF.onDeviceChangeNotification((Map) message.obj);
+                    DlnaApi.bhK.onDeviceChangeNotification((Map) message.obj);
                     break;
                 case 2:
-                    DlnaApi.bhF.onRefreshFinishNotification();
+                    DlnaApi.bhK.onRefreshFinishNotification();
                     break;
             }
             super.handleMessage(message);
@@ -51,12 +51,12 @@ public class DlnaApi {
     }
 
     public static void search(DlnaProvider.DlnaSearchListener dlnaSearchListener) {
-        bhF = dlnaSearchListener;
+        bhK = dlnaSearchListener;
         nativeSearch();
     }
 
     public static void stop() {
-        bhF = null;
+        bhK = null;
         nativeStop();
     }
 }

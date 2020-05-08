@@ -6,8 +6,11 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.os.Build;
 import android.text.TextUtils;
-import com.baidu.android.pushservice.i.l;
+import android.util.Log;
+import com.baidu.android.pushservice.h.a.b;
+import com.baidu.android.pushservice.i.m;
 import com.baidu.android.pushservice.message.CrossPushMessage;
+import com.baidu.android.pushservice.message.k;
 import java.util.List;
 /* loaded from: classes8.dex */
 public class a extends b {
@@ -16,18 +19,20 @@ public class a extends b {
     }
 
     private static boolean a() {
-        return Build.VERSION.SDK_INT <= 26 && (l.g() || l.h());
+        return Build.VERSION.SDK_INT <= 26 && (m.j() || m.k());
     }
 
     private static boolean a(Context context, String str) {
+        List<ResolveInfo> list;
         Intent parseUri;
         PackageManager packageManager;
-        List<ResolveInfo> list = null;
         try {
             parseUri = Intent.parseUri("baidupush://bdpush/cross", 0);
             parseUri.setPackage(str);
             packageManager = context.getPackageManager();
         } catch (Exception e) {
+            new b.c(context).a(Log.getStackTraceString(e)).a();
+            list = null;
         }
         if (packageManager == null) {
             return false;
@@ -37,22 +42,21 @@ public class a extends b {
     }
 
     @Override // com.baidu.android.pushservice.message.a.b
-    public com.baidu.android.pushservice.message.g a(com.baidu.android.pushservice.message.k kVar, byte[] bArr) {
+    public com.baidu.android.pushservice.message.g a(k kVar, byte[] bArr) {
         int i = 1;
         if (a()) {
             String b = kVar.b();
             String e = kVar.e();
-            kVar.f();
             byte[] g = kVar.g();
-            CrossPushMessage a = i.a(e, b, bArr);
-            if (this.a.getPackageName().equals(a.mPkgName) && !TextUtils.isEmpty(a.a)) {
-                if (!l.c(this.a, a.a)) {
+            CrossPushMessage b2 = h.b(this.a, e, b, bArr);
+            if (this.a.getPackageName().equals(b2.mPkgName) && !TextUtils.isEmpty(b2.a)) {
+                if (!m.b(this.a, b2.a)) {
                     i = 8;
-                } else if (a(this.a, a.a)) {
+                } else if (a(this.a, b2.a)) {
                     com.baidu.android.pushservice.a.d.a(this.a, b);
                     switch (r1.a()) {
                         case PUSH_CLIENT:
-                            e.a(this.a, a, b, l.a(this.a, e, bArr, g, a.mPkgName), bArr);
+                            d.a(this.a, b2, b, g, bArr);
                             break;
                         default:
                             i = 7;

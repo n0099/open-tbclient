@@ -4,8 +4,9 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import com.xiaomi.push.al;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes8.dex */
-class am extends Handler {
+public class am extends Handler {
     final /* synthetic */ al a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -21,7 +22,7 @@ class am extends Handler {
         if (message.what == 0) {
             bVar.a();
         } else if (message.what == 1) {
-            bVar.mo223c();
+            bVar.mo225c();
         }
         super.handleMessage(message);
     }

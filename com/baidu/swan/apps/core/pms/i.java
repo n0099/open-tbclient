@@ -13,18 +13,18 @@ public class i extends k {
     }
 
     @Override // com.baidu.swan.apps.core.pms.k
-    protected PMSDownloadType Xh() {
+    protected PMSDownloadType Xg() {
         return PMSDownloadType.SWAN_APP_UPDATE_CORE;
     }
 
     @Override // com.baidu.swan.apps.core.pms.k
-    protected String Xt() {
-        return com.baidu.swan.apps.core.pms.d.a.XB();
+    protected String Xs() {
+        return com.baidu.swan.apps.core.pms.d.a.XA();
     }
 
     @Override // com.baidu.swan.apps.core.pms.k
-    protected String Xu() {
-        return com.baidu.swan.apps.core.pms.d.a.Xu();
+    protected String Xt() {
+        return com.baidu.swan.apps.core.pms.d.a.Xt();
     }
 
     @Override // com.baidu.swan.apps.core.pms.k
@@ -32,7 +32,7 @@ public class i extends k {
         if (dVar == null) {
             return new com.baidu.swan.apps.ap.a().bn(13L).bp(2907L).nK("小程序Core包 Framework null");
         }
-        a.C0330a c = com.baidu.swan.apps.swancore.e.a.c(dVar.versionName, dVar.filePath, dVar.sign, 0);
+        a.C0351a c = com.baidu.swan.apps.swancore.e.a.c(dVar.versionName, dVar.filePath, dVar.sign, 0);
         if (DEBUG) {
             Log.d("SwanAppUpdateCore", "SwanCore RemoteCoreUpdateStatus: " + c);
         }
@@ -54,26 +54,26 @@ public class i extends k {
         }
         com.baidu.swan.apps.extcore.model.a aVar = new com.baidu.swan.apps.extcore.model.a();
         aVar.versionName = bVar.versionName;
-        aVar.bTA = bVar.filePath;
+        aVar.bTG = bVar.filePath;
         aVar.sign = bVar.sign;
         if (com.baidu.swan.apps.extcore.b.a(0, aVar)) {
             if (DEBUG) {
                 Log.i("SwanAppUpdateCore", "小程序Extension包解压成功");
             }
-            boolean Ps = com.baidu.swan.apps.w.a.abR().Ps();
+            boolean Pr = com.baidu.swan.apps.w.a.abQ().Pr();
             if (DEBUG) {
-                Log.d("SwanAppUpdateCore", "onExtensionDownloadFinish: extension js 热应用实验开关 " + Ps);
+                Log.d("SwanAppUpdateCore", "onExtensionDownloadFinish: extension js 热应用实验开关 " + Pr);
             }
-            if (Ps) {
+            if (Pr) {
                 if (DEBUG) {
                     Log.d("SwanAppUpdateCore", "onExtensionDownloadFinish: 命中 extension js 热应用实验");
                 }
-                long ZT = com.baidu.swan.apps.extcore.b.eS(0).ZH().ZT();
-                if (ZT > 0) {
+                long ZS = com.baidu.swan.apps.extcore.b.eS(0).ZG().ZS();
+                if (ZS > 0) {
                     if (DEBUG) {
                         Log.d("SwanAppUpdateCore", "发送extension core更新事件");
                     }
-                    SwanAppMessengerService.sendMessageWithDataToAllClient(121, ZT);
+                    SwanAppMessengerService.sendMessageWithDataToAllClient(121, ZS);
                 }
             }
             return null;

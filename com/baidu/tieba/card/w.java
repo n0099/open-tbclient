@@ -4,7 +4,7 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes8.dex */
 public interface w {
-    String Lx();
+    String Lw();
 
     void a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId);
 

@@ -13,21 +13,21 @@ import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
 public final class MaybeUsing<T, D> extends k<T> {
     final boolean eager;
-    final Callable<? extends D> mRH;
-    final h<? super D, ? extends o<? extends T>> mSM;
-    final g<? super D> mTh;
+    final Callable<? extends D> mRK;
+    final h<? super D, ? extends o<? extends T>> mSQ;
+    final g<? super D> mTl;
 
     @Override // io.reactivex.k
     protected void b(m<? super T> mVar) {
         try {
-            D call = this.mRH.call();
+            D call = this.mRK.call();
             try {
-                ((o) io.reactivex.internal.functions.a.h(this.mSM.apply(call), "The sourceSupplier returned a null MaybeSource")).a(new UsingObserver(mVar, call, this.mTh, this.eager));
+                ((o) io.reactivex.internal.functions.a.h(this.mSQ.apply(call), "The sourceSupplier returned a null MaybeSource")).a(new UsingObserver(mVar, call, this.mTl, this.eager));
             } catch (Throwable th) {
                 io.reactivex.exceptions.a.L(th);
                 if (this.eager) {
                     try {
-                        this.mTh.accept(call);
+                        this.mTl.accept(call);
                     } catch (Throwable th2) {
                         io.reactivex.exceptions.a.L(th2);
                         EmptyDisposable.error(new CompositeException(th, th2), mVar);
@@ -37,7 +37,7 @@ public final class MaybeUsing<T, D> extends k<T> {
                 EmptyDisposable.error(th, mVar);
                 if (!this.eager) {
                     try {
-                        this.mTh.accept(call);
+                        this.mTl.accept(call);
                     } catch (Throwable th3) {
                         io.reactivex.exceptions.a.L(th3);
                         io.reactivex.e.a.onError(th3);

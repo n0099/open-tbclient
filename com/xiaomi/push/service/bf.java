@@ -1,96 +1,55 @@
 package com.xiaomi.push.service;
 
-import android.content.Context;
-import android.text.TextUtils;
-import com.xiaomi.push.hk;
-import com.xiaomi.push.iq;
-import java.io.BufferedOutputStream;
-import java.io.Closeable;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.util.Arrays;
+import android.util.Base64;
+import com.xiaomi.push.al;
+import com.xiaomi.push.dd;
+import com.xiaomi.push.ej;
+import com.xiaomi.push.service.be;
+import java.util.List;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes8.dex */
-public class bf {
-    public static final Object a = new Object();
+public class bf extends al.b {
+    final /* synthetic */ be a;
 
-    public static void a(Context context, hk hkVar) {
-        if (be.a(hkVar.e())) {
-            com.xiaomi.channel.commonutils.logger.b.m50a("TinyData TinyDataStorage.cacheTinyData cache data to file begin item:" + hkVar.d() + "  ts:" + System.currentTimeMillis());
-            com.xiaomi.push.ai.a(context).a(new bg(context, hkVar));
-        }
+    /* renamed from: a  reason: collision with other field name */
+    boolean f886a = false;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public bf(be beVar) {
+        this.a = beVar;
     }
 
-    public static byte[] a(Context context) {
-        String a2 = com.xiaomi.push.p.a(context).a("mipush", "td_key", "");
-        if (TextUtils.isEmpty(a2)) {
-            a2 = com.xiaomi.push.ay.a(20);
-            com.xiaomi.push.p.a(context).m489a("mipush", "td_key", a2);
-        }
-        return a(a2);
-    }
-
-    private static byte[] a(String str) {
-        byte[] copyOf = Arrays.copyOf(com.xiaomi.push.av.a(str), 16);
-        copyOf[0] = 68;
-        copyOf[15] = 84;
-        return copyOf;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:35:0x0043 -> B:9:0x0043). Please submit an issue!!! */
-    public static void c(Context context, hk hkVar) {
-        BufferedOutputStream bufferedOutputStream;
-        byte[] b;
+    @Override // com.xiaomi.push.al.b
+    public void b() {
         try {
-            try {
-                b = com.xiaomi.push.h.b(a(context), iq.a(hkVar));
-            } catch (Throwable th) {
-                th = th;
-                com.xiaomi.push.y.a((Closeable) null);
-                com.xiaomi.push.y.a(bufferedOutputStream);
-                throw th;
+            ej.a a = ej.a.a(Base64.decode(dd.a(com.xiaomi.push.t.m579a(), "http://resolver.msg.xiaomi.net/psc/?t=a", (List<com.xiaomi.push.ay>) null), 10));
+            if (a != null) {
+                this.a.f884a = a;
+                this.f886a = true;
+                this.a.e();
             }
-        } catch (IOException e) {
-            e = e;
-            bufferedOutputStream = null;
-        } catch (Exception e2) {
-            e = e2;
-            bufferedOutputStream = null;
-        } catch (Throwable th2) {
-            th = th2;
-            bufferedOutputStream = null;
-            com.xiaomi.push.y.a((Closeable) null);
-            com.xiaomi.push.y.a(bufferedOutputStream);
-            throw th;
+        } catch (Exception e) {
+            com.xiaomi.channel.commonutils.logger.b.m50a("fetch config failure: " + e.getMessage());
         }
-        if (b == null || b.length < 1) {
-            com.xiaomi.channel.commonutils.logger.b.m50a("TinyData write to cache file failed case encryption fail item:" + hkVar.d() + "  ts:" + System.currentTimeMillis());
-            com.xiaomi.push.y.a((Closeable) null);
-            com.xiaomi.push.y.a((Closeable) null);
-        } else if (b.length > 10240) {
-            com.xiaomi.channel.commonutils.logger.b.m50a("TinyData write to cache file failed case too much data content item:" + hkVar.d() + "  ts:" + System.currentTimeMillis());
-            com.xiaomi.push.y.a((Closeable) null);
-            com.xiaomi.push.y.a((Closeable) null);
-        } else {
-            bufferedOutputStream = new BufferedOutputStream(new FileOutputStream(new File(context.getFilesDir(), "tiny_data.data"), true));
-            try {
-                bufferedOutputStream.write(com.xiaomi.push.ac.a(b.length));
-                bufferedOutputStream.write(b);
-                bufferedOutputStream.flush();
-                com.xiaomi.channel.commonutils.logger.b.m50a("TinyData write to cache file success item:" + hkVar.d() + "  ts:" + System.currentTimeMillis());
-                com.xiaomi.push.y.a((Closeable) null);
-                com.xiaomi.push.y.a(bufferedOutputStream);
-            } catch (IOException e3) {
-                e = e3;
-                com.xiaomi.channel.commonutils.logger.b.a("TinyData write to cache file failed cause io exception item:" + hkVar.d(), e);
-                com.xiaomi.push.y.a((Closeable) null);
-                com.xiaomi.push.y.a(bufferedOutputStream);
-            } catch (Exception e4) {
-                e = e4;
-                com.xiaomi.channel.commonutils.logger.b.a("TinyData write to cache file  failed item:" + hkVar.d(), e);
-                com.xiaomi.push.y.a((Closeable) null);
-                com.xiaomi.push.y.a(bufferedOutputStream);
+    }
+
+    @Override // com.xiaomi.push.al.b
+    /* renamed from: c */
+    public void mo225c() {
+        List list;
+        List list2;
+        be.a[] aVarArr;
+        ej.a aVar;
+        this.a.f883a = null;
+        if (this.f886a) {
+            synchronized (this.a) {
+                list = this.a.f885a;
+                list2 = this.a.f885a;
+                aVarArr = (be.a[]) list.toArray(new be.a[list2.size()]);
+            }
+            for (be.a aVar2 : aVarArr) {
+                aVar = this.a.f884a;
+                aVar2.a(aVar);
             }
         }
     }

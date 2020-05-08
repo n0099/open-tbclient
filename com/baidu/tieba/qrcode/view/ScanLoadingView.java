@@ -12,7 +12,7 @@ import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
 /* loaded from: classes10.dex */
 public class ScanLoadingView extends LinearLayout {
-    private TBLottieAnimationView kjH;
+    private TBLottieAnimationView kjL;
 
     public ScanLoadingView(Context context) {
         this(context, null);
@@ -29,27 +29,27 @@ public class ScanLoadingView extends LinearLayout {
 
     private void init(Context context) {
         LayoutInflater.from(context).inflate(R.layout.layout_scan_loading, (ViewGroup) this, true);
-        this.kjH = (TBLottieAnimationView) findViewById(R.id.loading_anim);
-        this.kjH.loop(true);
-        this.kjH.setFrame(0);
-        am.a(this.kjH, R.raw.scan_refresh);
+        this.kjL = (TBLottieAnimationView) findViewById(R.id.loading_anim);
+        this.kjL.loop(true);
+        this.kjL.setFrame(0);
+        am.a(this.kjL, R.raw.scan_refresh);
         am.setViewTextColor((TextView) findViewById(R.id.loading_text), R.color.cp_cont_c, 1);
         setVisibility(8);
     }
 
     public void showLoading() {
         setVisibility(0);
-        if (this.kjH != null) {
-            if (this.kjH.isAnimating()) {
-                this.kjH.cancelAnimation();
+        if (this.kjL != null) {
+            if (this.kjL.isAnimating()) {
+                this.kjL.cancelAnimation();
             }
-            this.kjH.playAnimation();
+            this.kjL.playAnimation();
         }
     }
 
-    public void asi() {
-        if (this.kjH != null) {
-            this.kjH.cancelAnimation();
+    public void ash() {
+        if (this.kjL != null) {
+            this.kjL.cancelAnimation();
         }
         setVisibility(8);
     }

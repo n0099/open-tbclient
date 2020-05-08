@@ -25,7 +25,7 @@ public abstract class v implements Runnable {
 
     @Override // java.lang.Runnable
     public final void run() {
-        if (this.a != null && !(this.c instanceof com.vivo.push.b.n)) {
+        if (this.a != null && !(this.c instanceof com.vivo.push.b.p)) {
             com.vivo.push.util.p.a(this.a, "[执行指令]" + this.c);
         }
         a(this.c);

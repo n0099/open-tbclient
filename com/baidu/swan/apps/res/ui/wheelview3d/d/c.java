@@ -5,13 +5,13 @@ import com.baidu.swan.apps.res.ui.wheelview3d.WheelView3d;
 import java.util.TimerTask;
 /* loaded from: classes11.dex */
 public final class c extends TimerTask {
-    private final WheelView3d cmB;
+    private final WheelView3d cmH;
     private int offset;
     private int realTotalOffset = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
     private int realOffset = 0;
 
     public c(WheelView3d wheelView3d, int i) {
-        this.cmB = wheelView3d;
+        this.cmH = wheelView3d;
         this.offset = i;
     }
 
@@ -29,23 +29,23 @@ public final class c extends TimerTask {
             }
         }
         if (Math.abs(this.realTotalOffset) <= 1) {
-            this.cmB.cancelFuture();
-            this.cmB.getHandler().sendEmptyMessage(3000);
+            this.cmH.cancelFuture();
+            this.cmH.getHandler().sendEmptyMessage(3000);
             return;
         }
-        this.cmB.setTotalScrollY(this.cmB.getTotalScrollY() + this.realOffset);
-        if (!this.cmB.isLoop()) {
-            float itemHeight = this.cmB.getItemHeight();
-            float f = (-this.cmB.getInitPosition()) * itemHeight;
-            float itemsCount = itemHeight * ((this.cmB.getItemsCount() - 1) - this.cmB.getInitPosition());
-            if (this.cmB.getTotalScrollY() <= f || this.cmB.getTotalScrollY() >= itemsCount) {
-                this.cmB.setTotalScrollY(this.cmB.getTotalScrollY() - this.realOffset);
-                this.cmB.cancelFuture();
-                this.cmB.getHandler().sendEmptyMessage(3000);
+        this.cmH.setTotalScrollY(this.cmH.getTotalScrollY() + this.realOffset);
+        if (!this.cmH.isLoop()) {
+            float itemHeight = this.cmH.getItemHeight();
+            float f = (-this.cmH.getInitPosition()) * itemHeight;
+            float itemsCount = itemHeight * ((this.cmH.getItemsCount() - 1) - this.cmH.getInitPosition());
+            if (this.cmH.getTotalScrollY() <= f || this.cmH.getTotalScrollY() >= itemsCount) {
+                this.cmH.setTotalScrollY(this.cmH.getTotalScrollY() - this.realOffset);
+                this.cmH.cancelFuture();
+                this.cmH.getHandler().sendEmptyMessage(3000);
                 return;
             }
         }
-        this.cmB.getHandler().sendEmptyMessage(1000);
+        this.cmH.getHandler().sendEmptyMessage(1000);
         this.realTotalOffset -= this.realOffset;
     }
 }

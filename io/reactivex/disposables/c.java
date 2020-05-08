@@ -8,7 +8,7 @@ public final class c {
         return new RunnableDisposable(runnable);
     }
 
-    public static b dCJ() {
+    public static b dCF() {
         return EmptyDisposable.INSTANCE;
     }
 }

@@ -12,19 +12,19 @@ import com.baidu.tieba.frs.tab.e;
 import java.util.List;
 /* loaded from: classes9.dex */
 public class g implements a {
-    private TabMenuPopView.a hcK = new TabMenuPopView.a() { // from class: com.baidu.tieba.frs.tab.g.1
+    private TabMenuPopView.a hcQ = new TabMenuPopView.a() { // from class: com.baidu.tieba.frs.tab.g.1
         @Override // com.baidu.tieba.frs.TabMenuPopView.a
         public void a(View view, ax axVar) {
-            if (g.this.huS != null) {
-                g.this.huS.dismissMenu();
+            if (g.this.huY != null) {
+                g.this.huY.dismissMenu();
             }
-            g.this.huU.uD(axVar.hbZ);
+            g.this.hva.uD(axVar.hcf);
         }
     };
-    private List<ax> hfn;
-    private e huS;
-    private e.b huU;
-    private TabMenuPopView huV;
+    private List<ax> hft;
+    private e huY;
+    private e.b hva;
+    private TabMenuPopView hvb;
     private View mContentView;
     private Context mContext;
     private View mTopLine;
@@ -33,26 +33,26 @@ public class g implements a {
     public void a(Context context, e eVar) {
         if (context != null && eVar != null) {
             this.mContext = context;
-            this.huS = eVar;
-            this.huU = eVar.bUz();
+            this.huY = eVar;
+            this.hva = eVar.bUx();
             this.mContentView = LayoutInflater.from(this.mContext).inflate(R.layout.tab_menu_multline_view, (ViewGroup) null);
             this.mTopLine = this.mContentView.findViewById(R.id.top_line);
-            this.huV = (TabMenuPopView) this.mContentView.findViewById(R.id.categorycontainer);
-            this.huV.setOnItemClickCallBack(this.hcK);
+            this.hvb = (TabMenuPopView) this.mContentView.findViewById(R.id.categorycontainer);
+            this.hvb.setOnItemClickCallBack(this.hcQ);
         }
     }
 
     @Override // com.baidu.tieba.frs.tab.a
     public void setData(List<ax> list) {
         if (list != null) {
-            this.hfn = list;
+            this.hft = list;
             ax axVar = new ax();
-            axVar.hbZ = 0;
+            axVar.hcf = 0;
             axVar.name = this.mContext.getResources().getString(R.string.all);
             axVar.isSelected = false;
             am.setBackgroundColor(this.mContentView, R.color.cp_bg_line_d);
             am.setBackgroundColor(this.mTopLine, R.color.cp_bg_line_c);
-            this.huV.setData(this.hfn, axVar);
+            this.hvb.setData(this.hft, axVar);
         }
     }
 
@@ -62,7 +62,7 @@ public class g implements a {
     }
 
     @Override // com.baidu.tieba.frs.tab.a
-    public int bUx() {
+    public int bUv() {
         this.mContentView.measure(View.MeasureSpec.makeMeasureSpec(0, 0), View.MeasureSpec.makeMeasureSpec(0, 0));
         return this.mContentView.getMeasuredHeight();
     }

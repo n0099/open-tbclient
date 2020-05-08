@@ -5,10 +5,10 @@ import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Environment;
 import android.text.TextUtils;
-import com.baidu.android.common.security.MD5Util;
 import com.baidu.pass.biometrics.base.debug.Log;
 import com.baidu.pass.biometrics.base.utils.PassBioDataEncryptor;
 import com.baidu.pass.biometrics.base.utils.PassBiometricUtil;
+import com.baidu.pass.common.SecurityUtil;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.File;
 import java.io.UnsupportedEncodingException;
@@ -102,7 +102,7 @@ public class LocalConfigOptions {
     private String getAccountEncryptKey(Context context) {
         if (TextUtils.isEmpty(this.encryptKey)) {
             try {
-                this.encryptKey = MD5Util.toMd5((context.getPackageName() + PassBiometricUtil.getPackageSign(context, context.getPackageName())).getBytes("UTF-8"), false).substring(0, 16);
+                this.encryptKey = SecurityUtil.md5((context.getPackageName() + PassBiometricUtil.getPackageSign(context, context.getPackageName())).getBytes("UTF-8"), false).substring(0, 16);
             } catch (UnsupportedEncodingException e) {
                 Log.e(e);
             }

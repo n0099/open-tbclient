@@ -10,7 +10,6 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
-import com.baidu.android.pushservice.PushConstants;
 import java.security.NoSuchAlgorithmException;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -51,10 +50,10 @@ public class IMUserSetPrivacyRequest extends IMUserBaseHttpRequest {
             JSONObject jSONObject = new JSONObject(str2);
             if (jSONObject.has("response_params")) {
                 i2 = jSONObject.getJSONObject("response_params").getInt("error_code");
-                str = jSONObject.optString(PushConstants.EXTRA_ERROR_CODE, Constants.ERROR_MSG_SUCCESS);
+                str = jSONObject.optString("error_msg", Constants.ERROR_MSG_SUCCESS);
             } else {
                 i2 = jSONObject.getInt("error_code");
-                str = jSONObject.optString(PushConstants.EXTRA_ERROR_CODE, "");
+                str = jSONObject.optString("error_msg", "");
             }
         } catch (JSONException e) {
             LogUtils.e("IMUserSetPrivacyRequest", "JSONException", e);

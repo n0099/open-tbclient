@@ -9,6 +9,7 @@ import android.util.Base64;
 import android.util.Log;
 import com.baidu.location.BDLocation;
 import com.baidu.mapsdkplatform.comapi.location.CoordinateType;
+import com.baidu.sapi2.utils.h;
 import com.baidu.swan.apps.b;
 import com.baidu.swan.apps.impl.nalib.encrypt.EncryptConstant;
 import com.baidu.swan.apps.network.SwanAppNetworkUtils;
@@ -23,11 +24,11 @@ import org.json.JSONObject;
 public class a {
     private static final boolean DEBUG = b.DEBUG;
 
-    public static boolean cZ(@NonNull Context context) {
+    public static boolean cN(@NonNull Context context) {
         return (context.getResources().getConfiguration().screenLayout & 15) >= 3;
     }
 
-    public static int da(Context context) {
+    public static int cO(Context context) {
         TelephonyManager telephonyManager;
         String simOperator;
         if (context != null && (telephonyManager = (TelephonyManager) context.getSystemService("phone")) != null && (simOperator = telephonyManager.getSimOperator()) != null) {
@@ -42,7 +43,7 @@ public class a {
         return 0;
     }
 
-    public static int aqK() {
+    public static int aqJ() {
         String networkClass = SwanAppNetworkUtils.getNetworkClass();
         if ("wifi".equals(networkClass)) {
             return 1;
@@ -62,8 +63,8 @@ public class a {
     @Nullable
     public static String oy(String str) {
         try {
-            Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
-            cipher.init(1, new SecretKeySpec((EncryptConstant.getPartRecommendAesKey() + "rtad@mic").getBytes(), "AES"), new IvParameterSpec((EncryptConstant.getPartRecommendAesIv() + "21248000").getBytes()));
+            Cipher cipher = Cipher.getInstance(h.p);
+            cipher.init(1, new SecretKeySpec((EncryptConstant.getPartRecommendAesKey() + "rtad@mic").getBytes(), h.q), new IvParameterSpec((EncryptConstant.getPartRecommendAesIv() + "21248000").getBytes()));
             return Base64.encodeToString(cipher.doFinal(str.getBytes("utf-8")), 2);
         } catch (Exception e) {
             e.printStackTrace();
@@ -85,7 +86,7 @@ public class a {
         boolean z;
         int i;
         if (aVar != null && bVar != null) {
-            String str = TextUtils.isEmpty(bVar.cCI) ? "unknown" : bVar.cCI;
+            String str = TextUtils.isEmpty(bVar.cCO) ? "unknown" : bVar.cCO;
             switch (str.hashCode()) {
                 case -1395470197:
                     if (str.equals("bd09ll")) {
@@ -136,9 +137,9 @@ public class a {
                     i = -1;
                     break;
             }
-            aVar.cCy.coordType = i;
-            aVar.cCy.latitude = bVar.latitude;
-            aVar.cCy.longitude = bVar.longitude;
+            aVar.cCE.coordType = i;
+            aVar.cCE.latitude = bVar.latitude;
+            aVar.cCE.longitude = bVar.longitude;
         }
     }
 
@@ -147,7 +148,7 @@ public class a {
             if (DEBUG) {
                 Log.d("recommend", "reportInfoWhenResponseIsNull: " + str);
             }
-            new a.C0327a(10003).mR(str).mQ(e.akP()).aee();
+            new a.C0348a(10003).mR(str).mQ(e.akO()).aed();
         }
     }
 }

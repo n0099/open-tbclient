@@ -8,8 +8,8 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class GetVideoGoodsListHttpResponseMessage extends JsonHttpResponsedMessage {
-    private long aGB;
-    public List<aj> aQC;
+    private long aGH;
+    public List<aj> aQH;
     public int count;
     public long liveId;
 
@@ -21,8 +21,8 @@ public class GetVideoGoodsListHttpResponseMessage extends JsonHttpResponsedMessa
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null) {
-            this.aGB = jSONObject.optLong("logid");
-            this.aQC = new ArrayList();
+            this.aGH = jSONObject.optLong("logid");
+            this.aQH = new ArrayList();
             JSONObject optJSONObject = jSONObject.optJSONObject("result");
             if (optJSONObject != null && getError() == 0) {
                 JSONArray optJSONArray = optJSONObject.optJSONArray("good_list");
@@ -31,7 +31,7 @@ public class GetVideoGoodsListHttpResponseMessage extends JsonHttpResponsedMessa
                         JSONObject jSONObject2 = optJSONArray.getJSONObject(i2);
                         aj ajVar = new aj();
                         ajVar.parseJson(jSONObject2);
-                        this.aQC.add(ajVar);
+                        this.aQH.add(ajVar);
                     }
                 }
                 this.count = optJSONObject.optInt("count");
@@ -39,7 +39,7 @@ public class GetVideoGoodsListHttpResponseMessage extends JsonHttpResponsedMessa
         }
     }
 
-    public long zl() {
-        return this.aGB;
+    public long zk() {
+        return this.aGH;
     }
 }

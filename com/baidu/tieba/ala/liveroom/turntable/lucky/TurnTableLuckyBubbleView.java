@@ -12,8 +12,8 @@ import com.baidu.live.u.a;
 import com.baidu.mobstat.Config;
 /* loaded from: classes3.dex */
 public class TurnTableLuckyBubbleView extends LinearLayout {
-    private TextView aNH;
-    private String fQl;
+    private TextView aNN;
+    private String fQq;
     private String mName;
 
     public TurnTableLuckyBubbleView(Context context) {
@@ -22,21 +22,21 @@ public class TurnTableLuckyBubbleView extends LinearLayout {
     }
 
     public void setContent(String str) {
-        this.aNH.setText(str);
+        this.aNN.setText(str);
     }
 
     public void setContent(String str, String str2) {
-        if (TextUtils.isEmpty(this.mName) || TextUtils.isEmpty(this.fQl) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || !this.mName.equals(str) || !this.fQl.equals(str2)) {
+        if (TextUtils.isEmpty(this.mName) || TextUtils.isEmpty(this.fQq) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || !this.mName.equals(str) || !this.fQq.equals(str2)) {
             this.mName = str;
-            this.fQl = str2;
-            this.aNH.setText(!TextUtils.isEmpty(this.fQl) ? this.mName + Config.EVENT_HEAT_X + this.fQl : this.mName);
+            this.fQq = str2;
+            this.aNN.setText(!TextUtils.isEmpty(this.fQq) ? this.mName + Config.EVENT_HEAT_X + this.fQq : this.mName);
         }
     }
 
     private void init() {
         setOrientation(1);
         LayoutInflater.from(getContext()).inflate(a.h.turn_table_widget_lucky_bubble, (ViewGroup) this, true);
-        this.aNH = (TextView) findViewById(a.g.tv_content);
+        this.aNN = (TextView) findViewById(a.g.tv_content);
         GradientDrawable gradientDrawable = new GradientDrawable();
         gradientDrawable.setCornerRadius(getResources().getDimensionPixelOffset(a.e.sdk_ds40));
         gradientDrawable.setShape(0);
@@ -46,6 +46,6 @@ public class TurnTableLuckyBubbleView extends LinearLayout {
         } else {
             gradientDrawable.setColor(-2199);
         }
-        this.aNH.setBackgroundDrawable(gradientDrawable);
+        this.aNN.setBackgroundDrawable(gradientDrawable);
     }
 }

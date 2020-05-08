@@ -15,8 +15,8 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.enterForum.data.m;
 /* loaded from: classes9.dex */
 public class e {
-    private ImageView gKe;
-    private boolean gze;
+    private ImageView gKk;
+    private boolean gzk;
     private TbPageContext<?> mPageContext;
     private TextView mTitleView;
     private View mView;
@@ -25,15 +25,15 @@ public class e {
         this.mPageContext = tbPageContext;
         this.mView = tbPageContext.getPageActivity().getLayoutInflater().inflate(R.layout.recommend_forum_title_item_view, (ViewGroup) null);
         this.mTitleView = (TextView) this.mView.findViewById(R.id.text_title);
-        this.gKe = (ImageView) this.mView.findViewById(R.id.icon_into);
-        this.gKe.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.b.e.1
+        this.gKk = (ImageView) this.mView.findViewById(R.id.icon_into);
+        this.gKk.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.b.e.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 com.baidu.tieba.enterForum.b.b(e.this.mPageContext, null);
                 an anVar = new an("c13645");
                 anVar.t("uid", TbadkApplication.getCurrentAccountId());
                 anVar.af("obj_locate", 1);
-                anVar.af("obj_type", e.this.gze ? 5 : 1);
+                anVar.af("obj_type", e.this.gzk ? 5 : 1);
                 anVar.af("obj_source", 2);
                 TiebaStatic.log(anVar);
             }
@@ -50,10 +50,10 @@ public class e {
             this.mTitleView.setText(title);
         }
         am.setViewTextColor(this.mTitleView, (int) R.color.cp_cont_b);
-        SvgManager.aOU().a(this.gKe, R.drawable.icon_pure_list_arrow16_right_svg, R.color.cp_cont_j, SvgManager.SvgResourceStateType.NORMAL);
+        SvgManager.aOR().a(this.gKk, R.drawable.icon_pure_list_arrow16_right_svg, R.color.cp_cont_j, SvgManager.SvgResourceStateType.NORMAL);
     }
 
     public void setHasLikeForum(boolean z) {
-        this.gze = z;
+        this.gzk = z;
     }
 }

@@ -210,7 +210,7 @@ public class FlutterFragment extends BaseFragment implements FlutterActivityAndF
         this.delegate = null;
     }
 
-    @Override // android.support.v4.app.Fragment, com.baidu.h.a.a.InterfaceC0100a
+    @Override // android.support.v4.app.Fragment, com.baidu.h.a.a.InterfaceC0121a
     public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
         this.delegate.onRequestPermissionsResult(i, strArr, iArr);
     }

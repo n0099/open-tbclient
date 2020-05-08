@@ -14,7 +14,6 @@ import com.baidu.android.imsdk.internal.IMConfigInternal;
 import com.baidu.android.imsdk.shield.ShieldAndTopManager;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.android.pushservice.PushConstants;
 import com.baidu.ar.constants.HttpConstants;
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.sapi2.SapiContext;
@@ -80,7 +79,7 @@ public class IMForbidRequest extends IMSettingBaseHttpRequest {
         try {
             JSONObject jSONObject = new JSONObject(str3);
             i2 = jSONObject.optInt("error_code");
-            str = jSONObject.optString(PushConstants.EXTRA_ERROR_CODE);
+            str = jSONObject.optString("error_msg");
             z = jSONObject.optBoolean("display_toast", false);
             if (z) {
                 str4 = jSONObject.optString("toast", "");

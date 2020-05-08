@@ -4,34 +4,34 @@ import com.baidu.live.adp.framework.message.HttpMessage;
 import com.baidu.live.tbadk.encryption.EncryptionHelper;
 /* loaded from: classes3.dex */
 public class c extends HttpMessage {
-    private int aIQ;
-    private long apl;
-    private long flJ;
-    private String flK;
+    private int aIW;
+    private long aps;
+    private long flO;
+    private String flP;
     private String sign;
 
     public c() {
         super(1021142);
-        this.aIQ = 2;
+        this.aIW = 2;
     }
 
     public void du(long j) {
-        this.flJ = j;
+        this.flO = j;
     }
 
-    public void Ag(String str) {
-        this.flK = str;
+    public void Aj(String str) {
+        this.flP = str;
     }
 
-    public void Ah(String str) {
+    public void Ak(String str) {
         this.sign = str;
     }
 
     public void setParams() {
-        addParam("guard_club_id", this.flJ);
-        addParam("club_name", this.flK);
+        addParam("guard_club_id", this.flO);
+        addParam("club_name", this.flP);
         addParam("sign", this.sign);
-        addParam("anchor_id", EncryptionHelper.getEncryptionUserId(this.apl + ""));
-        addParam("client_type", this.aIQ);
+        addParam("anchor_id", EncryptionHelper.getEncryptionUserId(this.aps + ""));
+        addParam("client_type", this.aIW);
     }
 }

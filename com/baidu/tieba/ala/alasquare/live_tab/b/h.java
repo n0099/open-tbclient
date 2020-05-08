@@ -5,31 +5,31 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class h {
-    public boolean ePS = false;
-    public ArrayList<a> ePT;
-    public String ePU;
+    public boolean ePX = false;
+    public ArrayList<a> ePY;
+    public String ePZ;
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             JSONObject optJSONObject = jSONObject.optJSONObject("user_follow");
             if (optJSONObject != null) {
-                this.ePS = optJSONObject.optInt("has_follow_live") == 1;
+                this.ePX = optJSONObject.optInt("has_follow_live") == 1;
                 JSONArray optJSONArray = optJSONObject.optJSONArray("follow_live_list");
                 if (optJSONArray != null && optJSONArray.length() > 0) {
-                    this.ePT = new ArrayList<>(optJSONArray.length());
+                    this.ePY = new ArrayList<>(optJSONArray.length());
                     for (int i = 0; i < optJSONArray.length(); i++) {
                         JSONObject optJSONObject2 = optJSONArray.optJSONObject(i);
                         if (optJSONObject2 != null) {
                             a aVar = new a();
                             aVar.parserJson(optJSONObject2);
-                            this.ePT.add(aVar);
+                            this.ePY.add(aVar);
                         }
                     }
                 }
             }
             JSONObject optJSONObject3 = jSONObject.optJSONObject("live_rank");
             if (optJSONObject3 != null) {
-                this.ePU = optJSONObject3.optString("url");
+                this.ePZ = optJSONObject3.optString("url");
             }
         }
     }

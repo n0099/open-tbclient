@@ -1,29 +1,25 @@
 package com.baidu.android.pushservice.d;
 
 import android.content.Context;
+import android.os.Build;
 import java.util.HashMap;
 /* loaded from: classes8.dex */
-public class n extends c {
-    int d;
-    int e;
-    String f;
-
-    public n(l lVar, Context context, String str, int i, int i2) {
-        super(lVar, context);
-        this.d = 1;
-        this.e = 1;
-        this.f = str;
-        this.d = i;
-        this.e = i2;
+public class n extends d {
+    public n(i iVar, Context context) {
+        super(iVar, context);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.android.pushservice.d.a
     public void a(HashMap<String, String> hashMap) {
         super.a(hashMap);
-        hashMap.put("method", "fetchgmsg");
-        hashMap.put("gid", this.f);
-        hashMap.put("fetch_type", this.d + "");
-        hashMap.put("fetch_num", this.e + "");
+        hashMap.put("method", "unbind");
+        hashMap.put("model", l.a(this.a) + "");
+        if (com.baidu.android.pushservice.b.d.b(this.a)) {
+            hashMap.put("new_channel_id", com.baidu.android.pushservice.j.a(this.a).c());
+        }
+        hashMap.put("app_alone_conn", (com.baidu.android.pushservice.b.d.e(this.a) ? 1 : 0) + "");
+        hashMap.put("manufacture", Build.MANUFACTURER);
+        hashMap.put("proxy_mode", (com.baidu.android.pushservice.b.d.c(this.a) ? 1 : 0) + "");
     }
 }

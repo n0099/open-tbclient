@@ -15,22 +15,22 @@ import java.util.HashMap;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class a {
-    private static volatile a Rb = null;
-    private HashMap<String, ArrayList<Message<?>>> Ra = null;
+    private static volatile a Rf = null;
+    private HashMap<String, ArrayList<Message<?>>> Re = null;
 
     public static a nL() {
-        if (Rb == null) {
+        if (Rf == null) {
             synchronized (a.class) {
-                if (Rb == null) {
-                    Rb = new a();
+                if (Rf == null) {
+                    Rf = new a();
                 }
             }
         }
-        return Rb;
+        return Rf;
     }
 
     public void init() {
-        this.Ra = new HashMap<>();
+        this.Re = new HashMap<>();
         nN();
         nM();
     }
@@ -44,13 +44,13 @@ public class a {
                 ArrayList arrayList;
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2000997 && (data = customResponsedMessage.getData()) != null && (data instanceof PluginLoadedMessage.a)) {
                     PluginLoadedMessage.a aVar = (PluginLoadedMessage.a) data;
-                    if (aVar.QZ == 0 && a.this.Ra.size() > 0 && (arrayList = (ArrayList) a.this.Ra.get(aVar.QY)) != null && arrayList.size() > 0) {
+                    if (aVar.Rc == 0 && a.this.Re.size() > 0 && (arrayList = (ArrayList) a.this.Re.get(aVar.Rb)) != null && arrayList.size() > 0) {
                         Iterator it = arrayList.iterator();
                         while (it.hasNext()) {
                             MessageManager.getInstance().sendMessage((Message) it.next());
                         }
                     }
-                    a.this.Ra.remove(aVar.QY);
+                    a.this.Re.remove(aVar.Rb);
                 }
             }
         });
@@ -83,10 +83,10 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str, Message<?> message) {
         if (!TextUtils.isEmpty(str) && message != null) {
-            ArrayList<Message<?>> arrayList = this.Ra.get(str);
+            ArrayList<Message<?>> arrayList = this.Re.get(str);
             if (arrayList == null) {
                 arrayList = new ArrayList<>();
-                this.Ra.put(str, arrayList);
+                this.Re.put(str, arrayList);
             }
             arrayList.add(message);
         }

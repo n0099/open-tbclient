@@ -1,56 +1,114 @@
 package com.xiaomi.push.service;
 
-import android.util.Base64;
-import com.xiaomi.push.al;
-import com.xiaomi.push.cy;
-import com.xiaomi.push.ed;
-import com.xiaomi.push.service.ba;
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.os.Build;
+import android.os.Looper;
+import android.os.Message;
+import android.os.Messenger;
+import android.os.RemoteException;
+import java.util.ArrayList;
 import java.util.List;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes8.dex */
-public class bb extends al.b {
-    final /* synthetic */ ba a;
+public class bb {
+    private static bb a;
 
     /* renamed from: a  reason: collision with other field name */
-    boolean f889a = false;
+    private static String f876a = null;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bb(ba baVar) {
-        this.a = baVar;
-    }
+    /* renamed from: a  reason: collision with other field name */
+    private Context f877a;
 
-    @Override // com.xiaomi.push.al.b
-    public void b() {
-        try {
-            ed.a a = ed.a.a(Base64.decode(cy.a(com.xiaomi.push.t.m564a(), "http://resolver.msg.xiaomi.net/psc/?t=a", (List<com.xiaomi.push.ar>) null), 10));
-            if (a != null) {
-                this.a.f887a = a;
-                this.f889a = true;
-                this.a.e();
-            }
-        } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.m50a("fetch config failure: " + e.getMessage());
+    /* renamed from: a  reason: collision with other field name */
+    private boolean f880a;
+    private Messenger b;
+
+    /* renamed from: a  reason: collision with other field name */
+    private List<Message> f879a = new ArrayList();
+
+    /* renamed from: b  reason: collision with other field name */
+    private boolean f881b = false;
+
+    /* renamed from: a  reason: collision with other field name */
+    private Messenger f878a = new Messenger(new bc(this, Looper.getMainLooper()));
+
+    private bb(Context context) {
+        this.f880a = false;
+        this.f877a = context.getApplicationContext();
+        if (a()) {
+            com.xiaomi.channel.commonutils.logger.b.c("use miui push service");
+            this.f880a = true;
         }
     }
 
-    @Override // com.xiaomi.push.al.b
-    /* renamed from: c */
-    public void mo223c() {
-        List list;
-        List list2;
-        ba.a[] aVarArr;
-        ed.a aVar;
-        this.a.f886a = null;
-        if (this.f889a) {
-            synchronized (this.a) {
-                list = this.a.f888a;
-                list2 = this.a.f888a;
-                aVarArr = (ba.a[]) list.toArray(new ba.a[list2.size()]);
+    private Message a(Intent intent) {
+        Message obtain = Message.obtain();
+        obtain.what = 17;
+        obtain.obj = intent;
+        return obtain;
+    }
+
+    public static bb a(Context context) {
+        if (a == null) {
+            a = new bb(context);
+        }
+        return a;
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    private synchronized void m553a(Intent intent) {
+        if (this.f881b) {
+            Message a2 = a(intent);
+            if (this.f879a.size() >= 50) {
+                this.f879a.remove(0);
             }
-            for (ba.a aVar2 : aVarArr) {
-                aVar = this.a.f887a;
-                aVar2.a(aVar);
+            this.f879a.add(a2);
+        } else if (this.b == null) {
+            Context context = this.f877a;
+            bd bdVar = new bd(this);
+            Context context2 = this.f877a;
+            context.bindService(intent, bdVar, 1);
+            this.f881b = true;
+            this.f879a.clear();
+            this.f879a.add(a(intent));
+        } else {
+            try {
+                this.b.send(a(intent));
+            } catch (RemoteException e) {
+                this.b = null;
+                this.f881b = false;
             }
+        }
+    }
+
+    private boolean a() {
+        if (com.xiaomi.push.ab.e) {
+            return false;
+        }
+        try {
+            PackageInfo packageInfo = this.f877a.getPackageManager().getPackageInfo("com.xiaomi.xmsf", 4);
+            if (packageInfo != null) {
+                return packageInfo.versionCode >= 104;
+            }
+            return false;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public boolean m554a(Intent intent) {
+        try {
+            if (com.xiaomi.push.l.m496a() || Build.VERSION.SDK_INT < 26) {
+                this.f877a.startService(intent);
+            } else {
+                m553a(intent);
+            }
+            return true;
+        } catch (Exception e) {
+            com.xiaomi.channel.commonutils.logger.b.a(e);
+            return false;
         }
     }
 }

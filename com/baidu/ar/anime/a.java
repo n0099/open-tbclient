@@ -11,11 +11,11 @@ public class a extends j {
     private int cb = 720;
     private int cc = 1280;
     private boolean cd = true;
-    private InterfaceC0048a ce = null;
+    private InterfaceC0069a ce = null;
 
     /* renamed from: com.baidu.ar.anime.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC0048a {
+    public interface InterfaceC0069a {
         void b(FramePixels framePixels);
     }
 
@@ -44,8 +44,8 @@ public class a extends j {
         }
     }
 
-    public void a(InterfaceC0048a interfaceC0048a) {
-        this.ce = interfaceC0048a;
+    public void a(InterfaceC0069a interfaceC0069a) {
+        this.ce = interfaceC0069a;
     }
 
     @Override // com.baidu.ar.c.j

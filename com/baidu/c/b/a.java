@@ -3,66 +3,66 @@ package com.baidu.c.b;
 import android.content.Context;
 /* loaded from: classes6.dex */
 public class a {
-    private static volatile a bez;
-    private com.baidu.c.a.b.a.b beA;
-    private com.baidu.c.a.a.a beB;
-    private com.baidu.c.a.c.a beC;
-    private com.baidu.c.a.d.a beD;
-    private b beE;
+    private static volatile a beE;
+    private com.baidu.c.a.b.a.b beF;
+    private com.baidu.c.a.a.a beG;
+    private com.baidu.c.a.c.a beH;
+    private com.baidu.c.a.d.a beI;
+    private b beJ;
     private Context mContext;
 
     private a(Context context) {
         this.mContext = context.getApplicationContext();
     }
 
-    public static a aB(Context context) {
-        if (bez == null) {
+    public static a ap(Context context) {
+        if (beE == null) {
             synchronized (a.class) {
-                if (bez == null) {
-                    bez = new a(context);
+                if (beE == null) {
+                    beE = new a(context);
                 }
             }
         }
-        return bez;
+        return beE;
     }
 
-    public com.baidu.c.a.b.a.b Ia() {
-        return this.beA;
+    public com.baidu.c.a.b.a.b HZ() {
+        return this.beF;
     }
 
     public void a(com.baidu.c.a.b.a.b bVar) {
-        this.beA = bVar;
+        this.beF = bVar;
     }
 
-    public com.baidu.c.a.a.a Ib() {
-        return this.beB;
+    public com.baidu.c.a.a.a Ia() {
+        return this.beG;
     }
 
     public void a(com.baidu.c.a.a.a aVar) {
-        this.beB = aVar;
+        this.beG = aVar;
     }
 
-    public com.baidu.c.a.c.a Ic() {
-        return this.beC;
+    public com.baidu.c.a.c.a Ib() {
+        return this.beH;
     }
 
     public void a(com.baidu.c.a.c.a aVar) {
-        this.beC = aVar;
+        this.beH = aVar;
     }
 
-    public com.baidu.c.a.d.a Id() {
-        return this.beD;
+    public com.baidu.c.a.d.a Ic() {
+        return this.beI;
     }
 
     public void a(com.baidu.c.a.d.a aVar) {
-        this.beD = aVar;
+        this.beI = aVar;
     }
 
-    public b Ie() {
-        return this.beE;
+    public b Id() {
+        return this.beJ;
     }
 
     public void a(b bVar) {
-        this.beE = bVar;
+        this.beJ = bVar;
     }
 }

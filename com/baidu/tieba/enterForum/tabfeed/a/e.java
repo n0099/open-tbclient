@@ -20,31 +20,31 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.card.z;
 /* loaded from: classes9.dex */
 public class e extends com.baidu.adp.widget.ListView.a<bi, af<bj>> {
-    private z<bj> acX;
-    private boolean agt;
-    private r ahv;
-    public BdUniqueId ebv;
+    private z<bj> ada;
+    private boolean agw;
+    private r ahy;
+    public BdUniqueId ebA;
     private TbPageContext<?> mPageContext;
     private String mTabName;
 
     public e(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, String str) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.agt = true;
-        this.acX = new z<bj>() { // from class: com.baidu.tieba.enterForum.tabfeed.a.e.1
+        this.agw = true;
+        this.ada = new z<bj>() { // from class: com.baidu.tieba.enterForum.tabfeed.a.e.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.z
             public void a(View view, bj bjVar) {
-                com.baidu.tieba.card.r.bEY().jd(true);
+                com.baidu.tieba.card.r.bEW().jd(true);
                 e.this.e(view, bjVar);
             }
         };
         this.mPageContext = tbPageContext;
-        this.ebv = bdUniqueId2;
+        this.ebA = bdUniqueId2;
         this.mTabName = str;
     }
 
     public void a(r rVar) {
-        this.ahv = rVar;
+        this.ahy = rVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -73,24 +73,24 @@ public class e extends com.baidu.adp.widget.ListView.a<bi, af<bj>> {
         ad.a aVar = new ad.a(this.mPageContext.getPageActivity(), false);
         v vVar = new v(this.mPageContext.getPageActivity());
         vVar.setFrom("index");
-        vVar.setFromCDN(this.agt);
+        vVar.setFromCDN(this.agw);
         aVar.c(vVar);
-        ad a = aVar.a(false, viewGroup, this.ahv);
+        ad a = aVar.a(false, viewGroup, this.ahy);
         a.bc(2);
         af afVar = new af(a);
-        afVar.setPageId(this.ebv);
+        afVar.setPageId(this.ebA);
         a(new com.baidu.adp.widget.ListView.v() { // from class: com.baidu.tieba.enterForum.tabfeed.a.e.2
             @Override // com.baidu.adp.widget.ListView.v
             public void a(View view, m mVar, BdUniqueId bdUniqueId, ViewGroup viewGroup2, int i, long j) {
                 if ((mVar instanceof bi) && (view.getTag() instanceof af)) {
                     af afVar2 = (af) view.getTag();
-                    bj bjVar = ((bi) mVar).dqA;
+                    bj bjVar = ((bi) mVar).dqE;
                     bjVar.objType = 1;
-                    if (e.this.acX != null) {
-                        e.this.acX.a(afVar2.getView(), bjVar);
+                    if (e.this.ada != null) {
+                        e.this.ada.a(afVar2.getView(), bjVar);
                     }
                     au.a((com.baidu.tbadk.core.data.a) bjVar, view.getContext(), 2, false);
-                    afVar2.rD().b(new a.C0074a(1));
+                    afVar2.rD().b(new a.C0095a(1));
                 }
             }
         });
@@ -101,15 +101,15 @@ public class e extends com.baidu.adp.widget.ListView.a<bi, af<bj>> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, bi biVar, af<bj> afVar) {
-        if (biVar == null || afVar == null || afVar.getView() == null || biVar.dqA == null) {
+        if (biVar == null || afVar == null || afVar.getView() == null || biVar.dqE == null) {
             return null;
         }
-        biVar.dqA.doZ = getPositionByType(i) + 1;
+        biVar.dqE.dpd = getPositionByType(i) + 1;
         afVar.rD().setPosition(i);
-        afVar.b((af<bj>) biVar.dqA);
+        afVar.b((af<bj>) biVar.dqE);
         afVar.rD().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        afVar.rD().a(this.acX);
-        com.baidu.tieba.card.r.bEY().e(com.baidu.tieba.enterForum.a.g(biVar.aIw(), this.mTabName));
+        afVar.rD().a(this.ada);
+        com.baidu.tieba.card.r.bEW().e(com.baidu.tieba.enterForum.a.g(biVar.aIu(), this.mTabName));
         return afVar.getView();
     }
 }

@@ -9,23 +9,23 @@ import com.baidu.tbadk.core.util.m;
 import java.io.File;
 /* loaded from: classes.dex */
 public class a {
-    public static String aRj() {
+    public static String aRg() {
         return q.guid();
     }
 
-    public static String vo(String str) {
+    public static String vr(String str) {
         if (StringUtils.isNull(str)) {
             return null;
         }
         return "tb/voice/" + str;
     }
 
-    public static String vp(String str) {
+    public static String vs(String str) {
         return m.getStoreFile(str, 1);
     }
 
-    public static String vq(String str) {
-        return f.getFilePath(vo(str));
+    public static String vt(String str) {
+        return f.getFilePath(vr(str));
     }
 
     public static boolean delFile(String str) {

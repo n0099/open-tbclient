@@ -16,7 +16,7 @@ import tbclient.VideoInfo;
 /* loaded from: classes13.dex */
 public class p implements com.baidu.b.a.b.c {
     @Override // com.baidu.b.a.b.c
-    public View N(Context context, String str) {
+    public View B(Context context, String str) {
         if ("image".equalsIgnoreCase(str)) {
             CriusTbClipImageView criusTbClipImageView = new CriusTbClipImageView(context);
             criusTbClipImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
@@ -45,11 +45,11 @@ public class p implements com.baidu.b.a.b.c {
         }
         if (view instanceof CriusTbClipImageView) {
             float f = view.getResources().getDisplayMetrics().density;
-            if (aVar.aln > 0.0f) {
-                int x = x(aVar.aln, f);
+            if (aVar.alt > 0.0f) {
+                int x = x(aVar.alt, f);
                 ((CriusTbClipImageView) view).setRadius(x, x, x, x);
             } else {
-                ((CriusTbClipImageView) view).setRadius(x(aVar.alo, f), x(aVar.alp, f), x(aVar.alq, f), x(aVar.alr, f));
+                ((CriusTbClipImageView) view).setRadius(x(aVar.alu, f), x(aVar.alv, f), x(aVar.alw, f), x(aVar.alx, f));
             }
             ((CriusTbClipImageView) view).startLoad(aVar.src, 30, false);
             return true;

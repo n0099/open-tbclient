@@ -10,13 +10,13 @@ import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.tieba.sharesdk.bean.ShareEntity;
 /* loaded from: classes11.dex */
 public class b implements com.baidu.tbadk.coreExtra.share.c {
-    private com.baidu.tbadk.coreExtra.share.b dQS;
+    private com.baidu.tbadk.coreExtra.share.b dQX;
     private Context mContext;
 
     public b(Context context, com.baidu.tbadk.coreExtra.share.b bVar) {
         this.mContext = null;
         this.mContext = context;
-        this.dQS = bVar;
+        this.dQX = bVar;
     }
 
     @Override // com.baidu.tbadk.coreExtra.share.c
@@ -31,25 +31,25 @@ public class b implements com.baidu.tbadk.coreExtra.share.c {
             shareEntity.setTitle(shareItem.title);
             shareEntity.setContent(shareItem.content);
             shareEntity.fp(shareItem.readCount);
-            shareEntity.tC(shareItem.dQC == 2 || shareItem.dQC == 6 || shareItem.dQC == 8);
+            shareEntity.tC(shareItem.dQH == 2 || shareItem.dQH == 6 || shareItem.dQH == 8);
             shareEntity.setImageUri(shareItem.imageUri);
             shareEntity.canShareBySmartApp = shareItem.canShareBySmartApp;
             String str = shareItem.linkUrl;
-            if (i == 6 && !StringUtils.isNull(shareItem.dQt)) {
-                str = shareItem.dQt;
+            if (i == 6 && !StringUtils.isNull(shareItem.dQy)) {
+                str = shareItem.dQy;
             }
             shareEntity.setLinkUrl(str);
-            shareEntity.Kb(shareItem.localFile);
+            shareEntity.Ke(shareItem.localFile);
             shareEntity.setLocation(shareItem.location);
             shareEntity.Cs(i);
-            shareEntity.Y(shareItem.aUT());
+            shareEntity.Y(shareItem.aUR());
             shareEntity.Cu(shareItem.shareType);
             shareEntity.setTid(shareItem.tid);
-            shareEntity.Kc(shareItem.fName);
+            shareEntity.Kf(shareItem.fName);
             shareEntity.Ct(shareItem.typeShareToSmallApp);
             shareEntity.topic = shareItem.topic;
-            if (i == 6 && !StringUtils.isNull(shareItem.dQE)) {
-                shareEntity.topic = shareItem.dQD + shareItem.dQE;
+            if (i == 6 && !StringUtils.isNull(shareItem.dQJ)) {
+                shareEntity.topic = shareItem.dQI + shareItem.dQJ;
                 shareEntity.setContent("");
             }
             shareEntity.taskCompleteId = shareItem.taskCompleteId;

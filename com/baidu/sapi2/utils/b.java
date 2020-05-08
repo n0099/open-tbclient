@@ -26,7 +26,7 @@ public class b {
             SapiAccount currentAccount = SapiContext.getInstance().getCurrentAccount();
             hashMap.put("uid", currentAccount == null ? "uid_is_empty" : currentAccount.uid);
             hashMap.put("scenes", str);
-            r.a("ptoken_is_null", hashMap);
+            t.a("ptoken_is_null", hashMap);
         }
     }
 }

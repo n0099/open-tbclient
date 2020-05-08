@@ -27,12 +27,12 @@ import java.util.regex.Pattern;
 /* loaded from: classes11.dex */
 public final class b {
     private static final String a;
-    private static SimpleDateFormat acK = null;
+    private static SimpleDateFormat acN = null;
     private static final Pattern b;
     private static Handler c;
 
     static {
-        String str = "(((?<=[\\.])|^)((([a-zA-Z0-9 -\ud7ff豈-﷏ﷰ-\uffef][a-zA-Z0-9 -\ud7ff豈-﷏ﷰ-\uffef\\-]*)*[a-zA-Z0-9 -\ud7ff豈-﷏ﷰ-\uffef]\\.)(" + f.a + "\\.)*" + f.a + ")|^" + f.acL + ")$";
+        String str = "(((?<=[\\.])|^)((([a-zA-Z0-9 -\ud7ff豈-﷏ﷰ-\uffef][a-zA-Z0-9 -\ud7ff豈-﷏ﷰ-\uffef\\-]*)*[a-zA-Z0-9 -\ud7ff豈-﷏ﷰ-\uffef]\\.)(" + f.a + "\\.)*" + f.a + ")|^" + f.acO + ")$";
         a = str;
         b = Pattern.compile(str);
     }

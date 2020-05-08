@@ -84,7 +84,7 @@ public class BaseActivity extends Activity implements NoProguard {
     @Override // android.app.Activity
     protected Dialog onCreateDialog(int i) {
         switch (i) {
-            case DIALOG_LOADING /* 242 */:
+            case 242:
                 return new com.baidu.fsg.base.activity.a.a(this);
             default:
                 return super.onCreateDialog(i);

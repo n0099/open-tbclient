@@ -19,7 +19,7 @@ public abstract class a {
     }
 
     @Deprecated
-    public b.InterfaceC0811b a(b.InterfaceC0811b interfaceC0811b) {
-        return interfaceC0811b;
+    public b.InterfaceC0832b a(b.InterfaceC0832b interfaceC0832b) {
+        return interfaceC0832b;
     }
 }

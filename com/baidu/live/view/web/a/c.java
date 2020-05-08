@@ -18,9 +18,9 @@ public class c extends com.baidu.live.view.web.a {
         try {
             JSONObject jSONObject = new JSONObject(str);
             final s sVar = new s();
-            sVar.aqM = jSONObject.optInt("tab", -1);
-            sVar.aqN = jSONObject.optInt("category_id", -1);
-            sVar.aqO = jSONObject.optInt(LogConfig.LOG_GIFT_ID, -1);
+            sVar.aqS = jSONObject.optInt("tab", -1);
+            sVar.aqT = jSONObject.optInt("category_id", -1);
+            sVar.aqU = jSONObject.optInt(LogConfig.LOG_GIFT_ID, -1);
             if (jSONObject.optInt("close", 0) == 1) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913123));
                 this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.live.view.web.a.c.1

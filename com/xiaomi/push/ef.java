@@ -1,64 +1,101 @@
 package com.xiaomi.push;
 
-import android.net.Uri;
-import android.support.media.ExifInterface;
-import android.text.TextUtils;
-import android.util.Base64;
-import com.baidu.ar.pose.PoseAR;
-import com.baidu.live.adp.lib.stats.BdStatsConstant;
-import java.util.HashMap;
-import org.json.JSONException;
-import org.json.JSONObject;
+import android.content.Context;
+import android.os.Build;
+import android.provider.Settings;
+import android.telephony.TelephonyManager;
+import android.util.DisplayMetrics;
+import android.view.WindowManager;
+import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes8.dex */
-public class ef {
-    public static Uri a(String str, String str2) {
-        return Uri.parse("content://" + str).buildUpon().appendPath(str2).build();
+public class ef extends ed {
+    private boolean a;
+    private boolean b;
+    private boolean c;
+    private boolean d;
+    private boolean e;
+
+    public ef(Context context, int i, boolean z, boolean z2, boolean z3, boolean z4, boolean z5) {
+        super(context, i);
+        this.a = z;
+        this.b = z2;
+        this.c = z3;
+        this.d = z4;
+        this.e = z5;
     }
 
-    public static String a(String str) {
-        return Base64.encodeToString(ay.m144a(str), 2);
-    }
-
-    public static String a(HashMap<String, String> hashMap) {
-        if (hashMap == null) {
-            return "";
-        }
-        JSONObject jSONObject = new JSONObject();
-        try {
-            for (String str : hashMap.keySet()) {
-                jSONObject.put(str, hashMap.get(str));
-            }
-        } catch (JSONException e) {
-            com.xiaomi.channel.commonutils.logger.b.a(e);
-        }
-        return jSONObject.toString();
-    }
-
-    public static String b(String str) {
-        return ay.a(Base64.decode(str, 2));
-    }
-
-    public static String b(HashMap<String, String> hashMap) {
-        HashMap hashMap2 = new HashMap();
-        if (hashMap != null) {
-            hashMap2.put(PoseAR.MDL_START_POSE_FUN_EVENT_TYPE_KEY, hashMap.get(PoseAR.MDL_START_POSE_FUN_EVENT_TYPE_KEY) + "");
-            hashMap2.put("description", hashMap.get("description") + "");
-            String str = hashMap.get("awake_info");
-            if (!TextUtils.isEmpty(str)) {
-                try {
-                    JSONObject jSONObject = new JSONObject(str);
-                    hashMap2.put("__planId__", String.valueOf(jSONObject.opt("__planId__")));
-                    hashMap2.put("flow_id", String.valueOf(jSONObject.opt("flow_id")));
-                    hashMap2.put("jobkey", String.valueOf(jSONObject.opt("jobkey")));
-                    hashMap2.put("msg_id", String.valueOf(jSONObject.opt("msg_id")));
-                    hashMap2.put(ExifInterface.GPS_MEASUREMENT_IN_PROGRESS, String.valueOf(jSONObject.opt("awake_app")));
-                    hashMap2.put("B", String.valueOf(jSONObject.opt("awakened_app")));
-                    hashMap2.put(BdStatsConstant.StatsKey.TYPE, String.valueOf(jSONObject.opt("awake_type")));
-                } catch (JSONException e) {
-                    com.xiaomi.channel.commonutils.logger.b.a(e);
-                }
+    private String b() {
+        if (this.a) {
+            try {
+                DisplayMetrics displayMetrics = new DisplayMetrics();
+                ((WindowManager) this.f230a.getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
+                return displayMetrics.heightPixels + Constants.ACCEPT_TIME_SEPARATOR_SP + displayMetrics.widthPixels;
+            } catch (Throwable th) {
+                return "";
             }
         }
-        return a(hashMap2);
+        return "off";
+    }
+
+    private String c() {
+        if (this.b) {
+            try {
+                return Build.VERSION.RELEASE;
+            } catch (Throwable th) {
+                return "";
+            }
+        }
+        return "off";
+    }
+
+    private String d() {
+        if (this.c) {
+            try {
+                return String.valueOf(Build.VERSION.SDK_INT);
+            } catch (Throwable th) {
+                return "";
+            }
+        }
+        return "off";
+    }
+
+    private String e() {
+        if (this.d) {
+            try {
+                return Settings.Secure.getString(this.f230a.getContentResolver(), "android_id");
+            } catch (Throwable th) {
+                return "";
+            }
+        }
+        return "off";
+    }
+
+    private String f() {
+        if (this.e) {
+            try {
+                return ((TelephonyManager) this.f230a.getSystemService("phone")).getSimOperator();
+            } catch (Throwable th) {
+                return "";
+            }
+        }
+        return "off";
+    }
+
+    @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
+    /* renamed from: a */
+    public int mo162a() {
+        return 3;
+    }
+
+    @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
+    /* renamed from: a */
+    public ho mo162a() {
+        return ho.DeviceInfoV2;
+    }
+
+    @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
+    /* renamed from: a */
+    public String mo162a() {
+        return b() + "|" + c() + "|" + d() + "|" + e() + "|" + f();
     }
 }

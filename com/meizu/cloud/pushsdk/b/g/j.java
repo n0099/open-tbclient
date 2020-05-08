@@ -2,41 +2,93 @@ package com.meizu.cloud.pushsdk.b.g;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes8.dex */
 public final class j {
-    static i a;
-    static long b;
+    final byte[] a;
+    int b;
+    int c;
+    boolean d;
+    boolean e;
+    j f;
+    j g;
 
-    private j() {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public j() {
+        this.a = new byte[2048];
+        this.e = true;
+        this.d = false;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static i a() {
-        synchronized (j.class) {
-            if (a != null) {
-                i iVar = a;
-                a = iVar.f;
-                iVar.f = null;
-                b -= 2048;
-                return iVar;
-            }
-            return new i();
-        }
+    public j(j jVar) {
+        this(jVar.a, jVar.b, jVar.c);
+        jVar.d = true;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static void a(i iVar) {
-        if (iVar.f != null || iVar.g != null) {
+    j(byte[] bArr, int i, int i2) {
+        this.a = bArr;
+        this.b = i;
+        this.c = i2;
+        this.e = false;
+        this.d = true;
+    }
+
+    public j a() {
+        j jVar = this.f != this ? this.f : null;
+        this.g.f = this.f;
+        this.f.g = this.g;
+        this.f = null;
+        this.g = null;
+        return jVar;
+    }
+
+    public j a(int i) {
+        if (i <= 0 || i > this.c - this.b) {
             throw new IllegalArgumentException();
         }
-        if (iVar.d) {
-            return;
+        j jVar = new j(this);
+        jVar.c = jVar.b + i;
+        this.b += i;
+        this.g.a(jVar);
+        return jVar;
+    }
+
+    public j a(j jVar) {
+        jVar.g = this;
+        jVar.f = this.f;
+        this.f.g = jVar;
+        this.f = jVar;
+        return jVar;
+    }
+
+    public void a(j jVar, int i) {
+        if (!jVar.e) {
+            throw new IllegalArgumentException();
         }
-        synchronized (j.class) {
-            if (b + 2048 <= 65536) {
-                b += 2048;
-                iVar.f = a;
-                iVar.c = 0;
-                iVar.b = 0;
-                a = iVar;
+        if (jVar.c + i > 2048) {
+            if (jVar.d) {
+                throw new IllegalArgumentException();
+            }
+            if ((jVar.c + i) - jVar.b > 2048) {
+                throw new IllegalArgumentException();
+            }
+            System.arraycopy(jVar.a, jVar.b, jVar.a, 0, jVar.c - jVar.b);
+            jVar.c -= jVar.b;
+            jVar.b = 0;
+        }
+        System.arraycopy(this.a, this.b, jVar.a, jVar.c, i);
+        jVar.c += i;
+        this.b += i;
+    }
+
+    public void b() {
+        if (this.g == this) {
+            throw new IllegalStateException();
+        }
+        if (this.g.e) {
+            int i = this.c - this.b;
+            if (i <= (this.g.d ? 0 : this.g.b) + (2048 - this.g.c)) {
+                a(this.g, i);
+                a();
+                k.a(this);
             }
         }
     }

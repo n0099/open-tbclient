@@ -13,15 +13,15 @@ import java.util.Deque;
 /* loaded from: classes11.dex */
 public class b implements a.b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private final Deque<Message> ciq = new ArrayDeque();
+    private final Deque<Message> ciw = new ArrayDeque();
 
     @Override // com.baidu.swan.apps.process.messaging.a.b
-    public void aiW() {
-        a ajd = a.ajd();
-        while (ajd.ajh() && !this.ciq.isEmpty()) {
-            Message peek = this.ciq.peek();
+    public void aiV() {
+        a ajc = a.ajc();
+        while (ajc.ajg() && !this.ciw.isEmpty()) {
+            Message peek = this.ciw.peek();
             if (peek == null || z(peek)) {
-                this.ciq.poll();
+                this.ciw.poll();
             }
         }
     }
@@ -36,28 +36,28 @@ public class b implements a.b {
 
     @Override // com.baidu.swan.apps.process.messaging.a.b
     public void a(@NonNull c cVar) {
-        Message aiX = cVar.aiX();
-        aiX.arg1 = SwanAppProcessInfo.current().index;
-        if (d.akK().ajr() && (aiX.obj instanceof Bundle)) {
-            Bundle bundle = (Bundle) aiX.obj;
+        Message aiW = cVar.aiW();
+        aiW.arg1 = SwanAppProcessInfo.current().index;
+        if (d.akJ().ajq() && (aiW.obj instanceof Bundle)) {
+            Bundle bundle = (Bundle) aiW.obj;
             if (!bundle.containsKey("ai_apps_id")) {
-                bundle.putString("ai_apps_id", d.akK().getAppId());
+                bundle.putString("ai_apps_id", d.akJ().getAppId());
             }
         }
-        if (!z(aiX) && cVar.isSticky()) {
-            this.ciq.offer(aiX);
-            a.ajd().ajf();
+        if (!z(aiW) && cVar.isSticky()) {
+            this.ciw.offer(aiW);
+            a.ajc().aje();
         }
     }
 
     private boolean z(Message message) {
-        a ajd = a.ajd();
-        if (message != null && ajd.ajh()) {
+        a ajc = a.ajc();
+        if (message != null && ajc.ajg()) {
             try {
-                ajd.aje().send(message);
+                ajc.ajd().send(message);
                 return true;
             } catch (RemoteException e) {
-                ajd.aji();
+                ajc.ajh();
                 if (DEBUG) {
                     e.printStackTrace();
                 }

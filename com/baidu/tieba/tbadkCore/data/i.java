@@ -10,15 +10,15 @@ import tbclient.Timgs;
 import tbclient.VideoInfo;
 /* loaded from: classes.dex */
 public class i {
-    private VideoInfo dmP;
-    public long kRU;
-    public String kRV;
-    public boolean kRW;
-    private int kRX;
-    private ArrayList<h> kRY;
-    private ArrayList<k> kRZ;
-    private j kSa;
+    private VideoInfo dmT;
+    public long kRY;
+    public String kRZ;
+    public boolean kSa;
     private int kSb;
+    private ArrayList<h> kSc;
+    private ArrayList<k> kSd;
+    private j kSe;
+    private int kSf;
     public String position;
     private String tagName;
 
@@ -26,29 +26,29 @@ public class i {
         if (tPointPost != null) {
             try {
                 this.position = tPointPost.position;
-                this.kRU = tPointPost.template_id.longValue();
-                this.kRW = tPointPost.is_tuiguang.intValue() != 0;
-                this.kRX = tPointPost.template_type.intValue();
+                this.kRY = tPointPost.template_id.longValue();
+                this.kSa = tPointPost.is_tuiguang.intValue() != 0;
+                this.kSb = tPointPost.template_type.intValue();
                 List<ActBtn> list = tPointPost.act_btn;
                 if (list != null && list.size() > 0) {
-                    this.kRY = new ArrayList<>();
+                    this.kSc = new ArrayList<>();
                     for (int i = 0; i != list.size(); i++) {
-                        this.kRY.add(new h(list.get(i)));
+                        this.kSc.add(new h(list.get(i)));
                     }
                 }
                 List<Timgs> list2 = tPointPost.t_imgs;
                 if (list2 != null && list2.size() > 0) {
-                    this.kRZ = new ArrayList<>();
+                    this.kSd = new ArrayList<>();
                     for (int i2 = 0; i2 != list2.size(); i2++) {
-                        this.kRZ.add(new k(list2.get(i2)));
+                        this.kSd.add(new k(list2.get(i2)));
                     }
                 }
                 if (tPointPost.detail_info != null) {
-                    this.kSa = new j(tPointPost.detail_info);
+                    this.kSe = new j(tPointPost.detail_info);
                 }
-                this.kRV = tPointPost.monitor_id;
-                this.kSb = tPointPost.hidden_day.intValue();
-                this.dmP = tPointPost.t_video;
+                this.kRZ = tPointPost.monitor_id;
+                this.kSf = tPointPost.hidden_day.intValue();
+                this.dmT = tPointPost.t_video;
                 this.tagName = tPointPost.tag_name;
             } catch (Exception e) {
                 BdLog.detailException(e);
@@ -56,7 +56,7 @@ public class i {
         }
     }
 
-    public k cVZ() {
-        return (k) v.getItem(this.kRZ, 0);
+    public k cVW() {
+        return (k) v.getItem(this.kSd, 0);
     }
 }

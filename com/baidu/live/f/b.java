@@ -50,8 +50,8 @@ public class b {
             @Override // com.baidu.live.tbadk.download.FileDownloadCallBack
             public boolean onPreDownload(DownloadData downloadData2) {
                 c cVar = new c();
-                cVar.axw = 1;
-                cVar.axx = downloadData2;
+                cVar.axC = 1;
+                cVar.axD = downloadData2;
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913078, cVar));
                 return true;
             }
@@ -59,8 +59,8 @@ public class b {
             @Override // com.baidu.live.tbadk.download.FileDownloadCallBack
             public boolean onFileDownloaded(DownloadData downloadData2) {
                 c cVar = new c();
-                cVar.axw = 4;
-                cVar.axx = downloadData2;
+                cVar.axC = 4;
+                cVar.axD = downloadData2;
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913078, cVar));
                 return true;
             }
@@ -74,8 +74,8 @@ public class b {
             public void onFileDownloadFailed(DownloadData downloadData2, int i2, String str8) {
                 BdLog.e("failed to donwload dynamic gift zip" + str8);
                 c cVar = new c();
-                cVar.axw = 2;
-                cVar.axx = downloadData2;
+                cVar.axC = 2;
+                cVar.axD = downloadData2;
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913078, cVar));
             }
         });
@@ -121,14 +121,14 @@ public class b {
                 if (bool.booleanValue()) {
                     if (a.existFile(str)) {
                         c cVar = new c();
-                        cVar.axw = 5;
-                        cVar.axx = DownloadData.this;
+                        cVar.axC = 5;
+                        cVar.axD = DownloadData.this;
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913078, cVar));
                         return;
                     }
                     c cVar2 = new c();
-                    cVar2.axw = 6;
-                    cVar2.axx = DownloadData.this;
+                    cVar2.axC = 6;
+                    cVar2.axD = DownloadData.this;
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913078, cVar2));
                     BdLog.e("zip empty");
                     return;
@@ -140,7 +140,7 @@ public class b {
 
     public static ArrayList<String> dQ(String str) {
         ArrayList<String> arrayList = null;
-        String string = com.baidu.live.c.tH().getSharedPreferences().getString(str, null);
+        String string = com.baidu.live.c.tG().getSharedPreferences().getString(str, null);
         if (string == null) {
             return null;
         }
@@ -197,7 +197,7 @@ public class b {
                     jSONArray.put(fileMd5);
                 }
             }
-            com.baidu.live.c.tH().putString(str, jSONArray.toString());
+            com.baidu.live.c.tG().putString(str, jSONArray.toString());
         }
     }
 

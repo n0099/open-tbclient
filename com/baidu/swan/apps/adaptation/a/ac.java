@@ -9,7 +9,7 @@ public interface ac {
     void a(String str, com.baidu.swan.apps.ae.a.a aVar);
 
     @AnyThread
-    void a(@NonNull String str, @NonNull String str2, @NonNull a.InterfaceC0299a interfaceC0299a);
+    void a(@NonNull String str, @NonNull String str2, @NonNull a.InterfaceC0320a interfaceC0320a);
 
     void a(@NonNull String str, @Nullable String str2, @Nullable String str3, com.baidu.swan.apps.o.b bVar);
 }

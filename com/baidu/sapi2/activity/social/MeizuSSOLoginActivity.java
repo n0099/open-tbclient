@@ -29,9 +29,23 @@ public class MeizuSSOLoginActivity extends BaseSSOLoginActivity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void loadMeizuSSOLoginInNA(String str, String str2) {
+        if (this.sapiWebView == null) {
+            if (PassportSDK.getInstance().getWebAuthListener() != null) {
+                this.webAuthResult.setResultCode(-202);
+                this.webAuthResult.setResultMsg("网络连接失败，请检查网络设置");
+                PassportSDK.getInstance().getWebAuthListener().onFailure(this.webAuthResult);
+            }
+            PassportSDK.getInstance().release();
+            finish();
+            return;
+        }
         HttpClientWrap httpClientWrap = new HttpClientWrap();
         ArrayList arrayList = new ArrayList();
         arrayList.addAll(getStatParamList());
+        PassNameValuePair sceneFromParam = getSceneFromParam();
+        if (sceneFromParam != null) {
+            arrayList.add(sceneFromParam);
+        }
         arrayList.add(new PassNameValuePair("json", "1"));
         httpClientWrap.get(this.sapiWebView.getMeizuSSOLoginUrl(arrayList, str, str2), ((ThirdPartyService) PassportSDK.getInstance().getThirdPartyService()).getCookies(this, this.configuration), new HttpHandlerWrap(Looper.getMainLooper()) { // from class: com.baidu.sapi2.activity.social.MeizuSSOLoginActivity.2
             /* JADX INFO: Access modifiers changed from: protected */

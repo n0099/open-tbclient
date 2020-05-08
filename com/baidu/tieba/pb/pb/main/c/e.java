@@ -13,41 +13,41 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.card.z;
 /* loaded from: classes9.dex */
 public class e extends a {
-    private com.baidu.tbadk.core.data.a jET;
-    private bj jEW;
-    private l jFa;
-    private int jsJ;
+    private com.baidu.tbadk.core.data.a jEX;
+    private bj jFa;
+    private l jFe;
+    private int jsN;
     private View mRootView;
 
     public e(TbPageContext tbPageContext, int i) {
         super(tbPageContext);
-        this.jsJ = i;
+        this.jsN = i;
     }
 
     @Override // com.baidu.tieba.pb.pb.main.c.a
     public View getView() {
-        if (this.jFa == null) {
-            this.jFa = new l(this.duG.getPageActivity());
-            this.jFa.b((Boolean) true);
-            this.jFa.setFrom("pb");
-            this.jFa.e(this.duG.getResources().getDimensionPixelOffset(R.dimen.tbds44), this.duG.getResources().getDimensionPixelOffset(R.dimen.tbds39), this.duG.getResources().getDimensionPixelOffset(R.dimen.tbds44), this.duG.getResources().getDimensionPixelSize(R.dimen.tbds40));
+        if (this.jFe == null) {
+            this.jFe = new l(this.duK.getPageActivity());
+            this.jFe.b((Boolean) true);
+            this.jFe.setFrom("pb");
+            this.jFe.e(this.duK.getResources().getDimensionPixelOffset(R.dimen.tbds44), this.duK.getResources().getDimensionPixelOffset(R.dimen.tbds39), this.duK.getResources().getDimensionPixelOffset(R.dimen.tbds44), this.duK.getResources().getDimensionPixelSize(R.dimen.tbds40));
         }
-        this.mRootView = this.jFa.getView();
+        this.mRootView = this.jFe.getView();
         return this.mRootView;
     }
 
     @Override // com.baidu.tieba.pb.pb.main.c.a
     public void g(OriginalThreadInfo originalThreadInfo) {
-        this.jES = originalThreadInfo;
-        this.jEW = originalThreadInfo == null ? null : originalThreadInfo.aJm();
-        this.jET = new com.baidu.tbadk.core.data.a() { // from class: com.baidu.tieba.pb.pb.main.c.e.1
+        this.jEW = originalThreadInfo;
+        this.jFa = originalThreadInfo == null ? null : originalThreadInfo.aJk();
+        this.jEX = new com.baidu.tbadk.core.data.a() { // from class: com.baidu.tieba.pb.pb.main.c.e.1
             @Override // com.baidu.tbadk.core.data.a
-            public bj aIw() {
-                return e.this.jEW;
+            public bj aIu() {
+                return e.this.jFa;
             }
 
             @Override // com.baidu.tbadk.core.data.a
-            public al aIy() {
+            public al aIw() {
                 return null;
             }
 
@@ -56,31 +56,31 @@ public class e extends a {
                 return null;
             }
         };
-        if (this.jFa != null) {
-            this.jFa.A(this.jET);
+        if (this.jFe != null) {
+            this.jFe.B(this.jEX);
         }
     }
 
     @Override // com.baidu.tieba.pb.pb.main.c.a
     public void a(z zVar) {
         super.a(zVar);
-        if (this.jFa != null) {
-            this.jFa.setOnCardSubClickListener(this.jER);
+        if (this.jFe != null) {
+            this.jFe.setOnCardSubClickListener(this.jEV);
         }
     }
 
     @Override // com.baidu.tieba.pb.pb.main.c.a
     public void a(b.a aVar) {
         super.a(aVar);
-        if (this.jFa != null) {
-            this.jFa.a(aVar);
+        if (this.jFe != null) {
+            this.jFe.a(aVar);
         }
         if (this.mRootView != null) {
             this.mRootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.c.e.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (e.this.acY != null) {
-                        e.this.acY.a(e.this.jET);
+                    if (e.this.adb != null) {
+                        e.this.adb.a(e.this.jEX);
                     }
                 }
             });
@@ -92,8 +92,8 @@ public class e extends a {
         if (this.mSkinType != i) {
             this.mSkinType = i;
             am.setBackgroundColor(this.mRootView, R.color.cp_bg_line_c);
-            if (this.jFa != null) {
-                this.jFa.onChangeSkinType(tbPageContext, i);
+            if (this.jFe != null) {
+                this.jFe.onChangeSkinType(tbPageContext, i);
             }
         }
     }

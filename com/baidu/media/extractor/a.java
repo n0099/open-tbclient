@@ -13,11 +13,11 @@ import java.io.IOException;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class a extends ExtractorProvider {
-    private DuMediaExtractor bil;
+    private DuMediaExtractor bir;
 
     public a() {
         try {
-            this.bil = new DuMediaExtractor();
+            this.bir = new DuMediaExtractor();
             b();
         } catch (Throwable th) {
             th.printStackTrace();
@@ -39,9 +39,9 @@ public class a extends ExtractorProvider {
 
     @Override // com.baidu.cyberplayer.sdk.extractor.ExtractorProvider
     public Bundle getMediaMeta() {
-        if (this.bil != null) {
+        if (this.bir != null) {
             try {
-                return this.bil.b();
+                return this.bir.b();
             } catch (IllegalStateException e) {
                 e.printStackTrace();
             }
@@ -55,18 +55,18 @@ public class a extends ExtractorProvider {
         } catch (IllegalStateException e) {
             e.printStackTrace();
         } finally {
-            this.bil = null;
+            this.bir = null;
         }
-        if (this.bil != null) {
-            this.bil.a();
+        if (this.bir != null) {
+            this.bir.a();
         }
     }
 
     @Override // com.baidu.cyberplayer.sdk.extractor.ExtractorProvider
     public void setDataSource(Context context, Uri uri) {
-        if (this.bil != null) {
+        if (this.bir != null) {
             try {
-                this.bil.a(context, uri, (Map<String, String>) null);
+                this.bir.a(context, uri, (Map<String, String>) null);
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -75,9 +75,9 @@ public class a extends ExtractorProvider {
 
     @Override // com.baidu.cyberplayer.sdk.extractor.ExtractorProvider
     public void setDataSource(Context context, Uri uri, Map<String, String> map) {
-        if (this.bil != null) {
+        if (this.bir != null) {
             try {
-                this.bil.a(context, uri, map);
+                this.bir.a(context, uri, map);
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -90,9 +90,9 @@ public class a extends ExtractorProvider {
 
     @Override // com.baidu.cyberplayer.sdk.extractor.ExtractorProvider
     public void setDataSource(String str) {
-        if (this.bil != null) {
+        if (this.bir != null) {
             try {
-                this.bil.a(str);
+                this.bir.a(str);
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -102,9 +102,9 @@ public class a extends ExtractorProvider {
     @Override // com.baidu.cyberplayer.sdk.extractor.ExtractorProvider
     public void setOption(int i, String str, long j) {
         CyberLog.i("CyberExtractorImpl", "setOption: " + str + Constants.ACCEPT_TIME_SEPARATOR_SP + j);
-        if (this.bil != null) {
+        if (this.bir != null) {
             try {
-                this.bil.a(i, str, j);
+                this.bir.a(i, str, j);
             } catch (Exception e) {
                 e.printStackTrace();
             }

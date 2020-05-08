@@ -1,60 +1,27 @@
 package com.vivo.push.b;
 /* loaded from: classes8.dex */
-public final class n extends s {
-    private String a;
-    private int b;
-    private boolean c;
+public final class n extends u {
+    private int a;
 
     public n() {
-        super(7);
-        this.b = 0;
-        this.c = false;
-    }
-
-    public final String d() {
-        return this.a;
-    }
-
-    public final void b(String str) {
-        this.a = str;
-    }
-
-    public final int e() {
-        return this.b;
-    }
-
-    public final void a(int i) {
-        this.b = i;
-    }
-
-    public final boolean f() {
-        return this.c;
-    }
-
-    public final void a(boolean z) {
-        this.c = z;
+        super(2016);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.vivo.push.b.s, com.vivo.push.y
+    @Override // com.vivo.push.b.u, com.vivo.push.y
     public final void c(com.vivo.push.a aVar) {
         super.c(aVar);
-        aVar.a("content", this.a);
-        aVar.a("log_level", this.b);
-        aVar.a("is_server_log", this.c);
+        aVar.a("key_dispatch_environment", this.a);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.vivo.push.b.s, com.vivo.push.y
+    @Override // com.vivo.push.b.u, com.vivo.push.y
     public final void d(com.vivo.push.a aVar) {
         super.d(aVar);
-        this.a = aVar.a("content");
-        this.b = aVar.b("log_level", 0);
-        this.c = aVar.d("is_server_log");
+        this.a = aVar.b("key_dispatch_environment", 0);
     }
 
-    @Override // com.vivo.push.b.s, com.vivo.push.y
-    public final String toString() {
-        return "OnLogCommand";
+    public final int d() {
+        return this.a;
     }
 }

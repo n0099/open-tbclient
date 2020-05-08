@@ -21,7 +21,7 @@ public final class b extends com.vivo.push.v {
                 com.vivo.push.model.b a2 = com.vivo.push.util.s.a(this.a);
                 if (a == null || a2 == null || a2.a() == null || !a2.a().equals(a.a())) {
                     if (a != null && a.a() != null) {
-                        com.vivo.push.a.a.a(this.a, a.a(), new com.vivo.push.b.aa(a.a()));
+                        com.vivo.push.a.a.a(this.a, a.a(), new com.vivo.push.b.ac(a.a()));
                     }
                     if (a2 != null && a2.a() != null) {
                         com.vivo.push.a.a.a(this.a, a2.a(), new com.vivo.push.b.f());

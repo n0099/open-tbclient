@@ -3,7 +3,7 @@ package com.baidu.prologue.c;
 import android.content.Context;
 /* loaded from: classes6.dex */
 public class c {
-    private static final Context sAppContext = com.baidu.prologue.a.b.a.brQ.get().Lh();
+    private static final Context sAppContext = com.baidu.prologue.a.b.a.brU.get().Lg();
 
     public static Context getAppContext() {
         return sAppContext;

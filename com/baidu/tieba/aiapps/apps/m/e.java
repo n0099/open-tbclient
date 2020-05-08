@@ -22,12 +22,12 @@ public class e extends ab {
 
     @Override // com.baidu.swan.apps.scheme.actions.ab
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
-        aK(context, unitedSchemeEntity.getParam("params"));
+        ay(context, unitedSchemeEntity.getParam("params"));
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
         return true;
     }
 
-    public static boolean aK(Context context, String str) {
+    public static boolean ay(Context context, String str) {
         boolean z;
         if (StringUtils.isNull(str)) {
             return false;

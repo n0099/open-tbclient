@@ -9,32 +9,32 @@ import java.util.TreeMap;
 public class a {
     public String appConfig;
     public String appPath;
-    public String bQA;
-    public String bQB;
-    public String bQC;
-    public String bQD;
-    public boolean bQE;
+    public String bQE;
     public String bQF;
-    public boolean bQG;
+    public String bQG;
     public String bQH;
-    public String bQz;
+    public String bQI;
+    public boolean bQJ;
+    public String bQK;
+    public boolean bQL;
+    public String bQM;
 
     public static com.baidu.swan.apps.n.a.b a(a aVar, com.baidu.swan.apps.ag.b.a aVar2) {
         TreeMap treeMap = new TreeMap();
         treeMap.put("appConfig", aVar.appConfig);
         treeMap.put("appPath", aVar.appPath);
-        treeMap.put("wvID", aVar.bQz);
-        treeMap.put("pageUrl", aVar.bQA);
-        treeMap.put("devhook", aVar.bQC);
-        treeMap.put("root", aVar.bQD);
-        if (!TextUtils.isEmpty(aVar.bQB)) {
-            treeMap.put("extraData", aVar.bQB);
+        treeMap.put("wvID", aVar.bQE);
+        treeMap.put("pageUrl", aVar.bQF);
+        treeMap.put("devhook", aVar.bQH);
+        treeMap.put("root", aVar.bQI);
+        if (!TextUtils.isEmpty(aVar.bQG)) {
+            treeMap.put("extraData", aVar.bQG);
         }
-        treeMap.put("showPerformancePanel", String.valueOf(aVar.bQE));
-        treeMap.put(InvokeNewImMessageCenterFragmentConfig.PAGE_TYPE, aVar.bQF);
-        treeMap.put("isT7Available", String.valueOf(aVar.bQG));
-        if (!TextUtils.isEmpty(aVar.bQH)) {
-            treeMap.put("masterPreload", aVar.bQH);
+        treeMap.put("showPerformancePanel", String.valueOf(aVar.bQJ));
+        treeMap.put(InvokeNewImMessageCenterFragmentConfig.PAGE_TYPE, aVar.bQK);
+        treeMap.put("isT7Available", String.valueOf(aVar.bQL));
+        if (!TextUtils.isEmpty(aVar.bQM)) {
+            treeMap.put("masterPreload", aVar.bQM);
         }
         com.baidu.swan.apps.ag.g.b.a(treeMap, aVar2, "app ready event");
         return new com.baidu.swan.apps.n.a.b("AppReady", treeMap);

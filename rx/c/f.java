@@ -5,70 +5,70 @@ import java.util.Properties;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes6.dex */
 public class f {
-    private static final f npd = new f();
-    static final b npi = new b() { // from class: rx.c.f.1
+    private static final f npg = new f();
+    static final b npl = new b() { // from class: rx.c.f.1
     };
-    private final AtomicReference<b> npe = new AtomicReference<>();
-    private final AtomicReference<d> npf = new AtomicReference<>();
-    private final AtomicReference<h> npg = new AtomicReference<>();
-    private final AtomicReference<a> nph = new AtomicReference<>();
-    private final AtomicReference<g> nja = new AtomicReference<>();
+    private final AtomicReference<b> nph = new AtomicReference<>();
+    private final AtomicReference<d> npi = new AtomicReference<>();
+    private final AtomicReference<h> npj = new AtomicReference<>();
+    private final AtomicReference<a> npk = new AtomicReference<>();
+    private final AtomicReference<g> njd = new AtomicReference<>();
 
     @Deprecated
-    public static f dIz() {
-        return npd;
+    public static f dIv() {
+        return npg;
     }
 
     f() {
     }
 
-    public b dIA() {
-        if (this.npe.get() == null) {
+    public b dIw() {
+        if (this.nph.get() == null) {
             Object a = a(b.class, System.getProperties());
             if (a == null) {
-                this.npe.compareAndSet(null, npi);
+                this.nph.compareAndSet(null, npl);
             } else {
-                this.npe.compareAndSet(null, (b) a);
-            }
-        }
-        return this.npe.get();
-    }
-
-    public d dIB() {
-        if (this.npf.get() == null) {
-            Object a = a(d.class, System.getProperties());
-            if (a == null) {
-                this.npf.compareAndSet(null, e.dIy());
-            } else {
-                this.npf.compareAndSet(null, (d) a);
-            }
-        }
-        return this.npf.get();
-    }
-
-    public h dIC() {
-        if (this.npg.get() == null) {
-            Object a = a(h.class, System.getProperties());
-            if (a == null) {
-                this.npg.compareAndSet(null, i.dIM());
-            } else {
-                this.npg.compareAndSet(null, (h) a);
-            }
-        }
-        return this.npg.get();
-    }
-
-    public a dID() {
-        if (this.nph.get() == null) {
-            Object a = a(a.class, System.getProperties());
-            if (a == null) {
-                this.nph.compareAndSet(null, new a() { // from class: rx.c.f.2
-                });
-            } else {
-                this.nph.compareAndSet(null, (a) a);
+                this.nph.compareAndSet(null, (b) a);
             }
         }
         return this.nph.get();
+    }
+
+    public d dIx() {
+        if (this.npi.get() == null) {
+            Object a = a(d.class, System.getProperties());
+            if (a == null) {
+                this.npi.compareAndSet(null, e.dIu());
+            } else {
+                this.npi.compareAndSet(null, (d) a);
+            }
+        }
+        return this.npi.get();
+    }
+
+    public h dIy() {
+        if (this.npj.get() == null) {
+            Object a = a(h.class, System.getProperties());
+            if (a == null) {
+                this.npj.compareAndSet(null, i.dII());
+            } else {
+                this.npj.compareAndSet(null, (h) a);
+            }
+        }
+        return this.npj.get();
+    }
+
+    public a dIz() {
+        if (this.npk.get() == null) {
+            Object a = a(a.class, System.getProperties());
+            if (a == null) {
+                this.npk.compareAndSet(null, new a() { // from class: rx.c.f.2
+                });
+            } else {
+                this.npk.compareAndSet(null, (a) a);
+            }
+        }
+        return this.npk.get();
     }
 
     /* JADX WARN: Removed duplicated region for block: B:33:0x0154 A[RETURN, SYNTHETIC] */
@@ -113,15 +113,15 @@ public class f {
         }
     }
 
-    public g dIE() {
-        if (this.nja.get() == null) {
+    public g dIA() {
+        if (this.njd.get() == null) {
             Object a = a(g.class, System.getProperties());
             if (a == null) {
-                this.nja.compareAndSet(null, g.dIL());
+                this.njd.compareAndSet(null, g.dIH());
             } else {
-                this.nja.compareAndSet(null, (g) a);
+                this.njd.compareAndSet(null, (g) a);
             }
         }
-        return this.nja.get();
+        return this.njd.get();
     }
 }

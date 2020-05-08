@@ -4,21 +4,21 @@ import com.tb.airbnb.lottie.a.a.p;
 /* loaded from: classes6.dex */
 public class k implements b {
     private final int index;
-    private final com.tb.airbnb.lottie.model.a.h mPW;
+    private final com.tb.airbnb.lottie.model.a.h mPZ;
     private final String name;
 
     public k(String str, int i, com.tb.airbnb.lottie.model.a.h hVar) {
         this.name = str;
         this.index = i;
-        this.mPW = hVar;
+        this.mPZ = hVar;
     }
 
     public String getName() {
         return this.name;
     }
 
-    public com.tb.airbnb.lottie.model.a.h dBZ() {
-        return this.mPW;
+    public com.tb.airbnb.lottie.model.a.h dBV() {
+        return this.mPZ;
     }
 
     @Override // com.tb.airbnb.lottie.model.content.b

@@ -13,7 +13,7 @@ public class Texture2dProgram {
     private int mTextureTarget;
     private int maPositionLoc;
     private int maTextureCoordLoc;
-    private ProgramType mhI;
+    private ProgramType mhM;
     private int muColorAdjustLoc;
     private int muKernelLoc;
     private int muMVPMatrixLoc;
@@ -29,7 +29,7 @@ public class Texture2dProgram {
     }
 
     public Texture2dProgram(ProgramType programType) {
-        this.mhI = programType;
+        this.mhM = programType;
         switch (programType) {
             case TEXTURE_2D:
                 this.mTextureTarget = 3553;

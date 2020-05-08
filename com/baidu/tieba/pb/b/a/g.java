@@ -7,26 +7,26 @@ import tbclient.ExcPbPage.ExcContent;
 /* loaded from: classes10.dex */
 public class g implements c {
     private String color;
-    private SpannableStringBuilder jII;
-    private int jIJ;
+    private SpannableStringBuilder jIM;
+    private int jIN;
     private int textSize;
 
     public g() {
-        this.jIJ = 0;
+        this.jIN = 0;
         this.textSize = -1;
-        this.jII = new SpannableStringBuilder();
+        this.jIM = new SpannableStringBuilder();
     }
 
     public g(Context context, ExcContent excContent) {
-        this.jIJ = 0;
+        this.jIN = 0;
         this.textSize = -1;
         if (excContent != null) {
-            this.jII = new SpannableStringBuilder();
+            this.jIM = new SpannableStringBuilder();
             if (excContent != null) {
-                this.jII.append((CharSequence) excContent.text);
+                this.jIM.append((CharSequence) excContent.text);
             }
             if (excContent.align != null) {
-                this.jIJ = excContent.align.intValue();
+                this.jIN = excContent.align.intValue();
             }
             if (!StringUtils.isNull(excContent.color)) {
                 this.color = excContent.color;
@@ -42,7 +42,7 @@ public class g implements c {
 
     public void m(CharSequence charSequence) {
         if (charSequence != null) {
-            this.jII.append(charSequence);
+            this.jIM.append(charSequence);
         }
     }
 
@@ -52,21 +52,21 @@ public class g implements c {
     }
 
     @Override // com.baidu.tieba.pb.b.a.c
-    public CharSequence cDi() {
-        return this.jII;
+    public CharSequence cDf() {
+        return this.jIM;
     }
 
-    public int cDk() {
-        return this.jIJ;
+    public int cDh() {
+        return this.jIN;
     }
 
-    public String cDl() {
+    public String cDi() {
         return this.color;
     }
 
     @Override // com.baidu.tieba.pb.b.a.c
-    public boolean cDj() {
-        return (this.jIJ > 0 && this.jIJ < 3) || !StringUtils.isNull(this.color);
+    public boolean cDg() {
+        return (this.jIN > 0 && this.jIN < 3) || !StringUtils.isNull(this.color);
     }
 
     public int getTextSize() {

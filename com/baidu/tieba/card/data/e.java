@@ -4,23 +4,23 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.data.bj;
 /* loaded from: classes8.dex */
 public class e extends k {
-    public static final BdUniqueId gsb = BdUniqueId.gen();
+    public static final BdUniqueId gsh = BdUniqueId.gen();
 
     public e(bj bjVar) {
-        this.dqA = bjVar;
+        this.dqE = bjVar;
     }
 
     @Override // com.baidu.tieba.card.data.k, com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return gsb;
+        return gsh;
     }
 
     public static boolean ab(bj bjVar) {
-        return bjVar != null && bjVar.getType() == bj.dqR;
+        return bjVar != null && bjVar.getType() == bj.dqV;
     }
 
     @Override // com.baidu.tieba.card.data.k, com.baidu.tieba.card.data.c, com.baidu.tbadk.core.data.a
-    public bj aIw() {
-        return this.dqA;
+    public bj aIu() {
+        return this.dqE;
     }
 }

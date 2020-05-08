@@ -16,77 +16,77 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes9.dex */
 public class a {
-    private List<com.baidu.adp.widget.ListView.a> aMd = new LinkedList();
-    private j gGA;
-    private EnterForumTabFeedFragment gGp;
-    private BdTypeRecyclerView gGq;
-    private h gGr;
-    private com.baidu.tieba.enterForum.tabfeed.a.b gGs;
-    private d gGt;
-    private c gGu;
-    private e gGv;
-    private i gGw;
-    private f gGx;
-    private g gGy;
-    private com.baidu.tieba.enterForum.tabfeed.a.a gGz;
+    private List<com.baidu.adp.widget.ListView.a> aMj = new LinkedList();
+    private c gGA;
+    private e gGB;
+    private i gGC;
+    private f gGD;
+    private g gGE;
+    private com.baidu.tieba.enterForum.tabfeed.a.a gGF;
+    private j gGG;
+    private EnterForumTabFeedFragment gGv;
+    private BdTypeRecyclerView gGw;
+    private h gGx;
+    private com.baidu.tieba.enterForum.tabfeed.a.b gGy;
+    private d gGz;
 
     public a(EnterForumTabFeedFragment enterForumTabFeedFragment, BdTypeRecyclerView bdTypeRecyclerView) {
-        this.gGp = enterForumTabFeedFragment;
-        this.gGq = bdTypeRecyclerView;
-        BC();
+        this.gGv = enterForumTabFeedFragment;
+        this.gGw = bdTypeRecyclerView;
+        BB();
     }
 
-    private void BC() {
-        this.gGr = new h(this.gGp.getPageContext(), bj.dqI, this.gGp.getUniqueId(), this.gGp.getTabName());
-        this.gGr.a(this.gGq);
-        this.aMd.add(this.gGr);
-        this.gGs = new com.baidu.tieba.enterForum.tabfeed.a.b(this.gGp.getPageContext(), bj.dqN, this.gGp.getUniqueId(), this.gGp.getTabName());
-        this.gGs.a(this.gGq);
-        this.aMd.add(this.gGs);
-        this.gGt = new d(this.gGp.getPageContext(), bj.dqL, this.gGp.getUniqueId(), this.gGp.getTabName());
-        this.gGt.a(this.gGq);
-        this.aMd.add(this.gGt);
-        this.gGu = new c(this.gGp.getPageContext(), bj.dqM, this.gGp.getUniqueId(), this.gGp.getTabName());
-        this.gGu.a(this.gGq);
-        this.aMd.add(this.gGu);
-        this.gGv = new e(this.gGp.getPageContext(), bj.dqJ, this.gGp.getUniqueId(), this.gGp.getTabName());
-        this.gGv.a(this.gGq);
-        this.aMd.add(this.gGv);
-        this.gGw = new i(this.gGp.getPageContext(), bj.dqV, this.gGp.getUniqueId(), this.gGp.getTabName());
-        this.gGw.a(this.gGq);
-        this.aMd.add(this.gGw);
-        this.gGx = new f(this.gGp.getPageContext(), bj.dqS, this.gGp.getUniqueId(), this.gGp.getTabName());
-        this.gGx.a(this.gGq);
-        this.aMd.add(this.gGx);
-        this.gGy = new g(this.gGp.getPageContext(), bj.dqO, this.gGp.getUniqueId(), this.gGp.getTabName());
-        this.gGy.a(this.gGq);
-        this.aMd.add(this.gGy);
-        this.gGz = new com.baidu.tieba.enterForum.tabfeed.a.a(this.gGp.getPageContext(), bj.dqR, this.gGp.getUniqueId(), this.gGp.getTabName());
-        this.gGz.a(this.gGq);
-        this.aMd.add(this.gGz);
-        this.gGA = new j(this.gGp.getPageContext(), com.baidu.tieba.enterForum.tabfeed.b.d.gHd, this.gGp.getUniqueId(), this.gGp.getTabName());
-        this.gGA.a(this.gGq);
-        this.aMd.add(this.gGA);
-        this.gGq.addAdapters(this.aMd);
+    private void BB() {
+        this.gGx = new h(this.gGv.getPageContext(), bj.dqM, this.gGv.getUniqueId(), this.gGv.getTabName());
+        this.gGx.a(this.gGw);
+        this.aMj.add(this.gGx);
+        this.gGy = new com.baidu.tieba.enterForum.tabfeed.a.b(this.gGv.getPageContext(), bj.dqR, this.gGv.getUniqueId(), this.gGv.getTabName());
+        this.gGy.a(this.gGw);
+        this.aMj.add(this.gGy);
+        this.gGz = new d(this.gGv.getPageContext(), bj.dqP, this.gGv.getUniqueId(), this.gGv.getTabName());
+        this.gGz.a(this.gGw);
+        this.aMj.add(this.gGz);
+        this.gGA = new c(this.gGv.getPageContext(), bj.dqQ, this.gGv.getUniqueId(), this.gGv.getTabName());
+        this.gGA.a(this.gGw);
+        this.aMj.add(this.gGA);
+        this.gGB = new e(this.gGv.getPageContext(), bj.dqN, this.gGv.getUniqueId(), this.gGv.getTabName());
+        this.gGB.a(this.gGw);
+        this.aMj.add(this.gGB);
+        this.gGC = new i(this.gGv.getPageContext(), bj.dqZ, this.gGv.getUniqueId(), this.gGv.getTabName());
+        this.gGC.a(this.gGw);
+        this.aMj.add(this.gGC);
+        this.gGD = new f(this.gGv.getPageContext(), bj.dqW, this.gGv.getUniqueId(), this.gGv.getTabName());
+        this.gGD.a(this.gGw);
+        this.aMj.add(this.gGD);
+        this.gGE = new g(this.gGv.getPageContext(), bj.dqS, this.gGv.getUniqueId(), this.gGv.getTabName());
+        this.gGE.a(this.gGw);
+        this.aMj.add(this.gGE);
+        this.gGF = new com.baidu.tieba.enterForum.tabfeed.a.a(this.gGv.getPageContext(), bj.dqV, this.gGv.getUniqueId(), this.gGv.getTabName());
+        this.gGF.a(this.gGw);
+        this.aMj.add(this.gGF);
+        this.gGG = new j(this.gGv.getPageContext(), com.baidu.tieba.enterForum.tabfeed.b.d.gHj, this.gGv.getUniqueId(), this.gGv.getTabName());
+        this.gGG.a(this.gGw);
+        this.aMj.add(this.gGG);
+        this.gGw.addAdapters(this.aMj);
     }
 
     public void notifyDataSetChanged() {
-        this.gGq.getAdapter().notifyDataSetChanged();
+        this.gGw.getAdapter().notifyDataSetChanged();
     }
 
     public void setData(ArrayList<m> arrayList) {
-        this.gGq.setData(arrayList);
+        this.gGw.setData(arrayList);
     }
 
     public void setIsFromCDN(boolean z) {
-        if (this.gGs != null) {
-            this.gGs.setFromCDN(z);
+        if (this.gGy != null) {
+            this.gGy.setFromCDN(z);
         }
-        if (this.gGu != null) {
-            this.gGu.setFromCDN(z);
+        if (this.gGA != null) {
+            this.gGA.setFromCDN(z);
         }
-        if (this.gGt != null) {
-            this.gGt.setFromCDN(z);
+        if (this.gGz != null) {
+            this.gGz.setFromCDN(z);
         }
     }
 }

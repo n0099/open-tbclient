@@ -275,7 +275,7 @@ public class e {
                                                         if (jSONObject4.has("coolNickname")) {
                                                             JSONObject jSONObject6 = jSONObject4.getJSONObject("coolNickname");
                                                             chatInfo.mCoolNickname = new RichTextPlus();
-                                                            chatInfo.mCoolNickname.mNicknameRichText = tv.chushou.zues.toolkit.richtext.b.Qi(jSONObject6.optString("nickname"));
+                                                            chatInfo.mCoolNickname.mNicknameRichText = tv.chushou.zues.toolkit.richtext.b.Ql(jSONObject6.optString("nickname"));
                                                             chatInfo.mCoolNickname.mFontColors = (ArrayList) a(jSONObject6.optJSONArray("colors"));
                                                             if (!h.isEmpty(chatInfo.mCoolNickname.mNicknameRichText)) {
                                                                 chatInfo.mCoolNickname.mNickName = "";
@@ -291,7 +291,7 @@ public class e {
                                                         if (jSONObject4.has("coolContent")) {
                                                             JSONObject jSONObject7 = jSONObject4.getJSONObject("coolContent");
                                                             chatInfo.mCoolContent = new RichTextPlus();
-                                                            chatInfo.mCoolContent.mContentRichText = tv.chushou.zues.toolkit.richtext.b.Qi(jSONObject7.optString("content"));
+                                                            chatInfo.mCoolContent.mContentRichText = tv.chushou.zues.toolkit.richtext.b.Ql(jSONObject7.optString("content"));
                                                             chatInfo.mCoolContent.mFontColors = (ArrayList) a(jSONObject7.optJSONArray("colors"));
                                                             if (!h.isEmpty(chatInfo.mCoolContent.mContentRichText)) {
                                                                 chatInfo.mCoolContent.mContent = "";
@@ -307,8 +307,8 @@ public class e {
                                                         if (jSONObject4.has("coolMessage")) {
                                                             JSONObject jSONObject8 = jSONObject4.getJSONObject("coolMessage");
                                                             chatInfo.mCoolMessage = new RichTextPlus();
-                                                            chatInfo.mCoolMessage.mContentRichText = tv.chushou.zues.toolkit.richtext.b.Qi(jSONObject8.optString("content"));
-                                                            chatInfo.mCoolMessage.mNicknameRichText = tv.chushou.zues.toolkit.richtext.b.Qi(jSONObject8.optString("nickname"));
+                                                            chatInfo.mCoolMessage.mContentRichText = tv.chushou.zues.toolkit.richtext.b.Ql(jSONObject8.optString("content"));
+                                                            chatInfo.mCoolMessage.mNicknameRichText = tv.chushou.zues.toolkit.richtext.b.Ql(jSONObject8.optString("nickname"));
                                                             chatInfo.mCoolMessage.mBgImage = jSONObject8.optString("bgImage");
                                                             if (!h.isEmpty(chatInfo.mCoolMessage.mNicknameRichText)) {
                                                                 chatInfo.mCoolMessage.mNickName = "";
@@ -334,7 +334,7 @@ public class e {
                                                     }
                                                 }
                                                 chatInfo.mCreatedTime = optJSONObject.optLong("createdTime");
-                                                chatInfo.mContentRichText = tv.chushou.zues.toolkit.richtext.b.Qi(chatInfo.mContent);
+                                                chatInfo.mContentRichText = tv.chushou.zues.toolkit.richtext.b.Ql(chatInfo.mContent);
                                                 if (chatInfo.mContentRichText != null && chatInfo.mContentRichText.size() > 0) {
                                                     chatInfo.mContent = "";
                                                     StringBuilder sb5 = new StringBuilder();
@@ -345,7 +345,7 @@ public class e {
                                                     }
                                                     chatInfo.mContent = sb5.toString();
                                                 }
-                                                chatInfo.mNicknameRichText = tv.chushou.zues.toolkit.richtext.b.Qi(chatInfo.mUserNickname);
+                                                chatInfo.mNicknameRichText = tv.chushou.zues.toolkit.richtext.b.Ql(chatInfo.mUserNickname);
                                                 if (chatInfo.mNicknameRichText != null && chatInfo.mNicknameRichText.size() > 0) {
                                                     chatInfo.mPrivilegeInfo.mRichNickname = chatInfo.mNicknameRichText;
                                                     chatInfo.mUserNickname = "";
@@ -1871,13 +1871,13 @@ public class e {
                                                     JSONObject optJSONObject10 = optJSONObject9.optJSONObject("landscape");
                                                     if (optJSONObject10 != null) {
                                                         aVar.o = optJSONObject10.optString("url", "");
-                                                        aVar.mAZ = dJ(optJSONObject10);
+                                                        aVar.mBe = dJ(optJSONObject10);
                                                         aVar.a = optJSONObject10.optInt("duration", 0);
                                                     }
                                                     JSONObject optJSONObject11 = optJSONObject9.optJSONObject("portrait");
                                                     if (optJSONObject11 != null) {
                                                         aVar.o = optJSONObject11.optString("url", "");
-                                                        aVar.mBa = dJ(optJSONObject11);
+                                                        aVar.mBf = dJ(optJSONObject11);
                                                         aVar.a = optJSONObject11.optInt("duration", 0);
                                                     }
                                                     if (arrayList11 == null) {
@@ -2303,7 +2303,7 @@ public class e {
                         }
                     }
                     if (jSONObject2.has("richNickname")) {
-                        privilegeInfo.mRichNickname = tv.chushou.zues.toolkit.richtext.b.Qi(jSONObject2.getString("richNickname"));
+                        privilegeInfo.mRichNickname = tv.chushou.zues.toolkit.richtext.b.Ql(jSONObject2.getString("richNickname"));
                     }
                     JSONArray optJSONArray = jSONObject2.optJSONArray("emojiPrivileges");
                     if (optJSONArray != null && optJSONArray.length() > 0) {
@@ -2465,7 +2465,7 @@ public class e {
                         privilegeInfo.mMedals = arrayList2;
                     }
                     if (jSONObject2.has("richNickname")) {
-                        privilegeInfo.mRichNickname = tv.chushou.zues.toolkit.richtext.b.Qi(jSONObject2.getString("richNickname"));
+                        privilegeInfo.mRichNickname = tv.chushou.zues.toolkit.richtext.b.Ql(jSONObject2.getString("richNickname"));
                     }
                     JSONArray optJSONArray = jSONObject2.optJSONArray("emojiPrivileges");
                     if (optJSONArray != null && optJSONArray.length() > 0) {
@@ -2512,19 +2512,19 @@ public class e {
         if (jSONObject.has("coolPrivileges") && (optJSONObject = jSONObject.optJSONObject("coolPrivileges")) != null) {
             if (optJSONObject.has("coolNickname") && (optJSONObject4 = optJSONObject.optJSONObject("coolNickname")) != null) {
                 privilegeInfo.mCoolNickname = new RichTextPlus();
-                privilegeInfo.mCoolNickname.mNicknameRichText = tv.chushou.zues.toolkit.richtext.b.Qi(optJSONObject4.optString("nickname"));
+                privilegeInfo.mCoolNickname.mNicknameRichText = tv.chushou.zues.toolkit.richtext.b.Ql(optJSONObject4.optString("nickname"));
                 privilegeInfo.mCoolNickname.mFontColors = (ArrayList) a(optJSONObject4.optJSONArray("colors"));
             }
             if (optJSONObject.has("coolContent") && (optJSONObject3 = optJSONObject.optJSONObject("coolContent")) != null) {
                 privilegeInfo.mCoolContent = new RichTextPlus();
-                privilegeInfo.mCoolContent.mContentRichText = tv.chushou.zues.toolkit.richtext.b.Qi(optJSONObject3.optString("content"));
+                privilegeInfo.mCoolContent.mContentRichText = tv.chushou.zues.toolkit.richtext.b.Ql(optJSONObject3.optString("content"));
                 privilegeInfo.mCoolContent.mFontColors = (ArrayList) a(optJSONObject3.optJSONArray("colors"));
             }
             if (optJSONObject.has("coolMessage") && (optJSONObject2 = optJSONObject.optJSONObject("coolMessage")) != null) {
                 privilegeInfo.mCoolMessage = new RichTextPlus();
-                privilegeInfo.mCoolMessage.mNicknameRichText = tv.chushou.zues.toolkit.richtext.b.Qi(optJSONObject2.optString("nickname"));
+                privilegeInfo.mCoolMessage.mNicknameRichText = tv.chushou.zues.toolkit.richtext.b.Ql(optJSONObject2.optString("nickname"));
                 privilegeInfo.mCoolMessage.mBgImage = optJSONObject2.optString("bgImage");
-                privilegeInfo.mCoolMessage.mContentRichText = tv.chushou.zues.toolkit.richtext.b.Qi(optJSONObject2.optString("content"));
+                privilegeInfo.mCoolMessage.mContentRichText = tv.chushou.zues.toolkit.richtext.b.Ql(optJSONObject2.optString("content"));
             }
         }
     }
@@ -3013,11 +3013,11 @@ public class e {
         dVar.q = jSONObject.optString("displayType", HttpConfig.UBC_HTTP_ID);
         JSONObject optJSONObject = jSONObject.optJSONObject("landscape");
         if (optJSONObject != null) {
-            dVar.mAZ = dJ(optJSONObject);
+            dVar.mBe = dJ(optJSONObject);
         }
         JSONObject optJSONObject2 = jSONObject.optJSONObject("portrait");
         if (optJSONObject2 != null) {
-            dVar.mBa = dJ(optJSONObject2);
+            dVar.mBf = dJ(optJSONObject2);
         }
         dVar.o = jSONObject.optString("url", "");
     }
@@ -3033,7 +3033,7 @@ public class e {
     private static com.kascend.chushou.player.ui.h5.c.e dK(JSONObject jSONObject) {
         com.kascend.chushou.player.ui.h5.c.e eVar = new com.kascend.chushou.player.ui.h5.c.e();
         a(jSONObject, eVar);
-        eVar.OI(jSONObject.optString(AlaStaticKeys.ALA_STATIC_VALUE_ICON, ""));
+        eVar.OL(jSONObject.optString(AlaStaticKeys.ALA_STATIC_VALUE_ICON, ""));
         return eVar;
     }
 
@@ -3107,10 +3107,10 @@ public class e {
         if (jSONArray == null && jSONArray2 == null) {
             return true;
         }
-        tv.chushou.basis.d.a.b.b bVar = (tv.chushou.basis.d.a.b.b) tv.chushou.basis.d.b.dJv().S(tv.chushou.basis.d.a.b.b.class);
+        tv.chushou.basis.d.a.b.b bVar = (tv.chushou.basis.d.a.b.b) tv.chushou.basis.d.b.dJr().S(tv.chushou.basis.d.a.b.b.class);
         if (bVar != null) {
             str = bVar.getAppKey();
-            str2 = bVar.dyG();
+            str2 = bVar.dyC();
         } else {
             str = null;
         }

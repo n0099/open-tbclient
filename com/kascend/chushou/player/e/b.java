@@ -26,19 +26,19 @@ public class b {
     private Context a;
     private ImageView h;
     private View l;
-    private LivePKBar msR;
-    private LivePKBarUserValue msS;
-    private LivePKBarStatus msT;
-    private AnimationSet msU;
-    private LivePKResultView msV;
-    private LivePKMvpView msW;
-    private LivePkFirstKillView msX;
-    private LivePKPrepareAnimView msY;
-    private a msZ;
+    private LivePKBar msW;
+    private LivePKBarUserValue msX;
+    private LivePKBarStatus msY;
+    private AnimationSet msZ;
+    private LivePKResultView mta;
+    private LivePKMvpView mtb;
+    private LivePkFirstKillView mtc;
+    private LivePKPrepareAnimView mtd;
+    private a mte;
     private final int b = 30;
     private final int c = 10;
     private final float d = 0.2f;
-    private int[] aio = {a.e.icon_live_pk_countdown_1, a.e.icon_live_pk_countdown_2, a.e.icon_live_pk_countdown_3, a.e.icon_live_pk_countdown_4, a.e.icon_live_pk_countdown_5, a.e.icon_live_pk_countdown_6, a.e.icon_live_pk_countdown_7, a.e.icon_live_pk_countdown_8, a.e.icon_live_pk_countdown_9, a.e.icon_live_pk_countdown_10};
+    private int[] air = {a.e.icon_live_pk_countdown_1, a.e.icon_live_pk_countdown_2, a.e.icon_live_pk_countdown_3, a.e.icon_live_pk_countdown_4, a.e.icon_live_pk_countdown_5, a.e.icon_live_pk_countdown_6, a.e.icon_live_pk_countdown_7, a.e.icon_live_pk_countdown_8, a.e.icon_live_pk_countdown_9, a.e.icon_live_pk_countdown_10};
 
     /* loaded from: classes5.dex */
     public interface a {
@@ -47,33 +47,33 @@ public class b {
 
     public void a(View view, View view2, Context context, a aVar) {
         this.a = context;
-        this.msR = (LivePKBar) view.findViewById(a.f.live_pk_bar);
-        this.msV = (LivePKResultView) view.findViewById(a.f.live_pk_result_anim_view);
-        this.msW = (LivePKMvpView) view.findViewById(a.f.live_pk_mvp_anim_view);
+        this.msW = (LivePKBar) view.findViewById(a.f.live_pk_bar);
+        this.mta = (LivePKResultView) view.findViewById(a.f.live_pk_result_anim_view);
+        this.mtb = (LivePKMvpView) view.findViewById(a.f.live_pk_mvp_anim_view);
         this.h = (ImageView) view.findViewById(a.f.img_live_pk_last_ten);
-        this.msX = (LivePkFirstKillView) view.findViewById(a.f.live_pk_first_blood_view);
-        this.msY = (LivePKPrepareAnimView) view.findViewById(a.f.live_pk_prepare);
+        this.mtc = (LivePkFirstKillView) view.findViewById(a.f.live_pk_first_blood_view);
+        this.mtd = (LivePKPrepareAnimView) view.findViewById(a.f.live_pk_prepare);
         this.l = view2;
-        this.msZ = aVar;
+        this.mte = aVar;
         d();
     }
 
     public void a(LivePKBarUserValue livePKBarUserValue, View view, View view2, Context context, a aVar) {
         this.a = context;
-        this.msS = livePKBarUserValue;
-        this.msT = (LivePKBarStatus) view.findViewById(a.f.live_pk_bar_status);
-        this.msV = (LivePKResultView) view.findViewById(a.f.live_pk_result_anim_view);
-        this.msW = (LivePKMvpView) view.findViewById(a.f.live_pk_mvp_anim_view);
+        this.msX = livePKBarUserValue;
+        this.msY = (LivePKBarStatus) view.findViewById(a.f.live_pk_bar_status);
+        this.mta = (LivePKResultView) view.findViewById(a.f.live_pk_result_anim_view);
+        this.mtb = (LivePKMvpView) view.findViewById(a.f.live_pk_mvp_anim_view);
         this.h = (ImageView) view.findViewById(a.f.img_live_pk_last_ten);
-        this.msX = (LivePkFirstKillView) view.findViewById(a.f.live_pk_first_blood_view);
-        this.msY = (LivePKPrepareAnimView) view.findViewById(a.f.live_pk_prepare);
+        this.mtc = (LivePkFirstKillView) view.findViewById(a.f.live_pk_first_blood_view);
+        this.mtd = (LivePKPrepareAnimView) view.findViewById(a.f.live_pk_prepare);
         this.l = view2;
-        this.msZ = aVar;
+        this.mte = aVar;
         d();
     }
 
     private void d() {
-        this.msU = (AnimationSet) AnimationUtils.loadAnimation(this.a, a.C0715a.pk_live_online_count_down_last_three);
+        this.msZ = (AnimationSet) AnimationUtils.loadAnimation(this.a, a.C0736a.pk_live_online_count_down_last_three);
         LivePKBar.b bVar = new LivePKBar.b() { // from class: com.kascend.chushou.player.e.b.1
             @Override // com.kascend.chushou.player.ui.pk.LivePKBar.b
             public void a(long j) {
@@ -88,12 +88,12 @@ public class b {
             public void b(long j) {
             }
         };
-        if (this.msR != null) {
-            this.msR.setClickListener(new LivePKBar.a() { // from class: com.kascend.chushou.player.e.b.2
+        if (this.msW != null) {
+            this.msW.setClickListener(new LivePKBar.a() { // from class: com.kascend.chushou.player.e.b.2
                 @Override // com.kascend.chushou.player.ui.pk.LivePKBar.a
                 public void A(long j, int i) {
-                    if (b.this.msZ != null) {
-                        b.this.msZ.a(i);
+                    if (b.this.mte != null) {
+                        b.this.mte.a(i);
                     }
                 }
 
@@ -122,17 +122,17 @@ public class b {
                     }
                 }
             });
-            this.msR.setCounterListener(bVar);
+            this.msW.setCounterListener(bVar);
         }
-        if (this.msT != null) {
-            this.msT.setCounterListener(bVar);
+        if (this.msY != null) {
+            this.msY.setCounterListener(bVar);
         }
-        if (this.msS != null) {
-            this.msS.setClickListener(new LivePKBarUserValue.a() { // from class: com.kascend.chushou.player.e.b.3
+        if (this.msX != null) {
+            this.msX.setClickListener(new LivePKBarUserValue.a() { // from class: com.kascend.chushou.player.e.b.3
                 @Override // com.kascend.chushou.player.ui.pk.LivePKBarUserValue.a
                 public void A(long j, int i) {
-                    if (b.this.msZ != null) {
-                        b.this.msZ.a(i);
+                    if (b.this.mte != null) {
+                        b.this.mte.a(i);
                     }
                 }
 
@@ -161,74 +161,74 @@ public class b {
     }
 
     public void a(int i, int i2) {
-        if (this.msR != null) {
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.msR.getLayoutParams();
+        if (this.msW != null) {
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.msW.getLayoutParams();
             layoutParams.bottomMargin = i;
-            this.msR.setLayoutParams(layoutParams);
+            this.msW.setLayoutParams(layoutParams);
         }
     }
 
     public void a(int i, long j, long j2, int i2, int i3) {
-        if (this.msX != null) {
-            this.msX.a();
+        if (this.mtc != null) {
+            this.mtc.a();
         }
         if (i2 == 2) {
-            if (this.msR != null) {
-                this.msR.b();
+            if (this.msW != null) {
+                this.msW.b();
             }
-            if (this.msT != null) {
-                this.msT.b();
+            if (this.msY != null) {
+                this.msY.b();
             }
         }
-        if (this.msR != null) {
-            this.msR.a(j);
+        if (this.msW != null) {
+            this.msW.a(j);
         }
-        if (this.msT != null) {
-            this.msT.a(j);
+        if (this.msY != null) {
+            this.msY.a(j);
         }
         if (i == 0) {
-            if (this.msR != null) {
-                this.msR.b(i3, false);
+            if (this.msW != null) {
+                this.msW.b(i3, false);
             }
-            if (this.msT != null) {
-                this.msT.b(i3, false);
+            if (this.msY != null) {
+                this.msY.b(i3, false);
             }
             if (i2 == 2) {
-                this.msV.d();
+                this.mta.d();
             } else {
-                this.msV.b(false);
+                this.mta.b(false);
             }
             b();
         } else if (i == 1) {
-            if (this.msR != null) {
-                this.msR.b(i3, j2, false);
+            if (this.msW != null) {
+                this.msW.b(i3, j2, false);
             }
-            if (this.msS != null) {
-                this.msS.b(j2);
+            if (this.msX != null) {
+                this.msX.b(j2);
             }
-            if (this.msT != null) {
-                this.msT.a(i3, false);
+            if (this.msY != null) {
+                this.msY.a(i3, false);
             }
             if (i2 == 2) {
-                this.msV.c(true);
+                this.mta.c(true);
             } else {
-                this.msV.a(true, false);
+                this.mta.a(true, false);
             }
             b();
         } else {
-            if (this.msR != null) {
-                this.msR.a(i3, j2, false);
+            if (this.msW != null) {
+                this.msW.a(i3, j2, false);
             }
-            if (this.msS != null) {
-                this.msS.a(j2);
+            if (this.msX != null) {
+                this.msX.a(j2);
             }
-            if (this.msT != null) {
-                this.msT.a(i3, false);
+            if (this.msY != null) {
+                this.msY.a(i3, false);
             }
             if (i2 == 2) {
-                this.msV.c(false);
+                this.mta.c(false);
             } else {
-                this.msV.a(false, false);
+                this.mta.a(false, false);
             }
             b();
         }
@@ -237,18 +237,18 @@ public class b {
     public void A(long j, int i) {
         tv.chushou.zues.utils.e.d("guohe", "PkViewController.updateLivePkStop(): maxTime = " + j);
         if (i == 2) {
-            if (this.msR != null) {
-                this.msR.b();
+            if (this.msW != null) {
+                this.msW.b();
             }
-            if (this.msT != null) {
-                this.msT.b();
+            if (this.msY != null) {
+                this.msY.b();
             }
         } else {
-            if (this.msR != null) {
-                this.msR.a(j);
+            if (this.msW != null) {
+                this.msW.a(j);
             }
-            if (this.msT != null) {
-                this.msT.a(j);
+            if (this.msY != null) {
+                this.msY.a(j);
             }
         }
         a(-1);
@@ -258,90 +258,90 @@ public class b {
 
     public void a(int i, long j, final String str, final String str2, long j2, int i2, int i3) {
         tv.chushou.zues.utils.e.d("guohe", "PkViewController.updateLivePkResult(): result = " + i);
-        if (this.msX != null) {
-            this.msX.a();
+        if (this.mtc != null) {
+            this.mtc.a();
         }
         if (i2 == 2) {
-            if (this.msR != null) {
-                this.msR.b();
+            if (this.msW != null) {
+                this.msW.b();
             }
-            if (this.msT != null) {
-                this.msT.b();
+            if (this.msY != null) {
+                this.msY.b();
             }
         }
         if (i == 0) {
-            if (this.msR != null) {
-                this.msR.b(i3, false);
+            if (this.msW != null) {
+                this.msW.b(i3, false);
             }
-            if (this.msT != null) {
-                this.msT.b(i3, false);
+            if (this.msY != null) {
+                this.msY.b(i3, false);
             }
-            this.msV.setCallback(new LivePKResultView.a() { // from class: com.kascend.chushou.player.e.b.4
+            this.mta.setCallback(new LivePKResultView.a() { // from class: com.kascend.chushou.player.e.b.4
                 @Override // com.kascend.chushou.player.ui.pk.LivePKResultView.a
                 public void a() {
                     b.this.a();
                 }
             });
             if (i2 == 2) {
-                this.msV.d();
+                this.mta.d();
             } else {
-                this.msV.a();
+                this.mta.a();
             }
             b();
         } else if (i == 1) {
-            if (this.msR != null) {
-                this.msR.b(i3, j, false);
+            if (this.msW != null) {
+                this.msW.b(i3, j, false);
             }
-            if (this.msS != null) {
-                this.msS.b(j);
+            if (this.msX != null) {
+                this.msX.b(j);
             }
-            if (this.msT != null) {
-                this.msT.a(i3, false);
+            if (this.msY != null) {
+                this.msY.a(i3, false);
             }
-            this.msW.setCallback(new LivePKMvpView.a() { // from class: com.kascend.chushou.player.e.b.5
+            this.mtb.setCallback(new LivePKMvpView.a() { // from class: com.kascend.chushou.player.e.b.5
                 @Override // com.kascend.chushou.player.ui.pk.LivePKMvpView.a
                 public void a() {
                     b.this.a();
                 }
             });
-            this.msV.setCallback(new LivePKResultView.a() { // from class: com.kascend.chushou.player.e.b.6
+            this.mta.setCallback(new LivePKResultView.a() { // from class: com.kascend.chushou.player.e.b.6
                 @Override // com.kascend.chushou.player.ui.pk.LivePKResultView.a
                 public void a() {
-                    b.this.msW.a(str, str2);
+                    b.this.mtb.a(str, str2);
                 }
             });
             if (i2 == 2) {
-                this.msV.c(true);
+                this.mta.c(true);
             } else {
-                this.msV.a(true);
+                this.mta.a(true);
             }
             b();
         } else {
-            if (this.msR != null) {
-                this.msR.a(i3, j, false);
+            if (this.msW != null) {
+                this.msW.a(i3, j, false);
             }
-            if (this.msS != null) {
-                this.msS.a(j);
+            if (this.msX != null) {
+                this.msX.a(j);
             }
-            if (this.msT != null) {
-                this.msT.a(i3, false);
+            if (this.msY != null) {
+                this.msY.a(i3, false);
             }
-            this.msW.setCallback(new LivePKMvpView.a() { // from class: com.kascend.chushou.player.e.b.7
+            this.mtb.setCallback(new LivePKMvpView.a() { // from class: com.kascend.chushou.player.e.b.7
                 @Override // com.kascend.chushou.player.ui.pk.LivePKMvpView.a
                 public void a() {
                     b.this.a();
                 }
             });
-            this.msV.setCallback(new LivePKResultView.a() { // from class: com.kascend.chushou.player.e.b.8
+            this.mta.setCallback(new LivePKResultView.a() { // from class: com.kascend.chushou.player.e.b.8
                 @Override // com.kascend.chushou.player.ui.pk.LivePKResultView.a
                 public void a() {
-                    b.this.msW.a(str, str2);
+                    b.this.mtb.a(str, str2);
                 }
             });
             if (i2 == 2) {
-                this.msV.c(false);
+                this.mta.c(false);
             } else {
-                this.msV.a(false);
+                this.mta.a(false);
             }
             b();
         }
@@ -359,18 +359,18 @@ public class b {
                     } else if (specialMoment.type == 2) {
                         a(true, h.parseFloat(specialMoment.addition), (int) specialMoment.remainDuration);
                     } else if (specialMoment.type == 3) {
-                        if (this.msS != null) {
-                            this.msS.b(h.parseFloat(specialMoment.addition), (int) specialMoment.remainDuration);
+                        if (this.msX != null) {
+                            this.msX.b(h.parseFloat(specialMoment.addition), (int) specialMoment.remainDuration);
                         }
-                        if (this.msR != null) {
-                            this.msR.b(h.parseFloat(specialMoment.addition), (int) specialMoment.remainDuration);
+                        if (this.msW != null) {
+                            this.msW.b(h.parseFloat(specialMoment.addition), (int) specialMoment.remainDuration);
                         }
                     } else if (specialMoment.type == 4) {
-                        if (this.msS != null) {
-                            this.msS.b(h.parseFloat(specialMoment.addition), (int) specialMoment.remainDuration);
+                        if (this.msX != null) {
+                            this.msX.b(h.parseFloat(specialMoment.addition), (int) specialMoment.remainDuration);
                         }
-                        if (this.msR != null) {
-                            this.msR.b(h.parseFloat(specialMoment.addition), (int) specialMoment.remainDuration);
+                        if (this.msW != null) {
+                            this.msW.b(h.parseFloat(specialMoment.addition), (int) specialMoment.remainDuration);
                         }
                     }
                     i = i2 + 1;
@@ -384,11 +384,11 @@ public class b {
     public void a(PkNotifyInfo pkNotifyInfo) {
         tv.chushou.zues.utils.e.d("guohe", "PkViewController.updateLivePkBar(): ");
         if (pkNotifyInfo != null && pkNotifyInfo.mPkUpdateInfo != null) {
-            if (this.msR != null) {
-                this.msR.a(h.parseLong(pkNotifyInfo.mPkUpdateInfo.receiveCount), h.parseLong(pkNotifyInfo.mPkUpdateInfo.opponentReceiveCount));
+            if (this.msW != null) {
+                this.msW.a(h.parseLong(pkNotifyInfo.mPkUpdateInfo.receiveCount), h.parseLong(pkNotifyInfo.mPkUpdateInfo.opponentReceiveCount));
             }
-            if (this.msS != null) {
-                this.msS.a(h.parseLong(pkNotifyInfo.mPkUpdateInfo.receiveCount), h.parseLong(pkNotifyInfo.mPkUpdateInfo.opponentReceiveCount));
+            if (this.msX != null) {
+                this.msX.a(h.parseLong(pkNotifyInfo.mPkUpdateInfo.receiveCount), h.parseLong(pkNotifyInfo.mPkUpdateInfo.opponentReceiveCount));
             }
             LinkedHashMap<Long, String> linkedHashMap = new LinkedHashMap<>();
             if (!h.isEmpty(pkNotifyInfo.mPkUpdateInfo.rewardList)) {
@@ -408,59 +408,59 @@ public class b {
                     }
                 }
             }
-            if (this.msR != null) {
-                this.msR.a(linkedHashMap, linkedHashMap2);
+            if (this.msW != null) {
+                this.msW.a(linkedHashMap, linkedHashMap2);
             }
-            if (this.msS != null) {
-                this.msS.a(linkedHashMap, linkedHashMap2);
+            if (this.msX != null) {
+                this.msX.a(linkedHashMap, linkedHashMap2);
             }
         }
     }
 
     public void b(PkNotifyInfo pkNotifyInfo, boolean z) {
         tv.chushou.zues.utils.e.d("guohe", "PkViewController.showLivePkStartAnim(): pkNotifyInfo.mMaxPKDuration = " + pkNotifyInfo.mMaxPKDuration + ", pkNotifyInfo.mPkUpdateInfo.remainDuration = " + pkNotifyInfo.mPkUpdateInfo.remainDuration + ", inner = " + z);
-        if (this.msR != null) {
-            this.msR.setVisibility(0);
-            this.msR.c();
+        if (this.msW != null) {
+            this.msW.setVisibility(0);
+            this.msW.c();
             if (!z) {
                 a(pkNotifyInfo);
             }
-            this.msR.e();
+            this.msW.e();
             if (pkNotifyInfo.destinyInfo != null && pkNotifyInfo.destinyInfo.destinyId != 0) {
-                this.msR.a(2, pkNotifyInfo.destinyInfo.pkBarIcon, pkNotifyInfo.destinyInfo.pkBarKey);
-                this.msR.b(2);
+                this.msW.a(2, pkNotifyInfo.destinyInfo.pkBarIcon, pkNotifyInfo.destinyInfo.pkBarKey);
+                this.msW.b(2);
             } else {
-                this.msR.a(1, "", "");
-                this.msR.d();
+                this.msW.a(1, "", "");
+                this.msW.d();
             }
-            this.msR.a(30);
-            this.msR.a(0.2f);
+            this.msW.a(30);
+            this.msW.a(0.2f);
             if (z) {
-                this.msR.b(pkNotifyInfo.mMaxPKDuration);
+                this.msW.b(pkNotifyInfo.mMaxPKDuration);
             } else {
-                this.msR.b(pkNotifyInfo.mPkUpdateInfo.remainDuration);
+                this.msW.b(pkNotifyInfo.mPkUpdateInfo.remainDuration);
             }
         }
-        if (this.msT != null && this.msS != null) {
-            this.msT.setVisibility(0);
-            this.msT.c();
+        if (this.msY != null && this.msX != null) {
+            this.msY.setVisibility(0);
+            this.msY.c();
             if (!z) {
                 a(pkNotifyInfo);
             }
-            this.msS.b();
+            this.msX.b();
             if (pkNotifyInfo.destinyInfo != null && pkNotifyInfo.destinyInfo.destinyId != 0) {
-                this.msS.a(2, pkNotifyInfo.destinyInfo.pkBarIcon, pkNotifyInfo.destinyInfo.pkBarKey);
-                this.msS.a(2);
+                this.msX.a(2, pkNotifyInfo.destinyInfo.pkBarIcon, pkNotifyInfo.destinyInfo.pkBarKey);
+                this.msX.a(2);
             } else {
-                this.msS.a(1, "", "");
-                this.msS.e();
+                this.msX.a(1, "", "");
+                this.msX.e();
             }
-            this.msT.a(30);
-            this.msS.a(0.2f);
+            this.msY.a(30);
+            this.msX.a(0.2f);
             if (z) {
-                this.msT.b(pkNotifyInfo.mMaxPKDuration);
+                this.msY.b(pkNotifyInfo.mMaxPKDuration);
             } else {
-                this.msT.b(pkNotifyInfo.mPkUpdateInfo.remainDuration);
+                this.msY.b(pkNotifyInfo.mPkUpdateInfo.remainDuration);
             }
         }
     }
@@ -471,8 +471,8 @@ public class b {
     public void a(int i) {
         if (i <= 10 && i > 0) {
             this.h.setVisibility(0);
-            this.h.setImageResource(this.aio[i - 1]);
-            this.h.startAnimation(this.msU);
+            this.h.setImageResource(this.air[i - 1]);
+            this.h.startAnimation(this.msZ);
         } else if (i <= 0) {
             this.h.clearAnimation();
             this.h.setVisibility(8);
@@ -480,11 +480,11 @@ public class b {
     }
 
     public void a(boolean z, boolean z2, float f) {
-        if (this.msX != null) {
+        if (this.mtc != null) {
             if (z) {
-                this.msX.a(z2, f);
+                this.mtc.a(z2, f);
             } else {
-                this.msX.a();
+                this.mtc.a();
             }
         }
     }
@@ -493,11 +493,11 @@ public class b {
     }
 
     public void g(boolean z, long j) {
-        if (this.msY != null) {
+        if (this.mtd != null) {
             if (z) {
-                this.msY.a(j);
+                this.mtd.a(j);
             } else {
-                this.msY.a();
+                this.mtd.a();
             }
         }
     }
@@ -515,31 +515,31 @@ public class b {
     }
 
     public void c() {
-        if (this.msR != null) {
-            this.msR.a();
+        if (this.msW != null) {
+            this.msW.a();
         }
-        if (this.msS != null) {
-            this.msS.a();
+        if (this.msX != null) {
+            this.msX.a();
         }
-        if (this.msT != null) {
-            this.msT.a();
+        if (this.msY != null) {
+            this.msY.a();
         }
-        if (this.msV != null) {
-            this.msV.clearAnimation();
-            this.msV.b();
+        if (this.mta != null) {
+            this.mta.clearAnimation();
+            this.mta.b();
         }
         if (this.h != null) {
             this.h.clearAnimation();
             this.h.setVisibility(8);
         }
-        if (this.msX != null) {
-            this.msX.a();
+        if (this.mtc != null) {
+            this.mtc.a();
         }
-        if (this.msW != null) {
-            this.msW.a();
+        if (this.mtb != null) {
+            this.mtb.a();
         }
-        if (this.msY != null) {
-            this.msY.a();
+        if (this.mtd != null) {
+            this.mtd.a();
         }
         a();
     }

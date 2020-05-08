@@ -10,7 +10,7 @@ import com.baidu.adp.widget.ListView.y;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class d {
-    public a TF = null;
+    public a TI = null;
     public ArrayList<c> mFooterViewInfos;
     public ArrayList<c> mHeaderViewInfos;
 
@@ -27,7 +27,7 @@ public class d {
     }
 
     public void a(a aVar) {
-        this.TF = aVar;
+        this.TI = aVar;
     }
 
     public int getHeadersCount() {
@@ -41,7 +41,7 @@ public class d {
     public void addHeaderView(View view, Object obj, boolean z, int i) {
         if (view != null) {
             c cVar = new c();
-            cVar.TH = new y.a(view);
+            cVar.TK = new y.a(view);
             cVar.data = obj;
             cVar.isSelectable = z;
             cVar.type = BdUniqueId.gen().getId();
@@ -58,7 +58,7 @@ public class d {
     public void addFooterView(View view, Object obj, boolean z, int i) {
         if (view != null) {
             c cVar = new c();
-            cVar.TH = new y.a(view);
+            cVar.TK = new y.a(view);
             cVar.data = obj;
             cVar.isSelectable = z;
             cVar.type = BdUniqueId.gen().getId();
@@ -78,7 +78,7 @@ public class d {
         }
         for (int i = 0; i < this.mHeaderViewInfos.size(); i++) {
             c cVar = this.mHeaderViewInfos.get(i);
-            if (cVar != null && cVar.TH != null && cVar.TH.itemView == view) {
+            if (cVar != null && cVar.TK != null && cVar.TK.itemView == view) {
                 this.mHeaderViewInfos.remove(i);
                 return true;
             }
@@ -92,7 +92,7 @@ public class d {
         }
         for (int i = 0; i < this.mFooterViewInfos.size(); i++) {
             c cVar = this.mFooterViewInfos.get(i);
-            if (cVar != null && cVar.TH != null && cVar.TH.itemView == view) {
+            if (cVar != null && cVar.TK != null && cVar.TK.itemView == view) {
                 this.mFooterViewInfos.remove(i);
                 return true;
             }
@@ -108,7 +108,7 @@ public class d {
                 if (this.mHeaderViewInfos.get(i3) == null || i != this.mHeaderViewInfos.get(i3).type) {
                     i2 = i3 + 1;
                 } else {
-                    return this.mHeaderViewInfos.get(i3).TH;
+                    return this.mHeaderViewInfos.get(i3).TK;
                 }
             } else {
                 return null;
@@ -124,7 +124,7 @@ public class d {
                 if (this.mFooterViewInfos.get(i3) == null || i != this.mFooterViewInfos.get(i3).type) {
                     i2 = i3 + 1;
                 } else {
-                    return this.mFooterViewInfos.get(i3).TH;
+                    return this.mFooterViewInfos.get(i3).TK;
                 }
             } else {
                 return null;
@@ -132,7 +132,7 @@ public class d {
         }
     }
 
-    public y.a U(Context context) {
+    public y.a H(Context context) {
         TextView textView = new TextView(context);
         textView.setText(BdBaseApplication.getInst().getContext().getString(R.string.load_res_failed));
         int dip2px = com.baidu.adp.lib.util.l.dip2px(context, 15.0f);
@@ -150,7 +150,7 @@ public class d {
 
     /* loaded from: classes.dex */
     public class c {
-        public y.a TH;
+        public y.a TK;
         public Object data;
         public long id;
         public boolean isSelectable;

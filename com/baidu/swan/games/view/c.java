@@ -6,39 +6,39 @@ import com.baidu.swan.apps.y.f;
 /* loaded from: classes11.dex */
 public class c {
     public static boolean c(View view, com.baidu.swan.apps.model.a.a.a aVar) {
-        d aeN = f.aeK().aeN();
-        return aeN != null && aeN.a(view, aVar);
+        d aeM = f.aeJ().aeM();
+        return aeM != null && aeM.a(view, aVar);
     }
 
     public static boolean b(View view, com.baidu.swan.apps.model.a.a.a aVar) {
-        d aeN = f.aeK().aeN();
-        return aeN != null && aeN.b(view, aVar);
+        d aeM = f.aeJ().aeM();
+        return aeM != null && aeM.b(view, aVar);
     }
 
     public static boolean av(View view) {
-        d aeN = f.aeK().aeN();
-        return aeN != null && aeN.av(view);
+        d aeM = f.aeJ().aeM();
+        return aeM != null && aeM.av(view);
     }
 
     public static Context ayG() {
-        d aeN = f.aeK().aeN();
-        if (aeN != null) {
-            return aeN.getContext();
+        d aeM = f.aeJ().aeM();
+        if (aeM != null) {
+            return aeM.getContext();
         }
         return null;
     }
 
     public static void a(a aVar) {
-        d aeN = f.aeK().aeN();
-        if (aeN != null) {
-            aeN.a(aVar);
+        d aeM = f.aeJ().aeM();
+        if (aeM != null) {
+            aeM.a(aVar);
         }
     }
 
     public static void b(a aVar) {
-        d aeN = f.aeK().aeN();
-        if (aeN != null) {
-            aeN.b(aVar);
+        d aeM = f.aeJ().aeM();
+        if (aeM != null) {
+            aeM.b(aVar);
         }
     }
 }

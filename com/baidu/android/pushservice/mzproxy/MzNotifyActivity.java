@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.content.pm.ResolveInfo;
 import android.os.Bundle;
 import android.text.TextUtils;
-import com.baidu.android.pushservice.e;
+import com.baidu.android.pushservice.f;
 import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -63,7 +63,7 @@ public class MzNotifyActivity extends Activity {
                         }
                     }
                 }
-                if (e.a(this, this.b, (this.a + this.d).replaceAll("\\\\", ""))) {
+                if (f.a(this, this.b, (this.a + this.d).replaceAll("\\\\", ""))) {
                     if (TextUtils.isEmpty(this.e)) {
                         Intent intent2 = new Intent();
                         intent2.setClassName(getPackageName(), a(this, getPackageName()));

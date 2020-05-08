@@ -7,7 +7,7 @@ import android.text.TextUtils;
 import com.baidu.swan.bdprivate.b;
 /* loaded from: classes11.dex */
 public class a {
-    public static void o(Context context, String str, String str2) {
+    public static void q(Context context, String str, String str2) {
         if (context != null) {
             if (TextUtils.isEmpty(str2)) {
                 str2 = context.getResources().getString(b.g.invoice_error_operation_failed);

@@ -5,15 +5,15 @@ public interface k {
 
     void bt(int i, int i2);
 
+    void bui();
+
+    void buj();
+
     void buk();
 
     void bul();
 
     void bum();
-
-    void bun();
-
-    void buo();
 
     void by(int i);
 
@@ -25,5 +25,5 @@ public interface k {
 
     void removeView();
 
-    void uE();
+    void uD();
 }

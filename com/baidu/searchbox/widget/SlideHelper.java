@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import com.baidu.searchbox.widget.SlidingPaneLayout;
-/* loaded from: classes11.dex */
+/* loaded from: classes6.dex */
 public class SlideHelper {
     private static final String DEFAULT_MASK_COLOR = "#40000000";
     private static final String DEFAULT_SHADOW_DRAWABLE = "sliding_layout_shadow.9.png";
@@ -25,7 +25,7 @@ public class SlideHelper {
         this.canSlide = z;
     }
 
-    public void attachSlideView(Context context, View view) {
+    public void attachSlideView(Context context, View view, SlidingPaneLayout.LayoutParams layoutParams) {
         if (view != null && this.canSlide) {
             boolean isFocused = view.isFocused();
             ViewGroup viewGroup = (ViewGroup) view.getParent();
@@ -34,16 +34,31 @@ public class SlideHelper {
                 this.mMaskView = new View(context);
                 this.mMaskView.setBackgroundColor(Color.parseColor(DEFAULT_MASK_COLOR));
             }
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
+            FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(-1, -1);
             this.mSlideLayout = new CustomSlidingPanelLayout(context);
             this.mSlideLayout.setShadowDrawable(SlideUtil.getImageFromFile(context, DEFAULT_SHADOW_DRAWABLE));
-            this.mSlideLayout.addView(this.mMaskView, layoutParams);
-            this.mSlideLayout.addView(view, layoutParams);
+            this.mSlideLayout.addView(this.mMaskView, layoutParams2);
+            this.mSlideLayout.addView(view, layoutParams2);
             this.mSlideLayout.setSliderFadeColor(0);
-            viewGroup.addView(this.mSlideLayout);
+            if (layoutParams == null) {
+                viewGroup.addView(this.mSlideLayout);
+            } else {
+                viewGroup.addView(this.mSlideLayout, layoutParams);
+            }
             if (isFocused) {
                 this.mSlideLayout.requestFocus();
             }
+        }
+    }
+
+    public void attachSlideView(Context context, View view) {
+        attachSlideView(context, view, null);
+    }
+
+    public void attachSlideActivity(Activity activity) {
+        if (activity != null) {
+            attachSlideView(activity, activity.findViewById(16908290));
+            attachActivity(activity);
         }
     }
 

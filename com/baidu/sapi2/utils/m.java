@@ -1,51 +1,68 @@
 package com.baidu.sapi2.utils;
 
-import android.graphics.Rect;
+import android.content.Context;
+import android.content.res.Resources;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewTreeObserver;
-import com.baidu.sapi2.utils.n;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.ViewGroup;
+import android.widget.AbsoluteLayout;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+import com.baidu.f.a.a;
+import com.baidu.sapi2.SapiAccountManager;
+import com.baidu.sapi2.SapiWebView;
 /* loaded from: classes6.dex */
-public class m implements ViewTreeObserver.OnGlobalLayoutListener {
-    final /* synthetic */ n a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public m(n nVar) {
-        this.a = nVar;
+public class m {
+    public static void a(Context context, SapiWebView sapiWebView, boolean z) {
+        b(context, sapiWebView);
+        e(context, sapiWebView);
+        if (z) {
+            d(context, sapiWebView);
+        } else {
+            c(context, sapiWebView);
+        }
     }
 
-    @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
-    public void onGlobalLayout() {
-        View view;
-        n.a aVar;
-        n.a aVar2;
-        n.a aVar3;
-        n.a aVar4;
-        Rect rect = new Rect();
-        view = this.a.a;
-        view.getWindowVisibleDisplayFrame(rect);
-        int height = rect.height();
-        System.out.println("" + height);
-        n nVar = this.a;
-        int i = nVar.b;
-        if (i == 0) {
-            nVar.b = height;
-        } else if (i != height) {
-            if (i - height > 200) {
-                aVar3 = nVar.c;
-                if (aVar3 != null) {
-                    aVar4 = this.a.c;
-                    aVar4.keyBoardShow(this.a.b - height);
-                }
-                this.a.b = height;
-            } else if (height - i > 200) {
-                aVar = nVar.c;
-                if (aVar != null) {
-                    aVar2 = this.a.c;
-                    aVar2.keyBoardHide(height - this.a.b);
-                }
-                this.a.b = height;
+    private static void b(Context context, SapiWebView sapiWebView) {
+        sapiWebView.setNoNetworkView(a(context, sapiWebView));
+    }
+
+    private static void c(Context context, SapiWebView sapiWebView) {
+        try {
+            ProgressBar progressBar = new ProgressBar(context, null, 16842872);
+            progressBar.setLayoutParams(new AbsoluteLayout.LayoutParams(-1, SapiUtils.dip2px(context, 2.0f), 0, 0));
+            progressBar.setBackgroundColor(context.getResources().getColor(a.b.sapi_sdk_dark_mode_color));
+            sapiWebView.setProgressBar(progressBar);
+        } catch (Throwable th) {
+            Log.e(th);
+        }
+    }
+
+    private static void d(Context context, SapiWebView sapiWebView) {
+        sapiWebView.setWebviewLoadingView(new com.baidu.sapi2.views.p(context));
+    }
+
+    private static void e(Context context, SapiWebView sapiWebView) {
+        sapiWebView.setTimeoutView(a(context, sapiWebView));
+    }
+
+    private static View a(Context context, SapiWebView sapiWebView) {
+        View inflate = ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(a.f.layout_sapi_sdk_loading_timeout, (ViewGroup) null);
+        Button button = (Button) inflate.findViewById(a.e.btn_retry);
+        if (SapiAccountManager.getInstance().getConfignation().isDarkMode && inflate != null) {
+            ((LinearLayout) inflate.findViewById(a.e.sapi_sdk_loading_timeout_bg_layout)).setBackgroundColor(context.getResources().getColor(a.b.sapi_sdk_dark_mode_color));
+            ((TextView) inflate.findViewById(a.e.sapi_sdk_loading_timeout_tv)).setTextColor(context.getResources().getColor(a.b.sapi_sdk_dark_mode_no_network_tv_color));
+            ((ImageView) inflate.findViewById(a.e.sapi_sdk_loading_timeout_iv)).setImageResource(a.d.sapi_sdk_icon_connection_failed_dark);
+            button.setBackgroundResource(a.d.sapi_sdk_btn_gray);
+            Resources resources = context.getResources();
+            if (resources != null) {
+                button.setTextColor(resources.getColorStateList(a.b.sapi_sdk_text_white));
             }
         }
+        button.setOnClickListener(new l(sapiWebView, inflate));
+        return inflate;
     }
 }

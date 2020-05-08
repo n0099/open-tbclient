@@ -5,27 +5,27 @@ import com.baidu.tieba.frs.aggregation.VideoAggregationModel;
 import java.util.List;
 /* loaded from: classes9.dex */
 public class i {
-    private VideoAggregationModel.a heS = new VideoAggregationModel.a() { // from class: com.baidu.tieba.frs.aggregation.i.1
+    private VideoAggregationModel.a heY = new VideoAggregationModel.a() { // from class: com.baidu.tieba.frs.aggregation.i.1
         @Override // com.baidu.tieba.frs.aggregation.VideoAggregationModel.a
         public void f(List<g> list, boolean z, boolean z2) {
-            if (i.this.heY != null) {
-                i.this.heY.hideLoadingView();
+            if (i.this.hfe != null) {
+                i.this.hfe.hideLoadingView();
                 i.this.mHasMore = z2;
-                i.this.heY.e(list, z, z2);
+                i.this.hfe.e(list, z, z2);
             }
         }
 
         @Override // com.baidu.tieba.frs.aggregation.VideoAggregationModel.a
         public void pj(String str) {
-            if (i.this.heY != null) {
-                i.this.heY.hideLoadingView();
-                i.this.heY.showMsg(str);
-                i.this.heY.aac();
+            if (i.this.hfe != null) {
+                i.this.hfe.hideLoadingView();
+                i.this.hfe.showMsg(str);
+                i.this.hfe.aab();
             }
         }
     };
-    private d heY;
-    private VideoAggregationModel heZ;
+    private d hfe;
+    private VideoAggregationModel hff;
     private String mFrom;
     private boolean mHasMore;
     private String mId;
@@ -35,53 +35,53 @@ public class i {
 
     public i(TbPageContext tbPageContext, d dVar) {
         this.mPageContext = tbPageContext;
-        this.heY = dVar;
-        this.heZ = new VideoAggregationModel(tbPageContext, this.heS);
+        this.hfe = dVar;
+        this.hff = new VideoAggregationModel(tbPageContext, this.heY);
     }
 
     public void setId(String str) {
         this.mId = str;
-        if (this.heZ != null) {
-            this.heZ.setId(this.mId);
+        if (this.hff != null) {
+            this.hff.setId(this.mId);
         }
     }
 
     public void setFrom(String str) {
         this.mFrom = str;
-        if (this.heZ != null) {
-            this.heZ.setFrom(str);
+        if (this.hff != null) {
+            this.hff.setFrom(str);
         }
     }
 
-    public void CW(String str) {
+    public void CZ(String str) {
         this.st_type = str;
-        if (this.heZ != null) {
-            this.heZ.CW(str);
+        if (this.hff != null) {
+            this.hff.CZ(str);
         }
     }
 
     public void setLocation(String str) {
         this.yuelaou_locate = str;
-        if (this.heZ != null) {
-            this.heZ.setLocation(str);
+        if (this.hff != null) {
+            this.hff.setLocation(str);
+        }
+    }
+
+    public void bRg() {
+        if (this.hff != null) {
+            this.hff.bRg();
         }
     }
 
     public void bRi() {
-        if (this.heZ != null) {
-            this.heZ.bRi();
+        if (this.hff != null && this.mHasMore) {
+            this.hff.LoadData();
         }
     }
 
-    public void bRk() {
-        if (this.heZ != null && this.mHasMore) {
-            this.heZ.LoadData();
-        }
-    }
-
-    public void bRj() {
-        if (this.heZ != null) {
-            this.heZ.cancelLoadData();
+    public void bRh() {
+        if (this.hff != null) {
+            this.hff.cancelLoadData();
         }
     }
 }

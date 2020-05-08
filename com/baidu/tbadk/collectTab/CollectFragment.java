@@ -11,45 +11,45 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.BaseFragment;
 /* loaded from: classes11.dex */
 public abstract class CollectFragment extends BaseFragment {
-    protected boolean dkR = false;
-    private final CustomMessageListener dkS = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tbadk.collectTab.CollectFragment.1
+    protected boolean dkV = false;
+    private final CustomMessageListener dkW = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tbadk.collectTab.CollectFragment.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage)) {
                 CollectFragment.this.jw(CollectFragment.this.getType());
-                if (!CollectFragment.this.dkR) {
+                if (!CollectFragment.this.dkV) {
                     CollectFragment.this.l(false, CollectFragment.this.getType());
                 }
             }
         }
     };
 
-    public abstract boolean aIb();
+    public abstract boolean aHZ();
 
     public abstract int getType();
 
-    public boolean aIa() {
-        return this.dkR;
+    public boolean aHY() {
+        return this.dkV;
     }
 
     @Override // android.support.v4.app.Fragment
     public void onStart() {
         super.onStart();
-        registerListener(this.dkS);
+        registerListener(this.dkW);
     }
 
     @Override // android.support.v4.app.Fragment
     public void onStop() {
         super.onStop();
-        MessageManager.getInstance().unRegisterListener(this.dkS);
+        MessageManager.getInstance().unRegisterListener(this.dkW);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void jw(int i) {
         Bundle bundle = new Bundle();
-        this.dkR = !aIb() && j.isNetWorkAvailable();
-        bundle.putBoolean("is_enable_edit", this.dkR);
+        this.dkV = !aHZ() && j.isNetWorkAvailable();
+        bundle.putBoolean("is_enable_edit", this.dkV);
         bundle.putInt("fragment_type", i);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.COLLECT_TAB_NAVI_EDIT_ENABLE, bundle));
     }

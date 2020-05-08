@@ -98,8 +98,8 @@ public final class R {
         public static final int negative_btn = 0x7f0f0f3f;
         public static final int neutral_btn = 0x7f0f168c;
         public static final int positive_btn = 0x7f0f0f40;
-        public static final int rim_base_toast_icon = 0x7f0f1a79;
-        public static final int rim_base_toast_message = 0x7f0f1a7a;
+        public static final int rim_base_toast_icon = 0x7f0f1a78;
+        public static final int rim_base_toast_message = 0x7f0f1a79;
         public static final int sapi_bio_title_btn_left = 0x7f0f1699;
         public static final int sapi_bio_title_btn_right = 0x7f0f169b;
         public static final int sapi_bio_title_text = 0x7f0f169a;
@@ -115,12 +115,12 @@ public final class R {
 
     /* loaded from: classes.dex */
     public static final class layout {
-        public static final int layout_pass_liveness_alert_dialog = 0x7f0304a9;
-        public static final int layout_pass_liveness_constrast_loading = 0x7f0304aa;
-        public static final int layout_pass_liveness_dialog_alert = 0x7f0304ab;
-        public static final int layout_pass_liveness_recognize = 0x7f0304ac;
-        public static final int layout_pass_liveness_title_bar = 0x7f0304ad;
-        public static final int pass_bio_toast_tips = 0x7f0305c9;
+        public static final int layout_pass_liveness_alert_dialog = 0x7f0304a8;
+        public static final int layout_pass_liveness_constrast_loading = 0x7f0304a9;
+        public static final int layout_pass_liveness_dialog_alert = 0x7f0304aa;
+        public static final int layout_pass_liveness_recognize = 0x7f0304ab;
+        public static final int layout_pass_liveness_title_bar = 0x7f0304ac;
+        public static final int pass_bio_toast_tips = 0x7f0305c7;
     }
 
     /* loaded from: classes.dex */

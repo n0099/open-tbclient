@@ -6,10 +6,10 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class b implements com.baidu.swan.apps.model.a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public g bYE;
+    public g bYK;
     public String id;
-    public String bYD = "";
-    public boolean aME = false;
+    public String bYJ = "";
+    public boolean aMK = false;
 
     @Override // com.baidu.swan.apps.model.a
     public void parseFromJson(JSONObject jSONObject) throws JSONException {
@@ -18,15 +18,15 @@ public class b implements com.baidu.swan.apps.model.a {
             if (TextUtils.isEmpty(this.id)) {
                 this.id = jSONObject.optString("id");
             }
-            this.bYE = new g();
-            this.bYE.parseFromJson(jSONObject.optJSONObject("position"));
-            this.bYD = jSONObject.optString("iconPath");
-            this.aME = jSONObject.optBoolean("clickable");
+            this.bYK = new g();
+            this.bYK.parseFromJson(jSONObject.optJSONObject("position"));
+            this.bYJ = jSONObject.optString("iconPath");
+            this.aMK = jSONObject.optBoolean("clickable");
         }
     }
 
     @Override // com.baidu.swan.apps.model.a
     public boolean isValid() {
-        return (this.bYE == null || !this.bYE.isValid() || TextUtils.isEmpty(this.bYD)) ? false : true;
+        return (this.bYK == null || !this.bYK.isValid() || TextUtils.isEmpty(this.bYJ)) ? false : true;
     }
 }

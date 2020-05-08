@@ -3,7 +3,7 @@ package com.xiaomi.push;
 import android.content.Context;
 /* loaded from: classes8.dex */
 public class af {
-    static final char[] a = com.coloros.mcssdk.c.a.f.toCharArray();
+    static final char[] a = "0123456789ABCDEF".toCharArray();
 
     public static String a(byte[] bArr, int i, int i2) {
         StringBuilder sb = new StringBuilder(i2 * 2);
@@ -16,6 +16,6 @@ public class af {
     }
 
     public static boolean a(Context context) {
-        return ae.f115a;
+        return ae.f92a;
     }
 }

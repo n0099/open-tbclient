@@ -4,7 +4,7 @@ public final class R {
 
     /* loaded from: classes5.dex */
     public static final class color {
-        public static final int suspension_ball_anim_fg_mask_color = 0x7f0d09c1;
+        public static final int suspension_ball_anim_fg_mask_color = 0x7f0d09c2;
     }
 
     /* loaded from: classes5.dex */

@@ -8,67 +8,67 @@ import com.baidu.swan.apps.console.debugger.b.d;
 import java.io.File;
 /* loaded from: classes11.dex */
 public class b {
-    private static a bIi;
+    private static a bIn;
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static String bIg = "";
-    private static String bIh = "";
-    private static int bIj = 0;
+    private static String bIl = "";
+    private static String bIm = "";
+    private static int bIo = 0;
 
     public static void hM(String str) {
-        bIg = str;
+        bIl = str;
     }
 
     public static void hN(String str) {
-        bIh = str;
+        bIm = str;
+    }
+
+    public static String Tm() {
+        return bIl;
     }
 
     public static String Tn() {
-        return bIg;
+        return bIm;
     }
 
     public static String To() {
-        return bIh;
+        return bIn != null ? bIn.Tl() + File.separator + bIm : "";
     }
 
     public static String Tp() {
-        return bIi != null ? bIi.Tm() + File.separator + bIh : "";
+        return bIn != null ? bIn.Tl() + File.separator + bIl : "";
     }
 
-    public static String Tq() {
-        return bIi != null ? bIi.Tm() + File.separator + bIg : "";
+    public static boolean Tq() {
+        return bIo == 2;
     }
 
     public static boolean Tr() {
-        return bIj == 2;
-    }
-
-    public static boolean Ts() {
-        return bIj == 1;
+        return bIo == 1;
     }
 
     public static void n(Bundle bundle) {
         String e = r.e(bundle, "extraWSUrl");
         String e2 = r.e(bundle, "adb_debug_path");
         if (!TextUtils.isEmpty(e)) {
-            bIi = new d();
-            bIj = 1;
+            bIn = new d();
+            bIo = 1;
         } else if (!TextUtils.isEmpty(e2)) {
-            bIi = new com.baidu.swan.apps.console.debugger.adbdebug.b();
-            bIj = 2;
+            bIn = new com.baidu.swan.apps.console.debugger.adbdebug.b();
+            bIo = 2;
         } else {
             if (DEBUG) {
                 Log.d("UserDebugParams", "not debug mode");
             }
-            bIj = 0;
-            bIi = null;
+            bIo = 0;
+            bIn = null;
             return;
         }
-        bIi.n(bundle);
+        bIn.n(bundle);
     }
 
     public static void o(Bundle bundle) {
-        if (bIi != null) {
-            bIi.o(bundle);
+        if (bIn != null) {
+            bIn.o(bundle);
         }
     }
 }

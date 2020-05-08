@@ -31,7 +31,7 @@ public class g extends ab {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty key");
             return false;
         }
-        String string = eVar.akV().anq().getString(optString, "");
+        String string = eVar.akU().anp().getString(optString, "");
         try {
             JSONObject hl = hl(string);
             if (hl == null) {

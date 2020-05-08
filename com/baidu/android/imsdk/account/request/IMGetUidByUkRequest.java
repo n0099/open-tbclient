@@ -9,7 +9,6 @@ import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.HttpHelper;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.android.pushservice.PushConstants;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
@@ -66,7 +65,7 @@ public class IMGetUidByUkRequest implements HttpHelper.Request, HttpHelper.Respo
                 i2 = i3;
             } else {
                 i2 = jSONObject.getInt("error_code");
-                string = jSONObject.getString(PushConstants.EXTRA_ERROR_CODE);
+                string = jSONObject.getString("error_msg");
                 treeMap2 = null;
             }
             treeMap = treeMap2;

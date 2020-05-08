@@ -1,10 +1,11 @@
 package com.vivo.push;
 
 import android.content.Intent;
-import com.vivo.push.c.ah;
+import com.vivo.push.c.ab;
+import com.vivo.push.c.ai;
 /* loaded from: classes8.dex */
 public final class o implements IPushClientFactory {
-    private ah a = new ah();
+    private ai a = new ai();
 
     @Override // com.vivo.push.IPushClientFactory
     public final y createReceiverCommand(Intent intent) {
@@ -16,38 +17,41 @@ public final class o implements IPushClientFactory {
         switch (intExtra) {
             case 1:
             case 2:
-                yVar = new com.vivo.push.b.t(intExtra);
+                yVar = new com.vivo.push.b.v(intExtra);
                 break;
             case 3:
-                yVar = new com.vivo.push.b.o();
-                break;
-            case 4:
                 yVar = new com.vivo.push.b.q();
                 break;
-            case 5:
-                yVar = new com.vivo.push.b.p();
+            case 4:
+                yVar = new com.vivo.push.b.s();
                 break;
-            case 6:
+            case 5:
                 yVar = new com.vivo.push.b.r();
                 break;
+            case 6:
+                yVar = new com.vivo.push.b.t();
+                break;
             case 7:
-                yVar = new com.vivo.push.b.n();
+                yVar = new com.vivo.push.b.p();
                 break;
             case 8:
-                yVar = new com.vivo.push.b.m();
+                yVar = new com.vivo.push.b.o();
                 break;
             case 9:
-                yVar = new com.vivo.push.b.l();
+                yVar = new com.vivo.push.b.m();
                 break;
             case 10:
             case 11:
-                yVar = new com.vivo.push.b.j(intExtra);
+                yVar = new com.vivo.push.b.k(intExtra);
                 break;
             case 12:
-                yVar = new com.vivo.push.b.k();
+                yVar = new com.vivo.push.b.l();
                 break;
             case 20:
-                yVar = new com.vivo.push.b.u();
+                yVar = new com.vivo.push.b.w();
+                break;
+            case 2016:
+                yVar = new com.vivo.push.b.n();
                 break;
         }
         if (yVar != null) {
@@ -63,11 +67,11 @@ public final class o implements IPushClientFactory {
 
     @Override // com.vivo.push.IPushClientFactory
     public final v createTask(y yVar) {
-        return ah.a(yVar);
+        return ai.a(yVar);
     }
 
     @Override // com.vivo.push.IPushClientFactory
-    public final com.vivo.push.c.aa createReceiveTask(y yVar) {
-        return ah.b(yVar);
+    public final ab createReceiveTask(y yVar) {
+        return ai.b(yVar);
     }
 }

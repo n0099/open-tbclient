@@ -5,8 +5,7 @@ import com.baidu.mapapi.CoordType;
 import com.baidu.mapapi.SDKInitializer;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
-import com.baidu.sapi2.activity.SlideActiviy;
-import com.coloros.mcssdk.mode.CommandMessage;
+import com.heytap.mcssdk.mode.CommandMessage;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -43,8 +42,8 @@ public class CloudPoiInfo {
         jSONObject.remove("geotable_id");
         this.title = jSONObject.optString("title");
         jSONObject.remove("title");
-        this.address = jSONObject.optString(SlideActiviy.ADDRESS_PAGE_NAME);
-        jSONObject.remove(SlideActiviy.ADDRESS_PAGE_NAME);
+        this.address = jSONObject.optString("address");
+        jSONObject.remove("address");
         this.province = jSONObject.optString("province");
         jSONObject.remove("province");
         this.city = jSONObject.optString("city");
@@ -82,7 +81,7 @@ public class CloudPoiInfo {
             return;
         }
         this.title = jSONObject.optString("name");
-        this.address = jSONObject.optString(SlideActiviy.ADDRESS_PAGE_NAME);
+        this.address = jSONObject.optString("address");
         this.tags = jSONObject.optString("tag");
         JSONObject optJSONObject = jSONObject.optJSONObject("location");
         if (optJSONObject != null) {

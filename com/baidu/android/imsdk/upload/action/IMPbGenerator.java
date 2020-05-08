@@ -18,6 +18,7 @@ import com.baidu.android.imsdk.upload.action.track.Msg;
 import com.baidu.android.imsdk.upload.action.track.Request;
 import com.baidu.android.imsdk.upload.action.track.Ui;
 import com.baidu.android.imsdk.utils.Utility;
+import com.baidu.sapi2.outsdk.c;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
@@ -32,7 +33,7 @@ public final class IMPbGenerator {
     public byte[] generateInitIMClient(Context context) {
         try {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(generateRequestAction("init", "", System.currentTimeMillis(), -1L, -1L, "", 501100L));
+            arrayList.add(generateRequestAction(c.l, "", System.currentTimeMillis(), -1L, -1L, "", 501100L));
             return IMPushPb.PushImClient.newBuilder().setCommon(getIMCommon(context)).setSdkName("im").setSdkVersion(IMConfigInternal.getInstance().getSDKVersionValue(context)).addAllActions(arrayList).build().toByteArray();
         } catch (Exception e) {
             new IMTrack.CrashBuilder(context).exception(Log.getStackTraceString(e)).build();

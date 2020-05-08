@@ -17,9 +17,9 @@ public interface h {
 
     void q(int i, int i2);
 
+    void tW();
+
     void tX();
 
     void tY();
-
-    void tZ();
 }

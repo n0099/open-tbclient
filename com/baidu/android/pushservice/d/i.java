@@ -1,21 +1,65 @@
 package com.baidu.android.pushservice.d;
 
-import android.content.Context;
-import java.util.HashMap;
+import android.app.PendingIntent;
+import android.content.Intent;
+import android.text.TextUtils;
 /* loaded from: classes8.dex */
-public class i extends c {
-    protected String d;
+public class i {
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
+    public boolean h;
+    public String i;
+    public boolean j;
+    public boolean k;
 
-    public i(l lVar, Context context, String str) {
-        super(lVar, context);
-        this.d = str;
+    public i() {
+        this.a = "";
+        this.b = "";
+        this.c = "";
+        this.d = "";
+        this.e = "";
+        this.f = "";
+        this.g = "";
+        this.h = false;
+        this.i = "";
+        this.j = true;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.android.pushservice.d.a
-    public void a(HashMap<String, String> hashMap) {
-        super.a(hashMap);
-        hashMap.put("method", "gmsgcount");
-        hashMap.put("gid", this.d);
+    public i(Intent intent) {
+        this.a = "";
+        this.b = "";
+        this.c = "";
+        this.d = "";
+        this.e = "";
+        this.f = "";
+        this.g = "";
+        this.h = false;
+        this.i = "";
+        this.j = true;
+        PendingIntent pendingIntent = (PendingIntent) intent.getParcelableExtra("app");
+        if (pendingIntent != null) {
+            this.d = pendingIntent.getTargetPackage();
+        }
+        if (TextUtils.isEmpty(this.d)) {
+            this.d = intent.getStringExtra("pkg_name");
+        }
+        this.c = intent.getStringExtra("access_token");
+        this.g = intent.getStringExtra("secret_key");
+        this.a = intent.getStringExtra("method");
+        this.b = intent.getStringExtra("method_type");
+        this.e = intent.getStringExtra("appid");
+        this.h = intent.getBooleanExtra("bd_push_extra_is_baidu_app", false);
+        this.i = intent.getStringExtra("push_proxy");
+        this.j = intent.getBooleanExtra("should_notify_user", true);
+        this.k = intent.getBooleanExtra("ignore_token", false);
+    }
+
+    public String toString() {
+        return "method=" + this.a + ", accessToken=" + this.c + ", packageName=" + this.d + ", appId=" + this.e + ", userId=" + this.f;
     }
 }

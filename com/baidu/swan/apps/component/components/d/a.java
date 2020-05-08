@@ -13,16 +13,16 @@ import com.baidu.swan.apps.console.c;
 /* loaded from: classes11.dex */
 public final class a extends com.baidu.swan.apps.component.b.a<CanvasView, com.baidu.swan.apps.canvas.b.a> {
     @NonNull
-    public CanvasView bGR;
+    public CanvasView bGW;
 
     public a(@NonNull Context context, @NonNull com.baidu.swan.apps.canvas.b.a aVar) {
         super(context, aVar);
-        this.bGR = new CanvasView(context);
-        this.bGR.setInterceptTouchEvent(aVar.bFO);
-        this.bGR.setHide(aVar.hidden);
-        this.bGR.setGesture(aVar.bGL);
-        if (aVar.bGL) {
-            this.bGR.setInterceptTouchEvent(false);
+        this.bGW = new CanvasView(context);
+        this.bGW.setInterceptTouchEvent(aVar.bFT);
+        this.bGW.setHide(aVar.hidden);
+        this.bGW.setGesture(aVar.bGQ);
+        if (aVar.bGQ) {
+            this.bGW.setInterceptTouchEvent(false);
         }
     }
 
@@ -31,18 +31,18 @@ public final class a extends com.baidu.swan.apps.component.b.a<CanvasView, com.b
             c.e("Component-Canvas", "some params is invalid");
             return false;
         }
-        com.baidu.swan.apps.canvas.b.a Sz = Sz();
-        if (!TextUtils.equals(Sz.bGI, aVar.bGI) || !TextUtils.equals(Sz.bGJ, aVar.bGJ)) {
+        com.baidu.swan.apps.canvas.b.a Sy = Sy();
+        if (!TextUtils.equals(Sy.bGN, aVar.bGN) || !TextUtils.equals(Sy.bGO, aVar.bGO)) {
             com.baidu.swan.apps.component.e.a.aC("Component-Canvas", "drawCanvas with illegal ids!");
         }
         b bVar2 = (b) aVar;
-        this.bGR.g(bVar2.Sl(), bVar2.Sm());
-        this.bGR.postInvalidate();
-        this.bGR.post(new Runnable() { // from class: com.baidu.swan.apps.component.components.d.a.1
+        this.bGW.g(bVar2.Sk(), bVar2.Sl());
+        this.bGW.postInvalidate();
+        this.bGW.post(new Runnable() { // from class: com.baidu.swan.apps.component.components.d.a.1
             @Override // java.lang.Runnable
             public void run() {
                 if (bVar != null) {
-                    bVar.Sf();
+                    bVar.Se();
                 }
             }
         });
@@ -54,9 +54,9 @@ public final class a extends com.baidu.swan.apps.component.b.a<CanvasView, com.b
     @Override // com.baidu.swan.apps.component.b.a
     @SuppressLint({"ClickableViewAccessibility"})
     public void a(@NonNull SwanAppComponentContainerView swanAppComponentContainerView, @NonNull com.baidu.swan.apps.canvas.b.a aVar) {
-        final boolean z = aVar.bGL;
-        final boolean z2 = aVar.bFO;
-        swanAppComponentContainerView.setOnTouchListener(new com.baidu.swan.apps.view.b.a.b(aVar.bGJ, aVar.bGI, aVar.bGH) { // from class: com.baidu.swan.apps.component.components.d.a.2
+        final boolean z = aVar.bGQ;
+        final boolean z2 = aVar.bFT;
+        swanAppComponentContainerView.setOnTouchListener(new com.baidu.swan.apps.view.b.a.b(aVar.bGO, aVar.bGN, aVar.bGM) { // from class: com.baidu.swan.apps.component.components.d.a.2
             @Override // com.baidu.swan.apps.view.b.a.b, android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 return z && super.onTouch(view, motionEvent) && z2;
@@ -68,15 +68,15 @@ public final class a extends com.baidu.swan.apps.component.b.a<CanvasView, com.b
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.component.b.a
     @NonNull
-    /* renamed from: bA */
-    public CanvasView ba(@NonNull Context context) {
-        return this.bGR;
+    /* renamed from: bo */
+    public CanvasView aO(@NonNull Context context) {
+        return this.bGW;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.component.b.a
     public void onRemove() {
         super.onRemove();
-        this.bGR.onRelease();
+        this.bGW.onRelease();
     }
 }

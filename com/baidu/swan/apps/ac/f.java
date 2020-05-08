@@ -7,9 +7,9 @@ import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.swan.apps.x.b.b;
 /* loaded from: classes11.dex */
 public class f implements com.baidu.swan.apps.core.f.c, com.baidu.swan.apps.core.f.e {
-    private static f ceM;
-    private boolean ceN;
-    private a ceO = new b();
+    private static f ceS;
+    private boolean ceT;
+    private a ceU = new b();
     public static final String TAG = f.class.getSimpleName();
     private static final boolean DEBUG = com.baidu.swan.apps.runtime.e.DEBUG;
 
@@ -25,50 +25,50 @@ public class f implements com.baidu.swan.apps.core.f.c, com.baidu.swan.apps.core
     }
 
     @NonNull
-    public static f agX() {
-        if (ceM == null) {
+    public static f agW() {
+        if (ceS == null) {
             synchronized (f.class) {
-                if (ceM == null) {
-                    ceM = new f();
+                if (ceS == null) {
+                    ceS = new f();
                 }
             }
         }
-        return ceM;
+        return ceS;
     }
 
     public void ec(boolean z) {
-        this.ceN = z;
-        if (this.ceN) {
-            e.agS();
-            com.baidu.swan.apps.statistic.c.ana();
+        this.ceT = z;
+        if (this.ceT) {
+            e.agR();
+            com.baidu.swan.apps.statistic.c.amZ();
         }
     }
 
     public void start() {
         com.baidu.swan.apps.ac.a.c cVar;
-        b.a akQ;
+        b.a akP;
         long j = 6000;
         if (DEBUG) {
             Log.d(TAG, "start page monitoring");
         }
-        if (this.ceN) {
-            boolean z = com.baidu.swan.apps.w.a.abR().getSwitch("swan_white_screen_forward", false);
+        if (this.ceT) {
+            boolean z = com.baidu.swan.apps.w.a.abQ().getSwitch("swan_white_screen_forward", false);
             if (DEBUG) {
                 Log.d(TAG, "WhiteScreenForward: switch=" + z);
             }
-            SwanAppActivity aev = com.baidu.swan.apps.y.f.aeK().aev();
-            if (z && aev != null && (akQ = com.baidu.swan.apps.runtime.d.akK().akH().akQ()) != null) {
-                long currentTimeMillis = System.currentTimeMillis() - akQ.adP();
+            SwanAppActivity aeu = com.baidu.swan.apps.y.f.aeJ().aeu();
+            if (z && aeu != null && (akP = com.baidu.swan.apps.runtime.d.akJ().akG().akP()) != null) {
+                long currentTimeMillis = System.currentTimeMillis() - akP.adO();
                 j = 6000 - currentTimeMillis;
                 if (j < 0) {
                     if (DEBUG) {
                         Log.d(TAG, "WhiteScreenMonitor out of time: time=" + currentTimeMillis);
                     }
-                    com.baidu.swan.apps.statistic.f.b(new com.baidu.swan.apps.statistic.a.d().mZ(com.baidu.swan.apps.statistic.f.gz(akQ.getAppFrameType())).e(new com.baidu.swan.apps.ap.a().bn(5L).bo(40L).nL("whitescreen monitor out of time: time=" + currentTimeMillis)).a(akQ));
+                    com.baidu.swan.apps.statistic.f.b(new com.baidu.swan.apps.statistic.a.d().mZ(com.baidu.swan.apps.statistic.f.gz(akP.getAppFrameType())).e(new com.baidu.swan.apps.ap.a().bn(5L).bo(40L).nL("whitescreen monitor out of time: time=" + currentTimeMillis)).a(akP));
                 }
             }
             cVar = new com.baidu.swan.apps.ac.a.c(1, null, j, true);
-            this.ceN = false;
+            this.ceT = false;
         } else {
             cVar = null;
         }
@@ -81,7 +81,7 @@ public class f implements com.baidu.swan.apps.core.f.c, com.baidu.swan.apps.core
         d(cVar);
     }
 
-    public void agY() {
+    public void agX() {
         if (DEBUG) {
             Log.d(TAG, "stop page monitoring");
         }
@@ -120,14 +120,14 @@ public class f implements com.baidu.swan.apps.core.f.c, com.baidu.swan.apps.core
 
     /* JADX INFO: Access modifiers changed from: private */
     public void d(com.baidu.swan.apps.ac.a.c cVar) {
-        this.ceO.a(cVar);
+        this.ceU.a(cVar);
     }
 
-    public static void agM() {
-        c.agM();
+    public static void agL() {
+        c.agL();
     }
 
-    public void agZ() {
+    public void agY() {
         d(new com.baidu.swan.apps.ac.a.c(9, null, 6000L));
     }
 }

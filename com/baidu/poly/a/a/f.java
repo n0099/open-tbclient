@@ -5,65 +5,65 @@ import android.os.Looper;
 import java.io.IOException;
 /* loaded from: classes11.dex */
 public class f implements e {
-    private Handler bmx = new Handler(Looper.getMainLooper());
+    private Handler bmC = new Handler(Looper.getMainLooper());
 
     /* loaded from: classes11.dex */
     class a implements Runnable {
-        final /* synthetic */ String bms;
-        final /* synthetic */ com.baidu.poly.a.a.c bmt;
-        final /* synthetic */ com.baidu.poly.a.a.b bmu;
-        final /* synthetic */ com.baidu.poly.a.a.a bmv;
+        final /* synthetic */ com.baidu.poly.a.a.a bmA;
+        final /* synthetic */ String bmx;
+        final /* synthetic */ com.baidu.poly.a.a.c bmy;
+        final /* synthetic */ com.baidu.poly.a.a.b bmz;
 
         /* renamed from: com.baidu.poly.a.a.f$a$a  reason: collision with other inner class name */
         /* loaded from: classes11.dex */
-        class RunnableC0178a implements Runnable {
-            final /* synthetic */ String akg;
+        class RunnableC0200a implements Runnable {
+            final /* synthetic */ String akm;
 
-            RunnableC0178a(String str) {
-                this.akg = str;
+            RunnableC0200a(String str) {
+                this.akm = str;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                a.this.bmv.a(this.akg);
+                a.this.bmA.a(this.akm);
             }
         }
 
         /* loaded from: classes11.dex */
         class b implements Runnable {
-            final /* synthetic */ String akg;
-            final /* synthetic */ int bmq;
+            final /* synthetic */ String akm;
+            final /* synthetic */ int bmv;
 
             b(int i, String str) {
-                this.bmq = i;
-                this.akg = str;
+                this.bmv = i;
+                this.akm = str;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                a.this.bmv.a(new IOException("status code " + this.bmq + ", response " + this.akg), null);
+                a.this.bmA.a(new IOException("status code " + this.bmv + ", response " + this.akm), null);
             }
         }
 
         /* loaded from: classes11.dex */
         class c implements Runnable {
-            final /* synthetic */ Throwable bmr;
+            final /* synthetic */ Throwable bmw;
 
             c(Throwable th) {
-                this.bmr = th;
+                this.bmw = th;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                a.this.bmv.a(this.bmr, null);
+                a.this.bmA.a(this.bmw, null);
             }
         }
 
         a(String str, com.baidu.poly.a.a.c cVar, com.baidu.poly.a.a.b bVar, com.baidu.poly.a.a.a aVar) {
-            this.bms = str;
-            this.bmt = cVar;
-            this.bmu = bVar;
-            this.bmv = aVar;
+            this.bmx = str;
+            this.bmy = cVar;
+            this.bmz = bVar;
+            this.bmA = aVar;
         }
 
         /*  JADX ERROR: JadxRuntimeException in pass: BlockProcessor
@@ -84,12 +84,12 @@ public class f implements e {
                 r8 = 0
                 r7 = 1
                 java.net.URL r0 = new java.net.URL     // Catch: java.lang.Throwable -> L3b
-                java.lang.String r1 = r11.bms     // Catch: java.lang.Throwable -> L3b
+                java.lang.String r1 = r11.bmx     // Catch: java.lang.Throwable -> L3b
                 r0.<init>(r1)     // Catch: java.lang.Throwable -> L3b
                 java.net.URLConnection r0 = r0.openConnection()     // Catch: java.lang.Throwable -> L3b
                 java.net.HttpURLConnection r0 = (java.net.HttpURLConnection) r0     // Catch: java.lang.Throwable -> L3b
-                com.baidu.poly.a.a.c r1 = r11.bmt     // Catch: java.lang.Throwable -> L3b
-                java.util.Map r1 = r1.su()     // Catch: java.lang.Throwable -> L3b
+                com.baidu.poly.a.a.c r1 = r11.bmy     // Catch: java.lang.Throwable -> L3b
+                java.util.Map r1 = r1.st()     // Catch: java.lang.Throwable -> L3b
                 java.util.Set r1 = r1.entrySet()     // Catch: java.lang.Throwable -> L3b
                 java.util.Iterator r4 = r1.iterator()     // Catch: java.lang.Throwable -> L3b
             L1f:
@@ -110,7 +110,7 @@ public class f implements e {
             L3e:
                 java.lang.String r2 = "POST FAILED"
                 com.baidu.poly.util.c.a(r2, r1)     // Catch: java.lang.Throwable -> L162
-                com.baidu.poly.a.a.a r2 = r11.bmv     // Catch: java.lang.Throwable -> L162
+                com.baidu.poly.a.a.a r2 = r11.bmA     // Catch: java.lang.Throwable -> L162
                 if (r2 == 0) goto L56
                 com.baidu.poly.a.a.f r2 = com.baidu.poly.a.a.f.this     // Catch: java.lang.Throwable -> L162
                 android.os.Handler r2 = com.baidu.poly.a.a.f.a(r2)     // Catch: java.lang.Throwable -> L162
@@ -139,8 +139,8 @@ public class f implements e {
                 r0.setReadTimeout(r1)     // Catch: java.lang.Throwable -> L3b
                 java.lang.StringBuilder r4 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L3b
                 r4.<init>()     // Catch: java.lang.Throwable -> L3b
-                com.baidu.poly.a.a.b r1 = r11.bmu     // Catch: java.lang.Throwable -> L3b
-                java.util.Map r1 = r1.su()     // Catch: java.lang.Throwable -> L3b
+                com.baidu.poly.a.a.b r1 = r11.bmz     // Catch: java.lang.Throwable -> L3b
+                java.util.Map r1 = r1.st()     // Catch: java.lang.Throwable -> L3b
                 java.util.Set r1 = r1.entrySet()     // Catch: java.lang.Throwable -> L3b
                 java.util.Iterator r5 = r1.iterator()     // Catch: java.lang.Throwable -> L3b
             L8f:
@@ -189,7 +189,7 @@ public class f implements e {
                 if (r2 > r4) goto L133
                 java.io.InputStream r0 = r0.getInputStream()     // Catch: java.lang.Throwable -> L12d
                 java.lang.String r2 = com.baidu.poly.util.b.a(r0)     // Catch: java.lang.Throwable -> L127
-                com.baidu.poly.a.a.a r3 = r11.bmv     // Catch: java.lang.Throwable -> L127
+                com.baidu.poly.a.a.a r3 = r11.bmA     // Catch: java.lang.Throwable -> L127
                 if (r3 == 0) goto L118
                 com.baidu.poly.a.a.f r3 = com.baidu.poly.a.a.f.this     // Catch: java.lang.Throwable -> L127
                 android.os.Handler r3 = com.baidu.poly.a.a.f.a(r3)     // Catch: java.lang.Throwable -> L127
@@ -222,7 +222,7 @@ public class f implements e {
             L133:
                 java.io.InputStream r0 = r0.getErrorStream()     // Catch: java.lang.Throwable -> L159
                 java.lang.String r3 = com.baidu.poly.util.b.a(r0)     // Catch: java.lang.Throwable -> L14e
-                com.baidu.poly.a.a.a r4 = r11.bmv     // Catch: java.lang.Throwable -> L14e
+                com.baidu.poly.a.a.a r4 = r11.bmA     // Catch: java.lang.Throwable -> L14e
                 if (r4 == 0) goto L118
                 com.baidu.poly.a.a.f r4 = com.baidu.poly.a.a.f.this     // Catch: java.lang.Throwable -> L14e
                 android.os.Handler r4 = com.baidu.poly.a.a.f.a(r4)     // Catch: java.lang.Throwable -> L14e
@@ -264,7 +264,7 @@ public class f implements e {
     /* JADX DEBUG: Marked for inline */
     /* JADX DEBUG: Method not inlined, still used in: [com.baidu.poly.a.a.f.a.run():void] */
     static /* synthetic */ Handler a(f fVar) {
-        return fVar.bmx;
+        return fVar.bmC;
     }
 
     @Override // com.baidu.poly.a.a.e

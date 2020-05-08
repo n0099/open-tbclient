@@ -6,22 +6,22 @@ import android.support.annotation.NonNull;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes6.dex */
 public interface a {
-    public static final AtomicReference<a> brQ = new AtomicReference<>();
+    public static final AtomicReference<a> brU = new AtomicReference<>();
 
     @IdRes
     int LA();
 
-    @IdRes
-    int LB();
+    String LB();
 
-    String LC();
+    int LC();
 
-    int LD();
-
-    String LE();
+    String LD();
 
     @NonNull
-    Context Lh();
+    Context Lg();
+
+    @NonNull
+    String Lh();
 
     @NonNull
     String Li();
@@ -47,25 +47,25 @@ public interface a {
     @NonNull
     String Lp();
 
-    @NonNull
-    String Lq();
-
-    boolean Lr();
+    boolean Lq();
 
     @NonNull
-    String Ls();
+    String Lr();
 
-    boolean Lt();
+    boolean Ls();
+
+    String Lt();
 
     String Lu();
 
-    String Lv();
+    String[] Lv();
 
-    String[] Lw();
+    String Lw();
 
     String Lx();
 
-    String Ly();
+    @IdRes
+    int Ly();
 
     @IdRes
     int Lz();

@@ -8,14 +8,14 @@ import com.baidu.tieba.homepage.framework.c;
 /* loaded from: classes11.dex */
 class a extends CustomMessageTask {
     public a() {
-        super(CmdConfigCustom.CMD_RECOMMEND_FRS_INIT_CONTROL_MODEL, new C0553a());
+        super(CmdConfigCustom.CMD_RECOMMEND_FRS_INIT_CONTROL_MODEL, new C0574a());
         setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
     }
 
     /* renamed from: com.baidu.tieba.homeExtra.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    private static class C0553a implements CustomMessageTask.CustomRunnable<c> {
-        private C0553a() {
+    private static class C0574a implements CustomMessageTask.CustomRunnable<c> {
+        private C0574a() {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
@@ -23,8 +23,8 @@ class a extends CustomMessageTask {
             com.baidu.tieba.lego.model.a b;
             if (customMessage != null && customMessage.getData() != null && (customMessage.getData() instanceof c)) {
                 c data = customMessage.getData();
-                if (data.bYm() == null && (b = com.baidu.tieba.lego.d.b.cof().b(data.bYl(), data.getUniqueId())) != null) {
-                    b.a(new b(data.bYn()));
+                if (data.bYk() == null && (b = com.baidu.tieba.lego.d.b.coc().b(data.bYj(), data.getUniqueId())) != null) {
+                    b.a(new b(data.bYl()));
                     data.a(b);
                 }
             }

@@ -6,24 +6,24 @@ public interface k {
 
     /* loaded from: classes3.dex */
     public interface a {
-        boolean Bh();
+        boolean Bg();
+
+        void Bh();
 
         void Bi();
 
         void Bj();
 
-        void Bk();
-
-        boolean Bl();
+        boolean Bk();
 
         void eE(String str);
     }
 
-    void AK();
+    void AJ();
 
-    j Bf();
+    j Be();
 
-    com.baidu.live.view.input.a Bg();
+    com.baidu.live.view.input.a Bf();
 
     void a(a aVar);
 

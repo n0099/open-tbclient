@@ -11,7 +11,6 @@ import com.baidu.android.imsdk.internal.ListenerManager;
 import com.baidu.android.imsdk.shield.ShieldAndTopManager;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.android.pushservice.PushConstants;
 import com.baidu.ar.constants.HttpConstants;
 import com.baidu.sapi2.SapiContext;
 import com.baidu.tieba.ala.alaar.sticker.model.FuFaceItem;
@@ -75,7 +74,7 @@ public class IMSetShieldAndTopRequest extends IMSettingBaseHttpRequest {
         try {
             JSONObject jSONObject = new JSONObject(str2);
             i2 = jSONObject.getInt("error_code");
-            str = jSONObject.optString(PushConstants.EXTRA_ERROR_CODE, "");
+            str = jSONObject.optString("error_msg", "");
         } catch (JSONException e) {
             LogUtils.e(TAG, "JSONException", e);
             i2 = 1010;

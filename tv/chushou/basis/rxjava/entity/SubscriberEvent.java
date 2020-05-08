@@ -44,7 +44,7 @@ public class SubscriberEvent extends Event {
     }
 
     private void initObservable() {
-        this.subject = PublishSubject.dDr();
+        this.subject = PublishSubject.dDn();
         this.subject.d(EventThread.getScheduler(this.thread)).b(new g() { // from class: tv.chushou.basis.rxjava.entity.SubscriberEvent.1
             @Override // io.reactivex.c.g
             public void accept(Object obj) {

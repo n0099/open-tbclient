@@ -35,7 +35,7 @@ public final class s {
                     }
                 }
             } catch (Exception e) {
-                com.baidu.crabsdk.c.a.f("ThreadInfo Collector Interrupted!!", e);
+                com.baidu.crabsdk.c.a.a("ThreadInfo Collector Interrupted!!", e);
             }
         }
         return sb.toString();
@@ -53,7 +53,7 @@ public final class s {
                     }
                 }
             } catch (Exception e) {
-                com.baidu.crabsdk.c.a.f("ThreadInfo Collector Interrupted!!", e);
+                com.baidu.crabsdk.c.a.a("ThreadInfo Collector Interrupted!!", e);
             }
         }
         return sb.toString();
@@ -68,7 +68,7 @@ public final class s {
                     sb.append(stackTrace[0]);
                 }
             } catch (Exception e) {
-                com.baidu.crabsdk.c.a.f("ThreadInfo Collector Interrupted!!", e);
+                com.baidu.crabsdk.c.a.a("ThreadInfo Collector Interrupted!!", e);
             }
         }
         return sb.toString();
@@ -86,7 +86,7 @@ public final class s {
         return null;
     }
 
-    public static String sG() {
+    public static String sF() {
         StringBuilder sb = new StringBuilder();
         Map<Thread, StackTraceElement[]> allStackTraces = Thread.getAllStackTraces();
         if (allStackTraces != null && allStackTraces.size() > 0) {

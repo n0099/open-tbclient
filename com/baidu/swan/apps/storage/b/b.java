@@ -6,32 +6,32 @@ import com.baidu.swan.apps.runtime.e;
 public class b implements c {
     @Override // com.baidu.swan.apps.storage.b.c
     public String ns(String str) {
-        e akN = e.akN();
-        return akN == null ? str : com.baidu.swan.apps.storage.b.d(str, akN);
+        e akM = e.akM();
+        return akM == null ? str : com.baidu.swan.apps.storage.b.d(str, akM);
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
     public String nt(String str) {
-        e akN = e.akN();
-        if (akN == null) {
+        e akM = e.akM();
+        if (akM == null) {
             return null;
         }
-        return com.baidu.swan.apps.storage.b.a(str, akN, akN.getVersion());
+        return com.baidu.swan.apps.storage.b.a(str, akM, akM.getVersion());
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
     public String nu(String str) {
-        e akN = e.akN();
-        if (akN == null) {
+        e akM = e.akM();
+        if (akM == null) {
             return null;
         }
-        return com.baidu.swan.apps.storage.b.by(str, akN.id);
+        return com.baidu.swan.apps.storage.b.by(str, akM.id);
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
     public String nv(String str) {
-        e akN = e.akN();
-        return akN == null ? str : com.baidu.swan.apps.storage.b.bA(str, akN.id);
+        e akM = e.akM();
+        return akM == null ? str : com.baidu.swan.apps.storage.b.bA(str, akM.id);
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
@@ -42,14 +42,14 @@ public class b implements c {
 
     @Override // com.baidu.swan.apps.storage.b.c
     public String nx(String str) {
-        e akN = e.akN();
-        return akN == null ? "" : com.baidu.swan.apps.storage.b.H(akN.id, str, null);
+        e akM = e.akM();
+        return akM == null ? "" : com.baidu.swan.apps.storage.b.H(akM.id, str, null);
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
-    public String anx() {
-        e akN = e.akN();
-        return akN == null ? "" : com.baidu.swan.apps.storage.b.nk(akN.id);
+    public String anw() {
+        e akM = e.akM();
+        return akM == null ? "" : com.baidu.swan.apps.storage.b.nk(akM.id);
     }
 
     @Override // com.baidu.swan.apps.storage.b.c

@@ -54,7 +54,7 @@ public class d extends GetTplStokenCallback {
     public void onSuccess(GetTplStokenResult getTplStokenResult) {
         Context context;
         BiometricsManager biometricsManager = BiometricsManager.getInstance();
-        context = this.h.D;
+        context = this.h.E;
         biometricsManager.recogWithBduss(context, this.a, this.b, this.c, this.d.bduss, getTplStokenResult.tplStokenMap.get("pp"), this.e);
     }
 }

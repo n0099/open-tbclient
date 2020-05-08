@@ -1,35 +1,56 @@
 package com.xiaomi.push;
 
 import android.content.Context;
-import com.xiaomi.push.ai;
-import java.lang.ref.WeakReference;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.SharedPreferences;
 /* loaded from: classes8.dex */
-public class bm extends ai.a {
-    final /* synthetic */ bk a;
+public class bm {
+    private static volatile bm a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bm(bk bkVar) {
-        this.a = bkVar;
+    /* renamed from: a  reason: collision with other field name */
+    private Context f126a;
+
+    private bm(Context context) {
+        this.f126a = context;
     }
 
-    @Override // com.xiaomi.push.ai.a
-    /* renamed from: a */
-    public int mo160a() {
-        return 10054;
+    public static bm a(Context context) {
+        if (a == null) {
+            synchronized (bm.class) {
+                if (a == null) {
+                    a = new bm(context);
+                }
+            }
+        }
+        return a;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        String c;
-        Context context;
-        Context context2;
-        com.xiaomi.channel.commonutils.logger.b.c("exec== DbSizeControlJob");
-        c = this.a.c();
-        context = this.a.f149a;
-        bp bpVar = new bp(c, new WeakReference(context));
-        context2 = this.a.f149a;
-        bw.a(context2).a(bpVar);
-        this.a.b("check_time");
+    public synchronized long a(String str, String str2, long j) {
+        try {
+            j = this.f126a.getSharedPreferences(str, 4).getLong(str2, j);
+        } catch (Throwable th) {
+        }
+        return j;
+    }
+
+    public synchronized String a(String str, String str2, String str3) {
+        try {
+            str3 = this.f126a.getSharedPreferences(str, 4).getString(str2, str3);
+        } catch (Throwable th) {
+        }
+        return str3;
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public synchronized void m166a(String str, String str2, long j) {
+        SharedPreferences.Editor edit = this.f126a.getSharedPreferences(str, 4).edit();
+        edit.putLong(str2, j);
+        edit.commit();
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public synchronized void m167a(String str, String str2, String str3) {
+        SharedPreferences.Editor edit = this.f126a.getSharedPreferences(str, 4).edit();
+        edit.putString(str2, str3);
+        edit.commit();
     }
 }

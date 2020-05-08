@@ -12,22 +12,22 @@ import com.baidu.live.u.a;
 import com.baidu.tieba.ala.person.hosttabpanel.c.a;
 /* loaded from: classes3.dex */
 public class a implements com.baidu.live.liveroom.d.d {
-    private BdTypeListView aMf;
-    private TbListCommonPullView fWa;
-    private com.baidu.tieba.ala.person.hosttabpanel.a.a fWb;
-    private com.baidu.tieba.ala.person.hosttabpanel.c.a fWc;
-    private boolean fWd = false;
-    private TbListCommonPullView.ListPullRefreshListener fWe = new TbListCommonPullView.ListPullRefreshListener() { // from class: com.baidu.tieba.ala.person.hosttabpanel.d.a.1
+    private BdTypeListView aMl;
+    private TbListCommonPullView fWf;
+    private com.baidu.tieba.ala.person.hosttabpanel.a.a fWg;
+    private com.baidu.tieba.ala.person.hosttabpanel.c.a fWh;
+    private boolean fWi = false;
+    private TbListCommonPullView.ListPullRefreshListener fWj = new TbListCommonPullView.ListPullRefreshListener() { // from class: com.baidu.tieba.ala.person.hosttabpanel.d.a.1
         @Override // com.baidu.live.tbadk.core.view.TbListCommonPullView.ListPullRefreshListener
         public void onListPullRefresh(boolean z) {
-            if (a.this.fWc != null) {
-                a.this.fWc.refreshData();
+            if (a.this.fWh != null) {
+                a.this.fWh.refreshData();
             }
         }
     };
-    private a.InterfaceC0512a fWf = new a.InterfaceC0512a() { // from class: com.baidu.tieba.ala.person.hosttabpanel.d.a.2
+    private a.InterfaceC0533a fWk = new a.InterfaceC0533a() { // from class: com.baidu.tieba.ala.person.hosttabpanel.d.a.2
     };
-    private LoadingView fbq;
+    private LoadingView fbv;
     private TbPageContext mPageContext;
     private View mRootView;
 
@@ -38,13 +38,13 @@ public class a implements com.baidu.live.liveroom.d.d {
 
     private void initView() {
         this.mRootView = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(a.h.ala_new_host_tab_view, (ViewGroup) null);
-        this.aMf = (BdTypeListView) this.mRootView.findViewById(a.g.list_view);
-        this.fWa = new TbListCommonPullView(this.mPageContext.getPageActivity());
-        this.fWa.changeSkin(0);
-        this.fWa.setSkinType(0);
-        this.fWa.setListPullRefreshListener(this.fWe);
-        this.aMf.setPullRefresh(this.fWa);
-        this.fWb = new com.baidu.tieba.ala.person.hosttabpanel.a.a(this.mPageContext, this.aMf);
+        this.aMl = (BdTypeListView) this.mRootView.findViewById(a.g.list_view);
+        this.fWf = new TbListCommonPullView(this.mPageContext.getPageActivity());
+        this.fWf.changeSkin(0);
+        this.fWf.setSkinType(0);
+        this.fWf.setListPullRefreshListener(this.fWj);
+        this.aMl.setPullRefresh(this.fWf);
+        this.fWg = new com.baidu.tieba.ala.person.hosttabpanel.a.a(this.mPageContext, this.aMl);
     }
 
     @Override // com.baidu.live.liveroom.d.d
@@ -58,12 +58,12 @@ public class a implements com.baidu.live.liveroom.d.d {
     }
 
     @Override // com.baidu.live.liveroom.d.d
-    public String AT() {
+    public String AS() {
         return null;
     }
 
     @Override // com.baidu.live.liveroom.d.d
-    public short AU() {
+    public short AT() {
         return (short) 2;
     }
 
@@ -78,19 +78,19 @@ public class a implements com.baidu.live.liveroom.d.d {
 
     @Override // com.baidu.live.liveroom.d.d
     public void onDestroy() {
-        if (this.fWc != null) {
-            this.fWc.onDestroy();
+        if (this.fWh != null) {
+            this.fWh.onDestroy();
         }
-        if (this.fWb != null) {
-            this.fWb.onDestroy();
-            this.fWb = null;
+        if (this.fWg != null) {
+            this.fWg.onDestroy();
+            this.fWg = null;
         }
-        if (this.fbq != null) {
-            this.fbq.release();
-            this.fbq = null;
+        if (this.fbv != null) {
+            this.fbv.release();
+            this.fbv = null;
         }
-        if (this.fWa != null) {
-            this.fWa = null;
+        if (this.fWf != null) {
+            this.fWf = null;
         }
     }
 

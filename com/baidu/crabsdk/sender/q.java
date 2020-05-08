@@ -8,11 +8,11 @@ import java.net.URL;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes8.dex */
 public final class q implements Runnable {
-    final /* synthetic */ Context alb;
+    final /* synthetic */ Context alh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(Context context) {
-        this.alb = context;
+        this.alh = context;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:36:0x00b9 A[Catch: Exception -> 0x00bd, TRY_LEAVE, TryCatch #3 {Exception -> 0x00bd, blocks: (B:34:0x00b4, B:36:0x00b9), top: B:51:0x00b4, outer: #7 }] */
@@ -24,15 +24,15 @@ public final class q implements Runnable {
     public final void run() {
         DataOutputStream dataOutputStream;
         HttpURLConnection httpURLConnection;
-        String sR;
+        String sQ;
         HttpURLConnection httpURLConnection2;
         HttpURLConnection httpURLConnection3 = null;
         r2 = null;
         DataOutputStream dataOutputStream2 = null;
         try {
             try {
-                sR = g.sR();
-                com.baidu.crabsdk.c.a.v("sync json is " + sR);
+                sQ = g.sQ();
+                com.baidu.crabsdk.c.a.v("sync json is " + sQ);
                 httpURLConnection2 = (HttpURLConnection) new URL(com.baidu.crabsdk.a.c()).openConnection();
                 try {
                     httpURLConnection2.setRequestMethod("POST");
@@ -64,7 +64,7 @@ public final class q implements Runnable {
             dataOutputStream = null;
         }
         try {
-            dataOutputStream.writeBytes(sR);
+            dataOutputStream.writeBytes(sQ);
             dataOutputStream.flush();
             dataOutputStream.close();
             if (httpURLConnection2.getResponseCode() == 200) {
@@ -87,7 +87,7 @@ public final class q implements Runnable {
             e = e5;
             httpURLConnection = httpURLConnection2;
             try {
-                com.baidu.crabsdk.c.a.f("sync connect to server error!", e);
+                com.baidu.crabsdk.c.a.a("sync connect to server error!", e);
                 if (dataOutputStream2 != null) {
                     try {
                         dataOutputStream2.close();

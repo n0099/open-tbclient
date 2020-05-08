@@ -17,10 +17,10 @@ public class AddExperiencedModel extends BdBaseModel {
     public static int MAX_ADD_ADVANCED = 6;
     public static int MAX_ADD_NORMAL = 3;
     public static String USELESS_FORUM_ID = "24981790";
-    private HttpMessageListener dzw;
-    private ContriInfo kGA;
-    private Runnable kGB;
-    private a kGz;
+    private HttpMessageListener dzA;
+    private a kGD;
+    private ContriInfo kGE;
+    private Runnable kGF;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -29,29 +29,29 @@ public class AddExperiencedModel extends BdBaseModel {
 
     public AddExperiencedModel(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.kGB = new Runnable() { // from class: com.baidu.tieba.share.AddExperiencedModel.1
+        this.kGF = new Runnable() { // from class: com.baidu.tieba.share.AddExperiencedModel.1
             @Override // java.lang.Runnable
             public void run() {
-                if (AddExperiencedModel.this.kGz != null) {
-                    AddExperiencedModel.this.kGz.a(AddExperiencedModel.this.kGA);
+                if (AddExperiencedModel.this.kGD != null) {
+                    AddExperiencedModel.this.kGD.a(AddExperiencedModel.this.kGE);
                 }
             }
         };
-        this.dzw = new HttpMessageListener(1003332, true) { // from class: com.baidu.tieba.share.AddExperiencedModel.2
+        this.dzA = new HttpMessageListener(1003332, true) { // from class: com.baidu.tieba.share.AddExperiencedModel.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage != null && (httpResponsedMessage instanceof AddExperiencedResponseMessage)) {
-                    AddExperiencedModel.this.kGA = ((AddExperiencedResponseMessage) httpResponsedMessage).getContriInfo();
-                    e.lb().postDelayed(AddExperiencedModel.this.kGB, 2000L);
+                    AddExperiencedModel.this.kGE = ((AddExperiencedResponseMessage) httpResponsedMessage).getContriInfo();
+                    e.lb().postDelayed(AddExperiencedModel.this.kGF, 2000L);
                 }
             }
         };
-        xC();
-        registerListener(this.dzw);
+        xB();
+        registerListener(this.dzA);
     }
 
-    private void xC() {
+    private void xB() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003332, TbConfig.SERVER_ADDRESS + TbConfig.URL_ADD_EXPERIENCED);
         tbHttpMessageTask.setResponsedClass(AddExperiencedResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
@@ -64,7 +64,7 @@ public class AddExperiencedModel extends BdBaseModel {
         sendMessage(httpMessage);
     }
 
-    public static boolean Ka(String str) {
+    public static boolean Kd(String str) {
         return b.toLong(str, 0L) > 0 && !USELESS_FORUM_ID.equals(str);
     }
 
@@ -79,6 +79,6 @@ public class AddExperiencedModel extends BdBaseModel {
     }
 
     public void onDestroy() {
-        e.lb().removeCallbacks(this.kGB);
+        e.lb().removeCallbacks(this.kGF);
     }
 }

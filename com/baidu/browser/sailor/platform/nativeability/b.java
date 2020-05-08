@@ -14,7 +14,7 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 final class b implements Runnable {
     final /* synthetic */ String a;
-    final /* synthetic */ BdLightappKernelJsCallback acF;
+    final /* synthetic */ BdLightappKernelJsCallback acI;
     final /* synthetic */ String b;
     final /* synthetic */ String d;
     final /* synthetic */ String e;
@@ -23,7 +23,7 @@ final class b implements Runnable {
     public b(String str, String str2, BdLightappKernelJsCallback bdLightappKernelJsCallback, String str3, String str4) {
         this.a = str;
         this.b = str2;
-        this.acF = bdLightappKernelJsCallback;
+        this.acI = bdLightappKernelJsCallback;
         this.d = str3;
         this.e = str4;
     }
@@ -44,15 +44,15 @@ final class b implements Runnable {
                                     String string = jSONObject2.getString("key");
                                     String string2 = jSONObject2.getString("value");
                                     if (!TextUtils.isEmpty(string) && !TextUtils.isEmpty(string2)) {
-                                        fVar.acJ.append((CharSequence) ("--" + fVar.a)).append((CharSequence) "\r\n");
-                                        fVar.acJ.append((CharSequence) ("Content-Disposition: form-data; name=\"" + string + "\"")).append((CharSequence) "\r\n");
-                                        fVar.acJ.append((CharSequence) ("Content-Type: text/plain; charset=" + fVar.b)).append((CharSequence) "\r\n");
-                                        fVar.acJ.append((CharSequence) "\r\n");
-                                        fVar.acJ.append((CharSequence) string2).append((CharSequence) "\r\n");
-                                        fVar.acJ.flush();
+                                        fVar.acM.append((CharSequence) ("--" + fVar.a)).append((CharSequence) "\r\n");
+                                        fVar.acM.append((CharSequence) ("Content-Disposition: form-data; name=\"" + string + "\"")).append((CharSequence) "\r\n");
+                                        fVar.acM.append((CharSequence) ("Content-Type: text/plain; charset=" + fVar.b)).append((CharSequence) "\r\n");
+                                        fVar.acM.append((CharSequence) "\r\n");
+                                        fVar.acM.append((CharSequence) string2).append((CharSequence) "\r\n");
+                                        fVar.acM.flush();
                                     }
                                 } catch (JSONException e) {
-                                    this.acF.sendCallBackWithRetCode(1);
+                                    this.acI.sendCallBackWithRetCode(1);
                                     Log.d("BdWebappNativeAbility", e.getMessage());
                                 }
                             }
@@ -68,7 +68,7 @@ final class b implements Runnable {
                                     if (com.baidu.browser.sailor.feature.a.d.a(BdSailorPlatform.getInstance().getAppContext().getCacheDir(), file)) {
                                         fVar.a(string3, file);
                                     } else if (!com.baidu.browser.sailor.util.b.a(this.e, file)) {
-                                        this.acF.sendCallBackWithRetCode(4);
+                                        this.acI.sendCallBackWithRetCode(4);
                                         return;
                                     } else {
                                         fVar.a(string3, file);
@@ -77,11 +77,11 @@ final class b implements Runnable {
                             }
                         }
                     } catch (JSONException e2) {
-                        this.acF.sendCallBackWithRetCode(1);
+                        this.acI.sendCallBackWithRetCode(1);
                         e2.printStackTrace();
                     }
                 } catch (IOException e3) {
-                    this.acF.sendCallBackWithRetCode(1);
+                    this.acI.sendCallBackWithRetCode(1);
                     e3.printStackTrace();
                 }
             }
@@ -90,27 +90,27 @@ final class b implements Runnable {
                     try {
                         String str = fVar.a().get(0);
                         if (str != null) {
-                            this.acF.setResult(true);
-                            this.acF.addField(IIntercepter.TYPE_RESPONSE, str);
+                            this.acI.setResult(true);
+                            this.acI.addField(IIntercepter.TYPE_RESPONSE, str);
                         }
-                        this.acF.notifyResult();
+                        this.acI.notifyResult();
                     } catch (IllegalStateException e4) {
-                        this.acF.sendCallBackWithRetCode(1);
+                        this.acI.sendCallBackWithRetCode(1);
                         e4.printStackTrace();
                     }
                 } catch (IllegalStateException e5) {
-                    this.acF.sendCallBackWithRetCode(2);
+                    this.acI.sendCallBackWithRetCode(2);
                     e5.printStackTrace();
                 }
             } catch (UnsupportedEncodingException e6) {
-                this.acF.sendCallBackWithRetCode(1);
+                this.acI.sendCallBackWithRetCode(1);
                 e6.printStackTrace();
             } catch (IOException e7) {
-                this.acF.sendCallBackWithRetCode(1);
+                this.acI.sendCallBackWithRetCode(1);
                 e7.printStackTrace();
             }
         } catch (IOException e8) {
-            this.acF.sendCallBackWithRetCode(2);
+            this.acI.sendCallBackWithRetCode(2);
             e8.printStackTrace();
         }
     }

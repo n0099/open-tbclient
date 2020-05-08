@@ -1,7 +1,6 @@
 package com.baidubce.auth;
 
 import android.util.Base64;
-import com.coloros.mcssdk.c.a;
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.Charset;
 import java.security.Key;
@@ -48,7 +47,7 @@ public final class NTLMEngineImpl {
     static {
         SecureRandom secureRandom = null;
         try {
-            secureRandom = SecureRandom.getInstance(a.c);
+            secureRandom = SecureRandom.getInstance("SHA1PRNG");
         } catch (Exception e) {
         }
         RND_GEN = secureRandom;

@@ -8,36 +8,36 @@ import com.baidu.tieba.lego.card.b.b;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class a implements com.baidu.tieba.lego.card.b.b {
-    private b.a XB;
-    public String Xp;
-    public String Xq;
-    public int Xr;
+    public int XA;
+    public int XB;
+    private b.a XE;
     public String Xs;
     public String Xt;
-    public String Xu;
+    public int Xu;
     public String Xv;
-    public boolean Xw;
-    public int Xx;
-    public int Xy;
+    public String Xw;
+    public String Xx;
+    public String Xy;
+    public boolean Xz;
     public String adid;
     public String extra;
     public String picUrl;
     public String tplName;
     public String videoUrl;
-    private int Xo = 3;
-    public ArrayList<String> Xz = new ArrayList<>();
-    public ArrayList<String> XA = new ArrayList<>();
+    private int Xr = 3;
+    public ArrayList<String> XC = new ArrayList<>();
+    public ArrayList<String> XD = new ArrayList<>();
 
     public void aK(int i) {
-        this.Xo = i;
+        this.Xr = i;
     }
 
     public boolean isEmpty() {
-        return this.Xo == 2;
+        return this.Xr == 2;
     }
 
     public int pR() {
-        return this.Xo;
+        return this.Xr;
     }
 
     public boolean isValid() {
@@ -51,16 +51,16 @@ public class a implements com.baidu.tieba.lego.card.b.b {
     }
 
     public String pS() {
-        return StringUtils.isNull(this.Xu) ? TbadkCoreApplication.getInst().getResources().getString(R.string.check_detail) : this.Xu;
+        return StringUtils.isNull(this.Xx) ? TbadkCoreApplication.getInst().getResources().getString(R.string.check_detail) : this.Xx;
     }
 
     @Override // com.baidu.tieba.lego.card.b.b
     public b.a getParallelCharge() {
-        if (this.XB == null) {
-            this.XB = new b.a();
-            this.XB.iJs = this.Xz;
-            this.XB.iJt = this.XA;
+        if (this.XE == null) {
+            this.XE = new b.a();
+            this.XE.iJw = this.XC;
+            this.XE.iJx = this.XD;
         }
-        return this.XB;
+        return this.XE;
     }
 }

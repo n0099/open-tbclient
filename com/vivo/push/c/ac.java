@@ -1,30 +1,56 @@
 package com.vivo.push.c;
 
-import android.content.Context;
-import com.vivo.push.sdk.PushMessageCallback;
+import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes8.dex */
-final class ac implements Runnable {
-    final /* synthetic */ int a;
-    final /* synthetic */ List b;
-    final /* synthetic */ List c;
-    final /* synthetic */ String d;
-    final /* synthetic */ ab e;
-
+final class ac extends ab {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ac(ab abVar, int i, List list, List list2, String str) {
-        this.e = abVar;
-        this.a = i;
-        this.b = list;
-        this.c = list2;
-        this.d = str;
+    public ac(com.vivo.push.y yVar) {
+        super(yVar);
     }
 
-    @Override // java.lang.Runnable
-    public final void run() {
-        Context context;
-        PushMessageCallback pushMessageCallback = this.e.b;
-        context = this.e.a;
-        pushMessageCallback.onSetTags(context, this.a, this.b, this.c, this.d);
+    @Override // com.vivo.push.v
+    protected final void a(com.vivo.push.y yVar) {
+        com.vivo.push.b.v vVar = (com.vivo.push.b.v) yVar;
+        ArrayList<String> d = vVar.d();
+        List<String> e = vVar.e();
+        ArrayList arrayList = new ArrayList();
+        ArrayList arrayList2 = new ArrayList();
+        ArrayList arrayList3 = new ArrayList();
+        ArrayList arrayList4 = new ArrayList();
+        int h = vVar.h();
+        String g = vVar.g();
+        if (d != null) {
+            for (String str : d) {
+                if (str.startsWith("ali/")) {
+                    arrayList2.add(str.replace("ali/", ""));
+                } else if (str.startsWith("tag/")) {
+                    arrayList.add(str.replace("tag/", ""));
+                }
+            }
+        }
+        if (e != null) {
+            for (String str2 : e) {
+                if (str2.startsWith("ali/")) {
+                    arrayList4.add(str2.replace("ali/", ""));
+                } else if (str2.startsWith("tag/")) {
+                    arrayList3.add(str2.replace("tag/", ""));
+                }
+            }
+        }
+        if (arrayList.size() > 0 || arrayList3.size() > 0) {
+            if (arrayList.size() > 0) {
+                com.vivo.push.p.a().a(arrayList);
+            }
+            com.vivo.push.p.a().a(vVar.g(), arrayList3.size() > 0 ? 10000 : h);
+            com.vivo.push.w.b(new ad(this, h, arrayList, arrayList3, g));
+        }
+        if (arrayList2.size() > 0 || arrayList4.size() > 0) {
+            if (arrayList2.size() > 0) {
+                com.vivo.push.p.a().b((String) arrayList2.get(0));
+            }
+            com.vivo.push.p.a().a(vVar.g(), h);
+            com.vivo.push.w.b(new ae(this, h, arrayList2, arrayList4, g));
+        }
     }
 }

@@ -6,24 +6,24 @@ import com.baidu.swan.bdprivate.invoice.model.c;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class d<DATA extends c> implements c {
-    public String cCV;
-    public String cCW;
-    public DATA cCX;
+    public String cDb;
+    public String cDc;
+    public DATA cDd;
 
     public d() {
     }
 
     public d(DATA data) {
-        this.cCX = data;
+        this.cDd = data;
     }
 
     @Override // com.baidu.swan.bdprivate.invoice.model.c
     public void br(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.cCV = jSONObject.optString(BaseJsonData.TAG_ERRNO);
-            this.cCW = jSONObject.optString("tipmsg");
-            if (this.cCX != null) {
-                this.cCX.br(s.parseString(jSONObject.optString("data")));
+            this.cDb = jSONObject.optString(BaseJsonData.TAG_ERRNO);
+            this.cDc = jSONObject.optString("tipmsg");
+            if (this.cDd != null) {
+                this.cDd.br(s.parseString(jSONObject.optString("data")));
             }
         }
     }

@@ -38,57 +38,57 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes3.dex */
 public class a {
-    private static a biA;
-    private EGLContext biC;
-    private InterfaceC0151a biD;
-    private DuMixController biF;
-    private DuMixInput biH;
-    private DuMixOutput biI;
-    private FaceListener biJ;
-    private LuaMsgListener biK;
-    FilterStateListener biL;
-    private DefinedLuaListener biM;
-    private Texture biP;
-    private Texture biQ;
-    private long biS;
-    private long biT;
+    private static a biF;
+    private EGLContext biH;
+    private InterfaceC0172a biI;
+    private DuMixController biK;
+    private DuMixInput biM;
+    private DuMixOutput biN;
+    private FaceListener biO;
+    private LuaMsgListener biP;
+    FilterStateListener biQ;
+    private DefinedLuaListener biR;
+    private Texture biU;
+    private Texture biV;
+    private long biX;
+    private long biY;
     private Context mContext;
-    public static final String biz = c.Kf();
-    private static boolean biB = false;
-    private static final InterfaceC0151a biN = null;
-    private static boolean biR = false;
+    public static final String biE = c.Ke();
+    private static boolean biG = false;
+    private static final InterfaceC0172a biS = null;
+    private static boolean biW = false;
     private boolean mPaused = false;
-    private boolean biE = false;
-    private List<DuMixCallback> biG = new ArrayList();
+    private boolean biJ = false;
+    private List<DuMixCallback> biL = new ArrayList();
     private int mInputWidth = 1280;
     private int mInputHeight = 720;
-    private boolean biO = false;
-    private volatile boolean biU = false;
-    private volatile boolean biV = false;
+    private boolean biT = false;
+    private volatile boolean biZ = false;
+    private volatile boolean bja = false;
     private volatile boolean mIsOverrideParm = false;
     private int mOutputFPS = 0;
     private DuMixCallback mDuMixCallback = new DuMixCallback() { // from class: com.baidu.minivideo.arface.a.5
         @Override // com.baidu.ar.DuMixCallback
         public void onSetup(final boolean z, DuMixInput duMixInput, DuMixOutput duMixOutput) {
-            if (z && a.this.biF != null) {
-                ThreadPool.Kk().execute(new Runnable() { // from class: com.baidu.minivideo.arface.a.5.1
+            if (z && a.this.biK != null) {
+                ThreadPool.Kj().execute(new Runnable() { // from class: com.baidu.minivideo.arface.a.5.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        if (z && a.this.biF != null && b.JY() != null) {
+                        if (z && a.this.biK != null && b.JX() != null) {
                             a aVar = a.this;
-                            b.JY();
-                            aVar.fx(c.cv(a.this.biU));
+                            b.JX();
+                            aVar.fx(c.cv(a.this.biZ));
                             a aVar2 = a.this;
                             BeautyType beautyType = BeautyType.beautyJsonPath;
-                            b.JY();
-                            aVar2.setBeautyValue(beautyType, c.Kg());
+                            b.JX();
+                            aVar2.setBeautyValue(beautyType, c.Kf());
                         }
-                        if (z && a.this.biF != null) {
-                            a.this.ct(a.this.biU);
+                        if (z && a.this.biK != null) {
+                            a.this.ct(a.this.biZ);
                         }
-                        a.this.biV = true;
+                        a.this.bja = true;
                         if (a.this.mIsOverrideParm) {
-                            a.this.JW();
+                            a.this.JV();
                         }
                     }
                 });
@@ -96,8 +96,8 @@ public class a {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 < a.this.biG.size()) {
-                    DuMixCallback duMixCallback = (DuMixCallback) a.this.biG.get(i2);
+                if (i2 < a.this.biL.size()) {
+                    DuMixCallback duMixCallback = (DuMixCallback) a.this.biL.get(i2);
                     if (duMixCallback != null) {
                         duMixCallback.onSetup(z, duMixInput, duMixOutput);
                     }
@@ -113,8 +113,8 @@ public class a {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 < a.this.biG.size()) {
-                    DuMixCallback duMixCallback = (DuMixCallback) a.this.biG.get(i2);
+                if (i2 < a.this.biL.size()) {
+                    DuMixCallback duMixCallback = (DuMixCallback) a.this.biL.get(i2);
                     if (duMixCallback != null) {
                         duMixCallback.onCaseCreate(z, str, str2);
                     }
@@ -130,8 +130,8 @@ public class a {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 < a.this.biG.size()) {
-                    DuMixCallback duMixCallback = (DuMixCallback) a.this.biG.get(i2);
+                if (i2 < a.this.biL.size()) {
+                    DuMixCallback duMixCallback = (DuMixCallback) a.this.biL.get(i2);
                     if (duMixCallback != null) {
                         duMixCallback.onCaseDestroy();
                     }
@@ -147,14 +147,14 @@ public class a {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 < a.this.biG.size()) {
-                    DuMixCallback duMixCallback = (DuMixCallback) a.this.biG.get(i2);
+                if (i2 < a.this.biL.size()) {
+                    DuMixCallback duMixCallback = (DuMixCallback) a.this.biL.get(i2);
                     if (duMixCallback != null) {
                         duMixCallback.onRelease();
                     }
                     i = i2 + 1;
                 } else {
-                    a.this.biG.clear();
+                    a.this.biL.clear();
                     return;
                 }
             }
@@ -162,7 +162,7 @@ public class a {
 
         @Override // com.baidu.ar.DuMixCallback
         public void onError(DuMixErrorType duMixErrorType, String str, String str2) {
-            for (DuMixCallback duMixCallback : a.this.biG) {
+            for (DuMixCallback duMixCallback : a.this.biL) {
                 duMixCallback.onError(duMixErrorType, str, str2);
             }
         }
@@ -170,13 +170,13 @@ public class a {
 
     /* renamed from: com.baidu.minivideo.arface.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC0151a {
-        void onHolderChanged(InterfaceC0151a interfaceC0151a);
+    public interface InterfaceC0172a {
+        void onHolderChanged(InterfaceC0172a interfaceC0172a);
     }
 
-    public static boolean JP() {
-        if (biB) {
-            return biB;
+    public static boolean JO() {
+        if (biG) {
+            return biG;
         }
         try {
             System.loadLibrary("c++_shared");
@@ -188,156 +188,156 @@ public class a {
             System.loadLibrary("AREngineCpp2");
             System.loadLibrary("FaceAlgoSDK2");
             System.loadLibrary("ARMdlSDK2");
-            biB = true;
+            biG = true;
         } catch (Throwable th) {
             g.d("DuAr_UGC_SO", "so loaded: " + th.getMessage());
-            biB = false;
+            biG = false;
         }
-        return biB;
+        return biG;
     }
 
-    private a(Context context, InterfaceC0151a interfaceC0151a, EGLContext eGLContext, byte[] bArr) {
+    private a(Context context, InterfaceC0172a interfaceC0172a, EGLContext eGLContext, byte[] bArr) {
         this.mContext = context.getApplicationContext();
-        this.biC = eGLContext;
-        this.biD = interfaceC0151a;
-        this.biF = new DuMixController(this.mContext, b.b(eGLContext));
+        this.biH = eGLContext;
+        this.biI = interfaceC0172a;
+        this.biK = new DuMixController(this.mContext, b.b(eGLContext));
         if (bArr != null && bArr.length > 0) {
-            this.biF.checkAuth(bArr, null, null);
+            this.biK.checkAuth(bArr, null, null);
         }
         cu(false);
-        this.biF.getARProxyManager().getFaceAR().setFaceListener(new FaceListener() { // from class: com.baidu.minivideo.arface.a.1
+        this.biK.getARProxyManager().getFaceAR().setFaceListener(new FaceListener() { // from class: com.baidu.minivideo.arface.a.1
             @Override // com.baidu.ar.face.FaceListener
             public void onFaceResult(Object obj) {
-                if (a.this.biJ != null) {
-                    a.this.biJ.onFaceResult(obj);
+                if (a.this.biO != null) {
+                    a.this.biO.onFaceResult(obj);
                 }
             }
 
             @Override // com.baidu.ar.face.FaceListener
             public void onStickerLoadingFinished(List<String> list) {
-                if (a.this.biJ != null) {
-                    a.this.biJ.onStickerLoadingFinished(list);
+                if (a.this.biO != null) {
+                    a.this.biO.onStickerLoadingFinished(list);
                 }
             }
 
             @Override // com.baidu.ar.face.FaceListener
             public void onTriggerFired(String str) {
-                if (a.this.biJ != null) {
-                    a.this.biJ.onTriggerFired(str);
+                if (a.this.biO != null) {
+                    a.this.biO.onTriggerFired(str);
                 }
             }
         });
-        this.biF.addLuaMsgListener(new LuaMsgListener() { // from class: com.baidu.minivideo.arface.a.2
+        this.biK.addLuaMsgListener(new LuaMsgListener() { // from class: com.baidu.minivideo.arface.a.2
             @Override // com.baidu.ar.lua.LuaMsgListener
             public List<String> getMsgKeyListened() {
-                if (a.this.biK != null) {
-                    return a.this.biK.getMsgKeyListened();
+                if (a.this.biP != null) {
+                    return a.this.biP.getMsgKeyListened();
                 }
                 return null;
             }
 
             @Override // com.baidu.ar.lua.LuaMsgListener
             public void onLuaMessage(HashMap<String, Object> hashMap) {
-                if (a.this.biK != null) {
-                    a.this.biK.onLuaMessage(hashMap);
+                if (a.this.biP != null) {
+                    a.this.biP.onLuaMessage(hashMap);
                 }
             }
         });
-        this.biF.setDefinedLuaListener(new DefinedLuaListener() { // from class: com.baidu.minivideo.arface.a.3
+        this.biK.setDefinedLuaListener(new DefinedLuaListener() { // from class: com.baidu.minivideo.arface.a.3
             @Override // com.baidu.ar.DefinedLuaListener
             public void onRequireSwitchCamera(int i) {
-                if (a.this.biM != null) {
-                    a.this.biM.onRequireSwitchCamera(i);
+                if (a.this.biR != null) {
+                    a.this.biR.onRequireSwitchCamera(i);
                 }
             }
 
             @Override // com.baidu.ar.DefinedLuaListener
             public void onOpenUrl(String str, int i, HashMap<String, Object> hashMap) {
-                if (a.this.biM != null) {
-                    a.this.biM.onOpenUrl(str, i, hashMap);
+                if (a.this.biR != null) {
+                    a.this.biR.onOpenUrl(str, i, hashMap);
                 }
             }
         });
-        this.biF.setFilterStateListener(new FilterStateListener() { // from class: com.baidu.minivideo.arface.a.4
+        this.biK.setFilterStateListener(new FilterStateListener() { // from class: com.baidu.minivideo.arface.a.4
             @Override // com.baidu.ar.filter.FilterStateListener
             public void onFilterStateChanged(HashMap<FilterNode, Boolean> hashMap, String str) {
-                if (a.this.biL != null) {
-                    a.this.biL.onFilterStateChanged(hashMap, str);
+                if (a.this.biQ != null) {
+                    a.this.biQ.onFilterStateChanged(hashMap, str);
                 }
             }
         });
     }
 
-    public static a a(Context context, InterfaceC0151a interfaceC0151a, byte[] bArr) {
-        return a(context, interfaceC0151a, null, bArr);
+    public static a a(Context context, InterfaceC0172a interfaceC0172a, byte[] bArr) {
+        return a(context, interfaceC0172a, null, bArr);
     }
 
-    public static a a(Context context, InterfaceC0151a interfaceC0151a, EGLContext eGLContext, byte[] bArr) {
-        if (biA == null || biA.biD != interfaceC0151a || biA.biC != eGLContext) {
+    public static a a(Context context, InterfaceC0172a interfaceC0172a, EGLContext eGLContext, byte[] bArr) {
+        if (biF == null || biF.biI != interfaceC0172a || biF.biH != eGLContext) {
             synchronized (a.class) {
-                if (biA == null || biA.biD != interfaceC0151a || biA.biC != eGLContext) {
-                    if (biA != null) {
-                        InterfaceC0151a interfaceC0151a2 = biA.biD;
-                        biA.release();
-                        if (interfaceC0151a2 != null) {
-                            interfaceC0151a2.onHolderChanged(interfaceC0151a);
+                if (biF == null || biF.biI != interfaceC0172a || biF.biH != eGLContext) {
+                    if (biF != null) {
+                        InterfaceC0172a interfaceC0172a2 = biF.biI;
+                        biF.release();
+                        if (interfaceC0172a2 != null) {
+                            interfaceC0172a2.onHolderChanged(interfaceC0172a);
                         }
                     }
-                    biA = new a(context, interfaceC0151a, eGLContext, bArr);
+                    biF = new a(context, interfaceC0172a, eGLContext, bArr);
                 }
             }
         }
-        return biA;
+        return biF;
     }
 
-    public InterfaceC0151a JQ() {
-        return this.biD;
+    public InterfaceC0172a JP() {
+        return this.biI;
     }
 
     public void resume() {
-        if (biA == this && this.biF != null) {
+        if (biF == this && this.biK != null) {
             d("DuAr_DuController", "resume");
-            this.biF.resume();
+            this.biK.resume();
             this.mPaused = false;
         }
     }
 
     public void pause() {
-        if (biA == this && this.biF != null) {
+        if (biF == this && this.biK != null) {
             d("DuAr_DuController", "pause");
-            this.biF.pause();
+            this.biK.pause();
             this.mPaused = true;
         }
     }
 
     public void release() {
-        if (biA == this) {
+        if (biF == this) {
             this.mPaused = false;
-            this.biE = true;
-            this.biD = biN;
-            DuMixController duMixController = this.biF;
-            this.biF = null;
+            this.biJ = true;
+            this.biI = biS;
+            DuMixController duMixController = this.biK;
+            this.biK = null;
             if (duMixController != null) {
                 d("DuAr_DuController", "release");
-                this.biT = System.currentTimeMillis();
+                this.biY = System.currentTimeMillis();
                 duMixController.release();
-                d("DuAr_DuController", Build.MODEL + ", release spendTime: " + (System.currentTimeMillis() - this.biT));
+                d("DuAr_DuController", Build.MODEL + ", release spendTime: " + (System.currentTimeMillis() - this.biY));
             }
-            biA = null;
-            this.biC = null;
+            biF = null;
+            this.biH = null;
         }
     }
 
-    public boolean JR() {
-        return this.biO;
+    public boolean JQ() {
+        return this.biT;
     }
 
-    private boolean JS() {
-        return (this.biF == null || !JR() || isPaused()) ? false : true;
+    private boolean JR() {
+        return (this.biK == null || !JQ() || isPaused()) ? false : true;
     }
 
-    public boolean JT() {
-        return this.biE;
+    public boolean JS() {
+        return this.biJ;
     }
 
     public boolean isPaused() {
@@ -345,90 +345,90 @@ public class a {
     }
 
     public void onCameraDrawerCreated(SurfaceTexture surfaceTexture, int i, int i2) {
-        if (this.biC != null) {
-            this.biH = new DuMixInput2(this.biP, i, i2);
-            ((DuMixInput2) this.biH).setSyncInputContent(biR);
-            d("DuAr_DuController", "onCameraDrawerCreated : sSyncInputContent = " + biR);
-            this.biH.setInputDegree(0);
+        if (this.biH != null) {
+            this.biM = new DuMixInput2(this.biU, i, i2);
+            ((DuMixInput2) this.biM).setSyncInputContent(biW);
+            d("DuAr_DuController", "onCameraDrawerCreated : sSyncInputContent = " + biW);
+            this.biM.setInputDegree(0);
             return;
         }
-        this.biH = new DuMixInput(surfaceTexture, this.mInputWidth, this.mInputHeight);
+        this.biM = new DuMixInput(surfaceTexture, this.mInputWidth, this.mInputHeight);
     }
 
     public void a(SurfaceTexture surfaceTexture, SurfaceTexture.OnFrameAvailableListener onFrameAvailableListener, int i, int i2, boolean z, DuMixCallback duMixCallback) {
-        if (this.biF != null) {
-            this.biU = z;
-            this.biS = System.currentTimeMillis();
+        if (this.biK != null) {
+            this.biZ = z;
+            this.biX = System.currentTimeMillis();
             if (surfaceTexture != null) {
                 surfaceTexture.setOnFrameAvailableListener(onFrameAvailableListener);
             }
             a(duMixCallback);
-            if (!this.biO) {
-                if (this.biC != null) {
-                    this.biQ = J(i, i2);
-                    this.biI = new DuMixOutput2(this.biQ, i, i2);
+            if (!this.biT) {
+                if (this.biH != null) {
+                    this.biV = J(i, i2);
+                    this.biN = new DuMixOutput2(this.biV, i, i2);
                 } else {
-                    this.biI = new DuMixOutput(surfaceTexture, this.mInputHeight, this.mInputWidth);
+                    this.biN = new DuMixOutput(surfaceTexture, this.mInputHeight, this.mInputWidth);
                 }
                 if (this.mOutputFPS != 0) {
-                    this.biI.setOutputFPS(this.mOutputFPS);
+                    this.biN.setOutputFPS(this.mOutputFPS);
                 }
-                this.biF.setup(this.biH, this.biI, this.mDuMixCallback);
-                this.biO = true;
+                this.biK.setup(this.biM, this.biN, this.mDuMixCallback);
+                this.biT = true;
                 return;
             }
-            this.biF.changeOutputSize(i, i2);
+            this.biK.changeOutputSize(i, i2);
         }
     }
 
     public void sendMessage2Lua(HashMap<String, Object> hashMap) {
-        if (this.biF != null && hashMap != null) {
-            this.biF.sendMsg2Lua(hashMap);
+        if (this.biK != null && hashMap != null) {
+            this.biK.sendMsg2Lua(hashMap);
         }
     }
 
     public void setMdlModelPath(String str) {
-        if (this.biF != null && str != null) {
-            this.biF.setMdlModelPath(str);
+        if (this.biK != null && str != null) {
+            this.biK.setMdlModelPath(str);
         }
     }
 
     public void a(DuMixCallback duMixCallback) {
-        if (duMixCallback != null && !this.biG.contains(duMixCallback)) {
-            this.biG.add(duMixCallback);
+        if (duMixCallback != null && !this.biL.contains(duMixCallback)) {
+            this.biL.add(duMixCallback);
         }
-        g.d("DuAr_DuController", "addDuMixCallback size " + this.biG.size());
+        g.d("DuAr_DuController", "addDuMixCallback size " + this.biL.size());
     }
 
     public void setBeautyValue(BeautyType beautyType, int i) {
-        if (this.biF != null && beautyType != null) {
-            this.biF.updateFilter(beautyType.type, i);
+        if (this.biK != null && beautyType != null) {
+            this.biK.updateFilter(beautyType.type, i);
         }
     }
 
     public void a(BeautyType beautyType, Makeup makeup) {
-        if (makeup != null && this.biF != null && beautyType != null) {
-            this.biF.updateFilter(beautyType.type, 1);
-            this.biF.updateFilterCase(makeup.getResPath());
-            this.biF.updateFilter(beautyType.type, makeup.getValue());
+        if (makeup != null && this.biK != null && beautyType != null) {
+            this.biK.updateFilter(beautyType.type, 1);
+            this.biK.updateFilterCase(makeup.getResPath());
+            this.biK.updateFilter(beautyType.type, makeup.getValue());
         }
     }
 
     public void setBeautyValue(BeautyType beautyType, float f) {
-        if (this.biF != null && beautyType != null) {
-            this.biF.updateFilter(beautyType.type, f);
+        if (this.biK != null && beautyType != null) {
+            this.biK.updateFilter(beautyType.type, f);
         }
     }
 
     public void setOverrideDefaultParm(boolean z) {
         this.mIsOverrideParm = z;
-        if (this.biV) {
-            JW();
+        if (this.bja) {
+            JV();
         }
     }
 
     public void setCurve(List<List<Point>> list) {
-        DuMixController duMixController = this.biF;
+        DuMixController duMixController = this.biK;
         if (duMixController != null && list != null) {
             duMixController.updateFilter(FilterParam.TuneColorFilter.rgbPoints, list.get(0));
             duMixController.updateFilter(FilterParam.TuneColorFilter.redPoints, list.get(1));
@@ -461,28 +461,28 @@ public class a {
             setCurve(arrayList);
             return;
         }
-        JU();
+        JT();
     }
 
     public void setBeautyValue(BeautyType beautyType, String str) {
-        if (this.biF != null && beautyType != null) {
+        if (this.biK != null && beautyType != null) {
             if (beautyType == BeautyType.cheeks || beautyType == BeautyType.lips || beautyType == BeautyType.highlight || beautyType == BeautyType.eyeshadow || beautyType == BeautyType.eyeliner || beautyType == BeautyType.eyebrow || beautyType == BeautyType.eyeball) {
-                this.biF.updateFilterCase(str);
+                this.biK.updateFilterCase(str);
             } else {
-                this.biF.updateFilter(beautyType.type, str);
+                this.biK.updateFilter(beautyType.type, str);
             }
         }
     }
 
     public void fx(String str) {
-        if (this.biF != null) {
-            this.biF.updateFilterCase(str);
+        if (this.biK != null) {
+            this.biK.updateFilterCase(str);
         }
     }
 
     public void setBeautyValue(BeautyType beautyType, float[] fArr) {
-        if (this.biF != null && beautyType != null) {
-            this.biF.updateFilter(beautyType.type, fArr);
+        if (this.biK != null && beautyType != null) {
+            this.biK.updateFilter(beautyType.type, fArr);
         }
     }
 
@@ -519,7 +519,7 @@ public class a {
         }
     }
 
-    public static String aC(Context context) {
+    public static String aq(Context context) {
         return DuMixController.getSoDownLoadDir(context);
     }
 
@@ -532,29 +532,29 @@ public class a {
     }
 
     public void loadCase(ARType aRType, String str, String str2) {
-        if (this.biL != null && TextUtils.isEmpty(str)) {
-            this.biL.onFilterStateChanged(null, null);
+        if (this.biQ != null && TextUtils.isEmpty(str)) {
+            this.biQ.onFilterStateChanged(null, null);
         }
-        if (JS()) {
-            this.biF.loadCase(aRType, str, str2);
+        if (JR()) {
+            this.biK.loadCase(aRType, str, str2);
         }
     }
 
     public void a(ICaptureAbilityListener iCaptureAbilityListener) {
-        if (this.biF != null && this.biF.getARProxyManager() != null && this.biF.getARProxyManager().getCaptureAR() != null) {
-            this.biF.getARProxyManager().getCaptureAR().setAbilityListener(iCaptureAbilityListener);
+        if (this.biK != null && this.biK.getARProxyManager() != null && this.biK.getARProxyManager().getCaptureAR() != null) {
+            this.biK.getARProxyManager().getCaptureAR().setAbilityListener(iCaptureAbilityListener);
         }
     }
 
     public void d(ICallbackWith<ICaptureResult> iCallbackWith) {
-        if (this.biF != null && this.biF.getARProxyManager() != null && this.biF.getARProxyManager().getCaptureAR() != null) {
-            this.biF.getARProxyManager().getCaptureAR().setCaptureCallback(iCallbackWith);
+        if (this.biK != null && this.biK.getARProxyManager() != null && this.biK.getARProxyManager().getCaptureAR() != null) {
+            this.biK.getARProxyManager().getCaptureAR().setCaptureCallback(iCallbackWith);
         }
     }
 
     public void h(Object... objArr) {
         int i = 0;
-        if (objArr != null && objArr.length != 0 && this.biF != null && this.biF.getARProxyManager() != null && this.biF.getARProxyManager().getCaptureAR() != null) {
+        if (objArr != null && objArr.length != 0 && this.biK != null && this.biK.getARProxyManager() != null && this.biK.getARProxyManager().getCaptureAR() != null) {
             if (objArr[0] instanceof Bitmap) {
                 Bitmap[] bitmapArr = new Bitmap[objArr.length];
                 while (true) {
@@ -563,7 +563,7 @@ public class a {
                         bitmapArr[i2] = (Bitmap) objArr[i2];
                         i = i2 + 1;
                     } else {
-                        this.biF.getARProxyManager().getCaptureAR().sendImageToLua(bitmapArr);
+                        this.biK.getARProxyManager().getCaptureAR().sendImageToLua(bitmapArr);
                         return;
                     }
                 }
@@ -575,7 +575,7 @@ public class a {
                         strArr[i3] = (String) objArr[i3];
                         i = i3 + 1;
                     } else {
-                        this.biF.getARProxyManager().getCaptureAR().sendBase64ImageToLua(strArr);
+                        this.biK.getARProxyManager().getCaptureAR().sendBase64ImageToLua(strArr);
                         return;
                     }
                 }
@@ -588,7 +588,7 @@ public class a {
     }
 
     public void setFaceListener(FaceListener faceListener) {
-        this.biJ = faceListener;
+        this.biO = faceListener;
     }
 
     private static void d(String str, String str2) {
@@ -598,29 +598,29 @@ public class a {
     }
 
     public void c(LuaMsgListener luaMsgListener) {
-        this.biK = luaMsgListener;
+        this.biP = luaMsgListener;
     }
 
     public void setDefinedLuaListener(DefinedLuaListener definedLuaListener) {
-        this.biM = definedLuaListener;
+        this.biR = definedLuaListener;
     }
 
     public void setFilterStateListener(FilterStateListener filterStateListener) {
-        this.biL = filterStateListener;
+        this.biQ = filterStateListener;
     }
 
     public void clearCase() {
-        if (this.biL != null) {
-            this.biL.onFilterStateChanged(null, null);
+        if (this.biQ != null) {
+            this.biQ.onFilterStateChanged(null, null);
         }
-        if (this.biF != null) {
-            this.biF.clearCase();
+        if (this.biK != null) {
+            this.biK.clearCase();
         }
     }
 
     private Texture J(int i, int i2) {
         IGLRenderer gLRenderer;
-        if (this.biF == null || (gLRenderer = this.biF.getGLRenderer()) == null) {
+        if (this.biK == null || (gLRenderer = this.biK.getGLRenderer()) == null) {
             return null;
         }
         return gLRenderer.createTexture(3553, i, i2);
@@ -631,28 +631,28 @@ public class a {
     }
 
     public static boolean a(a aVar, Object obj) {
-        return (aVar == null || aVar.JT() || aVar.JQ() != obj) ? false : true;
+        return (aVar == null || aVar.JS() || aVar.JP() != obj) ? false : true;
     }
 
     public void updateFilterBrightness(float f) {
-        if (this.biF != null) {
-            this.biF.updateFilter(FilterParam.TuneColorFilter.brightness, f);
+        if (this.biK != null) {
+            this.biK.updateFilter(FilterParam.TuneColorFilter.brightness, f);
         }
     }
 
     public void updateFilterContrast(float f) {
-        if (this.biF != null) {
-            this.biF.updateFilter(FilterParam.TuneColorFilter.contrast, f);
+        if (this.biK != null) {
+            this.biK.updateFilter(FilterParam.TuneColorFilter.contrast, f);
         }
     }
 
     public void updateFilterSaturation(float f) {
-        if (this.biF != null) {
-            this.biF.updateFilter(FilterParam.TuneColorFilter.saturation, f);
+        if (this.biK != null) {
+            this.biK.updateFilter(FilterParam.TuneColorFilter.saturation, f);
         }
     }
 
-    private void JU() {
+    private void JT() {
         ArrayList arrayList = new ArrayList();
         ArrayList arrayList2 = new ArrayList();
         arrayList2.add(new Point(0, 0));
@@ -678,27 +678,27 @@ public class a {
         setCurve(arrayList);
     }
 
-    private void JV() {
-        if (this.biF != null) {
-            this.biF.updateFilter((FilterParam) FilterParam.TuneColorFilter.brightness, 0.03f);
-            this.biF.updateFilter((FilterParam) FilterParam.TuneColorFilter.contrast, 0.86f);
-            this.biF.updateFilter((FilterParam) FilterParam.TuneColorFilter.saturation, 0.79f);
+    private void JU() {
+        if (this.biK != null) {
+            this.biK.updateFilter((FilterParam) FilterParam.TuneColorFilter.brightness, 0.03f);
+            this.biK.updateFilter((FilterParam) FilterParam.TuneColorFilter.contrast, 0.86f);
+            this.biK.updateFilter((FilterParam) FilterParam.TuneColorFilter.saturation, 0.79f);
         }
     }
 
     public void resetAllQualityParm() {
-        if (this.biF != null && this.biU) {
+        if (this.biK != null && this.biZ) {
+            JT();
             JU();
-            JV();
         }
     }
 
-    public void JW() {
-        if (this.biF != null && this.biU) {
-            JU();
-            this.biF.updateFilter((FilterParam) FilterParam.TuneColorFilter.brightness, -0.01f);
-            this.biF.updateFilter((FilterParam) FilterParam.TuneColorFilter.contrast, 0.86f);
-            this.biF.updateFilter((FilterParam) FilterParam.TuneColorFilter.saturation, 0.79f);
+    public void JV() {
+        if (this.biK != null && this.biZ) {
+            JT();
+            this.biK.updateFilter((FilterParam) FilterParam.TuneColorFilter.brightness, -0.01f);
+            this.biK.updateFilter((FilterParam) FilterParam.TuneColorFilter.contrast, 0.86f);
+            this.biK.updateFilter((FilterParam) FilterParam.TuneColorFilter.saturation, 0.79f);
         }
     }
 }

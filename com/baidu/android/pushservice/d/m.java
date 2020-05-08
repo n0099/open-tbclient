@@ -1,26 +1,38 @@
 package com.baidu.android.pushservice.d;
 
 import android.content.Context;
+import android.content.Intent;
+import com.heytap.mcssdk.mode.CommandMessage;
 import java.util.HashMap;
 /* loaded from: classes8.dex */
 public class m extends c {
-    int d;
-    int e;
+    protected String d;
 
-    public m(l lVar, Context context, int i, int i2) {
-        super(lVar, context);
-        this.d = 1;
-        this.e = 1;
-        this.d = i;
-        this.e = i2;
+    public m(i iVar, Context context, String str) {
+        super(iVar, context);
+        this.d = str;
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.android.pushservice.d.a
+    public void a(Intent intent) {
+        super.a(intent);
+        if (intent != null) {
+            intent.getIntExtra("error_msg", -1);
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.android.pushservice.d.a
     public void a(HashMap<String, String> hashMap) {
         super.a(hashMap);
-        hashMap.put("method", "fetch");
-        hashMap.put("fetch_type", this.d + "");
-        hashMap.put("fetch_num", this.e + "");
+        hashMap.put("method", "settags");
+        hashMap.put(CommandMessage.TYPE_TAGS, this.d);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.android.pushservice.d.a
+    public String b(String str) {
+        return super.b(str);
     }
 }

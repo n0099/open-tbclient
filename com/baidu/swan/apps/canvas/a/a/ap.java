@@ -4,23 +4,23 @@ import android.graphics.Canvas;
 import org.json.JSONArray;
 /* loaded from: classes11.dex */
 public class ap extends a {
-    private float bFF;
-    private float bFG;
-    private float bFH;
-    private float bFI;
-    private int bFJ;
-    private int bFK;
+    private float bFK;
+    private float bFL;
+    private float bFM;
+    private float bFN;
+    private int bFO;
+    private int bFP;
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void parseJson(JSONArray jSONArray) {
         try {
             if (jSONArray.length() == 6) {
-                this.bFF = (float) jSONArray.optDouble(0);
-                this.bFG = (float) jSONArray.optDouble(1);
-                this.bFH = (float) jSONArray.optDouble(2);
-                this.bFI = (float) jSONArray.optDouble(3);
-                this.bFJ = com.baidu.swan.apps.as.af.C((float) jSONArray.optDouble(4));
-                this.bFK = com.baidu.swan.apps.as.af.C((float) jSONArray.optDouble(5));
+                this.bFK = (float) jSONArray.optDouble(0);
+                this.bFL = (float) jSONArray.optDouble(1);
+                this.bFM = (float) jSONArray.optDouble(2);
+                this.bFN = (float) jSONArray.optDouble(3);
+                this.bFO = com.baidu.swan.apps.as.af.C((float) jSONArray.optDouble(4));
+                this.bFP = com.baidu.swan.apps.as.af.C((float) jSONArray.optDouble(5));
             }
         } catch (Exception e) {
             if (com.baidu.swan.apps.b.DEBUG) {
@@ -31,13 +31,13 @@ public class ap extends a {
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void a(b bVar, Canvas canvas) {
-        if (bVar.Sh() == 0) {
+        if (bVar.Sg() == 0) {
             bVar.eh(canvas.save());
         }
-        if (this.bFF > 0.0f && this.bFI > 0.0f) {
-            canvas.scale(this.bFF, this.bFI);
+        if (this.bFK > 0.0f && this.bFN > 0.0f) {
+            canvas.scale(this.bFK, this.bFN);
         }
-        canvas.skew(this.bFH, this.bFG);
-        canvas.translate(this.bFJ, this.bFK);
+        canvas.skew(this.bFM, this.bFL);
+        canvas.translate(this.bFO, this.bFP);
     }
 }

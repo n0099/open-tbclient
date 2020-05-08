@@ -7,6 +7,8 @@ import android.os.SystemClock;
 import android.text.TextUtils;
 import android.util.SparseArray;
 import com.vivo.push.b.ab;
+import com.vivo.push.b.ac;
+import com.vivo.push.b.ad;
 import com.vivo.push.sdk.PushMessageCallback;
 import com.vivo.push.util.VivoPushException;
 import java.util.ArrayList;
@@ -65,7 +67,7 @@ public final class p {
             this.i = context.getApplicationContext();
             this.r = com.vivo.push.util.s.b(context, context.getPackageName());
             com.vivo.push.util.w.b().a(this.i);
-            a(new com.vivo.push.b.g());
+            a(new com.vivo.push.b.h());
             this.k = new com.vivo.push.util.a();
             this.k.a(context, "com.vivo.push_preferences.appconfig_v1");
             this.l = f();
@@ -148,18 +150,18 @@ public final class p {
             com.vivo.push.util.p.d("PushClientManager", "support:context is null");
             return false;
         }
-        this.p = Boolean.valueOf(w());
+        this.p = Boolean.valueOf(v());
         return this.p.booleanValue();
     }
 
     public final void c(List<String> list) {
         if (list.contains(this.m)) {
-            u();
+            t();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void u() {
+    public void t() {
         this.m = null;
         this.k.c("APP_ALIAS");
     }
@@ -203,7 +205,7 @@ public final class p {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final void j() {
-        a(new com.vivo.push.b.aa());
+        a(new ac());
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -239,7 +241,7 @@ public final class p {
                 bVar.e();
                 bVar.a(100);
                 if (this.r) {
-                    if (!w()) {
+                    if (!v()) {
                         if (iPushActionListener != null) {
                             iPushActionListener.onStateChanged(101);
                         }
@@ -290,7 +292,7 @@ public final class p {
                 bVar.g();
                 bVar.a(100);
                 if (this.r) {
-                    if (!w()) {
+                    if (!v()) {
                         if (iPushActionListener != null) {
                             iPushActionListener.onStateChanged(101);
                         }
@@ -354,7 +356,7 @@ public final class p {
             com.vivo.push.b.a aVar = new com.vivo.push.b.a(true, null, this.i.getPackageName(), arrayList);
             aVar.a(100);
             if (this.r) {
-                if (!w()) {
+                if (!v()) {
                     if (iPushActionListener != null) {
                         iPushActionListener.onStateChanged(101);
                         return;
@@ -425,7 +427,7 @@ public final class p {
             com.vivo.push.b.a aVar = new com.vivo.push.b.a(false, null, this.i.getPackageName(), arrayList);
             aVar.a(100);
             if (this.r) {
-                if (!w()) {
+                if (!v()) {
                     if (iPushActionListener != null) {
                         iPushActionListener.onStateChanged(101);
                         return;
@@ -506,8 +508,16 @@ public final class p {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final void m() {
-        a(new com.vivo.push.b.z());
+    public final void a(int i) {
+        if (!com.vivo.push.b.g.a(i)) {
+            com.vivo.push.util.p.d("PushClientManager", "切换环境失败，非法的环境：" + i);
+            com.vivo.push.util.p.a(this.i, "切换环境失败，非法的环境：" + i);
+            return;
+        }
+        a(new ab());
+        com.vivo.push.b.g gVar = new com.vivo.push.b.g();
+        gVar.b(i);
+        a(gVar);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -519,10 +529,10 @@ public final class p {
             }
             return;
         }
-        ab abVar = new ab(true, null, this.i.getPackageName(), arrayList);
-        abVar.a(500);
+        ad adVar = new ad(true, null, this.i.getPackageName(), arrayList);
+        adVar.a(500);
         if (this.r) {
-            if (!w()) {
+            if (!v()) {
                 if (iPushActionListener != null) {
                     iPushActionListener.onStateChanged(101);
                     return;
@@ -536,8 +546,8 @@ public final class p {
                 return;
             } else {
                 this.g = SystemClock.elapsedRealtime();
-                String a2 = a(new a(abVar, iPushActionListener));
-                abVar.b(a2);
+                String a2 = a(new a(adVar, iPushActionListener));
+                adVar.b(a2);
                 if (TextUtils.isEmpty(this.l)) {
                     a(a2, 20001);
                     return;
@@ -555,13 +565,13 @@ public final class p {
                             return;
                         }
                     }
-                    a(abVar);
+                    a(adVar);
                     d(a2);
                     return;
                 }
             }
         }
-        a(abVar);
+        a(adVar);
         if (iPushActionListener != null) {
             iPushActionListener.onStateChanged(0);
         }
@@ -570,18 +580,18 @@ public final class p {
     /* JADX INFO: Access modifiers changed from: package-private */
     public final void a(String str, ArrayList<String> arrayList) {
         if (this.i != null) {
-            ab abVar = new ab(true, str, this.i.getPackageName(), arrayList);
-            abVar.a(500);
-            a(abVar);
+            ad adVar = new ad(true, str, this.i.getPackageName(), arrayList);
+            adVar.a(500);
+            a(adVar);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final void b(String str, ArrayList<String> arrayList) {
         if (this.i != null) {
-            ab abVar = new ab(false, str, this.i.getPackageName(), arrayList);
-            abVar.a(500);
-            a(abVar);
+            ad adVar = new ad(false, str, this.i.getPackageName(), arrayList);
+            adVar.a(500);
+            a(adVar);
         }
     }
 
@@ -594,10 +604,10 @@ public final class p {
             }
             return;
         }
-        ab abVar = new ab(false, null, this.i.getPackageName(), arrayList);
-        abVar.a(500);
+        ad adVar = new ad(false, null, this.i.getPackageName(), arrayList);
+        adVar.a(500);
         if (this.r) {
-            if (!w()) {
+            if (!v()) {
                 if (iPushActionListener != null) {
                     iPushActionListener.onStateChanged(101);
                     return;
@@ -611,8 +621,8 @@ public final class p {
                 return;
             } else {
                 this.h = SystemClock.elapsedRealtime();
-                String a2 = a(new a(abVar, iPushActionListener));
-                abVar.b(a2);
+                String a2 = a(new a(adVar, iPushActionListener));
+                adVar.b(a2);
                 if (TextUtils.isEmpty(this.l)) {
                     a(a2, 20001);
                     return;
@@ -630,13 +640,13 @@ public final class p {
                             return;
                         }
                     }
-                    a(abVar);
+                    a(adVar);
                     d(a2);
                     return;
                 }
             }
         }
-        a(abVar);
+        a(adVar);
         if (iPushActionListener != null) {
             iPushActionListener.onStateChanged(0);
         }
@@ -653,7 +663,7 @@ public final class p {
             }
             return;
         }
-        com.vivo.push.c.aa createReceiveTask = this.s.createReceiveTask(createReceiverCommand);
+        com.vivo.push.c.ab createReceiveTask = this.s.createReceiveTask(createReceiverCommand);
         if (createReceiveTask == null) {
             com.vivo.push.util.p.a("PushClientManager", "sendCommand, null command task! pushCommand = " + createReceiverCommand);
             if (context != null) {
@@ -662,7 +672,7 @@ public final class p {
             }
             return;
         }
-        if (context != null && !(createReceiverCommand instanceof com.vivo.push.b.n)) {
+        if (context != null && !(createReceiverCommand instanceof com.vivo.push.b.p)) {
             com.vivo.push.util.p.a(context, "[接收指令]" + createReceiverCommand);
         }
         createReceiveTask.a(pushMessageCallback);
@@ -697,58 +707,58 @@ public final class p {
         w.a(new u(this, str));
     }
 
-    public final void n() {
+    public final void m() {
         a(new com.vivo.push.b.d(true));
     }
 
-    public final void o() {
+    public final void n() {
         a(new com.vivo.push.b.d(false));
     }
 
     public final void b(boolean z) {
         com.vivo.push.util.p.a(z);
-        com.vivo.push.b.x xVar = new com.vivo.push.b.x();
-        xVar.a(z ? 1 : 0);
-        a(xVar);
+        com.vivo.push.b.z zVar = new com.vivo.push.b.z();
+        zVar.a(z ? 1 : 0);
+        a(zVar);
     }
 
-    public final void a(int i) {
-        if (i >= 4 && v() < 1260) {
+    public final void b(int i) {
+        if (i >= 4 && u() < 1260) {
             com.vivo.push.util.p.b("PushClientManager", "current push version " + this.q + " is not support this mode");
             return;
         }
         com.vivo.push.util.p.a((i & 1) != 0);
-        com.vivo.push.b.x xVar = new com.vivo.push.b.x();
-        xVar.a(i);
-        a(xVar);
+        com.vivo.push.b.z zVar = new com.vivo.push.b.z();
+        zVar.a(i);
+        a(zVar);
     }
 
-    public final void p() {
-        a(new com.vivo.push.b.w());
+    public final void o() {
+        a(new com.vivo.push.b.y());
     }
 
-    public final boolean q() {
+    public final boolean p() {
         return this.i.getPackageManager().getComponentEnabledSetting(new ComponentName(this.i, "com.vivo.push.sdk.service.PushService")) != 2;
     }
 
-    public final void r() {
-        a(new com.vivo.push.b.h());
+    public final void q() {
+        a(new com.vivo.push.b.i());
     }
 
-    public final int s() {
+    public final int r() {
         return this.t;
     }
 
-    public final void b(int i) {
+    public final void c(int i) {
         this.t = i;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final Map<String, String> t() {
+    public final Map<String, String> s() {
         return com.vivo.push.util.z.f(this.i);
     }
 
-    private long v() {
+    private long u() {
         if (this.i == null) {
             return -1L;
         }
@@ -758,9 +768,9 @@ public final class p {
         return this.q.longValue();
     }
 
-    private boolean w() {
+    private boolean v() {
         if (this.p == null) {
-            this.p = Boolean.valueOf(v() >= 1230 && com.vivo.push.util.z.e(this.i));
+            this.p = Boolean.valueOf(u() >= 1230 && com.vivo.push.util.z.e(this.i));
         }
         return this.p.booleanValue();
     }

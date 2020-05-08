@@ -15,11 +15,11 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class c implements V8Engine.JavaScriptExceptionDelegate {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private com.baidu.swan.games.e.a bJA;
-    private String cLQ = "";
+    private com.baidu.swan.games.e.a bJF;
+    private String cLW = "";
 
     public c(com.baidu.swan.games.e.a aVar) {
-        this.bJA = aVar;
+        this.bJF = aVar;
     }
 
     @Override // com.baidu.searchbox.v8engine.V8Engine.JavaScriptExceptionDelegate
@@ -28,10 +28,10 @@ public class c implements V8Engine.JavaScriptExceptionDelegate {
         if (v8ExceptionInfo != null) {
             String str = TextUtils.isEmpty(v8ExceptionInfo.exceptionMsg) ? "" : v8ExceptionInfo.exceptionMsg;
             String str2 = TextUtils.isEmpty(v8ExceptionInfo.exceptionTrace) ? "" : v8ExceptionInfo.exceptionTrace;
-            Log.e("V8Exception", this.bJA.getLogTag() + "msg: " + str + " ,stack: " + str2);
-            this.bJA.avO().error(str);
-            if ((!TextUtils.isEmpty(str) || !TextUtils.isEmpty(str2)) && !this.cLQ.equals(str)) {
-                this.cLQ = str;
+            Log.e("V8Exception", this.bJF.getLogTag() + "msg: " + str + " ,stack: " + str2);
+            this.bJF.avO().error(str);
+            if ((!TextUtils.isEmpty(str) || !TextUtils.isEmpty(str2)) && !this.cLW.equals(str)) {
+                this.cLW = str;
                 bQ(str, str2);
                 com.baidu.swan.games.u.c.qM(str + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR + str2);
                 g.a(v8ExceptionInfo);
@@ -44,42 +44,42 @@ public class c implements V8Engine.JavaScriptExceptionDelegate {
     }
 
     private void bQ(String str, String str2) {
-        if (this.bJA.avM() != null) {
-            this.bJA.avM().dispatchEvent(new a().pW(str + "\n" + str2).pX("").avV());
+        if (this.bJF.avM() != null) {
+            this.bJF.avM().dispatchEvent(new a().pW(str + "\n" + str2).pX("").avV());
         }
     }
 
     /* loaded from: classes11.dex */
     public static class a {
         private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-        private String cLQ;
-        private JSEvent cLR = new JSEvent(BdStatsConstant.StatsType.ERROR);
-        private String cLS;
+        private String cLW;
+        private JSEvent cLX = new JSEvent(BdStatsConstant.StatsType.ERROR);
+        private String cLY;
 
         public a pW(String str) {
-            this.cLQ = str;
+            this.cLW = str;
             return this;
         }
 
         public a pX(String str) {
-            this.cLS = str;
+            this.cLY = str;
             return this;
         }
 
         public JSEvent avV() {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("message", this.cLQ);
-                jSONObject.put("stack", this.cLS);
+                jSONObject.put("message", this.cLW);
+                jSONObject.put("stack", this.cLY);
             } catch (JSONException e) {
                 if (DEBUG) {
                     Log.e("V8Exception", Log.getStackTraceString(e));
                 }
             }
             if (jSONObject.length() > 0) {
-                this.cLR.data = jSONObject;
+                this.cLX.data = jSONObject;
             }
-            return this.cLR;
+            return this.cLX;
         }
     }
 }

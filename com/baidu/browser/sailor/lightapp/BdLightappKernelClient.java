@@ -204,7 +204,7 @@ public abstract class BdLightappKernelClient implements INoProGuard, com.baidu.b
         Intent intent;
         BdLightappKernelJsCallback bdLightappKernelJsCallback = new BdLightappKernelJsCallback(str2, str3);
         bdLightappKernelJsCallback.setCallbackListener(this);
-        if (!parseAbilityConfigArgs(str, bdLightappKernelJsCallback, BdLightappConstants.a.acm)) {
+        if (!parseAbilityConfigArgs(str, bdLightappKernelJsCallback, BdLightappConstants.a.acp)) {
             bdLightappKernelJsCallback.sendCallBackWithRetCode(2);
             return;
         }
@@ -247,7 +247,7 @@ public abstract class BdLightappKernelClient implements INoProGuard, com.baidu.b
     public void cloudaLaunchGallery(String str, String str2, String str3) {
         BdLightappKernelJsCallback bdLightappKernelJsCallback = new BdLightappKernelJsCallback(str2, str3);
         bdLightappKernelJsCallback.setCallbackListener(this);
-        if (!parseAbilityConfigArgs(str, bdLightappKernelJsCallback, BdLightappConstants.a.acm)) {
+        if (!parseAbilityConfigArgs(str, bdLightappKernelJsCallback, BdLightappConstants.a.acp)) {
             bdLightappKernelJsCallback.sendCallBackWithRetCode(2);
             return;
         }

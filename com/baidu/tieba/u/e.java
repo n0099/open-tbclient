@@ -12,56 +12,56 @@ import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public class e {
-    private String lgv;
-    private List<String> lgw;
-    private List<String> lgx;
+    private List<String> lgA;
+    private List<String> lgB;
+    private String lgz;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes10.dex */
     public static class a {
-        private static final e lgz = new e();
+        private static final e lgD = new e();
     }
 
     private e() {
-        this.lgw = new ArrayList();
-        this.lgx = new ArrayList();
+        this.lgA = new ArrayList();
+        this.lgB = new ArrayList();
         if (f.checkSD()) {
-            dae();
+            dab();
         }
     }
 
-    private void dae() {
+    private void dab() {
         new BdAsyncTask<Void, Void, Void>() { // from class: com.baidu.tieba.u.e.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
             public Void doInBackground(Void... voidArr) {
-                com.baidu.tieba.k.d.GB(c.a.exz);
-                com.baidu.tieba.k.d.GB(c.a.jbz);
-                com.baidu.tieba.k.d.GB(c.a.jbA);
-                com.baidu.tieba.k.d.GB(c.a.jbC);
-                com.baidu.tieba.k.d.GB(c.a.jbD);
+                com.baidu.tieba.k.d.GE(c.a.exE);
+                com.baidu.tieba.k.d.GE(c.a.jbD);
+                com.baidu.tieba.k.d.GE(c.a.jbE);
+                com.baidu.tieba.k.d.GE(c.a.jbG);
+                com.baidu.tieba.k.d.GE(c.a.jbH);
                 return null;
             }
         }.execute(new Void[0]);
     }
 
-    public static e daf() {
-        return a.lgz;
+    public static e dac() {
+        return a.lgD;
     }
 
-    public void dab() {
+    public void cZY() {
         if (f.checkSD()) {
             new BdAsyncTask<Void, Void, Void>() { // from class: com.baidu.tieba.u.e.2
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                 public Void doInBackground(Void... voidArr) {
-                    List Lx = e.Lx(c.a.jbB);
-                    if (Lx != null) {
-                        int size = Lx.size();
+                    List LA = e.LA(c.a.jbF);
+                    if (LA != null) {
+                        int size = LA.size();
                         for (int i = 0; i < size; i++) {
-                            e.this.a((d) Lx.get(i));
+                            e.this.a((d) LA.get(i));
                         }
                     }
                     return null;
@@ -71,7 +71,7 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static List<d> Lx(String str) {
+    public static List<d> LA(String str) {
         File[] listFiles;
         ArrayList arrayList = null;
         if (!StringUtils.isNull(str)) {
@@ -80,14 +80,14 @@ public class e {
                 int length = listFiles.length;
                 arrayList = new ArrayList(length);
                 for (int i = 0; i < length; i++) {
-                    arrayList.add(new d(Ly(com.baidu.tieba.k.d.O(listFiles[i])), listFiles[i].getAbsolutePath()));
+                    arrayList.add(new d(LB(com.baidu.tieba.k.d.O(listFiles[i])), listFiles[i].getAbsolutePath()));
                 }
             }
         }
         return arrayList;
     }
 
-    private static List<String> Ly(String str) {
+    private static List<String> LB(String str) {
         if (StringUtils.isNull(str)) {
             return null;
         }
@@ -104,28 +104,28 @@ public class e {
 
     public synchronized void e(JSONObject jSONObject, boolean z) {
         if (jSONObject != null) {
-            this.lgw.add(jSONObject.toString());
-            String csb = csb();
+            this.lgA.add(jSONObject.toString());
+            String crY = crY();
             if (f.checkSD()) {
-                r(jSONObject, csb);
+                r(jSONObject, crY);
             }
-            if (this.lgw.size() >= com.baidu.tbadk.coreExtra.model.f.aUA() || z) {
-                a(new d(this.lgw, csb));
-                this.lgw.clear();
-                this.lgv = null;
+            if (this.lgA.size() >= com.baidu.tbadk.coreExtra.model.f.aUy() || z) {
+                a(new d(this.lgA, crY));
+                this.lgA.clear();
+                this.lgz = null;
             }
         }
     }
 
-    private String csb() {
-        if (StringUtils.isNull(this.lgv)) {
+    private String crY() {
+        if (StringUtils.isNull(this.lgz)) {
             if (f.checkSD()) {
-                this.lgv = String.valueOf(System.currentTimeMillis());
+                this.lgz = String.valueOf(System.currentTimeMillis());
             } else {
                 return null;
             }
         }
-        return c.a.jbB + this.lgv;
+        return c.a.jbF + this.lgz;
     }
 
     private void r(JSONObject jSONObject, String str) {
@@ -147,7 +147,7 @@ public class e {
     /* JADX INFO: Access modifiers changed from: private */
     public synchronized boolean eU(String str, String str2) {
         boolean g;
-        if (this.lgx.contains(str)) {
+        if (this.lgB.contains(str)) {
             g = false;
         } else {
             File file = new File(str);
@@ -177,9 +177,9 @@ public class e {
     /* JADX INFO: Access modifiers changed from: private */
     public synchronized void b(d dVar) {
         try {
-            if (c.f(c.eC(dVar.lgt), TbConfig.SERVER_ADDRESS + TbConfig.URL_VIDEO_MONITOR_REPORT) && !StringUtils.isNull(dVar.lgu)) {
-                m.deleteFile(new File(dVar.lgu));
-                this.lgx.add(dVar.lgu);
+            if (c.e(c.eC(dVar.lgx), TbConfig.SERVER_ADDRESS + TbConfig.URL_VIDEO_MONITOR_REPORT) && !StringUtils.isNull(dVar.lgy)) {
+                m.deleteFile(new File(dVar.lgy));
+                this.lgB.add(dVar.lgy);
             }
         } catch (Exception e) {
             e.printStackTrace();

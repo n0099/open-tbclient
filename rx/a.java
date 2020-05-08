@@ -3,52 +3,52 @@ package rx;
 import rx.exceptions.MissingBackpressureException;
 /* loaded from: classes6.dex */
 public final class a {
-    public static final d nis = c.niy;
-    public static final d nit = nis;
-    public static final d niu = b.nix;
-    public static final d niv = C0808a.niw;
+    public static final d niv = c.niB;
+    public static final d niw = niv;
+    public static final d nix = b.niA;
+    public static final d niy = C0829a.niz;
 
     /* loaded from: classes6.dex */
     public interface d {
-        boolean dHl() throws MissingBackpressureException;
+        boolean dHh() throws MissingBackpressureException;
     }
 
     /* loaded from: classes6.dex */
     static final class b implements d {
-        static final b nix = new b();
+        static final b niA = new b();
 
         private b() {
         }
 
         @Override // rx.a.d
-        public boolean dHl() {
+        public boolean dHh() {
             return true;
         }
     }
 
     /* renamed from: rx.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    static final class C0808a implements d {
-        static final C0808a niw = new C0808a();
+    static final class C0829a implements d {
+        static final C0829a niz = new C0829a();
 
-        private C0808a() {
+        private C0829a() {
         }
 
         @Override // rx.a.d
-        public boolean dHl() {
+        public boolean dHh() {
             return false;
         }
     }
 
     /* loaded from: classes6.dex */
     static final class c implements d {
-        static final c niy = new c();
+        static final c niB = new c();
 
         private c() {
         }
 
         @Override // rx.a.d
-        public boolean dHl() throws MissingBackpressureException {
+        public boolean dHh() throws MissingBackpressureException {
             throw new MissingBackpressureException("Overflowed buffer");
         }
     }

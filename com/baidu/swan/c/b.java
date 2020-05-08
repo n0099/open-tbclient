@@ -3,20 +3,20 @@ package com.baidu.swan.c;
 import com.baidu.swan.d.e;
 /* loaded from: classes11.dex */
 public final class b extends e {
-    private static volatile b deR;
+    private static volatile b deW;
 
     public b() {
         super("aiapp_open_stat");
     }
 
     public static b aEr() {
-        if (deR == null) {
+        if (deW == null) {
             synchronized (b.class) {
-                if (deR == null) {
-                    deR = new b();
+                if (deW == null) {
+                    deW = new b();
                 }
             }
         }
-        return deR;
+        return deW;
     }
 }

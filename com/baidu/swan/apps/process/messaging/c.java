@@ -10,28 +10,28 @@ import java.util.HashSet;
 import java.util.Set;
 /* loaded from: classes11.dex */
 public final class c {
-    private final Message chZ;
-    private final Set<SwanAppProcessInfo> cia;
-    private final Set<String> cib;
-    private boolean cic;
-    private boolean cie;
-    private long cif;
+    private final Message cig;
+    private final Set<SwanAppProcessInfo> cih;
+    private final Set<String> cii;
+    private boolean cij;
+    private boolean cik;
+    private long cil;
 
     @NonNull
-    public Message aiX() {
-        if (this.chZ.obj == null) {
-            M(new Bundle());
+    public Message aiW() {
+        if (this.cig.obj == null) {
+            N(new Bundle());
         }
-        return this.chZ;
+        return this.cig;
     }
 
     public c(Message message) {
-        this.cia = new HashSet();
-        this.cib = new HashSet();
-        this.cic = false;
-        this.cie = false;
-        this.cif = 0L;
-        this.chZ = message == null ? Message.obtain() : message;
+        this.cih = new HashSet();
+        this.cii = new HashSet();
+        this.cij = false;
+        this.cik = false;
+        this.cil = 0L;
+        this.cig = message == null ? Message.obtain() : message;
     }
 
     public c(int i, Object obj) {
@@ -47,12 +47,12 @@ public final class c {
     }
 
     public c eo(boolean z) {
-        this.cie = z;
+        this.cik = z;
         return this;
     }
 
     public boolean isSticky() {
-        return this.cie;
+        return this.cik;
     }
 
     private boolean a(int[] iArr, int i) {
@@ -68,12 +68,12 @@ public final class c {
     }
 
     public c a(SwanAppProcessInfo... swanAppProcessInfoArr) {
-        this.cia.addAll(Arrays.asList(swanAppProcessInfoArr));
+        this.cih.addAll(Arrays.asList(swanAppProcessInfoArr));
         return this;
     }
 
     public c u(String... strArr) {
-        this.cib.addAll(Arrays.asList(strArr));
+        this.cii.addAll(Arrays.asList(strArr));
         return this;
     }
 
@@ -85,7 +85,7 @@ public final class c {
         return this;
     }
 
-    public c aiY() {
+    public c aiX() {
         SwanAppProcessInfo[] indices;
         for (SwanAppProcessInfo swanAppProcessInfo : SwanAppProcessInfo.indices()) {
             if (swanAppProcessInfo.isSwanAppProcess()) {
@@ -106,24 +106,24 @@ public final class c {
     }
 
     public c ep(boolean z) {
-        this.cic = z;
+        this.cij = z;
         return this;
     }
 
-    public Set<SwanAppProcessInfo> aiZ() {
-        return new HashSet(this.cia);
+    public Set<SwanAppProcessInfo> aiY() {
+        return new HashSet(this.cih);
     }
 
-    public Set<String> aja() {
-        return new HashSet(this.cib);
+    public Set<String> aiZ() {
+        return new HashSet(this.cii);
     }
 
-    public boolean ajb() {
-        return this.cic;
+    public boolean aja() {
+        return this.cij;
     }
 
-    public c M(Object obj) {
-        this.chZ.obj = obj;
+    public c N(Object obj) {
+        this.cig.obj = obj;
         return this;
     }
 
@@ -131,14 +131,14 @@ public final class c {
         if (j < 0) {
             j = 0;
         }
-        this.cif = j;
+        this.cil = j;
         return this;
     }
 
-    public long ajc() {
-        if (this.cif < 0) {
+    public long ajb() {
+        if (this.cil < 0) {
             return 0L;
         }
-        return this.cif;
+        return this.cil;
     }
 }

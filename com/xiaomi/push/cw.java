@@ -1,62 +1,124 @@
 package com.xiaomi.push;
 
+import android.text.TextUtils;
 import java.util.ArrayList;
 import java.util.Iterator;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes8.dex */
-public class cw extends cq {
-    cq a;
+public class cw {
+    private String a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ cu f213a;
-    final /* synthetic */ cq b;
+    private final ArrayList<cv> f184a = new ArrayList<>();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public cw(cu cuVar, String str, cq cqVar) {
-        super(str);
-        this.f213a = cuVar;
-        this.b = cqVar;
-        this.a = this.b;
-        this.f199b = this.f199b;
-        if (this.b != null) {
-            this.f = this.b.f;
-        }
+    public cw() {
     }
 
-    @Override // com.xiaomi.push.cq
-    public synchronized ArrayList<String> a(boolean z) {
-        ArrayList<String> arrayList;
-        arrayList = new ArrayList<>();
-        if (this.a != null) {
-            arrayList.addAll(this.a.a(true));
+    public cw(String str) {
+        if (TextUtils.isEmpty(str)) {
+            throw new IllegalArgumentException("the host is empty");
         }
-        synchronized (cu.b) {
-            cq cqVar = cu.b.get(this.f199b);
-            if (cqVar != null) {
-                Iterator<String> it = cqVar.a(true).iterator();
-                while (it.hasNext()) {
-                    String next = it.next();
-                    if (arrayList.indexOf(next) == -1) {
-                        arrayList.add(next);
-                    }
-                }
-                arrayList.remove(this.f199b);
-                arrayList.add(this.f199b);
+        this.a = str;
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:7:0x001a, code lost:
+        com.xiaomi.push.cz.a().m215a(r0.a());
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public synchronized cv a() {
+        cv cvVar;
+        int size = this.f184a.size() - 1;
+        while (true) {
+            if (size < 0) {
+                cvVar = null;
+                break;
+            }
+            cvVar = this.f184a.get(size);
+            if (cvVar.m205a()) {
+                break;
+            }
+            size--;
+        }
+        return cvVar;
+    }
+
+    public synchronized cw a(JSONObject jSONObject) {
+        this.a = jSONObject.getString("host");
+        JSONArray jSONArray = jSONObject.getJSONArray("fbs");
+        for (int i = 0; i < jSONArray.length(); i++) {
+            this.f184a.add(new cv(this.a).a(jSONArray.getJSONObject(i)));
+        }
+        return this;
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public String m206a() {
+        return this.a;
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public ArrayList<cv> m207a() {
+        return this.f184a;
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public synchronized JSONObject m208a() {
+        JSONObject jSONObject;
+        jSONObject = new JSONObject();
+        jSONObject.put("host", this.a);
+        JSONArray jSONArray = new JSONArray();
+        Iterator<cv> it = this.f184a.iterator();
+        while (it.hasNext()) {
+            jSONArray.put(it.next().m203a());
+        }
+        jSONObject.put("fbs", jSONArray);
+        return jSONObject;
+    }
+
+    public synchronized void a(cv cvVar) {
+        int i;
+        int i2 = 0;
+        while (true) {
+            i = i2;
+            if (i >= this.f184a.size()) {
+                break;
+            } else if (this.f184a.get(i).a(cvVar)) {
+                this.f184a.set(i, cvVar);
+                break;
+            } else {
+                i2 = i + 1;
             }
         }
-        return arrayList;
-    }
-
-    @Override // com.xiaomi.push.cq
-    public synchronized void a(String str, cp cpVar) {
-        if (this.a != null) {
-            this.a.a(str, cpVar);
+        if (i >= this.f184a.size()) {
+            this.f184a.add(cvVar);
         }
     }
 
-    @Override // com.xiaomi.push.cq
-    public boolean b() {
-        return false;
+    public synchronized void a(boolean z) {
+        for (int size = this.f184a.size() - 1; size >= 0; size--) {
+            cv cvVar = this.f184a.get(size);
+            if (z) {
+                if (cvVar.c()) {
+                    this.f184a.remove(size);
+                }
+            } else if (!cvVar.b()) {
+                this.f184a.remove(size);
+            }
+        }
+    }
+
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(this.a);
+        sb.append("\n");
+        Iterator<cv> it = this.f184a.iterator();
+        while (it.hasNext()) {
+            sb.append(it.next());
+        }
+        return sb.toString();
     }
 }

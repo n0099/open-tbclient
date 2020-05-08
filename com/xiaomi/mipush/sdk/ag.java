@@ -1,49 +1,117 @@
 package com.xiaomi.mipush.sdk;
 
 import android.content.Context;
-import android.text.TextUtils;
-import com.xiaomi.push.Cif;
-import com.xiaomi.push.hg;
-import com.xiaomi.push.ht;
-import java.util.HashMap;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.SharedPreferences;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 /* loaded from: classes8.dex */
-public final class ag implements Runnable {
-    @Override // java.lang.Runnable
-    public void run() {
-        Context context;
-        Context context2;
-        Context context3;
-        String f;
-        Context context4;
-        Context context5;
-        if (com.xiaomi.push.l.d()) {
-            return;
+public class ag {
+    private static volatile ag a = null;
+
+    /* renamed from: a  reason: collision with other field name */
+    private Context f39a;
+
+    /* renamed from: a  reason: collision with other field name */
+    private List<z> f40a = new ArrayList();
+
+    private ag(Context context) {
+        this.f39a = context.getApplicationContext();
+        if (this.f39a == null) {
+            this.f39a = context;
         }
-        context = MiPushClient.sContext;
-        if (com.xiaomi.push.i.f(context) != null) {
-            Cif cif = new Cif();
-            context2 = MiPushClient.sContext;
-            cif.b(d.m88a(context2).m89a());
-            cif.c("client_info_update");
-            cif.a(com.xiaomi.push.service.aj.a());
-            cif.a(new HashMap());
-            context3 = MiPushClient.sContext;
-            String str = TextUtils.isEmpty(com.xiaomi.push.i.f(context3)) ? "" : "" + com.xiaomi.push.ay.a(f);
-            context4 = MiPushClient.sContext;
-            String h = com.xiaomi.push.i.h(context4);
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(h)) {
-                str = str + Constants.ACCEPT_TIME_SEPARATOR_SP + h;
+    }
+
+    public static ag a(Context context) {
+        if (a == null) {
+            synchronized (ag.class) {
+                if (a == null) {
+                    a = new ag(context);
+                }
             }
-            if (!TextUtils.isEmpty(str)) {
-                cif.m419a().put(Constants.EXTRA_KEY_IMEI_MD5, str);
+        }
+        return a;
+    }
+
+    public int a(String str) {
+        int i;
+        synchronized (this.f40a) {
+            z zVar = new z();
+            zVar.f87a = str;
+            if (this.f40a.contains(zVar)) {
+                for (z zVar2 : this.f40a) {
+                    if (zVar2.equals(zVar)) {
+                        i = zVar2.a;
+                        break;
+                    }
+                }
             }
-            int a = com.xiaomi.push.i.a();
-            if (a >= 0) {
-                cif.m419a().put("space_id", Integer.toString(a));
+            i = 0;
+        }
+        return i;
+    }
+
+    public synchronized String a(av avVar) {
+        return this.f39a.getSharedPreferences("mipush_extra", 0).getString(avVar.name(), "");
+    }
+
+    public synchronized void a(av avVar, String str) {
+        SharedPreferences sharedPreferences = this.f39a.getSharedPreferences("mipush_extra", 0);
+        sharedPreferences.edit().putString(avVar.name(), str).commit();
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public void m69a(String str) {
+        synchronized (this.f40a) {
+            z zVar = new z();
+            zVar.a = 0;
+            zVar.f87a = str;
+            if (this.f40a.contains(zVar)) {
+                this.f40a.remove(zVar);
             }
-            context5 = MiPushClient.sContext;
-            ay.a(context5).a((ay) cif, hg.Notification, false, (ht) null);
+            this.f40a.add(zVar);
+        }
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public boolean m70a(String str) {
+        boolean z;
+        synchronized (this.f40a) {
+            z zVar = new z();
+            zVar.f87a = str;
+            z = this.f40a.contains(zVar);
+        }
+        return z;
+    }
+
+    public void b(String str) {
+        z zVar;
+        synchronized (this.f40a) {
+            z zVar2 = new z();
+            zVar2.f87a = str;
+            if (this.f40a.contains(zVar2)) {
+                Iterator<z> it = this.f40a.iterator();
+                while (it.hasNext()) {
+                    zVar = it.next();
+                    if (zVar2.equals(zVar)) {
+                        break;
+                    }
+                }
+            }
+            zVar = zVar2;
+            zVar.a++;
+            this.f40a.remove(zVar);
+            this.f40a.add(zVar);
+        }
+    }
+
+    public void c(String str) {
+        synchronized (this.f40a) {
+            z zVar = new z();
+            zVar.f87a = str;
+            if (this.f40a.contains(zVar)) {
+                this.f40a.remove(zVar);
+            }
         }
     }
 }

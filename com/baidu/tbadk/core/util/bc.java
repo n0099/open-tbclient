@@ -20,7 +20,7 @@ public class bc {
     private static int mSkin_1_common_color = -1;
     private static int mMore_color = -1;
     private static boolean mIsNeedInit = false;
-    private static com.baidu.adp.lib.d.a<Integer, Integer> dAk = new com.baidu.adp.lib.d.a<>(500);
+    private static com.baidu.adp.lib.d.a<Integer, Integer> dAo = new com.baidu.adp.lib.d.a<>(500);
     private static Context mAppContext = null;
 
     /* loaded from: classes.dex */
@@ -65,16 +65,16 @@ public class bc {
 
     public static void prepareNewView(View view) {
         if (view != null) {
-            dAk.remove(Integer.valueOf(System.identityHashCode(view)));
+            dAo.remove(Integer.valueOf(System.identityHashCode(view)));
         }
     }
 
     public static void processSkin(ViewGroup viewGroup, int i) {
         int identityHashCode = System.identityHashCode(viewGroup);
-        Integer num = dAk.get(Integer.valueOf(identityHashCode));
+        Integer num = dAo.get(Integer.valueOf(identityHashCode));
         if (num == null || i != num.intValue()) {
             processSkin0(viewGroup, i);
-            dAk.put(Integer.valueOf(identityHashCode), Integer.valueOf(i));
+            dAo.put(Integer.valueOf(identityHashCode), Integer.valueOf(i));
         }
     }
 
@@ -188,7 +188,7 @@ public class bc {
         }
     }
 
-    public static void p(Context context, String str, String str2) {
+    public static void r(Context context, String str, String str2) {
         if (context != null) {
             com.baidu.tbadk.core.d.a.a("account", -1L, 0, "nologin_intercept_tologin", 0, "", new Object[0]);
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig(context, true, str, str2)));
@@ -203,10 +203,10 @@ public class bc {
         return isLogin;
     }
 
-    public static boolean q(Context context, String str, String str2) {
+    public static boolean s(Context context, String str, String str2) {
         boolean isLogin = TbadkCoreApplication.isLogin();
         if (!isLogin) {
-            p(context, str, str2);
+            r(context, str, str2);
         }
         return isLogin;
     }

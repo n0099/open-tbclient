@@ -9,7 +9,6 @@ import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.BaseHttpRequest;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.android.pushservice.PushConstants;
 import java.util.HashMap;
 import java.util.Map;
 import org.apache.http.cookie.SM;
@@ -48,7 +47,7 @@ public class IMGetPaidByAppidRequest extends BaseHttpRequest {
                 }
             } else {
                 i3 = jSONObject.getInt("error_code");
-                str3 = jSONObject.getString(PushConstants.EXTRA_ERROR_CODE);
+                str3 = jSONObject.getString("error_msg");
             }
             j = j2;
             String str4 = str3;

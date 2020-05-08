@@ -21,107 +21,107 @@ import com.baidu.tieba.frs.ax;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class PostCategoryView extends TextView {
-    private MorePopupWindow dkv;
-    private LinearLayout gLG;
-    private View huJ;
-    private TabMenuPopView huV;
-    private boolean lCW;
-    private LinearLayout lCX;
-    private Drawable lCY;
-    private Drawable lCZ;
+    private MorePopupWindow dkz;
+    private LinearLayout gLM;
+    private View huP;
+    private TabMenuPopView hvb;
+    private boolean lDa;
+    private LinearLayout lDb;
+    private Drawable lDc;
+    private Drawable lDd;
     private Context mContext;
 
     public PostCategoryView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mContext = context;
-        this.lCW = false;
-        this.lCY = am.getDrawable(R.drawable.icon_title_down);
-        this.lCY.setBounds(0, 0, this.lCY.getIntrinsicWidth(), this.lCY.getIntrinsicHeight());
-        this.lCZ = am.getDrawable(R.drawable.icon_title_up);
-        this.lCZ.setBounds(0, 0, this.lCZ.getIntrinsicWidth(), this.lCY.getIntrinsicHeight());
-        setCompoundDrawables(null, null, this.lCY, null);
+        this.lDa = false;
+        this.lDc = am.getDrawable(R.drawable.icon_title_down);
+        this.lDc.setBounds(0, 0, this.lDc.getIntrinsicWidth(), this.lDc.getIntrinsicHeight());
+        this.lDd = am.getDrawable(R.drawable.icon_title_up);
+        this.lDd.setBounds(0, 0, this.lDd.getIntrinsicWidth(), this.lDc.getIntrinsicHeight());
+        setCompoundDrawables(null, null, this.lDc, null);
         setPadding(0, 0, l.getDimens(getContext(), R.dimen.ds50), 0);
-        this.gLG = (LinearLayout) LayoutInflater.from(this.mContext).inflate(R.layout.pop_category, (ViewGroup) null);
-        this.lCX = (LinearLayout) this.gLG.findViewById(R.id.pop_category_layout);
-        this.huV = (TabMenuPopView) this.lCX.findViewById(R.id.pop_category_view);
-        this.huJ = this.gLG.findViewById(R.id.pop_category_grav);
-        this.huJ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.view.PostCategoryView.1
+        this.gLM = (LinearLayout) LayoutInflater.from(this.mContext).inflate(R.layout.pop_category, (ViewGroup) null);
+        this.lDb = (LinearLayout) this.gLM.findViewById(R.id.pop_category_layout);
+        this.hvb = (TabMenuPopView) this.lDb.findViewById(R.id.pop_category_view);
+        this.huP = this.gLM.findViewById(R.id.pop_category_grav);
+        this.huP.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.view.PostCategoryView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                PostCategoryView.this.dgD();
+                PostCategoryView.this.dgA();
             }
         });
     }
 
     public void setCategoryContainerData(List<ax> list, ax axVar) {
-        this.huV.setData(list, axVar);
+        this.hvb.setData(list, axVar);
     }
 
     public void setCategoryContainerData(List<aa> list, aa aaVar, int i) {
-        this.huV.setData(list, aaVar, i);
+        this.hvb.setData(list, aaVar, i);
     }
 
     public void setCategoryContainerClickCallback(TabMenuPopView.a aVar) {
-        this.huV.setOnItemClickCallBack(aVar);
+        this.hvb.setOnItemClickCallBack(aVar);
     }
 
-    public void dgC() {
-        if (this.lCW) {
-            setCompoundDrawables(null, null, this.lCY, null);
-            this.lCW = false;
+    public void dgz() {
+        if (this.lDa) {
+            setCompoundDrawables(null, null, this.lDc, null);
+            this.lDa = false;
         } else {
             a(this);
-            if (this.dkv != null) {
-                this.dkv.refresh();
-                this.dkv.setWidthAsWidthOfDeviceScreen((Activity) this.mContext);
-                this.dkv.setHeight(-1);
-                this.dkv.showWindowInCustomPosition(0, 0);
-                setCompoundDrawables(null, null, this.lCZ, null);
-                this.lCW = true;
+            if (this.dkz != null) {
+                this.dkz.refresh();
+                this.dkz.setWidthAsWidthOfDeviceScreen((Activity) this.mContext);
+                this.dkz.setHeight(-1);
+                this.dkz.showWindowInCustomPosition(0, 0);
+                setCompoundDrawables(null, null, this.lDd, null);
+                this.lDa = true;
             }
         }
         invalidate();
     }
 
     private void a(final PostCategoryView postCategoryView) {
-        if (this.dkv == null) {
-            this.dkv = new MorePopupWindow((Activity) this.mContext, this.gLG, this, am.getDrawable(R.drawable.transparent_bg), new KeyEventDealContainerView.a() { // from class: com.baidu.tieba.write.view.PostCategoryView.2
+        if (this.dkz == null) {
+            this.dkz = new MorePopupWindow((Activity) this.mContext, this.gLM, this, am.getDrawable(R.drawable.transparent_bg), new KeyEventDealContainerView.a() { // from class: com.baidu.tieba.write.view.PostCategoryView.2
                 @Override // com.baidu.tbadk.core.view.KeyEventDealContainerView.a
-                public void aHY() {
+                public void aHW() {
                 }
 
                 @Override // com.baidu.tbadk.core.view.KeyEventDealContainerView.a
-                public void aHZ() {
-                    if (PostCategoryView.this.dkv != null) {
-                        PostCategoryView.this.dkv.dismiss();
+                public void aHX() {
+                    if (PostCategoryView.this.dkz != null) {
+                        PostCategoryView.this.dkz.dismiss();
                     }
                 }
             });
-            this.dkv.setOnDismissListener(new PopupWindow.OnDismissListener() { // from class: com.baidu.tieba.write.view.PostCategoryView.3
+            this.dkz.setOnDismissListener(new PopupWindow.OnDismissListener() { // from class: com.baidu.tieba.write.view.PostCategoryView.3
                 @Override // android.widget.PopupWindow.OnDismissListener
                 public void onDismiss() {
                     if (postCategoryView != null) {
-                        postCategoryView.dgC();
+                        postCategoryView.dgz();
                     }
                 }
             });
         }
     }
 
-    public void aQp() {
+    public void aQm() {
         am.setBackgroundColor(this, R.color.cp_bg_line_d);
         am.setViewTextColor(this, R.color.cp_cont_b, 1);
-        if (this.lCX != null) {
-            am.setBackgroundColor(this.lCX, R.color.cp_bg_line_d);
+        if (this.lDb != null) {
+            am.setBackgroundColor(this.lDb, R.color.cp_bg_line_d);
         }
-        if (this.huV != null) {
-            this.huV.aQp();
+        if (this.hvb != null) {
+            this.hvb.aQm();
         }
     }
 
-    public void dgD() {
-        if (this.dkv != null) {
-            this.dkv.dismiss();
+    public void dgA() {
+        if (this.dkz != null) {
+            this.dkz.dismiss();
         }
     }
 }

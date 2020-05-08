@@ -14,40 +14,40 @@ import com.baidu.tieba.ala.alasquare.subtablist.message.SdkLiveInfoListResponsed
 import java.util.List;
 /* loaded from: classes3.dex */
 public class AlaLiveTabGameModel extends BdBaseModel {
-    private String eQf;
-    private String eQg;
-    private boolean eQx;
-    private com.baidu.tieba.ala.alasquare.live_tab.c.a eQy;
-    private a eQz;
+    private boolean eQC;
+    private com.baidu.tieba.ala.alasquare.live_tab.c.a eQD;
+    private a eQE;
+    private String eQk;
+    private String eQl;
     private boolean hasMore;
     private int mPn;
     private TbPageContext mTbPageContext;
-    private HttpMessageListener eQA = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_GAME_LIVE_LIST) { // from class: com.baidu.tieba.ala.alasquare.live_tab.model.AlaLiveTabGameModel.1
+    private HttpMessageListener eQF = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_GAME_LIVE_LIST) { // from class: com.baidu.tieba.ala.alasquare.live_tab.model.AlaLiveTabGameModel.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021150 && (httpResponsedMessage instanceof SdkLiveInfoListResponsedMessage) && httpResponsedMessage.getOrginalMessage().getTag() == AlaLiveTabGameModel.this.mCurTag) {
                 SdkLiveInfoListResponsedMessage sdkLiveInfoListResponsedMessage = (SdkLiveInfoListResponsedMessage) httpResponsedMessage;
                 if (sdkLiveInfoListResponsedMessage.getError() != 0 || !sdkLiveInfoListResponsedMessage.isSuccess()) {
-                    if (AlaLiveTabGameModel.this.eQz != null) {
-                        AlaLiveTabGameModel.this.eQz.f(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), AlaLiveTabGameModel.this.eQx);
+                    if (AlaLiveTabGameModel.this.eQE != null) {
+                        AlaLiveTabGameModel.this.eQE.f(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), AlaLiveTabGameModel.this.eQC);
                     }
                 } else {
-                    if (AlaLiveTabGameModel.this.eQx) {
-                        AlaLiveTabGameModel.this.eQy.k(sdkLiveInfoListResponsedMessage.getLiveList(), sdkLiveInfoListResponsedMessage.hasMore());
+                    if (AlaLiveTabGameModel.this.eQC) {
+                        AlaLiveTabGameModel.this.eQD.k(sdkLiveInfoListResponsedMessage.getLiveList(), sdkLiveInfoListResponsedMessage.hasMore());
                     } else {
-                        if (AlaLiveTabGameModel.this.eQy != null) {
-                            AlaLiveTabGameModel.this.eQy.clear();
+                        if (AlaLiveTabGameModel.this.eQD != null) {
+                            AlaLiveTabGameModel.this.eQD.clear();
                         }
-                        AlaLiveTabGameModel.this.eQy = new com.baidu.tieba.ala.alasquare.live_tab.c.a(sdkLiveInfoListResponsedMessage.getLiveList(), sdkLiveInfoListResponsedMessage.hasMore(), AlaLiveTabGameModel.this.eQf, AlaLiveTabGameModel.this.eQg);
+                        AlaLiveTabGameModel.this.eQD = new com.baidu.tieba.ala.alasquare.live_tab.c.a(sdkLiveInfoListResponsedMessage.getLiveList(), sdkLiveInfoListResponsedMessage.hasMore(), AlaLiveTabGameModel.this.eQk, AlaLiveTabGameModel.this.eQl);
                     }
-                    AlaLiveTabGameModel.this.hasMore = AlaLiveTabGameModel.this.eQy.hasMore();
+                    AlaLiveTabGameModel.this.hasMore = AlaLiveTabGameModel.this.eQD.hasMore();
                     AlaLiveTabGameModel.g(AlaLiveTabGameModel.this);
-                    if (AlaLiveTabGameModel.this.eQz != null) {
-                        AlaLiveTabGameModel.this.eQz.d(AlaLiveTabGameModel.this.hasMore, AlaLiveTabGameModel.this.eQy.getData());
+                    if (AlaLiveTabGameModel.this.eQE != null) {
+                        AlaLiveTabGameModel.this.eQE.d(AlaLiveTabGameModel.this.hasMore, AlaLiveTabGameModel.this.eQD.getData());
                     }
                 }
-                AlaLiveTabGameModel.this.eQx = false;
+                AlaLiveTabGameModel.this.eQC = false;
             }
         }
     };
@@ -68,22 +68,22 @@ public class AlaLiveTabGameModel extends BdBaseModel {
 
     public AlaLiveTabGameModel(TbPageContext tbPageContext, a aVar) {
         this.mTbPageContext = tbPageContext;
-        this.eQz = aVar;
+        this.eQE = aVar;
     }
 
     public void init() {
-        MessageManager.getInstance().registerListener(this.eQA);
+        MessageManager.getInstance().registerListener(this.eQF);
     }
 
     public void refresh() {
-        this.eQx = false;
+        this.eQC = false;
         this.mPn = 1;
         oZ(this.mPn);
     }
 
-    public void blb() {
-        if (this.hasMore && !this.eQx) {
-            this.eQx = true;
+    public void bkZ() {
+        if (this.hasMore && !this.eQC) {
+            this.eQC = true;
             oZ(this.mPn);
         }
     }
@@ -92,14 +92,14 @@ public class AlaLiveTabGameModel extends BdBaseModel {
         HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_GAME_LIVE_LIST);
         httpMessage.addParam("ps", 20);
         httpMessage.addParam(Config.PACKAGE_NAME, this.mPn);
-        httpMessage.addParam("fid", this.eQf);
-        httpMessage.addParam("fname", this.eQg);
+        httpMessage.addParam("fid", this.eQk);
+        httpMessage.addParam("fname", this.eQl);
         httpMessage.setTag(this.mCurTag);
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.eQA);
+        MessageManager.getInstance().unRegisterListener(this.eQF);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -113,7 +113,7 @@ public class AlaLiveTabGameModel extends BdBaseModel {
     }
 
     public void da(String str, String str2) {
-        this.eQf = str;
-        this.eQg = str2;
+        this.eQk = str;
+        this.eQl = str2;
     }
 }

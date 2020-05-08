@@ -1,58 +1,60 @@
 package com.vivo.push.b;
-
-import android.text.TextUtils;
-import com.vivo.push.model.InsideNotificationItem;
 /* loaded from: classes8.dex */
-public final class p extends com.vivo.push.y {
+public final class p extends u {
     private String a;
-    private long b;
-    private InsideNotificationItem c;
-
-    public p(String str, long j, InsideNotificationItem insideNotificationItem) {
-        super(5);
-        this.a = str;
-        this.b = j;
-        this.c = insideNotificationItem;
-    }
+    private int b;
+    private boolean c;
 
     public p() {
-        super(5);
+        super(7);
+        this.b = 0;
+        this.c = false;
     }
 
     public final String d() {
         return this.a;
     }
 
-    public final long e() {
+    public final void b(String str) {
+        this.a = str;
+    }
+
+    public final int e() {
         return this.b;
     }
 
-    public final InsideNotificationItem f() {
+    public final void a(int i) {
+        this.b = i;
+    }
+
+    public final boolean f() {
         return this.c;
     }
 
-    @Override // com.vivo.push.y
-    protected final void c(com.vivo.push.a aVar) {
-        aVar.a("package_name", this.a);
-        aVar.a("notify_id", this.b);
-        aVar.a("notification_v1", com.vivo.push.util.q.b(this.c));
+    public final void a(boolean z) {
+        this.c = z;
     }
 
-    @Override // com.vivo.push.y
-    protected final void d(com.vivo.push.a aVar) {
-        this.a = aVar.a("package_name");
-        this.b = aVar.b("notify_id", -1L);
-        String a = aVar.a("notification_v1");
-        if (!TextUtils.isEmpty(a)) {
-            this.c = com.vivo.push.util.q.a(a);
-        }
-        if (this.c != null) {
-            this.c.setMsgId(this.b);
-        }
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.vivo.push.b.u, com.vivo.push.y
+    public final void c(com.vivo.push.a aVar) {
+        super.c(aVar);
+        aVar.a("content", this.a);
+        aVar.a("log_level", this.b);
+        aVar.a("is_server_log", this.c);
     }
 
-    @Override // com.vivo.push.y
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.vivo.push.b.u, com.vivo.push.y
+    public final void d(com.vivo.push.a aVar) {
+        super.d(aVar);
+        this.a = aVar.a("content");
+        this.b = aVar.b("log_level", 0);
+        this.c = aVar.d("is_server_log");
+    }
+
+    @Override // com.vivo.push.b.u, com.vivo.push.y
     public final String toString() {
-        return "OnNotificationClickCommand";
+        return "OnLogCommand";
     }
 }

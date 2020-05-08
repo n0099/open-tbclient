@@ -7,12 +7,12 @@ import android.widget.FrameLayout;
 import java.util.ArrayList;
 /* loaded from: classes11.dex */
 public class d {
-    private ArrayList<a> cSe = new ArrayList<>();
-    private FrameLayout cSf;
-    private boolean cSg;
+    private ArrayList<a> cSj = new ArrayList<>();
+    private FrameLayout cSk;
+    private boolean cSl;
 
     public d(@NonNull FrameLayout frameLayout) {
-        this.cSf = frameLayout;
+        this.cSk = frameLayout;
     }
 
     public boolean a(View view, com.baidu.swan.apps.model.a.a.a aVar) {
@@ -22,7 +22,7 @@ public class d {
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(aVar.getWidth(), aVar.getHeight());
         layoutParams.leftMargin = aVar.getLeft();
         layoutParams.topMargin = aVar.getTop();
-        this.cSf.addView(view, layoutParams);
+        this.cSk.addView(view, layoutParams);
         return true;
     }
 
@@ -30,7 +30,7 @@ public class d {
         if (!ay(view)) {
             return false;
         }
-        this.cSf.removeView(view);
+        this.cSk.removeView(view);
         return true;
     }
 
@@ -41,57 +41,57 @@ public class d {
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(aVar.getWidth(), aVar.getHeight());
         layoutParams.leftMargin = aVar.getLeft();
         layoutParams.topMargin = aVar.getTop();
-        this.cSf.updateViewLayout(view, layoutParams);
+        this.cSk.updateViewLayout(view, layoutParams);
         return true;
     }
 
     public boolean isLandScape() {
-        return this.cSg;
+        return this.cSl;
     }
 
     public void fH(boolean z) {
-        this.cSg = z;
+        this.cSl = z;
     }
 
     public boolean ay(View view) {
-        return view != null && view.getParent() == this.cSf && this.cSf.indexOfChild(view) >= 0;
+        return view != null && view.getParent() == this.cSk && this.cSk.indexOfChild(view) >= 0;
     }
 
     public Context getContext() {
-        return this.cSf.getContext();
+        return this.cSk.getContext();
     }
 
     public FrameLayout ayH() {
-        return this.cSf;
+        return this.cSk;
     }
 
     public synchronized void a(a aVar) {
         if (aVar != null) {
-            if (!this.cSe.contains(aVar)) {
-                this.cSe.add(aVar);
+            if (!this.cSj.contains(aVar)) {
+                this.cSj.add(aVar);
             }
         }
     }
 
     public synchronized void b(a aVar) {
         if (aVar != null) {
-            this.cSe.remove(aVar);
+            this.cSj.remove(aVar);
         }
     }
 
     private synchronized a[] ayI() {
         a[] aVarArr;
-        if (this.cSe.isEmpty()) {
+        if (this.cSj.isEmpty()) {
             aVarArr = null;
         } else {
-            aVarArr = new a[this.cSe.size()];
-            this.cSe.toArray(aVarArr);
+            aVarArr = new a[this.cSj.size()];
+            this.cSj.toArray(aVarArr);
         }
         return aVarArr;
     }
 
     private synchronized void ayJ() {
-        this.cSe.clear();
+        this.cSj.clear();
     }
 
     public void ayK() {

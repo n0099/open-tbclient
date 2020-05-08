@@ -4,8 +4,8 @@ import com.baidu.adp.BdUniqueId;
 import java.security.InvalidParameterException;
 /* loaded from: classes.dex */
 public class BdAsyncTaskParallel {
-    private BdUniqueId II;
-    private BdAsyncTaskParallelType IJ;
+    private BdUniqueId IL;
+    private BdAsyncTaskParallelType IP;
     private int mExecuteNum;
 
     /* loaded from: classes.dex */
@@ -19,26 +19,26 @@ public class BdAsyncTaskParallel {
     }
 
     public BdAsyncTaskParallel(BdAsyncTaskParallelType bdAsyncTaskParallelType, BdUniqueId bdUniqueId) {
-        this.II = null;
-        this.IJ = BdAsyncTaskParallelType.MAX_PARALLEL;
+        this.IL = null;
+        this.IP = BdAsyncTaskParallelType.MAX_PARALLEL;
         this.mExecuteNum = 1;
         if (bdAsyncTaskParallelType == null || bdUniqueId == null) {
             throw new InvalidParameterException("BdAsyncTaskParallel parameter null");
         }
-        this.IJ = bdAsyncTaskParallelType;
-        this.II = bdUniqueId;
+        this.IP = bdAsyncTaskParallelType;
+        this.IL = bdUniqueId;
     }
 
     public BdAsyncTaskParallel(BdUniqueId bdUniqueId, int i) {
-        this.II = null;
-        this.IJ = BdAsyncTaskParallelType.MAX_PARALLEL;
+        this.IL = null;
+        this.IP = BdAsyncTaskParallelType.MAX_PARALLEL;
         this.mExecuteNum = 1;
         if (bdUniqueId == null) {
             throw new InvalidParameterException("BdAsyncTaskParallel parameter null");
         }
-        this.IJ = BdAsyncTaskParallelType.CUSTOM_PARALLEL;
+        this.IP = BdAsyncTaskParallelType.CUSTOM_PARALLEL;
         this.mExecuteNum = i;
-        this.II = bdUniqueId;
+        this.IL = bdUniqueId;
     }
 
     public int getExecuteNum() {
@@ -46,13 +46,13 @@ public class BdAsyncTaskParallel {
     }
 
     public int getTag() {
-        if (this.II == null) {
+        if (this.IL == null) {
             return 0;
         }
-        return this.II.getId();
+        return this.IL.getId();
     }
 
     public BdAsyncTaskParallelType jY() {
-        return this.IJ;
+        return this.IP;
     }
 }

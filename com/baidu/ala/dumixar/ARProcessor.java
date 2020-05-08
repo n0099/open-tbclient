@@ -96,9 +96,9 @@ public class ARProcessor implements SurfaceTexture.OnFrameAvailableListener {
     private Sticker mSticker;
     private float mThinFace;
     private Filter mfilter;
-    public static a.InterfaceC0151a sEffectHolder = new a.InterfaceC0151a() { // from class: com.baidu.ala.dumixar.ARProcessor.1
-        @Override // com.baidu.minivideo.arface.a.InterfaceC0151a
-        public void onHolderChanged(a.InterfaceC0151a interfaceC0151a) {
+    public static a.InterfaceC0172a sEffectHolder = new a.InterfaceC0172a() { // from class: com.baidu.ala.dumixar.ARProcessor.1
+        @Override // com.baidu.minivideo.arface.a.InterfaceC0172a
+        public void onHolderChanged(a.InterfaceC0172a interfaceC0172a) {
         }
     };
     public static String DEF_FILTER_ID = "500001";
@@ -260,7 +260,7 @@ public class ARProcessor implements SurfaceTexture.OnFrameAvailableListener {
     public void setAccurateSmooth(boolean z) {
         if (this.mEffect != null) {
             a aVar = this.mEffect;
-            b.JY();
+            b.JX();
             aVar.fx(c.cv(z));
         }
     }
@@ -311,9 +311,9 @@ public class ARProcessor implements SurfaceTexture.OnFrameAvailableListener {
             f = 0.0f;
             str2 = null;
         } else if (filter == null || DEF_FILTER_ID.equals(filter.getParam())) {
-            if (b.JY() != null) {
-                b.JY();
-                str = c.Kb();
+            if (b.JX() != null) {
+                b.JX();
+                str = c.Ka();
             } else {
                 str = null;
             }
@@ -945,7 +945,7 @@ public class ARProcessor implements SurfaceTexture.OnFrameAvailableListener {
         return new DuMixCallback() { // from class: com.baidu.ala.dumixar.ARProcessor.9
             @Override // com.baidu.ar.DuMixCallback
             public void onSetup(boolean z, DuMixInput duMixInput, DuMixOutput duMixOutput) {
-                if (!z || ARProcessor.this.mEffect == null || b.JY() != null) {
+                if (!z || ARProcessor.this.mEffect == null || b.JX() != null) {
                 }
                 ARProcessor.this.mIsSetup = z;
                 if (ARProcessor.this.mCallback != null) {
@@ -956,7 +956,7 @@ public class ARProcessor implements SurfaceTexture.OnFrameAvailableListener {
                     return;
                 }
                 ARProcessor.this.mIsFirstAvailableFrame = false;
-                ThreadPool.Kk().execute(new Runnable() { // from class: com.baidu.ala.dumixar.ARProcessor.9.1
+                ThreadPool.Kj().execute(new Runnable() { // from class: com.baidu.ala.dumixar.ARProcessor.9.1
                     @Override // java.lang.Runnable
                     public void run() {
                         ARProcessor.this.initEffectValue();
@@ -1017,11 +1017,11 @@ public class ARProcessor implements SurfaceTexture.OnFrameAvailableListener {
             if (filter == null && !this.isShowDefFilterValue) {
                 this.mEffect.setBeautyValue(BeautyType.lutFile, 0);
             } else if (filter == null || DEF_FILTER_ID.equals(filter.getParam())) {
-                if (b.JY() != null) {
+                if (b.JX() != null) {
                     a aVar = this.mEffect;
                     BeautyType beautyType = BeautyType.lutFile;
-                    b.JY();
-                    aVar.setBeautyValue(beautyType, c.Kb());
+                    b.JX();
+                    aVar.setBeautyValue(beautyType, c.Ka());
                     setInitValue(true, DEF_FILTER_VALUE);
                 }
             } else {

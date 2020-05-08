@@ -12,20 +12,20 @@ import org.json.JSONObject;
 /* loaded from: classes12.dex */
 public class v {
     private static final boolean DEBUG = AppConfig.isDebug();
-    private String bVL;
-    private int dep;
-    private JSONObject deq;
-    private List<k> der = new ArrayList();
-    private JSONObject lNM;
-    private JSONObject lNN;
-    private JSONObject lNO;
-    private String lNP;
-    private String lNQ;
+    private String bVR;
+    private int dev;
+    private JSONObject dew;
+    private List<k> dex = new ArrayList();
+    private JSONObject lNQ;
+    private JSONObject lNR;
+    private JSONObject lNS;
+    private String lNT;
+    private String lNU;
     private int mThreshold;
 
     public v(String str, JSONObject jSONObject) {
-        this.bVL = str;
-        this.deq = jSONObject;
+        this.bVR = str;
+        this.dew = jSONObject;
     }
 
     public int aDZ() {
@@ -33,50 +33,50 @@ public class v {
     }
 
     public int aEa() {
-        return this.dep;
+        return this.dev;
     }
 
     public List<k> aEb() {
-        return this.der;
+        return this.dex;
     }
 
     public void eS(List<k> list) {
-        this.der = list;
+        this.dex = list;
     }
 
-    public String dkH() {
-        return this.lNP;
+    public String dkE() {
+        return this.lNT;
     }
 
-    public String dkI() {
+    public String dkF() {
+        return this.lNU;
+    }
+
+    public JSONObject dkG() {
+        return this.lNS;
+    }
+
+    public JSONObject dkH() {
         return this.lNQ;
-    }
-
-    public JSONObject dkJ() {
-        return this.lNO;
-    }
-
-    public JSONObject dkK() {
-        return this.lNM;
     }
 
     private void dx(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
                 if (jSONObject.optInt("threshold") > 0) {
-                    this.lNM.put("threshold", jSONObject.optString("threshold"));
+                    this.lNQ.put("threshold", jSONObject.optString("threshold"));
                 }
                 if (jSONObject.optInt("timeup") > 0) {
-                    this.lNM.put("timeup", jSONObject.optString("timeup"));
+                    this.lNQ.put("timeup", jSONObject.optString("timeup"));
                 }
                 if (jSONObject.optString("step") != null) {
-                    this.lNM.put("step", jSONObject.optString("step"));
+                    this.lNQ.put("step", jSONObject.optString("step"));
                 }
                 if (jSONObject.optString("replace") != null) {
-                    this.lNM.put("replace", jSONObject.optString("replace"));
+                    this.lNQ.put("replace", jSONObject.optString("replace"));
                 }
                 if (jSONObject.optJSONObject("del") != null) {
-                    this.lNM.put("del", jSONObject.optJSONObject("del"));
+                    this.lNQ.put("del", jSONObject.optJSONObject("del"));
                 }
             } catch (JSONException e) {
                 if (DEBUG) {
@@ -88,23 +88,23 @@ public class v {
 
     public boolean aEc() {
         try {
-            if (this.deq == null) {
+            if (this.dew == null) {
                 return false;
             }
-            JSONObject jSONObject = this.deq;
-            this.lNN = jSONObject.optJSONObject("set");
+            JSONObject jSONObject = this.dew;
+            this.lNR = jSONObject.optJSONObject("set");
             this.mThreshold = jSONObject.optInt("threshold", 10000);
-            this.dep = jSONObject.optInt("timeup", PersonListModel.CACHETIME);
-            this.lNQ = jSONObject.optString("step");
-            this.lNP = jSONObject.optString("replace");
-            this.lNO = jSONObject.optJSONObject("del");
-            if (this.lNN != null) {
-                this.lNM = new JSONObject();
+            this.dev = jSONObject.optInt("timeup", PersonListModel.CACHETIME);
+            this.lNU = jSONObject.optString("step");
+            this.lNT = jSONObject.optString("replace");
+            this.lNS = jSONObject.optJSONObject("del");
+            if (this.lNR != null) {
+                this.lNQ = new JSONObject();
                 JSONObject jSONObject2 = new JSONObject();
-                Iterator<String> keys = this.lNN.keys();
+                Iterator<String> keys = this.lNR.keys();
                 while (keys.hasNext()) {
                     String next = keys.next();
-                    JSONObject jSONObject3 = this.lNN.getJSONObject(next);
+                    JSONObject jSONObject3 = this.lNR.getJSONObject(next);
                     if (jSONObject3 != null) {
                         JSONObject jSONObject4 = jSONObject3.getJSONObject("data");
                         String string = jSONObject3.getString("version");
@@ -136,28 +136,28 @@ public class v {
                                         kVar.si(jSONObject4.getString("idtype"));
                                     }
                                     if (jSONObject4.has("ch")) {
-                                        kVar.Np(jSONObject4.getString("ch"));
+                                        kVar.Ns(jSONObject4.getString("ch"));
                                     }
                                     if (jSONObject4.has("dfc")) {
-                                        kVar.Nq(jSONObject4.getString("dfc"));
+                                        kVar.Nt(jSONObject4.getString("dfc"));
                                     }
                                     if (jSONObject4.has("reallog")) {
-                                        kVar.Nr(jSONObject4.getString("reallog"));
+                                        kVar.Nu(jSONObject4.getString("reallog"));
                                     }
                                     if (jSONObject4.has("gflow")) {
                                         String string6 = jSONObject4.getString("gflow");
                                         if (!TextUtils.isEmpty(string6) && !TextUtils.equals(string6, "0")) {
-                                            kVar.Ns(string6);
+                                            kVar.Nv(string6);
                                         }
                                     }
                                     kVar.setVersion(string);
-                                    this.der.add(kVar);
+                                    this.dex.add(kVar);
                                 }
                             }
                         }
                     }
                 }
-                this.lNM.put("set", jSONObject2);
+                this.lNQ.put("set", jSONObject2);
                 dx(jSONObject);
             }
             return true;

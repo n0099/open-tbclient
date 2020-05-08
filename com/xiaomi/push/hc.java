@@ -1,246 +1,184 @@
 package com.xiaomi.push;
 
-import android.content.Context;
-import android.content.SharedPreferences;
-import java.io.BufferedInputStream;
-import java.io.Closeable;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.RandomAccessFile;
-import java.nio.channels.FileLock;
-import java.util.ArrayList;
+import com.alibaba.fastjson.asm.Opcodes;
+import com.baidu.down.manage.DownloadConstants;
+import java.net.UnknownHostException;
 /* loaded from: classes8.dex */
-public class hc {
-    private static boolean a = false;
+final class hc {
 
     /* loaded from: classes8.dex */
-    static class a implements Runnable {
-        private Context a;
+    static class a {
+        fh a;
 
         /* renamed from: a  reason: collision with other field name */
-        private hf f449a;
+        String f421a;
 
-        public a(Context context, hf hfVar) {
-            this.f449a = hfVar;
-            this.a = context;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            hc.c(this.a, this.f449a);
+        a() {
         }
     }
 
-    private static void a(Context context) {
-        File file = new File(context.getFilesDir() + "/tdReadTemp");
-        if (file.exists()) {
-            return;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static a a(Exception exc) {
+        m328a(exc);
+        boolean z = exc instanceof gd;
+        Exception exc2 = exc;
+        if (z) {
+            Throwable a2 = ((gd) exc).a();
+            exc2 = exc;
+            if (a2 != null) {
+                exc2 = ((gd) exc).a();
+            }
         }
-        file.mkdirs();
+        a aVar = new a();
+        String message = exc2.getMessage();
+        if (exc2.getCause() != null) {
+            message = exc2.getCause().getMessage();
+        }
+        String str = exc2.getClass().getSimpleName() + ":" + message;
+        int a3 = fu.a(exc2);
+        if (a3 != 0) {
+            aVar.a = fh.a(a3 + fh.GSLB_REQUEST_SUCCESS.a());
+        }
+        if (aVar.a == null) {
+            aVar.a = fh.GSLB_TCP_ERR_OTHER;
+        }
+        if (aVar.a == fh.GSLB_TCP_ERR_OTHER) {
+            aVar.f421a = str;
+        }
+        return aVar;
     }
 
-    public static void a(Context context, hf hfVar) {
-        ai.a(context).a(new a(context, hfVar));
+    /* renamed from: a  reason: collision with other method in class */
+    private static void m328a(Exception exc) {
+        if (exc == null) {
+            throw new NullPointerException();
+        }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:26:0x0090, code lost:
-        com.xiaomi.channel.commonutils.logger.b.d("TinyData read from cache file failed cause lengthBuffer < 1 || too big. length:" + r6);
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    private static void a(Context context, hf hfVar, File file, byte[] bArr) {
-        BufferedInputStream bufferedInputStream;
-        BufferedInputStream bufferedInputStream2;
-        ArrayList arrayList = new ArrayList();
-        byte[] bArr2 = new byte[4];
-        try {
-            bufferedInputStream = new BufferedInputStream(new FileInputStream(file));
-            int i = 0;
-            int i2 = 0;
-            while (true) {
-                try {
-                    int read = bufferedInputStream.read(bArr2);
-                    if (read == -1) {
-                        break;
-                    } else if (read != 4) {
-                        com.xiaomi.channel.commonutils.logger.b.d("TinyData read from cache file failed cause lengthBuffer error. size:" + read);
-                        break;
-                    } else {
-                        int a2 = ac.a(bArr2);
-                        if (a2 < 1 || a2 > 10240) {
-                            break;
-                        }
-                        byte[] bArr3 = new byte[a2];
-                        int read2 = bufferedInputStream.read(bArr3);
-                        if (read2 != a2) {
-                            com.xiaomi.channel.commonutils.logger.b.d("TinyData read from cache file failed cause buffer size not equal length. size:" + read2 + "__length:" + a2);
-                            break;
-                        }
-                        byte[] a3 = h.a(bArr, bArr3);
-                        if (a3 == null || a3.length == 0) {
-                            com.xiaomi.channel.commonutils.logger.b.d("TinyData read from cache file failed cause decrypt fail");
-                        } else {
-                            hk hkVar = new hk();
-                            iq.a(hkVar, a3);
-                            arrayList.add(hkVar);
-                            i2++;
-                            i += a3.length;
-                            if (i2 >= 8 || i >= 10240) {
-                                com.xiaomi.channel.commonutils.logger.b.m50a("TinyData readTinyDataFromFile upload tiny data by part. items:" + arrayList.size() + " ts:" + System.currentTimeMillis());
-                                hd.a(context, hfVar, arrayList);
-                                i2 = 0;
-                                arrayList = new ArrayList();
-                                i = 0;
-                            }
-                        }
-                    }
-                } catch (Exception e) {
-                    e = e;
-                    bufferedInputStream2 = bufferedInputStream;
-                    try {
-                        com.xiaomi.channel.commonutils.logger.b.a(e);
-                        y.a(bufferedInputStream2);
-                        return;
-                    } catch (Throwable th) {
-                        th = th;
-                        bufferedInputStream = bufferedInputStream2;
-                        y.a(bufferedInputStream);
-                        throw th;
-                    }
-                } catch (Throwable th2) {
-                    th = th2;
-                    y.a(bufferedInputStream);
-                    throw th;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static a b(Exception exc) {
+        Throwable cause;
+        m328a(exc);
+        boolean z = exc instanceof gd;
+        Exception exc2 = exc;
+        if (z) {
+            Throwable a2 = ((gd) exc).a();
+            exc2 = exc;
+            if (a2 != null) {
+                exc2 = ((gd) exc).a();
+            }
+        }
+        a aVar = new a();
+        String message = exc2.getMessage();
+        if (exc2.getCause() != null) {
+            message = exc2.getCause().getMessage();
+        }
+        int a3 = fu.a(exc2);
+        String str = exc2.getClass().getSimpleName() + ":" + message;
+        if (a3 != 0) {
+            aVar.a = fh.a(a3 + fh.CONN_SUCCESS.a());
+            if (aVar.a == fh.CONN_BOSH_ERR && (cause = exc2.getCause()) != null && (cause instanceof UnknownHostException)) {
+                aVar.a = fh.CONN_BOSH_UNKNOWNHOST;
+            }
+        } else {
+            aVar.a = fh.CONN_XMPP_ERR;
+        }
+        if (aVar.a == fh.CONN_TCP_ERR_OTHER || aVar.a == fh.CONN_XMPP_ERR || aVar.a == fh.CONN_BOSH_ERR) {
+            aVar.f421a = str;
+        }
+        return aVar;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static a c(Exception exc) {
+        m328a(exc);
+        boolean z = exc instanceof gd;
+        Exception exc2 = exc;
+        if (z) {
+            Throwable a2 = ((gd) exc).a();
+            exc2 = exc;
+            if (a2 != null) {
+                exc2 = ((gd) exc).a();
+            }
+        }
+        a aVar = new a();
+        String message = exc2.getMessage();
+        if (exc2.getCause() != null) {
+            message = exc2.getCause().getMessage();
+        }
+        String str = exc2.getClass().getSimpleName() + ":" + message;
+        switch (fu.a(exc2)) {
+            case 105:
+                aVar.a = fh.BIND_TCP_READ_TIMEOUT;
+                break;
+            case 109:
+                aVar.a = fh.BIND_TCP_CONNRESET;
+                break;
+            case 110:
+                aVar.a = fh.BIND_TCP_BROKEN_PIPE;
+                break;
+            case Opcodes.IFNONNULL /* 199 */:
+                aVar.a = fh.BIND_TCP_ERR;
+                break;
+            case DownloadConstants.STATUS_DEVICE_NOT_FOUND_ERROR /* 499 */:
+                aVar.a = fh.BIND_BOSH_ERR;
+                if (message.startsWith("Terminal binding condition encountered: item-not-found")) {
+                    aVar.a = fh.BIND_BOSH_ITEM_NOT_FOUND;
+                    break;
                 }
-            }
-            hd.a(context, hfVar, arrayList);
-            com.xiaomi.channel.commonutils.logger.b.m50a("TinyData readTinyDataFromFile upload tiny data at last. items:" + arrayList.size() + " ts:" + System.currentTimeMillis());
-            if (file != null && file.exists() && !file.delete()) {
-                com.xiaomi.channel.commonutils.logger.b.m50a("TinyData delete reading temp file failed");
-            }
-            y.a(bufferedInputStream);
-        } catch (Exception e2) {
-            e = e2;
-            bufferedInputStream2 = null;
-        } catch (Throwable th3) {
-            th = th3;
-            bufferedInputStream = null;
+                break;
+            default:
+                aVar.a = fh.BIND_XMPP_ERR;
+                break;
         }
+        if (aVar.a == fh.BIND_TCP_ERR || aVar.a == fh.BIND_XMPP_ERR || aVar.a == fh.BIND_BOSH_ERR) {
+            aVar.f421a = str;
+        }
+        return aVar;
     }
 
-    private static void b(Context context) {
-        SharedPreferences.Editor edit = context.getSharedPreferences("mipush_extra", 4).edit();
-        edit.putLong("last_tiny_data_upload_timestamp", System.currentTimeMillis() / 1000);
-        edit.commit();
-    }
-
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:43:0x0105 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:47:0x0030 */
-    /* JADX INFO: Access modifiers changed from: private */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:19:0x00bc  */
-    /* JADX WARN: Removed duplicated region for block: B:42:0x00f8  */
-    /* JADX WARN: Type inference failed for: r1v0 */
-    /* JADX WARN: Type inference failed for: r1v1, types: [java.nio.channels.FileLock] */
-    /* JADX WARN: Type inference failed for: r1v11, types: [boolean] */
-    /* JADX WARN: Type inference failed for: r1v14 */
-    /* JADX WARN: Type inference failed for: r1v3 */
-    /* JADX WARN: Type inference failed for: r2v1, types: [boolean] */
-    /* JADX WARN: Type inference failed for: r2v10, types: [java.lang.String] */
-    /* JADX WARN: Type inference failed for: r2v2 */
-    /* JADX WARN: Type inference failed for: r2v4, types: [java.io.Closeable] */
-    /* JADX WARN: Type inference failed for: r2v5 */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static void c(Context context, hf hfVar) {
-        RandomAccessFile randomAccessFile;
-        ?? r1 = 0;
-        r1 = null;
-        FileLock fileLock = null;
-        r1 = 0;
-        if (a) {
-            com.xiaomi.channel.commonutils.logger.b.m50a("TinyData extractTinyData is running");
-            return;
-        }
-        a = true;
-        File file = new File(context.getFilesDir(), "tiny_data.data");
-        ?? exists = file.exists();
-        if (exists == 0) {
-            com.xiaomi.channel.commonutils.logger.b.m50a("TinyData no ready file to get data.");
-            return;
-        }
-        a(context);
-        byte[] a2 = com.xiaomi.push.service.bf.a(context);
-        try {
-            try {
-                File file2 = new File(context.getFilesDir(), "tiny_data.lock");
-                y.m571a(file2);
-                randomAccessFile = new RandomAccessFile(file2, "rw");
-                try {
-                    fileLock = randomAccessFile.getChannel().lock();
-                    file.renameTo(new File(context.getFilesDir() + "/tdReadTemp/tiny_data.data"));
-                    if (fileLock != null && fileLock.isValid()) {
-                        try {
-                            fileLock.release();
-                        } catch (IOException e) {
-                            com.xiaomi.channel.commonutils.logger.b.a(e);
-                        }
-                    }
-                    y.a(randomAccessFile);
-                } catch (Exception e2) {
-                    e = e2;
-                    com.xiaomi.channel.commonutils.logger.b.a(e);
-                    if (fileLock != null && fileLock.isValid()) {
-                        try {
-                            fileLock.release();
-                        } catch (IOException e3) {
-                            com.xiaomi.channel.commonutils.logger.b.a(e3);
-                        }
-                    }
-                    y.a(randomAccessFile);
-                    exists = "tiny_data.data";
-                    File file3 = new File(context.getFilesDir() + "/tdReadTemp/tiny_data.data");
-                    r1 = file3.exists();
-                    if (r1 != 0) {
-                    }
-                }
-            } catch (Throwable th) {
-                th = th;
-                if (r1 != 0 && r1.isValid()) {
-                    try {
-                        r1.release();
-                    } catch (IOException e4) {
-                        com.xiaomi.channel.commonutils.logger.b.a(e4);
-                    }
-                }
-                y.a((Closeable) exists);
-                throw th;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static a d(Exception exc) {
+        m328a(exc);
+        boolean z = exc instanceof gd;
+        Exception exc2 = exc;
+        if (z) {
+            Throwable a2 = ((gd) exc).a();
+            exc2 = exc;
+            if (a2 != null) {
+                exc2 = ((gd) exc).a();
             }
-        } catch (Exception e5) {
-            e = e5;
-            randomAccessFile = null;
-        } catch (Throwable th2) {
-            th = th2;
-            exists = 0;
-            if (r1 != 0) {
-                r1.release();
-            }
-            y.a((Closeable) exists);
-            throw th;
         }
-        exists = "tiny_data.data";
-        File file32 = new File(context.getFilesDir() + "/tdReadTemp/tiny_data.data");
-        r1 = file32.exists();
-        if (r1 != 0) {
-            com.xiaomi.channel.commonutils.logger.b.m50a("TinyData no ready file to get data.");
-            return;
+        a aVar = new a();
+        String message = exc2.getMessage();
+        String str = exc2.getClass().getSimpleName() + ":" + message;
+        switch (fu.a(exc2)) {
+            case 105:
+                aVar.a = fh.CHANNEL_TCP_READTIMEOUT;
+                break;
+            case 109:
+                aVar.a = fh.CHANNEL_TCP_CONNRESET;
+                break;
+            case 110:
+                aVar.a = fh.CHANNEL_TCP_BROKEN_PIPE;
+                break;
+            case Opcodes.IFNONNULL /* 199 */:
+                aVar.a = fh.CHANNEL_TCP_ERR;
+                break;
+            case DownloadConstants.STATUS_DEVICE_NOT_FOUND_ERROR /* 499 */:
+                aVar.a = fh.CHANNEL_BOSH_EXCEPTION;
+                if (message.startsWith("Terminal binding condition encountered: item-not-found")) {
+                    aVar.a = fh.CHANNEL_BOSH_ITEMNOTFIND;
+                    break;
+                }
+                break;
+            default:
+                aVar.a = fh.CHANNEL_XMPPEXCEPTION;
+                break;
         }
-        a(context, hfVar, file32, a2);
-        hb.a(false);
-        b(context);
-        a = false;
+        if (aVar.a == fh.CHANNEL_TCP_ERR || aVar.a == fh.CHANNEL_XMPPEXCEPTION || aVar.a == fh.CHANNEL_BOSH_EXCEPTION) {
+            aVar.f421a = str;
+        }
+        return aVar;
     }
 }

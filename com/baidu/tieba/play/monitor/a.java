@@ -10,14 +10,14 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a implements e.a {
-    private String ahL;
-    private String kgD;
-    private i kgo;
+    private String ahO;
+    private String kgH;
+    private i kgs;
 
     public a(String str, String str2, i iVar) {
-        this.ahL = str;
-        this.kgD = str2;
-        this.kgo = iVar;
+        this.ahO = str;
+        this.kgH = str2;
+        this.kgs = iVar;
     }
 
     @Override // com.baidu.tieba.k.e.a
@@ -25,14 +25,14 @@ public class a implements e.a {
         if (i == 1) {
             an anVar = new an("c12620");
             anVar.af("obj_locate", 1);
-            anVar.cI("tid", this.ahL);
+            anVar.cI("tid", this.ahO);
             TiebaStatic.log(anVar);
             HttpMessage httpMessage = new HttpMessage(1003388);
-            httpMessage.addParam("thread_id", this.ahL);
-            httpMessage.addParam("video_url", this.kgD);
+            httpMessage.addParam("thread_id", this.ahO);
+            httpMessage.addParam("video_url", this.kgH);
             MessageManager.getInstance().sendMessage(httpMessage);
-            if (this.kgo != null) {
-                this.kgo.a(new com.baidu.tieba.k.b() { // from class: com.baidu.tieba.play.monitor.a.1
+            if (this.kgs != null) {
+                this.kgs.a(new com.baidu.tieba.k.b() { // from class: com.baidu.tieba.play.monitor.a.1
                     @Override // com.baidu.tieba.k.b
                     public void dk(JSONObject jSONObject) throws JSONException {
                     }
@@ -55,10 +55,10 @@ public class a implements e.a {
         an anVar = new an("c12621");
         anVar.af("obj_locate", 1);
         anVar.af("obj_param1", z ? 1 : 0);
-        anVar.cI("tid", this.ahL);
+        anVar.cI("tid", this.ahO);
         TiebaStatic.log(anVar);
-        if (this.kgo != null) {
-            this.kgo.a(new com.baidu.tieba.k.b() { // from class: com.baidu.tieba.play.monitor.a.2
+        if (this.kgs != null) {
+            this.kgs.a(new com.baidu.tieba.k.b() { // from class: com.baidu.tieba.play.monitor.a.2
                 @Override // com.baidu.tieba.k.b
                 public void dk(JSONObject jSONObject) throws JSONException {
                 }

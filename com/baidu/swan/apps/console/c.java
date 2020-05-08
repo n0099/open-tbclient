@@ -10,14 +10,14 @@ import com.baidu.swan.apps.y.f;
 import com.baidu.tbadk.TbConfig;
 /* loaded from: classes11.dex */
 public class c {
-    private static boolean bIf = false;
+    private static boolean bIk = false;
 
     public static void de(boolean z) {
-        bIf = z;
+        bIk = z;
     }
 
-    public static boolean Tl() {
-        return bIf;
+    public static boolean Tk() {
+        return bIk;
     }
 
     public static void v(String str, String str2) {
@@ -63,12 +63,12 @@ public class c {
     }
 
     private static void p(String str, String str2, String str3) {
-        if (!TextUtils.isEmpty(str3) && bIf) {
+        if (!TextUtils.isEmpty(str3) && bIk) {
             StringBuilder sb = new StringBuilder();
-            String a = h.a(h.aoQ(), "yyyy-MM-dd HH:mm:ss");
+            String a = h.a(h.aoP(), "yyyy-MM-dd HH:mm:ss");
             String fileName = getFileName();
             sb.append(a).append("  ").append(fileName).append("  ").append("line:").append(getLineNumber()).append("\n").append("module:").append(str2).append("\n").append(str3);
-            f.aeK().aeo().ay(str, sb.toString());
+            f.aeJ().aen().ay(str, sb.toString());
         }
     }
 

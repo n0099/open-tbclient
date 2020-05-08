@@ -18,6 +18,6 @@ public class SwanAppNativeSwanJsBridge {
 
     @JavascriptInterface
     public String getAPIs(int i) {
-        return DEBUG ? com.baidu.swan.apps.ah.a.a.aiN() ? g.w(i, false) : "" : (g.aoJ() && com.baidu.swan.apps.w.a.abR().OX()) ? g.w(i, false) : "";
+        return DEBUG ? com.baidu.swan.apps.ah.a.a.aiM() ? g.w(i, false) : "" : (g.aoI() && com.baidu.swan.apps.w.a.abQ().OW()) ? g.w(i, false) : "";
     }
 }

@@ -22,8 +22,8 @@ public class d {
 
     public static String azc() {
         File aT;
-        e akH = com.baidu.swan.apps.runtime.d.akK().akH();
-        if (akH.available() && akH.getVersion() != null && (aT = a.c.aT(akH.getAppId(), akH.getVersion())) != null && aT.exists()) {
+        e akG = com.baidu.swan.apps.runtime.d.akJ().akG();
+        if (akG.available() && akG.getVersion() != null && (aT = a.c.aT(akG.getAppId(), akG.getVersion())) != null && aT.exists()) {
             return "file://" + aT.getAbsolutePath();
         }
         return null;

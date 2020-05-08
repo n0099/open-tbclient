@@ -15,29 +15,29 @@ import com.baidu.live.u.a;
 import java.util.Map;
 /* loaded from: classes3.dex */
 public class o {
-    private com.baidu.live.data.n aDE;
+    private com.baidu.live.data.n aDK;
 
     public void g(com.baidu.live.data.n nVar) {
         Log.i("i", "@@@ localText imsdmctrl ent");
-        Bx();
+        Bw();
         a(nVar);
     }
 
     public void a(com.baidu.live.data.n nVar) {
-        this.aDE = nVar;
+        this.aDK = nVar;
     }
 
-    public void xj() {
+    public void xi() {
         Log.i("i", "@@@ localText imsdmctrl oqt");
-        this.aDE = null;
-        By();
+        this.aDK = null;
+        Bx();
     }
 
     public void release() {
-        xj();
+        xi();
     }
 
-    private void Bx() {
+    private void Bw() {
         Log.i("i", "@@@ localText imsdmctrl reg");
         CustomMessageTask customMessageTask = new CustomMessageTask(2913100, new CustomMessageTask.CustomRunnable<ImSendMsgData>() { // from class: com.baidu.live.im.o.1
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
@@ -54,7 +54,7 @@ public class o {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private void By() {
+    private void Bx() {
         Log.i("i", "@@@ localText imsdmctrl unr");
         MessageManager.getInstance().unRegisterTask(2913100);
     }
@@ -62,7 +62,7 @@ public class o {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(ImSendMsgData imSendMsgData) {
         Log.i("i", "@@@ localText imsdmctrl onsm");
-        if (!zA()) {
+        if (!zz()) {
             Log.i("i", "@@@ localText imsdmctrl nolg");
             return;
         }
@@ -79,14 +79,14 @@ public class o {
     }
 
     private void b(ImSendMsgData imSendMsgData) {
-        Map<String, Integer> wX = s.wV().wX();
-        if (wX != null && wX.containsKey(imSendMsgData.barrageId) && wX.get(imSendMsgData.barrageId).intValue() > 0) {
-            imSendMsgData.barrageCardInfo = new com.baidu.live.im.data.b(true, String.valueOf(this.aDE.aqe.userId), String.valueOf(this.aDE.mLiveInfo.live_id));
+        Map<String, Integer> wW = s.wU().wW();
+        if (wW != null && wW.containsKey(imSendMsgData.barrageId) && wW.get(imSendMsgData.barrageId).intValue() > 0) {
+            imSendMsgData.barrageCardInfo = new com.baidu.live.im.data.b(true, String.valueOf(this.aDK.aqk.userId), String.valueOf(this.aDK.mLiveInfo.live_id));
         }
         MessageManager.getInstance().sendMessage(new CustomMessage(2913101, imSendMsgData));
     }
 
-    private boolean zA() {
+    private boolean zz() {
         if (!TbadkCoreApplication.isLogin()) {
             BdUtilHelper.showToast(TbadkCoreApplication.getInst(), a.i.sdk_not_login);
             return false;

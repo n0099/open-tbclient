@@ -9,8 +9,8 @@ import com.baidu.tbadk.core.util.x;
 import com.baidu.tbadk.coreExtra.data.AuthTokenData;
 /* loaded from: classes11.dex */
 public class SignSingleModel extends BdBaseModel<SignAllForumActivity> {
-    private b kKV;
-    private a kKW;
+    private b kKZ;
+    private a kLa;
     private String mAuthSid;
     private String mForumId;
     private String mForumName;
@@ -26,7 +26,7 @@ public class SignSingleModel extends BdBaseModel<SignAllForumActivity> {
         super(signAllForumActivity.getPageContext());
         this.mForumName = null;
         this.mForumId = null;
-        this.kKV = null;
+        this.kKZ = null;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -39,20 +39,20 @@ public class SignSingleModel extends BdBaseModel<SignAllForumActivity> {
         return false;
     }
 
-    public void cUo() {
-        if (this.kKV != null) {
-            this.kKV.cancel();
-            this.kKV = null;
+    public void cUl() {
+        if (this.kKZ != null) {
+            this.kKZ.cancel();
+            this.kKZ = null;
         }
     }
 
     public void eK(String str, String str2) {
-        if (str != null && str.length() > 0 && str2 != null && str2.length() > 0 && this.kKV == null) {
+        if (str != null && str.length() > 0 && str2 != null && str2.length() > 0 && this.kKZ == null) {
             this.mForumName = str;
             this.mForumId = str2;
-            this.kKV = new b();
-            this.kKV.setPriority(2);
-            this.kKV.execute(new Object[0]);
+            this.kKZ = new b();
+            this.kKZ.setPriority(2);
+            this.kKZ.execute(new Object[0]);
         }
     }
 
@@ -83,10 +83,10 @@ public class SignSingleModel extends BdBaseModel<SignAllForumActivity> {
                 this.mNetwork.addPostData("kw", SignSingleModel.this.mForumName);
                 this.mNetwork.addPostData("fid", SignSingleModel.this.mForumId);
                 this.mNetwork.addPostData("authsid", SignSingleModel.this.mAuthSid);
-                this.mNetwork.aOy().aOZ().mIsNeedTbs = true;
+                this.mNetwork.aOw().aOW().mIsNeedTbs = true;
                 this.mNetwork.gI(true);
                 String postNetData = this.mNetwork.postNetData();
-                if (!this.mNetwork.isNetSuccess() || !this.mNetwork.aOy().aPa().isRequestSuccess()) {
+                if (!this.mNetwork.isNetSuccess() || !this.mNetwork.aOw().aOX().isRequestSuccess()) {
                     signData = null;
                 } else {
                     SignData signData2 = new SignData();
@@ -121,9 +121,9 @@ public class SignSingleModel extends BdBaseModel<SignAllForumActivity> {
             if (this.mNetwork != null) {
                 this.mNetwork.cancelNetConnect();
             }
-            SignSingleModel.this.kKV = null;
+            SignSingleModel.this.kKZ = null;
             super.cancel(true);
-            SignSingleModel.this.kKW.eJ(SignSingleModel.this.mForumId, null);
+            SignSingleModel.this.kLa.eJ(SignSingleModel.this.mForumId, null);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -131,18 +131,18 @@ public class SignSingleModel extends BdBaseModel<SignAllForumActivity> {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: d */
         public void onPostExecute(SignData signData) {
-            SignSingleModel.this.kKV = null;
+            SignSingleModel.this.kKZ = null;
             if (signData != null || this.mNetwork == null) {
-                SignSingleModel.this.kKW.c(signData);
+                SignSingleModel.this.kLa.c(signData);
                 return;
             }
             SignSingleModel.this.mErrorCode = this.mNetwork.getServerErrorCode();
             SignSingleModel.this.mErrorString = this.mNetwork.getErrorString();
-            SignSingleModel.this.kKW.eJ(SignSingleModel.this.mForumId, SignSingleModel.this.mErrorString);
+            SignSingleModel.this.kLa.eJ(SignSingleModel.this.mForumId, SignSingleModel.this.mErrorString);
         }
     }
 
     public void a(a aVar) {
-        this.kKW = aVar;
+        this.kLa = aVar;
     }
 }

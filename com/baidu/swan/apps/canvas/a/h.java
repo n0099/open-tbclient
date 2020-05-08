@@ -33,7 +33,7 @@ public class h extends a {
     @Override // com.baidu.swan.apps.scheme.actions.ab
     public boolean a(Context context, final UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, final com.baidu.swan.apps.runtime.e eVar) {
         final String str;
-        com.baidu.swan.apps.core.d.d Wf;
+        com.baidu.swan.apps.core.d.d We;
         final com.baidu.swan.apps.canvas.b.f d = d(unitedSchemeEntity);
         if (d == null) {
             com.baidu.swan.apps.console.c.e("SwanAppCanvas", "CanvasToTempFilePath action parse model is null");
@@ -47,16 +47,16 @@ public class h extends a {
             return false;
         }
         String str2 = nk + File.separator + Calendar.getInstance().getTimeInMillis();
-        if (d.Sn()) {
+        if (d.Sm()) {
             str = str2 + ".jpg";
         } else {
             str = str2 + ComboPraiseProvider.RES_NAME_PRAISE_NUMBER_SUFFIX;
         }
-        if (TextUtils.isEmpty(d.bGJ) && (Wf = com.baidu.swan.apps.y.f.aeK().Wf()) != null) {
-            d.bGJ = Wf.VQ();
+        if (TextUtils.isEmpty(d.bGO) && (We = com.baidu.swan.apps.y.f.aeJ().We()) != null) {
+            d.bGO = We.VP();
         }
-        if (TextUtils.isEmpty(d.bGJ) || TextUtils.isEmpty(d.bGI)) {
-            com.baidu.swan.apps.console.c.e("SwanAppCanvas", "CanvasToTempFilePath slave id = " + d.bGJ + " ; canvas id = " + d.bGI);
+        if (TextUtils.isEmpty(d.bGO) || TextUtils.isEmpty(d.bGN)) {
+            com.baidu.swan.apps.console.c.e("SwanAppCanvas", "CanvasToTempFilePath slave id = " + d.bGO + " ; canvas id = " + d.bGN);
             unitedSchemeEntity.result = eg(201);
             return false;
         }
@@ -87,7 +87,7 @@ public class h extends a {
                         try {
                             str3 = new JSONObject(str4).optString("cb");
                             try {
-                                jSONObject.putOpt("tempFilePath", com.baidu.swan.apps.storage.b.bA(str, eVar.id) + "." + d.So());
+                                jSONObject.putOpt("tempFilePath", com.baidu.swan.apps.storage.b.bA(str, eVar.id) + "." + d.Sn());
                             } catch (JSONException e2) {
                                 e = e2;
                                 e.printStackTrace();

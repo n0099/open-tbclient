@@ -16,156 +16,156 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class c implements j {
-    private List<j.c> fyP;
-    private com.baidu.tieba.ala.liveroom.challenge.b.a fyQ;
-    private j.InterfaceC0105j fyR;
-    private j.h fyS;
-    private j.g fyT;
-    private j.f fyU;
-    private j.i fyV;
-    private j.d fyW;
-    private j.a fyX;
-    private j.b fyY;
-    private j.k fyZ;
-    private long fza = 0;
-    private a.InterfaceC0491a fzb = new a.InterfaceC0491a() { // from class: com.baidu.tieba.ala.liveroom.challenge.c.1
-        @Override // com.baidu.tieba.ala.liveroom.challenge.b.a.InterfaceC0491a
-        public void uB() {
-            if (c.this.fyR != null) {
-                c.this.fyR.uB();
+    private List<j.c> fyU;
+    private com.baidu.tieba.ala.liveroom.challenge.b.a fyV;
+    private j.InterfaceC0126j fyW;
+    private j.h fyX;
+    private j.g fyY;
+    private j.f fyZ;
+    private j.i fza;
+    private j.d fzb;
+    private j.a fzc;
+    private j.b fzd;
+    private j.k fze;
+    private long fzf = 0;
+    private a.InterfaceC0512a fzg = new a.InterfaceC0512a() { // from class: com.baidu.tieba.ala.liveroom.challenge.c.1
+        @Override // com.baidu.tieba.ala.liveroom.challenge.b.a.InterfaceC0512a
+        public void uA() {
+            if (c.this.fyW != null) {
+                c.this.fyW.uA();
             }
         }
 
-        @Override // com.baidu.tieba.ala.liveroom.challenge.b.a.InterfaceC0491a
+        @Override // com.baidu.tieba.ala.liveroom.challenge.b.a.InterfaceC0512a
         public void l(int i, String str) {
-            if (c.this.fyR != null) {
-                c.this.fyR.l(i, str);
+            if (c.this.fyW != null) {
+                c.this.fyW.l(i, str);
             }
         }
 
-        @Override // com.baidu.tieba.ala.liveroom.challenge.b.a.InterfaceC0491a
+        @Override // com.baidu.tieba.ala.liveroom.challenge.b.a.InterfaceC0512a
         public void a(com.baidu.live.challenge.b bVar, List<com.baidu.live.challenge.d> list) {
-            if (c.this.fyS != null) {
-                c.this.fyS.a(bVar, list);
+            if (c.this.fyX != null) {
+                c.this.fyX.a(bVar, list);
             }
         }
 
-        @Override // com.baidu.tieba.ala.liveroom.challenge.b.a.InterfaceC0491a
+        @Override // com.baidu.tieba.ala.liveroom.challenge.b.a.InterfaceC0512a
         public void j(int i, String str) {
-            if (c.this.fyS != null) {
-                c.this.fyS.j(i, str);
+            if (c.this.fyX != null) {
+                c.this.fyX.j(i, str);
             }
         }
 
-        @Override // com.baidu.tieba.ala.liveroom.challenge.b.a.InterfaceC0491a
+        @Override // com.baidu.tieba.ala.liveroom.challenge.b.a.InterfaceC0512a
         public void b(com.baidu.live.challenge.a aVar) {
-            if (c.this.fyW != null) {
-                c.this.fyW.a(aVar.apc, aVar != null ? aVar.apd : null, aVar);
+            if (c.this.fzb != null) {
+                c.this.fzb.a(aVar.api, aVar != null ? aVar.apj : null, aVar);
             }
         }
 
-        @Override // com.baidu.tieba.ala.liveroom.challenge.b.a.InterfaceC0491a
+        @Override // com.baidu.tieba.ala.liveroom.challenge.b.a.InterfaceC0512a
         public void aD(int i, String str) {
-            if (c.this.fyW != null) {
-                c.this.fyW.g(i, str);
+            if (c.this.fzb != null) {
+                c.this.fzb.g(i, str);
             }
         }
 
-        @Override // com.baidu.tieba.ala.liveroom.challenge.b.a.InterfaceC0491a
+        @Override // com.baidu.tieba.ala.liveroom.challenge.b.a.InterfaceC0512a
         public void b(boolean z, com.baidu.live.challenge.a aVar) {
-            if (c.this.fyW != null) {
-                c.this.fyW.b(z ? 100 : 101, aVar != null ? aVar.apd : null, aVar);
+            if (c.this.fzb != null) {
+                c.this.fzb.b(z ? 100 : 101, aVar != null ? aVar.apj : null, aVar);
             }
         }
 
-        @Override // com.baidu.tieba.ala.liveroom.challenge.b.a.InterfaceC0491a
+        @Override // com.baidu.tieba.ala.liveroom.challenge.b.a.InterfaceC0512a
         public void aE(int i, String str) {
-            if (c.this.fyW != null) {
-                c.this.fyW.b(102, str, null);
+            if (c.this.fzb != null) {
+                c.this.fzb.b(102, str, null);
             }
         }
 
-        @Override // com.baidu.tieba.ala.liveroom.challenge.b.a.InterfaceC0491a
+        @Override // com.baidu.tieba.ala.liveroom.challenge.b.a.InterfaceC0512a
         public void l(int i, List<com.baidu.live.challenge.d> list) {
-            if (c.this.fyY != null && i > 0) {
-                c.this.fyY.bz(i);
+            if (c.this.fzd != null && i > 0) {
+                c.this.fzd.bz(i);
             }
-            if (c.this.fyU != null) {
-                c.this.fyU.p(list);
-            }
-        }
-
-        @Override // com.baidu.tieba.ala.liveroom.challenge.b.a.InterfaceC0491a
-        public void aF(int i, String str) {
-            if (c.this.fyU != null) {
-                c.this.fyU.h(i, str);
-            }
-        }
-
-        @Override // com.baidu.tieba.ala.liveroom.challenge.b.a.InterfaceC0491a
-        public void c(boolean z, com.baidu.live.challenge.a aVar) {
-            if (c.this.fyX != null) {
-                c.this.fyX.a(z, aVar);
-            }
-        }
-
-        @Override // com.baidu.tieba.ala.liveroom.challenge.b.a.InterfaceC0491a
-        public void aG(int i, String str) {
-            if (c.this.fyX != null) {
-                c.this.fyX.f(i, str);
-            }
-        }
-
-        @Override // com.baidu.tieba.ala.liveroom.challenge.b.a.InterfaceC0491a
-        public void c(com.baidu.live.challenge.a aVar) {
-            if (c.this.fyV != null) {
-                c.this.fyV.a(aVar.ui(), aVar != null ? aVar.apd : null, aVar);
-            }
-        }
-
-        @Override // com.baidu.tieba.ala.liveroom.challenge.b.a.InterfaceC0491a
-        public void aH(int i, String str) {
-            if (c.this.fyV != null) {
-                c.this.fyV.k(i, str);
-            }
-        }
-
-        @Override // com.baidu.tieba.ala.liveroom.challenge.b.a.InterfaceC0491a
-        public void d(boolean z, com.baidu.live.challenge.a aVar) {
-            if (c.this.fyV != null) {
-                c.this.fyV.c(z ? 0 : 1, null, aVar);
-            }
-        }
-
-        @Override // com.baidu.tieba.ala.liveroom.challenge.b.a.InterfaceC0491a
-        public void aI(int i, String str) {
-            if (c.this.fyV != null) {
-                c.this.fyV.c(2, str, null);
-            }
-        }
-
-        @Override // com.baidu.tieba.ala.liveroom.challenge.b.a.InterfaceC0491a
-        public void l(boolean z, String str) {
             if (c.this.fyZ != null) {
-                c.this.fyZ.c(z, str);
+                c.this.fyZ.p(list);
             }
         }
 
-        @Override // com.baidu.tieba.ala.liveroom.challenge.b.a.InterfaceC0491a
+        @Override // com.baidu.tieba.ala.liveroom.challenge.b.a.InterfaceC0512a
+        public void aF(int i, String str) {
+            if (c.this.fyZ != null) {
+                c.this.fyZ.h(i, str);
+            }
+        }
+
+        @Override // com.baidu.tieba.ala.liveroom.challenge.b.a.InterfaceC0512a
+        public void c(boolean z, com.baidu.live.challenge.a aVar) {
+            if (c.this.fzc != null) {
+                c.this.fzc.a(z, aVar);
+            }
+        }
+
+        @Override // com.baidu.tieba.ala.liveroom.challenge.b.a.InterfaceC0512a
+        public void aG(int i, String str) {
+            if (c.this.fzc != null) {
+                c.this.fzc.f(i, str);
+            }
+        }
+
+        @Override // com.baidu.tieba.ala.liveroom.challenge.b.a.InterfaceC0512a
+        public void c(com.baidu.live.challenge.a aVar) {
+            if (c.this.fza != null) {
+                c.this.fza.a(aVar.uh(), aVar != null ? aVar.apj : null, aVar);
+            }
+        }
+
+        @Override // com.baidu.tieba.ala.liveroom.challenge.b.a.InterfaceC0512a
+        public void aH(int i, String str) {
+            if (c.this.fza != null) {
+                c.this.fza.k(i, str);
+            }
+        }
+
+        @Override // com.baidu.tieba.ala.liveroom.challenge.b.a.InterfaceC0512a
+        public void d(boolean z, com.baidu.live.challenge.a aVar) {
+            if (c.this.fza != null) {
+                c.this.fza.c(z ? 0 : 1, null, aVar);
+            }
+        }
+
+        @Override // com.baidu.tieba.ala.liveroom.challenge.b.a.InterfaceC0512a
+        public void aI(int i, String str) {
+            if (c.this.fza != null) {
+                c.this.fza.c(2, str, null);
+            }
+        }
+
+        @Override // com.baidu.tieba.ala.liveroom.challenge.b.a.InterfaceC0512a
+        public void l(boolean z, String str) {
+            if (c.this.fze != null) {
+                c.this.fze.c(z, str);
+            }
+        }
+
+        @Override // com.baidu.tieba.ala.liveroom.challenge.b.a.InterfaceC0512a
         public void a(com.baidu.live.challenge.d dVar) {
-            if (c.this.fyT != null) {
-                c.this.fyT.a(dVar);
+            if (c.this.fyY != null) {
+                c.this.fyY.a(dVar);
             }
         }
 
-        @Override // com.baidu.tieba.ala.liveroom.challenge.b.a.InterfaceC0491a
+        @Override // com.baidu.tieba.ala.liveroom.challenge.b.a.InterfaceC0512a
         public void i(int i, String str) {
-            if (c.this.fyT != null) {
-                c.this.fyT.i(i, str);
+            if (c.this.fyY != null) {
+                c.this.fyY.i(i, str);
             }
         }
 
-        @Override // com.baidu.tieba.ala.liveroom.challenge.b.a.InterfaceC0491a
+        @Override // com.baidu.tieba.ala.liveroom.challenge.b.a.InterfaceC0512a
         public void b(int i, ag agVar, ah ahVar, ah ahVar2) {
             c.this.a(i, agVar, ahVar, ahVar2);
         }
@@ -174,23 +174,23 @@ public class c implements j {
 
     public c(TbPageContext tbPageContext) {
         this.mTbPageContext = tbPageContext;
-        this.fyQ = new com.baidu.tieba.ala.liveroom.challenge.b.a(tbPageContext, tbPageContext.getUniqueId());
-        this.fyQ.a(this.fzb);
-        this.fyP = new ArrayList();
+        this.fyV = new com.baidu.tieba.ala.liveroom.challenge.b.a(tbPageContext, tbPageContext.getUniqueId());
+        this.fyV.a(this.fzg);
+        this.fyU = new ArrayList();
     }
 
     @Override // com.baidu.live.challenge.j
     public void d(long j, long j2) {
-        this.fyQ.d(j, j2);
+        this.fyV.d(j, j2);
     }
 
     @Override // com.baidu.live.challenge.j
     public void a(ad adVar) {
         if (adVar != null) {
             AlaGetChallengeInfoResponseMessage alaGetChallengeInfoResponseMessage = new AlaGetChallengeInfoResponseMessage();
-            alaGetChallengeInfoResponseMessage.a(adVar.aub);
-            alaGetChallengeInfoResponseMessage.a(adVar.auc);
-            alaGetChallengeInfoResponseMessage.b(adVar.aud);
+            alaGetChallengeInfoResponseMessage.a(adVar.auh);
+            alaGetChallengeInfoResponseMessage.a(adVar.aui);
+            alaGetChallengeInfoResponseMessage.b(adVar.auj);
             MessageManager.getInstance().dispatchResponsedMessage(alaGetChallengeInfoResponseMessage);
         }
     }
@@ -198,210 +198,210 @@ public class c implements j {
     @Override // com.baidu.live.challenge.j
     public void c(n nVar) {
         if (nVar != null && nVar.mLiveInfo != null) {
-            this.fyQ.dA(nVar.mLiveInfo.challengeId);
+            this.fyV.dA(nVar.mLiveInfo.challengeId);
+        }
+    }
+
+    @Override // com.baidu.live.challenge.j
+    public void up() {
+        if (this.fyV != null) {
+            this.fyV.bua();
         }
     }
 
     @Override // com.baidu.live.challenge.j
     public void uq() {
-        if (this.fyQ != null) {
-            this.fyQ.buc();
-        }
-    }
-
-    @Override // com.baidu.live.challenge.j
-    public void ur() {
-        if (this.fyQ != null) {
-            this.fyQ.bud();
+        if (this.fyV != null) {
+            this.fyV.bub();
         }
     }
 
     @Override // com.baidu.live.challenge.j
     public void a(AlaPersonChallengeData alaPersonChallengeData) {
-        if (alaPersonChallengeData.challengeId > 0 && !ux()) {
-            this.fyQ.dA(alaPersonChallengeData.challengeId);
+        if (alaPersonChallengeData.challengeId > 0 && !uw()) {
+            this.fyV.dA(alaPersonChallengeData.challengeId);
         }
     }
 
     @Override // com.baidu.live.challenge.j
     public void by(int i) {
-        if (this.fyY != null) {
-            this.fyY.bz(i);
+        if (this.fzd != null) {
+            this.fzd.bz(i);
         }
     }
 
     @Override // com.baidu.live.challenge.j
-    public void us() {
-        this.fyQ.us();
+    public void ur() {
+        this.fyV.ur();
     }
 
     @Override // com.baidu.live.challenge.j
     public void r(int i, int i2) {
-        this.fyQ.r(i, i2);
+        this.fyV.r(i, i2);
     }
 
     @Override // com.baidu.live.challenge.j
     public void e(int i, int i2, String str) {
-        this.fyQ.e(i, i2, str);
+        this.fyV.e(i, i2, str);
     }
 
     @Override // com.baidu.live.challenge.j
     public void R(long j) {
-        this.fyQ.R(j);
+        this.fyV.R(j);
     }
 
     @Override // com.baidu.live.challenge.j
     public void S(long j) {
-        this.fyQ.S(j);
+        this.fyV.S(j);
     }
 
     @Override // com.baidu.live.challenge.j
     public void T(long j) {
-        this.fyQ.T(j);
+        this.fyV.T(j);
     }
 
     @Override // com.baidu.live.challenge.j
     public void U(long j) {
-        this.fyQ.U(j);
+        this.fyV.U(j);
+    }
+
+    @Override // com.baidu.live.challenge.j
+    public void us() {
+        this.fyV.us();
     }
 
     @Override // com.baidu.live.challenge.j
     public void ut() {
-        this.fyQ.ut();
+        this.fyV.ut();
     }
 
     @Override // com.baidu.live.challenge.j
     public void uu() {
-        this.fyQ.uu();
+        this.fyV.uu();
     }
 
     @Override // com.baidu.live.challenge.j
-    public void uv() {
-        this.fyQ.uv();
+    public void ux() {
+        this.fyV.ux();
     }
 
     @Override // com.baidu.live.challenge.j
-    public void uy() {
-        this.fyQ.uy();
+    public long uy() {
+        return this.fyV.uy();
     }
 
     @Override // com.baidu.live.challenge.j
-    public long uz() {
-        return this.fyQ.uz();
+    public ChallenfeInfoData.ChallengeStatus uv() {
+        return this.fyV.uv();
     }
 
     @Override // com.baidu.live.challenge.j
-    public ChallenfeInfoData.ChallengeStatus uw() {
-        return this.fyQ.uw();
-    }
-
-    @Override // com.baidu.live.challenge.j
-    public boolean ux() {
-        return this.fyQ.ux();
+    public boolean uw() {
+        return this.fyV.uw();
     }
 
     @Override // com.baidu.live.challenge.j
     public void aT(boolean z) {
-        this.fyQ.aT(z);
+        this.fyV.aT(z);
     }
 
-    private void btC() {
-        if (this.fyP != null) {
-            this.fyP.clear();
+    private void btA() {
+        if (this.fyU != null) {
+            this.fyU.clear();
         }
     }
 
     @Override // com.baidu.live.challenge.j
-    public void ug() {
-        if (this.fyQ != null) {
-            this.fyQ.btY();
+    public void uf() {
+        if (this.fyV != null) {
+            this.fyV.btW();
         }
-        btC();
+        btA();
     }
 
     @Override // com.baidu.live.challenge.j
     public void onDestroy() {
-        if (this.fyQ != null) {
-            this.fyQ.onDestroy();
+        if (this.fyV != null) {
+            this.fyV.onDestroy();
         }
-        btC();
+        btA();
     }
 
     @Override // com.baidu.live.challenge.j
-    public void a(j.InterfaceC0105j interfaceC0105j) {
-        this.fyR = interfaceC0105j;
+    public void a(j.InterfaceC0126j interfaceC0126j) {
+        this.fyW = interfaceC0126j;
     }
 
     @Override // com.baidu.live.challenge.j
     public void a(j.h hVar) {
-        this.fyS = hVar;
+        this.fyX = hVar;
     }
 
     @Override // com.baidu.live.challenge.j
     public void a(j.g gVar) {
-        this.fyT = gVar;
+        this.fyY = gVar;
     }
 
     @Override // com.baidu.live.challenge.j
     public void a(j.f fVar) {
-        this.fyU = fVar;
+        this.fyZ = fVar;
     }
 
     @Override // com.baidu.live.challenge.j
     public void a(j.i iVar) {
-        this.fyV = iVar;
+        this.fza = iVar;
     }
 
     @Override // com.baidu.live.challenge.j
     public void a(j.d dVar) {
-        this.fyW = dVar;
+        this.fzb = dVar;
     }
 
     @Override // com.baidu.live.challenge.j
     public void a(j.a aVar) {
-        this.fyX = aVar;
+        this.fzc = aVar;
     }
 
     @Override // com.baidu.live.challenge.j
     public void a(j.b bVar) {
-        this.fyY = bVar;
+        this.fzd = bVar;
     }
 
     @Override // com.baidu.live.challenge.j
     public void a(j.k kVar) {
-        this.fyZ = kVar;
+        this.fze = kVar;
     }
 
     @Override // com.baidu.live.challenge.j
     public void a(j.e eVar) {
-        this.fyQ.b(eVar);
+        this.fyV.b(eVar);
     }
 
     @Override // com.baidu.live.challenge.j
     public void a(j.c cVar) {
-        if (cVar != null && !this.fyP.contains(cVar)) {
-            this.fyP.add(cVar);
+        if (cVar != null && !this.fyU.contains(cVar)) {
+            this.fyU.add(cVar);
         }
     }
 
     @Override // com.baidu.live.challenge.j
     public void dJ(String str) {
         if ("challenge_direct_new".equals(str)) {
-            this.fyQ.ut();
+            this.fyV.us();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int i, ag agVar, ah ahVar, ah ahVar2) {
-        if (!ListUtils.isEmpty(this.fyP)) {
+        if (!ListUtils.isEmpty(this.fyU)) {
             if (i == 4) {
-                if (this.fza != this.fyQ.uz()) {
-                    this.fza = this.fyQ.uz();
+                if (this.fzf != this.fyV.uy()) {
+                    this.fzf = this.fyV.uy();
                 } else {
                     return;
                 }
             }
-            for (j.c cVar : this.fyP) {
+            for (j.c cVar : this.fyU) {
                 if (cVar != null) {
                     switch (i) {
                         case 2:

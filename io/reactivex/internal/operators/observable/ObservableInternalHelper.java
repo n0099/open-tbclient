@@ -23,13 +23,13 @@ public final class ObservableInternalHelper {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // io.reactivex.c.h
         public Throwable apply(p<Object> pVar) throws Exception {
-            return pVar.dCE();
+            return pVar.dCA();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // io.reactivex.c.j
         public boolean test(p<Object> pVar) throws Exception {
-            return pVar.dCD();
+            return pVar.dCz();
         }
     }
 }

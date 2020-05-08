@@ -1,50 +1,38 @@
 package com.xiaomi.mipush.sdk;
 
-import com.xiaomi.push.hg;
+import android.content.Context;
+import android.database.ContentObserver;
+import android.os.Handler;
+import com.xiaomi.push.az;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes8.dex */
-/* synthetic */ class as {
-    static final /* synthetic */ int[] a = new int[hg.values().length];
+public class as extends ContentObserver {
+    final /* synthetic */ aq a;
 
-    static {
-        try {
-            a[hg.Registration.ordinal()] = 1;
-        } catch (NoSuchFieldError e) {
-        }
-        try {
-            a[hg.UnRegistration.ordinal()] = 2;
-        } catch (NoSuchFieldError e2) {
-        }
-        try {
-            a[hg.Subscription.ordinal()] = 3;
-        } catch (NoSuchFieldError e3) {
-        }
-        try {
-            a[hg.UnSubscription.ordinal()] = 4;
-        } catch (NoSuchFieldError e4) {
-        }
-        try {
-            a[hg.SendMessage.ordinal()] = 5;
-        } catch (NoSuchFieldError e5) {
-        }
-        try {
-            a[hg.AckMessage.ordinal()] = 6;
-        } catch (NoSuchFieldError e6) {
-        }
-        try {
-            a[hg.SetConfig.ordinal()] = 7;
-        } catch (NoSuchFieldError e7) {
-        }
-        try {
-            a[hg.ReportFeedback.ordinal()] = 8;
-        } catch (NoSuchFieldError e8) {
-        }
-        try {
-            a[hg.Notification.ordinal()] = 9;
-        } catch (NoSuchFieldError e9) {
-        }
-        try {
-            a[hg.Command.ordinal()] = 10;
-        } catch (NoSuchFieldError e10) {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public as(aq aqVar, Handler handler) {
+        super(handler);
+        this.a = aqVar;
+    }
+
+    @Override // android.database.ContentObserver
+    public void onChange(boolean z) {
+        Context context;
+        Integer num;
+        Context context2;
+        Context context3;
+        aq aqVar = this.a;
+        context = this.a.f49a;
+        aqVar.f53a = Integer.valueOf(com.xiaomi.push.service.aw.a(context).a());
+        num = this.a.f53a;
+        if (num.intValue() != 0) {
+            context2 = this.a.f49a;
+            context2.getContentResolver().unregisterContentObserver(this);
+            context3 = this.a.f49a;
+            if (az.b(context3)) {
+                this.a.m87c();
+            }
         }
     }
 }

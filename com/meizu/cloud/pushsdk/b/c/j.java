@@ -16,13 +16,13 @@ public abstract class j {
             }
 
             @Override // com.meizu.cloud.pushsdk.b.c.j
-            public void a(com.meizu.cloud.pushsdk.b.g.b bVar) throws IOException {
-                com.meizu.cloud.pushsdk.b.g.l lVar = null;
+            public void a(com.meizu.cloud.pushsdk.b.g.c cVar) throws IOException {
+                com.meizu.cloud.pushsdk.b.g.m mVar = null;
                 try {
-                    lVar = com.meizu.cloud.pushsdk.b.g.f.a(file);
-                    bVar.a(lVar);
+                    mVar = com.meizu.cloud.pushsdk.b.g.g.a(file);
+                    cVar.a(mVar);
                 } finally {
-                    m.a(lVar);
+                    m.a(mVar);
                 }
             }
 
@@ -58,8 +58,8 @@ public abstract class j {
             }
 
             @Override // com.meizu.cloud.pushsdk.b.c.j
-            public void a(com.meizu.cloud.pushsdk.b.g.b bVar) throws IOException {
-                bVar.c(bArr, i, i2);
+            public void a(com.meizu.cloud.pushsdk.b.g.c cVar) throws IOException {
+                cVar.c(bArr, i, i2);
             }
 
             @Override // com.meizu.cloud.pushsdk.b.c.j
@@ -71,7 +71,7 @@ public abstract class j {
 
     public abstract g a();
 
-    public abstract void a(com.meizu.cloud.pushsdk.b.g.b bVar) throws IOException;
+    public abstract void a(com.meizu.cloud.pushsdk.b.g.c cVar) throws IOException;
 
     public long b() throws IOException {
         return -1L;

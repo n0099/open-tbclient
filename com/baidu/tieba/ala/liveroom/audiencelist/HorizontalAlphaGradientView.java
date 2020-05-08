@@ -13,45 +13,45 @@ import android.view.View;
 import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class HorizontalAlphaGradientView extends View {
-    private Paint aNP;
-    private int aXP;
-    private int bat;
-    private int bau;
+    private Paint aNV;
+    private int aXU;
+    private int bay;
+    private int baz;
 
     public HorizontalAlphaGradientView(Context context) {
         super(context);
-        this.aXP = 0;
-        this.bau = 0;
+        this.aXU = 0;
+        this.baz = 0;
     }
 
     public HorizontalAlphaGradientView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aXP = 0;
-        this.bau = 0;
+        this.aXU = 0;
+        this.baz = 0;
     }
 
     public HorizontalAlphaGradientView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.aXP = 0;
-        this.bau = 0;
+        this.aXU = 0;
+        this.baz = 0;
     }
 
     public void setColor(int i, int i2) {
-        this.aXP = i;
-        this.bau = i2;
+        this.aXU = i;
+        this.baz = i2;
     }
 
     public void setNeedAlphaShade(boolean z) {
         if (z) {
-            this.bat = getResources().getDimensionPixelSize(a.e.sdk_ds28);
-            this.aNP = new Paint();
-            this.aNP.setStyle(Paint.Style.FILL_AND_STROKE);
-            setLayerType(0, this.aNP);
-            this.aNP.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.MULTIPLY));
-            this.aNP.setShader(new LinearGradient(0.0f, 0.0f, this.bat, 0.0f, this.aXP, this.bau, Shader.TileMode.CLAMP));
+            this.bay = getResources().getDimensionPixelSize(a.e.sdk_ds28);
+            this.aNV = new Paint();
+            this.aNV.setStyle(Paint.Style.FILL_AND_STROKE);
+            setLayerType(0, this.aNV);
+            this.aNV.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.MULTIPLY));
+            this.aNV.setShader(new LinearGradient(0.0f, 0.0f, this.bay, 0.0f, this.aXU, this.baz, Shader.TileMode.CLAMP));
         } else {
-            this.bat = 0;
-            this.aNP = null;
+            this.bay = 0;
+            this.aNV = null;
         }
         invalidate();
     }
@@ -59,8 +59,8 @@ public class HorizontalAlphaGradientView extends View {
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if (this.aNP != null) {
-            canvas.drawRect(0.0f, 0.0f, this.bat, getHeight(), this.aNP);
+        if (this.aNV != null) {
+            canvas.drawRect(0.0f, 0.0f, this.bay, getHeight(), this.aNV);
         }
     }
 }

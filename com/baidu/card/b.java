@@ -8,10 +8,10 @@ import com.baidu.card.a.a;
 import com.baidu.tbadk.core.data.a;
 /* loaded from: classes8.dex */
 public abstract class b<T extends com.baidu.tbadk.core.data.a> implements m<T>, n {
-    protected ad acV;
-    private Boolean acW = false;
-    private com.baidu.tieba.card.z<T> acX;
-    public a acY;
+    protected ad acY;
+    private Boolean acZ = false;
+    private com.baidu.tieba.card.z<T> ada;
+    public a adb;
     protected Context mContext;
 
     /* loaded from: classes8.dex */
@@ -27,7 +27,7 @@ public abstract class b<T extends com.baidu.tbadk.core.data.a> implements m<T>, 
     }
 
     public void a(ad adVar) {
-        this.acV = adVar;
+        this.acY = adVar;
     }
 
     public void aW(int i) {
@@ -41,15 +41,15 @@ public abstract class b<T extends com.baidu.tbadk.core.data.a> implements m<T>, 
     }
 
     public com.baidu.tieba.card.z<T> rl() {
-        return this.acX;
+        return this.ada;
     }
 
     public void setOnCardSubClickListener(com.baidu.tieba.card.z<T> zVar) {
-        this.acX = zVar;
+        this.ada = zVar;
     }
 
     public void a(int i, a.b bVar) {
-        this.acV.a(i, bVar);
+        this.acY.a(i, bVar);
     }
 
     public void aY(int i) {
@@ -69,10 +69,10 @@ public abstract class b<T extends com.baidu.tbadk.core.data.a> implements m<T>, 
     }
 
     public Boolean rm() {
-        return this.acW;
+        return this.acZ;
     }
 
     public void b(Boolean bool) {
-        this.acW = bool;
+        this.acZ = bool;
     }
 }

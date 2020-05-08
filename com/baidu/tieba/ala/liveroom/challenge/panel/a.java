@@ -10,37 +10,37 @@ import com.baidu.live.tbadk.core.view.HeadImageView;
 import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class a extends e {
-    private AlaChallengeWaveView fzO;
-    private AlaChallengeWaveView fzP;
-    private HeadImageView fzQ;
-    private HeadImageView fzR;
-    private com.baidu.live.challenge.a fzr;
+    private AlaChallengeWaveView fzT;
+    private AlaChallengeWaveView fzU;
+    private HeadImageView fzV;
+    private HeadImageView fzW;
+    private com.baidu.live.challenge.a fzw;
 
     public a(Context context, k kVar) {
         super(context, kVar);
-        this.fzO = (AlaChallengeWaveView) this.mRootView.findViewById(a.g.ala_challenge_wave_left);
-        this.fzP = (AlaChallengeWaveView) this.mRootView.findViewById(a.g.ala_challenge_wave_right);
-        this.fzO.setWaveArray(new float[]{AlaChallengeWaveView.fBa, AlaChallengeWaveView.fAZ, AlaChallengeWaveView.fAY});
-        this.fzP.setWaveArray(new float[]{AlaChallengeWaveView.fAY, AlaChallengeWaveView.fAZ, AlaChallengeWaveView.fBa});
-        this.fzQ = (HeadImageView) this.mRootView.findViewById(a.g.ala_challenge_direct_left_header);
-        this.fzQ.setIsRound(true);
-        this.fzQ.setAutoChangeStyle(false);
-        this.fzQ.setDrawBorder(false);
-        this.fzQ.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.fzQ.setDefaultBgResource(a.f.icon_challenge_default_avatar);
-        this.fzQ.startLoad(TbadkCoreApplication.getCurrentPortrait(), 25, false);
-        this.fzR = (HeadImageView) this.mRootView.findViewById(a.g.ala_challenge_direct_right_header);
-        this.fzR.setIsRound(true);
-        this.fzR.setAutoChangeStyle(false);
-        this.fzR.setDrawBorder(false);
-        this.fzR.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.fzR.setDefaultBgResource(a.f.icon_challenge_default_avatar);
+        this.fzT = (AlaChallengeWaveView) this.mRootView.findViewById(a.g.ala_challenge_wave_left);
+        this.fzU = (AlaChallengeWaveView) this.mRootView.findViewById(a.g.ala_challenge_wave_right);
+        this.fzT.setWaveArray(new float[]{AlaChallengeWaveView.fBf, AlaChallengeWaveView.fBe, AlaChallengeWaveView.fBd});
+        this.fzU.setWaveArray(new float[]{AlaChallengeWaveView.fBd, AlaChallengeWaveView.fBe, AlaChallengeWaveView.fBf});
+        this.fzV = (HeadImageView) this.mRootView.findViewById(a.g.ala_challenge_direct_left_header);
+        this.fzV.setIsRound(true);
+        this.fzV.setAutoChangeStyle(false);
+        this.fzV.setDrawBorder(false);
+        this.fzV.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.fzV.setDefaultBgResource(a.f.icon_challenge_default_avatar);
+        this.fzV.startLoad(TbadkCoreApplication.getCurrentPortrait(), 25, false);
+        this.fzW = (HeadImageView) this.mRootView.findViewById(a.g.ala_challenge_direct_right_header);
+        this.fzW.setIsRound(true);
+        this.fzW.setAutoChangeStyle(false);
+        this.fzW.setDrawBorder(false);
+        this.fzW.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.fzW.setDefaultBgResource(a.f.icon_challenge_default_avatar);
     }
 
     public void d(com.baidu.live.challenge.a aVar) {
         if (aVar != null) {
-            this.fzr = aVar;
-            this.fzR.startLoad(aVar.apg, 25, false);
+            this.fzw = aVar;
+            this.fzW.startLoad(aVar.apm, 25, false);
         }
     }
 
@@ -50,18 +50,18 @@ public class a extends e {
     }
 
     @Override // com.baidu.tieba.ala.liveroom.challenge.panel.e
-    protected int bue() {
+    protected int buc() {
         return this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds510);
     }
 
     @Override // com.baidu.tieba.ala.liveroom.challenge.panel.e
     protected void hide() {
         super.hide();
-        if (this.fzO != null) {
-            this.fzO.endAnimation();
+        if (this.fzT != null) {
+            this.fzT.endAnimation();
         }
-        if (this.fzP != null) {
-            this.fzP.endAnimation();
+        if (this.fzU != null) {
+            this.fzU.endAnimation();
         }
     }
 }

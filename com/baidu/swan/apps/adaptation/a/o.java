@@ -5,7 +5,9 @@ import java.util.Map;
 import okhttp3.Request;
 /* loaded from: classes11.dex */
 public interface o {
-    boolean PK();
+    boolean PJ();
+
+    String PK();
 
     String PL();
 
@@ -13,11 +15,11 @@ public interface o {
 
     String PN();
 
-    String PO();
+    void PO();
 
     void PP();
 
-    void PQ();
+    String PQ();
 
     String PR();
 
@@ -45,17 +47,15 @@ public interface o {
 
     String Qd();
 
-    String Qe();
+    boolean Qe();
 
-    boolean Qf();
+    String Qf();
 
     String Qg();
 
     String Qh();
 
-    String Qi();
-
-    String bg(Context context);
+    String aU(Context context);
 
     Request d(Context context, Map<String, String> map);
 

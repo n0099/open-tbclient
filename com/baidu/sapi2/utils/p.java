@@ -1,18 +1,30 @@
 package com.baidu.sapi2.utils;
 
-import com.baidu.sapi2.httpwrap.HttpHashMapWrap;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.app.Activity;
+import android.view.View;
 /* loaded from: classes6.dex */
-public class p implements Runnable {
-    final /* synthetic */ HttpHashMapWrap a;
+public class p {
+    private View a;
+    int b;
+    private a c;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public p(HttpHashMapWrap httpHashMapWrap) {
-        this.a = httpHashMapWrap;
+    /* loaded from: classes6.dex */
+    public interface a {
+        void keyBoardHide(int i);
+
+        void keyBoardShow(int i);
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        r.b(this.a);
+    public p(Activity activity) {
+        this.a = activity.getWindow().getDecorView();
+        this.a.getViewTreeObserver().addOnGlobalLayoutListener(new o(this));
+    }
+
+    private void a(a aVar) {
+        this.c = aVar;
+    }
+
+    public static void a(Activity activity, a aVar) {
+        new p(activity).a(aVar);
     }
 }

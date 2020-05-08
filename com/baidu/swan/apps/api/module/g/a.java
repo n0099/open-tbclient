@@ -16,7 +16,7 @@ public class a extends com.baidu.swan.apps.api.a.c {
         super(bVar);
     }
 
-    public com.baidu.swan.apps.api.b.b RI() {
+    public com.baidu.swan.apps.api.b.b RH() {
         String networkClass = SwanAppNetworkUtils.getNetworkClass();
         if (TextUtils.isEmpty(networkClass)) {
             networkClass = "unknown";
@@ -39,8 +39,8 @@ public class a extends com.baidu.swan.apps.api.a.c {
     }
 
     public com.baidu.swan.apps.api.b.b gR(String str) {
-        final e akN = e.akN();
-        if (akN == null) {
+        final e akM = e.akM();
+        if (akM == null) {
             if (DEBUG) {
                 com.baidu.swan.apps.console.c.e("Api-Network", "swan app is null");
             }
@@ -65,7 +65,7 @@ public class a extends com.baidu.swan.apps.api.a.c {
         d.getMainHandler().post(new Runnable() { // from class: com.baidu.swan.apps.api.module.g.a.1
             @Override // java.lang.Runnable
             public void run() {
-                akN.akZ().c(a.this.Rt().Rr(), optString);
+                akM.akY().c(a.this.Rs().Rq(), optString);
             }
         });
         return new com.baidu.swan.apps.api.b.b(0);

@@ -19,13 +19,13 @@ import com.baidu.live.u.a;
 import com.baidu.tieba.ala.liveroom.data.h;
 /* loaded from: classes3.dex */
 public class AlaLiveFaceVerifyView extends LinearLayout implements View.OnClickListener {
-    private h fLN;
-    private int fRA;
-    private ImageView fRv;
-    private TextView fRw;
-    private TextView fRx;
-    private Button fRy;
-    private a fRz;
+    private h fLS;
+    private ImageView fRA;
+    private TextView fRB;
+    private TextView fRC;
+    private Button fRD;
+    private a fRE;
+    private int fRF;
     private TextView mHelp;
 
     /* loaded from: classes3.dex */
@@ -35,67 +35,67 @@ public class AlaLiveFaceVerifyView extends LinearLayout implements View.OnClickL
 
     public AlaLiveFaceVerifyView(Context context) {
         super(context);
-        this.fRA = 0;
+        this.fRF = 0;
         init();
     }
 
     public AlaLiveFaceVerifyView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.fRA = 0;
+        this.fRF = 0;
         init();
     }
 
     public AlaLiveFaceVerifyView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.fRA = 0;
+        this.fRF = 0;
         init();
     }
 
     private void init() {
         View.inflate(getContext(), a.h.ala_live_face_verify_layout, this);
-        this.fRy = (Button) findViewById(a.g.ala_live_face_btn);
-        this.fRv = (ImageView) findViewById(a.g.ala_live_face_verify_pre);
+        this.fRD = (Button) findViewById(a.g.ala_live_face_btn);
+        this.fRA = (ImageView) findViewById(a.g.ala_live_face_verify_pre);
         this.mHelp = (TextView) findViewById(a.g.ala_live_face_help);
-        this.fRw = (TextView) findViewById(a.g.ala_live_face_error_tips);
-        this.fRx = (TextView) findViewById(a.g.ala_live_face_questions_text);
-        this.fRx.setMovementMethod(ScrollingMovementMethod.getInstance());
-        this.fRy.setOnClickListener(this);
-        this.fRv.setOnClickListener(this);
+        this.fRB = (TextView) findViewById(a.g.ala_live_face_error_tips);
+        this.fRC = (TextView) findViewById(a.g.ala_live_face_questions_text);
+        this.fRC.setMovementMethod(ScrollingMovementMethod.getInstance());
+        this.fRD.setOnClickListener(this);
+        this.fRA.setOnClickListener(this);
         this.mHelp.setOnClickListener(this);
     }
 
-    private void bAx() {
-        if (this.fRA <= 0) {
-            this.fRA = 0;
-        } else if (this.fRA > this.fLN.fFQ.fFR.size()) {
-            this.fRA = this.fLN.fFQ.fFR.size();
+    private void bAv() {
+        if (this.fRF <= 0) {
+            this.fRF = 0;
+        } else if (this.fRF > this.fLS.fFV.fFW.size()) {
+            this.fRF = this.fLS.fFV.fFW.size();
         }
-        if (this.fRA == 0) {
-            this.fRv.setVisibility(4);
-            this.fRw.setVisibility(0);
+        if (this.fRF == 0) {
+            this.fRA.setVisibility(4);
+            this.fRB.setVisibility(0);
         } else {
-            this.fRv.setVisibility(0);
-            this.fRw.setVisibility(8);
+            this.fRA.setVisibility(0);
+            this.fRB.setVisibility(8);
         }
-        if (TextUtils.isEmpty(this.fLN.fFQ.notify)) {
-            this.fRw.setText(a.i.ala_live_face_question_tips);
+        if (TextUtils.isEmpty(this.fLS.fFV.notify)) {
+            this.fRB.setText(a.i.ala_live_face_question_tips);
         } else {
-            this.fRw.setText(this.fLN.fFQ.notify);
+            this.fRB.setText(this.fLS.fFV.notify);
         }
-        if (this.fRA < this.fLN.fFQ.fFR.size()) {
+        if (this.fRF < this.fLS.fFV.fFW.size()) {
             StringBuilder sb = new StringBuilder();
-            sb.append(String.valueOf(this.fRA + 1)).append("/").append(this.fLN.fFQ.fFR.size()).append(" ");
-            sb.append(this.fLN.fFQ.fFR.get(this.fRA));
-            this.fRx.setText(sb.toString());
+            sb.append(String.valueOf(this.fRF + 1)).append("/").append(this.fLS.fFV.fFW.size()).append(" ");
+            sb.append(this.fLS.fFV.fFW.get(this.fRF));
+            this.fRC.setText(sb.toString());
         } else {
-            this.fRx.setText(a.i.ala_live_face_done_tips);
+            this.fRC.setText(a.i.ala_live_face_done_tips);
         }
-        this.fRx.scrollTo(0, 0);
-        this.fRy.setText(a.i.ala_live_face_next);
-        if (this.fLN.fFQ.fFR.size() - 1 == this.fRA) {
-            this.fRy.setText(a.i.ala_live_face_done);
-        } else if (this.fLN.fFQ.fFR.size() == this.fRA) {
-            this.fRy.setText(a.i.sdk_dialog_ok);
+        this.fRC.scrollTo(0, 0);
+        this.fRD.setText(a.i.ala_live_face_next);
+        if (this.fLS.fFV.fFW.size() - 1 == this.fRF) {
+            this.fRD.setText(a.i.ala_live_face_done);
+        } else if (this.fLS.fFV.fFW.size() == this.fRF) {
+            this.fRD.setText(a.i.sdk_dialog_ok);
         }
     }
 
@@ -105,10 +105,10 @@ public class AlaLiveFaceVerifyView extends LinearLayout implements View.OnClickL
     }
 
     public void setData(h hVar) {
-        this.fLN = hVar;
-        if (this.fLN != null && this.fLN.fFQ != null && this.fLN.fFQ.fFR != null && this.fLN.fFQ.fFR.size() > 0) {
-            this.fRA = 0;
-            bAx();
+        this.fLS = hVar;
+        if (this.fLS != null && this.fLS.fFV != null && this.fLS.fFV.fFW != null && this.fLS.fFV.fFW.size() > 0) {
+            this.fRF = 0;
+            bAv();
         }
     }
 
@@ -119,23 +119,23 @@ public class AlaLiveFaceVerifyView extends LinearLayout implements View.OnClickL
             if (bbPageContext != null) {
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new com.baidu.live.c.b(bbPageContext.getPageActivity())));
             }
-        } else if (view == this.fRv) {
-            this.fRA--;
-            bAx();
-        } else if (view == this.fRy) {
-            if (this.fRA == this.fLN.fFQ.fFR.size()) {
-                if (this.fRz != null) {
-                    this.fRz.onFinished();
+        } else if (view == this.fRA) {
+            this.fRF--;
+            bAv();
+        } else if (view == this.fRD) {
+            if (this.fRF == this.fLS.fFV.fFW.size()) {
+                if (this.fRE != null) {
+                    this.fRE.onFinished();
                     return;
                 }
                 return;
             }
-            this.fRA++;
-            bAx();
+            this.fRF++;
+            bAv();
         }
     }
 
     public void setOnFinishedListener(a aVar) {
-        this.fRz = aVar;
+        this.fRE = aVar;
     }
 }

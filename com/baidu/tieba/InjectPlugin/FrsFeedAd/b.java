@@ -7,53 +7,53 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes8.dex */
 public class b implements m, com.baidu.tieba.InjectPlugin.a {
-    private static SparseArray<BdUniqueId> etv = new SparseArray<>();
-    private Object etw;
-    private int etx;
+    private static SparseArray<BdUniqueId> etA = new SparseArray<>();
+    private Object etB;
+    private int etC;
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return etv.get(this.etx);
+        return etA.get(this.etC);
     }
 
     @Override // com.baidu.tieba.InjectPlugin.a
-    public Object bdL() {
-        return this.etw;
+    public Object bdJ() {
+        return this.etB;
     }
 
-    public void an(Object obj) {
-        this.etw = obj;
+    public void ao(Object obj) {
+        this.etB = obj;
     }
 
-    public int bdM() {
-        return this.etx;
+    public int bdK() {
+        return this.etC;
     }
 
     public void og(int i) {
-        this.etx = i;
+        this.etC = i;
     }
 
     public static void aZ(List<Integer> list) {
-        if (etv.size() <= 0 && list != null) {
+        if (etA.size() <= 0 && list != null) {
             for (Integer num : list) {
-                etv.put(num.intValue(), BdUniqueId.gen());
+                etA.put(num.intValue(), BdUniqueId.gen());
             }
         }
     }
 
-    public static List<BdUniqueId> bdN() {
+    public static List<BdUniqueId> bdL() {
         ArrayList arrayList = new ArrayList();
-        for (int i = 0; i < etv.size(); i++) {
-            arrayList.add(etv.valueAt(i));
+        for (int i = 0; i < etA.size(); i++) {
+            arrayList.add(etA.valueAt(i));
         }
         return arrayList;
     }
 
     public static int l(BdUniqueId bdUniqueId) {
         int indexOfValue;
-        if (etv.size() == 0 || (indexOfValue = etv.indexOfValue(bdUniqueId)) == -1 || etv.size() <= indexOfValue) {
+        if (etA.size() == 0 || (indexOfValue = etA.indexOfValue(bdUniqueId)) == -1 || etA.size() <= indexOfValue) {
             return -1;
         }
-        return etv.keyAt(indexOfValue);
+        return etA.keyAt(indexOfValue);
     }
 }

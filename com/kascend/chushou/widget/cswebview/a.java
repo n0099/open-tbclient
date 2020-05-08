@@ -4,34 +4,34 @@ import com.kascend.chushou.constants.JSInterface;
 /* loaded from: classes5.dex */
 public class a {
     private Object d;
-    private d mAe;
-    private JSInterface mGN;
-    private com.kascend.chushou.toolkit.b mGR;
+    private d mAj;
+    private JSInterface mGS;
+    private com.kascend.chushou.toolkit.b mGW;
 
-    public d dza() {
-        return this.mAe;
+    public d dyW() {
+        return this.mAj;
     }
 
     public a a(d dVar) {
-        this.mAe = dVar;
+        this.mAj = dVar;
         return this;
     }
 
-    public com.kascend.chushou.toolkit.b dzb() {
-        return this.mGR;
+    public com.kascend.chushou.toolkit.b dyX() {
+        return this.mGW;
     }
 
     public a a(com.kascend.chushou.toolkit.b bVar) {
-        this.mGR = bVar;
+        this.mGW = bVar;
         return this;
     }
 
-    public JSInterface dzc() {
-        return this.mGN;
+    public JSInterface dyY() {
+        return this.mGS;
     }
 
     public a a(JSInterface jSInterface) {
-        this.mGN = jSInterface;
+        this.mGS = jSInterface;
         return this;
     }
 
@@ -39,7 +39,7 @@ public class a {
         return this.d;
     }
 
-    public a br(Object obj) {
+    public a bs(Object obj) {
         this.d = obj;
         return this;
     }

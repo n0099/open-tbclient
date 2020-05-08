@@ -1,34 +1,44 @@
 package com.vivo.push.b;
+
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes8.dex */
-public abstract class v extends s {
-    private String a;
-    private long b;
+public final class v extends u {
+    private ArrayList<String> a;
+    private ArrayList<String> b;
 
     public v(int i) {
         super(i);
+        this.a = null;
+        this.b = null;
     }
 
-    public final long f() {
-        return this.b;
-    }
-
-    public final String i() {
+    public final ArrayList<String> d() {
         return this.a;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.vivo.push.b.s, com.vivo.push.y
-    public void c(com.vivo.push.a aVar) {
-        super.c(aVar);
-        aVar.a("OnVerifyCallBackCommand.EXTRA_SECURITY_CONTENT", this.a);
-        aVar.a("notify_id", this.b);
+    public final List<String> e() {
+        return this.b;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.vivo.push.b.s, com.vivo.push.y
-    public void d(com.vivo.push.a aVar) {
+    @Override // com.vivo.push.b.u, com.vivo.push.y
+    public final void c(com.vivo.push.a aVar) {
+        super.c(aVar);
+        aVar.a("content", this.a);
+        aVar.a("error_msg", this.b);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.vivo.push.b.u, com.vivo.push.y
+    public final void d(com.vivo.push.a aVar) {
         super.d(aVar);
-        this.a = aVar.a("OnVerifyCallBackCommand.EXTRA_SECURITY_CONTENT");
-        this.b = aVar.b("notify_id", -1L);
+        this.a = aVar.b("content");
+        this.b = aVar.b("error_msg");
+    }
+
+    @Override // com.vivo.push.b.u, com.vivo.push.y
+    public final String toString() {
+        return "OnSetTagsCommand";
     }
 }

@@ -1,15 +1,15 @@
 package com.baidu.tieba.k;
 /* loaded from: classes.dex */
 public interface i {
-    void GK(String str);
-
-    void GL(String str);
-
-    String GM(String str);
-
-    boolean GN(String str);
+    void GN(String str);
 
     void GO(String str);
+
+    String GP(String str);
+
+    boolean GQ(String str);
+
+    void GR(String str);
 
     void Z(boolean z, boolean z2);
 
@@ -19,21 +19,21 @@ public interface i {
 
     void a(b bVar);
 
+    void crD();
+
+    void crE();
+
+    void crF();
+
     void crG();
 
     void crH();
 
     void crI();
 
-    void crJ();
+    String crJ();
 
-    void crK();
-
-    void crL();
-
-    String crM();
-
-    String crN();
+    String crK();
 
     void e(long j, long j2, long j3);
 

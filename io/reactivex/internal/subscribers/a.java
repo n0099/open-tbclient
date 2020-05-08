@@ -21,18 +21,18 @@ public abstract class a<T, R> implements io.reactivex.internal.a.a<T>, d<R> {
             if (dVar instanceof d) {
                 this.qs = (d) dVar;
             }
-            if (dCM()) {
+            if (dCI()) {
                 this.actual.onSubscribe(this);
-                dCN();
+                dCJ();
             }
         }
     }
 
-    protected boolean dCM() {
+    protected boolean dCI() {
         return true;
     }
 
-    protected void dCN() {
+    protected void dCJ() {
     }
 
     @Override // org.a.c

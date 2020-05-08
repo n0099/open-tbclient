@@ -25,12 +25,12 @@ public class d {
         com.baidu.swan.pms.c.c.b bVar = new com.baidu.swan.pms.c.c.b();
         JSONObject optJSONObject = jSONObject.optJSONObject(Config.INPUT_DEF_PKG);
         if (optJSONObject != null) {
-            bVar.dbc = cj(optJSONObject.optJSONObject("main"));
-            bVar.dbf = H(optJSONObject.optJSONArray("sub"));
+            bVar.dbh = cj(optJSONObject.optJSONObject("main"));
+            bVar.dbk = H(optJSONObject.optJSONArray("sub"));
         }
-        bVar.dbg = ck(jSONObject.optJSONObject("framework"));
-        bVar.dbi = cl(jSONObject.optJSONObject(ETAG.KEY_EXTENSION));
-        bVar.dbh = cn(jSONObject.optJSONObject("app_info"));
+        bVar.dbl = ck(jSONObject.optJSONObject("framework"));
+        bVar.dbn = cl(jSONObject.optJSONObject(ETAG.KEY_EXTENSION));
+        bVar.dbm = cn(jSONObject.optJSONObject("app_info"));
         return bVar;
     }
 
@@ -41,7 +41,7 @@ public class d {
         com.baidu.swan.pms.c.c.d dVar = new com.baidu.swan.pms.c.c.d();
         JSONObject optJSONObject = jSONObject.optJSONObject(Config.INPUT_DEF_PKG);
         if (optJSONObject != null) {
-            dVar.dbf = H(optJSONObject.optJSONArray("sub"));
+            dVar.dbk = H(optJSONObject.optJSONArray("sub"));
             return dVar;
         }
         return dVar;
@@ -53,8 +53,8 @@ public class d {
         }
         com.baidu.swan.pms.c.c.e eVar = new com.baidu.swan.pms.c.c.e();
         eVar.maxAge = jSONObject.optLong("max_age");
-        eVar.dbg = ck(jSONObject.optJSONObject("framework"));
-        eVar.dbi = cl(jSONObject.optJSONObject(ETAG.KEY_EXTENSION));
+        eVar.dbl = ck(jSONObject.optJSONObject("framework"));
+        eVar.dbn = cl(jSONObject.optJSONObject(ETAG.KEY_EXTENSION));
         return eVar;
     }
 
@@ -68,16 +68,16 @@ public class d {
         if (optJSONArray != null && optJSONArray.length() > 0) {
             for (int i = 0; i < optJSONArray.length(); i++) {
                 JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-                a.C0394a c0394a = new a.C0394a();
-                c0394a.errorCode = optJSONObject.optInt(BaseJsonData.TAG_ERRNO);
-                c0394a.dai = optJSONObject.optString("bundle_id");
-                c0394a.category = optJSONObject.optInt("category");
-                c0394a.dbc = cj(optJSONObject.optJSONObject("main"));
-                c0394a.dbd = cn(optJSONObject.optJSONObject("app_info"));
-                arrayList.add(c0394a);
+                a.C0415a c0415a = new a.C0415a();
+                c0415a.errorCode = optJSONObject.optInt(BaseJsonData.TAG_ERRNO);
+                c0415a.dan = optJSONObject.optString("bundle_id");
+                c0415a.category = optJSONObject.optInt("category");
+                c0415a.dbh = cj(optJSONObject.optJSONObject("main"));
+                c0415a.dbi = cn(optJSONObject.optJSONObject("app_info"));
+                arrayList.add(c0415a);
             }
         }
-        aVar.dbb = arrayList;
+        aVar.dbg = arrayList;
         return aVar;
     }
 
@@ -86,7 +86,7 @@ public class d {
             return null;
         }
         com.baidu.swan.pms.c.c.c cVar = new com.baidu.swan.pms.c.c.c();
-        cVar.dbj = cm(jSONObject);
+        cVar.dbo = cm(jSONObject);
         return cVar;
     }
 
@@ -95,7 +95,7 @@ public class d {
             return null;
         }
         com.baidu.swan.pms.model.f fVar = (com.baidu.swan.pms.model.f) a(jSONObject, new com.baidu.swan.pms.model.f());
-        fVar.das = jSONObject.optInt("pkg_type");
+        fVar.daz = jSONObject.optInt("pkg_type");
         return fVar;
     }
 
@@ -106,7 +106,7 @@ public class d {
             for (int i = 0; i < length; i++) {
                 JSONObject optJSONObject = jSONArray.optJSONObject(i);
                 g gVar = (g) a(optJSONObject, new g());
-                gVar.das = optJSONObject.optInt("pkg_type");
+                gVar.daz = optJSONObject.optInt("pkg_type");
                 gVar.pkgName = optJSONObject.optString("sub_path");
                 gVar.independent = optJSONObject.optBoolean("independent");
                 arrayList.add(gVar);
@@ -145,7 +145,7 @@ public class d {
         if (jSONObject == null || t == null) {
             return null;
         }
-        t.dai = jSONObject.optString("bundle_id");
+        t.dan = jSONObject.optString("bundle_id");
         t.category = jSONObject.optInt("category");
         t.versionName = jSONObject.optString(SharedPrefConfig.VERSION_NAME);
         t.versionCode = jSONObject.optInt("version_code");

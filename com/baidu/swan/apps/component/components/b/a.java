@@ -16,8 +16,8 @@ public final class a extends com.baidu.swan.apps.component.a.c.a<TextView, c> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.component.b.a
     @NonNull
-    /* renamed from: by */
-    public TextView ba(@NonNull Context context) {
+    /* renamed from: bm */
+    public TextView aO(@NonNull Context context) {
         return new TextView(context);
     }
 

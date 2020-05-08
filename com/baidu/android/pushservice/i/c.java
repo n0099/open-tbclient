@@ -3,45 +3,90 @@ package com.baidu.android.pushservice.i;
 import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
+import android.util.Log;
+import com.baidu.android.pushservice.h.a.b;
 /* loaded from: classes8.dex */
 public class c {
-    private static Map<Long, d> a;
+    private static final Object a = new Object();
+    private long b = System.currentTimeMillis();
+    private a c;
+    private Context d;
+    private Intent e;
+    private String f;
+    private Intent g;
 
-    public static synchronized void a(long j) {
-        synchronized (c.class) {
-            if (a.containsKey(Long.valueOf(j))) {
-                a.remove(a.get(Long.valueOf(j)));
-            }
+    public c(Context context, Intent intent, String str) {
+        this.d = context;
+        this.e = intent;
+        this.f = str;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public long a() {
+        return this.b;
+    }
+
+    public void a(Intent intent) {
+        if (this.c != null) {
+            this.c.a(0, intent);
+        }
+        this.g = intent;
+        synchronized (a) {
+            a.notifyAll();
         }
     }
 
-    public static void a(Context context, Intent intent) {
-        if (intent.hasExtra("bd.cross.request.COMMAND_TYPE")) {
-            String stringExtra = intent.getStringExtra("bd.cross.request.COMMAND_TYPE");
-            if (TextUtils.isEmpty(stringExtra) || !stringExtra.equals("bd.cross.command.MESSAGE_ACK")) {
-                return;
-            }
-            long longExtra = intent.getLongExtra("bd.cross.request.ID", 0L);
-            if (longExtra == 0 || a == null || !a.containsKey(Long.valueOf(longExtra))) {
-                return;
-            }
-            a.get(Long.valueOf(longExtra)).a(intent);
-            a.remove(a.get(Long.valueOf(longExtra)));
+    public com.baidu.android.pushservice.message.g b() {
+        this.e.putExtra("bd.cross.request.ID", this.b);
+        this.e.putExtra("bd.cross.request.NEED_CALLBACK", true);
+        this.e.putExtra("bd.cross.request.SOURCE_PACKAGE", this.d.getPackageName());
+        this.e.putExtra("bd.cross.request.SENDING", true);
+        b.a(this);
+        try {
+            m.a(this.d, this.e, this.f);
+        } catch (Exception e) {
         }
+        com.baidu.android.pushservice.message.g gVar = new com.baidu.android.pushservice.message.g();
+        com.baidu.android.pushservice.g.d.a().a(new com.baidu.android.pushservice.g.c("timeOutRunnable-" + this.b, (short) 50) { // from class: com.baidu.android.pushservice.i.c.1
+            @Override // com.baidu.android.pushservice.g.c
+            public void a() {
+                try {
+                    Thread.sleep(1000L);
+                    synchronized (c.a) {
+                        c.a.notifyAll();
+                    }
+                } catch (InterruptedException e2) {
+                    new b.c(c.this.d).a(Log.getStackTraceString(e2)).a();
+                }
+            }
+        });
+        if (this.c == null) {
+            synchronized (a) {
+                try {
+                    a.wait();
+                } catch (Exception e2) {
+                    new b.c(this.d).a(Log.getStackTraceString(e2)).a();
+                }
+            }
+            c();
+            if (this.g != null) {
+                gVar.a(this.g.getIntExtra("bd.cross.request.RESULT_CODE", 10));
+                if (this.g.hasExtra("bd.cross.request.RESULT_DATA")) {
+                    String stringExtra = this.g.getStringExtra("bd.cross.request.RESULT_DATA");
+                    if (!TextUtils.isEmpty(stringExtra)) {
+                        gVar.a(stringExtra.getBytes());
+                    }
+                }
+            } else {
+                gVar.a(11);
+            }
+        }
+        return gVar;
     }
 
-    public static synchronized void a(d dVar) {
-        synchronized (c.class) {
-            if (a == null) {
-                a = Collections.synchronizedMap(new HashMap());
-            }
-            if (a.containsKey(Long.valueOf(dVar.a()))) {
-                a.remove(dVar).a();
-            }
-            a.put(Long.valueOf(dVar.a()), dVar);
-        }
+    synchronized void c() {
+        this.c = null;
+        this.d = null;
+        b.a(this.b);
     }
 }

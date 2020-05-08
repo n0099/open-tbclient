@@ -42,25 +42,29 @@ public class SapiJsCallBacks {
         WebviewPageFinishCallback A;
         RealNameStatusCallback B;
         LoginStatusChangeCallback C;
-        SapiWebView.OnSlidePageFinishCallback D;
-        AuthorizationListener E;
-        PageStateCallback F;
-        BuildCustomAlertDialog G;
-        AddressManageCallback H;
-        InvoiceBuildCallback I;
-        FingerprintCallback J;
-        Runnable L;
-        JsPromptResult M;
-        boolean O;
-        String P;
-        SocialResponse Q;
-        JoinLoginParams R;
-        String S;
-        DirectedLoginParams T;
-        boolean U;
-        BdOauthLoginParams V;
-        ShareV2LoginParams W;
+        GrantWebCallback D;
+        CurrentAccountBdussExpiredCallback E;
+        StopSlideWebviewCallback F;
+        GetCurrentPageNameCallback G;
+        SapiWebView.OnSlidePageFinishCallback H;
+        AuthorizationListener I;
+        PageStateCallback J;
+        BuildCustomAlertDialog K;
+        AddressManageCallback L;
+        InvoiceBuildCallback M;
+        FingerprintCallback N;
+        Runnable P;
+        JsPromptResult Q;
+        boolean S;
+        String T;
+        SocialResponse U;
+        JoinLoginParams V;
+        String W;
+        DirectedLoginParams X;
+        boolean Y;
+        BdOauthLoginParams Z;
         Handler a;
+        ShareV2LoginParams aa;
         SapiWebView.SmsHandler b;
         SapiWebView.WebViewTitleCallback c;
         SapiWebView.BioScanFaceCallback d;
@@ -86,8 +90,13 @@ public class SapiJsCallBacks {
         SapiWebView.LoadSlideWebViewCallback x;
         SpeechRecognitionCallback y;
         NormalizeGuestAccountCallback z;
-        String[] K = new String[2];
-        int N = 1;
+        String[] O = new String[2];
+        int R = 1;
+    }
+
+    /* loaded from: classes6.dex */
+    public interface CurrentAccountBdussExpiredCallback {
+        void onBdussExpired();
     }
 
     /* loaded from: classes6.dex */
@@ -108,6 +117,22 @@ public class SapiJsCallBacks {
         public String portrait;
 
         public abstract void setResult(int i);
+    }
+
+    /* loaded from: classes6.dex */
+    public interface GetCurrentPageNameCallback {
+        public static final String ADDRESS_EDIT_PAGE = "address_edit";
+        public static final String ADDRESS_LIST_PAGE = "address_list";
+
+        void getCurrentPageName(String str);
+    }
+
+    /* loaded from: classes6.dex */
+    public interface GrantWebCallback {
+        public static final int backWap = 0;
+        public static final int remainNa = 1;
+
+        void onGrant(int i);
     }
 
     /* loaded from: classes6.dex */
@@ -169,6 +194,11 @@ public class SapiJsCallBacks {
     public static abstract class SpeechRecognitionResult {
         public void setSpeechData(int i, String str) {
         }
+    }
+
+    /* loaded from: classes6.dex */
+    public interface StopSlideWebviewCallback {
+        void onStopSlide(boolean z);
     }
 
     /* loaded from: classes6.dex */

@@ -1,27 +1,26 @@
 package com.xiaomi.mipush.sdk;
 
 import android.content.Context;
-import android.content.pm.PackageInfo;
-import android.util.Log;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.Intent;
 /* loaded from: classes8.dex */
-public final class aa implements Runnable {
+final class aa implements Runnable {
     final /* synthetic */ Context a;
 
+    /* renamed from: a  reason: collision with other field name */
+    final /* synthetic */ Intent f37a;
+
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aa(Context context) {
+    public aa(Context context, Intent intent) {
         this.a = context;
+        this.f37a = intent;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         try {
-            PackageInfo packageInfo = this.a.getPackageManager().getPackageInfo(this.a.getPackageName(), 4612);
-            z.c(this.a);
-            z.d(this.a, packageInfo);
-            z.c(this.a, packageInfo);
-        } catch (Throwable th) {
-            Log.e("ManifestChecker", "", th);
+            this.a.startService(this.f37a);
+        } catch (Exception e) {
+            com.xiaomi.channel.commonutils.logger.b.m50a(e.getMessage());
         }
     }
 }

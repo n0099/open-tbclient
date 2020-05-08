@@ -6,49 +6,49 @@ import com.baidu.swan.games.view.d;
 /* loaded from: classes11.dex */
 public class c {
     public static boolean c(View view, com.baidu.swan.apps.model.a.a.a aVar) {
-        d aeO = f.aeK().aeO();
-        return aeO != null && aeO.a(view, aVar);
+        d aeN = f.aeJ().aeN();
+        return aeN != null && aeN.a(view, aVar);
     }
 
     public static boolean b(View view, com.baidu.swan.apps.model.a.a.a aVar) {
-        d aeO = f.aeK().aeO();
-        return aeO != null && aeO.b(view, aVar);
+        d aeN = f.aeJ().aeN();
+        return aeN != null && aeN.b(view, aVar);
     }
 
     public static boolean av(View view) {
-        d aeO = f.aeK().aeO();
-        return aeO != null && aeO.av(view);
+        d aeN = f.aeJ().aeN();
+        return aeN != null && aeN.av(view);
     }
 
     public static boolean az(View view) {
-        d aeO = f.aeK().aeO();
-        return aeO != null && aeO.ay(view);
+        d aeN = f.aeJ().aeN();
+        return aeN != null && aeN.ay(view);
     }
 
     public static boolean isLandScape() {
-        d aeO = f.aeK().aeO();
-        return aeO != null && aeO.isLandScape();
+        d aeN = f.aeJ().aeN();
+        return aeN != null && aeN.isLandScape();
     }
 
     public static int ayO() {
-        return ((Integer) f.aeK().aey().first).intValue();
+        return ((Integer) f.aeJ().aex().first).intValue();
     }
 
     public static int ayP() {
-        return ((Integer) f.aeK().aey().second).intValue();
+        return ((Integer) f.aeJ().aex().second).intValue();
     }
 
     public static void a(com.baidu.swan.games.view.a aVar) {
-        d aeO = f.aeK().aeO();
-        if (aeO != null) {
-            aeO.a(aVar);
+        d aeN = f.aeJ().aeN();
+        if (aeN != null) {
+            aeN.a(aVar);
         }
     }
 
     public static void b(com.baidu.swan.games.view.a aVar) {
-        d aeO = f.aeK().aeO();
-        if (aeO != null) {
-            aeO.b(aVar);
+        d aeN = f.aeJ().aeN();
+        if (aeN != null) {
+            aeN.b(aVar);
         }
     }
 }

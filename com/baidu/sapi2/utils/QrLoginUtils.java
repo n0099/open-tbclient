@@ -15,7 +15,7 @@ public class QrLoginUtils {
         if (SapiContext.getInstance().getCurrentAccount() == null) {
             return "-1";
         }
-        return String.format(SapiContext.getInstance(ServiceManager.getInstance().getIsAccountManager().getConfignation().context).getJoinQrLoginPrompt(), URLDecoder.decode(SapiUtils.urlParamsToMap(str).get("appName")));
+        return String.format(SapiContext.getInstance().getJoinQrLoginPrompt(), URLDecoder.decode(SapiUtils.urlParamsToMap(str).get("appName")));
     }
 
     public static boolean isJoinQrLoginSchema(String str) {

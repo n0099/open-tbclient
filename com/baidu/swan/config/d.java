@@ -7,8 +7,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class d {
-    public static void ari() {
-        if (!com.baidu.swan.config.core.c.arl()) {
+    public static void arh() {
+        if (!com.baidu.swan.config.core.c.ark()) {
             if (e.DEBUG) {
                 Log.i("SwanConfig", "getConfig: 命中MaxAge策略，不请求");
                 return;
@@ -37,7 +37,7 @@ public class d {
         try {
             for (ConfigNode configNode : configNodeArr) {
                 if (configNode != null && (a = com.baidu.swan.config.core.a.b.a(configNode)) != null) {
-                    jSONObject.put(configNode.getName(), a.aro());
+                    jSONObject.put(configNode.getName(), a.arn());
                 }
             }
             return jSONObject;

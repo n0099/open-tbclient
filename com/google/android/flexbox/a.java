@@ -18,7 +18,7 @@ interface a {
 
     int dj(View view);
 
-    boolean dvb();
+    boolean duY();
 
     int getAlignContent();
 

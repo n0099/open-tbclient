@@ -1,371 +1,46 @@
 package com.xiaomi.push;
 
-import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import android.text.TextUtils;
-import java.io.File;
-import java.lang.ref.WeakReference;
+import com.xiaomi.push.cb;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Random;
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
 /* loaded from: classes8.dex */
-public class bw {
-    private static volatile bw a;
+public class bw extends cb.b<Long> {
+    private long a;
 
     /* renamed from: a  reason: collision with other field name */
-    private Context f160a;
+    private String f143a;
 
-    /* renamed from: a  reason: collision with other field name */
-    private bv f161a;
-
-    /* renamed from: a  reason: collision with other field name */
-    private final HashMap<String, bu> f163a = new HashMap<>();
-
-    /* renamed from: a  reason: collision with other field name */
-    private ThreadPoolExecutor f164a = new ThreadPoolExecutor(1, 1, 15, TimeUnit.SECONDS, new LinkedBlockingQueue());
-
-    /* renamed from: a  reason: collision with other field name */
-    private final ArrayList<a> f162a = new ArrayList<>();
-
-    /* loaded from: classes8.dex */
-    public static abstract class a implements Runnable {
-
-        /* renamed from: a  reason: collision with other field name */
-        private a f166a;
-
-        /* renamed from: a  reason: collision with other field name */
-        private String f167a;
-
-        /* renamed from: a  reason: collision with other field name */
-        private WeakReference<Context> f168a;
-        protected String b;
-
-        /* renamed from: a  reason: collision with other field name */
-        protected bu f165a = null;
-
-        /* renamed from: a  reason: collision with other field name */
-        private Random f169a = new Random();
-        private int a = 0;
-
-        public a(String str) {
-            this.f167a = str;
-        }
-
-        public SQLiteDatabase a() {
-            return this.f165a.getWritableDatabase();
-        }
-
-        /* renamed from: a  reason: collision with other method in class */
-        public Object m171a() {
-            return null;
-        }
-
-        /* renamed from: a  reason: collision with other method in class */
-        public String m172a() {
-            return this.f167a;
-        }
-
-        /* JADX INFO: Access modifiers changed from: package-private */
-        public void a(Context context) {
-            if (this.f166a != null) {
-                this.f166a.a(context, m171a());
-            }
-            b(context);
-        }
-
-        public abstract void a(Context context, SQLiteDatabase sQLiteDatabase);
-
-        public void a(Context context, Object obj) {
-            bw.a(context).a(this);
-        }
-
-        void a(bu buVar, Context context) {
-            this.f165a = buVar;
-            this.b = this.f165a.a();
-            this.f168a = new WeakReference<>(context);
-        }
-
-        public void a(a aVar) {
-            this.f166a = aVar;
-        }
-
-        /* renamed from: a  reason: collision with other method in class */
-        public boolean m173a() {
-            return this.f165a == null || TextUtils.isEmpty(this.b) || this.f168a == null;
-        }
-
-        public void b(Context context) {
-        }
-
-        @Override // java.lang.Runnable
-        public final void run() {
-            Context context;
-            if (this.f168a == null || (context = this.f168a.get()) == null || context.getFilesDir() == null || this.f165a == null || TextUtils.isEmpty(this.f167a)) {
-                return;
-            }
-            File file = new File(this.f167a);
-            v.a(context, new File(file.getParentFile(), ax.b(file.getAbsolutePath())), new by(this, context));
-        }
+    public bw(String str, List<String> list, String str2, String[] strArr, String str3, String str4, String str5, int i, String str6) {
+        super(str, list, str2, strArr, str3, str4, str5, i);
+        this.a = 0L;
+        this.f143a = str6;
     }
 
-    /* loaded from: classes8.dex */
-    public static abstract class b<T> extends a {
-        private int a;
-
-        /* renamed from: a  reason: collision with other field name */
-        private String f170a;
-
-        /* renamed from: a  reason: collision with other field name */
-        private List<String> f171a;
-
-        /* renamed from: a  reason: collision with other field name */
-        private String[] f172a;
-        private List<T> b;
-        private String c;
-        private String d;
-        private String e;
-
-        public b(String str, List<String> list, String str2, String[] strArr, String str3, String str4, String str5, int i) {
-            super(str);
-            this.b = new ArrayList();
-            this.f171a = list;
-            this.f170a = str2;
-            this.f172a = strArr;
-            this.c = str3;
-            this.d = str4;
-            this.e = str5;
-            this.a = i;
-        }
-
-        @Override // com.xiaomi.push.bw.a
-        public SQLiteDatabase a() {
-            return this.f165a.getReadableDatabase();
-        }
-
-        public abstract T a(Context context, Cursor cursor);
-
-        @Override // com.xiaomi.push.bw.a
-        public void a(Context context, SQLiteDatabase sQLiteDatabase) {
-            String[] strArr;
-            this.b.clear();
-            if (this.f171a == null || this.f171a.size() <= 0) {
-                strArr = null;
-            } else {
-                strArr = new String[this.f171a.size()];
-                this.f171a.toArray(strArr);
-            }
-            Cursor query = sQLiteDatabase.query(this.b, strArr, this.f170a, this.f172a, this.c, this.d, this.e, this.a <= 0 ? null : String.valueOf(this.a));
-            if (query != null && query.moveToFirst()) {
-                do {
-                    T a = a(context, query);
-                    if (a != null) {
-                        this.b.add(a);
-                    }
-                } while (query.moveToNext());
-                query.close();
-            }
-            a(context, (List) this.b);
-        }
-
-        public abstract void a(Context context, List<T> list);
+    public static bw a(String str) {
+        ArrayList arrayList = new ArrayList();
+        arrayList.add("count(*)");
+        return new bw(str, arrayList, null, null, null, null, null, 0, "job to get count of all message");
     }
 
-    /* loaded from: classes8.dex */
-    public static class c extends a {
-        private ArrayList<a> a;
-
-        public c(String str, ArrayList<a> arrayList) {
-            super(str);
-            this.a = new ArrayList<>();
-            this.a.addAll(arrayList);
-        }
-
-        @Override // com.xiaomi.push.bw.a
-        public final void a(Context context) {
-            super.a(context);
-            Iterator<a> it = this.a.iterator();
-            while (it.hasNext()) {
-                a next = it.next();
-                if (next != null) {
-                    next.a(context);
-                }
-            }
-        }
-
-        @Override // com.xiaomi.push.bw.a
-        public void a(Context context, SQLiteDatabase sQLiteDatabase) {
-            Iterator<a> it = this.a.iterator();
-            while (it.hasNext()) {
-                a next = it.next();
-                if (next != null) {
-                    next.a(context, sQLiteDatabase);
-                }
-            }
-        }
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Can't rename method to resolve collision */
+    @Override // com.xiaomi.push.cb.b
+    public Long a(Context context, Cursor cursor) {
+        return Long.valueOf(cursor.getLong(0));
     }
 
-    /* loaded from: classes8.dex */
-    public static class d extends a {
-        private String a;
-
-        /* renamed from: a  reason: collision with other field name */
-        protected String[] f173a;
-
-        public d(String str, String str2, String[] strArr) {
-            super(str);
-            this.a = str2;
-            this.f173a = strArr;
-        }
-
-        @Override // com.xiaomi.push.bw.a
-        public void a(Context context, SQLiteDatabase sQLiteDatabase) {
-            sQLiteDatabase.delete(this.b, this.a, this.f173a);
-        }
+    @Override // com.xiaomi.push.cb.b, com.xiaomi.push.cb.a
+    public Object a() {
+        return Long.valueOf(this.a);
     }
 
-    /* loaded from: classes8.dex */
-    public static class e extends a {
-        private ContentValues a;
-
-        public e(String str, ContentValues contentValues) {
-            super(str);
-            this.a = contentValues;
-        }
-
-        @Override // com.xiaomi.push.bw.a
-        public void a(Context context, SQLiteDatabase sQLiteDatabase) {
-            sQLiteDatabase.insert(this.b, null, this.a);
-        }
-    }
-
-    private bw(Context context) {
-        this.f160a = context;
-    }
-
-    private bu a(String str) {
-        bu buVar = this.f163a.get(str);
-        if (buVar == null) {
-            synchronized (this.f163a) {
-                if (buVar == null) {
-                    buVar = this.f161a.a(this.f160a, str);
-                    this.f163a.put(str, buVar);
-                }
-            }
-        }
-        return buVar;
-    }
-
-    public static bw a(Context context) {
-        if (a == null) {
-            synchronized (bw.class) {
-                if (a == null) {
-                    a = new bw(context);
-                }
-            }
-        }
-        return a;
-    }
-
-    private void a() {
-        ai.a(this.f160a).b(new bx(this), com.xiaomi.push.service.ag.a(this.f160a).a(hl.StatDataProcessFrequency.a(), 5));
-    }
-
-    /* renamed from: a  reason: collision with other method in class */
-    public String m170a(String str) {
-        return a(str).a();
-    }
-
-    public void a(a aVar) {
-        bu buVar;
-        if (aVar == null) {
+    @Override // com.xiaomi.push.cb.b
+    public void a(Context context, List<Long> list) {
+        if (context == null || list == null || list.size() <= 0) {
             return;
         }
-        if (this.f161a == null) {
-            throw new IllegalStateException("should exec init method first!");
-        }
-        String m172a = aVar.m172a();
-        synchronized (this.f163a) {
-            buVar = this.f163a.get(m172a);
-            if (buVar == null) {
-                buVar = this.f161a.a(this.f160a, m172a);
-                this.f163a.put(m172a, buVar);
-            }
-        }
-        if (this.f164a.isShutdown()) {
-            return;
-        }
-        aVar.a(buVar, this.f160a);
-        synchronized (this.f162a) {
-            this.f162a.add(aVar);
-            a();
-        }
-    }
-
-    public void a(Runnable runnable) {
-        if (this.f164a.isShutdown()) {
-            return;
-        }
-        this.f164a.execute(runnable);
-    }
-
-    public void a(ArrayList<a> arrayList) {
-        if (this.f161a == null) {
-            throw new IllegalStateException("should exec setDbHelperFactory method first!");
-        }
-        HashMap hashMap = new HashMap();
-        if (this.f164a.isShutdown()) {
-            return;
-        }
-        Iterator<a> it = arrayList.iterator();
-        while (it.hasNext()) {
-            a next = it.next();
-            if (next.m173a()) {
-                next.a(a(next.m172a()), this.f160a);
-            }
-            ArrayList arrayList2 = (ArrayList) hashMap.get(next.m172a());
-            if (arrayList2 == null) {
-                arrayList2 = new ArrayList();
-                hashMap.put(next.m172a(), arrayList2);
-            }
-            arrayList2.add(next);
-        }
-        for (String str : hashMap.keySet()) {
-            ArrayList arrayList3 = (ArrayList) hashMap.get(str);
-            if (arrayList3 != null && arrayList3.size() > 0) {
-                c cVar = new c(str, arrayList3);
-                cVar.a(((a) arrayList3.get(0)).f165a, this.f160a);
-                this.f164a.execute(cVar);
-            }
-        }
-    }
-
-    public void b(a aVar) {
-        bu buVar;
-        if (aVar == null) {
-            return;
-        }
-        if (this.f161a == null) {
-            throw new IllegalStateException("should exec init method first!");
-        }
-        String m172a = aVar.m172a();
-        synchronized (this.f163a) {
-            buVar = this.f163a.get(m172a);
-            if (buVar == null) {
-                buVar = this.f161a.a(this.f160a, m172a);
-                this.f163a.put(m172a, buVar);
-            }
-        }
-        if (this.f164a.isShutdown()) {
-            return;
-        }
-        aVar.a(buVar, this.f160a);
-        a((Runnable) aVar);
+        this.a = list.get(0).longValue();
     }
 }

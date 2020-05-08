@@ -24,7 +24,7 @@ public final class SapiSafeFacade {
     }
 
     public String getCurrentZid(Context context) {
-        SapiAccount currentAccount = SapiContext.getInstance(context).getCurrentAccount();
+        SapiAccount currentAccount = SapiContext.getInstance().getCurrentAccount();
         String zidAndCheckSafe = getZidAndCheckSafe(context, currentAccount != null ? currentAccount.uid : null, 1);
         return TextUtils.isEmpty(zidAndCheckSafe) ? "NoZidYet" : zidAndCheckSafe;
     }

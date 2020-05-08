@@ -16,16 +16,16 @@ import tbclient.App;
 import tbclient.GoodsInfo;
 /* loaded from: classes8.dex */
 public class h {
-    private LinkedList<f> iDs;
-    private String iDu;
-    private String iDv;
+    private String iDA;
+    private String iDB;
+    private LinkedList<f> iDy;
     private String fid = null;
-    private int iDr = 0;
-    private AdvertAppInfo iDt = null;
+    private int iDx = 0;
+    private AdvertAppInfo iDz = null;
 
     public h() {
-        this.iDs = null;
-        this.iDs = new LinkedList<>();
+        this.iDy = null;
+        this.iDy = new LinkedList<>();
     }
 
     public void av(String str, boolean z) {
@@ -36,20 +36,20 @@ public class h {
         }
     }
 
-    public LinkedList<f> clq() {
-        return this.iDs;
+    public LinkedList<f> clo() {
+        return this.iDy;
     }
 
     public int getImageNum() {
-        return this.iDr;
+        return this.iDx;
     }
 
-    public String aMk() {
-        return this.iDu;
+    public String aMi() {
+        return this.iDA;
     }
 
-    public String aMl() {
-        return this.iDv;
+    public String aMj() {
+        return this.iDB;
     }
 
     public void a(JSONObject jSONObject, Boolean bool) {
@@ -58,10 +58,10 @@ public class h {
                 JSONObject optJSONObject = jSONObject.optJSONObject("forum");
                 if (optJSONObject != null) {
                     this.fid = optJSONObject.optString("id");
-                    this.iDu = optJSONObject.optString("frist_class");
-                    this.iDv = optJSONObject.optString("second_class");
+                    this.iDA = optJSONObject.optString("frist_class");
+                    this.iDB = optJSONObject.optString("second_class");
                 }
-                this.iDr = jSONObject.optInt("pic_amount", 0);
+                this.iDx = jSONObject.optInt("pic_amount", 0);
                 JSONArray optJSONArray = jSONObject.optJSONArray("pic_list");
                 if (optJSONArray != null) {
                     if (bool.booleanValue()) {
@@ -69,8 +69,8 @@ public class h {
                             f fVar = new f();
                             fVar.paserJson(optJSONArray.optJSONObject(i));
                             int index = fVar.getIndex();
-                            if (index >= 1 && index <= this.iDr) {
-                                this.iDs.addLast(fVar);
+                            if (index >= 1 && index <= this.iDx) {
+                                this.iDy.addLast(fVar);
                             }
                         }
                     } else {
@@ -78,8 +78,8 @@ public class h {
                             f fVar2 = new f();
                             fVar2.paserJson(optJSONArray.getJSONObject(length));
                             int index2 = fVar2.getIndex();
-                            if (index2 >= 1 && index2 <= this.iDr) {
-                                this.iDs.addFirst(fVar2);
+                            if (index2 >= 1 && index2 <= this.iDx) {
+                                this.iDy.addFirst(fVar2);
                             }
                         }
                     }
@@ -134,10 +134,10 @@ public class h {
             }
             builder.loc_code = optJSONObject.optString("loc_code");
             App build = builder.build(true);
-            this.iDt = new AdvertAppInfo();
-            this.iDt.a(build);
-            this.iDt.adPosition = "c0111";
-            this.iDt.dmC = this.fid;
+            this.iDz = new AdvertAppInfo();
+            this.iDz.a(build);
+            this.iDz.adPosition = "c0111";
+            this.iDz.dmG = this.fid;
         }
     }
 
@@ -170,7 +170,7 @@ public class h {
         return builder.build(true);
     }
 
-    public AdvertAppInfo clr() {
-        return this.iDt;
+    public AdvertAppInfo clp() {
+        return this.iDz;
     }
 }

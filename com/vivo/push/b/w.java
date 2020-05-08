@@ -1,27 +1,43 @@
 package com.vivo.push.b;
-
-import com.baidu.android.imsdk.IMConstants;
 /* loaded from: classes8.dex */
-public final class w extends com.vivo.push.y {
+public final class w extends x {
+    private long a;
+    private int b;
+
     public w() {
-        super(IMConstants.IM_MSG_TYPE_UNSUBSCRIBE_ME_SEND_FAIL);
+        super(20);
+        this.a = -1L;
     }
 
-    @Override // com.vivo.push.y
-    protected final void c(com.vivo.push.a aVar) {
+    public final long d() {
+        return this.a;
     }
 
-    @Override // com.vivo.push.y
-    protected final void d(com.vivo.push.a aVar) {
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.vivo.push.b.x, com.vivo.push.b.u, com.vivo.push.y
+    public final void c(com.vivo.push.a aVar) {
+        super.c(aVar);
+        aVar.a("undo_msg_v1", this.a);
+        aVar.a("undo_msg_type_v1", this.b);
     }
 
-    @Override // com.vivo.push.y
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.vivo.push.b.x, com.vivo.push.b.u, com.vivo.push.y
+    public final void d(com.vivo.push.a aVar) {
+        super.d(aVar);
+        this.a = aVar.b("undo_msg_v1", this.a);
+        this.b = aVar.b("undo_msg_type_v1", 0);
+    }
+
+    public final String e() {
+        if (this.a != -1) {
+            return String.valueOf(this.a);
+        }
+        return null;
+    }
+
+    @Override // com.vivo.push.b.u, com.vivo.push.y
     public final String toString() {
-        return "PushDebugCommand";
-    }
-
-    @Override // com.vivo.push.y
-    public final boolean c() {
-        return true;
+        return "OnUndoMsgCommand";
     }
 }
