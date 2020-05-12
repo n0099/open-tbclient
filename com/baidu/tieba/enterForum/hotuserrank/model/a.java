@@ -76,7 +76,7 @@ public class a {
         this.afD = bdUniqueId;
         this.dho.setTag(this.afD);
         MessageManager.getInstance().registerListener(this.dho);
-        bFC();
+        bFD();
         bqo();
         this.gDJ = new c();
     }
@@ -103,7 +103,7 @@ public class a {
         return this.gDJ;
     }
 
-    public int bIQ() {
+    public int bIR() {
         return this.mPageNum;
     }
 
@@ -111,7 +111,7 @@ public class a {
         return this.gDJ.hasMore;
     }
 
-    private void bFC() {
+    private void bFD() {
         b bVar = new b(309652);
         bVar.setResponsedClass(HotUserRankSocketResMsg.class);
         bVar.setNeedAck(true);

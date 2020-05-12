@@ -41,7 +41,7 @@ public class d {
         if (this.rootView != null) {
             this.jpY = (PbLandscapeListView) this.rootView.findViewById(R.id.more_god_reply_list);
             this.contentView = this.rootView.findViewById(R.id.more_god_reply_list_content);
-            bST();
+            bSU();
             this.jqa = this.rootView.findViewById(R.id.more_god_reply_back_curtain);
             this.jpX = (NoNetworkView) this.rootView.findViewById(R.id.more_god_reply_view_no_network);
             this.jpZ = new b(this.jpW.getPageContext());
@@ -49,7 +49,7 @@ public class d {
         }
     }
 
-    private void bST() {
+    private void bSU() {
         this.eCn = (NavigationBar) this.rootView.findViewById(R.id.more_god_reply_nav_bar);
         this.iux = this.eCn.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         ImageView backImageView = this.eCn.getBackImageView();
@@ -73,11 +73,11 @@ public class d {
     }
 
     public boolean isVisible() {
-        return cwF() && this.rootView.getVisibility() == 0;
+        return cwG() && this.rootView.getVisibility() == 0;
     }
 
-    private void cwE() {
-        if (!cwF()) {
+    private void cwF() {
+        if (!cwG()) {
             this.rootView = this.jmG.inflate();
             init();
             if (this.jpU != this.jpV) {
@@ -86,12 +86,12 @@ public class d {
         }
     }
 
-    public boolean cwF() {
+    public boolean cwG() {
         return this.rootView != null;
     }
 
     public void show() {
-        cwE();
+        cwF();
         if (!isVisible() && this.rootView != null) {
             this.rootView.setVisibility(0);
         }
@@ -100,14 +100,14 @@ public class d {
     /* JADX INFO: Access modifiers changed from: package-private */
     public void qK(boolean z) {
         if (z) {
-            this.jpZ.bLH();
+            this.jpZ.bLI();
         } else {
             this.jpZ.endLoadData();
         }
     }
 
     public void hide() {
-        if (cwF()) {
+        if (cwG()) {
             this.rootView.setVisibility(8);
             this.eCn.setStatusBarVisibility(8);
         }
@@ -115,7 +115,7 @@ public class d {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void w(final Runnable runnable) {
-        if (cwF()) {
+        if (cwG()) {
             this.eCn.setStatusBarVisibility(0);
             this.contentView.animate().translationY(0.0f).setDuration(300L).setListener(new AnimatorListenerAdapter() { // from class: com.baidu.tieba.pb.pb.godreply.d.1
                 @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
@@ -137,14 +137,14 @@ public class d {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void x(Runnable runnable) {
-        if (cwF()) {
+        if (cwG()) {
             a(this.contentView.getHeight(), 0.0f, runnable);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void y(Runnable runnable) {
-        if (cwF()) {
+        if (cwG()) {
             this.contentView.setTranslationY(l.getScreenDimensions(this.jpW.getContext())[1]);
             this.jqa.setAlpha(0.0f);
             a(jpT, 1.0f, runnable);
@@ -152,7 +152,7 @@ public class d {
     }
 
     private void a(float f, float f2, final Runnable runnable) {
-        if (cwF()) {
+        if (cwG()) {
             this.contentView.animate().translationY(f).setDuration(300L).setListener(new AnimatorListenerAdapter() { // from class: com.baidu.tieba.pb.pb.godreply.d.2
                 @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                 public void onAnimationEnd(Animator animator) {
@@ -174,7 +174,7 @@ public class d {
 
     public void onChangeSkinType(int i) {
         this.jpV = i;
-        if (cwF()) {
+        if (cwG()) {
             zo(i);
         }
     }
@@ -195,15 +195,15 @@ public class d {
         return this.eCn;
     }
 
-    public View cwG() {
+    public View cwH() {
         return this.iux;
     }
 
-    public View cwH() {
+    public View cwI() {
         return this.jqa;
     }
 
-    public boolean cwI() {
+    public boolean cwJ() {
         if (this.jpY == null || this.jpY.getChildCount() <= 0) {
             return true;
         }
@@ -214,7 +214,7 @@ public class d {
         return false;
     }
 
-    public b cwJ() {
+    public b cwK() {
         return this.jpZ;
     }
 }

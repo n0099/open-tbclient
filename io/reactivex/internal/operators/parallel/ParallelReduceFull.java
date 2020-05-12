@@ -16,7 +16,7 @@ public final class ParallelReduceFull<T> extends g<T> {
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        ParallelReduceFullMainSubscriber parallelReduceFullMainSubscriber = new ParallelReduceFullMainSubscriber(cVar, this.mTX.dCN(), this.reducer);
+        ParallelReduceFullMainSubscriber parallelReduceFullMainSubscriber = new ParallelReduceFullMainSubscriber(cVar, this.mTX.dCO(), this.reducer);
         cVar.onSubscribe(parallelReduceFullMainSubscriber);
         this.mTX.a(parallelReduceFullMainSubscriber.subscribers);
     }

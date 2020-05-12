@@ -19,11 +19,11 @@ class e {
         this.bhi = new MediaMuxer(str, 0);
     }
 
-    public void dbk() {
+    public void dbl() {
         this.ljg = true;
     }
 
-    public void dbl() {
+    public void dbm() {
         this.ljh = true;
     }
 

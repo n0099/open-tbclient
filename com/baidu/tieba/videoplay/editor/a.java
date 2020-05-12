@@ -66,14 +66,14 @@ public class a extends d {
                     if (a.this.lth != null) {
                         a.this.lth.uH(false);
                     }
-                    WriteData cSK = writeData == null ? a.this.dYy.cSK() : writeData;
+                    WriteData cSL = writeData == null ? a.this.dYy.cSL() : writeData;
                     if (z) {
                         a.this.hSs.Ms(null);
                         a.this.hSs.aW(null);
                         a.this.hSs.uN(false);
-                        a.this.deo();
+                        a.this.dep();
                         a.this.resetData();
-                        if (cSK != null) {
+                        if (cSL != null) {
                             String string = a.this.aRP().getResources().getString(R.string.replay_success);
                             if (postWriteCallBackData != null) {
                                 str = postWriteCallBackData.getPreMsg();
@@ -82,26 +82,26 @@ public class a extends d {
                             } else {
                                 str = null;
                             }
-                            if (cSK.getType() != 7) {
+                            if (cSL.getType() != 7) {
                                 com.baidu.tieba.tbadkCore.writeModel.c.g(a.this.aRP().getPageActivity(), string, str, str2);
                             }
                         }
-                    } else if (cSK != null && aaVar != null && !TextUtils.isEmpty(aaVar.aSe())) {
-                        cSK.setVcodeMD5(aaVar.getVcode_md5());
-                        cSK.setVcodeUrl(aaVar.getVcode_pic_url());
-                        cSK.setVcodeExtra(aaVar.aSf());
+                    } else if (cSL != null && aaVar != null && !TextUtils.isEmpty(aaVar.aSe())) {
+                        cSL.setVcodeMD5(aaVar.getVcode_md5());
+                        cSL.setVcodeUrl(aaVar.getVcode_pic_url());
+                        cSL.setVcodeExtra(aaVar.aSf());
                         if (com.baidu.tbadk.s.a.xr(aaVar.aSe())) {
-                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NewVcodeActivityConfig(a.this.duK.getPageActivity(), RequestResponseCode.REQUEST_VCODE, cSK, false, aaVar.aSe())));
+                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NewVcodeActivityConfig(a.this.duK.getPageActivity(), RequestResponseCode.REQUEST_VCODE, cSL, false, aaVar.aSe())));
                         } else {
-                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VcodeActivityConfig(a.this.duK.getPageActivity(), cSK, RequestResponseCode.REQUEST_VCODE)));
+                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VcodeActivityConfig(a.this.duK.getPageActivity(), cSL, RequestResponseCode.REQUEST_VCODE)));
                         }
                     } else if (postWriteCallBackData != null && postWriteCallBackData.getErrorCode() == 227001) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AccountAccessActivityConfig(a.this.duK.getPageActivity(), RequestResponseCode.REQUEST_VCODE, cSK, postWriteCallBackData.getAccessState())));
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AccountAccessActivityConfig(a.this.duK.getPageActivity(), RequestResponseCode.REQUEST_VCODE, cSL, postWriteCallBackData.getAccessState())));
                     } else if (postWriteCallBackData != null && postWriteCallBackData.getErrorCode() == 220015) {
                         a.this.Mp(postWriteCallBackData.getErrorString());
                         a.this.hSs.aW(postWriteCallBackData.getSensitiveWords());
                         a.this.hSs.Ms(postWriteCallBackData.getErrorString());
-                        if (!v.isEmpty(a.this.hSs.deP())) {
+                        if (!v.isEmpty(a.this.hSs.deQ())) {
                             a.this.nZ(true);
                         }
                     } else if (postWriteCallBackData != null && (postWriteCallBackData.getErrorCode() == 230277 || postWriteCallBackData.getErrorCode() == 230278 || postWriteCallBackData.getErrorCode() == 340016 || postWriteCallBackData.getErrorCode() == 1990032 || AntiHelper.Dp(postWriteCallBackData.getErrorCode()))) {
@@ -124,7 +124,7 @@ public class a extends d {
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
                 if (a.this.hSs != null) {
-                    if (!a.this.hSs.deS()) {
+                    if (!a.this.hSs.deT()) {
                         a.this.nZ(false);
                     }
                     a.this.hSs.uO(false);
@@ -188,7 +188,7 @@ public class a extends d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void deo() {
+    public void dep() {
         if (aWN() != null) {
             aWN().b(new com.baidu.tbadk.editortools.a(9, -1, true));
             aWN().b(new com.baidu.tbadk.editortools.a(4, -1, ""));
@@ -229,17 +229,17 @@ public class a extends d {
             writeData.setBaijiahaoData(this.lsn.baijiahaoData);
         }
         this.dYy.d(writeData);
-        this.dYy.cXy();
+        this.dYy.cXz();
     }
 
     public void onActivityResult(int i, int i2, Intent intent) {
         switch (i) {
             case RequestResponseCode.REQUEST_VCODE /* 12006 */:
                 if (i2 == 0) {
-                    this.dYM.callback(false, (intent == null || !(intent.getSerializableExtra("post_write_callback_data") instanceof PostWriteCallBackData)) ? null : (PostWriteCallBackData) intent.getSerializableExtra("post_write_callback_data"), null, this.dYy.cSK(), null);
+                    this.dYM.callback(false, (intent == null || !(intent.getSerializableExtra("post_write_callback_data") instanceof PostWriteCallBackData)) ? null : (PostWriteCallBackData) intent.getSerializableExtra("post_write_callback_data"), null, this.dYy.cSL(), null);
                     return;
                 } else if (i2 == -1) {
-                    deo();
+                    dep();
                     return;
                 } else {
                     return;
@@ -249,7 +249,7 @@ public class a extends d {
         }
     }
 
-    public void dep() {
+    public void deq() {
         if (aWN() != null && (aWN().mD(28) instanceof c) && ((c) aWN().mD(28)).getInputView() != null && ((c) aWN().mD(28)).getInputView().getText() != null) {
             ((c) aWN().mD(28)).getInputView().setText("");
         }
@@ -264,13 +264,13 @@ public class a extends d {
             if (a != null) {
                 this.hSs.uO(true);
                 inputView.setText(a);
-                if (z && this.hSs.deQ() >= 0) {
+                if (z && this.hSs.deR() >= 0) {
                     inputView.requestFocus();
-                    inputView.setSelection(this.hSs.deQ());
+                    inputView.setSelection(this.hSs.deR());
                 } else {
                     inputView.setSelection(selectionEnd);
                 }
-                this.hSs.uN(this.hSs.deQ() >= 0);
+                this.hSs.uN(this.hSs.deR() >= 0);
             }
         }
     }
@@ -286,7 +286,7 @@ public class a extends d {
         this.lth = interfaceC0691a;
     }
 
-    public void deq() {
+    public void der() {
         an anVar = new an("c13026");
         anVar.cI("tid", this.mThreadId);
         anVar.t("uid", TbadkCoreApplication.getCurrentAccountId());

@@ -24,7 +24,7 @@ public class a {
         if (bdUniqueId != null && eVar != null) {
             an anVar = new an("common_exp");
             a(anVar, eVar, postData, i, i2, false, str);
-            c.cVo().a(bdUniqueId, str2, anVar);
+            c.cVp().a(bdUniqueId, str2, anVar);
         }
     }
 
@@ -72,9 +72,9 @@ public class a {
         if (postData != null) {
             anVar.cI("pid", postData.getId() + "");
         }
-        if (eVar.cvr() != null) {
-            anVar.af("thread_type", eVar.cvr().threadType);
-            BaijiahaoData baijiahaoData = eVar.cvr().getBaijiahaoData();
+        if (eVar.cvs() != null) {
+            anVar.af("thread_type", eVar.cvs().threadType);
+            BaijiahaoData baijiahaoData = eVar.cvs().getBaijiahaoData();
             if (baijiahaoData != null) {
                 anVar.cI("ugc_nid", baijiahaoData.oriUgcNid);
                 anVar.cI("ugc_vid", baijiahaoData.oriUgcVid);

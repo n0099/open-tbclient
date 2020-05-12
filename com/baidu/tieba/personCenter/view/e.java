@@ -34,8 +34,8 @@ public class e extends com.baidu.tieba.card.a<m> {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.core.flow.a.d
             public void a(int i, com.baidu.tieba.personCenter.c.a aVar) {
-                if (e.this.jUF != null && aVar != null && aVar.cGi() != null && e.this.jUF.checkIndex(i)) {
-                    TiebaStatic.log(new an("c13246").cI("uid", TbadkCoreApplication.getCurrentAccount()).af("obj_locate", i).cI("obj_param1", aVar.cGi()));
+                if (e.this.jUF != null && aVar != null && aVar.cGj() != null && e.this.jUF.checkIndex(i)) {
+                    TiebaStatic.log(new an("c13246").cI("uid", TbadkCoreApplication.getCurrentAccount()).af("obj_locate", i).cI("obj_param1", aVar.cGj()));
                 }
             }
         };

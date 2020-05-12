@@ -59,7 +59,7 @@ public class VideoPbFragmentAdapter extends FragmentPagerAdapter {
         return this.jKZ.get(i);
     }
 
-    public ArrayList<BaseFragment> cEc() {
+    public ArrayList<BaseFragment> cEd() {
         return this.mFragments;
     }
 

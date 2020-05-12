@@ -171,7 +171,7 @@ public class FlexboxLayout extends ViewGroup implements a {
             }
         }
         this.miy.aj(i, i2, getPaddingTop() + getPaddingBottom());
-        this.miy.dvg();
+        this.miy.dvh();
         H(this.mij, i, i2, this.miz.mii);
     }
 
@@ -182,7 +182,7 @@ public class FlexboxLayout extends ViewGroup implements a {
         this.mih = this.miz.mih;
         this.miy.m39do(i, i2);
         this.miy.aj(i, i2, getPaddingLeft() + getPaddingRight());
-        this.miy.dvg();
+        this.miy.dvh();
         H(this.mij, i, i2, this.miz.mii);
     }
 
@@ -283,14 +283,14 @@ public class FlexboxLayout extends ViewGroup implements a {
         for (int i2 = 0; i2 < size; i2++) {
             b bVar = this.mih.get(i2);
             if (HN(i2)) {
-                if (duY()) {
+                if (duZ()) {
                     i += this.miu;
                 } else {
                     i += this.miv;
                 }
             }
             if (HP(i2)) {
-                if (duY()) {
+                if (duZ()) {
                     i += this.miu;
                 } else {
                     i += this.miv;
@@ -302,7 +302,7 @@ public class FlexboxLayout extends ViewGroup implements a {
     }
 
     @Override // com.google.android.flexbox.a
-    public boolean duY() {
+    public boolean duZ() {
         return this.mij == 0 || this.mij == 1;
     }
 
@@ -342,10 +342,10 @@ public class FlexboxLayout extends ViewGroup implements a {
     }
 
     private void a(boolean z, int i, int i2, int i3, int i4) {
-        int dvf;
+        int dvg;
         float f;
         float f2;
-        int dvf2;
+        int dvg2;
         float f3;
         float f4;
         int paddingLeft = getPaddingLeft();
@@ -379,20 +379,20 @@ public class FlexboxLayout extends ViewGroup implements a {
                         break;
                     case 3:
                         f = paddingLeft;
-                        f5 = (i5 - bVar.mhQ) / (bVar.dvf() != 1 ? dvf2 - 1 : 1.0f);
+                        f5 = (i5 - bVar.mhQ) / (bVar.dvg() != 1 ? dvg2 - 1 : 1.0f);
                         f2 = i5 - paddingRight;
                         break;
                     case 4:
-                        int dvf3 = bVar.dvf();
-                        if (dvf3 != 0) {
-                            f5 = (i5 - bVar.mhQ) / dvf3;
+                        int dvg3 = bVar.dvg();
+                        if (dvg3 != 0) {
+                            f5 = (i5 - bVar.mhQ) / dvg3;
                         }
                         f = (f5 / 2.0f) + paddingLeft;
                         f2 = (i5 - paddingRight) - (f5 / 2.0f);
                         break;
                     case 5:
-                        if (bVar.dvf() != 0) {
-                            f5 = (i5 - bVar.mhQ) / (dvf + 1);
+                        if (bVar.dvg() != 0) {
+                            f5 = (i5 - bVar.mhQ) / (dvg + 1);
                         }
                         f = paddingLeft + f5;
                         f2 = (i5 - paddingRight) - f5;
@@ -460,10 +460,10 @@ public class FlexboxLayout extends ViewGroup implements a {
     }
 
     private void a(boolean z, boolean z2, int i, int i2, int i3, int i4) {
-        int dvf;
+        int dvg;
         float f;
         float f2;
-        int dvf2;
+        int dvg2;
         float f3;
         float f4;
         int paddingTop = getPaddingTop();
@@ -498,20 +498,20 @@ public class FlexboxLayout extends ViewGroup implements a {
                         break;
                     case 3:
                         f = paddingTop;
-                        f5 = (i5 - bVar.mhQ) / (bVar.dvf() != 1 ? dvf2 - 1 : 1.0f);
+                        f5 = (i5 - bVar.mhQ) / (bVar.dvg() != 1 ? dvg2 - 1 : 1.0f);
                         f2 = i5 - paddingBottom;
                         break;
                     case 4:
-                        int dvf3 = bVar.dvf();
-                        if (dvf3 != 0) {
-                            f5 = (i5 - bVar.mhQ) / dvf3;
+                        int dvg3 = bVar.dvg();
+                        if (dvg3 != 0) {
+                            f5 = (i5 - bVar.mhQ) / dvg3;
                         }
                         f = (f5 / 2.0f) + paddingTop;
                         f2 = (i5 - paddingBottom) - (f5 / 2.0f);
                         break;
                     case 5:
-                        if (bVar.dvf() != 0) {
-                            f5 = (i5 - bVar.mhQ) / (dvf + 1);
+                        if (bVar.dvg() != 0) {
+                            f5 = (i5 - bVar.mhQ) / (dvg + 1);
                         }
                         f = paddingTop + f5;
                         f2 = (i5 - paddingBottom) - f5;
@@ -831,7 +831,7 @@ public class FlexboxLayout extends ViewGroup implements a {
     public List<b> getFlexLines() {
         ArrayList arrayList = new ArrayList(this.mih.size());
         for (b bVar : this.mih) {
-            if (bVar.dvf() != 0) {
+            if (bVar.dvg() != 0) {
                 arrayList.add(bVar);
             }
         }
@@ -841,7 +841,7 @@ public class FlexboxLayout extends ViewGroup implements a {
     @Override // com.google.android.flexbox.a
     public int h(View view, int i, int i2) {
         int i3;
-        if (duY()) {
+        if (duZ()) {
             i3 = dq(i, i2) ? 0 + this.miv : 0;
             if ((this.mit & 4) > 0) {
                 return i3 + this.miv;
@@ -862,7 +862,7 @@ public class FlexboxLayout extends ViewGroup implements a {
 
     @Override // com.google.android.flexbox.a
     public void a(b bVar) {
-        if (duY()) {
+        if (duZ()) {
             if ((this.mit & 4) > 0) {
                 bVar.mhQ += this.miv;
                 bVar.mhR += this.miv;
@@ -886,7 +886,7 @@ public class FlexboxLayout extends ViewGroup implements a {
     @Override // com.google.android.flexbox.a
     public void a(View view, int i, int i2, b bVar) {
         if (dq(i, i2)) {
-            if (duY()) {
+            if (duZ()) {
                 bVar.mhQ += this.miv;
                 bVar.mhR += this.miv;
                 return;
@@ -933,7 +933,7 @@ public class FlexboxLayout extends ViewGroup implements a {
             } else {
                 this.miu = 0;
             }
-            dvh();
+            dvi();
             requestLayout();
         }
     }
@@ -946,7 +946,7 @@ public class FlexboxLayout extends ViewGroup implements a {
             } else {
                 this.miv = 0;
             }
-            dvh();
+            dvi();
             requestLayout();
         }
     }
@@ -978,7 +978,7 @@ public class FlexboxLayout extends ViewGroup implements a {
         }
     }
 
-    private void dvh() {
+    private void dvi() {
         if (this.miq == null && this.mir == null) {
             setWillNotDraw(true);
         } else {
@@ -987,7 +987,7 @@ public class FlexboxLayout extends ViewGroup implements a {
     }
 
     private boolean dq(int i, int i2) {
-        return dr(i, i2) ? duY() ? (this.mit & 1) != 0 : (this.mis & 1) != 0 : duY() ? (this.mit & 2) != 0 : (this.mis & 2) != 0;
+        return dr(i, i2) ? duZ() ? (this.mit & 1) != 0 : (this.mis & 1) != 0 : duZ() ? (this.mit & 2) != 0 : (this.mis & 2) != 0;
     }
 
     private boolean dr(int i, int i2) {
@@ -1004,12 +1004,12 @@ public class FlexboxLayout extends ViewGroup implements a {
         if (i < 0 || i >= this.mih.size()) {
             return false;
         }
-        return HO(i) ? duY() ? (this.mis & 1) != 0 : (this.mit & 1) != 0 : duY() ? (this.mis & 2) != 0 : (this.mit & 2) != 0;
+        return HO(i) ? duZ() ? (this.mis & 1) != 0 : (this.mit & 1) != 0 : duZ() ? (this.mis & 2) != 0 : (this.mit & 2) != 0;
     }
 
     private boolean HO(int i) {
         for (int i2 = 0; i2 < i; i2++) {
-            if (this.mih.get(i2).dvf() > 0) {
+            if (this.mih.get(i2).dvg() > 0) {
                 return false;
             }
         }
@@ -1024,11 +1024,11 @@ public class FlexboxLayout extends ViewGroup implements a {
         while (true) {
             int i3 = i2;
             if (i3 < this.mih.size()) {
-                if (this.mih.get(i3).dvf() > 0) {
+                if (this.mih.get(i3).dvg() > 0) {
                     return false;
                 }
                 i2 = i3 + 1;
-            } else if (duY()) {
+            } else if (duZ()) {
                 return (this.mis & 4) != 0;
             } else {
                 return (this.mit & 4) != 0;
@@ -1171,7 +1171,7 @@ public class FlexboxLayout extends ViewGroup implements a {
         }
 
         @Override // com.google.android.flexbox.FlexItem
-        public int duZ() {
+        public int dva() {
             return this.mAlignSelf;
         }
 
@@ -1200,12 +1200,12 @@ public class FlexboxLayout extends ViewGroup implements a {
         }
 
         @Override // com.google.android.flexbox.FlexItem
-        public boolean dva() {
+        public boolean dvb() {
             return this.mWrapBefore;
         }
 
         @Override // com.google.android.flexbox.FlexItem
-        public float dvb() {
+        public float dvc() {
             return this.mFlexBasisPercent;
         }
 
@@ -1215,7 +1215,7 @@ public class FlexboxLayout extends ViewGroup implements a {
         }
 
         @Override // com.google.android.flexbox.FlexItem
-        public int dvc() {
+        public int dvd() {
             return this.topMargin;
         }
 
@@ -1225,7 +1225,7 @@ public class FlexboxLayout extends ViewGroup implements a {
         }
 
         @Override // com.google.android.flexbox.FlexItem
-        public int dvd() {
+        public int dve() {
             return this.bottomMargin;
         }
 

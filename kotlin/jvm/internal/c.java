@@ -18,7 +18,7 @@ final class c extends kotlin.collections.n {
     }
 
     @Override // kotlin.collections.n
-    public char dDy() {
+    public char dDz() {
         try {
             char[] cArr = this.mXI;
             int i = this.index;

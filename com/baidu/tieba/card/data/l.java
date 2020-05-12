@@ -91,7 +91,7 @@ public class l extends c implements com.baidu.tbadk.core.util.f.a {
             } else if (this.dqE.aJp()) {
                 anVar.af("obj_type", 2);
             }
-            anVar.af("obj_param1", bFk() ? 2 : 1);
+            anVar.af("obj_param1", bFl() ? 2 : 1);
             if (this.dqE.aKC() != null) {
                 anVar.cI("obj_id", this.dqE.aKC().getUserId());
             }
@@ -99,11 +99,11 @@ public class l extends c implements com.baidu.tbadk.core.util.f.a {
         return anVar;
     }
 
-    public an bFq() {
+    public an bFr() {
         an al = al(gsY, true);
         if (al != null && aIu() != null) {
             bj aIu = aIu();
-            al.af("obj_name", aIu.aMc() != null && (aIu.aMc().cWq() != null || aIu.aMc().bcn() != null) ? 1 : 0);
+            al.af("obj_name", aIu.aMc() != null && (aIu.aMc().cWr() != null || aIu.aMc().bcn() != null) ? 1 : 0);
             if (aIu.aKC() != null) {
                 al.af(TiebaInitialize.Params.AB_TYPE, aIu.aKC().hadConcerned() ? 1 : 0);
             }
@@ -138,7 +138,7 @@ public class l extends c implements com.baidu.tbadk.core.util.f.a {
         return b(bjVar, -1);
     }
 
-    public an bFx() {
+    public an bFy() {
         an al = al(gtb, true);
         if (al != null && aIu() != null) {
             bj aIu = aIu();
@@ -151,7 +151,7 @@ public class l extends c implements com.baidu.tbadk.core.util.f.a {
         return al;
     }
 
-    public an bFs() {
+    public an bFt() {
         an al = al(gsB, true);
         if (al != null && aIu() != null) {
             bj aIu = aIu();

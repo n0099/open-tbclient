@@ -33,11 +33,11 @@ public class b {
         }
     }
 
-    public boolean cvn() {
+    public boolean cvo() {
         return this.jnq == 3;
     }
 
-    public boolean cvo() {
+    public boolean cvp() {
         return this.jnq == 1;
     }
 }

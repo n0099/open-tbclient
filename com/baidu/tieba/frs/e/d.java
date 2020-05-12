@@ -13,7 +13,7 @@ public class d {
     private LruCache<String, String> hvq = new LruCache<>(10);
     private l<String> hvr = com.baidu.tbadk.core.c.a.aMR().ug("tb.recently_vistited_forum_animation");
 
-    public static d bUE() {
+    public static d bUF() {
         if (hvs == null) {
             synchronized (d.class) {
                 if (hvs == null) {

@@ -60,7 +60,7 @@ public class AdCardVideoView extends AdCardBaseView implements j {
                     public void onClick(View view) {
                         if (AdCardVideoView.this.krG != null) {
                             AdCardVideoView.this.krG.jump2DownloadDetailPage();
-                            AdCardVideoView.this.cND();
+                            AdCardVideoView.this.cNE();
                         }
                     }
                 });

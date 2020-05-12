@@ -48,47 +48,47 @@ public class y extends com.baidu.adp.base.c {
         return this.mView;
     }
 
-    public TextView czD() {
+    public TextView czE() {
         return this.jxF;
     }
 
-    public TextView czE() {
+    public TextView czF() {
         return this.jxN;
     }
 
-    public TextView czF() {
+    public TextView czG() {
         return this.cXN;
     }
 
-    public TextView czG() {
+    public TextView czH() {
         return this.jxO;
     }
 
-    public TextView czH() {
+    public TextView czI() {
         return this.jxJ;
     }
 
-    public TextView czI() {
+    public TextView czJ() {
         return this.jxH;
     }
 
-    public TextView czJ() {
+    public TextView czK() {
         return this.jxM;
     }
 
-    public TextView czK() {
+    public TextView czL() {
         return this.jxG;
     }
 
-    public TextView czL() {
+    public TextView czM() {
         return this.jxI;
     }
 
-    public TextView czM() {
+    public TextView czN() {
         return this.jxK;
     }
 
-    public TextView czN() {
+    public TextView czO() {
         return this.jxL;
     }
 
@@ -199,7 +199,7 @@ public class y extends com.baidu.adp.base.c {
         this.cXN.setOnClickListener(this.mClickListener);
     }
 
-    public void czO() {
+    public void czP() {
         com.baidu.tbadk.core.util.am.setBackgroundColor(this.jxE, R.color.cp_bg_line_k);
         com.baidu.tbadk.core.util.am.setBackgroundResource(this.jxP, R.drawable.bg_pb_more_dialog);
         com.baidu.tbadk.core.util.am.setBackgroundResource(this.cXN, R.color.cp_bg_line_k);

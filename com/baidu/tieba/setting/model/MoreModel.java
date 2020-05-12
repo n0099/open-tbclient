@@ -31,7 +31,7 @@ public class MoreModel extends BdBaseModel {
         this.kCs = z;
     }
 
-    public boolean cPX() {
+    public boolean cPY() {
         return this.kCs;
     }
 
@@ -45,7 +45,7 @@ public class MoreModel extends BdBaseModel {
         return false;
     }
 
-    public PersonChangeData cPY() {
+    public PersonChangeData cPZ() {
         return this.jZW;
     }
 }

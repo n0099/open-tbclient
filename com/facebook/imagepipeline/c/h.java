@@ -92,7 +92,7 @@ public class h<K, V> implements com.facebook.common.memory.b, p<K, V> {
         com.facebook.common.references.a<V> aVar3;
         com.facebook.common.internal.g.checkNotNull(k);
         com.facebook.common.internal.g.checkNotNull(aVar);
-        dqn();
+        dqo();
         synchronized (this) {
             remove = this.maD.remove(k);
             b<K, V> remove2 = this.maE.remove(k);
@@ -112,15 +112,15 @@ public class h<K, V> implements com.facebook.common.memory.b, p<K, V> {
         }
         com.facebook.common.references.a.c((com.facebook.common.references.a<?>) aVar2);
         d(remove);
-        dqo();
+        dqp();
         return aVar3;
     }
 
     private synchronized boolean bd(V v) {
         boolean z;
         int ba = this.maz.ba(v);
-        if (ba <= this.maI.maY && dqp() <= this.maI.maV - 1) {
-            z = dqq() <= this.maI.maU - ba;
+        if (ba <= this.maI.maY && dqq() <= this.maI.maV - 1) {
+            z = dqr() <= this.maI.maU - ba;
         }
         return z;
     }
@@ -141,8 +141,8 @@ public class h<K, V> implements com.facebook.common.memory.b, p<K, V> {
             }
         }
         d(remove);
-        dqn();
         dqo();
+        dqp();
         return aVar;
     }
 
@@ -171,8 +171,8 @@ public class h<K, V> implements com.facebook.common.memory.b, p<K, V> {
             bVar = null;
         }
         e(bVar);
-        dqn();
         dqo();
+        dqp();
     }
 
     private synchronized boolean c(b<K, V> bVar) {
@@ -225,26 +225,26 @@ public class h<K, V> implements com.facebook.common.memory.b, p<K, V> {
         ArrayList<b<K, V>> di;
         double b2 = this.maG.b(memoryTrimType);
         synchronized (this) {
-            di = di(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, Math.max(0, ((int) ((1.0d - b2) * this.maE.getSizeInBytes())) - dqq()));
+            di = di(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, Math.max(0, ((int) ((1.0d - b2) * this.maE.getSizeInBytes())) - dqr()));
             bb(di);
         }
         aZ(di);
         ba(di);
-        dqn();
         dqo();
+        dqp();
     }
 
-    private synchronized void dqn() {
+    private synchronized void dqo() {
         if (this.maJ + maC <= SystemClock.uptimeMillis()) {
             this.maJ = SystemClock.uptimeMillis();
             this.maI = this.maH.get();
         }
     }
 
-    private void dqo() {
+    private void dqp() {
         ArrayList<b<K, V>> di;
         synchronized (this) {
-            di = di(Math.min(this.maI.maX, this.maI.maV - dqp()), Math.min(this.maI.maW, this.maI.maU - dqq()));
+            di = di(Math.min(this.maI.maX, this.maI.maV - dqq()), Math.min(this.maI.maW, this.maI.maU - dqr()));
             bb(di);
         }
         aZ(di);
@@ -264,9 +264,9 @@ public class h<K, V> implements com.facebook.common.memory.b, p<K, V> {
                 if (this.maD.getCount() <= max && this.maD.getSizeInBytes() <= max2) {
                     break;
                 }
-                K dqm = this.maD.dqm();
-                this.maD.remove(dqm);
-                arrayList.add(this.maE.remove(dqm));
+                K dqn = this.maD.dqn();
+                this.maD.remove(dqn);
+                arrayList.add(this.maE.remove(dqn));
             }
         }
         return arrayList;
@@ -337,11 +337,11 @@ public class h<K, V> implements com.facebook.common.memory.b, p<K, V> {
         return (bVar.maP && bVar.maO == 0) ? bVar.maN : null;
     }
 
-    public synchronized int dqp() {
+    public synchronized int dqq() {
         return this.maE.getCount() - this.maD.getCount();
     }
 
-    public synchronized int dqq() {
+    public synchronized int dqr() {
         return this.maE.getSizeInBytes() - this.maD.getSizeInBytes();
     }
 }

@@ -56,7 +56,7 @@ public class a extends RecyclerView.Adapter<b> {
             am.setBackgroundColor(bVar.itemView, R.color.cp_bg_line_c);
             am.setViewTextColor(bVar.kLv, (int) R.color.cp_cont_j);
         }
-        if ("推荐".equals(cUB())) {
+        if ("推荐".equals(cUC())) {
             an anVar = new an("c13641");
             anVar.t("uid", TbadkApplication.getCurrentAccountId());
             anVar.af("obj_locate", 3);
@@ -99,7 +99,7 @@ public class a extends RecyclerView.Adapter<b> {
         notifyDataSetChanged();
     }
 
-    public String cUB() {
+    public String cUC() {
         return CS(this.kLs);
     }
 

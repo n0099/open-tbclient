@@ -35,11 +35,11 @@ public class TurbonetConfig {
 
     public void z(int i, long j) {
         if (i == 3 || i == 2) {
-            if (djB() == null) {
+            if (djC() == null) {
                 throw new IllegalArgumentException("Storage path must be set");
             }
             this.lLD = true;
-        } else if (djB() != null) {
+        } else if (djC() != null) {
             throw new IllegalArgumentException("Storage path must not be set");
         }
         d(SchemeCollecter.CLASSIFY_BASE, "http_cache_enabled", Boolean.valueOf(i == 0 || i == 2 ? false : true));
@@ -80,17 +80,17 @@ public class TurbonetConfig {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public JSONObject djA() {
+    public JSONObject djB() {
         return this.lLB;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public String djB() {
+    public String djC() {
         return this.lLC;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean djC() {
+    public boolean djD() {
         return this.lLD;
     }
 

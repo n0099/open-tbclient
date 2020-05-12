@@ -33,10 +33,6 @@ public class o {
         Bx();
     }
 
-    public void release() {
-        xi();
-    }
-
     private void Bw() {
         Log.i("i", "@@@ localText imsdmctrl reg");
         CustomMessageTask customMessageTask = new CustomMessageTask(2913100, new CustomMessageTask.CustomRunnable<ImSendMsgData>() { // from class: com.baidu.live.im.o.1

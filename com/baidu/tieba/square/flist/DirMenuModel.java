@@ -73,7 +73,7 @@ public class DirMenuModel extends BdBaseModel<ForumListActivity> {
         public void onProgressUpdate(Integer... numArr) {
             super.onProgressUpdate((Object[]) numArr);
             if (this.kLR != null) {
-                DirMenuModel.this.kLM.a(true, this.kLR.getErrorCode(), this.kLR.cUY(), this.kLR.getErrorMsg(), DirMenuModel.this.kLQ);
+                DirMenuModel.this.kLM.a(true, this.kLR.getErrorCode(), this.kLR.cUZ(), this.kLR.getErrorMsg(), DirMenuModel.this.kLQ);
             }
         }
 
@@ -126,8 +126,8 @@ public class DirMenuModel extends BdBaseModel<ForumListActivity> {
         public void onPostExecute(com.baidu.tieba.square.square.d dVar) {
             if (!DirMenuModel.this.isOk) {
                 DirMenuModel.this.kLM.a(false, -1, null, dVar.getErrorMsg(), DirMenuModel.this.kLQ);
-            } else if (dVar.cUY() != null) {
-                DirMenuModel.this.kLM.a(true, dVar.getErrorCode(), dVar.cUY(), dVar.getErrorMsg(), DirMenuModel.this.kLQ);
+            } else if (dVar.cUZ() != null) {
+                DirMenuModel.this.kLM.a(true, dVar.getErrorCode(), dVar.cUZ(), dVar.getErrorMsg(), DirMenuModel.this.kLQ);
             }
         }
 

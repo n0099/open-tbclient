@@ -80,7 +80,7 @@ public class MultiImageTextTopView extends RelativeLayout {
                                 if (Fo != null) {
                                     TiebaStatic.eventStat(MultiImageTextTopView.this.mContext, "message_open_detail", "click", 1, "task_type", Fo.ijp, "task_id", Fo.taskId, "loc", "0");
                                     if ((aVar.userType == 1 || aVar.userType == 3) && !"0".equals(Fo.taskId)) {
-                                        com.baidu.tieba.im.b.a.ciW().Fi(Fo.taskId);
+                                        com.baidu.tieba.im.b.a.ciX().Fi(Fo.taskId);
                                     }
                                 }
                                 an anVar = new an("official_message_open_detail");

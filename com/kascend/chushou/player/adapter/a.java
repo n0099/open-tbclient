@@ -119,10 +119,10 @@ public class a extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            com.kascend.chushou.player.b dwS;
+            com.kascend.chushou.player.b dwT;
             JSONObject jSONObject = null;
             if (this.mpq != null && this.mpq.mItem != null) {
-                String str = (!(a.this.b instanceof VideoPlayer) || (dwS = ((VideoPlayer) a.this.b).dwS()) == null) ? null : dwS.h;
+                String str = (!(a.this.b instanceof VideoPlayer) || (dwT = ((VideoPlayer) a.this.b).dwT()) == null) ? null : dwT.h;
                 if (!h.isEmpty(str)) {
                     try {
                         jSONObject = new JSONObject(str);
@@ -179,7 +179,7 @@ public class a extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             } else {
                 cVar.a(" : ", new ForegroundColorSpan(a.this.b.getResources().getColor(a.c.kas_red_n)));
             }
-            this.mpm.setMovementMethod(tv.chushou.zues.widget.a.b.dKr());
+            this.mpm.setMovementMethod(tv.chushou.zues.widget.a.b.dKs());
             cVar.setSpan(new tv.chushou.zues.widget.a.a(a.this.moY), 0, cVar.length() + (-1) > 0 ? cVar.length() - 1 : 0, 17);
             this.mpm.setTag(a.f.tag_position, chatInfo);
             cVar.a(new b.c() { // from class: com.kascend.chushou.player.adapter.a.b.1
@@ -202,7 +202,7 @@ public class a extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             this.mpn.setOnClickListener(a.this.mpb);
             this.mpn.setTag(a.f.tag_position, Integer.valueOf(chatInfo.mGift.id));
             if (chatInfo.mCoolMessage != null && !h.isEmpty(chatInfo.mCoolMessage.mBgImage)) {
-                com.kascend.chushou.toolkit.b.a.dyB().a(chatInfo.mCoolMessage.mBgImage, this.a, a.e.bg_bubble_default);
+                com.kascend.chushou.toolkit.b.a.dyC().a(chatInfo.mCoolMessage.mBgImage, this.a, a.e.bg_bubble_default);
                 return;
             }
             this.a.setBackgroundResource(0);
@@ -517,7 +517,7 @@ public class a extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                                         } else {
                                             arrayList2 = chatInfo.mCoolNickname.mFontColors;
                                         }
-                                        cVar2.a(chatInfo.mCoolNickname.mNickName + " : ", new c.a().aY(arrayList2).Gy(chatInfo.mCoolNickname.mNickName.length()).dpz());
+                                        cVar2.a(chatInfo.mCoolNickname.mNickName + " : ", new c.a().aY(arrayList2).Gy(chatInfo.mCoolNickname.mNickName.length()).dpA());
                                     } else if (!tv.chushou.zues.toolkit.richtext.b.a(this.b, cVar2, chatInfo.mNicknameRichText, 18, ContextCompat.getColor(this.b, a.c.banrrage_chat_name_color), c0739a.mpl, " : ", this.mpd, this.mpg)) {
                                         if (this.mpg != null) {
                                             String str4 = this.mpg.get(tv.chushou.zues.utils.a.JM(this.b.getResources().getColor(a.c.banrrage_chat_name_color)));
@@ -549,7 +549,7 @@ public class a extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                                         } else {
                                             arrayList = chatInfo.mCoolContent.mFontColors;
                                         }
-                                        cVar2.a(OM, new c.a().aY(arrayList).Gy(chatInfo.mCoolContent.mContent.length()).dpz());
+                                        cVar2.a(OM, new c.a().aY(arrayList).Gy(chatInfo.mCoolContent.mContent.length()).dpA());
                                         i3 = length2;
                                     } else {
                                         if (!tv.chushou.zues.toolkit.richtext.b.a(this.b, cVar2, chatInfo.mContentRichText, 18, ContextCompat.getColor(this.b, a.c.banrrage_chat_text_color), c0739a.mpl, null, this.mpd, this.mpg)) {
@@ -581,9 +581,9 @@ public class a extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                                 cVar2.setSpan(new tv.chushou.zues.widget.a.a(this.moY), i3, cVar2.length() + (-1) > 0 ? cVar2.length() - 1 : 0, 18);
                                 c0739a.mpl.setDraweeSpanStringBuilder(cVar2);
                                 c0739a.mpl.setTag(a.f.tag_position, chatInfo);
-                                c0739a.mpl.setMovementMethod(tv.chushou.zues.widget.a.b.dKr());
+                                c0739a.mpl.setMovementMethod(tv.chushou.zues.widget.a.b.dKs());
                                 if (chatInfo.mCoolMessage != null) {
-                                    com.kascend.chushou.toolkit.b.a.dyB().a(chatInfo.mCoolMessage.mBgImage, c0739a.mpl, a.e.bg_bubble_default);
+                                    com.kascend.chushou.toolkit.b.a.dyC().a(chatInfo.mCoolMessage.mBgImage, c0739a.mpl, a.e.bg_bubble_default);
                                     return;
                                 }
                                 c0739a.mpl.setBackgroundResource(0);
@@ -634,9 +634,9 @@ public class a extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                                         cVar3.setSpan(new tv.chushou.zues.widget.a.a(this.mpa), 0, cVar3.length() + (-1) > 0 ? cVar3.length() - 1 : 0, 18);
                                         c0739a.mpl.setDraweeSpanStringBuilder(cVar3);
                                         c0739a.mpl.setTag(a.f.tag_position, chatInfo2);
-                                        c0739a.mpl.setMovementMethod(tv.chushou.zues.widget.a.b.dKr());
+                                        c0739a.mpl.setMovementMethod(tv.chushou.zues.widget.a.b.dKs());
                                         if (chatInfo2.mCoolMessage != null) {
-                                            com.kascend.chushou.toolkit.b.a.dyB().a(chatInfo2.mCoolMessage.mBgImage, c0739a.mpl, a.e.bg_bubble_default);
+                                            com.kascend.chushou.toolkit.b.a.dyC().a(chatInfo2.mCoolMessage.mBgImage, c0739a.mpl, a.e.bg_bubble_default);
                                             return;
                                         }
                                         c0739a.mpl.setBackgroundResource(0);
@@ -732,10 +732,10 @@ public class a extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                                 cVar4.setSpan(new tv.chushou.zues.widget.a.a(this.moY), i2, cVar4.length() + (-1) > 0 ? cVar4.length() - 1 : 0, 17);
                                 c0739a.mpl.setDraweeSpanStringBuilder(cVar4);
                                 c0739a.mpl.setTag(a.f.tag_position, chatInfo3);
-                                c0739a.mpl.setMovementMethod(tv.chushou.zues.widget.a.b.dKr());
+                                c0739a.mpl.setMovementMethod(tv.chushou.zues.widget.a.b.dKs());
                                 c0739a.mpl.setFocusable(false);
                                 if (chatInfo3.mCoolMessage != null) {
-                                    com.kascend.chushou.toolkit.b.a.dyB().a(chatInfo3.mCoolMessage.mBgImage, c0739a.mpl, a.e.bg_bubble_default);
+                                    com.kascend.chushou.toolkit.b.a.dyC().a(chatInfo3.mCoolMessage.mBgImage, c0739a.mpl, a.e.bg_bubble_default);
                                     return;
                                 }
                                 c0739a.mpl.setBackgroundResource(0);
@@ -758,7 +758,7 @@ public class a extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                     tv.chushou.zues.widget.a.c cVar5 = new tv.chushou.zues.widget.a.c();
                     cVar5.a((CharSequence) tv.chushou.widget.a.c.getString(a.i.baidu_live_agreement), new ForegroundColorSpan(Color.parseColor("#ff5959")), new tv.chushou.zues.widget.a.a(this.mpc), new UnderlineSpan());
                     c0739a2.mpl.setDraweeSpanStringBuilder(cVar5);
-                    c0739a2.mpl.setMovementMethod(tv.chushou.zues.widget.a.b.dKr());
+                    c0739a2.mpl.setMovementMethod(tv.chushou.zues.widget.a.b.dKs());
                     return;
                 default:
                     return;
@@ -770,13 +770,13 @@ public class a extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public void a(SimpleDraweeSpanTextView simpleDraweeSpanTextView, Drawable.Callback callback, tv.chushou.zues.widget.a.c cVar, String str, int i, int i2, int i3) {
         if (!h.isEmpty(str)) {
             if (e.a(str)) {
-                cVar.a("", new b.a().a(callback).wj(true).IE(i2).IF(i3).OQ(str).ID(i).g(simpleDraweeSpanTextView).dzb());
+                cVar.a("", new b.a().a(callback).wj(true).IE(i2).IF(i3).OQ(str).ID(i).g(simpleDraweeSpanTextView).dzc());
                 cVar.append(" ");
                 return;
             }
             int length = cVar.length();
-            com.facebook.drawee.view.b a = com.facebook.drawee.view.b.a(new com.facebook.drawee.generic.b(this.b.getResources()).Gv(i).dpn(), this.b);
-            a.setController(com.facebook.drawee.a.a.c.dnM().Og(str).doD());
+            com.facebook.drawee.view.b a = com.facebook.drawee.view.b.a(new com.facebook.drawee.generic.b(this.b.getResources()).Gv(i).dpo(), this.b);
+            a.setController(com.facebook.drawee.a.a.c.dnN().Og(str).doE());
             cVar.append("1");
             cVar.a(a, length, length, i2, i3, true, 2);
             cVar.append(" ");
@@ -788,7 +788,7 @@ public class a extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         if (!h.isEmpty(listItem.mUrl) && this.mpf != null && !h.isEmpty(this.mpf.mRoomID)) {
             HashMap hashMap = new HashMap(1);
             hashMap.put("roomId", this.mpf.mRoomID);
-            Http http = (Http) tv.chushou.basis.d.b.dJr().S(Http.class);
+            Http http = (Http) tv.chushou.basis.d.b.dJs().S(Http.class);
             if (http != null) {
                 listItem.mUrl = http.packParams(listItem.mUrl, hashMap);
             }

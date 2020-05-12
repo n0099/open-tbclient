@@ -68,29 +68,29 @@ public class o extends com.baidu.tieba.frs.h<bi, com.baidu.card.af<bj>> implemen
                     if (view.getId() == R.id.thread_card_root && bjVar.aJp()) {
                         o.this.ar(bjVar);
                     } else if (view.getId() == R.id.user_name || view.getId() == R.id.user_avatar) {
-                        com.baidu.tieba.frs.d.c.bUs().a(com.baidu.tieba.frs.d.d.hgM, bjVar, 2);
+                        com.baidu.tieba.frs.d.c.bUt().a(com.baidu.tieba.frs.d.d.hgM, bjVar, 2);
                     } else if (view.getId() == R.id.card_divider_tv) {
                         com.baidu.tieba.frs.f.h.a(com.baidu.tieba.frs.d.d.hgM, bjVar.aIv());
                     } else if (view instanceof TbImageView) {
                         if (o.this.fsf.afJ instanceof Boolean) {
                             if (((Boolean) o.this.fsf.afJ).booleanValue()) {
-                                com.baidu.tieba.frs.d.c.bUs().a(com.baidu.tieba.frs.d.d.hgM, bjVar, 1);
+                                com.baidu.tieba.frs.d.c.bUt().a(com.baidu.tieba.frs.d.d.hgM, bjVar, 1);
                             } else {
-                                com.baidu.tieba.frs.d.c.bUs().a(com.baidu.tieba.frs.d.d.hgM, bjVar, 3);
+                                com.baidu.tieba.frs.d.c.bUt().a(com.baidu.tieba.frs.d.d.hgM, bjVar, 3);
                             }
                         }
                     } else if (view.getId() == R.id.card_home_page_normal_thread_user_icon) {
                         TiebaStatic.log(new an(CommonStatisticKey.USER_ICON_VISIT).af("obj_type", 3));
                     } else if (view.getId() == R.id.thread_card_voice) {
-                        com.baidu.tieba.frs.d.c.bUs().a(com.baidu.tieba.frs.d.d.hgM, bjVar, 5);
+                        com.baidu.tieba.frs.d.c.bUt().a(com.baidu.tieba.frs.d.d.hgM, bjVar, 5);
                     } else if (view instanceof ThreadGodReplyLayout) {
                         int i = 6;
-                        if (bjVar.aMc() != null && bjVar.aMc().cWq() != null && bjVar.aMc().cWq().bcf() != null && bjVar.aMc().cWq().bcf().size() > 0) {
+                        if (bjVar.aMc() != null && bjVar.aMc().cWr() != null && bjVar.aMc().cWr().bcf() != null && bjVar.aMc().cWr().bcf().size() > 0) {
                             i = bjVar.aMc().kTa ? 9 : 8;
                         }
-                        com.baidu.tieba.frs.d.c.bUs().a(com.baidu.tieba.frs.d.d.hgM, bjVar, i);
+                        com.baidu.tieba.frs.d.c.bUt().a(com.baidu.tieba.frs.d.d.hgM, bjVar, i);
                     } else {
-                        com.baidu.tieba.frs.d.c.bUs().a(com.baidu.tieba.frs.d.d.hgM, bjVar, 1);
+                        com.baidu.tieba.frs.d.c.bUt().a(com.baidu.tieba.frs.d.d.hgM, bjVar, 1);
                     }
                 }
             }
@@ -117,15 +117,15 @@ public class o extends com.baidu.tieba.frs.h<bi, com.baidu.card.af<bj>> implemen
             @Override // com.baidu.adp.widget.ListView.v
             public void a(View view, com.baidu.adp.widget.ListView.m mVar, BdUniqueId bdUniqueId, ViewGroup viewGroup2, int i, long j) {
                 if ((mVar instanceof bi) && (view.getTag() instanceof com.baidu.card.af)) {
-                    if (com.baidu.tieba.frs.a.bNB().bNC() && !kVar.rt()) {
+                    if (com.baidu.tieba.frs.a.bNC().bND() && !kVar.rt()) {
                         bj bjVar = ((bi) mVar).dqE;
                         if (bjVar != null) {
                             if (!bjVar.aMl()) {
-                                if (com.baidu.tieba.frs.a.bNB().ak(bjVar)) {
+                                if (com.baidu.tieba.frs.a.bNC().ak(bjVar)) {
                                     bjVar.gA(true);
                                 }
                             } else {
-                                com.baidu.tieba.frs.a.bNB().al(bjVar);
+                                com.baidu.tieba.frs.a.bNC().al(bjVar);
                                 bjVar.gA(false);
                             }
                             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921402, bjVar));
@@ -198,6 +198,6 @@ public class o extends com.baidu.tieba.frs.h<bi, com.baidu.card.af<bj>> implemen
 
     /* JADX INFO: Access modifiers changed from: private */
     public void ar(bj bjVar) {
-        TiebaStatic.log(new an("c12126").cI("tid", bjVar.getId()).af("obj_locate", bOi() ? 2 : 1).t("obj_id", bjVar.aKV() == null ? -1L : bjVar.aKV().live_id).af("obj_type", 1));
+        TiebaStatic.log(new an("c12126").cI("tid", bjVar.getId()).af("obj_locate", bOj() ? 2 : 1).t("obj_id", bjVar.aKV() == null ? -1L : bjVar.aKV().live_id).af("obj_type", 1));
     }
 }

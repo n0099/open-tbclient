@@ -36,7 +36,7 @@ public class d {
         init(UBC.getContext());
     }
 
-    public static d dkw() {
+    public static d dkx() {
         if (lNj == null) {
             synchronized (d.class) {
                 if (lNj == null) {
@@ -100,7 +100,7 @@ public class d {
     boolean aa(String str, int i) {
         if (this.lNk == null || this.lNk.Z(str, i)) {
             if ((i & 16) == 0 || UBC.getUBCContext().kV(str)) {
-                if (this.lMW.dkL() && this.lNk != null && this.lNk.se(str) > 0) {
+                if (this.lMW.dkM() && this.lNk != null && this.lNk.se(str) > 0) {
                     if (new Random().nextInt(100) >= this.lNk.se(str)) {
                         return true;
                     }
@@ -155,7 +155,7 @@ public class d {
         } else if ((i & 16) != 0 && !UBC.getUBCContext().kV(str)) {
             flow.setValid(false);
         } else {
-            if (this.lMW.dkL() && this.lNk != null && this.lNk.se(str) > 0) {
+            if (this.lMW.dkM() && this.lNk != null && this.lNk.se(str) > 0) {
                 int se = this.lNk.se(str);
                 int nextInt = new Random().nextInt(100);
                 if (DEBUG) {
@@ -231,8 +231,8 @@ public class d {
             Log.d("UBCDEBUG", jSONObject.toString());
         }
         boolean z2 = true;
-        r dkx = dkx();
-        if (dkx != null && !dkx.cTf()) {
+        r dky = dky();
+        if (dky != null && !dky.cTg()) {
             z2 = false;
         }
         if (z2) {
@@ -287,8 +287,8 @@ public class d {
         });
     }
 
-    private static final r dkx() {
-        return com.baidu.tieba.q.j.cTg();
+    private static final r dky() {
+        return com.baidu.tieba.q.j.cTh();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -304,7 +304,7 @@ public class d {
         @Override // java.lang.Runnable
         public void run() {
             Process.setThreadPriority(10);
-            d.this.lNk = com.baidu.ubc.g.dky();
+            d.this.lNk = com.baidu.ubc.g.dkz();
             d.this.lNl = new com.baidu.ubc.c(d.this.mContext);
             d.this.lNl.aDv();
         }

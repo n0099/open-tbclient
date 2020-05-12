@@ -67,7 +67,7 @@ public class b {
         return this.mhj;
     }
 
-    public AudioRecord duW() {
+    public AudioRecord duX() {
         return this.mAudioRecord;
     }
 }

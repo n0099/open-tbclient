@@ -72,7 +72,7 @@ public class c extends com.baidu.tieba.card.a<com.baidu.tieba.square.data.b> {
             }
             this.dHD.setText(forumName);
             this.hAJ.setText(this.kPI + " " + aq.numberUniformFormatExtra(bVar.getMemberCount()));
-            this.hAK.setText(this.kPJ + " " + aq.numberUniformFormatExtra(bVar.cUC()));
+            this.hAK.setText(this.kPJ + " " + aq.numberUniformFormatExtra(bVar.cUD()));
             KA(bVar.aIv());
             lT(this.kPK.isLike());
             this.mRootView.setOnClickListener(this);
@@ -119,7 +119,7 @@ public class c extends com.baidu.tieba.card.a<com.baidu.tieba.square.data.b> {
         this.kPK.setLike(z);
     }
 
-    private void bKs() {
+    private void bKt() {
         if (this.kPK != null) {
             String forumName = this.kPK.getForumName();
             if (aq.isForumName(forumName)) {
@@ -128,7 +128,7 @@ public class c extends com.baidu.tieba.card.a<com.baidu.tieba.square.data.b> {
         }
     }
 
-    private void bKt() {
+    private void bKu() {
         if (!this.isLoading) {
             if (!l.isNetOk()) {
                 UtilHelper.showToast(this.mTbPageContext.getPageActivity(), this.mTbPageContext.getString(R.string.neterror));
@@ -153,14 +153,14 @@ public class c extends com.baidu.tieba.card.a<com.baidu.tieba.square.data.b> {
                 }
                 if (aq.isForumName(this.kPK.getForumName())) {
                     this.isLoading = true;
-                    this.dKs.cVI();
+                    this.dKs.cVJ();
                     this.dKs.eP(this.kPK.getForumName(), String.valueOf(this.kPK.getForumId()));
                 }
             }
         }
     }
 
-    private void bKu() {
+    private void bKv() {
         if (!this.isLoading) {
             if (!l.isNetOk()) {
                 UtilHelper.showToast(this.mTbPageContext.getPageActivity(), this.mTbPageContext.getString(R.string.neterror));
@@ -205,7 +205,7 @@ public class c extends com.baidu.tieba.card.a<com.baidu.tieba.square.data.b> {
         an anVar;
         if (this.kPK != null) {
             if (this.mRootView == view) {
-                bKs();
+                bKt();
                 if (this.gmO != null) {
                     this.gmO.a(view, this.kPK);
                 }
@@ -225,9 +225,9 @@ public class c extends com.baidu.tieba.card.a<com.baidu.tieba.square.data.b> {
                     TiebaStatic.log(anVar);
                 }
                 if (this.kPK.isLike()) {
-                    bKu();
+                    bKv();
                 } else {
-                    bKt();
+                    bKu();
                 }
             }
         }

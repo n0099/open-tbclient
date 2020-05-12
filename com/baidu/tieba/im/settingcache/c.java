@@ -4,7 +4,7 @@ public class c {
     private static volatile c ivk;
     private boolean isAcceptNotify;
 
-    public static c ciS() {
+    public static c ciT() {
         if (ivk == null) {
             synchronized (c.class) {
                 if (ivk == null) {

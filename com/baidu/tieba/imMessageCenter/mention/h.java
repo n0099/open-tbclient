@@ -11,23 +11,23 @@ public class h {
     private int chat = 0;
     private int iAK = 0;
 
-    public int ckv() {
+    public int ckw() {
         return this.iAH;
     }
 
-    public int ckw() {
+    public int ckx() {
         return this.iAI;
     }
 
-    public int ckx() {
+    public int cky() {
         return this.iAJ;
     }
 
-    public int cky() {
+    public int ckz() {
         return this.fans;
     }
 
-    public int ckz() {
+    public int ckA() {
         return this.iAK;
     }
 

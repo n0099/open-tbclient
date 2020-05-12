@@ -54,7 +54,7 @@ public class MessageCenterFragment extends BaseFragment implements VoiceManager.
                     MessageCenterFragment.this.iAv.m(eVar.getId(), MessageCenterFragment.this.dOJ, MessageCenterFragment.this.dOK);
                 } else if (eVar.getId() == 3) {
                     if (MessageCenterFragment.this.dOO) {
-                        MessageCenterFragment.this.cks();
+                        MessageCenterFragment.this.ckt();
                     }
                     com.baidu.tbadk.coreExtra.messageCenter.b.aTe().aTl();
                     MessageCenterFragment.this.iAv.m(eVar.getId(), MessageCenterFragment.this.dON, MessageCenterFragment.this.dOO);
@@ -69,7 +69,7 @@ public class MessageCenterFragment extends BaseFragment implements VoiceManager.
         public void i(TbTabLayout.e eVar) {
             if (eVar != null && MessageCenterFragment.this.iAv != null && eVar.getId() == 1) {
                 MessageManager.getInstance().runTask(CmdConfigCustom.CMD_IM_REPLY_ME_BACK_EVENT, (Class) null);
-                com.baidu.adp.lib.util.l.hideSoftKeyPad(MessageCenterFragment.this.getContext(), MessageCenterFragment.this.iAv.ckt());
+                com.baidu.adp.lib.util.l.hideSoftKeyPad(MessageCenterFragment.this.getContext(), MessageCenterFragment.this.iAv.cku());
             }
         }
 
@@ -78,7 +78,7 @@ public class MessageCenterFragment extends BaseFragment implements VoiceManager.
             if (eVar != null && MessageCenterFragment.this.iAv != null) {
                 if (eVar.getId() == 1) {
                     MessageManager.getInstance().runTask(CmdConfigCustom.CMD_IM_REPLY_ME_BACK_EVENT, (Class) null);
-                    com.baidu.adp.lib.util.l.hideSoftKeyPad(MessageCenterFragment.this.getContext(), MessageCenterFragment.this.iAv.ckt());
+                    com.baidu.adp.lib.util.l.hideSoftKeyPad(MessageCenterFragment.this.getContext(), MessageCenterFragment.this.iAv.cku());
                 }
                 MessageCenterFragment.this.xH(eVar.getId());
             }
@@ -92,7 +92,7 @@ public class MessageCenterFragment extends BaseFragment implements VoiceManager.
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Integer) && ((Integer) customResponsedMessage.getData()).intValue() == 3) {
                 if (!TbadkCoreApplication.getInst().checkInterrupt() || !this.iAD) {
-                    if (MessageCenterFragment.this.ckp()) {
+                    if (MessageCenterFragment.this.ckq()) {
                         if (!MessageCenterFragment.this.isPrimary() && MessageCenterFragment.this.iAy <= 0) {
                             return;
                         }
@@ -118,7 +118,7 @@ public class MessageCenterFragment extends BaseFragment implements VoiceManager.
     };
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean ckp() {
+    public boolean ckq() {
         return this.iAv != null && this.iAv.xK(1);
     }
 
@@ -147,7 +147,7 @@ public class MessageCenterFragment extends BaseFragment implements VoiceManager.
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void onNewIntent(Intent intent) {
-        com.baidu.tieba.im.db.e.cff().cfg();
+        com.baidu.tieba.im.db.e.cfg().cfh();
         if (this.gYv == null) {
             this.gYv = getVoiceManager();
             this.gYv.onCreate(getPageContext());
@@ -167,9 +167,9 @@ public class MessageCenterFragment extends BaseFragment implements VoiceManager.
 
     @Override // android.support.v4.app.Fragment
     public void onSaveInstanceState(Bundle bundle) {
-        TbTabLayout.e cku;
-        if (this.iAv != null && (cku = this.iAv.cku()) != null) {
-            bundle.putInt("Selected_Tab", cku.getId());
+        TbTabLayout.e ckv;
+        if (this.iAv != null && (ckv = this.iAv.ckv()) != null) {
+            bundle.putInt("Selected_Tab", ckv.getId());
         }
     }
 
@@ -188,11 +188,11 @@ public class MessageCenterFragment extends BaseFragment implements VoiceManager.
         }
     }
 
-    public void ckq() {
+    public void ckr() {
         getActivity().finish();
     }
 
-    public void ckr() {
+    public void cks() {
         AtListActivityConfig atListActivityConfig = new AtListActivityConfig(getContext(), 0, false);
         atListActivityConfig.setIsForChat(true);
         sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, atListActivityConfig));
@@ -246,7 +246,7 @@ public class MessageCenterFragment extends BaseFragment implements VoiceManager.
                 if (this.iAv.xK(3)) {
                     com.baidu.tbadk.coreExtra.messageCenter.b.aTe().aTl();
                     if (this.dOO) {
-                        cks();
+                        ckt();
                         return;
                     }
                 }
@@ -256,7 +256,7 @@ public class MessageCenterFragment extends BaseFragment implements VoiceManager.
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cks() {
+    public void ckt() {
         HashSet hashSet;
         HashMap<Integer, HashSet> aTC = com.baidu.tbadk.coreExtra.messageCenter.b.aTe().aTC();
         if (aTC != null && aTC.size() > 0 && (hashSet = aTC.get(0)) != null && hashSet.size() > 0) {
@@ -284,7 +284,7 @@ public class MessageCenterFragment extends BaseFragment implements VoiceManager.
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        com.baidu.tieba.im.db.e.cff().cfg();
+        com.baidu.tieba.im.db.e.cfg().cfh();
         MessageManager.getInstance().unRegisterListener(this.iAB);
         if (this.iAv != null) {
             this.iAv.Rx();

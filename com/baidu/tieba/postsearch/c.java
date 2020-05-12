@@ -47,7 +47,7 @@ public class c {
         this.aXA.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.postsearch.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                c.this.cfK();
+                c.this.cfL();
             }
         });
         this.kmM.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.postsearch.c.2
@@ -71,13 +71,13 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cfK() {
+    public void cfL() {
         if (this.kmO == null) {
             this.kmO = new com.baidu.tbadk.core.dialog.a(this.kmC.getPageContext().getPageActivity()).ui(this.kmC.getPageContext().getString(R.string.alert_clean_history)).a(this.kmC.getPageContext().getString(R.string.clear_all_text), new a.b() { // from class: com.baidu.tieba.postsearch.c.5
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                     aVar.dismiss();
-                    c.this.kmC.cLD().cLQ();
+                    c.this.kmC.cLE().cLR();
                     c.this.kmM.setVisibility(8);
                     c.this.showNoDataView();
                 }
@@ -112,7 +112,7 @@ public class c {
         wU(R.string.new_text_no_search_record);
     }
 
-    public void cLI() {
+    public void cLJ() {
         this.kmM.setVisibility(8);
         wU(R.string.new_text_no_search_result);
     }
@@ -147,11 +147,11 @@ public class c {
         this.kmN.notifyDataSetChanged();
     }
 
-    public void cLJ() {
+    public void cLK() {
         this.kmL.setVisibility(8);
     }
 
-    public boolean cLK() {
+    public boolean cLL() {
         return this.kmL.getVisibility() == 0 && !this.kmP && (this.mNoDataView == null || 8 == this.mNoDataView.getVisibility());
     }
 

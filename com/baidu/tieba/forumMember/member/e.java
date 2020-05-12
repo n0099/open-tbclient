@@ -250,9 +250,9 @@ public class e implements ak {
             arrayList.add(bVar);
         }
         a(memberGodInfo, arrayList);
-        com.baidu.adp.widget.ListView.m bNb = bNb();
-        if (bNb != null) {
-            arrayList.add(bNb);
+        com.baidu.adp.widget.ListView.m bNc = bNc();
+        if (bNc != null) {
+            arrayList.add(bNc);
         }
         return arrayList;
     }
@@ -283,7 +283,7 @@ public class e implements ak {
         }
     }
 
-    private com.baidu.tieba.frs.k bNb() {
+    private com.baidu.tieba.frs.k bNc() {
         int dimens;
         if (this.mMemberGroupInfoList == null || this.mMemberGroupInfoList.size() <= 0) {
             return null;

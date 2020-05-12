@@ -18,7 +18,7 @@ public class p implements l, a.InterfaceC0784a {
     public p(com.tb.airbnb.lottie.f fVar, com.tb.airbnb.lottie.model.layer.a aVar, com.tb.airbnb.lottie.model.content.k kVar) {
         this.name = kVar.getName();
         this.lottieDrawable = fVar;
-        this.mOO = kVar.dBV().dBo();
+        this.mOO = kVar.dBW().dBp();
         aVar.a(this.mOO);
         this.mOO.b(this);
     }
@@ -40,7 +40,7 @@ public class p implements l, a.InterfaceC0784a {
             int i2 = i;
             if (i2 < list.size()) {
                 b bVar = list.get(i2);
-                if ((bVar instanceof r) && ((r) bVar).dBe() == ShapeTrimPath.Type.Simultaneously) {
+                if ((bVar instanceof r) && ((r) bVar).dBf() == ShapeTrimPath.Type.Simultaneously) {
                     this.mOs = (r) bVar;
                     this.mOs.a(this);
                 }

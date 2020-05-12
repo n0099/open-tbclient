@@ -27,7 +27,7 @@ public class b extends g {
     /* loaded from: classes6.dex */
     static class a extends g.a {
         private final Handler handler;
-        private final rx.a.a.b njh = rx.a.a.a.dHv().dHw();
+        private final rx.a.a.b njh = rx.a.a.a.dHw().dHx();
         private volatile boolean nji;
 
         a(Handler handler) {
@@ -48,7 +48,7 @@ public class b extends g {
         @Override // rx.g.a
         public k a(rx.functions.a aVar, long j, TimeUnit timeUnit) {
             if (this.nji) {
-                return e.dIZ();
+                return e.dJa();
             }
             RunnableC0830b runnableC0830b = new RunnableC0830b(this.njh.d(aVar), this.handler);
             Message obtain = Message.obtain(this.handler, runnableC0830b);
@@ -56,7 +56,7 @@ public class b extends g {
             this.handler.sendMessageDelayed(obtain, timeUnit.toMillis(j));
             if (this.nji) {
                 this.handler.removeCallbacks(runnableC0830b);
-                return e.dIZ();
+                return e.dJa();
             }
             return runnableC0830b;
         }
@@ -91,7 +91,7 @@ public class b extends g {
                 } else {
                     illegalStateException = new IllegalStateException("Fatal Exception thrown on Scheduler.Worker thread.", th);
                 }
-                f.dIv().dIw().H(illegalStateException);
+                f.dIw().dIx().H(illegalStateException);
                 Thread currentThread = Thread.currentThread();
                 currentThread.getUncaughtExceptionHandler().uncaughtException(currentThread, illegalStateException);
             }

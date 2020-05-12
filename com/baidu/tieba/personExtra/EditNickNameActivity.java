@@ -121,7 +121,7 @@ public class EditNickNameActivity extends BaseActivity<EditNickNameActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cGN() {
+    public void cGO() {
         this.mWebView.loadUrl("javascript:__js_bridge_modify_name_save_action()");
     }
 
@@ -269,7 +269,7 @@ public class EditNickNameActivity extends BaseActivity<EditNickNameActivity> {
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                     aVar.dismiss();
-                    EditNickNameActivity.this.cGN();
+                    EditNickNameActivity.this.cGO();
                 }
             });
             this.Zg.b(R.string.cancel, new a.b() { // from class: com.baidu.tieba.personExtra.EditNickNameActivity.4

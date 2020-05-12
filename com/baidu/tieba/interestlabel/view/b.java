@@ -37,7 +37,7 @@ public class b {
                 } else {
                     b.this.iGB.add(valueOf);
                 }
-                b.this.cmb();
+                b.this.cmc();
             }
         }
     };
@@ -64,7 +64,7 @@ public class b {
         this.iGz = new com.baidu.tieba.interestlabel.a.a(this.iGv.getPageContext().getPageActivity());
         this.iGz.setOnClickListener(this.iGC);
         this.iGA = new a(this.iGv.getPageContext().getPageActivity());
-        this.Ua.addHeaderView(this.iGA.clX());
+        this.Ua.addHeaderView(this.iGA.clY());
         this.Ua.setAdapter((ListAdapter) this.iGz);
         onChangeSkinType();
     }
@@ -91,24 +91,24 @@ public class b {
         return this.mRootView;
     }
 
-    public View clZ() {
+    public View cma() {
         return this.iGx;
     }
 
-    public View cma() {
+    public View cmb() {
         return this.iGy;
     }
 
     public void setData(com.baidu.tieba.interestlabel.b.b bVar) {
-        if (bVar != null && bVar.clQ() != null && bVar.clR() != null) {
-            for (com.baidu.tieba.interestlabel.b.a aVar : bVar.clR()) {
+        if (bVar != null && bVar.clR() != null && bVar.clS() != null) {
+            for (com.baidu.tieba.interestlabel.b.a aVar : bVar.clS()) {
                 if (aVar != null) {
                     aVar.isFollow = false;
                 }
             }
             this.mDataList.clear();
-            this.mDataList.addAll(bVar.clR());
-            this.iGA.setData(bVar.clQ());
+            this.mDataList.addAll(bVar.clS());
+            this.iGA.setData(bVar.clR());
             this.iGz.setData(this.mDataList);
             this.Ua.setVisibility(0);
             cr(0, this.mDataList.size());
@@ -116,7 +116,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cmb() {
+    public void cmc() {
         for (com.baidu.tieba.interestlabel.b.a aVar : this.mDataList) {
             if (aVar != null) {
                 aVar.isFollow = this.iGB.contains(Integer.valueOf(aVar.labelId));
@@ -126,9 +126,9 @@ public class b {
         cr(this.iGB.size(), this.mDataList.size());
     }
 
-    public List<Integer> cmc() {
+    public List<Integer> cmd() {
         ArrayList arrayList = new ArrayList(this.iGB);
-        arrayList.add(0, Integer.valueOf(this.iGA.clY()));
+        arrayList.add(0, Integer.valueOf(this.iGA.clZ()));
         return arrayList;
     }
 }

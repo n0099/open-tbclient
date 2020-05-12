@@ -4,7 +4,7 @@ public class f {
     private static volatile f ivr;
     private boolean isAcceptNotify;
 
-    public static f ciV() {
+    public static f ciW() {
         if (ivr == null) {
             synchronized (f.class) {
                 if (ivr == null) {

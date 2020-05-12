@@ -7,7 +7,7 @@ public class c implements m {
     public static final BdUniqueId jRZ = BdUniqueId.gen();
     private int jSa = 0;
 
-    public int cFX() {
+    public int cFY() {
         return this.jSa;
     }
 

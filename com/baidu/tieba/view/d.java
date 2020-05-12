@@ -59,13 +59,13 @@ public class d {
     private Runnable hyK = new Runnable() { // from class: com.baidu.tieba.view.d.5
         @Override // java.lang.Runnable
         public void run() {
-            d.this.bVZ();
+            d.this.bWa();
         }
     };
     private View.OnClickListener hyL = new View.OnClickListener() { // from class: com.baidu.tieba.view.d.6
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            d.this.cCg();
+            d.this.cCh();
         }
     };
 
@@ -86,7 +86,7 @@ public class d {
         this.luG = (ImageView) this.luF.findViewById(R.id.person_navigation_scan_img);
     }
 
-    public void deC() {
+    public void deD() {
         this.mNavigationBar.removeAllViews(NavigationBar.ControlAlign.HORIZONTAL_RIGHT);
         if (this.mFrom == 1) {
             if (this.luz != null && this.luz.getParent() == null) {
@@ -112,7 +112,7 @@ public class d {
                         TiebaStatic.log(new an("c12502").cI("obj_locate", "1"));
                     }
                     d.this.V(6, false);
-                    com.baidu.tieba.p.a.cOI().g(6, false, true);
+                    com.baidu.tieba.p.a.cOJ().g(6, false, true);
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new DressupCenterActivityConfig(d.this.mContext)));
                 }
             });
@@ -129,7 +129,7 @@ public class d {
                     d.this.V(5, false);
                     TiebaStatic.log(new an("c12502").cI("obj_locate", "2"));
                     d.this.V(5, false);
-                    com.baidu.tieba.p.a.cOI().g(5, false, true);
+                    com.baidu.tieba.p.a.cOJ().g(5, false, true);
                     if (!TbadkCoreApplication.getInst().appResponseToCmd(CmdConfigCustom.START_MORE)) {
                         BdToast.a(d.this.mContext, d.this.mContext.getResources().getString(R.string.plugin_video_installing), 0).aMX();
                         return;
@@ -199,14 +199,14 @@ public class d {
         SvgManager.aOR().a(this.luG, R.drawable.icon_pure_topbar_scan44_svg, R.color.cp_cont_b, SvgManager.SvgResourceStateType.NORMAL_PRESS);
     }
 
-    public void cCg() {
+    public void cCh() {
         this.mHandler.removeCallbacks(this.hyJ);
         this.mHandler.removeCallbacks(this.hyK);
-        bVZ();
+        bWa();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bVZ() {
+    public void bWa() {
         com.baidu.adp.lib.f.g.dismissPopupWindow(this.jFX);
     }
 }

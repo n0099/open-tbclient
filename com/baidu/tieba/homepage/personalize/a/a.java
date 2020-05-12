@@ -140,7 +140,7 @@ public class a extends RecyclerView.Adapter<C0577a> {
                             anVar.af("fid", 0);
                             anVar.t("tid", iVar.getThreadId());
                             anVar.af("obj_type", iVar.bvh());
-                            anVar.t("star_id", iVar.bZX());
+                            anVar.t("star_id", iVar.bZY());
                             anVar.t(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LIVE_ID, liveId);
                             TiebaStatic.log(anVar);
                         }
@@ -151,7 +151,7 @@ public class a extends RecyclerView.Adapter<C0577a> {
                         anVar.af("fid", 0);
                         anVar.t("tid", iVar.getThreadId());
                         anVar.af("obj_type", iVar.bvh());
-                        anVar.t("star_id", iVar.bZX());
+                        anVar.t("star_id", iVar.bZY());
                         anVar.t(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LIVE_ID, liveId);
                         TiebaStatic.log(anVar);
                         this.hOt.add(Long.valueOf(liveId));

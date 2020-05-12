@@ -17,11 +17,11 @@ public class t {
         this.mfm = akVar;
     }
 
-    public k<com.facebook.imagepipeline.g.e> duc() {
+    public k<com.facebook.imagepipeline.g.e> dud() {
         return this.mff;
     }
 
-    public ak dud() {
+    public ak due() {
         return this.mfm;
     }
 
@@ -29,15 +29,15 @@ public class t {
         return this.mfm.getId();
     }
 
-    public am dtR() {
-        return this.mfm.dtR();
+    public am dtS() {
+        return this.mfm.dtS();
     }
 
     public Uri getUri() {
-        return this.mfm.dtQ().duI();
+        return this.mfm.dtR().duJ();
     }
 
-    public long due() {
+    public long duf() {
         return this.mfn;
     }
 
@@ -45,7 +45,7 @@ public class t {
         this.mfn = j;
     }
 
-    public int duf() {
+    public int dug() {
         return this.mfo;
     }
 
@@ -54,7 +54,7 @@ public class t {
     }
 
     @Nullable
-    public com.facebook.imagepipeline.common.a dug() {
+    public com.facebook.imagepipeline.common.a duh() {
         return this.mfp;
     }
 
@@ -62,7 +62,7 @@ public class t {
         this.mfp = aVar;
     }
 
-    public Map<String, String> duh() {
-        return this.mfm.dtQ().duh();
+    public Map<String, String> dui() {
+        return this.mfm.dtR().dui();
     }
 }

@@ -9,7 +9,7 @@ public class g implements c {
     private TreeMap<String, String> nir = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
 
     @Override // org.java_websocket.c.f
-    public Iterator<String> dHd() {
+    public Iterator<String> dHe() {
         return Collections.unmodifiableSet(this.nir.keySet()).iterator();
     }
 

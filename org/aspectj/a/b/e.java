@@ -10,7 +10,7 @@ public class e extends a implements org.aspectj.lang.reflect.c {
         this.returnType = cls2;
     }
 
-    public Class dGy() {
+    public Class dGz() {
         if (this.returnType == null) {
             this.returnType = Js(6);
         }
@@ -20,18 +20,18 @@ public class e extends a implements org.aspectj.lang.reflect.c {
     @Override // org.aspectj.a.b.f
     protected String b(h hVar) {
         StringBuffer stringBuffer = new StringBuffer();
-        stringBuffer.append(hVar.Ju(dGz()));
+        stringBuffer.append(hVar.Ju(dGA()));
         if (hVar.nfL) {
-            stringBuffer.append(hVar.N(dGy()));
+            stringBuffer.append(hVar.N(dGz()));
         }
         if (hVar.nfL) {
             stringBuffer.append(" ");
         }
-        stringBuffer.append(hVar.k(dGA(), dGB()));
+        stringBuffer.append(hVar.k(dGB(), dGC()));
         stringBuffer.append(".");
         stringBuffer.append(getName());
-        hVar.b(stringBuffer, dGu());
-        hVar.c(stringBuffer, dGv());
+        hVar.b(stringBuffer, dGv());
+        hVar.c(stringBuffer, dGw());
         return stringBuffer.toString();
     }
 }

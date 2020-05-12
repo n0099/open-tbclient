@@ -44,7 +44,7 @@ public abstract class c extends com.baidu.tbadk.core.data.a implements ae {
         this.gsc = str;
     }
 
-    public int bFf() {
+    public int bFg() {
         return this.gsb;
     }
 
@@ -61,11 +61,11 @@ public abstract class c extends com.baidu.tbadk.core.data.a implements ae {
         return this.mSource;
     }
 
-    public String bFg() {
+    public String bFh() {
         return this.gsc;
     }
 
-    public String bFh() {
+    public String bFi() {
         return this.gsd;
     }
 
@@ -90,7 +90,7 @@ public abstract class c extends com.baidu.tbadk.core.data.a implements ae {
         return this.mExtra;
     }
 
-    public Integer bFi() {
+    public Integer bFj() {
         return this.gse;
     }
 
@@ -107,19 +107,19 @@ public abstract class c extends com.baidu.tbadk.core.data.a implements ae {
         if (aIu == null || str.length() == 0) {
             return null;
         }
-        an cI = new an(str).cI("fid", String.valueOf(aIu.getFid())).cI("tid", String.valueOf(aIu.getTid())).cI("obj_id", getExtra()).cI("obj_param1", getWeight()).af(TiebaInitialize.Params.OBJ_PARAM2, 1).cI("obj_source", getSource()).af("obj_locate", bFf()).cI("uid", TbadkCoreApplication.getCurrentAccount()).cI(TiebaInitialize.Params.OBJ_PARAM3, com.baidu.tieba.card.l.bEN());
+        an cI = new an(str).cI("fid", String.valueOf(aIu.getFid())).cI("tid", String.valueOf(aIu.getTid())).cI("obj_id", getExtra()).cI("obj_param1", getWeight()).af(TiebaInitialize.Params.OBJ_PARAM2, 1).cI("obj_source", getSource()).af("obj_locate", bFg()).cI("uid", TbadkCoreApplication.getCurrentAccount()).cI(TiebaInitialize.Params.OBJ_PARAM3, com.baidu.tieba.card.l.bEO());
         if (!z) {
-            cI.af("obj_type", bFj());
+            cI.af("obj_type", bFk());
         } else {
             if (aIu.dtq > 0) {
                 cI.af("midpageflag", 1);
             } else {
                 cI.af("midpageflag", 0);
             }
-            cI.cI(TiebaInitialize.Params.AB_TAG, bFg());
-            cI.af("is_vertical", bFi().intValue());
+            cI.cI(TiebaInitialize.Params.AB_TAG, bFh());
+            cI.af("is_vertical", bFj().intValue());
         }
-        if (aIu.aMc() != null && aIu.aMc().cWq() != null && aIu.aMc().cWq().bcf() != null && aIu.aMc().cWq().bcf().size() > 0) {
+        if (aIu.aMc() != null && aIu.aMc().cWr() != null && aIu.aMc().cWr().bcf() != null && aIu.aMc().cWr().bcf().size() > 0) {
             cI.af(TiebaInitialize.Params.OBJ_TO, aIu.aMc().kTa ? 2 : 1);
         }
         return cI;
@@ -130,9 +130,9 @@ public abstract class c extends com.baidu.tbadk.core.data.a implements ae {
         if (aIu == null) {
             return null;
         }
-        an cI = new an(str).cI("fid", String.valueOf(aIu.getFid())).cI("tid", String.valueOf(aIu.getTid())).af(TiebaInitialize.Params.OBJ_PARAM2, 1).cI("obj_param1", getWeight()).cI("obj_source", getSource()).af("obj_locate", bFf()).cI("obj_name", bFg()).cI("uid", TbadkCoreApplication.getCurrentAccount()).cI(TiebaInitialize.Params.OBJ_PARAM3, com.baidu.tieba.card.l.bEN());
+        an cI = new an(str).cI("fid", String.valueOf(aIu.getFid())).cI("tid", String.valueOf(aIu.getTid())).af(TiebaInitialize.Params.OBJ_PARAM2, 1).cI("obj_param1", getWeight()).cI("obj_source", getSource()).af("obj_locate", bFg()).cI("obj_name", bFh()).cI("uid", TbadkCoreApplication.getCurrentAccount()).cI(TiebaInitialize.Params.OBJ_PARAM3, com.baidu.tieba.card.l.bEO());
         if (i == 0) {
-            cI.af("obj_type", bFj());
+            cI.af("obj_type", bFk());
         } else {
             cI.af("obj_type", i);
         }
@@ -140,7 +140,7 @@ public abstract class c extends com.baidu.tbadk.core.data.a implements ae {
         return cI;
     }
 
-    private int bFj() {
+    private int bFk() {
         int i;
         int i2 = 0;
         bj aIu = aIu();
@@ -180,7 +180,7 @@ public abstract class c extends com.baidu.tbadk.core.data.a implements ae {
         this.gsf = i;
     }
 
-    public boolean bFk() {
+    public boolean bFl() {
         return this.gsf == 1;
     }
 

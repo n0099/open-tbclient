@@ -63,13 +63,13 @@ public class c extends com.baidu.adp.widget.ListView.a<PostData, com.baidu.tieba
                 String str = null;
                 if (view.getId() == R.id.btn_wrapper_title_expand_video_info_item) {
                     if (c.this.TA != null) {
-                        int cEZ = ((com.baidu.tieba.pb.videopb.e.b) c.this.TA).cEZ();
-                        if (cEZ == 1) {
+                        int cFa = ((com.baidu.tieba.pb.videopb.e.b) c.this.TA).cFa();
+                        if (cFa == 1) {
                             ((com.baidu.tieba.pb.videopb.e.b) c.this.TA).Ak(2);
-                        } else if (cEZ == 2) {
+                        } else if (cFa == 2) {
                             ((com.baidu.tieba.pb.videopb.e.b) c.this.TA).Ak(1);
                         }
-                        if (c.this.jqZ.cvP()) {
+                        if (c.this.jqZ.cvQ()) {
                             ((com.baidu.tieba.pb.videopb.e.b) c.this.TA).jNs.setVisibility(8);
                         } else {
                             ((com.baidu.tieba.pb.videopb.e.b) c.this.TA).jNs.setVisibility(0);
@@ -159,7 +159,7 @@ public class c extends com.baidu.adp.widget.ListView.a<PostData, com.baidu.tieba
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, PostData postData, com.baidu.tieba.pb.videopb.e.b bVar) {
-        if (this.jqZ != null && this.jqZ.cvr() != null && postData != null) {
+        if (this.jqZ != null && this.jqZ.cvs() != null && postData != null) {
             com.baidu.tieba.pb.c.a.a(this.fiG.getUniqueId(), this.jqZ, postData, 1, 1);
             a(bVar);
             a(bVar, postData);
@@ -174,24 +174,24 @@ public class c extends com.baidu.adp.widget.ListView.a<PostData, com.baidu.tieba
     }
 
     private void a(com.baidu.tieba.pb.videopb.e.b bVar, PostData postData) {
-        if (this.jqZ != null && this.jqZ.cvr() != null && this.jqZ.cvr().aKC() != null && postData != null) {
-            a(bVar, this.jqZ.cvr().aKC(), postData);
-            a(bVar, this.jqZ.cvr().aKC());
-            b(bVar, this.jqZ.cvr().aKC());
-            c(bVar, this.jqZ.cvr().aKC());
+        if (this.jqZ != null && this.jqZ.cvs() != null && this.jqZ.cvs().aKC() != null && postData != null) {
+            a(bVar, this.jqZ.cvs().aKC(), postData);
+            a(bVar, this.jqZ.cvs().aKC());
+            b(bVar, this.jqZ.cvs().aKC());
+            c(bVar, this.jqZ.cvs().aKC());
             c(bVar, postData);
-            d(bVar, this.jqZ.cvr().aKC());
-            e(bVar, this.jqZ.cvr().aKC());
-            b(bVar, this.jqZ.cvr().aKC(), postData);
+            d(bVar, this.jqZ.cvs().aKC());
+            e(bVar, this.jqZ.cvs().aKC());
+            b(bVar, this.jqZ.cvs().aKC(), postData);
         }
     }
 
     private void b(com.baidu.tieba.pb.videopb.e.b bVar, PostData postData) {
         String formatTime;
-        if (this.jqZ != null && this.jqZ.cvr() != null && postData != null) {
-            bVar.n(this.jqZ.cvr().getTitle());
-            if (this.jqZ.cvr().aKT() != null) {
-                bVar.emC.setText(aq.numberUniformFormatExtra(this.jqZ.cvr().aKT().play_count.intValue()) + this.mContext.getString(R.string.play));
+        if (this.jqZ != null && this.jqZ.cvs() != null && postData != null) {
+            bVar.n(this.jqZ.cvs().getTitle());
+            if (this.jqZ.cvs().aKT() != null) {
+                bVar.emC.setText(aq.numberUniformFormatExtra(this.jqZ.cvs().aKT().play_count.intValue()) + this.mContext.getString(R.string.play));
             }
             if (StringUtils.SimpleDateFormat(new Date(), "yyyy").equals(StringUtils.SimpleDateFormat(new Date(postData.getTime()), "yyyy"))) {
                 formatTime = aq.getFormatTimeShort(postData.getTime());
@@ -199,9 +199,9 @@ public class c extends com.baidu.adp.widget.ListView.a<PostData, com.baidu.tieba
                 formatTime = aq.getFormatTime(postData.getTime());
             }
             bVar.jNr.setText(formatTime + this.mContext.getString(R.string.send_post));
-            f cWr = postData.cWr();
-            if (cWr != null && !TextUtils.isEmpty(cWr.getName()) && !TextUtils.isEmpty(cWr.getName().trim())) {
-                bVar.jNs.setText(cWr.getName());
+            f cWs = postData.cWs();
+            if (cWs != null && !TextUtils.isEmpty(cWs.getName()) && !TextUtils.isEmpty(cWs.getName().trim())) {
+                bVar.jNs.setText(cWs.getName());
                 bVar.jNs.setVisibility(0);
                 return;
             }
@@ -212,9 +212,9 @@ public class c extends com.baidu.adp.widget.ListView.a<PostData, com.baidu.tieba
     private void a(com.baidu.tieba.pb.videopb.e.b bVar) {
         if (this.jqZ != null) {
             this.jLN = this.jqZ.jnD;
-            if (this.jqZ.cvr() != null) {
-                this.jLP = this.jqZ.cvr().aKy() == 1;
-                this.jLO = this.jqZ.cvr().aKx() == 1;
+            if (this.jqZ.cvs() != null) {
+                this.jLP = this.jqZ.cvs().aKy() == 1;
+                this.jLO = this.jqZ.cvs().aKx() == 1;
             }
             bVar.i(this.jLN, this.jLP, this.jLO);
         }
@@ -263,7 +263,7 @@ public class c extends com.baidu.adp.widget.ListView.a<PostData, com.baidu.tieba
         if (this.jqZ != null && metaData != null) {
             this.jLL = metaData.getIs_bawu() == 1;
             this.jLM = metaData.getBawu_type();
-            if (this.jqZ.cvP()) {
+            if (this.jqZ.cvQ()) {
                 bVar.jNi.setVisibility(8);
             } else if (this.jLL && Config.BAWU_TYPE_MANAGER.equals(this.jLM)) {
                 bVar.jNi.setText(R.string.bawu_member_bazhu_tip);
@@ -280,13 +280,13 @@ public class c extends com.baidu.adp.widget.ListView.a<PostData, com.baidu.tieba
     }
 
     private void c(com.baidu.tieba.pb.videopb.e.b bVar, PostData postData) {
-        if (this.jqZ != null && this.jqZ.cvr() != null) {
+        if (this.jqZ != null && this.jqZ.cvs() != null) {
             this.jDl = 0;
-            if (!this.jqZ.cvr().aLW()) {
+            if (!this.jqZ.cvs().aLW()) {
                 if (postData != null && postData.aKC() != null) {
                     this.jDl = postData.aKC().getLevel_id();
                 }
-                if (!this.jqZ.cvP()) {
+                if (!this.jqZ.cvQ()) {
                     bVar.jNj.setVisibility(0);
                     bVar.Aj(this.jDl);
                     return;
@@ -335,7 +335,7 @@ public class c extends com.baidu.adp.widget.ListView.a<PostData, com.baidu.tieba
             this.jDg.setTid(threadId);
             this.jDg.jzE = true;
             this.jDg.zL(A);
-            if (3 != this.jqZ.cvS()) {
+            if (3 != this.jqZ.cvT()) {
                 bVar.jNn.setVisibility(0);
             }
             if (aq.equals(TbadkCoreApplication.getCurrentAccount(), metaData.getUserId())) {
@@ -343,7 +343,7 @@ public class c extends com.baidu.adp.widget.ListView.a<PostData, com.baidu.tieba
             } else if (!PbNormalLikeButtonSwitch.getIsOn() || postData.aKC().hadConcerned()) {
                 bVar.jNn.setVisibility(8);
             }
-            if (this.jqZ.jnC || 3 == this.jqZ.cvS()) {
+            if (this.jqZ.jnC || 3 == this.jqZ.cvT()) {
                 bVar.jNn.setVisibility(8);
             }
         }
@@ -362,11 +362,11 @@ public class c extends com.baidu.adp.widget.ListView.a<PostData, com.baidu.tieba
     }
 
     private int A(e eVar) {
-        if (eVar == null || eVar.cvr() == null) {
+        if (eVar == null || eVar.cvs() == null) {
             return 0;
         }
-        if (eVar.cvr().aLW()) {
-            return (v.isEmpty(eVar.cvK()) && (eVar.cvq() == null || StringUtils.isNull(eVar.cvq().getForumName()))) ? 0 : 2;
+        if (eVar.cvs().aLW()) {
+            return (v.isEmpty(eVar.cvL()) && (eVar.cvr() == null || StringUtils.isNull(eVar.cvr().getForumName()))) ? 0 : 2;
         }
         return 1;
     }

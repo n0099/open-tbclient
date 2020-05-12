@@ -105,13 +105,13 @@ public final class a {
     }
 
     private final void d() {
-        tv.chushou.basis.d.b.dJp().registerActivityLifecycleCallbacks(new g());
+        tv.chushou.basis.d.b.dJq().registerActivityLifecycleCallbacks(new g());
     }
 
     private final void c(SdkConfig sdkConfig) {
         com.kascend.chushou.d.e.b(sdkConfig.getOkhttp(), sdkConfig.getServer());
         com.kascend.chushou.d.e.g();
-        tv.chushou.a.a.b.a.dJA().M(f.mIZ);
+        tv.chushou.a.a.b.a.dJB().M(f.mIZ);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -130,14 +130,14 @@ public final class a {
     }
 
     private final void d(SdkConfig sdkConfig) {
-        tv.chushou.basis.d.a.a.a aVar = (tv.chushou.basis.d.a.a.a) tv.chushou.basis.d.b.dJr().S(tv.chushou.basis.d.a.a.a.class);
+        tv.chushou.basis.d.a.a.a aVar = (tv.chushou.basis.d.a.a.a) tv.chushou.basis.d.b.dJs().S(tv.chushou.basis.d.a.a.a.class);
         if (aVar != null) {
             aVar.putString("xappkey", (String) tv.chushou.a.a.a.c.checkNotNull(sdkConfig.getXappkey()));
         }
         if (aVar != null) {
             aVar.putString("xsecret", (String) tv.chushou.a.a.a.c.checkNotNull(sdkConfig.getXsecret()));
         }
-        tv.chushou.basis.d.b.dJr().e(ThirdParty.class, (Class) tv.chushou.a.a.a.c.checkNotNull(sdkConfig.getThirdParty()));
+        tv.chushou.basis.d.b.dJs().e(ThirdParty.class, (Class) tv.chushou.a.a.a.c.checkNotNull(sdkConfig.getThirdParty()));
         HashMap hashMap = new HashMap();
         Map<String, String> sdkHostParams = sdkConfig.getSdkHostParams();
         if (sdkHostParams != null) {
@@ -160,15 +160,15 @@ public final class a {
 
         @Override // java.lang.Runnable
         public final void run() {
-            com.kascend.chushou.b.dwA().a = tv.chushou.zues.utils.a.fW(tv.chushou.basis.d.b.dJp());
-            com.kascend.chushou.b.dwA().b = tv.chushou.zues.utils.a.fX(tv.chushou.basis.d.b.dJp());
+            com.kascend.chushou.b.dwB().a = tv.chushou.zues.utils.a.fW(tv.chushou.basis.d.b.dJq());
+            com.kascend.chushou.b.dwB().b = tv.chushou.zues.utils.a.fX(tv.chushou.basis.d.b.dJq());
             com.kascend.chushou.d.e.a();
         }
     }
 
     private final void e() {
-        tv.chushou.a.a.b.a.dJA().M(e.mIY);
-        com.kascend.chushou.toolkit.d.a.dyK().b();
+        tv.chushou.a.a.b.a.dJB().M(e.mIY);
+        com.kascend.chushou.toolkit.d.a.dyL().b();
     }
 
     public final void a(Context context, String str, String str2) {
@@ -185,10 +185,10 @@ public final class a {
     }
 
     public final void a(Context context) {
-        ThirdParty thirdParty = (ThirdParty) tv.chushou.basis.d.b.dJr().S(ThirdParty.class);
+        ThirdParty thirdParty = (ThirdParty) tv.chushou.basis.d.b.dJs().S(ThirdParty.class);
         if (thirdParty != null) {
             if (context == null) {
-                context = tv.chushou.basis.d.b.dJp();
+                context = tv.chushou.basis.d.b.dJq();
             }
             if (thirdParty.isLogined()) {
                 b(context);
@@ -228,9 +228,9 @@ public final class a {
 
     public final void c() {
         if (!LoginManager.Instance().islogined()) {
-            com.kascend.chushou.d.h dwH = com.kascend.chushou.d.h.dwH();
-            q.i(dwH, "SP_Manager.Instance()");
-            String s = dwH.s();
+            com.kascend.chushou.d.h dwI = com.kascend.chushou.d.h.dwI();
+            q.i(dwI, "SP_Manager.Instance()");
+            String s = dwI.s();
             if (!(s == null || s.length() == 0)) {
                 d++;
                 if (d <= 3) {
@@ -263,7 +263,7 @@ public final class a {
 
     public final void b(Context context) {
         if (context == null) {
-            context = tv.chushou.basis.d.b.dJp();
+            context = tv.chushou.basis.d.b.dJq();
         }
         Activity a = com.kascend.chushou.d.f.a(context);
         Intent intent = new Intent(context, BaiduAuthActivity.class);
@@ -275,11 +275,11 @@ public final class a {
 
     public final void c(Context context) {
         if (context == null) {
-            context = tv.chushou.basis.d.b.dJp();
+            context = tv.chushou.basis.d.b.dJq();
         }
         if (com.kascend.chushou.d.e.c(context, null)) {
             tv.chushou.zues.utils.e.d("SdkUtils", "goToRecharge");
-            ThirdParty thirdParty = (ThirdParty) tv.chushou.basis.d.b.dJr().S(ThirdParty.class);
+            ThirdParty thirdParty = (ThirdParty) tv.chushou.basis.d.b.dJs().S(ThirdParty.class);
             if (thirdParty != null) {
                 q.i(context, "c");
                 thirdParty.jumpToRecharge(context, new d());
@@ -344,7 +344,7 @@ public final class a {
 
     public final boolean a(String str) {
         if (mIW.length == 0) {
-            com.kascend.chushou.c.c.dwD().a(new b());
+            com.kascend.chushou.c.c.dwE().a(new b());
             return false;
         }
         long P = tv.chushou.zues.utils.h.P(str, 0L);

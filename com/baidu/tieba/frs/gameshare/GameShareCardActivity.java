@@ -92,7 +92,7 @@ public class GameShareCardActivity extends BaseActivity implements a.InterfaceC0
             ac.a(new ab<ShareItem>() { // from class: com.baidu.tieba.frs.gameshare.GameShareCardActivity.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.tbadk.util.ab
-                /* renamed from: bSF */
+                /* renamed from: bSG */
                 public ShareItem doInBackground() {
                     GameShareCardActivity.this.z(bitmap);
                     return GameShareCardActivity.this.u(bitmap);
@@ -115,7 +115,7 @@ public class GameShareCardActivity extends BaseActivity implements a.InterfaceC0
             ac.a(new ab<ShareItem>() { // from class: com.baidu.tieba.frs.gameshare.GameShareCardActivity.3
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.tbadk.util.ab
-                /* renamed from: bSF */
+                /* renamed from: bSG */
                 public ShareItem doInBackground() {
                     GameShareCardActivity.this.z(bitmap);
                     return GameShareCardActivity.this.u(bitmap);
@@ -138,7 +138,7 @@ public class GameShareCardActivity extends BaseActivity implements a.InterfaceC0
             ac.a(new ab<ShareItem>() { // from class: com.baidu.tieba.frs.gameshare.GameShareCardActivity.5
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.tbadk.util.ab
-                /* renamed from: bSF */
+                /* renamed from: bSG */
                 public ShareItem doInBackground() {
                     GameShareCardActivity.this.z(bitmap);
                     return GameShareCardActivity.this.u(bitmap);
@@ -161,7 +161,7 @@ public class GameShareCardActivity extends BaseActivity implements a.InterfaceC0
             ac.a(new ab<ShareItem>() { // from class: com.baidu.tieba.frs.gameshare.GameShareCardActivity.7
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.tbadk.util.ab
-                /* renamed from: bSF */
+                /* renamed from: bSG */
                 public ShareItem doInBackground() {
                     GameShareCardActivity.this.z(bitmap);
                     return GameShareCardActivity.this.u(bitmap);
@@ -199,7 +199,7 @@ public class GameShareCardActivity extends BaseActivity implements a.InterfaceC0
         paint.setTextSize(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.fontsize28));
         paint.setAntiAlias(true);
         paint.setTextAlign(Paint.Align.CENTER);
-        canvas.drawText(TbadkCoreApplication.getInst().getResources().getString(R.string.game_share_slogon), bitmap.getWidth() / 2, this.hmY.bSH() + TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds50), paint);
+        canvas.drawText(TbadkCoreApplication.getInst().getResources().getString(R.string.game_share_slogon), bitmap.getWidth() / 2, this.hmY.bSI() + TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds50), paint);
         canvas.save(31);
         canvas.restore();
     }

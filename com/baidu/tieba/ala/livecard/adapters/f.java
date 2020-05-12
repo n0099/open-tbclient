@@ -79,7 +79,7 @@ public class f extends com.baidu.tieba.frs.h<bj, com.baidu.tieba.ala.livecard.a.
                 eVar.fsB.setPage(this.aeB);
             }
             eVar.fsB.setForumName(this.mForumName);
-            eVar.fsB.jN(bOi());
+            eVar.fsB.jN(bOj());
             eVar.fsB.a(bjVar);
             bjVar.aLL();
         }

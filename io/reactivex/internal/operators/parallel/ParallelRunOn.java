@@ -26,7 +26,7 @@ public final class ParallelRunOn<T> extends io.reactivex.parallel.a<T> {
                 ((h) this.scheduler).a(length, new a(cVarArr, cVarArr2));
             } else {
                 for (int i = 0; i < length; i++) {
-                    a(i, cVarArr, cVarArr2, this.scheduler.dCC());
+                    a(i, cVarArr, cVarArr2, this.scheduler.dCD());
                 }
             }
             this.mTX.a(cVarArr2);
@@ -60,8 +60,8 @@ public final class ParallelRunOn<T> extends io.reactivex.parallel.a<T> {
     }
 
     @Override // io.reactivex.parallel.a
-    public int dCN() {
-        return this.mTX.dCN();
+    public int dCO() {
+        return this.mTX.dCO();
     }
 
     /* loaded from: classes7.dex */

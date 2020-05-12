@@ -43,8 +43,8 @@ public class c {
         this.mContext = context;
     }
 
-    public void cse() {
-        if (!this.mIsShowing && isMainProcess() && csf()) {
+    public void csf() {
+        if (!this.mIsShowing && isMainProcess() && csg()) {
             if (this.mHandlerThread == null) {
                 this.mHandlerThread = new HandlerThread("splash-thread");
                 this.mHandlerThread.start();
@@ -151,7 +151,7 @@ public class c {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private boolean csf() {
+    private boolean csg() {
         List<String> eL = eL(this.mContext);
         if (eL == null || eL.size() == 0) {
             return false;

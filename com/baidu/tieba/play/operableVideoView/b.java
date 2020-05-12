@@ -59,11 +59,11 @@ public class b extends d {
     }
 
     @Override // com.baidu.tieba.play.operableVideoView.d
-    public void cEQ() {
+    public void cER() {
     }
 
     @Override // com.baidu.tieba.play.operableVideoView.d
-    public void cEP() {
+    public void cEQ() {
         this.kjA = 32;
     }
 
@@ -71,31 +71,31 @@ public class b extends d {
     public void onClick(View view) {
         if (view != null) {
             if (view.getId() == R.id.video_mute) {
-                cKI();
+                cKJ();
                 return;
             }
             if (!j.isNetWorkAvailable()) {
                 l.showToast(this.mContext, (int) R.string.no_network_guide);
             } else if (this.ahN) {
-                bEF();
+                bEG();
             } else if ("index".equals(this.mFrom) || "frs".equals(this.mFrom) || "concern_tab".equals(this.mFrom) || "video_tab".equals(this.mFrom) || "14".equals(this.mFrom)) {
                 if (TbSingleton.getInstance().getNewVideoClickType() == TbSingleton.NEW_VIDEO_CLICK_TEST_SWITCH_OFF) {
-                    bEG();
+                    bEH();
                 } else if (TbSingleton.getInstance().getNewVideoClickType() == TbSingleton.NEW_VIDEO_CLICK_TEST_ENTER_PB) {
-                    cKz();
+                    cKA();
                 } else {
-                    bEG();
+                    bEH();
                 }
             } else {
-                bEG();
+                bEH();
             }
             if (this.afV != null) {
-                this.afV.onClick(cJn());
+                this.afV.onClick(cJo());
             }
         }
     }
 
-    private void bEF() {
+    private void bEG() {
         if (this.kjg != null) {
             ArrayList arrayList = new ArrayList();
             if (this.kjh != null) {
@@ -110,7 +110,7 @@ public class b extends d {
         }
     }
 
-    private void bEG() {
+    private void bEH() {
         if (this.hzu != null) {
             if (this.kjh != null) {
                 this.hzu.copyFromThreadInfo(this.kjh);
@@ -123,9 +123,9 @@ public class b extends d {
         }
     }
 
-    private void cKz() {
+    private void cKA() {
         if (this.adf != null) {
-            this.adf.onClick(cJn());
+            this.adf.onClick(cJo());
         } else if (this.hzu != null) {
             String str = this.hzu.threadId;
             String str2 = this.hzu.forumId;
@@ -144,13 +144,13 @@ public class b extends d {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.play.operableVideoView.d
-    public void cEN() {
+    public void cEO() {
         if (this.kjH == this.kjz) {
-            cKA();
+            cKB();
         }
     }
 
-    public void cKA() {
+    public void cKB() {
         Ah(this.kjA);
     }
 

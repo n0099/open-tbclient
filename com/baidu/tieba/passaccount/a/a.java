@@ -53,7 +53,7 @@ public class a extends com.baidu.tbadk.core.a.a {
     private a() {
     }
 
-    public static a cus() {
+    public static a cut() {
         if (jkn == null) {
             jkn = new a();
         }

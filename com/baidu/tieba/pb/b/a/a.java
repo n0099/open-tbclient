@@ -22,7 +22,7 @@ public class a implements c {
     }
 
     @Override // com.baidu.tieba.pb.b.a.c
-    public CharSequence cDf() {
+    public CharSequence cDg() {
         return b(this.jIG);
     }
 
@@ -46,7 +46,7 @@ public class a implements c {
     }
 
     @Override // com.baidu.tieba.pb.b.a.c
-    public boolean cDg() {
+    public boolean cDh() {
         return false;
     }
 }

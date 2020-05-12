@@ -30,7 +30,7 @@ public class d extends f {
                 layoutParams.height = i / 5;
                 layoutParams.width = i;
                 this.mzZ.setLayoutParams(layoutParams);
-                com.kascend.chushou.a.a.dwB().b(listItem, this.mpu, fU.x / 5, ((fU.x / 5) * 360) / 144, ((fU.x / 5) * 144) / 144);
+                com.kascend.chushou.a.a.dwC().b(listItem, this.mpu, fU.x / 5, ((fU.x / 5) * 360) / 144, ((fU.x / 5) * 144) / 144);
                 if (aVar.a) {
                     if (b()) {
                         c();
@@ -59,7 +59,7 @@ public class d extends f {
                 this.e.setVisibility(8);
                 if (aVar.b) {
                     Point fU2 = tv.chushou.zues.utils.a.fU(this.q);
-                    if (com.kascend.chushou.a.a.dwB().a(listItem, this.mzZ, fU2.x, (fU2.x * aVar.c) / 720, (fU2.x * aVar.d) / 720) == 0) {
+                    if (com.kascend.chushou.a.a.dwC().a(listItem, this.mzZ, fU2.x, (fU2.x * aVar.c) / 720, (fU2.x * aVar.d) / 720) == 0) {
                         int i2 = fU2.x;
                         ViewGroup.LayoutParams layoutParams2 = this.mzZ.getLayoutParams();
                         layoutParams2.width = i2;

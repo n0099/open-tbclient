@@ -41,17 +41,17 @@ public abstract class a implements d, j, a.InterfaceC0784a {
         this.paint.setStrokeCap(cap);
         this.paint.setStrokeJoin(join);
         this.paint.setStrokeMiter(f);
-        this.mOp = dVar.dBo();
-        this.mOo = bVar.dBo();
+        this.mOp = dVar.dBp();
+        this.mOo = bVar.dBp();
         if (bVar2 == null) {
             this.mOq = null;
         } else {
-            this.mOq = bVar2.dBo();
+            this.mOq = bVar2.dBp();
         }
         this.Br = new ArrayList(list.size());
         this.Bo = new float[list.size()];
         for (int i = 0; i < list.size(); i++) {
-            this.Br.add(list.get(i).dBo());
+            this.Br.add(list.get(i).dBp());
         }
         aVar.a(this.mOp);
         aVar.a(this.mOo);
@@ -84,7 +84,7 @@ public abstract class a implements d, j, a.InterfaceC0784a {
         while (size >= 0) {
             b bVar = list.get(size);
             size--;
-            rVar = ((bVar instanceof r) && ((r) bVar).dBe() == ShapeTrimPath.Type.Individually) ? (r) bVar : rVar;
+            rVar = ((bVar instanceof r) && ((r) bVar).dBf() == ShapeTrimPath.Type.Individually) ? (r) bVar : rVar;
         }
         if (rVar != null) {
             rVar.a(this);
@@ -93,7 +93,7 @@ public abstract class a implements d, j, a.InterfaceC0784a {
         C0783a c0783a2 = null;
         while (size2 >= 0) {
             b bVar2 = list2.get(size2);
-            if ((bVar2 instanceof r) && ((r) bVar2).dBe() == ShapeTrimPath.Type.Individually) {
+            if ((bVar2 instanceof r) && ((r) bVar2).dBf() == ShapeTrimPath.Type.Individually) {
                 if (c0783a2 != null) {
                     this.Bn.add(c0783a2);
                 }
@@ -166,9 +166,9 @@ public abstract class a implements d, j, a.InterfaceC0784a {
             }
             length = this.Bk.getLength() + f;
         }
-        float floatValue = (c0783a.mOs.dBh().getValue().floatValue() * f) / 360.0f;
-        float floatValue2 = ((c0783a.mOs.dBf().getValue().floatValue() * f) / 100.0f) + floatValue;
-        float floatValue3 = ((c0783a.mOs.dBg().getValue().floatValue() * f) / 100.0f) + floatValue;
+        float floatValue = (c0783a.mOs.dBi().getValue().floatValue() * f) / 360.0f;
+        float floatValue2 = ((c0783a.mOs.dBg().getValue().floatValue() * f) / 100.0f) + floatValue;
+        float floatValue3 = ((c0783a.mOs.dBh().getValue().floatValue() * f) / 100.0f) + floatValue;
         int size2 = c0783a.Bu.size() - 1;
         float f2 = 0.0f;
         while (size2 >= 0) {

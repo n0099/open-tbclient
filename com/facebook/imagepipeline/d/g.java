@@ -44,7 +44,7 @@ public class g {
         this.mbM = jVar3;
     }
 
-    private String drc() {
+    private String drd() {
         return String.valueOf(this.mbL.getAndIncrement());
     }
 
@@ -103,7 +103,7 @@ public class g {
         return this.mbE.b(S(uri));
     }
 
-    public p<com.facebook.cache.common.b, com.facebook.imagepipeline.g.c> drd() {
+    public p<com.facebook.cache.common.b, com.facebook.imagepipeline.g.c> dre() {
         return this.mbE;
     }
 
@@ -114,7 +114,7 @@ public class g {
     /* JADX DEBUG: Type inference failed for r3v0. Raw type applied. Possible types: bolts.f<java.lang.Boolean, bolts.g<java.lang.Boolean>>, bolts.f<java.lang.Boolean, bolts.g<TContinuationResult>> */
     public com.facebook.datasource.b<Boolean> a(ImageRequest imageRequest) {
         final com.facebook.cache.common.b c = this.mbI.c(imageRequest, null);
-        final com.facebook.datasource.g dnH = com.facebook.datasource.g.dnH();
+        final com.facebook.datasource.g dnI = com.facebook.datasource.g.dnI();
         this.mbG.k(c).b(new bolts.f<Boolean, bolts.g<Boolean>>() { // from class: com.facebook.imagepipeline.d.g.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // bolts.f
@@ -130,18 +130,18 @@ public class g {
             @Override // bolts.f
             /* renamed from: b */
             public Void a(bolts.g<Boolean> gVar) throws Exception {
-                dnH.aP(Boolean.valueOf((gVar.isCancelled() || gVar.gu() || !gVar.getResult().booleanValue()) ? false : true));
+                dnI.aP(Boolean.valueOf((gVar.isCancelled() || gVar.gu() || !gVar.getResult().booleanValue()) ? false : true));
                 return null;
             }
         });
-        return dnH;
+        return dnI;
     }
 
     private <T> com.facebook.datasource.b<com.facebook.common.references.a<T>> a(aj<com.facebook.common.references.a<T>> ajVar, ImageRequest imageRequest, ImageRequest.RequestLevel requestLevel, Object obj, @Nullable com.facebook.imagepipeline.h.c cVar) {
         boolean z = false;
         com.facebook.imagepipeline.h.c a = a(imageRequest, cVar);
         try {
-            return com.facebook.imagepipeline.e.c.a(ajVar, new ap(imageRequest, drc(), a, obj, ImageRequest.RequestLevel.getMax(imageRequest.dtS(), requestLevel), false, (imageRequest.duN() || !com.facebook.common.util.d.G(imageRequest.duI())) ? true : true, imageRequest.dtU()), a);
+            return com.facebook.imagepipeline.e.c.a(ajVar, new ap(imageRequest, drd(), a, obj, ImageRequest.RequestLevel.getMax(imageRequest.dtT(), requestLevel), false, (imageRequest.duO() || !com.facebook.common.util.d.G(imageRequest.duJ())) ? true : true, imageRequest.dtV()), a);
         } catch (Exception e) {
             return com.facebook.datasource.c.B(e);
         }
@@ -150,7 +150,7 @@ public class g {
     private com.facebook.datasource.b<Void> a(aj<Void> ajVar, ImageRequest imageRequest, ImageRequest.RequestLevel requestLevel, Object obj, Priority priority) {
         com.facebook.imagepipeline.h.c a = a(imageRequest, null);
         try {
-            return com.facebook.imagepipeline.e.d.a(ajVar, new ap(imageRequest, drc(), a, obj, ImageRequest.RequestLevel.getMax(imageRequest.dtS(), requestLevel), true, false, priority), a);
+            return com.facebook.imagepipeline.e.d.a(ajVar, new ap(imageRequest, drd(), a, obj, ImageRequest.RequestLevel.getMax(imageRequest.dtT(), requestLevel), true, false, priority), a);
         } catch (Exception e) {
             return com.facebook.datasource.c.B(e);
         }
@@ -158,14 +158,14 @@ public class g {
 
     private com.facebook.imagepipeline.h.c a(ImageRequest imageRequest, @Nullable com.facebook.imagepipeline.h.c cVar) {
         if (cVar == null) {
-            if (imageRequest.dnS() == null) {
+            if (imageRequest.dnT() == null) {
                 return this.mbC;
             }
-            return new com.facebook.imagepipeline.h.b(this.mbC, imageRequest.dnS());
-        } else if (imageRequest.dnS() == null) {
+            return new com.facebook.imagepipeline.h.b(this.mbC, imageRequest.dnT());
+        } else if (imageRequest.dnT() == null) {
             return new com.facebook.imagepipeline.h.b(this.mbC, cVar);
         } else {
-            return new com.facebook.imagepipeline.h.b(this.mbC, cVar, imageRequest.dnS());
+            return new com.facebook.imagepipeline.h.b(this.mbC, cVar, imageRequest.dnT());
         }
     }
 
@@ -181,14 +181,14 @@ public class g {
     }
 
     public void pause() {
-        this.mbJ.duE();
-    }
-
-    public void resume() {
         this.mbJ.duF();
     }
 
-    public com.facebook.imagepipeline.c.f dre() {
+    public void resume() {
+        this.mbJ.duG();
+    }
+
+    public com.facebook.imagepipeline.c.f drf() {
         return this.mbI;
     }
 }

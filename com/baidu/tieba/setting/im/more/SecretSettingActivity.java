@@ -39,12 +39,12 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
     private boolean kBM = false;
     private c.a kBU = new c.a() { // from class: com.baidu.tieba.setting.im.more.SecretSettingActivity.1
         @Override // com.baidu.tieba.setting.im.more.c.a
-        public void cPM() {
-            SecretSettingActivity.this.cPK();
+        public void cPN() {
+            SecretSettingActivity.this.cPL();
         }
 
         @Override // com.baidu.tieba.setting.im.more.c.a
-        public void cPN() {
+        public void cPO() {
             SecretSettingActivity.this.eH("like", SecretSettingActivity.this.getPageContext().getString(R.string.my_attention_bar));
             TiebaStatic.log("c12514");
         }
@@ -55,28 +55,28 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
         }
 
         @Override // com.baidu.tieba.setting.im.more.c.a
-        public void cPO() {
+        public void cPP() {
             SecretSettingActivity.this.eH(TbEnum.ParamKey.GROUP, SecretSettingActivity.this.getPageContext().getString(R.string.privacy_setting_attention_group));
             TiebaStatic.log("c10652");
         }
 
         @Override // com.baidu.tieba.setting.im.more.c.a
-        public void cPP() {
+        public void cPQ() {
             SecretSettingActivity.this.eH("live", SecretSettingActivity.this.getPageContext().getString(R.string.ala_setting_security_mylive));
         }
 
         @Override // com.baidu.tieba.setting.im.more.c.a
-        public void cPQ() {
-            SecretSettingActivity.this.cPL();
-        }
-
-        @Override // com.baidu.tieba.setting.im.more.c.a
         public void cPR() {
-            SecretSettingActivity.this.eH("reply", SecretSettingActivity.this.getPageContext().getString(R.string.privacy_setting_thread_reply));
+            SecretSettingActivity.this.cPM();
         }
 
         @Override // com.baidu.tieba.setting.im.more.c.a
         public void cPS() {
+            SecretSettingActivity.this.eH("reply", SecretSettingActivity.this.getPageContext().getString(R.string.privacy_setting_thread_reply));
+        }
+
+        @Override // com.baidu.tieba.setting.im.more.c.a
+        public void cPT() {
             SecretSettingActivity.this.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PrivacyPermissionActivityConfig(SecretSettingActivity.this.getPageContext().getPageActivity())));
         }
     };
@@ -122,11 +122,11 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
                 }
                 if (aVar != null) {
                     SecretSettingActivity.this.kBL.b(aVar);
-                    SecretSettingActivity.this.kBL.cPE();
+                    SecretSettingActivity.this.kBL.cPF();
                     SecretSettingActivity.this.kBK.ts(true);
                     SecretSettingActivity.this.kBK.d(SecretSettingActivity.this.kBL);
                     SecretSettingActivity.this.c(SecretSettingActivity.this.kBL);
-                    TbadkCoreApplication.getInst().setLocationShared(SecretSettingActivity.this.kBL.cPI());
+                    TbadkCoreApplication.getInst().setLocationShared(SecretSettingActivity.this.kBL.cPJ());
                 }
             }
         }
@@ -149,7 +149,7 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
         this.kBK = new c(this);
         this.kBL = new a();
         this.kBK.a(this.kBU);
-        if (this.kBL.cPC()) {
+        if (this.kBL.cPD()) {
             this.kBK.ts(true);
             this.kBK.d(this.kBL);
             c(this.kBL);
@@ -164,11 +164,11 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(a aVar) {
-        this.kBO = aVar.cPF();
-        this.kBP = aVar.cPD();
-        this.kBQ = aVar.cPH();
-        this.kBR = aVar.cPG();
-        this.kBS = aVar.cPJ();
+        this.kBO = aVar.cPG();
+        this.kBP = aVar.cPE();
+        this.kBQ = aVar.cPI();
+        this.kBR = aVar.cPH();
+        this.kBS = aVar.cPK();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -185,7 +185,7 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
     @Override // com.baidu.tbadk.BaseActivity
     public void onResourceRecycle() {
         super.onResourceRecycle();
-        this.kBK.cPT();
+        this.kBK.cPU();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -271,12 +271,12 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cPK() {
+    public void cPL() {
         sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_IMBLACK_LIST, new IMBlackListActivityConfig(getPageContext().getPageActivity())));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cPL() {
+    public void cPM() {
         sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_START_USER_MUTE_LIST_ACTIVITY, new UserMuteListActivityConfig(getPageContext().getPageActivity())));
     }
 

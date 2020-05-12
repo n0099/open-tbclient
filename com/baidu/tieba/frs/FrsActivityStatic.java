@@ -72,22 +72,22 @@ public class FrsActivityStatic {
 
     static {
         TbadkCoreApplication.getInst().RegisterIntent(FrsActivityConfig.class, FrsActivity.class);
-        bNU();
-        bNP();
+        bNV();
         bNQ();
         bNR();
         bNS();
         bNT();
-        LocationModel.cXa();
-        bNX();
-        bNV();
+        bNU();
+        LocationModel.cXb();
         bNY();
+        bNW();
+        bNZ();
         MessageManager.getInstance().registerListener(gXF);
         MessageManager.getInstance().registerListener(gXG);
-        bNW();
+        bNX();
     }
 
-    private static void bNP() {
+    private static void bNQ() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.ACTIVITY_START_NORMAL, new CustomMessageTask.CustomRunnable<FrsActivityConfig>() { // from class: com.baidu.tieba.frs.FrsActivityStatic.1
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<FrsActivityConfig> customMessage) {
@@ -106,7 +106,7 @@ public class FrsActivityStatic {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void bNQ() {
+    private static void bNR() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.ACTIVITY_REFRESH, new CustomMessageTask.CustomRunnable<FrsActivityConfig>() { // from class: com.baidu.tieba.frs.FrsActivityStatic.4
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<FrsActivityConfig> customMessage) {
@@ -120,7 +120,7 @@ public class FrsActivityStatic {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void bNR() {
+    private static void bNS() {
         ba.aOV().a(new ba.a() { // from class: com.baidu.tieba.frs.FrsActivityStatic.5
             @Override // com.baidu.tbadk.core.util.ba.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
@@ -226,24 +226,24 @@ public class FrsActivityStatic {
         });
     }
 
-    private static void bNS() {
+    private static void bNT() {
         MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.CMD_KV_CACHE_SUCC) { // from class: com.baidu.tieba.frs.FrsActivityStatic.8
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001012) {
-                    if (com.baidu.tieba.recapp.q.cNl().cNf() != null) {
-                        com.baidu.tieba.recapp.q.cNl().cNf().cMX();
+                    if (com.baidu.tieba.recapp.q.cNm().cNg() != null) {
+                        com.baidu.tieba.recapp.q.cNm().cNg().cMY();
                     }
-                    if (com.baidu.tieba.recapp.q.cNl().cNg() != null) {
-                        com.baidu.tieba.recapp.q.cNl().cNg().cMY();
+                    if (com.baidu.tieba.recapp.q.cNm().cNh() != null) {
+                        com.baidu.tieba.recapp.q.cNm().cNh().cMZ();
                     }
                 }
             }
         });
     }
 
-    private static void bNT() {
+    private static void bNU() {
         MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.CMD_CLEAN_SMART_FRS_COOKIE) { // from class: com.baidu.tieba.frs.FrsActivityStatic.9
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
@@ -255,7 +255,7 @@ public class FrsActivityStatic {
         });
     }
 
-    public static void bNU() {
+    public static void bNV() {
         com.baidu.tbadk.ala.b.aGN().a(1, new com.baidu.tbadk.ala.e() { // from class: com.baidu.tieba.frs.FrsActivityStatic.10
             @Override // com.baidu.tbadk.ala.e
             public View createView(Context context) {
@@ -272,7 +272,7 @@ public class FrsActivityStatic {
         });
     }
 
-    public static void bNV() {
+    public static void bNW() {
         com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_FRS_PAGE, FRSPageSocketResponsedMessage.class, false, false).setPriority(4);
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1001703, com.baidu.tieba.tbadkCore.a.a.bE(TbConfig.FRS_ADDRESS, CmdConfigSocket.CMD_FRS_PAGE));
         tbHttpMessageTask.setIsNeedLogin(false);
@@ -297,7 +297,7 @@ public class FrsActivityStatic {
         bdAsyncTask.execute(new Void[0]);
     }
 
-    private static void bNW() {
+    private static void bNX() {
         com.baidu.tieba.tbadkCore.a.a.c(CmdConfigSocket.CMD_FRS_LOAD_MORE, LoadMoreResponseSocketMessage.class, false);
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1001704, com.baidu.tieba.tbadkCore.a.a.bE(FrsLoadMoreModel.LOAD_MORE_URL, CmdConfigSocket.CMD_FRS_LOAD_MORE));
         tbHttpMessageTask.setIsNeedLogin(false);
@@ -308,7 +308,7 @@ public class FrsActivityStatic {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void bNX() {
+    private static void bNY() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_GET_FRS_NO_LIST_ITEM_ADAPTER, new CustomMessageTask.CustomRunnable<TbPageContext>() { // from class: com.baidu.tieba.frs.FrsActivityStatic.2
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<h> run(CustomMessage<TbPageContext> customMessage) {
@@ -322,7 +322,7 @@ public class FrsActivityStatic {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    public static void bNY() {
+    public static void bNZ() {
         com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_FRS_DYNAMIC, FrsDynamicSocketResponsedMessage.class, false, false).setPriority(4);
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003398, com.baidu.tieba.tbadkCore.a.a.bE(TbConfig.FRS_DYNAMIC_ADDRESS, CmdConfigSocket.CMD_FRS_DYNAMIC));
         tbHttpMessageTask.setIsNeedLogin(false);

@@ -18,7 +18,7 @@ public class a {
         interfaceC0592a.a(this.iqX.values().iterator());
     }
 
-    public void chz() {
+    public void chA() {
         this.iqX.clear();
     }
 

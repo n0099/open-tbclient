@@ -126,13 +126,13 @@ public class StickyAppBarLayoutBehavior extends AppBarLayout.Behavior {
         });
     }
 
-    public void bYH() {
+    public void bYI() {
         if (this.Wc != null) {
             this.Wc.setExpanded(true, true);
         }
     }
 
-    public void bYI() {
+    public void bYJ() {
         if (this.Wc != null) {
             this.Wc.setExpanded(false, true);
         }
@@ -142,7 +142,7 @@ public class StickyAppBarLayoutBehavior extends AppBarLayout.Behavior {
         return this.Wf;
     }
 
-    public NestedScrollHeader bYJ() {
+    public NestedScrollHeader bYK() {
         return this.hLC;
     }
 
@@ -177,7 +177,7 @@ public class StickyAppBarLayoutBehavior extends AppBarLayout.Behavior {
             if (findViewById2 instanceof HomeTabBarView) {
                 this.hLD = (HomeTabBarView) findViewById2;
             }
-            bYK();
+            bYL();
         }
         if (this.Wc != null && !this.Wg) {
             this.Wc.addOnOffsetChangedListener(this.We);
@@ -186,7 +186,7 @@ public class StickyAppBarLayoutBehavior extends AppBarLayout.Behavior {
         return super.onLayoutChild(coordinatorLayout, appBarLayout, i);
     }
 
-    public void bYK() {
+    public void bYL() {
         StickyAppBarLayout.a onHeaderStickyListener;
         if ((this.Wc instanceof StickyAppBarLayout) && (onHeaderStickyListener = ((StickyAppBarLayout) this.Wc).getOnHeaderStickyListener()) != null) {
             setOnHeaderStickyListener(onHeaderStickyListener);

@@ -85,7 +85,7 @@ public class HotUserRankView {
 
         @Override // android.support.v4.view.ViewPager.OnPageChangeListener
         public void onPageSelected(int i) {
-            com.baidu.tieba.enterForum.hotuserrank.a.c pageData = ((a) HotUserRankView.this.gCR.get(i)).gDb.bIO().getPageData();
+            com.baidu.tieba.enterForum.hotuserrank.a.c pageData = ((a) HotUserRankView.this.gCR.get(i)).gDb.bIP().getPageData();
             HotUserRankView.this.gCS.b(pageData);
             if (pageData != null && pageData.gDF != null) {
                 an anVar = new an("c13657");

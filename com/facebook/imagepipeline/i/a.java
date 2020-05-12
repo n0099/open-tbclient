@@ -174,7 +174,7 @@ public class a implements e {
                     if (decodeStream == null) {
                         throw e4;
                     }
-                    com.facebook.common.references.a<Bitmap> a = com.facebook.common.references.a.a(decodeStream, com.facebook.imagepipeline.b.g.dqi());
+                    com.facebook.common.references.a<Bitmap> a = com.facebook.common.references.a.a(decodeStream, com.facebook.imagepipeline.b.g.dqj());
                     this.meA.release(allocate);
                     return a;
                 } catch (IOException e5) {

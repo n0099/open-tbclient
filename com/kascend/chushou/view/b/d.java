@@ -129,8 +129,8 @@ public class d extends com.kascend.chushou.view.base.a {
         String str3;
         MyUserInfo userInfo = LoginManager.Instance().getUserInfo();
         if (userInfo == null) {
-            str = h.dwH().c();
-            str2 = h.dwH().b();
+            str = h.dwI().c();
+            str2 = h.dwI().b();
         } else {
             str = userInfo.mNickname;
             str2 = userInfo.mUserID;

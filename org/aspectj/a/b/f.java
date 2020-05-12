@@ -60,7 +60,7 @@ abstract class f implements org.aspectj.lang.c {
         return a(h.nfU);
     }
 
-    public int dGz() {
+    public int dGA() {
         if (this.miX == -1) {
             this.miX = Jr(0);
         }
@@ -74,21 +74,21 @@ abstract class f implements org.aspectj.lang.c {
         return this.name;
     }
 
-    public Class dGA() {
+    public Class dGB() {
         if (this.nfE == null) {
             this.nfE = Js(2);
         }
         return this.nfE;
     }
 
-    public String dGB() {
+    public String dGC() {
         if (this.nfD == null) {
-            this.nfD = dGA().getName();
+            this.nfD = dGB().getName();
         }
         return this.nfD;
     }
 
-    private ClassLoader dGC() {
+    private ClassLoader dGD() {
         if (this.nfu == null) {
             this.nfu = getClass().getClassLoader();
         }
@@ -119,7 +119,7 @@ abstract class f implements org.aspectj.lang.c {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public Class Js(int i) {
-        return org.aspectj.a.b.b.b(Jq(i), dGC());
+        return org.aspectj.a.b.b.b(Jq(i), dGD());
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -128,7 +128,7 @@ abstract class f implements org.aspectj.lang.c {
         int countTokens = stringTokenizer.countTokens();
         Class[] clsArr = new Class[countTokens];
         for (int i2 = 0; i2 < countTokens; i2++) {
-            clsArr[i2] = org.aspectj.a.b.b.b(stringTokenizer.nextToken(), dGC());
+            clsArr[i2] = org.aspectj.a.b.b.b(stringTokenizer.nextToken(), dGD());
         }
         return clsArr;
     }
@@ -139,32 +139,32 @@ abstract class f implements org.aspectj.lang.c {
         private SoftReference nfI;
 
         public b() {
-            dGE();
+            dGF();
         }
 
         @Override // org.aspectj.a.b.f.a
         public String get(int i) {
-            String[] dGD = dGD();
-            if (dGD == null) {
+            String[] dGE = dGE();
+            if (dGE == null) {
                 return null;
             }
-            return dGD[i];
+            return dGE[i];
         }
 
         @Override // org.aspectj.a.b.f.a
         public void set(int i, String str) {
-            String[] dGD = dGD();
-            if (dGD == null) {
-                dGD = dGE();
+            String[] dGE = dGE();
+            if (dGE == null) {
+                dGE = dGF();
             }
-            dGD[i] = str;
-        }
-
-        private String[] dGD() {
-            return (String[]) this.nfI.get();
+            dGE[i] = str;
         }
 
         private String[] dGE() {
+            return (String[]) this.nfI.get();
+        }
+
+        private String[] dGF() {
             String[] strArr = new String[3];
             this.nfI = new SoftReference(strArr);
             return strArr;

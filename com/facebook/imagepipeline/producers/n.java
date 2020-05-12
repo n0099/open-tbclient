@@ -7,7 +7,7 @@ public abstract class n<I, O> extends b<I> {
         this.mff = kVar;
     }
 
-    public k<O> duc() {
+    public k<O> dud() {
         return this.mff;
     }
 
@@ -17,8 +17,8 @@ public abstract class n<I, O> extends b<I> {
     }
 
     @Override // com.facebook.imagepipeline.producers.b
-    protected void dsA() {
-        this.mff.dmS();
+    protected void dsB() {
+        this.mff.dmT();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

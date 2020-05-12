@@ -106,18 +106,18 @@ public class NetworkChangeNotifier {
         this.lKG.remove(Long.valueOf(j));
     }
 
-    public static NetworkChangeNotifier djj() {
+    public static NetworkChangeNotifier djk() {
         if ($assertionsDisabled || lKL != null) {
             return lKL;
         }
         throw new AssertionError();
     }
 
-    public static void djk() {
-        djj().a(true, (NetworkChangeNotifierAutoDetect.RegistrationPolicy) new RegistrationPolicyAlwaysRegister());
+    public static void djl() {
+        djk().a(true, (NetworkChangeNotifierAutoDetect.RegistrationPolicy) new RegistrationPolicyAlwaysRegister());
     }
 
-    private void djl() {
+    private void djm() {
         if (this.lKI != null) {
             this.lKI.destroy();
             this.lKI = null;
@@ -165,12 +165,12 @@ public class NetworkChangeNotifier {
             }
             return;
         }
-        djl();
+        djm();
     }
 
     @CalledByNative
     public static void forceConnectivityState(boolean z) {
-        djj().vj(z);
+        djk().vj(z);
     }
 
     private void vj(boolean z) {
@@ -182,32 +182,32 @@ public class NetworkChangeNotifier {
 
     @CalledByNative
     public static void fakeNetworkConnected(int i, int i2) {
-        djj().dc(i, i2);
+        djk().dc(i, i2);
     }
 
     @CalledByNative
     public static void fakeNetworkSoonToBeDisconnected(int i) {
-        djj().Fu(i);
+        djk().Fu(i);
     }
 
     @CalledByNative
     public static void fakeNetworkDisconnected(int i) {
-        djj().Fv(i);
+        djk().Fv(i);
     }
 
     @CalledByNative
     public static void fakePurgeActiveNetworkList(int[] iArr) {
-        djj().k(iArr);
+        djk().k(iArr);
     }
 
     @CalledByNative
     public static void fakeDefaultNetwork(int i, int i2) {
-        djj().db(i2, i);
+        djk().db(i2, i);
     }
 
     @CalledByNative
     public static void fakeMaxBandwidthChanged(double d) {
-        djj().A(d);
+        djk().A(d);
     }
 
     /* JADX INFO: Access modifiers changed from: private */

@@ -61,21 +61,21 @@ public class b extends c<a> {
     public void a(a aVar, af.a aVar2) {
         aVar.lZR = SystemClock.elapsedRealtime();
         Uri uri = aVar.getUri();
-        dqg();
+        dqh();
         try {
             Request.Builder builder = new Request.Builder().cacheControl(new CacheControl.Builder().noStore().build()).url(uri.toString()).get();
-            com.facebook.imagepipeline.common.a dsT = aVar.dud().dtQ().dsT();
-            if (dsT != null) {
-                builder.addHeader(Headers.RANGE, dsT.dqF());
+            com.facebook.imagepipeline.common.a dsU = aVar.due().dtR().dsU();
+            if (dsU != null) {
+                builder.addHeader(Headers.RANGE, dsU.dqG());
             }
-            Map<String, String> duh = aVar.duh();
-            if (duh == null) {
+            Map<String, String> dui = aVar.dui();
+            if (dui == null) {
                 builder.addHeader("User-Agent", "Mozilla/5.0 (Linux; Android 4.4.2; Nexus 5 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/30.0.0.0 Mobile Safari/537.36");
             } else {
-                if (!duh.containsKey("User-Agent")) {
+                if (!dui.containsKey("User-Agent")) {
                     builder.addHeader("User-Agent", "Mozilla/5.0 (Linux; Android 4.4.2; Nexus 5 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/30.0.0.0 Mobile Safari/537.36");
                 }
-                for (Map.Entry<String, String> entry : duh.entrySet()) {
+                for (Map.Entry<String, String> entry : dui.entrySet()) {
                     builder.addHeader(entry.getKey(), entry.getValue());
                 }
             }
@@ -106,9 +106,9 @@ public class b extends c<a> {
 
     protected void a(final a aVar, final af.a aVar2, Request request) {
         final Call newCall = this.lZK.newCall(request);
-        aVar.dud().a(new com.facebook.imagepipeline.producers.e() { // from class: com.facebook.imagepipeline.a.a.b.1
+        aVar.due().a(new com.facebook.imagepipeline.producers.e() { // from class: com.facebook.imagepipeline.a.a.b.1
             @Override // com.facebook.imagepipeline.producers.e, com.facebook.imagepipeline.producers.al
-            public void dqh() {
+            public void dqi() {
                 if (Looper.myLooper() == Looper.getMainLooper()) {
                     b.this.lZL.execute(new Runnable() { // from class: com.facebook.imagepipeline.a.a.b.1.1
                         @Override // java.lang.Runnable
@@ -155,13 +155,13 @@ public class b extends c<a> {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Call call, Exception exc, af.a aVar) {
         if (call.isCanceled()) {
-            aVar.dmS();
+            aVar.dmT();
         } else {
             aVar.G(exc);
         }
     }
 
-    private void dqg() {
+    private void dqh() {
         if (this.lZL == null) {
             synchronized (this) {
                 if (this.lZL == null) {

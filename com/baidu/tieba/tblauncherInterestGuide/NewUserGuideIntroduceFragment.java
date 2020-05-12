@@ -35,7 +35,7 @@ public class NewUserGuideIntroduceFragment extends BaseFragment {
         public void handleMessage(Message message) {
             switch (message.what) {
                 case 0:
-                    NewUserGuideIntroduceFragment.this.cYK();
+                    NewUserGuideIntroduceFragment.this.cYL();
                     return;
                 case 1:
                     NewUserGuideIntroduceFragment.this.CA();
@@ -74,13 +74,13 @@ public class NewUserGuideIntroduceFragment extends BaseFragment {
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     if (NewUserGuideIntroduceFragment.this.kZF != null) {
-                        if (NewUserGuideIntroduceFragment.this.kZF.cYH().cYN()) {
-                            NewUserGuideIntroduceFragment.this.kZF.cYJ();
+                        if (NewUserGuideIntroduceFragment.this.kZF.cYI().cYO()) {
+                            NewUserGuideIntroduceFragment.this.kZF.cYK();
                             return;
                         }
-                        RightSlideViewPager cYG = NewUserGuideIntroduceFragment.this.kZF.cYG();
-                        if (cYG != null) {
-                            cYG.setCurrentItem(1, true);
+                        RightSlideViewPager cYH = NewUserGuideIntroduceFragment.this.kZF.cYH();
+                        if (cYH != null) {
+                            cYH.setCurrentItem(1, true);
                         }
                     }
                 }
@@ -92,7 +92,7 @@ public class NewUserGuideIntroduceFragment extends BaseFragment {
                 throw e;
             }
             BdLog.e(e);
-            this.kZF.cYJ();
+            this.kZF.cYK();
             TbadkApplication.getInst().onAppMemoryLow();
             return new FrameLayout(layoutInflater.getContext());
         }
@@ -114,13 +114,13 @@ public class NewUserGuideIntroduceFragment extends BaseFragment {
         stop();
     }
 
-    public void cYK() {
+    public void cYL() {
         if (this.kZJ != null) {
             this.kZJ.onStart();
         }
     }
 
-    public void cYL() {
+    public void cYM() {
         if (this.kZJ != null) {
             this.kZJ.onStop();
         }

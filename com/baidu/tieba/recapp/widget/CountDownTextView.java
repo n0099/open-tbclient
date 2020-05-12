@@ -25,10 +25,10 @@ public class CountDownTextView extends TextView {
         this.mHandler = null;
         this.kze = null;
         this.kzf = true;
-        cOD();
+        cOE();
     }
 
-    private void cOD() {
+    private void cOE() {
         this.eDu = new a();
         this.mHandler = new Handler();
     }
@@ -38,7 +38,7 @@ public class CountDownTextView extends TextView {
         this.mHandler = null;
         this.kze = null;
         this.kzf = true;
-        cOD();
+        cOE();
     }
 
     public CountDownTextView(Context context, @Nullable AttributeSet attributeSet, int i) {
@@ -46,7 +46,7 @@ public class CountDownTextView extends TextView {
         this.mHandler = null;
         this.kze = null;
         this.kzf = true;
-        cOD();
+        cOE();
     }
 
     public void update(int i) {

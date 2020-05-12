@@ -81,8 +81,8 @@ public class PersonalGroupFragment extends BaseFragment implements View.OnClickL
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-            PersonGroupActivity ciq = PersonalGroupFragment.this.ciq();
-            if (PersonalGroupFragment.this.getActivity() != null && PersonalGroupFragment.this.itz != null && ciq != null && ciq.cin() != null) {
+            PersonGroupActivity cir = PersonalGroupFragment.this.cir();
+            if (PersonalGroupFragment.this.getActivity() != null && PersonalGroupFragment.this.itz != null && cir != null && cir.cio() != null) {
                 if (socketResponsedMessage.getCmd() == 103003) {
                     PersonalGroupFragment.this.itz.completePullRefreshPostDelayed(0L);
                 }
@@ -98,11 +98,11 @@ public class PersonalGroupFragment extends BaseFragment implements View.OnClickL
                 if (PersonalGroupFragment.this.pageType == 1) {
                     groups = responseGroupsByUidMessage.getCommonGroups();
                 }
-                if (!ciq.cim()) {
-                    ciq.setGroups(responseGroupsByUidMessage.getGroups());
-                    ciq.setCommonGroups(responseGroupsByUidMessage.getCommonGroups());
+                if (!cir.cin()) {
+                    cir.setGroups(responseGroupsByUidMessage.getGroups());
+                    cir.setCommonGroups(responseGroupsByUidMessage.getCommonGroups());
                 }
-                ciq.cq(responseGroupsByUidMessage.getGroupNum(), responseGroupsByUidMessage.getCommonGroupNum());
+                cir.cq(responseGroupsByUidMessage.getGroupNum(), responseGroupsByUidMessage.getCommonGroupNum());
                 if (groups != null) {
                     PersonalGroupFragment.this.itA.dp(groups);
                     PersonalGroupFragment.this.itA.notifyDataSetChanged();
@@ -118,8 +118,8 @@ public class PersonalGroupFragment extends BaseFragment implements View.OnClickL
                 }
                 if (socketResponsedMessage.getCmd() == 103003) {
                     PersonalGroupFragment.this.hYl = false;
-                } else if (socketResponsedMessage.getCmd() == 2001106 && ciq.cin() != null) {
-                    ciq.cin().update();
+                } else if (socketResponsedMessage.getCmd() == 2001106 && cir.cio() != null) {
+                    cir.cio().update();
                 }
             }
         }
@@ -128,8 +128,8 @@ public class PersonalGroupFragment extends BaseFragment implements View.OnClickL
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            PersonGroupActivity ciq = PersonalGroupFragment.this.ciq();
-            if (PersonalGroupFragment.this.getActivity() != null && PersonalGroupFragment.this.itz != null && ciq != null && ciq.cin() != null) {
+            PersonGroupActivity cir = PersonalGroupFragment.this.cir();
+            if (PersonalGroupFragment.this.getActivity() != null && PersonalGroupFragment.this.itz != null && cir != null && cir.cio() != null) {
                 ResponseGroupsByUidLocalMessage responseGroupsByUidLocalMessage = (ResponseGroupsByUidLocalMessage) customResponsedMessage;
                 if (responseGroupsByUidLocalMessage.getError() != 0) {
                     if (responseGroupsByUidLocalMessage.getError() != 0 && !TextUtils.isEmpty(responseGroupsByUidLocalMessage.getErrorString())) {
@@ -138,12 +138,12 @@ public class PersonalGroupFragment extends BaseFragment implements View.OnClickL
                     }
                     return;
                 }
-                if (ciq.cim()) {
+                if (cir.cin()) {
                     List<GroupInfoData> groups = responseGroupsByUidLocalMessage.getGroups();
                     if (PersonalGroupFragment.this.pageType == 1) {
                         groups = responseGroupsByUidLocalMessage.getCommonGroups();
                     }
-                    ciq.cq(responseGroupsByUidLocalMessage.getGroupNum(), responseGroupsByUidLocalMessage.getCommonGroupNum());
+                    cir.cq(responseGroupsByUidLocalMessage.getGroupNum(), responseGroupsByUidLocalMessage.getCommonGroupNum());
                     if (groups != null) {
                         PersonalGroupFragment.this.itA.dp(groups);
                         PersonalGroupFragment.this.itA.notifyDataSetChanged();
@@ -158,8 +158,8 @@ public class PersonalGroupFragment extends BaseFragment implements View.OnClickL
                         PersonalGroupFragment.this.itz.setVisibility(0);
                     }
                 }
-                if (ciq.cin() != null) {
-                    ciq.cin().update();
+                if (cir.cio() != null) {
+                    cir.cio().update();
                 }
             }
         }
@@ -176,7 +176,7 @@ public class PersonalGroupFragment extends BaseFragment implements View.OnClickL
     };
     public boolean hYl = false;
 
-    public PersonGroupActivity ciq() {
+    public PersonGroupActivity cir() {
         BaseFragmentActivity baseFragmentActivity = getBaseFragmentActivity();
         if (baseFragmentActivity instanceof PersonGroupActivity) {
             return (PersonGroupActivity) baseFragmentActivity;
@@ -226,7 +226,7 @@ public class PersonalGroupFragment extends BaseFragment implements View.OnClickL
     public void onStart() {
         super.onStart();
         if (this.ecQ != null) {
-            this.ecQ.e(ciq().getPageContext());
+            this.ecQ.e(cir().getPageContext());
         }
     }
 
@@ -244,15 +244,15 @@ public class PersonalGroupFragment extends BaseFragment implements View.OnClickL
         this.pageType = getArguments().getInt("page_type", 0);
         getArguments().getInt("page_size", 1);
         View inflate = layoutInflater.inflate(R.layout.person_group_fragment, viewGroup, false);
-        PersonGroupActivity ciq = ciq();
-        if (ciq != null && !ciq.cim()) {
+        PersonGroupActivity cir = cir();
+        if (cir != null && !cir.cin()) {
             if (this.pageType == 0) {
-                cK = NoDataViewFactory.d.vl(String.format(getString(R.string.person_group_no_personal_info), ciq.cil()));
+                cK = NoDataViewFactory.d.vl(String.format(getString(R.string.person_group_no_personal_info), cir.cim()));
             } else {
                 cK = NoDataViewFactory.d.vl(getString(R.string.person_group_no_common_info));
             }
         } else {
-            cK = (ciq == null || !ciq.cim()) ? null : NoDataViewFactory.d.cK(getString(R.string.group_no_data_tip), getString(R.string.group_no_data_tip_1));
+            cK = (cir == null || !cir.cin()) ? null : NoDataViewFactory.d.cK(getString(R.string.group_no_data_tip), getString(R.string.group_no_data_tip_1));
         }
         this.ecQ = NoDataViewFactory.a(getActivity(), null, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, (int) getResources().getDimension(R.dimen.ds102)), cK, null);
         this.itz = (BdListView) inflate.findViewById(R.id.person_group_list);
@@ -261,9 +261,9 @@ public class PersonalGroupFragment extends BaseFragment implements View.OnClickL
         this.mPullView.setListPullRefreshListener(new g.c() { // from class: com.baidu.tieba.im.mygroup.PersonalGroupFragment.2
             @Override // com.baidu.tbadk.core.view.g.c
             public void onListPullRefresh(boolean z) {
-                PersonGroupActivity ciq2 = PersonalGroupFragment.this.ciq();
-                if (ciq2 != null) {
-                    ciq2.cin().update();
+                PersonGroupActivity cir2 = PersonalGroupFragment.this.cir();
+                if (cir2 != null) {
+                    cir2.cio().update();
                 }
             }
         });
@@ -273,7 +273,7 @@ public class PersonalGroupFragment extends BaseFragment implements View.OnClickL
         this.ecQ.setVisibility(8);
         this.itz.removeHeaderView(this.ecQ);
         this.itB = inflate.findViewById(R.id.group_fragment_parent);
-        if (ciq() != null && this.pageType == ciq().cik()) {
+        if (cir() != null && this.pageType == cir().cil()) {
             this.itz.startPullRefresh();
         }
         return inflate;
@@ -282,16 +282,16 @@ public class PersonalGroupFragment extends BaseFragment implements View.OnClickL
     @Override // com.baidu.tbadk.core.BaseFragment, android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         GroupInfoData item = this.itA.getItem(i);
-        PersonGroupActivity ciq = ciq();
-        if (ciq != null && !ciq.b(item) && item != null) {
-            if (this.pageType == 1 || ciq.cim()) {
-                if (ciq.cim()) {
+        PersonGroupActivity cir = cir();
+        if (cir != null && !cir.b(item) && item != null) {
+            if (this.pageType == 1 || cir.cin()) {
+                if (cir.cin()) {
                     TiebaStatic.eventStat(getActivity(), "my_group_item", "click", 1, new Object[0]);
                 } else {
                     TiebaStatic.eventStat(getActivity(), "common_group_item", "click", 1, new Object[0]);
                 }
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GroupChatActivityConfig(getActivity(), item.getGroupId(), item.getName(), item.getAuthorId(), "group_lstb")));
-            } else if (ciq.eB(item.getGroupId())) {
+            } else if (cir.eB(item.getGroupId())) {
                 TiebaStatic.eventStat(getActivity(), "common_group_item", "click", 1, new Object[0]);
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GroupChatActivityConfig(getActivity(), item.getGroupId(), item.getName(), item.getAuthorId(), "group_lstb")));
             } else {
@@ -309,8 +309,8 @@ public class PersonalGroupFragment extends BaseFragment implements View.OnClickL
             if (view.getTag() instanceof GroupInfoData) {
                 groupInfoData = (GroupInfoData) view.getTag();
             }
-            PersonGroupActivity ciq = ciq();
-            if (ciq != null && !ciq.b(groupInfoData) && groupInfoData != null) {
+            PersonGroupActivity cir = cir();
+            if (cir != null && !cir.b(groupInfoData) && groupInfoData != null) {
                 sendMessage(new CustomMessage((int) CmdConfigCustom.IM_GROUP_INFO_ACTIVITY_START, new GroupInfoActivityConfig(getActivity(), groupInfoData.getGroupId(), 1)));
             }
         }
@@ -326,7 +326,7 @@ public class PersonalGroupFragment extends BaseFragment implements View.OnClickL
             am.setBackgroundColor(this.ecQ, R.color.cp_bg_line_d);
         }
         if (isAdded()) {
-            ciq().getLayoutMode().onModeChanged(this.itB);
+            cir().getLayoutMode().onModeChanged(this.itB);
             this.mPullView.changeSkin(i);
         }
     }

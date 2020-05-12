@@ -11,13 +11,13 @@ public class as<T> implements aj<T> {
 
     @Override // com.facebook.imagepipeline.producers.aj
     public void c(final k<T> kVar, final ak akVar) {
-        final am dtR = akVar.dtR();
+        final am dtS = akVar.dtS();
         final String id = akVar.getId();
-        final aq<T> aqVar = new aq<T>(kVar, dtR, "BackgroundThreadHandoffProducer", id) { // from class: com.facebook.imagepipeline.producers.as.1
+        final aq<T> aqVar = new aq<T>(kVar, dtS, "BackgroundThreadHandoffProducer", id) { // from class: com.facebook.imagepipeline.producers.as.1
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.facebook.imagepipeline.producers.aq, com.facebook.common.b.h
             public void onSuccess(T t) {
-                dtR.a(id, "BackgroundThreadHandoffProducer", null);
+                dtS.a(id, "BackgroundThreadHandoffProducer", null);
                 as.this.meH.c(kVar, akVar);
             }
 
@@ -32,7 +32,7 @@ public class as<T> implements aj<T> {
         };
         akVar.a(new e() { // from class: com.facebook.imagepipeline.producers.as.2
             @Override // com.facebook.imagepipeline.producers.e, com.facebook.imagepipeline.producers.al
-            public void dqh() {
+            public void dqi() {
                 aqVar.cancel();
                 as.this.mbJ.F(aqVar);
             }

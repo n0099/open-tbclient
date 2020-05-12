@@ -14,13 +14,13 @@ public abstract class e {
 
     public abstract <T> com.baidu.tieba.lego.card.view.e a(TbPageContext<T> tbPageContext, ICardInfo iCardInfo, int i);
 
-    protected abstract void cmC();
+    protected abstract void cmD();
 
     public abstract ICardInfo d(JSONObject jSONObject, int i) throws CardParseException;
 
     public abstract String key();
 
     public e() {
-        cmC();
+        cmD();
     }
 }

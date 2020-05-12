@@ -24,7 +24,7 @@ public class b extends k {
     public b(int i) {
         super(i);
         this.gxC = new Gson();
-        bHa();
+        bHb();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -38,7 +38,7 @@ public class b extends k {
         return socketMessage;
     }
 
-    private void bHa() {
+    private void bHb() {
         int i;
         this.gxD = new SparseArray<>();
         ArrayList<HttpMessageTask> findHttpTasks = MessageManager.getInstance().findHttpTasks();

@@ -18,7 +18,7 @@ public class a {
     public interface b {
         void J(boolean z, boolean z2);
 
-        void bNH();
+        void bNI();
 
         void sY(int i);
     }
@@ -28,11 +28,11 @@ public class a {
         this.gXm = new ArrayList<>();
     }
 
-    public static a bNB() {
+    public static a bNC() {
         return C0561a.gXq;
     }
 
-    public boolean bNC() {
+    public boolean bND() {
         return this.gXn;
     }
 
@@ -49,7 +49,7 @@ public class a {
         }
         if (this.gXm.size() > 29) {
             if (this.gXo != null) {
-                this.gXo.bNH();
+                this.gXo.bNI();
                 return false;
             }
             return false;
@@ -61,7 +61,7 @@ public class a {
         return true;
     }
 
-    public List<bj> bND() {
+    public List<bj> bNE() {
         return this.gXm;
     }
 
@@ -102,7 +102,7 @@ public class a {
         private static a gXq = new a();
     }
 
-    public AntiData bNE() {
+    public AntiData bNF() {
         return this.dMD;
     }
 
@@ -146,7 +146,7 @@ public class a {
         }
     }
 
-    public boolean bNF() {
+    public boolean bNG() {
         return this.dMD != null && this.dMD.isMultiDeleteEnable() && this.gXp;
     }
 }

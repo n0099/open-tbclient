@@ -29,7 +29,7 @@ public class b implements com.facebook.fresco.animation.b.b {
     public synchronized com.facebook.common.references.a<Bitmap> ae(int i, int i2, int i3) {
         com.facebook.common.references.a<Bitmap> b;
         b = com.facebook.common.references.a.b(this.lXX);
-        dpK();
+        dpL();
         return b;
     }
 
@@ -44,7 +44,7 @@ public class b implements com.facebook.fresco.animation.b.b {
 
     @Override // com.facebook.fresco.animation.b.b
     public synchronized void clear() {
-        dpK();
+        dpL();
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:7:0x0017, code lost:
@@ -74,7 +74,7 @@ public class b implements com.facebook.fresco.animation.b.b {
     public void b(int i, com.facebook.common.references.a<Bitmap> aVar, int i2) {
     }
 
-    private synchronized void dpK() {
+    private synchronized void dpL() {
         if (this.lXW != null && this.lXV != -1) {
             this.lXW.b(this, this.lXV);
         }

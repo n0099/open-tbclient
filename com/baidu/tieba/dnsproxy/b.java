@@ -13,7 +13,7 @@ import java.util.Set;
 public class b {
     private static b gwq = null;
 
-    public static final b bGB() {
+    public static final b bGC() {
         if (gwq == null) {
             synchronized (b.class) {
                 if (gwq == null) {
@@ -79,19 +79,19 @@ public class b {
                     } catch (IOException e3) {
                         e2 = e3;
                         BdLog.detailException(e2);
-                        d.bGC().bH("test_speed", e2.getMessage());
+                        d.bGD().bH("test_speed", e2.getMessage());
                         this.dUX.destroy();
                         return Boolean.valueOf(z);
                     } catch (InterruptedException e4) {
                         e = e4;
                         BdLog.detailException(e);
-                        d.bGC().bH("test_speed", e.getMessage());
+                        d.bGD().bH("test_speed", e.getMessage());
                         this.dUX.destroy();
                         return Boolean.valueOf(z);
                     } catch (Throwable th2) {
                         th = th2;
                         BdLog.detailException(th);
-                        d.bGC().bH("test_speed", th.getMessage());
+                        d.bGD().bH("test_speed", th.getMessage());
                         this.dUX.destroy();
                         return Boolean.valueOf(z);
                     }
@@ -122,7 +122,7 @@ public class b {
                     th.printStackTrace();
                 }
             }
-            com.baidu.tieba.dnsproxy.a.d.bGQ().c(this.ip, (int) this.KJ, false);
+            com.baidu.tieba.dnsproxy.a.d.bGR().c(this.ip, (int) this.KJ, false);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -130,7 +130,7 @@ public class b {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
             boolean booleanValue = bool != null ? bool.booleanValue() : true;
-            com.baidu.tieba.dnsproxy.a.d.bGQ().c(this.ip, (int) this.KJ, booleanValue);
+            com.baidu.tieba.dnsproxy.a.d.bGR().c(this.ip, (int) this.KJ, booleanValue);
             com.baidu.adp.lib.stats.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
             statsItem.append("workflow", "dnsproxy_testspeed");
             statsItem.append("issuc", Boolean.valueOf(booleanValue));

@@ -41,7 +41,7 @@ public class FrsGameTabPagerAdapter extends PagerAdapter {
             a(i2, frsGameStrategyItemListView2);
             frsGameStrategyItemListView = frsGameStrategyItemListView2;
         } else {
-            if (tW == bSm()) {
+            if (tW == bSn()) {
                 tW = tW(3);
                 if (tW == null) {
                     FrsGameStrategyItemListView frsGameStrategyItemListView3 = new FrsGameStrategyItemListView(this.mContext, this.mPageId);
@@ -73,7 +73,7 @@ public class FrsGameTabPagerAdapter extends PagerAdapter {
         if ((obj instanceof FrsGameStrategyItemListView) && this.mCurrentPosition != i) {
             this.mCurrentPosition = i;
             this.hkP = (FrsGameStrategyItemListView) obj;
-            this.hkP.bSt();
+            this.hkP.bSu();
         }
     }
 
@@ -120,7 +120,7 @@ public class FrsGameTabPagerAdapter extends PagerAdapter {
         return null;
     }
 
-    public FrsGameStrategyItemListView bSm() {
+    public FrsGameStrategyItemListView bSn() {
         return this.hkP;
     }
 

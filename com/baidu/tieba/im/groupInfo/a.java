@@ -245,63 +245,63 @@ public class a extends com.baidu.adp.base.c<GroupInfoActivity> {
         this.ips.setVisibility(8);
     }
 
-    public RelativeLayout cgX() {
+    public RelativeLayout cgY() {
         return this.ipV;
     }
 
-    public RelativeLayout cgY() {
+    public RelativeLayout cgZ() {
         return this.ipr;
     }
 
-    public LinearLayout cgZ() {
+    public LinearLayout cha() {
         return this.ipE;
     }
 
-    public RelativeLayout cha() {
+    public RelativeLayout chb() {
         return this.ipI;
     }
 
-    public RelativeLayout chb() {
+    public RelativeLayout chc() {
         return this.ipU;
     }
 
-    public RelativeLayout chc() {
+    public RelativeLayout chd() {
         return this.ipR;
     }
 
-    public RelativeLayout chd() {
+    public RelativeLayout che() {
         return this.ipk;
     }
 
-    public View che() {
+    public View chf() {
         return this.ipO;
     }
 
-    public LinearLayout chf() {
+    public LinearLayout chg() {
         return this.iqb;
     }
 
-    public RelativeLayout chg() {
+    public RelativeLayout chh() {
         return this.ipt;
     }
 
-    public RelativeLayout chh() {
+    public RelativeLayout chi() {
         return this.ipu;
     }
 
-    public RelativeLayout chi() {
+    public RelativeLayout chj() {
         return this.ipy;
     }
 
-    public View cfR() {
+    public View cfS() {
         return this.idP;
     }
 
-    public void chj() {
+    public void chk() {
         this.ipj.setVisibility(8);
     }
 
-    public void chk() {
+    public void chl() {
         this.ipj.setVisibility(0);
     }
 
@@ -325,7 +325,7 @@ public class a extends com.baidu.adp.base.c<GroupInfoActivity> {
         }
     }
 
-    public RelativeLayout chl() {
+    public RelativeLayout chm() {
         return this.ipD;
     }
 
@@ -336,15 +336,15 @@ public class a extends com.baidu.adp.base.c<GroupInfoActivity> {
     public void a(ResponseGroupInfoLocalMessage.a aVar, boolean z) {
         if (aVar != null) {
             this.isMemGroup = aVar.isMemGroup();
-            this.iqg = aVar.chU();
-            this.iqh = aVar.chV();
+            this.iqg = aVar.chV();
+            this.iqh = aVar.chW();
             this.iqe = aVar;
             this.iqf = z;
             if (aVar.getGroup() != null) {
                 gid = aVar.getGroup().getGroupId();
             }
-            if (aVar.chP() != null) {
-                iqi = aVar.chP().getActivityId();
+            if (aVar.chQ() != null) {
+                iqi = aVar.chQ().getActivityId();
             }
             if (TbadkApplication.getInst().getSkinType() == 1) {
             }
@@ -397,7 +397,7 @@ public class a extends com.baidu.adp.base.c<GroupInfoActivity> {
                     this.ipr.setVisibility(8);
                 }
                 this.ipv.removeAllViews();
-                boolean chW = aVar.chW();
+                boolean chX = aVar.chX();
                 boolean isMemGroup = aVar.isMemGroup();
                 if (isMemGroup) {
                     am.setViewTextColor(this.iqd, R.color.common_color_10009, 1);
@@ -421,18 +421,18 @@ public class a extends com.baidu.adp.base.c<GroupInfoActivity> {
                     }
                     this.ipv.addView(imageView2);
                 }
-                if (chW) {
+                if (chX) {
                     this.iqa.setVisibility(0);
                 } else {
                     this.iqa.setVisibility(8);
                 }
             }
-            if (aVar.chP() != null) {
+            if (aVar.chQ() != null) {
                 this.ipk.setVisibility(0);
                 this.ipi.setVisibility(0);
-                GroupActivityData chP = aVar.chP();
-                if (!aVar.chU()) {
-                    if (chP.getIsEnd() != 1) {
+                GroupActivityData chQ = aVar.chQ();
+                if (!aVar.chV()) {
+                    if (chQ.getIsEnd() != 1) {
                         this.ipl.setVisibility(4);
                         this.ipm.setText(R.string.group_info_activity_not_join_tip);
                     } else {
@@ -441,17 +441,17 @@ public class a extends com.baidu.adp.base.c<GroupInfoActivity> {
                     }
                 } else {
                     this.ipl.setVisibility(0);
-                    this.ipm.setText(chP.getgActivityTitle());
-                    if (chP.getIsEnd() != 1) {
+                    this.ipm.setText(chQ.getgActivityTitle());
+                    if (chQ.getIsEnd() != 1) {
                         this.ipl.setText(R.string.group_info_activity_doing);
                         am.setViewTextColor(this.ipl, R.color.common_color_10171, 1);
                     } else {
                         this.ipl.setText(R.string.group_activity_end);
                         am.setViewTextColor(this.ipl, R.color.common_color_10168, 1);
                     }
-                    this.ipm.setText(chP.getgActivityTitle());
+                    this.ipm.setText(chQ.getgActivityTitle());
                 }
-            } else if (aVar.chV()) {
+            } else if (aVar.chW()) {
                 this.ipk.setVisibility(0);
                 this.ipi.setVisibility(0);
                 this.ipl.setVisibility(4);
@@ -461,12 +461,12 @@ public class a extends com.baidu.adp.base.c<GroupInfoActivity> {
                 this.ipi.setVisibility(8);
             }
             this.ipE.removeAllViews();
-            if (aVar.chQ() != null && aVar.chQ().size() > 0) {
-                List<MemberData> chQ = aVar.chQ();
-                int size = chQ.size();
+            if (aVar.chR() != null && aVar.chR().size() > 0) {
+                List<MemberData> chR = aVar.chR();
+                int size = chR.size();
                 int i2 = size > 5 ? 5 : size;
                 for (int i3 = 0; i3 < i2; i3++) {
-                    MemberData memberData = chQ.get(i3);
+                    MemberData memberData = chR.get(i3);
                     HeadImageView headImageView = this.ipF[i3];
                     if (headImageView == null) {
                         headImageView = new HeadImageView(this.iph.getPageContext().getPageActivity());
@@ -483,7 +483,7 @@ public class a extends com.baidu.adp.base.c<GroupInfoActivity> {
                     }
                 }
             }
-            if (aVar.chV()) {
+            if (aVar.chW()) {
                 this.ipD.setEnabled(true);
                 this.ipU.setEnabled(true);
                 am.setBackgroundResource(this.ipU, R.drawable.group_info_item);
@@ -501,7 +501,7 @@ public class a extends com.baidu.adp.base.c<GroupInfoActivity> {
                 this.ipW.setVisibility(8);
                 this.ipp.setPadding(0, 0, 0, 0);
             }
-            if (aVar.chU()) {
+            if (aVar.chV()) {
                 this.ipJ.setVisibility(0);
                 this.iqc.setVisibility(0);
                 if (this.ipy.getParent() != this.ipJ) {
@@ -514,7 +514,7 @@ public class a extends com.baidu.adp.base.c<GroupInfoActivity> {
                     this.ipL.removeView(this.ipy);
                     this.ipJ.addView(this.ipy, 1);
                 }
-                chm();
+                chn();
             } else {
                 this.ipJ.setVisibility(8);
                 this.iqc.setVisibility(8);
@@ -533,9 +533,9 @@ public class a extends com.baidu.adp.base.c<GroupInfoActivity> {
             }
             a(aVar);
             if (aVar.getGroup().getIsHidePosition() == 1) {
-                oQ(aVar.chV());
+                oQ(aVar.chW());
             } else {
-                o(aVar.chV(), this.ipP);
+                o(aVar.chW(), this.ipP);
             }
             this.bHY.setVisibility(0);
             this.ipG.setVisibility(0);
@@ -547,12 +547,12 @@ public class a extends com.baidu.adp.base.c<GroupInfoActivity> {
             if (xi(aVar.getGroup().getFlag())) {
                 oR(z);
             } else {
-                chn();
+                cho();
             }
         }
     }
 
-    public void chm() {
+    public void chn() {
         this.ipH.setCompoundDrawablesWithIntrinsicBounds(am.getDrawable(R.drawable.icon_brief_jinba), (Drawable) null, (Drawable) null, (Drawable) null);
         am.setViewTextColor(this.ipH, R.color.cp_cont_a, 1);
         this.ipH.setText(this.iph.getPageContext().getString(R.string.i_want_talk));
@@ -576,7 +576,7 @@ public class a extends com.baidu.adp.base.c<GroupInfoActivity> {
         return ((i & 2) >> 1) != 1;
     }
 
-    private void chn() {
+    private void cho() {
         this.ipH.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
         this.ipH.setText(this.iph.getPageContext().getString(R.string.group_info_refuse_join));
         this.ipH.setTextColor(this.iph.getResources().getColorStateList(R.color.cp_cont_a));
@@ -599,21 +599,21 @@ public class a extends com.baidu.adp.base.c<GroupInfoActivity> {
 
     public void a(ResponseGroupInfoLocalMessage.a aVar) {
         if (aVar != null) {
-            this.ips.setIsManager(aVar.chV());
-            if (aVar.chV()) {
+            this.ips.setIsManager(aVar.chW());
+            if (aVar.chW()) {
                 this.ips.setVisibility(0);
-                if (aVar.chR() != null && aVar.chR().size() == 1 && TextUtils.isEmpty(aVar.chR().get(0).getPicId())) {
+                if (aVar.chS() != null && aVar.chS().size() == 1 && TextUtils.isEmpty(aVar.chS().get(0).getPicId())) {
                     this.ips.setData(null);
                 } else {
-                    this.ips.setData(aVar.chR());
+                    this.ips.setData(aVar.chS());
                 }
-            } else if (aVar.chR() != null && aVar.chR().size() > 0) {
-                if (aVar.chR().size() == 1 && TextUtils.isEmpty(aVar.chR().get(0).getPicId())) {
+            } else if (aVar.chS() != null && aVar.chS().size() > 0) {
+                if (aVar.chS().size() == 1 && TextUtils.isEmpty(aVar.chS().get(0).getPicId())) {
                     this.ips.setVisibility(8);
                     return;
                 }
                 this.ips.setVisibility(0);
-                this.ips.setData(aVar.chR());
+                this.ips.setData(aVar.chS());
             } else {
                 this.ips.setVisibility(8);
             }
@@ -717,7 +717,7 @@ public class a extends com.baidu.adp.base.c<GroupInfoActivity> {
         }
     }
 
-    public void cho() {
+    public void chp() {
         ColorStateList colorList = am.getColorList(R.color.cp_cont_a);
         if (colorList != null) {
             this.ipH.setCompoundDrawablesWithIntrinsicBounds(am.getDrawable(R.drawable.icon_brief_attention_disable), (Drawable) null, (Drawable) null, (Drawable) null);

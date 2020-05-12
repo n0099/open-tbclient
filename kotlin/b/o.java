@@ -8,7 +8,7 @@ public class o extends n {
     }
 
     public static final h dJ(int i, int i2) {
-        return i2 <= Integer.MIN_VALUE ? h.mYn.dEg() : new h(i, i2 - 1);
+        return i2 <= Integer.MIN_VALUE ? h.mYn.dEh() : new h(i, i2 - 1);
     }
 
     public static final int dK(int i, int i2) {

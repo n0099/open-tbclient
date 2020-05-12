@@ -54,7 +54,7 @@ public class a extends com.baidu.adp.widget.ListView.a<bj, af<bj>> {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.z
             public void a(View view, bj bjVar) {
-                com.baidu.tieba.card.r.bEW().jd(true);
+                com.baidu.tieba.card.r.bEX().jd(true);
                 com.baidu.tieba.a.d.bfN().cF("page_recommend", "show_");
                 if (view != null && bjVar != null && bjVar.aIu() != null && !StringUtils.isNull(bjVar.aIu().getTid())) {
                     a.this.e(view, bjVar);
@@ -117,7 +117,7 @@ public class a extends com.baidu.adp.widget.ListView.a<bj, af<bj>> {
         afVar.b((af<bj>) bjVar);
         afVar.rD().a(this.ada);
         afVar.rD().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        com.baidu.tieba.card.r.bEW().e(com.baidu.tieba.enterForum.a.g(bjVar, this.mTabName));
+        com.baidu.tieba.card.r.bEX().e(com.baidu.tieba.enterForum.a.g(bjVar, this.mTabName));
         return afVar.getView();
     }
 

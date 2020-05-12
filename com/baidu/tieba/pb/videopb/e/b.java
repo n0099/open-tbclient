@@ -171,35 +171,35 @@ public class b extends y.a {
         }
     }
 
-    public int cEZ() {
+    public int cFa() {
         return this.jNu;
     }
 
     public void Ak(int i) {
         this.jNu = i;
         if (i == 0) {
-            cFa();
-        } else if (i == 1) {
             cFb();
-        } else if (i == 2) {
+        } else if (i == 1) {
             cFc();
+        } else if (i == 2) {
+            cFd();
         }
     }
 
-    private void cFa() {
+    private void cFb() {
         this.jNq.setVisibility(8);
         this.hdT.setEllipsize(null);
         this.hdT.setMaxLines(2);
     }
 
-    private void cFb() {
+    private void cFc() {
         this.jNq.setVisibility(0);
         SvgManager.aOR().a(this.jNp, R.drawable.icon_pure_unfold12_svg, R.color.cp_cont_b, (SvgManager.SvgResourceStateType) null);
         this.hdT.setEllipsize(TextUtils.TruncateAt.END);
         this.hdT.setMaxLines(2);
     }
 
-    private void cFc() {
+    private void cFd() {
         this.jNq.setVisibility(0);
         SvgManager.aOR().a(this.jNp, R.drawable.icon_pure_fold12_svg, R.color.cp_cont_b, (SvgManager.SvgResourceStateType) null);
         this.hdT.setEllipsize(null);

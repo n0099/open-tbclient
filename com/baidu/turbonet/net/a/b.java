@@ -35,7 +35,7 @@ public final class b extends f {
 
     @Override // java.io.OutputStream
     public void write(int i) throws IOException {
-        dkf();
+        dkg();
         this.mBuffer.put((byte) i);
     }
 
@@ -50,7 +50,7 @@ public final class b extends f {
             int min = Math.min(i3, this.mBuffer.remaining());
             this.mBuffer.put(bArr, (i + i2) - i3, min);
             i3 -= min;
-            dkf();
+            dkg();
         }
     }
 
@@ -68,17 +68,17 @@ public final class b extends f {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.baidu.turbonet.net.a.f
-    public void dkc() throws IOException {
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    @Override // com.baidu.turbonet.net.a.f
     public void dkd() throws IOException {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.baidu.turbonet.net.a.f
-    public UploadDataProvider dke() {
+    public void dke() throws IOException {
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    @Override // com.baidu.turbonet.net.a.f
+    public UploadDataProvider dkf() {
         return this.lLR;
     }
 
@@ -121,23 +121,23 @@ public final class b extends f {
         }
     }
 
-    private void dkf() throws IOException {
+    private void dkg() throws IOException {
         if (!this.mBuffer.hasRemaining()) {
-            dkg();
+            dkh();
         }
     }
 
-    private void dkg() throws IOException {
+    private void dkh() throws IOException {
         checkNotClosed();
         this.mBuffer.flip();
         this.lMw.FJ(this.lMu.getReadTimeout());
-        dks();
+        dkt();
     }
 
     @Override // java.io.OutputStream, java.io.Flushable
     public void flush() throws IOException {
         if (this.lMz && this.mBuffer.position() > 0) {
-            dkg();
+            dkh();
         }
     }
 }

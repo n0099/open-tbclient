@@ -219,7 +219,7 @@ public class H5UploadActivity extends BaseActivity {
             g.JO(a.i.update_userinfo_failed);
             return;
         }
-        tv.chushou.basis.d.a.a.c cVar = (tv.chushou.basis.d.a.a.c) tv.chushou.basis.d.b.dJr().S(tv.chushou.basis.d.a.a.c.class);
+        tv.chushou.basis.d.a.a.c cVar = (tv.chushou.basis.d.a.a.c) tv.chushou.basis.d.b.dJs().S(tv.chushou.basis.d.a.a.c.class);
         if (cVar == null) {
             g.JO(a.i.update_userinfo_failed);
         } else {
@@ -265,7 +265,7 @@ public class H5UploadActivity extends BaseActivity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(final String str, final String str2) {
-        com.kascend.chushou.c.c.dwD().a(new com.kascend.chushou.c.b() { // from class: com.kascend.chushou.view.h5.H5UploadActivity.2
+        com.kascend.chushou.c.c.dwE().a(new com.kascend.chushou.c.b() { // from class: com.kascend.chushou.view.h5.H5UploadActivity.2
             @Override // com.kascend.chushou.c.b
             public void a() {
             }
@@ -304,7 +304,7 @@ public class H5UploadActivity extends BaseActivity {
         }, this.c, this.d, this.e, str2);
     }
 
-    private Uri dyN() {
+    private Uri dyO() {
         return Uri.fromFile(new File(com.kascend.chushou.d.c.mnH.c(), "chushou_capture_" + System.currentTimeMillis() + ".jpg"));
     }
 
@@ -319,13 +319,13 @@ public class H5UploadActivity extends BaseActivity {
                     bVar.a(new b.a() { // from class: com.kascend.chushou.view.h5.H5UploadActivity.4.2
                         @Override // tv.chushou.zues.widget.sweetalert.b.a
                         public void onClick(tv.chushou.zues.widget.sweetalert.b bVar2) {
-                            bVar.dKt();
+                            bVar.dKu();
                             iVar.cancel();
                         }
                     }).b(new b.a() { // from class: com.kascend.chushou.view.h5.H5UploadActivity.4.1
                         @Override // tv.chushou.zues.widget.sweetalert.b.a
                         public void onClick(tv.chushou.zues.widget.sweetalert.b bVar2) {
-                            bVar.dKt();
+                            bVar.dKu();
                             iVar.execute();
                         }
                     }).Qw(context.getString(a.i.alert_dialog_cancel)).Qy(context.getString(a.i.gallery_permissions_continue)).w(context.getString(a.i.gallery_permissions_rationale, c)).setCanceledOnTouchOutside(false);
@@ -350,13 +350,13 @@ public class H5UploadActivity extends BaseActivity {
     /* JADX INFO: Access modifiers changed from: private */
     public void f() {
         Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
-        Uri dyN = dyN();
-        this.mEm = dyN;
+        Uri dyO = dyO();
+        this.mEm = dyO;
         if (Build.VERSION.SDK_INT < 24) {
-            intent.putExtra("output", dyN);
+            intent.putExtra("output", dyO);
         } else {
             ContentValues contentValues = new ContentValues(1);
-            contentValues.put("_data", dyN.getPath());
+            contentValues.put("_data", dyO.getPath());
             contentValues.put("mime_type", MimeType.Image.JPEG);
             intent.putExtra("output", getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, contentValues));
         }
@@ -376,13 +376,13 @@ public class H5UploadActivity extends BaseActivity {
                     bVar.a(new b.a() { // from class: com.kascend.chushou.view.h5.H5UploadActivity.7.2
                         @Override // tv.chushou.zues.widget.sweetalert.b.a
                         public void onClick(tv.chushou.zues.widget.sweetalert.b bVar2) {
-                            bVar.dKt();
+                            bVar.dKu();
                             iVar.cancel();
                         }
                     }).b(new b.a() { // from class: com.kascend.chushou.view.h5.H5UploadActivity.7.1
                         @Override // tv.chushou.zues.widget.sweetalert.b.a
                         public void onClick(tv.chushou.zues.widget.sweetalert.b bVar2) {
-                            bVar.dKt();
+                            bVar.dKu();
                             iVar.execute();
                         }
                     }).Qw(context.getString(a.i.alert_dialog_cancel)).Qy(context.getString(a.i.gallery_permissions_continue)).w(context.getString(a.i.gallery_permissions_rationale, c)).setCanceledOnTouchOutside(false);

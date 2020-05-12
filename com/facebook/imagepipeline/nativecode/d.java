@@ -14,7 +14,7 @@ public class d {
         }
     }
 
-    public static c dtN() {
+    public static c dtO() {
         return mey;
     }
 }

@@ -88,7 +88,7 @@ public class d extends com.baidu.tieba.card.a<j> {
     }
 
     private void a(com.baidu.tieba.personCenter.c.c cVar) {
-        if (this.jUx.cGq()) {
+        if (this.jUx.cGr()) {
             this.jUx.c(cVar);
             return;
         }

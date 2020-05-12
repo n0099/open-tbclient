@@ -107,10 +107,10 @@ public class b {
         u uVar = new u(frsGoodFragment.getPageContext(), bj.dqY, this.hqa.getUniqueId());
         z zVar2 = new z(frsGoodFragment.getPageContext(), bj.drh, this.hqa.getUniqueId());
         com.baidu.tieba.frs.o oVar2 = new com.baidu.tieba.frs.o(frsGoodFragment.getPageContext(), p.hbp);
-        com.baidu.adp.widget.ListView.a<? extends bi, ? extends y.a> a = c.bNL().a(frsGoodFragment.getPageContext(), this.hqa.getUniqueId(), true);
-        com.baidu.adp.widget.ListView.a<? extends bj, ? extends y.a> b = c.bNL().b(frsGoodFragment.getPageContext(), bj.dsN, this.hqa.getUniqueId());
-        com.baidu.adp.widget.ListView.a<?, ?> a2 = q.cNl().a(this.hqa, AdvertAppInfo.dmb);
-        com.baidu.adp.widget.ListView.a<?, ?> a3 = q.cNl().a(this.hqa, AdvertAppInfo.dmk);
+        com.baidu.adp.widget.ListView.a<? extends bi, ? extends y.a> a = c.bNM().a(frsGoodFragment.getPageContext(), this.hqa.getUniqueId(), true);
+        com.baidu.adp.widget.ListView.a<? extends bj, ? extends y.a> b = c.bNM().b(frsGoodFragment.getPageContext(), bj.dsN, this.hqa.getUniqueId());
+        com.baidu.adp.widget.ListView.a<?, ?> a2 = q.cNm().a(this.hqa, AdvertAppInfo.dmb);
+        com.baidu.adp.widget.ListView.a<?, ?> a3 = q.cNm().a(this.hqa, AdvertAppInfo.dmk);
         x xVar = new x(frsGoodFragment.getPageContext(), bj.drd, this.hqa.getUniqueId());
         com.baidu.tieba.frs.entelechy.a.b bVar = new com.baidu.tieba.frs.entelechy.a.b(frsGoodFragment.getPageContext(), bj.drf, this.hqa.getUniqueId());
         com.baidu.tieba.frs.entelechy.a.h hVar = new com.baidu.tieba.frs.entelechy.a.h(frsGoodFragment.getPageContext(), bj.dre, this.hqa.getUniqueId());
@@ -172,7 +172,7 @@ public class b {
             frsViewData.setThreadList(arrayList);
         }
         b(frsViewData);
-        bQG();
+        bQH();
         as(arrayList);
         com.baidu.tieba.tbadkCore.t.q(arrayList, 1);
         ar(arrayList);
@@ -181,7 +181,7 @@ public class b {
         this.hqu = switchThreadDataToThreadCardInfo;
         this.gyd = arrayList;
         this.hhx = frsViewData;
-        bRk();
+        bRl();
     }
 
     public void refreshData() {
@@ -189,7 +189,7 @@ public class b {
         notifyDataSetChanged();
     }
 
-    private void bQG() {
+    private void bQH() {
         if (!v.isEmpty(this.aMj) && this.hqa != null) {
             for (com.baidu.adp.widget.ListView.a aVar : this.aMj) {
                 if (aVar instanceof h) {
@@ -199,7 +199,7 @@ public class b {
         }
     }
 
-    private void bRk() {
+    private void bRl() {
         com.baidu.tieba.frs.d.b statisticMetaData;
         if (this.hhx != null) {
             for (com.baidu.adp.widget.ListView.a aVar : this.aMj) {
@@ -238,11 +238,11 @@ public class b {
         }
     }
 
-    public HashMap<Integer, bj> bRP() {
+    public HashMap<Integer, bj> bRQ() {
         return this.hhw;
     }
 
-    public void bRU() {
+    public void bRV() {
         if (this.hcY != null && this.hcY.getData() != null && this.hcY.getData().size() != 0) {
             for (m mVar : this.hcY.getData()) {
                 if ((mVar instanceof bi) && ((bi) mVar).dqE.aKx() != 0) {
@@ -252,7 +252,7 @@ public class b {
         }
     }
 
-    public void bTx() {
+    public void bTy() {
         for (com.baidu.adp.widget.ListView.a aVar : this.aMj) {
             if (aVar instanceof com.baidu.tieba.card.x) {
                 ((com.baidu.tieba.card.x) aVar).pV(3);
@@ -326,13 +326,13 @@ public class b {
             return false;
         }
         this.hqt = new ArrayList();
-        ArrayList<BdUniqueId> cVG = com.baidu.tieba.tbadkCore.t.cVG();
-        if (cVG == null || cVG.size() <= 0) {
+        ArrayList<BdUniqueId> cVH = com.baidu.tieba.tbadkCore.t.cVH();
+        if (cVH == null || cVH.size() <= 0) {
             return false;
         }
-        int size = cVG.size();
+        int size = cVH.size();
         for (int i = 0; i < size; i++) {
-            h<ICardInfo, ? extends y.a> a = c.bNL().a(this.hqa.getPageContext(), cVG.get(i), this.hqa.getUniqueId());
+            h<ICardInfo, ? extends y.a> a = c.bNM().a(this.hqa.getPageContext(), cVH.get(i), this.hqa.getUniqueId());
             if (a != null) {
                 this.aMj.add(a);
                 this.hqt.add(a);
@@ -370,7 +370,7 @@ public class b {
         return this.gyd;
     }
 
-    public List<m> bTy() {
+    public List<m> bTz() {
         return this.hqu;
     }
 }

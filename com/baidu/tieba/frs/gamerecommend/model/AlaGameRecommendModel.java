@@ -41,11 +41,11 @@ public class AlaGameRecommendModel extends BdBaseModel {
     public AlaGameRecommendModel(String str, a aVar) {
         this.mForumId = str;
         this.hmQ = aVar;
-        bSB();
+        bSC();
         registerListener();
     }
 
-    private void bSB() {
+    private void bSC() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003401, TbConfig.SERVER_ADDRESS + Config.GAME_RECOMMEND_TAB);
         tbHttpMessageTask.setResponsedClass(AlaGameRecommendReponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);

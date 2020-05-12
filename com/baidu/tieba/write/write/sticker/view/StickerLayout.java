@@ -43,12 +43,12 @@ public class StickerLayout extends FrameLayout {
         stickerView.setLayoutParams(this.lHf);
         stickerView.setmOnStickerActionListener(new a() { // from class: com.baidu.tieba.write.write.sticker.view.StickerLayout.1
             @Override // com.baidu.tieba.write.write.sticker.a.a
-            public void dim() {
+            public void din() {
                 StickerLayout.this.removeView(stickerView);
                 StickerLayout.this.lHe.remove(stickerView);
-                StickerLayout.this.ctH();
+                StickerLayout.this.ctI();
                 if (cVar != null) {
-                    cVar.dgH();
+                    cVar.dgI();
                 }
             }
 
@@ -70,9 +70,9 @@ public class StickerLayout extends FrameLayout {
         });
         addView(stickerView);
         this.lHe.add(stickerView);
-        ctH();
+        ctI();
         if (cVar != null) {
-            cVar.dgG();
+            cVar.dgH();
         }
         return stickerView;
     }
@@ -84,15 +84,15 @@ public class StickerLayout extends FrameLayout {
             if (next != null) {
                 removeView(next);
                 it.remove();
-                ctH();
+                ctI();
                 if (cVar != null) {
-                    cVar.dgH();
+                    cVar.dgI();
                 }
             }
         }
     }
 
-    public void ctH() {
+    public void ctI() {
         if (this.lHe.size() > 0) {
             for (StickerView stickerView : this.lHe) {
                 if (stickerView != null) {
@@ -103,11 +103,11 @@ public class StickerLayout extends FrameLayout {
         }
     }
 
-    public Bitmap din() {
+    public Bitmap dio() {
         if (v.isEmpty(this.lHe)) {
             return null;
         }
-        ctH();
+        ctI();
         return g.bj(this);
     }
 

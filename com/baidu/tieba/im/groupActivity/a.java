@@ -88,8 +88,8 @@ public class a extends c<BaseFragmentActivity> {
         this.SV = calendar.get(5);
         this.cjy = calendar.get(11);
         this.SX = calendar.get(12);
+        cgw();
         cgv();
-        cgu();
         this.inz.ShowSoftKeyPadDelay(this.inA, 500);
         this.inF.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.groupActivity.a.1
             @Override // android.view.View.OnClickListener
@@ -109,7 +109,7 @@ public class a extends c<BaseFragmentActivity> {
                             a.this.SU = i2;
                             a.this.SV = i3;
                             g.b(a.this.inH, a.this.inz.getPageContext());
-                            a.this.cgv();
+                            a.this.cgw();
                             a.this.inM = true;
                         }
                     };
@@ -129,7 +129,7 @@ public class a extends c<BaseFragmentActivity> {
                             a.this.cjy = i;
                             a.this.SX = i2;
                             g.b(a.this.inI, a.this.inz.getPageContext());
-                            a.this.cgu();
+                            a.this.cgv();
                             a.this.inM = true;
                         }
                     };
@@ -194,7 +194,7 @@ public class a extends c<BaseFragmentActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cgu() {
+    public void cgv() {
         if (this.cjy > 12) {
             this.inG.setText(this.inz.getResources().getString(R.string.afternoon) + " " + (this.cjy - 12) + ":" + (this.SX < 10 ? "0" : "") + this.SX);
         } else {
@@ -203,7 +203,7 @@ public class a extends c<BaseFragmentActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cgv() {
+    public void cgw() {
         this.inF.setText(this.ST + Constants.ACCEPT_TIME_SEPARATOR_SERVER + (this.SU + 1) + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.SV + " " + aq.getWeekString(this.ST, this.SU, this.SV));
     }
 
@@ -213,11 +213,11 @@ public class a extends c<BaseFragmentActivity> {
         this.inD.removeTextChangedListener(this.inL);
     }
 
-    public View cgw() {
+    public View cgx() {
         return this.idP;
     }
 
-    public TextView cgx() {
+    public TextView cgy() {
         return this.inC;
     }
 
@@ -225,7 +225,7 @@ public class a extends c<BaseFragmentActivity> {
         return this.inA.getText().toString();
     }
 
-    public String cgy() {
+    public String cgz() {
         return this.inD.getText().toString();
     }
 
@@ -260,8 +260,8 @@ public class a extends c<BaseFragmentActivity> {
         this.SV = date.getDate();
         this.cjy = date.getHours();
         this.SX = date.getMinutes();
+        cgw();
         cgv();
-        cgu();
     }
 
     public void onChangeSkinType(int i) {
@@ -288,7 +288,7 @@ public class a extends c<BaseFragmentActivity> {
         this.mNavigationBar.setTitleText(R.string.group_activity_create);
     }
 
-    public boolean cgz() {
+    public boolean cgA() {
         return this.inM;
     }
 }

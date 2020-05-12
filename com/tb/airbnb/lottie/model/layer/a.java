@@ -53,7 +53,7 @@ public abstract class a implements com.tb.airbnb.lottie.a.a.d, a.InterfaceC0784a
     /* JADX INFO: Access modifiers changed from: package-private */
     @Nullable
     public static a a(Layer layer, com.tb.airbnb.lottie.f fVar, com.tb.airbnb.lottie.d dVar) {
-        switch (layer.dBZ()) {
+        switch (layer.dCa()) {
             case Shape:
                 return new e(fVar, layer);
             case PreComp:
@@ -67,7 +67,7 @@ public abstract class a implements com.tb.airbnb.lottie.a.a.d, a.InterfaceC0784a
             case Text:
                 return new g(fVar, layer);
             default:
-                com.tb.airbnb.lottie.c.warn("Unknown layer type " + layer.dBZ());
+                com.tb.airbnb.lottie.c.warn("Unknown layer type " + layer.dCa());
                 return null;
         }
     }
@@ -80,12 +80,12 @@ public abstract class a implements com.tb.airbnb.lottie.a.a.d, a.InterfaceC0784a
         this.Es.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
         this.Ep.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_IN));
         this.Eq.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
-        if (layer.dCa() == Layer.MatteType.Invert) {
+        if (layer.dCb() == Layer.MatteType.Invert) {
             this.Er.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
         } else {
             this.Er.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_IN));
         }
-        this.mOM = layer.dBT().dBx();
+        this.mOM = layer.dBU().dBy();
         this.mOM.a((a.InterfaceC0784a) this);
         if (layer.hu() != null && !layer.hu().isEmpty()) {
             this.mQd = new com.tb.airbnb.lottie.a.b.g(layer.hu());
@@ -106,7 +106,7 @@ public abstract class a implements com.tb.airbnb.lottie.a.a.d, a.InterfaceC0784a
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public Layer dBY() {
+    public Layer dBZ() {
         return this.mQc;
     }
 
@@ -181,7 +181,7 @@ public abstract class a implements com.tb.airbnb.lottie.a.a.d, a.InterfaceC0784a
             this.matrix.preConcat(this.ED.get(size).mOM.getMatrix());
         }
         com.tb.airbnb.lottie.c.aV("Layer#parentMatrix");
-        int intValue = (int) (((this.mOM.dBj().getValue().intValue() * (i / 255.0f)) / 100.0f) * 255.0f);
+        int intValue = (int) (((this.mOM.dBk().getValue().intValue() * (i / 255.0f)) / 100.0f) * 255.0f);
         if (!iD() && !iF()) {
             this.matrix.preConcat(this.mOM.getMatrix());
             com.tb.airbnb.lottie.c.beginSection("Layer#drawLayer");
@@ -243,7 +243,7 @@ public abstract class a implements com.tb.airbnb.lottie.a.a.d, a.InterfaceC0784a
             for (int i = 0; i < size; i++) {
                 this.path.set(this.mQd.hv().get(i).getValue());
                 this.path.transform(matrix);
-                switch (this.mQd.hu().get(i).dBH()) {
+                switch (this.mQd.hu().get(i).dBI()) {
                     case MaskModeSubtract:
                     case MaskModeIntersect:
                         return;
@@ -261,7 +261,7 @@ public abstract class a implements com.tb.airbnb.lottie.a.a.d, a.InterfaceC0784a
     }
 
     private void c(RectF rectF, Matrix matrix) {
-        if (iD() && this.mQc.dCa() != Layer.MatteType.Invert) {
+        if (iD() && this.mQc.dCb() != Layer.MatteType.Invert) {
             this.mQe.a(this.Eu, matrix);
             rectF.set(Math.max(rectF.left, this.Eu.left), Math.max(rectF.top, this.Eu.top), Math.min(rectF.right, this.Eu.right), Math.min(rectF.bottom, this.Eu.bottom));
         }
@@ -289,7 +289,7 @@ public abstract class a implements com.tb.airbnb.lottie.a.a.d, a.InterfaceC0784a
         while (true) {
             if (i >= size) {
                 z = false;
-            } else if (this.mQd.hu().get(i).dBH() != maskMode) {
+            } else if (this.mQd.hu().get(i).dBI() != maskMode) {
                 i++;
             } else {
                 z = true;
@@ -302,7 +302,7 @@ public abstract class a implements com.tb.airbnb.lottie.a.a.d, a.InterfaceC0784a
             com.tb.airbnb.lottie.c.aV("Layer#saveLayer");
             e(canvas);
             for (int i2 = 0; i2 < size; i2++) {
-                if (this.mQd.hu().get(i2).dBH() == maskMode) {
+                if (this.mQd.hu().get(i2).dBI() == maskMode) {
                     this.path.set(this.mQd.hv().get(i2).getValue());
                     this.path.transform(matrix);
                     int alpha = this.Eo.getAlpha();

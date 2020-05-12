@@ -21,8 +21,8 @@ public class e implements j, l, a.InterfaceC0784a {
     public e(com.tb.airbnb.lottie.f fVar, com.tb.airbnb.lottie.model.layer.a aVar, com.tb.airbnb.lottie.model.content.a aVar2) {
         this.name = aVar2.getName();
         this.lottieDrawable = fVar;
-        this.mOu = aVar2.dBy().dBo();
-        this.mOv = aVar2.dBr().dBo();
+        this.mOu = aVar2.dBz().dBp();
+        this.mOv = aVar2.dBs().dBp();
         this.mOw = aVar2;
         aVar.a(this.mOu);
         aVar.a(this.mOv);
@@ -47,7 +47,7 @@ public class e implements j, l, a.InterfaceC0784a {
             int i2 = i;
             if (i2 < list.size()) {
                 b bVar = list.get(i2);
-                if ((bVar instanceof r) && ((r) bVar).dBe() == ShapeTrimPath.Type.Simultaneously) {
+                if ((bVar instanceof r) && ((r) bVar).dBf() == ShapeTrimPath.Type.Simultaneously) {
                     this.mOs = (r) bVar;
                     this.mOs.a(this);
                 }

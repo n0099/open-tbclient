@@ -27,7 +27,7 @@ public final class a {
         if (aVar3 != null) {
             aVar3.onStart();
         }
-        Http http = (Http) tv.chushou.basis.d.b.dJr().S(Http.class);
+        Http http = (Http) tv.chushou.basis.d.b.dJs().S(Http.class);
         if (http == null) {
             c.a aVar4 = this.mDj;
             if (aVar4 != null) {
@@ -38,7 +38,7 @@ public final class a {
         }
         HashMap hashMap = new HashMap();
         hashMap.put("type", str);
-        http.getAsync(tv.chushou.common.a.dJs(), "api/upload/up-token.htm?", hashMap, RequestTag.normal(), new C0758a(str, str2, file));
+        http.getAsync(tv.chushou.common.a.dJt(), "api/upload/up-token.htm?", hashMap, RequestTag.normal(), new C0758a(str, str2, file));
     }
 
     @h
@@ -155,7 +155,7 @@ public final class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public final void a(File file, String str, String str2) {
-        com.kascend.chushou.toolkit.c.a.b.mDn.dyH().a(file, str, str2, new b(str));
+        com.kascend.chushou.toolkit.c.a.b.mDn.dyI().a(file, str, str2, new b(str));
     }
 
     /* JADX INFO: Access modifiers changed from: private */

@@ -364,7 +364,7 @@ public class LivePKBarUserValue extends RelativeLayout implements View.OnClickLi
 
     public void c() {
         if (this.mCm != null) {
-            e.dyA().c(this.mCm);
+            e.dyB().c(this.mCm);
         }
         this.h.setVisibility(4);
     }
@@ -399,7 +399,7 @@ public class LivePKBarUserValue extends RelativeLayout implements View.OnClickLi
             this.t.setVisibility(4);
             this.mBI.setVisibility(0);
             this.w.setText(((int) (100.0f * f)) + getContext().getResources().getString(a.i.str_live_across_pk_chat_notice_addition));
-            this.mCn = io.reactivex.g.a(0L, 1L, TimeUnit.SECONDS).a(io.reactivex.a.b.a.dCD()).b(new io.reactivex.c.g<Long>() { // from class: com.kascend.chushou.player.ui.pk.LivePKBarUserValue.6
+            this.mCn = io.reactivex.g.a(0L, 1L, TimeUnit.SECONDS).a(io.reactivex.a.b.a.dCE()).b(new io.reactivex.c.g<Long>() { // from class: com.kascend.chushou.player.ui.pk.LivePKBarUserValue.6
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // io.reactivex.c.g
                 /* renamed from: a */
@@ -521,7 +521,7 @@ public class LivePKBarUserValue extends RelativeLayout implements View.OnClickLi
                     long longValue = lArr[i].longValue();
                     View childAt = this.k.getChildAt(i2);
                     childAt.setTag(Long.valueOf(longValue));
-                    ((FrescoThumbnailView) childAt.findViewById(a.f.iv_pk_icon)).bU(linkedHashMap.get(Long.valueOf(longValue)), tv.chushou.widget.a.c.dJG());
+                    ((FrescoThumbnailView) childAt.findViewById(a.f.iv_pk_icon)).bU(linkedHashMap.get(Long.valueOf(longValue)), tv.chushou.widget.a.c.dJH());
                 } else {
                     return;
                 }
@@ -548,7 +548,7 @@ public class LivePKBarUserValue extends RelativeLayout implements View.OnClickLi
                 if (i < childCount) {
                     View childAt = this.l.getChildAt(i);
                     childAt.setTag(Long.valueOf(longValue));
-                    ((FrescoThumbnailView) childAt.findViewById(a.f.iv_pk_icon)).bU(str, tv.chushou.widget.a.c.dJG());
+                    ((FrescoThumbnailView) childAt.findViewById(a.f.iv_pk_icon)).bU(str, tv.chushou.widget.a.c.dJH());
                 } else {
                     return;
                 }

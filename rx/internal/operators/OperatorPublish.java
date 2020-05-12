@@ -46,7 +46,7 @@ public final class OperatorPublish<T> extends rx.observables.a<T> {
         volatile Object terminalEvent;
 
         public a(AtomicReference<a<T>> atomicReference) {
-            this.queue = ae.dIm() ? new rx.internal.util.a.q<>(rx.internal.util.g.SIZE) : new rx.internal.util.atomic.c<>(rx.internal.util.g.SIZE);
+            this.queue = ae.dIn() ? new rx.internal.util.a.q<>(rx.internal.util.g.SIZE) : new rx.internal.util.atomic.c<>(rx.internal.util.g.SIZE);
             this.nlJ = new AtomicReference<>(nlH);
             this.current = atomicReference;
             this.shouldConnect = new AtomicBoolean();
@@ -87,7 +87,7 @@ public final class OperatorPublish<T> extends rx.observables.a<T> {
         @Override // rx.e
         public void onCompleted() {
             if (this.terminalEvent == null) {
-                this.terminalEvent = NotificationLite.dHG();
+                this.terminalEvent = NotificationLite.dHH();
                 dispatch();
             }
         }

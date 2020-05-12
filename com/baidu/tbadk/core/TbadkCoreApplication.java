@@ -353,9 +353,9 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
                         TbadkCoreApplication.this.setLocationLat(valueOf);
                         TbadkCoreApplication.this.setLocationLng(valueOf2);
                         TbadkCoreApplication.this.setLocationPos(address.getAddressLine(0));
-                        com.baidu.tieba.recapp.d.a.cNY().Eq(valueOf);
-                        com.baidu.tieba.recapp.d.a.cNY().Ep(valueOf2);
-                        com.baidu.tieba.recapp.d.a.cNY().fm(System.currentTimeMillis());
+                        com.baidu.tieba.recapp.d.a.cNZ().Eq(valueOf);
+                        com.baidu.tieba.recapp.d.a.cNZ().Ep(valueOf2);
+                        com.baidu.tieba.recapp.d.a.cNZ().fm(System.currentTimeMillis());
                     }
                 } catch (IllegalStateException e) {
                     BdLog.e(e.getMessage());
@@ -781,7 +781,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
         com.baidu.a.a.a.sg().setAppName("tieba");
         AppConfig.init(false, false, false, false);
         if (isMainProcess(false)) {
-            z.dkJ();
+            z.dkK();
             com.baidu.adp.lib.asyncTask.a.jV().execute(new Runnable() { // from class: com.baidu.tbadk.core.TbadkCoreApplication.19
                 @Override // java.lang.Runnable
                 public void run() {
@@ -849,20 +849,20 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
 
     private void initJpusbSdk() {
         if (isMainProcess(true)) {
-            com.baidu.tieba.t.b.cYS().initSdk(this);
+            com.baidu.tieba.t.b.cYT().initSdk(this);
         }
     }
 
     private void initStatSdk() {
         if (isMainProcess(true)) {
-            com.baidu.tieba.t.c.cYV().autoTrace(this);
-            com.baidu.tieba.t.c.cYV().setAppChannel(this, getFrom(), true);
+            com.baidu.tieba.t.c.cYW().autoTrace(this);
+            com.baidu.tieba.t.c.cYW().setAppChannel(this, getFrom(), true);
         }
     }
 
     private void initQuickWebViewManager() {
         if (isMainProcess(true)) {
-            com.baidu.tieba.quickWebView.c.cML().init();
+            com.baidu.tieba.quickWebView.c.cMM().init();
             long currentTimeMillis = System.currentTimeMillis();
             com.baidu.tbadk.coreExtra.messageCenter.d.aTL().initSetting();
             n.aZD().cO(System.currentTimeMillis() - currentTimeMillis);
@@ -908,7 +908,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
             case 2:
                 com.baidu.adp.lib.Disk.d.jP().initial(TbConfig.getTempDirName());
                 initAccountChangeReceiver();
-                com.baidu.tieba.o.a.cMR().init();
+                com.baidu.tieba.o.a.cMS().init();
                 boolean isMainProcess = isMainProcess(false);
                 com.baidu.tbadk.distribute.a.aWB().hv(isMainProcess);
                 intReadThreadHistory(isMainProcess);
@@ -1248,9 +1248,9 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
         TbConfig.initBigImageWidth(getContext());
         TbConfig.initFriendPhotoConfig(getContext());
         if (IS_SUPPORT_EXCEPTION_HANDLER) {
-            com.baidu.tieba.t.d.cYW();
+            com.baidu.tieba.t.d.cYX();
         }
-        com.baidu.tieba.video.g.dav();
+        com.baidu.tieba.video.g.daw();
         boolean isMainProcess = isMainProcess(false);
         long currentTimeMillis = System.currentTimeMillis();
         TiebaStatic.init(getContext(), isMainProcess);
@@ -2837,7 +2837,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921410));
         com.baidu.tbadk.coreExtra.messageCenter.b.aTe().gW(true);
         NotificationHelper.cancelAllNotification(this);
-        com.baidu.tieba.tbadkCore.util.a.cXl();
+        com.baidu.tieba.tbadkCore.util.a.cXm();
     }
 
     public void onUserChanged(Intent intent2) {

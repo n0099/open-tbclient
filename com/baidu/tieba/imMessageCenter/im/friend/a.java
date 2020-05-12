@@ -76,7 +76,7 @@ public class a extends BaseAdapter {
         return null;
     }
 
-    private C0598a cjF() {
+    private C0598a cjG() {
         C0598a c0598a = new C0598a();
         c0598a.rootView = LayoutInflater.from(this.iye.getPageContext().getContext()).inflate(R.layout.im_black_list_item, (ViewGroup) null);
         c0598a.iyg = (HeadImageView) c0598a.rootView.findViewById(R.id.header_view);
@@ -91,7 +91,7 @@ public class a extends BaseAdapter {
     private C0598a a(Object obj, BlackListItemData blackListItemData) {
         C0598a c0598a;
         if (obj == null) {
-            c0598a = cjF();
+            c0598a = cjG();
         } else {
             c0598a = (C0598a) obj;
         }

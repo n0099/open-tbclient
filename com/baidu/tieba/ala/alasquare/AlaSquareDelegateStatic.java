@@ -195,8 +195,8 @@ public class AlaSquareDelegateStatic {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 e eVar;
-                if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof e) && (eVar = (e) customResponsedMessage.getData()) != null && !v.isEmpty(eVar.bNZ())) {
-                    for (FrsTabInfo frsTabInfo : eVar.bNZ()) {
+                if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof e) && (eVar = (e) customResponsedMessage.getData()) != null && !v.isEmpty(eVar.bOa())) {
+                    for (FrsTabInfo frsTabInfo : eVar.bOa()) {
                         if (frsTabInfo.tab_id.intValue() == 1120) {
                             AlaSquareDelegateStatic.b(eVar);
                         } else if (frsTabInfo.tab_id.intValue() == 1121) {

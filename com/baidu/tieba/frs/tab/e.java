@@ -103,10 +103,10 @@ public class e {
                 horizontalTabView.getLocationInWindow(iArr);
                 l.initDeviceData(horizontalTabView.getContext());
                 int equipmentHeight = l.getEquipmentHeight(horizontalTabView.getContext());
-                int bUv = this.huR.bUv();
+                int bUw = this.huR.bUw();
                 int measuredHeight = (equipmentHeight - iArr[1]) - horizontalTabView.getMeasuredHeight();
-                if (measuredHeight < bUv) {
-                    horizontalTabView.getmShowMenuCallBack().uE(bUv - measuredHeight);
+                if (measuredHeight < bUw) {
+                    horizontalTabView.getmShowMenuCallBack().uE(bUw - measuredHeight);
                 }
             }
         }
@@ -134,7 +134,7 @@ public class e {
         }
     }
 
-    public b bUx() {
+    public b bUy() {
         return this.huC;
     }
 }

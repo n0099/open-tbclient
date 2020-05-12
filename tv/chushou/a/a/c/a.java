@@ -8,12 +8,12 @@ public final class a implements b {
     private volatile boolean lOb = false;
     private volatile boolean nrF = false;
 
-    public static b dJB() {
+    public static b dJC() {
         return nrE;
     }
 
     @Override // tv.chushou.a.a.c.b
-    public boolean dJC() {
+    public boolean dJD() {
         return this.lOb;
     }
 
@@ -27,7 +27,7 @@ public final class a implements b {
         this.nrF = z;
     }
 
-    public String dJD() {
+    public String dJE() {
         return "Router";
     }
 
@@ -74,7 +74,7 @@ public final class a implements b {
     }
 
     private String Qe(String str) {
-        return TextUtils.isEmpty(str) ? dJD() : str;
+        return TextUtils.isEmpty(str) ? dJE() : str;
     }
 
     private String Qf(String str) {

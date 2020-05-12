@@ -36,12 +36,12 @@ public final class FlowableMaterialize<T> extends a<T, p<T>> {
 
         @Override // org.a.c
         public void onComplete() {
-            complete(p.dCB());
+            complete(p.dCC());
         }
 
         protected void onDrop(p<T> pVar) {
-            if (pVar.dCz()) {
-                io.reactivex.e.a.onError(pVar.dCA());
+            if (pVar.dCA()) {
+                io.reactivex.e.a.onError(pVar.dCB());
             }
         }
     }

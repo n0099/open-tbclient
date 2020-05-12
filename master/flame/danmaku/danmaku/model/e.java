@@ -20,11 +20,6 @@ public class e extends d {
     }
 
     @Override // master.flame.danmaku.danmaku.model.d
-    public float dFk() {
-        return 0.0f;
-    }
-
-    @Override // master.flame.danmaku.danmaku.model.d
     public float dFl() {
         return 0.0f;
     }
@@ -36,6 +31,11 @@ public class e extends d {
 
     @Override // master.flame.danmaku.danmaku.model.d
     public float dFn() {
+        return 0.0f;
+    }
+
+    @Override // master.flame.danmaku.danmaku.model.d
+    public float dFo() {
         return 0.0f;
     }
 

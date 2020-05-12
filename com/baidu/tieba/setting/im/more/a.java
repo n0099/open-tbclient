@@ -14,7 +14,7 @@ public class a {
     private SimpleUser kBI;
     private int kBJ;
 
-    public boolean cPC() {
+    public boolean cPD() {
         com.baidu.tbadk.core.sharedPref.b aNT = com.baidu.tbadk.core.sharedPref.b.aNT();
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         this.kBE = aNT.getInt("post" + currentAccount, 0);
@@ -38,7 +38,7 @@ public class a {
         }
     }
 
-    public int cPD() {
+    public int cPE() {
         return this.kBE;
     }
 
@@ -46,7 +46,7 @@ public class a {
         com.baidu.tbadk.core.sharedPref.b.aNT().putInt(str + TbadkCoreApplication.getCurrentAccount(), i);
     }
 
-    public void cPE() {
+    public void cPF() {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         com.baidu.tbadk.core.sharedPref.b aNT = com.baidu.tbadk.core.sharedPref.b.aNT();
         aNT.putInt("post" + currentAccount, this.kBE);
@@ -61,7 +61,7 @@ public class a {
         this.kBE = i;
     }
 
-    public int cPF() {
+    public int cPG() {
         return this.kBF;
     }
 
@@ -71,7 +71,7 @@ public class a {
         }
     }
 
-    public int cPG() {
+    public int cPH() {
         return this.dVM;
     }
 
@@ -81,7 +81,7 @@ public class a {
         }
     }
 
-    public int cPH() {
+    public int cPI() {
         return this.dVJ;
     }
 
@@ -91,7 +91,7 @@ public class a {
         }
     }
 
-    public boolean cPI() {
+    public boolean cPJ() {
         return this.kBG;
     }
 
@@ -126,7 +126,7 @@ public class a {
         }
     }
 
-    public int cPJ() {
+    public int cPK() {
         return this.kBH;
     }
 }

@@ -3,15 +3,15 @@ package com.baidu.tieba.tbadkCore.util;
 public class e {
     private static boolean kVr = false;
 
-    public static void cXo() {
+    public static void cXp() {
         kVr = true;
     }
 
-    public static void cXp() {
+    public static void cXq() {
         kVr = false;
     }
 
-    public static boolean cXq() {
+    public static boolean cXr() {
         return kVr;
     }
 }

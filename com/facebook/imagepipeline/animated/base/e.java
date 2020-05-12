@@ -14,11 +14,11 @@ public class e {
         this.lZk = bVar;
     }
 
-    public b dpZ() {
+    public b dqa() {
         return this.lZk;
     }
 
-    public com.facebook.common.references.a<Bitmap> dqa() {
+    public com.facebook.common.references.a<Bitmap> dqb() {
         return com.facebook.common.references.a.b(this.lZm);
     }
 
@@ -27,7 +27,7 @@ public class e {
         return this;
     }
 
-    public int dqb() {
+    public int dqc() {
         return this.lZl;
     }
 
@@ -36,7 +36,7 @@ public class e {
         return this;
     }
 
-    public List<com.facebook.common.references.a<Bitmap>> dqc() {
+    public List<com.facebook.common.references.a<Bitmap>> dqd() {
         return com.facebook.common.references.a.i(this.lZn);
     }
 
@@ -46,7 +46,7 @@ public class e {
     }
 
     /* JADX WARN: Type inference failed for: r2v0, types: [java.util.List<com.facebook.common.references.a<android.graphics.Bitmap>>, com.facebook.common.references.a<android.graphics.Bitmap>] */
-    public d dqd() {
+    public d dqe() {
         try {
             return new d(this);
         } finally {

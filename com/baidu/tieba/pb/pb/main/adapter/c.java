@@ -23,8 +23,8 @@ public class c extends l<k, a> {
     public c(com.baidu.tieba.pb.videopb.b bVar, BdUniqueId bdUniqueId) {
         super(bVar, bdUniqueId);
         this.jCr = new LinkedList<>();
-        if (bVar != null && bVar.cwA() != null) {
-            aqV = bVar.cwA().czg();
+        if (bVar != null && bVar.cwB() != null) {
+            aqV = bVar.cwB().czh();
         }
         this.jCq = new d(bVar);
     }
@@ -52,13 +52,13 @@ public class c extends l<k, a> {
     }
 
     public void onDestroy() {
-        cBC();
+        cBD();
         if (this.jCq != null) {
             this.jCq.onDestroy();
         }
     }
 
-    private void cBC() {
+    private void cBD() {
         Iterator<a> it = this.jCr.iterator();
         while (it.hasNext()) {
             a next = it.next();
@@ -77,25 +77,25 @@ public class c extends l<k, a> {
                     next.jCs.vo(str);
                 }
             }
-        } else if (cBD() != null) {
-            this.jCq.d(cBD().aMq());
+        } else if (cBE() != null) {
+            this.jCq.d(cBE().aMq());
         }
     }
 
     private String getPostId() {
-        bj cBD = cBD();
-        return cBD != null ? cBD.aKS() : "";
+        bj cBE = cBE();
+        return cBE != null ? cBE.aKS() : "";
     }
 
     private String getForumId() {
-        return this.jse.cwA() != null ? this.jse.cwA().getForumId() : "";
+        return this.jse.cwB() != null ? this.jse.cwB().getForumId() : "";
     }
 
-    private bj cBD() {
-        if (this.jse.cwA() == null || this.jse.cwA().getPbData() == null) {
+    private bj cBE() {
+        if (this.jse.cwB() == null || this.jse.cwB().getPbData() == null) {
             return null;
         }
-        return this.jse.cwA().getPbData().cvr();
+        return this.jse.cwB().getPbData().cvs();
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {
@@ -130,7 +130,7 @@ public class c extends l<k, a> {
                     aIu.aMq().postId = aIu.aKS();
                 }
                 this.jCs.a(aIu, kVar.getAnti());
-                this.jCt.setVisibility(kVar.cwc() ? 0 : 8);
+                this.jCt.setVisibility(kVar.cwd() ? 0 : 8);
                 if (aIu.aJp() && aIu.aKT() != null) {
                     this.jCu = 2;
                 } else {

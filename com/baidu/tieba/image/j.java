@@ -76,15 +76,15 @@ public class j {
     private k.b iEx = new k.b() { // from class: com.baidu.tieba.image.j.3
         @Override // com.baidu.tbadk.core.dialog.k.b
         public void onClick() {
-            j.this.iDD.mr(j.this.iEn.ccr());
-            j.this.bER();
+            j.this.iDD.mr(j.this.iEn.ccs());
+            j.this.bES();
         }
     };
     private k.b iEy = new k.b() { // from class: com.baidu.tieba.image.j.4
         @Override // com.baidu.tbadk.core.dialog.k.b
         public void onClick() {
             g.aF(j.this.iEn.getPageContext().getPageActivity(), j.this.iDD.getCurrentImageUrl());
-            j.this.bER();
+            j.this.bES();
             j.this.xR(1);
         }
     };
@@ -99,7 +99,7 @@ public class j {
                 intent.putExtra(com.baidu.tbadk.imageManager.d.IMAGE_URL, currentImageUrl);
                 TbadkCoreApplication.getInst().sendBroadcast(intent);
             }
-            j.this.bER();
+            j.this.bES();
             j.this.xR(2);
         }
     };
@@ -114,7 +114,7 @@ public class j {
             j.this.mPermissionJudgement.appendRequestPermission(pageActivity, "android.permission.WRITE_EXTERNAL_STORAGE");
             if (!j.this.mPermissionJudgement.startRequestPermission(pageActivity)) {
                 j.this.saveImage();
-                j.this.bER();
+                j.this.bES();
                 j.this.xR(3);
             }
         }
@@ -157,7 +157,7 @@ public class j {
                 shareItem.dQu = true;
                 shareItem.dQC = 14;
                 j.this.iEn.sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SHARE_DIALOG_SHOW, new ShareDialogConfig(j.this.iEn, shareItem, false)));
-                j.this.bER();
+                j.this.bES();
                 j.this.xR(4);
             }
         }
@@ -177,13 +177,13 @@ public class j {
         if (this.gqc == null) {
             this.gqc = new ArrayList();
         }
-        bIc();
+        bId();
         this.gpX = new com.baidu.tbadk.core.dialog.i(this.iEn.getPageContext(), this.gpY);
     }
 
-    public void bIc() {
+    public void bId() {
         this.gqc.clear();
-        String mq = this.iDD.mq(this.iEn.ccr());
+        String mq = this.iDD.mq(this.iEn.ccs());
         if (mq != null) {
             this.iEr = new com.baidu.tbadk.core.dialog.g(mq, this.gpY);
             this.iEr.a(this.iEx);
@@ -192,7 +192,7 @@ public class j {
         this.gAs = new com.baidu.tbadk.core.dialog.g(getString(R.string.save_to_local), this.gpY);
         this.gAs.a(this.gAt);
         this.gqc.add(this.gAs);
-        if (this.iEn != null && !this.iEn.clA()) {
+        if (this.iEn != null && !this.iEn.clB()) {
             this.iEt = new com.baidu.tbadk.core.dialog.g(getString(R.string.save_to_emotion), this.gpY);
             this.iEt.a(this.iEz);
             this.gqc.add(this.iEt);
@@ -212,7 +212,7 @@ public class j {
         this.gpY.a(new k.a() { // from class: com.baidu.tieba.image.j.2
             @Override // com.baidu.tbadk.core.dialog.k.a
             public void onClick() {
-                j.this.bER();
+                j.this.bES();
             }
         });
         this.gpY.aI(this.gqc);
@@ -223,7 +223,7 @@ public class j {
         return this.iEn.getString(i);
     }
 
-    public void bER() {
+    public void bES() {
         if (this.gpX != null && this.gpX.isShowing()) {
             this.gpX.dismiss();
         }
@@ -254,12 +254,12 @@ public class j {
                 }
                 j.this.iEq = new com.baidu.tieba.ueg.c(currentImageQRInfo, new c.a() { // from class: com.baidu.tieba.image.j.8.1
                     @Override // com.baidu.tieba.ueg.c.a
-                    public void clF() {
+                    public void clG() {
                         j.this.openUrl(currentImageQRInfo);
                     }
 
                     @Override // com.baidu.tieba.ueg.c.a
-                    public void clG() {
+                    public void clH() {
                         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(j.this.iEn.getPageContext().getPageActivity());
                         aVar.setTitleShowCenter(true);
                         aVar.uh(j.this.getString(R.string.qr_url_jump_external_title));
@@ -284,7 +284,7 @@ public class j {
                     }
 
                     @Override // com.baidu.tieba.ueg.c.a
-                    public void clH() {
+                    public void clI() {
                         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(j.this.iEn.getPageContext().getPageActivity());
                         aVar.uh(null);
                         aVar.setMessageShowCenter(true);
@@ -307,7 +307,7 @@ public class j {
                 });
                 j.this.iEq.setPriority(3);
                 j.this.iEq.execute(new String[0]);
-                j.this.bER();
+                j.this.bES();
                 j.this.xR(5);
             }
         }
@@ -347,9 +347,9 @@ public class j {
         public String doInBackground(String... strArr) {
             ImageUrlData imageUrlData;
             String nameMd5FromUrl;
-            Map<String, ImageUrlData> cls = j.this.iEn.cls();
-            if (this.mUrl != null && cls != null) {
-                Iterator<Map.Entry<String, ImageUrlData>> it = cls.entrySet().iterator();
+            Map<String, ImageUrlData> clt = j.this.iEn.clt();
+            if (this.mUrl != null && clt != null) {
+                Iterator<Map.Entry<String, ImageUrlData>> it = clt.entrySet().iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         imageUrlData = null;
@@ -449,7 +449,7 @@ public class j {
         }
     }
 
-    public void clE() {
+    public void clF() {
         this.iEp = null;
     }
 

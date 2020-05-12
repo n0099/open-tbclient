@@ -30,7 +30,7 @@ public class a extends com.kascend.chushou.view.base.a implements View.OnClickLi
         void a(int i);
     }
 
-    public static a dyL() {
+    public static a dyM() {
         return new a();
     }
 

@@ -63,8 +63,8 @@ public class e extends com.baidu.tieba.card.a<bj> implements com.baidu.tieba.a.e
         this.agl = new View.OnClickListener() { // from class: com.baidu.tieba.ala.livecard.b.e.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (e.this.bEw() != null) {
-                    e.this.bEw().a(view, e.this.adJ);
+                if (e.this.bEx() != null) {
+                    e.this.bEx().a(view, e.this.adJ);
                 }
             }
         };
@@ -166,13 +166,13 @@ public class e extends com.baidu.tieba.card.a<bj> implements com.baidu.tieba.a.e
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (!com.baidu.tieba.frs.a.bNB().bNC()) {
+        if (!com.baidu.tieba.frs.a.bNC().bND()) {
             if (view == this.fsu || view == this.fsw.getCommentContainer() || view == this.eHe || view == this.fti.dJe.getCommentContainer()) {
                 if (this.adJ != null) {
                     l.BE(this.adJ.getId());
                 }
-                if (bEw() != null) {
-                    bEw().a(this.fsu, this.adJ);
+                if (bEx() != null) {
+                    bEx().a(this.fsu, this.adJ);
                 }
                 b(getContext(), this.adJ);
                 if (this.adJ != null) {
@@ -185,8 +185,8 @@ public class e extends com.baidu.tieba.card.a<bj> implements com.baidu.tieba.a.e
                     }
                 }
             } else if (view.getId() == R.id.video_container) {
-                if (bEw() != null) {
-                    bEw().a(view, this.adJ);
+                if (bEx() != null) {
+                    bEx().a(view, this.adJ);
                 }
                 b(getContext(), this.adJ);
             }
@@ -242,7 +242,7 @@ public class e extends com.baidu.tieba.card.a<bj> implements com.baidu.tieba.a.e
         }
         pX(or(1));
         W(this.adJ);
-        this.mMaskView.setVisibility(com.baidu.tieba.frs.a.bNB().bNC() ? 0 : 8);
+        this.mMaskView.setVisibility(com.baidu.tieba.frs.a.bNC().bND() ? 0 : 8);
         onChangeSkinType(this.duK, TbadkCoreApplication.getInst().getSkinType());
     }
 

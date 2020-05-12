@@ -26,11 +26,11 @@ public class b implements c.a {
             if (fVar != null && fVar.getUserData() != null) {
                 e.a(fVar.getUserData().getPersonPrivate());
             }
-            com.baidu.tieba.personCenter.a.cGb().fe(System.currentTimeMillis() - currentTimeMillis);
-            long cGd = com.baidu.tieba.personCenter.a.cGb().cGd();
-            if (cGd > 0) {
-                com.baidu.tieba.personCenter.a.cGb().setRefreshTime(System.currentTimeMillis() - cGd);
-                com.baidu.tieba.personCenter.a.cGb().ff(0L);
+            com.baidu.tieba.personCenter.a.cGc().fe(System.currentTimeMillis() - currentTimeMillis);
+            long cGe = com.baidu.tieba.personCenter.a.cGc().cGe();
+            if (cGe > 0) {
+                com.baidu.tieba.personCenter.a.cGc().setRefreshTime(System.currentTimeMillis() - cGe);
+                com.baidu.tieba.personCenter.a.cGc().ff(0L);
             }
         }
 
@@ -54,18 +54,18 @@ public class b implements c.a {
                     b.a aVar2 = bVar.kzV.get(3);
                     b.a aVar3 = bVar.kzV.get(9);
                     b.a aVar4 = bVar.kzV.get(10);
-                    if (b.this.jSZ.cGp() != null) {
+                    if (b.this.jSZ.cGq() != null) {
                         if (aVar2 != null) {
-                            b.this.jSZ.cGp().ss(aVar2.egw);
+                            b.this.jSZ.cGq().ss(aVar2.egw);
                         }
                         if (aVar != null) {
-                            b.this.jSZ.cGp().sv(aVar.egw);
+                            b.this.jSZ.cGq().sv(aVar.egw);
                         }
                         if (aVar3 != null) {
-                            b.this.jSZ.cGp().su(aVar3.egw);
+                            b.this.jSZ.cGq().su(aVar3.egw);
                         }
                         if (aVar4 != null) {
-                            b.this.jSZ.cGp().st(aVar4.egw);
+                            b.this.jSZ.cGq().st(aVar4.egw);
                         }
                     }
                     b.a aVar5 = bVar.kzV.get(5);
@@ -86,7 +86,7 @@ public class b implements c.a {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null) {
-                com.baidu.tieba.p.a.cOI().tp(false);
+                com.baidu.tieba.p.a.cOJ().tp(false);
             }
         }
     };
@@ -96,8 +96,8 @@ public class b implements c.a {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             k kVar;
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof k) && (kVar = (k) customResponsedMessage.getData()) != null) {
-                if (b.this.jSZ.cGp() != null) {
-                    b.this.jSZ.cGp().a(kVar);
+                if (b.this.jSZ.cGq() != null) {
+                    b.this.jSZ.cGq().a(kVar);
                     b.this.jTa.notifyDataSetChanged();
                     return;
                 }
@@ -111,7 +111,7 @@ public class b implements c.a {
         this.jTa.a(this);
         this.jSZ = new PersonCenterModel(tbPageContext, bdUniqueId);
         this.jSZ.a(this.jTb);
-        com.baidu.tieba.p.a.cOI();
+        com.baidu.tieba.p.a.cOJ();
         this.jTc.setTag(bdUniqueId);
         this.eyt.setTag(bdUniqueId);
         MessageManager.getInstance().registerListener(this.jTc);
@@ -121,23 +121,23 @@ public class b implements c.a {
     }
 
     public void Io(String str) {
-        f cGp = this.jSZ.cGp();
-        if (cGp != null && cGp.getUserData() != null) {
-            cGp.getUserData().setName_show(str);
+        f cGq = this.jSZ.cGq();
+        if (cGq != null && cGq.getUserData() != null) {
+            cGq.getUserData().setName_show(str);
             this.jTa.notifyDataSetChanged();
         }
     }
 
     public void Ip(String str) {
-        f cGp = this.jSZ.cGp();
-        if (cGp != null && cGp.getUserData() != null) {
-            cGp.getUserData().setPortrait(str);
+        f cGq = this.jSZ.cGq();
+        if (cGq != null && cGq.getUserData() != null) {
+            cGq.getUserData().setPortrait(str);
             this.jTa.notifyDataSetChanged();
         }
     }
 
     public void refreshView() {
-        com.baidu.tieba.personCenter.a.cGb().ff(System.currentTimeMillis());
+        com.baidu.tieba.personCenter.a.cGc().ff(System.currentTimeMillis());
         this.jSZ.LoadData();
     }
 
@@ -157,12 +157,12 @@ public class b implements c.a {
         this.jTa.onChangeSkinType(i);
     }
 
-    public void cGg() {
-        this.jTa.cGe();
-    }
-
     public void cGh() {
         this.jTa.cGf();
+    }
+
+    public void cGi() {
+        this.jTa.cGg();
     }
 
     @Override // com.baidu.tieba.personCenter.view.c.a

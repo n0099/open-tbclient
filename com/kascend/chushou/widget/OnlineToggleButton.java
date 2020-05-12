@@ -49,10 +49,10 @@ public class OnlineToggleButton extends RelativeLayout {
             d();
         } else if (privacyItem.mState == 1) {
             e();
-            this.mFN.dJE();
+            this.mFN.dJF();
         } else if (privacyItem.mState == 0) {
             e();
-            this.mFN.dJF();
+            this.mFN.dJG();
         } else if (privacyItem.mState == 3) {
             f();
         }
@@ -85,11 +85,11 @@ public class OnlineToggleButton extends RelativeLayout {
 
     public void b() {
         e();
-        this.mFN.dJE();
+        this.mFN.dJF();
     }
 
     public void c() {
         e();
-        this.mFN.dJF();
+        this.mFN.dJG();
     }
 }

@@ -132,7 +132,7 @@ public final class g<T> {
         return i2 ^ (i2 >>> 16);
     }
 
-    public Object[] dDc() {
+    public Object[] dDd() {
         return this.mVG;
     }
 

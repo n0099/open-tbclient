@@ -11,9 +11,9 @@ public class f implements d {
 
     /* loaded from: classes12.dex */
     public interface b {
-        List<Integer> dsH();
+        List<Integer> dsI();
 
-        int dsI();
+        int dsJ();
     }
 
     /* loaded from: classes12.dex */
@@ -22,12 +22,12 @@ public class f implements d {
         }
 
         @Override // com.facebook.imagepipeline.decoder.f.b
-        public List<Integer> dsH() {
+        public List<Integer> dsI() {
             return Collections.EMPTY_LIST;
         }
 
         @Override // com.facebook.imagepipeline.decoder.f.b
-        public int dsI() {
+        public int dsJ() {
             return 0;
         }
     }
@@ -42,18 +42,18 @@ public class f implements d {
 
     @Override // com.facebook.imagepipeline.decoder.d
     public int GP(int i) {
-        List<Integer> dsH = this.mdt.dsH();
-        if (dsH == null || dsH.isEmpty()) {
+        List<Integer> dsI = this.mdt.dsI();
+        if (dsI == null || dsI.isEmpty()) {
             return i + 1;
         }
         int i2 = 0;
         while (true) {
             int i3 = i2;
-            if (i3 < dsH.size()) {
-                if (dsH.get(i3).intValue() <= i) {
+            if (i3 < dsI.size()) {
+                if (dsI.get(i3).intValue() <= i) {
                     i2 = i3 + 1;
                 } else {
-                    return dsH.get(i3).intValue();
+                    return dsI.get(i3).intValue();
                 }
             } else {
                 return ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
@@ -63,6 +63,6 @@ public class f implements d {
 
     @Override // com.facebook.imagepipeline.decoder.d
     public h GQ(int i) {
-        return com.facebook.imagepipeline.g.g.i(i, i >= this.mdt.dsI(), false);
+        return com.facebook.imagepipeline.g.g.i(i, i >= this.mdt.dsJ(), false);
     }
 }

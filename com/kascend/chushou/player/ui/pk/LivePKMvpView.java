@@ -71,7 +71,7 @@ public class LivePKMvpView extends RelativeLayout implements Runnable {
         clearAnimation();
         setVisibility(0);
         this.f.setText(str2);
-        this.mpu.bU(str, tv.chushou.widget.a.c.dJG());
+        this.mpu.bU(str, tv.chushou.widget.a.c.dJH());
         this.e.setVisibility(0);
         this.e.setAlpha(0.0f);
         this.g.setVisibility(0);

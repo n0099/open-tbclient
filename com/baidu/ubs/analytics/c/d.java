@@ -15,7 +15,7 @@ public final class d {
         this.lOx = new Stack<>();
     }
 
-    public final Stack<WeakReference<Activity>> dla() {
+    public final Stack<WeakReference<Activity>> dlb() {
         return this.lOx;
     }
 
@@ -39,11 +39,11 @@ public final class d {
                 i = i2 + 1;
             }
         }
-        dlb();
+        dlc();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final String dlb() {
+    public final String dlc() {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < this.lOx.size(); i++) {
             Activity activity = this.lOx.get(i).get();

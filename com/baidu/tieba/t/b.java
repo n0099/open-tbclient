@@ -7,29 +7,29 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 public class b {
     private static b lam;
     private boolean mInited = false;
-    private a lan = cYR();
+    private a lan = cYS();
 
     /* loaded from: classes.dex */
     public interface a {
         void initSdk(Application application);
     }
 
-    private boolean cYQ() {
+    private boolean cYR() {
         return com.baidu.tbadk.core.sharedPref.b.aNT().getInt("pref_key_jpush_sdk_enable", 0) == 1;
     }
 
     private b() {
     }
 
-    private a cYR() {
+    private a cYS() {
         CustomResponsedMessage runTask;
-        if (!cYQ() || (runTask = MessageManager.getInstance().runTask(2156672, a.class)) == null) {
+        if (!cYR() || (runTask = MessageManager.getInstance().runTask(2156672, a.class)) == null) {
             return null;
         }
         return (a) runTask.getData();
     }
 
-    public static b cYS() {
+    public static b cYT() {
         if (lam == null) {
             synchronized (b.class) {
                 if (lam == null) {

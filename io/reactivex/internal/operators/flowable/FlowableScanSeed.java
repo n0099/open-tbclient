@@ -15,7 +15,7 @@ public final class FlowableScanSeed<T, R> extends a<T, R> {
     @Override // io.reactivex.g
     protected void a(org.a.c<? super R> cVar) {
         try {
-            this.mRM.a((j) new ScanSeedSubscriber(cVar, this.accumulator, io.reactivex.internal.functions.a.h(this.mSH.call(), "The seed supplied is null"), dCx()));
+            this.mRM.a((j) new ScanSeedSubscriber(cVar, this.accumulator, io.reactivex.internal.functions.a.h(this.mSH.call(), "The seed supplied is null"), dCy()));
         } catch (Throwable th) {
             io.reactivex.exceptions.a.L(th);
             EmptySubscription.error(th, cVar);

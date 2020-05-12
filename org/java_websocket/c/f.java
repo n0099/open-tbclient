@@ -7,7 +7,7 @@ public interface f {
 
     boolean PQ(String str);
 
-    Iterator<String> dHd();
+    Iterator<String> dHe();
 
     byte[] getContent();
 }

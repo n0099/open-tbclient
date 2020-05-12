@@ -18,14 +18,14 @@ public class a {
         }
     }
 
-    public int dij() {
+    public int dik() {
         if (this.lHc == null) {
             return 0;
         }
         return this.lHc.getWidth();
     }
 
-    public int dik() {
+    public int dil() {
         if (this.lHc == null) {
             return 0;
         }
@@ -36,7 +36,7 @@ public class a {
         return this.mMatrix;
     }
 
-    public Bitmap dil() {
+    public Bitmap dim() {
         return this.lHc;
     }
 }

@@ -142,15 +142,15 @@ public class e {
         this.mdq = i2;
     }
 
-    public int dsE() {
+    public int dsF() {
         return this.mdr;
     }
 
-    public int dsF() {
+    public int dsG() {
         return this.mdq;
     }
 
-    public boolean dsG() {
+    public boolean dsH() {
         return this.mds;
     }
 }

@@ -179,10 +179,10 @@ public class PersonPolymericModel extends BdBaseModel<BaseFragmentActivity> {
     }
 
     public void resetData() {
-        this.jZV.cIh();
+        this.jZV.cIi();
     }
 
-    public com.baidu.tieba.personPolymeric.c.a cIE() {
+    public com.baidu.tieba.personPolymeric.c.a cIF() {
         return this.jZV;
     }
 

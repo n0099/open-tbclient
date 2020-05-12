@@ -20,7 +20,7 @@ public abstract class b {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void bUy();
+    public abstract void bUA();
 
     /* JADX INFO: Access modifiers changed from: protected */
     public abstract void bUz();
@@ -30,10 +30,10 @@ public abstract class b {
         this.hgs = false;
         this.hvn = gVar;
         this.mIntent = intent;
-        e Dx = d.bUE().Dx(this.mIntent.getStringExtra("info_forum_name_text"));
-        this.hvp = Dx.bUG();
-        this.hgs = Dx.bUF();
-        if (Dx.bUH()) {
+        e Dx = d.bUF().Dx(this.mIntent.getStringExtra("info_forum_name_text"));
+        this.hvp = Dx.bUH();
+        this.hgs = Dx.bUG();
+        if (Dx.bUI()) {
             ((RelativeLayout.LayoutParams) this.hvn.hvD.getLayoutParams()).topMargin = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds_104);
         }
     }

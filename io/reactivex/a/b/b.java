@@ -29,7 +29,7 @@ public final class b extends v {
     }
 
     @Override // io.reactivex.v
-    public v.c dCC() {
+    public v.c dCD() {
         return new a(this.handler);
     }
 
@@ -51,7 +51,7 @@ public final class b extends v {
                 throw new NullPointerException("unit == null");
             }
             if (this.disposed) {
-                return c.dCF();
+                return c.dCG();
             }
             RunnableC0804b runnableC0804b = new RunnableC0804b(this.handler, io.reactivex.e.a.K(runnable));
             Message obtain = Message.obtain(this.handler, runnableC0804b);
@@ -59,7 +59,7 @@ public final class b extends v {
             this.handler.sendMessageDelayed(obtain, timeUnit.toMillis(j));
             if (this.disposed) {
                 this.handler.removeCallbacks(runnableC0804b);
-                return c.dCF();
+                return c.dCG();
             }
             return runnableC0804b;
         }

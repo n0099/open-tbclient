@@ -21,7 +21,7 @@ public final class BufferUntilSubscriber<T> extends rx.subjects.c<T, T> {
     final State<T> njl;
     private boolean njm;
 
-    public static <T> BufferUntilSubscriber<T> dHF() {
+    public static <T> BufferUntilSubscriber<T> dHG() {
         return new BufferUntilSubscriber<>(new State());
     }
 
@@ -123,7 +123,7 @@ public final class BufferUntilSubscriber<T> extends rx.subjects.c<T, T> {
         if (this.njm) {
             this.njl.get().onCompleted();
         } else {
-            bN(NotificationLite.dHG());
+            bN(NotificationLite.dHH());
         }
     }
 

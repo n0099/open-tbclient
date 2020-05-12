@@ -134,7 +134,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
             if (ImageViewerActivity.this.iDD != null) {
                 ImageViewerActivity.this.iDD.hp(false);
             }
-            ImageViewerActivity.this.cly();
+            ImageViewerActivity.this.clz();
         }
 
         @Override // com.baidu.tbadk.widget.DragImageView.d
@@ -241,7 +241,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
         @Override // android.view.View.OnLongClickListener
         public boolean onLongClick(View view) {
             if (ImageViewerActivity.this.iDH != null) {
-                ImageViewerActivity.this.iDH.bIc();
+                ImageViewerActivity.this.iDH.bId();
                 ImageViewerActivity.this.iDH.show();
                 ImageViewerActivity.this.iDH.cp(view);
             }
@@ -253,9 +253,9 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
         @Override // com.baidu.tbadk.core.view.BaseViewPager.a
         public void onScrollOut(int i) {
             if (i == 0) {
-                ImageViewerActivity.this.iDF.cld();
-            } else if (ImageViewerActivity.this.clt() != 1) {
                 ImageViewerActivity.this.iDF.cle();
+            } else if (ImageViewerActivity.this.clu() != 1) {
+                ImageViewerActivity.this.iDF.clf();
             }
         }
     };
@@ -263,27 +263,27 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
         @Override // android.support.v4.view.ViewPager.OnPageChangeListener
         public void onPageSelected(int i) {
             if (ImageViewerActivity.this.iDF != null && i > ImageViewerActivity.this.iDD.getItemNum() - 5) {
-                ImageViewerActivity.this.iDF.cld();
+                ImageViewerActivity.this.iDF.cle();
             }
             ImageViewerActivity.this.iDG.e(ImageViewerActivity.this.iDE, ImageViewerActivity.this.mIndex, i);
             ImageViewerActivity.this.mIndex = i;
-            ImageViewerActivity.this.clu();
-            ImageViewerActivity.this.clz();
+            ImageViewerActivity.this.clv();
+            ImageViewerActivity.this.clA();
             ImageViewerActivity.this.xO(i);
-            if (ImageViewerActivity.this.iDG.clB() < ImageViewerActivity.this.mIndex) {
+            if (ImageViewerActivity.this.iDG.clC() < ImageViewerActivity.this.mIndex) {
                 ImageViewerActivity.this.iDG.xP(ImageViewerActivity.this.mIndex);
             }
-            if (ImageViewerActivity.this.iDG.clC() > ImageViewerActivity.this.mIndex) {
+            if (ImageViewerActivity.this.iDG.clD() > ImageViewerActivity.this.mIndex) {
                 ImageViewerActivity.this.iDG.xQ(ImageViewerActivity.this.mIndex);
             }
-            if (ImageViewerActivity.this.clv()) {
-                ImageViewerActivity.this.iDL.ckR();
+            if (ImageViewerActivity.this.clw()) {
+                ImageViewerActivity.this.iDL.ckS();
             }
             if (ImageViewerActivity.this.mIndex != ImageViewerActivity.this.iDD.getItemNum() - 1) {
                 ImageViewerActivity.this.iDR = false;
             }
             if (ImageViewerActivity.this.iDH != null) {
-                ImageViewerActivity.this.iDH.clE();
+                ImageViewerActivity.this.iDH.clF();
             }
         }
 
@@ -303,7 +303,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
                 dragImageView = null;
             }
             boolean onLeftSide = dragImageView != null ? dragImageView.onLeftSide() : false;
-            if (ImageViewerActivity.this.clt() == 1 && onLeftSide) {
+            if (ImageViewerActivity.this.clu() == 1 && onLeftSide) {
                 ImageViewerActivity.this.setSwipeBackEnabled(true);
             } else {
                 ImageViewerActivity.this.setSwipeBackEnabled(false);
@@ -316,7 +316,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
                 ImageViewerActivity.this.iDG.bb(i, (String) ImageViewerActivity.this.iDE.get(ImageViewerActivity.this.mIndex));
             }
             if (i == 0 && ImageViewerActivity.this.mIndex == ImageViewerActivity.this.iDD.getItemNum() - 1) {
-                if (!ImageViewerActivity.this.iEd || !ImageViewerActivity.this.iDI || (!ImageViewerActivity.this.iDR && !ImageViewerActivity.this.clv() && (ImageViewerActivity.this.iDD.getItemNum() != 1 || !ImageViewerActivity.this.isRight))) {
+                if (!ImageViewerActivity.this.iEd || !ImageViewerActivity.this.iDI || (!ImageViewerActivity.this.iDR && !ImageViewerActivity.this.clw() && (ImageViewerActivity.this.iDD.getItemNum() != 1 || !ImageViewerActivity.this.isRight))) {
                     ImageViewerActivity.this.iDR = true;
                 } else {
                     ImageViewerActivity.this.showToast(R.string.last_page);
@@ -392,7 +392,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
         TbadkCoreApplication.getInst().addRemoteActivity(this);
         initData(bundle);
         setContentView(R.layout.image_activity_2);
-        bXJ();
+        bXK();
         k(this.iDn, this.mIsSeeHost, false);
         registerListener(this.iEa);
         registerListener(this.dDy);
@@ -457,7 +457,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
                         ImageViewerActivity.this.iDD.setCurrentItem(ImageViewerActivity.this.iDD.getCurrentItem() - 200, false);
                     }
                     a(arrayList, advertAppInfo);
-                    ImageViewerActivity.this.clu();
+                    ImageViewerActivity.this.clv();
                 }
             }
 
@@ -467,7 +467,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
                     return;
                 }
                 ImageViewerActivity.this.iDL.a(advertAppInfo, arrayList.size());
-                if (ImageViewerActivity.this.iDL.ckN()) {
+                if (ImageViewerActivity.this.iDL.ckO()) {
                     ImageViewerActivity.this.iDD.setAddSize(1);
                     TiebaStatic.log(com.baidu.tieba.s.a.b(PageStayDurationConstants.PageName.BIGIMAGE, "common_fill", true, 1));
                     return;
@@ -487,12 +487,12 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
                     if (ImageViewerActivity.this.iDE != null) {
                         ImageViewerActivity.this.mCount = ImageViewerActivity.this.iDE.size();
                     }
-                    ImageViewerActivity.this.clu();
+                    ImageViewerActivity.this.clv();
                 }
             }
         });
         this.iDF.py(true);
-        this.iDF.cld();
+        this.iDF.cle();
     }
 
     @Override // com.baidu.tbadk.BaseActivity
@@ -557,7 +557,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
         TbadkCoreApplication.getInst().delRemoteActivity(this);
         com.baidu.tbadk.imageManager.c.aYk().releaseBlockBitmapPool();
         this.iDG.e(this.iDE, this.mIndex, this.mIndex);
-        this.iDG.clD();
+        this.iDG.clE();
         String str3 = "";
         if (this.iDL != null) {
             str3 = this.iDL.getAdId();
@@ -575,7 +575,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
         this.iDD.onDestroy();
         com.baidu.tbadk.download.d.aWJ().cancelDownloadByType(13);
         TbadkCoreApplication.getInst().setSkinTypeValue(this.iDO);
-        cly();
+        clz();
         super.onDestroy();
     }
 
@@ -591,18 +591,18 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
         return super.onKeyDown(i, keyEvent);
     }
 
-    private void bXJ() {
+    private void bXK() {
         blD();
         initViewPager();
-        clu();
-        bJo();
-        clq();
+        clv();
+        bJp();
+        clr();
         this.iDH = new j(this);
         this.iDH.j(this.iDD);
         this.iDG.e(this.iDE, this.mIndex, this.mIndex);
     }
 
-    private void clq() {
+    private void clr() {
         if (com.baidu.tbadk.core.util.g.aOc()) {
             this.mStatusBarView = findViewById(R.id.statusbar_view);
             ViewGroup.LayoutParams layoutParams = this.mStatusBarView.getLayoutParams();
@@ -615,7 +615,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
     private void blD() {
         this.mNavigationBar = (NavigationBar) findViewById(R.id.navigation_bar);
         this.mNavigationBar.setBackgroundColor(ContextCompat.getColor(this, R.color.transparent));
-        clr();
+        cls();
         bpA();
         this.mTitleView = this.mNavigationBar.setCenterTextTitle("");
         this.mTitleView.setTextColor(ContextCompat.getColor(this, R.color.cp_cont_a));
@@ -626,7 +626,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
         }
     }
 
-    private void clr() {
+    private void cls() {
         this.har = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.har.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.image.ImageViewerActivity.12
             @Override // android.view.View.OnClickListener
@@ -655,7 +655,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
         }
     }
 
-    public Map<String, ImageUrlData> cls() {
+    public Map<String, ImageUrlData> clt() {
         return this.dTF;
     }
 
@@ -668,7 +668,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public long clt() {
+    public long clu() {
         ImageUrlData imageUrlData;
         String str = (String) v.getItem(this.iDE, this.mIndex);
         if (this.dTF == null || str == null) {
@@ -681,21 +681,21 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void clu() {
+    public void clv() {
         String str;
         if (this.iDE != null) {
-            String str2 = ("" + clt()) + "/";
+            String str2 = ("" + clu()) + "/";
             if (this.mCount > 0) {
                 str = str2 + this.mCount;
             } else {
                 str = str2 + StringHelper.STRING_MORE;
             }
-            if (this.mFrom != null && !this.iDQ && clt() == this.mCount && (this.mFrom.equals("frs") || this.mFrom.equals("index"))) {
+            if (this.mFrom != null && !this.iDQ && clu() == this.mCount && (this.mFrom.equals("frs") || this.mFrom.equals("index"))) {
                 TiebaStatic.log(new an("c13316").cI("obj_source", this.mFrom));
                 this.iDQ = true;
             }
-            if (clv()) {
-                clw();
+            if (clw()) {
+                clx();
             } else {
                 FC(str);
             }
@@ -703,8 +703,8 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean clv() {
-        if (this.iDS && this.iDL != null && this.iDL.ckN()) {
+    public boolean clw() {
+        if (this.iDS && this.iDL != null && this.iDL.ckO()) {
             return this.iDD.getItemNum() != 1 && this.mIndex == this.iDD.getItemNum() + (-1);
         }
         return false;
@@ -717,7 +717,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
         }
     }
 
-    private void clw() {
+    private void clx() {
         this.mTitleView.setText("");
         o(this.iDC, 8);
     }
@@ -740,7 +740,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
         this.iDD.setOuterOnTouchListener(this.dUs);
         this.iDD.setItemOnclickListener(this.mOnClickListener);
         this.iDD.setItemOnLongClickListener(this.iEe);
-        this.iDD.setCurrentItem(ccr(), false);
+        this.iDD.setCurrentItem(ccs(), false);
         this.iDD.setOnScrollOutListener(this.iEf);
         this.iDL = new a(this.dSw, this.iDS, getPageContext(), this.eQk, this.ahO);
         this.iDL.setDragToExitListener(this.dUg);
@@ -761,10 +761,10 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
             }
         });
         this.iDD.setShowBottomContainer(this.iDZ);
-        TiebaStatic.log(new an("c13340").cI("uid", this.mUserId).cI("post_id", this.ahO).af("obj_source", clx()));
+        TiebaStatic.log(new an("c13340").cI("uid", this.mUserId).cI("post_id", this.ahO).af("obj_source", cly()));
     }
 
-    private int clx() {
+    private int cly() {
         if (StringUtils.isNULL(this.mFrom)) {
             return 7;
         }
@@ -777,7 +777,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
         return this.mFrom.equals("index") ? 1 : 7;
     }
 
-    private void bJo() {
+    private void bJp() {
         if (!this.iDU && this.iDC != null) {
             if (this.iDK == null) {
                 this.iDK = new com.baidu.tieba.c.d(getPageContext(), this.iDC);
@@ -789,7 +789,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
                 this.iDK.c(new View.OnClickListener() { // from class: com.baidu.tieba.image.ImageViewerActivity.15
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        ImageViewerActivity.this.cly();
+                        ImageViewerActivity.this.clz();
                     }
                 });
             }
@@ -798,13 +798,13 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cly() {
+    public void clz() {
         if (this.iDK != null) {
             this.iDK.ED();
         }
     }
 
-    public int ccr() {
+    public int ccs() {
         int count = v.getCount(this.iDE);
         if (count > 0) {
             if (this.mIndex >= count) {
@@ -1000,13 +1000,13 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
     public void xO(int i) {
         if (this.iDD != null) {
             this.iDD.mo(i);
-            o(this.iDC, (this.iDD.aVp() || clv()) ? 8 : 0);
+            o(this.iDC, (this.iDD.aVp() || clw()) ? 8 : 0);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void clz() {
-        if (clv()) {
+    public void clA() {
+        if (clw()) {
             this.iDN = this.mNavigationBar.getVisibility() == 0;
             this.iDM = true;
         } else if (this.iDM) {
@@ -1053,7 +1053,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
         return this.iDY;
     }
 
-    public boolean clA() {
+    public boolean clB() {
         return this.iDV;
     }
 

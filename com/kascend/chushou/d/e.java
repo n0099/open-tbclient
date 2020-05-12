@@ -46,11 +46,11 @@ public class e {
     }
 
     public static void a() {
-        tv.chushou.basis.c.c.Qc("chushou_player_prefs").putBoolean("key_only_play_when_wifi", h.dwH().u());
+        tv.chushou.basis.c.c.Qc("chushou_player_prefs").putBoolean("key_only_play_when_wifi", h.dwI().u());
     }
 
     public static boolean b() {
-        return h.dwH().u() && !com.kascend.chushou.b.dwA().a && com.kascend.chushou.b.dwA().b;
+        return h.dwI().u() && !com.kascend.chushou.b.dwB().a && com.kascend.chushou.b.dwB().b;
     }
 
     public static int c() {
@@ -277,7 +277,7 @@ public class e {
 
     public static String a(String str, Map<String, Object> map, RequestTag requestTag) {
         Http http;
-        if (!tv.chushou.zues.utils.h.isEmpty(str) && (http = (Http) tv.chushou.basis.d.b.dJr().S(Http.class)) != null) {
+        if (!tv.chushou.zues.utils.h.isEmpty(str) && (http = (Http) tv.chushou.basis.d.b.dJs().S(Http.class)) != null) {
             if (str.contains("chushou.tv") || str.contains("192.168.") || str.contains("183.129.155.244") || str.contains("vchushou.com") || str.contains("playground") || str.contains("kascend-inc.com")) {
                 if (requestTag == null) {
                     requestTag = RequestTag.normal();
@@ -294,7 +294,7 @@ public class e {
     }
 
     public static String n(String str, Map<String, Object> map) {
-        Http http = (Http) tv.chushou.basis.d.b.dJr().S(Http.class);
+        Http http = (Http) tv.chushou.basis.d.b.dJs().S(Http.class);
         return http == null ? str : http.packParams(str, map);
     }
 
@@ -393,7 +393,7 @@ public class e {
 
     private static boolean a(Context context, String str, String str2, JSONObject jSONObject, boolean z, String str3) {
         if (!tv.chushou.zues.utils.h.isEmpty(str)) {
-            if (!tv.chushou.zues.utils.a.dJO()) {
+            if (!tv.chushou.zues.utils.a.dJP()) {
                 tv.chushou.zues.utils.g.JO(a.i.s_no_available_network);
             } else {
                 a(context, str, str2, jSONObject, z, false, str3);
@@ -481,7 +481,7 @@ public class e {
     }
 
     public static boolean c(Context context, String str) {
-        if (!tv.chushou.zues.utils.a.dJO()) {
+        if (!tv.chushou.zues.utils.a.dJP()) {
             tv.chushou.zues.utils.g.JO(a.i.s_no_available_network);
             return false;
         } else if (!LoginManager.Instance().islogined()) {
@@ -531,25 +531,25 @@ public class e {
 
     public static void f() {
         c.mnH.c();
-        c.mnH.dwE();
+        c.mnH.dwF();
         c.mnH.e();
     }
 
     public static void g() {
         synchronized (d) {
             if (c) {
-                tv.chushou.basis.d.b.dJq().d(null, "initMainThread, already finished");
+                tv.chushou.basis.d.b.dJr().d(null, "initMainThread, already finished");
                 return;
             }
-            tv.chushou.basis.d.b.dJq().d(null, "initMainThread");
-            tv.chushou.basis.d.b.dJr().e(tv.chushou.basis.d.a.b.b.class, com.kascend.chushou.toolkit.c.a.class);
-            tv.chushou.basis.d.b.dJr().e(tv.chushou.basis.d.a.b.d.class, tv.chushou.basis.b.a.a.a.class);
-            tv.chushou.basis.d.b.dJr().e(tv.chushou.basis.d.a.b.e.class, com.kascend.chushou.toolkit.c.e.class);
-            tv.chushou.basis.d.b.dJr().e(tv.chushou.basis.d.a.b.c.class, com.kascend.chushou.toolkit.c.b.class);
-            tv.chushou.basis.d.b.dJr().e(Http.class, HttpImpl.class);
-            tv.chushou.basis.d.b.dJr().e(tv.chushou.basis.d.a.a.c.class, com.kascend.chushou.toolkit.c.a.c.class);
-            tv.chushou.basis.d.b.dJr().e(tv.chushou.basis.d.a.a.b.class, com.kascend.chushou.toolkit.c.d.class);
-            tv.chushou.basis.d.b.dJr().e(tv.chushou.basis.d.a.a.a.class, com.kascend.chushou.toolkit.c.c.class);
+            tv.chushou.basis.d.b.dJr().d(null, "initMainThread");
+            tv.chushou.basis.d.b.dJs().e(tv.chushou.basis.d.a.b.b.class, com.kascend.chushou.toolkit.c.a.class);
+            tv.chushou.basis.d.b.dJs().e(tv.chushou.basis.d.a.b.d.class, tv.chushou.basis.b.a.a.a.class);
+            tv.chushou.basis.d.b.dJs().e(tv.chushou.basis.d.a.b.e.class, com.kascend.chushou.toolkit.c.e.class);
+            tv.chushou.basis.d.b.dJs().e(tv.chushou.basis.d.a.b.c.class, com.kascend.chushou.toolkit.c.b.class);
+            tv.chushou.basis.d.b.dJs().e(Http.class, HttpImpl.class);
+            tv.chushou.basis.d.b.dJs().e(tv.chushou.basis.d.a.a.c.class, com.kascend.chushou.toolkit.c.a.c.class);
+            tv.chushou.basis.d.b.dJs().e(tv.chushou.basis.d.a.a.b.class, com.kascend.chushou.toolkit.c.d.class);
+            tv.chushou.basis.d.b.dJs().e(tv.chushou.basis.d.a.a.a.class, com.kascend.chushou.toolkit.c.c.class);
             h();
             i();
             c = true;
@@ -577,7 +577,7 @@ public class e {
     }
 
     public static void j() {
-        com.kascend.chushou.b.dwA().a = tv.chushou.zues.utils.a.fW(tv.chushou.basis.d.b.dJp());
-        com.kascend.chushou.b.dwA().b = tv.chushou.zues.utils.a.fX(tv.chushou.basis.d.b.dJp());
+        com.kascend.chushou.b.dwB().a = tv.chushou.zues.utils.a.fW(tv.chushou.basis.d.b.dJq());
+        com.kascend.chushou.b.dwB().b = tv.chushou.zues.utils.a.fX(tv.chushou.basis.d.b.dJq());
     }
 }

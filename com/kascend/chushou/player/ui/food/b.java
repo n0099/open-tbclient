@@ -75,7 +75,7 @@ public class b extends k {
     @Override // com.kascend.chushou.player.ui.food.k
     public void a(ListItem listItem, boolean z) {
         this.mzF.setAnim(true);
-        this.mzF.a(listItem.mCover, tv.chushou.widget.a.c.dJG(), 0, 0, 1);
+        this.mzF.a(listItem.mCover, tv.chushou.widget.a.c.dJH(), 0, 0, 1);
         this.b.setVisibility(listItem.mShowClose ? 0 : 8);
     }
 }

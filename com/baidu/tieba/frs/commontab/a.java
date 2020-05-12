@@ -132,16 +132,16 @@ public class a {
         if (frsCommonTabFragment.tabId == 502 || frsCommonTabFragment.isGeneralTab == 1) {
             b(frsViewData);
         }
-        bQG();
+        bQH();
         bdTypeRecyclerView.addAdapters(this.aMj);
-        bRk();
+        bRl();
     }
 
     public void setData(ArrayList<m> arrayList) {
         this.Vi.setData(arrayList);
     }
 
-    private void bQG() {
+    private void bQH() {
         if (!v.isEmpty(this.aMj) && this.hfB != null) {
             for (com.baidu.adp.widget.ListView.a aVar : this.aMj) {
                 if (aVar instanceof h) {
@@ -151,7 +151,7 @@ public class a {
         }
     }
 
-    private void bRk() {
+    private void bRl() {
         if (this.hfB != null && !v.isEmpty(this.aMj)) {
             for (com.baidu.adp.widget.ListView.a aVar : this.aMj) {
                 if (aVar instanceof com.baidu.tieba.frs.d.d) {

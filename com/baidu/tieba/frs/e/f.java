@@ -31,7 +31,7 @@ public class f {
                     f.this.Vf.aZG();
                 }
             } else if (i == 0) {
-                f.this.bUK();
+                f.this.bUL();
             }
         }
     };
@@ -50,16 +50,16 @@ public class f {
         this.hvw.a(this.hvx);
     }
 
-    public void bUI() {
+    public void bUJ() {
         if (this.mParent != null) {
-            bUK();
+            bUL();
             this.mParent.addView(this.hvn.mRootView);
-            bUJ();
-            this.hvw.bUy();
+            bUK();
+            this.hvw.bUz();
         }
     }
 
-    public void bNO() {
+    public void bNP() {
         if (this.mParent != null) {
             hide();
         }
@@ -73,7 +73,7 @@ public class f {
             return;
         }
         showContentView();
-        this.hvw.bUz();
+        this.hvw.bUA();
     }
 
     public static boolean W(Intent intent) {
@@ -90,7 +90,7 @@ public class f {
         }
     }
 
-    private void bUJ() {
+    private void bUK() {
         View findViewById;
         if (this.mParent != null && (this.mParent.getChildAt(0) instanceof SwipeBackLayout)) {
             this.mParent.getChildAt(0).setVisibility(8);
@@ -101,7 +101,7 @@ public class f {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bUK() {
+    public void bUL() {
         ViewParent parent = this.hvn.mRootView.getParent();
         if (parent instanceof ViewGroup) {
             ((ViewGroup) parent).removeView(this.hvn.mRootView);

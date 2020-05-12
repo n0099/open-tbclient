@@ -52,7 +52,7 @@ public class c {
             this.jCN = (ImageView) this.jCL.findViewById(R.id.pb_thread_type_stamp_title_bottom_part);
             this.jCN.setScaleType(ImageView.ScaleType.MATRIX);
             Matrix matrix = new Matrix();
-            matrix.postTranslate(0.0f, -am.cAb());
+            matrix.postTranslate(0.0f, -am.cAc());
             this.jCN.setImageMatrix(matrix);
             this.jCM = (TextView) this.jCL.findViewById(R.id.tv_pb_title);
             this.jCM.setLinkTextColor(com.baidu.tbadk.core.util.am.getColor(R.color.cp_link_tip_c));
@@ -82,7 +82,7 @@ public class c {
     }
 
     public void w(com.baidu.tieba.pb.data.e eVar) {
-        if (eVar != null && !eVar.cvr().aJp() && this.jCM.getText() != null && this.jCM.getText().length() > 0) {
+        if (eVar != null && !eVar.cvs().aJp() && this.jCM.getText() != null && this.jCM.getText().length() > 0) {
             this.jCM.setVisibility(0);
         } else {
             this.jCM.setVisibility(8);
@@ -104,10 +104,10 @@ public class c {
     }
 
     public void x(com.baidu.tieba.pb.data.e eVar) {
-        if (eVar != null && eVar.cvr() != null) {
-            SpannableStringBuilder aLj = eVar.cvr().aLj();
-            SpannableString aJ = am.aJ(eVar.cvr());
-            if (!StringUtils.isNull(eVar.cvr().getTitle())) {
+        if (eVar != null && eVar.cvs() != null) {
+            SpannableStringBuilder aLj = eVar.cvs().aLj();
+            SpannableString aJ = am.aJ(eVar.cvs());
+            if (!StringUtils.isNull(eVar.cvs().getTitle())) {
                 if (aJ != null) {
                     aLj.append((CharSequence) aJ);
                     this.jCM.setText(aLj, TextView.BufferType.SPANNABLE);
@@ -134,7 +134,7 @@ public class c {
             layoutParams.topMargin = dimens;
             layoutParams.leftMargin = dimens2;
             layoutParams.rightMargin = dimens2;
-            if (eVar.cvP()) {
+            if (eVar.cvQ()) {
                 dimens3 = 0;
             }
             layoutParams.bottomMargin = dimens3;
@@ -143,8 +143,8 @@ public class c {
     }
 
     public void z(com.baidu.tieba.pb.data.e eVar) {
-        if (eVar != null && eVar.cvr() != null) {
-            SpannableStringBuilder aLj = eVar.cvr().aLj();
+        if (eVar != null && eVar.cvs() != null) {
+            SpannableStringBuilder aLj = eVar.cvs().aLj();
             this.jCM.setOnTouchListener(new i(aLj));
             this.jCM.setText(aLj);
             this.jCM.setVisibility(0);
@@ -152,7 +152,7 @@ public class c {
     }
 
     public void c(com.baidu.tieba.pb.data.e eVar, boolean z, boolean z2) {
-        if (eVar != null && eVar.cvr() != null && eVar.cvr().aKR() == 0 && !eVar.cvr().aJp()) {
+        if (eVar != null && eVar.cvs() != null && eVar.cvs().aKR() == 0 && !eVar.cvs().aJp()) {
             if (eVar.jnD) {
                 this.jCN.setImageResource(R.drawable.pic_frs_headlines_n);
                 this.jCN.setVisibility(0);
@@ -169,7 +169,7 @@ public class c {
                 this.jCN.setVisibility(8);
             }
             if (this.jCN.getVisibility() == 0 && this.jCN.getLayoutParams() != null) {
-                this.jCN.getLayoutParams().height = am.cAc() - am.cAb();
+                this.jCN.getLayoutParams().height = am.cAd() - am.cAc();
             }
         }
     }

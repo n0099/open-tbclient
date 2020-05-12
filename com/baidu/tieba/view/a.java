@@ -66,7 +66,7 @@ public class a {
         this.titleText = str;
     }
 
-    public d dez() {
+    public d deA() {
         return this.ltL;
     }
 
@@ -172,8 +172,8 @@ public class a {
                     if (C0692a.this.ltQ != null) {
                         C0692a.this.ltQ.onClick();
                     }
-                    if (C0692a.this.ltP != null && C0692a.this.ltP.dez() != null) {
-                        C0692a.this.ltP.dez().k(C0692a.this.mId, view);
+                    if (C0692a.this.ltP != null && C0692a.this.ltP.deA() != null) {
+                        C0692a.this.ltP.deA().k(C0692a.this.mId, view);
                     }
                 }
             };

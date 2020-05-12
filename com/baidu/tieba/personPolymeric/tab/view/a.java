@@ -122,7 +122,7 @@ public class a {
         }
     }
 
-    public n cIJ() {
+    public n cIK() {
         return this.kcI;
     }
 
@@ -147,7 +147,7 @@ public class a {
         this.Vi.setNextPage(null);
     }
 
-    public void bOc() {
+    public void bOd() {
         this.Vi.smoothScrollToPosition(0);
     }
 

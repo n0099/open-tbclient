@@ -91,7 +91,7 @@ public class RedpacketNotifier extends FrameLayout implements View.OnClickListen
         if (id == a.f.red_packet_close_view) {
             setVisibility(8);
         } else if (id == a.f.iv_redpacket) {
-            if (!tv.chushou.zues.utils.a.dJO()) {
+            if (!tv.chushou.zues.utils.a.dJP()) {
                 g.JO(a.i.s_no_available_network);
             } else if (e.c(getContext(), null)) {
                 tv.chushou.zues.a.a.post(new com.kascend.chushou.player.ui.button.b(6, null));

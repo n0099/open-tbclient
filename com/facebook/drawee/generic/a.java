@@ -26,34 +26,34 @@ public class a implements com.facebook.drawee.d.c {
     public a(b bVar) {
         int i = 0;
         this.mResources = bVar.getResources();
-        this.lWp = bVar.doW();
-        int size = (bVar.dpl() != null ? bVar.dpl().size() : 1) + (bVar.dpm() != null ? 1 : 0);
+        this.lWp = bVar.doX();
+        int size = (bVar.dpm() != null ? bVar.dpm().size() : 1) + (bVar.dpn() != null ? 1 : 0);
         Drawable[] drawableArr = new Drawable[size + 6];
         drawableArr[0] = a(bVar.getBackground(), null);
-        drawableArr[1] = a(bVar.dpa(), bVar.dpb());
-        drawableArr[2] = a(this.lWs, bVar.dpi(), bVar.dpj(), bVar.dpk());
-        drawableArr[3] = a(bVar.dpg(), bVar.dph());
-        drawableArr[4] = a(bVar.dpc(), bVar.dpd());
-        drawableArr[5] = a(bVar.dpe(), bVar.dpf());
+        drawableArr[1] = a(bVar.dpb(), bVar.dpc());
+        drawableArr[2] = a(this.lWs, bVar.dpj(), bVar.dpk(), bVar.dpl());
+        drawableArr[3] = a(bVar.dph(), bVar.dpi());
+        drawableArr[4] = a(bVar.dpd(), bVar.dpe());
+        drawableArr[5] = a(bVar.dpf(), bVar.dpg());
         if (size > 0) {
-            if (bVar.dpl() != null) {
-                for (Drawable drawable : bVar.dpl()) {
+            if (bVar.dpm() != null) {
+                for (Drawable drawable : bVar.dpm()) {
                     drawableArr[i + 6] = a(drawable, null);
                     i++;
                 }
             } else {
                 i = 1;
             }
-            if (bVar.dpm() != null) {
-                drawableArr[i + 6] = a(bVar.dpm(), null);
+            if (bVar.dpn() != null) {
+                drawableArr[i + 6] = a(bVar.dpn(), null);
             }
         }
         this.lWr = new f(drawableArr);
-        this.lWr.Gn(bVar.doX());
+        this.lWr.Gn(bVar.doY());
         this.lWq = new d(e.a(this.lWr, this.lWp));
-        this.lWq.vG(bVar.doY());
+        this.lWq.vG(bVar.doZ());
         this.lWq.mutate();
-        doU();
+        doV();
     }
 
     @Nullable
@@ -67,22 +67,22 @@ public class a implements com.facebook.drawee.d.c {
         return e.f(e.a(drawable, this.lWp, this.mResources), bVar);
     }
 
-    private void doT() {
+    private void doU() {
         this.lWs.setDrawable(this.lWo);
     }
 
-    private void doU() {
+    private void doV() {
         if (this.lWr != null) {
-            this.lWr.doJ();
-            this.lWr.doL();
-            doV();
-            Go(1);
-            this.lWr.doM();
             this.lWr.doK();
+            this.lWr.doM();
+            doW();
+            Go(1);
+            this.lWr.doN();
+            this.lWr.doL();
         }
     }
 
-    private void doV() {
+    private void doW() {
         Gp(1);
         Gp(2);
         Gp(3);
@@ -127,8 +127,8 @@ public class a implements com.facebook.drawee.d.c {
 
     @Override // com.facebook.drawee.d.c
     public void reset() {
-        doT();
         doU();
+        doV();
     }
 
     @Override // com.facebook.drawee.d.c
@@ -136,50 +136,50 @@ public class a implements com.facebook.drawee.d.c {
         Drawable a = e.a(drawable, this.lWp, this.mResources);
         a.mutate();
         this.lWs.setDrawable(a);
-        this.lWr.doJ();
-        doV();
+        this.lWr.doK();
+        doW();
         Go(2);
         setProgress(f);
         if (z) {
-            this.lWr.doM();
+            this.lWr.doN();
         }
-        this.lWr.doK();
+        this.lWr.doL();
     }
 
     @Override // com.facebook.drawee.d.c
     public void c(float f, boolean z) {
         if (this.lWr.getDrawable(3) != null) {
-            this.lWr.doJ();
+            this.lWr.doK();
             setProgress(f);
             if (z) {
-                this.lWr.doM();
+                this.lWr.doN();
             }
-            this.lWr.doK();
+            this.lWr.doL();
         }
     }
 
     @Override // com.facebook.drawee.d.c
     public void D(Throwable th) {
-        this.lWr.doJ();
-        doV();
+        this.lWr.doK();
+        doW();
         if (this.lWr.getDrawable(5) != null) {
             Go(5);
         } else {
             Go(1);
         }
-        this.lWr.doK();
+        this.lWr.doL();
     }
 
     @Override // com.facebook.drawee.d.c
     public void E(Throwable th) {
-        this.lWr.doJ();
-        doV();
+        this.lWr.doK();
+        doW();
         if (this.lWr.getDrawable(4) != null) {
             Go(4);
         } else {
             Go(1);
         }
-        this.lWr.doK();
+        this.lWr.doL();
     }
 
     @Override // com.facebook.drawee.d.c
@@ -255,13 +255,13 @@ public class a implements com.facebook.drawee.d.c {
     public void a(@Nullable RoundingParams roundingParams) {
         this.lWp = roundingParams;
         e.a((com.facebook.drawee.drawable.c) this.lWq, this.lWp);
-        for (int i = 0; i < this.lWr.doG(); i++) {
+        for (int i = 0; i < this.lWr.doH(); i++) {
             e.a(Gq(i), this.lWp, this.mResources);
         }
     }
 
     @Nullable
-    public RoundingParams doW() {
+    public RoundingParams doX() {
         return this.lWp;
     }
 }

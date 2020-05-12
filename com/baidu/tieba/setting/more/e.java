@@ -69,10 +69,10 @@ public class e extends com.baidu.adp.base.c<MoreActivity> {
         this.kDY = dVar;
         this.kDX.setContentView(R.layout.more_activity);
         aVr();
-        cQR();
+        cQS();
     }
 
-    public void cQP() {
+    public void cQQ() {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (currentAccount == null || currentAccount.length() <= 0) {
             this.kEc.setVisibility(8);
@@ -84,16 +84,16 @@ public class e extends com.baidu.adp.base.c<MoreActivity> {
     public void aF(String str, boolean z) {
         if (str == null || str.length() <= 0) {
             if (this.kEc != null) {
-                this.kEc.cRU();
+                this.kEc.cRV();
                 return;
             }
             return;
         }
-        this.kEc.cRV();
+        this.kEc.cRW();
         this.kEc.setIcon(str, z);
     }
 
-    public void cQQ() {
+    public void cQR() {
         if (this.kEj != null) {
             this.kEj.refresh();
         }
@@ -102,7 +102,7 @@ public class e extends com.baidu.adp.base.c<MoreActivity> {
         }
     }
 
-    public void cQR() {
+    public void cQS() {
         if (TbadkCoreApplication.getInst().getSkinType() == 1) {
             this.kEx.turnOn();
         } else {
@@ -126,7 +126,7 @@ public class e extends com.baidu.adp.base.c<MoreActivity> {
         }
     }
 
-    public void cPT() {
+    public void cPU() {
         this.kEc.recycle();
         this.kEd.recycle();
         this.kEe.recycle();
@@ -158,7 +158,7 @@ public class e extends com.baidu.adp.base.c<MoreActivity> {
         this.kDX.getLayoutMode().setNightMode(i == 1);
         this.kDX.getLayoutMode().onModeChanged(this.kEo);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        cQQ();
+        cQR();
         this.kEx.setBackgroundRes(am.getBitmap(R.drawable.bg_switch_open), am.getBitmap(R.drawable.bg_switch_close), am.getBitmap(R.drawable.btn_handle));
         this.kEz.setBackgroundRes(am.getBitmap(R.drawable.bg_switch_open), am.getBitmap(R.drawable.bg_switch_close), am.getBitmap(R.drawable.btn_handle));
         am.setBackgroundColor(this.kEp, R.color.cp_bg_line_d);
@@ -229,16 +229,16 @@ public class e extends com.baidu.adp.base.c<MoreActivity> {
         this.kEt = this.kDX.findViewById(R.id.divide_view3);
         this.kEu = this.kDX.findViewById(R.id.divide_view4);
         this.kEv = this.kDX.findViewById(R.id.divide_view5);
+        cQR();
         cQQ();
-        cQP();
-        this.kEc.cRU();
+        this.kEc.cRV();
         ms(TbadkCoreApplication.getInst().getSkinType());
         this.kEs.setVisibility(0);
         this.kEt.setVisibility(0);
         this.kEu.setVisibility(0);
         this.kEv.setVisibility(0);
         ab(clickListener);
-        if (!cQS()) {
+        if (!cQT()) {
             this.kEf.setTip(this.kDX.getResources().getString(R.string.browsing_settings_tip_no_night));
             this.kEr.setVisibility(8);
             this.kEw.setVisibility(8);
@@ -246,7 +246,7 @@ public class e extends com.baidu.adp.base.c<MoreActivity> {
             this.kEr.setVisibility(0);
             this.kEw.setVisibility(0);
         }
-        this.kEy.setVisibility(cQT() ? 0 : 8);
+        this.kEy.setVisibility(cQU() ? 0 : 8);
         if (com.baidu.tbadk.core.sharedPref.b.aNT().getBoolean("key_is_follow_system_mode", false)) {
             this.kEz.turnOnNoCallback();
         } else {
@@ -254,12 +254,12 @@ public class e extends com.baidu.adp.base.c<MoreActivity> {
         }
     }
 
-    private boolean cQS() {
+    private boolean cQT() {
         return MessageManager.getInstance().runTask(CmdConfigCustom.CMD_NIGHT_RESOURCE_AVAILABLE, Boolean.class) != null;
     }
 
-    private boolean cQT() {
-        if (cQS()) {
+    private boolean cQU() {
+        if (cQT()) {
             if (Build.VERSION.SDK_INT >= 29) {
                 return true;
             }
@@ -356,7 +356,7 @@ public class e extends com.baidu.adp.base.c<MoreActivity> {
         };
     }
 
-    public void cQU() {
+    public void cQV() {
         if (this.kDZ == null) {
             WP();
         }
@@ -369,11 +369,11 @@ public class e extends com.baidu.adp.base.c<MoreActivity> {
         }
     }
 
-    public BdSwitchView cQV() {
+    public BdSwitchView cQW() {
         return this.kEx;
     }
 
-    public BdSwitchView cQW() {
+    public BdSwitchView cQX() {
         return this.kEz;
     }
 }

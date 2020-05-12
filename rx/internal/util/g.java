@@ -29,12 +29,12 @@ public class g implements k {
         SIZE = i;
     }
 
-    public static g dId() {
-        return ae.dIm() ? new g(false, SIZE) : new g();
+    public static g dIe() {
+        return ae.dIn() ? new g(false, SIZE) : new g();
     }
 
-    public static g dIe() {
-        return ae.dIm() ? new g(true, SIZE) : new g();
+    public static g dIf() {
+        return ae.dIn() ? new g(true, SIZE) : new g();
     }
 
     private g(Queue<Object> queue, int i) {
@@ -81,7 +81,7 @@ public class g implements k {
 
     public void onCompleted() {
         if (this.nod == null) {
-            this.nod = NotificationLite.dHG();
+            this.nod = NotificationLite.dHH();
         }
     }
 

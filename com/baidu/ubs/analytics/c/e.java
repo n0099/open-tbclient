@@ -4,7 +4,7 @@ public final class e {
     private static final e lOz = new e();
     private l lOA = new l();
 
-    public static e dld() {
+    public static e dle() {
         return lOz;
     }
 

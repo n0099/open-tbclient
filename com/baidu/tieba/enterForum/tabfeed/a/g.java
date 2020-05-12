@@ -48,7 +48,7 @@ public class g extends com.baidu.adp.widget.ListView.a<bi, af<bj>> {
             @Override // com.baidu.tieba.card.z
             public void a(View view, bi biVar) {
                 if (biVar != null) {
-                    com.baidu.tieba.card.r.bEW().jd(true);
+                    com.baidu.tieba.card.r.bEX().jd(true);
                     g.this.e(view, biVar.dqE);
                 }
             }

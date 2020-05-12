@@ -46,7 +46,7 @@ public class c {
         });
     }
 
-    public void cFg() {
+    public void cFh() {
         if (TbSingleton.getInstance().getSharePanelConfData() != null && TbSingleton.getInstance().getSharePanelConfData().aRZ()) {
             com.baidu.adp.lib.f.e.lb().removeCallbacks(this.jOC);
             long aSa = TbSingleton.getInstance().getSharePanelConfData().aSa() * 1000;

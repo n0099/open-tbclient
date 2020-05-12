@@ -95,11 +95,11 @@ public class Static {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage instanceof BackgroundSwitchMessage) {
                     if (((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
-                        com.baidu.tieba.myCollection.a.a.csT().destroy();
+                        com.baidu.tieba.myCollection.a.a.csU().destroy();
                     } else if (TbadkCoreApplication.isLogin()) {
-                        com.baidu.tieba.myCollection.a.a.csT().start();
+                        com.baidu.tieba.myCollection.a.a.csU().start();
                     } else {
-                        com.baidu.tieba.myCollection.a.a.csT().destroy();
+                        com.baidu.tieba.myCollection.a.a.csU().destroy();
                     }
                 }
             }
@@ -109,9 +109,9 @@ public class Static {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (TbadkCoreApplication.isLogin()) {
-                    com.baidu.tieba.myCollection.a.a.csT().restart();
+                    com.baidu.tieba.myCollection.a.a.csU().restart();
                 } else {
-                    com.baidu.tieba.myCollection.a.a.csT().destroy();
+                    com.baidu.tieba.myCollection.a.a.csU().destroy();
                 }
             }
         });
@@ -120,8 +120,8 @@ public class Static {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001120 && (customResponsedMessage instanceof NewsNotifyMessage) && ((NewsNotifyMessage) customResponsedMessage).getMsgBookmark() > 0) {
-                    b.csu().csx();
-                    b.csu().qh(true);
+                    b.csv().csy();
+                    b.csv().qh(true);
                 }
             }
         });

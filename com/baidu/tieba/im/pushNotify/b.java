@@ -49,12 +49,12 @@ public class b {
                 if (imMessageCenterPojo.getCustomGroupType() == 1) {
                     MessageManager.getInstance().dispatchResponsedMessage(new RequestGetGroupInfoMessage(Long.valueOf(com.baidu.adp.lib.f.b.toLong(imMessageCenterPojo.getGid(), 0L))));
                 }
-                com.baidu.tieba.im.a.b.cia().a(com.baidu.adp.lib.f.b.toLong(imMessageCenterPojo.getGid(), 0L), d.eN(imMessageCenterPojo.getPulled_msgId()), 0L, true);
+                com.baidu.tieba.im.a.b.cib().a(com.baidu.adp.lib.f.b.toLong(imMessageCenterPojo.getGid(), 0L), d.eN(imMessageCenterPojo.getPulled_msgId()), 0L, true);
             }
         }
     };
 
-    public static synchronized b ciA() {
+    public static synchronized b ciB() {
         b bVar;
         synchronized (b.class) {
             if (itY == null) {
@@ -66,13 +66,13 @@ public class b {
     }
 
     public void open() {
-        ciB();
+        ciC();
     }
 
     private b() {
     }
 
-    private void ciB() {
+    private void ciC() {
         MessageManager.getInstance().registerListener(this.idb);
         MessageManager.getInstance().registerListener(CmdConfigCustom.MEMORY_RESPONSE_NOTIFY_UPDATA_GROUP, this.iub);
     }
@@ -84,19 +84,19 @@ public class b {
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new SyncServiceConfig(TbadkCoreApplication.getInst())));
             } else if (pushNotifyMessage.getType() == 4) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_DEBUGLOG_SPECIFIED, pushNotifyMessage.getContent()));
-            } else if (com.baidu.tieba.im.memorycache.b.chA().isInit()) {
+            } else if (com.baidu.tieba.im.memorycache.b.chB().isInit()) {
                 String valueOf = String.valueOf(pushNotifyMessage.getGroupId());
                 com.baidu.tbadk.core.d.a.a("im", -1L, CmdConfigSocket.CMD_PUSH_NOTIFY, "notify", 0, null, "comment", "gid-" + valueOf + "-gType-" + pushNotifyMessage.getGroupType() + "-mid-" + pushNotifyMessage.getNewestMsgId());
                 if (!TextUtils.isEmpty(valueOf)) {
                     BdLog.e("pushNotifyManager groupType = " + pushNotifyMessage.getGroupType() + " gid = " + valueOf + "msgid = " + pushNotifyMessage.getNewestMsgId());
                     if (pushNotifyMessage.getGroupType() == 0) {
-                        com.baidu.tieba.im.a.b.cia().d(pushNotifyMessage.getGroupId(), pushNotifyMessage.getNewestMsgId(), pushNotifyMessage.getPushTime());
+                        com.baidu.tieba.im.a.b.cib().d(pushNotifyMessage.getGroupId(), pushNotifyMessage.getNewestMsgId(), pushNotifyMessage.getPushTime());
                         return;
                     }
                     int xq = com.baidu.tieba.im.a.a.xq(pushNotifyMessage.getGroupType());
                     if (TbadkCoreApplication.getInst().getCustomizedFilter() == null || TbadkCoreApplication.getInst().getCustomizedFilter().jx(xq)) {
-                        if (com.baidu.tieba.im.memorycache.b.chA().bf(String.valueOf(pushNotifyMessage.getGroupId()), xq) != null) {
-                            com.baidu.tieba.im.a.b.cia().d(pushNotifyMessage.getGroupId(), pushNotifyMessage.getNewestMsgId(), pushNotifyMessage.getPushTime());
+                        if (com.baidu.tieba.im.memorycache.b.chB().bf(String.valueOf(pushNotifyMessage.getGroupId()), xq) != null) {
+                            com.baidu.tieba.im.a.b.cib().d(pushNotifyMessage.getGroupId(), pushNotifyMessage.getNewestMsgId(), pushNotifyMessage.getPushTime());
                         } else {
                             c(pushNotifyMessage.getGroupId(), pushNotifyMessage.getNewestMsgId(), xq);
                         }
@@ -116,7 +116,7 @@ public class b {
         }
     }
 
-    public String ciC() {
+    public String ciD() {
         return this.iua;
     }
 

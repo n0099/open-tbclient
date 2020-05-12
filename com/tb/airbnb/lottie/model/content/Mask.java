@@ -18,15 +18,15 @@ public class Mask {
         this.mPz = dVar;
     }
 
-    public MaskMode dBH() {
+    public MaskMode dBI() {
         return this.mPN;
     }
 
-    public com.tb.airbnb.lottie.model.a.h dBI() {
+    public com.tb.airbnb.lottie.model.a.h dBJ() {
         return this.mPO;
     }
 
-    public com.tb.airbnb.lottie.model.a.d dBu() {
+    public com.tb.airbnb.lottie.model.a.d dBv() {
         return this.mPz;
     }
 }

@@ -98,44 +98,44 @@ public class DraweeView<DH extends com.facebook.drawee.d.b> extends ImageView {
     @Override // android.widget.ImageView, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        dpG();
+        dpH();
         onAttach();
     }
 
     @Override // android.widget.ImageView, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        dpG();
+        dpH();
         onDetach();
     }
 
     @Override // android.view.View
     public void onStartTemporaryDetach() {
         super.onStartTemporaryDetach();
-        dpG();
+        dpH();
         onDetach();
     }
 
     @Override // android.view.View
     public void onFinishTemporaryDetach() {
         super.onFinishTemporaryDetach();
-        dpG();
+        dpH();
         onAttach();
     }
 
     protected void onAttach() {
-        dpE();
-    }
-
-    protected void onDetach() {
         dpF();
     }
 
-    protected void dpE() {
-        this.lXa.onAttach();
+    protected void onDetach() {
+        dpG();
     }
 
     protected void dpF() {
+        this.lXa.onAttach();
+    }
+
+    protected void dpG() {
         this.lXa.onDetach();
     }
 
@@ -205,10 +205,10 @@ public class DraweeView<DH extends com.facebook.drawee.d.b> extends ImageView {
     @Override // android.view.View
     protected void onVisibilityChanged(View view, int i) {
         super.onVisibilityChanged(view, i);
-        dpG();
+        dpH();
     }
 
-    private void dpG() {
+    private void dpH() {
         Drawable drawable;
         if (this.lXw && (drawable = getDrawable()) != null) {
             drawable.setVisible(getVisibility() == 0, false);

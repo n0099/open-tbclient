@@ -35,11 +35,11 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
 
     /* renamed from: a  reason: avoid collision after fix types in other method */
     protected View a2(int i, View view, ViewGroup viewGroup, com.baidu.tieba.homepage.personalize.data.b bVar, com.baidu.tieba.card.a.a aVar) {
-        if (aVar.bFz() == null) {
+        if (aVar.bFA() == null) {
             return null;
         }
-        aVar.bFz().a(bVar);
-        com.baidu.tieba.card.r.bEW().e(new an("c10714").cI(TiebaInitialize.Params.OBJ_PARAM3, com.baidu.tieba.card.l.bEN()));
+        aVar.bFA().a(bVar);
+        com.baidu.tieba.card.r.bEX().e(new an("c10714").cI(TiebaInitialize.Params.OBJ_PARAM3, com.baidu.tieba.card.l.bEO()));
         return aVar.getView();
     }
 

@@ -123,8 +123,8 @@ public class LogoActivity extends BaseActivity<LogoActivity> {
             } else {
                 anVar.af("obj_type", z2 ? 2 : 1);
             }
-            com.baidu.tieba.s.c.cVo().a(LogoActivity.this.getUniqueId(), str, anVar);
-            com.baidu.tieba.s.c.cVo().b(LogoActivity.this.getUniqueId(), false);
+            com.baidu.tieba.s.c.cVp().a(LogoActivity.this.getUniqueId(), str, anVar);
+            com.baidu.tieba.s.c.cVp().b(LogoActivity.this.getUniqueId(), false);
         }
 
         @Override // com.baidu.tbadk.r.b
@@ -151,7 +151,7 @@ public class LogoActivity extends BaseActivity<LogoActivity> {
             } else {
                 anVar.af("obj_type", z2 ? 2 : 1);
             }
-            com.baidu.tieba.s.c.cVo().b(LogoActivity.this.getUniqueId(), anVar);
+            com.baidu.tieba.s.c.cVp().b(LogoActivity.this.getUniqueId(), anVar);
             LogoActivity.this.overridePendingTransition(0, 0);
             LogoActivity.this.beq();
         }
@@ -330,7 +330,7 @@ public class LogoActivity extends BaseActivity<LogoActivity> {
         setIsAddSwipeBackLayout(false);
         setUseStyleImmersiveSticky(false);
         super.onCreate(bundle);
-        com.baidu.tieba.s.c.cVo().w(getUniqueId());
+        com.baidu.tieba.s.c.cVp().w(getUniqueId());
         init(bundle);
     }
 
@@ -558,7 +558,7 @@ public class LogoActivity extends BaseActivity<LogoActivity> {
             this.mRootView.setBackgroundDrawable(null);
         }
         LogoActivityConfig.isFirst = true;
-        com.baidu.tieba.s.c.cVo().x(getUniqueId());
+        com.baidu.tieba.s.c.cVp().x(getUniqueId());
         com.baidu.adp.lib.util.d.mk().clearCashBitmap();
     }
 
@@ -593,14 +593,14 @@ public class LogoActivity extends BaseActivity<LogoActivity> {
             if (this.eug == null) {
                 this.eug = new com.baidu.tieba.w.d(this);
             }
-            if (this.eug.des()) {
+            if (this.eug.det()) {
                 this.euh = this.eug.x(0.8125d);
                 this.mRootView.addView(this.euh);
                 this.eug.a(this.eup);
                 this.eug.start();
                 return;
             }
-            this.eug.dew();
+            this.eug.dex();
         }
         bek();
     }
@@ -736,8 +736,8 @@ public class LogoActivity extends BaseActivity<LogoActivity> {
                 } else {
                     anVar.af("obj_type", z2 ? 2 : 1);
                 }
-                com.baidu.tieba.s.c.cVo().a(LogoActivity.this.getUniqueId(), "bes_ad_id", anVar);
-                com.baidu.tieba.s.c.cVo().b(LogoActivity.this.getUniqueId(), false);
+                com.baidu.tieba.s.c.cVp().a(LogoActivity.this.getUniqueId(), "bes_ad_id", anVar);
+                com.baidu.tieba.s.c.cVp().b(LogoActivity.this.getUniqueId(), false);
                 if (LogoActivity.this.etZ == -2) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_HOT_SPLASH_SHOW, LogoActivity.this));
                 }
@@ -765,7 +765,7 @@ public class LogoActivity extends BaseActivity<LogoActivity> {
                 } else {
                     anVar.af("obj_type", z2 ? 2 : 1);
                 }
-                com.baidu.tieba.s.c.cVo().b(LogoActivity.this.getUniqueId(), anVar);
+                com.baidu.tieba.s.c.cVp().b(LogoActivity.this.getUniqueId(), anVar);
             }
         });
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_START_REQUEST_BES_AD, this.eui));

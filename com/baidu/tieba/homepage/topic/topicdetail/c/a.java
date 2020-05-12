@@ -11,7 +11,7 @@ public class a<T extends View> extends RecyclerView.ViewHolder {
         this.hRS = t;
     }
 
-    public T caj() {
+    public T cak() {
         return this.hRS;
     }
 }

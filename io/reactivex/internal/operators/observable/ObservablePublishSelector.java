@@ -14,12 +14,12 @@ public final class ObservablePublishSelector<T, R> extends io.reactivex.internal
 
     @Override // io.reactivex.q
     protected void a(u<? super R> uVar) {
-        PublishSubject dDn = PublishSubject.dDn();
+        PublishSubject dDo = PublishSubject.dDo();
         try {
-            t tVar = (t) io.reactivex.internal.functions.a.h(this.mSr.apply(dDn), "The selector returned a null ObservableSource");
+            t tVar = (t) io.reactivex.internal.functions.a.h(this.mSr.apply(dDo), "The selector returned a null ObservableSource");
             TargetObserver targetObserver = new TargetObserver(uVar);
             tVar.subscribe(targetObserver);
-            this.source.subscribe(new a(dDn, targetObserver));
+            this.source.subscribe(new a(dDo, targetObserver));
         } catch (Throwable th) {
             io.reactivex.exceptions.a.L(th);
             EmptyDisposable.error(th, uVar);

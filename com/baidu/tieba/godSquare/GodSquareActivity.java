@@ -30,7 +30,7 @@ public class GodSquareActivity extends BaseActivity<GodSquareActivity> implement
             GodSquareActivity.this.hGd.getListView().completePullRefreshPostDelayed(0L);
             GodSquareActivity.this.hGd.hideLoadingView();
             if (v.isEmpty(list)) {
-                GodSquareActivity.this.hGd.bXp();
+                GodSquareActivity.this.hGd.bXq();
                 if (v.isEmpty(GodSquareActivity.this.hGe.gUJ)) {
                     GodSquareActivity.this.hGd.CO(str);
                     return;
@@ -51,9 +51,9 @@ public class GodSquareActivity extends BaseActivity<GodSquareActivity> implement
                 GodSquareActivity.this.hGd.notifyDataSetChanged();
             }
             if (z2) {
-                GodSquareActivity.this.hGd.bXo();
+                GodSquareActivity.this.hGd.bXp();
             } else {
-                GodSquareActivity.this.hGd.bXq();
+                GodSquareActivity.this.hGd.bXr();
             }
         }
     };
@@ -76,7 +76,7 @@ public class GodSquareActivity extends BaseActivity<GodSquareActivity> implement
         public void onNetworkChange(boolean z) {
             if (z) {
                 if (v.isEmpty(GodSquareActivity.this.hGe.gUJ)) {
-                    GodSquareActivity.this.bXn();
+                    GodSquareActivity.this.bXo();
                 } else {
                     GodSquareActivity.this.hGd.startPullRefresh();
                 }
@@ -92,7 +92,7 @@ public class GodSquareActivity extends BaseActivity<GodSquareActivity> implement
         this.hGd.f(this.gGr);
         this.hGe = new b(this.hGg, this);
         registerListener(this.dzL);
-        bXn();
+        bXo();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -106,7 +106,7 @@ public class GodSquareActivity extends BaseActivity<GodSquareActivity> implement
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bXn() {
+    public void bXo() {
         this.hGd.showLoadingView();
         this.hGe.update();
     }
@@ -115,7 +115,7 @@ public class GodSquareActivity extends BaseActivity<GodSquareActivity> implement
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
         if (j.isNetworkAvailableForImmediately()) {
-            bXn();
+            bXo();
         }
     }
 
@@ -136,7 +136,7 @@ public class GodSquareActivity extends BaseActivity<GodSquareActivity> implement
     public void onScrollToBottom() {
         if (this.mHasMore) {
             this.hGe.bkZ();
-            this.hGd.bXo();
+            this.hGd.bXp();
         }
     }
 

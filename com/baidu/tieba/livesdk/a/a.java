@@ -8,7 +8,7 @@ public class a implements com.baidu.tieba.sdk.a.a {
     private c iPc = new c() { // from class: com.baidu.tieba.livesdk.a.a.1
         @Override // com.baidu.c.a.a.c
         public void onLoginStatusChanged(boolean z, boolean z2) {
-            com.baidu.tieba.sdk.a.cPc().cPd();
+            com.baidu.tieba.sdk.a.cPd().cPe();
         }
     };
 
@@ -18,7 +18,7 @@ public class a implements com.baidu.tieba.sdk.a.a {
     }
 
     @Override // com.baidu.tieba.sdk.a.a
-    public com.baidu.tieba.sdk.b.a cov() {
+    public com.baidu.tieba.sdk.b.a cow() {
         com.baidu.c.a.a.b HS;
         if (this.beG.isLogin() && (HS = this.beG.HS()) != null) {
             return a(HS);
@@ -27,7 +27,7 @@ public class a implements com.baidu.tieba.sdk.a.a {
     }
 
     @Override // com.baidu.tieba.sdk.a.a
-    public void cow() {
+    public void cox() {
         this.beG.login();
     }
 

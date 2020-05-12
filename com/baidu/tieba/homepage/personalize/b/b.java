@@ -43,7 +43,7 @@ public class b extends com.baidu.adp.widget.ListView.a<c, a> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, c cVar, a aVar) {
-        r.bEW().e(new an("c11272"));
+        r.bEX().e(new an("c11272"));
         aVar.hQR.a(cVar);
         return aVar.getView();
     }

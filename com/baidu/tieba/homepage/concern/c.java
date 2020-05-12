@@ -98,7 +98,7 @@ public class c {
                 c.this.ehd.l(recyclerView, i);
             }
             if (i == 0) {
-                r.bEW().bjX();
+                r.bEX().bjX();
             }
         }
 
@@ -153,7 +153,7 @@ public class c {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            c.this.bXZ();
+            c.this.bYa();
         }
     };
 
@@ -163,9 +163,9 @@ public class c {
 
         void S(boolean z, boolean z2);
 
-        void bXV();
-
         void bXW();
+
+        void bXX();
 
         void onError(int i, String str);
     }
@@ -214,7 +214,7 @@ public class c {
         }
     }
 
-    public void bXX() {
+    public void bXY() {
         aIl();
     }
 
@@ -229,7 +229,7 @@ public class c {
         setIsLoading(false);
         if (i != 0 || dataRes == null || !a(true, z, dataRes)) {
             if (i == 0 && v.getCount(this.hIs) == 0 && this.hIr != null) {
-                this.hIr.bXW();
+                this.hIr.bXX();
                 if (this.hIm != null) {
                     this.hIm.setRefreshing(false);
                     return;
@@ -246,7 +246,7 @@ public class c {
             if (this.hIr != null) {
                 this.hIr.S(z, false);
             }
-            bIK();
+            bIL();
         }
         if (this.hIm != null) {
             this.hIm.setRefreshing(false);
@@ -262,7 +262,7 @@ public class c {
     /* JADX INFO: Access modifiers changed from: private */
     public void aIl() {
         if (this.hIr != null) {
-            this.hIr.bXV();
+            this.hIr.bXW();
         }
     }
 
@@ -387,7 +387,7 @@ public class c {
         ac.a(new ab<DataRes>() { // from class: com.baidu.tieba.homepage.concern.c.4
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.util.ab
-            /* renamed from: bYa */
+            /* renamed from: bYb */
             public DataRes doInBackground() {
                 l<byte[]> cA = com.baidu.tbadk.core.c.a.aMR().cA("tb.concern_page", TbadkCoreApplication.getCurrentAccount());
                 if (cA == null) {
@@ -414,7 +414,7 @@ public class c {
         });
     }
 
-    private void bIK() {
+    private void bIL() {
         if (this.hIt != null) {
             DataRes.Builder builder = new DataRes.Builder(this.hIt.build(true));
             if (builder.thread_info != null && builder.thread_info.size() > 30) {
@@ -456,7 +456,7 @@ public class c {
         return this.hasMore;
     }
 
-    public boolean bXY() {
+    public boolean bXZ() {
         return this.hIv;
     }
 
@@ -493,7 +493,7 @@ public class c {
                     ConcernData concernData = this.hIt.thread_info.get(i);
                     if (concernData != null && (threadInfo = concernData.thread_list) != null && threadInfo.tid != null && threadInfo.tid.longValue() == j) {
                         this.hIt.thread_info.remove(i);
-                        bIK();
+                        bIL();
                         return;
                     }
                 }
@@ -502,7 +502,7 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bXZ() {
+    public void bYa() {
         if (this.hIt != null && v.getCount(this.hIt.thread_info) != 0 && v.getCount(this.hIs) != 0) {
             int i = 0;
             while (true) {
@@ -520,7 +520,7 @@ public class c {
             for (int i2 = 0; i2 < this.hIt.thread_info.size(); i2++) {
                 if (com.baidu.tieba.homepage.concern.b.b.a(this.hIt.thread_info.get(i2))) {
                     this.hIt.thread_info.remove(i2);
-                    bIK();
+                    bIL();
                     return;
                 }
             }

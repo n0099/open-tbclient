@@ -22,7 +22,7 @@ public class g {
     private boolean lhw;
     private boolean lhx;
 
-    public static g dav() {
+    public static g daw() {
         if (lhu == null) {
             synchronized (g.class) {
                 if (lhu == null) {
@@ -33,17 +33,17 @@ public class g {
         return lhu;
     }
 
-    public boolean daw() {
+    public boolean dax() {
         return this.lhw;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dax() {
+    public void day() {
         if (this.lhv == null) {
             this.lhv = new VideoHolyCardModel();
             this.lhv.a(this.jbA);
         }
-        this.lhv.crv();
+        this.lhv.crw();
     }
 
     public void fd(Context context) {
@@ -54,17 +54,17 @@ public class g {
     }
 
     private g() {
+        daz();
         day();
-        dax();
     }
 
-    private void day() {
+    private void daz() {
         MessageManager.getInstance().registerListener(new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tieba.video.g.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (j.isMobileNet()) {
-                    g.this.dax();
+                    g.this.day();
                 }
             }
         });

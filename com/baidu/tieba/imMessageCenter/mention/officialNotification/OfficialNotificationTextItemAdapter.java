@@ -30,10 +30,10 @@ public class OfficialNotificationTextItemAdapter extends e<a> {
     @Override // com.baidu.tieba.im.chat.e, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, e.a<a> aVar) {
         super.a(i, view, viewGroup, chatMessage, (e.a) aVar);
-        a cdc = aVar.cdc();
-        cdc.onChangeSkinType();
-        if (cdc != null) {
-            cdc.setData(chatMessage);
+        a cdd = aVar.cdd();
+        cdd.onChangeSkinType();
+        if (cdd != null) {
+            cdd.setData(chatMessage);
         }
         return view;
     }

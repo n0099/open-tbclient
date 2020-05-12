@@ -11,11 +11,11 @@ public final class FlowableRetryWhen<T> extends a<T, T> {
     @Override // io.reactivex.g
     public void a(org.a.c<? super T> cVar) {
         io.reactivex.subscribers.b bVar = new io.reactivex.subscribers.b(cVar);
-        io.reactivex.processors.a<T> dDf = UnicastProcessor.Jc(8).dDf();
+        io.reactivex.processors.a<T> dDg = UnicastProcessor.Jc(8).dDg();
         try {
-            org.a.b bVar2 = (org.a.b) io.reactivex.internal.functions.a.h(this.mSB.apply(dDf), "handler returned a null Publisher");
+            org.a.b bVar2 = (org.a.b) io.reactivex.internal.functions.a.h(this.mSB.apply(dDg), "handler returned a null Publisher");
             FlowableRepeatWhen.WhenReceiver whenReceiver = new FlowableRepeatWhen.WhenReceiver(this.mRM);
-            RetryWhenSubscriber retryWhenSubscriber = new RetryWhenSubscriber(bVar, dDf, whenReceiver);
+            RetryWhenSubscriber retryWhenSubscriber = new RetryWhenSubscriber(bVar, dDg, whenReceiver);
             whenReceiver.subscriber = retryWhenSubscriber;
             cVar.onSubscribe(retryWhenSubscriber);
             bVar2.subscribe(whenReceiver);

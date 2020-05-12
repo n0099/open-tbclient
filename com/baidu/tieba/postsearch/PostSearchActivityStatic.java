@@ -14,18 +14,18 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 public class PostSearchActivityStatic {
     static {
         TbadkCoreApplication.getInst().RegisterIntent(PostSearchActivityConfig.class, PostSearchActivity.class);
-        cLF();
         cLG();
         cLH();
+        cLI();
     }
 
-    private static void cLF() {
+    private static void cLG() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003016, TbConfig.SERVER_ADDRESS + TbConfig.POST_SEARCH_URL);
         tbHttpMessageTask.setResponsedClass(PostSearchHttpResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void cLG() {
+    private static void cLH() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.SAVE_SEARCH_POST_DATA, new CustomMessageTask.CustomRunnable<String>() { // from class: com.baidu.tieba.postsearch.PostSearchActivityStatic.1
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<Void> run(CustomMessage<String> customMessage) {
@@ -44,14 +44,14 @@ public class PostSearchActivityStatic {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void cLH() {
+    private static void cLI() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CLEAR_ALL_SEARCH_POST_DATA, new CustomMessageTask.CustomRunnable<Void>() { // from class: com.baidu.tieba.postsearch.PostSearchActivityStatic.2
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<Void> run(CustomMessage<Void> customMessage) {
                 if (customMessage == null) {
                     return null;
                 }
-                com.baidu.tieba.tbadkCore.util.a.cXj();
+                com.baidu.tieba.tbadkCore.util.a.cXk();
                 return new CustomResponsedMessage<>(CmdConfigCustom.CLEAR_ALL_SEARCH_POST_DATA);
             }
         });

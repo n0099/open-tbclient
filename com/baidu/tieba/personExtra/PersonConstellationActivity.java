@@ -50,7 +50,7 @@ public class PersonConstellationActivity extends BaseActivity {
                 PersonConstellationActivity.this.finishActivity();
             } else if (view != PersonConstellationActivity.this.fTB) {
                 if (view == PersonConstellationActivity.this.jXt) {
-                    PersonConstellationActivity.this.cHp();
+                    PersonConstellationActivity.this.cHq();
                 }
             } else {
                 PersonConstellationActivity.this.finish();
@@ -153,7 +153,7 @@ public class PersonConstellationActivity extends BaseActivity {
         finish();
     }
 
-    public void cHp() {
+    public void cHq() {
         if (this.dPm == null) {
             this.dPm = new com.baidu.tbadk.widget.timepicker.a.b.a(getActivity(), this.jXB).a(R.layout.person_birthday_select_layout, new com.baidu.tbadk.widget.timepicker.a.d.a() { // from class: com.baidu.tieba.personExtra.PersonConstellationActivity.3
                 @Override // com.baidu.tbadk.widget.timepicker.a.d.a

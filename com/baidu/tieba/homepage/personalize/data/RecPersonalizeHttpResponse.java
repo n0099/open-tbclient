@@ -29,9 +29,9 @@ public class RecPersonalizeHttpResponse extends HttpResponsedMessage {
             }
             h.hQv = false;
             if (h.g(this) && personalizedResIdl.data != null && personalizedResIdl.data.thread_list != null && personalizedResIdl.data.thread_list.size() == 0) {
-                this.resultData = h.bZV();
+                this.resultData = h.bZW();
                 h.hQv = true;
-                h.bZW();
+                h.bZX();
                 return;
             }
             this.resultData = personalizedResIdl.data;

@@ -34,7 +34,7 @@ public class OfficialBarTipModel extends ImBaseMessageCenterModel {
         ImMessageCenterShowItemData buildNormalItem = buildNormalItem(imMessageCenterPojo, imMessageCenterShowItemData);
         if (buildNormalItem != null) {
             buildNormalItem.setSendStatus(imMessageCenterPojo.getSend_status());
-            OfficialSettingItemData dS = d.ciT().dS(TbadkApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
+            OfficialSettingItemData dS = d.ciU().dS(TbadkApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
             if (dS != null) {
                 buildNormalItem.setGroupSetting(dS);
             }

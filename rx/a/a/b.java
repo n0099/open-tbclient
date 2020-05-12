@@ -5,11 +5,11 @@ import rx.g;
 public class b {
     private static final b nje = new b();
 
-    public static b dHx() {
+    public static b dHy() {
         return nje;
     }
 
-    public g dHy() {
+    public g dHz() {
         return null;
     }
 

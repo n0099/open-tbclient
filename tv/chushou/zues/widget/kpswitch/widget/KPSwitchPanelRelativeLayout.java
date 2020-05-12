@@ -42,8 +42,8 @@ public class KPSwitchPanelRelativeLayout extends RelativeLayout implements a, b 
     }
 
     @Override // tv.chushou.zues.widget.kpswitch.a
-    public boolean dKm() {
-        return this.nvG.dKm();
+    public boolean dKn() {
+        return this.nvG.dKn();
     }
 
     @Override // tv.chushou.zues.widget.kpswitch.a
@@ -76,8 +76,8 @@ public class KPSwitchPanelRelativeLayout extends RelativeLayout implements a, b 
     }
 
     @Override // tv.chushou.zues.widget.kpswitch.a
-    public boolean dKn() {
-        return this.nvG.dKn();
+    public boolean dKo() {
+        return this.nvG.dKo();
     }
 
     public void setPanelEnabled(boolean z) {

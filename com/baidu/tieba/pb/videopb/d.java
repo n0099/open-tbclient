@@ -25,28 +25,28 @@ public class d {
         this.jLc = eVar;
         setData(eVar);
         this.jLh.setValue(null);
-        this.jLd.setValue(eVar.cvr());
-    }
-
-    public com.baidu.tieba.pb.data.e cEd() {
-        return this.jLc;
+        this.jLd.setValue(eVar.cvs());
     }
 
     public com.baidu.tieba.pb.data.e cEe() {
+        return this.jLc;
+    }
+
+    public com.baidu.tieba.pb.data.e cEf() {
         return this.jqG;
     }
 
     public void setData(com.baidu.tieba.pb.data.e eVar) {
         this.jqG = eVar;
         if (eVar != null) {
-            this.jLd.setValue(eVar.cvr());
-            if (!v.isEmpty(eVar.cvO())) {
-                aQ(eVar.cvO().get(0));
+            this.jLd.setValue(eVar.cvs());
+            if (!v.isEmpty(eVar.cvP())) {
+                aQ(eVar.cvP().get(0));
             }
         }
     }
 
-    public p<bj> cEf() {
+    public p<bj> cEg() {
         return this.jLd;
     }
 
@@ -62,7 +62,7 @@ public class d {
         this.jLe = rect;
     }
 
-    public Rect cEg() {
+    public Rect cEh() {
         return this.jLe;
     }
 
@@ -70,11 +70,11 @@ public class d {
         this.jLf = z;
     }
 
-    public boolean cEh() {
+    public boolean cEi() {
         return this.jLf;
     }
 
-    public LinkedList<com.baidu.tieba.pb.data.e> cEi() {
+    public LinkedList<com.baidu.tieba.pb.data.e> cEj() {
         return this.jLg;
     }
 
@@ -86,15 +86,15 @@ public class d {
         this.jLi.setValue(bjVar);
     }
 
-    public p<bj> cEj() {
+    public p<bj> cEk() {
         return this.jLh;
     }
 
-    public p<bj> cEk() {
+    public p<bj> cEl() {
         return this.jLi;
     }
 
-    public p<Boolean> cEl() {
+    public p<Boolean> cEm() {
         return this.jLj;
     }
 
@@ -102,7 +102,7 @@ public class d {
         this.jLj.setValue(Boolean.valueOf(z));
     }
 
-    public p<Boolean> cEm() {
+    public p<Boolean> cEn() {
         return this.jLk;
     }
 
@@ -114,7 +114,7 @@ public class d {
         this.jLl.setValue(Boolean.valueOf(z));
     }
 
-    public p<Boolean> cEn() {
+    public p<Boolean> cEo() {
         return this.jLl;
     }
 
@@ -122,7 +122,7 @@ public class d {
         this.jLm.setValue(Integer.valueOf(i));
     }
 
-    public p<Integer> cEo() {
+    public p<Integer> cEp() {
         return this.jLm;
     }
 }

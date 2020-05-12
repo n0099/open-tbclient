@@ -28,7 +28,7 @@ public class a extends Drawable implements Drawable.Callback, q, r {
         this.lVe = new c[this.lVd.length];
     }
 
-    public int doG() {
+    public int doH() {
         return this.lVd.length;
     }
 

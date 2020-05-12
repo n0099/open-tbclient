@@ -42,7 +42,7 @@ public final class OperatorReplay<T> extends rx.observables.a<T> {
         return i == Integer.MAX_VALUE ? e(dVar) : a(dVar, new rx.functions.e<a<T>>() { // from class: rx.internal.operators.OperatorReplay.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // rx.functions.e, java.util.concurrent.Callable
-            /* renamed from: dHS */
+            /* renamed from: dHT */
             public a<T> call() {
                 return new SizeBoundReplayBuffer(i);
             }
@@ -58,7 +58,7 @@ public final class OperatorReplay<T> extends rx.observables.a<T> {
         return a(dVar, new rx.functions.e<a<T>>() { // from class: rx.internal.operators.OperatorReplay.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // rx.functions.e, java.util.concurrent.Callable
-            /* renamed from: dHS */
+            /* renamed from: dHT */
             public a<T> call() {
                 return new SizeAndTimeBoundReplayBuffer(i, millis, gVar);
             }
@@ -244,12 +244,12 @@ public final class OperatorReplay<T> extends rx.observables.a<T> {
         }
 
         void c(InnerProducer<T> innerProducer) {
-            InnerProducer<T>[] dHT;
+            InnerProducer<T>[] dHU;
             long j;
             List<InnerProducer<T>> list;
             boolean z;
             long j2;
-            InnerProducer<T>[] dHT2;
+            InnerProducer<T>[] dHU2;
             if (!isUnsubscribed()) {
                 synchronized (this) {
                     if (this.emitting) {
@@ -272,7 +272,7 @@ public final class OperatorReplay<T> extends rx.observables.a<T> {
                         j = Math.max(j3, innerProducer.totalRequested.get());
                     } else {
                         j = j3;
-                        for (InnerProducer<T> innerProducer2 : dHT()) {
+                        for (InnerProducer<T> innerProducer2 : dHU()) {
                             if (innerProducer2 != null) {
                                 j = Math.max(j, innerProducer2.totalRequested.get());
                             }
@@ -302,7 +302,7 @@ public final class OperatorReplay<T> extends rx.observables.a<T> {
                             j2 = j4;
                         }
                         if (z) {
-                            for (InnerProducer<T> innerProducer4 : dHT()) {
+                            for (InnerProducer<T> innerProducer4 : dHU()) {
                                 if (innerProducer4 != null) {
                                     j2 = Math.max(j2, innerProducer4.totalRequested.get());
                                 }
@@ -314,13 +314,13 @@ public final class OperatorReplay<T> extends rx.observables.a<T> {
             }
         }
 
-        InnerProducer<T>[] dHT() {
+        InnerProducer<T>[] dHU() {
             InnerProducer<T>[] innerProducerArr;
             synchronized (this.nlU) {
-                InnerProducer<T>[] dIa = this.nlU.dIa();
-                int length = dIa.length;
+                InnerProducer<T>[] dIb = this.nlU.dIb();
+                int length = dIb.length;
                 innerProducerArr = new InnerProducer[length];
-                System.arraycopy(dIa, 0, innerProducerArr, 0, length);
+                System.arraycopy(dIb, 0, innerProducerArr, 0, length);
             }
             return innerProducerArr;
         }
@@ -356,13 +356,13 @@ public final class OperatorReplay<T> extends rx.observables.a<T> {
             if (this.nlX != this.nlW) {
                 synchronized (this.nlU) {
                     innerProducerArr = this.nlV;
-                    InnerProducer<T>[] dIa = this.nlU.dIa();
-                    int length = dIa.length;
+                    InnerProducer<T>[] dIb = this.nlU.dIb();
+                    int length = dIb.length;
                     if (innerProducerArr.length != length) {
                         innerProducerArr = new InnerProducer[length];
                         this.nlV = innerProducerArr;
                     }
-                    System.arraycopy(dIa, 0, innerProducerArr, 0, length);
+                    System.arraycopy(dIb, 0, innerProducerArr, 0, length);
                     this.nlX = this.nlW;
                 }
             }
@@ -491,7 +491,7 @@ public final class OperatorReplay<T> extends rx.observables.a<T> {
 
         @Override // rx.internal.operators.OperatorReplay.a
         public void complete() {
-            add(NotificationLite.dHG());
+            add(NotificationLite.dHH());
             this.size++;
         }
 
@@ -630,7 +630,7 @@ public final class OperatorReplay<T> extends rx.observables.a<T> {
 
         @Override // rx.internal.operators.OperatorReplay.a
         public final void complete() {
-            Object enterTransform = enterTransform(NotificationLite.dHG());
+            Object enterTransform = enterTransform(NotificationLite.dHH());
             long j = this.index + 1;
             this.index = j;
             addLast(new Node(enterTransform, j));
@@ -790,7 +790,7 @@ public final class OperatorReplay<T> extends rx.observables.a<T> {
             long now = this.scheduler.now() - this.maxAgeInMillis;
             Node node = (Node) get();
             Node node2 = node;
-            for (Node node3 = node.get(); node3 != null && ((rx.schedulers.a) node3.value).dIM() <= now; node3 = node3.get()) {
+            for (Node node3 = node.get(); node3 != null && ((rx.schedulers.a) node3.value).dIN() <= now; node3 = node3.get()) {
                 node2 = node3;
             }
             return node2;
@@ -809,7 +809,7 @@ public final class OperatorReplay<T> extends rx.observables.a<T> {
                     this.size--;
                     node2 = node3;
                     node3 = node3.get();
-                } else if (((rx.schedulers.a) node3.value).dIM() > now) {
+                } else if (((rx.schedulers.a) node3.value).dIN() > now) {
                     break;
                 } else {
                     i++;
@@ -838,7 +838,7 @@ public final class OperatorReplay<T> extends rx.observables.a<T> {
             Node node = (Node) get();
             Node node2 = node;
             int i = 0;
-            for (Node node3 = node.get(); node3 != null && this.size > 1 && ((rx.schedulers.a) node3.value).dIM() <= now; node3 = node3.get()) {
+            for (Node node3 = node.get(); node3 != null && this.size > 1 && ((rx.schedulers.a) node3.value).dIN() <= now; node3 = node3.get()) {
                 i++;
                 this.size--;
                 node2 = node3;

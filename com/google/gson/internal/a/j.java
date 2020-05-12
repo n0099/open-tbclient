@@ -15,7 +15,7 @@ public final class j extends TypeAdapter<Date> {
     public static final TypeAdapterFactory mjN = new TypeAdapterFactory() { // from class: com.google.gson.internal.a.j.1
         @Override // com.google.gson.TypeAdapterFactory
         public <T> TypeAdapter<T> create(Gson gson, com.google.gson.b.a<T> aVar) {
-            if (aVar.dvZ() == Date.class) {
+            if (aVar.dwa() == Date.class) {
                 return new j();
             }
             return null;
@@ -28,12 +28,12 @@ public final class j extends TypeAdapter<Date> {
     /* renamed from: d */
     public synchronized Date read(com.google.gson.stream.a aVar) throws IOException {
         Date date;
-        if (aVar.dvG() == JsonToken.NULL) {
-            aVar.dvL();
+        if (aVar.dvH() == JsonToken.NULL) {
+            aVar.dvM();
             date = null;
         } else {
             try {
-                date = new Date(this.mkp.parse(aVar.dvK()).getTime());
+                date = new Date(this.mkp.parse(aVar.dvL()).getTime());
             } catch (ParseException e) {
                 throw new JsonSyntaxException(e);
             }

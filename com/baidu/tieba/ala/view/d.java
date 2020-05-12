@@ -157,7 +157,7 @@ public class d {
         this.ggv.setVisibility(i);
     }
 
-    public n bDs() {
+    public n bDt() {
         return this.ggD;
     }
 
@@ -203,7 +203,7 @@ public class d {
         }
     }
 
-    public void bDt() {
+    public void bDu() {
         if (this.ggy != null) {
             this.ggy.getView().setVisibility(8);
         }

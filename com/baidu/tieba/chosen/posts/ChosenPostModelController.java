@@ -38,7 +38,7 @@ public class ChosenPostModelController extends BdBaseModel<ChosenPostActivity> i
     private CacheModel.a<com.baidu.tieba.chosen.posts.request.b> gua;
     private com.baidu.adp.framework.listener.a gub;
 
-    private void bFC() {
+    private void bFD() {
         SocketMessageTask socketMessageTask = new SocketMessageTask(CmdConfigSocket.CMD_HOT_THREAD_UNLIKE);
         socketMessageTask.setNeedAck(true);
         socketMessageTask.setResponsedClass(UnlikeSocketReponse.class);
@@ -74,7 +74,7 @@ public class ChosenPostModelController extends BdBaseModel<ChosenPostActivity> i
                     bVar2.setUniqueId(ChosenPostModelController.this.getUniqueId());
                     ChosenPostModelController.this.gtV.aZc().dispatchMvcEvent(bVar2);
                 }
-                ChosenPostModelController.this.gtZ.bFI();
+                ChosenPostModelController.this.gtZ.bFJ();
                 ChosenPostModelController.this.gtW.loadData();
             }
 
@@ -98,7 +98,7 @@ public class ChosenPostModelController extends BdBaseModel<ChosenPostActivity> i
         };
         this.gtV = chosenPostActivity;
         bqo();
-        bFC();
+        bFD();
         registerListener(this.gub);
     }
 
@@ -123,17 +123,17 @@ public class ChosenPostModelController extends BdBaseModel<ChosenPostActivity> i
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean bFD() {
+    public boolean bFE() {
         this.gtX.aYM();
         return true;
     }
 
     protected boolean a(com.baidu.tieba.chosen.posts.request.a aVar, com.baidu.tieba.chosen.posts.request.b bVar) {
-        this.gtV.bFB().a(bVar);
+        this.gtV.bFC().a(bVar);
         if (bVar != null) {
             this.gtY.hN(false);
             this.gtY.hO(false);
-            this.gtV.bFB().c(this.gtY);
+            this.gtV.bFC().c(this.gtY);
             return true;
         }
         return true;
@@ -150,21 +150,21 @@ public class ChosenPostModelController extends BdBaseModel<ChosenPostActivity> i
     /* JADX INFO: Access modifiers changed from: protected */
     public boolean lC(boolean z) {
         this.gtY.hN(true);
-        this.gtV.bFB().c(this.gtY);
+        this.gtV.bFC().c(this.gtY);
         lD(true);
-        this.gtZ.bFI();
+        this.gtZ.bFJ();
         this.gtW.loadData();
         return true;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean bFE() {
-        this.gtZ.bFI();
+    public boolean bFF() {
+        this.gtZ.bFJ();
         this.gtW.loadData();
         this.gtY.hO(true);
         this.gtY.hQ(true);
         lD(false);
-        this.gtV.bFB().c(this.gtY);
+        this.gtV.bFC().c(this.gtY);
         return true;
     }
 
@@ -200,7 +200,7 @@ public class ChosenPostModelController extends BdBaseModel<ChosenPostActivity> i
             errorData.setError_code(this.mErrorCode);
             errorData.setError_msg(this.mErrorString);
             this.gtV.a(errorData);
-            this.gtV.bFB().a(errorData);
+            this.gtV.bFC().a(errorData);
         }
     }
 
@@ -225,7 +225,7 @@ public class ChosenPostModelController extends BdBaseModel<ChosenPostActivity> i
             errorData.setError_code(this.mErrorCode);
             errorData.setError_msg(this.mErrorString);
             this.gtV.a(errorData);
-            this.gtV.bFB().a(errorData);
+            this.gtV.bFC().a(errorData);
         }
     }
 

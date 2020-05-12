@@ -8,7 +8,7 @@ public class c {
     private a mLocationData;
     private long mTimeStamp;
 
-    public static c cWU() {
+    public static c cWV() {
         if (kUN == null) {
             synchronized (c.class) {
                 if (kUN == null) {
@@ -35,7 +35,7 @@ public class c {
         this.mLocationData = aVar;
     }
 
-    public boolean cWV() {
+    public boolean cWW() {
         return this.kUO;
     }
 

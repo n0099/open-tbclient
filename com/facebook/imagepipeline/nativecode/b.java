@@ -5,7 +5,7 @@ import android.os.Build;
 public class b {
     private static boolean lQm;
 
-    public static synchronized void dmb() {
+    public static synchronized void dmc() {
         synchronized (b.class) {
             if (!lQm) {
                 if (Build.VERSION.SDK_INT <= 16) {

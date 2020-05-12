@@ -244,7 +244,7 @@ public class a extends com.kascend.chushou.view.base.b implements View.OnClickLi
                     foodView2.setLayoutParams(layoutParams2);
                     foodView2.b(listItem, (FoodView.a) null, true, Constants.VIA_REPORT_TYPE_DATALINE);
                 } else if (TextUtils.equals(listItem.mDisplayStyle, "30")) {
-                    view$OnLongClickListenerC0858a.a(a.f.ftv_icon, listItem.mCover, tv.chushou.widget.a.c.dJG(), b.C0861b.small, b.C0861b.small);
+                    view$OnLongClickListenerC0858a.a(a.f.ftv_icon, listItem.mCover, tv.chushou.widget.a.c.dJH(), b.C0861b.small, b.C0861b.small);
                     view$OnLongClickListenerC0858a.a(a.f.tv_desc, listItem.mDesc);
                     view$OnLongClickListenerC0858a.a(a.f.tv_name, listItem.mName);
                 }
@@ -315,7 +315,7 @@ public class a extends com.kascend.chushou.view.base.b implements View.OnClickLi
     public void a() {
         if (this.mFh == null) {
             if (!h.isEmpty(this.Q) || !h.isEmpty(this.R)) {
-                com.kascend.chushou.c.c.dwD().b(this.R, new com.kascend.chushou.c.b() { // from class: com.kascend.chushou.view.user.a.4
+                com.kascend.chushou.c.c.dwE().b(this.R, new com.kascend.chushou.c.b() { // from class: com.kascend.chushou.view.user.a.4
                     @Override // com.kascend.chushou.c.b
                     public void a() {
                     }
@@ -513,7 +513,7 @@ public class a extends com.kascend.chushou.view.base.b implements View.OnClickLi
                     Point fU = tv.chushou.zues.utils.a.fU(this.mContext);
                     if (this.P == 2) {
                         gb = (fU.y - ((fU.x * this.mContext.getResources().getInteger(a.g.h_thumb_height_def)) / this.mContext.getResources().getInteger(a.g.h_thumb_width_def))) - this.mContext.getResources().getDimensionPixelSize(a.d.videoplayer_tab_height);
-                        if (com.kascend.chushou.b.dwA().d == 1) {
+                        if (com.kascend.chushou.b.dwB().d == 1) {
                             gb -= tv.chushou.zues.utils.systemBar.b.getStatusBarHeight(this.mContext);
                         }
                     } else {
@@ -604,7 +604,7 @@ public class a extends com.kascend.chushou.view.base.b implements View.OnClickLi
                     for (int i = 0; i < frescoThumbnailViewArr.length; i++) {
                         if (i < arrayList.size()) {
                             frescoThumbnailViewArr[i].setVisibility(0);
-                            frescoThumbnailViewArr[i].bU((String) arrayList.get(i), tv.chushou.widget.a.c.dJG());
+                            frescoThumbnailViewArr[i].bU((String) arrayList.get(i), tv.chushou.widget.a.c.dJH());
                         } else {
                             frescoThumbnailViewArr[i].setVisibility(8);
                         }
@@ -775,8 +775,8 @@ public class a extends com.kascend.chushou.view.base.b implements View.OnClickLi
     private void a(tv.chushou.zues.widget.a.c cVar, String str) {
         if (!TextUtils.isEmpty(str)) {
             int length = cVar.length();
-            com.facebook.drawee.view.b a = com.facebook.drawee.view.b.a(new com.facebook.drawee.generic.b(getResources()).Gv(com.kascend.chushou.view.a.a()).dpn(), this.mContext);
-            a.setController(com.facebook.drawee.a.a.c.dnM().Og(str).vC(true).doD());
+            com.facebook.drawee.view.b a = com.facebook.drawee.view.b.a(new com.facebook.drawee.generic.b(getResources()).Gv(com.kascend.chushou.view.a.a()).dpo(), this.mContext);
+            a.setController(com.facebook.drawee.a.a.c.dnN().Og(str).vC(true).doE());
             cVar.append("1");
             int dimensionPixelSize = this.mContext.getResources().getDimensionPixelSize(a.d.user_level_icon_height);
             cVar.a(a, length, length, dimensionPixelSize, dimensionPixelSize, true, 2);
@@ -854,10 +854,10 @@ public class a extends com.kascend.chushou.view.base.b implements View.OnClickLi
                 }
             };
             if (this.mContext instanceof VideoPlayer) {
-                com.kascend.chushou.player.b dwS = ((VideoPlayer) this.mContext).dwS();
-                if (dwS != null && dwS.h != null) {
+                com.kascend.chushou.player.b dwT = ((VideoPlayer) this.mContext).dwT();
+                if (dwT != null && dwT.h != null) {
                     try {
-                        str = new JSONObject(dwS.h).optString("_sc");
+                        str = new JSONObject(dwT.h).optString("_sc");
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -891,12 +891,12 @@ public class a extends com.kascend.chushou.view.base.b implements View.OnClickLi
                     e.a(this.mContext, this.mFh.user.nickname, new b.a() { // from class: com.kascend.chushou.view.user.a.7
                         @Override // tv.chushou.zues.widget.sweetalert.b.a
                         public void onClick(tv.chushou.zues.widget.sweetalert.b bVar2) {
-                            bVar2.dKt();
-                            com.kascend.chushou.c.c.dwD().b(bVar, (String) null, a.this.mFh.user.uid, a);
+                            bVar2.dKu();
+                            com.kascend.chushou.c.c.dwE().b(bVar, (String) null, a.this.mFh.user.uid, a);
                         }
                     });
                 } else {
-                    com.kascend.chushou.c.c.dwD().a(bVar, (String) null, this.mFh.user.uid, a);
+                    com.kascend.chushou.c.c.dwE().a(bVar, (String) null, this.mFh.user.uid, a);
                 }
             }
         }

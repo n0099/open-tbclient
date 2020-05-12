@@ -33,11 +33,11 @@ class a {
         this.mRequestTime = System.currentTimeMillis();
     }
 
-    public void djh() {
+    public void dji() {
         this.lKE = (System.nanoTime() / 1000) - this.mStartTime;
     }
 
-    public void dji() {
+    public void djj() {
         this.bBZ = (System.nanoTime() / 1000) - this.mStartTime;
     }
 

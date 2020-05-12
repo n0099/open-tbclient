@@ -25,27 +25,27 @@ public class CardBasicLayout extends LinearLayout {
     }
 
     public void setData(int i, f fVar) {
-        e bDW;
+        e bDX;
         this.ghJ = fVar;
-        if (this.ghJ != null && this.ghJ.bDW() != null && (bDW = this.ghJ.bDW()) != null) {
-            int status = bDW.getStatus();
+        if (this.ghJ != null && this.ghJ.bDX() != null && (bDX = this.ghJ.bDX()) != null) {
+            int status = bDX.getStatus();
             if (status == com.baidu.tieba.barselect.a.d.glQ) {
                 if (i == VoteCandidateCard.gmd) {
                     this.status = a.glO;
-                    this.glx = this.ghJ.bDV();
+                    this.glx = this.ghJ.bDW();
                     return;
                 }
                 this.status = a.glL;
-                List<d> bDU = this.ghJ.bDU();
-                if (bDU != null && bDU.size() > i) {
-                    this.glx = bDU.get(i);
+                List<d> bDV = this.ghJ.bDV();
+                if (bDV != null && bDV.size() > i) {
+                    this.glx = bDV.get(i);
                 }
             } else if (status == com.baidu.tieba.barselect.a.d.glR) {
                 if (i == VoteCandidateCard.gmd) {
                     this.status = a.glN;
-                    List<d> bDU2 = this.ghJ.bDU();
-                    if (bDU2 != null && bDU2.size() > 0) {
-                        for (d dVar : bDU2) {
+                    List<d> bDV2 = this.ghJ.bDV();
+                    if (bDV2 != null && bDV2.size() > 0) {
+                        for (d dVar : bDV2) {
                             if (dVar.getRank() == 1) {
                                 this.glx = dVar;
                                 return;
@@ -56,9 +56,9 @@ public class CardBasicLayout extends LinearLayout {
                     return;
                 }
                 this.status = a.glM;
-                List<d> bDU3 = this.ghJ.bDU();
-                if (bDU3 != null && bDU3.size() > i) {
-                    this.glx = bDU3.get(i);
+                List<d> bDV3 = this.ghJ.bDV();
+                if (bDV3 != null && bDV3.size() > i) {
+                    this.glx = bDV3.get(i);
                     if (this.glx.getRank() == 1 && i == 0) {
                         this.status = a.glN;
                     }

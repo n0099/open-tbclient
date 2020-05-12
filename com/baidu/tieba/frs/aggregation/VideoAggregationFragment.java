@@ -52,7 +52,7 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && j.isNetWorkAvailable()) {
                 if (VideoAggregationFragment.this.mNoDataView != null) {
-                    VideoAggregationFragment.this.heW.bRg();
+                    VideoAggregationFragment.this.heW.bRh();
                 } else if (j.isMobileNet() && VideoAggregationFragment.this.heV != null && VideoAggregationFragment.this.heV.pv()) {
                     VideoAggregationFragment.this.getPageContext().showToast((int) R.string.video_mobile_play_tips);
                 }
@@ -96,7 +96,7 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
         this.heW.setFrom(this.mFrom);
         this.heW.CZ(this.st_type);
         this.heW.setLocation(this.yuelaou_locate);
-        this.heW.bRg();
+        this.heW.bRh();
         registerListener(this.dkW);
         registerListener(this.dzL);
     }
@@ -122,7 +122,7 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
         this.mPullView.setListPullRefreshListener(new g.c() { // from class: com.baidu.tieba.frs.aggregation.VideoAggregationFragment.1
             @Override // com.baidu.tbadk.core.view.g.c
             public void onListPullRefresh(boolean z) {
-                VideoAggregationFragment.this.heW.bRg();
+                VideoAggregationFragment.this.heW.bRh();
             }
         });
         this.mPullView.setTag(getUniqueId());
@@ -137,15 +137,15 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
             @Override // android.widget.AbsListView.OnScrollListener
             public void onScrollStateChanged(AbsListView absListView, int i) {
                 if (i == 0 && absListView.getLastVisiblePosition() > absListView.getCount() - 2 && absListView.getFirstVisiblePosition() != 0) {
-                    VideoAggregationFragment.this.heW.bRi();
+                    VideoAggregationFragment.this.heW.bRj();
                 }
             }
 
             @Override // android.widget.AbsListView.OnScrollListener
             public void onScroll(AbsListView absListView, int i, int i2, int i3) {
                 if (VideoAggregationFragment.this.heV != null) {
-                    if (i > VideoAggregationFragment.this.heV.bRd() || i + i2 < VideoAggregationFragment.this.heV.bRd()) {
-                        VideoAggregationFragment.this.heV.bRe();
+                    if (i > VideoAggregationFragment.this.heV.bRe() || i + i2 < VideoAggregationFragment.this.heV.bRe()) {
+                        VideoAggregationFragment.this.heV.bRf();
                     }
                 }
             }
@@ -161,7 +161,7 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view2) {
                         VideoAggregationFragment.this.hideNoDataView();
-                        VideoAggregationFragment.this.heW.bRg();
+                        VideoAggregationFragment.this.heW.bRh();
                     }
                 })));
             } else {
@@ -247,7 +247,7 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
     public void onDestroy() {
         super.onDestroy();
         if (this.heW != null) {
-            this.heW.bRh();
+            this.heW.bRi();
         }
         if (this.heV != null) {
             this.heV.onDestroy();

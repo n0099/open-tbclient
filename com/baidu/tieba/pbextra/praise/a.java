@@ -36,7 +36,7 @@ public class a {
         return this.mShowName;
     }
 
-    public long cFL() {
+    public long cFM() {
         return this.jQY;
     }
 }

@@ -55,15 +55,15 @@ public class q extends d {
             this.esM = bVar2.y - bVar.y;
         }
 
-        public float dFI() {
+        public float dFJ() {
             return this.nbY.a(this.nbX);
         }
 
-        public float[] dFJ() {
+        public float[] dFK() {
             return new float[]{this.nbX.x, this.nbX.y};
         }
 
-        public float[] dFK() {
+        public float[] dFL() {
             return new float[]{this.nbY.x, this.nbY.y};
         }
     }
@@ -77,20 +77,20 @@ public class q extends d {
     public float[] a(m mVar, long j) {
         float f;
         a aVar;
-        if (!dFe()) {
+        if (!dFf()) {
             return null;
         }
-        long dFp = j - dFp();
+        long dFq = j - dFq();
         if (this.nbU > 0 && this.nbT != 0) {
-            if (dFp >= this.nbU) {
+            if (dFq >= this.nbU) {
                 this.alpha = this.nbS;
             } else {
-                this.alpha = ((int) ((((float) dFp) / ((float) this.nbU)) * this.nbT)) + this.nbR;
+                this.alpha = ((int) ((((float) dFq) / ((float) this.nbU)) * this.nbT)) + this.nbR;
             }
         }
         float f2 = this.nbM;
         float f3 = this.nbN;
-        long j2 = dFp - this.nbP;
+        long j2 = dFq - this.nbP;
         if (this.nbO > 0 && j2 >= 0 && j2 <= this.nbO) {
             if (this.nbW != null) {
                 a[] aVarArr = this.nbW;
@@ -113,7 +113,7 @@ public class q extends d {
                 if (aVar != null) {
                     float f4 = aVar.nbZ;
                     float f5 = aVar.esM;
-                    float f6 = ((float) (dFp - aVar.beginTime)) / ((float) aVar.duration);
+                    float f6 = ((float) (dFq - aVar.beginTime)) / ((float) aVar.duration);
                     float f7 = aVar.nbX.x;
                     float f8 = aVar.nbX.y;
                     if (f4 != 0.0f) {
@@ -144,7 +144,7 @@ public class q extends d {
         this.nbV[1] = f;
         this.nbV[2] = f2 + this.nbd;
         this.nbV[3] = f + this.nbe;
-        setVisibility(!dFg());
+        setVisibility(!dFh());
         return this.nbV;
     }
 
@@ -154,22 +154,22 @@ public class q extends d {
     }
 
     @Override // master.flame.danmaku.danmaku.model.d
-    public float dFk() {
+    public float dFl() {
         return this.nbV[0];
     }
 
     @Override // master.flame.danmaku.danmaku.model.d
-    public float dFl() {
+    public float dFm() {
         return this.nbV[1];
     }
 
     @Override // master.flame.danmaku.danmaku.model.d
-    public float dFm() {
+    public float dFn() {
         return this.nbV[2];
     }
 
     @Override // master.flame.danmaku.danmaku.model.d
-    public float dFn() {
+    public float dFo() {
         return this.nbV[3];
     }
 
@@ -208,7 +208,7 @@ public class q extends d {
                 int i2 = 0;
                 while (i2 < length2) {
                     i2++;
-                    f = aVarArr[i2].dFI() + f;
+                    f = aVarArr[i2].dFJ() + f;
                 }
                 a aVar = null;
                 a[] aVarArr2 = this.nbW;
@@ -216,7 +216,7 @@ public class q extends d {
                 int i3 = 0;
                 while (i3 < length3) {
                     a aVar2 = aVarArr2[i3];
-                    aVar2.duration = (aVar2.dFI() / f) * ((float) this.nbO);
+                    aVar2.duration = (aVar2.dFJ() / f) * ((float) this.nbO);
                     aVar2.beginTime = aVar == null ? 0L : aVar.endTime;
                     aVar2.endTime = aVar2.beginTime + aVar2.duration;
                     i3++;

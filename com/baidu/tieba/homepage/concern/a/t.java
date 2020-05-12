@@ -29,8 +29,8 @@ public class t extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(View view, com.baidu.tieba.card.data.l lVar) {
-        if (this.gGT != null && this.gGT.rI() != null && this.gGT.rI().cJn() != null) {
-            if (view.getId() == this.gGT.rI().cJn().getId()) {
+        if (this.gGT != null && this.gGT.rI() != null && this.gGT.rI().cJo() != null) {
+            if (view.getId() == this.gGT.rI().cJo().getId()) {
                 com.baidu.tieba.homepage.concern.b.a(view, lVar, 4);
             } else if (view.getId() == R.id.thread_card_root) {
                 com.baidu.tieba.homepage.concern.b.a(view, lVar, 2);
@@ -45,7 +45,7 @@ public class t extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
             @Override // com.baidu.tieba.card.z
             /* renamed from: b */
             public void a(View view, com.baidu.tieba.card.data.l lVar) {
-                com.baidu.tieba.card.r.bEW().jd(true);
+                com.baidu.tieba.card.r.bEX().jd(true);
                 com.baidu.tieba.a.d.bfN().cF("page_recommend", "show_");
                 if (lVar != null && lVar.aIu() != null && !StringUtils.isNull(lVar.aIu().getTid())) {
                     if (lVar.aIu().dtq <= 0) {
@@ -122,7 +122,7 @@ public class t extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
             return null;
         }
         lVar.rN(lVar.position + 1);
-        com.baidu.tieba.card.r.bEW().e(lVar.BK("c12351"));
+        com.baidu.tieba.card.r.bEX().e(lVar.BK("c12351"));
         aVar.rD().setPosition(i);
         lVar.sourceType = 0;
         aVar.setVideoStatsData(c(lVar));
@@ -150,10 +150,10 @@ public class t extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
             }
             yVar.dop = lVar.getExtra();
             yVar.mSource = lVar.getSource();
-            yVar.kiv = lVar.bFg();
+            yVar.kiv = lVar.bFh();
             yVar.kis = lVar.getWeight();
             yVar.mUid = TbadkCoreApplication.getCurrentAccount();
-            yVar.mFloor = String.valueOf(lVar.bFf());
+            yVar.mFloor = String.valueOf(lVar.bFg());
         }
         return yVar;
     }

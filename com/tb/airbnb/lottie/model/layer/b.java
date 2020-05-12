@@ -29,9 +29,9 @@ public class b extends a {
         this.zM = new ArrayList();
         this.rect = new RectF();
         this.EK = new RectF();
-        com.tb.airbnb.lottie.model.a.b dCd = layer.dCd();
-        if (dCd != null) {
-            this.mQi = dCd.dBo();
+        com.tb.airbnb.lottie.model.a.b dCe = layer.dCe();
+        if (dCe != null) {
+            this.mQi = dCe.dBp();
             a(this.mQi);
             this.mQi.b(this);
         } else {
@@ -45,13 +45,13 @@ public class b extends a {
             if (a == null) {
                 aVar2 = aVar3;
             } else {
-                longSparseArray.put(a.dBY().getId(), a);
+                longSparseArray.put(a.dBZ().getId(), a);
                 if (aVar3 != null) {
                     aVar3.b(a);
                     aVar2 = null;
                 } else {
                     this.zM.add(0, a);
-                    switch (r0.dCa()) {
+                    switch (r0.dCb()) {
                         case Add:
                         case Invert:
                             aVar2 = a;
@@ -67,7 +67,7 @@ public class b extends a {
         }
         for (int i = 0; i < longSparseArray.size(); i++) {
             a aVar4 = (a) longSparseArray.get(longSparseArray.keyAt(i));
-            if (aVar4 != null && (aVar = (a) longSparseArray.get(aVar4.dBY().iO())) != null) {
+            if (aVar4 != null && (aVar = (a) longSparseArray.get(aVar4.dBZ().iO())) != null) {
                 aVar4.c(aVar);
             }
         }

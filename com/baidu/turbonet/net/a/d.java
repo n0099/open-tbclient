@@ -62,7 +62,7 @@ public class d extends HttpURLConnection {
     @Override // java.net.URLConnection
     public void connect() throws IOException {
         getOutputStream();
-        dkj();
+        dkk();
     }
 
     @Override // java.net.HttpURLConnection
@@ -74,21 +74,21 @@ public class d extends HttpURLConnection {
 
     @Override // java.net.HttpURLConnection
     public String getResponseMessage() throws IOException {
-        dkk();
-        return this.lIM.djT();
+        dkl();
+        return this.lIM.djU();
     }
 
     @Override // java.net.HttpURLConnection
     public int getResponseCode() throws IOException {
-        dkk();
+        dkl();
         return this.lIM.getHttpStatusCode();
     }
 
     @Override // java.net.URLConnection
     public Map<String, List<String>> getHeaderFields() {
         try {
-            dkk();
-            return dkn();
+            dkl();
+            return dko();
         } catch (IOException e) {
             return Collections.emptyMap();
         }
@@ -97,10 +97,10 @@ public class d extends HttpURLConnection {
     @Override // java.net.URLConnection
     public final String getHeaderField(String str) {
         try {
-            dkk();
-            Map<String, List<String>> dkn = dkn();
-            if (dkn.containsKey(str)) {
-                List<String> list = dkn.get(str);
+            dkl();
+            Map<String, List<String>> dko = dko();
+            if (dko.containsKey(str)) {
+                List<String> list = dko.get(str);
                 return list.get(list.size() - 1);
             }
             return null;
@@ -129,7 +129,7 @@ public class d extends HttpURLConnection {
 
     @Override // java.net.URLConnection
     public InputStream getInputStream() throws IOException {
-        dkk();
+        dkl();
         if (!this.instanceFollowRedirects && this.lMJ) {
             throw new IOException("Cannot read response body of a redirect.");
         }
@@ -145,14 +145,14 @@ public class d extends HttpURLConnection {
             if (this.connected) {
                 throw new ProtocolException("Cannot write to OutputStream after receiving response.");
             }
-            if (dkm()) {
+            if (dkn()) {
                 this.lMH = new b(this, this.chunkLength, this.lMw, this.lMy, this.lMz);
-                dkj();
+                dkk();
             } else {
-                long dki = dki();
-                if (dki != -1) {
-                    this.lMH = new c(this, dki, this.lMw);
-                    dkj();
+                long dkj = dkj();
+                if (dkj != -1) {
+                    this.lMH = new c(this, dkj, this.lMw);
+                    dkk();
                 } else {
                     com.baidu.turbonet.base.a.d("cr_CronetHttpURLConn", "Outputstream is being buffered in memory.");
                     String requestProperty = getRequestProperty("Content-Length");
@@ -172,7 +172,7 @@ public class d extends HttpURLConnection {
         return this.lMH;
     }
 
-    private long dki() {
+    private long dkj() {
         long j = this.fixedContentLength;
         try {
             long j2 = getClass().getField("fixedContentLengthLong").getLong(this);
@@ -182,7 +182,7 @@ public class d extends HttpURLConnection {
         }
     }
 
-    private void dkj() throws IOException {
+    private void dkk() throws IOException {
         if (!this.connected) {
             UrlRequest.Builder builder = new UrlRequest.Builder(getURL().toString(), new a(), this.lMw, this.lLe);
             if (this.doOutput) {
@@ -190,11 +190,11 @@ public class d extends HttpURLConnection {
                     this.method = "POST";
                 }
                 if (this.lMH != null) {
-                    builder.b(this.lMH.dke(), this.lMw);
-                    if (getRequestProperty("Content-Length") == null && !dkm()) {
-                        addRequestProperty("Content-Length", Long.toString(this.lMH.dke().getLength()));
+                    builder.b(this.lMH.dkf(), this.lMw);
+                    if (getRequestProperty("Content-Length") == null && !dkn()) {
+                        addRequestProperty("Content-Length", Long.toString(this.lMH.dkf().getLength()));
                     }
-                    this.lMH.dkc();
+                    this.lMH.dkd();
                 } else if (getRequestProperty("Content-Length") == null) {
                     addRequestProperty("Content-Length", "0");
                 }
@@ -206,14 +206,14 @@ public class d extends HttpURLConnection {
                 builder.fe((String) pair.first, (String) pair.second);
             }
             if (!getUseCaches()) {
-                builder.djO();
+                builder.djP();
             }
             builder.Ni(this.method);
             if (this.lLT) {
-                builder.djP();
+                builder.djQ();
             }
             if (this.lJI) {
-                builder.djQ();
+                builder.djR();
             }
             if (!TextUtils.isEmpty(this.lJP)) {
                 builder.Nj(this.lJP);
@@ -225,7 +225,7 @@ public class d extends HttpURLConnection {
             builder.FD(getReadTimeout());
             builder.FB(getRequestTimeout());
             this.connected = true;
-            this.lMF = builder.djR();
+            this.lMF = builder.djS();
             this.lMF.start();
         }
     }
@@ -233,7 +233,7 @@ public class d extends HttpURLConnection {
     @Override // java.net.HttpURLConnection
     public InputStream getErrorStream() {
         try {
-            dkk();
+            dkl();
             if (this.lIM.getHttpStatusCode() >= 400) {
                 return this.lMG;
             }
@@ -349,7 +349,7 @@ public class d extends HttpURLConnection {
                     d.this.url = url;
                 }
                 if (d.this.instanceFollowRedirects && (equals || d.this.lMN)) {
-                    d.this.lMF.diU();
+                    d.this.lMF.diV();
                     return;
                 }
             } catch (MalformedURLException e) {
@@ -395,22 +395,22 @@ public class d extends HttpURLConnection {
         }
     }
 
-    private void dkk() throws IOException {
+    private void dkl() throws IOException {
         if (this.lMH != null) {
-            this.lMH.dkd();
-            if (dkm()) {
+            this.lMH.dke();
+            if (dkn()) {
                 this.lMH.close();
             }
         }
         if (!this.lMK) {
-            dkj();
+            dkk();
             this.lMw.FJ(getReadTimeout());
             this.lMK = true;
         }
-        dkl();
+        dkm();
     }
 
-    private void dkl() throws IOException {
+    private void dkm() throws IOException {
         if (!this.lMK) {
             throw new IllegalStateException("No response.");
         }
@@ -424,27 +424,27 @@ public class d extends HttpURLConnection {
 
     private Map.Entry<String, String> FI(int i) {
         try {
-            dkk();
-            List<Map.Entry<String, String>> djU = djU();
-            if (i >= djU.size()) {
+            dkl();
+            List<Map.Entry<String, String>> djV = djV();
+            if (i >= djV.size()) {
                 return null;
             }
-            return djU.get(i);
+            return djV.get(i);
         } catch (IOException e) {
             return null;
         }
     }
 
-    private boolean dkm() {
+    private boolean dkn() {
         return this.chunkLength > 0;
     }
 
-    private Map<String, List<String>> dkn() {
+    private Map<String, List<String>> dko() {
         if (this.lMM != null) {
             return this.lMM;
         }
         TreeMap treeMap = new TreeMap(String.CASE_INSENSITIVE_ORDER);
-        for (Map.Entry<String, String> entry : djU()) {
+        for (Map.Entry<String, String> entry : djV()) {
             ArrayList arrayList = new ArrayList();
             if (treeMap.containsKey(entry.getKey())) {
                 arrayList.addAll((Collection) treeMap.get(entry.getKey()));
@@ -456,12 +456,12 @@ public class d extends HttpURLConnection {
         return this.lMM;
     }
 
-    private List<Map.Entry<String, String>> djU() {
+    private List<Map.Entry<String, String>> djV() {
         if (this.lML != null) {
             return this.lML;
         }
         this.lML = new ArrayList();
-        for (Map.Entry<String, String> entry : this.lIM.djU()) {
+        for (Map.Entry<String, String> entry : this.lIM.djV()) {
             if (!entry.getKey().equalsIgnoreCase("Content-Encoding")) {
                 this.lML.add(new AbstractMap.SimpleImmutableEntry(entry));
             }
@@ -470,11 +470,11 @@ public class d extends HttpURLConnection {
         return this.lML;
     }
 
-    public UrlResponseInfo dko() {
+    public UrlResponseInfo dkp() {
         return this.lIM;
     }
 
-    public void dkp() {
+    public void dkq() {
         this.lMN = true;
     }
 

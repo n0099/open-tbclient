@@ -45,13 +45,13 @@ public abstract class d {
 
     public abstract float[] a(m mVar, long j);
 
-    public abstract float dFk();
-
     public abstract float dFl();
 
     public abstract float dFm();
 
     public abstract float dFn();
+
+    public abstract float dFo();
 
     public abstract int getType();
 
@@ -63,7 +63,7 @@ public abstract class d {
         return mVar.n(this);
     }
 
-    public boolean dFe() {
+    public boolean dFf() {
         return this.nbd > -1.0f && this.nbe > -1.0f && this.nbh == this.nbr.nbD;
     }
 
@@ -81,7 +81,7 @@ public abstract class d {
         this.nbj = this.nbr.nbI;
     }
 
-    public n<?> dFf() {
+    public n<?> dFg() {
         return this.nbk;
     }
 
@@ -94,23 +94,23 @@ public abstract class d {
     }
 
     public boolean gm(long j) {
-        return j - dFp() >= this.nbf.value;
+        return j - dFq() >= this.nbf.value;
     }
 
-    public boolean dFg() {
+    public boolean dFh() {
         return this.naD == null || gn(this.naD.nbv);
     }
 
     public boolean gn(long j) {
-        long dFp = j - dFp();
-        return dFp <= 0 || dFp >= this.nbf.value;
-    }
-
-    public boolean dFh() {
-        return this.naD == null || this.naD.nbv < dFp();
+        long dFq = j - dFq();
+        return dFq <= 0 || dFq >= this.nbf.value;
     }
 
     public boolean dFi() {
+        return this.naD == null || this.naD.nbv < dFq();
+    }
+
+    public boolean dFj() {
         if (this.nbq != this.nbr.nbF) {
             this.nbp = 0;
             return false;
@@ -118,7 +118,7 @@ public abstract class d {
         return true;
     }
 
-    public boolean dFj() {
+    public boolean dFk() {
         return this.nbq == this.nbr.nbF && this.nbp != 0;
     }
 
@@ -131,7 +131,7 @@ public abstract class d {
         this.visibility = 0;
     }
 
-    public f dFo() {
+    public f dFp() {
         return this.naD;
     }
 
@@ -161,11 +161,11 @@ public abstract class d {
         return this.time;
     }
 
-    public long dFp() {
+    public long dFq() {
         return (this.nbr == null || this.nbr.nbH != this.nbi) ? this.time : this.time + this.naX;
     }
 
-    public boolean dFq() {
+    public boolean dFr() {
         if (this.nbr == null || this.nbr.nbH != this.nbi) {
             return false;
         }

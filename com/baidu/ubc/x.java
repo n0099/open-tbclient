@@ -64,7 +64,7 @@ public class x extends SQLiteOpenHelper {
             sQLiteDatabase.execSQL("CREATE TABLE flow (_id INTEGER PRIMARY KEY AUTOINCREMENT,flowid TEXT,flowhandle INTEGER,state TEXT,begintime LONG,endtime LONG,content TEXT,option INTEGER,reserve1 TEXT,reserve2 TEXT,slot TEXT,extend TEXT );");
             sQLiteDatabase.execSQL("CREATE TABLE config (eventid TEXT PRIMARY KEY,type TEXT,recordrule TEXT,uploadrule TEXT,cycle INTEGER,switch TEXT,sample INTEGER,reserve1 TEXT,reserve2 TEXT,extend TEXT,reallog TEXT);");
             sQLiteDatabase.execSQL("CREATE TABLE file (filename TEXT PRIMARY KEY,state TEXT,reserve1 TEXT,reserve2 TEXT);");
-            ag.dkO().putString("ubc_cloudconfig_version", "0");
+            ag.dkP().putString("ubc_cloudconfig_version", "0");
         } catch (Exception e) {
             Log.w("UBCDatabaseHelper", "Error while creating db: " + e.toString());
         }
@@ -212,7 +212,7 @@ public class x extends SQLiteOpenHelper {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean dkI() {
+    public boolean dkJ() {
         this.lNW.writeLock().lock();
         try {
             SQLiteDatabase writableDatabase = getWritableDatabase();
@@ -253,8 +253,8 @@ public class x extends SQLiteOpenHelper {
                 }
             }
         }
-        if (!TextUtils.isEmpty(nVar.dkC())) {
-            contentValues.put("reallog", nVar.dkC());
+        if (!TextUtils.isEmpty(nVar.dkD())) {
+            contentValues.put("reallog", nVar.dkD());
         } else {
             contentValues.put("reallog", "0");
         }
@@ -403,10 +403,10 @@ public class x extends SQLiteOpenHelper {
                                 }
                                 this.mTotalLength += string.getBytes("UTF-8").length;
                             }
-                            g dky = g.dky();
-                            jSONObject.put("idtype", dky.sh(string2));
-                            jSONObject.put("isreal", dky.Nq(string2) ? "1" : "0");
-                            String Nr = dky.Nr(string2);
+                            g dkz = g.dkz();
+                            jSONObject.put("idtype", dkz.sh(string2));
+                            jSONObject.put("isreal", dkz.Nq(string2) ? "1" : "0");
+                            String Nr = dkz.Nr(string2);
                             if (!TextUtils.isEmpty(Nr) && !TextUtils.equals(Nr, "0")) {
                                 jSONObject.put("gflow", Nr);
                             }
@@ -637,7 +637,7 @@ public class x extends SQLiteOpenHelper {
         try {
             SQLiteDatabase writableDatabase = getWritableDatabase();
             writableDatabase.beginTransactionNonExclusive();
-            long currentTimeMillis = System.currentTimeMillis() - g.dky().aDy();
+            long currentTimeMillis = System.currentTimeMillis() - g.dkz().aDy();
             int delete = writableDatabase.delete("flow", "endtime < " + currentTimeMillis, null);
             if (DEBUG) {
                 Log.d("UBCDatabaseHelper", "clearInvalidData: delete flow count:" + delete);
@@ -731,7 +731,7 @@ public class x extends SQLiteOpenHelper {
             }
             if (cursor != null && cursor.getCount() > 0) {
                 cursor.moveToFirst();
-                if (cursor.getInt(0) > g.dky().aDz()) {
+                if (cursor.getInt(0) > g.dkz().aDz()) {
                     i = (cursor.getInt(1) + cursor.getInt(2)) / 2;
                     Closeables.closeSafely(cursor);
                     int delete = writableDatabase.delete(str, "_id < " + i, null);
@@ -1304,9 +1304,9 @@ public class x extends SQLiteOpenHelper {
                         jSONObject.put(LogBuilder.KEY_START_TIME, Long.toString(next.aDQ()));
                         jSONObject.put(LogBuilder.KEY_END_TIME, Long.toString(next.getEndTime()));
                         jSONObject.put("type", "1");
-                        g dky = g.dky();
-                        jSONObject.put("isreal", dky.Nq(next.getId()) ? "1" : "0");
-                        String Nr = dky.Nr(next.getId());
+                        g dkz = g.dkz();
+                        jSONObject.put("isreal", dkz.Nq(next.getId()) ? "1" : "0");
+                        String Nr = dkz.Nr(next.getId());
                         if (!TextUtils.isEmpty(Nr) && !TextUtils.equals(Nr, "0")) {
                             jSONObject.put("gflow", Nr);
                         }
@@ -1326,7 +1326,7 @@ public class x extends SQLiteOpenHelper {
                         if (next.aDH()) {
                             jSONObject.put("of", "1");
                         }
-                        jSONObject.put("idtype", dky.sh(next.getId()));
+                        jSONObject.put("idtype", dkz.sh(next.getId()));
                         JSONArray jSONArray = new JSONArray();
                         StringBuilder sb = new StringBuilder(256);
                         sb.append("SELECT ").append("eventid").append(" , ").append("begintime").append(" , ").append("content").append(" FROM ").append(NotificationCompat.CATEGORY_EVENT).append(" WHERE ").append("flowhandle").append(" = ").append(next.aDJ());
@@ -1432,24 +1432,24 @@ public class x extends SQLiteOpenHelper {
                     if (TextUtils.equals(kVar.aDG(), "1")) {
                         jSONObject.put("idtype", "1");
                     }
-                    if (TextUtils.equals(kVar.dkA(), "1")) {
+                    if (TextUtils.equals(kVar.dkB(), "1")) {
                         jSONObject.put("ch", "1");
                     }
-                    if (TextUtils.equals(kVar.dkB(), "1")) {
+                    if (TextUtils.equals(kVar.dkC(), "1")) {
                         jSONObject.put("dfc", "1");
                     }
                     if (kVar.getVersion() != null) {
                         jSONObject.put("version", kVar.getVersion());
                     }
-                    String dkD = kVar.dkD();
-                    if (!TextUtils.isEmpty(dkD) && !TextUtils.equals(dkD, "0")) {
-                        jSONObject.put("gflow", dkD);
+                    String dkE = kVar.dkE();
+                    if (!TextUtils.isEmpty(dkE) && !TextUtils.equals(dkE, "0")) {
+                        jSONObject.put("gflow", dkE);
                     }
                     if (!TextUtils.isEmpty(jSONObject.toString())) {
                         contentValues.put("extend", jSONObject.toString());
                     }
-                    if (TextUtils.equals(kVar.dkC(), "1")) {
-                        contentValues.put("reallog", kVar.dkC());
+                    if (TextUtils.equals(kVar.dkD(), "1")) {
+                        contentValues.put("reallog", kVar.dkD());
                     } else {
                         contentValues.put("reallog", "0");
                     }

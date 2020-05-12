@@ -10,7 +10,7 @@ public class av implements aj<com.facebook.imagepipeline.g.e> {
 
     @Override // com.facebook.imagepipeline.producers.aj
     public void c(k<com.facebook.imagepipeline.g.e> kVar, ak akVar) {
-        if (akVar.dtQ().duK() == null) {
+        if (akVar.dtR().duL() == null) {
             kVar.h(null, 1);
         } else if (!a(0, kVar, akVar)) {
             kVar.h(null, 1);
@@ -28,7 +28,7 @@ public class av implements aj<com.facebook.imagepipeline.g.e> {
             super(kVar);
             this.meU = akVar;
             this.mgF = i;
-            this.maf = this.meU.dtQ().duK();
+            this.maf = this.meU.dtR().duL();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -37,26 +37,26 @@ public class av implements aj<com.facebook.imagepipeline.g.e> {
         /* renamed from: a */
         public void g(com.facebook.imagepipeline.g.e eVar, int i) {
             if (eVar != null && (Hs(i) || ax.a(eVar, this.maf))) {
-                duc().h(eVar, i);
+                dud().h(eVar, i);
             } else if (Hr(i)) {
                 com.facebook.imagepipeline.g.e.e(eVar);
-                if (!av.this.a(this.mgF + 1, duc(), this.meU)) {
-                    duc().h(null, 1);
+                if (!av.this.a(this.mgF + 1, dud(), this.meU)) {
+                    dud().h(null, 1);
                 }
             }
         }
 
         @Override // com.facebook.imagepipeline.producers.n, com.facebook.imagepipeline.producers.b
         protected void F(Throwable th) {
-            if (!av.this.a(this.mgF + 1, duc(), this.meU)) {
-                duc().G(th);
+            if (!av.this.a(this.mgF + 1, dud(), this.meU)) {
+                dud().G(th);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean a(int i, k<com.facebook.imagepipeline.g.e> kVar, ak akVar) {
-        int a2 = a(i, akVar.dtQ().duK());
+        int a2 = a(i, akVar.dtR().duL());
         if (a2 == -1) {
             return false;
         }

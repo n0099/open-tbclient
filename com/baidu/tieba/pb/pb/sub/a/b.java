@@ -45,7 +45,7 @@ public class b extends a<PostData, k> {
         this.hdt = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<ConstrainImageLayout>() { // from class: com.baidu.tieba.pb.pb.sub.a.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: bQO */
+            /* renamed from: bQP */
             public ConstrainImageLayout makeObject() {
                 return new ConstrainImageLayout(b.this.jIy.getPageContext().getPageActivity());
             }
@@ -107,8 +107,8 @@ public class b extends a<PostData, k> {
                 return tbImageView;
             }
         }, 12, 0);
-        if (newSubPbActivity != null && newSubPbActivity.cCp() != null) {
-            this.aqV = newSubPbActivity.cCp().cDe();
+        if (newSubPbActivity != null && newSubPbActivity.cCq() != null) {
+            this.aqV = newSubPbActivity.cCq().cDf();
         }
     }
 
@@ -122,7 +122,7 @@ public class b extends a<PostData, k> {
         kVar.jrL.setConstrainLayoutPool(this.hdt);
         kVar.jrL.setImageViewPool(this.hdu);
         d(kVar);
-        com.baidu.tieba.pb.pb.b.cwt();
+        com.baidu.tieba.pb.pb.b.cwu();
         com.baidu.tieba.pb.pb.b.a(kVar, (e) null);
         return kVar;
     }
@@ -226,13 +226,13 @@ public class b extends a<PostData, k> {
     private void b(k kVar) {
         kVar.jrC.setOnLongClickListener(this.mOnLongClickListener);
         if (this.jIy != null && this.jIy.getPageContext().getOrignalPage() != 0) {
-            com.baidu.tieba.pb.pb.main.b.a cwp = this.jIy.cwp();
-            if (cwp != null) {
-                kVar.gbZ.setOnClickListener(cwp.gHY);
-                kVar.jrJ.setOnClickListener(cwp.gHY);
-                kVar.jrR.setOnClickListener(cwp.gHY);
-                kVar.jrR.getHeadView().setOnClickListener(cwp.gHY);
-                kVar.jrK.setOnEmotionClickListener(cwp.jEG);
+            com.baidu.tieba.pb.pb.main.b.a cwq = this.jIy.cwq();
+            if (cwq != null) {
+                kVar.gbZ.setOnClickListener(cwq.gHY);
+                kVar.jrJ.setOnClickListener(cwq.gHY);
+                kVar.jrR.setOnClickListener(cwq.gHY);
+                kVar.jrR.getHeadView().setOnClickListener(cwq.gHY);
+                kVar.jrK.setOnEmotionClickListener(cwq.jEG);
             }
             kVar.jrK.setOnLongClickListener(this.mOnLongClickListener);
             kVar.jrK.setOnImageClickListener(this.emX);

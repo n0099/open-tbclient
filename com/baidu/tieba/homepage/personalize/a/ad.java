@@ -69,7 +69,7 @@ public class ad {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null) {
-                ad.this.bZN();
+                ad.this.bZO();
                 if (ad.this.hPh != null) {
                     ad.this.ak(ad.this.hPh);
                 }
@@ -193,23 +193,23 @@ public class ad {
         this.hHB.add(this.hPI);
         this.hHB.add(this.hPJ);
         this.hHB.add(this.hPv);
+        bZN();
         bZM();
-        bZL();
         yf("page_recommend");
     }
 
-    private void bZL() {
+    private void bZM() {
         if (!bj.dro.get()) {
             AdvertAppInfo.dmq.set(false);
             return;
         }
-        this.hPK = com.baidu.tieba.recapp.q.cNl().c(this.mPageContext, AdvertAppInfo.dmh);
-        this.hPL = com.baidu.tieba.recapp.q.cNl().c(this.mPageContext, AdvertAppInfo.dmk);
-        this.hPM = com.baidu.tieba.recapp.q.cNl().c(this.mPageContext, AdvertAppInfo.dml);
-        this.hPN = com.baidu.tieba.recapp.q.cNl().c(this.mPageContext, AdvertAppInfo.dmm);
-        this.hPO = com.baidu.tieba.recapp.q.cNl().c(this.mPageContext, AdvertAppInfo.dmn);
-        this.hPP = com.baidu.tieba.recapp.q.cNl().c(this.mPageContext, AdvertAppInfo.dmp);
-        this.hPQ = com.baidu.tieba.recapp.q.cNl().c(this.mPageContext, AdvertAppInfo.dmo);
+        this.hPK = com.baidu.tieba.recapp.q.cNm().c(this.mPageContext, AdvertAppInfo.dmh);
+        this.hPL = com.baidu.tieba.recapp.q.cNm().c(this.mPageContext, AdvertAppInfo.dmk);
+        this.hPM = com.baidu.tieba.recapp.q.cNm().c(this.mPageContext, AdvertAppInfo.dml);
+        this.hPN = com.baidu.tieba.recapp.q.cNm().c(this.mPageContext, AdvertAppInfo.dmm);
+        this.hPO = com.baidu.tieba.recapp.q.cNm().c(this.mPageContext, AdvertAppInfo.dmn);
+        this.hPP = com.baidu.tieba.recapp.q.cNm().c(this.mPageContext, AdvertAppInfo.dmp);
+        this.hPQ = com.baidu.tieba.recapp.q.cNm().c(this.mPageContext, AdvertAppInfo.dmo);
         this.hHB.add(this.hPK);
         this.hHB.add(this.hPL);
         this.hHB.add(this.hPM);
@@ -430,21 +430,21 @@ public class ad {
         }
     }
 
-    private void bZM() {
-        this.hPS = bZN();
+    private void bZN() {
+        this.hPS = bZO();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean bZN() {
+    public boolean bZO() {
         if (this.hqt == null || this.hqt.size() <= 0) {
             this.hqt = new ArrayList();
-            ArrayList<BdUniqueId> cVG = com.baidu.tieba.tbadkCore.t.cVG();
-            if (cVG == null || cVG.size() <= 0) {
+            ArrayList<BdUniqueId> cVH = com.baidu.tieba.tbadkCore.t.cVH();
+            if (cVH == null || cVH.size() <= 0) {
                 return false;
             }
-            int size = cVG.size();
+            int size = cVH.size();
             for (int i = 0; i < size; i++) {
-                com.baidu.tieba.lego.card.a.a a = com.baidu.tieba.lego.d.b.coc().a(this.mPageContext, cVG.get(i), 2);
+                com.baidu.tieba.lego.card.a.a a = com.baidu.tieba.lego.d.b.cod().a(this.mPageContext, cVH.get(i), 2);
                 if (this.hPR) {
                     a.setBusinessType(3);
                 }

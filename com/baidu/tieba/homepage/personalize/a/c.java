@@ -36,9 +36,9 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
                         i = 5;
                     } else if (view == c.this.hOD.fti.dJe.getCommentContainer()) {
                         c.this.b(jVar);
-                    } else if (c.this.hOD.bEA() != null && view.getId() == c.this.hOD.bEA().getId()) {
-                        i = 2;
                     } else if (c.this.hOD.bEB() != null && view.getId() == c.this.hOD.bEB().getId()) {
+                        i = 2;
+                    } else if (c.this.hOD.bEC() != null && view.getId() == c.this.hOD.bEC().getId()) {
                         i = 2;
                     }
                 } else {
@@ -51,18 +51,18 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
                     }
                     an anVar = new an("c11824");
                     anVar.cI("uid", TbadkCoreApplication.getCurrentAccount());
-                    anVar.cI(TiebaInitialize.Params.AB_TAG, jVar.bFg());
+                    anVar.cI(TiebaInitialize.Params.AB_TAG, jVar.bFh());
                     anVar.t(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LIVE_ID, j);
                     anVar.af("obj_type", i);
                     anVar.cI("tid", str);
                     anVar.cI("obj_param1", jVar.getExtra());
                     anVar.cI("obj_source", jVar.getSource());
-                    anVar.af("obj_floor", jVar.bFf());
+                    anVar.af("obj_floor", jVar.bFg());
                     TiebaStatic.log(anVar);
                     i = 1;
                 }
                 if (i != 0) {
-                    com.baidu.tieba.homepage.personalize.c.a.a(jVar.dqE, c.this.ebA, jVar.bFf(), i);
+                    com.baidu.tieba.homepage.personalize.c.a.a(jVar.dqE, c.this.ebA, jVar.bFg(), i);
                 }
             }
         };
@@ -112,16 +112,16 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
             anVar.af("obj_type", i2);
             anVar.cI(TiebaInitialize.Params.OBJ_PARAM3, str);
             anVar.cI("tid", tid);
-            anVar.cI(TiebaInitialize.Params.AB_TAG, jVar.bFg());
+            anVar.cI(TiebaInitialize.Params.AB_TAG, jVar.bFh());
             anVar.t(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LIVE_ID, j);
             anVar.t("fid", jVar.aIu().getFid());
             anVar.cI("uid", TbadkCoreApplication.getCurrentAccount());
             anVar.cI("obj_param1", jVar.getExtra());
             anVar.cI("obj_source", jVar.getSource());
-            anVar.af("obj_floor", jVar.bFf());
+            anVar.af("obj_floor", jVar.bFg());
             TiebaStatic.log(anVar);
         }
-        com.baidu.tieba.homepage.personalize.c.a.a(jVar.dqE, this.ebA, jVar.bFf());
+        com.baidu.tieba.homepage.personalize.c.a.a(jVar.dqE, this.ebA, jVar.bFg());
         return aVar.getView();
     }
 

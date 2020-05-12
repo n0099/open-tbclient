@@ -109,14 +109,14 @@ public class e {
         this.mIsReserver = z;
     }
 
-    public void cld() {
+    public void cle() {
         this.iDk = false;
         if (!this.eET) {
             d(this.ahO, this.iDd, 10, 0);
         }
     }
 
-    public void cle() {
+    public void clf() {
         this.iDk = true;
         String str = this.iDa.get(0);
         if (StringUtils.isNull(this.iDc)) {
@@ -216,7 +216,7 @@ public class e {
             if (!TextUtils.isEmpty(bax)) {
                 this.blK.addPostData("oaid", bax);
             }
-            clf();
+            clg();
             this.blK.aOw().aOW().mNeedBackgroundLogin = false;
             String postNetData = this.blK.postNetData();
             if (!this.blK.aOw().aOX().isRequestSuccess()) {
@@ -227,7 +227,7 @@ public class e {
             return hVar;
         }
 
-        private void clf() {
+        private void clg() {
             this.blK.addPostData("forum_id", e.this.mForumId);
             this.blK.addPostData("user_id", e.this.mUserId == null ? "0" : e.this.mUserId);
             this.blK.addPostData("scr_w", String.valueOf(l.getEquipmentWidth(TbadkCoreApplication.getInst().getApp())));
@@ -270,7 +270,7 @@ public class e {
                     }
                     return;
                 }
-                boolean isEmpty = v.isEmpty(hVar.clo());
+                boolean isEmpty = v.isEmpty(hVar.clp());
                 if (e.this.mIsReset && !isEmpty) {
                     e.this.iDa.clear();
                     e.this.dSj.clear();
@@ -279,53 +279,53 @@ public class e {
                 if (hVar.getImageNum() != 0) {
                     e.this.iDf = hVar.getImageNum();
                 }
-                e.this.iDj = hVar.clp();
+                e.this.iDj = hVar.clq();
                 if (this.mPicId == null) {
                     e.this.iDa.clear();
                     e.this.iDb.clear();
                 }
-                LinkedList<f> clo = hVar.clo();
-                int size = clo.size();
+                LinkedList<f> clp = hVar.clp();
+                int size = clp.size();
                 if (size <= 0) {
                     e.this.eET = true;
                 } else {
                     for (int i2 = 0; i2 < size; i2++) {
-                        f fVar = clo.get(i2);
+                        f fVar = clp.get(i2);
                         String a = e.this.a(fVar);
                         ImageUrlData imageUrlData = new ImageUrlData();
-                        imageUrlData.id = fVar.clg();
+                        imageUrlData.id = fVar.clh();
                         if (aq.equals(imageUrlData.id, e.this.iDn)) {
                             imageUrlData.setSourceImageRectInScreen(e.this.iDm);
                         }
                         imageUrlData.imageUrl = a;
-                        String str2 = a + "*" + fVar.clk();
+                        String str2 = a + "*" + fVar.cll();
                         imageUrlData.urlType = 10;
                         imageUrlData.originalUrl = fVar.bcB();
                         imageUrlData.originalSize = fVar.getOriginalSize();
                         imageUrlData.forumId = e.this.mForumId;
                         imageUrlData.threadId = com.baidu.adp.lib.f.b.toLong(this.ahO, -1L);
-                        imageUrlData.postId = com.baidu.adp.lib.f.b.toLong(fVar.clh(), -1L);
+                        imageUrlData.postId = com.baidu.adp.lib.f.b.toLong(fVar.cli(), -1L);
                         imageUrlData.mIsReserver = e.this.mIsReserver;
                         imageUrlData.mIsSeeHost = e.this.iDg;
-                        imageUrlData.overAllIndex = fVar.clk();
+                        imageUrlData.overAllIndex = fVar.cll();
                         imageUrlData.mThreadType = e.this.mThreadType;
                         imageUrlData.mPicType = fVar.getPicType();
                         imageUrlData.mTagName = fVar.getTagName();
-                        imageUrlData.mIsShowOrigonButton = fVar.cli();
+                        imageUrlData.mIsShowOrigonButton = fVar.clj();
                         imageUrlData.isLongPic = fVar.isLongPic();
-                        imageUrlData.isBlockedPic = fVar.clj();
-                        if (fVar.clm() != null) {
-                            imageUrlData.richTextArray = fVar.clm().toString();
+                        imageUrlData.isBlockedPic = fVar.clk();
+                        if (fVar.cln() != null) {
+                            imageUrlData.richTextArray = fVar.cln().toString();
                         }
-                        imageUrlData.isFirstPost = fVar.cln();
+                        imageUrlData.isFirstPost = fVar.clo();
                         if (fVar.aMq() != null) {
                             imageUrlData.agreeData = fVar.aMq();
                             imageUrlData.agreeData.forumId = e.this.mForumId;
                             imageUrlData.agreeData.threadId = String.valueOf(imageUrlData.threadId);
                             imageUrlData.agreeData.postId = String.valueOf(imageUrlData.postId);
                             imageUrlData.agreeData.indexOfPic = imageUrlData.overAllIndex;
-                            imageUrlData.commentNum = fVar.cll();
-                            if (fVar.cln()) {
+                            imageUrlData.commentNum = fVar.clm();
+                            if (fVar.clo()) {
                                 imageUrlData.agreeData.objType = 3;
                                 imageUrlData.agreeData.isInThread = true;
                                 imageUrlData.agreeData.isInPost = false;
@@ -366,14 +366,14 @@ public class e {
                             e.this.iDb.put(imageUrlData.id, str2);
                         }
                     }
-                    f fVar2 = (f) v.getItem(clo, 0);
+                    f fVar2 = (f) v.getItem(clp, 0);
                     if (fVar2 != null) {
-                        e.this.iDc = fVar2.clg();
+                        e.this.iDc = fVar2.clh();
                     }
-                    f fVar3 = (f) v.getItem(clo, size - 1);
+                    f fVar3 = (f) v.getItem(clp, size - 1);
                     if (fVar3 != null) {
-                        e.this.iDd = fVar3.clg();
-                        e.this.eET = ((long) e.this.iDf) == fVar3.clk();
+                        e.this.iDd = fVar3.clh();
+                        e.this.eET = ((long) e.this.iDf) == fVar3.cll();
                     }
                 }
                 ImageUrlData imageUrlData3 = null;

@@ -9,7 +9,7 @@ public class v extends bj {
     private boolean kRp;
     private p kRq;
 
-    public boolean cVL() {
+    public boolean cVM() {
         return this.kRp;
     }
 
@@ -17,7 +17,7 @@ public class v extends bj {
         this.kRp = z;
     }
 
-    public String cVM() {
+    public String cVN() {
         return this.fortune_desc;
     }
 
@@ -25,7 +25,7 @@ public class v extends bj {
         this.fortune_desc = str;
     }
 
-    public p cVN() {
+    public p cVO() {
         return this.kRq;
     }
 

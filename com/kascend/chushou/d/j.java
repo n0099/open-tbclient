@@ -29,7 +29,7 @@ public class j {
         }
     };
 
-    public static j dwM() {
+    public static j dwN() {
         if (mnN == null) {
             synchronized (j.class) {
                 if (mnN == null) {
@@ -57,11 +57,11 @@ public class j {
 
     public void a(final String str, final String str2) {
         if (N(str, 600000L) == null) {
-            com.kascend.chushou.player.c.a.dxA().a(str, str2, new a.InterfaceC0741a() { // from class: com.kascend.chushou.d.j.3
+            com.kascend.chushou.player.c.a.dxB().a(str, str2, new a.InterfaceC0741a() { // from class: com.kascend.chushou.d.j.3
                 @Override // com.kascend.chushou.player.c.a.InterfaceC0741a
                 public void a(ParserRet parserRet) {
                     if (parserRet.mRc == 0 && parserRet.mData != null) {
-                        j.dwM().a(str + str2, (ArrayList) parserRet.mData);
+                        j.dwN().a(str + str2, (ArrayList) parserRet.mData);
                     }
                 }
             });

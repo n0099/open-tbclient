@@ -3,7 +3,7 @@ package com.baidu.tieba.write.b.a;
 public class b {
     private static volatile a lAb;
 
-    public static synchronized a dfK() {
+    public static synchronized a dfL() {
         a aVar;
         synchronized (b.class) {
             if (lAb == null) {

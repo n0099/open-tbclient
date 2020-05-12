@@ -81,7 +81,7 @@ public class a {
         if (cVar != null && (al = cVar.al("c13488", true)) != null) {
             if (cVar.aIu() != null) {
                 bj aIu = cVar.aIu();
-                al.af("obj_name", aIu.aMc() != null && (aIu.aMc().cWq() != null || aIu.aMc().bcn() != null) ? 1 : 0);
+                al.af("obj_name", aIu.aMc() != null && (aIu.aMc().cWr() != null || aIu.aMc().bcn() != null) ? 1 : 0);
                 if (aIu.aKC() != null) {
                     al.af(TiebaInitialize.Params.AB_TYPE, aIu.aKC().hadConcerned() ? 1 : 0);
                 }

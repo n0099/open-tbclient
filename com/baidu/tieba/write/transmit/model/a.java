@@ -79,7 +79,7 @@ public class a {
         MessageManager.getInstance().sendMessage(getRepostForumReqMessage);
     }
 
-    public void bRh() {
+    public void bRi() {
         MessageManager.getInstance().removeMessage(1003323, this.mBdUniqueId);
         MessageManager.getInstance().removeMessage(CmdConfigSocket.CMD_GET_REPOST_RECOMMEND_FORUM, this.mBdUniqueId);
     }

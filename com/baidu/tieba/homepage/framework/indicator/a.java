@@ -24,20 +24,20 @@ public class a {
         this.hLb = 0;
         this.hLc = 1;
         int i = 2;
-        int bYv = bYv();
-        if ((bYv & 16) > 0) {
+        int bYw = bYw();
+        if ((bYw & 16) > 0) {
             this.hLd = 2;
             i = 3;
         }
-        if ((bYv & 128) > 0) {
+        if ((bYw & 128) > 0) {
             this.hLg = i;
             i++;
         }
-        if ((bYv & 32) > 0 && MessageManager.getInstance().findTask(2921399) != null) {
+        if ((bYw & 32) > 0 && MessageManager.getInstance().findTask(2921399) != null) {
             this.hLe = i;
             i++;
         }
-        if ((bYv & 64) > 0) {
+        if ((bYw & 64) > 0) {
             this.hLf = i;
             int i2 = i + 1;
         }
@@ -87,11 +87,11 @@ public class a {
         return -1;
     }
 
-    public int bYu() {
+    public int bYv() {
         return this.hLh;
     }
 
-    private int bYv() {
+    private int bYw() {
         return com.baidu.tbadk.core.sharedPref.b.aNT().getInt("recommend_tab_show", 55);
     }
 

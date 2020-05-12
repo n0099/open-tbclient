@@ -119,7 +119,7 @@ public class e extends d {
         this.mNoDataView.setVisibility(0);
     }
 
-    public void bXP() {
+    public void bXQ() {
         if (this.jZo != null) {
             if (this.jZl != null) {
                 this.jZl.setVisibility(8);
@@ -195,7 +195,7 @@ public class e extends d {
 
     public void sA(boolean z) {
         if (z) {
-            cHN();
+            cHO();
         }
     }
 
@@ -204,7 +204,7 @@ public class e extends d {
     }
 
     public void at(String str, boolean z) {
-        if (!bJs()) {
+        if (!bJt()) {
             this.jZn.setVisibility(0);
             if (this.refreshView == null) {
                 this.refreshView = new com.baidu.tbadk.k.h(this.duK.getPageActivity(), new View.OnClickListener() { // from class: com.baidu.tieba.personPolymeric.b.e.2
@@ -230,7 +230,7 @@ public class e extends d {
         }
     }
 
-    public boolean bJs() {
+    public boolean bJt() {
         if (this.refreshView != null) {
             return this.refreshView.isViewAttached();
         }
@@ -249,7 +249,7 @@ public class e extends d {
         }
     }
 
-    public void cHN() {
+    public void cHO() {
         if (NickNameActivitySwitch.isOn()) {
             if (this.jZl == null) {
                 this.jZl = new ImageView(this.duK.getPageActivity());
@@ -257,7 +257,7 @@ public class e extends d {
                 this.jZl.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.personPolymeric.b.e.3
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new TbWebViewActivityConfig(e.this.duK.getPageActivity(), null, com.baidu.tieba.pb.c.cva(), true)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new TbWebViewActivityConfig(e.this.duK.getPageActivity(), null, com.baidu.tieba.pb.c.cvb(), true)));
                     }
                 });
             }
@@ -280,7 +280,7 @@ public class e extends d {
     public void b(com.baidu.tieba.personPolymeric.c.a aVar) {
     }
 
-    public void bUw() {
+    public void bUx() {
     }
 
     public void doRefresh() {

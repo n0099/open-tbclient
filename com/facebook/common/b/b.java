@@ -44,11 +44,11 @@ public class b extends AbstractExecutorService {
         if (size > i && this.lRv.compareAndSet(i, size)) {
             com.facebook.common.c.a.a(lQq, "%s: max pending work in queue = %d", this.mName, Integer.valueOf(size));
         }
-        dmP();
+        dmQ();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dmP() {
+    public void dmQ() {
         int i = this.lRu.get();
         while (i < this.lRr) {
             int i2 = i + 1;
@@ -104,14 +104,14 @@ public class b extends AbstractExecutorService {
                 }
                 int decrementAndGet = b.this.lRu.decrementAndGet();
                 if (!b.this.lRs.isEmpty()) {
-                    b.this.dmP();
+                    b.this.dmQ();
                 } else {
                     com.facebook.common.c.a.a(b.lQq, "%s: worker finished; %d workers left", b.this.mName, Integer.valueOf(decrementAndGet));
                 }
             } catch (Throwable th) {
                 int decrementAndGet2 = b.this.lRu.decrementAndGet();
                 if (!b.this.lRs.isEmpty()) {
-                    b.this.dmP();
+                    b.this.dmQ();
                 } else {
                     com.facebook.common.c.a.a(b.lQq, "%s: worker finished; %d workers left", b.this.mName, Integer.valueOf(decrementAndGet2));
                 }

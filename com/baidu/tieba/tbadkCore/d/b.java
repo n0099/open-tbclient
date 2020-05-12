@@ -26,28 +26,28 @@ public class b {
     }
 
     public void a(boolean z, boolean z2, int i, String str, long j, long j2, long j3) {
-        e cWH;
-        if (this.kTS != null && (cWH = cWH()) != null) {
+        e cWI;
+        if (this.kTS != null && (cWI = cWI()) != null) {
             if (z) {
-                if (cWH.kTZ != null) {
-                    cWH.kTZ.num++;
+                if (cWI.kTZ != null) {
+                    cWI.kTZ.num++;
                     if (z2) {
-                        cWH.kTZ.kTW += j2;
-                        cWH.kTZ.size += j;
+                        cWI.kTZ.kTW += j2;
+                        cWI.kTZ.size += j;
                     } else {
-                        cWH.kTZ.kTX++;
+                        cWI.kTZ.kTX++;
                     }
                 } else {
                     return;
                 }
-            } else if (cWH.kUa != null) {
-                cWH.kUa.num++;
+            } else if (cWI.kUa != null) {
+                cWI.kUa.num++;
                 if (z2) {
-                    cWH.kUa.kTW += j3;
-                    cWH.kUa.size += j;
+                    cWI.kUa.kTW += j3;
+                    cWI.kUa.size += j;
                     j2 = j3;
                 } else {
-                    cWH.kUa.kTX++;
+                    cWI.kUa.kTX++;
                     j2 = j3;
                 }
             } else {
@@ -55,7 +55,7 @@ public class b {
             }
             this.kTS = null;
             if (z2) {
-                c.a(cWH, 10);
+                c.a(cWI, 10);
             }
             if (this.mLogType == "frsStat") {
                 if (!z2 || j2 > 3000) {
@@ -74,19 +74,19 @@ public class b {
     }
 
     public void destory() {
-        e cWH;
-        if (this.kTS != null && (cWH = cWH()) != null && cWH.kUb != null) {
+        e cWI;
+        if (this.kTS != null && (cWI = cWI()) != null && cWI.kUb != null) {
             long timeCost = this.kTS.getTimeCost();
             if (timeCost > 3000) {
-                d dVar = cWH.kUb;
+                d dVar = cWI.kUb;
                 dVar.kTW = timeCost + dVar.kTW;
-                cWH.kUb.num++;
-                c.a(cWH, 10);
+                cWI.kUb.num++;
+                c.a(cWI, 10);
             }
         }
     }
 
-    private e cWH() {
+    private e cWI() {
         return c.B(this.mLogType, getNetType(), this.mIsJson);
     }
 

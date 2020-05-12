@@ -17,7 +17,7 @@ public class g {
     }
 
     public void b(com.baidu.tieba.pb.data.e eVar, String str) {
-        if (eVar != null && eVar.cvr() != null) {
+        if (eVar != null && eVar.cvs() != null) {
             c(eVar, str);
         }
     }
@@ -31,7 +31,7 @@ public class g {
         }
     }
 
-    public View cDk() {
+    public View cDl() {
         if (this.jJo == null) {
             return null;
         }

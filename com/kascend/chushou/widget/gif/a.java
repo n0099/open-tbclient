@@ -51,7 +51,7 @@ public final class a extends com.facebook.imagepipeline.request.a {
     }
 
     @Override // com.facebook.imagepipeline.request.a, com.facebook.imagepipeline.request.b
-    public com.facebook.cache.common.b dtP() {
+    public com.facebook.cache.common.b dtQ() {
         String Qk;
         if (this.mHi == null) {
             v vVar = v.mXT;

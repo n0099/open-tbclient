@@ -99,7 +99,7 @@ public class ExpandableTextView extends RelativeLayout {
                             ExpandableTextView.this.lvW.setOnTouchListener(ExpandableTextView.this.jJb);
                             ExpandableTextView.this.lvW.setText(ExpandableTextView.this.jIZ);
                             if (ExpandableTextView.this.lwb) {
-                                ExpandableTextView.this.deK();
+                                ExpandableTextView.this.deL();
                             }
                         }
                     } else if (!ExpandableTextView.this.jIV) {
@@ -142,19 +142,19 @@ public class ExpandableTextView extends RelativeLayout {
         this.jJc = new f(2, null) { // from class: com.baidu.tieba.view.expandable.ExpandableTextView.2
             @Override // com.baidu.tbadk.widget.richText.f, android.text.style.ClickableSpan
             public void onClick(View view) {
-                ExpandableTextView.this.deK();
+                ExpandableTextView.this.deL();
             }
         };
         this.lwd = new f(2, null) { // from class: com.baidu.tieba.view.expandable.ExpandableTextView.3
             @Override // com.baidu.tbadk.widget.richText.f, android.text.style.ClickableSpan
             public void onClick(View view) {
-                ExpandableTextView.this.deL();
+                ExpandableTextView.this.deM();
             }
         };
         this.lwe = new View.OnClickListener() { // from class: com.baidu.tieba.view.expandable.ExpandableTextView.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                ExpandableTextView.this.deL();
+                ExpandableTextView.this.deM();
             }
         };
         init(context);
@@ -209,7 +209,7 @@ public class ExpandableTextView extends RelativeLayout {
                             ExpandableTextView.this.lvW.setOnTouchListener(ExpandableTextView.this.jJb);
                             ExpandableTextView.this.lvW.setText(ExpandableTextView.this.jIZ);
                             if (ExpandableTextView.this.lwb) {
-                                ExpandableTextView.this.deK();
+                                ExpandableTextView.this.deL();
                             }
                         }
                     } else if (!ExpandableTextView.this.jIV) {
@@ -252,19 +252,19 @@ public class ExpandableTextView extends RelativeLayout {
         this.jJc = new f(2, null) { // from class: com.baidu.tieba.view.expandable.ExpandableTextView.2
             @Override // com.baidu.tbadk.widget.richText.f, android.text.style.ClickableSpan
             public void onClick(View view) {
-                ExpandableTextView.this.deK();
+                ExpandableTextView.this.deL();
             }
         };
         this.lwd = new f(2, null) { // from class: com.baidu.tieba.view.expandable.ExpandableTextView.3
             @Override // com.baidu.tbadk.widget.richText.f, android.text.style.ClickableSpan
             public void onClick(View view) {
-                ExpandableTextView.this.deL();
+                ExpandableTextView.this.deM();
             }
         };
         this.lwe = new View.OnClickListener() { // from class: com.baidu.tieba.view.expandable.ExpandableTextView.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                ExpandableTextView.this.deL();
+                ExpandableTextView.this.deM();
             }
         };
         init(context);
@@ -319,7 +319,7 @@ public class ExpandableTextView extends RelativeLayout {
                             ExpandableTextView.this.lvW.setOnTouchListener(ExpandableTextView.this.jJb);
                             ExpandableTextView.this.lvW.setText(ExpandableTextView.this.jIZ);
                             if (ExpandableTextView.this.lwb) {
-                                ExpandableTextView.this.deK();
+                                ExpandableTextView.this.deL();
                             }
                         }
                     } else if (!ExpandableTextView.this.jIV) {
@@ -362,19 +362,19 @@ public class ExpandableTextView extends RelativeLayout {
         this.jJc = new f(2, null) { // from class: com.baidu.tieba.view.expandable.ExpandableTextView.2
             @Override // com.baidu.tbadk.widget.richText.f, android.text.style.ClickableSpan
             public void onClick(View view) {
-                ExpandableTextView.this.deK();
+                ExpandableTextView.this.deL();
             }
         };
         this.lwd = new f(2, null) { // from class: com.baidu.tieba.view.expandable.ExpandableTextView.3
             @Override // com.baidu.tbadk.widget.richText.f, android.text.style.ClickableSpan
             public void onClick(View view) {
-                ExpandableTextView.this.deL();
+                ExpandableTextView.this.deM();
             }
         };
         this.lwe = new View.OnClickListener() { // from class: com.baidu.tieba.view.expandable.ExpandableTextView.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                ExpandableTextView.this.deL();
+                ExpandableTextView.this.deM();
             }
         };
         init(context);
@@ -463,7 +463,7 @@ public class ExpandableTextView extends RelativeLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void deK() {
+    public void deL() {
         this.lvV = true;
         if (this.lwa != null) {
             this.lwa.nw(this.lvV);
@@ -476,7 +476,7 @@ public class ExpandableTextView extends RelativeLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void deL() {
+    public void deM() {
         this.lvV = false;
         if (this.lwa != null) {
             this.lwa.nw(this.lvV);

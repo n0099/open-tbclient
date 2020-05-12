@@ -49,11 +49,11 @@ public class f extends com.baidu.tieba.play.operableVideoView.d {
             }
         };
         tb(true);
-        cac();
+        cad();
     }
 
-    protected void cac() {
-        this.goU = new com.baidu.afd.videopaster.d(this.mContext, (ViewGroup) cJn());
+    protected void cad() {
+        this.goU = new com.baidu.afd.videopaster.d(this.mContext, (ViewGroup) cJo());
         this.goU.a(new d.a() { // from class: com.baidu.tieba.homepage.personalize.view.f.1
             @Override // com.baidu.afd.videopaster.d.a
             public void pP() {
@@ -68,7 +68,7 @@ public class f extends com.baidu.tieba.play.operableVideoView.d {
 
             @Override // com.baidu.afd.videopaster.d.a
             public void pN() {
-                f.this.cKJ();
+                f.this.cKK();
             }
 
             @Override // com.baidu.afd.videopaster.d.a
@@ -79,7 +79,7 @@ public class f extends com.baidu.tieba.play.operableVideoView.d {
         a(new d.a() { // from class: com.baidu.tieba.homepage.personalize.view.f.2
             @Override // com.baidu.tieba.play.operableVideoView.d.a
             public void ce(int i, int i2) {
-                if (!f.this.cKM()) {
+                if (!f.this.cKN()) {
                     if (i2 >= i) {
                         if (f.this.goU.a(f.this.isFullScreen(), f.this.ahN, "NEWINDEX")) {
                         }
@@ -225,7 +225,7 @@ public class f extends com.baidu.tieba.play.operableVideoView.d {
     }
 
     @Override // com.baidu.tieba.play.operableVideoView.d
-    protected int cad() {
+    protected int cae() {
         return 1;
     }
 

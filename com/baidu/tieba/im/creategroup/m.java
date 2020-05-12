@@ -43,11 +43,11 @@ public class m extends BaseAdapter {
         } else {
             aVar = (a) view.getTag();
         }
-        if (aVar.cdC() != null) {
+        if (aVar.cdD() != null) {
             if (i + 1 == getCount()) {
-                aVar.cdC().setVisibility(8);
+                aVar.cdD().setVisibility(8);
             } else {
-                aVar.cdC().setVisibility(0);
+                aVar.cdD().setVisibility(0);
             }
         }
         aVar.Eo(getItem(i).toString());

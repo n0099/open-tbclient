@@ -13,7 +13,7 @@ public class b implements m {
         return gUy;
     }
 
-    public int bMZ() {
+    public int bNa() {
         return this.gUz;
     }
 

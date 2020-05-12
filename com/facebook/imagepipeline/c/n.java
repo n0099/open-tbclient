@@ -9,7 +9,7 @@ public interface n {
 
     void dqB();
 
-    void dqu();
+    void dqC();
 
     void dqv();
 

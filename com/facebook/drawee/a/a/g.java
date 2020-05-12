@@ -28,7 +28,7 @@ public class g {
         this.lTc = jVar;
     }
 
-    public d doa() {
+    public d dob() {
         d a = a(this.mResources, this.lTt, this.lSZ, this.lTu, this.lTj, this.lTv);
         if (this.lTc != null) {
             a.vv(this.lTc.get().booleanValue());

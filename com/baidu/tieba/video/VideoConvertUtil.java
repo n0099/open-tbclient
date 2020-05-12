@@ -33,7 +33,7 @@ public class VideoConvertUtil {
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
             VideoConvertUtil.this.lhi = IVideoConvertService.Stub.asInterface(iBinder);
             if (VideoConvertUtil.this.lhr) {
-                VideoConvertUtil.this.dat();
+                VideoConvertUtil.this.dau();
             }
         }
 
@@ -61,7 +61,7 @@ public class VideoConvertUtil {
     public void destroy() {
         this.lhq = true;
         abortConvert();
-        das();
+        dat();
     }
 
     private void startService() {
@@ -80,14 +80,14 @@ public class VideoConvertUtil {
         }
     }
 
-    private void das() {
+    private void dat() {
         if (this.lhi != null && this.mContext != null) {
             this.mContext.unbindService(this.lht);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dat() {
+    public void dau() {
         int i = -1;
         try {
             this.lhi.setIVideoConvertListener(this.lho);
@@ -98,7 +98,7 @@ public class VideoConvertUtil {
         }
         if (this.lhn != null) {
             if (i == 0) {
-                this.lhn.daq();
+                this.lhn.dar();
             } else {
                 this.lhn.Ec(i);
             }
@@ -118,7 +118,7 @@ public class VideoConvertUtil {
             beI();
             return;
         }
-        dat();
+        dau();
     }
 
     public boolean isConvertRunning() {
@@ -236,7 +236,7 @@ public class VideoConvertUtil {
         }
     }
 
-    public static boolean dau() {
+    public static boolean dav() {
         File file = new File(lgZ);
         if (file != null) {
             if (file.exists() && !file.isDirectory()) {

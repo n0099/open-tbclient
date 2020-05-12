@@ -305,7 +305,7 @@ public class MultiColumnListView extends PLA_ListView {
 
     @Override // com.huewu.pla.lib.internal.PLA_ListView
     protected int getItemLeft(int i) {
-        return isHeaderOrFooterPosition(i) ? this.mFixedColumn.dwx() : getColumnLeft(i);
+        return isHeaderOrFooterPosition(i) ? this.mFixedColumn.dwy() : getColumnLeft(i);
     }
 
     @Override // com.huewu.pla.lib.internal.PLA_ListView
@@ -388,7 +388,7 @@ public class MultiColumnListView extends PLA_ListView {
         if (i2 == -1) {
             return 0;
         }
-        return this.mColumns[i2].dwx();
+        return this.mColumns[i2].dwy();
     }
 
     private int getColumnWidth(int i) {
@@ -396,7 +396,7 @@ public class MultiColumnListView extends PLA_ListView {
         if (i2 == -1) {
             return 0;
         }
-        return this.mColumns[i2].dwy();
+        return this.mColumns[i2].dwz();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -412,11 +412,11 @@ public class MultiColumnListView extends PLA_ListView {
             this.mIndex = i;
         }
 
-        public int dwx() {
+        public int dwy() {
             return this.mmY;
         }
 
-        public int dwy() {
+        public int dwz() {
             return this.mmX;
         }
 

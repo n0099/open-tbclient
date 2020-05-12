@@ -20,16 +20,16 @@ public interface d {
 
     void a(e eVar);
 
-    void bDZ();
+    void bEa();
 
     @ICameraControl.FlashMode
-    int bEa();
+    int bEb();
 
-    View bEb();
+    View bEc();
 
-    Rect bEj();
+    Rect bEk();
 
-    void bEk();
+    void bEl();
 
     void pause();
 

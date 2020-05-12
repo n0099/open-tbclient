@@ -43,7 +43,7 @@ public class f implements a {
             this.mDatas.addAll(list);
             this.eOj.setData(this.mDatas);
             if (z && list.size() > 0 && this.hez && j.isWifiNet()) {
-                bRf();
+                bRg();
                 list.get(0).autoPlay = true;
             }
         }
@@ -128,11 +128,11 @@ public class f implements a {
         }
     }
 
-    public int bRd() {
+    public int bRe() {
         return this.heA;
     }
 
-    public void bRe() {
+    public void bRf() {
         if (!v.isEmpty(this.mDatas)) {
             Iterator<m> it = this.mDatas.iterator();
             while (it.hasNext()) {
@@ -143,11 +143,11 @@ public class f implements a {
 
     @Override // com.baidu.tieba.frs.aggregation.a
     public void cancel() {
-        bRf();
+        bRg();
     }
 
-    private void bRf() {
-        bRe();
+    private void bRg() {
+        bRf();
         this.heA = 0;
         pt();
     }

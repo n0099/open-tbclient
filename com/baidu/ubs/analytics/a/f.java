@@ -23,18 +23,18 @@ final class f {
         }
     }
 
-    public static synchronized f dkV() {
+    public static synchronized f dkW() {
         f fVar;
         synchronized (f.class) {
             if (lOm == null) {
-                b(com.baidu.ubs.analytics.d.dkT().getContext());
+                b(com.baidu.ubs.analytics.d.dkU().getContext());
             }
             fVar = lOm;
         }
         return fVar;
     }
 
-    public final synchronized SQLiteDatabase dkW() {
+    public final synchronized SQLiteDatabase dkX() {
         if (this.lOo.incrementAndGet() == 1) {
             com.baidu.ubs.analytics.d.b.H("***************新建立了 一个数据库的实例****************");
             this.lOp = lOn.getWritableDatabase();

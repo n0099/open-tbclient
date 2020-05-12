@@ -30,7 +30,7 @@ public class e extends w {
             this.jLn.I(eVar);
             if (eVar != null) {
                 d dVar = this.jLn;
-                if (eVar.getIsNewUrl() != 1 && !eVar.cvP()) {
+                if (eVar.getIsNewUrl() != 1 && !eVar.cvQ()) {
                     z = false;
                 }
                 dVar.setFromCDN(z);
@@ -38,16 +38,16 @@ public class e extends w {
         }
     }
 
-    public com.baidu.tieba.pb.data.e cEd() {
-        return this.jLn.cEd();
+    public com.baidu.tieba.pb.data.e cEe() {
+        return this.jLn.cEe();
     }
 
     public boolean isFromCDN() {
         return this.jLn.isFromCDN();
     }
 
-    public com.baidu.tieba.pb.data.e cEe() {
-        return this.jLn.cEe();
+    public com.baidu.tieba.pb.data.e cEf() {
+        return this.jLn.cEf();
     }
 
     public void c(com.baidu.tieba.pb.data.e eVar, int i) {
@@ -56,25 +56,25 @@ public class e extends w {
         }
     }
 
-    public p<bj> cEf() {
-        return this.jLn.cEf();
-    }
-
-    public Rect cEg() {
-        if (this.jLn.cEg() == null || this.jLn.cEg().isEmpty()) {
-            return null;
-        }
+    public p<bj> cEg() {
         return this.jLn.cEg();
     }
 
+    public Rect cEh() {
+        if (this.jLn.cEh() == null || this.jLn.cEh().isEmpty()) {
+            return null;
+        }
+        return this.jLn.cEh();
+    }
+
     public void sh(boolean z) {
-        if (this.jLn.cEk().getValue() != null) {
-            com.baidu.tieba.pb.data.e aI = this.jqg.aI(this.jLn.cEk().getValue());
+        if (this.jLn.cEl().getValue() != null) {
+            com.baidu.tieba.pb.data.e aI = this.jqg.aI(this.jLn.cEl().getValue());
             if (aI != null) {
-                this.jLn.cEi().addLast(this.jLn.cEe());
+                this.jLn.cEj().addLast(this.jLn.cEf());
                 this.jLn.setData(aI);
-                this.jLn.aQ(!v.isEmpty(aI.cvO()) ? aI.cvO().get(0) : null);
-                this.jLn.aP(this.jLn.cEi().getLast() != null ? this.jLn.cEi().getLast().cvr() : null);
+                this.jLn.aQ(!v.isEmpty(aI.cvP()) ? aI.cvP().get(0) : null);
+                this.jLn.aP(this.jLn.cEj().getLast() != null ? this.jLn.cEj().getLast().cvs() : null);
                 this.jqg.zH(z ? 21 : 22);
                 this.jqg.h(aI);
                 this.jLn.setIsLoading(true);
@@ -85,45 +85,45 @@ public class e extends w {
     public void aR(bj bjVar) {
         com.baidu.tieba.pb.data.e aI;
         if (bjVar != null && (aI = this.jqg.aI(bjVar)) != null) {
-            this.jLn.cEi().addLast(this.jLn.cEe());
+            this.jLn.cEj().addLast(this.jLn.cEf());
             this.jLn.setData(aI);
-            this.jLn.aQ(!v.isEmpty(aI.cvO()) ? aI.cvO().get(0) : null);
-            this.jLn.aP(this.jLn.cEi().getLast() != null ? this.jLn.cEi().getLast().cvr() : null);
+            this.jLn.aQ(!v.isEmpty(aI.cvP()) ? aI.cvP().get(0) : null);
+            this.jLn.aP(this.jLn.cEj().getLast() != null ? this.jLn.cEj().getLast().cvs() : null);
             this.jqg.zH(20);
             this.jqg.h(aI);
             this.jLn.setIsLoading(true);
         }
     }
 
-    public void cEp() {
-        com.baidu.tieba.pb.data.e pollLast = this.jLn.cEi().pollLast();
+    public void cEq() {
+        com.baidu.tieba.pb.data.e pollLast = this.jLn.cEj().pollLast();
         if (pollLast != null) {
             this.jLn.setData(pollLast);
-            this.jLn.aQ(!v.isEmpty(pollLast.cvO()) ? pollLast.cvO().get(0) : null);
-            this.jLn.aP(this.jLn.cEi().peekLast() != null ? this.jLn.cEi().peekLast().cvr() : null);
+            this.jLn.aQ(!v.isEmpty(pollLast.cvP()) ? pollLast.cvP().get(0) : null);
+            this.jLn.aP(this.jLn.cEj().peekLast() != null ? this.jLn.cEj().peekLast().cvs() : null);
             this.jqg.h(pollLast);
             this.jLn.setIsLoading(true);
         }
-    }
-
-    public p<bj> cEj() {
-        return this.jLn.cEj();
     }
 
     public p<bj> cEk() {
         return this.jLn.cEk();
     }
 
-    public p<Boolean> cEl() {
+    public p<bj> cEl() {
         return this.jLn.cEl();
+    }
+
+    public p<Boolean> cEm() {
+        return this.jLn.cEm();
     }
 
     public void sf(boolean z) {
         this.jLn.sf(z);
     }
 
-    public p<Boolean> cEm() {
-        return this.jLn.cEm();
+    public p<Boolean> cEn() {
+        return this.jLn.cEn();
     }
 
     public void sg(boolean z) {
@@ -134,19 +134,19 @@ public class e extends w {
         this.jLn.setIsLoading(z);
     }
 
-    public p<Boolean> cEn() {
-        return this.jLn.cEn();
+    public p<Boolean> cEo() {
+        return this.jLn.cEo();
     }
 
-    public boolean cEh() {
-        return this.jLn.cEh();
+    public boolean cEi() {
+        return this.jLn.cEi();
     }
 
     public void setCurrentTab(int i) {
         this.jLn.setCurrentTab(i);
     }
 
-    public p<Integer> cEo() {
-        return this.jLn.cEo();
+    public p<Integer> cEp() {
+        return this.jLn.cEp();
     }
 }

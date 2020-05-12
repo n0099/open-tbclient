@@ -107,11 +107,11 @@ public class ScrollItemView extends ListView {
     public void setData(List<String> list) {
         stopScroll();
         this.lvF.setData(list);
-        deI();
-        bQS();
+        deJ();
+        bQT();
     }
 
-    private void deI() {
+    private void deJ() {
         this.mCurrentPosition = (int) Math.floor(getItemCount() * Math.random());
         smoothScrollToPosition(this.mCurrentPosition);
     }
@@ -121,7 +121,7 @@ public class ScrollItemView extends ListView {
         setSelection(this.mCurrentPosition);
     }
 
-    public void bQS() {
+    public void bQT() {
         com.baidu.adp.lib.f.e.lb().postDelayed(this.lvG, 3000L);
     }
 
@@ -134,7 +134,7 @@ public class ScrollItemView extends ListView {
     @Override // android.widget.AbsListView, android.view.ViewGroup, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        bQS();
+        bQT();
     }
 
     /* loaded from: classes8.dex */

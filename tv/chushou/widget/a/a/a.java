@@ -65,7 +65,7 @@ public class a extends Drawable {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.graphics.drawable.Drawable
     @Nullable
-    /* renamed from: dJI */
+    /* renamed from: dJJ */
     public C0849a getConstantState() {
         return this.nrZ;
     }

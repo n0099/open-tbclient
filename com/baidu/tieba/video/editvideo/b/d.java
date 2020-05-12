@@ -38,8 +38,8 @@ class d extends Thread {
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
         try {
-            dbh();
-            if (dbj()) {
+            dbi();
+            if (dbk()) {
                 com.baidu.adp.lib.f.e.lb().post(new Runnable() { // from class: com.baidu.tieba.video.editvideo.b.d.1
                     @Override // java.lang.Runnable
                     public void run() {
@@ -65,7 +65,7 @@ class d extends Thread {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private void dbh() throws Exception {
+    private void dbi() throws Exception {
         Throwable th;
         MediaCodec mediaCodec;
         MediaCodec mediaCodec2;
@@ -89,7 +89,7 @@ class d extends Thread {
         MediaCodec mediaCodec6 = null;
         try {
             try {
-                mediaExtractor2 = dbi();
+                mediaExtractor2 = dbj();
                 try {
                     andSelectAudioTrackIndex = getAndSelectAudioTrackIndex(mediaExtractor2);
                 } catch (Exception e) {
@@ -119,7 +119,7 @@ class d extends Thread {
             mediaExtractor = null;
         }
         if (andSelectAudioTrackIndex < 0 && this.liU != null) {
-            this.liU.daX();
+            this.liU.daY();
             if (mediaExtractor2 != null) {
                 try {
                     mediaExtractor2.release();
@@ -330,7 +330,7 @@ class d extends Thread {
         }
     }
 
-    private MediaExtractor dbi() throws IOException {
+    private MediaExtractor dbj() throws IOException {
         MediaExtractor mediaExtractor = new MediaExtractor();
         mediaExtractor.setDataSource(this.liV);
         return mediaExtractor;
@@ -383,8 +383,8 @@ class d extends Thread {
         MediaFormat mediaFormat2 = null;
         ByteBuffer[] byteBufferArr2 = outputBuffers2;
         boolean z7 = false;
-        while (!z4 && dbj()) {
-            if (z7 || !((mediaFormat2 == null || this.liY.isStarted()) && dbj())) {
+        while (!z4 && dbk()) {
+            if (z7 || !((mediaFormat2 == null || this.liY.isStarted()) && dbk())) {
                 z = z7;
             } else {
                 int dequeueInputBuffer = mediaCodec.dequeueInputBuffer(10000L);
@@ -402,7 +402,7 @@ class d extends Thread {
                     }
                 }
             }
-            if (!z6 && i3 == -1 && ((mediaFormat2 == null || this.liY.isStarted()) && dbj() && (dequeueOutputBuffer = mediaCodec.dequeueOutputBuffer(bufferInfo, 10000L)) != -1)) {
+            if (!z6 && i3 == -1 && ((mediaFormat2 == null || this.liY.isStarted()) && dbk() && (dequeueOutputBuffer = mediaCodec.dequeueOutputBuffer(bufferInfo, 10000L)) != -1)) {
                 if (dequeueOutputBuffer == -3) {
                     outputBuffers = mediaCodec.getOutputBuffers();
                 } else if (dequeueOutputBuffer == -2) {
@@ -416,7 +416,7 @@ class d extends Thread {
                     }
                 }
             }
-            if (i3 == -1 || !dbj()) {
+            if (i3 == -1 || !dbk()) {
                 i = i3;
                 z2 = z6;
             } else {
@@ -446,7 +446,7 @@ class d extends Thread {
                     }
                 }
             }
-            if (z4 || !((mediaFormat2 == null || this.liY.isStarted()) && dbj())) {
+            if (z4 || !((mediaFormat2 == null || this.liY.isStarted()) && dbk())) {
                 mediaFormat = mediaFormat2;
                 byteBufferArr = byteBufferArr2;
             } else {
@@ -492,7 +492,7 @@ class d extends Thread {
                 z3 = true;
             }
             if (!this.liY.isStarted() && z3) {
-                this.liY.dbl();
+                this.liY.dbm();
                 if (!this.liY.start()) {
                     synchronized (this.liY) {
                         while (!this.liY.isStarted()) {
@@ -522,7 +522,7 @@ class d extends Thread {
         }
     }
 
-    private boolean dbj() {
+    private boolean dbk() {
         return !Thread.currentThread().isInterrupted();
     }
 

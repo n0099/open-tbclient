@@ -21,14 +21,14 @@ public final class j implements i {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public final MatchResult dEo() {
+    public final MatchResult dEp() {
         return this.mYV;
     }
 
     @Override // kotlin.text.i
-    public kotlin.b.h dEm() {
+    public kotlin.b.h dEn() {
         kotlin.b.h a2;
-        a2 = k.a(dEo());
+        a2 = k.a(dEp());
         return a2;
     }
 
@@ -53,7 +53,7 @@ public final class j implements i {
 
         @Override // kotlin.collections.a
         public int getSize() {
-            return j.this.dEo().groupCount() + 1;
+            return j.this.dEp().groupCount() + 1;
         }
 
         @Override // kotlin.collections.a, java.util.Collection
@@ -68,9 +68,9 @@ public final class j implements i {
 
         public f Ji(int i) {
             kotlin.b.h a;
-            a = k.a(j.this.dEo(), i);
-            if (a.dEd().intValue() >= 0) {
-                String group = j.this.dEo().group(i);
+            a = k.a(j.this.dEp(), i);
+            if (a.dEe().intValue() >= 0) {
+                String group = j.this.dEp().group(i);
                 kotlin.jvm.internal.q.i(group, "matchResult.group(index)");
                 return new f(group, a);
             }
@@ -79,9 +79,9 @@ public final class j implements i {
     }
 
     @Override // kotlin.text.i
-    public i dEn() {
+    public i dEo() {
         i a2;
-        int end = (dEo().end() == dEo().start() ? 1 : 0) + dEo().end();
+        int end = (dEp().end() == dEp().start() ? 1 : 0) + dEp().end();
         if (end <= this.mYM.length()) {
             Matcher matcher = this.mYV.pattern().matcher(this.mYM);
             kotlin.jvm.internal.q.i(matcher, "matcher.pattern().matcher(input)");

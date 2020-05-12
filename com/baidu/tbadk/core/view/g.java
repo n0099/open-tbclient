@@ -366,7 +366,7 @@ public class g extends com.baidu.adp.widget.ListView.c {
             if (this.dHo != null) {
                 this.dHo.ly(this.dHn.getTipViewHeight());
             }
-            this.dHn.bQC();
+            this.dHn.bQD();
             return true;
         }
         return false;

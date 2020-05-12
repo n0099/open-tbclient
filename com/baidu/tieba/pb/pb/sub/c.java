@@ -40,8 +40,8 @@ public class c {
 
     public void b(bj bjVar, List<m> list) {
         this.jHM.setThreadData(bjVar);
-        if (this.jGW.cCp().czo()) {
-            this.jHM.If(this.jGW.cCp().cyw());
+        if (this.jGW.cCq().czp()) {
+            this.jHM.If(this.jGW.cCq().cyx());
         }
         this.eOj.setData(list);
         this.eOj.getAdapter().notifyDataSetChanged();

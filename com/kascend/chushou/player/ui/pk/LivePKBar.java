@@ -213,7 +213,7 @@ public class LivePKBar extends RelativeLayout implements View.OnClickListener {
         this.k.setVisibility(8);
         this.m.setVisibility(8);
         this.n.setVisibility(0);
-        this.mBG = io.reactivex.g.a(0L, 1L, TimeUnit.SECONDS).a(io.reactivex.a.b.a.dCD()).b(new io.reactivex.c.g<Long>() { // from class: com.kascend.chushou.player.ui.pk.LivePKBar.1
+        this.mBG = io.reactivex.g.a(0L, 1L, TimeUnit.SECONDS).a(io.reactivex.a.b.a.dCE()).b(new io.reactivex.c.g<Long>() { // from class: com.kascend.chushou.player.ui.pk.LivePKBar.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // io.reactivex.c.g
             /* renamed from: a */
@@ -296,7 +296,7 @@ public class LivePKBar extends RelativeLayout implements View.OnClickListener {
         setVisibility(0);
         i();
         this.g = j;
-        this.mza = io.reactivex.g.a(0L, 1L, TimeUnit.SECONDS).a(io.reactivex.a.b.a.dCD()).b(new io.reactivex.c.g<Long>() { // from class: com.kascend.chushou.player.ui.pk.LivePKBar.5
+        this.mza = io.reactivex.g.a(0L, 1L, TimeUnit.SECONDS).a(io.reactivex.a.b.a.dCE()).b(new io.reactivex.c.g<Long>() { // from class: com.kascend.chushou.player.ui.pk.LivePKBar.5
             /* JADX DEBUG: Method merged with bridge method */
             @Override // io.reactivex.c.g
             /* renamed from: a */
@@ -553,7 +553,7 @@ public class LivePKBar extends RelativeLayout implements View.OnClickListener {
 
     public void f() {
         if (this.mBX != null) {
-            e.dyA().c(this.mBX);
+            e.dyB().c(this.mBX);
         }
         this.r.setVisibility(4);
     }
@@ -588,7 +588,7 @@ public class LivePKBar extends RelativeLayout implements View.OnClickListener {
             this.D.setVisibility(4);
             this.mBO.setVisibility(0);
             this.mBP.setText(((int) (100.0f * f)) + getContext().getResources().getString(a.i.str_live_across_pk_chat_notice_addition));
-            this.mBY = io.reactivex.g.a(0L, 1L, TimeUnit.SECONDS).a(io.reactivex.a.b.a.dCD()).b(new io.reactivex.c.g<Long>() { // from class: com.kascend.chushou.player.ui.pk.LivePKBar.2
+            this.mBY = io.reactivex.g.a(0L, 1L, TimeUnit.SECONDS).a(io.reactivex.a.b.a.dCE()).b(new io.reactivex.c.g<Long>() { // from class: com.kascend.chushou.player.ui.pk.LivePKBar.2
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // io.reactivex.c.g
                 /* renamed from: a */
@@ -696,7 +696,7 @@ public class LivePKBar extends RelativeLayout implements View.OnClickListener {
                     long longValue = lArr[i].longValue();
                     View childAt = this.u.getChildAt(i2);
                     childAt.setTag(Long.valueOf(longValue));
-                    ((FrescoThumbnailView) childAt.findViewById(a.f.iv_pk_icon)).bU(linkedHashMap.get(Long.valueOf(longValue)), tv.chushou.widget.a.c.dJG());
+                    ((FrescoThumbnailView) childAt.findViewById(a.f.iv_pk_icon)).bU(linkedHashMap.get(Long.valueOf(longValue)), tv.chushou.widget.a.c.dJH());
                 } else {
                     return;
                 }
@@ -723,7 +723,7 @@ public class LivePKBar extends RelativeLayout implements View.OnClickListener {
                 if (i < childCount) {
                     View childAt = this.mBI.getChildAt(i);
                     childAt.setTag(Long.valueOf(longValue));
-                    ((FrescoThumbnailView) childAt.findViewById(a.f.iv_pk_icon)).bU(str, tv.chushou.widget.a.c.dJG());
+                    ((FrescoThumbnailView) childAt.findViewById(a.f.iv_pk_icon)).bU(str, tv.chushou.widget.a.c.dJH());
                 } else {
                     return;
                 }

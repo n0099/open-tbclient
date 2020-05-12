@@ -169,14 +169,14 @@ public class ConcernFragment extends BaseFragment implements aj {
         if (isPrimary()) {
             if (!this.gRw) {
                 if (this.hHZ != null) {
-                    this.hHZ.bXN();
+                    this.hHZ.bXO();
                 }
                 this.gRw = true;
             }
             this.hHZ.setViewForeground();
             return;
         }
-        this.hHZ.bXT();
+        this.hHZ.bXU();
         completePullRefresh();
     }
 
@@ -203,9 +203,9 @@ public class ConcernFragment extends BaseFragment implements aj {
         }
     }
 
-    public void bXM() {
+    public void bXN() {
         if (this.hHZ != null) {
-            this.hHZ.bXO();
+            this.hHZ.bXP();
         }
     }
 

@@ -115,7 +115,7 @@ public class PersonBarFragment extends BaseFragment implements View.OnClickListe
             } else if (socketResponsedMessage.getCmd() == 107129 && (socketResponsedMessage instanceof ResponseGetLivableForumList)) {
                 ResponseGetLivableForumList responseGetLivableForumList = (ResponseGetLivableForumList) socketResponsedMessage;
                 if (responseGetLivableForumList.getError() == 0) {
-                    if (PersonBarFragment.this.cGY() == null || PersonBarFragment.this.cGY().getRequestCode() == 23011) {
+                    if (PersonBarFragment.this.cGZ() == null || PersonBarFragment.this.cGZ().getRequestCode() == 23011) {
                         if (!PersonBarFragment.this.jWc) {
                             PersonBarFragment.this.jWc = true;
                             PersonBarFragment.this.Ua.addHeaderView(PersonBarFragment.this.gSR);
@@ -133,7 +133,7 @@ public class PersonBarFragment extends BaseFragment implements View.OnClickListe
                     }
                     if (PersonBarFragment.this.jVT != null) {
                         PersonBarFragment.this.list.addAll(responseGetLivableForumList.getData());
-                        PersonBarFragment.this.csP();
+                        PersonBarFragment.this.csQ();
                         PersonBarFragment.this.jVT.setForumList(PersonBarFragment.this.list);
                         PersonBarFragment.this.hasMore = responseGetLivableForumList.hasMore();
                         PersonBarFragment.this.sw(true);
@@ -154,11 +154,11 @@ public class PersonBarFragment extends BaseFragment implements View.OnClickListe
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001183 && PersonBarFragment.this.mIsHost) {
                 b personBarData = ((ResponsePersonBarByUidLocalMessage) customResponsedMessage).getPersonBarData();
-                if (PersonBarFragment.this.cGY() != null) {
+                if (PersonBarFragment.this.cGZ() != null) {
                     if (personBarData != null) {
                         PersonBarFragment.this.jWb = true;
                     }
-                    if (PersonBarFragment.this.cGY().getRequestCode() != 23011) {
+                    if (PersonBarFragment.this.cGZ().getRequestCode() != 23011) {
                         PersonBarFragment.this.gSR.setVisibility(8);
                     } else {
                         if (!PersonBarFragment.this.jWc) {
@@ -178,17 +178,17 @@ public class PersonBarFragment extends BaseFragment implements View.OnClickListe
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             PersonBarFragment.this.jVY = false;
             if (httpResponsedMessage.getError() == 0) {
-                ArrayList<ForumData> cGW = PersonBarFragment.this.jVG.cHc().cGW();
-                int cGQ = PersonBarFragment.this.jVG.cHc().cGQ();
-                if (PersonBarFragment.this.jeK < cGQ) {
-                    PersonBarFragment.this.jVG.cHc().Aw(cGQ - 1);
+                ArrayList<ForumData> cGX = PersonBarFragment.this.jVG.cHd().cGX();
+                int cGR = PersonBarFragment.this.jVG.cHd().cGR();
+                if (PersonBarFragment.this.jeK < cGR) {
+                    PersonBarFragment.this.jVG.cHd().Aw(cGR - 1);
                 }
-                if (cGW != null && PersonBarFragment.this.jeK >= 0 && PersonBarFragment.this.jeK < cGW.size()) {
-                    cGW.remove(PersonBarFragment.this.jeK);
+                if (cGX != null && PersonBarFragment.this.jeK >= 0 && PersonBarFragment.this.jeK < cGX.size()) {
+                    cGX.remove(PersonBarFragment.this.jeK);
                     TbadkCoreApplication.getInst().delLikeForum(PersonBarFragment.this.jVU);
                     if (PersonBarFragment.this.jVT != null) {
                         PersonBarFragment.this.sw(true);
-                        PersonBarFragment.this.jVT.setForumList(cGW);
+                        PersonBarFragment.this.jVT.setForumList(cGX);
                         PersonBarFragment.this.jVT.notifyDataSetChanged();
                     }
                 }
@@ -209,13 +209,13 @@ public class PersonBarFragment extends BaseFragment implements View.OnClickListe
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1002002) {
-                if (PersonBarFragment.this.cGY() != null) {
+                if (PersonBarFragment.this.cGZ() != null) {
                     if (PersonBarFragment.this.jVS != null && PersonBarFragment.this.jVS.getView() != null) {
                         PersonBarFragment.this.jVS.getView().setVisibility(0);
                     }
                     PersonBarFragment.this.Ua.completePullRefreshPostDelayed(0L);
                     PersonBarFragment.this.eQC = false;
-                    if (httpResponsedMessage.getOrginalMessage().getTag() == PersonBarFragment.this.cGY().getUniqueId()) {
+                    if (httpResponsedMessage.getOrginalMessage().getTag() == PersonBarFragment.this.cGZ().getUniqueId()) {
                         if (httpResponsedMessage.getStatusCode() == 200 && (httpResponsedMessage instanceof PersonBarResponseMessage)) {
                             PersonBarResponseMessage personBarResponseMessage = (PersonBarResponseMessage) httpResponsedMessage;
                             if (personBarResponseMessage.getErrCode() == 0) {
@@ -234,7 +234,7 @@ public class PersonBarFragment extends BaseFragment implements View.OnClickListe
                                     }
                                 }, null);
                                 PersonBarFragment.this.a(personBarData, false);
-                                if (1 == PersonBarFragment.this.cGY().cik() && PersonBarFragment.this.jVS != null) {
+                                if (1 == PersonBarFragment.this.cGZ().cil() && PersonBarFragment.this.jVS != null) {
                                     PersonBarFragment.this.jVS.Iv(PersonBarFragment.this.jVZ);
                                     return;
                                 }
@@ -272,7 +272,7 @@ public class PersonBarFragment extends BaseFragment implements View.OnClickListe
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public PersonBarActivity cGY() {
+    public PersonBarActivity cGZ() {
         BaseFragmentActivity baseFragmentActivity = getBaseFragmentActivity();
         if (baseFragmentActivity instanceof PersonBarActivity) {
             return (PersonBarActivity) baseFragmentActivity;
@@ -332,16 +332,16 @@ public class PersonBarFragment extends BaseFragment implements View.OnClickListe
         View inflate = layoutInflater.inflate(R.layout.friend_fragment, viewGroup, false);
         this.gSR = LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.friend_fragment_header, (ViewGroup) null);
         this.jWa = (TextView) this.gSR.findViewById(R.id.header_text_describe);
-        if (cGY() == null) {
+        if (cGZ() == null) {
             return inflate;
         }
         this.jVZ = getString(R.string.person_bar_no_more);
-        this.jVG = cGY().cGP();
-        this.mIsHost = cGY().cim();
-        this.jUY = cGY().cGC();
+        this.jVG = cGZ().cGQ();
+        this.mIsHost = cGZ().cin();
+        this.jUY = cGZ().cGD();
         this.jVV = inflate.findViewById(R.id.friend_fragment_parent);
         if (this.mIsHost && !this.jUY) {
-            this.eyo = (TextView) cGY().bof().addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.navigation_right_button_layout, cGY()).findViewById(R.id.right_textview);
+            this.eyo = (TextView) cGZ().bof().addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.navigation_right_button_layout, cGZ()).findViewById(R.id.right_textview);
             this.eyo.postDelayed(new Runnable() { // from class: com.baidu.tieba.personExtra.PersonBarFragment.5
                 @Override // java.lang.Runnable
                 public void run() {
@@ -379,8 +379,8 @@ public class PersonBarFragment extends BaseFragment implements View.OnClickListe
             });
             this.eyo.setVisibility(0);
         }
-        this.jVT = new c(cGY(), this.jVG.cHc(), this.mIsHost, this.jUY);
-        this.jVT.Iw(cGY().cGE());
+        this.jVT = new c(cGZ(), this.jVG.cHd(), this.mIsHost, this.jUY);
+        this.jVT.Iw(cGZ().cGF());
         this.jVT.K(new View.OnClickListener() { // from class: com.baidu.tieba.personExtra.PersonBarFragment.7
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -406,8 +406,8 @@ public class PersonBarFragment extends BaseFragment implements View.OnClickListe
                 int intValue = ((Integer) view.getTag()).intValue();
                 if (intValue >= 0 && intValue < PersonBarFragment.this.jVT.getCount()) {
                     ForumData forumData = (ForumData) PersonBarFragment.this.jVT.getItem(intValue);
-                    if (PersonBarFragment.this.cGY() != null) {
-                        PersonBarFragment.this.sendMessage(new CustomMessage((int) CmdConfigCustom.START_OFFICIAL_BAR_CHAT, new OfficalBarChatActivityConfig(PersonBarFragment.this.cGY().getPageContext().getPageActivity(), com.baidu.adp.lib.f.b.toLong(forumData.getId(), 0L), forumData.getName(), forumData.getImage_url(), 0)));
+                    if (PersonBarFragment.this.cGZ() != null) {
+                        PersonBarFragment.this.sendMessage(new CustomMessage((int) CmdConfigCustom.START_OFFICIAL_BAR_CHAT, new OfficalBarChatActivityConfig(PersonBarFragment.this.cGZ().getPageContext().getPageActivity(), com.baidu.adp.lib.f.b.toLong(forumData.getId(), 0L), forumData.getName(), forumData.getImage_url(), 0)));
                     }
                 }
             }
@@ -422,18 +422,18 @@ public class PersonBarFragment extends BaseFragment implements View.OnClickListe
                 if (PersonBarFragment.this.jVT.getItem(i) != null && !PersonBarFragment.this.jVY) {
                     PersonBarFragment.this.jeK = i;
                     ForumData forumData = (ForumData) PersonBarFragment.this.jVT.getItem(i);
-                    if (forumData != null && PersonBarFragment.this.cGY() != null) {
+                    if (forumData != null && PersonBarFragment.this.cGZ() != null) {
                         if (PersonBarFragment.this.jUY) {
                             Intent intent = new Intent();
                             intent.putExtra(PersonBarActivityConfig.BAR_NAME, forumData.getName());
                             intent.putExtra(PersonBarActivityConfig.BAR_ID, forumData.getId());
-                            PersonBarActivity cGY = PersonBarFragment.this.cGY();
-                            PersonBarFragment.this.cGY();
-                            cGY.setResult(-1, intent);
-                            PersonBarFragment.this.cGY().finish();
+                            PersonBarActivity cGZ = PersonBarFragment.this.cGZ();
+                            PersonBarFragment.this.cGZ();
+                            cGZ.setResult(-1, intent);
+                            PersonBarFragment.this.cGZ().finish();
                             return;
                         }
-                        FrsActivityConfig createNormalCfg = new FrsActivityConfig(PersonBarFragment.this.cGY().getPageContext().getPageActivity()).createNormalCfg(forumData.getName(), "tb_mytieba");
+                        FrsActivityConfig createNormalCfg = new FrsActivityConfig(PersonBarFragment.this.cGZ().getPageContext().getPageActivity()).createNormalCfg(forumData.getName(), "tb_mytieba");
                         if (PersonBarFragment.this.mIsHost) {
                             createNormalCfg.setCallFrom(7);
                         } else {
@@ -445,13 +445,13 @@ public class PersonBarFragment extends BaseFragment implements View.OnClickListe
             }
         });
         this.Ua.setOnScrollListener(this.mOnScrollListener);
-        this.mPullView = new com.baidu.tbadk.core.view.h(cGY().getPageContext());
+        this.mPullView = new com.baidu.tbadk.core.view.h(cGZ().getPageContext());
         this.mPullView.setListPullRefreshListener(new g.c() { // from class: com.baidu.tieba.personExtra.PersonBarFragment.10
             @Override // com.baidu.tbadk.core.view.g.c
             public void onListPullRefresh(boolean z) {
-                if (PersonBarFragment.this.cGY() != null) {
+                if (PersonBarFragment.this.cGZ() != null) {
                     PersonBarFragment.this.jVW = 1;
-                    if (PersonBarFragment.this.cGY() == null || PersonBarFragment.this.cGY().getRequestCode() != 23011) {
+                    if (PersonBarFragment.this.cGZ() == null || PersonBarFragment.this.cGZ().getRequestCode() != 23011) {
                         PersonBarFragment.this.refreshData();
                         return;
                     }
@@ -472,8 +472,8 @@ public class PersonBarFragment extends BaseFragment implements View.OnClickListe
                 if (PersonBarFragment.this.hasMore) {
                     if (!PersonBarFragment.this.eQC) {
                         PersonBarFragment.this.eQC = true;
-                        PersonBarFragment.this.jVS.bLL();
-                        if (PersonBarFragment.this.cGY().getRequestCode() == 23011) {
+                        PersonBarFragment.this.jVS.bLM();
+                        if (PersonBarFragment.this.cGZ().getRequestCode() == 23011) {
                             RequestGetLivableForumList requestGetLivableForumList = new RequestGetLivableForumList();
                             requestGetLivableForumList.setGetLikeForum(1);
                             requestGetLivableForumList.setPageNo(PersonBarFragment.this.jVW);
@@ -509,10 +509,10 @@ public class PersonBarFragment extends BaseFragment implements View.OnClickListe
         } else {
             this.mNoDataView = NoDataViewFactory.a(getActivity(), null, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.FINDBAR, dimension), NoDataViewFactory.d.cK(null, string), null);
         }
-        if (this.mIsHost && cGY() != null && cGY().getRequestCode() != 23011) {
-            cHa();
+        if (this.mIsHost && cGZ() != null && cGZ().getRequestCode() != 23011) {
+            cHb();
         }
-        if (this.mPageType == cGY().cik()) {
+        if (this.mPageType == cGZ().cil()) {
             this.Ua.startPullRefresh();
         }
         return inflate;
@@ -521,7 +521,7 @@ public class PersonBarFragment extends BaseFragment implements View.OnClickListe
     public void sw(boolean z) {
         if (this.jVT != null) {
             this.jVT.bqe();
-            if (this.jVT.cHb()) {
+            if (this.jVT.cHc()) {
                 if (z) {
                     this.jVT.iB(false);
                     sx(true);
@@ -542,13 +542,13 @@ public class PersonBarFragment extends BaseFragment implements View.OnClickListe
             if (this.eyo != null) {
                 this.eyo.setVisibility(0);
             }
-            if (cGY() != null && cGY().getRequestCode() == 23011 && this.eyo != null) {
+            if (cGZ() != null && cGZ().getRequestCode() == 23011 && this.eyo != null) {
                 this.eyo.setVisibility(8);
             }
         }
     }
 
-    public c cGZ() {
+    public c cHa() {
         return this.jVT;
     }
 
@@ -565,9 +565,9 @@ public class PersonBarFragment extends BaseFragment implements View.OnClickListe
         }
     }
 
-    public void cHa() {
+    public void cHb() {
         if (this.jVG != null) {
-            this.jVG.cHa();
+            this.jVG.cHb();
         }
     }
 
@@ -577,40 +577,40 @@ public class PersonBarFragment extends BaseFragment implements View.OnClickListe
             if (!z) {
                 this.Ua.completePullRefreshPostDelayed(0L);
             }
-            int cGD = cGY().cGD();
+            int cGE = cGZ().cGE();
             int i = 0;
             if (this.jVG != null && this.jVT != null) {
-                if (this.mPageType == cGY().cik()) {
+                if (this.mPageType == cGZ().cil()) {
                     if (z) {
                         this.jVW = 1;
-                        this.jVG.cHc().f(bVar.cGS(), bVar.cGT());
-                        this.jVG.cHc().i(bVar.cGU(), bVar.cGV());
-                        this.jVG.cHc().Aw(bVar.cGQ());
-                        this.jVG.cHc().Ay(bVar.cGR());
+                        this.jVG.cHd().f(bVar.cGT(), bVar.cGU());
+                        this.jVG.cHd().i(bVar.cGV(), bVar.cGW());
+                        this.jVG.cHd().Aw(bVar.cGR());
+                        this.jVG.cHd().Ay(bVar.cGS());
                     } else if (this.jVW == 1) {
-                        this.jVG.cHc().f(bVar.cGS(), bVar.cGT());
-                        this.jVG.cHc().i(bVar.cGU(), bVar.cGV());
-                        this.jVG.cHc().Aw(bVar.cGQ());
-                        this.jVG.cHc().Ay(bVar.cGR());
+                        this.jVG.cHd().f(bVar.cGT(), bVar.cGU());
+                        this.jVG.cHd().i(bVar.cGV(), bVar.cGW());
+                        this.jVG.cHd().Aw(bVar.cGR());
+                        this.jVG.cHd().Ay(bVar.cGS());
                         this.jVW++;
                     } else {
-                        this.jVG.cHc().g(bVar.cGS(), bVar.cGT());
-                        this.jVG.cHc().h(bVar.cGU(), bVar.cGV());
-                        this.jVG.cHc().Ax(bVar.cGQ());
-                        this.jVG.cHc().Az(bVar.cGR());
+                        this.jVG.cHd().g(bVar.cGT(), bVar.cGU());
+                        this.jVG.cHd().h(bVar.cGV(), bVar.cGW());
+                        this.jVG.cHd().Ax(bVar.cGR());
+                        this.jVG.cHd().Az(bVar.cGS());
                         this.jVW++;
                     }
                 }
                 if (this.mPageType == 0) {
-                    this.jVT.setForumList(this.jVG.cHc().cGW());
+                    this.jVT.setForumList(this.jVG.cHd().cGX());
                 } else {
-                    this.jVT.setForumList(this.jVG.cHc().cGX());
+                    this.jVT.setForumList(this.jVG.cHd().cGY());
                 }
-                if (bVar.cGX() != null) {
-                    i = this.jVG.cHc().cGX().size();
+                if (bVar.cGY() != null) {
+                    i = this.jVG.cHd().cGY().size();
                 }
-                if (cGY() != null) {
-                    cGY().cq(cGD, i);
+                if (cGZ() != null) {
+                    cGZ().cq(cGE, i);
                 }
                 sw(true);
                 this.jVT.notifyDataSetChanged();
@@ -630,8 +630,8 @@ public class PersonBarFragment extends BaseFragment implements View.OnClickListe
                 am.setBackgroundResource(this.mNoDataView, R.color.cp_bg_line_d);
                 this.mNoDataView.onChangeSkinType(getBaseFragmentActivity().getPageContext(), i);
             }
-            if (cGY() != null) {
-                cGY().bof().onChangeSkinType(getBaseFragmentActivity().getPageContext(), i);
+            if (cGZ() != null) {
+                cGZ().bof().onChangeSkinType(getBaseFragmentActivity().getPageContext(), i);
             }
             if (this.mPullView != null) {
                 this.mPullView.changeSkin(i);
@@ -647,7 +647,7 @@ public class PersonBarFragment extends BaseFragment implements View.OnClickListe
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void csP() {
+    public void csQ() {
         HashSet hashSet = new HashSet();
         Iterator<ForumData> it = this.list.iterator();
         while (it.hasNext()) {
@@ -697,7 +697,7 @@ public class PersonBarFragment extends BaseFragment implements View.OnClickListe
             am.setBackgroundColor(this.ecZ, this.bgColor, i);
         }
 
-        public void bLL() {
+        public void bLM() {
             this.mProgressBar.setVisibility(0);
             this.mTextView.setText(this.eAT.getPageContext().getPageActivity().getText(R.string.loading));
             this.ecZ.setVisibility(0);

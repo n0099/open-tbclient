@@ -39,28 +39,28 @@ public class g {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            FrsViewData bOW;
+            FrsViewData bOX;
             ForumData forum;
             String name;
             SignData signData;
             boolean z;
             int i;
-            if (g.this.han != null && (customResponsedMessage instanceof SignMessage) && (bOW = g.this.han.bOW()) != null && bOW.getForum() != null && (name = (forum = bOW.getForum()).getName()) != null && name.equals(FrsActivityStatic.forumName) && customResponsedMessage.getOrginalMessage().getTag() == g.this.hxe) {
+            if (g.this.han != null && (customResponsedMessage instanceof SignMessage) && (bOX = g.this.han.bOX()) != null && bOX.getForum() != null && (name = (forum = bOX.getForum()).getName()) != null && name.equals(FrsActivityStatic.forumName) && customResponsedMessage.getOrginalMessage().getTag() == g.this.hxe) {
                 TiebaStatic.eventStat(g.this.han.getActivity(), "sign_end_time", System.currentTimeMillis() + "");
                 String name2 = forum.getName();
                 SignMessage signMessage = (SignMessage) customResponsedMessage;
                 if (!AntiHelper.bq(signMessage.mSignErrorCode, signMessage.mSignErrorString)) {
-                    h bOs = g.this.han.bOs();
+                    h bOt = g.this.han.bOt();
                     if (signMessage == null || signMessage.signData == null) {
                         signData = null;
                         z = false;
                     } else {
                         SignData signData2 = signMessage.signData;
                         if (signData2.forumId != null && signData2.forumId.equals(forum.getId())) {
-                            if (bOs != null) {
-                                bOs.DC(name2);
+                            if (bOt != null) {
+                                bOt.DC(name2);
                             }
-                            bOW.updateSignData(signData2);
+                            bOX.updateSignData(signData2);
                             signData2.forumId = forum.getId();
                             signData2.forumName = forum.getName();
                             signData = signData2;
@@ -71,7 +71,7 @@ public class g {
                     }
                     if (z) {
                         int user_level = forum.getUser_level();
-                        if (bOs != null ? bOs.bVA() : false) {
+                        if (bOt != null ? bOt.bVB() : false) {
                             i = forum.getUser_level();
                             if (user_level >= i) {
                                 i++;
@@ -81,7 +81,7 @@ public class g {
                         }
                         TbadkCoreApplication.getInst().addSignedForum(name2, signData.sign_bonus_point, i);
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_SIGN_REFRESH_SIGN_STATE, signData));
-                        if (g.this.bVm() && signData.contDays > 0) {
+                        if (g.this.bVn() && signData.contDays > 0) {
                             com.baidu.tbadk.coreExtra.messageCenter.f.aUg().vJ(signData.userInfoJson);
                             TbPageContext<?> tbPageContext = g.this.han.getTbPageContext();
                             TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(g.this.han.getActivity(), "", g.this.hxd, false, true, true);
@@ -90,20 +90,20 @@ public class g {
                             return;
                         }
                         com.baidu.tbadk.coreExtra.messageCenter.f.aUg().vJ(null);
-                        if (bOs == null || bOs.bVy()) {
+                        if (bOt == null || bOt.bVz()) {
                             g.this.han.showToast(TbadkCoreApplication.getInst().getString(R.string.frs_sign_pointer, new Object[]{Integer.valueOf(signData.sign_bonus_point), Integer.valueOf(signData.user_sign_rank)}));
                         } else {
                             g.this.han.showToast(TbadkCoreApplication.getInst().getString(R.string.frs_sign_success, new Object[]{Integer.valueOf(signData.user_sign_rank)}));
                         }
-                        com.baidu.tieba.frs.n bOv = g.this.han.bOv();
-                        if (bOv != null) {
-                            com.baidu.tbadk.coreExtra.messageCenter.f.aUg().a(g.this.han.getTbPageContext(), bOv.bCr());
+                        com.baidu.tieba.frs.n bOw = g.this.han.bOw();
+                        if (bOw != null) {
+                            com.baidu.tbadk.coreExtra.messageCenter.f.aUg().a(g.this.han.getTbPageContext(), bOw.bCr());
                             return;
                         }
                         return;
                     }
-                    if (signMessage.mSignErrorCode == 160002 && bOs != null) {
-                        bOs.uQ(1);
+                    if (signMessage.mSignErrorCode == 160002 && bOt != null) {
+                        bOt.uQ(1);
                     }
                     g.this.han.showToast(signMessage.mSignErrorString);
                     return;
@@ -132,19 +132,19 @@ public class g {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            FrsViewData bOW;
+            FrsViewData bOX;
             int i;
-            if (g.this.han != null && customResponsedMessage != null && (customResponsedMessage.getData() instanceof SignData) && (bOW = g.this.han.bOW()) != null && bOW.getForum() != null) {
-                ForumData forum = bOW.getForum();
+            if (g.this.han != null && customResponsedMessage != null && (customResponsedMessage.getData() instanceof SignData) && (bOX = g.this.han.bOX()) != null && bOX.getForum() != null) {
+                ForumData forum = bOX.getForum();
                 SignData signData = (SignData) customResponsedMessage.getData();
                 int user_level = forum.getUser_level();
                 if (signData.forumId != null && signData.forumId.equals(forum.getId())) {
-                    bOW.updateSignData(signData);
-                    h bOs = g.this.han.bOs();
+                    bOX.updateSignData(signData);
+                    h bOt = g.this.han.bOt();
                     boolean z = false;
-                    if (bOs != null) {
-                        bOs.j(bOW);
-                        z = bOs.bVA();
+                    if (bOt != null) {
+                        bOt.j(bOX);
+                        z = bOt.bVB();
                     }
                     if (z) {
                         i = forum.getUser_level();
@@ -178,7 +178,7 @@ public class g {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean bVm() {
+    public boolean bVn() {
         return !TextUtils.isEmpty(this.hxd);
     }
 
@@ -203,15 +203,15 @@ public class g {
         }
     }
 
-    public void bRB() {
-        if (bVm()) {
-            bVo();
+    public void bRC() {
+        if (bVn()) {
+            bVp();
         } else {
-            bVn();
+            bVo();
         }
     }
 
-    private void bVn() {
+    private void bVo() {
         if (this.hxc != null) {
             int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds39);
             this.hxc.getLayoutParams().width = UtilHelper.getDimenPixelSize(R.dimen.tbds158);
@@ -225,7 +225,7 @@ public class g {
         }
     }
 
-    private void bVo() {
+    private void bVp() {
         if (this.hxc != null) {
             int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds52);
             this.hxc.getLayoutParams().width = UtilHelper.getDimenPixelSize(R.dimen.tbds187);
@@ -287,7 +287,7 @@ public class g {
         if (frsViewData != null && frsViewData.getForum() != null && bVar != null && (signData = (forum = frsViewData.getForum()).getSignData()) != null) {
             bVar.a(forum, frsViewData);
             bVar.vl(signData.is_signed);
-            if (signData.sign_bonus_point > 0 && bVar.bWw()) {
+            if (signData.sign_bonus_point > 0 && bVar.bWx()) {
                 a(bVar, signData);
                 forum.setCurScore(this.gUT);
                 forum.setLevelupScore(this.hxf);
@@ -298,14 +298,14 @@ public class g {
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: com.baidu.tieba.frs.FrsFragment */
     /* JADX WARN: Multi-variable type inference failed */
-    public void bVp() {
+    public void bVq() {
         if (this.han != null) {
-            FrsViewData bOW = this.han.bOW();
+            FrsViewData bOX = this.han.bOX();
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
             if (currentAccount == null || currentAccount.length() <= 0) {
                 TbadkCoreApplication.getInst().login(this.han.getPageContext(), new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig(this.han.getActivity(), true, RequestResponseCode.REQUEST_LOGIN_SIGN)));
-            } else if (bOW != null && bOW.getForum() != null) {
-                ForumData forum = bOW.getForum();
+            } else if (bOX != null && bOX.getForum() != null) {
+                ForumData forum = bOX.getForum();
                 forum.setFromPage("frs");
                 FrsActivityStatic.forumName = forum.getName() == null ? "" : forum.getName();
                 CustomMessage customMessage = new CustomMessage((int) CmdConfigCustom.CMD_SIGN_MODEL_TASK, forum);
@@ -316,21 +316,21 @@ public class g {
     }
 
     public void O(int i, int i2, int i3) {
-        FrsViewData bOW;
-        if (this.han != null && i > 0 && i2 > 0 && (bOW = this.han.bOW()) != null && bOW.getForum() != null && bOW.getSignData() != null) {
-            ForumData forum = bOW.getForum();
-            SignData signData = bOW.getSignData();
+        FrsViewData bOX;
+        if (this.han != null && i > 0 && i2 > 0 && (bOX = this.han.bOX()) != null && bOX.getForum() != null && bOX.getSignData() != null) {
+            ForumData forum = bOX.getForum();
+            SignData signData = bOX.getSignData();
             signData.levelup_score = forum.getLevelupScore();
             signData.sign_bonus_point = i3;
             signData.miss_sign_num -= i2;
             signData.count_sign_num = i;
-            bOW.updateSignData(signData);
+            bOX.updateSignData(signData);
             signData.forumId = forum.getId();
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_SIGN_REFRESH_SIGN_STATE, signData));
-            h bOs = this.han.bOs();
-            boolean bVA = bOs != null ? bOs.bVA() : false;
+            h bOt = this.han.bOt();
+            boolean bVB = bOt != null ? bOt.bVB() : false;
             int i4 = -1;
-            if (bVA) {
+            if (bVB) {
                 i4 = forum.getUser_level() + 1;
             }
             TbadkCoreApplication.getInst().addSignedForum(forum.getName(), signData.sign_bonus_point, i4);

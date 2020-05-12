@@ -39,7 +39,7 @@ public class DraweeEventTracker {
     private DraweeEventTracker() {
     }
 
-    public static DraweeEventTracker doi() {
+    public static DraweeEventTracker doj() {
         return lLp ? new DraweeEventTracker() : lUc;
     }
 

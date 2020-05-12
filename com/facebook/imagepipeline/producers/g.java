@@ -16,7 +16,7 @@ public class g extends ad<Pair<com.facebook.cache.common.b, ImageRequest.Request
     @Override // com.facebook.imagepipeline.producers.ad
     /* renamed from: a */
     public Pair<com.facebook.cache.common.b, ImageRequest.RequestLevel> b(ak akVar) {
-        return Pair.create(this.mbI.a(akVar.dtQ(), akVar.dot()), akVar.dtS());
+        return Pair.create(this.mbI.a(akVar.dtR(), akVar.dou()), akVar.dtT());
     }
 
     /* JADX DEBUG: Method merged with bridge method */

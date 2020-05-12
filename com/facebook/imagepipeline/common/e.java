@@ -7,15 +7,15 @@ public class e {
     private final int mRotation;
     private final boolean mbr;
 
-    public static e dqQ() {
+    public static e dqR() {
         return mbs;
     }
 
-    public static e dqR() {
+    public static e dqS() {
         return mbt;
     }
 
-    public static e dqS() {
+    public static e dqT() {
         return mbu;
     }
 
@@ -24,22 +24,22 @@ public class e {
         this.mbr = z;
     }
 
-    public boolean dqT() {
+    public boolean dqU() {
         return this.mRotation == -1;
     }
 
-    public boolean dqU() {
+    public boolean dqV() {
         return this.mRotation != -2;
     }
 
-    public int dqV() {
-        if (dqT()) {
+    public int dqW() {
+        if (dqU()) {
             throw new IllegalStateException("Rotation is set to use EXIF");
         }
         return this.mRotation;
     }
 
-    public boolean dqW() {
+    public boolean dqX() {
         return this.mbr;
     }
 

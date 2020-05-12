@@ -22,8 +22,8 @@ public class f extends InputStream {
     @Override // java.io.InputStream
     public int read() throws IOException {
         com.facebook.common.internal.g.checkState(this.lRQ <= this.lRP);
-        dnc();
-        if (!dnb()) {
+        dnd();
+        if (!dnc()) {
             return -1;
         }
         byte[] bArr = this.mByteArray;
@@ -35,8 +35,8 @@ public class f extends InputStream {
     @Override // java.io.InputStream
     public int read(byte[] bArr, int i, int i2) throws IOException {
         com.facebook.common.internal.g.checkState(this.lRQ <= this.lRP);
-        dnc();
-        if (!dnb()) {
+        dnd();
+        if (!dnc()) {
             return -1;
         }
         int min = Math.min(this.lRP - this.lRQ, i2);
@@ -48,7 +48,7 @@ public class f extends InputStream {
     @Override // java.io.InputStream
     public int available() throws IOException {
         com.facebook.common.internal.g.checkState(this.lRQ <= this.lRP);
-        dnc();
+        dnd();
         return (this.lRP - this.lRQ) + this.mInputStream.available();
     }
 
@@ -64,7 +64,7 @@ public class f extends InputStream {
     @Override // java.io.InputStream
     public long skip(long j) throws IOException {
         com.facebook.common.internal.g.checkState(this.lRQ <= this.lRP);
-        dnc();
+        dnd();
         int i = this.lRP - this.lRQ;
         if (i >= j) {
             this.lRQ = (int) (this.lRQ + j);
@@ -74,7 +74,7 @@ public class f extends InputStream {
         return i + this.mInputStream.skip(j - i);
     }
 
-    private boolean dnb() throws IOException {
+    private boolean dnc() throws IOException {
         if (this.lRQ < this.lRP) {
             return true;
         }
@@ -87,7 +87,7 @@ public class f extends InputStream {
         return true;
     }
 
-    private void dnc() throws IOException {
+    private void dnd() throws IOException {
         if (this.mClosed) {
             throw new IOException("stream already closed");
         }

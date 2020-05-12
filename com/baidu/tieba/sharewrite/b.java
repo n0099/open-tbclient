@@ -24,7 +24,7 @@ public class b {
     public b(BaseActivity baseActivity, a aVar) {
         this.mActivity = baseActivity;
         this.kHG = aVar;
-        cSC();
+        cSD();
     }
 
     public void Kn(String str) {
@@ -35,7 +35,7 @@ public class b {
         }
     }
 
-    public void cSC() {
+    public void cSD() {
         if (this.mActivity != null) {
             MessageManager messageManager = MessageManager.getInstance();
             TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1002701, TbConfig.SERVER_ADDRESS + Config.SHARE_GET_FORUM_PREFIX_URL);

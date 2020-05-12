@@ -41,16 +41,16 @@ public class FrsTabViewPager extends BdBaseViewPager {
 
     public void mH(boolean z) {
         a aVar = new a();
-        aVar.mI(bQr());
+        aVar.mI(bQs());
         aVar.mJ(z);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921369, aVar));
     }
 
-    public void bQq() {
+    public void bQr() {
         mH(false);
     }
 
-    private boolean bQr() {
+    private boolean bQs() {
         return getCurrentItem() == getAdapter().getCount() + (-1);
     }
 
@@ -59,7 +59,7 @@ public class FrsTabViewPager extends BdBaseViewPager {
         private boolean hcm;
         private boolean hcn;
 
-        public boolean bQs() {
+        public boolean bQt() {
             return this.hcm;
         }
 
@@ -67,7 +67,7 @@ public class FrsTabViewPager extends BdBaseViewPager {
             this.hcm = z;
         }
 
-        public boolean bQt() {
+        public boolean bQu() {
             return this.hcn;
         }
 

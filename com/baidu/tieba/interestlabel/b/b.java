@@ -41,15 +41,15 @@ public class b {
         }
     }
 
-    public List<a> clQ() {
+    public List<a> clR() {
         return this.iGe;
     }
 
-    public List<a> clR() {
+    public List<a> clS() {
         return this.iGa;
     }
 
-    public List<Integer> clS() {
+    public List<Integer> clT() {
         return this.iGb;
     }
 }

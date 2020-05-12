@@ -9,19 +9,19 @@ public class ForumCreateInfoData extends OrmObject {
     private int gzY = 0;
     private String gzZ = null;
 
-    public boolean bHC() {
+    public boolean bHD() {
         return this.gzW != 0;
     }
 
-    public boolean bHD() {
+    public boolean bHE() {
         return this.gzX != 0;
     }
 
-    public int bHE() {
+    public int bHF() {
         return this.gzY;
     }
 
-    public String bHF() {
+    public String bHG() {
         return this.gzZ;
     }
 

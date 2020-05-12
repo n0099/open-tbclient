@@ -16,28 +16,28 @@ public class ah implements aj<com.facebook.common.references.a<com.facebook.imag
 
     @Override // com.facebook.imagepipeline.producers.aj
     public void c(k<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> kVar, ak akVar) {
-        am dtR = akVar.dtR();
+        am dtS = akVar.dtS();
         String id = akVar.getId();
-        ImageRequest dtQ = akVar.dtQ();
-        Object dot = akVar.dot();
-        com.facebook.imagepipeline.request.b duQ = dtQ.duQ();
-        if (duQ == null || duQ.dtP() == null) {
+        ImageRequest dtR = akVar.dtR();
+        Object dou = akVar.dou();
+        com.facebook.imagepipeline.request.b duR = dtR.duR();
+        if (duR == null || duR.dtQ() == null) {
             this.meH.c(kVar, akVar);
             return;
         }
-        dtR.fi(id, dua());
-        com.facebook.cache.common.b b = this.mbI.b(dtQ, dot);
+        dtS.fi(id, dub());
+        com.facebook.cache.common.b b = this.mbI.b(dtR, dou);
         com.facebook.common.references.a<com.facebook.imagepipeline.g.c> be = this.lTj.be(b);
         if (be != null) {
-            dtR.a(id, dua(), dtR.Oo(id) ? ImmutableMap.of("cached_value_found", "true") : null);
-            dtR.D(id, "PostprocessedBitmapMemoryCacheProducer", true);
+            dtS.a(id, dub(), dtS.Oo(id) ? ImmutableMap.of("cached_value_found", "true") : null);
+            dtS.D(id, "PostprocessedBitmapMemoryCacheProducer", true);
             kVar.au(1.0f);
             kVar.h(be, 1);
             be.close();
             return;
         }
-        a aVar = new a(kVar, b, duQ instanceof com.facebook.imagepipeline.request.c, this.lTj, akVar.dtQ().duP());
-        dtR.a(id, dua(), dtR.Oo(id) ? ImmutableMap.of("cached_value_found", "false") : null);
+        a aVar = new a(kVar, b, duR instanceof com.facebook.imagepipeline.request.c, this.lTj, akVar.dtR().duQ());
+        dtS.a(id, dub(), dtS.Oo(id) ? ImmutableMap.of("cached_value_found", "false") : null);
         this.meH.c(aVar, akVar);
     }
 
@@ -63,17 +63,17 @@ public class ah implements aj<com.facebook.common.references.a<com.facebook.imag
         public void g(com.facebook.common.references.a<com.facebook.imagepipeline.g.c> aVar, int i) {
             if (aVar == null) {
                 if (Hr(i)) {
-                    duc().h(null, i);
+                    dud().h(null, i);
                 }
             } else if (!Hs(i) || this.mga) {
                 com.facebook.common.references.a<com.facebook.imagepipeline.g.c> a = this.mgb ? this.lTj.a(this.lRj, aVar) : null;
                 try {
-                    duc().au(1.0f);
-                    k<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> duc = duc();
+                    dud().au(1.0f);
+                    k<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> dud = dud();
                     if (a != null) {
                         aVar = a;
                     }
-                    duc.h(aVar, i);
+                    dud.h(aVar, i);
                 } finally {
                     com.facebook.common.references.a.c((com.facebook.common.references.a<?>) a);
                 }
@@ -81,7 +81,7 @@ public class ah implements aj<com.facebook.common.references.a<com.facebook.imag
         }
     }
 
-    protected String dua() {
+    protected String dub() {
         return "PostprocessedBitmapMemoryCacheProducer";
     }
 }

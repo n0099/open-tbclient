@@ -24,13 +24,13 @@ public class MusicPlayer {
 
     /* loaded from: classes10.dex */
     public interface a {
-        void daF();
+        void daG();
     }
 
     private MusicPlayer() {
     }
 
-    public static synchronized MusicPlayer daH() {
+    public static synchronized MusicPlayer daI() {
         MusicPlayer musicPlayer;
         synchronized (MusicPlayer.class) {
             if (lhT == null) {
@@ -55,7 +55,7 @@ public class MusicPlayer {
                 this.lhS.setOnPreparedListener(new MediaPlayer.OnPreparedListener() { // from class: com.baidu.tieba.video.cloudmusic.MusicPlayer.1
                     @Override // android.media.MediaPlayer.OnPreparedListener
                     public void onPrepared(MediaPlayer mediaPlayer) {
-                        com.baidu.tieba.video.cloudmusic.data.a.daK().a(musicList);
+                        com.baidu.tieba.video.cloudmusic.data.a.daL().a(musicList);
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_ON_CLOUD_MUSIC_PLAY));
                         MusicPlayer.this.lhS.setLooping(true);
                         MusicPlayer.this.lhS.start();
@@ -66,20 +66,20 @@ public class MusicPlayer {
                 e.printStackTrace();
                 this.lhU = MusicPlayerState.ERROR;
                 if (aVar != null) {
-                    aVar.daF();
+                    aVar.daG();
                 }
             }
         }
     }
 
-    public void daI() {
+    public void daJ() {
         if (this.lhS != null && this.lhS.isPlaying()) {
             this.lhS.pause();
         }
         this.lhU = MusicPlayerState.PAUSE;
     }
 
-    public void daJ() {
+    public void daK() {
         if (this.lhS != null) {
             this.lhS.start();
             this.lhS.seekTo(0);

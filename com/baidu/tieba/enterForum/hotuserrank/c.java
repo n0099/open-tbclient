@@ -311,7 +311,7 @@ public class c {
             this.gDr = i;
         }
 
-        public void bIP() {
+        public void bIQ() {
             this.gDn.setVisibility(8);
             this.gDq.setVisibility(8);
         }

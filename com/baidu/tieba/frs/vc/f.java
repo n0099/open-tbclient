@@ -46,10 +46,10 @@ public class f {
     private com.baidu.adp.base.d hwZ = new com.baidu.adp.base.d() { // from class: com.baidu.tieba.frs.vc.f.2
         @Override // com.baidu.adp.base.d
         public void callback(Object obj) {
-            FrsViewData bOW;
+            FrsViewData bOX;
             u uVar;
             boolean z = false;
-            if (f.this.han != null && (bOW = f.this.han.bOW()) != null && bOW.getForum() != null && obj != null) {
+            if (f.this.han != null && (bOX = f.this.han.bOX()) != null && bOX.getForum() != null && obj != null) {
                 if (AntiHelper.bq(f.this.dKs.getErrorCode(), f.this.dKs.getErrorString())) {
                     if (AntiHelper.a(f.this.han.getActivity(), f.this.dKs.getBlockPopInfoData(), f.this.hwY) != null) {
                         TiebaStatic.log(new an(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_SHOW).af("obj_locate", at.a.LOCATE_LIKE_BAR));
@@ -57,8 +57,8 @@ public class f {
                     }
                     return;
                 }
-                String name = bOW.getForum().getName();
-                String id = bOW.getForum().getId();
+                String name = bOX.getForum().getName();
+                String id = bOX.getForum().getId();
                 if (!(obj instanceof u)) {
                     uVar = null;
                 } else {
@@ -77,21 +77,21 @@ public class f {
                         f.this.han.showToast(f.this.dKs.getErrorString());
                     }
                 } else {
-                    h bOs = f.this.han.bOs();
-                    if (bOs != null) {
-                        bOs.DC(name);
+                    h bOt = f.this.han.bOt();
+                    if (bOt != null) {
+                        bOt.DC(name);
                     }
                     uVar.setLike(1);
-                    bOW.updateLikeData(uVar);
-                    bOW.setLikeFeedForumDataList(uVar.cVB());
-                    if (bOs != null) {
-                        bOs.a(bOW, f.this.hwX);
+                    bOX.updateLikeData(uVar);
+                    bOX.setLikeFeedForumDataList(uVar.cVC());
+                    if (bOt != null) {
+                        bOt.a(bOX, f.this.hwX);
                     }
                     f.this.hwX = true;
                     f.this.han.showToast(f.this.han.getResources().getString(R.string.attention_success));
                     f.this.n(true, id);
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_UPDATE_FRS_LIKE_STATUS, uVar));
-                    f.this.bVk();
+                    f.this.bVl();
                 }
                 f.this.han.ax(Boolean.valueOf(z));
             }
@@ -100,18 +100,18 @@ public class f {
     private ac.a hxa = new ac.a() { // from class: com.baidu.tieba.frs.vc.f.3
         @Override // com.baidu.tieba.tbadkCore.ac.a
         public void A(String str, long j) {
-            FrsViewData bOW;
-            if (f.this.han != null && (bOW = f.this.han.bOW()) != null && bOW.getForum() != null) {
-                String name = bOW.getForum().getName();
-                String id = bOW.getForum().getId();
+            FrsViewData bOX;
+            if (f.this.han != null && (bOX = f.this.han.bOX()) != null && bOX.getForum() != null) {
+                String name = bOX.getForum().getName();
+                String id = bOX.getForum().getId();
                 if (j == com.baidu.adp.lib.f.b.toLong(id, 0L) && TextUtils.equals(name, str)) {
-                    h bOs = f.this.han.bOs();
-                    if (bOs != null) {
-                        bOs.DC(str);
+                    h bOt = f.this.han.bOt();
+                    if (bOt != null) {
+                        bOt.DC(str);
                     }
-                    bOW.getForum().setLike(0);
-                    if (bOs != null) {
-                        bOs.uO(0);
+                    bOX.getForum().setLike(0);
+                    if (bOt != null) {
+                        bOt.uO(0);
                     }
                     f.this.han.aw(true);
                     f.this.n(false, id);
@@ -135,10 +135,10 @@ public class f {
 
     public void e(TBSpecificationBtn tBSpecificationBtn) {
         this.hwV = tBSpecificationBtn;
-        bRC();
+        bRD();
     }
 
-    public void bRC() {
+    public void bRD() {
         if (this.hwV != null) {
             this.hwV.aQm();
         }
@@ -146,12 +146,12 @@ public class f {
 
     public void aoC() {
         blZ();
-        bVj();
+        bVk();
     }
 
     public void aqS() {
         if (this.dKs != null) {
-            this.dKs.cVI();
+            this.dKs.cVJ();
         }
     }
 
@@ -162,14 +162,14 @@ public class f {
         }
     }
 
-    private void bVj() {
+    private void bVk() {
         this.hwW = new ac();
         this.hwW.setFrom("from_frs");
         this.hwW.a(this.hxa);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bVk() {
+    public void bVl() {
         an anVar = new an("c13605");
         if (this.han != null) {
             com.baidu.tbadk.pageInfo.c.a(this.han.getContext(), anVar);
@@ -179,7 +179,7 @@ public class f {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void n(boolean z, String str) {
-        com.baidu.tieba.im.settingcache.d.ciT().a(TbadkCoreApplication.getCurrentAccount(), str, z, null);
+        com.baidu.tieba.im.settingcache.d.ciU().a(TbadkCoreApplication.getCurrentAccount(), str, z, null);
         MessageManager.getInstance().dispatchResponsedMessage(new SettingChangeMessage(2));
     }
 
@@ -187,39 +187,39 @@ public class f {
     /* JADX WARN: Multi-variable type inference failed */
     public void no(boolean z) {
         if (this.han != null && this.dKs != null) {
-            FrsViewData bOW = this.han.bOW();
+            FrsViewData bOX = this.han.bOX();
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
             if (currentAccount == null || currentAccount.length() <= 0) {
                 TbadkCoreApplication.getInst().login(this.han.getPageContext(), new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig(this.han.getActivity(), true, 11002)));
-            } else if (bOW != null && bOW.getForum() != null) {
+            } else if (bOX != null && bOX.getForum() != null) {
                 if (FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND.equals(this.han.getFrom())) {
-                    TiebaStatic.log(new an("c10356").cI("fid", bOW.getForum().getId()));
+                    TiebaStatic.log(new an("c10356").cI("fid", bOX.getForum().getId()));
                 } else if (FrsActivityConfig.FRS_FROM_SQUARE_HOT.equals(this.han.getFrom())) {
-                    TiebaStatic.log(new an("c10590").af("obj_type", 2).cI("fid", bOW.getForum().getId()));
+                    TiebaStatic.log(new an("c10590").af("obj_type", 2).cI("fid", bOX.getForum().getId()));
                 } else if (FrsActivityConfig.FRS_FROM_SQUARE_TOP.equals(this.han.getFrom())) {
-                    TiebaStatic.log(new an("c10587").af("obj_type", 2).cI("fid", bOW.getForum().getId()));
+                    TiebaStatic.log(new an("c10587").af("obj_type", 2).cI("fid", bOX.getForum().getId()));
                 } else if (FrsActivityConfig.FRS_FROM_SQUARE_RECOMMEND.equals(this.han.getFrom())) {
-                    TiebaStatic.log(new an("c10578").af("obj_type", 2).cI("fid", bOW.getForum().getId()));
+                    TiebaStatic.log(new an("c10578").af("obj_type", 2).cI("fid", bOX.getForum().getId()));
                 }
                 this.dKs.setFrom("recom_flist_like_frs");
                 if (FrsActivityConfig.FRS_FROM_SQUARE.equals(this.han.getFrom())) {
                     TiebaStatic.eventStat(this.han.getPageContext().getPageActivity(), "square_frs_focus", "click", 1, new Object[0]);
                 } else if (FrsActivityConfig.FRS_FROM_FOLLOWED_RECOMMEND.equals(this.han.getFrom())) {
-                    TiebaStatic.log(new an("c10359").cI("fid", bOW.getForum().getId()));
+                    TiebaStatic.log(new an("c10359").cI("fid", bOX.getForum().getId()));
                 }
-                this.dKs.au(bOW.getForum().getName(), bOW.getForum().getId(), "FRS");
+                this.dKs.au(bOX.getForum().getName(), bOX.getForum().getId(), "FRS");
                 this.hwX = z;
             }
         }
     }
 
-    public void bVl() {
+    public void bVm() {
         if (this.han != null) {
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.han.getActivity());
             String str = "";
-            FrsViewData bOW = this.han.bOW();
-            if (bOW != null && bOW.getForum() != null && bOW.getForum().getName() != null) {
-                str = bOW.getForum().getName();
+            FrsViewData bOX = this.han.bOX();
+            if (bOX != null && bOX.getForum() != null && bOX.getForum().getName() != null) {
+                str = bOX.getForum().getName();
             }
             if (!StringUtils.isNull(str)) {
                 aVar.ui(String.format(this.han.getString(R.string.attention_cancel_dialog_content), str));
@@ -233,12 +233,12 @@ public class f {
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                     aVar2.dismiss();
                     if (f.this.han != null && f.this.hwW != null) {
-                        FrsViewData bOW2 = f.this.han.bOW();
+                        FrsViewData bOX2 = f.this.han.bOX();
                         String currentAccount = TbadkCoreApplication.getCurrentAccount();
                         if (currentAccount == null || currentAccount.length() <= 0) {
                             TbadkCoreApplication.getInst().login(f.this.han.getPageContext(), new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig(f.this.han.getActivity(), true, RequestResponseCode.REQUEST_LOGIN_UNLIKE)));
-                        } else if (bOW2 != null && bOW2.getForum() != null) {
-                            f.this.hwW.L(bOW2.getForum().getName(), com.baidu.adp.lib.f.b.toLong(bOW2.getForum().getId(), 0L));
+                        } else if (bOX2 != null && bOX2.getForum() != null) {
+                            f.this.hwW.L(bOX2.getForum().getName(), com.baidu.adp.lib.f.b.toLong(bOX2.getForum().getId(), 0L));
                         }
                     }
                 }

@@ -40,7 +40,7 @@ class CronetLibraryLoader {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static long diN() {
+    public static long diO() {
         if (lIX) {
             return nativeGetTurboNetHandler();
         }
@@ -53,8 +53,8 @@ class CronetLibraryLoader {
             if (!lIW) {
                 lIW = true;
                 ContextUtils.fm(context.getApplicationContext());
-                builder.djF();
-                ContextUtils.dix();
+                builder.djG();
+                ContextUtils.diy();
                 com.baidu.turbonet.base.a.g("TurboNetLibraryLoader", "TurboNet version: %s, arch: %s", nativeGetTurboNetVersion(), System.getProperty("os.arch"));
                 ContextUtils.fm(context.getApplicationContext());
                 if (!lIV.isAlive()) {
@@ -70,7 +70,7 @@ class CronetLibraryLoader {
         }
     }
 
-    private static boolean diO() {
+    private static boolean diP() {
         return lIV.getLooper() == Looper.myLooper();
     }
 
@@ -79,12 +79,12 @@ class CronetLibraryLoader {
         if (!$assertionsDisabled && !lIW) {
             throw new AssertionError();
         }
-        if (!$assertionsDisabled && !diO()) {
+        if (!$assertionsDisabled && !diP()) {
             throw new AssertionError();
         }
         if (!lIX) {
             NetworkChangeNotifier.init(context);
-            NetworkChangeNotifier.djk();
+            NetworkChangeNotifier.djl();
             nativeCronetInitOnInitThread();
             for (Runnable runnable : lIY) {
                 runnable.run();
@@ -96,7 +96,7 @@ class CronetLibraryLoader {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void B(Runnable runnable) {
-        if (diO()) {
+        if (diP()) {
             runnable.run();
         } else {
             new Handler(lIV.getLooper()).post(runnable);

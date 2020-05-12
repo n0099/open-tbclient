@@ -63,7 +63,7 @@ public final class Configuration {
         private UrlConverter mMt = null;
         private Dns mMu = null;
 
-        public Configuration dAy() {
+        public Configuration dAz() {
             return new Configuration(this);
         }
     }

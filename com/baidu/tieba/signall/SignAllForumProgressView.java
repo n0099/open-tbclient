@@ -316,7 +316,7 @@ public class SignAllForumProgressView extends FrameLayout {
         }, 3000L);
     }
 
-    public void cUe() {
+    public void cUf() {
         this.kKG.setVisibility(8);
     }
 

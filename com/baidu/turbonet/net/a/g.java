@@ -27,7 +27,7 @@ public class g implements Executor {
         this.mUrl = str;
     }
 
-    private boolean dkt() {
+    private boolean dku() {
         if (this.mThreadId != -1) {
             return this.mThreadId == Thread.currentThread().getId();
         }
@@ -55,12 +55,12 @@ public class g implements Executor {
         }
     }
 
-    public void dku() throws IOException {
+    public void dkv() throws IOException {
         FJ(0);
     }
 
     public void FJ(int i) throws IOException {
-        if (!$assertionsDisabled && !dkt()) {
+        if (!$assertionsDisabled && !dku()) {
             throw new AssertionError();
         }
         long nanoTime = System.nanoTime();
@@ -88,7 +88,7 @@ public class g implements Executor {
     }
 
     public void quit() {
-        if (!$assertionsDisabled && !dkt()) {
+        if (!$assertionsDisabled && !dku()) {
             throw new AssertionError();
         }
         this.lMU = false;

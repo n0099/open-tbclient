@@ -9,7 +9,7 @@ public class ab {
     private ab() {
     }
 
-    public static ab bQo() {
+    public static ab bQp() {
         return hch;
     }
 

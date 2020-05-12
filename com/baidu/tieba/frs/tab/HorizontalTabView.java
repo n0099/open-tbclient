@@ -72,7 +72,7 @@ public class HorizontalTabView extends MyHorizontalScrollView implements com.bai
         boolean uF(int i);
     }
 
-    public void bUu() {
+    public void bUv() {
         final ay ayVar;
         if (this.gNw != null) {
             ArrayList arrayList = new ArrayList();
@@ -287,7 +287,7 @@ public class HorizontalTabView extends MyHorizontalScrollView implements com.bai
                             if (HorizontalTabView.this.huA != null) {
                                 HorizontalTabView.this.huA.b(HorizontalTabView.this.ux(1));
                             }
-                            HorizontalTabView.this.bUu();
+                            HorizontalTabView.this.bUv();
                             return;
                         } else if (((TabItemView) view).getTabId() == 302) {
                             Iterator it = HorizontalTabView.this.mData.iterator();

@@ -16,12 +16,12 @@ public abstract class MultiAudioMixer {
 
         void Z(byte[] bArr) throws IOException;
 
-        void dcj();
+        void dck();
     }
 
     abstract byte[] c(byte[][] bArr);
 
-    public static MultiAudioMixer dci() {
+    public static MultiAudioMixer dcj() {
         return new a();
     }
 
@@ -100,7 +100,7 @@ public abstract class MultiAudioMixer {
             }
         } while (!z);
         if (this.lmC != null) {
-            this.lmC.dcj();
+            this.lmC.dck();
         }
     }
 

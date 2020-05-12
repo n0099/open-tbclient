@@ -7,6 +7,6 @@ import com.baidu.tieba.im.sendmessage.c;
 public class PersonalMsgImageActivity extends AbsMsgImageActivity {
     @Override // com.baidu.tieba.im.chat.AbsMsgImageActivity
     protected void a(String str, c cVar) {
-        a.ciO().c(str, cVar);
+        a.ciP().c(str, cVar);
     }
 }

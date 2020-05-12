@@ -34,7 +34,7 @@ public class h extends BaseAdapter {
     private boolean aWI = false;
     private boolean lyq = true;
 
-    public TbCameraView dft() {
+    public TbCameraView dfu() {
         if (this.lyw != null) {
             return this.lyw.lyy;
         }
@@ -50,7 +50,7 @@ public class h extends BaseAdapter {
     public void setData(List<MediaFileInfo> list) {
         this.mDataList.clear();
         if (this.lyq) {
-            this.mDataList.add(dfu());
+            this.mDataList.add(dfv());
         }
         if (!v.isEmpty(list)) {
             this.mDataList.addAll(list);
@@ -58,7 +58,7 @@ public class h extends BaseAdapter {
         notifyDataSetChanged();
     }
 
-    private MediaFileInfo dfu() {
+    private MediaFileInfo dfv() {
         return new AddMediaInfo();
     }
 

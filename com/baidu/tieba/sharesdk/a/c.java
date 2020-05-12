@@ -53,7 +53,7 @@ public class c extends b {
             }
         } else {
             this.kGQ = new b.a(bVar);
-            if (shareEntity.cSl() != 0) {
+            if (shareEntity.cSm() != 0) {
                 b(shareEntity);
             } else {
                 c(shareEntity);
@@ -62,8 +62,8 @@ public class c extends b {
     }
 
     private void b(ShareEntity shareEntity) {
-        if (vQ(shareEntity.cSj())) {
-            Kj(shareEntity.cSj());
+        if (vQ(shareEntity.cSk())) {
+            Kj(shareEntity.cSk());
         } else if (y(shareEntity.getImageUri())) {
             Kj(shareEntity.getImageUri().getPath());
         } else {

@@ -29,13 +29,13 @@ public class CloudMusicModel extends BdBaseModel {
                 }
             }
         };
-        daM();
+        daN();
         this.lil.setTag(getUniqueId());
         this.lil.setSelfListener(true);
         registerListener(this.lil);
     }
 
-    private void daM() {
+    private void daN() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003371, TbConfig.SERVER_ADDRESS + Config.VIDEO_CLOUD_MUSIC_LIST_WITH_TAGS);
         tbHttpMessageTask.setResponsedClass(VideoCloudMusicWithTagResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);

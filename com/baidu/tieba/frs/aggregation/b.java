@@ -201,7 +201,7 @@ public class b extends com.baidu.tieba.card.a<g> implements c {
             });
             this.hef.a(new c.l() { // from class: com.baidu.tieba.frs.aggregation.b.2
                 @Override // com.baidu.tieba.play.c.l
-                public void bQZ() {
+                public void bRa() {
                     b.this.hel = false;
                     b.this.hdU.setVisibility(8);
                     b.this.CX(b.this.dvO ? "1" : "2");
@@ -209,7 +209,7 @@ public class b extends com.baidu.tieba.card.a<g> implements c {
                 }
 
                 @Override // com.baidu.tieba.play.c.l
-                public void bRa() {
+                public void bRb() {
                     b.this.hdU.setVisibility(8);
                     b.this.onClick(b.this.hdR);
                 }
@@ -264,7 +264,7 @@ public class b extends com.baidu.tieba.card.a<g> implements c {
             }
             this.ePh.setVideoStatsData(this.hei);
             this.hef.getVideoView().setBusiness(this.ePh);
-            this.hef.cny();
+            this.hef.cnz();
             this.hef.b(new c.d() { // from class: com.baidu.tieba.frs.aggregation.b.4
                 @Override // com.baidu.tieba.play.c.d
                 public void mR(boolean z) {
@@ -282,7 +282,7 @@ public class b extends com.baidu.tieba.card.a<g> implements c {
                 }
 
                 @Override // com.baidu.tieba.play.c.d
-                public void bRb() {
+                public void bRc() {
                     if (!b.this.hef.pI()) {
                         b.this.hdT.setVisibility(0);
                     } else if (b.this.hdT.getVisibility() == 0) {
@@ -300,7 +300,7 @@ public class b extends com.baidu.tieba.card.a<g> implements c {
                     }
                     if (aVar != null && !b.this.isFullScreen) {
                         aVar.tE(i);
-                        b.this.hef.caF();
+                        b.this.hef.caG();
                     }
                 }
             });
@@ -321,11 +321,11 @@ public class b extends com.baidu.tieba.card.a<g> implements c {
             this.hef.II(gVar.title);
             this.hef.a(new c.i() { // from class: com.baidu.tieba.frs.aggregation.b.7
                 @Override // com.baidu.tieba.play.c.i
-                public void bRc() {
+                public void bRd() {
                     b.this.hdU.setVisibility(8);
                 }
             });
-            this.hef.caF();
+            this.hef.caG();
             this.hef.show();
             if (gVar.autoPlay) {
                 onClick(this.hdS);
@@ -349,7 +349,7 @@ public class b extends com.baidu.tieba.card.a<g> implements c {
         return this.hef.pI();
     }
 
-    public void bQV() {
+    public void bQW() {
         if (isPlaying()) {
             this.hef.asl();
         }
@@ -359,7 +359,7 @@ public class b extends com.baidu.tieba.card.a<g> implements c {
         return this.hef.AU(i);
     }
 
-    public void bQW() {
+    public void bQX() {
         this.hdV.setVisibility(8);
         this.hef.stopPlay();
         if (this.hdT != null) {
@@ -370,7 +370,7 @@ public class b extends com.baidu.tieba.card.a<g> implements c {
         }
     }
 
-    public void bQX() {
+    public void bQY() {
         if (this.hef != null) {
             this.hef.destroy();
         }
@@ -378,9 +378,9 @@ public class b extends com.baidu.tieba.card.a<g> implements c {
 
     @Override // com.baidu.tieba.card.a
     public void onDestroy() {
-        bQX();
+        bQY();
         if (this.heh != null) {
-            this.heh.bRh();
+            this.heh.bRi();
         }
     }
 
@@ -449,7 +449,7 @@ public class b extends com.baidu.tieba.card.a<g> implements c {
         if (this.hef != null && this.hdS != null && this.mPageContext != null && this.mPageContext.getPageActivity() != null && this.mPageContext.getPageActivity().getWindow() != null && (this.mPageContext.getPageActivity().getWindow().getDecorView() instanceof FrameLayout)) {
             FrameLayout frameLayout = (FrameLayout) this.mPageContext.getPageActivity().getWindow().getDecorView();
             if (this.hek) {
-                this.hef.cJc();
+                this.hef.cJd();
             }
             if (configuration.orientation == 2) {
                 this.isFullScreen = true;
@@ -481,7 +481,7 @@ public class b extends com.baidu.tieba.card.a<g> implements c {
                 if (this.hdS.getParent() == null) {
                     this.hdR.addView(this.hdS, 0);
                     this.hdS.setLayoutParams(new FrameLayout.LayoutParams(this.mWidth, (int) (0.5625f * this.mWidth)));
-                    this.hef.cny();
+                    this.hef.cnz();
                     this.hek = true;
                 } else {
                     return;
@@ -494,9 +494,9 @@ public class b extends com.baidu.tieba.card.a<g> implements c {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (bEw() != null) {
+        if (bEx() != null) {
             view.setTag(this);
-            bEw().a(view, this.heg);
+            bEx().a(view, this.heg);
         }
         if (view == this.hdY || view == this.afZ) {
             boolean z = false;
@@ -520,7 +520,7 @@ public class b extends com.baidu.tieba.card.a<g> implements c {
         } else if (view == this.hdX) {
             if (this.heg != null && this.heg.heG != null) {
                 this.hdV.setVisibility(8);
-                this.hef.cJf();
+                this.hef.cJg();
                 this.hef.ev(this.heg.heG.videoUrl, this.heg.threadId);
                 CX("2");
             }
@@ -547,7 +547,7 @@ public class b extends com.baidu.tieba.card.a<g> implements c {
     }
 
     @Override // com.baidu.tieba.frs.aggregation.c
-    public void bQY() {
+    public void bQZ() {
         if (this.heg != null) {
             this.heg.hasAgree = !this.heg.hasAgree;
             if (this.heg.hasAgree) {

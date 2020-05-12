@@ -76,7 +76,7 @@ public class c extends BaseAdapter {
         }
     }
 
-    public boolean cHb() {
+    public boolean cHc() {
         return this.fqJ;
     }
 
@@ -182,7 +182,7 @@ public class c extends BaseAdapter {
                     aVar.jWw.setText(String.format(this.jWm.getPageContext().getString(R.string.sign_point_new), Integer.valueOf(forumData.getCurScore()), Integer.valueOf(forumData.getLevelupScore())));
                     aVar.jWx.setOnClickListener(this.jWn);
                     aVar.jWx.setTag(Integer.valueOf(i));
-                    if (i < this.mData.cGQ()) {
+                    if (i < this.mData.cGR()) {
                         aVar.mName.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, am.getDrawable(R.drawable.icon_v), (Drawable) null);
                         if (!this.jUY && this.jWo) {
                             aVar.jWy.setVisibility(0);
@@ -198,12 +198,12 @@ public class c extends BaseAdapter {
                         aVar.jWz.setVisibility(0);
                     }
                 } else {
-                    if ((this.jWm.cik() == 0 && i < this.mData.cGQ()) || (this.jWm.cik() == 1 && i < this.mData.cGR())) {
+                    if ((this.jWm.cil() == 0 && i < this.mData.cGR()) || (this.jWm.cil() == 1 && i < this.mData.cGS())) {
                         aVar.mName.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, am.getDrawable(R.drawable.icon_v), (Drawable) null);
                     } else {
                         aVar.mName.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
                     }
-                    if (this.jWm.cik() == 1) {
+                    if (this.jWm.cil() == 1) {
                         aVar.jWt.setVisibility(8);
                     }
                     aVar.jWy.setVisibility(8);
@@ -215,7 +215,7 @@ public class c extends BaseAdapter {
                     aVar.jWy.setVisibility(8);
                 } else {
                     aVar.jWx.setVisibility(8);
-                    if (i < this.mData.cGQ() && this.fqL && !this.jUY && this.jWo) {
+                    if (i < this.mData.cGR() && this.fqL && !this.jUY && this.jWo) {
                         aVar.jWy.setVisibility(0);
                     } else {
                         aVar.jWy.setVisibility(8);

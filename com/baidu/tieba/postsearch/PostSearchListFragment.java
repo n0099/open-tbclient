@@ -63,8 +63,8 @@ public class PostSearchListFragment extends BaseFragment implements BdListView.e
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
         super.onPrimary();
-        if (this.fXc == this.kmC.cLE().getCurrentTabType()) {
-            cLN();
+        if (this.fXc == this.kmC.cLF().getCurrentTabType()) {
+            cLO();
             requestData(false);
         }
     }
@@ -109,7 +109,7 @@ public class PostSearchListFragment extends BaseFragment implements BdListView.e
             this.kmT.kmI.addAll(bVar.kmI);
         }
         if (z) {
-            cLN();
+            cLO();
         }
         if (this.kmT.gTD.aJy() == 1) {
             bmm();
@@ -129,19 +129,19 @@ public class PostSearchListFragment extends BaseFragment implements BdListView.e
             String str = this.kmC.gWw;
             if (!StringUtils.isNull(str)) {
                 boolean z2 = !str.equals(this.kmU) || z;
-                if (this.kmT == null || (this.kmT != null && !this.kmT.ciF())) {
+                if (this.kmT == null || (this.kmT != null && !this.kmT.ciG())) {
                     z2 = true;
                 }
                 if (z2) {
                     showLoadingView(this.mRootView, false, this.kmC.getResources().getDimensionPixelSize(R.dimen.ds320));
-                    this.kmC.cLD().bw(str, this.fXc);
+                    this.kmC.cLE().bw(str, this.fXc);
                     this.kmU = str;
                 }
             }
         }
     }
 
-    public void cLL() {
+    public void cLM() {
         if (this.kmT != null && this.kmT.kmI != null) {
             this.kmT.kmI.clear();
             this.kmS.setData(this.kmT.kmI);
@@ -157,12 +157,12 @@ public class PostSearchListFragment extends BaseFragment implements BdListView.e
 
     @Override // com.baidu.adp.widget.ListView.BdListView.e
     public void onScrollToBottom() {
-        if (!StringUtils.isNull(this.kmU) && this.kmT != null && this.kmT.isHasMore() && this.kmC.cLD().bw(this.kmU, this.fXc)) {
-            cLM();
+        if (!StringUtils.isNull(this.kmU) && this.kmT != null && this.kmT.isHasMore() && this.kmC.cLE().bw(this.kmU, this.fXc)) {
+            cLN();
         }
     }
 
-    private void cLM() {
+    private void cLN() {
         this.kmR.setNextPage(this.ePr);
         this.ePr.startLoadData();
     }
@@ -199,7 +199,7 @@ public class PostSearchListFragment extends BaseFragment implements BdListView.e
         }
     }
 
-    private void cLN() {
+    private void cLO() {
         if (this.kmC != null) {
             TiebaStatic.log(new an("c12406").cI("fid", this.kmC.mForumId).cI("fname", this.kmC.mForumName).cI("uid", TbadkCoreApplication.getCurrentAccount()).af("tab_id", this.fXc));
         }

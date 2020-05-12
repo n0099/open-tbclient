@@ -14,7 +14,7 @@ public class j implements com.baidu.adp.widget.ListView.m {
         return gUV;
     }
 
-    public u bNc() {
+    public u bNd() {
         return this.gUW;
     }
 

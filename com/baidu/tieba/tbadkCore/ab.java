@@ -16,7 +16,7 @@ public class ab extends bj {
         return kRA;
     }
 
-    public boolean cVO() {
+    public boolean cVP() {
         return this.eVE;
     }
 
@@ -24,7 +24,7 @@ public class ab extends bj {
         this.eVE = z;
     }
 
-    public bl cVP() {
+    public bl cVQ() {
         return this.kRB;
     }
 
@@ -32,7 +32,7 @@ public class ab extends bj {
         this.kRB = blVar;
     }
 
-    public bo cVQ() {
+    public bo cVR() {
         return this.kRC;
     }
 

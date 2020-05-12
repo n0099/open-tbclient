@@ -79,7 +79,7 @@ public class X509Util {
         public void onReceive(Context context, Intent intent) {
             if (intent.getAction().equals("android.security.STORAGE_CHANGED")) {
                 try {
-                    X509Util.dkb();
+                    X509Util.dkc();
                 } catch (KeyStoreException e) {
                     Log.e("X509Util", "Unable to reload the default TrustManager", e);
                 } catch (NoSuchAlgorithmException e2) {
@@ -125,11 +125,11 @@ public class X509Util {
 
     private static void ensureInitialized() throws CertificateException, KeyStoreException, NoSuchAlgorithmException {
         synchronized (sLock) {
-            djZ();
+            dka();
         }
     }
 
-    private static void djZ() throws CertificateException, KeyStoreException, NoSuchAlgorithmException {
+    private static void dka() throws CertificateException, KeyStoreException, NoSuchAlgorithmException {
         if (!$assertionsDisabled && !Thread.holdsLock(sLock)) {
             throw new AssertionError();
         }
@@ -196,7 +196,7 @@ public class X509Util {
         return null;
     }
 
-    private static void dka() throws KeyStoreException, NoSuchAlgorithmException {
+    private static void dkb() throws KeyStoreException, NoSuchAlgorithmException {
         if (!$assertionsDisabled && !Thread.holdsLock(sLock)) {
             throw new AssertionError();
         }
@@ -204,11 +204,11 @@ public class X509Util {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void dkb() throws KeyStoreException, NoSuchAlgorithmException, CertificateException {
+    public static void dkc() throws KeyStoreException, NoSuchAlgorithmException, CertificateException {
         synchronized (sLock) {
             lMe = null;
             lMk = null;
-            djZ();
+            dka();
         }
         nativeNotifyKeyChainChanged();
     }
@@ -223,7 +223,7 @@ public class X509Util {
         X509Certificate aa = aa(bArr);
         synchronized (sLock) {
             lMh.setCertificateEntry("root_cert_" + Integer.toString(lMh.size()), aa);
-            dka();
+            dkb();
         }
     }
 
@@ -232,7 +232,7 @@ public class X509Util {
         synchronized (sLock) {
             try {
                 lMh.load(null);
-                dka();
+                dkb();
             } catch (IOException e) {
             }
         }

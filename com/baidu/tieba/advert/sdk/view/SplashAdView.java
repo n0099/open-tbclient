@@ -39,7 +39,7 @@ public class SplashAdView extends BCAdView {
         this.eDi = AdInfo.jsonToObject(this.eDl.bhq());
         this.eDi.placeId = this.placeId;
         if (this.eDi.advisible == 0) {
-            d.cOi().a(g.u(this.eDi.extraParam, 3, this.eDi.placeId));
+            d.cOj().a(g.u(this.eDi.extraParam, 3, this.eDi.placeId));
         }
         this.eDp = b.yQ(a.bhw());
         if (this.eDp.isValidate()) {
@@ -82,7 +82,7 @@ public class SplashAdView extends BCAdView {
                             public void onClick(View view) {
                                 if (!a.isFastDoubleClick()) {
                                     if (SplashAdView.this.eDi.advisible != 0) {
-                                        d.cOi().a(g.c(SplashAdView.this.eDi.extraParam, 2, SplashAdView.this.eDi.placeId, "video"));
+                                        d.cOj().a(g.c(SplashAdView.this.eDi.extraParam, 2, SplashAdView.this.eDi.placeId, "video"));
                                     }
                                     if (SplashAdView.this.eDf != null && !TextUtils.isEmpty(SplashAdView.this.eDp.videoJumpUrl)) {
                                         SplashAdView.this.eDf.yO(SplashAdView.this.eDp.videoJumpUrl);
@@ -91,7 +91,7 @@ public class SplashAdView extends BCAdView {
                             }
                         });
                         addView(this.eDr, layoutParams);
-                        d.cOi().a(g.c(this.eDi.extraParam, 3, this.eDi.placeId, "video"));
+                        d.cOj().a(g.c(this.eDi.extraParam, 3, this.eDi.placeId, "video"));
                         return true;
                     } catch (Exception e) {
                         e.printStackTrace();
@@ -115,7 +115,7 @@ public class SplashAdView extends BCAdView {
                     public void onClick(View view) {
                         if (!a.isFastDoubleClick()) {
                             if (SplashAdView.this.eDi.advisible != 0) {
-                                d.cOi().a(g.c(SplashAdView.this.eDi.extraParam, 2, SplashAdView.this.eDi.placeId, "image"));
+                                d.cOj().a(g.c(SplashAdView.this.eDi.extraParam, 2, SplashAdView.this.eDi.placeId, "image"));
                             }
                             if (SplashAdView.this.eDf != null && !TextUtils.isEmpty(SplashAdView.this.eDp.redirectUrl)) {
                                 SplashAdView.this.eDf.yO(SplashAdView.this.eDp.redirectUrl);
@@ -126,7 +126,7 @@ public class SplashAdView extends BCAdView {
                 this.eDh.startLoad(this.eDi.adImgUrl, 10, false);
                 this.eDh.setScaleType(ImageView.ScaleType.CENTER_CROP);
                 addView(this.eDh, new RelativeLayout.LayoutParams(this.mWidth, this.mHeight));
-                d.cOi().a(g.c(this.eDi.extraParam, 3, this.eDi.placeId, "image"));
+                d.cOj().a(g.c(this.eDi.extraParam, 3, this.eDi.placeId, "image"));
                 return true;
             } else {
                 a.bhv();

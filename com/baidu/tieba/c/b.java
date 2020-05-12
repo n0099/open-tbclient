@@ -31,11 +31,11 @@ public class b {
         return this.mRootView;
     }
 
-    public ImageView bFV() {
+    public ImageView bFW() {
         return this.gvg;
     }
 
-    public MessageRedDotView bFW() {
+    public MessageRedDotView bFX() {
         return this.gvh;
     }
 

@@ -42,7 +42,7 @@ public class d {
     private a gxb = null;
     private boolean gxc = false;
 
-    public static final d bGQ() {
+    public static final d bGR() {
         if (gwY == null) {
             synchronized (d.class) {
                 if (gwY == null) {
@@ -65,12 +65,12 @@ public class d {
             TbadkCoreApplication.getInst().registerReceiver(this.receiver, new IntentFilter("action_main_process_ip_data_change"));
         }
         if (!this.gxc) {
-            c.bGM().a(new l<WriteHistroyDataReqIdl>() { // from class: com.baidu.tieba.dnsproxy.a.d.2
+            c.bGN().a(new l<WriteHistroyDataReqIdl>() { // from class: com.baidu.tieba.dnsproxy.a.d.2
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.tbadk.util.l
                 /* renamed from: a */
                 public void onReturnDataInUI(final WriteHistroyDataReqIdl writeHistroyDataReqIdl) {
-                    e.bGD().u(new Runnable() { // from class: com.baidu.tieba.dnsproxy.a.d.2.1
+                    e.bGE().u(new Runnable() { // from class: com.baidu.tieba.dnsproxy.a.d.2.1
                         @Override // java.lang.Runnable
                         public void run() {
                             HashMap hashMap = new HashMap();
@@ -90,12 +90,12 @@ public class d {
                                 d.this.gxa.putAll(hashMap);
                             }
                             d.this.gxc = true;
-                            d.this.bGS();
+                            d.this.bGT();
                             ArrayList<a> arrayList = new ArrayList();
                             for (Map.Entry entry : d.this.gxa.entrySet()) {
                                 if (d.this.gxb != entry.getValue() && System.currentTimeMillis() - ((a) entry.getValue()).gwM > 604800000) {
                                     arrayList.add(entry.getValue());
-                                    com.baidu.tieba.dnsproxy.d.bGC().ai("conpoint_remove", "out_time", (String) entry.getKey());
+                                    com.baidu.tieba.dnsproxy.d.bGD().ai("conpoint_remove", "out_time", (String) entry.getKey());
                                 }
                             }
                             for (a aVar : arrayList) {
@@ -112,27 +112,27 @@ public class d {
         TbadkCoreApplication.getInst().unregisterReceiver(this.receiver);
     }
 
-    public void bGR() {
-        bGS();
+    public void bGS() {
+        bGT();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bGS() {
+    public void bGT() {
         if (this.gxc) {
-            String bGL = a.bGL();
-            if (!TextUtils.isEmpty(bGL)) {
-                if (!this.gxa.containsKey(bGL)) {
-                    e.bGD().lG(false);
+            String bGM = a.bGM();
+            if (!TextUtils.isEmpty(bGM)) {
+                if (!this.gxa.containsKey(bGM)) {
+                    e.bGE().lG(false);
                     return;
                 }
-                this.gxb = this.gxa.get(bGL);
+                this.gxb = this.gxa.get(bGM);
                 if (this.gxb == null) {
-                    e.bGD().lG(false);
+                    e.bGE().lG(false);
                     return;
                 }
                 long currentTimeMillis = System.currentTimeMillis();
                 if (currentTimeMillis - this.gxb.gwN > BdKVCache.MILLS_1Hour && currentTimeMillis - this.gxb.gwM < BdKVCache.MILLS_1Hour) {
-                    e.bGD().lG(false);
+                    e.bGE().lG(false);
                 }
             }
         }
@@ -167,7 +167,7 @@ public class d {
     /* JADX INFO: Access modifiers changed from: private */
     public void i(final String str, final boolean z, final boolean z2) {
         if (this.gxc && !TextUtils.isEmpty(str)) {
-            e.bGD().u(new Runnable() { // from class: com.baidu.tieba.dnsproxy.a.d.3
+            e.bGE().u(new Runnable() { // from class: com.baidu.tieba.dnsproxy.a.d.3
                 @Override // java.lang.Runnable
                 public void run() {
                     HashMap hashMap;
@@ -182,7 +182,7 @@ public class d {
                         synchronized (d.this.gwZ) {
                             hashMap = new HashMap(d.this.gxa);
                         }
-                        c.bGM().t(hashMap);
+                        c.bGN().t(hashMap);
                     }
                     if (z2) {
                         Intent intent = new Intent(TbadkCoreApplication.getInst().isMainProcess(false) ? "action_main_process_ip_data_change" : "action_sub_process_ip_data_change");
@@ -203,17 +203,17 @@ public class d {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(final String str, final int i, final boolean z, final boolean z2) {
         if (this.gxc && !TextUtils.isEmpty(str)) {
-            e.bGD().u(new Runnable() { // from class: com.baidu.tieba.dnsproxy.a.d.4
+            e.bGE().u(new Runnable() { // from class: com.baidu.tieba.dnsproxy.a.d.4
                 @Override // java.lang.Runnable
                 public void run() {
                     HashMap hashMap;
                     if (d.this.gxb == null) {
-                        String bGL = a.bGL();
-                        if (!TextUtils.isEmpty(bGL)) {
+                        String bGM = a.bGM();
+                        if (!TextUtils.isEmpty(bGM)) {
                             a aVar = new a();
-                            aVar.name = bGL;
+                            aVar.name = bGM;
                             d.this.gxb = aVar;
-                            d.this.gxa.put(bGL, aVar);
+                            d.this.gxa.put(bGM, aVar);
                         }
                     }
                     if (d.this.gxb != null) {
@@ -236,7 +236,7 @@ public class d {
                         synchronized (d.this.gwZ) {
                             hashMap = new HashMap(d.this.gxa);
                         }
-                        c.bGM().t(hashMap);
+                        c.bGN().t(hashMap);
                     }
                     if (z2) {
                         Intent intent = new Intent(TbadkCoreApplication.getInst().isMainProcess(false) ? "action_main_process_ip_data_change" : "action_sub_process_ip_data_change");

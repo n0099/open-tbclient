@@ -68,19 +68,19 @@ public class b {
         this.eOj.completePullRefreshPostDelayed(0L);
     }
 
-    public void bXo() {
-        cgq();
+    public void bXp() {
+        cgr();
         this.ePr.startLoadData();
     }
 
-    public void bXp() {
-        cgq();
+    public void bXq() {
+        cgr();
         this.ePr.setText(this.duK.getResources().getString(R.string.network_ungeilivable));
         this.ePr.endLoadData();
     }
 
-    public void bXq() {
-        cgq();
+    public void bXr() {
+        cgr();
         this.ePr.setText(this.duK.getResources().getString(R.string.list_no_more));
         this.ePr.endLoadData();
     }
@@ -107,14 +107,14 @@ public class b {
         }
     }
 
-    public void cgp() {
+    public void cgq() {
         if (this.eOj != null) {
             this.eOj.setNextPage(null);
             this.ePr = null;
         }
     }
 
-    private void cgq() {
+    private void cgr() {
         if (this.eOj != null && this.ePr == null) {
             this.ePr = new PbListView(this.duK.getPageActivity());
             this.ePr.createView();

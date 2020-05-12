@@ -41,7 +41,7 @@ public class al extends com.baidu.tbadk.core.view.userLike.c {
         this.jzG = i;
     }
 
-    private int czZ() {
+    private int cAa() {
         String fromPageKey = UtilHelper.getFromPageKey(this.mPageContext);
         if (fromPageKey == null) {
             return 3;
@@ -73,7 +73,7 @@ public class al extends com.baidu.tbadk.core.view.userLike.c {
         int i2 = 2;
         if (view != null && view.getAlpha() >= 0.4d) {
             String userId = this.dKC != null ? this.dKC.getUserId() : "";
-            TiebaStatic.log(new com.baidu.tbadk.core.util.an("c12408").af("obj_source", czZ()).cI("obj_id", userId).cI("tid", this.ahO));
+            TiebaStatic.log(new com.baidu.tbadk.core.util.an("c12408").af("obj_source", cAa()).cI("obj_id", userId).cI("tid", this.ahO));
             if (this.jzF != 1) {
                 if (this.jzF == 3) {
                     i = 2;

@@ -44,7 +44,7 @@ public class a {
     private Runnable lrw = new Runnable() { // from class: com.baidu.tieba.write.model.a.2
         @Override // java.lang.Runnable
         public void run() {
-            a.this.dfG();
+            a.this.dfH();
             com.baidu.tieba.write.a.a aVar = new com.baidu.tieba.write.a.a();
             aVar.lzl = false;
             aVar.linkUrl = a.this.dnX;
@@ -82,7 +82,7 @@ public class a {
         e.lb().postDelayed(this.lrw, 15000L);
     }
 
-    public void dfG() {
+    public void dfH() {
         MessageManager.getInstance().removeMessage(1003324, this.mBdUniqueId);
         e.lb().removeCallbacks(this.lrw);
     }
@@ -96,7 +96,7 @@ public class a {
         this.lzM = interfaceC0699a;
     }
 
-    public com.baidu.tieba.write.a.a dfH() {
+    public com.baidu.tieba.write.a.a dfI() {
         return this.lzN;
     }
 }

@@ -175,11 +175,11 @@ public class FrsGameStrategyMainFragment extends BaseFragment implements a.Inter
     public void onPrimary() {
         super.onPrimary();
         if (isAdded() && isPrimary()) {
-            bSk();
+            bSl();
         }
     }
 
-    private void bSk() {
+    private void bSl() {
         if (this.eSb && this.hkt != null) {
             this.hkt.bO(0, 0);
             this.eSb = false;
@@ -198,7 +198,7 @@ public class FrsGameStrategyMainFragment extends BaseFragment implements a.Inter
         this.hks.setFrsGameTabDataLoadListener(this.hkv);
         this.hks.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         if ("from_single_act".equals(this.mFrom)) {
-            bSk();
+            bSl();
             bof().setCenterTextTitle(this.eQl);
         }
         return inflate;

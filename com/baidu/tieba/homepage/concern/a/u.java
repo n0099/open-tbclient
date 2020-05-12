@@ -71,7 +71,7 @@ public class u extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
             return null;
         }
         lVar.rN(i + 1);
-        com.baidu.tieba.card.r.bEW().e(lVar.BK("c12351"));
+        com.baidu.tieba.card.r.bEX().e(lVar.BK("c12351"));
         if (aVar.hJq instanceof com.baidu.tieba.a.e) {
             aVar.hJq.setPage(this.aeB);
         }

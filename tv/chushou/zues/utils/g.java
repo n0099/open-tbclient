@@ -14,7 +14,7 @@ import tv.chushou.basis.rxjava.thread.EventThread;
 /* loaded from: classes5.dex */
 public class g {
     public static void t(CharSequence charSequence) {
-        a.d(h.dJp(), charSequence);
+        a.d(h.dJq(), charSequence);
     }
 
     public static void c(Context context, CharSequence charSequence) {
@@ -22,7 +22,7 @@ public class g {
     }
 
     public static void JO(@StringRes int i) {
-        a.showToast(h.dJp(), i);
+        a.showToast(h.dJq(), i);
     }
 
     public static void F(Context context, @StringRes int i) {
@@ -74,7 +74,7 @@ public class g {
         static void d(final Context context, final CharSequence charSequence) {
             if (charSequence != null && charSequence.length() != 0) {
                 if (context == null) {
-                    context = h.dJp();
+                    context = h.dJq();
                 }
                 if (context != null) {
                     Runnable runnable = new Runnable() { // from class: tv.chushou.zues.utils.g.a.1
@@ -115,7 +115,7 @@ public class g {
 
         static void showToast(Context context, @StringRes int i) {
             if (context != null) {
-                d(context, h.dJT().getString(i));
+                d(context, h.dJU().getString(i));
             }
         }
     }

@@ -17,7 +17,7 @@ public final class e<E extends g> extends ProtoAdapter<E> {
         this.type = cls;
     }
 
-    private Method dAT() {
+    private Method dAU() {
         Method method = this.mNT;
         if (method != null) {
             return method;
@@ -51,7 +51,7 @@ public final class e<E extends g> extends ProtoAdapter<E> {
     public E decode(c cVar) throws IOException {
         int readVarint32 = cVar.readVarint32();
         try {
-            E e = (E) dAT().invoke(null, Integer.valueOf(readVarint32));
+            E e = (E) dAU().invoke(null, Integer.valueOf(readVarint32));
             if (e == null) {
                 throw new ProtoAdapter.EnumConstantNotFoundException(readVarint32, this.type);
             }

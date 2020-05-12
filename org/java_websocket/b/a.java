@@ -25,14 +25,9 @@ public class a implements b {
 
     @Override // org.java_websocket.b.b
     public void e(Framedata framedata) throws InvalidDataException {
-        if (framedata.dGY() || framedata.dGZ() || framedata.dHa()) {
-            throw new InvalidFrameException("bad rsv RSV1: " + framedata.dGY() + " RSV2: " + framedata.dGZ() + " RSV3: " + framedata.dHa());
+        if (framedata.dGZ() || framedata.dHa() || framedata.dHb()) {
+            throw new InvalidFrameException("bad rsv RSV1: " + framedata.dGZ() + " RSV2: " + framedata.dHa() + " RSV3: " + framedata.dHb());
         }
-    }
-
-    @Override // org.java_websocket.b.b
-    public String dGS() {
-        return "";
     }
 
     @Override // org.java_websocket.b.b
@@ -41,7 +36,12 @@ public class a implements b {
     }
 
     @Override // org.java_websocket.b.b
-    public b dGU() {
+    public String dGU() {
+        return "";
+    }
+
+    @Override // org.java_websocket.b.b
+    public b dGV() {
         return new a();
     }
 

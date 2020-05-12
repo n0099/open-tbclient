@@ -11,12 +11,12 @@ public class PastedEditText extends AppCompatEditText {
 
     /* loaded from: classes5.dex */
     public interface a {
-        void dKc();
+        void dKd();
     }
 
     /* loaded from: classes5.dex */
     public interface b {
-        boolean dKd();
+        boolean dKe();
     }
 
     public PastedEditText(Context context) {
@@ -31,7 +31,7 @@ public class PastedEditText extends AppCompatEditText {
     public boolean onTextContextMenuItem(int i) {
         boolean onTextContextMenuItem = super.onTextContextMenuItem(i);
         if (i == 16908322 && this.ntD != null) {
-            this.ntD.dKc();
+            this.ntD.dKd();
         }
         return onTextContextMenuItem;
     }
@@ -46,7 +46,7 @@ public class PastedEditText extends AppCompatEditText {
 
     @Override // android.view.View
     public boolean dispatchKeyEventPreIme(KeyEvent keyEvent) {
-        if (keyEvent.getKeyCode() == 4 && this.ntE != null && this.ntE.dKd()) {
+        if (keyEvent.getKeyCode() == 4 && this.ntE != null && this.ntE.dKe()) {
             return true;
         }
         return super.dispatchKeyEventPreIme(keyEvent);

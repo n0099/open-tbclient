@@ -50,13 +50,13 @@ public class h implements e {
                 this.kxg.setUrl("http://als.baidu.com/clog/clog");
             }
             d(cVar);
-            cOl();
+            cOm();
         }
     }
 
     @Override // com.baidu.tieba.recapp.report.e
-    public void cOk() {
-        cOl();
+    public void cOl() {
+        cOm();
     }
 
     @Override // com.baidu.tieba.recapp.report.e
@@ -66,7 +66,7 @@ public class h implements e {
         }
     }
 
-    private void cOl() {
+    private void cOm() {
         if (v.getCount(this.kxh) > 0) {
             MessageManager.getInstance().sendMessage(new AdUploadHttpRequest(this.kxh), this.kxg);
             this.kxh.clear();

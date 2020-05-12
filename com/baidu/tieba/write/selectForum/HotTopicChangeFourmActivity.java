@@ -40,10 +40,10 @@ public class HotTopicChangeFourmActivity extends BaseActivity<HotTopicChangeFour
         if (v.isEmpty(this.mList)) {
             finish();
         }
-        bXJ();
+        bXK();
     }
 
-    private void bXJ() {
+    private void bXK() {
         this.mNavigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         am.setViewTextColor(this.mNavigationBar.setTitleText(TbadkCoreApplication.getInst().getString(R.string.change_fourm)), (int) R.color.cp_cont_f);

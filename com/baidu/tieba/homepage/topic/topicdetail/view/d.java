@@ -216,7 +216,7 @@ public class d extends com.baidu.tieba.card.a<com.baidu.tieba.homepage.topic.top
                 if (this.hSB.source == 1) {
                     name_show = aMc.aKC().getName_show();
                     formatTime = aq.getFormatTime(aMc.getTime());
-                    aKt = aMc.cWs();
+                    aKt = aMc.cWt();
                 } else {
                     name_show = bjVar.aKC().getName_show();
                     formatTime = aq.getFormatTime(bjVar.getCreateTime());
@@ -259,7 +259,7 @@ public class d extends com.baidu.tieba.card.a<com.baidu.tieba.homepage.topic.top
     private void a(PostData postData, bj bjVar) {
         if (this.hSB.source == 1) {
             this.hSI.setVisibility(0);
-            this.hSI.setText(postData.cWq());
+            this.hSI.setText(postData.cWr());
             return;
         }
         List<PbContent> aKs = bjVar.aKs();
@@ -386,7 +386,7 @@ public class d extends com.baidu.tieba.card.a<com.baidu.tieba.homepage.topic.top
         }
     }
 
-    private void car() {
+    private void cas() {
         PbActivityConfig createNormalCfg = new PbActivityConfig(this.duK.getPageActivity()).createNormalCfg(String.valueOf(this.hSB.dqE.getTid()), String.format("%1$s", this.hSB.dqE.aMc().getId()) + "", 1, "mention");
         createNormalCfg.setStartFrom(12);
         createNormalCfg.setJumpToCommentArea(true);
@@ -450,7 +450,7 @@ public class d extends com.baidu.tieba.card.a<com.baidu.tieba.homepage.topic.top
         if (this.hSB != null && this.hSB.dqE != null) {
             if (view == this.hSI) {
                 if (this.hSB.source == 1) {
-                    car();
+                    cas();
                 } else {
                     aUY();
                 }
@@ -458,13 +458,13 @@ public class d extends com.baidu.tieba.card.a<com.baidu.tieba.homepage.topic.top
             }
             if (view == this.hSG || view == this.hSH) {
                 if (this.hSB.source == 1) {
-                    car();
+                    cas();
                 } else {
                     aUY();
                 }
                 DX("3");
             } else if (view == this.cBd) {
-                cas();
+                cat();
             } else {
                 aUY();
                 DX("2");
@@ -472,7 +472,7 @@ public class d extends com.baidu.tieba.card.a<com.baidu.tieba.homepage.topic.top
         }
     }
 
-    private void cas() {
+    private void cat() {
         MetaData aKC;
         if (this.hSB != null && this.hSB.dqE != null) {
             bj bjVar = this.hSB.dqE;

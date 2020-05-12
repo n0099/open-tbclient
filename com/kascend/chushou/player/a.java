@@ -65,7 +65,7 @@ public class a {
         }
     }
 
-    public ChatInfo dxq() {
+    public ChatInfo dxr() {
         if (this.a != null) {
             synchronized (this.a) {
                 if (this.a.size() > 0) {
@@ -101,7 +101,7 @@ public class a {
         }
     }
 
-    public ChatInfo dxr() {
+    public ChatInfo dxs() {
         if (this.b != null) {
             synchronized (this.b) {
                 if (this.b.size() > 0) {

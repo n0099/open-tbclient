@@ -6,7 +6,7 @@ import com.baidu.l.a.a.d;
 /* loaded from: classes6.dex */
 public class c extends d {
     private static String TAG = "XMUnionID";
-    private static boolean DEBUG = com.baidu.l.a.a.dlC();
+    private static boolean DEBUG = com.baidu.l.a.a.dlD();
 
     public c(Context context) {
         super(context);
@@ -20,7 +20,7 @@ public class c extends d {
     }
 
     @Override // com.baidu.l.a.a.c
-    public com.baidu.l.a.a.c dlJ() {
+    public com.baidu.l.a.a.c dlK() {
         try {
             this.lPS = com.b.b.a.isSupported();
             this.lPr = com.b.b.a.fI(this.mCtx);

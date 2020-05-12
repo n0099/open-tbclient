@@ -88,7 +88,7 @@ public class j extends k {
     }
 
     private int a(ListItem listItem, View view) {
-        int b = com.kascend.chushou.a.a.dwB().b(listItem, view, tv.chushou.zues.utils.a.dip2px(this.q, 44.0f), tv.chushou.zues.utils.a.dip2px(this.q, 110.0f), tv.chushou.zues.utils.a.dip2px(this.q, 44.0f));
+        int b = com.kascend.chushou.a.a.dwC().b(listItem, view, tv.chushou.zues.utils.a.dip2px(this.q, 44.0f), tv.chushou.zues.utils.a.dip2px(this.q, 110.0f), tv.chushou.zues.utils.a.dip2px(this.q, 44.0f));
         if (b == 0) {
             ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
             layoutParams.width = tv.chushou.zues.utils.a.dip2px(this.q, 44.0f);
@@ -103,12 +103,12 @@ public class j extends k {
     @Override // com.kascend.chushou.player.ui.food.k
     public void a(ListItem listItem, boolean z) {
         if (b()) {
-            if (dyw() != null) {
-                dyw().loadUrl(listItem.mCover);
+            if (dyx() != null) {
+                dyx().loadUrl(listItem.mCover);
             }
         } else {
             this.mzF.setAnim(true);
-            this.mzF.i(listItem.mCover, tv.chushou.widget.a.c.dJG(), 0, 0);
+            this.mzF.i(listItem.mCover, tv.chushou.widget.a.c.dJH(), 0, 0);
         }
         this.mzJ.a(listItem);
         this.c.setVisibility(listItem.mShowClose ? 0 : 4);

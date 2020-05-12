@@ -21,17 +21,17 @@ public class a implements Iterable<Character> {
         this.step = i;
     }
 
-    public final char dDY() {
+    public final char dDZ() {
         return this.mXZ;
     }
 
-    public final char dDZ() {
+    public final char dEa() {
         return this.mYa;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.lang.Iterable
-    /* renamed from: dEa */
+    /* renamed from: dEb */
     public kotlin.collections.n iterator() {
         return new b(this.mXZ, this.mYa, this.step);
     }

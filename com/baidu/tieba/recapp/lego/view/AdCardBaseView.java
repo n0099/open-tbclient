@@ -163,7 +163,7 @@ public abstract class AdCardBaseView extends BaseLegoCardView<AdCard> implements
     }
 
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
-    protected View cmX() {
+    protected View cmY() {
         MessageManager.getInstance().registerListener(this.ktO);
         MessageManager.getInstance().registerListener(this.ktP);
         MessageManager.getInstance().registerListener(this.ktQ);
@@ -413,7 +413,7 @@ public abstract class AdCardBaseView extends BaseLegoCardView<AdCard> implements
         } else {
             this.ktN.setVisibility(8);
         }
-        if (isInFrsAllThread() && com.baidu.tieba.frs.a.bNB().bNC()) {
+        if (isInFrsAllThread() && com.baidu.tieba.frs.a.bNC().bND()) {
             this.kth.setVisibility(0);
             am.setBackgroundColor(this.kth, R.color.cp_bg_line_d);
         } else {
@@ -473,7 +473,7 @@ public abstract class AdCardBaseView extends BaseLegoCardView<AdCard> implements
             this.ktB.setOnClickInterceptListener(new b.a() { // from class: com.baidu.tieba.recapp.lego.view.AdCardBaseView.5
                 @Override // com.baidu.tieba.ad.download.mvp.b.a
                 public void bq(View view) {
-                    AdCardBaseView.this.cND();
+                    AdCardBaseView.this.cNE();
                 }
             });
         }
@@ -844,7 +844,7 @@ public abstract class AdCardBaseView extends BaseLegoCardView<AdCard> implements
                 return;
             }
             AdCardBaseView.this.a(advertAppInfo, i, AdCardBaseView.this.ktB, z);
-            AdCardBaseView.this.cND();
+            AdCardBaseView.this.cNE();
         }
 
         private void j(AdvertAppInfo advertAppInfo) {
@@ -860,7 +860,7 @@ public abstract class AdCardBaseView extends BaseLegoCardView<AdCard> implements
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void cND() {
+    public void cNE() {
         if (this.iKo != null) {
             this.iKo.d(3, null);
         }
@@ -982,7 +982,7 @@ public abstract class AdCardBaseView extends BaseLegoCardView<AdCard> implements
     }
 
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView, com.baidu.tieba.lego.card.view.e
-    public void cnd() {
+    public void cne() {
         if (4 == getBusinessType()) {
             this.iCQ.setTextSize(0, TbConfig.getContentSize());
         }

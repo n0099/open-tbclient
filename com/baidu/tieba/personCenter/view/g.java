@@ -71,7 +71,7 @@ public class g extends com.baidu.tieba.card.a<h> {
             SvgManager.aOR().a(this.jUV, R.drawable.icon_pure_list_arrow16_right_svg, R.color.cp_cont_d, SvgManager.SvgResourceStateType.NORMAL);
             this.jUS.setBorderColor(R.color.cp_border_b);
             com.baidu.tbadk.core.util.e.a.aPq().kU(2).kV(4369).a(R.color.cp_shadow_a, 0.4f, 0, 0, l.getDimens(getContext(), R.dimen.tbds12)).aR(this.hRp);
-            cGt();
+            cGu();
             this.mSkinType = i;
         }
     }
@@ -90,18 +90,18 @@ public class g extends com.baidu.tieba.card.a<h> {
             this.jUS.a(this.mUserData, 3);
             this.cBd.setText(this.mUserData.getName_show());
             this.jUU.setText(getContext().getString(R.string.person_center_default_introduce));
-            cGt();
+            cGu();
             onChangeSkinType(this.mTbPageContext, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    private void cGt() {
-        cGu();
-        cGw();
+    private void cGu() {
         cGv();
+        cGx();
+        cGw();
     }
 
-    private void cGu() {
+    private void cGv() {
         if (this.mUserData == null) {
             this.jUT.setImageDrawable(am.getDrawable(R.drawable.icon_crown_super_non));
             return;
@@ -114,7 +114,7 @@ public class g extends com.baidu.tieba.card.a<h> {
         }
     }
 
-    private void cGv() {
+    private void cGw() {
         int i = R.drawable.icon_mask_boy16_svg;
         if (this.mUserData != null && this.mUserData.getSex() == 2) {
             i = R.drawable.icon_mask_girl16_svg;
@@ -122,7 +122,7 @@ public class g extends com.baidu.tieba.card.a<h> {
         this.cBd.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SvgManager.aOR().a(i, null), (Drawable) null);
     }
 
-    private void cGw() {
+    private void cGx() {
         if (this.mUserData != null && (this.mUserData.getIsMem() > 0 || this.mUserData.isBigV())) {
             am.setViewTextColor(this.cBd, R.color.cp_cont_h, 1);
         } else {
@@ -142,7 +142,7 @@ public class g extends com.baidu.tieba.card.a<h> {
                 return;
             }
             if (view == this.jUW) {
-                this.jUW.deF();
+                this.jUW.deG();
             }
             TiebaStatic.log(new an("c12523").af("obj_locate", 1));
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonPolymericActivityConfig(this.mTbPageContext.getPageActivity()).createNormalConfig(com.baidu.adp.lib.f.b.toLong(TbadkCoreApplication.getCurrentAccount(), 0L), true, TbadkCoreApplication.getCurrentAccountInfo() != null ? TbadkCoreApplication.getCurrentAccountInfo().isBigV() : false)));

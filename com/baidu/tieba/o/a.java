@@ -22,7 +22,7 @@ public class a {
     private e kqt;
     private int mScore = 0;
 
-    public static a cMR() {
+    public static a cMS() {
         if (kqs == null) {
             synchronized (a.class) {
                 if (kqs == null) {

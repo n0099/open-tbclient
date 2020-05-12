@@ -71,20 +71,20 @@ public final class c<E> extends a<E> {
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public int size() {
-        long dCS = dCS();
+        long dCT = dCT();
         while (true) {
-            long dCR = dCR();
-            long dCS2 = dCS();
-            if (dCS == dCS2) {
-                return (int) (dCR - dCS2);
+            long dCS = dCS();
+            long dCT2 = dCT();
+            if (dCT == dCT2) {
+                return (int) (dCS - dCT2);
             }
-            dCS = dCS2;
+            dCT = dCT2;
         }
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public boolean isEmpty() {
-        return dCR() == dCS();
+        return dCS() == dCT();
     }
 
     private void soProducerIndex(long j) {
@@ -95,11 +95,11 @@ public final class c<E> extends a<E> {
         this.consumerIndex.lazySet(j);
     }
 
-    private long dCS() {
+    private long dCT() {
         return this.consumerIndex.get();
     }
 
-    private long dCR() {
+    private long dCS() {
         return this.producerIndex.get();
     }
 }

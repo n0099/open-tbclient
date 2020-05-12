@@ -17,11 +17,11 @@ public class j {
             throw new NullPointerException("FrsActivity is NullPointerException");
         }
         this.hro = frsFragment;
-        this.gYN = this.hro.bOs();
-        this.gYw = this.hro.bOv();
-        this.hsB = this.hro.bOt();
-        this.gYM = this.hro.bOq();
-        this.hsC = this.hro.bOu();
-        this.hsD = this.hro.bOr();
+        this.gYN = this.hro.bOt();
+        this.gYw = this.hro.bOw();
+        this.hsB = this.hro.bOu();
+        this.gYM = this.hro.bOr();
+        this.hsC = this.hro.bOv();
+        this.hsD = this.hro.bOs();
     }
 }

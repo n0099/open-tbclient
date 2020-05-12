@@ -110,15 +110,15 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements d.a<R> {
                 int i;
                 ArrayList<Object> arrayList;
                 try {
-                    PublishSubject dIO = PublishSubject.dIO();
-                    rx.b.d dVar = new rx.b.d(dIO);
+                    PublishSubject dIP = PublishSubject.dIP();
+                    rx.b.d dVar = new rx.b.d(dIP);
                     synchronized (ResultManager.this) {
                         ResultManager resultManager = ResultManager.this;
                         i = resultManager.leftIds;
                         resultManager.leftIds = i + 1;
                         ResultManager.this.leftMap().put(Integer.valueOf(i), dVar);
                     }
-                    rx.d a = rx.d.a((d.a) new a(dIO, ResultManager.this.cancel));
+                    rx.d a = rx.d.a((d.a) new a(dIP, ResultManager.this.cancel));
                     a aVar = new a(i);
                     ResultManager.this.group.add(aVar);
                     OnSubscribeGroupJoin.this.njY.call(t1).a((rx.j<? super D1>) aVar);
@@ -289,9 +289,9 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements d.a<R> {
         }
 
         public void call(rx.j<? super T> jVar) {
-            rx.k dIT = this.nkc.dIT();
-            C0834a c0834a = new C0834a(jVar, dIT);
-            c0834a.add(dIT);
+            rx.k dIU = this.nkc.dIU();
+            C0834a c0834a = new C0834a(jVar, dIU);
+            c0834a.add(dIU);
             this.nkd.a((rx.j) c0834a);
         }
 

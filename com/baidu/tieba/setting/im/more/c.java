@@ -31,8 +31,6 @@ public class c extends com.baidu.adp.base.c<SecretSettingActivity> {
 
     /* loaded from: classes13.dex */
     public interface a {
-        void cPM();
-
         void cPN();
 
         void cPO();
@@ -44,6 +42,8 @@ public class c extends com.baidu.adp.base.c<SecretSettingActivity> {
         void cPR();
 
         void cPS();
+
+        void cPT();
 
         void onBackPressed();
     }
@@ -58,19 +58,19 @@ public class c extends com.baidu.adp.base.c<SecretSettingActivity> {
                     if (view == c.this.mBack) {
                         c.this.kCk.onBackPressed();
                     } else if (view == c.this.kBZ) {
-                        c.this.kCk.cPM();
-                    } else if (view == c.this.kCa) {
                         c.this.kCk.cPN();
-                    } else if (view == c.this.kCb) {
-                        c.this.kCk.cPP();
-                    } else if (view == c.this.kCf) {
+                    } else if (view == c.this.kCa) {
                         c.this.kCk.cPO();
-                    } else if (view == c.this.kCc) {
+                    } else if (view == c.this.kCb) {
                         c.this.kCk.cPQ();
-                    } else if (view == c.this.kCe) {
+                    } else if (view == c.this.kCf) {
+                        c.this.kCk.cPP();
+                    } else if (view == c.this.kCc) {
                         c.this.kCk.cPR();
-                    } else if (view == c.this.kCj) {
+                    } else if (view == c.this.kCe) {
                         c.this.kCk.cPS();
+                    } else if (view == c.this.kCj) {
+                        c.this.kCk.cPT();
                     }
                 }
             }
@@ -120,7 +120,7 @@ public class c extends com.baidu.adp.base.c<SecretSettingActivity> {
         this.kCk = aVar;
     }
 
-    public void cPT() {
+    public void cPU() {
         this.kBZ.recycle();
     }
 
@@ -161,24 +161,24 @@ public class c extends com.baidu.adp.base.c<SecretSettingActivity> {
     public void d(com.baidu.tieba.setting.im.more.a aVar) {
         if (aVar != null && this.kCi != null) {
             int length = this.kCi.length;
-            int cPH = aVar.cPH() - 1;
-            if (cPH < length && cPH >= 0) {
-                this.kCf.setTip(this.kCi[cPH]);
-            }
-            int cPF = aVar.cPF() - 1;
-            if (cPF < length && cPF >= 0) {
-                this.kCa.setTip(this.kCi[cPF]);
+            int cPI = aVar.cPI() - 1;
+            if (cPI < length && cPI >= 0) {
+                this.kCf.setTip(this.kCi[cPI]);
             }
             int cPG = aVar.cPG() - 1;
             if (cPG < length && cPG >= 0) {
-                this.kCb.setTip(this.kCi[cPG]);
+                this.kCa.setTip(this.kCi[cPG]);
             }
-            int cPJ = aVar.cPJ() - 1;
-            if (cPJ < length && cPJ >= 0) {
-                if (cPJ == 0) {
+            int cPH = aVar.cPH() - 1;
+            if (cPH < length && cPH >= 0) {
+                this.kCb.setTip(this.kCi[cPH]);
+            }
+            int cPK = aVar.cPK() - 1;
+            if (cPK < length && cPK >= 0) {
+                if (cPK == 0) {
                     this.kCe.setTip(this.kCg.getString(R.string.all_person));
                 } else {
-                    this.kCe.setTip(this.kCi[cPJ]);
+                    this.kCe.setTip(this.kCi[cPK]);
                 }
             }
         }

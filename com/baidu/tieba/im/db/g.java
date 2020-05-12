@@ -15,7 +15,7 @@ public class g {
     private static volatile SQLiteDatabase database = null;
     public static HashMap<String, SQLiteDatabase> ijF = new HashMap<>();
 
-    public static synchronized SQLiteDatabase cfi() {
+    public static synchronized SQLiteDatabase cfj() {
         SQLiteDatabase sQLiteDatabase;
         synchronized (g.class) {
             try {
@@ -44,16 +44,16 @@ public class g {
         return sQLiteDatabase;
     }
 
-    public static LinkedList<String> cfj() {
+    public static LinkedList<String> cfk() {
         Cursor cursor;
         Throwable th;
         Exception exc;
         Cursor cursor2 = null;
-        SQLiteDatabase cfi = cfi();
+        SQLiteDatabase cfj = cfj();
         LinkedList<String> linkedList = new LinkedList<>();
-        if (cfi != null) {
+        if (cfj != null) {
             try {
-                cursor2 = cfi.rawQuery("select * from sqlite_master where type='table'", null);
+                cursor2 = cfj.rawQuery("select * from sqlite_master where type='table'", null);
                 if (cursor2 != null) {
                     try {
                         cursor2.moveToFirst();
@@ -95,17 +95,17 @@ public class g {
     public static void EI(String str) {
         try {
             if (!TextUtils.isEmpty(str)) {
-                h.cfk().cfl();
-                Iterator<String> it = cfj().iterator();
+                h.cfl().cfm();
+                Iterator<String> it = cfk().iterator();
                 while (it.hasNext()) {
                     String next = it.next();
                     if (next != null) {
                         if (next.equals("tb_message_center")) {
                             ContentValues contentValues = new ContentValues();
                             contentValues.put("is_hidden", (Integer) 1);
-                            h.cfk().a("tb_message_center", contentValues, null, null);
+                            h.cfl().a("tb_message_center", contentValues, null, null);
                         } else if (!next.equals("tb_new_friends")) {
-                            h.cfk().a(next, (String) null, (String[]) null);
+                            h.cfl().a(next, (String) null, (String[]) null);
                         }
                     }
                 }
@@ -114,7 +114,7 @@ public class g {
             TiebaStatic.printDBExceptionLog(e, "ImDatabaseManager.deleteImDb", new Object[0]);
             e.printStackTrace();
         } finally {
-            h.cfk().cfm();
+            h.cfl().cfn();
         }
     }
 }

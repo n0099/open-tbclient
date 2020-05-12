@@ -147,7 +147,7 @@ public class b extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                 } else {
                     this.dHD.setText(aq.cutChineseAndEnglishWithSuffix(kVar.getForumName(), 8, StringHelper.STRING_MORE));
                 }
-                this.aDO.setText(this.attention + " " + aq.cl(kVar.bHU()));
+                this.aDO.setText(this.attention + " " + aq.cl(kVar.bHV()));
                 onChangeSkinType();
             }
         }

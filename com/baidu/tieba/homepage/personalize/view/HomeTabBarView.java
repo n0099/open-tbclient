@@ -96,7 +96,7 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
             this.rightMargin = this.tbds264;
             nY(true);
             nX(true);
-            bYm();
+            bYn();
             return;
         }
         this.rightMargin = this.tbds150;
@@ -111,7 +111,7 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
         this.hKD = aVar;
     }
 
-    private void bYm() {
+    private void bYn() {
         final String missionEntranceUrl = TbSingleton.getInstance().getMissionEntranceUrl();
         String missionEntranceIcon = TbSingleton.getInstance().getMissionEntranceIcon();
         if (TextUtils.isEmpty(missionEntranceUrl) || TextUtils.isEmpty(missionEntranceIcon)) {
@@ -158,7 +158,7 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
             if (tag instanceof String) {
                 String str = (String) tag;
                 if (!TextUtils.isEmpty(str)) {
-                    bYn();
+                    bYo();
                     if (this.hKD != null) {
                         this.hKD.DR(str);
                     }
@@ -177,9 +177,9 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
         }
     }
 
-    public boolean bYt() {
+    public boolean bYu() {
         if (this.hRn != null) {
-            return this.hRn.bYt();
+            return this.hRn.bYu();
         }
         return false;
     }
@@ -286,7 +286,7 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
         }
     }
 
-    private void bYn() {
+    private void bYo() {
         an anVar = new an("c13422");
         anVar.af("obj_type", 2);
         anVar.af("obj_locate", 1);
@@ -294,7 +294,7 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
         TiebaStatic.log(anVar);
     }
 
-    public void bYG() {
+    public void bYH() {
         an anVar = new an("c13422");
         anVar.af("obj_type", 1);
         anVar.af("obj_locate", 1);

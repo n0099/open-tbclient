@@ -41,13 +41,13 @@ public class e implements d {
         if (lZr == null) {
             throw new UnsupportedOperationException("To encode animated gif please add the dependency to the animated-gif module");
         }
-        com.facebook.common.references.a<PooledByteBuffer> dsR = eVar.dsR();
-        g.checkNotNull(dsR);
+        com.facebook.common.references.a<PooledByteBuffer> dsS = eVar.dsS();
+        g.checkNotNull(dsS);
         try {
-            PooledByteBuffer pooledByteBuffer = dsR.get();
-            return a(bVar, lZr.y(pooledByteBuffer.dnd(), pooledByteBuffer.size()), config);
+            PooledByteBuffer pooledByteBuffer = dsS.get();
+            return a(bVar, lZr.y(pooledByteBuffer.dne(), pooledByteBuffer.size()), config);
         } finally {
-            com.facebook.common.references.a.c((com.facebook.common.references.a<?>) dsR);
+            com.facebook.common.references.a.c((com.facebook.common.references.a<?>) dsS);
         }
     }
 
@@ -56,13 +56,13 @@ public class e implements d {
         if (lZs == null) {
             throw new UnsupportedOperationException("To encode animated webp please add the dependency to the animated-webp module");
         }
-        com.facebook.common.references.a<PooledByteBuffer> dsR = eVar.dsR();
-        g.checkNotNull(dsR);
+        com.facebook.common.references.a<PooledByteBuffer> dsS = eVar.dsS();
+        g.checkNotNull(dsS);
         try {
-            PooledByteBuffer pooledByteBuffer = dsR.get();
-            return a(bVar, lZs.y(pooledByteBuffer.dnd(), pooledByteBuffer.size()), config);
+            PooledByteBuffer pooledByteBuffer = dsS.get();
+            return a(bVar, lZs.y(pooledByteBuffer.dne(), pooledByteBuffer.size()), config);
         } finally {
-            com.facebook.common.references.a.c((com.facebook.common.references.a<?>) dsR);
+            com.facebook.common.references.a.c((com.facebook.common.references.a<?>) dsS);
         }
     }
 
@@ -94,7 +94,7 @@ public class e implements d {
                 if (bVar.mbd && aVar2 == null) {
                     aVar2 = a(bVar2, config, frameCount);
                 }
-                aVar = new com.facebook.imagepipeline.g.a(com.facebook.imagepipeline.animated.base.d.b(bVar2).j(aVar2).GH(frameCount).eV(list).dqd());
+                aVar = new com.facebook.imagepipeline.g.a(com.facebook.imagepipeline.animated.base.d.b(bVar2).j(aVar2).GH(frameCount).eV(list).dqe());
                 com.facebook.common.references.a.c((com.facebook.common.references.a<?>) aVar2);
                 com.facebook.common.references.a.b(list);
             }

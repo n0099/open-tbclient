@@ -15,7 +15,7 @@ public class e {
         this.mAuthSid = str;
     }
 
-    public String cTO() {
+    public String cTP() {
         this.blK = new x(kJA);
         this.blK.addPostData("authsid", this.mAuthSid);
         this.blK.aOw().aOW().mNeedBackgroundLogin = true;

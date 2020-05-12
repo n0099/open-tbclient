@@ -30,13 +30,13 @@ public class f implements Iterable<Integer> {
         return this.mYk;
     }
 
-    public final int dEb() {
+    public final int dEc() {
         return this.step;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.lang.Iterable
-    /* renamed from: dEc */
+    /* renamed from: dEd */
     public ad iterator() {
         return new g(this.mYj, this.mYk, this.step);
     }

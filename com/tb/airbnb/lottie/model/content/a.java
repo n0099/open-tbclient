@@ -25,11 +25,11 @@ public class a implements b {
         return this.name;
     }
 
-    public m<PointF, PointF> dBr() {
+    public m<PointF, PointF> dBs() {
         return this.mPw;
     }
 
-    public com.tb.airbnb.lottie.model.a.f dBy() {
+    public com.tb.airbnb.lottie.model.a.f dBz() {
         return this.mPC;
     }
 

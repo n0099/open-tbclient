@@ -42,7 +42,7 @@ public class a {
         }
     }
 
-    public ArrayList<C0614a> coJ() {
+    public ArrayList<C0614a> coK() {
         return this.iQc;
     }
 

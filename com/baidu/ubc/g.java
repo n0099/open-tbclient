@@ -17,7 +17,7 @@ public class g {
     private ad lMW = new ad();
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static g dky() {
+    public static g dkz() {
         if (lNH == null) {
             synchronized (e.class) {
                 if (lNH == null) {
@@ -32,10 +32,10 @@ public class g {
     public void a(c cVar, Context context) {
         this.mContext = context;
         this.ddS = 360000;
-        ag dkO = ag.dkO();
-        this.ddT = dkO.getInt("ubc_data_expire_time", PersonListModel.CACHETIME);
-        this.ddU = dkO.getInt("ubc_database_limit", 10000);
-        cVar.dkv().a(this.lNI);
+        ag dkP = ag.dkP();
+        this.ddT = dkP.getInt("ubc_data_expire_time", PersonListModel.CACHETIME);
+        this.ddU = dkP.getInt("ubc_database_limit", 10000);
+        cVar.dkw().a(this.lNI);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -60,7 +60,7 @@ public class g {
                 } else {
                     this.lNI.lNy.remove(id);
                 }
-                if ("1".equals(kVar.dkA())) {
+                if ("1".equals(kVar.dkB())) {
                     this.lNI.lNA.add(id);
                 } else {
                     this.lNI.lNA.remove(id);
@@ -84,14 +84,14 @@ public class g {
                 } else {
                     this.lNI.lNE.remove(id);
                 }
-                if (TextUtils.equals(kVar.dkC(), "1")) {
+                if (TextUtils.equals(kVar.dkD(), "1")) {
                     this.lNI.lNF.add(id);
                 } else {
                     this.lNI.lNF.remove(id);
                 }
-                String dkD = kVar.dkD();
-                if (!TextUtils.isEmpty(dkD) && !TextUtils.equals(dkD, "0")) {
-                    this.lNI.lNG.put(id, dkD);
+                String dkE = kVar.dkE();
+                if (!TextUtils.isEmpty(dkE) && !TextUtils.equals(dkE, "0")) {
+                    this.lNI.lNG.put(id, dkE);
                 } else {
                     this.lNI.lNG.remove(id);
                 }
@@ -109,7 +109,7 @@ public class g {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean sb(String str) {
-        if (this.lMW.dkM()) {
+        if (this.lMW.dkN()) {
             return true;
         }
         return this.lNI.lNx.contains(str);
@@ -150,7 +150,7 @@ public class g {
     public void iZ(int i) {
         if (i >= this.ddT) {
             this.ddT = i;
-            ag.dkO().putInt("ubc_data_expire_time", i);
+            ag.dkP().putInt("ubc_data_expire_time", i);
         }
     }
 
@@ -163,7 +163,7 @@ public class g {
     public void ja(int i) {
         if (i >= this.ddU) {
             this.ddU = i;
-            ag.dkO().putInt("ubc_database_limit", i);
+            ag.dkP().putInt("ubc_database_limit", i);
         }
     }
 

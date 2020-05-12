@@ -36,7 +36,7 @@ public class h {
         }
     }
 
-    public LinkedList<f> clo() {
+    public LinkedList<f> clp() {
         return this.iDy;
     }
 
@@ -170,7 +170,7 @@ public class h {
         return builder.build(true);
     }
 
-    public AdvertAppInfo clp() {
+    public AdvertAppInfo clq() {
         return this.iDz;
     }
 }

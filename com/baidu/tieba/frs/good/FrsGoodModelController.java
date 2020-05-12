@@ -97,7 +97,7 @@ public class FrsGoodModelController extends BdBaseModel implements NetModel.b<Fr
         bundle.putBoolean(FrsActivityConfig.GOOD, true);
     }
 
-    public boolean bTt() {
+    public boolean bTu() {
         FrsRequestData frsRequestData = (FrsRequestData) FrsRequestData.objectWithJson(FrsRequestData.jsonWithObject(this.hqp), FrsRequestData.class);
         frsRequestData.setPn(1);
         a(frsRequestData, 3);
@@ -145,7 +145,7 @@ public class FrsGoodModelController extends BdBaseModel implements NetModel.b<Fr
             }
             frsRequestData.setUpdateType(this.mType);
             frsRequestData.setNeedCache(false);
-            bTv();
+            bTw();
         }
     }
 
@@ -257,7 +257,7 @@ public class FrsGoodModelController extends BdBaseModel implements NetModel.b<Fr
         }
     }
 
-    public void bOQ() {
+    public void bOR() {
         if (this.gXU != null && this.gXU.getForum() != null && this.gXU.getForum().getBannerListData() != null) {
             String lastIds = this.gXU.getForum().getBannerListData().getLastIds();
             if (!TextUtils.isEmpty(lastIds)) {
@@ -270,28 +270,28 @@ public class FrsGoodModelController extends BdBaseModel implements NetModel.b<Fr
         return this.mType;
     }
 
-    public FrsViewData bTu() {
+    public FrsViewData bTv() {
         return this.gXU;
     }
 
-    private void bTv() {
+    private void bTw() {
         this.gDY = System.currentTimeMillis();
         this.hqo.loadData();
     }
 
-    public long bIT() {
+    public long bIU() {
         return this.gEb;
     }
 
-    public long bIU() {
+    public long bIV() {
         return this.gDZ;
     }
 
-    public long bIV() {
+    public long bIW() {
         return this.gEa;
     }
 
-    public long bIW() {
+    public long bIX() {
         return this.gDY;
     }
 
@@ -301,10 +301,10 @@ public class FrsGoodModelController extends BdBaseModel implements NetModel.b<Fr
 
     public void pa(int i) {
         this.hqs = i;
-        bTt();
+        bTu();
     }
 
-    public boolean bTw() {
+    public boolean bTx() {
         return this.hqs < 100;
     }
 

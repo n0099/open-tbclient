@@ -6,7 +6,7 @@ import javax.annotation.concurrent.Immutable;
 @Immutable
 /* loaded from: classes13.dex */
 public class b {
-    private static final b mbb = dqH().dqP();
+    private static final b mbb = dqI().dqQ();
     public final int mbc;
     public final boolean mbd;
     public final boolean mbe;
@@ -17,20 +17,20 @@ public class b {
     public final com.facebook.imagepipeline.decoder.b mbi;
 
     public b(c cVar) {
-        this.mbc = cVar.dqI();
-        this.mbd = cVar.dqJ();
-        this.mbe = cVar.dqK();
-        this.mbf = cVar.dqL();
-        this.mbg = cVar.dqN();
-        this.mbh = cVar.dqO();
-        this.mbi = cVar.dqM();
+        this.mbc = cVar.dqJ();
+        this.mbd = cVar.dqK();
+        this.mbe = cVar.dqL();
+        this.mbf = cVar.dqM();
+        this.mbg = cVar.dqO();
+        this.mbh = cVar.dqP();
+        this.mbi = cVar.dqN();
     }
 
-    public static b dqG() {
+    public static b dqH() {
         return mbb;
     }
 
-    public static c dqH() {
+    public static c dqI() {
         return new c();
     }
 

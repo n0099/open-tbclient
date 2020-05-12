@@ -27,7 +27,7 @@ public class d extends BaseAdapter {
     private boolean fqJ = false;
     private ArrayList<ProgressBar> jXO = new ArrayList<>();
 
-    public void cHC() {
+    public void cHD() {
         if (this.jXO != null) {
             int i = 0;
             while (true) {

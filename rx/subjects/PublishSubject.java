@@ -13,7 +13,7 @@ import rx.k;
 public final class PublishSubject<T> extends c<T, T> {
     final PublishSubjectState<T> npB;
 
-    public static <T> PublishSubject<T> dIO() {
+    public static <T> PublishSubject<T> dIP() {
         return new PublishSubject<>(new PublishSubjectState());
     }
 

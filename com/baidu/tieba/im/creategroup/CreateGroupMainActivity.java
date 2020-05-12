@@ -44,10 +44,10 @@ public class CreateGroupMainActivity extends BaseActivity<CreateGroupMainActivit
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.ihJ.cdU()) {
+        if (view == this.ihJ.cdV()) {
             sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new CreateGroupStepActivityConfig(getPageContext().getContext(), 3, this.ihJ.getForumId(), 1013, this.ihK, this.ihL, this.ihM)));
             TiebaStatic.eventStat(getPageContext().getContext(), "create_g_common", "click", 1, new Object[0]);
-        } else if (view == this.ihJ.cdV()) {
+        } else if (view == this.ihJ.cdW()) {
             sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new CreateGroupStepActivityConfig(getPageContext().getContext(), 4, this.ihJ.getForumId(), 1013, this.ihK, this.ihL, this.ihM)));
             TiebaStatic.eventStat(getPageContext().getContext(), "create_g_official", "click", 1, new Object[0]);
         }

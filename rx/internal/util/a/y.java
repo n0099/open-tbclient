@@ -152,14 +152,14 @@ public class y<E> extends aa<E> {
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public final int size() {
-        long dCS = dCS();
+        long dCT = dCT();
         while (true) {
-            long dCR = dCR();
-            long dCS2 = dCS();
-            if (dCS == dCS2) {
-                return (int) (dCR - dCS2);
+            long dCS = dCS();
+            long dCT2 = dCT();
+            if (dCT == dCT2) {
+                return (int) (dCS - dCT2);
             }
-            dCS = dCS2;
+            dCT = dCT2;
         }
     }
 
@@ -167,11 +167,11 @@ public class y<E> extends aa<E> {
         this.mUp = Math.min(i / 4, mUo);
     }
 
-    private long dCR() {
+    private long dCS() {
         return ae.noE.e(this, noy);
     }
 
-    private long dCS() {
+    private long dCT() {
         return ae.noE.e(this, nox);
     }
 

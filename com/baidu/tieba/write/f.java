@@ -76,7 +76,7 @@ public class f {
                     if (f.this.Vf != null && TbSingleton.getInstance().isEnableBenchmark() && !TbSingleton.getInstance().isAnimFpsComputed("anim_switch_sendthread_maintab") && (f.this.lxq instanceof d)) {
                         f.this.Vf.aZG();
                     }
-                    f.this.dfe();
+                    f.this.dff();
                 } else if (i2 == 4) {
                     f.this.lxp = false;
                     if (f.this.lxo.mRootView.getParent() == f.this.mParentView && f.this.mParentView != null && f.this.lxo.mRootView != null && f.this.mParentView.indexOfChild(f.this.lxo.mRootView) > 0) {
@@ -116,7 +116,7 @@ public class f {
         this.lxr = str;
     }
 
-    public String bVf() {
+    public String bVg() {
         return this.lxr;
     }
 
@@ -190,10 +190,10 @@ public class f {
         this.lxq.onDestroy();
     }
 
-    public void dfa() {
+    public void dfb() {
         if (this.lxo instanceof a.C0693a) {
             TiebaStatic.log("c13619");
-            dfe();
+            dff();
         }
         uP(false);
         if (Build.VERSION.SDK_INT < 21) {
@@ -245,7 +245,7 @@ public class f {
         }
     }
 
-    public void dfb() {
+    public void dfc() {
         String str;
         String str2;
         int i;
@@ -300,7 +300,7 @@ public class f {
         }
     }
 
-    public void dfc() {
+    public void dfd() {
         uP(false);
         TiebaStatic.log(new an(CommonStatisticKey.KEY_ENTRANCE_CLICKED).cI("obj_locate", this.lxs).af("obj_type", 2));
         if (this.lpi == null) {
@@ -376,9 +376,9 @@ public class f {
         return permissionJudgePolicy.startRequestPermission(activity);
     }
 
-    public void dfd() {
+    public void dfe() {
         if (this.lxo != null) {
-            this.lxo.deN();
+            this.lxo.deO();
         }
     }
 
@@ -387,7 +387,7 @@ public class f {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dfe() {
+    public void dff() {
         boolean z = com.baidu.tbadk.core.sharedPref.b.aNT().getBoolean("home_publish_ala_has_showed", false);
         if (this.lxo instanceof a.C0693a) {
             ((a.C0693a) this.lxo).uM(z ? false : true);

@@ -38,11 +38,11 @@ public final class Client {
     public Client(ProxyConfiguration proxyConfiguration, int i, int i2, UrlConverter urlConverter, final Dns dns) {
         OkHttpClient.Builder newBuilder;
         this.mLL = urlConverter;
-        OkHttpClient dAD = UploadManager.dAD();
-        if (dAD == null) {
+        OkHttpClient dAE = UploadManager.dAE();
+        if (dAE == null) {
             newBuilder = new OkHttpClient.Builder();
         } else {
-            newBuilder = dAD.newBuilder();
+            newBuilder = dAE.newBuilder();
             newBuilder.interceptors().clear();
             newBuilder.networkInterceptors().clear();
         }
@@ -193,9 +193,9 @@ public final class Client {
             });
         }
         if (upToken != null) {
-            builder.header("User-Agent", UserAgent.dAv().Pd(upToken.mLA));
+            builder.header("User-Agent", UserAgent.dAw().Pd(upToken.mLA));
         } else {
-            builder.header("User-Agent", UserAgent.dAv().Pd("pandora"));
+            builder.header("User-Agent", UserAgent.dAw().Pd("pandora"));
         }
         final ResponseTag responseTag = new ResponseTag();
         this.httpClient.newCall(builder.tag(responseTag).build()).enqueue(new Callback() { // from class: com.qiniu.android.http.Client.5

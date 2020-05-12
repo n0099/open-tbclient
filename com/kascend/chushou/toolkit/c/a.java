@@ -29,23 +29,23 @@ public final class a implements tv.chushou.basis.d.a.b.b {
     }
 
     @Override // tv.chushou.basis.d.a.b.b
-    public String dyC() {
+    public String dyD() {
         String string;
-        tv.chushou.basis.d.a.a.a aVar = (tv.chushou.basis.d.a.a.a) tv.chushou.basis.d.b.dJr().S(tv.chushou.basis.d.a.a.a.class);
+        tv.chushou.basis.d.a.a.a aVar = (tv.chushou.basis.d.a.a.a) tv.chushou.basis.d.b.dJs().S(tv.chushou.basis.d.a.a.a.class);
         return (aVar == null || (string = aVar.getString("xappkey", "")) == null) ? "" : string;
     }
 
     @Override // tv.chushou.basis.d.a.b.b
-    public String dyD() {
+    public String dyE() {
         String string;
-        tv.chushou.basis.d.a.a.a aVar = (tv.chushou.basis.d.a.a.a) tv.chushou.basis.d.b.dJr().S(tv.chushou.basis.d.a.a.a.class);
+        tv.chushou.basis.d.a.a.a aVar = (tv.chushou.basis.d.a.a.a) tv.chushou.basis.d.b.dJs().S(tv.chushou.basis.d.a.a.a.class);
         return (aVar == null || (string = aVar.getString("xsecret", "")) == null) ? "" : string;
     }
 
     @Override // tv.chushou.basis.d.a.b.b
     public String YT() {
         String string;
-        tv.chushou.basis.d.a.a.a aVar = (tv.chushou.basis.d.a.a.a) tv.chushou.basis.d.b.dJr().S(tv.chushou.basis.d.a.a.a.class);
+        tv.chushou.basis.d.a.a.a aVar = (tv.chushou.basis.d.a.a.a) tv.chushou.basis.d.b.dJs().S(tv.chushou.basis.d.a.a.a.class);
         return (aVar == null || (string = aVar.getString("xappkey", "")) == null) ? "" : string;
     }
 
@@ -56,7 +56,7 @@ public final class a implements tv.chushou.basis.d.a.b.b {
 
     @Override // tv.chushou.basis.d.a.b.b
     public String getToken() {
-        tv.chushou.basis.d.a.a.a aVar = (tv.chushou.basis.d.a.a.a) tv.chushou.basis.d.b.dJr().S(tv.chushou.basis.d.a.a.a.class);
+        tv.chushou.basis.d.a.a.a aVar = (tv.chushou.basis.d.a.a.a) tv.chushou.basis.d.b.dJs().S(tv.chushou.basis.d.a.a.a.class);
         if (aVar != null) {
             return aVar.getString("token", "");
         }
@@ -85,17 +85,17 @@ public final class a implements tv.chushou.basis.d.a.b.b {
     }
 
     @Override // tv.chushou.basis.d.a.b.b
-    public Map<String, String> dyE() {
+    public Map<String, String> dyF() {
         return this.d;
     }
 
     @Override // tv.chushou.basis.d.a.b.b
-    public String dyF() {
+    public String dyG() {
         return "1.0.2";
     }
 
     @Override // tv.chushou.basis.d.a.b.b
-    public Map<String, String> dyG() {
+    public Map<String, String> dyH() {
         return com.kascend.cstvsdk.utils.a.mIX.a();
     }
 
@@ -109,16 +109,16 @@ public final class a implements tv.chushou.basis.d.a.b.b {
         Application e = com.kascend.chushou.d.b.e();
         if (i == 1801) {
             if (e instanceof FragmentActivity) {
-                tv.chushou.basis.d.b.dJq().d(null, "1801");
+                tv.chushou.basis.d.b.dJr().d(null, "1801");
             }
         } else if (i == 401) {
             if (e == null) {
-                e = tv.chushou.basis.d.b.dJp();
+                e = tv.chushou.basis.d.b.dJq();
             }
             com.kascend.chushou.d.e.b(e, (String) null);
-        } else if (i != 602 || (cVar = (tv.chushou.basis.d.a.b.c) tv.chushou.basis.d.b.dJr().S(tv.chushou.basis.d.a.b.c.class)) == null) {
+        } else if (i != 602 || (cVar = (tv.chushou.basis.d.a.b.c) tv.chushou.basis.d.b.dJs().S(tv.chushou.basis.d.a.b.c.class)) == null) {
         } else {
-            cVar.dyJ();
+            cVar.dyK();
         }
     }
 

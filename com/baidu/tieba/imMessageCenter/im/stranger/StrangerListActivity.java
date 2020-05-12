@@ -60,8 +60,8 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
                     StrangerListActivity.this.d(customResponsedMessage);
                 } else if (customResponsedMessage.getCmd() == 2016001) {
                     StrangerListActivity.this.izw.setData(null, StrangerListActivity.this.igD);
-                } else if (customResponsedMessage.getCmd() == 2016011 && StrangerListActivity.this.izv != null && StrangerListActivity.this.izv.ckg() != null) {
-                    StrangerListActivity.this.izv.ckg().notifyDataSetChanged();
+                } else if (customResponsedMessage.getCmd() == 2016011 && StrangerListActivity.this.izv != null && StrangerListActivity.this.izv.ckh() != null) {
+                    StrangerListActivity.this.izv.ckh().notifyDataSetChanged();
                 }
             }
         }
@@ -69,13 +69,13 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
     private com.baidu.tieba.im.chat.a.a igD = new com.baidu.tieba.im.chat.a.a() { // from class: com.baidu.tieba.imMessageCenter.im.stranger.StrangerListActivity.5
         @Override // com.baidu.tieba.im.chat.a.a
         public void onComplete() {
-            StrangerListActivity.this.cdx();
+            StrangerListActivity.this.cdy();
         }
     };
     private final com.baidu.tieba.im.chat.a.b igE = new com.baidu.tieba.im.chat.a.b() { // from class: com.baidu.tieba.imMessageCenter.im.stranger.StrangerListActivity.6
         @Override // com.baidu.tieba.im.chat.a.b
         public void onPreExecute() {
-            StrangerListActivity.this.cdw();
+            StrangerListActivity.this.cdx();
         }
 
         @Override // com.baidu.tieba.im.chat.a.b
@@ -90,13 +90,13 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
         public void onPostExecute() {
             StrangerListActivity.this.xk();
             StrangerListActivity.this.showToast(R.string.delete_success, false);
-            StrangerListActivity.this.cdx();
+            StrangerListActivity.this.cdy();
         }
 
         @Override // com.baidu.tieba.im.chat.a.b
         public void onCanceled() {
             StrangerListActivity.this.xk();
-            StrangerListActivity.this.cdx();
+            StrangerListActivity.this.cdy();
         }
     };
 
@@ -169,7 +169,7 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         ImMessageCenterShowItemData wI;
-        if (this.izv != null && this.izv.ckg() != null && (wI = this.izv.ckg().getItem(i)) != null) {
+        if (this.izv != null && this.izv.ckh() != null && (wI = this.izv.ckh().getItem(i)) != null) {
             PersonalChatActivityConfig personalChatActivityConfig = new PersonalChatActivityConfig(this.izx.getPageContext().getContext(), com.baidu.adp.lib.f.b.toLong(wI.getFriendId(), 0L), wI.getFriendName(), wI.getFriendNameShow(), wI.getFriendPortrait(), 0, 0);
             personalChatActivityConfig.setFollowStatus(0);
             sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSONAL_CHAT, personalChatActivityConfig));
@@ -179,7 +179,7 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemLongClickListener
     public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
         final ImMessageCenterShowItemData wI;
-        if (this.izv == null || this.izv.ckg() == null || (wI = this.izv.ckg().getItem(i)) == null) {
+        if (this.izv == null || this.izv.ckh() == null || (wI = this.izv.ckh().getItem(i)) == null) {
             return false;
         }
         final int size = this.izw.getData().size();
@@ -204,7 +204,7 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.izv.ckh() && this.izy != null) {
+        if (view == this.izv.cki() && this.izy != null) {
             this.izy.aMS();
         }
     }
@@ -213,8 +213,8 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.izv != null && this.izv.ckg() != null) {
-            this.izv.ckg().notifyDataSetChanged();
+        if (this.izv != null && this.izv.ckh() != null) {
+            this.izv.ckh().notifyDataSetChanged();
         }
         MessageManager.getInstance().dispatchResponsedMessage(new MemoryClearUnreadCountMessage(new MemoryClearUnreadCountMessage.a(TbEnum.CustomGroupId.STRANGE_MERGE, -7)));
     }
@@ -253,10 +253,10 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cdw() {
+    public void cdx() {
         xk();
         if (this.igA == null) {
-            this.igA = e.cff().eG(getPageContext().getPageActivity());
+            this.igA = e.cfg().eG(getPageContext().getPageActivity());
         }
         this.igA.show();
         this.igA.setPercent(0);
@@ -274,18 +274,18 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void notifyDataSetChanged() {
-        if (this.izv != null && this.izv.ckg() != null) {
-            this.izv.ckg().notifyDataSetChanged();
+        if (this.izv != null && this.izv.ckh() != null) {
+            this.izv.ckh().notifyDataSetChanged();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cdx() {
-        if (this.izv != null && this.izv.ckg() != null && this.izw != null) {
+    public void cdy() {
+        if (this.izv != null && this.izv.ckh() != null && this.izw != null) {
             if (this.izw != null && this.izw.isEmpty()) {
                 finish();
             }
-            this.izv.ckg().setData(this.izw.getData());
+            this.izv.ckh().setData(this.izw.getData());
         }
     }
 }

@@ -36,11 +36,11 @@ public class f extends a {
         }
     }
 
-    public void doJ() {
+    public void doK() {
         this.lVu++;
     }
 
-    public void doK() {
+    public void doL() {
         this.lVu--;
         invalidateSelf();
     }
@@ -74,13 +74,13 @@ public class f extends a {
         invalidateSelf();
     }
 
-    public void doL() {
+    public void doM() {
         this.lVp = 0;
         Arrays.fill(this.lVt, true);
         invalidateSelf();
     }
 
-    public void doM() {
+    public void doN() {
         this.lVp = 2;
         for (int i = 0; i < this.lVd.length; i++) {
             this.lVs[i] = this.lVt[i] ? 255 : 0;
@@ -114,7 +114,7 @@ public class f extends a {
         switch (this.lVp) {
             case 0:
                 System.arraycopy(this.lVs, 0, this.lVr, 0, this.lVd.length);
-                this.mStartTimeMs = doN();
+                this.mStartTimeMs = doO();
                 if (lVv && this.lVq != 0) {
                     r0 = 0.0f;
                 }
@@ -124,7 +124,7 @@ public class f extends a {
                 break;
             case 1:
                 com.facebook.common.internal.g.checkState(this.lVq > 0);
-                boolean aB2 = aB(lVv ? ((float) (doN() - this.mStartTimeMs)) / this.lVq : 1.0f);
+                boolean aB2 = aB(lVv ? ((float) (doO() - this.mStartTimeMs)) / this.lVq : 1.0f);
                 this.lVp = aB2 ? 2 : 1;
                 z = aB2;
                 break;
@@ -159,7 +159,7 @@ public class f extends a {
         return this.mAlpha;
     }
 
-    protected long doN() {
+    protected long doO() {
         return SystemClock.uptimeMillis();
     }
 }

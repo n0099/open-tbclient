@@ -36,7 +36,7 @@ public class b implements a {
     }
 
     @Override // com.baidu.tieba.videoEasterEgg.b.a
-    public void ddK() {
+    public void ddL() {
         if (this.mPageContext != null) {
             if (ShareSwitch.isOn() || bc.checkUpIsLogin(this.mPageContext.getPageActivity())) {
                 aQA();
@@ -45,28 +45,28 @@ public class b implements a {
     }
 
     @Override // com.baidu.tieba.videoEasterEgg.b.a
-    public void ddL() {
+    public void ddM() {
         if (this.lrA != null && this.lrB != null) {
             this.lrB.Mk(this.lrA.getVideoUrl());
         }
     }
 
     @Override // com.baidu.tieba.videoEasterEgg.b.a
-    public void cJq() {
+    public void cJr() {
         if (this.lrB != null) {
             this.lrB.Yl();
         }
     }
 
     @Override // com.baidu.tieba.videoEasterEgg.b.a
-    public void ddM() {
+    public void ddN() {
         if (this.lrB != null && this.lrA != null) {
             this.lrB.eZ(this.lrA.getPopText(), this.lrA.getPopImageUrl());
         }
     }
 
     @Override // com.baidu.tieba.videoEasterEgg.b.a
-    public void ddN() {
+    public void ddO() {
         if (this.lrA != null) {
             com.baidu.tbadk.core.sharedPref.b.aNT().putBoolean(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount(this.lrA.getID()), false);
         }
@@ -74,11 +74,11 @@ public class b implements a {
 
     @Override // com.baidu.tieba.videoEasterEgg.b.a
     public void onResume() {
-        ddO();
+        ddP();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ddO() {
+    public void ddP() {
         if (this.lrA != null && this.lrB != null) {
             this.lrB.Mj(this.lrA.getVideoUrl());
         }
@@ -114,7 +114,7 @@ public class b implements a {
             shareDialogConfig.setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.videoEasterEgg.b.b.2
                 @Override // android.content.DialogInterface.OnDismissListener
                 public void onDismiss(DialogInterface dialogInterface) {
-                    b.this.ddO();
+                    b.this.ddP();
                 }
             });
             this.mPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SHARE_DIALOG_SHOW, shareDialogConfig));

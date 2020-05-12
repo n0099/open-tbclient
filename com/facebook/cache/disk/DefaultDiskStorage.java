@@ -29,8 +29,8 @@ public class DefaultDiskStorage implements com.facebook.cache.disk.c {
         this.lQt = a(file, cacheErrorLogger);
         this.lQu = new File(this.lQs, FY(i));
         this.lQv = cacheErrorLogger;
-        dml();
-        this.lQw = com.facebook.common.time.c.dnr();
+        dmm();
+        this.lQw = com.facebook.common.time.c.dnt();
     }
 
     private static boolean a(File file, CacheErrorLogger cacheErrorLogger) {
@@ -66,7 +66,7 @@ public class DefaultDiskStorage implements com.facebook.cache.disk.c {
         return this.lQt;
     }
 
-    private void dml() {
+    private void dmm() {
         boolean z = true;
         if (this.lQs.exists()) {
             if (this.lQu.exists()) {
@@ -187,7 +187,7 @@ public class DefaultDiskStorage implements com.facebook.cache.disk.c {
     }
 
     @Override // com.facebook.cache.disk.c
-    public void dmm() {
+    public void dmn() {
         com.facebook.common.file.a.a(this.lQs, new e());
     }
 
@@ -246,7 +246,7 @@ public class DefaultDiskStorage implements com.facebook.cache.disk.c {
 
     @Override // com.facebook.cache.disk.c
     public long a(c.a aVar) {
-        return V(((b) aVar).dmp().getFile());
+        return V(((b) aVar).dmq().getFile());
     }
 
     @Override // com.facebook.cache.disk.c
@@ -268,7 +268,7 @@ public class DefaultDiskStorage implements com.facebook.cache.disk.c {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.cache.disk.c
     /* renamed from: getEntries */
-    public List<c.a> dmn() throws IOException {
+    public List<c.a> dmo() throws IOException {
         a aVar = new a();
         com.facebook.common.file.a.a(this.lQu, aVar);
         return aVar.getEntries();
@@ -302,7 +302,7 @@ public class DefaultDiskStorage implements com.facebook.cache.disk.c {
             return this.timestamp;
         }
 
-        public com.facebook.a.b dmp() {
+        public com.facebook.a.b dmq() {
             return this.lQy;
         }
 
@@ -442,7 +442,7 @@ public class DefaultDiskStorage implements com.facebook.cache.disk.c {
         }
 
         @Override // com.facebook.cache.disk.c.b
-        public boolean dmq() {
+        public boolean dmr() {
             return !this.lQz.exists() || this.lQz.delete();
         }
     }

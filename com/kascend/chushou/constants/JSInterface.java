@@ -104,11 +104,11 @@ public class JSInterface {
         Http.Resp sync;
         e.d(TAG, "isLogin()");
         final String a = com.kascend.chushou.d.e.a("_fromView", "9");
-        if (!tv.chushou.zues.utils.a.dJO()) {
+        if (!tv.chushou.zues.utils.a.dJP()) {
             g.F(this.mContext, a.i.s_no_available_network);
             return false;
         } else if (LoginManager.Instance().islogined()) {
-            Http http = (Http) tv.chushou.basis.d.b.dJr().S(Http.class);
+            Http http = (Http) tv.chushou.basis.d.b.dJs().S(Http.class);
             if (http == null) {
                 RxExecutor.post(null, EventThread.MAIN_THREAD, new Runnable() { // from class: com.kascend.chushou.constants.JSInterface.1
                     @Override // java.lang.Runnable
@@ -119,7 +119,7 @@ public class JSInterface {
                 return false;
             }
             try {
-                sync = http.getSync(tv.chushou.common.a.dJs(), "api/token/verify.htm?", null, RequestTag.normal());
+                sync = http.getSync(tv.chushou.common.a.dJt(), "api/token/verify.htm?", null, RequestTag.normal());
             } catch (Exception e) {
                 e.e(TAG, "verfify token sync failed", e);
             }
@@ -413,8 +413,8 @@ public class JSInterface {
 
     @JavascriptInterface
     public void updatePoint() {
-        if (tv.chushou.zues.utils.a.dJO() && LoginManager.Instance().islogined()) {
-            com.kascend.chushou.c.c.dwD().c((com.kascend.chushou.c.b) null, "");
+        if (tv.chushou.zues.utils.a.dJP() && LoginManager.Instance().islogined()) {
+            com.kascend.chushou.c.c.dwE().c((com.kascend.chushou.c.b) null, "");
         }
     }
 
@@ -605,7 +605,7 @@ public class JSInterface {
                 }
             }
             if (!h.isEmpty(str4)) {
-                com.kascend.chushou.d.h.dwH().b(str3);
+                com.kascend.chushou.d.h.dwI().b(str3);
                 closeView();
                 return;
             }
@@ -621,7 +621,7 @@ public class JSInterface {
                         }).b(new b.a() { // from class: com.kascend.chushou.constants.JSInterface.9.1
                             @Override // tv.chushou.zues.widget.sweetalert.b.a
                             public void onClick(tv.chushou.zues.widget.sweetalert.b bVar) {
-                                com.kascend.chushou.d.h.dwH().b(str3);
+                                com.kascend.chushou.d.h.dwI().b(str3);
                                 bVar.dismiss();
                                 JSInterface.this.closeView();
                             }
@@ -694,14 +694,14 @@ public class JSInterface {
             String optString = jSONObject.optString("type");
             ListItem dB = com.kascend.chushou.c.a.dB(jSONObject.optJSONObject("listItem"));
             if ("1".equals(optString)) {
-                com.kascend.chushou.a.a.dwB().a(dB);
+                com.kascend.chushou.a.a.dwC().a(dB);
             } else if ("2".equals(optString)) {
                 JSONObject optJSONObject = jSONObject.optJSONObject("dataInfo");
                 if (this.mContext != null) {
                     com.kascend.chushou.d.e.a(this.mContext, dB, optJSONObject);
                 }
             } else if ("3".equals(optString)) {
-                com.kascend.chushou.a.a.dwB().c(dB);
+                com.kascend.chushou.a.a.dwC().c(dB);
             }
         } catch (JSONException e) {
             e.printStackTrace();
@@ -746,7 +746,7 @@ public class JSInterface {
             } catch (JSONException e) {
             }
             if (!h.isEmpty(str2) || !h.isEmpty(str3)) {
-                final File dwF = com.kascend.chushou.d.c.mnH.dwF();
+                final File dwG = com.kascend.chushou.d.c.mnH.dwG();
                 new tv.chushou.zues.widget.sweetalert.b(this.mContext).a(new b.a() { // from class: com.kascend.chushou.constants.JSInterface.11
                     @Override // tv.chushou.zues.widget.sweetalert.b.a
                     public void onClick(tv.chushou.zues.widget.sweetalert.b bVar) {
@@ -757,7 +757,7 @@ public class JSInterface {
                     public void onClick(tv.chushou.zues.widget.sweetalert.b bVar) {
                         bVar.dismiss();
                         if (!h.isEmpty(str2)) {
-                            tv.chushou.zues.widget.fresco.a.a(str2, dwF.getAbsolutePath(), new a.InterfaceC0860a() { // from class: com.kascend.chushou.constants.JSInterface.10.1
+                            tv.chushou.zues.widget.fresco.a.a(str2, dwG.getAbsolutePath(), new a.InterfaceC0860a() { // from class: com.kascend.chushou.constants.JSInterface.10.1
                                 @Override // tv.chushou.zues.widget.fresco.a.InterfaceC0860a
                                 public void onComplete(boolean z, String str5) {
                                     if (z) {
@@ -774,11 +774,11 @@ public class JSInterface {
                             });
                             return;
                         }
-                        File n = com.kascend.chushou.d.d.mnI.n(str3, new File(dwF, System.currentTimeMillis() + ".jpg"));
+                        File n = com.kascend.chushou.d.d.mnI.n(str3, new File(dwG, System.currentTimeMillis() + ".jpg"));
                         if (n != null) {
                             Intent intent = new Intent("android.intent.action.MEDIA_SCANNER_SCAN_FILE");
                             intent.setData(Uri.fromFile(n));
-                            tv.chushou.basis.d.b.dJp().sendBroadcast(intent);
+                            tv.chushou.basis.d.b.dJq().sendBroadcast(intent);
                             if (!h.isEmpty(str4)) {
                                 g.t(str4);
                                 return;
@@ -807,13 +807,13 @@ public class JSInterface {
                     bVar.a(new b.a() { // from class: com.kascend.chushou.constants.JSInterface.12.2
                         @Override // tv.chushou.zues.widget.sweetalert.b.a
                         public void onClick(tv.chushou.zues.widget.sweetalert.b bVar2) {
-                            bVar.dKt();
+                            bVar.dKu();
                             iVar.cancel();
                         }
                     }).b(new b.a() { // from class: com.kascend.chushou.constants.JSInterface.12.1
                         @Override // tv.chushou.zues.widget.sweetalert.b.a
                         public void onClick(tv.chushou.zues.widget.sweetalert.b bVar2) {
-                            bVar.dKt();
+                            bVar.dKu();
                             iVar.execute();
                         }
                     }).Qw(context.getString(a.i.alert_dialog_cancel)).Qy(context.getString(a.i.gallery_permissions_continue)).w(context.getString(a.i.gallery_permissions_rationale, c)).setCanceledOnTouchOutside(false);

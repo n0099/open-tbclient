@@ -237,55 +237,55 @@ public class d {
                 dVar = dVar;
             }
         }
-        List<AppData> cNj = q.cNl().cNj();
-        if (cNj != null) {
-            cNj.clear();
+        List<AppData> cNk = q.cNm().cNk();
+        if (cNk != null) {
+            cNk.clear();
         }
         if (builder.banner_list != null && builder.banner_list.app != null) {
             for (App app : builder.banner_list.app) {
                 com.baidu.tieba.homepage.personalize.data.a aVar = new com.baidu.tieba.homepage.personalize.data.a();
                 aVar.b(app);
-                if (cNj != null && aVar.gsg != null) {
+                if (cNk != null && aVar.gsg != null) {
                     aVar.gsg.dtU = true;
-                    cNj.add(aVar.gsg.dmI);
+                    cNk.add(aVar.gsg.dmI);
                 }
-                AdvertAppInfo bFm = aVar.bFm();
-                if (bFm == null) {
-                    a(aVar.bFm(), 1, 100);
+                AdvertAppInfo bFn = aVar.bFn();
+                if (bFn == null) {
+                    a(aVar.bFn(), 1, 100);
                 } else {
-                    int aID = bFm.aID();
+                    int aID = bFn.aID();
                     if (aID != 0) {
-                        a(aVar.bFm(), 1, aID);
+                        a(aVar.bFn(), 1, aID);
                         if (aID != 28 && aID != 31) {
-                            if (bFm.dmB != null) {
-                                bFm.dmB.dmO = -1001;
+                            if (bFn.dmB != null) {
+                                bFn.dmB.dmO = -1001;
                             }
                         }
                     }
                     if (aVar.getPosition() <= 0) {
-                        a(aVar.bFm(), 1, 23);
-                        if (bFm.dmB != null) {
-                            bFm.dmB.dmO = -1001;
+                        a(aVar.bFn(), 1, 23);
+                        if (bFn.dmB != null) {
+                            bFn.dmB.dmO = -1001;
                         }
                     }
-                    if (bFm.aIE()) {
+                    if (bFn.aIE()) {
                         try {
-                            if (TextUtils.isEmpty(bFm.dmv) || x.isInstalledPackage(TbadkCoreApplication.getInst().getContext(), bFm.dmv)) {
-                                if (TextUtils.isEmpty(bFm.dmv)) {
-                                    a(aVar.bFm(), 1, 26);
+                            if (TextUtils.isEmpty(bFn.dmv) || x.isInstalledPackage(TbadkCoreApplication.getInst().getContext(), bFn.dmv)) {
+                                if (TextUtils.isEmpty(bFn.dmv)) {
+                                    a(aVar.bFn(), 1, 26);
                                 } else {
-                                    a(aVar.bFm(), 1, 3);
+                                    a(aVar.bFn(), 1, 3);
                                 }
                             }
                         } catch (Exception e) {
-                            a(aVar.bFm(), 1, 100);
+                            a(aVar.bFn(), 1, 100);
                         }
                     }
                     linkedList.add(aVar);
                 }
             }
         }
-        q.cNl().cNk();
+        q.cNm().cNl();
         return linkedList;
     }
 
@@ -454,17 +454,17 @@ public class d {
                         aVar.b(app);
                         int i = app != null ? com.baidu.adp.lib.f.b.toInt(app.pos_name, -1) : -1;
                         if (i < 0 || i > count + size) {
-                            a(aVar.bFm(), 1, 2);
+                            a(aVar.bFn(), 1, 2);
                             builder2.app.remove(size);
                         } else {
-                            AdvertAppInfo bFm = aVar.bFm();
-                            if (bFm == null) {
-                                a(aVar.bFm(), 1, 100);
+                            AdvertAppInfo bFn = aVar.bFn();
+                            if (bFn == null) {
+                                a(aVar.bFn(), 1, 100);
                                 builder2.app.remove(size);
                             } else {
-                                int aID = bFm.aID();
+                                int aID = bFn.aID();
                                 if (aID != 0) {
-                                    a(aVar.bFm(), 1, aID);
+                                    a(aVar.bFn(), 1, aID);
                                     builder2.app.remove(size);
                                 }
                             }
@@ -531,7 +531,7 @@ public class d {
     }
 
     private static void a(AdvertAppInfo advertAppInfo, int i, int i2) {
-        com.baidu.tieba.recapp.report.d.cOi().a(g.b(advertAppInfo, 5, i, i2));
+        com.baidu.tieba.recapp.report.d.cOj().a(g.b(advertAppInfo, 5, i, i2));
         if (advertAppInfo != null && advertAppInfo.dmI != null) {
             advertAppInfo.dmI.mDiscardReason = i2;
         }
@@ -540,6 +540,6 @@ public class d {
     private static void a(App app, int i, int i2) {
         com.baidu.tieba.homepage.personalize.data.a aVar = new com.baidu.tieba.homepage.personalize.data.a();
         aVar.b(app);
-        a(aVar.bFm(), i, i2);
+        a(aVar.bFn(), i, i2);
     }
 }

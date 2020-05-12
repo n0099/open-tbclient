@@ -15,7 +15,7 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personPol
         this.jYt = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<PersonCommonForumItemView>() { // from class: com.baidu.tieba.personPolymeric.a.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: cHI */
+            /* renamed from: cHJ */
             public PersonCommonForumItemView makeObject() {
                 return new PersonCommonForumItemView(b.this.mContext);
             }
@@ -60,8 +60,8 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personPol
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.personPolymeric.c.c cVar, com.baidu.tieba.card.a.a<com.baidu.tieba.personPolymeric.view.a> aVar) {
-        aVar.bFz().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        aVar.bFz().a(cVar);
+        aVar.bFA().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        aVar.bFA().a(cVar);
         return aVar.getView();
     }
 }

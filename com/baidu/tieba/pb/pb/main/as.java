@@ -10,7 +10,7 @@ import java.util.Map;
 public class as {
     private static as jCa = null;
 
-    public static as cBA() {
+    public static as cBB() {
         if (jCa == null) {
             synchronized (as.class) {
                 if (jCa == null) {

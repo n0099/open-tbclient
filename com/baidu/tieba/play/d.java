@@ -5,13 +5,13 @@ public interface d {
 
     void IJ(String str);
 
-    j cJA();
+    void cJA();
 
-    String cJs();
+    j cJB();
 
-    void cJt();
+    String cJt();
 
-    boolean cJu();
+    void cJu();
 
     boolean cJv();
 
@@ -19,9 +19,9 @@ public interface d {
 
     boolean cJx();
 
-    int cJy();
+    boolean cJy();
 
-    void cJz();
+    int cJz();
 
     void fj(long j);
 

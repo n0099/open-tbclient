@@ -44,11 +44,11 @@ public class a extends com.baidu.tbadk.mvc.f.a<com.baidu.tieba.myCollection.base
                     } else {
                         this.jfo.setText(aVar.getDescription());
                     }
-                } else if (aVar.csQ() != null) {
+                } else if (aVar.csR() != null) {
                     if (aVar.isShareThread()) {
-                        this.jfo.setText(String.format("%s%s", getString(R.string.pb_history_share_prefix), aVar.csQ()));
+                        this.jfo.setText(String.format("%s%s", getString(R.string.pb_history_share_prefix), aVar.csR()));
                     } else {
-                        this.jfo.setText(aVar.csQ());
+                        this.jfo.setText(aVar.csR());
                     }
                 }
             }

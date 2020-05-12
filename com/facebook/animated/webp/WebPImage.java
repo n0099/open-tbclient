@@ -52,7 +52,7 @@ public class WebPImage implements c, b {
     }
 
     public static WebPImage z(long j, int i) {
-        com.facebook.imagepipeline.nativecode.b.dmb();
+        com.facebook.imagepipeline.nativecode.b.dmc();
         g.checkArgument(j != 0);
         return nativeCreateFromNativeMemory(j, i);
     }
@@ -78,7 +78,7 @@ public class WebPImage implements c, b {
     }
 
     @Override // com.facebook.imagepipeline.animated.base.b
-    public int[] dmc() {
+    public int[] dmd() {
         return nativeGetFrameDurations();
     }
 
@@ -100,7 +100,7 @@ public class WebPImage implements c, b {
     }
 
     @Override // com.facebook.imagepipeline.animated.base.b
-    public boolean dmd() {
+    public boolean dme() {
         return true;
     }
 
@@ -108,7 +108,7 @@ public class WebPImage implements c, b {
     public AnimatedDrawableFrameInfo FU(int i) {
         WebPFrame FW = FW(i);
         try {
-            return new AnimatedDrawableFrameInfo(i, FW.getXOffset(), FW.getYOffset(), FW.getWidth(), FW.getHeight(), FW.dmf() ? AnimatedDrawableFrameInfo.BlendOperation.BLEND_WITH_PREVIOUS : AnimatedDrawableFrameInfo.BlendOperation.NO_BLEND, FW.dme() ? AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_TO_BACKGROUND : AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_DO_NOT);
+            return new AnimatedDrawableFrameInfo(i, FW.getXOffset(), FW.getYOffset(), FW.getWidth(), FW.getHeight(), FW.dmg() ? AnimatedDrawableFrameInfo.BlendOperation.BLEND_WITH_PREVIOUS : AnimatedDrawableFrameInfo.BlendOperation.NO_BLEND, FW.dmf() ? AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_TO_BACKGROUND : AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_DO_NOT);
         } finally {
             FW.dispose();
         }

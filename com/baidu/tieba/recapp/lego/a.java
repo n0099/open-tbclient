@@ -30,7 +30,7 @@ import org.json.JSONObject;
 /* loaded from: classes13.dex */
 class a extends e {
     @Override // com.baidu.tieba.lego.card.e
-    protected void cmC() {
+    protected void cmD() {
         iJp.put(17, iJp.size() + 1);
         iJp.put(26, iJp.size() + 1);
         iJp.put(27, iJp.size() + 1);

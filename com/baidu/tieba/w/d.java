@@ -55,17 +55,17 @@ public class d {
         this.ltx = 0;
     }
 
-    public boolean des() {
+    public boolean det() {
         if (!(com.baidu.tbadk.core.sharedPref.b.aNT().getInt(SharedPrefConfig.KEY_VIDEO_SPLASH_SWITCH, 0) == 1) || this.ltv == null || this.ltw == null) {
             return false;
         }
-        return this.ltv.des() && this.ltw.deu();
+        return this.ltv.det() && this.ltw.dev();
     }
 
-    public void dew() {
+    public void dex() {
         if (!(com.baidu.tbadk.core.sharedPref.b.aNT().getInt(SharedPrefConfig.KEY_VIDEO_SPLASH_SWITCH, 0) == 1)) {
             if (this.ltw != null) {
-                this.ltw.dev();
+                this.ltw.dew();
             }
             com.baidu.tbadk.core.sharedPref.b.aNT().putLong(SharedPrefConfig.KEY_VIDEO_SPLASH_LAST_SHOW_TIME, 0L);
         }
@@ -136,7 +136,7 @@ public class d {
                     @Override // android.media.MediaPlayer.OnInfoListener
                     public boolean onInfo(MediaPlayer mediaPlayer2, int i, int i2) {
                         if (i == 3) {
-                            d.this.dex();
+                            d.this.dey();
                             return false;
                         }
                         return false;
@@ -181,19 +181,19 @@ public class d {
             aSl = this.ltt.getString(R.string.video_splash_tip_default);
         }
         this.fBz.setText(aSl);
-        dey();
+        dez();
         return inflate;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dex() {
+    public void dey() {
         if (this.lrm != null) {
             this.lrm.setBackgroundResource(0);
         }
     }
 
-    private void dey() {
-        if (this.ltw != null && this.ltw.deu()) {
+    private void dez() {
+        if (this.ltw != null && this.ltw.dev()) {
             try {
                 MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
                 mediaMetadataRetriever.setDataSource(this.ltw.getVideoPath());
@@ -222,7 +222,7 @@ public class d {
             this.ltx = this.lrm.getCurrentPosition();
             this.lrm.stopPlayback();
             if (this.lty) {
-                dey();
+                dez();
             }
         }
     }

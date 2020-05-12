@@ -52,20 +52,20 @@ public class g implements c {
     }
 
     @Override // com.baidu.tieba.pb.b.a.c
-    public CharSequence cDf() {
+    public CharSequence cDg() {
         return this.jIM;
     }
 
-    public int cDh() {
+    public int cDi() {
         return this.jIN;
     }
 
-    public String cDi() {
+    public String cDj() {
         return this.color;
     }
 
     @Override // com.baidu.tieba.pb.b.a.c
-    public boolean cDg() {
+    public boolean cDh() {
         return (this.jIN > 0 && this.jIN < 3) || !StringUtils.isNull(this.color);
     }
 

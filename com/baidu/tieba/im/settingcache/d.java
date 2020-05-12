@@ -16,7 +16,7 @@ public class d extends a {
     private d() {
     }
 
-    public static d ciT() {
+    public static d ciU() {
         return ivl;
     }
 
@@ -43,7 +43,7 @@ public class d extends a {
         return officialSettingItemData;
     }
 
-    public void cfc() {
+    public void cfd() {
         super.y(OfficialSettingItemData.class);
     }
 
@@ -57,7 +57,7 @@ public class d extends a {
     }
 
     @Override // com.baidu.tieba.im.settingcache.a
-    protected l<String> ciQ() {
+    protected l<String> ciR() {
         return com.baidu.tbadk.core.c.a.aMR().ug("tb.im_official_chat_setting");
     }
 
@@ -73,13 +73,13 @@ public class d extends a {
                 }
                 return;
             }
-            l<String> ciQ = ciQ();
+            l<String> ciR = ciR();
             String str = myUid + UgcConstant.AT_RULE_TAG + toUid;
             String jsonStrWithObject = OrmObject.jsonStrWithObject(officialSettingItemData);
             synchronized (this.ive) {
                 this.ive.put(str, officialSettingItemData);
             }
-            ciQ.setForever(str, jsonStrWithObject);
+            ciR.setForever(str, jsonStrWithObject);
         }
     }
 
@@ -104,7 +104,7 @@ public class d extends a {
                 @Override // com.baidu.tbadk.util.ab
                 /* renamed from: bgO */
                 public Void doInBackground() {
-                    d.this.ciQ().setForever(str, OrmObject.jsonStrWithObject(officialSettingItemData));
+                    d.this.ciR().setForever(str, OrmObject.jsonStrWithObject(officialSettingItemData));
                     return null;
                 }
             }, lVar);

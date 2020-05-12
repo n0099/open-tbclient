@@ -24,9 +24,9 @@ public final class ParallelJoin<T> extends g<T> {
     protected void a(c<? super T> cVar) {
         JoinSubscriptionBase joinSubscription;
         if (this.delayErrors) {
-            joinSubscription = new JoinSubscriptionDelayError(cVar, this.mTX.dCN(), this.prefetch);
+            joinSubscription = new JoinSubscriptionDelayError(cVar, this.mTX.dCO(), this.prefetch);
         } else {
-            joinSubscription = new JoinSubscription(cVar, this.mTX.dCN(), this.prefetch);
+            joinSubscription = new JoinSubscription(cVar, this.mTX.dCO(), this.prefetch);
         }
         cVar.onSubscribe(joinSubscription);
         this.mTX.a(joinSubscription.subscribers);

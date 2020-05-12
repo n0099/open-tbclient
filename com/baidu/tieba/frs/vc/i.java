@@ -57,7 +57,7 @@ public class i {
         this.mBdUniqueId = bdUniqueId;
     }
 
-    public boolean bVB() {
+    public boolean bVC() {
         return this.fsH != null && this.fsH.getVisibility() == 0;
     }
 

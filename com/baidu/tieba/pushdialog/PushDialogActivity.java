@@ -57,7 +57,7 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && j.isNetWorkAvailable() && PushDialogActivity.this.knv != null) {
-                PushDialogActivity.this.knv.cMg();
+                PushDialogActivity.this.knv.cMh();
             }
         }
     };
@@ -91,7 +91,7 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
         this.knA += "_1";
         TiebaStatic.eventStat(this, "push_dialog", this.knA);
         super.onCreate(bundle);
-        this.hzW = com.baidu.tieba.screenlocknotify.a.cOU().kAk;
+        this.hzW = com.baidu.tieba.screenlocknotify.a.cOV().kAk;
         if (this.knx == null) {
             this.knx = new com.baidu.tieba.ueg.b();
         }
@@ -175,7 +175,7 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
         }
     }
 
-    public com.baidu.tieba.v.b cLW() {
+    public com.baidu.tieba.v.b cLX() {
         return this.hzW;
     }
 
@@ -287,7 +287,7 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
             this.emN = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<GifView>() { // from class: com.baidu.tieba.pushdialog.PushDialogActivity.4
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.adp.lib.d.c
-                /* renamed from: bJu */
+                /* renamed from: bJv */
                 public GifView makeObject() {
                     return new GifView(PushDialogActivity.this);
                 }
@@ -327,7 +327,7 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
             this.epF = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<View>() { // from class: com.baidu.tieba.pushdialog.PushDialogActivity.5
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.adp.lib.d.c
-                /* renamed from: cyk */
+                /* renamed from: cyl */
                 public View makeObject() {
                     PlayVoiceBntNew playVoiceBntNew = new PlayVoiceBntNew(PushDialogActivity.this, PlayVoiceBntNew.PLAY_TYPE.NORMAL);
                     playVoiceBntNew.setPlayTimeTextView(R.dimen.fontsize28);
@@ -345,7 +345,7 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
                 @Override // com.baidu.adp.lib.d.c
                 /* renamed from: cF */
                 public View activateObject(View view) {
-                    ((PlayVoiceBntNew) view).cXw();
+                    ((PlayVoiceBntNew) view).cXx();
                     return view;
                 }
 
@@ -367,7 +367,7 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
             this.epG = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<LinearLayout>() { // from class: com.baidu.tieba.pushdialog.PushDialogActivity.6
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.adp.lib.d.c
-                /* renamed from: cym */
+                /* renamed from: cyn */
                 public LinearLayout makeObject() {
                     LinearLayout linearLayout = new LinearLayout(PushDialogActivity.this);
                     linearLayout.setId(R.id.pb_text_voice_layout);
@@ -411,7 +411,7 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
         this.epH = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<RelativeLayout>() { // from class: com.baidu.tieba.pushdialog.PushDialogActivity.7
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: cyl */
+            /* renamed from: cym */
             public RelativeLayout makeObject() {
                 return new RelativeLayout(PushDialogActivity.this);
             }

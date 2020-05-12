@@ -13,8 +13,8 @@ public class d implements com.facebook.common.g.a {
     private final i lZY;
 
     public d(q qVar) {
-        this.lZY = qVar.dtH();
-        this.lZX = new b(qVar.dtK());
+        this.lZY = qVar.dtI();
+        this.lZX = new b(qVar.dtL());
     }
 
     @Override // com.facebook.common.g.a

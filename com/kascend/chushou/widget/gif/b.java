@@ -72,7 +72,7 @@ public class b extends e {
             return this;
         }
 
-        public ImageSpan dzb() {
+        public ImageSpan dzc() {
             Drawable drawable;
             f.a(this.a);
             f.a(this.d != 0, "should set height");
@@ -80,7 +80,7 @@ public class b extends e {
             File c = com.kascend.chushou.d.c.mnH.c();
             final File file = new File(c, Qk);
             if (!file.exists() || file.isDirectory()) {
-                com.kascend.chushou.c.c.dwD().a(this.a, new File(c, Qk + HttpConsts.FILE_BACKUP_SUFFIX), new DownloadListener() { // from class: com.kascend.chushou.widget.gif.b.a.1
+                com.kascend.chushou.c.c.dwE().a(this.a, new File(c, Qk + HttpConsts.FILE_BACKUP_SUFFIX), new DownloadListener() { // from class: com.kascend.chushou.widget.gif.b.a.1
                     @Override // tv.chushou.basis.d.a.c.a
                     public void onStart() {
                     }

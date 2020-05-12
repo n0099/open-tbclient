@@ -52,11 +52,11 @@ public class c extends d {
     }
 
     @Override // com.baidu.tieba.play.operableVideoView.d
-    public void cEQ() {
+    public void cER() {
     }
 
     @Override // com.baidu.tieba.play.operableVideoView.d
-    public void cEP() {
+    public void cEQ() {
         this.kjA = 32;
     }
 
@@ -64,7 +64,7 @@ public class c extends d {
     public void onClick(View view) {
         if (view != null) {
             if (view.getId() == R.id.video_mute) {
-                cKI();
+                cKJ();
             } else if (!j.isNetWorkAvailable()) {
                 l.showToast(this.mContext, (int) R.string.no_network_guide);
             } else if (this.ahN) {
@@ -87,7 +87,7 @@ public class c extends d {
         i.am(this.kjh);
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, pbActivityConfig));
         if (this.afV != null) {
-            this.afV.onClick(cJn());
+            this.afV.onClick(cJo());
         }
     }
 
@@ -98,13 +98,13 @@ public class c extends d {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.play.operableVideoView.d
-    public void cEN() {
+    public void cEO() {
         if (this.kjH == this.kjz) {
-            cKA();
+            cKB();
         }
     }
 
-    public void cKA() {
+    public void cKB() {
         Ah(this.kjA);
     }
 

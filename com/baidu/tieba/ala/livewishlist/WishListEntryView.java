@@ -49,12 +49,12 @@ public class WishListEntryView extends RelativeLayout {
 
     public void Y(ArrayList<AlaLiveWishListData> arrayList) {
         if (ListUtils.isEmpty(arrayList)) {
-            this.fTL.bDu();
+            this.fTL.bDv();
             this.fTL.ac(null);
             this.fTL.setVisibility(8);
             this.fTM.setVisibility(8);
         } else if (arrayList != null && arrayList.size() == 1) {
-            this.fTL.bDu();
+            this.fTL.bDv();
             this.fTL.ac(null);
             this.fTL.setVisibility(8);
             this.fTM.setVisibility(0);
@@ -62,19 +62,19 @@ public class WishListEntryView extends RelativeLayout {
         } else {
             this.fTM.setVisibility(8);
             this.fTL.setVisibility(0);
-            this.fTL.bDv();
+            this.fTL.bDw();
             this.fTL.ac(arrayList);
         }
     }
 
     public void Z(ArrayList<AlaLiveWishListData> arrayList) {
         if (ListUtils.isEmpty(arrayList)) {
-            this.fTL.bDu();
+            this.fTL.bDv();
             this.fTL.ac(null);
             this.fTL.setVisibility(8);
             this.fTM.setVisibility(8);
         } else if (arrayList != null && arrayList.size() == 1) {
-            this.fTL.bDu();
+            this.fTL.bDv();
             this.fTL.ac(null);
             this.fTL.setVisibility(8);
             this.fTM.setVisibility(0);
@@ -82,7 +82,7 @@ public class WishListEntryView extends RelativeLayout {
         } else {
             this.fTM.setVisibility(8);
             this.fTL.setVisibility(0);
-            this.fTL.bDv();
+            this.fTL.bDw();
             this.fTL.ac(arrayList);
         }
     }

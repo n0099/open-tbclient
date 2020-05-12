@@ -95,7 +95,7 @@ public class WebpBitmapFactoryImpl implements b {
     @d
     public static Bitmap hookDecodeByteArray(byte[] bArr, int i, int i2, BitmapFactory.Options options) {
         Bitmap originalDecodeByteArray;
-        com.facebook.imagepipeline.nativecode.b.dmb();
+        com.facebook.imagepipeline.nativecode.b.dmc();
         if (c.lSt && c.s(bArr, i, i2)) {
             originalDecodeByteArray = nativeDecodeByteArray(bArr, i, i2, options, getScaleFromOptions(options), getInTempStorageFromOptions(options));
             if (originalDecodeByteArray == null) {
@@ -129,7 +129,7 @@ public class WebpBitmapFactoryImpl implements b {
     @d
     public static Bitmap hookDecodeStream(InputStream inputStream, Rect rect, BitmapFactory.Options options) {
         Bitmap originalDecodeStream;
-        com.facebook.imagepipeline.nativecode.b.dmb();
+        com.facebook.imagepipeline.nativecode.b.dmc();
         InputStream H = H(inputStream);
         byte[] a = a(H, options);
         if (c.lSt && c.s(a, 0, 20)) {
@@ -295,7 +295,7 @@ public class WebpBitmapFactoryImpl implements b {
     @d
     public static Bitmap hookDecodeFileDescriptor(FileDescriptor fileDescriptor, Rect rect, BitmapFactory.Options options) {
         Bitmap originalDecodeFileDescriptor;
-        com.facebook.imagepipeline.nativecode.b.dmb();
+        com.facebook.imagepipeline.nativecode.b.dmc();
         long nativeSeek = nativeSeek(fileDescriptor, 0L, false);
         if (nativeSeek != -1) {
             InputStream H = H(new FileInputStream(fileDescriptor));

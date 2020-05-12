@@ -229,7 +229,7 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
         this.dIO = postData;
         setVisibility(0);
         a(postData);
-        a(a(postData.cWq()));
+        a(a(postData.cWr()));
         b(postData);
         c(postData);
         if ((this.mImageList != null && this.mImageList.size() > 0) || (this.dIP != null && this.dIP.bdd() != null)) {
@@ -258,7 +258,7 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
                 spannableStringBuilder3.setSpan(new com.baidu.tbadk.widget.richText.f(2, null) { // from class: com.baidu.tbadk.core.view.ThreadGodReplyLayout.1
                     @Override // com.baidu.tbadk.widget.richText.f, android.text.style.ClickableSpan
                     public void onClick(View view) {
-                        r.bEW().e(new an("c13348"));
+                        r.bEX().e(new an("c13348"));
                         ThreadGodReplyLayout.this.dIJ.setMaxLines(15);
                         ThreadGodReplyLayout.this.dIJ.setEllipsize(TextUtils.TruncateAt.END);
                         ThreadGodReplyLayout.this.dIJ.setText(spannableStringBuilder2.toString());
@@ -295,7 +295,7 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
                 }
                 this.dIJ.setText(spannableStringBuilder);
                 this.dIJ.setOnTouchListener(new com.baidu.tieba.view.i(spannableStringBuilder));
-                r.bEW().e(new an("c13347"));
+                r.bEX().e(new an("c13347"));
             } else {
                 return;
             }
@@ -362,13 +362,13 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
             this.dIM.setVisibility(8);
             return;
         }
-        TbRichText cWq = postData.cWq();
-        if (cWq == null || cWq.bcf() == null) {
+        TbRichText cWr = postData.cWr();
+        if (cWr == null || cWr.bcf() == null) {
             this.dIL.setVisibility(8);
             this.dIM.setVisibility(8);
             return;
         }
-        Iterator<TbRichTextData> it = cWq.bcf().iterator();
+        Iterator<TbRichTextData> it = cWr.bcf().iterator();
         while (it.hasNext()) {
             TbRichTextData next = it.next();
             if (next != null) {
@@ -449,7 +449,7 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
             aQD();
             aQC();
             this.dHF.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-            this.dIK.ckM();
+            this.dIK.ckN();
         }
     }
 

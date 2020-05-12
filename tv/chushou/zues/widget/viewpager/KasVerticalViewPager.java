@@ -1259,12 +1259,12 @@ public class KasVerticalViewPager extends ViewGroup {
             }
             throw new IllegalStateException("onPageScrolled did not call superclass implementation");
         }
-        b dKu = dKu();
+        b dKv = dKv();
         int clientHeight = getClientHeight();
         int i2 = this.mPageMargin + clientHeight;
         float f2 = this.mPageMargin / clientHeight;
-        int i3 = dKu.position;
-        float f3 = ((i / clientHeight) - dKu.offset) / (dKu.etb + f2);
+        int i3 = dKv.position;
+        float f3 = ((i / clientHeight) - dKv.offset) / (dKv.etb + f2);
         this.mCalledSuper = false;
         onPageScrolled(i3, f3, (int) (i2 * f3));
         if (!this.mCalledSuper) {
@@ -1515,8 +1515,8 @@ public class KasVerticalViewPager extends ViewGroup {
                         this.mPopulatePending = true;
                         int clientHeight = getClientHeight();
                         int scrollY = getScrollY();
-                        b dKu = dKu();
-                        setCurrentItemInternal(determineTargetPage(dKu.position, ((scrollY / clientHeight) - dKu.offset) / dKu.etb, yVelocity, (int) (MotionEventCompat.getY(motionEvent, MotionEventCompat.findPointerIndex(motionEvent, this.mActivePointerId)) - this.mInitialMotionY)), true, true, yVelocity);
+                        b dKv = dKv();
+                        setCurrentItemInternal(determineTargetPage(dKv.position, ((scrollY / clientHeight) - dKv.offset) / dKv.etb, yVelocity, (int) (MotionEventCompat.getY(motionEvent, MotionEventCompat.findPointerIndex(motionEvent, this.mActivePointerId)) - this.mInitialMotionY)), true, true, yVelocity);
                         this.mActivePointerId = -1;
                         endDrag();
                         z = this.esV.onRelease() | this.esU.onRelease();
@@ -1621,7 +1621,7 @@ public class KasVerticalViewPager extends ViewGroup {
         return r2;
     }
 
-    private b dKu() {
+    private b dKv() {
         int i;
         b bVar;
         int clientHeight = getClientHeight();

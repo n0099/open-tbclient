@@ -45,7 +45,7 @@ public abstract class a<T, INFO> implements a.InterfaceC0722a, a.InterfaceC0723a
     private Drawable mDrawable;
     private String mId;
     private boolean mIsAttached;
-    private final DraweeEventTracker lUg = DraweeEventTracker.doi();
+    private final DraweeEventTracker lUg = DraweeEventTracker.doj();
     private boolean lUv = true;
 
     protected abstract void aQ(@Nullable T t);
@@ -55,7 +55,7 @@ public abstract class a<T, INFO> implements a.InterfaceC0722a, a.InterfaceC0723a
 
     protected abstract Drawable aT(T t);
 
-    protected abstract com.facebook.datasource.b<T> dnT();
+    protected abstract com.facebook.datasource.b<T> dnU();
 
     protected abstract void i(@Nullable Drawable drawable);
 
@@ -93,7 +93,7 @@ public abstract class a<T, INFO> implements a.InterfaceC0722a, a.InterfaceC0723a
         }
         this.mIsAttached = false;
         this.lUp = false;
-        dol();
+        dom();
         this.lUr = false;
         if (this.lUi != null) {
             this.lUi.init();
@@ -103,7 +103,7 @@ public abstract class a<T, INFO> implements a.InterfaceC0722a, a.InterfaceC0723a
             this.lUj.a(this);
         }
         if (this.lUk instanceof C0724a) {
-            ((C0724a) this.lUk).doF();
+            ((C0724a) this.lUk).doG();
         } else {
             this.lUk = null;
         }
@@ -133,10 +133,10 @@ public abstract class a<T, INFO> implements a.InterfaceC0722a, a.InterfaceC0723a
         if (this.lUm != null) {
             this.lUm.reset();
         }
-        dol();
+        dom();
     }
 
-    private void dol() {
+    private void dom() {
         boolean z = this.lUo;
         this.lUo = false;
         this.lUq = false;
@@ -157,7 +157,7 @@ public abstract class a<T, INFO> implements a.InterfaceC0722a, a.InterfaceC0723a
             this.lUu = null;
         }
         if (z) {
-            doo().el(this.mId);
+            dop().el(this.mId);
         }
     }
 
@@ -167,7 +167,7 @@ public abstract class a<T, INFO> implements a.InterfaceC0722a, a.InterfaceC0723a
 
     /* JADX INFO: Access modifiers changed from: protected */
     @ReturnsOwnership
-    public com.facebook.drawee.components.b dom() {
+    public com.facebook.drawee.components.b don() {
         if (this.lUi == null) {
             this.lUi = new com.facebook.drawee.components.b();
         }
@@ -176,7 +176,7 @@ public abstract class a<T, INFO> implements a.InterfaceC0722a, a.InterfaceC0723a
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Nullable
-    public com.facebook.drawee.c.a don() {
+    public com.facebook.drawee.c.a doo() {
         return this.lUj;
     }
 
@@ -219,8 +219,8 @@ public abstract class a<T, INFO> implements a.InterfaceC0722a, a.InterfaceC0723a
         }
     }
 
-    protected c<INFO> doo() {
-        return this.lUk == null ? b.doE() : this.lUk;
+    protected c<INFO> dop() {
+        return this.lUk == null ? b.doF() : this.lUk;
     }
 
     public void a(@Nullable d dVar) {
@@ -263,7 +263,7 @@ public abstract class a<T, INFO> implements a.InterfaceC0722a, a.InterfaceC0723a
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Nullable
-    public Drawable dop() {
+    public Drawable doq() {
         return this.lUn;
     }
 
@@ -299,28 +299,28 @@ public abstract class a<T, INFO> implements a.InterfaceC0722a, a.InterfaceC0723a
         if (this.lUj == null) {
             return false;
         }
-        if (this.lUj.dpw() || doq()) {
+        if (this.lUj.dpx() || dor()) {
             this.lUj.onTouchEvent(motionEvent);
             return true;
         }
         return false;
     }
 
-    protected boolean doq() {
-        return doj();
+    protected boolean dor() {
+        return dok();
     }
 
-    private boolean doj() {
-        return this.lUq && this.lUi != null && this.lUi.doj();
+    private boolean dok() {
+        return this.lUq && this.lUi != null && this.lUi.dok();
     }
 
     @Override // com.facebook.drawee.c.a.InterfaceC0722a
-    public boolean dor() {
+    public boolean dos() {
         if (com.facebook.common.c.a.isLoggable(2)) {
             com.facebook.common.c.a.a(lQq, "controller %x %s: onClick", Integer.valueOf(System.identityHashCode(this)), this.mId);
         }
-        if (doj()) {
-            this.lUi.dok();
+        if (dok()) {
+            this.lUi.dol();
             this.lUm.reset();
             submitRequest();
             return true;
@@ -329,28 +329,28 @@ public abstract class a<T, INFO> implements a.InterfaceC0722a, a.InterfaceC0723a
     }
 
     protected void submitRequest() {
-        T dnV = dnV();
-        if (dnV != null) {
+        T dnW = dnW();
+        if (dnW != null) {
             this.lUt = null;
             this.lUo = true;
             this.lUq = false;
             this.lUg.a(DraweeEventTracker.Event.ON_SUBMIT_CACHE_HIT);
-            doo().g(this.mId, this.lTz);
-            E(this.mId, dnV);
-            a(this.mId, this.lUt, dnV, 1.0f, true, true);
+            dop().g(this.mId, this.lTz);
+            E(this.mId, dnW);
+            a(this.mId, this.lUt, dnW, 1.0f, true, true);
             return;
         }
         this.lUg.a(DraweeEventTracker.Event.ON_DATASOURCE_SUBMIT);
-        doo().g(this.mId, this.lTz);
+        dop().g(this.mId, this.lTz);
         this.lUm.c(0.0f, true);
         this.lUo = true;
         this.lUq = false;
-        this.lUt = dnT();
+        this.lUt = dnU();
         if (com.facebook.common.c.a.isLoggable(2)) {
             com.facebook.common.c.a.a(lQq, "controller %x %s: submitRequest: dataSource: %x", Integer.valueOf(System.identityHashCode(this)), this.mId, Integer.valueOf(System.identityHashCode(this.lUt)));
         }
         final String str = this.mId;
-        final boolean dnv = this.lUt.dnv();
+        final boolean dnw = this.lUt.dnw();
         this.lUt.a(new com.facebook.datasource.a<T>() { // from class: com.facebook.drawee.controller.a.1
             @Override // com.facebook.datasource.a
             public void g(com.facebook.datasource.b<T> bVar) {
@@ -358,7 +358,7 @@ public abstract class a<T, INFO> implements a.InterfaceC0722a, a.InterfaceC0723a
                 float progress = bVar.getProgress();
                 T result = bVar.getResult();
                 if (result != null) {
-                    a.this.a(str, bVar, result, progress, isFinished, dnv);
+                    a.this.a(str, bVar, result, progress, isFinished, dnw);
                 } else if (isFinished) {
                     a.this.a(str, (com.facebook.datasource.b) bVar, (Throwable) new NullPointerException(), true);
                 }
@@ -366,7 +366,7 @@ public abstract class a<T, INFO> implements a.InterfaceC0722a, a.InterfaceC0723a
 
             @Override // com.facebook.datasource.a
             public void a(com.facebook.datasource.b<T> bVar) {
-                a.this.a(str, (com.facebook.datasource.b) bVar, bVar.dnx(), true);
+                a.this.a(str, (com.facebook.datasource.b) bVar, bVar.dny(), true);
             }
 
             @Override // com.facebook.datasource.a, com.facebook.datasource.d
@@ -397,11 +397,11 @@ public abstract class a<T, INFO> implements a.InterfaceC0722a, a.InterfaceC0723a
                     H("set_final_result @ onNewResult", t);
                     this.lUt = null;
                     this.lUm.a(aT, 1.0f, z2);
-                    doo().a(str, aS(t), dos());
+                    dop().a(str, aS(t), dot());
                 } else {
                     H("set_intermediate_result @ onNewResult", t);
                     this.lUm.a(aT, f, z2);
-                    doo().h(str, aS(t));
+                    dop().h(str, aS(t));
                 }
                 if (drawable != null && drawable != aT) {
                     i(drawable);
@@ -441,16 +441,16 @@ public abstract class a<T, INFO> implements a.InterfaceC0722a, a.InterfaceC0723a
             this.lUq = true;
             if (this.lUr && this.mDrawable != null) {
                 this.lUm.a(this.mDrawable, 1.0f, true);
-            } else if (doj()) {
+            } else if (dok()) {
                 this.lUm.E(th);
             } else {
                 this.lUm.D(th);
             }
-            doo().g(this.mId, th);
+            dop().g(this.mId, th);
             return;
         }
         j("intermediate_failed @ onFailure", th);
-        doo().f(this.mId, th);
+        dop().f(this.mId, th);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -484,7 +484,7 @@ public abstract class a<T, INFO> implements a.InterfaceC0722a, a.InterfaceC0723a
 
     @Override // com.facebook.drawee.d.a
     @Nullable
-    public Animatable dos() {
+    public Animatable dot() {
         if (this.mDrawable instanceof Animatable) {
             return (Animatable) this.mDrawable;
         }
@@ -503,7 +503,7 @@ public abstract class a<T, INFO> implements a.InterfaceC0722a, a.InterfaceC0723a
         return f.aJ(this).aK("isAttached", this.mIsAttached).aK("isRequestSubmitted", this.lUo).aK("hasFetchFailed", this.lUq).bM("fetchedImage", aR(this.lUu)).C("events", this.lUg.toString()).toString();
     }
 
-    protected T dnV() {
+    protected T dnW() {
         return null;
     }
 

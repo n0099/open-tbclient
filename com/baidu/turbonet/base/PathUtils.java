@@ -28,17 +28,17 @@ public abstract class PathUtils {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        private static final String[] lHZ = PathUtils.diC();
+        private static final String[] lHZ = PathUtils.diD();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static String[] diC() {
+    public static String[] diD() {
         try {
             if (lHX.cancel(false)) {
                 StrictMode.ThreadPolicy allowThreadDiskReads = StrictMode.allowThreadDiskReads();
                 StrictMode.allowThreadDiskWrites();
                 try {
-                    return diD();
+                    return diE();
                 } finally {
                     StrictMode.setThreadPolicy(allowThreadDiskReads);
                 }
@@ -49,7 +49,7 @@ public abstract class PathUtils {
         }
     }
 
-    private static String[] diD() {
+    private static String[] diE() {
         String[] strArr = new String[4];
         strArr[0] = lHY.getDir(sDataDirectorySuffix, 0).getPath();
         strArr[1] = lHY.getDir("textures", 0).getPath();

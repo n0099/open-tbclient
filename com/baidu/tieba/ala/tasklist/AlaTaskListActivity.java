@@ -77,7 +77,7 @@ public class AlaTaskListActivity extends BaseActivity<AlaTaskListActivity> imple
             if (xVar != null) {
                 AlaTaskListActivity.this.geM.setData(xVar.atP);
             }
-            AlaTaskListActivity.this.bDd();
+            AlaTaskListActivity.this.bDe();
         }
 
         @Override // com.baidu.tieba.ala.tasklist.model.a.InterfaceC0542a
@@ -97,8 +97,8 @@ public class AlaTaskListActivity extends BaseActivity<AlaTaskListActivity> imple
             }
             AlaTaskListActivity.this.faG.setVisibility(0);
             if (i == 146021) {
-                AlaTaskListActivity.this.bDf();
-            } else if (AlaTaskListActivity.this.geL.bDi() != null && ListUtils.getCount(AlaTaskListActivity.this.geL.bDi().atP) > 0) {
+                AlaTaskListActivity.this.bDg();
+            } else if (AlaTaskListActivity.this.geL.bDj() != null && ListUtils.getCount(AlaTaskListActivity.this.geL.bDj().atP) > 0) {
                 AlaTaskListActivity.this.showToast(str);
             }
         }
@@ -174,14 +174,14 @@ public class AlaTaskListActivity extends BaseActivity<AlaTaskListActivity> imple
     /* JADX INFO: Access modifiers changed from: private */
     public void bnh() {
         this.faG.setVisibility(8);
-        this.geL.bDl();
+        this.geL.bDm();
     }
 
     public void ro(int i) {
         this.geL.ro(i);
     }
 
-    public void bDd() {
+    public void bDe() {
         w uY;
         if (this.geU && this.geV < 3 && (uY = this.geM.uY()) != null) {
             if (uY.status == 2) {
@@ -299,7 +299,7 @@ public class AlaTaskListActivity extends BaseActivity<AlaTaskListActivity> imple
         finish();
     }
 
-    public void bDe() {
+    public void bDf() {
         setResult(0, new Intent());
         finish();
     }
@@ -309,12 +309,12 @@ public class AlaTaskListActivity extends BaseActivity<AlaTaskListActivity> imple
         this.geP.setText(str);
     }
 
-    public void bDf() {
+    public void bDg() {
         ColorStateList colorStateList;
         this.geS = new AlertDialog.Builder(getPageContext().getPageActivity(), a.j.sdk_dialog_window).create();
         ShowUtil.showDialog(this.geS, getPageContext().getPageActivity());
         View inflate = LayoutInflater.from(getPageContext().getPageActivity()).inflate(a.h.ala_flower_over_limit_dialog, (ViewGroup) null);
-        ((TextView) inflate.findViewById(a.g.tv_task_failed_content)).setText(bDg());
+        ((TextView) inflate.findViewById(a.g.tv_task_failed_content)).setText(bDh());
         inflate.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.tasklist.AlaTaskListActivity.6
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -347,7 +347,7 @@ public class AlaTaskListActivity extends BaseActivity<AlaTaskListActivity> imple
         window.setContentView(inflate);
     }
 
-    public SpannableStringBuilder bDg() {
+    public SpannableStringBuilder bDh() {
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
         spannableStringBuilder.append((CharSequence) SpannableString.valueOf(getPageContext().getString(a.i.get_task_reward_failed_1)));
         SpannableString valueOf = SpannableString.valueOf(getPageContext().getString(a.i.get_task_reward_failed_2));
@@ -367,7 +367,7 @@ public class AlaTaskListActivity extends BaseActivity<AlaTaskListActivity> imple
                     hideTip();
                 }
             } else {
-                bDe();
+                bDf();
             }
         }
         return z;
@@ -385,12 +385,12 @@ public class AlaTaskListActivity extends BaseActivity<AlaTaskListActivity> imple
             if (this.geR) {
                 hideTip();
             } else {
-                bDh();
+                bDi();
             }
         }
     }
 
-    private void bDh() {
+    private void bDi() {
         this.geR = true;
         this.cDC.setVisibility(8);
         this.geQ.setVisibility(0);

@@ -100,7 +100,7 @@ public final class c {
             return this;
         }
 
-        public c dkR() {
+        public c dkS() {
             if (this.mContext == null) {
                 j.I("Context must be not empty!");
                 return null;

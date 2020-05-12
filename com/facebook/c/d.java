@@ -16,12 +16,12 @@ public class d {
     private final c.a lZf = new a();
 
     private d() {
-        dpV();
+        dpW();
     }
 
     public void eU(@Nullable List<c.a> list) {
         this.lZe = list;
-        dpV();
+        dpW();
     }
 
     public c q(InputStream inputStream) throws IOException {
@@ -43,7 +43,7 @@ public class d {
         return n;
     }
 
-    private void dpV() {
+    private void dpW() {
         this.lZd = this.lZf.getHeaderSize();
         if (this.lZe != null) {
             for (c.a aVar : this.lZe) {
@@ -67,7 +67,7 @@ public class d {
         return com.facebook.common.internal.a.a(inputStream, bArr, 0, i);
     }
 
-    public static synchronized d dpW() {
+    public static synchronized d dpX() {
         d dVar;
         synchronized (d.class) {
             if (lZc == null) {
@@ -79,7 +79,7 @@ public class d {
     }
 
     public static c r(InputStream inputStream) throws IOException {
-        return dpW().q(inputStream);
+        return dpX().q(inputStream);
     }
 
     public static c s(InputStream inputStream) {

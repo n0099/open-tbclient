@@ -53,7 +53,7 @@ public class d extends y.a {
         return list;
     }
 
-    public void cFY() {
+    public void cFZ() {
         if (this.afW != TbadkCoreApplication.getInst().getSkinType()) {
             this.afW = TbadkCoreApplication.getInst().getSkinType();
             am.setBackgroundColor(this.rootView, R.color.cp_bg_line_d);

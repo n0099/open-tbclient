@@ -6,8 +6,8 @@ import com.baidu.tieba.card.k;
 public class f<T extends com.baidu.tieba.card.k> extends com.baidu.tieba.card.a.a<T> implements com.baidu.tieba.play.f {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.a.a
-    /* renamed from: bZJ */
-    public T bFz() {
+    /* renamed from: bZK */
+    public T bFA() {
         return (T) this.gtR;
     }
 

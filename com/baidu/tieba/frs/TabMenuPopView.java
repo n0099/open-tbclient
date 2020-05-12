@@ -289,7 +289,7 @@ public class TabMenuPopView extends LinearLayout implements View.OnClickListener
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view.getTag() instanceof ax) {
-            bQF();
+            bQG();
             ax axVar = (ax) view.getTag();
             setItemSelectState(axVar, true);
             view.setSelected(true);
@@ -299,7 +299,7 @@ public class TabMenuPopView extends LinearLayout implements View.OnClickListener
         }
     }
 
-    public void bQF() {
+    public void bQG() {
         if (this.mDataList != null && getChildCount() > 0) {
             if (this.hcR != null) {
                 this.hcR.isSelected = false;

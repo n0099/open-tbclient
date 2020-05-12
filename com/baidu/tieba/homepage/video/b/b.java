@@ -111,7 +111,7 @@ public class b {
         MessageManager.getInstance().registerListener(this.hUP);
     }
 
-    public void cax() {
+    public void cay() {
         if (!this.isLoading) {
             this.isLoading = true;
             if (this.gRw) {
@@ -127,7 +127,7 @@ public class b {
         }
     }
 
-    public void bRi() {
+    public void bRj() {
         if (!this.isLoading) {
             this.isLoading = true;
             VideoTabRequestMessage videoTabRequestMessage = new VideoTabRequestMessage();
@@ -221,7 +221,7 @@ public class b {
         ac.a(new ab<DataRes>() { // from class: com.baidu.tieba.homepage.video.b.b.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.util.ab
-            /* renamed from: cay */
+            /* renamed from: caz */
             public DataRes doInBackground() {
                 l<byte[]> cA = com.baidu.tbadk.core.c.a.aMR().cA("tb.video_tab", TbadkCoreApplication.getCurrentAccount());
                 if (cA == null) {
@@ -261,7 +261,7 @@ public class b {
     public void a(DataRes dataRes, boolean z) {
         p(dataRes.thread_list, !z);
         q(dataRes.thread_personalized, z ? false : true);
-        this.mDataList = bYY();
+        this.mDataList = bYZ();
         com.baidu.tieba.homepage.video.b.a.n(this.hUN, this.mDataList);
     }
 
@@ -293,7 +293,7 @@ public class b {
         }
     }
 
-    private List<m> bYY() {
+    private List<m> bYZ() {
         int i;
         String format;
         LinkedList linkedList = new LinkedList();

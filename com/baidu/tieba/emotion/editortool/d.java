@@ -15,7 +15,7 @@ public class d extends com.baidu.tbadk.editortools.emotiontool.a {
         return 1;
     }
 
-    public static synchronized d bHo() {
+    public static synchronized d bHp() {
         d dVar;
         synchronized (d.class) {
             dVar = gyK;

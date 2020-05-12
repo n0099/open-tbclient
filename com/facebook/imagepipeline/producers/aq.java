@@ -35,9 +35,9 @@ public abstract class aq<T> extends com.facebook.common.b.h<T> {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.facebook.common.b.h
-    public void dmS() {
-        this.meJ.b(this.mRequestId, this.mgq, this.meJ.Oo(this.mRequestId) ? duD() : null);
-        this.mff.dmS();
+    public void dmT() {
+        this.meJ.b(this.mRequestId, this.mgq, this.meJ.Oo(this.mRequestId) ? duE() : null);
+        this.mff.dmT();
     }
 
     protected Map<String, String> bk(T t) {
@@ -48,7 +48,7 @@ public abstract class aq<T> extends com.facebook.common.b.h<T> {
         return null;
     }
 
-    protected Map<String, String> duD() {
+    protected Map<String, String> duE() {
         return null;
     }
 }

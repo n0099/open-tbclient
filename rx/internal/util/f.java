@@ -5,7 +5,7 @@ import java.security.PrivilegedAction;
 /* loaded from: classes6.dex */
 public final class f {
     private static final boolean IS_ANDROID;
-    private static final int noc = dIc();
+    private static final int noc = dId();
 
     static {
         IS_ANDROID = noc != 0;
@@ -15,11 +15,11 @@ public final class f {
         return IS_ANDROID;
     }
 
-    public static int dIb() {
+    public static int dIc() {
         return noc;
     }
 
-    private static int dIc() {
+    private static int dId() {
         try {
             return ((Integer) Class.forName("android.os.Build$VERSION", true, getSystemClassLoader()).getField("SDK_INT").get(null)).intValue();
         } catch (Exception e) {

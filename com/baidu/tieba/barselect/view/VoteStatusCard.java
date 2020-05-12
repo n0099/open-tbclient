@@ -70,7 +70,7 @@ public class VoteStatusCard extends LinearLayout {
         setPadding(dimens, dimens2, dimens, dimens2);
         LayoutInflater.from(getContext()).inflate(R.layout.vote_status_card, (ViewGroup) this, true);
         rL();
-        bEv();
+        bEw();
     }
 
     private void rL() {
@@ -86,7 +86,7 @@ public class VoteStatusCard extends LinearLayout {
         this.gmB = (NewVoteCountDownView) findViewById(R.id.vote_count_down_view);
     }
 
-    private void bEv() {
+    private void bEw() {
         this.mPath = new Path();
         this.mPath.moveTo(0.0f, 15.0f);
         this.mPath.lineTo(440.0f, 15.0f);
@@ -101,23 +101,23 @@ public class VoteStatusCard extends LinearLayout {
 
     public void setData(f fVar) {
         this.ghJ = fVar;
-        if (this.ghJ == null || this.ghJ.bDW() == null) {
+        if (this.ghJ == null || this.ghJ.bDX() == null) {
             setVisibility(8);
             return;
         }
-        this.gjf = this.ghJ.bDW();
+        this.gjf = this.ghJ.bDX();
         this.status = this.gjf.getStatus();
         this.gmu.setStatus(this.status);
-        long bDR = this.gjf.bDR() * 1000;
-        this.gmw.setText(aq.cg(this.gjf.bDP() * 1000));
-        this.gmy.setText(aq.cf(this.gjf.bDS() * 1000));
-        this.gmA.setText(aq.cf(this.gjf.bDQ() * 1000));
+        long bDS = this.gjf.bDS() * 1000;
+        this.gmw.setText(aq.cg(this.gjf.bDQ() * 1000));
+        this.gmy.setText(aq.cf(this.gjf.bDT() * 1000));
+        this.gmA.setText(aq.cf(this.gjf.bDR() * 1000));
         if (this.status == d.glQ) {
             this.gmC.setVisibility(0);
             if (this.gmD != null) {
                 this.gmB.setOnCountDownFinished(this.gmD);
             }
-            this.gmB.setData(bDR);
+            this.gmB.setData(bDS);
             return;
         }
         this.gmC.setVisibility(8);

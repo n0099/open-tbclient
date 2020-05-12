@@ -30,7 +30,7 @@ public class h {
     }
 
     @SuppressLint({"PrivateApi"})
-    public static Application dJp() {
+    public static Application dJq() {
         if (sApplication != null) {
             return sApplication;
         }
@@ -45,7 +45,7 @@ public class h {
         return sApplication;
     }
 
-    public static Resources dJT() {
+    public static Resources dJU() {
         return nrX;
     }
 
@@ -116,7 +116,7 @@ public class h {
         }
     }
 
-    public static void dJU() {
+    public static void dJV() {
         if (nsI != null) {
             nsI.clear();
             nsI = null;
@@ -139,7 +139,7 @@ public class h {
                 if (obj instanceof Drawable) {
                     bitmapDrawable = (Drawable) obj;
                 } else if (obj instanceof Bitmap) {
-                    bitmapDrawable = new BitmapDrawable(dJT(), (Bitmap) obj);
+                    bitmapDrawable = new BitmapDrawable(dJU(), (Bitmap) obj);
                 }
                 if (bitmapDrawable != null) {
                     if (nsI == null) {
@@ -166,7 +166,7 @@ public class h {
         }
         File file = nsH;
         if (file == null) {
-            file = dJp().getCacheDir();
+            file = dJq().getCacheDir();
         }
         return file.getAbsolutePath() + File.separator + tv.chushou.a.a.d.b.encrypt(str);
     }

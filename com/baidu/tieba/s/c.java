@@ -48,7 +48,7 @@ public class c {
                 if (c.this.kPS != null) {
                     c.this.kPS.clear();
                 }
-                c.this.kPQ.cVn();
+                c.this.kPQ.cVo();
             }
         }
     };
@@ -59,7 +59,7 @@ public class c {
         MessageManager.getInstance().registerListener(this.dld);
     }
 
-    public static c cVo() {
+    public static c cVp() {
         if (kPP == null) {
             synchronized (c.class) {
                 if (kPP == null) {
@@ -115,7 +115,7 @@ public class c {
                 this.kPS.put(bdUniqueId.getId(), hashSet);
             }
             String str2 = anVar.getKey() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + str;
-            if (!hashSet.contains(str2) && !bUt()) {
+            if (!hashSet.contains(str2) && !bUu()) {
                 hashSet.add(str2);
                 this.kPQ.a(bdUniqueId, anVar);
                 if (BdLog.isDebugMode()) {
@@ -125,7 +125,7 @@ public class c {
         }
     }
 
-    private boolean bUt() {
+    private boolean bUu() {
         if (this.kPT == null) {
             this.kPT = new a();
         }

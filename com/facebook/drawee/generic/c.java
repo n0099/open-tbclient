@@ -169,8 +169,8 @@ public class c {
                 z8 = true;
             }
         }
-        if (bVar.dpg() != null && i > 0) {
-            bVar.q(new com.facebook.drawee.drawable.b(bVar.dpg(), i));
+        if (bVar.dph() != null && i > 0) {
+            bVar.q(new com.facebook.drawee.drawable.b(bVar.dph(), i));
         }
         if (i2 > 0) {
             a(bVar).h(z9 ? i2 : 0.0f, z10 ? i2 : 0.0f, z12 ? i2 : 0.0f, z11 ? i2 : 0.0f);
@@ -180,10 +180,10 @@ public class c {
 
     @ReturnsOwnership
     private static RoundingParams a(b bVar) {
-        if (bVar.doW() == null) {
+        if (bVar.doX() == null) {
             bVar.b(new RoundingParams());
         }
-        return bVar.doW();
+        return bVar.doX();
     }
 
     @Nullable

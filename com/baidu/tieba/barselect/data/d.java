@@ -18,15 +18,15 @@ public class d {
     private long tid;
     private long uid;
 
-    public int bDI() {
+    public int bDJ() {
         return this.giW;
     }
 
-    public int bDJ() {
+    public int bDK() {
         return this.giT;
     }
 
-    public int bDK() {
+    public int bDL() {
         return this.giU;
     }
 
@@ -46,11 +46,11 @@ public class d {
         return this.uid;
     }
 
-    public int bDL() {
+    public int bDM() {
         return this.giV;
     }
 
-    public String bDM() {
+    public String bDN() {
         return this.apply_declaration;
     }
 
@@ -66,7 +66,7 @@ public class d {
         return this.tid;
     }
 
-    public boolean bDN() {
+    public boolean bDO() {
         return this.giX;
     }
 

@@ -56,7 +56,7 @@ public final class BlockingFlowableIterable<T> implements Iterable<T> {
                     }
                 }
                 if (isEmpty) {
-                    io.reactivex.internal.util.c.dDa();
+                    io.reactivex.internal.util.c.dDb();
                     this.lock.lock();
                     while (!this.done && this.queue.isEmpty()) {
                         try {

@@ -15,14 +15,14 @@ public class f {
     private final AtomicReference<g> njd = new AtomicReference<>();
 
     @Deprecated
-    public static f dIv() {
+    public static f dIw() {
         return npg;
     }
 
     f() {
     }
 
-    public b dIw() {
+    public b dIx() {
         if (this.nph.get() == null) {
             Object a = a(b.class, System.getProperties());
             if (a == null) {
@@ -34,11 +34,11 @@ public class f {
         return this.nph.get();
     }
 
-    public d dIx() {
+    public d dIy() {
         if (this.npi.get() == null) {
             Object a = a(d.class, System.getProperties());
             if (a == null) {
-                this.npi.compareAndSet(null, e.dIu());
+                this.npi.compareAndSet(null, e.dIv());
             } else {
                 this.npi.compareAndSet(null, (d) a);
             }
@@ -46,11 +46,11 @@ public class f {
         return this.npi.get();
     }
 
-    public h dIy() {
+    public h dIz() {
         if (this.npj.get() == null) {
             Object a = a(h.class, System.getProperties());
             if (a == null) {
-                this.npj.compareAndSet(null, i.dII());
+                this.npj.compareAndSet(null, i.dIJ());
             } else {
                 this.npj.compareAndSet(null, (h) a);
             }
@@ -58,7 +58,7 @@ public class f {
         return this.npj.get();
     }
 
-    public a dIz() {
+    public a dIA() {
         if (this.npk.get() == null) {
             Object a = a(a.class, System.getProperties());
             if (a == null) {
@@ -113,11 +113,11 @@ public class f {
         }
     }
 
-    public g dIA() {
+    public g dIB() {
         if (this.njd.get() == null) {
             Object a = a(g.class, System.getProperties());
             if (a == null) {
-                this.njd.compareAndSet(null, g.dIH());
+                this.njd.compareAndSet(null, g.dII());
             } else {
                 this.njd.compareAndSet(null, (g) a);
             }

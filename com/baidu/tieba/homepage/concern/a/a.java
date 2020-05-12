@@ -23,7 +23,7 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
             @Override // com.baidu.tieba.card.z
             public void a(View view, com.baidu.tieba.card.data.j jVar) {
                 if (view != null && a.this.hIE != null && a.this.hIE.getView() != null && jVar != null && jVar.aIu() != null && !StringUtils.isNull(jVar.aIu().getTid())) {
-                    com.baidu.tieba.homepage.concern.b.a(view, jVar, view == a.this.hIE.bEA() ? 1 : 2);
+                    com.baidu.tieba.homepage.concern.b.a(view, jVar, view == a.this.hIE.bEB() ? 1 : 2);
                     if (view == a.this.hIE.fsw.getCommentContainer() || view == a.this.hIE.fti.dJe.getCommentContainer()) {
                         an anVar = new an("c12942");
                         anVar.af("obj_locate", 7);
@@ -54,16 +54,16 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.card.data.j jVar, com.baidu.tieba.card.a.a<com.baidu.tieba.card.j> aVar) {
-        if (jVar == null || aVar == null || aVar.bFz() == null) {
+        if (jVar == null || aVar == null || aVar.bFA() == null) {
             return null;
         }
         jVar.rN(i + 1);
-        com.baidu.tieba.card.r.bEW().e(jVar.BJ("c12351"));
-        if (aVar.bFz() instanceof com.baidu.tieba.a.e) {
-            aVar.bFz().setPage(this.aeB);
+        com.baidu.tieba.card.r.bEX().e(jVar.BJ("c12351"));
+        if (aVar.bFA() instanceof com.baidu.tieba.a.e) {
+            aVar.bFA().setPage(this.aeB);
         }
-        aVar.bFz().a(jVar);
-        aVar.bFz().c(this.gEm);
+        aVar.bFA().a(jVar);
+        aVar.bFA().c(this.gEm);
         return aVar.getView();
     }
 

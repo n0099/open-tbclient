@@ -25,7 +25,7 @@ public class b {
                 iVar.write((byte) (s >> 8));
                 iVar.write((byte) (s & 255));
                 iVar.write(lZV);
-                return com.facebook.common.references.a.c(iVar.dnf());
+                return com.facebook.common.references.a.c(iVar.dng());
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }

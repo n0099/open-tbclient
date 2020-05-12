@@ -74,7 +74,7 @@ public class CameraPreview extends TextureView implements TextureView.SurfaceTex
         }
     }
 
-    public void cMw() {
+    public void cMx() {
         if (this.mCamera != null) {
             try {
                 removeCallbacks(this.koG);
@@ -92,10 +92,10 @@ public class CameraPreview extends TextureView implements TextureView.SurfaceTex
     public void onMeasure(int i, int i2) {
         int defaultSize = getDefaultSize(getSuggestedMinimumWidth(), i);
         int defaultSize2 = getDefaultSize(getSuggestedMinimumHeight(), i2);
-        if (this.koF != null && this.koF.cMu() != null) {
-            Point cMu = this.koF.cMu();
-            int i3 = cMu.x;
-            int i4 = cMu.y;
+        if (this.koF != null && this.koF.cMv() != null) {
+            Point cMv = this.koF.cMv();
+            int i3 = cMv.x;
+            int i4 = cMv.y;
             if ((defaultSize * 1.0f) / defaultSize2 < (i3 * 1.0f) / i4) {
                 defaultSize = (int) ((defaultSize2 / ((i4 * 1.0f) / i3)) + 0.5f);
             } else {
@@ -115,7 +115,7 @@ public class CameraPreview extends TextureView implements TextureView.SurfaceTex
     @Override // android.view.TextureView.SurfaceTextureListener
     public void onSurfaceTextureSizeChanged(SurfaceTexture surfaceTexture, int i, int i2) {
         if (surfaceTexture != null) {
-            cMw();
+            cMx();
             post(new Runnable() { // from class: com.baidu.tieba.qrcode.lib.core.CameraPreview.3
                 @Override // java.lang.Runnable
                 public void run() {
@@ -128,7 +128,7 @@ public class CameraPreview extends TextureView implements TextureView.SurfaceTex
     @Override // android.view.TextureView.SurfaceTextureListener
     public boolean onSurfaceTextureDestroyed(SurfaceTexture surfaceTexture) {
         this.mSurfaceCreated = false;
-        cMw();
+        cMx();
         return true;
     }
 

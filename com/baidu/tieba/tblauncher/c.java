@@ -43,13 +43,13 @@ public class c {
     private Runnable hyK = new Runnable() { // from class: com.baidu.tieba.tblauncher.c.2
         @Override // java.lang.Runnable
         public void run() {
-            c.this.bVZ();
+            c.this.bWa();
         }
     };
     private View.OnClickListener hyL = new View.OnClickListener() { // from class: com.baidu.tieba.tblauncher.c.3
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            c.this.bVY();
+            c.this.bVZ();
             WriteActivityConfig writeActivityConfig = new WriteActivityConfig(c.this.kYL, 9, String.valueOf(0), "", null, null, 0, null, RequestResponseCode.REQUEST_WRITE_NEW, false, false, null, false, false, null, null, null, 0);
             if (!StringUtils.isNull(c.this.mTopicName)) {
                 writeActivityConfig.setTitle(c.this.mTopicName, true);
@@ -85,24 +85,24 @@ public class c {
             if (this.hyH == null) {
                 this.hyH = new PopupWindow(this.kYM, -2, -2);
             } else {
-                bVY();
+                bVZ();
             }
             com.baidu.adp.lib.f.e.lb().removeCallbacks(this.hyJ);
             com.baidu.adp.lib.f.e.lb().postDelayed(this.hyJ, 100L);
         }
     }
 
-    public void bVY() {
+    public void bVZ() {
         com.baidu.adp.lib.f.e.lb().removeCallbacks(this.hyJ);
         com.baidu.adp.lib.f.e.lb().removeCallbacks(this.hyK);
-        bVZ();
+        bWa();
     }
 
-    public void bVZ() {
+    public void bWa() {
         g.dismissPopupWindow(this.hyH);
     }
 
     public void onDestroy() {
-        bVY();
+        bVZ();
     }
 }

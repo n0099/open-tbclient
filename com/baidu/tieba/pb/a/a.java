@@ -20,7 +20,7 @@ public class a implements View.OnTouchListener {
                 a.this.joS = 0L;
             } else if (message.what == 1 && a.this.count == 1) {
                 if (a.this.joT != null) {
-                    a.this.joT.cwl();
+                    a.this.joT.cwm();
                 }
                 a.this.count = 0;
                 a.this.joR = 0L;
@@ -32,9 +32,9 @@ public class a implements View.OnTouchListener {
     /* renamed from: com.baidu.tieba.pb.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public interface InterfaceC0628a {
-        void cwk();
-
         void cwl();
+
+        void cwm();
     }
 
     public a(InterfaceC0628a interfaceC0628a) {
@@ -55,7 +55,7 @@ public class a implements View.OnTouchListener {
             } else if (this.count == 2) {
                 this.joS = System.currentTimeMillis();
                 if (this.joS - this.joR < this.joU) {
-                    this.joT.cwk();
+                    this.joT.cwl();
                 }
                 this.mHandler.sendEmptyMessage(2);
                 return true;

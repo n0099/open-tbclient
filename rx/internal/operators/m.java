@@ -24,7 +24,7 @@ public class m<T> implements d.b<T, T> {
         return call((rx.j) ((rx.j) obj));
     }
 
-    public static <T> m<T> dHP() {
+    public static <T> m<T> dHQ() {
         return (m<T>) b.nlF;
     }
 
@@ -34,7 +34,7 @@ public class m<T> implements d.b<T, T> {
     public rx.j<? super T> call(rx.j<? super T> jVar) {
         a aVar = new a(jVar, this.nly, this.nlz, this.nlA);
         jVar.add(aVar);
-        jVar.setProducer(aVar.dHR());
+        jVar.setProducer(aVar.dHS());
         return aVar;
     }
 
@@ -78,7 +78,7 @@ public class m<T> implements d.b<T, T> {
 
         @Override // rx.e
         public void onNext(T t) {
-            if (dHQ()) {
+            if (dHR()) {
                 this.nlB.offer(NotificationLite.next(t));
                 this.nlE.drain();
             }
@@ -112,7 +112,7 @@ public class m<T> implements d.b<T, T> {
             return poll;
         }
 
-        private boolean dHQ() {
+        private boolean dHR() {
             long j;
             boolean z;
             if (this.nlC == null) {
@@ -122,7 +122,7 @@ public class m<T> implements d.b<T, T> {
                 j = this.nlC.get();
                 if (j <= 0) {
                     try {
-                        z = this.nlA.dHh() && poll() != null;
+                        z = this.nlA.dHi() && poll() != null;
                     } catch (MissingBackpressureException e) {
                         if (this.nlD.compareAndSet(false, true)) {
                             unsubscribe();
@@ -147,7 +147,7 @@ public class m<T> implements d.b<T, T> {
             return true;
         }
 
-        protected rx.f dHR() {
+        protected rx.f dHS() {
             return this.nlE;
         }
     }

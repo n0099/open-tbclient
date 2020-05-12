@@ -54,7 +54,7 @@ public class a extends BdBaseModel {
         MessageManager.getInstance().registerTask(tbHttpMessageTask2);
     }
 
-    public void cMV() {
+    public void cMW() {
         MessageManager.getInstance().sendMessage(new HttpMessage(1021148));
     }
 

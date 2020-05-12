@@ -24,7 +24,7 @@ public class e<T> {
         this.mName = str;
     }
 
-    public int dcq() {
+    public int dcr() {
         return this.lnk;
     }
 

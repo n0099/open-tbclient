@@ -97,7 +97,7 @@ public class ConcernNetModel extends BdBaseModel<BaseFragmentActivity> {
         };
         setUniqueId(bdUniqueId);
         bqo();
-        bFC();
+        bFD();
         registerListener(this.dho);
         registerListener(this.hJE);
     }
@@ -143,7 +143,7 @@ public class ConcernNetModel extends BdBaseModel<BaseFragmentActivity> {
         return false;
     }
 
-    private void bFC() {
+    private void bFD() {
         com.baidu.tbadk.task.b bVar = new com.baidu.tbadk.task.b(CmdConfigSocket.CMD_CONCERN_PAGE);
         bVar.setResponsedClass(ConcernPageSocketResMessage.class);
         bVar.setNeedAck(true);

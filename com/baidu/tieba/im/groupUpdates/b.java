@@ -54,7 +54,7 @@ public class b extends com.baidu.adp.base.b<UpdatesActivity> {
         this.iqL.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.groupUpdates.b.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (b.this.iqE.bNC()) {
+                if (b.this.iqE.bND()) {
                     b.this.iqK.performClick();
                 } else {
                     b.this.iqE.a(b.this.iqF, 101, 0, 0L, b.this.iqN);
@@ -92,7 +92,7 @@ public class b extends com.baidu.adp.base.b<UpdatesActivity> {
 
     public void refresh() {
         if (this.iqN != null) {
-            if (this.iqE.bNC()) {
+            if (this.iqE.bND()) {
                 this.iqK.setVisibility(0);
             } else {
                 this.iqK.setVisibility(8);
@@ -131,7 +131,7 @@ public class b extends com.baidu.adp.base.b<UpdatesActivity> {
             this.iqE.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
             this.iqE.getLayoutMode().onModeChanged(this.mConvertView);
             this.iqK.setSelected(this.iqN.isSelected());
-            if (this.iqN.isSelected() && this.iqE.bNC()) {
+            if (this.iqN.isSelected() && this.iqE.bND()) {
                 am.setBackgroundResource(this.iqL, R.drawable.bg_information_down_s);
             } else {
                 am.setBackgroundResource(this.iqL, R.drawable.selector_group_updates_bottom_bg);

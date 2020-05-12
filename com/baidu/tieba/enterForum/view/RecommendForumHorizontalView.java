@@ -133,7 +133,7 @@ public class RecommendForumHorizontalView extends LinearLayout {
         this.gJA.setRefreshViewAndListener(this.gJG);
         this.gJA.setCallback(new PullLeftRefreshLayout.a() { // from class: com.baidu.tieba.enterForum.view.RecommendForumHorizontalView.3
             @Override // com.baidu.tieba.enterForum.view.horizontalpullview.PullLeftRefreshLayout.a
-            public void bKk() {
+            public void bKl() {
                 com.baidu.tieba.enterForum.b.b(RecommendForumHorizontalView.this.mPageContext, RecommendForumHorizontalView.this.tabName);
                 an anVar = new an("c13645");
                 anVar.t("uid", TbadkApplication.getCurrentAccountId());
@@ -165,17 +165,17 @@ public class RecommendForumHorizontalView extends LinearLayout {
     }
 
     public void b(l lVar) {
-        if (lVar != null && lVar.bHW() != null && lVar.bHW().size() > 0) {
+        if (lVar != null && lVar.bHX() != null && lVar.bHX().size() > 0) {
             ArrayList<? extends com.baidu.tbadk.mvc.b.a> arrayList = new ArrayList<>();
-            ArrayList<k> bHW = lVar.bHW();
+            ArrayList<k> bHX = lVar.bHX();
             if (this.gJE) {
                 arrayList.add(new com.baidu.tieba.enterForum.data.a());
-                if (bHW != null) {
-                    arrayList.addAll(bHW);
+                if (bHX != null) {
+                    arrayList.addAll(bHX);
                 }
             } else {
-                if (bHW != null) {
-                    arrayList.addAll(bHW);
+                if (bHX != null) {
+                    arrayList.addAll(bHX);
                 }
                 arrayList.add(new com.baidu.tieba.enterForum.data.a());
             }

@@ -77,7 +77,7 @@ public class TopicFragment extends BaseFragment implements g.c, aj, a {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onLazyLoad() {
         this.hSW.fK(false);
-        this.hSV.cat();
+        this.hSV.cau();
     }
 
     public void bml() {
@@ -117,7 +117,7 @@ public class TopicFragment extends BaseFragment implements g.c, aj, a {
 
     @Override // com.baidu.tbadk.core.view.g.c
     public void onListPullRefresh(boolean z) {
-        this.hSV.cat();
+        this.hSV.cau();
     }
 
     @Override // com.baidu.tieba.homepage.topic.topictab.a
@@ -125,7 +125,7 @@ public class TopicFragment extends BaseFragment implements g.c, aj, a {
         if (j.isNetWorkAvailable()) {
             this.hSW.blr();
             this.hSW.fK(false);
-            this.hSV.cat();
+            this.hSV.cau();
         }
     }
 

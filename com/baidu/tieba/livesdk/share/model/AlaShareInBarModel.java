@@ -32,11 +32,11 @@ public class AlaShareInBarModel extends BdBaseModel {
     }
 
     public AlaShareInBarModel() {
-        coG();
+        coH();
         MessageManager.getInstance().registerListener(this.iPL);
     }
 
-    private void coG() {
+    private void coH() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(AlaCmdConfigHttp.CMD_ALA_LIVE_SHARE_IN_BAR, TbConfig.SERVER_ADDRESS + AlaConfig.ALA_LIVE_SHARE_IN_BAR);
         tbHttpMessageTask.setIsNeedTbs(true);
         tbHttpMessageTask.setResponsedClass(AlaShareInBarResponsedMessage.class);

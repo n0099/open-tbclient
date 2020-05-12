@@ -282,9 +282,9 @@ public class b {
 
     private void blj() {
         if (this.ePh != null) {
-            if (this.ePh.cJA() != null) {
-                this.ePh.cJA().setPlayer(null);
-                this.ePh.cJA().stop();
+            if (this.ePh.cJB() != null) {
+                this.ePh.cJB().setPlayer(null);
+                this.ePh.cJB().stop();
             }
             this.ePh = null;
         }
@@ -348,8 +348,8 @@ public class b {
                     yVar.eQk = String.valueOf(this.ePa.agC.getFid());
                     yVar.ahO = this.ePa.agC.getTid();
                     this.ePh.setVideoStatsData(yVar);
-                    if (this.ePh.cJV() != null) {
-                        this.ePh.cJV().b(this.ePa.agC.aKV());
+                    if (this.ePh.cJW() != null) {
+                        this.ePh.cJW().b(this.ePa.agC.aKV());
                     }
                 }
                 if (this.ePf != null) {

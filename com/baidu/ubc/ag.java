@@ -12,7 +12,7 @@ public class ag extends SharedPrefsWrapper {
         private static final ag lNZ = new ag();
     }
 
-    public static ag dkO() {
+    public static ag dkP() {
         return a.lNZ;
     }
 }

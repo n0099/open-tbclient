@@ -82,7 +82,7 @@ public class a {
     }
 
     public void v(com.baidu.tieba.pb.data.e eVar) {
-        ArrayList<com.baidu.tbadk.core.data.b> aKN = eVar.cvr().aKN();
+        ArrayList<com.baidu.tbadk.core.data.b> aKN = eVar.cvs().aKN();
         if (aKN != null && aKN.size() > 0) {
             this.jCB.setText(String.valueOf(aKN.get(0).aIB()));
             this.jCA.setVisibility(0);
@@ -107,7 +107,7 @@ public class a {
         this.jzC.getBaseFragmentActivity().getLayoutMode().onModeChanged(this.jCz);
     }
 
-    public View cBG() {
+    public View cBH() {
         return this.jCz;
     }
 }

@@ -19,7 +19,7 @@ public class a {
     public interface InterfaceC0683a {
         void LG(String str);
 
-        void daE();
+        void daF();
 
         void eW(String str, String str2);
     }
@@ -27,7 +27,7 @@ public class a {
     private a() {
     }
 
-    public static a dbn() {
+    public static a dbo() {
         if (ljn == null) {
             synchronized (a.class) {
                 if (ljn == null) {
@@ -45,7 +45,7 @@ public class a {
         }
         if (this.ljo == null) {
             this.ljo = new HashMap<>();
-            dbo();
+            dbp();
             if (this.ljo.size() > 0) {
                 return this.ljo.get(nameMd5FromUrl);
             }
@@ -54,7 +54,7 @@ public class a {
         return this.ljo.get(nameMd5FromUrl);
     }
 
-    public void dbo() {
+    public void dbp() {
         if (this.ljo == null) {
             this.ljo = new HashMap<>();
         } else {
@@ -102,7 +102,7 @@ public class a {
                             a.this.ljp = null;
                         }
                         if (interfaceC0683a != null) {
-                            interfaceC0683a.daE();
+                            interfaceC0683a.daF();
                         }
                     }
                 }
@@ -149,7 +149,7 @@ public class a {
         }
     }
 
-    public void dbp() {
+    public void dbq() {
         if (this.ljp != null) {
             d.aWJ().cancelDownLoadByUrl(this.ljp.getUrl(), true);
         }

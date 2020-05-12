@@ -41,7 +41,7 @@ public class SpannableClickTextView extends TextView {
     }
 
     public void setCustomMovementMethod() {
-        setMovementMethod(a.deM());
+        setMovementMethod(a.deN());
     }
 
     /* loaded from: classes.dex */
@@ -80,7 +80,7 @@ public class SpannableClickTextView extends TextView {
             return Touch.onTouchEvent(textView, spannable, motionEvent);
         }
 
-        public static a deM() {
+        public static a deN() {
             if (lwg == null) {
                 lwg = new a();
             }

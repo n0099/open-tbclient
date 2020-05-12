@@ -28,7 +28,7 @@ public class e implements com.baidu.card.n {
         @Override // android.os.Handler.Callback
         public boolean handleMessage(Message message) {
             if (message.what == 111) {
-                e.this.bVh();
+                e.this.bVi();
                 return true;
             }
             return false;
@@ -59,7 +59,7 @@ public class e implements com.baidu.card.n {
         this.mHideRunnable = new Runnable() { // from class: com.baidu.tieba.frs.vc.e.3
             @Override // java.lang.Runnable
             public void run() {
-                e.this.bVi();
+                e.this.bVj();
             }
         };
         initView();
@@ -70,9 +70,9 @@ public class e implements com.baidu.card.n {
         this.hwQ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.vc.e.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                e.this.bVi();
-                if (e.this.hwP != null && !e.this.hwP.bOX() && e.this.hwP.bOv() != null) {
-                    e.this.hwP.bOv().startPullRefresh();
+                e.this.bVj();
+                if (e.this.hwP != null && !e.this.hwP.bOY() && e.this.hwP.bOw() != null) {
+                    e.this.hwP.bOw().startPullRefresh();
                 }
             }
         });
@@ -108,7 +108,7 @@ public class e implements com.baidu.card.n {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bVh() {
+    public void bVi() {
         if (this.hwQ.getParent() == null) {
             this.hwo.addView(this.hwQ);
             this.hwQ.clearAnimation();
@@ -119,7 +119,7 @@ public class e implements com.baidu.card.n {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bVi() {
+    public void bVj() {
         if (this.hwQ.getParent() != null) {
             this.hac = -1;
             this.hwT = -1;

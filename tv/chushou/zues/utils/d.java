@@ -35,7 +35,7 @@ public class d {
         try {
             return (T) gson.fromJson(str, (Class<Object>) cls);
         } catch (Exception e) {
-            tv.chushou.a.a.c.a.dJB().e("JsonUtils", "", e);
+            tv.chushou.a.a.c.a.dJC().e("JsonUtils", "", e);
             return null;
         }
     }
@@ -48,7 +48,7 @@ public class d {
         try {
             return (T) gson.fromJson(str, type);
         } catch (Exception e) {
-            tv.chushou.a.a.c.a.dJB().e("JsonUtils", "", e);
+            tv.chushou.a.a.c.a.dJC().e("JsonUtils", "", e);
             return null;
         }
     }
@@ -61,7 +61,7 @@ public class d {
         try {
             return gson.toJson(obj);
         } catch (Exception e) {
-            tv.chushou.a.a.c.a.dJB().e("JsonUtils", "", e);
+            tv.chushou.a.a.c.a.dJC().e("JsonUtils", "", e);
             return null;
         }
     }

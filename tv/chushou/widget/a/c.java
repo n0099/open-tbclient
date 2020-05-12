@@ -63,12 +63,12 @@ public class c {
     }
 
     @DrawableRes
-    public static int dJG() {
+    public static int dJH() {
         return b.C0850b.commonres_placeholder_bg;
     }
 
     @NonNull
-    public static Drawable dJH() {
+    public static Drawable dJI() {
         if (nrY != null && nrY.get() != null) {
             return nrY.get().getConstantState().newDrawable();
         }

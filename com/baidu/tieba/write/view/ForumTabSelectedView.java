@@ -142,12 +142,12 @@ public class ForumTabSelectedView extends LinearLayout {
     private void initUI() {
         setOrientation(0);
         setGravity(16);
-        dgs();
         dgt();
-        bTs();
+        dgu();
+        bTt();
     }
 
-    private void dgs() {
+    private void dgt() {
         this.mTitleView = new TextView(getContext());
         this.mTitleView.setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
         this.mTitleView.setTextSize(0, l.getDimens(getContext(), R.dimen.tbds36));
@@ -155,7 +155,7 @@ public class ForumTabSelectedView extends LinearLayout {
         addView(this.mTitleView);
     }
 
-    private void dgt() {
+    private void dgu() {
         this.mIconView = new ImageView(getContext());
         int dimens = l.getDimens(getContext(), R.dimen.tbds62);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(dimens, dimens);
@@ -165,7 +165,7 @@ public class ForumTabSelectedView extends LinearLayout {
         addView(this.mIconView);
     }
 
-    private void bTs() {
+    private void bTt() {
         this.hqb = (TabLayout) LayoutInflater.from(getContext()).inflate(R.layout.forum_tab_select_layout, (ViewGroup) null);
         this.hqb.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
         addView(this.hqb);

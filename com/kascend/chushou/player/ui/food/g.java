@@ -125,8 +125,8 @@ public class g extends k {
     @Override // com.kascend.chushou.player.ui.food.k
     public void a(ListItem listItem, boolean z) {
         if (b()) {
-            if (dyw() != null) {
-                dyw().loadUrl(listItem.mCover);
+            if (dyx() != null) {
+                dyx().loadUrl(listItem.mCover);
                 a(listItem, a.f.fl_holder);
             }
         } else {
@@ -134,7 +134,7 @@ public class g extends k {
             if (!PayHelper.STATUS_SUCC.equals(listItem.mType) || listItem.mAdExtraInfo == null || com.kascend.chushou.a.a.y != tv.chushou.zues.utils.h.parseInt(listItem.mAdExtraInfo.mMarketId) || tv.chushou.zues.utils.h.isEmpty(listItem.mAdExtraInfo.marketPositionCode)) {
                 ((ViewGroup) Is(a.f.rl_wangmai)).setVisibility(8);
                 this.mzP.setAnim(true);
-                this.mzP.i(listItem.mCover, tv.chushou.widget.a.c.dJG(), 0, 0);
+                this.mzP.i(listItem.mCover, tv.chushou.widget.a.c.dJH(), 0, 0);
                 this.mzQ.setVisibility(8);
                 a(listItem, a.f.iv_cover_ad);
                 if (this.mpu != null) {

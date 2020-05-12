@@ -115,7 +115,7 @@ public class a {
                 this.mza = null;
             }
             this.myW = autoBang3;
-            this.mza = g.a(1L, j, 1L, 1L, TimeUnit.SECONDS).b(io.reactivex.f.a.dDi()).b(new io.reactivex.c.a() { // from class: com.kascend.chushou.player.ui.a.a.4
+            this.mza = g.a(1L, j, 1L, 1L, TimeUnit.SECONDS).b(io.reactivex.f.a.dDj()).b(new io.reactivex.c.a() { // from class: com.kascend.chushou.player.ui.a.a.4
                 @Override // io.reactivex.c.a
                 public void run() throws Exception {
                     if (a.this.myZ != null) {
@@ -130,7 +130,7 @@ public class a {
                         a.this.myZ.a(0L, a.this.myV, a.this.d());
                     }
                 }
-            }).b(io.reactivex.a.b.a.dCD()).a(io.reactivex.a.b.a.dCD()).c(io.reactivex.a.b.a.dCD()).a(new io.reactivex.c.g<Long>() { // from class: com.kascend.chushou.player.ui.a.a.1
+            }).b(io.reactivex.a.b.a.dCE()).a(io.reactivex.a.b.a.dCE()).c(io.reactivex.a.b.a.dCE()).a(new io.reactivex.c.g<Long>() { // from class: com.kascend.chushou.player.ui.a.a.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // io.reactivex.c.g
                 /* renamed from: a */
@@ -151,7 +151,7 @@ public class a {
         }
     }
 
-    public IconConfig.Config dys() {
+    public IconConfig.Config dyt() {
         return this.myY;
     }
 
@@ -162,7 +162,7 @@ public class a {
         return a(this.myV.mLevel);
     }
 
-    public BangInfo dyt() {
+    public BangInfo dyu() {
         return this.myV;
     }
 

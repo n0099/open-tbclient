@@ -18,11 +18,11 @@ import java.util.concurrent.ConcurrentHashMap;
 public class f {
     public static PostData a(e eVar, boolean z, int i) {
         if (z) {
-            if (eVar == null || eVar.cvt() == null || eVar.cvt().size() <= 0) {
+            if (eVar == null || eVar.cvu() == null || eVar.cvu().size() <= 0) {
                 return null;
             }
-            PostData postData = eVar.cvt().get(0);
-            if (postData.cWo() != 1) {
+            PostData postData = eVar.cvu().get(0);
+            if (postData.cWp() != 1) {
                 return a(eVar);
             }
             return postData;
@@ -32,20 +32,20 @@ public class f {
 
     public static PostData a(e eVar) {
         MetaData metaData;
-        if (eVar == null || eVar.cvr() == null || eVar.cvr().aKC() == null) {
+        if (eVar == null || eVar.cvs() == null || eVar.cvs().aKC() == null) {
             return null;
         }
         PostData postData = new PostData();
-        MetaData aKC = eVar.cvr().aKC();
+        MetaData aKC = eVar.cvs().aKC();
         String userId = aKC.getUserId();
-        HashMap<String, MetaData> userMap = eVar.cvr().getUserMap();
+        HashMap<String, MetaData> userMap = eVar.cvs().getUserMap();
         if (userMap == null || (metaData = userMap.get(userId)) == null || metaData.getUserId() == null) {
             metaData = aKC;
         }
         postData.Di(1);
-        postData.setId(eVar.cvr().aKS());
-        postData.setTitle(eVar.cvr().getTitle());
-        postData.setTime(eVar.cvr().getCreateTime());
+        postData.setId(eVar.cvs().aKS());
+        postData.setTitle(eVar.cvs().getTitle());
+        postData.setTime(eVar.cvs().getCreateTime());
         postData.a(metaData);
         return postData;
     }
@@ -82,13 +82,13 @@ public class f {
     }
 
     public static void a(PostData postData, PbActivity.a aVar) {
-        if (postData != null && postData.cWq() != null && postData.cWq().bcf() != null && aVar != null && aVar.jql != null && aVar.jqm != null && postData.cWq().bcf().size() != 0) {
+        if (postData != null && postData.cWr() != null && postData.cWr().bcf() != null && aVar != null && aVar.jql != null && aVar.jqm != null && postData.cWr().bcf().size() != 0) {
             String str = (String) v.getItem(aVar.jql, aVar.index);
             if (!StringUtils.isNull(str)) {
                 aVar.jql = new ArrayList<>();
                 ConcurrentHashMap<String, ImageUrlData> concurrentHashMap = aVar.jqm;
                 aVar.jqm = new ConcurrentHashMap<>();
-                Iterator<TbRichTextData> it = postData.cWq().bcf().iterator();
+                Iterator<TbRichTextData> it = postData.cWr().bcf().iterator();
                 while (it.hasNext()) {
                     TbRichTextData next = it.next();
                     if (next != null && next.getType() == 8) {

@@ -56,14 +56,14 @@ public class SharedReference<T> {
         return sharedReference != null && sharedReference.isValid();
     }
 
-    public synchronized void dnj() {
-        dnm();
+    public synchronized void dnk() {
+        dnn();
         this.mRefCount++;
     }
 
-    public void dnk() {
+    public void dnl() {
         T t;
-        if (dnl() == 0) {
+        if (dnm() == 0) {
             synchronized (this) {
                 t = this.mValue;
                 this.mValue = null;
@@ -73,14 +73,14 @@ public class SharedReference<T> {
         }
     }
 
-    private synchronized int dnl() {
-        dnm();
+    private synchronized int dnm() {
+        dnn();
         g.checkArgument(this.mRefCount > 0);
         this.mRefCount--;
         return this.mRefCount;
     }
 
-    private void dnm() {
+    private void dnn() {
         if (!a(this)) {
             throw new NullReferenceException();
         }

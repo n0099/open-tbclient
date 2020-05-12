@@ -30,7 +30,7 @@ public class a<T> {
         return C$Gson$Types.e(((ParameterizedType) genericSuperclass).getActualTypeArguments()[0]);
     }
 
-    public final Class<? super T> dvZ() {
+    public final Class<? super T> dwa() {
         return this.mlR;
     }
 

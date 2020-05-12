@@ -104,7 +104,7 @@ public class c extends BaseData {
     }
 
     public int a(d dVar, List<d> list) {
-        if (dVar == null) {
+        if (dVar == null || list == null || list.size() <= 0) {
             return 100;
         }
         Log.d("ArUpdate", "getFilterThreshold filterFileName:" + dVar.tQ());

@@ -160,8 +160,8 @@ public class a implements com.baidu.live.x.b {
                     if (this.fyG) {
                         this.mRootView.setVisibility(0);
                         lj(true);
+                        bDp();
                         bDo();
-                        bDn();
                         return;
                     }
                     lj(false);
@@ -184,8 +184,8 @@ public class a implements com.baidu.live.x.b {
             if (this.fyG) {
                 this.mRootView.setVisibility(0);
                 lj(true);
+                bDp();
                 bDo();
-                bDn();
                 return;
             }
             lj(false);
@@ -197,7 +197,7 @@ public class a implements com.baidu.live.x.b {
         }
     }
 
-    private void bDn() {
+    private void bDo() {
         UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem("1394", "display", "liveroom", "petal_show"));
     }
 
@@ -206,7 +206,7 @@ public class a implements com.baidu.live.x.b {
         UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem("1396", "click", "liveroom", "petal_clk"));
     }
 
-    private void bDo() {
+    private void bDp() {
         if (TbConfig.FLOWER_GUIDE_STATUS == 1) {
             this.mRootView.post(new Runnable() { // from class: com.baidu.tieba.ala.taskview.a.3
                 @Override // java.lang.Runnable

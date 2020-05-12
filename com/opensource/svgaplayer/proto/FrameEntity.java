@@ -16,15 +16,15 @@ public final class FrameEntity extends Message<FrameEntity, Builder> {
     public static final Float DEFAULT_ALPHA = Float.valueOf(0.0f);
     public static final String DEFAULT_CLIPPATH = "";
     private static final long serialVersionUID = 0;
-    @WireField(dAV = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 1)
+    @WireField(dAW = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 1)
     public final Float alpha;
-    @WireField(dAV = "com.squareup.wire.ProtoAdapter#STRING", tag = 4)
+    @WireField(dAW = "com.squareup.wire.ProtoAdapter#STRING", tag = 4)
     public final String clipPath;
-    @WireField(dAV = "com.opensource.svgaplayer.proto.Layout#ADAPTER", tag = 2)
+    @WireField(dAW = "com.opensource.svgaplayer.proto.Layout#ADAPTER", tag = 2)
     public final Layout layout;
-    @WireField(dAV = "com.opensource.svgaplayer.proto.ShapeEntity#ADAPTER", dAW = WireField.Label.REPEATED, tag = 5)
+    @WireField(dAW = "com.opensource.svgaplayer.proto.ShapeEntity#ADAPTER", dAX = WireField.Label.REPEATED, tag = 5)
     public final List<ShapeEntity> shapes;
-    @WireField(dAV = "com.opensource.svgaplayer.proto.Transform#ADAPTER", tag = 3)
+    @WireField(dAW = "com.opensource.svgaplayer.proto.Transform#ADAPTER", tag = 3)
     public final Transform transform;
 
     public FrameEntity(Float f, Layout layout, Transform transform, String str, List<ShapeEntity> list) {
@@ -102,7 +102,7 @@ public final class FrameEntity extends Message<FrameEntity, Builder> {
         public Float alpha;
         public String clipPath;
         public Layout layout;
-        public List<ShapeEntity> shapes = a.dAY();
+        public List<ShapeEntity> shapes = a.dAZ();
         public Transform transform;
 
         public Builder alpha(Float f) {
@@ -175,11 +175,11 @@ public final class FrameEntity extends Message<FrameEntity, Builder> {
         @Override // com.squareup.wire2.ProtoAdapter
         public FrameEntity decode(c cVar) throws IOException {
             Builder builder = new Builder();
-            long dAN = cVar.dAN();
+            long dAO = cVar.dAO();
             while (true) {
-                int dAO = cVar.dAO();
-                if (dAO != -1) {
-                    switch (dAO) {
+                int dAP = cVar.dAP();
+                if (dAP != -1) {
+                    switch (dAP) {
                         case 1:
                             builder.alpha(ProtoAdapter.FLOAT.decode(cVar));
                             break;
@@ -196,12 +196,12 @@ public final class FrameEntity extends Message<FrameEntity, Builder> {
                             builder.shapes.add(ShapeEntity.ADAPTER.decode(cVar));
                             break;
                         default:
-                            FieldEncoding dAP = cVar.dAP();
-                            builder.addUnknownField(dAO, dAP, dAP.rawProtoAdapter().decode(cVar));
+                            FieldEncoding dAQ = cVar.dAQ();
+                            builder.addUnknownField(dAP, dAQ, dAQ.rawProtoAdapter().decode(cVar));
                             break;
                     }
                 } else {
-                    cVar.gc(dAN);
+                    cVar.gc(dAO);
                     return builder.build();
                 }
             }

@@ -11,21 +11,21 @@ public class m {
     }
 
     public void b(com.baidu.tieba.InjectPlugin.b bVar) {
-        if (this.ham != null && this.ham.bOq() != null && this.ham.bOq().bTu() != null && this.ham.bOv() != null && bVar != null && this.ham.bOv().getListView() != null && this.ham.bOs() != null) {
-            BdTypeRecyclerView listView = this.ham.bOv().getListView();
+        if (this.ham != null && this.ham.bOr() != null && this.ham.bOr().bTv() != null && this.ham.bOw() != null && bVar != null && this.ham.bOw().getListView() != null && this.ham.bOt() != null) {
+            BdTypeRecyclerView listView = this.ham.bOw().getListView();
             switch (bVar.what) {
                 case 2:
                     if (bVar.getView() != null) {
                         listView.removeHeaderView(bVar.getView());
                         listView.addHeaderView(bVar.getView(), listView.getHeaderViewsCount() - 1);
-                        this.ham.bOs().uR(8);
+                        this.ham.bOt().uR(8);
                         return;
                     }
                     return;
                 case 3:
                     if (bVar.getView() != null) {
                         listView.removeHeaderView(bVar.getView());
-                        this.ham.bOs().uR(0);
+                        this.ham.bOt().uR(0);
                         return;
                     }
                     return;

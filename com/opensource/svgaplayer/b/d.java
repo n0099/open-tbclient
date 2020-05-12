@@ -13,27 +13,27 @@ public final class d {
     private float mLb = 1.0f;
     private float gjI = 1.0f;
 
-    public final float dAe() {
+    public final float dAf() {
         return this.mKY;
     }
 
-    public final float dAf() {
+    public final float dAg() {
         return this.mKZ;
     }
 
-    public final float dAg() {
+    public final float dAh() {
         return this.mLa;
     }
 
-    public final float dAh() {
+    public final float dAi() {
         return this.mLb;
     }
 
-    public final boolean dAi() {
+    public final boolean dAj() {
         return this.mLc;
     }
 
-    private final void dAj() {
+    private final void dAk() {
         this.mKY = 0.0f;
         this.mKZ = 0.0f;
         this.mLa = 1.0f;
@@ -45,7 +45,7 @@ public final class d {
     public final void a(float f, float f2, float f3, float f4, ImageView.ScaleType scaleType) {
         q.j(scaleType, "scaleType");
         if (f != 0.0f && f2 != 0.0f && f3 != 0.0f && f4 != 0.0f) {
-            dAj();
+            dAk();
             float f5 = (f - f3) / 2.0f;
             float f6 = (f2 - f4) / 2.0f;
             float f7 = f3 / f4;

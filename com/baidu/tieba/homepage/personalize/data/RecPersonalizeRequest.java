@@ -96,7 +96,7 @@ public class RecPersonalizeRequest extends NetMessage {
         builder.new_install = Integer.valueOf(TbadkCoreApplication.getInst().checkNewUser() ? 1 : 0);
         builder.request_times = Integer.valueOf(this.requestTime);
         builder.invoke_source = this.sourceFrom;
-        builder.ad_context_list = com.baidu.tieba.recapp.report.b.cOc().cOd();
+        builder.ad_context_list = com.baidu.tieba.recapp.report.b.cOd().cOe();
         PersonalizedReqIdl.Builder builder2 = new PersonalizedReqIdl.Builder();
         builder2.data = builder.build(false);
         return builder2.build(false);

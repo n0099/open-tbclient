@@ -143,11 +143,11 @@ public class k extends c {
         return this.dqE;
     }
 
-    public boolean bFo() {
+    public boolean bFp() {
         return (this.dqE == null || v.getCount(this.dqE.aKQ()) == 0) ? false : true;
     }
 
-    public boolean bFp() {
+    public boolean bFq() {
         return this.dqE == null || this.dqE.aLC();
     }
 
@@ -155,15 +155,15 @@ public class k extends c {
         return this.dqE != null && this.dqE.aJp();
     }
 
-    public an bFq() {
+    public an bFr() {
         SmartApp aLo;
-        if (bFo()) {
+        if (bFp()) {
             an BI = BI(gsr);
             if (BI != null) {
                 BI.setPosition(this.position);
                 if (aIu() != null) {
                     bj aIu = aIu();
-                    BI.af("obj_name", aIu.aMc() != null && (aIu.aMc().cWq() != null || aIu.aMc().bcn() != null) ? 1 : 0);
+                    BI.af("obj_name", aIu.aMc() != null && (aIu.aMc().cWr() != null || aIu.aMc().bcn() != null) ? 1 : 0);
                     if (aIu.aKC() != null) {
                         BI.af(TiebaInitialize.Params.AB_TYPE, aIu.aKC().hadConcerned() ? 1 : 0);
                     }
@@ -171,7 +171,7 @@ public class k extends c {
                 }
             }
             return BI;
-        } else if (bFp()) {
+        } else if (bFq()) {
             an BI2 = BI(gsx);
             if (BI2 != null) {
                 BI2.setPosition(this.position);
@@ -189,12 +189,12 @@ public class k extends c {
             an BI3 = BI(gsm);
             if (BI3 != null) {
                 BI3.setPosition(this.position);
-                BI3.cI(TiebaInitialize.Params.AB_TAG, bFg()).cI(TiebaInitialize.Params.AB_ACTION, "show");
+                BI3.cI(TiebaInitialize.Params.AB_TAG, bFh()).cI(TiebaInitialize.Params.AB_ACTION, "show");
                 if (aIu() != null) {
                     bj aIu2 = aIu();
-                    boolean z = (aIu2.aMc() == null || (aIu2.aMc().cWq() == null && aIu2.aMc().bcn() == null)) ? false : true;
+                    boolean z = (aIu2.aMc() == null || (aIu2.aMc().cWr() == null && aIu2.aMc().bcn() == null)) ? false : true;
                     BI3.af("obj_name", z ? 1 : 0);
-                    if (z && aIu2.aMc().cWq() != null && aIu2.aMc().cWq().bcf() != null && aIu2.aMc().cWq().bcf().size() > 0) {
+                    if (z && aIu2.aMc().cWr() != null && aIu2.aMc().cWr().bcf() != null && aIu2.aMc().cWr().bcf().size() > 0) {
                         BI3.af(TiebaInitialize.Params.OBJ_TO, aIu2.aMc().kTa ? 2 : 1);
                     }
                     if (aIu2.aKC() != null) {
@@ -238,7 +238,7 @@ public class k extends c {
             }
             anVar.af("obj_type", i);
             anVar.cI("obj_id", this.dqE.aKC().getUserId());
-            anVar.af("obj_param1", bFk() ? 2 : 1);
+            anVar.af("obj_param1", bFl() ? 2 : 1);
         }
         return anVar;
     }
@@ -246,12 +246,12 @@ public class k extends c {
     public an BL(String str) {
         an BI = BI(str);
         if (BI != null) {
-            BI.cI(TiebaInitialize.Params.AB_TAG, bFg()).cI(TiebaInitialize.Params.AB_ACTION, "show");
+            BI.cI(TiebaInitialize.Params.AB_TAG, bFh()).cI(TiebaInitialize.Params.AB_ACTION, "show");
             if (aIu() != null) {
                 bj aIu = aIu();
-                boolean z = (aIu.aMc() == null || (aIu.aMc().cWq() == null && aIu.aMc().bcn() == null)) ? false : true;
+                boolean z = (aIu.aMc() == null || (aIu.aMc().cWr() == null && aIu.aMc().bcn() == null)) ? false : true;
                 BI.af("obj_name", z ? 1 : 0);
-                if (z && aIu.aMc().cWq() != null && aIu.aMc().cWq().bcf() != null && aIu.aMc().cWq().bcf().size() > 0) {
+                if (z && aIu.aMc().cWr() != null && aIu.aMc().cWr().bcf() != null && aIu.aMc().cWr().bcf().size() > 0) {
                     BI.af(TiebaInitialize.Params.OBJ_TO, aIu.aMc().kTa ? 2 : 1);
                 }
             }
@@ -259,12 +259,12 @@ public class k extends c {
         return BI;
     }
 
-    public an bFr() {
+    public an bFs() {
         an BI;
         SmartApp aLo;
-        if (bFo()) {
+        if (bFp()) {
             BI = BI(gss);
-        } else if (bFp()) {
+        } else if (bFq()) {
             an BI2 = BI(gsy);
             if (BI2 != null && aIu() != null && (aLo = aIu().aLo()) != null) {
                 BI2.cI("obj_type", aLo.id);
@@ -275,7 +275,7 @@ public class k extends c {
         } else {
             BI = BI(gsn);
             if (BI != null) {
-                BI.cI(TiebaInitialize.Params.AB_TAG, bFg()).cI(TiebaInitialize.Params.AB_ACTION, "click");
+                BI.cI(TiebaInitialize.Params.AB_TAG, bFh()).cI(TiebaInitialize.Params.AB_ACTION, "click");
                 if (aIu() != null) {
                     bj aIu = aIu();
                     if (aIu.getBaijiahaoData() != null) {
@@ -291,8 +291,8 @@ public class k extends c {
         return BI;
     }
 
-    public an bFs() {
-        if (bFo()) {
+    public an bFt() {
+        if (bFp()) {
             return BI(gst);
         }
         if (l.ab(this.dqE)) {
@@ -310,7 +310,7 @@ public class k extends c {
         }
         an aH = aH(gso, 0);
         if (aH != null) {
-            aH.cI(TiebaInitialize.Params.AB_TAG, bFg()).cI(TiebaInitialize.Params.AB_ACTION, "click");
+            aH.cI(TiebaInitialize.Params.AB_TAG, bFh()).cI(TiebaInitialize.Params.AB_ACTION, "click");
             if (aIu() != null) {
                 bj aIu2 = aIu();
                 if (aIu2.getBaijiahaoData() != null) {
@@ -324,7 +324,7 @@ public class k extends c {
         return aH;
     }
 
-    public an bFt() {
+    public an bFu() {
         if (l.ab(this.dqE)) {
             an al = al(gsA, true);
             if (al != null && aIu() != null) {
@@ -337,12 +337,12 @@ public class k extends c {
                 return al;
             }
             return al;
-        } else if (bFo()) {
+        } else if (bFp()) {
             return BI(gsu);
         } else {
             an BI = BI(gsp);
             if (BI != null) {
-                BI.cI(TiebaInitialize.Params.AB_TAG, bFg()).cI(TiebaInitialize.Params.AB_ACTION, "click");
+                BI.cI(TiebaInitialize.Params.AB_TAG, bFh()).cI(TiebaInitialize.Params.AB_ACTION, "click");
                 if (aIu() != null) {
                     bj aIu2 = aIu();
                     if (aIu2.getBaijiahaoData() != null) {
@@ -357,13 +357,13 @@ public class k extends c {
         }
     }
 
-    public an bFu() {
-        if (bFo()) {
+    public an bFv() {
+        if (bFp()) {
             return BI(gsv);
         }
         an BI = BI(gsq);
         if (BI != null) {
-            BI.cI(TiebaInitialize.Params.AB_TAG, bFg()).cI(TiebaInitialize.Params.AB_ACTION, "click");
+            BI.cI(TiebaInitialize.Params.AB_TAG, bFh()).cI(TiebaInitialize.Params.AB_ACTION, "click");
             if (aIu() != null) {
                 bj aIu = aIu();
                 if (aIu.getBaijiahaoData() != null) {
@@ -377,11 +377,11 @@ public class k extends c {
         return BI;
     }
 
-    public an bFv() {
+    public an bFw() {
         return BI(gsw);
     }
 
-    public an bFw() {
+    public an bFx() {
         an al = al(gsz, true);
         if (aIu() != null) {
             bj aIu = aIu();

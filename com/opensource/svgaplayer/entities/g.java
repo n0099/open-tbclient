@@ -23,19 +23,19 @@ public final class g {
     private b mKX;
     private List<SVGAVideoShapeEntity> shapes;
 
-    public final double dAb() {
+    public final double dAc() {
         return this.bYL;
     }
 
-    public final com.opensource.svgaplayer.b.c dAc() {
+    public final com.opensource.svgaplayer.b.c dAd() {
         return this.mKW;
     }
 
-    public final Matrix dzP() {
+    public final Matrix dzQ() {
         return this.mKM;
     }
 
-    public final b dAd() {
+    public final b dAe() {
         return this.mKX;
     }
 
@@ -52,7 +52,7 @@ public final class g {
         q.j(jSONObject, "obj");
         this.mKW = new com.opensource.svgaplayer.b.c(0.0d, 0.0d, 0.0d, 0.0d);
         this.mKM = new Matrix();
-        this.shapes = o.dDz();
+        this.shapes = o.dDA();
         this.bYL = jSONObject.optDouble("alpha", 0.0d);
         JSONObject optJSONObject = jSONObject.optJSONObject("layout");
         if (optJSONObject != null) {
@@ -89,7 +89,7 @@ public final class g {
         q.j(frameEntity, "obj");
         this.mKW = new com.opensource.svgaplayer.b.c(0.0d, 0.0d, 0.0d, 0.0d);
         this.mKM = new Matrix();
-        this.shapes = o.dDz();
+        this.shapes = o.dDA();
         this.bYL = frameEntity.alpha != null ? f.floatValue() : 0.0f;
         Layout layout = frameEntity.layout;
         if (layout != null) {

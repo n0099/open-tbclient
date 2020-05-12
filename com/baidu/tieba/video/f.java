@@ -67,7 +67,7 @@ public class f {
                                 ShareItem shareItem = new ShareItem();
                                 shareItem.dQN = false;
                                 shareItem.dQK = OriginalThreadInfo.ShareInfo.generateShareInfo((OriginalThreadInfo) obj);
-                                com.baidu.tieba.c.e.bGc().b(new ShareDialogConfig(f.this.mContext, shareItem, true, true));
+                                com.baidu.tieba.c.e.bGd().b(new ShareDialogConfig(f.this.mContext, shareItem, true, true));
                                 TiebaStatic.log(new an(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).cI("uid", TbadkCoreApplication.getCurrentAccount()).af(TiebaInitialize.Params.OBJ_PARAM2, 1).af(TiebaInitialize.Params.OBJ_PARAM3, 1));
                             }
                         });
@@ -110,7 +110,7 @@ public class f {
         }
     }
 
-    public void bRh() {
+    public void bRi() {
         if (this.lhf != null) {
             this.lhf.cancelLoadData();
         }

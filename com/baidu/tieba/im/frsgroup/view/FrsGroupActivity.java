@@ -40,7 +40,7 @@ public class FrsGroupActivity extends BaseActivity<FrsGroupActivity> {
     private ao inh = new ao() { // from class: com.baidu.tieba.im.frsgroup.view.FrsGroupActivity.1
         @Override // com.baidu.tieba.frs.ao
         public void a(int i, int i2, av avVar, ArrayList<m> arrayList) {
-            FrsGroupActivity.this.cgn();
+            FrsGroupActivity.this.cgo();
             if (v.isEmpty(arrayList)) {
                 String str = "";
                 if (avVar != null) {
@@ -64,17 +64,17 @@ public class FrsGroupActivity extends BaseActivity<FrsGroupActivity> {
         this.ind = (FragmentTabWidget) findViewById(R.id.tab_widget);
         this.dxC = (CustomViewPager) findViewById(R.id.fragment_pager);
         initBundle(bundle);
-        cgo();
+        cgp();
         initViewPager();
-        cgm();
+        cgn();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
         if (j.isNetworkAvailableForImmediately()) {
-            this.ine.get(0).bNa();
-            cgm();
+            this.ine.get(0).bNb();
+            cgn();
         }
     }
 
@@ -150,14 +150,14 @@ public class FrsGroupActivity extends BaseActivity<FrsGroupActivity> {
         bundle.putBoolean("show_recommend", this.inf);
     }
 
-    private void cgm() {
+    private void cgn() {
         this.dxC.setVisibility(4);
         this.ind.setVisibility(4);
         showLoadingView(this.mRootView, true);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cgn() {
+    public void cgo() {
         this.dxC.setVisibility(0);
         this.ind.setVisibility(0);
         hideLoadingView(this.mRootView);
@@ -186,7 +186,7 @@ public class FrsGroupActivity extends BaseActivity<FrsGroupActivity> {
         this.inf = bundle.getBoolean(FrsGroupActivityConfig.SHOW_RECOMMEND_GROUP, false);
     }
 
-    private void cgo() {
+    private void cgp() {
         if (this.inf) {
             c xc = xc(1);
             xc.b(this.inh);
@@ -232,7 +232,7 @@ public class FrsGroupActivity extends BaseActivity<FrsGroupActivity> {
             super.setPrimaryItem(viewGroup, i, obj);
             if (FrsGroupActivity.this.mCurrentTabIndex != i) {
                 FrsGroupActivity.this.mCurrentTabIndex = i;
-                ((c) FrsGroupActivity.this.ine.get(FrsGroupActivity.this.mCurrentTabIndex)).bNa();
+                ((c) FrsGroupActivity.this.ine.get(FrsGroupActivity.this.mCurrentTabIndex)).bNb();
             }
         }
 

@@ -29,7 +29,7 @@ public final class e {
     private e() {
     }
 
-    public static e dJf() {
+    public static e dJg() {
         return nqz;
     }
 
@@ -67,7 +67,7 @@ public final class e {
     public void x(Context context, String str, String str2) {
         String Qa = Qa(getCpuName());
         nqA = str2;
-        tv.chushou.a.a.c.a.dJB().d(TAG, "cpuArchitect: " + Qa);
+        tv.chushou.a.a.c.a.dJC().d(TAG, "cpuArchitect: " + Qa);
         long currentTimeMillis = System.currentTimeMillis();
         try {
             ZipFile zipFile = new ZipFile(str);
@@ -79,7 +79,7 @@ public final class e {
                     if (name.endsWith(PluginInstallerService.APK_LIB_SUFFIX) && name.contains(Qa)) {
                         long time = nextElement.getTime();
                         if (time == tv.chushou.basis.a.a.be(context, name)) {
-                            tv.chushou.a.a.c.a.dJB().d(TAG, "skip copying, the so lib is exist and not change: " + name);
+                            tv.chushou.a.a.c.a.dJC().d(TAG, "skip copying, the so lib is exist and not change: " + name);
                         } else {
                             this.nqy.execute(new a(context, zipFile, nextElement, time));
                         }
@@ -89,7 +89,7 @@ public final class e {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        tv.chushou.a.a.c.a.dJB().d(TAG, "### copy so time : " + (System.currentTimeMillis() - currentTimeMillis) + " ms");
+        tv.chushou.a.a.c.a.dJC().d(TAG, "### copy so time : " + (System.currentTimeMillis() - currentTimeMillis) + " ms");
     }
 
     /* loaded from: classes5.dex */
@@ -112,7 +112,7 @@ public final class e {
             return str.substring(str.lastIndexOf("/") + 1);
         }
 
-        private void dJg() throws IOException {
+        private void dJh() throws IOException {
             copy(this.nqC.getInputStream(this.nqD), new FileOutputStream(new File(e.nqA, this.nqB)));
             this.nqC.close();
         }
@@ -151,11 +151,11 @@ public final class e {
         @Override // java.lang.Runnable
         public void run() {
             try {
-                dJg();
+                dJh();
                 tv.chushou.basis.a.a.d(this.mContext, this.nqD.getName(), this.nqE);
-                tv.chushou.a.a.c.a.dJB().d(e.TAG, "copy so lib success: " + this.nqD.getName());
+                tv.chushou.a.a.c.a.dJC().d(e.TAG, "copy so lib success: " + this.nqD.getName());
             } catch (IOException e) {
-                tv.chushou.a.a.c.a.dJB().e(e.TAG, "copy so lib failed: " + e.toString());
+                tv.chushou.a.a.c.a.dJC().e(e.TAG, "copy so lib failed: " + e.toString());
                 e.printStackTrace();
             }
         }

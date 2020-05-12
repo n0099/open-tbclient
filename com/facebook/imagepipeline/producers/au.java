@@ -29,7 +29,7 @@ public class au<T> implements aj<T> {
     @Override // com.facebook.imagepipeline.producers.aj
     public void c(k<T> kVar, ak akVar) {
         boolean z;
-        akVar.dtR().fi(akVar.getId(), "ThrottlingProducer");
+        akVar.dtS().fi(akVar.getId(), "ThrottlingProducer");
         synchronized (this) {
             if (this.mgz >= this.mgy) {
                 this.mgA.add(Pair.create(kVar, akVar));
@@ -45,7 +45,7 @@ public class au<T> implements aj<T> {
     }
 
     void g(k<T> kVar, ak akVar) {
-        akVar.dtR().a(akVar.getId(), "ThrottlingProducer", null);
+        akVar.dtS().a(akVar.getId(), "ThrottlingProducer", null);
         this.meH.c(new a(kVar), akVar);
     }
 
@@ -58,25 +58,25 @@ public class au<T> implements aj<T> {
 
         @Override // com.facebook.imagepipeline.producers.b
         protected void g(T t, int i) {
-            duc().h(t, i);
+            dud().h(t, i);
             if (Hr(i)) {
-                diZ();
+                dja();
             }
         }
 
         @Override // com.facebook.imagepipeline.producers.n, com.facebook.imagepipeline.producers.b
         protected void F(Throwable th) {
-            duc().G(th);
-            diZ();
+            dud().G(th);
+            dja();
         }
 
         @Override // com.facebook.imagepipeline.producers.n, com.facebook.imagepipeline.producers.b
-        protected void dsA() {
-            duc().dmS();
-            diZ();
+        protected void dsB() {
+            dud().dmT();
+            dja();
         }
 
-        private void diZ() {
+        private void dja() {
             final Pair pair;
             synchronized (au.this) {
                 pair = (Pair) au.this.mgA.poll();

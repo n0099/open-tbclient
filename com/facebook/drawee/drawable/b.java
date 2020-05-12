@@ -36,24 +36,24 @@ public class b extends g implements Runnable {
         canvas.rotate(f, (i / 2) + bounds.left, bounds.top + (i2 / 2));
         super.draw(canvas);
         canvas.restoreToCount(save);
-        doH();
+        doI();
     }
 
     @Override // java.lang.Runnable
     public void run() {
         this.lVl = false;
-        this.lVk += doI();
+        this.lVk += doJ();
         invalidateSelf();
     }
 
-    private void doH() {
+    private void doI() {
         if (!this.lVl) {
             this.lVl = true;
             scheduleSelf(this, SystemClock.uptimeMillis() + 20);
         }
     }
 
-    private int doI() {
+    private int doJ() {
         return (int) ((20.0f / this.mInterval) * 360.0f);
     }
 }

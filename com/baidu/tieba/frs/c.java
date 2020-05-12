@@ -16,7 +16,7 @@ public class c implements ai {
     private c() {
     }
 
-    public static ai bNL() {
+    public static ai bNM() {
         ai aiVar = gXt.get();
         return aiVar == null ? gXu : aiVar;
     }

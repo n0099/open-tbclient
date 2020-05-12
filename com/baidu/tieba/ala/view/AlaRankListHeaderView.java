@@ -279,7 +279,7 @@ public class AlaRankListHeaderView extends LinearLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bDr() {
+    public void bDs() {
         if (this.aAZ == null) {
             this.aAZ = new AnimatorSet();
         }
@@ -361,7 +361,7 @@ public class AlaRankListHeaderView extends LinearLayout {
                 @Override // java.lang.Runnable
                 public void run() {
                     if (AlaRankListHeaderView.this.aMa) {
-                        AlaRankListHeaderView.this.bDr();
+                        AlaRankListHeaderView.this.bDs();
                     }
                     AlaRankListHeaderView.this.aMa = true;
                 }

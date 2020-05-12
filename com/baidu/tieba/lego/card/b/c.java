@@ -17,18 +17,18 @@ public class c {
         this.url = str;
     }
 
-    public void cmH() {
+    public void cmI() {
         new BdAsyncTask<String, Void, Void>() { // from class: com.baidu.tieba.lego.card.b.c.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
             public Void doInBackground(String... strArr) {
-                HashMap cmI = c.this.cmI();
+                HashMap cmJ = c.this.cmJ();
                 e eVar = new e();
                 eVar.kB().setUrl(c.this.url);
                 eVar.kB().setMethod(HttpMessageTask.HTTP_METHOD.GET);
-                if (cmI != null && !cmI.isEmpty()) {
-                    eVar.kB().v(c.this.cmI());
+                if (cmJ != null && !cmJ.isEmpty()) {
+                    eVar.kB().v(c.this.cmJ());
                 }
                 new com.baidu.adp.lib.network.http.c(eVar).f(1, 0, 0);
                 eVar.kC();
@@ -38,7 +38,7 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public HashMap<String, String> cmI() {
+    public HashMap<String, String> cmJ() {
         String cookie = CookieManager.getInstance().getCookie("*.baidu.com");
         if (TextUtils.isEmpty(cookie) || !cookie.contains("BAIDUID=")) {
             cookie = com.baidu.tbadk.browser.a.djW;
@@ -50,7 +50,7 @@ public class c {
 
     public static void FO(String str) {
         if (!TextUtils.isEmpty(str)) {
-            new c(str).cmH();
+            new c(str).cmI();
         }
     }
 

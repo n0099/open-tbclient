@@ -11,7 +11,7 @@ public class a<T extends com.baidu.tieba.card.a> extends y.a {
         this.gtR = t;
     }
 
-    public T bFz() {
+    public T bFA() {
         return this.gtR;
     }
 }

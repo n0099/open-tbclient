@@ -90,7 +90,7 @@ public class b implements Cloneable {
         return z ? Pq(this.mQN) : this.mQN;
     }
 
-    public boolean dCv() {
+    public boolean dCw() {
         return (this.appContext == null || TextUtils.isEmpty(this.appKey) || TextUtils.isEmpty(this.from) || TextUtils.isEmpty(this.wm)) ? false : true;
     }
 

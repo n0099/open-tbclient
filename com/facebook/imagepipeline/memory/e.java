@@ -5,12 +5,12 @@ import android.util.SparseIntArray;
 public class e {
     private static final SparseIntArray mdX = new SparseIntArray(0);
 
-    private static int dtj() {
+    private static int dtk() {
         int min = (int) Math.min(Runtime.getRuntime().maxMemory(), 2147483647L);
         return min > 16777216 ? (min / 4) * 3 : min / 2;
     }
 
-    public static r dtp() {
-        return new r(0, dtj(), mdX);
+    public static r dtq() {
+        return new r(0, dtk(), mdX);
     }
 }

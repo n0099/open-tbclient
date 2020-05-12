@@ -37,31 +37,31 @@ public class h {
         return this.status;
     }
 
-    public boolean cvV() {
+    public boolean cvW() {
         return this.jox;
     }
 
-    public int cvW() {
+    public int cvX() {
         return this.joy;
     }
 
-    public int cvX() {
+    public int cvY() {
         return this.jor;
     }
 
-    public List<String> cvY() {
+    public List<String> cvZ() {
         return this.jou;
     }
 
-    public List<String> cvZ() {
+    public List<String> cwa() {
         return this.jov;
     }
 
-    public String cwa() {
+    public String cwb() {
         return this.jow;
     }
 
-    public boolean bDT() {
+    public boolean bDU() {
         return this.gje;
     }
 

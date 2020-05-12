@@ -26,7 +26,7 @@ public class b {
         public String title;
     }
 
-    public boolean ciF() {
+    public boolean ciG() {
         return (this.kmI == null || this.kmI.size() == 0) ? false : true;
     }
 

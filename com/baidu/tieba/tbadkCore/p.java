@@ -6,11 +6,11 @@ public class p {
     private boolean kRh;
     private String menu_name;
 
-    public boolean cVE() {
+    public boolean cVF() {
         return this.kRh;
     }
 
-    public String cVF() {
+    public String cVG() {
         return this.menu_name;
     }
 

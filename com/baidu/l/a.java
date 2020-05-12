@@ -19,7 +19,7 @@ public class a {
         this.mStatusCode = i;
     }
 
-    public boolean dlz() {
+    public boolean dlA() {
         return this.lPp;
     }
 
@@ -31,11 +31,11 @@ public class a {
         return this.mStatusCode;
     }
 
-    public String dlA() {
+    public String dlB() {
         return TextUtils.isEmpty(this.lPr) ? this.lPr : new com.baidu.l.a.c.b("ABCDEFGHIJKLMNOPQRSTUVWXYZ234567=", false, false).encode(this.lPr.getBytes());
     }
 
     public String toString() {
-        return "UnionIDInfo{isTrackLimited=" + this.lPp + ", isSupport=" + this.lPq + ", OAID='" + this.lPr + "', EncodedOAID='" + dlA() + "', AAID='" + this.lPs + "', VAID='" + this.lPt + "', StatusCode='" + this.mStatusCode + "'}";
+        return "UnionIDInfo{isTrackLimited=" + this.lPp + ", isSupport=" + this.lPq + ", OAID='" + this.lPr + "', EncodedOAID='" + dlB() + "', AAID='" + this.lPs + "', VAID='" + this.lPt + "', StatusCode='" + this.mStatusCode + "'}";
     }
 }

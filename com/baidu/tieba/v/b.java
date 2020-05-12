@@ -31,7 +31,7 @@ public class b {
         }
     }
 
-    public void dal() {
+    public void dam() {
         try {
             this.lgM.reenableKeyguard();
             if (this.lgL != null) {
@@ -43,7 +43,7 @@ public class b {
         }
     }
 
-    public void dam() {
+    public void dan() {
         try {
             if (this.lgL == null) {
                 this.lgL = this.lgK.newWakeLock(268435462, "ScreenLockNotify");
@@ -58,7 +58,7 @@ public class b {
         }
     }
 
-    public boolean dan() {
+    public boolean dao() {
         try {
             return ((Boolean) KeyguardManager.class.getMethod("isKeyguardSecure", new Class[0]).invoke(this.lgJ, new Object[0])).booleanValue();
         } catch (Throwable th) {
@@ -67,11 +67,11 @@ public class b {
         }
     }
 
-    public boolean dao() {
+    public boolean dap() {
         return this.lgK.isScreenOn();
     }
 
-    public static Drawable dap() {
+    public static Drawable daq() {
         Bitmap bitmap;
         TbadkCoreApplication inst = TbadkCoreApplication.getInst();
         try {

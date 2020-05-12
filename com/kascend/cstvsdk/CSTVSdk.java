@@ -51,7 +51,7 @@ public final class CSTVSdk {
     }
 
     public final void onLoginStatusChanged(int i) {
-        tv.chushou.basis.d.b.dJq().d(TAG, "onLoginStatusChanged: " + i);
+        tv.chushou.basis.d.b.dJr().d(TAG, "onLoginStatusChanged: " + i);
         if (i == 2) {
             LoginManager.Instance().openLogout(null);
         } else if (i == 1) {
@@ -77,9 +77,9 @@ public final class CSTVSdk {
                 if (e != null) {
                     application = e;
                 } else {
-                    Application dJp = tv.chushou.basis.d.b.dJp();
-                    q.i(dJp, "Router.application()");
-                    application = dJp;
+                    Application dJq = tv.chushou.basis.d.b.dJq();
+                    q.i(dJq, "Router.application()");
+                    application = dJq;
                 }
                 com.kascend.cstvsdk.utils.a.mIX.b(application);
             }
@@ -109,7 +109,7 @@ public final class CSTVSdk {
 
     public final void startH5(Context context, String str, String str2) {
         if (context == null) {
-            context = tv.chushou.basis.d.b.dJp();
+            context = tv.chushou.basis.d.b.dJq();
         }
         com.kascend.chushou.d.a.a(context, str, str2);
     }

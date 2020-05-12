@@ -164,15 +164,15 @@ public class PostData implements com.baidu.adp.widget.ListView.m, ae {
         this.kTl = z;
     }
 
-    public boolean cWg() {
+    public boolean cWh() {
         return this.kTl;
     }
 
-    public ArrayList<PostData> cWh() {
+    public ArrayList<PostData> cWi() {
         return this.kSI;
     }
 
-    public void cWi() {
+    public void cWj() {
         this.kSI.clear();
         this.kSI = null;
         this.kSH = false;
@@ -195,7 +195,7 @@ public class PostData implements com.baidu.adp.widget.ListView.m, ae {
     public void u(PostData postData) {
         if (postData != null && this.kSG != null) {
             this.kSG.add(postData);
-            cWm();
+            cWn();
         }
     }
 
@@ -216,7 +216,7 @@ public class PostData implements com.baidu.adp.widget.ListView.m, ae {
         this.kTk = z;
     }
 
-    public boolean cWj() {
+    public boolean cWk() {
         return this.kTk;
     }
 
@@ -224,19 +224,19 @@ public class PostData implements com.baidu.adp.widget.ListView.m, ae {
         this.kSH = z;
     }
 
-    public boolean cWk() {
+    public boolean cWl() {
         return this.kSH;
     }
 
-    public ArrayList<PostData> cWl() {
+    public ArrayList<PostData> cWm() {
         return this.kSG;
     }
 
-    public void cWm() {
+    public void cWn() {
         this.kSF++;
     }
 
-    public void cWn() {
+    public void cWo() {
         this.kSF--;
     }
 
@@ -268,7 +268,7 @@ public class PostData implements com.baidu.adp.widget.ListView.m, ae {
         this.title = str;
     }
 
-    public int cWo() {
+    public int cWp() {
         return this.kSB;
     }
 
@@ -276,7 +276,7 @@ public class PostData implements com.baidu.adp.widget.ListView.m, ae {
         this.kSB = i;
     }
 
-    public boolean cWp() {
+    public boolean cWq() {
         return this.kSQ;
     }
 
@@ -305,7 +305,7 @@ public class PostData implements com.baidu.adp.widget.ListView.m, ae {
         this.drZ = praiseData;
     }
 
-    public TbRichText cWq() {
+    public TbRichText cWr() {
         return this.kSJ;
     }
 
@@ -317,7 +317,7 @@ public class PostData implements com.baidu.adp.widget.ListView.m, ae {
         return this.bimg_url;
     }
 
-    public SmallTailInfo cCY() {
+    public SmallTailInfo cCZ() {
         return this.jIm;
     }
 
@@ -325,7 +325,7 @@ public class PostData implements com.baidu.adp.widget.ListView.m, ae {
         this.jIm = smallTailInfo;
     }
 
-    public com.baidu.tbadk.data.f cWr() {
+    public com.baidu.tbadk.data.f cWs() {
         return this.kSO;
     }
 
@@ -515,7 +515,7 @@ public class PostData implements com.baidu.adp.widget.ListView.m, ae {
         return bitmapDrawable;
     }
 
-    public int cWs() {
+    public int cWt() {
         return this.kSF;
     }
 
@@ -582,8 +582,8 @@ public class PostData implements com.baidu.adp.widget.ListView.m, ae {
                 while (it.hasNext()) {
                     l next = it.next();
                     if (next.getType() == 0) {
-                        if (next.cVZ() != null) {
-                            sb.append((CharSequence) next.cVZ());
+                        if (next.cWa() != null) {
+                            sb.append((CharSequence) next.cWa());
                         }
                     } else if (next.getType() == 3) {
                         if (next.getLink() != null) {
@@ -598,8 +598,8 @@ public class PostData implements com.baidu.adp.widget.ListView.m, ae {
                             sb.append(wu);
                             sb.append("]");
                         }
-                    } else if (next.getType() == 11 && !aq.isEmpty(next.cVY())) {
-                        sb.append("[").append(next.cVY()).append("]");
+                    } else if (next.getType() == 11 && !aq.isEmpty(next.cVZ())) {
+                        sb.append("[").append(next.cVZ()).append("]");
                     }
                 }
                 ClipboardManager clipboardManager2 = (ClipboardManager) context.getSystemService("clipboard");
@@ -837,7 +837,7 @@ public class PostData implements com.baidu.adp.widget.ListView.m, ae {
         return stringBuffer.toString();
     }
 
-    public String cWt() {
+    public String cWu() {
         ArrayList<TbRichTextData> bcf;
         String str;
         if (this.kSJ == null || (bcf = this.kSJ.bcf()) == null) {
@@ -862,7 +862,7 @@ public class PostData implements com.baidu.adp.widget.ListView.m, ae {
         return sb.toString();
     }
 
-    public PreLoadImageInfo cWu() {
+    public PreLoadImageInfo cWv() {
         ArrayList<TbRichTextData> bcf;
         if (this.kSJ != null && (bcf = this.kSJ.bcf()) != null) {
             Iterator<TbRichTextData> it = bcf.iterator();
@@ -889,14 +889,14 @@ public class PostData implements com.baidu.adp.widget.ListView.m, ae {
         return null;
     }
 
-    public String cWv() {
-        k cVW;
-        PreLoadImageInfo cWu = cWu();
-        if (cWu != null && !StringUtils.isNull(cWu.imgUrl)) {
-            return cWu.imgUrl;
+    public String cWw() {
+        k cVX;
+        PreLoadImageInfo cWv = cWv();
+        if (cWv != null && !StringUtils.isNull(cWv.imgUrl)) {
+            return cWv.imgUrl;
         }
-        if (this.kSR != null && (cVW = this.kSR.cVW()) != null && !StringUtils.isNull(cVW.cVX())) {
-            return cVW.cVX();
+        if (this.kSR != null && (cVX = this.kSR.cVX()) != null && !StringUtils.isNull(cVX.cVY())) {
+            return cVX.cVY();
         }
         return null;
     }
@@ -970,7 +970,7 @@ public class PostData implements com.baidu.adp.widget.ListView.m, ae {
         if (this.kSA == 53) {
             return kSx;
         }
-        if (cWo() == 1) {
+        if (cWp() == 1) {
             return kSr;
         }
         return kSs;
@@ -980,7 +980,7 @@ public class PostData implements com.baidu.adp.widget.ListView.m, ae {
         this.kSA = i;
     }
 
-    public ar cWw() {
+    public ar cWx() {
         return this.kSK;
     }
 
@@ -988,7 +988,7 @@ public class PostData implements com.baidu.adp.widget.ListView.m, ae {
         this.kSK = arVar;
     }
 
-    public i cWx() {
+    public i cWy() {
         return this.kSR;
     }
 
@@ -1026,7 +1026,7 @@ public class PostData implements com.baidu.adp.widget.ListView.m, ae {
         return null;
     }
 
-    public String cWy() {
+    public String cWz() {
         return this.kSW;
     }
 
@@ -1048,7 +1048,7 @@ public class PostData implements com.baidu.adp.widget.ListView.m, ae {
         return this.agreeData;
     }
 
-    public OriginalThreadInfo cWz() {
+    public OriginalThreadInfo cWA() {
         return this.dtt;
     }
 
@@ -1056,15 +1056,15 @@ public class PostData implements com.baidu.adp.widget.ListView.m, ae {
         this.dtt = originalThreadInfo;
     }
 
-    public int cWA() {
+    public int cWB() {
         return this.kTj;
     }
 
-    public String cvz() {
+    public String cvA() {
         return this.joe;
     }
 
-    public boolean cWB() {
+    public boolean cWC() {
         return this.kTo;
     }
 }

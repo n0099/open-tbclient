@@ -104,13 +104,13 @@ public class b extends com.baidu.tieba.sharesdk.a.a {
         } else {
             this.kGQ = new a(bVar);
             String aIU = shareEntity.aIU();
-            if (vQ(shareEntity.cSj())) {
-                a(shareEntity.cSj(), this.kGQ);
-            } else if (shareEntity.cSl() != 0 && !TextUtils.isEmpty(aIU) && (aIU.startsWith("http://") || aIU.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX))) {
+            if (vQ(shareEntity.cSk())) {
+                a(shareEntity.cSk(), this.kGQ);
+            } else if (shareEntity.cSm() != 0 && !TextUtils.isEmpty(aIU) && (aIU.startsWith("http://") || aIU.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX))) {
                 com.baidu.adp.lib.e.c.kV().a(aIU, 34, this.kGS, 0, 0, getPageId(), new Object[0]);
             } else if (!TextUtils.isEmpty(shareEntity.getLinkUrl()) && !TextUtils.isEmpty(shareEntity.getTitle())) {
                 this.kGR = shareEntity;
-                if (this.kGR.cSi()) {
+                if (this.kGR.cSj()) {
                     com.baidu.adp.lib.e.c.kV().a(shareEntity.aIU(), 10, this.kGT, 0, 0, getPageId(), new Object[0]);
                 } else {
                     a(shareEntity, this.kGQ);
@@ -128,18 +128,18 @@ public class b extends com.baidu.tieba.sharesdk.a.a {
         if (shareEntity != null && iUiListener != null) {
             Bundle bundle = new Bundle();
             bundle.putString("title", shareEntity.getTitle());
-            if (shareEntity.cSh() >= 0) {
-                if (shareEntity.cSh() < 10000) {
+            if (shareEntity.cSi() >= 0) {
+                if (shareEntity.cSi() < 10000) {
                     bundle.putString("summary", this.context.getString(R.string.share_qq_default_content));
                 } else {
-                    bundle.putString("summary", aq.numberUniformFormatExtra(shareEntity.cSh()) + this.context.getString(R.string.share_qq_content));
+                    bundle.putString("summary", aq.numberUniformFormatExtra(shareEntity.cSi()) + this.context.getString(R.string.share_qq_content));
                 }
             } else {
                 bundle.putString("summary", shareEntity.getContent());
             }
             bundle.putString("targetUrl", shareEntity.getLinkUrl());
             bundle.putInt("req_type", 1);
-            if (shareEntity.cSi() && !StringUtils.isNull(shareEntity.aIU()) && !shareEntity.aIU().startsWith(HttpHost.DEFAULT_SCHEME_NAME)) {
+            if (shareEntity.cSj() && !StringUtils.isNull(shareEntity.aIU()) && !shareEntity.aIU().startsWith(HttpHost.DEFAULT_SCHEME_NAME)) {
                 bundle.putString("imageLocalUrl", shareEntity.aIU());
             } else {
                 bundle.putString("imageUrl", shareEntity.aIU());
@@ -204,7 +204,7 @@ public class b extends com.baidu.tieba.sharesdk.a.a {
             this.kGW = bVar;
         }
 
-        private void cSq() {
+        private void cSr() {
             m.deleteFile(new File(com.baidu.tieba.sharesdk.a.a.kGN + com.baidu.tieba.sharesdk.a.a.kGO));
         }
 
@@ -214,7 +214,7 @@ public class b extends com.baidu.tieba.sharesdk.a.a {
                 this.kGW.cK(b.this.kGI, 1);
             }
             b.this.cL(1, b.this.kGI);
-            cSq();
+            cSr();
         }
 
         @Override // com.tencent.tauth.IUiListener
@@ -223,7 +223,7 @@ public class b extends com.baidu.tieba.sharesdk.a.a {
                 this.kGW.cK(b.this.kGI, 2);
             }
             b.this.l(2, uiError != null ? uiError.errorMessage : null, b.this.kGI);
-            cSq();
+            cSr();
         }
 
         @Override // com.tencent.tauth.IUiListener
@@ -233,7 +233,7 @@ public class b extends com.baidu.tieba.sharesdk.a.a {
             }
             if (b.this.kGI != 8 && b.this.kGI == 4) {
             }
-            cSq();
+            cSr();
         }
     }
 }

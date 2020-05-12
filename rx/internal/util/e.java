@@ -141,7 +141,7 @@ public final class e<T> {
         return this.size == 0;
     }
 
-    public T[] dIa() {
+    public T[] dIb() {
         return this.mVG;
     }
 }

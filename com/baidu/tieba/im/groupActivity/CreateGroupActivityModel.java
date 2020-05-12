@@ -16,7 +16,7 @@ public class CreateGroupActivityModel extends BdBaseModel<BaseActivity> {
         this.mActivity = baseActivity;
     }
 
-    public GroupActivityData cgt() {
+    public GroupActivityData cgu() {
         return this.inx;
     }
 

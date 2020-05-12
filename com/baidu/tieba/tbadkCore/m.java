@@ -378,7 +378,7 @@ public class m implements com.baidu.tbadk.mvc.b.c {
                 }
                 this.mSortType = dataRes.sort_type.intValue();
                 this.needLog = dataRes.need_log.intValue();
-                com.baidu.tieba.recapp.d.a.cNY().JG(dataRes.asp_shown_info);
+                com.baidu.tieba.recapp.d.a.cNZ().JG(dataRes.asp_shown_info);
                 this.mCardShipinPos = dataRes.card_shipin_pos;
                 if (dataRes.card_shipin_new != null) {
                     for (int i6 = 0; i6 < dataRes.card_shipin_new.size(); i6++) {
@@ -547,7 +547,7 @@ public class m implements com.baidu.tbadk.mvc.b.c {
                     }
                 }
             }
-            com.baidu.tieba.recapp.report.b.cOc().em(arrayList);
+            com.baidu.tieba.recapp.report.b.cOd().em(arrayList);
         }
     }
 

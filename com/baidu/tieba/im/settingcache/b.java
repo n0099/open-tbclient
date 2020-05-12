@@ -15,7 +15,7 @@ public class b extends a {
     private b() {
     }
 
-    public static b ciR() {
+    public static b ciS() {
         return ivg;
     }
 
@@ -43,7 +43,7 @@ public class b extends a {
         return groupSettingItemData;
     }
 
-    public void cfc() {
+    public void cfd() {
         super.y(GroupSettingItemData.class);
     }
 
@@ -82,7 +82,7 @@ public class b extends a {
     }
 
     @Override // com.baidu.tieba.im.settingcache.a
-    protected com.baidu.adp.lib.cache.l<String> ciQ() {
+    protected com.baidu.adp.lib.cache.l<String> ciR() {
         return com.baidu.tbadk.core.c.a.aMR().ug("tb.im_group_setting");
     }
 
@@ -98,13 +98,13 @@ public class b extends a {
                 }
                 return;
             }
-            com.baidu.adp.lib.cache.l<String> ciQ = ciQ();
+            com.baidu.adp.lib.cache.l<String> ciR = ciR();
             String str = uid + UgcConstant.AT_RULE_TAG + gid;
             String jsonStrWithObject = OrmObject.jsonStrWithObject(groupSettingItemData);
             synchronized (this.ive) {
                 this.ive.put(str, groupSettingItemData);
             }
-            ciQ.setForever(str, jsonStrWithObject);
+            ciR.setForever(str, jsonStrWithObject);
         }
     }
 
@@ -129,7 +129,7 @@ public class b extends a {
                 @Override // com.baidu.tbadk.util.ab
                 /* renamed from: bgO */
                 public Void doInBackground() {
-                    b.this.ciQ().setForever(str, OrmObject.jsonStrWithObject(groupSettingItemData));
+                    b.this.ciR().setForever(str, OrmObject.jsonStrWithObject(groupSettingItemData));
                     return null;
                 }
             }, lVar);
@@ -147,7 +147,7 @@ public class b extends a {
                 @Override // com.baidu.tbadk.util.ab
                 /* renamed from: bgO */
                 public Void doInBackground() {
-                    b.this.ciQ().remove(str3);
+                    b.this.ciR().remove(str3);
                     return null;
                 }
             }, lVar);

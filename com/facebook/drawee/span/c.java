@@ -55,7 +55,7 @@ public class c extends CharacterStyle implements UpdateAppearance {
             return str.replace("#", "#FF");
         }
 
-        public c dpz() {
+        public c dpA() {
             c cVar = new c();
             if (this.mColors != null) {
                 cVar.colors = this.mColors;

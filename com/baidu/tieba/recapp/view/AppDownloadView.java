@@ -102,7 +102,7 @@ public class AppDownloadView extends LinearLayout {
                     am.setImageResource(this.kyj, R.drawable.icon_download_play);
                     break;
             }
-            int cQ = e.cNr().cQ(downloadData.getId(), downloadData.getName());
+            int cQ = e.cNs().cQ(downloadData.getId(), downloadData.getName());
             if (cQ >= 0) {
                 BP(cQ);
             } else {
@@ -201,7 +201,7 @@ public class AppDownloadView extends LinearLayout {
                         }
                         downloadData = null;
                         if (downloadData != null) {
-                            AppDownloadView.this.BP(e.cNr().cQ(downloadData.getId(), downloadData.getName()));
+                            AppDownloadView.this.BP(e.cNs().cQ(downloadData.getId(), downloadData.getName()));
                             AppDownloadView.this.postInvalidate();
                         }
                     }

@@ -114,11 +114,11 @@ public class PbInterviewStatusView extends FrameLayout {
     }
 
     public void setData(PbFragment pbFragment, e eVar) {
-        this.dop = eVar.cvr().aKi().aJZ();
+        this.dop = eVar.cvs().aKi().aJZ();
         if (StringUtils.isNull(this.dop)) {
-            this.dop = eVar.cvr().aKi().getTaskId();
+            this.dop = eVar.cvs().aKi().getTaskId();
         }
-        this.jOt = !"from_interview_live".equals(pbFragment.cxY());
+        this.jOt = !"from_interview_live".equals(pbFragment.cxZ());
         b(pbFragment, eVar);
     }
 
@@ -126,10 +126,10 @@ public class PbInterviewStatusView extends FrameLayout {
     /* JADX WARN: Type inference failed for: r0v21, types: [com.baidu.tieba.pb.view.PbInterviewStatusView$2] */
     /* JADX WARN: Type inference failed for: r0v27, types: [com.baidu.tieba.pb.view.PbInterviewStatusView$1] */
     public void b(final PbFragment pbFragment, final e eVar) {
-        int aLk = eVar.cvr().aLk();
+        int aLk = eVar.cvs().aLk();
         switch (aLk) {
             case 1:
-                long millis = TimeUnit.SECONDS.toMillis(eVar.cvr().aKi().aJV()) - System.currentTimeMillis();
+                long millis = TimeUnit.SECONDS.toMillis(eVar.cvs().aKi().aJV()) - System.currentTimeMillis();
                 if (millis > TimeUnit.SECONDS.toMillis(61L)) {
                     long millis2 = millis - TimeUnit.SECONDS.toMillis(61L);
                     this.jOq = new CountDownTimer(millis2, millis2) { // from class: com.baidu.tieba.pb.view.PbInterviewStatusView.1
@@ -265,7 +265,7 @@ public class PbInterviewStatusView extends FrameLayout {
                         PbInterviewStatusView.this.jOp.dismiss();
                     }
                     if (pbFragment != null) {
-                        pbFragment.cxX();
+                        pbFragment.cxY();
                     }
                 }
             }.start();

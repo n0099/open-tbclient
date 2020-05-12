@@ -41,7 +41,7 @@ public class ReplyMessageFragment extends BaseFragment implements NoNetworkView.
                 Intent intent = (Intent) customResponsedMessage.getData();
                 if (ReplyMessageFragment.this.iBz != null) {
                     ReplyMessageFragment.this.showLoadingView(ReplyMessageFragment.this.mRootView, true);
-                    ReplyMessageFragment.this.iBz.bFD();
+                    ReplyMessageFragment.this.iBz.bFE();
                 }
             }
         }
@@ -63,10 +63,10 @@ public class ReplyMessageFragment extends BaseFragment implements NoNetworkView.
                     ReplyMessageFragment.this.iBB = true;
                     ReplyMessageFragment.this.iBA.ps(true);
                     ReplyMessageFragment.this.showLoadingView(ReplyMessageFragment.this.mRootView);
-                    ReplyMessageFragment.this.iBz.bFD();
+                    ReplyMessageFragment.this.iBz.bFE();
                     return;
                 }
-                ReplyMessageFragment.this.bRl();
+                ReplyMessageFragment.this.bRm();
             }
         }
     };
@@ -84,7 +84,7 @@ public class ReplyMessageFragment extends BaseFragment implements NoNetworkView.
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016010 && ReplyMessageFragment.this.iBA != null) {
-                ReplyMessageFragment.this.iBA.ckG();
+                ReplyMessageFragment.this.iBA.ckH();
             }
         }
     };
@@ -100,18 +100,18 @@ public class ReplyMessageFragment extends BaseFragment implements NoNetworkView.
                     }
                 }
                 if (aVar.isBjh()) {
-                    if (aVar.ckJ()) {
+                    if (aVar.ckK()) {
                         ReplyMessageFragment.this.d(aVar);
                     } else {
                         ReplyMessageFragment.this.c(aVar);
                     }
-                } else if (aVar.ckJ()) {
+                } else if (aVar.ckK()) {
                     ReplyMessageFragment.this.b(aVar);
                 } else {
                     ReplyMessageFragment.this.a(aVar);
                 }
-                if (aVar.ckL() != null) {
-                    an af = new an(aVar.ckL()).af("obj_locate", 1);
+                if (aVar.ckM() != null) {
+                    an af = new an(aVar.ckM()).af("obj_locate", 1);
                     if (aVar.getType() == com.baidu.tieba.imMessageCenter.mention.base.a.iBW) {
                         af.af("obj_type", 1);
                     } else {
@@ -128,7 +128,7 @@ public class ReplyMessageFragment extends BaseFragment implements NoNetworkView.
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
         registerListener(this.iAb);
         registerListener(this.gAR);
-        bZv();
+        bZw();
         this.iBz = new ReplyMeModelController(this);
         this.iBz.ad(bundle);
         this.iBz.setUniqueId(getUniqueId());
@@ -140,13 +140,13 @@ public class ReplyMessageFragment extends BaseFragment implements NoNetworkView.
             if (getActivity() instanceof MessageCenterActivity) {
                 this.iBA.ps(true);
                 showLoadingView(this.mRootView);
-                this.iBz.bFD();
+                this.iBz.bFE();
                 this.iBB = true;
             }
         } else {
             this.iBA.ps(true);
             showLoadingView(this.mRootView);
-            this.iBz.bFD();
+            this.iBz.bFE();
         }
         registerListener(this.gZG);
         registerListener(this.iBC);
@@ -190,15 +190,15 @@ public class ReplyMessageFragment extends BaseFragment implements NoNetworkView.
         }
     }
 
-    public void bRl() {
+    public void bRm() {
         if (this.iBz != null) {
-            this.iBz.bTt();
+            this.iBz.bTu();
         }
     }
 
-    public void bDx() {
+    public void bDy() {
         if (this.iBz != null) {
-            this.iBz.bFE();
+            this.iBz.bFF();
         }
     }
 
@@ -223,7 +223,7 @@ public class ReplyMessageFragment extends BaseFragment implements NoNetworkView.
         super.onNetRefreshButtonClicked();
         if (com.baidu.adp.lib.util.l.isNetOk() && this.iBA != null) {
             this.iBA.ps(true);
-            bRl();
+            bRm();
         }
     }
 
@@ -235,11 +235,11 @@ public class ReplyMessageFragment extends BaseFragment implements NoNetworkView.
         }
     }
 
-    public void ckI() {
+    public void ckJ() {
         this.iBA.ps(false);
     }
 
-    private void bZv() {
+    private void bZw() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_IM_REPLY_ME_BACK_EVENT, new CustomMessageTask.CustomRunnable<Boolean>() { // from class: com.baidu.tieba.imMessageCenter.mention.ReplyMessageFragment.6
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<Boolean> customMessage) {
@@ -286,7 +286,7 @@ public class ReplyMessageFragment extends BaseFragment implements NoNetworkView.
     /* JADX INFO: Access modifiers changed from: private */
     public void d(com.baidu.tieba.imMessageCenter.mention.base.a aVar) {
         if (aVar != null) {
-            SubPbActivityConfig createSubPbActivityConfig = new SubPbActivityConfig(getActivity()).createSubPbActivityConfig(aVar.getThread_id(), aVar.ckK(), "mention", false, aVar.getReplyer() == null ? "" : aVar.getReplyer().getUserName(), false, aVar.ckK(), 0);
+            SubPbActivityConfig createSubPbActivityConfig = new SubPbActivityConfig(getActivity()).createSubPbActivityConfig(aVar.getThread_id(), aVar.ckL(), "mention", false, aVar.getReplyer() == null ? "" : aVar.getReplyer().getUserName(), false, aVar.ckL(), 0);
             createSubPbActivityConfig.setKeyPageStartFrom(12);
             createSubPbActivityConfig.setBjhData(aVar.getBaijiahaoData());
             createSubPbActivityConfig.setHighLightPostId(aVar.getPost_id());

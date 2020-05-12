@@ -43,7 +43,7 @@ public class b {
         this.name = str;
     }
 
-    public int ceV() {
+    public int ceW() {
         return this.ijn;
     }
 
@@ -67,7 +67,7 @@ public class b {
         this.content = str;
     }
 
-    public List<b> ceW() {
+    public List<b> ceX() {
         return this.sub_menu;
     }
 

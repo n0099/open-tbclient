@@ -1,10 +1,10 @@
 package tv.chushou.zues.utils;
 /* loaded from: classes5.dex */
 public class e {
-    private static final tv.chushou.a.a.c.b nsA = tv.chushou.a.a.c.a.dJB();
+    private static final tv.chushou.a.a.c.b nsA = tv.chushou.a.a.c.a.dJC();
 
-    public static boolean dJQ() {
-        return nsA.dJC();
+    public static boolean dJR() {
+        return nsA.dJD();
     }
 
     public static void v(String str, String str2) {

@@ -6,7 +6,7 @@ public class c implements a {
     private c() {
     }
 
-    public static c dnr() {
+    public static c dnt() {
         return lSp;
     }
 

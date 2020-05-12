@@ -82,9 +82,9 @@ public class b {
                 this.mZQ = dVar;
                 return false;
             }
-            long dFp = dVar.dFp() - this.mZQ.dFp();
+            long dFq = dVar.dFq() - this.mZQ.dFq();
             master.flame.danmaku.danmaku.model.g gVar = danmakuContext.ndh.ndn;
-            if ((dFp < 0 || gVar == null || ((float) dFp) >= ((float) gVar.value) * this.mFilterFactor) && i <= this.mZP) {
+            if ((dFq < 0 || gVar == null || ((float) dFq) >= ((float) gVar.value) * this.mFilterFactor) && i <= this.mZP) {
                 this.mZQ = dVar;
                 return false;
             }
@@ -130,8 +130,8 @@ public class b {
             boolean z2 = false;
             synchronized (this) {
                 if (fVar != null) {
-                    if (dVar.dFg()) {
-                        if (master.flame.danmaku.danmaku.c.c.dGm() - fVar.nbv >= this.deU) {
+                    if (dVar.dFh()) {
+                        if (master.flame.danmaku.danmaku.c.c.dGn() - fVar.nbv >= this.deU) {
                             z2 = true;
                         }
                     }
@@ -280,14 +280,14 @@ public class b {
 
         private final void a(master.flame.danmaku.danmaku.model.l lVar, final long j) {
             lVar.a(new l.c<master.flame.danmaku.danmaku.model.d>() { // from class: master.flame.danmaku.a.b.b.1
-                long startTime = master.flame.danmaku.danmaku.c.c.dGm();
+                long startTime = master.flame.danmaku.danmaku.c.c.dGn();
 
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // master.flame.danmaku.danmaku.model.l.b
                 /* renamed from: e */
                 public int bF(master.flame.danmaku.danmaku.model.d dVar) {
                     try {
-                        if (master.flame.danmaku.danmaku.c.c.dGm() - this.startTime > j) {
+                        if (master.flame.danmaku.danmaku.c.c.dGn() - this.startTime > j) {
                             return 1;
                         }
                         return dVar.isTimeOut() ? 2 : 1;
@@ -300,12 +300,12 @@ public class b {
 
         private void a(LinkedHashMap<String, master.flame.danmaku.danmaku.model.d> linkedHashMap, int i) {
             Iterator<Map.Entry<String, master.flame.danmaku.danmaku.model.d>> it = linkedHashMap.entrySet().iterator();
-            long dGm = master.flame.danmaku.danmaku.c.c.dGm();
+            long dGn = master.flame.danmaku.danmaku.c.c.dGn();
             while (it.hasNext()) {
                 try {
                     if (it.next().getValue().isTimeOut()) {
                         it.remove();
-                        if (master.flame.danmaku.danmaku.c.c.dGm() - dGm > i) {
+                        if (master.flame.danmaku.danmaku.c.c.dGn() - dGn > i) {
                             return;
                         }
                     } else {
@@ -323,7 +323,7 @@ public class b {
                 a(this.mZH, 2L);
                 a(this.mZJ, 2L);
                 a(this.mZI, 3);
-                if (!this.mZH.m(dVar) || dVar.dFg()) {
+                if (!this.mZH.m(dVar) || dVar.dFh()) {
                     if (this.mZJ.m(dVar)) {
                         z2 = false;
                     } else if (this.mZI.containsKey(dVar.text)) {
@@ -464,7 +464,7 @@ public class b {
     public e<?> aO(String str, boolean z) {
         j jVar;
         if (str == null) {
-            dED();
+            dEE();
             return null;
         }
         e<?> eVar = this.mZD.get(str);
@@ -491,7 +491,7 @@ public class b {
                 jVar = new g();
             }
             if (jVar != null) {
-                dED();
+                dEE();
                 return null;
             }
             jVar.setData(null);
@@ -540,7 +540,7 @@ public class b {
         }
     }
 
-    private void dED() {
+    private void dEE() {
         try {
             throw this.mZC;
         } catch (Exception e2) {

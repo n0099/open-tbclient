@@ -24,7 +24,7 @@ public class x {
         MessageManager.getInstance().registerListener(this.mAccountChangedListener);
     }
 
-    public static x cKo() {
+    public static x cKp() {
         if (kio == null) {
             synchronized (x.class) {
                 if (kio == null) {

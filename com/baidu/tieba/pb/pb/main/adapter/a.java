@@ -39,9 +39,9 @@ public class a extends l<com.baidu.tieba.pb.data.a, C0635a> {
                         return;
                     }
                     a.this.b(a.this.jCc);
-                    if (a.this.jCc.jno.cvo()) {
+                    if (a.this.jCc.jno.cvp()) {
                         ba.aOV().a((TbPageContext<?>) a.this.jpW.getPageContext(), new String[]{TbConfig.URL_JUMP_TAG_CARDBOX}, true);
-                    } else if (a.this.jCc.jno.cvn()) {
+                    } else if (a.this.jCc.jno.cvo()) {
                         a.this.jCb.c(a.this.jCc);
                     }
                 }
@@ -76,12 +76,12 @@ public class a extends l<com.baidu.tieba.pb.data.a, C0635a> {
 
     private void a(com.baidu.tieba.pb.data.a aVar) {
         String str = aVar.jno.jnp + "";
-        com.baidu.tieba.s.c.cVo().a(this.jpW.getUniqueId(), com.baidu.tieba.s.a.a(this.jqG.cvr().getTid(), str, "", null), com.baidu.tieba.s.a.a(this.jqG.cvr(), PageStayDurationConstants.PageName.PB, "common_exp", aVar.locate, true, str, "", 18));
+        com.baidu.tieba.s.c.cVp().a(this.jpW.getUniqueId(), com.baidu.tieba.s.a.a(this.jqG.cvs().getTid(), str, "", null), com.baidu.tieba.s.a.a(this.jqG.cvs(), PageStayDurationConstants.PageName.PB, "common_exp", aVar.locate, true, str, "", 18));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(com.baidu.tieba.pb.data.a aVar) {
-        com.baidu.tieba.s.c.cVo().b(this.jpW.getUniqueId(), com.baidu.tieba.s.a.a(this.jqG.cvr(), PageStayDurationConstants.PageName.PB, "common_click", 1, aVar.locate, true, aVar.jno.jnp + "", (String) null, 18));
+        com.baidu.tieba.s.c.cVp().b(this.jpW.getUniqueId(), com.baidu.tieba.s.a.a(this.jqG.cvs(), PageStayDurationConstants.PageName.PB, "common_click", 1, aVar.locate, true, aVar.jno.jnp + "", (String) null, 18));
     }
 
     public void onDestroy() {
@@ -148,12 +148,12 @@ public class a extends l<com.baidu.tieba.pb.data.a, C0635a> {
                     i = i2 < 0 ? 0 : i2;
                 }
                 this.jCi.setProgress(i);
-                if (bVar.cvn()) {
+                if (bVar.cvo()) {
                     this.jCh.setText(R.string.pb_ad_card_gift_get);
                     am.setViewTextColor(this.jCh, (int) R.color.cp_cont_a);
                     am.setBackgroundResource(this.jCh, R.drawable.btn_pb_ad_card_gift_get);
                     this.jCh.setClickable(true);
-                } else if (bVar.cvo()) {
+                } else if (bVar.cvp()) {
                     this.jCh.setText(R.string.pb_ad_card_gift_watch_btn);
                     am.setViewTextColor(this.jCh, (int) R.color.cp_cont_a);
                     am.setBackgroundResource(this.jCh, R.drawable.btn_pb_ad_card_gift_watch);

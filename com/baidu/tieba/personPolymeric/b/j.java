@@ -51,7 +51,7 @@ public class j extends d implements com.baidu.tieba.model.a, com.baidu.tieba.per
         this.kai = new PersonPostModel.b() { // from class: com.baidu.tieba.personPolymeric.b.j.2
             @Override // com.baidu.tieba.personPolymeric.mode.PersonPostModel.b
             public void a(PersonPostModel personPostModel, boolean z2) {
-                j.this.kae.bUw();
+                j.this.kae.bUx();
                 if (personPostModel != null) {
                     l.showToast(j.this.duK.getContext(), personPostModel.getErrorString());
                 } else {
@@ -72,8 +72,8 @@ public class j extends d implements com.baidu.tieba.model.a, com.baidu.tieba.per
         this.kae = new p(baseFragment, fVar, bdUniqueId, z, this.mUserId);
         this.kae.a(this);
         resetData();
-        this.jZx = this.kad.cHR();
-        this.kaf = this.kad.cHS();
+        this.jZx = this.kad.cHS();
+        this.kaf = this.kad.cHT();
         this.mList = new ArrayList(2);
         this.mList.add(new com.baidu.tieba.person.data.e());
         this.mList.add(new com.baidu.tieba.person.data.e());
@@ -104,7 +104,7 @@ public class j extends d implements com.baidu.tieba.model.a, com.baidu.tieba.per
     public void d(com.baidu.tieba.personPolymeric.c.a aVar) {
         boolean z;
         this.jZL = aVar;
-        this.kae.bUw();
+        this.kae.bUx();
         this.gCM.hideLoadingView(this.mView);
         if (aVar == null) {
             this.kaf.at(TbadkCoreApplication.getInst().getString(R.string.neterror), true);
@@ -113,15 +113,15 @@ public class j extends d implements com.baidu.tieba.model.a, com.baidu.tieba.per
             return;
         }
         this.kaf.blr();
-        if (aVar.bNE() != null && aVar.getUserData() != null && aVar.getUserData().isBaijiahaoUser() && ((aVar.bNE().getHide_stat() == 1 && aVar.bNE().getBlock_stat() == 1) || (aVar.bNE().getHide_stat() == 1 && aVar.bNE().getBlock_stat() == 2))) {
+        if (aVar.bNF() != null && aVar.getUserData() != null && aVar.getUserData().isBaijiahaoUser() && ((aVar.bNF().getHide_stat() == 1 && aVar.bNF().getBlock_stat() == 1) || (aVar.bNF().getHide_stat() == 1 && aVar.bNF().getBlock_stat() == 2))) {
             this.kaf.sz(this.mIsHost);
             this.kaf.AH(8);
             return;
         }
         this.kaf.AH(0);
-        aVar.cIe();
-        if (aVar.cbo() != null) {
-            z = aVar.cbo().size() >= 20;
+        aVar.cIf();
+        if (aVar.cbp() != null) {
+            z = aVar.cbp().size() >= 20;
         } else {
             z = false;
         }
@@ -134,7 +134,7 @@ public class j extends d implements com.baidu.tieba.model.a, com.baidu.tieba.per
             com.baidu.tbadk.getUserInfo.b.aYd().a(aVar.getUserData());
         }
         com.baidu.tieba.person.data.e eVar = this.mList.get(0);
-        eVar.aP(aVar.cbo());
+        eVar.aP(aVar.cbp());
         eVar.sp(z);
         this.kae.a(aVar, z, a(aVar));
     }
@@ -178,9 +178,9 @@ public class j extends d implements com.baidu.tieba.model.a, com.baidu.tieba.per
     }
 
     @Override // com.baidu.tieba.personPolymeric.b.a
-    public void cHJ() {
+    public void cHK() {
         if (this.kae != null) {
-            this.kae.cHJ();
+            this.kae.cHK();
         }
     }
 
@@ -189,7 +189,7 @@ public class j extends d implements com.baidu.tieba.model.a, com.baidu.tieba.per
     }
 
     @Override // com.baidu.tieba.personPolymeric.b.a
-    public p cHK() {
+    public p cHL() {
         return this.kae;
     }
 }

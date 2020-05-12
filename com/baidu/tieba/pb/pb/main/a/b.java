@@ -46,8 +46,8 @@ public class b {
     public void a(com.baidu.tieba.pb.data.e eVar, BdTypeListView bdTypeListView) {
         String charSequence;
         if (eVar != null && bdTypeListView != null) {
-            if (eVar.cvr().aJp() && eVar.cvr().aLo() != null) {
-                SmartApp aLo = eVar.cvr().aLo();
+            if (eVar.cvs().aJp() && eVar.cvs().aLo() != null) {
+                SmartApp aLo = eVar.cvs().aLo();
                 this.jCG.setVisibility(0);
                 c(bdTypeListView);
                 a(bdTypeListView, 1);

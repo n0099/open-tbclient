@@ -27,7 +27,7 @@ public class m extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
         this.hdt = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<ConstrainImageLayout>() { // from class: com.baidu.tieba.homepage.concern.a.m.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: bQO */
+            /* renamed from: bQP */
             public ConstrainImageLayout makeObject() {
                 return new ConstrainImageLayout(m.this.mPageContext.getPageActivity());
             }
@@ -151,16 +151,16 @@ public class m extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.card.data.k kVar, com.baidu.tieba.card.a.a<com.baidu.tieba.homepage.concern.view.a> aVar) {
-        if (kVar == null || aVar == null || aVar.bFz() == null) {
+        if (kVar == null || aVar == null || aVar.bFA() == null) {
             return null;
         }
         kVar.rN(i + 1);
-        com.baidu.tieba.card.r.bEW().e(kVar.BK("c12351"));
-        if (aVar.bFz() instanceof com.baidu.tieba.a.e) {
-            aVar.bFz().setPage(this.aeB);
+        com.baidu.tieba.card.r.bEX().e(kVar.BK("c12351"));
+        if (aVar.bFA() instanceof com.baidu.tieba.a.e) {
+            aVar.bFA().setPage(this.aeB);
         }
-        aVar.bFz().a(kVar);
-        aVar.bFz().c(this.gEm);
+        aVar.bFA().a(kVar);
+        aVar.bFA().c(this.gEm);
         return aVar.getView();
     }
 

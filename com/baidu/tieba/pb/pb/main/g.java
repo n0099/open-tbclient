@@ -24,7 +24,7 @@ public class g extends l<com.baidu.tbadk.core.data.l, h> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: bH */
     public h b(ViewGroup viewGroup) {
-        h hVar = new h(LayoutInflater.from(this.mContext).inflate(R.layout.bjh_recommend_item, (ViewGroup) null), this.jse.cyh());
+        h hVar = new h(LayoutInflater.from(this.mContext).inflate(R.layout.bjh_recommend_item, (ViewGroup) null), this.jse.cyi());
         a(hVar);
         return hVar;
     }
@@ -42,7 +42,7 @@ public class g extends l<com.baidu.tbadk.core.data.l, h> {
                 com.baidu.tbadk.core.util.am.setViewTextColor(hVar.jrp, R.color.cp_cont_d, 1, skinType);
                 com.baidu.tbadk.core.util.am.setViewTextColor(hVar.jrq, R.color.cp_cont_d, 1, skinType);
                 com.baidu.tbadk.core.util.am.b(hVar.iKM, R.color.cp_bg_line_e, R.color.cp_bg_line_c, skinType);
-                com.baidu.tbadk.core.util.e.a.aPr().kL(0).i(R.color.cp_bg_line_d_alpha0, R.color.cp_cont_b).kQ(com.baidu.adp.lib.util.l.getDimens(this.jse.cyh(), R.dimen.tbds10)).aR(hVar.jrh);
+                com.baidu.tbadk.core.util.e.a.aPr().kL(0).i(R.color.cp_bg_line_d_alpha0, R.color.cp_cont_b).kQ(com.baidu.adp.lib.util.l.getDimens(this.jse.cyi(), R.dimen.tbds10)).aR(hVar.jrh);
             }
             hVar.mSkinType = skinType;
         }
@@ -64,8 +64,8 @@ public class g extends l<com.baidu.tbadk.core.data.l, h> {
         if (this.jqZ != null) {
             hVar.Hx(this.jqZ.getThreadId());
             hVar.qR(this.jqZ.aQe());
-            if (this.jqZ.cvr() != null && this.jqZ.cvr().getBaijiahaoData() != null) {
-                hVar.setNid(this.jqZ.cvr().getBaijiahaoData().oriUgcNid);
+            if (this.jqZ.cvs() != null && this.jqZ.cvs().getBaijiahaoData() != null) {
+                hVar.setNid(this.jqZ.cvs().getBaijiahaoData().oriUgcNid);
             }
             if (this.from == 2) {
                 i2 = 1;

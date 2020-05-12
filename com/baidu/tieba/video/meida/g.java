@@ -23,20 +23,20 @@ public class g {
         public int lmy = 16;
         public int lmB = 0;
 
-        public boolean dcf() {
+        public boolean dcg() {
             return this.lmB == 1 || this.lmB == 4 || this.lmB == 6 || this.lmB == 9;
         }
 
-        public boolean dcg() {
+        public boolean dch() {
             return this.lmB == 3 || this.lmB == 4 || this.lmB == 8 || this.lmB == 9;
         }
 
-        public boolean dch() {
+        public boolean dci() {
             return this.lmB == 5 || this.lmB == 6 || this.lmB == 8 || this.lmB == 9;
         }
     }
 
-    public static void dce() {
+    public static void dcf() {
         if (ByteOrder.nativeOrder() == ByteOrder.BIG_ENDIAN) {
             lmA = true;
         } else {

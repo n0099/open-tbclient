@@ -11,13 +11,13 @@ public class a {
 
     public static void NA(String str) {
         if (lOa) {
-            e.dld().NA(str);
+            e.dle().NA(str);
         }
     }
 
     public static void NB(String str) {
         if (lOa) {
-            e.dld().NB(str);
+            e.dle().NB(str);
         }
     }
 

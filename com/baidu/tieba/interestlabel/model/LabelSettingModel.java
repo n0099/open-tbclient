@@ -60,7 +60,7 @@ public class LabelSettingModel extends BdBaseModel {
         this.iFV = aVar;
     }
 
-    public void clT() {
+    public void clU() {
         if (!j.isNetworkAvailableForImmediately()) {
             if (this.iFV != null) {
                 this.iFV.a(LabelRequestEnum.GET_LABEL, null, -1);

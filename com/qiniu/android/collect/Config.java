@@ -13,7 +13,7 @@ public final class Config {
     static {
         mLh = null;
         try {
-            mLh = ContextGetter.dAG().getCacheDir().getAbsolutePath();
+            mLh = ContextGetter.dAH().getCacheDir().getAbsolutePath();
         } catch (Throwable th) {
             th.fillInStackTrace();
         }

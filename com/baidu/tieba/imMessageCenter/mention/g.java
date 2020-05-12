@@ -101,7 +101,7 @@ public class g extends com.baidu.adp.base.c implements NoNetworkView.a {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (g.this.iAu != null) {
-                    g.this.iAu.ckq();
+                    g.this.iAu.ckr();
                 }
             }
         });
@@ -119,7 +119,7 @@ public class g extends com.baidu.adp.base.c implements NoNetworkView.a {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (g.this.iAu != null) {
-                    g.this.iAu.ckr();
+                    g.this.iAu.cks();
                 }
             }
         });
@@ -161,7 +161,7 @@ public class g extends com.baidu.adp.base.c implements NoNetworkView.a {
         }
     }
 
-    public TbTabLayout ckt() {
+    public TbTabLayout cku() {
         return this.gCN;
     }
 
@@ -172,7 +172,7 @@ public class g extends com.baidu.adp.base.c implements NoNetworkView.a {
         }
     }
 
-    public TbTabLayout.e cku() {
+    public TbTabLayout.e ckv() {
         if (this.gCN == null || this.gCN.getTabCount() <= 0) {
             return null;
         }

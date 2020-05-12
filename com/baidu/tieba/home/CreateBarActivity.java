@@ -62,11 +62,11 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
         setContentView(R.layout.create_bar_activity);
         initData();
         initUI();
-        bXE();
+        bXF();
         adjustResizeForSoftInput();
     }
 
-    private void bXE() {
+    private void bXF() {
         if (this.hGY == null) {
             this.hGY = new b();
             this.hGY.execute(new String[0]);
@@ -95,7 +95,7 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bXF() {
+    public void bXG() {
         if (this.hGY == null && this.hGX == null) {
             this.hGY = new b();
             this.hGY.setPriority(3);
@@ -104,7 +104,7 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bXG() {
+    public void bXH() {
         if (this.hGX == null) {
             this.hGX = new a(this.hGS.getText().toString().trim(), this.hGT.getText().toString().trim());
             this.hGX.setPriority(3);
@@ -117,9 +117,9 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (view == CreateBarActivity.this.hGU) {
-                    CreateBarActivity.this.bXG();
+                    CreateBarActivity.this.bXH();
                 } else if (view == CreateBarActivity.this.hGV) {
-                    CreateBarActivity.this.bXF();
+                    CreateBarActivity.this.bXG();
                 }
             }
         };
@@ -274,7 +274,7 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
             }
             CreateBarActivity.this.showToast(this.mNetwork.getErrorString());
             if (this.mNetwork.isNetSuccess()) {
-                CreateBarActivity.this.bXF();
+                CreateBarActivity.this.bXG();
             }
         }
 

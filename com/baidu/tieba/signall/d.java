@@ -34,23 +34,23 @@ public class d implements ae {
         return this.avatar;
     }
 
-    public int cTD() {
+    public int cTE() {
         return this.kJl;
     }
 
-    public int cTE() {
+    public int cTF() {
         return this.eVM;
     }
 
-    public int cTF() {
+    public int cTG() {
         return this.kJm;
     }
 
-    public int cTG() {
+    public int cTH() {
         return this.kJn;
     }
 
-    public int cTH() {
+    public int cTI() {
         return this.kJo;
     }
 
@@ -75,7 +75,7 @@ public class d implements ae {
         this.kJl = 1;
     }
 
-    public boolean cTI() {
+    public boolean cTJ() {
         return this.kJq;
     }
 
@@ -84,7 +84,7 @@ public class d implements ae {
         this.kJl = 0;
     }
 
-    public boolean cTJ() {
+    public boolean cTK() {
         return this.kJr;
     }
 
@@ -92,7 +92,7 @@ public class d implements ae {
         this.kJr = z;
     }
 
-    public int cTK() {
+    public int cTL() {
         return this.kJs;
     }
 
@@ -104,7 +104,7 @@ public class d implements ae {
         this.errorMsg = str;
     }
 
-    public boolean cTL() {
+    public boolean cTM() {
         return this.kJp;
     }
 

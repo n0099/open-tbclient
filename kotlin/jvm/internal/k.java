@@ -19,7 +19,7 @@ final class k extends ap {
     }
 
     @Override // kotlin.collections.ap
-    public short dDI() {
+    public short dDJ() {
         try {
             short[] sArr = this.mXN;
             int i = this.index;

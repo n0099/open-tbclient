@@ -166,7 +166,7 @@ public class OfficialNotificationFragment extends BaseFragment implements View.O
             an(bundle);
             return true;
         }
-        ccv();
+        ccw();
         return true;
     }
 
@@ -181,10 +181,10 @@ public class OfficialNotificationFragment extends BaseFragment implements View.O
         }
     }
 
-    protected void ccv() {
+    protected void ccw() {
         if (this.iAR != null) {
             this.iAR.setIsAcceptNotify(true);
-            ckD();
+            ckE();
         }
     }
 
@@ -196,7 +196,7 @@ public class OfficialNotificationFragment extends BaseFragment implements View.O
         }
     }
 
-    protected void ckD() {
+    protected void ckE() {
         if (!aq.isEmpty(this.mUid) && this.mPageContext != null && this.iAR != null) {
             UserData userData = new UserData(Long.parseLong(this.mUid), this.mPageContext.getString(R.string.system_message), null, 0);
             b(userData);
@@ -210,7 +210,7 @@ public class OfficialNotificationFragment extends BaseFragment implements View.O
             @Override // com.baidu.tbadk.util.ab
             /* renamed from: bgO */
             public Void doInBackground() {
-                com.baidu.tieba.im.settingcache.d.ciT().a(TbadkCoreApplication.getCurrentAccount(), ChatStatusManager.getInst().getCurId(1), userData);
+                com.baidu.tieba.im.settingcache.d.ciU().a(TbadkCoreApplication.getCurrentAccount(), ChatStatusManager.getInst().getCurId(1), userData);
                 return null;
             }
         }, null);

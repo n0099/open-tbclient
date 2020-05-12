@@ -61,10 +61,10 @@ public final class d extends v {
 
         @Override // java.lang.Runnable
         public void run() {
-            dCX();
+            dCY();
         }
 
-        c dCW() {
+        c dCX() {
             if (this.mUY.isDisposed()) {
                 return d.mUU;
             }
@@ -84,13 +84,13 @@ public final class d extends v {
             this.mUX.offer(cVar);
         }
 
-        void dCX() {
+        void dCY() {
             if (!this.mUX.isEmpty()) {
                 long now = now();
                 Iterator<c> it = this.mUX.iterator();
                 while (it.hasNext()) {
                     c next = it.next();
-                    if (next.dCY() <= now) {
+                    if (next.dCZ() <= now) {
                         if (this.mUX.remove(next)) {
                             this.mUY.b(next);
                         }
@@ -135,7 +135,7 @@ public final class d extends v {
     }
 
     @Override // io.reactivex.v
-    public v.c dCC() {
+    public v.c dCD() {
         return new b(this.mUz.get());
     }
 
@@ -148,7 +148,7 @@ public final class d extends v {
 
         b(a aVar) {
             this.mVb = aVar;
-            this.mVc = aVar.dCW();
+            this.mVc = aVar.dCX();
         }
 
         @Override // io.reactivex.disposables.b
@@ -180,7 +180,7 @@ public final class d extends v {
             this.mVd = 0L;
         }
 
-        public long dCY() {
+        public long dCZ() {
             return this.mVd;
         }
 

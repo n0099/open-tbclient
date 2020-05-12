@@ -32,12 +32,12 @@ public class k extends m {
 
     @Override // com.facebook.drawee.drawable.m, android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
-        if (!doP()) {
+        if (!doQ()) {
             super.draw(canvas);
             return;
         }
+        doS();
         doR();
-        doQ();
         updatePaint();
         int save = canvas.save();
         canvas.concat(this.lVZ);
@@ -64,8 +64,8 @@ public class k extends m {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.facebook.drawee.drawable.m
-    public boolean doP() {
-        return super.doP() && this.mBitmap != null;
+    public boolean doQ() {
+        return super.doQ() && this.mBitmap != null;
     }
 
     @Override // com.facebook.drawee.drawable.m, android.graphics.drawable.Drawable

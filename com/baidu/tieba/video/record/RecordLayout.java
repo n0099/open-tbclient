@@ -18,9 +18,9 @@ public class RecordLayout extends RelativeLayout {
 
     /* loaded from: classes10.dex */
     public interface a {
-        void dcV();
-
         void dcW();
+
+        void dcX();
     }
 
     public RecordLayout(Context context) {
@@ -62,15 +62,15 @@ public class RecordLayout extends RelativeLayout {
                     int rawX = (int) (motionEvent.getRawX() - this.mDownX);
                     if (Math.abs(xVelocity) > this.mMinimumVelocity && Math.abs(rawX) > this.mFlingDistance) {
                         if (rawX > 0) {
-                            this.loE.dcW();
+                            this.loE.dcX();
                         } else {
-                            this.loE.dcV();
+                            this.loE.dcW();
                         }
                     } else if (Math.abs(rawX) > 0.5d * com.baidu.adp.lib.util.l.getEquipmentWidth(getContext())) {
                         if (rawX > 0) {
-                            this.loE.dcW();
+                            this.loE.dcX();
                         } else {
-                            this.loE.dcW();
+                            this.loE.dcX();
                         }
                     }
                     this.mVelocityTracker.clear();

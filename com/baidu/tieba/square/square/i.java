@@ -25,7 +25,7 @@ public class i implements com.baidu.tbadk.core.flow.a.a {
         return this.kOS.getLink();
     }
 
-    public String cVf() {
+    public String cVg() {
         if (this.kOS == null) {
             return null;
         }

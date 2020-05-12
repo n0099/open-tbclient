@@ -10,7 +10,7 @@ public abstract class j<E> extends l<E> {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final long dCS() {
+    public final long dCT() {
         return this.consumerIndex;
     }
 

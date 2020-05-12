@@ -20,27 +20,27 @@ class a<T extends c<T>> implements b<T> {
     }
 
     @Override // master.flame.danmaku.danmaku.model.a.b
-    public T dGe() {
-        T dGd;
+    public T dGf() {
+        T dGe;
         if (this.ndN != null) {
             T t = this.ndN;
-            this.ndN = (T) t.dGa();
+            this.ndN = (T) t.dGb();
             this.ndO--;
-            dGd = t;
+            dGe = t;
         } else {
-            dGd = this.ndL.dGd();
+            dGe = this.ndL.dGe();
         }
-        if (dGd != null) {
-            dGd.bH(null);
-            dGd.wC(false);
-            this.ndL.b(dGd);
+        if (dGe != null) {
+            dGe.bH(null);
+            dGe.wC(false);
+            this.ndL.b(dGe);
         }
-        return dGd;
+        return dGe;
     }
 
     @Override // master.flame.danmaku.danmaku.model.a.b
     public void c(T t) {
-        if (!t.dFY()) {
+        if (!t.dFZ()) {
             if (this.mInfinite || this.ndO < this.ndM) {
                 this.ndO++;
                 t.bH(this.ndN);

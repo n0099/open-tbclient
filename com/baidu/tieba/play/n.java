@@ -39,7 +39,7 @@ public class n implements d {
     private Runnable khy = new Runnable() { // from class: com.baidu.tieba.play.n.2
         @Override // java.lang.Runnable
         public void run() {
-            if (n.this.kht && n.this.khu && n.this.cJv() && n.this.cJX()) {
+            if (n.this.kht && n.this.khu && n.this.cJw() && n.this.cJY()) {
                 s.d(n.this.mContext, n.this.khk, -1);
             }
         }
@@ -47,7 +47,7 @@ public class n implements d {
     private Runnable khz = new Runnable() { // from class: com.baidu.tieba.play.n.3
         @Override // java.lang.Runnable
         public void run() {
-            if (n.this.cJX()) {
+            if (n.this.cJY()) {
                 s.ap(n.this.mContext, n.this.khk);
             } else if (!n.this.khl) {
                 s.xX(n.this.khk);
@@ -83,40 +83,40 @@ public class n implements d {
         this.khk = str;
         this.mVideoPath = this.khl ? this.khk : s.aC(str, this.kht);
         if (this.khp != null) {
-            v.a("start_play", this.khk, cJX(), (int) this.khp.cKh(), this.khp.getDuration());
+            v.a("start_play", this.khk, cJY(), (int) this.khp.cKi(), this.khp.getDuration());
         }
         this.khm = System.currentTimeMillis();
         return this.mVideoPath;
     }
 
     @Override // com.baidu.tieba.play.d
-    public boolean cJv() {
+    public boolean cJw() {
         return !StringUtils.isNull(this.mVideoPath) && this.mVideoPath.contains("127.0.0.1");
     }
 
     @Override // com.baidu.tieba.play.d
-    public boolean cJw() {
+    public boolean cJx() {
         return this.kht;
     }
 
     @Override // com.baidu.tieba.play.d
-    public boolean cJx() {
+    public boolean cJy() {
         return this.khu;
     }
 
     @Override // com.baidu.tieba.play.d
-    public int cJy() {
+    public int cJz() {
         return com.baidu.tbadk.coreExtra.model.f.aUL() ? this.khv : this.khw;
     }
 
     @Override // com.baidu.tieba.play.d
-    public String cJs() {
+    public String cJt() {
         return this.khk;
     }
 
     @Override // com.baidu.tieba.play.d
-    public void cJz() {
-        if (this.kht && this.khu && cJv() && cJX()) {
+    public void cJA() {
+        if (this.kht && this.khu && cJw() && cJY()) {
             s.d(this.mContext, this.khk, -1);
         }
     }
@@ -124,7 +124,7 @@ public class n implements d {
     @Override // com.baidu.tieba.play.d
     public void fj(long j) {
         this.khx = j;
-        cJW();
+        cJX();
         if (this.khm > 0) {
             this.khn = System.currentTimeMillis() - this.khm;
         }
@@ -175,7 +175,7 @@ public class n implements d {
             fk(currentTimeMillis);
             this.mStartTime = 0L;
         }
-        cJT();
+        cJU();
         if (this.ePg != null) {
             this.ePg.stop();
         }
@@ -183,18 +183,18 @@ public class n implements d {
             an anVar = new an(CommonStatisticKey.VIDEO_PLAY_STATE);
             anVar.cI("service_ip", this.mHost);
             anVar.cI("video_url", this.khk);
-            anVar.t("video_size", this.khp.cKh());
+            anVar.t("video_size", this.khp.cKi());
             anVar.af("video_duration", this.khp.getDuration());
-            anVar.cI("video_resolution", this.khp.cKi());
+            anVar.cI("video_resolution", this.khp.cKj());
             anVar.af("loading_count", this.kho);
             anVar.t("user_watch_time", this.heI / 1000);
             anVar.t("start_play_time", this.khn);
             TiebaStatic.log(anVar);
         }
         if (this.khp != null && this.khn > 0) {
-            v.a("stop_play", this.khk, cJX(), (int) this.khp.cKh(), this.khp.getDuration());
+            v.a("stop_play", this.khk, cJY(), (int) this.khp.cKi(), this.khp.getDuration());
         }
-        cJS();
+        cJT();
         this.khn = 0L;
         this.heI = 0L;
         this.kho = 0;
@@ -213,13 +213,13 @@ public class n implements d {
         }
     }
 
-    private void cJS() {
+    private void cJT() {
         if (this.khq != null && this.khr) {
             TbSingleton.getInstance().putVideoRecord(this.khq.getThreadId(), (int) (this.khq.getVideoWatchDuration() / 1000));
         }
     }
 
-    private void cJT() {
+    private void cJU() {
         if (this.heI >= 0 && this.heI < 86400000) {
             if (this.heI > 0) {
                 an anVar = new an(TbadkCoreStatisticKey.KEY_VIDEO_TIME);
@@ -254,7 +254,7 @@ public class n implements d {
     }
 
     @Override // com.baidu.tieba.play.d
-    public void cJt() {
+    public void cJu() {
         com.baidu.adp.lib.f.e.lb().removeCallbacks(this.khz);
         com.baidu.adp.lib.f.e.lb().removeCallbacks(this.khy);
         if (this.mStartTime > 0) {
@@ -263,7 +263,7 @@ public class n implements d {
             fk(currentTimeMillis);
             this.mStartTime = 0L;
         }
-        cJT();
+        cJU();
         if (this.ePg != null) {
             this.ePg.stop();
         }
@@ -271,18 +271,18 @@ public class n implements d {
             an anVar = new an(CommonStatisticKey.VIDEO_PLAY_STATE);
             anVar.cI("service_ip", this.mHost);
             anVar.cI("video_url", this.khk);
-            anVar.t("video_size", this.khp.cKh());
+            anVar.t("video_size", this.khp.cKi());
             anVar.af("video_duration", this.khp.getDuration());
-            anVar.cI("video_resolution", this.khp.cKi());
+            anVar.cI("video_resolution", this.khp.cKj());
             anVar.af("loading_count", this.kho);
             anVar.t("user_watch_time", this.heI / 1000);
             anVar.t("start_play_time", this.khn);
             TiebaStatic.log(anVar);
         }
         if (this.khp != null && this.khn > 0) {
-            v.a("stop_play", this.khk, cJX(), (int) this.khp.cKh(), this.khp.getDuration());
+            v.a("stop_play", this.khk, cJY(), (int) this.khp.cKi(), this.khp.getDuration());
         }
-        cJS();
+        cJT();
         this.khn = 0L;
         this.heI = 0L;
         this.kho = 0;
@@ -299,7 +299,7 @@ public class n implements d {
             fk(currentTimeMillis);
             this.mStartTime = 0L;
         }
-        cJS();
+        cJT();
         this.khr = false;
     }
 
@@ -311,15 +311,15 @@ public class n implements d {
             fk(currentTimeMillis);
             this.mStartTime = 0L;
         }
-        cJS();
+        cJT();
     }
 
     @Override // com.baidu.tieba.play.d
-    public boolean cJu() {
+    public boolean cJv() {
         return s.xW(this.khk) != null;
     }
 
-    public void cJU() {
+    public void cJV() {
         this.khl = true;
     }
 
@@ -328,7 +328,7 @@ public class n implements d {
     }
 
     @Override // com.baidu.tieba.play.d
-    public j cJA() {
+    public j cJB() {
         return this.ePg;
     }
 
@@ -338,11 +338,11 @@ public class n implements d {
         }
     }
 
-    public u cJV() {
+    public u cJW() {
         return this.khp;
     }
 
-    public void cJW() {
+    public void cJX() {
         if (!this.kht) {
             com.baidu.adp.lib.f.e.lb().removeCallbacks(this.khz);
             com.baidu.adp.lib.f.e.lb().postDelayed(this.khz, 100L);
@@ -351,7 +351,7 @@ public class n implements d {
 
     @Override // com.baidu.tieba.play.d
     public void AX(int i) {
-        if (cJX()) {
+        if (cJY()) {
             s.d(this.mContext, this.khk, i);
         }
     }
@@ -364,13 +364,13 @@ public class n implements d {
 
     @Override // com.baidu.tieba.play.d
     public void ya(String str) {
-        if (cJX()) {
+        if (cJY()) {
             s.aq(this.mContext, str);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean cJX() {
+    public boolean cJY() {
         return (this.khl || this.mVideoPath == null || this.mVideoPath.equals(this.khk)) ? false : true;
     }
 
@@ -378,7 +378,7 @@ public class n implements d {
         this.khi = yVar;
     }
 
-    public y cJY() {
+    public y cJZ() {
         return this.khi;
     }
 }

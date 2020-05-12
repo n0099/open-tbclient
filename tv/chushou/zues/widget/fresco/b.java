@@ -24,8 +24,8 @@ public class b {
 
     static {
         ntZ = 1.0d;
-        if (h.dJp() != null) {
-            ntZ = h.dJT().getDisplayMetrics().density / 2.0d;
+        if (h.dJq() != null) {
+            ntZ = h.dJU().getDisplayMetrics().density / 2.0d;
         }
         nua = (int) (ntZ * 550.0d);
     }

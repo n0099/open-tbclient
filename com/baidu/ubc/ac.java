@@ -6,7 +6,7 @@ public class ac extends com.baidu.pyramid.runtime.service.a<aa> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.pyramid.runtime.service.a
-    /* renamed from: dkK */
+    /* renamed from: dkL */
     public aa MX() throws ServiceNotFoundException {
         return new ad();
     }

@@ -9,10 +9,10 @@ public abstract class b {
     public abstract void b(AccessibleObject accessibleObject);
 
     static {
-        mlN = d.dvt() < 9 ? new a() : new c();
+        mlN = d.dvu() < 9 ? new a() : new c();
     }
 
-    public static b dvW() {
+    public static b dvX() {
         return mlN;
     }
 }

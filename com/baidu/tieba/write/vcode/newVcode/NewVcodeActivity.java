@@ -43,14 +43,14 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
                     NewVcodeActivity.this.finish();
                 } else if (aaVar != null && writeData != null) {
                     NewVcodeActivity.this.mPageType = com.baidu.adp.lib.f.b.toInt("4", 0);
-                    NewVcodeActivity.this.lBB.dfi();
+                    NewVcodeActivity.this.lBB.dfj();
                     NewVcodeActivity.this.lBB.onDestroy();
                     NewVcodeActivity.this.lxL = writeData;
                     NewVcodeActivity.this.lxL.setVcodeMD5(aaVar.getVcode_md5());
                     NewVcodeActivity.this.lxL.setVcodeUrl(aaVar.getVcode_pic_url());
                     NewVcodeActivity.this.lxL.setVcodeExtra(aaVar.aSf());
                     NewVcodeActivity.this.dYy.d(NewVcodeActivity.this.lxL);
-                    NewVcodeActivity.this.lBB = NewVcodeActivity.this.dga();
+                    NewVcodeActivity.this.lBB = NewVcodeActivity.this.dgb();
                     NewVcodeActivity.this.lBB.B(true, postWriteCallBackData.getErrorString());
                     NewVcodeActivity.this.lBA.setPresenter(NewVcodeActivity.this.lBB);
                     NewVcodeActivity.this.lBB.start(NewVcodeActivity.this.lBD);
@@ -83,13 +83,13 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
         if (this.lxL.getWriteImagesInfo() != null) {
             this.dYy.ua(this.lxL.getWriteImagesInfo().size() > 0);
         }
-        this.lBB = dga();
+        this.lBB = dgb();
         this.lBA.setPresenter(this.lBB);
         this.lBB.start(this.lBD);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public b dga() {
+    public b dgb() {
         b cVar;
         if (this.mPageType == com.baidu.adp.lib.f.b.toInt("5", 0)) {
             cVar = new a(this.lBA, this.dYy);
@@ -114,7 +114,7 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        dgb();
+        dgc();
         this.lBB.onDestroy();
     }
 
@@ -128,7 +128,7 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
         ActivityPendingTransitionFactory.closeAnimation(getPageContext(), 4);
     }
 
-    private void dgb() {
+    private void dgc() {
         if (this.lxL != null && this.lxL.getType() == 3) {
             com.baidu.tbadk.core.e.b.c(getPageContext().getPageActivity(), 200, false);
         }

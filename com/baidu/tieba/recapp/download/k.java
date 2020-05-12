@@ -39,16 +39,16 @@ public class k {
         this.ksw.setOnClickPendingIntent(R.id.download_cancel, PendingIntent.getBroadcast(TbadkCoreApplication.getInst(), downloadData.getNotifyId(), intent2, 134217728));
     }
 
-    public RemoteViews cNu() {
+    public RemoteViews cNv() {
         return this.ksw;
     }
 
-    public void cNv() {
+    public void cNw() {
         this.ksw.setTextViewText(R.id.download_status_text, TbadkCoreApplication.getInst().getResources().getString(R.string.on_downloading));
         this.ksw.setImageViewResource(R.id.download_btn, R.drawable.notify_pause_bg);
     }
 
-    public void cNw() {
+    public void cNx() {
         this.ksw.setTextViewText(R.id.download_status_text, TbadkCoreApplication.getInst().getResources().getString(R.string.downloading_app_paused));
         this.ksw.setImageViewResource(R.id.download_btn, R.drawable.notify_start_bg);
     }

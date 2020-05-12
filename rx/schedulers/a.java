@@ -9,7 +9,7 @@ public final class a<T> {
         this.npy = j;
     }
 
-    public long dIM() {
+    public long dIN() {
         return this.npy;
     }
 

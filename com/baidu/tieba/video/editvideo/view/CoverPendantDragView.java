@@ -117,7 +117,7 @@ public class CoverPendantDragView extends FrameLayout {
                         this.startTime = System.currentTimeMillis();
                         CoverPendantDragView.this.d(view, motionEvent);
                         if (CoverPendantDragView.this.ljS == 4) {
-                            CoverPendantDragView.this.dbw();
+                            CoverPendantDragView.this.dbx();
                             return true;
                         }
                         return true;
@@ -471,7 +471,7 @@ public class CoverPendantDragView extends FrameLayout {
             this.ljM.setVisibility(8);
         }
         if (this.ljS == 4) {
-            dbv();
+            dbw();
         }
         this.lkc.HidenSoftKeyPad(this.ljP);
     }
@@ -511,12 +511,12 @@ public class CoverPendantDragView extends FrameLayout {
                     break;
                 default:
                     hideSoftKeyPad();
-                    String LP = com.baidu.tieba.video.editvideo.model.b.dbq().LP(pendantData.resource);
+                    String LP = com.baidu.tieba.video.editvideo.model.b.dbr().LP(pendantData.resource);
                     if (TextUtils.isEmpty(LP)) {
                         if (view != null && (view.getTag() instanceof a.b)) {
                             a.b bVar = (a.b) view.getTag();
                             bVar.liL.setVisibility(0);
-                            com.baidu.tieba.video.editvideo.model.b.dbq().a(pendantData.id, pendantData.resource, new a(bVar, this, pendantData));
+                            com.baidu.tieba.video.editvideo.model.b.dbr().a(pendantData.id, pendantData.resource, new a(bVar, this, pendantData));
                             break;
                         }
                     } else {
@@ -539,7 +539,7 @@ public class CoverPendantDragView extends FrameLayout {
     }
 
     private void a(PendantData pendantData) {
-        dbv();
+        dbw();
         a(this.mVideoWidth, l.getDimens(getContext(), R.dimen.ds100), this.mScreenWidth, pendantData);
         if (this.ljS == 4 || this.ljS == 0) {
             this.ljM.setX(this.lkd);
@@ -560,7 +560,7 @@ public class CoverPendantDragView extends FrameLayout {
         this.mVideoHeight = i2;
     }
 
-    private void dbv() {
+    private void dbw() {
         if (this.lkh) {
             this.lkh = false;
             this.ljQ.setVisibility(8);
@@ -570,7 +570,7 @@ public class CoverPendantDragView extends FrameLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dbw() {
+    public void dbx() {
         if (!this.lkh) {
             this.lkh = true;
             this.ljQ.setVisibility(0);
@@ -588,7 +588,7 @@ public class CoverPendantDragView extends FrameLayout {
             }
             Bitmap bitmap2 = bitmap;
             if (bitmap2 != null && !bitmap2.isRecycled() && bitmap2.getWidth() != 0 && bitmap2.getHeight() != 0) {
-                dbv();
+                dbw();
                 int width = bitmap2.getWidth();
                 int height = bitmap2.getHeight();
                 this.lkb = 1.0f;
@@ -690,7 +690,7 @@ public class CoverPendantDragView extends FrameLayout {
             if (TextUtils.isEmpty(text)) {
                 f(getContext().getString(R.string.cover_hint), this.lko);
                 this.aVN = this.ljP.getTextSize();
-                dbw();
+                dbx();
                 CN();
             } else {
                 if (ad.getTextLengthAllOne(text) > 20) {
@@ -717,12 +717,12 @@ public class CoverPendantDragView extends FrameLayout {
 
     public Bitmap getTempBitmap() {
         if (this.lkt == null) {
-            dbx();
+            dby();
         }
         return this.lkt;
     }
 
-    private void dbx() {
+    private void dby() {
         buildDrawingCache();
         Bitmap drawingCache = getDrawingCache();
         if (drawingCache != null) {
@@ -731,7 +731,7 @@ public class CoverPendantDragView extends FrameLayout {
         destroyDrawingCache();
     }
 
-    public void dby() {
+    public void dbz() {
         if (this.lkt != null && !this.lkt.isRecycled()) {
             this.lkt.recycle();
             this.lkt = null;
@@ -741,7 +741,7 @@ public class CoverPendantDragView extends FrameLayout {
     public void uv(boolean z) {
         if (this.ljS != 0) {
             if (z) {
-                dby();
+                dbz();
                 this.ljM.setVisibility(0);
                 return;
             }
@@ -760,7 +760,7 @@ public class CoverPendantDragView extends FrameLayout {
         }
         this.lks.clear();
         this.lks = null;
-        dby();
+        dbz();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -803,7 +803,7 @@ public class CoverPendantDragView extends FrameLayout {
         }
 
         @Override // com.baidu.tieba.video.editvideo.model.b.a
-        public void daE() {
+        public void daF() {
             if (this.lkx != null && this.lkx.get() != null) {
                 this.lkx.get().liL.setVisibility(8);
             }

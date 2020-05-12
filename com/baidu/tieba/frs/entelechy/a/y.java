@@ -57,29 +57,29 @@ public class y extends com.baidu.tieba.frs.h<bi, com.baidu.card.af<bj>> implemen
                     if (view.getId() == R.id.thread_card_root && bjVar.aJp()) {
                         y.this.ar(bjVar);
                     } else if (view.getId() == R.id.user_name || view.getId() == R.id.user_avatar) {
-                        com.baidu.tieba.frs.d.c.bUs().a(com.baidu.tieba.frs.d.d.hgM, bjVar, 2);
+                        com.baidu.tieba.frs.d.c.bUt().a(com.baidu.tieba.frs.d.d.hgM, bjVar, 2);
                     } else if (view.getId() == R.id.card_divider_tv) {
                         com.baidu.tieba.frs.f.h.a(com.baidu.tieba.frs.d.d.hgM, bjVar.aIv());
                     } else if (view instanceof TbImageView) {
                         if (y.this.fsf.afJ instanceof Boolean) {
                             if (((Boolean) y.this.fsf.afJ).booleanValue()) {
-                                com.baidu.tieba.frs.d.c.bUs().a(com.baidu.tieba.frs.d.d.hgM, bjVar, 1);
+                                com.baidu.tieba.frs.d.c.bUt().a(com.baidu.tieba.frs.d.d.hgM, bjVar, 1);
                             } else {
-                                com.baidu.tieba.frs.d.c.bUs().a(com.baidu.tieba.frs.d.d.hgM, bjVar, 3);
+                                com.baidu.tieba.frs.d.c.bUt().a(com.baidu.tieba.frs.d.d.hgM, bjVar, 3);
                             }
                         }
                     } else if (view.getId() == R.id.card_home_page_normal_thread_user_icon) {
                         TiebaStatic.log(new an(CommonStatisticKey.USER_ICON_VISIT).af("obj_type", 3));
                     } else if (view.getId() == R.id.thread_card_voice) {
-                        com.baidu.tieba.frs.d.c.bUs().a(com.baidu.tieba.frs.d.d.hgM, bjVar, 5);
+                        com.baidu.tieba.frs.d.c.bUt().a(com.baidu.tieba.frs.d.d.hgM, bjVar, 5);
                     } else if (view instanceof ThreadGodReplyLayout) {
                         int i = 6;
-                        if (bjVar.aMc() != null && bjVar.aMc().cWq() != null && bjVar.aMc().cWq().bcf() != null && bjVar.aMc().cWq().bcf().size() > 0) {
+                        if (bjVar.aMc() != null && bjVar.aMc().cWr() != null && bjVar.aMc().cWr().bcf() != null && bjVar.aMc().cWr().bcf().size() > 0) {
                             i = bjVar.aMc().kTa ? 9 : 8;
                         }
-                        com.baidu.tieba.frs.d.c.bUs().a(com.baidu.tieba.frs.d.d.hgM, bjVar, i);
+                        com.baidu.tieba.frs.d.c.bUt().a(com.baidu.tieba.frs.d.d.hgM, bjVar, i);
                     } else {
-                        com.baidu.tieba.frs.d.c.bUs().a(com.baidu.tieba.frs.d.d.hgM, bjVar, 1);
+                        com.baidu.tieba.frs.d.c.bUt().a(com.baidu.tieba.frs.d.d.hgM, bjVar, 1);
                     }
                 }
             }
@@ -163,7 +163,7 @@ public class y extends com.baidu.tieba.frs.h<bi, com.baidu.card.af<bj>> implemen
             }
             biVar.dqE.dpd = (biVar.position + 1) - i2;
         }
-        com.baidu.tieba.frs.d.c.bUs().a(hgM, biVar.dqE);
+        com.baidu.tieba.frs.d.c.bUt().a(hgM, biVar.dqE);
         biVar.dqE.aLL();
         com.baidu.tieba.frs.d.a.a(biVar.dqE, this.mPageId, hgM, getTbPageTag());
         if (biVar != null) {
@@ -197,6 +197,6 @@ public class y extends com.baidu.tieba.frs.h<bi, com.baidu.card.af<bj>> implemen
 
     /* JADX INFO: Access modifiers changed from: private */
     public void ar(bj bjVar) {
-        TiebaStatic.log(new an("c12126").cI("tid", bjVar.getId()).af("obj_locate", bOi() ? 2 : 1).t("obj_id", bjVar.aKV() == null ? -1L : bjVar.aKV().live_id).af("obj_type", 1));
+        TiebaStatic.log(new an("c12126").cI("tid", bjVar.getId()).af("obj_locate", bOj() ? 2 : 1).t("obj_id", bjVar.aKV() == null ? -1L : bjVar.aKV().live_id).af("obj_type", 1));
     }
 }

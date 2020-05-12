@@ -11,7 +11,7 @@ public class a {
     private final Runnable lTZ = new Runnable() { // from class: com.facebook.drawee.components.a.1
         @Override // java.lang.Runnable
         public void run() {
-            a.doh();
+            a.doi();
             for (InterfaceC0723a interfaceC0723a : a.this.lTY) {
                 interfaceC0723a.release();
             }
@@ -27,7 +27,7 @@ public class a {
         void release();
     }
 
-    public static synchronized a dog() {
+    public static synchronized a doh() {
         a aVar;
         synchronized (a.class) {
             if (lTX == null) {
@@ -39,19 +39,19 @@ public class a {
     }
 
     public void a(InterfaceC0723a interfaceC0723a) {
-        doh();
+        doi();
         if (this.lTY.add(interfaceC0723a) && this.lTY.size() == 1) {
             this.mUiHandler.post(this.lTZ);
         }
     }
 
     public void b(InterfaceC0723a interfaceC0723a) {
-        doh();
+        doi();
         this.lTY.remove(interfaceC0723a);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void doh() {
+    public static void doi() {
         g.checkState(Looper.getMainLooper().getThread() == Thread.currentThread());
     }
 }

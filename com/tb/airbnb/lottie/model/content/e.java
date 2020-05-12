@@ -38,35 +38,35 @@ public class e implements b {
         return this.name;
     }
 
-    public GradientType dBz() {
+    public GradientType dBA() {
         return this.mPD;
     }
 
-    public com.tb.airbnb.lottie.model.a.c dBA() {
+    public com.tb.airbnb.lottie.model.a.c dBB() {
         return this.mPE;
     }
 
-    public com.tb.airbnb.lottie.model.a.d dBu() {
+    public com.tb.airbnb.lottie.model.a.d dBv() {
         return this.mPz;
     }
 
-    public com.tb.airbnb.lottie.model.a.f dBB() {
+    public com.tb.airbnb.lottie.model.a.f dBC() {
         return this.mPF;
     }
 
-    public com.tb.airbnb.lottie.model.a.f dBC() {
+    public com.tb.airbnb.lottie.model.a.f dBD() {
         return this.mPG;
     }
 
-    public com.tb.airbnb.lottie.model.a.b dBD() {
+    public com.tb.airbnb.lottie.model.a.b dBE() {
         return this.mPJ;
     }
 
-    public ShapeStroke.LineCapType dBE() {
+    public ShapeStroke.LineCapType dBF() {
         return this.mPK;
     }
 
-    public ShapeStroke.LineJoinType dBF() {
+    public ShapeStroke.LineJoinType dBG() {
         return this.mPL;
     }
 
@@ -76,7 +76,7 @@ public class e implements b {
     }
 
     @Nullable
-    public com.tb.airbnb.lottie.model.a.b dBG() {
+    public com.tb.airbnb.lottie.model.a.b dBH() {
         return this.mPM;
     }
 

@@ -24,17 +24,17 @@ public class BrowseSettingActivity extends BaseActivity {
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.kDw.cQk()) {
-            this.kDw.cQo();
-            TiebaStatic.log("c10649");
-        }
         if (view == this.kDw.cQl()) {
             this.kDw.cQp();
-            TiebaStatic.log("c10653");
-        } else if (view == this.kDw.cQm()) {
+            TiebaStatic.log("c10649");
+        }
+        if (view == this.kDw.cQm()) {
             this.kDw.cQq();
+            TiebaStatic.log("c10653");
         } else if (view == this.kDw.cQn()) {
             this.kDw.cQr();
+        } else if (view == this.kDw.cQo()) {
+            this.kDw.cQs();
         }
     }
 }

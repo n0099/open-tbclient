@@ -49,7 +49,7 @@ public final class SVGAVideoShapeEntity {
             this.fill = i;
         }
 
-        public final int dzT() {
+        public final int dzU() {
             return this.fill;
         }
 
@@ -57,7 +57,7 @@ public final class SVGAVideoShapeEntity {
             this.mKO = i;
         }
 
-        public final int dzU() {
+        public final int dzV() {
             return this.mKO;
         }
 
@@ -74,7 +74,7 @@ public final class SVGAVideoShapeEntity {
             this.mKP = str;
         }
 
-        public final String dzV() {
+        public final String dzW() {
             return this.mKP;
         }
 
@@ -83,7 +83,7 @@ public final class SVGAVideoShapeEntity {
             this.mKQ = str;
         }
 
-        public final String dzW() {
+        public final String dzX() {
             return this.mKQ;
         }
 
@@ -91,11 +91,11 @@ public final class SVGAVideoShapeEntity {
             this.mKR = i;
         }
 
-        public final int dzX() {
+        public final int dzY() {
             return this.mKR;
         }
 
-        public final float[] dzY() {
+        public final float[] dzZ() {
             return this.mKS;
         }
 
@@ -105,11 +105,11 @@ public final class SVGAVideoShapeEntity {
         }
     }
 
-    public final a dzO() {
+    public final a dzP() {
         return this.mKL;
     }
 
-    public final Matrix dzP() {
+    public final Matrix dzQ() {
         return this.mKM;
     }
 
@@ -131,11 +131,11 @@ public final class SVGAVideoShapeEntity {
         d(shapeEntity);
     }
 
-    public final boolean dzQ() {
+    public final boolean dzR() {
         return this.mKJ == Type.keep;
     }
 
-    public final Path dzR() {
+    public final Path dzS() {
         return this.mKN;
     }
 
@@ -288,7 +288,7 @@ public final class SVGAVideoShapeEntity {
                 aVar.z(new float[optJSONArray3.length()]);
                 int length = optJSONArray3.length();
                 for (int i = 0; i < length; i++) {
-                    aVar.dzY()[i] = (float) optJSONArray3.optDouble(i, 0.0d);
+                    aVar.dzZ()[i] = (float) optJSONArray3.optDouble(i, 0.0d);
                 }
             }
             this.mKL = aVar;
@@ -356,15 +356,15 @@ public final class SVGAVideoShapeEntity {
             aVar.z(new float[3]);
             Float f11 = shapeStyle.lineDashI;
             if (f11 != null) {
-                aVar.dzY()[0] = f11.floatValue();
+                aVar.dzZ()[0] = f11.floatValue();
             }
             Float f12 = shapeStyle.lineDashII;
             if (f12 != null) {
-                aVar.dzY()[1] = f12.floatValue();
+                aVar.dzZ()[1] = f12.floatValue();
             }
             Float f13 = shapeStyle.lineDashIII;
             if (f13 != null) {
-                aVar.dzY()[2] = f13.floatValue();
+                aVar.dzZ()[2] = f13.floatValue();
             }
             this.mKL = aVar;
         }
@@ -412,9 +412,9 @@ public final class SVGAVideoShapeEntity {
         }
     }
 
-    public final void dzS() {
+    public final void dzT() {
         if (this.mKN == null) {
-            e.dzZ().reset();
+            e.dAa().reset();
             if (this.mKJ == Type.shape) {
                 Map<String, ? extends Object> map = this.mKK;
                 Object obj = map != null ? map.get("d") : null;
@@ -423,7 +423,7 @@ public final class SVGAVideoShapeEntity {
                 }
                 String str = (String) obj;
                 if (str != null) {
-                    new b(str).a(e.dzZ());
+                    new b(str).a(e.dAa());
                 }
             } else if (this.mKJ == Type.ellipse) {
                 Map<String, ? extends Object> map2 = this.mKK;
@@ -458,7 +458,7 @@ public final class SVGAVideoShapeEntity {
                                 float floatValue2 = number2.floatValue();
                                 float floatValue3 = number3.floatValue();
                                 float floatValue4 = number4.floatValue();
-                                e.dzZ().addOval(new RectF(floatValue - floatValue3, floatValue2 - floatValue4, floatValue + floatValue3, floatValue2 + floatValue4), Path.Direction.CW);
+                                e.dAa().addOval(new RectF(floatValue - floatValue3, floatValue2 - floatValue4, floatValue + floatValue3, floatValue2 + floatValue4), Path.Direction.CW);
                             } else {
                                 return;
                             }
@@ -509,7 +509,7 @@ public final class SVGAVideoShapeEntity {
                                     float floatValue7 = number7.floatValue();
                                     float floatValue8 = number8.floatValue();
                                     float floatValue9 = number9.floatValue();
-                                    e.dzZ().addRoundRect(new RectF(floatValue5, floatValue6, floatValue7 + floatValue5, floatValue8 + floatValue6), floatValue9, floatValue9, Path.Direction.CW);
+                                    e.dAa().addRoundRect(new RectF(floatValue5, floatValue6, floatValue7 + floatValue5, floatValue8 + floatValue6), floatValue9, floatValue9, Path.Direction.CW);
                                 } else {
                                     return;
                                 }
@@ -529,7 +529,7 @@ public final class SVGAVideoShapeEntity {
             this.mKN = new Path();
             Path path = this.mKN;
             if (path != null) {
-                path.set(e.dzZ());
+                path.set(e.dAa());
             }
         }
     }

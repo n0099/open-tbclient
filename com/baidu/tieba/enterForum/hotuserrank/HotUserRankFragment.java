@@ -27,7 +27,7 @@ public class HotUserRankFragment extends BaseFragment {
         @Override // com.baidu.adp.widget.ListView.BdListView.e
         public void onScrollToBottom() {
             if (HotUserRankFragment.this.gCC.hasMore()) {
-                HotUserRankFragment.this.bIN();
+                HotUserRankFragment.this.bIO();
                 HotUserRankFragment.this.gCK.bmm();
             }
         }
@@ -39,7 +39,7 @@ public class HotUserRankFragment extends BaseFragment {
                 HotUserRankFragment.this.hideLoadingView(HotUserRankFragment.this.mRootView);
             }
             if (cVar != null) {
-                if (HotUserRankFragment.this.gCC.bIQ() == 2) {
+                if (HotUserRankFragment.this.gCC.bIR() == 2) {
                     if (HotUserRankFragment.this.mForumId > 0 || TextUtils.isEmpty(HotUserRankFragment.this.mCategory)) {
                         cVar.gDF.gDu = HotUserRankFragment.this.getResources().getString(R.string.forum_hot_user_rank);
                     } else if (cVar.gDF != null) {
@@ -86,14 +86,14 @@ public class HotUserRankFragment extends BaseFragment {
             this.gCK.setOnSrollToBottomListener(this.TT);
         }
         if (this.gCC.getPageData() == null || v.isEmpty(this.gCC.getPageData().gDG)) {
-            bIN();
+            bIO();
             showLoadingView(this.mRootView);
         }
         return this.mRootView;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bIN() {
+    public void bIO() {
         if (!TextUtils.isEmpty(this.mCategory)) {
             this.gCC.Cd(this.mCategory);
         } else if (this.mForumId > 0) {
@@ -115,7 +115,7 @@ public class HotUserRankFragment extends BaseFragment {
         this.mForumId = j;
     }
 
-    public com.baidu.tieba.enterForum.hotuserrank.model.a bIO() {
+    public com.baidu.tieba.enterForum.hotuserrank.model.a bIP() {
         return this.gCC;
     }
 
@@ -123,7 +123,7 @@ public class HotUserRankFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onNetRefreshButtonClicked() {
         hideNetRefreshView(this.mRootView);
-        bIN();
+        bIO();
         showLoadingView(this.mRootView);
     }
 

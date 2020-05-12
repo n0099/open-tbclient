@@ -22,11 +22,11 @@ public class n {
     private String kRe = null;
     private String kRf = null;
 
-    public int cVC() {
+    public int cVD() {
         return this.kQR;
     }
 
-    public String cVD() {
+    public String cVE() {
         return this.kRf;
     }
 

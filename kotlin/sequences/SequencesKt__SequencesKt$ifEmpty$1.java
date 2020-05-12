@@ -6,7 +6,7 @@ import kotlin.coroutines.jvm.internal.RestrictedSuspendLambda;
 import kotlin.jvm.a.m;
 import kotlin.jvm.internal.q;
 import kotlin.l;
-@kotlin.coroutines.jvm.internal.c(c = "kotlin/sequences/SequencesKt__SequencesKt$ifEmpty$1", dDM = {67, 69}, f = "Sequences.kt", m = "invokeSuspend")
+@kotlin.coroutines.jvm.internal.c(c = "kotlin/sequences/SequencesKt__SequencesKt$ifEmpty$1", dDN = {67, 69}, f = "Sequences.kt", m = "invokeSuspend")
 @kotlin.h
 /* loaded from: classes7.dex */
 final class SequencesKt__SequencesKt$ifEmpty$1 extends RestrictedSuspendLambda implements m<d<? super T>, kotlin.coroutines.a<? super l>, Object> {
@@ -41,7 +41,7 @@ final class SequencesKt__SequencesKt$ifEmpty$1 extends RestrictedSuspendLambda i
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [64=5] */
     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
     public final Object invokeSuspend(Object obj) {
-        Object dDL = kotlin.coroutines.intrinsics.a.dDL();
+        Object dDM = kotlin.coroutines.intrinsics.a.dDM();
         switch (this.label) {
             case 0:
                 if (obj instanceof Result.Failure) {
@@ -52,14 +52,14 @@ final class SequencesKt__SequencesKt$ifEmpty$1 extends RestrictedSuspendLambda i
                 if (it.hasNext()) {
                     this.L$0 = it;
                     this.label = 1;
-                    if (dVar.a(it, (kotlin.coroutines.a<? super l>) this) == dDL) {
-                        return dDL;
+                    if (dVar.a(it, (kotlin.coroutines.a<? super l>) this) == dDM) {
+                        return dDM;
                     }
                 } else {
                     this.L$0 = it;
                     this.label = 2;
-                    if (dVar.a((c) this.$defaultValue.invoke(), (kotlin.coroutines.a<? super l>) this) == dDL) {
-                        return dDL;
+                    if (dVar.a((c) this.$defaultValue.invoke(), (kotlin.coroutines.a<? super l>) this) == dDM) {
+                        return dDM;
                     }
                 }
                 break;

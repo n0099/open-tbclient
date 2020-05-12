@@ -16,13 +16,13 @@ public interface Framedata {
 
     boolean Ue();
 
-    ByteBuffer dGX();
-
-    boolean dGY();
+    ByteBuffer dGY();
 
     boolean dGZ();
 
     boolean dHa();
 
-    Opcode dHb();
+    boolean dHb();
+
+    Opcode dHc();
 }

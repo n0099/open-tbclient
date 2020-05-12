@@ -82,7 +82,7 @@ public class PlayShowMicPerson extends RelativeLayout implements View.OnClickLis
                 FrescoThumbnailView frescoThumbnailView = (FrescoThumbnailView) view$OnLongClickListenerC0858a.JQ(a.f.iv_avatar);
                 frescoThumbnailView.setAnim(false);
                 view$OnLongClickListenerC0858a.t(a.f.iv_avatar);
-                frescoThumbnailView.bU(fanItem.mAvatar, c.dJG());
+                frescoThumbnailView.bU(fanItem.mAvatar, c.dJH());
                 tv.chushou.zues.widget.a.c cVar = new tv.chushou.zues.widget.a.c();
                 cVar.append(fanItem.mNickname);
                 cVar.append(" ").a(PlayShowMicPerson.this.b, c.Qh(fanItem.mGender), a.d.double_icon_size, a.d.double_icon_size);

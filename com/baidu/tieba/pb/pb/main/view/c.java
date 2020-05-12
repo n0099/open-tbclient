@@ -57,13 +57,13 @@ public class c {
     private Runnable hyK = new Runnable() { // from class: com.baidu.tieba.pb.pb.main.view.c.3
         @Override // java.lang.Runnable
         public void run() {
-            c.this.bVZ();
+            c.this.bWa();
         }
     };
     private View.OnClickListener hyL = new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.view.c.4
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            c.this.cCg();
+            c.this.cCh();
         }
     };
 
@@ -86,7 +86,7 @@ public class c {
         this.mNavigationBar.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.view.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                c.this.jpW.bOS();
+                c.this.jpW.bOT();
             }
         });
         this.mNavigationBar.hideBottomLine();
@@ -143,7 +143,7 @@ public class c {
         }
     }
 
-    public NavigationBar cBY() {
+    public NavigationBar cBZ() {
         return this.mNavigationBar;
     }
 
@@ -201,17 +201,17 @@ public class c {
             if (zVar != null) {
                 this.jFV.jxR = zVar.jyh;
                 if (zVar.jyh) {
-                    this.jFV.czI().setText(R.string.report_text);
+                    this.jFV.czJ().setText(R.string.report_text);
                     this.jFV.rm(false);
                 }
             }
-            cBZ();
+            cCa();
         }
     }
 
-    private void cBZ() {
+    private void cCa() {
         if (this.jFV != null) {
-            this.jFV.czO();
+            this.jFV.czP();
         }
     }
 
@@ -229,21 +229,21 @@ public class c {
         e.lb().postDelayed(this.runnable, 100L);
     }
 
-    public void cCa() {
+    public void cCb() {
         if (this.jFU != null) {
             g.dismissDialog(this.jFU, this.jpW.getPageContext().getPageActivity());
         }
     }
 
-    public y cCb() {
+    public y cCc() {
         return this.jFV;
     }
 
-    public View cCc() {
+    public View cCd() {
         return this.jFQ;
     }
 
-    public boolean cCd() {
+    public boolean cCe() {
         return this.jFU != null && this.jFU.isShowing();
     }
 
@@ -256,7 +256,7 @@ public class c {
         e.lb().removeCallbacks(this.runnable);
     }
 
-    public void cCe() {
+    public void cCf() {
         if (this.jFP != null) {
             this.jFP.setVisibility(8);
         }
@@ -271,7 +271,7 @@ public class c {
         SvgManager.aOR().a(this.aeb, R.drawable.icon_pure_topbar_more44_svg, R.color.cp_cont_f, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         am.setNavbarTitleColor(this.jFO, R.color.cp_cont_b, R.color.s_navbar_title_color);
         am.setViewTextColor(this.dIt, (int) R.color.cp_cont_b);
-        cBZ();
+        cCa();
     }
 
     public void zQ(int i) {
@@ -287,7 +287,7 @@ public class c {
         SvgManager.aOR().a(this.fjF, R.drawable.icon_pure_topbar_return44_svg, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
     }
 
-    public void cCf() {
+    public void cCg() {
         this.fjF.setVisibility(0);
         rQ(false);
         if (this.jFP != null) {
@@ -319,7 +319,7 @@ public class c {
         this.jFW = z;
     }
 
-    public void cAK() {
+    public void cAL() {
         if ((!this.jFW || TbadkCoreApplication.isLogin()) && !com.baidu.tbadk.core.sharedPref.b.aNT().getBoolean(SharedPrefConfig.SHOW_SHARE, false)) {
             View inflate = LayoutInflater.from(this.jpW.getPageContext().getContext()).inflate(R.layout.tips_blue_right_up, (ViewGroup) null);
             View findViewById = inflate.findViewById(R.id.arrow_up);
@@ -337,15 +337,15 @@ public class c {
         }
     }
 
-    public void cCg() {
+    public void cCh() {
         if (this.hyK != null) {
             e.lb().removeCallbacks(this.hyK);
         }
-        bVZ();
+        bWa();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bVZ() {
+    public void bWa() {
         g.dismissPopupWindow(this.jFX);
     }
 

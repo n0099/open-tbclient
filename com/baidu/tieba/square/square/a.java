@@ -52,7 +52,7 @@ public class a extends ProxyAdkBaseActivity<a> {
         setContentView(R.layout.bar_folder_dir_activity);
         initUI();
         aA(bundle);
-        cUV();
+        cUW();
         TiebaStatic.eventStat(getPageContext().getContext(), "category_1", "enter");
     }
 
@@ -88,13 +88,13 @@ public class a extends ProxyAdkBaseActivity<a> {
         a(null, true);
     }
 
-    protected void cUV() {
+    protected void cUW() {
         this.mList.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.square.square.a.1
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
                 e eVar;
-                ArrayList<e> cUW = a.this.kNH.cUW();
-                if (cUW != null && i < cUW.size() && (eVar = cUW.get(i)) != null) {
+                ArrayList<e> cUX = a.this.kNH.cUX();
+                if (cUX != null && i < cUX.size() && (eVar = cUX.get(i)) != null) {
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SQUARE_FORUM_LIST, new ForumListActivityConfig(a.this.getPageContext().getPageActivity(), eVar.kLN, eVar.kLO, eVar.kLP)));
                 }
             }
@@ -126,7 +126,7 @@ public class a extends ProxyAdkBaseActivity<a> {
                 showToast(cVar.getErrorMsg());
                 return;
             }
-            this.kNH.aS(cVar.cUW());
+            this.kNH.aS(cVar.cUX());
             this.mList.setVisibility(4);
             this.kNH.notifyDataSetChanged();
             this.mList.setVisibility(0);

@@ -50,7 +50,7 @@ public class PersonCenterSmartAppPageView extends LinearLayout {
         }
     }
 
-    public boolean cGq() {
+    public boolean cGr() {
         return this.mDataList.size() < this.jUD;
     }
 

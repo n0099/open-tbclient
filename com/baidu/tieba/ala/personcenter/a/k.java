@@ -35,17 +35,17 @@ public class k extends com.baidu.adp.widget.ListView.a<n, com.baidu.tieba.card.a
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, final n nVar, com.baidu.tieba.card.a.a<com.baidu.tieba.ala.personcenter.e.a> aVar) {
-        if (aVar.bFz() == null) {
+        if (aVar.bFA() == null) {
             return null;
         }
-        a(nVar, aVar.bFz());
-        aVar.bFz().getView().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.personcenter.a.k.1
+        a(nVar, aVar.bFA());
+        aVar.bFA().getView().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.personcenter.a.k.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 k.this.a(nVar);
             }
         });
-        return aVar.bFz().getView();
+        return aVar.bFA().getView();
     }
 
     private void a(n nVar, com.baidu.tieba.ala.personcenter.e.a aVar) {

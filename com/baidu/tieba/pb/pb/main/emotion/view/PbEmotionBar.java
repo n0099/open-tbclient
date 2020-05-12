@@ -94,8 +94,8 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.a {
                 if (editable != null) {
                     String trim = editable.toString().trim();
                     if (TextUtils.isEmpty(trim)) {
-                        if (PbEmotionBar.this.mData != null && !v.isEmpty(PbEmotionBar.this.mData.bKw())) {
-                            PbEmotionBar.this.jEh.setData(PbEmotionBar.this.mData.bKw());
+                        if (PbEmotionBar.this.mData != null && !v.isEmpty(PbEmotionBar.this.mData.bKx())) {
+                            PbEmotionBar.this.jEh.setData(PbEmotionBar.this.mData.bKx());
                             PbEmotionBar.this.jEh.notifyDataSetChanged();
                             return;
                         }
@@ -112,8 +112,8 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.a {
         this.gKN = new SearchEmotionModel.a() { // from class: com.baidu.tieba.pb.pb.main.emotion.view.PbEmotionBar.4
             @Override // com.baidu.tieba.face.SearchEmotionModel.a
             public void a(String str, com.baidu.tieba.face.data.a aVar) {
-                if (aVar != null && !v.isEmpty(aVar.bKw()) && PbEmotionBar.this.gLg.getText().toString().trim().equals(str)) {
-                    PbEmotionBar.this.jEh.setData(aVar.bKw());
+                if (aVar != null && !v.isEmpty(aVar.bKx()) && PbEmotionBar.this.gLg.getText().toString().trim().equals(str)) {
+                    PbEmotionBar.this.jEh.setData(aVar.bKx());
                     PbEmotionBar.this.jEh.notifyDataSetChanged();
                 }
             }
@@ -142,8 +142,8 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.a {
                 if (editable != null) {
                     String trim = editable.toString().trim();
                     if (TextUtils.isEmpty(trim)) {
-                        if (PbEmotionBar.this.mData != null && !v.isEmpty(PbEmotionBar.this.mData.bKw())) {
-                            PbEmotionBar.this.jEh.setData(PbEmotionBar.this.mData.bKw());
+                        if (PbEmotionBar.this.mData != null && !v.isEmpty(PbEmotionBar.this.mData.bKx())) {
+                            PbEmotionBar.this.jEh.setData(PbEmotionBar.this.mData.bKx());
                             PbEmotionBar.this.jEh.notifyDataSetChanged();
                             return;
                         }
@@ -160,8 +160,8 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.a {
         this.gKN = new SearchEmotionModel.a() { // from class: com.baidu.tieba.pb.pb.main.emotion.view.PbEmotionBar.4
             @Override // com.baidu.tieba.face.SearchEmotionModel.a
             public void a(String str, com.baidu.tieba.face.data.a aVar) {
-                if (aVar != null && !v.isEmpty(aVar.bKw()) && PbEmotionBar.this.gLg.getText().toString().trim().equals(str)) {
-                    PbEmotionBar.this.jEh.setData(aVar.bKw());
+                if (aVar != null && !v.isEmpty(aVar.bKx()) && PbEmotionBar.this.gLg.getText().toString().trim().equals(str)) {
+                    PbEmotionBar.this.jEh.setData(aVar.bKx());
                     PbEmotionBar.this.jEh.notifyDataSetChanged();
                 }
             }
@@ -190,8 +190,8 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.a {
                 if (editable != null) {
                     String trim = editable.toString().trim();
                     if (TextUtils.isEmpty(trim)) {
-                        if (PbEmotionBar.this.mData != null && !v.isEmpty(PbEmotionBar.this.mData.bKw())) {
-                            PbEmotionBar.this.jEh.setData(PbEmotionBar.this.mData.bKw());
+                        if (PbEmotionBar.this.mData != null && !v.isEmpty(PbEmotionBar.this.mData.bKx())) {
+                            PbEmotionBar.this.jEh.setData(PbEmotionBar.this.mData.bKx());
                             PbEmotionBar.this.jEh.notifyDataSetChanged();
                             return;
                         }
@@ -208,8 +208,8 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.a {
         this.gKN = new SearchEmotionModel.a() { // from class: com.baidu.tieba.pb.pb.main.emotion.view.PbEmotionBar.4
             @Override // com.baidu.tieba.face.SearchEmotionModel.a
             public void a(String str, com.baidu.tieba.face.data.a aVar) {
-                if (aVar != null && !v.isEmpty(aVar.bKw()) && PbEmotionBar.this.gLg.getText().toString().trim().equals(str)) {
-                    PbEmotionBar.this.jEh.setData(aVar.bKw());
+                if (aVar != null && !v.isEmpty(aVar.bKx()) && PbEmotionBar.this.gLg.getText().toString().trim().equals(str)) {
+                    PbEmotionBar.this.jEh.setData(aVar.bKx());
                     PbEmotionBar.this.jEh.notifyDataSetChanged();
                 }
             }
@@ -500,7 +500,7 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.a {
                 @Override // com.baidu.tieba.pb.pb.main.emotion.view.PbEmotionBar.a
                 public void b(String str, List<String> list, List<String> list2) {
                     if (PbEmotionBar.this.mData != null) {
-                        aVar.b(PbEmotionBar.this.gLg.getText().toString(), PbEmotionBar.this.mData.cBP(), list2);
+                        aVar.b(PbEmotionBar.this.gLg.getText().toString(), PbEmotionBar.this.mData.cBQ(), list2);
                         TiebaStatic.log("c12177");
                     }
                 }
@@ -514,7 +514,7 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.a {
     }
 
     @Override // com.baidu.tieba.face.view.EmotionView.a
-    public boolean bKy() {
+    public boolean bKz() {
         return this.jEp;
     }
 
@@ -524,11 +524,11 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.a {
     }
 
     @Override // com.baidu.tieba.face.view.EmotionView.a
-    public void bKB() {
+    public void bKC() {
     }
 
     @Override // com.baidu.tieba.face.view.EmotionView.a
-    public void bKC() {
+    public void bKD() {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -548,14 +548,14 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.a {
 
     public void onDestroy() {
         if (this.jEh != null) {
-            this.jEh.ctB();
+            this.jEh.ctC();
         }
-        bRh();
+        bRi();
     }
 
-    public void bRh() {
+    public void bRi() {
         if (this.jEr != null) {
-            this.jEr.bRh();
+            this.jEr.bRi();
         }
     }
 

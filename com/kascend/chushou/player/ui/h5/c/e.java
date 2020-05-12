@@ -39,11 +39,11 @@ public class e extends d {
         return this;
     }
 
-    public H5Positon dyy() {
+    public H5Positon dyz() {
         return this.mBe;
     }
 
-    public H5Positon dyz() {
+    public H5Positon dyA() {
         return this.mBf;
     }
 }

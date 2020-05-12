@@ -37,7 +37,7 @@ public class PersonalChatView extends CommonPersonalMsglistView {
                 PersonalChatView.this.ixn.showToast(R.string.add_friend_cannot_send);
             }
         };
-        if (!this.ixn.cju() && this.mTool != null) {
+        if (!this.ixn.cjv() && this.mTool != null) {
             b(this.mTool.mA(6));
             b(this.mTool.mA(2));
         }
@@ -54,7 +54,7 @@ public class PersonalChatView extends CommonPersonalMsglistView {
             this.idg = (TextView) this.mBtnGroupInfo.findViewById(R.id.group_info_btn_txt);
             this.idg.setText(string);
         }
-        if (!this.ixn.cju()) {
+        if (!this.ixn.cjv()) {
             this.ixo = (LinearLayout) ((ViewStub) talkableActivity.findViewById(R.id.stranger_person_add_friend_stub)).inflate();
             this.ixp = (LinearLayout) this.ixo.findViewById(R.id.add_friend_tip_full);
             this.ixq = (TextView) this.ixo.findViewById(R.id.add_friend_tip_title);
@@ -83,7 +83,7 @@ public class PersonalChatView extends CommonPersonalMsglistView {
         }
     }
 
-    private void cjw() {
+    private void cjx() {
         if (this.mTool != null) {
             this.mTool.aWW();
         }
@@ -93,7 +93,7 @@ public class PersonalChatView extends CommonPersonalMsglistView {
         this.ixo.setVisibility(0);
         switch (cardStatus) {
             case APPLY:
-                cjx();
+                cjy();
                 return;
             case WAIT:
                 pg(z);
@@ -113,7 +113,7 @@ public class PersonalChatView extends CommonPersonalMsglistView {
         }
     }
 
-    private void cjx() {
+    private void cjy() {
         this.ixo.setVisibility(8);
         this.ixp.setVisibility(0);
         this.ixs.setVisibility(8);
@@ -123,7 +123,7 @@ public class PersonalChatView extends CommonPersonalMsglistView {
     }
 
     private void pg(boolean z) {
-        if (this.ixn.cjs().ckc() == PersonalMsglistModel.CardStatus.WAIT && z) {
+        if (this.ixn.cjt().ckd() == PersonalMsglistModel.CardStatus.WAIT && z) {
             final TranslateAnimation translateAnimation = new TranslateAnimation(2, 0.0f, 2, 0.0f, 1, 1.0f, 1, 0.0f);
             translateAnimation.setDuration(400L);
             translateAnimation.setFillAfter(true);
@@ -180,7 +180,7 @@ public class PersonalChatView extends CommonPersonalMsglistView {
     }
 
     private void p(boolean z, final String str) {
-        final String name_show = this.ixn.cjs().getUser().getName_show();
+        final String name_show = this.ixn.cjt().getUser().getName_show();
         this.ixs.setVisibility(8);
         if (z) {
             final TranslateAnimation translateAnimation = new TranslateAnimation(2, 0.0f, 2, 0.0f, 2, 1.0f, 1, 0.0f);
@@ -217,7 +217,7 @@ public class PersonalChatView extends CommonPersonalMsglistView {
     }
 
     private void ph(boolean z) {
-        cjw();
+        cjx();
         if (z) {
             TranslateAnimation translateAnimation = new TranslateAnimation(2, 0.0f, 2, 0.0f, 2, 0.0f, 2, -1.0f);
             translateAnimation.setDuration(500L);
@@ -242,7 +242,7 @@ public class PersonalChatView extends CommonPersonalMsglistView {
         this.ixo.setVisibility(8);
     }
 
-    public Button cjy() {
+    public Button cjz() {
         return this.ixt;
     }
 

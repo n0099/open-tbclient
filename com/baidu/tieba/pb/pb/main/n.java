@@ -49,7 +49,7 @@ public class n {
     public void zr(int i) {
         if (this.jqg != null) {
             HttpMessage httpMessage = new HttpMessage(1003066);
-            httpMessage.addParam("thread_id", this.jqg.cyx());
+            httpMessage.addParam("thread_id", this.jqg.cyy());
             httpMessage.addParam("status", String.valueOf(i));
             MessageManager.getInstance().sendMessage(httpMessage);
         }

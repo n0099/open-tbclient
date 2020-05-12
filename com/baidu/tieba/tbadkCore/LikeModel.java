@@ -55,7 +55,7 @@ public class LikeModel extends BdBaseModel {
         return this.mBlockPopInfoData;
     }
 
-    public void cVI() {
+    public void cVJ() {
         if (this.kRk != null) {
             this.kRk.cancel();
             this.kRk = null;
@@ -77,7 +77,7 @@ public class LikeModel extends BdBaseModel {
         }
     }
 
-    public boolean cVJ() {
+    public boolean cVK() {
         return this.kRk != null;
     }
 
@@ -151,12 +151,12 @@ public class LikeModel extends BdBaseModel {
         /* renamed from: c */
         public void onPostExecute(u uVar) {
             LikeModel.this.kRk = null;
-            if (this.mNetwork != null && uVar != null && !AntiHelper.c(LikeModel.this.getContext(), LikeModel.this.getErrorCode(), uVar.cVK())) {
+            if (this.mNetwork != null && uVar != null && !AntiHelper.c(LikeModel.this.getContext(), LikeModel.this.getErrorCode(), uVar.cVL())) {
                 com.baidu.tieba.tbadkCore.writeModel.a aVar = new com.baidu.tieba.tbadkCore.writeModel.a();
                 aVar.forumId = com.baidu.adp.lib.f.b.toLong(uVar.getFid(), 0L);
                 if (uVar != null && this.mNetwork.aOw().aOX().isRequestSuccess()) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_LIKE_FORUM, Long.valueOf(com.baidu.adp.lib.f.b.toLong(uVar.getFid(), 0L))));
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_LIKE_FORUM_NAME, new e.a(LikeModel.this.mForumName, uVar.cTF())));
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_LIKE_FORUM_NAME, new e.a(LikeModel.this.mForumName, uVar.cTG())));
                     TbadkCoreApplication.getInst().addLikeForum(LikeModel.this.mForumName);
                     aVar.isSuccess = true;
                     aVar.errorMessage = LikeModel.this.getErrorString();

@@ -68,7 +68,7 @@ public class FrsViewData extends m implements com.baidu.tbadk.mvc.b.l, Serializa
             this.forum.setCurScore(uVar.getCurScore());
             this.forum.setLevelupScore(uVar.getLevelupScore());
             this.forum.setLike(uVar.isLike());
-            this.forum.setUser_level(uVar.cTF());
+            this.forum.setUser_level(uVar.cTG());
             this.forum.setLevelName(uVar.getLevelName());
         }
     }
@@ -353,7 +353,7 @@ public class FrsViewData extends m implements com.baidu.tbadk.mvc.b.l, Serializa
     public void addOfficialBarToThreadList() {
         boolean z = true;
         if (this.forum != null && this.threadList != null && bj.drn.get() && this.page != null && this.page.aJw() == 1) {
-            if (this.gconAccount == null || !this.gconAccount.cVE()) {
+            if (this.gconAccount == null || !this.gconAccount.cVF()) {
                 z = false;
             }
             if (this.fortuneBag || z || (getUserData() != null && getUserData().isBawu())) {
@@ -623,8 +623,8 @@ public class FrsViewData extends m implements com.baidu.tbadk.mvc.b.l, Serializa
         this.brandAdData = mVar.brandAdData;
         this.oriForumInfoList = mVar.oriForumInfoList;
         this.bottomMenuList = mVar.bottomMenuList;
-        com.baidu.tieba.frs.a.bNB().b(getAnti());
-        com.baidu.tieba.frs.a.bNB().setForumId(mVar.getForum().getId());
+        com.baidu.tieba.frs.a.bNC().b(getAnti());
+        com.baidu.tieba.frs.a.bNC().setForumId(mVar.getForum().getId());
         setRedpacketRainData(mVar.getRedpacketRainData());
         setPrivateForumTotalInfo(mVar.getPrivateForumTotalInfo());
         this.isFrsVideoAutoPlay = mVar.isFrsVideoAutoPlay;
@@ -692,7 +692,7 @@ public class FrsViewData extends m implements com.baidu.tbadk.mvc.b.l, Serializa
                         i++;
                     }
                 }
-                if ((getGameRankListData().bWN() + i) - 1 < this.threadList.size()) {
+                if ((getGameRankListData().bWO() + i) - 1 < this.threadList.size()) {
                     String string = com.baidu.tbadk.core.sharedPref.b.aNT().getString(SharedPrefConfig.GAME_RANK_LIST_INFO, "");
                     if (StringUtils.isNull(string) || string.split(Constants.ACCEPT_TIME_SEPARATOR_SP).length != 2) {
                         z2 = true;
@@ -709,7 +709,7 @@ public class FrsViewData extends m implements com.baidu.tbadk.mvc.b.l, Serializa
                             com.baidu.tbadk.core.sharedPref.b.aNT().putString(SharedPrefConfig.GAME_RANK_LIST_INFO, System.currentTimeMillis() + ",1");
                             com.baidu.tbadk.core.sharedPref.b.aNT().putInt(SharedPrefConfig.GAME_RANK_LIST_SHOW_TIMES, 0);
                             if (!z3) {
-                                this.threadList.add((getGameRankListData().bWN() + i) - 1, getGameRankListData());
+                                this.threadList.add((getGameRankListData().bWO() + i) - 1, getGameRankListData());
                                 return;
                             }
                             return;
@@ -861,7 +861,7 @@ public class FrsViewData extends m implements com.baidu.tbadk.mvc.b.l, Serializa
                 if (next == null) {
                     it.remove();
                 } else if (StringUtils.isNull(next.getUrl()) || StringUtils.isNull(next.getTitle())) {
-                    if (next.cVw() != 1) {
+                    if (next.cVx() != 1) {
                         it.remove();
                     }
                 }
@@ -882,7 +882,7 @@ public class FrsViewData extends m implements com.baidu.tbadk.mvc.b.l, Serializa
         }
         if (!com.baidu.tbadk.core.util.v.isEmpty(list)) {
             for (int i2 = 0; i2 < list.size(); i2++) {
-                if (list.get(i2).cVw() == 1) {
+                if (list.get(i2).cVx() == 1) {
                     arrayList.add(list.get(i2));
                 }
             }
@@ -922,7 +922,7 @@ public class FrsViewData extends m implements com.baidu.tbadk.mvc.b.l, Serializa
         }
         if (!com.baidu.tbadk.core.util.v.isEmpty(list)) {
             for (int i5 = 0; i5 < list.size(); i5++) {
-                if (list.get(i5).cVw() != 1) {
+                if (list.get(i5).cVx() != 1) {
                     arrayList.add(list.get(i5));
                 }
             }
@@ -934,7 +934,7 @@ public class FrsViewData extends m implements com.baidu.tbadk.mvc.b.l, Serializa
         if (getStar() == null) {
             return false;
         }
-        return getStar().cVC() == 1;
+        return getStar().cVD() == 1;
     }
 
     public boolean hasTab() {

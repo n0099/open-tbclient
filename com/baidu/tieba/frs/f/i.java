@@ -221,7 +221,7 @@ public class i {
                 str = bjVar.dtD.id;
                 str2 = valueOf;
             }
-            if (bjVar.aKY() > 0 && com.baidu.tieba.tbadkCore.util.e.cXq()) {
+            if (bjVar.aKY() > 0 && com.baidu.tieba.tbadkCore.util.e.cXr()) {
                 createFromThreadCfg = new PbActivityConfig(frsFragment.getPageContext().getPageActivity()).createHistoryCfg(bjVar.getTid(), String.valueOf(bjVar.aKY()), false, true, "frs_page");
             } else {
                 createFromThreadCfg = new PbActivityConfig(frsFragment.getPageContext().getPageActivity()).createFromThreadCfg(bjVar, frsFragment.getForumName(), "frs_page", RequestResponseCode.REQUEST_FRS_TO_PB, true, false, z);

@@ -16,7 +16,7 @@ public class a {
         }
     }
 
-    public static Map<String, String> cpp() {
+    public static Map<String, String> cpq() {
         if (iRX == null) {
             try {
                 Field declaredField = Class.forName("dalvik.system.VMRuntime").getDeclaredField("ABI_TO_INSTRUCTION_SET_MAP");

@@ -36,7 +36,7 @@ public class EmotionEditLayout extends FrameLayout {
             public boolean tryCaptureView(View view, int i) {
                 boolean z = view == emotionEditText;
                 if (view instanceof ImageView) {
-                    emotionEditText.cFJ();
+                    emotionEditText.cFK();
                 }
                 return z;
             }
@@ -58,7 +58,7 @@ public class EmotionEditLayout extends FrameLayout {
                     EmotionEditLayout.this.jQL = System.currentTimeMillis();
                     EmotionEditLayout.this.jQJ = view.getX();
                     EmotionEditLayout.this.jQK = view.getY();
-                    emotionEditText.cFJ();
+                    emotionEditText.cFK();
                 }
             }
 
@@ -71,7 +71,7 @@ public class EmotionEditLayout extends FrameLayout {
                     float abs = Math.abs(x - EmotionEditLayout.this.jQJ);
                     float abs2 = Math.abs(y - EmotionEditLayout.this.jQK);
                     if (abs < EmotionEditLayout.this.gLb && abs2 < EmotionEditLayout.this.gLb && System.currentTimeMillis() - EmotionEditLayout.this.jQL < 300) {
-                        emotionEditText.cFK();
+                        emotionEditText.cFL();
                     }
                     FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
                     layoutParams.setMargins(view.getLeft(), view.getTop(), 0, 0);

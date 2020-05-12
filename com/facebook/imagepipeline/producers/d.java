@@ -36,7 +36,7 @@ public class d implements ak {
     }
 
     @Override // com.facebook.imagepipeline.producers.ak
-    public ImageRequest dtQ() {
+    public ImageRequest dtR() {
         return this.lTA;
     }
 
@@ -46,32 +46,32 @@ public class d implements ak {
     }
 
     @Override // com.facebook.imagepipeline.producers.ak
-    public am dtR() {
+    public am dtS() {
         return this.meJ;
     }
 
     @Override // com.facebook.imagepipeline.producers.ak
-    public Object dot() {
+    public Object dou() {
         return this.lTz;
     }
 
     @Override // com.facebook.imagepipeline.producers.ak
-    public ImageRequest.RequestLevel dtS() {
+    public ImageRequest.RequestLevel dtT() {
         return this.meK;
     }
 
     @Override // com.facebook.imagepipeline.producers.ak
-    public synchronized boolean dtT() {
+    public synchronized boolean dtU() {
         return this.lTK;
     }
 
     @Override // com.facebook.imagepipeline.producers.ak
-    public synchronized Priority dtU() {
+    public synchronized Priority dtV() {
         return this.meL;
     }
 
     @Override // com.facebook.imagepipeline.producers.ak
-    public synchronized boolean dtV() {
+    public synchronized boolean dtW() {
         return this.meM;
     }
 
@@ -85,12 +85,12 @@ public class d implements ak {
             }
         }
         if (z) {
-            alVar.dqh();
+            alVar.dqi();
         }
     }
 
     public void cancel() {
-        eW(dtW());
+        eW(dtX());
     }
 
     @Nullable
@@ -130,7 +130,7 @@ public class d implements ak {
     }
 
     @Nullable
-    public synchronized List<al> dtW() {
+    public synchronized List<al> dtX() {
         ArrayList arrayList;
         if (this.dLE) {
             arrayList = null;
@@ -144,7 +144,7 @@ public class d implements ak {
     public static void eW(@Nullable List<al> list) {
         if (list != null) {
             for (al alVar : list) {
-                alVar.dqh();
+                alVar.dqi();
             }
         }
     }
@@ -152,7 +152,7 @@ public class d implements ak {
     public static void eX(@Nullable List<al> list) {
         if (list != null) {
             for (al alVar : list) {
-                alVar.dtX();
+                alVar.dtY();
             }
         }
     }
@@ -160,7 +160,7 @@ public class d implements ak {
     public static void eY(@Nullable List<al> list) {
         if (list != null) {
             for (al alVar : list) {
-                alVar.dtY();
+                alVar.dtZ();
             }
         }
     }
@@ -168,7 +168,7 @@ public class d implements ak {
     public static void eZ(@Nullable List<al> list) {
         if (list != null) {
             for (al alVar : list) {
-                alVar.dtZ();
+                alVar.dua();
             }
         }
     }

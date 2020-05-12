@@ -45,7 +45,7 @@ public class d extends g {
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                d.this.deU();
+                d.this.deV();
             }
 
             @Override // android.animation.Animator.AnimatorListener
@@ -63,7 +63,7 @@ public class d extends g {
                 float animatedFraction = valueAnimator.getAnimatedFraction();
                 if (!d.this.lwV && animatedFraction >= 0.57142f && d.this.lwZ.lwl.isAnimating()) {
                     d.this.lwV = true;
-                    d.this.deV();
+                    d.this.deW();
                 }
             }
         };
@@ -74,7 +74,7 @@ public class d extends g {
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                d.this.deW();
+                d.this.deX();
             }
 
             @Override // android.animation.Animator.AnimatorListener
@@ -214,7 +214,7 @@ public class d extends g {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void deU() {
+    public void deV() {
         this.lwZ.lwl.setVisibility(0);
         this.lwZ.uL(true);
         this.mState = 2;
@@ -224,12 +224,12 @@ public class d extends g {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void deV() {
+    public void deW() {
         this.lwX.start();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void deW() {
+    public void deX() {
         this.lwU = false;
         this.lwW = false;
         this.lwV = false;
@@ -250,7 +250,7 @@ public class d extends g {
     }
 
     @Override // com.baidu.tieba.write.g
-    public void deX() {
+    public void deY() {
         if (this.mState == 4) {
             this.mState = 1;
             if (this.lxt != null) {
@@ -300,8 +300,8 @@ public class d extends g {
     }
 
     @Override // com.baidu.tieba.write.g
-    public void deY() {
-        deW();
+    public void deZ() {
+        deX();
     }
 
     @Override // com.baidu.tieba.write.g

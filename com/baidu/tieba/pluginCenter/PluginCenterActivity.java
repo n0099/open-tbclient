@@ -75,7 +75,7 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
                     return;
                 }
                 PluginCenterActivity.this.showToast(PluginCenterActivity.this.getPageContext().getString(R.string.plugin_installation_failed) + str);
-                PluginCenterActivity.this.cKT();
+                PluginCenterActivity.this.cKU();
             }
         }
     };
@@ -198,7 +198,7 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cKT() {
+    public void cKU() {
         PluginNetConfigInfos ou = com.baidu.adp.plugin.packageManager.pluginServerConfig.d.ot().ou();
         if (ou != null && ou.getConfigs() != null && ou.getConfigs().size() > 0) {
             this.kkZ = ei(ou.getConfigs());
@@ -288,7 +288,7 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
             case 1:
                 if (aYI instanceof PluginConfigWrapper) {
                     PluginPackageManager.nV().ct(((PluginConfigWrapper) aYI).package_name);
-                    cKT();
+                    cKU();
                     return true;
                 }
                 break;

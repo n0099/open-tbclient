@@ -40,7 +40,7 @@ public class b {
         this.iCQ = (TextView) this.iCN.findViewById(R.id.big_image_ad_title);
         this.iCR = (TextView) this.iCN.findViewById(R.id.big_image_ad_brand);
         this.mContext = viewGroup.getContext();
-        ckS();
+        ckT();
     }
 
     public View getView() {
@@ -51,7 +51,7 @@ public class b {
         this.dUg = dVar;
     }
 
-    public void ckS() {
+    public void ckT() {
         this.gGY.setVisibility(4);
         this.iCU = new UrlDragImageView(this.mContext);
         this.iCU.setLayoutParams(new RelativeLayout.LayoutParams(-1, -1));
@@ -83,20 +83,20 @@ public class b {
         this.iCN.addView(this.iCU, 0);
     }
 
-    public UrlDragImageView ckT() {
+    public UrlDragImageView ckU() {
         return this.iCU;
     }
 
-    public TbImageView ckU() {
+    public TbImageView ckV() {
         return this.gGY;
     }
 
-    public TextView ckV() {
+    public TextView ckW() {
         return this.iCO;
     }
 
     @SuppressLint({"ResourceAsColor"})
-    public void ckW() {
+    public void ckX() {
         this.iCO.setText(R.string.pause_load);
         this.iCO.setBackgroundResource(R.drawable.button_fenfa_xiazaizhong);
         am.setViewTextColor(this.iCO, R.color.common_color_10049, 1, 0);
@@ -110,13 +110,13 @@ public class b {
     }
 
     @SuppressLint({"ResourceAsColor"})
-    public void ckX() {
+    public void ckY() {
         this.iCO.setText(R.string.setup_text);
         this.iCO.setBackgroundResource(R.drawable.button_fenfa_download_selector);
         am.setViewTextColor(this.iCO, R.drawable.button_fenfa_download_text_selector, 1, 0);
     }
 
-    public void ckY() {
+    public void ckZ() {
         WindowManager windowManager = (WindowManager) this.mContext.getSystemService("window");
         if (windowManager != null) {
             int width = windowManager.getDefaultDisplay().getWidth();

@@ -249,7 +249,7 @@ public class b extends Dialog implements View.OnClickListener {
             this.nxb.startAnimation(this.nwL);
             this.nxf.startAnimation(this.nwM);
         } else if (this.nxa == 2) {
-            this.nxe.dKs();
+            this.nxe.dKt();
             this.nxh.startAnimation(this.nwO);
         }
     }
@@ -456,7 +456,7 @@ public class b extends Dialog implements View.OnClickListener {
         wZ(true);
     }
 
-    public void dKt() {
+    public void dKu() {
         wZ(false);
     }
 
@@ -472,19 +472,19 @@ public class b extends Dialog implements View.OnClickListener {
             if (this.nxm != null) {
                 this.nxm.onClick(this);
             } else {
-                dKt();
+                dKu();
             }
         } else if (view.getId() == b.e.confirm_button) {
             if (this.nxn != null) {
                 this.nxn.onClick(this);
             } else {
-                dKt();
+                dKu();
             }
         } else if (view.getId() == b.e.middle_btn) {
             if (this.nxo != null) {
                 this.nxo.onClick(this);
             } else {
-                dKt();
+                dKu();
             }
         }
     }

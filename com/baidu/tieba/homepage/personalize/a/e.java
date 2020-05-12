@@ -29,7 +29,7 @@ public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
         int id = view.getId();
         if (id == R.id.thread_card_root) {
             if (this.from == 0) {
-                TiebaStatic.log(eVar.bFr());
+                TiebaStatic.log(eVar.bFs());
             } else if (this.from == 1) {
                 com.baidu.tieba.homepage.concern.b.a(view, eVar, 2);
             }
@@ -49,7 +49,7 @@ public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
             @Override // com.baidu.tieba.card.z
             /* renamed from: b */
             public void a(View view, com.baidu.tieba.card.data.e eVar) {
-                com.baidu.tieba.card.r.bEW().jd(true);
+                com.baidu.tieba.card.r.bEX().jd(true);
                 com.baidu.tieba.a.d.bfN().cF("page_recommend", "show_");
                 if (view != null && eVar != null && eVar.aIu() != null && !StringUtils.isNull(eVar.aIu().getTid())) {
                     e.this.a(view, eVar);
@@ -108,9 +108,9 @@ public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
         afVar.rD().setPage(this.aeB);
         if (this.from == 0) {
             afVar.aF(true).a(this.euX);
-            com.baidu.tieba.card.r.bEW().e(eVar.bFq());
+            com.baidu.tieba.card.r.bEX().e(eVar.bFr());
         } else if (this.from == 1) {
-            com.baidu.tieba.card.r.bEW().e(eVar.BK("c12351"));
+            com.baidu.tieba.card.r.bEX().e(eVar.BK("c12351"));
         }
         afVar.aG(true);
         afVar.b((af<com.baidu.tieba.card.data.e>) eVar);

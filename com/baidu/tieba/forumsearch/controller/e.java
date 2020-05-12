@@ -39,7 +39,7 @@ public class e {
         }
     }
 
-    public static ArrayList<String> bNs() {
+    public static ArrayList<String> bNt() {
         ArrayList<String> arrayList = null;
         String string = com.baidu.tbadk.core.sharedPref.b.aNT().getString(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount(SharedPrefConfig.SEARCH_FORUM_HISTORY), "");
         if (StringUtils.isNull(string)) {
@@ -98,7 +98,7 @@ public class e {
         }
     }
 
-    public static void bNt() {
+    public static void bNu() {
         com.baidu.tbadk.core.sharedPref.b.aNT().putString(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount(SharedPrefConfig.SEARCH_FORUM_HISTORY), "");
     }
 }

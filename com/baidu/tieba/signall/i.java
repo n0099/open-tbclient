@@ -18,11 +18,11 @@ public class i {
         return this.forumId;
     }
 
-    public int cTY() {
+    public int cTZ() {
         return this.signed;
     }
 
-    public int cTZ() {
+    public int cUa() {
         return this.kKu;
     }
 
@@ -30,7 +30,7 @@ public class i {
         return this.kKv;
     }
 
-    public a cTt() {
+    public a cTu() {
         return this.kJg;
     }
 

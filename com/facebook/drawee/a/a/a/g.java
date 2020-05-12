@@ -31,7 +31,7 @@ public class g extends com.facebook.imagepipeline.h.a {
     public void setEnabled(boolean z) {
         this.mEnabled = z;
         if (z) {
-            dod();
+            doe();
             if (this.lTo != null) {
                 this.lTN.a(this.lTo);
             }
@@ -64,7 +64,7 @@ public class g extends com.facebook.imagepipeline.h.a {
         }
     }
 
-    public void dob() {
+    public void doc() {
         if (this.lTU != null) {
             this.lTU.clear();
         }
@@ -74,16 +74,16 @@ public class g extends com.facebook.imagepipeline.h.a {
         hVar.Gf(i);
         if (this.mEnabled && this.lTU != null && !this.lTU.isEmpty()) {
             if (i == 3) {
-                doc();
+                dod();
             }
-            e dof = hVar.dof();
+            e dog = hVar.dog();
             for (f fVar : this.lTU) {
-                fVar.a(dof, i);
+                fVar.a(dog, i);
             }
         }
     }
 
-    private void doc() {
+    private void dod() {
         com.facebook.drawee.d.b hierarchy = this.lTN.getHierarchy();
         if (hierarchy != null && hierarchy.getTopLevelDrawable() != null) {
             Rect bounds = hierarchy.getTopLevelDrawable().getBounds();
@@ -92,7 +92,7 @@ public class g extends com.facebook.imagepipeline.h.a {
         }
     }
 
-    private void dod() {
+    private void doe() {
         if (this.lTS == null) {
             this.lTS = new com.facebook.drawee.a.a.a.a.a(this.lTO, this.lTP, this);
         }
@@ -113,7 +113,7 @@ public class g extends com.facebook.imagepipeline.h.a {
     }
 
     public void reset() {
-        dob();
+        doc();
         setEnabled(false);
         this.lTP.reset();
     }

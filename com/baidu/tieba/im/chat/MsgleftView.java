@@ -79,7 +79,7 @@ public class MsgleftView extends g {
         String str = null;
         super.b(view, chatMessage);
         ArrayList<IconData> tShowInfoNew = chatMessage != null ? chatMessage.getUserInfo().getTShowInfoNew() : null;
-        cdd();
+        cde();
         if (this.agc != null && this.iey) {
             this.agc.setVisibility(0);
             this.agc.setAutoChangedStyle(false);
@@ -192,7 +192,7 @@ public class MsgleftView extends g {
         }
     }
 
-    public void cdd() {
+    public void cde() {
         if (this.iey) {
             this.mName.setVisibility(0);
             this.agc.setVisibility(0);

@@ -22,16 +22,16 @@ public abstract class a {
     public interface InterfaceC0820a {
     }
 
-    protected abstract l dGi();
+    protected abstract l dGj();
 
     public a c(m mVar) {
         this.ndV = mVar;
         this.ndQ = mVar.getWidth();
         this.ndR = mVar.getHeight();
         this.ndS = mVar.getDensity();
-        this.ndT = mVar.dFB();
-        this.mZU.ndh.j(this.ndQ, this.ndR, dGf());
-        this.mZU.ndh.dFV();
+        this.ndT = mVar.dFC();
+        this.mZU.ndh.j(this.ndQ, this.ndR, dGg());
+        this.mZU.ndh.dFW();
         return this;
     }
 
@@ -40,7 +40,7 @@ public abstract class a {
         return this;
     }
 
-    protected float dGf() {
+    protected float dGg() {
         return 1.0f / (this.ndS - 0.6f);
     }
 
@@ -49,18 +49,18 @@ public abstract class a {
         return this;
     }
 
-    public l dGg() {
+    public l dGh() {
         if (this.ndU != null) {
             return this.ndU;
         }
-        this.mZU.ndh.dFU();
-        this.ndU = dGi();
-        dGh();
         this.mZU.ndh.dFV();
+        this.ndU = dGj();
+        dGi();
+        this.mZU.ndh.dFW();
         return this.ndU;
     }
 
-    protected void dGh() {
+    protected void dGi() {
         if (this.ndP != null) {
             this.ndP.release();
         }
@@ -68,7 +68,7 @@ public abstract class a {
     }
 
     public void release() {
-        dGh();
+        dGi();
     }
 
     public a c(DanmakuContext danmakuContext) {

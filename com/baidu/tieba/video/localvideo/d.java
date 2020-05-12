@@ -82,7 +82,7 @@ public class d {
         this.hasLoaded = z;
     }
 
-    public boolean dcc() {
+    public boolean dcd() {
         return this.hasLoaded;
     }
 }

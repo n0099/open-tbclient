@@ -56,11 +56,11 @@ public class b extends c<StrangerListActivity> {
         this.igL.setAdapter((ListAdapter) this.izC);
     }
 
-    public StrangerListAdapter ckg() {
+    public StrangerListAdapter ckh() {
         return this.izC;
     }
 
-    public View ckh() {
+    public View cki() {
         return this.izD;
     }
 }

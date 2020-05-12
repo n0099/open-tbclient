@@ -21,7 +21,7 @@ public class ContextUtils {
         }
     }
 
-    public static void dix() {
+    public static void diy() {
         if (lHM == null) {
             throw new RuntimeException("Cannot have native global application context be null.");
         }

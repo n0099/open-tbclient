@@ -69,7 +69,7 @@ class b {
         this.jQk = this.jQj + 1;
         this.jQg = this.jQj + 2;
         this.jQo = 0;
-        int cFA = cFA();
+        int cFB = cFB();
         for (int i3 = this.jQf; i3 < 65536; i3 *= 2) {
             i2++;
         }
@@ -78,12 +78,12 @@ class b {
         Ap(i5);
         b(this.jQj, outputStream);
         while (true) {
-            int cFA2 = cFA();
-            if (cFA2 != -1) {
-                int i6 = (cFA2 << this.jQa) + cFA;
-                int i7 = (cFA2 << i4) ^ cFA;
+            int cFB2 = cFB();
+            if (cFB2 != -1) {
+                int i6 = (cFB2 << this.jQa) + cFB;
+                int i7 = (cFB2 << i4) ^ cFB;
                 if (this.jQd[i7] == i6) {
-                    cFA = this.jQe[i7];
+                    cFB = this.jQe[i7];
                 } else {
                     if (this.jQd[i7] >= 0) {
                         int i8 = i5 - i7;
@@ -96,26 +96,26 @@ class b {
                                 i7 += i5;
                             }
                             if (this.jQd[i7] == i6) {
-                                cFA = this.jQe[i7];
+                                cFB = this.jQe[i7];
                                 break;
                             }
                         } while (this.jQd[i7] >= 0);
                     }
-                    b(cFA, outputStream);
+                    b(cFB, outputStream);
                     if (this.jQg < this.jQc) {
                         int[] iArr = this.jQe;
                         int i9 = this.jQg;
                         this.jQg = i9 + 1;
                         iArr[i7] = i9;
                         this.jQd[i7] = i6;
-                        cFA = cFA2;
+                        cFB = cFB2;
                     } else {
                         c(outputStream);
-                        cFA = cFA2;
+                        cFB = cFB2;
                     }
                 }
             } else {
-                b(cFA, outputStream);
+                b(cFB, outputStream);
                 b(this.jQk, outputStream);
                 return;
             }
@@ -143,7 +143,7 @@ class b {
         return (1 << i) - 1;
     }
 
-    private int cFA() {
+    private int cFB() {
         if (this.jPX == 0) {
             return -1;
         }

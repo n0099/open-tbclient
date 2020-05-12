@@ -23,9 +23,9 @@ public class a implements com.facebook.imagepipeline.f.a {
     public Drawable b(com.facebook.imagepipeline.g.c cVar) {
         if (cVar instanceof com.facebook.imagepipeline.g.d) {
             com.facebook.imagepipeline.g.d dVar = (com.facebook.imagepipeline.g.d) cVar;
-            BitmapDrawable bitmapDrawable = new BitmapDrawable(this.mResources, dVar.dsK());
+            BitmapDrawable bitmapDrawable = new BitmapDrawable(this.mResources, dVar.dsL());
             if (a(dVar) || b(dVar)) {
-                return new i(bitmapDrawable, dVar.dsO(), dVar.dsP());
+                return new i(bitmapDrawable, dVar.dsP(), dVar.dsQ());
             }
             return bitmapDrawable;
         } else if (this.lSZ != null && this.lSZ.a(cVar)) {
@@ -36,10 +36,10 @@ public class a implements com.facebook.imagepipeline.f.a {
     }
 
     private static boolean a(com.facebook.imagepipeline.g.d dVar) {
-        return (dVar.dsO() == 0 || dVar.dsO() == -1) ? false : true;
+        return (dVar.dsP() == 0 || dVar.dsP() == -1) ? false : true;
     }
 
     private static boolean b(com.facebook.imagepipeline.g.d dVar) {
-        return (dVar.dsP() == 1 || dVar.dsP() == 0) ? false : true;
+        return (dVar.dsQ() == 1 || dVar.dsQ() == 0) ? false : true;
     }
 }

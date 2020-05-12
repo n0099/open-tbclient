@@ -24,7 +24,7 @@ public class p {
         }
     }
 
-    public ArrayList<o> bHZ() {
+    public ArrayList<o> bIa() {
         return this.gAp;
     }
 
@@ -39,7 +39,7 @@ public class p {
         while (it.hasNext()) {
             o next = it.next();
             if (oVar.a(next)) {
-                return oVar.bHX() > next.bHX();
+                return oVar.bHY() > next.bHY();
             }
         }
         return true;

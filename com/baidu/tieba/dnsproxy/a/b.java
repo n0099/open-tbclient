@@ -73,11 +73,11 @@ public class b {
             this.gwO = ((i * f3) / size) + f;
             if (this.gwO < 0.05d) {
                 if (!this.gwP) {
-                    com.baidu.tieba.dnsproxy.d.bGC().ai("ip_weight_lower", this.address, String.valueOf(this.gwO));
+                    com.baidu.tieba.dnsproxy.d.bGD().ai("ip_weight_lower", this.address, String.valueOf(this.gwO));
                     this.gwP = true;
                 }
             } else if (this.gwP && this.gwO > 0.5d && !this.gwQ) {
-                com.baidu.tieba.dnsproxy.d.bGC().ai("ip_weight_lower_recover", this.address, String.valueOf(this.gwO));
+                com.baidu.tieba.dnsproxy.d.bGD().ai("ip_weight_lower_recover", this.address, String.valueOf(this.gwO));
                 this.gwQ = true;
             }
         }

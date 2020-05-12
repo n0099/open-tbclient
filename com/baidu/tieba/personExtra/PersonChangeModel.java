@@ -15,7 +15,7 @@ public class PersonChangeModel extends BdBaseModel {
         }
     }
 
-    public PersonChangeData cHo() {
+    public PersonChangeData cHp() {
         return this.jXq;
     }
 

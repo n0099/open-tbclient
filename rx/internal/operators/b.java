@@ -61,7 +61,7 @@ public final class b<T, R> implements d.a<R> {
             this.actual = jVar;
             this.njH = fVar;
             this.njI = i2;
-            if (ae.dIm()) {
+            if (ae.dIn()) {
                 cVar = new rx.internal.util.a.q<>(i);
             } else {
                 cVar = new rx.internal.util.atomic.c<>(i);
@@ -180,7 +180,7 @@ public final class b<T, R> implements d.a<R> {
                                 if (call == null) {
                                     X(new NullPointerException("The source returned by the mapper was null"));
                                     return;
-                                } else if (call != rx.d.dHp()) {
+                                } else if (call != rx.d.dHq()) {
                                     if (call instanceof ScalarSynchronousObservable) {
                                         this.active = true;
                                         this.njM.setProducer(new a(((ScalarSynchronousObservable) call).get(), this));

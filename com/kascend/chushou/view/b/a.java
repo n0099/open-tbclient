@@ -101,10 +101,10 @@ public class a extends com.kascend.chushou.view.base.a implements View.OnClickLi
 
     @Override // com.kascend.chushou.view.base.a
     public void a(View view) {
-        if (!tv.chushou.zues.utils.a.dJO()) {
+        if (!tv.chushou.zues.utils.a.dJP()) {
             g.F(this.b, a.i.s_no_available_network);
         } else {
-            com.kascend.chushou.c.c.dwD().b(this.n, new com.kascend.chushou.c.b() { // from class: com.kascend.chushou.view.b.a.1
+            com.kascend.chushou.c.c.dwE().b(this.n, new com.kascend.chushou.c.b() { // from class: com.kascend.chushou.view.b.a.1
                 @Override // com.kascend.chushou.c.b
                 public void a() {
                 }
@@ -197,7 +197,7 @@ public class a extends com.kascend.chushou.view.base.a implements View.OnClickLi
 
     private void a(final boolean z) {
         if (!z) {
-            if (!tv.chushou.zues.utils.a.dJO()) {
+            if (!tv.chushou.zues.utils.a.dJP()) {
                 g.F(this.b, a.i.s_no_wifi);
             } else if (e.c(this.b, null) && !this.l) {
                 com.kascend.chushou.c.b bVar = new com.kascend.chushou.c.b() { // from class: com.kascend.chushou.view.b.a.2
@@ -242,9 +242,9 @@ public class a extends com.kascend.chushou.view.base.a implements View.OnClickLi
                 };
                 String a = e.a("_fromView", "50");
                 if (z) {
-                    com.kascend.chushou.c.c.dwD().b(bVar, (String) null, this.mDO.creatorUid, a);
+                    com.kascend.chushou.c.c.dwE().b(bVar, (String) null, this.mDO.creatorUid, a);
                 } else {
-                    com.kascend.chushou.c.c.dwD().a(bVar, (String) null, this.mDO.creatorUid, a);
+                    com.kascend.chushou.c.c.dwE().a(bVar, (String) null, this.mDO.creatorUid, a);
                 }
             }
         }

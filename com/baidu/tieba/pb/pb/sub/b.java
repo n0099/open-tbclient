@@ -98,7 +98,7 @@ public class b extends BaseAdapter {
         }
         if (view == null) {
             if (postData.getType() == PostData.kSw) {
-                view = cCL();
+                view = cCM();
             } else {
                 view = createView();
             }
@@ -107,7 +107,7 @@ public class b extends BaseAdapter {
             view = createView();
         }
         if ((view.getTag() instanceof SparseArray) && postData.getType() == PostData.kSw) {
-            view = cCL();
+            view = cCM();
         }
         if ((view.getTag() instanceof SparseArray) && (c0641b = (C0641b) ((SparseArray) view.getTag()).get(R.id.tag_holder)) != null && postData != null) {
             boolean z = !this.gva && i + 1 >= getCount();
@@ -149,7 +149,7 @@ public class b extends BaseAdapter {
         }
     }
 
-    public View cCL() {
+    public View cCM() {
         View inflate = LayoutInflater.from(this.mContext).inflate(R.layout.new_sub_pb_list_expand_view, (ViewGroup) null);
         inflate.setTag(new a(this.mContext, inflate));
         return inflate;
@@ -218,7 +218,7 @@ public class b extends BaseAdapter {
             } else {
                 c0641b.rootView.setBackgroundResource(0);
             }
-            if (postData.cWp()) {
+            if (postData.cWq()) {
                 c0641b.jHL.setVisibility(0);
             } else {
                 c0641b.jHL.setVisibility(8);
@@ -241,14 +241,14 @@ public class b extends BaseAdapter {
             c0641b.jsA.setLinkTextColor(am.getColor(R.color.cp_link_tip_c));
             c0641b.jsA.setTextColor(am.getColor(R.color.cp_cont_f));
             b(postData, this.jHI);
-            TbRichText cWq = postData.cWq();
-            if (cWq != null) {
+            TbRichText cWr = postData.cWr();
+            if (cWr != null) {
                 c0641b.jsA.setVoiceViewRes(R.layout.voice_play_btn_new);
                 c0641b.jsA.setIsFromCDN(this.mIsFromCDN);
                 if (c0641b.mSkinType != TbadkCoreApplication.getInst().getSkinType()) {
-                    cWq.isChanged = true;
+                    cWr.isChanged = true;
                 }
-                c0641b.jsA.setText(cWq);
+                c0641b.jsA.setText(cWr);
             }
             boolean z8 = false;
             boolean z9 = false;
@@ -400,14 +400,14 @@ public class b extends BaseAdapter {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private void b(PostData postData, boolean z) {
-        TbRichText cWq;
+        TbRichText cWr;
         SpannableStringBuilder bcm;
         TbRichTextData tbRichTextData;
         String str;
         String str2;
         SpannableStringBuilder bcm2;
-        if (postData != null && (cWq = postData.cWq()) != null) {
-            ArrayList<TbRichTextData> bcf = cWq.bcf();
+        if (postData != null && (cWr = postData.cWr()) != null) {
+            ArrayList<TbRichTextData> bcf = cWr.bcf();
             if (!v.isEmpty(bcf)) {
                 if (z) {
                     TbRichTextData tbRichTextData2 = bcf.get(bcf.size() - 1);
@@ -418,32 +418,32 @@ public class b extends BaseAdapter {
                             if ((bcf.get(bcf.size() + (-2)) != null ? bcf.get(bcf.size() - 2).getType() : -1) != type) {
                                 str2 = aq.getFormatTime(postData.getTime());
                                 bcm2 = tbRichTextData2.bcm();
-                                if (cWq.hasAppendTime && bcm2 != 0 && cWq.appendLength <= bcm2.length()) {
-                                    bcm2.delete(bcm2.length() - cWq.appendLength, bcm2.length());
+                                if (cWr.hasAppendTime && bcm2 != 0 && cWr.appendLength <= bcm2.length()) {
+                                    bcm2.delete(bcm2.length() - cWr.appendLength, bcm2.length());
                                 }
                                 String forceLToR = aq.forceLToR(str2);
                                 if (bcm2 != null) {
                                     bcm2.append((CharSequence) forceLToR);
                                 }
-                                cWq.hasAppendTime = true;
-                                cWq.appendLength = forceLToR.length();
+                                cWr.hasAppendTime = true;
+                                cWr.appendLength = forceLToR.length();
                                 tbRichTextData = tbRichTextData2;
                                 str = forceLToR;
                             }
                         }
                         str2 = str3;
                         bcm2 = tbRichTextData2.bcm();
-                        if (cWq.hasAppendTime) {
-                            bcm2.delete(bcm2.length() - cWq.appendLength, bcm2.length());
+                        if (cWr.hasAppendTime) {
+                            bcm2.delete(bcm2.length() - cWr.appendLength, bcm2.length());
                         }
                         String forceLToR2 = aq.forceLToR(str2);
                         if (bcm2 != null) {
                         }
-                        cWq.hasAppendTime = true;
-                        cWq.appendLength = forceLToR2.length();
+                        cWr.hasAppendTime = true;
+                        cWr.appendLength = forceLToR2.length();
                         tbRichTextData = tbRichTextData2;
                         str = forceLToR2;
-                    } else if (cWq.hasAppendTime) {
+                    } else if (cWr.hasAppendTime) {
                         tbRichTextData = tbRichTextData2;
                         str = "";
                     } else {
@@ -451,8 +451,8 @@ public class b extends BaseAdapter {
                         tbRichTextData = new TbRichTextData(1);
                         str = aq.forceLToR(formatTime);
                         tbRichTextData.j(str);
-                        cWq.hasAppendTime = true;
-                        cWq.appendLength = str.length();
+                        cWr.hasAppendTime = true;
+                        cWr.appendLength = str.length();
                         bcf.add(tbRichTextData);
                     }
                     SpannableStringBuilder bcm3 = tbRichTextData.bcm();
@@ -466,11 +466,11 @@ public class b extends BaseAdapter {
                     return;
                 }
                 TbRichTextData tbRichTextData3 = bcf.get(bcf.size() - 1);
-                if (cWq.hasAppendTime && tbRichTextData3 != null && (bcm = tbRichTextData3.bcm()) != null && cWq.appendLength <= bcm.length()) {
-                    bcm.delete(bcm.length() - cWq.appendLength, bcm.length());
+                if (cWr.hasAppendTime && tbRichTextData3 != null && (bcm = tbRichTextData3.bcm()) != null && cWr.appendLength <= bcm.length()) {
+                    bcm.delete(bcm.length() - cWr.appendLength, bcm.length());
                 }
-                cWq.hasAppendTime = false;
-                cWq.appendLength = 0;
+                cWr.hasAppendTime = false;
+                cWr.appendLength = 0;
             }
         }
     }

@@ -18,9 +18,9 @@ public interface l {
 
     void clear();
 
-    master.flame.danmaku.danmaku.model.d dFx();
-
     master.flame.danmaku.danmaku.model.d dFy();
+
+    master.flame.danmaku.danmaku.model.d dFz();
 
     boolean isEmpty();
 
@@ -36,13 +36,13 @@ public interface l {
     public static abstract class b<Progress, Result> {
         public abstract int bF(Progress progress);
 
-        public void dFz() {
-        }
-
         public void dFA() {
         }
 
-        public Result dEz() {
+        public void dFB() {
+        }
+
+        public Result dEA() {
             return null;
         }
     }
@@ -97,7 +97,7 @@ public interface l {
             if (this.nbJ && master.flame.danmaku.danmaku.c.b.b(dVar, dVar2)) {
                 return 0;
             }
-            return Float.compare(dVar.dFl(), dVar2.dFl());
+            return Float.compare(dVar.dFm(), dVar2.dFm());
         }
     }
 
@@ -114,7 +114,7 @@ public interface l {
             if (this.nbJ && master.flame.danmaku.danmaku.c.b.b(dVar, dVar2)) {
                 return 0;
             }
-            return Float.compare(dVar2.dFl(), dVar.dFl());
+            return Float.compare(dVar2.dFm(), dVar.dFm());
         }
     }
 }

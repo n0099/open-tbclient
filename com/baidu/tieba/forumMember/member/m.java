@@ -15,7 +15,7 @@ public class m implements com.baidu.adp.widget.ListView.m {
         return gVh;
     }
 
-    public MemberGroupInfo bNd() {
+    public MemberGroupInfo bNe() {
         return this.gVi;
     }
 

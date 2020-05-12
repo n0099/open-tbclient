@@ -22,14 +22,14 @@ public class b implements com.baidu.tieba.c.a {
     private a.InterfaceC0701a lwM = new a.InterfaceC0701a() { // from class: com.baidu.tieba.write.b.1
         @Override // com.baidu.tieba.write.transmit.model.a.InterfaceC0701a
         public void onError() {
-            b.this.deO();
+            b.this.deP();
         }
 
         @Override // com.baidu.tieba.write.transmit.model.a.InterfaceC0701a
         public void c(List<SimpleForum> list, int i) {
             b.this.lwK = list;
             b.this.mPrivateThread = i;
-            b.this.bGg();
+            b.this.bGh();
         }
     };
 
@@ -41,7 +41,7 @@ public class b implements com.baidu.tieba.c.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bGg() {
+    public void bGh() {
         this.eIF.clear();
         if (v.getCount(this.lwK) > 0) {
             for (SimpleForum simpleForum : this.lwK) {
@@ -63,7 +63,7 @@ public class b implements com.baidu.tieba.c.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void deO() {
+    public void deP() {
         if (!this.lwL) {
             if (this.gBU != null) {
                 this.gBU.a(null, false, 2, 0);
@@ -73,7 +73,7 @@ public class b implements com.baidu.tieba.c.a {
     }
 
     @Override // com.baidu.tieba.c.a
-    public void bFU() {
+    public void bFV() {
         if (this.gBU != null && this.lwJ != null) {
             this.lwL = false;
             this.lwJ.setThreadTitle(null);

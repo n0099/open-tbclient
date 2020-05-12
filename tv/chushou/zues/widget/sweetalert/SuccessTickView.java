@@ -93,7 +93,7 @@ public class SuccessTickView extends View {
         return (this.mDensity * f) + 0.5f;
     }
 
-    public void dKs() {
+    public void dKt() {
         this.nwC = 0.0f;
         this.nwD = 0.0f;
         invalidate();

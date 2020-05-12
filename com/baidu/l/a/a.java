@@ -31,7 +31,7 @@ public class a {
         }
     }
 
-    public static boolean dlC() {
+    public static boolean dlD() {
         return false;
     }
 

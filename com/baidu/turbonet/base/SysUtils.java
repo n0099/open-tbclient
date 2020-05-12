@@ -19,7 +19,7 @@ public class SysUtils {
     private SysUtils() {
     }
 
-    private static int diG() {
+    private static int diH() {
         FileReader fileReader;
         Pattern compile = Pattern.compile("^MemTotal:\\s+([0-9]+) kB$");
         StrictMode.ThreadPolicy allowThreadDiskReads = StrictMode.allowThreadDiskReads();
@@ -59,21 +59,21 @@ public class SysUtils {
     @CalledByNative
     public static boolean isLowEndDevice() {
         if (lIa == null) {
-            lIa = Boolean.valueOf(diH());
+            lIa = Boolean.valueOf(diI());
         }
         return lIa.booleanValue();
     }
 
-    private static boolean diH() {
+    private static boolean diI() {
         if ($assertionsDisabled || CommandLine.isInitialized()) {
-            if (CommandLine.diw().MS("enable-low-end-device-mode")) {
+            if (CommandLine.dix().MS("enable-low-end-device-mode")) {
                 return true;
             }
-            if (CommandLine.diw().MS("disable-low-end-device-mode")) {
+            if (CommandLine.dix().MS("disable-low-end-device-mode")) {
                 return false;
             }
-            int diG = diG();
-            return diG > 0 && diG / 1024 <= 512;
+            int diH = diH();
+            return diH > 0 && diH / 1024 <= 512;
         }
         throw new AssertionError();
     }

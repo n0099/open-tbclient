@@ -183,7 +183,7 @@ public class a extends com.baidu.tieba.card.a<com.baidu.tieba.homepage.topic.top
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new TopicDetailActivityConfig(getContext(), this.hTA.topicId)));
     }
 
-    public CellTopicLinearLayout cau() {
+    public CellTopicLinearLayout cav() {
         return this.hSO;
     }
 }

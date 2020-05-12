@@ -96,13 +96,13 @@ public class FrsProfessionIntroActivity extends BaseActivity<FrsProfessionIntroA
         this.hsU.setEnabled(true);
         this.hsU.setOnClickListener(this.dRK);
         this.hsV.setOnClickListener(this.dRK);
-        bUl();
+        bUm();
         String stringExtra = getIntent().getStringExtra(FrsProfessionIntroActivityConfig.KEY_PATTEN_BACKGROUND);
         this.hsZ.setGradientColor(getIntent().getStringExtra(FrsProfessionIntroActivityConfig.KEY_DAY_LIGHT_COLOR), getIntent().getStringExtra(FrsProfessionIntroActivityConfig.KEY_DAY_DARK_COLOR), getIntent().getStringExtra(FrsProfessionIntroActivityConfig.KEY_NIGHT_LIGHT_COLOR), getIntent().getStringExtra(FrsProfessionIntroActivityConfig.KEY_NIGHT_DARK_COLOR), getIntent().getStringExtra(FrsProfessionIntroActivityConfig.KEY_DARK_LIGHT_COLOR), getIntent().getStringExtra(FrsProfessionIntroActivityConfig.KEY_DARK_DARK_COLOR));
         this.hsY.startLoad(stringExtra, 10, false);
     }
 
-    private void bUl() {
+    private void bUm() {
         boolean z = false;
         if (UtilHelper.isMiNotchDevice()) {
             z = true;

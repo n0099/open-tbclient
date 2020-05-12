@@ -74,8 +74,8 @@ public class OperableVideoNetworkStateTipView extends LinearLayout implements Vi
         this.ahO = str;
     }
 
-    public boolean cEY() {
-        return (hasAgreeToPlay() || g.dav().daw() || TbadkCoreApplication.getInst().getVideoAutoPlay() == 2 || !j.isMobileNet()) ? false : true;
+    public boolean cEZ() {
+        return (hasAgreeToPlay() || g.daw().dax() || TbadkCoreApplication.getInst().getVideoAutoPlay() == 2 || !j.isMobileNet()) ? false : true;
     }
 
     public void setHasAgreeToPlay(boolean z) {

@@ -33,7 +33,7 @@ public class c implements View.OnClickListener, a {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001304 && (customResponsedMessage.getData() instanceof Integer)) {
-                c.this.cSz();
+                c.this.cSA();
                 c.this.g(c.this.lgb);
             }
         }
@@ -66,7 +66,7 @@ public class c implements View.OnClickListener, a {
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
         layoutParams.leftMargin = ShareGridLayout.lfT;
         layoutParams.rightMargin = ShareGridLayout.lfT;
-        this.mRootView.addView(this.lfZ.cZT(), layoutParams);
+        this.mRootView.addView(this.lfZ.cZU(), layoutParams);
         this.kHi = new TextView(context);
         this.kHi.setTextSize(0, eoI);
         this.kHi.setGravity(17);
@@ -104,7 +104,7 @@ public class c implements View.OnClickListener, a {
     }
 
     public void show() {
-        cSz();
+        cSA();
         this.mDialog = new AlertDialog.Builder(this.mContext, R.style.DialogTheme).create();
         this.mDialog.setCanceledOnTouchOutside(true);
         this.mDialog.setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.transmitShare.c.2
@@ -135,7 +135,7 @@ public class c implements View.OnClickListener, a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cSz() {
+    public void cSA() {
         am.setBackgroundResource(this.mRootView, R.drawable.transmit_share_dialog_background);
         am.setViewTextColor(this.mTitle, (int) R.color.cp_cont_c);
         am.setViewTextColor(this.kHi, R.color.cp_cont_j, 1);

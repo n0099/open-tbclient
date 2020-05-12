@@ -40,7 +40,7 @@ public class AuthActivity extends BaseActivity {
         super.onCreate(bundle);
         try {
             setContentView(a.f.layout_sapi_sdk_webview_with_title_bar);
-            PassManagerStatic.cuo();
+            PassManagerStatic.cup();
             init();
             setupViews();
         } catch (Throwable th) {
@@ -83,7 +83,7 @@ public class AuthActivity extends BaseActivity {
         return new String(Base64.decode(str.getBytes(), 0));
     }
 
-    private String cua() {
+    private String cub() {
         ArrayList arrayList = new ArrayList();
         try {
             arrayList.add(new PassNameValuePair("adapter", URLEncoder.encode("3", "UTF-8")));
@@ -118,7 +118,7 @@ public class AuthActivity extends BaseActivity {
         return str;
     }
 
-    private List<PassNameValuePair> cub() {
+    private List<PassNameValuePair> cuc() {
         Domain environment = SapiAccountManager.getInstance().getConfignation().getEnvironment();
         String buildBDUSSCookie = SapiUtils.buildBDUSSCookie(environment.getWap().replace("http://", "").replace(SapiUtils.COOKIE_HTTPS_URL_PREFIX, "").replaceAll("(:[0-9]{1,4})?", ""), "BIND_BDUSS", "");
         ArrayList arrayList = new ArrayList();
@@ -164,11 +164,11 @@ public class AuthActivity extends BaseActivity {
                 public void onPageFinished(WebView webView, String str) {
                 }
             });
-            this.sapiWebView.loadUrl(cua());
+            this.sapiWebView.loadUrl(cub());
         } else if (this.type == 1) {
             setTitleText(a.g.sapi_sdk_title_modify_pwd);
             SapiAccountManager.getInstance().getAccountService().webLogin(this, this.bduss);
-            this.sapiWebView.loadUrl(getModifyPwdUrl(), cub());
+            this.sapiWebView.loadUrl(getModifyPwdUrl(), cuc());
             this.sapiWebView.setChangePwdCallback(new SapiWebView.ChangePwdCallback() { // from class: com.baidu.tieba.passaccount.app.AuthActivity.4
                 @Override // com.baidu.sapi2.SapiWebView.ChangePwdCallback
                 public void onSuccess() {
@@ -213,13 +213,13 @@ public class AuthActivity extends BaseActivity {
     /* JADX INFO: Access modifiers changed from: private */
     public void r(boolean z, String str) {
         if (this.type == 0) {
-            b.cut().t(z, str);
+            b.cuu().t(z, str);
         } else if (this.type == 1) {
-            b.cut().qt(z);
+            b.cuu().qt(z);
         } else if (this.type == 2) {
-            b.cut().qu(z);
+            b.cuu().qu(z);
         } else {
-            b.cut().a((i.c) null);
+            b.cuu().a((i.c) null);
         }
         finish();
     }

@@ -304,7 +304,7 @@ public class f {
             if (shareItem.dQw) {
                 ShareDialogConfig shareDialogConfig = new ShareDialogConfig((Context) this.dkn, shareItem, true, (SparseArray<String>) null);
                 shareDialogConfig.mShowMoreForumShare = true;
-                com.baidu.tieba.c.e.bGc().b(shareDialogConfig);
+                com.baidu.tieba.c.e.bGd().b(shareDialogConfig);
                 return;
             }
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SHARE_DIALOG_SHOW, new ShareDialogConfig((Context) this.dkn, shareItem, true, aHU())));

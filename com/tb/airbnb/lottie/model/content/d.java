@@ -32,7 +32,7 @@ public class d implements b {
         return this.name;
     }
 
-    public GradientType dBz() {
+    public GradientType dBA() {
         return this.mPD;
     }
 
@@ -40,19 +40,19 @@ public class d implements b {
         return this.DG;
     }
 
-    public com.tb.airbnb.lottie.model.a.c dBA() {
+    public com.tb.airbnb.lottie.model.a.c dBB() {
         return this.mPE;
     }
 
-    public com.tb.airbnb.lottie.model.a.d dBu() {
+    public com.tb.airbnb.lottie.model.a.d dBv() {
         return this.mPz;
     }
 
-    public com.tb.airbnb.lottie.model.a.f dBB() {
+    public com.tb.airbnb.lottie.model.a.f dBC() {
         return this.mPF;
     }
 
-    public com.tb.airbnb.lottie.model.a.f dBC() {
+    public com.tb.airbnb.lottie.model.a.f dBD() {
         return this.mPG;
     }
 

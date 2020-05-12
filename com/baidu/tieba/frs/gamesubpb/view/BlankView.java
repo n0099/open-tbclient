@@ -12,7 +12,7 @@ public class BlankView extends View {
 
     /* loaded from: classes9.dex */
     public interface a {
-        void bSO();
+        void bSP();
     }
 
     public void setScrollCallBack(a aVar) {
@@ -31,7 +31,7 @@ public class BlankView extends View {
         super(context, attributeSet, i);
     }
 
-    public void bSS() {
+    public void bST() {
         if (this.mScroller == null) {
             this.mScroller = new Scroller(getContext());
         }
@@ -54,7 +54,7 @@ public class BlankView extends View {
                     setLayoutParams(layoutParams);
                 }
             } else if (this.hos != null) {
-                this.hos.bSO();
+                this.hos.bSP();
             }
         }
     }

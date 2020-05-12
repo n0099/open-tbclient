@@ -44,13 +44,13 @@ public class SettingTextImageView extends FrameLayout {
         this.kFD.invalidate();
     }
 
-    public void cRU() {
+    public void cRV() {
         if (this.kFD != null) {
             this.kFD.setVisibility(8);
         }
     }
 
-    public void cRV() {
+    public void cRW() {
         if (this.kFD != null) {
             this.kFD.setVisibility(0);
         }

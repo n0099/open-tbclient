@@ -54,13 +54,13 @@ public class h {
         n nVar;
         com.facebook.common.memory.c cVar;
         com.facebook.imagepipeline.memory.q qVar;
-        com.facebook.common.g.b dnt;
-        this.mcf = aVar.mck.drO();
+        com.facebook.common.g.b dnu;
+        this.mcf = aVar.mck.drP();
         this.mbQ = aVar.mbQ == null ? new com.facebook.imagepipeline.c.i((ActivityManager) aVar.mContext.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)) : aVar.mbQ;
         this.mbR = aVar.mbR == null ? new com.facebook.imagepipeline.c.d() : aVar.mbR;
         this.mBitmapConfig = aVar.mBitmapConfig == null ? Bitmap.Config.ARGB_8888 : aVar.mBitmapConfig;
         if (aVar.mbI == null) {
-            fVar = com.facebook.imagepipeline.c.j.dqt();
+            fVar = com.facebook.imagepipeline.c.j.dqu();
         } else {
             fVar = aVar.mbI;
         }
@@ -70,7 +70,7 @@ public class h {
         this.mbS = aVar.mbS;
         this.mbU = aVar.mbU == null ? new com.facebook.imagepipeline.c.k() : aVar.mbU;
         if (aVar.mas == null) {
-            nVar = t.dqC();
+            nVar = t.dqD();
         } else {
             nVar = aVar.mas;
         }
@@ -79,14 +79,14 @@ public class h {
         this.mbD = aVar.mbD == null ? new com.facebook.common.internal.j<Boolean>() { // from class: com.facebook.imagepipeline.d.h.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.facebook.common.internal.j
-            /* renamed from: dmY */
+            /* renamed from: dmZ */
             public Boolean get() {
                 return true;
             }
         } : aVar.mbD;
         this.mbW = aVar.mbW == null ? fE(aVar.mContext) : aVar.mbW;
         if (aVar.mbX == null) {
-            cVar = com.facebook.common.memory.d.dna();
+            cVar = com.facebook.common.memory.d.dnb();
         } else {
             cVar = aVar.mbX;
         }
@@ -95,7 +95,7 @@ public class h {
         this.mbY = aVar.mbY == null ? new u(this.mbZ) : aVar.mbY;
         this.lXK = aVar.lXK;
         if (aVar.mca == null) {
-            qVar = new com.facebook.imagepipeline.memory.q(p.dtE().dtF());
+            qVar = new com.facebook.imagepipeline.memory.q(p.dtF().dtG());
         } else {
             qVar = aVar.mca;
         }
@@ -105,21 +105,21 @@ public class h {
         this.mcc = aVar.mcc;
         this.mcd = aVar.mcd == null ? this.mbW : aVar.mcd;
         this.mce = aVar.mce;
-        this.lYt = aVar.lYt == null ? new com.facebook.imagepipeline.d.a(this.mca.dtI()) : aVar.lYt;
+        this.lYt = aVar.lYt == null ? new com.facebook.imagepipeline.d.a(this.mca.dtJ()) : aVar.lYt;
         this.mcg = aVar.mcg;
-        com.facebook.common.g.b drG = this.mcf.drG();
-        if (drG != null) {
-            a(drG, this.mcf, new com.facebook.imagepipeline.b.d(drt()));
-        } else if (this.mcf.drD() && com.facebook.common.g.c.lSt && (dnt = com.facebook.common.g.c.dnt()) != null) {
-            a(dnt, this.mcf, new com.facebook.imagepipeline.b.d(drt()));
+        com.facebook.common.g.b drH = this.mcf.drH();
+        if (drH != null) {
+            a(drH, this.mcf, new com.facebook.imagepipeline.b.d(dru()));
+        } else if (this.mcf.drE() && com.facebook.common.g.c.lSt && (dnu = com.facebook.common.g.c.dnu()) != null) {
+            a(dnu, this.mcf, new com.facebook.imagepipeline.b.d(dru()));
         }
     }
 
     private static void a(com.facebook.common.g.b bVar, i iVar, com.facebook.common.g.a aVar) {
         com.facebook.common.g.c.lSw = bVar;
-        b.a drF = iVar.drF();
-        if (drF != null) {
-            bVar.a(drF);
+        b.a drG = iVar.drG();
+        if (drG != null) {
+            bVar.a(drG);
         }
         if (aVar != null) {
             bVar.a(aVar);
@@ -127,22 +127,22 @@ public class h {
     }
 
     private static com.facebook.cache.disk.b fE(Context context) {
-        return com.facebook.cache.disk.b.fA(context).dmC();
+        return com.facebook.cache.disk.b.fA(context).dmD();
     }
 
-    public Bitmap.Config dqO() {
+    public Bitmap.Config dqP() {
         return this.mBitmapConfig;
     }
 
-    public com.facebook.common.internal.j<q> drf() {
+    public com.facebook.common.internal.j<q> drg() {
         return this.mbQ;
     }
 
-    public h.a drg() {
+    public h.a drh() {
         return this.mbR;
     }
 
-    public com.facebook.imagepipeline.c.f dre() {
+    public com.facebook.imagepipeline.c.f drf() {
         return this.mbI;
     }
 
@@ -150,81 +150,81 @@ public class h {
         return this.mContext;
     }
 
-    public static b drh() {
+    public static b dri() {
         return mch;
     }
 
-    public f dri() {
+    public f drj() {
         return this.mbT;
     }
 
-    public boolean drj() {
+    public boolean drk() {
         return this.mbS;
     }
 
-    public boolean drk() {
+    public boolean drl() {
         return this.mcg;
     }
 
-    public com.facebook.common.internal.j<q> drl() {
+    public com.facebook.common.internal.j<q> drm() {
         return this.mbU;
     }
 
-    public e drm() {
+    public e drn() {
         return this.lYt;
     }
 
-    public n drn() {
+    public n dro() {
         return this.mas;
     }
 
     @Nullable
-    public com.facebook.imagepipeline.decoder.b dro() {
+    public com.facebook.imagepipeline.decoder.b drp() {
         return this.mbV;
     }
 
-    public com.facebook.common.internal.j<Boolean> drp() {
+    public com.facebook.common.internal.j<Boolean> drq() {
         return this.mbD;
     }
 
-    public com.facebook.cache.disk.b drq() {
+    public com.facebook.cache.disk.b drr() {
         return this.mbW;
     }
 
-    public com.facebook.common.memory.c drr() {
+    public com.facebook.common.memory.c drs() {
         return this.mbX;
     }
 
-    public af drs() {
+    public af drt() {
         return this.mbY;
     }
 
-    public com.facebook.imagepipeline.memory.q drt() {
+    public com.facebook.imagepipeline.memory.q dru() {
         return this.mca;
     }
 
-    public com.facebook.imagepipeline.decoder.d dru() {
+    public com.facebook.imagepipeline.decoder.d drv() {
         return this.mcb;
     }
 
-    public Set<com.facebook.imagepipeline.h.c> drv() {
+    public Set<com.facebook.imagepipeline.h.c> drw() {
         return Collections.unmodifiableSet(this.lTn);
     }
 
-    public boolean drw() {
+    public boolean drx() {
         return this.mcc;
     }
 
-    public com.facebook.cache.disk.b drx() {
+    public com.facebook.cache.disk.b dry() {
         return this.mcd;
     }
 
     @Nullable
-    public com.facebook.imagepipeline.decoder.c dry() {
+    public com.facebook.imagepipeline.decoder.c drz() {
         return this.mce;
     }
 
-    public i drz() {
+    public i drA() {
         return this.mcf;
     }
 
@@ -240,7 +240,7 @@ public class h {
             this.mcl = false;
         }
 
-        public boolean drB() {
+        public boolean drC() {
             return this.mcl;
         }
     }
@@ -307,7 +307,7 @@ public class h {
             return this;
         }
 
-        public h drA() {
+        public h drB() {
             return new h(this);
         }
     }

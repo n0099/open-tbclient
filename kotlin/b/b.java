@@ -30,7 +30,7 @@ public final class b extends kotlin.collections.n {
     }
 
     @Override // kotlin.collections.n
-    public char dDy() {
+    public char dDz() {
         int i = this.next;
         if (i == this.mYc) {
             if (!this.hasNext) {

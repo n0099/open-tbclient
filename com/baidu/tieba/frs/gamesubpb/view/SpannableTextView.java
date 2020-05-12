@@ -57,7 +57,7 @@ public class SpannableTextView extends TextView {
 
     public void f(d dVar) {
         setText(g(dVar));
-        setMovementMethod(a.bSZ());
+        setMovementMethod(a.bTa());
     }
 
     public void setClickListener(a.InterfaceC0566a interfaceC0566a) {
@@ -229,7 +229,7 @@ public class SpannableTextView extends TextView {
             return Touch.onTouchEvent(textView, spannable, motionEvent);
         }
 
-        public static a bSZ() {
+        public static a bTa() {
             if (hoS == null) {
                 hoS = new a();
             }

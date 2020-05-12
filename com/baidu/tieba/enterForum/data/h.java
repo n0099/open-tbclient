@@ -32,11 +32,11 @@ public class h extends f implements com.baidu.tbadk.mvc.b.a {
         setType(1);
     }
 
-    public String bHH() {
+    public String bHI() {
         return this.mContent;
     }
 
-    public int bHI() {
+    public int bHJ() {
         return this.gAf;
     }
 
@@ -52,11 +52,11 @@ public class h extends f implements com.baidu.tbadk.mvc.b.a {
         this.gAb = i;
     }
 
-    public int bHJ() {
+    public int bHK() {
         return this.gAb;
     }
 
-    public int bHK() {
+    public int bHL() {
         return this.gAd;
     }
 
@@ -64,7 +64,7 @@ public class h extends f implements com.baidu.tbadk.mvc.b.a {
         return this.gAe;
     }
 
-    public int bHL() {
+    public int bHM() {
         return this.gAc;
     }
 
@@ -80,11 +80,11 @@ public class h extends f implements com.baidu.tbadk.mvc.b.a {
         return this.mAvatar;
     }
 
-    public ThemeColorInfo bHM() {
+    public ThemeColorInfo bHN() {
         return this.gAg;
     }
 
-    public ArrayList<Integer> bHN() {
+    public ArrayList<Integer> bHO() {
         if (this.gAg == null || this.gAg.day == null || this.gAg.night == null || this.gAg.dark == null) {
             return null;
         }
@@ -108,11 +108,11 @@ public class h extends f implements com.baidu.tbadk.mvc.b.a {
         }
     }
 
-    public boolean bHO() {
+    public boolean bHP() {
         return this.gAd == 1 && this.gAe == 1 && this.dpI != null && this.dpI.private_forum_status.intValue() == 1;
     }
 
-    public boolean bHP() {
+    public boolean bHQ() {
         return this.gAd == 1 && this.gAe == 1 && this.dpI != null && this.dpI.private_forum_status.intValue() == 1 && this.dpI.private_forum_audit_status.intValue() == 2;
     }
 
@@ -146,7 +146,7 @@ public class h extends f implements com.baidu.tbadk.mvc.b.a {
         }
     }
 
-    public long bHQ() {
+    public long bHR() {
         return this.gAi;
     }
 
@@ -154,7 +154,7 @@ public class h extends f implements com.baidu.tbadk.mvc.b.a {
         this.gAi = j;
     }
 
-    public ArrayList<FrsTabItemData> bHR() {
+    public ArrayList<FrsTabItemData> bHS() {
         return this.tabItemDatas;
     }
 }

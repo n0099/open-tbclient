@@ -22,7 +22,7 @@ public final class c implements TypeAdapterFactory, Cloneable {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    /* renamed from: dvo */
+    /* renamed from: dvp */
     public c clone() {
         try {
             return (c) super.clone();
@@ -46,13 +46,13 @@ public final class c implements TypeAdapterFactory, Cloneable {
         return clone;
     }
 
-    public c dvp() {
+    public c dvq() {
         c clone = clone();
         clone.miY = false;
         return clone;
     }
 
-    public c dvq() {
+    public c dvr() {
         c clone = clone();
         clone.miZ = true;
         return clone;
@@ -74,10 +74,10 @@ public final class c implements TypeAdapterFactory, Cloneable {
     @Override // com.google.gson.TypeAdapterFactory
     public <T> TypeAdapter<T> create(final Gson gson, final com.google.gson.b.a<T> aVar) {
         final boolean z = false;
-        Class<? super T> dvZ = aVar.dvZ();
-        boolean C = C(dvZ);
-        final boolean z2 = C || c(dvZ, true);
-        if (C || c(dvZ, false)) {
+        Class<? super T> dwa = aVar.dwa();
+        boolean C = C(dwa);
+        final boolean z2 = C || c(dwa, true);
+        if (C || c(dwa, false)) {
             z = true;
         }
         if (!z2 && !z) {
@@ -90,22 +90,22 @@ public final class c implements TypeAdapterFactory, Cloneable {
             @Override // com.google.gson.TypeAdapter
             public T read(com.google.gson.stream.a aVar2) throws IOException {
                 if (z) {
-                    aVar2.dvM();
+                    aVar2.dvN();
                     return null;
                 }
-                return dvr().read(aVar2);
+                return dvs().read(aVar2);
             }
 
             @Override // com.google.gson.TypeAdapter
             public void write(com.google.gson.stream.b bVar, T t) throws IOException {
                 if (z2) {
-                    bVar.dvV();
+                    bVar.dvW();
                 } else {
-                    dvr().write(bVar, t);
+                    dvs().write(bVar, t);
                 }
             }
 
-            private TypeAdapter<T> dvr() {
+            private TypeAdapter<T> dvs() {
                 TypeAdapter<T> typeAdapter = this.delegate;
                 if (typeAdapter != 0) {
                     return typeAdapter;
@@ -180,10 +180,10 @@ public final class c implements TypeAdapterFactory, Cloneable {
     }
 
     private boolean a(com.google.gson.a.d dVar) {
-        return dVar == null || dVar.dvn() <= this.miW;
+        return dVar == null || dVar.dvo() <= this.miW;
     }
 
     private boolean a(com.google.gson.a.e eVar) {
-        return eVar == null || eVar.dvn() > this.miW;
+        return eVar == null || eVar.dvo() > this.miW;
     }
 }

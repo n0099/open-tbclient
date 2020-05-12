@@ -72,7 +72,7 @@ public class h extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view != null && this.jYw != null && view == this.kdC) {
-            this.jYw.cHE();
+            this.jYw.cHF();
         }
     }
 }

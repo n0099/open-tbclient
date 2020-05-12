@@ -94,43 +94,43 @@ public class j extends com.baidu.adp.base.c<SignAllForumActivity> {
     public void a(c cVar, boolean z) {
         if (cVar != null) {
             this.kJt = cVar;
-            cUf();
-            ArrayList<d> cTs = cVar.cTs();
+            cUg();
+            ArrayList<d> cTt = cVar.cTt();
             this.kKR.c(this.kJt);
-            if (cTs.size() == kKO) {
+            if (cTt.size() == kKO) {
                 this.kKW.setVisibility(0);
-                this.kKW.setText(cVar.cTp());
+                this.kKW.setText(cVar.cTq());
             } else {
                 this.kKW.setVisibility(8);
             }
-            String cTj = this.kJt.cTj();
-            if (!StringUtils.isNull(cTj)) {
-                this.kKQ.a(this.kKP, cTj, this.kJt.cTk());
+            String cTk = this.kJt.cTk();
+            if (!StringUtils.isNull(cTk)) {
+                this.kKQ.a(this.kKP, cTk, this.kJt.cTl());
                 return;
             }
-            this.kKQ.cUe();
+            this.kKQ.cUf();
         }
     }
 
-    private void cUf() {
+    private void cUg() {
         if (this.kJt != null) {
-            this.kKQ.setHasPrivilege(this.kJt.cTw());
-            this.kKQ.setmCurrentStatus(this.kJt.cTy());
+            this.kKQ.setHasPrivilege(this.kJt.cTx());
+            this.kKQ.setmCurrentStatus(this.kJt.cTz());
             TextView message1 = this.kKQ.getMessage1();
-            SpannableString spannableString = new SpannableString(this.kJt.cTm() + this.kJt.cDi() + this.kJt.cTn());
+            SpannableString spannableString = new SpannableString(this.kJt.cTn() + this.kJt.cDj() + this.kJt.cTo());
             ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(TbadkApplication.getInst().getResources().getColor(R.color.common_color_10191));
-            int length = this.kJt.cTm().length();
-            spannableString.setSpan(foregroundColorSpan, length, this.kJt.cDi().length() + length, 33);
+            int length = this.kJt.cTn().length();
+            spannableString.setSpan(foregroundColorSpan, length, this.kJt.cDj().length() + length, 33);
             message1.setText(spannableString);
-            this.kKQ.getMessage2().setText(this.kJt.cTo());
+            this.kKQ.getMessage2().setText(this.kJt.cTp());
             this.kKT.setText(this.kJt.getContent());
-            if (TextUtils.isEmpty(this.kJt.cTx())) {
+            if (TextUtils.isEmpty(this.kJt.cTy())) {
                 this.kKU.setText(R.string.member_buy_open);
             } else {
-                this.kKU.setText(this.kJt.cTx());
+                this.kKU.setText(this.kJt.cTy());
             }
             this.kKQ.setVisibility(0);
-            if (this.kJt.cTw() || TbadkApplication.getInst().getIntentClass(MemberPrivilegeActivityConfig.class) == null) {
+            if (this.kJt.cTx() || TbadkApplication.getInst().getIntentClass(MemberPrivilegeActivityConfig.class) == null) {
                 this.kKS.setVisibility(8);
             } else {
                 this.kKS.setVisibility(0);
@@ -154,7 +154,7 @@ public class j extends com.baidu.adp.base.c<SignAllForumActivity> {
         this.Ua.setOnItemClickListener(onItemClickListener);
     }
 
-    public SignAllForumProgressView cUg() {
+    public SignAllForumProgressView cUh() {
         return this.kKQ;
     }
 
@@ -162,19 +162,19 @@ public class j extends com.baidu.adp.base.c<SignAllForumActivity> {
         return this.mProgressBar;
     }
 
-    public BdListView cUh() {
+    public BdListView cUi() {
         return this.Ua;
     }
 
-    public c cUi() {
+    public c cUj() {
         return this.kJt;
     }
 
-    public g cUj() {
+    public g cUk() {
         return this.kKR;
     }
 
-    public LinearLayout cUk() {
+    public LinearLayout cUl() {
         return this.kKV;
     }
 

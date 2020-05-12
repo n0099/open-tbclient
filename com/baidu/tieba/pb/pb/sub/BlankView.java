@@ -13,7 +13,7 @@ public class BlankView extends View {
 
     /* loaded from: classes9.dex */
     public interface a {
-        void bSO();
+        void bSP();
     }
 
     public void setScrollCallBack(a aVar) {
@@ -49,7 +49,7 @@ public class BlankView extends View {
                     setLayoutParams(layoutParams);
                 }
             } else if (this.jGv != null) {
-                this.jGv.bSO();
+                this.jGv.bSP();
             }
         }
     }

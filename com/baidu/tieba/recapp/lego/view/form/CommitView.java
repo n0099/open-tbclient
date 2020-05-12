@@ -48,8 +48,8 @@ public class CommitView extends FormItemBaseView {
     }
 
     private void init() {
-        cNI();
         cNJ();
+        cNK();
         setBackgroundColor(0);
     }
 
@@ -57,7 +57,7 @@ public class CommitView extends FormItemBaseView {
         return this.kvm;
     }
 
-    private void cNI() {
+    private void cNJ() {
         this.mCheckBox = new CheckBox(this.mContext, null, R.style.form_check_box_style);
         this.mCheckBox.setId(this.kvl);
         this.mCheckBox.setTextSize(0, (int) this.mResources.getDimension(R.dimen.fontsize20));
@@ -82,7 +82,7 @@ public class CommitView extends FormItemBaseView {
         addView(this.mCheckBox, layoutParams);
     }
 
-    private void cNJ() {
+    private void cNK() {
         this.kvk = new Button(this.mContext);
         this.kvk.setGravity(17);
         this.kvk.setTextColor(this.kvS);
@@ -132,7 +132,7 @@ public class CommitView extends FormItemBaseView {
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.form.FormCardView.a
-    public boolean cNK() {
+    public boolean cNL() {
         return true;
     }
 

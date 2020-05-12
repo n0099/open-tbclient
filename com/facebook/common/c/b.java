@@ -9,7 +9,7 @@ public class b implements c {
     private String lRK = "unknown";
     private int lRL = 5;
 
-    public static b dmZ() {
+    public static b dna() {
         return lRJ;
     }
 

@@ -122,9 +122,9 @@ public class SwanAppAlbumPreviewAdapter extends PagerAdapter {
         ImageRequestBuilder Z = ImageRequestBuilder.Z(path.startsWith(HttpHost.DEFAULT_SCHEME_NAME) ? Uri.parse(path) : Uri.fromFile(new File(mediaModel.getPath())));
         Z.c(new d(af.getDisplayWidth(this.caN), af.getDisplayHeight(this.caN), 10240.0f));
         Z.vQ(true);
-        com.facebook.drawee.controller.a doz = com.facebook.drawee.a.a.c.dnM().vC(com.baidu.swan.apps.media.chooser.b.c.cbG).aX(Z.duT()).c(a2).c(aVar.cbt.getController()).doD();
+        com.facebook.drawee.controller.a doA = com.facebook.drawee.a.a.c.dnN().vC(com.baidu.swan.apps.media.chooser.b.c.cbG).aX(Z.duU()).c(a2).c(aVar.cbt.getController()).doE();
         aVar.cbt.setVisibility(0);
-        aVar.cbt.setController(doz);
+        aVar.cbt.setController(doA);
         if (!(mediaModel instanceof ImageModel)) {
             return;
         }
@@ -302,16 +302,16 @@ public class SwanAppAlbumPreviewAdapter extends PagerAdapter {
                 if (obj instanceof com.facebook.imagepipeline.g.d) {
                     hugePhotoDraweeView.setIsDynamicBitmap(false);
                     hugePhotoDraweeView.setZoomEnabled(true);
-                    Bitmap dsK = ((com.facebook.imagepipeline.g.d) obj).dsK();
+                    Bitmap dsL = ((com.facebook.imagepipeline.g.d) obj).dsL();
                     SwanAppAlbumPreviewAdapter.this.cbl = q.aoX();
-                    com.baidu.swan.apps.media.image.b j = com.baidu.swan.apps.media.image.b.j(dsK);
-                    if (dsK.getWidth() >= SwanAppAlbumPreviewAdapter.this.cbl[0] || dsK.getHeight() >= SwanAppAlbumPreviewAdapter.this.cbl[0]) {
+                    com.baidu.swan.apps.media.image.b j = com.baidu.swan.apps.media.image.b.j(dsL);
+                    if (dsL.getWidth() >= SwanAppAlbumPreviewAdapter.this.cbl[0] || dsL.getHeight() >= SwanAppAlbumPreviewAdapter.this.cbl[0]) {
                         j.afW();
                     } else {
                         j.afX();
                     }
                     hugePhotoDraweeView.setImage(j);
-                    SwanAppAlbumPreviewAdapter.this.a(hugePhotoDraweeView, dsK);
+                    SwanAppAlbumPreviewAdapter.this.a(hugePhotoDraweeView, dsL);
                 } else if (obj instanceof com.facebook.imagepipeline.g.a) {
                     hugePhotoDraweeView.setIsDynamicBitmap(true);
                     hugePhotoDraweeView.setZoomEnabled(false);

@@ -240,7 +240,7 @@ public class e extends g {
             public void onAnimationEnd(Animator animator) {
                 e.this.lxm.lwH.setAlpha(0.0f);
                 e.this.lxm.lwH.setTranslationY(e.this.lxl);
-                e.this.deW();
+                e.this.deX();
                 e.this.lxm.lwE.setClickable(true);
                 e.this.lxm.lwB.setClickable(true);
                 e.this.lxm.lwy.setClickable(true);
@@ -264,7 +264,7 @@ public class e extends g {
     }
 
     @Override // com.baidu.tieba.write.g
-    public void deX() {
+    public void deY() {
         if (this.mState == 4) {
             this.mState = 1;
             if (this.lxt != null) {
@@ -274,11 +274,11 @@ public class e extends g {
             EK(0);
             this.hvd.start();
             this.lxj.start();
-            deZ();
+            dfa();
         }
     }
 
-    private void deZ() {
+    private void dfa() {
         this.lxm.lwG.post(new Runnable() { // from class: com.baidu.tieba.write.e.5
             @Override // java.lang.Runnable
             public void run() {
@@ -313,12 +313,12 @@ public class e extends g {
     }
 
     @Override // com.baidu.tieba.write.g
-    public void deY() {
-        deW();
+    public void deZ() {
+        deX();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void deW() {
+    public void deX() {
         if (this.dxZ != null) {
             this.dxZ.setVisibility(0);
         }

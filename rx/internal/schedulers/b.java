@@ -42,7 +42,7 @@ public final class b extends rx.g implements h {
             }
         }
 
-        public c dHV() {
+        public c dHW() {
             int i = this.mUE;
             if (i == 0) {
                 return b.nnd;
@@ -67,7 +67,7 @@ public final class b extends rx.g implements h {
 
     @Override // rx.g
     public g.a createWorker() {
-        return new a(this.mUz.get().dHV());
+        return new a(this.mUz.get().dHW());
     }
 
     @Override // rx.internal.schedulers.h
@@ -91,7 +91,7 @@ public final class b extends rx.g implements h {
     }
 
     public k g(rx.functions.a aVar) {
-        return this.mUz.get().dHV().b(aVar, -1L, TimeUnit.NANOSECONDS);
+        return this.mUz.get().dHW().b(aVar, -1L, TimeUnit.NANOSECONDS);
     }
 
     /* loaded from: classes6.dex */
@@ -117,7 +117,7 @@ public final class b extends rx.g implements h {
 
         @Override // rx.g.a
         public k c(final rx.functions.a aVar) {
-            return isUnsubscribed() ? rx.subscriptions.e.dIZ() : this.nni.a(new rx.functions.a() { // from class: rx.internal.schedulers.b.a.1
+            return isUnsubscribed() ? rx.subscriptions.e.dJa() : this.nni.a(new rx.functions.a() { // from class: rx.internal.schedulers.b.a.1
                 @Override // rx.functions.a
                 public void call() {
                     if (!a.this.isUnsubscribed()) {
@@ -129,7 +129,7 @@ public final class b extends rx.g implements h {
 
         @Override // rx.g.a
         public k a(final rx.functions.a aVar, long j, TimeUnit timeUnit) {
-            return isUnsubscribed() ? rx.subscriptions.e.dIZ() : this.nni.a(new rx.functions.a() { // from class: rx.internal.schedulers.b.a.2
+            return isUnsubscribed() ? rx.subscriptions.e.dJa() : this.nni.a(new rx.functions.a() { // from class: rx.internal.schedulers.b.a.2
                 @Override // rx.functions.a
                 public void call() {
                     if (!a.this.isUnsubscribed()) {

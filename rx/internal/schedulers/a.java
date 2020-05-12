@@ -61,7 +61,7 @@ public final class a extends rx.g implements h {
                 scheduledFuture = newScheduledThreadPool.scheduleWithFixedDelay(new Runnable() { // from class: rx.internal.schedulers.a.a.2
                     @Override // java.lang.Runnable
                     public void run() {
-                        C0843a.this.dCX();
+                        C0843a.this.dCY();
                     }
                 }, this.mUW, this.mUW, TimeUnit.NANOSECONDS);
             } else {
@@ -71,7 +71,7 @@ public final class a extends rx.g implements h {
             this.mVa = scheduledFuture;
         }
 
-        c dHU() {
+        c dHV() {
             if (this.nmV.isUnsubscribed()) {
                 return a.nmT;
             }
@@ -91,13 +91,13 @@ public final class a extends rx.g implements h {
             this.mUX.offer(cVar);
         }
 
-        void dCX() {
+        void dCY() {
             if (!this.mUX.isEmpty()) {
                 long now = now();
                 Iterator<c> it = this.mUX.iterator();
                 while (it.hasNext()) {
                     c next = it.next();
-                    if (next.dCY() <= now) {
+                    if (next.dCZ() <= now) {
                         if (this.mUX.remove(next)) {
                             this.nmV.a(next);
                         }
@@ -165,7 +165,7 @@ public final class a extends rx.g implements h {
 
         b(C0843a c0843a) {
             this.nmZ = c0843a;
-            this.nna = c0843a.dHU();
+            this.nna = c0843a.dHV();
         }
 
         @Override // rx.k
@@ -194,7 +194,7 @@ public final class a extends rx.g implements h {
         @Override // rx.g.a
         public k a(final rx.functions.a aVar, long j, TimeUnit timeUnit) {
             if (this.nmY.isUnsubscribed()) {
-                return rx.subscriptions.e.dIZ();
+                return rx.subscriptions.e.dJa();
             }
             ScheduledAction b = this.nna.b(new rx.functions.a() { // from class: rx.internal.schedulers.a.b.1
                 @Override // rx.functions.a
@@ -220,7 +220,7 @@ public final class a extends rx.g implements h {
             this.mVd = 0L;
         }
 
-        public long dCY() {
+        public long dCZ() {
             return this.mVd;
         }
 

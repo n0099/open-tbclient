@@ -12,13 +12,13 @@ public class b {
             }
 
             @Override // com.facebook.imagepipeline.c.r
-            public void dqj() {
-                n.this.dqv();
+            public void dqk() {
+                n.this.dqw();
             }
 
             @Override // com.facebook.imagepipeline.c.r
-            public void dqk() {
-                n.this.dqu();
+            public void dql() {
+                n.this.dqv();
             }
         });
     }

@@ -50,7 +50,7 @@ public abstract class TurbonetEngine {
     /* JADX INFO: Access modifiers changed from: package-private */
     public abstract void a(String str, String str2, int i, int i2, long j, long j2, long j3, long j4);
 
-    public abstract boolean djg();
+    public abstract boolean djh();
 
     abstract boolean isEnabled();
 
@@ -91,7 +91,7 @@ public abstract class TurbonetEngine {
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public void djF() {
+        public void djG() {
             if (this.lLF == null) {
                 if (this.lLG.equals("turbonet")) {
                     System.loadLibrary(this.lLG);
@@ -140,12 +140,12 @@ public abstract class TurbonetEngine {
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public boolean djG() {
+        public boolean djH() {
             return this.lLH;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public boolean djH() {
+        public boolean djI() {
             return this.lLI;
         }
 
@@ -158,7 +158,7 @@ public abstract class TurbonetEngine {
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public String djB() {
+        public String djC() {
             return this.lLC;
         }
 
@@ -168,12 +168,12 @@ public abstract class TurbonetEngine {
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public long djI() {
+        public long djJ() {
             return this.lLK;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public int djJ() {
+        public int djK() {
             return this.lLJ;
         }
 
@@ -189,7 +189,7 @@ public abstract class TurbonetEngine {
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public boolean djK() {
+        public boolean djL() {
             return this.lKj;
         }
 
@@ -211,12 +211,12 @@ public abstract class TurbonetEngine {
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public String djL() {
+        public String djM() {
             return this.lLM;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public String djM() {
+        public String djN() {
             return this.lLL.toString();
         }
 
@@ -225,7 +225,7 @@ public abstract class TurbonetEngine {
             return this.mContext;
         }
 
-        public TurbonetEngine djN() {
+        public TurbonetEngine djO() {
             String str = "";
             if (Environment.getExternalStorageState().equals("mounted")) {
                 str = Environment.getExternalStorageDirectory().getPath();
@@ -274,7 +274,7 @@ public abstract class TurbonetEngine {
         }
     }
 
-    public long diN() {
+    public long diO() {
         return 0L;
     }
 }

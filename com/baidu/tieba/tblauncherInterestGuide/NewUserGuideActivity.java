@@ -40,7 +40,7 @@ public class NewUserGuideActivity extends BaseFragmentActivity {
         }
     };
 
-    public boolean cYF() {
+    public boolean cYG() {
         return this.isChanged;
     }
 
@@ -48,7 +48,7 @@ public class NewUserGuideActivity extends BaseFragmentActivity {
         this.isChanged = z;
     }
 
-    public RightSlideViewPager cYG() {
+    public RightSlideViewPager cYH() {
         return this.kZp;
     }
 
@@ -57,7 +57,7 @@ public class NewUserGuideActivity extends BaseFragmentActivity {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setSwipeBackEnabled(false);
-        cYI();
+        cYJ();
         setContentView(R.layout.guide_activity_interestfrs);
         initUI();
         initData();
@@ -89,8 +89,8 @@ public class NewUserGuideActivity extends BaseFragmentActivity {
 
             @Override // android.support.v4.view.ViewPager.OnPageChangeListener
             public void onPageScrolled(int i, float f, int i2) {
-                if (NewUserGuideActivity.this.kZn.cYN() && i == 0 && f > 0.0f) {
-                    NewUserGuideActivity.this.cYJ();
+                if (NewUserGuideActivity.this.kZn.cYO() && i == 0 && f > 0.0f) {
+                    NewUserGuideActivity.this.cYK();
                 }
             }
 
@@ -98,9 +98,9 @@ public class NewUserGuideActivity extends BaseFragmentActivity {
             public void onPageScrollStateChanged(int i) {
                 NewUserGuideIntroduceFragment newUserGuideIntroduceFragment = (NewUserGuideIntroduceFragment) ((FragmentPagerAdapter) NewUserGuideActivity.this.kZp.getAdapter()).getItem(0);
                 if (i == 0) {
-                    newUserGuideIntroduceFragment.cYK();
-                } else {
                     newUserGuideIntroduceFragment.cYL();
+                } else {
+                    newUserGuideIntroduceFragment.cYM();
                 }
             }
         });
@@ -111,11 +111,11 @@ public class NewUserGuideActivity extends BaseFragmentActivity {
     public void onDestroy() {
         super.onDestroy();
         if (this.kZn != null) {
-            this.kZn.cYP();
+            this.kZn.cYQ();
         }
     }
 
-    public NewUserGuideModel cYH() {
+    public NewUserGuideModel cYI() {
         return this.kZn;
     }
 
@@ -126,13 +126,13 @@ public class NewUserGuideActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4) {
-            cYJ();
+            cYK();
             return true;
         }
         return super.onKeyDown(i, keyEvent);
     }
 
-    private void cYI() {
+    private void cYJ() {
         if (Build.VERSION.SDK_INT >= 11) {
             try {
                 Field declaredField = WindowManager.LayoutParams.class.getDeclaredField("FLAG_HARDWARE_ACCELERATED");
@@ -145,7 +145,7 @@ public class NewUserGuideActivity extends BaseFragmentActivity {
         }
     }
 
-    public void cYJ() {
+    public void cYK() {
         sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, new MainTabActivityConfig(getPageContext().getPageActivity()).createNewUserCfg(1, this.mIsNewUser)));
         finish();
     }

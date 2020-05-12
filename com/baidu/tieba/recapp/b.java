@@ -33,12 +33,12 @@ public class b implements com.baidu.tieba.InjectPlugin.FrsBannerAd.a {
     BannerView.a hqj = new BannerView.a() { // from class: com.baidu.tieba.recapp.b.2
         @Override // com.baidu.tbadk.coreExtra.view.BannerView.a
         public void aVc() {
-            b.this.bTo();
+            b.this.bTp();
         }
 
         @Override // com.baidu.tbadk.coreExtra.view.BannerView.a
         public void aVd() {
-            b.this.bTq();
+            b.this.bTr();
         }
     };
     private com.baidu.tieba.InjectPlugin.a.c krl;
@@ -81,9 +81,9 @@ public class b implements com.baidu.tieba.InjectPlugin.FrsBannerAd.a {
     public void bdI() {
         if (this.mPageContext != null && this.krm != null) {
             if (this.dRI == null) {
-                bTq();
+                bTr();
             } else if (!this.dRI.isValid()) {
-                bTq();
+                bTr();
             } else {
                 if (!this.hqg) {
                     if (this.hqe == null) {
@@ -131,7 +131,7 @@ public class b implements com.baidu.tieba.InjectPlugin.FrsBannerAd.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bTq() {
+    public void bTr() {
         if (this.hqe != null && this.krm != null) {
             this.hqg = false;
             this.krm.b(this.krl, this.hqe);
@@ -140,7 +140,7 @@ public class b implements com.baidu.tieba.InjectPlugin.FrsBannerAd.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bTo() {
+    public void bTp() {
         if (this.dRI != null) {
             String value = this.dRI.getValue();
             String aIM = this.dRI.aIM();
@@ -176,7 +176,7 @@ public class b implements com.baidu.tieba.InjectPlugin.FrsBannerAd.a {
                             break;
                     }
                 } else {
-                    q.cNl().cNi().c(this.mPageContext.getPageActivity(), new String[]{value});
+                    q.cNm().cNj().c(this.mPageContext.getPageActivity(), new String[]{value});
                     if (!StringUtils.isNull(value) && value.startsWith(UrlSchemaHelper.SCHEMA_TYPE_GAME_DETAIL)) {
                         TiebaStatic.eventStat(this.mPageContext.getPageActivity(), "frs_banner", "click", 1, "ref_id", CommonStatisticKey.REF_TYPE_FRS_AD, "ref_type", "603");
                     }

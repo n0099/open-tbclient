@@ -39,11 +39,11 @@ public class a {
         return this.isOpen;
     }
 
-    public HashMap<String, String> bGY() {
+    public HashMap<String, String> bGZ() {
         return this.gxz;
     }
 
-    public String bGZ() {
+    public String bHa() {
         return this.gxy;
     }
 }

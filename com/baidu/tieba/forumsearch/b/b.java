@@ -45,11 +45,11 @@ public class b extends com.baidu.tieba.card.data.b {
         return this.mAvatar;
     }
 
-    public String bNv() {
+    public String bNw() {
         return this.gWS;
     }
 
-    public String bNw() {
+    public String bNx() {
         return this.gWR;
     }
 
@@ -61,11 +61,11 @@ public class b extends com.baidu.tieba.card.data.b {
         return this.mForumId;
     }
 
-    public String bNx() {
+    public String bNy() {
         return this.gWw;
     }
 
-    public List<FrsTabInfo> bNy() {
+    public List<FrsTabInfo> bNz() {
         return this.gWV;
     }
 }

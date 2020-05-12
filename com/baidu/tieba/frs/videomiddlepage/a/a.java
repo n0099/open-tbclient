@@ -18,7 +18,7 @@ public class a {
         }
     }
 
-    public int bWu() {
+    public int bWv() {
         return this.hAl;
     }
 
@@ -26,7 +26,7 @@ public class a {
         this.hAm = j;
     }
 
-    public void bWv() {
+    public void bWw() {
         int i = b.aNT().getInt("nani_key_download_show_rate", 2);
         if (this.hAm > 0 && i != 1) {
             b.aNT().putLong("key_horizontal_shown_time", this.hAm);

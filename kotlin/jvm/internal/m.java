@@ -14,17 +14,17 @@ public final class m implements l, kotlin.reflect.c<Object> {
     }
 
     @Override // kotlin.jvm.internal.l
-    public Class<?> dDP() {
+    public Class<?> dDQ() {
         return this.mXP;
     }
 
     @Override // kotlin.reflect.a
     public List<Annotation> getAnnotations() {
-        dDQ();
+        dDR();
         throw null;
     }
 
-    private final Void dDQ() {
+    private final Void dDR() {
         throw new KotlinReflectionNotSupportedError();
     }
 
@@ -37,6 +37,6 @@ public final class m implements l, kotlin.reflect.c<Object> {
     }
 
     public String toString() {
-        return dDP().toString() + " (Kotlin reflection is not available)";
+        return dDQ().toString() + " (Kotlin reflection is not available)";
     }
 }

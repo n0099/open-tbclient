@@ -36,7 +36,7 @@ public final class UploadOptions {
         } : upCancellationSignal;
         this.mNk = netReadyHandler == null ? new NetReadyHandler() { // from class: com.qiniu.android.storage.UploadOptions.3
             @Override // com.qiniu.android.storage.NetReadyHandler
-            public void dAz() {
+            public void dAA() {
                 if (Thread.currentThread() != Looper.getMainLooper().getThread()) {
                     for (int i = 0; i < 6; i++) {
                         try {
@@ -44,7 +44,7 @@ public final class UploadOptions {
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
-                        if (AndroidNetwork.dAF()) {
+                        if (AndroidNetwork.dAG()) {
                             return;
                         }
                     }
@@ -67,7 +67,7 @@ public final class UploadOptions {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static UploadOptions dAE() {
+    public static UploadOptions dAF() {
         return new UploadOptions(null, null, false, null, null);
     }
 

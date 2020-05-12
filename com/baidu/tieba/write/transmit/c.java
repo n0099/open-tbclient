@@ -27,15 +27,15 @@ public class c extends com.baidu.adp.widget.ListView.a<TransmitForumData, a> {
                 if (mVar instanceof TransmitForumData) {
                     CheckBox checkBox = (CheckBox) view.findViewById(R.id.transmit_check_box);
                     boolean isChecked = checkBox.isChecked();
-                    boolean dfW = c.this.lBr != null ? c.this.lBr.dfW() : false;
-                    if (!isChecked && dfW) {
-                        c.this.lBr.dfX();
+                    boolean dfX = c.this.lBr != null ? c.this.lBr.dfX() : false;
+                    if (!isChecked && dfX) {
+                        c.this.lBr.dfY();
                     }
-                    if (isChecked || !dfW) {
+                    if (isChecked || !dfX) {
                         checkBox.setChecked(checkBox.isChecked() ? false : true);
                         ((TransmitForumData) mVar).checked = checkBox.isChecked();
                         if (c.this.lBr != null) {
-                            c.this.lBr.dfY();
+                            c.this.lBr.dfZ();
                         }
                     }
                 }

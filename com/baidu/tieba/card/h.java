@@ -77,14 +77,14 @@ public class h extends a<com.baidu.tieba.e.g> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.a
     public void a(com.baidu.tieba.e.g gVar) {
-        if (gVar != null && gVar.bGv() != null) {
+        if (gVar != null && gVar.bGw() != null) {
             this.got = gVar;
-            this.goh.startLoad(gVar.bGv().avatar, 10, false);
-            this.goj.setText(gVar.bGv().game_name);
-            this.gok.setText(gVar.bGv().title_small);
-            this.gol.setText(String.valueOf(gVar.bGv().game_score));
+            this.goh.startLoad(gVar.bGw().avatar, 10, false);
+            this.goj.setText(gVar.bGw().game_name);
+            this.gok.setText(gVar.bGw().title_small);
+            this.gol.setText(String.valueOf(gVar.bGw().game_score));
             b(gVar);
-            this.gos.setText(this.mContext.getResources().getString(R.string.frs_game_score_user_score_num, aq.numberUniform(gVar.bGv().game_score_num)));
+            this.gos.setText(this.mContext.getResources().getString(R.string.frs_game_score_user_score_num, aq.numberUniform(gVar.bGw().game_score_num)));
         }
     }
 
@@ -95,42 +95,42 @@ public class h extends a<com.baidu.tieba.e.g> {
             am.setImageResource(this.gop, R.drawable.game_comment_score_btn_small_empty_bg);
             am.setImageResource(this.goq, R.drawable.game_comment_score_btn_small_empty_bg);
             am.setImageResource(this.gor, R.drawable.game_comment_score_btn_small_empty_bg);
-            if (gVar.bGv().game_score > 0.0d) {
-                if (gVar.bGv().game_score < 2.0d) {
+            if (gVar.bGw().game_score > 0.0d) {
+                if (gVar.bGw().game_score < 2.0d) {
                     am.setImageResource(this.gon, R.drawable.game_comment_score_btn_small_half_bg);
-                } else if (gVar.bGv().game_score == 2.0d) {
+                } else if (gVar.bGw().game_score == 2.0d) {
                     am.setImageResource(this.gon, R.drawable.game_comment_score_btn_small_full_bg);
-                } else if (gVar.bGv().game_score < 4.0d) {
+                } else if (gVar.bGw().game_score < 4.0d) {
                     am.setImageResource(this.gon, R.drawable.game_comment_score_btn_small_full_bg);
                     am.setImageResource(this.goo, R.drawable.game_comment_score_btn_small_half_bg);
-                } else if (gVar.bGv().game_score == 4.0d) {
+                } else if (gVar.bGw().game_score == 4.0d) {
                     am.setImageResource(this.gon, R.drawable.game_comment_score_btn_small_full_bg);
                     am.setImageResource(this.goo, R.drawable.game_comment_score_btn_small_full_bg);
-                } else if (gVar.bGv().game_score < 6.0d) {
+                } else if (gVar.bGw().game_score < 6.0d) {
                     am.setImageResource(this.gon, R.drawable.game_comment_score_btn_small_full_bg);
                     am.setImageResource(this.goo, R.drawable.game_comment_score_btn_small_full_bg);
                     am.setImageResource(this.gop, R.drawable.game_comment_score_btn_small_half_bg);
-                } else if (gVar.bGv().game_score == 6.0d) {
+                } else if (gVar.bGw().game_score == 6.0d) {
                     am.setImageResource(this.gon, R.drawable.game_comment_score_btn_small_full_bg);
                     am.setImageResource(this.goo, R.drawable.game_comment_score_btn_small_full_bg);
                     am.setImageResource(this.gop, R.drawable.game_comment_score_btn_small_full_bg);
-                } else if (gVar.bGv().game_score < 8.0d) {
+                } else if (gVar.bGw().game_score < 8.0d) {
                     am.setImageResource(this.gon, R.drawable.game_comment_score_btn_small_full_bg);
                     am.setImageResource(this.goo, R.drawable.game_comment_score_btn_small_full_bg);
                     am.setImageResource(this.gop, R.drawable.game_comment_score_btn_small_full_bg);
                     am.setImageResource(this.goq, R.drawable.game_comment_score_btn_small_half_bg);
-                } else if (gVar.bGv().game_score == 8.0d) {
+                } else if (gVar.bGw().game_score == 8.0d) {
                     am.setImageResource(this.gon, R.drawable.game_comment_score_btn_small_full_bg);
                     am.setImageResource(this.goo, R.drawable.game_comment_score_btn_small_full_bg);
                     am.setImageResource(this.gop, R.drawable.game_comment_score_btn_small_full_bg);
                     am.setImageResource(this.goq, R.drawable.game_comment_score_btn_small_full_bg);
-                } else if (gVar.bGv().game_score < 10.0d) {
+                } else if (gVar.bGw().game_score < 10.0d) {
                     am.setImageResource(this.gon, R.drawable.game_comment_score_btn_small_full_bg);
                     am.setImageResource(this.goo, R.drawable.game_comment_score_btn_small_full_bg);
                     am.setImageResource(this.gop, R.drawable.game_comment_score_btn_small_full_bg);
                     am.setImageResource(this.goq, R.drawable.game_comment_score_btn_small_full_bg);
                     am.setImageResource(this.gor, R.drawable.game_comment_score_btn_small_half_bg);
-                } else if (gVar.bGv().game_score == 10.0d) {
+                } else if (gVar.bGw().game_score == 10.0d) {
                     am.setImageResource(this.gon, R.drawable.game_comment_score_btn_small_full_bg);
                     am.setImageResource(this.goo, R.drawable.game_comment_score_btn_small_full_bg);
                     am.setImageResource(this.gop, R.drawable.game_comment_score_btn_small_full_bg);
@@ -143,8 +143,8 @@ public class h extends a<com.baidu.tieba.e.g> {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (bEw() != null) {
-            bEw().a(getView(), this.got);
+        if (bEx() != null) {
+            bEx().a(getView(), this.got);
         }
     }
 }

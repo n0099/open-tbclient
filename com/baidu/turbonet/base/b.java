@@ -47,12 +47,12 @@ public class b<E> implements Iterable<E> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void diz() {
+    public void diA() {
         this.lHR++;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void diA() {
+    public void diB() {
         this.lHR--;
         if (!$assertionsDisabled && this.lHR < 0) {
             throw new AssertionError();
@@ -82,7 +82,7 @@ public class b<E> implements Iterable<E> {
         private a() {
             this.mIndex = 0;
             this.lHU = false;
-            b.this.diz();
+            b.this.diA();
             this.lHT = b.this.capacity();
         }
 
@@ -95,7 +95,7 @@ public class b<E> implements Iterable<E> {
             if (i < this.lHT) {
                 return true;
             }
-            diB();
+            diC();
             return false;
         }
 
@@ -110,7 +110,7 @@ public class b<E> implements Iterable<E> {
                 this.mIndex = i + 1;
                 return (E) bVar.Fi(i);
             }
-            diB();
+            diC();
             throw new NoSuchElementException();
         }
 
@@ -119,10 +119,10 @@ public class b<E> implements Iterable<E> {
             throw new UnsupportedOperationException();
         }
 
-        private void diB() {
+        private void diC() {
             if (!this.lHU) {
                 this.lHU = true;
-                b.this.diA();
+                b.this.diB();
             }
         }
     }

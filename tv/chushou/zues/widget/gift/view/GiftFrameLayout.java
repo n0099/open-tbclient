@@ -134,7 +134,7 @@ public class GiftFrameLayout extends FrameLayout {
             public boolean handleMessage(Message message) {
                 switch (message.what) {
                     case 1:
-                        GiftFrameLayout.this.dKk();
+                        GiftFrameLayout.this.dKl();
                         return false;
                     default:
                         return false;
@@ -203,7 +203,7 @@ public class GiftFrameLayout extends FrameLayout {
         return this.isShowing;
     }
 
-    public boolean dKj() {
+    public boolean dKk() {
         return this.nuT;
     }
 
@@ -269,7 +269,7 @@ public class GiftFrameLayout extends FrameLayout {
             this.nuY = j;
         }
         if (this.nuY != 0) {
-            this.nuZ = g.a(0L, this.nuY, j2, 1000.0f * f, TimeUnit.MILLISECONDS).a(io.reactivex.a.b.a.dCD()).b(new io.reactivex.c.g<Long>() { // from class: tv.chushou.zues.widget.gift.view.GiftFrameLayout.5
+            this.nuZ = g.a(0L, this.nuY, j2, 1000.0f * f, TimeUnit.MILLISECONDS).a(io.reactivex.a.b.a.dCE()).b(new io.reactivex.c.g<Long>() { // from class: tv.chushou.zues.widget.gift.view.GiftFrameLayout.5
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // io.reactivex.c.g
                 /* renamed from: i */
@@ -311,7 +311,7 @@ public class GiftFrameLayout extends FrameLayout {
                     public void onAnimationEnd(Animator animator) {
                         GiftFrameLayout.this.isShowing = false;
                         GiftFrameLayout.this.nuR = null;
-                        GiftFrameLayout.this.dKl();
+                        GiftFrameLayout.this.dKm();
                         tv.chushou.zues.a.a.post(new tv.chushou.zues.widget.gift.b.a(null, tv.chushou.zues.widget.gift.b.a.GET));
                     }
                 });
@@ -323,7 +323,7 @@ public class GiftFrameLayout extends FrameLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dKk() {
+    public void dKl() {
         int i;
         if (this.nuQ > this.nuP) {
             this.nuQ = this.nuP;
@@ -351,7 +351,7 @@ public class GiftFrameLayout extends FrameLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dKl() {
+    public void dKm() {
         this.nuQ = 0;
     }
 

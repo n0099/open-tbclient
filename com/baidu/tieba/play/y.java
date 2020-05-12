@@ -94,7 +94,7 @@ public class y {
         return anVar;
     }
 
-    public y cKp() {
+    public y cKq() {
         y yVar = new y();
         yVar.mLocate = this.mLocate;
         yVar.mType = this.mType;

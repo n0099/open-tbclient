@@ -33,9 +33,9 @@ public class ab extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.dat
 
     /* renamed from: a  reason: avoid collision after fix types in other method */
     protected View a2(int i, View view, ViewGroup viewGroup, com.baidu.tieba.card.data.o oVar, com.baidu.tieba.card.a.a aVar) {
-        aVar.bFz().a(oVar);
-        aVar.bFz().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        com.baidu.tieba.card.r.bEW().e(new an("c10718").cI("obj_id", String.valueOf(oVar.gtD)));
+        aVar.bFA().a(oVar);
+        aVar.bFA().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        com.baidu.tieba.card.r.bEX().e(new an("c10718").cI("obj_id", String.valueOf(oVar.gtD)));
         return aVar.getView();
     }
 }

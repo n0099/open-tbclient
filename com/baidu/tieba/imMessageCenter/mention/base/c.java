@@ -51,8 +51,8 @@ public class c extends com.baidu.tieba.card.a<a> {
         this.iCh = new OriginalThreadCardView.a() { // from class: com.baidu.tieba.imMessageCenter.mention.base.c.1
             @Override // com.baidu.tieba.card.OriginalThreadCardView.a
             public void a(OriginalThreadInfo originalThreadInfo) {
-                if (c.this.iCg != null && c.this.iCg.ckL() != null) {
-                    an af = new an(c.this.iCg.ckL()).af("obj_locate", 2);
+                if (c.this.iCg != null && c.this.iCg.ckM() != null) {
+                    an af = new an(c.this.iCg.ckM()).af("obj_locate", 2);
                     if (c.this.iCg.getType() == a.iBW || c.this.iCg.getType() == a.iBS) {
                         af.af("obj_type", 1);
                     } else {
@@ -60,8 +60,8 @@ public class c extends com.baidu.tieba.card.a<a> {
                     }
                     TiebaStatic.log(af);
                 }
-                if (c.this.bEw() != null) {
-                    c.this.bEw().a(c.this.gqJ, c.this.iCg);
+                if (c.this.bEx() != null) {
+                    c.this.bEx().a(c.this.gqJ, c.this.iCg);
                 }
             }
         };
@@ -191,8 +191,8 @@ public class c extends com.baidu.tieba.card.a<a> {
                     return;
                 }
             }
-            if (bEw() != null) {
-                bEw().a(view, this.iCg);
+            if (bEx() != null) {
+                bEx().a(view, this.iCg);
             }
         }
     }

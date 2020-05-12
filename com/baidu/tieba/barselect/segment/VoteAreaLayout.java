@@ -65,14 +65,14 @@ public class VoteAreaLayout extends CardBasicLayout {
             setVisibility(8);
             return;
         }
-        this.glG.setText(aq.numFormatOverWan(this.glx.bDL()) + "票");
+        this.glG.setText(aq.numFormatOverWan(this.glx.bDM()) + "票");
         this.glI.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.barselect.segment.VoteAreaLayout.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if ((VoteAreaLayout.this.mContext instanceof Activity) && bc.checkUpIsLogin(VoteAreaLayout.this.mContext)) {
                     new an("c13441").aOO();
-                    if (VoteAreaLayout.this.glx != null && fVar != null && fVar.bDW() != null) {
-                        if (fVar.bDW().bDT()) {
+                    if (VoteAreaLayout.this.glx != null && fVar != null && fVar.bDX() != null) {
+                        if (fVar.bDX().bDU()) {
                             if (fVar.getFid() != 0 && fVar.getUniqueId() != null) {
                                 CommitVoteReqMsg commitVoteReqMsg = new CommitVoteReqMsg(VoteAreaLayout.this.glx.getUid(), fVar.getFid(), VoteAreaLayout.this.glx.getTid(), 1);
                                 commitVoteReqMsg.setTag(fVar.getUniqueId());
@@ -86,7 +86,7 @@ public class VoteAreaLayout extends CardBasicLayout {
                 }
             }
         });
-        if (this.glx.bDN()) {
+        if (this.glx.bDO()) {
             this.glI.setEnabled(false);
         } else {
             this.glI.setEnabled(true);

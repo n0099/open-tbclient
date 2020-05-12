@@ -290,7 +290,7 @@ public class FrsGameStrategyItemListView extends FrameLayout implements com.baid
         this.hkN.bQ(i, i2);
     }
 
-    public void bSt() {
+    public void bSu() {
         if (com.baidu.tbadk.core.util.v.isEmpty(this.mData) && (this.hkE != 0 || this.hls != 0)) {
             showLoadingView();
             this.hkN.bO(this.hkE, this.hls);

@@ -29,10 +29,10 @@ public class MoreGodReplyModel extends BdBaseModel<e> {
         this.jpJ = new x.a() { // from class: com.baidu.tieba.pb.pb.godreply.MoreGodReplyModel.1
             @Override // com.baidu.tieba.pb.pb.main.x.a
             public void aS(List<PostData> list) {
-                n cvC;
+                n cvD;
                 MoreGodReplyModel.this.isLoading = false;
-                if (MoreGodReplyModel.this.jpF != null && MoreGodReplyModel.this.jpF.getPbData() != null && (cvC = MoreGodReplyModel.this.jpF.getPbData().cvC()) != null) {
-                    List<PostData> list2 = cvC.joP;
+                if (MoreGodReplyModel.this.jpF != null && MoreGodReplyModel.this.jpF.getPbData() != null && (cvD = MoreGodReplyModel.this.jpF.getPbData().cvD()) != null) {
+                    List<PostData> list2 = cvD.joP;
                     int size = list2.size();
                     if (!v.isEmpty(list)) {
                         for (PostData postData : list) {
@@ -61,9 +61,9 @@ public class MoreGodReplyModel extends BdBaseModel<e> {
         };
         if (pbModel != null) {
             this.jpF = pbModel;
-            x cza = pbModel.cza();
-            if (cza != null) {
-                cza.b(this.jpJ);
+            x czb = pbModel.czb();
+            if (czb != null) {
+                czb.b(this.jpJ);
             }
         }
     }
@@ -85,25 +85,25 @@ public class MoreGodReplyModel extends BdBaseModel<e> {
         return false;
     }
 
-    public boolean cwz() {
-        n cvC;
+    public boolean cwA() {
+        n cvD;
         com.baidu.tieba.pb.data.e pbData = this.jpF.getPbData();
-        if (pbData == null || (cvC = pbData.cvC()) == null) {
+        if (pbData == null || (cvD = pbData.cvD()) == null) {
             return false;
         }
         if (this.jpH < 0) {
-            this.jpH = cvC.getCount();
+            this.jpH = cvD.getCount();
         }
-        List<Long> list = cvC.joQ;
+        List<Long> list = cvD.joQ;
         int size = list.size();
         int i = this.jpH;
-        if (size <= i || cvC.joP.size() >= 100) {
+        if (size <= i || cvD.joP.size() >= 100) {
             return false;
         }
         int min = Math.min(100, Math.min(i + 20, size));
         this.jpG = min;
         this.isLoading = true;
-        this.jpF.cza().dR(list.subList(i, min));
+        this.jpF.czb().dR(list.subList(i, min));
         Log.d("more_god_reply", "load from " + i + " to " + min);
         return true;
     }
@@ -112,18 +112,18 @@ public class MoreGodReplyModel extends BdBaseModel<e> {
         return this.isLoading;
     }
 
-    public PbModel cwA() {
+    public PbModel cwB() {
         return this.jpF;
     }
 
-    public List<m> cwB() {
+    public List<m> cwC() {
         com.baidu.tieba.pb.data.e pbData;
-        if (this.jpF == null || (pbData = this.jpF.getPbData()) == null || pbData.cvC() == null || v.isEmpty(pbData.cvC().joP)) {
+        if (this.jpF == null || (pbData = this.jpF.getPbData()) == null || pbData.cvD() == null || v.isEmpty(pbData.cvD().joP)) {
             return null;
         }
-        n cvC = pbData.cvC();
+        n cvD = pbData.cvD();
         ArrayList arrayList = new ArrayList();
-        List<PostData> list = cvC.joP;
+        List<PostData> list = cvD.joP;
         int size = list.size();
         int i = 0;
         while (i < size) {
@@ -155,13 +155,13 @@ public class MoreGodReplyModel extends BdBaseModel<e> {
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean akh() {
         com.baidu.tieba.pb.data.e pbData;
-        n cvC;
-        if (this.jpF == null || (pbData = this.jpF.getPbData()) == null || (cvC = pbData.cvC()) == null) {
+        n cvD;
+        if (this.jpF == null || (pbData = this.jpF.getPbData()) == null || (cvD = pbData.cvD()) == null) {
             return false;
         }
         if (this.jpH < 0) {
-            this.jpH = cvC.getCount();
+            this.jpH = cvD.getCount();
         }
-        return cvC.joQ.size() > this.jpH && cvC.joP.size() < 100;
+        return cvD.joQ.size() > this.jpH && cvD.joP.size() < 100;
     }
 }

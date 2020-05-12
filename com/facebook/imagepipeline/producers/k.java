@@ -5,7 +5,7 @@ public interface k<T> {
 
     void au(float f);
 
-    void dmS();
+    void dmT();
 
     void h(T t, int i);
 }

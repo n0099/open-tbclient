@@ -96,29 +96,29 @@ public class f extends d implements com.baidu.tieba.personPolymeric.mode.b {
         loadData();
     }
 
-    public a cHO() {
+    public a cHP() {
         return this.jZA;
     }
 
-    public g cHP() {
+    public g cHQ() {
         return this.jZC;
     }
 
-    public h cHQ() {
+    public h cHR() {
         return null;
     }
 
-    public PersonPolymericModel cHR() {
+    public PersonPolymericModel cHS() {
         return this.jZx;
     }
 
-    public e cHS() {
+    public e cHT() {
         return this.jZw;
     }
 
     public void loadData() {
         if (!TbadkCoreApplication.isLogin() && this.mIsHost) {
-            this.jZw.bXP();
+            this.jZw.bXQ();
         } else if (com.baidu.adp.lib.util.j.isNetworkAvailableForImmediately()) {
             this.jZw.v(false, -1);
             this.jZw.sA(true);
@@ -133,7 +133,7 @@ public class f extends d implements com.baidu.tieba.personPolymeric.mode.b {
 
     public void refreshData() {
         if (!TbadkCoreApplication.isLogin() && this.mIsHost) {
-            this.jZw.bXP();
+            this.jZw.bXQ();
         } else if (com.baidu.adp.lib.util.j.isNetworkAvailableForImmediately()) {
             this.jZx.v(this.mUserId, this.mPortrait);
         } else {
@@ -145,7 +145,7 @@ public class f extends d implements com.baidu.tieba.personPolymeric.mode.b {
             arrayList.add(iVar);
             this.jZw.bmo();
             this.jZw.eb(arrayList);
-            this.jZw.cHN();
+            this.jZw.cHO();
         }
     }
 
@@ -156,10 +156,10 @@ public class f extends d implements com.baidu.tieba.personPolymeric.mode.b {
                 this.jZx.v(this.mUserId, this.mPortrait);
             }
         }
-        return this.jZx.cIE();
+        return this.jZx.cIF();
     }
 
-    public void cHT() {
+    public void cHU() {
         new com.baidu.tieba.person.a().a(TbConfig.PERSON_USER_PIC_TEMP_FILE, new a.b() { // from class: com.baidu.tieba.personPolymeric.b.f.3
             @Override // com.baidu.tieba.person.a.b
             public void a(int i, String str, ImageUploadResult imageUploadResult) {
@@ -168,17 +168,17 @@ public class f extends d implements com.baidu.tieba.personPolymeric.mode.b {
                     if (imageUploadResult.picInfo != null && imageUploadResult.picInfo.bigPic != null) {
                         str2 = imageUploadResult.picInfo.bigPic.picUrl;
                     }
-                    i.q(str2, f.this.cHU());
+                    i.q(str2, f.this.cHV());
                 }
             }
         });
     }
 
-    public List<m> cHU() {
-        if (this.jZx.cIE() == null) {
+    public List<m> cHV() {
+        if (this.jZx.cIF() == null) {
             return null;
         }
-        return this.jZx.cIE().cHU();
+        return this.jZx.cIF().cHV();
     }
 
     @Override // com.baidu.tieba.personPolymeric.mode.b

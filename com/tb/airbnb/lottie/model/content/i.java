@@ -25,12 +25,12 @@ public class i implements b {
     }
 
     @Nullable
-    public com.tb.airbnb.lottie.model.a.a dBU() {
+    public com.tb.airbnb.lottie.model.a.a dBV() {
         return this.mPr;
     }
 
     @Nullable
-    public com.tb.airbnb.lottie.model.a.d dBu() {
+    public com.tb.airbnb.lottie.model.a.d dBv() {
         return this.mPz;
     }
 

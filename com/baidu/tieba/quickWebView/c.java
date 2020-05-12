@@ -75,7 +75,7 @@ public class c {
         }
     };
 
-    public static c cML() {
+    public static c cMM() {
         if (kqg == null) {
             synchronized (c.class) {
                 if (kqg == null) {
@@ -89,7 +89,7 @@ public class c {
     private c() {
     }
 
-    public String cMM() {
+    public String cMN() {
         return this.kqh;
     }
 
@@ -127,10 +127,10 @@ public class c {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: j */
         public b doInBackground(Void... voidArr) {
-            b cMN = c.this.cMN();
-            if (cMN != null && !TextUtils.isEmpty(cMN.kql) && cMN.kqm != null && cMN.kqm.size() != 0) {
-                c.Jn(cMN.kqn);
-                return cMN;
+            b cMO = c.this.cMO();
+            if (cMO != null && !TextUtils.isEmpty(cMO.kql) && cMO.kqm != null && cMO.kqm.size() != 0) {
+                c.Jn(cMO.kqn);
+                return cMO;
             }
             return null;
         }
@@ -146,7 +146,7 @@ public class c {
                 com.baidu.tbadk.core.d.a.a("OfflineCache", -1L, -1, "readCache", -1, "read error", new Object[0]);
             } else {
                 c.this.kqj = bVar.kql;
-                d.cMQ().G(bVar.kqm);
+                d.cMR().G(bVar.kqm);
                 str = bVar.kqn;
             }
             c.this.kqh = str;
@@ -155,7 +155,7 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public b cMN() {
+    public b cMO() {
         String str;
         FileInputStream fileInputStream;
         String[] list;
@@ -362,7 +362,7 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void cMO() {
+    public static void cMP() {
         m.deleteFileOrDir(new File(DOWNLOAD_DIR + "bdtbWCacheTemp"));
     }
 
@@ -392,7 +392,7 @@ public class c {
             FileInputStream fileInputStream;
             String str;
             String md5;
-            c.cMO();
+            c.cMP();
             this.blK = new x();
             this.blK.setUrl(this.mUrl);
             new File(c.DOWNLOAD_DIR + "bdtbWCacheTemp").mkdirs();
@@ -411,7 +411,7 @@ public class c {
                             str = c.DOWNLOAD_DIR + "bdtbWCacheTemp/" + this.mVersion;
                             if (r.unZipFiles(str2, str)) {
                             }
-                            c.cMO();
+                            c.cMP();
                             return null;
                         }
                     } catch (Throwable th) {
@@ -430,7 +430,7 @@ public class c {
                 }
                 if (StringUtils.isNull(md5) || !md5.toLowerCase().equals(this.mMd5.toLowerCase())) {
                     com.baidu.tbadk.core.d.a.a("OfflineCache", -1L, -1, "downloadCache", -1, "md5 error", new Object[0]);
-                    c.cMO();
+                    c.cMP();
                     n.close((InputStream) fileInputStream);
                     return null;
                 }
@@ -445,7 +445,7 @@ public class c {
                 TiebaStatic.log(new an("c13435").cI("uid", TbadkCoreApplication.getCurrentAccount()).cI("obj_type", "2"));
                 com.baidu.tbadk.core.d.a.a("OfflineCache", -1L, -1, "downloadCache", -1, "download error", new Object[0]);
             }
-            c.cMO();
+            c.cMP();
             return null;
         }
     }

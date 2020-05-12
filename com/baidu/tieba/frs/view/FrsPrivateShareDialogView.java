@@ -187,7 +187,7 @@ public class FrsPrivateShareDialogView extends LinearLayout {
         this.hAU.setDefaultResource(R.drawable.pic_frs_head_default);
         this.hAU.setRadius(l.getDimens(this.mPageContext.getPageActivity(), R.dimen.tbds30));
         this.hAU.setConrers(3);
-        bWD();
+        bWE();
         this.gXi = (TextView) this.mRootView.findViewById(R.id.frs_private_share_name);
         am.setViewTextColor(this.gXi, (int) R.color.cp_cont_a);
         this.hBL = (TextView) this.mRootView.findViewById(R.id.frs_private_share_brief);
@@ -220,7 +220,7 @@ public class FrsPrivateShareDialogView extends LinearLayout {
         this.hBP.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.FrsPrivateShareDialogView.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                FrsPrivateShareDialogView.this.A(FrsPrivateShareDialogView.this.bSG());
+                FrsPrivateShareDialogView.this.A(FrsPrivateShareDialogView.this.bSH());
             }
         });
         this.hBQ = (TextView) this.mRootView.findViewById(R.id.frs_private_share_wechat);
@@ -228,7 +228,7 @@ public class FrsPrivateShareDialogView extends LinearLayout {
         this.hBQ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.FrsPrivateShareDialogView.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                FrsPrivateShareDialogView.this.c(FrsPrivateShareDialogView.this.bSG(), 3);
+                FrsPrivateShareDialogView.this.c(FrsPrivateShareDialogView.this.bSH(), 3);
             }
         });
         this.hBR = (TextView) this.mRootView.findViewById(R.id.frs_private_share_moment);
@@ -236,7 +236,7 @@ public class FrsPrivateShareDialogView extends LinearLayout {
         this.hBR.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.FrsPrivateShareDialogView.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                FrsPrivateShareDialogView.this.c(FrsPrivateShareDialogView.this.bSG(), 2);
+                FrsPrivateShareDialogView.this.c(FrsPrivateShareDialogView.this.bSH(), 2);
             }
         });
         this.hBS = (TextView) this.mRootView.findViewById(R.id.frs_private_share_qzone);
@@ -244,7 +244,7 @@ public class FrsPrivateShareDialogView extends LinearLayout {
         this.hBS.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.FrsPrivateShareDialogView.5
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                FrsPrivateShareDialogView.this.c(FrsPrivateShareDialogView.this.bSG(), 4);
+                FrsPrivateShareDialogView.this.c(FrsPrivateShareDialogView.this.bSH(), 4);
             }
         });
         this.hBT = (TextView) this.mRootView.findViewById(R.id.frs_private_share_qq);
@@ -252,7 +252,7 @@ public class FrsPrivateShareDialogView extends LinearLayout {
         this.hBT.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.FrsPrivateShareDialogView.6
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                FrsPrivateShareDialogView.this.c(FrsPrivateShareDialogView.this.bSG(), 8);
+                FrsPrivateShareDialogView.this.c(FrsPrivateShareDialogView.this.bSH(), 8);
             }
         });
         this.hBU = (TextView) this.mRootView.findViewById(R.id.frs_private_share_weibo);
@@ -260,7 +260,7 @@ public class FrsPrivateShareDialogView extends LinearLayout {
         this.hBU.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.FrsPrivateShareDialogView.7
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                FrsPrivateShareDialogView.this.c(FrsPrivateShareDialogView.this.bSG(), 6);
+                FrsPrivateShareDialogView.this.c(FrsPrivateShareDialogView.this.bSH(), 6);
             }
         });
         this.hBX = (ImageOverlayView) this.mRootView.findViewById(R.id.frs_private_overlayview);
@@ -298,7 +298,7 @@ public class FrsPrivateShareDialogView extends LinearLayout {
         }
     }
 
-    private void bWD() {
+    private void bWE() {
         ForumData forum;
         ThemeElement themeElement;
         if (this.hyh != null && (forum = this.hyh.getForum()) != null) {
@@ -334,7 +334,7 @@ public class FrsPrivateShareDialogView extends LinearLayout {
         return equipmentWidth / 6;
     }
 
-    public Bitmap bSG() {
+    public Bitmap bSH() {
         if (this.hCc == null) {
             this.hBW.buildDrawingCache();
             this.hCc = this.hBW.getDrawingCache();
@@ -344,7 +344,7 @@ public class FrsPrivateShareDialogView extends LinearLayout {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void A(Bitmap bitmap) {
-        if (!bWE()) {
+        if (!bWF()) {
             vm(1);
             if (this.hCb == null) {
                 this.hCb = new ar(this.mPageContext);
@@ -357,7 +357,7 @@ public class FrsPrivateShareDialogView extends LinearLayout {
         }
     }
 
-    private boolean bWE() {
+    private boolean bWF() {
         if (this.mPermissionJudgement == null) {
             this.mPermissionJudgement = new PermissionJudgePolicy();
         }
@@ -369,7 +369,7 @@ public class FrsPrivateShareDialogView extends LinearLayout {
     /* JADX INFO: Access modifiers changed from: private */
     public void c(final Bitmap bitmap, final int i) {
         int i2 = 2;
-        if (bitmap != null && !bWE()) {
+        if (bitmap != null && !bWF()) {
             if (i != 3) {
                 if (i == 2) {
                     i2 = 3;
@@ -385,7 +385,7 @@ public class FrsPrivateShareDialogView extends LinearLayout {
             ac.a(new ab<ShareItem>() { // from class: com.baidu.tieba.frs.view.FrsPrivateShareDialogView.8
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.tbadk.util.ab
-                /* renamed from: bSF */
+                /* renamed from: bSG */
                 public ShareItem doInBackground() {
                     return FrsPrivateShareDialogView.this.d(bitmap, i);
                 }

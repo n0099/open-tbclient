@@ -209,9 +209,9 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
                 case 1:
                     s2 = (short) (s2 + 1);
                     if (entry.num_dep_sub > 0) {
-                        a dwo = new a(b2, b, entry).dwo();
-                        b2 = (byte) (b2 | dwo.dwm());
-                        b = (byte) (b | dwo.dwn());
+                        a dwp = new a(b2, b, entry).dwp();
+                        b2 = (byte) (b2 | dwp.dwn());
+                        b = (byte) (b | dwp.dwo());
                         break;
                     } else {
                         b2 = (byte) (b2 | 32);
@@ -220,9 +220,9 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
                 case 2:
                     s2 = (short) (s2 + 2);
                     if (entry.num_dep_sub > 0) {
-                        a dwo2 = new a(b2, b, entry).dwo();
-                        b2 = (byte) (b2 | dwo2.dwm());
-                        b = (byte) (b | dwo2.dwn());
+                        a dwp2 = new a(b2, b, entry).dwp();
+                        b2 = (byte) (b2 | dwp2.dwn());
+                        b = (byte) (b | dwp2.dwo());
                         break;
                     } else {
                         b2 = (byte) (b2 | 192);
@@ -231,9 +231,9 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
                 case 3:
                     s2 = (short) (s2 + 3);
                     if (entry.num_dep_sub > 0) {
-                        a dwo3 = new a(b2, b, entry).dwo();
-                        b2 = (byte) (b2 | dwo3.dwm());
-                        b = (byte) (b | dwo3.dwn());
+                        a dwp3 = new a(b2, b, entry).dwp();
+                        b2 = (byte) (b2 | dwp3.dwn());
+                        b = (byte) (b | dwp3.dwo());
                         break;
                     } else {
                         b2 = (byte) (b2 | 224);
@@ -242,9 +242,9 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
                 case 4:
                     s2 = (short) (s2 + 3);
                     if (entry.num_dep_sub > 0) {
-                        a dwo4 = new a(b2, b, entry).dwo();
-                        b2 = (byte) (b2 | dwo4.dwm());
-                        b = (byte) (b | dwo4.dwn());
+                        a dwp4 = new a(b2, b, entry).dwp();
+                        b2 = (byte) (b2 | dwp4.dwn());
+                        b = (byte) (b | dwp4.dwo());
                         break;
                     } else {
                         b2 = (byte) (b2 | 192);
@@ -254,9 +254,9 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
                 case 5:
                     s2 = (short) (s2 + 4);
                     if (entry.num_dep_sub > 0) {
-                        a dwo5 = new a(b2, b, entry).dwo();
-                        b2 = (byte) (b2 | dwo5.dwm());
-                        b = (byte) (b | dwo5.dwn());
+                        a dwp5 = new a(b2, b, entry).dwp();
+                        b2 = (byte) (b2 | dwp5.dwn());
+                        b = (byte) (b | dwp5.dwo());
                         break;
                     } else {
                         b2 = (byte) (b2 | 224);
@@ -266,9 +266,9 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
                 case 6:
                     s2 = (short) (s2 + 4);
                     if (entry.num_dep_sub > 0) {
-                        a dwo6 = new a(b2, b, entry).dwo();
-                        b2 = (byte) (b2 | dwo6.dwm());
-                        b = (byte) (b | dwo6.dwn());
+                        a dwp6 = new a(b2, b, entry).dwp();
+                        b2 = (byte) (b2 | dwp6.dwn());
+                        b = (byte) (b | dwp6.dwo());
                         break;
                     } else {
                         b2 = (byte) (b2 | 204);
@@ -277,9 +277,9 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
                 case 7:
                     s2 = (short) (s2 + 5);
                     if (entry.num_dep_sub > 0) {
-                        a dwo7 = new a(b2, b, entry).dwo();
-                        b2 = (byte) (b2 | dwo7.dwm());
-                        b = (byte) (b | dwo7.dwn());
+                        a dwp7 = new a(b2, b, entry).dwp();
+                        b2 = (byte) (b2 | dwp7.dwn());
+                        b = (byte) (b | dwp7.dwo());
                         break;
                     } else {
                         b2 = (byte) (b2 | 236);
@@ -505,15 +505,15 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
             this.mmi = entry;
         }
 
-        public byte dwm() {
+        public byte dwn() {
             return this.mmg;
         }
 
-        public byte dwn() {
+        public byte dwo() {
             return this.mmh;
         }
 
-        public a dwo() {
+        public a dwp() {
             switch (this.mmi.chan_loc) {
                 case 0:
                     this.mmg = (byte) (this.mmg | 3);

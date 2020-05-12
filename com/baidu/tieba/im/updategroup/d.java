@@ -45,17 +45,17 @@ public abstract class d extends com.baidu.adp.base.c<UpdateGroupActivity> implem
     }
 
     @Override // com.baidu.tieba.im.updategroup.a
-    public View cjc() {
+    public View cjd() {
         return this.mImgBack;
     }
 
     @Override // com.baidu.tieba.im.updategroup.a
-    public View ceJ() {
+    public View ceK() {
         return this.efY;
     }
 
     @Override // com.baidu.tieba.im.updategroup.a
-    public View cdX() {
+    public View cdY() {
         return this.ihT;
     }
 
@@ -65,7 +65,7 @@ public abstract class d extends com.baidu.adp.base.c<UpdateGroupActivity> implem
     }
 
     @Override // com.baidu.tieba.im.updategroup.a
-    public boolean cez() {
+    public boolean ceA() {
         return this.bLl;
     }
 
@@ -88,7 +88,7 @@ public abstract class d extends com.baidu.adp.base.c<UpdateGroupActivity> implem
         this.mTextWatcher = new TextWatcher() { // from class: com.baidu.tieba.im.updategroup.d.1
             @Override // android.text.TextWatcher
             public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-                d.this.cjd();
+                d.this.cje();
             }
 
             @Override // android.text.TextWatcher
@@ -124,7 +124,7 @@ public abstract class d extends com.baidu.adp.base.c<UpdateGroupActivity> implem
     }
 
     @Override // com.baidu.tieba.im.updategroup.a
-    public String cjb() {
+    public String cjc() {
         return this.ivE;
     }
 
@@ -151,16 +151,16 @@ public abstract class d extends com.baidu.adp.base.c<UpdateGroupActivity> implem
         this.efY.setEnabled(z);
     }
 
-    public boolean cji() {
+    public boolean cjj() {
         return this.ivE != null && this.ivE.equals(this.mEditText.getText().toString());
     }
 
     @Override // com.baidu.tieba.im.updategroup.a
-    public boolean cjf() {
+    public boolean cjg() {
         return f.checkText(this.mEditText) || this.mEditText.length() >= 3;
     }
 
-    protected void ceA() {
+    protected void ceB() {
         this.efY.setEnabled(this.bLl);
         am.setBackgroundResource(this.efY, R.drawable.s_navbar_button_bg);
     }
@@ -184,7 +184,7 @@ public abstract class d extends com.baidu.adp.base.c<UpdateGroupActivity> implem
         am.setFrsPBBgColor(this.mParent, i);
         am.setBackgroundResource(this.efY, R.drawable.s_navbar_button_bg);
         am.setViewTextColor(this.efY, R.color.navbar_btn_color, 1);
-        ceA();
+        ceB();
         this.mEditText.setHintTextColor(am.getColorList(R.color.common_color_10005));
         am.setBackgroundResource(this.mParent, R.color.common_color_10041);
     }

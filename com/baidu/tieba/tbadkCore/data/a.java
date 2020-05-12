@@ -13,7 +13,7 @@ public class a {
     private String mTitle;
     private int mWidth;
 
-    public String cVS() {
+    public String cVT() {
         return this.kRK;
     }
 
@@ -25,7 +25,7 @@ public class a {
         return this.mHeight;
     }
 
-    public String cVT() {
+    public String cVU() {
         return this.kRL;
     }
 

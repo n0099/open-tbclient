@@ -18,7 +18,7 @@ public class b {
     public interface a {
         void LG(String str);
 
-        void daE();
+        void daF();
 
         void eW(String str, String str2);
     }
@@ -26,7 +26,7 @@ public class b {
     private b() {
     }
 
-    public static b dbq() {
+    public static b dbr() {
         if (ljt == null) {
             synchronized (b.class) {
                 if (ljt == null) {
@@ -44,7 +44,7 @@ public class b {
         }
         if (this.ljo == null) {
             this.ljo = new HashMap<>();
-            dbr();
+            dbs();
             if (this.ljo.size() > 0) {
                 return this.ljo.get(nameMd5FromUrl);
             }
@@ -53,7 +53,7 @@ public class b {
         return this.ljo.get(nameMd5FromUrl);
     }
 
-    public void dbr() {
+    public void dbs() {
         if (this.ljo == null) {
             this.ljo = new HashMap<>();
         } else {
@@ -97,7 +97,7 @@ public class b {
                             b.this.ljp = null;
                         }
                         if (aVar != null) {
-                            aVar.daE();
+                            aVar.daF();
                         }
                     }
                 }

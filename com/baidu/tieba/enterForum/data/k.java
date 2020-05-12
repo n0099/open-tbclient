@@ -36,11 +36,11 @@ public class k extends f implements com.baidu.tbadk.mvc.b.a {
         this.gAk = z;
     }
 
-    public int bHU() {
+    public int bHV() {
         return this.member_count;
     }
 
-    public int bHV() {
+    public int bHW() {
         return this.thread_count;
     }
 

@@ -27,32 +27,32 @@ import java.text.MessageFormat;
 /* loaded from: classes9.dex */
 public class a {
     public static void a(final PbActivity pbActivity, int i, int i2) {
-        String cyx;
+        String cyy;
         String str;
         String str2;
-        if (pbActivity != null && pbActivity.cwA() != null) {
-            final PbModel cwA = pbActivity.cwA();
+        if (pbActivity != null && pbActivity.cwB() != null) {
+            final PbModel cwB = pbActivity.cwB();
             final View rootView = pbActivity.getRootView();
-            if (cwA.hasData()) {
+            if (cwB.hasData()) {
                 TiebaStatic.eventStat(pbActivity, CheckRealNameModel.TYPE_PB_SHARE, "pbclick", 1, new Object[0]);
-                e pbData = cwA.getPbData();
-                String title = pbData.cvr().getTitle();
-                int i3 = cwA.getHostMode() ? 1 : 0;
+                e pbData = cwB.getPbData();
+                String title = pbData.cvs().getTitle();
+                int i3 = cwB.getHostMode() ? 1 : 0;
                 boolean z = false;
                 if (pbData.getForum() != null) {
                     if ((pbData.getForum().isLike() == 1) && AddExperiencedModel.Kd(pbData.getForumId())) {
                         z = true;
                     }
                 }
-                bj cvr = cwA.getPbData().cvr();
-                if (cvr.aMy()) {
-                    cyx = cvr.getBaijiahaoData().oriUgcTid;
-                    str = "?share=9105&fr=dshare&see_lz=" + i3 + "&dtype=" + cvr.getBaijiahaoData().oriUgcType + "&dvid=" + cvr.getBaijiahaoData().oriUgcVid + "&nid=" + cvr.getBaijiahaoData().oriUgcNid;
+                bj cvs = cwB.getPbData().cvs();
+                if (cvs.aMy()) {
+                    cyy = cvs.getBaijiahaoData().oriUgcTid;
+                    str = "?share=9105&fr=dshare&see_lz=" + i3 + "&dtype=" + cvs.getBaijiahaoData().oriUgcType + "&dvid=" + cvs.getBaijiahaoData().oriUgcVid + "&nid=" + cvs.getBaijiahaoData().oriUgcNid;
                 } else {
-                    cyx = cwA.cyx();
+                    cyy = cwB.cyy();
                     str = "?share=9105&fr=share&see_lz=" + i3;
                 }
-                String str3 = "http://tieba.baidu.com/p/" + cyx + str;
+                String str3 = "http://tieba.baidu.com/p/" + cyy + str;
                 String[] eP = pbData.eP(pbActivity);
                 String str4 = eP[0];
                 if (!StringUtils.isNull(str4) && str4.startsWith(TbConfig.URL_IMAGE_PREFIX)) {
@@ -65,10 +65,10 @@ public class a {
                     TiebaStatic.log(new an("c10399").cI("fid", pbData.getForumId()).cI("tid", pbData.getThreadId()).cI("uid", currentAccount));
                 }
                 String string = TbadkCoreApplication.getInst().getResources().getString(R.string.default_share_content_tpl);
-                if (pbData.cvP() && cvr.aKC() != null) {
-                    if (TextUtils.isEmpty(title) || TextUtils.isEmpty(str5) || cvr.aMx() || cvr.aJs()) {
+                if (pbData.cvQ() && cvs.aKC() != null) {
+                    if (TextUtils.isEmpty(title) || TextUtils.isEmpty(str5) || cvs.aMx() || cvs.aJs()) {
                         str2 = TextUtils.isEmpty(title) ? eP[1] : title;
-                        title = MessageFormat.format(string, cvr.aKC().getName_show(), TbadkCoreApplication.getInst().getResources().getString(R.string.default_share_content_tpl_suffix));
+                        title = MessageFormat.format(string, cvs.aKC().getName_show(), TbadkCoreApplication.getInst().getResources().getString(R.string.default_share_content_tpl_suffix));
                     } else {
                         str2 = title;
                         title = str5;
@@ -84,39 +84,39 @@ public class a {
                 ShareItem shareItem = new ShareItem();
                 shareItem.title = cutString;
                 shareItem.content = cutString2;
-                if (pbData.cvP()) {
+                if (pbData.cvQ()) {
                     shareItem.dQA = cutString2;
                     shareItem.readCount = -1L;
-                } else if (pbData.cvr() != null && pbData.cvr().aKT() != null && !pbData.cvr().aMy()) {
-                    shareItem.readCount = pbData.cvr().aKT().play_count.intValue();
+                } else if (pbData.cvs() != null && pbData.cvs().aKT() != null && !pbData.cvs().aMy()) {
+                    shareItem.readCount = pbData.cvs().aKT().play_count.intValue();
                 }
                 shareItem.linkUrl = str3;
                 shareItem.dQn = true;
                 shareItem.dQv = z;
-                shareItem.extData = cwA.cyx();
+                shareItem.extData = cwB.cyy();
                 shareItem.dQD = 3;
                 shareItem.dQC = i2;
-                shareItem.fid = cwA.getForumId();
-                shareItem.tid = cwA.cyx();
+                shareItem.fid = cwB.getForumId();
+                shareItem.tid = cwB.cyy();
                 shareItem.dQH = C(pbData);
                 shareItem.uid = TbadkCoreApplication.getCurrentAccount();
                 if (parse != null) {
                     shareItem.imageUri = parse;
                 }
-                if (pbData.cvP()) {
+                if (pbData.cvQ()) {
                     shareItem.canShareBySmartApp = false;
                 }
-                shareItem.dQK = OriginalThreadInfo.ShareInfo.generateShareInfo(cvr);
-                if (pbData != null && pbData.cvt() != null && pbData.cvt().size() > 0) {
-                    shareItem.dQL = ShareItem.ForwardInfo.generateForwardInfo(cvr, 1, pbData.cvt().get(0));
+                shareItem.dQK = OriginalThreadInfo.ShareInfo.generateShareInfo(cvs);
+                if (pbData != null && pbData.cvu() != null && pbData.cvu().size() > 0) {
+                    shareItem.dQL = ShareItem.ForwardInfo.generateForwardInfo(cvs, 1, pbData.cvu().get(0));
                 } else {
-                    shareItem.dQL = ShareItem.ForwardInfo.generateForwardInfo(cvr, 1, null);
+                    shareItem.dQL = ShareItem.ForwardInfo.generateForwardInfo(cvs, 1, null);
                 }
                 TbadkCoreApplication.getInst().setShareItem(shareItem);
-                if (cvr != null) {
-                    shareItem.dQR = cvr.getShareImageUrl();
+                if (cvs != null) {
+                    shareItem.dQR = cvs.getShareImageUrl();
                 }
-                shareItem.dQE = y(cvr);
+                shareItem.dQE = y(cvs);
                 Bundle bundle = new Bundle();
                 bundle.putInt("obj_param1", shareItem.dQD);
                 bundle.putInt("obj_type", shareItem.dQH);
@@ -134,7 +134,7 @@ public class a {
                     }
                 });
                 shareDialogConfig.setFrom(ShareDialogConfig.From.PB);
-                com.baidu.tieba.c.e.bGc().b(shareDialogConfig);
+                com.baidu.tieba.c.e.bGd().b(shareDialogConfig);
             }
         }
     }
@@ -174,27 +174,27 @@ public class a {
     }
 
     private static int C(e eVar) {
-        bj cvr;
-        if (eVar != null && (cvr = eVar.cvr()) != null) {
-            if (cvr.aKE()) {
+        bj cvs;
+        if (eVar != null && (cvs = eVar.cvs()) != null) {
+            if (cvs.aKE()) {
                 return 4;
             }
-            if (cvr.aKz() == 1) {
+            if (cvs.aKz() == 1) {
                 return 3;
             }
-            if (cvr.aJr()) {
+            if (cvs.aJr()) {
                 return 5;
             }
-            if (cvr.aJs()) {
+            if (cvs.aJs()) {
                 return 6;
             }
-            if (cvr.aMw()) {
+            if (cvs.aMw()) {
                 return 7;
             }
-            if (cvr.aMx()) {
+            if (cvs.aMx()) {
                 return 8;
             }
-            return cvr.aLR() ? 2 : 1;
+            return cvs.aLR() ? 2 : 1;
         }
         return 0;
     }

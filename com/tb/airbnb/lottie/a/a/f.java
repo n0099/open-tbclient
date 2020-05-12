@@ -27,16 +27,16 @@ public class f implements d, j, a.InterfaceC0784a {
         this.mOn = aVar;
         this.name = iVar.getName();
         this.lottieDrawable = fVar;
-        if (iVar.dBU() == null || iVar.dBu() == null) {
+        if (iVar.dBV() == null || iVar.dBv() == null) {
             this.mOx = null;
             this.mOp = null;
             return;
         }
         this.path.setFillType(iVar.hX());
-        this.mOx = iVar.dBU().dBo();
+        this.mOx = iVar.dBV().dBp();
         this.mOx.b(this);
         aVar.a(this.mOx);
-        this.mOp = iVar.dBu().dBo();
+        this.mOp = iVar.dBv().dBp();
         this.mOp.b(this);
         aVar.a(this.mOp);
     }

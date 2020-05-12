@@ -31,7 +31,7 @@ public final class SynchronizedLazyImpl<T> implements Serializable, d<T> {
                 if (t == k.mXb) {
                     kotlin.jvm.a.a<? extends T> aVar = this.initializer;
                     if (aVar == null) {
-                        q.dDR();
+                        q.dDS();
                     }
                     T invoke = aVar.invoke();
                     this._value = invoke;

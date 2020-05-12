@@ -12,7 +12,7 @@ abstract class b<E> extends d<E> {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final LinkedQueueNode<E> dIj() {
+    public final LinkedQueueNode<E> dIk() {
         return (LinkedQueueNode) ae.noE.d(this, nop);
     }
 }

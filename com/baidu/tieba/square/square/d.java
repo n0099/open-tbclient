@@ -5,7 +5,7 @@ import org.json.JSONObject;
 public class d extends com.baidu.tieba.square.data.a {
     private e kNT;
 
-    public e cUY() {
+    public e cUZ() {
         return this.kNT;
     }
 

@@ -69,7 +69,7 @@ public final class CompletableConcat extends a {
                     }
                 }
                 if (this.prefetch == Integer.MAX_VALUE) {
-                    this.queue = new io.reactivex.internal.queue.a(io.reactivex.g.dCx());
+                    this.queue = new io.reactivex.internal.queue.a(io.reactivex.g.dCy());
                 } else {
                     this.queue = new SpscArrayQueue(this.prefetch);
                 }

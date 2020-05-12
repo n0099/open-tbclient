@@ -605,7 +605,7 @@ public class b implements com.baidu.tieba.tbadkCore.e.b {
                     shareItem.dQw = true;
                     ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this.mContext, shareItem, true, (SparseArray<String>) null);
                     shareDialogConfig.mShowMoreForumShare = true;
-                    com.baidu.tieba.c.e.bGc().b(shareDialogConfig);
+                    com.baidu.tieba.c.e.bGd().b(shareDialogConfig);
                     return "";
                 }
                 if (optInt == 0) {

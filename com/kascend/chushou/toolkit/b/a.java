@@ -33,7 +33,7 @@ public class a {
     });
     private tv.chushou.zues.toolkit.a.a.a mDa;
 
-    public static a dyB() {
+    public static a dyC() {
         if (mDc == null) {
             synchronized (a.class) {
                 if (mDc == null) {
@@ -135,7 +135,7 @@ public class a {
     }
 
     private void b(String str, View view) {
-        tv.chushou.a.a.b.a.dJA().M(new b(new c(str, view)));
+        tv.chushou.a.a.b.a.dJB().M(new b(new c(str, view)));
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [195=5, 197=4, 198=4, 199=4] */
@@ -242,7 +242,7 @@ public class a {
                         try {
                             if (ON == null && (Qj = this.mDa.Qj(Qk)) != null) {
                                 OutputStream JI = Qj.JI(0);
-                                Http http = (Http) tv.chushou.basis.d.b.dJr().S(Http.class);
+                                Http http = (Http) tv.chushou.basis.d.b.dJs().S(Http.class);
                                 if (http == null) {
                                     Qj.abort();
                                     drawable = ON;

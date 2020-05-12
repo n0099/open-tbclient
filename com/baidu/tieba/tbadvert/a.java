@@ -25,7 +25,7 @@ public class a implements com.baidu.tbadk.r.a {
         @Override // com.baidu.tieba.tbadvert.b.a.InterfaceC0678a
         public void a(com.baidu.tieba.tbadvert.a.a aVar) {
             if (j.isNetWorkAvailable()) {
-                a.this.kWw.cXO();
+                a.this.kWw.cXP();
             } else if (a.this.kWv != null) {
                 a.this.kWv.LH();
             }
@@ -34,17 +34,17 @@ public class a implements com.baidu.tbadk.r.a {
                     @Override // java.lang.Runnable
                     public void run() {
                         if (j.isNetWorkAvailable() && j.isWifiNet()) {
-                            a.this.kWw.cXP();
+                            a.this.kWw.cXQ();
                         }
                     }
                 }, 800L);
             } else if (j.isNetWorkAvailable() && j.isWifiNet()) {
-                a.this.kWw.cXP();
+                a.this.kWw.cXQ();
             }
         }
 
         @Override // com.baidu.tieba.tbadvert.b.a.InterfaceC0678a
-        public void cXI() {
+        public void cXJ() {
             if (a.this.isActive && a.this.kWv != null) {
                 a.this.kWv.LH();
             }
@@ -52,33 +52,33 @@ public class a implements com.baidu.tbadk.r.a {
 
         @Override // com.baidu.tieba.tbadvert.b.a.InterfaceC0678a
         public void aE(Object obj) {
-            com.baidu.tieba.tbadvert.a.b cXN;
-            if (a.this.isActive && (cXN = a.this.kWw.cXN()) != null) {
+            com.baidu.tieba.tbadvert.a.b cXO;
+            if (a.this.isActive && (cXO = a.this.kWw.cXO()) != null) {
                 an b = com.baidu.tieba.s.a.b("a064", "common_fill", true, 1);
                 if (i.G(a.this.mContext) != null) {
-                    c.cVo().b(i.G(a.this.mContext).getUniqueId(), b);
+                    c.cVp().b(i.G(a.this.mContext).getUniqueId(), b);
                 }
-                a.this.kWu.f(obj, ((int) cXN.showTime) / 1000);
+                a.this.kWu.f(obj, ((int) cXO.showTime) / 1000);
                 if (a.this.kWv != null) {
-                    a.this.kWv.g(String.valueOf(cXN.id), cXN.bhp(), cXN.isFullScreen());
+                    a.this.kWv.g(String.valueOf(cXO.id), cXO.bhp(), cXO.isFullScreen());
                 }
             }
         }
     };
     private a.InterfaceC0679a kWy = new a.InterfaceC0679a() { // from class: com.baidu.tieba.tbadvert.a.2
         @Override // com.baidu.tieba.tbadvert.view.a.InterfaceC0679a
-        public void cXJ() {
-            com.baidu.tieba.tbadvert.a.b cXN = a.this.kWw.cXN();
-            if (cXN != null) {
+        public void cXK() {
+            com.baidu.tieba.tbadvert.a.b cXO = a.this.kWw.cXO();
+            if (cXO != null) {
                 if (a.this.kWv != null) {
-                    a.this.kWv.aa(String.valueOf(cXN.id), cXN.bhp());
+                    a.this.kWv.aa(String.valueOf(cXO.id), cXO.bhp());
                 }
-                if (!TextUtils.isEmpty(cXN.linkUrl)) {
-                    if (!a.this.Li(cXN.linkUrl)) {
-                        ba.aOV().a((TbPageContext) i.G(a.this.mContext), new String[]{cXN.linkUrl}, true);
+                if (!TextUtils.isEmpty(cXO.linkUrl)) {
+                    if (!a.this.Li(cXO.linkUrl)) {
+                        ba.aOV().a((TbPageContext) i.G(a.this.mContext), new String[]{cXO.linkUrl}, true);
                         return;
                     }
-                    final String str = cXN.linkUrl;
+                    final String str = cXO.linkUrl;
                     e.lb().postDelayed(new Runnable() { // from class: com.baidu.tieba.tbadvert.a.2.1
                         @Override // java.lang.Runnable
                         public void run() {
@@ -90,7 +90,7 @@ public class a implements com.baidu.tbadk.r.a {
         }
 
         @Override // com.baidu.tieba.tbadvert.view.a.InterfaceC0679a
-        public void cXK() {
+        public void cXL() {
             if (a.this.kWv != null) {
                 a.this.kWv.aHn();
             }
@@ -124,7 +124,7 @@ public class a implements com.baidu.tbadk.r.a {
 
     @Override // com.baidu.tbadk.r.a
     public void aZW() {
-        this.kWw.cXM();
+        this.kWw.cXN();
     }
 
     @Override // com.baidu.tbadk.r.a

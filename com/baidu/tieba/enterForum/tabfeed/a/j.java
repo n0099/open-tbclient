@@ -44,7 +44,7 @@ public class j extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.enterForu
         a(new v() { // from class: com.baidu.tieba.enterForum.tabfeed.a.j.1
             @Override // com.baidu.adp.widget.ListView.v
             public void a(View view, m mVar, BdUniqueId bdUniqueId, ViewGroup viewGroup2, int i, long j) {
-                aVar.bJv();
+                aVar.bJw();
                 an anVar = new an("c13647");
                 anVar.t("uid", TbadkApplication.getCurrentAccountId());
                 anVar.af("obj_id", j.this.getPositionByType(i) + 1);
@@ -59,16 +59,16 @@ public class j extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.enterForu
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.enterForum.tabfeed.b.d dVar, com.baidu.tieba.card.a.a<a> aVar) {
-        if (dVar == null || aVar == null || aVar.bFz() == null) {
+        if (dVar == null || aVar == null || aVar.bFA() == null) {
             return null;
         }
-        aVar.bFz().a(dVar);
+        aVar.bFA().a(dVar);
         an anVar = new an("c13646");
         anVar.t("uid", TbadkApplication.getCurrentAccountId());
         anVar.af("obj_id", getPositionByType(i) + 1);
         anVar.cI("resource_id", this.mTabName);
         TiebaStatic.log(anVar);
-        return aVar.bFz().getView();
+        return aVar.bFA().getView();
     }
 
     /* loaded from: classes9.dex */
@@ -111,7 +111,7 @@ public class j extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.enterForu
             onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         }
 
-        public void bJv() {
+        public void bJw() {
             if (!TextUtils.isEmpty(this.gGZ)) {
                 ba.aOV().b(this.mPageContext, new String[]{this.gGZ});
             }
@@ -120,7 +120,7 @@ public class j extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.enterForu
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (view == this.gGY) {
-                bJv();
+                bJw();
             }
         }
     }

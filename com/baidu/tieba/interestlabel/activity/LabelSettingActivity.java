@@ -26,11 +26,11 @@ public class LabelSettingActivity extends BaseActivity<LabelSettingActivity> imp
         this.iFZ = new LabelSettingModel(getPageContext());
         setContentView(this.iFY);
         this.iFZ.a(this);
-        clN();
+        clO();
     }
 
     @Override // com.baidu.tieba.interestlabel.model.a
-    public void clN() {
+    public void clO() {
         if (!j.isNetworkAvailableForImmediately()) {
             this.iFY.hideLoadingView();
             this.iFY.lV(true);
@@ -38,7 +38,7 @@ public class LabelSettingActivity extends BaseActivity<LabelSettingActivity> imp
         }
         this.iFY.blr();
         this.iFY.fK(true);
-        this.iFZ.clT();
+        this.iFZ.clU();
     }
 
     @Override // com.baidu.tieba.interestlabel.model.a
@@ -55,7 +55,7 @@ public class LabelSettingActivity extends BaseActivity<LabelSettingActivity> imp
         switch (labelRequestEnum) {
             case GET_LABEL:
                 this.iFY.hideLoadingView();
-                if (bVar == null || v.isEmpty(bVar.clR())) {
+                if (bVar == null || v.isEmpty(bVar.clS())) {
                     this.iFY.lV(true);
                     return;
                 }
@@ -83,7 +83,7 @@ public class LabelSettingActivity extends BaseActivity<LabelSettingActivity> imp
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (i == 4 && this.iFY != null && this.iFY.cmd()) {
+        if (i == 4 && this.iFY != null && this.iFY.cme()) {
             this.iFY.showDialog();
             return true;
         }

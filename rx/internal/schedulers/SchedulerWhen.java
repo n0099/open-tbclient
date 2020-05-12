@@ -20,16 +20,16 @@ public class SchedulerWhen extends rx.g implements k {
             return false;
         }
     };
-    static final k nnJ = rx.subscriptions.e.dIZ();
+    static final k nnJ = rx.subscriptions.e.dJa();
     private final rx.g nnF;
     private final rx.e<rx.d<rx.b>> nnG;
     private final k nnH;
 
     public SchedulerWhen(rx.functions.f<rx.d<rx.d<rx.b>>, rx.b> fVar, rx.g gVar) {
         this.nnF = gVar;
-        PublishSubject dIO = PublishSubject.dIO();
-        this.nnG = new rx.b.d(dIO);
-        this.nnH = fVar.call(dIO.dHr()).dHi();
+        PublishSubject dIP = PublishSubject.dIP();
+        this.nnG = new rx.b.d(dIP);
+        this.nnH = fVar.call(dIP.dHs()).dHj();
     }
 
     @Override // rx.k
@@ -47,9 +47,9 @@ public class SchedulerWhen extends rx.g implements k {
     @Override // rx.g
     public g.a createWorker() {
         final g.a createWorker = this.nnF.createWorker();
-        BufferUntilSubscriber dHF = BufferUntilSubscriber.dHF();
-        final rx.b.d dVar = new rx.b.d(dHF);
-        Object d = dHF.d(new rx.functions.f<ScheduledAction, rx.b>() { // from class: rx.internal.schedulers.SchedulerWhen.1
+        BufferUntilSubscriber dHG = BufferUntilSubscriber.dHG();
+        final rx.b.d dVar = new rx.b.d(dHG);
+        Object d = dHG.d(new rx.functions.f<ScheduledAction, rx.b>() { // from class: rx.internal.schedulers.SchedulerWhen.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // rx.functions.f
             /* renamed from: a */

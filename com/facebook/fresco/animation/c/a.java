@@ -125,7 +125,7 @@ public class a extends Drawable implements Animatable, com.facebook.b.a.a {
                 this.lYl = I;
             }
             if (!a) {
-                dpM();
+                dpN();
             }
             long j = -1;
             long j2 = -1;
@@ -177,7 +177,7 @@ public class a extends Drawable implements Animatable, com.facebook.b.a.a {
         scheduleSelf(this.lYr, this.lYk);
     }
 
-    private void dpM() {
+    private void dpN() {
         this.lYo++;
         if (com.facebook.common.c.a.isLoggable(2)) {
             com.facebook.common.c.a.a(lQq, "Dropped a frame. Count: %s", Integer.valueOf(this.lYo));
@@ -207,7 +207,7 @@ public class a extends Drawable implements Animatable, com.facebook.b.a.a {
     }
 
     @Override // com.facebook.b.a.a
-    public void dnI() {
+    public void dnJ() {
         if (this.lXB != null) {
             this.lXB.clear();
         }

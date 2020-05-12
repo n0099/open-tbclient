@@ -25,7 +25,7 @@ public class a {
                 z = a.this.b(B);
             }
             if (!z) {
-                return a.this.dGp();
+                return a.this.dGq();
             }
             return z;
         }
@@ -59,7 +59,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean dGp() {
+    public boolean dGq() {
         f.a onDanmakuClickListener = this.nfd.getOnDanmakuClickListener();
         if (onDanmakuClickListener != null) {
             return onDanmakuClickListener.a(this.nfd);
@@ -79,7 +79,7 @@ public class a {
                 /* renamed from: e */
                 public int bF(master.flame.danmaku.danmaku.model.d dVar2) {
                     if (dVar2 != null) {
-                        a.this.nfe.set(dVar2.dFk(), dVar2.dFl(), dVar2.dFm(), dVar2.dFn());
+                        a.this.nfe.set(dVar2.dFl(), dVar2.dFm(), dVar2.dFn(), dVar2.dFo());
                         if (a.this.nfe.contains(f, f2)) {
                             dVar.k(dVar2);
                             return 0;
@@ -95,8 +95,8 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean P(MotionEvent motionEvent) {
-        master.flame.danmaku.danmaku.model.d dFy;
+        master.flame.danmaku.danmaku.model.d dFz;
         l B = B(motionEvent.getX(), motionEvent.getY());
-        return (B == null || B.isEmpty() || (dFy = B.dFy()) == null || dFy.tag == null) ? false : true;
+        return (B == null || B.isEmpty() || (dFz = B.dFz()) == null || dFz.tag == null) ? false : true;
     }
 }

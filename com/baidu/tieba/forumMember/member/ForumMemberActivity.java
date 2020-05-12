@@ -47,7 +47,7 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
             ForumMemberActivity.this.gUK.mi(z);
             if (z) {
                 if (v.isEmpty(ForumMemberActivity.this.gUJ)) {
-                    ForumMemberActivity.this.bNa();
+                    ForumMemberActivity.this.bNb();
                 } else {
                     ForumMemberActivity.this.gUK.startPullRefresh();
                 }
@@ -66,7 +66,7 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
         this.gUL.setTag(getUniqueId());
         this.gUL.init();
         this.gUL.a(this.gUM);
-        bNa();
+        bNb();
     }
 
     private void initBundle(Bundle bundle) {
@@ -121,12 +121,12 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
         if (com.baidu.adp.lib.util.j.isNetworkAvailableForImmediately()) {
-            bNa();
+            bNb();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bNa() {
+    public void bNb() {
         this.gUK.showLoadingView();
         e eVar = this.gUL;
         e eVar2 = this.gUL;

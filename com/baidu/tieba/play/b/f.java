@@ -12,12 +12,12 @@ public class f {
         this.mList.add(new a(str, str2, str3));
     }
 
-    public String cKR() {
+    public String cKS() {
         JSONObject jSONObject = new JSONObject();
         try {
             int size = this.mList.size();
             for (int i = 0; i < size; i++) {
-                jSONObject.put(i + "", this.mList.get(i).cKS());
+                jSONObject.put(i + "", this.mList.get(i).cKT());
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -37,7 +37,7 @@ public class f {
             this.kkX = str3;
         }
 
-        public JSONObject cKS() {
+        public JSONObject cKT() {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("uuid", this.uuid);

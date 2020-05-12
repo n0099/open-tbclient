@@ -12,7 +12,7 @@ public class e {
     private boolean gje;
     private int status = 0;
 
-    public int bDO() {
+    public int bDP() {
         return this.gjc;
     }
 
@@ -20,23 +20,23 @@ public class e {
         return this.status;
     }
 
-    public long bDP() {
+    public long bDQ() {
         return this.giY;
     }
 
-    public long bDQ() {
+    public long bDR() {
         return this.gja;
     }
 
-    public long bDR() {
+    public long bDS() {
         return this.gjb;
     }
 
-    public long bDS() {
+    public long bDT() {
         return this.giZ;
     }
 
-    public boolean bDT() {
+    public boolean bDU() {
         return this.gje;
     }
 

@@ -10,11 +10,11 @@ public class b implements i {
     private boolean gTP = false;
 
     @Override // com.baidu.tieba.forumMember.bawu.i
-    public int bMS() {
+    public int bMT() {
         return 1;
     }
 
-    public ArrayList<BawuRoleInfoPub> bMT() {
+    public ArrayList<BawuRoleInfoPub> bMU() {
         return this.mMembers;
     }
 
@@ -30,7 +30,7 @@ public class b implements i {
         this.isLast = z;
     }
 
-    public boolean bMU() {
+    public boolean bMV() {
         return this.gTP;
     }
 
@@ -38,7 +38,7 @@ public class b implements i {
         this.gTP = z;
     }
 
-    public String bMV() {
+    public String bMW() {
         return this.gTQ;
     }
 

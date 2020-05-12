@@ -47,11 +47,11 @@ public class c implements com.facebook.cache.common.b {
 
     @Override // com.facebook.cache.common.b
     public boolean E(Uri uri) {
-        return dmh().contains(uri.toString());
+        return dmi().contains(uri.toString());
     }
 
     @Override // com.facebook.cache.common.b
-    public String dmh() {
+    public String dmi() {
         return this.mae;
     }
 

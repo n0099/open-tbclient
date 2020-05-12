@@ -59,7 +59,7 @@ public class c implements CookieManager {
         lAc = "BAIDUCUID=" + AppCuidRuntime.getAppCuidManager().getCuid() + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR + "BDUSS=" + str;
     }
 
-    public static void dfL() {
+    public static void dfM() {
         lAc = "";
     }
 

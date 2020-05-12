@@ -133,11 +133,11 @@ public class k extends com.baidu.adp.base.c<GroupLevelActivity> {
         this.imn.setText(string);
     }
 
-    public View cfR() {
+    public View cfS() {
         return this.idP;
     }
 
-    public TextView cfS() {
+    public TextView cfT() {
         return this.imm;
     }
 
@@ -147,11 +147,11 @@ public class k extends com.baidu.adp.base.c<GroupLevelActivity> {
         this.mNavigationBar.onChangeSkinType(this.ilU.getPageContext(), i);
     }
 
-    public TextView[] cfT() {
+    public TextView[] cfU() {
         return this.imj;
     }
 
-    public TextView[] cfU() {
+    public TextView[] cfV() {
         return this.imk;
     }
 
@@ -183,7 +183,7 @@ public class k extends com.baidu.adp.base.c<GroupLevelActivity> {
         this.ilZ.setText(this.iml[i]);
     }
 
-    public TextView cfV() {
+    public TextView cfW() {
         return this.imb;
     }
 

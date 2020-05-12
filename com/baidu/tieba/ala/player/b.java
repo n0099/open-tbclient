@@ -237,7 +237,7 @@ public class b extends BdBaseView<TbPageContext> {
         this.gev = new com.baidu.live.o.a() { // from class: com.baidu.tieba.ala.player.b.17
             @Override // com.baidu.live.o.a
             public void bL(boolean z) {
-                if (b.this.gdQ != null) {
+                if (!TbadkCoreApplication.getInst().isHaokan() && !TbadkCoreApplication.getInst().isQuanmin() && b.this.gdQ != null) {
                     if (!z) {
                         b.this.gdQ.asl();
                         return;
@@ -940,68 +940,15 @@ public class b extends BdBaseView<TbPageContext> {
     }
 
     public void H(boolean z, boolean z2) {
-        long j;
         kc(!z);
         if (this.gdQ != null) {
             this.gdQ.destroy();
         }
         this.mHandler.removeCallbacksAndMessages(null);
         bCB();
-        if (this.fIM == null || this.fIM.bzp() == null) {
-            j = -1;
-        } else {
+        long j = -1;
+        if (this.fIM != null && this.fIM.bzp() != null) {
             j = this.fIM.bzp().room_id;
-        }
-        if (this.gey != null) {
-            MessageManager.getInstance().unRegisterListener(this.gey);
-        }
-        if (this.gez != null) {
-            MessageManager.getInstance().unRegisterListener(this.gez);
-        }
-        MessageManager.getInstance().unRegisterListener(this.geA);
-        MessageManager.getInstance().unRegisterListener(this.fKV);
-        MessageManager.getInstance().unRegisterListener(this.fKU);
-        MessageManager.getInstance().unRegisterListener(this.geB);
-        MessageManager.getInstance().unRegisterListener(this.geC);
-        MessageManager.getInstance().unRegisterListener(this.geD);
-        if (this.geu != null) {
-            this.geu.release();
-        }
-        if (this.gdO != null) {
-            this.gdO.onDestory();
-        }
-        if (this.gdP != null) {
-            this.gdP.reset();
-        }
-        if (this.gdZ != null) {
-            this.gdZ.onDestroy();
-        }
-        if (this.gdY != null) {
-            this.gdY.onDestroy();
-        }
-        if (this.gef != null && this.fIM != null && this.fIM.DM() != null) {
-            long j2 = this.fIM.DM().mLiveInfo.live_id;
-            if (this.gef.liveId == j2 && this.gef.startTime > 0) {
-                this.gef.endTime = System.currentTimeMillis();
-                long j3 = this.gef.endTime - this.gef.startTime;
-                if (j3 < 0) {
-                    j3 = 0;
-                }
-                LogManager.getLiveCloseLogger().doNoticeStaytimeLiveCloseGuestLog(j2 + "", this.gef.roomId + "", this.gef.vid, j3 / 1000, this.otherParams);
-            }
-            this.gef = null;
-        }
-        if (this.fIM != null) {
-            this.fIM.destory();
-        }
-        ILiveGoodsLogger.displayStoreIconMap.clear();
-        ILiveGoodsLogger.displayGoodsListMap.clear();
-        ILiveGoodsLogger.displayGoodsGuideMap.clear();
-        m.Gg();
-        com.baidu.live.entereffect.a.vn().release();
-        s.wU().release();
-        if (this.gei != null) {
-            this.gei.release();
         }
         this.gdK.a(z, z2, j);
         UbcStatisticManager.getInstance().liveRoomFlowEnd(new UbcStatisticItem("1397", LogConfig.KEY_NOTICE, "liveroom", LogConfig.VALUE_STAYTIME));
@@ -1160,26 +1107,28 @@ public class b extends BdBaseView<TbPageContext> {
                 if (BdLog.isDebugMode()) {
                     BdLog.e("AlaLivePlayer onPageChange,mLivePlayer.isPlaying()=" + this.gdQ.isPlaying() + "|curPlayLiveUrl=" + videoPath + "|nextPlayLiveUrl=" + c);
                 }
-                if (!com.baidu.live.o.h.ak(videoPath, c)) {
-                    if (!TbadkCoreApplication.getInst().isTieba() || !z || !com.baidu.live.o.h.aj(videoPath, c)) {
-                        if (!z && !alaLiveRoomBlurPageLayout.bH(this.gdQ)) {
-                            ((ViewGroup) this.gdQ.getParent()).removeView(this.gdQ);
-                            alaLiveRoomBlurPageLayout.a(this.gdQ, null, false);
-                        }
-                        if (BdLog.isDebugMode()) {
-                            BdLog.e("AlaLivePlayer onPageChange,parent not null, startLivePlay");
-                        }
-                        if (!this.gdU) {
-                            this.gdQ.b(alaLiveInfoData);
-                            return;
-                        } else {
-                            this.gdQ.setPlayLiveInfo(alaLiveInfoData);
-                            return;
-                        }
-                    }
+                if (com.baidu.live.o.h.ak(videoPath, c)) {
+                    this.gdQ.setPlayLiveInfo(alaLiveInfoData);
                     return;
+                } else if (TbadkCoreApplication.getInst().isTieba() && z && com.baidu.live.o.h.aj(videoPath, c)) {
+                    this.gdQ.setPlayLiveInfo(alaLiveInfoData);
+                    return;
+                } else {
+                    if (!z && !alaLiveRoomBlurPageLayout.bH(this.gdQ)) {
+                        ((ViewGroup) this.gdQ.getParent()).removeView(this.gdQ);
+                        alaLiveRoomBlurPageLayout.a(this.gdQ, null, false);
+                    }
+                    if (BdLog.isDebugMode()) {
+                        BdLog.e("AlaLivePlayer onPageChange,parent not null, startLivePlay");
+                    }
+                    if (!this.gdU) {
+                        this.gdQ.b(alaLiveInfoData);
+                        return;
+                    } else {
+                        this.gdQ.setPlayLiveInfo(alaLiveInfoData);
+                        return;
+                    }
                 }
-                return;
             }
             this.gdQ.bCY();
         } else if (this.gdQ != null && this.gdQ.getParent() == null) {
@@ -1710,8 +1659,8 @@ public class b extends BdBaseView<TbPageContext> {
     }
 
     private void bCL() {
-        InputMethodManager inputMethodManager = (InputMethodManager) this.mTbPageContext.getPageActivity().getSystemService("input_method");
-        if (inputMethodManager != null && inputMethodManager.isActive()) {
+        InputMethodManager inputMethodManager;
+        if (this.mTbPageContext != null && this.mTbPageContext.getPageActivity() != null && (inputMethodManager = (InputMethodManager) this.mTbPageContext.getPageActivity().getSystemService("input_method")) != null && inputMethodManager.isActive()) {
             BdUtilHelper.hideSoftKeyPad(this.mContext.getPageActivity(), this.gdM);
         }
     }
@@ -1806,7 +1755,9 @@ public class b extends BdBaseView<TbPageContext> {
         bCJ();
         bCI();
         this.fIM.bzf();
-        if (!this.gdQ.isPlaying()) {
+        if (TbadkCoreApplication.getInst().isHaokan() || TbadkCoreApplication.getInst().isQuanmin()) {
+            this.gdQ.bCZ();
+        } else if (!this.gdQ.isPlaying()) {
             this.gdQ.bCZ();
         }
         if (this.gdZ != null) {
@@ -1843,7 +1794,9 @@ public class b extends BdBaseView<TbPageContext> {
         this.mHandler.removeCallbacks(this.ger);
         this.mHandler.removeCallbacks(this.ges);
         this.mHandler.removeCallbacks(this.get);
-        if (!z) {
+        if (TbadkCoreApplication.getInst().isHaokan() || TbadkCoreApplication.getInst().isQuanmin()) {
+            this.gdQ.asl();
+        } else if (!z) {
             this.gdQ.asl();
         }
         if (this.gdZ != null) {
@@ -1873,8 +1826,32 @@ public class b extends BdBaseView<TbPageContext> {
     public void destroy() {
         super.destroy();
         this.mHandler.removeCallbacksAndMessages(null);
+        if (this.gey != null) {
+            MessageManager.getInstance().unRegisterListener(this.gey);
+        }
+        if (this.gez != null) {
+            MessageManager.getInstance().unRegisterListener(this.gez);
+        }
+        MessageManager.getInstance().unRegisterListener(this.geA);
+        MessageManager.getInstance().unRegisterListener(this.fKV);
+        MessageManager.getInstance().unRegisterListener(this.fKU);
+        MessageManager.getInstance().unRegisterListener(this.geB);
+        MessageManager.getInstance().unRegisterListener(this.geC);
+        MessageManager.getInstance().unRegisterListener(this.geD);
+        if (this.geu != null) {
+            this.geu.release();
+        }
         if (this.gdQ != null) {
             this.gdQ.bM(true);
+        }
+        if (this.gdO != null) {
+            this.gdO.onDestory();
+        }
+        if (this.gdP != null) {
+            this.gdP.reset();
+        }
+        if (this.gdZ != null) {
+            this.gdZ.onDestroy();
         }
         if (this.gdN != null) {
             this.gdN.onDestroy();
@@ -1884,10 +1861,35 @@ public class b extends BdBaseView<TbPageContext> {
             this.gdL.release();
             this.gdL = null;
         }
+        if (this.gdY != null) {
+            this.gdY.onDestroy();
+        }
+        if (this.gef != null && this.fIM != null && this.fIM.DM() != null) {
+            long j = this.fIM.DM().mLiveInfo.live_id;
+            if (this.gef.liveId == j && this.gef.startTime > 0) {
+                this.gef.endTime = System.currentTimeMillis();
+                long j2 = this.gef.endTime - this.gef.startTime;
+                LogManager.getLiveCloseLogger().doNoticeStaytimeLiveCloseGuestLog(j + "", this.gef.roomId + "", this.gef.vid, (j2 >= 0 ? j2 : 0L) / 1000, this.otherParams);
+            }
+            this.gef = null;
+        }
         if (this.fJb != null) {
             this.fJb.bAF();
             this.fJb = null;
         }
+        if (this.fIM != null) {
+            this.fIM.destory();
+        }
+        ILiveGoodsLogger.displayStoreIconMap.clear();
+        ILiveGoodsLogger.displayGoodsListMap.clear();
+        ILiveGoodsLogger.displayGoodsGuideMap.clear();
+        m.Gg();
+        com.baidu.live.entereffect.a.vn().release();
+        s.wU().release();
+        if (this.gei != null) {
+            this.gei.release();
+        }
+        UbcStatisticManager.getInstance().liveRoomFlowEnd(new UbcStatisticItem("1397", LogConfig.KEY_NOTICE, "liveroom", LogConfig.VALUE_STAYTIME));
     }
 
     public String Cq() {

@@ -25,15 +25,15 @@ public class BarVoteActivity extends BaseActivity {
             if (BarVoteActivity.this.ghF != null && BarVoteActivity.this.ghF.getRootView() != null) {
                 BarVoteActivity.this.hideLoadingView(BarVoteActivity.this.ghF.getRootView());
                 if (i == 0) {
-                    if (fVar == null || fVar.bDW() == null || fVar.bDW().getStatus() < 1 || fVar.bDW().getStatus() > 2) {
+                    if (fVar == null || fVar.bDX() == null || fVar.bDX().getStatus() < 1 || fVar.bDX().getStatus() > 2) {
                         if (BarVoteActivity.this.ghE != null && BarVoteActivity.this.ghE.mPn == 0) {
                             if (BarVoteActivity.this.ghF.getListView() != null) {
                                 BarVoteActivity.this.ghF.getListView().setVisibility(8);
                             }
-                            if (fVar == null || fVar.bDW() == null) {
+                            if (fVar == null || fVar.bDX() == null) {
                                 BarVoteActivity.this.ghF.By(TbadkCoreApplication.getInst().getString(R.string.no_data_text));
                                 return;
-                            } else if (fVar.bDW().getStatus() < 1 || fVar.bDW().getStatus() > 2) {
+                            } else if (fVar.bDX().getStatus() < 1 || fVar.bDX().getStatus() > 2) {
                                 BarVoteActivity.this.ghF.By(TbadkCoreApplication.getInst().getString(R.string.error_status));
                                 return;
                             } else {
@@ -92,7 +92,7 @@ public class BarVoteActivity extends BaseActivity {
         new an("c13440").af("obj_source", this.source).aOO();
     }
 
-    public void bDx() {
+    public void bDy() {
         if (this.ghE != null) {
             this.ghE.bkZ();
         }
@@ -106,7 +106,7 @@ public class BarVoteActivity extends BaseActivity {
 
     public void refresh() {
         if (this.ghE != null) {
-            this.ghE.bDF();
+            this.ghE.bDG();
         }
     }
 
@@ -115,10 +115,10 @@ public class BarVoteActivity extends BaseActivity {
         if (view.getId() == R.id.right_textview) {
             ba.aOV().b(getPageContext(), new String[]{"http://c.tieba.baidu.com/mo/q/bzrecruitrule?nomenu=1"});
         } else if (view.getId() == R.id.pb_more) {
-            if (this.ghF != null && this.ghF.bDH() != null) {
-                this.ghF.bDH().showLoading();
+            if (this.ghF != null && this.ghF.bDI() != null) {
+                this.ghF.bDI().showLoading();
             }
-            bDx();
+            bDy();
         }
     }
 

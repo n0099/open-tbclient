@@ -79,7 +79,7 @@ public class a<T> {
         return this.subType;
     }
 
-    public T cjm() {
+    public T cjn() {
         return this.payload;
     }
 }

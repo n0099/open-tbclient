@@ -15,7 +15,7 @@ public class a implements com.baidu.tbadk.core.flow.a.a {
         }
     }
 
-    public String cGi() {
+    public String cGj() {
         return this.jTg;
     }
 

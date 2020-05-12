@@ -75,7 +75,7 @@ public class pbPageSocketResponseMessage extends SocketResponsedMessage {
             if (e != null) {
                 arrayList.add(e);
             }
-            com.baidu.tieba.recapp.report.b.cOc().en(arrayList);
+            com.baidu.tieba.recapp.report.b.cOd().en(arrayList);
         }
         BdLog.detailException(null);
     }
@@ -85,10 +85,10 @@ public class pbPageSocketResponseMessage extends SocketResponsedMessage {
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         switch (this.updateType) {
             case 3:
-                i.cxg().a(this.cacheKey, this.isFromMark, bArr);
+                i.cxh().a(this.cacheKey, this.isFromMark, bArr);
                 return;
             case 4:
-                i.cxg().n(this.cacheKey, bArr);
+                i.cxh().n(this.cacheKey, bArr);
                 return;
             default:
                 return;

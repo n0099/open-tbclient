@@ -20,7 +20,7 @@ public class a extends h<ICardInfo, b> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: bg */
     public b b(ViewGroup viewGroup) {
-        e a = com.baidu.tieba.lego.card.b.cmB().a(this.mPageContext, this.hqE, 1);
+        e a = com.baidu.tieba.lego.card.b.cmC().a(this.mPageContext, this.hqE, 1);
         if (a == null) {
             return null;
         }

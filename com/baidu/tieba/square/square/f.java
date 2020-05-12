@@ -34,10 +34,10 @@ public class f extends ProxyAdkBaseActivity<Object> implements SwipeBackLayout.c
             f.this.kOb.z(true, "");
             f.this.hideLoadingView(f.this.kOb.getRootView());
             if (z && hVar != null && !hVar.isEmpty()) {
-                f.this.kOb.c(f.this.kOc.cVg());
+                f.this.kOb.c(f.this.kOc.cVh());
                 f.this.kOd = true;
                 f.this.kOb.hideNoDataView();
-                f.this.bLa();
+                f.this.bLb();
             }
             if (f.this.kOe) {
                 f.this.kOe = false;
@@ -49,7 +49,7 @@ public class f extends ProxyAdkBaseActivity<Object> implements SwipeBackLayout.c
             } else {
                 if (f.this.gBb > -1) {
                     long currentTimeMillis = System.currentTimeMillis();
-                    TiebaStatic.page(TiebaInitialize.OpKey.OP_SQUARE_ENTER, currentTimeMillis - f.this.gBb, f.this.kOc.bIW() - f.this.gBb, f.this.kOc.bIU(), f.this.kOc.bIV(), currentTimeMillis - f.this.kOc.bIT());
+                    TiebaStatic.page(TiebaInitialize.OpKey.OP_SQUARE_ENTER, currentTimeMillis - f.this.gBb, f.this.kOc.bIX() - f.this.gBb, f.this.kOc.bIV(), f.this.kOc.bIW(), currentTimeMillis - f.this.kOc.bIU());
                     f.this.gBb = -1L;
                 }
                 if (!f.this.kOd) {
@@ -61,15 +61,15 @@ public class f extends ProxyAdkBaseActivity<Object> implements SwipeBackLayout.c
                 }
             }
             if (!com.baidu.adp.lib.util.j.isNetWorkAvailable()) {
-                f.this.kOb.cVj();
+                f.this.kOb.cVk();
                 if (!f.this.kOd) {
-                    f.this.bKZ();
+                    f.this.bLa();
                     return;
                 }
                 return;
             }
             f.this.duK.showToast(str);
-            f.this.kOb.cVk();
+            f.this.kOb.cVl();
         }
     };
     private final NoNetworkView.a gGr = new NoNetworkView.a() { // from class: com.baidu.tieba.square.square.f.3
@@ -144,12 +144,12 @@ public class f extends ProxyAdkBaseActivity<Object> implements SwipeBackLayout.c
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bKZ() {
+    public void bLa() {
         this.kOb.c(this.gGr);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bLa() {
+    public void bLb() {
         this.kOb.d(this.gGr);
     }
 
@@ -189,7 +189,7 @@ public class f extends ProxyAdkBaseActivity<Object> implements SwipeBackLayout.c
         boolean z3;
         boolean z4 = false;
         if (this.kOc != null) {
-            boolean z5 = this.kOc.cVg() == null || this.kOc.cVg().isEmpty();
+            boolean z5 = this.kOc.cVh() == null || this.kOc.cVh().isEmpty();
             boolean z6 = z;
             if (com.baidu.adp.lib.util.j.isNetWorkAvailable()) {
                 boolean z7 = z5;
@@ -208,9 +208,9 @@ public class f extends ProxyAdkBaseActivity<Object> implements SwipeBackLayout.c
             if (z3 || z4) {
                 cancelAllAsyncTask();
                 if (z4) {
-                    this.kOc.cVh();
-                } else {
                     this.kOc.cVi();
+                } else {
+                    this.kOc.cVj();
                 }
             }
         }

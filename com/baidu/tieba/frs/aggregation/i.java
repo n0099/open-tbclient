@@ -67,19 +67,19 @@ public class i {
         }
     }
 
-    public void bRg() {
+    public void bRh() {
         if (this.hff != null) {
-            this.hff.bRg();
+            this.hff.bRh();
         }
     }
 
-    public void bRi() {
+    public void bRj() {
         if (this.hff != null && this.mHasMore) {
             this.hff.LoadData();
         }
     }
 
-    public void bRh() {
+    public void bRi() {
         if (this.hff != null) {
             this.hff.cancelLoadData();
         }

@@ -14,7 +14,7 @@ public class s implements com.baidu.adp.widget.ListView.m {
         return gVH;
     }
 
-    public int bNg() {
+    public int bNh() {
         return this.gVI;
     }
 
@@ -22,7 +22,7 @@ public class s implements com.baidu.adp.widget.ListView.m {
         this.gVI = i;
     }
 
-    public int bNe() {
+    public int bNf() {
         return this.gVz;
     }
 
@@ -30,7 +30,7 @@ public class s implements com.baidu.adp.widget.ListView.m {
         this.gVz = i;
     }
 
-    public String bNf() {
+    public String bNg() {
         return this.gVB;
     }
 

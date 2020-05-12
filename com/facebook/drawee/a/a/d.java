@@ -50,7 +50,7 @@ public class d extends com.facebook.drawee.controller.a<com.facebook.common.refe
         a(jVar);
         this.lRj = bVar;
         a(immutableList);
-        dnR();
+        dnS();
         a(bVar2);
     }
 
@@ -109,7 +109,7 @@ public class d extends com.facebook.drawee.controller.a<com.facebook.common.refe
         }
     }
 
-    protected void dnR() {
+    protected void dnS() {
         synchronized (this) {
             this.lTo = null;
         }
@@ -121,7 +121,7 @@ public class d extends com.facebook.drawee.controller.a<com.facebook.common.refe
     }
 
     @Nullable
-    public synchronized com.facebook.imagepipeline.h.c dnS() {
+    public synchronized com.facebook.imagepipeline.h.c dnT() {
         com.facebook.imagepipeline.h.c cVar;
         com.facebook.imagepipeline.h.c cVar2 = this.lTo != null ? new com.facebook.drawee.a.a.a.c(getId(), this.lTo) : null;
         if (this.lTn != null) {
@@ -138,7 +138,7 @@ public class d extends com.facebook.drawee.controller.a<com.facebook.common.refe
     }
 
     @Override // com.facebook.drawee.controller.a
-    protected com.facebook.datasource.b<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> dnT() {
+    protected com.facebook.datasource.b<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> dnU() {
         if (com.facebook.common.c.a.isLoggable(2)) {
             com.facebook.common.c.a.a(lQq, "controller %x: getDataSource", Integer.valueOf(System.identityHashCode(this)));
         }
@@ -193,17 +193,17 @@ public class d extends com.facebook.drawee.controller.a<com.facebook.common.refe
         o l;
         p.b bVar = null;
         if (this.lTl) {
-            if (dop() == null) {
+            if (doq() == null) {
                 com.facebook.drawee.b.a aVar = new com.facebook.drawee.b.a();
                 a(new com.facebook.drawee.b.a.a(aVar));
                 j(aVar);
             }
-            if (dop() instanceof com.facebook.drawee.b.a) {
-                com.facebook.drawee.b.a aVar2 = (com.facebook.drawee.b.a) dop();
+            if (doq() instanceof com.facebook.drawee.b.a) {
+                com.facebook.drawee.b.a aVar2 = (com.facebook.drawee.b.a) doq();
                 aVar2.Oi(getId());
                 com.facebook.drawee.d.b hierarchy = getHierarchy();
                 if (hierarchy != null && (l = com.facebook.drawee.drawable.p.l(hierarchy.getTopLevelDrawable())) != null) {
-                    bVar = l.doS();
+                    bVar = l.doT();
                 }
                 aVar2.a(bVar);
                 if (cVar != null) {
@@ -231,7 +231,7 @@ public class d extends com.facebook.drawee.controller.a<com.facebook.common.refe
     /* renamed from: f */
     public int aR(@Nullable com.facebook.common.references.a<com.facebook.imagepipeline.g.c> aVar) {
         if (aVar != null) {
-            return aVar.dni();
+            return aVar.dnj();
         }
         return 0;
     }
@@ -247,20 +247,20 @@ public class d extends com.facebook.drawee.controller.a<com.facebook.common.refe
     @Override // com.facebook.drawee.controller.a
     protected void i(@Nullable Drawable drawable) {
         if (drawable instanceof com.facebook.b.a.a) {
-            ((com.facebook.b.a.a) drawable).dnI();
+            ((com.facebook.b.a.a) drawable).dnJ();
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.facebook.drawee.controller.a
-    /* renamed from: dnU */
-    public com.facebook.common.references.a<com.facebook.imagepipeline.g.c> dnV() {
+    /* renamed from: dnV */
+    public com.facebook.common.references.a<com.facebook.imagepipeline.g.c> dnW() {
         if (this.lTj == null || this.lRj == null) {
             return null;
         }
         com.facebook.common.references.a<com.facebook.imagepipeline.g.c> be = this.lTj.be(this.lRj);
-        if (be == null || be.get().dsL().dsZ()) {
+        if (be == null || be.get().dsM().dta()) {
             return be;
         }
         be.close();

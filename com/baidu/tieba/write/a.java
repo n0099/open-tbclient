@@ -32,9 +32,9 @@ public abstract class a {
             }
         }
     };
-    protected View mRootView = bRx();
+    protected View mRootView = bRy();
 
-    public abstract View bRx();
+    public abstract View bRy();
 
     public a(TbPageContext tbPageContext, f fVar) {
         this.duK = tbPageContext;
@@ -44,7 +44,7 @@ public abstract class a {
     public void onChangeSkinType(int i) {
     }
 
-    public void deN() {
+    public void deO() {
     }
 
     /* loaded from: classes.dex */
@@ -93,14 +93,14 @@ public abstract class a {
                 this.lwH.setVerNum(1);
                 this.lwl = (TBLottieAnimationView) this.mRootView.findViewById(R.id.bottom_bar_background);
                 this.lwl.setSpeed(1.2f);
-                deN();
+                deO();
                 this.lwk.setOnClickListener(this.lwi);
                 this.lwk.setClickable(true);
                 this.lwy.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.a.b.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         if (b.this.lwh != null) {
-                            b.this.lwh.Mv(b.this.lwh.bVf());
+                            b.this.lwh.Mv(b.this.lwh.bVg());
                         }
                     }
                 });
@@ -108,7 +108,7 @@ public abstract class a {
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         if (b.this.lwh != null) {
-                            b.this.lwh.dfc();
+                            b.this.lwh.dfd();
                         }
                     }
                 });
@@ -116,7 +116,7 @@ public abstract class a {
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         if (b.this.lwh != null) {
-                            b.this.lwh.dfb();
+                            b.this.lwh.dfc();
                         }
                     }
                 });
@@ -124,7 +124,7 @@ public abstract class a {
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         if (b.this.lwh != null) {
-                            b.this.lwh.dfa();
+                            b.this.lwh.dfb();
                         }
                     }
                 });
@@ -132,7 +132,7 @@ public abstract class a {
         }
 
         @Override // com.baidu.tieba.write.a
-        public View bRx() {
+        public View bRy() {
             return LayoutInflater.from(this.duK.getPageActivity()).inflate(R.layout.bottom_write_thread, (ViewGroup) null);
         }
 
@@ -152,7 +152,7 @@ public abstract class a {
         }
 
         @Override // com.baidu.tieba.write.a
-        public void deN() {
+        public void deO() {
             int equipmentWidth = l.getEquipmentWidth(this.duK.getPageActivity());
             int i = (int) (0.15555556f * equipmentWidth);
             b(this.lwy, i);
@@ -221,7 +221,7 @@ public abstract class a {
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     if (C0693a.this.lwh != null) {
-                        C0693a.this.lwh.Mv(C0693a.this.lwh.bVf());
+                        C0693a.this.lwh.Mv(C0693a.this.lwh.bVg());
                     }
                 }
             });
@@ -229,7 +229,7 @@ public abstract class a {
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     if (C0693a.this.lwh != null) {
-                        C0693a.this.lwh.dfb();
+                        C0693a.this.lwh.dfc();
                     }
                 }
             });
@@ -237,7 +237,7 @@ public abstract class a {
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     if (C0693a.this.lwh != null) {
-                        C0693a.this.lwh.dfc();
+                        C0693a.this.lwh.dfd();
                     }
                 }
             });
@@ -245,7 +245,7 @@ public abstract class a {
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     if (C0693a.this.lwh != null) {
-                        C0693a.this.lwh.dfa();
+                        C0693a.this.lwh.dfb();
                     }
                 }
             });
@@ -254,7 +254,7 @@ public abstract class a {
         }
 
         @Override // com.baidu.tieba.write.a
-        public View bRx() {
+        public View bRy() {
             return LayoutInflater.from(this.duK.getPageActivity()).inflate(R.layout.home_page_bottom_write_thread, (ViewGroup) null);
         }
 

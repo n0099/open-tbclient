@@ -29,19 +29,19 @@ public class k extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.z
             public void a(View view, com.baidu.tieba.card.data.k kVar) {
-                com.baidu.tieba.card.r.bEW().jd(true);
+                com.baidu.tieba.card.r.bEX().jd(true);
                 com.baidu.tieba.a.d.bfN().cF("page_recommend", "show_");
                 if (view != null && k.this.hOH != null && kVar != null && kVar.aIu() != null && !StringUtils.isNull(kVar.aIu().getTid())) {
                     if ((view.getTag() instanceof String) && !com.baidu.tieba.homepage.personalize.f.em(com.baidu.adp.lib.f.b.toLong(kVar.aIu().getTid(), 0L))) {
                         com.baidu.tieba.homepage.personalize.f.el(com.baidu.adp.lib.f.b.toLong(kVar.aIu().getTid(), 0L));
-                        k.this.hOH.a(com.baidu.adp.lib.f.b.toLong(kVar.aIu().getTid(), 0L), kVar.getWeight(), kVar.getSource(), kVar.bFf(), kVar.bFg(), com.baidu.adp.lib.f.b.toInt((String) view.getTag(), 1), "homepage", kVar.aIu().getBaijiahaoData());
+                        k.this.hOH.a(com.baidu.adp.lib.f.b.toLong(kVar.aIu().getTid(), 0L), kVar.getWeight(), kVar.getSource(), kVar.bFg(), kVar.bFh(), com.baidu.adp.lib.f.b.toInt((String) view.getTag(), 1), "homepage", kVar.aIu().getBaijiahaoData());
                     }
                     k.this.b(view, kVar);
                 }
             }
         };
         this.mPageContext = tbPageContext;
-        bZK();
+        bZL();
     }
 
     public void a(com.baidu.adp.widget.ListView.r rVar) {
@@ -50,26 +50,26 @@ public class k extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(View view, com.baidu.tieba.card.data.k kVar) {
-        an bFr;
+        an bFs;
         int id = view.getId();
         int i = 0;
         if (kVar != null) {
             if (view.getId() == R.id.thread_card_root || id == R.id.thread_info_commont_container) {
                 if (kVar.aJp()) {
-                    bFr = kVar.bFw();
+                    bFs = kVar.bFx();
                 } else {
-                    bFr = kVar.bFr();
+                    bFs = kVar.bFs();
                 }
-                TiebaStatic.log(bFr);
-                com.baidu.tieba.a.d.bfN().a("page_recommend", "clk_", bFr);
+                TiebaStatic.log(bFs);
+                com.baidu.tieba.a.d.bfN().a("page_recommend", "clk_", bFs);
                 i = 1;
             } else if (id == R.id.forum_name_text) {
-                TiebaStatic.log(kVar.bFs());
-                com.baidu.tieba.a.d.bfN().a("page_recommend", "clk_", kVar.bFs());
+                TiebaStatic.log(kVar.bFt());
+                com.baidu.tieba.a.d.bfN().a("page_recommend", "clk_", kVar.bFt());
                 i = 9;
             }
             if (i != 0) {
-                com.baidu.tieba.homepage.personalize.c.a.a(kVar.dqE, this.ebA, kVar.bFf(), i);
+                com.baidu.tieba.homepage.personalize.c.a.a(kVar.dqE, this.ebA, kVar.bFg(), i);
             }
         }
     }
@@ -116,13 +116,13 @@ public class k extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
         afVar.b((af<com.baidu.tieba.card.data.k>) kVar);
         afVar.rD().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         afVar.rD().a(this.ada);
-        com.baidu.tieba.card.r.bEW().e(kVar.bFq());
-        com.baidu.tieba.a.d.bfN().e(kVar.bFq());
-        com.baidu.tieba.homepage.personalize.c.a.a(kVar.dqE, this.ebA, kVar.bFf());
+        com.baidu.tieba.card.r.bEX().e(kVar.bFr());
+        com.baidu.tieba.a.d.bfN().e(kVar.bFr());
+        com.baidu.tieba.homepage.personalize.c.a.a(kVar.dqE, this.ebA, kVar.bFg());
         return afVar.getView();
     }
 
-    private void bZK() {
+    private void bZL() {
         com.baidu.tieba.card.data.k.gsm = "c10705";
         com.baidu.tieba.card.data.k.gsn = "c10730";
         com.baidu.tieba.card.data.k.gso = "c10731";

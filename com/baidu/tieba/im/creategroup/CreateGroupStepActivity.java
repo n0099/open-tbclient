@@ -114,8 +114,8 @@ public class CreateGroupStepActivity extends BaseActivity<CreateGroupStepActivit
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
         if (i == 22001) {
-            this.iib.cdG();
-            this.iib.cex();
+            this.iib.cdH();
+            this.iib.cey();
         } else if (i2 == -1) {
             switch (i) {
                 case 12001:
@@ -127,8 +127,8 @@ public class CreateGroupStepActivity extends BaseActivity<CreateGroupStepActivit
                 case RequestResponseCode.REQUEST_ALBUM_IMAGE_VIEW /* 12009 */:
                 case RequestResponseCode.REQUEST_CAMERA_VIEW /* 12010 */:
                     this.iib.setPortrait(intent.getStringExtra(EditHeadActivityConfig.PHOTO_RESOURCE));
+                    this.iib.cex();
                     this.iib.cew();
-                    this.iib.cev();
                     return;
                 case RequestResponseCode.REQUEST_ADDRESS_VIEW /* 21001 */:
                     this.iib.setBusiness(intent.getStringExtra("Selected_Business"));
@@ -153,7 +153,7 @@ public class CreateGroupStepActivity extends BaseActivity<CreateGroupStepActivit
     public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
         super.onRequestPermissionsResult(i, strArr, iArr);
         if (i == 25044) {
-            this.iib.cex();
+            this.iib.cey();
         }
     }
 
@@ -168,32 +168,32 @@ public class CreateGroupStepActivity extends BaseActivity<CreateGroupStepActivit
 
     /* JADX INFO: Access modifiers changed from: private */
     public void setIsLoading(boolean z) {
-        this.iib.cei().setEnabled(!z);
+        this.iib.cej().setEnabled(!z);
         this.iib.setIsLoading(z);
     }
 
     private void back() {
-        if (this.iib.ceh() == 1) {
+        if (this.iib.cei() == 1) {
             finish();
         } else {
-            this.iib.ceB();
+            this.iib.ceC();
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.iib.ceg()) {
+        if (view == this.iib.ceh()) {
             back();
-        } else if (view == this.iib.cei()) {
+        } else if (view == this.iib.cej()) {
             int dip2px = com.baidu.adp.lib.util.l.dip2px(TbadkApplication.getInst().getApp(), 0.0f);
-            if (!this.iib.cez()) {
+            if (!this.iib.ceA()) {
                 String errMsg = this.iib.getErrMsg();
                 if (!TextUtils.isEmpty(errMsg)) {
                     showToast(errMsg, dip2px);
                 }
-            } else if (this.iib.ceu()) {
-                if (!this.iib.cem()) {
+            } else if (this.iib.cev()) {
+                if (!this.iib.cen()) {
                     setIsLoading(true);
                     this.iic.setForumId(this.iib.getForumId());
                     this.iic.setName(this.iib.getName());
@@ -202,38 +202,38 @@ public class CreateGroupStepActivity extends BaseActivity<CreateGroupStepActivit
                     this.iic.setPortrait(this.iib.getPortrait());
                     this.iic.setPosition(this.iib.UA());
                     this.iic.setBusiness(this.iib.getBusiness());
-                    this.iic.setLng(this.iib.cee());
-                    this.iic.setLat(this.iib.cef());
+                    this.iic.setLng(this.iib.cef());
+                    this.iic.setLat(this.iib.ceg());
                     this.iic.setSourceFrom(this.sourceFrom);
-                    this.iic.setFlag(this.iib.cen() ? 1 : 0);
+                    this.iic.setFlag(this.iib.ceo() ? 1 : 0);
                     this.iic.sendMessage();
                 }
             } else {
-                this.iib.ceC();
+                this.iib.ceD();
             }
-        } else if (this.iib.cej() == view) {
-            this.iib.ceC();
-        } else if (view == this.iib.cek() || view == this.iib.cel()) {
-            this.iib.ceE();
-        } else if (view == this.iib.ceo()) {
+        } else if (this.iib.cek() == view) {
+            this.iib.ceD();
+        } else if (view == this.iib.cel() || view == this.iib.cem()) {
+            this.iib.ceF();
+        } else if (view == this.iib.cep()) {
             TiebaStatic.log("edit_place_at_creatgroup");
-            switch (this.iib.cdF()) {
+            switch (this.iib.cdG()) {
                 case 0:
-                    sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GroupAddressEditActivityConfig(getPageContext().getPageActivity(), RequestResponseCode.REQUEST_ADDRESS_VIEW, this.iid.getAddressList(), this.iie, this.iib.cen())));
+                    sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GroupAddressEditActivityConfig(getPageContext().getPageActivity(), RequestResponseCode.REQUEST_ADDRESS_VIEW, this.iid.getAddressList(), this.iie, this.iib.ceo())));
                     return;
                 case 1:
                     startActivityForResult(new Intent("android.settings.LOCATION_SOURCE_SETTINGS"), RequestResponseCode.REQUEST_SETTING_LOCATION_SOURCE);
                     return;
                 case 2:
-                    this.iib.cdG();
-                    this.iib.cex();
+                    this.iib.cdH();
+                    this.iib.cey();
                     return;
                 case 3:
                 case 4:
                 default:
                     return;
             }
-        } else if (view == this.iib.cep()) {
+        } else if (view == this.iib.ceq()) {
             this.iib.CO();
         }
     }
@@ -244,7 +244,7 @@ public class CreateGroupStepActivity extends BaseActivity<CreateGroupStepActivit
 
     @Override // android.text.TextWatcher
     public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-        this.iib.ceH();
+        this.iib.ceI();
     }
 
     @Override // android.text.TextWatcher
@@ -260,7 +260,7 @@ public class CreateGroupStepActivity extends BaseActivity<CreateGroupStepActivit
     public void onDestroy() {
         super.onDestroy();
         this.iic.cancelMessage();
-        this.iib.cey();
+        this.iib.cez();
     }
 
     @Override // com.baidu.tieba.im.util.b.a
@@ -279,12 +279,12 @@ public class CreateGroupStepActivity extends BaseActivity<CreateGroupStepActivit
     }
 
     @Override // com.baidu.tieba.im.util.b.a
-    public void cec() {
-        this.iib.cdI();
+    public void ced() {
+        this.iib.cdJ();
     }
 
     @Override // com.baidu.tieba.im.util.b.a
-    public void ced() {
-        this.iib.cdH();
+    public void cee() {
+        this.iib.cdI();
     }
 }

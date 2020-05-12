@@ -19,19 +19,19 @@ public class d implements com.baidu.tieba.c.a {
         @Override // com.baidu.tieba.enterForum.model.EnterForumModel.b
         public void a(EnterForumModel.a aVar) {
             if (d.this.gBU != null) {
-                if (aVar == null || !aVar.isOk || aVar.gEe == null || aVar.gEe.bHx() == null) {
+                if (aVar == null || !aVar.isOk || aVar.gEe == null || aVar.gEe.bHy() == null) {
                     d.this.gBU.a(null, false, 1, 0);
                     return;
                 }
                 ArrayList<TransmitForumData> arrayList = new ArrayList<>();
-                ArrayList<h> bHS = aVar.gEe.bHx().bHS();
-                if (v.getCount(bHS) > 0) {
-                    Iterator<h> it = bHS.iterator();
+                ArrayList<h> bHT = aVar.gEe.bHy().bHT();
+                if (v.getCount(bHT) > 0) {
+                    Iterator<h> it = bHT.iterator();
                     while (it.hasNext()) {
                         h next = it.next();
                         if (next != null && !StringUtils.isNull(next.getId()) && !StringUtils.isNull(next.getName())) {
                             TransmitForumData transmitForumData = new TransmitForumData(Long.valueOf(next.getId()).longValue(), next.getName(), false, 1, next.getAvatar());
-                            transmitForumData.tabItemDatas = next.bHR();
+                            transmitForumData.tabItemDatas = next.bHS();
                             arrayList.add(transmitForumData);
                         }
                     }
@@ -62,7 +62,7 @@ public class d implements com.baidu.tieba.c.a {
     }
 
     @Override // com.baidu.tieba.c.a
-    public void bFU() {
+    public void bFV() {
         if (this.gBU != null && this.gAW != null) {
             this.gAW.lO(true);
         }

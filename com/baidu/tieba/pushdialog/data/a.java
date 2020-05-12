@@ -10,19 +10,19 @@ public class a {
     private b koe;
     private MetaData kof;
 
-    public String cMh() {
+    public String cMi() {
         return this.dialogTitle;
     }
 
-    public String cMi() {
+    public String cMj() {
         return this.kod;
     }
 
-    public b cMj() {
+    public b cMk() {
         return this.koe;
     }
 
-    public MetaData cMk() {
+    public MetaData cMl() {
         return this.kof;
     }
 

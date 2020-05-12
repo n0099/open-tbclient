@@ -38,21 +38,21 @@ public class d implements o {
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public int cdD() {
+    public int cdE() {
         return this.mIndex;
     }
 
-    public EditText cdP() {
+    public EditText cdQ() {
         return this.ihF;
     }
 
-    public TextView cdQ() {
+    public TextView cdR() {
         return this.ihG;
     }
 
     public void wM(int i) {
         String charSequence2String;
-        if (cdR() / 2 > i && (charSequence2String = com.baidu.adp.lib.util.k.charSequence2String(this.ihF.getText(), null)) != null && charSequence2String.length() > 2) {
+        if (cdS() / 2 > i && (charSequence2String = com.baidu.adp.lib.util.k.charSequence2String(this.ihF.getText(), null)) != null && charSequence2String.length() > 2) {
             while (com.baidu.tieba.im.util.f.getTextLength(charSequence2String) / 2 > i) {
                 charSequence2String = charSequence2String.substring(0, charSequence2String.length() - 1);
             }
@@ -67,22 +67,22 @@ public class d implements o {
         return this.mView;
     }
 
-    public int cdR() {
+    public int cdS() {
         return com.baidu.tieba.im.util.f.getTrimmedTextLength(this.ihF);
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public void cdJ() {
+    public void cdK() {
         this.ihw.setBackgroundDrawable(null);
     }
 
-    public void cdS() {
+    public void cdT() {
         this.ihv.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
         this.ihv.getLayoutMode().onModeChanged(this.ihG);
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public void cdK() {
+    public void cdL() {
         boolean z = TbadkApplication.getInst().getSkinType() == 1;
         this.ihv.getLayoutMode().setNightMode(z);
         this.ihv.getLayoutMode().onModeChanged(this.mView);
@@ -97,7 +97,7 @@ public class d implements o {
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public String cdM() {
+    public String cdN() {
         if (this.mIndex != this.ihz) {
             return this.ihv.getPageContext().getString(R.string.next_step);
         }
@@ -105,7 +105,7 @@ public class d implements o {
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public boolean cdN() {
+    public boolean cdO() {
         return false;
     }
 
@@ -115,7 +115,7 @@ public class d implements o {
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public boolean cdO() {
+    public boolean cdP() {
         return true;
     }
 }

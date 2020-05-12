@@ -34,19 +34,19 @@ public class b implements CustomMessageTask.CustomRunnable<bj>, x {
             bj data = customMessage.getData();
             if (customMessage.getCmd() == 2921018) {
                 au(data);
-                com.baidu.tieba.frs.d.c.bUs().a(this.hqS, data, 1);
+                com.baidu.tieba.frs.d.c.bUt().a(this.hqS, data, 1);
                 com.baidu.tieba.frs.d.a.a(data, 1, this.mPageId, this.hqS, this.mTbPageTag);
             } else if (customMessage.getCmd() == 2921016) {
                 au(data);
-                com.baidu.tieba.frs.d.c.bUs().a(this.hqS, data, 2);
+                com.baidu.tieba.frs.d.c.bUt().a(this.hqS, data, 2);
                 com.baidu.tieba.frs.d.a.a(data, 2, this.mPageId, this.hqS, this.mTbPageTag);
             } else if (customMessage.getCmd() == 2921019) {
                 au(data);
-                com.baidu.tieba.frs.d.c.bUs().a(this.hqS, data, 4);
+                com.baidu.tieba.frs.d.c.bUt().a(this.hqS, data, 4);
                 com.baidu.tieba.frs.d.a.a(data, 1, this.mPageId, this.hqS, this.mTbPageTag);
             } else if (customMessage.getCmd() == 2921017) {
                 av(data);
-                com.baidu.tieba.frs.d.c.bUs().a(this.hqS, data);
+                com.baidu.tieba.frs.d.c.bUt().a(this.hqS, data);
                 com.baidu.tieba.frs.d.a.a(data, this.mPageId, this.hqS, this.mTbPageTag);
             }
         }
@@ -78,7 +78,7 @@ public class b implements CustomMessageTask.CustomRunnable<bj>, x {
             anVar.t(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LIVE_ID, bjVar.aKV().live_id);
             anVar.t("star_id", j);
             anVar.cI("extra", bjVar.mRecomExtra);
-            r.bEW().e(anVar);
+            r.bEX().e(anVar);
         }
     }
 

@@ -42,7 +42,7 @@ public class h implements g.a {
         }
     }
 
-    public void bWs() {
+    public void bWt() {
         if (this.hAe != null) {
             this.hAe.setFrom(this.mFrom);
             this.hAe.LoadData();
@@ -88,11 +88,11 @@ public class h implements g.a {
         }
     }
 
-    public VideoSerializeVideoThreadInfo bWt() {
+    public VideoSerializeVideoThreadInfo bWu() {
         return this.hAf;
     }
 
-    public void bRh() {
+    public void bRi() {
         if (this.hAe != null) {
             this.hAe.cancelLoadData();
         }

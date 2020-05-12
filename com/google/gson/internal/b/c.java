@@ -6,8 +6,8 @@ import java.lang.reflect.Field;
 /* loaded from: classes7.dex */
 final class c extends b {
     private static Class mlO;
-    private final Object mlP = dvX();
-    private final Field mlQ = dvY();
+    private final Object mlP = dvY();
+    private final Field mlQ = dvZ();
 
     @Override // com.google.gson.internal.b.b
     public void b(AccessibleObject accessibleObject) {
@@ -31,7 +31,7 @@ final class c extends b {
         return false;
     }
 
-    private static Object dvX() {
+    private static Object dvY() {
         try {
             mlO = Class.forName("sun.misc.Unsafe");
             Field declaredField = mlO.getDeclaredField("theUnsafe");
@@ -42,7 +42,7 @@ final class c extends b {
         }
     }
 
-    private static Field dvY() {
+    private static Field dvZ() {
         try {
             return AccessibleObject.class.getDeclaredField("override");
         } catch (NoSuchFieldException e) {

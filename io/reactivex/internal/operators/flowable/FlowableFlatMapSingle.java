@@ -156,7 +156,7 @@ public final class FlowableFlatMapSingle<T, R> extends a<T, R> {
                 if (aVar != null) {
                     break;
                 }
-                aVar = new io.reactivex.internal.queue.a<>(io.reactivex.g.dCx());
+                aVar = new io.reactivex.internal.queue.a<>(io.reactivex.g.dCy());
             } while (!this.queue.compareAndSet(null, aVar));
             return aVar;
         }

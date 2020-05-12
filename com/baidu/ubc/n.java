@@ -137,7 +137,7 @@ class n {
     }
 
     public void aDN() {
-        if (this.mId != null && this.mId.equals(this.cgr) && g.dky().sc(this.mId)) {
+        if (this.mId != null && this.mId.equals(this.cgr) && g.dkz().sc(this.mId)) {
             this.def = UBC.getUBCContext().ahx();
         }
     }
@@ -146,7 +146,7 @@ class n {
         this.lNO = str;
     }
 
-    public String dkC() {
+    public String dkD() {
         return this.lNO;
     }
 }

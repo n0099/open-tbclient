@@ -10,7 +10,7 @@ public class i extends e {
         super(new Handler(Looper.getMainLooper()));
     }
 
-    public static i dmT() {
+    public static i dmU() {
         if (lRz == null) {
             lRz = new i();
         }
@@ -19,7 +19,7 @@ public class i extends e {
 
     @Override // com.facebook.common.b.e, java.util.concurrent.Executor
     public void execute(Runnable runnable) {
-        if (dmR()) {
+        if (dmS()) {
             runnable.run();
         } else {
             super.execute(runnable);

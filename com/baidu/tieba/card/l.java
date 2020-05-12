@@ -29,7 +29,7 @@ public class l {
         return (StringUtils.isNull(str) || "0".equalsIgnoreCase(str) || (readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory()) == null || !readThreadHistory.Lb(str)) ? false : true;
     }
 
-    public static String bEN() {
+    public static String bEO() {
         return String.valueOf(System.currentTimeMillis() / 1000);
     }
 
@@ -37,7 +37,7 @@ public class l {
         return "personalize_page";
     }
 
-    public static String bEO() {
+    public static String bEP() {
         return "frs_page";
     }
 

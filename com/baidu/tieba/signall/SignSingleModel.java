@@ -39,7 +39,7 @@ public class SignSingleModel extends BdBaseModel<SignAllForumActivity> {
         return false;
     }
 
-    public void cUl() {
+    public void cUm() {
         if (this.kKZ != null) {
             this.kKZ.cancel();
             this.kKZ = null;

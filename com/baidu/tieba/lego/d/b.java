@@ -13,7 +13,7 @@ public class b implements a {
     private b() {
     }
 
-    public static a coc() {
+    public static a cod() {
         a aVar = iOd.get();
         return aVar == null ? iOe : aVar;
     }

@@ -27,11 +27,11 @@ public class c {
         this.jTf.onChangeSkinType();
     }
 
-    public void cGe() {
-        this.jTf.cGe();
-    }
-
     public void cGf() {
         this.jTf.cGf();
+    }
+
+    public void cGg() {
+        this.jTf.cGg();
     }
 }

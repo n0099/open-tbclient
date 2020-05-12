@@ -30,9 +30,9 @@ public class m {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage)) {
-                m.this.bZd();
+                m.this.bZe();
                 if (m.this.mIsShowing && m.this.mIsShowing) {
-                    m.this.a(m.this.iMP.cKb(), m.this.iMP.cKc(), m.this.iMP.cKd(), m.this.iMP.cKe());
+                    m.this.a(m.this.iMP.cKc(), m.this.iMP.cKd(), m.this.iMP.cKe(), m.this.iMP.cKf());
                 }
             }
         }
@@ -214,7 +214,7 @@ public class m {
                     fVar.startPlay();
                 }
             } else if (i == 2 && (view.getTag() instanceof e)) {
-                ((e) view.getTag()).cng();
+                ((e) view.getTag()).cnh();
             }
         }
     }
@@ -226,7 +226,7 @@ public class m {
                 fVar.stopPlay();
             }
         } else if (i == 2 && (view.getTag() instanceof e)) {
-            ((e) view.getTag()).cnh();
+            ((e) view.getTag()).cni();
         }
     }
 
@@ -251,14 +251,14 @@ public class m {
     public void destroy() {
         com.baidu.adp.lib.f.e.lb().removeCallbacks(this.iMQ);
         com.baidu.adp.lib.f.e.lb().removeCallbacks(this.kgl);
-        cnI();
+        cnJ();
     }
 
     public void yl(int i) {
         this.iMK = i;
     }
 
-    public void cnI() {
+    public void cnJ() {
         int i = 0;
         while (true) {
             int i2 = i;
@@ -278,7 +278,7 @@ public class m {
         this.iMJ = str;
     }
 
-    public void cnL() {
+    public void cnM() {
         int i = 0;
         while (true) {
             int i2 = i;
@@ -302,7 +302,7 @@ public class m {
         }
     }
 
-    public void cnM() {
+    public void cnN() {
         if (this.mIsShowing) {
             if (this.iMM != null && (this.iMM.getTag() instanceof f)) {
                 f fVar = (f) this.iMM.getTag();
@@ -311,14 +311,14 @@ public class m {
                     this.iMN = false;
                 }
                 if (this.iMM.getTag() instanceof e) {
-                    ((e) this.iMM.getTag()).cni();
+                    ((e) this.iMM.getTag()).cnj();
                 }
             }
             this.iMM = null;
         }
     }
 
-    public void bZd() {
+    public void bZe() {
         com.baidu.adp.lib.f.e.lb().removeCallbacks(this.iMQ);
         com.baidu.adp.lib.f.e.lb().removeCallbacks(this.kgl);
         int i = 0;
@@ -362,7 +362,7 @@ public class m {
         this.kgi = i;
     }
 
-    public View cJE() {
+    public View cJF() {
         return this.iMM;
     }
 }

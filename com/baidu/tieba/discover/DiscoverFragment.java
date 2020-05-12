@@ -142,7 +142,7 @@ public class DiscoverFragment extends BaseFragment implements aj {
     public void blt() {
         if (this.gwf != null && !this.gwg) {
             this.gwg = true;
-            this.gwf.bGx();
+            this.gwf.bGy();
         }
     }
 
@@ -150,7 +150,7 @@ public class DiscoverFragment extends BaseFragment implements aj {
     public void blu() {
         if (this.gwf != null && this.gwg) {
             this.gwg = false;
-            this.gwf.bGy();
+            this.gwf.bGz();
         }
     }
 

@@ -79,12 +79,12 @@ public class f {
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                f.this.cEr();
+                f.this.cEs();
             }
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationCancel(Animator animator) {
-                f.this.cEr();
+                f.this.cEs();
             }
 
             @Override // android.animation.Animator.AnimatorListener
@@ -113,7 +113,7 @@ public class f {
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                f.this.cEq();
+                f.this.cEr();
                 if (f.this.jLA != null) {
                     f.this.jLA.onAnimationEnd(animator);
                 }
@@ -121,7 +121,7 @@ public class f {
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationCancel(Animator animator) {
-                f.this.cEq();
+                f.this.cEr();
                 if (f.this.jLA != null) {
                     f.this.jLA.onAnimationCancel(animator);
                 }
@@ -134,7 +134,7 @@ public class f {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cEq() {
+    public void cEr() {
         this.isPlaying = false;
         for (View view : this.jLB) {
             view.setAlpha(1.0f);
@@ -142,7 +142,7 @@ public class f {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cEr() {
+    public void cEs() {
         if (this.mMaskView != null) {
             this.mMaskView.setAlpha(1.0f);
         }
@@ -162,7 +162,7 @@ public class f {
     public void c(Rect rect, Rect rect2) {
         this.jLv = rect;
         this.jLw = rect2;
-        if (cEs()) {
+        if (cEt()) {
             init();
         }
     }
@@ -211,7 +211,7 @@ public class f {
         }
     }
 
-    public boolean cEs() {
+    public boolean cEt() {
         return (!this.jLx || this.jLv == null || this.jLv.isEmpty() || this.jLw == null || this.jLw.isEmpty()) ? false : true;
     }
 

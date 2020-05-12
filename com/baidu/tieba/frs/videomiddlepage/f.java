@@ -68,11 +68,11 @@ public class f implements com.baidu.tieba.frs.aggregation.a, b, com.baidu.tieba.
                 this.Vi.setDataWithPartChange(this.mDatas, size, list.size());
             }
             if (list.size() > 0 && this.hez && z) {
-                bRf();
+                bRg();
                 if (list.get(0) instanceof i) {
                     i iVar = (i) list.get(0);
                     iVar.setAutoPlay(true);
-                    if (com.baidu.adp.lib.util.j.isMobileNet() && !com.baidu.tieba.video.g.dav().daw()) {
+                    if (com.baidu.adp.lib.util.j.isMobileNet() && !com.baidu.tieba.video.g.daw().dax()) {
                         iVar.setWaitConfirm(true);
                     } else {
                         iVar.setWaitConfirm(false);
@@ -83,7 +83,7 @@ public class f implements com.baidu.tieba.frs.aggregation.a, b, com.baidu.tieba.
             if (this.mDatas.size() > i && !z && i != -1 && (this.mDatas.get(i) instanceof i)) {
                 i iVar2 = (i) this.mDatas.get(i);
                 iVar2.setAutoPlay(true);
-                if (com.baidu.adp.lib.util.j.isWifiNet() || com.baidu.tieba.video.g.dav().daw()) {
+                if (com.baidu.adp.lib.util.j.isWifiNet() || com.baidu.tieba.video.g.daw().dax()) {
                     iVar2.setWaitConfirm(false);
                     return;
                 }
@@ -127,8 +127,8 @@ public class f implements com.baidu.tieba.frs.aggregation.a, b, com.baidu.tieba.
         return this.hzE.pv() || this.hzF.pv();
     }
 
-    public boolean bWc() {
-        return this.hzE.bWc();
+    public boolean bWd() {
+        return this.hzE.bWd();
     }
 
     public void pt() {
@@ -141,12 +141,12 @@ public class f implements com.baidu.tieba.frs.aggregation.a, b, com.baidu.tieba.
         this.hzF.pu();
     }
 
-    public void bWp() {
-        this.hzE.bWp();
-    }
-
     public void bWq() {
         this.hzE.bWq();
+    }
+
+    public void bWr() {
+        this.hzE.bWr();
     }
 
     public void onConfigurationChanged(Configuration configuration) {
@@ -162,11 +162,11 @@ public class f implements com.baidu.tieba.frs.aggregation.a, b, com.baidu.tieba.
         ve(i);
     }
 
-    public int bRd() {
+    public int bRe() {
         return this.heA;
     }
 
-    public void bRe() {
+    public void bRf() {
         if (!v.isEmpty(this.mDatas)) {
             for (m mVar : this.mDatas) {
                 if (mVar instanceof i) {
@@ -180,11 +180,11 @@ public class f implements com.baidu.tieba.frs.aggregation.a, b, com.baidu.tieba.
 
     @Override // com.baidu.tieba.frs.aggregation.a
     public void cancel() {
-        bRf();
+        bRg();
     }
 
-    private void bRf() {
-        bRe();
+    private void bRg() {
+        bRf();
         this.heA = 0;
         this.hzI = -1;
         pt();
@@ -207,7 +207,7 @@ public class f implements com.baidu.tieba.frs.aggregation.a, b, com.baidu.tieba.
                 if (this.mDatas.get(i2) instanceof i) {
                     i iVar = (i) this.mDatas.get(i2);
                     iVar.setAutoPlay(true);
-                    if (com.baidu.adp.lib.util.j.isWifiNet() || com.baidu.tieba.video.g.dav().daw()) {
+                    if (com.baidu.adp.lib.util.j.isWifiNet() || com.baidu.tieba.video.g.daw().dax()) {
                         iVar.setWaitConfirm(false);
                     } else {
                         iVar.setWaitConfirm(true);
@@ -237,7 +237,7 @@ public class f implements com.baidu.tieba.frs.aggregation.a, b, com.baidu.tieba.
             } else if (this.heA == this.mDatas.size() - 1 && (this.mDatas.get(this.heA) instanceof i)) {
                 i iVar2 = (i) this.mDatas.get(this.heA);
                 iVar2.setAutoPlay(true);
-                if (com.baidu.adp.lib.util.j.isWifiNet() || com.baidu.tieba.video.g.dav().daw()) {
+                if (com.baidu.adp.lib.util.j.isWifiNet() || com.baidu.tieba.video.g.daw().dax()) {
                     iVar2.setWaitConfirm(false);
                 } else {
                     iVar2.setWaitConfirm(true);
@@ -284,7 +284,7 @@ public class f implements com.baidu.tieba.frs.aggregation.a, b, com.baidu.tieba.
 
     public void vh(int i) {
         if (this.heA != i || this.Xa == null || !this.Xa.isPlaying()) {
-            if (this.heA != i || this.Xa == null || !bWc()) {
+            if (this.heA != i || this.Xa == null || !bWd()) {
                 this.heA = i;
                 this.hzI = i;
                 if (!v.isEmpty(this.mDatas) && this.Vi != null) {
@@ -297,7 +297,7 @@ public class f implements com.baidu.tieba.frs.aggregation.a, b, com.baidu.tieba.
                     if (this.heA <= this.mDatas.size() - 1 && (this.mDatas.get(this.heA) instanceof i)) {
                         i iVar = (i) this.mDatas.get(this.heA);
                         iVar.setAutoPlay(true);
-                        if (com.baidu.adp.lib.util.j.isWifiNet() || com.baidu.tieba.video.g.dav().daw()) {
+                        if (com.baidu.adp.lib.util.j.isWifiNet() || com.baidu.tieba.video.g.daw().dax()) {
                             iVar.setWaitConfirm(false);
                         } else {
                             iVar.setWaitConfirm(true);
@@ -318,7 +318,7 @@ public class f implements com.baidu.tieba.frs.aggregation.a, b, com.baidu.tieba.
         }
     }
 
-    public a bWr() {
+    public a bWs() {
         return this.hzJ;
     }
 

@@ -83,14 +83,14 @@ public class e extends a {
             return;
         }
         String aIU = shareEntity.aIU();
-        if (vQ(shareEntity.cSj())) {
-            a(this.kGJ, Ki(shareEntity.cSj()));
+        if (vQ(shareEntity.cSk())) {
+            a(this.kGJ, Ki(shareEntity.cSk()));
         } else if (!TextUtils.isEmpty(aIU) && (aIU.startsWith("http://") || aIU.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX))) {
             com.baidu.adp.lib.e.c.kV().a(aIU, 10, this.eax, 0, 0, getPageId(), new Object[0]);
         } else if (y(shareEntity.getImageUri())) {
             a(this.kGJ, x(shareEntity.getImageUri()));
         } else {
-            a(this.kGJ, cSp());
+            a(this.kGJ, cSq());
         }
     }
 
@@ -105,7 +105,7 @@ public class e extends a {
         }
         WeiboMultiMessage weiboMultiMessage = new WeiboMultiMessage();
         if (!TextUtils.isEmpty(shareEntity.getContent()) || !TextUtils.isEmpty(shareEntity.topic)) {
-            weiboMultiMessage.textObject = cSr();
+            weiboMultiMessage.textObject = cSs();
         }
         if (bitmap != null) {
             weiboMultiMessage.imageObject = G(bitmap);
@@ -166,7 +166,7 @@ public class e extends a {
         return webpageObject;
     }
 
-    private TextObject cSr() {
+    private TextObject cSs() {
         if (this.kGJ == null) {
             return null;
         }

@@ -10,7 +10,7 @@ public class e {
     public String hQr;
     public int mThreadCount;
 
-    public boolean bZT() {
+    public boolean bZU() {
         return this.hQo > 0;
     }
 

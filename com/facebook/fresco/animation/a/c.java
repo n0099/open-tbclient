@@ -41,12 +41,12 @@ public class c<T extends com.facebook.fresco.animation.a.a> extends b<T> {
             public void run() {
                 synchronized (c.this) {
                     c.this.lXD = false;
-                    if (c.this.dpH()) {
+                    if (c.this.dpI()) {
                         if (c.this.lXH != null) {
                             c.this.lXH.onInactive();
                         }
                     } else {
-                        c.this.dpI();
+                        c.this.dpJ();
                     }
                 }
             }
@@ -60,17 +60,17 @@ public class c<T extends com.facebook.fresco.animation.a.a> extends b<T> {
     public boolean a(Drawable drawable, Canvas canvas, int i) {
         this.lXE = this.lTO.now();
         boolean a2 = super.a(drawable, canvas, i);
-        dpI();
+        dpJ();
         return a2;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean dpH() {
+    public boolean dpI() {
         return this.lTO.now() - this.lXE > this.lXF;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void dpI() {
+    public synchronized void dpJ() {
         if (!this.lXD) {
             this.lXD = true;
             this.lXC.schedule(this.lXI, this.lXG, TimeUnit.MILLISECONDS);

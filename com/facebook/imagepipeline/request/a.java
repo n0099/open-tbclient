@@ -42,7 +42,7 @@ public abstract class a implements b {
 
     @Override // com.facebook.imagepipeline.request.b
     @Nullable
-    public com.facebook.cache.common.b dtP() {
+    public com.facebook.cache.common.b dtQ() {
         return null;
     }
 

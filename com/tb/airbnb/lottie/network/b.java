@@ -26,7 +26,7 @@ public class b {
     private final String url;
 
     public static l<d> bd(Context context, String str) {
-        return new b(context, str).dCe();
+        return new b(context, str).dCf();
     }
 
     private b(Context context, String str) {
@@ -35,30 +35,30 @@ public class b {
         this.mQt = new a(this.appContext, str);
     }
 
-    private l<d> dCe() {
+    private l<d> dCf() {
         return new l<>(new Callable<k<d>>() { // from class: com.tb.airbnb.lottie.network.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.concurrent.Callable
-            /* renamed from: dBa */
+            /* renamed from: dBb */
             public k<d> call() throws Exception {
-                return b.this.dCf();
+                return b.this.dCg();
             }
         });
     }
 
     @WorkerThread
-    public k<d> dCf() {
-        d dCg = dCg();
-        if (dCg != null) {
-            return new k<>(dCg);
+    public k<d> dCg() {
+        d dCh = dCh();
+        if (dCh != null) {
+            return new k<>(dCh);
         }
         c.debug("Animation for " + this.url + " not found in cache. Fetching from network.");
-        return dCh();
+        return dCi();
     }
 
     @WorkerThread
     @Nullable
-    private d dCg() {
+    private d dCh() {
         k<d> i;
         Pair<FileExtension, InputStream> iU = this.mQt.iU();
         if (iU == null) {
@@ -78,16 +78,16 @@ public class b {
     }
 
     @WorkerThread
-    private k<d> dCh() {
+    private k<d> dCi() {
         try {
-            return dCi();
+            return dCj();
         } catch (IOException e) {
             return new k<>(e);
         }
     }
 
     @WorkerThread
-    private k dCi() throws IOException {
+    private k dCj() throws IOException {
         FileExtension fileExtension;
         k<d> c;
         c.debug("Fetching " + this.url);

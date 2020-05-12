@@ -28,7 +28,7 @@ public class g<K, V> {
     }
 
     @Nullable
-    public synchronized K dqm() {
+    public synchronized K dqn() {
         return this.maA.isEmpty() ? null : this.maA.keySet().iterator().next();
     }
 

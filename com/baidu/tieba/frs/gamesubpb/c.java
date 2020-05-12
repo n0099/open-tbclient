@@ -26,11 +26,11 @@ public class c {
 
     /* loaded from: classes9.dex */
     public interface a {
-        void bSI();
-
         void bSJ();
 
-        boolean bSK();
+        void bSK();
+
+        boolean bSL();
     }
 
     public c(BaseActivity baseActivity, View view, NavigationBar navigationBar) {
@@ -55,12 +55,12 @@ public class c {
         this.hcw.a(new a.InterfaceC0557a() { // from class: com.baidu.tieba.frs.gamesubpb.c.3
             @Override // com.baidu.tieba.f.a.InterfaceC0557a
             public void y(int i, int i2) {
-                c.this.bSL();
+                c.this.bSM();
             }
 
             @Override // com.baidu.tieba.f.a.InterfaceC0557a
             public void z(int i, int i2) {
-                if (c.this.hnV != null && c.this.hnV.bSK() && Math.abs(i2) > c.TOUCH_SLOP) {
+                if (c.this.hnV != null && c.this.hnV.bSL() && Math.abs(i2) > c.TOUCH_SLOP) {
                     if (c.this.hnT != null) {
                         c.this.hnT.setBackgroundResource(R.color.transparent);
                     }
@@ -78,18 +78,18 @@ public class c {
         });
     }
 
-    public void bSL() {
+    public void bSM() {
         if (this.hnW && this.mNavigationBar != null && this.hnT != null && this.hnT.getVisibility() == 0) {
             this.mNavigationBar.setStatusBarVisibility(0);
             this.mActivity.setExcludeHeight(0);
             if (this.hnV != null) {
-                this.hnV.bSI();
+                this.hnV.bSJ();
             }
-            this.hnT.bSS();
+            this.hnT.bST();
         }
     }
 
-    public void bSM() {
+    public void bSN() {
         ViewGroup viewGroup;
         if (!this.hnW && (viewGroup = (ViewGroup) this.mActivity.findViewById(16908290)) != null && (viewGroup.getParent() instanceof LinearLayout)) {
             this.hnT = new BlankView(this.mActivity.getPageContext().getPageActivity());
@@ -104,13 +104,13 @@ public class c {
             });
             this.hnT.setScrollCallBack(new BlankView.a() { // from class: com.baidu.tieba.frs.gamesubpb.c.5
                 @Override // com.baidu.tieba.frs.gamesubpb.view.BlankView.a
-                public void bSO() {
+                public void bSP() {
                     if (c.this.hnT != null) {
                         c.this.hnT.setVisibility(8);
                     }
                     c.this.hnW = false;
                     if (c.this.hnV != null) {
-                        c.this.hnV.bSJ();
+                        c.this.hnV.bSK();
                     }
                 }
             });
@@ -123,7 +123,7 @@ public class c {
         this.hnV = aVar;
     }
 
-    public boolean bSN() {
+    public boolean bSO() {
         return this.hnW;
     }
 

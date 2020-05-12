@@ -32,7 +32,7 @@ public class e {
         bP(view);
     }
 
-    public a bQQ() {
+    public a bQR() {
         return this.hdi;
     }
 
@@ -84,7 +84,7 @@ public class e {
         }
     }
 
-    public void bQR() {
+    public void bQS() {
         s sVar = new s();
         sVar.tabId = 90;
         sVar.etP = false;
@@ -135,7 +135,7 @@ public class e {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921449, sVar));
     }
 
-    public void bPC() {
+    public void bPD() {
         if (this.hdi != null) {
             this.hdi.notifyDataSetChanged();
         }

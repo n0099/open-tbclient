@@ -9,12 +9,12 @@ import java.util.concurrent.atomic.AtomicInteger;
 public final class k extends v {
     private static final k mVw = new k();
 
-    public static k dCZ() {
+    public static k dDa() {
         return mVw;
     }
 
     @Override // io.reactivex.v
-    public v.c dCC() {
+    public v.c dCD() {
         return new c();
     }
 

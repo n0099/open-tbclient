@@ -21,7 +21,7 @@ public class DealEventView extends FrameLayout {
 
         void bdz();
 
-        void ddR();
+        void ddS();
     }
 
     public DealEventView(Context context) {
@@ -50,7 +50,7 @@ public class DealEventView extends FrameLayout {
                 if (currentTimeMillis - this.lrH < 300) {
                     this.eth = true;
                     if (this.lrI != null) {
-                        this.lrI.ddR();
+                        this.lrI.ddS();
                     }
                 } else {
                     this.eth = false;

@@ -42,7 +42,7 @@ public class a implements com.facebook.imagepipeline.f.a {
     @Override // com.facebook.imagepipeline.f.a
     /* renamed from: d */
     public com.facebook.fresco.animation.c.a b(c cVar) {
-        return new com.facebook.fresco.animation.c.a(a(((com.facebook.imagepipeline.g.a) cVar).dsJ()));
+        return new com.facebook.fresco.animation.c.a(a(((com.facebook.imagepipeline.g.a) cVar).dsK()));
     }
 
     private com.facebook.fresco.animation.a.a a(d dVar) {
@@ -66,8 +66,8 @@ public class a implements com.facebook.imagepipeline.f.a {
     }
 
     private com.facebook.imagepipeline.animated.base.a b(d dVar) {
-        com.facebook.imagepipeline.animated.base.b dpZ = dVar.dpZ();
-        return this.lYw.a(dVar, new Rect(0, 0, dpZ.getWidth(), dpZ.getHeight()));
+        com.facebook.imagepipeline.animated.base.b dqa = dVar.dqa();
+        return this.lYw.a(dVar, new Rect(0, 0, dqa.getWidth(), dqa.getHeight()));
     }
 
     private com.facebook.fresco.animation.b.b c(d dVar) {
@@ -102,7 +102,7 @@ public class a implements com.facebook.imagepipeline.f.a {
         }
 
         @Override // com.facebook.cache.common.b
-        public String dmh() {
+        public String dmi() {
             return this.lYD;
         }
     }

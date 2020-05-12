@@ -3,9 +3,9 @@ package master.flame.danmaku.danmaku.model.a;
 public interface c<T> {
     void bH(T t);
 
-    boolean dFY();
+    boolean dFZ();
 
-    T dGa();
+    T dGb();
 
     void wC(boolean z);
 }

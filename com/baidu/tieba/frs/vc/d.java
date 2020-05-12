@@ -48,7 +48,7 @@ public class d implements com.baidu.tieba.frs.entelechy.b.d {
             } else if (i != 502) {
                 d.this.tw(-1);
             } else {
-                d.this.bQk();
+                d.this.bQl();
             }
         }
 
@@ -59,16 +59,16 @@ public class d implements com.baidu.tieba.frs.entelechy.b.d {
     private final View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.frs.vc.d.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (bc.checkUpIsLogin(d.this.han.getPageContext().getPageActivity()) && !d.this.eTE.cZW() && !d.this.bQm()) {
+            if (bc.checkUpIsLogin(d.this.han.getPageContext().getPageActivity()) && !d.this.eTE.cZX() && !d.this.bQn()) {
                 if (d.this.hwM != null) {
-                    d.this.hwM.bVY();
+                    d.this.hwM.bVZ();
                 }
-                if (d.this.han.bOt().uW(502) != null) {
-                    d.this.hcb.aL(d.this.han.getForumId(), d.this.han.bOt().bVP().tabId);
+                if (d.this.han.bOu().uW(502) != null) {
+                    d.this.hcb.aL(d.this.han.getForumId(), d.this.han.bOu().bVQ().tabId);
                 } else {
                     d.this.tw(-1);
                 }
-                d.this.bUZ();
+                d.this.bVa();
             }
         }
     };
@@ -79,7 +79,7 @@ public class d implements com.baidu.tieba.frs.entelechy.b.d {
         public void onLoaded(com.baidu.adp.widget.ImageView.a aVar, String str, int i) {
             super.onLoaded((AnonymousClass3) aVar, str, i);
             if (aVar == null || !aVar.isValidNow()) {
-                d.this.bVd();
+                d.this.bVe();
                 return;
             }
             d.this.gYx.setImageDrawable(null);
@@ -88,7 +88,7 @@ public class d implements com.baidu.tieba.frs.entelechy.b.d {
     };
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bQk() {
+    public void bQl() {
         ForumData forum;
         String str;
         String str2;
@@ -101,7 +101,7 @@ public class d implements com.baidu.tieba.frs.entelechy.b.d {
         String str9;
         String str10;
         String str11 = null;
-        if (this.han != null && this.han.bOW() != null && (forum = this.han.bOW().getForum()) != null) {
+        if (this.han != null && this.han.bOX() != null && (forum = this.han.bOX().getForum()) != null) {
             ThemeColorInfo themeColorInfo = forum.getThemeColorInfo();
             if (themeColorInfo != null) {
                 int skinType = TbadkCoreApplication.getInst().getSkinType();
@@ -178,7 +178,7 @@ public class d implements com.baidu.tieba.frs.entelechy.b.d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bUZ() {
+    public void bVa() {
         an anVar = new an("c13604");
         if (this.han != null) {
             com.baidu.tbadk.pageInfo.c.a(this.han.getContext(), anVar);
@@ -192,45 +192,45 @@ public class d implements com.baidu.tieba.frs.entelechy.b.d {
             this.hbZ = new com.baidu.tieba.write.f(this.han.getPageContext(), this.hwo, "frs");
             this.hbZ.Mu("2");
         }
-        this.hbZ.Mt(bVf());
-        ForumWriteData bPa = this.han.bPa();
-        bPa.setDefaultZone(i);
-        this.hbZ.a(bPa);
+        this.hbZ.Mt(bVg());
+        ForumWriteData bPb = this.han.bPb();
+        bPb.setDefaultZone(i);
+        this.hbZ.a(bPb);
         this.hbZ.EM(i == 1 ? R.drawable.btn_frs_professional_edit_n : 0);
         this.hbZ.a(false, (View) null, (View) this.gYx);
-        this.han.bOT().setAlpha(0);
+        this.han.bOU().setAlpha(0);
     }
 
     public void mv(boolean z) {
-        FrsViewData bOW;
+        FrsViewData bOX;
         if (this.gYx != null) {
-            bVe();
+            bVf();
             this.gYx.setVisibility(z ? 0 : 8);
-            if (z && TbadkCoreApplication.isLogin() && (bOW = this.han.bOW()) != null && bOW.postTopic != null && bOW.getForum() != null && !StringUtils.isNull(bOW.getForum().getId()) && !StringUtils.isNull(bOW.postTopic.recom_title) && !StringUtils.isNull(bOW.postTopic.recom_topic) && com.baidu.tieba.frs.FrsHotTopic.a.bPi().D(bOW.getForum().getId(), bOW.postTopic.uniq_topicid.longValue())) {
-                a(this.gYx, bOW);
+            if (z && TbadkCoreApplication.isLogin() && (bOX = this.han.bOX()) != null && bOX.postTopic != null && bOX.getForum() != null && !StringUtils.isNull(bOX.getForum().getId()) && !StringUtils.isNull(bOX.postTopic.recom_title) && !StringUtils.isNull(bOX.postTopic.recom_topic) && com.baidu.tieba.frs.FrsHotTopic.a.bPj().D(bOX.getForum().getId(), bOX.postTopic.uniq_topicid.longValue())) {
+                a(this.gYx, bOX);
             }
         }
     }
 
-    public void bVa() {
+    public void bVb() {
         if (this.hbZ != null) {
             this.hbZ.onDestroy();
         }
         if (this.hwM != null) {
-            this.hwM.bVY();
-        }
-    }
-
-    public void bVb() {
-        if (this.hwM != null) {
-            this.hwM.bVY();
+            this.hwM.bVZ();
         }
     }
 
     public void bVc() {
+        if (this.hwM != null) {
+            this.hwM.bVZ();
+        }
     }
 
-    public boolean bPB() {
+    public void bVd() {
+    }
+
+    public boolean bPC() {
         if (this.hbZ == null || !this.hbZ.isShowing()) {
             return false;
         }
@@ -245,14 +245,14 @@ public class d implements com.baidu.tieba.frs.entelechy.b.d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bVd() {
+    public void bVe() {
         this.gYx.setImageResource(0);
     }
 
-    public boolean bVe() {
-        FrsViewData bOW;
+    public boolean bVf() {
+        FrsViewData bOX;
         ActivityConfig activityConfig;
-        if (this.han == null || (bOW = this.han.bOW()) == null || (activityConfig = bOW.activityConfig) == null || activityConfig.type.intValue() != 2) {
+        if (this.han == null || (bOX = this.han.bOX()) == null || (activityConfig = bOX.activityConfig) == null || activityConfig.type.intValue() != 2) {
             return false;
         }
         if ((TbadkCoreApplication.getInst().getSkinType() == 1) && !TextUtils.isEmpty(activityConfig.night_addthread_icon)) {
@@ -270,20 +270,20 @@ public class d implements com.baidu.tieba.frs.entelechy.b.d {
         com.baidu.adp.lib.e.c.kV().a(str, 10, this.dyb, this.han.getUniqueId());
     }
 
-    private String bVf() {
-        FrsViewData bOW;
-        if (this.han == null || (bOW = this.han.bOW()) == null || bOW.activityConfig == null) {
+    private String bVg() {
+        FrsViewData bOX;
+        if (this.han == null || (bOX = this.han.bOX()) == null || bOX.activityConfig == null) {
             return "";
         }
-        return bOW.activityConfig.addthread_text;
+        return bOX.activityConfig.addthread_text;
     }
 
-    public boolean bQm() {
-        FrsViewData bOW;
+    public boolean bQn() {
+        FrsViewData bOX;
         String fixedText;
-        if (this.han != null && (bOW = this.han.bOW()) != null) {
+        if (this.han != null && (bOX = this.han.bOX()) != null) {
             if (bc.checkUpIsLogin(this.han.getPageContext().getPageActivity())) {
-                AntiData anti = bOW.getAnti();
+                AntiData anti = bOX.getAnti();
                 if (anti != null) {
                     if (a(anti.getBlock_stat(), anti.mFrsForbidenDialogInfo)) {
                         return true;
@@ -344,7 +344,7 @@ public class d implements com.baidu.tieba.frs.entelechy.b.d {
         return true;
     }
 
-    public boolean bVg() {
+    public boolean bVh() {
         if (this.hbZ == null) {
             return false;
         }
@@ -356,27 +356,27 @@ public class d implements com.baidu.tieba.frs.entelechy.b.d {
             if (this.hwM == null) {
                 this.hwM = new l(this.han.getActivity(), this);
             }
-            this.hwM.bVY();
+            this.hwM.bVZ();
             this.hwM.b(view, frsViewData);
         }
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.d
-    public boolean bSa() {
-        return (this.eTE.cZW() || bQm()) ? false : true;
+    public boolean bSb() {
+        return (this.eTE.cZX() || bQn()) ? false : true;
     }
 
     public void b(OvalActionButton ovalActionButton) {
         if (ovalActionButton != null) {
             this.gYx = ovalActionButton;
             this.gYx.setOnClickListener(this.mOnClickListener);
-            if (!bVe()) {
-                bVd();
+            if (!bVf()) {
+                bVe();
             }
         }
     }
 
-    public boolean bPZ() {
+    public boolean bQa() {
         if (this.hbZ == null) {
             return false;
         }

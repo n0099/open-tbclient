@@ -66,7 +66,7 @@ public class SwitchImageView extends AppCompatImageView {
         }
     }
 
-    public void deJ() {
+    public void deK() {
         if (this.mCurrentState == 0) {
             this.mCurrentState = 1;
             setState(1);

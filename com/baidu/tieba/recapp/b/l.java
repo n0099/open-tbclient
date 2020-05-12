@@ -13,9 +13,9 @@ public class l extends y.a implements com.baidu.tieba.play.f {
         this.hqF = eVar;
     }
 
-    public void cnd() {
+    public void cne() {
         if (this.hqF != null) {
-            this.hqF.cnd();
+            this.hqF.cne();
         }
     }
 

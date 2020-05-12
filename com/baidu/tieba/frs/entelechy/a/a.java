@@ -35,11 +35,11 @@ public class a extends com.baidu.tieba.frs.h<bj, com.baidu.card.af<bj>> implemen
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.z
             public void a(View view, bj bjVar) {
-                com.baidu.tieba.card.r.bEW().jd(true);
+                com.baidu.tieba.card.r.bEX().jd(true);
                 com.baidu.tieba.a.d.bfN().cF("page_recommend", "show_");
                 if (view != null && bjVar != null && !StringUtils.isNull(bjVar.getTid())) {
                     if (view.getId() == R.id.thread_card_root) {
-                        com.baidu.tieba.frs.d.c.bUs().a(com.baidu.tieba.frs.d.d.hgM, bjVar, 13);
+                        com.baidu.tieba.frs.d.c.bUt().a(com.baidu.tieba.frs.d.d.hgM, bjVar, 13);
                     }
                     if (view.getId() == R.id.user_name || view.getId() == R.id.user_avatar) {
                         com.baidu.tieba.frs.d.a.a(bjVar, 2, a.this.mPageId, com.baidu.tieba.frs.d.d.hgM, a.this.getTbPageTag());
@@ -130,7 +130,7 @@ public class a extends com.baidu.tieba.frs.h<bj, com.baidu.card.af<bj>> implemen
         if (bjVar == null || afVar == null || afVar.getView() == null) {
             return null;
         }
-        com.baidu.tieba.frs.d.c.bUs().a(hgM, bjVar);
+        com.baidu.tieba.frs.d.c.bUt().a(hgM, bjVar);
         afVar.rD().setPage(this.aeB);
         afVar.rD().setPosition(i);
         if (this.hgI == 1) {

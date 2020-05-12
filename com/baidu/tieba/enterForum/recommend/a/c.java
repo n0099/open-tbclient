@@ -31,15 +31,15 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.enterForu
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.enterForum.recommend.b.d dVar, com.baidu.tieba.card.a.a<com.baidu.tieba.enterForum.recommend.view.c> aVar) {
-        if (dVar == null || aVar == null || aVar.bFz() == null) {
+        if (dVar == null || aVar == null || aVar.bFA() == null) {
             return null;
         }
         if (viewGroup instanceof BdTypeRecyclerView) {
-            aVar.bFz().lU(dVar.needTopMargin);
+            aVar.bFA().lU(dVar.needTopMargin);
         }
-        aVar.bFz().a(dVar);
+        aVar.bFA().a(dVar);
         if (this.gEm != null) {
-            aVar.bFz().c(this.gEm);
+            aVar.bFA().c(this.gEm);
         }
         return aVar.getView();
     }

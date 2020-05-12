@@ -10,22 +10,22 @@ public abstract class BasePersonInfoAdapter extends FragmentPagerAdapter {
     private int[] fis;
     private ArrayList<BaseFragment> jVe;
 
-    protected abstract BaseFragment cGJ();
+    protected abstract BaseFragment cGK();
 
     public BasePersonInfoAdapter(BasePersonInfoActivity basePersonInfoActivity, boolean z) {
         super(basePersonInfoActivity.getSupportFragmentManager());
         this.jVe = new ArrayList<>();
         Bundle bundle = new Bundle();
         bundle.putInt("page_type", 0);
-        BaseFragment cGJ = cGJ();
-        cGJ.setArguments(bundle);
-        this.jVe.add(cGJ);
+        BaseFragment cGK = cGK();
+        cGK.setArguments(bundle);
+        this.jVe.add(cGK);
         if (!z) {
             Bundle bundle2 = new Bundle();
             bundle2.putInt("page_type", 1);
-            BaseFragment cGJ2 = cGJ();
-            cGJ2.setArguments(bundle2);
-            this.jVe.add(cGJ2);
+            BaseFragment cGK2 = cGK();
+            cGK2.setArguments(bundle2);
+            this.jVe.add(cGK2);
             this.fis = new int[]{0, 1};
             return;
         }

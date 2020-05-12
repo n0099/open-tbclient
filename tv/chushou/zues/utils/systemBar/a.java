@@ -139,7 +139,7 @@ public class a {
         }
     }
 
-    public void dJV() {
+    public void dJW() {
         if (this.mActivity != null && this.nsM != null) {
             this.nsK = new C0856a(this.mActivity, this.mStatusBarAvailable, this.mNavBarAvailable);
             if (this.mNavBarTintView != null) {

@@ -115,7 +115,7 @@ public class MyForbiddenFansActivity extends BaseActivity {
                 if (MyForbiddenFansActivity.this.gTq.hasMore() && MyForbiddenFansActivity.this.ePr != null && !MyForbiddenFansActivity.this.ePr.isLoading()) {
                     MyForbiddenFansActivity.this.ePr.startLoadData();
                 }
-                MyForbiddenFansActivity.this.gTq.bMQ();
+                MyForbiddenFansActivity.this.gTq.bMR();
             }
         });
         this.ePr = new PbListView(getActivity());
@@ -163,7 +163,7 @@ public class MyForbiddenFansActivity extends BaseActivity {
                     } else if (i2 == 1 && i != 2260104) {
                         if (i == 0) {
                             if (MyForbiddenFansActivity.this.gTp.ea(j)) {
-                                if (MyForbiddenFansActivity.this.gTp.bMO()) {
+                                if (MyForbiddenFansActivity.this.gTp.bMP()) {
                                     MyForbiddenFansActivity.this.showNoDataView();
                                     return;
                                 } else if (MyForbiddenFansActivity.this.gTp.getItemCount() > 20 || !MyForbiddenFansActivity.this.gTq.hasMore()) {
@@ -171,7 +171,7 @@ public class MyForbiddenFansActivity extends BaseActivity {
                                     MyForbiddenFansActivity.this.gTp.notifyDataSetChanged();
                                     return;
                                 } else {
-                                    MyForbiddenFansActivity.this.gTq.bMQ();
+                                    MyForbiddenFansActivity.this.gTq.bMR();
                                     return;
                                 }
                             }
@@ -180,24 +180,24 @@ public class MyForbiddenFansActivity extends BaseActivity {
                         l.showToast(MyForbiddenFansActivity.this.getActivity(), str);
                     }
                 } else if (i == 0 && i2 == 1 && MyForbiddenFansActivity.this.gTp.ea(j)) {
-                    if (MyForbiddenFansActivity.this.gTp.bMO()) {
+                    if (MyForbiddenFansActivity.this.gTp.bMP()) {
                         MyForbiddenFansActivity.this.showNoDataView();
                     } else if (MyForbiddenFansActivity.this.gTp.getItemCount() > 20 || !MyForbiddenFansActivity.this.gTq.hasMore()) {
                         MyForbiddenFansActivity.this.aj(MyForbiddenFansActivity.this.gTp.getFansList());
                         MyForbiddenFansActivity.this.gTp.notifyDataSetChanged();
                     } else {
-                        MyForbiddenFansActivity.this.gTq.bMQ();
+                        MyForbiddenFansActivity.this.gTq.bMR();
                     }
                 }
             }
 
             @Override // com.baidu.tieba.forbidden.fans.e.a
-            public void bMN() {
+            public void bMO() {
                 MyForbiddenFansActivity.this.showLoadingDialog(MyForbiddenFansActivity.this.getString(R.string.remove_fans_loading));
             }
         });
         showProgressBar(true, 0, 0);
-        this.gTq.bMP();
+        this.gTq.bMQ();
     }
 
     /* JADX INFO: Access modifiers changed from: private */

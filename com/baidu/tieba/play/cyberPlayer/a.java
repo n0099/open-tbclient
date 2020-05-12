@@ -28,14 +28,14 @@ public class a {
         }
     }
 
-    public boolean cKq() {
+    public boolean cKr() {
         if (this.kiA) {
             c.init();
         }
         return this.kiA;
     }
 
-    public boolean cKr() {
+    public boolean cKs() {
         return this.kiB;
     }
 

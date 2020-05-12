@@ -57,17 +57,17 @@ public class c {
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(Context context) {
         this.mContext = context;
-        ag dkO = ag.dkO();
+        ag dkP = ag.dkP();
         this.lNa = new w(context);
         this.lNb = new b(context);
-        this.lNd = ae.dkN();
+        this.lNd = ae.dkO();
         this.ddA = new ArrayList(20);
-        this.ddB = dkO.getLong("ubc_last_upload_all_time", 0L);
-        this.ddC = dkO.getLong("ubc_last_upload_non_real", 0L);
-        this.ddD = dkO.getLong("ubc_reset_real_time_count_time", 0L);
-        this.lNc = dkO.getLong("ubc_last_upload_failed_data_time", 0L);
-        this.ddE = dkO.getInt("ubc_real_time_count", 0);
-        this.lNe = g.dky();
+        this.ddB = dkP.getLong("ubc_last_upload_all_time", 0L);
+        this.ddC = dkP.getLong("ubc_last_upload_non_real", 0L);
+        this.ddD = dkP.getLong("ubc_reset_real_time_count_time", 0L);
+        this.lNc = dkP.getLong("ubc_last_upload_failed_data_time", 0L);
+        this.ddE = dkP.getInt("ubc_real_time_count", 0);
+        this.lNe = g.dkz();
         this.lNe.a(this, context);
         this.lMY = System.currentTimeMillis();
         int nextInt = new Random().nextInt(31) + 60;
@@ -104,7 +104,7 @@ public class c {
         }
     }
 
-    public w dkv() {
+    public w dkw() {
         return this.lNa;
     }
 
@@ -119,8 +119,8 @@ public class c {
                 this.lNa.a(nVar);
                 return;
             }
-            List<String> cTd = UBC.getUBCContext().cTd();
-            if (cTd == null || !cTd.contains(nVar.getId())) {
+            List<String> cTe = UBC.getUBCContext().cTe();
+            if (cTe == null || !cTe.contains(nVar.getId())) {
                 this.lNa.a(nVar);
                 return;
             } else if (!this.lMZ) {
@@ -138,7 +138,7 @@ public class c {
             }
         } else if (UBC.getUBCContext().isPeakTime()) {
             this.lNa.aDf();
-        } else if (Math.abs(System.currentTimeMillis() - this.ddC) >= g.dky().aDx()) {
+        } else if (Math.abs(System.currentTimeMillis() - this.ddC) >= g.dkz().aDx()) {
             if (!z && this.lNe.No(nVar.getId())) {
                 this.ddA.add(nVar);
             }
@@ -179,12 +179,12 @@ public class c {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(String str, int i, long j, JSONArray jSONArray) {
-        List<String> cTd;
+        List<String> cTe;
         aDm();
         this.lNa.a(str, i, j, jSONArray);
         boolean sb = this.lNe.sb(str);
         if (UBC.getUBCContext().isPeakTime()) {
-            if (sb && (cTd = UBC.getUBCContext().cTd()) != null && cTd.contains(str)) {
+            if (sb && (cTe = UBC.getUBCContext().cTe()) != null && cTe.contains(str)) {
                 if (!this.lMZ) {
                     if ((System.currentTimeMillis() - this.lMY) / 1000 >= this.lMX) {
                         this.lMZ = true;
@@ -202,7 +202,7 @@ public class c {
             }
             aDn();
         }
-        if (!UBC.getUBCContext().isPeakTime() && Math.abs(System.currentTimeMillis() - this.ddC) >= g.dky().aDx()) {
+        if (!UBC.getUBCContext().isPeakTime() && Math.abs(System.currentTimeMillis() - this.ddC) >= g.dkz().aDx()) {
             if (DEBUG) {
                 Log.d("UBCBehaviorModel", "endFlow flow " + str + " invoke ->uploadNonRealTimeData ");
             }
@@ -214,7 +214,7 @@ public class c {
     public void C(String str, int i) {
         aDm();
         this.lNa.C(str, i);
-        if (!UBC.getUBCContext().isPeakTime() && Math.abs(System.currentTimeMillis() - this.ddC) >= g.dky().aDx()) {
+        if (!UBC.getUBCContext().isPeakTime() && Math.abs(System.currentTimeMillis() - this.ddC) >= g.dkz().aDx()) {
             if (DEBUG) {
                 Log.d("UBCBehaviorModel", "cancel flow " + str + " invoke ->uploadNonRealTimeData ");
             }
@@ -231,13 +231,13 @@ public class c {
                 return false;
             }
             this.lNa.d(e);
-            d.dkw().a(e.dkQ(), true, nVar, new t() { // from class: com.baidu.ubc.c.2
+            d.dkx().a(e.dkR(), true, nVar, new t() { // from class: com.baidu.ubc.c.2
                 @Override // com.baidu.ubc.t
                 public void a(boolean z, n nVar2) {
                     if (!z) {
                         c.this.lNa.a(nVar2);
                     } else {
-                        c.this.lNa.dkI();
+                        c.this.lNa.dkJ();
                     }
                 }
             });
@@ -342,8 +342,8 @@ public class c {
         if (Math.abs(currentTimeMillis - this.ddD) > 86400000) {
             this.ddE = 0;
             this.ddD = currentTimeMillis;
-            ag.dkO().putLong("ubc_reset_real_time_count_time", this.ddD);
-            ag.dkO().putInt("ubc_real_time_count", this.ddE);
+            ag.dkP().putLong("ubc_reset_real_time_count_time", this.ddD);
+            ag.dkP().putInt("ubc_real_time_count", this.ddE);
         }
         if (this.ddE >= 10000) {
             if (DEBUG) {
@@ -362,7 +362,7 @@ public class c {
 
     private void aDp() {
         this.ddE++;
-        ag.dkO().putInt("ubc_real_time_count", this.ddE);
+        ag.dkP().putInt("ubc_real_time_count", this.ddE);
     }
 
     private void aDq() {
@@ -371,7 +371,7 @@ public class c {
                 Log.d("UBCBehaviorModel", " upload no real data");
             }
             this.ddC = System.currentTimeMillis();
-            ag.dkO().putLong("ubc_last_upload_non_real", this.ddC);
+            ag.dkP().putLong("ubc_last_upload_non_real", this.ddC);
             aDs();
             aDm();
             this.lNa.aDf();
@@ -477,9 +477,9 @@ public class c {
                     Log.d("UBCBehaviorModel", "UBC all data:");
                 }
                 this.ddB = System.currentTimeMillis();
-                ag.dkO().putLong("ubc_last_upload_all_time", this.ddB);
+                ag.dkP().putLong("ubc_last_upload_all_time", this.ddB);
                 this.ddC = this.ddB;
-                ag.dkO().putLong("ubc_last_upload_non_real", this.ddC);
+                ag.dkP().putLong("ubc_last_upload_non_real", this.ddC);
             }
         }
     }
@@ -487,9 +487,9 @@ public class c {
     private void b(ah ahVar) {
         if (!ahVar.isEmpty()) {
             try {
-                JSONObject dkQ = ahVar.dkQ();
-                String md5 = af.toMd5(dkQ.toString().getBytes(), true);
-                cs(dkQ.toString(), md5);
+                JSONObject dkR = ahVar.dkR();
+                String md5 = af.toMd5(dkR.toString().getBytes(), true);
+                cs(dkR.toString(), md5);
                 if (DEBUG) {
                     y.e(ahVar);
                     Log.d("UBCBehaviorModel", "save send data to file " + md5);
@@ -503,13 +503,13 @@ public class c {
                     this.lNa.rW(md5);
                     return;
                 }
-                d.dkw().s(dkQ, md5);
+                d.dkx().s(dkR, md5);
                 ahVar.clearData();
                 long currentTimeMillis = System.currentTimeMillis();
                 if (Math.abs(currentTimeMillis - this.lNc) >= 7200000) {
                     this.lNc = currentTimeMillis;
-                    ag.dkO().putLong("ubc_last_upload_failed_data_time", this.lNc);
-                    d.dkw().aDu();
+                    ag.dkP().putLong("ubc_last_upload_failed_data_time", this.lNc);
+                    d.dkx().aDu();
                 }
             } catch (OutOfMemoryError e) {
                 ahVar.clearData();
@@ -524,7 +524,7 @@ public class c {
             tVar.a(g, nVar);
         }
         if (!TextUtils.isEmpty(str)) {
-            d.dkw().W(str, g);
+            d.dkx().W(str, g);
         }
     }
 
@@ -537,12 +537,12 @@ public class c {
         ah ahVar = new ah();
         ahVar.ge(z);
         if (this.lNb.a(ahVar, z)) {
-            JSONObject dkQ = ahVar.dkQ();
+            JSONObject dkR = ahVar.dkR();
             if (DEBUG) {
-                Log.d("UBCBehaviorModel", "checkFileData:" + dkQ.toString());
+                Log.d("UBCBehaviorModel", "checkFileData:" + dkR.toString());
             }
             this.lNb.ga(z);
-            d.dkw().dw(dkQ);
+            d.dkx().dw(dkR);
         }
     }
 
@@ -552,8 +552,8 @@ public class c {
         this.lNf = 0;
         this.lNg = 0;
         this.lNh = 0;
-        String dkE = vVar.dkE();
-        if (dkE == null || TextUtils.equals(dkE, "1")) {
+        String dkF = vVar.dkF();
+        if (dkF == null || TextUtils.equals(dkF, "1")) {
         }
         b(vVar, z, jSONArray);
         a(vVar, z, jSONArray);
@@ -599,10 +599,10 @@ public class c {
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:29:0x00a3, code lost:
-        if (android.text.TextUtils.equals(r7.dkB(), "1") != false) goto L39;
+        if (android.text.TextUtils.equals(r7.dkC(), "1") != false) goto L39;
      */
     /* JADX WARN: Code restructure failed: missing block: B:31:0x00b0, code lost:
-        if (android.text.TextUtils.equals(r0.dkB(), "1") == false) goto L28;
+        if (android.text.TextUtils.equals(r0.dkC(), "1") == false) goto L28;
      */
     /* JADX WARN: Code restructure failed: missing block: B:32:0x00b2, code lost:
         r5.remove(r0);
@@ -662,15 +662,15 @@ public class c {
 
     void b(v vVar, boolean z, JSONArray jSONArray) {
         String str;
-        JSONObject dkG = vVar.dkG();
-        if (dkG != null) {
-            Iterator<String> keys = dkG.keys();
+        JSONObject dkH = vVar.dkH();
+        if (dkH != null) {
+            Iterator<String> keys = dkH.keys();
             while (keys.hasNext()) {
                 String next = keys.next();
                 try {
                     JSONObject jSONObject = new JSONObject();
                     k Nw = this.lNa.Nw(next);
-                    String optString = dkG.optString(next, "0");
+                    String optString = dkH.optString(next, "0");
                     if (Nw == null) {
                         str = "0";
                     } else {
@@ -870,7 +870,7 @@ public class c {
                             JSONObject jSONObject2 = jSONObject.getJSONObject("metadata");
                             jSONObject2.put("uploadtime", Long.toString(System.currentTimeMillis()));
                             jSONObject.put("metadata", jSONObject2);
-                            d.dkw().s(jSONObject, str);
+                            d.dkx().s(jSONObject, str);
                             fileInputStream = inputStream;
                         }
                     } catch (Exception e) {
@@ -944,17 +944,17 @@ public class c {
     public boolean a(ah ahVar, String str) {
         int i = 0;
         if (UBC.getUBCContext().isPeakTime()) {
-            List<String> cTd = UBC.getUBCContext().cTd();
-            if (cTd == null || cTd.size() == 0) {
+            List<String> cTe = UBC.getUBCContext().cTe();
+            if (cTe == null || cTe.size() == 0) {
                 return true;
             }
             ArrayList<j> arrayList = new ArrayList<>();
             while (true) {
                 int i2 = i;
-                if (i2 >= cTd.size()) {
+                if (i2 >= cTe.size()) {
                     break;
                 }
-                arrayList.add(new j(cTd.get(i2), str));
+                arrayList.add(new j(cTe.get(i2), str));
                 i = i2 + 1;
             }
             if (arrayList.size() == 0) {

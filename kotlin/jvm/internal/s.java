@@ -13,19 +13,19 @@ public final class s implements l {
     }
 
     @Override // kotlin.jvm.internal.l
-    public Class<?> dDP() {
+    public Class<?> dDQ() {
         return this.mXP;
     }
 
     public boolean equals(Object obj) {
-        return (obj instanceof s) && q.k(dDP(), ((s) obj).dDP());
+        return (obj instanceof s) && q.k(dDQ(), ((s) obj).dDQ());
     }
 
     public int hashCode() {
-        return dDP().hashCode();
+        return dDQ().hashCode();
     }
 
     public String toString() {
-        return dDP().toString() + " (Kotlin reflection is not available)";
+        return dDQ().toString() + " (Kotlin reflection is not available)";
     }
 }

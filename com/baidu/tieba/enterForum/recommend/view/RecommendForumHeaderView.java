@@ -35,7 +35,7 @@ public class RecommendForumHeaderView extends LinearLayout implements View.OnCli
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2921386) {
-                    RecommendForumHeaderView.this.bJp();
+                    RecommendForumHeaderView.this.bJq();
                 }
             }
         };
@@ -47,7 +47,7 @@ public class RecommendForumHeaderView extends LinearLayout implements View.OnCli
                     if (RecommendForumHeaderView.this.gFO == null || RecommendForumHeaderView.this.gFO.getVisibility() == 8) {
                         RecommendForumHeaderView.this.gFQ = false;
                     } else {
-                        RecommendForumHeaderView.this.bJo();
+                        RecommendForumHeaderView.this.bJp();
                     }
                 }
             }
@@ -83,7 +83,7 @@ public class RecommendForumHeaderView extends LinearLayout implements View.OnCli
         this.gFO.setVisibility(0);
         this.gFO.setData(list);
         if (!this.gFQ) {
-            bJo();
+            bJp();
             this.gFQ = true;
         }
     }
@@ -101,7 +101,7 @@ public class RecommendForumHeaderView extends LinearLayout implements View.OnCli
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view != this.gFO && this.gFP != null) {
-            bJp();
+            bJq();
         }
     }
 
@@ -112,7 +112,7 @@ public class RecommendForumHeaderView extends LinearLayout implements View.OnCli
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bJo() {
+    public void bJp() {
         if (this.gFP == null) {
             this.gFP = new com.baidu.tieba.c.d(this.mPageContext, this.gFO);
             this.gFP.cz(R.drawable.bg_tip_blue_up);
@@ -125,13 +125,13 @@ public class RecommendForumHeaderView extends LinearLayout implements View.OnCli
         }
     }
 
-    public void bJp() {
+    public void bJq() {
         if (this.gFP != null) {
             this.gFP.ED();
         }
     }
 
-    public void bJq() {
+    public void bJr() {
         MessageManager.getInstance().unRegisterListener(this.gFR);
     }
 

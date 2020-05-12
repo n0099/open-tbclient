@@ -44,9 +44,7 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
 
     /* loaded from: classes10.dex */
     public interface a {
-        void dcY();
-
-        void ddj();
+        void dcZ();
 
         void ddk();
 
@@ -63,6 +61,8 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
         void ddq();
 
         void ddr();
+
+        void dds();
     }
 
     public VideoControllerLayout(Context context) {
@@ -132,7 +132,7 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
     public void Ey(int i) {
         this.lne.setStatus(i);
         if (this.lpU != null) {
-            this.lpU.ddr();
+            this.lpU.dds();
         }
         if (i == 1) {
             this.lpN.setVisibility(8);
@@ -157,13 +157,13 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
     public void onClick(View view) {
         if (view == this.lpN) {
             if (this.lpU != null) {
-                this.lpU.ddq();
+                this.lpU.ddr();
             }
             int status = this.lne.getStatus();
             if (this.lne != null && this.lne.getVideoDuration() > 0 && status > 2) {
                 if (status == 5) {
                     TiebaStatic.log("c12299");
-                    this.lne.dcT();
+                    this.lne.dcU();
                     eI(this.lpX);
                     eI(this.lpY);
                     eI(this.lpZ);
@@ -175,16 +175,16 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
                         return;
                     }
                 }
-                this.lne.dcS();
+                this.lne.dcT();
                 Ey(5);
             }
         } else if (view == this.lpQ) {
             TiebaStatic.log("c12300");
             if (this.lne != null && this.lne.getStatus() > 2 && this.lpU != null) {
                 if (this.lne.getVideoDuration() >= 3000.0f) {
-                    this.lpU.ddo();
-                } else {
                     this.lpU.ddp();
+                } else {
+                    this.lpU.ddq();
                 }
             }
         }
@@ -200,7 +200,7 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
     public void dU(final boolean z) {
         if (this.lne.getProgress() >= 100) {
             if (this.lpU != null) {
-                this.lpU.ddo();
+                this.lpU.ddp();
                 return;
             }
             return;
@@ -231,28 +231,28 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
             this.lne.startRecord();
         }
         if (this.lpU != null) {
-            this.lpU.ddj();
+            this.lpU.ddk();
         }
     }
 
     public void stopRecord() {
-        ddv();
+        ddw();
         int status = this.lne.getStatus();
         if (this.lne != null) {
             if (!this.lne.bnE() && this.lne.aRl()) {
                 this.lne.stopRecord();
             }
-            ddu();
+            ddv();
         }
         if (this.lpU != null) {
-            this.lpU.dcY();
+            this.lpU.dcZ();
             if (status == 6) {
-                this.lpU.ddl();
+                this.lpU.ddm();
             }
         }
     }
 
-    public void ddu() {
+    public void ddv() {
         if (this.lne != null) {
             if (this.lne.getVideoDuration() >= 3000.0f) {
                 Ey(4);
@@ -289,7 +289,7 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
         }
     }
 
-    public void ddv() {
+    public void ddw() {
         if (this.lne == null || this.lne.aRl() || this.lne.getStatus() == 6) {
             if (this.lpc != null && this.lpc.isRunning()) {
                 this.lpc.cancel();
@@ -303,7 +303,7 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
             this.lpQ.setVisibility(0);
             this.lpd.start();
             if (this.lne.getStatus() != 7 && this.lne.getStatus() != 6) {
-                this.lpP.ddv();
+                this.lpP.ddw();
                 return;
             }
             this.lpP.getTvTip().setVisibility(8);
@@ -331,10 +331,10 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
         switch (motionEvent.getAction()) {
             case 0:
                 if (this.lpU != null) {
-                    this.lpU.ddq();
+                    this.lpU.ddr();
                 }
                 if (this.lne.getStatus() != 7 && this.lne.getStatus() != 6) {
-                    if (this.lne != null && this.lne.dcR()) {
+                    if (this.lne != null && this.lne.dcS()) {
                         this.lpW = true;
                         com.baidu.tbadk.core.util.e.aOb().showToast(R.string.music_is_downloading);
                         return;
@@ -383,8 +383,8 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
                 if (this.lne.getStatus() == 6) {
                     this.lne.setStatus(1);
                     if (this.lpU != null) {
-                        this.lpU.ddl();
-                        this.lpU.dcY();
+                        this.lpU.ddm();
+                        this.lpU.dcZ();
                     }
                     this.lpP.getTvTip().setText("");
                     this.lpP.getTvTip().setVisibility(8);
@@ -393,21 +393,21 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
                     a((m) null);
                     return;
                 } else if (this.lpU != null) {
-                    this.lpU.ddk();
-                    this.lpP.ddG();
+                    this.lpU.ddl();
+                    this.lpP.ddH();
                     return;
                 } else {
                     return;
                 }
             case 1:
-                this.lpP.ddH();
+                this.lpP.ddI();
                 return;
             default:
                 return;
         }
     }
 
-    public void dde() {
+    public void ddf() {
         if (this.lqb.getVisibility() == 0) {
             a((m) null);
         }
@@ -416,11 +416,11 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
         this.lpP.getTvTip().setText(getResources().getText(R.string.video_record_button_cancel));
         this.lpP.getTvTip().setVisibility(0);
         if (this.lpU != null) {
-            this.lpU.ddj();
+            this.lpU.ddk();
         }
     }
 
-    public void ddw() {
+    public void ddx() {
         if (this.lne.getStatus() == 6) {
             if (this.hqi == 2) {
                 Ey(7);
@@ -436,60 +436,60 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
             }
             this.lpP.getTvTip().setVisibility(8);
             if (this.lpU != null) {
-                this.lpU.ddk();
+                this.lpU.ddl();
             }
         }
     }
 
     @Override // com.baidu.tieba.video.record.VideoEffectButtonLayout.a
-    public void ddf() {
-        if (ddz() && this.lqb.getCurrentEffectLayout() == 3) {
-            a((m) null);
-            return;
-        }
-        if (!ddz()) {
-            ddy();
-        }
-        this.lqb.ddf();
-    }
-
-    @Override // com.baidu.tieba.video.record.VideoEffectButtonLayout.a
     public void ddg() {
-        if (ddz() && this.lqb.getCurrentEffectLayout() == 0) {
+        if (ddA() && this.lqb.getCurrentEffectLayout() == 3) {
             a((m) null);
             return;
         }
-        if (!ddz()) {
-            ddy();
+        if (!ddA()) {
+            ddz();
         }
         this.lqb.ddg();
     }
 
     @Override // com.baidu.tieba.video.record.VideoEffectButtonLayout.a
     public void ddh() {
-        if (ddz() && this.lqb.getCurrentEffectLayout() == 1) {
+        if (ddA() && this.lqb.getCurrentEffectLayout() == 0) {
             a((m) null);
             return;
         }
-        if (!ddz()) {
-            ddy();
+        if (!ddA()) {
+            ddz();
         }
         this.lqb.ddh();
     }
 
     @Override // com.baidu.tieba.video.record.VideoEffectButtonLayout.a
     public void ddi() {
-        if (ddz() && this.lqb.getCurrentEffectLayout() == 2) {
+        if (ddA() && this.lqb.getCurrentEffectLayout() == 1) {
             a((m) null);
             return;
         }
-        if (!ddz()) {
-            ddy();
+        if (!ddA()) {
+            ddz();
         }
         this.lqb.ddi();
     }
 
-    private void ddx() {
+    @Override // com.baidu.tieba.video.record.VideoEffectButtonLayout.a
+    public void ddj() {
+        if (ddA() && this.lqb.getCurrentEffectLayout() == 2) {
+            a((m) null);
+            return;
+        }
+        if (!ddA()) {
+            ddz();
+        }
+        this.lqb.ddj();
+    }
+
+    private void ddy() {
         if (v.isEmpty(this.lpT)) {
             this.lpT = new ArrayList();
             this.lpT.add(ObjectAnimator.ofFloat(this.lqb, "translationY", 1000.0f, 0.0f));
@@ -507,11 +507,11 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
         }
     }
 
-    private void ddy() {
+    private void ddz() {
         int i = 0;
         if (this.lqb.getVisibility() != 0) {
             this.lqb.setVisibility(0);
-            ddx();
+            ddy();
             this.lpQ.setEnabled(false);
             this.lpN.setEnabled(false);
             while (true) {
@@ -527,7 +527,7 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
                                 @Override // com.baidu.tieba.video.record.m, android.animation.Animator.AnimatorListener
                                 public void onAnimationStart(Animator animator) {
                                     if (VideoControllerLayout.this.lpU != null) {
-                                        VideoControllerLayout.this.lpU.ddm();
+                                        VideoControllerLayout.this.lpU.ddn();
                                     }
                                 }
                             });
@@ -544,7 +544,7 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
 
     public void a(final m mVar) {
         if (this.lqb.getVisibility() != 8) {
-            ddx();
+            ddy();
             this.lpQ.setEnabled(true);
             this.lpN.setEnabled(true);
             if (this.lne.getStatus() == 6 || this.lne.aRl()) {
@@ -569,7 +569,7 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
                                     if (!this.lqO) {
                                         VideoControllerLayout.this.lqb.setVisibility(8);
                                         if (VideoControllerLayout.this.lpU != null) {
-                                            VideoControllerLayout.this.lpU.ddn();
+                                            VideoControllerLayout.this.lpU.ddo();
                                         }
                                         if (mVar != null) {
                                             mVar.onAnimationEnd(animator);
@@ -612,7 +612,7 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
         }
     }
 
-    public boolean ddz() {
+    public boolean ddA() {
         return this.lqb.getVisibility() == 0;
     }
 
@@ -634,9 +634,9 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
         }
     }
 
-    public boolean ddA() {
+    public boolean ddB() {
         if (this.lqb != null) {
-            return this.lqb.ddA();
+            return this.lqb.ddB();
         }
         return false;
     }
@@ -673,15 +673,15 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
     public void v(String str, int i, String str2) {
     }
 
-    public void ddB() {
+    public void ddC() {
         if (this.lqb != null) {
-            this.lqb.ddB();
+            this.lqb.ddC();
         }
     }
 
-    public void dcp() {
+    public void dcq() {
         if (this.lqb != null) {
-            this.lqb.dcp();
+            this.lqb.dcq();
         }
     }
 }

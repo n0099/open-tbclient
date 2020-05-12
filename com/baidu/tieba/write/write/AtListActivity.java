@@ -295,7 +295,7 @@ public class AtListActivity extends BaseActivity<AtListActivity> implements Adap
                 }
             }
         });
-        cjX();
+        cjY();
     }
 
     private void blD() {
@@ -374,7 +374,7 @@ public class AtListActivity extends BaseActivity<AtListActivity> implements Adap
         });
     }
 
-    private void cjX() {
+    private void cjY() {
         int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.ds80) + getResources().getDimensionPixelSize(R.dimen.ds16) + getResources().getDimensionPixelSize(R.dimen.ds16);
         this.mListFooter = new View(getPageContext().getContext());
         this.mListFooter.setLayoutParams(new AbsListView.LayoutParams(-1, dimensionPixelSize));
@@ -396,18 +396,18 @@ public class AtListActivity extends BaseActivity<AtListActivity> implements Adap
     public void refreshData() {
         if (!isFinishing()) {
             this.lDk.setData(null);
-            if (this.lDj.dfI() != null) {
-                ArrayList<MetaData> dfA = this.lDj.dfI().dfA();
-                Iterator<MetaData> it = dfA.iterator();
+            if (this.lDj.dfJ() != null) {
+                ArrayList<MetaData> dfB = this.lDj.dfJ().dfB();
+                Iterator<MetaData> it = dfB.iterator();
                 while (it.hasNext()) {
                     it.next().setChecked(false);
                 }
-                if (!v.isEmpty(dfA)) {
+                if (!v.isEmpty(dfB)) {
                     EX(0);
                 } else {
                     EX(1);
                 }
-                this.lDk.setData(dfA);
+                this.lDk.setData(dfB);
             } else {
                 this.lDk.setData(null);
                 if (this.lDi == null) {
@@ -472,7 +472,7 @@ public class AtListActivity extends BaseActivity<AtListActivity> implements Adap
         if (metaData != null) {
             this.lDh.f(metaData);
             xD(this.lDh.getItemLength());
-            cjY();
+            cjZ();
         }
     }
 
@@ -481,11 +481,11 @@ public class AtListActivity extends BaseActivity<AtListActivity> implements Adap
         if (metaData != null) {
             this.lDh.h(metaData);
             xD(this.lDh.getItemLength());
-            cjY();
+            cjZ();
         }
     }
 
-    private void cjY() {
+    private void cjZ() {
         if (this.lDh.getItemLength() > 0) {
             this.iyI.setEnabled(true);
         } else {
@@ -561,13 +561,13 @@ public class AtListActivity extends BaseActivity<AtListActivity> implements Adap
             if (this.mNetwork.aOw().aOX().isRequestSuccess()) {
                 AtListActivity.this.lDj.a(bVar);
                 if (AtListActivity.this.lDk != null) {
-                    if (bVar == null || bVar.dfA() == null || !bVar.dfA().isEmpty()) {
+                    if (bVar == null || bVar.dfB() == null || !bVar.dfB().isEmpty()) {
                         AtListActivity.this.EX(0);
                     } else {
                         AtListActivity.this.EX(2);
                     }
                     if (bVar != null) {
-                        AtListActivity.this.lDg = bVar.dfA();
+                        AtListActivity.this.lDg = bVar.dfB();
                     }
                     AtListActivity.this.lDk.setData(AtListActivity.this.lDg);
                     AtListActivity.this.lDk.notifyDataSetInvalidated();

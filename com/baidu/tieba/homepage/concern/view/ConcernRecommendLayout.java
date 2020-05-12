@@ -101,7 +101,7 @@ public class ConcernRecommendLayout extends LinearLayout implements n {
         am.setViewTextColor(this.mTitleView, (int) R.color.cp_cont_c);
         this.mTitleView.setText(R.string.concern_recommend_title);
         this.hJS.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-        this.hJS.setData(bVar.bYb());
+        this.hJS.setData(bVar.bYc());
         this.hJS.notifyDataSetChanged();
     }
 

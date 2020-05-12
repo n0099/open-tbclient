@@ -6,7 +6,7 @@ import java.util.List;
 public class d implements b {
     final List<b> lQn;
 
-    public List<b> dmi() {
+    public List<b> dmj() {
         return this.lQn;
     }
 
@@ -40,7 +40,7 @@ public class d implements b {
     }
 
     @Override // com.facebook.cache.common.b
-    public String dmh() {
-        return this.lQn.get(0).dmh();
+    public String dmi() {
+        return this.lQn.get(0).dmi();
     }
 }

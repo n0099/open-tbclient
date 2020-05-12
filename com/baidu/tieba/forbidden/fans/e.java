@@ -20,7 +20,7 @@ public class e {
     public interface a {
         void a(int i, String str, boolean z, int i2, long j);
 
-        void bMN();
+        void bMO();
     }
 
     public e(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
@@ -64,9 +64,9 @@ public class e {
                 public void onClick() {
                     e.this.dkF.dismiss();
                     if (e.this.gTN != null) {
-                        e.this.gTN.bMN();
+                        e.this.gTN.bMO();
                     }
-                    e.this.gTL.bMR();
+                    e.this.gTL.bMS();
                 }
             });
             arrayList.add(c0692a);

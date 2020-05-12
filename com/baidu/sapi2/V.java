@@ -28,9 +28,8 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes6.dex */
-public final class V {
+final class V {
     private static final Map<String, SoftReference<String>> a = new ConcurrentHashMap();
     private final List<String> b = new ArrayList();
     private final List<String> c = new ArrayList();

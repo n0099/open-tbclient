@@ -131,7 +131,7 @@ public final class ObservableFlatMapMaybe<T, R> extends a<T, R> {
                 if (aVar != null) {
                     break;
                 }
-                aVar = new io.reactivex.internal.queue.a<>(q.dCx());
+                aVar = new io.reactivex.internal.queue.a<>(q.dCy());
             } while (!this.queue.compareAndSet(null, aVar));
             return aVar;
         }

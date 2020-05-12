@@ -6,7 +6,7 @@ public final class a {
     private static final String lOV = Environment.getExternalStorageDirectory().getPath();
     static final String lOW = lOV + "/baidu/ab/crash/";
     static final String lOX = lOV + "/baidu/ab/sdklog/";
-    public static final String lOY = lOV + "/baidu/ab/sdkupdata/" + dls() + "/";
+    public static final String lOY = lOV + "/baidu/ab/sdkupdata/" + dlt() + "/";
     private static int aU = EnumC0714a.aV;
 
     /* JADX WARN: $VALUES field not found */
@@ -20,7 +20,7 @@ public final class a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static boolean dlr() {
+    public static boolean dls() {
         return aU == EnumC0714a.aV;
     }
 
@@ -28,7 +28,7 @@ public final class a {
         return "0.4.0";
     }
 
-    private static int dls() {
+    private static int dlt() {
         try {
             String[] split = "0.4.0".split("\\.");
             if (split.length > 2) {

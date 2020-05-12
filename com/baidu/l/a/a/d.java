@@ -18,7 +18,7 @@ public abstract class d implements c {
     }
 
     @Override // com.baidu.l.a.a.c
-    public boolean dlz() {
+    public boolean dlA() {
         return this.lPp;
     }
 
@@ -28,17 +28,17 @@ public abstract class d implements c {
     }
 
     @Override // com.baidu.l.a.a.c
-    public String dlK() {
+    public String dlL() {
         return this.lPr;
     }
 
     @Override // com.baidu.l.a.a.c
-    public String dlL() {
+    public String dlM() {
         return this.lPs;
     }
 
     @Override // com.baidu.l.a.a.c
-    public String dlM() {
+    public String dlN() {
         return this.lPt;
     }
 

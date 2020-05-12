@@ -17,8 +17,8 @@ public class e extends InputStream {
 
     @Override // java.io.InputStream
     public int read() throws IOException {
-        dkq();
-        if (dkr()) {
+        dkr();
+        if (dks()) {
             return this.mBuffer.get() & 255;
         }
         return -1;
@@ -32,8 +32,8 @@ public class e extends InputStream {
         if (i2 == 0) {
             return 0;
         }
-        dkq();
-        if (dkr()) {
+        dkr();
+        if (dks()) {
             int min = Math.min(this.mBuffer.limit() - this.mBuffer.position(), i2);
             this.mBuffer.get(bArr, i, min);
             return min;
@@ -48,12 +48,12 @@ public class e extends InputStream {
         this.mBuffer = null;
     }
 
-    private void dkq() throws IOException {
+    private void dkr() throws IOException {
         if (this.lMR) {
             if (this.lMS != null) {
                 throw this.lMS;
             }
-        } else if (!dkr()) {
+        } else if (!dks()) {
             if (this.mBuffer == null) {
                 this.mBuffer = ByteBuffer.allocateDirect(32768);
             }
@@ -68,7 +68,7 @@ public class e extends InputStream {
         }
     }
 
-    private boolean dkr() {
+    private boolean dks() {
         return this.mBuffer != null && this.mBuffer.hasRemaining();
     }
 }

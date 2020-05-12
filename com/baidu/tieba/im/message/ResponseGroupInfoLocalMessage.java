@@ -45,7 +45,7 @@ public class ResponseGroupInfoLocalMessage extends CustomResponsedMessage<a> {
         private boolean isy;
         private boolean isz;
 
-        public GroupActivityData chP() {
+        public GroupActivityData chQ() {
             return this.isA;
         }
 
@@ -61,7 +61,7 @@ public class ResponseGroupInfoLocalMessage extends CustomResponsedMessage<a> {
             this.ist = groupData;
         }
 
-        public List<MemberData> chQ() {
+        public List<MemberData> chR() {
             return this.isu;
         }
 
@@ -69,7 +69,7 @@ public class ResponseGroupInfoLocalMessage extends CustomResponsedMessage<a> {
             this.isu = list;
         }
 
-        public List<PhotoUrlData> chR() {
+        public List<PhotoUrlData> chS() {
             return this.isv;
         }
 
@@ -78,7 +78,7 @@ public class ResponseGroupInfoLocalMessage extends CustomResponsedMessage<a> {
             this.isv = list;
         }
 
-        public int chS() {
+        public int chT() {
             return this.isw;
         }
 
@@ -86,7 +86,7 @@ public class ResponseGroupInfoLocalMessage extends CustomResponsedMessage<a> {
             this.isw = i;
         }
 
-        public int chT() {
+        public int chU() {
             return this.isx;
         }
 
@@ -94,7 +94,7 @@ public class ResponseGroupInfoLocalMessage extends CustomResponsedMessage<a> {
             this.isx = i;
         }
 
-        public boolean chU() {
+        public boolean chV() {
             return this.iqg;
         }
 
@@ -102,7 +102,7 @@ public class ResponseGroupInfoLocalMessage extends CustomResponsedMessage<a> {
             this.iqg = z;
         }
 
-        public boolean chV() {
+        public boolean chW() {
             return this.iqh;
         }
 
@@ -122,7 +122,7 @@ public class ResponseGroupInfoLocalMessage extends CustomResponsedMessage<a> {
             this.isMemGroup = z;
         }
 
-        public boolean chW() {
+        public boolean chX() {
             return this.isz;
         }
 

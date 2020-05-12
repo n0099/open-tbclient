@@ -65,7 +65,7 @@ public class Static {
                     }
                 }
             });
-            ae.bQp().tA(49);
+            ae.bQq().tA(49);
         }
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003390, TbConfig.SERVER_ADDRESS + AlaConfig.ALA_FRS_NEGATIVE_URL);

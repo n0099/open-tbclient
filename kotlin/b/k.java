@@ -13,12 +13,12 @@ public final class k extends i {
 
     @Override // kotlin.b.i
     public boolean isEmpty() {
-        return dEh() > dEi();
+        return dEi() > dEj();
     }
 
     @Override // kotlin.b.i
     public boolean equals(Object obj) {
-        return (obj instanceof k) && ((isEmpty() && ((k) obj).isEmpty()) || (dEh() == ((k) obj).dEh() && dEi() == ((k) obj).dEi()));
+        return (obj instanceof k) && ((isEmpty() && ((k) obj).isEmpty()) || (dEi() == ((k) obj).dEi() && dEj() == ((k) obj).dEj()));
     }
 
     @Override // kotlin.b.i
@@ -26,12 +26,12 @@ public final class k extends i {
         if (isEmpty()) {
             return -1;
         }
-        return (int) ((31 * (dEh() ^ (dEh() >>> 32))) + (dEi() ^ (dEi() >>> 32)));
+        return (int) ((31 * (dEi() ^ (dEi() >>> 32))) + (dEj() ^ (dEj() >>> 32)));
     }
 
     @Override // kotlin.b.i
     public String toString() {
-        return dEh() + IStringUtil.TOP_PATH + dEi();
+        return dEi() + IStringUtil.TOP_PATH + dEj();
     }
 
     @kotlin.h

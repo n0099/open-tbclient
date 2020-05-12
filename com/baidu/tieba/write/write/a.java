@@ -94,7 +94,7 @@ public class a extends BaseAdapter {
         C0707a c0707a;
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         if (obj == null) {
-            c0707a = dgB();
+            c0707a = dgC();
         } else {
             c0707a = (C0707a) obj;
         }
@@ -116,7 +116,7 @@ public class a extends BaseAdapter {
         return c0707a;
     }
 
-    private C0707a dgB() {
+    private C0707a dgC() {
         C0707a c0707a = new C0707a();
         c0707a.rootView = LayoutInflater.from(this.mContext).inflate(R.layout.invite_friend_list_item, (ViewGroup) null);
         c0707a.iyg = (HeadImageView) c0707a.rootView.findViewById(R.id.photo);

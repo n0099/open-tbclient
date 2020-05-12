@@ -52,7 +52,7 @@ public class EmotionEditModel extends BdBaseModel {
             if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003348 && (httpResponsedMessage instanceof EmotionCheckUegResponseMessage)) {
                 String status = ((EmotionCheckUegResponseMessage) httpResponsedMessage).getStatus();
                 if (EmotionCheckUegResponseMessage.STATUS_OK.equals(status)) {
-                    EmotionEditModel.this.jPI.cFp();
+                    EmotionEditModel.this.jPI.cFq();
                 } else if (EmotionCheckUegResponseMessage.STATUS_FAIL.equals(status)) {
                     String msg = ((EmotionCheckUegResponseMessage) httpResponsedMessage).getMsg();
                     if (TextUtils.isEmpty(msg)) {
@@ -78,7 +78,7 @@ public class EmotionEditModel extends BdBaseModel {
 
         void c(ImageUploadResult imageUploadResult);
 
-        void cFp();
+        void cFq();
     }
 
     public EmotionEditModel(EmotionEditActivity emotionEditActivity, a aVar) {
@@ -93,7 +93,7 @@ public class EmotionEditModel extends BdBaseModel {
     public void setCancel(boolean z) {
         this.gNu = z;
         if (this.gNu) {
-            cFz();
+            cFA();
         }
     }
 
@@ -174,7 +174,7 @@ public class EmotionEditModel extends BdBaseModel {
                                     EmotionEditModel.this.a(createBitmap, bitmap);
                                     return;
                                 }
-                                aVar.cFq();
+                                aVar.cFr();
                                 File a2 = EmotionEditModel.this.a(byteArrayOutputStream, str);
                                 EmotionEditModel.this.a(createBitmap, bitmap);
                                 Message obtain = Message.obtain();
@@ -211,11 +211,11 @@ public class EmotionEditModel extends BdBaseModel {
     public boolean cancelLoadData() {
         MessageManager.getInstance().unRegisterListener(this.jPO);
         MessageManager.getInstance().unRegisterTask(1003348);
-        cFz();
+        cFA();
         return false;
     }
 
-    private void cFz() {
+    private void cFA() {
         if (this.jPJ != null) {
             this.jPJ.cancel();
         }

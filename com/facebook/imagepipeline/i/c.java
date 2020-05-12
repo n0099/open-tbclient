@@ -92,7 +92,7 @@ public class c extends b {
         }
     }
 
-    private synchronized Method dtO() {
+    private synchronized Method dtP() {
         if (meE == null) {
             try {
                 meE = MemoryFile.class.getDeclaredMethod("getFileDescriptor", new Class[0]);
@@ -105,7 +105,7 @@ public class c extends b {
 
     private FileDescriptor a(MemoryFile memoryFile) {
         try {
-            return (FileDescriptor) dtO().invoke(memoryFile, new Object[0]);
+            return (FileDescriptor) dtP().invoke(memoryFile, new Object[0]);
         } catch (Exception e) {
             throw l.y(e);
         }

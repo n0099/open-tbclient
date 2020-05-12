@@ -153,13 +153,13 @@ public class f extends k {
                     f.this.mzZ.b(f.this.m, f.this.n, f.this.o, f.this.p);
                 }
             });
-            com.kascend.chushou.a.a.dwB().b(listItem, this.mpu, fU.x / 5, ((fU.x / 5) * 360) / 144, ((fU.x / 5) * 144) / 144);
+            com.kascend.chushou.a.a.dwC().b(listItem, this.mpu, fU.x / 5, ((fU.x / 5) * 360) / 144, ((fU.x / 5) * 144) / 144);
             return;
         }
         Point fU2 = tv.chushou.zues.utils.a.fU(this.mzZ.getContext());
         int min = Math.min(fU2.x, fU2.y);
         int i2 = min / 5;
-        if (com.kascend.chushou.a.a.dwB().a(listItem, this.mzZ, min, (min * 144) / 720, (min * 77) / 720) == 0) {
+        if (com.kascend.chushou.a.a.dwC().a(listItem, this.mzZ, min, (min * 144) / 720, (min * 77) / 720) == 0) {
             ViewGroup.LayoutParams layoutParams2 = this.mzZ.getLayoutParams();
             layoutParams2.width = min;
             layoutParams2.height = i2;
@@ -197,19 +197,19 @@ public class f extends k {
     @Override // com.kascend.chushou.player.ui.food.k
     public void a(ListItem listItem, boolean z, boolean z2) {
         if (b()) {
-            if (dyw() != null) {
-                dyw().loadUrl(listItem.mCover);
+            if (dyx() != null) {
+                dyx().loadUrl(listItem.mCover);
                 a(listItem, a.f.fl_holder);
             }
         } else if (z2) {
-            this.mvZ.xW(tv.chushou.widget.a.c.dJG());
+            this.mvZ.xW(tv.chushou.widget.a.c.dJH());
             return;
         } else {
             this.mvZ.setBlur(false);
             if (!PayHelper.STATUS_SUCC.equals(listItem.mType) || listItem.mAdExtraInfo == null || com.kascend.chushou.a.a.y != tv.chushou.zues.utils.h.parseInt(listItem.mAdExtraInfo.mMarketId) || tv.chushou.zues.utils.h.isEmpty(listItem.mAdExtraInfo.marketPositionCode)) {
                 ((ViewGroup) Is(a.f.rl_wangmai)).setVisibility(8);
                 this.mvZ.setAnim(true);
-                this.mvZ.i(listItem.mCover, tv.chushou.widget.a.c.dJG(), 0, 0);
+                this.mvZ.i(listItem.mCover, tv.chushou.widget.a.c.dJH(), 0, 0);
                 this.mzL.setVisibility(8);
                 if (this.mzN != null) {
                     if (tv.chushou.zues.utils.h.isEmpty(listItem.borderImage)) {
@@ -222,7 +222,7 @@ public class f extends k {
                 if (this.e.getVisibility() == 0) {
                     this.b.setText(listItem.mName);
                     this.c.setText(listItem.mDesc);
-                    this.mpu.i(listItem.mCover, tv.chushou.widget.a.c.dJG(), 0, 0);
+                    this.mpu.i(listItem.mCover, tv.chushou.widget.a.c.dJH(), 0, 0);
                 }
             }
             a(listItem, a.f.iv_cover_ad);

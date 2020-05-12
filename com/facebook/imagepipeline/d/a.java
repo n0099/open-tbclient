@@ -15,27 +15,27 @@ public class a implements e {
     }
 
     @Override // com.facebook.imagepipeline.d.e
-    public Executor dqX() {
-        return this.mbv;
-    }
-
-    @Override // com.facebook.imagepipeline.d.e
     public Executor dqY() {
         return this.mbv;
     }
 
     @Override // com.facebook.imagepipeline.d.e
     public Executor dqZ() {
-        return this.mbw;
+        return this.mbv;
     }
 
     @Override // com.facebook.imagepipeline.d.e
     public Executor dra() {
-        return this.mbx;
+        return this.mbw;
     }
 
     @Override // com.facebook.imagepipeline.d.e
     public Executor drb() {
+        return this.mbx;
+    }
+
+    @Override // com.facebook.imagepipeline.d.e
+    public Executor drc() {
         return this.mby;
     }
 }

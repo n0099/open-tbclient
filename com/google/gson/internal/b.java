@@ -26,7 +26,7 @@ import java.util.concurrent.ConcurrentSkipListMap;
 /* loaded from: classes7.dex */
 public final class b {
     private final Map<Type, InstanceCreator<?>> instanceCreators;
-    private final com.google.gson.internal.b.b miO = com.google.gson.internal.b.b.dvW();
+    private final com.google.gson.internal.b.b miO = com.google.gson.internal.b.b.dvX();
 
     public b(Map<Type, InstanceCreator<?>> map) {
         this.instanceCreators = map;
@@ -34,7 +34,7 @@ public final class b {
 
     public <T> f<T> a(com.google.gson.b.a<T> aVar) {
         final Type type = aVar.getType();
-        Class<? super T> dvZ = aVar.dvZ();
+        Class<? super T> dwa = aVar.dwa();
         final InstanceCreator<?> instanceCreator = this.instanceCreators.get(type);
         if (instanceCreator != null) {
             return new f<T>() { // from class: com.google.gson.internal.b.1
@@ -45,7 +45,7 @@ public final class b {
                 }
             };
         }
-        final InstanceCreator<?> instanceCreator2 = this.instanceCreators.get(dvZ);
+        final InstanceCreator<?> instanceCreator2 = this.instanceCreators.get(dwa);
         if (instanceCreator2 != null) {
             return new f<T>() { // from class: com.google.gson.internal.b.7
                 /* JADX WARN: Type inference failed for: r0v1, types: [T, java.lang.Object] */
@@ -55,10 +55,10 @@ public final class b {
                 }
             };
         }
-        f<T> B = B(dvZ);
+        f<T> B = B(dwa);
         if (B == null) {
-            f<T> c = c(type, dvZ);
-            return c == null ? d(type, dvZ) : c;
+            f<T> c = c(type, dwa);
+            return c == null ? d(type, dwa) : c;
         }
         return B;
     }
@@ -169,7 +169,7 @@ public final class b {
                     }
                 };
             }
-            if ((type instanceof ParameterizedType) && !String.class.isAssignableFrom(com.google.gson.b.a.k(((ParameterizedType) type).getActualTypeArguments()[0]).dvZ())) {
+            if ((type instanceof ParameterizedType) && !String.class.isAssignableFrom(com.google.gson.b.a.k(((ParameterizedType) type).getActualTypeArguments()[0]).dwa())) {
                 return new f<T>() { // from class: com.google.gson.internal.b.4
                     /* JADX WARN: Type inference failed for: r0v0, types: [java.util.LinkedHashMap, T] */
                     @Override // com.google.gson.internal.f
@@ -192,7 +192,7 @@ public final class b {
 
     private <T> f<T> d(final Type type, final Class<? super T> cls) {
         return new f<T>() { // from class: com.google.gson.internal.b.6
-            private final j miS = j.dvD();
+            private final j miS = j.dvE();
 
             /* JADX WARN: Type inference failed for: r0v2, types: [T, java.lang.Object] */
             @Override // com.google.gson.internal.f

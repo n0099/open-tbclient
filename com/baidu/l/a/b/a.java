@@ -14,7 +14,7 @@ public class a extends d {
         this.mStatusCode = -200;
     }
 
-    public com.baidu.l.a.a.c dlN() {
+    public com.baidu.l.a.a.c dlO() {
         final Object obj = new Object();
         final AtomicBoolean atomicBoolean = new AtomicBoolean(false);
         com.b.a.a.a(this.mCtx, new a.b() { // from class: com.baidu.l.a.b.a.1
@@ -51,7 +51,7 @@ public class a extends d {
     }
 
     @Override // com.baidu.l.a.a.c
-    public com.baidu.l.a.a.c dlJ() {
-        return dlN();
+    public com.baidu.l.a.a.c dlK() {
+        return dlO();
     }
 }

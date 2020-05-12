@@ -36,20 +36,20 @@ public class c {
     }
 
     private static OkHttpClient build() {
-        kja = cKw();
+        kja = cKx();
         OkHttp3Interceptor okHttp3Interceptor = new OkHttp3Interceptor(kja);
         OkHttpClient.Builder builder = new OkHttpClient.Builder();
         builder.connectTimeout(15000L, TimeUnit.MILLISECONDS).readTimeout(15000L, TimeUnit.MILLISECONDS).addInterceptor(okHttp3Interceptor);
         return builder.build();
     }
 
-    private static TurbonetContext cKw() {
-        TurbonetContext turbonetContext = new TurbonetContext(TbadkCoreApplication.getInst().getContext(), "tieba", TbadkCoreApplication.getInst().getCuid(), cKx());
+    private static TurbonetContext cKx() {
+        TurbonetContext turbonetContext = new TurbonetContext(TbadkCoreApplication.getInst().getContext(), "tieba", TbadkCoreApplication.getInst().getCuid(), cKy());
         kja = turbonetContext;
         return turbonetContext;
     }
 
-    private static TurbonetConfig cKx() {
+    private static TurbonetConfig cKy() {
         TurbonetConfig turbonetConfig = new TurbonetConfig();
         turbonetConfig.setRequestTimeout(15);
         turbonetConfig.vk(true);
@@ -93,9 +93,9 @@ public class c {
         return turbonetConfig;
     }
 
-    public static long cKy() {
+    public static long cKz() {
         if (kja != null && kjb == 0) {
-            kjb = kja.djE();
+            kjb = kja.djF();
         }
         return kjb;
     }

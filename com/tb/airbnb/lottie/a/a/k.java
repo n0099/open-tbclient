@@ -55,7 +55,7 @@ public class k implements i, l {
     @Override // com.tb.airbnb.lottie.a.a.l
     public Path hd() {
         this.path.reset();
-        switch (this.mOB.dBJ()) {
+        switch (this.mOB.dBK()) {
             case Merge:
                 hh();
                 break;

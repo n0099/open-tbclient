@@ -115,13 +115,13 @@ public class a {
         }
     }
 
-    public void bGx() {
+    public void bGy() {
         if (this.gwj != null) {
             this.gwj.loadUrl("javascript:__js_bridge_discovery_enter_action()");
         }
     }
 
-    public void bGy() {
+    public void bGz() {
         if (this.gwj != null) {
             this.gwj.loadUrl("javascript:__js_bridge_discovery_leave_action()");
         }
@@ -201,7 +201,7 @@ public class a {
                     if (j.isNetWorkAvailable()) {
                         a.this.bnw();
                         a.this.mLoadSuccess = true;
-                        a.this.bGx();
+                        a.this.bGy();
                     }
                 }
             });

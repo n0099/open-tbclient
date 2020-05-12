@@ -59,7 +59,7 @@ public class c {
         }
 
         @Override // com.facebook.cache.common.b
-        public String dmh() {
+        public String dmi() {
             return null;
         }
     }
@@ -92,20 +92,20 @@ public class c {
     }
 
     @Nullable
-    public com.facebook.common.references.a<com.facebook.imagepipeline.g.c> dqe() {
+    public com.facebook.common.references.a<com.facebook.imagepipeline.g.c> dqf() {
         com.facebook.common.references.a<com.facebook.imagepipeline.g.c> bf;
         do {
-            com.facebook.cache.common.b dqf = dqf();
-            if (dqf == null) {
+            com.facebook.cache.common.b dqg = dqg();
+            if (dqg == null) {
                 return null;
             }
-            bf = this.lYu.bf(dqf);
+            bf = this.lYu.bf(dqg);
         } while (bf == null);
         return bf;
     }
 
     @Nullable
-    private synchronized com.facebook.cache.common.b dqf() {
+    private synchronized com.facebook.cache.common.b dqg() {
         com.facebook.cache.common.b bVar;
         bVar = null;
         Iterator<com.facebook.cache.common.b> it = this.lZF.iterator();

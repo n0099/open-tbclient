@@ -57,7 +57,7 @@ public abstract class AbstractDraweeControllerBuilder<BUILDER extends AbstractDr
     protected abstract com.facebook.datasource.b<IMAGE> a(com.facebook.drawee.d.a aVar, String str, REQUEST request, Object obj, CacheLevel cacheLevel);
 
     @ReturnsOwnership
-    protected abstract a dnY();
+    protected abstract a dnZ();
 
     /* JADX INFO: Access modifiers changed from: protected */
     public AbstractDraweeControllerBuilder(Context context, Set<c> set) {
@@ -85,55 +85,55 @@ public abstract class AbstractDraweeControllerBuilder<BUILDER extends AbstractDr
     /* renamed from: aW */
     public BUILDER aZ(Object obj) {
         this.lTz = obj;
-        return doC();
+        return doD();
     }
 
     @Nullable
-    public Object dot() {
+    public Object dou() {
         return this.lTz;
     }
 
     public BUILDER aX(REQUEST request) {
         this.lUA = request;
-        return doC();
+        return doD();
     }
 
     @Nullable
-    public REQUEST dou() {
+    public REQUEST dov() {
         return this.lUA;
     }
 
     public BUILDER aY(REQUEST request) {
         this.lUB = request;
-        return doC();
+        return doD();
     }
 
     public BUILDER vB(boolean z) {
         this.lUd = z;
-        return doC();
+        return doD();
     }
 
-    public boolean dov() {
+    public boolean dow() {
         return this.lUr;
     }
 
     public BUILDER vC(boolean z) {
         this.lUE = z;
-        return doC();
+        return doD();
     }
 
     public BUILDER c(c<? super INFO> cVar) {
         this.lUk = cVar;
-        return doC();
+        return doD();
     }
 
     @Nullable
-    public d dow() {
+    public d dox() {
         return this.lUl;
     }
 
     @Nullable
-    public String dox() {
+    public String doy() {
         return this.lUs;
     }
 
@@ -142,24 +142,24 @@ public abstract class AbstractDraweeControllerBuilder<BUILDER extends AbstractDr
     /* renamed from: b */
     public BUILDER c(@Nullable com.facebook.drawee.d.a aVar) {
         this.lUF = aVar;
-        return doC();
+        return doD();
     }
 
     @Nullable
-    public com.facebook.drawee.d.a doy() {
+    public com.facebook.drawee.d.a doz() {
         return this.lUF;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.drawee.d.d
-    /* renamed from: doz */
-    public a doD() {
+    /* renamed from: doA */
+    public a doE() {
         validate();
         if (this.lUA == null && this.lUC == null && this.lUB != null) {
             this.lUA = this.lUB;
             this.lUB = null;
         }
-        return doA();
+        return doB();
     }
 
     protected void validate() {
@@ -171,18 +171,18 @@ public abstract class AbstractDraweeControllerBuilder<BUILDER extends AbstractDr
         g.d(z, "Cannot specify DataSourceSupplier with other ImageRequests! Use one or the other.");
     }
 
-    protected a doA() {
-        a dnY = dnY();
-        dnY.vA(dov());
-        dnY.Ok(dox());
-        dnY.a(dow());
-        b(dnY);
-        a(dnY);
-        return dnY;
+    protected a doB() {
+        a dnZ = dnZ();
+        dnZ.vA(dow());
+        dnZ.Ok(doy());
+        dnZ.a(dox());
+        b(dnZ);
+        a(dnZ);
+        return dnZ;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public static String doB() {
+    public static String doC() {
         return String.valueOf(lUG.getAndIncrement());
     }
 
@@ -227,15 +227,15 @@ public abstract class AbstractDraweeControllerBuilder<BUILDER extends AbstractDr
     }
 
     protected j<com.facebook.datasource.b<IMAGE>> a(final com.facebook.drawee.d.a aVar, final String str, final REQUEST request, final CacheLevel cacheLevel) {
-        final Object dot = dot();
+        final Object dou = dou();
         return new j<com.facebook.datasource.b<IMAGE>>() { // from class: com.facebook.drawee.controller.AbstractDraweeControllerBuilder.2
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.facebook.drawee.controller.AbstractDraweeControllerBuilder */
             /* JADX WARN: Multi-variable type inference failed */
             @Override // com.facebook.common.internal.j
-            /* renamed from: dnB */
+            /* renamed from: dnC */
             public com.facebook.datasource.b<IMAGE> get() {
-                return AbstractDraweeControllerBuilder.this.a(aVar, str, request, dot, cacheLevel);
+                return AbstractDraweeControllerBuilder.this.a(aVar, str, request, dou, cacheLevel);
             }
 
             public String toString() {
@@ -260,18 +260,18 @@ public abstract class AbstractDraweeControllerBuilder<BUILDER extends AbstractDr
 
     protected void b(a aVar) {
         if (this.lUd) {
-            aVar.dom().vz(this.lUd);
+            aVar.don().vz(this.lUd);
             c(aVar);
         }
     }
 
     protected void c(a aVar) {
-        if (aVar.don() == null) {
+        if (aVar.doo() == null) {
             aVar.a(com.facebook.drawee.c.a.fB(this.mContext));
         }
     }
 
-    protected final BUILDER doC() {
+    protected final BUILDER doD() {
         return this;
     }
 }

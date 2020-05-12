@@ -59,8 +59,8 @@ public class KPSwitchPanelLinearLayout extends LinearLayout implements a, b {
     }
 
     @Override // tv.chushou.zues.widget.kpswitch.a
-    public boolean dKm() {
-        return this.nvG.dKm();
+    public boolean dKn() {
+        return this.nvG.dKn();
     }
 
     @Override // android.view.View
@@ -100,8 +100,8 @@ public class KPSwitchPanelLinearLayout extends LinearLayout implements a, b {
     }
 
     @Override // tv.chushou.zues.widget.kpswitch.a
-    public boolean dKn() {
-        return this.nvG.dKn();
+    public boolean dKo() {
+        return this.nvG.dKo();
     }
 
     public void setPanelEnabled(boolean z) {

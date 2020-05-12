@@ -22,7 +22,7 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
         @Override // com.baidu.tieba.home.BfbInfoModel.a
         public void a(int i, String str, UserBfbInfo userBfbInfo) {
             CreateBarGuideActivity.this.hideLoadingView(CreateBarGuideActivity.this.hHf.getRootView());
-            CreateBarGuideActivity.this.hHf.bXI();
+            CreateBarGuideActivity.this.hHf.bXJ();
             if (i == 0) {
                 CreateBarGuideActivity.this.hHf.a(CreateBarGuideActivity.this.forumName, userBfbInfo);
                 return;
@@ -45,7 +45,7 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
         this.hHg = new BfbInfoModel(this);
         this.hHg.a(this.hHh);
         this.hHf = new a(this);
-        this.hHf.bXH();
+        this.hHf.bXI();
         showLoadingView(this.hHf.getRootView());
         this.hHg.LoadData();
         TiebaStatic.log("c11222");
@@ -80,7 +80,7 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
     public void onDestroy() {
         super.onDestroy();
         this.hHf = null;
-        this.hHg.bXD();
+        this.hHg.bXE();
     }
 
     @Override // com.baidu.tbadk.BaseActivity

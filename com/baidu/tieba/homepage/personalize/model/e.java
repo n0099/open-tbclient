@@ -18,10 +18,10 @@ public class e {
     public void h(BdUniqueId bdUniqueId) {
         this.unique_id = bdUniqueId;
         bqo();
-        bFC();
+        bFD();
     }
 
-    private void bFC() {
+    private void bFD() {
         com.baidu.tbadk.task.b bVar = new com.baidu.tbadk.task.b(CmdConfigSocket.CMD_REPORT_HOME_PIC_CLICK);
         bVar.setResponsedClass(RealTimeSocketResponse.class);
         bVar.setNeedAck(true);

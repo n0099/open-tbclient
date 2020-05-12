@@ -31,7 +31,7 @@ public class d {
         void ca(boolean z);
     }
 
-    public static d dfs() {
+    public static d dft() {
         if (lyn == null) {
             synchronized (d.class) {
                 if (lyn == null) {

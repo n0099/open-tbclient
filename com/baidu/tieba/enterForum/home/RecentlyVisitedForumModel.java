@@ -42,7 +42,7 @@ public class RecentlyVisitedForumModel extends BdBaseModel {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null) {
-                RecentlyVisitedForumModel.this.bIJ();
+                RecentlyVisitedForumModel.this.bIK();
             }
         }
     };
@@ -73,7 +73,7 @@ public class RecentlyVisitedForumModel extends BdBaseModel {
     public RecentlyVisitedForumModel() {
         xB();
         registerListener();
-        bIJ();
+        bIK();
     }
 
     public void a(a aVar) {
@@ -126,7 +126,7 @@ public class RecentlyVisitedForumModel extends BdBaseModel {
 
     public void onPause() {
         if (!this.gBZ) {
-            bIK();
+            bIL();
         }
     }
 
@@ -189,7 +189,7 @@ public class RecentlyVisitedForumModel extends BdBaseModel {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bIJ() {
+    public void bIK() {
         this.gBZ = true;
         BdAsyncTask<Void, Void, RecentlyVisitedForumData> bdAsyncTask = new BdAsyncTask<Void, Void, RecentlyVisitedForumData>() { // from class: com.baidu.tieba.enterForum.home.RecentlyVisitedForumModel.4
             /* JADX DEBUG: Method merged with bridge method */
@@ -239,7 +239,7 @@ public class RecentlyVisitedForumModel extends BdBaseModel {
         bdAsyncTask.execute(new Void[0]);
     }
 
-    private void bIK() {
+    private void bIL() {
         ac.a(new ab<Object>() { // from class: com.baidu.tieba.enterForum.home.RecentlyVisitedForumModel.5
             @Override // com.baidu.tbadk.util.ab
             public Object doInBackground() {

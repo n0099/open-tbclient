@@ -59,7 +59,7 @@ public class a {
     private g.d hMR = new g.d() { // from class: com.baidu.tieba.homepage.video.d.a.1
         @Override // com.baidu.tbadk.core.view.g.d
         public void onListPullToRefresh(boolean z) {
-            a.this.bZd();
+            a.this.bZe();
         }
     };
     private g.b hMS = new g.b() { // from class: com.baidu.tieba.homepage.video.d.a.2
@@ -90,11 +90,11 @@ public class a {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            af bZe;
+            af bZf;
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof KeyEvent)) {
                 KeyEvent keyEvent = (KeyEvent) customResponsedMessage.getData();
-                if (keyEvent.getAction() == 0 && keyEvent.getKeyCode() == 24 && (bZe = a.this.bZe()) != null && bZe.rD() != null) {
-                    bZe.rD().b(new a.C0095a(3));
+                if (keyEvent.getAction() == 0 && keyEvent.getKeyCode() == 24 && (bZf = a.this.bZf()) != null && bZf.rD() != null) {
+                    bZf.rD().b(new a.C0095a(3));
                 }
             }
         }
@@ -108,7 +108,7 @@ public class a {
                     a.this.gHB.ct(view);
                 }
                 if (view.getTag() instanceof f) {
-                    ((f) view.getTag()).bFz().stopPlay();
+                    ((f) view.getTag()).bFA().stopPlay();
                 }
             }
         }
@@ -126,7 +126,7 @@ public class a {
                 if (this.eRI == 1) {
                     a.this.od(true);
                 } else {
-                    a.this.caA();
+                    a.this.caB();
                 }
             }
         }
@@ -151,11 +151,11 @@ public class a {
     };
 
     /* JADX INFO: Access modifiers changed from: private */
-    public af bZe() {
-        if (this.gHB == null || this.gHB.cJE() == null || !(this.gHB.cJE().getTag() instanceof af)) {
+    public af bZf() {
+        if (this.gHB == null || this.gHB.cJF() == null || !(this.gHB.cJF().getTag() instanceof af)) {
             return null;
         }
-        return (af) this.gHB.cJE().getTag();
+        return (af) this.gHB.cJF().getTag();
     }
 
     public a(TbPageContext tbPageContext, BdUniqueId bdUniqueId, NEGFeedBackView.a aVar) {
@@ -314,7 +314,7 @@ public class a {
         this.hIm.c(eVar);
     }
 
-    public void caz() {
+    public void caA() {
         mC(false);
     }
 
@@ -328,7 +328,7 @@ public class a {
         this.mIsBackground = z;
     }
 
-    public void bXT() {
+    public void bXU() {
         mC(true);
     }
 
@@ -337,13 +337,13 @@ public class a {
         this.mIsBackground = z;
         if (this.gHB != null) {
             this.gHB.pL(!z);
-            af bZe = bZe();
-            if (bZe != null && bZe.rD() != null) {
-                z2 = bZe.rD().b(new a.C0095a(8, Boolean.valueOf(z)));
+            af bZf = bZf();
+            if (bZf != null && bZf.rD() != null) {
+                z2 = bZf.rD().b(new a.C0095a(8, Boolean.valueOf(z)));
             }
             if (!z2) {
                 if (z) {
-                    this.gHB.bZd();
+                    this.gHB.bZe();
                 } else if (this.hMQ) {
                     this.gHB.a(this.hac, this.eNZ, this.haL, true);
                 }
@@ -355,15 +355,15 @@ public class a {
         this.hMQ = z;
     }
 
-    public void bZc() {
+    public void bZd() {
         if (this.gHB != null && this.hMQ) {
             this.gHB.a(this.hac, this.eNZ, this.haL, true);
         }
     }
 
-    public void bZd() {
+    public void bZe() {
         if (this.gHB != null) {
-            this.gHB.bZd();
+            this.gHB.bZe();
         }
     }
 
@@ -371,7 +371,7 @@ public class a {
         if (this.hUT != null) {
             this.hUT.setData(list);
         }
-        bZc();
+        bZd();
     }
 
     public void DU(String str) {
@@ -419,11 +419,11 @@ public class a {
         return null;
     }
 
-    public void bZf() {
+    public void bZg() {
         aE(new LinkedList());
     }
 
-    public void bZb() {
+    public void bZc() {
         if (this.Vi != null) {
             this.Vi.setSelection(0);
         }
@@ -478,12 +478,12 @@ public class a {
         if (this.gHB != null) {
             this.gHB.destroy();
         }
-        bZg();
+        bZh();
         MessageManager.getInstance().unRegisterListener(this.gZT);
         MessageManager.getInstance().unRegisterListener(this.dlH);
     }
 
-    private void bZg() {
+    private void bZh() {
         if (this.Vi != null) {
             this.Vi.removeOnScrollListener(this.mScrollListener);
             this.Vi.setRecyclerListener(null);
@@ -504,7 +504,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void caA() {
+    public void caB() {
         if (a(this.Vi)) {
             od(false);
         } else {

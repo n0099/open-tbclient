@@ -160,7 +160,7 @@ public class VoteCandidateCard extends CardBasicLayout {
         }
         this.gmi.setData(i, fVar);
         this.gmj.setData(i, fVar);
-        if (this.glx.bDN()) {
+        if (this.glx.bDO()) {
             this.gml.setVisibility(0);
         } else {
             this.gml.setVisibility(8);
@@ -192,7 +192,7 @@ public class VoteCandidateCard extends CardBasicLayout {
             am.setBackgroundColor(this.gmr, R.color.cp_bg_line_d, i);
         }
         if (this.glx != null) {
-            if (this.glx.bDN()) {
+            if (this.glx.bDO()) {
                 am.setViewTextColor(this.gmn, R.color.cp_cont_h, 1, i);
                 am.setBackgroundResource(this.gmm, R.drawable.icon_use_tip_red, i);
             }

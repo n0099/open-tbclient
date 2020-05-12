@@ -40,7 +40,7 @@ public class c {
                 if (dA != null) {
                     if (i3 > 0) {
                         dA.NZ();
-                    } else if (dA.dKm() && dA.isVisible()) {
+                    } else if (dA.dKn() && dA.isVisible()) {
                         dA.NY();
                     }
                 }
@@ -49,12 +49,12 @@ public class c {
     }
 
     private tv.chushou.zues.widget.kpswitch.a dA(View view) {
-        if (this.nvl != null && this.nvl.dKn()) {
+        if (this.nvl != null && this.nvl.dKo()) {
             return this.nvl;
         }
         if (view instanceof tv.chushou.zues.widget.kpswitch.a) {
             this.nvl = (tv.chushou.zues.widget.kpswitch.a) view;
-            if (this.nvl.dKn()) {
+            if (this.nvl.dKo()) {
                 return this.nvl;
             }
         }
@@ -66,7 +66,7 @@ public class c {
                     break;
                 }
                 tv.chushou.zues.widget.kpswitch.a dA = dA(((ViewGroup) view).getChildAt(i2));
-                if (dA == null || !dA.dKn()) {
+                if (dA == null || !dA.dKo()) {
                     i = i2 + 1;
                 } else {
                     this.nvl = dA;
@@ -81,11 +81,11 @@ public class c {
         this.nvk = z;
     }
 
-    public void dKp() {
+    public void dKq() {
         this.byS = -1;
     }
 
-    public void dwW() {
+    public void dwX() {
         this.nvl = null;
     }
 }

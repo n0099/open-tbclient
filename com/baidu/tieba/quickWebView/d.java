@@ -6,7 +6,7 @@ public class d {
     private static d kqp;
     private HashMap<String, com.baidu.tieba.quickWebView.data.a> kqo = new HashMap<>();
 
-    public static d cMQ() {
+    public static d cMR() {
         if (kqp == null) {
             synchronized (d.class) {
                 if (kqp == null) {

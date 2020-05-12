@@ -25,8 +25,8 @@ public class w {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean dkI() {
-        return this.lNV.dkI();
+    public boolean dkJ() {
+        return this.lNV.dkJ();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

@@ -68,7 +68,7 @@ public abstract class al extends b<com.baidu.tbadk.core.data.a> implements com.b
                     }
                 } else if (c0095a.getActionType() == 3) {
                     if (al.this.afC != null) {
-                        al.this.afC.cES();
+                        al.this.afC.cET();
                     }
                 } else if (c0095a.getActionType() == 6) {
                     if (al.this.afC != null) {
@@ -105,7 +105,7 @@ public abstract class al extends b<com.baidu.tbadk.core.data.a> implements com.b
             this.mTitle = (TextView) this.mRootView.findViewById(R.id.video_seg_title);
             this.afB = (RoundCornerFrameLayout) this.mRootView.findViewById(R.id.frame_video);
             this.afC = rr();
-            this.afC.cJn().setBackgroundResource(R.color.transparent);
+            this.afC.cJo().setBackgroundResource(R.color.transparent);
             this.afC.setUniqueId(this.afD);
             this.afC.setFrom(this.mFrom);
         }
@@ -166,12 +166,12 @@ public abstract class al extends b<com.baidu.tbadk.core.data.a> implements com.b
                 }
             } else {
                 if (this.ade.aIu().aKT().is_vertical.intValue() == 1) {
-                    com.baidu.tieba.play.u cJV = this.afC.cJV();
-                    if (cJV != null) {
+                    com.baidu.tieba.play.u cJW = this.afC.cJW();
+                    if (cJW != null) {
                         int i3 = (afw / 9) * 16;
                         int i4 = afx;
-                        int videoWidth = cJV.getVideoWidth();
-                        int videoHeight = cJV.getVideoHeight();
+                        int videoWidth = cJW.getVideoWidth();
+                        int videoHeight = cJW.getVideoHeight();
                         layoutParams.width = afw;
                         boolean z3 = i != layoutParams.width;
                         if (videoWidth == 0 || videoHeight == 0) {

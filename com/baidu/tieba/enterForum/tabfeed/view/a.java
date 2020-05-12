@@ -62,7 +62,7 @@ public class a {
                     a.this.ePr.setOnClickListener(null);
                     if (a.this.hasMore) {
                         a.this.ePr.showLoading();
-                        a.this.gHn.bJt();
+                        a.this.gHn.bJu();
                         return;
                     }
                     a.this.ePr.setText(a.this.gGv.getResources().getString(R.string.list_has_no_more));
@@ -82,7 +82,7 @@ public class a {
                 if (a.this.gHB != null) {
                     a.this.gHB.a(a.this.gGw.getFirstVisiblePosition(), a.this.gGw.getLastVisiblePosition(), this.gHF, true);
                 }
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001630, Boolean.valueOf(a.this.bJF() ? false : true)));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001630, Boolean.valueOf(a.this.bJG() ? false : true)));
             }
         }
 
@@ -107,7 +107,7 @@ public class a {
                 a.this.ePr.setOnClickListener(null);
                 if (a.this.hasMore) {
                     a.this.ePr.showLoading();
-                    a.this.gHn.bJt();
+                    a.this.gHn.bJu();
                 }
             }
         }
@@ -176,7 +176,7 @@ public class a {
         }
         it(false);
         if (bVar != null && this.gHC != null && this.gGw != null && this.ePr != null) {
-            bJD();
+            bJE();
             d(bVar);
             c(bVar);
             if (bVar.gHh > 0) {
@@ -204,7 +204,7 @@ public class a {
         }
     }
 
-    private void bJD() {
+    private void bJE() {
         if (this.dko == null) {
             this.dko = new TextView(this.gGv.getContext());
             this.dko.setPadding(l.getDimens(this.gGv.getContext(), R.dimen.tbds44), l.getDimens(this.gGv.getContext(), R.dimen.tbds60), 0, l.getDimens(this.gGv.getContext(), R.dimen.tbds24));
@@ -219,7 +219,7 @@ public class a {
 
     private void c(com.baidu.tieba.enterForum.tabfeed.b.b bVar) {
         if (bVar != null && this.gGw != null && this.gGv != null && bVar.etP) {
-            if (!((bVar.gHf == null || v.isEmpty(bVar.gHf.bHW())) ? false : true)) {
+            if (!((bVar.gHf == null || v.isEmpty(bVar.gHf.bHX())) ? false : true)) {
                 if (this.gHA != null) {
                     this.gGw.removeHeaderView(this.gHA);
                     return;
@@ -298,12 +298,12 @@ public class a {
 
     public void pause() {
         if (this.gHB != null) {
-            this.gHB.cnL();
+            this.gHB.cnM();
             this.gHB.pL(false);
         }
     }
 
-    public void bJE() {
+    public void bJF() {
         if (this.gGw != null) {
             this.gGw.scrollToPosition(0);
         }
@@ -321,14 +321,14 @@ public class a {
         }
     }
 
-    public boolean bJF() {
+    public boolean bJG() {
         return this.gGw == null || this.gGw.getChildCount() == 0 || this.gGw.getChildAt(0).getTop() == 0;
     }
 
     private void sw(int i) {
         String string;
         if (i >= 0) {
-            this.gHw.bQE();
+            this.gHw.bQF();
             if (i > 0) {
                 string = String.format(TbadkCoreApplication.getInst().getString(R.string.recommend_frs_refresh_return), Integer.valueOf(i));
             } else {
@@ -343,7 +343,7 @@ public class a {
                 if (this.gHv != null) {
                     this.gHv.removeView(this.gHx);
                     this.gHv.addView(this.gHx, layoutParams);
-                    this.gHx.bQC();
+                    this.gHx.bQD();
                 }
             }
         }

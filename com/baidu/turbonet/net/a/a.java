@@ -71,7 +71,7 @@ public final class a extends f {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.baidu.turbonet.net.a.f
-    public void dkc() throws IOException {
+    public void dkd() throws IOException {
         this.lKV = true;
         if (this.mBuffer.position() < this.lMt) {
             throw new ProtocolException("Content received is less than Content-Length");
@@ -81,12 +81,12 @@ public final class a extends f {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.baidu.turbonet.net.a.f
-    public void dkd() throws IOException {
+    public void dke() throws IOException {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.baidu.turbonet.net.a.f
-    public UploadDataProvider dke() {
+    public UploadDataProvider dkf() {
         return this.lLR;
     }
 
@@ -119,7 +119,7 @@ public final class a extends f {
         @Override // com.baidu.turbonet.net.UploadDataProvider
         public void a(UploadDataSink uploadDataSink) {
             a.this.mBuffer.position(0);
-            uploadDataSink.diP();
+            uploadDataSink.diQ();
         }
     }
 }

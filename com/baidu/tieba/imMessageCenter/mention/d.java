@@ -64,7 +64,7 @@ public class d extends com.baidu.adp.base.c<AtMessageActivity> {
         this.izV.setExOnSrollToBottomListener(new BdListView.f() { // from class: com.baidu.tieba.imMessageCenter.mention.d.2
             @Override // com.baidu.adp.widget.ListView.BdListView.f
             public void v(BdListView bdListView) {
-                d.this.izN.bRi();
+                d.this.izN.bRj();
             }
         });
         this.izU = new com.baidu.tbadk.mvc.f.d<>(this.izN.getPageContext(), a.class, R.layout.mention_atme_item, this.izN.aZc());
@@ -78,7 +78,7 @@ public class d extends com.baidu.adp.base.c<AtMessageActivity> {
         if (aVar instanceof f) {
             f fVar = (f) aVar;
             if (this.izU != null) {
-                this.izU.aU(fVar.ckC());
+                this.izU.aU(fVar.ckD());
             }
         }
     }
@@ -96,7 +96,7 @@ public class d extends com.baidu.adp.base.c<AtMessageActivity> {
         this.izW.onChangeSkinType(tbPageContext, i);
     }
 
-    public void ckj() {
+    public void ckk() {
         if (this.izV != null) {
             this.izV.completePullRefreshPostDelayed(0L);
         }
@@ -132,14 +132,14 @@ public class d extends com.baidu.adp.base.c<AtMessageActivity> {
                 }
             }
             if (aVar.isPullRefreshing()) {
-                ckk();
+                ckl();
             } else {
-                ckj();
+                ckk();
             }
         }
     }
 
-    public void ckk() {
+    public void ckl() {
         if (this.mPullView != null) {
             this.mPullView.setListPullRefreshListener(null);
         }

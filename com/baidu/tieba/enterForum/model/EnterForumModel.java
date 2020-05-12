@@ -106,39 +106,39 @@ public class EnterForumModel extends BdBaseModel {
         return this.unique_id;
     }
 
-    public long bIT() {
+    public long bIU() {
         return this.gEb;
     }
 
-    public long bIU() {
+    public long bIV() {
         return this.gDZ;
     }
 
-    public long bIV() {
+    public long bIW() {
         return this.gEa;
     }
 
-    public long bIW() {
+    public long bIX() {
         return this.gDY;
     }
 
-    public e bIX() {
+    public e bIY() {
         return this.gDS;
     }
 
-    public boolean bIY() {
+    public boolean bIZ() {
         if (!TbadkApplication.isLogin()) {
             return false;
         }
-        if (this.gDS == null || this.gDS.bHz() == null) {
+        if (this.gDS == null || this.gDS.bHA() == null) {
             return true;
         }
-        return this.gDS.bHz().bHD();
+        return this.gDS.bHA().bHE();
     }
 
-    public boolean bIZ() {
-        if (TbadkApplication.isLogin() && com.baidu.tbadk.core.sharedPref.b.aNT().getBoolean("enter_forum_create_forum", true) && this.gDS != null && this.gDS.bHz() != null) {
-            return this.gDS.bHz().bHC();
+    public boolean bJa() {
+        if (TbadkApplication.isLogin() && com.baidu.tbadk.core.sharedPref.b.aNT().getBoolean("enter_forum_create_forum", true) && this.gDS != null && this.gDS.bHA() != null) {
+            return this.gDS.bHA().bHD();
         }
         return false;
     }
@@ -159,11 +159,11 @@ public class EnterForumModel extends BdBaseModel {
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
         cancelMessage();
-        bJa();
+        bJb();
         return true;
     }
 
-    private void bJa() {
+    private void bJb() {
         if (this.gDV != null) {
             this.gDV.destory();
             this.gDV = null;
@@ -175,7 +175,7 @@ public class EnterForumModel extends BdBaseModel {
     }
 
     public void onPause() {
-        bIK();
+        bIL();
     }
 
     public boolean lO(boolean z) {
@@ -347,7 +347,7 @@ public class EnterForumModel extends BdBaseModel {
                         eVar.setIsSuccess(false);
                     }
                     if (eVar.isSuccess() && !eVar.aFP()) {
-                        eVar.bHx().bHT();
+                        eVar.bHy().bHU();
                     }
                 }
                 return eVar;
@@ -413,7 +413,7 @@ public class EnterForumModel extends BdBaseModel {
         bdAsyncTask.execute(new Void[0]);
     }
 
-    private void bIK() {
+    private void bIL() {
         if (TbadkCoreApplication.getCurrentAccount() != null) {
             ac.a(new ab<Object>() { // from class: com.baidu.tieba.enterForum.model.EnterForumModel.4
                 @Override // com.baidu.tbadk.util.ab
@@ -431,9 +431,9 @@ public class EnterForumModel extends BdBaseModel {
     /* JADX INFO: Access modifiers changed from: private */
     public void c(VisitedForumData visitedForumData) {
         if (visitedForumData != null && this.gDS != null) {
-            int size = this.gDS.bHx().bHS().size();
+            int size = this.gDS.bHy().bHT().size();
             for (int i = 0; i < size; i++) {
-                if (this.gDS.bHx().bHS().get(i).getId().equals(visitedForumData.getForumId())) {
+                if (this.gDS.bHy().bHT().get(i).getId().equals(visitedForumData.getForumId())) {
                     this.gDT.a(visitedForumData);
                     this.gDT.sg(200);
                 }

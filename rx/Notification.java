@@ -21,7 +21,7 @@ public final class Notification<T> {
         return new Notification<>(Kind.OnError, null, th);
     }
 
-    public static <T> Notification<T> dHj() {
+    public static <T> Notification<T> dHk() {
         return (Notification<T>) niR;
     }
 
@@ -31,7 +31,7 @@ public final class Notification<T> {
         this.niP = kind;
     }
 
-    public Throwable dHk() {
+    public Throwable dHl() {
         return this.niQ;
     }
 
@@ -40,48 +40,48 @@ public final class Notification<T> {
     }
 
     public boolean hasValue() {
-        return dHo() && this.value != null;
+        return dHp() && this.value != null;
     }
 
-    public boolean dHl() {
-        return dCz() && this.niQ != null;
+    public boolean dHm() {
+        return dCA() && this.niQ != null;
     }
 
-    public Kind dHm() {
+    public Kind dHn() {
         return this.niP;
     }
 
-    public boolean dCz() {
-        return dHm() == Kind.OnError;
-    }
-
-    public boolean dHn() {
-        return dHm() == Kind.OnCompleted;
+    public boolean dCA() {
+        return dHn() == Kind.OnError;
     }
 
     public boolean dHo() {
-        return dHm() == Kind.OnNext;
+        return dHn() == Kind.OnCompleted;
+    }
+
+    public boolean dHp() {
+        return dHn() == Kind.OnNext;
     }
 
     public String toString() {
-        StringBuilder append = new StringBuilder(64).append('[').append(super.toString()).append(' ').append(dHm());
+        StringBuilder append = new StringBuilder(64).append('[').append(super.toString()).append(' ').append(dHn());
         if (hasValue()) {
             append.append(' ').append(getValue());
         }
-        if (dHl()) {
-            append.append(' ').append(dHk().getMessage());
+        if (dHm()) {
+            append.append(' ').append(dHl().getMessage());
         }
         append.append(']');
         return append.toString();
     }
 
     public int hashCode() {
-        int hashCode = dHm().hashCode();
+        int hashCode = dHn().hashCode();
         if (hasValue()) {
             hashCode = (hashCode * 31) + getValue().hashCode();
         }
-        if (dHl()) {
-            return (hashCode * 31) + dHk().hashCode();
+        if (dHm()) {
+            return (hashCode * 31) + dHl().hashCode();
         }
         return hashCode;
     }
@@ -96,7 +96,7 @@ public final class Notification<T> {
         }
         if (obj.getClass() == getClass()) {
             Notification notification = (Notification) obj;
-            if (notification.dHm() != dHm() || ((this.value != notification.value && (this.value == null || !this.value.equals(notification.value))) || (this.niQ != notification.niQ && (this.niQ == null || !this.niQ.equals(notification.niQ))))) {
+            if (notification.dHn() != dHn() || ((this.value != notification.value && (this.value == null || !this.value.equals(notification.value))) || (this.niQ != notification.niQ && (this.niQ == null || !this.niQ.equals(notification.niQ))))) {
                 z = false;
             }
             return z;

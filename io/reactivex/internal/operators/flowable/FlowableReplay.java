@@ -654,7 +654,7 @@ public final class FlowableReplay<T> extends io.reactivex.b.a<T> implements io.r
 
         @Override // io.reactivex.internal.operators.flowable.FlowableReplay.BoundedReplayBuffer
         Object leaveTransform(Object obj) {
-            return ((io.reactivex.f.b) obj).dDm();
+            return ((io.reactivex.f.b) obj).dDn();
         }
 
         @Override // io.reactivex.internal.operators.flowable.FlowableReplay.BoundedReplayBuffer
@@ -713,7 +713,7 @@ public final class FlowableReplay<T> extends io.reactivex.b.a<T> implements io.r
             Node node2 = node;
             for (Node node3 = node.get(); node3 != null; node3 = node3.get()) {
                 io.reactivex.f.b bVar = (io.reactivex.f.b) node3.value;
-                if (NotificationLite.isComplete(bVar.dDm()) || NotificationLite.isError(bVar.dDm()) || bVar.aid() > a) {
+                if (NotificationLite.isComplete(bVar.dDn()) || NotificationLite.isError(bVar.dDn()) || bVar.aid() > a) {
                     break;
                 }
                 node2 = node3;

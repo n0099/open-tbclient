@@ -227,7 +227,7 @@ public final class OnSubscribeFromEmitter<T> implements d.a<T> {
 
         public BufferEmitter(rx.j<? super T> jVar, int i) {
             super(jVar);
-            this.queue = ae.dIm() ? new y<>(i) : new rx.internal.util.atomic.f<>(i);
+            this.queue = ae.dIn() ? new y<>(i) : new rx.internal.util.atomic.f<>(i);
             this.wip = new AtomicInteger();
         }
 

@@ -47,7 +47,7 @@ public class b extends com.baidu.adp.base.c<AdSettingActivity> {
         this.hka = (ImageView) this.kDg.findViewById(R.id.arrow);
         this.mParent = this.kDg.findViewById(R.id.parent);
         this.kDk.setOnClickListener(this.kDg);
-        cQf();
+        cQg();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -65,7 +65,7 @@ public class b extends com.baidu.adp.base.c<AdSettingActivity> {
         am.setBackgroundResource(this.kDk, R.drawable.setting_item_selector);
     }
 
-    private void cQf() {
+    private void cQg() {
         int i;
         int i2 = 0;
         this.kDh.setText(R.string.member_ad_setting_text);
@@ -90,15 +90,15 @@ public class b extends com.baidu.adp.base.c<AdSettingActivity> {
         }
     }
 
-    public View cQg() {
+    public View cQh() {
         return this.kDk;
     }
 
-    public void cQh() {
+    public void cQi() {
         this.kDh.turnOffNoCallback();
     }
 
-    public void cQi() {
+    public void cQj() {
         this.kDh.turnOnNoCallback();
     }
 }

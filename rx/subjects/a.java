@@ -9,7 +9,7 @@ public final class a<T> extends c<T, T> {
     private static final Object[] mWj = new Object[0];
     private final SubjectSubscriptionManager<T> npz;
 
-    public static <T> a<T> dIN() {
+    public static <T> a<T> dIO() {
         return e(null, false);
     }
 
@@ -38,9 +38,9 @@ public final class a<T> extends c<T, T> {
     @Override // rx.e
     public void onCompleted() {
         if (this.npz.getLatest() == null || this.npz.active) {
-            Object dHG = NotificationLite.dHG();
-            for (SubjectSubscriptionManager.b<T> bVar : this.npz.terminate(dHG)) {
-                bVar.bY(dHG);
+            Object dHH = NotificationLite.dHH();
+            for (SubjectSubscriptionManager.b<T> bVar : this.npz.terminate(dHH)) {
+                bVar.bY(dHH);
             }
         }
     }

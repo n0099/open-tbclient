@@ -20,7 +20,7 @@ public class c extends com.baidu.tieba.card.data.b implements p {
     }
 
     @Override // com.baidu.tieba.card.data.p
-    public boolean bFl() {
+    public boolean bFm() {
         return true;
     }
 

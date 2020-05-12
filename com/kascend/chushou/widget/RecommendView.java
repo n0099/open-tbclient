@@ -89,8 +89,8 @@ public class RecommendView extends LinearLayout {
     }
 
     private void a(String str) {
-        if (tv.chushou.zues.utils.a.dJO()) {
-            c.dwD().b(new b() { // from class: com.kascend.chushou.widget.RecommendView.2
+        if (tv.chushou.zues.utils.a.dJP()) {
+            c.dwE().b(new b() { // from class: com.kascend.chushou.widget.RecommendView.2
                 @Override // com.kascend.chushou.c.b
                 public void a() {
                 }

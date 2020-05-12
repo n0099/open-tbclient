@@ -497,7 +497,7 @@ public class SpecialFrsWebFragment extends BaseWebViewFragment implements am {
             this.hpD.onDestroy();
         }
         if (this.jsBridge != null) {
-            this.jsBridge.cWR();
+            this.jsBridge.cWS();
         }
         if (this.fiH != null) {
             this.fiH.getSettings().setBuiltInZoomControls(true);

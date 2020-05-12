@@ -78,14 +78,14 @@ public class SVGAImageView extends ImageView {
         super(context);
         this.mJy = true;
         this.mJz = FillMode.Forward;
-        dzo();
+        dzp();
     }
 
     public SVGAImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mJy = true;
         this.mJz = FillMode.Forward;
-        dzo();
+        dzp();
         if (attributeSet != null) {
             loadAttrs(attributeSet);
         }
@@ -95,13 +95,13 @@ public class SVGAImageView extends ImageView {
         super(context, attributeSet, i);
         this.mJy = true;
         this.mJz = FillMode.Forward;
-        dzo();
+        dzp();
         if (attributeSet != null) {
             loadAttrs(attributeSet);
         }
     }
 
-    private final void dzo() {
+    private final void dzp() {
         if (Build.VERSION.SDK_INT < 18) {
             setLayerType(1, null);
         }
@@ -224,10 +224,10 @@ public class SVGAImageView extends ImageView {
             ImageView.ScaleType scaleType = getScaleType();
             q.i(scaleType, "scaleType");
             bVar2.setScaleType(scaleType);
-            f dzf = bVar2.dzf();
+            f dzg = bVar2.dzg();
             double d = 1.0d;
             int max = Math.max(0, bVar != null ? bVar.getLocation() : 0);
-            int min = Math.min(dzf.dzv() - 1, ((bVar != null ? bVar.cdR() : ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED) + (bVar != null ? bVar.getLocation() : 0)) - 1);
+            int min = Math.min(dzg.dzw() - 1, ((bVar != null ? bVar.cdS() : ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED) + (bVar != null ? bVar.getLocation() : 0)) - 1);
             ValueAnimator ofInt = ValueAnimator.ofInt(max, min);
             try {
                 Class<?> cls = Class.forName("android.animation.ValueAnimator");
@@ -244,7 +244,7 @@ public class SVGAImageView extends ImageView {
             }
             q.i(ofInt, "animator");
             ofInt.setInterpolator(new LinearInterpolator());
-            ofInt.setDuration((long) ((((min - max) + 1) * (1000 / dzf.getFPS())) / d));
+            ofInt.setDuration((long) ((((min - max) + 1) * (1000 / dzg.getFPS())) / d));
             ofInt.setRepeatCount(this.mJx <= 0 ? BdStatsConstant.ErrorCode.ERR_LOG_FAST : this.mJx - 1);
             ofInt.addUpdateListener(new b(ofInt, this, bVar, bVar2, z));
             ofInt.addListener(new c(max, min, this, bVar, bVar2, z));
@@ -287,7 +287,7 @@ public class SVGAImageView extends ImageView {
             bVar.IH(((Integer) animatedValue).intValue());
             com.opensource.svgaplayer.a callback = this.mJD.getCallback();
             if (callback != null) {
-                callback.b(this.mJK.dze(), (this.mJK.dze() + 1) / this.mJK.dzf().dzv());
+                callback.b(this.mJK.dzf(), (this.mJK.dzf() + 1) / this.mJK.dzg().dzw());
             }
         }
     }

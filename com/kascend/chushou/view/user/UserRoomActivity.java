@@ -44,7 +44,7 @@ public class UserRoomActivity extends BaseActivity {
         this.h = intent.getStringExtra("uid");
         this.i = intent.getStringExtra("dataInfo");
         boolean booleanExtra = intent.getBooleanExtra("scrollto", false);
-        if (!tv.chushou.zues.utils.a.dJO()) {
+        if (!tv.chushou.zues.utils.a.dJP()) {
             a_(3);
             return;
         }

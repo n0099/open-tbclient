@@ -83,7 +83,7 @@ public class EmotionTabHorizonScrollView extends HorizontalCustomScrollView {
         this.dZL = getResources().getDimensionPixelSize(R.dimen.ds10);
         this.cXz = new LinearLayout.LayoutParams(getResources().getDimensionPixelSize(R.dimen.ds122), -1);
         this.gyc.setPadding(0, 0, 0, 0);
-        bHe();
+        bHf();
     }
 
     public void setFrom(int i) {
@@ -219,7 +219,7 @@ public class EmotionTabHorizonScrollView extends HorizontalCustomScrollView {
         return tbImageView;
     }
 
-    public void bHe() {
+    public void bHf() {
         this.gyg = new ImageView(getContext());
         this.gyg.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
         this.gyg.setPadding(this.dZL, this.dZK, this.dZL, this.dZK);
@@ -390,7 +390,7 @@ public class EmotionTabHorizonScrollView extends HorizontalCustomScrollView {
     public void reset() {
         this.mCurrentIndex = -1;
         this.gyc.removeAllViews();
-        bHe();
+        bHf();
         onChangeSkin(this.afW);
     }
 

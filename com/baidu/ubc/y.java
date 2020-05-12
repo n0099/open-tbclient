@@ -16,8 +16,8 @@ public class y {
             boolean aEq = ahVar.aEq();
             for (int i = 0; i < length; i++) {
                 try {
-                    if (aEq != g.dky().sb(aEp.getJSONObject(i).getString("id"))) {
-                        Log.w("UBCDebug", " data is " + aEq + "  content " + ahVar.dkQ().toString());
+                    if (aEq != g.dkz().sb(aEp.getJSONObject(i).getString("id"))) {
+                        Log.w("UBCDebug", " data is " + aEq + "  content " + ahVar.dkR().toString());
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();

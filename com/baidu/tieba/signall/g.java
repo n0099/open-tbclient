@@ -46,7 +46,7 @@ public class g extends BaseAdapter implements AbsListView.OnScrollListener, Sign
     public void c(c cVar) {
         if (cVar != null) {
             this.kJt = cVar;
-            this.gyd = cVar.cTs();
+            this.gyd = cVar.cTt();
             if (this.gyd.size() == 0) {
                 this.gOb = false;
             } else {
@@ -142,36 +142,36 @@ public class g extends BaseAdapter implements AbsListView.OnScrollListener, Sign
             }
             str = forumName;
             bVar.kJZ.setText(str);
-            am.setImageResource(bVar.kKa, BitmapHelper.getSmallGradeResourceIdNew(dVar.cTF()));
-            bVar.kKb.setText(dVar.cTG() + "/" + dVar.cTH());
+            am.setImageResource(bVar.kKa, BitmapHelper.getSmallGradeResourceIdNew(dVar.cTG()));
+            bVar.kKb.setText(dVar.cTH() + "/" + dVar.cTI());
             bVar.kKj.clearAnimation();
             if (dVar.bmb()) {
                 bVar.kJY.setVisibility(0);
                 bVar.kKi.setVisibility(8);
                 bVar.kKd.setVisibility(0);
                 bVar.kKe.setVisibility(8);
-                bVar.kKd.setText(String.format(this.kJQ.getPageContext().getString(R.string.signallforum_days), Integer.valueOf(dVar.cTE())));
-                if (dVar.cTL()) {
+                bVar.kKd.setText(String.format(this.kJQ.getPageContext().getString(R.string.signallforum_days), Integer.valueOf(dVar.cTF())));
+                if (dVar.cTM()) {
                     bVar.kKb.setText(this.kJQ.getPageContext().getString(R.string.signallforum_uplevel));
                     bVar.kKj.setVisibility(8);
                 } else {
-                    bVar.kKb.setText(dVar.cTG() + "/" + dVar.cTH());
+                    bVar.kKb.setText(dVar.cTH() + "/" + dVar.cTI());
                     bVar.kKj.setVisibility(0);
                 }
-                int cTK = dVar.cTK();
-                if (cTK > 0) {
+                int cTL = dVar.cTL();
+                if (cTL > 0) {
                     bVar.kKj.setVisibility(0);
-                    bVar.kKj.setText("+" + cTK);
+                    bVar.kKj.setText("+" + cTL);
                 } else {
                     bVar.kKj.setVisibility(8);
                 }
-            } else if (dVar.cTI()) {
+            } else if (dVar.cTJ()) {
                 bVar.kJY.setVisibility(0);
                 bVar.kKi.setVisibility(8);
                 bVar.kKj.setVisibility(8);
                 bVar.kKd.setVisibility(8);
                 bVar.kKe.setVisibility(0);
-                if (dVar.cTJ()) {
+                if (dVar.cTK()) {
                     bVar.kKf.setVisibility(4);
                     bVar.kKg.setVisibility(0);
                     bVar.kKh.setText(R.string.signallforum_resigning);
@@ -183,7 +183,7 @@ public class g extends BaseAdapter implements AbsListView.OnScrollListener, Sign
                 bVar.kKe.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.signall.g.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view3) {
-                        if (!dVar.cTJ()) {
+                        if (!dVar.cTK()) {
                             bVar.kKf.setVisibility(4);
                             bVar.kKg.setVisibility(0);
                             bVar.kKh.setText(R.string.signallforum_resigning);
@@ -218,7 +218,7 @@ public class g extends BaseAdapter implements AbsListView.OnScrollListener, Sign
         View view2;
         a aVar;
         if (!this.gOb) {
-            return bLz();
+            return bLA();
         }
         int itemViewType = getItemViewType(i);
         View CQ = view == null ? CQ(itemViewType) : view;
@@ -265,7 +265,7 @@ public class g extends BaseAdapter implements AbsListView.OnScrollListener, Sign
             while (it.hasNext()) {
                 d next = it.next();
                 if (!TextUtils.isEmpty(next.getForumName())) {
-                    if (next.cTF() >= level) {
+                    if (next.cTG() >= level) {
                         if (next.bmb()) {
                             i5++;
                         } else {
@@ -291,7 +291,7 @@ public class g extends BaseAdapter implements AbsListView.OnScrollListener, Sign
         textView.setText(format);
     }
 
-    private View bLz() {
+    private View bLA() {
         View inflate = LayoutInflater.from(this.kJQ.getPageContext().getPageActivity()).inflate(R.layout.sign_all_forum_nodata_item, (ViewGroup) null);
         NoDataView a2 = NoDataViewFactory.a(this.kJQ.getPageContext().getPageActivity(), (LinearLayout) inflate.findViewById(R.id.sign_all_forum_no_data_view), NoDataViewFactory.c.a(NoDataViewFactory.ImgType.FINDBAR, this.kJQ.getResources().getDimensionPixelSize(R.dimen.tbds90)), NoDataViewFactory.d.cK(null, this.kJQ.getResources().getString(R.string.no_bar_attentioned)), null);
         int skinType = TbadkCoreApplication.getInst().getSkinType();
@@ -378,10 +378,10 @@ public class g extends BaseAdapter implements AbsListView.OnScrollListener, Sign
                     dVar.CP(signData.sign_bonus_point);
                     dVar.CM(1);
                     TbadkApplication.getInst().addSignedForum(dVar.getForumName(), signData.sign_bonus_point, -1);
-                    ArrayList<d> cTv = this.kJt.cTv();
-                    if (cTv.contains(dVar)) {
-                        cTv.remove(dVar);
-                        this.kJt.cTu().add(dVar);
+                    ArrayList<d> cTw = this.kJt.cTw();
+                    if (cTw.contains(dVar)) {
+                        cTw.remove(dVar);
+                        this.kJt.cTv().add(dVar);
                     }
                 } else {
                     dVar.setErrorMsg(str2);
@@ -395,12 +395,12 @@ public class g extends BaseAdapter implements AbsListView.OnScrollListener, Sign
         }
     }
 
-    public void cTS() {
+    public void cTT() {
         this.isDestory = true;
         synchronized (this) {
             try {
                 for (Map.Entry<String, SignSingleModel> entry : this.kJR.entrySet()) {
-                    entry.getValue().cUl();
+                    entry.getValue().cUm();
                 }
                 this.kJR.clear();
             }

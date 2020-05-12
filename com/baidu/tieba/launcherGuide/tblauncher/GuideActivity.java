@@ -88,7 +88,7 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
     public View.OnClickListener iHm = new View.OnClickListener() { // from class: com.baidu.tieba.launcherGuide.tblauncher.GuideActivity.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            GuideActivity.this.cmh();
+            GuideActivity.this.cmi();
             if (view.getId() == GuideActivity.this.iHl.getId()) {
                 TiebaStatic.log(new an("c13410").cI("uid", TbadkCoreApplication.getCurrentAccount()));
             }
@@ -143,7 +143,7 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
         public void onClick(View view) {
             if (view.getId() == GuideActivity.this.iHk.getId()) {
                 TbSingleton.getInstance().mStartGameClicked = true;
-                GuideActivity.this.cmh();
+                GuideActivity.this.cmi();
             }
         }
     };
@@ -166,10 +166,10 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
             bqo();
             this.iHe = com.baidu.tbadk.core.sharedPref.b.aNT().getBoolean(SharedPrefConfig.JUMP_TO_NEW_USER_GUIDE, true);
             if (this.iHe) {
-                cmi();
+                cmj();
             }
             try {
-                cmg();
+                cmh();
                 this.iGZ = new b();
                 this.iHa = (BaseViewPager) findViewById(R.id.guide_pager);
                 this.iHa.setAdapter(this.iGZ);
@@ -219,23 +219,23 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
                 BdLog.detailException(e);
                 this.iHd = true;
                 this.iHe = false;
-                cmh();
+                cmi();
             } catch (RuntimeException e2) {
                 releaseResources();
                 TbadkApplication.getInst().onAppMemoryLow();
                 BdLog.detailException(e2);
                 this.iHd = true;
                 this.iHe = false;
-                cmh();
+                cmi();
             }
         } catch (RuntimeException e3) {
             this.iHd = true;
             this.iHe = false;
-            cmh();
+            cmi();
         }
     }
 
-    private void cmg() {
+    private void cmh() {
         this.iGX = new ArrayList<>();
         this.iGY = new ArrayList<>();
         for (int i = 0; i < this.iHg; i++) {
@@ -246,7 +246,7 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
             imageView.setBackgroundResource(this.iHf[i]);
             Bitmap a2 = a(imageView, this.iHf[i]);
             if (a2 == null) {
-                cmh();
+                cmi();
                 return;
             }
             this.iHi.add(a2);
@@ -270,7 +270,7 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cmh() {
+    public void cmi() {
         if (this.mFromPage != null && !this.mFromPage.equals(GuildActivityConfig.FROM_ABOUT_PAGE)) {
             bfW();
         }
@@ -345,7 +345,7 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         switch (i) {
             case 4:
-                cmh();
+                cmi();
                 return true;
             default:
                 return super.onKeyDown(i, keyEvent);
@@ -369,7 +369,7 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
                     }
                 }
             } else {
-                cmj();
+                cmk();
                 com.baidu.tbadk.core.sharedPref.b.aNT().putBoolean(SharedPrefConfig.JUMP_TO_NEW_USER_GUIDE, false);
             }
             finish();
@@ -385,7 +385,7 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
         registerListener(this.iHo);
     }
 
-    public void cmi() {
+    public void cmj() {
         String currentAccount = TbadkApplication.getCurrentAccount();
         if (TextUtils.isEmpty(currentAccount)) {
             this.iHe = false;
@@ -396,7 +396,7 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
         sendMessage(httpMessage);
     }
 
-    public void cmj() {
+    public void cmk() {
         if (NewUserGuideActivityConfig.canResponse()) {
             sendMessage(new CustomMessage((int) CmdConfigCustom.NEW_USER_GUIDE_PAGE, new NewUserGuideActivityConfig(getPageContext().getPageActivity(), false, true)));
         }
@@ -418,7 +418,7 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean cmk() {
+    public boolean cml() {
         try {
             ContentResolver contentResolver = getContentResolver();
             String aI = aI(getBaseContext(), "com.android.launcher.permission.READ_SETTINGS");
@@ -470,7 +470,7 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Boolean doInBackground(String... strArr) {
-            return Boolean.valueOf(GuideActivity.this.cmk());
+            return Boolean.valueOf(GuideActivity.this.cml());
         }
 
         /* JADX DEBUG: Method merged with bridge method */

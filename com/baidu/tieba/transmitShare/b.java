@@ -63,7 +63,7 @@ public class b implements View.OnClickListener {
         MessageManager.getInstance().registerListener(this.iPH);
     }
 
-    public ShareGridLayout cZT() {
+    public ShareGridLayout cZU() {
         if (this.lfV == null) {
             initView();
         }
@@ -229,7 +229,7 @@ public class b implements View.OnClickListener {
             a("1", null, this.mPrivateThread);
             DX(11);
         } else if (i == 13) {
-            cZU();
+            cZV();
             DX(13);
         }
     }
@@ -238,7 +238,7 @@ public class b implements View.OnClickListener {
         return i == 4 || i == 3 || i == 9 || i == 5 || i == 7 || i == 10;
     }
 
-    private void cZU() {
+    private void cZV() {
         SelectForumActivityConfig selectForumActivityConfig = new SelectForumActivityConfig(this.mContext, RequestResponseCode.REQUEST_SELECT_FORUM);
         selectForumActivityConfig.setForumList(this.mForumList);
         if (this.lfX) {

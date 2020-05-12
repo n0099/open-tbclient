@@ -54,7 +54,7 @@ public final class f {
         this.mKe.clear();
     }
 
-    public final boolean dzt() {
+    public final boolean dzu() {
         return this.mJZ;
     }
 
@@ -62,7 +62,7 @@ public final class f {
         this.mJZ = z;
     }
 
-    public final com.opensource.svgaplayer.b.c dzu() {
+    public final com.opensource.svgaplayer.b.c dzv() {
         return this.mKa;
     }
 
@@ -70,23 +70,23 @@ public final class f {
         return this.mKb;
     }
 
-    public final int dzv() {
+    public final int dzw() {
         return this.mKc;
     }
 
-    public final List<com.opensource.svgaplayer.entities.f> dzw() {
+    public final List<com.opensource.svgaplayer.entities.f> dzx() {
         return this.sprites;
     }
 
-    public final List<com.opensource.svgaplayer.entities.a> dzx() {
+    public final List<com.opensource.svgaplayer.entities.a> dzy() {
         return this.audios;
     }
 
-    public final SoundPool dzy() {
+    public final SoundPool dzz() {
         return this.mKd;
     }
 
-    public final HashMap<String, Bitmap> dzz() {
+    public final HashMap<String, Bitmap> dzA() {
         return this.mKe;
     }
 
@@ -96,8 +96,8 @@ public final class f {
         this.mJZ = true;
         this.mKa = new com.opensource.svgaplayer.b.c(0.0d, 0.0d, 0.0d, 0.0d);
         this.mKb = 15;
-        this.sprites = o.dDz();
-        this.audios = o.dDz();
+        this.sprites = o.dDA();
+        this.audios = o.dDA();
         this.mKe = new HashMap<>();
         this.mKf = file;
         JSONObject optJSONObject = jSONObject.optJSONObject("movie");
@@ -120,8 +120,8 @@ public final class f {
         this.mJZ = true;
         this.mKa = new com.opensource.svgaplayer.b.c(0.0d, 0.0d, 0.0d, 0.0d);
         this.mKb = 15;
-        this.sprites = o.dDz();
-        this.audios = o.dDz();
+        this.sprites = o.dDA();
+        this.audios = o.dDA();
         this.mKe = new HashMap<>();
         this.mKg = movieEntity;
         this.mKf = file;
@@ -267,10 +267,10 @@ public final class f {
     }
 
     private final void b(MovieEntity movieEntity) {
-        ArrayList dDz;
+        ArrayList dDA;
         List<SpriteEntity> list = movieEntity.sprites;
         if (list == null) {
-            dDz = o.dDz();
+            dDA = o.dDA();
         } else {
             List<SpriteEntity> list2 = list;
             ArrayList arrayList = new ArrayList(o.a(list2, 10));
@@ -278,9 +278,9 @@ public final class f {
                 q.i(spriteEntity, AdvanceSetting.NETWORK_TYPE);
                 arrayList.add(new com.opensource.svgaplayer.entities.f(spriteEntity));
             }
-            dDz = arrayList;
+            dDA = arrayList;
         }
-        this.sprites = dDz;
+        this.sprites = dDA;
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [203=4] */

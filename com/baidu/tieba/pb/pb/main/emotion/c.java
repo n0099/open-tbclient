@@ -132,7 +132,7 @@ public class c implements EmotionView.a, b.a, QueryMatchEmotionModel.a {
     public void onFail(int i, String str) {
     }
 
-    public void cBM() {
+    public void cBN() {
         if (this.gRA != null) {
             this.gRA.setVisibility(8);
         }
@@ -140,7 +140,7 @@ public class c implements EmotionView.a, b.a, QueryMatchEmotionModel.a {
         this.jDw = "";
     }
 
-    public void bRh() {
+    public void bRi() {
         if (this.jDv != null) {
             this.jDv.cancelLoadData();
         }
@@ -195,7 +195,7 @@ public class c implements EmotionView.a, b.a, QueryMatchEmotionModel.a {
     }
 
     @Override // com.baidu.tieba.face.view.EmotionView.a
-    public boolean bKy() {
+    public boolean bKz() {
         return true;
     }
 
@@ -205,12 +205,12 @@ public class c implements EmotionView.a, b.a, QueryMatchEmotionModel.a {
     }
 
     @Override // com.baidu.tieba.face.view.EmotionView.a
-    public void bKB() {
+    public void bKC() {
         this.mHandler.removeCallbacks(this.jDy);
     }
 
     @Override // com.baidu.tieba.face.view.EmotionView.a
-    public void bKC() {
+    public void bKD() {
         this.mHandler.removeCallbacks(this.jDy);
         this.mHandler.postDelayed(this.jDy, 5000L);
     }

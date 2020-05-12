@@ -23,7 +23,7 @@ public class a {
         }
     }
 
-    public void cWR() {
+    public void cWS() {
         this.gAE.clear();
     }
 

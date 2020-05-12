@@ -177,7 +177,7 @@ public class a implements f {
         return this.threadId;
     }
 
-    public String csQ() {
+    public String csR() {
         return this.threadName;
     }
 
@@ -209,7 +209,7 @@ public class a implements f {
         this.postID = str;
     }
 
-    public boolean csR() {
+    public boolean csS() {
         return this.isHostOnly;
     }
 
@@ -217,7 +217,7 @@ public class a implements f {
         this.isHostOnly = z;
     }
 
-    public boolean csS() {
+    public boolean csT() {
         return this.isSquence;
     }
 

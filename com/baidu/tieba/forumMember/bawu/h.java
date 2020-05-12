@@ -58,7 +58,7 @@ public class h extends BaseAdapter {
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i) {
-        return getItem(i).bMS();
+        return getItem(i).bMT();
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
@@ -102,41 +102,41 @@ public class h extends BaseAdapter {
                 cVar = cVar3;
             }
             com.baidu.tieba.forumMember.bawu.b bVar = (com.baidu.tieba.forumMember.bawu.b) getItem(i);
-            if (bVar != null && bVar.bMT() != null && bVar.bMT().size() > 0) {
-                if (bVar.isLast() && bVar.bMU()) {
+            if (bVar != null && bVar.bMU() != null && bVar.bMU().size() > 0) {
+                if (bVar.isLast() && bVar.bMV()) {
                     cVar.mRoot.setPadding(this.gUr, 0, this.gUr, this.gUs);
                     if (this.gUq != null && !this.gUq.isEmpty()) {
-                        if (bVar.bMT().size() == 2) {
-                            if (bVar.bMV().equals(this.duK.getResources().getString(R.string.bawu_member_bazhu_tip))) {
+                        if (bVar.bMU().size() == 2) {
+                            if (bVar.bMW().equals(this.duK.getResources().getString(R.string.bawu_member_bazhu_tip))) {
                                 cVar.gUx.setVisibility(8);
                                 cVar.gUw.setVisibility(8);
-                            } else if (bVar.bMV().equals(this.duK.getResources().getString(R.string.bawu_member_xbazhu_tip))) {
+                            } else if (bVar.bMW().equals(this.duK.getResources().getString(R.string.bawu_member_xbazhu_tip))) {
                                 cVar.gUx.setVisibility(8);
                                 cVar.gUw.setVisibility(0);
-                                cVar.gUw.aI(this.duK.getResources().getString(R.string.tip_assist_apply), this.gUq.bNe());
+                                cVar.gUw.aI(this.duK.getResources().getString(R.string.tip_assist_apply), this.gUq.bNf());
                                 cVar.gUw.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.forumMember.bawu.h.1
                                     @Override // android.view.View.OnClickListener
                                     public void onClick(View view2) {
                                         if (h.this.gUn != null) {
-                                            h.this.gUn.CK(h.this.gUq.bNf());
+                                            h.this.gUn.CK(h.this.gUq.bNg());
                                         }
                                     }
                                 });
                             }
-                        } else if (bVar.bMV().equals(this.duK.getResources().getString(R.string.bawu_member_bazhu_tip))) {
+                        } else if (bVar.bMW().equals(this.duK.getResources().getString(R.string.bawu_member_bazhu_tip))) {
                             cVar.gUv.setVisibility(8);
                             cVar.gUx.setVisibility(8);
                             cVar.gUw.setVisibility(8);
-                        } else if (bVar.bMV().equals(this.duK.getResources().getString(R.string.bawu_member_xbazhu_tip))) {
+                        } else if (bVar.bMW().equals(this.duK.getResources().getString(R.string.bawu_member_xbazhu_tip))) {
                             cVar.gUv.setVisibility(8);
                             cVar.gUx.setVisibility(0);
                             cVar.gUw.setVisibility(8);
-                            cVar.gUx.aI(this.duK.getResources().getString(R.string.tip_assist_apply), this.gUq.bNe());
+                            cVar.gUx.aI(this.duK.getResources().getString(R.string.tip_assist_apply), this.gUq.bNf());
                             cVar.gUx.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.forumMember.bawu.h.2
                                 @Override // android.view.View.OnClickListener
                                 public void onClick(View view2) {
                                     if (h.this.gUn != null) {
-                                        h.this.gUn.CK(h.this.gUq.bNf());
+                                        h.this.gUn.CK(h.this.gUq.bNg());
                                     }
                                 }
                             });
@@ -147,9 +147,9 @@ public class h extends BaseAdapter {
                     cVar.gUw.setVisibility(8);
                     cVar.gUx.setVisibility(8);
                 }
-                cVar.gUu.a(bVar.bMT().get(0));
-                if (bVar.bMT().size() >= 2) {
-                    cVar.gUv.a(bVar.bMT().get(1));
+                cVar.gUu.a(bVar.bMU().get(0));
+                if (bVar.bMU().size() >= 2) {
+                    cVar.gUv.a(bVar.bMU().get(1));
                     cVar.gUv.setVisibility(0);
                 } else {
                     cVar.gUv.setVisibility(8);

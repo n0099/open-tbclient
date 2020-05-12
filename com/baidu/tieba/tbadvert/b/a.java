@@ -29,10 +29,10 @@ public class a {
         }
 
         @Override // com.baidu.tieba.tbadvert.b.a.InterfaceC0678a
-        public void cXI() {
+        public void cXJ() {
             a.this.kWF = null;
             if (a.this.kWG != null) {
-                a.this.kWG.cXI();
+                a.this.kWG.cXJ();
             }
         }
     };
@@ -44,7 +44,7 @@ public class a {
             super.onLoaded((AnonymousClass2) aVar, str, i);
             if (aVar == null || aVar.getRawBitmap() == null) {
                 if (a.this.kWG != null) {
-                    a.this.kWG.cXI();
+                    a.this.kWG.cXJ();
                 }
             } else if (a.this.kWG != null) {
                 a.this.kWG.aE(aVar);
@@ -56,7 +56,7 @@ public class a {
         public void onCancelled(String str) {
             super.onCancelled(str);
             if (a.this.kWG != null) {
-                a.this.kWG.cXI();
+                a.this.kWG.cXJ();
             }
         }
     };
@@ -68,41 +68,41 @@ public class a {
 
         void aE(Object obj);
 
-        void cXI();
+        void cXJ();
     }
 
-    public void cXM() {
+    public void cXN() {
         b bVar = new b(this.kWH);
         bVar.setSelfExecute(true);
         bVar.execute(new String[0]);
     }
 
-    public com.baidu.tieba.tbadvert.a.b cXN() {
+    public com.baidu.tieba.tbadvert.a.b cXO() {
         if (this.kWF == null || v.isEmpty(this.kWF.kWC)) {
             return null;
         }
         for (com.baidu.tieba.tbadvert.a.b bVar : this.kWF.kWC) {
-            if (bVar != null && bVar.cXL() && bVar.dsl == 3) {
+            if (bVar != null && bVar.cXM() && bVar.dsl == 3) {
                 return bVar;
             }
         }
         return null;
     }
 
-    public void cXO() {
-        com.baidu.tieba.tbadvert.a.b cXN = cXN();
-        if (cXN != null && !TextUtils.isEmpty(cXN.kWE)) {
-            n(cXN.showType, cXN.kWE, true);
+    public void cXP() {
+        com.baidu.tieba.tbadvert.a.b cXO = cXO();
+        if (cXO != null && !TextUtils.isEmpty(cXO.kWE)) {
+            n(cXO.showType, cXO.kWE, true);
         } else if (this.kWG != null) {
-            this.kWG.cXI();
+            this.kWG.cXJ();
         }
     }
 
-    public void cXP() {
+    public void cXQ() {
         if (this.kWF != null && !v.isEmpty(this.kWF.kWC)) {
-            com.baidu.tieba.tbadvert.a.b cXN = cXN();
+            com.baidu.tieba.tbadvert.a.b cXO = cXO();
             for (com.baidu.tieba.tbadvert.a.b bVar : this.kWF.kWC) {
-                if (bVar != null && bVar != cXN && bVar.cXL() && bVar.dsl != 4) {
+                if (bVar != null && bVar != cXO && bVar.cXM() && bVar.dsl != 4) {
                     n(bVar.showType, bVar.kWE, false);
                 }
             }
@@ -152,7 +152,7 @@ public class a {
                 if (obj instanceof com.baidu.tieba.tbadvert.a.a) {
                     this.kWG.a((com.baidu.tieba.tbadvert.a.a) obj);
                 } else {
-                    this.kWG.cXI();
+                    this.kWG.cXJ();
                 }
             }
         }

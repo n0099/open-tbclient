@@ -35,7 +35,7 @@ public class b {
         this.gKN = aVar;
     }
 
-    public void bRh() {
+    public void bRi() {
         if (this.jEz != null) {
             this.jEz.cancelLoadData();
         }

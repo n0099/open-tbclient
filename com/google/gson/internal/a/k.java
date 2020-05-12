@@ -16,7 +16,7 @@ public final class k extends TypeAdapter<Time> {
     public static final TypeAdapterFactory mjN = new TypeAdapterFactory() { // from class: com.google.gson.internal.a.k.1
         @Override // com.google.gson.TypeAdapterFactory
         public <T> TypeAdapter<T> create(Gson gson, com.google.gson.b.a<T> aVar) {
-            if (aVar.dvZ() == Time.class) {
+            if (aVar.dwa() == Time.class) {
                 return new k();
             }
             return null;
@@ -29,12 +29,12 @@ public final class k extends TypeAdapter<Time> {
     /* renamed from: e */
     public synchronized Time read(com.google.gson.stream.a aVar) throws IOException {
         Time time;
-        if (aVar.dvG() == JsonToken.NULL) {
-            aVar.dvL();
+        if (aVar.dvH() == JsonToken.NULL) {
+            aVar.dvM();
             time = null;
         } else {
             try {
-                time = new Time(this.mkp.parse(aVar.dvK()).getTime());
+                time = new Time(this.mkp.parse(aVar.dvL()).getTime());
             } catch (ParseException e) {
                 throw new JsonSyntaxException(e);
             }

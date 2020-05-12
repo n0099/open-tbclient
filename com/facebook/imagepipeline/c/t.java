@@ -6,7 +6,7 @@ public class t implements n {
     private t() {
     }
 
-    public static synchronized t dqC() {
+    public static synchronized t dqD() {
         t tVar;
         synchronized (t.class) {
             if (maZ == null) {
@@ -18,7 +18,7 @@ public class t implements n {
     }
 
     @Override // com.facebook.imagepipeline.c.n
-    public void dqu() {
+    public void dqv() {
     }
 
     @Override // com.facebook.imagepipeline.c.n
@@ -26,15 +26,7 @@ public class t implements n {
     }
 
     @Override // com.facebook.imagepipeline.c.n
-    public void dqv() {
-    }
-
-    @Override // com.facebook.imagepipeline.c.n
     public void dqw() {
-    }
-
-    @Override // com.facebook.imagepipeline.c.n
-    public void q(com.facebook.cache.common.b bVar) {
     }
 
     @Override // com.facebook.imagepipeline.c.n
@@ -42,11 +34,15 @@ public class t implements n {
     }
 
     @Override // com.facebook.imagepipeline.c.n
-    public void r(com.facebook.cache.common.b bVar) {
+    public void q(com.facebook.cache.common.b bVar) {
     }
 
     @Override // com.facebook.imagepipeline.c.n
     public void dqy() {
+    }
+
+    @Override // com.facebook.imagepipeline.c.n
+    public void r(com.facebook.cache.common.b bVar) {
     }
 
     @Override // com.facebook.imagepipeline.c.n
@@ -59,6 +55,10 @@ public class t implements n {
 
     @Override // com.facebook.imagepipeline.c.n
     public void dqB() {
+    }
+
+    @Override // com.facebook.imagepipeline.c.n
+    public void dqC() {
     }
 
     @Override // com.facebook.imagepipeline.c.n

@@ -18,7 +18,7 @@ public class i implements aj<com.facebook.common.references.a<com.facebook.image
 
     @Override // com.facebook.imagepipeline.producers.aj
     public void c(k<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> kVar, ak akVar) {
-        if (akVar.dtT() && !this.meR) {
+        if (akVar.dtU() && !this.meR) {
             this.meH.c(kVar, akVar);
         } else {
             this.meH.c(new a(kVar, this.meP, this.meQ), akVar);
@@ -42,15 +42,15 @@ public class i implements aj<com.facebook.common.references.a<com.facebook.image
         /* renamed from: a */
         public void g(com.facebook.common.references.a<com.facebook.imagepipeline.g.c> aVar, int i) {
             l(aVar);
-            duc().h(aVar, i);
+            dud().h(aVar, i);
         }
 
         private void l(com.facebook.common.references.a<com.facebook.imagepipeline.g.c> aVar) {
             com.facebook.imagepipeline.g.c cVar;
-            Bitmap dsK;
+            Bitmap dsL;
             int rowBytes;
-            if (aVar != null && aVar.isValid() && (cVar = aVar.get()) != null && !cVar.isClosed() && (cVar instanceof com.facebook.imagepipeline.g.d) && (dsK = ((com.facebook.imagepipeline.g.d) cVar).dsK()) != null && (rowBytes = dsK.getRowBytes() * dsK.getHeight()) >= this.meP && rowBytes <= this.meQ) {
-                dsK.prepareToDraw();
+            if (aVar != null && aVar.isValid() && (cVar = aVar.get()) != null && !cVar.isClosed() && (cVar instanceof com.facebook.imagepipeline.g.d) && (dsL = ((com.facebook.imagepipeline.g.d) cVar).dsL()) != null && (rowBytes = dsL.getRowBytes() * dsL.getHeight()) >= this.meP && rowBytes <= this.meQ) {
+                dsL.prepareToDraw();
             }
         }
     }

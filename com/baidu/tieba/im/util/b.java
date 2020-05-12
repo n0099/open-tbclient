@@ -36,11 +36,11 @@ public class b {
                 case 1:
                 case 2:
                 case 3:
-                    b.this.ivH.ced();
+                    b.this.ivH.cee();
                     return;
                 case 4:
                 case 5:
-                    b.this.ivH.cec();
+                    b.this.ivH.ced();
                     return;
                 default:
                     return;
@@ -52,13 +52,13 @@ public class b {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
             if (socketResponsedMessage == null || socketResponsedMessage.getCmd() != 103010) {
-                b.this.ivH.cec();
+                b.this.ivH.ced();
             } else if (!(socketResponsedMessage instanceof ResponseRequestGroupLocMessage)) {
-                b.this.ivH.cec();
+                b.this.ivH.ced();
             } else {
                 ResponseRequestGroupLocMessage responseRequestGroupLocMessage = (ResponseRequestGroupLocMessage) socketResponsedMessage;
                 if (responseRequestGroupLocMessage.getError() != 0) {
-                    b.this.ivH.cec();
+                    b.this.ivH.ced();
                     return;
                 }
                 Iterator<String> iteraotrOfBusinessAreaList = responseRequestGroupLocMessage.getIteraotrOfBusinessAreaList();
@@ -68,7 +68,7 @@ public class b {
                 }
                 String position = responseRequestGroupLocMessage.getPosition();
                 if ((position == null || position.equals("")) && arrayList.size() < 1) {
-                    b.this.ivH.cec();
+                    b.this.ivH.ced();
                 } else {
                     b.this.ivH.a(position, arrayList, b.this.latitude, b.this.longitude);
                 }
@@ -80,9 +80,9 @@ public class b {
     public interface a {
         void a(String str, List<String> list, double d, double d2);
 
-        void cec();
-
         void ced();
+
+        void cee();
     }
 
     public b(a aVar) {

@@ -54,7 +54,7 @@ public class s implements ai {
     /* JADX WARN: Multi-variable type inference failed */
     public void a(FrsFragment frsFragment, com.baidu.adp.widget.ListView.r rVar) {
         this.han = frsFragment;
-        this.hhA = com.baidu.tieba.frs.c.bNL().a(frsFragment.getPageContext(), com.baidu.tieba.tbadkCore.v.kRo, this.han.getUniqueId(), false);
+        this.hhA = com.baidu.tieba.frs.c.bNM().a(frsFragment.getPageContext(), com.baidu.tieba.tbadkCore.v.kRo, this.han.getUniqueId(), false);
         this.hhB = new y(frsFragment.getTbPageContext(), bj.dqM, this.han.getUniqueId());
         this.hhB.b(rVar);
         this.hhC = new n(frsFragment.getTbPageContext(), bj.dqN, this.han.getUniqueId());
@@ -98,8 +98,8 @@ public class s implements ai {
         this.hhz = new ae(frsFragment.getPageContext(), com.baidu.tieba.tbadkCore.o.kRg, this.han.getUniqueId());
         this.hhJ = new u(frsFragment.getPageContext(), bj.dqY, this.han.getUniqueId());
         this.hhJ.b(rVar);
-        com.baidu.adp.widget.ListView.a<? extends bi, ? extends y.a> a = com.baidu.tieba.frs.c.bNL().a(frsFragment.getPageContext(), this.han.getUniqueId(), true);
-        com.baidu.adp.widget.ListView.a<? extends bj, ? extends y.a> b = com.baidu.tieba.frs.c.bNL().b(frsFragment.getPageContext(), bj.dsN, this.han.getUniqueId());
+        com.baidu.adp.widget.ListView.a<? extends bi, ? extends y.a> a = com.baidu.tieba.frs.c.bNM().a(frsFragment.getPageContext(), this.han.getUniqueId(), true);
+        com.baidu.adp.widget.ListView.a<? extends bj, ? extends y.a> b = com.baidu.tieba.frs.c.bNM().b(frsFragment.getPageContext(), bj.dsN, this.han.getUniqueId());
         com.baidu.tieba.frs.o oVar = new com.baidu.tieba.frs.o(frsFragment.getPageContext(), com.baidu.tieba.frs.p.hbp);
         l lVar = new l(frsFragment.getPageContext(), com.baidu.tieba.frs.t.hbE);
         ad adVar = new ad(frsFragment.getPageContext(), com.baidu.tieba.frs.u.hbJ, this.han.getUniqueId());
@@ -170,7 +170,7 @@ public class s implements ai {
     }
 
     @Override // com.baidu.tieba.frs.entelechy.a.ai
-    public HashMap<Integer, bj> bRP() {
+    public HashMap<Integer, bj> bRQ() {
         return this.hhw;
     }
 
@@ -182,7 +182,7 @@ public class s implements ai {
     }
 
     @Override // com.baidu.tieba.frs.entelechy.a.ai
-    public int bRQ() {
+    public int bRR() {
         if (this.hhA != null) {
             return R.id.frs_bawu_center;
         }
@@ -229,7 +229,7 @@ public class s implements ai {
     /* JADX DEBUG: Multi-variable search result rejected for r2v1, resolved type: com.baidu.tieba.frs.FrsFragment */
     /* JADX WARN: Multi-variable type inference failed */
     @Override // com.baidu.tieba.frs.entelechy.a.ai
-    public void bRR() {
+    public void bRS() {
         if (this.aMj != null && this.aMj.size() != 0) {
             for (com.baidu.adp.widget.ListView.a aVar : this.aMj) {
                 if (aVar instanceof com.baidu.tieba.frs.h) {
@@ -249,7 +249,7 @@ public class s implements ai {
     }
 
     @Override // com.baidu.tieba.frs.entelechy.a.ai
-    public int bRS() {
+    public int bRT() {
         if (this.hhA != null) {
             return R.id.frs_fortune_bag_item;
         }
@@ -257,7 +257,7 @@ public class s implements ai {
     }
 
     @Override // com.baidu.tieba.frs.entelechy.a.ai
-    public int bRT() {
+    public int bRU() {
         if (this.hhA != null) {
             return R.id.frs_my_service_item;
         }
@@ -307,7 +307,7 @@ public class s implements ai {
     }
 
     @Override // com.baidu.tieba.frs.entelechy.a.ai
-    public void bRU() {
+    public void bRV() {
         List<com.baidu.adp.widget.ListView.m> data;
         if (this.gEi != null && this.gEi.getData() != null && this.gEi.getData().size() != 0 && (data = this.gEi.getData()) != null && data.size() != 0) {
             for (com.baidu.adp.widget.ListView.m mVar : data) {
@@ -332,7 +332,7 @@ public class s implements ai {
     @Override // com.baidu.tieba.frs.entelechy.a.ai
     public void b(ArrayList<com.baidu.adp.widget.ListView.m> arrayList, FrsViewData frsViewData) {
         b(frsViewData);
-        bQG();
+        bQH();
         com.baidu.tieba.tbadkCore.t.q(arrayList, 1);
         ao(arrayList);
         ap(arrayList);
@@ -346,8 +346,8 @@ public class s implements ai {
         }
         this.gEi.setData(arrayList);
         this.hhx = frsViewData;
-        bRk();
-        bRW();
+        bRl();
+        bRX();
         this.dataList = arrayList;
     }
 
@@ -443,7 +443,7 @@ public class s implements ai {
         return type == bj.dqI || type == bj.dqY || type == bj.dqZ || type == bj.drh || type == bj.drq;
     }
 
-    private void bQG() {
+    private void bQH() {
         if (!com.baidu.tbadk.core.util.v.isEmpty(this.aMj) && this.han != null) {
             for (com.baidu.adp.widget.ListView.a aVar : this.aMj) {
                 if (aVar instanceof com.baidu.tieba.frs.h) {
@@ -453,7 +453,7 @@ public class s implements ai {
         }
     }
 
-    private void bRk() {
+    private void bRl() {
         com.baidu.tieba.frs.d.b statisticMetaData;
         if (this.hhx != null) {
             for (com.baidu.adp.widget.ListView.a aVar : this.aMj) {
@@ -466,16 +466,16 @@ public class s implements ai {
                     if (this.hhx.getForum() != null) {
                         statisticMetaData.huc = this.hhx.getForum().getId();
                     }
-                    if (this.han != null && this.han.bOq() != null) {
-                        statisticMetaData.hub = this.han.bOq().bTY();
+                    if (this.han != null && this.han.bOr() != null) {
+                        statisticMetaData.hub = this.han.bOr().bTZ();
                     }
                 }
             }
-            bRV();
+            bRW();
         }
     }
 
-    private void bRV() {
+    private void bRW() {
         com.baidu.tieba.frs.d.b bVar = new com.baidu.tieba.frs.d.b();
         if (this.hhx.needLog == 1) {
             bVar.hua = true;
@@ -485,8 +485,8 @@ public class s implements ai {
         if (this.hhx.getForum() != null) {
             bVar.huc = this.hhx.getForum().getId();
         }
-        if (this.han != null && this.han.bOq() != null) {
-            bVar.hub = this.han.bOq().bTY();
+        if (this.han != null && this.han.bOr() != null) {
+            bVar.hub = this.han.bOr().bTZ();
         }
         if (com.baidu.tieba.frs.d.d.hgM != null) {
             bVar.hud = com.baidu.tieba.frs.d.d.hgM.hud;
@@ -509,7 +509,7 @@ public class s implements ai {
         }
     }
 
-    private void bRW() {
+    private void bRX() {
         if (this.hhx != null && this.hhx.getForum() != null && !StringUtils.isNull(this.hhx.getForum().getId()) && this.hhz != null) {
             this.hhz.setForumId(this.hhx.getForum().getId());
         }

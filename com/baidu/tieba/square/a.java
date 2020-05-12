@@ -59,8 +59,8 @@ public class a {
         changeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public Pair<Integer, Integer> cUo() {
-        return this.kLj != null ? this.kLj.cUo() : new Pair<>(0, 0);
+    public Pair<Integer, Integer> cUp() {
+        return this.kLj != null ? this.kLj.cUp() : new Pair<>(0, 0);
     }
 
     public void scrollToPositionWithOffset(int i, int i2) {
@@ -87,8 +87,8 @@ public class a {
         }
     }
 
-    public String cUp() {
-        return this.kLj.cUp();
+    public String cUq() {
+        return this.kLj.cUq();
     }
 
     public void b(String str, List<String> list, boolean z) {
@@ -109,9 +109,9 @@ public class a {
         }
     }
 
-    public void cUq() {
+    public void cUr() {
         if (this.kLj != null) {
-            this.kLj.cUq();
+            this.kLj.cUr();
         }
     }
 
@@ -158,7 +158,7 @@ public class a {
     }
 
     public void lV(boolean z) {
-        if (!bJs()) {
+        if (!bJt()) {
             if (this.mRefreshView == null) {
                 this.mRefreshView = new h(this.kLg, this.kLl);
                 this.mRefreshView.setLayoutMargin(l.getDimens(this.kLg, R.dimen.ds250));
@@ -168,7 +168,7 @@ public class a {
         }
     }
 
-    private boolean bJs() {
+    private boolean bJt() {
         if (this.mRefreshView != null) {
             return this.mRefreshView.isViewAttached();
         }
@@ -189,7 +189,7 @@ public class a {
         }
     }
 
-    public boolean bJr() {
+    public boolean bJs() {
         if (this.eYg != null) {
             return this.eYg.isViewAttached();
         }
@@ -197,7 +197,7 @@ public class a {
     }
 
     public void fK(boolean z) {
-        if (!bJr()) {
+        if (!bJs()) {
             if (this.eYg == null) {
                 this.eYg = new g(this.kLg);
                 this.eYg.setTopMargin(l.getDimens(this.kLg, R.dimen.ds250));
@@ -213,7 +213,7 @@ public class a {
         }
     }
 
-    public void cUr() {
+    public void cUs() {
         hideLoadingView();
         hideNoDataView();
         lV(true);
@@ -222,13 +222,13 @@ public class a {
         }
     }
 
-    public void cUs() {
+    public void cUt() {
         blr();
         hideNoDataView();
         fK(true);
     }
 
-    public void cUt() {
+    public void cUu() {
         hideLoadingView();
         blr();
         hideNoDataView();
@@ -238,19 +238,13 @@ public class a {
         }
     }
 
-    public void cUu() {
+    public void cUv() {
         hideLoadingView();
         blr();
         hideNoDataView();
         if (this.kLj != null) {
             this.kLj.fK(true);
             this.kLj.CX(8);
-        }
-    }
-
-    public void cUv() {
-        if (this.kLj != null) {
-            this.kLj.cUv();
         }
     }
 
@@ -266,6 +260,12 @@ public class a {
         }
     }
 
+    public void cUy() {
+        if (this.kLj != null) {
+            this.kLj.cUy();
+        }
+    }
+
     public void bmo() {
         if (this.kLj != null) {
             this.kLj.bmo();
@@ -275,13 +275,13 @@ public class a {
     public boolean tL(boolean z) {
         if (z) {
             if (j.isNetWorkAvailable()) {
-                cUx();
+                cUy();
             } else {
-                cUv();
+                cUw();
             }
             return true;
         }
-        cUw();
+        cUx();
         return false;
     }
 }

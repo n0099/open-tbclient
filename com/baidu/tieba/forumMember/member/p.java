@@ -24,7 +24,7 @@ public class p implements com.baidu.adp.widget.ListView.m {
         this.gVC = i;
     }
 
-    public int bNe() {
+    public int bNf() {
         return this.gVz;
     }
 
@@ -36,7 +36,7 @@ public class p implements com.baidu.adp.widget.ListView.m {
         this.gVA = str;
     }
 
-    public String bNf() {
+    public String bNg() {
         return this.gVB;
     }
 

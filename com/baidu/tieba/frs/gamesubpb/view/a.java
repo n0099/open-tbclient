@@ -130,7 +130,7 @@ public class a {
             }
         });
         this.mProgressBar = (ProgressBar) this.mRootView.findViewById(R.id.progressBar);
-        bST();
+        bSU();
         this.hoz = new com.baidu.tieba.frs.gamesubpb.b(this.hnZ.getPageContext(), this.eOj);
         this.hoz.setClickListener(new a.InterfaceC0566a() { // from class: com.baidu.tieba.frs.gamesubpb.view.a.6
             @Override // com.baidu.tieba.frs.gamesubpb.a.InterfaceC0566a
@@ -148,11 +148,11 @@ public class a {
             @Override // com.baidu.tieba.frs.gamesubpb.a.InterfaceC0566a
             public void c(d dVar) {
                 if (a.this.hnJ != null) {
-                    a.this.hnJ.bSL();
+                    a.this.hnJ.bSM();
                 }
                 if (dVar == null) {
                     a.this.De(null);
-                    a.this.bSV();
+                    a.this.bSW();
                     return;
                 }
                 a.this.De(dVar.userName);
@@ -160,13 +160,13 @@ public class a {
             }
         });
         uf(140);
-        bSU();
+        bSV();
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         this.hoB = new ArrayList();
         this.eUt = com.baidu.adp.lib.f.b.toLong(TbadkCoreApplication.getCurrentAccount(), 0L);
     }
 
-    private void bST() {
+    private void bSU() {
         this.mNavigationBar = (NavigationBar) this.mRootView.findViewById(R.id.view_navigation_bar);
         this.mBack = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         ImageView backImageView = this.mNavigationBar.getBackImageView();
@@ -189,7 +189,7 @@ public class a {
         }
     }
 
-    private void bSU() {
+    private void bSV() {
         this.eIM = new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.tieba.frs.gamesubpb.view.a.7
             @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
             public void onGlobalLayout() {
@@ -252,11 +252,11 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bSV() {
+    public void bSW() {
         this.hoC = this.hoA != null ? this.hoA.userId : null;
     }
 
-    private void bSW() {
+    private void bSX() {
         if (!v.isEmpty(this.hoB)) {
             this.mNavigationBar.setCenterTextTitle(String.format(this.hnZ.getResources().getString(R.string.subpb_floor_reply_count), aq.numFormatOver10000(this.hoB.size())));
         } else {
@@ -284,7 +284,7 @@ public class a {
                     }
                     return;
                 }
-                a.this.bSV();
+                a.this.bSW();
                 a.this.how.setEnabled(false);
             }
 
@@ -294,7 +294,7 @@ public class a {
         });
     }
 
-    private void bSX() {
+    private void bSY() {
         if (this.mNavigationBar.getBackImageView() != null) {
             SvgManager.aOR().a(this.mNavigationBar.getBackImageView(), R.drawable.icon_pure_topbar_return44_svg, R.color.cp_cont_f, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         }
@@ -340,13 +340,13 @@ public class a {
                 this.hot.endLoadData();
             }
         }
-        bSW();
+        bSX();
     }
 
     public void a(boolean z, com.baidu.tieba.frs.gamesubpb.model.b bVar, List<m> list) {
         this.hasMore = z;
         this.hoA = bVar;
-        bSV();
+        bSW();
         if (v.isEmpty(list)) {
             nb(z);
             return;
@@ -356,7 +356,7 @@ public class a {
         this.hoy.setVisibility(8);
         this.eOj.setNextPage(this.hot);
         this.hoz.setData(list);
-        bSX();
+        bSY();
         this.hox.setVisibility(0);
         this.hox.setText(R.string.say_your_point);
         nb(z);
@@ -403,7 +403,7 @@ public class a {
         if (this.gOf != null && this.gOf.getLayoutParams() != null) {
             ViewGroup.LayoutParams layoutParams = this.gOf.getLayoutParams();
             if (z) {
-                bSX();
+                bSY();
                 layoutParams.height = l.getDimens(this.hnZ.getPageContext().getPageActivity(), R.dimen.ds98);
             } else {
                 layoutParams.height = l.getDimens(this.hnZ.getPageContext().getPageActivity(), R.dimen.ds98) + UtilHelper.getLightStatusBarHeight();
@@ -455,7 +455,7 @@ public class a {
         this.mProgressBar.setVisibility(i);
     }
 
-    public View bIF() {
+    public View bIG() {
         return this.gOf;
     }
 
@@ -467,7 +467,7 @@ public class a {
         return this.eOj;
     }
 
-    public TextView bSY() {
+    public TextView bSZ() {
         return this.hox;
     }
 

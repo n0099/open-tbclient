@@ -26,13 +26,13 @@ public class o implements d, i, j, l, a.InterfaceC0784a {
         this.lottieDrawable = fVar;
         this.mOn = aVar;
         this.name = gVar.getName();
-        this.mOK = gVar.dBR().dBo();
+        this.mOK = gVar.dBS().dBp();
         aVar.a(this.mOK);
         this.mOK.b(this);
-        this.mOL = gVar.dBS().dBo();
+        this.mOL = gVar.dBT().dBp();
         aVar.a(this.mOL);
         this.mOL.b(this);
-        this.mOM = gVar.dBT().dBx();
+        this.mOM = gVar.dBU().dBy();
         this.mOM.a(aVar);
         this.mOM.a(this);
     }
@@ -79,8 +79,8 @@ public class o implements d, i, j, l, a.InterfaceC0784a {
     public void a(Canvas canvas, Matrix matrix, int i) {
         float floatValue = this.mOK.getValue().floatValue();
         float floatValue2 = this.mOL.getValue().floatValue();
-        float floatValue3 = this.mOM.dBk().getValue().floatValue() / 100.0f;
-        float floatValue4 = this.mOM.dBl().getValue().floatValue() / 100.0f;
+        float floatValue3 = this.mOM.dBl().getValue().floatValue() / 100.0f;
+        float floatValue4 = this.mOM.dBm().getValue().floatValue() / 100.0f;
         for (int i2 = ((int) floatValue) - 1; i2 >= 0; i2--) {
             this.matrix.set(matrix);
             this.matrix.preConcat(this.mOM.g(i2 + floatValue2));

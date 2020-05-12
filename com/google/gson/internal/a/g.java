@@ -25,7 +25,7 @@ public final class g implements TypeAdapterFactory {
     @Override // com.google.gson.TypeAdapterFactory
     public <T> TypeAdapter<T> create(Gson gson, com.google.gson.b.a<T> aVar) {
         Type type = aVar.getType();
-        if (!Map.class.isAssignableFrom(aVar.dvZ())) {
+        if (!Map.class.isAssignableFrom(aVar.dwa())) {
             return null;
         }
         Type[] b = C$Gson$Types.b(type, C$Gson$Types.f(type));
@@ -52,16 +52,16 @@ public final class g implements TypeAdapterFactory {
         @Override // com.google.gson.TypeAdapter
         /* renamed from: c */
         public Map<K, V> read(com.google.gson.stream.a aVar) throws IOException {
-            JsonToken dvG = aVar.dvG();
-            if (dvG == JsonToken.NULL) {
-                aVar.dvL();
+            JsonToken dvH = aVar.dvH();
+            if (dvH == JsonToken.NULL) {
+                aVar.dvM();
                 return null;
             }
             Map<K, V> construct = this.mjQ.construct();
-            if (dvG == JsonToken.BEGIN_ARRAY) {
-                aVar.dvE();
+            if (dvH == JsonToken.BEGIN_ARRAY) {
+                aVar.dvF();
                 while (aVar.hasNext()) {
-                    aVar.dvE();
+                    aVar.dvF();
                     K read = this.mkb.read(aVar);
                     if (construct.put(read, this.mkc.read(aVar)) != null) {
                         throw new JsonSyntaxException("duplicate key: " + read);
@@ -71,7 +71,7 @@ public final class g implements TypeAdapterFactory {
                 aVar.endArray();
                 return construct;
             }
-            aVar.dvF();
+            aVar.dvG();
             while (aVar.hasNext()) {
                 com.google.gson.internal.e.mji.a(aVar);
                 K read2 = this.mkb.read(aVar);
@@ -92,14 +92,14 @@ public final class g implements TypeAdapterFactory {
         public void write(com.google.gson.stream.b bVar, Map<K, V> map) throws IOException {
             int i = 0;
             if (map == null) {
-                bVar.dvV();
+                bVar.dvW();
             } else if (!g.this.complexMapKeySerialization) {
-                bVar.dvT();
+                bVar.dvU();
                 for (Map.Entry<K, V> entry : map.entrySet()) {
                     bVar.OA(String.valueOf(entry.getKey()));
                     this.mkc.write(bVar, entry.getValue());
                 }
-                bVar.dvU();
+                bVar.dvV();
             } else {
                 ArrayList arrayList = new ArrayList(map.size());
                 ArrayList arrayList2 = new ArrayList(map.size());
@@ -111,26 +111,26 @@ public final class g implements TypeAdapterFactory {
                     z = (jsonTree.isJsonArray() || jsonTree.isJsonObject()) | z;
                 }
                 if (z) {
-                    bVar.dvR();
+                    bVar.dvS();
                     int size = arrayList.size();
                     while (i < size) {
-                        bVar.dvR();
+                        bVar.dvS();
                         com.google.gson.internal.i.a((JsonElement) arrayList.get(i), bVar);
                         this.mkc.write(bVar, arrayList2.get(i));
-                        bVar.dvS();
+                        bVar.dvT();
                         i++;
                     }
-                    bVar.dvS();
+                    bVar.dvT();
                     return;
                 }
-                bVar.dvT();
+                bVar.dvU();
                 int size2 = arrayList.size();
                 while (i < size2) {
                     bVar.OA(b((JsonElement) arrayList.get(i)));
                     this.mkc.write(bVar, arrayList2.get(i));
                     i++;
                 }
-                bVar.dvU();
+                bVar.dvV();
             }
         }
 

@@ -164,8 +164,8 @@ public final class Gson {
             @Override // com.google.gson.TypeAdapter
             /* renamed from: read */
             public Number read2(com.google.gson.stream.a aVar) throws IOException {
-                if (aVar.dvG() == JsonToken.NULL) {
-                    aVar.dvL();
+                if (aVar.dvH() == JsonToken.NULL) {
+                    aVar.dvM();
                     return null;
                 }
                 return Double.valueOf(aVar.nextDouble());
@@ -175,7 +175,7 @@ public final class Gson {
             @Override // com.google.gson.TypeAdapter
             public void write(com.google.gson.stream.b bVar, Number number) throws IOException {
                 if (number == null) {
-                    bVar.dvV();
+                    bVar.dvW();
                     return;
                 }
                 Gson.checkValidFloatingPoint(number.doubleValue());
@@ -191,8 +191,8 @@ public final class Gson {
             @Override // com.google.gson.TypeAdapter
             /* renamed from: read */
             public Number read2(com.google.gson.stream.a aVar) throws IOException {
-                if (aVar.dvG() == JsonToken.NULL) {
-                    aVar.dvL();
+                if (aVar.dvH() == JsonToken.NULL) {
+                    aVar.dvM();
                     return null;
                 }
                 return Float.valueOf((float) aVar.nextDouble());
@@ -202,7 +202,7 @@ public final class Gson {
             @Override // com.google.gson.TypeAdapter
             public void write(com.google.gson.stream.b bVar, Number number) throws IOException {
                 if (number == null) {
-                    bVar.dvV();
+                    bVar.dvW();
                     return;
                 }
                 Gson.checkValidFloatingPoint(number.floatValue());
@@ -223,8 +223,8 @@ public final class Gson {
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // com.google.gson.TypeAdapter
             public Number read(com.google.gson.stream.a aVar) throws IOException {
-                if (aVar.dvG() == JsonToken.NULL) {
-                    aVar.dvL();
+                if (aVar.dvH() == JsonToken.NULL) {
+                    aVar.dvM();
                     return null;
                 }
                 return Long.valueOf(aVar.nextLong());
@@ -234,7 +234,7 @@ public final class Gson {
             @Override // com.google.gson.TypeAdapter
             public void write(com.google.gson.stream.b bVar, Number number) throws IOException {
                 if (number == null) {
-                    bVar.dvV();
+                    bVar.dvW();
                 } else {
                     bVar.OB(number.toString());
                 }
@@ -263,19 +263,19 @@ public final class Gson {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.gson.TypeAdapter
             public void write(com.google.gson.stream.b bVar, AtomicLongArray atomicLongArray) throws IOException {
-                bVar.dvR();
+                bVar.dvS();
                 int length = atomicLongArray.length();
                 for (int i = 0; i < length; i++) {
                     TypeAdapter.this.write(bVar, Long.valueOf(atomicLongArray.get(i)));
                 }
-                bVar.dvS();
+                bVar.dvT();
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.gson.TypeAdapter
             public AtomicLongArray read(com.google.gson.stream.a aVar) throws IOException {
                 ArrayList arrayList = new ArrayList();
-                aVar.dvE();
+                aVar.dvF();
                 while (aVar.hasNext()) {
                     arrayList.add(Long.valueOf(((Number) TypeAdapter.this.read(aVar)).longValue()));
                 }
@@ -364,7 +364,7 @@ public final class Gson {
     public JsonElement toJsonTree(Object obj, Type type) {
         f fVar = new f();
         toJson(obj, type, fVar);
-        return fVar.dvP();
+        return fVar.dvQ();
     }
 
     public String toJson(Object obj) {
@@ -395,11 +395,11 @@ public final class Gson {
 
     public void toJson(Object obj, Type type, com.google.gson.stream.b bVar) throws JsonIOException {
         TypeAdapter adapter = getAdapter(a.k(type));
-        boolean dwa = bVar.dwa();
+        boolean dwb = bVar.dwb();
         bVar.vW(true);
-        boolean dwi = bVar.dwi();
-        bVar.vY(this.htmlSafe);
         boolean dwj = bVar.dwj();
+        bVar.vY(this.htmlSafe);
+        boolean dwk = bVar.dwk();
         bVar.vZ(this.serializeNulls);
         try {
             try {
@@ -412,9 +412,9 @@ public final class Gson {
                 throw new AssertionError("AssertionError (GSON 2.8.5): " + e2.getMessage(), e2);
             }
         } finally {
-            bVar.vW(dwa);
-            bVar.vY(dwi);
-            bVar.vZ(dwj);
+            bVar.vW(dwb);
+            bVar.vY(dwj);
+            bVar.vZ(dwk);
         }
     }
 
@@ -451,11 +451,11 @@ public final class Gson {
     }
 
     public void toJson(JsonElement jsonElement, com.google.gson.stream.b bVar) throws JsonIOException {
-        boolean dwa = bVar.dwa();
+        boolean dwb = bVar.dwb();
         bVar.vW(true);
-        boolean dwi = bVar.dwi();
-        bVar.vY(this.htmlSafe);
         boolean dwj = bVar.dwj();
+        bVar.vY(this.htmlSafe);
+        boolean dwk = bVar.dwk();
         bVar.vZ(this.serializeNulls);
         try {
             try {
@@ -466,9 +466,9 @@ public final class Gson {
                 throw new AssertionError("AssertionError (GSON 2.8.5): " + e2.getMessage(), e2);
             }
         } finally {
-            bVar.vW(dwa);
-            bVar.vY(dwi);
-            bVar.vZ(dwj);
+            bVar.vW(dwb);
+            bVar.vY(dwj);
+            bVar.vZ(dwk);
         }
     }
 
@@ -500,7 +500,7 @@ public final class Gson {
     private static void assertFullConsumption(Object obj, com.google.gson.stream.a aVar) {
         if (obj != null) {
             try {
-                if (aVar.dvG() != JsonToken.END_DOCUMENT) {
+                if (aVar.dvH() != JsonToken.END_DOCUMENT) {
                     throw new JsonIOException("JSON document was not fully consumed.");
                 }
             } catch (MalformedJsonException e) {
@@ -513,15 +513,15 @@ public final class Gson {
 
     public <T> T fromJson(com.google.gson.stream.a aVar, Type type) throws JsonIOException, JsonSyntaxException {
         boolean z = true;
-        boolean dwa = aVar.dwa();
+        boolean dwb = aVar.dwb();
         aVar.vW(true);
         try {
             try {
                 try {
-                    aVar.dvG();
+                    aVar.dvH();
                     z = false;
                     T read = getAdapter(a.k(type)).read(aVar);
-                    aVar.vW(dwa);
+                    aVar.vW(dwb);
                     return read;
                 } catch (IOException e) {
                     throw new JsonSyntaxException(e);
@@ -532,13 +532,13 @@ public final class Gson {
                 if (!z) {
                     throw new JsonSyntaxException(e3);
                 }
-                aVar.vW(dwa);
+                aVar.vW(dwb);
                 return null;
             } catch (AssertionError e4) {
                 throw new AssertionError("AssertionError (GSON 2.8.5): " + e4.getMessage(), e4);
             }
         } catch (Throwable th) {
-            aVar.vW(dwa);
+            aVar.vW(dwb);
             throw th;
         }
     }

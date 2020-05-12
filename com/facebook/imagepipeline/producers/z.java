@@ -9,7 +9,7 @@ public abstract class z implements aj<com.facebook.imagepipeline.g.e> {
     private final com.facebook.common.memory.g lZW;
     private final Executor mExecutor;
 
-    protected abstract String dua();
+    protected abstract String dub();
 
     protected abstract com.facebook.imagepipeline.g.e g(ImageRequest imageRequest) throws IOException;
 
@@ -21,22 +21,22 @@ public abstract class z implements aj<com.facebook.imagepipeline.g.e> {
 
     @Override // com.facebook.imagepipeline.producers.aj
     public void c(k<com.facebook.imagepipeline.g.e> kVar, ak akVar) {
-        final am dtR = akVar.dtR();
+        final am dtS = akVar.dtS();
         final String id = akVar.getId();
-        final ImageRequest dtQ = akVar.dtQ();
-        final aq<com.facebook.imagepipeline.g.e> aqVar = new aq<com.facebook.imagepipeline.g.e>(kVar, dtR, dua(), id) { // from class: com.facebook.imagepipeline.producers.z.1
+        final ImageRequest dtR = akVar.dtR();
+        final aq<com.facebook.imagepipeline.g.e> aqVar = new aq<com.facebook.imagepipeline.g.e>(kVar, dtS, dub(), id) { // from class: com.facebook.imagepipeline.producers.z.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.facebook.common.b.h
-            /* renamed from: dup */
+            /* renamed from: duq */
             public com.facebook.imagepipeline.g.e getResult() throws Exception {
-                com.facebook.imagepipeline.g.e g = z.this.g(dtQ);
+                com.facebook.imagepipeline.g.e g = z.this.g(dtR);
                 if (g == null) {
-                    dtR.D(id, z.this.dua(), false);
+                    dtS.D(id, z.this.dub(), false);
                     return null;
                 }
-                g.dsU();
-                dtR.D(id, z.this.dua(), true);
+                g.dsV();
+                dtS.D(id, z.this.dub(), true);
                 return g;
             }
 
@@ -50,7 +50,7 @@ public abstract class z implements aj<com.facebook.imagepipeline.g.e> {
         };
         akVar.a(new e() { // from class: com.facebook.imagepipeline.producers.z.2
             @Override // com.facebook.imagepipeline.producers.e, com.facebook.imagepipeline.producers.al
-            public void dqh() {
+            public void dqi() {
                 aqVar.cancel();
             }
         });

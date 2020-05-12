@@ -33,7 +33,7 @@ public class am {
         return intent;
     }
 
-    public static int cAa() {
+    public static int cAb() {
         return jzH[new Random().nextInt(jzH.length)];
     }
 
@@ -83,11 +83,11 @@ public class am {
         }
     }
 
-    public static int cAb() {
+    public static int cAc() {
         return UtilHelper.getDimenPixelSize(R.dimen.tbds88);
     }
 
-    public static int cAc() {
+    public static int cAd() {
         return UtilHelper.getDimenPixelSize(R.dimen.tbds195);
     }
 }

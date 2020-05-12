@@ -29,7 +29,7 @@ public class c {
         this.lyl = videoFileInfo;
     }
 
-    public VideoFileInfo dfr() {
+    public VideoFileInfo dfs() {
         return this.lyl;
     }
 

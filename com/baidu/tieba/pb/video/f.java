@@ -110,7 +110,7 @@ public class f {
         this.jJg.setAlpha(f);
     }
 
-    public View cDj() {
+    public View cDk() {
         return this.jJg;
     }
 

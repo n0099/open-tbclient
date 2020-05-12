@@ -15,7 +15,7 @@ public final class i {
     public static JsonElement parse(com.google.gson.stream.a aVar) throws JsonParseException {
         boolean z = true;
         try {
-            aVar.dvG();
+            aVar.dvH();
             z = false;
             return n.mlx.read(aVar);
         } catch (MalformedJsonException e) {

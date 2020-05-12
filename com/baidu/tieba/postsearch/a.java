@@ -53,15 +53,15 @@ public class a {
                     l.hideSoftKeyPad(a.this.kmC.getPageContext().getPageActivity(), view);
                     return;
                 }
+                a.this.cLB();
                 a.this.cLA();
-                a.this.cLz();
             }
         });
         this.gLg.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.postsearch.a.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
+                a.this.cLB();
                 a.this.cLA();
-                a.this.cLz();
             }
         });
         this.gLg.setOnEditorActionListener(new TextView.OnEditorActionListener() { // from class: com.baidu.tieba.postsearch.a.4
@@ -83,7 +83,7 @@ public class a {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 a.this.gLg.setText("");
-                a.this.cLA();
+                a.this.cLB();
             }
         });
         this.gLg.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.postsearch.a.6
@@ -100,7 +100,7 @@ public class a {
                 String obj = editable.toString();
                 a.this.kmC.gWw = obj;
                 if (obj.trim().length() == 0) {
-                    a.this.cLA();
+                    a.this.cLB();
                     a.this.giw.setVisibility(8);
                     return;
                 }
@@ -120,7 +120,7 @@ public class a {
         this.gLg.setText(str);
     }
 
-    public void bWF() {
+    public void bWG() {
         this.mRootView.setFocusable(true);
         this.mRootView.setFocusableInTouchMode(true);
         this.mRootView.requestFocus();
@@ -130,21 +130,21 @@ public class a {
         l.hideSoftKeyPad(this.kmC.getPageContext().getPageActivity(), this.gLg);
     }
 
-    public void cLy() {
+    public void cLz() {
         this.giw.setVisibility(8);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cLz() {
+    public void cLA() {
         if (!StringUtils.isNull(this.gLg.getText().toString())) {
             this.giw.setVisibility(0);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cLA() {
-        if (!this.kmC.cLC()) {
-            this.kmC.cLB();
+    public void cLB() {
+        if (!this.kmC.cLD()) {
+            this.kmC.cLC();
             if (!this.gLg.hasFocus()) {
                 this.gLg.requestFocus();
                 l.showSoftKeyPad(this.kmC.getPageContext().getPageActivity(), this.gLg);

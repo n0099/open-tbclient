@@ -80,9 +80,9 @@ public class g {
 
     public void e(f fVar) {
         if (fVar != null) {
-            w(fVar.cjB(), fVar.cjA().sex.intValue());
-            pl(fVar.cjz());
-            a(fVar.cjA());
+            w(fVar.cjC(), fVar.cjB().sex.intValue());
+            pl(fVar.cjA());
+            a(fVar.cjB());
             f(fVar);
         }
     }
@@ -116,7 +116,7 @@ public class g {
 
     public void f(f fVar) {
         String str;
-        if (fVar != null && fVar.cjA() != null && (str = fVar.cjA().portrait) != null && str.length() > 0) {
+        if (fVar != null && fVar.cjB() != null && (str = fVar.cjB().portrait) != null && str.length() > 0) {
             this.hby.setImageResource(0);
             this.hby.startLoad(str, 12, false);
         }

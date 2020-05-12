@@ -46,15 +46,15 @@ public class KPSwitchRootRelativeLayout extends RelativeLayout {
         }
     }
 
-    public void dKp() {
+    public void dKq() {
         if (this.nvJ != null) {
-            this.nvJ.dKp();
+            this.nvJ.dKq();
         }
     }
 
-    public void dwW() {
+    public void dwX() {
         if (this.nvJ != null) {
-            this.nvJ.dwW();
+            this.nvJ.dwX();
         }
     }
 }

@@ -1600,9 +1600,6 @@ public abstract class b extends com.baidu.live.liveroom.f.a implements com.baidu
             this.fxc.release();
             this.fxc = null;
         }
-        if (this.fxa != null) {
-            this.fxa.release();
-        }
         if (this.fxg != null) {
             this.fxg.a((com.baidu.tieba.ala.liveroom.guideim.a) null);
             this.fxg.release();

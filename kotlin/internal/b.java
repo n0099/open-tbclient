@@ -13,8 +13,8 @@ public final class b {
         a aVar;
         Object newInstance;
         Object newInstance2;
-        int dDO = dDO();
-        if (dDO >= 65544) {
+        int dDP = dDP();
+        if (dDP >= 65544) {
             try {
                 newInstance = Class.forName("kotlin.internal.b.a").newInstance();
                 q.i(newInstance, "Class.forName(\"kotlin.in…entations\").newInstance()");
@@ -49,7 +49,7 @@ public final class b {
             aVar = (a) newInstance;
             mXE = aVar;
         }
-        if (dDO >= 65543) {
+        if (dDP >= 65543) {
             try {
                 newInstance2 = Class.forName("kotlin.internal.a.a").newInstance();
                 q.i(newInstance2, "Class.forName(\"kotlin.in…entations\").newInstance()");
@@ -88,7 +88,7 @@ public final class b {
         mXE = aVar;
     }
 
-    private static final int dDO() {
+    private static final int dDP() {
         int i;
         String property = System.getProperty("java.specification.version");
         if (property == null) {

@@ -38,7 +38,7 @@ public class a {
 
     /* loaded from: classes5.dex */
     public interface b {
-        void dyv();
+        void dyw();
 
         void finish();
     }
@@ -51,17 +51,17 @@ public class a {
             public void a(com.facebook.common.memory.b bVar) {
                 bVar.a(MemoryTrimType.OnSystemLowMemoryWhileAppInForeground);
             }
-        }).drA());
+        }).drB());
         lQm = true;
         e.d("ImageLoader", "initialize imageloader");
     }
 
     public static void resume() {
-        com.facebook.drawee.a.a.c.dnO().resume();
+        com.facebook.drawee.a.a.c.dnP().resume();
     }
 
     public static void pause() {
-        com.facebook.drawee.a.a.c.dnO().pause();
+        com.facebook.drawee.a.a.c.dnP().pause();
     }
 
     public static File ad(Uri uri) {
@@ -69,13 +69,13 @@ public class a {
         if (uri == null) {
             return null;
         }
-        com.facebook.cache.common.b c = j.dqt().c(ImageRequest.X(uri), null);
-        if (com.facebook.imagepipeline.d.j.drP().drW().g(c)) {
-            com.facebook.a.a d2 = com.facebook.imagepipeline.d.j.drP().drW().d(c);
+        com.facebook.cache.common.b c = j.dqu().c(ImageRequest.X(uri), null);
+        if (com.facebook.imagepipeline.d.j.drQ().drX().g(c)) {
+            com.facebook.a.a d2 = com.facebook.imagepipeline.d.j.drQ().drX().d(c);
             if (d2 != null) {
                 return ((com.facebook.a.b) d2).getFile();
             }
-        } else if (com.facebook.imagepipeline.d.j.drP().dsb().g(c) && (d = com.facebook.imagepipeline.d.j.drP().dsb().d(c)) != null) {
+        } else if (com.facebook.imagepipeline.d.j.drQ().dsc().g(c) && (d = com.facebook.imagepipeline.d.j.drQ().dsc().d(c)) != null) {
             return ((com.facebook.a.b) d).getFile();
         }
         return null;
@@ -212,7 +212,7 @@ public class a {
                 hVar.onNext(Boolean.valueOf(z));
                 hVar.onComplete();
             }
-        }, BackpressureStrategy.BUFFER).b(io.reactivex.f.a.dDi()).a(io.reactivex.a.b.a.dCD()).a(new io.reactivex.c.g<Boolean>() { // from class: tv.chushou.zues.widget.fresco.a.2
+        }, BackpressureStrategy.BUFFER).b(io.reactivex.f.a.dDj()).a(io.reactivex.a.b.a.dCE()).a(new io.reactivex.c.g<Boolean>() { // from class: tv.chushou.zues.widget.fresco.a.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // io.reactivex.c.g
             /* renamed from: r */
@@ -220,7 +220,7 @@ public class a {
                 if (bool.booleanValue()) {
                     Intent intent = new Intent("android.intent.action.MEDIA_SCANNER_SCAN_FILE");
                     intent.setData(Uri.fromFile(file));
-                    h.dJp().sendBroadcast(intent);
+                    h.dJq().sendBroadcast(intent);
                     if (interfaceC0860a != null) {
                         interfaceC0860a.onComplete(true, file.getAbsolutePath());
                     }
@@ -241,7 +241,7 @@ public class a {
     }
 
     public static com.facebook.datasource.b<Void> a(String str, Context context, final b bVar) {
-        com.facebook.datasource.b<Void> a = com.facebook.drawee.a.a.c.dnO().a(ImageRequestBuilder.Z(Uri.parse(str)).duT(), context, Priority.HIGH);
+        com.facebook.datasource.b<Void> a = com.facebook.drawee.a.a.c.dnP().a(ImageRequestBuilder.Z(Uri.parse(str)).duU(), context, Priority.HIGH);
         a.a(new com.facebook.datasource.a<Void>() { // from class: tv.chushou.zues.widget.fresco.a.5
             @Override // com.facebook.datasource.a
             protected void g(com.facebook.datasource.b<Void> bVar2) {
@@ -250,9 +250,9 @@ public class a {
 
             @Override // com.facebook.datasource.a
             protected void a(com.facebook.datasource.b<Void> bVar2) {
-                b.this.dyv();
+                b.this.dyw();
             }
-        }, com.facebook.common.b.a.dmO());
+        }, com.facebook.common.b.a.dmP());
         return a;
     }
 

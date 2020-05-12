@@ -21,14 +21,14 @@ public class c {
     public l ndq = new d();
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static c dFT() {
+    public static c dFU() {
         return new c();
     }
 
     protected c() {
     }
 
-    public void dFU() {
+    public void dFV() {
         this.ndr = null;
         this.ndj = 0;
         this.ndi = 0;
@@ -41,7 +41,7 @@ public class c {
 
     public void b(DanmakuContext danmakuContext) {
         this.nds = danmakuContext;
-        this.ndr = danmakuContext.dFN();
+        this.ndr = danmakuContext.dFO();
         a(1, danmakuContext);
     }
 
@@ -54,7 +54,7 @@ public class c {
             return null;
         }
         this.nds = danmakuContext;
-        this.ndr = danmakuContext.dFN();
+        this.ndr = danmakuContext.dFO();
         return a(i, this.ndr.getWidth(), this.ndr.getHeight(), this.ndk, danmakuContext.ncQ);
     }
 
@@ -78,7 +78,7 @@ public class c {
             this.ndo = new master.flame.danmaku.danmaku.model.g(10000L);
         }
         if (j && f > 0.0f) {
-            dFV();
+            dFW();
             if (i2 <= 0 || i3 <= 0) {
                 f5 = 1.0f;
             } else {
@@ -135,8 +135,8 @@ public class c {
                     int length = aVarArr.length;
                     float[][] fArr = (float[][]) Array.newInstance(Float.TYPE, length + 1, 2);
                     for (int i = 0; i < length; i++) {
-                        fArr[i] = aVarArr[i].dFJ();
-                        fArr[i + 1] = aVarArr[i].dFK();
+                        fArr[i] = aVarArr[i].dFK();
+                        fArr[i + 1] = aVarArr[i].dFL();
                     }
                     c.a(qVar, fArr, f, f2);
                 }
@@ -145,7 +145,7 @@ public class c {
         });
     }
 
-    public void dFV() {
+    public void dFW() {
         long j = this.ndn == null ? 0L : this.ndn.value;
         long j2 = this.ndo == null ? 0L : this.ndo.value;
         long j3 = this.ndp != null ? this.ndp.value : 0L;
@@ -177,7 +177,7 @@ public class c {
     private void u(master.flame.danmaku.danmaku.model.d dVar) {
         if (this.ndp == null || (dVar.nbf != null && dVar.nbf.value > this.ndp.value)) {
             this.ndp = dVar.nbf;
-            dFV();
+            dFW();
         }
     }
 }

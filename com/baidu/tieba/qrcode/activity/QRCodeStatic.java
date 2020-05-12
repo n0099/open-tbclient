@@ -14,11 +14,11 @@ import com.baidu.tieba.tbadkCore.data.n;
 public class QRCodeStatic {
     static {
         TbadkCoreApplication.getInst().RegisterOrUpdateIntent(QRCodeScanActivityConfig.class, QRCodeScanActivity.class);
-        cMs();
         cMt();
+        cMu();
     }
 
-    private static void cMs() {
+    private static void cMt() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2921388, new CustomMessageTask.CustomRunnable<String>() { // from class: com.baidu.tieba.qrcode.activity.QRCodeStatic.1
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<Bitmap> run(CustomMessage<String> customMessage) {
@@ -29,7 +29,7 @@ public class QRCodeStatic {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void cMt() {
+    private static void cMu() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2921403, new CustomMessageTask.CustomRunnable<n>() { // from class: com.baidu.tieba.qrcode.activity.QRCodeStatic.2
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<n> customMessage) {

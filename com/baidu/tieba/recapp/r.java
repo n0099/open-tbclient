@@ -52,12 +52,12 @@ public class r {
         if (StringUtils.isNull(str2)) {
             str2 = str;
         }
-        com.baidu.tieba.recapp.download.e.cNr().a(advertAppInfo.dmv, advertAppInfo.apkUrl, str2, i, com.baidu.tieba.recapp.download.e.Jv(advertAppInfo.dmv).intValue(), null, true, false, true, advertAppInfo.dmB.userPortrait, downloadStaticsData, advertAppInfo.dmB.userName);
+        com.baidu.tieba.recapp.download.e.cNs().a(advertAppInfo.dmv, advertAppInfo.apkUrl, str2, i, com.baidu.tieba.recapp.download.e.Jv(advertAppInfo.dmv).intValue(), null, true, false, true, advertAppInfo.dmB.userPortrait, downloadStaticsData, advertAppInfo.dmB.userName);
         return true;
     }
 
     public static final void f(AdvertAppInfo advertAppInfo) {
-        com.baidu.tieba.recapp.download.e.cNr().z(advertAppInfo.apkUrl, advertAppInfo.dmv, true);
+        com.baidu.tieba.recapp.download.e.cNs().z(advertAppInfo.apkUrl, advertAppInfo.dmv, true);
     }
 
     public static final void aM(Context context, String str) {
@@ -169,11 +169,11 @@ public class r {
     }
 
     public static void sendFRS(boolean z, String str, String str2, String str3, List<a.b> list, String str4) {
-        q.cNl().sendFRS(z, str, str2, str3, list, str4);
+        q.cNm().sendFRS(z, str, str2, str3, list, str4);
     }
 
     public static void sendPB(boolean z, String str, String str2, String str3, String str4, List<a.b> list, String str5) {
-        q.cNl().a(z, str, str2, str3, str4, list, str5);
+        q.cNm().a(z, str, str2, str3, str4, list, str5);
     }
 
     public static int b(TbPageContext tbPageContext, String str, String str2) {
@@ -232,15 +232,15 @@ public class r {
 
     private static boolean g(TbPageContext tbPageContext, String str) {
         String[] strArr = {str};
-        g cNi = q.cNl().cNi();
-        if (cNi == null) {
+        g cNj = q.cNm().cNj();
+        if (cNj == null) {
             return false;
         }
-        if (cNi.yj(str)) {
-            cNi.a(tbPageContext.getPageActivity(), strArr, true);
+        if (cNj.yj(str)) {
+            cNj.a(tbPageContext.getPageActivity(), strArr, true);
             return true;
         }
-        return cNi.c(tbPageContext.getPageActivity(), strArr);
+        return cNj.c(tbPageContext.getPageActivity(), strArr);
     }
 
     public static int aN(Context context, String str) {
@@ -259,14 +259,14 @@ public class r {
 
     private static boolean aO(Context context, String str) {
         String[] strArr = {str};
-        g cNi = q.cNl().cNi();
-        if (cNi == null) {
+        g cNj = q.cNm().cNj();
+        if (cNj == null) {
             return false;
         }
-        if (cNi.yj(str)) {
-            cNi.a(context, strArr, true);
+        if (cNj.yj(str)) {
+            cNj.a(context, strArr, true);
             return true;
         }
-        return cNi.c(context, strArr);
+        return cNj.c(context, strArr);
     }
 }

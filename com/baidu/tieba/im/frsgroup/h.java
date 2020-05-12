@@ -17,7 +17,7 @@ public class h implements com.baidu.adp.widget.ListView.m {
         return ilG;
     }
 
-    public String cfM() {
+    public String cfN() {
         return this.ilI;
     }
 
@@ -25,7 +25,7 @@ public class h implements com.baidu.adp.widget.ListView.m {
         this.ilI = str;
     }
 
-    public String cfN() {
+    public String cfO() {
         return this.ilJ;
     }
 
@@ -33,7 +33,7 @@ public class h implements com.baidu.adp.widget.ListView.m {
         this.ilJ = str;
     }
 
-    public String cfO() {
+    public String cfP() {
         return this.ilK;
     }
 
@@ -41,7 +41,7 @@ public class h implements com.baidu.adp.widget.ListView.m {
         this.ilK = str;
     }
 
-    public int cfP() {
+    public int cfQ() {
         return this.ilL;
     }
 
@@ -57,7 +57,7 @@ public class h implements com.baidu.adp.widget.ListView.m {
         this.afJ = obj;
     }
 
-    public NoDataViewFactory.ImgType cfQ() {
+    public NoDataViewFactory.ImgType cfR() {
         return this.ilH;
     }
 

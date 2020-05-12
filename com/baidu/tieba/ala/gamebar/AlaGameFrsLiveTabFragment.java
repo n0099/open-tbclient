@@ -282,8 +282,8 @@ public class AlaGameFrsLiveTabFragment extends BaseFragment implements ViewPager
                     if (message != null && message.getTag() != null && message.getTag().equals(AlaGameFrsLiveTabFragment.this.getUniqueId())) {
                         ArrayList arrayList = new ArrayList();
                         ArrayList arrayList2 = new ArrayList();
-                        if (ahVar.bOa() != null) {
-                            for (com.baidu.tbadk.mainTab.b bVar : ahVar.bOa()) {
+                        if (ahVar.bOb() != null) {
+                            for (com.baidu.tbadk.mainTab.b bVar : ahVar.bOb()) {
                                 if (bVar.getFragmentTabStructure().frag != null) {
                                     arrayList.add(bVar.getFragmentTabStructure().frag);
                                     arrayList2.add(Integer.valueOf(bVar.getFragmentTabStructure().type));

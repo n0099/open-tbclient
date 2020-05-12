@@ -183,7 +183,7 @@ public class c extends BdBaseModel {
 
     public void a(com.baidu.live.gift.a.b bVar) {
         long j;
-        if (bVar != null && !StringUtils.isNull(bVar.userId) && !StringUtils.isNull(bVar.userName)) {
+        if (bVar != null && !StringUtils.isNull(bVar.userId) && !StringUtils.isNull(bVar.userName) && this.aFN != null && this.aFN.getPageActivity() != null) {
             this.mIsSending = true;
             if (bVar.ym()) {
                 j jVar = new j();

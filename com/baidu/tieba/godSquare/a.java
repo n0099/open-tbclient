@@ -83,16 +83,16 @@ public class a {
         this.hGi.notifyDataSetChanged();
     }
 
-    public void bXo() {
+    public void bXp() {
         this.ePr.startLoadData();
     }
 
-    public void bXp() {
+    public void bXq() {
         this.ePr.setText(this.mActivity.getResources().getString(R.string.network_ungeilivable));
         this.ePr.endLoadData();
     }
 
-    public void bXq() {
+    public void bXr() {
         this.ePr.setText(this.mActivity.getResources().getString(R.string.list_no_more));
         this.ePr.endLoadData();
     }

@@ -44,21 +44,21 @@ public class e {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             e.this.Du(e.this.h(customResponsedMessage));
-            e.this.ham.bOv().bPP().notifyDataSetChanged();
+            e.this.ham.bOw().bPQ().notifyDataSetChanged();
         }
     };
     private CustomMessageListener hqk = new CustomMessageListener(CmdConfigCustom.DELETE_AD_FROM_FEED) { // from class: com.baidu.tieba.frs.mc.e.7
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && e.this.ham != null && e.this.ham.bOq() != null && e.this.ham.bOq().bTu() != null) {
+            if (customResponsedMessage != null && e.this.ham != null && e.this.ham.bOr() != null && e.this.ham.bOr().bTv() != null) {
                 String str = (String) customResponsedMessage.getData();
-                e.this.h(str, e.this.ham.bOq().bTu().getForum().getBannerListData().getAllAdvertList());
-                e.this.i(str, e.this.ham.bOv().getListView().getData());
-                e.this.i(str, e.this.ham.bOr().bTL().getDataList());
-                e.this.ham.bOq().Dt(str);
-                if (e.this.ham.bOv() != null && e.this.ham.bOv().bPP() != null) {
-                    e.this.ham.bOv().bPP().notifyDataSetChanged();
+                e.this.h(str, e.this.ham.bOr().bTv().getForum().getBannerListData().getAllAdvertList());
+                e.this.i(str, e.this.ham.bOw().getListView().getData());
+                e.this.i(str, e.this.ham.bOs().bTM().getDataList());
+                e.this.ham.bOr().Dt(str);
+                if (e.this.ham.bOw() != null && e.this.ham.bOw().bPQ() != null) {
+                    e.this.ham.bOw().bPQ().notifyDataSetChanged();
                 }
             }
         }
@@ -86,10 +86,10 @@ public class e {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void g(CustomResponsedMessage<?> customResponsedMessage) {
-        if (this.ham != null && this.ham.bOq() != null && this.ham.bOq().bTu() != null) {
+        if (this.ham != null && this.ham.bOr() != null && this.ham.bOr().bTv() != null) {
             final String h = h(customResponsedMessage);
-            if (!StringUtils.isNull(h) && this.ham.bOv() != null && this.ham.bOv().bPP() != null) {
-                final View childAt = this.ham.bOv().getListView().getChildAt(a(h, this.ham.bOv().getListView()));
+            if (!StringUtils.isNull(h) && this.ham.bOw() != null && this.ham.bOw().bPQ() != null) {
+                final View childAt = this.ham.bOw().getListView().getChildAt(a(h, this.ham.bOw().getListView()));
                 if (childAt != null) {
                     a(childAt, new Animation.AnimationListener() { // from class: com.baidu.tieba.frs.mc.e.1
                         @Override // android.view.animation.Animation.AnimationListener
@@ -102,27 +102,27 @@ public class e {
 
                         @Override // android.view.animation.Animation.AnimationListener
                         public void onAnimationEnd(Animation animation) {
-                            if (e.this.ham != null && e.this.ham.bOv() != null && e.this.ham.bOv().getListView() != null && e.this.ham.bOv().bPP() != null) {
-                                e.this.ham.bOv().getListView().removeView(childAt);
+                            if (e.this.ham != null && e.this.ham.bOw() != null && e.this.ham.bOw().getListView() != null && e.this.ham.bOw().bPQ() != null) {
+                                e.this.ham.bOw().getListView().removeView(childAt);
                                 e.this.Du(h);
-                                e.this.ham.bOv().bPP().notifyDataSetChanged();
+                                e.this.ham.bOw().bPQ().notifyDataSetChanged();
                             }
                         }
                     });
                 } else {
                     Du(h);
-                    this.ham.bOv().bPP().notifyDataSetChanged();
+                    this.ham.bOw().bPQ().notifyDataSetChanged();
                 }
-                bUe();
+                bUf();
             }
         }
     }
 
-    private void bUe() {
+    private void bUf() {
         if (this.hsf != null && this.hsf.dtP) {
             TbPageTag tbPageTag = null;
-            if (this.ham != null && this.ham.bOv() != null) {
-                tbPageTag = com.baidu.tbadk.pageInfo.c.dE(this.ham.bOv().getContext());
+            if (this.ham != null && this.ham.bOw() != null) {
+                tbPageTag = com.baidu.tbadk.pageInfo.c.dE(this.ham.bOw().getContext());
             }
             com.baidu.tieba.frs.d.a.a(this.hsf, tbPageTag);
         }
@@ -130,13 +130,13 @@ public class e {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void i(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof JSONObject) && this.ham != null && this.ham.bOq() != null && this.ham.bOq().bTu() != null) {
+        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof JSONObject) && this.ham != null && this.ham.bOr() != null && this.ham.bOr().bTv() != null) {
             JSONObject jSONObject = (JSONObject) customResponsedMessage.getData();
             final String optString = jSONObject.optString("type");
             if (!StringUtils.isNull(optString)) {
                 final String optString2 = jSONObject.optString("tid");
-                if (this.ham.bOv() != null && this.ham.bOv().bPP() != null) {
-                    final View childAt = this.ham.bOv().getListView().getChildAt(a(optString, optString2, this.ham.bOv().getListView()));
+                if (this.ham.bOw() != null && this.ham.bOw().bPQ() != null) {
+                    final View childAt = this.ham.bOw().getListView().getChildAt(a(optString, optString2, this.ham.bOw().getListView()));
                     if (childAt != null) {
                         a(childAt, new Animation.AnimationListener() { // from class: com.baidu.tieba.frs.mc.e.2
                             @Override // android.view.animation.Animation.AnimationListener
@@ -151,15 +151,15 @@ public class e {
                             public void onAnimationEnd(Animation animation) {
                                 e.this.dE(optString, optString2);
                                 childAt.setVisibility(8);
-                                if (e.this.ham.bOv() != null && e.this.ham.bOv().bPP() != null) {
-                                    e.this.ham.bOv().bPP().notifyDataSetChanged();
+                                if (e.this.ham.bOw() != null && e.this.ham.bOw().bPQ() != null) {
+                                    e.this.ham.bOw().bPQ().notifyDataSetChanged();
                                 }
                             }
                         });
                         return;
                     }
                     dE(optString, optString2);
-                    this.ham.bOv().bPP().notifyDataSetChanged();
+                    this.ham.bOw().bPQ().notifyDataSetChanged();
                 }
             }
         }
@@ -167,13 +167,13 @@ public class e {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void dE(String str, String str2) {
-        ArrayList<com.baidu.adp.widget.ListView.m> threadList = this.ham.bOq().bTu().getThreadList();
+        ArrayList<com.baidu.adp.widget.ListView.m> threadList = this.ham.bOr().bTv().getThreadList();
         b(str, str2, threadList);
-        b(str, str2, this.ham.bOv().getListView().getData());
+        b(str, str2, this.ham.bOw().getListView().getData());
         if (str.equals("ala_frs_stage_live_feed_back_type")) {
-            this.ham.bOq().Dr(str2);
+            this.ham.bOr().Dr(str2);
         } else if (str.equals("ala_frs_demo_hell_live_feed_back_type")) {
-            this.ham.bOq().Ds(str2);
+            this.ham.bOr().Ds(str2);
         }
         if (threadList != null && threadList.size() < 5) {
             this.ham.bkZ();
@@ -183,11 +183,11 @@ public class e {
     /* JADX INFO: Access modifiers changed from: private */
     public void Du(String str) {
         if (!StringUtils.isNull(str)) {
-            ArrayList<com.baidu.adp.widget.ListView.m> threadList = this.ham.bOq().bTu().getThreadList();
+            ArrayList<com.baidu.adp.widget.ListView.m> threadList = this.ham.bOr().bTv().getThreadList();
             g(str, threadList);
-            g(str, this.ham.bOv().getListView().getData());
-            g(str, this.ham.bOr().getDataList());
-            this.ham.bOq().Ds(str);
+            g(str, this.ham.bOw().getListView().getData());
+            g(str, this.ham.bOs().getDataList());
+            this.ham.bOr().Ds(str);
             if (threadList != null && threadList.size() < 5) {
                 this.ham.bkZ();
             }

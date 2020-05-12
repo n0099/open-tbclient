@@ -30,7 +30,7 @@ public class a {
         }
     }
 
-    public void bUo() {
+    public void bUp() {
         if (this.htz && this.htA >= 0) {
             uv(this.htA);
         }
@@ -50,8 +50,8 @@ public class a {
     private void uv(int i) {
         FrameLayout frameLayout;
         String string;
-        n bOv = this.hro.bOv();
-        if (bOv != null && bOv.getListView() != null && (frameLayout = (FrameLayout) bOv.bPQ()) != null) {
+        n bOw = this.hro.bOw();
+        if (bOw != null && bOw.getListView() != null && (frameLayout = (FrameLayout) bOw.bPR()) != null) {
             if (this.hlE == null && this.hro.getPageContext() != null) {
                 this.hlE = new TextView(this.hro.getPageContext().getPageActivity());
                 this.hlE.setTextSize(0, this.hro.getResources().getDimensionPixelSize(R.dimen.fontsize28));

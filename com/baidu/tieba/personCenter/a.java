@@ -11,7 +11,7 @@ public class a {
     private a() {
     }
 
-    public static a cGb() {
+    public static a cGc() {
         return jSQ;
     }
 
@@ -31,7 +31,7 @@ public class a {
         this.beginTime = j;
     }
 
-    public long cGc() {
+    public long cGd() {
         return this.edT;
     }
 
@@ -47,7 +47,7 @@ public class a {
         this.jSR = j;
     }
 
-    public long cGd() {
+    public long cGe() {
         return this.jSS;
     }
 

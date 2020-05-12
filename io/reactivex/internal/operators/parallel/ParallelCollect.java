@@ -39,8 +39,8 @@ public final class ParallelCollect<T, C> extends a<C> {
     }
 
     @Override // io.reactivex.parallel.a
-    public int dCN() {
-        return this.mTX.dCN();
+    public int dCO() {
+        return this.mTX.dCO();
     }
 
     /* loaded from: classes7.dex */

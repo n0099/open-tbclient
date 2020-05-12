@@ -8,7 +8,7 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
 public class c {
     private static c lao;
-    private a lap = cYU();
+    private a lap = cYV();
 
     /* loaded from: classes.dex */
     public interface a {
@@ -19,22 +19,22 @@ public class c {
         void trackWebView(Context context, WebView webView, WebChromeClient webChromeClient);
     }
 
-    private boolean cYT() {
+    private boolean cYU() {
         return com.baidu.tbadk.core.sharedPref.b.aNT().getInt("pref_key_stat_sdk_enable", 1) != 0;
     }
 
     private c() {
     }
 
-    private a cYU() {
+    private a cYV() {
         CustomResponsedMessage runTask;
-        if (!cYT() || (runTask = MessageManager.getInstance().runTask(2156671, a.class)) == null) {
+        if (!cYU() || (runTask = MessageManager.getInstance().runTask(2156671, a.class)) == null) {
             return null;
         }
         return (a) runTask.getData();
     }
 
-    public static c cYV() {
+    public static c cYW() {
         if (lao == null) {
             synchronized (c.class) {
                 if (lao == null) {

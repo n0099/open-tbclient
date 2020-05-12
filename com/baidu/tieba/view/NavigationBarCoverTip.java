@@ -25,7 +25,7 @@ public class NavigationBarCoverTip extends LinearLayout {
     public interface a {
         void Cc();
 
-        void deB();
+        void deC();
     }
 
     public NavigationBarCoverTip(Context context) {
@@ -92,7 +92,7 @@ public class NavigationBarCoverTip extends LinearLayout {
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
                 if (NavigationBarCoverTip.this.lue != null) {
-                    NavigationBarCoverTip.this.lue.deB();
+                    NavigationBarCoverTip.this.lue.deC();
                 }
                 NavigationBarCoverTip.this.release();
             }

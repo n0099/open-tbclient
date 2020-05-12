@@ -64,7 +64,7 @@ public class c implements WebSocket {
         this.nhD = dVar;
         this.nhJ = WebSocket.Role.CLIENT;
         if (draft != null) {
-            this.draft = draft.dGL();
+            this.draft = draft.dGM();
         }
     }
 
@@ -136,11 +136,11 @@ public class c implements WebSocket {
         if (this.nhJ == WebSocket.Role.SERVER) {
             if (this.draft == null) {
                 for (Draft draft : this.nhI) {
-                    Draft dGL = draft.dGL();
+                    Draft dGM = draft.dGM();
                     try {
-                        dGL.a(this.nhJ);
+                        dGM.a(this.nhJ);
                         byteBuffer2.reset();
-                        s = dGL.s(byteBuffer2);
+                        s = dGM.s(byteBuffer2);
                     } catch (InvalidHandshakeException e3) {
                     }
                     if (!(s instanceof org.java_websocket.c.a)) {
@@ -148,11 +148,11 @@ public class c implements WebSocket {
                         z = false;
                     } else {
                         org.java_websocket.c.a aVar = (org.java_websocket.c.a) s;
-                        if (dGL.a(aVar) == Draft.HandshakeState.MATCHED) {
+                        if (dGM.a(aVar) == Draft.HandshakeState.MATCHED) {
                             this.nhP = aVar.getResourceDescriptor();
                             try {
-                                write(dGL.a(dGL.a(aVar, this.nhD.onWebsocketHandshakeReceivedAsServer(this, dGL, aVar)), this.nhJ));
-                                this.draft = dGL;
+                                write(dGM.a(dGM.a(aVar, this.nhD.onWebsocketHandshakeReceivedAsServer(this, dGM, aVar)), this.nhJ));
+                                this.draft = dGM;
                                 a(aVar);
                                 z = true;
                             } catch (RuntimeException e4) {
@@ -261,7 +261,7 @@ public class c implements WebSocket {
                     a(WebSocket.READYSTATE.CLOSING);
                     q(i, str, false);
                 } else {
-                    if (this.draft.dGK() != Draft.CloseHandshakeType.NONE) {
+                    if (this.draft.dGL() != Draft.CloseHandshakeType.NONE) {
                         if (!z) {
                             try {
                                 try {
@@ -278,7 +278,7 @@ public class c implements WebSocket {
                             org.java_websocket.framing.b bVar = new org.java_websocket.framing.b();
                             bVar.setReason(str);
                             bVar.setCode(i);
-                            bVar.dGV();
+                            bVar.dGW();
                             sendFrame(bVar);
                         }
                     }
@@ -364,14 +364,14 @@ public class c implements WebSocket {
         }
     }
 
-    public void dGG() {
+    public void dGH() {
         if (getReadyState() == WebSocket.READYSTATE.NOT_YET_CONNECTED) {
             ae(-1, true);
         } else if (this.nhG) {
             p(this.nhN.intValue(), this.nhM, this.nhO.booleanValue());
-        } else if (this.draft.dGK() == Draft.CloseHandshakeType.NONE) {
+        } else if (this.draft.dGL() == Draft.CloseHandshakeType.NONE) {
             ae(1000, true);
-        } else if (this.draft.dGK() == Draft.CloseHandshakeType.ONEWAY) {
+        } else if (this.draft.dGL() == Draft.CloseHandshakeType.ONEWAY) {
             if (this.nhJ == WebSocket.Role.SERVER) {
                 ae(1006, true);
             } else {
@@ -547,15 +547,15 @@ public class c implements WebSocket {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public long dGH() {
+    public long dGI() {
         return this.nhQ;
     }
 
-    public void dGI() {
+    public void dGJ() {
         this.nhQ = System.currentTimeMillis();
     }
 
-    public d dGJ() {
+    public d dGK() {
         return this.nhD;
     }
 

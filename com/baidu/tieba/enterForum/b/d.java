@@ -17,7 +17,7 @@ public class d {
         this.gKt.setFrom(0);
     }
 
-    public RecommendForumHorizontalView bKr() {
+    public RecommendForumHorizontalView bKs() {
         return this.gKt;
     }
 

@@ -31,16 +31,16 @@ public class y implements aw<com.facebook.imagepipeline.g.e> {
 
     @Override // com.facebook.imagepipeline.producers.aj
     public void c(k<com.facebook.imagepipeline.g.e> kVar, ak akVar) {
-        am dtR = akVar.dtR();
+        am dtS = akVar.dtS();
         String id = akVar.getId();
-        final ImageRequest dtQ = akVar.dtQ();
-        final aq<com.facebook.imagepipeline.g.e> aqVar = new aq<com.facebook.imagepipeline.g.e>(kVar, dtR, "LocalExifThumbnailProducer", id) { // from class: com.facebook.imagepipeline.producers.y.1
+        final ImageRequest dtR = akVar.dtR();
+        final aq<com.facebook.imagepipeline.g.e> aqVar = new aq<com.facebook.imagepipeline.g.e>(kVar, dtS, "LocalExifThumbnailProducer", id) { // from class: com.facebook.imagepipeline.producers.y.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.facebook.common.b.h
-            /* renamed from: dup */
+            /* renamed from: duq */
             public com.facebook.imagepipeline.g.e getResult() throws Exception {
-                ExifInterface W = y.this.W(dtQ.duI());
+                ExifInterface W = y.this.W(dtR.duJ());
                 if (W == null || !W.hasThumbnail()) {
                     return null;
                 }
@@ -65,7 +65,7 @@ public class y implements aw<com.facebook.imagepipeline.g.e> {
         };
         akVar.a(new e() { // from class: com.facebook.imagepipeline.producers.y.2
             @Override // com.facebook.imagepipeline.producers.e, com.facebook.imagepipeline.producers.al
-            public void dqh() {
+            public void dqi() {
                 aqVar.cancel();
             }
         });

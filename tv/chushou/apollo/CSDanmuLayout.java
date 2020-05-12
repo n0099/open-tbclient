@@ -73,7 +73,7 @@ public class CSDanmuLayout extends DanmakuSurfaceView {
             }
         };
         this.mContext = context.getApplicationContext();
-        this.nqg = DanmakuContext.dFM();
+        this.nqg = DanmakuContext.dFN();
         this.mUserID = str;
         this.Yn = aVar.isFullScreen;
         this.nqk = aVar.nqe;
@@ -121,7 +121,7 @@ public class CSDanmuLayout extends DanmakuSurfaceView {
         this.nqg.c(this.nqd ? 1 : 0, this.strokeWidth).a(new i(), this.nqn).wB(false).D(hashMap);
         setCallback(new c.a() { // from class: tv.chushou.apollo.CSDanmuLayout.2
             @Override // master.flame.danmaku.a.c.a
-            public void dEQ() {
+            public void dER() {
                 CSDanmuLayout.this.start();
             }
 
@@ -134,17 +134,17 @@ public class CSDanmuLayout extends DanmakuSurfaceView {
             }
 
             @Override // master.flame.danmaku.a.c.a
-            public void dER() {
+            public void dES() {
             }
         });
         setOnDanmakuClickListener(new f.a() { // from class: tv.chushou.apollo.CSDanmuLayout.3
             @Override // master.flame.danmaku.a.f.a
             public boolean a(l lVar) {
-                d dFy = lVar.dFy();
-                if (dFy == null || dFy.tag == null || CSDanmuLayout.this.nqm == null) {
+                d dFz = lVar.dFz();
+                if (dFz == null || dFz.tag == null || CSDanmuLayout.this.nqm == null) {
                     return false;
                 }
-                CSDanmuLayout.this.nqm.bp(dFy.tag);
+                CSDanmuLayout.this.nqm.bp(dFz.tag);
                 return true;
             }
 
@@ -158,8 +158,8 @@ public class CSDanmuLayout extends DanmakuSurfaceView {
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // master.flame.danmaku.danmaku.a.a
-                /* renamed from: dJc */
-                public master.flame.danmaku.danmaku.model.android.d dGi() {
+                /* renamed from: dJd */
+                public master.flame.danmaku.danmaku.model.android.d dGj() {
                     return new master.flame.danmaku.danmaku.model.android.d();
                 }
             }, this.nqg);
@@ -167,7 +167,7 @@ public class CSDanmuLayout extends DanmakuSurfaceView {
         wF(true);
     }
 
-    public void dJb() {
+    public void dJc() {
         wt(true);
     }
 

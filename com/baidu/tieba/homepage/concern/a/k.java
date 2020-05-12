@@ -261,7 +261,7 @@ public class k extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
                 }
             });
         }
-        com.baidu.tieba.card.r.bEW().e(kVar.BK("c12351"));
+        com.baidu.tieba.card.r.bEX().e(kVar.BK("c12351"));
         afVar.rD().setPage(this.aeB);
         afVar.aG(true);
         afVar.b((af) kVar);

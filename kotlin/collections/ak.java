@@ -54,7 +54,7 @@ final class ak<T> extends d<T> implements RandomAccess {
         /* JADX DEBUG: Multi-variable search result rejected for r3v0, resolved type: kotlin.collections.ak$a */
         /* JADX WARN: Multi-variable type inference failed */
         @Override // kotlin.collections.b
-        protected void dDv() {
+        protected void dDw() {
             if (this.count != 0) {
                 bB(ak.this.mXo[this.index]);
                 this.index = (this.index + 1) % ak.this.getCapacity();

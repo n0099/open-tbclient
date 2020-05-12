@@ -47,7 +47,7 @@ public class f {
     private f() {
     }
 
-    public static f cNt() {
+    public static f cNu() {
         return kst;
     }
 

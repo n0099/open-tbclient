@@ -44,7 +44,7 @@ public class l extends BaseAdapter {
             aVar = (a) view.getTag();
         }
         aVar.Eo(getItem(i).toString());
-        if (this.iiL.ceI() == i) {
+        if (this.iiL.ceJ() == i) {
             aVar.ow(true);
         } else {
             aVar.ow(false);

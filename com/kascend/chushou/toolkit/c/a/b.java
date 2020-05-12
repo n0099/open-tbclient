@@ -35,7 +35,7 @@ public final class b {
         @Override // com.qiniu.android.storage.UpCompletionHandler
         public final void a(String str, ResponseInfo responseInfo, JSONObject jSONObject) {
             if (responseInfo != null) {
-                if (responseInfo.dAo() && jSONObject != null) {
+                if (responseInfo.dAp() && jSONObject != null) {
                     c.a aVar = this.mDj;
                     if (aVar != null) {
                         aVar.onSuccess(jSONObject.toString());
@@ -106,7 +106,7 @@ public final class b {
             this();
         }
 
-        public final b dyH() {
+        public final b dyI() {
             return b.mDm;
         }
     }

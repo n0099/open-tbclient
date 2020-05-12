@@ -17,7 +17,7 @@ public class c {
         @Override // java.lang.Runnable
         public void run() {
             if (c.this.gvi != null && c.this.gvj != null) {
-                c.this.gvi.setData(c.this.gvj.cWD(), 100);
+                c.this.gvi.setData(c.this.gvj.cWE(), 100);
                 c.this.gvi.playAnimation();
             }
         }
@@ -27,7 +27,7 @@ public class c {
         public void run() {
             if (c.this.gvi != null && c.this.gvj != null) {
                 c.this.gvi.stopAnimation();
-                c.this.gvi.setData(c.this.gvj.cWC());
+                c.this.gvi.setData(c.this.gvj.cWD());
             }
         }
     };
@@ -49,7 +49,7 @@ public class c {
         this.mFrom = i;
         this.gvi.setCallback(new FloatingAnimationView.a() { // from class: com.baidu.tieba.c.c.4
             @Override // com.baidu.tieba.view.FloatingAnimationView.a
-            public void bGa() {
+            public void bGb() {
                 if (c.this.gvj != null && !aq.isEmpty(c.this.gvj.bgb())) {
                     TiebaStatic.log(new an("c12913").af("obj_locate", 2).af("obj_type", c.this.mFrom));
                     if (c.this.gvj.getType() == 2) {
@@ -61,8 +61,8 @@ public class c {
             }
 
             @Override // com.baidu.tieba.view.FloatingAnimationView.a
-            public void bGb() {
-                c.this.bFZ();
+            public void bGc() {
+                c.this.bGa();
                 c.this.onDestroy();
                 c.this.gvi.setVisibility(8);
                 TiebaStatic.log(new an("c12913").af("obj_locate", 3).af("obj_type", c.this.mFrom));
@@ -78,17 +78,17 @@ public class c {
             }
             this.gvj = oVar;
             if (this.gvj.getType() == 1) {
-                bFX();
-            } else if (this.gvj.getType() == 2) {
                 bFY();
+            } else if (this.gvj.getType() == 2) {
+                bFZ();
             }
             biI();
         }
     }
 
-    private void bFX() {
+    private void bFY() {
         String lastId = getLastId();
-        if (this.gvj == null || lastId.equals(this.gvj.lp()) || aq.isEmpty(this.gvj.bgb()) || aq.isEmpty(this.gvj.cWC())) {
+        if (this.gvj == null || lastId.equals(this.gvj.lp()) || aq.isEmpty(this.gvj.bgb()) || aq.isEmpty(this.gvj.cWD())) {
             this.gvi.setVisibility(8);
             return;
         }
@@ -96,8 +96,8 @@ public class c {
             TiebaStatic.log(new an("c12912").af("obj_locate", this.mFrom));
         }
         this.gvi.setVisibility(0);
-        this.gvi.setData(this.gvj.cWC());
-        if (this.gvj.getStartTime() > 0 && this.gvj.getEndTime() > 0 && this.gvj.getEndTime() > this.gvj.getStartTime() && !v.isEmpty(this.gvj.cWD())) {
+        this.gvi.setData(this.gvj.cWD());
+        if (this.gvj.getStartTime() > 0 && this.gvj.getEndTime() > 0 && this.gvj.getEndTime() > this.gvj.getStartTime() && !v.isEmpty(this.gvj.cWE())) {
             com.baidu.adp.lib.f.e.lb().removeCallbacks(this.gvk);
             com.baidu.adp.lib.f.e.lb().removeCallbacks(this.gvl);
             com.baidu.adp.lib.f.e.lb().postDelayed(this.gvk, this.gvj.getStartTime() - System.currentTimeMillis());
@@ -105,14 +105,14 @@ public class c {
         }
     }
 
-    private void bFY() {
+    private void bFZ() {
         String lastId = getLastId();
-        if (this.gvj == null || lastId.equals(this.gvj.lp()) || aq.isEmpty(this.gvj.bgb()) || aq.isEmpty(this.gvj.cWC())) {
+        if (this.gvj == null || lastId.equals(this.gvj.lp()) || aq.isEmpty(this.gvj.bgb()) || aq.isEmpty(this.gvj.cWD())) {
             this.gvi.setVisibility(8);
             return;
         }
         this.gvi.setVisibility(0);
-        this.gvi.setData(this.gvj.cWC());
+        this.gvi.setData(this.gvj.cWD());
         com.baidu.adp.lib.f.e.lb().removeCallbacks(this.gvm);
         com.baidu.adp.lib.f.e.lb().postDelayed(this.gvm, UtilHelper.getNextDayMorning() - System.currentTimeMillis());
     }
@@ -147,7 +147,7 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bFZ() {
+    public void bGa() {
         String str;
         if (this.gvj != null) {
             int type = this.gvj.getType();

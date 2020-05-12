@@ -38,7 +38,7 @@ public class b extends com.baidu.tbadk.core.data.a {
         return hJs;
     }
 
-    public List<MetaData> bYb() {
+    public List<MetaData> bYc() {
         return this.hJv;
     }
 
@@ -52,7 +52,7 @@ public class b extends com.baidu.tbadk.core.data.a {
         return new al();
     }
 
-    public boolean bYc() {
+    public boolean bYd() {
         return this.hJu;
     }
 

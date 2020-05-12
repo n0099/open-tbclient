@@ -6,7 +6,7 @@ import javax.annotation.Nullable;
 public class b<INFO> implements c<INFO> {
     private static final c<Object> lUN = new b();
 
-    public static <INFO> c<INFO> doE() {
+    public static <INFO> c<INFO> doF() {
         return (c<INFO>) lUN;
     }
 

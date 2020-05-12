@@ -6,19 +6,19 @@ import com.baidu.tbadk.core.d;
 public class a extends d {
     private static final String kLE = TbConfig.SERVER_ADDRESS + TbConfig.FORUM_SQUARE;
 
-    public String cUD() {
+    public String cUE() {
         setUrl(kLE);
         return getResult();
     }
 
-    public long cUE() {
+    public long cUF() {
         if (this.blK != null) {
             return this.blK.aOw().aOY().dAu.JQ;
         }
         return 0L;
     }
 
-    public long cUF() {
+    public long cUG() {
         if (this.blK != null) {
             return this.blK.aOw().aOY().dAu.connectTime;
         }

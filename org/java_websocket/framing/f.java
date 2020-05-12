@@ -6,31 +6,31 @@ import org.java_websocket.framing.Framedata;
 /* loaded from: classes7.dex */
 public abstract class f implements Framedata {
     private Framedata.Opcode nii;
-    private ByteBuffer nij = org.java_websocket.e.b.dHg();
+    private ByteBuffer nij = org.java_websocket.e.b.dHh();
     private boolean nih = true;
     private boolean nik = false;
     private boolean nil = false;
     private boolean nim = false;
     private boolean nin = false;
 
-    public abstract void dGV() throws InvalidDataException;
+    public abstract void dGW() throws InvalidDataException;
 
     public f(Framedata.Opcode opcode) {
         this.nii = opcode;
     }
 
     @Override // org.java_websocket.framing.Framedata
-    public boolean dGY() {
+    public boolean dGZ() {
         return this.nil;
     }
 
     @Override // org.java_websocket.framing.Framedata
-    public boolean dGZ() {
+    public boolean dHa() {
         return this.nim;
     }
 
     @Override // org.java_websocket.framing.Framedata
-    public boolean dHa() {
+    public boolean dHb() {
         return this.nin;
     }
 
@@ -40,17 +40,17 @@ public abstract class f implements Framedata {
     }
 
     @Override // org.java_websocket.framing.Framedata
-    public Framedata.Opcode dHb() {
+    public Framedata.Opcode dHc() {
         return this.nii;
     }
 
     @Override // org.java_websocket.framing.Framedata
-    public ByteBuffer dGX() {
+    public ByteBuffer dGY() {
         return this.nij;
     }
 
     public String toString() {
-        return "Framedata{ optcode:" + dHb() + ", fin:" + Ue() + ", rsv1:" + dGY() + ", rsv2:" + dGZ() + ", rsv3:" + dHa() + ", payloadlength:[pos:" + this.nij.position() + ", len:" + this.nij.remaining() + "], payload:" + (this.nij.remaining() > 1000 ? "(too big to display)" : new String(this.nij.array())) + '}';
+        return "Framedata{ optcode:" + dHc() + ", fin:" + Ue() + ", rsv1:" + dGZ() + ", rsv2:" + dHa() + ", rsv3:" + dHb() + ", payloadlength:[pos:" + this.nij.position() + ", len:" + this.nij.remaining() + "], payload:" + (this.nij.remaining() > 1000 ? "(too big to display)" : new String(this.nij.array())) + '}';
     }
 
     public void u(ByteBuffer byteBuffer) {

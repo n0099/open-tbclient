@@ -11,10 +11,10 @@ import com.baidu.tieba.tbadkCore.a.a;
 public class PushThreadActivityStatic {
     static {
         TbadkCoreApplication.getInst().RegisterIntent(PushThreadActivityConfig.class, PushThreadActivity.class);
-        cFh();
+        cFi();
     }
 
-    private static void cFh() {
+    private static void cFi() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1001806, a.bE(Config.PB_PUSH_THREAD_ADDRESS, CmdConfigSocket.CMD_PUSH_THREAD));
         tbHttpMessageTask.setResponsedClass(PbPushHttpResponseMessage.class);
         tbHttpMessageTask.setIsNeedTbs(true);

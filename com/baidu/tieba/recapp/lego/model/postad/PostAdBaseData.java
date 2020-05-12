@@ -136,7 +136,7 @@ public class PostAdBaseData implements ICardInfo {
         public String title;
         public String username;
 
-        public List<String> cNC() {
+        public List<String> cND() {
             return this.kte;
         }
 

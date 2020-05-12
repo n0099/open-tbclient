@@ -39,21 +39,21 @@ public class w {
         this.khU.start();
     }
 
-    public void cKj() {
+    public void cKk() {
         cancelAnimator();
-        this.khT.cKj();
+        this.khT.cKk();
     }
 
-    public void cKk() {
+    public void cKl() {
         cancelAnimator();
         this.khV.start();
         this.khW.start();
     }
 
-    public void cKl() {
+    public void cKm() {
         cancelAnimator();
         this.khR.setVisibility(8);
-        this.khT.cKl();
+        this.khT.cKm();
     }
 
     private void cancelAnimator() {

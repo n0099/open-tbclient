@@ -26,15 +26,15 @@ public final class MpscLinkedQueue<T> implements f<T> {
     @Override // io.reactivex.internal.a.f, io.reactivex.internal.a.g
     public T poll() {
         LinkedQueueNode<T> lvNext;
-        LinkedQueueNode<T> dCQ = dCQ();
-        LinkedQueueNode<T> lvNext2 = dCQ.lvNext();
+        LinkedQueueNode<T> dCR = dCR();
+        LinkedQueueNode<T> lvNext2 = dCR.lvNext();
         if (lvNext2 != null) {
             T andNullValue = lvNext2.getAndNullValue();
             b(lvNext2);
             return andNullValue;
-        } else if (dCQ != dCO()) {
+        } else if (dCR != dCP()) {
             do {
-                lvNext = dCQ.lvNext();
+                lvNext = dCR.lvNext();
             } while (lvNext == null);
             T andNullValue2 = lvNext.getAndNullValue();
             b(lvNext);
@@ -50,7 +50,7 @@ public final class MpscLinkedQueue<T> implements f<T> {
         }
     }
 
-    LinkedQueueNode<T> dCO() {
+    LinkedQueueNode<T> dCP() {
         return this.mUm.get();
     }
 
@@ -58,11 +58,11 @@ public final class MpscLinkedQueue<T> implements f<T> {
         return this.mUm.getAndSet(linkedQueueNode);
     }
 
-    LinkedQueueNode<T> dCP() {
+    LinkedQueueNode<T> dCQ() {
         return this.mUn.get();
     }
 
-    LinkedQueueNode<T> dCQ() {
+    LinkedQueueNode<T> dCR() {
         return this.mUn.get();
     }
 
@@ -72,7 +72,7 @@ public final class MpscLinkedQueue<T> implements f<T> {
 
     @Override // io.reactivex.internal.a.g
     public boolean isEmpty() {
-        return dCP() == dCO();
+        return dCQ() == dCP();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

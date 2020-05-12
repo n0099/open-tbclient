@@ -78,7 +78,7 @@ public class b {
     g.d hMR = new g.d() { // from class: com.baidu.tieba.homepage.gamevideo.view.b.1
         @Override // com.baidu.tbadk.core.view.g.d
         public void onListPullToRefresh(boolean z) {
-            b.this.bZd();
+            b.this.bZe();
         }
     };
     g.b hMS = new g.b() { // from class: com.baidu.tieba.homepage.gamevideo.view.b.4
@@ -138,11 +138,11 @@ public class b {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            af bZe;
+            af bZf;
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof KeyEvent)) {
                 KeyEvent keyEvent = (KeyEvent) customResponsedMessage.getData();
-                if (keyEvent.getAction() == 0 && keyEvent.getKeyCode() == 24 && (bZe = b.this.bZe()) != null && bZe.rD() != null) {
-                    bZe.rD().b(new a.C0095a(3));
+                if (keyEvent.getAction() == 0 && keyEvent.getKeyCode() == 24 && (bZf = b.this.bZf()) != null && bZf.rD() != null) {
+                    bZf.rD().b(new a.C0095a(3));
                 }
             }
         }
@@ -156,7 +156,7 @@ public class b {
                     b.this.gHB.ct(view);
                 }
                 if (view.getTag() instanceof f) {
-                    ((f) view.getTag()).bFz().stopPlay();
+                    ((f) view.getTag()).bFA().stopPlay();
                 }
             }
         }
@@ -264,7 +264,7 @@ public class b {
         this.hIm.setRefreshing(true);
     }
 
-    public void bZb() {
+    public void bZc() {
         if (this.Vi != null) {
             this.Vi.setSelection(0);
             blH();
@@ -335,18 +335,18 @@ public class b {
         if (this.hMK != null) {
             this.hMK.setData(list);
         }
-        bZc();
+        bZd();
     }
 
-    public void bZc() {
+    public void bZd() {
         if (this.gHB != null && this.hMQ) {
             this.gHB.a(this.hac, this.eNZ, this.haL, true);
         }
     }
 
-    public void bZd() {
+    public void bZe() {
         if (this.gHB != null) {
-            this.gHB.bZd();
+            this.gHB.bZe();
         }
     }
 
@@ -354,11 +354,11 @@ public class b {
         this.hMQ = z;
     }
 
-    public af bZe() {
-        if (this.gHB == null || this.gHB.cJE() == null || !(this.gHB.cJE().getTag() instanceof af)) {
+    public af bZf() {
+        if (this.gHB == null || this.gHB.cJF() == null || !(this.gHB.cJF().getTag() instanceof af)) {
             return null;
         }
-        return (af) this.gHB.cJE().getTag();
+        return (af) this.gHB.cJF().getTag();
     }
 
     public List<com.baidu.adp.widget.ListView.m> getDataList() {
@@ -368,7 +368,7 @@ public class b {
         return null;
     }
 
-    public void bZf() {
+    public void bZg() {
         aE(new LinkedList());
     }
 
@@ -505,7 +505,7 @@ public class b {
         mC(false);
     }
 
-    public void bXT() {
+    public void bXU() {
         mC(true);
     }
 
@@ -514,13 +514,13 @@ public class b {
         this.mIsBackground = z;
         if (this.gHB != null) {
             this.gHB.pL(!z);
-            af bZe = bZe();
-            if (bZe != null && bZe.rD() != null) {
-                z2 = bZe.rD().b(new a.C0095a(8, Boolean.valueOf(z)));
+            af bZf = bZf();
+            if (bZf != null && bZf.rD() != null) {
+                z2 = bZf.rD().b(new a.C0095a(8, Boolean.valueOf(z)));
             }
             if (!z2) {
                 if (z) {
-                    this.gHB.bZd();
+                    this.gHB.bZe();
                 } else if (this.hMQ) {
                     this.gHB.a(this.hac, this.eNZ, this.haL, true);
                 }
@@ -560,12 +560,12 @@ public class b {
         if (this.gHB != null) {
             this.gHB.destroy();
         }
-        bZg();
+        bZh();
         MessageManager.getInstance().unRegisterListener(this.gZT);
         MessageManager.getInstance().unRegisterListener(this.dlH);
     }
 
-    private void bZg() {
+    private void bZh() {
         if (this.Vi != null) {
             this.Vi.removeOnScrollListener(this.mScrollListener);
             this.Vi.setOnTouchListener(null);
@@ -586,11 +586,11 @@ public class b {
         }
     }
 
-    public View bZh() {
+    public View bZi() {
         return this.mRootView.findViewById(R.id.game_video_title_bar);
     }
 
-    public void bZi() {
+    public void bZj() {
         if (this.hMN == null) {
             this.hMN = new RotateAnimation(0.0f, 180.0f, 1, 0.5f, 1, 0.5f);
             this.hMN.setDuration(300L);
@@ -617,7 +617,7 @@ public class b {
         this.hMI.startAnimation(this.hMN);
     }
 
-    public void bZj() {
+    public void bZk() {
         if (this.hMO == null) {
             this.hMO = new RotateAnimation(0.0f, -180.0f, 1, 0.5f, 1, 0.5f);
             this.hMO.setDuration(300L);
@@ -644,7 +644,7 @@ public class b {
         this.hMI.startAnimation(this.hMO);
     }
 
-    public boolean bZk() {
+    public boolean bZl() {
         return this.hMP;
     }
 
@@ -665,7 +665,7 @@ public class b {
         }
     }
 
-    public void bZl() {
+    public void bZm() {
         if (this.hMJ != null) {
             this.hMJ.setVisibility(0);
         }

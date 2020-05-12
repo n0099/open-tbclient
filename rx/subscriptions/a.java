@@ -19,7 +19,7 @@ public final class a implements k {
         this.npS = new AtomicReference<>(aVar);
     }
 
-    public static a dIS() {
+    public static a dIT() {
         return new a();
     }
 

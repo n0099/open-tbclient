@@ -31,7 +31,7 @@ public class ChatAggregationFragment extends BaseFragment implements NoNetworkVi
                 }
                 MentionActivityConfig.newJumpIn = true;
                 if (ChatAggregationFragment.this.iAd != null) {
-                    ChatAggregationFragment.this.iAd.bVc();
+                    ChatAggregationFragment.this.iAd.bVd();
                     ChatAggregationFragment.this.iAd.W(TbadkCoreApplication.isLogin(), TbadkCoreApplication.isLogin() ? false : true);
                 }
             }
@@ -71,7 +71,7 @@ public class ChatAggregationFragment extends BaseFragment implements NoNetworkVi
         if (getActivity() != null && ac(getActivity().getIntent())) {
             this.iAd.onNewIntent(getActivity().getIntent());
         } else {
-            this.iAd.bVc();
+            this.iAd.bVd();
         }
         super.onViewCreated(view, bundle);
     }

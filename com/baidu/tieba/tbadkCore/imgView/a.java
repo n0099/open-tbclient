@@ -61,9 +61,9 @@ public class a {
         if (this.kUf) {
             this.kUf = false;
             this.kUh = null;
-            this.kUd.cWN();
             this.kUd.cWO();
-            this.kUc.cWQ();
+            this.kUd.cWP();
+            this.kUc.cWR();
             this.kUc.invalidate();
         }
     }
@@ -108,7 +108,7 @@ public class a {
                     this.ckd = x;
                     this.kUh.rect.offset((int) (x - this.ckd), 0);
                     a(this.kUh);
-                    cWJ();
+                    cWK();
                     break;
             }
             return true;
@@ -116,17 +116,17 @@ public class a {
         return false;
     }
 
-    public void cWJ() {
+    public void cWK() {
         this.mTempRect.set(this.kUh.rect);
         this.kUc.offsetRectIntoDescendantCoords((View) this.kUd, this.mTempRect);
         this.kUd.j(this.mTempRect);
         this.kUc.invalidate();
         if (this.kUh.kUL) {
-            this.kUd.cWL();
-        } else if (this.kUh.kUM) {
             this.kUd.cWM();
-        } else {
+        } else if (this.kUh.kUM) {
             this.kUd.cWN();
+        } else {
+            this.kUd.cWO();
         }
     }
 

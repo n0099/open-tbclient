@@ -22,17 +22,17 @@ public class i implements Iterable<Long> {
         this.mYq = j3;
     }
 
-    public final long dEh() {
+    public final long dEi() {
         return this.mYo;
     }
 
-    public final long dEi() {
+    public final long dEj() {
         return this.mYp;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.lang.Iterable
-    /* renamed from: dEj */
+    /* renamed from: dEk */
     public ae iterator() {
         return new j(this.mYo, this.mYp, this.mYq);
     }

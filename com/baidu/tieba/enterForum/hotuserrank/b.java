@@ -62,7 +62,7 @@ public class b {
         if (cVar != null && cVar.gDH != null && cVar.gDH.gDD != null && !cVar.gDH.gDD.isMask && TbadkCoreApplication.isLogin()) {
             this.mRootView.setVisibility(0);
             this.gDc.a(cVar.gDH);
-            this.gDc.bIP();
+            this.gDc.bIQ();
             this.gDf = cVar.gDI;
             return;
         }

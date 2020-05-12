@@ -72,16 +72,16 @@ public class j extends a<com.baidu.tieba.card.data.j> implements com.baidu.tieba
         this.agl = new View.OnClickListener() { // from class: com.baidu.tieba.card.j.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (j.this.bEw() != null) {
-                    j.this.bEw().a(view, j.this.goL);
+                if (j.this.bEx() != null) {
+                    j.this.bEx().a(view, j.this.goL);
                 }
             }
         };
         this.dIj = new View.OnClickListener() { // from class: com.baidu.tieba.card.j.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (j.this.bEw() != null) {
-                    j.this.bEw().a(view, j.this.goL);
+                if (j.this.bEx() != null) {
+                    j.this.bEx().a(view, j.this.goL);
                 }
             }
         };
@@ -108,7 +108,7 @@ public class j extends a<com.baidu.tieba.card.data.j> implements com.baidu.tieba
         this.adk.setPageUniqueId(this.mBdUniqueId);
         this.fsH = new NEGFeedBackView(getTbPageContext());
         this.fsH.a(this.goM, com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds124), com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds15), com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds20));
-        bEC();
+        bED();
         this.mTextTitle = (TextView) view.findViewById(R.id.text_title);
         this.goN = (RelativeLayout) view.findViewById(R.id.frame_video);
         this.emw = (TbImageView) view.findViewById(R.id.image_video);
@@ -263,11 +263,11 @@ public class j extends a<com.baidu.tieba.card.data.j> implements com.baidu.tieba
         } else {
             am.setViewTextColor(this.mTextTitle, R.color.cp_cont_b, 1);
         }
-        bEz();
+        bEA();
         this.goO.playAnimation();
     }
 
-    public void bEz() {
+    public void bEA() {
         if (com.baidu.tbadk.core.i.aIc().isShowImages() && this.goL != null && this.goL.aIu() != null && this.goL.aIu().aKV() != null) {
             this.emw.setPlaceHolder(3);
             this.emw.startLoad(this.goL.aIu().aKV().cover, 10, false);
@@ -283,14 +283,14 @@ public class j extends a<com.baidu.tieba.card.data.j> implements com.baidu.tieba
         }
     }
 
-    public View bEA() {
+    public View bEB() {
         if (this.adk != null) {
             return this.adk.getAvatar();
         }
         return null;
     }
 
-    public View bEB() {
+    public View bEC() {
         if (this.dJr) {
             if (this.adk != null) {
                 return this.adk.getUserName();
@@ -316,8 +316,8 @@ public class j extends a<com.baidu.tieba.card.data.j> implements com.baidu.tieba
     }
 
     private void bJ(View view) {
-        if (bEw() != null) {
-            bEw().a(view, this.goL);
+        if (bEx() != null) {
+            bEx().a(view, this.goL);
         }
         if (this.goL != null && this.goL.aIu() != null && this.goL.aIu().aKV() != null) {
             l.BE(this.goL.dqE.getId());
@@ -377,7 +377,7 @@ public class j extends a<com.baidu.tieba.card.data.j> implements com.baidu.tieba
         this.dJr = z;
     }
 
-    private void bEC() {
+    private void bED() {
         this.afs = new UnfollowedDecorView(this.duK.getPageActivity());
         int dimens = com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds124);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(dimens, dimens);

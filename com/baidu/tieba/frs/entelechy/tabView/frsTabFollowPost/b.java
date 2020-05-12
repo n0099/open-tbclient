@@ -26,31 +26,31 @@ public class b {
     private FrsTabSortSwitchButton.a hiu = new FrsTabSortSwitchButton.a() { // from class: com.baidu.tieba.frs.entelechy.tabView.frsTabFollowPost.b.1
         @Override // com.baidu.tieba.frs.entelechy.tabView.frsTabFollowPost.view.FrsTabSortSwitchButton.a
         public boolean tO(int i) {
-            if (com.baidu.tieba.frs.a.bNB().bNC()) {
+            if (com.baidu.tieba.frs.a.bNC().bND()) {
                 return false;
             }
             if (!j.isNetworkAvailableForImmediately()) {
                 b.this.han.showToast(R.string.neterror);
                 return false;
-            } else if (b.this.han.bOq() == null || b.this.han.bOv() == null) {
+            } else if (b.this.han.bOr() == null || b.this.han.bOw() == null) {
                 return false;
             } else {
                 if (b.this.hit == i) {
                     return true;
                 }
-                b.this.han.bOq().us(b.this.his.tR(b.this.hit));
+                b.this.han.bOr().us(b.this.his.tR(b.this.hit));
                 b.this.hit = i;
                 if (b.this.hit != 7) {
                     aa.baD();
-                    e.cXp();
+                    e.cXq();
                 } else {
-                    e.cXo();
+                    e.cXp();
                 }
-                b.this.han.bOq().ur(b.this.his.tR(b.this.hit));
-                b.this.han.bOq().ni(true);
-                b.this.han.bOv().startPullRefresh();
-                b.this.han.bOq().nh(true);
-                b.this.bSb();
+                b.this.han.bOr().ur(b.this.his.tR(b.this.hit));
+                b.this.han.bOr().ni(true);
+                b.this.han.bOw().startPullRefresh();
+                b.this.han.bOr().nh(true);
+                b.this.bSc();
                 return true;
             }
         }
@@ -60,12 +60,12 @@ public class b {
         this.eQk = str;
     }
 
-    public FrsTabSortSwitchButton bSc() {
+    public FrsTabSortSwitchButton bSd() {
         return this.his;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bSb() {
+    public void bSc() {
         an anVar = new an("c11437");
         anVar.af("obj_type", this.his.tR(this.hit));
         anVar.cI("fid", this.eQk);

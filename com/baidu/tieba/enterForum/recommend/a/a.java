@@ -27,13 +27,13 @@ public class a {
                 for (m mVar : a.this.forumList) {
                     if (mVar instanceof com.baidu.tieba.enterForum.recommend.b.d) {
                         if (title.equals(((com.baidu.tieba.enterForum.recommend.b.d) mVar).getTitle())) {
+                            List<com.baidu.tieba.enterForum.recommend.b.c> bJh = ((com.baidu.tieba.enterForum.recommend.b.d) mVar).bJh();
+                            arrayList.add(mVar);
+                            arrayList.addAll(bJh);
+                        } else {
                             List<com.baidu.tieba.enterForum.recommend.b.c> bJg = ((com.baidu.tieba.enterForum.recommend.b.d) mVar).bJg();
                             arrayList.add(mVar);
                             arrayList.addAll(bJg);
-                        } else {
-                            List<com.baidu.tieba.enterForum.recommend.b.c> bJf = ((com.baidu.tieba.enterForum.recommend.b.d) mVar).bJf();
-                            arrayList.add(mVar);
-                            arrayList.addAll(bJf);
                         }
                     }
                 }

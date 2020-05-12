@@ -88,23 +88,23 @@ public class a extends b {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.frs.e.b
-    public void bUy() {
+    public void bUz() {
         if (this.mState == 0) {
             this.mState = 1;
             if (this.hvo != null) {
                 this.hvo.onStateChanged(this.mState);
             }
             this.hvd.start();
+            bUD();
             bUC();
             bUB();
-            bUA();
-            bUD();
+            bUE();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.frs.e.b
-    public void bUz() {
+    public void bUA() {
         if (this.mState == 2) {
             this.mState = 3;
             if (this.hvo != null) {
@@ -114,7 +114,7 @@ public class a extends b {
         }
     }
 
-    private void bUA() {
+    private void bUB() {
         if (this.mIntent != null) {
             ArrayList<Integer> integerArrayListExtra = this.mIntent.getIntegerArrayListExtra("info_forum_head_background_color");
             if (integerArrayListExtra != null && integerArrayListExtra.size() == 6) {
@@ -168,7 +168,7 @@ public class a extends b {
         }
     }
 
-    private void bUB() {
+    private void bUC() {
         final Rect rect;
         if (this.mIntent != null && (rect = (Rect) this.mIntent.getParcelableExtra("info_forum_name_rect")) != null) {
             String stringExtra = this.mIntent.getStringExtra("info_forum_name_text");
@@ -216,7 +216,7 @@ public class a extends b {
         }
     }
 
-    private void bUC() {
+    private void bUD() {
         final Rect rect;
         if (this.mIntent != null && (rect = (Rect) this.mIntent.getParcelableExtra("info_forum_image_rect")) != null) {
             String stringExtra = this.mIntent.getStringExtra("info_forum_image_url");
@@ -264,7 +264,7 @@ public class a extends b {
         }
     }
 
-    private void bUD() {
+    private void bUE() {
         if (this.mIntent != null && this.hvn.hvD != null) {
             this.hvn.hvD.post(new Runnable() { // from class: com.baidu.tieba.frs.e.a.8
                 @Override // java.lang.Runnable

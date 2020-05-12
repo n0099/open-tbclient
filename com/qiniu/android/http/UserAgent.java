@@ -10,22 +10,22 @@ import java.util.Random;
 /* loaded from: classes5.dex */
 public final class UserAgent {
     private static UserAgent mMn = new UserAgent();
-    public final String id = dAw();
+    public final String id = dAx();
     public final String ua = Pc(this.id);
 
     private UserAgent() {
     }
 
-    public static UserAgent dAv() {
+    public static UserAgent dAw() {
         return mMn;
     }
 
-    private static String dAw() {
+    private static String dAx() {
         return System.currentTimeMillis() + "" + new Random().nextInt(999);
     }
 
     static String Pc(String str) {
-        return String.format("QiniuAndroid/%s (%s; %s; %s", "7.3.13", Li(), dAx(), str);
+        return String.format("QiniuAndroid/%s (%s; %s; %s", "7.3.13", Li(), dAy(), str);
     }
 
     private static String Li() {
@@ -40,7 +40,7 @@ public final class UserAgent {
         }
     }
 
-    private static String dAx() {
+    private static String dAy() {
         try {
             String trim = Build.MODEL.trim();
             String fm = fm(Build.MANUFACTURER.trim(), trim);

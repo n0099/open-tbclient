@@ -134,7 +134,7 @@ public class a {
         }
     }
 
-    public int bPh() {
+    public int bPi() {
         ViewGroup.LayoutParams layoutParams = this.kbg.getLayoutParams();
         if (layoutParams != null) {
             return layoutParams.height;

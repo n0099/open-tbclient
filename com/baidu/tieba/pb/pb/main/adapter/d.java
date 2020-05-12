@@ -35,20 +35,20 @@ public class d {
             throw new NullPointerException("PbActivity is NullPointerException");
         }
         this.jCv = bVar;
-        cBF();
+        cBG();
     }
 
     public void onDestroy() {
-        cBE();
+        cBF();
     }
 
-    private boolean cBE() {
+    private boolean cBF() {
         MessageManager.getInstance().unRegisterListener(this.jCw);
         MessageManager.getInstance().unRegisterListener(this.jCx);
         return true;
     }
 
-    public boolean cBF() {
+    public boolean cBG() {
         if (this.jCv != null) {
             this.jCv.registerListener(this.jCw);
             this.jCv.registerListener(this.jCx);
@@ -79,14 +79,14 @@ public class d {
                     agreeData.agreeType = 2;
                     agreeData.hasAgree = true;
                     agreeData.agreeNum++;
-                    com.baidu.tieba.o.a.cMR().E(this.jCv.getPageContext());
+                    com.baidu.tieba.o.a.cMS().E(this.jCv.getPageContext());
                     i = 0;
                 }
             } else {
                 agreeData.agreeType = 2;
                 agreeData.hasAgree = true;
                 agreeData.agreeNum++;
-                com.baidu.tieba.o.a.cMR().E(this.jCv.getPageContext());
+                com.baidu.tieba.o.a.cMS().E(this.jCv.getPageContext());
                 i = 0;
             }
             HttpMessage httpMessage = new HttpMessage(1001601);

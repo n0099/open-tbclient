@@ -13,38 +13,38 @@ import java.util.UUID;
 public final class m implements a.InterfaceC0712a {
     private static n lON;
     private static long lOO;
-    private static long lOg = f.dle();
+    private static long lOg = f.dlf();
     private Runnable lOR;
     private boolean lOP = false;
     private boolean lOQ = true;
     private Handler handler = new Handler();
     private a lOS = new a() { // from class: com.baidu.ubs.analytics.c.m.1
         @Override // com.baidu.ubs.analytics.c.m.a
-        public final void dlp() {
+        public final void dlq() {
             long currentTimeMillis = System.currentTimeMillis();
             com.baidu.ubs.analytics.d.b.I("app   went foreground ");
             if (currentTimeMillis - m.lOO > m.lOg) {
                 m.this.d(currentTimeMillis);
             }
-            if (com.baidu.ubs.analytics.d.dkT().i()) {
+            if (com.baidu.ubs.analytics.d.dkU().i()) {
                 com.baidu.ubs.analytics.d.c.a(new com.baidu.ubs.analytics.d.d() { // from class: com.baidu.ubs.analytics.c.m.1.1
                     @Override // com.baidu.ubs.analytics.d.d
                     protected final void a() {
                         com.baidu.ubs.analytics.d.b.I("记录一次app启动事件");
                         com.baidu.ubs.analytics.a.a("power_on", "", "", null);
-                        com.baidu.ubs.analytics.d.dkT().a(false);
+                        com.baidu.ubs.analytics.d.dkU().a(false);
                     }
                 });
             }
         }
 
         @Override // com.baidu.ubs.analytics.c.m.a
-        public final void dlq() {
+        public final void dlr() {
             d dVar;
             dVar = d.a.lOy;
-            if (dVar.dla().size() == 0) {
+            if (dVar.dlb().size() == 0) {
                 com.baidu.ubs.analytics.d.b.I("后台应用退出了 了               ");
-                com.baidu.ubs.analytics.d.dkT().a(true);
+                com.baidu.ubs.analytics.d.dkU().a(true);
                 long unused = m.lOO = 0L;
                 return;
             }
@@ -54,9 +54,9 @@ public final class m implements a.InterfaceC0712a {
 
     /* loaded from: classes8.dex */
     public interface a {
-        void dlp();
-
         void dlq();
+
+        void dlr();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -67,7 +67,7 @@ public final class m implements a.InterfaceC0712a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static n dlk() {
+    public static n dll() {
         return lON;
     }
 
@@ -81,7 +81,7 @@ public final class m implements a.InterfaceC0712a {
         }
         if (z) {
             try {
-                this.lOS.dlp();
+                this.lOS.dlq();
             } catch (Exception e) {
                 com.baidu.ubs.analytics.d.j.I("Listener threw exception!:" + e.toString());
             }
@@ -121,7 +121,7 @@ public final class m implements a.InterfaceC0712a {
                 if (m.this.lOP && m.this.lOQ) {
                     m.this.lOP = false;
                     try {
-                        m.this.lOS.dlq();
+                        m.this.lOS.dlr();
                     } catch (Exception e) {
                         com.baidu.ubs.analytics.d.j.I("Listener threw exception!:" + e.toString());
                     }

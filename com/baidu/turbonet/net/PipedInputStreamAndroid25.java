@@ -32,10 +32,10 @@ public class PipedInputStreamAndroid25 extends InputStream {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public synchronized void FA(int i) throws IOException {
-        djw();
+        djx();
         this.lLm = Thread.currentThread();
         if (this.in == this.lLn) {
-            djx();
+            djy();
         }
         if (this.in < 0) {
             this.in = 0;
@@ -53,12 +53,12 @@ public class PipedInputStreamAndroid25 extends InputStream {
     /* JADX INFO: Access modifiers changed from: package-private */
     public synchronized void q(byte[] bArr, int i, int i2) throws IOException {
         int i3;
-        djw();
+        djx();
         this.lLm = Thread.currentThread();
         int i4 = i2;
         while (i4 > 0) {
             if (this.in == this.lLn) {
-                djx();
+                djy();
             }
             if (this.lLn < this.in) {
                 i3 = this.buffer.length - this.in;
@@ -87,7 +87,7 @@ public class PipedInputStreamAndroid25 extends InputStream {
         }
     }
 
-    private void djw() throws IOException {
+    private void djx() throws IOException {
         if (!this.lLk) {
             throw new IOException("Pipe not connected");
         }
@@ -99,9 +99,9 @@ public class PipedInputStreamAndroid25 extends InputStream {
         }
     }
 
-    private void djx() throws IOException {
+    private void djy() throws IOException {
         while (this.in == this.lLn) {
-            djw();
+            djx();
             notifyAll();
             try {
                 wait(1000L);
@@ -113,7 +113,7 @@ public class PipedInputStreamAndroid25 extends InputStream {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public synchronized void djy() {
+    public synchronized void djz() {
         this.lLi = true;
         notifyAll();
     }

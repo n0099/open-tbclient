@@ -24,9 +24,9 @@ public class FloatingAnimationView extends FrameLayout {
 
     /* loaded from: classes8.dex */
     public interface a {
-        void bGa();
-
         void bGb();
+
+        void bGc();
     }
 
     public FloatingAnimationView(@NonNull Context context) {
@@ -61,7 +61,7 @@ public class FloatingAnimationView extends FrameLayout {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (FloatingAnimationView.this.lus != null) {
-                    FloatingAnimationView.this.lus.bGa();
+                    FloatingAnimationView.this.lus.bGb();
                 }
             }
         });
@@ -81,7 +81,7 @@ public class FloatingAnimationView extends FrameLayout {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (FloatingAnimationView.this.lus != null) {
-                    FloatingAnimationView.this.lus.bGb();
+                    FloatingAnimationView.this.lus.bGc();
                 }
             }
         });

@@ -21,7 +21,7 @@ public class b implements e {
         private static b krD = new b();
     }
 
-    public static b cNm() {
+    public static b cNn() {
         return C0658b.krD;
     }
 

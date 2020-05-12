@@ -131,7 +131,7 @@ public final class CompositeException extends RuntimeException {
                 appendStackTrace(sb, it.next(), "\t");
                 i = i2 + 1;
             } else {
-                synchronized (aVar.dHB()) {
+                synchronized (aVar.dHC()) {
                     aVar.bu(sb.toString());
                 }
                 return;
@@ -155,7 +155,7 @@ public final class CompositeException extends RuntimeException {
     public static abstract class a {
         abstract void bu(Object obj);
 
-        abstract Object dHB();
+        abstract Object dHC();
 
         a() {
         }
@@ -171,7 +171,7 @@ public final class CompositeException extends RuntimeException {
         }
 
         @Override // rx.exceptions.CompositeException.a
-        Object dHB() {
+        Object dHC() {
             return this.mRn;
         }
 
@@ -190,7 +190,7 @@ public final class CompositeException extends RuntimeException {
         }
 
         @Override // rx.exceptions.CompositeException.a
-        Object dHB() {
+        Object dHC() {
             return this.mRo;
         }
 

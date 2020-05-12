@@ -33,17 +33,17 @@ public class MsgRightViewItemAdapter extends e<MsgrightView> {
     @Override // com.baidu.tieba.im.chat.e, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, e.a<MsgrightView> aVar) {
         super.a(i, view, viewGroup, chatMessage, (e.a) aVar);
-        MsgrightView cdc = aVar.cdc();
-        cdc.wG(this.ied);
-        cdc.op(this.iem);
+        MsgrightView cdd = aVar.cdd();
+        cdd.wG(this.ied);
+        cdd.op(this.iem);
         chatMessage.getCacheData().setIs_left(0);
-        cdc.a(this.idU);
-        cdc.setOnItemViewLongClickListener(this.idV);
-        cdc.setPosition(i);
-        cdc.ev(this.eJv);
-        cdc.eu(chatMessage.getCacheData().getLastMsgTime());
-        cdc.a(viewGroup, chatMessage);
-        cdc.b(viewGroup, chatMessage);
+        cdd.a(this.idU);
+        cdd.setOnItemViewLongClickListener(this.idV);
+        cdd.setPosition(i);
+        cdd.ev(this.eJv);
+        cdd.eu(chatMessage.getCacheData().getLastMsgTime());
+        cdd.a(viewGroup, chatMessage);
+        cdd.b(viewGroup, chatMessage);
         this.mPageContext.getLayoutMode().setNightMode(false);
         this.mPageContext.getLayoutMode().onModeChanged(view);
         return view;

@@ -146,15 +146,15 @@ public class c {
         this.isShow = false;
     }
 
-    public void cUQ() {
+    public void cUR() {
         this.kMQ.setVisibility(0);
     }
 
-    public void cUR() {
+    public void cUS() {
         this.kMQ.setVisibility(8);
     }
 
-    public void cUS() {
+    public void cUT() {
         if (this.mProgressBar != null) {
             this.mProgressBar.setVisibility(8);
         }
@@ -167,13 +167,13 @@ public class c {
         }
     }
 
-    public void cUT() {
+    public void cUU() {
         this.kMS.setVisibility(4);
         this.kNk.setClickable(false);
         this.kNk.setOnClickListener(null);
     }
 
-    public void cUU() {
+    public void cUV() {
         this.kMS.setVisibility(0);
     }
 }

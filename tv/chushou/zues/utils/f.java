@@ -12,7 +12,7 @@ public class f {
     private static SoftReference<Properties> nsB;
 
     public static String get(@NonNull String str) {
-        Object obj = dJR().get(str);
+        Object obj = dJS().get(str);
         if (obj == null) {
             obj = Qo(str);
         }
@@ -30,7 +30,7 @@ public class f {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [56=4] */
-    private static synchronized Properties dJR() {
+    private static synchronized Properties dJS() {
         Properties properties;
         FileInputStream fileInputStream;
         FileInputStream fileInputStream2 = null;

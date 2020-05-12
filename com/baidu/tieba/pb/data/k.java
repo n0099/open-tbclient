@@ -28,7 +28,7 @@ public class k implements com.baidu.adp.widget.ListView.m {
         return 0;
     }
 
-    public boolean cwb() {
+    public boolean cwc() {
         return this.agC != null && this.agC.aLZ() == 1;
     }
 
@@ -44,7 +44,7 @@ public class k implements com.baidu.adp.widget.ListView.m {
         this.joH = z;
     }
 
-    public boolean cwc() {
+    public boolean cwd() {
         return this.joH;
     }
 }

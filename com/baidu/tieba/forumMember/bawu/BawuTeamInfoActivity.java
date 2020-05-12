@@ -48,8 +48,8 @@ public class BawuTeamInfoActivity extends BaseActivity<BawuTeamInfoActivity> {
                         return;
                     }
                     BawuTeamInfoActivity.this.showToast(str);
-                    if (BawuTeamInfoActivity.this.gTZ.bMW()) {
-                        BawuTeamInfoActivity.this.gTZ.bMX();
+                    if (BawuTeamInfoActivity.this.gTZ.bMX()) {
+                        BawuTeamInfoActivity.this.gTZ.bMY();
                         return;
                     }
                     return;

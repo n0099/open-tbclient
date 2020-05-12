@@ -5,9 +5,9 @@ public interface b {
 
     c FW(int i);
 
-    int[] dmc();
+    int[] dmd();
 
-    boolean dmd();
+    boolean dme();
 
     int getFrameCount();
 

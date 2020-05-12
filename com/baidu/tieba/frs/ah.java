@@ -26,7 +26,7 @@ public class ah {
         }
     }
 
-    public List<com.baidu.tbadk.mainTab.b> bOa() {
+    public List<com.baidu.tbadk.mainTab.b> bOb() {
         return this.gXI;
     }
 

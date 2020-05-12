@@ -32,7 +32,7 @@ public class g extends com.baidu.tieba.frs.h<AdvertAppInfo, h> {
         this.hdt = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<ConstrainImageLayout>() { // from class: com.baidu.tieba.recapp.b.g.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: bQO */
+            /* renamed from: bQP */
             public ConstrainImageLayout makeObject() {
                 return new AdConstrainImageLayout(g.this.mPageContext.getPageActivity());
             }
@@ -134,7 +134,7 @@ public class g extends com.baidu.tieba.frs.h<AdvertAppInfo, h> {
     /* renamed from: cf */
     public h b(ViewGroup viewGroup) {
         View view;
-        if (this.krS != null && (view = (View) com.baidu.tieba.lego.card.b.cmB().a(this.mPageContext, this.krS, 1)) != null) {
+        if (this.krS != null && (view = (View) com.baidu.tieba.lego.card.b.cmC().a(this.mPageContext, this.krS, 1)) != null) {
             if (view instanceof AdPostImageView) {
                 AdPostImageView adPostImageView = (AdPostImageView) view;
                 adPostImageView.setConstrainImagePool(this.hdu);
@@ -177,7 +177,7 @@ public class g extends com.baidu.tieba.frs.h<AdvertAppInfo, h> {
             eVar.aA(this.krS);
             final String fid = this.etz.getFid();
             final int pageNum = this.etz.getPageNum();
-            this.etz.bOQ();
+            this.etz.bOR();
             eVar.setAfterClickSchemeListener(new com.baidu.tieba.lego.card.a() { // from class: com.baidu.tieba.recapp.b.g.3
                 @Override // com.baidu.tieba.lego.card.a
                 public void d(int i2, HashMap<String, Object> hashMap) {
@@ -246,13 +246,13 @@ public class g extends com.baidu.tieba.frs.h<AdvertAppInfo, h> {
                 }
             }
         }
-        com.baidu.tieba.recapp.report.d.cOi().a(c);
+        com.baidu.tieba.recapp.report.d.cOj().a(c);
         c.BG(2);
-        com.baidu.tieba.recapp.report.d.cOi().a(c);
+        com.baidu.tieba.recapp.report.d.cOj().a(c);
         if (z) {
             HashMap<String, String> hashMap2 = new HashMap<>();
             hashMap2.put("isDeepLink", "1");
-            com.baidu.tieba.recapp.report.d.cOi().e(advertAppInfo.dmu, hashMap2);
+            com.baidu.tieba.recapp.report.d.cOj().e(advertAppInfo.dmu, hashMap2);
         }
         com.baidu.tieba.lego.card.b.c.a(com.baidu.tieba.lego.card.b.c.e(advertAppInfo));
     }
@@ -276,7 +276,7 @@ public class g extends com.baidu.tieba.frs.h<AdvertAppInfo, h> {
                 }
             }
         }
-        com.baidu.tieba.recapp.report.d.cOi().a(c);
+        com.baidu.tieba.recapp.report.d.cOj().a(c);
         com.baidu.tieba.lego.card.b.c.a(com.baidu.tieba.lego.card.b.c.e(advertAppInfo));
     }
 

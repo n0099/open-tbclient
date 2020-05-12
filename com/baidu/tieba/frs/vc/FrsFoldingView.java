@@ -42,7 +42,7 @@ public class FrsFoldingView extends LinearLayout {
 
     private void init() {
         initView();
-        bUW();
+        bUX();
     }
 
     private void initView() {
@@ -55,23 +55,23 @@ public class FrsFoldingView extends LinearLayout {
         am.setBackgroundColor(this.mRootView, R.color.cp_bg_line_e);
     }
 
-    private void bUW() {
+    private void bUX() {
         this.mRootView.findViewById(R.id.folding_arrow).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.vc.FrsFoldingView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (FrsFoldingView.this.hwE) {
-                    FrsFoldingView.this.bUX();
+                    FrsFoldingView.this.bUY();
                     FrsFoldingView.this.hwE = false;
                     return;
                 }
-                FrsFoldingView.this.bUY();
+                FrsFoldingView.this.bUZ();
                 FrsFoldingView.this.hwE = true;
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bUX() {
+    public void bUY() {
         this.hwF = (LinearLayout.LayoutParams) this.hwI.getLayoutParams();
         final ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
         ofFloat.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.frs.vc.FrsFoldingView.2
@@ -89,7 +89,7 @@ public class FrsFoldingView extends LinearLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bUY() {
+    public void bUZ() {
         this.hwF = (LinearLayout.LayoutParams) this.hwI.getLayoutParams();
         final ValueAnimator ofFloat = ValueAnimator.ofFloat(1.0f, 0.0f);
         ofFloat.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.frs.vc.FrsFoldingView.3

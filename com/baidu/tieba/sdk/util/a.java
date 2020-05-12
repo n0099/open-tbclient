@@ -11,7 +11,7 @@ public class a extends AccountLoginCoreHelper {
     private a() {
     }
 
-    public static a cPz() {
+    public static a cPA() {
         if (kBs == null) {
             kBs = new a();
         }

@@ -161,7 +161,7 @@ public class VideoMiddleModel extends BdBaseModel {
         int i = this.mPn + 1;
         this.mPn = i;
         httpMessage.addParam(com.baidu.mobstat.Config.PACKAGE_NAME, i);
-        httpMessage.addParam("user_view_data", bWn());
+        httpMessage.addParam("user_view_data", bWo());
         if ("frs".equals(this.mFrom)) {
             this.hzw = "client_frs";
         } else if ("index".equals(this.mFrom)) {
@@ -181,7 +181,7 @@ public class VideoMiddleModel extends BdBaseModel {
         return true;
     }
 
-    private String bWn() {
+    private String bWo() {
         JSONArray jSONArray = new JSONArray();
         LinkedList<com.baidu.tbadk.d.a> videoRecordList = TbSingleton.getInstance().getVideoRecordList();
         if (videoRecordList != null) {

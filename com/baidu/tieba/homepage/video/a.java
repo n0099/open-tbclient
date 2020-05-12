@@ -34,7 +34,7 @@ public class a {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             a.this.g(customResponsedMessage);
             if (a.this.hUw != null) {
-                a.this.hUw.bZc();
+                a.this.hUw.bZd();
             }
         }
     };
@@ -73,7 +73,7 @@ public class a {
         public void onListPullRefresh(boolean z) {
             if (j.isNetWorkAvailable()) {
                 a.this.hUw.nN(false);
-                a.this.hUv.cax();
+                a.this.hUv.cay();
                 TiebaStatic.log(new an("c13582"));
                 return;
             }
@@ -85,7 +85,7 @@ public class a {
         @Override // com.baidu.adp.widget.ListView.BdListView.e
         public void onScrollToBottom() {
             a.this.hUw.blo();
-            a.this.hUv.bRi();
+            a.this.hUv.bRj();
         }
     };
     private b.a hUx = new b.a() { // from class: com.baidu.tieba.homepage.video.a.5
@@ -137,7 +137,7 @@ public class a {
         public void onClick(View view) {
             if (a.this.hUw != null && a.this.hUv != null) {
                 a.this.hUw.blo();
-                a.this.hUv.bRi();
+                a.this.hUv.bRj();
             }
         }
     };
@@ -166,19 +166,19 @@ public class a {
 
     public void loadData() {
         if (this.hUw != null) {
-            this.hUw.bZf();
+            this.hUw.bZg();
             this.hUw.showLoadingView();
         }
         if (this.hUv != null) {
-            this.hUv.cax();
+            this.hUv.cay();
         }
     }
 
     public void FG() {
         if (this.hUw != null) {
             this.hUw.nN(false);
-            this.hUw.bZd();
-            this.hUw.bZb();
+            this.hUw.bZe();
+            this.hUw.bZc();
             this.hUw.startPullRefresh();
         }
     }
@@ -203,7 +203,7 @@ public class a {
     public void onPause() {
         if (this.hUw != null) {
             this.hUw.onPause();
-            this.hUw.bXT();
+            this.hUw.bXU();
             this.hUw.setTabInForeBackgroundState(true);
         }
     }
@@ -222,9 +222,9 @@ public class a {
 
     public void setPrimary(boolean z) {
         if (z) {
-            this.hUw.caz();
+            this.hUw.caA();
         } else {
-            this.hUw.bXT();
+            this.hUw.bXU();
         }
     }
 
