@@ -9,15 +9,15 @@ interface FlexItem extends Parcelable {
     public static final int MAX_SIZE = 16777215;
     public static final int ORDER_DEFAULT = 1;
 
-    int duZ();
+    int dva();
 
-    boolean dva();
+    boolean dvb();
 
-    float dvb();
-
-    int dvc();
+    float dvc();
 
     int dvd();
+
+    int dve();
 
     float getFlexGrow();
 

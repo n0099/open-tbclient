@@ -92,10 +92,10 @@ public class PlayVoiceBntNew extends RelativeLayout implements View.OnClickListe
             this.mProgress.setVisibility(4);
         }
         this.mContext = context;
-        cXt();
+        cXu();
     }
 
-    private void cXt() {
+    private void cXu() {
         this.kVX.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
@@ -182,7 +182,7 @@ public class PlayVoiceBntNew extends RelativeLayout implements View.OnClickListe
         }
     }
 
-    public void bZd() {
+    public void bZe() {
         VoiceManager voiceManager;
         if (this.iwG != null && (voiceManager = getVoiceManager()) != null) {
             voiceManager.stopPlay();
@@ -233,7 +233,7 @@ public class PlayVoiceBntNew extends RelativeLayout implements View.OnClickListe
             }
             this.play_type = tbRichTextVoiceInfo.bdc();
             setVoiceModel(voiceModel);
-            cXt();
+            cXu();
             obj = voiceModel;
         }
         super.setTag(obj);
@@ -252,7 +252,7 @@ public class PlayVoiceBntNew extends RelativeLayout implements View.OnClickListe
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.b
     public void aS(int i) {
-        if (!cXv()) {
+        if (!cXw()) {
             xC(1);
             return;
         }
@@ -262,7 +262,7 @@ public class PlayVoiceBntNew extends RelativeLayout implements View.OnClickListe
         }
     }
 
-    private boolean cXv() {
+    private boolean cXw() {
         if (this.iwG == null) {
             return false;
         }
@@ -280,8 +280,8 @@ public class PlayVoiceBntNew extends RelativeLayout implements View.OnClickListe
         return this.iwG;
     }
 
-    public void ckM() {
-        cXt();
+    public void ckN() {
+        cXu();
     }
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.b
@@ -307,7 +307,7 @@ public class PlayVoiceBntNew extends RelativeLayout implements View.OnClickListe
         xC(1);
     }
 
-    public void cXw() {
+    public void cXx() {
         RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.kVX.getLayoutParams();
         layoutParams.width = -2;
         this.kVX.setLayoutParams(layoutParams);

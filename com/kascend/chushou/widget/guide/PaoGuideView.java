@@ -72,7 +72,7 @@ public class PaoGuideView extends RelativeLayout implements View.OnClickListener
         removeAllViews();
         this.mII = new a();
         Bundle bundle = new Bundle();
-        bundle.putString("mH5Url", (tv.chushou.common.a.dJu() + "play-help/bang-guide.htm?") + "roomId=" + str);
+        bundle.putString("mH5Url", (tv.chushou.common.a.dJv() + "play-help/bang-guide.htm?") + "roomId=" + str);
         this.mII.setArguments(bundle);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(i, -1);
         layoutParams.addRule(11);

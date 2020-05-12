@@ -11,7 +11,7 @@ public class g {
     private static final g mPo = new g();
     private final LruCache<String, com.tb.airbnb.lottie.d> Dm = new LruCache<>(Log.FILE_LIMETE);
 
-    public static g dBn() {
+    public static g dBo() {
         return mPo;
     }
 

@@ -21,7 +21,7 @@ public class j {
         return this.title;
     }
 
-    public boolean cVu() {
+    public boolean cVv() {
         return this.kQo == 1;
     }
 }

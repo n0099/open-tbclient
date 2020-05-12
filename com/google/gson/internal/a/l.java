@@ -32,7 +32,7 @@ public final class l<T> extends TypeAdapter<T> {
     @Override // com.google.gson.TypeAdapter
     public T read(com.google.gson.stream.a aVar) throws IOException {
         if (this.mkr == null) {
-            return dvr().read(aVar);
+            return dvs().read(aVar);
         }
         JsonElement parse = com.google.gson.internal.i.parse(aVar);
         if (parse.isJsonNull()) {
@@ -44,15 +44,15 @@ public final class l<T> extends TypeAdapter<T> {
     @Override // com.google.gson.TypeAdapter
     public void write(com.google.gson.stream.b bVar, T t) throws IOException {
         if (this.mkq == null) {
-            dvr().write(bVar, t);
+            dvs().write(bVar, t);
         } else if (t == null) {
-            bVar.dvV();
+            bVar.dvW();
         } else {
             com.google.gson.internal.i.a(this.mkq.serialize(t, this.mks.getType(), this.mku), bVar);
         }
     }
 
-    private TypeAdapter<T> dvr() {
+    private TypeAdapter<T> dvs() {
         TypeAdapter<T> typeAdapter = this.delegate;
         if (typeAdapter != null) {
             return typeAdapter;
@@ -63,7 +63,7 @@ public final class l<T> extends TypeAdapter<T> {
     }
 
     public static TypeAdapterFactory a(com.google.gson.b.a<?> aVar, Object obj) {
-        return new b(obj, aVar, aVar.getType() == aVar.dvZ(), null);
+        return new b(obj, aVar, aVar.getType() == aVar.dwa(), null);
     }
 
     public static TypeAdapterFactory a(Class<?> cls, Object obj) {
@@ -92,9 +92,9 @@ public final class l<T> extends TypeAdapter<T> {
         public <T> TypeAdapter<T> create(Gson gson, com.google.gson.b.a<T> aVar) {
             boolean isAssignableFrom;
             if (this.mkw != null) {
-                isAssignableFrom = this.mkw.equals(aVar) || (this.mkx && this.mkw.getType() == aVar.dvZ());
+                isAssignableFrom = this.mkw.equals(aVar) || (this.mkx && this.mkw.getType() == aVar.dwa());
             } else {
-                isAssignableFrom = this.mky.isAssignableFrom(aVar.dvZ());
+                isAssignableFrom = this.mky.isAssignableFrom(aVar.dwa());
             }
             if (isAssignableFrom) {
                 return new l(this.mkq, this.mkr, gson, aVar, this);

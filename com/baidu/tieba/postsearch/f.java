@@ -35,7 +35,7 @@ public class f {
             Bo(1);
             return;
         }
-        cLU();
+        cLV();
         if (this.mTabHost.getCurrentTabType() == i) {
             PostSearchListFragment Bq = Bq(i);
             if (Bq != null) {
@@ -81,7 +81,7 @@ public class f {
         this.mTabHost.setup(this.kmC.getSupportFragmentManager());
         this.mTabHost.setTabWidgetViewHeight((int) this.kmC.getResources().getDimension(R.dimen.ds80));
         this.mTabHost.setShouldDrawIndicatorLine(true);
-        cLT();
+        cLU();
         this.mTabHost.initViewPager(3);
         this.mTabHost.setCurrentTabByType(i);
         this.mTabHost.setNeedShowThemeStyle(false);
@@ -98,7 +98,7 @@ public class f {
         }
     }
 
-    private void cLT() {
+    private void cLU() {
         FragmentTabHost.b bVar = new FragmentTabHost.b();
         this.knp = new PostSearchListFragment(1);
         bVar.mContentFragment = this.knp;
@@ -143,9 +143,9 @@ public class f {
         }
     }
 
-    private void cLU() {
-        this.knp.cLL();
-        this.knq.cLL();
-        this.knr.cLL();
+    private void cLV() {
+        this.knp.cLM();
+        this.knq.cLM();
+        this.knr.cLM();
     }
 }

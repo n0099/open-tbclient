@@ -24,19 +24,19 @@ public class c implements org.aspectj.lang.b {
             this.id = i;
         }
 
-        public String dGw() {
+        public String dGx() {
             return this.nfA;
         }
 
-        public org.aspectj.lang.c dGx() {
+        public org.aspectj.lang.c dGy() {
             return this.nfB;
         }
 
         String a(h hVar) {
             StringBuffer stringBuffer = new StringBuffer();
-            stringBuffer.append(hVar.PH(dGw()));
+            stringBuffer.append(hVar.PH(dGx()));
             stringBuffer.append("(");
-            stringBuffer.append(((f) dGx()).a(hVar));
+            stringBuffer.append(((f) dGy()).a(hVar));
             stringBuffer.append(")");
             return stringBuffer.toString();
         }

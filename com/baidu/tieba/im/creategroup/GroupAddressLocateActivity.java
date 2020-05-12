@@ -28,7 +28,7 @@ public class GroupAddressLocateActivity extends BaseActivity<GroupAddressLocateA
         @Override // com.baidu.tbadk.core.dialog.a.b
         public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
             aVar.dismiss();
-            GroupAddressLocateActivity.this.ceM();
+            GroupAddressLocateActivity.this.ceN();
         }
     };
     a.b iiT = new a.b() { // from class: com.baidu.tieba.im.creategroup.GroupAddressLocateActivity.2
@@ -61,7 +61,7 @@ public class GroupAddressLocateActivity extends BaseActivity<GroupAddressLocateA
     public void onDestroy() {
         super.onDestroy();
         if (this.iiR != null) {
-            this.iiR.cey();
+            this.iiR.cez();
         }
     }
 
@@ -74,7 +74,7 @@ public class GroupAddressLocateActivity extends BaseActivity<GroupAddressLocateA
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (i == 4 && keyEvent.getRepeatCount() == 0 && ceL()) {
+        if (i == 4 && keyEvent.getRepeatCount() == 0 && ceM()) {
             return true;
         }
         return super.onKeyDown(i, keyEvent);
@@ -83,24 +83,24 @@ public class GroupAddressLocateActivity extends BaseActivity<GroupAddressLocateA
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.iiR.ceJ()) {
-            ceM();
+        if (view == this.iiR.ceK()) {
+            ceN();
         } else if (view == this.iiR.getBackButton()) {
-            if (!ceL()) {
+            if (!ceM()) {
                 finish();
             }
-        } else if (view == this.iiR.ceS()) {
-            this.iiR.ceK();
-            this.iiR.ceO();
-            this.ibI = -1;
         } else if (view == this.iiR.ceT()) {
-            switch (this.iiR.cdF()) {
+            this.iiR.ceL();
+            this.iiR.ceP();
+            this.ibI = -1;
+        } else if (view == this.iiR.ceU()) {
+            switch (this.iiR.cdG()) {
                 case 1:
                     startActivityForResult(new Intent("android.settings.LOCATION_SOURCE_SETTINGS"), RequestResponseCode.REQUEST_SETTING_LOCATION_SOURCE);
                     return;
                 case 2:
-                    this.iiR.ceP();
-                    this.iiR.cex();
+                    this.iiR.ceQ();
+                    this.iiR.cey();
                     return;
                 case 3:
                 default:
@@ -114,8 +114,8 @@ public class GroupAddressLocateActivity extends BaseActivity<GroupAddressLocateA
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
         if (i == 22001) {
-            this.iiR.ceP();
-            this.iiR.cex();
+            this.iiR.ceQ();
+            this.iiR.cey();
         }
     }
 
@@ -123,7 +123,7 @@ public class GroupAddressLocateActivity extends BaseActivity<GroupAddressLocateA
     public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
         super.onRequestPermissionsResult(i, strArr, iArr);
         if (i == 25044) {
-            this.iiR.cex();
+            this.iiR.cey();
         }
     }
 
@@ -138,8 +138,8 @@ public class GroupAddressLocateActivity extends BaseActivity<GroupAddressLocateA
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        this.iiR.ceK();
-        this.iiR.ceN();
+        this.iiR.ceL();
+        this.iiR.ceO();
         this.ibI = i;
     }
 
@@ -171,16 +171,16 @@ public class GroupAddressLocateActivity extends BaseActivity<GroupAddressLocateA
     }
 
     @Override // com.baidu.tieba.im.util.b.a
-    public void cec() {
-        this.iiR.ceQ();
+    public void ced() {
+        this.iiR.ceR();
     }
 
     @Override // com.baidu.tieba.im.util.b.a
-    public void ced() {
-        this.iiR.cdH();
+    public void cee() {
+        this.iiR.cdI();
     }
 
-    private boolean ceL() {
+    private boolean ceM() {
         if (this.iiA != this.iiM || this.ibI > -1) {
             this.iiR.showDialog();
             return true;
@@ -189,7 +189,7 @@ public class GroupAddressLocateActivity extends BaseActivity<GroupAddressLocateA
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ceM() {
+    public void ceN() {
         Intent intent = new Intent();
         if (this.iiP == null) {
             if (this.ibI > -1) {

@@ -39,7 +39,7 @@ public class b {
         void b(i.c cVar);
     }
 
-    public static b cut() {
+    public static b cuu() {
         if (jkr == null) {
             synchronized (b.class) {
                 if (jkr == null) {
@@ -65,7 +65,7 @@ public class b {
         } else if (iVar.getType() == 2) {
             Hj(session.bduss);
         } else if (iVar.getType() == 3) {
-            cuu();
+            cuv();
         }
     }
 
@@ -96,7 +96,7 @@ public class b {
         context.startActivity(intent);
     }
 
-    private void cuu() {
+    private void cuv() {
         Context context = SapiAccountManager.getInstance().getSapiConfiguration().context;
         Intent intent = new Intent(context, RemindActivity.class);
         intent.addFlags(268435456);
@@ -112,7 +112,7 @@ public class b {
                     BdStatisticsManager.getInstance().error("passloaderror", 0L, (String) null, "Exception", e.toString());
                     this.jkt.set(false);
                 }
-            } else if (!cuw()) {
+            } else if (!cux()) {
                 try {
                     a(iVar, aVar);
                 } catch (Exception e2) {
@@ -141,7 +141,7 @@ public class b {
     public void qt(boolean z) {
         a(new i.c(false));
         if (z) {
-            cuv();
+            cuw();
         }
     }
 
@@ -150,11 +150,11 @@ public class b {
     }
 
     public void u(boolean z, String str) {
-        c.cuz().a((c.a) null);
+        c.cuA().a((c.a) null);
         a(new i.b(z, str));
     }
 
-    private void cuv() {
+    private void cuw() {
         com.baidu.tbadk.coreExtra.a.c aRs;
         AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
         if (currentAccountObj == null) {
@@ -172,15 +172,15 @@ public class b {
         ReloginManager.aNM().e(null);
     }
 
-    private boolean cuw() {
-        ComponentName cux = cux();
-        if (cux != null) {
-            return AuthActivity.class.getName().equals(cux.getClassName()) || LivenessRecogActivity.class.getName().equals(cux.getClassName());
+    private boolean cux() {
+        ComponentName cuy = cuy();
+        if (cuy != null) {
+            return AuthActivity.class.getName().equals(cuy.getClassName()) || LivenessRecogActivity.class.getName().equals(cuy.getClassName());
         }
         return false;
     }
 
-    private ComponentName cux() {
+    private ComponentName cuy() {
         ActivityManager activityManager;
         List<ActivityManager.RunningTaskInfo> runningTasks;
         try {
@@ -201,10 +201,10 @@ public class b {
     }
 
     public static void xB() {
-        cuy();
+        cuz();
     }
 
-    private static void cuy() {
+    private static void cuz() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2921372, new CustomMessageTask.CustomRunnable<i>() { // from class: com.baidu.tieba.passaccount.a.b.1
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<i> customMessage) {
@@ -222,7 +222,7 @@ public class b {
                         }
                     } else {
                         MessageManager.getInstance().runTask(CmdConfigCustom.CMD_INIT_RIM_SDK, (Class) null);
-                        b.cut().b(data, new C0626b(data));
+                        b.cuu().b(data, new C0626b(data));
                     }
                 }
                 return null;

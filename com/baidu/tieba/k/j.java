@@ -59,11 +59,11 @@ public class j implements i {
         this.ahO = str;
         this.mVideoUrl = str2;
         this.jbM = str3;
-        crS();
+        crT();
     }
 
     @Override // com.baidu.tieba.k.i
-    public void crD() {
+    public void crE() {
         this.jbU = System.currentTimeMillis();
         this.jbP.add(new com.baidu.tieba.n.a(3));
         this.mCurrentState = 0;
@@ -93,13 +93,13 @@ public class j implements i {
     }
 
     @Override // com.baidu.tieba.k.i
-    public void crE() {
+    public void crF() {
         this.jbP.add(new com.baidu.tieba.n.a(2));
         this.mCurrentState = 2;
     }
 
     @Override // com.baidu.tieba.k.i
-    public void crF() {
+    public void crG() {
         if (this.mCurrentState != 2) {
             this.jbU = System.currentTimeMillis();
             this.jbP.add(new com.baidu.tieba.n.a(101));
@@ -153,7 +153,7 @@ public class j implements i {
     @Override // com.baidu.tieba.k.i
     public void yS(int i) {
         if (this.mCurrentState == 5) {
-            crL();
+            crM();
         } else if (this.mCurrentState == 3) {
             this.jbN = i;
             this.jbV = System.currentTimeMillis();
@@ -163,7 +163,7 @@ public class j implements i {
     }
 
     @Override // com.baidu.tieba.k.i
-    public void crG() {
+    public void crH() {
         if (this.jbV != 0) {
             long currentTimeMillis = System.currentTimeMillis();
             this.jbW += currentTimeMillis - this.jbV;
@@ -175,7 +175,7 @@ public class j implements i {
     }
 
     @Override // com.baidu.tieba.k.i
-    public void crH() {
+    public void crI() {
         this.jbV = System.currentTimeMillis();
         if (this.jbZ != 0) {
             this.jbY += System.currentTimeMillis() - this.jbZ;
@@ -191,7 +191,7 @@ public class j implements i {
     }
 
     @Override // com.baidu.tieba.k.i
-    public void crI() {
+    public void crJ() {
         if (this.mCurrentState == 4 || this.mCurrentState == 3) {
             if (this.jbV != 0) {
                 long currentTimeMillis = System.currentTimeMillis();
@@ -203,7 +203,7 @@ public class j implements i {
         }
     }
 
-    public void crL() {
+    public void crM() {
         if (this.mCurrentState == 5) {
             this.jbV = System.currentTimeMillis();
             this.jbP.add(new com.baidu.tieba.n.a(204));
@@ -215,7 +215,7 @@ public class j implements i {
     public void GO(String str) {
         if (this.mCurrentState != 8 && this.mCurrentState != 7 && this.mCurrentState != 6 && this.mCurrentState != -1) {
             this.mSource = VideoPlatformStatic.yc(str);
-            crN();
+            crO();
             this.jbP.add(new com.baidu.tieba.n.a(205));
             this.mCurrentState = 8;
             aed();
@@ -228,7 +228,7 @@ public class j implements i {
             return this.mUuid;
         }
         this.mSource = VideoPlatformStatic.yc(str);
-        crN();
+        crO();
         this.jbQ.put("stallDuration", Long.valueOf(this.jbY));
         this.jbP.add(new com.baidu.tieba.n.a(206));
         this.mCurrentState = 6;
@@ -242,7 +242,7 @@ public class j implements i {
             return false;
         }
         this.mSource = VideoPlatformStatic.yc(str);
-        crN();
+        crO();
         this.jbP.add(new com.baidu.tieba.n.a(HttpStatus.SC_MULTI_STATUS));
         this.mCurrentState = 7;
         aed();
@@ -293,23 +293,23 @@ public class j implements i {
         this.jce = z;
         this.mError = i3;
         this.mSource = VideoPlatformStatic.yc(str);
-        crN();
+        crO();
         if (!v.isEmpty(this.jbT)) {
             int size = this.jbT.size();
             for (int i4 = 0; i4 < size; i4++) {
                 com.baidu.tieba.k.a.c cVar = this.jbT.get(i4);
                 if (cVar != null) {
-                    cVar.csc();
+                    cVar.csd();
                 }
             }
         }
-        this.jbP.add(new com.baidu.tieba.n.b(i, i2, i3, j, str2, crM()));
+        this.jbP.add(new com.baidu.tieba.n.b(i, i2, i3, j, str2, crN()));
         this.mCurrentState = -1;
         aed();
         return this.mUuid;
     }
 
-    private com.baidu.tieba.k.a.e[] crM() {
+    private com.baidu.tieba.k.a.e[] crN() {
         if (this.jbT == null || this.jbT.size() == 0) {
             return null;
         }
@@ -320,7 +320,7 @@ public class j implements i {
             if (i2 >= this.jbT.size()) {
                 return eVarArr;
             }
-            eVarArr[i2] = this.jbT.get(i2).csa();
+            eVarArr[i2] = this.jbT.get(i2).csb();
             i = i2 + 1;
         }
     }
@@ -330,7 +330,7 @@ public class j implements i {
         this.jcg = str;
     }
 
-    private void crN() {
+    private void crO() {
         if (this.jbV != 0) {
             this.jbW += System.currentTimeMillis() - this.jbV;
         }
@@ -362,19 +362,19 @@ public class j implements i {
                         JSONObject jSONObject = new JSONObject();
                         try {
                             jSONObject.put("baseInfo", j.this.bfJ());
-                            jSONObject.put("kpiInfo", j.this.crO());
+                            jSONObject.put("kpiInfo", j.this.crP());
                             if (reportType2 == 0 || (reportType2 == 4 && j.this.jcc)) {
-                                JSONObject crQ = j.this.crQ();
-                                crQ.put("running", j.this.crR());
-                                jSONObject.put("debugInfo", crQ);
+                                JSONObject crR = j.this.crR();
+                                crR.put("running", j.this.crS());
+                                jSONObject.put("debugInfo", crR);
                             } else if (reportType2 == 2) {
-                                jSONObject.put("debugInfo", j.this.crQ());
+                                jSONObject.put("debugInfo", j.this.crR());
                             } else if (reportType2 == 1) {
                             }
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
-                        com.baidu.tieba.u.e.dac().e(jSONObject, j.this.jcc ? false : true);
+                        com.baidu.tieba.u.e.dad().e(jSONObject, j.this.jcc ? false : true);
                         if (j.this.jch != null) {
                             j.this.jch.clear();
                             return null;
@@ -403,7 +403,7 @@ public class j implements i {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public JSONObject crO() {
+    public JSONObject crP() {
         JSONObject jSONObject = new JSONObject();
         try {
             for (Map.Entry<String, Long> entry : this.jbQ.entrySet()) {
@@ -423,7 +423,7 @@ public class j implements i {
             }
             jSONObject.put("isCacheHit", this.jcb ? 1 : 0);
             jSONObject.put("playSuccess", this.jcc ? 1 : 0);
-            jSONObject.put("startPlayTimeInfo", crP());
+            jSONObject.put("startPlayTimeInfo", crQ());
             jSONObject.put("retryError", this.jce ? 1 : 0);
             jSONObject.put(BdStatsConstant.StatsType.ERROR, this.mError);
             if (this.jch != null) {
@@ -438,7 +438,7 @@ public class j implements i {
         return jSONObject;
     }
 
-    private JSONObject crP() {
+    private JSONObject crQ() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("preparedTime", this.jcj);
@@ -447,12 +447,12 @@ public class j implements i {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        crS();
+        crT();
         return jSONObject;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public JSONObject crQ() {
+    public JSONObject crR() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("uuid", this.mUuid);
@@ -487,14 +487,14 @@ public class j implements i {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public JSONArray crR() {
+    public JSONArray crS() {
         JSONArray jSONArray = new JSONArray();
         if (this.jbP == null) {
             return jSONArray;
         }
         int size = this.jbP.size();
         for (int i = 0; i < size; i++) {
-            jSONArray.put(this.jbP.get(i).cKQ());
+            jSONArray.put(this.jbP.get(i).cKR());
         }
         return jSONArray;
     }
@@ -513,12 +513,12 @@ public class j implements i {
     }
 
     @Override // com.baidu.tieba.k.i
-    public String crJ() {
+    public String crK() {
         return this.mUuid;
     }
 
     @Override // com.baidu.tieba.k.i
-    public String crK() {
+    public String crL() {
         return this.jci + "";
     }
 
@@ -529,7 +529,7 @@ public class j implements i {
         this.jcl = j3;
     }
 
-    private void crS() {
+    private void crT() {
         this.jcj = 0L;
         this.jck = 0L;
         this.jcl = 0L;

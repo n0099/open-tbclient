@@ -29,25 +29,25 @@ public class e {
     public void a(com.baidu.tieba.pb.data.e eVar, PostData postData, BdTypeListView bdTypeListView, d dVar, FrameLayout frameLayout, com.baidu.tieba.pb.pb.main.view.c cVar, String str, long j) {
         if (eVar != null && eVar.aQe()) {
             if (this.jDn == null) {
-                this.jDn = new h(this.jpW, cVar, eVar.cvr().aKT(), j);
-                this.jDn.a(eVar.cvr().aKT(), eVar.cvr(), eVar.getForumId());
+                this.jDn = new h(this.jpW, cVar, eVar.cvs().aKT(), j);
+                this.jDn.a(eVar.cvs().aKT(), eVar.cvs(), eVar.getForumId());
                 this.jDn.startPlay();
             } else if (this.jDp) {
-                this.jDn.a(eVar.cvr().aKT(), eVar.cvr(), eVar.getForumId());
+                this.jDn.a(eVar.cvs().aKT(), eVar.cvs(), eVar.getForumId());
                 this.jDn.startPlay();
             } else {
                 this.jDn.Ig(eVar.getForumId());
             }
             com.baidu.tieba.pb.c.a.a(this.jpW.getUniqueId(), eVar, postData, 1, 1);
-            if (eVar.cvs() != null && eVar.cvs().size() >= 1) {
-                bj bjVar = eVar.cvs().get(0);
+            if (eVar.cvt() != null && eVar.cvt().size() >= 1) {
+                bj bjVar = eVar.cvt().get(0);
                 this.jDn.aM(bjVar);
                 this.jDn.Ih(bjVar.getTitle());
             }
-            this.jDn.b(postData, eVar.cvr(), eVar.cvM());
+            this.jDn.b(postData, eVar.cvs(), eVar.cvN());
             this.jDp = false;
-            bdTypeListView.removeHeaderView(this.jDn.cDr());
-            bdTypeListView.addHeaderView(this.jDn.cDr(), 0);
+            bdTypeListView.removeHeaderView(this.jDn.cDs());
+            bdTypeListView.addHeaderView(this.jDn.cDs(), 0);
             if (this.jDn.blE() != null && this.jDn.blE().getParent() == null) {
                 frameLayout.addView(this.jDn.blE());
             }
@@ -55,8 +55,8 @@ public class e {
                 this.jDo = new g(this.jpW.getBaseFragmentActivity());
             }
             this.jDo.b(eVar, str);
-            bdTypeListView.removeHeaderView(this.jDo.cDk());
-            bdTypeListView.addHeaderView(this.jDo.cDk(), 1);
+            bdTypeListView.removeHeaderView(this.jDo.cDl());
+            bdTypeListView.addHeaderView(this.jDo.cDl(), 1);
             dVar.c(bdTypeListView);
             dVar.a(bdTypeListView, 2);
             if (this.jDn != null) {
@@ -69,7 +69,7 @@ public class e {
     public void c(BdTypeListView bdTypeListView) {
         if (bdTypeListView != null) {
             if (this.jDn != null) {
-                bdTypeListView.removeHeaderView(this.jDn.cDr());
+                bdTypeListView.removeHeaderView(this.jDn.cDs());
             }
             if (this.jDo != null) {
                 this.jDo.e(bdTypeListView);
@@ -90,7 +90,7 @@ public class e {
     public void d(BdTypeListView bdTypeListView) {
         if (this.jDn != null) {
             TiebaStatic.log(new an("c11997").af("obj_type", 1));
-            this.jDn.cBJ();
+            this.jDn.cBK();
             bdTypeListView.smoothScrollToPosition(0);
         }
     }
@@ -110,14 +110,14 @@ public class e {
                     pbLandscapeListView.setTextViewAdded(false);
                 }
                 if (i != 1) {
-                    pbLandscapeListView.removeHeaderView(this.jDn.cDr());
-                    pbLandscapeListView.addHeaderView(this.jDn.cDr(), 0);
+                    pbLandscapeListView.removeHeaderView(this.jDn.cDs());
+                    pbLandscapeListView.addHeaderView(this.jDn.cDs(), 0);
                     return;
                 }
                 return;
             }
             if (this.jDn != null) {
-                pbLandscapeListView.removeHeaderView(this.jDn.cDr());
+                pbLandscapeListView.removeHeaderView(this.jDn.cDs());
             }
             if (textView != null) {
                 pbLandscapeListView.removeHeaderView(textView);
@@ -126,11 +126,11 @@ public class e {
         }
     }
 
-    public boolean cBq() {
-        return this.jDn != null && this.jDn.cBq();
+    public boolean cBr() {
+        return this.jDn != null && this.jDn.cBr();
     }
 
-    public void cBr() {
+    public void cBs() {
         if (this.jDn != null) {
             this.jDn.onPause();
         }
@@ -154,9 +154,9 @@ public class e {
         }
     }
 
-    public void cBJ() {
+    public void cBK() {
         if (this.jDn != null) {
-            this.jDn.cBJ();
+            this.jDn.cBK();
         }
     }
 
@@ -203,7 +203,7 @@ public class e {
         return null;
     }
 
-    public int cBK() {
+    public int cBL() {
         View blE = blE();
         if (blE != null) {
             return blE.getHeight();
@@ -211,9 +211,9 @@ public class e {
         return 0;
     }
 
-    public int cBL() {
+    public int cBM() {
         if (this.jDn != null) {
-            return this.jDn.cBL();
+            return this.jDn.cBM();
         }
         return 0;
     }

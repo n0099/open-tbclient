@@ -21,35 +21,35 @@ public final class c {
     private HashMap<String, r<Canvas, Integer, Integer, Integer, Boolean>> mJv = new HashMap<>();
     private boolean mJw;
 
-    public final HashMap<String, Boolean> dzg() {
+    public final HashMap<String, Boolean> dzh() {
         return this.mJp;
     }
 
-    public final HashMap<String, Bitmap> dzh() {
+    public final HashMap<String, Bitmap> dzi() {
         return this.mJq;
     }
 
-    public final HashMap<String, String> dzi() {
+    public final HashMap<String, String> dzj() {
         return this.mJr;
     }
 
-    public final HashMap<String, TextPaint> dzj() {
+    public final HashMap<String, TextPaint> dzk() {
         return this.mJs;
     }
 
-    public final HashMap<String, StaticLayout> dzk() {
+    public final HashMap<String, StaticLayout> dzl() {
         return this.mJt;
     }
 
-    public final HashMap<String, m<Canvas, Integer, Boolean>> dzl() {
+    public final HashMap<String, m<Canvas, Integer, Boolean>> dzm() {
         return this.mJu;
     }
 
-    public final HashMap<String, r<Canvas, Integer, Integer, Integer, Boolean>> dzm() {
+    public final HashMap<String, r<Canvas, Integer, Integer, Integer, Boolean>> dzn() {
         return this.mJv;
     }
 
-    public final boolean dzn() {
+    public final boolean dzo() {
         return this.mJw;
     }
 

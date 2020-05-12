@@ -99,7 +99,7 @@ public abstract class d extends g implements View.OnClickListener, b.a {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         this.mwE = getActivity();
-        if (dym()) {
+        if (dyn()) {
             tv.chushou.zues.utils.e.e("VideoPlayerBaseFragment", "killed in backgroud");
             return;
         }
@@ -132,8 +132,8 @@ public abstract class d extends g implements View.OnClickListener, b.a {
         super.onResume();
         tv.chushou.zues.utils.e.i("VideoPlayerBaseFragment", "lhh - onResume");
         this.ah = false;
-        dkZ();
-        dxC();
+        dla();
+        dxD();
         ((VideoPlayer) this.mwE).m = false;
     }
 
@@ -198,19 +198,19 @@ public abstract class d extends g implements View.OnClickListener, b.a {
         this.B = (TextView) this.mwo.findViewById(a.f.iv_cyclelive_countdown);
     }
 
-    private void dxC() {
+    private void dxD() {
         if (i() || h()) {
             if (this.N != null) {
                 this.N.setVisibility(0);
             }
-            this.msU = ((VideoPlayer) this.mwE).dwP();
+            this.msU = ((VideoPlayer) this.mwE).dwQ();
             if (this.msU != null) {
                 Uri uri = this.msU.getUri();
-                Uri dwV = ((VideoPlayer) this.mwE).dwV();
+                Uri dwW = ((VideoPlayer) this.mwE).dwW();
                 if (!this.mwH) {
-                    if (dwV != null && uri != null && !uri.equals(dwV)) {
+                    if (dwW != null && uri != null && !uri.equals(dwW)) {
                         ((VideoPlayer) this.mwE).a(true, (Uri) null, false);
-                    } else if (h.dwH().a) {
+                    } else if (h.dwI().a) {
                         ((VideoPlayer) this.mwE).a(true, (Uri) null, false);
                     } else if (((VideoPlayer) this.mwE).m) {
                         if (h() && this.mwD.d()) {
@@ -235,7 +235,7 @@ public abstract class d extends g implements View.OnClickListener, b.a {
                                         }
                                     } else {
                                         U();
-                                        dkZ();
+                                        dla();
                                         if (this.mwv != null) {
                                             this.mwv.setVisibility(0);
                                         }
@@ -257,7 +257,7 @@ public abstract class d extends g implements View.OnClickListener, b.a {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void d() {
-        FullRoomInfo dxs;
+        FullRoomInfo dxt;
         tv.chushou.zues.utils.e.e("VideoPlayerBaseFragment", "release <----------");
         if (this.B != null) {
             this.B.setVisibility(8);
@@ -266,9 +266,9 @@ public abstract class d extends g implements View.OnClickListener, b.a {
             this.mqh.dispose();
             this.mqh = null;
         }
-        if (this.mwD != null && (dxs = this.mwD.dxs()) != null && !tv.chushou.zues.utils.h.isEmpty(dxs.mGeneralTabGifts)) {
-            for (int i = 0; i < dxs.mGeneralTabGifts.size(); i++) {
-                GeneralTabGift generalTabGift = dxs.mGeneralTabGifts.get(i);
+        if (this.mwD != null && (dxt = this.mwD.dxt()) != null && !tv.chushou.zues.utils.h.isEmpty(dxt.mGeneralTabGifts)) {
+            for (int i = 0; i < dxt.mGeneralTabGifts.size(); i++) {
+                GeneralTabGift generalTabGift = dxt.mGeneralTabGifts.get(i);
                 if (generalTabGift != null && !tv.chushou.zues.utils.h.isEmpty(generalTabGift.mGeneralGifts)) {
                     for (int i2 = 0; i2 < generalTabGift.mGeneralGifts.size(); i2++) {
                         if (generalTabGift.mGeneralGifts.get(i2) != null) {
@@ -289,7 +289,7 @@ public abstract class d extends g implements View.OnClickListener, b.a {
         if (this.mxs != null) {
             this.mxs.unInit();
             this.mxs = null;
-            dyn().removeAllViews();
+            dyo().removeAllViews();
         }
         if (this.mxg != null) {
             ((ViewGroup) this.mwo).removeView(this.mxg);
@@ -345,7 +345,7 @@ public abstract class d extends g implements View.OnClickListener, b.a {
         ColorPrivileges colorPrivileges;
         ArrayList<RichText> arrayList = null;
         if (this.mwD != null && !tv.chushou.zues.utils.h.isEmpty(this.mwD.a) && this.msU != null) {
-            com.kascend.chushou.c.c.dwD().a(new com.kascend.chushou.c.b() { // from class: com.kascend.chushou.player.d.1
+            com.kascend.chushou.c.c.dwE().a(new com.kascend.chushou.c.b() { // from class: com.kascend.chushou.player.d.1
                 @Override // com.kascend.chushou.c.b
                 public void a() {
                 }
@@ -384,14 +384,14 @@ public abstract class d extends g implements View.OnClickListener, b.a {
     public void a(String str, String str2, String str3, String str4) {
         ArrayList<RichText> arrayList;
         ColorPrivileges colorPrivileges;
-        com.kascend.chushou.c.c.dwD().a(new JsonCallbackWrapper() { // from class: com.kascend.chushou.player.d.2
+        com.kascend.chushou.c.c.dwE().a(new JsonCallbackWrapper() { // from class: com.kascend.chushou.player.d.2
             @Override // tv.chushou.basis.http.listener.JsonCallbackWrapper
             public void callStart() {
             }
 
             @Override // tv.chushou.basis.http.listener.JsonCallbackWrapper
             public void callSuccess(String str5, JSONObject jSONObject) {
-                if (!d.this.dym()) {
+                if (!d.this.dyn()) {
                     ParserRet dy = com.kascend.chushou.c.e.dy(jSONObject);
                     String str6 = dy.mMessage;
                     if (dy.mRc == 0) {
@@ -404,7 +404,7 @@ public abstract class d extends g implements View.OnClickListener, b.a {
 
             @Override // tv.chushou.basis.http.listener.JsonCallbackWrapper
             public void callFailure(int i, @Nullable String str5, @Nullable String str6) {
-                if (!d.this.dym()) {
+                if (!d.this.dyn()) {
                     if (i == 401) {
                         com.kascend.chushou.d.e.b(d.this.mwE, str5);
                     } else if (i == 403) {
@@ -431,9 +431,9 @@ public abstract class d extends g implements View.OnClickListener, b.a {
         boolean z = false;
         if (this.mwD != null) {
             if (this.ap < 0) {
-                z = h.dwH().d;
+                z = h.dwI().d;
             } else {
-                z = h.dwH().e;
+                z = h.dwI().e;
             }
         }
         if (z && this.mxs != null && this.mxs.getVisibility() == 0) {
@@ -449,7 +449,7 @@ public abstract class d extends g implements View.OnClickListener, b.a {
     @Override // com.kascend.chushou.player.e
     public void f() {
         if (this.mxs != null) {
-            this.mxs.PT(h.dwH().b());
+            this.mxs.PT(h.dwI().b());
         }
     }
 
@@ -503,15 +503,15 @@ public abstract class d extends g implements View.OnClickListener, b.a {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public boolean i() {
-        FullRoomInfo dxs;
+        FullRoomInfo dxt;
         RoomInfo roomInfo;
-        return (this.mwD == null || (dxs = this.mwD.dxs()) == null || (roomInfo = dxs.mRoominfo) == null || tv.chushou.zues.utils.h.isEmpty(roomInfo.mGameId)) ? false : true;
+        return (this.mwD == null || (dxt = this.mwD.dxt()) == null || (roomInfo = dxt.mRoominfo) == null || tv.chushou.zues.utils.h.isEmpty(roomInfo.mGameId)) ? false : true;
     }
 
     @Override // com.kascend.chushou.player.e
     public void j() {
         if (this.mxs != null) {
-            this.mxs.dJb();
+            this.mxs.dJc();
         }
         a((PlayUrl) null);
         we(true);
@@ -519,16 +519,16 @@ public abstract class d extends g implements View.OnClickListener, b.a {
 
     @Override // com.kascend.chushou.player.e
     public void a(b bVar) {
-        com.kascend.chushou.player.b.a dxS = dxS();
-        if (dxS != null) {
-            dxS.a(bVar);
+        com.kascend.chushou.player.b.a dxT = dxT();
+        if (dxT != null) {
+            dxT.a(bVar);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(ParserRet parserRet) {
         SparseArray sparseArray;
-        RoomInfo dxv;
+        RoomInfo dxw;
         boolean z;
         if (parserRet != null) {
             if (parserRet.mData2 == null) {
@@ -541,7 +541,7 @@ public abstract class d extends g implements View.OnClickListener, b.a {
                 if (sparseArray2.get(1) != null && (sparseArray2.get(1) instanceof BangInfo)) {
                     BangInfo bangInfo = (BangInfo) sparseArray2.get(1);
                     if (this.mwE instanceof VideoPlayer) {
-                        ((VideoPlayer) this.mwE).dxc().a(bangInfo);
+                        ((VideoPlayer) this.mwE).dxd().a(bangInfo);
                     }
                 }
                 if (sparseArray2.get(2) != null && (sparseArray2.get(2) instanceof ArrayList)) {
@@ -553,10 +553,10 @@ public abstract class d extends g implements View.OnClickListener, b.a {
                         }
                     }
                 }
-                if (sparseArray2.get(3) != null && (sparseArray2.get(3) instanceof MicStatus) && this.mwD != null && this.mwD.dxs() != null) {
-                    this.mwD.dxs().mMicStatus = (MicStatus) sparseArray2.get(3);
-                    if (this.mwD.dxs().mMicStatus != null) {
-                        if (this.mwD.dxs().mMicStatus.onMic) {
+                if (sparseArray2.get(3) != null && (sparseArray2.get(3) instanceof MicStatus) && this.mwD != null && this.mwD.dxt() != null) {
+                    this.mwD.dxt().mMicStatus = (MicStatus) sparseArray2.get(3);
+                    if (this.mwD.dxt().mMicStatus != null) {
+                        if (this.mwD.dxt().mMicStatus.onMic) {
                             if (sparseArray2.get(4) != null && (sparseArray2.get(4) instanceof ArrayList) && LoginManager.Instance().getUserInfo() != null && !tv.chushou.zues.utils.h.isEmpty(LoginManager.Instance().getUserInfo().mUserID)) {
                                 Iterator it2 = ((ArrayList) sparseArray2.get(4)).iterator();
                                 while (true) {
@@ -565,7 +565,7 @@ public abstract class d extends g implements View.OnClickListener, b.a {
                                         break;
                                     }
                                     FanItem fanItem = (FanItem) it2.next();
-                                    if (fanItem != null && String.valueOf(LoginManager.Instance().getUserInfo().mUserID).equals(fanItem.mUserId) && !String.valueOf(LoginManager.Instance().getUserInfo().mUserID).equals(this.mwD.dxs().mRoominfo.mCreatorUID)) {
+                                    if (fanItem != null && String.valueOf(LoginManager.Instance().getUserInfo().mUserID).equals(fanItem.mUserId) && !String.valueOf(LoginManager.Instance().getUserInfo().mUserID).equals(this.mwD.dxt().mRoominfo.mCreatorUID)) {
                                         z = true;
                                         break;
                                     }
@@ -601,26 +601,26 @@ public abstract class d extends g implements View.OnClickListener, b.a {
                         tv.chushou.zues.utils.e.d("Rancune", "officeLine");
                         if (this.mwE instanceof VideoPlayer) {
                             ((VideoPlayer) this.mwE).t = "10004";
-                            dxP();
+                            dxQ();
                         }
                     }
                 }
                 if (sparseArray2.get(6) != null) {
                     List<com.kascend.chushou.player.ui.h5.c.e> list = (List) sparseArray2.get(6);
                     if (!tv.chushou.zues.utils.h.isEmpty(list)) {
-                        ((VideoPlayer) this.mwE).dwY().a(list);
+                        ((VideoPlayer) this.mwE).dwZ().a(list);
                     }
                 }
                 if (sparseArray2.get(7) != null) {
-                    ((VideoPlayer) this.mwE).dwZ().a((List) sparseArray2.get(7));
+                    ((VideoPlayer) this.mwE).dxa().a((List) sparseArray2.get(7));
                 }
                 if (sparseArray2.get(11) != null) {
-                    ((VideoPlayer) this.mwE).dxa().a((com.kascend.chushou.player.ui.h5.c.c) sparseArray2.get(11));
+                    ((VideoPlayer) this.mwE).dxb().a((com.kascend.chushou.player.ui.h5.c.c) sparseArray2.get(11));
                 }
                 if (sparseArray2.get(12) != null) {
                     AutoBang autoBang = (AutoBang) sparseArray2.get(12);
                     if (this.mwE instanceof VideoPlayer) {
-                        ((VideoPlayer) this.mwE).dxc().a(autoBang);
+                        ((VideoPlayer) this.mwE).dxd().a(autoBang);
                     }
                 }
                 if (sparseArray2.get(16) != null) {
@@ -628,7 +628,7 @@ public abstract class d extends g implements View.OnClickListener, b.a {
                     if (this.mwE instanceof VideoPlayer) {
                         ArrayList arrayList = new ArrayList();
                         arrayList.add(bVar);
-                        ((VideoPlayer) this.mwE).dxb().a(arrayList);
+                        ((VideoPlayer) this.mwE).dxc().a(arrayList);
                     }
                 }
                 if (sparseArray2.get(19) != null && ((Boolean) sparseArray2.get(19)).booleanValue() && (this.mqg == null || tv.chushou.zues.utils.h.isEmpty(this.mqg.uid))) {
@@ -639,7 +639,7 @@ public abstract class d extends g implements View.OnClickListener, b.a {
                         this.mqh.dispose();
                         this.mqh = null;
                     }
-                    this.mqh = io.reactivex.g.a(0L, 12L, 0L, 1L, TimeUnit.SECONDS).a(io.reactivex.a.b.a.dCD()).a(new io.reactivex.c.g<Long>() { // from class: com.kascend.chushou.player.d.3
+                    this.mqh = io.reactivex.g.a(0L, 12L, 0L, 1L, TimeUnit.SECONDS).a(io.reactivex.a.b.a.dCE()).a(new io.reactivex.c.g<Long>() { // from class: com.kascend.chushou.player.d.3
                         /* JADX DEBUG: Method merged with bridge method */
                         @Override // io.reactivex.c.g
                         /* renamed from: a */
@@ -710,9 +710,9 @@ public abstract class d extends g implements View.OnClickListener, b.a {
                     boolean z2 = false;
                     if (this.mwD != null) {
                         if (this.ap < 0) {
-                            z2 = h.dwH().d;
+                            z2 = h.dwI().d;
                         } else {
-                            z2 = h.dwH().e;
+                            z2 = h.dwI().e;
                         }
                     }
                     if (this.mxs != null && z2 && this.mxs.getVisibility() == 0) {
@@ -727,15 +727,15 @@ public abstract class d extends g implements View.OnClickListener, b.a {
                                 aVar2.mUserNickname = next.mUserNickname;
                                 aVar2.mContentRichText = next.mContentRichText;
                                 aVar2.nqp.icon = next.mGift.icon;
-                                if (next.mItem != null && !tv.chushou.zues.utils.h.isEmpty(next.mItem.mType) && this.mwD != null && ((dxv = this.mwD.dxv()) == null || !next.mItem.mType.equals("1") || !next.mItem.mTargetKey.equals(dxv.mRoomID))) {
+                                if (next.mItem != null && !tv.chushou.zues.utils.h.isEmpty(next.mItem.mType) && this.mwD != null && ((dxw = this.mwD.dxw()) == null || !next.mItem.mType.equals("1") || !next.mItem.mTargetKey.equals(dxw.mRoomID))) {
                                     aVar2.tag = next.mItem;
                                 }
                                 this.mxs.a(aVar2);
                             }
                         }
                     }
-                    if (dxS() != null && (this.mwE instanceof VideoPlayer) && ((VideoPlayer) this.mwE).q) {
-                        dxS().a(arrayList2);
+                    if (dxT() != null && (this.mwE instanceof VideoPlayer) && ((VideoPlayer) this.mwE).q) {
+                        dxT().a(arrayList2);
                     }
                 }
             }
@@ -746,23 +746,23 @@ public abstract class d extends g implements View.OnClickListener, b.a {
     public void k() {
         if (this.mwE instanceof VideoPlayer) {
             if (((VideoPlayer) this.mwE).q) {
-                dxI().setVisibility(0);
+                dxJ().setVisibility(0);
             } else {
-                dxI().setVisibility(8);
+                dxJ().setVisibility(8);
             }
         }
     }
 
     @Override // com.kascend.chushou.player.e
     public void l() {
-        dxI().setVisibility(8);
+        dxJ().setVisibility(8);
     }
 
     @Override // com.kascend.chushou.player.e
     public void m() {
-        com.kascend.chushou.player.b.a dxS = dxS();
-        if (dxS != null) {
-            dxS.b();
+        com.kascend.chushou.player.b.a dxT = dxT();
+        if (dxT != null) {
+            dxT.b();
         }
     }
 
@@ -961,9 +961,9 @@ public abstract class d extends g implements View.OnClickListener, b.a {
         boolean z = false;
         if (this.mwD != null) {
             if (this.ap < 0) {
-                z = h.dwH().d;
+                z = h.dwI().d;
             } else {
-                z = h.dwH().e;
+                z = h.dwI().e;
             }
         }
         if (z && this.mxs != null && this.mxs.getVisibility() == 0) {
@@ -977,14 +977,14 @@ public abstract class d extends g implements View.OnClickListener, b.a {
     }
 
     public void f(int i) {
-        com.kascend.chushou.c.c.dwD().a(i, new com.kascend.chushou.c.b() { // from class: com.kascend.chushou.player.d.6
+        com.kascend.chushou.c.c.dwE().a(i, new com.kascend.chushou.c.b() { // from class: com.kascend.chushou.player.d.6
             @Override // com.kascend.chushou.c.b
             public void a() {
             }
 
             @Override // com.kascend.chushou.c.b
             public void a(String str, JSONObject jSONObject) {
-                if (!d.this.dym()) {
+                if (!d.this.dyn()) {
                     if (jSONObject != null) {
                         int optInt = jSONObject.optInt("data");
                         if (d.this.mwD != null && d.this.mwD.mpL != null) {
@@ -1001,7 +1001,7 @@ public abstract class d extends g implements View.OnClickListener, b.a {
             @Override // com.kascend.chushou.c.b
             public void a(int i2, String str) {
                 String str2;
-                if (!d.this.dym()) {
+                if (!d.this.dyn()) {
                     if (i2 == 401) {
                         com.kascend.chushou.d.e.b(d.this.mwE, str);
                     } else if (i2 == 403) {
@@ -1027,14 +1027,14 @@ public abstract class d extends g implements View.OnClickListener, b.a {
     }
 
     public void a(String str, String str2) {
-        com.kascend.chushou.c.c.dwD().c(str, str2, new com.kascend.chushou.c.b() { // from class: com.kascend.chushou.player.d.7
+        com.kascend.chushou.c.c.dwE().c(str, str2, new com.kascend.chushou.c.b() { // from class: com.kascend.chushou.player.d.7
             @Override // com.kascend.chushou.c.b
             public void a() {
             }
 
             @Override // com.kascend.chushou.c.b
             public void a(String str3, JSONObject jSONObject) {
-                if (!d.this.dym() && jSONObject != null) {
+                if (!d.this.dyn() && jSONObject != null) {
                     int optInt = jSONObject.optInt("data");
                     tv.chushou.zues.utils.g.JO(a.i.str_send_success);
                     if (d.this.mwD != null && d.this.mwD.mpL != null) {
@@ -1048,7 +1048,7 @@ public abstract class d extends g implements View.OnClickListener, b.a {
 
             @Override // com.kascend.chushou.c.b
             public void a(int i, String str3) {
-                if (!d.this.dym()) {
+                if (!d.this.dyn()) {
                     if (i == 401) {
                         com.kascend.chushou.d.e.b(d.this.mwE, str3);
                     } else if (i == 403 && tv.chushou.zues.utils.h.isEmpty(str3)) {
@@ -1128,14 +1128,14 @@ public abstract class d extends g implements View.OnClickListener, b.a {
     /* JADX INFO: Access modifiers changed from: protected */
     public void g(ArrayList<MicMemberInfo> arrayList, String str) {
         boolean z;
-        if (this.mwD.dxs().mMicStatus.onMic != this.E) {
-            this.E = this.mwD.dxs().mMicStatus.onMic;
+        if (this.mwD.dxt().mMicStatus.onMic != this.E) {
+            this.E = this.mwD.dxt().mMicStatus.onMic;
             u();
         }
-        this.E = this.mwD.dxs().mMicStatus.onMic;
+        this.E = this.mwD.dxt().mMicStatus.onMic;
         if (this.E) {
-            if (this.mwD.dxs().mMicStatus != null && !tv.chushou.zues.utils.h.isEmpty(this.mwD.dxs().mMicStatus.micRoomId) && !this.mwD.dxs().mMicStatus.micRoomId.equals("0")) {
-                this.G = this.mwD.dxs().mMicStatus.micRoomId;
+            if (this.mwD.dxt().mMicStatus != null && !tv.chushou.zues.utils.h.isEmpty(this.mwD.dxt().mMicStatus.micRoomId) && !this.mwD.dxt().mMicStatus.micRoomId.equals("0")) {
+                this.G = this.mwD.dxt().mMicStatus.micRoomId;
             }
             Iterator<MicMemberInfo> it = arrayList.iterator();
             while (it.hasNext()) {
@@ -1159,8 +1159,8 @@ public abstract class d extends g implements View.OnClickListener, b.a {
             this.F = z;
             if (this.mqi != null) {
                 b(true);
-                this.mqi.setupCount(this.mwD.dxs().mMicStatus.capacity - 1);
-                this.mqi.a(this.mwD.dxs().mMicStatus.isOngoing == 1, z, this.mwD.dxs().mMicStatus.displayInteraction == 1);
+                this.mqi.setupCount(this.mwD.dxt().mMicStatus.capacity - 1);
+                this.mqi.a(this.mwD.dxt().mMicStatus.isOngoing == 1, z, this.mwD.dxt().mMicStatus.displayInteraction == 1);
                 this.mqi.a(arrayList);
                 return;
             }

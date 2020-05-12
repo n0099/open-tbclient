@@ -7,7 +7,7 @@ public interface a {
 
     void ID(String str);
 
-    void cHJ();
+    void cHK();
 
-    p cHK();
+    p cHL();
 }

@@ -105,7 +105,7 @@ public class PbNextVideoLayout extends RelativeLayout {
         this.jMv.setProgress(0);
     }
 
-    private void cEL() {
+    private void cEM() {
         this.jMw = true;
         this.jMs.setText(R.string.pb_video_next_play);
         if (this.jMy != null) {
@@ -120,7 +120,7 @@ public class PbNextVideoLayout extends RelativeLayout {
             this.jMw = z;
             if (getVisibility() == 0) {
                 if (z) {
-                    cEL();
+                    cEM();
                 } else {
                     stopProgress();
                 }
@@ -133,7 +133,7 @@ public class PbNextVideoLayout extends RelativeLayout {
         super.setVisibility(i);
         if (i == 0) {
             if (this.jMw) {
-                cEL();
+                cEM();
                 return;
             } else {
                 stopProgress();

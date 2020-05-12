@@ -74,7 +74,7 @@ public class b extends com.baidu.tieba.card.a<c> {
         if (cVar != null) {
             this.hde = cVar;
             this.hdb.setPlaceHolder(1);
-            this.hdb.startLoad(cVar.bQJ(), 10, false);
+            this.hdb.startLoad(cVar.bQK(), 10, false);
             this.hdb.setRadius(l.getDimens(getContext(), R.dimen.tbds26));
             this.hdb.setDrawerType(1);
             this.hdb.setDrawBorder(true);
@@ -82,20 +82,20 @@ public class b extends com.baidu.tieba.card.a<c> {
             this.hdb.setBorderWidth(l.getDimens(getContext(), R.dimen.tbds1));
             this.hdb.setDefaultResource(R.drawable.transparent_bg);
             this.hdb.setDefaultBgResource(R.drawable.transparent_bg);
-            this.hdc.setText(cVar.bQK());
-            this.hdd.setText(cVar.bQL());
+            this.hdc.setText(cVar.bQL());
+            this.hdd.setText(cVar.bQM());
             am.setViewTextColor(this.hdc, (int) R.color.cp_cont_b);
             am.setViewTextColor(this.hdd, (int) R.color.cp_cont_d);
             am.setBackgroundResource(this.mContainer, R.drawable.ad_list_item_bg);
-            if (v.getCount(cVar.bQM()) > 0) {
+            if (v.getCount(cVar.bQN()) > 0) {
                 com.baidu.tbadk.widget.layout.f fVar = new com.baidu.tbadk.widget.layout.f(3);
                 fVar.n(1.0d);
                 this.gpx.setVisibility(0);
                 this.gpx.setFromCDN(true);
                 this.gpx.setImageMargin(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds20));
                 this.gpx.setImageProcessor(fVar);
-                this.gpx.setImageMediaList(cVar.bQM());
-                if (!cVar.bQN()) {
+                this.gpx.setImageMediaList(cVar.bQN());
+                if (!cVar.bQO()) {
                     RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, l.getDimens(getContext(), R.dimen.tbds16));
                     layoutParams.addRule(12);
                     this.mDivider.setLayoutParams(layoutParams);
@@ -107,7 +107,7 @@ public class b extends com.baidu.tieba.card.a<c> {
                 return;
             }
             this.gpx.setVisibility(8);
-            if (!cVar.bQN()) {
+            if (!cVar.bQO()) {
                 RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-1, l.getDimens(getContext(), R.dimen.tbds1));
                 layoutParams2.addRule(12);
                 this.mDivider.setLayoutParams(layoutParams2);

@@ -5,11 +5,11 @@ import rx.k;
 public final class e {
     private static final a nqa = new a();
 
-    public static k dIY() {
-        return rx.subscriptions.a.dIS();
+    public static k dIZ() {
+        return rx.subscriptions.a.dIT();
     }
 
-    public static k dIZ() {
+    public static k dJa() {
         return nqa;
     }
 

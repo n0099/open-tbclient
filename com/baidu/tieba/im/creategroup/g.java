@@ -21,19 +21,19 @@ public class g implements o {
     private int mStep;
     View mView;
 
-    public EditText cdW() {
+    public EditText cdX() {
         return this.ihS;
     }
 
-    public View cdX() {
+    public View cdY() {
         return this.ihT;
     }
 
-    public void cdY() {
+    public void cdZ() {
         this.ihS.setText("");
     }
 
-    public int cdR() {
+    public int cdS() {
         return com.baidu.tieba.im.util.f.getTrimmedTextLength(this.ihS);
     }
 
@@ -63,7 +63,7 @@ public class g implements o {
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public int cdD() {
+    public int cdE() {
         return this.mIndex;
     }
 
@@ -74,12 +74,12 @@ public class g implements o {
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public void cdJ() {
+    public void cdK() {
         this.ihw.setBackgroundDrawable(null);
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public void cdK() {
+    public void cdL() {
         boolean z = TbadkApplication.getInst().getSkinType() == 1;
         this.ihv.getLayoutMode().setNightMode(z);
         this.ihv.getLayoutMode().onModeChanged(this.mView);
@@ -93,7 +93,7 @@ public class g implements o {
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public String cdM() {
+    public String cdN() {
         if (this.mIndex != this.ihU) {
             return this.ihv.getPageContext().getString(R.string.next_step);
         }
@@ -101,7 +101,7 @@ public class g implements o {
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public boolean cdN() {
+    public boolean cdO() {
         return false;
     }
 
@@ -111,7 +111,7 @@ public class g implements o {
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public boolean cdO() {
+    public boolean cdP() {
         return true;
     }
 }

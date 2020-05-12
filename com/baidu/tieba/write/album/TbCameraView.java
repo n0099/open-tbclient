@@ -39,7 +39,7 @@ public class TbCameraView extends TextureView {
 
     /* loaded from: classes2.dex */
     public interface a {
-        void dfw();
+        void dfx();
     }
 
     /* loaded from: classes2.dex */
@@ -49,14 +49,14 @@ public class TbCameraView extends TextureView {
 
     /* loaded from: classes2.dex */
     public interface c {
-        boolean bEt();
+        boolean bEu();
     }
 
     /* loaded from: classes2.dex */
     public interface d {
-        void dfx();
-
         void dfy();
+
+        void dfz();
     }
 
     public TbCameraView(Context context, AttributeSet attributeSet) {
@@ -71,7 +71,7 @@ public class TbCameraView extends TextureView {
             public void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int i, int i2) {
                 TbCameraView.this.mSurfaceTexture = surfaceTexture;
                 if (!TbCameraView.this.lyT) {
-                    TbCameraView.this.lyT = TbCameraView.this.lyu != null && TbCameraView.this.lyu.bEt();
+                    TbCameraView.this.lyT = TbCameraView.this.lyu != null && TbCameraView.this.lyu.bEu();
                 }
                 if (TbCameraView.this.lyT) {
                     new Thread(TbCameraView.this.lyU).start();
@@ -118,7 +118,7 @@ public class TbCameraView extends TextureView {
                     }
                     TbCameraView.this.mIsPreviewing = false;
                     if (TbCameraView.this.lyM != null) {
-                        TbCameraView.this.lyM.dfx();
+                        TbCameraView.this.lyM.dfy();
                     }
                 }
             }
@@ -127,7 +127,7 @@ public class TbCameraView extends TextureView {
             @Override // java.lang.Runnable
             public void run() {
                 if (TbCameraView.this.lyM != null) {
-                    TbCameraView.this.lyM.dfy();
+                    TbCameraView.this.lyM.dfz();
                 }
             }
         };
@@ -176,7 +176,7 @@ public class TbCameraView extends TextureView {
                     th.printStackTrace();
                     stopCamera();
                     if (this.lyv == null) {
-                        this.lyv.dfw();
+                        this.lyv.dfx();
                         return;
                     }
                     return;

@@ -106,7 +106,7 @@ public class e extends com.baidu.tieba.frs.h<bi, com.baidu.card.af<bj>> implemen
         this.emN = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<GifView>() { // from class: com.baidu.tieba.frs.entelechy.a.e.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: bJu */
+            /* renamed from: bJv */
             public GifView makeObject() {
                 GifView gifView = new GifView(e.this.mPageContext.getPageActivity());
                 boolean isShowImages = com.baidu.tbadk.core.i.aIc().isShowImages();

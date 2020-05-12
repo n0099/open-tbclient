@@ -45,34 +45,34 @@ public class HttpParam {
     }
 
     public void a() {
-        Map<String, String> dyG;
+        Map<String, String> dyH;
         if (this.nqW.signType == 2) {
             return;
         }
-        b bVar = (b) tv.chushou.basis.d.b.dJr().S(b.class);
+        b bVar = (b) tv.chushou.basis.d.b.dJs().S(b.class);
         if (bVar != null) {
             b("_appkey", bVar.getAppKey());
-            b("_xappkey", bVar.dyC());
+            b("_xappkey", bVar.dyD());
             b("_appSource", bVar.YT());
             b("_appVersion", bVar.getSdkVersion());
             String token = bVar.getToken();
             if (!TextUtils.isEmpty(token)) {
                 b("token", token);
             }
-            b("_cssdkVersion", bVar.dyF());
+            b("_cssdkVersion", bVar.dyG());
         }
-        d dVar = (d) tv.chushou.basis.d.b.dJr().S(d.class);
+        d dVar = (d) tv.chushou.basis.d.b.dJs().S(d.class);
         if (dVar != null) {
             b("_identifier", dVar.getIdentifier());
             b("_imei", dVar.apr());
-            b("device_cs", dVar.dJh());
-            b("device_ds", dVar.dJi());
-            for (Map.Entry<String, String> entry : dVar.dJj().entrySet()) {
+            b("device_cs", dVar.dJi());
+            b("device_ds", dVar.dJj());
+            for (Map.Entry<String, String> entry : dVar.dJk().entrySet()) {
                 b(entry.getKey(), entry.getValue());
             }
         }
-        if (bVar != null && (dyG = bVar.dyG()) != null) {
-            for (Map.Entry<String, String> entry2 : dyG.entrySet()) {
+        if (bVar != null && (dyH = bVar.dyH()) != null) {
+            for (Map.Entry<String, String> entry2 : dyH.entrySet()) {
                 b(entry2.getKey(), entry2.getValue());
             }
         }
@@ -90,12 +90,12 @@ public class HttpParam {
         if (this.nqW.signType == 2) {
             return;
         }
-        c cVar = (c) tv.chushou.basis.d.b.dJr().S(c.class);
+        c cVar = (c) tv.chushou.basis.d.b.dJs().S(c.class);
         if (cVar == null) {
             this.c.put("_t", String.valueOf(System.currentTimeMillis()));
             return;
         }
-        this.c.put("_t", cVar.dyI());
+        this.c.put("_t", cVar.dyJ());
     }
 
     public void b(String str, Object obj) {
@@ -116,17 +116,17 @@ public class HttpParam {
         String str = this.nqW.signKey;
         String str2 = this.nqW.signSecret;
         String str3 = TextUtils.isEmpty(str) ? "_sign" : str;
-        b bVar = (b) tv.chushou.basis.d.b.dJr().S(b.class);
-        String dyD = (!TextUtils.isEmpty(str2) || bVar == null) ? str2 : bVar.dyD();
+        b bVar = (b) tv.chushou.basis.d.b.dJs().S(b.class);
+        String dyE = (!TextUtils.isEmpty(str2) || bVar == null) ? str2 : bVar.dyE();
         this.c.remove(str3);
-        e eVar = (e) tv.chushou.basis.d.b.dJr().S(e.class);
+        e eVar = (e) tv.chushou.basis.d.b.dJs().S(e.class);
         if (bVar == null || eVar == null) {
             return;
         }
-        this.c.put(str3, eVar.fk(dyD, e()));
+        this.c.put(str3, eVar.fk(dyE, e()));
     }
 
-    public Set<Map.Entry<String, String>> dJo() {
+    public Set<Map.Entry<String, String>> dJp() {
         return this.c.entrySet();
     }
 

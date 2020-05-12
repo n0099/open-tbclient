@@ -21,7 +21,7 @@ public final class i implements TypeAdapterFactory {
     private final com.google.gson.internal.c excluder;
     private final FieldNamingStrategy fieldNamingPolicy;
     private final d jsonAdapterFactory;
-    private final com.google.gson.internal.b.b miO = com.google.gson.internal.b.b.dvW();
+    private final com.google.gson.internal.b.b miO = com.google.gson.internal.b.b.dvX();
 
     public i(com.google.gson.internal.b bVar, FieldNamingStrategy fieldNamingStrategy, com.google.gson.internal.c cVar, d dVar) {
         this.constructorConstructor = bVar;
@@ -44,13 +44,13 @@ public final class i implements TypeAdapterFactory {
             return Collections.singletonList(this.fieldNamingPolicy.translateName(field));
         }
         String value = cVar.value();
-        String[] dvm = cVar.dvm();
-        if (dvm.length == 0) {
+        String[] dvn = cVar.dvn();
+        if (dvn.length == 0) {
             return Collections.singletonList(value);
         }
-        ArrayList arrayList = new ArrayList(dvm.length + 1);
+        ArrayList arrayList = new ArrayList(dvn.length + 1);
         arrayList.add(value);
-        for (String str : dvm) {
+        for (String str : dvn) {
             arrayList.add(str);
         }
         return arrayList;
@@ -58,15 +58,15 @@ public final class i implements TypeAdapterFactory {
 
     @Override // com.google.gson.TypeAdapterFactory
     public <T> TypeAdapter<T> create(Gson gson, com.google.gson.b.a<T> aVar) {
-        Class<? super T> dvZ = aVar.dvZ();
-        if (!Object.class.isAssignableFrom(dvZ)) {
+        Class<? super T> dwa = aVar.dwa();
+        if (!Object.class.isAssignableFrom(dwa)) {
             return null;
         }
-        return new a(this.constructorConstructor.a(aVar), a(gson, (com.google.gson.b.a<?>) aVar, (Class<?>) dvZ));
+        return new a(this.constructorConstructor.a(aVar), a(gson, (com.google.gson.b.a<?>) aVar, (Class<?>) dwa));
     }
 
     private b a(final Gson gson, final Field field, String str, final com.google.gson.b.a<?> aVar, boolean z, boolean z2) {
-        final boolean j = com.google.gson.internal.h.j(aVar.dvZ());
+        final boolean j = com.google.gson.internal.h.j(aVar.dwa());
         com.google.gson.a.b bVar = (com.google.gson.a.b) field.getAnnotation(com.google.gson.a.b.class);
         final TypeAdapter<?> typeAdapter = null;
         if (bVar != null) {
@@ -133,7 +133,7 @@ public final class i implements TypeAdapterFactory {
                 }
             }
             aVar = com.google.gson.b.a.k(C$Gson$Types.a(aVar.getType(), cls, cls.getGenericSuperclass()));
-            cls = aVar.dvZ();
+            cls = aVar.dwa();
         }
         return linkedHashMap;
     }
@@ -170,17 +170,17 @@ public final class i implements TypeAdapterFactory {
 
         @Override // com.google.gson.TypeAdapter
         public T read(com.google.gson.stream.a aVar) throws IOException {
-            if (aVar.dvG() == JsonToken.NULL) {
-                aVar.dvL();
+            if (aVar.dvH() == JsonToken.NULL) {
+                aVar.dvM();
                 return null;
             }
             T construct = this.mjQ.construct();
             try {
-                aVar.dvF();
+                aVar.dvG();
                 while (aVar.hasNext()) {
-                    b bVar = this.mkm.get(aVar.dvJ());
+                    b bVar = this.mkm.get(aVar.dvK());
                     if (bVar == null || !bVar.mko) {
-                        aVar.dvM();
+                        aVar.dvN();
                     } else {
                         bVar.a(aVar, construct);
                     }
@@ -197,10 +197,10 @@ public final class i implements TypeAdapterFactory {
         @Override // com.google.gson.TypeAdapter
         public void write(com.google.gson.stream.b bVar, T t) throws IOException {
             if (t == null) {
-                bVar.dvV();
+                bVar.dvW();
                 return;
             }
-            bVar.dvT();
+            bVar.dvU();
             try {
                 for (b bVar2 : this.mkm.values()) {
                     if (bVar2.bo(t)) {
@@ -208,7 +208,7 @@ public final class i implements TypeAdapterFactory {
                         bVar2.write(bVar, t);
                     }
                 }
-                bVar.dvU();
+                bVar.dvV();
             } catch (IllegalAccessException e) {
                 throw new AssertionError(e);
             }

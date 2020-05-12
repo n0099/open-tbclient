@@ -38,19 +38,19 @@ public class ShapeTrimPath implements b {
         return this.name;
     }
 
-    public Type dBe() {
+    public Type dBf() {
         return this.mOP;
     }
 
-    public com.tb.airbnb.lottie.model.a.b dBW() {
+    public com.tb.airbnb.lottie.model.a.b dBX() {
         return this.mQb;
     }
 
-    public com.tb.airbnb.lottie.model.a.b dBX() {
+    public com.tb.airbnb.lottie.model.a.b dBY() {
         return this.mQa;
     }
 
-    public com.tb.airbnb.lottie.model.a.b dBS() {
+    public com.tb.airbnb.lottie.model.a.b dBT() {
         return this.mPX;
     }
 

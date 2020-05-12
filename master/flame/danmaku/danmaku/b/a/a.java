@@ -48,17 +48,17 @@ public class a extends master.flame.danmaku.danmaku.b.b {
             if (dVar.isTimeOut()) {
                 this.ney.o(dVar);
                 return 0;
-            } else if (this.nez.ndX || !dVar.dFq()) {
-                if (!dVar.dFi()) {
+            } else if (this.nez.ndX || !dVar.dFr()) {
+                if (!dVar.dFj()) {
                     a.this.mZU.ndg.a(dVar, this.nez.ndY, this.nez.ndZ, this.nez.mZZ, false, a.this.mZU);
                 }
-                if (dVar.dFp() >= this.neA) {
-                    if (dVar.nbc == 0 && dVar.dFj()) {
+                if (dVar.dFq() >= this.neA) {
+                    if (dVar.nbc == 0 && dVar.dFk()) {
                         return 0;
                     }
-                    if (dVar.dFh()) {
-                        n<?> dFf = dVar.dFf();
-                        if (a.this.nes != null && (dFf == null || dFf.get() == null)) {
+                    if (dVar.dFi()) {
+                        n<?> dFg = dVar.dFg();
+                        if (a.this.nes != null && (dFg == null || dFg.get() == null)) {
                             a.this.nes.a(dVar);
                         }
                         return 1;
@@ -66,7 +66,7 @@ public class a extends master.flame.danmaku.danmaku.b.b {
                     if (dVar.getType() == 1) {
                         this.nez.ndY++;
                     }
-                    if (!dVar.dFe()) {
+                    if (!dVar.dFf()) {
                         dVar.a(this.ney, false);
                     }
                     if (!dVar.isPrepared()) {
@@ -74,7 +74,7 @@ public class a extends master.flame.danmaku.danmaku.b.b {
                     }
                     a.this.ner.a(dVar, this.ney, a.this.nep);
                     if (dVar.isShown()) {
-                        if (dVar.naY != null || dVar.dFn() <= this.ney.getHeight()) {
+                        if (dVar.naY != null || dVar.dFo() <= this.ney.getHeight()) {
                             int a = dVar.a(this.ney);
                             if (a == 1) {
                                 this.nez.nek++;
@@ -105,25 +105,25 @@ public class a extends master.flame.danmaku.danmaku.b.b {
         }
 
         @Override // master.flame.danmaku.danmaku.model.l.b
-        public void dFA() {
+        public void dFB() {
             this.nez.nea = this.nex;
-            super.dFA();
+            super.dFB();
         }
     }
 
     public a(DanmakuContext danmakuContext) {
         this.mZU = danmakuContext;
-        this.ner = new b(danmakuContext.dFP());
+        this.ner = new b(danmakuContext.dFQ());
     }
 
     @Override // master.flame.danmaku.danmaku.b.a
     public void clear() {
-        dGj();
+        dGk();
         this.mZU.ndg.clear();
     }
 
     @Override // master.flame.danmaku.danmaku.b.a
-    public void dGj() {
+    public void dGk() {
         this.ner.clear();
     }
 

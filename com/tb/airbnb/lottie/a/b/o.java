@@ -18,18 +18,18 @@ public class o {
     private final Matrix matrix = new Matrix();
 
     public o(com.tb.airbnb.lottie.model.a.l lVar) {
-        this.mPa = lVar.dBq().dBo();
-        this.mPb = lVar.dBr().dBo();
-        this.mPc = lVar.dBs().dBo();
-        this.mPd = lVar.dBt().dBo();
-        this.mPe = lVar.dBu().dBo();
-        if (lVar.dBv() != null) {
-            this.mPf = lVar.dBv().dBo();
+        this.mPa = lVar.dBr().dBp();
+        this.mPb = lVar.dBs().dBp();
+        this.mPc = lVar.dBt().dBp();
+        this.mPd = lVar.dBu().dBp();
+        this.mPe = lVar.dBv().dBp();
+        if (lVar.dBw() != null) {
+            this.mPf = lVar.dBw().dBp();
         } else {
             this.mPf = null;
         }
-        if (lVar.dBw() != null) {
-            this.mPg = lVar.dBw().dBo();
+        if (lVar.dBx() != null) {
+            this.mPg = lVar.dBx().dBp();
         } else {
             this.mPg = null;
         }
@@ -77,17 +77,17 @@ public class o {
         }
     }
 
-    public a<?, Integer> dBj() {
+    public a<?, Integer> dBk() {
         return this.mPe;
     }
 
     @Nullable
-    public a<?, Float> dBk() {
+    public a<?, Float> dBl() {
         return this.mPf;
     }
 
     @Nullable
-    public a<?, Float> dBl() {
+    public a<?, Float> dBm() {
         return this.mPg;
     }
 

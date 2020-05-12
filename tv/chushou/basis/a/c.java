@@ -55,11 +55,11 @@ public class c {
     }
 
     private DexClassLoader PW(String str) {
-        this.nqv = dJd();
+        this.nqv = dJe();
         return new DexClassLoader(str, this.nqv, this.nqu, this.mContext.getClassLoader());
     }
 
-    public String dJd() {
+    public String dJe() {
         return this.mContext.getDir("dex", 0).getAbsolutePath();
     }
 
@@ -84,6 +84,6 @@ public class c {
     }
 
     private void PZ(String str) {
-        e.dJf().x(this.mContext, str, this.nqu);
+        e.dJg().x(this.mContext, str, this.nqu);
     }
 }

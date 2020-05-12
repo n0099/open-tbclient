@@ -18,7 +18,7 @@ public class d {
             Long valueOf = Long.valueOf(Long.parseLong(str));
             synchronized (this) {
                 if (this.kVq.size() >= this.dDa) {
-                    cXn();
+                    cXo();
                 }
                 this.mWeight++;
                 this.kVq.put(valueOf, Integer.valueOf(this.mWeight));
@@ -28,7 +28,7 @@ public class d {
         }
     }
 
-    public void cXn() {
+    public void cXo() {
         int i;
         Long l;
         synchronized (this) {
@@ -77,7 +77,7 @@ public class d {
         }
     }
 
-    public void cXm() {
+    public void cXn() {
         synchronized (this) {
             this.kVq.clear();
         }

@@ -62,11 +62,11 @@ public class v extends z {
     }
 
     @Override // com.facebook.imagepipeline.producers.z
-    protected String dua() {
+    protected String dub() {
         return "LocalAssetFetchProducer";
     }
 
     private static String i(ImageRequest imageRequest) {
-        return imageRequest.duI().getPath().substring(1);
+        return imageRequest.duJ().getPath().substring(1);
     }
 }

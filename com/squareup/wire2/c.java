@@ -20,7 +20,7 @@ public final class c {
         this.source = bufferedSource;
     }
 
-    public long dAN() throws IOException {
+    public long dAO() throws IOException {
         if (this.state != 2) {
             throw new IllegalStateException("Unexpected call to beginMessage()");
         }
@@ -50,7 +50,7 @@ public final class c {
         this.limit = j;
     }
 
-    public int dAO() throws IOException {
+    public int dAP() throws IOException {
         if (this.state == 7) {
             this.state = 2;
             return this.tag;
@@ -58,12 +58,12 @@ public final class c {
             throw new IllegalStateException("Unexpected call to nextTag()");
         } else {
             while (this.pos < this.limit && !this.source.exhausted()) {
-                int dAR = dAR();
-                if (dAR == 0) {
+                int dAS = dAS();
+                if (dAS == 0) {
                     throw new ProtocolException("Unexpected tag 0");
                 }
-                this.tag = dAR >> 3;
-                int i = dAR & 7;
+                this.tag = dAS >> 3;
+                int i = dAS & 7;
                 switch (i) {
                     case 0:
                         this.mNS = FieldEncoding.VARINT;
@@ -76,15 +76,15 @@ public final class c {
                     case 2:
                         this.mNS = FieldEncoding.LENGTH_DELIMITED;
                         this.state = 2;
-                        int dAR2 = dAR();
-                        if (dAR2 < 0) {
-                            throw new ProtocolException("Negative length: " + dAR2);
+                        int dAS2 = dAS();
+                        if (dAS2 < 0) {
+                            throw new ProtocolException("Negative length: " + dAS2);
                         }
                         if (this.mNR != -1) {
                             throw new IllegalStateException();
                         }
                         this.mNR = this.limit;
-                        this.limit = dAR2 + this.pos;
+                        this.limit = dAS2 + this.pos;
                         if (this.limit > this.mNR) {
                             throw new EOFException();
                         }
@@ -105,18 +105,18 @@ public final class c {
         }
     }
 
-    public FieldEncoding dAP() {
+    public FieldEncoding dAQ() {
         return this.mNS;
     }
 
     private void IQ(int i) throws IOException {
         while (this.pos < this.limit && !this.source.exhausted()) {
-            int dAR = dAR();
-            if (dAR == 0) {
+            int dAS = dAS();
+            if (dAS == 0) {
                 throw new ProtocolException("Unexpected tag 0");
             }
-            int i2 = dAR >> 3;
-            int i3 = dAR & 7;
+            int i2 = dAS >> 3;
+            int i3 = dAS & 7;
             switch (i3) {
                 case 0:
                     this.state = 0;
@@ -127,9 +127,9 @@ public final class c {
                     readFixed64();
                     break;
                 case 2:
-                    int dAR2 = dAR();
-                    this.pos += dAR2;
-                    this.source.skip(dAR2);
+                    int dAS2 = dAS();
+                    this.pos += dAS2;
+                    this.source.skip(dAS2);
                     break;
                 case 3:
                     IQ(i2);
@@ -150,24 +150,24 @@ public final class c {
         throw new EOFException();
     }
 
-    public ByteString dAQ() throws IOException {
-        return this.source.readByteString(dAS());
+    public ByteString dAR() throws IOException {
+        return this.source.readByteString(dAT());
     }
 
     public String readString() throws IOException {
-        return this.source.readUtf8(dAS());
+        return this.source.readUtf8(dAT());
     }
 
     public int readVarint32() throws IOException {
         if (this.state != 0 && this.state != 2) {
             throw new ProtocolException("Expected VARINT or LENGTH_DELIMITED but was " + this.state);
         }
-        int dAR = dAR();
+        int dAS = dAS();
         IR(0);
-        return dAR;
+        return dAS;
     }
 
-    private int dAR() throws IOException {
+    private int dAS() throws IOException {
         this.pos++;
         byte readByte = this.source.readByte();
         if (readByte < 0) {
@@ -262,7 +262,7 @@ public final class c {
         }
     }
 
-    private long dAS() throws IOException {
+    private long dAT() throws IOException {
         if (this.state != 2) {
             throw new ProtocolException("Expected LENGTH_DELIMITED but was " + this.state);
         }

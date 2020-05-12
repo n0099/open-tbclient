@@ -22,7 +22,7 @@ public class UpdateGroupActivity extends BaseActivity<UpdateGroupActivity> {
     a.b iiS = new a.b() { // from class: com.baidu.tieba.im.updategroup.UpdateGroupActivity.1
         @Override // com.baidu.tbadk.core.dialog.a.b
         public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-            UpdateGroupActivity.this.cjh();
+            UpdateGroupActivity.this.cji();
         }
     };
     a.b iiT = new a.b() { // from class: com.baidu.tieba.im.updategroup.UpdateGroupActivity.2
@@ -107,31 +107,31 @@ public class UpdateGroupActivity extends BaseActivity<UpdateGroupActivity> {
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.ivy.ceJ()) {
-            if (((d) this.ivy).cji()) {
+        if (view == this.ivy.ceK()) {
+            if (((d) this.ivy).cjj()) {
                 finish();
-            } else if (this.ivy.cjf() && this.ivy.cez()) {
-                cjh();
+            } else if (this.ivy.cjg() && this.ivy.ceA()) {
+                cji();
             } else {
-                showToast(this.ivy.cje());
+                showToast(this.ivy.cjf());
             }
-        } else if (view == this.ivy.cdX()) {
+        } else if (view == this.ivy.cdY()) {
             this.ivy.CO();
-        } else if (view == this.ivy.cjc() && !cjg()) {
+        } else if (view == this.ivy.cjd() && !cjh()) {
             finish();
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (i == 4 && keyEvent.getRepeatCount() == 0 && cjg()) {
+        if (i == 4 && keyEvent.getRepeatCount() == 0 && cjh()) {
             return true;
         }
         return super.onKeyDown(i, keyEvent);
     }
 
-    private boolean cjg() {
-        if (TextUtils.isEmpty(this.ivy.getText()) || !this.ivy.cez() || this.ivy.getText().equals(this.ivy.cjb())) {
+    private boolean cjh() {
+        if (TextUtils.isEmpty(this.ivy.getText()) || !this.ivy.ceA() || this.ivy.getText().equals(this.ivy.cjc())) {
             return false;
         }
         this.ivy.showDialog();
@@ -139,7 +139,7 @@ public class UpdateGroupActivity extends BaseActivity<UpdateGroupActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cjh() {
+    public void cji() {
         this.ivy.setIsLoading(true);
         this.ivz.setGroupId(this.ivy.getGroupId());
         if (this.ivA == 1) {

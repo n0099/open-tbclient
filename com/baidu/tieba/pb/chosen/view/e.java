@@ -43,7 +43,7 @@ public class e {
         this.jnb = (TextView) this.jmX.findViewById(R.id.chosen_post_info_original_post);
     }
 
-    public View cvk() {
+    public View cvl() {
         return this.jmX;
     }
 
@@ -86,7 +86,7 @@ public class e {
                 public void onClick(View view) {
                     if (!e.this.jng && bc.checkUpIsLogin(e.this.context)) {
                         e.this.jng = true;
-                        e.this.jmZ.startAnimation(e.this.cvm());
+                        e.this.jmZ.startAnimation(e.this.cvn());
                         if (e.this.jnc != null) {
                             e.this.jnc.qz(e.this.jnd);
                         }
@@ -104,7 +104,7 @@ public class e {
         }
     }
 
-    public void cvl() {
+    public void cvm() {
         this.jng = false;
     }
 
@@ -129,7 +129,7 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public Animation cvm() {
+    public Animation cvn() {
         if (this.jnf == null) {
             this.jnf = AnimationUtils.loadAnimation(this.context, R.anim.praise_animation_scale3);
         }

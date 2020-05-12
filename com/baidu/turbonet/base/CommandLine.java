@@ -33,7 +33,7 @@ public abstract class CommandLine {
         return lHL.get() != null;
     }
 
-    public static CommandLine diw() {
+    public static CommandLine dix() {
         CommandLine commandLine = lHL.get();
         if ($assertionsDisabled || commandLine != null) {
             return commandLine;

@@ -138,7 +138,7 @@ public class k {
                 @Override // android.text.TextWatcher
                 public void afterTextChanged(Editable editable) {
                     if (k.this.lGX.getText().equals(k.this.lGF.getActivity().getString(R.string.tip_url_not_match))) {
-                        k.this.dhX();
+                        k.this.dhY();
                     }
                 }
             });
@@ -151,12 +151,12 @@ public class k {
                 }
             });
             this.egi = new com.baidu.tbadk.core.view.a(this.lGF.getPageContext());
-            dhX();
+            dhY();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dhX() {
+    public void dhY() {
         if (StringUtils.isNull(TbadkCoreApplication.getInst().getUrlText())) {
             this.lGX.setText(R.string.tip_url_post);
         } else {
@@ -180,7 +180,7 @@ public class k {
         } else if (aVar == null) {
             this.lGK.setVisibility(8);
             this.jJp.setVisibility(8);
-            dhY();
+            dhZ();
         } else {
             if (aVar.lzm == 1) {
                 this.lGK.setVisibility(0);
@@ -229,7 +229,7 @@ public class k {
                 this.lGR.setText(aVar.linkUrl);
                 am.setViewTextColor(this.lGR, (int) R.color.cp_cont_b);
             }
-            dhY();
+            dhZ();
         }
     }
 
@@ -262,13 +262,13 @@ public class k {
             am.setBackgroundResource(this.lGP, R.drawable.btn_delete_url);
             am.setBackgroundResource(this.lGU, R.drawable.btn_delete_url);
             am.setBackgroundResource(this.lGM, R.drawable.btn_delete_url);
-            dhY();
+            dhZ();
         }
     }
 
-    public void dhY() {
+    public void dhZ() {
         boolean z;
-        if (StringUtils.isNull(dhZ())) {
+        if (StringUtils.isNull(dia())) {
             z = this.lGK.getVisibility() == 0 || this.jJp.getVisibility() == 0;
         } else {
             z = true;
@@ -282,18 +282,18 @@ public class k {
         this.lGG.setEnabled(false);
     }
 
-    public String dhZ() {
+    public String dia() {
         if (this.lGI == null || this.lGI.getText() == null) {
             return null;
         }
         return this.lGI.getText().toString();
     }
 
-    public View ciL() {
+    public View ciM() {
         return this.dkp;
     }
 
-    public View dia() {
+    public View dib() {
         return this.lGG;
     }
 
@@ -301,19 +301,19 @@ public class k {
         return this.mRoot;
     }
 
-    public EditText dib() {
+    public EditText dic() {
         return this.lGI;
     }
 
-    public View dic() {
+    public View did() {
         return this.lGP;
     }
 
-    public View did() {
+    public View die() {
         return this.lGM;
     }
 
-    public View die() {
+    public View dif() {
         return this.lGK;
     }
 
@@ -333,7 +333,7 @@ public class k {
         this.lGJ.setVisibility(8);
     }
 
-    public void dif() {
+    public void dig() {
         this.lGS.setVisibility(8);
         this.lGW.setVisibility(8);
         this.lGJ.setVisibility(0);
@@ -346,14 +346,14 @@ public class k {
         this.lGJ.setOnClickListener(onClickListener);
     }
 
-    public String dig() {
+    public String dih() {
         if (this.lGT == null || this.lGT.getText() == null) {
             return null;
         }
         return this.lGT.getText().toString();
     }
 
-    public void dih() {
+    public void dii() {
         if (this.lGX != null) {
             this.lGX.setText(R.string.tip_url_not_match);
             am.setViewTextColor(this.lGX, (int) R.color.cp_other_b);
@@ -366,7 +366,7 @@ public class k {
         }
     }
 
-    public View dii() {
+    public View dij() {
         return this.lGS;
     }
 

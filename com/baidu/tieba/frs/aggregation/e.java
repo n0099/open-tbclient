@@ -35,7 +35,7 @@ public class e extends com.baidu.adp.widget.ListView.a<g, com.baidu.tieba.card.a
                     if ((view.getId() == R.id.video_container || view.getId() == R.id.video_agg_container || view.getId() == R.id.mobile_network_play) && view.getTag() != null && (view.getTag() instanceof b)) {
                         b bVar = (b) view.getTag();
                         if (e.this.hes != null && e.this.hes != bVar && (view.getId() == R.id.video_container || view.getId() == R.id.mobile_network_play)) {
-                            e.this.hes.bQW();
+                            e.this.hes.bQX();
                         }
                         if (e.this.hes != bVar) {
                             e.this.hes = bVar;
@@ -128,8 +128,8 @@ public class e extends com.baidu.adp.widget.ListView.a<g, com.baidu.tieba.card.a
             return null;
         }
         if (!this.het) {
-            aVar.bFz().a(gVar, i, this.heu);
-            aVar.bFz().mPosition = i;
+            aVar.bFA().a(gVar, i, this.heu);
+            aVar.bFA().mPosition = i;
         }
         return aVar.getView();
     }
@@ -143,13 +143,13 @@ public class e extends com.baidu.adp.widget.ListView.a<g, com.baidu.tieba.card.a
 
     public void pt() {
         if (this.hes != null) {
-            this.hes.bQV();
+            this.hes.bQW();
         }
     }
 
     public void pu() {
         if (this.hes != null) {
-            this.hes.bQW();
+            this.hes.bQX();
         }
     }
 

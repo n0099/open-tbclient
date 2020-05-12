@@ -46,11 +46,11 @@ public class c implements com.baidu.tieba.personPolymeric.mode.a {
         MessageManager.getInstance().sendMessage(userMuteCheckCustomMessage);
     }
 
-    public int cHL() {
+    public int cHM() {
         return this.jZg;
     }
 
-    public String cHM() {
+    public String cHN() {
         return this.jZh;
     }
 
@@ -73,7 +73,7 @@ public class c implements com.baidu.tieba.personPolymeric.mode.a {
             }
             wI(str2);
         } else if (i3 == 1990043) {
-            cya();
+            cyb();
         } else {
             if (aq.isEmpty(str2)) {
                 if (i == 1) {
@@ -114,7 +114,7 @@ public class c implements com.baidu.tieba.personPolymeric.mode.a {
         aVar.b(this.mPageContext).aMS();
     }
 
-    public void cya() {
+    public void cyb() {
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.mPageContext.getPageActivity());
         aVar.ui(this.mPageContext.getString(R.string.mute_is_super_member_function));
         aVar.a(R.string.open_now, new a.b() { // from class: com.baidu.tieba.personPolymeric.b.c.3

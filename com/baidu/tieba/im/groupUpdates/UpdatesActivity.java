@@ -85,7 +85,7 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
         super.onCreate(bundle);
         this.iqB = new UpdatesModel();
         this.iqv = new c(this);
-        chp();
+        chq();
         registerListener(CmdConfigCustom.CMD_IM_PUSH_NOTIFY_GROUP_INTRO_CHANGE, this.mCustomListener);
         registerListener(CmdConfigCustom.CMD_IM_PUSH_NOTIFY_GROUP_LEVEL_UP, this.mCustomListener);
         registerListener(CmdConfigCustom.CMD_IM_PUSH_NOTIFY_GROUP_NAME_CHANGE, this.mCustomListener);
@@ -133,7 +133,7 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
         ChatStatusManager.getInst().setIsOpen(6, false);
     }
 
-    private void chp() {
+    private void chq() {
         final l<LinkedList<GroupNewsPojo>> lVar = new l<LinkedList<GroupNewsPojo>>() { // from class: com.baidu.tieba.im.groupUpdates.UpdatesActivity.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.util.l
@@ -163,7 +163,7 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
             @Override // com.baidu.tbadk.util.l
             public void onReturnDataInUI(Boolean bool) {
                 UpdatesActivity.this.iqB.clearSelect();
-                UpdatesActivity.this.iqv.cht();
+                UpdatesActivity.this.iqv.chu();
                 UpdatesActivity.this.oT(false);
                 UpdatesModel.requestUpdatesDataFromDB(lVar);
             }
@@ -199,20 +199,20 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         if (view != null && this.iqv != null) {
-            if (view.equals(this.iqv.chu())) {
+            if (view.equals(this.iqv.chv())) {
                 finish();
-            } else if (view.equals(this.iqv.chw())) {
+            } else if (view.equals(this.iqv.chx())) {
                 this.iqB.clearSelect();
-                this.iqB.calculateSelects(this.iqv.chr().getDatas());
+                this.iqB.calculateSelects(this.iqv.chs().getDatas());
                 this.iqv.xk(this.iqB.getDeleteSize());
                 oT(true);
-                this.iqv.chs();
-            } else if (view.equals(this.iqv.chx())) {
-                oT(false);
                 this.iqv.cht();
+            } else if (view.equals(this.iqv.chy())) {
+                oT(false);
+                this.iqv.chu();
                 this.iqB.clearSelect();
                 UpdatesModel.requestUpdatesDataFromDB(this.iqx);
-            } else if (view.equals(this.iqv.chy())) {
+            } else if (view.equals(this.iqv.chz())) {
                 this.iqv.oU(true);
                 String deleteDatasIds = this.iqB.deleteDatasIds();
                 if (!TextUtils.isEmpty(deleteDatasIds)) {
@@ -230,7 +230,7 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
             oT(false);
             this.iqB.clearSelect();
             this.iqv.xk(this.iqB.getDeleteSize());
-            this.iqv.cht();
+            this.iqv.chu();
             return true;
         }
         return super.onKeyDown(i, keyEvent);
@@ -240,11 +240,11 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
     public void a(UpdatesItemData updatesItemData) {
         if (!j.isNetWorkAvailable()) {
             showToast(R.string.neterror);
-        } else if (updatesItemData != null && !TextUtils.isEmpty(com.baidu.tieba.im.pushNotify.b.ciA().ciC()) && TextUtils.isDigitsOnly(com.baidu.tieba.im.pushNotify.b.ciA().ciC()) && !TextUtils.isEmpty(updatesItemData.getNotice_id()) && TextUtils.isDigitsOnly(updatesItemData.getNotice_id())) {
+        } else if (updatesItemData != null && !TextUtils.isEmpty(com.baidu.tieba.im.pushNotify.b.ciB().ciD()) && TextUtils.isDigitsOnly(com.baidu.tieba.im.pushNotify.b.ciB().ciD()) && !TextUtils.isEmpty(updatesItemData.getNotice_id()) && TextUtils.isDigitsOnly(updatesItemData.getNotice_id())) {
             try {
                 this.iqv.oU(true);
                 RequestDelSystemMessage requestDelSystemMessage = new RequestDelSystemMessage();
-                requestDelSystemMessage.setGroupId(com.baidu.adp.lib.f.b.toLong(com.baidu.tieba.im.pushNotify.b.ciA().ciC(), 0L));
+                requestDelSystemMessage.setGroupId(com.baidu.adp.lib.f.b.toLong(com.baidu.tieba.im.pushNotify.b.ciB().ciD(), 0L));
                 requestDelSystemMessage.setMsgIds("" + (Long.parseLong(updatesItemData.getNotice_id()) / 100));
                 MessageManager.getInstance().sendMessage(requestDelSystemMessage);
             } catch (Exception e) {
@@ -257,11 +257,11 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
         if (!j.isNetWorkAvailable()) {
             showToast(R.string.neterror);
         } else if (!TextUtils.isEmpty(str)) {
-            String ciC = com.baidu.tieba.im.pushNotify.b.ciA().ciC();
-            if (!TextUtils.isEmpty(ciC) && TextUtils.isDigitsOnly(ciC)) {
+            String ciD = com.baidu.tieba.im.pushNotify.b.ciB().ciD();
+            if (!TextUtils.isEmpty(ciD) && TextUtils.isDigitsOnly(ciD)) {
                 this.iqv.oU(true);
                 RequestDelSystemMessage requestDelSystemMessage = new RequestDelSystemMessage();
-                requestDelSystemMessage.setGroupId(com.baidu.adp.lib.f.b.toLong(ciC, 0L));
+                requestDelSystemMessage.setGroupId(com.baidu.adp.lib.f.b.toLong(ciD, 0L));
                 requestDelSystemMessage.setMsgIds(str);
                 MessageManager.getInstance().sendMessage(requestDelSystemMessage);
             }
@@ -278,7 +278,7 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
     }
 
     public void a(View view, int i, int i2, long j, UpdatesItemData updatesItemData) {
-        if (updatesItemData != null && 101 == i && !bNC()) {
+        if (updatesItemData != null && 101 == i && !bND()) {
             String groupId = updatesItemData.getGroupId();
             String updatesType = updatesItemData.getUpdatesType();
             if (!TextUtils.isEmpty(updatesType)) {
@@ -317,21 +317,21 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
                 updatesItemData.setSelected(false);
             }
             this.iqv.xk(this.iqB.getDeleteSize());
-            this.iqv.cgk();
+            this.iqv.cgl();
         }
     }
 
     public void b(View view, int i, int i2, long j, UpdatesItemData updatesItemData) {
-        if (view != null && updatesItemData != null && 200 == i && !bNC()) {
+        if (view != null && updatesItemData != null && 200 == i && !bND()) {
             if (this.iqw == null) {
                 this.iqA = updatesItemData;
-                chq();
+                chr();
             }
             this.iqw.showDialog();
         }
     }
 
-    private void chq() {
+    private void chr() {
         String string = getPageContext().getString(R.string.delete_user_chat);
         k.c cVar = new k.c() { // from class: com.baidu.tieba.im.groupUpdates.UpdatesActivity.4
             @Override // com.baidu.tbadk.core.dialog.k.c
@@ -355,9 +355,9 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
 
     /* JADX INFO: Access modifiers changed from: private */
     public void Ht() {
-        if (this.iqv.chv() != null) {
-            this.iqv.chv().removeCallbacks(this.iqz);
-            this.iqv.chv().post(this.iqz);
+        if (this.iqv.chw() != null) {
+            this.iqv.chw().removeCallbacks(this.iqz);
+            this.iqv.chw().post(this.iqz);
         }
     }
 
@@ -372,7 +372,7 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
         }
     }
 
-    public boolean bNC() {
+    public boolean bND() {
         return this.gXn;
     }
 

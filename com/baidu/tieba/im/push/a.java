@@ -40,7 +40,7 @@ public class a {
     private Vector<Long> itM;
     private Handler mHandler;
 
-    public static a cir() {
+    public static a cis() {
         if (itH == null) {
             synchronized (a.class) {
                 if (itH == null) {
@@ -92,7 +92,7 @@ public class a {
         GroupMsgData groupMsgData2;
         if (groupMsgData != null && groupMsgData.getGroupInfo() != null && (listMessage = groupMsgData.getListMessage()) != null && listMessage.size() != 0) {
             long groupId = groupMsgData.getGroupInfo().getGroupId();
-            ImMessageCenterPojo bb = j.cfo().bb(String.valueOf(groupId), groupMsgData.getGroupInfo().getCustomType());
+            ImMessageCenterPojo bb = j.cfp().bb(String.valueOf(groupId), groupMsgData.getGroupInfo().getCustomType());
             if (!(bb != null)) {
                 if (!this.itM.contains(Long.valueOf(groupId))) {
                     a(groupMsgData, listMessage, groupId);
@@ -225,13 +225,13 @@ public class a {
                 a.this.eH(j2);
                 if (j5 > j) {
                     a.this.itK.put(Long.valueOf(j2), MessageUtils.makeNewpushGroupRepair(j2, i, j, j5, j3));
-                    com.baidu.tieba.im.a.b.cia().a(j2, 1L, 0L, true);
+                    com.baidu.tieba.im.a.b.cib().a(j2, 1L, 0L, true);
                     a.this.itM.add(Long.valueOf(j2));
                     a.this.eF(j2);
                 }
             }
         };
-        this.itI.postDelayed(runnable, b.cis().jK().getTimeOutAuto());
+        this.itI.postDelayed(runnable, b.cit().jK().getTimeOutAuto());
         this.itL.put(Long.valueOf(j2), runnable);
     }
 

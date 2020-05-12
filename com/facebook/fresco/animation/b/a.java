@@ -48,7 +48,7 @@ public class a implements com.facebook.fresco.animation.a.a, c.a {
         this.lXN = cVar;
         this.lXO = aVar;
         this.lXP = bVar2;
-        dpJ();
+        dpK();
     }
 
     @Override // com.facebook.fresco.animation.a.d
@@ -192,7 +192,7 @@ public class a implements com.facebook.fresco.animation.a.a, c.a {
     public void setBounds(@Nullable Rect rect) {
         this.mBounds = rect;
         this.lXN.setBounds(rect);
-        dpJ();
+        dpK();
     }
 
     @Override // com.facebook.fresco.animation.a.a
@@ -215,7 +215,7 @@ public class a implements com.facebook.fresco.animation.a.a, c.a {
         clear();
     }
 
-    private void dpJ() {
+    private void dpK() {
         this.mBitmapWidth = this.lXN.getIntrinsicWidth();
         if (this.mBitmapWidth == -1) {
             this.mBitmapWidth = this.mBounds == null ? -1 : this.mBounds.width();

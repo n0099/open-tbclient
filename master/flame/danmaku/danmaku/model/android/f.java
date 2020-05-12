@@ -29,7 +29,7 @@ public class f {
         if (z2 && this.bitmap != null) {
             this.bitmap.eraseColor(0);
             this.nce.setBitmap(this.bitmap);
-            dGb();
+            dGc();
             return;
         }
         if (this.bitmap != null) {
@@ -58,13 +58,13 @@ public class f {
         if (bitmap != null) {
             bitmap.recycle();
         }
-        dGb();
+        dGc();
         this.extra = null;
     }
 
     @SuppressLint({"NewApi"})
     public void I(int i, int i2, int i3, int i4) {
-        dGb();
+        dGc();
         if (this.width > 0 && this.height > 0 && this.bitmap != null) {
             if (this.width > i3 || this.height > i4) {
                 int min = Math.min(i3, i);
@@ -104,7 +104,7 @@ public class f {
         }
     }
 
-    private void dGb() {
+    private void dGc() {
         Bitmap[][] bitmapArr = this.ndI;
         this.ndI = null;
         if (bitmapArr != null) {

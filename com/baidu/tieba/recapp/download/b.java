@@ -30,14 +30,14 @@ public class b implements com.baidu.tieba.ad.download.b.a {
         downloadData.setNeedNotify(true);
         downloadData.setNeedInvokeApk(true);
         downloadData.setPosition(0);
-        i.cNx().a(downloadData);
+        i.cNy().a(downloadData);
     }
 
     @Override // com.baidu.tieba.ad.download.b.a
     public void yu(String str) {
         DownloadCacheKey downloadCacheKey = this.ksj.get(str);
         if (downloadCacheKey != null) {
-            i.cNx().z(downloadCacheKey.mDownloadUrl, str, true);
+            i.cNy().z(downloadCacheKey.mDownloadUrl, str, true);
         }
     }
 
@@ -55,7 +55,7 @@ public class b implements com.baidu.tieba.ad.download.b.a {
             downloadData.setNeedNotify(true);
             downloadData.setNeedInvokeApk(true);
             downloadData.setPosition(0);
-            i.cNx().a(downloadData);
+            i.cNy().a(downloadData);
         }
     }
 

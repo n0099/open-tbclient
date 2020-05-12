@@ -14,12 +14,12 @@ public final class f {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static long dle() {
+    public static long dlf() {
         return am;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static long dlf() {
+    public static long dlg() {
         return lOB;
     }
 
@@ -47,7 +47,7 @@ public final class f {
         lOC = j;
     }
 
-    public static long dlg() {
+    public static long dlh() {
         return lOC;
     }
 }

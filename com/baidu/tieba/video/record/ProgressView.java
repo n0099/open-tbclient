@@ -249,7 +249,7 @@ public class ProgressView extends View {
         return this.loo.getLast().intValue();
     }
 
-    public boolean dcQ() {
+    public boolean dcR() {
         return this.loo.isEmpty();
     }
 

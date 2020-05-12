@@ -125,8 +125,8 @@ public class b extends com.baidu.tieba.card.a<e> {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (bEw() != null) {
-            bEw().a(view, this.gdz);
+        if (bEx() != null) {
+            bEx().a(view, this.gdz);
         }
     }
 }

@@ -28,8 +28,8 @@ public abstract class b {
 
     public boolean a(master.flame.danmaku.danmaku.model.d dVar, Canvas canvas, float f, float f2, Paint paint, TextPaint textPaint) {
         f fVar;
-        n<?> dFf = dVar.dFf();
-        if (dFf == null || (fVar = (f) dFf.get()) == null) {
+        n<?> dFg = dVar.dFg();
+        if (dFg == null || (fVar = (f) dFg.get()) == null) {
             return false;
         }
         return fVar.a(canvas, f, f2, paint);

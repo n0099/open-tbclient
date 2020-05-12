@@ -83,11 +83,11 @@ public class a {
         });
     }
 
-    public void bXH() {
+    public void bXI() {
         this.hHk.setVisibility(8);
     }
 
-    public void bXI() {
+    public void bXJ() {
         this.hHk.setVisibility(0);
     }
 

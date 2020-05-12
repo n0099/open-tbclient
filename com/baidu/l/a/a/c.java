@@ -9,15 +9,15 @@ public interface c {
 
     void NQ(String str);
 
-    c dlJ();
+    boolean dlA();
 
-    String dlK();
+    c dlK();
 
     String dlL();
 
     String dlM();
 
-    boolean dlz();
+    String dlN();
 
     int getStatusCode();
 

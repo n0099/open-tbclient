@@ -26,7 +26,7 @@ public final class b extends Drawable {
         this.mJm = new com.opensource.svgaplayer.a.b(this.mJn, this.mJo);
     }
 
-    public final f dzf() {
+    public final f dzg() {
         return this.mJn;
     }
 
@@ -43,7 +43,7 @@ public final class b extends Drawable {
         }
     }
 
-    public final int dze() {
+    public final int dzf() {
         return this.mJl;
     }
 

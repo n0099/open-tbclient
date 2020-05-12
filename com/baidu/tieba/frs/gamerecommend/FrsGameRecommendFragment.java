@@ -43,8 +43,8 @@ public class FrsGameRecommendFragment extends BaseFragment implements am {
         @Override // com.baidu.tieba.frs.gamerecommend.model.AlaGameRecommendModel.a
         public void d(boolean z, List<m> list) {
             FrsGameRecommendFragment.this.hma.completePullRefresh();
-            FrsGameRecommendFragment.this.hideNetRefreshView(FrsGameRecommendFragment.this.hma.bSE());
-            FrsGameRecommendFragment.this.hideLoadingView(FrsGameRecommendFragment.this.hma.bSE());
+            FrsGameRecommendFragment.this.hideNetRefreshView(FrsGameRecommendFragment.this.hma.bSF());
+            FrsGameRecommendFragment.this.hideLoadingView(FrsGameRecommendFragment.this.hma.bSF());
             FrsGameRecommendFragment.this.hma.setData(list, z);
         }
 
@@ -52,7 +52,7 @@ public class FrsGameRecommendFragment extends BaseFragment implements am {
         public void f(int i, String str, boolean z) {
             FrsGameRecommendFragment.this.hma.completePullRefresh();
             if (!z) {
-                FrsGameRecommendFragment.this.showNetRefreshView(FrsGameRecommendFragment.this.hma.bSE(), str, false);
+                FrsGameRecommendFragment.this.showNetRefreshView(FrsGameRecommendFragment.this.hma.bSF(), str, false);
             } else {
                 FrsGameRecommendFragment.this.showToast(R.string.card_vr_video_load_failed);
             }
@@ -138,7 +138,7 @@ public class FrsGameRecommendFragment extends BaseFragment implements am {
                 return;
             }
             this.hmb.loadData();
-            showLoadingView(this.hma.bSE());
+            showLoadingView(this.hma.bSF());
         }
     }
 

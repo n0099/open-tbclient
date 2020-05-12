@@ -27,7 +27,7 @@ public class b {
 
         void bv(int i, String str);
 
-        void daX();
+        void daY();
     }
 
     public b(Context context, String str, String str2, String str3) {
@@ -37,7 +37,7 @@ public class b {
         this.mFilterName = str3;
     }
 
-    public void dbd() {
+    public void dbe() {
         if (!this.mIsRunning) {
             this.mIsRunning = true;
             this.liZ = false;
@@ -60,7 +60,7 @@ public class b {
                     @Override // com.baidu.tieba.video.editvideo.b.f
                     public void onPostExecute() {
                         b.this.liZ = true;
-                        b.this.dbf();
+                        b.this.dbg();
                     }
                 };
                 this.liW.start();
@@ -68,7 +68,7 @@ public class b {
                     @Override // com.baidu.tieba.video.editvideo.b.d
                     public void onPostExecute() {
                         b.this.lja = true;
-                        b.this.dbf();
+                        b.this.dbg();
                     }
                 };
                 this.liX.start();
@@ -77,7 +77,7 @@ public class b {
         }
     }
 
-    public void dbe() {
+    public void dbf() {
         if (this.liW != null) {
             this.liW.interrupt();
             this.liW = null;
@@ -89,15 +89,15 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dbf() {
+    public void dbg() {
         if (this.liZ && this.lja && !this.ljb) {
             this.liY.stop();
             this.ljb = true;
-            dbg();
+            dbh();
         }
     }
 
-    private void dbg() {
+    private void dbh() {
         if (this.liU != null) {
             File file = new File(this.lhk);
             if (file.exists() && file.length() > 0) {

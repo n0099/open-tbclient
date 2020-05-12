@@ -89,8 +89,8 @@ public class n extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
             return null;
         }
         an anVar = new an("c13565");
-        anVar.af("obj_source", bVar.bYc() ? 1 : 2);
-        com.baidu.tieba.card.r.bEW().e(anVar);
+        anVar.af("obj_source", bVar.bYd() ? 1 : 2);
+        com.baidu.tieba.card.r.bEX().e(anVar);
         afVar.rD().setPosition(i);
         if (afVar.rD() instanceof com.baidu.tieba.a.e) {
             afVar.rD().setPage(this.aeB);

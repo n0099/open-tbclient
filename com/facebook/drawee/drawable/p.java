@@ -40,8 +40,8 @@ public class p {
         }
         if (drawable instanceof com.facebook.drawee.drawable.a) {
             com.facebook.drawee.drawable.a aVar = (com.facebook.drawee.drawable.a) drawable;
-            int doG = aVar.doG();
-            for (int i2 = 0; i2 < doG; i2++) {
+            int doH = aVar.doH();
+            for (int i2 = 0; i2 < doH; i2++) {
                 o l2 = l(aVar.getDrawable(i2));
                 if (l2 != null) {
                     return l2;

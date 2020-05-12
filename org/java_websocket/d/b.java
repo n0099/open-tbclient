@@ -23,18 +23,18 @@ public class b implements a {
     }
 
     @Override // org.java_websocket.d.a
-    public String dHe() {
+    public String dHf() {
         return this.nis;
     }
 
     @Override // org.java_websocket.d.a
-    public a dHf() {
-        return new b(dHe());
+    public a dHg() {
+        return new b(dHf());
     }
 
     @Override // org.java_websocket.d.a
     public String toString() {
-        return dHe();
+        return dHf();
     }
 
     public boolean equals(Object obj) {

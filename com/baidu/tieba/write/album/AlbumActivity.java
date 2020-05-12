@@ -212,9 +212,9 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
             showLoadingDialog("正在上传");
             new a().execute(new String[0]);
         } else if (this.lxX != null) {
-            if (this.lyb == null || !this.lyb.dfz()) {
+            if (this.lyb == null || !this.lyb.dfA()) {
                 if (this.lxX.FI()) {
-                    VideoFileInfo dfr = this.lxX.dfr();
+                    VideoFileInfo dfs = this.lxX.dfs();
                     if (this.lyb == null) {
                         this.lyb = new i(this, this.forumName, this.forumId, "");
                         this.lyb.a(this.lyc);
@@ -225,8 +225,8 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
                     if (getIntent() != null) {
                         this.lyb.setProfessionZone(getIntent().getIntExtra(WriteActivityConfig.KEY_PROFESSION_ZONE, -1));
                     }
-                    this.lyb.a(dfr, this.callFrom, this.from);
-                } else if (dfn()) {
+                    this.lyb.a(dfs, this.callFrom, this.from);
+                } else if (dfo()) {
                     Fo();
                 } else {
                     l(null);
@@ -235,7 +235,7 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
         }
     }
 
-    private boolean dfn() {
+    private boolean dfo() {
         if (this.lxX == null || v.getCount(this.lxX.FK()) == 0) {
             return false;
         }
@@ -286,7 +286,7 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
     }
 
     public void e(TbPageContext tbPageContext) {
-        if (!bwF() && com.baidu.tieba.write.i.dff()) {
+        if (!bwF() && com.baidu.tieba.write.i.dfg()) {
             sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new RecordVideoActivityConfig(tbPageContext.getPageActivity(), this.aWa ? 2 : 3, new ForumWriteData(this.forumId, this.forumName, null, null), this.lxX.getWriteImagesInfo(), "", this.aWb)));
             TiebaStatic.log(new an(CommonStatisticKey.KEY_ENTRANCE_CLICKED).af("obj_locate", 5).af("obj_type", 2));
         }
@@ -295,11 +295,11 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
     private void Fo() {
         WriteImagesInfo writeImagesInfo;
         if (this.lxX != null && (writeImagesInfo = this.lxX.getWriteImagesInfo()) != null) {
-            sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new WriteMulitImageActivityConfig(getPageContext().getPageActivity(), RequestResponseCode.REQUEST_MOTU_IMAGE, writeImagesInfo, dfo())));
+            sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new WriteMulitImageActivityConfig(getPageContext().getPageActivity(), RequestResponseCode.REQUEST_MOTU_IMAGE, writeImagesInfo, dfp())));
         }
     }
 
-    private int dfo() {
+    private int dfp() {
         if (this.lxX == null || v.getCount(this.lxX.FK()) == 0) {
             return 0;
         }
@@ -384,7 +384,7 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
         return this.aVY;
     }
 
-    public c dfp() {
+    public c dfq() {
         return this.lxX;
     }
 
@@ -538,7 +538,7 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
         stopCamera();
         closeLoadingDialog();
         dismissAllDialog();
-        d.dfs().destory();
+        d.dft().destory();
         if (this.aWc != null) {
             this.aWc.setBackgroundDrawable(null);
         }

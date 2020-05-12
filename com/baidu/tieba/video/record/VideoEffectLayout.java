@@ -64,7 +64,7 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
 
     private void initView() {
         this.mHandler = new Handler();
-        ddC();
+        ddD();
         inflate(getContext(), R.layout.layout_effect_container, this);
         this.gRA = (HListView) findViewById(R.id.effect_list_view);
         this.gRA.setDividerWidth(getContext().getResources().getDimensionPixelSize(R.dimen.ds28));
@@ -86,7 +86,7 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
         return eVar;
     }
 
-    private void ddC() {
+    private void ddD() {
         this.lqw = "2";
         this.lqy = b(R.drawable.beauty_icon_avatar_2, 1, "2", com.baidu.tieba.video.a.Eb(2));
         this.dRS = getString(R.string.filter_nature);
@@ -99,7 +99,7 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
         this.lqA = new e<>(3, getResources().getString(R.string.music_normal), new MusicData("-100", 1, getResources().getString(R.string.music_normal)), R.drawable.icon_video_mute);
     }
 
-    private void ddD() {
+    private void ddE() {
         if (this.lqt == null) {
             this.lqt = new ArrayList();
             a("No", com.baidu.tieba.video.a.Eb(0));
@@ -115,7 +115,7 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
         this.lqt.add(b(0, 1, str, aVar));
     }
 
-    private void ddE() {
+    private void ddF() {
         if (this.lqu == null) {
             this.lqu = new ArrayList();
             p(R.drawable.filter_icon_avatar_default, getString(R.string.filter_nature), "origin");
@@ -150,13 +150,13 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
     }
 
     @Override // com.baidu.tieba.video.record.VideoEffectButtonLayout.a
-    public void ddf() {
+    public void ddg() {
         this.lqF = 3;
         m(this.lqv, this.lqx);
     }
 
     @Override // com.baidu.tieba.video.record.VideoEffectButtonLayout.a
-    public void ddg() {
+    public void ddh() {
         this.lqF = 0;
         this.lqq.setAdapter((ListAdapter) this.lqs);
         this.lqs.notifyDataSetChanged();
@@ -170,16 +170,16 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
     }
 
     @Override // com.baidu.tieba.video.record.VideoEffectButtonLayout.a
-    public void ddh() {
+    public void ddi() {
         this.lqF = 1;
-        ddD();
+        ddE();
         m(this.lqt, this.lqw);
     }
 
     @Override // com.baidu.tieba.video.record.VideoEffectButtonLayout.a
-    public void ddi() {
+    public void ddj() {
         this.lqF = 2;
-        ddE();
+        ddF();
         m(this.lqu, this.dRS);
     }
 
@@ -288,7 +288,7 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
                 runnable.run();
                 uF(false);
             } else {
-                ddF();
+                ddG();
                 this.mHandler.postDelayed(runnable, 250L);
             }
         }
@@ -320,7 +320,7 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
         return this.lqB;
     }
 
-    private void ddF() {
+    private void ddG() {
         if (this.lqD != null && this.lqD.isRunning()) {
             this.lqD.cancel();
         }
@@ -424,23 +424,23 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
         this.lqv.addAll(list);
     }
 
-    public boolean ddA() {
+    public boolean ddB() {
         if (v.isEmpty(this.mStickerItems)) {
             return true;
         }
         return this.mStickerItems.size() == 1 && this.mStickerItems.get(0).id == -1;
     }
 
-    public void ddB() {
+    public void ddC() {
         if (this.lqr != null) {
-            this.lqr.dco();
+            this.lqr.dcp();
             this.lqx = TbadkCoreApplication.getInst().getString(R.string.music_normal);
         }
     }
 
-    public void dcp() {
+    public void dcq() {
         if (this.lqr != null) {
-            this.lqr.dcp();
+            this.lqr.dcq();
         }
     }
 }

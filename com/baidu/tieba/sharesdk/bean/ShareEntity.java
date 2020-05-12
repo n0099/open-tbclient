@@ -101,7 +101,7 @@ public class ShareEntity implements Parcelable {
         this.readCount = j;
     }
 
-    public long cSh() {
+    public long cSi() {
         return this.readCount;
     }
 
@@ -109,7 +109,7 @@ public class ShareEntity implements Parcelable {
         this.isVideoThread = z;
     }
 
-    public boolean cSi() {
+    public boolean cSj() {
         return this.isVideoThread;
     }
 
@@ -125,7 +125,7 @@ public class ShareEntity implements Parcelable {
         this.localFile = str;
     }
 
-    public String cSj() {
+    public String cSk() {
         return this.localFile;
     }
 
@@ -145,7 +145,7 @@ public class ShareEntity implements Parcelable {
         this.location = location;
     }
 
-    public int cSk() {
+    public int cSl() {
         return this.shareTo;
     }
 
@@ -153,7 +153,7 @@ public class ShareEntity implements Parcelable {
         this.shareTo = i;
     }
 
-    public int cSl() {
+    public int cSm() {
         return this.shareType;
     }
 
@@ -169,7 +169,7 @@ public class ShareEntity implements Parcelable {
         this.fName = str;
     }
 
-    public String cSm() {
+    public String cSn() {
         return this.fName;
     }
 
@@ -177,7 +177,7 @@ public class ShareEntity implements Parcelable {
         this.typeShareToSmallApp = i;
     }
 
-    public int cSn() {
+    public int cSo() {
         return this.typeShareToSmallApp;
     }
 
@@ -185,7 +185,7 @@ public class ShareEntity implements Parcelable {
         this.shareType = i;
     }
 
-    public boolean cSo() {
+    public boolean cSp() {
         return this.shareType != 0 && (this.shareTo == 8 || this.shareTo == 4 || this.shareTo == 3 || this.shareTo == 2);
     }
 

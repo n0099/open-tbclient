@@ -114,7 +114,7 @@ public class e extends com.kascend.chushou.player.e {
     private void a() {
         String str;
         String str2;
-        this.mwh = ((VideoPlayer) this.mwg).dwS();
+        this.mwh = ((VideoPlayer) this.mwg).dwT();
         b();
         if (this.mwi != null) {
             str = !h.isEmpty(this.mwi.mOriginalCover) ? this.mwi.mOriginalCover : this.mwi.mCover;
@@ -304,7 +304,7 @@ public class e extends com.kascend.chushou.player.e {
     }
 
     private void a(String str, String str2) {
-        j.dwM().a(str, a(str2));
+        j.dwN().a(str, a(str2));
     }
 
     /* JADX INFO: Access modifiers changed from: private */

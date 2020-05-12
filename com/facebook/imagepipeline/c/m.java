@@ -14,13 +14,13 @@ public class m {
             }
 
             @Override // com.facebook.imagepipeline.c.r
-            public void dqj() {
-                n.this.dqx();
+            public void dqk() {
+                n.this.dqy();
             }
 
             @Override // com.facebook.imagepipeline.c.r
-            public void dqk() {
-                n.this.dqw();
+            public void dql() {
+                n.this.dqx();
             }
         });
     }

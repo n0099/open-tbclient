@@ -82,13 +82,13 @@ public class ChatVoiceView extends LinearLayout implements View.OnClickListener,
         this.mProgress = (ProgressBar) findViewById(R.id.progress);
     }
 
-    private void cjo() {
+    private void cjp() {
         this.iwC.setVisibility(8);
         this.iwD.setVisibility(0);
         ((AnimationDrawable) this.iwD.getBackground()).start();
     }
 
-    private void cjp() {
+    private void cjq() {
         ((AnimationDrawable) this.iwD.getBackground()).stop();
         this.iwD.clearAnimation();
         this.iwC.setVisibility(0);
@@ -99,7 +99,7 @@ public class ChatVoiceView extends LinearLayout implements View.OnClickListener,
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
         try {
-            cjp();
+            cjq();
         } catch (Exception e) {
         }
     }
@@ -113,7 +113,7 @@ public class ChatVoiceView extends LinearLayout implements View.OnClickListener,
                 this.iwC.setVisibility(0);
             }
             this.mProgress.setVisibility(4);
-            cjo();
+            cjp();
             VoiceMsgData u = e.u(this.ivb);
             if (u != null && u.getHas_read() != 1) {
                 u.setHas_read(1);
@@ -128,7 +128,7 @@ public class ChatVoiceView extends LinearLayout implements View.OnClickListener,
                             /* JADX WARN: Can't rename method to resolve collision */
                             @Override // com.baidu.tbadk.util.ab
                             public Boolean doInBackground() {
-                                return Boolean.valueOf(c.cfd().a(commonGroupChatMessage.getGroupId(), linkedList, false));
+                                return Boolean.valueOf(c.cfe().a(commonGroupChatMessage.getGroupId(), linkedList, false));
                             }
                         }, new l<Boolean>() { // from class: com.baidu.tieba.im.widget.chatVoiceView.ChatVoiceView.2
                             /* JADX DEBUG: Method merged with bridge method */
@@ -144,7 +144,7 @@ public class ChatVoiceView extends LinearLayout implements View.OnClickListener,
                             /* JADX WARN: Can't rename method to resolve collision */
                             @Override // com.baidu.tbadk.util.ab
                             public Boolean doInBackground() {
-                                return Boolean.valueOf(m.cfw().a(e.n(commonGroupChatMessage), linkedList, false));
+                                return Boolean.valueOf(m.cfx().a(e.n(commonGroupChatMessage), linkedList, false));
                             }
                         }, new l<Boolean>() { // from class: com.baidu.tieba.im.widget.chatVoiceView.ChatVoiceView.4
                             /* JADX DEBUG: Method merged with bridge method */
@@ -164,7 +164,7 @@ public class ChatVoiceView extends LinearLayout implements View.OnClickListener,
                         /* JADX WARN: Can't rename method to resolve collision */
                         @Override // com.baidu.tbadk.util.ab
                         public Boolean doInBackground() {
-                            return Boolean.valueOf(m.cfw().a(e.n(personalChatMessage), linkedList2, false));
+                            return Boolean.valueOf(m.cfx().a(e.n(personalChatMessage), linkedList2, false));
                         }
                     }, new l<Boolean>() { // from class: com.baidu.tieba.im.widget.chatVoiceView.ChatVoiceView.6
                         /* JADX DEBUG: Method merged with bridge method */
@@ -183,7 +183,7 @@ public class ChatVoiceView extends LinearLayout implements View.OnClickListener,
                         /* JADX WARN: Can't rename method to resolve collision */
                         @Override // com.baidu.tbadk.util.ab
                         public Boolean doInBackground() {
-                            return Boolean.valueOf(com.baidu.tieba.im.db.l.cfu().a(e.n(officialChatMessage), linkedList3, false));
+                            return Boolean.valueOf(com.baidu.tieba.im.db.l.cfv().a(e.n(officialChatMessage), linkedList3, false));
                         }
                     }, new l<Boolean>() { // from class: com.baidu.tieba.im.widget.chatVoiceView.ChatVoiceView.8
                         /* JADX DEBUG: Method merged with bridge method */
@@ -199,7 +199,7 @@ public class ChatVoiceView extends LinearLayout implements View.OnClickListener,
             }
             return;
         }
-        cjp();
+        cjq();
         if (i == 1) {
             if (this.iwC != null) {
                 this.iwC.setVisibility(0);

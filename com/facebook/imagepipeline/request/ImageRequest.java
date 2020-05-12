@@ -46,7 +46,7 @@ public class ImageRequest {
         if (uri == null) {
             return null;
         }
-        return ImageRequestBuilder.Z(uri).duT();
+        return ImageRequestBuilder.Z(uri).duU();
     }
 
     public static ImageRequest Ot(@Nullable String str) {
@@ -58,39 +58,39 @@ public class ImageRequest {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public ImageRequest(ImageRequestBuilder imageRequestBuilder) {
-        this.mgL = imageRequestBuilder.duH();
-        this.mgM = imageRequestBuilder.duI();
+        this.mgL = imageRequestBuilder.duI();
+        this.mgM = imageRequestBuilder.duJ();
         this.mgN = Y(this.mgM);
-        this.mcl = imageRequestBuilder.drB();
-        this.mgO = imageRequestBuilder.duR();
-        this.mah = imageRequestBuilder.duM();
-        this.maf = imageRequestBuilder.duK();
-        this.mag = imageRequestBuilder.duL() == null ? e.dqQ() : imageRequestBuilder.duL();
-        this.mdB = imageRequestBuilder.dsT();
-        this.mgP = imageRequestBuilder.duS();
-        this.meK = imageRequestBuilder.dtS();
-        this.mgQ = imageRequestBuilder.drk();
-        this.mfl = imageRequestBuilder.duP();
-        this.mgd = imageRequestBuilder.duQ();
-        this.mbC = imageRequestBuilder.dnS();
-        this.mgR = imageRequestBuilder.duh();
+        this.mcl = imageRequestBuilder.drC();
+        this.mgO = imageRequestBuilder.duS();
+        this.mah = imageRequestBuilder.duN();
+        this.maf = imageRequestBuilder.duL();
+        this.mag = imageRequestBuilder.duM() == null ? e.dqR() : imageRequestBuilder.duM();
+        this.mdB = imageRequestBuilder.dsU();
+        this.mgP = imageRequestBuilder.duT();
+        this.meK = imageRequestBuilder.dtT();
+        this.mgQ = imageRequestBuilder.drl();
+        this.mfl = imageRequestBuilder.duQ();
+        this.mgd = imageRequestBuilder.duR();
+        this.mbC = imageRequestBuilder.dnT();
+        this.mgR = imageRequestBuilder.dui();
         this.mTag = imageRequestBuilder.getTag();
         this.mgS = imageRequestBuilder.getLogTag();
     }
 
-    public Map<String, String> duh() {
+    public Map<String, String> dui() {
         return this.mgR;
     }
 
-    public CacheChoice duH() {
+    public CacheChoice duI() {
         return this.mgL;
     }
 
-    public Uri duI() {
+    public Uri duJ() {
         return this.mgM;
     }
 
-    public int duJ() {
+    public int duK() {
         return this.mgN;
     }
 
@@ -109,44 +109,44 @@ public class ImageRequest {
     }
 
     @Nullable
-    public com.facebook.imagepipeline.common.d duK() {
+    public com.facebook.imagepipeline.common.d duL() {
         return this.maf;
     }
 
-    public e duL() {
+    public e duM() {
         return this.mag;
     }
 
     @Nullable
-    public com.facebook.imagepipeline.common.a dsT() {
+    public com.facebook.imagepipeline.common.a dsU() {
         return this.mdB;
     }
 
-    public com.facebook.imagepipeline.common.b duM() {
+    public com.facebook.imagepipeline.common.b duN() {
         return this.mah;
     }
 
-    public boolean duN() {
+    public boolean duO() {
         return this.mcl;
     }
 
-    public boolean duO() {
+    public boolean duP() {
         return this.mgO;
     }
 
-    public Priority dtU() {
+    public Priority dtV() {
         return this.mgP;
     }
 
-    public RequestLevel dtS() {
+    public RequestLevel dtT() {
         return this.meK;
     }
 
-    public boolean drk() {
+    public boolean drl() {
         return this.mgQ;
     }
 
-    public boolean duP() {
+    public boolean duQ() {
         return this.mfl;
     }
 
@@ -158,12 +158,12 @@ public class ImageRequest {
     }
 
     @Nullable
-    public b duQ() {
+    public b duR() {
         return this.mgd;
     }
 
     @Nullable
-    public com.facebook.imagepipeline.h.c dnS() {
+    public com.facebook.imagepipeline.h.c dnT() {
         return this.mbC;
     }
 
@@ -171,7 +171,7 @@ public class ImageRequest {
         if (obj instanceof ImageRequest) {
             ImageRequest imageRequest = (ImageRequest) obj;
             if (f.equal(this.mgM, imageRequest.mgM) && f.equal(this.mgL, imageRequest.mgL) && f.equal(this.eZM, imageRequest.eZM) && f.equal(this.mdB, imageRequest.mdB) && f.equal(this.mah, imageRequest.mah) && f.equal(this.maf, imageRequest.maf) && f.equal(this.mag, imageRequest.mag)) {
-                return f.equal(this.mgd != null ? this.mgd.dtP() : null, imageRequest.mgd != null ? imageRequest.mgd.dtP() : null);
+                return f.equal(this.mgd != null ? this.mgd.dtQ() : null, imageRequest.mgd != null ? imageRequest.mgd.dtQ() : null);
             }
             return false;
         }
@@ -179,7 +179,7 @@ public class ImageRequest {
     }
 
     public int hashCode() {
-        return f.M(this.mgL, this.mgM, this.eZM, this.mdB, this.mah, this.maf, this.mag, this.mgd != null ? this.mgd.dtP() : null);
+        return f.M(this.mgL, this.mgM, this.eZM, this.mdB, this.mah, this.maf, this.mag, this.mgd != null ? this.mgd.dtQ() : null);
     }
 
     public String toString() {

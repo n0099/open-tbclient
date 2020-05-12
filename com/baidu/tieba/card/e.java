@@ -156,8 +156,8 @@ public class e extends a<com.baidu.tieba.e.b> {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (bEw() != null) {
-            bEw().a(getView(), this.gns);
+        if (bEx() != null) {
+            bEx().a(getView(), this.gns);
         }
     }
 }

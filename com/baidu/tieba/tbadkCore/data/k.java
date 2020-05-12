@@ -59,7 +59,7 @@ public class k implements com.baidu.tbadk.core.flow.a.a {
         return this.kSh;
     }
 
-    public String cVX() {
+    public String cVY() {
         return this.kSg;
     }
 }

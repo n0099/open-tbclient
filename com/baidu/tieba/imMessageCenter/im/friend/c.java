@@ -83,7 +83,7 @@ class c extends BaseAdapter {
     private a a(Object obj, com.baidu.tbadk.coreExtra.relationship.a aVar) {
         a aVar2;
         if (obj == null) {
-            aVar2 = cjN();
+            aVar2 = cjO();
         } else {
             aVar2 = (a) obj;
         }
@@ -110,7 +110,7 @@ class c extends BaseAdapter {
         }
     }
 
-    private a cjN() {
+    private a cjO() {
         a aVar = new a();
         aVar.rootView = LayoutInflater.from(this.ecY.getPageContext().getContext()).inflate(R.layout.invite_friend_list_item, (ViewGroup) null);
         aVar.iyg = (HeadImageView) aVar.rootView.findViewById(R.id.photo);

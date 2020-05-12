@@ -76,28 +76,28 @@ public class EnterForumTabFeedNetModel extends BdBaseModel {
                         EnterForumTabFeedNetModel.this.gHn.a(errorData);
                         return;
                     }
-                    ArrayList<m> bJw = aVar.bJw();
+                    ArrayList<m> bJx = aVar.bJx();
                     EnterForumTabFeedNetModel.this.gHq.etP = EnterForumTabFeedNetModel.this.etP;
                     if (EnterForumTabFeedNetModel.this.etP) {
-                        EnterForumTabFeedNetModel.this.gHq.refreshCount = v.getCount(bJw);
-                        EnterForumTabFeedNetModel.this.e(bJw, aVar.bJx());
+                        EnterForumTabFeedNetModel.this.gHq.refreshCount = v.getCount(bJx);
+                        EnterForumTabFeedNetModel.this.e(bJx, aVar.bJy());
                     } else {
                         EnterForumTabFeedNetModel.g(EnterForumTabFeedNetModel.this);
                     }
-                    if (EnterForumTabFeedNetModel.this.gHo + v.getCount(bJw) > EnterForumTabFeedNetModel.this.gHm) {
-                        EnterForumTabFeedNetModel.this.gHq.gHh = EnterForumTabFeedNetModel.this.bJC();
+                    if (EnterForumTabFeedNetModel.this.gHo + v.getCount(bJx) > EnterForumTabFeedNetModel.this.gHm) {
+                        EnterForumTabFeedNetModel.this.gHq.gHh = EnterForumTabFeedNetModel.this.bJD();
                     }
-                    ArrayList ag = EnterForumTabFeedNetModel.this.ag(EnterForumTabFeedNetModel.this.switchThreadDataToThreadCardInfo(bJw));
+                    ArrayList ag = EnterForumTabFeedNetModel.this.ag(EnterForumTabFeedNetModel.this.switchThreadDataToThreadCardInfo(bJx));
                     if (EnterForumTabFeedNetModel.this.etP) {
                         EnterForumTabFeedNetModel.this.gHq.gHg.addAll(0, ag);
                         EnterForumTabFeedNetModel.this.gHq.gHh = 0;
                     } else {
                         EnterForumTabFeedNetModel.this.gHq.gHg.addAll(ag);
-                        EnterForumTabFeedNetModel.this.gHq.hasMore = v.isEmpty(bJw) ? false : true;
+                        EnterForumTabFeedNetModel.this.gHq.hasMore = v.isEmpty(bJx) ? false : true;
                     }
-                    EnterForumTabFeedNetModel.this.gHq.agw = aVar.bJA();
-                    EnterForumTabFeedNetModel.this.gHq.gHi = aVar.bJz();
-                    EnterForumTabFeedNetModel.this.gHq.gHf = aVar.bJy();
+                    EnterForumTabFeedNetModel.this.gHq.agw = aVar.bJB();
+                    EnterForumTabFeedNetModel.this.gHq.gHi = aVar.bJA();
+                    EnterForumTabFeedNetModel.this.gHq.gHf = aVar.bJz();
                     if (EnterForumTabFeedNetModel.this.gHn != null) {
                         EnterForumTabFeedNetModel.this.gHn.a(EnterForumTabFeedNetModel.this.gHq);
                     }
@@ -161,7 +161,7 @@ public class EnterForumTabFeedNetModel extends BdBaseModel {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e(ArrayList<m> arrayList, ArrayList<d> arrayList2) {
-        bJB();
+        bJC();
         if (!v.isEmpty(arrayList) && !v.isEmpty(arrayList2)) {
             Collections.sort(arrayList2, new Comparator<d>() { // from class: com.baidu.tieba.enterForum.tabfeed.model.EnterForumTabFeedNetModel.4
                 /* JADX DEBUG: Method merged with bridge method */
@@ -194,7 +194,7 @@ public class EnterForumTabFeedNetModel extends BdBaseModel {
         }
     }
 
-    private void bJB() {
+    private void bJC() {
         if (!v.isEmpty(this.gHq.gHg)) {
             int i = 0;
             Iterator<m> it = this.gHq.gHg.iterator();
@@ -216,7 +216,7 @@ public class EnterForumTabFeedNetModel extends BdBaseModel {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public int bJC() {
+    public int bJD() {
         int i;
         if (this.gHq == null || this.gHq.gHg == null) {
             return 0;

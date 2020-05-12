@@ -89,7 +89,7 @@ public abstract class AdPostBaseView extends PostAdBaseView<AdPost> {
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.postad.PostAdBaseView
-    protected View cmX() {
+    protected View cmY() {
         this.rootView = LayoutInflater.from(getContext()).inflate(getLayout(), (ViewGroup) null);
         this.rootView.setOnClickListener(this.gpC);
         this.kth = this.rootView.findViewById(R.id.thread_multi_del_ad_mask_view);
@@ -207,7 +207,7 @@ public abstract class AdPostBaseView extends PostAdBaseView<AdPost> {
         a2(adPost);
         a(adPost, this.gpv);
         am.setBackgroundColor(this.gpv, R.color.cp_bg_line_e);
-        if (isInFrsAllThread() && com.baidu.tieba.frs.a.bNB().bNC()) {
+        if (isInFrsAllThread() && com.baidu.tieba.frs.a.bNC().bND()) {
             this.kth.setVisibility(0);
             am.setBackgroundColor(this.kth, R.color.cp_bg_line_d);
             return;
@@ -221,7 +221,7 @@ public abstract class AdPostBaseView extends PostAdBaseView<AdPost> {
 
     private void a(AdPost adPost, View view) {
         if (adPost != null) {
-            if (!i.aIc().isShowImages() || adPost.feedData.cNC().size() == 0) {
+            if (!i.aIc().isShowImages() || adPost.feedData.cND().size() == 0) {
             }
             if (adPost.adData.type == 1) {
             }

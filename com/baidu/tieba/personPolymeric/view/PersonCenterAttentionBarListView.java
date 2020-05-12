@@ -33,7 +33,7 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
         this.kda = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<PersonCommonForumItemView>() { // from class: com.baidu.tieba.personPolymeric.view.PersonCenterAttentionBarListView.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: cHI */
+            /* renamed from: cHJ */
             public PersonCommonForumItemView makeObject() {
                 return new PersonCommonForumItemView(PersonCenterAttentionBarListView.this.kdM);
             }
@@ -71,7 +71,7 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
         this.kda = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<PersonCommonForumItemView>() { // from class: com.baidu.tieba.personPolymeric.view.PersonCenterAttentionBarListView.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: cHI */
+            /* renamed from: cHJ */
             public PersonCommonForumItemView makeObject() {
                 return new PersonCommonForumItemView(PersonCenterAttentionBarListView.this.kdM);
             }
@@ -109,7 +109,7 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
         this.kda = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<PersonCommonForumItemView>() { // from class: com.baidu.tieba.personPolymeric.view.PersonCenterAttentionBarListView.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: cHI */
+            /* renamed from: cHJ */
             public PersonCommonForumItemView makeObject() {
                 return new PersonCommonForumItemView(PersonCenterAttentionBarListView.this.kdM);
             }

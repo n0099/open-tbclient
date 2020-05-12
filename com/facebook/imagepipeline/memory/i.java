@@ -9,7 +9,7 @@ public class i {
 
     public i(com.facebook.common.memory.c cVar, r rVar) {
         com.facebook.common.internal.g.checkArgument(rVar.mew > 0);
-        this.mdZ = new a(cVar, rVar, n.dtu());
+        this.mdZ = new a(cVar, rVar, n.dtv());
         this.lRO = new com.facebook.common.references.c<byte[]>() { // from class: com.facebook.imagepipeline.memory.i.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.facebook.common.references.c

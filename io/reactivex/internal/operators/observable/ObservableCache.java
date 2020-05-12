@@ -172,7 +172,7 @@ public final class ObservableCache<T> extends io.reactivex.internal.operators.ob
                         if (size != 0) {
                             Object[] objArr = this.currentBuffer;
                             if (objArr == null) {
-                                objArr = this.state.dDb();
+                                objArr = this.state.dDc();
                                 this.currentBuffer = objArr;
                             }
                             int length = objArr.length - 1;

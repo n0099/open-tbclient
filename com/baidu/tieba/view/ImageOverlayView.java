@@ -33,7 +33,7 @@ public class ImageOverlayView extends ViewGroup {
 
     /* loaded from: classes.dex */
     public interface a {
-        void deD();
+        void deE();
     }
 
     public ImageOverlayView(Context context) {
@@ -53,7 +53,7 @@ public class ImageOverlayView extends ViewGroup {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (ImageOverlayView.this.gHU != null) {
-                    ImageOverlayView.this.gHU.deD();
+                    ImageOverlayView.this.gHU.deE();
                 }
             }
         };
@@ -69,7 +69,7 @@ public class ImageOverlayView extends ViewGroup {
         this.gHR = i4;
         this.gHS = i5;
         this.gHT = i6;
-        bJG();
+        bJH();
     }
 
     public void setFirstImageStrokeColor(@ColorRes int i) {
@@ -86,7 +86,7 @@ public class ImageOverlayView extends ViewGroup {
         this.mStrokePaint.setStyle(Paint.Style.STROKE);
     }
 
-    private void bJG() {
+    private void bJH() {
         for (int i = 0; i < this.gHQ; i++) {
             HeadImageView headImageView = new HeadImageView(getContext());
             headImageView.setLayoutParams(new ViewGroup.LayoutParams(this.mImageWidth, this.mImageHeight));

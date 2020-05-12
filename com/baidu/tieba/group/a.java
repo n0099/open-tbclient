@@ -7,7 +7,7 @@ public class a {
     private static a hGN;
     private boolean hGM = false;
 
-    public static a bXz() {
+    public static a bXA() {
         if (hGN == null) {
             synchronized (a.class) {
                 if (hGN == null) {
@@ -26,7 +26,7 @@ public class a {
         this.hGM = TbadkSettings.getInst().loadBoolean(SharedPrefConfig.HAS_SHOWED_DEL_GA_TIP, false);
     }
 
-    public boolean bXA() {
+    public boolean bXB() {
         return this.hGM;
     }
 

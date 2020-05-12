@@ -19,14 +19,14 @@ public class b {
     }
 
     public static void beginSection(String str) {
-        duU().beginSection(str);
+        duV().beginSection(str);
     }
 
     public static void endSection() {
-        duU().endSection();
+        duV().endSection();
     }
 
-    private static c duU() {
+    private static c duV() {
         if (mgV == null) {
             synchronized (b.class) {
                 if (mgV == null) {

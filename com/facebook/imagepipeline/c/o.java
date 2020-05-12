@@ -13,7 +13,7 @@ public class o<K, V> implements p<K, V> {
     public com.facebook.common.references.a<V> be(K k) {
         com.facebook.common.references.a<V> be = this.maS.be(k);
         if (be == null) {
-            this.maT.dqj();
+            this.maT.dqk();
         } else {
             this.maT.bb(k);
         }
@@ -22,7 +22,7 @@ public class o<K, V> implements p<K, V> {
 
     @Override // com.facebook.imagepipeline.c.p
     public com.facebook.common.references.a<V> a(K k, com.facebook.common.references.a<V> aVar) {
-        this.maT.dqk();
+        this.maT.dql();
         return this.maS.a(k, aVar);
     }
 

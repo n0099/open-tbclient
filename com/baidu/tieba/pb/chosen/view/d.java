@@ -34,7 +34,7 @@ public class d {
     public interface b {
         void Hp(String str);
 
-        void cvg();
+        void cvh();
 
         void eq(String str, String str2);
     }
@@ -53,14 +53,14 @@ public class d {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (d.this.jmP != null) {
-                    d.this.jmP.cvg();
+                    d.this.jmP.cvh();
                 }
             }
         });
         this.jmU = (LinearLayout) this.jmO.findViewById(R.id.chosen_pb_bar_container);
     }
 
-    public View cvj() {
+    public View cvk() {
         return this.jmO;
     }
 

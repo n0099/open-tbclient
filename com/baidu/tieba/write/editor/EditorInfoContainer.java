@@ -54,12 +54,12 @@ public class EditorInfoContainer extends RelativeLayout implements m {
         layoutParams.rightMargin = getResources().getDimensionPixelSize(R.dimen.ds16);
         this.lzx.setLocationClickListener(new LocationInfoWithDelView.a() { // from class: com.baidu.tieba.write.editor.EditorInfoContainer.1
             @Override // com.baidu.tieba.write.editor.LocationInfoWithDelView.a
-            public void dfC() {
+            public void dfD() {
                 EditorInfoContainer.this.b(new com.baidu.tbadk.editortools.a(18, -1, null));
             }
 
             @Override // com.baidu.tieba.write.editor.LocationInfoWithDelView.a
-            public void dfD() {
+            public void dfE() {
                 EditorInfoContainer.this.b(new com.baidu.tbadk.editortools.a(20, -1, null));
                 EditorInfoContainer.this.lzx.hide();
             }
@@ -107,13 +107,13 @@ public class EditorInfoContainer extends RelativeLayout implements m {
         return this.lzy != null && this.lzy.getState() == 0;
     }
 
-    public void bIL() {
+    public void bIM() {
         if (this.lzz != null) {
             this.lzz.hideTip();
         }
     }
 
-    public void dfB() {
+    public void dfC() {
         if (this.lzy != null) {
             this.lzy.setVisibility(8);
         }
@@ -220,7 +220,7 @@ public class EditorInfoContainer extends RelativeLayout implements m {
 
     @Override // com.baidu.tbadk.editortools.m
     public void hide() {
-        bIL();
+        bIM();
         setVisibility(8);
     }
 

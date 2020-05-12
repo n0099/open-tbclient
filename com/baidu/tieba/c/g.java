@@ -201,7 +201,7 @@ public class g implements View.OnClickListener {
             bundle.putString("tid", shareItem.tid);
             bundle.putInt("obj_source", shareItem.due);
             shareItem.Y(bundle);
-            e.bGc().b(new ShareDialogConfig((Context) this.mActivity, shareItem, true, true));
+            e.bGd().b(new ShareDialogConfig((Context) this.mActivity, shareItem, true, true));
         }
     }
 

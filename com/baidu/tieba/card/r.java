@@ -10,7 +10,7 @@ public class r {
     private static r grb;
     private List<an> eyj;
 
-    public static r bEW() {
+    public static r bEX() {
         if (grb == null) {
             synchronized (r.class) {
                 if (grb == null) {

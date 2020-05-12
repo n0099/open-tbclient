@@ -31,12 +31,12 @@ public class ForumSquareActivity extends BaseActivity<ForumSquareActivity> imple
         this.kLc = new ForumSquareModel(this, this);
         this.kLd = new a(this);
         this.kLe = new b(this, this.kLd);
-        this.kLe.cUy();
-        bTv();
+        this.kLe.cUz();
+        bTw();
     }
 
-    private void bTv() {
-        this.kLd.cUs();
+    private void bTw() {
+        this.kLd.cUt();
         this.kLc.Kw(this.kLf);
     }
 
@@ -63,13 +63,13 @@ public class ForumSquareActivity extends BaseActivity<ForumSquareActivity> imple
         boolean z = true;
         if (this.kLc != null && this.kLd != null) {
             if (TextUtils.isEmpty(str) || str.equals(this.kLf)) {
-                String cUp = this.kLd.cUp();
-                if (TextUtils.isEmpty(str) || str.equals(cUp)) {
+                String cUq = this.kLd.cUq();
+                if (TextUtils.isEmpty(str) || str.equals(cUq)) {
                     z = false;
                 }
             }
             this.kLf = str;
-            this.kLd.cUt();
+            this.kLd.cUu();
             this.kLd.b(str, list, z);
             this.kLd.o(list2, this.kLc.p(list2, 300));
             r(str, list2);
@@ -79,11 +79,11 @@ public class ForumSquareActivity extends BaseActivity<ForumSquareActivity> imple
     @Override // com.baidu.tieba.square.c
     public void a(String str, ErrorData errorData) {
         if (this.kLd != null && this.kLc != null) {
-            this.kLd.cUt();
+            this.kLd.cUu();
             com.baidu.tieba.square.data.c Kv = this.kLc.Kv(str);
             if (Kv == null || (Kv.hasMore && v.isEmpty(Kv.getDataList()))) {
                 this.kLd.bmo();
-                this.kLd.cUq();
+                this.kLd.cUr();
                 return;
             }
             this.kLd.er(Kv.getDataList());
@@ -96,7 +96,7 @@ public class ForumSquareActivity extends BaseActivity<ForumSquareActivity> imple
             if (v.isEmpty(list)) {
                 this.kLd.bmo();
             } else if (v.getCount(list) < 10) {
-                this.kLd.cUw();
+                this.kLd.cUx();
             } else {
                 this.kLd.tL(this.kLc.Kx(str));
             }
@@ -106,7 +106,7 @@ public class ForumSquareActivity extends BaseActivity<ForumSquareActivity> imple
     @Override // com.baidu.tieba.square.c
     public void b(ErrorData errorData) {
         if (this.kLd != null) {
-            this.kLd.cUr();
+            this.kLd.cUs();
         }
     }
 
@@ -121,9 +121,9 @@ public class ForumSquareActivity extends BaseActivity<ForumSquareActivity> imple
         }
     }
 
-    public void cUm() {
+    public void cUn() {
         if (this.kLd != null) {
-            this.kLd.cUs();
+            this.kLd.cUt();
         }
         if (this.kLc != null) {
             this.kLc.Kw(getClassName());
@@ -136,13 +136,13 @@ public class ForumSquareActivity extends BaseActivity<ForumSquareActivity> imple
         if (this.kLc != null && this.kLd != null) {
             com.baidu.tieba.square.data.c Kv = this.kLc.Kv(str);
             if (Kv == null || (Kv.hasMore && v.isEmpty(Kv.getDataList()))) {
-                this.kLd.cUu();
+                this.kLd.cUv();
                 r(str, null);
                 this.kLc.Kw(str);
                 this.kLd.scrollToPositionWithOffset(0, 0);
                 return;
             }
-            this.kLd.cUt();
+            this.kLd.cUu();
             r(str, Kv.getDataList());
             this.kLd.er(Kv.getDataList());
             this.kLd.scrollToPositionWithOffset(Kv.kLC, Kv.dEu);
@@ -151,10 +151,10 @@ public class ForumSquareActivity extends BaseActivity<ForumSquareActivity> imple
 
     public void Kt(String str) {
         com.baidu.tieba.square.data.c Kv;
-        Pair<Integer, Integer> cUo;
-        if (this.kLd != null && this.kLc != null && !TextUtils.isEmpty(str) && (Kv = this.kLc.Kv(str)) != null && (cUo = this.kLd.cUo()) != null) {
-            Kv.kLC = ((Integer) cUo.first).intValue();
-            Kv.dEu = ((Integer) cUo.second).intValue();
+        Pair<Integer, Integer> cUp;
+        if (this.kLd != null && this.kLc != null && !TextUtils.isEmpty(str) && (Kv = this.kLc.Kv(str)) != null && (cUp = this.kLd.cUp()) != null) {
+            Kv.kLC = ((Integer) cUp.first).intValue();
+            Kv.dEu = ((Integer) cUp.second).intValue();
         }
     }
 

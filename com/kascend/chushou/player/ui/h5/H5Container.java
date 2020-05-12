@@ -107,14 +107,14 @@ public class H5Container extends FrameLayout {
                     H5Container.this.a();
                 }
             });
-            com.kascend.chushou.player.ui.h5.c.c dyx = aVar.dyx();
-            a(this.mAp, dyx.l, aVar);
-            this.mAp.a(i, It, dyx);
-            if (dyx.d > 0) {
+            com.kascend.chushou.player.ui.h5.c.c dyy = aVar.dyy();
+            a(this.mAp, dyy.l, aVar);
+            this.mAp.a(i, It, dyy);
+            if (dyy.d > 0) {
                 if (this.mAu == null) {
                     this.mAu = new io.reactivex.disposables.a();
                 }
-                RxExecutor.postDelayed(this.mAu, EventThread.MAIN_THREAD, dyx.d, TimeUnit.SECONDS, new Runnable() { // from class: com.kascend.chushou.player.ui.h5.H5Container.4
+                RxExecutor.postDelayed(this.mAu, EventThread.MAIN_THREAD, dyy.d, TimeUnit.SECONDS, new Runnable() { // from class: com.kascend.chushou.player.ui.h5.H5Container.4
                     @Override // java.lang.Runnable
                     public void run() {
                         if (ViewCompat.isAttachedToWindow(H5Container.this)) {
@@ -293,12 +293,12 @@ public class H5Container extends FrameLayout {
                     this.b = aVar.p;
                 }
                 if (aVar.c == 2) {
-                    Set<String> dwK = com.kascend.chushou.d.h.dwH().dwK();
-                    if (dwK == null) {
-                        dwK = new HashSet<>();
+                    Set<String> dwL = com.kascend.chushou.d.h.dwI().dwL();
+                    if (dwL == null) {
+                        dwL = new HashSet<>();
                     }
-                    dwK.add(aVar.b);
-                    com.kascend.chushou.d.h.dwH().a(dwK);
+                    dwL.add(aVar.b);
+                    com.kascend.chushou.d.h.dwI().a(dwL);
                 }
                 if (a2) {
                     Animation loadAnimation = AnimationUtils.loadAnimation(this.a, a.C0736a.flake_show);
@@ -393,7 +393,7 @@ public class H5Container extends FrameLayout {
                 @Override // tv.chushou.zues.widget.sweetalert.b.a
                 public void onClick(tv.chushou.zues.widget.sweetalert.b bVar) {
                     bVar.dismiss();
-                    com.kascend.chushou.d.h.dwH().b(str);
+                    com.kascend.chushou.d.h.dwI().b(str);
                     H5Container.this.a(str2);
                 }
             }).Qw(this.a.getResources().getString(a.i.alert_dialog_cancel)).Qy(this.a.getResources().getString(a.i.quit_str)).Qv(this.a.getResources().getString(a.i.str_dialog_tip_title)).w(this.a.getResources().getString(a.i.quit_answer)).show();

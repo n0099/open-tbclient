@@ -51,7 +51,7 @@ public class b implements com.baidu.live.x.a {
                     b.this.gfC = false;
                     if (b.this.gfB < 3) {
                         b.b(b.this);
-                        b.this.bDq();
+                        b.this.bDr();
                         return;
                     }
                     return;
@@ -66,7 +66,7 @@ public class b implements com.baidu.live.x.a {
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (BdNetTypeUtil.isNetWorkAvailable() && b.this.gfA <= 0 && !b.this.gfC) {
-                b.this.bDq();
+                b.this.bDr();
             }
         }
     };
@@ -77,7 +77,7 @@ public class b implements com.baidu.live.x.a {
             if (b.this.gfA > 0) {
                 b.this.mHandler.postDelayed(this, 1000L);
             } else {
-                b.this.bDq();
+                b.this.bDr();
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913035, Integer.valueOf(b.this.gfA)));
         }
@@ -97,13 +97,13 @@ public class b implements com.baidu.live.x.a {
     }
 
     public b() {
-        bDp();
+        bDq();
         MessageManager.getInstance().registerListener(this.gfD);
         MessageManager.getInstance().registerListener(this.gff);
         MessageManager.getInstance().registerListener(this.ftV);
     }
 
-    private static void bDp() {
+    private static void bDq() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021067, com.baidu.live.a.anr);
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -193,7 +193,7 @@ public class b implements com.baidu.live.x.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bDq() {
+    public void bDr() {
         if (this.gfy != null) {
             HttpMessage httpMessage = new HttpMessage(1021067);
             httpMessage.addParam("task_id", this.gfy.atH);

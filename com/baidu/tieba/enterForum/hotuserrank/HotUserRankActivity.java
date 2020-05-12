@@ -86,7 +86,7 @@ public class HotUserRankActivity extends BaseFragmentActivity {
         setContentView(this.gCB.getView());
         this.gCC = new com.baidu.tieba.enterForum.hotuserrank.model.a(getUniqueId());
         this.gCC.a(this.gCI);
-        bIM();
+        bIN();
         if (!TextUtils.isEmpty(this.gCD)) {
             this.gCC.Cd(this.gCD);
         } else if (this.mForumId > 0) {
@@ -96,7 +96,7 @@ public class HotUserRankActivity extends BaseFragmentActivity {
         showLoadingView(this.gCB.getView());
     }
 
-    private void bIM() {
+    private void bIN() {
         Uri uri;
         if (getIntent() != null) {
             this.gCD = getIntent().getStringExtra(HotUserRankActivityConfig.KEY_CATEGORY);

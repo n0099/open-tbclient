@@ -35,8 +35,8 @@ public class x extends z implements aw<com.facebook.imagepipeline.g.e> {
     @Override // com.facebook.imagepipeline.producers.z
     protected com.facebook.imagepipeline.g.e g(ImageRequest imageRequest) throws IOException {
         com.facebook.imagepipeline.g.e a;
-        Uri duI = imageRequest.duI();
-        if (!com.facebook.common.util.d.I(duI) || (a = a(duI, imageRequest.duK())) == null) {
+        Uri duJ = imageRequest.duJ();
+        if (!com.facebook.common.util.d.I(duJ) || (a = a(duJ, imageRequest.duL())) == null) {
             return null;
         }
         return a;
@@ -125,7 +125,7 @@ public class x extends z implements aw<com.facebook.imagepipeline.g.e> {
     }
 
     @Override // com.facebook.imagepipeline.producers.z
-    protected String dua() {
+    protected String dub() {
         return "LocalContentUriThumbnailFetchProducer";
     }
 

@@ -19,17 +19,17 @@ public final class Transform extends Message<Transform, Builder> {
     public static final Float DEFAULT_TX = Float.valueOf(0.0f);
     public static final Float DEFAULT_TY = Float.valueOf(0.0f);
     private static final long serialVersionUID = 0;
-    @WireField(dAV = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 1)
+    @WireField(dAW = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 1)
     public final Float a;
-    @WireField(dAV = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 2)
+    @WireField(dAW = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 2)
     public final Float b;
-    @WireField(dAV = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 3)
+    @WireField(dAW = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 3)
     public final Float c;
-    @WireField(dAV = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 4)
+    @WireField(dAW = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 4)
     public final Float d;
-    @WireField(dAV = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 5)
+    @WireField(dAW = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 5)
     public final Float tx;
-    @WireField(dAV = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 6)
+    @WireField(dAW = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 6)
     public final Float ty;
 
     public Transform(Float f, Float f2, Float f3, Float f4, Float f5, Float f6) {
@@ -195,11 +195,11 @@ public final class Transform extends Message<Transform, Builder> {
         @Override // com.squareup.wire2.ProtoAdapter
         public Transform decode(c cVar) throws IOException {
             Builder builder = new Builder();
-            long dAN = cVar.dAN();
+            long dAO = cVar.dAO();
             while (true) {
-                int dAO = cVar.dAO();
-                if (dAO != -1) {
-                    switch (dAO) {
+                int dAP = cVar.dAP();
+                if (dAP != -1) {
+                    switch (dAP) {
                         case 1:
                             builder.a(ProtoAdapter.FLOAT.decode(cVar));
                             break;
@@ -219,12 +219,12 @@ public final class Transform extends Message<Transform, Builder> {
                             builder.ty(ProtoAdapter.FLOAT.decode(cVar));
                             break;
                         default:
-                            FieldEncoding dAP = cVar.dAP();
-                            builder.addUnknownField(dAO, dAP, dAP.rawProtoAdapter().decode(cVar));
+                            FieldEncoding dAQ = cVar.dAQ();
+                            builder.addUnknownField(dAP, dAQ, dAQ.rawProtoAdapter().decode(cVar));
                             break;
                     }
                 } else {
-                    cVar.gc(dAN);
+                    cVar.gc(dAO);
                     return builder.build();
                 }
             }

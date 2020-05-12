@@ -38,8 +38,8 @@ public final class ParallelReduce<T, R> extends a<R> {
     }
 
     @Override // io.reactivex.parallel.a
-    public int dCN() {
-        return this.mTX.dCN();
+    public int dCO() {
+        return this.mTX.dCO();
     }
 
     /* loaded from: classes7.dex */

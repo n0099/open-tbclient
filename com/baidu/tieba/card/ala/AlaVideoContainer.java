@@ -309,7 +309,7 @@ public class AlaVideoContainer extends LinearLayout {
         layoutParams.height = (this.ePf.getWidth() * 9) / 16;
         this.ePf.setLayoutParams(layoutParams);
         this.grR = new n(getContext());
-        this.grR.cJU();
+        this.grR.cJV();
         this.ePf.setBusiness(this.grR);
         this.ePf.setOnPreparedListener(this.evK);
         this.ePf.setOnSurfaceDestroyedListener(this.emJ);
@@ -439,7 +439,7 @@ public class AlaVideoContainer extends LinearLayout {
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        bFe();
+        bFf();
     }
 
     public void startPlayAnimation() {
@@ -448,7 +448,7 @@ public class AlaVideoContainer extends LinearLayout {
         }
     }
 
-    public void bFe() {
+    public void bFf() {
         if (this.grJ != null) {
             this.grJ.cancelAnimation();
         }

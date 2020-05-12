@@ -54,27 +54,27 @@ public class g extends a {
         this.Fj = new HashMap();
         this.lottieDrawable = fVar;
         this.composition = layer.getComposition();
-        this.mQo = layer.dCb().dBo();
+        this.mQo = layer.dCc().dBp();
         this.mQo.b(this);
         a(this.mQo);
-        k dCc = layer.dCc();
-        if (dCc != null && dCc.mPr != null) {
-            this.mOx = dCc.mPr.dBo();
+        k dCd = layer.dCd();
+        if (dCd != null && dCd.mPr != null) {
+            this.mOx = dCd.mPr.dBp();
             this.mOx.b(this);
             a(this.mOx);
         }
-        if (dCc != null && dCc.mPs != null) {
-            this.mQp = dCc.mPs.dBo();
+        if (dCd != null && dCd.mPs != null) {
+            this.mQp = dCd.mPs.dBp();
             this.mQp.b(this);
             a(this.mQp);
         }
-        if (dCc != null && dCc.mPt != null) {
-            this.mQq = dCc.mPt.dBo();
+        if (dCd != null && dCd.mPt != null) {
+            this.mQq = dCd.mPt.dBp();
             this.mQq.b(this);
             a(this.mQq);
         }
-        if (dCc != null && dCc.mPu != null) {
-            this.mQr = dCc.mPu.dBo();
+        if (dCd != null && dCd.mPu != null) {
+            this.mQr = dCd.mPu.dBp();
             this.mQr.b(this);
             a(this.mQr);
         }
@@ -102,7 +102,7 @@ public class g extends a {
         } else {
             this.Fi.setColor(value.Dc);
         }
-        int intValue = (this.mOM.dBj().getValue().intValue() * 255) / 100;
+        int intValue = (this.mOM.dBk().getValue().intValue() * 255) / 100;
         this.Fh.setAlpha(intValue);
         this.Fi.setAlpha(intValue);
         if (this.mQq != null) {
@@ -145,8 +145,8 @@ public class g extends a {
         Typeface n = this.lottieDrawable.n(cVar.hE(), cVar.hF());
         if (n != null) {
             String str = bVar.text;
-            p dBb = this.lottieDrawable.dBb();
-            String bb = dBb != null ? dBb.bb(str) : str;
+            p dBc = this.lottieDrawable.dBc();
+            String bb = dBc != null ? dBc.bb(str) : str;
             this.Fh.setTypeface(n);
             this.Fh.setTextSize((float) (bVar.CX * com.tb.airbnb.lottie.d.f.jk()));
             this.Fi.setTypeface(this.Fh.getTypeface());

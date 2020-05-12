@@ -45,7 +45,7 @@ public final class au {
             bj aIu = aVar.aIu();
             String aKo = com.baidu.tieba.card.l.aKo();
             if (i == 3) {
-                aKo = com.baidu.tieba.card.l.bEO();
+                aKo = com.baidu.tieba.card.l.bEP();
             }
             PbActivityConfig createFromThreadCfg = new PbActivityConfig(context).createFromThreadCfg(aIu, null, aKo, RequestResponseCode.REQUEST_FRS_TO_PB, true, false, false);
             createFromThreadCfg.setForumId(String.valueOf(aIu.getFid()));

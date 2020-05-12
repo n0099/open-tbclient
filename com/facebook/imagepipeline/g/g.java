@@ -15,17 +15,17 @@ public class g implements h {
     }
 
     @Override // com.facebook.imagepipeline.g.h
-    public int dsX() {
+    public int dsY() {
         return this.mQuality;
     }
 
     @Override // com.facebook.imagepipeline.g.h
-    public boolean dsY() {
+    public boolean dsZ() {
         return this.mdD;
     }
 
     @Override // com.facebook.imagepipeline.g.h
-    public boolean dsZ() {
+    public boolean dta() {
         return this.mdE;
     }
 

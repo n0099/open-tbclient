@@ -55,7 +55,7 @@ public class f {
         this.mView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.b.f.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                f.this.bKs();
+                f.this.bKt();
             }
         });
         this.gKx.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.b.f.2
@@ -68,9 +68,9 @@ public class f {
                 anVar.af(TiebaInitialize.Params.OBJ_TO, f.this.gzq.isLike() ? 2 : 1);
                 TiebaStatic.log(anVar);
                 if (f.this.gzq.isLike()) {
-                    f.this.bKu();
+                    f.this.bKv();
                 } else {
-                    f.this.bKt();
+                    f.this.bKu();
                 }
             }
         });
@@ -94,8 +94,8 @@ public class f {
                 forumName = "";
             }
             this.dHD.setText(forumName);
-            this.gKv.setText(this.attention + " " + aq.cl(kVar.bHU()));
-            this.gKw.setText(this.gKy + " " + aq.cl(kVar.bHV()));
+            this.gKv.setText(this.attention + " " + aq.cl(kVar.bHV()));
+            this.gKw.setText(this.gKy + " " + aq.cl(kVar.bHW()));
             String aIv = kVar.aIv();
             if (aq.isEmpty(aIv)) {
                 if (this.aDO.getVisibility() != 8) {
@@ -143,7 +143,7 @@ public class f {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bKs() {
+    public void bKt() {
         if (this.gzq != null) {
             String forumName = this.gzq.getForumName();
             if (aq.isForumName(forumName)) {
@@ -159,7 +159,7 @@ public class f {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bKt() {
+    public void bKu() {
         if (!l.isNetOk()) {
             UtilHelper.showToast(this.mTbPageContext.getPageActivity(), this.mTbPageContext.getString(R.string.neterror));
         } else if (this.gzq != null && !StringUtils.isNull(this.gzq.getForumName()) && this.gzq.getForumId() > 0) {
@@ -186,14 +186,14 @@ public class f {
                 }
             });
             if (aq.isForumName(this.gzq.getForumName())) {
-                this.dKs.cVI();
+                this.dKs.cVJ();
                 this.dKs.eP(this.gzq.getForumName(), String.valueOf(this.gzq.getForumId()));
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bKu() {
+    public void bKv() {
         if (!l.isNetOk()) {
             UtilHelper.showToast(this.mTbPageContext.getPageActivity(), this.mTbPageContext.getString(R.string.neterror));
         } else if (this.gzq != null && !StringUtils.isNull(this.gzq.getForumName()) && this.gzq.getForumId() > 0) {

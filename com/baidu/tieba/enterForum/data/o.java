@@ -16,11 +16,11 @@ public class o {
         }
     }
 
-    public int bHX() {
+    public int bHY() {
         return this.gAo;
     }
 
-    public String bHY() {
+    public String bHZ() {
         return this.tabCode;
     }
 

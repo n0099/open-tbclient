@@ -64,8 +64,8 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
                 }
             }
         });
-        this.kCH.cQc();
-        ccx();
+        this.kCH.cQd();
+        ccy();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -73,7 +73,7 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
     public void onResume() {
         super.onResume();
         if (this.kCH != null) {
-            this.kCH.cQc();
+            this.kCH.cQd();
         }
     }
 
@@ -81,12 +81,12 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        ccy();
+        ccz();
         if (this.kCI != null) {
             this.kCI.cancelLoadData();
         }
         if (this.kCH != null) {
-            this.kCH.bUw();
+            this.kCH.bUx();
         }
         if (this.kCL != null) {
             this.kCL.dismiss();
@@ -114,16 +114,16 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
         } else {
             this.kCI.cancelLoadData();
         }
-        this.kCI.cPU();
+        this.kCI.cPV();
         if (this.kCH != null) {
-            this.kCH.cQb();
+            this.kCH.cQc();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void aD(Object obj) {
         if (this.kCH != null) {
-            this.kCH.bUw();
+            this.kCH.bUx();
         }
         com.baidu.tbadk.coreExtra.model.d dVar = obj != null ? (com.baidu.tbadk.coreExtra.model.d) obj : null;
         if (dVar != null) {
@@ -142,7 +142,7 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
                 showToast(getResources().getString(R.string.neednot_update));
             }
             if (this.kCH != null) {
-                this.kCH.cQc();
+                this.kCH.cQd();
                 return;
             }
             return;
@@ -159,19 +159,19 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
             if (AboutActivity.this.kCH != null) {
-                AboutActivity.this.kCH.cQc();
+                AboutActivity.this.kCH.cQd();
             }
         }
     }
 
-    private void ccx() {
+    private void ccy() {
         this.kCJ = new a();
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(TbConfig.getBroadcastActionNewVersion());
         registerReceiver(this.kCJ, intentFilter);
     }
 
-    private void ccy() {
+    private void ccz() {
         if (this.kCJ != null) {
             unregisterReceiver(this.kCJ);
         }

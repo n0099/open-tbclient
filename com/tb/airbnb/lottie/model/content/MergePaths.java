@@ -41,7 +41,7 @@ public class MergePaths implements b {
         return this.name;
     }
 
-    public MergePathsMode dBJ() {
+    public MergePathsMode dBK() {
         return this.mPP;
     }
 

@@ -28,7 +28,7 @@ public class CollectTabActivity extends BaseFragmentActivity {
                 Bundle bundle = (Bundle) customResponsedMessage.getData();
                 boolean z = bundle.getBoolean("is_enable_edit", true);
                 int i = bundle.getInt("fragment_type", -1);
-                if (i != -1 && i == CollectTabActivity.this.jea.csq()) {
+                if (i != -1 && i == CollectTabActivity.this.jea.csr()) {
                     CollectTabActivity.this.jea.qf(z);
                 }
             }
@@ -42,11 +42,11 @@ public class CollectTabActivity extends BaseFragmentActivity {
         setContentView(R.layout.collect_tab_activity);
         this.jea = new a(this);
         registerListener(this.jeb);
-        csp();
+        csq();
         ad(getIntent());
     }
 
-    protected void csp() {
+    protected void csq() {
         com.baidu.tbadk.collectTab.a aVar = new com.baidu.tbadk.collectTab.a(getPageContext().getPageActivity());
         ThreadDelegateStatic threadDelegateStatic = new ThreadDelegateStatic();
         aVar.a(threadDelegateStatic);
@@ -69,8 +69,8 @@ public class CollectTabActivity extends BaseFragmentActivity {
 
     @Override // com.baidu.adp.base.BdBaseFragmentActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.jea.css()) {
-            this.jea.qe(!this.jea.cst());
+        if (view == this.jea.cst()) {
+            this.jea.qe(!this.jea.csu());
         }
     }
 
@@ -78,8 +78,8 @@ public class CollectTabActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        b.csu().qg(true);
-        b.csu().qh(false);
+        b.csv().qg(true);
+        b.csv().qh(false);
         NotificationHelper.cancelNotification(getPageContext().getPageActivity(), 28);
     }
 
@@ -87,16 +87,16 @@ public class CollectTabActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        b.csu().qg(false);
+        b.csv().qg(false);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        Fragment csr = this.jea.csr();
-        if (csr != null) {
-            csr.onActivityResult(i, i2, intent);
+        Fragment css = this.jea.css();
+        if (css != null) {
+            css.onActivityResult(i, i2, intent);
         }
     }
 

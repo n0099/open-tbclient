@@ -50,6 +50,6 @@ public class e extends f {
     }
 
     private static com.facebook.common.references.a<Bitmap> d(int i, int i2, Bitmap.Config config) {
-        return com.facebook.common.references.a.a(Bitmap.createBitmap(i, i2, config), g.dqi());
+        return com.facebook.common.references.a.a(Bitmap.createBitmap(i, i2, config), g.dqj());
     }
 }

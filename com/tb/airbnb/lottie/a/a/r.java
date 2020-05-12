@@ -15,10 +15,10 @@ public class r implements b, a.InterfaceC0784a {
 
     public r(com.tb.airbnb.lottie.model.layer.a aVar, ShapeTrimPath shapeTrimPath) {
         this.name = shapeTrimPath.getName();
-        this.mOP = shapeTrimPath.dBe();
-        this.mOQ = shapeTrimPath.dBX().dBo();
-        this.mOR = shapeTrimPath.dBW().dBo();
-        this.mOS = shapeTrimPath.dBS().dBo();
+        this.mOP = shapeTrimPath.dBf();
+        this.mOQ = shapeTrimPath.dBY().dBp();
+        this.mOR = shapeTrimPath.dBX().dBp();
+        this.mOS = shapeTrimPath.dBT().dBp();
         aVar.a(this.mOQ);
         aVar.a(this.mOR);
         aVar.a(this.mOS);
@@ -56,19 +56,19 @@ public class r implements b, a.InterfaceC0784a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ShapeTrimPath.Type dBe() {
+    public ShapeTrimPath.Type dBf() {
         return this.mOP;
     }
 
-    public com.tb.airbnb.lottie.a.b.a<?, Float> dBf() {
+    public com.tb.airbnb.lottie.a.b.a<?, Float> dBg() {
         return this.mOQ;
     }
 
-    public com.tb.airbnb.lottie.a.b.a<?, Float> dBg() {
+    public com.tb.airbnb.lottie.a.b.a<?, Float> dBh() {
         return this.mOR;
     }
 
-    public com.tb.airbnb.lottie.a.b.a<?, Float> dBh() {
+    public com.tb.airbnb.lottie.a.b.a<?, Float> dBi() {
         return this.mOS;
     }
 }

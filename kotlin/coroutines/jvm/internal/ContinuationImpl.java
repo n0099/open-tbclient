@@ -22,7 +22,7 @@ public abstract class ContinuationImpl extends BaseContinuationImpl {
     public kotlin.coroutines.c getContext() {
         kotlin.coroutines.c cVar = this._context;
         if (cVar == null) {
-            q.dDR();
+            q.dDS();
         }
         return cVar;
     }
@@ -45,7 +45,7 @@ public abstract class ContinuationImpl extends BaseContinuationImpl {
         if (aVar != null && aVar != this) {
             c.b bVar = getContext().get(kotlin.coroutines.b.mXq);
             if (bVar == null) {
-                q.dDR();
+                q.dDS();
             }
             ((kotlin.coroutines.b) bVar).b(aVar);
         }

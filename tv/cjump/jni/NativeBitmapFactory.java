@@ -22,11 +22,11 @@ public class NativeBitmapFactory {
 
     private static native boolean release();
 
-    public static boolean dKw() {
+    public static boolean dKx() {
         return Build.VERSION.SDK_INT < 11 || (nxF && nxE != null);
     }
 
-    public static void dKx() {
+    public static void dKy() {
         if (!nxG) {
             if (!DeviceUtils.isRealARMArch() && !DeviceUtils.isRealX86Arch()) {
                 nxG = true;
@@ -55,8 +55,8 @@ public class NativeBitmapFactory {
                         nxG = true;
                         nxF = false;
                     } else {
-                        dKz();
-                        if (!dKA()) {
+                        dKA();
+                        if (!dKB()) {
                             release();
                             nxG = true;
                             nxF = false;
@@ -68,7 +68,7 @@ public class NativeBitmapFactory {
         }
     }
 
-    public static synchronized void dKy() {
+    public static synchronized void dKz() {
         synchronized (NativeBitmapFactory.class) {
             boolean z = nxF;
             nxE = null;
@@ -79,7 +79,7 @@ public class NativeBitmapFactory {
         }
     }
 
-    static void dKz() {
+    static void dKA() {
         try {
             nxE = Bitmap.Config.class.getDeclaredField("nativeInt");
             nxE.setAccessible(true);
@@ -100,7 +100,7 @@ public class NativeBitmapFactory {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private static boolean dKA() {
+    private static boolean dKB() {
         Bitmap bitmap;
         boolean z;
         boolean z2 = true;

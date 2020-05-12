@@ -35,7 +35,7 @@ public class n extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
         this.hdt = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<ConstrainImageLayout>() { // from class: com.baidu.tieba.homepage.personalize.a.n.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: bQO */
+            /* renamed from: bQP */
             public ConstrainImageLayout makeObject() {
                 return new ConstrainImageLayout(n.this.mPageContext.getPageActivity());
             }
@@ -117,7 +117,7 @@ public class n extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.card.data.k kVar, com.baidu.tieba.card.a.a<com.baidu.tieba.card.u> aVar) {
-        if (aVar == null || aVar.bFz() == null) {
+        if (aVar == null || aVar.bFA() == null) {
             return null;
         }
         if (kVar != null && kVar.aIu() != null) {
@@ -125,11 +125,11 @@ public class n extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
             sVar.locate = kVar.position + 1;
             sVar.source = kVar.getSource();
             sVar.weight = kVar.getWeight();
-            sVar.dpc = kVar.bFg();
-            com.baidu.tieba.card.r.bEW().e(a("c13023", kVar.aIu(), sVar));
-            aVar.bFz().a(sVar);
-            aVar.bFz().c(this.ada);
-            aVar.bFz().a(kVar.aIu());
+            sVar.dpc = kVar.bFh();
+            com.baidu.tieba.card.r.bEX().e(a("c13023", kVar.aIu(), sVar));
+            aVar.bFA().a(sVar);
+            aVar.bFA().c(this.ada);
+            aVar.bFA().a(kVar.aIu());
         }
         return aVar.getView();
     }
@@ -139,7 +139,7 @@ public class n extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
         if (StringUtils.isNull(str) || bjVar == null || sVar == null) {
             return null;
         }
-        an cI = new an(str).cI("fid", String.valueOf(bjVar.getFid())).cI("tid", String.valueOf(bjVar.getTid())).af("obj_locate", sVar.locate).cI("obj_source", sVar.source).cI("obj_param1", sVar.weight).cI(TiebaInitialize.Params.AB_TAG, sVar.dpc).cI(TiebaInitialize.Params.OBJ_PARAM3, com.baidu.tieba.card.l.bEN());
+        an cI = new an(str).cI("fid", String.valueOf(bjVar.getFid())).cI("tid", String.valueOf(bjVar.getTid())).af("obj_locate", sVar.locate).cI("obj_source", sVar.source).cI("obj_param1", sVar.weight).cI(TiebaInitialize.Params.AB_TAG, sVar.dpc).cI(TiebaInitialize.Params.OBJ_PARAM3, com.baidu.tieba.card.l.bEO());
         if (bjVar.aKC() != null) {
             cI.cI("obj_name", bjVar.aKC().getName_show());
             return cI;

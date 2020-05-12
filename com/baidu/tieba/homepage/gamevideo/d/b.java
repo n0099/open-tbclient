@@ -205,11 +205,11 @@ public class b {
         }
     }
 
-    public List<com.baidu.tieba.homepage.gamevideo.c.a> bYW() {
+    public List<com.baidu.tieba.homepage.gamevideo.c.a> bYX() {
         return this.hMA;
     }
 
-    public boolean bYX() {
+    public boolean bYY() {
         return this.hMB;
     }
 
@@ -242,7 +242,7 @@ public class b {
         }
     }
 
-    private List<m> bYY() {
+    private List<m> bYZ() {
         LinkedList linkedList = new LinkedList();
         if (v.isEmpty(this.hMy)) {
             return linkedList;
@@ -318,7 +318,7 @@ public class b {
         ac.a(new ab<DataRes>() { // from class: com.baidu.tieba.homepage.gamevideo.d.b.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.util.ab
-            /* renamed from: bYZ */
+            /* renamed from: bZa */
             public DataRes doInBackground() {
                 com.baidu.adp.lib.cache.l<byte[]> cA = com.baidu.tbadk.core.c.a.aMR().cA("tb.game_video", TbadkCoreApplication.getCurrentAccount());
                 if (cA == null) {
@@ -358,7 +358,7 @@ public class b {
     /* JADX INFO: Access modifiers changed from: private */
     public void b(DataRes dataRes) {
         p(dataRes.thread_list, !this.isLoadMore);
-        this.mDataList = bYY();
+        this.mDataList = bYZ();
         com.baidu.tieba.homepage.gamevideo.d.a.a(dataRes, this.mDataList);
     }
 

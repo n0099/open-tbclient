@@ -53,7 +53,7 @@ public class h {
         this.lTV = i;
     }
 
-    public int doe() {
+    public int dof() {
         return this.lTV;
     }
 
@@ -129,7 +129,7 @@ public class h {
         this.lTM = i;
     }
 
-    public e dof() {
+    public e dog() {
         return new e(this.lTx, this.mRequestId, this.lTA, this.lTz, this.lTB, this.lTC, this.lTD, this.lTE, this.lTF, this.lTG, this.lTH, this.lTI, this.lTJ, this.mIsCanceled, this.SQ, this.lTK, this.lTL, this.lTM);
     }
 }

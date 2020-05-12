@@ -112,7 +112,7 @@ public class SwipRefreshRecyclerView extends CustomSwipeRefreshLayout implements
                     SwipRefreshRecyclerView.this.nts = true;
                     tv.chushou.zues.widget.adapterview.recyclerview.a.b adapter = SwipRefreshRecyclerView.this.getAdapter();
                     if (adapter != null) {
-                        adapter.dJY();
+                        adapter.dJZ();
                     }
                     SwipRefreshRecyclerView.this.ntw.onRefresh();
                 }
@@ -122,7 +122,7 @@ public class SwipRefreshRecyclerView extends CustomSwipeRefreshLayout implements
         if (Build.VERSION.SDK_INT < 21) {
             setCanChildScrollUpCallback(new CustomSwipeRefreshLayout.a() { // from class: tv.chushou.zues.widget.adapterview.recyclerview.view.SwipRefreshRecyclerView.2
                 @Override // tv.chushou.zues.widget.adapterview.CustomSwipeRefreshLayout.a
-                public boolean dJW() {
+                public boolean dJX() {
                     return SwipRefreshRecyclerView.this.ntp != null && SwipRefreshRecyclerView.this.ntp.getScrollY() > 0;
                 }
             });
@@ -194,7 +194,7 @@ public class SwipRefreshRecyclerView extends CustomSwipeRefreshLayout implements
         this.ntq = view;
     }
 
-    public void dKb() {
+    public void dKc() {
         this.eQC = false;
     }
 
@@ -216,7 +216,7 @@ public class SwipRefreshRecyclerView extends CustomSwipeRefreshLayout implements
     }
 
     @Override // tv.chushou.zues.widget.adapterview.c
-    public boolean dJX() {
+    public boolean dJY() {
         if (this.ntq == null) {
             this.ntq = new DefaultLoadMoreView(getContext());
         }

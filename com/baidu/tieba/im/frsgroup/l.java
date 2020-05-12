@@ -62,11 +62,11 @@ public class l extends BaseAdapter {
         }
     }
 
-    public void cgc() {
+    public void cgd() {
         this.imC.clear();
     }
 
-    public Set<Long> cgd() {
+    public Set<Long> cge() {
         return this.imC;
     }
 
@@ -100,7 +100,7 @@ public class l extends BaseAdapter {
         this.imz = z;
     }
 
-    public boolean cge() {
+    public boolean cgf() {
         return this.imz;
     }
 
@@ -108,7 +108,7 @@ public class l extends BaseAdapter {
         this.imA = z;
     }
 
-    public boolean cdk() {
+    public boolean cdl() {
         return this.imB;
     }
 
@@ -262,8 +262,8 @@ public class l extends BaseAdapter {
 
     private String c(UserData userData) {
         long lastReplyTime;
-        MembersModel cfW = this.imx.cfW();
-        switch (cfW.getOrderType()) {
+        MembersModel cfX = this.imx.cfX();
+        switch (cfX.getOrderType()) {
             case 0:
                 lastReplyTime = userData.getLoginTime();
                 break;
@@ -278,7 +278,7 @@ public class l extends BaseAdapter {
                 break;
         }
         if (lastReplyTime <= 0) {
-            if (cfW.getOrderType() == 1) {
+            if (cfX.getOrderType() == 1) {
                 return this.imx.getPageContext().getString(R.string.members_no_speak);
             }
             return "";

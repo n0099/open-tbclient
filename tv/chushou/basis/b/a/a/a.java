@@ -68,8 +68,8 @@ public class a implements d {
         this.nqJ = sharedPreferences.getString("deviceds", null);
         apr();
         getIdentifier();
-        dJh();
         dJi();
+        dJj();
         this.nqK = "";
         this.activityManager = (ActivityManager) application.getSystemService(PushConstants.INTENT_ACTIVITY_NAME);
     }
@@ -79,9 +79,9 @@ public class a implements d {
         if (this.imei != null) {
             return this.imei;
         }
-        Application dJp = tv.chushou.basis.d.b.dJp();
-        if (dJp.checkPermission("android.permission.READ_PHONE_STATE", Process.myPid(), Process.myUid()) == 0) {
-            this.imei = ((TelephonyManager) dJp.getSystemService("phone")).getDeviceId();
+        Application dJq = tv.chushou.basis.d.b.dJq();
+        if (dJq.checkPermission("android.permission.READ_PHONE_STATE", Process.myPid(), Process.myUid()) == 0) {
+            this.imei = ((TelephonyManager) dJq.getSystemService("phone")).getDeviceId();
         }
         if (this.imei == null) {
             this.imei = "";
@@ -92,37 +92,37 @@ public class a implements d {
     }
 
     @Override // tv.chushou.basis.d.a.b.d
-    public synchronized String dJh() {
+    public synchronized String dJi() {
         if (TextUtils.isEmpty(this.nqI)) {
             try {
                 if (this.nqH == null) {
-                    Application dJp = tv.chushou.basis.d.b.dJp();
-                    this.nqG.put("device_id", Settings.Secure.getString(dJp.getContentResolver(), "android_id"));
-                    this.nqG.put("device_mac", getLocalMacAddress(dJp));
+                    Application dJq = tv.chushou.basis.d.b.dJq();
+                    this.nqG.put("device_id", Settings.Secure.getString(dJq.getContentResolver(), "android_id"));
+                    this.nqG.put("device_mac", getLocalMacAddress(dJq));
                     this.nqH = new KSDevice();
-                    this.nqH.setDevice(tv.chushou.basis.d.b.dJp(), this.nqG);
+                    this.nqH.setDevice(tv.chushou.basis.d.b.dJq(), this.nqG);
                 }
                 this.nqI = this.nqH.getDeviceId();
             } catch (Exception e) {
-                tv.chushou.basis.d.b.dJq().e("Router", "device getDeviceCS failed", e);
+                tv.chushou.basis.d.b.dJr().e("Router", "device getDeviceCS failed", e);
             }
         }
         return this.nqI;
     }
 
     @Override // tv.chushou.basis.d.a.b.d
-    public synchronized String dJi() {
+    public synchronized String dJj() {
         if (TextUtils.isEmpty(this.nqJ)) {
             try {
-                SharedPreferences sharedPreferences = tv.chushou.basis.d.b.dJp().getSharedPreferences("com_kascend_chushou_prefs", 0);
+                SharedPreferences sharedPreferences = tv.chushou.basis.d.b.dJq().getSharedPreferences("com_kascend_chushou_prefs", 0);
                 this.nqJ = sharedPreferences.getString("deviceds", null);
                 if (TextUtils.isEmpty(this.nqJ)) {
                     if (this.nqH == null) {
-                        Application dJp = tv.chushou.basis.d.b.dJp();
-                        this.nqG.put("device_id", Settings.Secure.getString(dJp.getContentResolver(), "android_id"));
-                        this.nqG.put("device_mac", getLocalMacAddress(dJp));
+                        Application dJq = tv.chushou.basis.d.b.dJq();
+                        this.nqG.put("device_id", Settings.Secure.getString(dJq.getContentResolver(), "android_id"));
+                        this.nqG.put("device_mac", getLocalMacAddress(dJq));
                         this.nqH = new KSDevice();
-                        this.nqH.setDevice(tv.chushou.basis.d.b.dJp(), this.nqG);
+                        this.nqH.setDevice(tv.chushou.basis.d.b.dJq(), this.nqG);
                     }
                     this.nqJ = this.nqH.getDS();
                     SharedPreferences.Editor edit = sharedPreferences.edit();
@@ -130,24 +130,24 @@ public class a implements d {
                     edit.apply();
                 }
             } catch (Exception e) {
-                tv.chushou.basis.d.b.dJq().e("Router", "device getDeviceDS failed", e);
+                tv.chushou.basis.d.b.dJr().e("Router", "device getDeviceDS failed", e);
             }
         }
         return this.nqJ;
     }
 
     @Override // tv.chushou.basis.d.a.b.d
-    public Map<String, String> dJj() {
+    public Map<String, String> dJk() {
         return this.nqG;
     }
 
     @Override // tv.chushou.basis.d.a.b.d
     public synchronized String getIdentifier() {
         if (TextUtils.isEmpty(this.identifier)) {
-            SharedPreferences sharedPreferences = tv.chushou.basis.d.b.dJp().getSharedPreferences("com_kascend_chushou_prefs", 0);
+            SharedPreferences sharedPreferences = tv.chushou.basis.d.b.dJq().getSharedPreferences("com_kascend_chushou_prefs", 0);
             this.identifier = sharedPreferences.getString("identifier", null);
             if (TextUtils.isEmpty(this.identifier)) {
-                this.identifier = dJk();
+                this.identifier = dJl();
                 SharedPreferences.Editor edit = sharedPreferences.edit();
                 edit.putString("identifier", this.identifier);
                 edit.apply();
@@ -160,12 +160,12 @@ public class a implements d {
         return b.getMacAddress(context);
     }
 
-    private String dJk() {
+    private String dJl() {
         String apr = apr();
         String decrypt = !TextUtils.isEmpty(apr) ? tv.chushou.basis.b.a.a.a.b.decrypt(apr) : apr;
         String str = this.nqG.get("device_mac");
         if (TextUtils.isEmpty(str)) {
-            str = getLocalMacAddress(tv.chushou.basis.d.b.dJp());
+            str = getLocalMacAddress(tv.chushou.basis.d.b.dJq());
         }
         long currentTimeMillis = System.currentTimeMillis();
         String str2 = !TextUtils.isEmpty(decrypt) ? "" + decrypt : "";

@@ -24,7 +24,7 @@ public abstract class l<T, V extends y.a> extends com.baidu.adp.widget.ListView.
 
     /* JADX INFO: Access modifiers changed from: protected */
     public l(com.baidu.tieba.pb.videopb.b bVar, BdUniqueId bdUniqueId) {
-        super(bVar == null ? null : bVar.cyh(), bdUniqueId);
+        super(bVar == null ? null : bVar.cyi(), bdUniqueId);
         this.mSkinType = 3;
         this.mIsFromCDN = false;
         this.jpi = new SparseArray<>();
@@ -35,8 +35,8 @@ public abstract class l<T, V extends y.a> extends com.baidu.adp.widget.ListView.
     public void a(com.baidu.tieba.pb.videopb.b bVar) {
         if (bVar != null) {
             this.jse = bVar;
-            this.jpW = bVar.cyf();
-            this.jsf = bVar.cyg();
+            this.jpW = bVar.cyg();
+            this.jsf = bVar.cyh();
             if (this.jpW != null) {
                 this.mContext = this.jpW.getActivity();
             } else if (this.jsf != null) {

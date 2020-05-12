@@ -173,10 +173,10 @@ public class InteractNotifier extends RelativeLayout implements Handler.Callback
 
     private void d() {
         ArrayList arrayList = new ArrayList();
-        if ((this.mxR != null ? this.mxR.dyx() : null) != null) {
+        if ((this.mxR != null ? this.mxR.dyy() : null) != null) {
             arrayList.add(1);
         }
-        if ((this.mxS != null ? this.mxS.dyx() : null) != null) {
+        if ((this.mxS != null ? this.mxS.dyy() : null) != null) {
             arrayList.add(0);
         }
         List<com.kascend.chushou.player.ui.h5.c.b> c = this.mxT != null ? this.mxT.c() : null;

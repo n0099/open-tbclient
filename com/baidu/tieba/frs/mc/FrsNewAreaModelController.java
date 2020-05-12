@@ -101,7 +101,7 @@ public class FrsNewAreaModelController extends BdBaseModel implements NetModel.b
         bundle.putBoolean(FrsActivityConfig.GOOD, true);
     }
 
-    public boolean bTt() {
+    public boolean bTu() {
         FrsRequestData frsRequestData = (FrsRequestData) FrsRequestData.objectWithJson(FrsRequestData.jsonWithObject(this.hqp), FrsRequestData.class);
         frsRequestData.setPn(1);
         a(frsRequestData, 3);
@@ -149,7 +149,7 @@ public class FrsNewAreaModelController extends BdBaseModel implements NetModel.b
             }
             frsRequestData.setUpdateType(this.mType);
             frsRequestData.setNeedCache(false);
-            bTv();
+            bTw();
         }
     }
 
@@ -258,7 +258,7 @@ public class FrsNewAreaModelController extends BdBaseModel implements NetModel.b
         }
     }
 
-    public void bOQ() {
+    public void bOR() {
         if (this.gXU != null && this.gXU.getForum() != null && this.gXU.getForum().getBannerListData() != null) {
             String lastIds = this.gXU.getForum().getBannerListData().getLastIds();
             if (!TextUtils.isEmpty(lastIds)) {
@@ -271,28 +271,28 @@ public class FrsNewAreaModelController extends BdBaseModel implements NetModel.b
         return this.mType;
     }
 
-    public FrsViewData bTu() {
+    public FrsViewData bTv() {
         return this.gXU;
     }
 
-    private void bTv() {
+    private void bTw() {
         this.gDY = System.currentTimeMillis();
         this.hqo.loadData();
     }
 
-    public long bIT() {
+    public long bIU() {
         return this.gEb;
     }
 
-    public long bIU() {
+    public long bIV() {
         return this.gDZ;
     }
 
-    public long bIV() {
+    public long bIW() {
         return this.gEa;
     }
 
-    public long bIW() {
+    public long bIX() {
         return this.gDY;
     }
 
@@ -301,10 +301,10 @@ public class FrsNewAreaModelController extends BdBaseModel implements NetModel.b
     }
 
     public void loadData() {
-        bTt();
+        bTu();
     }
 
-    public boolean bTw() {
+    public boolean bTx() {
         return true;
     }
 
@@ -321,13 +321,13 @@ public class FrsNewAreaModelController extends BdBaseModel implements NetModel.b
     public void ur(int i) {
         this.hrJ = i;
         if (7 == i) {
-            com.baidu.tieba.tbadkCore.util.e.cXo();
-        } else {
             com.baidu.tieba.tbadkCore.util.e.cXp();
+        } else {
+            com.baidu.tieba.tbadkCore.util.e.cXq();
         }
     }
 
-    public int bTY() {
+    public int bTZ() {
         return this.hrJ;
     }
 

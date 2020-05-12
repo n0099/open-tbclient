@@ -25,19 +25,19 @@ public class aq {
     private final Handler.Callback hcx = new Handler.Callback() { // from class: com.baidu.tieba.frs.aq.1
         @Override // android.os.Handler.Callback
         public boolean handleMessage(Message message) {
-            if ((message.what == 1 || message.what == 2) && aq.this.bQB()) {
+            if ((message.what == 1 || message.what == 2) && aq.this.bQC()) {
                 aq.this.mHandler.sendEmptyMessageDelayed(message.what, 100L);
                 return true;
             }
             switch (message.what) {
                 case 1:
-                    aq.this.bQA();
+                    aq.this.bQB();
                     return true;
                 case 2:
-                    aq.this.bQy();
+                    aq.this.bQz();
                     return true;
                 case 3:
-                    aq.this.bQz();
+                    aq.this.bQA();
                     return true;
                 default:
                     return false;
@@ -82,7 +82,7 @@ public class aq {
     };
     private boolean aWd = UtilHelper.canUseStyleImmersiveSticky();
 
-    public com.baidu.tieba.f.b bQx() {
+    public com.baidu.tieba.f.b bQy() {
         return this.hcw;
     }
 
@@ -98,29 +98,29 @@ public class aq {
         this.mContext = context;
         this.hcr = nVar;
         this.mNavigationBar = nVar.bof();
-        this.hcq = nVar.bPk();
+        this.hcq = nVar.bPl();
         this.hcs = hVar;
         Fl();
         this.hcw = new com.baidu.tieba.f.b(context);
         this.hcw.a(this.gxj);
     }
 
-    public void bQy() {
+    public void bQz() {
         N(false, false);
     }
 
-    public void bQz() {
+    public void bQA() {
         N(false, true);
     }
 
     public void N(boolean z, boolean z2) {
-        if (this.hcq != null && this.hcr != null && this.hcr.bPu() != null && this.hcr.bPu().bRZ()) {
+        if (this.hcq != null && this.hcr != null && this.hcr.bPv() != null && this.hcr.bPv().bSa()) {
             M(false, true);
         }
     }
 
-    public void bQA() {
-        if (this.hcq != null && this.hcr != null && this.hcr.bPu() != null && !this.hcr.bPu().bRZ()) {
+    public void bQB() {
+        if (this.hcq != null && this.hcr != null && this.hcr.bPv() != null && !this.hcr.bPv().bSa()) {
             M(true, true);
         }
     }
@@ -143,7 +143,7 @@ public class aq {
         this.mHandler.removeCallbacksAndMessages(null);
     }
 
-    public boolean bQB() {
+    public boolean bQC() {
         return bW(this.hcq);
     }
 

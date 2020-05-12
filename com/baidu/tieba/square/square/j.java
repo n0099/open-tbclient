@@ -76,11 +76,11 @@ public class j extends com.baidu.adp.base.c<Object> {
         }
     }
 
-    public void cVj() {
+    public void cVk() {
         this.gAM.setVisibility(0);
     }
 
-    public void cVk() {
+    public void cVl() {
         this.gAM.setVisibility(8);
     }
 

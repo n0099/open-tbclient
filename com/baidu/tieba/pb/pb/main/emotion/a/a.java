@@ -9,7 +9,7 @@ public class a {
     private List<String> jDN;
     private SingleBarEmotionRecommendData jDO;
 
-    public SingleBarEmotionRecommendData cBO() {
+    public SingleBarEmotionRecommendData cBP() {
         return this.jDO;
     }
 
@@ -17,7 +17,7 @@ public class a {
         this.jDO = singleBarEmotionRecommendData;
     }
 
-    public List<EmotionImageData> bKw() {
+    public List<EmotionImageData> bKx() {
         return this.gKP;
     }
 
@@ -25,7 +25,7 @@ public class a {
         this.gKP = list;
     }
 
-    public List<String> cBP() {
+    public List<String> cBQ() {
         return this.jDN;
     }
 

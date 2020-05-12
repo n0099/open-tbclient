@@ -14,10 +14,10 @@ public class q extends a {
     private final String name;
 
     public q(com.tb.airbnb.lottie.f fVar, com.tb.airbnb.lottie.model.layer.a aVar, ShapeStroke shapeStroke) {
-        super(fVar, aVar, shapeStroke.dBE().toPaintCap(), shapeStroke.dBF().toPaintJoin(), shapeStroke.ih(), shapeStroke.dBu(), shapeStroke.dBD(), shapeStroke.m48if(), shapeStroke.dBG());
+        super(fVar, aVar, shapeStroke.dBF().toPaintCap(), shapeStroke.dBG().toPaintJoin(), shapeStroke.ih(), shapeStroke.dBv(), shapeStroke.dBE(), shapeStroke.m48if(), shapeStroke.dBH());
         this.mOn = aVar;
         this.name = shapeStroke.getName();
-        this.mOx = shapeStroke.dBU().dBo();
+        this.mOx = shapeStroke.dBV().dBp();
         this.mOx.b(this);
         aVar.a(this.mOx);
     }

@@ -16,7 +16,7 @@ public class a {
     /* renamed from: com.facebook.drawee.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes13.dex */
     public interface InterfaceC0722a {
-        boolean dor();
+        boolean dos();
     }
 
     public a(Context context) {
@@ -42,7 +42,7 @@ public class a {
         this.lWT = interfaceC0722a;
     }
 
-    public boolean dpw() {
+    public boolean dpx() {
         return this.lWV;
     }
 
@@ -61,7 +61,7 @@ public class a {
                     this.lWW = false;
                 }
                 if (this.lWW && motionEvent.getEventTime() - this.lWX <= ViewConfiguration.getLongPressTimeout() && this.lWT != null) {
-                    this.lWT.dor();
+                    this.lWT.dos();
                 }
                 this.lWW = false;
                 break;

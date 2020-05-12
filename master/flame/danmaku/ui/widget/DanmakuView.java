@@ -147,14 +147,14 @@ public class DanmakuView extends View implements f, g {
         return this.neU.getConfig();
     }
 
-    private float dGo() {
-        long dGm = master.flame.danmaku.danmaku.c.c.dGm();
-        this.nag.addLast(Long.valueOf(dGm));
+    private float dGp() {
+        long dGn = master.flame.danmaku.danmaku.c.c.dGn();
+        this.nag.addLast(Long.valueOf(dGn));
         Long peekFirst = this.nag.peekFirst();
         if (peekFirst == null) {
             return 0.0f;
         }
-        float longValue = (float) (dGm - peekFirst.longValue());
+        float longValue = (float) (dGn - peekFirst.longValue());
         if (this.nag.size() > 50) {
             this.nag.removeFirst();
         }
@@ -162,20 +162,20 @@ public class DanmakuView extends View implements f, g {
     }
 
     @Override // master.flame.danmaku.a.g
-    public long dEW() {
+    public long dEX() {
         if (!this.neV) {
             return 0L;
         }
         if (!isShown()) {
             return -1L;
         }
-        long dGm = master.flame.danmaku.danmaku.c.c.dGm();
-        dGr();
-        return master.flame.danmaku.danmaku.c.c.dGm() - dGm;
+        long dGn = master.flame.danmaku.danmaku.c.c.dGn();
+        dGs();
+        return master.flame.danmaku.danmaku.c.c.dGn() - dGn;
     }
 
     @SuppressLint({"NewApi"})
-    private void dGq() {
+    private void dGr() {
         this.mRequestRender = true;
         if (Build.VERSION.SDK_INT >= 16) {
             postInvalidateOnAnimation();
@@ -184,9 +184,9 @@ public class DanmakuView extends View implements f, g {
         }
     }
 
-    private void dGr() {
+    private void dGs() {
         if (this.nfa) {
-            dGq();
+            dGr();
             synchronized (this.nfk) {
                 while (!this.nfl && this.neU != null) {
                     try {
@@ -203,12 +203,12 @@ public class DanmakuView extends View implements f, g {
         }
     }
 
-    private void dGs() {
+    private void dGt() {
         this.nfn = true;
-        dGr();
+        dGs();
     }
 
-    private void dGt() {
+    private void dGu() {
         synchronized (this.nfk) {
             this.nfl = true;
             this.nfk.notifyAll();
@@ -230,11 +230,11 @@ public class DanmakuView extends View implements f, g {
                 if (this.nag == null) {
                     this.nag = new LinkedList<>();
                 }
-                d.c(canvas, String.format(Locale.getDefault(), "fps %.2f,time:%d s,cache:%d,miss:%d", Float.valueOf(dGo()), Long.valueOf(getCurrentTime() / 1000), Long.valueOf(ae.nek), Long.valueOf(ae.nel)));
+                d.c(canvas, String.format(Locale.getDefault(), "fps %.2f,time:%d s,cache:%d,miss:%d", Float.valueOf(dGp()), Long.valueOf(getCurrentTime() / 1000), Long.valueOf(ae.nek), Long.valueOf(ae.nel)));
             }
         }
         this.mRequestRender = false;
-        dGt();
+        dGu();
     }
 
     @Override // android.view.View
@@ -256,12 +256,12 @@ public class DanmakuView extends View implements f, g {
     }
 
     @Override // master.flame.danmaku.a.g
-    public boolean dEX() {
+    public boolean dEY() {
         return this.neW;
     }
 
     @Override // master.flame.danmaku.a.g
-    public boolean dEV() {
+    public boolean dEW() {
         return this.neV;
     }
 
@@ -271,13 +271,13 @@ public class DanmakuView extends View implements f, g {
 
     @Override // master.flame.danmaku.a.g
     public void clear() {
-        if (dEV()) {
+        if (dEW()) {
             if (!this.nfa || Thread.currentThread().getId() == this.nfm) {
                 this.nfn = true;
-                dGq();
+                dGr();
                 return;
             }
-            dGs();
+            dGt();
         }
     }
 

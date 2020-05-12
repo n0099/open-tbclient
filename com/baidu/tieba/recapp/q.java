@@ -13,7 +13,7 @@ public class q implements n {
     public static final AtomicReference<n> krx = new AtomicReference<>(null);
     private static final n kry = new q();
 
-    public static n cNl() {
+    public static n cNm() {
         n nVar = krx.get();
         return nVar == null ? kry : nVar;
     }
@@ -47,37 +47,37 @@ public class q implements n {
     }
 
     @Override // com.baidu.tieba.recapp.n
-    public i cNf() {
+    public i cNg() {
         BdLog.e("recapp plugin install failed!");
         return null;
     }
 
     @Override // com.baidu.tieba.recapp.n
-    public k cNg() {
+    public k cNh() {
         BdLog.e("recapp plugin install failed!");
         return null;
     }
 
     @Override // com.baidu.tieba.recapp.n
-    public com.baidu.tieba.r.a cNh() {
+    public com.baidu.tieba.r.a cNi() {
         BdLog.e("recapp plugin install failed!");
         return null;
     }
 
     @Override // com.baidu.tieba.recapp.n
-    public g cNi() {
+    public g cNj() {
         BdLog.e("recapp plugin install failed!");
         return null;
     }
 
     @Override // com.baidu.tieba.recapp.n
-    public List<AppData> cNj() {
+    public List<AppData> cNk() {
         BdLog.e("recapp plugin install failed!");
         return null;
     }
 
     @Override // com.baidu.tieba.recapp.n
-    public void cNk() {
+    public void cNl() {
         BdLog.e("recapp plugin install failed!");
     }
 }

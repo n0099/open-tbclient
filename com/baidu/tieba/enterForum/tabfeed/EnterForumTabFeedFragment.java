@@ -71,13 +71,13 @@ public class EnterForumTabFeedFragment extends BaseFragment implements b {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onPause() {
         super.onPause();
-        r.bEW().lx(false);
+        r.bEX().lx(false);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        r.bEW().lx(false);
+        r.bEX().lx(false);
         if (this.gGH != null) {
             this.gGH.destory();
         }
@@ -138,7 +138,7 @@ public class EnterForumTabFeedFragment extends BaseFragment implements b {
     }
 
     @Override // com.baidu.tieba.enterForum.tabfeed.b
-    public void bJt() {
+    public void bJu() {
         if (this.gGH != null) {
             this.gGH.bkZ();
         }
@@ -148,7 +148,7 @@ public class EnterForumTabFeedFragment extends BaseFragment implements b {
         if (this.gGH != null) {
             if (this.gGI != null && z) {
                 if (this.gGH.hasData()) {
-                    this.gGI.bJE();
+                    this.gGI.bJF();
                     this.gGI.it(true);
                 } else {
                     hideNetRefreshView(this.rootView);
@@ -227,9 +227,9 @@ public class EnterForumTabFeedFragment extends BaseFragment implements b {
         }
     }
 
-    public boolean bIs() {
+    public boolean bIt() {
         if (this.gGI != null) {
-            return this.gGI.bJF();
+            return this.gGI.bJG();
         }
         return true;
     }

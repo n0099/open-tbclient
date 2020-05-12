@@ -108,7 +108,7 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
         this.emN = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<GifView>() { // from class: com.baidu.tieba.homepage.concern.a.c.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: bJu */
+            /* renamed from: bJv */
             public GifView makeObject() {
                 GifView gifView = new GifView(c.this.mPageContext.getPageActivity());
                 boolean isShowImages = com.baidu.tbadk.core.i.aIc().isShowImages();
@@ -236,7 +236,7 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
             return null;
         }
         kVar.rN(kVar.position + 1);
-        com.baidu.tieba.card.r.bEW().e(kVar.BK("c12351"));
+        com.baidu.tieba.card.r.bEX().e(kVar.BK("c12351"));
         afVar.rD().setPosition(i);
         if (afVar.rD() instanceof com.baidu.tieba.a.e) {
             afVar.rD().setPage(this.aeB);

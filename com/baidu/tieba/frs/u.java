@@ -60,11 +60,11 @@ public class u implements com.baidu.adp.widget.ListView.m {
         return this.hbG;
     }
 
-    public String bQe() {
+    public String bQf() {
         return this.hbH;
     }
 
-    public boolean bQf() {
+    public boolean bQg() {
         return this.hbI;
     }
 

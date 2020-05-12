@@ -341,10 +341,10 @@ public class b extends com.kascend.chushou.view.base.b implements AppBarLayout.O
                 str = this.mFv.avatarList.get(0).avatar;
             }
             if (h.isEmpty(str)) {
-                this.mzP.xW(tv.chushou.widget.a.c.dJG());
+                this.mzP.xW(tv.chushou.widget.a.c.dJH());
             } else {
                 this.mzP.i(str, com.kascend.chushou.view.a.a(null), tv.chushou.zues.widget.fresco.b.nua, tv.chushou.zues.widget.fresco.b.nua);
-                this.mzP.getHierarchy().Gt(tv.chushou.widget.a.c.dJG());
+                this.mzP.getHierarchy().Gt(tv.chushou.widget.a.c.dJH());
             }
             if (!h.isEmpty(this.mFv.avatarList)) {
                 this.p.clear();
@@ -369,7 +369,7 @@ public class b extends com.kascend.chushou.view.base.b implements AppBarLayout.O
                         }
                         imageView.setVisibility(8);
                         frescoThumbnailView.i(avatarBean2.avatar, com.kascend.chushou.view.a.a(null), tv.chushou.zues.widget.fresco.b.nua, tv.chushou.zues.widget.fresco.b.nua);
-                        frescoThumbnailView.getHierarchy().Gt(tv.chushou.widget.a.c.dJG());
+                        frescoThumbnailView.getHierarchy().Gt(tv.chushou.widget.a.c.dJH());
                     }
                 };
                 this.mFp.setAdapter((ListAdapter) this.mFs);
@@ -444,20 +444,20 @@ public class b extends com.kascend.chushou.view.base.b implements AppBarLayout.O
                     e.a(this.mContext, this.mFv.user.nickname, new b.a() { // from class: com.kascend.chushou.view.user.b.4
                         @Override // tv.chushou.zues.widget.sweetalert.b.a
                         public void onClick(tv.chushou.zues.widget.sweetalert.b bVar2) {
-                            bVar2.dKt();
-                            com.kascend.chushou.c.c.dwD().b(bVar, (String) null, b.this.mFv.user.uid, a);
+                            bVar2.dKu();
+                            com.kascend.chushou.c.c.dwE().b(bVar, (String) null, b.this.mFv.user.uid, a);
                         }
                     });
                     return;
                 } else {
-                    com.kascend.chushou.c.c.dwD().a(bVar, (String) null, this.mFv.user.uid, a);
+                    com.kascend.chushou.c.c.dwE().a(bVar, (String) null, this.mFv.user.uid, a);
                 }
             }
             optString = null;
             a = e.a("_fromView", Constants.VIA_REPORT_TYPE_DATALINE, "_sc", optString);
             if (!z) {
             }
-            com.kascend.chushou.c.c.dwD().a(bVar, (String) null, this.mFv.user.uid, a);
+            com.kascend.chushou.c.c.dwE().a(bVar, (String) null, this.mFv.user.uid, a);
         }
     }
 

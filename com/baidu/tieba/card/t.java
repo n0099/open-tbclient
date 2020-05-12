@@ -72,8 +72,8 @@ public class t extends a<bk> implements com.baidu.tieba.a.e {
         this.agl = new View.OnClickListener() { // from class: com.baidu.tieba.card.t.7
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (t.this.bEw() != null) {
-                    t.this.bEw().a(view, t.this.gre);
+                if (t.this.bEx() != null) {
+                    t.this.bEx().a(view, t.this.gre);
                 }
             }
         };
@@ -81,8 +81,8 @@ public class t extends a<bk> implements com.baidu.tieba.a.e {
             @Override // com.baidu.tieba.card.OriginalThreadCardView.a
             public void a(OriginalThreadInfo originalThreadInfo) {
                 if (t.this.gre != null && t.this.gre.dqE != null) {
-                    if (t.this.bEw() != null) {
-                        t.this.bEw().a(t.this.gqJ, t.this.gre);
+                    if (t.this.bEx() != null) {
+                        t.this.bEx().a(t.this.gqJ, t.this.gre);
                     }
                     String id = t.this.gre.dqE.getId();
                     l.BE(id);
@@ -131,8 +131,8 @@ public class t extends a<bk> implements com.baidu.tieba.a.e {
         this.fsw.setForumAfterClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.card.t.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (t.this.bEw() != null) {
-                    t.this.bEw().a(view2, t.this.gre);
+                if (t.this.bEx() != null) {
+                    t.this.bEx().a(view2, t.this.gre);
                 }
                 if (t.this.gre != null && t.this.gre.dqE != null) {
                     l.BE(t.this.gre.dqE.getId());
@@ -146,8 +146,8 @@ public class t extends a<bk> implements com.baidu.tieba.a.e {
         this.fti.setForumAfterClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.card.t.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (t.this.bEw() != null) {
-                    t.this.bEw().a(view2, t.this.gre);
+                if (t.this.bEx() != null) {
+                    t.this.bEx().a(view2, t.this.gre);
                 }
                 if (view2 != t.this.fti.dIt && t.this.gre != null && t.this.gre.dqE != null) {
                     l.BE(t.this.gre.dqE.getId());
@@ -287,7 +287,7 @@ public class t extends a<bk> implements com.baidu.tieba.a.e {
         setPageUniqueId(getTag());
         onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         cW(bjVar.getId());
-        if (this.fsw.isInFrsAllThread() && com.baidu.tieba.frs.a.bNB().bNC()) {
+        if (this.fsw.isInFrsAllThread() && com.baidu.tieba.frs.a.bNC().bND()) {
             this.mMaskView.setVisibility(0);
             if (bjVar.aMl() || bjVar.aMm()) {
                 am.setBackgroundColor(this.mMaskView, R.color.cp_bg_line_d);
@@ -392,8 +392,8 @@ public class t extends a<bk> implements com.baidu.tieba.a.e {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (bEw() != null) {
-            bEw().a(view, this.gre);
+        if (bEx() != null) {
+            bEx().a(view, this.gre);
         }
         if (view == getView() || view.getId() == R.id.thread_content_layout_outter) {
             aUY();
@@ -407,7 +407,7 @@ public class t extends a<bk> implements com.baidu.tieba.a.e {
         return null;
     }
 
-    public View bEB() {
+    public View bEC() {
         if (this.fsv != null) {
             return this.fsv.afZ;
         }

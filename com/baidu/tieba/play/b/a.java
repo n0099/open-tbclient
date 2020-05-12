@@ -32,10 +32,10 @@ public class a {
         if (i == -300) {
             if (this.kkT == 0) {
                 this.kkT++;
-                this.mHandler.postDelayed(new b(this.kkR, gVar, i, i2, i3, 3, cKN()), 200L);
+                this.mHandler.postDelayed(new b(this.kkR, gVar, i, i2, i3, 3, cKO()), 200L);
             } else if (this.kkT == 1) {
                 this.kkT++;
-                this.mHandler.postDelayed(new b(this.kkR, gVar, i, i2, i3, 4, cKN()), 200L);
+                this.mHandler.postDelayed(new b(this.kkR, gVar, i, i2, i3, 4, cKO()), 200L);
             } else {
                 return false;
             }
@@ -43,12 +43,12 @@ public class a {
         }
         this.kkS++;
         if (this.kkS <= 2) {
-            if (!a(gVar, i, i2, i3, uri, cKN())) {
+            if (!a(gVar, i, i2, i3, uri, cKO())) {
                 if (i == -200) {
-                    this.mHandler.postDelayed(new b(this.kkR, gVar, i, i2, i3, this.kkS % 2 == 1 ? 7 : 17, cKN()), 200L);
+                    this.mHandler.postDelayed(new b(this.kkR, gVar, i, i2, i3, this.kkS % 2 == 1 ? 7 : 17, cKO()), 200L);
                     this.kkS = 2;
                 } else {
-                    this.mHandler.postDelayed(new b(this.kkR, gVar, i, i2, i3, this.kkS % 2 == 1 ? 8 : 18, cKN()), 200L);
+                    this.mHandler.postDelayed(new b(this.kkR, gVar, i, i2, i3, this.kkS % 2 == 1 ? 8 : 18, cKO()), 200L);
                     this.kkS = 4;
                     return false;
                 }
@@ -56,31 +56,31 @@ public class a {
             return true;
         } else if (this.kkS <= 4) {
             if (i == -200) {
-                this.mHandler.postDelayed(new b(this.kkR, gVar, i, i2, i3, this.kkS % 2 == 1 ? 1 : 11, cKN()), 200L);
+                this.mHandler.postDelayed(new b(this.kkR, gVar, i, i2, i3, this.kkS % 2 == 1 ? 1 : 11, cKO()), 200L);
                 return true;
             }
             return false;
         } else if (this.kkS <= 6 && i == -200) {
-            this.mHandler.postDelayed(new b(this.kkR, gVar, i, i2, i3, this.kkS % 2 == 1 ? 2 : 12, cKN()), 200L);
+            this.mHandler.postDelayed(new b(this.kkR, gVar, i, i2, i3, this.kkS % 2 == 1 ? 2 : 12, cKO()), 200L);
             return true;
         } else {
             return false;
         }
     }
 
-    private int cKN() {
+    private int cKO() {
         return (this.kkT * 100) + this.kkS;
     }
 
     private boolean a(g gVar, int i, int i2, int i3, Uri uri, int i4) {
-        if (!cKO() || i == -100 || uri == null || TextUtils.isEmpty(uri.getHost()) || uri.toString().contains("127.0.0.1") || !uri.toString().contains(HttpHost.DEFAULT_SCHEME_NAME)) {
+        if (!cKP() || i == -100 || uri == null || TextUtils.isEmpty(uri.getHost()) || uri.toString().contains("127.0.0.1") || !uri.toString().contains(HttpHost.DEFAULT_SCHEME_NAME)) {
             return false;
         }
         com.baidu.adp.lib.network.http.a.b.kL().a(new C0649a(this.mHandler, this.kkR, i, uri, gVar, i2, i3, i4));
         return com.baidu.adp.lib.network.http.a.b.kL().bD(uri.getHost());
     }
 
-    private boolean cKO() {
+    private boolean cKP() {
         return (SwitchManager.getInstance().findType(VideoHttpDnsSwitch.HTTP_DNS_SWITCH_KEY) == 0 || !j.isNetWorkAvailable() || CustomPlayerSwitch.getSwitchStatus() == 0) ? false : true;
     }
 
@@ -127,7 +127,7 @@ public class a {
         }
     }
 
-    public boolean cKP() {
+    public boolean cKQ() {
         boolean z = this.kkS > 0 || this.kkT > 0;
         this.kkS = 0;
         this.kkT = 0;

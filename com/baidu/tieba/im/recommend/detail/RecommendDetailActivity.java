@@ -26,11 +26,11 @@ public class RecommendDetailActivity extends BaseActivity<RecommendDetailActivit
         this.iud = new b(this);
         this.iue = new RecommendDetailModel(getPageContext(), this);
         initData(bundle);
-        ciD();
+        ciE();
         this.iue.eJ(this.mUserId);
     }
 
-    private void ciD() {
+    private void ciE() {
         boolean z = true;
         if (this.iud != null) {
             HashSet<String> aTD = com.baidu.tbadk.coreExtra.messageCenter.b.aTe().aTD();
@@ -38,9 +38,9 @@ public class RecommendDetailActivity extends BaseActivity<RecommendDetailActivit
                 z = false;
             }
             if (z) {
-                this.iud.ciH();
-            } else {
                 this.iud.ciI();
+            } else {
+                this.iud.ciJ();
             }
         }
     }
@@ -79,7 +79,7 @@ public class RecommendDetailActivity extends BaseActivity<RecommendDetailActivit
         if (!StringUtils.isNull(str)) {
             showToast(str);
         }
-        if (this.iud != null && this.iue != null && this.iue.ciG() && !this.iue.ciF()) {
+        if (this.iud != null && this.iue != null && this.iue.ciH() && !this.iue.ciG()) {
             if (l.isNetOk()) {
                 this.iud.wU(R.string.no_data_text);
             } else {

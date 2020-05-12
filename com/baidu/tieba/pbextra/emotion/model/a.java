@@ -45,21 +45,21 @@ public class a {
                 setSize(bitmap.getWidth(), bitmap.getHeight());
             }
             this.image = bitmap;
+            cFt();
             cFs();
-            cFr();
             if (this.jPF) {
-                cFv();
-                cFx();
+                cFw();
+                cFy();
                 if (this.jPv >= 0) {
-                    cFw();
+                    cFx();
                 }
             }
-            cFt();
             cFu();
+            cFv();
             if (!this.jPF) {
-                cFx();
+                cFy();
             }
-            cFy();
+            cFz();
             this.jPF = false;
             return true;
         } catch (IOException e) {
@@ -67,7 +67,7 @@ public class a {
         }
     }
 
-    public boolean cFq() {
+    public boolean cFr() {
         boolean z;
         if (this.started) {
             this.started = false;
@@ -122,12 +122,12 @@ public class a {
         return z;
     }
 
-    protected void cFr() {
+    protected void cFs() {
         int length = this.jPx.length;
         int i = length / 3;
         this.jPy = new byte[i];
         c cVar = new c(this.jPx, length, this.jPH);
-        this.jPA = cVar.cFE();
+        this.jPA = cVar.cFF();
         for (int i2 = 0; i2 < this.jPA.length; i2 += 3) {
             byte b = this.jPA[i2];
             this.jPA[i2] = this.jPA[i2 + 2];
@@ -184,7 +184,7 @@ public class a {
         return i8;
     }
 
-    protected void cFs() {
+    protected void cFt() {
         int width = this.image.getWidth();
         int height = this.image.getHeight();
         if (width != this.width || height != this.height) {
@@ -212,7 +212,7 @@ public class a {
         return iArr;
     }
 
-    protected void cFt() throws IOException {
+    protected void cFu() throws IOException {
         int i;
         int i2;
         this.jPw.write(33);
@@ -234,7 +234,7 @@ public class a {
         this.jPw.write(0);
     }
 
-    protected void cFu() throws IOException {
+    protected void cFv() throws IOException {
         this.jPw.write(44);
         writeShort(this.x);
         writeShort(this.y);
@@ -247,7 +247,7 @@ public class a {
         }
     }
 
-    protected void cFv() throws IOException {
+    protected void cFw() throws IOException {
         writeShort(this.width);
         writeShort(this.height);
         this.jPw.write(this.jPC | 240);
@@ -255,7 +255,7 @@ public class a {
         this.jPw.write(0);
     }
 
-    protected void cFw() throws IOException {
+    protected void cFx() throws IOException {
         this.jPw.write(33);
         this.jPw.write(255);
         this.jPw.write(11);
@@ -266,7 +266,7 @@ public class a {
         this.jPw.write(0);
     }
 
-    protected void cFx() throws IOException {
+    protected void cFy() throws IOException {
         this.jPw.write(this.jPA, 0, this.jPA.length);
         int length = 768 - this.jPA.length;
         for (int i = 0; i < length; i++) {
@@ -274,7 +274,7 @@ public class a {
         }
     }
 
-    protected void cFy() throws IOException {
+    protected void cFz() throws IOException {
         new b(this.width, this.height, this.jPy, this.jPz).encode(this.jPw);
     }
 

@@ -5,9 +5,9 @@ public interface a {
 
     void NZ();
 
-    boolean dKm();
-
     boolean dKn();
+
+    boolean dKo();
 
     boolean isVisible();
 }

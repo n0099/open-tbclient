@@ -31,7 +31,7 @@ public class p extends com.baidu.tieba.frs.h<bi, com.baidu.tieba.card.a.a<com.ba
                         p.this.gYa.a(view, (View) bVar, (Object) bj.dri);
                     }
                     bj bjVar = (bj) bVar;
-                    com.baidu.tieba.frs.d.c.bUs().a(p.this.hgM, bjVar, 1);
+                    com.baidu.tieba.frs.d.c.bUt().a(p.this.hgM, bjVar, 1);
                     com.baidu.tieba.frs.d.a.a(bjVar, 1, p.this.mPageId, p.this.hgM, p.this.getTbPageTag());
                 }
             }
@@ -39,7 +39,7 @@ public class p extends com.baidu.tieba.frs.h<bi, com.baidu.tieba.card.a.a<com.ba
         this.hdt = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<ConstrainImageLayout>() { // from class: com.baidu.tieba.frs.entelechy.a.p.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: bQO */
+            /* renamed from: bQP */
             public ConstrainImageLayout makeObject() {
                 return new ConstrainImageLayout(p.this.mPageContext.getPageActivity());
             }
@@ -129,11 +129,11 @@ public class p extends com.baidu.tieba.frs.h<bi, com.baidu.tieba.card.a.a<com.ba
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.frs.h, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, bi biVar, com.baidu.tieba.card.a.a<com.baidu.tieba.card.u> aVar) {
-        if (aVar == null || aVar.bFz() == null) {
+        if (aVar == null || aVar.bFA() == null) {
             return null;
         }
-        if (aVar.bFz() instanceof com.baidu.tieba.a.e) {
-            aVar.bFz().setPage(this.aeB);
+        if (aVar.bFA() instanceof com.baidu.tieba.a.e) {
+            aVar.bFA().setPage(this.aeB);
         }
         super.a(i, view, viewGroup, (ViewGroup) biVar, (bi) aVar);
         if (this.hgM != null) {
@@ -144,9 +144,9 @@ public class p extends com.baidu.tieba.frs.h<bi, com.baidu.tieba.card.a.a<com.ba
             biVar.dqE.dpd = (biVar.position + 1) - i2;
         }
         com.baidu.tieba.frs.d.a.a(biVar.dqE, this.mPageId, this.hgM, getTbPageTag());
-        com.baidu.tieba.frs.d.c.bUs().a(this.hgM, biVar.dqE);
-        aVar.bFz().c(this.ada);
-        aVar.bFz().a(biVar.dqE);
+        com.baidu.tieba.frs.d.c.bUt().a(this.hgM, biVar.dqE);
+        aVar.bFA().c(this.ada);
+        aVar.bFA().a(biVar.dqE);
         return aVar.getView();
     }
 

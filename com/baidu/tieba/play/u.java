@@ -91,7 +91,7 @@ public class u {
         return this.videoHeight;
     }
 
-    public long cKh() {
+    public long cKi() {
         return this.videoSize;
     }
 
@@ -99,7 +99,7 @@ public class u {
         return this.duration;
     }
 
-    public String cKi() {
+    public String cKj() {
         return this.khQ;
     }
 }

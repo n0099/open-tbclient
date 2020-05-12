@@ -49,11 +49,11 @@ public class f implements com.baidu.tieba.person.b {
     private com.baidu.tieba.i.a mLiveGoodsWindowData;
     private UserData mUserData;
 
-    public ArrayList<com.baidu.adp.widget.ListView.m> cGj() {
+    public ArrayList<com.baidu.adp.widget.ListView.m> cGk() {
         return this.jTo;
     }
 
-    private void cGk() {
+    private void cGl() {
         if (this.jTs != null) {
             this.jTo.add(this.jTs);
         } else if (this.mUserData != null) {
@@ -67,7 +67,7 @@ public class f implements com.baidu.tieba.person.b {
         }
     }
 
-    private void cGl() {
+    private void cGm() {
         if (this.jTz != null) {
             this.jTo.add(this.jTz);
             return;
@@ -82,7 +82,7 @@ public class f implements com.baidu.tieba.person.b {
                 }
                 a aVar = new a();
                 aVar.a(this.jTq.get(i2));
-                if (!aq.isEmpty(aVar.cGi())) {
+                if (!aq.isEmpty(aVar.cGj())) {
                     this.jTz.jTq.add(aVar);
                 }
                 i = i2 + 1;
@@ -111,7 +111,7 @@ public class f implements com.baidu.tieba.person.b {
         }
     }
 
-    private void cGm() {
+    private void cGn() {
         if (this.jTu == null) {
             this.jTu = X(R.drawable.icon_mask_wo_list_collect24_svg, R.string.my_mark, 16);
             this.jTu.jTC = true;
@@ -125,7 +125,7 @@ public class f implements com.baidu.tieba.person.b {
         X2.jTE = true;
         X2.jTC = true;
         this.jTo.add(X2);
-        if (this.mLiveGoodsWindowData != null && this.mLiveGoodsWindowData.bXr() && !TextUtils.isEmpty(this.mLiveGoodsWindowData.goods_url)) {
+        if (this.mLiveGoodsWindowData != null && this.mLiveGoodsWindowData.bXs() && !TextUtils.isEmpty(this.mLiveGoodsWindowData.goods_url)) {
             g X3 = X(R.drawable.icon_mask_wo_list_shop24_svg, R.string.person_my_store_title, 46);
             X3.jTC = true;
             X3.arb = this.mLiveGoodsWindowData.goods_url;
@@ -321,11 +321,11 @@ public class f implements com.baidu.tieba.person.b {
             b(profileResIdl.data.uc_card);
             dY(profileResIdl.data.url_map);
             this.jTo.add(this.jTy);
-            cGk();
-            dX(profileResIdl.data.recom_swan_list);
             cGl();
+            dX(profileResIdl.data.recom_swan_list);
             cGm();
-            com.baidu.tieba.p.a.cOI().tq(true);
+            cGn();
+            com.baidu.tieba.p.a.cOJ().tq(true);
         }
     }
 
@@ -339,9 +339,9 @@ public class f implements com.baidu.tieba.person.b {
             this.jTy = new h();
             this.jTy.userData = this.mUserData;
             this.jTo.add(this.jTy);
-            cGk();
-            cGm();
-            com.baidu.tieba.p.a.cOI().tq(true);
+            cGl();
+            cGn();
+            com.baidu.tieba.p.a.cOJ().tq(true);
             if (TbadkCoreApplication.getCurrentAccountObj() != null) {
                 TbadkCoreApplication.getCurrentAccountObj().setSex(this.mUserData.getSex());
             }

@@ -41,7 +41,7 @@ public class a {
     }
 
     static {
-        b.dfS().init();
+        b.dfT().init();
     }
 
     public static void a(final WriteData writeData, final InterfaceC0695a interfaceC0695a) {
@@ -67,7 +67,7 @@ public class a {
         final LinkedList<ImageFileInfo> chosedFiles = writeImagesInfo.getChosedFiles();
         lzR.a(chosedFiles, writeImagesInfo.isOriginalImg(), new a.InterfaceC0696a() { // from class: com.baidu.tieba.write.b.a.1
             @Override // com.baidu.tieba.write.b.c.a.InterfaceC0696a
-            public void cqX() {
+            public void cqY() {
                 ArrayList arrayList = new ArrayList();
                 Iterator it = chosedFiles.iterator();
                 while (it.hasNext()) {
@@ -278,7 +278,7 @@ public class a {
         lzS.add(str);
     }
 
-    public static void dfJ() {
+    public static void dfK() {
         try {
             if (lzS != null && lzS.size() > 0) {
                 lzS.clear();

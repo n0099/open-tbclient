@@ -11,7 +11,7 @@ import tbclient.Personalized.DataRes;
 public class h {
     public static boolean hQv = false;
 
-    public static DataRes bZV() {
+    public static DataRes bZW() {
         l<byte[]> cA = com.baidu.tbadk.core.c.a.aMR().cA("tb.rec_old_data", TbadkCoreApplication.getCurrentAccount());
         if (cA == null) {
             return null;
@@ -28,7 +28,7 @@ public class h {
         }
     }
 
-    public static void bZW() {
+    public static void bZX() {
         l<byte[]> cA = com.baidu.tbadk.core.c.a.aMR().cA("tb.rec_old_data", TbadkCoreApplication.getCurrentAccount());
         if (cA != null) {
             cA.set("0", new byte[0], 0L);

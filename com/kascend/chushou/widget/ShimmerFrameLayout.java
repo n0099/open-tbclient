@@ -87,7 +87,7 @@ public class ShimmerFrameLayout extends FrameLayout {
             }
         }
 
-        public float[] dyQ() {
+        public float[] dyR() {
             switch (this.mGa) {
                 case RADIAL:
                     return new float[]{0.0f, Math.min(this.f, 1.0f), Math.min(this.f + this.c, 1.0f)};
@@ -454,32 +454,32 @@ public class ShimmerFrameLayout extends FrameLayout {
 
     private boolean ac(Canvas canvas) {
         Bitmap d2 = d();
-        Bitmap dyO = dyO();
-        if (d2 == null || dyO == null) {
+        Bitmap dyP = dyP();
+        if (d2 == null || dyP == null) {
             return false;
         }
         b(new Canvas(d2));
         canvas.drawBitmap(d2, 0.0f, 0.0f, this.d);
-        c(new Canvas(dyO));
-        canvas.drawBitmap(dyO, 0.0f, 0.0f, (Paint) null);
+        c(new Canvas(dyP));
+        canvas.drawBitmap(dyP, 0.0f, 0.0f, (Paint) null);
         return true;
     }
 
     private Bitmap d() {
         if (this.i == null) {
-            this.i = dyP();
+            this.i = dyQ();
         }
         return this.i;
     }
 
-    private Bitmap dyO() {
+    private Bitmap dyP() {
         if (this.h == null) {
-            this.h = dyP();
+            this.h = dyQ();
         }
         return this.h;
     }
 
-    private Bitmap dyP() {
+    private Bitmap dyQ() {
         int width = getWidth();
         int height = getHeight();
         try {
@@ -555,7 +555,7 @@ public class ShimmerFrameLayout extends FrameLayout {
         Canvas canvas = new Canvas(this.b);
         switch (this.mFT.mGa) {
             case RADIAL:
-                radialGradient = new RadialGradient(a2 / 2, b2 / 2, (float) (Math.max(a2, b2) / Math.sqrt(2.0d)), this.mFT.a(), this.mFT.dyQ(), Shader.TileMode.REPEAT);
+                radialGradient = new RadialGradient(a2 / 2, b2 / 2, (float) (Math.max(a2, b2) / Math.sqrt(2.0d)), this.mFT.a(), this.mFT.dyR(), Shader.TileMode.REPEAT);
                 break;
             default:
                 switch (this.mFT.mFZ) {
@@ -584,7 +584,7 @@ public class ShimmerFrameLayout extends FrameLayout {
                         i4 = 0;
                         break;
                 }
-                radialGradient = new LinearGradient(i4, i3, i2, i, this.mFT.a(), this.mFT.dyQ(), Shader.TileMode.REPEAT);
+                radialGradient = new LinearGradient(i4, i3, i2, i, this.mFT.a(), this.mFT.dyR(), Shader.TileMode.REPEAT);
                 break;
         }
         canvas.rotate(this.mFT.b, a2 / 2, b2 / 2);

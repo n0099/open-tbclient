@@ -226,7 +226,7 @@ public class j {
         return v(d3 * 6.283185307179586d * d * i) * 2.0d * d * d3;
     }
 
-    private void dcl() {
+    private void dcm() {
         this.lmZ = System.currentTimeMillis();
         this.lna = 0L;
         this.lmY = -1;
@@ -370,7 +370,7 @@ public class j {
         iArr3[0] = 0;
         double[] dArr4 = new double[i29 / 2];
         this.lmI.a(i29, 1, dArr3, iArr3, dArr4);
-        dcl();
+        dcm();
         int i31 = i29 / 2;
         double[][] dArr5 = (double[][]) Array.newInstance(Double.TYPE, i, (i31 / i8) + 1);
         double[][] dArr6 = (double[][]) Array.newInstance(Double.TYPE, i, i29);
@@ -914,7 +914,7 @@ public class j {
             i12 = i29;
             i13 = i28;
         }
-        dcl();
+        dcm();
         int i35 = i24 / 2;
         double[][] dArr7 = (double[][]) Array.newInstance(Double.TYPE, i, i24);
         double[][] dArr8 = (double[][]) Array.newInstance(Double.TYPE, i, i10 + 1 + i35);
@@ -1314,7 +1314,7 @@ public class j {
         ByteBuffer byteBuffer;
         double[] dArr = {0.0d};
         int i6 = 0;
-        dcl();
+        dcm();
         ByteBuffer byteBuffer2 = null;
         if (z) {
             byteBuffer2 = ByteBuffer.allocate(8);

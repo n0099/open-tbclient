@@ -92,7 +92,7 @@ public class AlbumImageBrowseFragment extends BaseFragment {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         this.lye = (AlbumActivity) getBaseFragmentActivity();
-        this.lxX = this.lye.dfp();
+        this.lxX = this.lye.dfq();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
@@ -136,7 +136,7 @@ public class AlbumImageBrowseFragment extends BaseFragment {
         int currentIndex;
         boolean z = true;
         if (this.lxX == null && this.lye != null) {
-            this.lxX = this.lye.dfp();
+            this.lxX = this.lye.dfq();
         }
         if (this.lxX != null && (FN = this.lxX.FN()) != null && (currentIndex = this.lxX.getCurrentIndex()) >= 0) {
             this.mCurrentIndex = currentIndex;

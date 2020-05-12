@@ -8,19 +8,19 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class w {
     public static final String bax() {
-        com.baidu.l.a dlB = com.baidu.l.c.fu(TbadkCoreApplication.getInst()).dlB();
-        if (dlB == null) {
+        com.baidu.l.a dlC = com.baidu.l.c.fu(TbadkCoreApplication.getInst()).dlC();
+        if (dlC == null) {
             return null;
         }
         try {
             JSONObject jSONObject = new JSONObject();
-            String dlA = dlB.dlA();
-            if (!TextUtils.isEmpty(dlA)) {
-                jSONObject.put("v", dlA);
+            String dlB = dlC.dlB();
+            if (!TextUtils.isEmpty(dlB)) {
+                jSONObject.put("v", dlB);
             }
-            jSONObject.put(Config.STAT_SDK_CHANNEL, dlB.getStatusCode());
-            jSONObject.put("sup", dlB.isSupport() ? 1 : 0);
-            jSONObject.put("tl", dlB.dlz() ? 1 : 0);
+            jSONObject.put(Config.STAT_SDK_CHANNEL, dlC.getStatusCode());
+            jSONObject.put("sup", dlC.isSupport() ? 1 : 0);
+            jSONObject.put("tl", dlC.dlA() ? 1 : 0);
             return jSONObject.toString();
         } catch (JSONException e) {
             if (TbadkCoreApplication.getInst().isDebugMode()) {

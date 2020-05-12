@@ -15,14 +15,14 @@ public final class b {
     private static StringBuffer lPa = new StringBuffer();
 
     static {
-        if (com.baidu.ubs.analytics.d.dkT() != null) {
-            lOb = !a.dlr();
+        if (com.baidu.ubs.analytics.d.dkU() != null) {
+            lOb = !a.dls();
             lOZ = true;
             lPa.append("ABsdkLog-");
             lPa.append(new SimpleDateFormat(ControlShowManager.DAY_TIME_FORMAT).format(new Date()));
             lPa.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
             try {
-                lPa.append(a(com.baidu.ubs.analytics.c.i.k(com.baidu.ubs.analytics.d.dkT().getContext()).getBytes("UTF-8")));
+                lPa.append(a(com.baidu.ubs.analytics.c.i.k(com.baidu.ubs.analytics.d.dkU().getContext()).getBytes("UTF-8")));
             } catch (UnsupportedEncodingException e) {
                 j.a(e);
             } catch (Exception e2) {
@@ -32,7 +32,7 @@ public final class b {
         }
     }
 
-    public static String dlt() {
+    public static String dlu() {
         return lPa.toString();
     }
 

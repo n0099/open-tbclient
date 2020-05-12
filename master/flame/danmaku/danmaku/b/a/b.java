@@ -131,7 +131,7 @@ public class b {
             }
 
             @Override // master.flame.danmaku.danmaku.model.l.b
-            public void dFz() {
+            public void dFA() {
                 this.iKe = 0;
                 this.neQ = null;
                 this.nex = null;
@@ -160,16 +160,16 @@ public class b {
                 if (this.neI == null) {
                     this.neI = dVar;
                 }
-                if (this.neJ.nbe + dVar.dFl() > this.ney.getHeight()) {
+                if (this.neJ.nbe + dVar.dFm() > this.ney.getHeight()) {
                     this.neR = true;
                     return 1;
                 }
                 if (this.neQ == null) {
                     this.neQ = dVar;
-                } else if (this.neQ.dFm() >= dVar.dFm()) {
+                } else if (this.neQ.dFn() >= dVar.dFn()) {
                     this.neQ = dVar;
                 }
-                this.neK = master.flame.danmaku.danmaku.c.b.a(this.ney, dVar, this.neJ, this.neJ.getDuration(), this.neJ.dFo().nbv);
+                this.neK = master.flame.danmaku.danmaku.c.b.a(this.ney, dVar, this.neJ, this.neJ.getDuration(), this.neJ.dFp().nbv);
                 if (!this.neK) {
                     this.neP = dVar;
                     return 1;
@@ -180,8 +180,8 @@ public class b {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // master.flame.danmaku.danmaku.model.l.b
-            /* renamed from: dGl */
-            public e dEz() {
+            /* renamed from: dGm */
+            public e dEA() {
                 e eVar = new e();
                 eVar.iKe = this.iKe;
                 eVar.neI = this.neI;
@@ -214,12 +214,12 @@ public class b {
             master.flame.danmaku.danmaku.model.d dVar4;
             master.flame.danmaku.danmaku.model.d dVar5;
             boolean z6;
-            float dFF;
+            float dFG;
             boolean z7;
             boolean z8;
             int i2;
-            if (!dVar.dFg()) {
-                float dFF2 = mVar.dFF();
+            if (!dVar.dFh()) {
+                float dFG2 = mVar.dFG();
                 int i3 = 0;
                 boolean isShown = dVar.isShown();
                 boolean z9 = (isShown || this.neG.isEmpty()) ? false : true;
@@ -235,8 +235,8 @@ public class b {
                     this.neO.ney = mVar;
                     this.neO.neJ = dVar;
                     this.neG.a(this.neO);
-                    e dEz = this.neO.dEz();
-                    if (dEz == null) {
+                    e dEA = this.neO.dEA();
+                    if (dEA == null) {
                         z4 = isShown;
                         z5 = false;
                         dVar3 = null;
@@ -245,22 +245,22 @@ public class b {
                         dVar5 = null;
                         z6 = z9;
                     } else {
-                        i = dEz.iKe;
-                        dVar6 = dEz.neP;
-                        dVar3 = dEz.neI;
-                        dVar5 = dEz.nex;
-                        master.flame.danmaku.danmaku.model.d dVar7 = dEz.neQ;
-                        z5 = dEz.neR;
-                        z4 = dEz.neS;
-                        z6 = dEz.neK;
+                        i = dEA.iKe;
+                        dVar6 = dEA.neP;
+                        dVar3 = dEA.neI;
+                        dVar5 = dEA.nex;
+                        master.flame.danmaku.danmaku.model.d dVar7 = dEA.neQ;
+                        z5 = dEA.neR;
+                        z4 = dEA.neS;
+                        z6 = dEA.neK;
                         dVar4 = dVar7;
                     }
                     boolean z10 = true;
                     if (dVar6 != null) {
                         if (dVar5 != null) {
-                            dFF = dVar5.dFn() + margin;
+                            dFG = dVar5.dFo() + margin;
                         } else {
-                            dFF = dVar6.dFl();
+                            dFG = dVar6.dFm();
                         }
                         if (dVar6 == dVar) {
                             dVar6 = null;
@@ -268,29 +268,29 @@ public class b {
                             z4 = false;
                         }
                     } else if (z5 && dVar4 != null) {
-                        dFF = dVar4.dFl();
+                        dFG = dVar4.dFm();
                         z10 = false;
                         z4 = false;
                         dVar6 = null;
                     } else if (dVar5 != null) {
-                        dFF = dVar5.dFn() + margin;
+                        dFG = dVar5.dFo() + margin;
                         z6 = false;
                         dVar6 = null;
                     } else if (dVar3 != null) {
-                        dFF = dVar3.dFl();
+                        dFG = dVar3.dFm();
                         z4 = false;
                         dVar6 = dVar3;
                     } else {
-                        dFF = mVar.dFF();
+                        dFG = mVar.dFG();
                         dVar6 = null;
                     }
                     if (!z10) {
                         z7 = false;
                     } else {
-                        z7 = a(z5, dVar, mVar, dFF, dVar3, dVar5);
+                        z7 = a(z5, dVar, mVar, dFG, dVar3, dVar5);
                     }
                     if (z7) {
-                        dFF = mVar.dFF();
+                        dFG = mVar.dFG();
                         z8 = true;
                         i2 = 1;
                     } else if (dVar6 != null) {
@@ -300,27 +300,27 @@ public class b {
                         z8 = z6;
                         i2 = i;
                     }
-                    if (dFF == mVar.dFF()) {
+                    if (dFG == mVar.dFG()) {
                         z2 = false;
-                        dFF2 = dFF;
+                        dFG2 = dFG;
                         i3 = i2;
                         z3 = z7;
                         z = z8;
                         dVar2 = dVar6;
                     } else {
                         z2 = z4;
-                        dFF2 = dFF;
+                        dFG2 = dFG;
                         i3 = i2;
                         z3 = z7;
                         z = z8;
                         dVar2 = dVar6;
                     }
                 }
-                if (fVar == null || !fVar.a(dVar, dFF2, i3, z)) {
+                if (fVar == null || !fVar.a(dVar, dFG2, i3, z)) {
                     if (z3) {
                         clear();
                     }
-                    dVar.a(mVar, dVar.dFk(), dFF2);
+                    dVar.a(mVar, dVar.dFl(), dFG2);
                     if (!z2) {
                         this.neG.l(dVar2);
                         this.neG.k(dVar);
@@ -330,7 +330,7 @@ public class b {
         }
 
         protected boolean a(boolean z, master.flame.danmaku.danmaku.model.d dVar, m mVar, float f, master.flame.danmaku.danmaku.model.d dVar2, master.flame.danmaku.danmaku.model.d dVar3) {
-            return f < ((float) mVar.dFF()) || (dVar2 != null && dVar2.dFl() > 0.0f) || dVar.nbe + f > ((float) mVar.getHeight());
+            return f < ((float) mVar.dFG()) || (dVar2 != null && dVar2.dFm() > 0.0f) || dVar.nbe + f > ((float) mVar.getHeight());
         }
 
         @Override // master.flame.danmaku.danmaku.b.a.b.d
@@ -374,7 +374,7 @@ public class b {
             }
 
             @Override // master.flame.danmaku.danmaku.model.l.b
-            public void dFz() {
+            public void dFA() {
                 this.iKe = 0;
                 this.neI = null;
                 this.neH = null;
@@ -396,27 +396,27 @@ public class b {
                 }
                 if (this.neI == null) {
                     this.neI = dVar;
-                    if (this.neI.dFn() != this.ney.getHeight()) {
+                    if (this.neI.dFo() != this.ney.getHeight()) {
                         return 1;
                     }
                 }
-                if (this.neL < this.ney.dFF()) {
+                if (this.neL < this.ney.dFG()) {
                     this.neH = null;
                     return 1;
                 }
-                this.neK = master.flame.danmaku.danmaku.c.b.a(this.ney, dVar, this.neJ, this.neJ.getDuration(), this.neJ.dFo().nbv);
+                this.neK = master.flame.danmaku.danmaku.c.b.a(this.ney, dVar, this.neJ, this.neJ.getDuration(), this.neJ.dFp().nbv);
                 if (!this.neK) {
                     this.neH = dVar;
                     return 1;
                 }
-                this.neL = (dVar.dFl() - this.ney.getMargin()) - this.neJ.nbe;
+                this.neL = (dVar.dFm() - this.ney.getMargin()) - this.neJ.nbe;
                 return 0;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // master.flame.danmaku.danmaku.model.l.b
-            /* renamed from: dGl */
-            public e dEz() {
+            /* renamed from: dGm */
+            public e dEA() {
                 e eVar = new e();
                 eVar.iKe = this.iKe;
                 eVar.neI = this.neI;
@@ -441,12 +441,12 @@ public class b {
             boolean z2;
             boolean z3 = true;
             boolean z4 = false;
-            if (!dVar.dFg()) {
+            if (!dVar.dFh()) {
                 boolean isShown = dVar.isShown();
-                float dFl = isShown ? dVar.dFl() : -1.0f;
+                float dFm = isShown ? dVar.dFm() : -1.0f;
                 boolean z5 = (isShown || this.neG.isEmpty()) ? false : true;
-                if (dFl < mVar.dFF()) {
-                    dFl = mVar.getHeight() - dVar.nbe;
+                if (dFm < mVar.dFG()) {
+                    dFm = mVar.getHeight() - dVar.nbe;
                 }
                 if (isShown) {
                     dVar2 = null;
@@ -455,18 +455,18 @@ public class b {
                     z = isShown;
                 } else {
                     this.neN = false;
-                    this.neF.neL = dFl;
+                    this.neF.neL = dFm;
                     this.neF.ney = mVar;
                     this.neF.neJ = dVar;
                     this.neG.a(this.neF);
-                    e dEz = this.neF.dEz();
-                    dFl = this.neF.neL;
-                    if (dEz != null) {
-                        int i2 = dEz.iKe;
-                        dVar3 = dEz.neI;
-                        master.flame.danmaku.danmaku.model.d dVar4 = dEz.neH;
-                        boolean z6 = dEz.neS;
-                        z2 = dEz.neK;
+                    e dEA = this.neF.dEA();
+                    dFm = this.neF.neL;
+                    if (dEA != null) {
+                        int i2 = dEA.iKe;
+                        dVar3 = dEA.neI;
+                        master.flame.danmaku.danmaku.model.d dVar4 = dEA.neH;
+                        boolean z6 = dEA.neS;
+                        z2 = dEA.neK;
                         i = i2;
                         z = z6;
                         dVar2 = dVar4;
@@ -477,13 +477,13 @@ public class b {
                         i = 0;
                         z = isShown;
                     }
-                    boolean a = a(false, dVar, mVar, dFl, dVar3, null);
+                    boolean a = a(false, dVar, mVar, dFm, dVar3, null);
                     if (a) {
-                        dFl = mVar.getHeight() - dVar.nbe;
+                        dFm = mVar.getHeight() - dVar.nbe;
                         z4 = a;
                         i = 1;
                     } else {
-                        z3 = dFl >= ((float) mVar.dFF()) ? false : z2;
+                        z3 = dFm >= ((float) mVar.dFG()) ? false : z2;
                         if (dVar2 != null) {
                             i--;
                             z4 = a;
@@ -492,11 +492,11 @@ public class b {
                         }
                     }
                 }
-                if (fVar == null || !fVar.a(dVar, dFl, i, z3)) {
+                if (fVar == null || !fVar.a(dVar, dFm, i, z3)) {
                     if (z4) {
                         clear();
                     }
-                    dVar.a(mVar, dVar.dFk(), dFl);
+                    dVar.a(mVar, dVar.dFl(), dFm);
                     if (!z) {
                         this.neG.l(dVar2);
                         this.neG.k(dVar);
@@ -507,7 +507,7 @@ public class b {
 
         @Override // master.flame.danmaku.danmaku.b.a.b.c, master.flame.danmaku.danmaku.b.a.b.C0824b
         protected boolean a(boolean z, master.flame.danmaku.danmaku.model.d dVar, m mVar, float f, master.flame.danmaku.danmaku.model.d dVar2, master.flame.danmaku.danmaku.model.d dVar3) {
-            return f < ((float) mVar.dFF()) || !(dVar2 == null || dVar2.dFn() == ((float) mVar.getHeight()));
+            return f < ((float) mVar.dFG()) || !(dVar2 == null || dVar2.dFo() == ((float) mVar.getHeight()));
         }
 
         @Override // master.flame.danmaku.danmaku.b.a.b.C0824b, master.flame.danmaku.danmaku.b.a.b.d

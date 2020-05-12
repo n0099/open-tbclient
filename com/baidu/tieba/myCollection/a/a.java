@@ -41,7 +41,7 @@ public class a {
         jfp = null;
     }
 
-    public static synchronized a csT() {
+    public static synchronized a csU() {
         a aVar;
         synchronized (a.class) {
             if (jfp == null) {

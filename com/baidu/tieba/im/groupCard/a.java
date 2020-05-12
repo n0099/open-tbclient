@@ -79,31 +79,31 @@ public class a extends c<GroupCardActivity> {
         this.progressBar.setVisibility(0);
     }
 
-    public void bUw() {
+    public void bUx() {
         this.progressBar.setVisibility(8);
     }
 
-    public void cgM() {
+    public void cgN() {
         this.mImageView.setVisibility(0);
     }
 
-    public View cgN() {
+    public View cgO() {
         return this.ioB;
     }
 
-    public View cgO() {
+    public View cgP() {
         return this.ioC;
     }
 
-    public View cgP() {
+    public View cgQ() {
         return this.ioE;
     }
 
-    public View cgQ() {
+    public View cgR() {
         return this.mNavigationBar;
     }
 
-    public LinearLayout cgR() {
+    public LinearLayout cgS() {
         return this.ioD;
     }
 

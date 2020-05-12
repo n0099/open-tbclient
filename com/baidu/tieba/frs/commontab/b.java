@@ -55,7 +55,7 @@ public class b {
                     b.this.ePr.setOnClickListener(null);
                     if (b.this.hasMore) {
                         b.this.ePr.showLoading();
-                        b.this.hfB.bDx();
+                        b.this.hfB.bDy();
                         return;
                     }
                     b.this.ePr.setText(b.this.hfB.getResources().getString(R.string.list_has_no_more));
@@ -75,7 +75,7 @@ public class b {
                 if (b.this.gHB != null) {
                     b.this.gHB.a(b.this.Vi.getFirstVisiblePosition(), b.this.Vi.getLastVisiblePosition(), this.gHF, true);
                 }
-                r.bEW().lx(true);
+                r.bEX().lx(true);
             }
         }
 
@@ -142,7 +142,7 @@ public class b {
                 this.hfX.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
                 this.hfY = new com.baidu.tieba.frs.entelechy.tabView.frsTabFollowPost.a(this.hfB, this.hfX);
                 this.Vi.addHeaderView(this.hfX, 0);
-                this.hfY.setData(bRt());
+                this.hfY.setData(bRu());
             }
         }
     }
@@ -199,7 +199,7 @@ public class b {
         }
     }
 
-    private List<FrsTabInfo> bRt() {
+    private List<FrsTabInfo> bRu() {
         ArrayList arrayList = new ArrayList();
         FrsTabInfo.Builder builder = new FrsTabInfo.Builder();
         builder.tab_id = 2;
@@ -229,13 +229,13 @@ public class b {
 
     public void resume() {
         if (this.gHB != null) {
-            this.gHB.cnM();
+            this.gHB.cnN();
         }
     }
 
     public void pause() {
         if (this.gHB != null) {
-            this.gHB.cnL();
+            this.gHB.cnM();
         }
     }
 
@@ -245,7 +245,7 @@ public class b {
         }
     }
 
-    public void bQR() {
+    public void bQS() {
         s sVar = new s();
         sVar.tabId = this.hfB.tabId;
         sVar.etP = false;
@@ -278,7 +278,7 @@ public class b {
         }
     }
 
-    public void bOc() {
+    public void bOd() {
         this.Vi.scrollToPosition(0);
     }
 
@@ -292,11 +292,11 @@ public class b {
         }
     }
 
-    public BdTypeRecyclerView bRu() {
+    public BdTypeRecyclerView bRv() {
         return this.Vi;
     }
 
-    public m bPt() {
+    public m bPu() {
         return this.gHB;
     }
 

@@ -16,7 +16,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static int dlD() {
+    public static int dlE() {
         if (TextUtils.isEmpty(lPG)) {
             lPG = com.baidu.l.a.c.d.getManufacturer();
         }

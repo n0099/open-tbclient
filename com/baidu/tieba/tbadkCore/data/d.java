@@ -12,7 +12,7 @@ public class d {
         this.kRQ = absDelegateAdapterList;
     }
 
-    public AbsDelegateAdapterList cVU() {
+    public AbsDelegateAdapterList cVV() {
         return this.kRQ;
     }
 }

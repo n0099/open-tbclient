@@ -34,7 +34,7 @@ public class a extends RecyclerView.Adapter<b> {
     public void onBindViewHolder(b bVar, int i) {
         OriForumInfo oriForumInfo = (OriForumInfo) v.getItem(this.hfv, i);
         if (oriForumInfo != null) {
-            RelationBarCellView relationBarCellView = (RelationBarCellView) bVar.bRj();
+            RelationBarCellView relationBarCellView = (RelationBarCellView) bVar.bRk();
             relationBarCellView.setData(oriForumInfo);
             relationBarCellView.onChangeSkinType();
         }

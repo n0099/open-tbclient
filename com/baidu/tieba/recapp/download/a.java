@@ -46,7 +46,7 @@ public class a {
     private a() {
     }
 
-    public static a cNq() {
+    public static a cNr() {
         return ksf;
     }
 

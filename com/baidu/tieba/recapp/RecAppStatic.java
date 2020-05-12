@@ -92,8 +92,8 @@ public class RecAppStatic {
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("com.tieba.baidu.notifyprocess");
         inst.registerReceiver(broadcastReceiver, intentFilter);
-        a.cMW().cMZ();
-        a.cMW().cMX();
+        a.cMX().cNa();
+        a.cMX().cMY();
         com.baidu.b.a.a.init(TbadkCoreApplication.getInst());
         com.baidu.b.a.a.a(new o());
         com.baidu.b.a.a.a(new p());

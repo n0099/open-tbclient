@@ -118,11 +118,14 @@ public class CommonWebLayout extends FrameLayout {
                 }
                 this.bcx.clear();
             }
-            this.bcw.stopLoading();
-            this.bcw.removeAllViews();
-            this.bcw.loadUrl("about:blank");
-            this.bcw.freeMemory();
-            this.bcw.destroy();
+            try {
+                this.bcw.stopLoading();
+                this.bcw.removeAllViews();
+                this.bcw.loadUrl("about:blank");
+                this.bcw.freeMemory();
+                this.bcw.destroy();
+            } catch (Exception e) {
+            }
             this.mUploadMessage = null;
         }
     }

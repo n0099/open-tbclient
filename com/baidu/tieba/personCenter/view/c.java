@@ -77,7 +77,7 @@ public class c {
 
     public void b(com.baidu.tieba.personCenter.c.f fVar) {
         if (fVar != null) {
-            this.jUn.setData(fVar.cGj());
+            this.jUn.setData(fVar.cGk());
         }
     }
 
@@ -92,12 +92,12 @@ public class c {
     public void initView() {
         this.mTitle = this.mNavigationBar.setCenterTextTitle(this.mPageContext.getString(R.string.mine));
         this.jUo.a(this.mPageContext.getPageActivity(), this.mNavigationBar);
-        this.jUo.deC();
+        this.jUo.deD();
         this.jUo.setOnViewResponseListener(null);
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public boolean bJs() {
+    public boolean bJt() {
         if (this.refreshView != null) {
             return this.refreshView.isViewAttached();
         }
@@ -109,7 +109,7 @@ public class c {
     }
 
     public void blq() {
-        if (!bJs()) {
+        if (!bJt()) {
             if (this.refreshView == null) {
                 this.refreshView = new h(this.mPageContext.getPageActivity(), new View.OnClickListener() { // from class: com.baidu.tieba.personCenter.view.c.2
                     @Override // android.view.View.OnClickListener
@@ -157,7 +157,7 @@ public class c {
 
     public void onDestroy() {
         if (this.jUn != null) {
-            this.jUn.cGf();
+            this.jUn.cGg();
         }
     }
 
@@ -165,15 +165,15 @@ public class c {
         this.jUo.V(i, z);
     }
 
-    public void cGe() {
-        if (this.jUn != null) {
-            this.jUn.cGe();
-        }
-    }
-
     public void cGf() {
         if (this.jUn != null) {
             this.jUn.cGf();
+        }
+    }
+
+    public void cGg() {
+        if (this.jUn != null) {
+            this.jUn.cGg();
         }
     }
 }

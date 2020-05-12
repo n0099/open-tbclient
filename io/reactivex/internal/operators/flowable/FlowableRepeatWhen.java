@@ -16,11 +16,11 @@ public final class FlowableRepeatWhen<T> extends a<T, T> {
     @Override // io.reactivex.g
     public void a(org.a.c<? super T> cVar) {
         io.reactivex.subscribers.b bVar = new io.reactivex.subscribers.b(cVar);
-        io.reactivex.processors.a<T> dDf = UnicastProcessor.Jc(8).dDf();
+        io.reactivex.processors.a<T> dDg = UnicastProcessor.Jc(8).dDg();
         try {
-            org.a.b bVar2 = (org.a.b) io.reactivex.internal.functions.a.h(this.mSB.apply(dDf), "handler returned a null Publisher");
+            org.a.b bVar2 = (org.a.b) io.reactivex.internal.functions.a.h(this.mSB.apply(dDg), "handler returned a null Publisher");
             WhenReceiver whenReceiver = new WhenReceiver(this.mRM);
-            RepeatWhenSubscriber repeatWhenSubscriber = new RepeatWhenSubscriber(bVar, dDf, whenReceiver);
+            RepeatWhenSubscriber repeatWhenSubscriber = new RepeatWhenSubscriber(bVar, dDg, whenReceiver);
             whenReceiver.subscriber = repeatWhenSubscriber;
             cVar.onSubscribe(repeatWhenSubscriber);
             bVar2.subscribe(whenReceiver);

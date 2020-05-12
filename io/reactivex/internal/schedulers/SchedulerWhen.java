@@ -8,7 +8,7 @@ import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
 public class SchedulerWhen extends v implements io.reactivex.disposables.b {
     static final io.reactivex.disposables.b mVl = new d();
-    static final io.reactivex.disposables.b mVm = io.reactivex.disposables.c.dCF();
+    static final io.reactivex.disposables.b mVm = io.reactivex.disposables.c.dCG();
     private final v mVi;
     private final io.reactivex.processors.a<io.reactivex.g<io.reactivex.a>> mVj;
     private io.reactivex.disposables.b mVk;
@@ -24,11 +24,11 @@ public class SchedulerWhen extends v implements io.reactivex.disposables.b {
     }
 
     @Override // io.reactivex.v
-    public v.c dCC() {
-        v.c dCC = this.mVi.dCC();
-        io.reactivex.processors.a<T> dDf = UnicastProcessor.dDg().dDf();
-        io.reactivex.g<io.reactivex.a> a2 = dDf.a(new a(dCC));
-        c cVar = new c(dDf, dCC);
+    public v.c dCD() {
+        v.c dCD = this.mVi.dCD();
+        io.reactivex.processors.a<T> dDg = UnicastProcessor.dDh().dDg();
+        io.reactivex.g<io.reactivex.a> a2 = dDg.a(new a(dCD));
+        c cVar = new c(dDg, dCD);
         this.mVj.onNext(a2);
         return cVar;
     }

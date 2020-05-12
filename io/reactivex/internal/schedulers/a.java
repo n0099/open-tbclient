@@ -41,7 +41,7 @@ public final class a extends v implements h {
             }
         }
 
-        public c dCV() {
+        public c dCW() {
             int i = this.mUE;
             if (i == 0) {
                 return a.mUy;
@@ -90,8 +90,8 @@ public final class a extends v implements h {
     }
 
     @Override // io.reactivex.v
-    public v.c dCC() {
-        return new C0811a(this.mUz.get().dCV());
+    public v.c dCD() {
+        return new C0811a(this.mUz.get().dCW());
     }
 
     @Override // io.reactivex.internal.schedulers.h
@@ -102,12 +102,12 @@ public final class a extends v implements h {
 
     @Override // io.reactivex.v
     public io.reactivex.disposables.b b(Runnable runnable, long j, TimeUnit timeUnit) {
-        return this.mUz.get().dCV().b(runnable, j, timeUnit);
+        return this.mUz.get().dCW().b(runnable, j, timeUnit);
     }
 
     @Override // io.reactivex.v
     public io.reactivex.disposables.b a(Runnable runnable, long j, long j2, TimeUnit timeUnit) {
-        return this.mUz.get().dCV().a(runnable, j, j2, timeUnit);
+        return this.mUz.get().dCW().a(runnable, j, j2, timeUnit);
     }
 
     @Override // io.reactivex.v

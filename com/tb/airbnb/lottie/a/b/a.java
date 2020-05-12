@@ -62,7 +62,7 @@ public abstract class a<K, A> {
         }
     }
 
-    private com.tb.airbnb.lottie.e.a<K> dBi() {
+    private com.tb.airbnb.lottie.e.a<K> dBj() {
         if (this.mOU != null && this.mOU.k(this.progress)) {
             return this.mOU;
         }
@@ -84,19 +84,19 @@ public abstract class a<K, A> {
         if (this.Ch) {
             return 0.0f;
         }
-        com.tb.airbnb.lottie.e.a<K> dBi = dBi();
-        if (dBi.jl()) {
+        com.tb.airbnb.lottie.e.a<K> dBj = dBj();
+        if (dBj.jl()) {
             return 0.0f;
         }
-        return (this.progress - dBi.iI()) / (dBi.ht() - dBi.iI());
+        return (this.progress - dBj.iI()) / (dBj.ht() - dBj.iI());
     }
 
     private float hr() {
-        com.tb.airbnb.lottie.e.a<K> dBi = dBi();
-        if (dBi.jl()) {
+        com.tb.airbnb.lottie.e.a<K> dBj = dBj();
+        if (dBj.jl()) {
             return 0.0f;
         }
-        return dBi.FQ.getInterpolation(hq());
+        return dBj.FQ.getInterpolation(hq());
     }
 
     @FloatRange(from = 0.0d, to = WeightedLatLng.DEFAULT_INTENSITY)
@@ -116,7 +116,7 @@ public abstract class a<K, A> {
     }
 
     public A getValue() {
-        return a(dBi(), hr());
+        return a(dBj(), hr());
     }
 
     public float getProgress() {

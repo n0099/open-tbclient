@@ -37,16 +37,16 @@ public class AdSettingActivity extends BaseActivity implements BdSwitchView.a {
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             if (responsedMessage != null && responsedMessage.getError() != 0) {
                 if (responsedMessage.getError() == 1990043) {
-                    AdSettingActivity.this.cQe();
+                    AdSettingActivity.this.cQf();
                 } else if (StringUtils.isNull(responsedMessage.getErrorString())) {
-                    AdSettingActivity.this.cQd();
+                    AdSettingActivity.this.cQe();
                     return;
                 } else {
                     AdSettingActivity.this.showToast(responsedMessage.getErrorString());
                 }
                 AdSettingActivity.this.tu(false);
             } else if (!(responsedMessage instanceof MemberCloseAdHttpResponseMessage) && !(responsedMessage instanceof MemberCloseAdSocketResponseMessage)) {
-                AdSettingActivity.this.cQd();
+                AdSettingActivity.this.cQe();
             } else {
                 CloseAdData closeAdData = null;
                 if (responsedMessage instanceof MemberCloseAdHttpResponseMessage) {
@@ -55,7 +55,7 @@ public class AdSettingActivity extends BaseActivity implements BdSwitchView.a {
                     closeAdData = ((MemberCloseAdSocketResponseMessage) responsedMessage).getData();
                 }
                 if (closeAdData == null) {
-                    AdSettingActivity.this.cQd();
+                    AdSettingActivity.this.cQe();
                     return;
                 }
                 AdSettingActivity.this.Cm(closeAdData.aWj());
@@ -82,8 +82,8 @@ public class AdSettingActivity extends BaseActivity implements BdSwitchView.a {
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.kCZ.cQg()) {
-            cOs();
+        if (view == this.kCZ.cQh()) {
+            cOt();
         }
     }
 
@@ -92,21 +92,21 @@ public class AdSettingActivity extends BaseActivity implements BdSwitchView.a {
         com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_MEMBER_CLOSE_AD, 1003090, TbConfig.SET_MEMBER_CLOSE_AD, MemberCloseAdHttpResponseMessage.class, false, false, false, false);
     }
 
-    private void cOs() {
+    private void cOt() {
         ba.aOV().a(getPageContext(), new String[]{com.baidu.tbadk.core.sharedPref.b.aNT().getString("sync_ad_privacy_url", "")}, false);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cQd() {
+    public void cQe() {
         tu(true);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void tu(boolean z) {
         if (this.kDa == kDb) {
-            this.kCZ.cQi();
+            this.kCZ.cQj();
         } else if (this.kDa == kDc) {
-            this.kCZ.cQh();
+            this.kCZ.cQi();
         }
         if (z) {
             showToast(R.string.setdefualt_error);
@@ -119,10 +119,10 @@ public class AdSettingActivity extends BaseActivity implements BdSwitchView.a {
     public void Cm(int i) {
         AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
         if (i == 0) {
-            this.kCZ.cQh();
+            this.kCZ.cQi();
             currentAccountObj.setMemberCloseAdVipClose(0);
         } else {
-            this.kCZ.cQi();
+            this.kCZ.cQj();
             currentAccountObj.setMemberCloseAdVipClose(1);
         }
         this.kDa = kDd;
@@ -146,7 +146,7 @@ public class AdSettingActivity extends BaseActivity implements BdSwitchView.a {
 
     /* JADX INFO: Access modifiers changed from: private */
     @SuppressLint({"ResourceAsColor"})
-    public void cQe() {
+    public void cQf() {
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity());
         aVar.kd(R.string.mebmer_close_ad_dialog_message);
         aVar.ke(R.color.cp_link_tip_d);

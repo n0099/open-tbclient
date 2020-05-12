@@ -32,12 +32,12 @@ public class b implements com.baidu.tieba.frs.entelechy.b.c, com.baidu.tieba.frs
             if (b.this.han != null) {
                 if (view == b.this.hwv) {
                     TiebaStatic.eventStat(b.this.han.getPageContext().getPageActivity(), "frs_refresh", "frsclick", 1, new Object[0]);
-                    if (!b.this.han.bOX() && b.this.han.bOv() != null) {
+                    if (!b.this.han.bOY() && b.this.han.bOw() != null) {
                         TiebaStatic.log(new an("c11752").cI("fid", b.this.han.getFid()).cI("obj_locate", "3"));
-                        b.this.han.bOv().startPullRefresh();
+                        b.this.han.bOw().startPullRefresh();
                     }
-                } else if (view == b.this.hww && b.this.han.bOv() != null && b.this.han.bOv().getListView() != null) {
-                    b.this.han.bOv().getListView().smoothScrollToPosition(0);
+                } else if (view == b.this.hww && b.this.han.bOw() != null && b.this.han.bOw().getListView() != null) {
+                    b.this.han.bOw().getListView().smoothScrollToPosition(0);
                 }
             }
         }
@@ -49,7 +49,7 @@ public class b implements com.baidu.tieba.frs.entelechy.b.c, com.baidu.tieba.frs
         this.hww = null;
         this.han = frsFragment;
         this.hwo = noPressedRelativeLayout;
-        bUQ();
+        bUR();
         this.hwu = (LinearLayout) this.hwo.findViewById(R.id.frs_stick_bottom_holder);
         this.hww = (EntelechyPullUpRefreshView) this.hwo.findViewById(R.id.frs_stick_bottom_goto_top);
         this.hwv = (EntelechyPullUpRefreshView) this.hwo.findViewById(R.id.frs_stick_bottom_reload);
@@ -58,7 +58,7 @@ public class b implements com.baidu.tieba.frs.entelechy.b.c, com.baidu.tieba.frs
         onChangeSkinType(this.mSkinType);
     }
 
-    private void bUQ() {
+    private void bUR() {
         this.hwp = new TbImageView(this.han.getPageContext().getPageActivity());
         int dimens = com.baidu.adp.lib.util.l.getDimens(this.han.getPageContext().getPageActivity(), R.dimen.ds68);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(dimens, dimens);
@@ -76,12 +76,12 @@ public class b implements com.baidu.tieba.frs.entelechy.b.c, com.baidu.tieba.frs
             this.isShow = z;
             if (z) {
                 if (z2) {
-                    bUT();
+                    bUU();
                 } else {
                     this.hwu.setVisibility(0);
                 }
             } else if (z2) {
-                bUU();
+                bUV();
             } else {
                 this.hwu.setVisibility(8);
             }
@@ -89,31 +89,31 @@ public class b implements com.baidu.tieba.frs.entelechy.b.c, com.baidu.tieba.frs
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.c
-    public boolean bRZ() {
+    public boolean bSa() {
         if (this.hwv == null) {
             return false;
         }
         return this.isShow;
     }
 
-    private void bUR() {
+    private void bUS() {
         if (this.han.isAdded()) {
             this.hwq = AnimationUtils.loadAnimation(this.han.getPageContext().getPageActivity(), R.anim.frs_pull_up_refresh_out);
             this.hwq.setAnimationListener(new a(this.hwu));
         }
     }
 
-    private void bUS() {
+    private void bUT() {
         if (this.han.isAdded()) {
             this.hwr = AnimationUtils.loadAnimation(this.han.getPageContext().getPageActivity(), R.anim.frs_pull_up_refresh_in);
             this.hwr.setAnimationListener(new animation.Animation$AnimationListenerC0569b(this.hwu));
         }
     }
 
-    private void bUT() {
+    private void bUU() {
         cancelAnimation();
         if (this.hwr == null) {
-            bUS();
+            bUT();
         }
         if (this.hwr != null) {
             this.hwu.setVisibility(0);
@@ -127,10 +127,10 @@ public class b implements com.baidu.tieba.frs.entelechy.b.c, com.baidu.tieba.frs
         }
     }
 
-    private void bUU() {
+    private void bUV() {
         cancelAnimation();
         if (this.hwq == null) {
-            bUR();
+            bUS();
         }
         if (this.hwq != null) {
             this.hwu.startAnimation(this.hwq);
@@ -156,17 +156,17 @@ public class b implements com.baidu.tieba.frs.entelechy.b.c, com.baidu.tieba.frs
         if (this.hwv != null) {
             if (z) {
                 if (this.hwu != null && this.hwu.getVisibility() == 0) {
-                    bUU();
+                    bUV();
                     return;
                 }
                 return;
             }
-            bUT();
+            bUU();
         }
     }
 
     @Override // com.baidu.tieba.frs.tab.c
-    public void bUw() {
+    public void bUx() {
         if (this.hwp != null) {
             this.hwp.clearAnimation();
             this.hwp.setImageDrawable(null);

@@ -220,7 +220,7 @@ public class a extends master.flame.danmaku.danmaku.model.b<Canvas, Typeface> {
     }
 
     @Override // master.flame.danmaku.danmaku.model.b
-    public b dFd() {
+    public b dFe() {
         return this.ncd;
     }
 
@@ -230,7 +230,7 @@ public class a extends master.flame.danmaku.danmaku.model.b<Canvas, Typeface> {
     }
 
     @Override // master.flame.danmaku.danmaku.model.m
-    public int dFF() {
+    public int dFG() {
         return this.ncc.ncH;
     }
 
@@ -271,8 +271,8 @@ public class a extends master.flame.danmaku.danmaku.model.b<Canvas, Typeface> {
         boolean z;
         int i;
         boolean z2;
+        float dFm = dVar.dFm();
         float dFl = dVar.dFl();
-        float dFk = dVar.dFk();
         if (this.nce != null) {
             Paint paint = null;
             if (dVar.getType() != 7) {
@@ -283,7 +283,7 @@ public class a extends master.flame.danmaku.danmaku.model.b<Canvas, Typeface> {
                 if (dVar.naZ == 0.0f && dVar.rotationY == 0.0f) {
                     z2 = false;
                 } else {
-                    a(dVar, this.nce, dFk, dFl);
+                    a(dVar, this.nce, dFl, dFm);
                     z2 = true;
                 }
                 if (dVar.getAlpha() != master.flame.danmaku.danmaku.model.c.MAX) {
@@ -293,7 +293,7 @@ public class a extends master.flame.danmaku.danmaku.model.b<Canvas, Typeface> {
                 z = z2;
             }
             if (paint == null || paint.getAlpha() != master.flame.danmaku.danmaku.model.c.naV) {
-                if (this.ncd.a(dVar, this.nce, dFk, dFl, paint, this.ncc.ncn)) {
+                if (this.ncd.a(dVar, this.nce, dFl, dFm, paint, this.ncc.ncn)) {
                     i = 1;
                 } else {
                     try {
@@ -303,7 +303,7 @@ public class a extends master.flame.danmaku.danmaku.model.b<Canvas, Typeface> {
                         } else {
                             c(this.ncc.ncn);
                         }
-                        a(dVar, this.nce, dFk, dFl, false);
+                        a(dVar, this.nce, dFl, dFm, false);
                         i = 2;
                     } catch (Exception e) {
                         i = 1;
@@ -404,7 +404,7 @@ public class a extends master.flame.danmaku.danmaku.model.b<Canvas, Typeface> {
     }
 
     @Override // master.flame.danmaku.danmaku.model.m
-    public float dFB() {
+    public float dFC() {
         return this.ncg;
     }
 
@@ -418,7 +418,7 @@ public class a extends master.flame.danmaku.danmaku.model.b<Canvas, Typeface> {
     }
 
     @Override // master.flame.danmaku.danmaku.model.m
-    public int dFC() {
+    public int dFD() {
         return this.nch;
     }
 
@@ -477,7 +477,7 @@ public class a extends master.flame.danmaku.danmaku.model.b<Canvas, Typeface> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // master.flame.danmaku.danmaku.model.b
-    /* renamed from: dFL */
+    /* renamed from: dFM */
     public Canvas rJ() {
         return this.nce;
     }
@@ -497,12 +497,12 @@ public class a extends master.flame.danmaku.danmaku.model.b<Canvas, Typeface> {
     }
 
     @Override // master.flame.danmaku.danmaku.model.m
-    public int dFD() {
+    public int dFE() {
         return this.ncj;
     }
 
     @Override // master.flame.danmaku.danmaku.model.m
-    public int dFE() {
+    public int dFF() {
         return this.nck;
     }
 }

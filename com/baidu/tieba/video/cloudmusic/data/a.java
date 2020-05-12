@@ -7,7 +7,7 @@ public class a {
     private static a lig = null;
     private SparseArray<CloudMusicData.MusicTagList.MusicList> lih = new SparseArray<>();
 
-    public static synchronized a daK() {
+    public static synchronized a daL() {
         a aVar;
         synchronized (a.class) {
             if (lig == null) {
@@ -25,7 +25,7 @@ public class a {
         this.lih.put(4096, musicList);
     }
 
-    public CloudMusicData.MusicTagList.MusicList daL() {
+    public CloudMusicData.MusicTagList.MusicList daM() {
         return this.lih.get(4096);
     }
 

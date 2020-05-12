@@ -21,11 +21,11 @@ public class a {
     private a() {
     }
 
-    public static a ciW() {
+    public static a ciX() {
         return ivs;
     }
 
-    public void ciX() {
+    public void ciY() {
         String str;
         String str2 = null;
         if (this.ivt != null) {
@@ -57,7 +57,7 @@ public class a {
         new AddMsgRecordModel().reqViewAndClick(str, str2);
     }
 
-    public void ciY() {
+    public void ciZ() {
         if (this.ivu != null && this.ivu.length() > 0) {
             this.ivu.delete(0, this.ivu.length());
         }

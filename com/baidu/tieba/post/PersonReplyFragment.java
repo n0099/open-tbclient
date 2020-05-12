@@ -55,7 +55,7 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
                     PersonReplyFragment.this.eQS = null;
                 }
                 if (PersonReplyFragment.this.kmc != null) {
-                    PersonReplyFragment.this.kmc.cKY();
+                    PersonReplyFragment.this.kmc.cKZ();
                 }
             }
         }
@@ -200,11 +200,11 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
     public void onDestroy() {
         super.onDestroy();
         if (this.klW != null) {
-            this.klW.bRh();
+            this.klW.bRi();
         }
     }
 
-    private void cLb() {
+    private void cLc() {
         this.klW = new g(getPageContext(), getArguments().getString("key_uid"), getArguments().getString(PersonPostActivityConfig.KEY_PORTRAIT_URL), getUniqueId());
         this.klW.a(this.klP);
         this.klV.setAdapter((ListAdapter) this.klW);
@@ -225,14 +225,14 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
 
     public void onActive() {
         if (!this.klX) {
-            cLb();
+            cLc();
             this.klX = true;
             showLoadingView(this.klU);
-            cHF();
+            cHG();
         }
     }
 
-    private void cHF() {
+    private void cHG() {
         if (com.baidu.adp.lib.util.j.isNetworkAvailableForImmediately()) {
             this.klW.td(true);
             return;
@@ -244,7 +244,7 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
     }
 
     @Override // com.baidu.tieba.post.c
-    public void cKX() {
+    public void cKY() {
         if (this.klW != null) {
             this.klW.td(true);
         }

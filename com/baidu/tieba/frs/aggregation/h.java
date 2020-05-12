@@ -65,11 +65,11 @@ public class h {
             httpMessage.addParam("z_id", FH.gz(TbadkCoreApplication.getInst()));
             httpMessage.addHeader("needSig", "1");
             MessageManager.getInstance().sendMessage(httpMessage);
-            this.hfc.bQY();
+            this.hfc.bQZ();
         }
     }
 
-    public void bRh() {
+    public void bRi() {
         if (this.dzH != null) {
             this.dzH.cancel();
         }

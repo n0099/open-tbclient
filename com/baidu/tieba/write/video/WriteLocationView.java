@@ -54,8 +54,8 @@ public class WriteLocationView extends LocationInfoView {
 
             @Override // com.baidu.tieba.tbadkCore.location.LocationModel.a
             public void a(com.baidu.tieba.tbadkCore.location.a aVar) {
-                if (aVar != null && !StringUtils.isNull(aVar.cWS())) {
-                    WriteLocationView.this.b(2, true, aVar.cWS());
+                if (aVar != null && !StringUtils.isNull(aVar.cWT())) {
+                    WriteLocationView.this.b(2, true, aVar.cWT());
                 } else {
                     onFail(null);
                 }
@@ -117,23 +117,23 @@ public class WriteLocationView extends LocationInfoView {
             b(0, true, null);
         } else if (!TbadkCoreApplication.getInst().getLocationShared()) {
             aXr();
-        } else if (this.dYx.cWZ()) {
+        } else if (this.dYx.cXa()) {
             aXo();
         } else {
             this.dYx.tY(false);
             b(1, true, null);
-            this.dYx.cWX();
+            this.dYx.cWY();
         }
     }
 
     private void aXs() {
         if (this.dYx.bAS() && UtilHelper.isSystemLocationProviderEnabled(TbadkCoreApplication.getInst())) {
-            if (this.dYx.cWZ()) {
-                b(2, true, c.cWU().getLocationData().cWS());
+            if (this.dYx.cXa()) {
+                b(2, true, c.cWV().getLocationData().cWT());
                 return;
             }
             b(1, true, null);
-            this.dYx.cWX();
+            this.dYx.cWY();
             return;
         }
         b(0, true, null);
@@ -146,7 +146,7 @@ public class WriteLocationView extends LocationInfoView {
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                 if (j.isNetWorkAvailable()) {
                     WriteLocationView.this.b(1, true, null);
-                    WriteLocationView.this.dYx.cXb();
+                    WriteLocationView.this.dYx.cXc();
                 } else {
                     WriteLocationView.this.dYK.aXE();
                 }
@@ -163,7 +163,7 @@ public class WriteLocationView extends LocationInfoView {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void cSI() {
+    public void cSJ() {
         if (this.dYx != null) {
             this.dYx.cancelLoadData();
         }

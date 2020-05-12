@@ -15,7 +15,7 @@ public class i implements com.baidu.tieba.k.f {
     @Override // com.baidu.tieba.k.f
     public void q(String str, int i, String str2) {
         if (IV(str)) {
-            this.kmt.cLr();
+            this.kmt.cLs();
             this.kmt.a(new com.baidu.tieba.n.d(i, "record", i, str2));
         }
     }
@@ -24,7 +24,7 @@ public class i implements com.baidu.tieba.k.f {
     public void r(String str, int i, String str2) {
         if (IV(str)) {
             if (i == 103 || i == 105 || i == 106 || i == 107 || i == 104) {
-                this.kmt.cLr();
+                this.kmt.cLs();
                 this.kmt.a(new com.baidu.tieba.n.d(i, str2, i, VideoPlatformStatic.oq(i)));
                 return;
             }
@@ -35,7 +35,7 @@ public class i implements com.baidu.tieba.k.f {
     @Override // com.baidu.tieba.k.f
     public void s(String str, int i, String str2) {
         if (IV(str)) {
-            this.kmt.cLr();
+            this.kmt.cLs();
             this.kmt.a(new com.baidu.tieba.n.d(i, "edit", i, str2));
         }
     }
@@ -43,9 +43,9 @@ public class i implements com.baidu.tieba.k.f {
     @Override // com.baidu.tieba.k.f
     public void e(String str, int i, int i2, String str2) {
         if (IV(str)) {
-            this.kmt.cLr();
-            this.kmt.cLp();
-            this.kmt.cLt();
+            this.kmt.cLs();
+            this.kmt.cLq();
+            this.kmt.cLu();
             this.kmt.a(new com.baidu.tieba.n.d(i, "write", i2, str2));
         }
     }
@@ -53,7 +53,7 @@ public class i implements com.baidu.tieba.k.f {
     @Override // com.baidu.tieba.k.f
     public void GH(String str) {
         if (IV(str)) {
-            this.kmt.cLt();
+            this.kmt.cLu();
             this.kmt.a(new com.baidu.tieba.n.d(301, "write", -4399, ""));
         }
     }
@@ -61,8 +61,8 @@ public class i implements com.baidu.tieba.k.f {
     @Override // com.baidu.tieba.k.f
     public void GI(String str) {
         if (IV(str)) {
-            this.kmt.cLt();
-            this.kmt.cLq();
+            this.kmt.cLu();
+            this.kmt.cLr();
             this.kmt.a(new com.baidu.tieba.n.d(401, "write", -4399, ""));
         }
     }
@@ -70,9 +70,9 @@ public class i implements com.baidu.tieba.k.f {
     @Override // com.baidu.tieba.k.f
     public void t(String str, int i, String str2) {
         if (IV(str)) {
-            this.kmt.cLr();
-            this.kmt.cLp();
-            this.kmt.cLt();
+            this.kmt.cLs();
+            this.kmt.cLq();
+            this.kmt.cLu();
             this.kmt.a(new com.baidu.tieba.n.d(402, "write", i, str2));
         }
     }
@@ -80,21 +80,21 @@ public class i implements com.baidu.tieba.k.f {
     @Override // com.baidu.tieba.k.f
     public void ge(String str) {
         if (IV(str)) {
-            com.baidu.tieba.u.b.cZX().p(this.mUuid, com.baidu.tieba.u.b.a(VideoPlatformStatic.bfJ(), this.kmt.crO(), this.kmt.crQ()));
+            com.baidu.tieba.u.b.cZY().p(this.mUuid, com.baidu.tieba.u.b.a(VideoPlatformStatic.bfJ(), this.kmt.crP(), this.kmt.crR()));
         }
     }
 
     @Override // com.baidu.tieba.k.f
     public boolean GJ(String str) {
         if (IV(str)) {
-            return this.kmt.cLs();
+            return this.kmt.cLt();
         }
         return false;
     }
 
     @Override // com.baidu.tieba.k.f
     public boolean GK(String str) {
-        return this.kmt.cLu();
+        return this.kmt.cLv();
     }
 
     @Override // com.baidu.tieba.k.f

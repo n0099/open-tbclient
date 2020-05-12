@@ -41,6 +41,6 @@ public class DataProcessors {
     }
 
     private ICloudControlRegister getCloudControlRegister() {
-        return b.cTa();
+        return b.cTb();
     }
 }

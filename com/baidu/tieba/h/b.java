@@ -40,11 +40,11 @@ public class b implements m {
         }
     }
 
-    public int bWN() {
+    public int bWO() {
         return this.gsb;
     }
 
-    public List<a> bWO() {
+    public List<a> bWP() {
         return this.fom;
     }
 

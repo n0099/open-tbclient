@@ -171,7 +171,7 @@ public class NewFriendDbManagerStatic {
                             public Void doInBackground() {
                                 if (0 != friendId) {
                                     b.bgU().da(friendId);
-                                    m.cfw().Ez(String.valueOf(friendId));
+                                    m.cfx().Ez(String.valueOf(friendId));
                                 }
                                 return null;
                             }

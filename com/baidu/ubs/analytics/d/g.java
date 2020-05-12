@@ -15,7 +15,7 @@ public final class g {
     public static synchronized boolean b(String str, String str2, String str3) {
         boolean z = false;
         synchronized (g.class) {
-            if (dlw() && f(str2, str3)) {
+            if (dlx() && f(str2, str3)) {
                 try {
                     lPi = new File(str2 + str3);
                     RandomAccessFile randomAccessFile = new RandomAccessFile(lPi, "rwd");
@@ -35,7 +35,7 @@ public final class g {
     public static synchronized String S(String str, String str2) {
         String str3;
         synchronized (g.class) {
-            if (dlw()) {
+            if (dlx()) {
                 if (NI(str + str2)) {
                     try {
                         lPi = new File(str + str2);
@@ -71,9 +71,9 @@ public final class g {
         return str3;
     }
 
-    private static boolean dlw() {
+    private static boolean dlx() {
         String externalStorageState = Environment.getExternalStorageState();
-        return Build.VERSION.SDK_INT >= 23 ? com.baidu.ubs.analytics.d.dkT().getContext().checkCallingOrSelfPermission(lPh[0]) == 0 && externalStorageState.equals("mounted") : externalStorageState.equals("mounted");
+        return Build.VERSION.SDK_INT >= 23 ? com.baidu.ubs.analytics.d.dkU().getContext().checkCallingOrSelfPermission(lPh[0]) == 0 && externalStorageState.equals("mounted") : externalStorageState.equals("mounted");
     }
 
     public static boolean NI(String str) {

@@ -34,7 +34,7 @@ public class a {
         MessageManager.getInstance().registerListener(this.dld);
     }
 
-    public boolean des() {
+    public boolean det() {
         if (this.mStartTime == 0 || this.mEndTime == 0 || this.mInterval == 0) {
             return false;
         }

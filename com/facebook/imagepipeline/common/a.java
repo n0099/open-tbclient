@@ -19,7 +19,7 @@ public class a {
         this.to = i2;
     }
 
-    public String dqF() {
+    public String dqG() {
         return String.format(null, "bytes=%s-%s", GM(this.from), GM(this.to));
     }
 

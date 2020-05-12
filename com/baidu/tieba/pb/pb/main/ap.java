@@ -27,13 +27,13 @@ public class ap {
             if (a != null) {
                 this.jBW.uO(true);
                 this.jBY.setText(a);
-                if (z && this.jBW.deQ() >= 0) {
+                if (z && this.jBW.deR() >= 0) {
                     this.jBY.requestFocus();
-                    this.jBY.setSelection(this.jBW.deQ());
+                    this.jBY.setSelection(this.jBW.deR());
                 } else {
                     this.jBY.setSelection(selectionEnd);
                 }
-                this.jBW.uN(this.jBW.deQ() >= 0);
+                this.jBW.uN(this.jBW.deR() >= 0);
             }
         }
     }
@@ -45,24 +45,24 @@ public class ap {
             if (a != null) {
                 this.jBX.uO(true);
                 this.hSt.setText(a);
-                if (z && this.jBX.deQ() >= 0) {
+                if (z && this.jBX.deR() >= 0) {
                     this.hSt.requestFocus();
-                    this.hSt.setSelection(this.jBX.deQ());
+                    this.hSt.setSelection(this.jBX.deR());
                 } else {
                     this.hSt.setSelection(selectionEnd);
                 }
-                this.jBX.uN(this.jBX.deQ() >= 0);
+                this.jBX.uN(this.jBX.deR() >= 0);
             }
         }
     }
 
-    public void cBu() {
+    public void cBv() {
         this.jBX.Ms(null);
         this.jBX.aW(null);
         this.jBX.uN(false);
     }
 
-    public void cBv() {
+    public void cBw() {
         this.jBW.Ms(null);
         this.jBW.aW(null);
         this.jBW.uN(false);
@@ -72,7 +72,7 @@ public class ap {
         if (postWriteCallBackData != null) {
             this.jBW.aW(postWriteCallBackData.getSensitiveWords());
             this.jBW.Ms(postWriteCallBackData.getErrorString());
-            if (!com.baidu.tbadk.core.util.v.isEmpty(this.jBW.deP())) {
+            if (!com.baidu.tbadk.core.util.v.isEmpty(this.jBW.deQ())) {
                 rG(true);
                 this.jvB = postWriteCallBackData;
             }
@@ -83,7 +83,7 @@ public class ap {
         if (postWriteCallBackData != null) {
             this.jBX.aW(postWriteCallBackData.getSensitiveWords());
             this.jBX.Ms(postWriteCallBackData.getErrorString());
-            if (!com.baidu.tbadk.core.util.v.isEmpty(this.jBX.deP())) {
+            if (!com.baidu.tbadk.core.util.v.isEmpty(this.jBX.deQ())) {
                 rH(true);
             }
         }
@@ -105,27 +105,27 @@ public class ap {
     public void onChangeSkinType() {
         this.jBW.onChangeSkinType();
         this.jBX.onChangeSkinType();
-        if (this.jBW.deR()) {
+        if (this.jBW.deS()) {
             rG(false);
         }
-        if (this.jBX.deR()) {
+        if (this.jBX.deS()) {
             rH(false);
         }
     }
 
-    public com.baidu.tieba.write.c cBw() {
+    public com.baidu.tieba.write.c cBx() {
         return this.jBW;
     }
 
-    public com.baidu.tieba.write.c cBx() {
+    public com.baidu.tieba.write.c cBy() {
         return this.jBX;
     }
 
-    public EditText cBy() {
+    public EditText cBz() {
         return this.hSt;
     }
 
-    public PostWriteCallBackData cBz() {
+    public PostWriteCallBackData cBA() {
         return this.jvB;
     }
 }

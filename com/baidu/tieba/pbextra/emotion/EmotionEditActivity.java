@@ -87,8 +87,8 @@ public class EmotionEditActivity extends BaseActivity implements EmotionEditMode
             @Override // android.content.DialogInterface.OnCancelListener
             public void onCancel(DialogInterface dialogInterface) {
                 EmotionEditActivity.this.jPl.setCancel(true);
-                EmotionEditActivity.this.cFk();
-                EmotionEditActivity.this.bUw();
+                EmotionEditActivity.this.cFl();
+                EmotionEditActivity.this.bUx();
             }
         });
     }
@@ -109,8 +109,8 @@ public class EmotionEditActivity extends BaseActivity implements EmotionEditMode
         this.fPd.setOnClickListener(this);
         this.jPh.setOnClickListener(this);
         this.jPj = l.getEquipmentWidth(getPageContext().getPageActivity()) - getPageContext().getPageActivity().getResources().getDimensionPixelSize(R.dimen.ds300);
+        cFk();
         cFj();
-        cFi();
         RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.jPg.getLayoutParams();
         layoutParams.width = this.mImageWidth + getPageContext().getPageActivity().getResources().getDimensionPixelSize(R.dimen.ds80);
         layoutParams.height = this.mImageHeight + getPageContext().getPageActivity().getResources().getDimensionPixelSize(R.dimen.ds80);
@@ -120,7 +120,7 @@ public class EmotionEditActivity extends BaseActivity implements EmotionEditMode
         this.jPi.setVisibility(8);
     }
 
-    private void cFi() {
+    private void cFj() {
         this.jPk = new EmotionEditText(getPageContext().getPageActivity());
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
         layoutParams.gravity = 81;
@@ -139,7 +139,7 @@ public class EmotionEditActivity extends BaseActivity implements EmotionEditMode
         });
     }
 
-    private void cFj() {
+    private void cFk() {
         if (this.mIsGif) {
             this.mImageView = new GifView(getPageContext().getPageActivity());
             ((GifView) this.mImageView).setSupportNoImage(false);
@@ -224,14 +224,14 @@ public class EmotionEditActivity extends BaseActivity implements EmotionEditMode
             HidenSoftKeyPad(this.mInputManager, this.jPk.getEditText());
             if (TextUtils.isEmpty(this.jPk.getText())) {
                 this.jPn = this.jtR;
-                cFn();
+                cFo();
                 return;
             }
             String text = this.jPk.getText();
             switch (this.jPq) {
                 case 2:
                     if (!TextUtils.isEmpty(this.jPp) && this.jPp.equals(text)) {
-                        cFp();
+                        cFq();
                         return;
                     }
                     break;
@@ -242,25 +242,25 @@ public class EmotionEditActivity extends BaseActivity implements EmotionEditMode
                     }
                     break;
             }
-            cFk();
-            this.jPp = this.jPk.getText();
             cFl();
+            this.jPp = this.jPk.getText();
+            cFm();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cFk() {
+    public void cFl() {
         if (this.jPr != null && !this.jPr.isRecycled()) {
             this.jPr.recycle();
             this.jPr = null;
         }
     }
 
-    private void cFl() {
+    private void cFm() {
         this.jPl.Il(this.jPk.getText());
     }
 
-    private void cFm() {
+    private void cFn() {
         if (!this.jPl.isCancel()) {
             this.jPk.getTextView().setBackgroundColor(getPageContext().getResources().getColor(R.color.transparent));
             if (this.mIsGif) {
@@ -279,36 +279,36 @@ public class EmotionEditActivity extends BaseActivity implements EmotionEditMode
                         }
                         showToast(R.string.upload_error);
                         this.jPq = 2;
-                        bUw();
+                        bUx();
                         return;
                     }
                     return;
                 }
                 showToast(R.string.upload_error);
                 this.jPq = 2;
-                bUw();
+                bUx();
             }
         }
     }
 
     private void uploadImage() {
         if (TextUtils.isEmpty(this.jPm)) {
-            bUw();
+            bUx();
         } else {
             this.jPl.aB(this.jPm, true);
         }
     }
 
-    private void cFn() {
+    private void cFo() {
         if (!this.jPl.isCancel()) {
             this.jPq = 0;
-            bUw();
+            bUx();
             if (this.jPn != null) {
                 Intent intent = new Intent();
                 intent.putExtra("emotion_data", this.jPn);
                 setResult(-1, intent);
                 finish();
-                cFo();
+                cFp();
                 if (!TextUtils.isEmpty(this.jPm)) {
                     File file = new File(this.jPm);
                     if (file.exists()) {
@@ -323,7 +323,7 @@ public class EmotionEditActivity extends BaseActivity implements EmotionEditMode
         }
     }
 
-    private void cFo() {
+    private void cFp() {
         an anVar = new an("c12329");
         if (!TextUtils.isEmpty(this.mFrom)) {
             if (EmotionEditActivityConfig.FROM_PB_BOTTOM.equals(this.mFrom)) {
@@ -395,11 +395,11 @@ public class EmotionEditActivity extends BaseActivity implements EmotionEditMode
         super.onKeyboardVisibilityChanged(z);
         if (z) {
             this.jPi.setVisibility(0);
-            this.jPk.cFK();
+            this.jPk.cFL();
             return;
         }
         this.jPi.setVisibility(8);
-        this.jPk.cFJ();
+        this.jPk.cFK();
     }
 
     @Override // com.baidu.tbadk.BaseActivity
@@ -425,26 +425,26 @@ public class EmotionEditActivity extends BaseActivity implements EmotionEditMode
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        cFk();
+        cFl();
         if (this.jPl != null) {
             this.jPl.cancelLoadData();
         }
     }
 
     @Override // com.baidu.tieba.pbextra.emotion.model.EmotionEditModel.a
-    public void cFp() {
-        cFm();
+    public void cFq() {
+        cFn();
     }
 
     @Override // com.baidu.tieba.pbextra.emotion.model.EmotionEditModel.a
     public void Ij(String str) {
         showToast(str);
         this.jPq = 1;
-        bUw();
+        bUx();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bUw() {
+    public void bUx() {
         this.jPk.getTextView().setBackgroundResource(R.drawable.bg_emotion_edit);
         this.hzR.setDialogVisiable(false);
         this.jPo = false;
@@ -457,9 +457,9 @@ public class EmotionEditActivity extends BaseActivity implements EmotionEditMode
     public void Ik(String str) {
         this.jPk.getTextView().setBackgroundResource(R.drawable.bg_emotion_edit);
         if (TextUtils.isEmpty(str)) {
-            bUw();
+            bUx();
         } else if (!new File(str).exists()) {
-            bUw();
+            bUx();
         } else {
             this.jPm = str;
             this.jPq = 3;
@@ -487,16 +487,16 @@ public class EmotionEditActivity extends BaseActivity implements EmotionEditMode
                 }
                 this.jPn.setMemeText(this.jPk.getText());
                 this.jPn.setAuthorNameShow(this.jtR.getAuthorNameShow());
-                cFn();
+                cFo();
                 return;
             }
             showToast(R.string.upload_error);
             this.jPq = 3;
-            bUw();
+            bUx();
             return;
         }
         showToast(R.string.upload_error);
         this.jPq = 3;
-        bUw();
+        bUx();
     }
 }

@@ -12,16 +12,16 @@ public class b {
     private final j<Boolean> lTc;
 
     @Nullable
-    public ImmutableList<com.facebook.imagepipeline.f.a> dnJ() {
+    public ImmutableList<com.facebook.imagepipeline.f.a> dnK() {
         return this.lTa;
     }
 
     @Nullable
-    public g dnK() {
+    public g dnL() {
         return this.lTb;
     }
 
-    public j<Boolean> dnL() {
+    public j<Boolean> dnM() {
         return this.lTc;
     }
 }

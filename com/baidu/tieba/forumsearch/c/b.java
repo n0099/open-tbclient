@@ -52,14 +52,14 @@ public class b extends com.baidu.tieba.card.a<com.baidu.tieba.forumsearch.b.a> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.a
     public void a(com.baidu.tieba.forumsearch.b.a aVar) {
-        if (aVar != null && !v.isEmpty(aVar.bNu())) {
-            sX(aVar.bNu().size());
+        if (aVar != null && !v.isEmpty(aVar.bNv())) {
+            sX(aVar.bNv().size());
             int size = this.gXd.size();
             for (int i = 0; i < size; i++) {
                 a aVar2 = this.gXd.get(i);
                 if (aVar2 != null) {
                     aVar2.mk(false);
-                    aVar2.mTextView.setText(aVar.bNu().get(i));
+                    aVar2.mTextView.setText(aVar.bNv().get(i));
                 }
             }
             onChangeSkinType(this.mTbPageContext, TbadkCoreApplication.getInst().getSkinType());
@@ -72,12 +72,12 @@ public class b extends com.baidu.tieba.card.a<com.baidu.tieba.forumsearch.b.a> {
             if (size < i) {
                 int i2 = i - size;
                 for (int i3 = 0; i3 < i2; i3++) {
-                    a bNA = bNA();
+                    a bNB = bNB();
                     ViewGroup.MarginLayoutParams marginLayoutParams = new ViewGroup.MarginLayoutParams(-2, -2);
                     marginLayoutParams.topMargin = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.ds2);
                     marginLayoutParams.leftMargin = marginLayoutParams.topMargin;
-                    this.gXc.addView(bNA.getView(), marginLayoutParams);
-                    this.gXd.add(bNA);
+                    this.gXc.addView(bNB.getView(), marginLayoutParams);
+                    this.gXd.add(bNB);
                 }
             } else if (i == 0) {
                 this.gXc.removeAllViews();
@@ -92,7 +92,7 @@ public class b extends com.baidu.tieba.card.a<com.baidu.tieba.forumsearch.b.a> {
         }
     }
 
-    private a bNA() {
+    private a bNB() {
         return new a();
     }
 

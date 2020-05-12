@@ -105,7 +105,7 @@ public class c extends com.baidu.tbadk.mvc.f.a<com.baidu.tieba.enterForum.data.f
             if (fVar instanceof h) {
                 final h hVar = (h) fVar;
                 this.mName.setText(hVar.getName());
-                this.gIX.setVisibility(hVar.bHJ() == 0 ? 8 : 0);
+                this.gIX.setVisibility(hVar.bHK() == 0 ? 8 : 0);
                 if (hVar.getLevel() == 0) {
                     this.glu.setVisibility(8);
                 } else {
@@ -118,20 +118,20 @@ public class c extends com.baidu.tbadk.mvc.f.a<com.baidu.tieba.enterForum.data.f
                 this.gzl.setShowInnerBorder(true);
                 this.gzl.setStrokeWith(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds1));
                 this.gzl.setStrokeColorResId(R.color.cp_border_a);
-                if (hVar.bHI() > 0) {
+                if (hVar.bHJ() > 0) {
                     am.setBackgroundColor(this.cEd, R.color.cp_link_tip_a);
                 } else {
                     am.setBackgroundColor(this.cEd, R.color.transparent);
                 }
-                if (!hVar.bHH().isEmpty()) {
-                    this.gIZ.setText(hVar.bHH());
+                if (!hVar.bHI().isEmpty()) {
+                    this.gIZ.setText(hVar.bHI());
                 }
                 am.setViewTextColor(this.gIZ, (int) R.color.cp_cont_d);
                 if (getResources().getString(R.string.ala_follow_live_enter_live_square_txt).equals(hVar.getName())) {
                     TiebaStatic.log(new an("c12887"));
                 }
-                this.gIY.setVisibility((hVar.bHK() == 1 && hVar.isPrivateForum() == 1) ? 0 : 8);
-                if (hVar.bHL() == 1) {
+                this.gIY.setVisibility((hVar.bHL() == 1 && hVar.isPrivateForum() == 1) ? 0 : 8);
+                if (hVar.bHM() == 1) {
                     this.gIU.setVisibility(0);
                     this.gIU.setText(R.string.brand_label_ba_text);
                     am.setBackgroundResource(this.gIU, R.drawable.enter_forum_brand_label_bg_shape);
@@ -149,14 +149,14 @@ public class c extends com.baidu.tbadk.mvc.f.a<com.baidu.tieba.enterForum.data.f
                     }
                     this.gIU.setVisibility(8);
                 }
-                if (hVar.bHO()) {
+                if (hVar.bHP()) {
                     this.gIV.setVisibility(0);
                     i = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds122) + 0;
                 } else {
                     this.gIV.setVisibility(8);
                     i = 0;
                 }
-                if (hVar.bHP()) {
+                if (hVar.bHQ()) {
                     this.gIW.setVisibility(0);
                     i += l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds200);
                 } else {
@@ -186,8 +186,8 @@ public class c extends com.baidu.tbadk.mvc.f.a<com.baidu.tieba.enterForum.data.f
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Bundle bundle = new Bundle();
-                    bundle.putParcelable("info_forum_image_rect", c.this.bKb());
-                    bundle.putParcelable("info_forum_name_rect", c.this.bKc());
+                    bundle.putParcelable("info_forum_image_rect", c.this.bKc());
+                    bundle.putParcelable("info_forum_name_rect", c.this.bKd());
                     com.baidu.tbadk.mvc.c.b bVar = new com.baidu.tbadk.mvc.c.b(1, fVar, null, null);
                     bVar.setExtra(bundle);
                     c.this.gyU.dispatchMvcEvent(bVar);
@@ -205,14 +205,14 @@ public class c extends com.baidu.tbadk.mvc.f.a<com.baidu.tieba.enterForum.data.f
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public Rect bKb() {
+    public Rect bKc() {
         Rect rect = new Rect();
         this.gzl.getGlobalVisibleRect(rect);
         return rect;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public Rect bKc() {
+    public Rect bKd() {
         Rect rect = new Rect();
         this.mName.getGlobalVisibleRect(rect);
         return rect;

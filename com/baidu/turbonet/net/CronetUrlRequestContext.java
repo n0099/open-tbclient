@@ -175,13 +175,13 @@ class CronetUrlRequestContext extends TurbonetEngine {
             this.lKi = null;
         }
         CronetLibraryLoader.a(builder.getContext(), builder);
-        nativeSetMinLogLevel(djf());
+        nativeSetMinLogLevel(djg());
         synchronized (this.mLock) {
             this.lKf = nativeCreateRequestContextAdapter(b(builder.getContext(), builder));
             if (this.lKf == 0) {
                 throw new NullPointerException("Context Adapter creation failed.");
             }
-            this.lKj = builder.djK();
+            this.lKj = builder.djL();
         }
         CronetLibraryLoader.B(new Runnable() { // from class: com.baidu.turbonet.net.CronetUrlRequestContext.1
             @Override // java.lang.Runnable
@@ -195,12 +195,12 @@ class CronetUrlRequestContext extends TurbonetEngine {
     }
 
     static long b(Context context, TurbonetEngine.Builder builder) {
-        long nativeCreateRequestContextConfig = nativeCreateRequestContextConfig(builder.getUserAgent(), builder.djB(), builder.djH(), "", builder.djG(), false, "", "", "", "", builder.cacheDisabled(), builder.djJ(), builder.djI(), "", 0L, false);
-        if (builder.djL() != null) {
-            nativeApplyBaiduConfiguration(nativeCreateRequestContextConfig, builder.djL());
-        }
+        long nativeCreateRequestContextConfig = nativeCreateRequestContextConfig(builder.getUserAgent(), builder.djC(), builder.djI(), "", builder.djH(), false, "", "", "", "", builder.cacheDisabled(), builder.djK(), builder.djJ(), "", 0L, false);
         if (builder.djM() != null) {
-            nativeApplyBaiduConfigDictionary(nativeCreateRequestContextConfig, builder.djM());
+            nativeApplyBaiduConfiguration(nativeCreateRequestContextConfig, builder.djM());
+        }
+        if (builder.djN() != null) {
+            nativeApplyBaiduConfigDictionary(nativeCreateRequestContextConfig, builder.djN());
         }
         return nativeCreateRequestContextConfig;
     }
@@ -209,7 +209,7 @@ class CronetUrlRequestContext extends TurbonetEngine {
     public UrlRequest a(String str, UrlRequest.Callback callback, Executor executor, int i, Collection<Object> collection, boolean z, boolean z2, boolean z3) {
         CronetUrlRequest cronetUrlRequest;
         synchronized (this.mLock) {
-            djd();
+            dje();
             cronetUrlRequest = new CronetUrlRequest(this, str, i, callback, executor, collection, false, z, z2, z3);
         }
         return cronetUrlRequest;
@@ -224,7 +224,7 @@ class CronetUrlRequestContext extends TurbonetEngine {
     @Override // com.baidu.turbonet.net.TurbonetEngine
     public void a(String str, String str2, int i, int i2, long j, long j2, long j3, long j4) {
         synchronized (this.mLock) {
-            djd();
+            dje();
             nativeUploadNativeRequestLog(this.lKf, str, str2, i, i2, j, j2, j3, j4);
         }
     }
@@ -257,36 +257,36 @@ class CronetUrlRequestContext extends TurbonetEngine {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void diY() {
+    public void diZ() {
         this.lKe.incrementAndGet();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void djb() {
+    public void djc() {
         this.lKe.decrementAndGet();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public long djc() {
+    public long djd() {
         long j;
         synchronized (this.mLock) {
-            djd();
+            dje();
             j = this.lKf;
         }
         return j;
     }
 
-    private void djd() throws IllegalStateException {
-        if (!dje()) {
+    private void dje() throws IllegalStateException {
+        if (!djf()) {
             throw new IllegalStateException("Engine is shut down.");
         }
     }
 
-    private boolean dje() {
+    private boolean djf() {
         return this.lKf != 0;
     }
 
-    private int djf() {
+    private int djg() {
         if (Log.isLoggable("ChromiumNetwork", 2)) {
             return -2;
         }
@@ -462,14 +462,14 @@ class CronetUrlRequestContext extends TurbonetEngine {
     }
 
     @Override // com.baidu.turbonet.net.TurbonetEngine
-    public boolean djg() {
-        return this.lKp.djg();
+    public boolean djh() {
+        return this.lKp.djh();
     }
 
     @Override // com.baidu.turbonet.net.TurbonetEngine
-    public long diN() {
+    public long diO() {
         if (lKk == 0) {
-            lKk = CronetLibraryLoader.diN();
+            lKk = CronetLibraryLoader.diO();
         }
         return lKk;
     }

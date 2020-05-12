@@ -40,7 +40,7 @@ public class b implements tv.chushou.zues.widget.kpswitch.a {
         if (i == this.nvc.getVisibility()) {
             return true;
         }
-        return dKm() && i == 0;
+        return dKn() && i == 0;
     }
 
     public int[] U(int i, int i2) {
@@ -59,7 +59,7 @@ public class b implements tv.chushou.zues.widget.kpswitch.a {
     }
 
     @Override // tv.chushou.zues.widget.kpswitch.a
-    public boolean dKm() {
+    public boolean dKn() {
         return this.nvi;
     }
 
@@ -96,7 +96,7 @@ public class b implements tv.chushou.zues.widget.kpswitch.a {
     }
 
     @Override // tv.chushou.zues.widget.kpswitch.a
-    public boolean dKn() {
+    public boolean dKo() {
         return this.nvg;
     }
 

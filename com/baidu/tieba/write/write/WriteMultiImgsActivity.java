@@ -25,14 +25,14 @@ public class WriteMultiImgsActivity extends BaseActivity {
         setSwipeBackEnabled(false);
         this.lDO = new h(getPageContext(), new com.baidu.tieba.write.write.sticker.a.c() { // from class: com.baidu.tieba.write.write.WriteMultiImgsActivity.1
             @Override // com.baidu.tieba.write.write.sticker.a.c
-            public void dgG() {
-                WriteMultiImgsActivity.this.lFY.dhK();
+            public void dgH() {
+                WriteMultiImgsActivity.this.lFY.dhL();
                 WriteMultiImgsActivity.this.lFY.vf(true);
             }
 
             @Override // com.baidu.tieba.write.write.sticker.a.c
-            public void dgH() {
-                WriteMultiImgsActivity.this.lFY.dhP();
+            public void dgI() {
+                WriteMultiImgsActivity.this.lFY.dhQ();
                 WriteMultiImgsActivity.this.lFY.vf(false);
             }
 
@@ -42,8 +42,8 @@ public class WriteMultiImgsActivity extends BaseActivity {
             }
 
             @Override // com.baidu.tieba.write.write.sticker.a.c
-            public void dgI() {
-                WriteMultiImgsActivity.this.lFY.dgI();
+            public void dgJ() {
+                WriteMultiImgsActivity.this.lFY.dgJ();
             }
         });
         setContentView(this.lDO.gLM);
@@ -57,38 +57,38 @@ public class WriteMultiImgsActivity extends BaseActivity {
     protected void onSaveInstanceState(Bundle bundle) {
         if (this.lFY != null && this.lFY.lGi != null) {
             bundle.putInt("OutState_Current_Index", this.lFY.lGi.getCurrentIndex());
-            bundle.putInt("OutState_Write_Entrance", this.lFY.dhN());
-            bundle.putSerializable("OutState_Write_Info_Data", this.lFY.bPa());
+            bundle.putInt("OutState_Write_Entrance", this.lFY.dhO());
+            bundle.putSerializable("OutState_Write_Info_Data", this.lFY.bPb());
             this.lFY.lGi.va(true);
-            if (this.lFY.dhQ() != null) {
-                bundle.putString("OutState_Write_Img_Info", this.lFY.dhQ().toJsonString());
+            if (this.lFY.dhR() != null) {
+                bundle.putString("OutState_Write_Img_Info", this.lFY.dhR().toJsonString());
             }
         }
         super.onSaveInstanceState(bundle);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void dhK() {
+    public void dhL() {
         if (this.lFY != null) {
-            this.lFY.dhK();
+            this.lFY.dhL();
         }
     }
 
     public void a(boolean z, WriteImagesInfo writeImagesInfo) {
         if (this.lFY != null) {
-            if (1 == this.lFY.dhN()) {
-                ForumWriteData bPa = this.lFY.bPa();
-                if (bPa != null) {
-                    WriteActivityConfig writeActivityConfig = new WriteActivityConfig(this, 10, bPa.forumId, bPa.forumName, null, null, 0, bPa.antiData, RequestResponseCode.REQUEST_WRITE_NEW, false, false, null, false, false, null, null, bPa.prefixData, 0);
-                    writeActivityConfig.getIntent().putExtra("from", bPa.mFrom);
-                    writeActivityConfig.setCallFrom(bPa.writeCallFrom);
-                    writeActivityConfig.setForumLevel(bPa.forumLevel);
-                    writeActivityConfig.setForumAvatar(bPa.avatar);
-                    writeActivityConfig.setPrivateThread(bPa.privateThread);
+            if (1 == this.lFY.dhO()) {
+                ForumWriteData bPb = this.lFY.bPb();
+                if (bPb != null) {
+                    WriteActivityConfig writeActivityConfig = new WriteActivityConfig(this, 10, bPb.forumId, bPb.forumName, null, null, 0, bPb.antiData, RequestResponseCode.REQUEST_WRITE_NEW, false, false, null, false, false, null, null, bPb.prefixData, 0);
+                    writeActivityConfig.getIntent().putExtra("from", bPb.mFrom);
+                    writeActivityConfig.setCallFrom(bPb.writeCallFrom);
+                    writeActivityConfig.setForumLevel(bPb.forumLevel);
+                    writeActivityConfig.setForumAvatar(bPb.avatar);
+                    writeActivityConfig.setPrivateThread(bPb.privateThread);
                     writeActivityConfig.setWriteImagesInfo(writeImagesInfo);
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, writeActivityConfig));
                 }
-            } else if (2 == this.lFY.dhN()) {
+            } else if (2 == this.lFY.dhO()) {
                 Intent intent = new Intent(this, WriteActivity.class);
                 intent.putExtra("KEY_WRITE_IMAGES_INFO_STRING", writeImagesInfo.toJsonString());
                 intent.setFlags(536870912);

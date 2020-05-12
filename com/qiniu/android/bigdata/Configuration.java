@@ -6,7 +6,7 @@ public final class Configuration implements Cloneable {
     public int responseTimeout = 10;
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: dAk */
+    /* renamed from: dAl */
     public Configuration clone() throws CloneNotSupportedException {
         return (Configuration) super.clone();
     }

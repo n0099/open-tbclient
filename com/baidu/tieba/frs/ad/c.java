@@ -35,19 +35,19 @@ public class c extends com.baidu.tieba.card.data.b {
         }
     }
 
-    public int bQI() {
+    public int bQJ() {
         return this.hdr;
     }
 
-    public String bQJ() {
+    public String bQK() {
         return this.hdo;
     }
 
-    public String bQK() {
+    public String bQL() {
         return this.dmt;
     }
 
-    public String bQL() {
+    public String bQM() {
         return this.hdp;
     }
 
@@ -55,7 +55,7 @@ public class c extends com.baidu.tieba.card.data.b {
         return this.dmu;
     }
 
-    public List<MediaData> bQM() {
+    public List<MediaData> bQN() {
         return this.hdq;
     }
 
@@ -63,7 +63,7 @@ public class c extends com.baidu.tieba.card.data.b {
         this.isLast = z;
     }
 
-    public boolean bQN() {
+    public boolean bQO() {
         return this.isLast;
     }
 

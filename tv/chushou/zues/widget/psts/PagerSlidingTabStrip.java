@@ -659,7 +659,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
     private void setMyTabLayoutParams(View view) {
     }
 
-    public boolean dKq() {
+    public boolean dKr() {
         c cVar;
         if (this.dEo != null && this.dEo.getAdapter() != null && (this.dEo.getAdapter() instanceof c) && (cVar = (c) this.dEo.getAdapter()) != null) {
             for (int i = 0; i < this.dEp; i++) {
@@ -686,7 +686,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
     protected void onMeasure(int i, int i2) {
         super.onMeasure(i, i2);
         if (!this.dEs || View.MeasureSpec.getMode(i) == 0) {
-            dKq();
+            dKr();
             return;
         }
         int measuredWidth = getMeasuredWidth();

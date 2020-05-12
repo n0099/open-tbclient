@@ -62,7 +62,7 @@ public final class d {
     public static class b {
         private boolean noCache;
 
-        public final boolean dzr() {
+        public final boolean dzs() {
             return this.noCache;
         }
 
@@ -73,7 +73,7 @@ public final class d {
             Ref.BooleanRef booleanRef = new Ref.BooleanRef();
             booleanRef.element = false;
             SVGAParser$FileDownloader$resume$cancelBlock$1 sVGAParser$FileDownloader$resume$cancelBlock$1 = new SVGAParser$FileDownloader$resume$cancelBlock$1(booleanRef);
-            d.mJR.dzq().execute(new a(url, booleanRef, bVar, bVar2));
+            d.mJR.dzr().execute(new a(url, booleanRef, bVar, bVar2));
             return sVGAParser$FileDownloader$resume$cancelBlock$1;
         }
 
@@ -99,7 +99,7 @@ public final class d {
             public final void run() {
                 int read;
                 try {
-                    if (HttpResponseCache.getInstalled() == null && !b.this.dzr()) {
+                    if (HttpResponseCache.getInstalled() == null && !b.this.dzs()) {
                         Log.e("SVGAParser", "SVGAParser can not handle cache before install HttpResponseCache. see https://github.com/yyued/SVGAPlayer-Android#cache");
                         Log.e("SVGAParser", "在配置 HttpResponseCache 前 SVGAParser 无法缓存. 查看 https://github.com/yyued/SVGAPlayer-Android#cache ");
                     }
@@ -161,7 +161,7 @@ public final class d {
             this();
         }
 
-        public final ThreadPoolExecutor dzq() {
+        public final ThreadPoolExecutor dzr() {
             return d.mJQ;
         }
     }

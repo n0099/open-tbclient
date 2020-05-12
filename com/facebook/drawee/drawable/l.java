@@ -41,7 +41,7 @@ public class l extends Drawable implements j {
     @Override // android.graphics.drawable.Drawable
     protected void onBoundsChange(Rect rect) {
         super.onBoundsChange(rect);
-        doQ();
+        doR();
     }
 
     @Override // android.graphics.drawable.Drawable
@@ -60,7 +60,7 @@ public class l extends Drawable implements j {
     @Override // com.facebook.drawee.drawable.j
     public void vD(boolean z) {
         this.ehQ = z;
-        doQ();
+        doR();
         invalidateSelf();
     }
 
@@ -72,7 +72,7 @@ public class l extends Drawable implements j {
             com.facebook.common.internal.g.checkArgument(fArr.length == 8, "radii should have exactly 8 values");
             System.arraycopy(fArr, 0, this.bbu, 0, 8);
         }
-        doQ();
+        doR();
         invalidateSelf();
     }
 
@@ -80,7 +80,7 @@ public class l extends Drawable implements j {
     public void setRadius(float f) {
         com.facebook.common.internal.g.checkArgument(f >= 0.0f, "radius should be non negative");
         Arrays.fill(this.bbu, f);
-        doQ();
+        doR();
         invalidateSelf();
     }
 
@@ -99,7 +99,7 @@ public class l extends Drawable implements j {
         }
         if (this.mBorderWidth != f) {
             this.mBorderWidth = f;
-            doQ();
+            doR();
             invalidateSelf();
         }
     }
@@ -108,7 +108,7 @@ public class l extends Drawable implements j {
     public void aC(float f) {
         if (this.lVE != f) {
             this.lVE = f;
-            doQ();
+            doR();
             invalidateSelf();
         }
     }
@@ -117,7 +117,7 @@ public class l extends Drawable implements j {
     public void vE(boolean z) {
         if (this.lVF != z) {
             this.lVF = z;
-            doQ();
+            doR();
             invalidateSelf();
         }
     }
@@ -145,7 +145,7 @@ public class l extends Drawable implements j {
         return e.Gm(e.df(this.mColor, this.mAlpha));
     }
 
-    private void doQ() {
+    private void doR() {
         this.mPath.reset();
         this.cEo.reset();
         this.lVG.set(getBounds());

@@ -15,8 +15,8 @@ public class i extends d {
     @Override // master.flame.danmaku.danmaku.model.d
     public void a(m mVar, float f, float f2) {
         if (this.naD != null) {
-            long dFp = this.naD.nbv - dFp();
-            if (dFp > 0 && dFp < this.nbf.value) {
+            long dFq = this.naD.nbv - dFq();
+            if (dFq > 0 && dFq < this.nbf.value) {
                 if (!isShown()) {
                     this.x = b(mVar);
                     this.y = f2;
@@ -44,7 +44,7 @@ public class i extends d {
 
     @Override // master.flame.danmaku.danmaku.model.d
     public float[] a(m mVar, long j) {
-        if (!dFe()) {
+        if (!dFf()) {
             return null;
         }
         float b = b(mVar);
@@ -59,22 +59,22 @@ public class i extends d {
     }
 
     @Override // master.flame.danmaku.danmaku.model.d
-    public float dFk() {
+    public float dFl() {
         return this.x;
     }
 
     @Override // master.flame.danmaku.danmaku.model.d
-    public float dFl() {
+    public float dFm() {
         return this.y;
     }
 
     @Override // master.flame.danmaku.danmaku.model.d
-    public float dFm() {
+    public float dFn() {
         return this.x + this.nbd;
     }
 
     @Override // master.flame.danmaku.danmaku.model.d
-    public float dFn() {
+    public float dFo() {
         return this.y + this.nbe;
     }
 

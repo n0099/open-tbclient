@@ -22,9 +22,9 @@ public class a {
     /* renamed from: com.baidu.tieba.tbadvert.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes13.dex */
     public interface InterfaceC0679a {
-        void cXJ();
-
         void cXK();
+
+        void cXL();
     }
 
     public a(Context context, InterfaceC0679a interfaceC0679a) {
@@ -41,7 +41,7 @@ public class a {
         if (obj instanceof com.baidu.adp.widget.ImageView.a) {
             k((com.baidu.adp.widget.ImageView.a) obj);
         }
-        cXQ();
+        cXR();
         Dx(i);
     }
 
@@ -55,14 +55,14 @@ public class a {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (a.this.kWM != null) {
-                    a.this.kWM.cXJ();
+                    a.this.kWM.cXK();
                 }
             }
         });
         this.cSk.addView(this.kWL);
     }
 
-    private void cXQ() {
+    private void cXR() {
         TextView textView = new TextView(this.mContext);
         textView.setText(R.string.tb_ad_label);
         int dimension = (int) this.mContext.getResources().getDimension(R.dimen.ds28);
@@ -105,7 +105,7 @@ public class a {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (a.this.kWM != null) {
-                    a.this.kWM.cXK();
+                    a.this.kWM.cXL();
                 }
             }
         });
@@ -113,7 +113,7 @@ public class a {
             @Override // com.baidu.tieba.tbadvert.view.CountDownTextView.b
             public void br(View view) {
                 if (a.this.kWM != null) {
-                    a.this.kWM.cXK();
+                    a.this.kWM.cXL();
                 }
             }
         });

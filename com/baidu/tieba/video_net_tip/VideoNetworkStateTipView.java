@@ -73,18 +73,18 @@ public class VideoNetworkStateTipView extends RelativeLayout {
         onChangeSkinType(TbadkApplication.getInst().getSkinType());
     }
 
-    public boolean cEY() {
-        return (hasAgreeToPlay() || g.dav().daw() || TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 2 || !j.isMobileNet()) ? false : true;
+    public boolean cEZ() {
+        return (hasAgreeToPlay() || g.daw().dax() || TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 2 || !j.isMobileNet()) ? false : true;
     }
 
-    public void ddP() {
+    public void ddQ() {
         setVisibility(0);
         this.lrD.setVisibility(0);
         this.lrE.setVisibility(0);
         this.lrF.setVisibility(8);
     }
 
-    public void ddQ() {
+    public void ddR() {
         setVisibility(0);
         this.lrD.setVisibility(8);
         this.lrE.setVisibility(8);

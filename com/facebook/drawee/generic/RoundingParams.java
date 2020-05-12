@@ -26,29 +26,29 @@ public class RoundingParams {
         return this;
     }
 
-    public boolean dpo() {
+    public boolean dpp() {
         return this.lWQ;
     }
 
     public RoundingParams aE(float f) {
-        Arrays.fill(dps(), f);
+        Arrays.fill(dpt(), f);
         return this;
     }
 
     public RoundingParams h(float f, float f2, float f3, float f4) {
-        float[] dps = dps();
-        dps[1] = f;
-        dps[0] = f;
-        dps[3] = f2;
-        dps[2] = f2;
-        dps[5] = f3;
-        dps[4] = f3;
-        dps[7] = f4;
-        dps[6] = f4;
+        float[] dpt = dpt();
+        dpt[1] = f;
+        dpt[0] = f;
+        dpt[3] = f2;
+        dpt[2] = f2;
+        dpt[5] = f3;
+        dpt[4] = f3;
+        dpt[7] = f4;
+        dpt[6] = f4;
         return this;
     }
 
-    public float[] dpp() {
+    public float[] dpq() {
         return this.lWR;
     }
 
@@ -57,7 +57,7 @@ public class RoundingParams {
         return this;
     }
 
-    public RoundingMethod dpq() {
+    public RoundingMethod dpr() {
         return this.lWP;
     }
 
@@ -67,18 +67,18 @@ public class RoundingParams {
         return this;
     }
 
-    public int dpr() {
+    public int dps() {
         return this.lVK;
     }
 
-    private float[] dps() {
+    private float[] dpt() {
         if (this.lWR == null) {
             this.lWR = new float[8];
         }
         return this.lWR;
     }
 
-    public static RoundingParams dpt() {
+    public static RoundingParams dpu() {
         return new RoundingParams().vH(true);
     }
 
@@ -118,11 +118,11 @@ public class RoundingParams {
         return this;
     }
 
-    public float dpu() {
+    public float dpv() {
         return this.lVE;
     }
 
-    public boolean dpv() {
+    public boolean dpw() {
         return this.lVF;
     }
 

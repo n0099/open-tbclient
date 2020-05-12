@@ -26,7 +26,7 @@ public final class b<T> implements c<T> {
         a() {
         }
 
-        private final void dEk() {
+        private final void dEl() {
             T t;
             if (this.mYz == -2) {
                 t = (T) b.this.mYB.invoke();
@@ -34,7 +34,7 @@ public final class b<T> implements c<T> {
                 kotlin.jvm.a.b bVar = b.this.mYC;
                 T t2 = this.nextItem;
                 if (t2 == null) {
-                    q.dDR();
+                    q.dDS();
                 }
                 t = (T) bVar.invoke(t2);
             }
@@ -45,7 +45,7 @@ public final class b<T> implements c<T> {
         @Override // java.util.Iterator
         public T next() {
             if (this.mYz < 0) {
-                dEk();
+                dEl();
             }
             if (this.mYz == 0) {
                 throw new NoSuchElementException();
@@ -61,7 +61,7 @@ public final class b<T> implements c<T> {
         @Override // java.util.Iterator
         public boolean hasNext() {
             if (this.mYz < 0) {
-                dEk();
+                dEl();
             }
             return this.mYz == 1;
         }

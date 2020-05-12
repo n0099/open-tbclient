@@ -42,11 +42,11 @@ public class u extends c<t> {
                 u.this.b(tVar, aVar);
             }
         });
-        tVar.dud().a(new e() { // from class: com.facebook.imagepipeline.producers.u.2
+        tVar.due().a(new e() { // from class: com.facebook.imagepipeline.producers.u.2
             @Override // com.facebook.imagepipeline.producers.e, com.facebook.imagepipeline.producers.al
-            public void dqh() {
+            public void dqi() {
                 if (submit.cancel(false)) {
-                    aVar.dmS();
+                    aVar.dmT();
                 }
             }
         });

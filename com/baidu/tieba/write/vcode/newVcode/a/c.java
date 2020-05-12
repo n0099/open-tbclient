@@ -92,7 +92,7 @@ public class c implements b {
                     } else {
                         c.this.lBH.showToast(false, postWriteCallBackData.getErrorString());
                     }
-                    c.this.dgc();
+                    c.this.dgd();
                 }
             }
         }
@@ -108,8 +108,8 @@ public class c implements b {
     public boolean c(WebView webView, String str) {
         if (str.contains("objc:jsChangeVcode")) {
             this.lBK = com.baidu.tbadk.s.a.xq(str);
-            if (this.lBK != null && this.lxM.cSK() != null) {
-                this.lBH.runJsMethod(this.lBK, "'" + this.lxM.cSK().getVcodeUrl() + "'");
+            if (this.lBK != null && this.lxM.cSL() != null) {
+                this.lBH.runJsMethod(this.lBK, "'" + this.lxM.cSL().getVcodeUrl() + "'");
                 return true;
             }
             return false;
@@ -163,14 +163,14 @@ public class c implements b {
     }
 
     @Override // com.baidu.tieba.write.vcode.newVcode.a.b
-    public void dfi() {
+    public void dfj() {
         this.lBH.showPostThreadLoadingView(false);
         this.lxM.cancelLoadData();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dgc() {
-        this.lBH.runJsMethod(this.lBL, "'" + this.lxM.cSK().getVcodeUrl() + "'");
+    public void dgd() {
+        this.lBH.runJsMethod(this.lBL, "'" + this.lxM.cSL().getVcodeUrl() + "'");
     }
 
     private boolean MF(String str) {
@@ -190,9 +190,9 @@ public class c implements b {
             this.lBH.getContext().finish();
         } else if (!StringUtils.isNull(str)) {
             this.lBH.showPostThreadLoadingView(true);
-            this.lxM.cSK().setVcode(str);
-            this.lxM.cSK().setVcodeType("4");
-            this.lxM.cXy();
+            this.lxM.cSL().setVcode(str);
+            this.lxM.cSL().setVcodeType("4");
+            this.lxM.cXz();
         } else {
             this.lBH.getContext().showToast(R.string.neterror);
             this.lBH.getContext().finish();

@@ -31,7 +31,7 @@ public class i extends a {
         this.stType = str;
     }
 
-    public String bFn() {
+    public String bFo() {
         return this.goJ;
     }
 

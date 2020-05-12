@@ -73,7 +73,7 @@ public class k {
         return this.ddY;
     }
 
-    public String dkA() {
+    public String dkB() {
         return this.lNM;
     }
 
@@ -101,7 +101,7 @@ public class k {
         return this.deb;
     }
 
-    public String dkB() {
+    public String dkC() {
         return this.lNN;
     }
 
@@ -121,7 +121,7 @@ public class k {
         this.lNO = str;
     }
 
-    public String dkC() {
+    public String dkD() {
         return this.lNO;
     }
 
@@ -129,7 +129,7 @@ public class k {
         this.lNP = str;
     }
 
-    public String dkD() {
+    public String dkE() {
         return this.lNP;
     }
 }

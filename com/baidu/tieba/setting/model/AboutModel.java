@@ -45,7 +45,7 @@ public class AboutModel extends BdBaseModel<AboutActivity> {
         return false;
     }
 
-    public void cPU() {
+    public void cPV() {
         if (this.kCm == null) {
             this.kCm = new a();
         }

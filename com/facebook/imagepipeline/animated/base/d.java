@@ -15,10 +15,10 @@ public class d {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(e eVar) {
-        this.lZk = (b) g.checkNotNull(eVar.dpZ());
-        this.lZl = eVar.dqb();
-        this.lZm = eVar.dqa();
-        this.lZn = eVar.dqc();
+        this.lZk = (b) g.checkNotNull(eVar.dqa());
+        this.lZl = eVar.dqc();
+        this.lZm = eVar.dqb();
+        this.lZn = eVar.dqd();
     }
 
     private d(b bVar) {
@@ -34,7 +34,7 @@ public class d {
         return new e(bVar);
     }
 
-    public b dpZ() {
+    public b dqa() {
         return this.lZk;
     }
 

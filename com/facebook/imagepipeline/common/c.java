@@ -13,19 +13,19 @@ public class c {
     private int mbj = 100;
     private Bitmap.Config mBitmapConfig = Bitmap.Config.ARGB_8888;
 
-    public int dqI() {
+    public int dqJ() {
         return this.mbj;
     }
 
-    public boolean dqJ() {
+    public boolean dqK() {
         return this.mbk;
     }
 
-    public boolean dqK() {
+    public boolean dqL() {
         return this.mbl;
     }
 
-    public boolean dqL() {
+    public boolean dqM() {
         return this.mbm;
     }
 
@@ -35,15 +35,15 @@ public class c {
     }
 
     @Nullable
-    public com.facebook.imagepipeline.decoder.b dqM() {
+    public com.facebook.imagepipeline.decoder.b dqN() {
         return this.mbo;
     }
 
-    public boolean dqN() {
+    public boolean dqO() {
         return this.mbn;
     }
 
-    public Bitmap.Config dqO() {
+    public Bitmap.Config dqP() {
         return this.mBitmapConfig;
     }
 
@@ -52,7 +52,7 @@ public class c {
         return this;
     }
 
-    public b dqP() {
+    public b dqQ() {
         return new b(this);
     }
 }

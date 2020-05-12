@@ -118,7 +118,7 @@ public class a extends com.baidu.tieba.card.a<com.baidu.tieba.personCenter.c.d> 
             if (view.getId() == R.id.fans_action) {
                 if (this.mUserData != null) {
                     this.jUh.setVisibility(8);
-                    com.baidu.tieba.p.a.cOI().g(2, false, true);
+                    com.baidu.tieba.p.a.cOJ().g(2, false, true);
                     TiebaStatic.log(new an("c12523").af("obj_locate", 6));
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonListActivityConfig(this.mTbPageContext.getPageActivity(), false, this.mUserData.getUserId(), this.mUserData.getSex()).updateBjhUser(this.mUserData.isBaijiahaoUser())));
                 }

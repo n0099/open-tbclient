@@ -55,8 +55,8 @@ public class a extends h<com.baidu.tieba.h.b, b> implements d {
                         if (a.this.hgM != null) {
                             TiebaStatic.log(new an("c12105").cI("fid", a.this.hgM.huc).af("obj_locate", i2 + 1));
                         }
-                        if (!StringUtils.isNull(aVar.bWM())) {
-                            com.baidu.tbadk.browser.a.startWebActivity(a.this.mPageContext.getPageActivity(), aVar.bWM());
+                        if (!StringUtils.isNull(aVar.bWN())) {
+                            com.baidu.tbadk.browser.a.startWebActivity(a.this.mPageContext.getPageActivity(), aVar.bWN());
                         }
                     }
                 }

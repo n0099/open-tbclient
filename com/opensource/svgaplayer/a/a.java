@@ -21,11 +21,11 @@ public class a {
         this.mKm = new d();
     }
 
-    public final f dzf() {
+    public final f dzg() {
         return this.mJn;
     }
 
-    public final d dzB() {
+    public final d dzC() {
         return this.mKm;
     }
 
@@ -44,11 +44,11 @@ public class a {
             this.mKn = gVar;
         }
 
-        public final String dzC() {
+        public final String dzD() {
             return this.imageKey;
         }
 
-        public final g dzD() {
+        public final g dzE() {
             return this.mKn;
         }
     }
@@ -56,11 +56,11 @@ public class a {
     public final List<C0779a> II(int i) {
         C0779a c0779a;
         ArrayList arrayList = new ArrayList();
-        for (com.opensource.svgaplayer.entities.f fVar : this.mJn.dzw()) {
-            if (i < 0 || i >= fVar.dAa().size()) {
+        for (com.opensource.svgaplayer.entities.f fVar : this.mJn.dzx()) {
+            if (i < 0 || i >= fVar.dAb().size()) {
                 c0779a = null;
             } else {
-                c0779a = fVar.dAa().get(i).dAb() <= 0.0d ? null : new C0779a(this, fVar.dzC(), fVar.dAa().get(i));
+                c0779a = fVar.dAb().get(i).dAc() <= 0.0d ? null : new C0779a(this, fVar.dzD(), fVar.dAb().get(i));
             }
             if (c0779a != null) {
                 arrayList.add(c0779a);
@@ -72,6 +72,6 @@ public class a {
     public void a(Canvas canvas, int i, ImageView.ScaleType scaleType) {
         q.j(canvas, "canvas");
         q.j(scaleType, "scaleType");
-        this.mKm.a(canvas.getWidth(), canvas.getHeight(), (float) this.mJn.dzu().getWidth(), (float) this.mJn.dzu().getHeight(), scaleType);
+        this.mKm.a(canvas.getWidth(), canvas.getHeight(), (float) this.mJn.dzv().getWidth(), (float) this.mJn.dzv().getHeight(), scaleType);
     }
 }

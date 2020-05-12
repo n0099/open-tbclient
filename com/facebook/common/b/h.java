@@ -27,7 +27,7 @@ public abstract class h<T> implements Runnable {
 
     public void cancel() {
         if (this.lRy.compareAndSet(0, 2)) {
-            dmS();
+            dmT();
         }
     }
 
@@ -37,7 +37,7 @@ public abstract class h<T> implements Runnable {
     protected void onFailure(Exception exc) {
     }
 
-    protected void dmS() {
+    protected void dmT() {
     }
 
     protected void aI(T t) {

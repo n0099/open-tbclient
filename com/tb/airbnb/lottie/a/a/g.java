@@ -43,19 +43,19 @@ public class g implements d, j, a.InterfaceC0784a {
         this.mOn = aVar;
         this.name = dVar.getName();
         this.lottieDrawable = fVar;
-        this.mOy = dVar.dBz();
+        this.mOy = dVar.dBA();
         this.path.setFillType(dVar.hX());
         this.BK = (int) (fVar.getComposition().gD() / 32.0f);
-        this.mOx = dVar.dBA().dBo();
+        this.mOx = dVar.dBB().dBp();
         this.mOx.b(this);
         aVar.a(this.mOx);
-        this.mOp = dVar.dBu().dBo();
+        this.mOp = dVar.dBv().dBp();
         this.mOp.b(this);
         aVar.a(this.mOp);
-        this.mOz = dVar.dBB().dBo();
+        this.mOz = dVar.dBC().dBp();
         this.mOz.b(this);
         aVar.a(this.mOz);
-        this.mOA = dVar.dBC().dBo();
+        this.mOA = dVar.dBD().dBp();
         this.mOA.b(this);
         aVar.a(this.mOA);
     }

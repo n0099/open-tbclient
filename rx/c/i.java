@@ -6,7 +6,7 @@ final class i extends h {
     private i() {
     }
 
-    public static h dII() {
+    public static h dIJ() {
         return npo;
     }
 }

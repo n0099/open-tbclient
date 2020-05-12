@@ -33,21 +33,21 @@ public class SystemHelpSettingModel extends BdBaseModel {
         this.mContext = systemHelpSettingActivity.getPageContext().getPageActivity();
     }
 
-    public void bEs() {
+    public void bEt() {
         if (this.kCA == null) {
             this.kCA = new a();
             this.kCA.execute(new String[0]);
         }
     }
 
-    public void cPZ() {
+    public void cQa() {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (!TextUtils.isEmpty(currentAccount)) {
             MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.IM_DELETE_IM_DB, currentAccount));
         }
     }
 
-    public void cQa() {
+    public void cQb() {
         if (this.kCB == null) {
             this.kCB = new b();
             this.kCB.execute(new String[0]);

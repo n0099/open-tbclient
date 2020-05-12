@@ -6,7 +6,7 @@ import rx.internal.util.RxThreadFactory;
 public class g {
     private static final g npn = new g();
 
-    public static rx.g dIB() {
+    public static rx.g dIC() {
         return c(new RxThreadFactory("RxComputationScheduler-"));
     }
 
@@ -17,7 +17,7 @@ public class g {
         return new rx.internal.schedulers.b(threadFactory);
     }
 
-    public static rx.g dIC() {
+    public static rx.g dID() {
         return d(new RxThreadFactory("RxIoScheduler-"));
     }
 
@@ -28,7 +28,7 @@ public class g {
         return new rx.internal.schedulers.a(threadFactory);
     }
 
-    public static rx.g dID() {
+    public static rx.g dIE() {
         return e(new RxThreadFactory("RxNewThreadScheduler-"));
     }
 
@@ -39,10 +39,6 @@ public class g {
         return new rx.internal.schedulers.f(threadFactory);
     }
 
-    public rx.g dIE() {
-        return null;
-    }
-
     public rx.g dIF() {
         return null;
     }
@@ -51,12 +47,16 @@ public class g {
         return null;
     }
 
+    public rx.g dIH() {
+        return null;
+    }
+
     @Deprecated
     public rx.functions.a d(rx.functions.a aVar) {
         return aVar;
     }
 
-    public static g dIH() {
+    public static g dII() {
         return npn;
     }
 }

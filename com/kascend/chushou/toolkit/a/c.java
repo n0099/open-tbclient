@@ -32,7 +32,7 @@ public class c {
                 }
             }
         }
-        tv.chushou.basis.d.a.b.a aVar = (tv.chushou.basis.d.a.b.a) tv.chushou.basis.d.b.dJr().S(tv.chushou.basis.d.a.b.a.class);
+        tv.chushou.basis.d.a.b.a aVar = (tv.chushou.basis.d.a.b.a) tv.chushou.basis.d.b.dJs().S(tv.chushou.basis.d.a.b.a.class);
         if (aVar != null) {
             aVar.a(context, str, str2, hashMap);
         }

@@ -16,7 +16,7 @@ public final class Schedulers {
     private final g npq;
     private final g npr;
 
-    private static Schedulers dIJ() {
+    private static Schedulers dIK() {
         Schedulers schedulers;
         while (true) {
             schedulers = njf.get();
@@ -25,7 +25,7 @@ public final class Schedulers {
                 if (njf.compareAndSet(null, schedulers)) {
                     break;
                 }
-                schedulers.dIL();
+                schedulers.dIM();
             } else {
                 break;
             }
@@ -34,24 +34,24 @@ public final class Schedulers {
     }
 
     private Schedulers() {
-        rx.c.g dIA = f.dIv().dIA();
-        g dIE = dIA.dIE();
-        if (dIE != null) {
-            this.npp = dIE;
-        } else {
-            this.npp = rx.c.g.dIB();
-        }
-        g dIF = dIA.dIF();
+        rx.c.g dIB = f.dIw().dIB();
+        g dIF = dIB.dIF();
         if (dIF != null) {
-            this.npq = dIF;
+            this.npp = dIF;
         } else {
-            this.npq = rx.c.g.dIC();
+            this.npp = rx.c.g.dIC();
         }
-        g dIG = dIA.dIG();
+        g dIG = dIB.dIG();
         if (dIG != null) {
-            this.npr = dIG;
+            this.npq = dIG;
         } else {
-            this.npr = rx.c.g.dID();
+            this.npq = rx.c.g.dID();
+        }
+        g dIH = dIB.dIH();
+        if (dIH != null) {
+            this.npr = dIH;
+        } else {
+            this.npr = rx.c.g.dIE();
         }
     }
 
@@ -64,15 +64,15 @@ public final class Schedulers {
     }
 
     public static g newThread() {
-        return c.k(dIJ().npr);
+        return c.k(dIK().npr);
     }
 
     public static g computation() {
-        return c.i(dIJ().npp);
+        return c.i(dIK().npp);
     }
 
     public static g io() {
-        return c.j(dIJ().npq);
+        return c.j(dIK().npq);
     }
 
     public static TestScheduler test() {
@@ -86,27 +86,27 @@ public final class Schedulers {
     public static void reset() {
         Schedulers andSet = njf.getAndSet(null);
         if (andSet != null) {
-            andSet.dIL();
+            andSet.dIM();
         }
     }
 
     public static void start() {
-        Schedulers dIJ = dIJ();
-        dIJ.dIK();
-        synchronized (dIJ) {
+        Schedulers dIK = dIK();
+        dIK.dIL();
+        synchronized (dIK) {
             d.nns.start();
         }
     }
 
     public static void shutdown() {
-        Schedulers dIJ = dIJ();
-        dIJ.dIL();
-        synchronized (dIJ) {
+        Schedulers dIK = dIK();
+        dIK.dIM();
+        synchronized (dIK) {
             d.nns.shutdown();
         }
     }
 
-    synchronized void dIK() {
+    synchronized void dIL() {
         if (this.npp instanceof h) {
             ((h) this.npp).start();
         }
@@ -118,7 +118,7 @@ public final class Schedulers {
         }
     }
 
-    synchronized void dIL() {
+    synchronized void dIM() {
         if (this.npp instanceof h) {
             ((h) this.npp).shutdown();
         }

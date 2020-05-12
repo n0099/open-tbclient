@@ -5,7 +5,7 @@ public class e extends g implements i {
     private String niq;
 
     @Override // org.java_websocket.c.h
-    public String dHc() {
+    public String dHd() {
         return this.niq;
     }
 

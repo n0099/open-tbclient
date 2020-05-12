@@ -66,7 +66,7 @@ public class c {
     public c(WriteShareActivity writeShareActivity) {
         this.kHM = null;
         this.kIt = writeShareActivity;
-        this.kHM = writeShareActivity.cSK();
+        this.kHM = writeShareActivity.cSL();
         if (this.kIu == null) {
             this.kIu = new com.baidu.tbadk.img.b();
         }
@@ -86,16 +86,16 @@ public class c {
         this.kIq = (ShareSDKImageView) this.kIt.findViewById(R.id.post_share_image);
         this.kIr = (TextView) this.kIt.findViewById(R.id.post_share_title);
         this.kIs = (TextView) this.kIt.findViewById(R.id.post_share_content);
-        cSQ();
-        cSS();
+        cSR();
+        cST();
         this.kIh = (LinearLayout) this.kIt.findViewById(R.id.post_content_container);
         this.kIh.setDrawingCacheEnabled(false);
         this.kIe.setVisibility(0);
         this.kIi.setFilters(new InputFilter[]{new InputFilter.LengthFilter(2000)});
-        cSR();
+        cSS();
     }
 
-    public void cSO() {
+    public void cSP() {
         this.kIo = (LinearLayout) this.kIt.findViewById(R.id.post_share_layout);
         this.kIq = (ShareSDKImageView) this.kIt.findViewById(R.id.post_share_image);
         this.kIq.setIsRound(false);
@@ -114,10 +114,10 @@ public class c {
                                 c.this.width = c.this.kIq.getLoadedWidth();
                                 c.this.height = c.this.kIq.getLoadedHeight();
                                 if (c.this.kIt != null) {
-                                    c.this.kIt.cSK().setShareSummaryImgWidth(c.this.width);
-                                    c.this.kIt.cSK().setShareSummaryImgHeight(c.this.height);
+                                    c.this.kIt.cSL().setShareSummaryImgWidth(c.this.width);
+                                    c.this.kIt.cSL().setShareSummaryImgHeight(c.this.height);
                                     c.this.kIv = true;
-                                    c.this.cSR();
+                                    c.this.cSS();
                                     return;
                                 }
                                 return;
@@ -125,7 +125,7 @@ public class c {
                             return;
                         }
                         c.this.kIv = false;
-                        c.this.cSR();
+                        c.this.cSS();
                         if (c.this.kIt != null) {
                             c.this.kIt.CJ(R.string.share_load_image_fail_tip);
                         }
@@ -134,7 +134,7 @@ public class c {
                     @Override // com.baidu.tbadk.widget.TbImageView.a
                     public void onCancel() {
                         c.this.kIv = false;
-                        c.this.cSR();
+                        c.this.cSS();
                         if (c.this.kIt != null) {
                             c.this.kIt.CJ(R.string.share_load_image_fail_tip);
                         }
@@ -146,7 +146,7 @@ public class c {
                     this.kIq.startLoad(this.kHM.getShareSummaryImg(), 10, true);
                 } else {
                     this.kIv = true;
-                    cSR();
+                    cSS();
                 }
             } else {
                 Bitmap Bytes2Bitmap = BitmapHelper.Bytes2Bitmap(this.kHM.getShareLocalImageData());
@@ -173,7 +173,7 @@ public class c {
                     }
                 }
                 this.kIv = true;
-                cSR();
+                cSS();
             }
             this.kHM.setShareSummaryImgType(f.getExtension(this.kHM.getShareSummaryImg()));
             this.kIr.setText(this.kHM.getShareSummaryTitle());
@@ -181,7 +181,7 @@ public class c {
         }
     }
 
-    private void cSP() {
+    private void cSQ() {
         this.kIn = this.kIt.findViewById(R.id.post_prefix_layout);
         this.kIk = (TextView) this.kIt.findViewById(R.id.post_prefix);
         this.kIm = (ImageView) this.kIt.findViewById(R.id.prefix_icon);
@@ -198,7 +198,7 @@ public class c {
                     c.this.kIn.setSelected(true);
                     g.showPopupWindowAsDropDown(c.this.kIl, view, l.dip2px(c.this.kIt.getPageContext().getContext(), 15.0f), l.dip2px(c.this.kIt.getPageContext().getContext(), 1.0f));
                     if (c.this.kIt != null) {
-                        c.this.kIt.cSN();
+                        c.this.kIt.cSO();
                     }
                 }
             });
@@ -211,7 +211,7 @@ public class c {
                         c.this.kIk.setSelected(true);
                         g.showPopupWindowAsDropDown(c.this.kIl, view, l.dip2px(c.this.kIt.getPageContext().getContext(), 15.0f), l.dip2px(c.this.kIt.getPageContext().getContext(), 1.0f));
                         if (c.this.kIt != null) {
-                            c.this.kIt.cSN();
+                            c.this.kIt.cSO();
                         }
                     }
                 });
@@ -227,7 +227,7 @@ public class c {
                     c.this.kIt.CK(i);
                     c.this.kIk.setText(c.this.mPrefixData.getPrefixs().get(i));
                     c.this.kIl.setCurrentIndex(i);
-                    c.this.cSR();
+                    c.this.cSS();
                     g.dismissPopupWindow(c.this.kIl, c.this.kIt.getPageContext().getPageActivity());
                 }
             });
@@ -266,7 +266,7 @@ public class c {
         this.kIn.setVisibility(8);
     }
 
-    protected void cSQ() {
+    protected void cSR() {
         this.kIe = (EditText) this.kIt.findViewById(R.id.post_title);
         if (this.kHM.getType() == 3) {
             if (this.kHM.getTitle() != null && this.kHM.getTitle().trim().length() > 0) {
@@ -285,7 +285,7 @@ public class c {
         this.kIe.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.sharewrite.c.7
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
-                c.this.cSR();
+                c.this.cSS();
             }
 
             @Override // android.text.TextWatcher
@@ -298,12 +298,12 @@ public class c {
         });
     }
 
-    public void cSR() {
+    public void cSS() {
         String str = null;
         if (this.kHM.getType() == 3) {
             String trim = this.kIe.getText().toString().trim();
             if (this.mPrefixData != null && this.mPrefixData.getPrefixs().size() > 0) {
-                if (this.kIt.cSL() == this.mPrefixData.getPrefixs().size() - 1) {
+                if (this.kIt.cSM() == this.mPrefixData.getPrefixs().size() - 1) {
                     if (TextUtils.isEmpty(trim)) {
                         this.kHM.setIsNoTitle(true);
                     } else {
@@ -328,7 +328,7 @@ public class c {
         }
     }
 
-    protected void cSS() {
+    protected void cST() {
         this.kIi = (EditText) this.kIt.findViewById(R.id.post_content);
         this.kIi.setDrawingCacheEnabled(false);
         if (this.kHM.getContent() != null && this.kHM.getContent().length() > 0) {
@@ -349,7 +349,7 @@ public class c {
         this.kIi.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.sharewrite.c.9
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
-                c.this.cSR();
+                c.this.cSS();
             }
 
             @Override // android.text.TextWatcher
@@ -372,17 +372,17 @@ public class c {
         editText.setSelection(selectionStart, selectionEnd);
     }
 
-    public EditText cST() {
+    public EditText cSU() {
         return this.kIe;
     }
 
-    public EditText cSU() {
+    public EditText cSV() {
         return this.kIi;
     }
 
     public void a(PostPrefixData postPrefixData) {
         this.mPrefixData = postPrefixData;
-        cSP();
+        cSQ();
     }
 
     public void b(View.OnFocusChangeListener onFocusChangeListener) {
@@ -392,19 +392,19 @@ public class c {
         this.kIj.setOnFocusChangeListener(onFocusChangeListener);
     }
 
-    public h cSV() {
+    public h cSW() {
         return this.kIl;
     }
 
-    public View cSW() {
+    public View cSX() {
         return this.mBack;
     }
 
-    public TextView cSX() {
+    public TextView cSY() {
         return this.kIj;
     }
 
-    public TextView cSY() {
+    public TextView cSZ() {
         return this.kIk;
     }
 
@@ -438,11 +438,11 @@ public class c {
             this.kIs.setTextColor(am.getColor(R.color.cp_cont_d));
             f(this.kIe, color2);
             f(this.kIi, color2);
-            cSR();
+            cSS();
         }
     }
 
-    public ShareSDKImageView cSZ() {
+    public ShareSDKImageView cTa() {
         return this.kIq;
     }
 }

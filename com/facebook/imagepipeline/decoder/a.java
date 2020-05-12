@@ -22,17 +22,17 @@ public class a implements b {
         this.mdh = new b() { // from class: com.facebook.imagepipeline.decoder.a.1
             @Override // com.facebook.imagepipeline.decoder.b
             public com.facebook.imagepipeline.g.c a(com.facebook.imagepipeline.g.e eVar2, int i, h hVar, com.facebook.imagepipeline.common.b bVar3) {
-                com.facebook.c.c dsS = eVar2.dsS();
-                if (dsS == com.facebook.c.b.lYQ) {
+                com.facebook.c.c dsT = eVar2.dsT();
+                if (dsT == com.facebook.c.b.lYQ) {
                     return a.this.c(eVar2, i, hVar, bVar3);
                 }
-                if (dsS == com.facebook.c.b.lYS) {
+                if (dsT == com.facebook.c.b.lYS) {
                     return a.this.b(eVar2, i, hVar, bVar3);
                 }
-                if (dsS == com.facebook.c.b.lYY) {
+                if (dsT == com.facebook.c.b.lYY) {
                     return a.this.d(eVar2, i, hVar, bVar3);
                 }
-                if (dsS == com.facebook.c.c.lZa) {
+                if (dsT == com.facebook.c.c.lZa) {
                     throw new DecodeException("unknown image format", eVar2);
                 }
                 return a.this.a(eVar2, bVar3);
@@ -50,12 +50,12 @@ public class a implements b {
         if (bVar.mbi != null) {
             return bVar.mbi.a(eVar, i, hVar, bVar);
         }
-        com.facebook.c.c dsS = eVar.dsS();
-        if (dsS == null || dsS == com.facebook.c.c.lZa) {
-            dsS = com.facebook.c.d.s(eVar.getInputStream());
-            eVar.c(dsS);
+        com.facebook.c.c dsT = eVar.dsT();
+        if (dsT == null || dsT == com.facebook.c.c.lZa) {
+            dsT = com.facebook.c.d.s(eVar.getInputStream());
+            eVar.c(dsT);
         }
-        if (this.mdi != null && (bVar2 = this.mdi.get(dsS)) != null) {
+        if (this.mdi != null && (bVar2 = this.mdi.get(dsT)) != null) {
             return bVar2.a(eVar, i, hVar, bVar);
         }
         return this.mdh.a(eVar, i, hVar, bVar);
@@ -68,7 +68,7 @@ public class a implements b {
     public com.facebook.imagepipeline.g.d a(com.facebook.imagepipeline.g.e eVar, com.facebook.imagepipeline.common.b bVar) {
         com.facebook.common.references.a<Bitmap> a = this.mcH.a(eVar, bVar.mbh, null);
         try {
-            return new com.facebook.imagepipeline.g.d(a, g.mdC, eVar.dsO(), eVar.dsP());
+            return new com.facebook.imagepipeline.g.d(a, g.mdC, eVar.dsP(), eVar.dsQ());
         } finally {
             a.close();
         }
@@ -77,7 +77,7 @@ public class a implements b {
     public com.facebook.imagepipeline.g.d c(com.facebook.imagepipeline.g.e eVar, int i, h hVar, com.facebook.imagepipeline.common.b bVar) {
         com.facebook.common.references.a<Bitmap> a = this.mcH.a(eVar, bVar.mbh, null, i);
         try {
-            return new com.facebook.imagepipeline.g.d(a, hVar, eVar.dsO(), eVar.dsP());
+            return new com.facebook.imagepipeline.g.d(a, hVar, eVar.dsP(), eVar.dsQ());
         } finally {
             a.close();
         }

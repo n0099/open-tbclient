@@ -101,7 +101,7 @@ public final class CachedObservable<T> extends rx.d<T> {
         public void onCompleted() {
             if (!this.mRU) {
                 this.mRU = true;
-                add(NotificationLite.dHG());
+                add(NotificationLite.dHH());
                 this.njq.unsubscribe();
                 dispatch();
             }
@@ -207,7 +207,7 @@ public final class CachedObservable<T> extends rx.d<T> {
                             if (size != 0) {
                                 Object[] objArr = this.currentBuffer;
                                 if (objArr == null) {
-                                    objArr = this.state.dDb();
+                                    objArr = this.state.dDc();
                                     this.currentBuffer = objArr;
                                 }
                                 int length = objArr.length - 1;

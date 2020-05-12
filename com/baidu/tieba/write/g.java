@@ -21,9 +21,9 @@ public abstract class g {
 
     public abstract void afo();
 
-    public abstract void deX();
-
     public abstract void deY();
+
+    public abstract void deZ();
 
     public abstract void onDestroy();
 
@@ -45,14 +45,14 @@ public abstract class g {
     }
 
     public void show() {
-        deX();
+        deY();
     }
 
     public void eq(boolean z) {
         if (z) {
             afo();
         } else {
-            deY();
+            deZ();
         }
     }
 }

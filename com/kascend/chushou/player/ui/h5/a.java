@@ -121,7 +121,7 @@ public final class a extends com.kascend.chushou.view.base.a {
         int i = a.f.fl_container;
         com.kascend.chushou.view.h5.b bVar = this.mAy;
         if (bVar == null) {
-            q.dDR();
+            q.dDS();
         }
         beginTransaction.add(i, bVar).commitAllowingStateLoss();
         Dialog dialog = getDialog();
@@ -210,12 +210,12 @@ public final class a extends com.kascend.chushou.view.base.a {
         }
         com.kascend.chushou.view.h5.b bVar2 = this.mAy;
         if (bVar2 == null) {
-            q.dDR();
+            q.dDS();
         }
         if (bVar2.isAdded()) {
             com.kascend.chushou.view.h5.b bVar3 = this.mAy;
             if (bVar3 == null) {
-                q.dDR();
+                q.dDS();
             }
             bVar3.a("closeFloppyDisk()");
         }

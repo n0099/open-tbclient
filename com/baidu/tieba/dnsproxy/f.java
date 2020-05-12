@@ -3,7 +3,7 @@ package com.baidu.tieba.dnsproxy;
 public class f {
     private static f gwJ = null;
 
-    public static final f bGK() {
+    public static final f bGL() {
         if (gwJ == null) {
             synchronized (f.class) {
                 if (gwJ == null) {

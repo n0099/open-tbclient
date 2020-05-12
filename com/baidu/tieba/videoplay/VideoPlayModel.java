@@ -91,7 +91,7 @@ public class VideoPlayModel extends BdBaseModel {
             httpMessage.addParam("yuelaou_locate", str2);
             httpMessage.addParam("is_vertical", "1");
             httpMessage.addParam(Config.PACKAGE_NAME, this.mPn);
-            httpMessage.addParam("user_view_data", bWn());
+            httpMessage.addParam("user_view_data", bWo());
             if ("frs".equals(this.mFrom)) {
                 this.hzw = "client_frs";
             } else if ("index".equals(this.mFrom)) {
@@ -118,7 +118,7 @@ public class VideoPlayModel extends BdBaseModel {
             httpMessage.addParam("yuelaou_locate", this.mLocate);
             httpMessage.addParam("is_vertical", "1");
             httpMessage.addParam(Config.PACKAGE_NAME, this.mPn);
-            httpMessage.addParam("user_view_data", bWn());
+            httpMessage.addParam("user_view_data", bWo());
             if (videoItemData.baijiahaoData != null) {
                 httpMessage.addParam("ori_ugc_nid", videoItemData.baijiahaoData.oriUgcNid);
                 httpMessage.addParam("ori_ugc_type", videoItemData.baijiahaoData.oriUgcType);
@@ -133,7 +133,7 @@ public class VideoPlayModel extends BdBaseModel {
         this.mFrom = str;
     }
 
-    private String bWn() {
+    private String bWo() {
         JSONArray jSONArray = new JSONArray();
         LinkedList<com.baidu.tbadk.d.a> videoRecordList = TbSingleton.getInstance().getVideoRecordList();
         if (videoRecordList != null) {

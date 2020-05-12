@@ -37,7 +37,7 @@ public class a implements com.facebook.fresco.animation.b.b {
     @Override // com.facebook.fresco.animation.b.b
     @Nullable
     public synchronized com.facebook.common.references.a<Bitmap> ae(int i, int i2, int i3) {
-        return !this.lXS ? null : h(this.lXR.dqe());
+        return !this.lXS ? null : h(this.lXR.dqf());
     }
 
     @Override // com.facebook.fresco.animation.b.b
@@ -98,7 +98,7 @@ public class a implements com.facebook.fresco.animation.b.b {
         d dVar;
         try {
             if (com.facebook.common.references.a.a(aVar) && (aVar.get() instanceof d) && (dVar = (d) aVar.get()) != null) {
-                return dVar.dsN();
+                return dVar.dsO();
             }
             return null;
         } finally {

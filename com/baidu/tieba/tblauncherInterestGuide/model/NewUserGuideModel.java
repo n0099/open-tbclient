@@ -33,7 +33,7 @@ public class NewUserGuideModel extends BdBaseModel<BaseFragmentActivity> {
         super(baseFragmentActivity.getPageContext());
     }
 
-    public boolean cYN() {
+    public boolean cYO() {
         return this.lai;
     }
 
@@ -41,7 +41,7 @@ public class NewUserGuideModel extends BdBaseModel<BaseFragmentActivity> {
         this.lai = z;
     }
 
-    public InterestFrsData cYO() {
+    public InterestFrsData cYP() {
         return this.laj;
     }
 
@@ -54,7 +54,7 @@ public class NewUserGuideModel extends BdBaseModel<BaseFragmentActivity> {
         this.lak.execute(new Void[0]);
     }
 
-    public void cYP() {
+    public void cYQ() {
         if (this.lak != null) {
             this.lak.cancel();
         }

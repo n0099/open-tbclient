@@ -44,7 +44,7 @@ public class d extends RelativeLayout implements View.OnClickListener {
         this.b = h5Options.b;
         this.mBi = aVar;
         if (this.mBi != null) {
-            this.mBj = aVar.dyW();
+            this.mBj = aVar.dyX();
         }
         a();
     }
@@ -80,7 +80,7 @@ public class d extends RelativeLayout implements View.OnClickListener {
                 if (!d.this.c()) {
                     d.this.j = false;
                     String str2 = (String) webView.getTag();
-                    if (!tv.chushou.zues.utils.a.dJO()) {
+                    if (!tv.chushou.zues.utils.a.dJP()) {
                         d.this.a(3);
                     } else if (str2 == null || !str2.equals(BdStatsConstant.StatsType.ERROR)) {
                         d.this.a(2);
@@ -193,7 +193,7 @@ public class d extends RelativeLayout implements View.OnClickListener {
     private void b() {
         if (this.mBh != null) {
             this.mBh.setTag(null);
-            if (tv.chushou.zues.utils.a.dJO()) {
+            if (tv.chushou.zues.utils.a.dJP()) {
                 if (this.a != null && this.a.length() > 0) {
                     this.mBh.loadUrl(this.a);
                     return;

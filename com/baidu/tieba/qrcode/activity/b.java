@@ -54,24 +54,24 @@ public class b implements QRCodeView.a {
     @Override // com.baidu.tieba.qrcode.lib.core.QRCodeView.a
     public void Jd(String str) {
         if (StringUtils.isNull(str)) {
-            this.kou.cMo();
-            this.kou.cMm();
+            this.kou.cMp();
+            this.kou.cMn();
         } else if (this.kon) {
             Intent intent = new Intent();
             intent.putExtra(QRCodeScanActivityConfig.RESULT_SCAN_CODE, str);
             this.mTbPageContext.getPageActivity().setResult(-1, intent);
             this.mTbPageContext.getPageActivity().finish();
         } else if (Jg(str)) {
-            this.kou.cMo();
+            this.kou.cMp();
         } else if (!StringUtils.isNull(str) && str.contains("feedavatar.baidu.com")) {
-            this.kou.cMo();
+            this.kou.cMp();
             Jh(str);
         } else if (Jf(str)) {
-            this.kou.cMo();
+            this.kou.cMp();
             this.mTbPageContext.getPageActivity().finish();
         } else if (!aq.uP(str)) {
-            this.kou.cMo();
-            this.kou.cMm();
+            this.kou.cMp();
+            this.kou.cMn();
         } else {
             Je(str);
         }
@@ -79,7 +79,7 @@ public class b implements QRCodeView.a {
 
     private void Je(final String str) {
         if (!l.isNetOk()) {
-            this.kou.cMo();
+            this.kou.cMp();
             l.showToast(this.mTbPageContext.getPageActivity(), this.mTbPageContext.getResources().getString(R.string.network_not_available));
             return;
         }
@@ -88,27 +88,27 @@ public class b implements QRCodeView.a {
         }
         this.iEq = new com.baidu.tieba.ueg.c(str, new c.a() { // from class: com.baidu.tieba.qrcode.activity.b.1
             @Override // com.baidu.tieba.ueg.c.a
-            public void clF() {
-                b.this.kou.cMo();
+            public void clG() {
+                b.this.kou.cMp();
                 b.this.openUrl(str);
             }
 
             @Override // com.baidu.tieba.ueg.c.a
-            public void clG() {
-                b.this.kou.cMo();
+            public void clH() {
+                b.this.kou.cMp();
                 b.this.kou.Jc(str);
             }
 
             @Override // com.baidu.tieba.ueg.c.a
-            public void clH() {
-                b.this.kou.cMo();
+            public void clI() {
                 b.this.kou.cMp();
+                b.this.kou.cMq();
             }
 
             @Override // com.baidu.tieba.ueg.c.a
             public void onError(String str2) {
-                b.this.kou.cMo();
-                b.this.kou.cMm();
+                b.this.kou.cMp();
+                b.this.kou.cMn();
             }
         });
         this.iEq.setPriority(3);
@@ -151,14 +151,14 @@ public class b implements QRCodeView.a {
     }
 
     @Override // com.baidu.tieba.qrcode.lib.core.QRCodeView.a
-    public void cMq() {
+    public void cMr() {
         l.showToast(this.mTbPageContext.getPageActivity(), (int) R.string.disallow_camera_permission);
         this.mTbPageContext.getPageActivity().finish();
     }
 
     public void Ji(String str) {
         if (!StringUtils.isNull(str)) {
-            this.kou.cMn();
+            this.kou.cMo();
             if (this.kov != null) {
                 this.kov.cancel();
             }
@@ -167,7 +167,7 @@ public class b implements QRCodeView.a {
         }
     }
 
-    public void cMr() {
+    public void cMs() {
         if (this.mTbPageContext != null && this.mTbPageContext.getPageActivity() != null) {
             if (Build.VERSION.SDK_INT < 23 || (this.mTbPageContext.getPageActivity().checkSelfPermission("android.permission.WRITE_EXTERNAL_STORAGE") == 0 && this.mTbPageContext.getPageActivity().checkSelfPermission("android.permission.READ_EXTERNAL_STORAGE") == 0)) {
                 String b = b(this.mTbPageContext.getPageActivity().getContentResolver());
@@ -318,7 +318,7 @@ public class b implements QRCodeView.a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPreExecute() {
             super.onPreExecute();
-            b.this.kou.cMn();
+            b.this.kou.cMo();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -336,7 +336,7 @@ public class b implements QRCodeView.a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
             super.onPostExecute((c) str);
-            b.this.kou.cMo();
+            b.this.kou.cMp();
             b.this.Jd(str);
         }
     }

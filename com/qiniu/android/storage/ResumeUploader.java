@@ -61,7 +61,7 @@ final class ResumeUploader implements Runnable {
                 upCompletionHandler.a(str3, responseInfo, jSONObject);
             }
         };
-        this.mMK = uploadOptions == null ? UploadOptions.dAE() : uploadOptions;
+        this.mMK = uploadOptions == null ? UploadOptions.dAF() : uploadOptions;
         this.mMM = new byte[configuration.chunkSize];
         this.mMN = new String[(int) (((this.mLV + ImageUploadStrategy.FILE_SIZE_4M) - 1) / ImageUploadStrategy.FILE_SIZE_4M)];
         this.mMP = file.lastModified();
@@ -70,7 +70,7 @@ final class ResumeUploader implements Runnable {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static boolean b(ResponseInfo responseInfo, JSONObject jSONObject) {
-        return responseInfo.statusCode == 200 && responseInfo.error == null && (responseInfo.dAu() || dY(jSONObject));
+        return responseInfo.statusCode == 200 && responseInfo.error == null && (responseInfo.dAv() || dY(jSONObject));
     }
 
     private static boolean dY(JSONObject jSONObject) {
@@ -85,15 +85,15 @@ final class ResumeUploader implements Runnable {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static boolean c(ResponseInfo responseInfo, JSONObject jSONObject) {
-        return responseInfo.statusCode < 500 && responseInfo.statusCode >= 200 && !responseInfo.dAu() && !dY(jSONObject);
+        return responseInfo.statusCode < 500 && responseInfo.statusCode >= 200 && !responseInfo.dAv() && !dY(jSONObject);
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        long dAA = dAA();
+        long dAB = dAB();
         try {
             this.file = new RandomAccessFile(this.f, "r");
-            a(dAA, 0, this.mML.mMv.d(this.mMS.token, this.mML.useHttps, null));
+            a(dAB, 0, this.mML.mMv.d(this.mMS.token, this.mML.useHttps, null));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
             this.mMJ.a(this.key, ResponseInfo.a(e, this.mMS), null);
@@ -174,18 +174,18 @@ final class ResumeUploader implements Runnable {
                 @Override // com.qiniu.android.http.CompletionHandler
                 public void a(ResponseInfo responseInfo, JSONObject jSONObject) {
                     String d;
-                    if (responseInfo.dAp() && !AndroidNetwork.dAF()) {
-                        ResumeUploader.this.mMK.mNk.dAz();
-                        if (!AndroidNetwork.dAF()) {
+                    if (responseInfo.dAq() && !AndroidNetwork.dAG()) {
+                        ResumeUploader.this.mMK.mNk.dAA();
+                        if (!AndroidNetwork.dAG()) {
                             ResumeUploader.this.mMJ.a(ResumeUploader.this.key, responseInfo, jSONObject);
                             return;
                         }
                     }
-                    if (responseInfo.dAo()) {
-                        ResumeUploader.this.dAB();
+                    if (responseInfo.dAp()) {
+                        ResumeUploader.this.dAC();
                         ResumeUploader.this.mMK.mNi.b(ResumeUploader.this.key, 1.0d);
                         ResumeUploader.this.mMJ.a(ResumeUploader.this.key, responseInfo, jSONObject);
-                    } else if (!responseInfo.dAs() || i >= ResumeUploader.this.mML.mMs + 1 || (d = ResumeUploader.this.mML.mMv.d(ResumeUploader.this.mMS.token, ResumeUploader.this.mML.useHttps, str)) == null) {
+                    } else if (!responseInfo.dAt() || i >= ResumeUploader.this.mML.mMs + 1 || (d = ResumeUploader.this.mML.mMv.d(ResumeUploader.this.mMS.token, ResumeUploader.this.mML.useHttps, str)) == null) {
                         ResumeUploader.this.mMJ.a(ResumeUploader.this.key, responseInfo, jSONObject);
                     } else {
                         ResumeUploader.this.a(j, i + 1, d);
@@ -206,9 +206,9 @@ final class ResumeUploader implements Runnable {
                 public void a(ResponseInfo responseInfo, JSONObject jSONObject) {
                     String str2;
                     long j2;
-                    if (responseInfo.dAp() && !AndroidNetwork.dAF()) {
-                        ResumeUploader.this.mMK.mNk.dAz();
-                        if (!AndroidNetwork.dAF()) {
+                    if (responseInfo.dAq() && !AndroidNetwork.dAG()) {
+                        ResumeUploader.this.mMK.mNk.dAA();
+                        if (!AndroidNetwork.dAG()) {
                             ResumeUploader.this.mMJ.a(ResumeUploader.this.key, responseInfo, jSONObject);
                             return;
                         }
@@ -219,7 +219,7 @@ final class ResumeUploader implements Runnable {
                         String d = ResumeUploader.this.mML.mMv.d(ResumeUploader.this.mMS.token, ResumeUploader.this.mML.useHttps, str);
                         if (responseInfo.statusCode == 701 && i < ResumeUploader.this.mML.mMs) {
                             ResumeUploader.this.a((j / ImageUploadStrategy.FILE_SIZE_4M) * ImageUploadStrategy.FILE_SIZE_4M, i + 1, str);
-                        } else if (d == null || ((!ResumeUploader.c(responseInfo, jSONObject) && !responseInfo.dAs()) || i >= ResumeUploader.this.mML.mMs)) {
+                        } else if (d == null || ((!ResumeUploader.c(responseInfo, jSONObject) && !responseInfo.dAt()) || i >= ResumeUploader.this.mML.mMs)) {
                             ResumeUploader.this.mMJ.a(ResumeUploader.this.key, responseInfo, jSONObject);
                         } else {
                             ResumeUploader.this.a(j, i + 1, d);
@@ -257,7 +257,7 @@ final class ResumeUploader implements Runnable {
         }
     }
 
-    private long dAA() {
+    private long dAB() {
         byte[] bArr;
         if (this.mML.mMo == null || (bArr = this.mML.mMo.get(this.mMQ)) == null) {
             return 0L;
@@ -282,7 +282,7 @@ final class ResumeUploader implements Runnable {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dAB() {
+    public void dAC() {
         if (this.mML.mMo != null) {
             this.mML.mMo.Pe(this.mMQ);
         }

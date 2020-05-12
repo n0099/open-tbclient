@@ -26,14 +26,14 @@ public class HotForumModel extends BdBaseModel {
         super(eVar);
         this.dvg = eVar;
         this.iQL = aVar;
-        coP();
+        coQ();
     }
 
-    public void coO() {
+    public void coP() {
         sendMessage(new HotForumNetMessage());
     }
 
-    private void coP() {
+    private void coQ() {
         registerListener(new com.baidu.adp.framework.listener.a(1001534, CmdConfigSocket.CMD_GET_HOTFORUM) { // from class: com.baidu.tieba.mainentrance.HotForumModel.1
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {

@@ -60,7 +60,7 @@ public class c extends LinkMovementMethod {
         return super.onTouchEvent(textView, spannable, motionEvent);
     }
 
-    public static c deA() {
+    public static c deB() {
         if (ltY == null) {
             ltY = new c();
         }

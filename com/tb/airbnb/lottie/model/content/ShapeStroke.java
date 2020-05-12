@@ -76,15 +76,15 @@ public class ShapeStroke implements b {
         return this.name;
     }
 
-    public com.tb.airbnb.lottie.model.a.a dBU() {
+    public com.tb.airbnb.lottie.model.a.a dBV() {
         return this.mPr;
     }
 
-    public com.tb.airbnb.lottie.model.a.d dBu() {
+    public com.tb.airbnb.lottie.model.a.d dBv() {
         return this.mPz;
     }
 
-    public com.tb.airbnb.lottie.model.a.b dBD() {
+    public com.tb.airbnb.lottie.model.a.b dBE() {
         return this.mPJ;
     }
 
@@ -93,15 +93,15 @@ public class ShapeStroke implements b {
         return this.DS;
     }
 
-    public com.tb.airbnb.lottie.model.a.b dBG() {
+    public com.tb.airbnb.lottie.model.a.b dBH() {
         return this.mPX;
     }
 
-    public LineCapType dBE() {
+    public LineCapType dBF() {
         return this.mPK;
     }
 
-    public LineJoinType dBF() {
+    public LineJoinType dBG() {
         return this.mPL;
     }
 

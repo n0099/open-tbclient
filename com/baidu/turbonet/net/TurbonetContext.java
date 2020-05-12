@@ -18,30 +18,30 @@ public final class TurbonetContext {
         a(turbonetConfig);
     }
 
-    public TurbonetEngine djD() {
+    public TurbonetEngine djE() {
         return this.lLe;
     }
 
-    public long djE() {
-        return this.lLe.diN();
+    public long djF() {
+        return this.lLe.diO();
     }
 
     private void a(TurbonetConfig turbonetConfig) {
         TurbonetEngine.Builder builder = new TurbonetEngine.Builder(this.mContext);
         if (turbonetConfig == null) {
-            this.lLe = builder.Ng(this.mAppName).Nf(this.lLE).djN();
+            this.lLe = builder.Ng(this.mAppName).Nf(this.lLE).djO();
         } else {
-            if (turbonetConfig.djC()) {
-                builder.Ne(turbonetConfig.djB());
+            if (turbonetConfig.djD()) {
+                builder.Ne(turbonetConfig.djC());
             }
             try {
-                if (turbonetConfig.djA().has("nq") && turbonetConfig.djA().getJSONObject("nq").getBoolean("network_quality_enabled")) {
+                if (turbonetConfig.djB().has("nq") && turbonetConfig.djB().getJSONObject("nq").getBoolean("network_quality_enabled")) {
                     builder.D(true, "");
                 }
             } catch (JSONException e) {
                 Log.e("cr_TurbonetContext", "JSON expcetion: " + e);
             }
-            this.lLe = builder.Ng(this.mAppName).Nf(this.lLE).Nh(turbonetConfig.djA().toString()).djN();
+            this.lLe = builder.Ng(this.mAppName).Nf(this.lLE).Nh(turbonetConfig.djB().toString()).djO();
         }
         Log.v("cr_TurbonetContext", "Turbonet init context success.");
     }

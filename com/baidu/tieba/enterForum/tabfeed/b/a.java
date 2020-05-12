@@ -44,23 +44,23 @@ public class a {
         }
     }
 
-    public ArrayList<m> bJw() {
+    public ArrayList<m> bJx() {
         return this.gHa;
     }
 
-    public ArrayList<d> bJx() {
+    public ArrayList<d> bJy() {
         return this.gHb;
     }
 
-    public l bJy() {
+    public l bJz() {
         return this.gHc;
     }
 
-    public c bJz() {
+    public c bJA() {
         return this.gHd;
     }
 
-    public boolean bJA() {
+    public boolean bJB() {
         return this.gHe;
     }
 }

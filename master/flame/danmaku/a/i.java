@@ -11,7 +11,7 @@ public class i extends Thread {
         this.naU = true;
     }
 
-    public boolean dEY() {
+    public boolean dEZ() {
         return this.naU;
     }
 

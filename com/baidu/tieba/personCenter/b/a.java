@@ -50,11 +50,11 @@ public class a {
         }
     }
 
-    public void cGe() {
-        this.jSV.cGe();
+    public void cGf() {
+        this.jSV.cGf();
     }
 
-    public void cGf() {
+    public void cGg() {
         this.jSV.destroy();
     }
 }

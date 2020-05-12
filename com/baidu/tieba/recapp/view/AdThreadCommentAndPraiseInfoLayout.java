@@ -84,7 +84,7 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
         setSelectVisible(false);
         setShowFlag(9);
         this.dIa = false;
-        cOv();
+        cOw();
     }
 
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
@@ -152,7 +152,7 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
         this.dHI.setClickable(false);
     }
 
-    private void cOv() {
+    private void cOw() {
         if (this.dHF != null) {
             View.OnClickListener onClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.recapp.view.AdThreadCommentAndPraiseInfoLayout.1
                 @Override // android.view.View.OnClickListener
@@ -280,7 +280,7 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
     private void a(AdvertAppInfo advertAppInfo, String str, int i) {
         c c = g.c(advertAppInfo, 8, i);
         c.JR(str);
-        d.cOi().a(c);
+        d.cOj().a(c);
     }
 
     private void a(AdvertAppInfo advertAppInfo, final String str, final String str2) {

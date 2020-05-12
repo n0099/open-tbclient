@@ -30,7 +30,7 @@ public final class b {
         private static final b lAx = new b();
     }
 
-    public static final b dfS() {
+    public static final b dfT() {
         return C0697b.lAx;
     }
 

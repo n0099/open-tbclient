@@ -20,7 +20,7 @@ public class ExpandViewRelativeLayout extends RelativeLayout {
 
         boolean d(float f, float f2, int i);
 
-        void daO();
+        void daP();
     }
 
     public void setScrollCallBack(a aVar) {
@@ -94,7 +94,7 @@ public class ExpandViewRelativeLayout extends RelativeLayout {
             case 1:
                 this.lir = false;
                 if (this.liq != null) {
-                    this.liq.daO();
+                    this.liq.daP();
                     break;
                 }
                 break;

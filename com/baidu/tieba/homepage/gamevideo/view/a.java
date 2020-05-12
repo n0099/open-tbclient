@@ -14,7 +14,7 @@ public class a extends PopupWindow {
     /* renamed from: com.baidu.tieba.homepage.gamevideo.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
     public interface InterfaceC0576a {
-        void bYR();
+        void bYS();
     }
 
     public a(TbPageContext tbPageContext, View view, int i, int i2) {
@@ -45,7 +45,7 @@ public class a extends PopupWindow {
     @Override // android.widget.PopupWindow
     public void dismiss() {
         if (this.hMj != null) {
-            this.hMj.bYR();
+            this.hMj.bYS();
         } else {
             super.dismiss();
         }

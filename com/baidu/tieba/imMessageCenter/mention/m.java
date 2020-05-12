@@ -117,7 +117,7 @@ public class m extends com.baidu.adp.base.c {
                     m.this.iBc.showEmptyView(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
                     m.this.iBc.setOnClickListener(null);
                     m.this.iBc.startLoadData();
-                    m.this.iAX.bDx();
+                    m.this.iAX.bDy();
                 }
             }
         };
@@ -126,7 +126,7 @@ public class m extends com.baidu.adp.base.c {
             public void onListPullRefresh(boolean z) {
                 if (com.baidu.adp.lib.util.j.isNetWorkAvailable()) {
                     if (m.this.iAX != null) {
-                        m.this.iAX.bRl();
+                        m.this.iAX.bRm();
                     }
                 } else if (m.this.eRB != null) {
                     m.this.eRB.setRefreshing(false);
@@ -282,8 +282,8 @@ public class m extends com.baidu.adp.base.c {
                     }
                     if (view.getId() == R.id.message_bottom_reply_container) {
                         m.this.iBr = aVar;
-                        if (aVar.ckJ()) {
-                            j = com.baidu.adp.lib.f.b.toLong(aVar.ckK(), 0L);
+                        if (aVar.ckK()) {
+                            j = com.baidu.adp.lib.f.b.toLong(aVar.ckL(), 0L);
                         } else {
                             j = com.baidu.adp.lib.f.b.toLong(aVar.getPost_id(), 0L);
                         }
@@ -298,8 +298,8 @@ public class m extends com.baidu.adp.base.c {
                             baijiahaoData = m.this.iBr.getBaijiahaoData();
                         }
                         m.this.iBp.a(j, 2, aVar.getFname(), aVar.getThread_id(), baijiahaoData);
-                        if (aVar.ckL() != null) {
-                            an af = new an(aVar.ckL()).af("obj_locate", 3);
+                        if (aVar.ckM() != null) {
+                            an af = new an(aVar.ckM()).af("obj_locate", 3);
                             if (aVar.getType() == com.baidu.tieba.imMessageCenter.mention.base.a.iBW) {
                                 af.af("obj_type", 1);
                             } else {
@@ -330,21 +330,21 @@ public class m extends com.baidu.adp.base.c {
                     m.this.iBc.showEmptyView(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
                     m.this.iBc.setOnClickListener(null);
                     m.this.iBc.showLoading();
-                    m.this.iAX.bDx();
+                    m.this.iAX.bDy();
                 }
             }
         });
         this.Vi.setOnScrollListener(this.mScrollListener);
         this.Vi.addOnScrollListener(this.iBo);
-        ckF();
+        ckG();
         this.iBp = new ReplyMeModel(this.iAX.getPageContext());
         this.iBp.a(this.iBx);
-        ckH();
+        ckI();
         pt(false);
         return this.mRootView;
     }
 
-    private void ckF() {
+    private void ckG() {
         this.iBe = new com.baidu.tieba.imMessageCenter.mention.base.f(this.iAX.getPageContext());
         this.iBf = new com.baidu.tieba.imMessageCenter.mention.base.f(this.iAX.getPageContext());
         this.iBe.bk(this.iAX.getString(R.string.at_me), R.drawable.icon_im_at);
@@ -372,10 +372,10 @@ public class m extends com.baidu.adp.base.c {
             am.setBackgroundColor(this.mNoDataView, R.color.cp_bg_line_d);
         }
         if (this.iBe != null) {
-            this.iBe.ckM();
+            this.iBe.ckN();
         }
         if (this.iBf != null) {
-            this.iBf.ckM();
+            this.iBf.ckN();
         }
         notifyDataSetChanged();
         am.setBackgroundColor(this.Vi, this.iBl);
@@ -408,7 +408,7 @@ public class m extends com.baidu.adp.base.c {
         }
     }
 
-    public void ckG() {
+    public void ckH() {
         xL(this.iBj);
         xM(this.iBk);
     }
@@ -435,7 +435,7 @@ public class m extends com.baidu.adp.base.c {
         }
     }
 
-    private void ckH() {
+    private void ckI() {
         this.iBv = new DataModel<MessageCenterActivity>(com.baidu.adp.base.i.G(this.iAX.getPageContext().getContext())) { // from class: com.baidu.tieba.imMessageCenter.mention.m.14
             @Override // com.baidu.adp.base.BdBaseModel
             public boolean cancelLoadData() {
@@ -460,7 +460,7 @@ public class m extends com.baidu.adp.base.c {
                 writeData.setThreadId(m.this.iBr.getThread_id());
                 writeData.setIsAd(false);
                 writeData.setFloorNum(0);
-                if (m.this.iBr.ckJ()) {
+                if (m.this.iBr.ckK()) {
                     writeData.setFloor(m.this.iBt > 0 ? String.valueOf(m.this.iBt) : m.this.iBr.getOriginalThreadInfo().postId);
                 } else {
                     writeData.setFloor(m.this.iBr.getPost_id());
@@ -570,7 +570,7 @@ public class m extends com.baidu.adp.base.c {
                 pt(true);
             }
             if (this.iBq != null && this.iBr != null) {
-                if (this.iBr.ckJ() && this.iBr.getReplyer() != null) {
+                if (this.iBr.ckK() && this.iBr.getReplyer() != null) {
                     this.iBq.wJ(this.iBr.getReplyer().getName_show());
                     return;
                 } else {
@@ -598,7 +598,7 @@ public class m extends com.baidu.adp.base.c {
                             m.this.pt(false);
                         }
                         if (m.this.iBq != null && m.this.iBr != null) {
-                            if (!m.this.iBr.ckJ() || m.this.iBr.getReplyer() == null) {
+                            if (!m.this.iBr.ckK() || m.this.iBr.getReplyer() == null) {
                                 m.this.iBq.wJ(null);
                             } else {
                                 m.this.iBq.wJ(m.this.iBr.getReplyer().getName_show());

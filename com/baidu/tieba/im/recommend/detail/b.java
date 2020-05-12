@@ -137,13 +137,13 @@ public class b {
         this.mNoDataView.setVisibility(0);
     }
 
-    public void ciH() {
+    public void ciI() {
         if (this.iup != null) {
             this.iup.setVisibility(0);
         }
     }
 
-    public void ciI() {
+    public void ciJ() {
         if (this.iup != null) {
             this.iup.setVisibility(8);
         }

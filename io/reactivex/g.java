@@ -18,7 +18,7 @@ public abstract class g<T> implements org.a.b<T> {
 
     protected abstract void a(org.a.c<? super T> cVar);
 
-    public static int dCx() {
+    public static int dCy() {
         return BUFFER_SIZE;
     }
 
@@ -28,12 +28,12 @@ public abstract class g<T> implements org.a.b<T> {
         return io.reactivex.e.a.a(new FlowableCreate(iVar, backpressureStrategy));
     }
 
-    public static <T> g<T> dCy() {
+    public static <T> g<T> dCz() {
         return io.reactivex.e.a.a(io.reactivex.internal.operators.flowable.e.mSj);
     }
 
     public static g<Long> a(long j, long j2, TimeUnit timeUnit) {
-        return a(j, j2, timeUnit, io.reactivex.f.a.dDh());
+        return a(j, j2, timeUnit, io.reactivex.f.a.dDi());
     }
 
     public static g<Long> a(long j, long j2, TimeUnit timeUnit, v vVar) {
@@ -43,7 +43,7 @@ public abstract class g<T> implements org.a.b<T> {
     }
 
     public static g<Long> a(long j, long j2, long j3, long j4, TimeUnit timeUnit) {
-        return a(j, j2, j3, j4, timeUnit, io.reactivex.f.a.dDh());
+        return a(j, j2, j3, j4, timeUnit, io.reactivex.f.a.dDi());
     }
 
     public static g<Long> a(long j, long j2, long j3, long j4, TimeUnit timeUnit, v vVar) {
@@ -51,7 +51,7 @@ public abstract class g<T> implements org.a.b<T> {
             throw new IllegalArgumentException("count >= 0 required but it was " + j2);
         }
         if (j2 == 0) {
-            return dCy().a(j3, timeUnit, vVar);
+            return dCz().a(j3, timeUnit, vVar);
         }
         long j5 = j + (j2 - 1);
         if (j > 0 && j5 < 0) {
@@ -73,11 +73,11 @@ public abstract class g<T> implements org.a.b<T> {
     }
 
     public final g<T> a(io.reactivex.c.a aVar) {
-        return a(Functions.dCH(), Functions.mRw, aVar);
+        return a(Functions.dCI(), Functions.mRw, aVar);
     }
 
     public final g<T> b(io.reactivex.c.a aVar) {
-        return a(Functions.dCH(), Functions.dCH(), aVar, Functions.mRs);
+        return a(Functions.dCI(), Functions.dCI(), aVar, Functions.mRs);
     }
 
     private g<T> a(io.reactivex.c.g<? super T> gVar, io.reactivex.c.g<? super Throwable> gVar2, io.reactivex.c.a aVar, io.reactivex.c.a aVar2) {
@@ -105,7 +105,7 @@ public abstract class g<T> implements org.a.b<T> {
     }
 
     public final g<T> a(v vVar) {
-        return a(vVar, false, dCx());
+        return a(vVar, false, dCy());
     }
 
     public final g<T> a(v vVar, boolean z, int i) {

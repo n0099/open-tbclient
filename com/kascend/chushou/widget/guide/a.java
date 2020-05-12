@@ -48,7 +48,7 @@ public class a extends b {
                 if (!a.this.isFinishing()) {
                     a.this.d = false;
                     String str2 = (String) webView.getTag();
-                    if (tv.chushou.zues.utils.a.dJO()) {
+                    if (tv.chushou.zues.utils.a.dJP()) {
                         if (str2 != null && str2.equals(BdStatsConstant.StatsType.ERROR)) {
                             a.this.showStatus(4);
                             return;
@@ -120,7 +120,7 @@ public class a extends b {
 
     private void b() {
         e.d("GuideFragment", "H5=" + this.a);
-        if (tv.chushou.zues.utils.a.dJO()) {
+        if (tv.chushou.zues.utils.a.dJP()) {
             if (this.a != null && this.a.length() > 0) {
                 this.mIK.loadUrl(this.a);
                 return;
@@ -157,7 +157,7 @@ public class a extends b {
     }
 
     public void a() {
-        if (tv.chushou.zues.utils.a.dJO()) {
+        if (tv.chushou.zues.utils.a.dJP()) {
             this.d = true;
             if (this.a != null && this.a.length() > 0) {
                 this.mIK.loadUrl(this.a);

@@ -112,12 +112,12 @@ public class b extends d implements View.OnClickListener {
                 }
             }
         });
-        final com.kascend.chushou.widget.cswebview.d dyW = this.mED != null ? this.mED.dyW() : null;
+        final com.kascend.chushou.widget.cswebview.d dyX = this.mED != null ? this.mED.dyX() : null;
         this.mEE = new com.kascend.chushou.widget.cswebview.d() { // from class: com.kascend.chushou.view.h5.b.2
             @Override // com.kascend.chushou.widget.cswebview.d
             public void a(Object obj) {
-                if (dyW != null) {
-                    dyW.a((Object) null);
+                if (dyX != null) {
+                    dyX.a((Object) null);
                 } else if (b.this.getActivity() != null) {
                     b.this.getActivity().finish();
                 }
@@ -152,7 +152,7 @@ public class b extends d implements View.OnClickListener {
                     b.this.s = false;
                     b.this.mEC.setEnabled(b.this.f);
                     String str2 = (String) webView.getTag();
-                    if (tv.chushou.zues.utils.a.dJO()) {
+                    if (tv.chushou.zues.utils.a.dJP()) {
                         if (str2 != null && str2.equals(BdStatsConstant.StatsType.ERROR)) {
                             b.this.showStatus(4);
                         } else {
@@ -189,7 +189,7 @@ public class b extends d implements View.OnClickListener {
             @Override // android.support.v4.widget.SwipeRefreshLayout.OnRefreshListener
             public void onRefresh() {
                 b.this.mEC.setRefreshing(false);
-                if (tv.chushou.zues.utils.a.dJO()) {
+                if (tv.chushou.zues.utils.a.dJP()) {
                     b.this.s = true;
                     if (b.this.c == null || b.this.c.length() <= 0) {
                         b.this.mEB.loadUrl("");
@@ -258,7 +258,7 @@ public class b extends d implements View.OnClickListener {
             e.d(this.TAG, "onActivityResult");
             if (this.c != null) {
                 if (this.c.contains("m/bigfans/pay.htm")) {
-                    String str = tv.chushou.common.a.dJu() + "m/bigfans/pay.htm";
+                    String str = tv.chushou.common.a.dJv() + "m/bigfans/pay.htm";
                     if (LoginManager.Instance().islogined()) {
                         str = str + "?token=" + LoginManager.Instance().getUserInfo().mToken + "&state=1";
                     }
@@ -266,7 +266,7 @@ public class b extends d implements View.OnClickListener {
                     this.mEB.loadUrl(str);
                 } else if (this.c.contains("m/noble/info.htm")) {
                     if (intent != null) {
-                        String str2 = tv.chushou.common.a.dJu() + "m/noble/info.htm";
+                        String str2 = tv.chushou.common.a.dJv() + "m/noble/info.htm";
                         String stringExtra = intent.getStringExtra("payLevel");
                         String stringExtra2 = intent.getStringExtra("payCount");
                         String stringExtra3 = intent.getStringExtra("roomId");
@@ -360,7 +360,7 @@ public class b extends d implements View.OnClickListener {
     public void a(com.kascend.chushou.widget.cswebview.a aVar) {
         this.mED = aVar;
         if (aVar != null) {
-            this.mEg = aVar.dyX();
+            this.mEg = aVar.dyY();
         }
     }
 
@@ -379,7 +379,7 @@ public class b extends d implements View.OnClickListener {
     }
 
     private void a() {
-        String str = tv.chushou.common.a.dJu() + "m/pay.htm";
+        String str = tv.chushou.common.a.dJv() + "m/pay.htm";
         if (LoginManager.Instance().islogined()) {
             str = str + "?token=" + LoginManager.Instance().getUserInfo().mToken + "&state=1";
         }
@@ -392,7 +392,7 @@ public class b extends d implements View.OnClickListener {
         if (this.mEB != null) {
             this.mEB.setTag(null);
             this.mEC.setRefreshing(false);
-            if (tv.chushou.zues.utils.a.dJO()) {
+            if (tv.chushou.zues.utils.a.dJP()) {
                 if (this.c != null && this.c.length() > 0) {
                     this.mEB.loadUrl(this.c);
                     return;

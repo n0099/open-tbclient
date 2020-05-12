@@ -33,9 +33,9 @@ public class a extends BaseAdapter {
         public void ah(int i, String str) {
             String makeStatisticsParam = SingleSquareActivityConfig.makeStatisticsParam("carousel_recommend", String.valueOf(i));
             i iVar = (i) v.getItem(a.this.datas, i);
-            String cVf = iVar != null ? iVar.cVf() : null;
-            if (ba.aOV().b(a.this.duK, new String[]{str, null, makeStatisticsParam}) && i == 2 && !TextUtils.isEmpty(cVf)) {
-                TiebaStatic.eventStat(a.this.duK.getPageActivity(), "tbanner", null, 1, "line", "PT", "page", "OT", "locate", "c0116", LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, "CLICK", "task", "tbanner", "obj_id", String.valueOf(cVf), "obj_name", String.valueOf(cVf), "obj_cpid", 0, TiebaInitialize.Params.OBJ_URL, str, "obj_good_id", 0, "obj_throw_type", "BY_POST", "client_type", "MOBILE_APP", "user_timestamp", String.valueOf(System.currentTimeMillis()), "os", "android", "os_version", Build.VERSION.RELEASE, "log_ver", "1.1");
+            String cVg = iVar != null ? iVar.cVg() : null;
+            if (ba.aOV().b(a.this.duK, new String[]{str, null, makeStatisticsParam}) && i == 2 && !TextUtils.isEmpty(cVg)) {
+                TiebaStatic.eventStat(a.this.duK.getPageActivity(), "tbanner", null, 1, "line", "PT", "page", "OT", "locate", "c0116", LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, "CLICK", "task", "tbanner", "obj_id", String.valueOf(cVg), "obj_name", String.valueOf(cVg), "obj_cpid", 0, TiebaInitialize.Params.OBJ_URL, str, "obj_good_id", 0, "obj_throw_type", "BY_POST", "client_type", "MOBILE_APP", "user_timestamp", String.valueOf(System.currentTimeMillis()), "os", "android", "os_version", Build.VERSION.RELEASE, "log_ver", "1.1");
             }
             TiebaStatic.eventStat(a.this.duK.getPageActivity(), "square_banner_picture", "click", 1, "loc", (i - 1) + "");
         }
@@ -44,9 +44,9 @@ public class a extends BaseAdapter {
         @Override // com.baidu.tbadk.core.flow.a.d
         public void a(int i, i iVar) {
             if (iVar != null) {
-                String cVf = iVar.cVf();
-                if (i == 2 && !TextUtils.isEmpty(cVf) && a.this.kPg.add(cVf)) {
-                    TiebaStatic.eventStat(TbadkCoreApplication.getInst().getBaseContext(), "ad_tpoint", null, 1, "line", "PT", "page", "OT", "locate", "c0116", LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, "VIEW_TRUE", "task", "tbanner", "obj_id", String.valueOf(cVf), "obj_name", String.valueOf(cVf), "obj_cpid", 0, "obj_good_id", 0, "obj_throw_type", "BY_POST", "client_type", "MOBILE_APP", "user_timestamp", String.valueOf(System.currentTimeMillis()), "os", "android", "os_version", Build.VERSION.RELEASE);
+                String cVg = iVar.cVg();
+                if (i == 2 && !TextUtils.isEmpty(cVg) && a.this.kPg.add(cVg)) {
+                    TiebaStatic.eventStat(TbadkCoreApplication.getInst().getBaseContext(), "ad_tpoint", null, 1, "line", "PT", "page", "OT", "locate", "c0116", LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, "VIEW_TRUE", "task", "tbanner", "obj_id", String.valueOf(cVg), "obj_name", String.valueOf(cVg), "obj_cpid", 0, "obj_good_id", 0, "obj_throw_type", "BY_POST", "client_type", "MOBILE_APP", "user_timestamp", String.valueOf(System.currentTimeMillis()), "os", "android", "os_version", Build.VERSION.RELEASE);
                 }
             }
         }
@@ -118,7 +118,7 @@ public class a extends BaseAdapter {
         }
     }
 
-    public CoverFlowView<i> cVm() {
+    public CoverFlowView<i> cVn() {
         return this.kPh;
     }
 }

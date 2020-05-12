@@ -18,7 +18,7 @@ public final class a {
         }
     };
 
-    public static <T> rx.e<T> dIq() {
+    public static <T> rx.e<T> dIr() {
         return (rx.e<T>) noG;
     }
 }

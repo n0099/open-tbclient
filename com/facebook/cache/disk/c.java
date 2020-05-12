@@ -20,7 +20,7 @@ public interface c {
 
         com.facebook.a.a aH(Object obj) throws IOException;
 
-        boolean dmq();
+        boolean dmr();
     }
 
     com.facebook.a.a A(String str, Object obj) throws IOException;
@@ -31,9 +31,9 @@ public interface c {
 
     long a(a aVar) throws IOException;
 
-    void dmm();
+    void dmn();
 
-    Collection<a> dmn() throws IOException;
+    Collection<a> dmo() throws IOException;
 
     boolean isExternal();
 

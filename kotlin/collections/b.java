@@ -8,7 +8,7 @@ public abstract class b<T> implements Iterator<T> {
     private State mXd = State.NotReady;
     private T mXe;
 
-    protected abstract void dDv();
+    protected abstract void dDw();
 
     @Override // java.util.Iterator
     public void remove() {
@@ -24,7 +24,7 @@ public abstract class b<T> implements Iterator<T> {
                 case Ready:
                     return true;
                 default:
-                    return dDu();
+                    return dDv();
             }
         }
         throw new IllegalArgumentException("Failed requirement.".toString());
@@ -39,9 +39,9 @@ public abstract class b<T> implements Iterator<T> {
         throw new NoSuchElementException();
     }
 
-    private final boolean dDu() {
+    private final boolean dDv() {
         this.mXd = State.Failed;
-        dDv();
+        dDw();
         return this.mXd == State.Ready;
     }
 

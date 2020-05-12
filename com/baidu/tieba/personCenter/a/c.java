@@ -30,7 +30,7 @@ public class c extends com.baidu.adp.widget.ListView.a<g, com.baidu.tieba.card.a
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, g gVar, com.baidu.tieba.card.a.a<com.baidu.tieba.personCenter.view.f> aVar) {
-        aVar.bFz().a(gVar);
+        aVar.bFA().a(gVar);
         return aVar.getView();
     }
 

@@ -47,44 +47,44 @@ public class c extends LinearLayout implements View.OnClickListener {
 
     public void a(com.kascend.chushou.player.ui.h5.d.a aVar) {
         this.g = 2;
-        com.kascend.chushou.player.ui.h5.c.c dyx = aVar.dyx();
-        if (dyx == null) {
+        com.kascend.chushou.player.ui.h5.c.c dyy = aVar.dyy();
+        if (dyy == null) {
             setVisibility(8);
         } else if (!this.f) {
-            this.mzU.i(dyx.a, a.e.open_vote, b.C0861b.nuc, b.C0861b.nuc);
-            this.mzP.i(dyx.b, a.e.open_vote_text_bg, b.C0861b.small, b.C0861b.small);
+            this.mzU.i(dyy.a, a.e.open_vote, b.C0861b.nuc, b.C0861b.nuc);
+            this.mzP.i(dyy.b, a.e.open_vote_text_bg, b.C0861b.small, b.C0861b.small);
             int color = ContextCompat.getColor(this.a, a.c.kas_white);
-            if (!h.isEmpty(dyx.c)) {
+            if (!h.isEmpty(dyy.c)) {
                 try {
-                    color = Color.parseColor(dyx.c);
+                    color = Color.parseColor(dyy.c);
                 } catch (Exception e) {
                     color = ContextCompat.getColor(this.a, a.c.kas_white);
                 }
             }
             this.d.setTextColor(color);
-            this.d.setText(b.f(this.a, dyx.e));
+            this.d.setText(b.f(this.a, dyy.e));
             this.f = true;
         }
     }
 
     public void a(b bVar) {
         this.g = 1;
-        com.kascend.chushou.player.ui.h5.c.c dyx = bVar.dyx();
-        if (dyx == null) {
+        com.kascend.chushou.player.ui.h5.c.c dyy = bVar.dyy();
+        if (dyy == null) {
             setVisibility(8);
         } else if (!this.f) {
-            this.mzU.i(dyx.a, a.e.open_luckydraw, b.C0861b.nuc, b.C0861b.nuc);
-            this.mzP.i(dyx.b, a.e.open_luckydraw_text_bg, b.C0861b.small, b.C0861b.small);
+            this.mzU.i(dyy.a, a.e.open_luckydraw, b.C0861b.nuc, b.C0861b.nuc);
+            this.mzP.i(dyy.b, a.e.open_luckydraw_text_bg, b.C0861b.small, b.C0861b.small);
             int color = ContextCompat.getColor(this.a, a.c.kas_white);
-            if (!h.isEmpty(dyx.c)) {
+            if (!h.isEmpty(dyy.c)) {
                 try {
-                    color = Color.parseColor(dyx.c);
+                    color = Color.parseColor(dyy.c);
                 } catch (Exception e) {
                     color = ContextCompat.getColor(this.a, a.c.kas_white);
                 }
             }
             this.d.setTextColor(color);
-            this.d.setText(b.f(this.a, dyx.e));
+            this.d.setText(b.f(this.a, dyy.e));
             if (bVar.e() > 1) {
                 this.e.setVisibility(0);
                 this.e.setText(String.valueOf(bVar.e()));

@@ -56,34 +56,34 @@ public class c {
     private View.OnClickListener mClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.personPolymeric.header.c.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (view == c.this.kbN.cIj()) {
+            if (view == c.this.kbN.cIk()) {
+                c.this.cIw();
+            } else if (view == c.this.kbN.cIl()) {
                 c.this.cIv();
-            } else if (view == c.this.kbN.cIk()) {
-                c.this.cIu();
-            } else if (view != c.this.kbN.cIl()) {
+            } else if (view != c.this.kbN.cIm()) {
                 if (view == c.this.kbN.getUserName()) {
                     if (c.this.mIsHost) {
                         TiebaStatic.log(new an("c12502").cI("obj_locate", "7"));
-                        c.this.cID();
+                        c.this.cIE();
                     }
-                } else if (view != c.this.kbN.cIm() && view != c.this.kbN.cIt()) {
-                    if (view == c.this.kbN.cIn()) {
-                        c.this.cIz();
-                    } else if (view == c.this.kbN.cIp()) {
+                } else if (view != c.this.kbN.cIn() && view != c.this.kbN.cIu()) {
+                    if (view == c.this.kbN.cIo()) {
                         c.this.cIA();
-                    } else if (view == c.this.kbN.cIo()) {
-                        c.this.cIB();
                     } else if (view == c.this.kbN.cIq()) {
-                        c.this.cIy();
+                        c.this.cIB();
+                    } else if (view == c.this.kbN.cIp()) {
+                        c.this.cIC();
                     } else if (view == c.this.kbN.cIr()) {
-                        c.this.cIw();
+                        c.this.cIz();
                     } else if (view == c.this.kbN.cIs()) {
+                        c.this.cIx();
+                    } else if (view == c.this.kbN.cIt()) {
                         if (c.this.mIsHost) {
                             TiebaStatic.log(new an("c13613").cI("obj_param1", "0"));
                         } else {
                             TiebaStatic.log(new an("c13613").cI("obj_param1", "1"));
                         }
-                        c.this.cIx();
+                        c.this.cIy();
                     }
                 } else {
                     TiebaStatic.log(new an("c12502").cI("obj_locate", "14"));
@@ -91,7 +91,7 @@ public class c {
                         if (c.this.mUserData != null && c.this.mUserData.isBaijiahaoUser()) {
                             PersonIntroductionActivity.aL(c.this.mPageContext.getPageActivity(), c.this.mUserData.getIntro());
                         }
-                        c.this.cID();
+                        c.this.cIE();
                         return;
                     }
                     PersonIntroductionActivity.aL(c.this.mPageContext.getPageActivity(), c.this.mUserData.getIntro());
@@ -99,7 +99,7 @@ public class c {
             } else {
                 TiebaStatic.log(new an("c12503").cI("obj_locate", "3"));
                 TiebaStatic.log("igift_icon_ck");
-                c.this.cIC();
+                c.this.cID();
             }
         }
     };
@@ -152,7 +152,7 @@ public class c {
         if (aVar != null && aVar.getUserData() != null) {
             this.kbM = aVar;
             this.mUserData = this.kbM.getUserData();
-            this.kbN.a(this.kbM.getUserData(), this.kbM.cIi());
+            this.kbN.a(this.kbM.getUserData(), this.kbM.cIj());
             this.kbO.d(aVar);
         }
     }
@@ -167,9 +167,9 @@ public class c {
         }
     }
 
-    public void cHZ() {
+    public void cIa() {
         if (this.kbO != null) {
-            this.kbO.cHZ();
+            this.kbO.cIa();
         }
     }
 
@@ -190,7 +190,7 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cIu() {
+    public void cIv() {
         if (bc.checkUpIsLogin(this.mPageContext.getPageActivity())) {
             if (this.dzH == null) {
                 this.dzH = new com.baidu.tbadk.coreExtra.model.a(this.mPageContext);
@@ -201,7 +201,7 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cIv() {
+    public void cIw() {
         TiebaStatic.log(new an("c12502").cI("obj_locate", "6"));
         if (this.mIsHost) {
             if (bc.checkUpIsLogin(this.mPageContext.getPageActivity())) {
@@ -217,7 +217,7 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cIw() {
+    public void cIx() {
         AlaUserInfoData alaUserData = this.mUserData.getAlaUserData();
         if (!this.mIsHost && alaUserData != null && alaUserData.live_status == 1 && alaUserData.live_id > 0) {
             TiebaStatic.log("c12542");
@@ -246,14 +246,14 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cIx() {
-        if (this.kbM != null && this.kbM.cIi() != null && !TextUtils.isEmpty(this.kbM.cIi().goods_url)) {
-            ba.aOV().a(this.mPageContext, new String[]{this.kbM.cIi().goods_url}, true);
+    public void cIy() {
+        if (this.kbM != null && this.kbM.cIj() != null && !TextUtils.isEmpty(this.kbM.cIj().goods_url)) {
+            ba.aOV().a(this.mPageContext, new String[]{this.kbM.cIj().goods_url}, true);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cIy() {
+    public void cIz() {
         an anVar = new an("c13574");
         anVar.af("obj_type", this.mIsHost ? 1 : 0);
         anVar.cI("uid", TbadkCoreApplication.getCurrentAccount());
@@ -278,13 +278,13 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cIz() {
+    public void cIA() {
         TiebaStatic.log(new an("c12502").cI("obj_locate", "4"));
         com.baidu.tbadk.browser.a.startWebActivity(this.mPageContext.getPageActivity(), this.mPageContext.getString(R.string.user_icon_web_view_title), d.SERVER_ADDRESS_WEB_VIEW + Config.USER_ICON_WEBVIEW + "?user_id=" + this.mUserData.getUserId(), true, true, true);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cIA() {
+    public void cIB() {
         an anVar = new an("c13575");
         anVar.af("obj_type", this.mIsHost ? 1 : 0);
         anVar.cI("uid", TbadkCoreApplication.getCurrentAccount());
@@ -297,21 +297,21 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cIB() {
+    public void cIC() {
         an anVar = new an("c13573");
         anVar.af("obj_type", this.mIsHost ? 1 : 0);
         anVar.cI("uid", TbadkCoreApplication.getCurrentAccount());
         TiebaStatic.log(anVar);
         TiebaStatic.log(new an("c12502").cI("obj_locate", "8"));
         if (bc.checkUpIsLogin(this.mPageContext.getPageActivity())) {
-            com.baidu.tieba.p.a.cOI().g(2, false, this.mIsHost);
+            com.baidu.tieba.p.a.cOJ().g(2, false, this.mIsHost);
             TiebaStatic.log(new an("c11597").af("obj_locate", 3).af("obj_type", TextUtils.equals(TbadkCoreApplication.getCurrentAccount(), this.mUserData.getUserId()) ? 1 : 2).af("obj_source", this.mUserData.isGod() ? 1 : 2));
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonListActivityConfig(this.mPageContext.getPageActivity(), false, this.mUserData.getUserId(), this.mUserData.getSex())));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cIC() {
+    public void cID() {
         if (bc.checkUpIsLogin(this.mPageContext.getPageActivity())) {
             GiftTabActivityConfig giftTabActivityConfig = new GiftTabActivityConfig(this.mPageContext.getPageActivity(), this.mUserData.getUserIdLong(), this.mUserData.getUserName(), this.mUserData.getName_show(), GiftTabActivityConfig.FROM_PERSON_CENTER, RequestResponseCode.REQUEST_MEMBER_GIFT);
             giftTabActivityConfig.setReferPageAndClickZone(MemberPayStatistic.REFER_PAGE_HE_HER_PERSONAL_CENTER, MemberPayStatistic.CLICK_ZONE_T_RECHARGE);
@@ -320,7 +320,7 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cID() {
+    public void cIE() {
         if (TbadkCoreApplication.getCurrentAccountInfo() != null) {
             PersonChangeData personChangeData = new PersonChangeData();
             if (this.mUserData != null) {

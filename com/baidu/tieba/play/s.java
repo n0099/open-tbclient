@@ -13,7 +13,7 @@ public class s {
     private static boolean khN = true;
     private static boolean khO = true;
 
-    private static i cKf() {
+    private static i cKg() {
         if (khM == null) {
             khN = com.baidu.tbadk.core.sharedPref.b.aNT().getBoolean(SharedPrefConfig.PREFS_SAVE_PALED_VIDEO, true);
             CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GET_VIDEO_CACHE_CLIENT, i.class);
@@ -26,57 +26,57 @@ public class s {
 
     public static String aC(String str, boolean z) {
         if (z) {
-            if (khO && cKf() != null) {
-                return cKf().ab(str, true);
+            if (khO && cKg() != null) {
+                return cKg().ab(str, true);
             }
             return str;
-        } else if (khO && khN && cKf() != null) {
-            return cKf().xV(str);
+        } else if (khO && khN && cKg() != null) {
+            return cKg().xV(str);
         } else {
             return str;
         }
     }
 
     public static String xW(String str) {
-        if (cKf() != null) {
-            return cKf().xW(str);
+        if (cKg() != null) {
+            return cKg().xW(str);
         }
         return null;
     }
 
     public static void d(Context context, String str, int i) {
-        if (cKf() != null) {
-            cKf().d(context, str, i);
+        if (cKg() != null) {
+            cKg().d(context, str, i);
         }
     }
 
     public static void ap(Context context, String str) {
-        if (cKf() != null) {
-            cKf().ap(context, str);
+        if (cKg() != null) {
+            cKg().ap(context, str);
         }
     }
 
     public static void aq(Context context, String str) {
-        if (khO && khN && cKf() != null) {
-            cKf().aq(context, str);
+        if (khO && khN && cKg() != null) {
+            cKg().aq(context, str);
         }
     }
 
     public static void xX(String str) {
-        if (khO && khN && cKf() != null) {
-            cKf().xX(str);
+        if (khO && khN && cKg() != null) {
+            cKg().xX(str);
         }
     }
 
     public static void clearCache(Context context) {
-        if (cKf() != null) {
-            cKf().clearCache(context);
+        if (cKg() != null) {
+            cKg().clearCache(context);
         }
     }
 
     public static String xY(String str) {
-        if (cKf() != null) {
-            return cKf().xY(str);
+        if (cKg() != null) {
+            return cKg().xY(str);
         }
         return null;
     }
@@ -85,7 +85,7 @@ public class s {
         khN = z;
     }
 
-    public static void cKg() {
+    public static void cKh() {
         khO = SwitchManager.getInstance().findType(VCacheSwitch.CACHE_SWITCH) == 1;
     }
 }

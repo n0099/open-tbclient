@@ -13,7 +13,7 @@ public class ar<T> implements aj<Void> {
             @Override // com.facebook.imagepipeline.producers.b
             protected void g(T t, int i) {
                 if (Hr(i)) {
-                    duc().h(null, i);
+                    dud().h(null, i);
                 }
             }
         }, akVar);

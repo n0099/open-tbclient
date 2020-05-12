@@ -228,7 +228,7 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
             }
 
             @Override // com.baidu.tieba.forbidden.fans.e.a
-            public void bMN() {
+            public void bMO() {
                 PersonListActivity.this.showLoadingDialog(PersonListActivity.this.getString(R.string.remove_fans_loading));
             }
         });
@@ -357,7 +357,7 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
                     public void p(MotionEvent motionEvent) {
                         Rect rect = new Rect();
                         PersonListActivity.this.jdJ.getGlobalVisibleRect(rect);
-                        if (!PersonListActivity.this.jdJ.csh() || rect.contains((int) motionEvent.getX(), (int) motionEvent.getY())) {
+                        if (!PersonListActivity.this.jdJ.csi() || rect.contains((int) motionEvent.getX(), (int) motionEvent.getY())) {
                             PersonListActivity.this.jdC.setNeedInterceptTouchEvent(false);
                             return;
                         }
@@ -408,7 +408,7 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
                 PersonListActivity.this.jdI = ((Integer) view.getTag()).intValue();
                 String currentAccount2 = TbadkCoreApplication.getCurrentAccount();
                 if (currentAccount2 != null && currentAccount2.length() > 0) {
-                    PersonListActivity.this.csm();
+                    PersonListActivity.this.csn();
                 } else {
                     TbadkCoreApplication.getInst().login(PersonListActivity.this.getPageContext(), new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig(PersonListActivity.this.getPageContext().getPageActivity(), true, RequestResponseCode.REQUEST_LOGIN_CHAT)));
                 }
@@ -417,7 +417,7 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
         View.OnClickListener onClickListener3 = new View.OnClickListener() { // from class: com.baidu.tieba.myAttentionAndFans.PersonListActivity.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                PersonListActivity.this.csl();
+                PersonListActivity.this.csm();
             }
         };
         if (this.mModel.getId() == null || !this.mModel.getId().equals(TbadkCoreApplication.getCurrentAccount())) {
@@ -436,7 +436,7 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
         this.mContainer = (RelativeLayout) findViewById(R.id.container);
         this.jdv = (BdListView) findViewById(R.id.list);
         this.jdv.setAdapter((ListAdapter) this.jdB);
-        csk();
+        csl();
         this.jdv.setOnSrollToBottomListener(new BdListView.e() { // from class: com.baidu.tieba.myAttentionAndFans.PersonListActivity.3
             @Override // com.baidu.adp.widget.ListView.BdListView.e
             public void onScrollToBottom() {
@@ -444,7 +444,7 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
                     if (PersonListActivity.this.ePr != null && !PersonListActivity.this.ePr.isLoading()) {
                         PersonListActivity.this.ePr.startLoadData();
                     }
-                    PersonListActivity.this.csl();
+                    PersonListActivity.this.csm();
                 }
             }
         });
@@ -453,7 +453,7 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
             @Override // com.baidu.tieba.myAttentionAndFans.ConcernSelectView.a
             public void qd(boolean z2) {
                 if (z2) {
-                    PersonListActivity.this.bJo();
+                    PersonListActivity.this.bJp();
                 } else if (PersonListActivity.this.jdK != null) {
                     PersonListActivity.this.jdK.ED();
                 }
@@ -466,7 +466,7 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
             }
         });
         if (com.baidu.tbadk.core.sharedPref.b.aNT().getInt(SharedPrefConfig.KEY_MY_CONCERNED_PERSON_TIP, 0) < 2 && z && this.mModel.bqg()) {
-            this.jdJ.csg();
+            this.jdJ.csh();
         }
         this.jdJ.setVisibility(8);
         this.jdz.setVisibility(8);
@@ -481,7 +481,7 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
         this.jdv.setNextPage(this.ePr);
     }
 
-    private void csk() {
+    private void csl() {
         this.jdz = LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.person_list_newheader, (ViewGroup) null);
         this.jdz.setVisibility(8);
         this.jdz.setClickable(false);
@@ -491,7 +491,7 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bJo() {
+    public void bJp() {
         if (this.jdK == null) {
             this.jdK = new com.baidu.tieba.c.d(getPageContext(), this.jdJ.jdc);
             this.jdK.cz(R.drawable.bg_tip_blue_up);
@@ -722,7 +722,7 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void csl() {
+    public void csm() {
         if (this.jdB != null) {
             this.jdB.notifyDataSetChanged();
         }
@@ -730,7 +730,7 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void csm() {
+    public void csn() {
         UserData userData;
         if (this.jdB != null && this.jdB.getItemViewType(this.jdI) == 0 && (userData = (UserData) this.jdB.getItem(this.jdI)) != null && userData.getUserId() != null && userData.getUserName() != null && !userData.getUserId().equals(TbadkCoreApplication.getCurrentAccount())) {
             TiebaStatic.eventStat(getPageContext().getPageActivity(), "enter_chat", "personlistclick", 1, new Object[0]);
@@ -746,14 +746,14 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         if (i2 == -1 && i == 11028) {
-            csm();
+            csn();
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4) {
-            if (this.jdJ.csh()) {
+            if (this.jdJ.csi()) {
                 this.jdJ.closeView();
                 return false;
             }
@@ -814,7 +814,7 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
             UtilHelper.setSpan(spannableStringBuilder, spannableStringBuilder.toString(), string, new ClickableSpan() { // from class: com.baidu.tieba.myAttentionAndFans.PersonListActivity.6
                 @Override // android.text.style.ClickableSpan
                 public void onClick(View view) {
-                    PersonListActivity.this.cso();
+                    PersonListActivity.this.csp();
                 }
 
                 @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
@@ -830,7 +830,7 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
             UtilHelper.setSpan(spannableStringBuilder, spannableStringBuilder.toString(), str2, new ClickableSpan() { // from class: com.baidu.tieba.myAttentionAndFans.PersonListActivity.7
                 @Override // android.text.style.ClickableSpan
                 public void onClick(View view) {
-                    PersonListActivity.this.csn();
+                    PersonListActivity.this.cso();
                 }
 
                 @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
@@ -846,7 +846,7 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void csn() {
+    public void cso() {
         TiebaStatic.log(new an("c13104").af("obj_locate", 1));
         if (!l.isNetOk()) {
             showToast(getString(R.string.neterror));
@@ -856,7 +856,7 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cso() {
+    public void csp() {
         TiebaStatic.log(new an("c13103"));
         if (!l.isNetOk()) {
             showToast(getString(R.string.neterror));

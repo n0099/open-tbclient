@@ -60,13 +60,13 @@ public class VideoZoomBehavior extends AppBarLayout.Behavior {
             }
             if (this.jqh != null) {
                 if (i > -5) {
-                    p<Boolean> cEl = this.jqh.cEl();
-                    if (cEl == null || cEl.getValue() == null || !cEl.getValue().booleanValue()) {
+                    p<Boolean> cEm = this.jqh.cEm();
+                    if (cEm == null || cEm.getValue() == null || !cEm.getValue().booleanValue()) {
                         this.jqh.sf(true);
                     }
                 } else {
-                    p<Boolean> cEl2 = this.jqh.cEl();
-                    if (cEl2 == null || cEl2.getValue() == null || cEl2.getValue().booleanValue()) {
+                    p<Boolean> cEm2 = this.jqh.cEm();
+                    if (cEm2 == null || cEm2.getValue() == null || cEm2.getValue().booleanValue()) {
                         this.jqh.sf(false);
                     }
                 }

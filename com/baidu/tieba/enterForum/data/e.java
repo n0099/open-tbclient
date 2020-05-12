@@ -58,7 +58,7 @@ public class e {
         }
     }
 
-    public i bHx() {
+    public i bHy() {
         return this.gzO;
     }
 
@@ -70,7 +70,7 @@ public class e {
         this.gzP = lVar;
     }
 
-    public l bHy() {
+    public l bHz() {
         return this.gzP;
     }
 
@@ -78,7 +78,7 @@ public class e {
         this.gzQ = forumCreateInfoData;
     }
 
-    public ForumCreateInfoData bHz() {
+    public ForumCreateInfoData bHA() {
         return this.gzQ;
     }
 
@@ -86,7 +86,7 @@ public class e {
         this.gzR = privateForumPopInfoData;
     }
 
-    public PrivateForumPopInfoData bHA() {
+    public PrivateForumPopInfoData bHB() {
         return this.gzR;
     }
 
@@ -118,7 +118,7 @@ public class e {
         this.gzS = pVar;
     }
 
-    public p bHB() {
+    public p bHC() {
         return this.gzS;
     }
 }

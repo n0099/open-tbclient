@@ -34,7 +34,7 @@ public class o extends h<p, q> {
     @Override // com.baidu.tieba.frs.h, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, p pVar, q qVar) {
         super.a(i, view, viewGroup, (ViewGroup) pVar, (p) qVar);
-        if (pVar.bQc() == 6) {
+        if (pVar.bQd() == 6) {
             qVar.hbs.setText(R.string.attention_no_post_tip);
         } else {
             qVar.hbs.setText(R.string.no_data_common_txt);

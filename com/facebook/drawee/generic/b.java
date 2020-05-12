@@ -73,11 +73,11 @@ public class b {
         return this;
     }
 
-    public int doX() {
+    public int doY() {
         return this.lWv;
     }
 
-    public boolean doY() {
+    public boolean doZ() {
         return this.lWw;
     }
 
@@ -86,7 +86,7 @@ public class b {
         return this;
     }
 
-    public float doZ() {
+    public float dpa() {
         return this.lWx;
     }
 
@@ -101,7 +101,7 @@ public class b {
     }
 
     @Nullable
-    public Drawable dpa() {
+    public Drawable dpb() {
         return this.lWy;
     }
 
@@ -111,7 +111,7 @@ public class b {
     }
 
     @Nullable
-    public p.b dpb() {
+    public p.b dpc() {
         return this.lWz;
     }
 
@@ -121,7 +121,7 @@ public class b {
     }
 
     @Nullable
-    public Drawable dpc() {
+    public Drawable dpd() {
         return this.lWA;
     }
 
@@ -131,7 +131,7 @@ public class b {
     }
 
     @Nullable
-    public p.b dpd() {
+    public p.b dpe() {
         return this.lWB;
     }
 
@@ -141,7 +141,7 @@ public class b {
     }
 
     @Nullable
-    public Drawable dpe() {
+    public Drawable dpf() {
         return this.lWC;
     }
 
@@ -151,7 +151,7 @@ public class b {
     }
 
     @Nullable
-    public p.b dpf() {
+    public p.b dpg() {
         return this.lWD;
     }
 
@@ -161,7 +161,7 @@ public class b {
     }
 
     @Nullable
-    public Drawable dpg() {
+    public Drawable dph() {
         return this.lWE;
     }
 
@@ -171,7 +171,7 @@ public class b {
     }
 
     @Nullable
-    public p.b dph() {
+    public p.b dpi() {
         return this.lWF;
     }
 
@@ -182,17 +182,17 @@ public class b {
     }
 
     @Nullable
-    public p.b dpi() {
+    public p.b dpj() {
         return this.lWG;
     }
 
     @Nullable
-    public PointF dpj() {
+    public PointF dpk() {
         return this.lWI;
     }
 
     @Nullable
-    public ColorFilter dpk() {
+    public ColorFilter dpl() {
         return this.lWJ;
     }
 
@@ -216,7 +216,7 @@ public class b {
     }
 
     @Nullable
-    public List<Drawable> dpl() {
+    public List<Drawable> dpm() {
         return this.lWK;
     }
 
@@ -232,7 +232,7 @@ public class b {
     }
 
     @Nullable
-    public Drawable dpm() {
+    public Drawable dpn() {
         return this.lWL;
     }
 
@@ -242,7 +242,7 @@ public class b {
     }
 
     @Nullable
-    public RoundingParams doW() {
+    public RoundingParams doX() {
         return this.lWp;
     }
 
@@ -254,7 +254,7 @@ public class b {
         }
     }
 
-    public a dpn() {
+    public a dpo() {
         validate();
         return new a(this);
     }

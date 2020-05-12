@@ -36,7 +36,7 @@ public class a implements View.OnClickListener {
                     @Override // java.lang.Runnable
                     public void run() {
                         if (a.this.gCd != null) {
-                            a.this.bUP();
+                            a.this.bUQ();
                         }
                     }
                 }, 3000L);
@@ -86,10 +86,10 @@ public class a implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        bUP();
+        bUQ();
     }
 
-    public void bUP() {
+    public void bUQ() {
         if (this.gCd != null) {
             this.gCd.dismiss();
             this.gCd = null;
@@ -98,6 +98,6 @@ public class a implements View.OnClickListener {
 
     public void destory() {
         this.mHandler.removeCallbacksAndMessages(null);
-        bUP();
+        bUQ();
     }
 }

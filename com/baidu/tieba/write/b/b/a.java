@@ -77,7 +77,7 @@ public class a implements BoxAccountManager {
     public void logout() {
         com.baidu.tbadk.core.sharedPref.b.aNT().putBoolean("key_dynamic_publish_login_status", false);
         lAo = false;
-        c.dfL();
+        c.dfM();
     }
 
     @Override // com.baidu.searchbox.account.BoxAccountManager

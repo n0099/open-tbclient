@@ -61,7 +61,7 @@ public class b extends com.baidu.tbadk.editortools.c {
                                 aVar.aRP().showToast((int) R.string.over_limit_tip);
                                 return;
                             case 8:
-                                aVar.deq();
+                                aVar.der();
                                 if (b.this.a(aVar.aRP(), 11001)) {
                                     aVar.aXI();
                                     return;

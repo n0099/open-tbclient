@@ -25,7 +25,7 @@ public class h {
                     h.this.eQS = null;
                 }
                 if (h.this.kmc != null) {
-                    h.this.kmc.cKY();
+                    h.this.kmc.cKZ();
                 }
             }
         }
@@ -47,7 +47,7 @@ public class h {
         }
     };
 
-    public BdTypeListView cLj() {
+    public BdTypeListView cLk() {
         return this.kmr;
     }
 
@@ -60,7 +60,7 @@ public class h {
         this.kmr.setOnScrollListener(this.mOnScrollListener);
     }
 
-    public d cLk() {
+    public d cLl() {
         return this.kmc;
     }
 

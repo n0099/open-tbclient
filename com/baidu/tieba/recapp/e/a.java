@@ -81,7 +81,7 @@ public class a extends e {
         if (this.kxy != null) {
             View$OnClickListenerC0660a view$OnClickListenerC0660a = new View$OnClickListenerC0660a(this.kxy);
             this.mRootView.setOnClickListener(view$OnClickListenerC0660a);
-            if (cOm()) {
+            if (cOn()) {
                 this.kuA.setOnClickInterceptListener(new b.a() { // from class: com.baidu.tieba.recapp.e.a.1
                     @Override // com.baidu.tieba.ad.download.mvp.b.a
                     public void bq(View view) {
@@ -100,16 +100,16 @@ public class a extends e {
             o(c);
             this.kuA.setData(c);
         }
-        if (!cOm()) {
+        if (!cOn()) {
             this.kuA.u(this.duK.getUniqueId());
         }
         this.ktP.setTag(this.duK.getUniqueId());
-        cOn();
+        cOo();
         onChangeSkinType();
     }
 
     private void o(DownloadData downloadData) {
-        if (cOm()) {
+        if (cOn()) {
             if (this.kuA != null) {
                 downloadData.setStatus(this.kuA.getDownloadStatus());
                 return;
@@ -120,7 +120,7 @@ public class a extends e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean cOm() {
+    public boolean cOn() {
         return !this.kxo || this.kxp;
     }
 
@@ -132,7 +132,7 @@ public class a extends e {
         am.setBackgroundColor(this.kxn, R.color.cp_link_tip_a, 1);
         this.kuA.setTextColorInitSkin(R.color.cp_cont_a);
         this.kuA.setBackgroundSkin(R.drawable.tail_frame_action_btn_bg);
-        this.kuA.ckM();
+        this.kuA.ckN();
     }
 
     public void tk(boolean z) {
@@ -155,7 +155,7 @@ public class a extends e {
                 return;
             }
             boolean z = view == a.this.kuA;
-            if (a.this.cOm()) {
+            if (a.this.cOn()) {
                 a.this.kuA.performClick();
             } else if (this.kwz != null) {
                 int i = com.baidu.adp.lib.f.b.toInt(this.kwz.adPosition, -1);
@@ -252,8 +252,8 @@ public class a extends e {
         this.iKp = cVar;
     }
 
-    private void cOn() {
-        if (cOm() && this.kxy != null) {
+    private void cOo() {
+        if (cOn() && this.kxy != null) {
             String str = this.kxy.dms;
             DownloadCacheKey yr = !TextUtils.isEmpty(str) ? com.baidu.tieba.ad.download.d.bgs().yr(str) : null;
             if (yr == null) {
@@ -267,7 +267,7 @@ public class a extends e {
     private void i(DownloadCacheKey downloadCacheKey) {
         if (downloadCacheKey != null) {
             this.ezE = downloadCacheKey;
-            cOo();
+            cOp();
             AdDownloadData d = com.baidu.tieba.ad.download.d.bgs().d(downloadCacheKey);
             if (d != null) {
                 this.kuA.a(d.getCurrentState());
@@ -289,7 +289,7 @@ public class a extends e {
         }
     }
 
-    public void cOo() {
+    public void cOp() {
         if (this.ezE != null && this.ezF != null) {
             com.baidu.tieba.ad.download.d.bgs().b(this.ezE, this.ezF);
         }

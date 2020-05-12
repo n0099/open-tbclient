@@ -22,7 +22,7 @@ public final class FastDatePrinter {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes5.dex */
     public interface Rule {
-        int dAJ();
+        int dAK();
     }
 
     public FastDatePrinter(String str, TimeZone timeZone, Locale locale) {
@@ -33,14 +33,14 @@ public final class FastDatePrinter {
     }
 
     private void init() {
-        List<Rule> dAI = dAI();
-        this.mNo = (Rule[]) dAI.toArray(new Rule[dAI.size()]);
+        List<Rule> dAJ = dAJ();
+        this.mNo = (Rule[]) dAJ.toArray(new Rule[dAJ.size()]);
         int i = 0;
         int length = this.mNo.length;
         while (true) {
             length--;
             if (length >= 0) {
-                i += this.mNo[length].dAJ();
+                i += this.mNo[length].dAK();
             } else {
                 this.mNp = i;
                 return;
@@ -48,7 +48,7 @@ public final class FastDatePrinter {
         }
     }
 
-    protected List<Rule> dAI() {
+    protected List<Rule> dAJ() {
         Rule stringLiteral;
         DateFormatSymbols dateFormatSymbols = new DateFormatSymbols(this.mLocale);
         ArrayList arrayList = new ArrayList();
@@ -250,7 +250,7 @@ public final class FastDatePrinter {
         }
 
         @Override // com.qiniu.android.utils.FastDatePrinter.Rule
-        public int dAJ() {
+        public int dAK() {
             return 1;
         }
     }
@@ -265,7 +265,7 @@ public final class FastDatePrinter {
         }
 
         @Override // com.qiniu.android.utils.FastDatePrinter.Rule
-        public int dAJ() {
+        public int dAK() {
             return this.mValue.length();
         }
     }
@@ -282,7 +282,7 @@ public final class FastDatePrinter {
         }
 
         @Override // com.qiniu.android.utils.FastDatePrinter.Rule
-        public int dAJ() {
+        public int dAK() {
             int i = 0;
             int length = this.mNw.length;
             while (true) {
@@ -311,7 +311,7 @@ public final class FastDatePrinter {
         }
 
         @Override // com.qiniu.android.utils.FastDatePrinter.Rule
-        public int dAJ() {
+        public int dAK() {
             return 4;
         }
     }
@@ -325,7 +325,7 @@ public final class FastDatePrinter {
         }
 
         @Override // com.qiniu.android.utils.FastDatePrinter.Rule
-        public int dAJ() {
+        public int dAK() {
             return 2;
         }
     }
@@ -345,7 +345,7 @@ public final class FastDatePrinter {
         }
 
         @Override // com.qiniu.android.utils.FastDatePrinter.Rule
-        public int dAJ() {
+        public int dAK() {
             return this.mSize;
         }
     }
@@ -360,7 +360,7 @@ public final class FastDatePrinter {
         }
 
         @Override // com.qiniu.android.utils.FastDatePrinter.Rule
-        public int dAJ() {
+        public int dAK() {
             return 2;
         }
     }
@@ -374,7 +374,7 @@ public final class FastDatePrinter {
         }
 
         @Override // com.qiniu.android.utils.FastDatePrinter.Rule
-        public int dAJ() {
+        public int dAK() {
             return 2;
         }
     }
@@ -388,7 +388,7 @@ public final class FastDatePrinter {
         }
 
         @Override // com.qiniu.android.utils.FastDatePrinter.Rule
-        public int dAJ() {
+        public int dAK() {
             return 2;
         }
     }
@@ -403,8 +403,8 @@ public final class FastDatePrinter {
         }
 
         @Override // com.qiniu.android.utils.FastDatePrinter.Rule
-        public int dAJ() {
-            return this.mNr.dAJ();
+        public int dAK() {
+            return this.mNr.dAK();
         }
     }
 
@@ -418,8 +418,8 @@ public final class FastDatePrinter {
         }
 
         @Override // com.qiniu.android.utils.FastDatePrinter.Rule
-        public int dAJ() {
-            return this.mNr.dAJ();
+        public int dAK() {
+            return this.mNr.dAK();
         }
     }
 
@@ -433,8 +433,8 @@ public final class FastDatePrinter {
         }
 
         @Override // com.qiniu.android.utils.FastDatePrinter.Rule
-        public int dAJ() {
-            return this.mNr.dAJ();
+        public int dAK() {
+            return this.mNr.dAK();
         }
     }
 
@@ -450,7 +450,7 @@ public final class FastDatePrinter {
         }
 
         @Override // com.qiniu.android.utils.FastDatePrinter.Rule
-        public int dAJ() {
+        public int dAK() {
             return 5;
         }
     }
@@ -481,7 +481,7 @@ public final class FastDatePrinter {
         }
 
         @Override // com.qiniu.android.utils.FastDatePrinter.Rule
-        public int dAJ() {
+        public int dAK() {
             return this.length;
         }
     }

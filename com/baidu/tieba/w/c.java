@@ -64,7 +64,7 @@ public class c {
         new b(getPath(), str, this.ltp).execute(new Void[0]);
     }
 
-    public boolean deu() {
+    public boolean dev() {
         if (this.isLoading || aq.isEmpty(getVideoPath())) {
             return false;
         }
@@ -82,7 +82,7 @@ public class c {
         return this.mVideoPath;
     }
 
-    public void dev() {
+    public void dew() {
         if (!aq.isEmpty(getPath())) {
             m.deleteFileOrDir(new File(getPath()));
             this.mVideoPath = null;

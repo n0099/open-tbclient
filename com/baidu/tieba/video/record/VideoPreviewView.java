@@ -39,7 +39,7 @@ public class VideoPreviewView extends SurfaceView implements Camera.PreviewCallb
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GET_VIDEO_PLATFORM_FACTORY, com.baidu.tieba.k.l.class);
         com.baidu.tieba.k.l lVar = runTask != null ? (com.baidu.tieba.k.l) runTask.getData() : null;
         if (lVar != null) {
-            this.kTM = lVar.crX();
+            this.kTM = lVar.crY();
         }
         this.lnn = hVar;
         getHolder().addCallback(this);
@@ -48,18 +48,18 @@ public class VideoPreviewView extends SurfaceView implements Camera.PreviewCallb
     @Override // android.view.SurfaceHolder.Callback
     public void surfaceCreated(SurfaceHolder surfaceHolder) {
         this.mSurfaceHolder = surfaceHolder;
-        dcx();
+        dcy();
         this.lqK = true;
     }
 
-    private void dcx() {
+    private void dcy() {
         Handler mainHandler = this.lnn.getMainHandler();
         mainHandler.sendMessage(mainHandler.obtainMessage(1));
     }
 
     public void onResume() {
         if (this.lqK) {
-            dcx();
+            dcy();
         }
     }
 
@@ -138,7 +138,7 @@ public class VideoPreviewView extends SurfaceView implements Camera.PreviewCallb
             if (!com.baidu.tbadk.core.util.m.CheckTempDir(file.getAbsolutePath())) {
                 file.mkdirs();
             }
-            this.bEF.setOutputFile(this.lnn.dcz());
+            this.bEF.setOutputFile(this.lnn.dcA());
             try {
                 this.bEF.prepare();
                 this.bEF.start();

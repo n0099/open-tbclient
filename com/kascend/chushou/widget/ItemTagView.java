@@ -158,9 +158,9 @@ public class ItemTagView extends FrameLayout {
     }
 
     public void a(float f, float f2, float f3, float f4) {
-        RoundingParams doW;
-        if (this.mzF != null && (doW = this.mzF.getHierarchy().doW()) != null) {
-            doW.h(f, f2, f3, f4);
+        RoundingParams doX;
+        if (this.mzF != null && (doX = this.mzF.getHierarchy().doX()) != null) {
+            doX.h(f, f2, f3, f4);
         }
     }
 }

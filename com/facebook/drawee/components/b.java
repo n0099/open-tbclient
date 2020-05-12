@@ -23,11 +23,11 @@ public class b {
         this.lUd = z;
     }
 
-    public boolean doj() {
+    public boolean dok() {
         return this.lUd && this.lUf < this.lUe;
     }
 
-    public void dok() {
+    public void dol() {
         this.lUf++;
     }
 }

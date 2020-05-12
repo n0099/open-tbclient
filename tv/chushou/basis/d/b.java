@@ -11,7 +11,7 @@ public class b {
     private static volatile Application sApplication;
     private final Map<String, Class<?>> nrb = new TreeMap();
     private final Map<String, Object> nrc = new TreeMap();
-    private static final tv.chushou.a.a.c.b nqZ = tv.chushou.a.a.c.a.dJB();
+    private static final tv.chushou.a.a.c.b nqZ = tv.chushou.a.a.c.a.dJC();
     private static volatile boolean sDebug = false;
 
     public static synchronized void a(a aVar) {
@@ -28,7 +28,7 @@ public class b {
     }
 
     @SuppressLint({"PrivateApi"})
-    public static Application dJp() {
+    public static Application dJq() {
         if (sApplication != null) {
             return sApplication;
         }
@@ -45,11 +45,11 @@ public class b {
         return sApplication;
     }
 
-    public static tv.chushou.a.a.c.b dJq() {
+    public static tv.chushou.a.a.c.b dJr() {
         return nqZ;
     }
 
-    public static b dJr() {
+    public static b dJs() {
         if (nra == null) {
             synchronized (b.class) {
                 if (nra == null) {
@@ -63,7 +63,7 @@ public class b {
     public void e(Class<?> cls, Class<?> cls2) {
         if (cls != null && cls2 != null) {
             if (!cls.isAssignableFrom(cls2)) {
-                dJq().e("Router", "apiImpl must implements interface api");
+                dJr().e("Router", "apiImpl must implements interface api");
                 return;
             }
             String name = cls.getName();
@@ -94,15 +94,15 @@ public class b {
                         try {
                             ?? r0 = (tv.chushou.basis.d.a) cls2.newInstance();
                             try {
-                                r0.init(dJp());
+                                r0.init(dJq());
                                 this.nrc.put(name, r0);
                                 t = r0;
                             } catch (Exception e) {
                                 t2 = r0;
                                 e = e;
-                                dJq().e("Router", "component " + name + " newInstance failed", e);
+                                dJr().e("Router", "component " + name + " newInstance failed", e);
                                 if (t2 == null) {
-                                    dJq().e(null, "Router getComponet:" + cls.getName() + " failed");
+                                    dJr().e(null, "Router getComponet:" + cls.getName() + " failed");
                                 }
                                 return t2;
                             }
@@ -114,7 +114,7 @@ public class b {
                     }
                     t2 = t;
                     if (t2 == null && Lq()) {
-                        dJq().e(null, "Router getComponet:" + cls.getName() + " failed");
+                        dJr().e(null, "Router getComponet:" + cls.getName() + " failed");
                     }
                 }
             }

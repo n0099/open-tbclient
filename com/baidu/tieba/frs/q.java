@@ -48,10 +48,10 @@ public class q extends y.a {
         com.baidu.tbadk.core.util.am.setImageResource(this.hbt, R.drawable.new_pic_emotion_06);
         this.hbv.setTag(hbr);
         MessageManager.getInstance().registerListener(this.hbv);
-        bQd();
+        bQe();
     }
 
-    private void bQd() {
+    private void bQe() {
         if (this.mRootView != null) {
             this.mRootView.addOnLayoutChangeListener(new View.OnLayoutChangeListener() { // from class: com.baidu.tieba.frs.q.2
                 @Override // android.view.View.OnLayoutChangeListener

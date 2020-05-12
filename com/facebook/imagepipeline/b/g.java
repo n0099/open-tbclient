@@ -5,7 +5,7 @@ import android.graphics.Bitmap;
 public class g implements com.facebook.common.references.c<Bitmap> {
     private static g mab;
 
-    public static g dqi() {
+    public static g dqj() {
         if (mab == null) {
             mab = new g();
         }

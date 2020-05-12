@@ -37,7 +37,7 @@ public class a {
                     if (a.this.mGA != null) {
                         a.this.mGA.onScrolled(recyclerView, i, i2);
                     }
-                    a.this.dyT();
+                    a.this.dyU();
                 }
             });
             th();
@@ -75,7 +75,7 @@ public class a {
             this.mGH.post(new Runnable() { // from class: com.kascend.chushou.widget.convenientbanner.b.a.3
                 @Override // java.lang.Runnable
                 public void run() {
-                    a.this.dyT();
+                    a.this.dyU();
                 }
             });
         }
@@ -86,7 +86,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dyT() {
+    public void dyU() {
     }
 
     public int getCurrentItem() {
@@ -97,11 +97,11 @@ public class a {
         return 0;
     }
 
-    public int dyU() {
+    public int dyV() {
         return getCurrentItem() % ((com.kascend.chushou.widget.convenientbanner.a.a) this.mGH.getAdapter()).bmx();
     }
 
-    public int dyV() {
+    public int dyW() {
         return this.mGJ;
     }
 

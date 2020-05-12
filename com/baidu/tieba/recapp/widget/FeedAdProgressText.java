@@ -97,7 +97,7 @@ public class FeedAdProgressText extends AppCompatTextView implements a {
     }
 
     @Override // com.baidu.tieba.recapp.widget.a
-    public void ckM() {
+    public void ckN() {
         setTextColor(am.getColor(R.color.cp_cont_d));
     }
 }

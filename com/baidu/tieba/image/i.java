@@ -26,7 +26,7 @@ public class i {
         this.iEl = i;
     }
 
-    public int clB() {
+    public int clC() {
         return this.iEl;
     }
 
@@ -34,7 +34,7 @@ public class i {
         this.iEm = i;
     }
 
-    public int clC() {
+    public int clD() {
         return this.iEm;
     }
 
@@ -67,11 +67,11 @@ public class i {
             }
         }
         if (this.iEh.size() >= 100) {
-            clD();
+            clE();
         }
     }
 
-    public void clD() {
+    public void clE() {
         if (this.iEh != null) {
             synchronized (this.iEh) {
                 if (this.iEh.size() > 0) {

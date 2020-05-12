@@ -108,12 +108,12 @@ public class a extends d {
             }
         });
         this.q = true;
-        final com.kascend.chushou.widget.cswebview.d dyW = this.mEw != null ? this.mEw.dyW() : null;
+        final com.kascend.chushou.widget.cswebview.d dyX = this.mEw != null ? this.mEw.dyX() : null;
         com.kascend.chushou.widget.cswebview.d dVar = new com.kascend.chushou.widget.cswebview.d() { // from class: com.kascend.chushou.view.h5.a.2
             @Override // com.kascend.chushou.widget.cswebview.d
             public void a(Object obj) {
-                if (dyW != null) {
-                    dyW.a((Object) null);
+                if (dyX != null) {
+                    dyX.a((Object) null);
                     return;
                 }
                 FragmentActivity activity = a.this.getActivity();
@@ -152,7 +152,7 @@ public class a extends d {
                     a.this.mEv.setEnabled(a.this.f);
                     a.this.m = true;
                     String str2 = (String) webView.getTag();
-                    if (tv.chushou.zues.utils.a.dJO()) {
+                    if (tv.chushou.zues.utils.a.dJP()) {
                         if (str2 != null && str2.equals(BdStatsConstant.StatsType.ERROR)) {
                             a.this.showStatus(4);
                         } else {
@@ -189,7 +189,7 @@ public class a extends d {
             @Override // android.support.v4.widget.SwipeRefreshLayout.OnRefreshListener
             public void onRefresh() {
                 a.this.mEv.setRefreshing(false);
-                if (tv.chushou.zues.utils.a.dJO()) {
+                if (tv.chushou.zues.utils.a.dJP()) {
                     a.this.n = true;
                     if (a.this.c == null || a.this.c.length() <= 0) {
                         a.this.mEf.loadUrl("");
@@ -298,7 +298,7 @@ public class a extends d {
     public void a(com.kascend.chushou.widget.cswebview.a aVar) {
         this.mEw = aVar;
         if (aVar != null) {
-            this.mEg = aVar.dyX();
+            this.mEg = aVar.dyY();
         }
     }
 
@@ -325,7 +325,7 @@ public class a extends d {
     }
 
     public void c() {
-        if (tv.chushou.zues.utils.a.dJO()) {
+        if (tv.chushou.zues.utils.a.dJP()) {
             this.n = true;
             if (this.c != null && this.c.length() > 0) {
                 this.mEf.loadUrl(this.c);
@@ -352,7 +352,7 @@ public class a extends d {
             e.d(this.TAG, "onActivityResult");
             if (this.c != null) {
                 if (this.c.contains("m/bigfans/pay.htm")) {
-                    String str = tv.chushou.common.a.dJu() + "m/bigfans/pay.htm";
+                    String str = tv.chushou.common.a.dJv() + "m/bigfans/pay.htm";
                     if (LoginManager.Instance().islogined()) {
                         str = str + "?token=" + LoginManager.Instance().getUserInfo().mToken + "&state=1";
                     }
@@ -402,7 +402,7 @@ public class a extends d {
     }
 
     private void d() {
-        String str = tv.chushou.common.a.dJu() + "m/pay.htm";
+        String str = tv.chushou.common.a.dJv() + "m/pay.htm";
         if (LoginManager.Instance().islogined()) {
             str = str + "?token=" + LoginManager.Instance().getUserInfo().mToken + "&state=1";
         }
@@ -416,7 +416,7 @@ public class a extends d {
         if (this.mEf != null) {
             this.mEf.setTag(null);
             this.mEv.setRefreshing(false);
-            if (tv.chushou.zues.utils.a.dJO()) {
+            if (tv.chushou.zues.utils.a.dJP()) {
                 if (this.c != null && this.c.length() > 0) {
                     this.mEf.loadUrl(this.c);
                     return;

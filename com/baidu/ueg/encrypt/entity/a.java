@@ -9,11 +9,11 @@ public class a {
         this.lPo = str;
     }
 
-    public EncryptAlgorithm dlx() {
+    public EncryptAlgorithm dly() {
         return this.lPn;
     }
 
-    public String dly() {
+    public String dlz() {
         return this.lPo;
     }
 }

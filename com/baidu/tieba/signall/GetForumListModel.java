@@ -85,7 +85,7 @@ public class GetForumListModel extends BdBaseModel<SignAllForumActivity> {
         registerListener(this.kJy);
     }
 
-    public boolean cTM() {
+    public boolean cTN() {
         return this.kJx;
     }
 
@@ -144,7 +144,7 @@ public class GetForumListModel extends BdBaseModel<SignAllForumActivity> {
         return true;
     }
 
-    public ResponsedMessage<?> cTN() {
+    public ResponsedMessage<?> cTO() {
         return this.hsk;
     }
 }

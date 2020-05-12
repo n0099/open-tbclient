@@ -84,7 +84,7 @@ public final class OnSubscribeDetach<T> implements d.a<T> {
             }
         }
 
-        void dHH() {
+        void dHI() {
             this.njP.lazySet(TerminatedProducer.INSTANCE);
             this.actual.lazySet(null);
             unsubscribe();
@@ -112,7 +112,7 @@ public final class OnSubscribeDetach<T> implements d.a<T> {
 
         @Override // rx.k
         public void unsubscribe() {
-            this.njO.dHH();
+            this.njO.dHI();
         }
     }
 

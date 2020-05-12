@@ -11,7 +11,7 @@ public class d extends a<com.baidu.tieba.play.b.b> {
     }
 
     @Override // com.baidu.tieba.k.a.c
-    public void csc() {
+    public void csd() {
         dG(this.list);
     }
 }

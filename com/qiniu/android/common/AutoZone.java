@@ -56,7 +56,7 @@ public final class AutoZone extends Zone {
             a(zoneIndex, new CompletionHandler() { // from class: com.qiniu.android.common.AutoZone.1
                 @Override // com.qiniu.android.http.CompletionHandler
                 public void a(ResponseInfo responseInfo, JSONObject jSONObject) {
-                    if (responseInfo.dAo() && jSONObject != null) {
+                    if (responseInfo.dAp() && jSONObject != null) {
                         try {
                             AutoZone.this.mLv.put(zoneIndex, ZoneInfo.dX(jSONObject));
                             queryHandler.onSuccess();

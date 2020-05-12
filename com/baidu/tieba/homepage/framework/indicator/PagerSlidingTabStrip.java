@@ -167,7 +167,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
         invalidate();
     }
 
-    public boolean bYt() {
+    public boolean bYu() {
         return this.eqY;
     }
 

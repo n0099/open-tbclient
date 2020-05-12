@@ -22,7 +22,7 @@ public class GroupActivityModel extends BdBaseModel<GroupActivityActivity> {
         this.inX = groupActivityActivity;
     }
 
-    public int cgA() {
+    public int cgB() {
         return this.mFrom;
     }
 
@@ -30,7 +30,7 @@ public class GroupActivityModel extends BdBaseModel<GroupActivityActivity> {
         this.mFrom = i;
     }
 
-    public int cgB() {
+    public int cgC() {
         return this.dgr;
     }
 
@@ -38,7 +38,7 @@ public class GroupActivityModel extends BdBaseModel<GroupActivityActivity> {
         this.dgr = i;
     }
 
-    public long cgC() {
+    public long cgD() {
         return this.mGroupId;
     }
 
@@ -92,7 +92,7 @@ public class GroupActivityModel extends BdBaseModel<GroupActivityActivity> {
         return this.inU;
     }
 
-    public Message<?> cgD() {
+    public Message<?> cgE() {
         return this.inW;
     }
 
@@ -103,7 +103,7 @@ public class GroupActivityModel extends BdBaseModel<GroupActivityActivity> {
         this.inX.sendMessage(this.inW);
     }
 
-    public GroupActivityData cgE() {
+    public GroupActivityData cgF() {
         return this.inY;
     }
 

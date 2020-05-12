@@ -44,8 +44,8 @@ public class ReplyMeModelController extends BdBaseModel implements CacheModel.a<
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean bFE() {
-        if (this.iAZ.isLoading() || !cki()) {
+    public boolean bFF() {
+        if (this.iAZ.isLoading() || !ckj()) {
             return false;
         }
         this.iAY.d(this.izR);
@@ -55,8 +55,8 @@ public class ReplyMeModelController extends BdBaseModel implements CacheModel.a<
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean bTt() {
-        if (this.iAZ.isLoading() || !cki()) {
+    public boolean bTu() {
+        if (this.iAZ.isLoading() || !ckj()) {
             return false;
         }
         this.izR = null;
@@ -66,20 +66,20 @@ public class ReplyMeModelController extends BdBaseModel implements CacheModel.a<
         return true;
     }
 
-    protected boolean cki() {
+    protected boolean ckj() {
         if (TbadkCoreApplication.isLogin()) {
             return true;
         }
         if (this.izS != null && this.izS.iAO != null) {
             this.izS.iAO.clear();
         }
-        this.iAX.ckI();
+        this.iAX.ckJ();
         this.iAX.b(false, (ArrayList<com.baidu.adp.widget.ListView.m>) null);
         return false;
     }
 
-    public boolean bFD() {
-        if (cki()) {
+    public boolean bFE() {
+        if (ckj()) {
             this.iBa.a((com.baidu.tbadk.mvc.b.e) this.iAY);
             return true;
         }
@@ -91,11 +91,11 @@ public class ReplyMeModelController extends BdBaseModel implements CacheModel.a<
         boolean z3;
         boolean z4;
         if (kVar.getUpdateType() != 4) {
-            this.izS.ckC().clear();
+            this.izS.ckD().clear();
         }
         this.izS.a(lVar);
-        if (lVar != null && lVar.ckC() != null && lVar.ckC().size() > 0) {
-            this.izR = lVar.ckC().get(lVar.ckC().size() - 1);
+        if (lVar != null && lVar.ckD() != null && lVar.ckD().size() > 0) {
+            this.izR = lVar.ckD().get(lVar.ckD().size() - 1);
             if (this.izS.getPage() != null) {
                 z4 = this.izS.getPage().aJy() == 1;
             } else {

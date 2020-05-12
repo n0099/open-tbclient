@@ -36,9 +36,9 @@ public final class OperatorGroupBy<T, K, V> implements d.b<rx.observables.b<K, V
             return bVar;
         } catch (Throwable th) {
             rx.exceptions.a.a(th, jVar);
-            rx.j<? super T> dIr = rx.b.f.dIr();
-            dIr.unsubscribe();
-            return dIr;
+            rx.j<? super T> dIs = rx.b.f.dIs();
+            dIs.unsubscribe();
+            return dIs;
         }
     }
 

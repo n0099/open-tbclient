@@ -8,11 +8,11 @@ public class c {
     private final Map<com.facebook.c.c, b> mdk;
     private final List<c.a> mdl;
 
-    public Map<com.facebook.c.c, b> dsC() {
+    public Map<com.facebook.c.c, b> dsD() {
         return this.mdk;
     }
 
-    public List<c.a> dsD() {
+    public List<c.a> dsE() {
         return this.mdl;
     }
 }

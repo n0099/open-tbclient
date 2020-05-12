@@ -15,7 +15,7 @@ public class b implements c.a {
     }
 
     @Override // com.baidu.tieba.video.cloudmusic.c.a
-    public void daG() {
+    public void daH() {
         this.lhQ.us(true);
         this.lhP.a(new com.baidu.tieba.video.cloudmusic.model.a<CloudMusicData>() { // from class: com.baidu.tieba.video.cloudmusic.b.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -39,7 +39,7 @@ public class b implements c.a {
     }
 
     @Override // com.baidu.tieba.video.cloudmusic.c.a
-    public void bRh() {
+    public void bRi() {
         this.lhP.cancelLoadData();
     }
 }

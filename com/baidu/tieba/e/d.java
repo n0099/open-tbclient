@@ -10,7 +10,7 @@ public class d extends com.baidu.tieba.card.data.b {
         this.gvV = bVar;
     }
 
-    public com.baidu.tieba.frs.gamerecommend.data.b bGs() {
+    public com.baidu.tieba.frs.gamerecommend.data.b bGt() {
         return this.gvV;
     }
 

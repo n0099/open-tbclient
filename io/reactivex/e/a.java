@@ -40,7 +40,7 @@ public final class a {
     static volatile boolean mWf;
     static volatile boolean mWg;
 
-    public static boolean dDd() {
+    public static boolean dDe() {
         return mWg;
     }
 
@@ -165,7 +165,7 @@ public final class a {
         return hVar != null ? (q) a((h<q<T>, Object>) hVar, qVar) : qVar;
     }
 
-    public static boolean dDe() {
+    public static boolean dDf() {
         e eVar = mWe;
         if (eVar != null) {
             try {

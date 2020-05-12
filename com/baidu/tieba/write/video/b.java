@@ -166,7 +166,7 @@ public class b {
         this.lCE.setActivity(this.lCp);
     }
 
-    public ForumTabSelectedView dgk() {
+    public ForumTabSelectedView dgl() {
         return this.lCE;
     }
 
@@ -226,10 +226,10 @@ public class b {
                     b.this.lCx.setVisibility(0);
                     b.this.lCu.setVisibility(8);
                 }
-                long dgl = b.lCo - b.this.dgl();
-                if (dgl >= 0) {
+                long dgm = b.lCo - b.this.dgm();
+                if (dgm >= 0) {
                     am.setViewTextColor(b.this.lCu, (int) R.color.cp_cont_e);
-                    b.this.lCu.setText(String.valueOf(dgl));
+                    b.this.lCu.setText(String.valueOf(dgm));
                     return;
                 }
                 b.this.lCu.setText("0");
@@ -241,7 +241,7 @@ public class b {
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
                 if (b.this.lCw != null) {
-                    if (!b.this.lCw.deS()) {
+                    if (!b.this.lCw.deT()) {
                         b.this.uY(false);
                     }
                     b.this.lCw.uO(false);
@@ -355,18 +355,18 @@ public class b {
         return this.lCr.getText().toString();
     }
 
-    public long dgl() {
+    public long dgm() {
         if (this.lCr.getText() == null || this.lCr.getText().toString() == null) {
             return 0L;
         }
         return this.lCr.getText().length();
     }
 
-    public WriteLocationView dgm() {
+    public WriteLocationView dgn() {
         return this.lCt;
     }
 
-    public View dgn() {
+    public View dgo() {
         return this.lCq;
     }
 
@@ -374,11 +374,11 @@ public class b {
         return this.lCv;
     }
 
-    public EditText dgo() {
+    public EditText dgp() {
         return this.lCr;
     }
 
-    public StateSwitchView dgp() {
+    public StateSwitchView dgq() {
         return this.lCs;
     }
 
@@ -416,7 +416,7 @@ public class b {
         }
     }
 
-    public void dbY() {
+    public void dbZ() {
         if (this.lmc != null) {
             this.lmc.resume();
             this.lmc.seekTo(this.lmm);
@@ -424,7 +424,7 @@ public class b {
         }
     }
 
-    public void bQW() {
+    public void bQX() {
         this.lmm = this.lmc.getCurrentPosition();
         if (this.lmc != null) {
             this.lmc.stopPlayback();
@@ -439,7 +439,7 @@ public class b {
         }
     }
 
-    public void dgq() {
+    public void dgr() {
         this.lCw.aW(null);
         this.lCw.uN(false);
     }
@@ -448,7 +448,7 @@ public class b {
         if (postWriteCallBackData != null) {
             this.lCw.aW(postWriteCallBackData.getSensitiveWords());
             this.lCw.Ms(postWriteCallBackData.getErrorString());
-            if (!v.isEmpty(this.lCw.deP())) {
+            if (!v.isEmpty(this.lCw.deQ())) {
                 uY(true);
             }
         }
@@ -461,18 +461,18 @@ public class b {
             if (a != null) {
                 this.lCw.uO(true);
                 this.lCr.setText(a);
-                if (z && this.lCw.deQ() >= 0) {
+                if (z && this.lCw.deR() >= 0) {
                     this.lCr.requestFocus();
-                    this.lCr.setSelection(this.lCw.deQ());
+                    this.lCr.setSelection(this.lCw.deR());
                 } else {
                     this.lCr.setSelection(selectionEnd);
                 }
-                this.lCw.uN(this.lCw.deQ() >= 0);
+                this.lCw.uN(this.lCw.deR() >= 0);
             }
         }
     }
 
-    public c dgr() {
+    public c dgs() {
         return this.lCw;
     }
 

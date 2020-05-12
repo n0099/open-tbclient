@@ -118,7 +118,7 @@ public class p {
     }
 
     public void aDN() {
-        if (g.dky().sc(this.mId)) {
+        if (g.dkz().sc(this.mId)) {
             this.def = UBC.getUBCContext().ahx();
         }
     }

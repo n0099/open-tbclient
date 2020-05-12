@@ -100,7 +100,7 @@ public class g extends BaseAdapter {
         this.kag.fetchPost(this.gNw, this.klQ, z, this.mUid, false, true, false, null);
     }
 
-    public void bRh() {
+    public void bRi() {
         if (this.kag != null) {
             this.kag.cancelLoadData();
         }

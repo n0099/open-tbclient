@@ -55,7 +55,7 @@ public class DragLayer extends FrameLayout {
         return this.kUJ;
     }
 
-    public void cWQ() {
+    public void cWR() {
         if (this.kUJ != null) {
             if (this.kUJ.bm != null) {
                 this.kUJ.bm.recycle();
@@ -81,6 +81,6 @@ public class DragLayer extends FrameLayout {
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        cWQ();
+        cWR();
     }
 }

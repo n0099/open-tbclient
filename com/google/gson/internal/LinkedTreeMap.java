@@ -188,13 +188,13 @@ public final class LinkedTreeMap<K, V> extends AbstractMap<K, V> implements Seri
         d<K, V> dVar3 = dVar.mjD;
         d<K, V> dVar4 = dVar.mjB;
         if (dVar2 != null && dVar3 != null) {
-            d<K, V> dvC = dVar2.height > dVar3.height ? dVar2.dvC() : dVar3.dvB();
-            removeInternal(dvC, false);
+            d<K, V> dvD = dVar2.height > dVar3.height ? dVar2.dvD() : dVar3.dvC();
+            removeInternal(dvD, false);
             d<K, V> dVar5 = dVar.mjC;
             if (dVar5 != null) {
                 i = dVar5.height;
-                dvC.mjC = dVar5;
-                dVar5.mjB = dvC;
+                dvD.mjC = dVar5;
+                dVar5.mjB = dvD;
                 dVar.mjC = null;
             } else {
                 i = 0;
@@ -202,12 +202,12 @@ public final class LinkedTreeMap<K, V> extends AbstractMap<K, V> implements Seri
             d<K, V> dVar6 = dVar.mjD;
             if (dVar6 != null) {
                 i2 = dVar6.height;
-                dvC.mjD = dVar6;
-                dVar6.mjB = dvC;
+                dvD.mjD = dVar6;
+                dVar6.mjB = dvD;
                 dVar.mjD = null;
             }
-            dvC.height = Math.max(i, i2) + 1;
-            replaceInParent(dVar, dvC);
+            dvD.height = Math.max(i, i2) + 1;
+            replaceInParent(dVar, dvD);
             return;
         }
         if (dVar2 != null) {
@@ -437,14 +437,14 @@ public final class LinkedTreeMap<K, V> extends AbstractMap<K, V> implements Seri
             return this.key + ETAG.EQUAL + this.value;
         }
 
-        public d<K, V> dvB() {
+        public d<K, V> dvC() {
             for (d<K, V> dVar = this.mjC; dVar != null; dVar = dVar.mjC) {
                 this = dVar;
             }
             return this;
         }
 
-        public d<K, V> dvC() {
+        public d<K, V> dvD() {
             for (d<K, V> dVar = this.mjD; dVar != null; dVar = dVar.mjD) {
                 this = dVar;
             }
@@ -469,7 +469,7 @@ public final class LinkedTreeMap<K, V> extends AbstractMap<K, V> implements Seri
             return this.mjz != LinkedTreeMap.this.header;
         }
 
-        final d<K, V> dvA() {
+        final d<K, V> dvB() {
             d<K, V> dVar = this.mjz;
             if (dVar == LinkedTreeMap.this.header) {
                 throw new NoSuchElementException();
@@ -513,7 +513,7 @@ public final class LinkedTreeMap<K, V> extends AbstractMap<K, V> implements Seri
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // java.util.Iterator
                 public Map.Entry<K, V> next() {
-                    return dvA();
+                    return dvB();
                 }
             };
         }
@@ -558,7 +558,7 @@ public final class LinkedTreeMap<K, V> extends AbstractMap<K, V> implements Seri
 
                 @Override // java.util.Iterator
                 public K next() {
-                    return dvA().key;
+                    return dvB().key;
                 }
             };
         }

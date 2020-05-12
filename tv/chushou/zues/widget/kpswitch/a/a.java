@@ -18,12 +18,12 @@ public class a {
             this.nvc.setVisibility(8);
         }
         if (!z && this.nve != null) {
-            dKo();
+            dKp();
             this.nve = null;
         }
     }
 
-    private void dKo() {
+    private void dKp() {
         this.nvc.setVisibility(4);
         d.dC(this.nve);
     }

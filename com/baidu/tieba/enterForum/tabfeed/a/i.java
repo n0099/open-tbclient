@@ -58,7 +58,7 @@ public class i extends com.baidu.adp.widget.ListView.a<bi, com.baidu.card.a<bj>>
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.z
             public void a(View view, bj bjVar) {
-                com.baidu.tieba.card.r.bEW().jd(true);
+                com.baidu.tieba.card.r.bEX().jd(true);
                 i.this.f(view, bjVar);
             }
         };
@@ -137,7 +137,7 @@ public class i extends com.baidu.adp.widget.ListView.a<bi, com.baidu.card.a<bj>>
         aVar.b((com.baidu.card.a<bj>) biVar.dqE);
         aVar.rD().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         aVar.rD().a(this.ada);
-        com.baidu.tieba.card.r.bEW().e(com.baidu.tieba.enterForum.a.h(biVar.aIu(), this.mTabName));
+        com.baidu.tieba.card.r.bEX().e(com.baidu.tieba.enterForum.a.h(biVar.aIu(), this.mTabName));
         return aVar.getView();
     }
 

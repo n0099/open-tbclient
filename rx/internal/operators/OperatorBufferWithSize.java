@@ -22,17 +22,17 @@ public final class OperatorBufferWithSize<T> implements d.b<List<T>, T> {
         if (this.skip == this.count) {
             a aVar = new a(jVar, this.count);
             jVar.add(aVar);
-            jVar.setProducer(aVar.dHJ());
+            jVar.setProducer(aVar.dHK());
             return aVar;
         } else if (this.skip > this.count) {
             BufferSkip bufferSkip = new BufferSkip(jVar, this.count, this.skip);
             jVar.add(bufferSkip);
-            jVar.setProducer(bufferSkip.dHJ());
+            jVar.setProducer(bufferSkip.dHK());
             return bufferSkip;
         } else {
             BufferOverlap bufferOverlap = new BufferOverlap(jVar, this.count, this.skip);
             jVar.add(bufferOverlap);
-            jVar.setProducer(bufferOverlap.dHJ());
+            jVar.setProducer(bufferOverlap.dHK());
             return bufferOverlap;
         }
     }
@@ -79,7 +79,7 @@ public final class OperatorBufferWithSize<T> implements d.b<List<T>, T> {
             this.actual.onCompleted();
         }
 
-        rx.f dHJ() {
+        rx.f dHK() {
             return new rx.f() { // from class: rx.internal.operators.OperatorBufferWithSize.a.1
                 @Override // rx.f
                 public void request(long j) {
@@ -149,7 +149,7 @@ public final class OperatorBufferWithSize<T> implements d.b<List<T>, T> {
             this.actual.onCompleted();
         }
 
-        rx.f dHJ() {
+        rx.f dHK() {
             return new BufferSkipProducer();
         }
 
@@ -239,7 +239,7 @@ public final class OperatorBufferWithSize<T> implements d.b<List<T>, T> {
             rx.internal.operators.a.a(this.requested, this.nkR, this.actual);
         }
 
-        rx.f dHJ() {
+        rx.f dHK() {
             return new BufferOverlapProducer();
         }
 

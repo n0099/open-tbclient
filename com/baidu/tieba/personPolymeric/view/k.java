@@ -109,16 +109,16 @@ public class k {
             this.eUW.setText(this.mUserData.getName_show());
         }
         this.kdT = personStatus;
-        cIM();
+        cIN();
     }
 
     public void a(PersonStatus personStatus) {
         this.kdT = personStatus;
-        cIM();
+        cIN();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void cIM() {
+    public void cIN() {
         if (this.mIsHost) {
             this.kdR.setVisibility(8);
             this.kdQ.setVisibility(8);
@@ -131,11 +131,11 @@ public class k {
         }
     }
 
-    public View cIN() {
+    public View cIO() {
         return this.eUT;
     }
 
-    public boolean cIO() {
+    public boolean cIP() {
         return this.mIsHost;
     }
 

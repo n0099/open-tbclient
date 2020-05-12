@@ -18,19 +18,19 @@ public class h {
     private ArrayList<d> kOC = new ArrayList<>();
     private boolean isSuccess = true;
 
-    public boolean cVa() {
+    public boolean cVb() {
         return true;
     }
 
-    public ArrayList<b> cVb() {
+    public ArrayList<b> cVc() {
         return this.kOB;
     }
 
-    public ArrayList<a> cVc() {
+    public ArrayList<a> cVd() {
         return this.kOl;
     }
 
-    public ArrayList<bg> cVd() {
+    public ArrayList<bg> cVe() {
         return this.kOj;
     }
 
@@ -218,7 +218,7 @@ public class h {
         }
     }
 
-    public String cVe() {
+    public String cVf() {
         JSONObject jSONObject = new JSONObject();
         JSONArray jSONArray = new JSONArray();
         JSONArray jSONArray2 = new JSONArray();

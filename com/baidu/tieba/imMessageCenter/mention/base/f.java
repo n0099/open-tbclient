@@ -36,7 +36,7 @@ public class f {
     public void bk(String str, int i) {
         this.ifl.setText(str);
         this.mIcon = i;
-        ckM();
+        ckN();
     }
 
     public void R(int i, boolean z) {
@@ -51,7 +51,7 @@ public class f {
         this.ifo.setVisibility(8);
     }
 
-    public void ckM() {
+    public void ckN() {
         am.setViewTextColor(this.ifl, R.color.cp_cont_b, 1);
         this.iCr.setBackgroundDrawable(am.kC(R.color.cp_bg_line_e));
         SvgManager.aOR().a(this.iCt, R.drawable.icon_pure_list_arrow16_right_svg, R.color.cp_cont_d, SvgManager.SvgResourceStateType.NORMAL);

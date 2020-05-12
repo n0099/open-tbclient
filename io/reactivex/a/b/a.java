@@ -9,7 +9,7 @@ public final class a {
     private static final v mRj = io.reactivex.a.a.a.d(new Callable<v>() { // from class: io.reactivex.a.b.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.concurrent.Callable
-        /* renamed from: dCE */
+        /* renamed from: dCF */
         public v call() throws Exception {
             return C0803a.mRk;
         }
@@ -22,7 +22,7 @@ public final class a {
         static final v mRk = new b(new Handler(Looper.getMainLooper()));
     }
 
-    public static v dCD() {
+    public static v dCE() {
         return io.reactivex.a.a.a.e(mRj);
     }
 

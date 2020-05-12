@@ -1,7 +1,7 @@
 package com.facebook.common.c;
 /* loaded from: classes13.dex */
 public class a {
-    private static c lRI = b.dmZ();
+    private static c lRI = b.dna();
 
     public static boolean isLoggable(int i) {
         return lRI.isLoggable(i);

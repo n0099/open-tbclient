@@ -6,7 +6,7 @@ public class f implements CacheEventListener {
     private f() {
     }
 
-    public static synchronized f dmk() {
+    public static synchronized f dml() {
         f fVar;
         synchronized (f.class) {
             if (lQp == null) {

@@ -54,7 +54,7 @@ public class l {
         return layoutParams.height;
     }
 
-    public int bPh() {
+    public int bPi() {
         return this.hai;
     }
 }

@@ -19,25 +19,25 @@ public class s implements aj<com.facebook.imagepipeline.g.e> {
     @Override // com.facebook.imagepipeline.producers.aj
     public void c(k<com.facebook.imagepipeline.g.e> kVar, ak akVar) {
         String id = akVar.getId();
-        am dtR = akVar.dtR();
-        dtR.fi(id, "EncodedMemoryCacheProducer");
-        com.facebook.cache.common.b c = this.mbI.c(akVar.dtQ(), akVar.dot());
+        am dtS = akVar.dtS();
+        dtS.fi(id, "EncodedMemoryCacheProducer");
+        com.facebook.cache.common.b c = this.mbI.c(akVar.dtR(), akVar.dou());
         com.facebook.common.references.a<PooledByteBuffer> be = this.lTj.be(c);
         try {
             if (be != null) {
                 com.facebook.imagepipeline.g.e eVar = new com.facebook.imagepipeline.g.e(be);
-                dtR.a(id, "EncodedMemoryCacheProducer", dtR.Oo(id) ? ImmutableMap.of("cached_value_found", "true") : null);
-                dtR.D(id, "EncodedMemoryCacheProducer", true);
+                dtS.a(id, "EncodedMemoryCacheProducer", dtS.Oo(id) ? ImmutableMap.of("cached_value_found", "true") : null);
+                dtS.D(id, "EncodedMemoryCacheProducer", true);
                 kVar.au(1.0f);
                 kVar.h(eVar, 1);
                 com.facebook.imagepipeline.g.e.e(eVar);
-            } else if (akVar.dtS().getValue() >= ImageRequest.RequestLevel.ENCODED_MEMORY_CACHE.getValue()) {
-                dtR.a(id, "EncodedMemoryCacheProducer", dtR.Oo(id) ? ImmutableMap.of("cached_value_found", "false") : null);
-                dtR.D(id, "EncodedMemoryCacheProducer", false);
+            } else if (akVar.dtT().getValue() >= ImageRequest.RequestLevel.ENCODED_MEMORY_CACHE.getValue()) {
+                dtS.a(id, "EncodedMemoryCacheProducer", dtS.Oo(id) ? ImmutableMap.of("cached_value_found", "false") : null);
+                dtS.D(id, "EncodedMemoryCacheProducer", false);
                 kVar.h(null, 1);
             } else {
-                a aVar = new a(kVar, this.lTj, c, akVar.dtQ().duP());
-                dtR.a(id, "EncodedMemoryCacheProducer", dtR.Oo(id) ? ImmutableMap.of("cached_value_found", "false") : null);
+                a aVar = new a(kVar, this.lTj, c, akVar.dtR().duQ());
+                dtS.a(id, "EncodedMemoryCacheProducer", dtS.Oo(id) ? ImmutableMap.of("cached_value_found", "false") : null);
                 this.meH.c(aVar, akVar);
             }
         } finally {
@@ -63,23 +63,23 @@ public class s implements aj<com.facebook.imagepipeline.g.e> {
         /* renamed from: a */
         public void g(com.facebook.imagepipeline.g.e eVar, int i) {
             if (Hs(i) || eVar == null || dm(i, 10)) {
-                duc().h(eVar, i);
+                dud().h(eVar, i);
                 return;
             }
-            com.facebook.common.references.a<PooledByteBuffer> dsR = eVar.dsR();
-            if (dsR != null) {
+            com.facebook.common.references.a<PooledByteBuffer> dsS = eVar.dsS();
+            if (dsS != null) {
                 com.facebook.common.references.a<PooledByteBuffer> aVar = null;
                 try {
                     if (this.mfl) {
-                        aVar = this.lTj.a(this.mfk, dsR);
+                        aVar = this.lTj.a(this.mfk, dsS);
                     }
                     if (aVar != null) {
                         try {
                             com.facebook.imagepipeline.g.e eVar2 = new com.facebook.imagepipeline.g.e(aVar);
                             eVar2.c(eVar);
                             try {
-                                duc().au(1.0f);
-                                duc().h(eVar2, i);
+                                dud().au(1.0f);
+                                dud().h(eVar2, i);
                                 return;
                             } finally {
                                 com.facebook.imagepipeline.g.e.e(eVar2);
@@ -89,10 +89,10 @@ public class s implements aj<com.facebook.imagepipeline.g.e> {
                         }
                     }
                 } finally {
-                    com.facebook.common.references.a.c((com.facebook.common.references.a<?>) dsR);
+                    com.facebook.common.references.a.c((com.facebook.common.references.a<?>) dsS);
                 }
             }
-            duc().h(eVar, i);
+            dud().h(eVar, i);
         }
     }
 }

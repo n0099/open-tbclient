@@ -26,14 +26,14 @@ public abstract class a implements u {
 
     public boolean a(String str, JSONObject jSONObject, boolean z) {
         String str2;
-        boolean dkM = this.lMW.dkM();
-        if (dkM) {
+        boolean dkN = this.lMW.dkN();
+        if (dkN) {
             str2 = "http://bjyz-mco-searchbox201609-m12xi3-044.bjyz.baidu.com:8080/ztbox?action=zubc";
         } else {
             str2 = str + "/ztbox?action=zubc";
         }
         String processUrl = com.baidu.a.b.b.sj().processUrl(str2);
-        if (dkM && !TextUtils.isEmpty(processUrl)) {
+        if (dkN && !TextUtils.isEmpty(processUrl)) {
             processUrl = UrlUtil.addParam(processUrl, "debug", "1");
         }
         if (z) {

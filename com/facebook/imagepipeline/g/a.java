@@ -9,12 +9,12 @@ public class a extends c {
 
     @Override // com.facebook.imagepipeline.g.f
     public synchronized int getWidth() {
-        return isClosed() ? 0 : this.mdu.dpZ().getWidth();
+        return isClosed() ? 0 : this.mdu.dqa().getWidth();
     }
 
     @Override // com.facebook.imagepipeline.g.f
     public synchronized int getHeight() {
-        return isClosed() ? 0 : this.mdu.dpZ().getHeight();
+        return isClosed() ? 0 : this.mdu.dqa().getHeight();
     }
 
     @Override // com.facebook.imagepipeline.g.c, java.io.Closeable, java.lang.AutoCloseable
@@ -35,7 +35,7 @@ public class a extends c {
 
     @Override // com.facebook.imagepipeline.g.c
     public synchronized int getSizeInBytes() {
-        return isClosed() ? 0 : this.mdu.dpZ().getSizeInBytes();
+        return isClosed() ? 0 : this.mdu.dqa().getSizeInBytes();
     }
 
     @Override // com.facebook.imagepipeline.g.c
@@ -43,7 +43,7 @@ public class a extends c {
         return true;
     }
 
-    public synchronized com.facebook.imagepipeline.animated.base.d dsJ() {
+    public synchronized com.facebook.imagepipeline.animated.base.d dsK() {
         return this.mdu;
     }
 }

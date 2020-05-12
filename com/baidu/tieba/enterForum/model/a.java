@@ -9,7 +9,7 @@ public class a {
     private int mStatusBarHeight;
     private WindowManager mWindowManager;
 
-    public static a bIR() {
+    public static a bIS() {
         if (gDO == null) {
             synchronized (a.class) {
                 if (gDO == null) {

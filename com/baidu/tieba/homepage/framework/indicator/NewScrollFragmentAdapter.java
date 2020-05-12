@@ -114,8 +114,8 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
         return this.hKT.getType(i);
     }
 
-    public int bYo() {
-        return this.hKT.bYu();
+    public int bYp() {
+        return this.hKT.bYv();
     }
 
     public int vI(int i) {
@@ -233,7 +233,7 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
         }
     }
 
-    public boolean bYp() {
+    public boolean bYq() {
         return this.hKH != null;
     }
 
@@ -258,15 +258,15 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
         }
     }
 
-    public void bYq() {
+    public void bYr() {
         if (this.hKI != null) {
-            this.hKI.bYq();
+            this.hKI.bYr();
         }
     }
 
-    public void bYr() {
+    public void bYs() {
         if (this.hKH != null) {
-            this.hKH.bXM();
+            this.hKH.bXN();
         }
     }
 
@@ -288,7 +288,7 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
         }
     }
 
-    public void bYs() {
+    public void bYt() {
         if (this.hKN != null) {
             this.hKN.FG();
         }
@@ -337,7 +337,7 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
 
     public void vK(int i) {
         if (i == 1 && this.hKI != null) {
-            this.hKI.bZn();
+            this.hKI.bZo();
         }
     }
 

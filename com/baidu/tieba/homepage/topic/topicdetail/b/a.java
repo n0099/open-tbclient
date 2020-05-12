@@ -104,7 +104,7 @@ public class a {
         }
     }
 
-    public boolean cai() {
+    public boolean caj() {
         return this.hRE;
     }
 }

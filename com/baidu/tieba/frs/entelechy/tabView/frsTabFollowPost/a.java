@@ -29,7 +29,7 @@ public class a {
     private FrsTabSortSwitchButton.a hiu = new FrsTabSortSwitchButton.a() { // from class: com.baidu.tieba.frs.entelechy.tabView.frsTabFollowPost.a.1
         @Override // com.baidu.tieba.frs.entelechy.tabView.frsTabFollowPost.view.FrsTabSortSwitchButton.a
         public boolean tO(int i) {
-            if (com.baidu.tieba.frs.a.bNB().bNC()) {
+            if (com.baidu.tieba.frs.a.bNC().bND()) {
                 return false;
             }
             if (!j.isNetworkAvailableForImmediately()) {
@@ -37,13 +37,13 @@ public class a {
                 return false;
             }
             if (a.this.hiq instanceof FrsNewAreaFragment) {
-                if (((FrsNewAreaFragment) a.this.hiq).bUf() == null || ((FrsNewAreaFragment) a.this.hiq).bUg() == null) {
+                if (((FrsNewAreaFragment) a.this.hiq).bUg() == null || ((FrsNewAreaFragment) a.this.hiq).bUh() == null) {
                     return false;
                 }
             } else if (!(a.this.hiq instanceof FrsCommonTabFragment)) {
                 return false;
             } else {
-                if (((FrsCommonTabFragment) a.this.hiq).bRr() == null || ((FrsCommonTabFragment) a.this.hiq).bRs() == null) {
+                if (((FrsCommonTabFragment) a.this.hiq).bRs() == null || ((FrsCommonTabFragment) a.this.hiq).bRt() == null) {
                     return false;
                 }
             }
@@ -53,18 +53,18 @@ public class a {
             a.this.hit = i;
             if (a.this.hit != 7) {
                 aa.baD();
-                e.cXp();
+                e.cXq();
             } else {
-                e.cXo();
+                e.cXp();
             }
             if (a.this.hiq instanceof FrsNewAreaFragment) {
-                ((FrsNewAreaFragment) a.this.hiq).bUf().ur(a.this.his.tR(a.this.hit));
-                ((FrsNewAreaFragment) a.this.hiq).bUg().startPullRefresh();
+                ((FrsNewAreaFragment) a.this.hiq).bUg().ur(a.this.his.tR(a.this.hit));
+                ((FrsNewAreaFragment) a.this.hiq).bUh().startPullRefresh();
             } else {
                 ((FrsCommonTabFragment) a.this.hiq).setSortType(g.uI(a.this.his.tR(a.this.hit)));
-                ((FrsCommonTabFragment) a.this.hiq).bRs().it(true);
+                ((FrsCommonTabFragment) a.this.hiq).bRt().it(true);
             }
-            a.this.bSb();
+            a.this.bSc();
             return true;
         }
     };
@@ -74,7 +74,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bSb() {
+    public void bSc() {
         an anVar = new an("c11437");
         anVar.af("obj_type", this.his.tR(this.hit));
         anVar.cI("fid", this.eQk);

@@ -110,7 +110,7 @@ public class VideoPlayFragmentAdapter extends FragmentStatePagerAdapter {
         this.mRect = rect;
     }
 
-    public void deh() {
+    public void dei() {
         int i = b.aNT().getInt("nani_key_download_show_rate", 2);
         if (this.lsN > 0 && i != 1) {
             b.aNT().putLong("key_vertical_shown_time", this.lsN);
@@ -128,7 +128,7 @@ public class VideoPlayFragmentAdapter extends FragmentStatePagerAdapter {
             List<String> mediaIDs = videoPlayFragment.getMediaIDs();
             if (v.getCount(mediaIDs) >= 5) {
                 list = mediaIDs;
-                str = videoPlayFragment.ded();
+                str = videoPlayFragment.dee();
             } else {
                 return;
             }
@@ -136,15 +136,15 @@ public class VideoPlayFragmentAdapter extends FragmentStatePagerAdapter {
             list = null;
             str = null;
         }
-        String ded = (i + (-1) < 0 || (EA2 = EA(i + (-1))) == null) ? null : EA2.ded();
+        String dee = (i + (-1) < 0 || (EA2 = EA(i + (-1))) == null) ? null : EA2.dee();
         if (i + 1 < getCount() && (EA = EA(i + 1)) != null) {
-            str2 = EA.ded();
+            str2 = EA.dee();
         }
         ArrayList arrayList = new ArrayList();
         int count = v.getCount(list);
         for (int i2 = 0; i2 < count; i2++) {
             String str3 = list.get(i2);
-            if (!TextUtils.equals(str3, str) && !TextUtils.equals(str3, ded) && !TextUtils.equals(str3, str2)) {
+            if (!TextUtils.equals(str3, str) && !TextUtils.equals(str3, dee) && !TextUtils.equals(str3, str2)) {
                 arrayList.add(str3);
             }
         }

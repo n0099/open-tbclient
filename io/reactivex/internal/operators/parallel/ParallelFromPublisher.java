@@ -18,7 +18,7 @@ public final class ParallelFromPublisher<T> extends a<T> {
     final b<? extends T> source;
 
     @Override // io.reactivex.parallel.a
-    public int dCN() {
+    public int dCO() {
         return this.mTZ;
     }
 

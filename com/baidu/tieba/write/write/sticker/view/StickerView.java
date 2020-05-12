@@ -72,7 +72,7 @@ public class StickerView extends ImageView {
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
         if (z) {
-            this.lHk.getMatrix().postTranslate((getWidth() - this.lHk.dij()) / 2, (getHeight() - this.lHk.dik()) / 2);
+            this.lHk.getMatrix().postTranslate((getWidth() - this.lHk.dik()) / 2, (getHeight() - this.lHk.dil()) / 2);
         }
     }
 
@@ -80,7 +80,7 @@ public class StickerView extends ImageView {
     protected void onDraw(Canvas canvas) {
         if (this.lHk != null) {
             this.lHk.draw(canvas);
-            float[] a = g.a(this.lHk.dil(), this.lHk.getMatrix());
+            float[] a = g.a(this.lHk.dim(), this.lHk.getMatrix());
             float f = a[0];
             float f2 = a[1];
             float f3 = a[2];
@@ -116,7 +116,7 @@ public class StickerView extends ImageView {
                 if (this.lfu && this.lHo.L(motionEvent)) {
                     this.lHp = false;
                     if (this.lHq != null) {
-                        this.lHq.dim();
+                        this.lHq.din();
                         break;
                     }
                 } else if (a(this.lHk, motionEvent)) {
@@ -193,7 +193,7 @@ public class StickerView extends ImageView {
     }
 
     private boolean a(a aVar, MotionEvent motionEvent) {
-        return com.baidu.tieba.write.write.sticker.b.a.b(g.a(aVar.dil(), aVar.getMatrix()), motionEvent.getX(), motionEvent.getY());
+        return com.baidu.tieba.write.write.sticker.b.a.b(g.a(aVar.dim(), aVar.getMatrix()), motionEvent.getX(), motionEvent.getY());
     }
 
     @Override // android.widget.ImageView

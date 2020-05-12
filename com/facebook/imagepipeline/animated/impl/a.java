@@ -27,8 +27,8 @@ public class a implements com.facebook.imagepipeline.animated.base.a {
     public a(com.facebook.imagepipeline.animated.b.a aVar, d dVar, Rect rect) {
         this.lYx = aVar;
         this.lZv = dVar;
-        this.lZw = dVar.dpZ();
-        this.lZy = this.lZw.dmc();
+        this.lZw = dVar.dqa();
+        this.lZy = this.lZw.dmd();
         this.lYx.n(this.lZy);
         this.lVq = this.lYx.o(this.lZy);
         this.lZz = this.lYx.p(this.lZy);
@@ -67,12 +67,12 @@ public class a implements com.facebook.imagepipeline.animated.base.a {
     }
 
     @Override // com.facebook.imagepipeline.animated.base.a
-    public int dpX() {
+    public int dpY() {
         return this.lZx.width();
     }
 
     @Override // com.facebook.imagepipeline.animated.base.a
-    public int dpY() {
+    public int dpZ() {
         return this.lZx.height();
     }
 
@@ -95,7 +95,7 @@ public class a implements com.facebook.imagepipeline.animated.base.a {
     public void c(int i, Canvas canvas) {
         com.facebook.imagepipeline.animated.base.c FW = this.lZw.FW(i);
         try {
-            if (this.lZw.dmd()) {
+            if (this.lZw.dme()) {
                 a(canvas, FW);
             } else {
                 b(canvas, FW);
@@ -107,7 +107,7 @@ public class a implements com.facebook.imagepipeline.animated.base.a {
 
     private synchronized void dh(int i, int i2) {
         if (this.lkt != null && (this.lkt.getWidth() < i || this.lkt.getHeight() < i2)) {
-            dby();
+            dbz();
         }
         if (this.lkt == null) {
             this.lkt = Bitmap.createBitmap(i, i2, Bitmap.Config.ARGB_8888);
@@ -150,7 +150,7 @@ public class a implements com.facebook.imagepipeline.animated.base.a {
         }
     }
 
-    private synchronized void dby() {
+    private synchronized void dbz() {
         if (this.lkt != null) {
             this.lkt.recycle();
             this.lkt = null;

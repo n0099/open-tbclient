@@ -49,7 +49,7 @@ public class q extends y.a {
         this.jsy = (ImageView) view.findViewById(R.id.pb_thread_type_stamp_first_floor_bottom_part);
         this.jsy.setScaleType(ImageView.ScaleType.MATRIX);
         Matrix matrix = new Matrix();
-        matrix.postTranslate(0.0f, -am.cAb());
+        matrix.postTranslate(0.0f, -am.cAc());
         this.jsy.setImageMatrix(matrix);
         this.jsz = view.findViewById(R.id.blank_view_above_rich_text);
         this.jsA = (TbRichTextView) view.findViewById(R.id.richText);
@@ -82,13 +82,13 @@ public class q extends y.a {
 
     public void a(@NonNull com.baidu.tieba.pb.data.e eVar, boolean z, boolean z2) {
         if (this.jsJ != null && eVar != null && eVar.getForum() != null) {
-            if (eVar.cvP() && eVar.aQe()) {
+            if (eVar.cvQ() && eVar.aQe()) {
                 this.jsJ.setVisibility(8);
                 return;
             }
             this.jsJ.setBottomPlaceHolderVisibility(z2);
             boolean z3 = false;
-            if (!z && !com.baidu.tbadk.core.util.v.isEmpty(eVar.cvK())) {
+            if (!z && !com.baidu.tbadk.core.util.v.isEmpty(eVar.cvL())) {
                 z3 = true;
             }
             bj bjVar = new bj();
@@ -97,17 +97,17 @@ public class q extends y.a {
             bjVar.tW(eVar.getForum().getName());
             bjVar.ub(eVar.getForum().getFirst_class());
             bjVar.uc(eVar.getForum().getSecond_class());
-            if (eVar.cvr() != null) {
-                bjVar.setThreadType(eVar.cvr().threadType);
+            if (eVar.cvs() != null) {
+                bjVar.setThreadType(eVar.cvs().threadType);
             }
             if (z3) {
-                this.jsJ.a(bjVar, eVar.cvK());
+                this.jsJ.a(bjVar, eVar.cvL());
             } else {
                 this.jsJ.F(bjVar);
             }
             if (eVar.jnC) {
                 this.jsJ.setVisibility(8);
-                this.jsK.a(bjVar, eVar.cvq(), eVar.aQe());
+                this.jsK.a(bjVar, eVar.cvr(), eVar.aQe());
                 return;
             }
             this.jsK.setVisibility(8);

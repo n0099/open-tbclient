@@ -22,7 +22,7 @@ public class k extends com.baidu.adp.base.c<GroupAddressEditActivity> {
     NavigationBar mNavigationBar;
     View mParent;
 
-    public View ceJ() {
+    public View ceK() {
         return this.efY;
     }
 
@@ -80,7 +80,7 @@ public class k extends com.baidu.adp.base.c<GroupAddressEditActivity> {
         this.efY = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, groupAddressEditActivity.getResources().getString(R.string.save));
     }
 
-    public void ceK() {
+    public void ceL() {
         this.iiK.notifyDataSetChanged();
     }
 

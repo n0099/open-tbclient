@@ -32,7 +32,7 @@ public class o extends g {
         return current;
     }
 
-    public p.b doS() {
+    public p.b doT() {
         return this.lUT;
     }
 
@@ -58,7 +58,7 @@ public class o extends g {
 
     @Override // com.facebook.drawee.drawable.g, android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
-        doO();
+        doP();
         if (this.mDrawMatrix != null) {
             int save = canvas.save();
             canvas.clipRect(getBounds());
@@ -75,7 +75,7 @@ public class o extends g {
         configureBounds();
     }
 
-    private void doO() {
+    private void doP() {
         boolean z;
         boolean z2 = false;
         if (this.lUT instanceof p.l) {
@@ -121,7 +121,7 @@ public class o extends g {
     @Override // com.facebook.drawee.drawable.g, com.facebook.drawee.drawable.r
     public void getTransform(Matrix matrix) {
         getParentTransform(matrix);
-        doO();
+        doP();
         if (this.mDrawMatrix != null) {
             matrix.preConcat(this.mDrawMatrix);
         }

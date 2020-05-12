@@ -60,7 +60,7 @@ public class d {
     public interface c {
         void Go();
 
-        void dcU();
+        void dcV();
     }
 
     public boolean HC(int i) {
@@ -72,7 +72,7 @@ public class d {
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GET_VIDEO_PLATFORM_FACTORY, l.class);
         l lVar = runTask != null ? (l) runTask.getData() : null;
         if (lVar != null) {
-            this.kTM = lVar.crX();
+            this.kTM = lVar.crY();
         }
         this.mhx = null;
         this.mhy = new Object();
@@ -298,7 +298,7 @@ public class d {
                 this.mhn.drawFrame(this.mTextureId, fArr);
             }
             if (this.mhl != null) {
-                this.mhl.setPresentationTime(duX() * 1000);
+                this.mhl.setPresentationTime(duY() * 1000);
                 this.mhl.swapBuffers();
             }
         }
@@ -326,7 +326,7 @@ public class d {
         }
         this.mhB = false;
         if (this.mhs != null) {
-            this.mhs.dcU();
+            this.mhs.dcV();
         }
     }
 
@@ -424,7 +424,7 @@ public class d {
             d.this.mhz = false;
             try {
                 com.faceunity.a.b bVar = new com.faceunity.a.b();
-                if (bVar.duW() != null) {
+                if (bVar.duX() != null) {
                     ByteBuffer allocateDirect = ByteBuffer.allocateDirect(com.faceunity.a.b.SAMPLES_PER_FRAME);
                     bVar.startRecording();
                     d.this.bfX = 1;
@@ -435,14 +435,14 @@ public class d {
                             if (b > 0) {
                                 allocateDirect.position(b);
                                 allocateDirect.flip();
-                                d.this.mhp.f(allocateDirect, b, d.this.duX());
-                                d.this.mhp.duV();
+                                d.this.mhp.f(allocateDirect, b, d.this.duY());
+                                d.this.mhp.duW();
                             }
                         } finally {
                             bVar.stop();
                         }
                     }
-                    d.this.mhp.f(null, 0, d.this.duX());
+                    d.this.mhp.f(null, 0, d.this.duY());
                     bVar.release();
                     d.this.mhp.release();
                 } else {
@@ -458,7 +458,7 @@ public class d {
         }
     }
 
-    protected long duX() {
+    protected long duY() {
         long nanoTime = System.nanoTime();
         if (this.mht != 0) {
             if (this.mhu == 0) {

@@ -12,11 +12,11 @@ public interface b {
 
     void d(Framedata framedata);
 
-    String dGS();
-
     String dGT();
 
-    b dGU();
+    String dGU();
+
+    b dGV();
 
     void e(Framedata framedata) throws InvalidDataException;
 

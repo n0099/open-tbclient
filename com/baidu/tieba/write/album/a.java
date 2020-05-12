@@ -60,29 +60,29 @@ public class a extends com.baidu.adp.base.c<BaseFragmentActivity> {
         }
     }
 
-    public TbCameraView dfq() {
+    public TbCameraView dfr() {
         if (this.lyf == null) {
             return null;
         }
-        return this.lyf.dfq();
+        return this.lyf.dfr();
     }
 
     public void stopCamera() {
-        TbCameraView dfq = dfq();
-        if (dfq != null) {
-            dfq.stopCamera();
-            dfq.setVisibility(4);
+        TbCameraView dfr = dfr();
+        if (dfr != null) {
+            dfr.stopCamera();
+            dfr.setVisibility(4);
         }
     }
 
     public void Nv() {
-        TbCameraView dfq = dfq();
-        if (dfq != null) {
-            dfq.setVisibility(0);
-            dfq.uU(false);
+        TbCameraView dfr = dfr();
+        if (dfr != null) {
+            dfr.setVisibility(0);
+            dfr.uU(false);
         }
-        if (this.lyf != null && this.lyf.dfv() != null) {
-            this.lyf.dfv().FU();
+        if (this.lyf != null && this.lyf.dfw() != null) {
+            this.lyf.dfw().FU();
         }
     }
 

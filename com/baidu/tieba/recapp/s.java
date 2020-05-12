@@ -58,27 +58,27 @@ public class s implements n {
     }
 
     @Override // com.baidu.tieba.recapp.n
-    public i cNf() {
-        return a.cMW();
+    public i cNg() {
+        return a.cMX();
     }
 
     @Override // com.baidu.tieba.recapp.n
-    public k cNg() {
-        return a.cMW();
+    public k cNh() {
+        return a.cMX();
     }
 
     @Override // com.baidu.tieba.recapp.n
-    public com.baidu.tieba.r.a cNh() {
+    public com.baidu.tieba.r.a cNi() {
         return com.baidu.tieba.ad.statis.a.bgE();
     }
 
     @Override // com.baidu.tieba.recapp.n
-    public g cNi() {
+    public g cNj() {
         return com.baidu.tieba.ad.a.bgh();
     }
 
     @Override // com.baidu.tieba.recapp.n
-    public List<AppData> cNj() {
+    public List<AppData> cNk() {
         if (this.krB == null) {
             this.krB = new ArrayList();
         }
@@ -86,7 +86,7 @@ public class s implements n {
     }
 
     @Override // com.baidu.tieba.recapp.n
-    public void cNk() {
+    public void cNl() {
         AdDebugService.updateFloatView(this.krB != null ? StringUtils.string(Integer.valueOf(this.krB.size())) : "0");
     }
 }

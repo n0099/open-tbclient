@@ -134,7 +134,7 @@ public class OfficialBarHistoryActivity extends BaseActivity<OfficialBarHistoryA
                     new Handler().post(new Runnable() { // from class: com.baidu.tieba.im.chat.officialBar.OfficialBarHistoryActivity.a.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            if (!OfficialBarHistoryActivity.this.igb.cdo()) {
+                            if (!OfficialBarHistoryActivity.this.igb.cdp()) {
                                 OfficialBarHistoryActivity.this.aAG();
                             }
                         }

@@ -31,7 +31,7 @@ class c {
         }
     }
 
-    public byte[] cFB() {
+    public byte[] cFC() {
         byte[] bArr = new byte[768];
         int[] iArr = new int[256];
         for (int i = 0; i < 256; i++) {
@@ -50,7 +50,7 @@ class c {
         return bArr;
     }
 
-    public void cFC() {
+    public void cFD() {
         int i;
         int i2;
         int i3 = 0;
@@ -103,7 +103,7 @@ class c {
         }
     }
 
-    public void cFD() {
+    public void cFE() {
         int i;
         if (this.jQs < 1509) {
             this.jQt = 1;
@@ -256,14 +256,14 @@ class c {
         }
     }
 
-    public byte[] cFE() {
+    public byte[] cFF() {
+        cFE();
+        cFG();
         cFD();
-        cFF();
-        cFC();
-        return cFB();
+        return cFC();
     }
 
-    public void cFF() {
+    public void cFG() {
         for (int i = 0; i < 256; i++) {
             int[] iArr = this.jQu[i];
             iArr[0] = iArr[0] >> 4;

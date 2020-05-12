@@ -92,29 +92,29 @@ public class SubPbLayout extends ViewGroup {
 
     @Override // android.view.View
     protected void onMeasure(int i, int i2) {
-        ArrayList<PostData> cWl;
-        if (this.jrx == null || this.dIO == null || this.dIO.cWl() == null) {
+        ArrayList<PostData> cWm;
+        if (this.jrx == null || this.dIO == null || this.dIO.cWm() == null) {
             setMeasuredDimension(0, 0);
             return;
         }
         int size = View.MeasureSpec.getSize(i);
-        if (this.dIO.cWk()) {
-            cWl = this.dIO.cWh();
+        if (this.dIO.cWl()) {
+            cWm = this.dIO.cWi();
         } else {
-            cWl = this.dIO.cWl();
+            cWm = this.dIO.cWm();
         }
-        setMeasuredDimension(size, cA(v.getCount(cWl), size) + m(cWl, size) + 0 + getPaddingBottom() + getPaddingTop());
+        setMeasuredDimension(size, cA(v.getCount(cWm), size) + m(cWm, size) + 0 + getPaddingBottom() + getPaddingTop());
     }
 
     private int m(List<PostData> list, int i) {
         SparseArray sparseArray;
-        if (this.dIO.cWA() == 1 || this.dIO.cWA() == 3) {
+        if (this.dIO.cWB() == 1 || this.dIO.cWB() == 3) {
             this.jHT = 0;
             return 0;
         } else if (v.getCount(list) != 0) {
             int count = v.getCount(list);
             this.jHT = count;
-            if (!this.dIO.cWk()) {
+            if (!this.dIO.cWl()) {
                 if (count <= 2) {
                     this.jHT = count;
                 } else {
@@ -154,7 +154,7 @@ public class SubPbLayout extends ViewGroup {
                     sparseArray.put(R.id.tag_photo_userid, list.get(i2).aKC().getUserId());
                     sparseArray.put(R.id.tag_clip_board, list.get(i2));
                 }
-                this.jrx.a((b.C0641b) sparseArray.get(R.id.tag_holder), list.get(i2), this.dIO.cWs() > list.size() || list.size() - i2 > 1, i2 == 0, false);
+                this.jrx.a((b.C0641b) sparseArray.get(R.id.tag_holder), list.get(i2), this.dIO.cWt() > list.size() || list.size() - i2 > 1, i2 == 0, false);
                 view.measure(((i - getPaddingLeft()) - getPaddingRight()) + 1073741824, 0);
                 i2++;
                 i3 += view.getMeasuredHeight();
@@ -166,8 +166,8 @@ public class SubPbLayout extends ViewGroup {
     }
 
     private int cA(int i, int i2) {
-        if (i > 0 && (this.dIO.cWA() == 1 || this.dIO.cWA() == 3 || this.dIO.cWs() > this.jHT)) {
-            this.fAX.setText(String.format(TbadkCoreApplication.getInst().getApp().getString(R.string.sub_pb_load_more), Integer.valueOf(this.dIO.cWs())));
+        if (i > 0 && (this.dIO.cWB() == 1 || this.dIO.cWB() == 3 || this.dIO.cWt() > this.jHT)) {
+            this.fAX.setText(String.format(TbadkCoreApplication.getInst().getApp().getString(R.string.sub_pb_load_more), Integer.valueOf(this.dIO.cWt())));
             this.jHV.setOnClickListener(this.jHQ);
             SparseArray sparseArray = (SparseArray) this.jHV.getTag();
             if (sparseArray == null) {
@@ -190,7 +190,7 @@ public class SubPbLayout extends ViewGroup {
     @Override // android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         int i5;
-        if (this.dIO != null && this.dIO.cWl() != null) {
+        if (this.dIO != null && this.dIO.cWm() != null) {
             int size = this.jHU.size();
             for (int i6 = 0; i6 < size; i6++) {
                 a poll = this.jHU.poll();
@@ -239,7 +239,7 @@ public class SubPbLayout extends ViewGroup {
     @Override // android.view.ViewGroup, android.view.View
     protected void dispatchDraw(Canvas canvas) {
         long drawingTime = getDrawingTime();
-        if (this.dIO != null && this.dIO.cWl() != null) {
+        if (this.dIO != null && this.dIO.cWm() != null) {
             int i = this.jHT;
             for (int i2 = 0; i2 < i; i2++) {
                 if (i < getChildCount()) {
@@ -260,7 +260,7 @@ public class SubPbLayout extends ViewGroup {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.view.ViewGroup
-    /* renamed from: cCM */
+    /* renamed from: cCN */
     public ViewGroup.MarginLayoutParams generateDefaultLayoutParams() {
         return new ViewGroup.MarginLayoutParams(-2, -2);
     }

@@ -76,11 +76,11 @@ public class e implements b {
             this.mActivity.setContentView(this.mRootView);
         } catch (Exception e) {
             e.printStackTrace();
-            Map<String, String> cpp = com.baidu.tieba.mainentrance.a.a.cpp();
-            if (cpp != null) {
-                int size = cpp.size();
+            Map<String, String> cpq = com.baidu.tieba.mainentrance.a.a.cpq();
+            if (cpq != null) {
+                int size = cpq.size();
                 int i2 = 0;
-                Iterator<String> it = cpp.keySet().iterator();
+                Iterator<String> it = cpq.keySet().iterator();
                 while (true) {
                     i = i2;
                     if (!it.hasNext()) {
@@ -111,14 +111,14 @@ public class e implements b {
         }
         this.iRZ = new d(this.mRootView, this.mActivity.getPageContext().getPageActivity());
         this.iSo = new c(this.mActivity, this, this.iRZ);
-        cpE();
         cpF();
         cpG();
         cpH();
-        coY();
-        cpK();
-        ag.a(this.iRZ.cpB(), this.mActivity.getUniqueId());
+        cpI();
+        coZ();
+        cpL();
         ag.a(this.iRZ.cpC(), this.mActivity.getUniqueId());
+        ag.a(this.iRZ.cpD(), this.mActivity.getUniqueId());
         this.mActivity.registerListener(this.iSp);
     }
 
@@ -128,14 +128,14 @@ public class e implements b {
         }
     }
 
-    public void cpE() {
+    public void cpF() {
         View.OnFocusChangeListener onFocusChangeListener = new View.OnFocusChangeListener() { // from class: com.baidu.tieba.mainentrance.a.e.4
             @Override // android.view.View.OnFocusChangeListener
             public void onFocusChange(View view, boolean z) {
                 if (!z) {
                     l.hideSoftKeyPad(e.this.mActivity.getPageContext().getPageActivity(), view);
                 } else {
-                    e.this.cpJ();
+                    e.this.cpK();
                 }
             }
         };
@@ -145,7 +145,7 @@ public class e implements b {
                 if (i == 3) {
                     if (StringUtils.isNull(e.this.gWw)) {
                         l.hideSoftKeyPad(e.this.mActivity.getPageContext().getPageActivity(), textView);
-                        e.this.cpI();
+                        e.this.cpJ();
                         return true;
                     }
                     e.this.b(e.this.gWw, false, 1);
@@ -169,7 +169,7 @@ public class e implements b {
                 if (editable != null) {
                     if (e.this.iSn) {
                         e.this.gWw = editable.toString();
-                        e.this.cpK();
+                        e.this.cpL();
                     }
                     e.this.iRZ.lk(!StringUtils.isNull(editable.toString()));
                 }
@@ -178,9 +178,9 @@ public class e implements b {
         View.OnClickListener onClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.mainentrance.a.e.7
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (view != e.this.iRZ.cpz() || e.this.iRZ.cpz().getText() == null) {
-                    if (view == e.this.iRZ.cpA()) {
-                        l.hideSoftKeyPad(e.this.mActivity.getPageContext().getPageActivity(), e.this.iRZ.cpz());
+                if (view != e.this.iRZ.cpA() || e.this.iRZ.cpA().getText() == null) {
+                    if (view == e.this.iRZ.cpB()) {
+                        l.hideSoftKeyPad(e.this.mActivity.getPageContext().getPageActivity(), e.this.iRZ.cpA());
                         com.baidu.adp.lib.f.e.lb().postDelayed(new Runnable() { // from class: com.baidu.tieba.mainentrance.a.e.7.1
                             @Override // java.lang.Runnable
                             public void run() {
@@ -191,9 +191,9 @@ public class e implements b {
                     }
                     return;
                 }
-                e.this.gWw = e.this.iRZ.cpz().getText().toString();
+                e.this.gWw = e.this.iRZ.cpA().getText().toString();
                 if (StringUtils.isNull(e.this.gWw)) {
-                    e.this.cps();
+                    e.this.cpt();
                 }
             }
         };
@@ -203,7 +203,7 @@ public class e implements b {
         this.iRZ.setOnClickListener(onClickListener);
     }
 
-    private void cpF() {
+    private void cpG() {
         AdapterView.OnItemClickListener onItemClickListener = new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.mainentrance.a.e.8
             /* JADX WARN: Type inference failed for: r0v0, types: [android.widget.Adapter] */
             @Override // android.widget.AdapterView.OnItemClickListener
@@ -244,7 +244,7 @@ public class e implements b {
         this.iRZ.onChangeSkinType(this.mActivity.getPageContext(), i);
     }
 
-    private void cpG() {
+    private void cpH() {
         BaseWebView.c cVar = new BaseWebView.c() { // from class: com.baidu.tieba.mainentrance.a.e.10
             @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.c
             public void onPageFinished(WebView webView, String str) {
@@ -273,12 +273,12 @@ public class e implements b {
         this.iRZ.a(bVar);
     }
 
-    private void cpH() {
-        this.iRZ.cpB().addJsPromptInterface(new a());
+    private void cpI() {
+        this.iRZ.cpC().addJsPromptInterface(new a());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cpI() {
+    public void cpJ() {
         if (this.mHotSearchInfo == null) {
             this.mActivity.showToast(this.mActivity.getResources().getString(R.string.write_keyword));
             return;
@@ -301,15 +301,15 @@ public class e implements b {
                 this.iRZ.Gg(str);
                 this.iSn = true;
             }
-            l.hideSoftKeyPad(this.mActivity.getPageContext().getPageActivity(), this.iRZ.cpz());
-            this.iRZ.cpy();
+            l.hideSoftKeyPad(this.mActivity.getPageContext().getPageActivity(), this.iRZ.cpA());
+            this.iRZ.cpz();
             String str2 = TbConfig.SQUARE_SEARCH_PAGE + str + ETAG.ITEM_SEPARATOR + FuFaceItem.JK_SUB_TYPE + ETAG.EQUAL + i;
             try {
                 str2 = TbConfig.SQUARE_SEARCH_PAGE + URLEncoder.encode(str, "utf-8");
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            this.iRZ.cpB().loadUrl(str2);
+            this.iRZ.cpC().loadUrl(str2);
             ac.a(new ab<Boolean>() { // from class: com.baidu.tieba.mainentrance.a.e.3
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
@@ -325,29 +325,29 @@ public class e implements b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cpJ() {
-        if (!this.iRZ.cpD()) {
-            cpe();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void cps() {
-        this.iSo.cps();
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
     public void cpK() {
-        if (!StringUtils.isNull(this.gWw)) {
-            cpe();
-        } else {
-            cps();
+        if (!this.iRZ.cpE()) {
+            cpf();
         }
     }
 
-    private void cpe() {
+    /* JADX INFO: Access modifiers changed from: private */
+    public void cpt() {
+        this.iSo.cpt();
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void cpL() {
+        if (!StringUtils.isNull(this.gWw)) {
+            cpf();
+        } else {
+            cpt();
+        }
+    }
+
+    private void cpf() {
         if (StringUtils.isNull(this.gWw)) {
-            cps();
+            cpt();
             return;
         }
         SearchListNetMessage searchListNetMessage = new SearchListNetMessage();
@@ -358,19 +358,19 @@ public class e implements b {
 
     public void b(HotSearchInfoData hotSearchInfoData) {
         this.mHotSearchInfo = hotSearchInfoData;
-        coY();
+        coZ();
     }
 
-    public BaseWebView cpL() {
-        return this.iRZ.cpB();
+    public BaseWebView cpM() {
+        return this.iRZ.cpC();
     }
 
-    private void coY() {
+    private void coZ() {
         if (this.iRZ != null) {
             if (this.mHotSearchInfo == null) {
                 this.iRZ.Gf(this.mActivity.getResources().getString(R.string.search_bar));
             } else {
-                this.iRZ.Gf(this.mHotSearchInfo.bHG());
+                this.iRZ.Gf(this.mHotSearchInfo.bHH());
             }
         }
     }

@@ -105,7 +105,7 @@ public class UtilityPlugin implements FlutterPlugin, MethodChannel.MethodCallHan
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_DEL_OFFICIAL_DB, String.valueOf(str6)));
             }
         } else if (methodCall.method.equals("getIsOfficalForumLetterReminderOpen")) {
-            OfficialSettingItemData dS = d.ciT().dS(TbadkApplication.getCurrentAccount(), (String) methodCall.arguments);
+            OfficialSettingItemData dS = d.ciU().dS(TbadkApplication.getCurrentAccount(), (String) methodCall.arguments);
             if (dS != null) {
                 result.success(Boolean.valueOf(dS.isAcceptNotify()));
             } else {
@@ -120,7 +120,7 @@ public class UtilityPlugin implements FlutterPlugin, MethodChannel.MethodCallHan
                 @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                 public Void doInBackground(Void... voidArr) {
                     if (!TextUtils.isEmpty(str7)) {
-                        d.ciT().x(TbadkApplication.getCurrentAccount(), String.valueOf(str7), booleanValue);
+                        d.ciU().x(TbadkApplication.getCurrentAccount(), String.valueOf(str7), booleanValue);
                     }
                     return null;
                 }
@@ -201,26 +201,26 @@ public class UtilityPlugin implements FlutterPlugin, MethodChannel.MethodCallHan
                     result.success(true);
                 } else if (methodCall.method.equals("readNewMessage")) {
                     HashMap hashMap6 = new HashMap();
-                    hashMap6.put("bookmarkNum", Integer.valueOf(com.baidu.tieba.p.a.cOI().cOF() ? 1 : 0));
-                    hashMap6.put("fansNum", Integer.valueOf(com.baidu.tieba.p.a.cOI().cOE() ? 1 : 0));
+                    hashMap6.put("bookmarkNum", Integer.valueOf(com.baidu.tieba.p.a.cOJ().cOG() ? 1 : 0));
+                    hashMap6.put("fansNum", Integer.valueOf(com.baidu.tieba.p.a.cOJ().cOF() ? 1 : 0));
                     result.success(hashMap6);
                 } else if (methodCall.method.equals("clearNewMessage")) {
                     String str13 = (String) methodCall.arguments;
                     if (!StringUtils.isNull(str13)) {
                         if ("bookmarkNum".equals(str13)) {
-                            com.baidu.tieba.p.a.cOI().g(3, false, true);
+                            com.baidu.tieba.p.a.cOJ().g(3, false, true);
                         } else if ("fansNum".equals(str13)) {
-                            com.baidu.tieba.p.a.cOI().g(2, false, true);
+                            com.baidu.tieba.p.a.cOJ().g(2, false, true);
                         } else if ("giftNum".equals(str13)) {
-                            com.baidu.tieba.p.a.cOI().g(1, false, true);
+                            com.baidu.tieba.p.a.cOJ().g(1, false, true);
                         }
                     }
                 } else if (methodCall.method.equals("readVipCenterNewMessage")) {
-                    result.success(Boolean.valueOf(com.baidu.tieba.p.a.cOI().cOG()));
+                    result.success(Boolean.valueOf(com.baidu.tieba.p.a.cOJ().cOH()));
                 } else if (methodCall.method.equals("showLoginAwardCell")) {
                     result.success(Boolean.valueOf(TbadkCoreApplication.getInst().getActivityPrizeData().isPersonItemSwitch()));
                 } else if (methodCall.method.equals("showRedDotForMyTab")) {
-                    result.success(Boolean.valueOf(com.baidu.tieba.p.a.cOI().cOH()));
+                    result.success(Boolean.valueOf(com.baidu.tieba.p.a.cOJ().cOI()));
                 } else if (methodCall.method.equals("getThemeMode")) {
                     result.success(am.aOK());
                 } else if (methodCall.method.equals("getMyPrivateStat")) {

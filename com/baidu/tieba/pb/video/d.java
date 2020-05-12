@@ -168,21 +168,21 @@ public class d {
     }
 
     public void a(com.baidu.tieba.pb.data.e eVar, String str) {
-        bj cvr;
+        bj cvs;
         bf bfVar;
         Layout c;
         SpannableString aJ;
-        if (eVar != null && (cvr = eVar.cvr()) != null && cvr.aKT() != null) {
-            cvr.aLy();
-            this.jIY = new SpannableStringBuilder(cvr.aLj());
-            boolean aL = aL(cvr);
-            VideoInfo aKT = cvr.aKT();
+        if (eVar != null && (cvs = eVar.cvs()) != null && cvs.aKT() != null) {
+            cvs.aLy();
+            this.jIY = new SpannableStringBuilder(cvs.aLj());
+            boolean aL = aL(cvs);
+            VideoInfo aKT = cvs.aKT();
             if (!StringUtils.isNull(aKT.mcn_lead_page) && !aL) {
                 this.jIW = true;
             } else {
                 this.jIW = false;
             }
-            if (this.jIY != null && !this.jIW && !aL && (aJ = am.aJ(cvr)) != null) {
+            if (this.jIY != null && !this.jIW && !aL && (aJ = am.aJ(cvs)) != null) {
                 com.baidu.tbadk.core.view.a.a[] aVarArr = (com.baidu.tbadk.core.view.a.a[]) aJ.getSpans(0, aJ.length(), com.baidu.tbadk.core.view.a.a.class);
                 if (aVarArr != null && aVarArr.length > 0) {
                     this.jIX = aVarArr[0];
@@ -197,7 +197,7 @@ public class d {
                 }
             }
             if (this.jIW) {
-                com.baidu.tieba.pb.video.a.a.a(TbadkCoreApplication.getInst().getApplicationContext(), this.mTitleView, cvr.aLj().toString(), aKT.mcn_lead_page, cvr.getTid());
+                com.baidu.tieba.pb.video.a.a.a(TbadkCoreApplication.getInst().getApplicationContext(), this.mTitleView, cvs.aLj().toString(), aKT.mcn_lead_page, cvs.getTid());
             } else {
                 this.mTitleView.setText(this.jIY);
             }
@@ -206,11 +206,11 @@ public class d {
             this.mTitleView.setOnTouchListener(this.jJa);
             this.jIR.setOnClickListener(this.mOnClickListener);
             this.jIQ.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.pb_video_header_play_count), aq.numberUniformFormatExtra(aKT.play_count.intValue())));
-            if (eVar.cvP() && eVar.aQe()) {
+            if (eVar.cvQ() && eVar.aQe()) {
                 if (TextUtils.isEmpty(str)) {
-                    str = cvr.aKH();
+                    str = cvs.aKH();
                 }
-                if (TextUtils.isEmpty(str) && (bfVar = (bf) v.getItem(eVar.cvK(), 0)) != null) {
+                if (TextUtils.isEmpty(str) && (bfVar = (bf) v.getItem(eVar.cvL(), 0)) != null) {
                     str = bfVar.forumName;
                 }
                 if (!TextUtils.isEmpty(str)) {
@@ -224,12 +224,12 @@ public class d {
                     this.jIT.setVisibility(8);
                 }
                 this.jIP.setVisibility(8);
-                this.jIU.setData(eVar, cvr.aMq());
+                this.jIU.setData(eVar, cvs.aMq());
             } else {
                 this.jIT.setVisibility(8);
                 this.jIS.setVisibility(8);
                 this.jIP.setVisibility(0);
-                this.jIP.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.pb_video_header_replay_num), aq.numberUniformFormatExtra(cvr.aKt())));
+                this.jIP.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.pb_video_header_replay_num), aq.numberUniformFormatExtra(cvs.aKt())));
                 this.jIU.setVisibility(8);
             }
             aVb();

@@ -132,7 +132,7 @@ public class OfficialSecondMenuPopupWindow extends RelativeLayout {
         pe(false);
     }
 
-    public void cjl() {
+    public void cjm() {
         setVisibility(8);
     }
 

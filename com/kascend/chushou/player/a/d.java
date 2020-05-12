@@ -58,8 +58,8 @@ public class d extends a {
         }).b(new b.a() { // from class: com.kascend.chushou.player.a.d.2
             @Override // tv.chushou.zues.widget.sweetalert.b.a
             public void onClick(tv.chushou.zues.widget.sweetalert.b bVar) {
-                bVar.dKt();
-                com.kascend.chushou.c.c.dwD().c(d.this.mnD, null, d.this.moM.mRoomID, d.this.a(i) + "");
+                bVar.dKu();
+                com.kascend.chushou.c.c.dwE().c(d.this.mnD, null, d.this.moM.mRoomID, d.this.a(i) + "");
             }
         }).Qw(this.c.getString(a.i.alert_dialog_cancel)).Qy(this.c.getString(a.i.alert_dialog_ok)).w(this.c.getString(a.i.alert_dialog_report_room, this.moM.mName));
         w.getWindow().setLayout(tv.chushou.zues.utils.a.fU(this.c).x - (this.c.getResources().getDimensionPixelSize(a.d.alert_margin_h) * 2), -2);

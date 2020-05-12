@@ -63,33 +63,33 @@ public class g extends a<com.baidu.tieba.e.e> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.a
     public void a(com.baidu.tieba.e.e eVar) {
-        if (eVar != null && eVar.bGt() != null) {
-            if (!TextUtils.isEmpty(eVar.bGt().title)) {
-                this.gnX.setText(eVar.bGt().title);
+        if (eVar != null && eVar.bGu() != null) {
+            if (!TextUtils.isEmpty(eVar.bGu().title)) {
+                this.gnX.setText(eVar.bGu().title);
             }
             this.gnY.setVisibility(8);
             this.gnZ.setVisibility(8);
             this.goa.setVisibility(8);
             this.gob.setVisibility(8);
-            if (eVar.bGt().sub_nodes.size() >= 1) {
+            if (eVar.bGu().sub_nodes.size() >= 1) {
                 this.gnY.setVisibility(0);
-                this.gnY.setTag(eVar.bGt().sub_nodes.get(0).url);
-                this.gnY.setText(eVar.bGt().sub_nodes.get(0).title);
+                this.gnY.setTag(eVar.bGu().sub_nodes.get(0).url);
+                this.gnY.setText(eVar.bGu().sub_nodes.get(0).title);
             }
-            if (eVar.bGt().sub_nodes.size() >= 2) {
+            if (eVar.bGu().sub_nodes.size() >= 2) {
                 this.gnZ.setVisibility(0);
-                this.gnZ.setTag(eVar.bGt().sub_nodes.get(1).url);
-                this.gnZ.setText(eVar.bGt().sub_nodes.get(1).title);
+                this.gnZ.setTag(eVar.bGu().sub_nodes.get(1).url);
+                this.gnZ.setText(eVar.bGu().sub_nodes.get(1).title);
             }
-            if (eVar.bGt().sub_nodes.size() >= 3) {
+            if (eVar.bGu().sub_nodes.size() >= 3) {
                 this.goa.setVisibility(0);
-                this.goa.setTag(eVar.bGt().sub_nodes.get(2).url);
-                this.goa.setText(eVar.bGt().sub_nodes.get(2).title);
+                this.goa.setTag(eVar.bGu().sub_nodes.get(2).url);
+                this.goa.setText(eVar.bGu().sub_nodes.get(2).title);
             }
-            if (eVar.bGt().sub_nodes.size() >= 4) {
+            if (eVar.bGu().sub_nodes.size() >= 4) {
                 this.gob.setVisibility(0);
-                this.gob.setTag(eVar.bGt().sub_nodes.get(3).url);
-                this.gob.setText(eVar.bGt().sub_nodes.get(3).title);
+                this.gob.setTag(eVar.bGu().sub_nodes.get(3).url);
+                this.gob.setText(eVar.bGu().sub_nodes.get(3).title);
             }
         }
     }

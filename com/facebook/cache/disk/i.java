@@ -18,7 +18,7 @@ public class i implements com.facebook.cache.common.a {
     private i lRo;
 
     @ReturnsOwnership
-    public static i dmM() {
+    public static i dmN() {
         synchronized (lRg) {
             if (lRh != null) {
                 i iVar = lRh;

@@ -58,7 +58,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         if (this.mIsFromSchema) {
             setIsAddSwipeBackLayout(false);
         }
-        this.hRt.getEditor().cam();
+        this.hRt.getEditor().can();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

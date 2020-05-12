@@ -29,15 +29,15 @@ public class m implements j, l, a.InterfaceC0784a {
     public m(com.tb.airbnb.lottie.f fVar, com.tb.airbnb.lottie.model.layer.a aVar, PolystarShape polystarShape) {
         this.lottieDrawable = fVar;
         this.name = polystarShape.getName();
-        this.mOC = polystarShape.dBK();
-        this.mOD = polystarShape.dBL().dBo();
-        this.mOv = polystarShape.dBr().dBo();
-        this.mOE = polystarShape.dBt().dBo();
-        this.mOG = polystarShape.dBN().dBo();
-        this.mOI = polystarShape.dBP().dBo();
+        this.mOC = polystarShape.dBL();
+        this.mOD = polystarShape.dBM().dBp();
+        this.mOv = polystarShape.dBs().dBp();
+        this.mOE = polystarShape.dBu().dBp();
+        this.mOG = polystarShape.dBO().dBp();
+        this.mOI = polystarShape.dBQ().dBp();
         if (this.mOC == PolystarShape.Type.Star) {
-            this.mOF = polystarShape.dBM().dBo();
-            this.mOH = polystarShape.dBO().dBo();
+            this.mOF = polystarShape.dBN().dBp();
+            this.mOH = polystarShape.dBP().dBp();
         } else {
             this.mOF = null;
             this.mOH = null;
@@ -79,7 +79,7 @@ public class m implements j, l, a.InterfaceC0784a {
             int i2 = i;
             if (i2 < list.size()) {
                 b bVar = list.get(i2);
-                if ((bVar instanceof r) && ((r) bVar).dBe() == ShapeTrimPath.Type.Simultaneously) {
+                if ((bVar instanceof r) && ((r) bVar).dBf() == ShapeTrimPath.Type.Simultaneously) {
                     this.mOs = (r) bVar;
                     this.mOs.a(this);
                 }

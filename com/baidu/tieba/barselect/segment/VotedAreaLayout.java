@@ -51,14 +51,14 @@ public class VotedAreaLayout extends CardBasicLayout {
             setVisibility(8);
             return;
         }
-        this.glG.setText(aq.numFormatOverWan(this.glx.bDL()) + "票");
+        this.glG.setText(aq.numFormatOverWan(this.glx.bDM()) + "票");
         pH(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void setMyRecordData(d dVar) {
         if (dVar != null) {
             this.glx = dVar;
-            this.glG.setText(aq.numFormatOverWan(this.glx.bDL()) + "票");
+            this.glG.setText(aq.numFormatOverWan(this.glx.bDM()) + "票");
         }
     }
 

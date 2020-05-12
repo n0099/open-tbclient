@@ -128,9 +128,9 @@ public class a {
         this.hnA.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.gameshare.a.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                Bitmap bSG = a.this.bSG();
-                if (bSG != null && a.this.hnF != null) {
-                    a.this.hnF.v(bSG);
+                Bitmap bSH = a.this.bSH();
+                if (bSH != null && a.this.hnF != null) {
+                    a.this.hnF.v(bSH);
                 }
             }
         });
@@ -138,9 +138,9 @@ public class a {
         this.hnB.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.gameshare.a.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                Bitmap bSG = a.this.bSG();
-                if (bSG != null && a.this.hnF != null) {
-                    a.this.hnF.w(bSG);
+                Bitmap bSH = a.this.bSH();
+                if (bSH != null && a.this.hnF != null) {
+                    a.this.hnF.w(bSH);
                 }
             }
         });
@@ -148,9 +148,9 @@ public class a {
         this.hnC.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.gameshare.a.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                Bitmap bSG = a.this.bSG();
-                if (bSG != null && a.this.hnF != null) {
-                    a.this.hnF.x(bSG);
+                Bitmap bSH = a.this.bSH();
+                if (bSH != null && a.this.hnF != null) {
+                    a.this.hnF.x(bSH);
                 }
             }
         });
@@ -158,9 +158,9 @@ public class a {
         this.hnD.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.gameshare.a.5
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                Bitmap bSG = a.this.bSG();
-                if (bSG != null && a.this.hnF != null) {
-                    a.this.hnF.y(bSG);
+                Bitmap bSH = a.this.bSH();
+                if (bSH != null && a.this.hnF != null) {
+                    a.this.hnF.y(bSH);
                 }
             }
         });
@@ -249,12 +249,12 @@ public class a {
         }
     }
 
-    public Bitmap bSG() {
+    public Bitmap bSH() {
         this.mContentLayout.buildDrawingCache();
         return this.mContentLayout.getDrawingCache();
     }
 
-    public int bSH() {
+    public int bSI() {
         return this.fte.getBottom();
     }
 

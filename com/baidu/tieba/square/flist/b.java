@@ -53,7 +53,7 @@ public class b extends BaseAdapter implements View.OnClickListener {
         this.hqi = i;
     }
 
-    public ForumInfoData[] cUN() {
+    public ForumInfoData[] cUO() {
         return this.kMG;
     }
 
@@ -78,7 +78,7 @@ public class b extends BaseAdapter implements View.OnClickListener {
         }
     }
 
-    public void cUO() {
+    public void cUP() {
         for (int i = 0; i < this.kME; i++) {
             int hasLikeForum = TbadkCoreApplication.getInst().hasLikeForum(this.kMG[i].forum_name);
             if (hasLikeForum == 1) {
@@ -89,11 +89,11 @@ public class b extends BaseAdapter implements View.OnClickListener {
         }
     }
 
-    public boolean cUP() {
+    public boolean cUQ() {
         if (this.dKs == null) {
             return false;
         }
-        return this.dKs.cVJ();
+        return this.dKs.cVK();
     }
 
     public void Cf(int i) {

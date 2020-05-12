@@ -187,7 +187,7 @@ public class b extends ScrollingMovementMethod {
         }
     }
 
-    public static b dKr() {
+    public static b dKs() {
         if (nwt == null) {
             nwt = new b();
         }

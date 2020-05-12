@@ -32,7 +32,7 @@ public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertA
         this.kKl = intent.getStringExtra("ad_url");
         this.kKm = intent.getBooleanExtra(SignAllForumAdvertActivityConfig.HAS_PRIVILEGE, false);
         initUI();
-        cTT();
+        cTU();
     }
 
     private void initUI() {
@@ -71,7 +71,7 @@ public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertA
         });
     }
 
-    private void cTT() {
+    private void cTU() {
         TiebaStatic.log("c10746");
     }
 

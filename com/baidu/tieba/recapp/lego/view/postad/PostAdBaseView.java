@@ -31,7 +31,7 @@ public abstract class PostAdBaseView<T extends PostAdBaseData> extends LinearLay
 
     protected abstract void a(T t, int i);
 
-    protected abstract View cmX();
+    protected abstract View cmY();
 
     public PostAdBaseView(TbPageContext tbPageContext) {
         super(tbPageContext.getPageActivity());
@@ -55,8 +55,8 @@ public abstract class PostAdBaseView<T extends PostAdBaseData> extends LinearLay
                 }
             }
             anVar.af("obj_locate", getStatPosition());
-            anVar.cI(TiebaInitialize.Params.OBJ_PARAM3, l.bEN());
-            r.bEW().e(anVar);
+            anVar.cI(TiebaInitialize.Params.OBJ_PARAM3, l.bEO());
+            r.bEX().e(anVar);
         }
     }
 
@@ -73,27 +73,27 @@ public abstract class PostAdBaseView<T extends PostAdBaseData> extends LinearLay
             }
             if (this.mSkinType != TbadkCoreApplication.getInst().getSkinType()) {
                 this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
-                cnb();
+                cnc();
                 a((PostAdBaseData) updateCard, this.mSkinType);
             }
-            cna();
+            cnb();
             a((PostAdBaseData) updateCard);
             c((PostAdBaseData) updateCard);
         }
     }
 
-    private void cnb() {
+    private void cnc() {
     }
 
     protected final void c(T t) {
     }
 
-    public final void cna() {
+    public final void cnb() {
         this.iKj.setVisibility(0);
     }
 
     private void init() {
-        cmZ();
+        cna();
         UH();
         this.isInit = false;
     }
@@ -101,15 +101,15 @@ public abstract class PostAdBaseView<T extends PostAdBaseData> extends LinearLay
     protected void UH() {
     }
 
-    public final void cmZ() {
+    public final void cna() {
         FrameLayout frameLayout = new FrameLayout(getContext());
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-        this.iKj = cmX();
-        frameLayout.addView(this.iKj, cmY());
+        this.iKj = cmY();
+        frameLayout.addView(this.iKj, cmZ());
         addView(frameLayout, layoutParams);
     }
 
-    protected final ViewGroup.LayoutParams cmY() {
+    protected final ViewGroup.LayoutParams cmZ() {
         return new ViewGroup.LayoutParams(-1, -2);
     }
 
@@ -132,7 +132,7 @@ public abstract class PostAdBaseView<T extends PostAdBaseData> extends LinearLay
     }
 
     @Override // com.baidu.tieba.lego.card.view.e
-    public void cnc() {
+    public void cnd() {
     }
 
     @Override // com.baidu.tieba.lego.card.view.e
@@ -140,7 +140,7 @@ public abstract class PostAdBaseView<T extends PostAdBaseData> extends LinearLay
     }
 
     @Override // com.baidu.tieba.lego.card.view.e
-    public void caz() {
+    public void caA() {
     }
 
     @Override // com.baidu.tieba.lego.card.view.e
@@ -161,6 +161,6 @@ public abstract class PostAdBaseView<T extends PostAdBaseData> extends LinearLay
     }
 
     @Override // com.baidu.tieba.lego.card.view.e
-    public void cnd() {
+    public void cne() {
     }
 }

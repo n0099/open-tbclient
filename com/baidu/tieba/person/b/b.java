@@ -30,8 +30,8 @@ public class b extends y.a {
             this.jSm = mVar;
             com.baidu.tieba.person.data.c cVar = (com.baidu.tieba.person.data.c) mVar;
             am.setImageResource(this.jSk, R.drawable.icon_mine_pic_add);
-            if (cVar.cFX() > 0) {
-                this.jSl.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.have_left_some_picture_upload), Integer.valueOf(cVar.cFX())));
+            if (cVar.cFY() > 0) {
+                this.jSl.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.have_left_some_picture_upload), Integer.valueOf(cVar.cFY())));
             }
             getView().setOnClickListener(this.mClickListener);
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());

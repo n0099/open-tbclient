@@ -10,9 +10,9 @@ public class a implements CustomMessageTask.CustomRunnable {
     public CustomResponsedMessage<?> run(CustomMessage customMessage) {
         if (customMessage != null && (customMessage.getData() instanceof String)) {
             String str = (String) customMessage.getData();
-            g cPm = com.baidu.tieba.sdk.c.a.cPg().cPm();
-            if (cPm != null) {
-                cPm.FV(str);
+            g cPn = com.baidu.tieba.sdk.c.a.cPh().cPn();
+            if (cPn != null) {
+                cPn.FV(str);
                 return null;
             }
             return null;

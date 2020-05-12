@@ -175,7 +175,7 @@ public class e extends a {
         }).b(new b.a() { // from class: com.kascend.chushou.player.a.e.7
             @Override // tv.chushou.zues.widget.sweetalert.b.a
             public void onClick(tv.chushou.zues.widget.sweetalert.b bVar) {
-                bVar.dKt();
+                bVar.dKu();
                 e.this.b(1);
             }
         }).Qw(this.c.getString(a.i.alert_dialog_cancel)).Qy(this.c.getString(a.i.alert_dialog_ok)).w(this.c.getString(a.i.alert_dialog_forbid_check, this.moP.mUserNickname));
@@ -193,7 +193,7 @@ public class e extends a {
         }).b(new b.a() { // from class: com.kascend.chushou.player.a.e.9
             @Override // tv.chushou.zues.widget.sweetalert.b.a
             public void onClick(tv.chushou.zues.widget.sweetalert.b bVar) {
-                bVar.dKt();
+                bVar.dKu();
                 e.this.b(2);
             }
         }).Qw(this.c.getString(a.i.alert_dialog_cancel)).Qy(this.c.getString(a.i.alert_dialog_ok)).w(this.c.getString(a.i.alert_dialog_forbid_forever_check, this.moP.mUserNickname));
@@ -203,7 +203,7 @@ public class e extends a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(int i) {
-        com.kascend.chushou.c.c.dwD().a(this.moP.mRoomID, this.moP.mUserID, i, new com.kascend.chushou.c.b() { // from class: com.kascend.chushou.player.a.e.11
+        com.kascend.chushou.c.c.dwE().a(this.moP.mRoomID, this.moP.mUserID, i, new com.kascend.chushou.c.b() { // from class: com.kascend.chushou.player.a.e.11
             private ChatInfo moR;
 
             @Override // com.kascend.chushou.c.b
@@ -269,8 +269,8 @@ public class e extends a {
         }).b(new b.a() { // from class: com.kascend.chushou.player.a.e.13
             @Override // tv.chushou.zues.widget.sweetalert.b.a
             public void onClick(tv.chushou.zues.widget.sweetalert.b bVar) {
-                bVar.dKt();
-                com.kascend.chushou.c.c.dwD().c(e.this.mnD, e.this.j, null, e.this.a(i) + "");
+                bVar.dKu();
+                com.kascend.chushou.c.c.dwE().c(e.this.mnD, e.this.j, null, e.this.a(i) + "");
             }
         }).Qw(this.c.getString(a.i.alert_dialog_cancel)).Qy(this.c.getString(a.i.alert_dialog_ok)).w(this.c.getString(a.i.alert_dialog_report_user, this.k));
         w.getWindow().setLayout(tv.chushou.zues.utils.a.fU(this.c).x - (this.c.getResources().getDimensionPixelSize(a.d.alert_margin_h) * 2), -2);
@@ -287,8 +287,8 @@ public class e extends a {
         }).b(new b.a() { // from class: com.kascend.chushou.player.a.e.15
             @Override // tv.chushou.zues.widget.sweetalert.b.a
             public void onClick(tv.chushou.zues.widget.sweetalert.b bVar) {
-                bVar.dKt();
-                com.kascend.chushou.c.c.dwD().a(e.this.moP.mRoomID, e.this.moP.mUserID, new com.kascend.chushou.c.b() { // from class: com.kascend.chushou.player.a.e.15.1
+                bVar.dKu();
+                com.kascend.chushou.c.c.dwE().a(e.this.moP.mRoomID, e.this.moP.mUserID, new com.kascend.chushou.c.b() { // from class: com.kascend.chushou.player.a.e.15.1
                     private ChatInfo moR;
 
                     @Override // com.kascend.chushou.c.b
@@ -329,7 +329,7 @@ public class e extends a {
         }).b(new b.a() { // from class: com.kascend.chushou.player.a.e.17
             @Override // tv.chushou.zues.widget.sweetalert.b.a
             public void onClick(tv.chushou.zues.widget.sweetalert.b bVar) {
-                bVar.dKt();
+                bVar.dKu();
                 e.this.k();
             }
         }).Qw(this.c.getString(a.i.alert_dialog_cancel)).Qy(this.c.getString(a.i.alert_dialog_add_to_blacklist_confirm)).w(this.c.getString(a.i.alert_dialog_add_to_blacklist));
@@ -339,7 +339,7 @@ public class e extends a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void k() {
-        com.kascend.chushou.c.c.dwD().b(this.moP.mRoomID, this.moP.mUserID, new com.kascend.chushou.c.b() { // from class: com.kascend.chushou.player.a.e.2
+        com.kascend.chushou.c.c.dwE().b(this.moP.mRoomID, this.moP.mUserID, new com.kascend.chushou.c.b() { // from class: com.kascend.chushou.player.a.e.2
             @Override // com.kascend.chushou.c.b
             public void a() {
             }

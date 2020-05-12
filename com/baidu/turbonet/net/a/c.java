@@ -36,10 +36,10 @@ public final class c extends f {
     public void write(int i) throws IOException {
         checkNotClosed();
         FH(1);
-        dkf();
+        dkg();
         this.mBuffer.put((byte) i);
         this.lMD++;
-        dkh();
+        dki();
     }
 
     @Override // java.io.OutputStream
@@ -51,32 +51,32 @@ public final class c extends f {
         FH(i2);
         int i3 = i2;
         while (i3 > 0) {
-            dkf();
+            dkg();
             int min = Math.min(i3, this.mBuffer.remaining());
             this.mBuffer.put(bArr, (i + i2) - i3, min);
             i3 -= min;
         }
         this.lMD += i2;
-        dkh();
+        dki();
     }
 
-    private void dkf() throws IOException {
+    private void dkg() throws IOException {
         if (!this.mBuffer.hasRemaining()) {
-            dkg();
+            dkh();
+        }
+    }
+
+    private void dki() throws IOException {
+        if (this.lMD == this.lMC) {
+            dkh();
         }
     }
 
     private void dkh() throws IOException {
-        if (this.lMD == this.lMC) {
-            dkg();
-        }
-    }
-
-    private void dkg() throws IOException {
         checkNotClosed();
         this.mBuffer.flip();
-        this.lMw.dku();
-        dks();
+        this.lMw.dkv();
+        dkt();
     }
 
     private void FH(int i) throws ProtocolException {
@@ -87,12 +87,12 @@ public final class c extends f {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.baidu.turbonet.net.a.f
-    public void dkc() throws IOException {
+    public void dkd() throws IOException {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.baidu.turbonet.net.a.f
-    public void dkd() throws IOException {
+    public void dke() throws IOException {
         if (this.lMD < this.lMC) {
             throw new ProtocolException("Content received is less than Content-Length.");
         }
@@ -100,7 +100,7 @@ public final class c extends f {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.baidu.turbonet.net.a.f
-    public UploadDataProvider dke() {
+    public UploadDataProvider dkf() {
         return this.lLR;
     }
 

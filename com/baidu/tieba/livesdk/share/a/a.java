@@ -32,8 +32,8 @@ public class a {
         MessageManager.getInstance().registerListener(this.iPH);
     }
 
-    public void coE() {
-        e.bGc().bGf();
+    public void coF() {
+        e.bGd().bGg();
     }
 
     public void eR(long j) {
@@ -47,7 +47,7 @@ public class a {
         }
     }
 
-    public List<TransmitForumData> coF() {
+    public List<TransmitForumData> coG() {
         return this.eIF;
     }
 

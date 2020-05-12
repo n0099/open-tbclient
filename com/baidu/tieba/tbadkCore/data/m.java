@@ -26,11 +26,11 @@ public class m extends PostData {
         this.kSo = new AppData(str);
     }
 
-    public AppData cWc() {
+    public AppData cWd() {
         return this.kSo;
     }
 
-    public AdvertAppInfo.ILegoAdvert cWd() {
+    public AdvertAppInfo.ILegoAdvert cWe() {
         if (this.kSo == null) {
             return null;
         }
@@ -52,7 +52,7 @@ public class m extends PostData {
         return this.kSo.aIE();
     }
 
-    public int cWe() {
+    public int cWf() {
         if (this.kSo == null || this.kSo.goods == null) {
             return -1;
         }
@@ -66,7 +66,7 @@ public class m extends PostData {
         return com.baidu.adp.lib.f.b.toInt(this.kSo.pos_name, 0);
     }
 
-    public String cWf() {
+    public String cWg() {
         if (this.kSp) {
             return "PB_BANNER";
         }
@@ -125,7 +125,7 @@ public class m extends PostData {
                 advertAppInfo.dmB.lego_card = this.kSo.goods.lego_card;
                 advertAppInfo.dmB.adCloseInfo = this.kSo.goods.adCloseInfo;
             }
-            advertAppInfo.page = cWf();
+            advertAppInfo.page = cWg();
         }
         return advertAppInfo;
     }
@@ -135,10 +135,10 @@ public class m extends PostData {
         if (!com.baidu.tbadk.core.i.aIc().isShowImages() && this.kSo != null && this.kSo.legoCard != null && !this.kSo.legoCard.isNoPicAd()) {
             return AdvertAppInfo.dmg;
         }
-        if (cWe() == 1001 || cWe() == -1001) {
+        if (cWf() == 1001 || cWf() == -1001) {
             return AdvertAppInfo.dmg;
         }
-        if (cWd() != null) {
+        if (cWe() != null) {
             return AdvertAppInfo.dmk;
         }
         return null;

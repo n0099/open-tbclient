@@ -33,12 +33,12 @@ public final class a<E> extends TypeAdapter<Object> {
 
     @Override // com.google.gson.TypeAdapter
     public Object read(com.google.gson.stream.a aVar) throws IOException {
-        if (aVar.dvG() == JsonToken.NULL) {
-            aVar.dvL();
+        if (aVar.dvH() == JsonToken.NULL) {
+            aVar.dvM();
             return null;
         }
         ArrayList arrayList = new ArrayList();
-        aVar.dvE();
+        aVar.dvF();
         while (aVar.hasNext()) {
             arrayList.add(this.mjO.read(aVar));
         }
@@ -56,14 +56,14 @@ public final class a<E> extends TypeAdapter<Object> {
     @Override // com.google.gson.TypeAdapter
     public void write(com.google.gson.stream.b bVar, Object obj) throws IOException {
         if (obj == null) {
-            bVar.dvV();
+            bVar.dvW();
             return;
         }
-        bVar.dvR();
+        bVar.dvS();
         int length = Array.getLength(obj);
         for (int i = 0; i < length; i++) {
             this.mjO.write(bVar, Array.get(obj, i));
         }
-        bVar.dvS();
+        bVar.dvT();
     }
 }

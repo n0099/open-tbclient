@@ -35,19 +35,19 @@ public class b {
         return this.errorCode != 0;
     }
 
-    public boolean cXC() {
+    public boolean cXD() {
         return this.errorCode == 5 || this.errorCode == 6;
     }
 
-    public boolean cXD() {
+    public boolean cXE() {
         return this.errorCode == 1990055;
     }
 
-    public boolean cXE() {
+    public boolean cXF() {
         return this.errorCode == 3250012;
     }
 
-    public boolean cXF() {
+    public boolean cXG() {
         return this.errorCode == 227001;
     }
 
@@ -63,7 +63,7 @@ public class b {
         this.errorString = str;
     }
 
-    public AntiData bNE() {
+    public AntiData bNF() {
         return this.antiData;
     }
 
@@ -107,7 +107,7 @@ public class b {
         return this.isCopyTWZhibo;
     }
 
-    public String cXG() {
+    public String cXH() {
         return this.kWs;
     }
 
@@ -115,7 +115,7 @@ public class b {
         this.kWs = str;
     }
 
-    public String cXH() {
+    public String cXI() {
         return this.kWt;
     }
 

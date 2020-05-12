@@ -84,7 +84,7 @@ public class a extends BaseAdapter {
     private C0700a a(Object obj, HotTopicBussinessData hotTopicBussinessData) {
         C0700a c0700a;
         if (obj == null) {
-            c0700a = dfU();
+            c0700a = dfV();
         } else {
             c0700a = (C0700a) obj;
         }
@@ -96,7 +96,7 @@ public class a extends BaseAdapter {
         return c0700a;
     }
 
-    private C0700a dfU() {
+    private C0700a dfV() {
         C0700a c0700a = new C0700a();
         c0700a.mRootView = LayoutInflater.from(this.mContext).inflate(R.layout.hot_topic_change_item, (ViewGroup) null);
         am.setBackgroundResource(c0700a.mRootView, R.drawable.select_forum_item_bg);

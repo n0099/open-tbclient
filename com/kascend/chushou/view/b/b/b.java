@@ -41,7 +41,7 @@ public final class b extends c<com.kascend.chushou.view.b.b.a> {
         this.mDW = userCard;
     }
 
-    public final UserCard dyM() {
+    public final UserCard dyN() {
         return this.mDW;
     }
 
@@ -98,7 +98,7 @@ public final class b extends c<com.kascend.chushou.view.b.b.a> {
     }
 
     public final void d() {
-        com.kascend.chushou.c.c.dwD().a(this.d, this.e, this.f, new a());
+        com.kascend.chushou.c.c.dwE().a(this.d, this.e, this.f, new a());
     }
 
     public final void e() {
@@ -109,9 +109,9 @@ public final class b extends c<com.kascend.chushou.view.b.b.a> {
         boolean isSubscribed = (userCard == null || (userCardInfo = userCard.getUserCardInfo()) == null || (meta = userCardInfo.getMeta()) == null) ? false : meta.isSubscribed();
         C0763b c0763b = new C0763b(isSubscribed);
         if (isSubscribed) {
-            com.kascend.chushou.c.c.dwD().b(c0763b, (String) null, this.d, a2);
+            com.kascend.chushou.c.c.dwE().b(c0763b, (String) null, this.d, a2);
         } else {
-            com.kascend.chushou.c.c.dwD().a(c0763b, (String) null, this.d, a2);
+            com.kascend.chushou.c.c.dwE().a(c0763b, (String) null, this.d, a2);
         }
     }
 
@@ -137,8 +137,8 @@ public final class b extends c<com.kascend.chushou.view.b.b.a> {
             UserCard.UserCardMeta meta2;
             boolean z = false;
             if (b.this.b()) {
-                UserCard dyM = b.this.dyM();
-                if (dyM != null && (userCardInfo2 = dyM.getUserCardInfo()) != null && (meta2 = userCardInfo2.getMeta()) != null) {
+                UserCard dyN = b.this.dyN();
+                if (dyN != null && (userCardInfo2 = dyN.getUserCardInfo()) != null && (meta2 = userCardInfo2.getMeta()) != null) {
                     meta2.setSubscribed(!this.b);
                 }
                 if (this.b) {
@@ -148,8 +148,8 @@ public final class b extends c<com.kascend.chushou.view.b.b.a> {
                 }
                 com.kascend.chushou.view.b.b.a a = b.a(b.this);
                 if (a != null) {
-                    UserCard dyM2 = b.this.dyM();
-                    if (dyM2 != null && (userCardInfo = dyM2.getUserCardInfo()) != null && (meta = userCardInfo.getMeta()) != null) {
+                    UserCard dyN2 = b.this.dyN();
+                    if (dyN2 != null && (userCardInfo = dyN2.getUserCardInfo()) != null && (meta = userCardInfo.getMeta()) != null) {
                         z = meta.isSubscribed();
                     }
                     a.a(z);

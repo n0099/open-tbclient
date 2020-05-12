@@ -16,48 +16,48 @@ public class q {
         this.men = (p) com.facebook.common.internal.g.checkNotNull(pVar);
     }
 
-    public c dtG() {
+    public c dtH() {
         if (this.lZT == null) {
-            this.lZT = new c(this.men.drr(), this.men.dtx(), this.men.dty());
+            this.lZT = new c(this.men.drs(), this.men.dty(), this.men.dtz());
         }
         return this.lZT;
     }
 
-    public i dtH() {
+    public i dtI() {
         if (this.lZY == null) {
-            this.lZY = new i(this.men.drr(), this.men.dtB());
+            this.lZY = new i(this.men.drs(), this.men.dtC());
         }
         return this.lZY;
     }
 
-    public int dtI() {
-        return this.men.dtB().mew;
+    public int dtJ() {
+        return this.men.dtC().mew;
     }
 
-    public k dtJ() {
+    public k dtK() {
         if (this.meo == null) {
-            this.meo = new k(this.men.drr(), this.men.dtz(), this.men.dtA());
+            this.meo = new k(this.men.drs(), this.men.dtA(), this.men.dtB());
         }
         return this.meo;
     }
 
-    public com.facebook.common.memory.g dtK() {
+    public com.facebook.common.memory.g dtL() {
         if (this.lZW == null) {
-            this.lZW = new m(dtJ(), dtL());
+            this.lZW = new m(dtK(), dtM());
         }
         return this.lZW;
     }
 
-    public com.facebook.common.memory.j dtL() {
+    public com.facebook.common.memory.j dtM() {
         if (this.man == null) {
-            this.man = new com.facebook.common.memory.j(dtM());
+            this.man = new com.facebook.common.memory.j(dtN());
         }
         return this.man;
     }
 
-    public com.facebook.common.memory.a dtM() {
+    public com.facebook.common.memory.a dtN() {
         if (this.mep == null) {
-            this.mep = new j(this.men.drr(), this.men.dtC(), this.men.dtD());
+            this.mep = new j(this.men.drs(), this.men.dtD(), this.men.dtE());
         }
         return this.mep;
     }

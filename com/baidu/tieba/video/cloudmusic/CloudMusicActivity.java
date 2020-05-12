@@ -39,7 +39,7 @@ public class CloudMusicActivity extends BaseFragmentActivity implements c.b {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && j.isNetWorkAvailable() && CloudMusicActivity.this.lhz != null) {
-                CloudMusicActivity.this.lhz.daG();
+                CloudMusicActivity.this.lhz.daH();
             }
         }
     };
@@ -90,7 +90,7 @@ public class CloudMusicActivity extends BaseFragmentActivity implements c.b {
         this.gQi.setViewPager(this.dKT);
         registerListener(this.dkW);
         if (this.lhz != null) {
-            this.lhz.daG();
+            this.lhz.daH();
         }
     }
 
@@ -159,19 +159,19 @@ public class CloudMusicActivity extends BaseFragmentActivity implements c.b {
     @Override // android.app.Activity
     protected void onRestart() {
         super.onRestart();
-        com.baidu.tieba.video.editvideo.model.a.dbn().dbo();
+        com.baidu.tieba.video.editvideo.model.a.dbo().dbp();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        MusicPlayer.daH().daI();
+        MusicPlayer.daI().daJ();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        MusicPlayer.daH().daJ();
+        MusicPlayer.daI().daK();
     }
 
     /* loaded from: classes10.dex */
@@ -210,8 +210,8 @@ public class CloudMusicActivity extends BaseFragmentActivity implements c.b {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        this.lhz.bRh();
-        MusicPlayer.daH().beL();
-        com.baidu.tieba.video.editvideo.model.a.dbn().dbp();
+        this.lhz.bRi();
+        MusicPlayer.daI().beL();
+        com.baidu.tieba.video.editvideo.model.a.dbo().dbq();
     }
 }

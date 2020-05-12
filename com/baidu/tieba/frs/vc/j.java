@@ -78,14 +78,14 @@ public class j extends com.baidu.tieba.frs.mc.j {
             public void aQk() {
                 j.this.hxx = true;
                 if (j.this.gYw != null && j.this.hsC != null && j.this.gYN != null && j.this.hro != null && j.this.hro.isAdded()) {
-                    if (j.this.gYw != null && j.this.gYw.bPt() != null) {
-                        j.this.gYw.bPt().bZd();
+                    if (j.this.gYw != null && j.this.gYw.bPu() != null) {
+                        j.this.gYw.bPu().bZe();
                     }
                     j.this.hro.mr(false);
                     com.baidu.adp.lib.f.e.lb().postDelayed(new Runnable() { // from class: com.baidu.tieba.frs.vc.j.5.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            if (j.this.gYw.bPk() != null && j.this.hsC != null && j.this.gYw.bPk().getVisibility() != 0) {
+                            if (j.this.gYw.bPl() != null && j.this.hsC != null && j.this.gYw.bPl().getVisibility() != 0) {
                                 j.this.hsC.bay();
                             }
                         }
@@ -95,7 +95,7 @@ public class j extends com.baidu.tieba.frs.mc.j {
                         j.this.hro.refresh();
                         j.this.hro.mr(true);
                     } else {
-                        j.this.hro.bOy();
+                        j.this.hro.bOz();
                     }
                     TiebaStatic.log(new com.baidu.tbadk.core.util.an("c11749").cI("fid", j.this.hro.getFid()).cI("obj_locate", "1"));
                 }
@@ -104,28 +104,28 @@ public class j extends com.baidu.tieba.frs.mc.j {
             @Override // com.baidu.tieba.frs.an
             public void aQl() {
                 if (j.this.hro != null && j.this.hro.isAdded()) {
-                    if (j.this.hxx && j.this.hro.bOt() != null) {
-                        j.this.hro.bOt().bVQ();
+                    if (j.this.hxx && j.this.hro.bOu() != null) {
+                        j.this.hro.bOu().bVR();
                         j.this.hxx = false;
                     }
-                    if (j.this.gYQ != null && j.this.hro.bOv() != null && j.this.hro.bOv().bPv() != null && !j.this.hro.bOv().bPv().bVg()) {
-                        j.this.gYQ.bUo();
+                    if (j.this.gYQ != null && j.this.hro.bOw() != null && j.this.hro.bOw().bPw() != null && !j.this.hro.bOw().bPw().bVh()) {
+                        j.this.gYQ.bUp();
                     }
                     if (j.this.gYw != null && j.this.hsC != null && j.this.gYN != null && j.this.gYQ != null) {
-                        j.this.gYw.bPt().a(0, 0, true, true);
-                        j.this.hro.bOJ();
+                        j.this.gYw.bPu().a(0, 0, true, true);
+                        j.this.hro.bOK();
                         j.this.hro.mr(true);
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_HIDE_NEGATIVE_FEED_BACK_WIN));
-                        if (j.this.hro.bOv() != null) {
-                            j.this.hro.bOv().H(1, false);
+                        if (j.this.hro.bOw() != null) {
+                            j.this.hro.bOw().H(1, false);
                         }
-                        if (!TbadkCoreApplication.isLogin() || j.this.hro.aQF().getVisibility() != 0 || v.isEmpty(j.this.hro.bOW().getThreadList())) {
+                        if (!TbadkCoreApplication.isLogin() || j.this.hro.aQF().getVisibility() != 0 || v.isEmpty(j.this.hro.bOX().getThreadList())) {
                         }
                     }
                 }
             }
         };
-        this.gYQ = frsFragment.bOp();
+        this.gYQ = frsFragment.bOq();
         this.hxy = new HashMap<>();
         this.gYw.tr(1);
         frsFragment.registerListener(this.hxz);
@@ -134,7 +134,7 @@ public class j extends com.baidu.tieba.frs.mc.j {
         frsFragment.registerListener(this.hxC);
     }
 
-    public void bVC() {
+    public void bVD() {
         if (this.gYw != null) {
             this.gYw.a(this.hxD);
         }

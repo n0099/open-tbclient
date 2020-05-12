@@ -95,7 +95,7 @@ public class a {
                 }
             }
         });
-        if (com.kascend.chushou.d.h.dwH().q() && this.a.size() > 0 && this.mBo != null) {
+        if (com.kascend.chushou.d.h.dwI().q() && this.a.size() > 0 && this.mBo != null) {
             this.mBo.D();
         }
     }
@@ -106,10 +106,10 @@ public class a {
         }
         e eVar = this.a.get(0);
         if (i == 2) {
-            return eVar.dyz();
+            return eVar.dyA();
         }
         if (i == 1) {
-            return eVar.dyy();
+            return eVar.dyz();
         }
         return null;
     }

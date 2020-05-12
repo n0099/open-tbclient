@@ -41,7 +41,7 @@ public class NewAnounceLayout extends CardBasicLayout {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 new an("c13447").aOO();
-                if (NewAnounceLayout.this.glx != null && NewAnounceLayout.this.glx.getTid() != 0 && !TextUtils.isEmpty(NewAnounceLayout.this.glx.bDM())) {
+                if (NewAnounceLayout.this.glx != null && NewAnounceLayout.this.glx.getTid() != 0 && !TextUtils.isEmpty(NewAnounceLayout.this.glx.bDN())) {
                     PbActivityConfig pbActivityConfig = new PbActivityConfig(NewAnounceLayout.this.mContext);
                     pbActivityConfig.createNormalCfg(NewAnounceLayout.this.glx.getTid() + "", (String) null, (String) null, true);
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, pbActivityConfig));
@@ -93,7 +93,7 @@ public class NewAnounceLayout extends CardBasicLayout {
             this.glB.setPadding(0, 0, 0, 0);
             this.glC.setPadding(0, 0, 0, 0);
         }
-        BC(this.glx.bDM());
+        BC(this.glx.bDN());
     }
 
     private void BC(String str) {
@@ -128,7 +128,7 @@ public class NewAnounceLayout extends CardBasicLayout {
             } else if (this.gly != null) {
                 this.gly.setBackgroundColor(0);
             }
-            if (TextUtils.isEmpty(this.glx.bDM())) {
+            if (TextUtils.isEmpty(this.glx.bDN())) {
                 am.setViewTextColor(this.glz, R.color.cp_cont_d, 1, i);
             } else {
                 am.setViewTextColor(this.glz, R.color.cp_cont_b, 1, i);

@@ -48,7 +48,7 @@ public class LocationModel extends BdBaseModel {
         void wH(String str);
     }
 
-    private void cWW() {
+    private void cWX() {
         this.kUR = new HttpMessageListener(1001506) { // from class: com.baidu.tieba.tbadkCore.location.LocationModel.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
@@ -65,15 +65,15 @@ public class LocationModel extends BdBaseModel {
                     return;
                 }
                 TbadkCoreApplication.getInst().setLocationShared(true);
-                LocationModel.this.cWX();
+                LocationModel.this.cWY();
             }
         };
     }
 
-    public void cWX() {
-        if (cWZ()) {
+    public void cWY() {
+        if (cXa()) {
             if (this.kUP != null) {
-                this.kUP.a(c.cWU().getLocationData());
+                this.kUP.a(c.cWV().getLocationData());
             }
         } else if (j.isNetWorkAvailable()) {
             if (ab.checkLocationForGoogle(this.mContext.getPageActivity())) {
@@ -162,27 +162,27 @@ public class LocationModel extends BdBaseModel {
             return;
         }
         d(aVar);
-        c.cWU().setTimeStamp(System.currentTimeMillis());
-        c.cWU().b(aVar);
+        c.cWV().setTimeStamp(System.currentTimeMillis());
+        c.cWV().b(aVar);
         if (this.kUP != null) {
             this.kUP.a(aVar);
         }
     }
 
     private void d(com.baidu.tieba.tbadkCore.location.a aVar) {
-        List<a.C0676a> cWT;
+        List<a.C0676a> cWU;
         int i;
         int i2;
-        if (aVar != null && (cWT = aVar.cWT()) != null && !cWT.isEmpty()) {
-            int size = cWT.size();
+        if (aVar != null && (cWU = aVar.cWU()) != null && !cWU.isEmpty()) {
+            int size = cWU.size();
             int i3 = 0;
             while (i3 < size) {
                 String str = null;
-                if (cWT.get(i3) != null) {
-                    str = cWT.get(i3).getName();
+                if (cWU.get(i3) != null) {
+                    str = cWU.get(i3).getName();
                 }
                 if (StringUtils.isNull(str)) {
-                    cWT.remove(i3);
+                    cWU.remove(i3);
                     i = size - 1;
                     i2 = i3 - 1;
                 } else {
@@ -192,16 +192,16 @@ public class LocationModel extends BdBaseModel {
                 i3 = i2 + 1;
                 size = i;
             }
-            if (StringUtils.isNull(aVar.cWS())) {
-                if (cWT.size() >= 1) {
-                    aVar.KR(cWT.get(0).getName());
-                    aVar.KS(cWT.get(0).asR());
+            if (StringUtils.isNull(aVar.cWT())) {
+                if (cWU.size() >= 1) {
+                    aVar.KR(cWU.get(0).getName());
+                    aVar.KS(cWU.get(0).asR());
                     return;
                 }
                 return;
             }
-            for (a.C0676a c0676a : cWT) {
-                if (aVar.cWS().equals(c0676a.getName())) {
+            for (a.C0676a c0676a : cWU) {
+                if (aVar.cWT().equals(c0676a.getName())) {
                     aVar.KS(c0676a.asR());
                     return;
                 }
@@ -209,39 +209,39 @@ public class LocationModel extends BdBaseModel {
         }
     }
 
-    public boolean cWY() {
-        return System.currentTimeMillis() - c.cWU().getTimeStamp() > 300000;
+    public boolean cWZ() {
+        return System.currentTimeMillis() - c.cWV().getTimeStamp() > 300000;
     }
 
-    public boolean cWZ() {
-        com.baidu.tieba.tbadkCore.location.a locationData = c.cWU().getLocationData();
-        return (cWY() || locationData == null || StringUtils.isNull(locationData.cWS())) ? false : true;
+    public boolean cXa() {
+        com.baidu.tieba.tbadkCore.location.a locationData = c.cWV().getLocationData();
+        return (cWZ() || locationData == null || StringUtils.isNull(locationData.cWT())) ? false : true;
     }
 
     public void tY(boolean z) {
-        c.cWU().tX(z);
-        com.baidu.tbadk.core.sharedPref.b.aNT().putBoolean(SharedPrefConfig.NO_LONGER_SHOW_ADDRESS, c.cWU().cWV());
+        c.cWV().tX(z);
+        com.baidu.tbadk.core.sharedPref.b.aNT().putBoolean(SharedPrefConfig.NO_LONGER_SHOW_ADDRESS, c.cWV().cWW());
     }
 
     public void eT(String str, String str2) {
-        com.baidu.tieba.tbadkCore.location.a locationData = c.cWU().getLocationData();
+        com.baidu.tieba.tbadkCore.location.a locationData = c.cWV().getLocationData();
         if (locationData != null) {
             locationData.KR(str);
             locationData.KS(str2);
         }
     }
 
-    public static void cXa() {
+    public static void cXb() {
         com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_GET_LOCATION, LocationSocketResponsedMessage.class, false, false);
     }
 
     public boolean bAS() {
-        return UtilHelper.isSystemLocationProviderEnabled(this.mContext.getPageActivity()) && TbadkCoreApplication.getInst().getLocationShared() && !c.cWU().cWV();
+        return UtilHelper.isSystemLocationProviderEnabled(this.mContext.getPageActivity()) && TbadkCoreApplication.getInst().getLocationShared() && !c.cWV().cWW();
     }
 
-    public void cXb() {
+    public void cXc() {
         if (this.kUR == null) {
-            cWW();
+            cWX();
             registerListener(this.kUR);
         }
         HttpMessage httpMessage = new HttpMessage(1001506);

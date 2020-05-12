@@ -255,7 +255,7 @@ public class a extends com.baidu.tieba.card.a<com.baidu.tieba.frs.aggregation.g>
                 TiebaStatic.log(new an("c13257"));
                 a.this.hzb.setHasAgreeToPlay(true);
                 a.this.hef.sU(false);
-                a.this.hzb.ddQ();
+                a.this.hzb.ddR();
                 if (a.this.goU.py()) {
                     a.this.goU.resume();
                 } else if (a.this.heg != null && a.this.heg.heG != null) {
@@ -340,14 +340,14 @@ public class a extends com.baidu.tieba.card.a<com.baidu.tieba.frs.aggregation.g>
             }
             this.mWidth = l.getEquipmentWidth(this.mContext);
             if (this.mWidth != this.gFI) {
-                this.hef.cJo();
+                this.hef.cJp();
                 this.gFI = this.mWidth;
                 ViewGroup.LayoutParams layoutParams = this.hdS.getLayoutParams();
                 layoutParams.width = -1;
                 layoutParams.height = -1;
                 this.hdS.setLayoutParams(layoutParams);
             }
-            bWb();
+            bWc();
             a(gVar, i, aVar, z);
             i(gVar);
             onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
@@ -360,7 +360,7 @@ public class a extends com.baidu.tieba.card.a<com.baidu.tieba.frs.aggregation.g>
         a(gVar, i, aVar, false);
     }
 
-    private boolean bWa() {
+    private boolean bWb() {
         try {
             int parseInt = Integer.parseInt(this.heg.heG.videoWidth);
             return parseInt <= 0 || ((float) Integer.parseInt(this.heg.heG.videoHeight)) / ((float) parseInt) < 1.0f;
@@ -369,8 +369,8 @@ public class a extends com.baidu.tieba.card.a<com.baidu.tieba.frs.aggregation.g>
         }
     }
 
-    private void bWb() {
-        if (!bWa()) {
+    private void bWc() {
+        if (!bWb()) {
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.hdR.getLayoutParams();
             layoutParams.height = (int) (0.875f * this.mWidth);
             this.hdR.setLayoutParams(layoutParams);
@@ -393,7 +393,7 @@ public class a extends com.baidu.tieba.card.a<com.baidu.tieba.frs.aggregation.g>
             this.hef.a(new c.InterfaceC0650c() { // from class: com.baidu.tieba.frs.videomiddlepage.a.15
                 @Override // com.baidu.tieba.play.c.InterfaceC0650c
                 public void pG() {
-                    a.this.bWf();
+                    a.this.bWg();
                     if (a.this.goU != null) {
                         a.this.goU.pG();
                     }
@@ -401,7 +401,7 @@ public class a extends com.baidu.tieba.card.a<com.baidu.tieba.frs.aggregation.g>
 
                 @Override // com.baidu.tieba.play.c.InterfaceC0650c
                 public void pH() {
-                    a.this.bWg();
+                    a.this.bWh();
                     if (a.this.hef.pI()) {
                     }
                     if (a.this.hel || (a.this.goU != null && a.this.goU.py())) {
@@ -415,7 +415,7 @@ public class a extends com.baidu.tieba.card.a<com.baidu.tieba.frs.aggregation.g>
             });
             this.hef.a(new c.l() { // from class: com.baidu.tieba.frs.videomiddlepage.a.16
                 @Override // com.baidu.tieba.play.c.l
-                public void bQZ() {
+                public void bRa() {
                     if (a.this.heg != null && a.this.heg.heG != null && com.baidu.adp.lib.f.b.toInt(a.this.heg.heG.videoHeight, 0) > com.baidu.adp.lib.f.b.toInt(a.this.heg.heG.videoWidth, 0)) {
                         a.this.hef.ak(false, false);
                     } else {
@@ -433,7 +433,7 @@ public class a extends com.baidu.tieba.card.a<com.baidu.tieba.frs.aggregation.g>
                 }
 
                 @Override // com.baidu.tieba.play.c.l
-                public void bRa() {
+                public void bRb() {
                     a.this.onClick(a.this.hdR);
                 }
             });
@@ -460,13 +460,13 @@ public class a extends com.baidu.tieba.card.a<com.baidu.tieba.frs.aggregation.g>
                     g.a aVar2 = a.this.heg.heG.heR;
                     if (aVar2 == null) {
                         if (i3 >= i2) {
-                            if (a.this.goU.a(a.this.isFullScreen, a.this.hef != null && a.this.hef.cIU(), "VIDEO_LIST")) {
+                            if (a.this.goU.a(a.this.isFullScreen, a.this.hef != null && a.this.hef.cIV(), "VIDEO_LIST")) {
                             }
                         } else if (i2 != 0 && (i3 * 100) / i2 >= 80 && i2 > 15000) {
                             a.this.goU.a(a.this.h(gVar));
                         }
                     }
-                    if (aVar2 != null && !a.this.isFullScreen && !a.this.hef.cIU() && !com.baidu.mcn.b.JE().fu(aVar2.Xt)) {
+                    if (aVar2 != null && !a.this.isFullScreen && !a.this.hef.cIV() && !com.baidu.mcn.b.JE().fu(aVar2.Xt)) {
                         boolean z3 = a.this.startPosition >= (aVar2.heJ * 1000) + 1000;
                         if (i3 < aVar2.heJ * 1000 || i3 >= aVar2.heK * 1000) {
                             z2 = false;
@@ -482,9 +482,9 @@ public class a extends com.baidu.tieba.card.a<com.baidu.tieba.frs.aggregation.g>
                                 aVar3.tid = a.this.heg != null ? a.this.heg.threadId : null;
                                 aVar3.bho = 3;
                                 if (z3) {
-                                    a.this.hzd.b(aVar3, (ViewGroup) a.this.hef.cJn());
+                                    a.this.hzd.b(aVar3, (ViewGroup) a.this.hef.cJo());
                                 } else {
-                                    a.this.hzd.a(aVar3, (ViewGroup) a.this.hef.cJn());
+                                    a.this.hzd.a(aVar3, (ViewGroup) a.this.hef.cJo());
                                 }
                             }
                         } else if (a.this.hzd.isShowing()) {
@@ -539,13 +539,13 @@ public class a extends com.baidu.tieba.card.a<com.baidu.tieba.frs.aggregation.g>
             }
             TiebaStatic.log(anVar);
             this.ePh.setVideoStatsData(this.hei);
-            this.hef.cIW().setBusiness(this.ePh);
+            this.hef.cIX().setBusiness(this.ePh);
             this.ePh.a(gVar);
-            this.hef.cny();
+            this.hef.cnz();
             this.hef.a(new g.a() { // from class: com.baidu.tieba.frs.videomiddlepage.a.3
                 @Override // com.baidu.tieba.play.g.a
                 public void onCompletion(com.baidu.tieba.play.g gVar2) {
-                    if (!a.this.goU.a(a.this.isFullScreen, a.this.hef != null && a.this.hef.cIU(), "VIDEO_LIST")) {
+                    if (!a.this.goU.a(a.this.isFullScreen, a.this.hef != null && a.this.hef.cIV(), "VIDEO_LIST")) {
                         if (a.this.isFullScreen) {
                             a.this.hel = true;
                             a.this.hyT = true;
@@ -553,7 +553,7 @@ public class a extends com.baidu.tieba.card.a<com.baidu.tieba.frs.aggregation.g>
                         }
                         if (aVar != null && !a.this.isFullScreen) {
                             aVar.tE(i);
-                            a.this.hef.caF();
+                            a.this.hef.caG();
                         }
                     }
                 }
@@ -588,7 +588,7 @@ public class a extends com.baidu.tieba.card.a<com.baidu.tieba.frs.aggregation.g>
                     }
                     if (aVar != null && !a.this.isFullScreen) {
                         aVar.tE(i);
-                        a.this.hef.caF();
+                        a.this.hef.caG();
                     }
                 }
 
@@ -601,21 +601,21 @@ public class a extends com.baidu.tieba.card.a<com.baidu.tieba.frs.aggregation.g>
 
                 @Override // com.baidu.afd.videopaster.d.a
                 public boolean pQ() {
-                    return a.this.bWe();
+                    return a.this.bWf();
                 }
             });
             this.hef.setThumbnail(gVar.heG.thumbnailUrl);
             this.hef.AT(gVar.heG.videoDuration);
             this.hef.setVideoUrl(gVar.heG.videoUrl, gVar.threadId);
             this.hef.setFid(gVar.forumId);
-            this.hef.caF();
+            this.hef.caG();
             this.hef.show();
             nt(false);
             if (gVar.autoPlay) {
                 onClick(this.hdS);
-                if (this.hzb.cEY()) {
+                if (this.hzb.cEZ()) {
                     this.hef.sT(false);
-                    this.hzb.ddP();
+                    this.hzb.ddQ();
                     this.hef.sU(true);
                     this.hef.eu(gVar.heG.videoUrl, gVar.threadId);
                     if (this.goU.py()) {
@@ -712,11 +712,11 @@ public class a extends com.baidu.tieba.card.a<com.baidu.tieba.frs.aggregation.g>
         return this.hef.pI();
     }
 
-    public boolean bWc() {
+    public boolean bWd() {
         return this.goU.py();
     }
 
-    public void bQV() {
+    public void bQW() {
         if (isPlaying()) {
             this.hef.asl();
         }
@@ -727,7 +727,7 @@ public class a extends com.baidu.tieba.card.a<com.baidu.tieba.frs.aggregation.g>
             this.goU.aJ(i);
             if (this.isFullScreen) {
                 if (this.goU.px()) {
-                    this.hef.cIV();
+                    this.hef.cIW();
                 } else {
                     this.hef.Fe();
                 }
@@ -737,7 +737,7 @@ public class a extends com.baidu.tieba.card.a<com.baidu.tieba.frs.aggregation.g>
         return this.hef.AU(i);
     }
 
-    public void bQW() {
+    public void bQX() {
         this.hyV = false;
         this.hef.stopPlay();
         if (this.hyP != null) {
@@ -753,11 +753,11 @@ public class a extends com.baidu.tieba.card.a<com.baidu.tieba.frs.aggregation.g>
         }
     }
 
-    public void bWd() {
+    public void bWe() {
         this.goU.stop();
     }
 
-    public void bQX() {
+    public void bQY() {
         if (this.hef != null) {
             this.hef.destroy();
         }
@@ -765,9 +765,9 @@ public class a extends com.baidu.tieba.card.a<com.baidu.tieba.frs.aggregation.g>
 
     @Override // com.baidu.tieba.card.a
     public void onDestroy() {
-        bQX();
+        bQY();
         if (this.heh != null) {
-            this.heh.bRh();
+            this.heh.bRi();
         }
         if (this.hyW != null) {
             this.hyW.clearAnimation();
@@ -856,14 +856,14 @@ public class a extends com.baidu.tieba.card.a<com.baidu.tieba.frs.aggregation.g>
         if (this.hef != null && this.hdS != null && this.mPageContext != null && this.mPageContext.getPageActivity() != null && this.mPageContext.getPageActivity().getWindow() != null && (this.mPageContext.getPageActivity().getWindow().getDecorView() instanceof FrameLayout)) {
             FrameLayout frameLayout = (FrameLayout) this.mPageContext.getPageActivity().getWindow().getDecorView();
             if (this.hek) {
-                this.hef.cJc();
+                this.hef.cJd();
             }
             if (configuration.orientation == 2) {
                 configuration.orientation = 2;
-                bWf();
+                bWg();
             } else {
                 configuration.orientation = 1;
-                bWg();
+                bWh();
                 this.hek = true;
             }
             this.hef.a(this.mPageContext, configuration);
@@ -871,7 +871,7 @@ public class a extends com.baidu.tieba.card.a<com.baidu.tieba.frs.aggregation.g>
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean bWe() {
+    public boolean bWf() {
         if (this.hef != null && this.hdS != null && this.mPageContext != null && this.mPageContext.getPageActivity() != null && this.mPageContext.getPageActivity().getWindow() != null && (this.mPageContext.getPageActivity().getWindow().getDecorView() instanceof FrameLayout)) {
             FrameLayout frameLayout = (FrameLayout) this.mPageContext.getPageActivity().getWindow().getDecorView();
             if (this.hdS.getParent() != null) {
@@ -900,7 +900,7 @@ public class a extends com.baidu.tieba.card.a<com.baidu.tieba.frs.aggregation.g>
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bWf() {
+    public void bWg() {
         if (this.hef != null && this.hdS != null && this.mPageContext != null && this.mPageContext.getPageActivity() != null && this.mPageContext.getPageActivity().getWindow() != null && (this.mPageContext.getPageActivity().getWindow().getDecorView() instanceof FrameLayout)) {
             FrameLayout frameLayout = (FrameLayout) this.mPageContext.getPageActivity().getWindow().getDecorView();
             this.isFullScreen = true;
@@ -926,38 +926,38 @@ public class a extends com.baidu.tieba.card.a<com.baidu.tieba.frs.aggregation.g>
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bWg() {
+    public void bWh() {
         if (this.hef != null && this.hdS != null && this.mPageContext != null && this.mPageContext.getPageActivity() != null && this.mPageContext.getPageActivity().getWindow() != null && (this.mPageContext.getPageActivity().getWindow().getDecorView() instanceof FrameLayout)) {
             FrameLayout frameLayout = (FrameLayout) this.mPageContext.getPageActivity().getWindow().getDecorView();
             this.isFullScreen = false;
             if (this.hdS.getParent() != null) {
                 if (this.hdS.getParent() == frameLayout) {
-                    bWh();
+                    bWi();
                     frameLayout.removeView(this.hdS);
                 } else if (this.hdS.getParent() == this.hdR) {
-                    bWh();
+                    bWi();
                     this.hdR.removeView(this.hdS);
                 }
             }
             if (this.hdS.getParent() == null) {
                 this.hdR.addView(this.hdS, 0);
-                bWi();
-                this.hef.cny();
+                bWj();
+                this.hef.cnz();
                 this.startPosition = -1L;
                 com.baidu.tbadk.util.d.bad().hY(false);
             }
         }
     }
 
-    private void bWh() {
+    private void bWi() {
         if (this.goU != null && this.goU.py()) {
             this.goU.ax(true);
         }
     }
 
-    private void bWi() {
+    private void bWj() {
         int i;
-        if (!bWa()) {
+        if (!bWb()) {
             i = (int) (0.875f * this.mWidth);
         } else {
             i = (int) (0.5625f * this.mWidth);
@@ -970,9 +970,9 @@ public class a extends com.baidu.tieba.card.a<com.baidu.tieba.frs.aggregation.g>
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         boolean z = true;
-        if (bEw() != null) {
+        if (bEx() != null) {
             view.setTag(this);
-            bEw().a(view, this.heg);
+            bEx().a(view, this.heg);
         }
         if (view == this.hdY || view == this.afZ) {
             if (this.heg != null && this.heg.heF != null && !TextUtils.isEmpty(this.heg.heF.userId)) {
@@ -1027,7 +1027,7 @@ public class a extends com.baidu.tieba.card.a<com.baidu.tieba.frs.aggregation.g>
     }
 
     @Override // com.baidu.tieba.frs.aggregation.c
-    public void bQY() {
+    public void bQZ() {
         if (this.heg != null) {
             this.dHF.aPM();
         }
@@ -1058,7 +1058,7 @@ public class a extends com.baidu.tieba.card.a<com.baidu.tieba.frs.aggregation.g>
     }
 
     private void nt(boolean z) {
-        this.hyU = this.mPosition == (this.hyZ == null ? -1 : this.hyZ.bWu());
+        this.hyU = this.mPosition == (this.hyZ == null ? -1 : this.hyZ.bWv());
         if (this.hyU && z && isPlaying() && this.dvO && !this.hyV) {
             this.hyR.setVisibility(0);
             this.hyV = true;
@@ -1140,18 +1140,18 @@ public class a extends com.baidu.tieba.card.a<com.baidu.tieba.frs.aggregation.g>
             shareItem.Y(bundle);
             ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this.mContext, shareItem, true, true);
             shareDialogConfig.setFrom(ShareDialogConfig.From.VideoMiddlePageHorizontal);
-            com.baidu.tieba.c.e.bGc().b(shareDialogConfig);
+            com.baidu.tieba.c.e.bGd().b(shareDialogConfig);
         }
     }
 
     @Override // com.baidu.tieba.lego.card.view.j
     public void stopPlay() {
-        bQW();
+        bQX();
     }
 
     @Override // com.baidu.tieba.lego.card.view.j
     public void asl() {
-        bQV();
+        bQW();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -1167,11 +1167,11 @@ public class a extends com.baidu.tieba.card.a<com.baidu.tieba.frs.aggregation.g>
         MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
     }
 
-    public void bWj() {
+    public void bWk() {
         this.goU.resume();
     }
 
-    public boolean bWk() {
+    public boolean bWl() {
         if (this.hza != null) {
             return this.hza.getCurrentState() == 2 || this.hza.getCurrentState() == 3;
         }
@@ -1200,7 +1200,7 @@ public class a extends com.baidu.tieba.card.a<com.baidu.tieba.frs.aggregation.g>
             switch (i) {
                 case 0:
                     this.mCurrentState = va(i);
-                    bWl();
+                    bWm();
                     return;
                 case 1:
                     this.mCurrentState = va(i);
@@ -1211,7 +1211,7 @@ public class a extends com.baidu.tieba.card.a<com.baidu.tieba.frs.aggregation.g>
                     return;
                 case 3:
                     this.mCurrentState = vc(i);
-                    bWl();
+                    bWm();
                     return;
                 default:
                     this.mCurrentState = vb(i);
@@ -1219,7 +1219,7 @@ public class a extends com.baidu.tieba.card.a<com.baidu.tieba.frs.aggregation.g>
             }
         }
 
-        private void bWl() {
+        private void bWm() {
             com.baidu.adp.lib.f.e.lb().removeCallbacks(this.hzp);
             com.baidu.adp.lib.f.e.lb().postDelayed(this.hzp, 3000L);
         }

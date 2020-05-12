@@ -29,7 +29,7 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016321 && (customResponsedMessage.getData() instanceof Intent)) {
                 Intent intent = (Intent) customResponsedMessage.getData();
                 if (AtMessageActivity.this.izZ != null) {
-                    AtMessageActivity.this.izZ.bFD();
+                    AtMessageActivity.this.izZ.bFE();
                 }
             }
         }
@@ -52,16 +52,16 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
         }
         this.izY.bom();
         aZc().addEventDelegate(this);
-        this.izZ.bFD();
+        this.izZ.bFE();
     }
 
     @Override // com.baidu.tbadk.core.view.g.c
     public void onListPullRefresh(boolean z) {
-        this.izZ.bTt();
+        this.izZ.bTu();
     }
 
-    public void bRi() {
-        this.izZ.bFE();
+    public void bRj() {
+        this.izZ.bFF();
     }
 
     @Override // com.baidu.tbadk.mvc.c.a
@@ -154,8 +154,8 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
         return this.iAa;
     }
 
-    public void ckj() {
-        this.izY.ckj();
+    public void ckk() {
+        this.izY.ckk();
     }
 
     public void c(com.baidu.tbadk.mvc.d.b bVar) {
@@ -166,8 +166,8 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
         this.izY.a(aVar);
     }
 
-    public void ckk() {
-        this.izY.ckk();
+    public void ckl() {
+        this.izY.ckl();
     }
 
     public void a(ErrorData errorData) {

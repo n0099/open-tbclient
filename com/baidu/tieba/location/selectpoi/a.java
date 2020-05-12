@@ -23,20 +23,20 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.iQo == null || this.iQo.coJ() == null || this.iQo.coJ().isEmpty()) {
+        if (this.iQo == null || this.iQo.coK() == null || this.iQo.coK().isEmpty()) {
             this.gOb = false;
             return 1;
         }
         this.gOb = true;
-        return this.iQo.coJ().size();
+        return this.iQo.coK().size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.iQo == null || this.iQo.coJ() == null || this.iQo.coJ().isEmpty()) {
+        if (this.iQo == null || this.iQo.coK() == null || this.iQo.coK().isEmpty()) {
             return null;
         }
-        return this.iQo.coJ().get(i);
+        return this.iQo.coK().get(i);
     }
 
     @Override // android.widget.Adapter
@@ -59,7 +59,7 @@ public class a extends BaseAdapter {
             view.setTag(c0615a);
         }
         C0615a c0615a2 = c0615a;
-        c0615a2.iQr.setText(this.iQo.coJ().get(i).getName());
+        c0615a2.iQr.setText(this.iQo.coK().get(i).getName());
         am.setBackgroundColor(c0615a2.gbf, R.color.cp_bg_line_c);
         am.setViewTextColor(c0615a2.iQr, R.color.cp_cont_b, 1);
         am.setBackgroundResource(view, R.drawable.home_recommend_item_bg);
@@ -70,7 +70,7 @@ public class a extends BaseAdapter {
         this.iQo = aVar;
     }
 
-    public boolean coN() {
+    public boolean coO() {
         return this.gOb;
     }
 

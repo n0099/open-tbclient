@@ -2,7 +2,7 @@ package kotlin.text;
 @kotlin.h
 /* loaded from: classes7.dex */
 public interface i {
-    kotlin.b.h dEm();
+    kotlin.b.h dEn();
 
-    i dEn();
+    i dEo();
 }

@@ -61,7 +61,7 @@ public class b extends c<GroupActivityActivity> {
         this.ioa.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.groupActivity.b.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                b.this.cgI();
+                b.this.cgJ();
                 b.this.ion.showDialog();
                 TiebaStatic.eventStat(groupActivityActivity.getPageContext().getPageActivity(), "group_activity_edit", "groupclick", 1, new Object[0]);
             }
@@ -111,11 +111,11 @@ public class b extends c<GroupActivityActivity> {
                 if (groupActivityData.getIsEnd() == 1) {
                     this.ioa.setVisibility(8);
                     this.ioo.setVisibility(0);
-                    if (com.baidu.tieba.group.a.bXz().bXA() || z) {
+                    if (com.baidu.tieba.group.a.bXA().bXB() || z) {
                         this.iop.setVisibility(8);
                     } else {
                         this.iop.setVisibility(0);
-                        com.baidu.tieba.group.a.bXz().nG(true);
+                        com.baidu.tieba.group.a.bXA().nG(true);
                         e.lb().postDelayed(new Runnable() { // from class: com.baidu.tieba.im.groupActivity.b.2
                             @Override // java.lang.Runnable
                             public void run() {
@@ -212,20 +212,20 @@ public class b extends c<GroupActivityActivity> {
         this.iop = null;
     }
 
-    public View cgF() {
+    public View cgG() {
         return this.idP;
     }
 
-    public TextView cgG() {
+    public TextView cgH() {
         return this.ioo;
     }
 
-    public i cgH() {
+    public i cgI() {
         return this.ion;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cgI() {
+    public void cgJ() {
         if (this.ion == null) {
             String[] strArr = {this.inX.getPageContext().getString(R.string.group_activity_eidt), this.inX.getPageContext().getString(R.string.group_activity_delete)};
             this.ion = new i(this.inX.getPageContext());

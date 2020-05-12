@@ -11,11 +11,11 @@ public final class h extends f {
         super(i, i2, 1);
     }
 
-    public Integer dEd() {
+    public Integer dEe() {
         return Integer.valueOf(getFirst());
     }
 
-    public Integer dEe() {
+    public Integer dEf() {
         return Integer.valueOf(getLast());
     }
 
@@ -52,7 +52,7 @@ public final class h extends f {
             this();
         }
 
-        public final h dEg() {
+        public final h dEh() {
             return h.mYm;
         }
     }

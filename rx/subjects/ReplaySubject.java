@@ -330,18 +330,18 @@ public final class ReplaySubject<T> extends c<T, T> {
 
         @Override // rx.subjects.ReplaySubject.a
         public void error(Throwable th) {
-            dIP();
+            dIQ();
             this.error = th;
             this.done = true;
         }
 
         @Override // rx.subjects.ReplaySubject.a
         public void complete() {
-            dIP();
+            dIQ();
             this.done = true;
         }
 
-        void dIP() {
+        void dIQ() {
             long now = this.scheduler.now() - this.npC;
             TimedNode<T> timedNode = this.npD;
             TimedNode<T> timedNode2 = timedNode;
@@ -357,7 +357,7 @@ public final class ReplaySubject<T> extends c<T, T> {
             }
         }
 
-        TimedNode<T> dIQ() {
+        TimedNode<T> dIR() {
             TimedNode<T> timedNode;
             long now = this.scheduler.now() - this.npC;
             TimedNode<T> timedNode2 = this.npD;
@@ -385,7 +385,7 @@ public final class ReplaySubject<T> extends c<T, T> {
                     long j3 = 0;
                     TimedNode<T> timedNode2 = (TimedNode) replayProducer.node;
                     if (timedNode2 == null) {
-                        timedNode2 = dIQ();
+                        timedNode2 = dIR();
                     }
                     while (true) {
                         j = j3;

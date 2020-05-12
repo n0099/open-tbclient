@@ -84,7 +84,7 @@ public class ALAImEnterView extends LinearLayout {
         initView();
         setVisibility(4);
         afu = BdUtilHelper.getEquipmentWidth(getContext());
-        this.aNP = getResources().getDimensionPixelOffset(a.e.sdk_ds28);
+        this.aNP = getResources().getDimensionPixelOffset(a.e.sdk_ds32);
     }
 
     private void Cv() {
@@ -300,22 +300,23 @@ public class ALAImEnterView extends LinearLayout {
     private void c(com.baidu.live.data.a aVar, b bVar) {
         int parseColor;
         StringBuilder sb = new StringBuilder();
-        if (!TextUtils.isEmpty(bVar.axT)) {
+        String str = bVar.axT;
+        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str.replace(" ", ""))) {
             sb.append(bVar.axT);
         }
-        String str = aVar.name_show;
-        if (str != null) {
-            if (TextHelper.getTextLengthWithEmoji(str) > 20) {
-                str = TextHelper.subStringWithEmoji(str, 20) + StringHelper.STRING_MORE;
+        String str2 = aVar.name_show;
+        if (str2 != null) {
+            if (TextHelper.getTextLengthWithEmoji(str2) > 20) {
+                str2 = TextHelper.subStringWithEmoji(str2, 20) + StringHelper.STRING_MORE;
             }
         } else {
-            str = "";
+            str2 = "";
         }
-        if (!TextUtils.isEmpty(str)) {
+        if (!TextUtils.isEmpty(str2)) {
             if (sb.length() > 0) {
                 sb.append("  ");
             }
-            sb.append(str);
+            sb.append(str2);
         }
         if (!TextUtils.isEmpty(bVar.axU)) {
             if (sb.length() > 0) {

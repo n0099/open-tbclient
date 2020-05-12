@@ -112,7 +112,7 @@ public class b extends com.baidu.adp.widget.ListView.a<bi, af<bj>> {
         this.emN = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<GifView>() { // from class: com.baidu.tieba.enterForum.tabfeed.a.b.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: bJu */
+            /* renamed from: bJv */
             public GifView makeObject() {
                 GifView gifView = new GifView(b.this.mPageContext.getPageActivity());
                 boolean isShowImages = com.baidu.tbadk.core.i.aIc().isShowImages();
@@ -175,7 +175,7 @@ public class b extends com.baidu.adp.widget.ListView.a<bi, af<bj>> {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.z
             public void a(View view, bj bjVar) {
-                com.baidu.tieba.card.r.bEW().jd(true);
+                com.baidu.tieba.card.r.bEX().jd(true);
                 b.this.e(view, bjVar);
             }
         };
@@ -253,7 +253,7 @@ public class b extends com.baidu.adp.widget.ListView.a<bi, af<bj>> {
         afVar.b((af<bj>) biVar.dqE);
         afVar.rD().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         afVar.rD().a(this.ada);
-        com.baidu.tieba.card.r.bEW().e(com.baidu.tieba.enterForum.a.g(biVar.aIu(), this.mTabName));
+        com.baidu.tieba.card.r.bEX().e(com.baidu.tieba.enterForum.a.g(biVar.aIu(), this.mTabName));
         return afVar.getView();
     }
 

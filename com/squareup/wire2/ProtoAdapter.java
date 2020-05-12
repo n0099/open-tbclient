@@ -315,7 +315,7 @@ public abstract class ProtoAdapter<E> {
         @Override // com.squareup.wire2.ProtoAdapter
         /* renamed from: e */
         public ByteString decode(c cVar) throws IOException {
-            return cVar.dAQ();
+            return cVar.dAR();
         }
     };
 
@@ -647,12 +647,12 @@ public abstract class ProtoAdapter<E> {
         /* renamed from: j */
         public Map<K, V> decode(c cVar) throws IOException {
             V v = null;
-            long dAN = cVar.dAN();
+            long dAO = cVar.dAO();
             K k = null;
             while (true) {
-                int dAO = cVar.dAO();
-                if (dAO != -1) {
-                    switch (dAO) {
+                int dAP = cVar.dAP();
+                if (dAP != -1) {
+                    switch (dAP) {
                         case 1:
                             k = this.mNQ.mNM.decode(cVar);
                             break;
@@ -661,7 +661,7 @@ public abstract class ProtoAdapter<E> {
                             break;
                     }
                 } else {
-                    cVar.gc(dAN);
+                    cVar.gc(dAO);
                     if (k == null) {
                         throw new IllegalStateException("Map entry with null key");
                     }

@@ -7,7 +7,7 @@ import com.baidu.live.tbadk.core.util.TiebaInitialize;
 public class d {
     private static volatile d gws = null;
 
-    public static final d bGC() {
+    public static final d bGD() {
         if (gws == null) {
             synchronized (d.class) {
                 if (gws == null) {

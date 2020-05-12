@@ -93,7 +93,7 @@ class CronetBidirectionalStream extends BidirectionalStream {
                 ByteBuffer byteBuffer = this.mByteBuffer;
                 this.mByteBuffer = null;
                 synchronized (this.lIQ.lIE) {
-                    if (!this.lIQ.diL()) {
+                    if (!this.lIQ.diM()) {
                         if (this.lIT) {
                             this.lIQ.lIK = State.READING_DONE;
                             if (this.lIQ.lIL == State.WRITING_DONE) {
@@ -104,7 +104,7 @@ class CronetBidirectionalStream extends BidirectionalStream {
                         }
                         this.lIQ.lIB.a(this.lIQ, this.lIQ.lIM, byteBuffer, this.lIT);
                         if (z) {
-                            this.lIQ.diM();
+                            this.lIQ.diN();
                         }
                     }
                 }
@@ -131,7 +131,7 @@ class CronetBidirectionalStream extends BidirectionalStream {
                 ByteBuffer byteBuffer = this.mByteBuffer;
                 this.mByteBuffer = null;
                 synchronized (CronetBidirectionalStream.this.lIE) {
-                    if (!CronetBidirectionalStream.this.diL()) {
+                    if (!CronetBidirectionalStream.this.diM()) {
                         if (this.lIT) {
                             CronetBidirectionalStream.this.lIL = State.WRITING_DONE;
                             if (CronetBidirectionalStream.this.lIK == State.READING_DONE) {
@@ -140,7 +140,7 @@ class CronetBidirectionalStream extends BidirectionalStream {
                         }
                         CronetBidirectionalStream.this.lIB.b(CronetBidirectionalStream.this, CronetBidirectionalStream.this.lIM, byteBuffer, this.lIT);
                         if (z) {
-                            CronetBidirectionalStream.this.diM();
+                            CronetBidirectionalStream.this.diN();
                         }
                     }
                 }
@@ -150,7 +150,7 @@ class CronetBidirectionalStream extends BidirectionalStream {
         }
     }
 
-    private void diK() {
+    private void diL() {
         boolean z = true;
         if (!$assertionsDisabled && this.lIL != State.WAITING_FOR_FLUSH) {
             throw new AssertionError();
@@ -180,14 +180,14 @@ class CronetBidirectionalStream extends BidirectionalStream {
 
     /* JADX INFO: Access modifiers changed from: private */
     @GuardedBy("mNativeStreamLock")
-    public boolean diL() {
+    public boolean diM() {
         return this.lIK != State.NOT_STARTED && this.lIJ == 0;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void diM() {
+    public void diN() {
         synchronized (this.lIE) {
-            if (!diL()) {
+            if (!diM()) {
                 if (this.lIL == State.WRITING_DONE && this.lIK == State.READING_DONE) {
                     State state = State.SUCCESS;
                     this.lIL = state;
@@ -209,7 +209,7 @@ class CronetBidirectionalStream extends BidirectionalStream {
             @Override // java.lang.Runnable
             public void run() {
                 synchronized (CronetBidirectionalStream.this.lIE) {
-                    if (!CronetBidirectionalStream.this.diL()) {
+                    if (!CronetBidirectionalStream.this.diM()) {
                         CronetBidirectionalStream.this.lII = z;
                         CronetBidirectionalStream.this.lIK = State.WAITING_FOR_READ;
                         if (!CronetBidirectionalStream.MU(CronetBidirectionalStream.this.lID) && CronetBidirectionalStream.this.lII) {
@@ -236,7 +236,7 @@ class CronetBidirectionalStream extends BidirectionalStream {
                 @Override // java.lang.Runnable
                 public void run() {
                     synchronized (CronetBidirectionalStream.this.lIE) {
-                        if (!CronetBidirectionalStream.this.diL()) {
+                        if (!CronetBidirectionalStream.this.diM()) {
                             CronetBidirectionalStream.this.lIK = State.WAITING_FOR_READ;
                             try {
                                 CronetBidirectionalStream.this.lIB.a(CronetBidirectionalStream.this, CronetBidirectionalStream.this.lIM);
@@ -281,7 +281,7 @@ class CronetBidirectionalStream extends BidirectionalStream {
         synchronized (this.lIE) {
             this.lIL = State.WAITING_FOR_FLUSH;
             if (!this.lIG.isEmpty()) {
-                diK();
+                diL();
             }
         }
         int i = 0;
@@ -304,7 +304,7 @@ class CronetBidirectionalStream extends BidirectionalStream {
             @Override // java.lang.Runnable
             public void run() {
                 synchronized (CronetBidirectionalStream.this.lIE) {
-                    if (!CronetBidirectionalStream.this.diL()) {
+                    if (!CronetBidirectionalStream.this.diM()) {
                         try {
                             CronetBidirectionalStream.this.lIB.a(CronetBidirectionalStream.this, CronetBidirectionalStream.this.lIM, headerBlock);
                         } catch (Exception e) {
@@ -381,7 +381,7 @@ class CronetBidirectionalStream extends BidirectionalStream {
         if (this.lIJ != 0) {
             nativeDestroy(this.lIJ, z);
             this.lIJ = 0L;
-            this.lIA.djb();
+            this.lIA.djc();
             if (this.lIO != null) {
                 this.lIO.run();
             }
@@ -391,7 +391,7 @@ class CronetBidirectionalStream extends BidirectionalStream {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(TurbonetException turbonetException) {
         synchronized (this.lIE) {
-            if (!diL()) {
+            if (!diM()) {
                 State state = State.ERROR;
                 this.lIL = state;
                 this.lIK = state;

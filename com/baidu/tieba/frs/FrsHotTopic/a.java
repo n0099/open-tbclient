@@ -14,7 +14,7 @@ public class a {
     private a() {
     }
 
-    public static a bPi() {
+    public static a bPj() {
         if (haj == null) {
             synchronized (a.class) {
                 if (haj == null) {
@@ -71,11 +71,11 @@ public class a {
             return false;
         }
         this.hak.put(str, Long.valueOf(j));
-        bPj();
+        bPk();
         return true;
     }
 
-    private void bPj() {
+    private void bPk() {
         BdAsyncTask<Void, Void, Void> bdAsyncTask = new BdAsyncTask<Void, Void, Void>() { // from class: com.baidu.tieba.frs.FrsHotTopic.a.2
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */

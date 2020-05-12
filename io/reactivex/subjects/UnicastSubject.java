@@ -19,8 +19,8 @@ public final class UnicastSubject<T> extends b<T> {
     final AtomicBoolean once;
     final io.reactivex.internal.queue.a<T> queue;
 
-    public static <T> UnicastSubject<T> dDp() {
-        return new UnicastSubject<>(dCx(), true);
+    public static <T> UnicastSubject<T> dDq() {
+        return new UnicastSubject<>(dCy(), true);
     }
 
     public static <T> UnicastSubject<T> c(int i, Runnable runnable) {

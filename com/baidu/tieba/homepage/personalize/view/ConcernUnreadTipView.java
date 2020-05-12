@@ -71,7 +71,7 @@ public class ConcernUnreadTipView extends RelativeLayout {
 
     public void setData(com.baidu.tieba.homepage.personalize.data.e eVar) {
         if (eVar != null) {
-            if (!eVar.bZT()) {
+            if (!eVar.bZU()) {
                 setVisibility(8);
                 return;
             }

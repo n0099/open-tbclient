@@ -18,7 +18,7 @@ public class j implements com.baidu.tbadk.mvc.b.j {
     protected ap page = new ap();
     protected h iAP = new h();
 
-    public ArrayList<FeedData> ckC() {
+    public ArrayList<FeedData> ckD() {
         return this.iAO;
     }
 

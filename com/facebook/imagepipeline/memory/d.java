@@ -24,12 +24,12 @@ class d<V> {
         this.mdV = z;
     }
 
-    public boolean dtl() {
-        return this.mdW + dtm() > this.jgO;
+    public boolean dtm() {
+        return this.mdW + dtn() > this.jgO;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public int dtm() {
+    public int dtn() {
         return this.mdU.size();
     }
 
@@ -47,7 +47,7 @@ class d<V> {
         return (V) this.mdU.poll();
     }
 
-    public void dtn() {
+    public void dto() {
         this.mdW++;
     }
 
@@ -69,12 +69,12 @@ class d<V> {
         this.mdU.add(v);
     }
 
-    public void dto() {
+    public void dtp() {
         com.facebook.common.internal.g.checkState(this.mdW > 0);
         this.mdW--;
     }
 
-    public int dqp() {
+    public int dqq() {
         return this.mdW;
     }
 }

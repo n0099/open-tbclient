@@ -56,11 +56,11 @@ public class d {
         }
     }
 
-    public boolean cZV() {
+    public boolean cZW() {
         return a(lgr);
     }
 
-    public boolean cZW() {
+    public boolean cZX() {
         return a(lgs);
     }
 

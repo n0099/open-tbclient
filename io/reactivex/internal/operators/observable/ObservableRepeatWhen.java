@@ -17,10 +17,10 @@ public final class ObservableRepeatWhen<T> extends a<T, T> {
 
     @Override // io.reactivex.q
     protected void a(u<? super T> uVar) {
-        io.reactivex.subjects.b<T> dDo = PublishSubject.dDn().dDo();
+        io.reactivex.subjects.b<T> dDp = PublishSubject.dDo().dDp();
         try {
-            t tVar = (t) io.reactivex.internal.functions.a.h(this.mSB.apply(dDo), "The handler returned a null ObservableSource");
-            RepeatWhenObserver repeatWhenObserver = new RepeatWhenObserver(uVar, dDo, this.source);
+            t tVar = (t) io.reactivex.internal.functions.a.h(this.mSB.apply(dDp), "The handler returned a null ObservableSource");
+            RepeatWhenObserver repeatWhenObserver = new RepeatWhenObserver(uVar, dDp, this.source);
             uVar.onSubscribe(repeatWhenObserver);
             tVar.subscribe(repeatWhenObserver.inner);
             repeatWhenObserver.subscribeNext();

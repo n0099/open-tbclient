@@ -11,56 +11,56 @@ public class PersonFriendActivity extends BasePersonInfoActivity {
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.jXF = new PersonFriendModel(getPageContext(), cim());
+        this.jXF = new PersonFriendModel(getPageContext(), cin());
         this.jXF.setSex(getSex());
         this.jXF.setId(getUid());
         this.jXF.setUniqueId(getUniqueId());
     }
 
-    public PersonFriendModel cHA() {
+    public PersonFriendModel cHB() {
         return this.jXF;
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
     public BasePersonInfoAdapter a(BasePersonInfoActivity basePersonInfoActivity, boolean z) {
         if (this.jXE == null) {
-            this.jXE = new PersonFriendAdapter(this, cim());
+            this.jXE = new PersonFriendAdapter(this, cin());
         }
         return this.jXE;
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
-    public String cGx() {
+    public String cGy() {
         return getPageContext().getString(R.string.person_friend_title);
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
-    public String cGy() {
+    public String cGz() {
         return getPageContext().getString(R.string.person_friend_no_personal_title);
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
-    public String cGz() {
+    public String cGA() {
         return getPageContext().getString(R.string.commonfriend);
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
-    public String cGA() {
+    public String cGB() {
         return getPageContext().getString(R.string.person_friend_personal);
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
-    public String cGB() {
+    public String cGC() {
         return getPageContext().getString(R.string.person_friend_common);
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
-    public String cGF() {
+    public String cGG() {
         return "common_frd";
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
-    public int cGG() {
+    public int cGH() {
         return 5;
     }
 }

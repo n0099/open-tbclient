@@ -32,23 +32,23 @@ public class SquareModel extends BdBaseModel<Object> {
         this.kOU = new h();
     }
 
-    public long bIT() {
+    public long bIU() {
         return this.gEb;
     }
 
-    public long bIU() {
+    public long bIV() {
         return this.gDZ;
     }
 
-    public long bIV() {
+    public long bIW() {
         return this.gEa;
     }
 
-    public long bIW() {
+    public long bIX() {
         return this.gDY;
     }
 
-    public h cVg() {
+    public h cVh() {
         return this.kOU;
     }
 
@@ -70,11 +70,11 @@ public class SquareModel extends BdBaseModel<Object> {
         return false;
     }
 
-    public boolean cVh() {
+    public boolean cVi() {
         return CV(1);
     }
 
-    public boolean cVi() {
+    public boolean cVj() {
         return CV(0);
     }
 
@@ -120,7 +120,7 @@ public class SquareModel extends BdBaseModel<Object> {
                 if (hVar2.isEmpty()) {
                     SquareModel.this.mTimeStamp = 0L;
                 }
-                if (!hVar2.cVa()) {
+                if (!hVar2.cVb()) {
                     this.kOX = 1;
                     str = str2;
                     hVar = hVar2;
@@ -133,9 +133,9 @@ public class SquareModel extends BdBaseModel<Object> {
             if (this.kOX == 1) {
                 SquareModel.this.gDY = System.currentTimeMillis();
                 this.kOW.addPostData("prevtime", SquareModel.this.mTimeStamp + "");
-                str = this.kOW.cUD();
-                SquareModel.this.gDZ = this.kOW.cUE();
-                SquareModel.this.gEa = this.kOW.cUF();
+                str = this.kOW.cUE();
+                SquareModel.this.gDZ = this.kOW.cUF();
+                SquareModel.this.gEa = this.kOW.cUG();
                 SquareModel.this.gEb = System.currentTimeMillis();
             }
             if (this.kOW.isRequestSuccess()) {
@@ -150,9 +150,9 @@ public class SquareModel extends BdBaseModel<Object> {
                     if (str3 != null) {
                         h hVar4 = new h();
                         hVar4.parserJson(str3);
-                        hVar4.aT(hVar3.cVd());
+                        hVar4.aT(hVar3.cVe());
                         hVar4.setTimeStamp(valueOf.longValue());
-                        this.kOY.set("square_cache_key", hVar4.cVe(), 86400000L);
+                        this.kOY.set("square_cache_key", hVar4.cVf(), 86400000L);
                         hVar = hVar4;
                     } else {
                         this.kOY.set("square_cache_key", str, 86400000L);

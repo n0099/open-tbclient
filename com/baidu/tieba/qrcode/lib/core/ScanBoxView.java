@@ -133,11 +133,11 @@ public class ScanBoxView extends View {
             a(obtainStyledAttributes.getIndex(i), obtainStyledAttributes);
         }
         obtainStyledAttributes.recycle();
+        cMH();
         cMG();
-        cMF();
     }
 
-    private void cMF() {
+    private void cMG() {
         BitmapFactory.Options options = new BitmapFactory.Options();
         options.outWidth = this.kpc;
         options.outHeight = this.kpc;
@@ -215,7 +215,7 @@ public class ScanBoxView extends View {
         }
     }
 
-    private void cMG() {
+    private void cMH() {
         if (this.kpC != null) {
             this.kpI = ((BitmapDrawable) this.kpC).getBitmap();
         }
@@ -240,7 +240,7 @@ public class ScanBoxView extends View {
         setIsBarcode(this.kpq);
     }
 
-    public void cMH() {
+    public void cMI() {
         this.kpb.setColor(this.kpu);
         setIsBarcode(false);
         invalidate();
@@ -254,7 +254,7 @@ public class ScanBoxView extends View {
             V(canvas);
             W(canvas);
             U(canvas);
-            cMI();
+            cMJ();
         }
     }
 
@@ -393,7 +393,7 @@ public class ScanBoxView extends View {
         }
     }
 
-    private void cMI() {
+    private void cMJ() {
         if (this.kpq) {
             if (this.kpD == null) {
                 this.kpa += this.koW;
@@ -443,10 +443,10 @@ public class ScanBoxView extends View {
     @Override // android.view.View
     protected void onSizeChanged(int i, int i2, int i3, int i4) {
         super.onSizeChanged(i, i2, i3, i4);
-        cMJ();
+        cMK();
     }
 
-    private void cMJ() {
+    private void cMK() {
         int i;
         if (this.kpq) {
             i = this.mTopOffset + this.kpp;
@@ -520,7 +520,7 @@ public class ScanBoxView extends View {
                 this.mTopOffset = (i - this.kpe) / 2;
             }
         }
-        cMJ();
+        cMK();
         postInvalidate();
     }
 

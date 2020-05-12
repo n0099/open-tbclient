@@ -18,9 +18,9 @@ public class ImageRequestBuilder {
     private com.facebook.imagepipeline.common.d maf = null;
     @Nullable
     private e mag = null;
-    private com.facebook.imagepipeline.common.b mah = com.facebook.imagepipeline.common.b.dqG();
+    private com.facebook.imagepipeline.common.b mah = com.facebook.imagepipeline.common.b.dqH();
     private ImageRequest.CacheChoice mgL = ImageRequest.CacheChoice.DEFAULT;
-    private boolean mcl = h.drh().drB();
+    private boolean mcl = h.dri().drC();
     private boolean mgO = false;
     private Priority mgP = Priority.HIGH;
     @Nullable
@@ -42,13 +42,13 @@ public class ImageRequestBuilder {
     }
 
     public static ImageRequestBuilder o(ImageRequest imageRequest) {
-        return Z(imageRequest.duI()).a(imageRequest.duM()).d(imageRequest.dsT()).a(imageRequest.duH()).vQ(imageRequest.duO()).a(imageRequest.dtS()).a(imageRequest.duQ()).vP(imageRequest.duN()).b(imageRequest.dtU()).c(imageRequest.duK()).c(imageRequest.dnS()).a(imageRequest.duL()).c(imageRequest.dnS()).x(imageRequest.duh()).Ou(imageRequest.mTag).Ov(imageRequest.mgS);
+        return Z(imageRequest.duJ()).a(imageRequest.duN()).d(imageRequest.dsU()).a(imageRequest.duI()).vQ(imageRequest.duP()).a(imageRequest.dtT()).a(imageRequest.duR()).vP(imageRequest.duO()).b(imageRequest.dtV()).c(imageRequest.duL()).c(imageRequest.dnT()).a(imageRequest.duM()).c(imageRequest.dnT()).x(imageRequest.dui()).Ou(imageRequest.mTag).Ov(imageRequest.mgS);
     }
 
     private ImageRequestBuilder() {
     }
 
-    public Map<String, String> duh() {
+    public Map<String, String> dui() {
         return this.mgR;
     }
 
@@ -81,7 +81,7 @@ public class ImageRequestBuilder {
         return this;
     }
 
-    public Uri duI() {
+    public Uri duJ() {
         return this.mgM;
     }
 
@@ -90,7 +90,7 @@ public class ImageRequestBuilder {
         return this;
     }
 
-    public ImageRequest.RequestLevel dtS() {
+    public ImageRequest.RequestLevel dtT() {
         return this.meK;
     }
 
@@ -100,7 +100,7 @@ public class ImageRequestBuilder {
     }
 
     @Nullable
-    public com.facebook.imagepipeline.common.d duK() {
+    public com.facebook.imagepipeline.common.d duL() {
         return this.maf;
     }
 
@@ -110,7 +110,7 @@ public class ImageRequestBuilder {
     }
 
     @Nullable
-    public e duL() {
+    public e duM() {
         return this.mag;
     }
 
@@ -120,7 +120,7 @@ public class ImageRequestBuilder {
     }
 
     @Nullable
-    public com.facebook.imagepipeline.common.a dsT() {
+    public com.facebook.imagepipeline.common.a dsU() {
         return this.mdB;
     }
 
@@ -129,7 +129,7 @@ public class ImageRequestBuilder {
         return this;
     }
 
-    public com.facebook.imagepipeline.common.b duM() {
+    public com.facebook.imagepipeline.common.b duN() {
         return this.mah;
     }
 
@@ -138,7 +138,7 @@ public class ImageRequestBuilder {
         return this;
     }
 
-    public ImageRequest.CacheChoice duH() {
+    public ImageRequest.CacheChoice duI() {
         return this.mgL;
     }
 
@@ -147,7 +147,7 @@ public class ImageRequestBuilder {
         return this;
     }
 
-    public boolean drB() {
+    public boolean drC() {
         return this.mcl;
     }
 
@@ -156,15 +156,15 @@ public class ImageRequestBuilder {
         return this;
     }
 
-    public boolean duR() {
+    public boolean duS() {
         return this.mgO;
     }
 
-    public boolean drk() {
+    public boolean drl() {
         return this.mcg && com.facebook.common.util.d.G(this.mgM);
     }
 
-    public boolean duP() {
+    public boolean duQ() {
         return this.mgT;
     }
 
@@ -173,7 +173,7 @@ public class ImageRequestBuilder {
         return this;
     }
 
-    public Priority duS() {
+    public Priority duT() {
         return this.mgP;
     }
 
@@ -183,7 +183,7 @@ public class ImageRequestBuilder {
     }
 
     @Nullable
-    public b duQ() {
+    public b duR() {
         return this.mgd;
     }
 
@@ -193,11 +193,11 @@ public class ImageRequestBuilder {
     }
 
     @Nullable
-    public com.facebook.imagepipeline.h.c dnS() {
+    public com.facebook.imagepipeline.h.c dnT() {
         return this.mbC;
     }
 
-    public ImageRequest duT() {
+    public ImageRequest duU() {
         validate();
         return new ImageRequest(this);
     }

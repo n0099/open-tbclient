@@ -19,30 +19,30 @@ public class MsgReceiveActivity extends BaseActivity<MsgReceiveActivity> impleme
             if (i == 8) {
                 if (!z) {
                     if (z2) {
-                        MsgReceiveActivity.this.kEC.cQZ().turnOffNoCallback();
+                        MsgReceiveActivity.this.kEC.cRa().turnOffNoCallback();
                         MsgReceiveActivity.this.kEC.tw(false);
                         MsgReceiveActivity.this.kEC.tv(false);
                         return;
                     }
-                    MsgReceiveActivity.this.kEC.cQZ().turnOnNoCallback();
+                    MsgReceiveActivity.this.kEC.cRa().turnOnNoCallback();
                     MsgReceiveActivity.this.kEC.tw(true);
                     MsgReceiveActivity.this.kEC.tv(true);
                 }
             } else if (i == 9) {
                 if (!z) {
                     if (z2) {
-                        MsgReceiveActivity.this.kEC.cRa().turnOffNoCallback();
+                        MsgReceiveActivity.this.kEC.cRb().turnOffNoCallback();
                     } else {
-                        MsgReceiveActivity.this.kEC.cRa().turnOnNoCallback();
+                        MsgReceiveActivity.this.kEC.cRb().turnOnNoCallback();
                     }
                 }
             } else if (i == 7) {
                 if (z) {
                     com.baidu.tbadk.coreExtra.messageCenter.d.aTL().hj(z2);
                 } else if (z2) {
-                    MsgReceiveActivity.this.kEC.cRb().turnOffNoCallback();
+                    MsgReceiveActivity.this.kEC.cRc().turnOffNoCallback();
                 } else {
-                    MsgReceiveActivity.this.kEC.cRb().turnOnNoCallback();
+                    MsgReceiveActivity.this.kEC.cRc().turnOnNoCallback();
                 }
             }
         }
@@ -68,14 +68,14 @@ public class MsgReceiveActivity extends BaseActivity<MsgReceiveActivity> impleme
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.kEC.chu()) {
+        if (view == this.kEC.chv()) {
             finish();
         }
     }
 
     @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.a
     public void a(View view, BdSwitchView.SwitchState switchState) {
-        if (view == this.kEC.cQZ()) {
+        if (view == this.kEC.cRa()) {
             if (switchState == BdSwitchView.SwitchState.ON) {
                 this.kED.a(8, true, this.kEF);
                 this.kEC.tw(true);
@@ -85,13 +85,13 @@ public class MsgReceiveActivity extends BaseActivity<MsgReceiveActivity> impleme
             this.kED.a(8, false, this.kEF);
             this.kEC.tw(false);
             this.kEC.tv(false);
-        } else if (view == this.kEC.cRa()) {
+        } else if (view == this.kEC.cRb()) {
             if (switchState == BdSwitchView.SwitchState.ON) {
                 this.kED.a(9, true, this.kEF);
             } else {
                 this.kED.a(9, false, this.kEF);
             }
-        } else if (view == this.kEC.cRb()) {
+        } else if (view == this.kEC.cRc()) {
             this.kED.a(7, switchState == BdSwitchView.SwitchState.OFF, this.kEF);
         }
     }
@@ -110,7 +110,7 @@ public class MsgReceiveActivity extends BaseActivity<MsgReceiveActivity> impleme
         if (this.kEE == null) {
             this.kEE = new OfficialAccountPushModel(this.kEG);
         }
-        this.kEE.cSc();
+        this.kEE.cSd();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

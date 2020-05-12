@@ -6,7 +6,7 @@ public class n implements s {
     private n() {
     }
 
-    public static synchronized n dtu() {
+    public static synchronized n dtv() {
         n nVar;
         synchronized (n.class) {
             if (mee == null) {
@@ -26,11 +26,11 @@ public class n implements s {
     }
 
     @Override // com.facebook.imagepipeline.memory.s
-    public void dtv() {
+    public void dtw() {
     }
 
     @Override // com.facebook.imagepipeline.memory.s
-    public void dtw() {
+    public void dtx() {
     }
 
     @Override // com.facebook.imagepipeline.memory.s

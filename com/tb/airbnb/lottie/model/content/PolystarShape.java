@@ -52,35 +52,35 @@ public class PolystarShape implements b {
         return this.name;
     }
 
-    public Type dBK() {
+    public Type dBL() {
         return this.mOC;
     }
 
-    public com.tb.airbnb.lottie.model.a.b dBL() {
+    public com.tb.airbnb.lottie.model.a.b dBM() {
         return this.mPQ;
     }
 
-    public m<PointF, PointF> dBr() {
+    public m<PointF, PointF> dBs() {
         return this.mPw;
     }
 
-    public com.tb.airbnb.lottie.model.a.b dBt() {
+    public com.tb.airbnb.lottie.model.a.b dBu() {
         return this.mPy;
     }
 
-    public com.tb.airbnb.lottie.model.a.b dBM() {
+    public com.tb.airbnb.lottie.model.a.b dBN() {
         return this.mPR;
     }
 
-    public com.tb.airbnb.lottie.model.a.b dBN() {
+    public com.tb.airbnb.lottie.model.a.b dBO() {
         return this.mPS;
     }
 
-    public com.tb.airbnb.lottie.model.a.b dBO() {
+    public com.tb.airbnb.lottie.model.a.b dBP() {
         return this.mPT;
     }
 
-    public com.tb.airbnb.lottie.model.a.b dBP() {
+    public com.tb.airbnb.lottie.model.a.b dBQ() {
         return this.mPU;
     }
 

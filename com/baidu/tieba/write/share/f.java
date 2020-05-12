@@ -94,9 +94,9 @@ public class f {
                 xVar.addPostData("lat", String.valueOf(address.getLatitude()));
                 xVar.addPostData("lng", String.valueOf(address.getLongitude()));
             }
-            com.baidu.tieba.tbadkCore.location.a locationData = com.baidu.tieba.tbadkCore.location.c.cWU().getLocationData();
+            com.baidu.tieba.tbadkCore.location.a locationData = com.baidu.tieba.tbadkCore.location.c.cWV().getLocationData();
             if (locationData != null) {
-                xVar.addPostData("name", locationData.cWS());
+                xVar.addPostData("name", locationData.cWT());
                 xVar.addPostData(IXAdRequestInfo.SN, locationData.asR());
             }
             xVar.addPostData("is_link_thread", "0");

@@ -17,11 +17,11 @@ public class d {
         this.hzr = hVar;
     }
 
-    public com.baidu.tieba.frs.aggregation.g bWm() {
+    public com.baidu.tieba.frs.aggregation.g bWn() {
         if (this.hzs == null) {
             this.hzs = new com.baidu.tieba.frs.aggregation.g();
         }
-        a(this.hzs, this.hzr.bWt());
+        a(this.hzs, this.hzr.bWu());
         return this.hzs;
     }
 
@@ -97,7 +97,7 @@ public class d {
         }
     }
 
-    public void bQX() {
+    public void bQY() {
         if (this.hef != null) {
             this.hef.destroy();
             this.hef = null;
@@ -112,6 +112,6 @@ public class d {
         if (this.rootView != null) {
             this.rootView.clearAnimation();
         }
-        bQX();
+        bQY();
     }
 }

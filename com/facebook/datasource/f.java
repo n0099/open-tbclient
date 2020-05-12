@@ -25,7 +25,7 @@ public class f<T> implements j<b<T>> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.common.internal.j
-    /* renamed from: dnB */
+    /* renamed from: dnC */
     public b<T> get() {
         return new a();
     }
@@ -64,11 +64,11 @@ public class f<T> implements j<b<T>> {
 
         public a() {
             if (!f.this.lSR) {
-                dnF();
+                dnG();
             }
         }
 
-        private void dnF() {
+        private void dnG() {
             if (this.lSV == null) {
                 synchronized (this) {
                     if (this.lSV == null) {
@@ -80,8 +80,8 @@ public class f<T> implements j<b<T>> {
                         for (int i = 0; i < size; i++) {
                             b<T> bVar = (b) ((j) f.this.lSM.get(i)).get();
                             this.lSS.add(bVar);
-                            bVar.a(new C0720a(i), com.facebook.common.b.a.dmO());
-                            if (bVar.dnv()) {
+                            bVar.a(new C0720a(i), com.facebook.common.b.a.dmP());
+                            if (bVar.dnw()) {
                                 break;
                             }
                         }
@@ -107,30 +107,30 @@ public class f<T> implements j<b<T>> {
         }
 
         @Nullable
-        private synchronized b<T> dnE() {
+        private synchronized b<T> dnF() {
             return Gd(this.lST);
         }
 
         @Override // com.facebook.datasource.AbstractDataSource, com.facebook.datasource.b
         @Nullable
         public synchronized T getResult() {
-            b<T> dnE;
+            b<T> dnF;
             if (f.this.lSR) {
-                dnF();
+                dnG();
             }
-            dnE = dnE();
-            return dnE != null ? dnE.getResult() : null;
+            dnF = dnF();
+            return dnF != null ? dnF.getResult() : null;
         }
 
         @Override // com.facebook.datasource.AbstractDataSource, com.facebook.datasource.b
-        public synchronized boolean dnv() {
+        public synchronized boolean dnw() {
             boolean z;
             if (f.this.lSR) {
-                dnF();
+                dnG();
             }
-            b<T> dnE = dnE();
-            if (dnE != null) {
-                z = dnE.dnv();
+            b<T> dnF = dnF();
+            if (dnF != null) {
+                z = dnF.dnw();
             }
             return z;
         }
@@ -139,7 +139,7 @@ public class f<T> implements j<b<T>> {
         public boolean Wu() {
             int i = 0;
             if (f.this.lSR) {
-                dnF();
+                dnG();
             }
             synchronized (this) {
                 if (super.Wu()) {
@@ -164,22 +164,22 @@ public class f<T> implements j<b<T>> {
         /* JADX INFO: Access modifiers changed from: private */
         public void a(int i, b<T> bVar) {
             a(i, bVar, bVar.isFinished());
-            if (bVar == dnE()) {
+            if (bVar == dnF()) {
                 b((a) null, i == 0 && bVar.isFinished());
             }
-            dnG();
+            dnH();
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public void b(int i, b<T> bVar) {
             l(c(i, bVar));
             if (i == 0) {
-                this.lSW = bVar.dnx();
+                this.lSW = bVar.dny();
             }
-            dnG();
+            dnH();
         }
 
-        private void dnG() {
+        private void dnH() {
             if (this.lSV.incrementAndGet() == this.lSU && this.lSW != null) {
                 z(this.lSW);
             }
@@ -189,7 +189,7 @@ public class f<T> implements j<b<T>> {
             synchronized (this) {
                 int i2 = this.lST;
                 if (bVar == Gd(i) && i != this.lST) {
-                    if (dnE() == null || (z && i < this.lST)) {
+                    if (dnF() == null || (z && i < this.lST)) {
                         this.lST = i;
                     } else {
                         i = i2;
@@ -203,7 +203,7 @@ public class f<T> implements j<b<T>> {
 
         @Nullable
         private synchronized b<T> c(int i, b<T> bVar) {
-            if (bVar == dnE()) {
+            if (bVar == dnF()) {
                 bVar = null;
             } else if (bVar == Gd(i)) {
                 bVar = Ge(i);
@@ -229,7 +229,7 @@ public class f<T> implements j<b<T>> {
 
             @Override // com.facebook.datasource.d
             public void d(b<T> bVar) {
-                if (bVar.dnv()) {
+                if (bVar.dnw()) {
                     a.this.a(this.mIndex, bVar);
                 } else if (bVar.isFinished()) {
                     a.this.b(this.mIndex, bVar);

@@ -57,7 +57,7 @@ public class DefaultNavigationBarCoverTip extends NavigationBarCoverTip {
             }
 
             @Override // com.baidu.tieba.view.NavigationBarCoverTip.a
-            public void deB() {
+            public void deC() {
                 DefaultNavigationBarCoverTip.this.detach();
             }
         };

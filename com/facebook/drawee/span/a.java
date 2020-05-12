@@ -16,7 +16,7 @@ public class a extends com.facebook.e.a.a.a {
         this.lXa.onDetach();
     }
 
-    public com.facebook.drawee.view.b dpx() {
+    public com.facebook.drawee.view.b dpy() {
         return this.lXa;
     }
 }

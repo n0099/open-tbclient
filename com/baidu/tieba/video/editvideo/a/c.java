@@ -139,7 +139,7 @@ public class c extends BaseAdapter {
         }
     }
 
-    public int daY() {
+    public int daZ() {
         return this.liP;
     }
 

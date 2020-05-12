@@ -158,7 +158,7 @@ public class MP3TrackImpl extends AbstractTrack {
         a() {
         }
 
-        int dww() {
+        int dwx() {
             return ((this.bitRate * 144) / this.sampleRate) + this.padding;
         }
     }
@@ -173,7 +173,7 @@ public class MP3TrackImpl extends AbstractTrack {
                     aVar = readMP3Header;
                 }
                 dataSource.position(position);
-                ByteBuffer allocate = ByteBuffer.allocate(readMP3Header.dww());
+                ByteBuffer allocate = ByteBuffer.allocate(readMP3Header.dwx());
                 dataSource.read(allocate);
                 allocate.rewind();
                 this.samples.add(new SampleImpl(allocate));

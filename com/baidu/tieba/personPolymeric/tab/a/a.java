@@ -33,7 +33,7 @@ public class a {
         this.mTbPageContext = tbPageContext;
     }
 
-    public void cIF() {
+    public void cIG() {
         if (!this.kch) {
             this.kch = true;
             com.baidu.tbadk.core.sharedPref.b.aNT().putBoolean("key_person_dynamic_tab_guide_has_shown", true);
@@ -72,7 +72,7 @@ public class a {
         }
     }
 
-    public boolean cIG() {
+    public boolean cIH() {
         return this.kch;
     }
 

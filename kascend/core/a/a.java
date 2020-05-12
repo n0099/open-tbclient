@@ -25,13 +25,13 @@ public abstract class a {
         this.mWU = kSDevice;
     }
 
-    public String dDq() {
+    public String dDr() {
         String ds = getDS();
         if (TextUtils.isEmpty(ds)) {
             if (this.mWT == null) {
-                return dDr();
+                return dDs();
             }
-            return this.mWT.dDq();
+            return this.mWT.dDr();
         }
         return ds;
     }
@@ -43,7 +43,7 @@ public abstract class a {
         }
     }
 
-    public String dDr() {
+    public String dDs() {
         return this.mWU != null ? this.mWU.getDeviceId() : "";
     }
 }

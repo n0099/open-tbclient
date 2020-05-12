@@ -54,7 +54,7 @@ public class c {
     private f kJi = new f();
     private k kJj = new k();
 
-    public boolean cTh() {
+    public boolean cTi() {
         return (this.kJi == null || StringUtils.isNull(this.kJi.kJB)) ? false : true;
     }
 
@@ -62,15 +62,15 @@ public class c {
         return this.kJi.dmu;
     }
 
-    public String cTi() {
+    public String cTj() {
         return this.kJi.kJB;
     }
 
-    public String cTj() {
+    public String cTk() {
         return this.kJj.kKY;
     }
 
-    public String cTk() {
+    public String cTl() {
         return this.kJj.link;
     }
 
@@ -78,59 +78,59 @@ public class c {
         return this.level;
     }
 
-    public boolean cTl() {
+    public boolean cTm() {
         return !StringUtils.isNull(this.kIG) && this.kIG.equals("1");
     }
 
-    public String cTm() {
+    public String cTn() {
         return this.kIH;
     }
 
-    public String cDi() {
+    public String cDj() {
         return this.avi;
     }
 
-    public String cTn() {
+    public String cTo() {
         return this.kII;
     }
 
-    public String cTo() {
+    public String cTp() {
         return this.kIJ;
     }
 
-    public String cTp() {
+    public String cTq() {
         return this.kIK;
     }
 
-    public int cTq() {
+    public int cTr() {
         return this.kIL;
     }
 
-    public String cTr() {
+    public String cTs() {
         return this.kIM;
     }
 
-    public ArrayList<d> cTs() {
+    public ArrayList<d> cTt() {
         return this.kJc;
     }
 
-    public a cTt() {
+    public a cTu() {
         return this.kJg;
     }
 
-    public ArrayList<d> cTu() {
+    public ArrayList<d> cTv() {
         return this.kJd;
     }
 
-    public ArrayList<d> cTv() {
+    public ArrayList<d> cTw() {
         return this.kJe;
     }
 
-    public boolean cTw() {
+    public boolean cTx() {
         return this.kIN;
     }
 
-    public String cTx() {
+    public String cTy() {
         return this.kIX;
     }
 
@@ -138,19 +138,19 @@ public class c {
         return this.content;
     }
 
-    public int cTy() {
+    public int cTz() {
         return this.kIY;
     }
 
-    public boolean cTz() {
+    public boolean cTA() {
         return this.kIZ;
     }
 
-    public int cTA() {
+    public int cTB() {
         return this.kJa;
     }
 
-    public int cTB() {
+    public int cTC() {
         return this.kJb;
     }
 
@@ -168,13 +168,13 @@ public class c {
             dVar.tH(false);
             dVar.tI(false);
             a(dVar);
-            cTC();
+            cTD();
             tF(true);
         }
     }
 
     private void a(d dVar) {
-        if (dVar.cTF() >= this.level) {
+        if (dVar.cTG() >= this.level) {
             this.kIQ++;
             this.kIR--;
         } else {
@@ -183,19 +183,19 @@ public class c {
         }
         this.kJf.remove(String.valueOf(dVar.getForumId()));
         this.kJe.remove(dVar);
-        if (dVar.cTG() + dVar.cTK() >= dVar.cTH()) {
-            dVar.CO(dVar.cTF() + 1);
+        if (dVar.cTH() + dVar.cTL() >= dVar.cTI()) {
+            dVar.CO(dVar.cTG() + 1);
             dVar.tJ(true);
-            if (dVar.cTF() == this.level) {
+            if (dVar.cTG() == this.level) {
                 this.kIQ++;
                 this.kIO--;
             }
         }
         this.kJd.add(dVar);
-        TbadkApplication.getInst().addSignedForum(dVar.getForumName(), dVar.cTK(), -1);
+        TbadkApplication.getInst().addSignedForum(dVar.getForumName(), dVar.cTL(), -1);
     }
 
-    private void cTC() {
+    private void cTD() {
         if (this.kIN) {
             if (this.kIR + this.kIP <= 0) {
                 this.kIZ = true;
@@ -212,16 +212,16 @@ public class c {
     public void a(h hVar) {
         this.kJa = 0;
         this.kJb = 0;
-        ArrayList<i> cTV = hVar.cTV();
-        int size = cTV.size();
+        ArrayList<i> cTW = hVar.cTW();
+        int size = cTW.size();
         for (int i = 0; i < size; i++) {
-            i iVar = cTV.get(i);
+            i iVar = cTW.get(i);
             d dVar = this.kJf.get(iVar.getForumId() + "");
             if (dVar != null) {
-                if (iVar.cTY() != 0) {
+                if (iVar.cTZ() != 0) {
                     this.kJa++;
                     dVar.CM(1);
-                    dVar.CN(iVar.cTZ());
+                    dVar.CN(iVar.cUa());
                     dVar.CP(iVar.getCurScore());
                     dVar.tG(true);
                     dVar.tH(false);
@@ -232,11 +232,11 @@ public class c {
                     dVar.tG(false);
                     dVar.tH(true);
                     dVar.tI(false);
-                    dVar.setErrorMsg(iVar.cTt().getUserMsg());
+                    dVar.setErrorMsg(iVar.cTu().getUserMsg());
                 }
             }
         }
-        cTC();
+        cTD();
         tF(true);
     }
 
@@ -284,15 +284,15 @@ public class c {
                     if (jSONObject2 != null) {
                         d dVar = new d();
                         dVar.parserJson(jSONObject2);
-                        if (dVar.cTD() == 0) {
+                        if (dVar.cTE() == 0) {
                             if (this.valid == 0) {
                                 if (this.kIN) {
                                     dVar.tH(true);
-                                } else if (dVar.cTF() > this.level) {
+                                } else if (dVar.cTG() > this.level) {
                                     dVar.tH(true);
                                 }
                             }
-                            if (dVar.cTF() >= this.level) {
+                            if (dVar.cTG() >= this.level) {
                                 this.kIR++;
                             } else {
                                 this.kIP++;
@@ -300,13 +300,13 @@ public class c {
                             this.kJe.add(dVar);
                             this.kJf.put(dVar.getForumId() + "", dVar);
                         } else {
-                            if (dVar.cTF() >= this.level) {
+                            if (dVar.cTG() >= this.level) {
                                 this.kIQ++;
                             } else {
                                 this.kIO++;
                             }
                             this.kJd.add(dVar);
-                            TbadkApplication.getInst().addSignedForum(dVar.getForumName(), dVar.cTK(), -1);
+                            TbadkApplication.getInst().addSignedForum(dVar.getForumName(), dVar.cTL(), -1);
                         }
                         this.kJc.add(dVar);
                         Collections.sort(this.kJc, new Comparator<d>() { // from class: com.baidu.tieba.signall.c.1
@@ -314,7 +314,7 @@ public class c {
                             @Override // java.util.Comparator
                             /* renamed from: a */
                             public int compare(d dVar2, d dVar3) {
-                                return dVar3.cTF() - dVar2.cTF();
+                                return dVar3.cTG() - dVar2.cTG();
                             }
                         });
                     }

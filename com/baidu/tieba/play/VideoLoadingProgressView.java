@@ -67,7 +67,7 @@ public class VideoLoadingProgressView extends View {
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
                 if (VideoLoadingProgressView.this.kig == 2) {
-                    VideoLoadingProgressView.this.cKm();
+                    VideoLoadingProgressView.this.cKn();
                 } else if (VideoLoadingProgressView.this.kig == 3 && VideoLoadingProgressView.this.kih != null) {
                     VideoLoadingProgressView.this.kih.onAnimationEnd();
                 }
@@ -105,7 +105,7 @@ public class VideoLoadingProgressView extends View {
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
                 if (VideoLoadingProgressView.this.kig == 2) {
-                    VideoLoadingProgressView.this.cKm();
+                    VideoLoadingProgressView.this.cKn();
                 } else if (VideoLoadingProgressView.this.kig == 3 && VideoLoadingProgressView.this.kih != null) {
                     VideoLoadingProgressView.this.kih.onAnimationEnd();
                 }
@@ -143,7 +143,7 @@ public class VideoLoadingProgressView extends View {
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
                 if (VideoLoadingProgressView.this.kig == 2) {
-                    VideoLoadingProgressView.this.cKm();
+                    VideoLoadingProgressView.this.cKn();
                 } else if (VideoLoadingProgressView.this.kig == 3 && VideoLoadingProgressView.this.kih != null) {
                     VideoLoadingProgressView.this.kih.onAnimationEnd();
                 }
@@ -164,7 +164,7 @@ public class VideoLoadingProgressView extends View {
     }
 
     public void startLoading() {
-        cKn();
+        cKo();
         this.kig = 1;
         this.kie = -90.0f;
         this.bFg = -90.0f;
@@ -177,8 +177,8 @@ public class VideoLoadingProgressView extends View {
         invalidate();
     }
 
-    public void cKj() {
-        cKn();
+    public void cKk() {
+        cKo();
         this.kig = 2;
         this.bFg = this.kie;
         this.kij = ValueAnimator.ofFloat(-this.khZ);
@@ -189,8 +189,8 @@ public class VideoLoadingProgressView extends View {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cKm() {
-        cKn();
+    public void cKn() {
+        cKo();
         this.kig = 3;
         this.bFg = this.kie;
         this.kik = ValueAnimator.ofFloat(this.kib);
@@ -200,12 +200,12 @@ public class VideoLoadingProgressView extends View {
         this.kik.start();
     }
 
-    public void cKl() {
-        cKn();
+    public void cKm() {
+        cKo();
         setVisibility(8);
     }
 
-    private void cKn() {
+    private void cKo() {
         if (this.kii != null) {
             this.kii.cancel();
         }
@@ -224,7 +224,7 @@ public class VideoLoadingProgressView extends View {
     @Override // android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        cKn();
+        cKo();
     }
 
     @Override // android.view.View

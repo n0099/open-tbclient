@@ -79,7 +79,7 @@ public class GroupImageActivity extends BaseActivity<GroupImageActivity> {
         }
         this.mCount = size;
         this.mTitle.setVisibility(0);
-        bSW();
+        bSX();
         this.icL.setIsFromCDN(true);
         this.icL.setAllowLocalUrl(true);
         this.icL.setAssistUrls(this.ioS);
@@ -223,7 +223,7 @@ public class GroupImageActivity extends BaseActivity<GroupImageActivity> {
             public void onPageSelected(int i) {
                 GroupImageActivity.this.cm(GroupImageActivity.this.mIndex, i);
                 GroupImageActivity.this.mIndex = i;
-                GroupImageActivity.this.bSW();
+                GroupImageActivity.this.bSX();
             }
 
             @Override // android.support.v4.view.ViewPager.OnPageChangeListener
@@ -304,7 +304,7 @@ public class GroupImageActivity extends BaseActivity<GroupImageActivity> {
         this.icL.setOnPageChangeListener(this.mOnPageChangeListener);
         this.icL.setItemOnclickListener(this.mOnClickListener);
         this.icL.setItemOnLongClickListener(onLongClickListener);
-        this.icL.setCurrentItem(ccr(), false);
+        this.icL.setCurrentItem(ccs(), false);
         this.icL.setOnScrollOutListener(this.icM);
         this.icL.setHasNext(false);
         this.icL.setNextTitle("mNextTitle");
@@ -313,7 +313,7 @@ public class GroupImageActivity extends BaseActivity<GroupImageActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bSW() {
+    public void bSX() {
         if (this.ioR != null) {
             String valueOf = String.valueOf(this.mIndex + 1);
             if (this.mCount > 0) {
@@ -329,7 +329,7 @@ public class GroupImageActivity extends BaseActivity<GroupImageActivity> {
         }
     }
 
-    private int ccr() {
+    private int ccs() {
         if (this.ioR != null && this.ioR.size() > 0) {
             int size = this.ioR.size();
             if (this.mIndex >= size) {

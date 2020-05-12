@@ -198,7 +198,7 @@ public final class a extends com.kascend.chushou.view.base.a implements View.OnC
         if (textView != null) {
             textView.setVisibility(8);
         }
-        ((FrescoThumbnailView) Is(a.f.ivAvatar)).xW(c.dJG());
+        ((FrescoThumbnailView) Is(a.f.ivAvatar)).xW(c.dJH());
         ImageView imageView = (ImageView) Is(a.f.ivGender);
         if (imageView != null) {
             imageView.setImageResource(c.Qg(null));
@@ -267,7 +267,7 @@ public final class a extends com.kascend.chushou.view.base.a implements View.OnC
         FrescoThumbnailView frescoThumbnailView = (FrescoThumbnailView) Is(a.f.ivAvatar);
         if (frescoThumbnailView != null) {
             UserCard.UserCardInfo userCardInfo = userCard.getUserCardInfo();
-            frescoThumbnailView.i(userCardInfo != null ? userCardInfo.getAvatar() : null, c.dJG(), b.C0861b.nub, b.C0861b.nub);
+            frescoThumbnailView.i(userCardInfo != null ? userCardInfo.getAvatar() : null, c.dJH(), b.C0861b.nub, b.C0861b.nub);
         }
         ImageView imageView = (ImageView) Is(a.f.ivGender);
         if (imageView != null) {
@@ -308,7 +308,7 @@ public final class a extends com.kascend.chushou.view.base.a implements View.OnC
             q.i(flexboxLayout2, "flexMedal");
             flexboxLayout2.setVisibility(0);
             if (medalList == null) {
-                q.dDR();
+                q.dDS();
             }
             for (UserCard.Medal medal : medalList) {
                 View inflate = getLayoutInflater().inflate(a.h.view_medal_card, (ViewGroup) ((FlexboxLayout) Is(a.f.flexMedal)), false);
@@ -506,11 +506,11 @@ public final class a extends com.kascend.chushou.view.base.a implements View.OnC
         if (!tv.chushou.zues.utils.h.isEmpty(str)) {
             cVar.append(" ");
             int length = cVar.length();
-            com.facebook.drawee.view.b a = com.facebook.drawee.view.b.a(new com.facebook.drawee.generic.b(getResources()).Gv(com.kascend.chushou.view.a.a()).dpn(), this.b);
-            com.facebook.drawee.controller.a doz = com.facebook.drawee.a.a.c.dnM().Og(str).vC(true).doD();
-            q.i(doz, "Fresco.newDraweeControll…yAnimations(true).build()");
+            com.facebook.drawee.view.b a = com.facebook.drawee.view.b.a(new com.facebook.drawee.generic.b(getResources()).Gv(com.kascend.chushou.view.a.a()).dpo(), this.b);
+            com.facebook.drawee.controller.a doA = com.facebook.drawee.a.a.c.dnN().Og(str).vC(true).doE();
+            q.i(doA, "Fresco.newDraweeControll…yAnimations(true).build()");
             q.i(a, "medalDraweeHolder");
-            a.setController(doz);
+            a.setController(doA);
             cVar.append("1");
             int JE = c.JE(i);
             cVar.a(a, length, length, JE, JE, true, 2);
@@ -545,40 +545,40 @@ public final class a extends com.kascend.chushou.view.base.a implements View.OnC
     }
 
     private final void d() {
-        UserCard dyM;
+        UserCard dyN;
         UserCard.UserCardMeta meta;
         UserCard.UserCardMeta meta2;
         String str = null;
         com.kascend.chushou.view.b.b.b bVar = this.mDS;
-        if (bVar != null && (dyM = bVar.dyM()) != null) {
+        if (bVar != null && (dyN = bVar.dyN()) != null) {
             ChatInfo chatInfo = new ChatInfo();
-            UserCard.UserCardInfo userCardInfo = dyM.getUserCardInfo();
+            UserCard.UserCardInfo userCardInfo = dyN.getUserCardInfo();
             chatInfo.mUserNickname = userCardInfo != null ? userCardInfo.getNickname() : null;
-            UserCard.UserCardInfo userCardInfo2 = dyM.getUserCardInfo();
+            UserCard.UserCardInfo userCardInfo2 = dyN.getUserCardInfo();
             chatInfo.mUserID = userCardInfo2 != null ? userCardInfo2.getUid() : null;
             com.kascend.chushou.view.b.b.b bVar2 = this.mDS;
             chatInfo.mRoomID = bVar2 != null ? bVar2.g() : null;
-            UserCard.UserCardInfo userCardInfo3 = dyM.getUserCardInfo();
+            UserCard.UserCardInfo userCardInfo3 = dyN.getUserCardInfo();
             String managerLevel = (userCardInfo3 == null || (meta2 = userCardInfo3.getMeta()) == null) ? null : meta2.getManagerLevel();
             if (!(managerLevel == null || managerLevel.length() == 0)) {
                 PrivilegeInfo privilegeInfo = chatInfo.mPrivilegeInfo;
-                UserCard.UserCardInfo userCardInfo4 = dyM.getUserCardInfo();
+                UserCard.UserCardInfo userCardInfo4 = dyN.getUserCardInfo();
                 if (userCardInfo4 != null && (meta = userCardInfo4.getMeta()) != null) {
                     str = meta.getManagerLevel();
                 }
                 privilegeInfo.mRole = str;
             }
             com.kascend.chushou.player.a.f fVar = new com.kascend.chushou.player.a.f(getActivity());
-            fVar.a(chatInfo, dyM.getManagerLevel(), this.e);
+            fVar.a(chatInfo, dyN.getManagerLevel(), this.e);
             fVar.show();
         }
     }
 
     private final void e() {
         com.kascend.chushou.view.b.b.b bVar;
-        UserCard dyM;
+        UserCard dyN;
         UserCard.UserCardInfo userCardInfo;
-        if (this.e && (bVar = this.mDS) != null && (dyM = bVar.dyM()) != null && (userCardInfo = dyM.getUserCardInfo()) != null) {
+        if (this.e && (bVar = this.mDS) != null && (dyN = bVar.dyN()) != null && (userCardInfo = dyN.getUserCardInfo()) != null) {
             tv.chushou.zues.a.a.post(new i(3, userCardInfo));
             dismissAllowingStateLoss();
         }

@@ -9,7 +9,7 @@ public class CustomSwipeRefreshLayout extends SwipeRefreshLayout {
 
     /* loaded from: classes5.dex */
     public interface a {
-        boolean dJW();
+        boolean dJX();
     }
 
     public CustomSwipeRefreshLayout(Context context) {
@@ -26,6 +26,6 @@ public class CustomSwipeRefreshLayout extends SwipeRefreshLayout {
 
     @Override // android.support.v4.widget.SwipeRefreshLayout
     public boolean canChildScrollUp() {
-        return this.nsT != null ? this.nsT.dJW() : super.canChildScrollUp();
+        return this.nsT != null ? this.nsT.dJX() : super.canChildScrollUp();
     }
 }

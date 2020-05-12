@@ -35,7 +35,7 @@ public class RecommendFragment extends BaseFragment implements g.c, a {
         if (this.gEg.getParent() instanceof ViewGroup) {
             ((ViewGroup) this.gEg.getParent()).removeView(this.gEg);
         }
-        com.baidu.tieba.s.c.cVo().w(getUniqueId());
+        com.baidu.tieba.s.c.cVp().w(getUniqueId());
         return this.gEg;
     }
 
@@ -53,7 +53,7 @@ public class RecommendFragment extends BaseFragment implements g.c, a {
     public void onLazyLoad() {
         if (!this.gEh && !TbadkCoreApplication.getInst().checkInterrupt()) {
             this.gEg.fK(false);
-            this.gEf.bJj();
+            this.gEf.bJk();
             this.gEh = true;
         }
     }
@@ -61,9 +61,9 @@ public class RecommendFragment extends BaseFragment implements g.c, a {
     @Override // com.baidu.tbadk.core.view.g.c
     public void onListPullRefresh(boolean z) {
         if (this.gEf != null) {
-            this.gEf.bJj();
+            this.gEf.bJk();
         }
-        com.baidu.tieba.s.c.cVo().z(getUniqueId());
+        com.baidu.tieba.s.c.cVp().z(getUniqueId());
     }
 
     @Override // com.baidu.tieba.enterForum.recommend.a
@@ -71,7 +71,7 @@ public class RecommendFragment extends BaseFragment implements g.c, a {
         if (j.isNetWorkAvailable()) {
             this.gEg.blr();
             this.gEg.fK(false);
-            this.gEf.bJj();
+            this.gEf.bJk();
         }
     }
 
@@ -100,7 +100,7 @@ public class RecommendFragment extends BaseFragment implements g.c, a {
         this.gAL = null;
         this.gEg.onDestroy();
         this.gEf.onDestroy();
-        com.baidu.tieba.s.c.cVo().x(getUniqueId());
+        com.baidu.tieba.s.c.cVp().x(getUniqueId());
         super.onDestroyView();
     }
 
@@ -117,7 +117,7 @@ public class RecommendFragment extends BaseFragment implements g.c, a {
             return;
         }
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921386));
-        com.baidu.tieba.s.c.cVo().b(getUniqueId(), false);
+        com.baidu.tieba.s.c.cVp().b(getUniqueId(), false);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tbadk.m.a

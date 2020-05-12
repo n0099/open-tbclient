@@ -30,12 +30,12 @@ public class a implements Closeable {
             @Override // com.google.gson.internal.e
             public void a(a aVar) throws IOException {
                 if (aVar instanceof com.google.gson.internal.a.e) {
-                    ((com.google.gson.internal.a.e) aVar).dvN();
+                    ((com.google.gson.internal.a.e) aVar).dvO();
                     return;
                 }
                 int i = aVar.mlX;
                 if (i == 0) {
-                    i = aVar.dwb();
+                    i = aVar.dwc();
                 }
                 if (i == 13) {
                     aVar.mlX = 9;
@@ -44,7 +44,7 @@ public class a implements Closeable {
                 } else if (i == 14) {
                     aVar.mlX = 10;
                 } else {
-                    throw new IllegalStateException("Expected a name but was " + aVar.dvG() + aVar.dvO());
+                    throw new IllegalStateException("Expected a name but was " + aVar.dvH() + aVar.dvP());
                 }
             }
         };
@@ -68,14 +68,14 @@ public class a implements Closeable {
         this.lenient = z;
     }
 
-    public final boolean dwa() {
+    public final boolean dwb() {
         return this.lenient;
     }
 
-    public void dvE() throws IOException {
+    public void dvF() throws IOException {
         int i = this.mlX;
         if (i == 0) {
-            i = dwb();
+            i = dwc();
         }
         if (i == 3) {
             Id(1);
@@ -83,13 +83,13 @@ public class a implements Closeable {
             this.mlX = 0;
             return;
         }
-        throw new IllegalStateException("Expected BEGIN_ARRAY but was " + dvG() + dvO());
+        throw new IllegalStateException("Expected BEGIN_ARRAY but was " + dvH() + dvP());
     }
 
     public void endArray() throws IOException {
         int i = this.mlX;
         if (i == 0) {
-            i = dwb();
+            i = dwc();
         }
         if (i == 4) {
             this.mjU--;
@@ -99,26 +99,26 @@ public class a implements Closeable {
             this.mlX = 0;
             return;
         }
-        throw new IllegalStateException("Expected END_ARRAY but was " + dvG() + dvO());
+        throw new IllegalStateException("Expected END_ARRAY but was " + dvH() + dvP());
     }
 
-    public void dvF() throws IOException {
+    public void dvG() throws IOException {
         int i = this.mlX;
         if (i == 0) {
-            i = dwb();
+            i = dwc();
         }
         if (i == 1) {
             Id(3);
             this.mlX = 0;
             return;
         }
-        throw new IllegalStateException("Expected BEGIN_OBJECT but was " + dvG() + dvO());
+        throw new IllegalStateException("Expected BEGIN_OBJECT but was " + dvH() + dvP());
     }
 
     public void endObject() throws IOException {
         int i = this.mlX;
         if (i == 0) {
-            i = dwb();
+            i = dwc();
         }
         if (i == 2) {
             this.mjU--;
@@ -129,21 +129,21 @@ public class a implements Closeable {
             this.mlX = 0;
             return;
         }
-        throw new IllegalStateException("Expected END_OBJECT but was " + dvG() + dvO());
+        throw new IllegalStateException("Expected END_OBJECT but was " + dvH() + dvP());
     }
 
     public boolean hasNext() throws IOException {
         int i = this.mlX;
         if (i == 0) {
-            i = dwb();
+            i = dwc();
         }
         return (i == 2 || i == 4) ? false : true;
     }
 
-    public JsonToken dvG() throws IOException {
+    public JsonToken dvH() throws IOException {
         int i = this.mlX;
         if (i == 0) {
-            i = dwb();
+            i = dwc();
         }
         switch (i) {
             case 1:
@@ -179,7 +179,7 @@ public class a implements Closeable {
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    int dwb() throws IOException {
+    int dwc() throws IOException {
         int i = this.mmb[this.mjU - 1];
         if (i == 1) {
             this.mmb[this.mjU - 1] = 2;
@@ -188,7 +188,7 @@ public class a implements Closeable {
                 case 44:
                     break;
                 case 59:
-                    dwg();
+                    dwh();
                     break;
                 case 93:
                     this.mlX = 4;
@@ -203,7 +203,7 @@ public class a implements Closeable {
                     case 44:
                         break;
                     case 59:
-                        dwg();
+                        dwh();
                         break;
                     case Constants.METHOD_IM_FRIEND_GROUP_ASSIGN /* 125 */:
                         this.mlX = 2;
@@ -218,7 +218,7 @@ public class a implements Closeable {
                     this.mlX = 13;
                     return 13;
                 case 39:
-                    dwg();
+                    dwh();
                     this.mlX = 12;
                     return 12;
                 case Constants.METHOD_IM_FRIEND_GROUP_ASSIGN /* 125 */:
@@ -228,7 +228,7 @@ public class a implements Closeable {
                     }
                     throw OD("Expected name");
                 default:
-                    dwg();
+                    dwh();
                     this.pos--;
                     if (g((char) vX)) {
                         this.mlX = 14;
@@ -246,7 +246,7 @@ public class a implements Closeable {
                 default:
                     throw OD("Expected ':'");
                 case 61:
-                    dwg();
+                    dwh();
                     if ((this.pos < this.limit || Ie(1)) && this.mlU[this.pos] == '>') {
                         this.pos++;
                         break;
@@ -255,7 +255,7 @@ public class a implements Closeable {
             }
         } else if (i == 6) {
             if (this.lenient) {
-                dwh();
+                dwi();
             }
             this.mmb[this.mjU - 1] = 7;
         } else if (i == 7) {
@@ -263,7 +263,7 @@ public class a implements Closeable {
                 this.mlX = 17;
                 return 17;
             }
-            dwg();
+            dwh();
             this.pos--;
         } else if (i == 8) {
             throw new IllegalStateException("JsonReader is closed");
@@ -273,7 +273,7 @@ public class a implements Closeable {
                 this.mlX = 9;
                 return 9;
             case 39:
-                dwg();
+                dwh();
                 this.mlX = 8;
                 return 8;
             case 44:
@@ -293,23 +293,23 @@ public class a implements Closeable {
                 return 1;
             default:
                 this.pos--;
-                int dwc = dwc();
-                if (dwc == 0) {
-                    int dwd = dwd();
-                    if (dwd == 0) {
+                int dwd = dwd();
+                if (dwd == 0) {
+                    int dwe = dwe();
+                    if (dwe == 0) {
                         if (!g(this.mlU[this.pos])) {
                             throw OD("Expected value");
                         }
-                        dwg();
+                        dwh();
                         this.mlX = 10;
                         return 10;
                     }
-                    return dwd;
+                    return dwe;
                 }
-                return dwc;
+                return dwd;
         }
         if (i == 1 || i == 2) {
-            dwg();
+            dwh();
             this.pos--;
             this.mlX = 7;
             return 7;
@@ -317,7 +317,7 @@ public class a implements Closeable {
         throw OD("Unexpected value");
     }
 
-    private int dwc() throws IOException {
+    private int dwd() throws IOException {
         String str;
         String str2;
         int i;
@@ -415,7 +415,7 @@ public class a implements Closeable {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private int dwd() throws IOException {
+    private int dwe() throws IOException {
         char c;
         boolean z;
         boolean z2;
@@ -550,40 +550,40 @@ public class a implements Closeable {
             case ';':
             case '=':
             case '\\':
-                dwg();
+                dwh();
                 break;
         }
         return false;
     }
 
-    public String dvJ() throws IOException {
+    public String dvK() throws IOException {
         String h;
         int i = this.mlX;
         if (i == 0) {
-            i = dwb();
+            i = dwc();
         }
         if (i == 14) {
-            h = dwe();
+            h = dwf();
         } else if (i == 12) {
             h = h('\'');
         } else if (i == 13) {
             h = h('\"');
         } else {
-            throw new IllegalStateException("Expected a name but was " + dvG() + dvO());
+            throw new IllegalStateException("Expected a name but was " + dvH() + dvP());
         }
         this.mlX = 0;
         this.mjV[this.mjU - 1] = h;
         return h;
     }
 
-    public String dvK() throws IOException {
+    public String dvL() throws IOException {
         String str;
         int i = this.mlX;
         if (i == 0) {
-            i = dwb();
+            i = dwc();
         }
         if (i == 10) {
-            str = dwe();
+            str = dwf();
         } else if (i == 8) {
             str = h('\'');
         } else if (i == 9) {
@@ -597,7 +597,7 @@ public class a implements Closeable {
             str = new String(this.mlU, this.pos, this.mlZ);
             this.pos += this.mlZ;
         } else {
-            throw new IllegalStateException("Expected a string but was " + dvG() + dvO());
+            throw new IllegalStateException("Expected a string but was " + dvH() + dvP());
         }
         this.mlX = 0;
         int[] iArr = this.mjW;
@@ -609,7 +609,7 @@ public class a implements Closeable {
     public boolean nextBoolean() throws IOException {
         int i = this.mlX;
         if (i == 0) {
-            i = dwb();
+            i = dwc();
         }
         if (i == 5) {
             this.mlX = 0;
@@ -624,14 +624,14 @@ public class a implements Closeable {
             iArr2[i3] = iArr2[i3] + 1;
             return false;
         } else {
-            throw new IllegalStateException("Expected a boolean but was " + dvG() + dvO());
+            throw new IllegalStateException("Expected a boolean but was " + dvH() + dvP());
         }
     }
 
-    public void dvL() throws IOException {
+    public void dvM() throws IOException {
         int i = this.mlX;
         if (i == 0) {
-            i = dwb();
+            i = dwc();
         }
         if (i == 7) {
             this.mlX = 0;
@@ -640,13 +640,13 @@ public class a implements Closeable {
             iArr[i2] = iArr[i2] + 1;
             return;
         }
-        throw new IllegalStateException("Expected null but was " + dvG() + dvO());
+        throw new IllegalStateException("Expected null but was " + dvH() + dvP());
     }
 
     public double nextDouble() throws IOException {
         int i = this.mlX;
         if (i == 0) {
-            i = dwb();
+            i = dwc();
         }
         if (i == 15) {
             this.mlX = 0;
@@ -661,14 +661,14 @@ public class a implements Closeable {
         } else if (i == 8 || i == 9) {
             this.mma = h(i == 8 ? '\'' : '\"');
         } else if (i == 10) {
-            this.mma = dwe();
+            this.mma = dwf();
         } else if (i != 11) {
-            throw new IllegalStateException("Expected a double but was " + dvG() + dvO());
+            throw new IllegalStateException("Expected a double but was " + dvH() + dvP());
         }
         this.mlX = 11;
         double parseDouble = Double.parseDouble(this.mma);
         if (!this.lenient && (Double.isNaN(parseDouble) || Double.isInfinite(parseDouble))) {
-            throw new MalformedJsonException("JSON forbids NaN and infinities: " + parseDouble + dvO());
+            throw new MalformedJsonException("JSON forbids NaN and infinities: " + parseDouble + dvP());
         }
         this.mma = null;
         this.mlX = 0;
@@ -681,7 +681,7 @@ public class a implements Closeable {
     public long nextLong() throws IOException {
         int i = this.mlX;
         if (i == 0) {
-            i = dwb();
+            i = dwc();
         }
         if (i == 15) {
             this.mlX = 0;
@@ -695,7 +695,7 @@ public class a implements Closeable {
             this.pos += this.mlZ;
         } else if (i == 8 || i == 9 || i == 10) {
             if (i == 10) {
-                this.mma = dwe();
+                this.mma = dwf();
             } else {
                 this.mma = h(i == 8 ? '\'' : '\"');
             }
@@ -709,13 +709,13 @@ public class a implements Closeable {
             } catch (NumberFormatException e) {
             }
         } else {
-            throw new IllegalStateException("Expected a long but was " + dvG() + dvO());
+            throw new IllegalStateException("Expected a long but was " + dvH() + dvP());
         }
         this.mlX = 11;
         double parseDouble = Double.parseDouble(this.mma);
         long j = (long) parseDouble;
         if (j != parseDouble) {
-            throw new NumberFormatException("Expected a long but was " + this.mma + dvO());
+            throw new NumberFormatException("Expected a long but was " + this.mma + dvP());
         }
         this.mma = null;
         this.mlX = 0;
@@ -786,7 +786,7 @@ public class a implements Closeable {
         throw OD("Unterminated string");
     }
 
-    private String dwe() throws IOException {
+    private String dwf() throws IOException {
         StringBuilder sb = null;
         int i = 0;
         while (true) {
@@ -809,7 +809,7 @@ public class a implements Closeable {
                     case ';':
                     case '=':
                     case '\\':
-                        dwg();
+                        dwh();
                         break;
                     default:
                         i++;
@@ -864,7 +864,7 @@ public class a implements Closeable {
         throw OD("Unterminated string");
     }
 
-    private void dwf() throws IOException {
+    private void dwg() throws IOException {
         do {
             int i = 0;
             while (this.pos + i < this.limit) {
@@ -887,7 +887,7 @@ public class a implements Closeable {
                     case ';':
                     case '=':
                     case '\\':
-                        dwg();
+                        dwh();
                         this.pos = i + this.pos;
                         return;
                     default:
@@ -901,12 +901,12 @@ public class a implements Closeable {
     public int nextInt() throws IOException {
         int i = this.mlX;
         if (i == 0) {
-            i = dwb();
+            i = dwc();
         }
         if (i == 15) {
             int i2 = (int) this.mlY;
             if (this.mlY != i2) {
-                throw new NumberFormatException("Expected an int but was " + this.mlY + dvO());
+                throw new NumberFormatException("Expected an int but was " + this.mlY + dvP());
             }
             this.mlX = 0;
             int[] iArr = this.mjW;
@@ -919,7 +919,7 @@ public class a implements Closeable {
             this.pos += this.mlZ;
         } else if (i == 8 || i == 9 || i == 10) {
             if (i == 10) {
-                this.mma = dwe();
+                this.mma = dwf();
             } else {
                 this.mma = h(i == 8 ? '\'' : '\"');
             }
@@ -933,13 +933,13 @@ public class a implements Closeable {
             } catch (NumberFormatException e) {
             }
         } else {
-            throw new IllegalStateException("Expected an int but was " + dvG() + dvO());
+            throw new IllegalStateException("Expected an int but was " + dvH() + dvP());
         }
         this.mlX = 11;
         double parseDouble = Double.parseDouble(this.mma);
         int i5 = (int) parseDouble;
         if (i5 != parseDouble) {
-            throw new NumberFormatException("Expected an int but was " + this.mma + dvO());
+            throw new NumberFormatException("Expected an int but was " + this.mma + dvP());
         }
         this.mma = null;
         this.mlX = 0;
@@ -957,12 +957,12 @@ public class a implements Closeable {
         this.mlT.close();
     }
 
-    public void dvM() throws IOException {
+    public void dvN() throws IOException {
         int i = 0;
         do {
             int i2 = this.mlX;
             if (i2 == 0) {
-                i2 = dwb();
+                i2 = dwc();
             }
             if (i2 == 3) {
                 Id(1);
@@ -977,7 +977,7 @@ public class a implements Closeable {
                 this.mjU--;
                 i--;
             } else if (i2 == 14 || i2 == 10) {
-                dwf();
+                dwg();
             } else if (i2 == 8 || i2 == 12) {
                 i('\'');
             } else if (i2 == 9 || i2 == 13) {
@@ -1047,7 +1047,7 @@ public class a implements Closeable {
                     i = this.pos;
                     i2 = this.limit;
                 } else if (z) {
-                    throw new EOFException("End of input" + dvO());
+                    throw new EOFException("End of input" + dvP());
                 } else {
                     return -1;
                 }
@@ -1072,7 +1072,7 @@ public class a implements Closeable {
                         return c;
                     }
                 }
-                dwg();
+                dwh();
                 switch (cArr[this.pos]) {
                     case '*':
                         this.pos++;
@@ -1093,7 +1093,7 @@ public class a implements Closeable {
                 }
             } else if (c == '#') {
                 this.pos = i3;
-                dwg();
+                dwh();
                 skipToEndOfLine();
                 i = this.pos;
                 i2 = this.limit;
@@ -1104,7 +1104,7 @@ public class a implements Closeable {
         }
     }
 
-    private void dwg() throws IOException {
+    private void dwh() throws IOException {
         if (!this.lenient) {
             throw OD("Use JsonReader.setLenient(true) to accept malformed JSON");
         }
@@ -1150,10 +1150,10 @@ public class a implements Closeable {
     }
 
     public String toString() {
-        return getClass().getSimpleName() + dvO();
+        return getClass().getSimpleName() + dvP();
     }
 
-    String dvO() {
+    String dvP() {
         return " at line " + (this.mlV + 1) + " column " + ((this.pos - this.mlW) + 1) + " path " + getPath();
     }
 
@@ -1239,10 +1239,10 @@ public class a implements Closeable {
     }
 
     private IOException OD(String str) throws IOException {
-        throw new MalformedJsonException(str + dvO());
+        throw new MalformedJsonException(str + dvP());
     }
 
-    private void dwh() throws IOException {
+    private void dwi() throws IOException {
         vX(true);
         this.pos--;
         if (this.pos + mlS.length <= this.limit || Ie(mlS.length)) {

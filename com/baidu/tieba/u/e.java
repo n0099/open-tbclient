@@ -26,11 +26,11 @@ public class e {
         this.lgA = new ArrayList();
         this.lgB = new ArrayList();
         if (f.checkSD()) {
-            dab();
+            dac();
         }
     }
 
-    private void dab() {
+    private void dac() {
         new BdAsyncTask<Void, Void, Void>() { // from class: com.baidu.tieba.u.e.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
@@ -46,11 +46,11 @@ public class e {
         }.execute(new Void[0]);
     }
 
-    public static e dac() {
+    public static e dad() {
         return a.lgD;
     }
 
-    public void cZY() {
+    public void cZZ() {
         if (f.checkSD()) {
             new BdAsyncTask<Void, Void, Void>() { // from class: com.baidu.tieba.u.e.2
                 /* JADX DEBUG: Method merged with bridge method */
@@ -105,19 +105,19 @@ public class e {
     public synchronized void e(JSONObject jSONObject, boolean z) {
         if (jSONObject != null) {
             this.lgA.add(jSONObject.toString());
-            String crY = crY();
+            String crZ = crZ();
             if (f.checkSD()) {
-                r(jSONObject, crY);
+                r(jSONObject, crZ);
             }
             if (this.lgA.size() >= com.baidu.tbadk.coreExtra.model.f.aUy() || z) {
-                a(new d(this.lgA, crY));
+                a(new d(this.lgA, crZ));
                 this.lgA.clear();
                 this.lgz = null;
             }
         }
     }
 
-    private String crY() {
+    private String crZ() {
         if (StringUtils.isNull(this.lgz)) {
             if (f.checkSD()) {
                 this.lgz = String.valueOf(System.currentTimeMillis());

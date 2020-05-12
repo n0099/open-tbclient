@@ -75,7 +75,7 @@ public class b extends SpannableStringBuilder {
     }
 
     protected void dh(View view) {
-        dpy();
+        dpz();
         this.lXd = view;
     }
 
@@ -91,7 +91,7 @@ public class b extends SpannableStringBuilder {
         }
     }
 
-    protected void dpy() {
+    protected void dpz() {
         if (this.lXd != null) {
             di(this.lXd);
         }
@@ -150,8 +150,8 @@ public class b extends SpannableStringBuilder {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.facebook.drawee.controller.b, com.facebook.drawee.controller.c
         public void a(String str, f fVar, Animatable animatable) {
-            if (this.lXi && fVar != null && this.lXh.dpx().getTopLevelDrawable() != null) {
-                Drawable topLevelDrawable = this.lXh.dpx().getTopLevelDrawable();
+            if (this.lXi && fVar != null && this.lXh.dpy().getTopLevelDrawable() != null) {
+                Drawable topLevelDrawable = this.lXh.dpy().getTopLevelDrawable();
                 Rect bounds = topLevelDrawable.getBounds();
                 if (this.lXj != -1) {
                     int height = (int) ((this.lXj / fVar.getHeight()) * fVar.getWidth());

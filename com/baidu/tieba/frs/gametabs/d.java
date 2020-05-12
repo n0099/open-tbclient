@@ -36,7 +36,7 @@ public class d {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (view == d.this.fAV) {
-                d.this.bTj();
+                d.this.bTk();
             } else if (d.this.has == null || view != d.this.has.getView()) {
                 if (view != d.this.fit) {
                     if (view == d.this.hpM) {
@@ -123,7 +123,7 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bTj() {
+    public void bTk() {
         CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(CmdConfigCustom.CMD_CLICK_CLOSE_GAME_FRS_CONFIRM);
         customResponsedMessage.setmOrginalMessage(new CustomMessage((int) CmdConfigCustom.CMD_GAME_FRS_TAB_CHANGE, this.dvg.getUniqueId()));
         MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);

@@ -8,7 +8,7 @@ public final class a {
     private static final AtomicReference<a> njf = new AtomicReference<>();
     private final g njg;
 
-    private static a dHz() {
+    private static a dHA() {
         a aVar;
         do {
             aVar = njf.get();
@@ -21,15 +21,15 @@ public final class a {
     }
 
     private a() {
-        g dHy = rx.a.a.a.dHv().dHw().dHy();
-        if (dHy != null) {
-            this.njg = dHy;
+        g dHz = rx.a.a.a.dHw().dHx().dHz();
+        if (dHz != null) {
+            this.njg = dHz;
         } else {
             this.njg = new b(Looper.getMainLooper());
         }
     }
 
-    public static g dHA() {
-        return dHz().njg;
+    public static g dHB() {
+        return dHA().njg;
     }
 }

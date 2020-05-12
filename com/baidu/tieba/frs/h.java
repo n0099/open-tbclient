@@ -114,7 +114,7 @@ public abstract class h<T, V extends y.a> extends com.baidu.adp.widget.ListView.
         this.gXX = fVar;
     }
 
-    public boolean bOi() {
+    public boolean bOj() {
         return this.gXY;
     }
 

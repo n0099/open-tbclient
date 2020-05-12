@@ -133,7 +133,7 @@ public class d<T> implements rx.e<T> {
                             aVar = new a();
                             this.noJ = aVar;
                         }
-                        aVar.add(NotificationLite.dHG());
+                        aVar.add(NotificationLite.dHH());
                         return;
                     }
                     this.emitting = true;

@@ -136,10 +136,10 @@ public class b {
     }
 
     public void c(com.baidu.tieba.pb.data.a aVar) {
-        if (aVar != null && aVar.jno != null && this.jqG != null && this.jqG.cvr() != null) {
+        if (aVar != null && aVar.jno != null && this.jqG != null && this.jqG.cvs() != null) {
             this.jCm = aVar;
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_CARD_GIFT_REQ);
-            httpMessage.addParam("tid", this.jqG.cvr().getTid());
+            httpMessage.addParam("tid", this.jqG.cvs().getTid());
             httpMessage.addParam(CardBoxMemberPayActivityConfig.PACKET_ID, aVar.jno.jnp);
             MessageManager.getInstance().sendMessage(httpMessage);
         }
@@ -194,7 +194,7 @@ public class b {
         aVar.c(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.pb.pb.main.adapter.b.4
             @Override // android.content.DialogInterface.OnDismissListener
             public void onDismiss(DialogInterface dialogInterface) {
-                b.this.cBB();
+                b.this.cBC();
             }
         });
         aVar.setTitleShowCenter(true);
@@ -205,7 +205,7 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void n(boolean z, String str) {
-        com.baidu.tieba.im.settingcache.d.ciT().a(TbadkCoreApplication.getCurrentAccount(), str, z, null);
+        com.baidu.tieba.im.settingcache.d.ciU().a(TbadkCoreApplication.getCurrentAccount(), str, z, null);
         MessageManager.getInstance().dispatchResponsedMessage(new SettingChangeMessage(2));
     }
 
@@ -256,7 +256,7 @@ public class b {
         this.jCn.setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.pb.pb.main.adapter.b.9
             @Override // android.content.DialogInterface.OnDismissListener
             public void onDismiss(DialogInterface dialogInterface) {
-                b.this.cBB();
+                b.this.cBC();
             }
         });
         Window window = this.jCn.getWindow();
@@ -269,15 +269,15 @@ public class b {
     private void a(com.baidu.tieba.pb.data.a aVar) {
         String str;
         if (aVar != null) {
-            String tid = this.jqG.cvr().getTid();
-            com.baidu.tieba.s.c.cVo().a(this.jpW.getUniqueId(), com.baidu.tieba.s.a.a(tid, str, "", null) + "_dialog", com.baidu.tieba.s.a.a(this.jqG.cvr(), PageStayDurationConstants.PageName.PB, "common_exp", aVar.locate, true, aVar.jno.jnp + "", "", 19));
+            String tid = this.jqG.cvs().getTid();
+            com.baidu.tieba.s.c.cVp().a(this.jpW.getUniqueId(), com.baidu.tieba.s.a.a(tid, str, "", null) + "_dialog", com.baidu.tieba.s.a.a(this.jqG.cvs(), PageStayDurationConstants.PageName.PB, "common_exp", aVar.locate, true, aVar.jno.jnp + "", "", 19));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(com.baidu.tieba.pb.data.a aVar) {
         if (aVar != null) {
-            com.baidu.tieba.s.c.cVo().b(this.jpW.getUniqueId(), com.baidu.tieba.s.a.a(this.jqG.cvr(), PageStayDurationConstants.PageName.PB, "common_click", 1, aVar.locate, true, aVar.jno.jnp + "", "", 19));
+            com.baidu.tieba.s.c.cVp().b(this.jpW.getUniqueId(), com.baidu.tieba.s.a.a(this.jqG.cvs(), PageStayDurationConstants.PageName.PB, "common_click", 1, aVar.locate, true, aVar.jno.jnp + "", "", 19));
         }
     }
 
@@ -286,13 +286,13 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cBB() {
+    public void cBC() {
         MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.PB_ADAPTER_CHANGE_CMD));
     }
 
     public void onDestroy() {
         if (this.dKs != null) {
-            this.dKs.cVI();
+            this.dKs.cVJ();
         }
         if (this.jCn != null) {
             this.jCn.dismiss();

@@ -40,15 +40,15 @@ public class a implements ImagePagerAdapter.a {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (a.this.iCE != null) {
-                if (a.this.iCG == null || !a.this.iCG.iCT || a.this.iCG.ckU() != view) {
+                if (a.this.iCG == null || !a.this.iCG.iCT || a.this.iCG.ckV() != view) {
                     if (!x.aq((Activity) view.getContext())) {
                         l.showToast((Activity) view.getContext(), (int) R.string.write_external_storage_permission_denied_fun_disable);
                         return;
                     }
                     if (view.getId() == R.id.big_image_ad_title || view.getId() == R.id.big_image_ad_brand) {
-                        a.this.iCH.cla();
+                        a.this.iCH.clb();
                     } else {
-                        a.this.iCH.ckZ();
+                        a.this.iCH.cla();
                     }
                     com.baidu.tieba.lego.card.b.c.a(com.baidu.tieba.lego.card.b.c.e(a.this.iCE));
                     int i = a.this.iCE.dmr;
@@ -58,7 +58,7 @@ public class a implements ImagePagerAdapter.a {
                             if (StringUtils.isNull(str)) {
                                 str = a.this.duK.getString(R.string.app_name);
                             }
-                            a.this.iCH.clc();
+                            a.this.iCH.cld();
                             if (r.a(a.this.duK.getPageActivity(), a.this.iCE, 0, str)) {
                                 a.this.iCH.Fx(a.this.iCE.dmv);
                                 return;
@@ -69,14 +69,14 @@ public class a implements ImagePagerAdapter.a {
                     } else if (i == 1) {
                         r.f(a.this.iCE);
                         a.this.iCE.dmr = 3;
-                        a.this.ckO();
+                        a.this.ckP();
                     } else if (i == 2) {
-                        if (com.baidu.tieba.recapp.download.e.cNr().wp(a.this.iCE.dmv)) {
+                        if (com.baidu.tieba.recapp.download.e.cNs().wp(a.this.iCE.dmv)) {
                             x.aM(a.this.duK.getPageActivity(), a.this.iCE.dmv);
                             return;
                         }
                         a.this.iCE.dmr = 0;
-                        a.this.ckO();
+                        a.this.ckP();
                     }
                 }
             }
@@ -86,14 +86,14 @@ public class a implements ImagePagerAdapter.a {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (a.this.iCE != null) {
-                if (a.this.iCG == null || !a.this.iCG.iCT || a.this.iCG.ckU() != view) {
+                if (a.this.iCG == null || !a.this.iCG.iCT || a.this.iCG.ckV() != view) {
                     if (view.getId() == R.id.big_image_ad_title || view.getId() == R.id.big_image_ad_brand) {
-                        a.this.iCH.cla();
+                        a.this.iCH.clb();
                     } else {
-                        a.this.iCH.ckZ();
+                        a.this.iCH.cla();
                     }
                     com.baidu.tieba.lego.card.b.c.a(com.baidu.tieba.lego.card.b.c.e(a.this.iCE));
-                    q.cNl().cNi().a(a.this.duK.getPageActivity(), new String[]{a.this.iCE.dmu}, true);
+                    q.cNm().cNj().a(a.this.duK.getPageActivity(), new String[]{a.this.iCE.dmu}, true);
                 }
             }
         }
@@ -129,7 +129,7 @@ public class a implements ImagePagerAdapter.a {
         this.iCH.d(this.iCE);
     }
 
-    public boolean ckN() {
+    public boolean ckO() {
         if (!this.iCF || this.iCE == null) {
             return false;
         }
@@ -148,7 +148,7 @@ public class a implements ImagePagerAdapter.a {
         if (xN(i)) {
             this.iCG = new b(viewGroup);
             this.iCG.setDragToExitListener(this.dUg);
-            ckO();
+            ckP();
             viewGroup.addView(this.iCG.getView());
             return this.iCG.getView();
         }
@@ -156,20 +156,20 @@ public class a implements ImagePagerAdapter.a {
     }
 
     private boolean xN(int i) {
-        return ckN() && this.iCD != 0 && i == this.iCD;
+        return ckO() && this.iCD != 0 && i == this.iCD;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ckO() {
+    public void ckP() {
         if (this.iCE != null && this.iCE.dmB != null) {
-            ckP();
+            ckQ();
             if (this.iCE.aIF()) {
-                this.iCG.ckV().setVisibility(8);
+                this.iCG.ckW().setVisibility(8);
                 this.iCG.D(this.iCK);
             } else if (this.iCE.aIE()) {
-                this.iCG.ckV().setVisibility(0);
+                this.iCG.ckW().setVisibility(0);
                 this.iCG.D(this.iCJ);
-                ckQ();
+                ckR();
             }
             if (!TextUtils.isEmpty(this.iCE.dmB.adSource)) {
                 this.iCG.iCS.setText(this.iCE.dmB.adSource);
@@ -194,12 +194,12 @@ public class a implements ImagePagerAdapter.a {
         this.dUg = dVar;
     }
 
-    private void ckP() {
-        this.iCG.ckU().setEvent(new TbImageView.a() { // from class: com.baidu.tieba.image.a.1
+    private void ckQ() {
+        this.iCG.ckV().setEvent(new TbImageView.a() { // from class: com.baidu.tieba.image.a.1
             @Override // com.baidu.tbadk.widget.TbImageView.a
             public void onComplete(String str, boolean z) {
                 if (z) {
-                    a.this.iCG.ckY();
+                    a.this.iCG.ckZ();
                 }
             }
 
@@ -207,23 +207,23 @@ public class a implements ImagePagerAdapter.a {
             public void onCancel() {
             }
         });
-        this.iCG.ckU().a(this.iCE.dmB.dmM, this.dSw ? 30 : 31, 720, 720, false);
-        if (this.iCG.ckT() != null) {
-            this.iCG.ckT().setIsCdn(this.dSw);
-            this.iCG.ckT().setUrl(this.iCE.dmB.dmM, true);
+        this.iCG.ckV().a(this.iCE.dmB.dmM, this.dSw ? 30 : 31, 720, 720, false);
+        if (this.iCG.ckU() != null) {
+            this.iCG.ckU().setIsCdn(this.dSw);
+            this.iCG.ckU().setUrl(this.iCE.dmB.dmM, true);
         }
     }
 
-    private void ckQ() {
+    private void ckR() {
         if (this.iCE != null) {
             String str = this.iCE.dmt;
             if (StringUtils.isNull(str)) {
                 str = this.duK.getString(R.string.app_name);
             }
-            if (com.baidu.tieba.recapp.download.e.cNr().wp(this.iCE.dmv)) {
+            if (com.baidu.tieba.recapp.download.e.cNs().wp(this.iCE.dmv)) {
                 this.iCE.dmr = 2;
-            } else if (com.baidu.tieba.recapp.download.e.cNr().eC(this.iCE.dmv, str)) {
-                if (com.baidu.tieba.recapp.download.e.cNr().wn(this.iCE.dmv)) {
+            } else if (com.baidu.tieba.recapp.download.e.cNs().eC(this.iCE.dmv, str)) {
+                if (com.baidu.tieba.recapp.download.e.cNs().wn(this.iCE.dmv)) {
                     this.iCE.dmr = 1;
                 } else {
                     this.iCE.dmr = 3;
@@ -241,16 +241,16 @@ public class a implements ImagePagerAdapter.a {
                     this.iCG.Fw(string);
                     return;
                 case 1:
-                    this.iCG.ckW();
+                    this.iCG.ckX();
                     return;
                 case 2:
-                    this.iCG.ckX();
+                    this.iCG.ckY();
                     return;
                 case 3:
                     this.iCG.Fw(this.duK.getString(R.string.pb_download_pause));
                     return;
                 default:
-                    this.iCG.ckV().setVisibility(8);
+                    this.iCG.ckW().setVisibility(8);
                     this.iCG.D(null);
                     return;
             }
@@ -275,7 +275,7 @@ public class a implements ImagePagerAdapter.a {
                     if (StringUtils.isNull(str)) {
                         str = a.this.duK.getString(R.string.app_name);
                     }
-                    a.this.iCH.clc();
+                    a.this.iCH.cld();
                     if (r.a(a.this.duK.getPageActivity(), a.this.iCE, 0, str)) {
                         a.this.iCH.Fx(a.this.iCE.dmv);
                     }
@@ -309,16 +309,16 @@ public class a implements ImagePagerAdapter.a {
                     } else if (status == 1) {
                         this.iCE.dmr = 1;
                     }
-                    ckO();
+                    ckP();
                 }
             }
         }
     }
 
-    public void ckR() {
+    public void ckS() {
         if (!this.iCI) {
             this.iCI = true;
-            this.iCH.clb();
+            this.iCH.clc();
             com.baidu.tieba.lego.card.b.c.b(com.baidu.tieba.lego.card.b.c.e(this.iCE));
         }
     }

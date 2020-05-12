@@ -5,7 +5,7 @@ public interface i {
 
     int aE(String str, boolean z);
 
-    void cMX();
+    void cMY();
 
     void f(String str, int i, boolean z);
 }

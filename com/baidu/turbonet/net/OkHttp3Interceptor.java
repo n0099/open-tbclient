@@ -45,7 +45,7 @@ public class OkHttp3Interceptor implements Interceptor {
             lLa = null;
         }
         try {
-            lLc = OkHttpVersionUtil.djt();
+            lLc = OkHttpVersionUtil.dju();
             if (lLc) {
                 lLd = RealResponseBody.class.getConstructor(String.class, Long.TYPE, BufferedSource.class);
                 Log.d("tn_OkHttp3Intercept", "found okhttp 3.9+");
@@ -66,7 +66,7 @@ public class OkHttp3Interceptor implements Interceptor {
     }
 
     public OkHttp3Interceptor(TurbonetContext turbonetContext) {
-        this.lLe = turbonetContext.djD();
+        this.lLe = turbonetContext.djE();
         if (this.lLe == null) {
             throw new NullPointerException("TurbonetEngine is null.");
         }
@@ -78,11 +78,11 @@ public class OkHttp3Interceptor implements Interceptor {
         InputStream errorStream;
         long j;
         Request request = chain.request();
-        if (lLd == null || this.lLe.djg() || (lLc && chain.call() == null)) {
+        if (lLd == null || this.lLe.djh() || (lLc && chain.call() == null)) {
             return a(chain, request);
         }
         final d dVar = new d(new URL(request.url().toString()), this.lLe);
-        dVar.dkp();
+        dVar.dkq();
         if (lLc && chain.call().isCanceled()) {
             dVar.disconnect();
             return a(chain, request);
@@ -117,7 +117,7 @@ public class OkHttp3Interceptor implements Interceptor {
                 dVar.disconnect();
                 return a(chain, request);
             }
-            String str2 = dVar.dko().djW().toString();
+            String str2 = dVar.dkp().djX().toString();
             try {
                 protocol = Protocol.get(str2);
             } catch (IOException e) {
@@ -237,7 +237,7 @@ public class OkHttp3Interceptor implements Interceptor {
             newBuilder.header(SM.COOKIE, cookieHeader(loadForRequest));
         }
         Response proceed = chain.proceed(newBuilder.build());
-        aVar.djh();
+        aVar.dji();
         aVar.lKC = proceed.code();
         ResponseBody body2 = proceed.body();
         RealResponseBody realResponseBody = body2 instanceof RealResponseBody ? (RealResponseBody) body2 : null;
@@ -253,7 +253,7 @@ public class OkHttp3Interceptor implements Interceptor {
                     @Override // com.baidu.turbonet.net.proxy.b
                     public void a(Exception exc, long j) {
                         aVar.lKD = j;
-                        aVar.dji();
+                        aVar.djj();
                         aVar.p(exc);
                         aVar.a(OkHttp3Interceptor.this.lLe);
                     }
@@ -261,7 +261,7 @@ public class OkHttp3Interceptor implements Interceptor {
                     @Override // com.baidu.turbonet.net.proxy.b
                     public void onComplete(long j) {
                         aVar.lKD = j;
-                        aVar.dji();
+                        aVar.djj();
                         aVar.lKB = 0;
                         aVar.a(OkHttp3Interceptor.this.lLe);
                     }
@@ -269,7 +269,7 @@ public class OkHttp3Interceptor implements Interceptor {
                     @Override // com.baidu.turbonet.net.proxy.b
                     public void fy(long j) {
                         aVar.lKD = j;
-                        aVar.dji();
+                        aVar.djj();
                         aVar.lKB = -12;
                         aVar.a(OkHttp3Interceptor.this.lLe);
                     }

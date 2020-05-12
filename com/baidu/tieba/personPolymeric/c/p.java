@@ -8,7 +8,7 @@ public class p extends a {
     }
 
     @Override // com.baidu.tieba.personPolymeric.c.a
-    public void cIe() {
+    public void cIf() {
         this.kay.clear();
         if (this.mCardNullPolymericData != null) {
             this.kay.add(this.mCardNullPolymericData);

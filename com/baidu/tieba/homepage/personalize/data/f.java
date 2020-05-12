@@ -35,7 +35,7 @@ public class f extends com.baidu.tbadk.core.data.a {
         return null;
     }
 
-    public List<AlaLiveInfo> bZU() {
+    public List<AlaLiveInfo> bZV() {
         return this.hQt;
     }
 }

@@ -43,9 +43,9 @@ public class OfficialAccountPushActivity extends BaseActivity<OfficialAccountPus
 
     private void bfO() {
         if (!j.isNetWorkAvailable() && v.isEmpty(this.list)) {
-            cSb();
+            cSc();
         } else if (v.isEmpty(this.list)) {
-            bTz();
+            bTA();
         } else if (this.kFV == null) {
             this.kFV = new a(getPageContext());
             this.kFV.setData(this.list);
@@ -84,14 +84,14 @@ public class OfficialAccountPushActivity extends BaseActivity<OfficialAccountPus
         }
     }
 
-    public void bTz() {
+    public void bTA() {
         this.huX.setVisibility(8);
         this.mNoDataView.setVisibility(0);
         this.mNoDataView.setTextOption(NoDataViewFactory.d.lr(R.string.no_data_text));
         am.setBackgroundColor(this.mRootView, R.color.cp_bg_line_d);
     }
 
-    public void cSb() {
+    public void cSc() {
         this.huX.setVisibility(8);
         this.mNoDataView.setVisibility(0);
         this.mNoDataView.setTextOption(NoDataViewFactory.d.lr(R.string.refresh_view_title_text));

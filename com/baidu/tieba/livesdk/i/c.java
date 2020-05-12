@@ -18,12 +18,12 @@ public class c implements com.baidu.live.liveroom.e.a {
     private Uri mUri;
 
     public c() {
-        coy();
+        coz();
     }
 
     @Override // com.baidu.live.liveroom.e.a
     public void d(Context context, Uri uri) {
-        coy();
+        coz();
         this.iPx = new BVideoView(context);
         HashMap hashMap = new HashMap();
         hashMap.put(CyberPlayerManager.STAGE_INFO_TYPE, SoUtils.SO_EVENT_ID_DEFAULT);
@@ -117,7 +117,7 @@ public class c implements com.baidu.live.liveroom.e.a {
         }
     }
 
-    public static synchronized void coy() {
+    public static synchronized void coz() {
         synchronized (c.class) {
             if (!mHasInit) {
                 mHasInit = true;

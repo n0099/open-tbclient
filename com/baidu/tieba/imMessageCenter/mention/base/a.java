@@ -182,11 +182,11 @@ public class a extends com.baidu.tieba.card.data.b {
         return this.msgId;
     }
 
-    public boolean ckJ() {
+    public boolean ckK() {
         return this.iBY;
     }
 
-    public String ckK() {
+    public String ckL() {
         return this.quote_pid;
     }
 
@@ -198,7 +198,7 @@ public class a extends com.baidu.tieba.card.data.b {
         this.isNew = z;
     }
 
-    public String ckL() {
+    public String ckM() {
         return this.iBZ;
     }
 

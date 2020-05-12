@@ -25,7 +25,7 @@ public final class d {
             return null;
         }
         if (str == null) {
-            q.dDR();
+            q.dDS();
         }
         List b = l.b((CharSequence) str, new String[]{Constants.ACCEPT_TIME_SEPARATOR_SP}, false, 0, 6, (Object) null);
         if (b.size() > 1) {
@@ -55,10 +55,10 @@ public final class d {
         q.j(cVar, "sp");
         int length = cVar.length();
         ImageRequestBuilder vQ = ImageRequestBuilder.Z(i.OI(str2)).a(new com.kascend.chushou.widget.gif.a(i, i2, str)).vQ(true);
-        com.facebook.drawee.view.b a = com.facebook.drawee.view.b.a(new com.facebook.drawee.generic.b(tv.chushou.widget.a.c.getResources()).Gv(com.kascend.chushou.view.a.a(null)).dpn(), tv.chushou.basis.d.b.dJp());
-        com.facebook.drawee.controller.a doz = com.facebook.drawee.a.a.c.dnM().aX(vQ.duT()).doD();
+        com.facebook.drawee.view.b a = com.facebook.drawee.view.b.a(new com.facebook.drawee.generic.b(tv.chushou.widget.a.c.getResources()).Gv(com.kascend.chushou.view.a.a(null)).dpo(), tv.chushou.basis.d.b.dJq());
+        com.facebook.drawee.controller.a doA = com.facebook.drawee.a.a.c.dnN().aX(vQ.duU()).doE();
         q.i(a, "draweeHolder");
-        a.setController(doz);
+        a.setController(doA);
         cVar.append(" ");
         String str3 = str;
         int i3 = str3 == null || str3.length() == 0 ? i2 : i;
@@ -67,7 +67,7 @@ public final class d {
     }
 
     public final void a() {
-        tv.chushou.zues.utils.h.dJU();
+        tv.chushou.zues.utils.h.dJV();
         System.gc();
     }
 }

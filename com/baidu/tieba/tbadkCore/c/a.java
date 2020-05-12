@@ -588,11 +588,11 @@ public class a {
         }
     }
 
-    public AntiData cWE() {
+    public AntiData cWF() {
         return this.kTJ;
     }
 
-    public ErrorData cWF() {
+    public ErrorData cWG() {
         return this.kTI;
     }
 }

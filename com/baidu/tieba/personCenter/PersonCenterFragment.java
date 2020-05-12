@@ -81,7 +81,7 @@ public class PersonCenterFragment extends BaseFragment {
     private MessageQueue.IdleHandler jSO = new MessageQueue.IdleHandler() { // from class: com.baidu.tieba.personCenter.PersonCenterFragment.6
         @Override // android.os.MessageQueue.IdleHandler
         public boolean queueIdle() {
-            PersonCenterFragment.this.cGa();
+            PersonCenterFragment.this.cGb();
             return false;
         }
     };
@@ -89,12 +89,12 @@ public class PersonCenterFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         super.onActivityCreated(bundle);
-        a.cGb().setCreateTime(System.currentTimeMillis() - a.cGb().aDQ());
+        a.cGc().setCreateTime(System.currentTimeMillis() - a.cGc().aDQ());
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
-        a.cGb().bR(System.currentTimeMillis());
+        a.cGc().bR(System.currentTimeMillis());
         super.onCreate(bundle);
     }
 
@@ -113,7 +113,7 @@ public class PersonCenterFragment extends BaseFragment {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cGa() {
+    public void cGb() {
         long j = com.baidu.tbadk.core.sharedPref.b.aNT().getLong(SharedPrefConfig.KEY_FEEDBACK_TIP, 0L);
         if (TbadkCoreApplication.isLogin() && System.currentTimeMillis() - j > 4 * aq.MS_TO_HOUR) {
             ac.a(new ab<Boolean>() { // from class: com.baidu.tieba.personCenter.PersonCenterFragment.4
@@ -144,7 +144,7 @@ public class PersonCenterFragment extends BaseFragment {
     /* JADX INFO: Access modifiers changed from: private */
     public void sq(boolean z) {
         if (!z) {
-            cGa();
+            cGb();
         } else if (getPageContext() != null && getPageContext().getPageActivity() != null) {
             Looper.myQueue().removeIdleHandler(this.jSO);
             Looper.myQueue().addIdleHandler(this.jSO);
@@ -192,18 +192,18 @@ public class PersonCenterFragment extends BaseFragment {
             } else {
                 this.jSK.refreshView();
             }
-            this.jSK.cGg();
+            this.jSK.cGh();
             com.baidu.tbadk.core.sharedPref.b.aNT().putBoolean(SharedPrefConfig.KEY_FEEDBACK_PERSON_TAB_SHOW, false);
             if (TbSingleton.getInstance().isShowShoubaiDynamicGuide()) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921423));
             }
         } else {
-            this.jSK.cGh();
+            this.jSK.cGi();
         }
         if (isAdded()) {
-            com.baidu.tieba.p.a.cOI().cOO();
+            com.baidu.tieba.p.a.cOJ().cOP();
         }
-        com.baidu.tieba.p.a.cOI().tp(isPrimary());
+        com.baidu.tieba.p.a.cOJ().tp(isPrimary());
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment

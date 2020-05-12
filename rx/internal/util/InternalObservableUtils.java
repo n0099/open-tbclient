@@ -50,7 +50,7 @@ public enum InternalObservableUtils {
             throw new OnErrorNotImplementedException(th);
         }
     };
-    public static final d.b<Boolean, Object> IS_EMPTY = new rx.internal.operators.i(UtilityFunctions.dIf(), true);
+    public static final d.b<Boolean, Object> IS_EMPTY = new rx.internal.operators.i(UtilityFunctions.dIg(), true);
 
     public static rx.functions.f<Object, Boolean> equalsWith(Object obj) {
         return new b(obj);
@@ -179,7 +179,7 @@ public enum InternalObservableUtils {
         @Override // rx.functions.f
         /* renamed from: c */
         public Throwable call(Notification<?> notification) {
-            return notification.dHk();
+            return notification.dHl();
         }
     }
 
@@ -197,9 +197,9 @@ public enum InternalObservableUtils {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // rx.functions.e, java.util.concurrent.Callable
-        /* renamed from: dHY */
+        /* renamed from: dHZ */
         public rx.observables.a<T> call() {
-            return this.njp.dHs();
+            return this.njp.dHt();
         }
     }
 
@@ -219,7 +219,7 @@ public enum InternalObservableUtils {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // rx.functions.e, java.util.concurrent.Callable
-        /* renamed from: dHY */
+        /* renamed from: dHZ */
         public rx.observables.a<T> call() {
             return this.njp.Jz(this.bufferSize);
         }
@@ -245,7 +245,7 @@ public enum InternalObservableUtils {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // rx.functions.e, java.util.concurrent.Callable
-        /* renamed from: dHY */
+        /* renamed from: dHZ */
         public rx.observables.a<T> call() {
             return this.njp.b(this.time, this.unit, this.scheduler);
         }
@@ -273,7 +273,7 @@ public enum InternalObservableUtils {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // rx.functions.e, java.util.concurrent.Callable
-        /* renamed from: dHY */
+        /* renamed from: dHZ */
         public rx.observables.a<T> call() {
             return this.njp.a(this.bufferSize, this.time, this.unit, this.scheduler);
         }

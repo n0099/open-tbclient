@@ -18,7 +18,7 @@ public class VerificationCodeView extends FormItemBaseView {
 
     /* loaded from: classes13.dex */
     public interface a {
-        void cNN();
+        void cNO();
     }
 
     public VerificationCodeView(Context context) {
@@ -46,11 +46,11 @@ public class VerificationCodeView extends FormItemBaseView {
     }
 
     private void init() {
-        cNW();
         cNX();
+        cNY();
     }
 
-    private void cNW() {
+    private void cNX() {
         this.kwh = new Button(this.mContext);
         this.kwh.setId(1);
         this.kwh.setTextColor(this.kvS);
@@ -64,13 +64,13 @@ public class VerificationCodeView extends FormItemBaseView {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (VerificationCodeView.this.kwi != null) {
-                    VerificationCodeView.this.kwi.cNN();
+                    VerificationCodeView.this.kwi.cNO();
                 }
             }
         });
     }
 
-    private void cNX() {
+    private void cNY() {
         this.kwg = new EditText(this.mContext);
         this.kwg.setTextColor(this.kvO);
         this.kwg.setHintTextColor(this.kvP);
@@ -81,7 +81,7 @@ public class VerificationCodeView extends FormItemBaseView {
         this.kwg.setOnFocusChangeListener(new View.OnFocusChangeListener() { // from class: com.baidu.tieba.recapp.lego.view.form.VerificationCodeView.2
             @Override // android.view.View.OnFocusChangeListener
             public void onFocusChange(View view, boolean z) {
-                if (z || VerificationCodeView.this.cNK()) {
+                if (z || VerificationCodeView.this.cNL()) {
                     VerificationCodeView.this.a(VerificationCodeView.this.kwg, FormItemBaseView.DrawableType.ORDINARY_FRAME);
                 } else {
                     VerificationCodeView.this.a(VerificationCodeView.this.kwg, FormItemBaseView.DrawableType.ERROR_FRAME);
@@ -131,7 +131,7 @@ public class VerificationCodeView extends FormItemBaseView {
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.form.FormCardView.a
-    public boolean cNK() {
+    public boolean cNL() {
         return true;
     }
 

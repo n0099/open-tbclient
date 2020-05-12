@@ -278,16 +278,16 @@ public class H264TrackImpl extends AbstractTrack {
         int mmL = 0;
         long start;
 
-        public void dwq() throws IOException {
+        public void dwr() throws IOException {
             this.buffer = this.dataSource.map(this.mmK, Math.min(this.dataSource.size() - this.mmK, H264TrackImpl.BUFFER));
         }
 
         a(DataSource dataSource) throws IOException {
             this.dataSource = dataSource;
-            dwq();
+            dwr();
         }
 
-        boolean dwr() throws IOException {
+        boolean dws() throws IOException {
             if (this.buffer.limit() - this.mmL >= 3) {
                 return this.buffer.get(this.mmL) == 0 && this.buffer.get(this.mmL + 1) == 0 && this.buffer.get(this.mmL + 2) == 1;
             } else if (this.mmK + this.mmL != this.dataSource.size()) {
@@ -298,7 +298,7 @@ public class H264TrackImpl extends AbstractTrack {
             }
         }
 
-        boolean dws() throws IOException {
+        boolean dwt() throws IOException {
             if (this.buffer.limit() - this.mmL >= 3) {
                 return this.buffer.get(this.mmL) == 0 && this.buffer.get(this.mmL + 1) == 0 && (this.buffer.get(this.mmL + 2) == 0 || this.buffer.get(this.mmL + 2) == 1);
             } else if (this.mmK + this.mmL + 3 > this.dataSource.size()) {
@@ -306,21 +306,21 @@ public class H264TrackImpl extends AbstractTrack {
             } else {
                 this.mmK = this.start;
                 this.mmL = 0;
-                dwq();
-                return dws();
+                dwr();
+                return dwt();
             }
         }
 
-        void dwt() {
+        void dwu() {
             this.mmL++;
         }
 
-        void dwu() {
+        void dwv() {
             this.mmL += 3;
             this.start = this.mmK + this.mmL;
         }
 
-        public ByteBuffer dwv() {
+        public ByteBuffer dww() {
             if (this.start >= this.mmK) {
                 this.buffer.position((int) (this.start - this.mmK));
                 ByteBuffer slice = this.buffer.slice();
@@ -332,18 +332,18 @@ public class H264TrackImpl extends AbstractTrack {
     }
 
     private ByteBuffer findNextSample(a aVar) throws IOException {
-        while (!aVar.dwr()) {
+        while (!aVar.dws()) {
             try {
-                aVar.dwt();
+                aVar.dwu();
             } catch (EOFException e) {
                 return null;
             }
         }
-        aVar.dwu();
-        while (!aVar.dws()) {
-            aVar.dwt();
+        aVar.dwv();
+        while (!aVar.dwt()) {
+            aVar.dwu();
         }
-        return aVar.dwv();
+        return aVar.dww();
     }
 
     protected Sample createSample(List<? extends ByteBuffer> list) {

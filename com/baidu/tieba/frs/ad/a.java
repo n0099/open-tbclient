@@ -27,7 +27,7 @@ public class a {
         this.hda = new o(this.hcX.getPageContext(), p.hbp);
         this.aMj.add(this.hcZ);
         this.aMj.add(this.hda);
-        bQG();
+        bQH();
         this.hcY.addAdapters(this.aMj);
     }
 
@@ -35,7 +35,7 @@ public class a {
         this.hcY.setData(arrayList);
     }
 
-    private void bQG() {
+    private void bQH() {
         if (!v.isEmpty(this.aMj) && this.hcX != null) {
             for (com.baidu.adp.widget.ListView.a aVar : this.aMj) {
                 if (aVar instanceof h) {

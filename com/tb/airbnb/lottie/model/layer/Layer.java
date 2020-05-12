@@ -128,12 +128,12 @@ public class Layer {
         return this.Co;
     }
 
-    public LayerType dBZ() {
+    public LayerType dCa() {
         return this.mQj;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public MatteType dCa() {
+    public MatteType dCb() {
         return this.mQn;
     }
 
@@ -148,7 +148,7 @@ public class Layer {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public l dBT() {
+    public l dBU() {
         return this.mPY;
     }
 
@@ -169,19 +169,19 @@ public class Layer {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Nullable
-    public j dCb() {
+    public j dCc() {
         return this.mQk;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Nullable
-    public k dCc() {
+    public k dCd() {
         return this.mQl;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Nullable
-    public com.tb.airbnb.lottie.model.a.b dCd() {
+    public com.tb.airbnb.lottie.model.a.b dCe() {
         return this.mQm;
     }
 

@@ -36,7 +36,7 @@ public class g {
                 g.this.lFV.a(g.this.mWriteImagesInfo);
                 g.this.lFV.notifyDataSetChanged();
                 if (v.isEmpty(g.this.mWriteImagesInfo.getChosedFiles()) && g.this.duK.getOrignalPage() != 0) {
-                    ((WriteActivity) g.this.duK.getOrignalPage()).cSR();
+                    ((WriteActivity) g.this.duK.getOrignalPage()).cSS();
                 }
             }
         }
@@ -51,7 +51,7 @@ public class g {
         }
 
         @Override // com.baidu.tieba.write.write.f.a
-        public void dhJ() {
+        public void dhK() {
             if (g.this.mWriteImagesInfo != null) {
                 AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig((Context) g.this.duK.getPageActivity(), g.this.mWriteImagesInfo.toJsonString(), true, true);
                 albumActivityConfig.getIntent().putExtra("forum_id", g.this.mForumId);

@@ -59,8 +59,8 @@ public class c extends com.baidu.tieba.card.a<bj> implements com.baidu.tieba.a.e
         this.agl = new View.OnClickListener() { // from class: com.baidu.tieba.ala.livecard.b.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (c.this.bEw() != null) {
-                    c.this.bEw().a(view, c.this.adJ);
+                if (c.this.bEx() != null) {
+                    c.this.bEx().a(view, c.this.adJ);
                 }
             }
         };
@@ -206,7 +206,7 @@ public class c extends com.baidu.tieba.card.a<bj> implements com.baidu.tieba.a.e
         } else {
             this.eWN.setVisibility(8);
         }
-        this.mMaskView.setVisibility(com.baidu.tieba.frs.a.bNB().bNC() ? 0 : 8);
+        this.mMaskView.setVisibility(com.baidu.tieba.frs.a.bNC().bND() ? 0 : 8);
         onChangeSkinType(getTbPageContext(), TbadkCoreApplication.getInst().getSkinType());
         rG();
     }
@@ -223,13 +223,13 @@ public class c extends com.baidu.tieba.card.a<bj> implements com.baidu.tieba.a.e
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (!com.baidu.tieba.frs.a.bNB().bNC()) {
+        if (!com.baidu.tieba.frs.a.bNC().bND()) {
             if (view == this.fsu || view == this.fsw.getCommentContainer() || this.fte == view || view == this.fti.dJe.getCommentContainer()) {
                 if (this.adJ != null) {
                     l.BE(this.adJ.getId());
                 }
-                if (bEw() != null) {
-                    bEw().a(this.fsu, this.adJ);
+                if (bEx() != null) {
+                    bEx().a(this.fsu, this.adJ);
                 }
                 TiebaStatic.log(new an("c12323"));
                 int i = 5;
@@ -247,8 +247,8 @@ public class c extends com.baidu.tieba.card.a<bj> implements com.baidu.tieba.a.e
                     TiebaStatic.log(anVar);
                 }
             } else if (view.getId() == R.id.video_container) {
-                if (bEw() != null) {
-                    bEw().a(view, this.adJ);
+                if (bEx() != null) {
+                    bEx().a(view, this.adJ);
                 }
                 TiebaStatic.log(new an("c12323"));
                 if (this.adJ.aKV().live_status == 1) {

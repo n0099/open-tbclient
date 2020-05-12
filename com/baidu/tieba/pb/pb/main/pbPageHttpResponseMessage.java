@@ -78,7 +78,7 @@ public class pbPageHttpResponseMessage extends TbHttpResponsedMessage {
             if (a != null) {
                 arrayList.add(a);
             }
-            com.baidu.tieba.recapp.report.b.cOc().en(arrayList);
+            com.baidu.tieba.recapp.report.b.cOd().en(arrayList);
         }
         BdLog.detailException(null);
     }
@@ -88,10 +88,10 @@ public class pbPageHttpResponseMessage extends TbHttpResponsedMessage {
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         switch (this.updateType) {
             case 3:
-                i.cxg().a(this.cacheKey, this.isFromMark, bArr);
+                i.cxh().a(this.cacheKey, this.isFromMark, bArr);
                 return;
             case 4:
-                i.cxg().n(this.cacheKey, bArr);
+                i.cxh().n(this.cacheKey, bArr);
                 return;
             default:
                 return;

@@ -82,7 +82,7 @@ public class AdCardLoopPicView extends AdCardBaseView {
     public void a(AdCard adCard, int i) {
         super.a(adCard, i);
         if (this.kuc != null && this.kuc.getVisibility() == 0) {
-            this.kuc.ckM();
+            this.kuc.ckN();
         }
     }
 

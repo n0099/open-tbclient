@@ -43,7 +43,7 @@ public class PostSearchActivity extends BaseFragmentActivity {
     public void rp(String str) {
         this.gWw = str;
         this.kmF.Bn(1);
-        this.kmG.cLR();
+        this.kmG.cLS();
         this.kmF.showLoadingView();
     }
 
@@ -51,34 +51,34 @@ public class PostSearchActivity extends BaseFragmentActivity {
         this.kmF.IX(str);
     }
 
-    public void cLB() {
+    public void cLC() {
         this.kmF.aQ(this.kmG.kne);
     }
 
     public void a(int i, b bVar, boolean z) {
-        if (i == 1 && (bVar == null || !bVar.ciF())) {
+        if (i == 1 && (bVar == null || !bVar.ciG())) {
             this.kmF.hideLoadingView();
-            this.kmF.cLV();
+            this.kmF.cLW();
             return;
         }
         this.kmF.hideLoadingView();
-        this.kmF.cLJ();
+        this.kmF.cLK();
         this.kmF.a(i, bVar, z);
     }
 
-    public boolean cLC() {
-        return this.kmF.cLC();
+    public boolean cLD() {
+        return this.kmF.cLD();
     }
 
     public void hideSoftKeyPad() {
         this.kmF.hideSoftKeyPad();
     }
 
-    public d cLD() {
+    public d cLE() {
         return this.kmG;
     }
 
-    public g cLE() {
+    public g cLF() {
         return this.kmF;
     }
 
@@ -93,7 +93,7 @@ public class PostSearchActivity extends BaseFragmentActivity {
             this.mForumName = intent.getStringExtra("forum_name");
             this.mForumId = intent.getStringExtra("forum_id");
         }
-        this.kmG.cLO();
+        this.kmG.cLP();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

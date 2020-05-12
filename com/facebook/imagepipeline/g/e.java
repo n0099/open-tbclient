@@ -59,12 +59,12 @@ public class e implements Closeable {
 
     public static e b(e eVar) {
         if (eVar != null) {
-            return eVar.dsQ();
+            return eVar.dsR();
         }
         return null;
     }
 
-    public e dsQ() {
+    public e dsR() {
         e eVar;
         if (this.mdy != null) {
             eVar = new e(this.mdy, this.mdA);
@@ -99,7 +99,7 @@ public class e implements Closeable {
         return z;
     }
 
-    public com.facebook.common.references.a<PooledByteBuffer> dsR() {
+    public com.facebook.common.references.a<PooledByteBuffer> dsS() {
         return com.facebook.common.references.a.b(this.mdx);
     }
 
@@ -146,15 +146,15 @@ public class e implements Closeable {
         this.mdB = aVar;
     }
 
-    public com.facebook.c.c dsS() {
+    public com.facebook.c.c dsT() {
         return this.mdz;
     }
 
-    public int dsO() {
+    public int dsP() {
         return this.lVz;
     }
 
-    public int dsP() {
+    public int dsQ() {
         return this.lVA;
     }
 
@@ -171,7 +171,7 @@ public class e implements Closeable {
     }
 
     @Nullable
-    public com.facebook.imagepipeline.common.a dsT() {
+    public com.facebook.imagepipeline.common.a dsU() {
         return this.mdB;
     }
 
@@ -189,19 +189,19 @@ public class e implements Closeable {
     }
 
     public String GW(int i) {
-        com.facebook.common.references.a<PooledByteBuffer> dsR = dsR();
-        if (dsR == null) {
+        com.facebook.common.references.a<PooledByteBuffer> dsS = dsS();
+        if (dsS == null) {
             return "";
         }
         int min = Math.min(getSize(), i);
         byte[] bArr = new byte[min];
         try {
-            PooledByteBuffer pooledByteBuffer = dsR.get();
+            PooledByteBuffer pooledByteBuffer = dsS.get();
             if (pooledByteBuffer == null) {
                 return "";
             }
             pooledByteBuffer.c(0, bArr, 0, min);
-            dsR.close();
+            dsS.close();
             StringBuilder sb = new StringBuilder(bArr.length * 2);
             int length = bArr.length;
             for (int i2 = 0; i2 < length; i2++) {
@@ -209,21 +209,21 @@ public class e implements Closeable {
             }
             return sb.toString();
         } finally {
-            dsR.close();
+            dsS.close();
         }
     }
 
-    public void dsU() {
-        Pair<Integer, Integer> dsW;
+    public void dsV() {
+        Pair<Integer, Integer> dsX;
         com.facebook.c.c s = com.facebook.c.d.s(getInputStream());
         this.mdz = s;
         if (com.facebook.c.b.a(s)) {
-            dsW = dsV();
+            dsX = dsW();
         } else {
-            dsW = dsW();
+            dsX = dsX();
         }
         if (s == com.facebook.c.b.lYQ && this.lVz == -1) {
-            if (dsW != null) {
+            if (dsX != null) {
                 this.lVA = com.facebook.d.b.w(getInputStream());
                 this.lVz = com.facebook.d.b.HA(this.lVA);
                 return;
@@ -233,7 +233,7 @@ public class e implements Closeable {
         this.lVz = 0;
     }
 
-    private Pair<Integer, Integer> dsV() {
+    private Pair<Integer, Integer> dsW() {
         Pair<Integer, Integer> y = com.facebook.d.e.y(getInputStream());
         if (y != null) {
             this.mWidth = ((Integer) y.first).intValue();
@@ -242,7 +242,7 @@ public class e implements Closeable {
         return y;
     }
 
-    private Pair<Integer, Integer> dsW() {
+    private Pair<Integer, Integer> dsX() {
         InputStream inputStream = null;
         try {
             inputStream = getInputStream();
@@ -263,14 +263,14 @@ public class e implements Closeable {
     }
 
     public void c(e eVar) {
-        this.mdz = eVar.dsS();
+        this.mdz = eVar.dsT();
         this.mWidth = eVar.getWidth();
         this.mHeight = eVar.getHeight();
-        this.lVz = eVar.dsO();
-        this.lVA = eVar.dsP();
+        this.lVz = eVar.dsP();
+        this.lVA = eVar.dsQ();
         this.aEQ = eVar.getSampleSize();
         this.mdA = eVar.getSize();
-        this.mdB = eVar.dsT();
+        this.mdB = eVar.dsU();
     }
 
     public static boolean d(e eVar) {

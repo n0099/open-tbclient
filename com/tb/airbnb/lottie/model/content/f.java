@@ -21,15 +21,15 @@ public class f implements b {
         return this.name;
     }
 
-    public com.tb.airbnb.lottie.model.a.b dBQ() {
+    public com.tb.airbnb.lottie.model.a.b dBR() {
         return this.mPV;
     }
 
-    public com.tb.airbnb.lottie.model.a.f dBy() {
+    public com.tb.airbnb.lottie.model.a.f dBz() {
         return this.mPC;
     }
 
-    public m<PointF, PointF> dBr() {
+    public m<PointF, PointF> dBs() {
         return this.mPw;
     }
 

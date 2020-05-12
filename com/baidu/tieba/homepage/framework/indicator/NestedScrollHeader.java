@@ -66,7 +66,7 @@ public class NestedScrollHeader extends RelativeLayout {
                             if (NestedScrollHeader.this.hKD != null) {
                                 NestedScrollHeader.this.hKD.DR(str);
                             }
-                            NestedScrollHeader.this.bYn();
+                            NestedScrollHeader.this.bYo();
                         }
                     }
                 } else if (NestedScrollHeader.this.hKC == view) {
@@ -87,7 +87,7 @@ public class NestedScrollHeader extends RelativeLayout {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001371 && NestedScrollHeader.this.hKB.getVisibility() == 0) {
-                    NestedScrollHeader.this.bYm();
+                    NestedScrollHeader.this.bYn();
                 }
             }
         };
@@ -105,14 +105,14 @@ public class NestedScrollHeader extends RelativeLayout {
         MessageManager.getInstance().registerListener(this.mSyncFinishListener);
         if (MissionEntranceSwitch.isOn()) {
             this.hKB.setVisibility(0);
-            bYm();
+            bYn();
             return;
         }
         this.hKB.setVisibility(8);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bYm() {
+    public void bYn() {
         final String missionEntranceUrl = TbSingleton.getInstance().getMissionEntranceUrl();
         String missionEntranceIcon = TbSingleton.getInstance().getMissionEntranceIcon();
         if (TextUtils.isEmpty(missionEntranceUrl) || TextUtils.isEmpty(missionEntranceIcon)) {
@@ -204,7 +204,7 @@ public class NestedScrollHeader extends RelativeLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bYn() {
+    public void bYo() {
         an anVar = new an("c13422");
         anVar.af("obj_type", 2);
         anVar.af("obj_locate", 1);

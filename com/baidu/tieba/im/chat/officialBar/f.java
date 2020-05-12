@@ -69,7 +69,7 @@ public class f extends com.baidu.adp.base.c<OfficialBarTipActivity> {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (!f.this.igO) {
-                    if (f.this.igN.cdv()) {
+                    if (f.this.igN.cdw()) {
                         f.this.igU.setVisibility(0);
                     }
                     f.this.a(officialBarTipActivity, true);
@@ -108,7 +108,7 @@ public class f extends com.baidu.adp.base.c<OfficialBarTipActivity> {
         this.igS.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.chat.officialBar.f.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                officialBarTipActivity.cds();
+                officialBarTipActivity.cdt();
                 f.this.a(officialBarTipActivity, false);
             }
         });
@@ -130,11 +130,11 @@ public class f extends com.baidu.adp.base.c<OfficialBarTipActivity> {
         });
     }
 
-    public BdListView cdy() {
+    public BdListView cdz() {
         return this.igL;
     }
 
-    public OfficialBarTipListAdapter cdz() {
+    public OfficialBarTipListAdapter cdA() {
         return this.igM;
     }
 
@@ -144,7 +144,7 @@ public class f extends com.baidu.adp.base.c<OfficialBarTipActivity> {
             this.igP.setVisibility(0);
             this.igM.oq(true);
             this.igM.notifyDataSetChanged();
-            if (officialBarTipActivity.cdt()) {
+            if (officialBarTipActivity.cdu()) {
                 ou(true);
             } else {
                 ou(false);
@@ -153,7 +153,7 @@ public class f extends com.baidu.adp.base.c<OfficialBarTipActivity> {
             this.igU.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.chat.officialBar.f.5
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    f.this.igN.cdu();
+                    f.this.igN.cdv();
                     f.this.a(officialBarTipActivity, false);
                 }
             });

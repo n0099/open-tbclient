@@ -29,7 +29,7 @@ public final class a<T> implements Closeable, Cloneable {
 
     private a(SharedReference<T> sharedReference) {
         this.lRV = (SharedReference) g.checkNotNull(sharedReference);
-        sharedReference.dnj();
+        sharedReference.dnk();
     }
 
     private a(T t, c<T> cVar) {
@@ -57,14 +57,14 @@ public final class a<T> implements Closeable, Cloneable {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: dng */
+    /* renamed from: dnh */
     public synchronized a<T> clone() {
         g.checkState(isValid());
         return new a<>(this.lRV);
     }
 
     @Nullable
-    public synchronized a<T> dnh() {
+    public synchronized a<T> dni() {
         return isValid() ? clone() : null;
     }
 
@@ -72,7 +72,7 @@ public final class a<T> implements Closeable, Cloneable {
         return !this.Ox;
     }
 
-    public int dni() {
+    public int dnj() {
         if (isValid()) {
             return System.identityHashCode(this.lRV.get());
         }
@@ -84,7 +84,7 @@ public final class a<T> implements Closeable, Cloneable {
         synchronized (this) {
             if (!this.Ox) {
                 this.Ox = true;
-                this.lRV.dnk();
+                this.lRV.dnl();
             }
         }
     }
@@ -96,7 +96,7 @@ public final class a<T> implements Closeable, Cloneable {
     @Nullable
     public static <T> a<T> b(@Nullable a<T> aVar) {
         if (aVar != null) {
-            return aVar.dnh();
+            return aVar.dni();
         }
         return null;
     }

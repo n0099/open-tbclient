@@ -85,7 +85,7 @@ public class c implements View.OnClickListener {
             this.knP.postInvalidate();
         }
         if (l.isFlymeOsAbove35()) {
-            this.knO = com.baidu.tieba.v.b.dap();
+            this.knO = com.baidu.tieba.v.b.daq();
             if (this.knO != null && this.knI.getWindow() != null) {
                 this.knI.getWindow().setBackgroundDrawable(this.knO);
             }
@@ -134,7 +134,7 @@ public class c implements View.OnClickListener {
         return this.knI.findViewById(i);
     }
 
-    public void cMg() {
+    public void cMh() {
         if (this.knU != null) {
             this.knU.setNetworkChange();
             if (j.isMobileNet() && this.knU.pI() && this.knM != null && this.knM.getFileSize() > 0 && this.knM.getDuration() > 0) {
@@ -151,38 +151,38 @@ public class c implements View.OnClickListener {
         int dimens;
         int dimens2;
         if (aVar != null) {
-            this.knQ.startLoad(aVar.cMi(), 17, false);
-            this.knR.setText(aVar.cMh());
-            if (aVar.cMk() != null) {
-                this.knV.setData(aVar.cMk());
-                this.aAy.setText(aVar.cMk().getName_show());
-                if (aVar.cMk().getGodUserData() != null && (!StringUtils.isNull(aVar.cMk().getGodUserData().getForumName()) || !StringUtils.isNull(aVar.cMk().getGodUserData().getIntro()))) {
-                    this.knW.setText(aVar.cMk().getGodUserData().getForumName() + "吧 " + aVar.cMk().getGodIntro());
+            this.knQ.startLoad(aVar.cMj(), 17, false);
+            this.knR.setText(aVar.cMi());
+            if (aVar.cMl() != null) {
+                this.knV.setData(aVar.cMl());
+                this.aAy.setText(aVar.cMl().getName_show());
+                if (aVar.cMl().getGodUserData() != null && (!StringUtils.isNull(aVar.cMl().getGodUserData().getForumName()) || !StringUtils.isNull(aVar.cMl().getGodUserData().getIntro()))) {
+                    this.knW.setText(aVar.cMl().getGodUserData().getForumName() + "吧 " + aVar.cMl().getGodIntro());
                     this.knW.setVisibility(0);
                 } else {
                     this.knW.setVisibility(8);
                 }
-                if (TbadkCoreApplication.getCurrentAccount() != null && TbadkCoreApplication.getCurrentAccount().equals(aVar.cMk().getUserId())) {
+                if (TbadkCoreApplication.getCurrentAccount() != null && TbadkCoreApplication.getCurrentAccount().equals(aVar.cMl().getUserId())) {
                     this.knX.setVisibility(8);
                 } else {
-                    new com.baidu.tbadk.core.view.userLike.c(this.knI.getPageContext(), this.knX).a(aVar.cMk());
+                    new com.baidu.tbadk.core.view.userLike.c(this.knI.getPageContext(), this.knX).a(aVar.cMl());
                     this.knX.onChangeSkinType(0);
                     this.knX.setVisibility(0);
                 }
-                com.baidu.tieba.pushdialog.data.b cMj = aVar.cMj();
-                if (cMj == null) {
-                    this.knI.cLW().dal();
+                com.baidu.tieba.pushdialog.data.b cMk = aVar.cMk();
+                if (cMk == null) {
+                    this.knI.cLX().dam();
                     this.knI.finish();
                     return;
                 }
-                boolean z = cMj.cMl() == null || v.isEmpty(cMj.cMl().bcf());
-                if (StringUtils.isNull(cMj.getTitle()) && z) {
-                    this.knI.cLW().dal();
+                boolean z = cMk.cMm() == null || v.isEmpty(cMk.cMm().bcf());
+                if (StringUtils.isNull(cMk.getTitle()) && z) {
+                    this.knI.cLX().dam();
                     this.knI.finish();
                     return;
                 }
-                if (cMj.cMl() != null) {
-                    Iterator<TbRichTextData> it = cMj.cMl().bcf().iterator();
+                if (cMk.cMm() != null) {
+                    Iterator<TbRichTextData> it = cMk.cMm().bcf().iterator();
                     while (it.hasNext()) {
                         TbRichTextData next = it.next();
                         if (next != null) {
@@ -193,7 +193,7 @@ public class c implements View.OnClickListener {
                         }
                     }
                 }
-                this.tid = cMj.getTid();
+                this.tid = cMk.getTid();
                 if (this.knM == null) {
                     this.knU.setVisibility(8);
                     this.iCx.setVisibility(0);
@@ -209,7 +209,7 @@ public class c implements View.OnClickListener {
                     this.koa.ik(z2);
                     this.koa.nw(dimens);
                     this.koa.nx(dimens2);
-                    this.iCx.setText(cMj.cMl());
+                    this.iCx.setText(cMk.cMm());
                 } else {
                     this.iCx.setVisibility(8);
                     this.knU.setVisibility(0);
@@ -222,7 +222,7 @@ public class c implements View.OnClickListener {
                     this.knU.setIsNeedRecoveryVideoPlayer(true);
                     this.knU.setThumbnail(this.knM.getThumbUrl());
                     this.knU.setVideoUrl(this.knM.getVideoUrl(), String.valueOf(this.tid));
-                    this.knU.caF();
+                    this.knU.caG();
                     n nVar = new n(this.knI.getActivity());
                     nVar.IM("2");
                     y yVar = new y();
@@ -232,20 +232,20 @@ public class c implements View.OnClickListener {
                     nVar.setVideoStatsData(yVar);
                     this.knU.setQuickVideoViewBusiness(nVar);
                 }
-                if (StringUtils.isNull(cMj.getTitle())) {
+                if (StringUtils.isNull(cMk.getTitle())) {
                     this.knT.setVisibility(8);
                 } else {
-                    this.knT.setText(cMj.getTitle());
+                    this.knT.setText(cMk.getTitle());
                     this.knT.setVisibility(0);
                 }
-                this.knZ.setText(String.format(Locale.CHINA, this.knI.getString(R.string.bottom_comment), Integer.valueOf(cMj.getPostNum())));
-                if (!this.knI.cLW().dao()) {
-                    this.knI.cLW().dam();
+                this.knZ.setText(String.format(Locale.CHINA, this.knI.getString(R.string.bottom_comment), Integer.valueOf(cMk.getPostNum())));
+                if (!this.knI.cLX().dap()) {
+                    this.knI.cLX().dan();
                     return;
                 }
                 return;
             }
-            this.knI.cLW().dal();
+            this.knI.cLX().dam();
             this.knI.finish();
         }
     }
@@ -257,8 +257,8 @@ public class c implements View.OnClickListener {
             e.lb().postDelayed(new Runnable() { // from class: com.baidu.tieba.pushdialog.c.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (c.this.knI != null && c.this.knI.cLW() != null) {
-                        c.this.knI.cLW().dal();
+                    if (c.this.knI != null && c.this.knI.cLX() != null) {
+                        c.this.knI.cLX().dam();
                     }
                 }
             }, 100L);
@@ -270,7 +270,7 @@ public class c implements View.OnClickListener {
                 return;
             }
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(this.knI).createNormalCfg(this.tid + "", null, null)));
-            this.knI.cLW().dam();
+            this.knI.cLX().dan();
             this.knI.finish();
         } else if (view == this.knX) {
             TiebaStatic.log(new an("c13199").af("obj_locate", 3).cI("tid", this.knI.getTid()));

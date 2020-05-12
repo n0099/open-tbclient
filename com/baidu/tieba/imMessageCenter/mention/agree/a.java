@@ -49,7 +49,7 @@ public class a {
                 a.this.ePr.showEmptyView(0);
                 a.this.ePr.setOnClickListener(null);
                 a.this.ePr.startLoadData();
-                a.this.iBL.bDx();
+                a.this.iBL.bDy();
             }
         }
     };
@@ -58,7 +58,7 @@ public class a {
         public void onListPullRefresh(boolean z) {
             if (j.isNetWorkAvailable()) {
                 if (a.this.iBL != null) {
-                    a.this.iBL.bRl();
+                    a.this.iBL.bRm();
                 }
             } else if (a.this.eRB != null) {
                 a.this.eRB.setRefreshing(false);
@@ -69,9 +69,9 @@ public class a {
     /* renamed from: com.baidu.tieba.imMessageCenter.mention.agree.a$a  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
     public interface InterfaceC0601a {
-        void bDx();
+        void bDy();
 
-        void bRl();
+        void bRm();
     }
 
     public a(TbPageContext tbPageContext, View view) {
@@ -133,7 +133,7 @@ public class a {
                         a.this.ePr.showEmptyView(0);
                         a.this.ePr.setOnClickListener(null);
                         a.this.ePr.showLoading();
-                        a.this.iBL.bDx();
+                        a.this.iBL.bDy();
                     }
                 }
             });

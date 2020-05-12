@@ -46,17 +46,17 @@ public class a {
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public int dCo() {
+        public int dCp() {
             return this.mQE.getIntExtra("scale", 0);
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public int dCp() {
+        public int dCq() {
             return this.mQE.getIntExtra("voltage", 0);
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public int dCq() {
+        public int dCr() {
             return this.mQE.getIntExtra("temperature", 0);
         }
     }
@@ -120,25 +120,25 @@ public class a {
             if (!TextUtils.isEmpty(iccid)) {
                 jSONObject.put("iccid", iccid);
             }
-            String dCk = dCk();
-            if (!TextUtils.isEmpty(dCk)) {
-                jSONObject.put("serial", dCk);
+            String dCl = dCl();
+            if (!TextUtils.isEmpty(dCl)) {
+                jSONObject.put("serial", dCl);
             }
             String androidId = getAndroidId(context);
             if (!TextUtils.isEmpty(androidId)) {
                 jSONObject.put("androidid", androidId);
             }
-            String dCm = dCm();
-            if (!TextUtils.isEmpty(dCm)) {
-                jSONObject.put(c.i, dCm);
+            String dCn = dCn();
+            if (!TextUtils.isEmpty(dCn)) {
+                jSONObject.put(c.i, dCn);
             }
             String model = getModel();
             if (!TextUtils.isEmpty(model)) {
                 jSONObject.put("model", model);
             }
-            String dCn = dCn();
-            if (!TextUtils.isEmpty(dCn)) {
-                jSONObject.put("sdcard", dCn);
+            String dCo = dCo();
+            if (!TextUtils.isEmpty(dCo)) {
+                jSONObject.put("sdcard", dCo);
             }
             String fN = fN(context);
             if (!TextUtils.isEmpty(fN)) {
@@ -172,9 +172,9 @@ public class a {
             jSONObject.put("batterymaxcapacity", String.valueOf(fM));
             jSONObject.put("batterycurrentcapacity", String.valueOf(fM));
             C0798a c0798a = new C0798a(context);
-            jSONObject.put("batterycurrentvoltage", c0798a.dCp());
-            jSONObject.put("batterycurrenttemperature", c0798a.dCq());
-            jSONObject.put("batterycurrentcapacity", (fM * c0798a.getLevel()) / c0798a.dCo());
+            jSONObject.put("batterycurrentvoltage", c0798a.dCq());
+            jSONObject.put("batterycurrenttemperature", c0798a.dCr());
+            jSONObject.put("batterycurrentcapacity", (fM * c0798a.getLevel()) / c0798a.dCp());
             return jSONObject.toString();
         } catch (JSONException e2) {
             return "";
@@ -213,7 +213,7 @@ public class a {
         }
     }
 
-    private static String dCj() {
+    private static String dCk() {
         try {
             for (NetworkInterface networkInterface : Collections.list(NetworkInterface.getNetworkInterfaces())) {
                 if (networkInterface.getName().equalsIgnoreCase("wlan0")) {
@@ -240,7 +240,7 @@ public class a {
     private static String fL(Context context) {
         WifiInfo connectionInfo;
         if (Build.VERSION.SDK_INT >= 23) {
-            return dCj();
+            return dCk();
         }
         try {
             WifiManager wifiManager = (WifiManager) context.getSystemService("wifi");
@@ -258,9 +258,9 @@ public class a {
         }
     }
 
-    private static String dCk() {
+    private static String dCl() {
         if (Build.VERSION.SDK_INT >= 26) {
-            return dCl();
+            return dCm();
         }
         try {
             Class<?> cls = Class.forName("android.os.SystemProperties");
@@ -284,7 +284,7 @@ public class a {
     }
 
     @TargetApi(26)
-    private static String dCl() {
+    private static String dCm() {
         try {
             return Build.getSerial();
         } catch (Exception e) {
@@ -301,7 +301,7 @@ public class a {
         }
     }
 
-    private static String dCm() {
+    private static String dCn() {
         try {
             return Build.CPU_ABI;
         } catch (Exception e) {
@@ -317,7 +317,7 @@ public class a {
         }
     }
 
-    private static String dCn() {
+    private static String dCo() {
         try {
             StatFs statFs = new StatFs(Environment.getExternalStorageDirectory().getPath());
             return Long.toString(statFs.getBlockCount() * statFs.getBlockSize());

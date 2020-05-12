@@ -54,7 +54,7 @@ public class i {
         return this.img;
     }
 
-    public String cVr() {
+    public String cVs() {
         return this.img_popup;
     }
 
@@ -70,7 +70,7 @@ public class i {
         return this.url;
     }
 
-    public int cVs() {
+    public int cVt() {
         return this.kQm;
     }
 
@@ -78,7 +78,7 @@ public class i {
         return this.id;
     }
 
-    public List<j> cVt() {
+    public List<j> cVu() {
         return this.kQn;
     }
 

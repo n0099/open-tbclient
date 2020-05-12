@@ -29,18 +29,18 @@ public final class b implements ThreadFactory {
                 try {
                     Process.setThreadPriority(i);
                 } catch (Throwable th) {
-                    tv.chushou.a.a.c.a.dJB().e(null, "LinuxPriorityThreadFactory:Process.setThreadPriority failed", th);
+                    tv.chushou.a.a.c.a.dJC().e(null, "LinuxPriorityThreadFactory:Process.setThreadPriority failed", th);
                 }
                 runnable.run();
             }
         };
         String str = this.prefix + ", thread No." + this.nrA.getAndIncrement();
-        tv.chushou.a.a.c.a.dJB().i(null, "LinuxPriorityThreadFactory: new Thread, name is [" + str + "]");
+        tv.chushou.a.a.c.a.dJC().i(null, "LinuxPriorityThreadFactory: new Thread, name is [" + str + "]");
         Thread thread = new Thread(runnable2, str);
         thread.setUncaughtExceptionHandler(new Thread.UncaughtExceptionHandler() { // from class: tv.chushou.a.a.b.b.2
             @Override // java.lang.Thread.UncaughtExceptionHandler
             public void uncaughtException(Thread thread2, Throwable th) {
-                tv.chushou.a.a.c.a.dJB().e(null, "LinuxPriorityThreadFactory: UncaughtExceptionHandler! Thread [" + thread2.getName() + "]", th);
+                tv.chushou.a.a.c.a.dJC().e(null, "LinuxPriorityThreadFactory: UncaughtExceptionHandler! Thread [" + thread2.getName() + "]", th);
             }
         });
         return thread;

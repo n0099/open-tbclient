@@ -33,7 +33,7 @@ public class StatFsHelper {
         EXTERNAL
     }
 
-    public static synchronized StatFsHelper dnn() {
+    public static synchronized StatFsHelper dno() {
         StatFsHelper statFsHelper;
         synchronized (StatFsHelper.class) {
             if (lSc == null) {
@@ -54,7 +54,7 @@ public class StatFsHelper {
                 if (!this.mInitialized) {
                     this.lSf = Environment.getDataDirectory();
                     this.lSh = Environment.getExternalStorageDirectory();
-                    dnp();
+                    dnq();
                     this.mInitialized = true;
                 }
             } finally {
@@ -74,7 +74,7 @@ public class StatFsHelper {
         long blockSize;
         long availableBlocks;
         ensureInitialized();
-        dno();
+        dnp();
         StatFs statFs = storageType == StorageType.INTERNAL ? this.lSe : this.lSg;
         if (statFs != null) {
             if (Build.VERSION.SDK_INT >= 18) {
@@ -89,11 +89,11 @@ public class StatFsHelper {
         return 0L;
     }
 
-    private void dno() {
+    private void dnp() {
         if (this.lock.tryLock()) {
             try {
                 if (SystemClock.uptimeMillis() - this.lSi > lSd) {
-                    dnp();
+                    dnq();
                 }
             } finally {
                 this.lock.unlock();
@@ -102,7 +102,7 @@ public class StatFsHelper {
     }
 
     @GuardedBy("lock")
-    private void dnp() {
+    private void dnq() {
         this.lSe = a(this.lSe, this.lSf);
         this.lSg = a(this.lSg, this.lSh);
         this.lSi = SystemClock.uptimeMillis();

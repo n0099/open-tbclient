@@ -14,11 +14,11 @@ public class i {
         }
     }
 
-    public static bj bOj() {
+    public static bj bOk() {
         return agC;
     }
 
-    public static String bOk() {
+    public static String bOl() {
         return gYc;
     }
 }

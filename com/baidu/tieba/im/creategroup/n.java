@@ -78,26 +78,26 @@ public class n extends com.baidu.adp.base.c<GroupAddressLocateActivity> {
         initData();
     }
 
-    public void cex() {
+    public void cey() {
         this.iiu.startLoad();
     }
 
-    public void cey() {
+    public void cez() {
         if (this.iiu != null) {
             this.iiu.cancelLoad();
             this.iiu = null;
         }
     }
 
-    public void ceN() {
+    public void ceO() {
         this.iiZ.setVisibility(8);
     }
 
-    public void ceO() {
+    public void ceP() {
         this.iiZ.setVisibility(0);
     }
 
-    public void ceK() {
+    public void ceL() {
         if (this.ijh != null) {
             this.ijh.notifyDataSetChanged();
         }
@@ -159,24 +159,24 @@ public class n extends com.baidu.adp.base.c<GroupAddressLocateActivity> {
         this.iiu = new com.baidu.tieba.im.util.b(this.iiW);
         this.iiu.setUniqueId(this.iiW.getUniqueId());
         if (!ab.d(this.iiW, RequestResponseCode.REQUEST_BUY_TBEAN_FROM_JOIN_GUARDCLUB)) {
-            cex();
+            cey();
         }
     }
 
-    public void ceP() {
+    public void ceQ() {
         this.ija.setText(R.string.address_pos_list);
         this.ijc.setText(R.string.location_loading);
         this.ijd.setVisibility(8);
         this.ihu = 3;
-        ceR();
+        ceS();
     }
 
-    public void ceQ() {
+    public void ceR() {
         this.ija.setText(R.string.address_locate_noaddresslist);
         this.ijc.setText(R.string.address_locate_failed_tryagain);
         this.ijd.setVisibility(0);
         this.ihu = 2;
-        ceR();
+        ceS();
     }
 
     public void I(String[] strArr) {
@@ -189,26 +189,26 @@ public class n extends com.baidu.adp.base.c<GroupAddressLocateActivity> {
         } else {
             this.ija.setText(R.string.address_locate_noaddresslist);
         }
-        ceR();
+        ceS();
     }
 
-    public void cdH() {
+    public void cdI() {
         this.ija.setText(R.string.address_pos_list);
         this.ijc.setText(R.string.address_locate_failed_opengps);
         this.ijd.setVisibility(0);
         this.ihu = 1;
-        ceR();
+        ceS();
     }
 
     public void onResume() {
         Drawable[] compoundDrawables = this.ijc.getCompoundDrawables();
         if (compoundDrawables != null && compoundDrawables.length > 0 && (compoundDrawables[0] instanceof AnimationDrawable)) {
             this.ijf = (AnimationDrawable) compoundDrawables[0];
-            ceR();
+            ceS();
         }
     }
 
-    private void ceR() {
+    private void ceS() {
         if (this.ijf != null) {
             if (this.ihu == 3) {
                 this.ijf.start();
@@ -227,7 +227,7 @@ public class n extends com.baidu.adp.base.c<GroupAddressLocateActivity> {
         this.iiD = str;
     }
 
-    public View ceJ() {
+    public View ceK() {
         return this.efY;
     }
 
@@ -235,15 +235,15 @@ public class n extends com.baidu.adp.base.c<GroupAddressLocateActivity> {
         return this.efZ;
     }
 
-    public View ceS() {
+    public View ceT() {
         return this.iiX;
     }
 
-    public View ceT() {
+    public View ceU() {
         return this.ijb;
     }
 
-    public int cdF() {
+    public int cdG() {
         return this.ihu;
     }
 

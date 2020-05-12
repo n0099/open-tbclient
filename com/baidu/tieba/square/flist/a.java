@@ -56,7 +56,7 @@ public class a extends BaseAdapter {
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         if (view == null) {
-            view = cUH();
+            view = cUI();
         }
         if (this.kLF != null) {
             e eVar = this.kLF.kNU.get(i);
@@ -77,11 +77,11 @@ public class a extends BaseAdapter {
         this.kLF = eVar;
     }
 
-    public e cUG() {
+    public e cUH() {
         return this.kLF;
     }
 
-    private View cUH() {
+    private View cUI() {
         View inflate = LayoutInflater.from(this.mActivity).inflate(R.layout.forum_list_dir_menu_item, (ViewGroup) null);
         this.kLH = new C0669a();
         this.kLH.kLI = (ImageView) inflate.findViewById(R.id.menu_choose);

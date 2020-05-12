@@ -110,7 +110,7 @@ public class e {
         this.jnW = new TwzhiboAnti();
     }
 
-    public boolean cvp() {
+    public boolean cvq() {
         return this.jnQ;
     }
 
@@ -127,10 +127,10 @@ public class e {
         String str2 = "";
         if (isValid()) {
             int size = this.jnI.size() > 30 ? 30 : this.jnI.size();
-            if (cvr() == null || cvr().aKC() == null || aq.isEmpty(cvr().aKC().getUserId())) {
+            if (cvs() == null || cvs().aKC() == null || aq.isEmpty(cvs().aKC().getUserId())) {
                 return new String[]{null, ""};
             }
-            String userId = cvr().aKC().getUserId();
+            String userId = cvs().aKC().getUserId();
             int i = 0;
             while (true) {
                 if (i >= size) {
@@ -139,14 +139,14 @@ public class e {
                 PostData postData = (PostData) v.getItem(this.jnI, i);
                 if (postData != null && postData.aKC() != null && !aq.isEmpty(postData.aKC().getUserId()) && aq.equals(userId, postData.aKC().getUserId())) {
                     if (aq.isEmpty(str)) {
-                        str = postData.cWv();
+                        str = postData.cWw();
                     }
-                    String cWt = aq.isEmpty(str2) ? postData.cWt() : str2;
-                    if (!aq.isEmpty(str) && !aq.isEmpty(cWt)) {
-                        str2 = cWt;
+                    String cWu = aq.isEmpty(str2) ? postData.cWu() : str2;
+                    if (!aq.isEmpty(str) && !aq.isEmpty(cWu)) {
+                        str2 = cWu;
                         break;
                     }
-                    str2 = cWt;
+                    str2 = cWu;
                 }
                 i++;
                 str = str;
@@ -169,7 +169,7 @@ public class e {
         return this.forum;
     }
 
-    public bf cvq() {
+    public bf cvr() {
         return this.jnH;
     }
 
@@ -184,7 +184,7 @@ public class e {
         return this.forum.getId();
     }
 
-    public bj cvr() {
+    public bj cvs() {
         return this.eNR;
     }
 
@@ -192,7 +192,7 @@ public class e {
         this.eNR = bjVar;
     }
 
-    public List<bj> cvs() {
+    public List<bj> cvt() {
         return this.jnS;
     }
 
@@ -203,7 +203,7 @@ public class e {
         return this.eNR.getId();
     }
 
-    public ArrayList<PostData> cvt() {
+    public ArrayList<PostData> cvu() {
         return this.jnI;
     }
 
@@ -211,11 +211,11 @@ public class e {
         return this.page;
     }
 
-    public ab cvu() {
+    public ab cvv() {
         return this.jnO;
     }
 
-    public at cvv() {
+    public at cvw() {
         return this.jnR;
     }
 
@@ -269,15 +269,15 @@ public class e {
         }
     }
 
-    public String cvw() {
+    public String cvx() {
         return this.jof;
     }
 
-    public boolean cvx() {
+    public boolean cvy() {
         return (this.eNR == null || this.eNR.aKN() == null || this.eNR.aKN().size() <= 0 || this.eNR.aKN().get(0) == null || !this.eNR.aKN().get(0).aIC()) ? false : true;
     }
 
-    public PostData cvy() {
+    public PostData cvz() {
         return this.jol;
     }
 
@@ -288,7 +288,7 @@ public class e {
     public void a(DataRes dataRes, Context context) {
         if (dataRes != null) {
             try {
-                com.baidu.tieba.recapp.d.a.cNY().JG(dataRes.asp_shown_info);
+                com.baidu.tieba.recapp.d.a.cNZ().JG(dataRes.asp_shown_info);
                 List<User> list = dataRes.user_list;
                 if (list != null) {
                     for (int i = 0; i < list.size(); i++) {
@@ -350,28 +350,28 @@ public class e {
                     }
                 }
                 this.eNR.jQ(this.eNR.aKt() > 0 ? this.eNR.aKt() - 1 : 0);
-                List<AppData> cNj = q.cNl().cNj();
-                if (cNj != null) {
-                    cNj.clear();
+                List<AppData> cNk = q.cNm().cNk();
+                if (cNk != null) {
+                    cNk.clear();
                 }
                 this.jnV = null;
                 if (dataRes.banner_list != null) {
                     for (App app : dataRes.banner_list.app) {
                         com.baidu.tieba.tbadkCore.data.m mVar = new com.baidu.tieba.tbadkCore.data.m();
                         mVar.d(app);
-                        AppData cWc = mVar.cWc();
-                        if (!this.jnU.contains(mVar) && cWc.goods != null && (!StringUtils.isNull(cWc.goods.user_name) || !StringUtils.isNull(cWc.goods.lego_card))) {
+                        AppData cWd = mVar.cWd();
+                        if (!this.jnU.contains(mVar) && cWd.goods != null && (!StringUtils.isNull(cWd.goods.user_name) || !StringUtils.isNull(cWd.goods.lego_card))) {
                             mVar.jBg = aQe();
                             this.jnU.add(mVar);
-                            if (cNj != null) {
-                                cNj.add(mVar.cWc());
+                            if (cNk != null) {
+                                cNk.add(mVar.cWd());
                             }
                         }
                     }
                     c(dataRes);
                     d(dataRes);
                 }
-                q.cNl().cNk();
+                q.cNm().cNl();
                 AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
                 if (currentAccountObj != null) {
                     currentAccountObj.setIsSelectTail(this.userData.getIsSelectTail());
@@ -462,17 +462,17 @@ public class e {
                     postData.setUserMap(this.userMap);
                     postData.tS(this.forum.isBrandForum);
                     postData.a(post, context);
-                    postData.a(cvr().aKn());
+                    postData.a(cvs().aKn());
                     this.joh.add(postData.getId());
-                    if (postData.cWo() == 1 && this.eNR.aLn()) {
-                        if (cvx()) {
+                    if (postData.cWp() == 1 && this.eNR.aLn()) {
+                        if (cvy()) {
                             postData.setPostType(0);
                         } else {
                             postData.setPostType(this.eNR.aLm());
                         }
-                    } else if (postData.cWo() == 1 && this.eNR.aLH()) {
+                    } else if (postData.cWp() == 1 && this.eNR.aLH()) {
                         postData.setPostType(41);
-                    } else if (postData.cWo() == 1 && this.eNR != null && this.eNR.aJp()) {
+                    } else if (postData.cWp() == 1 && this.eNR != null && this.eNR.aJp()) {
                         postData.setPostType(0);
                         postData.bcp();
                         if (this.eNR.aKA() == null || this.eNR.aKA().size() == 0) {
@@ -491,7 +491,7 @@ public class e {
                         }
                         this.joa = postData;
                     }
-                    if (postData.cWo() == 1 && this.eNR != null && this.eNR.isShareThread) {
+                    if (postData.cWp() == 1 && this.eNR != null && this.eNR.isShareThread) {
                         postData.h(this.eNR.dtt);
                     }
                     this.jnI.add(postData);
@@ -559,10 +559,10 @@ public class e {
         com.baidu.tieba.tbadkCore.data.m mVar = new com.baidu.tieba.tbadkCore.data.m();
         mVar.kSp = true;
         mVar.d(app);
-        AppData cWc = mVar.cWc();
-        if (cWc.goods != null) {
-            if (v.isEmpty(cWc.goods.thread_pic_list) && (tL = AdvertAppInfo.a.tL(cWc.goods.lego_card)) != null && cWc.goods.thread_pic_list != null) {
-                cWc.goods.thread_pic_list.addAll(tL);
+        AppData cWd = mVar.cWd();
+        if (cWd.goods != null) {
+            if (v.isEmpty(cWd.goods.thread_pic_list) && (tL = AdvertAppInfo.a.tL(cWd.goods.lego_card)) != null && cWd.goods.thread_pic_list != null) {
+                cWd.goods.thread_pic_list.addAll(tL);
             }
             this.jnV = mVar;
         }
@@ -575,8 +575,8 @@ public class e {
             for (App app : list) {
                 com.baidu.tieba.tbadkCore.data.m mVar = new com.baidu.tieba.tbadkCore.data.m();
                 mVar.d(app);
-                AppData cWc = mVar.cWc();
-                if (!this.joo.contains(mVar) && cWc.goods != null && (!StringUtils.isNull(cWc.goods.user_name) || !StringUtils.isNull(cWc.goods.lego_card))) {
+                AppData cWd = mVar.cWd();
+                if (!this.joo.contains(mVar) && cWd.goods != null && (!StringUtils.isNull(cWd.goods.user_name) || !StringUtils.isNull(cWd.goods.lego_card))) {
                     mVar.jBg = aQe();
                     this.joo.add(mVar);
                 }
@@ -584,15 +584,15 @@ public class e {
         }
     }
 
-    public String cvz() {
+    public String cvA() {
         return this.joe;
     }
 
-    public CardHListViewData cvA() {
+    public CardHListViewData cvB() {
         return this.jnv;
     }
 
-    public PostData cvB() {
+    public PostData cvC() {
         return this.joa;
     }
 
@@ -601,11 +601,11 @@ public class e {
         return postData;
     }
 
-    public n cvC() {
+    public n cvD() {
         return this.jnZ;
     }
 
-    public int cvD() {
+    public int cvE() {
         return this.jnK;
     }
 
@@ -617,15 +617,15 @@ public class e {
         this.jnM = i;
     }
 
-    public List<MuteUser> cvE() {
+    public List<MuteUser> cvF() {
         return this.jnP;
     }
 
-    public ArrayList<com.baidu.tieba.tbadkCore.data.m> cvF() {
+    public ArrayList<com.baidu.tieba.tbadkCore.data.m> cvG() {
         return this.jnU;
     }
 
-    public com.baidu.tieba.tbadkCore.data.m cvG() {
+    public com.baidu.tieba.tbadkCore.data.m cvH() {
         return this.jnV;
     }
 
@@ -633,14 +633,14 @@ public class e {
         this.jnV = mVar;
     }
 
-    public void cvH() {
-        if (this.jnV.cWc() != null) {
-            this.jnV.cWc().legoCard = null;
+    public void cvI() {
+        if (this.jnV.cWd() != null) {
+            this.jnV.cWd().legoCard = null;
         }
         this.jnV = null;
     }
 
-    public String cvI() {
+    public String cvJ() {
         return this.jnu;
     }
 
@@ -648,19 +648,19 @@ public class e {
         this.jnu = str;
     }
 
-    public g cvJ() {
+    public g cvK() {
         return this.job;
     }
 
-    public List<bf> cvK() {
+    public List<bf> cvL() {
         return this.jnY;
     }
 
-    public long cvL() {
+    public long cvM() {
         return this.joc;
     }
 
-    public k cvM() {
+    public k cvN() {
         return this.jod;
     }
 
@@ -669,22 +669,22 @@ public class e {
     }
 
     public boolean aQe() {
-        return (cvr() == null || !cvr().aJp() || cvr().aKT() == null) ? false : true;
+        return (cvs() == null || !cvs().aJp() || cvs().aKT() == null) ? false : true;
     }
 
-    public AlaLiveInfoCoreData cvN() {
+    public AlaLiveInfoCoreData cvO() {
         return this.jnT;
     }
 
-    public List<com.baidu.tbadk.core.data.l> cvO() {
+    public List<com.baidu.tbadk.core.data.l> cvP() {
         return this.joi;
     }
 
-    public boolean cvP() {
-        return cvr() != null && cvr().aMy();
+    public boolean cvQ() {
+        return cvs() != null && cvs().aMy();
     }
 
-    public String cvQ() {
+    public String cvR() {
         if (this.jnz != null && this.jnz.size() > this.jnA) {
             int i = 0;
             while (true) {
@@ -701,11 +701,11 @@ public class e {
         return "";
     }
 
-    public com.baidu.tieba.pb.videopb.c.a cvR() {
+    public com.baidu.tieba.pb.videopb.c.a cvS() {
         return this.jok;
     }
 
-    public int cvS() {
+    public int cvT() {
         return this.joj;
     }
 
@@ -713,7 +713,7 @@ public class e {
         this.joj = i;
     }
 
-    public List<com.baidu.tieba.tbadkCore.data.m> cvT() {
+    public List<com.baidu.tieba.tbadkCore.data.m> cvU() {
         return this.joo;
     }
 

@@ -84,7 +84,7 @@ public class o {
                 o.this.gqf.a(o.this.gqi);
                 o.this.gqf.LoadData();
             }
-            o.this.bER();
+            o.this.bES();
         }
     };
     private k.b gqk = new k.b() { // from class: com.baidu.tieba.card.o.6
@@ -95,10 +95,10 @@ public class o {
                 return;
             }
             if (o.this.gqb != null && o.this.gqg != null) {
-                o.this.bES();
+                o.this.bET();
                 o.this.gpZ.aMS();
             }
-            o.this.bER();
+            o.this.bES();
         }
     };
     private com.baidu.adp.base.d gql = new com.baidu.adp.base.d() { // from class: com.baidu.tieba.card.o.7
@@ -167,7 +167,7 @@ public class o {
             this.gpY.a(new k.a() { // from class: com.baidu.tieba.card.o.1
                 @Override // com.baidu.tbadk.core.dialog.k.a
                 public void onClick() {
-                    o.this.bER();
+                    o.this.bES();
                 }
             });
             this.gpY.aI(this.gqc);
@@ -196,14 +196,14 @@ public class o {
         }
     }
 
-    public void bER() {
+    public void bES() {
         if (this.gpX != null && this.gpX.isShowing()) {
             this.gpX.dismiss();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bES() {
+    public void bET() {
         if (this.gpZ == null) {
             this.gpZ = new com.baidu.tbadk.core.dialog.a(this.mPageContext.getPageActivity());
             if (this.gqh) {

@@ -21,16 +21,16 @@ public class at {
         }
     }
 
-    public synchronized void duE() {
+    public synchronized void duF() {
         this.mgw = true;
     }
 
-    public synchronized void duF() {
+    public synchronized void duG() {
         this.mgw = false;
-        duG();
+        duH();
     }
 
-    private void duG() {
+    private void duH() {
         while (!this.mgx.isEmpty()) {
             this.mExecutor.execute(this.mgx.pop());
         }

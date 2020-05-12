@@ -18,16 +18,16 @@ public class c {
     }
 
     public void refresh() {
-        if (TbadkCoreApplication.isLogin() && this.han != null && this.han.bOW() != null && this.han.bOW().getForum() != null && !StringUtils.isNull(this.han.bOW().getForum().getName()) && this.han.bOW().enterFrsDialogInfo != null && bUV() && this.hwz == null) {
+        if (TbadkCoreApplication.isLogin() && this.han != null && this.han.bOX() != null && this.han.bOX().getForum() != null && !StringUtils.isNull(this.han.bOX().getForum().getName()) && this.han.bOX().enterFrsDialogInfo != null && bUW() && this.hwz == null) {
             this.hwz = new a();
             this.hwz.execute(new Void[0]);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean bUV() {
-        PopInfo popInfo = this.han.bOW().enterFrsDialogInfo;
-        return (popInfo == null || StringUtils.isNull(popInfo.ahead_info) || StringUtils.isNull(popInfo.ahead_url) || StringUtils.isNull(popInfo.ok_info) || StringUtils.isNull(popInfo.title) || StringUtils.isNull(popInfo.v_title) || this.han.bOW().enterFrsDialogInfo.if_pop.intValue() == 0) ? false : true;
+    public boolean bUW() {
+        PopInfo popInfo = this.han.bOX().enterFrsDialogInfo;
+        return (popInfo == null || StringUtils.isNull(popInfo.ahead_info) || StringUtils.isNull(popInfo.ahead_url) || StringUtils.isNull(popInfo.ok_info) || StringUtils.isNull(popInfo.title) || StringUtils.isNull(popInfo.v_title) || this.han.bOX().enterFrsDialogInfo.if_pop.intValue() == 0) ? false : true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -41,7 +41,7 @@ public class c {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Boolean doInBackground(Void... voidArr) {
             com.baidu.adp.lib.cache.l<String> ug = com.baidu.tbadk.core.c.a.aMR().ug("tb.enter_frs_dialog_list");
-            String encode = URLEncoder.encode(c.this.han.bOW().getForum().getName());
+            String encode = URLEncoder.encode(c.this.han.bOX().getForum().getName());
             if (ug.get(encode) == null) {
                 ug.setForever(encode, "1");
                 return true;
@@ -53,8 +53,8 @@ public class c {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
-            if (bool.booleanValue() && c.this.bUV() && c.this.han.isAdded()) {
-                final PopInfo popInfo = c.this.han.bOW().enterFrsDialogInfo;
+            if (bool.booleanValue() && c.this.bUW() && c.this.han.isAdded()) {
+                final PopInfo popInfo = c.this.han.bOX().enterFrsDialogInfo;
                 com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(c.this.han.getActivity());
                 aVar.uh(popInfo.title);
                 aVar.ui(popInfo.v_title);

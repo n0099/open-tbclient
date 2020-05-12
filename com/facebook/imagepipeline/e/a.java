@@ -17,11 +17,11 @@ public abstract class a<T> extends AbstractDataSource<T> {
     public a(aj<T> ajVar, ap apVar, com.facebook.imagepipeline.h.c cVar) {
         this.mdd = apVar;
         this.mbC = cVar;
-        this.mbC.a(apVar.dtQ(), this.mdd.dot(), this.mdd.getId(), this.mdd.dtT());
-        ajVar.c(dsz(), apVar);
+        this.mbC.a(apVar.dtR(), this.mdd.dou(), this.mdd.getId(), this.mdd.dtU());
+        ajVar.c(dsA(), apVar);
     }
 
-    private k<T> dsz() {
+    private k<T> dsA() {
         return new com.facebook.imagepipeline.producers.b<T>() { // from class: com.facebook.imagepipeline.e.a.1
             @Override // com.facebook.imagepipeline.producers.b
             protected void g(@Nullable T t, int i) {
@@ -34,8 +34,8 @@ public abstract class a<T> extends AbstractDataSource<T> {
             }
 
             @Override // com.facebook.imagepipeline.producers.b
-            protected void dsA() {
-                a.this.dsA();
+            protected void dsB() {
+                a.this.dsB();
             }
 
             @Override // com.facebook.imagepipeline.producers.b
@@ -49,19 +49,19 @@ public abstract class a<T> extends AbstractDataSource<T> {
     public void g(@Nullable T t, int i) {
         boolean Hr = com.facebook.imagepipeline.producers.b.Hr(i);
         if (super.b(t, Hr) && Hr) {
-            this.mbC.a(this.mdd.dtQ(), this.mdd.getId(), this.mdd.dtT());
+            this.mbC.a(this.mdd.dtR(), this.mdd.getId(), this.mdd.dtU());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void F(Throwable th) {
         if (super.z(th)) {
-            this.mbC.a(this.mdd.dtQ(), this.mdd.getId(), th, this.mdd.dtT());
+            this.mbC.a(this.mdd.dtR(), this.mdd.getId(), th, this.mdd.dtU());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void dsA() {
+    public synchronized void dsB() {
         g.checkState(isClosed());
     }
 

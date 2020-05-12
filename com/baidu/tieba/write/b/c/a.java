@@ -20,13 +20,13 @@ public class a {
     /* renamed from: com.baidu.tieba.write.b.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
     public interface InterfaceC0696a {
-        void cqX();
+        void cqY();
     }
 
     public void a(LinkedList<ImageFileInfo> linkedList, boolean z, InterfaceC0696a interfaceC0696a) {
         if (linkedList == null || linkedList.size() <= 0) {
             if (interfaceC0696a != null) {
-                interfaceC0696a.cqX();
+                interfaceC0696a.cqY();
                 return;
             }
             return;
@@ -47,7 +47,7 @@ public class a {
             this.lAq = new b(linkedList, interfaceC0696a);
             this.lAq.execute(new String[0]);
         } else if (interfaceC0696a != null) {
-            interfaceC0696a.cqX();
+            interfaceC0696a.cqY();
         }
     }
 
@@ -86,7 +86,7 @@ public class a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Void r2) {
             if (this.lAs != null) {
-                this.lAs.cqX();
+                this.lAs.cqY();
             }
         }
     }

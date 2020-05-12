@@ -41,7 +41,7 @@ public class u {
         this.fid = str;
     }
 
-    public int cTF() {
+    public int cTG() {
         return this.user_level;
     }
 
@@ -154,7 +154,7 @@ public class u {
         return this.levelup_score;
     }
 
-    public List<FeedForumData> cVB() {
+    public List<FeedForumData> cVC() {
         return this.kRn;
     }
 
@@ -166,7 +166,7 @@ public class u {
         this.mBlockPopInfoData = blockPopInfoData;
     }
 
-    public String cVK() {
+    public String cVL() {
         return this.blockUrl;
     }
 

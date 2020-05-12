@@ -32,7 +32,7 @@ public class c {
     }
 
     public void a(d dVar, final b bVar, Looper looper) {
-        e.dlF().a(this.mCtx, looper, new com.baidu.l.a.a.b() { // from class: com.baidu.l.c.1
+        e.dlG().a(this.mCtx, looper, new com.baidu.l.a.a.b() { // from class: com.baidu.l.c.1
             @Override // com.baidu.l.a.a.b
             public void a(com.baidu.l.a.a.c cVar) {
                 if (c.DEBUG) {
@@ -40,20 +40,20 @@ public class c {
                     Log.d(c.TAG, "异步回调 (listener != null):" + (bVar != null));
                 }
                 if (bVar != null) {
-                    bVar.a(0, cVar == null ? null : new a(cVar.dlz(), cVar.isSupport(), cVar.dlK(), cVar.dlL(), cVar.dlM(), cVar.getStatusCode()));
+                    bVar.a(0, cVar == null ? null : new a(cVar.dlA(), cVar.isSupport(), cVar.dlL(), cVar.dlM(), cVar.dlN(), cVar.getStatusCode()));
                 }
             }
         });
     }
 
-    public a dlB() {
-        com.baidu.l.a.a.c fx = e.dlF().fx(this.mCtx);
+    public a dlC() {
+        com.baidu.l.a.a.c fx = e.dlG().fx(this.mCtx);
         if (DEBUG) {
             Log.d(TAG, "同步 结果:" + fx);
         }
         if (fx == null) {
             return null;
         }
-        return new a(fx.dlz(), fx.isSupport(), fx.dlK(), fx.dlL(), fx.dlM(), fx.getStatusCode());
+        return new a(fx.dlA(), fx.isSupport(), fx.dlL(), fx.dlM(), fx.dlN(), fx.getStatusCode());
     }
 }

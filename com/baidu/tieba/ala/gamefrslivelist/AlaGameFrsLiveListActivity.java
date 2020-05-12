@@ -222,8 +222,8 @@ public class AlaGameFrsLiveListActivity extends BaseFragmentActivity implements 
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof ah)) {
                     ah ahVar = (ah) customResponsedMessage.getData();
                     ArrayList arrayList = new ArrayList();
-                    if (ahVar.bOa() != null) {
-                        for (com.baidu.tbadk.mainTab.b bVar : ahVar.bOa()) {
+                    if (ahVar.bOb() != null) {
+                        for (com.baidu.tbadk.mainTab.b bVar : ahVar.bOb()) {
                             if (bVar.getFragmentTabStructure().frag != null) {
                                 arrayList.add(bVar.getFragmentTabStructure().frag);
                             }

@@ -80,7 +80,7 @@ public class a {
                     ba.aOV().b(a.this.jED.getPageContext(), new String[]{str6});
                 }
             } else if (str4 != null) {
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(a.this.jED.getPageContext().getPageActivity(), str4, str3, a.this.jED.cwr(), AddFriendActivityConfig.TYPE_PB_HEAD)));
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(a.this.jED.getPageContext().getPageActivity(), str4, str3, a.this.jED.cws(), AddFriendActivityConfig.TYPE_PB_HEAD)));
             }
         }
     };

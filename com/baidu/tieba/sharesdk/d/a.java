@@ -172,7 +172,7 @@ public class a implements View.OnClickListener {
         return linearLayout;
     }
 
-    public int cSx() {
+    public int cSy() {
         if (this.kHl == null) {
             return 0;
         }
@@ -207,14 +207,14 @@ public class a implements View.OnClickListener {
     }
 
     public void a(ShareItem shareItem, boolean z) {
-        Location bGi;
-        if (z && (bGi = bGi()) != null) {
-            shareItem.location = bGi;
+        Location bGj;
+        if (z && (bGj = bGj()) != null) {
+            shareItem.location = bGj;
         }
         this.kHn.put(1, shareItem);
     }
 
-    private Location bGi() {
+    private Location bGj() {
         if (ab.checkLocationForGoogle(this.mContext)) {
             LocationManager locationManager = (LocationManager) this.mContext.getSystemService("location");
             Criteria criteria = new Criteria();
@@ -238,7 +238,7 @@ public class a implements View.OnClickListener {
         }
     }
 
-    public void cSy() {
+    public void cSz() {
         int i = 0;
         while (true) {
             int i2 = i;
@@ -257,7 +257,7 @@ public class a implements View.OnClickListener {
         } else if (!f.aUX()) {
             l.showToast(TbadkCoreApplication.getInst().getContext(), (int) R.string.plugin_share_install_failure);
         } else {
-            cSy();
+            cSz();
             this.mDialog = new AlertDialog.Builder(this.mContext, R.style.DialogTheme).create();
             this.mDialog.setCanceledOnTouchOutside(true);
             this.mDialog.setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.sharesdk.d.a.2
@@ -278,7 +278,7 @@ public class a implements View.OnClickListener {
             window.setGravity(80);
             window.setLayout(-1, -2);
             window.setContentView(this.mRootView);
-            cSz();
+            cSA();
             bpJ();
         }
     }
@@ -505,7 +505,7 @@ public class a implements View.OnClickListener {
     }
 
     @SuppressLint({"ResourceAsColor"})
-    private void cSz() {
+    private void cSA() {
     }
 
     private String m(ShareItem shareItem) {

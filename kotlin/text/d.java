@@ -51,7 +51,7 @@ public final class d implements kotlin.sequences.c<kotlin.b.h> {
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
-        private final void dEk() {
+        private final void dEl() {
             if (this.mYP >= 0) {
                 if (d.this.limit > 0) {
                     this.mYR++;
@@ -82,10 +82,10 @@ public final class d implements kotlin.sequences.c<kotlin.b.h> {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Iterator
-        /* renamed from: dEl */
+        /* renamed from: dEm */
         public kotlin.b.h next() {
             if (this.mYz == -1) {
-                dEk();
+                dEl();
             }
             if (this.mYz == 0) {
                 throw new NoSuchElementException();
@@ -102,7 +102,7 @@ public final class d implements kotlin.sequences.c<kotlin.b.h> {
         @Override // java.util.Iterator
         public boolean hasNext() {
             if (this.mYz == -1) {
-                dEk();
+                dEl();
             }
             return this.mYz == 1;
         }

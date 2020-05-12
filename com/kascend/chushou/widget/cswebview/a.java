@@ -8,7 +8,7 @@ public class a {
     private JSInterface mGS;
     private com.kascend.chushou.toolkit.b mGW;
 
-    public d dyW() {
+    public d dyX() {
         return this.mAj;
     }
 
@@ -17,7 +17,7 @@ public class a {
         return this;
     }
 
-    public com.kascend.chushou.toolkit.b dyX() {
+    public com.kascend.chushou.toolkit.b dyY() {
         return this.mGW;
     }
 
@@ -26,7 +26,7 @@ public class a {
         return this;
     }
 
-    public JSInterface dyY() {
+    public JSInterface dyZ() {
         return this.mGS;
     }
 

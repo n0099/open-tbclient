@@ -12,12 +12,12 @@ public class b extends d {
         this.mStatusCode = -100;
     }
 
-    public com.baidu.l.a.a.c dlN() {
+    public com.baidu.l.a.a.c dlO() {
         return this;
     }
 
     @Override // com.baidu.l.a.a.c
-    public com.baidu.l.a.a.c dlJ() {
-        return dlN();
+    public com.baidu.l.a.a.c dlK() {
+        return dlO();
     }
 }

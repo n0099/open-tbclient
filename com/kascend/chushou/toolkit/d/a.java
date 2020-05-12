@@ -39,7 +39,7 @@ public class a {
     private volatile boolean f = false;
     private volatile boolean g = false;
 
-    public static a dyK() {
+    public static a dyL() {
         if (mDt == null) {
             synchronized (a.class) {
                 if (mDt == null) {
@@ -67,9 +67,9 @@ public class a {
     }
 
     private void c() {
-        if (tv.chushou.zues.utils.a.dJO() && !this.g) {
+        if (tv.chushou.zues.utils.a.dJP() && !this.g) {
             this.g = true;
-            com.kascend.chushou.c.c.dwD().a(new tv.chushou.basis.d.a.c.a<String>() { // from class: com.kascend.chushou.toolkit.d.a.1
+            com.kascend.chushou.c.c.dwE().a(new tv.chushou.basis.d.a.c.a<String>() { // from class: com.kascend.chushou.toolkit.d.a.1
                 @Override // tv.chushou.basis.d.a.c.a
                 public void onStart() {
                 }
@@ -134,7 +134,7 @@ public class a {
                         File file2 = listFiles[i2];
                         String name = file2.getName();
                         if (name.contains("apk")) {
-                            if (name.equals(updateVo.apk_name) && h.parseInt(updateVo.apk_versionCode) <= (a2 = a(tv.chushou.basis.d.b.dJp(), file2.getAbsolutePath()))) {
+                            if (name.equals(updateVo.apk_name) && h.parseInt(updateVo.apk_versionCode) <= (a2 = a(tv.chushou.basis.d.b.dJq(), file2.getAbsolutePath()))) {
                                 e.d("AnimPluginManager", updateVo.apk_name + " no need to update, version=" + a2);
                                 list.remove(i);
                                 break;
@@ -182,7 +182,7 @@ public class a {
     }
 
     private boolean d() {
-        ConnectivityManager connectivityManager = (ConnectivityManager) tv.chushou.basis.d.b.dJp().getSystemService("connectivity");
+        ConnectivityManager connectivityManager = (ConnectivityManager) tv.chushou.basis.d.b.dJq().getSystemService("connectivity");
         if (connectivityManager == null) {
             return false;
         }
@@ -275,7 +275,7 @@ public class a {
             if (r0 == 0) goto L96
             r3.delete()
         L96:
-            tv.chushou.basis.d.b r0 = tv.chushou.basis.d.b.dJr()
+            tv.chushou.basis.d.b r0 = tv.chushou.basis.d.b.dJs()
             java.lang.Class<tv.chushou.basis.http.Http> r1 = tv.chushou.basis.http.Http.class
             tv.chushou.basis.d.a r0 = r0.S(r1)
             tv.chushou.basis.http.Http r0 = (tv.chushou.basis.http.Http) r0
@@ -348,9 +348,9 @@ public class a {
             java.lang.String r2 = "apk"
             boolean r0 = r0.contains(r2)     // Catch: java.lang.Throwable -> L232
             if (r0 == 0) goto L1fb
-            android.app.Application r0 = tv.chushou.basis.d.b.dJp()     // Catch: java.lang.Throwable -> L232
+            android.app.Application r0 = tv.chushou.basis.d.b.dJq()     // Catch: java.lang.Throwable -> L232
             tv.chushou.basis.a.c r0 = tv.chushou.basis.a.c.fR(r0)     // Catch: java.lang.Throwable -> L232
-            java.lang.String r0 = r0.dJd()     // Catch: java.lang.Throwable -> L232
+            java.lang.String r0 = r0.dJe()     // Catch: java.lang.Throwable -> L232
             if (r0 == 0) goto L182
             java.lang.String r2 = r11.apk_name     // Catch: java.lang.Throwable -> L232
             r4 = 0
@@ -685,7 +685,7 @@ public class a {
             }
         }
         if (updateVo != null) {
-            tv.chushou.a.a.b.a.dJA().M(new Runnable() { // from class: com.kascend.chushou.toolkit.d.a.3
+            tv.chushou.a.a.b.a.dJB().M(new Runnable() { // from class: com.kascend.chushou.toolkit.d.a.3
                 @Override // java.lang.Runnable
                 public void run() {
                     a.this.a(updateVo);

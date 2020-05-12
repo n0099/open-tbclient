@@ -11,7 +11,7 @@ public class b {
         this.itS = new e(1000, 1000, 1000);
     }
 
-    public static b cis() {
+    public static b cit() {
         if (itR == null) {
             synchronized (b.class) {
                 if (itR == null) {

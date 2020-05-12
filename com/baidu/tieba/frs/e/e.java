@@ -31,7 +31,7 @@ public class e {
         return String.format("%s_%s_%s", objArr);
     }
 
-    public boolean bUF() {
+    public boolean bUG() {
         return this.hgs;
     }
 
@@ -39,7 +39,7 @@ public class e {
         this.hgs = z;
     }
 
-    public boolean bUG() {
+    public boolean bUH() {
         return this.hvu;
     }
 
@@ -51,7 +51,7 @@ public class e {
         this.hvv = z;
     }
 
-    public boolean bUH() {
+    public boolean bUI() {
         return this.hvv;
     }
 }

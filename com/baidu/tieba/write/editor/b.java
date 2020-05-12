@@ -30,19 +30,19 @@ public class b extends l {
         }
     }
 
-    public void bIL() {
+    public void bIM() {
         if (this.dWM instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.dWM).bIL();
+            ((EditorInfoContainer) this.dWM).bIM();
         }
     }
 
-    public void dfB() {
+    public void dfC() {
         if (this.dWM instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.dWM).dfB();
+            ((EditorInfoContainer) this.dWM).dfC();
         }
     }
 
-    public void dfF() {
+    public void dfG() {
         if (this.dWM instanceof EditorInfoContainer) {
             ((EditorInfoContainer) this.dWM).hide();
         }

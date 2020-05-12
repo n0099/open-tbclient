@@ -14,13 +14,13 @@ public class JobScheduler {
     private final Runnable mfu = new Runnable() { // from class: com.facebook.imagepipeline.producers.JobScheduler.1
         @Override // java.lang.Runnable
         public void run() {
-            JobScheduler.this.dul();
+            JobScheduler.this.dum();
         }
     };
     private final Runnable mfv = new Runnable() { // from class: com.facebook.imagepipeline.producers.JobScheduler.2
         @Override // java.lang.Runnable
         public void run() {
-            JobScheduler.this.duk();
+            JobScheduler.this.dul();
         }
     };
     @GuardedBy("this")
@@ -53,7 +53,7 @@ public class JobScheduler {
     public static class b {
         private static ScheduledExecutorService mfC;
 
-        static ScheduledExecutorService duo() {
+        static ScheduledExecutorService dup() {
             if (mfC == null) {
                 mfC = Executors.newSingleThreadScheduledExecutor();
             }
@@ -67,7 +67,7 @@ public class JobScheduler {
         this.mfw = i;
     }
 
-    public void dui() {
+    public void duj() {
         com.facebook.imagepipeline.g.e eVar;
         synchronized (this) {
             eVar = this.mEncodedImage;
@@ -91,7 +91,7 @@ public class JobScheduler {
         return true;
     }
 
-    public boolean duj() {
+    public boolean duk() {
         boolean z = false;
         long uptimeMillis = SystemClock.uptimeMillis();
         long j = 0;
@@ -119,19 +119,19 @@ public class JobScheduler {
 
     private void fR(long j) {
         if (j > 0) {
-            b.duo().schedule(this.mfv, j, TimeUnit.MILLISECONDS);
+            b.dup().schedule(this.mfv, j, TimeUnit.MILLISECONDS);
         } else {
             this.mfv.run();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void duk() {
+    public void dul() {
         this.mExecutor.execute(this.mfu);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dul() {
+    public void dum() {
         com.facebook.imagepipeline.g.e eVar;
         int i;
         long uptimeMillis = SystemClock.uptimeMillis();
@@ -149,11 +149,11 @@ public class JobScheduler {
             }
         } finally {
             com.facebook.imagepipeline.g.e.e(eVar);
-            dum();
+            dun();
         }
     }
 
-    private void dum() {
+    private void dun() {
         long uptimeMillis = SystemClock.uptimeMillis();
         long j = 0;
         boolean z = false;
@@ -176,7 +176,7 @@ public class JobScheduler {
         return com.facebook.imagepipeline.producers.b.Hr(i) || com.facebook.imagepipeline.producers.b.dl(i, 4) || com.facebook.imagepipeline.g.e.f(eVar);
     }
 
-    public synchronized long dun() {
+    public synchronized long duo() {
         return this.mfz - this.mfy;
     }
 }

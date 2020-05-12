@@ -39,7 +39,7 @@ public class ShareHandlerActivity extends ShareBaseActivity implements com.baidu
             return;
         }
         az(this.kGJ.aUR());
-        this.kGI = this.kGJ.cSk();
+        this.kGI = this.kGJ.cSl();
         if (this.kGK != null) {
             this.kGK.onDestroy();
             this.kGK = null;
@@ -78,7 +78,7 @@ public class ShareHandlerActivity extends ShareBaseActivity implements com.baidu
         if (this.kGK != null) {
             this.kGK.setTid(this.kGJ.getTid());
         }
-        if (this.kGJ.cSo() && !TextUtils.isEmpty(this.kGJ.aIU())) {
+        if (this.kGJ.cSp() && !TextUtils.isEmpty(this.kGJ.aIU())) {
             if (this.mPermissionJudgement == null) {
                 this.mPermissionJudgement = new PermissionJudgePolicy();
             }

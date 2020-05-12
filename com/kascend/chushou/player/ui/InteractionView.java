@@ -97,7 +97,7 @@ public class InteractionView extends RelativeLayout {
                     if (!h.isEmpty(configDetail.notifyIcon)) {
                         view$OnLongClickListenerC0858a.a(true, a.f.ftv_recharge);
                         view$OnLongClickListenerC0858a.a(false, a.f.iv_recharge_point);
-                        ((FrescoThumbnailView) view$OnLongClickListenerC0858a.JQ(a.f.ftv_recharge)).a(configDetail.notifyIcon, c.dJG(), b.C0861b.small, b.C0861b.small, 1);
+                        ((FrescoThumbnailView) view$OnLongClickListenerC0858a.JQ(a.f.ftv_recharge)).a(configDetail.notifyIcon, c.dJH(), b.C0861b.small, b.C0861b.small, 1);
                         return;
                     }
                     view$OnLongClickListenerC0858a.a(false, a.f.ftv_recharge);

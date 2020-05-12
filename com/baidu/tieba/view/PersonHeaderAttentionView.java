@@ -82,7 +82,7 @@ public class PersonHeaderAttentionView extends LinearLayout {
             }
         };
         init(context);
-        deG();
+        deH();
         onChangeSkinType(0);
     }
 
@@ -129,7 +129,7 @@ public class PersonHeaderAttentionView extends LinearLayout {
             }
         };
         init(context);
-        deG();
+        deH();
         onChangeSkinType(0);
     }
 
@@ -176,7 +176,7 @@ public class PersonHeaderAttentionView extends LinearLayout {
             }
         };
         init(context);
-        deG();
+        deH();
         onChangeSkinType(0);
     }
 
@@ -202,7 +202,7 @@ public class PersonHeaderAttentionView extends LinearLayout {
         this.lvt.setVisibility(8);
     }
 
-    private void deG() {
+    private void deH() {
         this.hCF.setOnClickListener(this.aOQ);
         this.lvn.setOnClickListener(this.aOQ);
         this.jUf.setOnClickListener(this.aOQ);

@@ -45,11 +45,11 @@ public class l {
         return this.text;
     }
 
-    public String cVY() {
+    public String cVZ() {
         return this.c;
     }
 
-    public SpannableStringBuilder cVZ() {
+    public SpannableStringBuilder cWa() {
         return this.kSl;
     }
 

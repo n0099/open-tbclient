@@ -64,9 +64,9 @@ public class PbFakeFloorModel extends DataModel {
                     } else if (responsedMessage instanceof SubPbSocketResponseMessage) {
                         lVar = ((SubPbSocketResponseMessage) responsedMessage).pbFloorData;
                     }
-                    if (lVar != null && lVar.cwi() != null) {
-                        PostData postData = (PostData) v.getItem(lVar.cwi(), lVar.cwi().size() - 1);
-                        if (postData != null && PbFakeFloorModel.this.jFF != null && PbFakeFloorModel.this.jFF.cwe() != null) {
+                    if (lVar != null && lVar.cwj() != null) {
+                        PostData postData = (PostData) v.getItem(lVar.cwj(), lVar.cwj().size() - 1);
+                        if (postData != null && PbFakeFloorModel.this.jFF != null && PbFakeFloorModel.this.jFF.cwf() != null) {
                             if (PbFakeFloorModel.this.jFF.aIu() != null && PbFakeFloorModel.this.jFF.aIu().aKC() != null && postData.aKC() != null && (userId = PbFakeFloorModel.this.jFF.aIu().aKC().getUserId()) != null && userId.equals(postData.aKC().getUserId())) {
                                 z = true;
                             }
@@ -99,7 +99,7 @@ public class PbFakeFloorModel extends DataModel {
 
     @Override // com.baidu.tbadk.editortools.pb.DataModel
     public WriteData wz(String str) {
-        if (this.jFF == null || this.jFF.aXG() == null || this.jFF.aIu() == null || this.jFF.cwe() == null) {
+        if (this.jFF == null || this.jFF.aXG() == null || this.jFF.aIu() == null || this.jFF.cwf() == null) {
             return null;
         }
         WriteData writeData = new WriteData();
@@ -112,7 +112,7 @@ public class PbFakeFloorModel extends DataModel {
             writeData.setForumId(this.jFF.aXG().getId());
         }
         writeData.setFromForumId(this.mFromForumId);
-        writeData.setFloor(this.jFF.cwe().getId());
+        writeData.setFloor(this.jFF.cwf().getId());
         writeData.setType(2);
         writeData.setCanNoForum(aLW);
         writeData.setThreadId(this.jFF.aIu().getId());
@@ -124,10 +124,10 @@ public class PbFakeFloorModel extends DataModel {
         this.jFF = lVar;
     }
 
-    public void cBV() {
+    public void cBW() {
         if (!this.jFG) {
             cancelMessage();
-            this.jFH = cBW();
+            this.jFH = cBX();
             if (this.jFH != null) {
                 sendMessage(this.jFH);
             }
@@ -136,14 +136,14 @@ public class PbFakeFloorModel extends DataModel {
 
     public void q(PostData postData) {
         if (postData != null) {
-            this.jFF.cwe().t(postData);
-            this.jFF.cwe().u(postData);
-            this.jFF.cwe().tU(true);
+            this.jFF.cwf().t(postData);
+            this.jFF.cwf().u(postData);
+            this.jFF.cwf().tU(true);
         }
     }
 
-    private SubPbRequestMessage cBW() {
-        if (this.jFF == null || this.jFF.aIu() == null || this.jFF.aIu().getId() == null || this.jFF.cwe() == null || this.jFF.cwe().getId() == null) {
+    private SubPbRequestMessage cBX() {
+        if (this.jFF == null || this.jFF.aIu() == null || this.jFF.aIu().getId() == null || this.jFF.cwf() == null || this.jFF.cwf().getId() == null) {
             this.jFG = false;
             return null;
         }
@@ -151,13 +151,13 @@ public class PbFakeFloorModel extends DataModel {
         float f = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
         int equipmentWidth = com.baidu.adp.lib.util.l.getEquipmentWidth(TbadkCoreApplication.getInst().getApp());
         int equipmentHeight = com.baidu.adp.lib.util.l.getEquipmentHeight(TbadkCoreApplication.getInst().getApp());
-        long j = com.baidu.adp.lib.f.b.toLong(this.jFF.cwe().getId(), 0L);
+        long j = com.baidu.adp.lib.f.b.toLong(this.jFF.cwf().getId(), 0L);
         return new SubPbRequestMessage(this.mPageContext.getPageActivity(), com.baidu.adp.lib.f.b.toLong(this.jFF.aIu().getId(), 0L), j, 0L, 1, equipmentWidth, equipmentHeight, f, "", 1);
     }
 
     @Override // com.baidu.tbadk.editortools.pb.DataModel
     public boolean aXh() {
-        cBV();
+        cBW();
         return true;
     }
 

@@ -10,7 +10,7 @@ import com.baidu.tieba.person.ProfileSocketResponseMessage;
 public class PersonCenterFragmentStatic {
     static {
         bkX();
-        com.baidu.tieba.p.a.cOI();
+        com.baidu.tieba.p.a.cOJ();
     }
 
     private static void bkX() {

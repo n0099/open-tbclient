@@ -61,7 +61,7 @@ public class b implements Closeable, Flushable {
         this.lenient = z;
     }
 
-    public boolean dwa() {
+    public boolean dwb() {
         return this.lenient;
     }
 
@@ -69,7 +69,7 @@ public class b implements Closeable, Flushable {
         this.htmlSafe = z;
     }
 
-    public final boolean dwi() {
+    public final boolean dwj() {
         return this.htmlSafe;
     }
 
@@ -77,25 +77,25 @@ public class b implements Closeable, Flushable {
         this.serializeNulls = z;
     }
 
-    public final boolean dwj() {
+    public final boolean dwk() {
         return this.serializeNulls;
     }
 
-    public b dvR() throws IOException {
-        dwk();
+    public b dvS() throws IOException {
+        dwl();
         return bx(1, "[");
     }
 
-    public b dvS() throws IOException {
+    public b dvT() throws IOException {
         return q(1, 2, "]");
     }
 
-    public b dvT() throws IOException {
-        dwk();
+    public b dvU() throws IOException {
+        dwl();
         return bx(3, "{");
     }
 
-    public b dvU() throws IOException {
+    public b dvV() throws IOException {
         return q(3, 5, "}");
     }
 
@@ -159,9 +159,9 @@ public class b implements Closeable, Flushable {
         return this;
     }
 
-    private void dwk() throws IOException {
+    private void dwl() throws IOException {
         if (this.mmf != null) {
-            dwl();
+            dwm();
             string(this.mmf);
             this.mmf = null;
         }
@@ -169,18 +169,18 @@ public class b implements Closeable, Flushable {
 
     public b OB(String str) throws IOException {
         if (str == null) {
-            return dvV();
+            return dvW();
         }
-        dwk();
+        dwl();
         beforeValue();
         string(str);
         return this;
     }
 
-    public b dvV() throws IOException {
+    public b dvW() throws IOException {
         if (this.mmf != null) {
             if (this.serializeNulls) {
-                dwk();
+                dwl();
             } else {
                 this.mmf = null;
                 return this;
@@ -192,7 +192,7 @@ public class b implements Closeable, Flushable {
     }
 
     public b vV(boolean z) throws IOException {
-        dwk();
+        dwl();
         beforeValue();
         this.mme.write(z ? "true" : "false");
         return this;
@@ -200,16 +200,16 @@ public class b implements Closeable, Flushable {
 
     public b p(Boolean bool) throws IOException {
         if (bool == null) {
-            return dvV();
+            return dvW();
         }
-        dwk();
+        dwl();
         beforeValue();
         this.mme.write(bool.booleanValue() ? "true" : "false");
         return this;
     }
 
     public b fU(long j) throws IOException {
-        dwk();
+        dwl();
         beforeValue();
         this.mme.write(Long.toString(j));
         return this;
@@ -217,9 +217,9 @@ public class b implements Closeable, Flushable {
 
     public b a(Number number) throws IOException {
         if (number == null) {
-            return dvV();
+            return dvW();
         }
-        dwk();
+        dwl();
         String obj = number.toString();
         if (!this.lenient && (obj.equals("-Infinity") || obj.equals("Infinity") || obj.equals("NaN"))) {
             throw new IllegalArgumentException("Numeric values must be finite, but was " + number);
@@ -295,7 +295,7 @@ public class b implements Closeable, Flushable {
         }
     }
 
-    private void dwl() throws IOException {
+    private void dwm() throws IOException {
         int peek = peek();
         if (peek == 5) {
             this.mme.write(44);

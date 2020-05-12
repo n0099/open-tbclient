@@ -18,7 +18,7 @@ public class g extends com.baidu.card.b<com.baidu.tbadk.core.data.a> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.card.b
     public View getView() {
-        return this.hRk.cau();
+        return this.hRk.cav();
     }
 
     /* JADX DEBUG: Method merged with bridge method */

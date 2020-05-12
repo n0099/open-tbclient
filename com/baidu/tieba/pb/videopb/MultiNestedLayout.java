@@ -24,7 +24,7 @@ public class MultiNestedLayout extends RelativeLayout implements NestedScrolling
 
     /* loaded from: classes9.dex */
     public interface a {
-        void cBU();
+        void cBV();
     }
 
     /* loaded from: classes9.dex */
@@ -54,10 +54,10 @@ public class MultiNestedLayout extends RelativeLayout implements NestedScrolling
         this.jKg = null;
         this.jKh = null;
         this.jKi = null;
-        cDw();
+        cDx();
     }
 
-    private void cDw() {
+    private void cDx() {
         this.mNestedScrollingChildHelper = new NestedScrollingChildHelper(this);
         this.mNestedScrollingParentHelper = new NestedScrollingParentHelper(this);
         setNestedScrollingEnabled(true);
@@ -108,7 +108,7 @@ public class MultiNestedLayout extends RelativeLayout implements NestedScrolling
 
     @Override // android.view.ViewGroup, android.view.ViewParent, android.support.v4.view.NestedScrollingParent
     public void onNestedPreScroll(View view, int i, int i2, int[] iArr) {
-        if (cDx()) {
+        if (cDy()) {
             int[] iArr2 = this.mParentScrollConsumed;
             if (i2 > 0 && dispatchNestedPreScroll(i, i2, iArr2, null)) {
                 iArr[0] = iArr[0] + iArr2[0];
@@ -149,7 +149,7 @@ public class MultiNestedLayout extends RelativeLayout implements NestedScrolling
                 this.jKf = 0;
                 this.mState = 0;
                 if (this.jKh != null) {
-                    this.jKh.cBU();
+                    this.jKh.cBV();
                 }
                 if (this.jKi != null) {
                     this.jKi.onStateChange(this.mState);
@@ -229,7 +229,7 @@ public class MultiNestedLayout extends RelativeLayout implements NestedScrolling
     }
 
     public void setOffset(int i) {
-        if (cDx()) {
+        if (cDy()) {
             this.jKf = i;
             setTargetOffsetTopAndBottom(-this.jKf);
             if (this.jKf == this.jKe) {
@@ -240,7 +240,7 @@ public class MultiNestedLayout extends RelativeLayout implements NestedScrolling
             } else if (this.jKf == 0) {
                 this.mState = 0;
                 if (this.jKh != null) {
-                    this.jKh.cBU();
+                    this.jKh.cBV();
                 }
             } else {
                 this.mState = 2;
@@ -259,7 +259,7 @@ public class MultiNestedLayout extends RelativeLayout implements NestedScrolling
         setOffset(0);
     }
 
-    private boolean cDx() {
+    private boolean cDy() {
         return this.mTarget != null && this.jKe > -10000;
     }
 

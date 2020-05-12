@@ -149,7 +149,7 @@ public class c {
             Runnable runnable = this.nsg.get();
             a aVar = this.mReference.get();
             if (aVar != null) {
-                aVar.dJJ();
+                aVar.dJK();
             }
             if (runnable != null) {
                 runnable.run();
@@ -177,7 +177,7 @@ public class c {
             this.nsf = new RunnableC0853c(new WeakReference(runnable), new WeakReference(this));
         }
 
-        public RunnableC0853c dJJ() {
+        public RunnableC0853c dJK() {
             this.lock.lock();
             try {
                 if (this.nse != null) {
@@ -216,7 +216,7 @@ public class c {
             try {
                 for (a aVar = this.nsd; aVar != null; aVar = aVar.nsd) {
                     if (aVar.runnable == runnable) {
-                        return aVar.dJJ();
+                        return aVar.dJK();
                     }
                 }
                 this.lock.unlock();

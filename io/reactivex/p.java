@@ -10,11 +10,11 @@ public final class p<T> {
         this.value = obj;
     }
 
-    public boolean dCz() {
+    public boolean dCA() {
         return NotificationLite.isError(this.value);
     }
 
-    public Throwable dCA() {
+    public Throwable dCB() {
         Object obj = this.value;
         if (NotificationLite.isError(obj)) {
             return NotificationLite.getError(obj);
@@ -58,7 +58,7 @@ public final class p<T> {
         return new p<>(NotificationLite.error(th));
     }
 
-    public static <T> p<T> dCB() {
+    public static <T> p<T> dCC() {
         return (p<T>) mQZ;
     }
 }

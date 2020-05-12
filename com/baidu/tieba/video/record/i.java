@@ -48,26 +48,26 @@ public class i {
         @Override // com.baidu.tieba.video.record.ProgressView.a
         public void Et(int i) {
             h hVar;
-            final g dcy;
+            final g dcz;
             i.this.mProgress = i;
-            if (i == 100 && i.this.lnL != null && (hVar = i.this.lnL.lnn) != null && (dcy = hVar.dcy()) != null) {
-                if (dcy instanceof GLVideoPreviewView) {
-                    dcy.setOnEncoderStatusUpdateListener(new d.c() { // from class: com.baidu.tieba.video.record.i.1.1
+            if (i == 100 && i.this.lnL != null && (hVar = i.this.lnL.lnn) != null && (dcz = hVar.dcz()) != null) {
+                if (dcz instanceof GLVideoPreviewView) {
+                    dcz.setOnEncoderStatusUpdateListener(new d.c() { // from class: com.baidu.tieba.video.record.i.1.1
                         @Override // com.faceunity.a.d.c
                         public void Go() {
                         }
 
                         @Override // com.faceunity.a.d.c
-                        public void dcU() {
+                        public void dcV() {
                             com.baidu.adp.lib.f.e.lb().post(new Runnable() { // from class: com.baidu.tieba.video.record.i.1.1.1
                                 @Override // java.lang.Runnable
                                 public void run() {
                                     if (i.this.lnL != null) {
-                                        i.this.lnL.ddo();
+                                        i.this.lnL.ddp();
                                     }
                                 }
                             });
-                            dcy.setOnEncoderStatusUpdateListener(null);
+                            dcz.setOnEncoderStatusUpdateListener(null);
                         }
                     });
                     i.this.stopRecord();
@@ -75,7 +75,7 @@ public class i {
                 }
                 i.this.stopRecord();
                 if (i.this.lnL != null) {
-                    i.this.lnL.ddo();
+                    i.this.lnL.ddp();
                 }
             }
         }
@@ -104,9 +104,9 @@ public class i {
         }
     }
 
-    public boolean dcR() {
+    public boolean dcS() {
         if (this.lnL.lpn != null) {
-            return this.lnL.lpn.dcR();
+            return this.lnL.lpn.dcS();
         }
         return false;
     }
@@ -127,24 +127,24 @@ public class i {
         }
     }
 
-    public void dcS() {
+    public void dcT() {
         if (!this.bvJ && this.loz != null) {
             this.loz.setCurrentState(ProgressView.State.ROLLBACK);
         }
     }
 
-    public void dcT() {
+    public void dcU() {
         if (this.loz != null) {
             this.loz.setCurrentState(ProgressView.State.DELETE);
         }
         this.loy = this.loz.getLastProgress();
         if (this.lnL.lnn != null) {
-            this.lnL.lnn.dcA();
+            this.lnL.lnn.dcB();
         }
     }
 
     public boolean onBackPressed() {
-        return this.loz.dcQ();
+        return this.loz.dcR();
     }
 
     public int getStatus() {

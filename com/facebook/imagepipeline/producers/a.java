@@ -25,13 +25,13 @@ public class a implements aj<com.facebook.imagepipeline.g.e> {
         /* renamed from: a */
         public void g(com.facebook.imagepipeline.g.e eVar, int i) {
             if (eVar == null) {
-                duc().h(null, i);
+                dud().h(null, i);
                 return;
             }
             if (!com.facebook.imagepipeline.g.e.d(eVar)) {
-                eVar.dsU();
+                eVar.dsV();
             }
-            duc().h(eVar, i);
+            dud().h(eVar, i);
         }
     }
 }

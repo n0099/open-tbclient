@@ -36,11 +36,11 @@ public class o {
         return this.eyU;
     }
 
-    public String cWC() {
+    public String cWD() {
         return this.kTD;
     }
 
-    public List<String> cWD() {
+    public List<String> cWE() {
         return this.kTE;
     }
 

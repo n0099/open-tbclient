@@ -9,7 +9,7 @@ public class e implements CacheErrorLogger {
     private e() {
     }
 
-    public static synchronized e dmj() {
+    public static synchronized e dmk() {
         e eVar;
         synchronized (e.class) {
             if (lQo == null) {

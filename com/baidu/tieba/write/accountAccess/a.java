@@ -29,12 +29,12 @@ public class a {
     private final NewWriteModel.d dYM = new NewWriteModel.d() { // from class: com.baidu.tieba.write.accountAccess.a.1
         @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.d
         public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, aa aaVar, WriteData writeData, AntiData antiData) {
-            if (a.this.lxI != null && a.this.lxM != null && a.this.lxM.cSK() != null) {
+            if (a.this.lxI != null && a.this.lxM != null && a.this.lxM.cSL() != null) {
                 a.this.lxI.showPostThreadLoadingView(false);
-                WriteData cSK = writeData == null ? a.this.lxM.cSK() : writeData;
+                WriteData cSL = writeData == null ? a.this.lxM.cSL() : writeData;
                 if (z) {
                     a.this.lxN = true;
-                    if (cSK.getType() != 0 || cSK.isUserFeedback()) {
+                    if (cSL.getType() != 0 || cSL.isUserFeedback()) {
                         if (postWriteCallBackData == null) {
                             c.g(a.this.lxI.getContext().getActivity(), a.this.lxI.getContext().getResources().getString(R.string.send_success), null, null);
                         } else {
@@ -49,15 +49,15 @@ public class a {
                     a.this.lxI.getContext();
                     context.setResult(-1, intent);
                     a.this.lxI.getContext().finish();
-                } else if (cSK != null && aaVar != null && !TextUtils.isEmpty(aaVar.aSe())) {
-                    cSK.setVcodeMD5(aaVar.getVcode_md5());
-                    cSK.setVcodeUrl(aaVar.getVcode_pic_url());
-                    cSK.setVcodeExtra(aaVar.aSf());
+                } else if (cSL != null && aaVar != null && !TextUtils.isEmpty(aaVar.aSe())) {
+                    cSL.setVcodeMD5(aaVar.getVcode_md5());
+                    cSL.setVcodeUrl(aaVar.getVcode_pic_url());
+                    cSL.setVcodeExtra(aaVar.aSf());
                     a.this.lxI.getContext().setVisible(false);
                     if (com.baidu.tbadk.s.a.xr(aaVar.aSe())) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NewVcodeActivityConfig(a.this.lxI.getContext().getActivity(), RequestResponseCode.REQUEST_VCODE, cSK, false, aaVar.aSe())));
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NewVcodeActivityConfig(a.this.lxI.getContext().getActivity(), RequestResponseCode.REQUEST_VCODE, cSL, false, aaVar.aSe())));
                     } else {
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VcodeActivityConfig(a.this.lxI.getContext().getActivity(), cSK, RequestResponseCode.REQUEST_VCODE)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VcodeActivityConfig(a.this.lxI.getContext().getActivity(), cSL, RequestResponseCode.REQUEST_VCODE)));
                     }
                 } else if (postWriteCallBackData != null && postWriteCallBackData.isSensitiveError()) {
                     Intent intent2 = new Intent();
@@ -96,14 +96,14 @@ public class a {
             return true;
         } else if (str.equals("http://tieba.baidu.com/account/access/input_focus")) {
             this.lxI.setWebViewMargin(0, UtilHelper.getImmersiveStickyBarHeight(), 0, 0);
-            if (this.lxI.dfl() != this.lxI.dfk()) {
-                this.lxI.setRatio(this.lxI.dfl());
-                this.lxI.dfm();
+            if (this.lxI.dfm() != this.lxI.dfl()) {
+                this.lxI.setRatio(this.lxI.dfm());
+                this.lxI.dfn();
             }
             this.lxI.getWebView().setVisibility(0);
             return true;
         } else if (str.equals("http://tieba.baidu.com/account/access/valid_success")) {
-            dfj();
+            dfk();
             return true;
         } else if (str.equals("http://tieba.baidu.com/account/access/feedback") || str.equals("https://tieba.baidu.com/account/access/feedback")) {
             this.lxI.getContext().finish();
@@ -114,7 +114,7 @@ public class a {
         }
     }
 
-    public void dfh() {
+    public void dfi() {
         if (this.lxI != null) {
             this.lxI.showWebViewDelay(500);
         }
@@ -128,13 +128,13 @@ public class a {
         }
     }
 
-    public void dfi() {
+    public void dfj() {
         if (this.lxI != null) {
             this.lxI.showPostThreadLoadingView(false);
         }
     }
 
-    private void dfj() {
+    private void dfk() {
         this.lxN = false;
         if (this.lxI != null && this.lxM != null) {
             if (!l.isNetOk()) {
@@ -143,7 +143,7 @@ public class a {
                 return;
             }
             this.lxI.showPostThreadLoadingView(true);
-            this.lxM.cXy();
+            this.lxM.cXz();
         }
     }
 }

@@ -40,8 +40,8 @@ class f extends Thread {
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
         try {
-            dbh();
-            if (dbj()) {
+            dbi();
+            if (dbk()) {
                 com.baidu.adp.lib.f.e.lb().post(new Runnable() { // from class: com.baidu.tieba.video.editvideo.b.f.1
                     @Override // java.lang.Runnable
                     public void run() {
@@ -70,7 +70,7 @@ class f extends Thread {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private void dbh() throws Exception {
+    private void dbi() throws Exception {
         Throwable th;
         g gVar;
         MediaCodec mediaCodec;
@@ -86,7 +86,7 @@ class f extends Thread {
         MediaCodecInfo selectCodec = selectCodec("video/avc");
         if (selectCodec != null) {
             try {
-                mediaExtractor2 = dbi();
+                mediaExtractor2 = dbj();
                 try {
                     MediaFormat trackFormat = mediaExtractor2.getTrackFormat(getAndSelectVideoTrackIndex(mediaExtractor2));
                     int integer = trackFormat.getInteger("width");
@@ -411,7 +411,7 @@ class f extends Thread {
         }
     }
 
-    private MediaExtractor dbi() throws IOException {
+    private MediaExtractor dbj() throws IOException {
         MediaExtractor mediaExtractor = new MediaExtractor();
         mediaExtractor.setDataSource(this.liV);
         return mediaExtractor;
@@ -467,8 +467,8 @@ class f extends Thread {
         MediaFormat mediaFormat2 = null;
         ByteBuffer[] byteBufferArr3 = outputBuffers2;
         boolean z7 = false;
-        while (!z4 && dbj()) {
-            if (z7 || !((mediaFormat2 == null || this.liY.isStarted()) && dbj())) {
+        while (!z4 && dbk()) {
+            if (z7 || !((mediaFormat2 == null || this.liY.isStarted()) && dbk())) {
                 z = z7;
             } else {
                 int dequeueInputBuffer = mediaCodec.dequeueInputBuffer(10000L);
@@ -489,7 +489,7 @@ class f extends Thread {
                     }
                 }
             }
-            if (!z6 && ((mediaFormat2 == null || this.liY.isStarted()) && dbj())) {
+            if (!z6 && ((mediaFormat2 == null || this.liY.isStarted()) && dbk())) {
                 int dequeueOutputBuffer = mediaCodec.dequeueOutputBuffer(bufferInfo, 10000L);
                 if (dequeueOutputBuffer == -1) {
                     z2 = z6;
@@ -523,7 +523,7 @@ class f extends Thread {
                         }
                     }
                 }
-                if (z4 && ((mediaFormat2 == null || this.liY.isStarted()) && dbj())) {
+                if (z4 && ((mediaFormat2 == null || this.liY.isStarted()) && dbk())) {
                     int dequeueOutputBuffer2 = mediaCodec2.dequeueOutputBuffer(bufferInfo2, 10000L);
                     if (dequeueOutputBuffer2 == -1) {
                         mediaFormat = mediaFormat2;
@@ -568,7 +568,7 @@ class f extends Thread {
                     z3 = true;
                 }
                 if (!this.liY.isStarted() && z3) {
-                    this.liY.dbk();
+                    this.liY.dbl();
                     if (this.liY.start()) {
                         synchronized (this.liY) {
                             while (!this.liY.isStarted()) {
@@ -607,7 +607,7 @@ class f extends Thread {
             z3 = z5;
             i = i2;
             if (!this.liY.isStarted()) {
-                this.liY.dbk();
+                this.liY.dbl();
                 if (this.liY.start()) {
                 }
             }
@@ -621,7 +621,7 @@ class f extends Thread {
         }
     }
 
-    private boolean dbj() {
+    private boolean dbk() {
         return !Thread.currentThread().isInterrupted();
     }
 

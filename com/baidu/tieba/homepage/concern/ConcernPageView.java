@@ -127,7 +127,7 @@ public class ConcernPageView extends FrameLayout {
         };
         this.hIl = new ScrollFragmentTabHost.a() { // from class: com.baidu.tieba.homepage.concern.ConcernPageView.2
             @Override // com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost.a
-            public void bXU() {
+            public void bXV() {
                 if (ConcernPageView.this.hIk != null) {
                     ConcernPageView.this.eRI = -1;
                     if (ConcernPageView.this.a(ConcernPageView.this.hIe)) {
@@ -140,13 +140,13 @@ public class ConcernPageView extends FrameLayout {
         };
         this.hIn = new c.a() { // from class: com.baidu.tieba.homepage.concern.ConcernPageView.3
             @Override // com.baidu.tieba.homepage.concern.c.a
-            public void bXV() {
+            public void bXW() {
                 ConcernPageView.this.blr();
                 ConcernPageView.this.hideNoDataView();
                 ConcernPageView.this.hIe.setSelection(0);
                 if (ConcernPageView.this.hIe.getCount() > 0) {
                     ConcernPageView.this.hideLoadingView();
-                    ConcernPageView.this.bXR();
+                    ConcernPageView.this.bXS();
                 } else {
                     ConcernPageView.this.fK(true);
                 }
@@ -160,7 +160,7 @@ public class ConcernPageView extends FrameLayout {
                 ConcernPageView.this.blr();
                 ConcernPageView.this.hideNoDataView();
                 ConcernPageView.this.hideLoadingView();
-                ConcernPageView.this.bXQ();
+                ConcernPageView.this.bXR();
                 if (ConcernPageView.this.hIg != null) {
                     ConcernPageView.this.hIg.DP(str);
                 }
@@ -189,15 +189,15 @@ public class ConcernPageView extends FrameLayout {
                 ConcernPageView.this.hideLoadingView();
                 ConcernPageView.this.blr();
                 ConcernPageView.this.hideNoDataView();
-                if (ConcernPageView.this.hIh.bXY()) {
-                    ConcernPageView.this.bXR();
+                if (ConcernPageView.this.hIh.bXZ()) {
+                    ConcernPageView.this.bXS();
                 } else {
-                    ConcernPageView.this.bXQ();
+                    ConcernPageView.this.bXR();
                 }
             }
 
             @Override // com.baidu.tieba.homepage.concern.c.a
-            public void bXW() {
+            public void bXX() {
                 if (ConcernPageView.this.hIg != null) {
                     ConcernPageView.this.hIg.T(true, false);
                 }
@@ -248,7 +248,7 @@ public class ConcernPageView extends FrameLayout {
         };
         this.hIl = new ScrollFragmentTabHost.a() { // from class: com.baidu.tieba.homepage.concern.ConcernPageView.2
             @Override // com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost.a
-            public void bXU() {
+            public void bXV() {
                 if (ConcernPageView.this.hIk != null) {
                     ConcernPageView.this.eRI = -1;
                     if (ConcernPageView.this.a(ConcernPageView.this.hIe)) {
@@ -261,13 +261,13 @@ public class ConcernPageView extends FrameLayout {
         };
         this.hIn = new c.a() { // from class: com.baidu.tieba.homepage.concern.ConcernPageView.3
             @Override // com.baidu.tieba.homepage.concern.c.a
-            public void bXV() {
+            public void bXW() {
                 ConcernPageView.this.blr();
                 ConcernPageView.this.hideNoDataView();
                 ConcernPageView.this.hIe.setSelection(0);
                 if (ConcernPageView.this.hIe.getCount() > 0) {
                     ConcernPageView.this.hideLoadingView();
-                    ConcernPageView.this.bXR();
+                    ConcernPageView.this.bXS();
                 } else {
                     ConcernPageView.this.fK(true);
                 }
@@ -281,7 +281,7 @@ public class ConcernPageView extends FrameLayout {
                 ConcernPageView.this.blr();
                 ConcernPageView.this.hideNoDataView();
                 ConcernPageView.this.hideLoadingView();
-                ConcernPageView.this.bXQ();
+                ConcernPageView.this.bXR();
                 if (ConcernPageView.this.hIg != null) {
                     ConcernPageView.this.hIg.DP(str);
                 }
@@ -310,15 +310,15 @@ public class ConcernPageView extends FrameLayout {
                 ConcernPageView.this.hideLoadingView();
                 ConcernPageView.this.blr();
                 ConcernPageView.this.hideNoDataView();
-                if (ConcernPageView.this.hIh.bXY()) {
-                    ConcernPageView.this.bXR();
+                if (ConcernPageView.this.hIh.bXZ()) {
+                    ConcernPageView.this.bXS();
                 } else {
-                    ConcernPageView.this.bXQ();
+                    ConcernPageView.this.bXR();
                 }
             }
 
             @Override // com.baidu.tieba.homepage.concern.c.a
-            public void bXW() {
+            public void bXX() {
                 if (ConcernPageView.this.hIg != null) {
                     ConcernPageView.this.hIg.T(true, false);
                 }
@@ -369,7 +369,7 @@ public class ConcernPageView extends FrameLayout {
         };
         this.hIl = new ScrollFragmentTabHost.a() { // from class: com.baidu.tieba.homepage.concern.ConcernPageView.2
             @Override // com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost.a
-            public void bXU() {
+            public void bXV() {
                 if (ConcernPageView.this.hIk != null) {
                     ConcernPageView.this.eRI = -1;
                     if (ConcernPageView.this.a(ConcernPageView.this.hIe)) {
@@ -382,13 +382,13 @@ public class ConcernPageView extends FrameLayout {
         };
         this.hIn = new c.a() { // from class: com.baidu.tieba.homepage.concern.ConcernPageView.3
             @Override // com.baidu.tieba.homepage.concern.c.a
-            public void bXV() {
+            public void bXW() {
                 ConcernPageView.this.blr();
                 ConcernPageView.this.hideNoDataView();
                 ConcernPageView.this.hIe.setSelection(0);
                 if (ConcernPageView.this.hIe.getCount() > 0) {
                     ConcernPageView.this.hideLoadingView();
-                    ConcernPageView.this.bXR();
+                    ConcernPageView.this.bXS();
                 } else {
                     ConcernPageView.this.fK(true);
                 }
@@ -402,7 +402,7 @@ public class ConcernPageView extends FrameLayout {
                 ConcernPageView.this.blr();
                 ConcernPageView.this.hideNoDataView();
                 ConcernPageView.this.hideLoadingView();
-                ConcernPageView.this.bXQ();
+                ConcernPageView.this.bXR();
                 if (ConcernPageView.this.hIg != null) {
                     ConcernPageView.this.hIg.DP(str);
                 }
@@ -431,15 +431,15 @@ public class ConcernPageView extends FrameLayout {
                 ConcernPageView.this.hideLoadingView();
                 ConcernPageView.this.blr();
                 ConcernPageView.this.hideNoDataView();
-                if (ConcernPageView.this.hIh.bXY()) {
-                    ConcernPageView.this.bXR();
+                if (ConcernPageView.this.hIh.bXZ()) {
+                    ConcernPageView.this.bXS();
                 } else {
-                    ConcernPageView.this.bXQ();
+                    ConcernPageView.this.bXR();
                 }
             }
 
             @Override // com.baidu.tieba.homepage.concern.c.a
-            public void bXW() {
+            public void bXX() {
                 if (ConcernPageView.this.hIg != null) {
                     ConcernPageView.this.hIg.T(true, false);
                 }
@@ -528,20 +528,20 @@ public class ConcernPageView extends FrameLayout {
         this.hIg = aVar;
     }
 
-    public void bXN() {
+    public void bXO() {
         if (!TbadkCoreApplication.isLogin()) {
-            bXP();
+            bXQ();
         } else if (this.hIh != null) {
             this.hIh.update();
             fK(true);
         }
     }
 
-    public void bXO() {
+    public void bXP() {
         if (!TbadkCoreApplication.isLogin()) {
-            bXP();
+            bXQ();
         } else if (this.hIh != null) {
-            this.hIh.bXX();
+            this.hIh.bXY();
         }
     }
 
@@ -583,7 +583,7 @@ public class ConcernPageView extends FrameLayout {
 
     public void onResume() {
         setTabInForeBackgroundState(false);
-        bXS();
+        bXT();
     }
 
     public void aO(String str, int i) {
@@ -595,7 +595,7 @@ public class ConcernPageView extends FrameLayout {
     }
 
     public void lV(boolean z) {
-        if (!bJs()) {
+        if (!bJt()) {
             if (this.refreshView == null) {
                 this.refreshView = new h(getContext(), new View.OnClickListener() { // from class: com.baidu.tieba.homepage.concern.ConcernPageView.6
                     @Override // android.view.View.OnClickListener
@@ -627,14 +627,14 @@ public class ConcernPageView extends FrameLayout {
         }
     }
 
-    private boolean bJs() {
+    private boolean bJt() {
         if (this.refreshView != null) {
             return this.refreshView.isViewAttached();
         }
         return false;
     }
 
-    private void bXP() {
+    private void bXQ() {
         if (this.hIi == null) {
             this.hIi = new ConcernNotLoginLayout(getContext());
             this.hIi.onChangeSkinType(this.mSkinType);
@@ -646,7 +646,7 @@ public class ConcernPageView extends FrameLayout {
         }
     }
 
-    public boolean bJr() {
+    public boolean bJs() {
         if (this.eYg != null) {
             return this.eYg.isViewAttached();
         }
@@ -655,7 +655,7 @@ public class ConcernPageView extends FrameLayout {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void fK(boolean z) {
-        if (!bJr()) {
+        if (!bJs()) {
             if (this.eYg == null) {
                 this.eYg = new com.baidu.tbadk.k.g(getContext());
                 this.eYg.aZ(((TbadkCoreApplication.getInst().getMainTabBottomBarHeight() * 3) / 2) + l.getDimens(getContext(), R.dimen.tbds60));
@@ -667,7 +667,7 @@ public class ConcernPageView extends FrameLayout {
         }
     }
 
-    public void bXQ() {
+    public void bXR() {
         this.hIm.setVisibility(0);
         this.hIe.setVisibility(0);
         if (this.hIh.hasMore()) {
@@ -679,7 +679,7 @@ public class ConcernPageView extends FrameLayout {
         this.ePr.setHeight(l.getDimens(getContext(), R.dimen.tbds150));
     }
 
-    public void bXR() {
+    public void bXS() {
         this.hIm.setVisibility(0);
         this.hIe.setVisibility(0);
         this.ePr.showEmptyView(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
@@ -724,7 +724,7 @@ public class ConcernPageView extends FrameLayout {
         if (this.hIk != null) {
             this.hIk.b(this.hIl);
             this.hIk.a(this.hIl);
-            this.hIl.bXU();
+            this.hIl.bXV();
         }
     }
 
@@ -739,7 +739,7 @@ public class ConcernPageView extends FrameLayout {
                 this.hIm.setRefreshing(true);
             }
             if (this.hIl != null) {
-                this.hIl.bXU();
+                this.hIl.bXV();
             }
         }
     }
@@ -758,13 +758,13 @@ public class ConcernPageView extends FrameLayout {
         this.hIe.setRecyclerListener(null);
     }
 
-    public void bXS() {
+    public void bXT() {
         if (this.hIf != null) {
             this.hIf.notifyDataSetChanged();
         }
     }
 
-    public void bXT() {
+    public void bXU() {
         if (this.hIh != null) {
             this.hIh.mC(true);
         }

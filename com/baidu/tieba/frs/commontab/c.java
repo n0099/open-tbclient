@@ -238,7 +238,7 @@ public class c implements NetModel.b {
         this.hgg = j;
     }
 
-    public boolean bRv() {
+    public boolean bRw() {
         return this.hge;
     }
 }

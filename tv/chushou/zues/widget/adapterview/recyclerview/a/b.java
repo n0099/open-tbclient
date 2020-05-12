@@ -53,7 +53,7 @@ public class b extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         public void onItemRangeInserted(int i, int i2) {
             super.onItemRangeInserted(i, i2);
             if (b.this.ntb != null) {
-                if (b.this.ntb.dJX()) {
+                if (b.this.ntb.dJY()) {
                     b.this.notifyItemRangeChanged(b.this.getHeaderViewsCount() + i, 1);
                     b.this.notifyItemRangeInserted(i + 1 + b.this.getHeaderViewsCount(), i2);
                 } else {
@@ -108,7 +108,7 @@ public class b extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         this.ntb = cVar;
     }
 
-    public void dJY() {
+    public void dJZ() {
         this.ntc = 0;
         this.ntd = 0;
     }

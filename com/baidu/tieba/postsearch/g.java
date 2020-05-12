@@ -36,9 +36,9 @@ public class g {
     }
 
     public void Bn(int i) {
-        this.kns.bWF();
+        this.kns.bWG();
         hideSoftKeyPad();
-        this.kns.cLy();
+        this.kns.cLz();
         this.knu.setVisibility(true);
         this.knu.Bn(i);
     }
@@ -51,8 +51,8 @@ public class g {
         this.knu.a(i, bVar, z);
     }
 
-    public boolean cLC() {
-        return this.knt.cLK();
+    public boolean cLD() {
+        return this.knt.cLL();
     }
 
     public void showLoadingView() {
@@ -63,16 +63,16 @@ public class g {
         this.knt.hideLoadingView();
     }
 
-    public void cLJ() {
-        this.knt.cLJ();
+    public void cLK() {
+        this.knt.cLK();
     }
 
     public void hideSoftKeyPad() {
         this.kns.hideSoftKeyPad();
     }
 
-    public void cLV() {
-        this.knt.cLI();
+    public void cLW() {
+        this.knt.cLJ();
     }
 
     public int getCurrentTabType() {

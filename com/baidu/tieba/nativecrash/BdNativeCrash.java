@@ -29,7 +29,7 @@ public class BdNativeCrash {
     private BdNativeCrash() {
     }
 
-    public static BdNativeCrash csU() {
+    public static BdNativeCrash csV() {
         if (jfs == null) {
             synchronized (BdNativeCrash.class) {
                 if (jfs == null) {

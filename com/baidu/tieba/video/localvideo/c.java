@@ -149,7 +149,7 @@ public class c extends com.baidu.adp.base.c {
             }
 
             @Override // com.baidu.tieba.video.commonview.ExpandViewRelativeLayout.a
-            public void daO() {
+            public void daP() {
                 if (c.this.lma.getTop() > c.this.lmk / 2) {
                     c.this.lmq = true;
                     c.this.lmc.start();
@@ -211,7 +211,7 @@ public class c extends com.baidu.adp.base.c {
         this.lml = l.getDimens(this.llW, R.dimen.ds902);
     }
 
-    public boolean dbU() {
+    public boolean dbV() {
         return this.lmp;
     }
 
@@ -234,7 +234,7 @@ public class c extends com.baidu.adp.base.c {
             }
             if (this.lmb != null) {
                 this.lmb.setData(list);
-                dcb();
+                dcc();
                 return;
             }
             return;
@@ -242,7 +242,7 @@ public class c extends com.baidu.adp.base.c {
         l.showToast(TbadkCoreApplication.getInst(), (int) R.string.no_local_video_tip);
     }
 
-    public void dbV() {
+    public void dbW() {
         com.baidu.tbadk.core.dialog.a a = new com.baidu.tbadk.core.dialog.a(this.llW).kc(R.string.mv_local_video_too_long).a(R.string.group_create_private_isee, new a.b() { // from class: com.baidu.tieba.video.localvideo.c.5
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
@@ -286,11 +286,11 @@ public class c extends com.baidu.adp.base.c {
         }
     }
 
-    public TextView dbW() {
+    public TextView dbX() {
         return this.hlX;
     }
 
-    public TextView dbX() {
+    public TextView dbY() {
         return this.lmd;
     }
 
@@ -300,7 +300,7 @@ public class c extends com.baidu.adp.base.c {
         }
     }
 
-    public void dbY() {
+    public void dbZ() {
         if (this.lmc != null && !StringUtils.isNull(this.lme)) {
             this.lmc.resume();
             this.lmc.seekTo(this.lmm);
@@ -310,29 +310,29 @@ public class c extends com.baidu.adp.base.c {
         }
     }
 
-    public void bQV() {
+    public void bQW() {
         this.lmm = this.lmc.getCurrentPosition();
         if (this.lmc != null) {
             this.lmc.pause();
         }
     }
 
-    public void bQW() {
+    public void bQX() {
         this.lmm = this.lmc.getCurrentPosition();
         if (this.lmc != null) {
             this.lmc.stopPlayback();
         }
     }
 
-    public String dbZ() {
+    public String dca() {
         return this.lme;
     }
 
-    public d dca() {
+    public d dcb() {
         return this.lmn;
     }
 
-    private void dcb() {
+    private void dcc() {
         if (!v.isEmpty(this.lmo)) {
             new BdAsyncTask<Void, Integer, Void>() { // from class: com.baidu.tieba.video.localvideo.c.6
                 /* JADX DEBUG: Method merged with bridge method */

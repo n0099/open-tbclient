@@ -29,8 +29,8 @@ public class c extends com.baidu.adp.widget.ListView.a<l, com.baidu.card.a<l>> {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(View view, l lVar) {
-        if (this.gGT != null && this.gGT.rI() != null && this.gGT.rI().cJn() != null) {
-            if (view.getId() == this.gGT.rI().cJn().getId()) {
+        if (this.gGT != null && this.gGT.rI() != null && this.gGT.rI().cJo() != null) {
+            if (view.getId() == this.gGT.rI().cJo().getId()) {
                 com.baidu.tieba.homepage.gamevideo.e.a.b(lVar, this.dDt);
             } else if (view.getId() == R.id.thread_card_root) {
                 com.baidu.tieba.homepage.gamevideo.e.a.b(lVar, this.dDt);
@@ -124,10 +124,10 @@ public class c extends com.baidu.adp.widget.ListView.a<l, com.baidu.card.a<l>> {
             }
             yVar.dop = lVar.getExtra();
             yVar.mSource = lVar.getSource();
-            yVar.kiv = lVar.bFg();
+            yVar.kiv = lVar.bFh();
             yVar.kis = lVar.getWeight();
             yVar.mUid = TbadkCoreApplication.getCurrentAccount();
-            yVar.mFloor = String.valueOf(lVar.bFf());
+            yVar.mFloor = String.valueOf(lVar.bFg());
             yVar.kiz = String.valueOf(this.dDt);
         }
         return yVar;

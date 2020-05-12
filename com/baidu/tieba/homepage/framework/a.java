@@ -13,7 +13,7 @@ public class a {
     private a() {
     }
 
-    public static a bYg() {
+    public static a bYh() {
         return hJW;
     }
 

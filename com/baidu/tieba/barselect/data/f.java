@@ -14,15 +14,15 @@ public class f {
     private ManagerElection gji;
     private boolean hasMore;
 
-    public List<d> bDU() {
+    public List<d> bDV() {
         return this.gjh;
     }
 
-    public d bDV() {
+    public d bDW() {
         return this.gjg;
     }
 
-    public e bDW() {
+    public e bDX() {
         return this.gjf;
     }
 
@@ -38,7 +38,7 @@ public class f {
         return this.afD;
     }
 
-    public ManagerElection bDX() {
+    public ManagerElection bDY() {
         return this.gji;
     }
 

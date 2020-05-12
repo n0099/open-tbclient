@@ -97,14 +97,14 @@ public class c {
         return this.uniqueId;
     }
 
-    public TbPageContext<BaseFragmentActivity> bYj() {
+    public TbPageContext<BaseFragmentActivity> bYk() {
         return this.hKr;
     }
 
     public void a(com.baidu.tieba.lego.model.a aVar) {
     }
 
-    public com.baidu.tieba.lego.model.a bYk() {
+    public com.baidu.tieba.lego.model.a bYl() {
         return null;
     }
 
@@ -112,7 +112,7 @@ public class c {
         this.hHy = aVar;
     }
 
-    public a bYl() {
+    public a bYm() {
         return this.hHy;
     }
 }

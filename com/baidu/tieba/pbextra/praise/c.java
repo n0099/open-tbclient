@@ -66,7 +66,7 @@ public class c extends BaseAdapter implements AbsListView.OnScrollListener {
     private View g(int i, View view, ViewGroup viewGroup) {
         b b = b.b(this.jRf.getPageContext().getPageActivity(), view);
         a item = getItem(i);
-        b.a(StringUtils.isNull(item.getShowName()) ? item.getUserName() : item.getShowName(), item.getPortrait(), item.cFL(), this.isScrolling);
+        b.a(StringUtils.isNull(item.getShowName()) ? item.getUserName() : item.getShowName(), item.getPortrait(), item.cFM(), this.isScrolling);
         this.jRf.changSkinType(b.getView());
         return b.getView();
     }

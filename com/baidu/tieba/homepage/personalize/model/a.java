@@ -39,7 +39,7 @@ public class a {
     private final c hJG = new c();
     private final int hQx = com.baidu.tbadk.core.sharedPref.b.aNT().getInt("home_page_max_thread_count", 300);
 
-    public int bZY() {
+    public int bZZ() {
         return this.hQx;
     }
 
@@ -135,7 +135,7 @@ public class a {
             int count3 = v.getCount(list);
             this.hJG.hQC = count3 - count;
             this.hQy = count3 - count;
-            com.baidu.tieba.recapp.report.b.cOc().el(arrayList);
+            com.baidu.tieba.recapp.report.b.cOd().el(arrayList);
         }
     }
 
@@ -159,7 +159,7 @@ public class a {
     }
 
     private List<m> a(List<ThreadInfo> list, List<p> list2, UserFollowLive userFollowLive, int i, int i2) {
-        f bZZ;
+        f caa;
         int i3;
         int i4;
         int i5;
@@ -237,7 +237,7 @@ public class a {
                                     an ah;
                                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(view.getContext(), getLink(), null)));
                                     if (aB instanceof k) {
-                                        ah = ((k) aB).bFt();
+                                        ah = ((k) aB).bFu();
                                     } else {
                                         ah = aB instanceof l ? ((l) aB).ah(null) : null;
                                     }
@@ -341,9 +341,9 @@ public class a {
                 linkedList.add(0, fVar);
                 fVar.position = -1;
                 int i15 = i7 + 1;
-            } else if (i == 1 && (bZZ = bZZ()) != null) {
-                linkedList.add(0, bZZ);
-                bZZ.position = -1;
+            } else if (i == 1 && (caa = caa()) != null) {
+                linkedList.add(0, caa);
+                caa.position = -1;
                 int i16 = i7 + 1;
             }
         }
@@ -373,7 +373,7 @@ public class a {
         return arrayList;
     }
 
-    private f bZZ() {
+    private f caa() {
         if (this.hJG == null || v.isEmpty(this.hJG.etL)) {
             return null;
         }

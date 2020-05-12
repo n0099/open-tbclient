@@ -20,7 +20,7 @@ public class g {
     private g() {
     }
 
-    public static synchronized g cdA() {
+    public static synchronized g cdB() {
         g gVar;
         synchronized (g.class) {
             if (ihn == null) {

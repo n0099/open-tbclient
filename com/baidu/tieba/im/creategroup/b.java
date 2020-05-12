@@ -45,22 +45,22 @@ public class b implements o {
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public int cdD() {
+    public int cdE() {
         return this.mIndex;
     }
 
-    public View cdE() {
+    public View cdF() {
         return this.mTipView;
     }
 
-    public int cdF() {
+    public int cdG() {
         return this.ihu;
     }
 
-    public void cdG() {
+    public void cdH() {
         this.ihx.setVisibility(0);
         this.ihy = false;
-        cdL();
+        cdM();
         this.mTipView.setText(R.string.location_loading);
         this.ihu = 3;
     }
@@ -68,7 +68,7 @@ public class b implements o {
     public void setBusiness(String str) {
         this.ihx.setVisibility(0);
         this.ihy = true;
-        cdL();
+        cdM();
         this.mTipView.setText(str);
         this.ihu = 0;
     }
@@ -76,42 +76,42 @@ public class b implements o {
     public void setAddress(String str) {
         this.ihx.setVisibility(8);
         this.ihy = true;
-        cdL();
+        cdM();
         this.mTipView.setText(str);
         this.ihu = 4;
     }
 
-    public void cdH() {
+    public void cdI() {
         this.ihx.setVisibility(0);
         this.ihy = false;
-        cdL();
+        cdM();
         this.mTipView.setText(R.string.address_locate_failed_opengps);
         this.ihu = 1;
     }
 
-    public void cdI() {
+    public void cdJ() {
         this.ihy = false;
-        cdL();
+        cdM();
         this.mTipView.setText(R.string.address_locate_failed_tryagain);
         this.ihx.setVisibility(8);
         this.ihu = 2;
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public void cdJ() {
+    public void cdK() {
         this.ihw.setBackgroundDrawable(null);
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public void cdK() {
+    public void cdL() {
         boolean z = TbadkApplication.getInst().getSkinType() == 1;
         this.ihv.getLayoutMode().setNightMode(z);
         this.ihv.getLayoutMode().onModeChanged(this.mView);
         this.ihw.startLoad(c.a(this.ihv.getActivity(), c.ihA, z), 29, false);
-        cdL();
+        cdM();
     }
 
-    private void cdL() {
+    private void cdM() {
         if (this.ihy) {
             Drawable drawable = am.getDrawable(R.drawable.icon_jq_lbs_s);
             drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
@@ -131,7 +131,7 @@ public class b implements o {
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public String cdM() {
+    public String cdN() {
         if (this.mIndex != this.ihz) {
             return this.ihv.getPageContext().getString(R.string.next_step);
         }
@@ -139,7 +139,7 @@ public class b implements o {
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public boolean cdN() {
+    public boolean cdO() {
         return true;
     }
 
@@ -149,7 +149,7 @@ public class b implements o {
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public boolean cdO() {
+    public boolean cdP() {
         return true;
     }
 }

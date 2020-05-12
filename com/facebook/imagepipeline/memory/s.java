@@ -11,7 +11,7 @@ public interface s {
 
     void a(BasePool basePool);
 
-    void dtv();
-
     void dtw();
+
+    void dtx();
 }

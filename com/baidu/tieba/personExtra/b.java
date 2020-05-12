@@ -26,7 +26,7 @@ public class b {
         setHasMore(false);
     }
 
-    public int cGQ() {
+    public int cGR() {
         return this.jVO;
     }
 
@@ -38,7 +38,7 @@ public class b {
         this.jVO += i;
     }
 
-    public int cGR() {
+    public int cGS() {
         return this.jVP;
     }
 
@@ -50,23 +50,23 @@ public class b {
         this.jVP += i;
     }
 
-    public ArrayList<ForumData> cGS() {
+    public ArrayList<ForumData> cGT() {
         return this.jVI;
     }
 
-    public ArrayList<ForumData> cGT() {
+    public ArrayList<ForumData> cGU() {
         return this.jVJ;
     }
 
-    public ArrayList<ForumData> cGU() {
+    public ArrayList<ForumData> cGV() {
         return this.jVL;
     }
 
-    public ArrayList<ForumData> cGV() {
+    public ArrayList<ForumData> cGW() {
         return this.jVM;
     }
 
-    public ArrayList<ForumData> cGW() {
+    public ArrayList<ForumData> cGX() {
         return this.jVH;
     }
 
@@ -114,7 +114,7 @@ public class b {
         }
     }
 
-    public ArrayList<ForumData> cGX() {
+    public ArrayList<ForumData> cGY() {
         return this.jVK;
     }
 

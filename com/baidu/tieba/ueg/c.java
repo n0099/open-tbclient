@@ -12,11 +12,11 @@ public class c extends BdAsyncTask<String, String, Integer> {
 
     /* loaded from: classes.dex */
     public interface a {
-        void clF();
-
         void clG();
 
         void clH();
+
+        void clI();
 
         void onError(String str);
     }
@@ -61,11 +61,11 @@ public class c extends BdAsyncTask<String, String, Integer> {
             if (num.intValue() == -1) {
                 this.lgq.onError(null);
             } else if (num.intValue() == 1) {
-                this.lgq.clF();
-            } else if (num.intValue() == 2 || num.intValue() == 0) {
                 this.lgq.clG();
-            } else {
+            } else if (num.intValue() == 2 || num.intValue() == 0) {
                 this.lgq.clH();
+            } else {
+                this.lgq.clI();
             }
         }
     }

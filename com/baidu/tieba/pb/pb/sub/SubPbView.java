@@ -86,7 +86,7 @@ public class SubPbView extends LinearLayout {
         this.azt = relativeLayout;
     }
 
-    public boolean cCy() {
+    public boolean cCz() {
         return this.dTZ;
     }
 

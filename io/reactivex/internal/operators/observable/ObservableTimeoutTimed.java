@@ -19,9 +19,9 @@ public final class ObservableTimeoutTimed<T> extends io.reactivex.internal.opera
     @Override // io.reactivex.q
     public void a(u<? super T> uVar) {
         if (this.other == null) {
-            this.source.subscribe(new TimeoutTimedObserver(new io.reactivex.observers.b(uVar), this.timeout, this.unit, this.scheduler.dCC()));
+            this.source.subscribe(new TimeoutTimedObserver(new io.reactivex.observers.b(uVar), this.timeout, this.unit, this.scheduler.dCD()));
         } else {
-            this.source.subscribe(new TimeoutTimedOtherObserver(uVar, this.timeout, this.unit, this.scheduler.dCC(), this.other));
+            this.source.subscribe(new TimeoutTimedOtherObserver(uVar, this.timeout, this.unit, this.scheduler.dCD(), this.other));
         }
     }
 

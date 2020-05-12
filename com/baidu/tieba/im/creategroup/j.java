@@ -72,51 +72,51 @@ public class j extends com.baidu.adp.base.c {
         this.iiD = str;
     }
 
-    public String cee() {
+    public String cef() {
         return this.iiC;
     }
 
-    public String cef() {
+    public String ceg() {
         return this.iiD;
     }
 
-    public View ceg() {
+    public View ceh() {
         return this.efZ;
     }
 
-    public int ceh() {
+    public int cei() {
         return this.iij;
     }
 
-    public View cei() {
+    public View cej() {
         return this.iik;
     }
 
-    public View cej() {
+    public View cek() {
         if (this.iin != null) {
-            return this.iin.cdT();
+            return this.iin.cdU();
         }
         if (this.iio != null) {
-            return this.iio.cdT();
+            return this.iio.cdU();
         }
         return null;
     }
 
-    public View cek() {
+    public View cel() {
+        return this.iir.cec();
+    }
+
+    public View cem() {
         return this.iir.ceb();
     }
 
-    public View cel() {
-        return this.iir.cea();
-    }
-
-    public boolean cem() {
+    public boolean cen() {
         return this.mIsLoading;
     }
 
-    public void cdG() {
-        this.iis.cdG();
-        ceH();
+    public void cdH() {
+        this.iis.cdH();
+        ceI();
     }
 
     public void Er(String str) {
@@ -130,7 +130,7 @@ public class j extends com.baidu.adp.base.c {
     public void setBusiness(String str) {
         this.business = str;
         this.iis.setBusiness(str);
-        ceH();
+        ceI();
     }
 
     public String getBusiness() {
@@ -139,10 +139,10 @@ public class j extends com.baidu.adp.base.c {
 
     public void Es(String str) {
         this.iis.setAddress(str);
-        ceH();
+        ceI();
     }
 
-    public boolean cen() {
+    public boolean ceo() {
         return this.iiA;
     }
 
@@ -150,26 +150,26 @@ public class j extends com.baidu.adp.base.c {
         this.iiA = z;
     }
 
-    public void cdH() {
-        this.iis.cdH();
-        ceH();
-    }
-
     public void cdI() {
         this.iis.cdI();
-        ceH();
+        ceI();
     }
 
-    public View ceo() {
-        return this.iis.cdE();
-    }
-
-    public int cdF() {
-        return this.iis.cdF();
+    public void cdJ() {
+        this.iis.cdJ();
+        ceI();
     }
 
     public View cep() {
-        return this.iip.cdX();
+        return this.iis.cdF();
+    }
+
+    public int cdG() {
+        return this.iis.cdG();
+    }
+
+    public View ceq() {
+        return this.iip.cdY();
     }
 
     public int getForumId() {
@@ -177,11 +177,11 @@ public class j extends com.baidu.adp.base.c {
     }
 
     public String getName() {
-        return this.iip.cdW().getText().toString();
+        return this.iip.cdX().getText().toString();
     }
 
     public String getIntro() {
-        return this.iiq.cdP().getText().toString();
+        return this.iiq.cdQ().getText().toString();
     }
 
     public void setPortrait(String str) {
@@ -196,23 +196,23 @@ public class j extends com.baidu.adp.base.c {
         return this.iim;
     }
 
-    public boolean ceq() {
-        return this.iip != null && this.iij == this.iip.cdD();
-    }
-
     public boolean cer() {
-        return this.iiq != null && this.iij == this.iiq.cdD();
+        return this.iip != null && this.iij == this.iip.cdE();
     }
 
     public boolean ces() {
-        return this.iir != null && this.iij == this.iir.cdD();
+        return this.iiq != null && this.iij == this.iiq.cdE();
     }
 
     public boolean cet() {
-        return this.iis != null && this.iij == this.iis.cdD();
+        return this.iir != null && this.iij == this.iir.cdE();
     }
 
     public boolean ceu() {
+        return this.iis != null && this.iij == this.iis.cdE();
+    }
+
+    public boolean cev() {
         return this.iii != null && this.iij == this.iii.getCount();
     }
 
@@ -223,16 +223,16 @@ public class j extends com.baidu.adp.base.c {
         return null;
     }
 
-    public void cev() {
-        this.iir.ceb().setText(R.string.group_create_modify_photo_tip);
+    public void cew() {
+        this.iir.cec().setText(R.string.group_create_modify_photo_tip);
     }
 
-    public void cew() {
-        this.iir.cdZ();
+    public void cex() {
+        this.iir.cea();
     }
 
     public void CO() {
-        this.iip.cdY();
+        this.iip.cdZ();
     }
 
     public j(CreateGroupStepActivity createGroupStepActivity, int i, int i2, int i3, int i4) {
@@ -274,15 +274,15 @@ public class j extends com.baidu.adp.base.c {
         this.iiu = new com.baidu.tieba.im.util.b(this.ihv);
         this.iiu.setUniqueId(this.ihv.getUniqueId());
         if (!ab.d(this.ihv, RequestResponseCode.REQUEST_BUY_TBEAN_FROM_JOIN_GUARDCLUB)) {
-            cex();
+            cey();
         }
     }
 
-    public void cex() {
+    public void cey() {
         this.iiu.startLoad();
     }
 
-    public void cey() {
+    public void cez() {
         if (this.iiu != null) {
             this.iiu.cancelLoad();
         }
@@ -291,17 +291,17 @@ public class j extends com.baidu.adp.base.c {
     private void initListener() {
         this.efZ.setOnClickListener(this.ihv);
         this.iik.setOnClickListener(this.ihv);
-        this.iip.cdW().setFilters(new InputFilter[]{new com.baidu.tieba.im.util.a(20)});
-        this.iip.cdW().addTextChangedListener(this.ihv);
-        this.iiq.cdP().addTextChangedListener(this.ihv);
+        this.iip.cdX().setFilters(new InputFilter[]{new com.baidu.tieba.im.util.a(20)});
+        this.iip.cdX().addTextChangedListener(this.ihv);
+        this.iiq.cdQ().addTextChangedListener(this.ihv);
+        this.iir.cec().setOnClickListener(this.ihv);
         this.iir.ceb().setOnClickListener(this.ihv);
-        this.iir.cea().setOnClickListener(this.ihv);
-        this.iis.cdE().setOnClickListener(this.ihv);
+        this.iis.cdF().setOnClickListener(this.ihv);
         if (this.iio != null) {
-            this.iio.cdT().setOnClickListener(this.ihv);
+            this.iio.cdU().setOnClickListener(this.ihv);
         }
         if (this.iin != null) {
-            this.iin.cdT().setOnClickListener(this.ihv);
+            this.iin.cdU().setOnClickListener(this.ihv);
         }
     }
 
@@ -322,12 +322,12 @@ public class j extends com.baidu.adp.base.c {
         this.mNavigationBar = (NavigationBar) createGroupStepActivity.findViewById(R.id.view_navigation_bar);
         this.mNavigationBar.setSystemClickable(false);
         this.efZ = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        ceF();
+        ceG();
         this.iik = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, createGroupStepActivity.getResources().getString(R.string.next_step));
         ((LinearLayout.LayoutParams) this.iik.getLayoutParams()).rightMargin = com.baidu.adp.lib.util.l.getDimens(getPageContext().getPageActivity(), R.dimen.ds16);
         am.setBackgroundResource(this.iik, R.drawable.s_navbar_button_bg);
         oz(false);
-        ceG();
+        ceH();
     }
 
     private void b(CreateGroupStepActivity createGroupStepActivity, int i, int i2, int i3, int i4) {
@@ -384,49 +384,49 @@ public class j extends com.baidu.adp.base.c {
 
     private void oz(boolean z) {
         this.bLl = z;
-        ceA();
+        ceB();
     }
 
-    public boolean cez() {
+    public boolean ceA() {
         return this.bLl;
     }
 
-    private void ceA() {
+    private void ceB() {
         this.iik.setEnabled(this.bLl);
         am.setBackgroundResource(this.iik, R.drawable.s_navbar_button_bg);
     }
 
-    public void ceB() {
+    public void ceC() {
         if (this.iij > 1) {
             this.iij--;
-            ceD();
-        }
-    }
-
-    public void ceC() {
-        if (this.iij < this.ihz) {
-            this.iij++;
-            ceD();
+            ceE();
         }
     }
 
     public void ceD() {
-        this.iit.setCurrentItem(this.iij - 1);
-        ceF();
-        ceG();
-        ceH();
-        this.iip.cdW().clearFocus();
-        this.iiq.cdP().clearFocus();
-        c(this.iip.cdW());
-        c(this.iiq.cdP());
-        if (ces() && cem()) {
-            cei().setEnabled(false);
-        } else {
-            cei().setEnabled(true);
+        if (this.iij < this.ihz) {
+            this.iij++;
+            ceE();
         }
     }
 
     public void ceE() {
+        this.iit.setCurrentItem(this.iij - 1);
+        ceG();
+        ceH();
+        ceI();
+        this.iip.cdX().clearFocus();
+        this.iiq.cdQ().clearFocus();
+        c(this.iip.cdX());
+        c(this.iiq.cdQ());
+        if (cet() && cen()) {
+            cej().setEnabled(false);
+        } else {
+            cej().setEnabled(true);
+        }
+    }
+
+    public void ceF() {
         String[] strArr = {this.ihv.getResources().getString(R.string.take_photo), this.ihv.getResources().getString(R.string.album)};
         if (this.iil == null) {
             this.iil = new com.baidu.tbadk.core.dialog.i(this.ihv.getPageContext());
@@ -482,53 +482,53 @@ public class j extends com.baidu.adp.base.c {
         }
     }
 
-    private void ceF() {
+    private void ceG() {
         if (this.iii.wN(this.iij - 1) != null) {
             this.mNavigationBar.setTitleText(this.iii.wN(this.iij - 1).getTitle());
         }
     }
 
-    public void ceG() {
+    public void ceH() {
         for (o oVar : this.iii.getList()) {
-            if (oVar.cdD() == this.iij) {
-                oVar.cdK();
-                if (!oVar.cdO()) {
+            if (oVar.cdE() == this.iij) {
+                oVar.cdL();
+                if (!oVar.cdP()) {
                     this.iik.setVisibility(8);
                 } else {
                     this.iik.setVisibility(0);
                 }
-                Et(oVar.cdM());
+                Et(oVar.cdN());
             } else {
-                oVar.cdJ();
+                oVar.cdK();
             }
         }
-        if (this.iii.wN(this.iij - 1) != null && this.iii.wN(this.iij - 1).cdN()) {
+        if (this.iii.wN(this.iij - 1) != null && this.iii.wN(this.iij - 1).cdO()) {
             oz(true);
         }
     }
 
-    public void ceH() {
-        if (ceq()) {
-            a(this.iip.cdW().getText().length(), this.iip.cdR() / 2, 2, 20);
-        } else if (cer()) {
-            int cdR = this.iiq.cdR() / 2;
-            S(cdR, 15, 300);
-            int i = 300 - cdR;
-            this.iiq.cdQ().setText(String.valueOf(i));
+    public void ceI() {
+        if (cer()) {
+            a(this.iip.cdX().getText().length(), this.iip.cdS() / 2, 2, 20);
+        } else if (ces()) {
+            int cdS = this.iiq.cdS() / 2;
+            S(cdS, 15, 300);
+            int i = 300 - cdS;
+            this.iiq.cdR().setText(String.valueOf(i));
             if (i <= 50) {
-                this.iiq.cdQ().setVisibility(0);
+                this.iiq.cdR().setVisibility(0);
             } else {
-                this.iiq.cdQ().setVisibility(8);
+                this.iiq.cdR().setVisibility(8);
             }
             if (i == 0) {
-                this.iiq.cdQ().setTextColor(this.ihv.getResources().getColor(R.color.common_color_10170));
+                this.iiq.cdR().setTextColor(this.ihv.getResources().getColor(R.color.common_color_10170));
             } else if (i < 0) {
                 this.iiq.wM(300);
             } else {
-                this.iiq.cdS();
+                this.iiq.cdT();
             }
-        } else if (cet()) {
-            if (this.iis.cdF() != 3) {
+        } else if (ceu()) {
+            if (this.iis.cdG() != 3) {
                 oz(true);
             } else {
                 oz(false);
@@ -569,7 +569,7 @@ public class j extends com.baidu.adp.base.c {
         this.ihv.getLayoutMode().onModeChanged(this.mParent);
         am.setBgColor(this.mParent, i);
         this.mNavigationBar.onChangeSkinType(this.mContext, i);
-        ceA();
+        ceB();
         am.setViewTextColor(this.iik, R.color.navbar_btn_color, 1);
         ViewGroup viewGroup = (ViewGroup) this.mParent.getParent().getParent();
         if (com.baidu.adp.lib.util.l.isFlymeOsAbove35()) {

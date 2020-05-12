@@ -95,14 +95,14 @@ final class f<M extends Message<M, B>, B extends Message.a<M, B>> extends ProtoA
             if (aVar.mNI && aVar.mNF == WireField.Label.REQUIRED) {
                 throw new UnsupportedOperationException(String.format("Field '%s' in %s is required and cannot be redacted.", aVar.name, this.javaType.getName()));
             }
-            boolean isAssignableFrom = Message.class.isAssignableFrom(aVar.dAL().javaType);
+            boolean isAssignableFrom = Message.class.isAssignableFrom(aVar.dAM().javaType);
             if (aVar.mNI || (isAssignableFrom && !aVar.mNF.isRepeated())) {
                 Object a = aVar.a((a<M, B>) newBuilder);
                 if (a != null) {
                     aVar.b(newBuilder, aVar.adapter().redact(a));
                 }
             } else if (isAssignableFrom && aVar.mNF.isRepeated()) {
-                com.squareup.wire2.internal.a.a((List) aVar.a((a<M, B>) newBuilder), aVar.dAL());
+                com.squareup.wire2.internal.a.a((List) aVar.a((a<M, B>) newBuilder), aVar.dAM());
             }
         }
         newBuilder.clearUnknownFields();
@@ -136,30 +136,30 @@ final class f<M extends Message<M, B>, B extends Message.a<M, B>> extends ProtoA
     @Override // com.squareup.wire2.ProtoAdapter
     /* renamed from: l */
     public M decode(c cVar) throws IOException {
-        ProtoAdapter<?> dAL;
+        ProtoAdapter<?> dAM;
         B newBuilder = newBuilder();
-        long dAN = cVar.dAN();
+        long dAO = cVar.dAO();
         while (true) {
-            int dAO = cVar.dAO();
-            if (dAO != -1) {
-                a<M, B> aVar = this.mNU.get(Integer.valueOf(dAO));
+            int dAP = cVar.dAP();
+            if (dAP != -1) {
+                a<M, B> aVar = this.mNU.get(Integer.valueOf(dAP));
                 if (aVar != null) {
                     try {
-                        if (aVar.dAK()) {
-                            dAL = aVar.adapter();
+                        if (aVar.dAL()) {
+                            dAM = aVar.adapter();
                         } else {
-                            dAL = aVar.dAL();
+                            dAM = aVar.dAM();
                         }
-                        aVar.a(newBuilder, dAL.decode(cVar));
+                        aVar.a(newBuilder, dAM.decode(cVar));
                     } catch (ProtoAdapter.EnumConstantNotFoundException e) {
-                        newBuilder.addUnknownField(dAO, FieldEncoding.VARINT, Long.valueOf(e.value));
+                        newBuilder.addUnknownField(dAP, FieldEncoding.VARINT, Long.valueOf(e.value));
                     }
                 } else {
-                    FieldEncoding dAP = cVar.dAP();
-                    newBuilder.addUnknownField(dAO, dAP, dAP.rawProtoAdapter().decode(cVar));
+                    FieldEncoding dAQ = cVar.dAQ();
+                    newBuilder.addUnknownField(dAP, dAQ, dAQ.rawProtoAdapter().decode(cVar));
                 }
             } else {
-                cVar.gc(dAN);
+                cVar.gc(dAO);
                 return (M) newBuilder.build();
             }
         }

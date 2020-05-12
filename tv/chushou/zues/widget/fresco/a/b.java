@@ -11,7 +11,7 @@ public class b extends com.facebook.imagepipeline.request.a {
     private static final b nug = new b();
     private static final com.facebook.cache.common.b nuf = new g("GrayPostprocessor");
 
-    public static b dKi() {
+    public static b dKj() {
         return nug;
     }
 
@@ -34,7 +34,7 @@ public class b extends com.facebook.imagepipeline.request.a {
     }
 
     @Override // com.facebook.imagepipeline.request.a, com.facebook.imagepipeline.request.b
-    public com.facebook.cache.common.b dtP() {
+    public com.facebook.cache.common.b dtQ() {
         return nuf;
     }
 }

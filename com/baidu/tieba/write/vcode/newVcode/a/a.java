@@ -69,24 +69,24 @@ public class a implements b {
 
     @Override // com.baidu.tieba.write.vcode.newVcode.a.b
     public boolean c(WebView webView, String str) {
-        WriteData cSK;
-        if (this.lxM.cSK() == null || StringUtils.isNull(str) || (cSK = this.lxM.cSK()) == null) {
+        WriteData cSL;
+        if (this.lxM.cSL() == null || StringUtils.isNull(str) || (cSL = this.lxM.cSL()) == null) {
             return false;
         }
         if (str.contains("objc:loadReady")) {
-            if (cSK.getVcodeExtra() == null) {
+            if (cSL.getVcodeExtra() == null) {
                 return false;
             }
-            this.lBH.runJsMethod("handleFreshCaptcha", "'" + cSK.getVcodeUrl() + "','" + cSK.getVcodeExtra().slideImg + "','" + cSK.getVcodeExtra().textImg + "'");
+            this.lBH.runJsMethod("handleFreshCaptcha", "'" + cSL.getVcodeUrl() + "','" + cSL.getVcodeExtra().slideImg + "','" + cSL.getVcodeExtra().textImg + "'");
             return true;
         } else if (str.contains("objc:jsChangePosition")) {
             ME(com.baidu.tbadk.s.a.xq(str));
             return true;
         } else if (str.contains("objc:finish")) {
             this.lxN = true;
-            if (cSK != null && cSK.getVideoReviewType() == 1) {
+            if (cSL != null && cSL.getVideoReviewType() == 1) {
                 this.lBH.showToast(true, this.lBH.getContext().getResources().getString(R.string.video_send_success_under_review));
-            } else if (cSK != null && cSK.getVideoReviewType() == 2) {
+            } else if (cSL != null && cSL.getVideoReviewType() == 2) {
                 this.lBH.showToast(true, this.lBH.getContext().getResources().getString(R.string.video_send_success));
             } else {
                 String str2 = null;
@@ -97,7 +97,7 @@ public class a implements b {
                     str3 = this.jvB.getColorMsg();
                     string = this.jvB.getErrorString();
                 }
-                if (cSK.getType() != 7) {
+                if (cSL.getType() != 7) {
                     com.baidu.tieba.tbadkCore.writeModel.c.g(this.lBH.getContext().getActivity(), string, str2, str3);
                 }
             }
@@ -148,7 +148,7 @@ public class a implements b {
     }
 
     @Override // com.baidu.tieba.write.vcode.newVcode.a.b
-    public void dfi() {
+    public void dfj() {
         this.lBH.showPostThreadLoadingView(false);
         this.lxM.cancelLoadData();
     }
@@ -160,9 +160,9 @@ public class a implements b {
             this.lBH.getContext().finish();
         } else if (!StringUtils.isNull(str)) {
             this.lBH.showPostThreadLoadingView(true);
-            this.lxM.cSK().setVcode(str);
-            this.lxM.cSK().setVcodeType("5");
-            this.lxM.cXy();
+            this.lxM.cSL().setVcode(str);
+            this.lxM.cSL().setVcodeType("5");
+            this.lxM.cXz();
         } else {
             this.lBH.getContext().showToast(R.string.neterror);
             this.lBH.getContext().finish();

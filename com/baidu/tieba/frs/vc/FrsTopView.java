@@ -101,7 +101,7 @@ public class FrsTopView extends LinearLayout {
             this.topThreadList.addAll(list);
             int i = this.topThreadList.size() <= 2 ? 1 : 2;
             for (int i2 = 0; i2 < i; i2++) {
-                bVW();
+                bVX();
                 com.baidu.tieba.frs.view.d dVar = this.hyD.get(i2);
                 if (dVar != null) {
                     if (this.gZQ == null) {
@@ -115,7 +115,7 @@ public class FrsTopView extends LinearLayout {
         if (this.hyE == null && this.hyC != null) {
             this.hyE = new ArrayList<>(Collections.nCopies(this.hyC.size(), Boolean.FALSE));
         }
-        bVX();
+        bVY();
     }
 
     private void a(com.baidu.tieba.tbadkCore.i iVar) {
@@ -155,7 +155,7 @@ public class FrsTopView extends LinearLayout {
         }
     }
 
-    private void bVW() {
+    private void bVX() {
         AdapterLinearLayout adapterLinearLayout = new AdapterLinearLayout(getContext());
         adapterLinearLayout.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
         adapterLinearLayout.setOrientation(1);
@@ -177,7 +177,7 @@ public class FrsTopView extends LinearLayout {
         this.hgq = arVar;
     }
 
-    private void bVX() {
+    private void bVY() {
         setVisibility(0);
         if (this.hyz != null) {
             this.hyz.setViews(this.hyC, this.hyD);
@@ -302,7 +302,7 @@ public class FrsTopView extends LinearLayout {
                 str = bjVar.dtD.id;
                 str2 = valueOf;
             }
-            if (bjVar.aKY() > 0 && com.baidu.tieba.tbadkCore.util.e.cXq()) {
+            if (bjVar.aKY() > 0 && com.baidu.tieba.tbadkCore.util.e.cXr()) {
                 createFromThreadCfg = new PbActivityConfig(baseFragmentActivity).createHistoryCfg(bjVar.getTid(), String.valueOf(bjVar.aKY()), false, true, "frs_page");
             } else {
                 createFromThreadCfg = new PbActivityConfig(baseFragmentActivity).createFromThreadCfg(bjVar, this.mForumName, "frs_page", RequestResponseCode.REQUEST_FRS_TO_PB, true, false, z);

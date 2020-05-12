@@ -9,22 +9,22 @@ public class k {
     private long jcr;
     private boolean jcs;
 
-    public void crT() {
+    public void crU() {
         this.jcp = 0L;
         this.jcq = 0L;
         this.jcr = 0L;
     }
 
-    public void crU() {
+    public void crV() {
         this.jcs = true;
         this.jcp = SystemClock.elapsedRealtime();
     }
 
-    public void crV() {
+    public void crW() {
         this.jcq = SystemClock.elapsedRealtime();
     }
 
-    public void crW() {
+    public void crX() {
         this.jcr = SystemClock.elapsedRealtime();
     }
 

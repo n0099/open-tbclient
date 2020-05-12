@@ -28,20 +28,20 @@ public final class UploadInfoCollector {
 
     /* loaded from: classes5.dex */
     public static abstract class RecordMsg {
-        public abstract String dAn();
+        public abstract String dAo();
     }
 
     private UploadInfoCollector(String str, String str2) {
         this.mLn = str;
         this.mLm = str2;
         try {
-            dAm();
+            dAn();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    private static UploadInfoCollector dAl() {
+    private static UploadInfoCollector dAm() {
         if (mLl == null) {
             mLl = new UploadInfoCollector("_qiniu_record_file_hs5z9lo7anx03", "https://uplog.qbox.me/log/3");
         }
@@ -51,7 +51,7 @@ public final class UploadInfoCollector {
     public static void a(UpToken upToken, RecordMsg recordMsg) {
         try {
             if (Config.mLg) {
-                dAl().c(upToken, recordMsg);
+                dAm().c(upToken, recordMsg);
             }
         } catch (Throwable th) {
         }
@@ -135,7 +135,7 @@ public final class UploadInfoCollector {
         return httpClient;
     }
 
-    private void dAm() throws IOException {
+    private void dAn() throws IOException {
         if (Config.mLg) {
             ah(OW(Config.mLh));
         }
@@ -175,7 +175,7 @@ public final class UploadInfoCollector {
                 public void run() {
                     if (Config.mLg) {
                         try {
-                            UploadInfoCollector.this.o(recordMsg.dAn(), UploadInfoCollector.this.mLo);
+                            UploadInfoCollector.this.o(recordMsg.dAo(), UploadInfoCollector.this.mLo);
                         } catch (Throwable th) {
                         }
                     }
@@ -220,7 +220,7 @@ public final class UploadInfoCollector {
 
     private boolean b(UpToken upToken, File file) {
         try {
-            Response execute = ahe().newCall(new Request.Builder().url(this.mLm).addHeader("Authorization", "UpToken " + upToken.token).addHeader("User-Agent", UserAgent.dAv().Pd(upToken.mLA)).post(RequestBody.create(MediaType.parse("text/plain"), file)).build()).execute();
+            Response execute = ahe().newCall(new Request.Builder().url(this.mLm).addHeader("Authorization", "UpToken " + upToken.token).addHeader("User-Agent", UserAgent.dAw().Pd(upToken.mLA)).post(RequestBody.create(MediaType.parse("text/plain"), file)).build()).execute();
             boolean d = d(execute);
             try {
                 execute.body().close();

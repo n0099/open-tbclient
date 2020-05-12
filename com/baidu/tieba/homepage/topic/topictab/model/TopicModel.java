@@ -93,7 +93,7 @@ public class TopicModel extends BdBaseModel {
         registerListener(this.hOj);
     }
 
-    public void cat() {
+    public void cau() {
         if (!j.isNetworkAvailableForImmediately()) {
             if (this.hTo != null) {
                 this.hTo.o(-1, null);

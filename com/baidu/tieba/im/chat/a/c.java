@@ -182,7 +182,7 @@ public abstract class c extends BaseAdapter {
         am.setViewTextColor(aVar.ifn, R.color.cp_cont_d, 1);
     }
 
-    public boolean cdk() {
+    public boolean cdl() {
         return this.ifi;
     }
 

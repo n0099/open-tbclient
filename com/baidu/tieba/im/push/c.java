@@ -30,7 +30,7 @@ public class c {
         MessageManager.getInstance().registerListener(this.isT);
     }
 
-    public static c cit() {
+    public static c ciu() {
         if (itT == null) {
             synchronized (c.class) {
                 if (itT == null) {
@@ -73,11 +73,11 @@ public class c {
         return this.iep;
     }
 
-    public Long ciu() {
-        return com.baidu.tieba.im.memorycache.b.chA().chL().get(this.iep);
+    public Long civ() {
+        return com.baidu.tieba.im.memorycache.b.chB().chM().get(this.iep);
     }
 
-    public synchronized List<Long> civ() {
+    public synchronized List<Long> ciw() {
         ArrayList arrayList;
         arrayList = new ArrayList();
         for (Long l : this.itU) {
@@ -88,7 +88,7 @@ public class c {
         return arrayList;
     }
 
-    public synchronized void ciw() {
+    public synchronized void cix() {
         this.itU.clear();
     }
 
@@ -116,7 +116,7 @@ public class c {
         }
     }
 
-    public synchronized boolean cix() {
+    public synchronized boolean ciy() {
         boolean z;
         if (this.iep > 0) {
             z = this.itU.size() > 0;
@@ -141,7 +141,7 @@ public class c {
         return z;
     }
 
-    public synchronized String ciy() {
+    public synchronized String ciz() {
         String str;
         str = "";
         for (Long l : this.itU) {

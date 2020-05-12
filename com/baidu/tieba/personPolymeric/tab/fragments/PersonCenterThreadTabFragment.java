@@ -161,7 +161,7 @@ public class PersonCenterThreadTabFragment extends PersonCenterTabBaseFragment i
                     showLoadingView(this.kcp.getRootView(), false, getResources().getDimensionPixelSize(R.dimen.ds250));
                 }
                 sJ(true);
-                bOc();
+                bOd();
                 return;
             }
             showNetRefreshView(this.kcp.getRootView(), null, false);
@@ -182,9 +182,9 @@ public class PersonCenterThreadTabFragment extends PersonCenterTabBaseFragment i
         sH(true);
     }
 
-    public void bOc() {
+    public void bOd() {
         if (this.kcp != null && this.mHasInit) {
-            this.kcp.bOc();
+            this.kcp.bOd();
         }
     }
 
@@ -222,12 +222,12 @@ public class PersonCenterThreadTabFragment extends PersonCenterTabBaseFragment i
     }
 
     @Override // com.baidu.tieba.personPolymeric.tab.fragments.a
-    public com.baidu.tieba.personPolymeric.tab.view.a cIH() {
+    public com.baidu.tieba.personPolymeric.tab.view.a cII() {
         return this.kcp;
     }
 
     @Override // com.baidu.tieba.personPolymeric.tab.fragments.a
-    public List<m> cpN() {
+    public List<m> cpO() {
         if (this.kag != null) {
             return this.kag.threadList;
         }
@@ -235,7 +235,7 @@ public class PersonCenterThreadTabFragment extends PersonCenterTabBaseFragment i
     }
 
     @Override // com.baidu.tieba.personPolymeric.tab.fragments.a
-    public boolean cII() {
+    public boolean cIJ() {
         return this.isHost && isPrimary() && !this.kcs;
     }
 }

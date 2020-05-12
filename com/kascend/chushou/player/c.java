@@ -8,15 +8,15 @@ public class c {
     public c() {
         this.mpQ = null;
         this.mnR = null;
-        this.mpQ = ((tv.chushou.basis.d.a.a.b) tv.chushou.basis.d.b.dJr().S(tv.chushou.basis.d.a.a.b.class)).createPlayer();
-        this.mnR = ((tv.chushou.basis.d.a.a.b) tv.chushou.basis.d.b.dJr().S(tv.chushou.basis.d.a.a.b.class)).createPlayer();
-    }
-
-    public tv.chushou.common.player.a dxy() {
-        return this.mpQ;
+        this.mpQ = ((tv.chushou.basis.d.a.a.b) tv.chushou.basis.d.b.dJs().S(tv.chushou.basis.d.a.a.b.class)).createPlayer();
+        this.mnR = ((tv.chushou.basis.d.a.a.b) tv.chushou.basis.d.b.dJs().S(tv.chushou.basis.d.a.a.b.class)).createPlayer();
     }
 
     public tv.chushou.common.player.a dxz() {
+        return this.mpQ;
+    }
+
+    public tv.chushou.common.player.a dxA() {
         return this.mnR;
     }
 

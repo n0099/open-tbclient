@@ -16,7 +16,7 @@ public class c implements m {
         return gvQ;
     }
 
-    public FeatureCardCompetition bGr() {
+    public FeatureCardCompetition bGs() {
         return this.gvR;
     }
 

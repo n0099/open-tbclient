@@ -57,14 +57,14 @@ public class b {
         public void onClick(View view) {
             if (view == b.this.kcQ || view == b.this.kcP) {
                 if (b.this.mIsHost) {
-                    b.this.cID();
+                    b.this.cIE();
                 } else {
                     PersonIntroductionActivity.aL(b.this.mPageContext.getPageActivity(), b.this.mUserData.getIntro());
                 }
             } else if (view == b.this.kcS) {
-                b.this.cID();
+                b.this.cIE();
             } else if (view == b.this.kcT) {
-                b.this.cID();
+                b.this.cIE();
             }
         }
     };
@@ -257,7 +257,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cID() {
+    public void cIE() {
         if (TbadkCoreApplication.getCurrentAccountInfo() != null) {
             PersonChangeData personChangeData = new PersonChangeData();
             if (this.mUserData != null) {

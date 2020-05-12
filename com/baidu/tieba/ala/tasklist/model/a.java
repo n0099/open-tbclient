@@ -70,24 +70,24 @@ public class a extends BdBaseModel<AlaTaskListActivity> {
                     }
                     a.this.gfb = alaTaskRewardHttpResponsedMessage.gfb;
                     a.this.gfc = alaTaskRewardHttpResponsedMessage.gfc;
-                    a.this.bDm();
+                    a.this.bDn();
                     if (a.this.gfd != null) {
                         a.this.gfd.a(alaTaskRewardHttpResponsedMessage.gfb, alaTaskRewardHttpResponsedMessage.gfc);
                     }
                 }
             }
         };
-        bDj();
         bDk();
+        bDl();
         MessageManager.getInstance().registerListener(this.gfe);
         MessageManager.getInstance().registerListener(this.gff);
     }
 
-    public x bDi() {
+    public x bDj() {
         return this.gfc;
     }
 
-    private void bDj() {
+    private void bDk() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021065, com.baidu.live.a.ans);
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
@@ -96,7 +96,7 @@ public class a extends BdBaseModel<AlaTaskListActivity> {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private void bDk() {
+    private void bDl() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021066, com.baidu.live.a.ant);
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
@@ -105,7 +105,7 @@ public class a extends BdBaseModel<AlaTaskListActivity> {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void bDl() {
+    public void bDm() {
         HttpMessage httpMessage = new HttpMessage(1021065);
         httpMessage.setTag(getUniqueId());
         MessageManager.getInstance().sendMessage(httpMessage);
@@ -119,7 +119,7 @@ public class a extends BdBaseModel<AlaTaskListActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bDm() {
+    public void bDn() {
         UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem("1396", "click", "liveroom", "petal_pickup"));
     }
 

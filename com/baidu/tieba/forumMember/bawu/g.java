@@ -67,16 +67,16 @@ public class g {
             this.gUm = false;
         }
         if (z && this.gUm) {
-            bMX();
+            bMY();
             return;
         }
-        bMY();
+        bMZ();
         this.gUk.am(arrayList);
         this.gUk.a(pVar);
         this.gUk.notifyDataSetChanged();
     }
 
-    public boolean bMW() {
+    public boolean bMX() {
         return this.gUm;
     }
 
@@ -88,12 +88,12 @@ public class g {
         this.gUk.notifyDataSetChanged();
     }
 
-    public void bMX() {
+    public void bMY() {
         this.Ua.setVisibility(8);
         this.gUj.showNetRefreshView(this.mRoot, this.gUj.getPageContext().getResources().getString(R.string.no_data_text), true);
     }
 
-    public void bMY() {
+    public void bMZ() {
         this.gUj.hideNetRefreshView(this.mRoot);
         this.Ua.setVisibility(0);
     }

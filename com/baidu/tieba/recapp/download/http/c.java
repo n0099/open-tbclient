@@ -40,31 +40,31 @@ public class c {
     public i b(String str, boolean z, int i, int i2, int i3, int i4, LinkedList<BasicNameValuePair> linkedList) throws Exception {
         this.ksH = new g();
         a(this.ksH, z);
-        this.ksH.cNA().setUrl(str);
+        this.ksH.cNB().setUrl(str);
         this.ksI = new d(this.ksH);
         this.ksI.d(i, i3, i4);
-        return this.ksH.cNB();
+        return this.ksH.cNC();
     }
 
     public i b(String str, List<BasicNameValuePair> list, boolean z, int i, int i2, LinkedList<BasicNameValuePair> linkedList) throws Exception {
         this.ksH = new g();
         a(this.ksH, z);
-        this.ksH.cNA().setUrl(str);
+        this.ksH.cNB().setUrl(str);
         if (list != null) {
             for (BasicNameValuePair basicNameValuePair : list) {
-                this.ksH.cNA().addPostData(basicNameValuePair);
+                this.ksH.cNB().addPostData(basicNameValuePair);
             }
         }
         if (linkedList != null) {
             Iterator<BasicNameValuePair> it = linkedList.iterator();
             while (it.hasNext()) {
                 BasicNameValuePair next = it.next();
-                this.ksH.cNA().s(next.getName(), next.getValue());
+                this.ksH.cNB().s(next.getName(), next.getValue());
             }
         }
         this.ksI = new d(this.ksH);
         this.ksI.f(i, i2, -1);
-        return this.ksH.cNB();
+        return this.ksH.cNC();
     }
 
     public boolean a(String str, String str2, boolean z, int i, int i2, int i3, int i4, LinkedList<BasicNameValuePair> linkedList, j jVar, boolean z2) {
@@ -74,7 +74,7 @@ public class c {
     public boolean a(String str, String str2, boolean z, int i, int i2, int i3, int i4, LinkedList<BasicNameValuePair> linkedList, j jVar, boolean z2, boolean z3) {
         this.ksH = new g();
         b(this.ksH);
-        this.ksH.cNA().setUrl(str);
+        this.ksH.cNB().setUrl(str);
         this.ksI = new d(this.ksH);
         return this.ksI.a(str2, jVar, i, i2, i3, i4, z2, z3);
     }
@@ -102,36 +102,36 @@ public class c {
         }
     }
 
-    public g cNz() {
+    public g cNA() {
         return this.ksH;
     }
 
     private void a(g gVar, boolean z) {
         if (gVar != null) {
             if (!TextUtils.isEmpty(KK)) {
-                gVar.cNA().s(SM.COOKIE, KK);
+                gVar.cNB().s(SM.COOKIE, KK);
             } else {
-                gVar.cNA().s(SM.COOKIE, "");
+                gVar.cNB().s(SM.COOKIE, "");
             }
             if (!TextUtils.isEmpty(sUid)) {
-                gVar.cNA().s("client_user_token", sUid);
+                gVar.cNB().s("client_user_token", sUid);
             }
             if (!TextUtils.isEmpty(KL)) {
-                gVar.cNA().s("User-Agent", KL);
+                gVar.cNB().s("User-Agent", KL);
             }
             if (z) {
-                gVar.cNA().s(Headers.ACCEPT_ENCODING, "gzip");
+                gVar.cNB().s(Headers.ACCEPT_ENCODING, "gzip");
             } else {
-                gVar.cNA().s(Headers.ACCEPT_ENCODING, "");
+                gVar.cNB().s(Headers.ACCEPT_ENCODING, "");
             }
             if (KM) {
-                gVar.cNA().s(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
+                gVar.cNB().s(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
             } else {
-                gVar.cNA().s(HTTP.CONN_DIRECTIVE, "close");
+                gVar.cNB().s(HTTP.CONN_DIRECTIVE, "close");
             }
-            gVar.cNA().s("client_logid", String.valueOf(this.KS));
+            gVar.cNB().s("client_logid", String.valueOf(this.KS));
             if (!TextUtils.isEmpty(KN)) {
-                gVar.cNA().s("cuid", KN);
+                gVar.cNB().s("cuid", KN);
             }
         }
     }

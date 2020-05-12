@@ -104,10 +104,10 @@ public class b extends c {
                                         byte[] bArr2 = null;
                                         byte[] bArr3 = null;
                                         if (!z) {
-                                            if (aVar2.dch()) {
+                                            if (aVar2.dci()) {
                                                 bArr2 = g.b(aVar2.lmy / 8, aVar.lmy / 8, bArr);
                                             }
-                                            if (aVar2.dcg()) {
+                                            if (aVar2.dch()) {
                                                 bArr3 = g.b(aVar2.channelCount, aVar.channelCount, aVar.lmy / 8, bArr2 == null ? bArr : bArr2);
                                             }
                                         }

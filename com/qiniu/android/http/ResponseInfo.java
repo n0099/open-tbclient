@@ -24,7 +24,7 @@ public final class ResponseInfo {
     public final int port;
     public final String reqId;
     public final int statusCode;
-    public final String id = UserAgent.dAv().id;
+    public final String id = UserAgent.dAw().id;
     public final long timeStamp = System.currentTimeMillis() / 1000;
 
     private ResponseInfo(JSONObject jSONObject, int i, String str, String str2, String str3, String str4, String str5, String str6, int i2, long j, long j2, String str7, UpToken upToken, long j3) {
@@ -52,7 +52,7 @@ public final class ResponseInfo {
             final String str9 = responseInfo.timeStamp + "";
             UploadInfoCollector.a(upToken, new UploadInfoCollector.RecordMsg() { // from class: com.qiniu.android.http.ResponseInfo.1
                 @Override // com.qiniu.android.collect.UploadInfoCollector.RecordMsg
-                public String dAn() {
+                public String dAo() {
                     return StringUtils.b(new String[]{i + "", str, str4, substring, i2 + "", j + "", str9, j2 + "", ResponseInfo.Pa(str5), j3 + ""}, Constants.ACCEPT_TIME_SEPARATOR_SP);
                 }
             });
@@ -146,35 +146,35 @@ public final class ResponseInfo {
         return this.statusCode == -2;
     }
 
-    public boolean dAo() {
-        return this.statusCode == 200 && this.error == null && (dAu() || this.mMi != null);
-    }
-
     public boolean dAp() {
-        return this.statusCode == -1 || this.statusCode == -1003 || this.statusCode == -1004 || this.statusCode == -1001 || this.statusCode == -1005;
+        return this.statusCode == 200 && this.error == null && (dAv() || this.mMi != null);
     }
 
     public boolean dAq() {
-        return (this.statusCode >= 500 && this.statusCode < 600 && this.statusCode != 579) || this.statusCode == 996;
+        return this.statusCode == -1 || this.statusCode == -1003 || this.statusCode == -1004 || this.statusCode == -1001 || this.statusCode == -1005;
     }
 
     public boolean dAr() {
-        return dAp() || dAq();
+        return (this.statusCode >= 500 && this.statusCode < 600 && this.statusCode != 579) || this.statusCode == 996;
     }
 
     public boolean dAs() {
-        return !isCancelled() && (dAr() || this.statusCode == 406 || ((this.statusCode == 200 && this.error != null) || (dAt() && !this.mMh.dAC())));
+        return dAq() || dAr();
     }
 
     public boolean dAt() {
-        return this.statusCode < 500 && this.statusCode >= 200 && !dAu() && this.mMi == null;
+        return !isCancelled() && (dAs() || this.statusCode == 406 || ((this.statusCode == 200 && this.error != null) || (dAu() && !this.mMh.dAD())));
+    }
+
+    public boolean dAu() {
+        return this.statusCode < 500 && this.statusCode >= 200 && !dAv() && this.mMi == null;
     }
 
     public String toString() {
         return String.format(Locale.ENGLISH, "{ver:%s,ResponseInfo:%s,status:%d, reqId:%s, xlog:%s, xvia:%s, host:%s, path:%s, ip:%s, port:%d, duration:%d s, time:%d, sent:%d,error:%s}", "7.3.13", this.id, Integer.valueOf(this.statusCode), this.reqId, this.mMe, this.mMf, this.host, this.path, this.ip, Integer.valueOf(this.port), Long.valueOf(this.duration), Long.valueOf(this.timeStamp), Long.valueOf(this.mMg), this.error);
     }
 
-    public boolean dAu() {
+    public boolean dAv() {
         return this.reqId != null;
     }
 }

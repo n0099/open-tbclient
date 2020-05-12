@@ -63,9 +63,9 @@ public class c extends WebViewClient {
             }
             return true;
         } else {
-            if (!h.isEmpty(com.kascend.chushou.d.h.dwH().f)) {
-                for (int i = 0; i < com.kascend.chushou.d.h.dwH().f.size(); i++) {
-                    if (str.toLowerCase().startsWith(com.kascend.chushou.d.h.dwH().f.get(i).toLowerCase())) {
+            if (!h.isEmpty(com.kascend.chushou.d.h.dwI().f)) {
+                for (int i = 0; i < com.kascend.chushou.d.h.dwI().f.size(); i++) {
+                    if (str.toLowerCase().startsWith(com.kascend.chushou.d.h.dwI().f.get(i).toLowerCase())) {
                         z = true;
                         break;
                     }

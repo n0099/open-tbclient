@@ -29,37 +29,37 @@ public class l implements com.tb.airbnb.lottie.model.content.b {
         this.mPB = bVar3;
     }
 
-    public e dBq() {
+    public e dBr() {
         return this.mPv;
     }
 
-    public m<PointF, PointF> dBr() {
+    public m<PointF, PointF> dBs() {
         return this.mPw;
     }
 
-    public g dBs() {
+    public g dBt() {
         return this.mPx;
     }
 
-    public b dBt() {
+    public b dBu() {
         return this.mPy;
     }
 
-    public d dBu() {
+    public d dBv() {
         return this.mPz;
     }
 
     @Nullable
-    public b dBv() {
+    public b dBw() {
         return this.mPA;
     }
 
     @Nullable
-    public b dBw() {
+    public b dBx() {
         return this.mPB;
     }
 
-    public o dBx() {
+    public o dBy() {
         return new o(this);
     }
 

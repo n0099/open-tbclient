@@ -21,7 +21,7 @@ public class LabelRecommendActivity extends BaseActivity<LabelRecommendActivity>
     private b iFU;
     private a iFV = new a() { // from class: com.baidu.tieba.interestlabel.activity.LabelRecommendActivity.1
         @Override // com.baidu.tieba.interestlabel.model.a
-        public void clN() {
+        public void clO() {
         }
 
         @Override // com.baidu.tieba.interestlabel.model.a
@@ -33,7 +33,7 @@ public class LabelRecommendActivity extends BaseActivity<LabelRecommendActivity>
             switch (AnonymousClass2.iFX[labelRequestEnum.ordinal()]) {
                 case 1:
                     LabelRecommendActivity.this.hideLoadingView(LabelRecommendActivity.this.iFU.getRootView());
-                    if (bVar == null || v.isEmpty(bVar.clQ()) || v.isEmpty(bVar.clR())) {
+                    if (bVar == null || v.isEmpty(bVar.clR()) || v.isEmpty(bVar.clS())) {
                         LabelRecommendActivity.this.showNetRefreshView(LabelRecommendActivity.this.iFU.getRootView(), TbadkCoreApplication.getInst().getString(R.string.neterror), true);
                         return;
                     }
@@ -43,7 +43,7 @@ public class LabelRecommendActivity extends BaseActivity<LabelRecommendActivity>
                 case 2:
                     if (i == 0) {
                         com.baidu.tbadk.core.sharedPref.b.aNT().putBoolean(SharedPrefConfig.SET_RECOMMEND_LABEL, true);
-                        LabelRecommendActivity.this.clM();
+                        LabelRecommendActivity.this.clN();
                         LabelRecommendActivity.this.finish();
                         return;
                     }
@@ -89,18 +89,18 @@ public class LabelRecommendActivity extends BaseActivity<LabelRecommendActivity>
     }
 
     private void loadData() {
-        this.iFT.clT();
+        this.iFT.clU();
         showLoadingView(this.iFU.getRootView(), true);
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.iFU.clZ()) {
+        if (view == this.iFU.cma()) {
             TiebaStatic.log(new an("c12245").af("obj_type", this.mFrom));
             finish();
-        } else if (view == this.iFU.cma()) {
-            this.iFT.ds(this.iFU.cmc());
+        } else if (view == this.iFU.cmb()) {
+            this.iFT.ds(this.iFU.cmd());
         }
     }
 
@@ -112,14 +112,14 @@ public class LabelRecommendActivity extends BaseActivity<LabelRecommendActivity>
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void clM() {
-        List<Integer> cmc = this.iFU.cmc();
-        if (!v.isEmpty(cmc)) {
+    public void clN() {
+        List<Integer> cmd = this.iFU.cmd();
+        if (!v.isEmpty(cmd)) {
             StringBuilder sb = new StringBuilder();
-            int size = cmc.size();
+            int size = cmd.size();
             for (int i = 0; i < size; i++) {
-                if (cmc.get(i) != null) {
-                    sb.append(cmc.get(i));
+                if (cmd.get(i) != null) {
+                    sb.append(cmd.get(i));
                     if (i < size - 1) {
                         sb.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
                     }

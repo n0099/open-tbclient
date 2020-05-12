@@ -28,7 +28,7 @@ public final class d {
         this();
     }
 
-    public final Map<String, g> dkS() {
+    public final Map<String, g> dkT() {
         return this.k;
     }
 
@@ -40,7 +40,7 @@ public final class d {
         this.j = z;
     }
 
-    public static d dkT() {
+    public static d dkU() {
         return a.lOi;
     }
 

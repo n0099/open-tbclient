@@ -6,6 +6,6 @@ class c {
     public com.baidu.l.a.a.c lPH;
 
     public c(Context context) {
-        this.lPH = new d(context).dlE();
+        this.lPH = new d(context).dlF();
     }
 }

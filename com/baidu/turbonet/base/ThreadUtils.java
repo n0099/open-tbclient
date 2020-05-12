@@ -18,7 +18,7 @@ public class ThreadUtils {
         lIg = null;
     }
 
-    private static Handler diI() {
+    private static Handler diJ() {
         Handler handler;
         synchronized (sLock) {
             if (lIg == null) {
@@ -33,19 +33,19 @@ public class ThreadUtils {
     }
 
     public static void runOnUiThread(Runnable runnable) {
-        if (diJ()) {
+        if (diK()) {
             runnable.run();
         } else {
-            diI().post(runnable);
+            diJ().post(runnable);
         }
     }
 
     public static void z(Runnable runnable) {
-        diI().post(runnable);
+        diJ().post(runnable);
     }
 
-    public static boolean diJ() {
-        return diI().getLooper() == Looper.myLooper();
+    public static boolean diK() {
+        return diJ().getLooper() == Looper.myLooper();
     }
 
     @CalledByNative

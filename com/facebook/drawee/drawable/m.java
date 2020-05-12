@@ -120,7 +120,7 @@ public abstract class m extends Drawable implements j, q {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void doR() {
+    public void doS() {
         if (this.mTransformCallback != null) {
             this.mTransformCallback.getTransform(this.lVX);
             this.mTransformCallback.getRootBounds(this.lVR);
@@ -172,7 +172,7 @@ public abstract class m extends Drawable implements j, q {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void doQ() {
+    public void doR() {
         if (this.lWb) {
             this.cEo.reset();
             this.lVR.inset(this.mBorderWidth / 2.0f, this.mBorderWidth / 2.0f);
@@ -208,7 +208,7 @@ public abstract class m extends Drawable implements j, q {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean doP() {
+    public boolean doQ() {
         return this.ehQ || this.lVO || this.mBorderWidth > 0.0f;
     }
 

@@ -62,9 +62,9 @@ public final class UnicastSubject<T> extends c<T, T> {
             Queue<Object> xVar;
             this.terminateOnce = aVar != null ? new AtomicReference<>(aVar) : null;
             if (i > 1) {
-                xVar = ae.dIm() ? new y<>(i) : new rx.internal.util.atomic.f<>(i);
+                xVar = ae.dIn() ? new y<>(i) : new rx.internal.util.atomic.f<>(i);
             } else {
-                xVar = ae.dIm() ? new x<>() : new rx.internal.util.atomic.e<>();
+                xVar = ae.dIn() ? new x<>() : new rx.internal.util.atomic.e<>();
             }
             this.queue = xVar;
         }

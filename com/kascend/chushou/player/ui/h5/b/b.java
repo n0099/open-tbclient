@@ -117,7 +117,7 @@ public class b {
     }
 
     @Nullable
-    public com.kascend.chushou.player.ui.h5.c.c dyx() {
+    public com.kascend.chushou.player.ui.h5.c.c dyy() {
         if (this.e.size() > 0) {
             return this.e.get(0);
         }
@@ -134,14 +134,14 @@ public class b {
 
     @Nullable
     public H5Positon It(int i) {
-        com.kascend.chushou.player.ui.h5.c.c dyx = dyx();
-        if (dyx == null) {
+        com.kascend.chushou.player.ui.h5.c.c dyy = dyy();
+        if (dyy == null) {
             return null;
         }
         if (i == 1) {
-            return dyx.mBe;
+            return dyy.mBe;
         }
-        return dyx.mBf;
+        return dyy.mBf;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -154,7 +154,7 @@ public class b {
                 if (uptimeMillis <= 0) {
                     uptimeMillis = 0;
                 }
-                this.mAW = g.a(1L, uptimeMillis, 1L, 1L, TimeUnit.SECONDS).b(io.reactivex.f.a.dDi()).b(io.reactivex.a.b.a.dCD()).a(io.reactivex.a.b.a.dCD()).a(new io.reactivex.c.g<Long>() { // from class: com.kascend.chushou.player.ui.h5.b.b.2
+                this.mAW = g.a(1L, uptimeMillis, 1L, 1L, TimeUnit.SECONDS).b(io.reactivex.f.a.dDj()).b(io.reactivex.a.b.a.dCE()).a(io.reactivex.a.b.a.dCE()).a(new io.reactivex.c.g<Long>() { // from class: com.kascend.chushou.player.ui.h5.b.b.2
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // io.reactivex.c.g
                     /* renamed from: a */
@@ -196,7 +196,7 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(final com.kascend.chushou.player.ui.h5.c.c cVar) {
-        com.kascend.chushou.c.c.dwD().d(cVar.f, new com.kascend.chushou.c.b() { // from class: com.kascend.chushou.player.ui.h5.b.b.4
+        com.kascend.chushou.c.c.dwE().d(cVar.f, new com.kascend.chushou.c.b() { // from class: com.kascend.chushou.player.ui.h5.b.b.4
             @Override // com.kascend.chushou.c.b
             public void a() {
             }
@@ -218,7 +218,7 @@ public class b {
                         if (c0750b != null) {
                             c0750b.c = SystemClock.uptimeMillis();
                             c0750b.mAZ.e = longValue;
-                            if (b.this.dyx() == cVar) {
+                            if (b.this.dyy() == cVar) {
                                 b.this.f();
                             }
                             b.this.mAY.N(c0750b.b);

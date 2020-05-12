@@ -63,7 +63,7 @@ public class a {
         return this.mSize;
     }
 
-    public synchronized int dth() {
+    public synchronized int dti() {
         return this.iyk;
     }
 
@@ -71,7 +71,7 @@ public class a {
         return this.mMaxSize;
     }
 
-    public com.facebook.common.references.c<Bitmap> dti() {
+    public com.facebook.common.references.c<Bitmap> dtj() {
         return this.mdP;
     }
 }

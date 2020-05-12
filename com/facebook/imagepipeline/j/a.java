@@ -25,7 +25,7 @@ public class a extends com.facebook.imagepipeline.request.a {
 
     @Override // com.facebook.imagepipeline.request.a, com.facebook.imagepipeline.request.b
     @Nullable
-    public b dtP() {
+    public b dtQ() {
         if (this.lRj == null) {
             this.lRj = new com.facebook.cache.common.g(String.format(null, "i%dr%d", Integer.valueOf(this.meF), Integer.valueOf(this.meG)));
         }

@@ -8,7 +8,7 @@ import java.util.concurrent.TimeUnit;
 public abstract class v {
     static final long mRa = TimeUnit.MINUTES.toNanos(Long.getLong("rx2.scheduler.drift-tolerance", 15).longValue());
 
-    public abstract c dCC();
+    public abstract c dCD();
 
     public long a(TimeUnit timeUnit) {
         return timeUnit.convert(System.currentTimeMillis(), TimeUnit.MILLISECONDS);
@@ -22,16 +22,16 @@ public abstract class v {
     }
 
     public io.reactivex.disposables.b b(Runnable runnable, long j, TimeUnit timeUnit) {
-        c dCC = dCC();
-        a aVar = new a(io.reactivex.e.a.K(runnable), dCC);
-        dCC.c(aVar, j, timeUnit);
+        c dCD = dCD();
+        a aVar = new a(io.reactivex.e.a.K(runnable), dCD);
+        dCD.c(aVar, j, timeUnit);
         return aVar;
     }
 
     public io.reactivex.disposables.b a(Runnable runnable, long j, long j2, TimeUnit timeUnit) {
-        c dCC = dCC();
-        b bVar = new b(io.reactivex.e.a.K(runnable), dCC);
-        io.reactivex.disposables.b b2 = dCC.b(bVar, j, j2, timeUnit);
+        c dCD = dCD();
+        b bVar = new b(io.reactivex.e.a.K(runnable), dCD);
+        io.reactivex.disposables.b b2 = dCD.b(bVar, j, j2, timeUnit);
         return b2 == EmptyDisposable.INSTANCE ? b2 : bVar;
     }
 

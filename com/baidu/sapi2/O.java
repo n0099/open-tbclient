@@ -3,8 +3,9 @@ package com.baidu.sapi2;
 import android.content.Context;
 import com.baidu.sapi2.V;
 import com.baidu.sapi2.X;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes6.dex */
-class O implements V.a {
+public class O implements V.a {
     final /* synthetic */ Context a;
     final /* synthetic */ V b;
 

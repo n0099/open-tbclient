@@ -57,7 +57,7 @@ public class QRCodeScanActivity extends BaseActivity<QRCodeScanActivity> impleme
             if (!QRCodeScanActivity.this.isFinishing() && QRCodeScanActivity.this.koh.getScanBoxView() != null) {
                 QRCodeScanActivity.this.koh.getScanBoxView().setQRCodeTipText(QRCodeScanActivity.this.getResources().getString(R.string.qr_code_scan_tip));
                 QRCodeScanActivity.this.koh.getScanBoxView().setTipTextColor(QRCodeScanActivity.this.getResources().getColor(R.color.cp_bg_line_d));
-                QRCodeScanActivity.this.koh.getScanBoxView().cMH();
+                QRCodeScanActivity.this.koh.getScanBoxView().cMI();
             }
         }
     };
@@ -90,16 +90,16 @@ public class QRCodeScanActivity extends BaseActivity<QRCodeScanActivity> impleme
         this.kok = new b(this, getPageContext());
         this.kok.tg(this.kon);
         this.koh.setDelegate(this.kok);
-        this.kok.cMr();
+        this.kok.cMs();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void onStart() {
         super.onStart();
-        this.koh.cMA();
-        this.koh.cMy();
         this.koh.cMB();
+        this.koh.cMz();
+        this.koh.cMC();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -150,27 +150,27 @@ public class QRCodeScanActivity extends BaseActivity<QRCodeScanActivity> impleme
     }
 
     @Override // com.baidu.tieba.qrcode.activity.a
-    public void cMm() {
-        cMo();
+    public void cMn() {
+        cMp();
         if (this.koh.getScanBoxView() != null) {
             this.koh.getScanBoxView().setQRCodeTipText(getResources().getString(R.string.qrcode_error_not_found));
             this.koh.getScanBoxView().setTipTextColor(getResources().getColor(R.color.cp_cont_h));
-            this.koh.getScanBoxView().cMH();
+            this.koh.getScanBoxView().cMI();
         }
         e.lb().removeCallbacks(this.koo);
         e.lb().postDelayed(this.koo, 3000L);
         if (this.koh != null) {
-            this.koh.cMB();
+            this.koh.cMC();
         }
     }
 
     @Override // com.baidu.tieba.qrcode.activity.a
-    public void cMn() {
+    public void cMo() {
         this.kom.showLoading();
     }
 
     @Override // com.baidu.tieba.qrcode.activity.a
-    public void cMo() {
+    public void cMp() {
         this.kom.ash();
     }
 
@@ -192,7 +192,7 @@ public class QRCodeScanActivity extends BaseActivity<QRCodeScanActivity> impleme
         aVar.b(getPageContext().getString(R.string.cancel), new a.b() { // from class: com.baidu.tieba.qrcode.activity.QRCodeScanActivity.2
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                QRCodeScanActivity.this.koh.cMB();
+                QRCodeScanActivity.this.koh.cMC();
                 aVar2.dismiss();
             }
         });
@@ -202,7 +202,7 @@ public class QRCodeScanActivity extends BaseActivity<QRCodeScanActivity> impleme
     }
 
     @Override // com.baidu.tieba.qrcode.activity.a
-    public void cMp() {
+    public void cMq() {
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity());
         aVar.uh(null);
         aVar.setMessageShowCenter(true);
@@ -210,7 +210,7 @@ public class QRCodeScanActivity extends BaseActivity<QRCodeScanActivity> impleme
         aVar.a(getPageContext().getString(R.string.qr_url_risk_forbid_button), new a.b() { // from class: com.baidu.tieba.qrcode.activity.QRCodeScanActivity.3
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                QRCodeScanActivity.this.koh.cMB();
+                QRCodeScanActivity.this.koh.cMC();
                 aVar2.dismiss();
             }
         });

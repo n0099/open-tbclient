@@ -20,7 +20,7 @@ public final class ParallelSortedJoin<T> extends g<T> {
 
     @Override // io.reactivex.g
     protected void a(c<? super T> cVar) {
-        SortedJoinSubscription sortedJoinSubscription = new SortedJoinSubscription(cVar, this.mTX.dCN(), this.comparator);
+        SortedJoinSubscription sortedJoinSubscription = new SortedJoinSubscription(cVar, this.mTX.dCO(), this.comparator);
         cVar.onSubscribe(sortedJoinSubscription);
         this.mTX.a(sortedJoinSubscription.subscribers);
     }

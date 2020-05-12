@@ -27,7 +27,7 @@ public class l {
                 }
                 l.this.w(downloadData);
                 if (l.this.lpJ != null && l.this.lpK.equals(downloadData.getUrl())) {
-                    l.this.lpJ.daE();
+                    l.this.lpJ.daF();
                 }
             }
         }
@@ -70,7 +70,7 @@ public class l {
     public interface a {
         void LG(String str);
 
-        void daE();
+        void daF();
 
         void eW(String str, String str2);
     }
@@ -86,12 +86,12 @@ public class l {
         }
         if (this.ljo == null) {
             this.ljo = new HashMap<>();
-            ddt();
+            ddu();
         }
         return this.ljo.get(nameMd5FromUrl);
     }
 
-    public void ddt() {
+    public void ddu() {
         if (!StringUtils.isNull(lpH)) {
             if (this.ljo == null) {
                 this.ljo = new HashMap<>();

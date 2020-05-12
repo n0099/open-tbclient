@@ -39,7 +39,7 @@ public abstract class AbstractDataSource<T> implements b<T> {
     }
 
     @Override // com.facebook.datasource.b
-    public synchronized boolean dnv() {
+    public synchronized boolean dnw() {
         return this.cbX != null;
     }
 
@@ -49,13 +49,13 @@ public abstract class AbstractDataSource<T> implements b<T> {
         return this.cbX;
     }
 
-    public synchronized boolean dnw() {
+    public synchronized boolean dnx() {
         return this.lSD == DataSourceStatus.FAILURE;
     }
 
     @Override // com.facebook.datasource.b
     @Nullable
-    public synchronized Throwable dnx() {
+    public synchronized Throwable dny() {
         return this.lSE;
     }
 
@@ -78,7 +78,7 @@ public abstract class AbstractDataSource<T> implements b<T> {
                     aO(t);
                 }
                 if (!isFinished()) {
-                    dny();
+                    dnz();
                 }
                 synchronized (this) {
                     this.lSF.clear();
@@ -100,21 +100,21 @@ public abstract class AbstractDataSource<T> implements b<T> {
                 if (this.lSD == DataSourceStatus.IN_PROGRESS) {
                     this.lSF.add(Pair.create(dVar, executor));
                 }
-                boolean z = dnv() || isFinished() || dnz();
+                boolean z = dnw() || isFinished() || dnA();
                 if (z) {
-                    a(dVar, executor, dnw(), dnz());
+                    a(dVar, executor, dnx(), dnA());
                 }
             }
         }
     }
 
-    private void dny() {
-        boolean dnw = dnw();
-        boolean dnz = dnz();
+    private void dnz() {
+        boolean dnx = dnx();
+        boolean dnA = dnA();
         Iterator<Pair<d<T>, Executor>> it = this.lSF.iterator();
         while (it.hasNext()) {
             Pair<d<T>, Executor> next = it.next();
-            a((d) next.first, (Executor) next.second, dnw, dnz);
+            a((d) next.first, (Executor) next.second, dnx, dnA);
         }
     }
 
@@ -133,7 +133,7 @@ public abstract class AbstractDataSource<T> implements b<T> {
         });
     }
 
-    private synchronized boolean dnz() {
+    private synchronized boolean dnA() {
         boolean z;
         if (isClosed()) {
             z = isFinished() ? false : true;
@@ -145,7 +145,7 @@ public abstract class AbstractDataSource<T> implements b<T> {
     public boolean b(@Nullable T t, boolean z) {
         boolean c = c(t, z);
         if (c) {
-            dny();
+            dnz();
         }
         return c;
     }
@@ -154,7 +154,7 @@ public abstract class AbstractDataSource<T> implements b<T> {
     public boolean z(Throwable th) {
         boolean A = A(th);
         if (A) {
-            dny();
+            dnz();
         }
         return A;
     }
@@ -163,7 +163,7 @@ public abstract class AbstractDataSource<T> implements b<T> {
     public boolean az(float f) {
         boolean aA = aA(f);
         if (aA) {
-            dnA();
+            dnB();
         }
         return aA;
     }
@@ -257,7 +257,7 @@ public abstract class AbstractDataSource<T> implements b<T> {
         return z;
     }
 
-    protected void dnA() {
+    protected void dnB() {
         Iterator<Pair<d<T>, Executor>> it = this.lSF.iterator();
         while (it.hasNext()) {
             Pair<d<T>, Executor> next = it.next();

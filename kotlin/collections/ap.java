@@ -4,7 +4,7 @@ import java.util.Iterator;
 @kotlin.h
 /* loaded from: classes7.dex */
 public abstract class ap implements Iterator<Short> {
-    public abstract short dDI();
+    public abstract short dDJ();
 
     @Override // java.util.Iterator
     public void remove() {
@@ -13,8 +13,8 @@ public abstract class ap implements Iterator<Short> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.Iterator
-    /* renamed from: dDH */
+    /* renamed from: dDI */
     public final Short next() {
-        return Short.valueOf(dDI());
+        return Short.valueOf(dDJ());
     }
 }

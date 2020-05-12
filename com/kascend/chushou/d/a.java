@@ -19,7 +19,7 @@ public class a {
     public static void a(Context context, String str, String str2, String str3, String str4, JSONObject jSONObject) {
         boolean z;
         String str5;
-        com.kascend.chushou.player.b dwS;
+        com.kascend.chushou.player.b dwT;
         boolean z2 = false;
         a(context);
         VideoPlayer videoPlayer = null;
@@ -31,10 +31,10 @@ public class a {
             if (videoPlayer instanceof VideoPlayer) {
                 z = true;
                 VideoPlayer videoPlayer2 = videoPlayer;
-                if (tv.chushou.zues.utils.h.isEmpty(str) && (dwS = videoPlayer2.dwS()) != null) {
-                    str = dwS.a;
+                if (tv.chushou.zues.utils.h.isEmpty(str) && (dwT = videoPlayer2.dwT()) != null) {
+                    str = dwT.a;
                 }
-                z2 = videoPlayer2.dxf();
+                z2 = videoPlayer2.dxg();
                 str5 = str;
             } else {
                 z = false;
@@ -48,7 +48,7 @@ public class a {
         boolean z2;
         boolean z3;
         String str4;
-        com.kascend.chushou.player.b dwS;
+        com.kascend.chushou.player.b dwT;
         if (!tv.chushou.zues.utils.h.isEmpty(str2)) {
             if (!tv.chushou.zues.utils.h.isEmpty(str3) && str3.equals(str2)) {
                 z = false;
@@ -67,10 +67,10 @@ public class a {
                 if (videoPlayer instanceof VideoPlayer) {
                     z3 = true;
                     VideoPlayer videoPlayer2 = videoPlayer;
-                    if (tv.chushou.zues.utils.h.isEmpty(str) && (dwS = videoPlayer2.dwS()) != null) {
-                        str = dwS.a;
+                    if (tv.chushou.zues.utils.h.isEmpty(str) && (dwT = videoPlayer2.dwT()) != null) {
+                        str = dwT.a;
                     }
-                    z2 = videoPlayer2.dxf();
+                    z2 = videoPlayer2.dxg();
                     str4 = str;
                 } else {
                     z2 = false;

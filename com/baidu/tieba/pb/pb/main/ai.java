@@ -45,19 +45,19 @@ public class ai extends l<com.baidu.tieba.pb.data.j, aj> {
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.pb.data.j jVar, aj ajVar) {
         super.a(i, view, viewGroup, (ViewGroup) jVar, (com.baidu.tieba.pb.data.j) ajVar);
         if (ajVar != null) {
-            czY();
+            czZ();
             ajVar.a(jVar);
         }
         return view;
     }
 
-    private void czY() {
-        if (this.jqG != null && this.jqG.cvr() != null && this.jqG.cvq() != null && this.jqG.jnC && !this.jzg) {
+    private void czZ() {
+        if (this.jqG != null && this.jqG.cvs() != null && this.jqG.cvr() != null && this.jqG.jnC && !this.jzg) {
             this.jzg = true;
-            boolean isLike = this.jqG.cvq().getIsLike();
-            TiebaStatic.log(new com.baidu.tbadk.core.util.an("common_exp").cI("page_type", PageStayDurationConstants.PageName.PB).af("obj_isad", 1).af("obj_floor", 1).af("obj_adlocate", 9).cI("obj_id", this.jqG.cvq().getForumId()).af("thread_type", this.jqG.cvr().getThreadType()).cI("tid", this.jqG.cvr().getId()));
+            boolean isLike = this.jqG.cvr().getIsLike();
+            TiebaStatic.log(new com.baidu.tbadk.core.util.an("common_exp").cI("page_type", PageStayDurationConstants.PageName.PB).af("obj_isad", 1).af("obj_floor", 1).af("obj_adlocate", 9).cI("obj_id", this.jqG.cvr().getForumId()).af("thread_type", this.jqG.cvs().getThreadType()).cI("tid", this.jqG.cvs().getId()));
             if (!isLike) {
-                TiebaStatic.log(new com.baidu.tbadk.core.util.an("common_exp").cI("page_type", PageStayDurationConstants.PageName.PB).af("obj_isad", 1).af("obj_floor", 1).af("obj_adlocate", 10).cI("obj_id", this.jqG.cvq().getForumId()).af("thread_type", this.jqG.cvr().getThreadType()).cI("tid", this.jqG.cvr().getId()));
+                TiebaStatic.log(new com.baidu.tbadk.core.util.an("common_exp").cI("page_type", PageStayDurationConstants.PageName.PB).af("obj_isad", 1).af("obj_floor", 1).af("obj_adlocate", 10).cI("obj_id", this.jqG.cvr().getForumId()).af("thread_type", this.jqG.cvs().getThreadType()).cI("tid", this.jqG.cvs().getId()));
             }
         }
     }

@@ -23,7 +23,7 @@ public class c {
     static {
         lSt = Build.VERSION.SDK_INT <= 17;
         lSu = Build.VERSION.SDK_INT >= 14;
-        lSv = dnu();
+        lSv = dnv();
         lSw = null;
         lSx = false;
         lSy = Of("RIFF");
@@ -34,7 +34,7 @@ public class c {
     }
 
     @Nullable
-    public static b dnt() {
+    public static b dnu() {
         b bVar;
         if (lSx) {
             return lSw;
@@ -56,7 +56,7 @@ public class c {
         }
     }
 
-    private static boolean dnu() {
+    private static boolean dnv() {
         if (Build.VERSION.SDK_INT < 17) {
             return false;
         }

@@ -32,7 +32,7 @@ public class f extends com.baidu.adp.widget.ListView.a<bi, af<bj>> {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.z
             public void a(View view, bj bjVar) {
-                com.baidu.tieba.card.r.bEW().jd(true);
+                com.baidu.tieba.card.r.bEX().jd(true);
                 f.this.e(view, bjVar);
             }
         };

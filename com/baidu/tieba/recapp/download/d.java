@@ -222,15 +222,15 @@ public class d implements q {
             if (this.ksm.b(this.dyS.aOW().aPa().mUrl, this.dyS.aOW().aPa().mPostData, this.dyS.aOW().aPa().mRequestGzip, 5, -1, aOz()) == null) {
                 throw new BdHttpCancelException();
             }
-            com.baidu.tieba.recapp.download.http.g cNz = this.ksm.cNz();
-            if (cNz == null) {
+            com.baidu.tieba.recapp.download.http.g cNA = this.ksm.cNA();
+            if (cNA == null) {
                 return null;
             }
-            com.baidu.tieba.recapp.download.http.i cNB = cNz.cNB();
-            if (cNz == null || cNz.kD() == null || cNz.kD().size() > 0) {
+            com.baidu.tieba.recapp.download.http.i cNC = cNA.cNC();
+            if (cNA == null || cNA.kD() == null || cNA.kD().size() > 0) {
             }
-            this.dyS.aOX().mNetErrorCode = cNB.responseCode;
-            this.dyS.aOX().mHeader = cNB.Kt;
+            this.dyS.aOX().mNetErrorCode = cNC.responseCode;
+            this.dyS.aOX().mHeader = cNC.Kt;
             if (this.dyS.aOX().mNetErrorCode != 200) {
                 if (this.dyS.aOY().dAu != null && !TextUtils.isEmpty(this.dyS.aOY().dAu.exception)) {
                     this.dyS.aOX().mException = this.dyS.aOY().dAu.exception;
@@ -242,7 +242,7 @@ public class d implements q {
             } else if (this.ksm.isCanceled()) {
                 return null;
             } else {
-                str = new String(cNB.retBytes, "utf-8");
+                str = new String(cNC.retBytes, "utf-8");
                 try {
                     if (this.dyS.aOW().aPa().mIsBaiduServer && this.dyS.aOW().aPa().mIsJson) {
                         uI(str);
@@ -385,14 +385,14 @@ public class d implements q {
         }
         long j = new Date().getTime();
         this.ksm.b(str, z, 5, 100, -1, -1, aOz());
-        com.baidu.tieba.recapp.download.http.g cNz = this.ksm.cNz();
-        if (cNz == null) {
+        com.baidu.tieba.recapp.download.http.g cNA = this.ksm.cNA();
+        if (cNA == null) {
             return null;
         }
-        iVar = cNz.cNB();
-        if (cNz != null) {
+        iVar = cNA.cNC();
+        if (cNA != null) {
             try {
-                if (cNz.kD() == null || cNz.kD().size() > 0) {
+                if (cNA.kD() == null || cNA.kD().size() > 0) {
                 }
             } catch (BdHttpCancelException e6) {
                 iVar2 = iVar;
@@ -568,15 +568,15 @@ public class d implements q {
             if (this.ksm.b(this.dyS.aOW().aPa().mUrl, this.dyS.aOW().aPa().mPostData, this.dyS.aOW().aPa().mRequestGzip, 5, -1, aOz()) == null) {
                 throw new BdHttpCancelException();
             }
-            com.baidu.tieba.recapp.download.http.g cNz = this.ksm.cNz();
-            if (cNz == null) {
+            com.baidu.tieba.recapp.download.http.g cNA = this.ksm.cNA();
+            if (cNA == null) {
                 return null;
             }
-            com.baidu.tieba.recapp.download.http.i cNB = cNz.cNB();
-            if (cNz == null || cNz.kD() == null || cNz.kD().size() > 0) {
+            com.baidu.tieba.recapp.download.http.i cNC = cNA.cNC();
+            if (cNA == null || cNA.kD() == null || cNA.kD().size() > 0) {
             }
-            this.dyS.aOX().mNetErrorCode = cNB.responseCode;
-            this.dyS.aOX().mHeader = cNB.Kt;
+            this.dyS.aOX().mNetErrorCode = cNC.responseCode;
+            this.dyS.aOX().mHeader = cNC.Kt;
             if (this.dyS.aOX().mNetErrorCode != 200) {
                 if (this.dyS.aOY().dAu != null && !TextUtils.isEmpty(this.dyS.aOY().dAu.exception)) {
                     this.dyS.aOX().mException = this.dyS.aOY().dAu.exception;
@@ -588,7 +588,7 @@ public class d implements q {
             } else if (this.ksm.isCanceled()) {
                 return null;
             } else {
-                str = new String(cNB.retBytes, "utf-8");
+                str = new String(cNC.retBytes, "utf-8");
                 try {
                     if (this.dyS.aOW().aPa().mIsBaiduServer && this.dyS.aOW().aPa().mIsJson) {
                         uI(str);

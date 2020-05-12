@@ -25,7 +25,7 @@ public final class UrlResponseInfo {
             this.lMb = list;
         }
 
-        public List<Map.Entry<String, String>> djY() {
+        public List<Map.Entry<String, String>> djZ() {
             return this.lMb;
         }
     }
@@ -44,7 +44,7 @@ public final class UrlResponseInfo {
         return this.lLU.get(this.lLU.size() - 1);
     }
 
-    public List<String> djS() {
+    public List<String> djT() {
         return this.lLU;
     }
 
@@ -52,23 +52,23 @@ public final class UrlResponseInfo {
         return this.lKC;
     }
 
-    public String djT() {
+    public String djU() {
         return this.lLV;
     }
 
-    public List<Map.Entry<String, String>> djU() {
-        return this.lMa.djY();
+    public List<Map.Entry<String, String>> djV() {
+        return this.lMa.djZ();
     }
 
-    public boolean djV() {
+    public boolean djW() {
         return this.lLW;
     }
 
-    public String djW() {
+    public String djX() {
         return this.lLX;
     }
 
-    public String djX() {
+    public String djY() {
         return this.lLY;
     }
 
@@ -77,7 +77,7 @@ public final class UrlResponseInfo {
     }
 
     public String toString() {
-        return String.format(Locale.ROOT, "UrlResponseInfo@[%s][%s]: urlChain = %s, httpStatus = %d %s, headers = %s, wasCached = %b, negotiatedProtocol = %s, proxyServer= %s, receivedBytesCount = %d", Integer.toHexString(System.identityHashCode(this)), getUrl(), djS().toString(), Integer.valueOf(getHttpStatusCode()), djT(), djU().toString(), Boolean.valueOf(djV()), djW(), djX(), Long.valueOf(getReceivedBytesCount()));
+        return String.format(Locale.ROOT, "UrlResponseInfo@[%s][%s]: urlChain = %s, httpStatus = %d %s, headers = %s, wasCached = %b, negotiatedProtocol = %s, proxyServer= %s, receivedBytesCount = %d", Integer.toHexString(System.identityHashCode(this)), getUrl(), djT().toString(), Integer.valueOf(getHttpStatusCode()), djU(), djV().toString(), Boolean.valueOf(djW()), djX(), djY(), Long.valueOf(getReceivedBytesCount()));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

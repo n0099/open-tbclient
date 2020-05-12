@@ -10,7 +10,7 @@ public class ae {
     private ae() {
     }
 
-    public static ae bQp() {
+    public static ae bQq() {
         return hcl;
     }
 

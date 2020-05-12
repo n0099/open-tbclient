@@ -15,7 +15,7 @@ public class a {
         this.fqZ = i;
     }
 
-    public int bKv() {
+    public int bKw() {
         return this.fXo;
     }
 
@@ -23,7 +23,7 @@ public class a {
         this.fXo = i;
     }
 
-    public List<EmotionImageData> bKw() {
+    public List<EmotionImageData> bKx() {
         return this.gKP;
     }
 

@@ -23,10 +23,10 @@ public class b extends BaseAdapter {
     public b(SelectLocationActivity selectLocationActivity) {
         this.isShowLocation = true;
         this.iQy = selectLocationActivity;
-        com.baidu.tieba.tbadkCore.location.a locationData = c.cWU().getLocationData();
-        this.isShowLocation = c.cWU().cWV() ? false : true;
+        com.baidu.tieba.tbadkCore.location.a locationData = c.cWV().getLocationData();
+        this.isShowLocation = c.cWV().cWW() ? false : true;
         if (locationData != null) {
-            this.data = i(locationData.cWT(), locationData.cWS());
+            this.data = i(locationData.cWU(), locationData.cWT());
         }
     }
 

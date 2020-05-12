@@ -30,7 +30,7 @@ public class f {
         }
     }
 
-    public Object[] dDb() {
+    public Object[] dDc() {
         return this.mVD;
     }
 
@@ -43,14 +43,14 @@ public class f {
         int i2 = this.size;
         ArrayList arrayList = new ArrayList(i2 + 1);
         int i3 = 0;
-        Object[] dDb = dDb();
+        Object[] dDc = dDc();
         int i4 = 0;
         while (i3 < i2) {
-            arrayList.add(dDb[i4]);
+            arrayList.add(dDc[i4]);
             i3++;
             i4++;
             if (i4 == i) {
-                dDb = (Object[]) dDb[i];
+                dDc = (Object[]) dDc[i];
                 i4 = 0;
             }
         }

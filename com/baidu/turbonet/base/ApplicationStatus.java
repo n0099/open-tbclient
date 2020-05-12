@@ -61,7 +61,7 @@ public class ApplicationStatus {
             this.mStatus = i;
         }
 
-        public com.baidu.turbonet.base.b<b> diu() {
+        public com.baidu.turbonet.base.b<b> div() {
             return this.lHF;
         }
     }
@@ -136,7 +136,7 @@ public class ApplicationStatus {
         }
         a aVar = lHB.get(activity);
         aVar.setStatus(i);
-        Iterator<b> it = aVar.diu().iterator();
+        Iterator<b> it = aVar.div().iterator();
         while (it.hasNext()) {
             it.next().n(activity, i);
         }
@@ -172,7 +172,7 @@ public class ApplicationStatus {
         int intValue;
         synchronized (lHx) {
             if (lHy == null) {
-                lHy = Integer.valueOf(dir());
+                lHy = Integer.valueOf(dis());
             }
             intValue = lHy.intValue();
         }
@@ -201,7 +201,7 @@ public class ApplicationStatus {
         });
     }
 
-    private static int dir() {
+    private static int dis() {
         boolean z;
         boolean z2;
         boolean z3 = false;

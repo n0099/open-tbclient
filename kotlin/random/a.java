@@ -6,47 +6,47 @@ import kotlin.jvm.internal.q;
 @h
 /* loaded from: classes7.dex */
 public abstract class a extends d {
-    public abstract Random dDV();
+    public abstract Random dDW();
 
     @Override // kotlin.random.d
     public int Jg(int i) {
-        return e.dG(dDV().nextInt(), i);
+        return e.dG(dDW().nextInt(), i);
     }
 
     @Override // kotlin.random.d
     public int nextInt() {
-        return dDV().nextInt();
+        return dDW().nextInt();
     }
 
     @Override // kotlin.random.d
     public int nextInt(int i) {
-        return dDV().nextInt(i);
+        return dDW().nextInt(i);
     }
 
     @Override // kotlin.random.d
     public long nextLong() {
-        return dDV().nextLong();
+        return dDW().nextLong();
     }
 
     @Override // kotlin.random.d
     public boolean nextBoolean() {
-        return dDV().nextBoolean();
+        return dDW().nextBoolean();
     }
 
     @Override // kotlin.random.d
     public double nextDouble() {
-        return dDV().nextDouble();
+        return dDW().nextDouble();
     }
 
     @Override // kotlin.random.d
     public float nextFloat() {
-        return dDV().nextFloat();
+        return dDW().nextFloat();
     }
 
     @Override // kotlin.random.d
     public byte[] ap(byte[] bArr) {
         q.j(bArr, com.baidu.fsg.base.statistics.b.j);
-        dDV().nextBytes(bArr);
+        dDW().nextBytes(bArr);
         return bArr;
     }
 }

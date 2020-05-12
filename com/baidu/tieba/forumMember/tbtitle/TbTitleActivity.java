@@ -42,16 +42,16 @@ public class TbTitleActivity extends BaseActivity<TbTitleActivity> {
                     TbTitleActivity.this.gVP.sW(b.toInt(TbTitleActivity.this.mForumId, 0));
                     return;
                 }
+                TbTitleActivity.this.gVO.bNm();
                 TbTitleActivity.this.gVO.bNl();
-                TbTitleActivity.this.gVO.bNk();
                 TbTitleActivity.this.gVO.a(dataRes);
                 TbTitleActivity.this.gVO.cn(dataRes.level_info);
             } else if (i != 0 || dataRes == null) {
-                TbTitleActivity.this.gVO.bNl();
+                TbTitleActivity.this.gVO.bNm();
                 TbTitleActivity.this.gVO.CP(str);
             } else {
+                TbTitleActivity.this.gVO.bNm();
                 TbTitleActivity.this.gVO.bNl();
-                TbTitleActivity.this.gVO.bNk();
                 TbTitleActivity.this.gVO.a(dataRes);
                 TbTitleActivity.this.gVO.cn(dataRes.level_info);
             }
@@ -84,7 +84,7 @@ public class TbTitleActivity extends BaseActivity<TbTitleActivity> {
         public void callback(Object obj) {
             boolean z = false;
             if (obj != null && (obj instanceof u)) {
-                e.cVp().aG(TbTitleActivity.this.mForumName, false);
+                e.cVq().aG(TbTitleActivity.this.mForumName, false);
                 z = true;
             }
             if (!z) {
@@ -151,7 +151,7 @@ public class TbTitleActivity extends BaseActivity<TbTitleActivity> {
             @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
             public Void doInBackground(Void... voidArr) {
                 if (!TextUtils.isEmpty(str)) {
-                    com.baidu.tieba.im.settingcache.d.ciT().x(TbadkCoreApplication.getCurrentAccount(), String.valueOf(str), z);
+                    com.baidu.tieba.im.settingcache.d.ciU().x(TbadkCoreApplication.getCurrentAccount(), String.valueOf(str), z);
                 }
                 return null;
             }

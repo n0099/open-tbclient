@@ -8,7 +8,7 @@ import java.util.concurrent.TimeUnit;
 public class a extends AbstractExecutorService {
     private static final a lRq = new a();
 
-    public static a dmO() {
+    public static a dmP() {
         return lRq;
     }
 

@@ -35,7 +35,7 @@ public class b {
         return this.postNum;
     }
 
-    public TbRichText cMl() {
+    public TbRichText cMm() {
         return this.kog;
     }
 }

@@ -13,7 +13,7 @@ public class a {
         return this.tabId;
     }
 
-    public boolean bTa() {
+    public boolean bTb() {
         return 1 == this.hoV;
     }
 }

@@ -83,7 +83,7 @@ public class ThreadFragment extends CollectFragment implements View.OnClickListe
                         if (data.isAttention) {
                             l.showToast(ThreadFragment.this.getPageContext().getPageActivity(), (int) R.string.attention_success);
                         }
-                        ThreadFragment.this.jeJ.csJ();
+                        ThreadFragment.this.jeJ.csK();
                     }
                 }
             }
@@ -101,14 +101,14 @@ public class ThreadFragment extends CollectFragment implements View.OnClickListe
         }
     };
 
-    public static final ThreadFragment csF() {
+    public static final ThreadFragment csG() {
         return new ThreadFragment();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        csG();
+        csH();
         registerListener(this.dkW);
         registerListener(this.dzL);
     }
@@ -137,7 +137,7 @@ public class ThreadFragment extends CollectFragment implements View.OnClickListe
                             r3 = (String) objArr[1];
                         }
                         ThreadFragment.this.jeJ.a(r3, ThreadFragment.this.jeI, ((Boolean) objArr[2]).booleanValue());
-                        ThreadFragment.this.jeL = ThreadFragment.this.jeI.csL();
+                        ThreadFragment.this.jeL = ThreadFragment.this.jeI.csM();
                         ThreadFragment threadFragment = ThreadFragment.this;
                         if (ThreadFragment.this.jeL != null && !ThreadFragment.this.jeL.isEmpty()) {
                             r2 = true;
@@ -160,7 +160,7 @@ public class ThreadFragment extends CollectFragment implements View.OnClickListe
                         }
                     } else if (((Integer) objArr[0]).intValue() == 2) {
                         ThreadFragment.this.jeJ.a(objArr[1] != null ? ((Boolean) objArr[1]).booleanValue() : false, objArr[2] != null ? (String) objArr[2] : null, ThreadFragment.this.jeI);
-                        ThreadFragment.this.jeL = ThreadFragment.this.jeI.csL();
+                        ThreadFragment.this.jeL = ThreadFragment.this.jeI.csM();
                         ThreadFragment.this.dkV = (ThreadFragment.this.jeL == null || ThreadFragment.this.jeL.isEmpty()) ? false : true;
                     }
                 } catch (Exception e) {
@@ -202,7 +202,7 @@ public class ThreadFragment extends CollectFragment implements View.OnClickListe
     @Override // com.baidu.tbadk.collectTab.CollectFragment, android.support.v4.app.Fragment
     public void onStart() {
         super.onStart();
-        this.jeJ.csH();
+        this.jeJ.csI();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
@@ -212,7 +212,7 @@ public class ThreadFragment extends CollectFragment implements View.OnClickListe
         super.onDestroy();
     }
 
-    private void csG() {
+    private void csH() {
         registerListener(new CustomMessageListener(CmdConfigCustom.COLLECT_TAB_NAVI_EDIT_ACTION) { // from class: com.baidu.tieba.myCollection.ThreadFragment.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
@@ -236,7 +236,7 @@ public class ThreadFragment extends CollectFragment implements View.OnClickListe
             an anVar = new an("c12529");
             if (view.getId() == this.jeJ.qk(isShareThread)) {
                 if (this.jeJ.huX == null || this.jeJ.huX.isRefreshDone()) {
-                    this.jeJ.bKN();
+                    this.jeJ.bKO();
                     if (!this.jeI.yX(intValue)) {
                         this.jeJ.ash();
                     }
@@ -260,9 +260,9 @@ public class ThreadFragment extends CollectFragment implements View.OnClickListe
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        if (i >= 0 && i < this.jeI.csL().size()) {
+        if (i >= 0 && i < this.jeI.csM().size()) {
             this.jeK = i;
-            MarkData markData = this.jeI.csL().get(i);
+            MarkData markData = this.jeI.csM().get(i);
             MarkData markData2 = this.jeL.get(i);
             an anVar = new an("c12529");
             anVar.af("obj_locate", 2);
@@ -295,7 +295,7 @@ public class ThreadFragment extends CollectFragment implements View.OnClickListe
 
     private void d(MarkData markData) {
         if (markData != null && this.jeI != null) {
-            int csK = this.jeI.csK();
+            int csL = this.jeI.csL();
             int msgBookmark = com.baidu.tbadk.coreExtra.messageCenter.b.aTe().getMsgBookmark();
             TiebaStatic.eventStat(TbadkCoreApplication.getInst(), "my_favorite_content", "is_redpoint", markData.getNewCounts() > 0 ? 1 : 0, new Object[0]);
             if (markData.getNewCounts() > 0) {
@@ -304,8 +304,8 @@ public class ThreadFragment extends CollectFragment implements View.OnClickListe
                 } else {
                     com.baidu.tbadk.coreExtra.messageCenter.b.aTe().setMsgBookmark(0);
                 }
-                if (csK > 0) {
-                    this.jeI.yW(csK - 1);
+                if (csL > 0) {
+                    this.jeI.yW(csL - 1);
                 } else {
                     this.jeI.yW(0);
                 }
@@ -320,16 +320,16 @@ public class ThreadFragment extends CollectFragment implements View.OnClickListe
         if (i2 == -1) {
             if (17001 == i) {
                 MarkData markData = (MarkData) intent.getSerializableExtra("mark");
-                if (this.jeI != null && markData != null && this.jeJ != null && v.getCount(this.jeI.csL()) > this.jeK && this.jeK >= 0) {
-                    this.jeI.csL().get(this.jeK).setPostId(markData.getPostId());
-                    this.jeI.csL().get(this.jeK).setHostMode(markData.getHostMode());
-                    this.jeI.csL().get(this.jeK).setSequence(markData.getSequence());
-                    this.jeJ.csJ();
+                if (this.jeI != null && markData != null && this.jeJ != null && v.getCount(this.jeI.csM()) > this.jeK && this.jeK >= 0) {
+                    this.jeI.csM().get(this.jeK).setPostId(markData.getPostId());
+                    this.jeI.csM().get(this.jeK).setHostMode(markData.getHostMode());
+                    this.jeI.csM().get(this.jeK).setSequence(markData.getSequence());
+                    this.jeJ.csK();
                 }
             }
-        } else if (i2 == 1 && 17001 == i && this.jeI != null && this.jeJ != null && v.getCount(this.jeI.csL()) > this.jeK && this.jeK >= 0) {
-            this.jeI.csL().remove(this.jeK);
-            this.jeJ.csJ();
+        } else if (i2 == 1 && 17001 == i && this.jeI != null && this.jeJ != null && v.getCount(this.jeI.csM()) > this.jeK && this.jeK >= 0) {
+            this.jeI.csM().remove(this.jeK);
+            this.jeJ.csK();
             this.jeJ.a(this.jeI, false);
         }
     }

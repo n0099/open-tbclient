@@ -32,7 +32,7 @@ public class ag {
         return false;
     }
 
-    public List<FrsTabInfo> bNZ() {
+    public List<FrsTabInfo> bOa() {
         return this.gXH;
     }
 
@@ -47,7 +47,7 @@ public class ag {
         }
     }
 
-    public void bQv() {
+    public void bQw() {
         boolean z;
         LinkedList linkedList = new LinkedList();
         LinkedList linkedList2 = new LinkedList();
@@ -82,7 +82,7 @@ public class ag {
         return this.mContext;
     }
 
-    public List<com.baidu.tbadk.mainTab.b> bOa() {
+    public List<com.baidu.tbadk.mainTab.b> bOb() {
         return this.gXI;
     }
 
@@ -114,7 +114,7 @@ public class ag {
         this.fYW = str;
     }
 
-    public String bQw() {
+    public String bQx() {
         return this.fYW;
     }
 }

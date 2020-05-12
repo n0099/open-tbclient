@@ -26,28 +26,28 @@ import org.json.JSONObject;
 public class d {
     public static a.b a(a.b bVar) {
         a.b bVar2;
-        String[] crt;
+        String[] cru;
         if (bVar == null) {
             return null;
         }
         try {
-            crt = crt();
+            cru = cru();
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
-        if (crt != null) {
+        if (cru != null) {
             ArrayList<BasicNameValuePair> arrayList = new ArrayList<>();
             arrayList.add(new BasicNameValuePair("crypttype", "1"));
             arrayList.add(new BasicNameValuePair("tpl", "tb"));
             arrayList.add(new BasicNameValuePair("appid", "1"));
             arrayList.add(new BasicNameValuePair("clientip", getClientIP()));
-            arrayList.add(new BasicNameValuePair("cert_id", crt[0]));
+            arrayList.add(new BasicNameValuePair("cert_id", cru[0]));
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("bduss", bVar.mBduss);
             jSONObject.put("ptoken", bVar.mPtoken);
             jSONObject.put("cuid", DeviceId.getDeviceID(TbadkCoreApplication.getInst().getApp()));
             jSONObject.put("clientid", TbadkCoreApplication.getInst().getImei());
-            arrayList.add(new BasicNameValuePair(TableDefine.DB_TABLE_USERINFO, new com.baidu.tbadk.core.a.c().encrypt(crt[1], jSONObject.toString())));
+            arrayList.add(new BasicNameValuePair(TableDefine.DB_TABLE_USERINFO, new com.baidu.tbadk.core.a.c().encrypt(cru[1], jSONObject.toString())));
             arrayList.add(new BasicNameValuePair("sig", f(arrayList, "6e93e7659ae637845c7f83abee68a740")));
             x xVar = new x("http://passport.baidu.com/v2/sapi/bdusslogin");
             xVar.aOw().aOW().mIsNeedAddCommenParam = false;
@@ -72,7 +72,7 @@ public class d {
         return null;
     }
 
-    private static String[] crt() {
+    private static String[] cru() {
         try {
             x xVar = new x("http://passport.baidu.com/sslcrypt/get_last_cert");
             xVar.aOw().aOW().mIsNeedAddCommenParam = false;

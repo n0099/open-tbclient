@@ -22,8 +22,8 @@ public final class UnicastProcessor<T> extends a<T> {
     final io.reactivex.internal.queue.a<T> queue;
     final AtomicLong requested;
 
-    public static <T> UnicastProcessor<T> dDg() {
-        return new UnicastProcessor<>(dCx());
+    public static <T> UnicastProcessor<T> dDh() {
+        return new UnicastProcessor<>(dCy());
     }
 
     public static <T> UnicastProcessor<T> Jc(int i) {

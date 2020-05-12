@@ -125,6 +125,6 @@ public class AnimatedImageCompositor {
     }
 
     private boolean a(AnimatedDrawableFrameInfo animatedDrawableFrameInfo) {
-        return animatedDrawableFrameInfo.lZh == 0 && animatedDrawableFrameInfo.gpu == 0 && animatedDrawableFrameInfo.width == this.lYd.dpX() && animatedDrawableFrameInfo.height == this.lYd.dpY();
+        return animatedDrawableFrameInfo.lZh == 0 && animatedDrawableFrameInfo.gpu == 0 && animatedDrawableFrameInfo.width == this.lYd.dpY() && animatedDrawableFrameInfo.height == this.lYd.dpZ();
     }
 }

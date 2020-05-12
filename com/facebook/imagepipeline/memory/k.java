@@ -18,7 +18,7 @@ public class k extends BasePool<NativeMemoryChunk> {
         initialize();
     }
 
-    public int dtr() {
+    public int dts() {
         return this.meb[0];
     }
 

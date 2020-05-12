@@ -24,27 +24,27 @@ public class a {
         }
     }
 
-    public String bWG() {
+    public String bWH() {
         return this.mTitle;
     }
 
-    public String bWH() {
+    public String bWI() {
         return this.hCJ;
     }
 
-    public String bWI() {
+    public String bWJ() {
         return this.aDW;
     }
 
-    public String bWJ() {
+    public String bWK() {
         return this.hCK;
     }
 
-    public String bWK() {
+    public String bWL() {
         return this.hCL;
     }
 
-    public String bWL() {
+    public String bWM() {
         return this.bas;
     }
 
@@ -52,7 +52,7 @@ public class a {
         this.bas = str;
     }
 
-    public String bWM() {
+    public String bWN() {
         return this.eyU;
     }
 

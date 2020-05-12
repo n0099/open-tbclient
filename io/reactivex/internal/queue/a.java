@@ -36,20 +36,20 @@ public final class a<T> implements f<T> {
             throw new NullPointerException("Null is not a valid element");
         }
         AtomicReferenceArray<Object> atomicReferenceArray = this.mUr;
-        long dCT = dCT();
+        long dCU = dCU();
         int i = this.mUq;
-        int B = B(dCT, i);
-        if (dCT < this.producerLookAhead) {
-            return a(atomicReferenceArray, t, dCT, B);
+        int B = B(dCU, i);
+        if (dCU < this.producerLookAhead) {
+            return a(atomicReferenceArray, t, dCU, B);
         }
         int i2 = this.mUp;
-        if (b(atomicReferenceArray, B(i2 + dCT, i)) == null) {
-            this.producerLookAhead = (i2 + dCT) - 1;
-            return a(atomicReferenceArray, t, dCT, B);
-        } else if (b(atomicReferenceArray, B(1 + dCT, i)) == null) {
-            return a(atomicReferenceArray, t, dCT, B);
+        if (b(atomicReferenceArray, B(i2 + dCU, i)) == null) {
+            this.producerLookAhead = (i2 + dCU) - 1;
+            return a(atomicReferenceArray, t, dCU, B);
+        } else if (b(atomicReferenceArray, B(1 + dCU, i)) == null) {
+            return a(atomicReferenceArray, t, dCU, B);
         } else {
-            a(atomicReferenceArray, dCT, B, t, i);
+            a(atomicReferenceArray, dCU, B, t, i);
             return true;
         }
     }
@@ -84,17 +84,17 @@ public final class a<T> implements f<T> {
     @Override // io.reactivex.internal.a.f, io.reactivex.internal.a.g
     public T poll() {
         AtomicReferenceArray<Object> atomicReferenceArray = this.mUt;
-        long dCU = dCU();
+        long dCV = dCV();
         int i = this.mUs;
-        int B = B(dCU, i);
+        int B = B(dCV, i);
         T t = (T) b(atomicReferenceArray, B);
         boolean z = t == mUu;
         if (t != null && !z) {
             a(atomicReferenceArray, B, (Object) null);
-            soConsumerIndex(1 + dCU);
+            soConsumerIndex(1 + dCV);
             return t;
         } else if (z) {
-            return a(a(atomicReferenceArray, i + 1), dCU, i);
+            return a(a(atomicReferenceArray, i + 1), dCV, i);
         } else {
             return null;
         }
@@ -113,11 +113,11 @@ public final class a<T> implements f<T> {
 
     public T peek() {
         AtomicReferenceArray<Object> atomicReferenceArray = this.mUt;
-        long dCU = dCU();
+        long dCV = dCV();
         int i = this.mUs;
-        T t = (T) b(atomicReferenceArray, B(dCU, i));
+        T t = (T) b(atomicReferenceArray, B(dCV, i));
         if (t == mUu) {
-            return b(a(atomicReferenceArray, i + 1), dCU, i);
+            return b(a(atomicReferenceArray, i + 1), dCV, i);
         }
         return t;
     }
@@ -137,39 +137,39 @@ public final class a<T> implements f<T> {
     }
 
     public int size() {
-        long dCS = dCS();
+        long dCT = dCT();
         while (true) {
-            long dCR = dCR();
-            long dCS2 = dCS();
-            if (dCS == dCS2) {
-                return (int) (dCR - dCS2);
+            long dCS = dCS();
+            long dCT2 = dCT();
+            if (dCT == dCT2) {
+                return (int) (dCS - dCT2);
             }
-            dCS = dCS2;
+            dCT = dCT2;
         }
     }
 
     @Override // io.reactivex.internal.a.g
     public boolean isEmpty() {
-        return dCR() == dCS();
+        return dCS() == dCT();
     }
 
     private void IX(int i) {
         this.mUp = Math.min(i / 4, mUo);
     }
 
-    private long dCR() {
-        return this.producerIndex.get();
-    }
-
     private long dCS() {
-        return this.consumerIndex.get();
+        return this.producerIndex.get();
     }
 
     private long dCT() {
-        return this.producerIndex.get();
+        return this.consumerIndex.get();
     }
 
     private long dCU() {
+        return this.producerIndex.get();
+    }
+
+    private long dCV() {
         return this.consumerIndex.get();
     }
 
@@ -199,23 +199,23 @@ public final class a<T> implements f<T> {
 
     public boolean offer(T t, T t2) {
         AtomicReferenceArray<Object> atomicReferenceArray = this.mUr;
-        long dCR = dCR();
+        long dCS = dCS();
         int i = this.mUq;
-        if (b(atomicReferenceArray, B(dCR + 2, i)) == null) {
-            int B = B(dCR, i);
+        if (b(atomicReferenceArray, B(dCS + 2, i)) == null) {
+            int B = B(dCS, i);
             a(atomicReferenceArray, B + 1, t2);
             a(atomicReferenceArray, B, t);
-            soProducerIndex(dCR + 2);
+            soProducerIndex(dCS + 2);
             return true;
         }
         AtomicReferenceArray<Object> atomicReferenceArray2 = new AtomicReferenceArray<>(atomicReferenceArray.length());
         this.mUr = atomicReferenceArray2;
-        int B2 = B(dCR, i);
+        int B2 = B(dCS, i);
         a(atomicReferenceArray2, B2 + 1, t2);
         a(atomicReferenceArray2, B2, t);
         a(atomicReferenceArray, atomicReferenceArray2);
         a(atomicReferenceArray, B2, mUu);
-        soProducerIndex(dCR + 2);
+        soProducerIndex(dCS + 2);
         return true;
     }
 }

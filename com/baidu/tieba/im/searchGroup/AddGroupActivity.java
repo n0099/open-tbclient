@@ -30,9 +30,9 @@ public class AddGroupActivity extends BaseActivity<AddGroupActivity> {
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
             AddGroupActivity.this.ius.showProgressBar(false);
             if (socketResponsedMessage == null || socketResponsedMessage.getCmd() != 103007) {
-                AddGroupActivity.this.ciJ();
+                AddGroupActivity.this.ciK();
             } else if (!(socketResponsedMessage instanceof ResponseSearchGroupMessage)) {
-                AddGroupActivity.this.ciJ();
+                AddGroupActivity.this.ciK();
             } else {
                 ResponseSearchGroupMessage responseSearchGroupMessage = (ResponseSearchGroupMessage) socketResponsedMessage;
                 if (responseSearchGroupMessage.getError() != 0) {
@@ -41,7 +41,7 @@ public class AddGroupActivity extends BaseActivity<AddGroupActivity> {
                 }
                 List<BaseGroupData> searchResult = responseSearchGroupMessage.getSearchResult();
                 if (searchResult == null || searchResult.size() <= 0) {
-                    AddGroupActivity.this.ciJ();
+                    AddGroupActivity.this.ciK();
                 } else {
                     AddGroupActivity.this.a(searchResult.get(0));
                 }
@@ -68,16 +68,16 @@ public class AddGroupActivity extends BaseActivity<AddGroupActivity> {
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.ius.ciL()) {
+        if (view == this.ius.ciM()) {
             finish();
-        } else if (view == this.ius.ciK()) {
+        } else if (view == this.ius.ciL()) {
             TiebaStatic.log("add_group_searchbtn_click");
             if (view.getTag() instanceof String) {
                 Fg((String) view.getTag());
             }
-        } else if (view == this.ius.cep()) {
-            this.ius.ciN();
-        } else if (view == this.ius.ciM()) {
+        } else if (view == this.ius.ceq()) {
+            this.ius.ciO();
+        } else if (view == this.ius.ciN()) {
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_ZXING_CAPTURE, new IntentConfig(getPageContext().getPageActivity())));
         }
     }
@@ -117,7 +117,7 @@ public class AddGroupActivity extends BaseActivity<AddGroupActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ciJ() {
+    public void ciK() {
         showToast(R.string.add_group_toast_noresult);
     }
 

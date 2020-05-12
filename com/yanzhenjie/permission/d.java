@@ -64,7 +64,7 @@ class d implements PermissionActivity.a, h, i {
                 return;
             }
         }
-        dCw();
+        dCx();
     }
 
     @Override // com.yanzhenjie.permission.i
@@ -82,13 +82,13 @@ class d implements PermissionActivity.a, h, i {
     public void W(@NonNull String[] strArr) {
         List<String> a = a(mQS, this.mQT, strArr);
         if (a.isEmpty()) {
-            dCw();
+            dCx();
         } else {
             fg(a);
         }
     }
 
-    private void dCw() {
+    private void dCx() {
         if (this.mQU != null) {
             List<String> asList = Arrays.asList(this.abV);
             try {

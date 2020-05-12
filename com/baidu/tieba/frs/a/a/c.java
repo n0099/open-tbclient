@@ -78,16 +78,16 @@ public class c extends y.a {
         this.hjX = view.findViewById(R.id.frs_list_item_u9_top_line);
         am.setBackgroundResource(this.hjT, R.drawable.frs_star_btn_like);
         am.setViewTextColor(this.hjT, (int) R.drawable.frs_text_color_selector);
-        bSi();
+        bSj();
     }
 
     public void a(ab abVar) {
         if (abVar != null) {
-            bl cVP = abVar.cVP();
-            bo cVQ = abVar.cVQ();
-            this.top_code = cVP;
-            this.news_info = cVQ;
-            if (abVar.cVO()) {
+            bl cVQ = abVar.cVQ();
+            bo cVR = abVar.cVR();
+            this.top_code = cVQ;
+            this.news_info = cVR;
+            if (abVar.cVP()) {
                 this.hjX.setVisibility(0);
             } else {
                 this.hjX.setVisibility(8);
@@ -103,10 +103,10 @@ public class c extends y.a {
                 this.hjU.setVisibility(0);
                 this.hjP.startLoad(this.top_code.aIU(), 10, false);
                 this.hjQ.setText(this.top_code.getSummary());
-                if (StringUtils.isNull(cVP.aMH())) {
+                if (StringUtils.isNull(cVQ.aMH())) {
                     this.hjT.setVisibility(8);
                 } else {
-                    this.hjT.setText(cVP.aMH());
+                    this.hjT.setText(cVQ.aMH());
                     this.hjT.setVisibility(0);
                 }
                 int aME = this.top_code.aME();
@@ -120,7 +120,7 @@ public class c extends y.a {
                         this.hjR.setText(spannableString);
                         this.hjR.setVisibility(0);
                     }
-                    if (cVP.aMG() <= 0) {
+                    if (cVQ.aMG() <= 0) {
                         this.hjS.setVisibility(8);
                     } else {
                         String str2 = this.duK.getResources().getString(R.string.u9_worth) + this.top_code.aMG();
@@ -131,20 +131,20 @@ public class c extends y.a {
                     }
                 } else {
                     this.hjS.setVisibility(8);
-                    this.hjR.setText(cVP.getSubTitle());
+                    this.hjR.setText(cVQ.getSubTitle());
                     this.hjR.setVisibility(0);
                 }
             }
-            if (this.news_info == null || StringUtils.isNull(cVQ.getSummary())) {
+            if (this.news_info == null || StringUtils.isNull(cVR.getSummary())) {
                 this.hjO.setVisibility(8);
                 return;
             }
             this.hjO.setVisibility(0);
-            this.hjV.setText(cVQ.getSummary());
+            this.hjV.setText(cVR.getSummary());
         }
     }
 
-    public void bSi() {
+    public void bSj() {
         this.hjN.setOnClickListener(this.aOQ);
         this.hjO.setOnClickListener(this.aOQ);
     }

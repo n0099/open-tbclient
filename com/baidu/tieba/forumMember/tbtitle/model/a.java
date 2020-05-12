@@ -48,7 +48,7 @@ public class a<T> {
     public a(InterfaceC0560a interfaceC0560a, BaseActivity<T> baseActivity) {
         this.gVU = interfaceC0560a;
         this.mActivity = baseActivity;
-        bNh();
+        bNi();
     }
 
     public void sV(int i) {
@@ -63,7 +63,7 @@ public class a<T> {
         this.mActivity.sendMessage(getLevelInfoReadCacheRequestMessage);
     }
 
-    private void bNh() {
+    private void bNi() {
         this.mActivity.registerListener(this.gUh);
         this.mActivity.registerListener(this.gUg);
     }

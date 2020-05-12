@@ -21,7 +21,7 @@ public class e {
         this.mContext = context;
     }
 
-    public List<FrsTabInfo> bNZ() {
+    public List<FrsTabInfo> bOa() {
         return this.gXH;
     }
 
@@ -36,7 +36,7 @@ public class e {
         }
     }
 
-    public List<com.baidu.tbadk.mainTab.b> bOa() {
+    public List<com.baidu.tbadk.mainTab.b> bOb() {
         return this.gXI;
     }
 

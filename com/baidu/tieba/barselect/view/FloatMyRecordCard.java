@@ -82,12 +82,12 @@ public class FloatMyRecordCard extends LinearLayout {
     public void setData(f fVar) {
         String str;
         this.ghJ = fVar;
-        if (this.ghJ != null && this.ghJ.bDW() != null) {
-            e bDW = this.ghJ.bDW();
-            if (bDW != null) {
-                this.status = bDW.getStatus();
+        if (this.ghJ != null && this.ghJ.bDX() != null) {
+            e bDX = this.ghJ.bDX();
+            if (bDX != null) {
+                this.status = bDX.getStatus();
             }
-            this.glx = this.ghJ.bDV();
+            this.glx = this.ghJ.bDW();
         }
         if (this.ghJ == null || this.glx == null || this.status != com.baidu.tieba.barselect.a.d.glR) {
             setVisibility(8);
@@ -107,12 +107,12 @@ public class FloatMyRecordCard extends LinearLayout {
         this.glU.vk(this.glx.getPortrait());
         this.glU.setOnClickListener(this.dRK);
         this.cBd.setText(aq.cutChineseAndEnglishWithSuffix(this.glx.getNickname(), 14, StringHelper.STRING_MORE));
-        setGrade(this.glx.bDK());
-        if (this.glx.bDJ() < 1000) {
-            String str2 = "0000" + this.glx.bDJ();
+        setGrade(this.glx.bDL());
+        if (this.glx.bDK() < 1000) {
+            String str2 = "0000" + this.glx.bDK();
             str = str2.substring(str2.length() - 4, str2.length());
         } else {
-            str = "" + this.glx.bDJ();
+            str = "" + this.glx.bDK();
         }
         this.glt.setText("NO." + str);
         this.glV.setMyRecordData(this.glx);
@@ -128,11 +128,11 @@ public class FloatMyRecordCard extends LinearLayout {
                 am.setViewTextColor(this.glT, R.color.cp_cont_b, 1, i);
             }
             am.setViewTextColor(this.cBd, R.color.cp_cont_b, 1, i);
-            setGrade(this.glx.bDK());
+            setGrade(this.glx.bDL());
             am.setViewTextColor(this.glt, R.color.cp_cont_d, 1, i);
             this.glV.pH(i);
             am.setBackgroundColor(this, R.color.cp_bg_line_d, i);
-            setGrade(this.glx.bDK());
+            setGrade(this.glx.bDL());
         }
     }
 }

@@ -45,7 +45,7 @@ public final class UpToken {
         return this.token;
     }
 
-    public boolean dAC() {
+    public boolean dAD() {
         return !this.returnUrl.equals("");
     }
 }

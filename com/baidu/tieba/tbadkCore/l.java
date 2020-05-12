@@ -14,7 +14,7 @@ public class l implements com.baidu.adp.widget.ListView.m {
         return kQF;
     }
 
-    public List<FeedForumData> cVB() {
+    public List<FeedForumData> cVC() {
         return this.hke;
     }
 

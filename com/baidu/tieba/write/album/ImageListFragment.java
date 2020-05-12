@@ -69,7 +69,7 @@ public class ImageListFragment extends BaseFragment implements AbsListView.OnScr
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (ImageListFragment.this.lxX != null) {
-                if (ImageListFragment.this.lyb == null || !ImageListFragment.this.lyb.dfz()) {
+                if (ImageListFragment.this.lyb == null || !ImageListFragment.this.lyb.dfA()) {
                     if (view == ImageListFragment.this.aWU) {
                         ImageListFragment.this.lyF.b(ImageListFragment.this.lxX.FO(), ImageListFragment.this.lxX.FM());
                         ImageListFragment.this.lyF.T(ImageListFragment.this.aWZ);
@@ -84,13 +84,13 @@ public class ImageListFragment extends BaseFragment implements AbsListView.OnScr
     };
     private TbCameraView.c lyu = new TbCameraView.c() { // from class: com.baidu.tieba.write.album.ImageListFragment.3
         @Override // com.baidu.tieba.write.album.TbCameraView.c
-        public boolean bEt() {
+        public boolean bEu() {
             return !ab.requestWriteExternalStorgeAndCameraPermission(ImageListFragment.this.getPageContext().getPageActivity(), 1);
         }
     };
     private TbCameraView.a lyv = new TbCameraView.a() { // from class: com.baidu.tieba.write.album.ImageListFragment.4
         @Override // com.baidu.tieba.write.album.TbCameraView.a
-        public void dfw() {
+        public void dfx() {
         }
     };
     private PopupWindow.OnDismissListener mOnDismissListener = new PopupWindow.OnDismissListener() { // from class: com.baidu.tieba.write.album.ImageListFragment.5
@@ -186,8 +186,8 @@ public class ImageListFragment extends BaseFragment implements AbsListView.OnScr
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         this.lye = (AlbumActivity) getBaseFragmentActivity();
-        this.lxX = this.lye.dfp();
-        d.dfs().a(this);
+        this.lxX = this.lye.dfq();
+        d.dft().a(this);
         this.lyE = new com.baidu.tbadk.album.f(this.lye);
         this.lyF = new com.baidu.tieba.write.view.a(this.lye);
         this.lyF.setOnDismissListener(this.mOnDismissListener);
@@ -295,7 +295,7 @@ public class ImageListFragment extends BaseFragment implements AbsListView.OnScr
 
     private void FD() {
         if (this.lxX == null && this.lye != null) {
-            this.lxX = this.lye.dfp();
+            this.lxX = this.lye.dfq();
         }
         if (this.lxX != null) {
             if (!this.lxX.FP()) {
@@ -372,14 +372,14 @@ public class ImageListFragment extends BaseFragment implements AbsListView.OnScr
         return this.aWp;
     }
 
-    public TbCameraView dfq() {
+    public TbCameraView dfr() {
         if (this.lyH != null) {
-            return this.lyH.dft();
+            return this.lyH.dfu();
         }
         return null;
     }
 
-    public TransparentHeadGridView dfv() {
+    public TransparentHeadGridView dfw() {
         return this.lyG;
     }
 
@@ -403,7 +403,7 @@ public class ImageListFragment extends BaseFragment implements AbsListView.OnScr
         if (this.egi != null) {
             this.egi.setDialogVisiable(false);
         }
-        d.dfs().b(this);
+        d.dft().b(this);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment

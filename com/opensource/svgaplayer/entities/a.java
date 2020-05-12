@@ -14,15 +14,15 @@ public final class a {
     private Integer mKF;
     private final int startTime;
 
-    public final int dzJ() {
+    public final int dzK() {
         return this.mKB;
     }
 
-    public final int dzK() {
+    public final int dzL() {
         return this.mKC;
     }
 
-    public final Integer dzL() {
+    public final Integer dzM() {
         return this.mKE;
     }
 
@@ -30,7 +30,7 @@ public final class a {
         this.mKE = num;
     }
 
-    public final Integer dzM() {
+    public final Integer dzN() {
         return this.mKF;
     }
 

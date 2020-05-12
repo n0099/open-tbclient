@@ -76,7 +76,7 @@ public class a {
             }
             this.dHD.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.frs_sports_recommend_bar_name), name));
             this.htC.startLoad(this.gXU.getForum().getImage_url(), 10, false);
-            bUp();
+            bUq();
             this.htC.setOnClickListener(this.haG);
             this.dHD.setOnClickListener(this.haG);
         }
@@ -86,7 +86,7 @@ public class a {
         this.htC.refresh();
         if (aq.isEmpty(str)) {
             this.hgr = false;
-            bUp();
+            bUq();
             return;
         }
         this.hgr = true;
@@ -96,7 +96,7 @@ public class a {
         this.dIB.setOnClickListener(this.haG);
     }
 
-    private void bUp() {
+    private void bUq() {
         ForumData forum;
         ThemeColorInfo themeColorInfo;
         ThemeElement themeElement;
@@ -122,7 +122,7 @@ public class a {
     }
 
     public void onChangeSkinType() {
-        bUp();
+        bUq();
         am.setViewTextColor(this.dHD, (int) R.color.cp_cont_a);
         if (this.htC != null) {
             this.htC.setBorderWidth(l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds1));

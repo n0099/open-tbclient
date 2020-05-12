@@ -9,7 +9,7 @@ public class b {
         @Override // rx.functions.b
         /* renamed from: a */
         public void call(c cVar) {
-            cVar.onSubscribe(rx.subscriptions.e.dIZ());
+            cVar.onSubscribe(rx.subscriptions.e.dJa());
             cVar.onCompleted();
         }
     }, false);
@@ -18,7 +18,7 @@ public class b {
         @Override // rx.functions.b
         /* renamed from: a */
         public void call(c cVar) {
-            cVar.onSubscribe(rx.subscriptions.e.dIZ());
+            cVar.onSubscribe(rx.subscriptions.e.dJa());
         }
     }, false);
     private final a niC;
@@ -119,7 +119,7 @@ public class b {
         });
     }
 
-    public final k dHi() {
+    public final k dHj() {
         final rx.subscriptions.c cVar = new rx.subscriptions.c();
         b(new c() { // from class: rx.b.4
             @Override // rx.c

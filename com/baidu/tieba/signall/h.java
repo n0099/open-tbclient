@@ -16,27 +16,27 @@ public class h {
     private a kJg = new a();
     private ArrayList<i> kKr = new ArrayList<>();
 
-    public int cTU() {
+    public int cTV() {
         return this.kIL;
     }
 
-    public String cTr() {
+    public String cTs() {
         return this.kIM;
     }
 
-    public a cTt() {
+    public a cTu() {
         return this.kJg;
     }
 
-    public ArrayList<i> cTV() {
+    public ArrayList<i> cTW() {
         return this.kKr;
     }
 
-    public int cTW() {
+    public int cTX() {
         return this.kKp;
     }
 
-    public String cTX() {
+    public String cTY() {
         return this.kKq;
     }
 

@@ -20,15 +20,15 @@ public final class RefCountSubscription implements k {
             this.npZ = i;
         }
 
-        a dIV() {
+        a dIW() {
             return new a(this.isUnsubscribed, this.npZ + 1);
         }
 
-        a dIW() {
+        a dIX() {
             return new a(this.isUnsubscribed, this.npZ - 1);
         }
 
-        a dIX() {
+        a dIY() {
             return new a(true, this.npZ);
         }
     }
@@ -40,15 +40,15 @@ public final class RefCountSubscription implements k {
         this.npW = kVar;
     }
 
-    public k dIT() {
+    public k dIU() {
         a aVar;
         AtomicReference<a> atomicReference = this.npY;
         do {
             aVar = atomicReference.get();
             if (aVar.isUnsubscribed) {
-                return e.dIZ();
+                return e.dJa();
             }
-        } while (!atomicReference.compareAndSet(aVar, aVar.dIV()));
+        } while (!atomicReference.compareAndSet(aVar, aVar.dIW()));
         return new InnerSubscription(this);
     }
 
@@ -60,17 +60,17 @@ public final class RefCountSubscription implements k {
     @Override // rx.k
     public void unsubscribe() {
         a aVar;
-        a dIX;
+        a dIY;
         AtomicReference<a> atomicReference = this.npY;
         do {
             aVar = atomicReference.get();
             if (!aVar.isUnsubscribed) {
-                dIX = aVar.dIX();
+                dIY = aVar.dIY();
             } else {
                 return;
             }
-        } while (!atomicReference.compareAndSet(aVar, dIX));
-        a(dIX);
+        } while (!atomicReference.compareAndSet(aVar, dIY));
+        a(dIY);
     }
 
     private void a(a aVar) {
@@ -79,15 +79,15 @@ public final class RefCountSubscription implements k {
         }
     }
 
-    void dIU() {
+    void dIV() {
         a aVar;
-        a dIW;
+        a dIX;
         AtomicReference<a> atomicReference = this.npY;
         do {
             aVar = atomicReference.get();
-            dIW = aVar.dIW();
-        } while (!atomicReference.compareAndSet(aVar, dIW));
-        a(dIW);
+            dIX = aVar.dIX();
+        } while (!atomicReference.compareAndSet(aVar, dIX));
+        a(dIX);
     }
 
     /* loaded from: classes6.dex */
@@ -102,7 +102,7 @@ public final class RefCountSubscription implements k {
         @Override // rx.k
         public void unsubscribe() {
             if (compareAndSet(0, 1)) {
-                this.parent.dIU();
+                this.parent.dIV();
             }
         }
 

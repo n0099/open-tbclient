@@ -3,7 +3,7 @@ package com.baidu.tieba.write.model;
 public class b {
     private com.baidu.tieba.write.a.b lzQ = null;
 
-    public com.baidu.tieba.write.a.b dfI() {
+    public com.baidu.tieba.write.a.b dfJ() {
         return this.lzQ;
     }
 

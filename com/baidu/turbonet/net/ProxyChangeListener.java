@@ -31,7 +31,7 @@ public class ProxyChangeListener {
 
     /* loaded from: classes.dex */
     public interface Delegate {
-        void djz();
+        void djA();
     }
 
     @NativeClassQualifiedName
@@ -173,7 +173,7 @@ public class ProxyChangeListener {
     public void a(b bVar, a aVar) {
         if (lLp && bVar == this.lLq) {
             if (this.lLr != null) {
-                this.lLr.djz();
+                this.lLr.djA();
             }
             if (this.mNativePtr != 0) {
                 if (aVar != null) {

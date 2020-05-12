@@ -112,7 +112,7 @@ public final class CronetUploadDataStream implements UploadDataSink {
 
     @CalledByNative
     void onUploadDataStreamDestroyed() {
-        diQ();
+        diR();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -123,7 +123,7 @@ public final class CronetUploadDataStream implements UploadDataSink {
             }
             this.lJf = UserCallback.NOT_IN_CALLBACK;
             this.mByteBuffer = null;
-            diR();
+            diS();
         }
         this.lJa.t(th);
     }
@@ -142,7 +142,7 @@ public final class CronetUploadDataStream implements UploadDataSink {
             }
             this.mByteBuffer = null;
             this.lJf = UserCallback.NOT_IN_CALLBACK;
-            diR();
+            diS();
             if (this.lJe != 0) {
                 nativeOnReadSucceeded(this.lJe, position, z);
             }
@@ -150,7 +150,7 @@ public final class CronetUploadDataStream implements UploadDataSink {
     }
 
     @Override // com.baidu.turbonet.net.UploadDataSink
-    public void diP() {
+    public void diQ() {
         synchronized (this.mLock) {
             a(UserCallback.REWIND);
             this.lJf = UserCallback.NOT_IN_CALLBACK;
@@ -178,7 +178,7 @@ public final class CronetUploadDataStream implements UploadDataSink {
         }
     }
 
-    private void diQ() {
+    private void diR() {
         synchronized (this.mLock) {
             if (this.lJf == UserCallback.READ) {
                 this.lJg = true;
@@ -202,19 +202,19 @@ public final class CronetUploadDataStream implements UploadDataSink {
         }
     }
 
-    private void diR() {
+    private void diS() {
         synchronized (this.mLock) {
             if (this.lJf == UserCallback.READ) {
                 throw new IllegalStateException("Method should not be called when read has not completed.");
             }
             if (this.lJg) {
-                diQ();
+                diR();
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void diS() {
+    public void diT() {
         synchronized (this.mLock) {
             this.lJf = UserCallback.GET_LENGTH;
         }

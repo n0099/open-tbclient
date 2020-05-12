@@ -14,7 +14,7 @@ public class a {
         }
     }
 
-    public List<SmartApp> cGO() {
+    public List<SmartApp> cGP() {
         return this.jVE;
     }
 }

@@ -212,7 +212,7 @@ public class FeedAdProgressButton extends View implements a {
     }
 
     @Override // com.baidu.tieba.recapp.widget.a
-    public void ckM() {
+    public void ckN() {
         am.setBackgroundResource(this, this.kzs);
         this.mTextColor = am.getColor(this.kzp);
         this.kzt = am.getColor(this.kzq);

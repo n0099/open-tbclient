@@ -41,7 +41,7 @@ public class e implements c {
     @Override // com.facebook.cache.disk.c
     public boolean isExternal() {
         try {
-            return dmI().isExternal();
+            return dmJ().isExternal();
         } catch (IOException e) {
             return false;
         }
@@ -49,18 +49,18 @@ public class e implements c {
 
     @Override // com.facebook.cache.disk.c
     public com.facebook.a.a A(String str, Object obj) throws IOException {
-        return dmI().A(str, obj);
+        return dmJ().A(str, obj);
     }
 
     @Override // com.facebook.cache.disk.c
     public boolean B(String str, Object obj) throws IOException {
-        return dmI().B(str, obj);
+        return dmJ().B(str, obj);
     }
 
     @Override // com.facebook.cache.disk.c
-    public void dmm() {
+    public void dmn() {
         try {
-            dmI().dmm();
+            dmJ().dmn();
         } catch (IOException e) {
             com.facebook.common.c.a.b(lQq, "purgeUnexpectedResources", (Throwable) e);
         }
@@ -68,44 +68,44 @@ public class e implements c {
 
     @Override // com.facebook.cache.disk.c
     public c.b z(String str, Object obj) throws IOException {
-        return dmI().z(str, obj);
+        return dmJ().z(str, obj);
     }
 
     @Override // com.facebook.cache.disk.c
-    public Collection<c.a> dmn() throws IOException {
-        return dmI().dmn();
+    public Collection<c.a> dmo() throws IOException {
+        return dmJ().dmo();
     }
 
     @Override // com.facebook.cache.disk.c
     public long a(c.a aVar) throws IOException {
-        return dmI().a(aVar);
+        return dmJ().a(aVar);
     }
 
     @Override // com.facebook.cache.disk.c
     public long NV(String str) throws IOException {
-        return dmI().NV(str);
+        return dmJ().NV(str);
     }
 
-    synchronized c dmI() throws IOException {
-        if (dmJ()) {
-            dmK();
+    synchronized c dmJ() throws IOException {
+        if (dmK()) {
             dmL();
+            dmM();
         }
         return (c) com.facebook.common.internal.g.checkNotNull(this.lRd.lRe);
     }
 
-    private boolean dmJ() {
+    private boolean dmK() {
         a aVar = this.lRd;
         return aVar.lRe == null || aVar.lRf == null || !aVar.lRf.exists();
     }
 
-    void dmK() {
+    void dmL() {
         if (this.lRd.lRe != null && this.lRd.lRf != null) {
             com.facebook.common.file.a.af(this.lRd.lRf);
         }
     }
 
-    private void dmL() throws IOException {
+    private void dmM() throws IOException {
         File file = new File(this.lQD.get(), this.lQC);
         ae(file);
         this.lRd = new a(file, new DefaultDiskStorage(file, this.mVersion, this.lQv));

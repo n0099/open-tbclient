@@ -7,7 +7,7 @@ public class e {
     private static final e mCT = new e();
     private Handler b = new Handler(Looper.getMainLooper());
 
-    public static e dyA() {
+    public static e dyB() {
         return mCT;
     }
 

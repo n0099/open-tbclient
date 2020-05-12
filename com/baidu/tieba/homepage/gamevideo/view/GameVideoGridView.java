@@ -57,7 +57,7 @@ public class GameVideoGridView extends BdGridView {
         super.onMeasure(i, i2);
     }
 
-    public void bZa() {
+    public void bZb() {
         if (this.hMH != null) {
             setLayoutAnimation(this.hMH);
             this.hMH.start();

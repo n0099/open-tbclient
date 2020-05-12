@@ -164,12 +164,12 @@ public class WebVideoActivity extends AdTbWebViewActivity {
         FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.ezq.getLayoutParams();
         if (layoutParams != null) {
             layoutParams.topMargin = i;
-            layoutParams.height = (l.getEquipmentHeight(getActivity()) - l.getStatusBarHeight(getActivity())) - cNp();
+            layoutParams.height = (l.getEquipmentHeight(getActivity()) - l.getStatusBarHeight(getActivity())) - cNq();
             this.ezq.setLayoutParams(layoutParams);
         }
     }
 
-    private int cNp() {
+    private int cNq() {
         return l.getDimens(this, R.dimen.ds98);
     }
 }

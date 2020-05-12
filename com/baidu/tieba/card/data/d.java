@@ -47,7 +47,7 @@ public class d extends b implements p {
     }
 
     @Override // com.baidu.tieba.card.data.p
-    public boolean bFl() {
+    public boolean bFm() {
         return false;
     }
 
@@ -59,7 +59,7 @@ public class d extends b implements p {
     public void lB(boolean z) {
     }
 
-    public AdvertAppInfo bFm() {
+    public AdvertAppInfo bFn() {
         return this.gsg;
     }
 }

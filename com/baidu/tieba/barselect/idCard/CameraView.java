@@ -159,7 +159,7 @@ public class CameraView extends FrameLayout {
 
     private void init() {
         this.gkm = new com.baidu.tieba.barselect.idCard.b(getContext());
-        this.gjt = this.gkm.bEb();
+        this.gjt = this.gkm.bEc();
         addView(this.gjt);
         this.gkn = new MaskView(getContext());
         addView(this.gkn);
@@ -196,8 +196,8 @@ public class CameraView extends FrameLayout {
     /* JADX INFO: Access modifiers changed from: private */
     public Bitmap a(File file, byte[] bArr, int i) {
         try {
-            Rect bEj = this.gkm.bEj();
-            if (this.gkn.getWidth() == 0 || this.gkn.getHeight() == 0 || bEj.width() == 0 || bEj.height() == 0) {
+            Rect bEk = this.gkm.bEk();
+            if (this.gkn.getWidth() == 0 || this.gkn.getHeight() == 0 || bEk.width() == 0 || bEk.height() == 0) {
                 return null;
             }
             BitmapRegionDecoder newInstance = BitmapRegionDecoder.newInstance(bArr, 0, bArr.length, true);
@@ -208,17 +208,17 @@ public class CameraView extends FrameLayout {
             int height2 = (frameRect.top * height) / this.gkn.getHeight();
             int width3 = (frameRect.right * width) / this.gkn.getWidth();
             int height3 = (frameRect.bottom * height) / this.gkn.getHeight();
-            if (bEj.top < 0) {
-                int height4 = (bEj.height() * getWidth()) / bEj.width();
-                int height5 = (((height4 + frameRect.height()) / 2) * getWidth()) / bEj.width();
-                height2 = (((((height4 - frameRect.height()) / 2) * getWidth()) / bEj.width()) * height) / bEj.height();
-                height3 = (height5 * height) / bEj.height();
-            } else if (bEj.left < 0) {
-                int width4 = (bEj.width() * getHeight()) / bEj.height();
-                int width5 = (((width4 - this.gkn.getFrameRect().width()) / 2) * getHeight()) / bEj.height();
-                int width6 = (((width4 + this.gkn.getFrameRect().width()) / 2) * getHeight()) / bEj.height();
-                width2 = (width5 * width) / bEj.width();
-                width3 = (width6 * width) / bEj.width();
+            if (bEk.top < 0) {
+                int height4 = (bEk.height() * getWidth()) / bEk.width();
+                int height5 = (((height4 + frameRect.height()) / 2) * getWidth()) / bEk.width();
+                height2 = (((((height4 - frameRect.height()) / 2) * getWidth()) / bEk.width()) * height) / bEk.height();
+                height3 = (height5 * height) / bEk.height();
+            } else if (bEk.left < 0) {
+                int width4 = (bEk.width() * getHeight()) / bEk.height();
+                int width5 = (((width4 - this.gkn.getFrameRect().width()) / 2) * getHeight()) / bEk.height();
+                int width6 = (((width4 + this.gkn.getFrameRect().width()) / 2) * getHeight()) / bEk.height();
+                width2 = (width5 * width) / bEk.width();
+                width3 = (width6 * width) / bEk.width();
             }
             Rect rect = new Rect();
             rect.left = width2;

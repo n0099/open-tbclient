@@ -4,7 +4,7 @@ public class k {
     public static final j<Boolean> lRF = new j<Boolean>() { // from class: com.facebook.common.internal.k.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.facebook.common.internal.j
-        /* renamed from: dmY */
+        /* renamed from: dmZ */
         public Boolean get() {
             return true;
         }
@@ -12,7 +12,7 @@ public class k {
     public static final j<Boolean> lRG = new j<Boolean>() { // from class: com.facebook.common.internal.k.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.facebook.common.internal.j
-        /* renamed from: dmY */
+        /* renamed from: dmZ */
         public Boolean get() {
             return false;
         }

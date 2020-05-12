@@ -97,7 +97,7 @@ public class PlayShowRecommendView extends RelativeLayout implements View.OnClic
         this.f.setText(cVar);
         this.mzP.setBlur(true);
         this.mzP.i(roomInfo.mCreatorAvatar, a.e.ic_audio_bg, b.a.nuc, b.a.nuc);
-        this.mzU.i(roomInfo.mCreatorAvatar, tv.chushou.widget.a.c.dJG(), b.a.small, b.a.small);
+        this.mzU.i(roomInfo.mCreatorAvatar, tv.chushou.widget.a.c.dJH(), b.a.small, b.a.small);
         c cVar2 = new c();
         cVar2.append(roomInfo.mCreatorNickname);
         cVar2.append(" ").a(this.a, tv.chushou.widget.a.c.Qh(roomInfo.mCreatorGender), a.d.double_icon_size, a.d.double_icon_size);
@@ -171,8 +171,8 @@ public class PlayShowRecommendView extends RelativeLayout implements View.OnClic
     }
 
     private void a(String str) {
-        if (tv.chushou.zues.utils.a.dJO()) {
-            com.kascend.chushou.c.c.dwD().a(new com.kascend.chushou.c.b() { // from class: com.kascend.chushou.widget.showplayer.PlayShowRecommendView.2
+        if (tv.chushou.zues.utils.a.dJP()) {
+            com.kascend.chushou.c.c.dwE().a(new com.kascend.chushou.c.b() { // from class: com.kascend.chushou.widget.showplayer.PlayShowRecommendView.2
                 @Override // com.kascend.chushou.c.b
                 public void a() {
                 }
@@ -254,7 +254,7 @@ public class PlayShowRecommendView extends RelativeLayout implements View.OnClic
     }
 
     private void b(String str) {
-        com.kascend.chushou.c.c.dwD().a(new com.kascend.chushou.c.b() { // from class: com.kascend.chushou.widget.showplayer.PlayShowRecommendView.3
+        com.kascend.chushou.c.c.dwE().a(new com.kascend.chushou.c.b() { // from class: com.kascend.chushou.widget.showplayer.PlayShowRecommendView.3
             @Override // com.kascend.chushou.c.b
             public void a() {
             }

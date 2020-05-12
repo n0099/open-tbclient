@@ -98,7 +98,7 @@ public class FaceRecognitionActivity extends BaseActivity<FaceRecognitionActivit
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021132 && (httpResponsedMessage instanceof LiveSyncHttpResponseMessage)) {
                 if (httpResponsedMessage.getError() == 0) {
-                    FaceRecognitionActivity.this.cMU();
+                    FaceRecognitionActivity.this.cMV();
                 }
             }
         }
@@ -128,7 +128,7 @@ public class FaceRecognitionActivity extends BaseActivity<FaceRecognitionActivit
             this.kqv = getIntent().getStringExtra("retry");
             setupViews();
             this.kqB = new com.baidu.tieba.realauthen.a.a(this.kqI);
-            this.kqB.cMV();
+            this.kqB.cMW();
             MessageManager.getInstance().registerListener(this.aRE);
         }
     }
@@ -143,7 +143,7 @@ public class FaceRecognitionActivity extends BaseActivity<FaceRecognitionActivit
         this.selectorImg.setOnClickListener(this);
         this.kqC = (TextView) findViewById(a.g.agreement);
         this.kqC.setMovementMethod(LinkMovementMethod.getInstance());
-        cMU();
+        cMV();
         this.kqx = (EditText) findViewById(a.g.name);
         com.baidu.tieba.realauthen.b.a.f(this.kqx);
         this.kqx.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.realauthen.activity.FaceRecognitionActivity.1
@@ -158,14 +158,14 @@ public class FaceRecognitionActivity extends BaseActivity<FaceRecognitionActivit
 
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
-                FaceRecognitionActivity.this.cMS();
+                FaceRecognitionActivity.this.cMT();
             }
         });
         this.kqx.setOnFocusChangeListener(new View.OnFocusChangeListener() { // from class: com.baidu.tieba.realauthen.activity.FaceRecognitionActivity.2
             @Override // android.view.View.OnFocusChangeListener
             public void onFocusChange(View view, boolean z) {
                 String obj = FaceRecognitionActivity.this.kqx.getText().toString();
-                FaceRecognitionActivity.this.cMS();
+                FaceRecognitionActivity.this.cMT();
                 if (!z && !TextUtils.isEmpty(obj) && !k.eZ(obj)) {
                     FaceRecognitionActivity.this.bn(0, "请输入正确的姓名！");
                 }
@@ -185,14 +185,14 @@ public class FaceRecognitionActivity extends BaseActivity<FaceRecognitionActivit
 
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
-                FaceRecognitionActivity.this.cMS();
+                FaceRecognitionActivity.this.cMT();
             }
         });
         this.kqy.setOnFocusChangeListener(new View.OnFocusChangeListener() { // from class: com.baidu.tieba.realauthen.activity.FaceRecognitionActivity.4
             @Override // android.view.View.OnFocusChangeListener
             public void onFocusChange(View view, boolean z) {
                 String obj = FaceRecognitionActivity.this.kqy.getText().toString();
-                FaceRecognitionActivity.this.cMS();
+                FaceRecognitionActivity.this.cMT();
                 if (!z && !TextUtils.isEmpty(obj)) {
                     String eV = e.eV(obj);
                     if (!HistoryTraceConstant.LBS_HISTORY_TRACE_MESSAGE_SUCCESS.equals(eV)) {
@@ -223,7 +223,7 @@ public class FaceRecognitionActivity extends BaseActivity<FaceRecognitionActivit
             By(-1);
         } else if (view == this.selectorImg) {
             this.mChosen = this.mChosen ? false : true;
-            cMS();
+            cMT();
             SkinManager.setImageResource(this.selectorImg, this.mChosen ? a.f.icon_live_choose_s : a.f.icon_live_operatechoose_n);
         } else if (view == this.kqz) {
             if (!this.mChosen) {
@@ -236,7 +236,7 @@ public class FaceRecognitionActivity extends BaseActivity<FaceRecognitionActivit
                 return;
             }
             ti(false);
-            cMT();
+            cMU();
         } else if (view == this.kqF && this.kqG.avG != null) {
             CommonWebViewActivityConfig commonWebViewActivityConfig = new CommonWebViewActivityConfig(this.bci.getPageContext().getPageActivity(), RequestResponseCode.REQUEST_SDK_WEB_VIEW, this.kqG.avG.awp);
             if (!TextUtils.isEmpty(this.kqv)) {
@@ -247,7 +247,7 @@ public class FaceRecognitionActivity extends BaseActivity<FaceRecognitionActivit
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cMS() {
+    public void cMT() {
         if (!TextUtils.isEmpty(this.kqx.getText().toString()) && k.eZ(this.kqx.getText().toString()) && !TextUtils.isEmpty(this.kqy.getText().toString()) && HistoryTraceConstant.LBS_HISTORY_TRACE_MESSAGE_SUCCESS.equals(e.eV(this.kqy.getText().toString()))) {
             ti(true);
         } else {
@@ -281,7 +281,7 @@ public class FaceRecognitionActivity extends BaseActivity<FaceRecognitionActivit
         }
     }
 
-    private void cMT() {
+    private void cMU() {
         final HashMap hashMap = new HashMap();
         hashMap.put("method", "startLivenessRecognize");
         hashMap.put("recogType", "certinfo");
@@ -300,7 +300,7 @@ public class FaceRecognitionActivity extends BaseActivity<FaceRecognitionActivit
                     RealAuthenManager.getInstance().getRealAuthen().doAuthen(hashMap, new AuthenCallback() { // from class: com.baidu.tieba.realauthen.activity.FaceRecognitionActivity.5.1
                         @Override // com.baidu.live.tbadk.realAuthen.AuthenCallback
                         public void onAuthenResult(int i, Map<String, Object> map) {
-                            FaceRecognitionActivity.this.cMS();
+                            FaceRecognitionActivity.this.cMT();
                             String str = "";
                             if (map.containsKey("retMsg")) {
                                 str = (String) map.get("retMsg");
@@ -349,7 +349,7 @@ public class FaceRecognitionActivity extends BaseActivity<FaceRecognitionActivit
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cMU() {
+    public void cMV() {
         if (this.kqC != null) {
             String str = "";
             if (this.kqG.avF != null) {

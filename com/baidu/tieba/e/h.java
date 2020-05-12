@@ -16,7 +16,7 @@ public class h implements m {
         return gwc;
     }
 
-    public FeatureCardTopic bGw() {
+    public FeatureCardTopic bGx() {
         return this.gwd;
     }
 

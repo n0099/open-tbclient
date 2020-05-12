@@ -7,7 +7,7 @@ import dalvik.system.DexClassLoader;
 /* loaded from: classes5.dex */
 public class d {
     public AssetManager assetManager;
-    public String nqw = dJe();
+    public String nqw = dJf();
     public DexClassLoader nqx;
     public PackageInfo packageInfo;
     public String packageName;
@@ -21,7 +21,7 @@ public class d {
         this.packageInfo = packageInfo;
     }
 
-    private final String dJe() {
+    private final String dJf() {
         return (this.packageInfo.activities == null || this.packageInfo.activities.length <= 0) ? "" : this.packageInfo.activities[0].name;
     }
 }

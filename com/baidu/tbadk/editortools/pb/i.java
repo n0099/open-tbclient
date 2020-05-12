@@ -139,7 +139,7 @@ public class i extends com.baidu.tbadk.editortools.c {
             mD.dXC = 1;
         }
         if (!this.isBJH) {
-            if (com.baidu.tieba.tbadkCore.voice.c.cXx() && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>((int) CmdConfigCustom.CMD_NEW_SEND_VOICE_VIEW, aWN.getContext()), l.class)) != null && (lVar = (l) runTask.getData()) != null) {
+            if (com.baidu.tieba.tbadkCore.voice.c.cXy() && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>((int) CmdConfigCustom.CMD_NEW_SEND_VOICE_VIEW, aWN.getContext()), l.class)) != null && (lVar = (l) runTask.getData()) != null) {
                 lVar.dXC = 2;
                 aWN.b(lVar);
             }

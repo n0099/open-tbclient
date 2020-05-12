@@ -22,20 +22,20 @@ public class h extends a {
     private final String name;
 
     public h(com.tb.airbnb.lottie.f fVar, com.tb.airbnb.lottie.model.layer.a aVar, com.tb.airbnb.lottie.model.content.e eVar) {
-        super(fVar, aVar, eVar.dBE().toPaintCap(), eVar.dBF().toPaintJoin(), eVar.ih(), eVar.dBu(), eVar.dBD(), eVar.m49if(), eVar.dBG());
+        super(fVar, aVar, eVar.dBF().toPaintCap(), eVar.dBG().toPaintJoin(), eVar.ih(), eVar.dBv(), eVar.dBE(), eVar.m49if(), eVar.dBH());
         this.BD = new LongSparseArray<>();
         this.BE = new LongSparseArray<>();
         this.BG = new RectF();
         this.name = eVar.getName();
-        this.mOy = eVar.dBz();
+        this.mOy = eVar.dBA();
         this.BK = (int) (fVar.getComposition().gD() / 32.0f);
-        this.mOx = eVar.dBA().dBo();
+        this.mOx = eVar.dBB().dBp();
         this.mOx.b(this);
         aVar.a(this.mOx);
-        this.mOz = eVar.dBB().dBo();
+        this.mOz = eVar.dBC().dBp();
         this.mOz.b(this);
         aVar.a(this.mOz);
-        this.mOA = eVar.dBC().dBo();
+        this.mOA = eVar.dBD().dBp();
         this.mOA.b(this);
         aVar.a(this.mOA);
     }

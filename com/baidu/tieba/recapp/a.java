@@ -36,9 +36,9 @@ public class a implements i, k {
     };
     private HashMap<String, f> kqZ = new HashMap<>();
     private int kra = 0;
-    private String krb = cNb();
+    private String krb = cNc();
 
-    public static a cMW() {
+    public static a cMX() {
         if (kqW == null) {
             synchronized (a.class) {
                 if (kqW == null) {
@@ -54,7 +54,7 @@ public class a implements i, k {
     }
 
     @Override // com.baidu.tieba.recapp.i
-    public void cMX() {
+    public void cMY() {
         if (!this.krc) {
             Runnable runnable = new Runnable() { // from class: com.baidu.tieba.recapp.a.2
                 @Override // java.lang.Runnable
@@ -97,7 +97,7 @@ public class a implements i, k {
     }
 
     private void l(String str, boolean z, boolean z2) {
-        cNc();
+        cNd();
         f fVar = this.kqZ.get(str);
         if (fVar == null) {
             fVar = new f();
@@ -134,7 +134,7 @@ public class a implements i, k {
 
     private int m(String str, boolean z, boolean z2) {
         f fVar = this.kqZ.get(str);
-        if (fVar == null || !Jq(cNb())) {
+        if (fVar == null || !Jq(cNc())) {
             return 0;
         }
         return fVar.al(z, z2);
@@ -157,7 +157,7 @@ public class a implements i, k {
     }
 
     @Override // com.baidu.tieba.recapp.k
-    public void cMY() {
+    public void cMZ() {
         if (!this.krd) {
             Runnable runnable = new Runnable() { // from class: com.baidu.tieba.recapp.a.3
                 @Override // java.lang.Runnable
@@ -186,24 +186,24 @@ public class a implements i, k {
     }
 
     @Override // com.baidu.tieba.recapp.k
-    public void cMZ() {
+    public void cNa() {
         com.baidu.adp.lib.cache.l<String> lVar = this.kqY.get();
         if (lVar != null) {
-            cNc();
+            cNd();
             this.kra++;
             lVar.asyncSet(this.krb, Integer.toString(this.kra), 86400000L);
         }
     }
 
     @Override // com.baidu.tieba.recapp.k
-    public int cNa() {
-        if (Jq(cNb())) {
+    public int cNb() {
+        if (Jq(cNc())) {
             return this.kra;
         }
         return 0;
     }
 
-    private String cNb() {
+    private String cNc() {
         return new SimpleDateFormat(ControlShowManager.DAY_TIME_FORMAT).format(new Date());
     }
 
@@ -214,12 +214,12 @@ public class a implements i, k {
         return this.krb.equals(str);
     }
 
-    private void cNc() {
-        String cNb = cNb();
-        if (!Jq(cNb)) {
+    private void cNd() {
+        String cNc = cNc();
+        if (!Jq(cNc)) {
             this.kqZ.clear();
             this.kra = 0;
-            this.krb = cNb;
+            this.krb = cNc;
         }
     }
 

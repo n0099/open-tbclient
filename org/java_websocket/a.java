@@ -36,7 +36,7 @@ public abstract class a extends b {
                 while (it.hasNext()) {
                     WebSocket webSocket = (WebSocket) it.next();
                     if (webSocket instanceof c) {
-                        ((c) webSocket).dGI();
+                        ((c) webSocket).dGJ();
                     }
                 }
             } catch (Exception e) {
@@ -92,7 +92,7 @@ public abstract class a extends b {
                         WebSocket next = it.next();
                         if (next instanceof c) {
                             c cVar = (c) next;
-                            if (cVar.dGH() < currentTimeMillis) {
+                            if (cVar.dGI() < currentTimeMillis) {
                                 if (c.DEBUG) {
                                     System.out.println("Closing connection due to no pong received: " + next.toString());
                                 }

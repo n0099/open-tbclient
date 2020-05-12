@@ -32,15 +32,15 @@ class a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static a A(int i, int i2, int i3, int i4) {
-        a caC = caC();
-        caC.type = i;
-        caC.aTH = i2;
-        caC.aTI = i3;
-        caC.aTJ = i4;
-        return caC;
+        a caD = caD();
+        caD.type = i;
+        caD.aTH = i2;
+        caD.aTI = i3;
+        caD.aTJ = i4;
+        return caD;
     }
 
-    private static a caC() {
+    private static a caD() {
         a aVar;
         synchronized (aTD) {
             if (aTD.size() > 0) {

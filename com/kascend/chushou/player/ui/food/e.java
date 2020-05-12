@@ -88,7 +88,7 @@ public class e extends k {
     }
 
     private void a(ListItem listItem, k.a aVar, Point point, int i, View view) {
-        if (com.kascend.chushou.a.a.dwB().a(listItem, view, this.e, this.f, i) == 0) {
+        if (com.kascend.chushou.a.a.dwC().a(listItem, view, this.e, this.f, i) == 0) {
             this.e = (int) (point.x * 0.8d);
             int i2 = (this.e * 4) / 3;
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) view.getLayoutParams();
@@ -156,14 +156,14 @@ public class e extends k {
     @Override // com.kascend.chushou.player.ui.food.k
     public void a(ListItem listItem, boolean z) {
         if (b()) {
-            if (dyw() != null) {
-                dyw().loadUrl(listItem.mCover);
+            if (dyx() != null) {
+                dyx().loadUrl(listItem.mCover);
                 a(listItem, a.f.fl_holder);
             }
         } else {
             a(listItem, a.f.iv_ad);
             this.mzF.setAnim(true);
-            this.mzF.i(listItem.mCover, tv.chushou.widget.a.c.dJG(), this.e, this.f);
+            this.mzF.i(listItem.mCover, tv.chushou.widget.a.c.dJH(), this.e, this.f);
         }
         this.mzJ.a(listItem);
     }

@@ -36,7 +36,7 @@ public class b {
         public void run() {
             if (b.this.mWebView != null) {
                 b.this.uS(false);
-                b.this.dfm();
+                b.this.dfn();
             }
         }
     };
@@ -71,7 +71,7 @@ public class b {
         this.lxQ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.accountAccess.b.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                b.this.lxJ.dfi();
+                b.this.lxJ.dfj();
                 b.this.eyB.finish();
             }
         });
@@ -95,8 +95,8 @@ public class b {
                         if (!b.this.lxU) {
                             b.this.lxU = true;
                             b.this.uS(false);
-                            b.this.dfm();
-                            b.this.lxJ.dfh();
+                            b.this.dfn();
+                            b.this.lxJ.dfi();
                             return true;
                         }
                         return b.this.lxJ.Mw(str);
@@ -107,7 +107,7 @@ public class b {
                         super.onPageFinished(webView, str);
                         b.this.lxU = true;
                         if (b.this.lxJ != null) {
-                            b.this.lxJ.dfh();
+                            b.this.lxJ.dfi();
                         }
                     }
 
@@ -185,11 +185,11 @@ public class b {
         UtilHelper.setSupportHeight(this.eyB.getPageContext().getPageActivity(), this.mWebView, f);
     }
 
-    public float dfk() {
+    public float dfl() {
         return this.mRatio;
     }
 
-    public float dfl() {
+    public float dfm() {
         return this.lxP;
     }
 
@@ -208,7 +208,7 @@ public class b {
         return translateAnimation;
     }
 
-    public void dfm() {
+    public void dfn() {
         if (this.eyB != null) {
             if (this.mRatio == this.lxP) {
                 this.mWebView.startAnimation(y(l.getEquipmentHeight(this.eyB.getBaseContext()) - (this.mWebView.getWidth() * 1.2631578f), 0.0f));

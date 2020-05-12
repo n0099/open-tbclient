@@ -263,21 +263,21 @@ public class c {
 
         @Override // com.baidu.prologue.a.b.a
         public String Lu() {
-            AppPosInfo cOb = com.baidu.tieba.recapp.d.a.cNY().cOb();
-            if (cOb != null) {
-                return cOb.coordinate_type;
+            AppPosInfo cOc = com.baidu.tieba.recapp.d.a.cNZ().cOc();
+            if (cOc != null) {
+                return cOc.coordinate_type;
             }
             return null;
         }
 
         @Override // com.baidu.prologue.a.b.a
         public String[] Lv() {
-            AppPosInfo cOb;
-            if (com.baidu.tieba.recapp.d.a.cNY() != null && (cOb = com.baidu.tieba.recapp.d.a.cNY().cOb()) != null) {
+            AppPosInfo cOc;
+            if (com.baidu.tieba.recapp.d.a.cNZ() != null && (cOc = com.baidu.tieba.recapp.d.a.cNZ().cOc()) != null) {
                 if (BdLog.isDebugMode()) {
-                    BdLog.e("" + cOb.longitude + "|" + cOb.latitude);
+                    BdLog.e("" + cOc.longitude + "|" + cOc.latitude);
                 }
-                return new String[]{cOb.longitude, cOb.latitude};
+                return new String[]{cOc.longitude, cOc.latitude};
             }
             if (BdLog.isDebugMode()) {
                 BdLog.e("0, 0");

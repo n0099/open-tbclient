@@ -124,7 +124,7 @@ public class d extends BaseAdapter implements View.OnClickListener {
         if (this.mList != null && i >= 0 && i <= this.mList.size() - 1 && (eVar = this.mList.get(i)) != null) {
             switch (getItemViewType(i)) {
                 case 0:
-                    aVar.liN.startLoad(String.valueOf(eVar.dcq()), 24, false);
+                    aVar.liN.startLoad(String.valueOf(eVar.dcr()), 24, false);
                     if (!TextUtils.isEmpty(eVar.getName()) && eVar.getName().equals(this.lnf)) {
                         aVar.liN.setDrawBorder(true);
                         break;
@@ -137,7 +137,7 @@ public class d extends BaseAdapter implements View.OnClickListener {
                     if (musicData.editMusicType == 0) {
                         aVar.liN.startLoad(musicData.img, 10, false);
                     } else {
-                        aVar.liN.startLoad(String.valueOf(eVar.dcq()), 24, false);
+                        aVar.liN.startLoad(String.valueOf(eVar.dcr()), 24, false);
                     }
                     if (this.lnh != i) {
                         aVar.mProgressBar.setVisibility(4);
@@ -203,14 +203,14 @@ public class d extends BaseAdapter implements View.OnClickListener {
         }
     }
 
-    public void dco() {
+    public void dcp() {
         if (getItem(0) != null && getItem(0).getType() == 3) {
             this.lnh = 0;
             this.lnf = TbadkCoreApplication.getInst().getString(R.string.music_normal);
         }
     }
 
-    public void dcp() {
+    public void dcq() {
         if (getItem(0) != null && getItem(0).getType() == 3) {
             this.lnh = 1;
             this.lnf = TbadkCoreApplication.getInst().getString(R.string.music_cloud);

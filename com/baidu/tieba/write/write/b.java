@@ -90,7 +90,7 @@ public class b {
     }
 
     public boolean a(EditText editText, EditText editText2) {
-        if (v.isEmpty(deP())) {
+        if (v.isEmpty(deQ())) {
             return false;
         }
         return h(editText) || h(editText2);
@@ -116,7 +116,7 @@ public class b {
         this.lwO = arrayList;
     }
 
-    public ArrayList<String> deP() {
+    public ArrayList<String> deQ() {
         return this.lwO;
     }
 
@@ -124,7 +124,7 @@ public class b {
         this.daw = str;
     }
 
-    public String deT() {
+    public String deU() {
         return this.daw;
     }
 

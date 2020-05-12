@@ -6,7 +6,7 @@ import java.util.List;
 @kotlin.h
 /* loaded from: classes7.dex */
 public class q extends p {
-    public static final <T> List<T> dDz() {
+    public static final <T> List<T> dDA() {
         return EmptyList.INSTANCE;
     }
 
@@ -26,7 +26,7 @@ public class q extends p {
         kotlin.jvm.internal.q.j(list, "receiver$0");
         switch (list.size()) {
             case 0:
-                return o.dDz();
+                return o.dDA();
             case 1:
                 return o.bC(list.get(0));
             default:

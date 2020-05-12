@@ -161,7 +161,7 @@ public class AlaLiveMultiBeautyArView extends ILiveMultiBeautyView implements Vi
                     AlaLiveMultiBeautyArView.this.eNg.aoa = e.za(dVar.tQ());
                 }
                 AlaLiveMultiBeautyArView.this.eNg.aob = dVar;
-                if (AlaLiveMultiBeautyArView.this.eNh != null) {
+                if (AlaLiveMultiBeautyArView.this.eNh != null && AlaLiveMultiBeautyArView.this.eMZ.tT() != null) {
                     int a = AlaLiveMultiBeautyArView.this.eNg.a(dVar, AlaLiveMultiBeautyArView.this.eMZ.tT().anP);
                     int dE = AlaLiveMultiBeautyArView.this.eNg.dE(AlaLiveMultiBeautyArView.this.eNg.aoa);
                     float f = (((dE * 1.0f) / 100.0f) * (a * 1.0f)) / 100.0f;

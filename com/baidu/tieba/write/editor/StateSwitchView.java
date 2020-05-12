@@ -66,7 +66,7 @@ public class StateSwitchView extends EditorInfoView {
             this.mState = 0;
         }
         byr();
-        dfE();
+        dfF();
     }
 
     private void byr() {
@@ -82,7 +82,7 @@ public class StateSwitchView extends EditorInfoView {
             this.mState = i;
         }
         byr();
-        dfE();
+        dfF();
     }
 
     public void setStateString(String str, String str2) {
@@ -95,7 +95,7 @@ public class StateSwitchView extends EditorInfoView {
         this.lzI = i;
         this.lzJ = i2;
         this.duL = false;
-        dfE();
+        dfF();
     }
 
     public void setLeftStateDrawable(com.baidu.tbadk.core.util.d.a aVar, com.baidu.tbadk.core.util.d.a aVar2) {
@@ -103,11 +103,11 @@ public class StateSwitchView extends EditorInfoView {
             this.duL = true;
             this.lzK = aVar;
             this.lzL = aVar2;
-            dfE();
+            dfF();
         }
     }
 
-    private void dfE() {
+    private void dfF() {
         Drawable drawable;
         Drawable drawable2;
         int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.tbds48);
@@ -161,7 +161,7 @@ public class StateSwitchView extends EditorInfoView {
             if (this.dFr > 0) {
                 am.setBackgroundResource(this, this.dFr);
             }
-            dfE();
+            dfF();
             this.mSkinType = i;
         }
     }

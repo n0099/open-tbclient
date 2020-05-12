@@ -1,7 +1,7 @@
 package com.baidu.turbonet.net;
 /* loaded from: classes.dex */
 public interface UploadDataSink {
-    void diP();
+    void diQ();
 
     void o(Exception exc);
 

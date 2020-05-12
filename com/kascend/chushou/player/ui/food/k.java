@@ -133,13 +133,13 @@ public abstract class k {
     /* JADX INFO: Access modifiers changed from: package-private */
     public void c() {
         this.d = true;
-        if (dyw() != null) {
-            dyw().setEnableTouch(true);
+        if (dyx() != null) {
+            dyx().setEnableTouch(true);
         }
     }
 
     @Nullable
-    public com.kascend.chushou.player.ui.food.a dyw() {
+    public com.kascend.chushou.player.ui.food.a dyx() {
         return this.mAa;
     }
 

@@ -46,11 +46,11 @@ public class a {
         }
     };
 
-    public int csq() {
+    public int csr() {
         return this.jef;
     }
 
-    public Fragment csr() {
+    public Fragment css() {
         return this.jeg;
     }
 
@@ -71,7 +71,7 @@ public class a {
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public TextView css() {
+    public TextView cst() {
         return this.jed;
     }
 
@@ -99,7 +99,7 @@ public class a {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.COLLECT_TAB_NAVI_EDIT_ACTION, bundle));
     }
 
-    public boolean cst() {
+    public boolean csu() {
         return this.jej;
     }
 

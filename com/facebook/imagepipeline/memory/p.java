@@ -23,88 +23,88 @@ public class p {
         r rVar4;
         s sVar3;
         if (aVar.meg == null) {
-            rVar = e.dtp();
+            rVar = e.dtq();
         } else {
             rVar = aVar.meg;
         }
         this.meg = rVar;
         if (aVar.meh == null) {
-            sVar = n.dtu();
+            sVar = n.dtv();
         } else {
             sVar = aVar.meh;
         }
         this.meh = sVar;
         if (aVar.mei == null) {
-            rVar2 = g.dtp();
+            rVar2 = g.dtq();
         } else {
             rVar2 = aVar.mei;
         }
         this.mei = rVar2;
         if (aVar.mbX == null) {
-            cVar = com.facebook.common.memory.d.dna();
+            cVar = com.facebook.common.memory.d.dnb();
         } else {
             cVar = aVar.mbX;
         }
         this.mbX = cVar;
         if (aVar.mej == null) {
-            rVar3 = h.dtp();
+            rVar3 = h.dtq();
         } else {
             rVar3 = aVar.mej;
         }
         this.mej = rVar3;
         if (aVar.mek == null) {
-            sVar2 = n.dtu();
+            sVar2 = n.dtv();
         } else {
             sVar2 = aVar.mek;
         }
         this.mek = sVar2;
         if (aVar.mel == null) {
-            rVar4 = f.dtp();
+            rVar4 = f.dtq();
         } else {
             rVar4 = aVar.mel;
         }
         this.mel = rVar4;
         if (aVar.mem == null) {
-            sVar3 = n.dtu();
+            sVar3 = n.dtv();
         } else {
             sVar3 = aVar.mem;
         }
         this.mem = sVar3;
     }
 
-    public r dtx() {
+    public r dty() {
         return this.meg;
     }
 
-    public s dty() {
+    public s dtz() {
         return this.meh;
     }
 
-    public com.facebook.common.memory.c drr() {
+    public com.facebook.common.memory.c drs() {
         return this.mbX;
     }
 
-    public r dtz() {
+    public r dtA() {
         return this.mej;
     }
 
-    public s dtA() {
+    public s dtB() {
         return this.mek;
     }
 
-    public r dtB() {
+    public r dtC() {
         return this.mei;
     }
 
-    public r dtC() {
+    public r dtD() {
         return this.mel;
     }
 
-    public s dtD() {
+    public s dtE() {
         return this.mem;
     }
 
-    public static a dtE() {
+    public static a dtF() {
         return new a();
     }
 
@@ -122,7 +122,7 @@ public class p {
         private a() {
         }
 
-        public p dtF() {
+        public p dtG() {
             return new p(this);
         }
     }

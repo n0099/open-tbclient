@@ -38,7 +38,7 @@ public class e {
 
     @Nullable
     @RestrictTo({RestrictTo.Scope.LIBRARY})
-    public f dBm() {
+    public f dBn() {
         return this.mPl;
     }
 

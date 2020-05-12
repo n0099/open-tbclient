@@ -107,7 +107,7 @@ public class ConcernSelectView extends FrameLayout {
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public void csg() {
+    public void csh() {
         if (!(this.jdc.getVisibility() == 0)) {
             s(this.jdc, 0);
         }
@@ -119,7 +119,7 @@ public class ConcernSelectView extends FrameLayout {
         }
     }
 
-    public boolean csh() {
+    public boolean csi() {
         return this.jdc.getVisibility() == 0;
     }
 
@@ -184,7 +184,7 @@ public class ConcernSelectView extends FrameLayout {
                 if (this.jcY.getAnimation() == null || this.jcY.getAnimation().hasEnded()) {
                     if (i == 0) {
                         if (this.jdd == null) {
-                            csj();
+                            csk();
                         }
                         if (this.jde != null) {
                             this.jde.cancel();
@@ -193,7 +193,7 @@ public class ConcernSelectView extends FrameLayout {
                         return;
                     }
                     if (this.jde == null) {
-                        csi();
+                        csj();
                     }
                     if (this.jdd != null) {
                         this.jdd.cancel();
@@ -204,7 +204,7 @@ public class ConcernSelectView extends FrameLayout {
         }
     }
 
-    private void csi() {
+    private void csj() {
         this.jde = AnimationUtils.loadAnimation(this.mContext, R.anim.rotate_collapse);
         this.jde.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.myAttentionAndFans.ConcernSelectView.5
             @Override // android.view.animation.Animation.AnimationListener
@@ -222,7 +222,7 @@ public class ConcernSelectView extends FrameLayout {
         });
     }
 
-    private void csj() {
+    private void csk() {
         this.jdd = AnimationUtils.loadAnimation(this.mContext, R.anim.rotate_expand);
         this.jdd.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.myAttentionAndFans.ConcernSelectView.6
             @Override // android.view.animation.Animation.AnimationListener

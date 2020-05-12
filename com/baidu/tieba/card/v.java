@@ -97,16 +97,16 @@ public class v extends a<bj> implements com.baidu.tieba.a.e {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (this.adJ != null) {
-            if (bEw() != null) {
-                bEw().a(view, (View) this.adJ, (Object) this.grm);
+            if (bEx() != null) {
+                bEx().a(view, (View) this.adJ, (Object) this.grm);
             }
             l.BE(this.adJ.getTid());
             l.a(this.grl, this.adJ.getTid(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
-            bEX();
+            bEY();
         }
     }
 
-    private void bEX() {
+    private void bEY() {
         if (this.adJ != null && this.adJ.aKC() != null && this.adJ.aKC().getName_show() != null) {
             if (com.baidu.tbadk.plugins.b.hW(true) && !com.baidu.tbadk.plugins.b.aZQ()) {
                 HotTopicActivityConfig createNormalConfig = new HotTopicActivityConfig(getContext()).createNormalConfig("", this.adJ.aKC().getName_show() + "", "3");

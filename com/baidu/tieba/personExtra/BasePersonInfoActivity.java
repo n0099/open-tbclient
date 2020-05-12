@@ -52,7 +52,7 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage.isSuccess()) {
                 if (httpResponsedMessage.getError() == 0) {
-                    com.baidu.tbadk.core.a.e.az(BasePersonInfoActivity.this.cGG(), BasePersonInfoActivity.iti[BasePersonInfoActivity.this.isW]);
+                    com.baidu.tbadk.core.a.e.az(BasePersonInfoActivity.this.cGH(), BasePersonInfoActivity.iti[BasePersonInfoActivity.this.isW]);
                     am.setNavbarIconSrc(BasePersonInfoActivity.this.isY, BasePersonInfoActivity.jVa[BasePersonInfoActivity.this.isW], BasePersonInfoActivity.itf[BasePersonInfoActivity.this.isW]);
                     BasePersonInfoActivity.this.showToastWithIcon(BasePersonInfoActivity.this.getPageContext().getString(BasePersonInfoActivity.ith[BasePersonInfoActivity.this.isW]), R.drawable.icon_toast_info);
                     return;
@@ -70,11 +70,11 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
 
     public abstract String cGB();
 
-    public abstract String cGF();
+    public abstract String cGC();
 
-    public abstract int cGG();
+    public abstract String cGG();
 
-    public abstract String cGx();
+    public abstract int cGH();
 
     public abstract String cGy();
 
@@ -139,7 +139,7 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
                 this.mNavigationBar.setCenterTextTitle(getPageContext().getString(R.string.share_choose_bar_title));
             }
         } else {
-            this.mNavigationBar.setCenterTextTitle(String.format(cGx(), this.isX));
+            this.mNavigationBar.setCenterTextTitle(String.format(cGy(), this.isX));
         }
         this.mNavigationBar.showBottomLine();
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View.OnClickListener() { // from class: com.baidu.tieba.personExtra.BasePersonInfoActivity.1
@@ -154,13 +154,13 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
         });
         if (this.mIsHost && this.itd != 23003 && !this.jUY) {
             this.isY = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.widget_nb_item_privacy, (View.OnClickListener) null);
-            am.setNavbarIconSrc(this.isY, jVa[com.baidu.tbadk.core.a.e.jz(cGG()) - 1], itf[com.baidu.tbadk.core.a.e.jz(cGG()) - 1]);
+            am.setNavbarIconSrc(this.isY, jVa[com.baidu.tbadk.core.a.e.jz(cGH()) - 1], itf[com.baidu.tbadk.core.a.e.jz(cGH()) - 1]);
             this.isY.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.personExtra.BasePersonInfoActivity.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    BasePersonInfoActivity.this.isW = com.baidu.tbadk.core.a.e.jz(BasePersonInfoActivity.this.cGG()) % 3;
+                    BasePersonInfoActivity.this.isW = com.baidu.tbadk.core.a.e.jz(BasePersonInfoActivity.this.cGH()) % 3;
                     String str = "";
-                    switch (BasePersonInfoActivity.this.cGG()) {
+                    switch (BasePersonInfoActivity.this.cGH()) {
                         case 2:
                             str = "like";
                             break;
@@ -201,12 +201,12 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
             for (int i2 = 0; i2 < i; i2++) {
                 Fragment item = this.jVb.getItem(i2);
                 int xv = this.jVb.xv(i2);
-                String cGy = cGy();
+                String cGz = cGz();
                 if (xv == 1) {
-                    cGy = cGz();
+                    cGz = cGA();
                 }
                 if (item != null) {
-                    a(item, xv, cGy);
+                    a(item, xv, cGz);
                 }
             }
             this.mTabHost.initViewPager(3);
@@ -236,15 +236,15 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
         if (!this.mIsHost && this.jVb != null) {
             FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) this.mTabHost.kw(0).dxJ;
             if (i <= 0) {
-                fragmentTabIndicator.setText(cGy());
+                fragmentTabIndicator.setText(cGz());
             } else {
-                fragmentTabIndicator.setText(String.format(cGA(), Integer.valueOf(i)));
+                fragmentTabIndicator.setText(String.format(cGB(), Integer.valueOf(i)));
             }
             FragmentTabIndicator fragmentTabIndicator2 = (FragmentTabIndicator) this.mTabHost.kw(1).dxJ;
             if (i2 <= 0) {
-                fragmentTabIndicator2.setText(cGz());
+                fragmentTabIndicator2.setText(cGA());
             } else {
-                fragmentTabIndicator2.setText(String.format(cGB(), Integer.valueOf(i2)));
+                fragmentTabIndicator2.setText(String.format(cGC(), Integer.valueOf(i2)));
             }
         }
     }
@@ -257,27 +257,27 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
         return this.mSex;
     }
 
-    public String cil() {
+    public String cim() {
         return this.isX;
     }
 
-    public boolean cim() {
+    public boolean cin() {
         return this.mIsHost;
     }
 
-    public boolean cGC() {
+    public boolean cGD() {
         return this.jUY;
     }
 
-    public int cik() {
+    public int cil() {
         return this.fiv == 0 ? 0 : 1;
     }
 
-    public int cGD() {
+    public int cGE() {
         return this.jUX;
     }
 
-    public String cGE() {
+    public String cGF() {
         return this.jUZ;
     }
 
@@ -317,7 +317,7 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
         if (i >= 0 && i < 2 && i != this.fiv) {
             this.fiv = i;
             if (!this.mIsHost && this.isV[i] == 1) {
-                TiebaStatic.eventStat(getPageContext().getContext(), cGF(), "click", 1, new Object[0]);
+                TiebaStatic.eventStat(getPageContext().getContext(), cGG(), "click", 1, new Object[0]);
             }
         }
     }

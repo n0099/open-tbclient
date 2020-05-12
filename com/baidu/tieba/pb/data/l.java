@@ -28,11 +28,11 @@ public class l {
     private ArrayList<PostData> joK = new ArrayList<>();
     private int joL = 1;
 
-    public Error cwd() {
+    public Error cwe() {
         return this.joO;
     }
 
-    public PostData cwe() {
+    public PostData cwf() {
         return this.joJ;
     }
 
@@ -40,41 +40,41 @@ public class l {
         this.joJ = postData;
     }
 
-    public int cwf() {
+    public int cwg() {
         if (this.joM == -1) {
             this.joM = this.aCY;
         }
         return this.joM;
     }
 
-    public int cwg() {
+    public int cwh() {
         return this.joM;
     }
 
     public void a(l lVar, boolean z) {
         if (lVar != null) {
-            b(lVar.bNE());
+            b(lVar.bNF());
             this.joM = lVar.bdY();
             a(lVar.aXG());
             setPageSize(lVar.getPageSize());
             setThreadData(lVar.aIu());
             setTotalCount(lVar.getTotalCount());
-            zl(lVar.cwj());
-            this.joK.addAll(0, lVar.cwi());
+            zl(lVar.cwk());
+            this.joK.addAll(0, lVar.cwj());
         }
     }
 
     public void b(l lVar, boolean z) {
         if (lVar != null) {
-            b(lVar.bNE());
+            b(lVar.bNF());
             a(lVar.aXG());
-            f(lVar.cwe());
+            f(lVar.cwf());
             setThreadData(lVar.aIu());
-            if (lVar.cwi() != null) {
+            if (lVar.cwj() != null) {
                 setCurrentPage(lVar.bdY());
                 setPageSize(lVar.getPageSize());
                 setTotalCount(lVar.getTotalCount());
-                zl(lVar.cwj());
+                zl(lVar.cwk());
             }
             int size = this.joK.size();
             if (z && size % this.mPageSize != 0) {
@@ -82,21 +82,21 @@ public class l {
                     this.joK.remove(this.joK.size() - 1);
                 }
             }
-            this.joK.addAll(lVar.cwi());
+            this.joK.addAll(lVar.cwj());
         }
     }
 
     public void c(l lVar, boolean z) {
         if (lVar != null) {
-            b(lVar.bNE());
+            b(lVar.bNF());
             a(lVar.aXG());
-            f(lVar.cwe());
+            f(lVar.cwf());
             setThreadData(lVar.aIu());
-            if (lVar.cwi() != null && lVar.cwi().size() > 0) {
+            if (lVar.cwj() != null && lVar.cwj().size() > 0) {
                 setCurrentPage(lVar.bdY());
                 setPageSize(lVar.getPageSize());
                 setTotalCount(lVar.getTotalCount());
-                zl(lVar.cwj());
+                zl(lVar.cwk());
             }
             int size = this.joK.size();
             if (z && size % this.mPageSize != 0) {
@@ -104,8 +104,8 @@ public class l {
                     this.joK.remove(this.joK.size() - 1);
                 }
             }
-            this.joK.addAll(lVar.cwi());
-            cwh();
+            this.joK.addAll(lVar.cwj());
+            cwi();
         }
     }
 
@@ -115,25 +115,25 @@ public class l {
 
     public void a(l lVar) {
         if (lVar != null) {
-            b(lVar.bNE());
+            b(lVar.bNF());
             a(lVar.aXG());
-            f(lVar.cwe());
+            f(lVar.cwf());
             setThreadData(lVar.aIu());
-            if (lVar.cwi() != null && lVar.cwi().size() > 0) {
+            if (lVar.cwj() != null && lVar.cwj().size() > 0) {
                 setCurrentPage(lVar.bdY());
                 setPageSize(lVar.getPageSize());
                 setTotalCount(lVar.getTotalCount());
-                zl(lVar.cwj());
-                this.joM = (this.aCY - (((lVar.cwi().size() - 1) + this.mPageSize) / this.mPageSize)) + 1;
+                zl(lVar.cwk());
+                this.joM = (this.aCY - (((lVar.cwj().size() - 1) + this.mPageSize) / this.mPageSize)) + 1;
                 if (this.joM < 0) {
                     this.joM = 0;
                 }
             }
-            this.joK.addAll(lVar.cwi());
+            this.joK.addAll(lVar.cwj());
         }
     }
 
-    public void cwh() {
+    public void cwi() {
         if (this.joM < 0) {
             this.joM = this.aCY;
         } else if (this.joM > this.aCY) {
@@ -141,7 +141,7 @@ public class l {
         }
     }
 
-    public ArrayList<PostData> cwi() {
+    public ArrayList<PostData> cwj() {
         return this.joK;
     }
 
@@ -149,7 +149,7 @@ public class l {
         this.joK = arrayList;
     }
 
-    public int cwj() {
+    public int cwk() {
         return this.joL;
     }
 
@@ -195,7 +195,7 @@ public class l {
         this.dMD = antiData;
     }
 
-    public AntiData bNE() {
+    public AntiData bNF() {
         return this.dMD;
     }
 
@@ -203,7 +203,7 @@ public class l {
         this.agC = bjVar;
     }
 
-    public boolean cim() {
+    public boolean cin() {
         return (this.agC == null || this.joJ == null || this.agC.aKC() == null || this.agC.aKC().getUserId() == null || this.joJ.aKC() == null || this.joJ.aKC().getUserId() == null || !this.agC.aKC().getUserId().equals(this.joJ.aKC().getUserId())) ? false : true;
     }
 

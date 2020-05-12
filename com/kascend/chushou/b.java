@@ -13,7 +13,7 @@ public class b {
     private b() {
     }
 
-    public static b dwA() {
+    public static b dwB() {
         if (mnl == null) {
             synchronized (b.class) {
                 mnl = new b();

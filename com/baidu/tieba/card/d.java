@@ -160,8 +160,8 @@ public class d extends a<com.baidu.tieba.e.a> {
         if (view == this.gnl) {
             TiebaStatic.log(new an("c13047").af("obj_locate", 4).cI("fid", this.mForumId));
             FrsGameStrategyActivity.u(this.mTbPageContext.getPageActivity(), this.mForumId, this.mForumName);
-        } else if (bEw() != null) {
-            bEw().a(getView(), this.gnn);
+        } else if (bEx() != null) {
+            bEx().a(getView(), this.gnn);
         }
     }
 

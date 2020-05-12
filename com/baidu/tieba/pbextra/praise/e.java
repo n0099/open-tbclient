@@ -83,7 +83,7 @@ public class e extends com.baidu.adp.base.c<PraiseListActivity> {
         this.jRw.setOnItemClickListener(praiseListActivity);
     }
 
-    public void cgk() {
+    public void cgl() {
         if (this.jRo != null) {
             this.jRo.notifyDataSetChanged();
         }
@@ -97,7 +97,7 @@ public class e extends com.baidu.adp.base.c<PraiseListActivity> {
         }
     }
 
-    public void cFP() {
+    public void cFQ() {
         this.jRA.setVisibility(8);
         this.jRB.setVisibility(8);
     }
@@ -191,11 +191,11 @@ public class e extends com.baidu.adp.base.c<PraiseListActivity> {
         }
     }
 
-    public View cFQ() {
+    public View cFR() {
         return this.jRu;
     }
 
-    public View cFR() {
+    public View cFS() {
         return this.jRy;
     }
 }

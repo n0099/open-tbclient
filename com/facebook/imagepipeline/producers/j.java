@@ -30,25 +30,25 @@ public class j implements aj<com.facebook.imagepipeline.g.e> {
         @Override // com.facebook.imagepipeline.producers.b
         /* renamed from: a */
         public void g(com.facebook.imagepipeline.g.e eVar, int i) {
-            ImageRequest dtQ = this.meU.dtQ();
+            ImageRequest dtR = this.meU.dtR();
             boolean Hr = Hr(i);
-            boolean a = ax.a(eVar, dtQ.duK());
-            if (eVar != null && (a || dtQ.duO())) {
+            boolean a = ax.a(eVar, dtR.duL());
+            if (eVar != null && (a || dtR.duP())) {
                 if (Hr && a) {
-                    duc().h(eVar, i);
+                    dud().h(eVar, i);
                 } else {
-                    duc().h(eVar, dk(i, 1));
+                    dud().h(eVar, dk(i, 1));
                 }
             }
             if (Hr && !a) {
                 com.facebook.imagepipeline.g.e.e(eVar);
-                j.this.meT.c(duc(), this.meU);
+                j.this.meT.c(dud(), this.meU);
             }
         }
 
         @Override // com.facebook.imagepipeline.producers.n, com.facebook.imagepipeline.producers.b
         protected void F(Throwable th) {
-            j.this.meT.c(duc(), this.meU);
+            j.this.meT.c(dud(), this.meU);
         }
     }
 }

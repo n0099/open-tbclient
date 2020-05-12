@@ -169,7 +169,7 @@ public class d {
         return this.mThreadId;
     }
 
-    public boolean cCo() {
+    public boolean cCp() {
         return this.dXi;
     }
 
@@ -200,7 +200,7 @@ public class d {
         messageManager.unRegisterTask(CmdConfigSocket.CMD_GRAFFITI_LIST);
     }
 
-    public String cFN() {
+    public String cFO() {
         return this.jRg;
     }
 
@@ -216,10 +216,10 @@ public class d {
     }
 
     public void Au(int i) {
-        cFO();
+        cFP();
     }
 
-    private void cFO() {
+    private void cFP() {
         HttpMessage httpMessage = new HttpMessage(1001400);
         httpMessage.addParam("post_id", this.mPostId + "");
         httpMessage.addParam("page_num", this.jRh + "");

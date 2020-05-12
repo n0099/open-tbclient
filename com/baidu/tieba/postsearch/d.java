@@ -43,8 +43,8 @@ public class d {
                 if (statusCode == 200 && error == 0) {
                     d.this.kmC.a(intValue, postSearchHttpResponseMessage.getSearchData(), z);
                     d.this.Bk(intValue);
-                    d.this.cLP();
-                    d.this.cLS();
+                    d.this.cLQ();
+                    d.this.cLT();
                     return;
                 }
                 String errorString = postSearchHttpResponseMessage.getErrorString();
@@ -63,7 +63,7 @@ public class d {
             Object data;
             if (customResponsedMessage != null && (data = customResponsedMessage.getData()) != null && (data instanceof ArrayList)) {
                 d.this.kne = (ArrayList) data;
-                d.this.kmC.cLB();
+                d.this.kmC.cLC();
             }
         }
     };
@@ -79,7 +79,7 @@ public class d {
             return false;
         }
         if (!str.equals(this.gWw)) {
-            cLR();
+            cLS();
         }
         switch (i) {
             case 1:
@@ -126,32 +126,32 @@ public class d {
         return true;
     }
 
-    public void cLO() {
+    public void cLP() {
         this.kmC.sendMessage(new CustomMessage(CmdConfigCustom.GET_ALL_SEARCH_POST_DATA));
     }
 
-    public void cLP() {
+    public void cLQ() {
         if (!StringUtils.isNull(this.gWw) && !this.gWw.equals(this.kmV)) {
             this.kmC.sendMessage(new CustomMessage((int) CmdConfigCustom.SAVE_SEARCH_POST_DATA, this.gWw));
             this.kmV = this.gWw;
         }
     }
 
-    public void cLQ() {
+    public void cLR() {
         if (this.kne != null) {
             this.kne.clear();
         }
         this.kmC.sendMessage(new CustomMessage(CmdConfigCustom.CLEAR_ALL_SEARCH_POST_DATA));
     }
 
-    public void cLR() {
+    public void cLS() {
         this.kmY = 1;
         this.kmZ = 1;
         this.kna = 1;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cLS() {
+    public void cLT() {
         if (this.kne == null) {
             this.kne = new ArrayList<>();
         }

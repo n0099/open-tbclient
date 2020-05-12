@@ -40,7 +40,7 @@ public class i implements o {
         this.ihz = i3;
     }
 
-    public void cdZ() {
+    public void cea() {
         if (this.ihZ != null) {
             this.ihZ.cancel();
         }
@@ -49,11 +49,11 @@ public class i implements o {
         this.ihZ.execute(new Object[0]);
     }
 
-    public ImageView cea() {
+    public ImageView ceb() {
         return this.ihW;
     }
 
-    public TextView ceb() {
+    public TextView cec() {
         return this.ihX;
     }
 
@@ -63,12 +63,12 @@ public class i implements o {
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public void cdJ() {
+    public void cdK() {
         this.ihW.setBackgroundDrawable(null);
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public void cdK() {
+    public void cdL() {
         this.ihv.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
         this.ihv.getLayoutMode().onModeChanged(this.mView);
         this.ihV.refresh();
@@ -124,7 +124,7 @@ public class i implements o {
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public String cdM() {
+    public String cdN() {
         if (this.mIndex != this.ihz) {
             return this.ihv.getPageContext().getString(R.string.next_step);
         }
@@ -132,12 +132,12 @@ public class i implements o {
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public boolean cdN() {
+    public boolean cdO() {
         return true;
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public int cdD() {
+    public int cdE() {
         return this.mIndex;
     }
 
@@ -147,7 +147,7 @@ public class i implements o {
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public boolean cdO() {
+    public boolean cdP() {
         return true;
     }
 }

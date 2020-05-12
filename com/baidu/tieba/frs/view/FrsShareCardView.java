@@ -64,10 +64,10 @@ public class FrsShareCardView extends LinearLayout {
         am.setViewTextColor(this.hCk, R.color.cp_cont_b, 2);
         this.hCk.setHintTextColor(am.getColor(R.color.cp_cont_e));
         this.hCk.setPadding(context.getResources().getDimensionPixelSize(R.dimen.ds20), 0, 0, 0);
-        bWF();
+        bWG();
     }
 
-    public void bWF() {
+    public void bWG() {
         this.mRootView.setFocusable(true);
         this.mRootView.setFocusableInTouchMode(true);
         this.mRootView.requestFocus();

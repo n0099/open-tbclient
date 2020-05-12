@@ -8,7 +8,7 @@ public class c {
     private List<b> parent_menu = new ArrayList();
     private long update_time;
 
-    public boolean ceX() {
+    public boolean ceY() {
         return this.ijo == 1;
     }
 
@@ -24,7 +24,7 @@ public class c {
         this.update_time = j;
     }
 
-    public List<b> ceY() {
+    public List<b> ceZ() {
         return this.parent_menu;
     }
 

@@ -20,7 +20,7 @@ public final class Functions {
     static final Comparator<Object> mRA = new i();
     public static final io.reactivex.c.g<org.a.d> mRB = new h();
 
-    public static <T> io.reactivex.c.g<T> dCH() {
+    public static <T> io.reactivex.c.g<T> dCI() {
         return (io.reactivex.c.g<T>) mRt;
     }
 

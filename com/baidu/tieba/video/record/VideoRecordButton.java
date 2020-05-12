@@ -60,7 +60,7 @@ public class VideoRecordButton extends FrameLayout {
         return this.Zc;
     }
 
-    public void ddG() {
+    public void ddH() {
         if (this.lqV != null && this.lqV.isRunning()) {
             this.lqU.cancel();
         }
@@ -71,7 +71,7 @@ public class VideoRecordButton extends FrameLayout {
         this.lqU.start();
     }
 
-    public void ddH() {
+    public void ddI() {
         if (this.lqU != null && this.lqU.isRunning()) {
             this.lqU.cancel();
         }
@@ -104,7 +104,7 @@ public class VideoRecordButton extends FrameLayout {
         this.lqS.start();
     }
 
-    public void ddv() {
+    public void ddw() {
         if (this.lqS != null && this.lqS.isRunning()) {
             this.lqS.cancel();
         }

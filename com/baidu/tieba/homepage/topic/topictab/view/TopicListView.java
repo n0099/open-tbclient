@@ -77,7 +77,7 @@ public class TopicListView extends FrameLayout {
         };
         this.hIl = new ScrollFragmentTabHost.a() { // from class: com.baidu.tieba.homepage.topic.topictab.view.TopicListView.3
             @Override // com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost.a
-            public void bYC() {
+            public void bYD() {
                 if (TopicListView.this.hIk != null) {
                     TopicListView.this.eRI = -1;
                     if (TopicListView.this.a(TopicListView.this.Vi)) {
@@ -117,7 +117,7 @@ public class TopicListView extends FrameLayout {
         if (this.hIk != null) {
             this.hIk.b(this.hIl);
             this.hIk.a(this.hIl);
-            this.hIl.bYC();
+            this.hIl.bYD();
         }
     }
 
@@ -152,7 +152,7 @@ public class TopicListView extends FrameLayout {
         this.Vi.setSelection(0);
         startPullRefresh();
         if (this.hIl != null) {
-            this.hIl.bYC();
+            this.hIl.bYD();
         }
     }
 
@@ -181,7 +181,7 @@ public class TopicListView extends FrameLayout {
     }
 
     public void fK(boolean z) {
-        if (!bJr()) {
+        if (!bJs()) {
             if (this.eYg == null) {
                 this.eYg = new com.baidu.tbadk.k.g(getContext());
                 int height = (((getHeight() - TbadkCoreApplication.getInst().getMainTabBottomBarHeight()) - l.getDimens(getContext(), R.dimen.tbds304)) / 2) - (TbadkCoreApplication.getInst().getMainTabBottomBarHeight() / 2);
@@ -200,7 +200,7 @@ public class TopicListView extends FrameLayout {
         }
     }
 
-    public boolean bJr() {
+    public boolean bJs() {
         if (this.eYg != null) {
             return this.eYg.isViewAttached();
         }
@@ -208,7 +208,7 @@ public class TopicListView extends FrameLayout {
     }
 
     public void lV(boolean z) {
-        if (!bJs()) {
+        if (!bJt()) {
             if (this.mRefreshView == null) {
                 this.mRefreshView = new com.baidu.tbadk.k.h(getContext(), new View.OnClickListener() { // from class: com.baidu.tieba.homepage.topic.topictab.view.TopicListView.4
                     @Override // android.view.View.OnClickListener
@@ -233,7 +233,7 @@ public class TopicListView extends FrameLayout {
         }
     }
 
-    public boolean bJs() {
+    public boolean bJt() {
         if (this.mRefreshView != null) {
             return this.mRefreshView.isViewAttached();
         }

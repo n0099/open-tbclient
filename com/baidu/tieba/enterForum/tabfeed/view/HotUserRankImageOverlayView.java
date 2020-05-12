@@ -38,7 +38,7 @@ public class HotUserRankImageOverlayView extends ViewGroup {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (HotUserRankImageOverlayView.this.gHU != null) {
-                    HotUserRankImageOverlayView.this.gHU.deD();
+                    HotUserRankImageOverlayView.this.gHU.deE();
                 }
             }
         };
@@ -54,7 +54,7 @@ public class HotUserRankImageOverlayView extends ViewGroup {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (HotUserRankImageOverlayView.this.gHU != null) {
-                    HotUserRankImageOverlayView.this.gHU.deD();
+                    HotUserRankImageOverlayView.this.gHU.deE();
                 }
             }
         };
@@ -70,7 +70,7 @@ public class HotUserRankImageOverlayView extends ViewGroup {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (HotUserRankImageOverlayView.this.gHU != null) {
-                    HotUserRankImageOverlayView.this.gHU.deD();
+                    HotUserRankImageOverlayView.this.gHU.deE();
                 }
             }
         };
@@ -84,7 +84,7 @@ public class HotUserRankImageOverlayView extends ViewGroup {
         this.gHR = i4;
         this.gHS = i5;
         this.gHT = i6;
-        bJG();
+        bJH();
     }
 
     public void setFirstImageStrokeColor(@ColorRes int i) {
@@ -101,7 +101,7 @@ public class HotUserRankImageOverlayView extends ViewGroup {
         this.mStrokePaint.setStyle(Paint.Style.STROKE);
     }
 
-    private void bJG() {
+    private void bJH() {
         for (int i = 0; i < this.gHQ; i++) {
             HeadImageView headImageView = new HeadImageView(getContext());
             headImageView.setLayoutParams(new ViewGroup.LayoutParams(this.mImageWidth, this.mImageHeight));

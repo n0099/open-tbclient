@@ -99,7 +99,7 @@ public class y extends x {
         if (iterable instanceof Collection) {
             switch (((Collection) iterable).size()) {
                 case 0:
-                    return o.dDz();
+                    return o.dDA();
                 case 1:
                     return o.bC(iterable instanceof List ? ((List) iterable).get(0) : iterable.iterator().next());
                 default:

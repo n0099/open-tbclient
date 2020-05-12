@@ -17,27 +17,27 @@ public class j {
         this.nbI = 0;
     }
 
-    public void dFr() {
+    public void dFs() {
         this.nbE++;
     }
 
-    public void dFs() {
+    public void dFt() {
         this.nbD++;
     }
 
-    public void dFt() {
+    public void dFu() {
         this.nbF++;
     }
 
-    public void dFu() {
+    public void dFv() {
         this.nbG++;
     }
 
-    public void dFv() {
+    public void dFw() {
         this.nbH++;
     }
 
-    public void dFw() {
+    public void dFx() {
         this.nbI++;
     }
 }

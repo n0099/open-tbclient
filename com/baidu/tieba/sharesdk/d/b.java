@@ -81,9 +81,9 @@ public class b implements View.OnClickListener {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001304 && (customResponsedMessage.getData() instanceof Integer)) {
-                b.this.cSz();
+                b.this.cSA();
                 b.this.kHk.removeAllViews();
-                b.this.cSy();
+                b.this.cSz();
             }
         }
     };
@@ -129,7 +129,7 @@ public class b implements View.OnClickListener {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private void cSA() {
+    private void cSB() {
         ArrayList arrayList = new ArrayList(this.kHl);
         this.kHl.clear();
         if (!Cz(this.hideMode)) {
@@ -210,7 +210,7 @@ public class b implements View.OnClickListener {
         return linearLayout;
     }
 
-    public int cSx() {
+    public int cSy() {
         if (this.kHl == null) {
             return 0;
         }
@@ -256,9 +256,9 @@ public class b implements View.OnClickListener {
     }
 
     public void a(ShareItem shareItem, boolean z) {
-        Location bGi;
-        if (z && (bGi = bGi()) != null) {
-            shareItem.location = bGi;
+        Location bGj;
+        if (z && (bGj = bGj()) != null) {
+            shareItem.location = bGj;
         }
         this.kHn.put(1, shareItem);
         if (!StringUtils.isNull(shareItem.dQx)) {
@@ -267,14 +267,14 @@ public class b implements View.OnClickListener {
     }
 
     public void b(int i, ShareItem shareItem, boolean z) {
-        Location bGi;
-        if (z && (bGi = bGi()) != null) {
-            shareItem.location = bGi;
+        Location bGj;
+        if (z && (bGj = bGj()) != null) {
+            shareItem.location = bGj;
         }
         this.kHn.put(i, shareItem);
     }
 
-    private Location bGi() {
+    private Location bGj() {
         if (ab.checkLocationForGoogle(this.mContext)) {
             LocationManager locationManager = (LocationManager) this.mContext.getSystemService("location");
             Criteria criteria = new Criteria();
@@ -298,8 +298,8 @@ public class b implements View.OnClickListener {
         }
     }
 
-    public void cSy() {
-        cSA();
+    public void cSz() {
+        cSB();
         if (!f.aUX()) {
             this.kHk.setVisibility(8);
         }
@@ -321,7 +321,7 @@ public class b implements View.OnClickListener {
         } else if (!f.aUX()) {
             l.showToast(TbadkCoreApplication.getInst().getContext(), (int) R.string.plugin_share_install_failure);
         } else {
-            cSy();
+            cSz();
             this.mDialog = new AlertDialog.Builder(this.mContext, R.style.DialogTheme).create();
             this.mDialog.setCanceledOnTouchOutside(true);
             this.mDialog.setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.sharesdk.d.b.3
@@ -351,7 +351,7 @@ public class b implements View.OnClickListener {
                 window.setGravity(80);
                 window.setLayout(-1, -2);
                 window.setContentView(this.mRootView);
-                cSz();
+                cSA();
                 bpJ();
                 i.G(this.mContext).registerListener(this.dvj);
             }
@@ -678,7 +678,7 @@ public class b implements View.OnClickListener {
 
     /* JADX INFO: Access modifiers changed from: private */
     @SuppressLint({"ResourceAsColor"})
-    public void cSz() {
+    public void cSA() {
         am.setBackgroundResource(this.mRootView, R.drawable.transmit_share_dialog_background);
         am.setViewTextColor(this.kHj, R.color.cp_cont_c, 1);
         am.setViewTextColor(this.kHi, R.color.cp_cont_j, 1);

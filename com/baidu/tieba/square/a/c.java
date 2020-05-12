@@ -56,11 +56,11 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.square.da
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.square.data.b bVar, com.baidu.tieba.card.a.a<com.baidu.tieba.square.view.c> aVar) {
-        if (bVar == null || aVar == null || aVar.bFz() == null) {
+        if (bVar == null || aVar == null || aVar.bFA() == null) {
             return null;
         }
-        aVar.bFz().a(bVar);
-        aVar.bFz().c(this.fsi);
+        aVar.bFA().a(bVar);
+        aVar.bFA().c(this.fsi);
         if (this.mPageContext.getPageActivity() instanceof ForumSquareActivity) {
             String className = ((ForumSquareActivity) this.mPageContext.getPageActivity()).getClassName();
             if (!"推荐".equals(className)) {

@@ -13,12 +13,12 @@ public final class c extends kotlin.b.a {
 
     @Override // kotlin.b.a
     public boolean isEmpty() {
-        return dDY() > dDZ();
+        return dDZ() > dEa();
     }
 
     @Override // kotlin.b.a
     public boolean equals(Object obj) {
-        return (obj instanceof c) && ((isEmpty() && ((c) obj).isEmpty()) || (dDY() == ((c) obj).dDY() && dDZ() == ((c) obj).dDZ()));
+        return (obj instanceof c) && ((isEmpty() && ((c) obj).isEmpty()) || (dDZ() == ((c) obj).dDZ() && dEa() == ((c) obj).dEa()));
     }
 
     @Override // kotlin.b.a
@@ -26,12 +26,12 @@ public final class c extends kotlin.b.a {
         if (isEmpty()) {
             return -1;
         }
-        return (dDY() * 31) + dDZ();
+        return (dDZ() * 31) + dEa();
     }
 
     @Override // kotlin.b.a
     public String toString() {
-        return dDY() + IStringUtil.TOP_PATH + dDZ();
+        return dDZ() + IStringUtil.TOP_PATH + dEa();
     }
 
     @kotlin.h

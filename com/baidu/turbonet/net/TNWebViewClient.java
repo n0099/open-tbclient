@@ -49,7 +49,7 @@ public class TNWebViewClient extends WebViewClient {
         } catch (Exception e3) {
             Log.e("tn_TNWebViewClient", "Exception when intercept webview request: " + e3.toString());
         }
-        if (webResourceRequest.getMethod().equals("GET") && !this.lLe.djg()) {
+        if (webResourceRequest.getMethod().equals("GET") && !this.lLe.djh()) {
             Log.d("tn_TNWebViewClient", "Intercept request and send " + webResourceRequest.getUrl().toString());
             d dVar = new d(new URL(webResourceRequest.getUrl().toString()), this.lLe);
             dVar.setRequestMethod(webResourceRequest.getMethod());

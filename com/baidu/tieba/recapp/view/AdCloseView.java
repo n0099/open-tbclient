@@ -87,7 +87,7 @@ public class AdCloseView extends FrameLayout {
             public void onClick(View view) {
                 long currentTimeMillis = System.currentTimeMillis();
                 if (currentTimeMillis - AdCloseView.this.aBq > 500) {
-                    AdCloseView.this.cbv();
+                    AdCloseView.this.cbw();
                     AdCloseView.this.aBq = currentTimeMillis;
                 }
             }
@@ -95,15 +95,15 @@ public class AdCloseView extends FrameLayout {
         this.kxK = new View.OnClickListener() { // from class: com.baidu.tieba.recapp.view.AdCloseView.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                int cOu = AdCloseView.this.cOu();
-                if (cOu > 0) {
+                int cOv = AdCloseView.this.cOv();
+                if (cOv > 0) {
                     AdCloseView.this.hlX.setText(R.string.confirm);
                     SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
                     spannableStringBuilder.append((CharSequence) AdCloseView.this.mContext.getString(R.string.ad_close_title_prefix));
                     int color = am.getColor(R.color.cp_cont_b);
                     spannableStringBuilder.setSpan(new ForegroundColorSpan(color), 0, spannableStringBuilder.length(), 17);
                     int length = spannableStringBuilder.length();
-                    spannableStringBuilder.append((CharSequence) String.valueOf(cOu));
+                    spannableStringBuilder.append((CharSequence) String.valueOf(cOv));
                     spannableStringBuilder.setSpan(new ForegroundColorSpan(am.getColor(R.color.cp_link_tip_a)), length, spannableStringBuilder.length(), 17);
                     int length2 = spannableStringBuilder.length();
                     spannableStringBuilder.append((CharSequence) AdCloseView.this.mContext.getString(R.string.ad_close_title_postfix));
@@ -165,7 +165,7 @@ public class AdCloseView extends FrameLayout {
         this.kxN = new View.OnClickListener() { // from class: com.baidu.tieba.recapp.view.AdCloseView.6
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                AdCloseView.this.cOs();
+                AdCloseView.this.cOt();
             }
         };
         this.mContext = context;
@@ -187,7 +187,7 @@ public class AdCloseView extends FrameLayout {
             public void onClick(View view) {
                 long currentTimeMillis = System.currentTimeMillis();
                 if (currentTimeMillis - AdCloseView.this.aBq > 500) {
-                    AdCloseView.this.cbv();
+                    AdCloseView.this.cbw();
                     AdCloseView.this.aBq = currentTimeMillis;
                 }
             }
@@ -195,15 +195,15 @@ public class AdCloseView extends FrameLayout {
         this.kxK = new View.OnClickListener() { // from class: com.baidu.tieba.recapp.view.AdCloseView.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                int cOu = AdCloseView.this.cOu();
-                if (cOu > 0) {
+                int cOv = AdCloseView.this.cOv();
+                if (cOv > 0) {
                     AdCloseView.this.hlX.setText(R.string.confirm);
                     SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
                     spannableStringBuilder.append((CharSequence) AdCloseView.this.mContext.getString(R.string.ad_close_title_prefix));
                     int color = am.getColor(R.color.cp_cont_b);
                     spannableStringBuilder.setSpan(new ForegroundColorSpan(color), 0, spannableStringBuilder.length(), 17);
                     int length = spannableStringBuilder.length();
-                    spannableStringBuilder.append((CharSequence) String.valueOf(cOu));
+                    spannableStringBuilder.append((CharSequence) String.valueOf(cOv));
                     spannableStringBuilder.setSpan(new ForegroundColorSpan(am.getColor(R.color.cp_link_tip_a)), length, spannableStringBuilder.length(), 17);
                     int length2 = spannableStringBuilder.length();
                     spannableStringBuilder.append((CharSequence) AdCloseView.this.mContext.getString(R.string.ad_close_title_postfix));
@@ -265,7 +265,7 @@ public class AdCloseView extends FrameLayout {
         this.kxN = new View.OnClickListener() { // from class: com.baidu.tieba.recapp.view.AdCloseView.6
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                AdCloseView.this.cOs();
+                AdCloseView.this.cOt();
             }
         };
         this.mContext = context;
@@ -287,7 +287,7 @@ public class AdCloseView extends FrameLayout {
             public void onClick(View view) {
                 long currentTimeMillis = System.currentTimeMillis();
                 if (currentTimeMillis - AdCloseView.this.aBq > 500) {
-                    AdCloseView.this.cbv();
+                    AdCloseView.this.cbw();
                     AdCloseView.this.aBq = currentTimeMillis;
                 }
             }
@@ -295,15 +295,15 @@ public class AdCloseView extends FrameLayout {
         this.kxK = new View.OnClickListener() { // from class: com.baidu.tieba.recapp.view.AdCloseView.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                int cOu = AdCloseView.this.cOu();
-                if (cOu > 0) {
+                int cOv = AdCloseView.this.cOv();
+                if (cOv > 0) {
                     AdCloseView.this.hlX.setText(R.string.confirm);
                     SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
                     spannableStringBuilder.append((CharSequence) AdCloseView.this.mContext.getString(R.string.ad_close_title_prefix));
                     int color = am.getColor(R.color.cp_cont_b);
                     spannableStringBuilder.setSpan(new ForegroundColorSpan(color), 0, spannableStringBuilder.length(), 17);
                     int length = spannableStringBuilder.length();
-                    spannableStringBuilder.append((CharSequence) String.valueOf(cOu));
+                    spannableStringBuilder.append((CharSequence) String.valueOf(cOv));
                     spannableStringBuilder.setSpan(new ForegroundColorSpan(am.getColor(R.color.cp_link_tip_a)), length, spannableStringBuilder.length(), 17);
                     int length2 = spannableStringBuilder.length();
                     spannableStringBuilder.append((CharSequence) AdCloseView.this.mContext.getString(R.string.ad_close_title_postfix));
@@ -365,7 +365,7 @@ public class AdCloseView extends FrameLayout {
         this.kxN = new View.OnClickListener() { // from class: com.baidu.tieba.recapp.view.AdCloseView.6
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                AdCloseView.this.cOs();
+                AdCloseView.this.cOt();
             }
         };
         this.mContext = context;
@@ -405,7 +405,7 @@ public class AdCloseView extends FrameLayout {
             this.hlX.setText(this.kxI);
         }
         this.hlX.setOnClickListener(this.kxL);
-        if (cOt()) {
+        if (cOu()) {
             this.kxB.setText(this.kxG.name);
             findViewById.setVisibility(0);
             findViewById.setOnClickListener(this.kxN);
@@ -421,11 +421,11 @@ public class AdCloseView extends FrameLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cbv() {
+    public void cbw() {
         if (this.mContext != null) {
             beB();
             View contentView = getContentView();
-            cOr();
+            cOs();
             this.mContentView = contentView;
             this.mWindowHeight = getWindowMeasuredHeight();
             this.mPopupWindow = new PopupWindow(contentView, this.mWindowWidth, this.mWindowHeight);
@@ -479,7 +479,7 @@ public class AdCloseView extends FrameLayout {
         }
     }
 
-    private void cOr() {
+    private void cOs() {
         if (this.kxH != null && this.kxH.size() > 0) {
             int size = this.kxH.size();
             this.kxA.setVisibility(0);
@@ -584,13 +584,13 @@ public class AdCloseView extends FrameLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cOs() {
-        if (cOt()) {
+    public void cOt() {
+        if (cOu()) {
             a.bgh().c(getContext(), new String[]{this.kxG.url});
         }
     }
 
-    private boolean cOt() {
+    private boolean cOu() {
         return (this.kxG == null || TextUtils.isEmpty(this.kxG.url) || TextUtils.isEmpty(this.kxG.name)) ? false : true;
     }
 
@@ -641,7 +641,7 @@ public class AdCloseView extends FrameLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public int cOu() {
+    public int cOv() {
         if (v.isEmpty(this.kxE)) {
             return 0;
         }

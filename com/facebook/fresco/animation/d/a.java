@@ -12,13 +12,13 @@ public class a implements b {
 
     @Override // com.facebook.fresco.animation.d.b
     public int I(long j, long j2) {
-        if (!dpU() && j / dpT() >= this.lXM.getLoopCount()) {
+        if (!dpV() && j / dpU() >= this.lXM.getLoopCount()) {
             return -1;
         }
-        return fP(j % dpT());
+        return fP(j % dpU());
     }
 
-    public long dpT() {
+    public long dpU() {
         if (this.lYE != -1) {
             return this.lYE;
         }
@@ -33,12 +33,12 @@ public class a implements b {
     @Override // com.facebook.fresco.animation.d.b
     public long fO(long j) {
         long j2 = 0;
-        long dpT = dpT();
-        if (dpT == 0) {
+        long dpU = dpU();
+        if (dpU == 0) {
             return -1L;
         }
-        if (dpU() || j / dpT() < this.lXM.getLoopCount()) {
-            long j3 = j % dpT;
+        if (dpV() || j / dpU() < this.lXM.getLoopCount()) {
+            long j3 = j % dpU;
             int frameCount = this.lXM.getFrameCount();
             for (int i = 0; i < frameCount && j2 <= j3; i++) {
                 j2 += this.lXM.GA(i);
@@ -48,7 +48,7 @@ public class a implements b {
         return -1L;
     }
 
-    public boolean dpU() {
+    public boolean dpV() {
         return this.lXM.getLoopCount() == 0;
     }
 

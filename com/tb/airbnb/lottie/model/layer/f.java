@@ -37,7 +37,7 @@ public class f extends a {
     public void b(Canvas canvas, Matrix matrix, int i) {
         int alpha = Color.alpha(this.mQc.getSolidColor());
         if (alpha != 0) {
-            int intValue = (int) (((this.mOM.dBj().getValue().intValue() * (alpha / 255.0f)) / 100.0f) * (i / 255.0f) * 255.0f);
+            int intValue = (int) (((this.mOM.dBk().getValue().intValue() * (alpha / 255.0f)) / 100.0f) * (i / 255.0f) * 255.0f);
             this.paint.setAlpha(intValue);
             if (this.mOr != null) {
                 this.paint.setColorFilter(this.mOr.getValue());

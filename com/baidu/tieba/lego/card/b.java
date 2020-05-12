@@ -22,7 +22,7 @@ public class b extends e {
         private static final b iJn = new b();
     }
 
-    public static b cmB() {
+    public static b cmC() {
         return a.iJn;
     }
 
@@ -31,7 +31,7 @@ public class b extends e {
     }
 
     @Override // com.baidu.tieba.lego.card.e
-    protected void cmC() {
+    protected void cmD() {
     }
 
     @Override // com.baidu.tieba.lego.card.e
@@ -111,6 +111,6 @@ public class b extends e {
     }
 
     public static ICardInfo dg(JSONObject jSONObject) throws CardParseException {
-        return cmB().d(jSONObject, jSONObject.optInt("card_type"));
+        return cmC().d(jSONObject, jSONObject.optInt("card_type"));
     }
 }

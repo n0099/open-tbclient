@@ -37,7 +37,7 @@ public class l implements c {
         return this.mType;
     }
 
-    public Long cGn() {
+    public Long cGo() {
         return this.jTQ;
     }
 
@@ -61,7 +61,7 @@ public class l implements c {
         return this.mLink;
     }
 
-    public Integer cGo() {
+    public Integer cGp() {
         return this.jTS;
     }
 }

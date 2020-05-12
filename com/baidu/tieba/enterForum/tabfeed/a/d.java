@@ -36,7 +36,7 @@ public class d extends com.baidu.adp.widget.ListView.a<bi, af<bj>> {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.z
             public void a(View view, bj bjVar) {
-                com.baidu.tieba.card.r.bEW().jd(true);
+                com.baidu.tieba.card.r.bEX().jd(true);
                 d.this.e(view, bjVar);
             }
         };
@@ -111,7 +111,7 @@ public class d extends com.baidu.adp.widget.ListView.a<bi, af<bj>> {
         afVar.b((af<bj>) biVar.dqE);
         afVar.rD().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         afVar.rD().a(this.ada);
-        com.baidu.tieba.card.r.bEW().e(com.baidu.tieba.enterForum.a.g(biVar.aIu(), this.mTabName));
+        com.baidu.tieba.card.r.bEX().e(com.baidu.tieba.enterForum.a.g(biVar.aIu(), this.mTabName));
         u uVar = (u) afVar.rD().rw();
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) uVar.adU.ahf.getLayoutParams();
         layoutParams.width = biVar.dqF;

@@ -39,7 +39,7 @@ public class DanmakuContext {
     private final master.flame.danmaku.danmaku.model.b nde = new master.flame.danmaku.danmaku.model.android.a();
     public final j ndf = new j();
     public final master.flame.danmaku.a.b ndg = new master.flame.danmaku.a.b();
-    public final c ndh = c.dFT();
+    public final c ndh = c.dFU();
 
     /* loaded from: classes5.dex */
     public enum BorderType {
@@ -53,7 +53,7 @@ public class DanmakuContext {
         boolean a(DanmakuContext danmakuContext, DanmakuConfigTag danmakuConfigTag, Object... objArr);
     }
 
-    public static DanmakuContext dFM() {
+    public static DanmakuContext dFN() {
         return new DanmakuContext();
     }
 
@@ -86,7 +86,7 @@ public class DanmakuContext {
         }
     }
 
-    public master.flame.danmaku.danmaku.model.b dFN() {
+    public master.flame.danmaku.danmaku.model.b dFO() {
         return this.nde;
     }
 
@@ -103,17 +103,17 @@ public class DanmakuContext {
     public DanmakuContext wB(boolean z) {
         if (this.nbJ != z) {
             this.nbJ = z;
-            this.ndf.dFt();
+            this.ndf.dFu();
             a(DanmakuConfigTag.DUPLICATE_MERGING_ENABLED, Boolean.valueOf(z));
         }
         return this;
     }
 
-    public boolean dFO() {
+    public boolean dFP() {
         return this.nbJ;
     }
 
-    public boolean dFP() {
+    public boolean dFQ() {
         return this.nda;
     }
 
@@ -124,16 +124,16 @@ public class DanmakuContext {
         } else {
             a("1019_Filter", map, false);
         }
-        this.ndf.dFt();
+        this.ndf.dFu();
         a(DanmakuConfigTag.OVERLAPPING_ENABLE, map);
         return this;
     }
 
-    public boolean dFQ() {
+    public boolean dFR() {
         return this.ndc;
     }
 
-    public boolean dFR() {
+    public boolean dFS() {
         return this.ndd;
     }
 
@@ -158,7 +158,7 @@ public class DanmakuContext {
         this.ncY.add(new WeakReference<>(aVar));
     }
 
-    public void dFS() {
+    public void dFT() {
         if (this.ncY != null) {
             this.ncY.clear();
             this.ncY = null;

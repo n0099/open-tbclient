@@ -9,7 +9,7 @@ public abstract class c implements f, Closeable {
 
     public abstract boolean isClosed();
 
-    public h dsL() {
+    public h dsM() {
         return g.mdC;
     }
 

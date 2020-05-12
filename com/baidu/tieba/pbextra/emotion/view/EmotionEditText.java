@@ -54,13 +54,13 @@ public class EmotionEditText extends FrameLayout {
         this.jQU = this.mMargin * 2;
         this.jQR = 24;
         this.jQS = 16;
-        FrameLayout.LayoutParams cFI = cFI();
-        addView(this.mEditText, cFI);
-        a(cFI);
+        FrameLayout.LayoutParams cFJ = cFJ();
+        addView(this.mEditText, cFJ);
+        a(cFJ);
+        cFI();
         cFH();
-        cFG();
         setTextSize(2, this.jQR);
-        cFJ();
+        cFK();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -68,7 +68,7 @@ public class EmotionEditText extends FrameLayout {
         return Math.abs(motionEvent.getRawX() - this.mDownX) < this.gLb && Math.abs(motionEvent.getRawY() - this.mDownY) < this.gLb;
     }
 
-    private void cFG() {
+    private void cFH() {
         this.jQP = new ImageView(getContext());
         this.jQP.setImageResource(R.drawable.icon_frame_enlarge_n);
         this.jQP.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.pbextra.emotion.view.EmotionEditText.1
@@ -121,7 +121,7 @@ public class EmotionEditText extends FrameLayout {
         addView(this.mTextView, layoutParams);
     }
 
-    private void cFH() {
+    private void cFI() {
         this.jQO = new ImageView(getContext());
         this.jQO.setImageResource(R.drawable.icon_frame_close_n);
         this.jQO.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pbextra.emotion.view.EmotionEditText.2
@@ -136,7 +136,7 @@ public class EmotionEditText extends FrameLayout {
         addView(this.jQO, layoutParams);
     }
 
-    private FrameLayout.LayoutParams cFI() {
+    private FrameLayout.LayoutParams cFJ() {
         this.mEditText = new EditText(getContext());
         this.mEditText.setHint(getContext().getResources().getString(R.string.emotion_edit_hint));
         this.mEditText.setBackgroundDrawable(null);
@@ -239,7 +239,7 @@ public class EmotionEditText extends FrameLayout {
         this.mEditText.setFocusableInTouchMode(false);
     }
 
-    public void cFJ() {
+    public void cFK() {
         if (!this.jQT) {
             this.jQT = true;
             this.mEditText.setVisibility(4);
@@ -250,7 +250,7 @@ public class EmotionEditText extends FrameLayout {
         }
     }
 
-    public void cFK() {
+    public void cFL() {
         if (this.jQT) {
             this.jQT = false;
             this.mEditText.setVisibility(0);

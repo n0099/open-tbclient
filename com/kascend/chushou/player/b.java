@@ -151,7 +151,7 @@ public class b {
         }
     }
 
-    public FullRoomInfo dxs() {
+    public FullRoomInfo dxt() {
         return this.mpx;
     }
 
@@ -159,11 +159,11 @@ public class b {
         this.mpw = playUrl;
     }
 
-    public PlayUrl dxt() {
+    public PlayUrl dxu() {
         return this.mpw;
     }
 
-    public List<ListItem> dxu() {
+    public List<ListItem> dxv() {
         return this.F;
     }
 
@@ -181,7 +181,7 @@ public class b {
     }
 
     @Nullable
-    public RoomInfo dxv() {
+    public RoomInfo dxw() {
         if (this.mpx != null) {
             return this.mpx.mRoominfo;
         }

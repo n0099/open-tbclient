@@ -9,7 +9,7 @@ public class c implements b {
     private c() {
     }
 
-    public static synchronized c dmN() {
+    public static synchronized c dmO() {
         c cVar;
         synchronized (c.class) {
             if (lRp == null) {

@@ -3,7 +3,7 @@ package com.baidu.ubc;
 public class i {
     private static volatile h lNL;
 
-    public static synchronized h dkz() {
+    public static synchronized h dkA() {
         h hVar;
         synchronized (i.class) {
             if (lNL == null) {

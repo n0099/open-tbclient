@@ -28,7 +28,7 @@ public class b extends LinearLayoutManager {
         this.view = null;
     }
 
-    public static int dJZ() {
+    public static int dKa() {
         return View.MeasureSpec.makeMeasureSpec(0, 0);
     }
 
@@ -47,7 +47,7 @@ public class b extends LinearLayoutManager {
         boolean z2 = mode2 != 0;
         boolean z3 = mode == 1073741824;
         boolean z4 = mode2 == 1073741824;
-        int dJZ = dJZ();
+        int dKa = dKa();
         if (z3 && z4) {
             super.onMeasure(recycler, state, i, i2);
             return;
@@ -68,7 +68,7 @@ public class b extends LinearLayoutManager {
             } else if (z5) {
                 if (!this.ntl) {
                     if (i8 < itemCount) {
-                        a(recycler, i8, size, dJZ, this.ntj);
+                        a(recycler, i8, size, dKa, this.ntj);
                     } else {
                         JT(i8);
                     }
@@ -85,7 +85,7 @@ public class b extends LinearLayoutManager {
             } else {
                 if (!this.ntl) {
                     if (i8 < itemCount) {
-                        a(recycler, i8, dJZ, size2, this.ntj);
+                        a(recycler, i8, dKa, size2, this.ntj);
                     } else {
                         JT(i8);
                     }
@@ -175,12 +175,12 @@ public class b extends LinearLayoutManager {
                 }
                 nti.set(layoutParams, true);
             } catch (Exception e) {
-                dKa();
+                dKb();
             }
         }
     }
 
-    private static void dKa() {
+    private static void dKb() {
         nth = false;
         e.w("WrapContentManager", "Can't make LayoutParams insets dirty, decorations measurements might be incorrect");
     }

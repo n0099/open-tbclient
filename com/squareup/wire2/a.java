@@ -42,24 +42,24 @@ public final class a<M extends Message<M, B>, B extends Message.a<M, B>> {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(WireField wireField, Field field, Class<B> cls) {
-        this.mNF = wireField.dAW();
+        this.mNF = wireField.dAX();
         this.name = field.getName();
         this.tag = wireField.tag();
-        this.mNG = wireField.dAU();
-        this.mNH = wireField.dAV();
-        this.mNI = wireField.dAX();
+        this.mNG = wireField.dAV();
+        this.mNH = wireField.dAW();
+        this.mNI = wireField.dAY();
         this.messageField = field;
         this.mNJ = i(cls, this.name);
         this.mNK = a(cls, this.name, field.getType());
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean dAK() {
+    public boolean dAL() {
         return !this.mNG.isEmpty();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ProtoAdapter<?> dAL() {
+    public ProtoAdapter<?> dAM() {
         ProtoAdapter<?> protoAdapter = this.mNL;
         if (protoAdapter != null) {
             return protoAdapter;
@@ -69,7 +69,7 @@ public final class a<M extends Message<M, B>, B extends Message.a<M, B>> {
         return protoAdapter2;
     }
 
-    ProtoAdapter<?> dAM() {
+    ProtoAdapter<?> dAN() {
         ProtoAdapter<?> protoAdapter = this.mNM;
         if (protoAdapter != null) {
             return protoAdapter;
@@ -83,12 +83,12 @@ public final class a<M extends Message<M, B>, B extends Message.a<M, B>> {
     public ProtoAdapter<Object> adapter() {
         ProtoAdapter<Object> protoAdapter = this.adapter;
         if (protoAdapter == null) {
-            if (dAK()) {
-                ProtoAdapter<Object> newMapAdapter = ProtoAdapter.newMapAdapter(dAM(), dAL());
+            if (dAL()) {
+                ProtoAdapter<Object> newMapAdapter = ProtoAdapter.newMapAdapter(dAN(), dAM());
                 this.adapter = newMapAdapter;
                 return newMapAdapter;
             }
-            ProtoAdapter<?> withLabel = dAL().withLabel(this.mNF);
+            ProtoAdapter<?> withLabel = dAM().withLabel(this.mNF);
             this.adapter = withLabel;
             return withLabel;
         }

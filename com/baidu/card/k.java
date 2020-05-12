@@ -90,7 +90,7 @@ public class k extends h {
         PostData aMc = aVar.aIu().aMc();
         if (this.adu != null && aMc != null && aMc.aKC() != null && aMc.aKC().getUserId() != null) {
             this.adu.cI("tid", aVar.aIu().tid).cI("post_id", aMc.getId()).cI("uid", aMc.aKC().getUserId());
-            com.baidu.tieba.card.r.bEW().e(this.adu);
+            com.baidu.tieba.card.r.bEX().e(this.adu);
         }
         this.adt.setData(aVar.aIu());
     }

@@ -29,11 +29,11 @@ public class d extends com.baidu.adp.widget.ListView.a<e, com.baidu.tieba.card.a
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, e eVar, com.baidu.tieba.card.a.a<com.baidu.tieba.enterForum.recommend.view.d> aVar) {
-        if (eVar == null || aVar == null || aVar.bFz() == null) {
+        if (eVar == null || aVar == null || aVar.bFA() == null) {
             return null;
         }
-        aVar.bFz().a(eVar);
-        aVar.bFz().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        aVar.bFA().a(eVar);
+        aVar.bFA().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         return aVar.getView();
     }
 }

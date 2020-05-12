@@ -21,7 +21,7 @@ public class a {
     private a() {
     }
 
-    public static a cNY() {
+    public static a cNZ() {
         if (kwC == null) {
             synchronized (c.class) {
                 if (kwC == null) {
@@ -44,7 +44,7 @@ public class a {
         this.saveTime = j;
     }
 
-    private String cNZ() {
+    private String cOa() {
         if (TextUtils.isEmpty(this.kwA)) {
             WifiInfo connectionInfo = ((WifiManager) TbadkCoreApplication.getInst().getSystemService("wifi")).getConnectionInfo();
             if (connectionInfo != null) {
@@ -64,13 +64,13 @@ public class a {
         this.kwB = str;
     }
 
-    public void cOa() {
+    public void cOb() {
         b.aNT().putString(SharedPrefConfig.ASP_SHOWN_INFO, this.kwB);
     }
 
-    public AppPosInfo cOb() {
+    public AppPosInfo cOc() {
         AppPosInfo.Builder builder = new AppPosInfo.Builder();
-        builder.ap_mac = cNZ();
+        builder.ap_mac = cOa();
         builder.ap_connected = Boolean.valueOf(j.isWifiNet());
         builder.latitude = this.latitude;
         builder.longitude = this.longitude;

@@ -155,7 +155,7 @@ public class a {
                     a.this.ePr.setOnClickListener(null);
                     if (a.this.hasMore) {
                         a.this.ePr.showLoading();
-                        a.this.ghI.bDx();
+                        a.this.ghI.bDy();
                         return;
                     }
                     a.this.ePr.setText(a.this.ghI.getResources().getString(R.string.list_has_no_more));
@@ -168,11 +168,11 @@ public class a {
     };
 
     public void setData(f fVar) {
-        com.baidu.tieba.barselect.data.e bDW;
+        com.baidu.tieba.barselect.data.e bDX;
         if (fVar != null) {
             this.hasMore = fVar.getHasMore();
-            if (fVar.bDW() != null && (bDW = fVar.bDW()) != null) {
-                this.status = bDW.getStatus();
+            if (fVar.bDX() != null && (bDX = fVar.bDX()) != null) {
+                this.status = bDX.getStatus();
                 if (this.status == com.baidu.tieba.barselect.a.d.glR) {
                     this.gig.setVisibility(8);
                     this.gij.setVisibility(8);
@@ -193,12 +193,12 @@ public class a {
                 this.gib.setData(VoteCandidateCard.gmd, fVar);
                 this.gii.setVisibility(8);
                 this.ghY.setVisibility(8);
-                this.gig.setRank(fVar.bDW().bDO());
-                if (fVar.bDX() != null) {
-                    ManagerElection bDX = fVar.bDX();
-                    if (!v.isEmpty(bDX.vote_condition_pic) || !v.isEmpty(bDX.vote_condition_title) || !v.isEmpty(bDX.vote_condition)) {
+                this.gig.setRank(fVar.bDX().bDP());
+                if (fVar.bDY() != null) {
+                    ManagerElection bDY = fVar.bDY();
+                    if (!v.isEmpty(bDY.vote_condition_pic) || !v.isEmpty(bDY.vote_condition_title) || !v.isEmpty(bDY.vote_condition)) {
                         this.gic.setVisibility(0);
-                        this.gif.setData(bDX.vote_condition_pic, bDX.vote_condition_title, bDX.vote_condition);
+                        this.gif.setData(bDY.vote_condition_pic, bDY.vote_condition_title, bDY.vote_condition);
                     } else {
                         this.gic.setVisibility(8);
                     }
@@ -210,7 +210,7 @@ public class a {
                 this.ghY.setVisibility(8);
                 this.gic.setVisibility(8);
             }
-            bDG();
+            bDH();
             E(TbadkCoreApplication.getInst().getSkinType(), true);
         }
     }
@@ -307,7 +307,7 @@ public class a {
         this.ePq = (NoNetworkView) this.aWR.findViewById(R.id.no_network_view);
     }
 
-    public void bDG() {
+    public void bDH() {
         if (this.status == com.baidu.tieba.barselect.a.d.glR) {
             this.ePr.showEmptyView(l.getDimens(this.ghI, R.dimen.tbds152));
         }
@@ -329,7 +329,7 @@ public class a {
         return this.ghW;
     }
 
-    public PbListView bDH() {
+    public PbListView bDI() {
         return this.ePr;
     }
 
@@ -391,7 +391,7 @@ public class a {
                     am.setViewTextColor(this.ghV, R.color.cp_cont_b, 1, i);
                     am.setViewTextColor(this.mNavigationBar.mCenterText, R.color.cp_cont_b, 1, i);
                 } else if (this.ghQ <= 0.5d) {
-                    if (this.mVoteData == null || this.mVoteData.bDW() == null || this.mVoteData.bDW().getStatus() > 2 || this.mVoteData.bDW().getStatus() < 1) {
+                    if (this.mVoteData == null || this.mVoteData.bDX() == null || this.mVoteData.bDX().getStatus() > 2 || this.mVoteData.bDX().getStatus() < 1) {
                         am.setImageResource(this.mNavigationBar.getBackImageView(), R.drawable.icon_return_bg_s, i);
                         am.setViewTextColor(this.ghV, R.color.cp_cont_b, 1, i);
                         am.setViewTextColor(this.mNavigationBar.mCenterText, R.color.cp_cont_b, 1, i);

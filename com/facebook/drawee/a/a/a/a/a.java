@@ -56,8 +56,8 @@ public class a extends com.facebook.drawee.controller.b<f> {
     @Override // com.facebook.drawee.controller.b, com.facebook.drawee.controller.c
     public void el(String str) {
         super.el(str);
-        int doe = this.lTP.doe();
-        if (doe != 3 && doe != 5) {
+        int dof = this.lTP.dof();
+        if (dof != 3 && dof != 5) {
             this.lTP.fJ(this.lTW.now());
             this.lTP.Oi(str);
             this.lTP.vw(true);

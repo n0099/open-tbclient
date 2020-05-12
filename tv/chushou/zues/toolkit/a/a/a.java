@@ -121,7 +121,7 @@ public final class a implements Closeable {
                     i++;
                 } catch (EOFException e) {
                     this.redundantOpCount = i - this.lruEntries.size();
-                    if (bVar.dJM()) {
+                    if (bVar.dJN()) {
                         rebuildJournal();
                     } else {
                         this.nsh = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(this.journalFile, true), tv.chushou.zues.toolkit.a.a.c.US_ASCII));
@@ -212,7 +212,7 @@ public final class a implements Closeable {
             if (bVar.nsp != null) {
                 bufferedWriter.write("DIRTY " + bVar.key + '\n');
             } else {
-                bufferedWriter.write("CLEAN " + bVar.key + bVar.dJL() + '\n');
+                bufferedWriter.write("CLEAN " + bVar.key + bVar.dJM() + '\n');
             }
         }
         bufferedWriter.close();
@@ -334,7 +334,7 @@ public final class a implements Closeable {
             bVar.nsp = null;
             if (bVar.readable | z) {
                 bVar.readable = true;
-                this.nsh.write("CLEAN " + bVar.key + bVar.dJL() + '\n');
+                this.nsh.write("CLEAN " + bVar.key + bVar.dJM() + '\n');
                 if (z) {
                     long j2 = this.nextSequenceNumber;
                     this.nextSequenceNumber = 1 + j2;
@@ -566,7 +566,7 @@ public final class a implements Closeable {
             this.lengths = new long[a.this.valueCount];
         }
 
-        public String dJL() throws IOException {
+        public String dJM() throws IOException {
             StringBuilder sb = new StringBuilder();
             for (long j : this.lengths) {
                 sb.append(' ').append(j);

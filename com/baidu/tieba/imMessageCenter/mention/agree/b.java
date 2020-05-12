@@ -74,12 +74,12 @@ public class b {
         }
     }
 
-    public void bXN() {
+    public void bXO() {
         aIm();
         aIl();
     }
 
-    public void bRl() {
+    public void bRm() {
         this.lastId = 0L;
         aIl();
     }

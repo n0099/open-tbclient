@@ -43,19 +43,19 @@ public class c {
         SimpleDraweeView.b(lTd);
     }
 
-    public static e dnM() {
+    public static e dnN() {
         return lTd.get().get();
     }
 
-    public static j dnN() {
-        return j.drP();
+    public static j dnO() {
+        return j.drQ();
     }
 
-    public static com.facebook.imagepipeline.d.g dnO() {
-        return dnN().dnO();
+    public static com.facebook.imagepipeline.d.g dnP() {
+        return dnO().dnP();
     }
 
-    public static boolean dnP() {
+    public static boolean dnQ() {
         return lTe;
     }
 
@@ -73,7 +73,7 @@ public class c {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.facebook.common.internal.j
-        /* renamed from: dnQ */
+        /* renamed from: dnR */
         public com.facebook.common.internal.j<e> get() {
             if (this.lTg == null) {
                 synchronized (this) {

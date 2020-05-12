@@ -82,7 +82,7 @@ public class SearchLocationActivity extends NavigationBarActivity {
     private AdapterView.OnItemClickListener iQm = new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.location.selectpoi.SearchLocationActivity.6
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-            if (SearchLocationActivity.this.iQh != null && SearchLocationActivity.this.iQh.coN()) {
+            if (SearchLocationActivity.this.iQh != null && SearchLocationActivity.this.iQh.coO()) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CLOSE_SELECT_LOCATION_ACTIVITY));
                 MessageManager messageManager = MessageManager.getInstance();
                 a.C0614a c0614a = (a.C0614a) SearchLocationActivity.this.iQh.getItem(i);
@@ -97,7 +97,7 @@ public class SearchLocationActivity extends NavigationBarActivity {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         registerListener(this.iQl);
-        SearchLocationActivityStatic.coM();
+        SearchLocationActivityStatic.coN();
         setContentView(R.layout.search_location_layout);
         initUI();
         initData();
@@ -143,7 +143,7 @@ public class SearchLocationActivity extends NavigationBarActivity {
                 if (!l.isNetOk()) {
                     SearchLocationActivity.this.showToast(R.string.no_network_guide);
                 } else if (!StringUtils.isNull(SearchLocationActivity.this.getInputMsg())) {
-                    SearchLocationActivity.this.coL();
+                    SearchLocationActivity.this.coM();
                 }
             }
         });
@@ -156,9 +156,9 @@ public class SearchLocationActivity extends NavigationBarActivity {
 
     public void initData() {
         this.iQg = new com.baidu.tieba.location.data.a();
-        com.baidu.tieba.tbadkCore.location.a locationData = c.cWU().getLocationData();
+        com.baidu.tieba.tbadkCore.location.a locationData = c.cWV().getLocationData();
         if (locationData != null) {
-            this.iQg.az(b(locationData.cWT(), locationData.cWS(), locationData.asR()));
+            this.iQg.az(b(locationData.cWU(), locationData.cWT(), locationData.asR()));
         }
         this.iQh.a(this.iQg);
         this.iQh.notifyDataSetChanged();
@@ -196,7 +196,7 @@ public class SearchLocationActivity extends NavigationBarActivity {
         return arrayList;
     }
 
-    public void coL() {
+    public void coM() {
         LocationSearchNetRequestMessage locationSearchNetRequestMessage = new LocationSearchNetRequestMessage();
         locationSearchNetRequestMessage.setAddrName(getInputMsg());
         sendMessage(locationSearchNetRequestMessage);

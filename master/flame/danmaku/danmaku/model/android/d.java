@@ -98,7 +98,7 @@ public class d implements l {
         if (dVar == null) {
             return false;
         }
-        if (dVar.dFg()) {
+        if (dVar.dFh()) {
             dVar.setVisibility(false);
         }
         if (this.ndw.remove(dVar)) {
@@ -162,7 +162,7 @@ public class d implements l {
         if (this.ndz == null) {
             this.ndz = PF("end");
         }
-        if (this.ndx != null && j - this.ndy.dFp() >= 0 && j2 <= this.ndz.dFp()) {
+        if (this.ndx != null && j - this.ndy.dFq() >= 0 && j2 <= this.ndz.dFq()) {
             return this.ndx;
         }
         this.ndy.setTime(j);
@@ -196,7 +196,7 @@ public class d implements l {
     }
 
     @Override // master.flame.danmaku.danmaku.model.l
-    public master.flame.danmaku.danmaku.model.d dFx() {
+    public master.flame.danmaku.danmaku.model.d dFy() {
         if (this.ndw != null && !this.ndw.isEmpty()) {
             if (this.mSortType == 4) {
                 return (master.flame.danmaku.danmaku.model.d) ((LinkedList) this.ndw).peek();
@@ -207,7 +207,7 @@ public class d implements l {
     }
 
     @Override // master.flame.danmaku.danmaku.model.l
-    public master.flame.danmaku.danmaku.model.d dFy() {
+    public master.flame.danmaku.danmaku.model.d dFz() {
         if (this.ndw != null && !this.ndw.isEmpty()) {
             if (this.mSortType == 4) {
                 return (master.flame.danmaku.danmaku.model.d) ((LinkedList) this.ndw).peekLast();
@@ -236,7 +236,7 @@ public class d implements l {
 
     @Override // master.flame.danmaku.danmaku.model.l
     public void b(l.b<? super master.flame.danmaku.danmaku.model.d, ?> bVar) {
-        bVar.dFz();
+        bVar.dFA();
         Iterator<master.flame.danmaku.danmaku.model.d> it = this.ndw.iterator();
         while (true) {
             if (!it.hasNext()) {
@@ -255,6 +255,6 @@ public class d implements l {
                 }
             }
         }
-        bVar.dFA();
+        bVar.dFB();
     }
 }

@@ -22,18 +22,18 @@ public class PushStatic {
                 new Thread(new Runnable() { // from class: com.baidu.tieba.yunpush.PushStatic.1.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        PushStatic.diq();
+                        PushStatic.dir();
                     }
                 }).start();
             }
         }
     };
 
-    private static void dio() {
+    private static void dip() {
         fk(TbadkApplication.getInst());
     }
 
-    private static void dip() {
+    private static void diq() {
         fl(TbadkCoreApplication.getInst());
     }
 
@@ -55,12 +55,12 @@ public class PushStatic {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void diq() {
+    public static void dir() {
         if (TbadkCoreApplication.getInst().isMainProcess(false)) {
             if (TbadkCoreApplication.getInst().isBaiduYunPushAvailable()) {
-                dio();
-            } else {
                 dip();
+            } else {
+                diq();
             }
         }
     }

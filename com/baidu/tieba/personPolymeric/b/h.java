@@ -59,7 +59,7 @@ public class h extends d implements View.OnClickListener {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage != null && (httpResponsedMessage instanceof ChangePortraitResponse) && ((ChangePortraitResponse) httpResponsedMessage).getErrCode() == 0) {
-                    h.this.cIa();
+                    h.this.cIb();
                 }
             }
         };
@@ -72,7 +72,7 @@ public class h extends d implements View.OnClickListener {
                     if (setUserPicsResponse.getErrCode() != 0) {
                         h.this.mPageContext.showToast(setUserPicsResponse.getErrorString());
                     } else {
-                        h.this.cIa();
+                        h.this.cIb();
                     }
                 }
             }
@@ -105,25 +105,25 @@ public class h extends d implements View.OnClickListener {
         this.jZV = aVar;
     }
 
-    public List<m> cHU() {
+    public List<m> cHV() {
         if (this.jZV == null) {
             return null;
         }
-        return this.jZV.cHU();
+        return this.jZV.cHV();
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view != null && cHU() != null) {
+        if (view != null && cHV() != null) {
             m mVar = null;
             if (view.getTag() instanceof com.baidu.tieba.person.b.c) {
                 mVar = ((com.baidu.tieba.person.b.c) view.getTag()).aQV();
             } else if (view.getTag() instanceof com.baidu.tieba.person.b.b) {
                 mVar = ((com.baidu.tieba.person.b.b) view.getTag()).aQV();
             }
-            int position = v.getPosition(cHU(), mVar);
+            int position = v.getPosition(cHV(), mVar);
             if (position >= 0) {
-                a(mVar, cHU(), position);
+                a(mVar, cHV(), position);
             }
         }
     }
@@ -147,7 +147,7 @@ public class h extends d implements View.OnClickListener {
                     c((l) mVar, list, i);
                 }
             } else if (mVar instanceof com.baidu.tieba.person.data.c) {
-                cHY();
+                cHZ();
             } else if (mVar instanceof l) {
                 l lVar = (l) mVar;
                 if (lVar.aWu()) {
@@ -163,7 +163,7 @@ public class h extends d implements View.OnClickListener {
         a(mVar, list, i, false);
     }
 
-    private void cHY() {
+    private void cHZ() {
         if (this.mPageContext != null) {
             String[] strArr = {this.mPageContext.getString(R.string.choose_local_photo), this.mPageContext.getString(R.string.change_system_photo)};
             final com.baidu.tbadk.core.dialog.i iVar = new com.baidu.tbadk.core.dialog.i(this.mPageContext);
@@ -173,10 +173,10 @@ public class h extends d implements View.OnClickListener {
                     h.this.jZU = false;
                     switch (i) {
                         case 0:
-                            h.this.cIb();
+                            h.this.cIc();
                             break;
                         case 1:
-                            h.this.cIc();
+                            h.this.cId();
                             break;
                     }
                     if (iVar.isShowing()) {
@@ -210,7 +210,7 @@ public class h extends d implements View.OnClickListener {
                                     break;
                                 }
                             } else {
-                                h.this.cIb();
+                                h.this.cIc();
                                 break;
                             }
                             break;
@@ -224,13 +224,13 @@ public class h extends d implements View.OnClickListener {
                                     break;
                                 }
                             } else {
-                                h.this.cIc();
+                                h.this.cId();
                                 break;
                             }
                             break;
                         case 3:
                             TiebaStatic.log(new an("c11616").af("obj_type", 1));
-                            h.this.cId();
+                            h.this.cIe();
                             break;
                     }
                     if (iVar.isShowing()) {
@@ -304,13 +304,13 @@ public class h extends d implements View.OnClickListener {
         }
     }
 
-    public void cHZ() {
+    public void cIa() {
         if (this.jZV != null && this.jZV.getUserData() != null) {
             com.baidu.tbadk.imageManager.c.aYk().deletePhoto(this.jZV.getUserData().getPortrait());
         }
     }
 
-    public void cIa() {
+    public void cIb() {
         com.baidu.adp.lib.f.e.lb().postDelayed(this.jZZ, 300L);
     }
 
@@ -321,11 +321,11 @@ public class h extends d implements View.OnClickListener {
                 this.jZW = new PersonChangeData();
             }
             this.jZW.setPhotoChanged(true);
-            cHZ();
+            cIa();
         }
     }
 
-    public void cIb() {
+    public void cIc() {
         if (this.mPageContext != null) {
             Activity pageActivity = this.mPageContext.getPageActivity();
             if (this.mPermissionJudgement == null) {
@@ -343,13 +343,13 @@ public class h extends d implements View.OnClickListener {
         }
     }
 
-    public void cIc() {
+    public void cId() {
         if (this.mPageContext != null) {
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ChangeSystemPhotoActivityConfig(this.mPageContext.getPageActivity(), RequestResponseCode.REQUEST_SYSTEM_PHOTO_LIST, this.jZU)));
         }
     }
 
-    public void cId() {
+    public void cIe() {
         if (this.mPageContext != null) {
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AvatarPendantActivityConfig(this.mPageContext.getPageActivity())));
         }

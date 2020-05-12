@@ -48,7 +48,7 @@ public class a {
         this.aMj.add(new d(this.mPageContext, com.baidu.tieba.e.c.gvQ, this.mPageContext.getUniqueId(), this.mForumId));
         this.aMj.add(new g(this.mPageContext, com.baidu.tieba.e.f.gvY, this.mPageContext.getUniqueId(), this.mForumId));
         ad adVar = new ad(this.mPageContext, u.hbJ, this.mPageContext.getUniqueId());
-        adVar.bRX();
+        adVar.bRY();
         adVar.setForumId(this.mForumId);
         this.aMj.add(adVar);
         this.eOj.addAdapters(this.aMj);

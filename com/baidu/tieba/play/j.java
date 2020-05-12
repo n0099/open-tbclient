@@ -29,7 +29,7 @@ public class j {
                     j.this.kfZ.bE(duration, currentPosition);
                 }
                 j.this.kfX = currentPosition;
-                j.this.cJB();
+                j.this.cJC();
             }
         }
     };
@@ -55,7 +55,7 @@ public class j {
 
     public void start() {
         this.kfX = 0;
-        cJB();
+        cJC();
     }
 
     public void stop() {
@@ -63,7 +63,7 @@ public class j {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cJB() {
+    public void cJC() {
         this.mHandler.removeMessages(1);
         this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), this.kfW);
     }

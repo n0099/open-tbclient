@@ -43,7 +43,7 @@ public class a extends com.baidu.adp.base.c<BaseActivity> {
         this.layoutView.setTag(this);
     }
 
-    public View cdC() {
+    public View cdD() {
         return this.dvw;
     }
 }

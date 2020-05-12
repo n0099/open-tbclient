@@ -40,7 +40,7 @@ public class aw {
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
                 if (aw.this.hcI != null) {
-                    aw.this.bQE();
+                    aw.this.bQF();
                     aw.this.hcI.setAlpha(1.0f);
                 }
             }
@@ -74,7 +74,7 @@ public class aw {
     public void a(View view, ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams, int i) {
         if (viewGroup != null && view != null) {
             this.hcI = view;
-            bQE();
+            bQF();
             viewGroup.addView(this.hcI, layoutParams);
             this.hcI.setVisibility(0);
             this.hcJ = i;
@@ -86,7 +86,7 @@ public class aw {
     public void a(View view, ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams) {
         if (viewGroup != null && view != null) {
             this.hcI = view;
-            bQE();
+            bQF();
             viewGroup.addView(this.hcI, layoutParams);
             this.hcI.setVisibility(0);
         }
@@ -99,7 +99,7 @@ public class aw {
         }
     }
 
-    public void bQE() {
+    public void bQF() {
         com.baidu.adp.lib.f.e.lb().removeCallbacks(this.bbK);
         if (this.hcI != null) {
             if (this.hcK != null && this.hcK.isRunning()) {
@@ -114,6 +114,6 @@ public class aw {
     }
 
     public void onDestroy() {
-        bQE();
+        bQF();
     }
 }

@@ -16,7 +16,7 @@ public class e implements master.flame.danmaku.danmaku.model.a.c<e>, n<f> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // master.flame.danmaku.danmaku.model.n
-    /* renamed from: dFW */
+    /* renamed from: dFX */
     public f get() {
         if (this.ndF.bitmap == null) {
             return null;
@@ -47,13 +47,13 @@ public class e implements master.flame.danmaku.danmaku.model.a.c<e>, n<f> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // master.flame.danmaku.danmaku.model.a.c
-    /* renamed from: dFX */
-    public e dGa() {
+    /* renamed from: dFY */
+    public e dGb() {
         return this.ndG;
     }
 
     @Override // master.flame.danmaku.danmaku.model.a.c
-    public boolean dFY() {
+    public boolean dFZ() {
         return this.ndH;
     }
 
@@ -63,16 +63,16 @@ public class e implements master.flame.danmaku.danmaku.model.a.c<e>, n<f> {
     }
 
     @Override // master.flame.danmaku.danmaku.model.n
-    public synchronized boolean dFG() {
+    public synchronized boolean dFH() {
         return this.referenceCount > 0;
     }
 
-    public synchronized void dFZ() {
+    public synchronized void dGa() {
         this.referenceCount++;
     }
 
     @Override // master.flame.danmaku.danmaku.model.n
-    public synchronized void dFH() {
+    public synchronized void dFI() {
         this.referenceCount--;
     }
 

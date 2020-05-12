@@ -226,7 +226,7 @@ public class SelectForumActivity extends BaseActivity<SelectForumActivity> {
                             SelectForumActivity.this.mCheckResponseData.appName = cVar.appName;
                             SelectForumActivity.this.mCheckResponseData.lAI = cVar.lAI;
                         }
-                        com.baidu.tieba.c.e.bGc().bGf();
+                        com.baidu.tieba.c.e.bGd().bGg();
                     }
                 };
                 this.lBf.a(this.lAF);

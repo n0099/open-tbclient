@@ -34,7 +34,7 @@ public class c implements BdListView.e, NoNetworkView.a, g.c {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             c.this.inm = true;
-            c.this.bNa();
+            c.this.bNb();
         }
     };
     private ao inq = new ao() { // from class: com.baidu.tieba.im.frsgroup.view.a.c.2
@@ -68,19 +68,19 @@ public class c implements BdListView.e, NoNetworkView.a, g.c {
                     c.this.ink.a(c.this.gUO.errMsg, c.this.inp);
                 } else {
                     c.this.ink.completePullRefresh();
-                    c.this.ink.bXp();
+                    c.this.ink.bXq();
                 }
             } else {
                 c.this.gUJ = arrayList;
                 c.this.ink.cK(c.this.gUJ);
                 if (v.getCount(c.this.gUJ) != 1 || !(v.getItem(c.this.gUJ, 0) instanceof h)) {
                     if (c.this.gUO.hasMore) {
-                        c.this.ink.bXo();
+                        c.this.ink.bXp();
                     } else {
-                        c.this.ink.bXq();
+                        c.this.ink.bXr();
                     }
                 } else {
-                    c.this.ink.cgp();
+                    c.this.ink.cgq();
                 }
                 if (c.this.inm) {
                     c.this.ink.hideLoadingView();
@@ -115,17 +115,17 @@ public class c implements BdListView.e, NoNetworkView.a, g.c {
 
     @Override // com.baidu.tbadk.core.view.g.c
     public void onListPullRefresh(boolean z) {
-        cgr();
+        cgs();
     }
 
     @Override // com.baidu.adp.widget.ListView.BdListView.e
     public void onScrollToBottom() {
         if (!j.isNetWorkAvailable()) {
-            this.ink.bXp();
+            this.ink.bXq();
         }
         if (this.gUO != null) {
             if (!this.gUO.hasMore) {
-                this.ink.bXq();
+                this.ink.bXr();
             } else {
                 bkZ();
             }
@@ -144,7 +144,7 @@ public class c implements BdListView.e, NoNetworkView.a, g.c {
         }
     }
 
-    private void cgr() {
+    private void cgs() {
         as asVar = new as();
         asVar.forumName = this.inn;
         asVar.forumId = this.eQk;
@@ -158,11 +158,11 @@ public class c implements BdListView.e, NoNetworkView.a, g.c {
         this.inn = str2;
     }
 
-    public void bNa() {
+    public void bNb() {
         if (this.inm) {
             this.ink.blr();
             this.ink.showLoadingView();
-            cgr();
+            cgs();
         }
     }
 

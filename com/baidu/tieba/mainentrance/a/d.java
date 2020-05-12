@@ -76,10 +76,10 @@ public class d {
         this.iRd = (FrameLayout) this.mRootView.findViewById(R.id.frame_layout);
         this.mNoDataView = NoDataViewFactory.a(this.mContext, null, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, (int) this.mContext.getResources().getDimension(R.dimen.ds200)), null, null);
         this.iRd.addView(this.mNoDataView, 0);
-        cpu();
-        coW();
         cpv();
+        coX();
         cpw();
+        cpx();
     }
 
     private void blD() {
@@ -144,51 +144,51 @@ public class d {
         }
     }
 
-    private void cpu() {
+    private void cpv() {
         this.iSg = (QuickWebView) this.mRootView.findViewById(R.id.search_history_webview);
         this.iSg.th(true);
         this.iSh = this.mRootView.findViewById(R.id.search_webview_mask);
     }
 
-    private void coW() {
+    private void coX() {
         this.iRl = (BdListView) this.mRootView.findViewById(R.id.home_lv_search_suggest);
         this.iRn = new com.baidu.tieba.mainentrance.searchSuggestList.b(this.mContext, null);
         this.iSj = new com.baidu.tieba.mainentrance.searchSuggestList.a(this.mContext, null);
     }
 
-    private void cpv() {
+    private void cpw() {
         this.iSf = (QuickWebView) this.mRootView.findViewById(R.id.search_result_webview);
         this.iSf.th(true);
     }
 
-    private void cpw() {
+    private void cpx() {
         this.giv.setText("");
         this.giv.requestFocus();
         this.gix.setText(this.mContext.getString(R.string.cancel));
     }
 
-    public void cpx() {
+    public void cpy() {
         this.iSg.setVisibility(0);
         this.iRl.setVisibility(8);
         this.iSf.setVisibility(8);
         this.mNoDataView.setVisibility(8);
     }
 
-    public void cph() {
+    public void cpi() {
         this.iRl.setVisibility(8);
         this.iSg.setVisibility(8);
         this.iSf.setVisibility(8);
         this.mNoDataView.setVisibility(0);
     }
 
-    public void cpf() {
+    public void cpg() {
         this.iRl.setVisibility(0);
         this.iSg.setVisibility(8);
         this.iSf.setVisibility(8);
         this.mNoDataView.setVisibility(8);
     }
 
-    public void cpy() {
+    public void cpz() {
         this.iRl.setVisibility(8);
         this.iSg.setVisibility(8);
         this.iSf.setVisibility(0);
@@ -214,7 +214,7 @@ public class d {
 
     public void j(List<String> list, String str) {
         if (!v.isEmpty(list)) {
-            cpf();
+            cpg();
             this.iRn.FX(str);
             this.iRn.setData(list);
             this.iRl.setAdapter((ListAdapter) this.iRn);
@@ -223,7 +223,7 @@ public class d {
 
     public void k(List<ForumInfo> list, String str) {
         if (!v.isEmpty(list) && !TextUtils.isEmpty(str)) {
-            cpf();
+            cpg();
             this.iSj.FX(str);
             this.iSj.dA(list);
             this.iRl.setAdapter((ListAdapter) this.iSj);
@@ -271,23 +271,23 @@ public class d {
         this.iSf.setOnLoadUrlListener(bVar);
     }
 
-    public EditText cpz() {
+    public EditText cpA() {
         return this.giv;
     }
 
-    public TextView cpA() {
+    public TextView cpB() {
         return this.gix;
     }
 
-    public QuickWebView cpB() {
+    public QuickWebView cpC() {
         return this.iSf;
     }
 
-    public QuickWebView cpC() {
+    public QuickWebView cpD() {
         return this.iSg;
     }
 
-    public boolean cpD() {
+    public boolean cpE() {
         return this.iRl.getVisibility() == 0;
     }
 

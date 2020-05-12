@@ -124,7 +124,7 @@ public class SearchEditView extends RelativeLayout {
         }
     }
 
-    public boolean bKD() {
+    public boolean bKE() {
         return this.gLg.requestFocus();
     }
 }

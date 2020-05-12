@@ -112,15 +112,15 @@ public class CandidateInfoLayout extends CardBasicLayout {
         this.glr.vk(this.glx.getPortrait());
         this.glr.setOnClickListener(this.dRK);
         this.afZ.setText(aq.cutChineseAndEnglishWithSuffix(this.glx.getNickname(), 14, StringHelper.STRING_MORE));
-        setGrade(this.glx.bDK());
-        if (this.glx.bDJ() < 1000) {
-            String str2 = "0000" + this.glx.bDJ();
+        setGrade(this.glx.bDL());
+        if (this.glx.bDK() < 1000) {
+            String str2 = "0000" + this.glx.bDK();
             str = str2.substring(str2.length() - 4, str2.length());
         } else {
-            str = "" + this.glx.bDJ();
+            str = "" + this.glx.bDK();
         }
         this.glt.setText("NO." + str);
-        this.glv.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.agree_post_reply), aq.cm(this.glx.bDI()), aq.cm(this.glx.getThread_num()), aq.cm(this.glx.getPost_num())));
+        this.glv.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.agree_post_reply), aq.cm(this.glx.bDJ()), aq.cm(this.glx.getThread_num()), aq.cm(this.glx.getPost_num())));
     }
 
     public void setGrade(int i) {
@@ -132,7 +132,7 @@ public class CandidateInfoLayout extends CardBasicLayout {
         am.setViewTextColor(this.glt, R.color.cp_cont_d, 1, i);
         am.setViewTextColor(this.glv, R.color.cp_cont_d, 1, i);
         if (this.glx != null) {
-            setGrade(this.glx.bDK());
+            setGrade(this.glx.bDL());
         }
     }
 }

@@ -22,12 +22,12 @@ public final class UploadManager {
         sClient = okHttpClient;
     }
 
-    public static OkHttpClient dAD() {
+    public static OkHttpClient dAE() {
         return sClient;
     }
 
     public UploadManager() {
-        this(new Configuration.Builder().dAy());
+        this(new Configuration.Builder().dAz());
     }
 
     public UploadManager(Configuration configuration) {
@@ -137,7 +137,7 @@ public final class UploadManager {
                 final long currentTimeMillis = System.currentTimeMillis();
                 UploadInfoCollector.b(responseInfo.mMh, new UploadInfoCollector.RecordMsg() { // from class: com.qiniu.android.storage.UploadManager.WarpHandler.1
                     @Override // com.qiniu.android.collect.UploadInfoCollector.RecordMsg
-                    public String dAn() {
+                    public String dAo() {
                         return StringUtils.b(new String[]{responseInfo.statusCode + "", responseInfo.reqId, responseInfo.host, responseInfo.ip, responseInfo.port + "", (currentTimeMillis - WarpHandler.this.mNc) + "", responseInfo.timeStamp + "", WarpHandler.this.size + "", "block", WarpHandler.this.size + ""}, Constants.ACCEPT_TIME_SEPARATOR_SP);
                     }
                 });

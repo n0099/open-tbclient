@@ -45,7 +45,7 @@ public class PersonCenterGuideView extends RelativeLayout {
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
-                PersonCenterGuideView.this.deE();
+                PersonCenterGuideView.this.deF();
             }
 
             @Override // android.view.animation.Animation.AnimationListener
@@ -78,7 +78,7 @@ public class PersonCenterGuideView extends RelativeLayout {
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
-                PersonCenterGuideView.this.deE();
+                PersonCenterGuideView.this.deF();
             }
 
             @Override // android.view.animation.Animation.AnimationListener
@@ -111,7 +111,7 @@ public class PersonCenterGuideView extends RelativeLayout {
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
-                PersonCenterGuideView.this.deE();
+                PersonCenterGuideView.this.deF();
             }
 
             @Override // android.view.animation.Animation.AnimationListener
@@ -153,7 +153,7 @@ public class PersonCenterGuideView extends RelativeLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void deE() {
+    public void deF() {
         this.lhb.setVisibility(0);
         if (this.lvf == null) {
             this.lvf = ObjectAnimator.ofFloat(this.lhb, "translationX", -this.mTip.getWidth(), 0.0f);
@@ -204,7 +204,7 @@ public class PersonCenterGuideView extends RelativeLayout {
         clearAnim();
     }
 
-    public void deF() {
+    public void deG() {
         clearAnim();
         setVisibility(8);
     }

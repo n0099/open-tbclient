@@ -38,7 +38,7 @@ public class c {
         }
     }
 
-    public ArrayList<m> bNz() {
+    public ArrayList<m> bNA() {
         return this.gWZ;
     }
 }

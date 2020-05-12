@@ -19,7 +19,7 @@ public class GroupCardModel extends BdBaseModel<GroupCardActivity> {
     private a iox;
     private final long mGroupId;
 
-    public static void cgK() {
+    public static void cgL() {
         ioy = 0L;
     }
 

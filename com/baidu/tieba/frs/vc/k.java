@@ -89,7 +89,7 @@ public class k {
                 final int i2 = k.this.hxO.height - k.this.hxP;
                 final int i3 = 0;
                 if (k.this.hxM != null) {
-                    i3 = k.this.hxM.bPh();
+                    i3 = k.this.hxM.bPi();
                 }
                 if (i2 > 0) {
                     k.this.dGZ = ValueAnimator.ofFloat(0.0f, 1.0f);
@@ -134,14 +134,14 @@ public class k {
     private PullRefreshFrameLayout.a hxT = new PullRefreshFrameLayout.a() { // from class: com.baidu.tieba.frs.vc.k.2
         @Override // com.baidu.tbadk.core.view.PullRefreshFrameLayout.a
         public void aQk() {
-            k.this.bVF();
+            k.this.bVG();
         }
     };
     private Runnable hxU = new Runnable() { // from class: com.baidu.tieba.frs.vc.k.3
         @Override // java.lang.Runnable
         public void run() {
             if (k.this.hxK) {
-                k.this.bVG();
+                k.this.bVH();
             }
         }
     };
@@ -157,18 +157,18 @@ public class k {
         this.haX = (FrsHeaderViewContainer) rootView.findViewById(R.id.header_view_container);
         this.Wc = (AppBarLayout) rootView.findViewById(R.id.frs_app_bar_layout);
         this.haA = (BdTypeRecyclerView) rootView.findViewById(R.id.frs_lv_thread);
-        bQb();
+        bQc();
     }
 
     public void setInterceptScrollDown(boolean z) {
         this.hxH.setInterceptScrollDown(z);
     }
 
-    public int bVD() {
+    public int bVE() {
         return this.hxQ;
     }
 
-    public int bVE() {
+    public int bVF() {
         return this.hxP;
     }
 
@@ -190,13 +190,13 @@ public class k {
         }
     }
 
-    public boolean bOX() {
+    public boolean bOY() {
         return this.hxJ;
     }
 
     public void onDestroy() {
         if (this.hxK) {
-            bVG();
+            bVH();
         }
         if (this.dGZ != null) {
             this.dGZ.cancel();
@@ -233,19 +233,19 @@ public class k {
                 });
                 this.hxI.start();
                 this.hxH.setRefreshing(true);
-                bVF();
+                bVG();
             }
         }
     }
 
-    public void bQa() {
+    public void bQb() {
         final View headBgContainer;
         if (this.haX != null && (headBgContainer = this.haX.getHeadBgContainer()) != null) {
             if (this.hxM == null) {
                 this.hxM = new com.baidu.tieba.frs.l(headBgContainer);
             }
-            if (this.hxM.bPh() > 0) {
-                this.hxM.setHeight(this.hxM.bPh());
+            if (this.hxM.bPi() > 0) {
+                this.hxM.setHeight(this.hxM.bPi());
             }
             headBgContainer.post(new Runnable() { // from class: com.baidu.tieba.frs.vc.k.5
                 @Override // java.lang.Runnable
@@ -253,7 +253,7 @@ public class k {
                     if (k.this.hxM.getOriginHeight() < 0) {
                         k.this.hxM.setOriginHeight(headBgContainer.getMeasuredHeight());
                     }
-                    if (k.this.hxM.bPh() < 0) {
+                    if (k.this.hxM.bPi() < 0) {
                         k.this.hxM.tg(headBgContainer.getMeasuredHeight());
                     }
                 }
@@ -261,7 +261,7 @@ public class k {
         }
     }
 
-    public void bQb() {
+    public void bQc() {
         if (this.haX != null) {
             this.hxN = this.haX.getHeaderEmptyView();
             if (this.hxN != null) {
@@ -276,7 +276,7 @@ public class k {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bVF() {
+    public void bVG() {
         com.baidu.adp.lib.f.e.lb().postDelayed(this.hxU, hxG);
         this.hxK = true;
         if (this.hxL != null) {
@@ -284,7 +284,7 @@ public class k {
         }
     }
 
-    public void bVG() {
+    public void bVH() {
         this.hxK = false;
         if (this.hxH != null) {
             this.hxH.aQi();
@@ -293,7 +293,7 @@ public class k {
 
     public void blx() {
         if (this.hxK) {
-            bVG();
+            bVH();
             com.baidu.adp.lib.f.e.lb().removeCallbacks(this.hxU);
         }
     }

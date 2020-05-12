@@ -20,7 +20,7 @@ public class e<T> implements j<b<T>> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.common.internal.j
-    /* renamed from: dnB */
+    /* renamed from: dnC */
     public b<T> get() {
         return new a();
     }
@@ -52,7 +52,7 @@ public class e<T> implements j<b<T>> {
         private b<T> lSO = null;
 
         public a() {
-            if (!dnC()) {
+            if (!dnD()) {
                 z(new RuntimeException("No data source supplier or supplier returned null."));
             }
         }
@@ -60,17 +60,17 @@ public class e<T> implements j<b<T>> {
         @Override // com.facebook.datasource.AbstractDataSource, com.facebook.datasource.b
         @Nullable
         public synchronized T getResult() {
-            b<T> dnE;
-            dnE = dnE();
-            return dnE != null ? dnE.getResult() : null;
+            b<T> dnF;
+            dnF = dnF();
+            return dnF != null ? dnF.getResult() : null;
         }
 
         @Override // com.facebook.datasource.AbstractDataSource, com.facebook.datasource.b
-        public synchronized boolean dnv() {
+        public synchronized boolean dnw() {
             boolean z;
-            b<T> dnE = dnE();
-            if (dnE != null) {
-                z = dnE.dnv();
+            b<T> dnF = dnF();
+            if (dnF != null) {
+                z = dnF.dnw();
             }
             return z;
         }
@@ -91,11 +91,11 @@ public class e<T> implements j<b<T>> {
             }
         }
 
-        private boolean dnC() {
-            j<b<T>> dnD = dnD();
-            b<T> bVar = dnD != null ? dnD.get() : null;
+        private boolean dnD() {
+            j<b<T>> dnE = dnE();
+            b<T> bVar = dnE != null ? dnE.get() : null;
             if (h(bVar) && bVar != null) {
-                bVar.a(new C0719a(), com.facebook.common.b.a.dmO());
+                bVar.a(new C0719a(), com.facebook.common.b.a.dmP());
                 return true;
             }
             l(bVar);
@@ -103,7 +103,7 @@ public class e<T> implements j<b<T>> {
         }
 
         @Nullable
-        private synchronized j<b<T>> dnD() {
+        private synchronized j<b<T>> dnE() {
             j<b<T>> jVar;
             if (isClosed() || this.mIndex >= e.this.lSM.size()) {
                 jVar = null;
@@ -139,7 +139,7 @@ public class e<T> implements j<b<T>> {
         }
 
         @Nullable
-        private synchronized b<T> dnE() {
+        private synchronized b<T> dnF() {
             return this.lSO;
         }
 
@@ -159,11 +159,11 @@ public class e<T> implements j<b<T>> {
         /* JADX INFO: Access modifiers changed from: private */
         public void j(b<T> bVar) {
             if (i(bVar)) {
-                if (bVar != dnE()) {
+                if (bVar != dnF()) {
                     l(bVar);
                 }
-                if (!dnC()) {
-                    z(bVar.dnx());
+                if (!dnD()) {
+                    z(bVar.dny());
                 }
             }
         }
@@ -171,7 +171,7 @@ public class e<T> implements j<b<T>> {
         /* JADX INFO: Access modifiers changed from: private */
         public void k(b<T> bVar) {
             a(bVar, bVar.isFinished());
-            if (bVar == dnE()) {
+            if (bVar == dnF()) {
                 b((a) null, bVar.isFinished());
             }
         }
@@ -200,7 +200,7 @@ public class e<T> implements j<b<T>> {
 
             @Override // com.facebook.datasource.d
             public void d(b<T> bVar) {
-                if (bVar.dnv()) {
+                if (bVar.dnw()) {
                     a.this.k(bVar);
                 } else if (bVar.isFinished()) {
                     a.this.j(bVar);

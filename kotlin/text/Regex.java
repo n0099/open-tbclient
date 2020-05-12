@@ -147,12 +147,12 @@ public final class Regex implements Serializable {
         StringBuilder sb = new StringBuilder(length);
         do {
             if (find$default == null) {
-                kotlin.jvm.internal.q.dDR();
+                kotlin.jvm.internal.q.dDS();
             }
-            sb.append(charSequence, i, find$default.dEm().dEd().intValue());
+            sb.append(charSequence, i, find$default.dEn().dEe().intValue());
             sb.append(bVar.invoke(find$default));
-            i = find$default.dEm().dEe().intValue() + 1;
-            find$default = find$default.dEn();
+            i = find$default.dEn().dEf().intValue() + 1;
+            find$default = find$default.dEo();
             if (i >= length) {
                 break;
             }

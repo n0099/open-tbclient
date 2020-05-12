@@ -30,7 +30,7 @@ public class WeiboSsoSdk {
     }
 
     private WeiboSsoSdk() throws Exception {
-        if (mQH == null || !mQH.dCv()) {
+        if (mQH == null || !mQH.dCw()) {
             throw new Exception("config error");
         }
         this.mQK = 0;
@@ -40,7 +40,7 @@ public class WeiboSsoSdk {
                 while (true) {
                     try {
                         Thread.sleep(86400000L);
-                        WeiboSsoSdk.dCr().bP((WeiboSsoSdk.this.mQJ == null || TextUtils.isEmpty(WeiboSsoSdk.this.mQJ.dCt())) ? WeiboSsoSdk.this.dCu() : WeiboSsoSdk.this.mQJ.dCt(), 2);
+                        WeiboSsoSdk.dCs().bP((WeiboSsoSdk.this.mQJ == null || TextUtils.isEmpty(WeiboSsoSdk.this.mQJ.dCu())) ? WeiboSsoSdk.this.dCv() : WeiboSsoSdk.this.mQJ.dCu(), 2);
                     } catch (Exception e) {
                     }
                 }
@@ -52,7 +52,7 @@ public class WeiboSsoSdk {
                 try {
                     Thread.sleep(60000L);
                     if (WeiboSsoSdk.this.mQI) {
-                        WeiboSsoSdk.this.bP((WeiboSsoSdk.this.mQJ == null || TextUtils.isEmpty(WeiboSsoSdk.this.mQJ.dCt())) ? WeiboSsoSdk.this.dCu() : WeiboSsoSdk.this.mQJ.dCt(), 2);
+                        WeiboSsoSdk.this.bP((WeiboSsoSdk.this.mQJ == null || TextUtils.isEmpty(WeiboSsoSdk.this.mQJ.dCu())) ? WeiboSsoSdk.this.dCv() : WeiboSsoSdk.this.mQJ.dCu(), 2);
                     }
                 } catch (Exception e) {
                 }
@@ -64,7 +64,7 @@ public class WeiboSsoSdk {
         boolean z = false;
         synchronized (WeiboSsoSdk.class) {
             if (bVar != null) {
-                if (bVar.dCv() && mQH == null) {
+                if (bVar.dCw() && mQH == null) {
                     mQH = (b) bVar.clone();
                     com.weibo.ssosdk.a.init(mQH.getApplicationContext());
                     z = true;
@@ -74,7 +74,7 @@ public class WeiboSsoSdk {
         return z;
     }
 
-    public static synchronized WeiboSsoSdk dCr() throws Exception {
+    public static synchronized WeiboSsoSdk dCs() throws Exception {
         WeiboSsoSdk weiboSsoSdk;
         synchronized (WeiboSsoSdk.class) {
             if (mQG == null) {
@@ -90,7 +90,7 @@ public class WeiboSsoSdk {
         private String mAid;
         private String mQM;
 
-        public String dCt() {
+        public String dCu() {
             return this.mAid;
         }
 
@@ -166,8 +166,8 @@ public class WeiboSsoSdk {
             if (Pn != null) {
                 try {
                     a Pp = a.Pp(Pn);
-                    if (Pp != null && !TextUtils.isEmpty(Pp.dCt())) {
-                        Po(Pp.dCt());
+                    if (Pp != null && !TextUtils.isEmpty(Pp.dCu())) {
+                        Po(Pp.dCu());
                     }
                     if (i == 1) {
                         this.mQJ = Pp;
@@ -184,7 +184,7 @@ public class WeiboSsoSdk {
         }
     }
 
-    public a dCs() throws Exception {
+    public a dCt() throws Exception {
         if (this.mQJ == null) {
             Thread thread = new Thread(new Runnable() { // from class: com.weibo.ssosdk.WeiboSsoSdk.3
                 @Override // java.lang.Runnable
@@ -204,10 +204,10 @@ public class WeiboSsoSdk {
         return this.mQJ;
     }
 
-    public String dCt() throws Exception {
-        String dCu = dCu();
-        if (TextUtils.isEmpty(dCu)) {
-            if (this.mQJ == null || TextUtils.isEmpty(this.mQJ.dCt())) {
+    public String dCu() throws Exception {
+        String dCv = dCv();
+        if (TextUtils.isEmpty(dCv)) {
+            if (this.mQJ == null || TextUtils.isEmpty(this.mQJ.dCu())) {
                 Thread thread = new Thread(new Runnable() { // from class: com.weibo.ssosdk.WeiboSsoSdk.4
                     @Override // java.lang.Runnable
                     public void run() {
@@ -223,14 +223,14 @@ public class WeiboSsoSdk {
             if (this.mQJ == null) {
                 throw new Exception("visitor login failed");
             }
-            return this.mQJ.dCt();
+            return this.mQJ.dCu();
         }
-        return dCu;
+        return dCv;
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [378=4] */
     /* JADX INFO: Access modifiers changed from: private */
-    public String dCu() {
+    public String dCv() {
         FileInputStream fileInputStream;
         Throwable th;
         FileInputStream fileInputStream2 = null;

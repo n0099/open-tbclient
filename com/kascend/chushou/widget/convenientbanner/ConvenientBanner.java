@@ -105,7 +105,7 @@ public class ConvenientBanner<T> extends RelativeLayout {
             for (int i = 0; i < this.mDatas.size(); i++) {
                 ImageView imageView = new ImageView(getContext());
                 imageView.setPadding(5, 0, 5, 0);
-                if (this.mGy.dyV() % this.mDatas.size() == i) {
+                if (this.mGy.dyW() % this.mDatas.size() == i) {
                     imageView.setImageResource(iArr[1]);
                 } else {
                     imageView.setImageResource(iArr[0]);
@@ -134,7 +134,7 @@ public class ConvenientBanner<T> extends RelativeLayout {
     }
 
     public int getCurrentItem() {
-        return this.mGy.dyU();
+        return this.mGy.dyV();
     }
 
     public int getFaceCurrentItem() {
@@ -155,7 +155,7 @@ public class ConvenientBanner<T> extends RelativeLayout {
     public ConvenientBanner fY(long j) {
         if (j >= 0) {
             if (this.mGv) {
-                dyS();
+                dyT();
             }
             this.mGw = true;
             this.mGu = j;
@@ -165,12 +165,12 @@ public class ConvenientBanner<T> extends RelativeLayout {
         return this;
     }
 
-    public ConvenientBanner dyR() {
+    public ConvenientBanner dyS() {
         fY(this.mGu);
         return this;
     }
 
-    public void dyS() {
+    public void dyT() {
         this.mGv = false;
         removeCallbacks(this.mGB);
     }
@@ -183,7 +183,7 @@ public class ConvenientBanner<T> extends RelativeLayout {
                 fY(this.mGu);
             }
         } else if (action == 0 && this.mGw) {
-            dyS();
+            dyT();
         }
         return super.dispatchTouchEvent(motionEvent);
     }
@@ -193,9 +193,9 @@ public class ConvenientBanner<T> extends RelativeLayout {
         super.onWindowVisibilityChanged(i);
         this.visible = i == 0;
         if (this.bHL && this.visible && this.mGw) {
-            dyR();
-        } else {
             dyS();
+        } else {
+            dyT();
         }
     }
 
@@ -204,9 +204,9 @@ public class ConvenientBanner<T> extends RelativeLayout {
         super.onWindowFocusChanged(z);
         this.bHL = z;
         if (this.bHL && this.visible && this.mGw) {
-            dyR();
-        } else {
             dyS();
+        } else {
+            dyT();
         }
     }
 

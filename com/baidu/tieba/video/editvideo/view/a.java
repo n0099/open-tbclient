@@ -53,7 +53,7 @@ public class a extends com.baidu.adp.base.c {
                 switch (i) {
                     case 0:
                         if (a.this.ljw != null) {
-                            a.this.ljw.daU();
+                            a.this.ljw.daV();
                             break;
                         }
                         break;
@@ -80,7 +80,7 @@ public class a extends com.baidu.adp.base.c {
         this.lkH.de(this.mRootView);
         this.lkI.de(this.mRootView);
         initView();
-        dbB();
+        dbC();
     }
 
     private void initView() {
@@ -93,18 +93,18 @@ public class a extends com.baidu.adp.base.c {
         this.lkJ.addView(this.lkG.getRootView());
         this.lkK = (FragmentTabWidget) this.mRootView.findViewById(R.id.tab_widget);
         blD();
-        dbA();
+        dbB();
         this.lkJ.addView(this.lkH.getRootView());
         this.lkJ.addView(this.lkI.getRootView());
         this.lkH.getRootView().setVisibility(8);
         this.lkI.getRootView().setVisibility(8);
     }
 
-    private boolean dbz() {
+    private boolean dbA() {
         return Build.VERSION.SDK_INT >= 18;
     }
 
-    private void dbA() {
+    private void dbB() {
         String[] stringArray = this.mResources.getStringArray(R.array.edit_video_tab);
         for (int i = 0; i < stringArray.length; i++) {
             FragmentTabIndicator fragmentTabIndicator = new FragmentTabIndicator(this.mContext.getPageActivity());
@@ -113,7 +113,7 @@ public class a extends com.baidu.adp.base.c {
             fragmentTabIndicator.setTextSize(0, this.mResources.getDimension(R.dimen.fontsize34));
             this.lkK.addView(fragmentTabIndicator, i);
         }
-        if (!dbz() && this.lkK.getChildAt(1) != null) {
+        if (!dbA() && this.lkK.getChildAt(1) != null) {
             this.lkK.getChildAt(1).setVisibility(8);
         }
         this.lkK.setDiverColor(this.mResources.getColor(R.color.cp_cont_b));
@@ -138,7 +138,7 @@ public class a extends com.baidu.adp.base.c {
                             a.this.lkH.getRootView().setVisibility(8);
                             a.this.lkG.getRootView().setVisibility(8);
                             a.this.lkG.uv(false);
-                            if (TextUtils.isEmpty(a.this.lkH.dbI())) {
+                            if (TextUtils.isEmpty(a.this.lkH.dbJ())) {
                                 a.this.lkH.uv(false);
                             } else {
                                 a.this.lkH.uv(true);
@@ -156,32 +156,32 @@ public class a extends com.baidu.adp.base.c {
                     }
                     a.this.mCurrentTabIndex = i2;
                     a.this.lkK.setCurrentTab(a.this.mCurrentTabIndex, true, true);
-                    a.this.dbB();
                     a.this.dbC();
+                    a.this.dbD();
                 }
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dbB() {
+    public void dbC() {
         an anVar = new an("c12424");
         anVar.af("obj_locate", this.mCurrentTabIndex == 0 ? 1 : 3);
         TiebaStatic.log(anVar);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dbC() {
+    public void dbD() {
         if (this.mCurrentTabIndex == 0) {
-            dbG();
-            dbE();
+            dbH();
+            dbF();
             return;
         }
         replay();
     }
 
     public void replay() {
-        dbG();
+        dbH();
         this.lkF.start();
         this.lkF.seekTo(0);
     }
@@ -199,7 +199,7 @@ public class a extends com.baidu.adp.base.c {
     }
 
     public void onPause() {
-        dbG();
+        dbH();
         this.lkG.onPause();
         this.lkH.onPause();
         this.lkI.onPause();
@@ -215,7 +215,7 @@ public class a extends com.baidu.adp.base.c {
         this.lkI.onResume();
     }
 
-    public MaskVideoView dbD() {
+    public MaskVideoView dbE() {
         return this.lkF;
     }
 
@@ -254,7 +254,7 @@ public class a extends com.baidu.adp.base.c {
                         com.baidu.adp.lib.f.e.lb().postDelayed(new Runnable() { // from class: com.baidu.tieba.video.editvideo.view.a.2.1
                             @Override // java.lang.Runnable
                             public void run() {
-                                a.this.lkG.dbO();
+                                a.this.lkG.dbP();
                             }
                         }, 200L);
                         if (Build.VERSION.SDK_INT >= 17) {
@@ -289,25 +289,25 @@ public class a extends com.baidu.adp.base.c {
         }
     }
 
-    public void dbE() {
+    public void dbF() {
         if (this.lkF != null) {
             this.lkF.seekTo(this.lkG.getCurrentPosition());
         }
     }
 
-    public void dbF() {
+    public void dbG() {
         if (this.lkF != null) {
             this.lkF.El(this.lkG.getCurrentPosition());
         }
     }
 
-    public void dbG() {
+    public void dbH() {
         if (this.lkF != null) {
-            this.lkF.dbL();
+            this.lkF.dbM();
         }
     }
 
-    public void dbH() {
+    public void dbI() {
         if (this.lkF != null) {
             this.lkF.onPause();
         }
@@ -370,26 +370,26 @@ public class a extends com.baidu.adp.base.c {
         this.lkH.eX(str, str2);
     }
 
-    public void daW() {
+    public void daX() {
         if (this.ljw != null) {
-            this.ljw.daW();
+            this.ljw.daX();
         }
-    }
-
-    public String dbI() {
-        return this.lkH.dbI();
     }
 
     public String dbJ() {
         return this.lkH.dbJ();
     }
 
+    public String dbK() {
+        return this.lkH.dbK();
+    }
+
     public boolean isMute() {
         return this.mIsMute;
     }
 
-    public boolean dbK() {
-        return this.lkH.dbK();
+    public boolean dbL() {
+        return this.lkH.dbL();
     }
 
     public View getRootView() {
@@ -410,8 +410,8 @@ public class a extends com.baidu.adp.base.c {
     }
 
     public void setGenMaskCoverListener(MaskVideoView.b bVar) {
-        if (bVar != null && dbD() != null) {
-            dbD().setGenMaskCoverListener(bVar);
+        if (bVar != null && dbE() != null) {
+            dbE().setGenMaskCoverListener(bVar);
         }
     }
 }

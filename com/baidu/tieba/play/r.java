@@ -6,19 +6,19 @@ public class r {
     private boolean gHF = false;
     private boolean khL = true;
 
-    public int cKb() {
+    public int cKc() {
         return this.jiR;
     }
 
-    public int cKc() {
+    public int cKd() {
         return this.khK;
     }
 
-    public boolean cKd() {
+    public boolean cKe() {
         return this.gHF;
     }
 
-    public boolean cKe() {
+    public boolean cKf() {
         return this.khL;
     }
 

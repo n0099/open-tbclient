@@ -69,7 +69,7 @@ public class c implements d, l, a.InterfaceC0784a, com.tb.airbnb.lottie.model.f 
         this.lottieDrawable = fVar;
         this.contents = list;
         if (lVar != null) {
-            this.mOt = lVar.dBx();
+            this.mOt = lVar.dBy();
             this.mOt.a(aVar);
             this.mOt.a(this);
         }
@@ -156,7 +156,7 @@ public class c implements d, l, a.InterfaceC0784a, com.tb.airbnb.lottie.model.f 
         this.matrix.set(matrix);
         if (this.mOt != null) {
             this.matrix.preConcat(this.mOt.getMatrix());
-            i = (int) ((((this.mOt.dBj().getValue().intValue() / 100.0f) * i) / 255.0f) * 255.0f);
+            i = (int) ((((this.mOt.dBk().getValue().intValue() / 100.0f) * i) / 255.0f) * 255.0f);
         }
         for (int size = this.contents.size() - 1; size >= 0; size--) {
             b bVar = this.contents.get(size);

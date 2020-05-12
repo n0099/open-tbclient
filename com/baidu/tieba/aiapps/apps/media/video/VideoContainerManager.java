@@ -216,7 +216,7 @@ public class VideoContainerManager extends com.baidu.swan.apps.component.b.a<Vid
             if (measuredWidth > 0 && measuredHeight > 0) {
                 Z.c(new d(measuredWidth, measuredHeight));
             }
-            simpleDraweeView.setController(com.facebook.drawee.a.a.c.dnM().c(simpleDraweeView.getController()).aX(Z.duT()).doD());
+            simpleDraweeView.setController(com.facebook.drawee.a.a.c.dnN().c(simpleDraweeView.getController()).aX(Z.duU()).doE());
         }
 
         public Uri getUri(String str) {

@@ -65,7 +65,7 @@ public class NewVcodeView {
         this.lxQ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.vcode.newVcode.NewVcodeView.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                NewVcodeView.this.lBB.dfi();
+                NewVcodeView.this.lBB.dfj();
                 NewVcodeView.this.eyB.finish();
             }
         });

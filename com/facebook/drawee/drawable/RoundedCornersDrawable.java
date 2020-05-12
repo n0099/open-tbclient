@@ -58,14 +58,14 @@ public class RoundedCornersDrawable extends g implements j {
     @Override // com.facebook.drawee.drawable.j
     public void vD(boolean z) {
         this.ehQ = z;
-        doQ();
+        doR();
         invalidateSelf();
     }
 
     @Override // com.facebook.drawee.drawable.j
     public void setRadius(float f) {
         Arrays.fill(this.bbu, f);
-        doQ();
+        doR();
         invalidateSelf();
     }
 
@@ -77,7 +77,7 @@ public class RoundedCornersDrawable extends g implements j {
             com.facebook.common.internal.g.checkArgument(fArr.length == 8, "radii should have exactly 8 values");
             System.arraycopy(fArr, 0, this.bbu, 0, 8);
         }
-        doQ();
+        doR();
         invalidateSelf();
     }
 
@@ -90,21 +90,21 @@ public class RoundedCornersDrawable extends g implements j {
     public void n(int i, float f) {
         this.mBorderColor = i;
         this.mBorderWidth = f;
-        doQ();
+        doR();
         invalidateSelf();
     }
 
     @Override // com.facebook.drawee.drawable.j
     public void aC(float f) {
         this.lVE = f;
-        doQ();
+        doR();
         invalidateSelf();
     }
 
     @Override // com.facebook.drawee.drawable.j
     public void vE(boolean z) {
         this.lVF = z;
-        doQ();
+        doR();
         invalidateSelf();
     }
 
@@ -118,10 +118,10 @@ public class RoundedCornersDrawable extends g implements j {
     @Override // com.facebook.drawee.drawable.g, android.graphics.drawable.Drawable
     public void onBoundsChange(Rect rect) {
         super.onBoundsChange(rect);
-        doQ();
+        doR();
     }
 
-    private void doQ() {
+    private void doR() {
         this.mPath.reset();
         this.cEo.reset();
         this.lVL.set(getBounds());

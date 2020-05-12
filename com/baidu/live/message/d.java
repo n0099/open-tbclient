@@ -3,6 +3,7 @@ package com.baidu.live.message;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.BIMManager;
 import com.baidu.android.imsdk.account.LoginManager;
+import com.baidu.android.imsdk.mcast.McastManagerImpl;
 import com.baidu.ar.constants.HttpConstants;
 import com.baidu.ar.pose.PoseAR;
 import com.baidu.live.adp.framework.MessageManager;
@@ -21,7 +22,6 @@ public class d extends HttpMessage {
     }
 
     public void a(AlaLiveExceptionInfo alaLiveExceptionInfo) {
-        long j;
         this.aQs = alaLiveExceptionInfo;
         if (this.aQs != null) {
             addParam("appState", this.aQs.appState);
@@ -59,17 +59,14 @@ public class d extends HttpMessage {
             if (TbadkCoreApplication.getInst().isHaokan() || TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isMobileBaidu() || TbadkCoreApplication.getInst().isTieba()) {
                 addParam("im_sdk_version", BIMManager.getVersion());
                 addParam("im_sdk_connet", LoginManager.getInstance(TbadkCoreApplication.getInst().getContext()).isIMLogined() + "");
+                addParam("im_join_castid", McastManagerImpl.getInstance(TbadkCoreApplication.getInst().getContext()).getJoinedCastId() + "");
                 CustomResponsedMessage runTask = MessageManager.getInstance().runTask(new CustomMessage<>(CmdConfigCustom.CMD_GET_ENSURE_CAST_ID), String.class);
-                if (runTask == null || TextUtils.isEmpty((CharSequence) runTask.getData())) {
-                    j = 0;
-                } else {
+                if (runTask != null && !TextUtils.isEmpty((CharSequence) runTask.getData())) {
                     try {
-                        j = Long.parseLong((String) runTask.getData());
+                        Long.parseLong((String) runTask.getData());
                     } catch (NumberFormatException e) {
-                        j = 0;
                     }
                 }
-                addParam("im_join_castid", j + "");
             }
         }
     }

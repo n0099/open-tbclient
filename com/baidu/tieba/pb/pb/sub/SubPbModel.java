@@ -321,7 +321,7 @@ public class SubPbModel extends DataModel {
                             } else {
                                 lVar = responsedMessage instanceof SubPbSocketResponseMessage ? ((SubPbSocketResponseMessage) responsedMessage).pbFloorData : null;
                             }
-                            if (lVar.cwd().errorno.intValue() != 0) {
+                            if (lVar.cwe().errorno.intValue() != 0) {
                                 if (SubPbModel.this.jIg != null) {
                                     SubPbModel.this.jIg.a(false, lVar.joO.errorno.intValue(), lVar.joO.errmsg, null);
                                     return;
@@ -330,12 +330,12 @@ public class SubPbModel extends DataModel {
                             }
                             if (lVar.aIu() != null && lVar.aIu().aKC() != null) {
                                 lVar.aIu().aKC().getUserId();
-                                if (v.isEmpty(lVar.cwe().aKC().getIconInfo()) && SubPbModel.this.jIi != null) {
-                                    lVar.cwe().aKC().setIconInfo(SubPbModel.this.jIi);
+                                if (v.isEmpty(lVar.cwf().aKC().getIconInfo()) && SubPbModel.this.jIi != null) {
+                                    lVar.cwf().aKC().setIconInfo(SubPbModel.this.jIi);
                                 }
                             }
-                            if (lVar.cwe() != null) {
-                                SubPbModel.this.postID = lVar.cwe().getId();
+                            if (lVar.cwf() != null) {
+                                SubPbModel.this.postID = lVar.cwf().getId();
                             }
                             if (lVar.aIu() != null) {
                                 SubPbModel.this.jHX = lVar.aIu().getId();
@@ -351,7 +351,7 @@ public class SubPbModel extends DataModel {
                                 SubPbModel.this.e(lVar);
                             }
                             if (SubPbModel.this.jIg != null) {
-                                SubPbModel.this.jIg.a(SubPbModel.this.cCO(), error, errorString, SubPbModel.this.jFF);
+                                SubPbModel.this.jIg.a(SubPbModel.this.cCP(), error, errorString, SubPbModel.this.jFF);
                             }
                         }
                     }
@@ -366,7 +366,7 @@ public class SubPbModel extends DataModel {
         registerListener(this.jFJ);
     }
 
-    public String cyx() {
+    public String cyy() {
         return this.jHX;
     }
 
@@ -379,16 +379,16 @@ public class SubPbModel extends DataModel {
         return this.stType;
     }
 
-    public l cCN() {
+    public l cCO() {
         return this.jFF;
     }
 
-    public AntiData bNE() {
+    public AntiData bNF() {
         return this.dMD;
     }
 
-    public boolean cCO() {
-        return (this.jFF == null || this.jFF.cwe() == null) ? false : true;
+    public boolean cCP() {
+        return (this.jFF == null || this.jFF.cwf() == null) ? false : true;
     }
 
     public void a(a aVar) {
@@ -404,7 +404,7 @@ public class SubPbModel extends DataModel {
         markData.setTime(date.getTime());
         markData.setHostMode(false);
         markData.setId(this.jHX);
-        markData.setFloor(postData.cWo());
+        markData.setFloor(postData.cWp());
         return markData;
     }
 
@@ -414,10 +414,10 @@ public class SubPbModel extends DataModel {
         if (this.jsW != null) {
             this.jsW.unRegisterListener();
         }
-        bJa();
+        bJb();
     }
 
-    private void bJa() {
+    private void bJb() {
         if (this.gDV != null) {
             this.gDV.destory();
             this.gDV = null;
@@ -436,12 +436,12 @@ public class SubPbModel extends DataModel {
     }
 
     public void Id(String str) {
-        if (!TextUtils.isEmpty(str) && this.jFF != null && this.jFF.cwi() != null) {
-            ArrayList<PostData> cwi = this.jFF.cwi();
-            int size = cwi.size();
+        if (!TextUtils.isEmpty(str) && this.jFF != null && this.jFF.cwj() != null) {
+            ArrayList<PostData> cwj = this.jFF.cwj();
+            int size = cwj.size();
             for (int i = 0; i < size; i++) {
-                if (str.equals(cwi.get(i).getId())) {
-                    cwi.remove(i);
+                if (str.equals(cwj.get(i).getId())) {
+                    cwj.remove(i);
                     this.jIh++;
                     this.jFF.setTotalCount(this.jFF.getTotalCount() - 1);
                     return;
@@ -450,7 +450,7 @@ public class SubPbModel extends DataModel {
         }
     }
 
-    protected int cCP() {
+    protected int cCQ() {
         int bdY = this.jFF.bdY();
         if (bdY == 0) {
             return bdY + 1;
@@ -458,19 +458,19 @@ public class SubPbModel extends DataModel {
         if (this.emV == 0) {
             return bdY + 1;
         }
-        if (this.emV == 2 && this.jFF.cwi().size() != 0 && this.jFF.cwi().size() % this.jFF.getPageSize() == 0) {
+        if (this.emV == 2 && this.jFF.cwj().size() != 0 && this.jFF.cwj().size() % this.jFF.getPageSize() == 0) {
             return bdY + 1;
         }
         if (this.emV == 3 && this.jIn) {
-            return this.jFF.cwg() - 1;
+            return this.jFF.cwh() - 1;
         }
         if (this.emV == 3 && bdY > 0) {
-            return this.jFF.cwf() - 1;
+            return this.jFF.cwg() - 1;
         }
         return bdY;
     }
 
-    private SubPbRequestMessage cBW() {
+    private SubPbRequestMessage cBX() {
         this.isLoading = true;
         return o(null);
     }
@@ -489,7 +489,7 @@ public class SubPbModel extends DataModel {
             j2 = com.baidu.adp.lib.f.b.toLong(this.postID, 0L);
         }
         if (num == null) {
-            intValue = cCP();
+            intValue = cCQ();
         } else {
             intValue = num.intValue();
         }
@@ -516,11 +516,11 @@ public class SubPbModel extends DataModel {
         return zZ(0);
     }
 
-    public boolean cCQ() {
+    public boolean cCR() {
         return zZ(2);
     }
 
-    public void cCR() {
+    public void cCS() {
         int pageSize;
         if (this.jIh > 0 && this.jFF != null && (pageSize = this.jFF.getPageSize()) > 0) {
             int bdY = this.jFF.bdY();
@@ -533,7 +533,7 @@ public class SubPbModel extends DataModel {
         this.jIh = 0;
     }
 
-    public boolean cCS() {
+    public boolean cCT() {
         return zZ(1);
     }
 
@@ -546,17 +546,17 @@ public class SubPbModel extends DataModel {
             this.isLoading = false;
             return false;
         }
-        cCR();
+        cCS();
         this.emV = i;
-        this.jIs = cBW();
+        this.jIs = cBX();
         sendMessage(this.jIs);
         return true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e(l lVar) {
-        ArrayList<PostData> cwi = lVar.cwi();
-        if (cwi == null || cwi.size() == 0) {
+        ArrayList<PostData> cwj = lVar.cwj();
+        if (cwj == null || cwj.size() == 0) {
             lVar.setCurrentPage(this.jFF.bdY());
         }
         if (this.emV == 1) {
@@ -574,7 +574,7 @@ public class SubPbModel extends DataModel {
     public void f(l lVar) {
         if (this.emV == 1) {
             this.jFF = lVar;
-            this.jFF.cwh();
+            this.jFF.cwi();
         } else if (this.emV == 2) {
             this.jFF.c(lVar, true);
         } else if (this.emV == 3) {
@@ -584,15 +584,15 @@ public class SubPbModel extends DataModel {
         }
     }
 
-    public boolean cCo() {
+    public boolean cCp() {
         return this.jHY;
     }
 
-    public boolean cCT() {
+    public boolean cCU() {
         return this.joN;
     }
 
-    public boolean cCU() {
+    public boolean cCV() {
         return "hot_topic".equals(getStType());
     }
 
@@ -600,11 +600,11 @@ public class SubPbModel extends DataModel {
         this.joN = z;
     }
 
-    public int cvD() {
+    public int cvE() {
         return this.jnK;
     }
 
-    public String cCV() {
+    public String cCW() {
         return this.jIf;
     }
 
@@ -612,13 +612,13 @@ public class SubPbModel extends DataModel {
         this.jIf = str;
     }
 
-    public String cCW() {
+    public String cCX() {
         return this.jIa;
     }
 
     @Override // com.baidu.tbadk.editortools.pb.DataModel
     public WriteData wz(String str) {
-        if (this.jFF == null || this.jFF.aXG() == null || this.jFF.aIu() == null || this.jFF.cwe() == null) {
+        if (this.jFF == null || this.jFF.aXG() == null || this.jFF.aIu() == null || this.jFF.cwf() == null) {
             return null;
         }
         WriteData writeData = new WriteData();
@@ -626,7 +626,7 @@ public class SubPbModel extends DataModel {
         writeData.setForumName(this.jFF.aXG().getName());
         writeData.setForumId(this.jFF.aXG().getId());
         writeData.setFromForumId(this.jId);
-        writeData.setFloor(this.jFF.cwe().getId());
+        writeData.setFloor(this.jFF.cwf().getId());
         writeData.setType(2);
         writeData.setThreadId(this.jFF.aIu().getId());
         writeData.setFloorNum(0);
@@ -635,11 +635,11 @@ public class SubPbModel extends DataModel {
 
     @Override // com.baidu.tbadk.editortools.pb.DataModel
     public boolean aXh() {
-        cCQ();
+        cCR();
         return true;
     }
 
-    public boolean cCX() {
+    public boolean cCY() {
         return this.jIr;
     }
 
@@ -651,23 +651,23 @@ public class SubPbModel extends DataModel {
         this.jFI = aVar;
     }
 
-    public SmallTailInfo cCY() {
+    public SmallTailInfo cCZ() {
         return this.jIm;
     }
 
-    public boolean cCZ() {
+    public boolean cDa() {
         return this.jIk;
     }
 
-    public ConcurrentHashMap<String, ImageUrlData> cDa() {
+    public ConcurrentHashMap<String, ImageUrlData> cDb() {
         return this.jIp;
     }
 
-    public ArrayList<String> cDb() {
+    public ArrayList<String> cDc() {
         return this.jIo;
     }
 
-    public boolean cDc() {
+    public boolean cDd() {
         return this.jIq;
     }
 
@@ -679,7 +679,7 @@ public class SubPbModel extends DataModel {
         return this.jIc;
     }
 
-    public AttentionHostData cDd() {
+    public AttentionHostData cDe() {
         if (this.jIj == null) {
             this.jIj = new AttentionHostData();
             if (this.jFF != null && this.jFF.aIu() != null && this.jFF.aIu().aKC() != null) {
@@ -689,15 +689,15 @@ public class SubPbModel extends DataModel {
         return this.jIj;
     }
 
-    public boolean czo() {
+    public boolean czp() {
         return this.pageFromType == 13 || this.pageFromType == 12;
     }
 
-    public int cDe() {
+    public int cDf() {
         return this.pageFromType;
     }
 
-    public String cyw() {
+    public String cyx() {
         return this.jIb;
     }
 }

@@ -95,12 +95,12 @@ public class c extends com.baidu.adp.base.c implements NoNetworkView.a {
                 if (responsedMessage instanceof forumRecommendSocketResponseMessage) {
                     forumRecommendSocketResponseMessage forumrecommendsocketresponsemessage = (forumRecommendSocketResponseMessage) responsedMessage;
                     if (forumrecommendsocketresponsemessage.getHotSearchInfoData() != null) {
-                        str = forumrecommendsocketresponsemessage.getHotSearchInfoData().bHG();
+                        str = forumrecommendsocketresponsemessage.getHotSearchInfoData().bHH();
                     }
                 } else if (responsedMessage instanceof forumRecommendHttpResponseMessage) {
                     forumRecommendHttpResponseMessage forumrecommendhttpresponsemessage = (forumRecommendHttpResponseMessage) responsedMessage;
                     if (forumrecommendhttpresponsemessage.getHotSearchInfoData() != null) {
-                        str = forumrecommendhttpresponsemessage.getHotSearchInfoData().bHG();
+                        str = forumrecommendhttpresponsemessage.getHotSearchInfoData().bHH();
                     }
                 }
                 if (TextUtils.isEmpty(str)) {
@@ -135,17 +135,17 @@ public class c extends com.baidu.adp.base.c implements NoNetworkView.a {
                 c.this.si(i);
                 if (c.this.gBF != null && c.this.gBF.size() > i) {
                     if (c.this.gBM != null) {
-                        c.this.gBM.bJX();
+                        c.this.gBM.bJY();
                     }
                     EnterForumTabPagerAdapter.a aVar = (EnterForumTabPagerAdapter.a) c.this.gBF.get(i);
                     if (aVar != null && aVar.fragment != null) {
                         if (aVar.fragment instanceof EnterForumFragment) {
-                            z = ((EnterForumFragment) aVar.fragment).bIs();
+                            z = ((EnterForumFragment) aVar.fragment).bIt();
                         } else if (aVar.fragment instanceof EnterForumTabFeedFragment) {
-                            r.bEW().lx(false);
-                            boolean bIs = ((EnterForumTabFeedFragment) aVar.fragment).bIs();
+                            r.bEX().lx(false);
+                            boolean bIt = ((EnterForumTabFeedFragment) aVar.fragment).bIt();
                             TiebaStatic.log(new an("c13366").af("obj_locate", 3).cI("resource_id", ((EnterForumTabFeedFragment) aVar.fragment).getTabName()));
-                            z = bIs;
+                            z = bIt;
                         } else {
                             z = true;
                         }
@@ -292,7 +292,7 @@ public class c extends com.baidu.adp.base.c implements NoNetworkView.a {
         return i;
     }
 
-    public boolean bIB() {
+    public boolean bIC() {
         return this.gBQ;
     }
 
@@ -323,7 +323,7 @@ public class c extends com.baidu.adp.base.c implements NoNetworkView.a {
         am.a(this.gBI, R.color.cp_bg_line_h, GradientDrawable.Orientation.RIGHT_LEFT);
     }
 
-    public void bIC() {
+    public void bID() {
         si(this.gBD.getCurrentItem());
     }
 
@@ -433,7 +433,7 @@ public class c extends com.baidu.adp.base.c implements NoNetworkView.a {
         }
     }
 
-    public void bID() {
+    public void bIE() {
         if (TbadkCoreApplication.getInst().getSkinType() == 1 || TbadkCoreApplication.getInst().getSkinType() == 4) {
             ao.setStatusBarDarkIcon(getPageContext().getPageActivity().getWindow(), false);
         } else if (this.gBD.getCurrentItem() == 0 && this.gBz.isPrimary()) {
@@ -522,7 +522,7 @@ public class c extends com.baidu.adp.base.c implements NoNetworkView.a {
     /* JADX INFO: Access modifiers changed from: private */
     public void blG() {
         if (this.gBA != null && this.gBA.getPaddingTop() < 0) {
-            bIE();
+            bIF();
         } else if (this.gBL != null) {
             this.gBL.clearAnimation();
             if (this.gBL.getVisibility() != 0) {
@@ -562,7 +562,7 @@ public class c extends com.baidu.adp.base.c implements NoNetworkView.a {
         }
     }
 
-    private void bIE() {
+    private void bIF() {
         if (this.gBL != null && this.gBL.getVisibility() != 8) {
             this.gBL.clearAnimation();
             this.gBL.setVisibility(8);
@@ -588,7 +588,7 @@ public class c extends com.baidu.adp.base.c implements NoNetworkView.a {
         return getPageContext().getPageActivity().getWindow().getDecorView();
     }
 
-    public View bIF() {
+    public View bIG() {
         return this.gBA;
     }
 
@@ -610,10 +610,10 @@ public class c extends com.baidu.adp.base.c implements NoNetworkView.a {
         if (!this.gBz.getActivity().getSupportFragmentManager().isDestroyed()) {
             this.gBQ = true;
             if (this.gBP == null || !this.gBP.b(pVar)) {
-                bIH();
+                bII();
                 this.gBF.clear();
                 this.gBF.add(this.gBF.get(0));
-                Iterator<o> it = pVar.bHZ().iterator();
+                Iterator<o> it = pVar.bIa().iterator();
                 while (it.hasNext()) {
                     o next = it.next();
                     EnterForumTabPagerAdapter.a aVar = new EnterForumTabPagerAdapter.a();
@@ -628,7 +628,7 @@ public class c extends com.baidu.adp.base.c implements NoNetworkView.a {
                     }
                     aVar.tabName = next.getTabName();
                     Bundle bundle = new Bundle();
-                    bundle.putString("tab_code", next.bHY());
+                    bundle.putString("tab_code", next.bHZ());
                     bundle.putString("tab_name", next.getTabName());
                     aVar.fragment.setArguments(bundle);
                     this.gBF.add(aVar);
@@ -637,28 +637,28 @@ public class c extends com.baidu.adp.base.c implements NoNetworkView.a {
                 this.gBC.notifyDataSetChanged();
                 this.gBE.notifyDataSetChanged();
                 this.gBD.setOffscreenPageLimit(this.gBF.size());
-                bIG();
-            } else if (pVar != null && this.gBP != null && v.getCount(this.gBF) - 1 == v.getCount(pVar.bHZ())) {
+                bIH();
+            } else if (pVar != null && this.gBP != null && v.getCount(this.gBF) - 1 == v.getCount(pVar.bIa())) {
                 if (z) {
                     while (true) {
                         int i2 = i;
-                        if (i2 >= pVar.bHZ().size()) {
+                        if (i2 >= pVar.bIa().size()) {
                             break;
                         }
-                        if (this.gBF.get(i2 + 1) != null && pVar.bHZ().get(i2) != null) {
-                            this.gBF.get(i2 + 1).gBy = this.gBP.b(pVar.bHZ().get(i2));
+                        if (this.gBF.get(i2 + 1) != null && pVar.bIa().get(i2) != null) {
+                            this.gBF.get(i2 + 1).gBy = this.gBP.b(pVar.bIa().get(i2));
                         }
                         i = i2 + 1;
                     }
                 }
                 this.gBP = pVar;
                 this.gBC.notifyDataSetChanged();
-                bIG();
+                bIH();
             }
         }
     }
 
-    private void bIG() {
+    private void bIH() {
         if (!TextUtils.isEmpty(this.gBO)) {
             int Cb = Cb(this.gBO);
             if (Cb == -1) {
@@ -675,7 +675,7 @@ public class c extends com.baidu.adp.base.c implements NoNetworkView.a {
         }
     }
 
-    private void bIH() {
+    private void bII() {
         if (this.gBE != null && this.gBF != null) {
             try {
                 FragmentManager supportFragmentManager = this.gBz.getActivity().getSupportFragmentManager();
@@ -695,7 +695,7 @@ public class c extends com.baidu.adp.base.c implements NoNetworkView.a {
         }
     }
 
-    public int bII() {
+    public int bIJ() {
         return this.gBD.getCurrentItem();
     }
 

@@ -15,7 +15,7 @@ public class PersonBarActivity extends BasePersonInfoActivity {
         if (this.jUY && this.itd != 23011) {
             setSwipeBackEnabled(false);
         }
-        this.jVG = new PersonBarModel(getPageContext(), cim());
+        this.jVG = new PersonBarModel(getPageContext(), cin());
         this.jVG.setSex(getSex());
         this.jVG.setId(getUid());
         this.jVG.setUniqueId(getUniqueId());
@@ -24,58 +24,58 @@ public class PersonBarActivity extends BasePersonInfoActivity {
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
     public BasePersonInfoAdapter a(BasePersonInfoActivity basePersonInfoActivity, boolean z) {
         if (this.jVF == null) {
-            this.jVF = new PersonBarAdapter(this, cim());
+            this.jVF = new PersonBarAdapter(this, cin());
         }
         return this.jVF;
     }
 
-    public PersonBarModel cGP() {
+    public PersonBarModel cGQ() {
         return this.jVG;
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
-    public String cGx() {
+    public String cGy() {
         return getPageContext().getString(R.string.person_bar_title);
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
-    public String cGy() {
+    public String cGz() {
         return getPageContext().getString(R.string.attention_bar);
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
-    public String cGz() {
+    public String cGA() {
         return getPageContext().getString(R.string.person_bar_no_common_title);
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
-    public String cGA() {
+    public String cGB() {
         return getPageContext().getString(R.string.person_bar_personal);
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
-    public String cGB() {
+    public String cGC() {
         return getPageContext().getString(R.string.person_bar_common);
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
-    public String cGF() {
+    public String cGG() {
         return "common_forum";
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
-    public int cGG() {
+    public int cGH() {
         return 2;
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity, android.support.v4.view.ViewPager.OnPageChangeListener
     public void onPageSelected(int i) {
         BaseFragment baseFragment;
-        c cGZ;
+        c cHa;
         super.onPageSelected(i);
-        if (this.jVF != null && this.jVF.getItem(i) != null && (baseFragment = (BaseFragment) this.jVF.getItem(i)) != null && (baseFragment instanceof PersonBarFragment) && (cGZ = ((PersonBarFragment) baseFragment).cGZ()) != null) {
-            cGZ.iB(false);
-            cGZ.notifyDataSetChanged();
+        if (this.jVF != null && this.jVF.getItem(i) != null && (baseFragment = (BaseFragment) this.jVF.getItem(i)) != null && (baseFragment instanceof PersonBarFragment) && (cHa = ((PersonBarFragment) baseFragment).cHa()) != null) {
+            cHa.iB(false);
+            cHa.notifyDataSetChanged();
         }
     }
 

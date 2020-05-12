@@ -132,7 +132,7 @@ public class a extends ab {
                     }
                     return null;
                 }
-            }).d(Schedulers.io()).c(rx.a.b.a.dHA()).c(new rx.functions.b<File>() { // from class: com.baidu.swan.apps.media.c.a.a.3
+            }).d(Schedulers.io()).c(rx.a.b.a.dHB()).c(new rx.functions.b<File>() { // from class: com.baidu.swan.apps.media.c.a.a.3
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // rx.functions.b
                 /* renamed from: v */

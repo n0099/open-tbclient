@@ -21,15 +21,15 @@ public class g implements b {
         return this.name;
     }
 
-    public com.tb.airbnb.lottie.model.a.b dBR() {
+    public com.tb.airbnb.lottie.model.a.b dBS() {
         return this.mPW;
     }
 
-    public com.tb.airbnb.lottie.model.a.b dBS() {
+    public com.tb.airbnb.lottie.model.a.b dBT() {
         return this.mPX;
     }
 
-    public l dBT() {
+    public l dBU() {
         return this.mPY;
     }
 

@@ -114,7 +114,7 @@ public final class OperatorMerge<T> implements d.b<T, rx.d<? extends T>> {
             request(i);
         }
 
-        Queue<Throwable> dHL() {
+        Queue<Throwable> dHM() {
             ConcurrentLinkedQueue<Throwable> concurrentLinkedQueue = this.nlp;
             if (concurrentLinkedQueue == null) {
                 synchronized (this) {
@@ -128,7 +128,7 @@ public final class OperatorMerge<T> implements d.b<T, rx.d<? extends T>> {
             return concurrentLinkedQueue;
         }
 
-        rx.subscriptions.b dHM() {
+        rx.subscriptions.b dHN() {
             boolean z;
             rx.subscriptions.b bVar = this.nlo;
             if (bVar == null) {
@@ -158,8 +158,8 @@ public final class OperatorMerge<T> implements d.b<T, rx.d<? extends T>> {
         /* renamed from: d */
         public void onNext(rx.d<? extends T> dVar) {
             if (dVar != null) {
-                if (dVar == rx.d.dHp()) {
-                    dHN();
+                if (dVar == rx.d.dHq()) {
+                    dHO();
                 } else if (dVar instanceof ScalarSynchronousObservable) {
                     bP(((ScalarSynchronousObservable) dVar).get());
                 } else {
@@ -173,7 +173,7 @@ public final class OperatorMerge<T> implements d.b<T, rx.d<? extends T>> {
             }
         }
 
-        void dHN() {
+        void dHO() {
             int i = this.nlu + 1;
             if (i == this.nlt) {
                 this.nlu = 0;
@@ -183,7 +183,7 @@ public final class OperatorMerge<T> implements d.b<T, rx.d<? extends T>> {
             this.nlu = i;
         }
 
-        private void dHO() {
+        private void dHP() {
             ArrayList arrayList = new ArrayList(this.nlp);
             if (arrayList.size() == 1) {
                 this.child.onError((Throwable) arrayList.get(0));
@@ -194,7 +194,7 @@ public final class OperatorMerge<T> implements d.b<T, rx.d<? extends T>> {
 
         @Override // rx.e
         public void onError(Throwable th) {
-            dHL().offer(th);
+            dHM().offer(th);
             this.done = true;
             emit();
         }
@@ -208,7 +208,7 @@ public final class OperatorMerge<T> implements d.b<T, rx.d<? extends T>> {
         /* JADX DEBUG: Multi-variable search result rejected for r3v1, resolved type: rx.internal.operators.OperatorMerge$c<?>[] */
         /* JADX WARN: Multi-variable type inference failed */
         void a(c<T> cVar) {
-            dHM().add(cVar);
+            dHN().add(cVar);
             synchronized (this.nlq) {
                 c<?>[] cVarArr = this.nlr;
                 int length = cVarArr.length;
@@ -281,7 +281,7 @@ public final class OperatorMerge<T> implements d.b<T, rx.d<? extends T>> {
         protected void b(c<T> cVar, T t) {
             rx.internal.util.g gVar = cVar.nll;
             if (gVar == null) {
-                gVar = rx.internal.util.g.dId();
+                gVar = rx.internal.util.g.dIe();
                 cVar.add(gVar);
                 cVar.nll = gVar;
             }
@@ -362,7 +362,7 @@ public final class OperatorMerge<T> implements d.b<T, rx.d<? extends T>> {
                 if (i == Integer.MAX_VALUE) {
                     queue = new rx.internal.util.atomic.f<>(rx.internal.util.g.SIZE);
                 } else if (rx.internal.util.a.h.JA(i)) {
-                    if (ae.dIm()) {
+                    if (ae.dIn()) {
                         queue = new rx.internal.util.a.q<>(i);
                     } else {
                         queue = new rx.internal.util.atomic.c<>(i);
@@ -486,7 +486,7 @@ public final class OperatorMerge<T> implements d.b<T, rx.d<? extends T>> {
                                 jVar.onCompleted();
                                 return;
                             } else {
-                                dHO();
+                                dHP();
                                 return;
                             }
                         }
@@ -623,7 +623,7 @@ public final class OperatorMerge<T> implements d.b<T, rx.d<? extends T>> {
             ConcurrentLinkedQueue<Throwable> concurrentLinkedQueue = this.nlp;
             if (!this.delayErrors && concurrentLinkedQueue != null && !concurrentLinkedQueue.isEmpty()) {
                 try {
-                    dHO();
+                    dHP();
                     return true;
                 } finally {
                     unsubscribe();
@@ -662,7 +662,7 @@ public final class OperatorMerge<T> implements d.b<T, rx.d<? extends T>> {
         @Override // rx.e
         public void onError(Throwable th) {
             this.done = true;
-            this.nlk.dHL().offer(th);
+            this.nlk.dHM().offer(th);
             this.nlk.emit();
         }
 

@@ -72,7 +72,7 @@ public class a extends b {
                 FrescoThumbnailView frescoThumbnailView = (FrescoThumbnailView) view$OnLongClickListenerC0858a.JQ(a.f.iv_avatar);
                 frescoThumbnailView.setAnim(false);
                 view$OnLongClickListenerC0858a.t(a.f.iv_avatar);
-                frescoThumbnailView.bU(fanItem.mAvatar, c.dJG());
+                frescoThumbnailView.bU(fanItem.mAvatar, c.dJH());
                 TextView textView = (TextView) view$OnLongClickListenerC0858a.JQ(a.f.tv_nickname);
                 FrescoThumbnailView frescoThumbnailView2 = (FrescoThumbnailView) view$OnLongClickListenerC0858a.JQ(a.f.iv_user_level_icon);
                 if (h.isEmpty(fanItem.mLevelMedal)) {
@@ -145,7 +145,7 @@ public class a extends b {
                 this.i = false;
                 this.mEh.setVisibility(0);
                 this.mEi.setVisibility(8);
-                this.mEh.dKb();
+                this.mEh.dKc();
                 return;
             case 3:
             case 4:

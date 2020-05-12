@@ -86,7 +86,7 @@ public class h {
         this.lGb = new com.baidu.tieba.write.view.a.b(this.mTbPageContext);
         frameLayout.addView(this.lGb.getRootView());
         this.lGb.getRootView().setVisibility(8);
-        dbA();
+        dbB();
     }
 
     public void R(Bitmap bitmap) {
@@ -102,7 +102,7 @@ public class h {
         this.lGd.a(bitmap, this.lGg);
     }
 
-    private void dbA() {
+    private void dbB() {
         this.lkK = (FragmentTabWidget) this.gLM.findViewById(R.id.tab_widget);
         Resources resources = this.mTbPageContext.getResources();
         String[] stringArray = resources.getStringArray(R.array.edit_pic_no_fliter_tab);
@@ -129,7 +129,7 @@ public class h {
                             h.this.lGb.getRootView().setVisibility(8);
                             if (v.isEmpty(h.this.mUrlList)) {
                                 if (h.this.lGg != null) {
-                                    h.this.lGg.dgI();
+                                    h.this.lGg.dgJ();
                                     break;
                                 }
                             } else {
@@ -139,14 +139,14 @@ public class h {
                             break;
                         case 1:
                             if (h.this.lGd != null) {
-                                h.this.lGd.ctH();
+                                h.this.lGd.ctI();
                             }
                             h.this.lGa.getRootView().setVisibility(8);
                             h.this.lGb.getRootView().setVisibility(0);
                             break;
                         case 2:
                             if (h.this.lGd != null) {
-                                h.this.lGd.ctH();
+                                h.this.lGd.ctI();
                             }
                             h.this.lGa.getRootView().setVisibility(8);
                             h.this.lGb.getRootView().setVisibility(0);
@@ -180,7 +180,7 @@ public class h {
         }
     }
 
-    public void dhL() {
+    public void dhM() {
         if (this.lDP == null) {
             this.lDP = new com.baidu.tbadk.core.dialog.a(this.mTbPageContext.getPageActivity());
             this.lDP.kd(R.string.orginal_conflict_tip);

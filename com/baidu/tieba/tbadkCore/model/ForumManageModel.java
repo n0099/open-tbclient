@@ -154,7 +154,7 @@ public class ForumManageModel extends BdBaseModel {
         this.kUW.execute(new String[0]);
     }
 
-    public boolean cXc() {
+    public boolean cXd() {
         return (this.kUW == null && this.kUX == null && this.kUY == null) ? false : true;
     }
 
@@ -162,7 +162,7 @@ public class ForumManageModel extends BdBaseModel {
         this.kUZ = str;
     }
 
-    public String cXd() {
+    public String cXe() {
         return this.kUZ;
     }
 
@@ -188,7 +188,7 @@ public class ForumManageModel extends BdBaseModel {
             this.gFD = i;
             this.jHG = i2;
             this.fqL = z;
-            this.kUZ = ForumManageModel.this.cXd();
+            this.kUZ = ForumManageModel.this.cXe();
             this.mBaijiahaoData = baijiahaoData;
         }
 

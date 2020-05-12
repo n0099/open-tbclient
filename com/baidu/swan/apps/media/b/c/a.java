@@ -155,7 +155,7 @@ public class a {
                     public Boolean call(String str2) {
                         return Boolean.valueOf(a.this.age());
                     }
-                }).c(rx.a.b.a.dHA()).c(new rx.functions.b<Boolean>() { // from class: com.baidu.swan.apps.media.b.c.a.2
+                }).c(rx.a.b.a.dHB()).c(new rx.functions.b<Boolean>() { // from class: com.baidu.swan.apps.media.b.c.a.2
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // rx.functions.b
                     /* renamed from: e */

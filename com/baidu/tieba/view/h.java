@@ -194,7 +194,7 @@ public class h {
         this.dko.setTextSize(0, l.getDimens(this.dvm, i));
     }
 
-    public d deH() {
+    public d deI() {
         return this.lvw;
     }
 
@@ -280,8 +280,8 @@ public class h {
                 if (a.this.lvC != null) {
                     a.this.lvC.onClick();
                 }
-                if (a.this.lvB != null && a.this.lvB.deH() != null) {
-                    a.this.lvB.deH().onItemClick(a.this.mId);
+                if (a.this.lvB != null && a.this.lvB.deI() != null) {
+                    a.this.lvB.deI().onItemClick(a.this.mId);
                 }
             }
         };

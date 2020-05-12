@@ -19,7 +19,7 @@ public class l implements PooledByteBuffer {
 
     @Override // com.facebook.common.memory.PooledByteBuffer
     public synchronized int size() {
-        dnm();
+        dnn();
         return this.mSize;
     }
 
@@ -27,7 +27,7 @@ public class l implements PooledByteBuffer {
     public synchronized byte Ga(int i) {
         byte Ga;
         synchronized (this) {
-            dnm();
+            dnn();
             com.facebook.common.internal.g.checkArgument(i >= 0);
             com.facebook.common.internal.g.checkArgument(i < this.mSize);
             Ga = this.mec.get().Ga(i);
@@ -37,15 +37,15 @@ public class l implements PooledByteBuffer {
 
     @Override // com.facebook.common.memory.PooledByteBuffer
     public synchronized int c(int i, byte[] bArr, int i2, int i3) {
-        dnm();
+        dnn();
         com.facebook.common.internal.g.checkArgument(i + i3 <= this.mSize);
         return this.mec.get().c(i, bArr, i2, i3);
     }
 
     @Override // com.facebook.common.memory.PooledByteBuffer
-    public synchronized long dnd() {
-        dnm();
-        return this.mec.get().dnd();
+    public synchronized long dne() {
+        dnn();
+        return this.mec.get().dne();
     }
 
     @Override // com.facebook.common.memory.PooledByteBuffer
@@ -59,7 +59,7 @@ public class l implements PooledByteBuffer {
         this.mec = null;
     }
 
-    synchronized void dnm() {
+    synchronized void dnn() {
         if (isClosed()) {
             throw new PooledByteBuffer.ClosedException();
         }

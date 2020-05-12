@@ -169,7 +169,7 @@ public class ApkDownloadView extends FrameLayout implements com.baidu.tieba.ad.d
         }
         int process = downloadData.getProcess();
         if (process <= 0) {
-            process = i.cNx().cQ(downloadData.getId(), downloadData.getName());
+            process = i.cNy().cQ(downloadData.getId(), downloadData.getName());
         }
         return Math.max(process, 0);
     }
@@ -183,7 +183,7 @@ public class ApkDownloadView extends FrameLayout implements com.baidu.tieba.ad.d
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
         bgn();
-        cOC();
+        cOD();
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -206,8 +206,8 @@ public class ApkDownloadView extends FrameLayout implements com.baidu.tieba.ad.d
         this.kyY.onChangeSkinType();
     }
 
-    public void ckM() {
-        this.kyY.ckM();
+    public void ckN() {
+        this.kyY.ckN();
     }
 
     private void bgm() {
@@ -228,7 +228,7 @@ public class ApkDownloadView extends FrameLayout implements com.baidu.tieba.ad.d
         }
     }
 
-    private void cOC() {
+    private void cOD() {
         setOnClickInterceptListener(null);
     }
 

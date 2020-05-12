@@ -11,13 +11,13 @@ public abstract class f extends OutputStream {
     private boolean mClosed;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public abstract void dkc() throws IOException;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
     public abstract void dkd() throws IOException;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public abstract UploadDataProvider dke();
+    public abstract void dke() throws IOException;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public abstract UploadDataProvider dkf();
 
     @Override // java.io.OutputStream, java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
@@ -33,7 +33,7 @@ public abstract class f extends OutputStream {
     /* JADX INFO: Access modifiers changed from: protected */
     public void checkNotClosed() throws IOException {
         if (this.lMT) {
-            dks();
+            dkt();
             throw new IOException("Writing after request completed.");
         } else if (this.mClosed) {
             throw new IOException("Stream has been closed.");
@@ -41,7 +41,7 @@ public abstract class f extends OutputStream {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void dks() throws IOException {
+    public void dkt() throws IOException {
         if (this.lMS != null) {
             throw this.lMS;
         }

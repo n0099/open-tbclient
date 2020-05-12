@@ -13,7 +13,7 @@ public class ProxyConfig {
     private ProxyConfig() {
     }
 
-    public boolean djg() {
+    public boolean djh() {
         return this.lMp == LibType.NATIVE;
     }
 

@@ -107,13 +107,13 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         LoginActivityConfig.lastStartActivityTime = System.currentTimeMillis();
-        bIM();
-        cuc();
+        bIN();
         cud();
+        cue();
         TiebaStatic.log(new an("c12947").cI(TiebaInitialize.Params.OBJ_URL, this.jjZ));
     }
 
-    private void bIM() {
+    private void bIN() {
         Intent intent = getIntent();
         this.mClose = intent.getBooleanExtra("close", false);
         this.jka = intent.getIntExtra(LoginActivityConfig.JUMP_AFTER_DESTROY, -1);
@@ -124,7 +124,7 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
         this.jkd = intent.getBooleanExtra(LoginActivityConfig.IS_FROM_AIAPP, false);
     }
 
-    protected void cuc() {
+    protected void cud() {
         try {
             SapiAccountManager.getInstance().getConfignation();
         } catch (Exception e) {
@@ -135,29 +135,29 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
             confignation.setAgreeDangerousProtocol(true);
         }
         MessageManager.getInstance().runTask(CmdConfigCustom.CMD_INIT_RIM_SDK, (Class) null);
-        PassManagerStatic.cuo();
+        PassManagerStatic.cup();
         SapiConfiguration confignation2 = SapiAccountManager.getInstance().getConfignation();
         if (confignation2 != null && confignation2.fastLoginFeatureList != null) {
             confignation2.fastLoginFeatureList.clear();
-            confignation2.fastLoginFeatureList.addAll(PassManagerStatic.cum());
+            confignation2.fastLoginFeatureList.addAll(PassManagerStatic.cun());
         }
-        cug();
-        if (cue()) {
+        cuh();
+        if (cuf()) {
             zb(this.jkc);
         } else {
-            cow();
+            cox();
         }
     }
 
-    private void cud() {
+    private void cue() {
         sendMessage(new CustomMessage(2921438, TbadkCoreApplication.getInst().getApp()));
     }
 
-    private boolean cue() {
+    private boolean cuf() {
         return this.jkc == 1 || this.jkc == 2 || this.jkc == 3;
     }
 
-    private void cow() {
+    private void cox() {
         PassportSDK passportSDK = PassportSDK.getInstance();
         WebLoginDTO webLoginDTO = new WebLoginDTO();
         webLoginDTO.finishActivityAfterSuc = false;
@@ -171,7 +171,7 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
                 LoginActivity.this.jjV = webAuthResult;
                 LoginActivity.this.jjW = webAuthResult.activity;
                 com.baidu.tbadk.core.d.a.a("account", -1L, 0, "login_pass_success", 0, "", new Object[0]);
-                LoginActivity.this.cuf();
+                LoginActivity.this.cug();
                 LoginActivity.this.jjY = 0;
             }
 
@@ -214,7 +214,7 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
             public void onSuccess(WebAuthResult webAuthResult) {
                 LoginActivity.this.jjV = webAuthResult;
                 LoginActivity.this.jjW = webAuthResult.activity;
-                LoginActivity.this.cuf();
+                LoginActivity.this.cug();
                 LoginActivity.this.jjY = 0;
             }
 
@@ -288,7 +288,7 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cuf() {
+    public void cug() {
         MessageManager.getInstance().dispatchResponsedMessageToUI(new CancelDownloadMessage(true));
         SapiAccount session = SapiAccountManager.getInstance().getSession();
         if (session != null) {
@@ -361,7 +361,7 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
         this.dLY.aVj();
     }
 
-    private boolean cug() {
+    private boolean cuh() {
         if (!aq.isEmpty(this.jkb)) {
             String uB = m.uB(this.jkb);
             if (!aq.isEmpty(uB) && m.uz(uB)) {

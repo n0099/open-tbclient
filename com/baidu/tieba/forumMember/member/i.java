@@ -81,26 +81,26 @@ public class i extends com.baidu.tieba.frs.h<j, k> {
     @Override // com.baidu.tieba.frs.h, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, j jVar, k kVar) {
         super.a(i, view, viewGroup, (ViewGroup) jVar, (j) kVar);
-        if (jVar != null && jVar.bNc() != null) {
+        if (jVar != null && jVar.bNd() != null) {
             int parseColor = Color.parseColor("#56cfa1");
             int color = am.getColor(R.color.cp_cont_d);
-            u bNc = jVar.bNc();
+            u bNd = jVar.bNd();
             if (TbadkCoreApplication.isLogin()) {
-                if (bNc.isLike() == 1) {
+                if (bNd.isLike() == 1) {
                     kVar.gUX.setVisibility(8);
                     kVar.gUY.setVisibility(0);
                     kVar.gUY.setText(R.string.mydegree);
-                    am.setImageResource(kVar.gTV, BitmapHelper.getSmallGradeResourceIdNew(bNc.cTF()));
-                    if (StringUtils.isNull(bNc.getLevelName())) {
+                    am.setImageResource(kVar.gTV, BitmapHelper.getSmallGradeResourceIdNew(bNd.cTG()));
+                    if (StringUtils.isNull(bNd.getLevelName())) {
                         kVar.gTW.setVisibility(8);
                     } else {
-                        kVar.gTW.setText(bNc.getLevelName());
+                        kVar.gTW.setText(bNd.getLevelName());
                         kVar.gTW.setVisibility(0);
                     }
                     SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-                    SpannableString spannableString = new SpannableString(bNc.getCurScore() + "");
+                    SpannableString spannableString = new SpannableString(bNd.getCurScore() + "");
                     spannableString.setSpan(new ForegroundColorSpan(parseColor), 0, spannableString.length(), 17);
-                    SpannableString spannableString2 = new SpannableString("/" + bNc.getLevelupScore());
+                    SpannableString spannableString2 = new SpannableString("/" + bNd.getLevelupScore());
                     spannableString2.setSpan(new ForegroundColorSpan(color), 0, spannableString2.length(), 17);
                     spannableStringBuilder.append((CharSequence) spannableString);
                     spannableStringBuilder.append((CharSequence) spannableString2);
@@ -139,17 +139,17 @@ public class i extends com.baidu.tieba.frs.h<j, k> {
             am.setViewTextColor(kVar.gVd, R.color.cp_cont_b, 1);
             am.setBackgroundResource(kVar.gVe, R.drawable.forum_member_exp_progress);
             am.setBackgroundColor(kVar.gVf, R.color.cp_bg_line_c);
-            if (this.fSc != bNc.cTF() || this.gUT != bNc.getCurScore()) {
-                this.fSc = bNc.cTF();
-                this.gUT = bNc.getCurScore();
+            if (this.fSc != bNd.cTG() || this.gUT != bNd.getCurScore()) {
+                this.fSc = bNd.cTG();
+                this.gUT = bNd.getCurScore();
                 kVar.gVe.setBackgroundDrawable(new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, sQ(this.fSc)));
                 float f = 0.0f;
-                this.gUT = bNc.getCurScore();
-                if (this.gUT > bNc.getLevelupScore()) {
-                    this.gUT = bNc.getLevelupScore();
+                this.gUT = bNd.getCurScore();
+                if (this.gUT > bNd.getLevelupScore()) {
+                    this.gUT = bNd.getLevelupScore();
                 }
-                if (bNc.getLevelupScore() != 0) {
-                    f = this.gUT / bNc.getLevelupScore();
+                if (bNd.getLevelupScore() != 0) {
+                    f = this.gUT / bNd.getLevelupScore();
                 }
                 if (f > 0.999f) {
                     f = 1.0f;

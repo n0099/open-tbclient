@@ -91,7 +91,7 @@ public class c {
         this.lwO = arrayList;
     }
 
-    public ArrayList<String> deP() {
+    public ArrayList<String> deQ() {
         return this.lwO;
     }
 
@@ -105,7 +105,7 @@ public class c {
         this.bgColor = am.getColor(this.lwQ);
     }
 
-    public int deQ() {
+    public int deR() {
         return this.lwR;
     }
 
@@ -113,7 +113,7 @@ public class c {
         this.lwS = z;
     }
 
-    public boolean deR() {
+    public boolean deS() {
         return this.lwS;
     }
 
@@ -121,7 +121,7 @@ public class c {
         this.lwT = z;
     }
 
-    public boolean deS() {
+    public boolean deT() {
         return this.lwT;
     }
 
@@ -129,7 +129,7 @@ public class c {
         this.daw = str;
     }
 
-    public String deT() {
+    public String deU() {
         return this.daw;
     }
 }

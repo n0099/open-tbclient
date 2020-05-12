@@ -48,12 +48,12 @@ public class ac extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.homepage.personalize.data.g gVar, com.baidu.tieba.card.a.a<a> aVar) {
-        if (gVar == null || aVar == null || aVar.bFz() == null) {
+        if (gVar == null || aVar == null || aVar.bFA() == null) {
             return null;
         }
         TiebaStatic.log(new an("c12884"));
-        aVar.bFz().a(gVar);
-        return aVar.bFz().getView();
+        aVar.bFA().a(gVar);
+        return aVar.bFA().getView();
     }
 
     /* loaded from: classes9.dex */

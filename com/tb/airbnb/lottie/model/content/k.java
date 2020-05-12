@@ -17,7 +17,7 @@ public class k implements b {
         return this.name;
     }
 
-    public com.tb.airbnb.lottie.model.a.h dBV() {
+    public com.tb.airbnb.lottie.model.a.h dBW() {
         return this.mPZ;
     }
 

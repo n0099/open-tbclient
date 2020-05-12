@@ -39,11 +39,11 @@ public class c {
         this.cWS = (TextView) this.mRoot.findViewById(R.id.home_bt_search_cancel_s);
         this.cWS.setText(tbPageContext.getString(R.string.cancel));
         this.eOj = (BdTypeListView) this.mRoot.findViewById(R.id.search_bar_list);
-        bNr();
+        bNs();
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    private void bNr() {
+    private void bNs() {
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.gWJ.getLayoutParams();
         layoutParams.height = l.getDimens(this.mPageContext.getPageActivity(), R.dimen.ds88);
         int dimens = l.getDimens(this.mPageContext.getPageActivity(), R.dimen.ds8);

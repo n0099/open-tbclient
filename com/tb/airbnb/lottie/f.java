@@ -473,7 +473,7 @@ public class f extends Drawable implements Animatable, Drawable.Callback {
     }
 
     @Nullable
-    public p dBb() {
+    public p dBc() {
         return this.mOe;
     }
 
@@ -548,12 +548,12 @@ public class f extends Drawable implements Animatable, Drawable.Callback {
             });
             return;
         }
-        if (eVar.dBm() != null) {
-            eVar.dBm().a(t, cVar);
+        if (eVar.dBn() != null) {
+            eVar.dBn().a(t, cVar);
         } else {
             List<com.tb.airbnb.lottie.model.e> resolveKeyPath = resolveKeyPath(eVar);
             for (int i = 0; i < resolveKeyPath.size(); i++) {
-                resolveKeyPath.get(i).dBm().a(t, cVar);
+                resolveKeyPath.get(i).dBn().a(t, cVar);
             }
             z = resolveKeyPath.isEmpty() ? false : true;
         }
@@ -567,26 +567,26 @@ public class f extends Drawable implements Animatable, Drawable.Callback {
 
     @Nullable
     public Bitmap updateBitmap(String str, @Nullable Bitmap bitmap) {
-        com.tb.airbnb.lottie.b.b dBc = dBc();
-        if (dBc == null) {
+        com.tb.airbnb.lottie.b.b dBd = dBd();
+        if (dBd == null) {
             Log.w("LOTTIE", "Cannot update bitmap. Most likely the drawable is not added to a View which prevents Lottie from getting a Context.");
             return null;
         }
-        Bitmap updateBitmap = dBc.updateBitmap(str, bitmap);
+        Bitmap updateBitmap = dBd.updateBitmap(str, bitmap);
         invalidateSelf();
         return updateBitmap;
     }
 
     @Nullable
     public Bitmap aZ(String str) {
-        com.tb.airbnb.lottie.b.b dBc = dBc();
-        if (dBc != null) {
-            return dBc.bd(str);
+        com.tb.airbnb.lottie.b.b dBd = dBd();
+        if (dBd != null) {
+            return dBd.bd(str);
         }
         return null;
     }
 
-    private com.tb.airbnb.lottie.b.b dBc() {
+    private com.tb.airbnb.lottie.b.b dBd() {
         if (getCallback() == null) {
             return null;
         }
@@ -602,14 +602,14 @@ public class f extends Drawable implements Animatable, Drawable.Callback {
 
     @Nullable
     public Typeface n(String str, String str2) {
-        com.tb.airbnb.lottie.b.a dBd = dBd();
-        if (dBd != null) {
-            return dBd.n(str, str2);
+        com.tb.airbnb.lottie.b.a dBe = dBe();
+        if (dBe != null) {
+            return dBe.n(str, str2);
         }
         return null;
     }
 
-    private com.tb.airbnb.lottie.b.a dBd() {
+    private com.tb.airbnb.lottie.b.a dBe() {
         if (getCallback() == null) {
             return null;
         }

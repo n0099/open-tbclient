@@ -17,10 +17,10 @@ public final class b {
                 com.baidu.ubs.analytics.d.b.I(" ActivityLifeTask   add  " + new Date().toLocaleString());
                 lOv = new c();
                 lOw = new m();
-                a.dkX().dkZ();
-                a.dkX().a(lOw);
-                a.dkX().a(lOv);
-                a.dkX().c(context);
+                a.dkY().dla();
+                a.dkY().a(lOw);
+                a.dkY().a(lOv);
+                a.dkY().c(context);
                 ad = true;
             } else {
                 com.baidu.ubs.analytics.d.b.I(" ActivityLifeTask  is added  " + new Date().toLocaleString());

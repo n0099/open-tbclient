@@ -26,7 +26,7 @@ public class b {
         }
     }
 
-    public boolean cXL() {
+    public boolean cXM() {
         return this.showType == 1;
     }
 

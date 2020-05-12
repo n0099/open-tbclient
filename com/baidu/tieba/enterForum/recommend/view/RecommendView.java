@@ -103,7 +103,7 @@ public class RecommendView extends FrameLayout implements ForumTestView.a {
                     if (this.eRI != 1) {
                         if (RecommendView.this.a(recyclerView)) {
                         }
-                        RecommendView.this.gGj.bJp();
+                        RecommendView.this.gGj.bJq();
                     }
                 }
             }
@@ -166,7 +166,7 @@ public class RecommendView extends FrameLayout implements ForumTestView.a {
     public void setData(com.baidu.tieba.enterForum.recommend.b.a aVar) {
         if (aVar != null) {
             this.gGl = aVar;
-            if (v.isEmpty(aVar.bJd()) && v.isEmpty(aVar.lR(true))) {
+            if (v.isEmpty(aVar.bJe()) && v.isEmpty(aVar.lR(true))) {
                 showNoDataView();
                 return;
             }
@@ -189,7 +189,7 @@ public class RecommendView extends FrameLayout implements ForumTestView.a {
     }
 
     @Override // com.baidu.tieba.enterForum.recommend.view.ForumTestView.a
-    public void bJn() {
+    public void bJo() {
         if (this.Vi != null && !v.isEmpty(this.Vi.getData()) && this.Vi.getData().size() == 1 && (this.Vi.getData().get(0) instanceof e)) {
             showNoDataView();
         }
@@ -229,7 +229,7 @@ public class RecommendView extends FrameLayout implements ForumTestView.a {
     }
 
     public void fK(boolean z) {
-        if (!bJr()) {
+        if (!bJs()) {
             if (this.eYg == null) {
                 this.eYg = new com.baidu.tbadk.k.g(getContext());
                 this.eYg.aYn();
@@ -247,7 +247,7 @@ public class RecommendView extends FrameLayout implements ForumTestView.a {
         }
     }
 
-    public boolean bJr() {
+    public boolean bJs() {
         if (this.eYg != null) {
             return this.eYg.isViewAttached();
         }
@@ -255,7 +255,7 @@ public class RecommendView extends FrameLayout implements ForumTestView.a {
     }
 
     public void lV(boolean z) {
-        if (!bJs()) {
+        if (!bJt()) {
             if (this.mRefreshView == null) {
                 this.mRefreshView = new com.baidu.tbadk.k.h(getContext(), new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.recommend.view.RecommendView.5
                     @Override // android.view.View.OnClickListener
@@ -301,7 +301,7 @@ public class RecommendView extends FrameLayout implements ForumTestView.a {
         }
     }
 
-    public boolean bJs() {
+    public boolean bJt() {
         if (this.mRefreshView != null) {
             return this.mRefreshView.isViewAttached();
         }
@@ -353,7 +353,7 @@ public class RecommendView extends FrameLayout implements ForumTestView.a {
         hideLoadingView();
         blr();
         if (this.gGj != null) {
-            this.gGj.bJq();
+            this.gGj.bJr();
         }
     }
 }

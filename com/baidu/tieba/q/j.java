@@ -3,7 +3,7 @@ package com.baidu.tieba.q;
 public class j {
     private static volatile i kIC;
 
-    public static synchronized i cTg() {
+    public static synchronized i cTh() {
         i iVar;
         synchronized (j.class) {
             if (kIC == null) {

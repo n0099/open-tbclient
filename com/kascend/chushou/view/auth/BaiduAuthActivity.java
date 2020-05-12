@@ -64,7 +64,7 @@ public final class BaiduAuthActivity extends BaseActivity {
             hashMap.put("client_id", "43vLB6EGs9V4tVNugF3OdqjS");
             hashMap.put(WBConstants.AUTH_PARAMS_REDIRECT_URL, "cstvsdk://baiduauth");
             hashMap.put("changeAcc", 3);
-            Http http = (Http) tv.chushou.basis.d.b.dJr().S(Http.class);
+            Http http = (Http) tv.chushou.basis.d.b.dJs().S(Http.class);
             if (http == null || (packParams = http.packParams("https://openapi.baidu.com/oauth/2.0/authorize", hashMap)) == null) {
                 return "https://openapi.baidu.com/oauth/2.0/authorize";
             }
@@ -147,7 +147,7 @@ public final class BaiduAuthActivity extends BaseActivity {
                 tag = null;
             }
             String str2 = (String) tag;
-            if (tv.chushou.zues.utils.a.dJO()) {
+            if (tv.chushou.zues.utils.a.dJP()) {
                 if (str2 != null && q.k(str2, BdStatsConstant.StatsType.ERROR)) {
                     BaiduAuthActivity.this.a_(4);
                     return;

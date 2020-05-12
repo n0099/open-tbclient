@@ -44,19 +44,19 @@ public class v {
         this.dex = list;
     }
 
-    public String dkE() {
+    public String dkF() {
         return this.lNT;
     }
 
-    public String dkF() {
+    public String dkG() {
         return this.lNU;
     }
 
-    public JSONObject dkG() {
+    public JSONObject dkH() {
         return this.lNS;
     }
 
-    public JSONObject dkH() {
+    public JSONObject dkI() {
         return this.lNQ;
     }
 

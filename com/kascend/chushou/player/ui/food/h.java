@@ -84,7 +84,7 @@ public class h extends k {
                 this.mzU.setVisibility(0);
             }
             int i = tv.chushou.zues.utils.a.fU(this.q).x - aVar.e;
-            if (com.kascend.chushou.a.a.dwB().a(listItem, this.mzZ, i, (aVar.c * i) / 720, (aVar.d * i) / 720) == 0) {
+            if (com.kascend.chushou.a.a.dwC().a(listItem, this.mzZ, i, (aVar.c * i) / 720, (aVar.d * i) / 720) == 0) {
                 ViewGroup.LayoutParams layoutParams = this.mzZ.getLayoutParams();
                 layoutParams.width = i;
                 layoutParams.height = (int) (i / 2.5d);
@@ -100,13 +100,13 @@ public class h extends k {
     @Override // com.kascend.chushou.player.ui.food.k
     public void a(ListItem listItem, boolean z) {
         if (b()) {
-            if (dyw() != null) {
-                dyw().loadUrl(listItem.mCover);
+            if (dyx() != null) {
+                dyx().loadUrl(listItem.mCover);
                 a(listItem, a.f.fl_holder);
             }
         } else {
             this.mzU.setAnim(true);
-            this.mzU.i(listItem.mCover, tv.chushou.widget.a.c.dJG(), 0, 0);
+            this.mzU.i(listItem.mCover, tv.chushou.widget.a.c.dJH(), 0, 0);
             a(listItem, a.f.iv_cover_ad);
         }
         if (z) {

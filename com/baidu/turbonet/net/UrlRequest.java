@@ -38,11 +38,11 @@ public interface UrlRequest {
 
     void cancel();
 
-    void diU();
-
     void diV();
 
     void diW();
+
+    void diX();
 
     Object getTag();
 
@@ -135,17 +135,17 @@ public interface UrlRequest {
             return this;
         }
 
-        public Builder djO() {
+        public Builder djP() {
             this.lJG = true;
             return this;
         }
 
-        public Builder djP() {
+        public Builder djQ() {
             this.lLT = true;
             return this;
         }
 
-        public Builder djQ() {
+        public Builder djR() {
             this.lJI = true;
             return this;
         }
@@ -190,7 +190,7 @@ public interface UrlRequest {
             return this;
         }
 
-        public UrlRequest djR() {
+        public UrlRequest djS() {
             UrlRequest a = this.lLe.a(this.mUrl, this.lJq, this.mExecutor, this.mPriority, this.lJF, this.lJG, this.lJH, this.lJI);
             if (this.lKA != null) {
                 a.MW(this.lKA);
@@ -204,10 +204,10 @@ public interface UrlRequest {
                 a.a(this.lLR, this.lLS);
             }
             if (this.lLT) {
-                a.diV();
+                a.diW();
             }
             if (this.lJK) {
-                a.diW();
+                a.diX();
             }
             if (this.lJL > 0) {
                 a.setTimeout(this.lJL);

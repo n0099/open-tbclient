@@ -7,15 +7,15 @@ public interface b extends tv.chushou.basis.d.a {
 
     String YT();
 
-    String dyC();
-
     String dyD();
 
-    Map<String, String> dyE();
+    String dyE();
 
-    String dyF();
+    Map<String, String> dyF();
 
-    Map<String, String> dyG();
+    String dyG();
+
+    Map<String, String> dyH();
 
     String getAppKey();
 

@@ -30,10 +30,10 @@ public class i extends com.baidu.adp.widget.ListView.a<m, j> implements com.baid
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, m mVar, j jVar) {
         boolean z = false;
-        AppData cWc = mVar.cWc();
-        if (cWc != null) {
-            com.baidu.tbadk.core.data.c cVar = cWc.advertAppContext;
-            if (cWc.goods != null && cWc.goods.goods_style == -1001) {
+        AppData cWd = mVar.cWd();
+        if (cWd != null) {
+            com.baidu.tbadk.core.data.c cVar = cWd.advertAppContext;
+            if (cWd.goods != null && cWd.goods.goods_style == -1001) {
                 z = true;
             }
             com.baidu.tbadk.core.data.c.b(cVar, mVar.getPosition(), z);

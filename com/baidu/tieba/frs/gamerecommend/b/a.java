@@ -45,8 +45,8 @@ public class a {
                 a(aVar);
             }
             this.mData.clear();
-            bSC();
             bSD();
+            bSE();
             b(aVar);
         }
     }
@@ -108,7 +108,7 @@ public class a {
         }
     }
 
-    private void bSC() {
+    private void bSD() {
         int i = 0;
         while (true) {
             int i2 = i;
@@ -132,7 +132,7 @@ public class a {
         }
     }
 
-    private void bSD() {
+    private void bSE() {
         if (this.hmU != null && this.hmU.length > 0) {
             for (int i = 0; i < this.hmU.length; i++) {
                 Object obj = this.hmU[i];

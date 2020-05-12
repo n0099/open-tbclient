@@ -44,51 +44,51 @@ public class i {
         this.mbM = aVar.mbM;
     }
 
-    public boolean drC() {
+    public boolean drD() {
         return this.mcq;
     }
 
-    public boolean drD() {
+    public boolean drE() {
         return this.mcm;
     }
 
-    public boolean drE() {
+    public boolean drF() {
         return this.mco;
     }
 
-    public b.a drF() {
+    public b.a drG() {
         return this.mcn;
     }
 
-    public com.facebook.common.g.b drG() {
+    public com.facebook.common.g.b drH() {
         return this.mcp;
     }
 
-    public boolean drH() {
+    public boolean drI() {
         return this.mcr;
     }
 
-    public int drI() {
+    public int drJ() {
         return this.mcs;
     }
 
-    public int drJ() {
+    public int drK() {
         return this.mct;
     }
 
-    public boolean drK() {
+    public boolean drL() {
         return this.mcv;
     }
 
-    public c drL() {
+    public c drM() {
         return this.mcw;
     }
 
-    public boolean drM() {
+    public boolean drN() {
         return this.mcu;
     }
 
-    public com.facebook.common.internal.j<Boolean> drN() {
+    public com.facebook.common.internal.j<Boolean> drO() {
         return this.mbM;
     }
 
@@ -112,7 +112,7 @@ public class i {
             this.mcx = aVar;
         }
 
-        public i drO() {
+        public i drP() {
             return new i(this);
         }
     }

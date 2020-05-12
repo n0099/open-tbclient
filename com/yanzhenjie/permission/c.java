@@ -48,13 +48,13 @@ class c implements h {
     public void start() {
         List<String> a = a(this.mQT, this.abV);
         if (a.isEmpty()) {
-            dCw();
+            dCx();
         } else {
             fg(a);
         }
     }
 
-    private void dCw() {
+    private void dCx() {
         if (this.mQU != null) {
             List<String> asList = Arrays.asList(this.abV);
             try {

@@ -79,13 +79,13 @@ public class VideoPlayActivity extends BaseFragmentActivity {
         setContentView(R.layout.video_play_activity);
         registerListener(this.lrQ);
         initData();
-        ddS();
+        ddT();
         addGlobalLayoutListener();
         adjustResizeForSoftInput();
-        bWo();
+        bWp();
     }
 
-    private void bWo() {
+    private void bWp() {
         an anVar = new an("c12664");
         if (TextUtils.isEmpty(this.mNid)) {
             anVar.cI("obj_type", "1");
@@ -151,7 +151,7 @@ public class VideoPlayActivity extends BaseFragmentActivity {
         TiebaStatic.log(new an(PageStayDurationConstants.URL_KEY).cI("obj_type", PageStayDurationConstants.PageName.VIDEO_LIST).t("obj_duration", currentTimeMillis).cI("is_dynamic", str).cI("obj_source", PageStayDurationConstants.PageName.SQUARE_RECOMMEND));
     }
 
-    private void ddS() {
+    private void ddT() {
         this.lrL = new VideoPlayView(this, this.mFromPage);
         this.lrL.a(new VideoPlayView.a() { // from class: com.baidu.tieba.videoplay.VideoPlayActivity.2
             @Override // com.baidu.tieba.videoplay.VideoPlayView.a
@@ -239,7 +239,7 @@ public class VideoPlayActivity extends BaseFragmentActivity {
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         VideoItemData videoItemData;
         if (i == 4) {
-            if (this.lrL == null || !this.lrL.dee()) {
+            if (this.lrL == null || !this.lrL.def()) {
                 if (this.lrL.lsY != this.lrL.lsX && this.lrL.lsX >= 0 && this.lrL.lsX < this.lrM.size() && (videoItemData = this.lrM.get(this.lrL.lsX)) != null && !StringUtils.isNull(videoItemData.thread_id)) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_SYNC_SQUARE_VIDEO_INDEX, videoItemData.thread_id));
                 }

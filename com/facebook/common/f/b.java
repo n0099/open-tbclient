@@ -23,7 +23,7 @@ public class b extends FilterInputStream {
     @Override // java.io.FilterInputStream, java.io.InputStream
     public int read() throws IOException {
         int read = this.in.read();
-        return read != -1 ? read : dnq();
+        return read != -1 ? read : dnr();
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
@@ -40,11 +40,11 @@ public class b extends FilterInputStream {
             }
             int i3 = 0;
             while (i3 < i2) {
-                int dnq = dnq();
-                if (dnq == -1) {
+                int dnr = dnr();
+                if (dnr == -1) {
                     break;
                 }
-                bArr[i + i3] = (byte) dnq;
+                bArr[i + i3] = (byte) dnr;
                 i3++;
             }
             if (i3 <= 0) {
@@ -73,7 +73,7 @@ public class b extends FilterInputStream {
         }
     }
 
-    private int dnq() {
+    private int dnr() {
         if (this.lSm >= this.lSl.length) {
             return -1;
         }

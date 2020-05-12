@@ -72,7 +72,7 @@ public class d extends com.baidu.adp.base.c {
         this.llj.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.video.editvideo.view.d.1
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-                if (d.this.lln.daY() != i || i == d.this.llt) {
+                if (d.this.lln.daZ() != i || i == d.this.llt) {
                     d.this.llu = i;
                     d.this.j(i, view);
                 }
@@ -84,7 +84,7 @@ public class d extends com.baidu.adp.base.c {
         am.setBackgroundColor(this.mRootView, R.color.cp_bg_line_d);
     }
 
-    public boolean dbK() {
+    public boolean dbL() {
         return !TextUtils.isEmpty(this.llx);
     }
 
@@ -126,13 +126,13 @@ public class d extends com.baidu.adp.base.c {
     private void a(final int i, View view, MusicData musicData) {
         if (musicData != null && !TextUtils.isEmpty(musicData.resource)) {
             this.llx = musicData.id;
-            this.liy.daW();
-            String LO = com.baidu.tieba.video.editvideo.model.a.dbn().LO(musicData.resource);
+            this.liy.daX();
+            String LO = com.baidu.tieba.video.editvideo.model.a.dbo().LO(musicData.resource);
             if (TextUtils.isEmpty(LO)) {
                 if (view != null) {
                     final c.a aVar = (c.a) view.getTag();
                     aVar.lib.setVisibility(0);
-                    com.baidu.tieba.video.editvideo.model.a.dbn().a(musicData.id, musicData.resource, new a.InterfaceC0683a() { // from class: com.baidu.tieba.video.editvideo.view.d.2
+                    com.baidu.tieba.video.editvideo.model.a.dbo().a(musicData.id, musicData.resource, new a.InterfaceC0683a() { // from class: com.baidu.tieba.video.editvideo.view.d.2
                         @Override // com.baidu.tieba.video.editvideo.model.a.InterfaceC0683a
                         public void eW(String str, String str2) {
                             if (!TextUtils.isEmpty(str2)) {
@@ -152,13 +152,13 @@ public class d extends com.baidu.adp.base.c {
                         }
 
                         @Override // com.baidu.tieba.video.editvideo.model.a.InterfaceC0683a
-                        public void daE() {
+                        public void daF() {
                             aVar.lib.setVisibility(4);
                         }
                     });
                     return;
                 }
-                com.baidu.tieba.video.editvideo.model.a.dbn().a(musicData.id, musicData.resource, new a.InterfaceC0683a() { // from class: com.baidu.tieba.video.editvideo.view.d.3
+                com.baidu.tieba.video.editvideo.model.a.dbo().a(musicData.id, musicData.resource, new a.InterfaceC0683a() { // from class: com.baidu.tieba.video.editvideo.view.d.3
                     @Override // com.baidu.tieba.video.editvideo.model.a.InterfaceC0683a
                     public void eW(String str, String str2) {
                         if (!TextUtils.isEmpty(str2)) {
@@ -176,7 +176,7 @@ public class d extends com.baidu.adp.base.c {
                     }
 
                     @Override // com.baidu.tieba.video.editvideo.model.a.InterfaceC0683a
-                    public void daE() {
+                    public void daF() {
                     }
                 });
                 return;
@@ -246,7 +246,7 @@ public class d extends com.baidu.adp.base.c {
             if (file.exists()) {
                 file.delete();
             }
-            com.baidu.tieba.video.editvideo.model.a.dbn().dbo();
+            com.baidu.tieba.video.editvideo.model.a.dbo().dbp();
         }
         a(i, this.llj.getChildCount() > i ? this.llj.getChildAt(i) : null, (MusicData) this.lln.getItem(i));
     }
@@ -254,16 +254,16 @@ public class d extends com.baidu.adp.base.c {
     public void setMusicData(List<MusicData> list) {
         this.lln.setData(list);
         if (this.lln != null) {
-            this.llv = this.lln.daY();
+            this.llv = this.lln.daZ();
             this.llu = this.llv;
         }
     }
 
-    public String dbI() {
+    public String dbJ() {
         return this.lls;
     }
 
-    public String dbJ() {
+    public String dbK() {
         return this.llx;
     }
 
@@ -362,7 +362,7 @@ public class d extends com.baidu.adp.base.c {
             this.lls = intent.getStringExtra(EditVideoActivityConfig.LOCAL_PATH_KEY);
             if (this.lln != null) {
                 this.lln.LM(this.llx);
-                this.llv = this.lln.daY();
+                this.llv = this.lln.daZ();
                 this.llt = this.llv;
                 this.llu = this.llv;
             }

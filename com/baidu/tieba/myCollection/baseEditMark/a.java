@@ -45,7 +45,7 @@ public class a {
         return this.jeX.size();
     }
 
-    public int csK() {
+    public int csL() {
         return this.jeZ;
     }
 
@@ -63,7 +63,7 @@ public class a {
         this.hKe = true;
     }
 
-    public ArrayList<MarkData> csL() {
+    public ArrayList<MarkData> csM() {
         return this.jeX;
     }
 
@@ -74,7 +74,7 @@ public class a {
     public void aK(ArrayList<MarkData> arrayList) {
         if (this.jeX != null && arrayList != null) {
             this.jeX.addAll(arrayList);
-            csP();
+            csQ();
         }
     }
 
@@ -89,14 +89,14 @@ public class a {
         return this.jeX.size();
     }
 
-    public int csM() {
+    public int csN() {
         return this.jeY;
     }
 
-    public void csN() {
-        ArrayList<MarkData> cXk = com.baidu.tieba.tbadkCore.util.a.cXk();
-        if (cXk != null) {
-            aJ(cXk);
+    public void csO() {
+        ArrayList<MarkData> cXl = com.baidu.tieba.tbadkCore.util.a.cXl();
+        if (cXl != null) {
+            aJ(cXl);
         }
     }
 
@@ -314,15 +314,15 @@ public class a {
                 com.baidu.tbadk.core.d.a.a("collection", 0L, 0, "collection_thread_list_result", this.jfb.getErrorCode(), this.jfb.getErrorString(), new Object[0]);
             }
             a.this.jeY = aVar.getCount();
-            ArrayList<MarkData> csL = aVar.csL();
+            ArrayList<MarkData> csM = aVar.csM();
             if (this.jfd.booleanValue()) {
-                if (csL != null && csL.size() != 0) {
-                    a.this.aJ(csL);
+                if (csM != null && csM.size() != 0) {
+                    a.this.aJ(csM);
                 }
             } else {
-                a.this.aK(csL);
+                a.this.aK(csM);
             }
-            Iterator<MarkData> it = csL.iterator();
+            Iterator<MarkData> it = csM.iterator();
             int i2 = 0;
             while (it.hasNext()) {
                 if (it.next().getNewCounts() > 0) {
@@ -367,25 +367,25 @@ public class a {
         public Boolean doInBackground(a... aVarArr) {
             a aVar = new a();
             try {
-                aVar.csN();
+                aVar.csO();
                 this.blK = new x();
                 this.blK.setUrl(TbConfig.SERVER_ADDRESS + TbConfig.MARK_ADDSTORE);
-                int csO = this.jfc.csO();
-                if (aVar.getCount() - 1 <= csO) {
-                    csO = aVar.getCount() - 1;
+                int csP = this.jfc.csP();
+                if (aVar.getCount() - 1 <= csP) {
+                    csP = aVar.getCount() - 1;
                 }
-                while (csO >= 0) {
-                    String ct = aVar.ct(csO, 20);
+                while (csP >= 0) {
+                    String ct = aVar.ct(csP, 20);
                     this.blK.setPostData(new ArrayList<>());
                     this.blK.addPostData("data", ct);
                     this.jfb.parserJson(this.blK.postNetData());
                     if (!this.blK.aOw().aOX().isRequestSuccess() || this.jfb.getErrorCode() != 0) {
                         break;
                     }
-                    csO -= 20;
+                    csP -= 20;
                 }
-                this.jfc.yY(csO);
-                if (csO >= 0) {
+                this.jfc.yY(csP);
+                if (csP >= 0) {
                     return false;
                 }
                 return true;
@@ -510,7 +510,7 @@ public class a {
         }
     }
 
-    public int csO() {
+    public int csP() {
         return com.baidu.tbadk.core.sharedPref.b.aNT().getInt(SharedPrefConfig.UPLOAD_MARK_OFFSET, 399);
     }
 
@@ -534,7 +534,7 @@ public class a {
         this.jfa = cVar;
     }
 
-    private void csP() {
+    private void csQ() {
         if (this.jeX != null) {
             HashSet hashSet = new HashSet();
             Iterator<MarkData> it = this.jeX.iterator();

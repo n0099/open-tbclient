@@ -22,17 +22,17 @@ public final class OperatorWindowWithSize<T> implements d.b<rx.d<T>, T> {
         if (this.skip == this.size) {
             a aVar = new a(jVar, this.size);
             jVar.add(aVar.nmy);
-            jVar.setProducer(aVar.dHJ());
+            jVar.setProducer(aVar.dHK());
             return aVar;
         } else if (this.skip > this.size) {
             WindowSkip windowSkip = new WindowSkip(jVar, this.size, this.skip);
             jVar.add(windowSkip.nmy);
-            jVar.setProducer(windowSkip.dHJ());
+            jVar.setProducer(windowSkip.dHK());
             return windowSkip;
         } else {
             WindowOverlap windowOverlap = new WindowOverlap(jVar, this.size, this.skip);
             jVar.add(windowOverlap.nmy);
-            jVar.setProducer(windowOverlap.dHJ());
+            jVar.setProducer(windowOverlap.dHK());
             return windowOverlap;
         }
     }
@@ -95,7 +95,7 @@ public final class OperatorWindowWithSize<T> implements d.b<rx.d<T>, T> {
             this.actual.onCompleted();
         }
 
-        rx.f dHJ() {
+        rx.f dHK() {
             return new rx.f() { // from class: rx.internal.operators.OperatorWindowWithSize.a.1
                 @Override // rx.f
                 public void request(long j) {
@@ -181,7 +181,7 @@ public final class OperatorWindowWithSize<T> implements d.b<rx.d<T>, T> {
             this.actual.onCompleted();
         }
 
-        rx.f dHJ() {
+        rx.f dHK() {
             return new WindowSkipProducer();
         }
 
@@ -299,7 +299,7 @@ public final class OperatorWindowWithSize<T> implements d.b<rx.d<T>, T> {
             drain();
         }
 
-        rx.f dHJ() {
+        rx.f dHK() {
             return new WindowOverlapProducer();
         }
 

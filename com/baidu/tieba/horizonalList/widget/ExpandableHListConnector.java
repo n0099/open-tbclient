@@ -495,14 +495,14 @@ class ExpandableHListConnector extends BaseAdapter implements Filterable {
         }
 
         static b a(int i, int i2, int i3, int i4, GroupMetadata groupMetadata, int i5) {
-            b caB = caB();
-            caB.hVh = com.baidu.tieba.horizonalList.widget.a.A(i2, i3, i4, i);
-            caB.hVi = groupMetadata;
-            caB.aTG = i5;
-            return caB;
+            b caC = caC();
+            caC.hVh = com.baidu.tieba.horizonalList.widget.a.A(i2, i3, i4, i);
+            caC.hVi = groupMetadata;
+            caC.aTG = i5;
+            return caC;
         }
 
-        private static b caB() {
+        private static b caC() {
             b bVar;
             synchronized (aTD) {
                 if (aTD.size() > 0) {

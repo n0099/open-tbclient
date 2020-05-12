@@ -47,35 +47,35 @@ public class AdDebugActivity extends BaseActivity<AdDebugActivity> implements Vi
         ((TextView) findViewById(R.id.ad_debug_copy)).setOnClickListener(this);
         this.izK.setMovementMethod(new ScrollingMovementMethod());
         this.izK.setText("没刷到广告~ 换个姿势试试！");
-        this.krB = q.cNl().cNj();
+        this.krB = q.cNm().cNk();
         aPI();
     }
 
     private void aPI() {
         if (this.krB.size() == 0) {
-            TextView cNo = cNo();
-            cNo.setOnClickListener(null);
-            cNo.setText("No AD");
-            this.krE.addView(cNo, new LinearLayout.LayoutParams(-1, -1, 1.0f));
+            TextView cNp = cNp();
+            cNp.setOnClickListener(null);
+            cNp.setText("No AD");
+            this.krE.addView(cNp, new LinearLayout.LayoutParams(-1, -1, 1.0f));
             return;
         }
         int i = 0;
         while (true) {
             int i2 = i;
             if (i2 != this.krB.size()) {
-                TextView cNo2 = cNo();
-                cNo2.setText("AD" + i2);
+                TextView cNp2 = cNp();
+                cNp2.setText("AD" + i2);
                 AppData appData = this.krB.get(i2);
                 if (appData.mDiscardReason > 0) {
-                    am.setBackgroundResource(cNo2, R.drawable.btn_all_red);
+                    am.setBackgroundResource(cNp2, R.drawable.btn_all_red);
                 } else {
-                    am.setBackgroundResource(cNo2, R.drawable.btn_all_green);
+                    am.setBackgroundResource(cNp2, R.drawable.btn_all_green);
                 }
                 if (i2 == 0) {
                     a(appData);
                     this.mTitle.setText("AD0");
                 }
-                this.krE.addView(cNo2, new LinearLayout.LayoutParams(-1, -1, 1.0f));
+                this.krE.addView(cNp2, new LinearLayout.LayoutParams(-1, -1, 1.0f));
                 i = i2 + 1;
             } else {
                 return;
@@ -83,7 +83,7 @@ public class AdDebugActivity extends BaseActivity<AdDebugActivity> implements Vi
         }
     }
 
-    private TextView cNo() {
+    private TextView cNp() {
         TextView textView = new TextView(this);
         textView.setGravity(17);
         am.setViewTextColor(textView, (int) R.color.cp_other_f);

@@ -44,9 +44,9 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
                 SmartAppBrowseHistoryActivity.this.sx(true);
                 SmartAppBrowseHistoryActivity.this.AC(0);
             } else if (SmartAppBrowseHistoryActivity.this.jXX != null) {
-                SmartAppBrowseHistoryActivity.this.sx(v.isEmpty(aVar.cGO()));
-                SmartAppBrowseHistoryActivity.this.AC(v.getCount(aVar.cGO()));
-                SmartAppBrowseHistoryActivity.this.jXX.aE(aVar.cGO());
+                SmartAppBrowseHistoryActivity.this.sx(v.isEmpty(aVar.cGP()));
+                SmartAppBrowseHistoryActivity.this.AC(v.getCount(aVar.cGP()));
+                SmartAppBrowseHistoryActivity.this.jXX.aE(aVar.cGP());
                 SmartAppBrowseHistoryActivity.this.jXX.notifyDataSetChanged();
             }
         }
@@ -135,7 +135,7 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         initView();
-        cHF();
+        cHG();
     }
 
     private void initView() {
@@ -160,7 +160,7 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
         this.jXW.setTextSize(0, l.getDimens(getActivity(), R.dimen.tbds33));
     }
 
-    private void cHF() {
+    private void cHG() {
         if (com.baidu.adp.lib.util.j.isNetworkAvailableForImmediately()) {
             loadData();
             return;

@@ -238,7 +238,7 @@ public class LivePKResultView extends LinearLayout {
                     cVar2.b();
                 }
             });
-            e.dyA().a(cVar, 840L);
+            e.dyB().a(cVar, 840L);
             this.mCD.add(cVar);
         }
         return a2;
@@ -300,7 +300,7 @@ public class LivePKResultView extends LinearLayout {
     public void clearAnimation() {
         super.clearAnimation();
         for (c cVar : this.mCD) {
-            e.dyA().c(cVar);
+            e.dyB().c(cVar);
         }
         this.mCD.clear();
         for (AnimatorSet animatorSet : this.mCC) {
@@ -442,7 +442,7 @@ public class LivePKResultView extends LinearLayout {
                     }
                 }
             });
-            e.dyA().a(cVar, 840L);
+            e.dyB().a(cVar, 840L);
             this.mCD.add(cVar);
             return;
         }

@@ -16,7 +16,7 @@ public class m extends a {
         super("tb_private_msg_", PersonalChatMessage.class);
     }
 
-    public static synchronized m cfw() {
+    public static synchronized m cfx() {
         m mVar;
         synchronized (m.class) {
             if (ijO == null) {
@@ -51,7 +51,7 @@ public class m extends a {
             ?? r2 = ijq;
             try {
                 try {
-                    cursor = h.cfk().rawQuery("select * from " + sb.append(r2).append(str).toString() + " WHERE is_delete=? AND msg_type= ?", new String[]{String.valueOf(0), String.valueOf(i)});
+                    cursor = h.cfl().rawQuery("select * from " + sb.append(r2).append(str).toString() + " WHERE is_delete=? AND msg_type= ?", new String[]{String.valueOf(0), String.valueOf(i)});
                     try {
                         CommonMsgPojo commonMsgPojo2 = new CommonMsgPojo();
                         if (cursor == null || !cursor.moveToNext()) {

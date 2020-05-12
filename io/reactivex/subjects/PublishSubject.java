@@ -10,7 +10,7 @@ public final class PublishSubject<T> extends b<T> {
     Throwable error;
     final AtomicReference<PublishDisposable<T>[]> subscribers = new AtomicReference<>(mWK);
 
-    public static <T> PublishSubject<T> dDn() {
+    public static <T> PublishSubject<T> dDo() {
         return new PublishSubject<>();
     }
 

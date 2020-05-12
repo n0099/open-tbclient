@@ -38,7 +38,7 @@ public final class FlowableCreate<T> extends io.reactivex.g<T> {
                 latestAsyncEmitter = new LatestAsyncEmitter(cVar);
                 break;
             default:
-                latestAsyncEmitter = new BufferAsyncEmitter(cVar, dCx());
+                latestAsyncEmitter = new BufferAsyncEmitter(cVar, dCy());
                 break;
         }
         cVar.onSubscribe(latestAsyncEmitter);

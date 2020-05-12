@@ -22,7 +22,7 @@ public class a extends b {
         return this.title;
     }
 
-    public String cEI() {
+    public String cEJ() {
         return this.sub_title;
     }
 
@@ -34,11 +34,11 @@ public class a extends b {
         return this.link;
     }
 
-    public String cEJ() {
+    public String cEK() {
         return this.link_text;
     }
 
-    public Long cEK() {
+    public Long cEL() {
         return this.appear_time;
     }
 

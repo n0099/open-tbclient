@@ -44,7 +44,7 @@ public class PraiseListActivity extends BaseActivity<PraiseListActivity> impleme
             this.jRe = new d();
         }
         this.jRe.setIsAuthor(z);
-        this.jRd = new e(this, this.jRe.cFN());
+        this.jRd = new e(this, this.jRe.cFO());
         this.jRd.so(false);
         this.jRe.Au(this.pageType);
     }
@@ -61,14 +61,14 @@ public class PraiseListActivity extends BaseActivity<PraiseListActivity> impleme
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.jRd.cFQ()) {
-            cFM();
-            if (this.jRe.cCo()) {
+        if (view == this.jRd.cFR()) {
+            cFN();
+            if (this.jRe.cCp()) {
                 finish();
                 return;
             }
             s.a(CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(getPageContext().getPageActivity()).createNormalCfg(this.jRe.getThreadId(), null, "praise_list"));
-        } else if (view == this.jRd.cFR() && !this.jRd.isLoading()) {
+        } else if (view == this.jRd.cFS() && !this.jRd.isLoading()) {
             this.jRd.so(true);
             this.jRe.Au(this.pageType);
         }
@@ -82,7 +82,7 @@ public class PraiseListActivity extends BaseActivity<PraiseListActivity> impleme
         }
     }
 
-    private void cFM() {
+    private void cFN() {
         if (this.jRe != null) {
             this.jRe.unRegister();
         }
@@ -93,7 +93,7 @@ public class PraiseListActivity extends BaseActivity<PraiseListActivity> impleme
         if (k.isEmpty(str)) {
             str = getResources().getString(R.string.neterror);
         }
-        this.jRd.cFP();
+        this.jRd.cFQ();
         this.jRd.bu(str, this.pageType);
     }
 
@@ -101,13 +101,13 @@ public class PraiseListActivity extends BaseActivity<PraiseListActivity> impleme
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.jRd.cgk();
+        this.jRd.cgl();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
-        cFM();
+        cFN();
         super.onDestroy();
     }
 

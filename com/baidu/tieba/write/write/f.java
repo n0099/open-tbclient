@@ -40,7 +40,7 @@ public class f extends BaseAdapter {
 
         void Fd(int i);
 
-        void dhJ();
+        void dhK();
     }
 
     private String getString(int i) {
@@ -122,7 +122,7 @@ public class f extends BaseAdapter {
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
                     if (f.this.lFR != null) {
-                        f.this.lFR.dhJ();
+                        f.this.lFR.dhK();
                     }
                 }
             });

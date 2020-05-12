@@ -140,14 +140,14 @@ public class ToggleButton extends View {
         }
     }
 
-    public void dJE() {
+    public void dJF() {
         setToggleOn();
         if (this.nrT != null) {
             this.nrT.a(this.nrM, this);
         }
     }
 
-    public void dJF() {
+    public void dJG() {
         setToggleOff();
         if (this.nrT != null) {
             this.nrT.a(this.nrM, this);
