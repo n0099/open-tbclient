@@ -11,60 +11,60 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.model.VideoHolyCardModel;
 /* loaded from: classes.dex */
 public class g {
-    private static g lhu;
-    private VideoHolyCardModel.a jbA = new VideoHolyCardModel.a() { // from class: com.baidu.tieba.video.g.2
+    private static g lAf;
+    private VideoHolyCardModel.a jqD = new VideoHolyCardModel.a() { // from class: com.baidu.tieba.video.g.2
         @Override // com.baidu.tieba.model.VideoHolyCardModel.a
         public void onResult(boolean z) {
-            g.this.lhw = z;
+            g.this.lAh = z;
         }
     };
-    private VideoHolyCardModel lhv;
-    private boolean lhw;
-    private boolean lhx;
+    private VideoHolyCardModel lAg;
+    private boolean lAh;
+    private boolean lAi;
 
-    public static g daw() {
-        if (lhu == null) {
+    public static g dhK() {
+        if (lAf == null) {
             synchronized (g.class) {
-                if (lhu == null) {
-                    lhu = new g();
+                if (lAf == null) {
+                    lAf = new g();
                 }
             }
         }
-        return lhu;
+        return lAf;
     }
 
-    public boolean dax() {
-        return this.lhw;
+    public boolean dhL() {
+        return this.lAh;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void day() {
-        if (this.lhv == null) {
-            this.lhv = new VideoHolyCardModel();
-            this.lhv.a(this.jbA);
+    public void dhM() {
+        if (this.lAg == null) {
+            this.lAg = new VideoHolyCardModel();
+            this.lAg.a(this.jqD);
         }
-        this.lhv.crw();
+        this.lAg.cxZ();
     }
 
-    public void fd(Context context) {
-        if (this.lhw && !this.lhx) {
+    public void fs(Context context) {
+        if (this.lAh && !this.lAi) {
             l.showToast(context, (int) R.string.free_data_tips);
-            this.lhx = true;
+            this.lAi = true;
         }
     }
 
     private g() {
-        daz();
-        day();
+        dhN();
+        dhM();
     }
 
-    private void daz() {
+    private void dhN() {
         MessageManager.getInstance().registerListener(new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tieba.video.g.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (j.isMobileNet()) {
-                    g.this.day();
+                    g.this.dhM();
                 }
             }
         });

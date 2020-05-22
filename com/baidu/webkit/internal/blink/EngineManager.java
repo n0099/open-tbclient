@@ -20,15 +20,16 @@ public class EngineManager implements INoProGuard {
     private static final int RET_OK = 0;
     private static final int RET_RUNNING = 1;
     private static final String TAG = "EngineManager";
+    private static EngineManager sInstance;
     private SharedPreferences.Editor mEditor;
+    private boolean mInstallSyncSuccess;
+    private boolean mIsInstalling;
+    private final Object mLockObject = new Object();
     private SharedPreferences mSp;
-    private static EngineManager sInstance = null;
     private static String ZEUS_PREFER = "zeusPreference";
     private static String ZEUS_INSTALL_START = "zeusInstallStart";
     private static String ZEUS_INSTALL_FINISH = "zeusInstallFinish";
     private static String ZEUS_INSTALL_APP_RESTART = "zeusInstallAppRestart";
-    private boolean mIsInstalling = false;
-    private boolean mInstallSyncSuccess = false;
 
     protected EngineManager() {
     }
@@ -111,7 +112,7 @@ public class EngineManager implements INoProGuard {
 
     private void setInstallFinish(boolean z) {
         try {
-            synchronized (this) {
+            synchronized (this.mLockObject) {
                 Log.i(LOG_TAG, "setInstallFinish = " + z);
                 getEditor().putBoolean(ZEUS_INSTALL_APP_RESTART, z);
                 getEditor().putBoolean(ZEUS_INSTALL_FINISH, z);
@@ -125,7 +126,7 @@ public class EngineManager implements INoProGuard {
 
     private void setInstallStart() {
         try {
-            synchronized (this) {
+            synchronized (this.mLockObject) {
                 this.mInstallSyncSuccess = false;
                 Log.i(LOG_TAG, " setInstall start ");
                 getEditor().putBoolean(ZEUS_INSTALL_START, true);
@@ -192,7 +193,7 @@ public class EngineManager implements INoProGuard {
     public boolean isNeedKillProcess() {
         boolean z;
         try {
-            synchronized (this) {
+            synchronized (this.mLockObject) {
                 z = getSp().getBoolean(ZEUS_INSTALL_APP_RESTART, false);
                 Log.i(LOG_TAG, "setNeedKillProcess = " + z);
             }
@@ -204,7 +205,7 @@ public class EngineManager implements INoProGuard {
     }
 
     public void onInstallFinish(boolean z) {
-        synchronized (this) {
+        synchronized (this.mLockObject) {
             this.mIsInstalling = false;
             this.mInstallSyncSuccess = z;
             setInstallFinish(z);
@@ -259,7 +260,7 @@ public class EngineManager implements INoProGuard {
 
     public void setNeedKillProcess(boolean z) {
         try {
-            synchronized (this) {
+            synchronized (this.mLockObject) {
                 Log.i(LOG_TAG, "setNeedKillProcess = " + z);
                 getEditor().putBoolean(ZEUS_INSTALL_APP_RESTART, z);
                 getEditor().commit();

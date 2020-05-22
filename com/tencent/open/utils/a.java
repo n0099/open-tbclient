@@ -17,11 +17,11 @@ public final class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.tencent.open.utils.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static class C0797a {
+    public static class C0857a {
         Properties a;
         byte[] b;
 
-        private C0797a() {
+        private C0857a() {
             this.a = new Properties();
         }
 
@@ -67,9 +67,9 @@ public final class a {
             try {
                 byte[] a2 = a(randomAccessFile);
                 if (a2 != null) {
-                    C0797a c0797a = new C0797a();
-                    c0797a.a(a2);
-                    str2 = c0797a.a.getProperty(str);
+                    C0857a c0857a = new C0857a();
+                    c0857a.a(a2);
+                    str2 = c0857a.a.getProperty(str);
                     if (randomAccessFile != null) {
                         randomAccessFile.close();
                     }

@@ -2,6 +2,7 @@ package com.baidu.searchbox.ugc.utils;
 
 import android.text.TextUtils;
 import android.util.Log;
+import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import com.baidu.pyramid.runtime.service.c;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.ubc.Flow;
@@ -398,7 +399,7 @@ public class UgcUBCUtils {
         if (z2) {
             str2 = z3 ? "save" : "quit";
         } else {
-            str2 = "direct";
+            str2 = UbcStatConstant.ContentType.UBC_TYPE_PK_DIRECT;
         }
         ubcEventStatistics(str3, "ugc", str4, "cancel_click", str, str2, null);
     }

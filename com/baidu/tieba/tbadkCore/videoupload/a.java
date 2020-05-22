@@ -9,61 +9,61 @@ import com.baidu.tieba.tbadkCore.videoupload.a.d;
 import com.baidu.tieba.tbadkCore.videoupload.a.e;
 /* loaded from: classes.dex */
 public class a {
-    private static int kVv = 524288;
-    private static int kVw = 6144000;
-    private static int kVx = 524288;
-    private h kTM;
-    private com.baidu.tieba.tbadkCore.videoupload.a.b kVy;
+    private static int lnZ = 524288;
+    private static int loa = 6144000;
+    private static int lob = 524288;
+    private h lmg;
+    private com.baidu.tieba.tbadkCore.videoupload.a.b lod;
 
     public a(h hVar) {
-        this.kTM = hVar;
+        this.lmg = hVar;
     }
 
     public VideoFinishResult a(String str, String str2, int i, e eVar) {
         try {
             if (SwitchManager.getInstance().findType(ChunkUploadSwitch.KEY) == 1) {
-                this.kVy = new d(str2, kVx, this.kTM);
+                this.lod = new d(str2, lob, this.lmg);
             } else {
-                this.kVy = new com.baidu.tieba.tbadkCore.videoupload.a.c(str, kVv, kVw, this.kTM);
+                this.lod = new com.baidu.tieba.tbadkCore.videoupload.a.c(str, lnZ, loa, this.lmg);
             }
-            this.kVy.a(eVar);
-            return this.kVy.bF(str2, i);
+            this.lod.a(eVar);
+            return this.lod.bG(str2, i);
         } catch (Exception e) {
             BdLog.e(e.getMessage());
-            if (this.kTM != null) {
-                this.kTM.l(ARPMessageType.MSG_TYPE_IMU_MIRROR_DATA, -4399, com.baidu.tieba.k.a.s(e));
+            if (this.lmg != null) {
+                this.lmg.l(ARPMessageType.MSG_TYPE_IMU_MIRROR_DATA, -4399, com.baidu.tieba.k.a.t(e));
             }
             return null;
         }
     }
 
     public void cancelUpload() {
-        if (this.kVy != null) {
-            this.kVy.cancel();
+        if (this.lod != null) {
+            this.lod.cancel();
         }
     }
 
-    public static void Du(int i) {
+    public static void Ef(int i) {
         if (i <= 0) {
-            kVx = 524288;
+            lob = 524288;
         } else {
-            kVx = i;
+            lob = i;
         }
     }
 
-    public static void Dv(int i) {
+    public static void Eg(int i) {
         if (i <= 0) {
-            kVv = 524288;
+            lnZ = 524288;
         } else {
-            kVv = i;
+            lnZ = i;
         }
     }
 
-    public static void Dw(int i) {
+    public static void Eh(int i) {
         if (i <= 0) {
-            kVw = 6144000;
+            loa = 6144000;
         } else {
-            kVw = i;
+            loa = i;
         }
     }
 }

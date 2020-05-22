@@ -12,6 +12,7 @@ import com.baidu.sofire.i.f;
 import com.baidu.sofire.i.l;
 import com.baidu.sofire.i.o;
 import com.baidu.sofire.rp.receiver.Receiver;
+import com.baidu.tieba.keepLive.jobScheduler.KeepJobService;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -24,7 +25,7 @@ public final class a {
     public Context b;
     com.baidu.sofire.g.a c;
     public Receiver d;
-    private HandlerC0244a e = new HandlerC0244a(l.a());
+    private HandlerC0277a e = new HandlerC0277a(l.a());
 
     public a(Context context) {
         this.b = context.getApplicationContext();
@@ -39,8 +40,8 @@ public final class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.sofire.h.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class HandlerC0244a extends Handler {
-        public HandlerC0244a(Looper looper) {
+    public class HandlerC0277a extends Handler {
+        public HandlerC0277a(Looper looper) {
             super(looper);
         }
 
@@ -187,10 +188,10 @@ public final class a {
     }
 
     private static boolean a() {
-        if (com.baidu.sofire.e.a.a > 0 && System.currentTimeMillis() - com.baidu.sofire.e.a.a < 600000) {
+        if (com.baidu.sofire.e.a.a > 0 && System.currentTimeMillis() - com.baidu.sofire.e.a.a < KeepJobService.JOB_CHECK_PERIODIC) {
             return false;
         }
-        if (System.currentTimeMillis() - com.baidu.sofire.e.a.a > 600000) {
+        if (System.currentTimeMillis() - com.baidu.sofire.e.a.a > KeepJobService.JOB_CHECK_PERIODIC) {
             com.baidu.sofire.e.a.a = 0L;
         }
         return true;

@@ -11,14 +11,14 @@ public class d extends com.baidu.adp.widget.ListView.a<e, com.baidu.tieba.card.a
 
     /* JADX INFO: Access modifiers changed from: protected */
     public d(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), e.gEH);
+        super(tbPageContext.getPageActivity(), e.gTp);
         this.mPageContext = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: ax */
+    /* renamed from: aG */
     public com.baidu.tieba.card.a.a<com.baidu.tieba.enterForum.recommend.view.d> b(ViewGroup viewGroup) {
         com.baidu.tieba.enterForum.recommend.view.d dVar = new com.baidu.tieba.enterForum.recommend.view.d(this.mPageContext);
         dVar.setTag(this.mPageId);
@@ -29,11 +29,11 @@ public class d extends com.baidu.adp.widget.ListView.a<e, com.baidu.tieba.card.a
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, e eVar, com.baidu.tieba.card.a.a<com.baidu.tieba.enterForum.recommend.view.d> aVar) {
-        if (eVar == null || aVar == null || aVar.bFA() == null) {
+        if (eVar == null || aVar == null || aVar.bLU() == null) {
             return null;
         }
-        aVar.bFA().a(eVar);
-        aVar.bFA().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        aVar.bLU().a(eVar);
+        aVar.bLU().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         return aVar.getView();
     }
 }

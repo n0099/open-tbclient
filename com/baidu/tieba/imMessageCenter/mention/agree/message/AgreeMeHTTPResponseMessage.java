@@ -45,7 +45,7 @@ public class AgreeMeHTTPResponseMessage extends TbHttpResponsedMessage {
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         if (!hasError() && (getOrginalMessage().getExtra() instanceof AgreeMeRequestMessage) && ((AgreeMeRequestMessage) getOrginalMessage().getExtra()).id == 0) {
-            com.baidu.tbadk.core.c.a.aMR().cA("tb_user_agreeme", TbadkCoreApplication.getCurrentAccountName()).asyncSetForever("agree_me_cache_key", bArr);
+            com.baidu.tbadk.core.c.a.aSS().cZ("tb_user_agreeme", TbadkCoreApplication.getCurrentAccountName()).asyncSetForever("agree_me_cache_key", bArr);
         }
     }
 }

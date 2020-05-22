@@ -8,12 +8,15 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.StatFs;
 import android.support.v7.widget.ActivityChooserView;
+import android.text.TextUtils;
 import com.a.a.a.a.a.a.a;
 import com.baidu.webkit.internal.CpuInfo;
+import com.baidu.webkit.internal.GlobalConstants;
 import com.baidu.webkit.internal.ReflectUtils;
 import com.baidu.webkit.internal.blink.EngineManager;
+import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
 import com.baidu.webkit.internal.utils.UtilsBlink;
-import com.baidu.webkit.internal.utils.d;
+import com.baidu.webkit.internal.utils.ZipUtils;
 import com.baidu.webkit.sdk.LoadErrorCode;
 import java.io.File;
 import java.io.FileInputStream;
@@ -63,42 +66,40 @@ public class SevenZipUtils {
     private static final String TAG = "SevenZipUtils";
     private static SevenZipUtils mInstance;
     private static boolean sLibraryLoaded;
+    int m7zCount;
+    String m7zFile;
+    int[] m7zOffsets;
+    int[] m7zSizes;
+    int[] m7zSzOffsets;
+    int m7zTotal;
+    private FileChannel mChannel;
+    Context mContext;
+    String mDestPath;
+    boolean mEnableApiHook = true;
     private int mErrorCode;
+    boolean mHooked;
     JSONObject mJson_elf;
     JSONObject mJson_meta;
+    private FileLock mLock;
+    private File mLockFile;
+    private RandomAccessFile mLockRAFile;
     int mMaxAddr;
     int mMinAddr;
+    int mOffset_7z;
+    int mOffset_elf;
+    int mOffset_meta;
+    boolean mPrepared;
+    String mSrcPath;
+    String mTempPath;
     private String mTimeStamp;
-    private File mLockFile = null;
-    private RandomAccessFile mLockRAFile = null;
-    private FileChannel mChannel = null;
-    private FileLock mLock = null;
-    boolean mPrepared = false;
-    boolean mHooked = false;
-    boolean mEnableApiHook = true;
-    int m7zCount = 0;
-    int m7zTotal = 0;
-    String m7zFile = null;
-    int[] m7zSizes = null;
-    int[] m7zOffsets = null;
-    int[] m7zSzOffsets = null;
-    String mSrcPath = null;
-    String mDestPath = null;
-    String mTempPath = null;
-    Context mContext = null;
-    int mOffset_meta = 0;
-    int mOffset_elf = 0;
-    int mOffset_7z = 0;
 
     static {
-        sLibraryLoaded = false;
         try {
             System.loadLibrary("zeuslzma");
             sLibraryLoaded = true;
         } catch (Throwable th) {
             Log.e(TAG, "failed to load lzma library: " + th);
         }
-        mInstance = null;
     }
 
     private SevenZipUtils() {
@@ -293,7 +294,17 @@ public class SevenZipUtils {
     }
 
     public String checkTimestamp(Context context, String str) {
-        return FileUtils.checkTimestamp(context, str, FILE_TIMESTAMP_PREFIX);
+        String sdkVersionCode = WebKitFactory.getSdkVersionCode();
+        if (TextUtils.isEmpty(sdkVersionCode)) {
+            sdkVersionCode = GlobalConstants.DEFAULT_VERSION;
+        }
+        boolean z = true;
+        String GetCloudSettingsValue = WebSettingsGlobalBlink.GetCloudSettingsValue("zeus_same_version_no7z_enable");
+        if (GetCloudSettingsValue != null && GetCloudSettingsValue.equalsIgnoreCase("false")) {
+            z = false;
+        }
+        Log.i(GlobalConstants.LOG_PER_TAG, "zeus_same_version_no7z_enable = " + z);
+        return (!z || GlobalConstants.DEFAULT_VERSION.equalsIgnoreCase(sdkVersionCode)) ? FileUtils.checkTimestamp(context, str, FILE_TIMESTAMP_PREFIX) : FileUtils.checkTimestamp(str, FILE_TIMESTAMP_PREFIX, sdkVersionCode);
     }
 
     public String checkTimestamp(String str) {
@@ -367,13 +378,12 @@ public class SevenZipUtils {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:85:0x020f A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:78:0x0212 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public synchronized boolean prepare(Context context, String str, String str2) {
         FileInputStream fileInputStream;
-        FileInputStream fileInputStream2;
         boolean z;
         if (str == null) {
             z = false;
@@ -397,7 +407,7 @@ public class SevenZipUtils {
                     if (!file3.exists()) {
                         LoadErrorCode.getInstance().trace(507);
                         file3.mkdir();
-                        d.a().a(this.mContext.getApplicationInfo().sourceDir, nativeLibraryDir.toString(), nativeLibraryDir.contains("arm64") ? "lib/arm64-v8a/" : "lib/armeabi/");
+                        ZipUtils.getInstance().unZip(this.mContext, this.mContext.getApplicationInfo().sourceDir, nativeLibraryDir.toString(), nativeLibraryDir.contains("arm64") ? "lib/arm64-v8a/" : "lib/armeabi/", false);
                         ReflectUtils.expandPathList(nativeLibraryDir, SevenZipUtils.class);
                         System.loadLibrary(FILE_NAME_LZMA);
                         sLibraryLoaded = true;
@@ -412,61 +422,56 @@ public class SevenZipUtils {
                         fileInputStream = new FileInputStream(str);
                     } catch (Exception e) {
                         e = e;
-                        fileInputStream2 = null;
+                        fileInputStream = null;
                     } catch (Throwable th) {
                         th = th;
                         fileInputStream = null;
+                        if (fileInputStream != null) {
+                            try {
+                                fileInputStream.close();
+                            } catch (Exception e2) {
+                                Log.e(TAG, "[FAIL]close input stream failed : " + e2.toString());
+                            }
+                        }
+                        throw th;
                     }
                     try {
-                        byte[] bArr = new byte[512];
-                        fileInputStream.read(bArr);
-                        String str3 = new String(bArr, "UTF-8");
-                        this.mOffset_meta = str3.indexOf(FILE_SEP) + 2;
-                        this.mOffset_elf = str3.indexOf(FILE_SEP, this.mOffset_meta) + 2;
-                        this.mOffset_7z = str3.indexOf(FILE_SEP, this.mOffset_elf) + 2;
-                        this.mJson_meta = new JSONObject(str3.substring(this.mOffset_meta, this.mOffset_elf - 2));
-                        this.mJson_elf = new JSONObject(str3.substring(this.mOffset_elf, this.mOffset_7z - 2));
-                        int i = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
-                        JSONArray jSONArray = this.mJson_elf.getJSONArray(LZMA_META_KEY_LOADABLE);
-                        int i2 = 0;
-                        for (int i3 = 0; i3 < jSONArray.length(); i3++) {
-                            JSONObject jSONObject = jSONArray.getJSONObject(i3);
-                            int i4 = jSONObject.getInt(LZMA_META_KEY_VADDR);
-                            int i5 = jSONObject.getInt(LZMA_META_KEY_MEMSZ);
-                            if (i4 < i) {
-                                i = i4;
-                            }
-                            if (i4 + i5 > i2) {
-                                i2 = i4 + i5;
-                            }
-                        }
-                        this.mMinAddr = i;
-                        this.mMaxAddr = i2;
-                        this.mPrepared = true;
                         try {
-                            fileInputStream.close();
-                        } catch (Exception e2) {
-                            Log.e(TAG, "[FAIL]close input stream failed : " + e2.toString());
-                        }
-                        z = true;
-                    } catch (Exception e3) {
-                        e = e3;
-                        fileInputStream2 = fileInputStream;
-                        try {
-                            unLock();
-                            LoadErrorCode.getInstance().trace("501:" + e);
-                            if (fileInputStream2 != null) {
-                                try {
-                                    fileInputStream2.close();
-                                } catch (Exception e4) {
-                                    Log.e(TAG, "[FAIL]close input stream failed : " + e4.toString());
+                            byte[] bArr = new byte[512];
+                            fileInputStream.read(bArr);
+                            String str3 = new String(bArr, "UTF-8");
+                            this.mOffset_meta = str3.indexOf(FILE_SEP) + 2;
+                            this.mOffset_elf = str3.indexOf(FILE_SEP, this.mOffset_meta) + 2;
+                            this.mOffset_7z = str3.indexOf(FILE_SEP, this.mOffset_elf) + 2;
+                            this.mJson_meta = new JSONObject(str3.substring(this.mOffset_meta, this.mOffset_elf - 2));
+                            this.mJson_elf = new JSONObject(str3.substring(this.mOffset_elf, this.mOffset_7z - 2));
+                            int i = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+                            JSONArray jSONArray = this.mJson_elf.getJSONArray(LZMA_META_KEY_LOADABLE);
+                            int i2 = 0;
+                            for (int i3 = 0; i3 < jSONArray.length(); i3++) {
+                                JSONObject jSONObject = jSONArray.getJSONObject(i3);
+                                int i4 = jSONObject.getInt(LZMA_META_KEY_VADDR);
+                                int i5 = jSONObject.getInt(LZMA_META_KEY_MEMSZ);
+                                if (i4 < i) {
+                                    i = i4;
+                                }
+                                if (i4 + i5 > i2) {
+                                    i2 = i4 + i5;
                                 }
                             }
-                            z = false;
-                            return z;
-                        } catch (Throwable th2) {
-                            th = th2;
-                            fileInputStream = fileInputStream2;
+                            this.mMinAddr = i;
+                            this.mMaxAddr = i2;
+                            this.mPrepared = true;
+                            try {
+                                fileInputStream.close();
+                            } catch (Exception e3) {
+                                Log.e(TAG, "[FAIL]close input stream failed : " + e3.toString());
+                            }
+                            z = true;
+                        } catch (Exception e4) {
+                            e = e4;
+                            unLock();
+                            LoadErrorCode.getInstance().trace("501:" + e);
                             if (fileInputStream != null) {
                                 try {
                                     fileInputStream.close();
@@ -474,10 +479,11 @@ public class SevenZipUtils {
                                     Log.e(TAG, "[FAIL]close input stream failed : " + e5.toString());
                                 }
                             }
-                            throw th;
+                            z = false;
+                            return z;
                         }
-                    } catch (Throwable th3) {
-                        th = th3;
+                    } catch (Throwable th2) {
+                        th = th2;
                         if (fileInputStream != null) {
                         }
                         throw th;

@@ -9,31 +9,31 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 /* loaded from: classes6.dex */
 public class a extends com.baidu.swan.apps.component.a.d.a<View, b> {
-    private com.baidu.swan.apps.y.a dfB;
+    private com.baidu.swan.apps.w.a dtp;
 
     public a(@Nullable Context context, @NonNull b bVar) {
         super(context, bVar);
-        this.dfB = new com.baidu.swan.apps.y.a() { // from class: com.baidu.j.b.a.1
-            @Override // com.baidu.swan.apps.y.a, android.app.Application.ActivityLifecycleCallbacks
+        this.dtp = new com.baidu.swan.apps.w.a() { // from class: com.baidu.j.b.a.1
+            @Override // com.baidu.swan.apps.w.a, android.app.Application.ActivityLifecycleCallbacks
             public void onActivityStopped(Activity activity) {
                 super.onActivityStopped(activity);
-                com.baidu.j.d.b.aFh().stop();
+                com.baidu.j.d.b.aKC().stop();
             }
 
-            @Override // com.baidu.swan.apps.y.a, android.app.Application.ActivityLifecycleCallbacks
+            @Override // com.baidu.swan.apps.w.a, android.app.Application.ActivityLifecycleCallbacks
             public void onActivityResumed(Activity activity) {
                 super.onActivityResumed(activity);
-                com.baidu.j.d.b.aFh().resetPreview();
+                com.baidu.j.d.b.aKC().resetPreview();
             }
         };
     }
 
     @Override // com.baidu.swan.apps.component.b.a
     @NonNull
-    protected View aO(@NonNull Context context) {
+    protected View aY(@NonNull Context context) {
         LinearLayout linearLayout = new LinearLayout(context);
         linearLayout.setOrientation(0);
-        linearLayout.addView(com.baidu.j.d.b.aFh().getRecorderView(), aFd());
+        linearLayout.addView(com.baidu.j.d.b.aKC().getRecorderView(), aKy());
         return linearLayout;
     }
 
@@ -46,31 +46,31 @@ public class a extends com.baidu.swan.apps.component.a.d.a<View, b> {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.component.b.a
-    public void da(boolean z) {
-        super.da(z);
-        com.baidu.swan.apps.w.a.abN().registerActivityLifecycleCallbacks(this.dfB);
+    public void dn(boolean z) {
+        super.dn(z);
+        com.baidu.swan.apps.u.a.aeR().registerActivityLifecycleCallbacks(this.dtp);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.component.b.a
     public void onRemove() {
         super.onRemove();
-        com.baidu.swan.apps.w.a.abN().unregisterActivityLifecycleCallbacks(this.dfB);
+        com.baidu.swan.apps.u.a.aeR().unregisterActivityLifecycleCallbacks(this.dtp);
     }
 
-    private LinearLayout.LayoutParams aFd() {
+    private LinearLayout.LayoutParams aKy() {
         int i;
-        if (Sy() == 0 || ((b) Sy()).bGR == null) {
+        if (Vj() == 0 || ((b) Vj()).bPJ == null) {
             i = 200;
         } else {
-            i = ((b) Sy()).bGR.getWidth() / 2;
+            i = ((b) Vj()).bPJ.getWidth() / 2;
         }
         return new LinearLayout.LayoutParams(i, -1);
     }
 
-    public void aFe() {
-        if (getView() != 0 && com.baidu.j.d.b.aFh().getPlayerView() != null && com.baidu.j.d.b.aFh().getPlayerView().getParent() == null) {
-            ((ViewGroup) getView()).addView(com.baidu.j.d.b.aFh().getPlayerView(), aFd());
+    public void aKz() {
+        if (getView() != 0 && com.baidu.j.d.b.aKC().getPlayerView() != null && com.baidu.j.d.b.aKC().getPlayerView().getParent() == null) {
+            ((ViewGroup) getView()).addView(com.baidu.j.d.b.aKC().getPlayerView(), aKy());
         }
     }
 }

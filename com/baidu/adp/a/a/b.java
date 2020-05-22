@@ -20,7 +20,7 @@ import java.util.Map;
 import java.util.Set;
 /* loaded from: classes.dex */
 public class b {
-    private static int Go = 0;
+    private static int Gp = 0;
 
     private static String a(String str, Object obj, List list) {
         StringBuffer stringBuffer = new StringBuffer("");
@@ -33,9 +33,9 @@ public class b {
             }
             while (cls != null && m(cls)) {
                 if (!cls.getSimpleName().equals("Object")) {
-                    Go++;
+                    Gp++;
                     a(cls.getDeclaredFields(), obj, stringBuffer, list);
-                    Go--;
+                    Gp--;
                 }
                 cls = cls.getSuperclass();
             }
@@ -67,7 +67,7 @@ public class b {
 
     private static String jq() {
         StringBuffer stringBuffer = new StringBuffer("");
-        for (int i = 0; i < Go; i++) {
+        for (int i = 0; i < Gp; i++) {
             stringBuffer.append("    ");
         }
         return stringBuffer.toString();
@@ -234,7 +234,7 @@ public class b {
 
     public static void e(String str, Object obj) {
         StringBuffer stringBuffer = new StringBuffer("");
-        if (d.Gz) {
+        if (d.GA) {
             stringBuffer.append("Message_Type: " + str + "\n");
             stringBuffer.append(d("", obj));
             stringBuffer.append("----------------------------------------------------------\n");

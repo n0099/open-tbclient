@@ -9,7 +9,6 @@ import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 /* loaded from: classes11.dex */
 public class c extends UnitedSchemeBaseInterceptor {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final String TAG = c.class.getSimpleName();
 
     @Override // com.baidu.searchbox.unitedscheme.intercept.UnitedSchemeBaseInterceptor
     public String getInterceptorName() {
@@ -18,10 +17,10 @@ public class c extends UnitedSchemeBaseInterceptor {
 
     @Override // com.baidu.searchbox.unitedscheme.intercept.UnitedSchemeBaseInterceptor, com.baidu.searchbox.unitedscheme.intercept.UnitedSchemeAbsInterceptor
     public boolean shouldInterceptDispatch(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-        String r = r(unitedSchemeEntity);
-        boolean a = com.baidu.swan.apps.api.c.a.a(r, callbackHandler);
+        String q = q(unitedSchemeEntity);
+        boolean a = com.baidu.swan.apps.api.d.a.a(q, callbackHandler);
         if (DEBUG) {
-            Log.d(TAG, "intercept: result=" + a + ", path=" + r);
+            Log.d("SwanWebSafeInterceptor", "intercept: result=" + a + ", path=" + q);
         }
         if (a) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(402);
@@ -29,7 +28,7 @@ public class c extends UnitedSchemeBaseInterceptor {
         return a;
     }
 
-    private String r(UnitedSchemeEntity unitedSchemeEntity) {
+    private String q(UnitedSchemeEntity unitedSchemeEntity) {
         String[] paths;
         if (unitedSchemeEntity == null || (paths = UnitedSchemeUtility.getPaths(unitedSchemeEntity.getUri())) == null) {
             return "";

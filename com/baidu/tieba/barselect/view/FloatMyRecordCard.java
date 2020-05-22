@@ -26,15 +26,15 @@ import com.baidu.tieba.barselect.data.f;
 import com.baidu.tieba.barselect.segment.VotedAreaLayout;
 /* loaded from: classes8.dex */
 public class FloatMyRecordCard extends LinearLayout {
-    private TextView cBd;
-    private View.OnClickListener dRK;
-    private f ghJ;
-    private TextView glT;
-    private BazhuHeadView glU;
-    private VotedAreaLayout glV;
-    private TextView glt;
-    private ImageView glu;
-    private d glx;
+    private TextView dXU;
+    private View.OnClickListener ege;
+    private TextView gAJ;
+    private BazhuHeadView gAK;
+    private VotedAreaLayout gAL;
+    private TextView gAj;
+    private ImageView gAk;
+    private d gAn;
+    private f gwA;
     private Context mContext;
     private int status;
 
@@ -44,12 +44,12 @@ public class FloatMyRecordCard extends LinearLayout {
 
     public FloatMyRecordCard(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.dRK = new View.OnClickListener() { // from class: com.baidu.tieba.barselect.view.FloatMyRecordCard.1
+        this.ege = new View.OnClickListener() { // from class: com.baidu.tieba.barselect.view.FloatMyRecordCard.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (FloatMyRecordCard.this.glx != null && FloatMyRecordCard.this.glx.getUid() != 0) {
+                if (FloatMyRecordCard.this.gAn != null && FloatMyRecordCard.this.gAn.getUid() != 0) {
                     long j = b.toLong(TbadkCoreApplication.getCurrentAccount(), 0L);
-                    long uid = FloatMyRecordCard.this.glx.getUid();
+                    long uid = FloatMyRecordCard.this.gAn.getUid();
                     if (FloatMyRecordCard.this.getContext() instanceof Activity) {
                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonPolymericActivityConfig(FloatMyRecordCard.this.getContext()).createNormalConfig(uid, uid == j, false)));
                     }
@@ -64,75 +64,75 @@ public class FloatMyRecordCard extends LinearLayout {
         setOrientation(0);
         setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
         LayoutInflater.from(getContext()).inflate(R.layout.float_my_record_card, (ViewGroup) this, true);
-        rL();
+        rV();
     }
 
-    private void rL() {
-        this.glT = (TextView) findViewById(R.id.tv_voted_rank);
-        this.glU = (BazhuHeadView) findViewById(R.id.user_avatar);
-        if (this.glU.getHeadView() != null) {
-            this.glU.getHeadView().setIsRound(true);
+    private void rV() {
+        this.gAJ = (TextView) findViewById(R.id.tv_voted_rank);
+        this.gAK = (BazhuHeadView) findViewById(R.id.user_avatar);
+        if (this.gAK.getHeadView() != null) {
+            this.gAK.getHeadView().setIsRound(true);
         }
-        this.cBd = (TextView) findViewById(R.id.user_name);
-        this.glu = (ImageView) findViewById(R.id.grade);
-        this.glt = (TextView) findViewById(R.id.vote_id);
-        this.glV = (VotedAreaLayout) findViewById(R.id.my_vote_num_layout);
+        this.dXU = (TextView) findViewById(R.id.user_name);
+        this.gAk = (ImageView) findViewById(R.id.grade);
+        this.gAj = (TextView) findViewById(R.id.vote_id);
+        this.gAL = (VotedAreaLayout) findViewById(R.id.my_vote_num_layout);
     }
 
     public void setData(f fVar) {
         String str;
-        this.ghJ = fVar;
-        if (this.ghJ != null && this.ghJ.bDX() != null) {
-            e bDX = this.ghJ.bDX();
-            if (bDX != null) {
-                this.status = bDX.getStatus();
+        this.gwA = fVar;
+        if (this.gwA != null && this.gwA.bKo() != null) {
+            e bKo = this.gwA.bKo();
+            if (bKo != null) {
+                this.status = bKo.getStatus();
             }
-            this.glx = this.ghJ.bDW();
+            this.gAn = this.gwA.bKn();
         }
-        if (this.ghJ == null || this.glx == null || this.status != com.baidu.tieba.barselect.a.d.glR) {
+        if (this.gwA == null || this.gAn == null || this.status != com.baidu.tieba.barselect.a.d.gAH) {
             setVisibility(8);
             return;
         }
-        int rank = this.glx.getRank();
+        int rank = this.gAn.getRank();
         if (rank < 10) {
-            this.glT.setText("0" + rank);
+            this.gAJ.setText("0" + rank);
         } else {
-            this.glT.setText("" + rank);
+            this.gAJ.setText("" + rank);
         }
         if (rank == 2) {
-            this.glT.setTextColor(getResources().getColor(R.color.common_color_10263));
+            this.gAJ.setTextColor(getResources().getColor(R.color.common_color_10263));
         } else if (rank == 3) {
-            this.glT.setTextColor(getResources().getColor(R.color.common_color_10266));
+            this.gAJ.setTextColor(getResources().getColor(R.color.common_color_10266));
         }
-        this.glU.vk(this.glx.getPortrait());
-        this.glU.setOnClickListener(this.dRK);
-        this.cBd.setText(aq.cutChineseAndEnglishWithSuffix(this.glx.getNickname(), 14, StringHelper.STRING_MORE));
-        setGrade(this.glx.bDL());
-        if (this.glx.bDK() < 1000) {
-            String str2 = "0000" + this.glx.bDK();
+        this.gAK.wQ(this.gAn.getPortrait());
+        this.gAK.setOnClickListener(this.ege);
+        this.dXU.setText(aq.cutChineseAndEnglishWithSuffix(this.gAn.getNickname(), 14, StringHelper.STRING_MORE));
+        setGrade(this.gAn.bKc());
+        if (this.gAn.bKb() < 1000) {
+            String str2 = "0000" + this.gAn.bKb();
             str = str2.substring(str2.length() - 4, str2.length());
         } else {
-            str = "" + this.glx.bDK();
+            str = "" + this.gAn.bKb();
         }
-        this.glt.setText("NO." + str);
-        this.glV.setMyRecordData(this.glx);
+        this.gAj.setText("NO." + str);
+        this.gAL.setMyRecordData(this.gAn);
     }
 
     public void setGrade(int i) {
-        am.setImageResource(this.glu, BitmapHelper.getGradeResourceIdInEnterForum(i));
+        am.setImageResource(this.gAk, BitmapHelper.getGradeResourceIdInEnterForum(i));
     }
 
-    public void pH(int i) {
-        if (this.glx != null) {
-            if (this.glx.getRank() > 3) {
-                am.setViewTextColor(this.glT, R.color.cp_cont_b, 1, i);
+    public void qi(int i) {
+        if (this.gAn != null) {
+            if (this.gAn.getRank() > 3) {
+                am.setViewTextColor(this.gAJ, R.color.cp_cont_b, 1, i);
             }
-            am.setViewTextColor(this.cBd, R.color.cp_cont_b, 1, i);
-            setGrade(this.glx.bDL());
-            am.setViewTextColor(this.glt, R.color.cp_cont_d, 1, i);
-            this.glV.pH(i);
+            am.setViewTextColor(this.dXU, R.color.cp_cont_b, 1, i);
+            setGrade(this.gAn.bKc());
+            am.setViewTextColor(this.gAj, R.color.cp_cont_d, 1, i);
+            this.gAL.qi(i);
             am.setBackgroundColor(this, R.color.cp_bg_line_d, i);
-            setGrade(this.glx.bDL());
+            setGrade(this.gAn.bKc());
         }
     }
 }

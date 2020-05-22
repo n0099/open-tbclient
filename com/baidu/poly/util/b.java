@@ -1,38 +1,25 @@
 package com.baidu.poly.util;
 
-import java.io.BufferedReader;
-import java.io.Closeable;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import android.text.TextUtils;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class b {
-    public static String a(InputStream inputStream) {
-        if (inputStream == null) {
-            return null;
+    public static String a(int i, String str, String str2) {
+        String str3;
+        JSONObject jSONObject = new JSONObject();
+        if (!TextUtils.isEmpty(str2)) {
+            str3 = "statecode={" + i + "};order_no={" + str + "};notify=" + str2;
+        } else {
+            str3 = "statecode={" + i + "};order_no={" + str + "};notify={" + str2 + "}";
         }
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
-        StringBuilder sb = new StringBuilder();
-        while (true) {
-            String readLine = bufferedReader.readLine();
-            if (readLine != null) {
-                sb.append(readLine);
-            } else {
-                return sb.toString();
-            }
+        try {
+            jSONObject.put("statusCode", i);
+            jSONObject.put("statusMsg", str2);
+            jSONObject.put("responseData", str3);
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
-    }
-
-    public static void a(Closeable... closeableArr) {
-        if (closeableArr != null) {
-            for (Closeable closeable : closeableArr) {
-                if (closeable != null) {
-                    try {
-                        closeable.close();
-                    } catch (IOException e) {
-                    }
-                }
-            }
-        }
+        return jSONObject.toString();
     }
 }

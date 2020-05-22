@@ -30,8 +30,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 /* loaded from: classes11.dex */
 public class b {
-    private static b jel;
-    private volatile boolean jem = false;
+    private static b jto;
+    private volatile boolean jtp = false;
 
     private b() {
         MessageManager.getInstance().registerListener(new com.baidu.adp.framework.listener.a(1003067, CmdConfigSocket.CMD_GET_STORE_REMIND_TIME) { // from class: com.baidu.tieba.myCollection.b.1
@@ -44,47 +44,47 @@ public class b {
                     list = ((GetStoreRemindTimeSocketResponseMessage) responsedMessage).getTimeList();
                 }
                 if (!list.isEmpty()) {
-                    com.baidu.tbadk.core.sharedPref.b.aNT().putString("collect_update_time_key", new JSONArray((Collection) list).toString());
-                    b.csv().csz();
+                    com.baidu.tbadk.core.sharedPref.b.aTX().putString("collect_update_time_key", new JSONArray((Collection) list).toString());
+                    b.cyX().czb();
                 }
             }
         });
         com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_GET_STORE_REMIND_TIME, GetStoreRemindTimeSocketResponseMessage.class, false, SocketMessageTask.DupLicateMode.REMOVE_ME, true);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003067, com.baidu.tieba.tbadkCore.a.a.bE(Config.GET_STORE_REMIND_TIME, CmdConfigSocket.CMD_GET_STORE_REMIND_TIME));
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003067, com.baidu.tieba.tbadkCore.a.a.bF(Config.GET_STORE_REMIND_TIME, CmdConfigSocket.CMD_GET_STORE_REMIND_TIME));
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
         tbHttpMessageTask.setResponsedClass(GetStoreRemindTimeHttpResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public static b csv() {
-        if (jel == null) {
+    public static b cyX() {
+        if (jto == null) {
             synchronized (b.class) {
-                if (jel == null) {
-                    jel = new b();
+                if (jto == null) {
+                    jto = new b();
                 }
             }
         }
-        return jel;
+        return jto;
     }
 
-    public void qg(boolean z) {
-        this.jem = z;
+    public void qD(boolean z) {
+        this.jtp = z;
     }
 
-    public void qh(boolean z) {
-        if (this.jem) {
+    public void qE(boolean z) {
+        if (this.jtp) {
             z = false;
         }
-        com.baidu.tbadk.core.sharedPref.b.aNT().putBoolean("collect_update_flag_key" + TbadkCoreApplication.getCurrentAccount(), z);
+        com.baidu.tbadk.core.sharedPref.b.aTX().putBoolean("collect_update_flag_key" + TbadkCoreApplication.getCurrentAccount(), z);
     }
 
-    public void csw() {
-        com.baidu.tbadk.core.sharedPref.b.aNT().putLong("collect_request_time_key", System.currentTimeMillis());
+    public void cyY() {
+        com.baidu.tbadk.core.sharedPref.b.aTX().putLong("collect_request_time_key", System.currentTimeMillis());
     }
 
-    public boolean csx() {
-        long j = com.baidu.tbadk.core.sharedPref.b.aNT().getLong("collect_request_time_key", -1L);
+    public boolean cyZ() {
+        long j = com.baidu.tbadk.core.sharedPref.b.aTX().getLong("collect_request_time_key", -1L);
         if (j == -1) {
             return true;
         }
@@ -92,31 +92,31 @@ public class b {
         return currentTimeMillis > 0 && TimeUnit.MILLISECONDS.toDays(currentTimeMillis) >= 1;
     }
 
-    public void csy() {
-        if (csx()) {
+    public void cza() {
+        if (cyZ()) {
             MessageManager.getInstance().sendMessage(new GetStoreRemindTimeRequestMessage());
-            csw();
+            cyY();
         }
     }
 
-    public void csz() {
+    public void czb() {
         Context context;
-        Calendar csA = csA();
-        if (csA != null && (context = TbadkCoreApplication.getInst().getContext()) != null) {
+        Calendar czc = czc();
+        if (czc != null && (context = TbadkCoreApplication.getInst().getContext()) != null) {
             AlarmManager alarmManager = (AlarmManager) context.getSystemService(NotificationCompat.CATEGORY_ALARM);
             Intent intent = new Intent(CollectUpdateReceiver.ACTION_NAME);
             intent.setPackage(context.getPackageName());
             Calendar calendar = Calendar.getInstance();
             calendar.set(14, 0);
-            if (csA.before(calendar)) {
-                csA.set(6, calendar.get(6) + 1);
+            if (czc.before(calendar)) {
+                czc.set(6, calendar.get(6) + 1);
             }
-            alarmManager.set(1, csA.getTimeInMillis(), PendingIntent.getBroadcast(context, 0, intent, 134217728));
+            alarmManager.set(1, czc.getTimeInMillis(), PendingIntent.getBroadcast(context, 0, intent, 134217728));
         }
     }
 
-    private Calendar csA() {
-        String string = com.baidu.tbadk.core.sharedPref.b.aNT().getString("collect_update_time_key", null);
+    private Calendar czc() {
+        String string = com.baidu.tbadk.core.sharedPref.b.aTX().getString("collect_update_time_key", null);
         if (TextUtils.isEmpty(string)) {
             return null;
         }

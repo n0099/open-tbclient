@@ -6920,7 +6920,7 @@ public class RecyclerView extends ViewGroup implements NestedScrollingChild2, Sc
             public int right;
 
             /* renamed from: top  reason: collision with root package name */
-            public int f962top;
+            public int f960top;
 
             public ItemHolderInfo setFrom(ViewHolder viewHolder) {
                 return setFrom(viewHolder, 0);
@@ -6929,7 +6929,7 @@ public class RecyclerView extends ViewGroup implements NestedScrollingChild2, Sc
             public ItemHolderInfo setFrom(ViewHolder viewHolder, int i) {
                 View view = viewHolder.itemView;
                 this.left = view.getLeft();
-                this.f962top = view.getTop();
+                this.f960top = view.getTop();
                 this.right = view.getRight();
                 this.bottom = view.getBottom();
                 return this;

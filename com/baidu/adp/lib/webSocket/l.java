@@ -1,79 +1,79 @@
 package com.baidu.adp.lib.webSocket;
 /* loaded from: classes.dex */
 public class l {
-    private int OO;
-    private int OP;
-    private boolean OQ;
-    private boolean OR;
-    private int OT;
-    private int OU;
-    private boolean OV;
-    private boolean OW;
-    private String Oc;
+    private int OW;
+    private int OX;
+    private boolean OY;
+    private boolean OZ;
+    private String Ok;
+    private int Pa;
+    private int Pb;
+    private boolean Pc;
+    private boolean Pd;
 
     public l() {
-        this.Oc = null;
-        this.OO = 32768;
-        this.OP = 131072;
-        this.OQ = false;
-        this.OR = true;
-        this.OT = 30000;
-        this.OU = 30000;
-        this.OV = true;
-        this.OW = true;
-        this.Oc = null;
+        this.Ok = null;
+        this.OW = 32768;
+        this.OX = 131072;
+        this.OY = false;
+        this.OZ = true;
+        this.Pa = 30000;
+        this.Pb = 30000;
+        this.Pc = true;
+        this.Pd = true;
+        this.Ok = null;
     }
 
     public l(l lVar) {
-        this.Oc = null;
-        this.OO = lVar.OO;
-        this.OP = lVar.OP;
-        this.OQ = lVar.OQ;
-        this.OR = lVar.OR;
-        this.OT = lVar.OT;
-        this.OU = lVar.OU;
-        this.OV = lVar.OV;
+        this.Ok = null;
         this.OW = lVar.OW;
-        this.Oc = lVar.Oc;
+        this.OX = lVar.OX;
+        this.OY = lVar.OY;
+        this.OZ = lVar.OZ;
+        this.Pa = lVar.Pa;
+        this.Pb = lVar.Pb;
+        this.Pc = lVar.Pc;
+        this.Pd = lVar.Pd;
+        this.Ok = lVar.Ok;
     }
 
-    public boolean mS() {
-        return this.OQ;
-    }
-
-    public int mT() {
-        return this.OO;
-    }
-
-    public int mU() {
-        return this.OP;
-    }
-
-    public boolean getTcpNoDelay() {
-        return this.OR;
+    public boolean mU() {
+        return this.OY;
     }
 
     public int mV() {
-        return this.OT;
-    }
-
-    public int mW() {
-        return this.OU;
-    }
-
-    public boolean mX() {
-        return this.OV;
-    }
-
-    public boolean mY() {
         return this.OW;
     }
 
-    public String mZ() {
-        return this.Oc;
+    public int mW() {
+        return this.OX;
     }
 
-    public void cc(String str) {
-        this.Oc = str;
+    public boolean getTcpNoDelay() {
+        return this.OZ;
+    }
+
+    public int mX() {
+        return this.Pa;
+    }
+
+    public int mY() {
+        return this.Pb;
+    }
+
+    public boolean mZ() {
+        return this.Pc;
+    }
+
+    public boolean na() {
+        return this.Pd;
+    }
+
+    public String nb() {
+        return this.Ok;
+    }
+
+    public void cd(String str) {
+        this.Ok = str;
     }
 }

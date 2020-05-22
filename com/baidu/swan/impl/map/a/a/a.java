@@ -5,28 +5,28 @@ import com.baidu.mapapi.map.MapStatus;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes12.dex */
-public class a extends com.baidu.swan.impl.map.a.a<com.baidu.swan.apps.z.a.c> {
+public class a extends com.baidu.swan.impl.map.a.a<com.baidu.swan.apps.x.a.c> {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static final String TAG = a.class.getSimpleName();
 
-    public static a azU() {
+    public static a aDM() {
         return new a();
     }
 
-    private boolean b(Context context, com.baidu.swan.apps.z.a.c cVar, com.baidu.swan.apps.z.b bVar, com.baidu.swan.apps.runtime.e eVar, JSONObject jSONObject) {
+    private boolean b(Context context, com.baidu.swan.apps.x.a.c cVar, com.baidu.swan.apps.x.b bVar, com.baidu.swan.apps.runtime.e eVar, JSONObject jSONObject) {
         com.baidu.swan.apps.console.c.i("map", "GetCenterLcationAction start");
-        com.baidu.swan.apps.adaptation.b.e iI = com.baidu.swan.apps.y.f.aeJ().iI(cVar.bGO);
-        if (!(iI instanceof com.baidu.swan.apps.adaptation.b.c)) {
+        com.baidu.swan.apps.adaptation.b.e jO = com.baidu.swan.apps.w.f.ahV().jO(cVar.bPG);
+        if (!(jO instanceof com.baidu.swan.apps.adaptation.b.c)) {
             com.baidu.swan.apps.console.c.e("map", "WebViewManager is null");
             return false;
         }
-        com.baidu.swan.impl.map.item.c rm = com.baidu.swan.impl.map.c.azP().h((com.baidu.swan.apps.adaptation.b.c) iI).rm(cVar.bGN);
-        if (rm == null) {
-            com.baidu.swan.apps.console.c.e("map", "can not find map by id " + cVar.bGN);
+        com.baidu.swan.impl.map.item.c sQ = com.baidu.swan.impl.map.c.aDH().h((com.baidu.swan.apps.adaptation.b.c) jO).sQ(cVar.bPF);
+        if (sQ == null) {
+            com.baidu.swan.apps.console.c.e("map", "can not find map by id " + cVar.bPF);
             return false;
         }
-        MapStatus mapStatus = rm.cVF.getMap().getMapStatus();
-        com.baidu.swan.apps.z.a.a.c cVar2 = new com.baidu.swan.apps.z.a.a.c();
+        MapStatus mapStatus = sQ.dgG.getMap().getMapStatus();
+        com.baidu.swan.apps.x.a.a.c cVar2 = new com.baidu.swan.apps.x.a.a.c();
         cVar2.latitude = mapStatus.target.latitude;
         cVar2.longitude = mapStatus.target.longitude;
         try {
@@ -40,7 +40,7 @@ public class a extends com.baidu.swan.impl.map.a.a<com.baidu.swan.apps.z.a.c> {
     }
 
     @Override // com.baidu.swan.impl.map.a.a
-    protected boolean a(Context context, com.baidu.swan.apps.z.a.c cVar, com.baidu.swan.apps.z.b bVar, com.baidu.swan.apps.runtime.e eVar, JSONObject jSONObject) {
+    protected boolean a(Context context, com.baidu.swan.apps.x.a.c cVar, com.baidu.swan.apps.x.b bVar, com.baidu.swan.apps.runtime.e eVar, JSONObject jSONObject) {
         return b(context, cVar, bVar, eVar, jSONObject);
     }
 }

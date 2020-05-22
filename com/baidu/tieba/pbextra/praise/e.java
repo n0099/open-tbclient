@@ -20,182 +20,182 @@ import com.baidu.tieba.R;
 import java.util.List;
 /* loaded from: classes9.dex */
 public class e extends com.baidu.adp.base.c<PraiseListActivity> {
-    private ProgressBar jRA;
-    private ProgressBar jRB;
-    private c jRo;
-    private PraiseListActivity jRp;
-    private View jRq;
-    private NavigationBar jRr;
-    private View jRs;
-    private NoDataView jRt;
-    private View jRu;
-    private TextView jRv;
-    private BdListView jRw;
-    private View jRx;
-    private TextView jRy;
-    private TextView jRz;
+    private c kjh;
+    private PraiseListActivity kji;
+    private View kjj;
+    private NavigationBar kjk;
+    private View kjl;
+    private NoDataView kjm;
+    private View kjn;
+    private TextView kjo;
+    private BdListView kjp;
+    private View kjq;
+    private TextView kjr;
+    private TextView kjs;
+    private ProgressBar kjt;
+    private ProgressBar kju;
 
     public e(PraiseListActivity praiseListActivity, String str) {
         super(praiseListActivity.getPageContext());
-        this.jRo = null;
-        this.jRp = null;
-        this.jRq = null;
-        this.jRr = null;
-        this.jRs = null;
-        this.jRt = null;
-        this.jRu = null;
-        this.jRv = null;
-        this.jRw = null;
-        this.jRx = null;
-        this.jRy = null;
-        this.jRz = null;
-        this.jRA = null;
-        this.jRB = null;
-        this.jRp = praiseListActivity;
+        this.kjh = null;
+        this.kji = null;
+        this.kjj = null;
+        this.kjk = null;
+        this.kjl = null;
+        this.kjm = null;
+        this.kjn = null;
+        this.kjo = null;
+        this.kjp = null;
+        this.kjq = null;
+        this.kjr = null;
+        this.kjs = null;
+        this.kjt = null;
+        this.kju = null;
+        this.kji = praiseListActivity;
         praiseListActivity.setContentView(R.layout.zan_list_activity);
-        this.jRq = praiseListActivity.findViewById(R.id.zan_list_page_parent);
-        this.jRr = (NavigationBar) praiseListActivity.findViewById(R.id.zan_list_page_navigationbar);
-        this.jRs = praiseListActivity.findViewById(R.id.zan_list_page_frame);
-        this.jRt = NoDataViewFactory.a(this.jRp.getPageContext().getContext(), this.jRq, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, l.getDimens(this.jRp.getActivity(), R.dimen.ds320)), NoDataViewFactory.d.lr(R.string.praise_list_no_data), null);
-        this.jRw = (BdListView) praiseListActivity.findViewById(R.id.zan_list_page_list);
-        TextView textView = new TextView(this.jRp.getActivity());
+        this.kjj = praiseListActivity.findViewById(R.id.zan_list_page_parent);
+        this.kjk = (NavigationBar) praiseListActivity.findViewById(R.id.zan_list_page_navigationbar);
+        this.kjl = praiseListActivity.findViewById(R.id.zan_list_page_frame);
+        this.kjm = NoDataViewFactory.a(this.kji.getPageContext().getContext(), this.kjj, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, l.getDimens(this.kji.getActivity(), R.dimen.ds320)), NoDataViewFactory.d.lT(R.string.praise_list_no_data), null);
+        this.kjp = (BdListView) praiseListActivity.findViewById(R.id.zan_list_page_list);
+        TextView textView = new TextView(this.kji.getActivity());
         textView.setLayoutParams(new AbsListView.LayoutParams(-1, BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT)));
-        this.jRw.addHeaderView(textView, 0);
-        this.jRA = (ProgressBar) praiseListActivity.findViewById(R.id.zan_list_page_progress);
-        this.jRo = new c(praiseListActivity);
-        this.jRw.setAdapter((ListAdapter) this.jRo);
-        this.jRw.setOnScrollListener(this.jRo);
-        this.jRr.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.jRr.setTitleText("");
-        this.jRu = LayoutInflater.from(praiseListActivity.getPageContext().getContext()).inflate(R.layout.zan_list_head, (ViewGroup) null);
-        this.jRu.setOnClickListener(praiseListActivity);
-        this.jRv = (TextView) this.jRu.findViewById(R.id.zan_list_head_text);
-        this.jRv.setText(str);
-        this.jRu.setVisibility(8);
-        this.jRw.addHeaderView(this.jRu);
-        this.jRx = LayoutInflater.from(praiseListActivity.getPageContext().getContext()).inflate(R.layout.zan_list_foot, (ViewGroup) null);
-        this.jRy = (TextView) this.jRx.findViewById(R.id.zan_list_foot_text_continue);
-        this.jRz = (TextView) this.jRx.findViewById(R.id.zan_list_foot_text_more);
-        this.jRB = (ProgressBar) this.jRx.findViewById(R.id.zan_list_foot_progress);
-        this.jRx.setVisibility(8);
-        this.jRy.setOnClickListener(praiseListActivity);
-        this.jRw.addFooterView(this.jRx);
-        this.jRw.setOnItemClickListener(praiseListActivity);
+        this.kjp.addHeaderView(textView, 0);
+        this.kjt = (ProgressBar) praiseListActivity.findViewById(R.id.zan_list_page_progress);
+        this.kjh = new c(praiseListActivity);
+        this.kjp.setAdapter((ListAdapter) this.kjh);
+        this.kjp.setOnScrollListener(this.kjh);
+        this.kjk.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.kjk.setTitleText("");
+        this.kjn = LayoutInflater.from(praiseListActivity.getPageContext().getContext()).inflate(R.layout.zan_list_head, (ViewGroup) null);
+        this.kjn.setOnClickListener(praiseListActivity);
+        this.kjo = (TextView) this.kjn.findViewById(R.id.zan_list_head_text);
+        this.kjo.setText(str);
+        this.kjn.setVisibility(8);
+        this.kjp.addHeaderView(this.kjn);
+        this.kjq = LayoutInflater.from(praiseListActivity.getPageContext().getContext()).inflate(R.layout.zan_list_foot, (ViewGroup) null);
+        this.kjr = (TextView) this.kjq.findViewById(R.id.zan_list_foot_text_continue);
+        this.kjs = (TextView) this.kjq.findViewById(R.id.zan_list_foot_text_more);
+        this.kju = (ProgressBar) this.kjq.findViewById(R.id.zan_list_foot_progress);
+        this.kjq.setVisibility(8);
+        this.kjr.setOnClickListener(praiseListActivity);
+        this.kjp.addFooterView(this.kjq);
+        this.kjp.setOnItemClickListener(praiseListActivity);
     }
 
-    public void cgl() {
-        if (this.jRo != null) {
-            this.jRo.notifyDataSetChanged();
+    public void cmI() {
+        if (this.kjh != null) {
+            this.kjh.notifyDataSetChanged();
         }
     }
 
-    public void so(boolean z) {
+    public void sM(boolean z) {
         if (z) {
-            this.jRB.setVisibility(0);
+            this.kju.setVisibility(0);
         } else {
-            this.jRA.setVisibility(0);
+            this.kjt.setVisibility(0);
         }
     }
 
-    public void cFQ() {
-        this.jRA.setVisibility(8);
-        this.jRB.setVisibility(8);
+    public void cMP() {
+        this.kjt.setVisibility(8);
+        this.kju.setVisibility(8);
     }
 
     public boolean isLoading() {
-        return this.jRA.getVisibility() == 0 || this.jRB.getVisibility() == 0;
+        return this.kjt.getVisibility() == 0 || this.kju.getVisibility() == 0;
     }
 
     public void b(int i, List<a> list, int i2, int i3) {
         String format;
         String format2;
-        this.jRA.setVisibility(8);
-        this.jRB.setVisibility(8);
-        this.jRu.setVisibility(0);
+        this.kjt.setVisibility(8);
+        this.kju.setVisibility(8);
+        this.kjn.setVisibility(0);
         if (i > 0) {
-            switch (this.jRp.pageType) {
+            switch (this.kji.pageType) {
                 case 1:
-                    format2 = String.format(this.jRp.getResources().getString(R.string.graffiti_list_title_count), aq.numFormatOverWan(i));
+                    format2 = String.format(this.kji.getResources().getString(R.string.graffiti_list_title_count), aq.numFormatOverWan(i));
                     break;
                 default:
-                    format2 = String.format(this.jRp.getResources().getString(R.string.praise_list_title_count), aq.numFormatOverWan(i));
+                    format2 = String.format(this.kji.getResources().getString(R.string.praise_list_title_count), aq.numFormatOverWan(i));
                     break;
             }
-            this.jRr.setTitleText(format2);
+            this.kjk.setTitleText(format2);
         } else {
-            this.jRr.setTitleText("");
+            this.kjk.setTitleText("");
         }
         if (list == null || list.size() < 1) {
-            bu(null, this.jRp.pageType);
+            bv(null, this.kji.pageType);
             return;
         }
-        this.jRs.setVisibility(0);
-        this.jRt.setVisibility(8);
-        this.jRo.dV(list);
-        this.jRo.notifyDataSetChanged();
+        this.kjl.setVisibility(0);
+        this.kjm.setVisibility(8);
+        this.kjh.eb(list);
+        this.kjh.notifyDataSetChanged();
         switch (i2) {
             case 1001:
-                this.jRx.setVisibility(0);
-                this.jRy.setVisibility(0);
-                this.jRz.setVisibility(8);
+                this.kjq.setVisibility(0);
+                this.kjr.setVisibility(0);
+                this.kjs.setVisibility(8);
                 return;
             case 1002:
-                this.jRx.setVisibility(8);
+                this.kjq.setVisibility(8);
                 return;
             case 1003:
-                this.jRx.setVisibility(0);
-                am.setBackgroundResource(this.jRx, R.drawable.bg_pack);
-                this.jRy.setVisibility(8);
-                this.jRz.setVisibility(0);
-                switch (this.jRp.pageType) {
+                this.kjq.setVisibility(0);
+                am.setBackgroundResource(this.kjq, R.drawable.bg_pack);
+                this.kjr.setVisibility(8);
+                this.kjs.setVisibility(0);
+                switch (this.kji.pageType) {
                     case 1:
-                        format = String.format(this.jRp.getResources().getString(R.string.graffiti_list_title_count), aq.numFormatOverWan(i));
+                        format = String.format(this.kji.getResources().getString(R.string.graffiti_list_title_count), aq.numFormatOverWan(i));
                         break;
                     default:
-                        format = String.format(this.jRp.getResources().getString(R.string.praise_item_more), aq.numFormatOverWan(i));
+                        format = String.format(this.kji.getResources().getString(R.string.praise_item_more), aq.numFormatOverWan(i));
                         break;
                 }
-                this.jRz.setText(format);
+                this.kjs.setText(format);
                 return;
             default:
-                this.jRx.setVisibility(8);
+                this.kjq.setVisibility(8);
                 return;
         }
     }
 
-    public void bu(String str, int i) {
-        this.jRA.setVisibility(8);
-        this.jRB.setVisibility(8);
-        this.jRs.setVisibility(8);
-        this.jRt.setVisibility(0);
+    public void bv(String str, int i) {
+        this.kjt.setVisibility(8);
+        this.kju.setVisibility(8);
+        this.kjl.setVisibility(8);
+        this.kjm.setVisibility(0);
         if (!StringUtils.isNull(str)) {
-            this.jRt.setTextOption(NoDataViewFactory.d.vl(str));
+            this.kjm.setTextOption(NoDataViewFactory.d.wR(str));
         } else if (1 == i) {
-            this.jRt.setTextOption(NoDataViewFactory.d.lr(R.string.graffiti_list_no_data));
+            this.kjm.setTextOption(NoDataViewFactory.d.lT(R.string.graffiti_list_no_data));
         } else {
-            this.jRt.setTextOption(NoDataViewFactory.d.lr(R.string.praise_list_no_data));
+            this.kjm.setTextOption(NoDataViewFactory.d.lT(R.string.praise_list_no_data));
         }
     }
 
     public void a(com.baidu.tbadk.core.c cVar, int i) {
         if (cVar != null) {
             cVar.setNightMode(i == 1);
-            cVar.onModeChanged(this.jRq);
-            cVar.onModeChanged(this.jRu);
-            cVar.onModeChanged(this.jRx);
-            this.jRr.onChangeSkinType(this.jRp.getPageContext(), i);
-            am.setBackgroundResource(this.jRx, R.drawable.bg_pack);
-            if (this.jRt != null) {
-                this.jRt.onChangeSkinType(this.jRp.getPageContext(), i);
+            cVar.onModeChanged(this.kjj);
+            cVar.onModeChanged(this.kjn);
+            cVar.onModeChanged(this.kjq);
+            this.kjk.onChangeSkinType(this.kji.getPageContext(), i);
+            am.setBackgroundResource(this.kjq, R.drawable.bg_pack);
+            if (this.kjm != null) {
+                this.kjm.onChangeSkinType(this.kji.getPageContext(), i);
             }
         }
     }
 
-    public View cFR() {
-        return this.jRu;
+    public View cMQ() {
+        return this.kjn;
     }
 
-    public View cFS() {
-        return this.jRy;
+    public View cMR() {
+        return this.kjr;
     }
 }

@@ -1,33 +1,43 @@
 package com.baidu.fsg.base.statistics;
 
-import com.baidu.fsg.base.statistics.s;
-import com.baidu.fsg.base.utils.LogUtil;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.Context;
+import android.util.Base64;
+import com.baidu.fsg.base.EnvConfig;
+import com.baidu.fsg.base.restnet.RestNameValuePair;
+import com.baidu.fsg.base.restnet.beans.business.BaseBean;
+import com.baidu.tbadk.TbConfig;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes4.dex */
-public class o implements s.a {
-    final /* synthetic */ String a;
-    final /* synthetic */ h[] b;
-    final /* synthetic */ l c;
+public class o extends BaseBean {
+    private String a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public o(l lVar, String str, h[] hVarArr) {
-        this.c = lVar;
+    public o(Context context, String str) {
+        super(context);
         this.a = str;
-        this.b = hVarArr;
     }
 
-    @Override // com.baidu.fsg.base.statistics.s.a
-    public void a() {
-        LogUtil.d("LogSender", "====send-success==");
-        if (b.o.equals(this.a)) {
-            f.a().a(this.a);
-        } else {
-            i.a(RimStatisticsUtil.getAppContext()).a(this.b);
-        }
+    @Override // com.baidu.fsg.base.restnet.beans.ApollonBean
+    public int getBeanId() {
+        return 0;
     }
 
-    @Override // com.baidu.fsg.base.statistics.s.a
-    public void b() {
-        LogUtil.d("LogSender", "====send-fail=====");
+    @Override // com.baidu.fsg.base.restnet.beans.ApollonBean
+    public String getUrl() {
+        return EnvConfig.getInstance(this.mContext).getRimHttpsHost() + "/risk/init/stat/crashlogcollection";
+    }
+
+    @Override // com.baidu.fsg.base.restnet.beans.ApollonBean
+    public Class<?> responseClass() {
+        return String.class;
+    }
+
+    @Override // com.baidu.fsg.base.restnet.beans.business.NetworkBean
+    public List<RestNameValuePair> generateRequestParam() {
+        ArrayList arrayList = new ArrayList();
+        String encodeToString = Base64.encodeToString(this.a.getBytes(), 2);
+        arrayList.add(new RestNameValuePair("datetime", System.currentTimeMillis() + ""));
+        arrayList.add(new RestNameValuePair(TbConfig.TMP_LOG_DIR_NAME, encodeToString));
+        return arrayList;
     }
 }

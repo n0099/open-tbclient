@@ -4,46 +4,46 @@ import android.graphics.Bitmap;
 import javax.annotation.Nullable;
 /* loaded from: classes13.dex */
 public class c {
-    private boolean mbk;
-    private boolean mbl;
-    private boolean mbm;
-    private boolean mbn;
+    private boolean mvb;
+    private boolean mvc;
+    private boolean mvd;
+    private boolean mve;
     @Nullable
-    private com.facebook.imagepipeline.decoder.b mbo;
-    private int mbj = 100;
+    private com.facebook.imagepipeline.decoder.b mvf;
+    private int mva = 100;
     private Bitmap.Config mBitmapConfig = Bitmap.Config.ARGB_8888;
 
-    public int dqJ() {
-        return this.mbj;
+    public int dyb() {
+        return this.mva;
     }
 
-    public boolean dqK() {
-        return this.mbk;
+    public boolean dyc() {
+        return this.mvb;
     }
 
-    public boolean dqL() {
-        return this.mbl;
+    public boolean dyd() {
+        return this.mvc;
     }
 
-    public boolean dqM() {
-        return this.mbm;
+    public boolean dye() {
+        return this.mvd;
     }
 
-    public c vI(boolean z) {
-        this.mbn = z;
+    public c wg(boolean z) {
+        this.mve = z;
         return this;
     }
 
     @Nullable
-    public com.facebook.imagepipeline.decoder.b dqN() {
-        return this.mbo;
+    public com.facebook.imagepipeline.decoder.b dyf() {
+        return this.mvf;
     }
 
-    public boolean dqO() {
-        return this.mbn;
+    public boolean dyg() {
+        return this.mve;
     }
 
-    public Bitmap.Config dqP() {
+    public Bitmap.Config dyh() {
         return this.mBitmapConfig;
     }
 
@@ -52,7 +52,7 @@ public class c {
         return this;
     }
 
-    public b dqQ() {
+    public b dyi() {
         return new b(this);
     }
 }

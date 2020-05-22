@@ -12,10 +12,10 @@ import java.nio.ByteBuffer;
 import javax.annotation.Nullable;
 /* loaded from: classes13.dex */
 public final class a {
-    private static final Pools.SynchronizedPool<ByteBuffer> mgW = new Pools.SynchronizedPool<>(12);
+    private static final Pools.SynchronizedPool<ByteBuffer> mAN = new Pools.SynchronizedPool<>(12);
 
     @SuppressLint({"NewApi"})
-    public static int ae(@Nullable Bitmap bitmap) {
+    public static int ag(@Nullable Bitmap bitmap) {
         if (bitmap == null) {
             return 0;
         }
@@ -32,10 +32,10 @@ public final class a {
     }
 
     @Nullable
-    public static Pair<Integer, Integer> v(InputStream inputStream) {
+    public static Pair<Integer, Integer> w(InputStream inputStream) {
         Pair<Integer, Integer> pair = null;
         g.checkNotNull(inputStream);
-        ByteBuffer acquire = mgW.acquire();
+        ByteBuffer acquire = mAN.acquire();
         if (acquire == null) {
             acquire = ByteBuffer.allocate(16384);
         }
@@ -49,7 +49,7 @@ public final class a {
             }
             return pair;
         } finally {
-            mgW.release(acquire);
+            mAN.release(acquire);
         }
     }
 
@@ -57,30 +57,30 @@ public final class a {
     /* renamed from: com.facebook.d.a$1  reason: invalid class name */
     /* loaded from: classes13.dex */
     public static /* synthetic */ class AnonymousClass1 {
-        static final /* synthetic */ int[] mgX = new int[Bitmap.Config.values().length];
+        static final /* synthetic */ int[] mAO = new int[Bitmap.Config.values().length];
 
         static {
             try {
-                mgX[Bitmap.Config.ARGB_8888.ordinal()] = 1;
+                mAO[Bitmap.Config.ARGB_8888.ordinal()] = 1;
             } catch (NoSuchFieldError e) {
             }
             try {
-                mgX[Bitmap.Config.ALPHA_8.ordinal()] = 2;
+                mAO[Bitmap.Config.ALPHA_8.ordinal()] = 2;
             } catch (NoSuchFieldError e2) {
             }
             try {
-                mgX[Bitmap.Config.ARGB_4444.ordinal()] = 3;
+                mAO[Bitmap.Config.ARGB_4444.ordinal()] = 3;
             } catch (NoSuchFieldError e3) {
             }
             try {
-                mgX[Bitmap.Config.RGB_565.ordinal()] = 4;
+                mAO[Bitmap.Config.RGB_565.ordinal()] = 4;
             } catch (NoSuchFieldError e4) {
             }
         }
     }
 
     public static int e(Bitmap.Config config) {
-        switch (AnonymousClass1.mgX[config.ordinal()]) {
+        switch (AnonymousClass1.mAO[config.ordinal()]) {
             case 1:
                 return 4;
             case 2:

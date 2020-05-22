@@ -5,9 +5,9 @@ public abstract class k<T> implements o<T> {
 
     @Override // io.reactivex.o
     public final void a(m<? super T> mVar) {
-        io.reactivex.internal.functions.a.h(mVar, "observer is null");
+        io.reactivex.internal.functions.a.k(mVar, "observer is null");
         m<? super T> a = io.reactivex.e.a.a(this, mVar);
-        io.reactivex.internal.functions.a.h(a, "observer returned by the RxJavaPlugins hook is null");
+        io.reactivex.internal.functions.a.k(a, "observer returned by the RxJavaPlugins hook is null");
         try {
             b(a);
         } catch (NullPointerException e) {

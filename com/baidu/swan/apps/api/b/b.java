@@ -1,106 +1,47 @@
 package com.baidu.swan.apps.api.b;
 
-import android.net.Uri;
-import android.support.annotation.NonNull;
 import android.text.TextUtils;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.unitedscheme.core.R;
-import java.nio.charset.StandardCharsets;
-import org.json.JSONException;
-import org.json.JSONObject;
+import android.util.Log;
+import com.baidu.swan.apps.performance.UbcFlowEvent;
+import com.baidu.swan.apps.performance.g;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes11.dex */
 public class b implements a {
-    private boolean bEe;
-    public JSONObject data;
-    public String message;
-    public int statusCode;
+    public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
+    private Map<String, com.baidu.swan.apps.performance.a.a> bMR = new ConcurrentHashMap();
 
-    public b() {
-        this.bEe = false;
-    }
-
-    public b(int i) {
-        this.bEe = false;
-        this.statusCode = i;
-    }
-
-    public b(int i, @NonNull String str) {
-        this.bEe = false;
-        this.statusCode = i;
-        this.message = str;
-    }
-
-    public b(int i, @NonNull JSONObject jSONObject) {
-        this.bEe = false;
-        this.statusCode = i;
-        this.data = jSONObject;
-    }
-
-    public b(int i, @NonNull JSONObject jSONObject, boolean z) {
-        this.bEe = false;
-        this.statusCode = i;
-        this.data = jSONObject;
-        this.bEe = z;
-    }
-
-    public b(int i, @NonNull String str, @NonNull JSONObject jSONObject) {
-        this.bEe = false;
-        this.statusCode = i;
-        this.message = str;
-        this.data = jSONObject;
+    @Override // com.baidu.swan.apps.api.b.a
+    public void iq(String str) {
+        if (!this.bMR.containsKey(str)) {
+            if (DEBUG) {
+                Log.d("Api-FirstRecorder", "markStart: " + str);
+            }
+            com.baidu.swan.apps.performance.a.a aVar = new com.baidu.swan.apps.performance.a.a();
+            this.bMR.put(str, aVar);
+            aVar.setStart(System.currentTimeMillis());
+            aVar.mG(str);
+        }
     }
 
     @Override // com.baidu.swan.apps.api.b.a
-    @NonNull
-    public String toJsonString() {
-        JSONObject jSONObject = new JSONObject();
-        try {
-            jSONObject.put("status", String.valueOf(this.statusCode));
-            if (TextUtils.isEmpty(this.message)) {
-                this.message = getErrMessage(this.statusCode);
+    public void ir(String str) {
+        com.baidu.swan.apps.performance.a.a aVar = this.bMR.get(str);
+        if (aVar == null) {
+            if (DEBUG) {
+                throw new RuntimeException(str + " markEnd before markStart");
             }
-            jSONObject.put("message", this.message);
-            if (this.data != null) {
-                jSONObject.put("data", this.bEe ? Uri.encode(this.data.toString(), StandardCharsets.UTF_8.name()) : this.data);
+        } else if (aVar.getEnd() <= 0) {
+            aVar.setEnd(System.currentTimeMillis());
+            if (DEBUG) {
+                Log.d("Api-FirstRecorder", str + " first called cost " + aVar.alG());
             }
-        } catch (JSONException e) {
-            if (com.baidu.swan.apps.b.DEBUG) {
-                e.printStackTrace();
+            if (TextUtils.equals(str, "request")) {
+                if (DEBUG) {
+                    Log.d("Api-FirstRecorder", "record first request api called " + aVar.toString());
+                }
+                g.mp("startup").f(new UbcFlowEvent("first_request_api_call_start").bg(aVar.getStart())).f(new UbcFlowEvent("first_request_api_call_end").bg(aVar.getEnd()));
             }
-        }
-        return jSONObject.toString();
-    }
-
-    public String toString() {
-        return toJsonString();
-    }
-
-    public boolean isSuccess() {
-        return this.statusCode == 0;
-    }
-
-    private static String getErrMessage(int i) {
-        switch (i) {
-            case 0:
-                return AppRuntime.getAppContext().getString(R.string.united_scheme_err_message_ok);
-            case 101:
-                return AppRuntime.getAppContext().getString(R.string.united_scheme_err_message_not_support);
-            case 201:
-                return AppRuntime.getAppContext().getString(R.string.united_scheme_err_message_parse_fail);
-            case 202:
-                return AppRuntime.getAppContext().getString(R.string.united_scheme_err_message_params_parse_fail);
-            case 301:
-                return AppRuntime.getAppContext().getString(R.string.united_scheme_err_message_module_notfound);
-            case 302:
-                return AppRuntime.getAppContext().getString(R.string.united_scheme_err_message_action_notfound);
-            case 401:
-                return AppRuntime.getAppContext().getString(R.string.united_scheme_err_message_action_sec_check_fail);
-            case 402:
-                return AppRuntime.getAppContext().getString(R.string.united_scheme_err_message_action_acl_check_fail);
-            case 403:
-                return AppRuntime.getAppContext().getString(R.string.united_scheme_err_message_action_allow_close);
-            default:
-                return AppRuntime.getAppContext().getString(R.string.united_scheme_err_message_parse_fail);
         }
     }
 }

@@ -1,155 +1,121 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.BdLog;
+import com.xiaomi.mipush.sdk.Constants;
+import org.json.JSONObject;
+import tbclient.TaskInfo;
 /* loaded from: classes.dex */
-public class bi extends a implements com.baidu.adp.widget.ListView.m {
-    public bj dqE;
-    public boolean dqs = false;
-    public boolean dqt = false;
-    public boolean dqu = false;
-    public boolean dqv = false;
-    public boolean dqw = false;
-    public boolean dqx = false;
-    public boolean dqy = false;
-    public boolean dqz = false;
-    public boolean dqA = false;
-    public boolean dqB = false;
-    public boolean dqC = false;
-    public boolean dqD = false;
-    public int dqF = 0;
-    public int dqG = 0;
+public class bi {
+    private long dEl;
+    private String dEm;
+    private String dEn;
+    private long endTime;
+    private long forumId;
+    private String forumName;
+    private int mHeight;
+    private int mWidth;
+    private String obj_id;
+    private long taskId;
+    private long threadId;
 
-    @Override // com.baidu.adp.widget.ListView.m
-    public BdUniqueId getType() {
-        if (this.dqE == null) {
-            return null;
-        }
-        if (this.dqE.aMo()) {
-            if (this.dqE.aKT() != null) {
-                return bj.dqZ;
-            }
-            return bj.dqI;
-        }
-        int aKx = this.dqE.aKx();
-        if (this.dqE.aKT() != null && this.dqE.aMh()) {
-            return bj.drr;
-        }
-        if (this.dqE.threadType == 63) {
-            bj bjVar = this.dqE;
-            return bj.drk;
-        } else if (this.dqE.threadType == 64) {
-            bj bjVar2 = this.dqE;
-            return bj.drl;
-        } else if (this.dqE.threadType == 65) {
-            bj bjVar3 = this.dqE;
-            return bj.dqV;
-        } else if (this.dqE.aKV() != null && this.dqE.threadType == 60) {
-            return bj.drc;
-        } else {
-            if (this.dqE.aKV() != null && this.dqE.threadType == 49) {
-                return bj.dra;
-            }
-            if (this.dqE.threadType == 51) {
-                return bj.drb;
-            }
-            if (aKx == 2 || aKx == 1) {
-                return bj.dqH;
-            }
-            if (this.dqE.aKT() != null && this.dqE.aLM() && !this.dqE.aLE()) {
-                return bj.drq;
-            }
-            if (this.dqE.isShareThread && this.dqE.dtt != null) {
-                if (this.dqE.dtt.dpk) {
-                    if (this.dqE.dtt.videoInfo != null) {
-                        return bj.drg;
-                    }
-                    if (this.dqE.dtt.aJr()) {
-                        return bj.drf;
-                    }
-                    return bj.dre;
-                }
-                return bj.drd;
-            } else if (this.dqE.aLG()) {
-                bj bjVar4 = this.dqE;
-                return bj.drn.get() ? bj.dsF : bj.dqI;
-            } else if (this.dqE.aLn() && this.dqE.aLm() == 1) {
-                bj bjVar5 = this.dqE;
-                return bj.drn.get() ? bj.dsN : bj.dqI;
-            } else if (this.dqE.isLinkThread()) {
-                return bj.dqX;
-            } else {
-                if (this.dqE.aMg()) {
-                    return this.dqE.aKk() != null ? bj.drj : bj.dri;
-                } else if (this.dqs) {
-                    return bj.dqM;
-                } else {
-                    if (this.dqt) {
-                        return bj.dqN;
-                    }
-                    if (this.dqu) {
-                        return bj.dqO;
-                    }
-                    if (this.dqv) {
-                        return bj.dqP;
-                    }
-                    if (this.dqw) {
-                        return bj.dqQ;
-                    }
-                    if (this.dqx) {
-                        return bj.dqR;
-                    }
-                    if (this.dqy) {
-                        return bj.dqS;
-                    }
-                    if (this.dqz) {
-                        return bj.dqT;
-                    }
-                    if (this.dqA) {
-                        return bj.dqZ;
-                    }
-                    if (this.dqE.aKF()) {
-                        if (this.dqB) {
-                            return bj.drh;
-                        }
-                        return bj.dqY;
-                    } else if (this.dqC) {
-                        return bj.drm;
-                    } else {
-                        if (this.dqD) {
-                            return bj.dqW;
-                        }
-                        return bj.dqI;
-                    }
+    public String getForumName() {
+        return this.forumName;
+    }
+
+    public String getForumId() {
+        return this.forumId + "";
+    }
+
+    public long aPQ() {
+        return this.dEl;
+    }
+
+    public long aPR() {
+        return this.endTime;
+    }
+
+    public String getTaskId() {
+        return this.taskId + "";
+    }
+
+    public String getThreadId() {
+        return this.threadId + "";
+    }
+
+    public String getThreadImgUrl() {
+        return this.dEn;
+    }
+
+    public int aPS() {
+        return this.mWidth;
+    }
+
+    public int aPT() {
+        return this.mHeight;
+    }
+
+    public String aPU() {
+        return this.obj_id;
+    }
+
+    public void a(TaskInfo taskInfo) {
+        if (taskInfo != null) {
+            this.forumName = taskInfo.forum_name;
+            this.forumId = taskInfo.forum_id.longValue();
+            this.taskId = taskInfo.task_id != null ? taskInfo.task_id.longValue() : -1L;
+            this.threadId = taskInfo.thread_id != null ? taskInfo.thread_id.longValue() : -1L;
+            this.dEm = taskInfo.bgimg;
+            this.dEn = taskInfo.thread_img;
+            this.dEl = taskInfo.start_time != null ? taskInfo.start_time.longValue() : -1L;
+            this.endTime = taskInfo.end_time != null ? taskInfo.end_time.longValue() : -1L;
+            String str = taskInfo.thread_img_size;
+            if (str != null) {
+                try {
+                    String[] split = str.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                    this.mWidth = com.baidu.adp.lib.f.b.toInt(split[0], 1);
+                    this.mHeight = com.baidu.adp.lib.f.b.toInt(split[1], 1);
+                } catch (Exception e) {
+                    BdLog.e(e.getMessage());
                 }
             }
+            if (this.mWidth <= 0) {
+                this.mWidth = 1;
+            }
+            if (this.mHeight <= 0) {
+                this.mHeight = 1;
+            }
+            this.obj_id = taskInfo.obj_id;
         }
     }
 
-    @Override // com.baidu.tbadk.core.data.a
-    public bj aIu() {
-        return this.dqE;
-    }
-
-    @Override // com.baidu.tbadk.core.data.a
-    public al aIw() {
-        if (this.dqE == null || this.dqE.feedBackReasonMap == null || this.dqE.feedBackReasonMap.size() <= 0) {
-            return null;
+    public void parserJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                this.forumName = jSONObject.optString("forum_name");
+                this.forumId = jSONObject.optLong("forum_id");
+                this.taskId = jSONObject.optLong("task_id");
+                this.threadId = jSONObject.optLong("thread_id");
+                this.dEm = jSONObject.optString("bgimg");
+                this.dEl = jSONObject.optLong("start_time");
+                this.endTime = jSONObject.optLong("end_time");
+                this.dEn = jSONObject.optString("thread_img");
+                String optString = jSONObject.optString("thread_img_size");
+                if (optString != null && optString.length() > 0) {
+                    String[] split = optString.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                    if (split.length > 1) {
+                        this.mWidth = Integer.valueOf(split[0]).intValue();
+                        this.mHeight = Integer.valueOf(split[1]).intValue();
+                    }
+                }
+                if (this.mWidth <= 0) {
+                    this.mWidth = 1;
+                }
+                if (this.mHeight <= 0) {
+                    this.mHeight = 1;
+                }
+            } catch (Exception e) {
+                BdLog.e(e.toString());
+            }
         }
-        al alVar = new al();
-        alVar.setTid(aIu().getTid());
-        alVar.setFid(aIu().getFid());
-        alVar.setFeedBackReasonMap(this.dqE.feedBackReasonMap);
-        alVar.dpc = this.dqE.mRecomAbTag;
-        alVar.weight = this.dqE.mRecomWeight;
-        alVar.extra = this.dqE.mRecomExtra;
-        alVar.source = this.dqE.mRecomSource;
-        alVar.dpd = this.dqE.dpd;
-        alVar.cardType = this.dqE.aMB();
-        return alVar;
-    }
-
-    @Override // com.baidu.tbadk.core.data.a
-    public String aIv() {
-        return this.dqE.dsY;
     }
 }

@@ -1,87 +1,101 @@
 package com.baidu.swan.bdprivate.b;
 
 import android.os.Bundle;
-import android.util.Log;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.http.cookie.CookieManager;
-import com.baidu.searchbox.process.ipc.delegate.DelegateResult;
-import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.swan.apps.setting.oauth.g;
-import java.util.ArrayList;
-import java.util.List;
+import android.text.TextUtils;
+import com.baidu.android.util.io.BaseJsonData;
+import com.baidu.live.tbadk.core.util.TiebaInitialize;
+import com.baidu.searchbox.http.callback.ResponseCallback;
+import com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation;
+import com.baidu.swan.apps.aq.t;
+import okhttp3.Response;
+import org.json.JSONObject;
 /* loaded from: classes11.dex */
-public class a extends g {
-    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private CookieManager bKE;
+public class a extends ActivityDelegation {
 
-    public a() {
-        this.bKE = null;
-        this.bKE = new b();
+    /* renamed from: com.baidu.swan.bdprivate.b.a$a  reason: collision with other inner class name */
+    /* loaded from: classes11.dex */
+    public interface InterfaceC0408a {
+        void auM();
+
+        void hg(String str);
     }
 
-    @Override // com.baidu.swan.apps.setting.oauth.g, com.baidu.searchbox.http.cookie.CookieManager
-    public boolean shouldAcceptCookie(String str, String str2) {
-        if (ProcessUtils.isMainProcess()) {
-            return this.bKE.shouldAcceptCookie(str, str2);
-        }
-        DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), c.class, c(str, str2, 1));
-        if (!callOnMainWithContentProvider.isOk()) {
+    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
+    protected boolean onExec() {
+        if (!com.baidu.swan.bdprivate.a.a.isLogin(getAgent())) {
+            com.baidu.swan.bdprivate.a.a.a(getAgent(), (Bundle) null, new com.baidu.swan.apps.a.a() { // from class: com.baidu.swan.bdprivate.b.a.1
+                @Override // com.baidu.swan.apps.a.a
+                public void onResult(int i) {
+                    if (i == 0) {
+                        a.this.auK();
+                        return;
+                    }
+                    a.this.mResult.putString(TiebaInitialize.LogFields.ERROR_MESSAGE, "login failed");
+                    a.this.finish();
+                }
+            });
             return false;
         }
-        return callOnMainWithContentProvider.mResult.getBoolean("result");
+        auK();
+        return false;
     }
 
-    @Override // com.baidu.swan.apps.setting.oauth.g, com.baidu.searchbox.http.cookie.CookieManager
-    public boolean shouldSendCookie(String str, String str2) {
-        if (ProcessUtils.isMainProcess()) {
-            return this.bKE.shouldSendCookie(str, str2);
-        }
-        DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), c.class, c(str, str2, 2));
-        if (!callOnMainWithContentProvider.isOk()) {
-            return false;
-        }
-        return callOnMainWithContentProvider.mResult.getBoolean("result");
+    /* JADX INFO: Access modifiers changed from: private */
+    public void auK() {
+        com.baidu.swan.bdprivate.a.a.a(getAgent(), new InterfaceC0408a() { // from class: com.baidu.swan.bdprivate.b.a.2
+            @Override // com.baidu.swan.bdprivate.b.a.InterfaceC0408a
+            public void hg(String str) {
+                if (TextUtils.isEmpty(str)) {
+                    a.this.mResult.putString(TiebaInitialize.LogFields.ERROR_MESSAGE, "addressId == null");
+                    a.this.finish();
+                }
+                a.this.pY(str);
+            }
+
+            @Override // com.baidu.swan.bdprivate.b.a.InterfaceC0408a
+            public void auM() {
+                a.this.mResult.putString(TiebaInitialize.LogFields.ERROR_MESSAGE, "choose addressId failed");
+                a.this.finish();
+            }
+        });
     }
 
-    @Override // com.baidu.swan.apps.setting.oauth.g, com.baidu.searchbox.http.cookie.CookieManager
-    public void storeCookie(String str, List<String> list) {
-        if (ProcessUtils.isMainProcess()) {
-            this.bKE.storeCookie(str, list);
-            return;
-        }
-        Bundle bundle = new Bundle();
-        bundle.putInt("type", 3);
-        bundle.putString("param1", str);
-        bundle.putStringArrayList("param2", (ArrayList) list);
-        DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), c.class, bundle);
-        if (DEBUG) {
-            Log.d("DelegationCookieManager", "set cookies for " + str);
-        }
+    /* JADX INFO: Access modifiers changed from: private */
+    public void pY(String str) {
+        com.baidu.swan.c.c.a.aFx().getRequest().url(com.baidu.swan.apps.h.c.processCommonParams(auL())).addUrlParam("addr_id", str).cookieManager(com.baidu.swan.apps.u.a.afo().SM()).build().executeAsync(new ResponseCallback<JSONObject>() { // from class: com.baidu.swan.bdprivate.b.a.3
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.searchbox.http.callback.ResponseCallback
+            /* renamed from: a */
+            public JSONObject parseResponse(Response response, int i) throws Exception {
+                if (response == null || response.body() == null) {
+                    return null;
+                }
+                return t.parseString(response.body().string());
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.searchbox.http.callback.ResponseCallback
+            /* renamed from: b */
+            public void onSuccess(JSONObject jSONObject, int i) {
+                JSONObject optJSONObject;
+                if (jSONObject != null && jSONObject.optInt(BaseJsonData.TAG_ERRNO, -1) == 0 && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
+                    a.this.mResult.putString("address_info", optJSONObject.toString());
+                    a.this.finish();
+                    return;
+                }
+                a.this.mResult.putString(TiebaInitialize.LogFields.ERROR_MESSAGE, "GetAddressInfoResponse == null");
+                a.this.finish();
+            }
+
+            @Override // com.baidu.searchbox.http.callback.ResponseCallback
+            public void onFail(Exception exc) {
+                a.this.mResult.putString(TiebaInitialize.LogFields.ERROR_MESSAGE, exc.getMessage());
+                a.this.finish();
+            }
+        });
     }
 
-    @Override // com.baidu.swan.apps.setting.oauth.g, com.baidu.searchbox.http.cookie.CookieManager
-    public String getCookie(String str) {
-        if (ProcessUtils.isMainProcess()) {
-            return this.bKE.getCookie(str);
-        }
-        DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), c.class, c(str, "", 4));
-        if (!callOnMainWithContentProvider.isOk()) {
-            return "";
-        }
-        String string = callOnMainWithContentProvider.mResult.getString("result");
-        if (DEBUG) {
-            Log.d("DelegationCookieManager", "getCookie cookie : " + string);
-            return string;
-        }
-        return string;
-    }
-
-    private Bundle c(String str, String str2, int i) {
-        Bundle bundle = new Bundle();
-        bundle.putInt("type", i);
-        bundle.putString("param1", str);
-        bundle.putString("param2", str2);
-        return bundle;
+    public static String auL() {
+        return String.format("%s/ma/address/detail", "https://mbd.baidu.com");
     }
 }

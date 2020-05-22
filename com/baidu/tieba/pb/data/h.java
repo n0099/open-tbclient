@@ -1,79 +1,32 @@
 package com.baidu.tieba.pb.data;
 
-import java.util.List;
-import tbclient.ManagerElection;
+import android.support.v7.widget.ActivityChooserView;
+import tbclient.PbPage.ForumHeadlineImgInfo;
 /* loaded from: classes9.dex */
 public class h {
-    private boolean gje;
-    private int jor;
-    private int jos;
-    private List<String> jot;
-    private List<String> jou;
-    private List<String> jov;
-    private String jow;
-    private boolean jox;
-    private int joy;
-    private int status;
+    private long dCd = 0;
+    private String dCe = "";
+    private String imgUrl = "";
+    private int jET = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+    private String jEU = "";
+    private String azz = "";
 
-    public static h b(ManagerElection managerElection) {
-        if (managerElection == null) {
-            return null;
+    public void a(ForumHeadlineImgInfo forumHeadlineImgInfo) {
+        if (forumHeadlineImgInfo != null) {
+            this.dCd = forumHeadlineImgInfo.img_user_id.longValue();
+            this.dCe = forumHeadlineImgInfo.img_user_name;
+            this.imgUrl = forumHeadlineImgInfo.img_url;
+            this.jET = forumHeadlineImgInfo.rank_num.intValue();
+            this.jEU = forumHeadlineImgInfo.rank_up_info;
+            this.azz = forumHeadlineImgInfo.rank_url;
         }
-        h hVar = new h();
-        hVar.jos = managerElection.begin_vote_time.intValue();
-        hVar.gje = managerElection.can_vote.intValue() == 1;
-        hVar.jor = managerElection.vote_num.intValue();
-        hVar.jox = managerElection.is_show_distribute.intValue() == 1;
-        hVar.joy = managerElection.remainder_time.intValue();
-        hVar.status = managerElection.status.intValue();
-        hVar.jow = managerElection.tail_text;
-        hVar.jot = managerElection.vote_condition_pic;
-        hVar.jou = managerElection.vote_condition_title;
-        hVar.jov = managerElection.vote_condition;
-        return hVar;
     }
 
-    public int getStatus() {
-        return this.status;
+    public String cCO() {
+        return this.azz;
     }
 
-    public boolean cvW() {
-        return this.jox;
-    }
-
-    public int cvX() {
-        return this.joy;
-    }
-
-    public int cvY() {
-        return this.jor;
-    }
-
-    public List<String> cvZ() {
-        return this.jou;
-    }
-
-    public List<String> cwa() {
-        return this.jov;
-    }
-
-    public String cwb() {
-        return this.jow;
-    }
-
-    public boolean bDU() {
-        return this.gje;
-    }
-
-    public void lm(boolean z) {
-        this.gje = z;
-    }
-
-    public void setStatus(int i) {
-        this.status = i;
-    }
-
-    public void zk(int i) {
-        this.jor = i;
+    public String aOP() {
+        return this.imgUrl;
     }
 }

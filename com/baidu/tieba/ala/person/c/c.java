@@ -13,8 +13,8 @@ import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class c {
     private Context context;
-    private a fXs;
-    private b fXt;
+    private a gmm;
+    private b gmn;
     private boolean hasMore;
     private TbPageContext mTbPageContext;
     private int pn = 0;
@@ -39,8 +39,8 @@ public class c {
 
     public void h(int i, String str, String str2) {
         if (!BdNetTypeUtil.isNetWorkAvailable() || TextUtils.isEmpty(str)) {
-            if (this.fXs != null) {
-                this.fXs.onFail(this.context.getResources().getString(a.i.sdk_no_network));
+            if (this.gmm != null) {
+                this.gmm.onFail(this.context.getResources().getString(a.i.sdk_no_network));
                 return;
             }
             return;
@@ -52,21 +52,21 @@ public class c {
             this.url = TbConfig.SERVER_ADDRESS + "ala/user/followList";
         }
         this.pn++;
-        this.fXt = new b();
-        this.fXt.execute(str, str2);
+        this.gmn = new b();
+        this.gmn.execute(str, str2);
     }
 
     public void cancel() {
-        if (this.fXt != null && !this.fXt.isCancelled()) {
-            this.fXt.cancel();
+        if (this.gmn != null && !this.gmn.isCancelled()) {
+            this.gmn.cancel();
         }
-        if (this.fXs != null) {
-            this.fXs.onFail(null);
+        if (this.gmm != null) {
+            this.gmm.onFail(null);
         }
     }
 
     public void a(a aVar) {
-        this.fXs = aVar;
+        this.gmm = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -98,12 +98,12 @@ public class c {
             netWork.addPostData("tbs", TbadkCoreApplication.getInst().getTbs());
             String postNetData = netWork.postNetData();
             if (netWork.isRequestSuccess()) {
-                String aP = com.baidu.tieba.ala.person.d.a.aP(c.this.type, postNetData);
-                if (TextUtils.isEmpty(aP)) {
+                String aU = com.baidu.tieba.ala.person.d.a.aU(c.this.type, postNetData);
+                if (TextUtils.isEmpty(aU)) {
                     return null;
                 }
                 com.baidu.tieba.ala.person.a.d dVar2 = new com.baidu.tieba.ala.person.a.d();
-                dVar2.parserJson(aP);
+                dVar2.parserJson(aU);
                 c.this.hasMore = dVar2.has_more == 1;
                 if (c.this.type == 1) {
                     c.this.a(str, dVar2);
@@ -118,8 +118,8 @@ public class c {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.live.adp.lib.asynctask.BdAsyncTask
         public void onPostExecute(Object obj) {
-            if (c.this.fXs != null) {
-                c.this.fXs.c((com.baidu.tieba.ala.person.a.d) obj);
+            if (c.this.gmm != null) {
+                c.this.gmm.c((com.baidu.tieba.ala.person.a.d) obj);
             }
         }
     }
@@ -130,7 +130,7 @@ public class c {
             for (com.baidu.tieba.ala.person.a.b bVar : dVar.user_list) {
                 String currentAccount = TbadkCoreApplication.getCurrentAccount();
                 if (currentAccount != null && currentAccount.equals(str)) {
-                    bVar.fqH = 1;
+                    bVar.fEB = 1;
                 }
             }
         }

@@ -14,7 +14,7 @@ final class StringsKt___StringsKt$chunkedSequence$1 extends Lambda implements ko
     /* JADX DEBUG: Method merged with bridge method */
     @Override // kotlin.jvm.a.b
     public final String invoke(CharSequence charSequence) {
-        kotlin.jvm.internal.q.j(charSequence, AdvanceSetting.NETWORK_TYPE);
+        kotlin.jvm.internal.q.m(charSequence, AdvanceSetting.NETWORK_TYPE);
         return charSequence.toString();
     }
 }

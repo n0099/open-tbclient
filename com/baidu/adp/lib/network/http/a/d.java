@@ -57,9 +57,9 @@ public class d {
         }
     }
 
-    public static String kQ() {
-        String kR = kR();
-        return kR + kS();
+    public static String kS() {
+        String kT = kT();
+        return kT + kU();
     }
 
     /* JADX WARN: Removed duplicated region for block: B:20:0x00b0  */
@@ -67,7 +67,7 @@ public class d {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private static String kR() {
+    private static String kT() {
         HttpGet httpGet;
         long currentTimeMillis;
         String str;
@@ -255,7 +255,7 @@ public class d {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private static String kS() {
+    private static String kU() {
         InputStream inputStream;
         Exception e;
         byte[] bArr;

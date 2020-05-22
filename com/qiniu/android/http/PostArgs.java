@@ -7,6 +7,6 @@ public final class PostArgs {
     public byte[] data;
     public File file;
     public String fileName;
-    public StringMap mMa;
     public String mimeType;
+    public StringMap nge;
 }

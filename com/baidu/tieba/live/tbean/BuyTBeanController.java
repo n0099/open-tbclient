@@ -35,8 +35,8 @@ import com.baidu.live.tbadk.pay.channel.interfaces.PayChannelType;
 import com.baidu.live.tbadk.util.PageDialogHelper;
 import com.baidu.live.u.a;
 import com.baidu.live.utils.c;
+import com.baidu.tieba.live.tbean.AbsBuyTBeanView;
 import com.baidu.tieba.live.tbean.BuyTBeanModel;
-import com.baidu.tieba.live.tbean.BuyTBeanView;
 import com.baidu.tieba.live.tbean.data.CustomData;
 import com.baidu.tieba.live.tbean.data.GiftBagWrapperData;
 import com.baidu.tieba.live.tbean.data.IconInfoWrapperData;
@@ -61,7 +61,7 @@ public class BuyTBeanController implements View.OnClickListener, BuyTBeanModel.C
     private BuyTBeanModel mModel;
     private String mOtherParams;
     private String mReferPage;
-    private BuyTBeanView mView;
+    private AbsBuyTBeanView mView;
     private TbPageContext<?> tbPageContext;
     private boolean mIsFromH5 = false;
     private boolean isInputShowing = false;
@@ -88,8 +88,8 @@ public class BuyTBeanController implements View.OnClickListener, BuyTBeanModel.C
             }
         }
     };
-    private BuyTBeanView.OnPayClickListener mOnPayClickListener = new BuyTBeanView.OnPayClickListener() { // from class: com.baidu.tieba.live.tbean.BuyTBeanController.5
-        @Override // com.baidu.tieba.live.tbean.BuyTBeanView.OnPayClickListener
+    private AbsBuyTBeanView.OnPayClickListener mOnPayClickListener = new AbsBuyTBeanView.OnPayClickListener() { // from class: com.baidu.tieba.live.tbean.BuyTBeanController.5
+        @Override // com.baidu.tieba.live.tbean.AbsBuyTBeanView.OnPayClickListener
         public void onClick(IAdapterData iAdapterData, UserInfoData userInfoData) {
             if (iAdapterData instanceof GiftBagWrapperData) {
                 GiftBagWrapperData giftBagWrapperData = (GiftBagWrapperData) iAdapterData;
@@ -150,7 +150,7 @@ public class BuyTBeanController implements View.OnClickListener, BuyTBeanModel.C
         this.mGiftBbean = intent.getLongExtra("gift_tbean", 0L);
         this.mIsFromH5 = intent.getBooleanExtra(BuyTBeanActivityConfig.PAY_SOURCE, false);
         this.buyTBeanActivityImpl.showLoadingDialog(this.activity.getString(a.i.sdk_tbn_flist_loading));
-        this.mView = new BuyTBeanView(this.tbPageContext, this, booleanExtra, booleanExtra2, this.isTBeanNotEnough);
+        this.mView = BuyTBeanViewFactory.buildBuyTBeanView(this.tbPageContext, this, booleanExtra, booleanExtra2, this.isTBeanNotEnough);
         this.mView.hideRootView();
         this.mView.setOtherParams(this.mOtherParams);
         this.mView.setOnPayClickListener(this.mOnPayClickListener);
@@ -178,10 +178,12 @@ public class BuyTBeanController implements View.OnClickListener, BuyTBeanModel.C
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view.getId() == a.g.tbean_get_introduce || view.getId() == a.g.sdk_tbn_t_dou_introduce_activity_right_button) {
-            UrlManager.getInstance().dealOneLink(this.tbPageContext, new String[]{"https://tieba.baidu.com/tb/tdou_mobile_quanmin.html"});
+            UrlManager.getInstance().dealOneLink(this.tbPageContext, new String[]{"https://sv.baidu.com/cashliveui/statictHtml.html#/tbeanDesc"});
         } else if (view.getId() == a.g.navigationBarGoBack || view.getId() == a.g.empty_stub_view) {
             processClose();
         } else if (view.getId() == a.g.tbean_dialog_close_btn) {
+            processClose();
+        } else if (view.getId() == a.g.img_back) {
             processClose();
         }
     }
@@ -234,7 +236,7 @@ public class BuyTBeanController implements View.OnClickListener, BuyTBeanModel.C
             String valueOf = String.valueOf(i);
             String valueOf2 = String.valueOf(i2);
             String valueOf3 = String.valueOf(i3);
-            if (!TbadkCoreApplication.getInst().isMobileBaidu() && Build.VERSION.SDK_INT >= 28 && !c.aj(this.activity)) {
+            if (!TbadkCoreApplication.getInst().isMobileBaidu() && Build.VERSION.SDK_INT >= 28 && !c.at(this.activity)) {
                 payWalletActivityConfig = new PayWalletActivityOpaqueConfig(this.activity, 2, "0", str2, valueOf, valueOf2, true, valueOf3, false, PageDialogHelper.PayForm.NOT_SET, getReferPage(), getClickZone(), RequestResponseCode.REQUEST_DO_PAY);
                 if (!TextUtils.isEmpty(this.from)) {
                     ((PayWalletActivityOpaqueConfig) payWalletActivityConfig).setFrom(this.from);
@@ -311,7 +313,7 @@ public class BuyTBeanController implements View.OnClickListener, BuyTBeanModel.C
         return this.mGiftBbean;
     }
 
-    public BuyTBeanView getView() {
+    public AbsBuyTBeanView getView() {
         return this.mView;
     }
 

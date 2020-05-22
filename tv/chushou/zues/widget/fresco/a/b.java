@@ -8,11 +8,11 @@ import android.graphics.Paint;
 import com.facebook.cache.common.g;
 /* loaded from: classes5.dex */
 public class b extends com.facebook.imagepipeline.request.a {
-    private static final b nug = new b();
-    private static final com.facebook.cache.common.b nuf = new g("GrayPostprocessor");
+    private static final b nPd = new b();
+    private static final com.facebook.cache.common.b nPc = new g("GrayPostprocessor");
 
-    public static b dKj() {
-        return nug;
+    public static b dSd() {
+        return nPd;
     }
 
     private b() {
@@ -24,7 +24,7 @@ public class b extends com.facebook.imagepipeline.request.a {
     }
 
     @Override // com.facebook.imagepipeline.request.a
-    public void ad(Bitmap bitmap) {
+    public void af(Bitmap bitmap) {
         Canvas canvas = new Canvas(bitmap);
         Paint paint = new Paint();
         ColorMatrix colorMatrix = new ColorMatrix();
@@ -34,7 +34,7 @@ public class b extends com.facebook.imagepipeline.request.a {
     }
 
     @Override // com.facebook.imagepipeline.request.a, com.facebook.imagepipeline.request.b
-    public com.facebook.cache.common.b dtQ() {
-        return nuf;
+    public com.facebook.cache.common.b dBh() {
+        return nPc;
     }
 }

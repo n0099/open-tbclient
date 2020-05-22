@@ -6,19 +6,19 @@ import com.baidu.ala.player.StreamConfig;
 import java.nio.ByteBuffer;
 /* loaded from: classes10.dex */
 public class b {
-    private static b mhi;
+    private static b mAZ;
     private AudioRecord mAudioRecord;
-    private boolean mhj;
-    private static final int[] mhg = {1, 0, 5, 7, 6};
+    private boolean mBa;
+    private static final int[] mAX = {1, 0, 5, 7, 6};
     public static int SAMPLE_RATE = StreamConfig.Audio.AUDIO_RTC_FREQUENCY_48K;
     public static int SAMPLES_PER_FRAME = 2048;
-    public static int mhh = 24;
+    public static int mAY = 24;
 
     public b() {
         int minBufferSize = AudioRecord.getMinBufferSize(SAMPLE_RATE, 16, 2);
-        int i = SAMPLES_PER_FRAME * mhh;
+        int i = SAMPLES_PER_FRAME * mAY;
         i = i < minBufferSize ? ((minBufferSize / SAMPLES_PER_FRAME) + 1) * SAMPLES_PER_FRAME * 2 : i;
-        for (int i2 : mhg) {
+        for (int i2 : mAX) {
             try {
                 this.mAudioRecord = new AudioRecord(i2, SAMPLE_RATE, 16, 2, i);
                 if (this.mAudioRecord.getState() != 1) {
@@ -31,8 +31,8 @@ public class b {
     }
 
     public void release() {
-        if (!this.mhj) {
-            this.mhj = true;
+        if (!this.mBa) {
+            this.mBa = true;
             if (this.mAudioRecord != null) {
                 this.mAudioRecord.release();
                 this.mAudioRecord = null;
@@ -40,7 +40,7 @@ public class b {
         }
     }
 
-    public int b(@NonNull ByteBuffer byteBuffer, int i) {
+    public int e(@NonNull ByteBuffer byteBuffer, int i) {
         if (this.mAudioRecord == null) {
             return 0;
         }
@@ -49,11 +49,11 @@ public class b {
 
     public void startRecording() {
         if (this.mAudioRecord != null) {
-            if (mhi != null && !mhi.JS()) {
-                mhi.release();
+            if (mAZ != null && !mAZ.LL()) {
+                mAZ.release();
             }
             this.mAudioRecord.startRecording();
-            mhi = this;
+            mAZ = this;
         }
     }
 
@@ -63,11 +63,11 @@ public class b {
         }
     }
 
-    public boolean JS() {
-        return this.mhj;
+    public boolean LL() {
+        return this.mBa;
     }
 
-    public AudioRecord duX() {
+    public AudioRecord dCo() {
         return this.mAudioRecord;
     }
 }

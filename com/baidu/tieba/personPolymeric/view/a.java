@@ -14,11 +14,11 @@ import com.baidu.tieba.R;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes11.dex */
-public class a extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.c> {
-    public ListViewPager iOm;
-    private com.baidu.tieba.personPolymeric.c.c kcY;
-    private C0647a kcZ;
-    private com.baidu.adp.lib.d.b<PersonCommonForumItemView> kda;
+public class a extends com.baidu.tieba.card.b<com.baidu.tieba.personPolymeric.c.c> {
+    public ListViewPager jdn;
+    private com.baidu.tieba.personPolymeric.c.c kuP;
+    private C0700a kuQ;
+    private com.baidu.adp.lib.d.b<PersonCommonForumItemView> kuR;
     private TbPageContext<?> mPageContext;
     private int mSkinType;
     public TextView mTitle;
@@ -26,28 +26,28 @@ public class a extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
     public a(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
         this.mSkinType = 3;
-        this.kcZ = new C0647a();
+        this.kuQ = new C0700a();
         this.mPageContext = tbPageContext;
         View view = getView();
         this.mTitle = (TextView) view.findViewById(R.id.common_forum_title);
-        this.iOm = (ListViewPager) view.findViewById(R.id.common_forum_viewpager);
+        this.jdn = (ListViewPager) view.findViewById(R.id.common_forum_viewpager);
         if ("NX40X".equals(Build.MODEL)) {
             view.setLayerType(2, null);
             if (view instanceof ViewGroup) {
                 ((ViewGroup) view).setClipChildren(true);
             }
         }
-        this.iOm.setOffscreenPageLimit(1);
+        this.jdn.setOffscreenPageLimit(1);
     }
 
-    @Override // com.baidu.tieba.card.a
+    @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
             am.setBackgroundResource(getView(), R.color.cp_bg_line_d);
             am.setViewTextColor(this.mTitle, (int) R.color.cp_cont_d);
-            int childCount = this.iOm.getChildCount();
+            int childCount = this.jdn.getChildCount();
             for (int i2 = 0; i2 < childCount; i2++) {
-                View childAt = this.iOm.getChildAt(i2);
+                View childAt = this.jdn.getChildAt(i2);
                 if (childAt instanceof PersonCommonForumCardView) {
                     ((PersonCommonForumCardView) childAt).onChangeSkinType();
                 }
@@ -56,20 +56,20 @@ public class a extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
         this.mSkinType = i;
     }
 
-    @Override // com.baidu.tieba.card.a
+    @Override // com.baidu.tieba.card.b
     public int getLayout() {
         return R.layout.person_info_common_forum_layout;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.card.a
+    @Override // com.baidu.tieba.card.b
     public void a(com.baidu.tieba.personPolymeric.c.c cVar) {
         if (b(cVar)) {
-            this.kcY = cVar;
-            if (v.getCount(cVar.kaO) <= 2) {
-                this.iOm.getLayoutParams().height = com.baidu.adp.lib.util.l.getDimens(this.mPageContext.getPageActivity(), R.dimen.ds140);
+            this.kuP = cVar;
+            if (v.getCount(cVar.ksG) <= 2) {
+                this.jdn.getLayoutParams().height = com.baidu.adp.lib.util.l.getDimens(this.mPageContext.getPageActivity(), R.dimen.ds140);
             }
-            this.iOm.setAdapter(this.kcZ);
+            this.jdn.setAdapter(this.kuQ);
         }
         onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
@@ -81,16 +81,16 @@ public class a extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.personPolymeric.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public class C0647a extends PagerAdapter {
-        private C0647a() {
+    public class C0700a extends PagerAdapter {
+        private C0700a() {
         }
 
         @Override // android.support.v4.view.PagerAdapter
         public int getCount() {
-            if (a.this.kcY == null || v.isEmpty(a.this.kcY.kaO)) {
+            if (a.this.kuP == null || v.isEmpty(a.this.kuP.ksG)) {
                 return 0;
             }
-            return a.this.kcY.kaO.size() % 4 == 0 ? a.this.kcY.kaO.size() / 4 : (a.this.kcY.kaO.size() / 4) + 1;
+            return a.this.kuP.ksG.size() % 4 == 0 ? a.this.kuP.ksG.size() / 4 : (a.this.kuP.ksG.size() / 4) + 1;
         }
 
         @Override // android.support.v4.view.PagerAdapter
@@ -109,13 +109,13 @@ public class a extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
 
         @Override // android.support.v4.view.PagerAdapter
         public Object instantiateItem(ViewGroup viewGroup, int i) {
-            List<com.baidu.tieba.personPolymeric.c.f> AN = a.this.AN(i);
-            if (v.isEmpty(AN)) {
+            List<com.baidu.tieba.personPolymeric.c.f> By = a.this.By(i);
+            if (v.isEmpty(By)) {
                 return null;
             }
             PersonCommonForumCardView personCommonForumCardView = new PersonCommonForumCardView(a.this.mPageContext.getPageActivity());
-            personCommonForumCardView.setForumItemViewBdObjectPool(a.this.kda);
-            personCommonForumCardView.setData(AN);
+            personCommonForumCardView.setForumItemViewBdObjectPool(a.this.kuR);
+            personCommonForumCardView.setData(By);
             personCommonForumCardView.setVerticalSpacing(TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.tbds42));
             viewGroup.addView(personCommonForumCardView);
             return personCommonForumCardView;
@@ -123,8 +123,8 @@ public class a extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public List<com.baidu.tieba.personPolymeric.c.f> AN(int i) {
-        if (this.kcY == null || v.isEmpty(this.kcY.kaO)) {
+    public List<com.baidu.tieba.personPolymeric.c.f> By(int i) {
+        if (this.kuP == null || v.isEmpty(this.kuP.ksG)) {
             return null;
         }
         ArrayList arrayList = new ArrayList();
@@ -134,7 +134,7 @@ public class a extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
             if (i3 >= (i * 4) + 4) {
                 return arrayList;
             }
-            com.baidu.tieba.personPolymeric.c.f fVar = (com.baidu.tieba.personPolymeric.c.f) v.getItem(this.kcY.kaO, i3);
+            com.baidu.tieba.personPolymeric.c.f fVar = (com.baidu.tieba.personPolymeric.c.f) v.getItem(this.kuP.ksG, i3);
             if (fVar != null) {
                 arrayList.add(fVar);
             }
@@ -143,24 +143,24 @@ public class a extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
     }
 
     public void a(com.baidu.adp.lib.d.b<PersonCommonForumItemView> bVar) {
-        this.kda = bVar;
+        this.kuR = bVar;
     }
 
     private boolean b(com.baidu.tieba.personPolymeric.c.c cVar) {
-        if (cVar == null || v.isEmpty(cVar.kaO) || cVar == this.kcY) {
+        if (cVar == null || v.isEmpty(cVar.ksG) || cVar == this.kuP) {
             return false;
         }
-        if (this.kcY == null || v.isEmpty(this.kcY.kaO)) {
+        if (this.kuP == null || v.isEmpty(this.kuP.ksG)) {
             return true;
         }
-        if (v.isEmpty(cVar.kaO)) {
+        if (v.isEmpty(cVar.ksG)) {
             return false;
         }
-        if (cVar.kaO.size() != this.kcY.kaO.size()) {
+        if (cVar.ksG.size() != this.kuP.ksG.size()) {
             return true;
         }
-        for (int i = 0; i < cVar.kaO.size(); i++) {
-            if (this.kcY.kaO.get(i) == null || cVar.kaO.get(i).forumId != this.kcY.kaO.get(i).forumId) {
+        for (int i = 0; i < cVar.ksG.size(); i++) {
+            if (this.kuP.ksG.get(i) == null || cVar.ksG.get(i).forumId != this.kuP.ksG.get(i).forumId) {
                 return true;
             }
         }

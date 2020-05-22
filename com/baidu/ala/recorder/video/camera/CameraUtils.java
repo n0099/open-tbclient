@@ -1,17 +1,31 @@
 package com.baidu.ala.recorder.video.camera;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
+import android.content.Context;
 import android.hardware.Camera;
-import android.os.Environment;
+import android.hardware.camera2.CameraCharacteristics;
+import android.hardware.camera2.CameraManager;
+import android.os.Build;
+import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.ar.arplay.core.engine.pixel.PixelReadParams;
 import com.baidu.live.adp.lib.util.BdLog;
-import java.io.BufferedOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.lang.reflect.Method;
+import java.util.HashMap;
 import java.util.List;
-import tv.danmaku.ijk.media.player.IjkMediaFormat;
+import java.util.Map;
+@TargetApi(16)
 /* loaded from: classes3.dex */
 public class CameraUtils {
+    static final /* synthetic */ boolean $assertionsDisabled;
+    private static final String TAG;
+
+    static {
+        $assertionsDisabled = !CameraUtils.class.desiredAssertionStatus();
+        TAG = CameraUtils.class.getSimpleName();
+    }
+
     public static Camera.Size choosePreviewSize(Camera.Parameters parameters, int i, int i2) {
         List<Camera.Size> supportedPreviewSizes;
         double d;
@@ -107,101 +121,64 @@ public class CameraUtils {
         return ((cameraInfo.orientation - i2) + 360) % 360;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [146=4] */
-    /* JADX WARN: Removed duplicated region for block: B:55:0x005a A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:59:0x005f A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static void createFileWithByte(byte[] bArr) {
-        FileOutputStream fileOutputStream;
-        FileOutputStream fileOutputStream2;
-        BufferedOutputStream bufferedOutputStream = null;
-        File file = new File(Environment.getExternalStorageDirectory(), IjkMediaFormat.CODEC_NAME_H264);
+    public static void setVideoStabilization(Camera.Parameters parameters) {
+        if (parameters.isVideoStabilizationSupported()) {
+            if (!parameters.getVideoStabilization()) {
+                parameters.setVideoStabilization(true);
+                BdLog.d("Enabling video stabilization");
+                return;
+            }
+            return;
+        }
+        BdLog.d("This device does not support video stabilization");
+    }
+
+    public static float getExposureCompensation(Camera camera) {
+        if (camera == null) {
+            return 0.0f;
+        }
         try {
-            if (!file.exists()) {
-                file.createNewFile();
-            }
-            fileOutputStream = new FileOutputStream(file, true);
+            Camera.Parameters parameters = camera.getParameters();
+            float exposureCompensation = parameters.getExposureCompensation();
+            float minExposureCompensation = parameters.getMinExposureCompensation();
+            return (exposureCompensation - minExposureCompensation) / (parameters.getMaxExposureCompensation() - minExposureCompensation);
+        } catch (Exception e) {
+            BdLog.d("getExposureCompensation fail: " + e.getMessage());
+            return 0.0f;
+        }
+    }
+
+    public static void setExposureCompensation(Camera camera, float f) {
+        if (camera != null) {
             try {
-                BufferedOutputStream bufferedOutputStream2 = new BufferedOutputStream(fileOutputStream);
-                try {
-                    bufferedOutputStream2.write(bArr);
-                    bufferedOutputStream2.flush();
-                    if (fileOutputStream != null) {
-                        try {
-                            fileOutputStream.close();
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                    if (bufferedOutputStream2 != null) {
-                        try {
-                            bufferedOutputStream2.close();
-                        } catch (Exception e2) {
-                            e2.printStackTrace();
-                        }
-                    }
-                } catch (Exception e3) {
-                    e = e3;
-                    bufferedOutputStream = bufferedOutputStream2;
-                    fileOutputStream2 = fileOutputStream;
-                    try {
-                        e.printStackTrace();
-                        if (fileOutputStream2 != null) {
-                            try {
-                                fileOutputStream2.close();
-                            } catch (IOException e4) {
-                                e4.printStackTrace();
-                            }
-                        }
-                        if (bufferedOutputStream != null) {
-                            try {
-                                bufferedOutputStream.close();
-                            } catch (Exception e5) {
-                                e5.printStackTrace();
-                            }
-                        }
-                    } catch (Throwable th) {
-                        th = th;
-                        fileOutputStream = fileOutputStream2;
-                        if (fileOutputStream != null) {
-                            try {
-                                fileOutputStream.close();
-                            } catch (IOException e6) {
-                                e6.printStackTrace();
-                            }
-                        }
-                        if (bufferedOutputStream != null) {
-                            try {
-                                bufferedOutputStream.close();
-                            } catch (Exception e7) {
-                                e7.printStackTrace();
-                            }
-                        }
-                        throw th;
-                    }
-                } catch (Throwable th2) {
-                    th = th2;
-                    bufferedOutputStream = bufferedOutputStream2;
-                    if (fileOutputStream != null) {
-                    }
-                    if (bufferedOutputStream != null) {
-                    }
-                    throw th;
-                }
-            } catch (Exception e8) {
-                e = e8;
-                fileOutputStream2 = fileOutputStream;
-            } catch (Throwable th3) {
-                th = th3;
+                Camera.Parameters parameters = camera.getParameters();
+                float minExposureCompensation = parameters.getMinExposureCompensation();
+                parameters.setExposureCompensation((int) (minExposureCompensation + ((parameters.getMaxExposureCompensation() - minExposureCompensation) * f)));
+                camera.setParameters(parameters);
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-        } catch (Exception e9) {
-            e = e9;
-            fileOutputStream2 = null;
-        } catch (Throwable th4) {
-            th = th4;
-            fileOutputStream = null;
+        }
+    }
+
+    public static Map<String, String> getFullCameraParameters(Camera camera) {
+        HashMap hashMap = new HashMap(64);
+        try {
+            Method declaredMethod = camera.getClass().getDeclaredMethod("native_getParameters", new Class[0]);
+            declaredMethod.setAccessible(true);
+            TextUtils.SimpleStringSplitter<String> simpleStringSplitter = new TextUtils.SimpleStringSplitter(';');
+            simpleStringSplitter.setString((String) declaredMethod.invoke(camera, new Object[0]));
+            for (String str : simpleStringSplitter) {
+                int indexOf = str.indexOf(61);
+                if (indexOf != -1) {
+                    hashMap.put(str.substring(0, indexOf), str.substring(indexOf + 1));
+                }
+            }
+            return hashMap;
+        } catch (Exception e) {
+            Log.e(TAG, "ex:", e);
+            Log.e(TAG, "Unable to retrieve parameters from Camera.");
+            return hashMap;
         }
     }
 
@@ -220,5 +197,57 @@ public class CameraUtils {
                 parameters.setFlashMode("off");
             }
         }
+    }
+
+    public static void setFocusModes(Camera.Parameters parameters) {
+        List<String> supportedFocusModes = parameters.getSupportedFocusModes();
+        if (supportedFocusModes.contains("continuous-video")) {
+            parameters.setFocusMode("continuous-video");
+        } else if (supportedFocusModes.contains("continuous-picture")) {
+            parameters.setFocusMode("continuous-picture");
+        } else if (supportedFocusModes.contains("auto")) {
+            parameters.setFocusMode("auto");
+        }
+    }
+
+    public static boolean hasCamera2(Context context) {
+        boolean z;
+        if (context != null && Build.VERSION.SDK_INT >= 21) {
+            try {
+                CameraManager cameraManager = (CameraManager) context.getSystemService(PixelReadParams.DEFAULT_FILTER_ID);
+                if ($assertionsDisabled || cameraManager != null) {
+                    String[] cameraIdList = cameraManager.getCameraIdList();
+                    if (cameraIdList.length == 0) {
+                        z = false;
+                    } else {
+                        int length = cameraIdList.length;
+                        int i = 0;
+                        while (true) {
+                            if (i >= length) {
+                                z = true;
+                                break;
+                            }
+                            String str = cameraIdList[i];
+                            if (str != null && !str.trim().isEmpty()) {
+                                Integer num = (Integer) cameraManager.getCameraCharacteristics(str).get(CameraCharacteristics.INFO_SUPPORTED_HARDWARE_LEVEL);
+                                if (num != null && num.intValue() == 2) {
+                                    z = false;
+                                    break;
+                                }
+                                i++;
+                            } else {
+                                break;
+                            }
+                        }
+                        z = false;
+                    }
+                    return z;
+                }
+                throw new AssertionError();
+            } catch (Exception e) {
+                return false;
+            }
+        }
+        return false;
     }
 }

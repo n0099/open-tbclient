@@ -10,9 +10,9 @@ import android.util.DisplayMetrics;
 /* loaded from: classes.dex */
 public class b {
     public Bitmap bm;
-    public Bundle kUK;
-    public boolean kUL;
-    public boolean kUM;
+    public Bundle lnf;
+    public boolean lnh;
+    public boolean lni;
     private Context mContext;
     public Rect rect;
     private Rect src = new Rect();

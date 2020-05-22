@@ -14,9 +14,9 @@ public class CpuInfo implements INoProGuard {
     public static final int CPU_TYPE_NEON = 1;
     public static final int CPU_TYPE_UNKNOWN = -1;
     public static final int CPU_TYPE_X86 = 3;
-    private static boolean sCheckedCpuInfo = false;
-    private static boolean sSupportNeon = false;
+    private static boolean sCheckedCpuInfo;
     private static int sCpuType = -1;
+    private static boolean sSupportNeon;
 
     public static boolean checkCpuInfo(String str) {
         return checkSysInfo("/proc/cpuinfo", str);

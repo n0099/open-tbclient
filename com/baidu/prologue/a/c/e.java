@@ -14,7 +14,7 @@ public final class e {
 
     /* loaded from: classes6.dex */
     public interface a {
-        void LE();
+        void NR();
     }
 
     public static void c(InputStream inputStream, File file) throws IOException {
@@ -28,19 +28,19 @@ public final class e {
                 j = channel.transferFrom(newChannel, j2, ImageUploadStrategy.FILE_SIZE_4M);
                 j2 += j;
             } finally {
-                k.b(fileOutputStream);
+                k.d(fileOutputStream);
             }
         }
     }
 
     public static void a(final File file, String str, final a aVar) {
-        new Request.a(com.baidu.prologue.a.b.b.getAppContext(), str).MA().Mz().a(new com.baidu.prologue.service.network.l() { // from class: com.baidu.prologue.a.c.e.1
+        new Request.a(com.baidu.prologue.a.b.b.getAppContext(), str).ON().OM().a(new com.baidu.prologue.service.network.l() { // from class: com.baidu.prologue.a.c.e.1
             @Override // com.baidu.prologue.service.network.l
             public void a(long j, InputStream inputStream) {
                 try {
                     e.c(inputStream, file);
                     if (aVar != null) {
-                        aVar.LE();
+                        aVar.NR();
                     }
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -48,13 +48,13 @@ public final class e {
             }
 
             @Override // com.baidu.prologue.service.network.l
-            public void n(Throwable th) {
+            public void o(Throwable th) {
             }
         });
     }
 
-    public static int j(File file) {
-        int j;
+    public static int n(File file) {
+        int n;
         int i = 0;
         if (file.isDirectory()) {
             File[] listFiles = file.listFiles();
@@ -65,17 +65,17 @@ public final class e {
                 while (i2 < length) {
                     File file2 = listFiles[i2];
                     if (file2.isFile()) {
-                        j = file2.delete() ? 1 : 0;
+                        n = file2.delete() ? 1 : 0;
                     } else {
-                        j = j(file2);
+                        n = n(file2);
                     }
                     i2++;
-                    i3 = j + i3;
+                    i3 = n + i3;
                 }
                 i = i3;
             }
             if (!file.delete()) {
-                f.brW.e("FileUtil", "delete dir " + file.getAbsolutePath() + " failed.");
+                f.bzz.e("FileUtil", "delete dir " + file.getAbsolutePath() + " failed.");
             }
         }
         return i;

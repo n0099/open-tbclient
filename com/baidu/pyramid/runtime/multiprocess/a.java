@@ -13,11 +13,11 @@ import java.io.InputStreamReader;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    private static volatile int bur = 0;
+    private static volatile int bBU = 0;
     private static volatile String sProcessName;
 
-    public static int ME() {
-        int i = bur;
+    public static int OR() {
+        int i = bBU;
         if (i == 0) {
             String processName = getProcessName();
             String packageName = e.getAppContext().getPackageName();
@@ -26,13 +26,13 @@ public class a {
             } else {
                 i |= 4;
             }
-            bur = i;
+            bBU = i;
         }
         return i;
     }
 
-    public static boolean MF() {
-        return (ME() & 2) != 0;
+    public static boolean OS() {
+        return (OR() & 2) != 0;
     }
 
     public static String getProcessName() {
@@ -42,7 +42,7 @@ public class a {
                 str = sProcessName;
                 if (str == null) {
                     Context appContext = e.getAppContext();
-                    str = MH();
+                    str = OU();
                     if (str == null && (str = getProcessNameFromAm(appContext)) == null) {
                         str = appContext.getPackageName();
                     }
@@ -53,7 +53,7 @@ public class a {
         return str;
     }
 
-    public static int MG() {
+    public static int OT() {
         Context appContext = e.getAppContext();
         int myPid = Process.myPid();
         List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) appContext.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getRunningAppProcesses();
@@ -87,7 +87,7 @@ public class a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private static String MH() {
+    private static String OU() {
         BufferedReader bufferedReader;
         Exception exc;
         String str;

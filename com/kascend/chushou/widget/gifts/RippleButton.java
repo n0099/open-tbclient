@@ -20,7 +20,6 @@ import java.util.LinkedList;
 public class RippleButton extends FrameLayout implements View.OnClickListener {
     private LinkedList<a> a;
     private Paint b;
-    private View.OnClickListener c;
     private int d;
     private int e;
     private int f;
@@ -29,6 +28,7 @@ public class RippleButton extends FrameLayout implements View.OnClickListener {
     private float i;
     private float j;
     private float k;
+    private View.OnClickListener nbu;
 
     public RippleButton(@NonNull Context context) {
         this(context, null);
@@ -62,7 +62,7 @@ public class RippleButton extends FrameLayout implements View.OnClickListener {
 
     @Override // android.view.View
     public void setOnClickListener(@Nullable View.OnClickListener onClickListener) {
-        this.c = onClickListener;
+        this.nbu = onClickListener;
         this.g.setOnClickListener(this);
     }
 
@@ -98,8 +98,8 @@ public class RippleButton extends FrameLayout implements View.OnClickListener {
             }
         });
         ofFloat.start();
-        if (this.c != null) {
-            this.c.onClick(this);
+        if (this.nbu != null) {
+            this.nbu.onClick(this);
         }
     }
 

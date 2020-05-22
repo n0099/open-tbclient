@@ -1,62 +1,55 @@
 package com.baidu.live.data;
 
-import android.text.TextUtils;
-import com.baidu.live.tbadk.core.data.BaseData;
-import com.baidu.mobstat.Config;
-import com.baidu.searchbox.ugc.model.UgcConstant;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class ao extends BaseData {
-    public List<a> avh;
-    public String avi;
-    public String avj;
-    public String avk;
-    public String avl;
-    public String avm;
-    public String point;
-    public String text;
+public class ao {
+    public int aAa;
+    public String aAb;
+    public int aAc;
+    public int aAd;
+    public int aAe;
+    public int aAf;
+    public String aAg;
+    public String aAh;
+    public String azS;
+    public String azT;
+    public JSONObject azU;
+    public JSONObject azV;
+    public JSONObject azW;
+    public JSONObject azX;
+    public String azY;
+    public String azZ;
 
-    @Override // com.baidu.live.tbadk.core.data.BaseData
-    public void parserJson(JSONObject jSONObject) {
-        int length;
+    public ao(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.text = jSONObject.optString("text");
-            this.point = jSONObject.optString(Config.EVENT_HEAT_POINT);
-            JSONArray optJSONArray = jSONObject.optJSONArray("data");
-            if (optJSONArray != null && (length = optJSONArray.length()) != 0) {
-                this.avh = new ArrayList();
-                for (int i = 0; i < length; i++) {
-                    this.avh.add(new a(optJSONArray.optJSONObject(i)));
-                }
-                this.avi = jSONObject.optString("text_color");
-                if (!TextUtils.isEmpty(this.avi) && this.avi.charAt(0) != '#') {
-                    this.avi = UgcConstant.TOPIC_PATTERN_TAG + this.avi;
-                }
-                this.avj = jSONObject.optString("value_color");
-                if (!TextUtils.isEmpty(this.avj) && this.avj.charAt(0) != '#') {
-                    this.avj = UgcConstant.TOPIC_PATTERN_TAG + this.avj;
-                }
-                this.avk = jSONObject.optString("background_color");
-                if (!TextUtils.isEmpty(this.avk) && this.avk.charAt(0) != '#') {
-                    this.avk = UgcConstant.TOPIC_PATTERN_TAG + this.avk;
-                }
-                this.avl = jSONObject.optString("transparency");
-                this.avm = jSONObject.optString("timer_point_text");
+            this.aAa = jSONObject.optInt("join_amount");
+            this.azS = jSONObject.optString("guard_club_category");
+            this.azT = jSONObject.optString("guard_club_gift_type");
+            this.azU = jSONObject.optJSONObject("club_level_icon_large");
+            this.azV = jSONObject.optJSONObject("club_level_icon_small");
+            this.azW = jSONObject.optJSONObject("member_level_icon");
+            this.azX = jSONObject.optJSONObject("level_discount");
+            JSONObject optJSONObject = jSONObject.optJSONObject("join_club_remind");
+            if (optJSONObject != null) {
+                this.azY = optJSONObject.optString("to_join");
+                this.azZ = optJSONObject.optString("has_join");
             }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class a {
-        public String text;
-        public String value;
-
-        a(JSONObject jSONObject) {
-            this.text = jSONObject.optString("text");
-            this.value = jSONObject.optString("value");
+            JSONObject optJSONObject2 = jSONObject.optJSONObject("join_club_guide");
+            if (optJSONObject2 != null) {
+                this.aAb = optJSONObject2.optString("guide_text");
+                this.aAc = optJSONObject2.optInt("show_times_daily");
+                this.aAd = optJSONObject2.optInt("continue_show_times");
+                this.aAe = optJSONObject2.optInt("condition");
+            }
+            JSONObject optJSONObject3 = jSONObject.optJSONObject("attenuat_conf");
+            if (optJSONObject3 != null) {
+                this.aAf = optJSONObject3.optInt("show_times_daily");
+            }
+            JSONObject optJSONObject4 = jSONObject.optJSONObject("tips_img");
+            if (optJSONObject4 != null) {
+                this.aAg = optJSONObject4.optString("attenuat_tip_img");
+                this.aAh = optJSONObject4.optString("quit_tip_img");
+            }
         }
     }
 }

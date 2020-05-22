@@ -15,7 +15,7 @@ public final class c {
             sb.append(": " + str);
         }
         String sb2 = sb.toString();
-        q.i(sb2, "sb.toString()");
+        q.l((Object) sb2, "sb.toString()");
         return sb2;
     }
 }

@@ -1,35 +1,24 @@
 package com.baidu.swan.games.p;
 
-import kotlin.h;
-@h
+import com.baidu.searchbox.v8engine.V8JavascriptField;
+import com.baidu.searchbox.v8engine.event.JSEvent;
 /* loaded from: classes11.dex */
-public final class b {
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [29=5] */
-    public static final Integer qC(String str) {
-        if (str != null) {
-            switch (str.hashCode()) {
-                case -1727084929:
-                    if (str.equals("menuAttention")) {
-                        return 38;
-                    }
-                    break;
-                case -1554996882:
-                    if (str.equals("menuAbout")) {
-                        return 36;
-                    }
-                    break;
-                case -1538208320:
-                    if (str.equals("menuShare")) {
-                        return 4;
-                    }
-                    break;
-                case 155362205:
-                    if (str.equals("menuAddToLauncher")) {
-                        return 35;
-                    }
-                    break;
-            }
-        }
-        return null;
+public class b extends JSEvent {
+
+    /* loaded from: classes11.dex */
+    public static class a {
+        @V8JavascriptField
+        public long startupTime;
+    }
+
+    public b(long j) {
+        super("appAttach");
+        this.data = bE(j);
+    }
+
+    private Object bE(long j) {
+        a aVar = new a();
+        aVar.startupTime = j;
+        return aVar;
     }
 }

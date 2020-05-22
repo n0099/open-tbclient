@@ -1,5 +1,6 @@
 package com.baidu.fsg.base.utils.reflect;
 
+import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import java.lang.reflect.Method;
 import java.net.SocketException;
 import java.util.ArrayList;
@@ -82,7 +83,7 @@ public class Utils {
         if (exceptionTypes != null || exceptionTypes.length > 0) {
             try {
                 String name = method.getName();
-                boolean z = "accept".equals(name) || "sendto".equals(name);
+                boolean z = UbcStatConstant.ContentType.UBC_TYPE_PK_ACCPET.equals(name) || "sendto".equals(name);
                 if ((th instanceof SocketException) && z) {
                     if (method.getDeclaringClass().getName().indexOf("libcore") >= 0) {
                         return true;

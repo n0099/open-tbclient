@@ -14,8 +14,8 @@ public class q extends c<String> {
 
     @Override // com.baidu.adp.lib.cache.c
     public String onNewNameSpaceCreated(String str) {
-        this.IQ.execSQLNoException("CREATE TABLE IF NOT EXISTS " + this.sharedTableName + "(m_key VARCHAR(64) PRIMARY KEY, m_ns varchar(128), saveTime bigint(21) default 0, lastHitTime bigint(21) default 0, timeToExpire bigint(21) default 0, m_value text)");
-        this.IQ.execSQLNoException("CREATE INDEX if not exists idx_mi_ns ON " + this.sharedTableName + "(m_ns)");
+        this.Jc.execSQLNoException("CREATE TABLE IF NOT EXISTS " + this.sharedTableName + "(m_key VARCHAR(64) PRIMARY KEY, m_ns varchar(128), saveTime bigint(21) default 0, lastHitTime bigint(21) default 0, timeToExpire bigint(21) default 0, m_value text)");
+        this.Jc.execSQLNoException("CREATE INDEX if not exists idx_mi_ns ON " + this.sharedTableName + "(m_ns)");
         return this.sharedTableName;
     }
 
@@ -30,7 +30,7 @@ public class q extends c<String> {
 
     /* JADX WARN: Type inference failed for: r2v17, types: [T, java.lang.String] */
     @Override // com.baidu.adp.lib.cache.c
-    protected g<String> b(SQLiteDatabase sQLiteDatabase, String str) throws Throwable {
+    protected g<String> a(SQLiteDatabase sQLiteDatabase, String str) throws Throwable {
         Cursor cursor;
         Throwable th;
         g<String> gVar = null;
@@ -81,10 +81,10 @@ public class q extends c<String> {
     @Override // com.baidu.adp.lib.cache.c
     protected boolean clearData(String str) {
         try {
-            this.IQ.getOpenedDatabase().delete(this.tableName, "m_ns = ?", new String[]{str});
+            this.Jc.getOpenedDatabase().delete(this.tableName, "m_ns = ?", new String[]{str});
             return true;
         } catch (Throwable th) {
-            this.IQ.notifySQLException(th, "clearData");
+            this.Jc.notifySQLException(th, "clearData");
             return false;
         }
     }

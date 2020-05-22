@@ -14,52 +14,52 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ac {
     private b activityPrizeData;
-    private String asG;
-    private String ass;
-    private String asz;
-    private long bxp;
-    private String dNA;
-    private String dNB;
-    private String dNC;
-    private long dND;
-    private int dNE;
-    private int dNF;
-    private long dNG;
-    private int dNH;
-    private String dNJ;
-    private String dNK;
-    private String dNL;
-    public int dNN;
-    private String dNP;
-    private String dNQ;
-    private int dNR;
-    private int dNS;
-    private int dNT;
-    private int dNU;
-    private long dNV;
-    private boolean dNW;
-    private long dNX;
-    private u dNY;
-    private String dNZ;
-    private String dNv;
-    private String dNw;
-    private String dNx;
-    private String dNy;
-    private String dNz;
-    private String dOd;
-    private String dOf;
-    private int dOg;
-    private long dOh;
-    private long dOi;
-    private w dOk;
-    private boolean dOl;
-    private boolean dOm;
-    private String dOn;
-    private String dOo;
-    private String dOp;
-    private String dOq;
-    private String dOr;
-    private int dOs;
+    private String axG;
+    private String axs;
+    private String axz;
+    private long bES;
+    private String ebM;
+    private String ebN;
+    private String ebO;
+    private String ebP;
+    private String ebQ;
+    private String ebR;
+    private String ebS;
+    private String ebT;
+    private long ebU;
+    private int ebV;
+    private int ebW;
+    private long ebX;
+    private int ebY;
+    private w ecB;
+    private boolean ecC;
+    private boolean ecD;
+    private String ecE;
+    private String ecF;
+    private String ecG;
+    private String ecH;
+    private String ecI;
+    private int ecJ;
+    private String eca;
+    private String ecb;
+    private String ecc;
+    public int ece;
+    private String ecg;
+    private String ech;
+    private int eci;
+    private int ecj;
+    private int eck;
+    private int ecl;
+    private long ecm;
+    private boolean ecn;
+    private long eco;
+    private u ecp;
+    private String ecq;
+    private String ecu;
+    private String ecw;
+    private int ecx;
+    private long ecy;
+    private long ecz;
     private String infoIconUrl;
     private String infoTargetUrl;
     private long infoTimeStamp;
@@ -70,207 +70,211 @@ public class ac {
     private String mSharePanelText;
     private String mWalletSignLink;
     private String uegVoiceWarning;
-    private int dNI = 0;
-    private int dNM = 2;
-    private String dNO = "";
-    private int dOa = 0;
-    private int dOb = 0;
-    private int dOc = 0;
-    private int dOe = 0;
-    private boolean dOj = false;
+    private int ebZ = 0;
+    private int ecd = 2;
+    private String ecf = "";
+    private int ecr = 0;
+    private int ecs = 0;
+    private int ect = 0;
+    private int ecv = 0;
+    private boolean ecA = false;
     private HashMap<Long, String> liveForumMap = new HashMap<>();
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.dNv = jSONObject.optString("drop_pic");
-                this.dNw = jSONObject.optString("drop_pic_md5");
-                this.dNx = jSONObject.optString("drop_pic_num");
-                this.dNy = jSONObject.optString("drop_bg_color_day");
-                this.dNz = jSONObject.optString("drop_bg_color_night");
-                this.dNA = jSONObject.optString("apply_vip_live_room_pid");
-                this.dNJ = jSONObject.optString("max_cache");
-                this.dNK = jSONObject.optString("frs_max_cache");
-                this.dNL = jSONObject.optString("frs_pn");
-                this.dNB = jSONObject.optString("tail_link");
-                this.dNC = jSONObject.optString("bubble_link");
-                this.dND = jSONObject.optLong("use_duration");
-                this.dNE = jSONObject.optInt("xiaoying_time");
-                this.bxp = jSONObject.optLong(TableDefine.UserInfoColumns.COLUMN_UPDATE_TIME, 0L);
-                this.dNQ = jSONObject.optString("url_analyze_text");
-                this.dNF = jSONObject.optInt("new_resign", 0);
-                this.dNG = jSONObject.optLong("personalized_cache_seconds", 3600L);
-                this.dNH = jSONObject.optInt("personalized_max_count", 300);
+                this.ebM = jSONObject.optString("drop_pic");
+                this.ebN = jSONObject.optString("drop_pic_md5");
+                this.ebO = jSONObject.optString("drop_pic_num");
+                this.ebP = jSONObject.optString("drop_bg_color_day");
+                this.ebQ = jSONObject.optString("drop_bg_color_night");
+                this.ebR = jSONObject.optString("apply_vip_live_room_pid");
+                this.eca = jSONObject.optString("max_cache");
+                this.ecb = jSONObject.optString("frs_max_cache");
+                this.ecc = jSONObject.optString("frs_pn");
+                this.ebS = jSONObject.optString("tail_link");
+                this.ebT = jSONObject.optString("bubble_link");
+                this.ebU = jSONObject.optLong("use_duration");
+                this.ebV = jSONObject.optInt("xiaoying_time");
+                this.bES = jSONObject.optLong(TableDefine.UserInfoColumns.COLUMN_UPDATE_TIME, 0L);
+                this.ech = jSONObject.optString("url_analyze_text");
+                this.ebW = jSONObject.optInt("new_resign", 0);
+                this.ebX = jSONObject.optLong("personalized_cache_seconds", 1800L);
+                this.ebY = jSONObject.optInt("personalized_max_count", 300);
                 this.infoIconUrl = jSONObject.optString("info_icon_url");
                 this.infoTimeStamp = jSONObject.optLong("info_time_stamp", 0L);
                 this.infoTargetUrl = jSONObject.optString("info_target_url");
-                this.dNM = jSONObject.optInt("localvideo_open", 2);
-                this.dNN = jSONObject.optInt("card_show_statistic", 200);
-                this.dNO = jSONObject.optString("clean_smart_frs_cookie");
-                com.baidu.tbadk.m.e.aZk().setMaxCostFromServer(jSONObject.optInt("statlog_path_max", 3));
-                this.dNI = jSONObject.optInt("photo_cache_num", 60);
+                this.ecd = jSONObject.optInt("localvideo_open", 2);
+                this.ece = jSONObject.optInt("card_show_statistic", 200);
+                this.ecf = jSONObject.optString("clean_smart_frs_cookie");
+                com.baidu.tbadk.m.e.bfu().setMaxCostFromServer(jSONObject.optInt("statlog_path_max", 3));
+                this.ebZ = jSONObject.optInt("photo_cache_num", 60);
                 this.uegVoiceWarning = jSONObject.optString("ueg_voice_warning");
-                this.dNP = jSONObject.optString("nickname_activity_link");
-                this.dNR = jSONObject.optInt("android_tab_show", 55);
-                this.dNS = jSONObject.optInt("ribao_switch", 0);
-                this.dNT = jSONObject.optInt("default_page", 0);
-                this.dNU = jSONObject.optInt("remember_page", 0);
-                this.dNV = jSONObject.optLong("android_new_log_upload_interval", 0L);
-                this.dNX = jSONObject.optLong("android_boss_new_log_upload_interval", 0L);
-                this.dNW = jSONObject.optInt("android_pasteboard_delaytime", 0) == 1;
-                com.baidu.tbadk.core.sharedPref.b.aNT().putBoolean("KEY_ANDROID_PASTE_BOARD_DELAY_TIME", this.dNW);
+                this.ecg = jSONObject.optString("nickname_activity_link");
+                this.eci = jSONObject.optInt("android_tab_show", 55);
+                this.ecj = jSONObject.optInt("ribao_switch", 0);
+                this.eck = jSONObject.optInt("default_page", 0);
+                this.ecl = jSONObject.optInt("remember_page", 0);
+                this.ecm = jSONObject.optLong("android_new_log_upload_interval", 0L);
+                this.eco = jSONObject.optLong("android_boss_new_log_upload_interval", 0L);
+                this.ecn = jSONObject.optInt("android_pasteboard_delaytime", 0) == 1;
+                com.baidu.tbadk.core.sharedPref.b.aTX().putBoolean("KEY_ANDROID_PASTE_BOARD_DELAY_TIME", this.ecn);
                 JSONObject optJSONObject = jSONObject.optJSONObject("laxin_config");
                 if (optJSONObject != null) {
                     this.activityPrizeData = new b();
                     this.activityPrizeData.parse(optJSONObject);
-                    com.baidu.tbadk.core.sharedPref.b.aNT().putString(SharedPrefConfig.ACTIVITY_PRIZE_DATA + TbadkCoreApplication.getCurrentAccount(), optJSONObject.toString());
+                    com.baidu.tbadk.core.sharedPref.b.aTX().putString(SharedPrefConfig.ACTIVITY_PRIZE_DATA + TbadkCoreApplication.getCurrentAccount(), optJSONObject.toString());
                 }
                 JSONObject optJSONObject2 = jSONObject.optJSONObject("nani_video");
                 if (optJSONObject2 != null) {
-                    this.dNY = new u();
-                    this.dNY.parse(optJSONObject2);
+                    this.ecp = new u();
+                    this.ecp.parse(optJSONObject2);
                 }
                 JSONObject optJSONObject3 = jSONObject.optJSONObject("index_tab_text");
                 if (optJSONObject3 != null && !StringUtils.isNull(optJSONObject3.toString())) {
                     String optString = optJSONObject3.optString(ImageViewerConfig.FROM_CONCERN, "");
                     if (!StringUtils.isNull(optString)) {
-                        com.baidu.tbadk.core.sharedPref.b.aNT().putString("key_concern", optString);
+                        com.baidu.tbadk.core.sharedPref.b.aTX().putString("key_concern", optString);
                     }
                     String optString2 = optJSONObject3.optString("index", "");
                     if (!StringUtils.isNull(optString2)) {
-                        com.baidu.tbadk.core.sharedPref.b.aNT().putString("key_rec", optString2);
+                        com.baidu.tbadk.core.sharedPref.b.aTX().putString("key_rec", optString2);
                     }
                     String optString3 = optJSONObject3.optString("video", "");
                     if (!StringUtils.isNull(optString3)) {
-                        com.baidu.tbadk.core.sharedPref.b.aNT().putString("key_video", optString3);
+                        com.baidu.tbadk.core.sharedPref.b.aTX().putString("key_video", optString3);
                     }
                     String optString4 = optJSONObject3.optString("daily", "");
                     if (!StringUtils.isNull(optString4)) {
-                        com.baidu.tbadk.core.sharedPref.b.aNT().putString("key_daily", optString4);
+                        com.baidu.tbadk.core.sharedPref.b.aTX().putString("key_daily", optString4);
                     }
                     String optString5 = optJSONObject3.optString("live", "");
                     if (!StringUtils.isNull(optString5)) {
-                        com.baidu.tbadk.core.sharedPref.b.aNT().putString("key_live", optString5);
+                        com.baidu.tbadk.core.sharedPref.b.aTX().putString("key_live", optString5);
                     }
                     String optString6 = optJSONObject3.optString(ImageViewerConfig.FROM_GAME_VIDEO, "");
                     if (!StringUtils.isNull(optString6)) {
-                        com.baidu.tbadk.core.sharedPref.b.aNT().putString("key_game_video", optString6);
+                        com.baidu.tbadk.core.sharedPref.b.aTX().putString("key_game_video", optString6);
                     }
                     String optString7 = optJSONObject3.optString("video_tab", "");
                     if (!StringUtils.isNull(optString7)) {
-                        com.baidu.tbadk.core.sharedPref.b.aNT().putString("key_video_tab", optString7);
+                        com.baidu.tbadk.core.sharedPref.b.aTX().putString("key_video_tab", optString7);
                     }
                 }
-                com.baidu.tieba.im.db.n.wT(jSONObject.optInt("android_max_stranger"));
-                this.dOa = jSONObject.optInt("style_ab_switch", 0);
-                this.dOb = jSONObject.optInt("abstract_ab_switch", 0);
-                this.dNZ = jSONObject.optString("android_splash_video");
-                com.baidu.tbadk.core.sharedPref.b.aNT().putString(SharedPrefConfig.KEY_VIDEO_SPLASH_CONFIG, this.dNZ);
-                this.dOc = jSONObject.optInt("android_smart_frs_cache_time", -1);
-                this.dOd = jSONObject.optString("shoubai_regex", "");
-                if (!aq.isEmpty(this.dOd)) {
-                    com.baidu.tbadk.core.sharedPref.b.aNT().putString("key_baidu_password_re", this.dOd);
+                com.baidu.tieba.im.db.n.xz(jSONObject.optInt("android_max_stranger"));
+                this.ecr = jSONObject.optInt("style_ab_switch", 0);
+                this.ecs = jSONObject.optInt("abstract_ab_switch", 0);
+                this.ecq = jSONObject.optString("android_splash_video");
+                com.baidu.tbadk.core.sharedPref.b.aTX().putString(SharedPrefConfig.KEY_VIDEO_SPLASH_CONFIG, this.ecq);
+                this.ect = jSONObject.optInt("android_smart_frs_cache_time", -1);
+                this.ecu = jSONObject.optString("shoubai_regex", "");
+                if (!aq.isEmpty(this.ecu)) {
+                    com.baidu.tbadk.core.sharedPref.b.aTX().putString("key_baidu_password_re", this.ecu);
                 }
-                this.dOf = jSONObject.optString("redpacket_pop", "");
-                if (!aq.isEmpty(this.dOf)) {
-                    com.baidu.tbadk.core.sharedPref.b.aNT().putString("key_redpacket_pop", this.dOf);
+                this.ecw = jSONObject.optString("redpacket_pop", "");
+                if (!aq.isEmpty(this.ecw)) {
+                    com.baidu.tbadk.core.sharedPref.b.aTX().putString("key_redpacket_pop", this.ecw);
                 }
-                this.dOg = jSONObject.optInt("android_video_slide_guide_count", 0);
-                com.baidu.tbadk.core.sharedPref.b.aNT().putInt("key_video_guide_max_count", this.dOg);
-                this.dOe = jSONObject.optInt("android_show_ba_concern", 0);
-                com.baidu.tbadk.core.sharedPref.b.aNT().putInt("key_concern_tab_tips_switch", this.dOe);
-                this.dOh = jSONObject.optInt("dialog_pull_time", 60) * aq.MS_TO_MIN;
-                this.dOi = jSONObject.optInt("android_dialog_lock_show_time", 300) * 1000;
-                this.dOj = jSONObject.optInt("android_show_lock_perm_dialog", 0) == 1;
+                this.ecx = jSONObject.optInt("android_video_slide_guide_count", 0);
+                com.baidu.tbadk.core.sharedPref.b.aTX().putInt("key_video_guide_max_count", this.ecx);
+                this.ecv = jSONObject.optInt("android_show_ba_concern", 0);
+                com.baidu.tbadk.core.sharedPref.b.aTX().putInt("key_concern_tab_tips_switch", this.ecv);
+                this.ecy = jSONObject.optInt("dialog_pull_time", 60) * aq.MS_TO_MIN;
+                this.ecz = jSONObject.optInt("android_dialog_lock_show_time", 300) * 1000;
+                this.ecA = jSONObject.optInt("android_show_lock_perm_dialog", 0) == 1;
                 String optString8 = jSONObject.optString("android_spring_shake", "");
                 if (!StringUtils.isNull(optString8)) {
-                    if (this.dOk == null) {
-                        this.dOk = new w();
+                    if (this.ecB == null) {
+                        this.ecB = new w();
                     }
-                    this.dOk.parserJson(optString8);
-                    com.baidu.tbadk.core.sharedPref.b.aNT().putString("shake_data", optString8);
+                    this.ecB.parserJson(optString8);
+                    com.baidu.tbadk.core.sharedPref.b.aTX().putString("shake_data", optString8);
                 }
                 this.mSharePanelText = jSONObject.optString("share_panel_text", "");
-                com.baidu.tbadk.core.sharedPref.b.aNT().putInt("key_video_play_type", jSONObject.optInt("video_play_type", 0));
-                com.baidu.tbadk.core.sharedPref.b.aNT().putInt("key_video_click_test", jSONObject.optInt("video_click_test", 0));
-                com.baidu.tbadk.core.sharedPref.b.aNT().putInt("key_personalized_refresh_type", jSONObject.optInt("personalized_refresh_type", 0));
+                com.baidu.tbadk.core.sharedPref.b.aTX().putInt("key_video_play_type", jSONObject.optInt("video_play_type", 0));
+                com.baidu.tbadk.core.sharedPref.b.aTX().putInt("key_video_click_test", jSONObject.optInt("video_click_test", 0));
+                com.baidu.tbadk.core.sharedPref.b.aTX().putInt("key_personalized_refresh_type", jSONObject.optInt("personalized_refresh_type", 0));
                 int optInt = jSONObject.optInt("pb_fold_small_flow", 0);
                 if (optInt == 0) {
-                    this.dOl = false;
+                    this.ecC = false;
                 } else if (optInt == 1) {
-                    this.dOl = true;
+                    this.ecC = true;
                 }
-                com.baidu.tbadk.core.sharedPref.b.aNT().putBoolean("pb_fold_small_flow_json", this.dOl);
+                com.baidu.tbadk.core.sharedPref.b.aTX().putBoolean("pb_fold_small_flow_json", this.ecC);
                 int optInt2 = jSONObject.optInt("audit_package_switch", 1);
                 if (optInt2 == 0) {
-                    this.dOm = false;
+                    this.ecD = false;
                 } else if (optInt2 == 1) {
-                    this.dOm = true;
+                    this.ecD = true;
                 }
-                com.baidu.tbadk.core.sharedPref.b.aNT().putBoolean("person_center_show_lite_game", this.dOm);
-                this.dOn = jSONObject.optString("profile_swan_app_key");
-                com.baidu.tbadk.core.sharedPref.b.aNT().putString("profile_swan_app_key", this.dOn);
+                com.baidu.tbadk.core.sharedPref.b.aTX().putBoolean("person_center_show_lite_game", this.ecD);
+                this.ecE = jSONObject.optString("profile_swan_app_key");
+                com.baidu.tbadk.core.sharedPref.b.aTX().putString("profile_swan_app_key", this.ecE);
                 this.mMissionEntranceUrl = jSONObject.optString("android_mission_system_entrance_url");
-                com.baidu.tbadk.core.sharedPref.b.aNT().putString("index_activity_abtest_url", this.mMissionEntranceUrl);
+                com.baidu.tbadk.core.sharedPref.b.aTX().putString("index_activity_abtest_url", this.mMissionEntranceUrl);
                 this.mMissionEntranceIcon = jSONObject.optString("android_mission_system_entrance_icon");
                 this.mWalletSignLink = jSONObject.optString("duxiaoman_sign_link");
-                com.baidu.tbadk.core.sharedPref.b.aNT().putString("index_activity_abtest_icon_url", this.mMissionEntranceIcon);
+                com.baidu.tbadk.core.sharedPref.b.aTX().putString("index_activity_abtest_icon_url", this.mMissionEntranceIcon);
                 this.mHomePageStyleAbTest = jSONObject.optInt("home_page_style_ab_test", 0);
-                com.baidu.tbadk.core.sharedPref.b.aNT().putInt("index_activity_abtest_switch_json", this.mHomePageStyleAbTest);
+                com.baidu.tbadk.core.sharedPref.b.aTX().putInt("index_activity_abtest_switch_json", this.mHomePageStyleAbTest);
                 this.mSampleId = jSONObject.optString("sample_id");
-                com.baidu.tbadk.core.sharedPref.b.aNT().putString("key_ubs_sample_id" + TbadkCoreApplication.getCurrentAccount(), this.mSampleId);
-                r.vC(jSONObject.optString("js_whitelist"));
-                com.baidu.tbadk.l.e.aZg().wU(jSONObject.optString("stat_keys_list"));
+                com.baidu.tbadk.core.sharedPref.b.aTX().putString("key_ubs_sample_id" + TbadkCoreApplication.getCurrentAccount(), this.mSampleId);
+                r.xi(jSONObject.optString("js_whitelist"));
+                com.baidu.tbadk.l.e.bfq().yA(jSONObject.optString("stat_keys_list"));
                 long optLong = jSONObject.optLong("android_plugin_wait_time", 0L);
                 if (optLong > 0) {
-                    com.baidu.tbadk.core.sharedPref.b.aNT().putLong("plugin_wait_time", optLong);
+                    com.baidu.tbadk.core.sharedPref.b.aTX().putLong("plugin_wait_time", optLong);
                 }
-                this.ass = jSONObject.optString("frs_new_live_tab_video_h5", "https://tieba.baidu.com/n/interact/video/game?");
-                com.baidu.tbadk.core.sharedPref.b.aNT().putString("ala_game_frs_live_tab_video_url", this.ass);
-                this.asz = jSONObject.optString("ala_personal_income_detail_url", "https://tieba.baidu.com/mo/q/ala/getUserLives");
-                com.baidu.tbadk.core.sharedPref.b.aNT().putString("ala_personal_income_detail_url", this.asz);
-                this.dOo = jSONObject.optString("ala_personal_privilege_detail_url", "http://lumotian.rmb.rmb.otp.baidu.com/cashliveui/privilege.html");
-                com.baidu.tbadk.core.sharedPref.b.aNT().putString("ala_personal_privilege_detail_url", this.dOo);
+                this.axs = jSONObject.optString("frs_new_live_tab_video_h5", "https://tieba.baidu.com/n/interact/video/game?");
+                com.baidu.tbadk.core.sharedPref.b.aTX().putString("ala_game_frs_live_tab_video_url", this.axs);
+                this.axz = jSONObject.optString("ala_personal_income_detail_url", "https://tieba.baidu.com/mo/q/ala/getUserLives");
+                com.baidu.tbadk.core.sharedPref.b.aTX().putString("ala_personal_income_detail_url", this.axz);
+                this.ecF = jSONObject.optString("ala_personal_privilege_detail_url", "http://lumotian.rmb.rmb.otp.baidu.com/cashliveui/privilege.html");
+                com.baidu.tbadk.core.sharedPref.b.aTX().putString("ala_personal_privilege_detail_url", this.ecF);
                 String optString9 = jSONObject.optString("showlive_forum");
                 if (!StringUtils.isNull(optString9)) {
                     JSONObject jSONObject2 = new JSONObject(optString9);
-                    this.asG = jSONObject2.optString("go_url", "http://tieba.baidu.com/f?kw=百度直播");
-                    com.baidu.tbadk.core.sharedPref.b.aNT().putString("show_live_forum_url", this.asG);
-                    this.dOp = jSONObject2.optString("forum_name", "百度直播");
-                    com.baidu.tbadk.core.sharedPref.b.aNT().putString("show_live_forum_name", this.dOp);
+                    this.axG = jSONObject2.optString("go_url", "http://tieba.baidu.com/f?kw=百度直播");
+                    com.baidu.tbadk.core.sharedPref.b.aTX().putString("show_live_forum_url", this.axG);
+                    this.ecG = jSONObject2.optString("forum_name", "百度直播");
+                    com.baidu.tbadk.core.sharedPref.b.aTX().putString("show_live_forum_name", this.ecG);
                 }
                 String optString10 = jSONObject.optString("user_live_mark_page");
                 if (!StringUtils.isNull(optString10)) {
                     JSONObject jSONObject3 = new JSONObject(optString10);
-                    this.dOq = jSONObject3.optString("mark_introduce_page", "http://ufanzhib0.baiduux.com/h5/xuzhangshuoming.html");
-                    this.dOr = jSONObject3.optString("effect_introduce_page", "http://ufanzhib0.baiduux.com/h5/jinchangtexiaoshuoming.html");
-                    com.baidu.tbadk.core.sharedPref.b.aNT().putString("ala_my_live_privilege_mark_detail_url", this.dOq);
-                    com.baidu.tbadk.core.sharedPref.b.aNT().putString("ala_my_live_privilege_effect_detail_url", this.dOr);
+                    this.ecH = jSONObject3.optString("mark_introduce_page", "http://ufanzhib0.baiduux.com/h5/xuzhangshuoming.html");
+                    this.ecI = jSONObject3.optString("effect_introduce_page", "http://ufanzhib0.baiduux.com/h5/jinchangtexiaoshuoming.html");
+                    com.baidu.tbadk.core.sharedPref.b.aTX().putString("ala_my_live_privilege_mark_detail_url", this.ecH);
+                    com.baidu.tbadk.core.sharedPref.b.aTX().putString("ala_my_live_privilege_effect_detail_url", this.ecI);
                 }
                 String optString11 = jSONObject.optString("credit_conf");
                 if (!StringUtils.isNull(optString11)) {
-                    this.dOs = new JSONObject(optString11).optInt("ucenter_display");
-                    com.baidu.tbadk.core.sharedPref.b.aNT().putInt("baidu_financial_display", this.dOs);
+                    this.ecJ = new JSONObject(optString11).optInt("ucenter_display");
+                    com.baidu.tbadk.core.sharedPref.b.aTX().putInt("baidu_financial_display", this.ecJ);
                 }
                 String optString12 = jSONObject.optString("live_bar");
-                dP(optString12);
-                com.baidu.tbadk.core.sharedPref.b.aNT().putString("ala_live_bar_map_str", optString12);
-                com.baidu.tbadk.core.sharedPref.b.aNT().putInt("key_home_refresh_button_test", jSONObject.optInt("homepage_refresh_test"));
-                com.baidu.tbadk.core.sharedPref.b.aNT().putInt("key_is_show_shoubai_dynamic_guide", jSONObject.optInt("is_show_shoubai_dynamic_guide"));
-                com.baidu.tbadk.core.sharedPref.b.aNT().putInt("chushou_game_tab", jSONObject.optInt("chushou_game_tab_new"));
-                com.baidu.tbadk.core.sharedPref.b.aNT().putBoolean("key_show_vivo_badge", jSONObject.optInt("is_vivo_test_uid") == 1);
+                eu(optString12);
+                com.baidu.tbadk.core.sharedPref.b.aTX().putString("ala_live_bar_map_str", optString12);
+                com.baidu.tbadk.core.sharedPref.b.aTX().putInt("key_home_refresh_button_test", jSONObject.optInt("homepage_refresh_test"));
+                com.baidu.tbadk.core.sharedPref.b.aTX().putInt("key_is_show_shoubai_dynamic_guide", jSONObject.optInt("is_show_shoubai_dynamic_guide"));
+                com.baidu.tbadk.core.sharedPref.b.aTX().putInt("chushou_game_tab", jSONObject.optInt("chushou_game_tab_new"));
+                com.baidu.tbadk.core.sharedPref.b.aTX().putBoolean("key_show_vivo_badge", jSONObject.optInt("is_vivo_test_uid") == 1);
                 x xVar = new x();
                 xVar.parseJson(jSONObject.optJSONObject("share_panel_conf"));
                 TbSingleton.getInstance().setSharePanelConfData(xVar);
+                String optString13 = jSONObject.optString("BackMechanism_sid1");
+                String optString14 = jSONObject.optString("BackMechanism_sid2");
+                com.baidu.tbadk.core.sharedPref.b.aTX().putString("key_pb_back_sid1", optString13);
+                com.baidu.tbadk.core.sharedPref.b.aTX().putString("key_pb_back_sid2", optString14);
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
     }
 
-    private void dP(String str) {
+    private void eu(String str) {
         if (StringUtils.isNull(str)) {
-            str = com.baidu.tbadk.core.sharedPref.b.aNT().getString("ala_live_bar_map_str", "");
+            str = com.baidu.tbadk.core.sharedPref.b.aTX().getString("ala_live_bar_map_str", "");
             if (StringUtils.isNull(str)) {
                 return;
             }
@@ -293,192 +297,192 @@ public class ac {
         }
     }
 
-    public HashMap<Long, String> aSm() {
+    public HashMap<Long, String> aYt() {
         return this.liveForumMap;
     }
 
-    public String aSn() {
-        return this.dNA;
+    public String aYu() {
+        return this.ebR;
     }
 
-    public String aSo() {
-        return this.dNv;
+    public String aYv() {
+        return this.ebM;
     }
 
-    public String aSp() {
-        return this.dNw;
+    public String aYw() {
+        return this.ebN;
     }
 
-    public String aSq() {
-        return this.dNx;
+    public String aYx() {
+        return this.ebO;
     }
 
-    public String aSr() {
-        return this.dNy;
+    public String aYy() {
+        return this.ebP;
     }
 
-    public String aSs() {
-        return this.dNz;
+    public String aYz() {
+        return this.ebQ;
     }
 
-    public String aSt() {
-        return this.dNJ;
+    public String aYA() {
+        return this.eca;
     }
 
-    public String aSu() {
-        return this.dNK;
+    public String aYB() {
+        return this.ecb;
     }
 
-    public String aSv() {
-        return this.dNL;
+    public String aYC() {
+        return this.ecc;
     }
 
-    public String aSw() {
-        return this.dNB;
+    public String aYD() {
+        return this.ebS;
     }
 
-    public String aSx() {
-        return this.dNC;
+    public String aYE() {
+        return this.ebT;
     }
 
-    public long aSy() {
-        return this.dND;
+    public long aYF() {
+        return this.ebU;
     }
 
-    public int aSz() {
-        return this.dNE;
+    public int aYG() {
+        return this.ebV;
     }
 
-    public long aSA() {
-        return this.bxp;
+    public long aYH() {
+        return this.bES;
     }
 
-    public int aSB() {
-        return this.dNR;
+    public int aYI() {
+        return this.eci;
     }
 
-    public int aSC() {
-        return this.dNS;
+    public int aYJ() {
+        return this.ecj;
     }
 
-    public int aSD() {
-        return this.dNT;
+    public int aYK() {
+        return this.eck;
     }
 
-    public int aSE() {
-        return this.dNU;
+    public int aYL() {
+        return this.ecl;
     }
 
-    public long aSF() {
-        return this.dNG;
+    public long aYM() {
+        return this.ebX;
     }
 
-    public int aSG() {
-        return this.dNH;
+    public int aYN() {
+        return this.ebY;
     }
 
-    public int aSH() {
-        return this.dNF;
+    public int aYO() {
+        return this.ebW;
     }
 
-    public String aSI() {
+    public String aYP() {
         return this.infoIconUrl;
     }
 
-    public String aSJ() {
+    public String aYQ() {
         return this.infoTargetUrl;
     }
 
-    public long aSK() {
+    public long aYR() {
         return this.infoTimeStamp;
     }
 
-    public String aSL() {
-        return this.dNO;
+    public String aYS() {
+        return this.ecf;
     }
 
-    public boolean aSM() {
-        return this.dNM == 1;
+    public boolean aYT() {
+        return this.ecd == 1;
     }
 
-    public int aSN() {
-        return this.dNI;
+    public int aYU() {
+        return this.ebZ;
     }
 
     public String getUegVoiceWarning() {
         return this.uegVoiceWarning;
     }
 
-    public String aSO() {
-        return this.dNP;
+    public String aYV() {
+        return this.ecg;
     }
 
-    public String aSP() {
-        return this.dNQ;
+    public String aYW() {
+        return this.ech;
     }
 
-    public long aSQ() {
-        return this.dNV;
+    public long aYX() {
+        return this.ecm;
     }
 
-    public boolean aSR() {
-        return this.dNW;
+    public boolean aYY() {
+        return this.ecn;
     }
 
-    public long aSS() {
-        return this.dNX;
+    public long aYZ() {
+        return this.eco;
     }
 
     public b getActivityPrizeData() {
         return this.activityPrizeData;
     }
 
-    public int aST() {
-        return this.dOa;
+    public int aZa() {
+        return this.ecr;
     }
 
-    public int aSU() {
-        return this.dOb;
+    public int aZb() {
+        return this.ecs;
     }
 
-    public u aSV() {
-        return this.dNY;
+    public u aZc() {
+        return this.ecp;
     }
 
-    public int aSW() {
-        return this.dOc;
+    public int aZd() {
+        return this.ect;
     }
 
-    public long aSX() {
-        return this.dOh;
+    public long aZe() {
+        return this.ecy;
     }
 
-    public long aSY() {
-        return this.dOi;
+    public long aZf() {
+        return this.ecz;
     }
 
-    public boolean aSZ() {
-        return this.dOj;
+    public boolean aZg() {
+        return this.ecA;
     }
 
-    public w aTa() {
-        return this.dOk;
+    public w aZh() {
+        return this.ecB;
     }
 
     public String getSharePanelText() {
         return this.mSharePanelText;
     }
 
-    public boolean aTb() {
-        return this.dOl;
+    public boolean aZi() {
+        return this.ecC;
     }
 
-    public boolean aTc() {
-        return this.dOm;
+    public boolean aZj() {
+        return this.ecD;
     }
 
-    public String aTd() {
-        return this.dOn;
+    public String aZk() {
+        return this.ecE;
     }
 
     public String getMissionEntranceUrl() {

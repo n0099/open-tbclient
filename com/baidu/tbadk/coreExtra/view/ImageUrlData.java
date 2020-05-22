@@ -12,11 +12,13 @@ public class ImageUrlData extends OrmObject implements Serializable, Comparable<
     private static final long serialVersionUID = 2037469186418617574L;
     public AgreeData agreeData;
     public String commentNum;
+    public String from;
     public String id;
     public String imageUrl;
     public boolean isBlockedPic;
     public boolean isFirstPost;
     private String mSourceImageRectInScreenStr;
+    public String nid;
     public String originalUrl;
     public String qrInfo;
     public String richTextArray;

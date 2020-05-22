@@ -11,9 +11,9 @@ public class m extends a {
     public void parseJson(JSONArray jSONArray) {
         try {
             if (jSONArray.length() == 4) {
-                int C = com.baidu.swan.apps.as.af.C((float) jSONArray.optDouble(0));
-                int C2 = com.baidu.swan.apps.as.af.C((float) jSONArray.optDouble(1));
-                this.mRect = new Rect(C, C2, com.baidu.swan.apps.as.af.C((float) jSONArray.optDouble(2)) + C, com.baidu.swan.apps.as.af.C((float) jSONArray.optDouble(3)) + C2);
+                int B = com.baidu.swan.apps.aq.ag.B((float) jSONArray.optDouble(0));
+                int B2 = com.baidu.swan.apps.aq.ag.B((float) jSONArray.optDouble(1));
+                this.mRect = new Rect(B, B2, com.baidu.swan.apps.aq.ag.B((float) jSONArray.optDouble(2)) + B, com.baidu.swan.apps.aq.ag.B((float) jSONArray.optDouble(3)) + B2);
             }
         } catch (Exception e) {
             if (com.baidu.swan.apps.b.DEBUG) {

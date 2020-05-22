@@ -1,6 +1,7 @@
 package com.baidu.live.tbadk.util;
 
 import android.os.Bundle;
+import android.text.TextUtils;
 import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.adp.lib.util.StringUtils;
 import com.baidu.live.tbadk.core.util.StringHelper;
@@ -8,6 +9,7 @@ import com.baidu.webkit.internal.ETAG;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLDecoder;
+import java.util.Map;
 /* loaded from: classes3.dex */
 public class WebviewHelper {
     public static final String TAG = "WebviewHelper";
@@ -152,6 +154,30 @@ public class WebviewHelper {
             sb.append("page_type");
             sb.append(ETAG.EQUAL);
             sb.append("open_full_screen_opacity_web_page");
+            return sb.toString();
+        }
+        return str;
+    }
+
+    public static String addQueryParams(String str, Map<String, Object> map) {
+        if (!TextUtils.isEmpty(str) && map != null && !map.isEmpty()) {
+            StringBuilder sb = new StringBuilder(str);
+            if (str.contains("?")) {
+                sb.append(ETAG.ITEM_SEPARATOR);
+            } else {
+                sb.append("?");
+            }
+            for (Map.Entry<String, Object> entry : map.entrySet()) {
+                if (!TextUtils.isEmpty(entry.getKey())) {
+                    sb.append(entry.getKey());
+                    sb.append(ETAG.EQUAL);
+                    sb.append(entry.getValue() != null ? entry.getValue() : "");
+                    sb.append(ETAG.ITEM_SEPARATOR);
+                }
+            }
+            if (sb.charAt(sb.length() - 1) == '&') {
+                sb.deleteCharAt(sb.length() - 1);
+            }
             return sb.toString();
         }
         return str;

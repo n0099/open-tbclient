@@ -192,17 +192,17 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a implements Comparator<Map.Entry<String, Object>> {
-        private SORT Hz;
+        private SORT HK;
 
         public a(SORT sort) {
-            this.Hz = null;
-            this.Hz = sort;
+            this.HK = null;
+            this.HK = sort;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
         public int compare(Map.Entry<String, Object> entry, Map.Entry<String, Object> entry2) {
-            return this.Hz == SORT.ASCEND ? entry.getKey().compareTo(entry2.getKey()) : entry2.getKey().compareTo(entry.getKey());
+            return this.HK == SORT.ASCEND ? entry.getKey().compareTo(entry2.getKey()) : entry2.getKey().compareTo(entry.getKey());
         }
     }
 

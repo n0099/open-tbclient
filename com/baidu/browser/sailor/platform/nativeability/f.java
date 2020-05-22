@@ -17,39 +17,39 @@ import java.util.List;
 /* loaded from: classes11.dex */
 public final class f {
     final String a = "===" + System.currentTimeMillis() + "===";
-    private HttpURLConnection acK;
-    private OutputStream acL;
-    PrintWriter acM;
+    private HttpURLConnection adb;
+    private OutputStream adc;
+    PrintWriter ade;
     String b;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public f(String str, String str2, String str3) throws IOException {
         this.b = str2;
-        this.acK = (HttpURLConnection) new URL(str).openConnection();
-        this.acK.setUseCaches(false);
-        this.acK.setDoOutput(true);
-        this.acK.setDoInput(true);
-        this.acK.setRequestProperty("Content-Type", "multipart/form-data; mBoundary=" + this.a);
-        this.acK.setRequestProperty("User-Agent", str3);
-        this.acL = this.acK.getOutputStream();
-        this.acM = new PrintWriter((Writer) new OutputStreamWriter(this.acL, str2), true);
+        this.adb = (HttpURLConnection) new URL(str).openConnection();
+        this.adb.setUseCaches(false);
+        this.adb.setDoOutput(true);
+        this.adb.setDoInput(true);
+        this.adb.setRequestProperty("Content-Type", "multipart/form-data; mBoundary=" + this.a);
+        this.adb.setRequestProperty("User-Agent", str3);
+        this.adc = this.adb.getOutputStream();
+        this.ade = new PrintWriter((Writer) new OutputStreamWriter(this.adc, str2), true);
     }
 
     public final List<String> a() throws IOException {
         ArrayList arrayList = new ArrayList();
-        this.acM.append((CharSequence) "\r\n").flush();
-        this.acM.append((CharSequence) ("--" + this.a + "--")).append((CharSequence) "\r\n");
-        this.acM.close();
-        int responseCode = this.acK.getResponseCode();
+        this.ade.append((CharSequence) "\r\n").flush();
+        this.ade.append((CharSequence) ("--" + this.a + "--")).append((CharSequence) "\r\n");
+        this.ade.close();
+        int responseCode = this.adb.getResponseCode();
         if (responseCode != 200) {
             throw new IOException("Server returned non-OK status: " + responseCode);
         }
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(this.acK.getInputStream()));
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(this.adb.getInputStream()));
         while (true) {
             String readLine = bufferedReader.readLine();
             if (readLine == null) {
                 bufferedReader.close();
-                this.acK.disconnect();
+                this.adb.disconnect();
                 return arrayList;
             }
             arrayList.add(readLine);
@@ -58,24 +58,24 @@ public final class f {
 
     public final void a(String str, File file) throws IOException {
         String name = file.getName();
-        this.acM.append((CharSequence) ("--" + this.a)).append((CharSequence) "\r\n");
-        this.acM.append((CharSequence) ("Content-Disposition: form-data; name=\"" + str + "\"; filename=\"" + name + "\"")).append((CharSequence) "\r\n");
-        this.acM.append((CharSequence) ("Content-Type: " + URLConnection.guessContentTypeFromName(name))).append((CharSequence) "\r\n");
-        this.acM.append((CharSequence) "Content-Transfer-Encoding: binary").append((CharSequence) "\r\n");
-        this.acM.append((CharSequence) "\r\n");
-        this.acM.flush();
+        this.ade.append((CharSequence) ("--" + this.a)).append((CharSequence) "\r\n");
+        this.ade.append((CharSequence) ("Content-Disposition: form-data; name=\"" + str + "\"; filename=\"" + name + "\"")).append((CharSequence) "\r\n");
+        this.ade.append((CharSequence) ("Content-Type: " + URLConnection.guessContentTypeFromName(name))).append((CharSequence) "\r\n");
+        this.ade.append((CharSequence) "Content-Transfer-Encoding: binary").append((CharSequence) "\r\n");
+        this.ade.append((CharSequence) "\r\n");
+        this.ade.flush();
         FileInputStream fileInputStream = new FileInputStream(file);
         byte[] bArr = new byte[4096];
         while (true) {
             int read = fileInputStream.read(bArr);
             if (read == -1) {
-                this.acL.flush();
+                this.adc.flush();
                 fileInputStream.close();
-                this.acM.append((CharSequence) "\r\n");
-                this.acM.flush();
+                this.ade.append((CharSequence) "\r\n");
+                this.ade.flush();
                 return;
             }
-            this.acL.write(bArr, 0, read);
+            this.adc.write(bArr, 0, read);
         }
     }
 }

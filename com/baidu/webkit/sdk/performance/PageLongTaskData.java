@@ -9,9 +9,10 @@ public class PageLongTaskData {
     public long mFCP;
     public long mFMP;
     public long mFSP;
-    public ArrayList<Pair<Long, Integer>> mLongTaskList = new ArrayList<>();
     public int mLongTaskSize;
     public long mNavigationStart;
     public long mSameDomNavigation;
     public long mSwapIn;
+    public ArrayList<Pair<Long, Integer>> mLongTaskList = new ArrayList<>();
+    public ArrayList<Pair<Long, Integer>> mIframeLongTaskList = new ArrayList<>();
 }

@@ -55,7 +55,7 @@ public class f implements d {
                 inputStream = context.getContentResolver().openInputStream(uri);
                 this.decoder = BitmapRegionDecoder.newInstance(inputStream, false);
             } finally {
-                com.baidu.swan.d.c.closeSafely(inputStream);
+                com.baidu.swan.e.d.closeSafely(inputStream);
             }
         }
         return new Point(this.decoder.getWidth(), this.decoder.getHeight());
@@ -67,10 +67,10 @@ public class f implements d {
         try {
             inputStream = k(bitmap);
             this.decoder = BitmapRegionDecoder.newInstance(inputStream, false);
-            com.baidu.swan.d.c.closeSafely(inputStream);
+            com.baidu.swan.e.d.closeSafely(inputStream);
             return new Point(this.decoder.getWidth(), this.decoder.getHeight());
         } catch (Throwable th) {
-            com.baidu.swan.d.c.closeSafely(inputStream);
+            com.baidu.swan.e.d.closeSafely(inputStream);
             throw th;
         }
     }

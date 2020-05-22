@@ -10,9 +10,9 @@ import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes3.dex */
 public class AlaPersonCenterFragment extends BaseFragment {
-    private TbPageContext duK;
-    private com.baidu.tieba.ala.personcenter.b.a fYV;
-    private String fYW;
+    private TbPageContext dIF;
+    private com.baidu.tieba.ala.personcenter.b.a gnP;
+    private String gnQ;
     private String mForumId;
     private String mForumName;
 
@@ -24,36 +24,36 @@ public class AlaPersonCenterFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     @Nullable
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
-        this.duK = getPageContext();
-        this.fYV = new com.baidu.tieba.ala.personcenter.b.a(this.duK, true);
-        this.fYV.setForumName(this.mForumName);
-        this.fYV.setForumId(this.mForumId);
-        this.fYV.Bo(this.fYW);
+        this.dIF = getPageContext();
+        this.gnP = new com.baidu.tieba.ala.personcenter.b.a(this.dIF, true);
+        this.gnP.setForumName(this.mForumName);
+        this.gnP.setForumId(this.mForumId);
+        this.gnP.CX(this.gnQ);
         if (getArguments() != null) {
-            this.fYV.f(TbadkCoreApplication.getCurrentAccount(), TbadkCoreApplication.getCurrentAccountName(), TbadkCoreApplication.getCurrentPortrait(), true);
+            this.gnP.f(TbadkCoreApplication.getCurrentAccount(), TbadkCoreApplication.getCurrentAccountName(), TbadkCoreApplication.getCurrentPortrait(), true);
         }
-        return this.fYV.getView();
+        return this.gnP.getView();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
         super.onPrimary();
         if (isPrimary()) {
-            this.fYV.loadData();
+            this.gnP.loadData();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.fYV != null) {
-            this.fYV.onChangeSkinType(i);
+        if (this.gnP != null) {
+            this.gnP.onChangeSkinType(i);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
-        this.fYV.onDestory();
+        this.gnP.onDestory();
         super.onDestroy();
     }
 
@@ -70,8 +70,8 @@ public class AlaPersonCenterFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void changeSkinType(int i) {
         super.changeSkinType(i);
-        if (this.fYV != null) {
-            this.fYV.onChangeSkinType(i);
+        if (this.gnP != null) {
+            this.gnP.onChangeSkinType(i);
         }
     }
 
@@ -86,7 +86,7 @@ public class AlaPersonCenterFragment extends BaseFragment {
     public void setForumGameLabel(String str) {
     }
 
-    public void Bo(String str) {
-        this.fYW = str;
+    public void CX(String str) {
+        this.gnQ = str;
     }
 }

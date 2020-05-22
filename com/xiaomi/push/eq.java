@@ -49,8 +49,8 @@ public final class eq {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m263a(Context context) {
-        return com.xiaomi.push.service.aa.m528a(context, context.getPackageName());
+    public static boolean m265a(Context context) {
+        return com.xiaomi.push.service.aa.m530a(context, context.getPackageName());
     }
 
     public int a() {
@@ -58,12 +58,12 @@ public final class eq {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public eu m264a() {
+    public eu m266a() {
         return this.f302a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m265a() {
+    public String m267a() {
         return this.f303a;
     }
 

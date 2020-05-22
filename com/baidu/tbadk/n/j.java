@@ -3,104 +3,104 @@ package com.baidu.tbadk.n;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 /* loaded from: classes.dex */
 public class j extends l {
-    public static int eef = 100;
-    public static int eeg = 10;
+    public static int ess = 100;
+    public static int est = 10;
 
-    public static void aZw() {
-        if (m.aZy().aZz()) {
-            if (b.eek > eeg) {
-                b.aZs();
+    public static void bfG() {
+        if (m.bfI().bfJ()) {
+            if (b.esx > est) {
+                b.bfC();
             }
-            if (a.eeh > eeg) {
-                a.aZs();
+            if (a.esu > est) {
+                a.bfC();
             }
         }
     }
 
     public static void e(boolean z, boolean z2, boolean z3) {
-        a.eeh++;
+        a.esu++;
         if (z2) {
-            a.eei++;
+            a.esv++;
         } else if (z3) {
-            a.eej++;
+            a.esw++;
         }
-        if (a.eeh > eef) {
-            a.aZs();
+        if (a.esu > ess) {
+            a.bfC();
         }
     }
 
     public void c(f fVar) {
-        if (m.aZy().aZz()) {
-            if (b.eek < eef) {
-                b.eel += fVar.JF;
-                b.eem += fVar.edB;
-                b.een += fVar.edC;
-                b.eeo += fVar.edD;
-                b.eeq += fVar.costTime;
-                b.eep += fVar.edE;
-                b.eek++;
+        if (m.bfI().bfJ()) {
+            if (b.esx < ess) {
+                b.esy += fVar.JP;
+                b.esz += fVar.erO;
+                b.esA += fVar.erP;
+                b.esB += fVar.erQ;
+                b.esD += fVar.costTime;
+                b.esC += fVar.erR;
+                b.esx++;
                 return;
             }
-            b.aZs();
+            b.bfC();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        public static int eeh;
-        public static int eei;
-        public static int eej;
+        public static int esu;
+        public static int esv;
+        public static int esw;
 
-        public static void aZs() {
-            com.baidu.adp.lib.stats.a kW = l.kW();
-            kW.append("action", "imbusy");
-            kW.append("totalNum", String.valueOf(eeh));
-            kW.append("tfailNum", String.valueOf(eei));
-            kW.append("qfailNum", String.valueOf(eej));
-            BdStatisticsManager.getInstance().performance("im", kW);
+        public static void bfC() {
+            com.baidu.adp.lib.stats.a kY = l.kY();
+            kY.append("action", "imbusy");
+            kY.append("totalNum", String.valueOf(esu));
+            kY.append("tfailNum", String.valueOf(esv));
+            kY.append("qfailNum", String.valueOf(esw));
+            BdStatisticsManager.getInstance().performance("im", kY);
             resetData();
         }
 
         public static void resetData() {
-            eeh = 0;
-            eei = 0;
-            eej = 0;
+            esu = 0;
+            esv = 0;
+            esw = 0;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class b {
-        public static int eek;
-        public static long eel;
-        public static long eem;
-        public static long een;
-        public static int eeo;
-        public static int eep;
-        public static long eeq;
+        public static long esA;
+        public static int esB;
+        public static int esC;
+        public static long esD;
+        public static int esx;
+        public static long esy;
+        public static long esz;
 
-        public static void aZs() {
-            com.baidu.adp.lib.stats.a kW = l.kW();
-            kW.append("action", "imcost");
-            kW.append("dect", String.valueOf(eel));
-            kW.append("dlsize", String.valueOf(eem));
-            kW.append("dbt", String.valueOf(een));
-            kW.append("pnum", String.valueOf(eeo));
-            kW.append("reqcost", String.valueOf(eeq));
-            kW.append(com.baidu.fsg.face.base.b.c.i, String.valueOf(eep));
-            kW.append("totalNum", String.valueOf(eek));
-            BdStatisticsManager.getInstance().performance("im", kW);
-            aZx();
+        public static void bfC() {
+            com.baidu.adp.lib.stats.a kY = l.kY();
+            kY.append("action", "imcost");
+            kY.append("dect", String.valueOf(esy));
+            kY.append("dlsize", String.valueOf(esz));
+            kY.append("dbt", String.valueOf(esA));
+            kY.append("pnum", String.valueOf(esB));
+            kY.append("reqcost", String.valueOf(esD));
+            kY.append(com.baidu.fsg.face.base.b.c.i, String.valueOf(esC));
+            kY.append("totalNum", String.valueOf(esx));
+            BdStatisticsManager.getInstance().performance("im", kY);
+            bfH();
         }
 
-        public static void aZx() {
-            eek = 0;
-            eel = 0L;
-            eem = 0L;
-            een = 0L;
-            eeo = 0;
-            eep = 0;
+        public static void bfH() {
+            esx = 0;
+            esy = 0L;
+            esz = 0L;
+            esA = 0L;
+            esB = 0;
+            esC = 0;
         }
     }
 }

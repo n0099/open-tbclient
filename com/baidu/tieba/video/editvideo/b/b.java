@@ -6,104 +6,104 @@ import java.io.File;
 @TargetApi(18)
 /* loaded from: classes10.dex */
 public class b {
-    private String lhk;
-    private a liU;
-    private String liV;
-    private f liW;
-    private d liX;
-    private e liY;
-    private volatile boolean liZ;
-    private volatile boolean lja;
-    private volatile boolean ljb;
+    private a lBF;
+    private String lBG;
+    private f lBH;
+    private d lBI;
+    private e lBJ;
+    private volatile boolean lBK;
+    private volatile boolean lBL;
+    private volatile boolean lBM;
+    private String lzV;
     private Context mContext;
     private String mFilterName;
     private boolean mIsRunning = false;
 
     /* loaded from: classes10.dex */
     public interface a {
-        void LI(String str);
+        void Nv(String str);
 
-        void bu(int i, String str);
+        void bA(int i, String str);
 
-        void bv(int i, String str);
+        void bz(int i, String str);
 
-        void daY();
+        void dim();
     }
 
     public b(Context context, String str, String str2, String str3) {
         this.mContext = context;
-        this.liV = str;
-        this.lhk = str2;
+        this.lBG = str;
+        this.lzV = str2;
         this.mFilterName = str3;
     }
 
-    public void dbe() {
+    public void dis() {
         if (!this.mIsRunning) {
             this.mIsRunning = true;
-            this.liZ = false;
-            this.lja = false;
-            this.ljb = false;
+            this.lBK = false;
+            this.lBL = false;
+            this.lBM = false;
             try {
-                File file = new File(new File(this.lhk).getParent());
+                File file = new File(new File(this.lzV).getParent());
                 if (!file.exists()) {
                     file.mkdirs();
                 }
             } catch (Exception e) {
                 e.printStackTrace();
-                if (this.liU != null) {
-                    this.liU.bu(222, com.baidu.tieba.k.a.s(e));
+                if (this.lBF != null) {
+                    this.lBF.bz(222, com.baidu.tieba.k.a.t(e));
                 }
             }
             try {
-                this.liY = new e(this.lhk);
-                this.liW = new f(this.mContext, this.liV, this.mFilterName, this.liY, this.liU) { // from class: com.baidu.tieba.video.editvideo.b.b.1
+                this.lBJ = new e(this.lzV);
+                this.lBH = new f(this.mContext, this.lBG, this.mFilterName, this.lBJ, this.lBF) { // from class: com.baidu.tieba.video.editvideo.b.b.1
                     @Override // com.baidu.tieba.video.editvideo.b.f
                     public void onPostExecute() {
-                        b.this.liZ = true;
-                        b.this.dbg();
+                        b.this.lBK = true;
+                        b.this.diu();
                     }
                 };
-                this.liW.start();
-                this.liX = new d(this.mContext, this.liV, this.liY, this.liU) { // from class: com.baidu.tieba.video.editvideo.b.b.2
+                this.lBH.start();
+                this.lBI = new d(this.mContext, this.lBG, this.lBJ, this.lBF) { // from class: com.baidu.tieba.video.editvideo.b.b.2
                     @Override // com.baidu.tieba.video.editvideo.b.d
                     public void onPostExecute() {
-                        b.this.lja = true;
-                        b.this.dbg();
+                        b.this.lBL = true;
+                        b.this.diu();
                     }
                 };
-                this.liX.start();
+                this.lBI.start();
             } catch (Exception e2) {
             }
         }
     }
 
-    public void dbf() {
-        if (this.liW != null) {
-            this.liW.interrupt();
-            this.liW = null;
+    public void dit() {
+        if (this.lBH != null) {
+            this.lBH.interrupt();
+            this.lBH = null;
         }
-        if (this.liX != null) {
-            this.liX.interrupt();
-            this.liX = null;
+        if (this.lBI != null) {
+            this.lBI.interrupt();
+            this.lBI = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dbg() {
-        if (this.liZ && this.lja && !this.ljb) {
-            this.liY.stop();
-            this.ljb = true;
-            dbh();
+    public void diu() {
+        if (this.lBK && this.lBL && !this.lBM) {
+            this.lBJ.stop();
+            this.lBM = true;
+            div();
         }
     }
 
-    private void dbh() {
-        if (this.liU != null) {
-            File file = new File(this.lhk);
+    private void div() {
+        if (this.lBF != null) {
+            File file = new File(this.lzV);
             if (file.exists() && file.length() > 0) {
-                this.liU.LI(this.lhk);
+                this.lBF.Nv(this.lzV);
             } else {
-                this.liU.bu(223, "Err empty outputFile");
+                this.lBF.bz(223, "Err empty outputFile");
             }
         }
         this.mIsRunning = false;
@@ -114,6 +114,6 @@ public class b {
     }
 
     public void a(a aVar) {
-        this.liU = aVar;
+        this.lBF = aVar;
     }
 }

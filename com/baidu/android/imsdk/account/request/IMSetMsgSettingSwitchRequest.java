@@ -8,6 +8,7 @@ import com.baidu.android.imsdk.account.ISetMsgSettingSwitchListener;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
 import com.baidu.android.imsdk.utils.BaseHttpRequest;
+import com.baidu.android.imsdk.utils.HttpHelper;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.ar.constants.HttpConstants;
@@ -57,6 +58,11 @@ public class IMSetMsgSettingSwitchRequest extends BaseHttpRequest {
         } catch (Exception e) {
             return null;
         }
+    }
+
+    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
+    public String getContentType() {
+        return HttpHelper.CONTENT_JSON;
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler

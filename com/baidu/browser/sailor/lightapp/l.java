@@ -4,15 +4,15 @@ import android.media.MediaPlayer;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes11.dex */
 public class l implements Runnable {
-    final /* synthetic */ BdLightappKernelJsCallback acA;
-    final /* synthetic */ float acD;
-    final /* synthetic */ BdLightappKernelClient act;
+    final /* synthetic */ BdLightappKernelClient acL;
+    final /* synthetic */ BdLightappKernelJsCallback acR;
+    final /* synthetic */ float acU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(BdLightappKernelClient bdLightappKernelClient, float f, BdLightappKernelJsCallback bdLightappKernelJsCallback) {
-        this.act = bdLightappKernelClient;
-        this.acD = f;
-        this.acA = bdLightappKernelJsCallback;
+        this.acL = bdLightappKernelClient;
+        this.acU = f;
+        this.acR = bdLightappKernelJsCallback;
     }
 
     @Override // java.lang.Runnable
@@ -20,22 +20,22 @@ public class l implements Runnable {
         MediaPlayer mediaPlayer;
         MediaPlayer mediaPlayer2;
         MediaPlayer mediaPlayer3;
-        mediaPlayer = this.act.mMediaPlayer;
+        mediaPlayer = this.acL.mMediaPlayer;
         if (mediaPlayer == null) {
-            this.acA.sendFailCallBack("setVolume Not palying Audio");
+            this.acR.sendFailCallBack("setVolume Not palying Audio");
             return;
         }
         try {
-            mediaPlayer2 = this.act.mMediaPlayer;
+            mediaPlayer2 = this.acL.mMediaPlayer;
             if (mediaPlayer2.isPlaying()) {
-                mediaPlayer3 = this.act.mMediaPlayer;
-                mediaPlayer3.setVolume(this.acD, this.acD);
-                this.acA.sendCallBack("setVolume", "true", true);
+                mediaPlayer3 = this.acL.mMediaPlayer;
+                mediaPlayer3.setVolume(this.acU, this.acU);
+                this.acR.sendCallBack("setVolume", "true", true);
             } else {
-                this.acA.sendFailCallBack(" setVolume Not palying Audio");
+                this.acR.sendFailCallBack(" setVolume Not palying Audio");
             }
         } catch (IllegalStateException e) {
-            this.acA.sendFailCallBack(e.getMessage());
+            this.acR.sendFailCallBack(e.getMessage());
         }
     }
 }

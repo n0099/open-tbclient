@@ -5,10 +5,10 @@ import java.util.NoSuchElementException;
 @kotlin.h
 /* loaded from: classes7.dex */
 public abstract class b<T> implements Iterator<T> {
-    private State mXd = State.NotReady;
-    private T mXe;
+    private State nsf = State.NotReady;
+    private T nsg;
 
-    protected abstract void dDw();
+    protected abstract void dLq();
 
     @Override // java.util.Iterator
     public void remove() {
@@ -17,14 +17,14 @@ public abstract class b<T> implements Iterator<T> {
 
     @Override // java.util.Iterator
     public boolean hasNext() {
-        if (this.mXd != State.Failed) {
-            switch (this.mXd) {
+        if (this.nsf != State.Failed) {
+            switch (this.nsf) {
                 case Done:
                     return false;
                 case Ready:
                     return true;
                 default:
-                    return dDv();
+                    return dLp();
             }
         }
         throw new IllegalArgumentException("Failed requirement.".toString());
@@ -33,26 +33,26 @@ public abstract class b<T> implements Iterator<T> {
     @Override // java.util.Iterator
     public T next() {
         if (hasNext()) {
-            this.mXd = State.NotReady;
-            return this.mXe;
+            this.nsf = State.NotReady;
+            return this.nsg;
         }
         throw new NoSuchElementException();
     }
 
-    private final boolean dDv() {
-        this.mXd = State.Failed;
-        dDw();
-        return this.mXd == State.Ready;
+    private final boolean dLp() {
+        this.nsf = State.Failed;
+        dLq();
+        return this.nsf == State.Ready;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final void bB(T t) {
-        this.mXe = t;
-        this.mXd = State.Ready;
+    public final void bH(T t) {
+        this.nsg = t;
+        this.nsf = State.Ready;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final void done() {
-        this.mXd = State.Done;
+        this.nsf = State.Done;
     }
 }

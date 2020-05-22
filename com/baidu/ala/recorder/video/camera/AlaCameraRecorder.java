@@ -1,5 +1,6 @@
 package com.baidu.ala.recorder.video.camera;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Context;
 import android.content.res.Configuration;
@@ -18,11 +19,11 @@ import com.baidu.ala.recorder.video.VideoFormat;
 import com.baidu.live.adp.lib.util.BdLog;
 import java.util.HashMap;
 import java.util.concurrent.ConcurrentHashMap;
+@TargetApi(16)
 /* loaded from: classes3.dex */
 public class AlaCameraRecorder extends TextureView implements TextureView.SurfaceTextureListener, IFaceUnityOperator, IVideoRecorder, ICameraStatusHandler {
     private static final String LOG_TAG = "ala_camera_recorder";
     private static final int MIN_SURFACE_CHANGE = 10;
-    private boolean bStartAndSurfaceChanged;
     private Activity mActivity;
     private VideoBeautyType mBeautyType;
     private AlaCameraManager mCameraMgr;
@@ -65,7 +66,6 @@ public class AlaCameraRecorder extends TextureView implements TextureView.Surfac
         this.mActivity = null;
         this.mIsPreviewStoped = false;
         this.mHandler = null;
-        this.bStartAndSurfaceChanged = false;
         this.mNeedBeauty = false;
         this.mSurfaceCreated = false;
         this.mBeautyType = VideoBeautyType.BEAUTY_FACEUNITY;
@@ -142,6 +142,13 @@ public class AlaCameraRecorder extends TextureView implements TextureView.Surfac
     }
 
     @Override // com.baidu.ala.recorder.video.IVideoRecorder
+    public void willSwitchSense(int i) {
+        if (this.mCameraMgr != null && this.mCameraMgr.getCameraOperator() != null) {
+            this.mCameraMgr.getCameraOperator().willSwitchSense(i);
+        }
+    }
+
+    @Override // com.baidu.ala.recorder.video.IVideoRecorder
     public VideoFormat getVideoFormat() {
         return (this.mCameraMgr == null || this.mCameraMgr.getCameraOperator() == null) ? VideoFormat.RGBA : this.mCameraMgr.getCameraOperator().getVideoFormat();
     }
@@ -214,6 +221,11 @@ public class AlaCameraRecorder extends TextureView implements TextureView.Surfac
         if (!this.mIsPreviewStoped) {
             startRecord();
         }
+        if (this.mSurfaceWidth > 0 && this.mSurfaceHeight > 0 && (i != this.mSurfaceWidth || i2 != this.mSurfaceHeight)) {
+            onSurfaceTextureSizeChanged(surfaceTexture, i, i2);
+        }
+        this.mSurfaceHeight = i2;
+        this.mSurfaceWidth = i;
     }
 
     @Override // android.view.View
@@ -245,10 +257,7 @@ public class AlaCameraRecorder extends TextureView implements TextureView.Surfac
     @Override // android.view.TextureView.SurfaceTextureListener
     public synchronized void onSurfaceTextureSizeChanged(SurfaceTexture surfaceTexture, int i, int i2) {
         int realScreenOrientation = AlaLiveUtilHelper.getRealScreenOrientation(this.mActivity);
-        this.bStartAndSurfaceChanged = false;
-        if (i == 0 || i2 == 0 || this.mIsPreviewStoped) {
-            this.bStartAndSurfaceChanged = this.mIsPreviewStoped;
-        } else if (i != this.mSurfaceWidth || i2 != this.mSurfaceHeight) {
+        if (i != this.mSurfaceWidth || i2 != this.mSurfaceHeight) {
             if (this.mCameraMgr != null && realScreenOrientation == 2 && i < i2) {
                 i = i2;
                 i2 = i;
@@ -371,9 +380,9 @@ public class AlaCameraRecorder extends TextureView implements TextureView.Surfac
     }
 
     @Override // com.baidu.ala.recorder.IFaceUnityOperator
-    public void onFilterSelected(String str, float f) {
+    public void onFilterSelected(String str, String str2, float f) {
         if (this.mCameraMgr != null && this.mCameraMgr.getFaceUnityOperator() != null) {
-            this.mCameraMgr.getFaceUnityOperator().onFilterSelected(str, f);
+            this.mCameraMgr.getFaceUnityOperator().onFilterSelected(str, str2, f);
         }
     }
 

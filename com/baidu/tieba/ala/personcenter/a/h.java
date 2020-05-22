@@ -15,21 +15,21 @@ import com.baidu.tieba.R;
 import com.baidu.webkit.internal.ETAG;
 /* loaded from: classes3.dex */
 public class h extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.personcenter.c.k, com.baidu.tieba.card.a.a<com.baidu.tieba.ala.personcenter.e.a>> {
-    private TextView eZF;
-    private String fZi;
+    private TextView fmp;
+    private String goc;
     private TbPageContext mPageContext;
     private String user_id;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public h(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.personcenter.c.k.fZO);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.personcenter.c.k.goI);
         this.mPageContext = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: ax */
+    /* renamed from: aG */
     public com.baidu.tieba.card.a.a<com.baidu.tieba.ala.personcenter.e.a> b(ViewGroup viewGroup) {
         return new com.baidu.tieba.card.a.a<>(new com.baidu.tieba.ala.personcenter.e.a(this.mPageContext));
     }
@@ -38,26 +38,26 @@ public class h extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.perso
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.ala.personcenter.c.k kVar, com.baidu.tieba.card.a.a<com.baidu.tieba.ala.personcenter.e.a> aVar) {
-        if (aVar.bFA() == null) {
+        if (aVar.bLU() == null) {
             return null;
         }
-        a(kVar, aVar.bFA());
-        aVar.bFA().getView().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.personcenter.a.h.1
+        a(kVar, aVar.bLU());
+        aVar.bLU().getView().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.personcenter.a.h.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 h.this.click();
             }
         });
-        return aVar.bFA().getView();
+        return aVar.bLU().getView();
     }
 
     private void a(com.baidu.tieba.ala.personcenter.c.k kVar, com.baidu.tieba.ala.personcenter.e.a aVar) {
         com.baidu.tieba.ala.personcenter.c.c personCenterData = kVar.getPersonCenterData();
         if (personCenterData != null && aVar != null) {
-            this.eZF = aVar.bCs();
-            this.user_id = personCenterData.bBU().user_id;
+            this.fmp = aVar.bIM();
+            this.user_id = personCenterData.bIn().user_id;
             a(personCenterData, aVar);
-            aVar.rl(8);
+            aVar.rO(8);
             aVar.setTitle(this.mContext.getResources().getString(R.string.ala_person_live_privilege));
             aVar.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         }
@@ -89,11 +89,11 @@ public class h extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.perso
     /* JADX INFO: Access modifiers changed from: private */
     public void click() {
         AlaSharedPrefHelper.getInstance().putBoolean(AlaSharedPrefConfig.ALA_MY_LIVE_PRIVILEGE_HAS_ENTERED, true);
-        a(this.eZF, this.fZi, false);
+        a(this.fmp, this.goc, false);
         an anVar = new an("c13333");
-        anVar.cI("uid", TbadkApplication.getCurrentAccount());
+        anVar.dh("uid", TbadkApplication.getCurrentAccount());
         TiebaStatic.log(anVar);
-        String string = com.baidu.tbadk.core.sharedPref.b.aNT().getString("ala_personal_privilege_detail_url", "http://lumotian.rmb.rmb.otp.baidu.com/cashliveui/privilege.html");
+        String string = com.baidu.tbadk.core.sharedPref.b.aTX().getString("ala_personal_privilege_detail_url", "http://lumotian.rmb.rmb.otp.baidu.com/cashliveui/privilege.html");
         if (string != null) {
             if (string.endsWith("/")) {
                 string = string.substring(0, string.length() - 1);

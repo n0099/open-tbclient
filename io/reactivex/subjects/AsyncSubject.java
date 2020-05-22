@@ -5,37 +5,37 @@ import io.reactivex.u;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
 public final class AsyncSubject<T> extends b<T> {
-    static final AsyncDisposable[] mWD = new AsyncDisposable[0];
-    static final AsyncDisposable[] mWE = new AsyncDisposable[0];
+    static final AsyncDisposable[] nrG = new AsyncDisposable[0];
+    static final AsyncDisposable[] nrH = new AsyncDisposable[0];
     Throwable error;
     final AtomicReference<AsyncDisposable<T>[]> subscribers;
     T value;
 
     @Override // io.reactivex.u
     public void onSubscribe(io.reactivex.disposables.b bVar) {
-        if (this.subscribers.get() == mWE) {
+        if (this.subscribers.get() == nrH) {
             bVar.dispose();
         }
     }
 
     @Override // io.reactivex.u
     public void onNext(T t) {
-        io.reactivex.internal.functions.a.h(t, "onNext called with null. Null values are generally not allowed in 2.x operators and sources.");
-        if (this.subscribers.get() != mWE) {
+        io.reactivex.internal.functions.a.k(t, "onNext called with null. Null values are generally not allowed in 2.x operators and sources.");
+        if (this.subscribers.get() != nrH) {
             this.value = t;
         }
     }
 
     @Override // io.reactivex.u
     public void onError(Throwable th) {
-        io.reactivex.internal.functions.a.h(th, "onError called with null. Null values are generally not allowed in 2.x operators and sources.");
-        if (this.subscribers.get() == mWE) {
+        io.reactivex.internal.functions.a.k(th, "onError called with null. Null values are generally not allowed in 2.x operators and sources.");
+        if (this.subscribers.get() == nrH) {
             io.reactivex.e.a.onError(th);
             return;
         }
         this.value = null;
         this.error = th;
-        for (AsyncDisposable<T> asyncDisposable : this.subscribers.getAndSet(mWE)) {
+        for (AsyncDisposable<T> asyncDisposable : this.subscribers.getAndSet(nrH)) {
             asyncDisposable.onError(th);
         }
     }
@@ -43,9 +43,9 @@ public final class AsyncSubject<T> extends b<T> {
     @Override // io.reactivex.u
     public void onComplete() {
         int i = 0;
-        if (this.subscribers.get() != mWE) {
+        if (this.subscribers.get() != nrH) {
             T t = this.value;
-            AsyncDisposable<T>[] andSet = this.subscribers.getAndSet(mWE);
+            AsyncDisposable<T>[] andSet = this.subscribers.getAndSet(nrH);
             if (t == null) {
                 int length = andSet.length;
                 while (i < length) {
@@ -91,7 +91,7 @@ public final class AsyncSubject<T> extends b<T> {
         AsyncDisposable<T>[] asyncDisposableArr2;
         do {
             asyncDisposableArr = this.subscribers.get();
-            if (asyncDisposableArr == mWE) {
+            if (asyncDisposableArr == nrH) {
                 return false;
             }
             int length = asyncDisposableArr.length;
@@ -123,7 +123,7 @@ public final class AsyncSubject<T> extends b<T> {
                 }
                 if (i >= 0) {
                     if (length == 1) {
-                        asyncDisposableArr2 = mWD;
+                        asyncDisposableArr2 = nrG;
                     } else {
                         asyncDisposableArr2 = new AsyncDisposable[length - 1];
                         System.arraycopy(asyncDisposableArr, 0, asyncDisposableArr2, 0, i);

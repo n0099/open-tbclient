@@ -9,6 +9,7 @@ import java.util.TreeSet;
 /* loaded from: classes11.dex */
 public class V8Timer implements V8Engine.V8StatusListener {
     static final /* synthetic */ boolean $assertionsDisabled;
+    private static final boolean DEBUG = false;
     static final String TAG = "V8Timer";
     private Handler mUiHandler = null;
     private V8Engine mV8Engine = null;

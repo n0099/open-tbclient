@@ -48,7 +48,7 @@ import com.baidu.adp.plugin.a.a;
 import com.baidu.adp.plugin.pluginBase.PluginBaseActivity;
 import com.baidu.adp.plugin.proxy.ContentResolverProxy;
 import com.baidu.adp.plugin.util.d;
-import com.baidu.adp.widget.ListView.p;
+import com.baidu.adp.widget.ListView.r;
 import com.baidu.megapp.ma.MAActivity;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import java.io.FileDescriptor;
@@ -1604,9 +1604,9 @@ public class ActivityProxy extends MAActivity implements Handler.Callback, f, h,
     }
 
     @Override // com.baidu.adp.base.h
-    public void onPreLoad(p pVar) {
+    public void onPreLoad(r rVar) {
         if (this.mEntity != null) {
-            this.mEntity.onPreLoad(pVar);
+            this.mEntity.onPreLoad(rVar);
         }
     }
 

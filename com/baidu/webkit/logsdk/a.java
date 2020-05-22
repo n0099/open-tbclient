@@ -5,8 +5,8 @@ import android.os.Message;
 import android.text.TextUtils;
 /* loaded from: classes11.dex */
 public final class a {
-    public static boolean a = false;
-    public static boolean b = false;
+    public static boolean a;
+    public static boolean b;
 
     public static void a(String str, String str2) {
         long currentTimeMillis = System.currentTimeMillis();

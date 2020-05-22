@@ -14,19 +14,19 @@ public final class ObservableCombineLatest<T, R> extends q<R> {
     final int bufferSize;
     final h<? super Object[], ? extends R> combiner;
     final boolean delayError;
-    final Iterable<? extends t<? extends T>> mRN;
-    final t<? extends T>[] mTn;
+    final Iterable<? extends t<? extends T>> nmV;
+    final t<? extends T>[] noq;
 
     @Override // io.reactivex.q
     public void a(u<? super R> uVar) {
         int length;
         t<? extends T>[] tVarArr;
         t<? extends T>[] tVarArr2;
-        t<? extends T>[] tVarArr3 = this.mTn;
+        t<? extends T>[] tVarArr3 = this.noq;
         if (tVarArr3 == null) {
             t<? extends T>[] tVarArr4 = new q[8];
             length = 0;
-            for (t<? extends T> tVar : this.mRN) {
+            for (t<? extends T> tVar : this.nmV) {
                 if (length == tVarArr4.length) {
                     tVarArr2 = new t[(length >> 2) + length];
                     System.arraycopy(tVarArr4, 0, tVarArr2, 0, length);
@@ -143,7 +143,7 @@ public final class ObservableCombineLatest<T, R> extends q<R> {
                         }
                     } else if (!z3) {
                         try {
-                            uVar.onNext((Object) io.reactivex.internal.functions.a.h(this.combiner.apply(poll), "The combiner returned a null value"));
+                            uVar.onNext((Object) io.reactivex.internal.functions.a.k(this.combiner.apply(poll), "The combiner returned a null value"));
                         } catch (Throwable th) {
                             io.reactivex.exceptions.a.L(th);
                             this.errors.addThrowable(th);

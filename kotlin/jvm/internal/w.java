@@ -5,11 +5,11 @@ public class w {
         return (T) q.c(t, w.class.getName());
     }
 
-    public static void k(Object obj, String str) {
-        PC((obj == null ? "null" : obj.getClass().getName()) + " cannot be cast to " + str);
+    public static void n(Object obj, String str) {
+        RI((obj == null ? "null" : obj.getClass().getName()) + " cannot be cast to " + str);
     }
 
-    public static void PC(String str) {
+    public static void RI(String str) {
         throw a(new ClassCastException(str));
     }
 
@@ -17,7 +17,7 @@ public class w {
         throw ((ClassCastException) S(classCastException));
     }
 
-    public static int bE(Object obj) {
+    public static int bK(Object obj) {
         if (obj instanceof p) {
             return ((p) obj).getArity();
         }
@@ -94,12 +94,12 @@ public class w {
     }
 
     public static boolean j(Object obj, int i) {
-        return (obj instanceof kotlin.c) && bE(obj) == i;
+        return (obj instanceof kotlin.c) && bK(obj) == i;
     }
 
     public static Object k(Object obj, int i) {
         if (obj != null && !j(obj, i)) {
-            k(obj, "kotlin.jvm.functions.Function" + i);
+            n(obj, "kotlin.jvm.functions.Function" + i);
         }
         return obj;
     }

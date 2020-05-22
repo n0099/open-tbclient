@@ -19,12 +19,12 @@ import com.baidu.tieba.R;
 /* loaded from: classes11.dex */
 public class CreateBarSuccessActivity extends BaseActivity<CreateBarSuccessActivity> {
     public NavigationBar mNavigationBar;
-    private String hHc = null;
+    private String hVO = null;
     private TextView mTextView = null;
-    private TextView hHr = null;
+    private TextView hWd = null;
     LinearLayout mContainer = null;
 
-    public static void aD(Context context, String str) {
+    public static void aE(Context context, String str) {
         if (str != null && str.length() > 0) {
             Intent intent = new Intent(context, CreateBarSuccessActivity.class);
             intent.putExtra("barname", str);
@@ -41,17 +41,17 @@ public class CreateBarSuccessActivity extends BaseActivity<CreateBarSuccessActiv
         super.onCreate(bundle);
         setContentView(R.layout.create_bar_success_activity);
         initData();
-        bXK();
+        cei();
     }
 
     private void initData() {
-        this.hHc = getIntent().getStringExtra("barname");
-        if (this.hHc == null) {
-            this.hHc = "";
+        this.hVO = getIntent().getStringExtra("barname");
+        if (this.hVO == null) {
+            this.hVO = "";
         }
     }
 
-    private void bXK() {
+    private void cei() {
         this.mContainer = (LinearLayout) findViewById(R.id.container);
         RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.title);
         if (UtilHelper.canUseStyleImmersiveSticky()) {
@@ -63,7 +63,7 @@ public class CreateBarSuccessActivity extends BaseActivity<CreateBarSuccessActiv
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.setTitleText(getPageContext().getString(R.string.create_bar));
         this.mTextView = (TextView) findViewById(R.id.text);
-        this.hHr = (TextView) findViewById(R.id.text_more);
+        this.hWd = (TextView) findViewById(R.id.text_more);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -75,10 +75,10 @@ public class CreateBarSuccessActivity extends BaseActivity<CreateBarSuccessActiv
         boolean isOn = new CreateBarTipSwitch().isOn();
         String string = isOn ? getPageContext().getString(R.string.create_bar_new_tip) : getPageContext().getString(R.string.create_bar_info1);
         int length = string.length();
-        SpannableString spannableString = new SpannableString(isOn ? string + this.hHc + getPageContext().getString(R.string.create_bar_new_tip2) : string + this.hHc + getPageContext().getString(R.string.create_bar_info2));
-        spannableString.setSpan(new ForegroundColorSpan(am.getColor(R.color.common_color_10252)), length, this.hHc.length() + length, 33);
+        SpannableString spannableString = new SpannableString(isOn ? string + this.hVO + getPageContext().getString(R.string.create_bar_new_tip2) : string + this.hVO + getPageContext().getString(R.string.create_bar_info2));
+        spannableString.setSpan(new ForegroundColorSpan(am.getColor(R.color.common_color_10252)), length, this.hVO.length() + length, 33);
         this.mTextView.setText(spannableString);
-        this.hHr.setVisibility(isOn ? 0 : 8);
+        this.hWd.setVisibility(isOn ? 0 : 8);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
     }
 }

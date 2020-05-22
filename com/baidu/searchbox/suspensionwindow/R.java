@@ -4,40 +4,40 @@ public final class R {
 
     /* loaded from: classes5.dex */
     public static final class color {
-        public static final int suspension_ball_cancel_window_bg_color = 0x7f0d09c3;
-        public static final int suspension_ball_cancel_window_text_color = 0x7f0d09c4;
+        public static final int suspension_ball_cancel_window_bg_color = 0x7f0d0a03;
+        public static final int suspension_ball_cancel_window_text_color = 0x7f0d0a04;
     }
 
     /* loaded from: classes5.dex */
     public static final class dimen {
-        public static final int suspension_ball_cancel_window_height = 0x7f090909;
-        public static final int suspension_ball_cancel_window_width = 0x7f09090a;
+        public static final int suspension_ball_cancel_window_height = 0x7f09091b;
+        public static final int suspension_ball_cancel_window_width = 0x7f09091c;
     }
 
     /* loaded from: classes5.dex */
     public static final class drawable {
-        public static final int suspension_ball_cancel_window_icon = 0x7f021aff;
-        public static final int suspension_ball_cancel_window_icon_focus = 0x7f021b00;
+        public static final int suspension_ball_cancel_window_icon = 0x7f021b73;
+        public static final int suspension_ball_cancel_window_icon_focus = 0x7f021b74;
     }
 
     /* loaded from: classes5.dex */
     public static final class id {
-        public static final int svCancelBg = 0x7f0f22c7;
-        public static final int tag_barrier_available_rect_bottom = 0x7f0f00e7;
-        public static final int tag_barrier_available_rect_top = 0x7f0f00e8;
-        public static final int tag_barrier_rect = 0x7f0f00e9;
-        public static final int tag_barrier_type = 0x7f0f00ea;
-        public static final int tvCancelHint = 0x7f0f22c8;
+        public static final int svCancelBg = 0x7f0f2390;
+        public static final int tag_barrier_available_rect_bottom = 0x7f0f00eb;
+        public static final int tag_barrier_available_rect_top = 0x7f0f00ec;
+        public static final int tag_barrier_rect = 0x7f0f00ed;
+        public static final int tag_barrier_type = 0x7f0f00ee;
+        public static final int tvCancelHint = 0x7f0f2391;
     }
 
     /* loaded from: classes5.dex */
     public static final class layout {
-        public static final int view_cancel_window = 0x7f030808;
+        public static final int view_cancel_window = 0x7f03082e;
     }
 
     /* loaded from: classes5.dex */
     public static final class string {
-        public static final int suspension_window_cancel = 0x7f081568;
+        public static final int suspension_window_cancel = 0x7f0815e2;
     }
 
     /* loaded from: classes5.dex */

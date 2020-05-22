@@ -8,7 +8,7 @@ import java.io.File;
 @TargetApi(14)
 /* loaded from: classes3.dex */
 public class c {
-    private static File bmQ() {
+    private static File bso() {
         File file = new File(BdBaseApplication.getInst().getFilesDir(), "duar");
         if (!file.exists()) {
             file.mkdirs();
@@ -16,7 +16,7 @@ public class c {
         return file;
     }
 
-    private static File bmR() {
+    private static File bsp() {
         File file = new File(Environment.getExternalStorageState().equals("mounted") ? BdBaseApplication.getInst().getExternalFilesDir(null) : null, "duar");
         if (!file.exists()) {
             file.mkdirs();
@@ -24,35 +24,35 @@ public class c {
         return file;
     }
 
-    public static File bmS() {
-        File file = new File(bmQ(), "ar-solibs");
+    public static File bsq() {
+        File file = new File(bso(), "ar-solibs");
         if (!file.exists()) {
             file.mkdirs();
         }
         return file;
     }
 
-    public static File bmT() {
-        File file = new File(bmR(), "ar-resource");
+    public static File bsr() {
+        File file = new File(bsp(), "ar-resource");
         if (!file.exists()) {
             file.mkdirs();
         }
         return file;
     }
 
-    public static d zu(String str) {
-        return d.dc("4.5-v1", str);
+    public static d Ba(String str) {
+        return d.dA("4.5-v1", str);
     }
 
-    public static boolean eh(Context context) {
-        d zu = zu("so");
-        if (zu == null) {
+    public static boolean ew(Context context) {
+        d Ba = Ba("so");
+        if (Ba == null) {
             return false;
         }
-        if (com.baidu.tieba.ala.a.a.a.f.h(context, zu.bmU())) {
+        if (com.baidu.tieba.ala.a.a.a.f.j(context, Ba.bss())) {
             return true;
         }
-        com.baidu.tieba.ala.a.a.a.f.g(context, zu.bmU());
-        return com.baidu.tieba.ala.a.a.a.f.h(context, zu.bmU());
+        com.baidu.tieba.ala.a.a.a.f.i(context, Ba.bss());
+        return com.baidu.tieba.ala.a.a.a.f.j(context, Ba.bss());
     }
 }

@@ -21,14 +21,14 @@ final class SwanLoadingTips$loadingTips$2 extends Lambda implements kotlin.jvm.a
         Resources resources2;
         switch ((int) (Math.random() * 2)) {
             case 0:
-                Application abN = com.baidu.swan.apps.w.a.abN();
-                if (abN == null || (resources = abN.getResources()) == null) {
+                Application aeR = com.baidu.swan.apps.u.a.aeR();
+                if (aeR == null || (resources = aeR.getResources()) == null) {
                     return null;
                 }
                 return resources.getStringArray(a.b.aiapps_loading_tips_skill);
             default:
-                Application abN2 = com.baidu.swan.apps.w.a.abN();
-                if (abN2 == null || (resources2 = abN2.getResources()) == null) {
+                Application aeR2 = com.baidu.swan.apps.u.a.aeR();
+                if (aeR2 == null || (resources2 = aeR2.getResources()) == null) {
                     return null;
                 }
                 return resources2.getStringArray(a.b.aiapps_loading_tips_prepare);

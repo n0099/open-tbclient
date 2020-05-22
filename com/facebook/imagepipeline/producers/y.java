@@ -14,13 +14,13 @@ import java.util.concurrent.Executor;
 import javax.annotation.Nullable;
 /* loaded from: classes12.dex */
 public class y implements aw<com.facebook.imagepipeline.g.e> {
-    private final com.facebook.common.memory.g lZW;
     private final ContentResolver mContentResolver;
     private final Executor mExecutor;
+    private final com.facebook.common.memory.g mtR;
 
     public y(Executor executor, com.facebook.common.memory.g gVar, ContentResolver contentResolver) {
         this.mExecutor = executor;
-        this.lZW = gVar;
+        this.mtR = gVar;
         this.mContentResolver = contentResolver;
     }
 
@@ -31,27 +31,27 @@ public class y implements aw<com.facebook.imagepipeline.g.e> {
 
     @Override // com.facebook.imagepipeline.producers.aj
     public void c(k<com.facebook.imagepipeline.g.e> kVar, ak akVar) {
-        am dtS = akVar.dtS();
+        am dBj = akVar.dBj();
         String id = akVar.getId();
-        final ImageRequest dtR = akVar.dtR();
-        final aq<com.facebook.imagepipeline.g.e> aqVar = new aq<com.facebook.imagepipeline.g.e>(kVar, dtS, "LocalExifThumbnailProducer", id) { // from class: com.facebook.imagepipeline.producers.y.1
+        final ImageRequest dBi = akVar.dBi();
+        final aq<com.facebook.imagepipeline.g.e> aqVar = new aq<com.facebook.imagepipeline.g.e>(kVar, dBj, "LocalExifThumbnailProducer", id) { // from class: com.facebook.imagepipeline.producers.y.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.facebook.common.b.h
-            /* renamed from: duq */
+            /* renamed from: dBH */
             public com.facebook.imagepipeline.g.e getResult() throws Exception {
-                ExifInterface W = y.this.W(dtR.duJ());
-                if (W == null || !W.hasThumbnail()) {
+                ExifInterface Y = y.this.Y(dBi.dCa());
+                if (Y == null || !Y.hasThumbnail()) {
                     return null;
                 }
-                return y.this.a(y.this.lZW.ab(W.getThumbnail()), W);
+                return y.this.a(y.this.mtR.ai(Y.getThumbnail()), Y);
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.facebook.imagepipeline.producers.aq, com.facebook.common.b.h
             /* renamed from: h */
-            public void aI(com.facebook.imagepipeline.g.e eVar) {
+            public void aM(com.facebook.imagepipeline.g.e eVar) {
                 com.facebook.imagepipeline.g.e.e(eVar);
             }
 
@@ -59,13 +59,13 @@ public class y implements aw<com.facebook.imagepipeline.g.e> {
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.facebook.imagepipeline.producers.aq
             /* renamed from: i */
-            public Map<String, String> bk(com.facebook.imagepipeline.g.e eVar) {
+            public Map<String, String> bo(com.facebook.imagepipeline.g.e eVar) {
                 return ImmutableMap.of("createdThumbnail", Boolean.toString(eVar != null));
             }
         };
         akVar.a(new e() { // from class: com.facebook.imagepipeline.producers.y.2
             @Override // com.facebook.imagepipeline.producers.e, com.facebook.imagepipeline.producers.al
-            public void dqi() {
+            public void dxA() {
                 aqVar.cancel();
             }
         });
@@ -73,10 +73,10 @@ public class y implements aw<com.facebook.imagepipeline.g.e> {
     }
 
     @Nullable
-    ExifInterface W(Uri uri) {
+    ExifInterface Y(Uri uri) {
         String a = com.facebook.common.util.d.a(this.mContentResolver, uri);
         try {
-            if (Os(a)) {
+            if (Qg(a)) {
                 return new ExifInterface(a);
             }
         } catch (IOException e) {
@@ -88,30 +88,30 @@ public class y implements aw<com.facebook.imagepipeline.g.e> {
 
     /* JADX INFO: Access modifiers changed from: private */
     public com.facebook.imagepipeline.g.e a(PooledByteBuffer pooledByteBuffer, ExifInterface exifInterface) {
-        Pair<Integer, Integer> v = com.facebook.d.a.v(new com.facebook.common.memory.h(pooledByteBuffer));
+        Pair<Integer, Integer> w = com.facebook.d.a.w(new com.facebook.common.memory.h(pooledByteBuffer));
         int a = a(exifInterface);
-        int intValue = v != null ? ((Integer) v.first).intValue() : -1;
-        int intValue2 = v != null ? ((Integer) v.second).intValue() : -1;
-        com.facebook.common.references.a c = com.facebook.common.references.a.c(pooledByteBuffer);
+        int intValue = w != null ? ((Integer) w.first).intValue() : -1;
+        int intValue2 = w != null ? ((Integer) w.second).intValue() : -1;
+        com.facebook.common.references.a e = com.facebook.common.references.a.e(pooledByteBuffer);
         try {
-            com.facebook.imagepipeline.g.e eVar = new com.facebook.imagepipeline.g.e(c);
-            com.facebook.common.references.a.c((com.facebook.common.references.a<?>) c);
-            eVar.c(com.facebook.c.b.lYQ);
-            eVar.GT(a);
+            com.facebook.imagepipeline.g.e eVar = new com.facebook.imagepipeline.g.e(e);
+            com.facebook.common.references.a.c(e);
+            eVar.c(com.facebook.c.b.msL);
+            eVar.HF(a);
             eVar.setWidth(intValue);
             eVar.setHeight(intValue2);
             return eVar;
         } catch (Throwable th) {
-            com.facebook.common.references.a.c((com.facebook.common.references.a<?>) c);
+            com.facebook.common.references.a.c(e);
             throw th;
         }
     }
 
     private int a(ExifInterface exifInterface) {
-        return com.facebook.d.b.HA(Integer.parseInt(exifInterface.getAttribute(android.support.media.ExifInterface.TAG_ORIENTATION)));
+        return com.facebook.d.b.Im(Integer.parseInt(exifInterface.getAttribute(android.support.media.ExifInterface.TAG_ORIENTATION)));
     }
 
-    boolean Os(String str) throws IOException {
+    boolean Qg(String str) throws IOException {
         if (str == null) {
             return false;
         }

@@ -13,74 +13,74 @@ import com.baidu.live.view.web.g;
 import com.baidu.searchbox.ugc.model.UgcConstant;
 /* loaded from: classes3.dex */
 public class c implements a {
-    private Activity caN;
-    private CustomMessageListener eZc;
-    private PopupWindow.OnDismissListener eZd;
-    private d fNi;
+    private Activity clq;
+    private CustomMessageListener flM;
+    private PopupWindow.OnDismissListener flN;
+    private d gbn;
 
     public c(Activity activity) {
-        this.caN = activity;
-        bmB();
+        this.clq = activity;
+        brZ();
     }
 
     @Override // com.baidu.tieba.ala.liveroom.n.a
-    public void AE(String str) {
-        this.fNi = new d(this.caN);
-        this.fNi.setOnDismissListener(this.eZd);
-        this.fNi.bmC().setBackgroundColor(zt(str));
+    public void Cm(String str) {
+        this.gbn = new d(this.clq);
+        this.gbn.setOnDismissListener(this.flN);
+        this.gbn.bsa().setBackgroundColor(AZ(str));
         g gVar = new g();
-        gVar.u(this.caN).a(this.fNi).a(this.fNi.bmC().getSchemeCallback());
-        com.baidu.live.view.web.a[] HM = gVar.HM();
-        for (com.baidu.live.view.web.a aVar : HM) {
-            this.fNi.bmC().addJavascriptInterface(aVar, aVar.getName());
+        gVar.u(this.clq).a(this.gbn).a(this.gbn.bsa().getSchemeCallback());
+        com.baidu.live.view.web.a[] JF = gVar.JF();
+        for (com.baidu.live.view.web.a aVar : JF) {
+            this.gbn.bsa().addJavascriptInterface(aVar, aVar.getName());
         }
-        this.fNi.show(str);
+        this.gbn.show(str);
     }
 
     @Override // com.baidu.tieba.ala.liveroom.n.a
     public void resume() {
-        if (this.fNi != null && this.fNi.isShowing() && this.fNi.bmC() != null) {
-            this.fNi.bmC().onResume();
+        if (this.gbn != null && this.gbn.isShowing() && this.gbn.bsa() != null) {
+            this.gbn.bsa().onResume();
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.n.a
     public void pause() {
-        if (this.fNi != null && this.fNi.isShowing() && this.fNi.bmC() != null) {
-            this.fNi.bmC().onPause();
+        if (this.gbn != null && this.gbn.isShowing() && this.gbn.bsa() != null) {
+            this.gbn.bsa().onPause();
         }
     }
 
     public void dismiss() {
-        if (this.fNi != null) {
-            this.fNi.bmD();
+        if (this.gbn != null) {
+            this.gbn.bsb();
         }
     }
 
-    public void xi() {
+    public void yw() {
         dismiss();
     }
 
     @Override // com.baidu.tieba.ala.liveroom.n.a
     public void release() {
-        xi();
-        MessageManager.getInstance().unRegisterListener(this.eZc);
+        yw();
+        MessageManager.getInstance().unRegisterListener(this.flM);
     }
 
-    private void bmB() {
-        this.eZc = new CustomMessageListener(2913123) { // from class: com.baidu.tieba.ala.liveroom.n.c.1
+    private void brZ() {
+        this.flM = new CustomMessageListener(2913123) { // from class: com.baidu.tieba.ala.liveroom.n.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (c.this.fNi != null && c.this.fNi.isShowing()) {
-                    c.this.fNi.dismiss();
+                if (c.this.gbn != null && c.this.gbn.isShowing()) {
+                    c.this.gbn.dismiss();
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.eZc);
+        MessageManager.getInstance().registerListener(this.flM);
     }
 
-    private int zt(String str) {
+    private int AZ(String str) {
         int indexOf;
         String queryParameter = Uri.parse(str).getQueryParameter("background");
         if ((TextUtils.isEmpty(queryParameter) || queryParameter.length() != 8) && (indexOf = str.indexOf("background=")) >= 0 && indexOf + 19 <= str.length()) {

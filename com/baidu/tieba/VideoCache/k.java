@@ -6,9 +6,9 @@ import android.os.Message;
 import java.io.InputStream;
 /* loaded from: classes9.dex */
 public class k {
-    private static k exL;
-    private g exM;
-    private b exN;
+    private static k eMn;
+    private g eMo;
+    private b eMp;
     private Handler mHandler;
     private Handler.Callback mHandlerCallback = new Handler.Callback() { // from class: com.baidu.tieba.VideoCache.k.1
         @Override // android.os.Handler.Callback
@@ -23,19 +23,19 @@ public class k {
                 }
             } else if (message.what == 2) {
                 if (message.obj instanceof String) {
-                    k.this.exM.setVideoUrl((String) message.obj);
-                    k.this.exM.run();
+                    k.this.eMo.setVideoUrl((String) message.obj);
+                    k.this.eMo.run();
                 }
             } else if (message.what == 3) {
-                if (k.this.exN != null) {
-                    k.this.exN.bfh();
+                if (k.this.eMp != null) {
+                    k.this.eMp.blt();
                 }
             } else if (message.what == 4) {
                 if (message.obj instanceof String) {
-                    k.this.exN.xG((String) message.obj);
+                    k.this.eMp.zm((String) message.obj);
                 }
-            } else if (message.what == 5 && k.this.exN != null) {
-                k.this.exN.clearCache();
+            } else if (message.what == 5 && k.this.eMp != null) {
+                k.this.eMp.clearCache();
             }
             return true;
         }
@@ -45,39 +45,39 @@ public class k {
         HandlerThread handlerThread = new HandlerThread("video_cache_handler");
         handlerThread.start();
         this.mHandler = new Handler(handlerThread.getLooper(), this.mHandlerCallback);
-        this.exM = new g();
-        this.exN = new b();
+        this.eMo = new g();
+        this.eMp = new b();
     }
 
-    public static k bfv() {
-        if (exL == null) {
+    public static k blH() {
+        if (eMn == null) {
             synchronized (k.class) {
-                if (exL == null) {
-                    exL = new k();
+                if (eMn == null) {
+                    eMn = new k();
                 }
             }
         }
-        return exL;
+        return eMn;
     }
 
-    public void m(InputStream inputStream) {
+    public void n(InputStream inputStream) {
         Message obtainMessage = this.mHandler.obtainMessage(1);
         obtainMessage.obj = inputStream;
         this.mHandler.sendMessage(obtainMessage);
     }
 
-    public void xQ(String str) {
+    public void zw(String str) {
         this.mHandler.removeMessages(2);
         Message obtainMessage = this.mHandler.obtainMessage(2);
         obtainMessage.obj = str;
         this.mHandler.sendMessageDelayed(obtainMessage, 1000L);
     }
 
-    public void bfh() {
+    public void blt() {
         this.mHandler.sendMessage(this.mHandler.obtainMessage(3));
     }
 
-    public void xG(String str) {
+    public void zm(String str) {
         Message obtainMessage = this.mHandler.obtainMessage(4);
         obtainMessage.obj = str;
         this.mHandler.sendMessage(obtainMessage);

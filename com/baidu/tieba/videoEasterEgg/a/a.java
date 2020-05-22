@@ -4,9 +4,9 @@ import android.content.Intent;
 import com.baidu.adp.BdUniqueId;
 /* loaded from: classes9.dex */
 public interface a {
-    void A(BdUniqueId bdUniqueId);
+    void D(BdUniqueId bdUniqueId);
 
-    void L(Intent intent);
+    void I(Intent intent);
 
     String getID();
 

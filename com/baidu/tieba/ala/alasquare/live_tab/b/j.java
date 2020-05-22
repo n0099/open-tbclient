@@ -6,7 +6,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class j {
-    public ArrayList<SdkLiveInfoData> ePO;
+    public ArrayList<SdkLiveInfoData> fcx;
     public boolean hasMore = false;
 
     public void parserJson(JSONObject jSONObject) {
@@ -14,13 +14,13 @@ public class j {
             this.hasMore = jSONObject.optInt("has_more") == 1;
             JSONArray optJSONArray = jSONObject.optJSONArray("live_list");
             if (optJSONArray != null && optJSONArray.length() > 0) {
-                this.ePO = new ArrayList<>(optJSONArray.length());
+                this.fcx = new ArrayList<>(optJSONArray.length());
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                     if (optJSONObject != null) {
                         SdkLiveInfoData sdkLiveInfoData = new SdkLiveInfoData();
                         sdkLiveInfoData.fromJson(optJSONObject);
-                        this.ePO.add(sdkLiveInfoData);
+                        this.fcx.add(sdkLiveInfoData);
                     }
                 }
             }

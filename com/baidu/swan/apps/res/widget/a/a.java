@@ -3,7 +3,6 @@ package com.baidu.swan.apps.res.widget.a;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.drawable.ColorDrawable;
-import android.graphics.drawable.Drawable;
 import android.support.v4.view.ViewCompat;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -12,37 +11,29 @@ import android.view.ViewGroup;
 import android.widget.PopupWindow;
 import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.res.widget.a.b;
-import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes11.dex */
 public abstract class a {
-    protected d cnA;
-    protected b.a cnB;
-    private InterfaceC0329a cnC;
+    protected d czf;
+    protected b.a czg;
+    private InterfaceC0372a czh;
+    private float mBgDarkAlpha;
     protected Context mContext;
+    private boolean mCurrentMode;
+    private boolean mIsBackgroundDarken;
+    private boolean mIsHaveAnimation;
+    protected List<com.baidu.swan.apps.res.widget.a.b> mItems;
     protected View.OnKeyListener mKeyClickListener;
     private View mMenu;
+    private int mPopAnimStyle;
     protected PopupWindow mPopupWindow;
+    private int mPopupWindowWidth;
     protected Resources mResources;
     protected final View mViewToAttach;
-    private boolean mDismissOnClick = true;
-    private boolean mIsBackgroundDarken = false;
-    private float mBgDarkAlpha = 0.5f;
-    private boolean mIsHaveAnimation = false;
-    private int mPopAnimStyle = a.i.pop_window_anim;
-    private Runnable mDismissMenuTask = new Runnable() { // from class: com.baidu.swan.apps.res.widget.a.a.5
-        @Override // java.lang.Runnable
-        public void run() {
-            a.this.dismiss();
-        }
-    };
-    protected List<com.baidu.swan.apps.res.widget.a.b> mItems = new ArrayList();
-    private int mPopupWindowWidth = -2;
-    private boolean mCurrentMode = com.baidu.swan.apps.w.a.acj().getNightModeSwitcherState();
 
     /* renamed from: com.baidu.swan.apps.res.widget.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public interface InterfaceC0329a {
+    public interface InterfaceC0372a {
         void onMenuItemUpdated(List<com.baidu.swan.apps.res.widget.a.b> list);
     }
 
@@ -56,57 +47,21 @@ public abstract class a {
 
     protected abstract void showMenu(PopupWindow popupWindow);
 
-    public a(View view) {
-        this.mViewToAttach = view;
-        this.mContext = this.mViewToAttach.getContext();
-        this.mResources = this.mViewToAttach.getResources();
-        prepareMenuView(this.mContext);
-    }
-
     public View getView() {
         return this.mMenu;
     }
 
     public void a(b.a aVar) {
-        this.cnB = aVar;
-    }
-
-    public void setPopupWindowWidth(int i) {
-        this.mPopupWindowWidth = i;
-    }
-
-    public com.baidu.swan.apps.res.widget.a.b b(com.baidu.swan.apps.res.widget.a.b bVar) {
-        bVar.d(this);
-        if (this.mDismissOnClick) {
-            bVar.b(new b.a() { // from class: com.baidu.swan.apps.res.widget.a.a.1
-                @Override // com.baidu.swan.apps.res.widget.a.b.a
-                public void c(com.baidu.swan.apps.res.widget.a.b bVar2) {
-                    if (bVar2.isAutoDismiss()) {
-                        a.this.dismiss(bVar2.getDismissDelayTime());
-                    }
-                    if (a.this.cnB != null) {
-                        a.this.cnB.c(bVar2);
-                    }
-                }
-            });
-        } else {
-            bVar.b(this.cnB);
-        }
-        this.mItems.add(bVar);
-        return bVar;
-    }
-
-    public com.baidu.swan.apps.res.widget.a.b u(int i, int i2, int i3) {
-        return a(i, this.mResources.getString(i2), this.mResources.getDrawable(i3));
+        this.czg = aVar;
     }
 
     public void show() {
-        if (com.baidu.swan.apps.w.a.acj().getNightModeSwitcherState() != this.mCurrentMode) {
+        if (com.baidu.swan.apps.u.a.afm().getNightModeSwitcherState() != this.mCurrentMode) {
             prepareMenuView(this.mContext);
             this.mPopupWindow = null;
         }
         showPopUpWindow(true);
-        this.mCurrentMode = com.baidu.swan.apps.w.a.acj().getNightModeSwitcherState();
+        this.mCurrentMode = com.baidu.swan.apps.u.a.afm().getNightModeSwitcherState();
     }
 
     public void dismiss() {
@@ -117,17 +72,6 @@ public abstract class a {
                 if (com.baidu.swan.apps.b.DEBUG) {
                     Log.w("PopupWindow", "Exception", e);
                 }
-            }
-        }
-    }
-
-    public void dismiss(long j) {
-        if (this.mViewToAttach != null) {
-            this.mViewToAttach.removeCallbacks(this.mDismissMenuTask);
-            if (j > 0) {
-                this.mViewToAttach.postDelayed(this.mDismissMenuTask, j);
-            } else {
-                dismiss();
             }
         }
     }
@@ -147,7 +91,7 @@ public abstract class a {
         if (!(this.mMenu instanceof b)) {
             throw new IllegalArgumentException("The view returned by getMenuView() MUST implement OnMenuSetChangedListener!");
         }
-        this.mMenu.setOnKeyListener(new View.OnKeyListener() { // from class: com.baidu.swan.apps.res.widget.a.a.2
+        this.mMenu.setOnKeyListener(new View.OnKeyListener() { // from class: com.baidu.swan.apps.res.widget.a.a.1
             @Override // android.view.View.OnKeyListener
             public boolean onKey(View view, int i, KeyEvent keyEvent) {
                 if (keyEvent.getAction() == 1 && (i == 4 || i == 82)) {
@@ -163,29 +107,15 @@ public abstract class a {
         });
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void setBackgroundDarken(boolean z) {
-        this.mIsBackgroundDarken = z;
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void setHaveAnimation(boolean z) {
-        this.mIsHaveAnimation = z;
-    }
-
-    protected com.baidu.swan.apps.res.widget.a.b a(int i, CharSequence charSequence, Drawable drawable) {
-        return b(new com.baidu.swan.apps.res.widget.a.b(this.mContext, i, charSequence, drawable));
-    }
-
     protected void updateMenuItems(List<com.baidu.swan.apps.res.widget.a.b> list) {
-        if (this.cnC != null) {
-            this.cnC.onMenuItemUpdated(list);
+        if (this.czh != null) {
+            this.czh.onMenuItemUpdated(list);
         }
     }
 
     private void showPopUpWindow(boolean z) {
-        if (this.cnA != null) {
-            this.cnA.onShowMenu();
+        if (this.czf != null) {
+            this.czf.onShowMenu();
         }
         updateMenuItems(this.mItems);
         ensureMenuLoaded(this.mMenu, this.mItems);
@@ -201,26 +131,26 @@ public abstract class a {
             } else {
                 this.mPopupWindow.setTouchable(false);
             }
-            this.mPopupWindow.setOnDismissListener(new PopupWindow.OnDismissListener() { // from class: com.baidu.swan.apps.res.widget.a.a.3
+            this.mPopupWindow.setOnDismissListener(new PopupWindow.OnDismissListener() { // from class: com.baidu.swan.apps.res.widget.a.a.2
                 @Override // android.widget.PopupWindow.OnDismissListener
                 public void onDismiss() {
                     if (a.this.mIsBackgroundDarken) {
                         a.this.clearBackgroundDarkenStatus();
                     }
-                    if (a.this.cnA != null) {
-                        a.this.cnA.onDismissMenu();
+                    if (a.this.czf != null) {
+                        a.this.czf.onDismissMenu();
                     }
                 }
             });
         }
         if (this.mViewToAttach == null) {
-            if (this.cnA != null) {
-                this.cnA.onDismissMenu();
+            if (this.czf != null) {
+                this.czf.onDismissMenu();
                 return;
             }
             return;
         }
-        this.mViewToAttach.post(new Runnable() { // from class: com.baidu.swan.apps.res.widget.a.a.4
+        this.mViewToAttach.post(new Runnable() { // from class: com.baidu.swan.apps.res.widget.a.a.3
             @Override // java.lang.Runnable
             public void run() {
                 try {

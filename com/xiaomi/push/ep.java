@@ -14,7 +14,7 @@ public class ep {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m262a() {
+    public String m264a() {
         return this.f299a;
     }
 

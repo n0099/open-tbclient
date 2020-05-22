@@ -43,7 +43,7 @@ public final class FlowableFromArray<T> extends io.reactivex.g<T> {
                 return null;
             }
             this.index = i + 1;
-            return (T) io.reactivex.internal.functions.a.h(tArr[i], "array element is null");
+            return (T) io.reactivex.internal.functions.a.k(tArr[i], "array element is null");
         }
 
         @Override // io.reactivex.internal.a.g

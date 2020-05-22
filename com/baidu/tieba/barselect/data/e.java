@@ -3,41 +3,41 @@ package com.baidu.tieba.barselect.data;
 import tbclient.ElectionInfo.Basic;
 /* loaded from: classes8.dex */
 public class e {
-    private long giY;
-    private long giZ;
-    private long gja;
-    private long gjb;
-    private int gjc;
-    private int gjd;
-    private boolean gje;
+    private long gxO;
+    private long gxP;
+    private long gxQ;
+    private long gxR;
+    private int gxS;
+    private int gxT;
+    private boolean gxU;
     private int status = 0;
 
-    public int bDP() {
-        return this.gjc;
+    public int bKg() {
+        return this.gxS;
     }
 
     public int getStatus() {
         return this.status;
     }
 
-    public long bDQ() {
-        return this.giY;
+    public long bKh() {
+        return this.gxO;
     }
 
-    public long bDR() {
-        return this.gja;
+    public long bKi() {
+        return this.gxQ;
     }
 
-    public long bDS() {
-        return this.gjb;
+    public long bKj() {
+        return this.gxR;
     }
 
-    public long bDT() {
-        return this.giZ;
+    public long bKk() {
+        return this.gxP;
     }
 
-    public boolean bDU() {
-        return this.gje;
+    public boolean bKl() {
+        return this.gxU;
     }
 
     public static e a(Basic basic) {
@@ -45,18 +45,18 @@ public class e {
             return null;
         }
         e eVar = new e();
-        eVar.dR(BA(basic.remind_time));
+        eVar.dS(Dj(basic.remind_time));
         eVar.setStatus(basic.status.intValue());
-        eVar.rz(basic.candidate_num.intValue());
-        eVar.rA(basic.total_vote_num.intValue());
-        eVar.dP(BA(basic.begin_apply_time));
-        eVar.dS(BA(basic.begin_vote_time));
-        eVar.dQ(BA(basic.begin_public_time));
-        eVar.lm(basic.is_voted.booleanValue());
+        eVar.sc(basic.candidate_num.intValue());
+        eVar.sd(basic.total_vote_num.intValue());
+        eVar.dQ(Dj(basic.begin_apply_time));
+        eVar.dT(Dj(basic.begin_vote_time));
+        eVar.dR(Dj(basic.begin_public_time));
+        eVar.lI(basic.is_voted.booleanValue());
         return eVar;
     }
 
-    private static long BA(String str) {
+    private static long Dj(String str) {
         try {
             return Long.parseLong(str);
         } catch (Exception e) {
@@ -65,35 +65,35 @@ public class e {
         }
     }
 
-    public void rz(int i) {
-        this.gjc = i;
-    }
-
-    public void dP(long j) {
-        this.giY = j;
+    public void sc(int i) {
+        this.gxS = i;
     }
 
     public void dQ(long j) {
-        this.gja = j;
+        this.gxO = j;
     }
 
     public void dR(long j) {
-        this.gjb = j;
+        this.gxQ = j;
+    }
+
+    public void dS(long j) {
+        this.gxR = j;
     }
 
     public void setStatus(int i) {
         this.status = i;
     }
 
-    public void rA(int i) {
-        this.gjd = i;
+    public void sd(int i) {
+        this.gxT = i;
     }
 
-    public void dS(long j) {
-        this.giZ = j;
+    public void dT(long j) {
+        this.gxP = j;
     }
 
-    public void lm(boolean z) {
-        this.gje = z;
+    public void lI(boolean z) {
+        this.gxU = z;
     }
 }

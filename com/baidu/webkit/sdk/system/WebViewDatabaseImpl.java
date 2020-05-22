@@ -8,7 +8,6 @@ final class WebViewDatabaseImpl extends WebViewDatabase {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public WebViewDatabaseImpl(Context context) {
-        this.mContext = null;
         this.mContext = context;
     }
 

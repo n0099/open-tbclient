@@ -18,19 +18,19 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class a extends com.baidu.swan.apps.component.a.d.a<SVGAImageView, b> {
-    private d bzg;
+    private d bGJ;
 
     public a(@Nullable Context context, @NonNull b bVar) {
         super(context, bVar);
-        this.bzg = null;
+        this.bGJ = null;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.component.b.a
     @NonNull
-    /* renamed from: aN */
-    public SVGAImageView aO(@NonNull Context context) {
+    /* renamed from: aX */
+    public SVGAImageView aY(@NonNull Context context) {
         return new SVGAImageView(context);
     }
 
@@ -38,18 +38,18 @@ public class a extends com.baidu.swan.apps.component.a.d.a<SVGAImageView, b> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.component.b.a
     /* renamed from: a */
-    public void ac(@NonNull final SVGAImageView sVGAImageView) {
+    public void ab(@NonNull final SVGAImageView sVGAImageView) {
         String str;
         FileInputStream fileInputStream;
-        super.ac(sVGAImageView);
-        if (this.bzg == null) {
-            this.bzg = new d(sVGAImageView.getContext());
+        super.ab(sVGAImageView);
+        if (this.bGJ == null) {
+            this.bGJ = new d(sVGAImageView.getContext());
         }
-        final b bVar = (b) Sy();
+        final b bVar = (b) Vj();
         sVGAImageView.setLoops(bVar.loop ? 1 : 0);
         if (!TextUtils.isEmpty(bVar.path)) {
             if (bVar.path.startsWith("bdfile://")) {
-                str = com.baidu.swan.apps.storage.b.by(bVar.path, e.akM().id);
+                str = com.baidu.swan.apps.storage.b.bT(bVar.path, e.aoF().id);
             } else {
                 str = bVar.path;
             }
@@ -61,7 +61,7 @@ public class a extends com.baidu.swan.apps.component.a.d.a<SVGAImageView, b> {
                     e.printStackTrace();
                     fileInputStream = null;
                 }
-                this.bzg.b(fileInputStream, str, new d.c() { // from class: com.baidu.i.a.a.1
+                this.bGJ.b(fileInputStream, str, new d.c() { // from class: com.baidu.i.a.a.1
                     @Override // com.opensource.svgaplayer.d.c
                     public void a(f fVar) {
                         sVGAImageView.setImageDrawable(new com.opensource.svgaplayer.b(fVar));
@@ -93,7 +93,7 @@ public class a extends com.baidu.swan.apps.component.a.d.a<SVGAImageView, b> {
     }
 
     private void a(@NonNull SVGAImageView sVGAImageView, @NonNull b bVar) {
-        if (SC()) {
+        if (Vn()) {
             if (DEBUG) {
                 Log.d("Component-SvgaView", "renderAction");
             }
@@ -112,9 +112,9 @@ public class a extends com.baidu.swan.apps.component.a.d.a<SVGAImageView, b> {
         final JSONObject jSONObject = new JSONObject();
         try {
             JSONObject jSONObject2 = new JSONObject();
-            jSONObject.put("wvID", bVar.bGO);
+            jSONObject.put("wvID", bVar.bPG);
             jSONObject.put("vtype", "ended");
-            jSONObject2.putOpt("animationViewId", bVar.bGN);
+            jSONObject2.putOpt("animationViewId", bVar.bPF);
             jSONObject.put("data", jSONObject2.toString());
         } catch (JSONException e) {
             if (DEBUG) {
@@ -127,14 +127,14 @@ public class a extends com.baidu.swan.apps.component.a.d.a<SVGAImageView, b> {
             }
 
             @Override // com.opensource.svgaplayer.a
-            public void onFinished() {
+            public void Qv() {
                 if (!bVar.loop) {
-                    com.baidu.swan.apps.view.b.b.a.a(bVar.bGO, bVar.bGN, "animateview", "ended", jSONObject);
+                    com.baidu.swan.apps.view.b.b.a.a(bVar.bPG, bVar.bPF, "animateview", "ended", jSONObject);
                 }
             }
 
             @Override // com.opensource.svgaplayer.a
-            public void Oi() {
+            public void Qw() {
                 c.d("Component-SvgaView", "onAnimationRepeat ");
             }
 

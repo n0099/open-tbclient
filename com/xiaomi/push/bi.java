@@ -26,9 +26,9 @@ public class bi implements Runnable {
             }
             com.xiaomi.channel.commonutils.logger.b.c("begin read and send perf / event");
             if (this.f125a instanceof IEventProcessor) {
-                bm.a(this.a).m166a("sp_client_report_status", "event_last_upload_time", System.currentTimeMillis());
+                bm.a(this.a).m168a("sp_client_report_status", "event_last_upload_time", System.currentTimeMillis());
             } else if (this.f125a instanceof IPerfProcessor) {
-                bm.a(this.a).m166a("sp_client_report_status", "perf_last_upload_time", System.currentTimeMillis());
+                bm.a(this.a).m168a("sp_client_report_status", "perf_last_upload_time", System.currentTimeMillis());
             }
         } catch (Exception e) {
             com.xiaomi.channel.commonutils.logger.b.a(e);

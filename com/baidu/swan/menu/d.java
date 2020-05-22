@@ -11,8 +11,8 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes11.dex */
 public class d extends RecyclerView.Adapter<a> {
-    private List<i> cXX = new ArrayList();
-    private List<i> cXY = new ArrayList();
+    private List<i> djb = new ArrayList();
+    private List<i> djc = new ArrayList();
     private Context mContext;
     private int mItemWidth;
 
@@ -24,14 +24,14 @@ public class d extends RecyclerView.Adapter<a> {
         int max;
         List<i> list2;
         List<i> list3;
-        this.cXX.clear();
-        this.cXY.clear();
+        this.djb.clear();
+        this.djc.clear();
         if (list != null) {
             if (list.size() > 0 && (list3 = list.get(0)) != null) {
-                this.cXX.addAll(list3);
+                this.djb.addAll(list3);
             }
             if (list.size() > 1 && (list2 = list.get(1)) != null) {
-                this.cXY.addAll(list2);
+                this.djc.addAll(list2);
             }
             DisplayMetrics displayMetrics = this.mContext.getResources().getDisplayMetrics();
             if (i == 0) {
@@ -39,18 +39,18 @@ public class d extends RecyclerView.Adapter<a> {
             } else {
                 max = Math.max(displayMetrics.widthPixels, displayMetrics.heightPixels);
             }
-            this.mItemWidth = (int) (max / (fQ(z) ? 5.5f : 5.0f));
+            this.mItemWidth = (int) (max / (gb(z) ? 5.5f : 5.0f));
             notifyDataSetChanged();
         }
     }
 
-    private boolean fQ(boolean z) {
-        return z || this.cXX.size() > 5 || this.cXY.size() > 5;
+    private boolean gb(boolean z) {
+        return z || this.djb.size() > 5 || this.djc.size() > 5;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.support.v7.widget.RecyclerView.Adapter
-    /* renamed from: g */
+    /* renamed from: e */
     public a onCreateViewHolder(ViewGroup viewGroup, int i) {
         View inflate = LayoutInflater.from(this.mContext).inflate(g.e.swan_app_menu_item_layout, viewGroup, false);
         ViewGroup.LayoutParams layoutParams = inflate.getLayoutParams();
@@ -72,39 +72,39 @@ public class d extends RecyclerView.Adapter<a> {
             layoutParams.width = this.mItemWidth;
             aVar.itemView.setLayoutParams(layoutParams);
         }
-        if (i < this.cXX.size()) {
-            aVar.cXZ.setVisibility(0);
-            aVar.cXZ.g(this.cXX.get(i));
-            aVar.cXZ.setOnClickListener(null);
+        if (i < this.djb.size()) {
+            aVar.djd.setVisibility(0);
+            aVar.djd.g(this.djb.get(i));
+            aVar.djd.setOnClickListener(null);
         } else {
-            aVar.cXZ.setVisibility(this.cXX.size() == 0 ? 8 : 4);
-            aVar.cXZ.setOnClickListener(null);
+            aVar.djd.setVisibility(this.djb.size() == 0 ? 8 : 4);
+            aVar.djd.setOnClickListener(null);
         }
-        if (i < this.cXY.size()) {
-            aVar.cYa.setVisibility(0);
-            aVar.cYa.g(this.cXY.get(i));
-            aVar.cYa.setOnClickListener(null);
+        if (i < this.djc.size()) {
+            aVar.dje.setVisibility(0);
+            aVar.dje.g(this.djc.get(i));
+            aVar.dje.setOnClickListener(null);
             return;
         }
-        aVar.cYa.setVisibility(this.cXY.size() != 0 ? 4 : 8);
-        aVar.cYa.setOnClickListener(null);
+        aVar.dje.setVisibility(this.djc.size() != 0 ? 4 : 8);
+        aVar.dje.setOnClickListener(null);
     }
 
     @Override // android.support.v7.widget.RecyclerView.Adapter
     public int getItemCount() {
-        return Math.max(this.cXX.size(), this.cXY.size());
+        return Math.max(this.djb.size(), this.djc.size());
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes11.dex */
     public static class a extends RecyclerView.ViewHolder {
-        SwanAppMenuItemView cXZ;
-        SwanAppMenuItemView cYa;
+        SwanAppMenuItemView djd;
+        SwanAppMenuItemView dje;
 
         public a(View view) {
             super(view);
-            this.cXZ = (SwanAppMenuItemView) view.findViewById(g.d.first_line_menu_item_view);
-            this.cYa = (SwanAppMenuItemView) view.findViewById(g.d.second_line_menu_item_view);
+            this.djd = (SwanAppMenuItemView) view.findViewById(g.d.first_line_menu_item_view);
+            this.dje = (SwanAppMenuItemView) view.findViewById(g.d.second_line_menu_item_view);
         }
     }
 }

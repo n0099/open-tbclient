@@ -8,6 +8,8 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tieba.t.c;
 /* loaded from: classes11.dex */
 public class HomeExtraStatic {
+    public static String Tag = "tag";
+
     static {
         MessageManager.getInstance().registerTask(new a());
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_HOME_EXTRA_INIT_OK, true));

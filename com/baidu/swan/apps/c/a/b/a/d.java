@@ -3,28 +3,28 @@ package com.baidu.swan.apps.c.a.b.a;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class d {
-    private com.baidu.swan.apps.b.a.b bBd;
+    private com.baidu.swan.apps.b.a.b bIX;
 
-    public static d Rn() {
-        return a.bBe;
+    public static d TN() {
+        return a.bIY;
     }
 
-    public void ec(int i) {
-        if (this.bBd != null) {
-            this.bBd.ec(i);
-            this.bBd = null;
+    public void ei(int i) {
+        if (this.bIX != null) {
+            this.bIX.ei(i);
+            this.bIX = null;
         }
     }
 
-    public void W(JSONObject jSONObject) {
-        if (this.bBd != null) {
-            this.bBd.W(jSONObject);
-            this.bBd = null;
+    public void ab(JSONObject jSONObject) {
+        if (this.bIX != null) {
+            this.bIX.ab(jSONObject);
+            this.bIX = null;
         }
     }
 
     /* loaded from: classes11.dex */
     private static class a {
-        private static final d bBe = new d();
+        private static final d bIY = new d();
     }
 }

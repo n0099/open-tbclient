@@ -17,15 +17,15 @@ public final class MovieEntity extends Message<MovieEntity, Builder> {
     public static final ProtoAdapter<MovieEntity> ADAPTER = new ProtoAdapter_MovieEntity();
     public static final String DEFAULT_VERSION = "";
     private static final long serialVersionUID = 0;
-    @WireField(dAW = "com.opensource.svgaplayer.proto.AudioEntity#ADAPTER", dAX = WireField.Label.REPEATED, tag = 5)
+    @WireField(dIp = "com.opensource.svgaplayer.proto.AudioEntity#ADAPTER", dIq = WireField.Label.REPEATED, tag = 5)
     public final List<AudioEntity> audios;
-    @WireField(dAV = "com.squareup.wire.ProtoAdapter#STRING", dAW = "com.squareup.wire.ProtoAdapter#BYTES", tag = 3)
+    @WireField(dIo = "com.squareup.wire.ProtoAdapter#STRING", dIp = "com.squareup.wire.ProtoAdapter#BYTES", tag = 3)
     public final Map<String, ByteString> images;
-    @WireField(dAW = "com.opensource.svgaplayer.proto.MovieParams#ADAPTER", tag = 2)
+    @WireField(dIp = "com.opensource.svgaplayer.proto.MovieParams#ADAPTER", tag = 2)
     public final MovieParams params;
-    @WireField(dAW = "com.opensource.svgaplayer.proto.SpriteEntity#ADAPTER", dAX = WireField.Label.REPEATED, tag = 4)
+    @WireField(dIp = "com.opensource.svgaplayer.proto.SpriteEntity#ADAPTER", dIq = WireField.Label.REPEATED, tag = 4)
     public final List<SpriteEntity> sprites;
-    @WireField(dAW = "com.squareup.wire.ProtoAdapter#STRING", tag = 1)
+    @WireField(dIp = "com.squareup.wire.ProtoAdapter#STRING", tag = 1)
     public final String version;
 
     public MovieEntity(String str, MovieParams movieParams, Map<String, ByteString> map, List<SpriteEntity> list, List<AudioEntity> list2) {
@@ -102,9 +102,9 @@ public final class MovieEntity extends Message<MovieEntity, Builder> {
     public static final class Builder extends Message.a<MovieEntity, Builder> {
         public MovieParams params;
         public String version;
-        public Map<String, ByteString> images = a.dBa();
-        public List<SpriteEntity> sprites = a.dAZ();
-        public List<AudioEntity> audios = a.dAZ();
+        public Map<String, ByteString> images = a.dIt();
+        public List<SpriteEntity> sprites = a.dIs();
+        public List<AudioEntity> audios = a.dIs();
 
         public Builder version(String str) {
             this.version = str;
@@ -123,13 +123,13 @@ public final class MovieEntity extends Message<MovieEntity, Builder> {
         }
 
         public Builder sprites(List<SpriteEntity> list) {
-            a.fe(list);
+            a.fl(list);
             this.sprites = list;
             return this;
         }
 
         public Builder audios(List<AudioEntity> list) {
-            a.fe(list);
+            a.fl(list);
             this.audios = list;
             return this;
         }
@@ -177,11 +177,11 @@ public final class MovieEntity extends Message<MovieEntity, Builder> {
         @Override // com.squareup.wire2.ProtoAdapter
         public MovieEntity decode(c cVar) throws IOException {
             Builder builder = new Builder();
-            long dAO = cVar.dAO();
+            long dIh = cVar.dIh();
             while (true) {
-                int dAP = cVar.dAP();
-                if (dAP != -1) {
-                    switch (dAP) {
+                int dIi = cVar.dIi();
+                if (dIi != -1) {
+                    switch (dIi) {
                         case 1:
                             builder.version(ProtoAdapter.STRING.decode(cVar));
                             break;
@@ -198,12 +198,12 @@ public final class MovieEntity extends Message<MovieEntity, Builder> {
                             builder.audios.add(AudioEntity.ADAPTER.decode(cVar));
                             break;
                         default:
-                            FieldEncoding dAQ = cVar.dAQ();
-                            builder.addUnknownField(dAP, dAQ, dAQ.rawProtoAdapter().decode(cVar));
+                            FieldEncoding dIj = cVar.dIj();
+                            builder.addUnknownField(dIi, dIj, dIj.rawProtoAdapter().decode(cVar));
                             break;
                     }
                 } else {
-                    cVar.gc(dAO);
+                    cVar.gc(dIh);
                     return builder.build();
                 }
             }

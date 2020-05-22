@@ -4,8 +4,8 @@ import java.io.FileDescriptor;
 import java.io.PrintWriter;
 /* loaded from: classes11.dex */
 public class c<D> {
-    b<D> dcX;
-    a<D> dcY;
+    b<D> doM;
+    a<D> doN;
     boolean mAbandoned;
     boolean mContentChanged;
     int mId;
@@ -22,38 +22,38 @@ public class c<D> {
     }
 
     public void a(int i, b<D> bVar) {
-        if (this.dcX != null) {
+        if (this.doM != null) {
             throw new IllegalStateException("There is already a listener registered");
         }
-        this.dcX = bVar;
+        this.doM = bVar;
         this.mId = i;
     }
 
     public void a(b<D> bVar) {
-        if (this.dcX == null) {
+        if (this.doM == null) {
             throw new IllegalStateException("No listener register");
         }
-        if (this.dcX != bVar) {
+        if (this.doM != bVar) {
             throw new IllegalArgumentException("Attempting to unregister the wrong listener");
         }
-        this.dcX = null;
+        this.doM = null;
     }
 
     public void a(a<D> aVar) {
-        if (this.dcY != null) {
+        if (this.doN != null) {
             throw new IllegalStateException("There is already a listener registered");
         }
-        this.dcY = aVar;
+        this.doN = aVar;
     }
 
     public void b(a<D> aVar) {
-        if (this.dcY == null) {
+        if (this.doN == null) {
             throw new IllegalStateException("No listener register");
         }
-        if (this.dcY != aVar) {
+        if (this.doN != aVar) {
             throw new IllegalArgumentException("Attempting to unregister the wrong listener");
         }
-        this.dcY = null;
+        this.doN = null;
     }
 
     public final void startLoading() {
@@ -107,7 +107,7 @@ public class c<D> {
         printWriter.print("mId=");
         printWriter.print(this.mId);
         printWriter.print(" mListener=");
-        printWriter.println(this.dcX);
+        printWriter.println(this.doM);
         if (this.mStarted || this.mContentChanged || this.mProcessingChange) {
             printWriter.print(str);
             printWriter.print("mStarted=");

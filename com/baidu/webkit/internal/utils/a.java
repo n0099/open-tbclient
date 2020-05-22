@@ -6,6 +6,10 @@ import java.util.Stack;
 public final class a {
     private static String a = "none";
 
+    public static boolean a(File file) {
+        return file.setReadable(true, false);
+    }
+
     public static boolean a(String str) {
         String[] list;
         Stack stack = new Stack();

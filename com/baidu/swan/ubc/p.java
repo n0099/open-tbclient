@@ -1,76 +1,103 @@
 package com.baidu.swan.ubc;
 
+import android.os.RemoteException;
 import android.text.TextUtils;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
+import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class p {
-    private String bVR;
-    private int dev;
-    private JSONObject dew;
-    private List<f> dex = new ArrayList();
-    private int mThreshold;
-
-    public p(String str, JSONObject jSONObject) {
-        this.bVR = str;
-        this.dew = jSONObject;
+    private p() {
     }
 
-    public String getSign() {
-        return this.bVR;
+    /* JADX INFO: Access modifiers changed from: private */
+    /* loaded from: classes11.dex */
+    public static class a {
+        private static final p dqo = new p();
     }
 
-    public int aDZ() {
-        return this.mThreshold;
+    public static p aIF() {
+        return a.dqo;
     }
 
-    public int aEa() {
-        return this.dev;
+    public final void onEvent(String str) {
+        onEvent(str, "", 0);
     }
 
-    public List<f> aEb() {
-        return this.dex;
-    }
-
-    public boolean aEc() {
+    public final void onEvent(String str, Map<String, String> map, int i) {
+        JSONObject jSONObject = new JSONObject();
         try {
-            JSONObject jSONObject = this.dew;
-            this.mThreshold = jSONObject.getInt("threshold");
-            this.dev = jSONObject.getInt("timeup");
-            JSONArray jSONArray = new JSONArray(jSONObject.getString("item"));
-            int length = jSONArray.length();
-            for (int i = 0; i < length; i++) {
-                JSONObject jSONObject2 = jSONArray.getJSONObject(i);
-                String string = jSONObject2.getString("id");
-                String string2 = jSONObject2.getString("isAbtest");
-                int i2 = jSONObject2.getInt("timeout");
-                String string3 = jSONObject2.getString("type");
-                if (!TextUtils.isEmpty(string) && !TextUtils.isEmpty("1") && !TextUtils.isEmpty("1") && !TextUtils.isEmpty(string3)) {
-                    f fVar = new f(string, "1", "1", i2, string3, string2);
-                    if (jSONObject2.has("rate")) {
-                        fVar.jb(jSONObject2.getInt("rate"));
-                    }
-                    if (jSONObject2.has("c")) {
-                        fVar.setCategory(jSONObject2.getString("c"));
-                    }
-                    if (jSONObject2.has("limitUnit")) {
-                        fVar.jc(jSONObject2.getInt("limitUnit"));
-                    }
-                    if (jSONObject2.has("limitCnt")) {
-                        fVar.jd(jSONObject2.getInt("limitCnt"));
-                    }
-                    if (jSONObject2.has("idtype")) {
-                        fVar.si(jSONObject2.getString("idtype"));
-                    }
-                    this.dex.add(fVar);
-                }
+            for (Map.Entry<String, String> entry : map.entrySet()) {
+                jSONObject.put(entry.getKey(), entry.getValue());
             }
-            return true;
         } catch (JSONException e) {
-            return false;
         }
+        onEvent(str, jSONObject.toString(), i);
+    }
+
+    public void onEvent(String str, String str2, int i) {
+        if (com.baidu.pyramid.runtime.multiprocess.a.OS()) {
+            if (e.aIh() != null || !TextUtils.isEmpty(str)) {
+                n.aID().j(str, str2, i);
+                return;
+            }
+            return;
+        }
+        try {
+            aIi().ubcOnEvent(str, s.tS(str2), i);
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void onEvent(String str, JSONObject jSONObject, int i) {
+        if (com.baidu.pyramid.runtime.multiprocess.a.OS()) {
+            if (e.aIh() != null || !TextUtils.isEmpty(str)) {
+                n.aID().a(str, jSONObject, i);
+                return;
+            }
+            return;
+        }
+        try {
+            aIi().ubcOnEvent(str, s.cw(jSONObject), i);
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public Flow i(String str, String str2, int i) {
+        if (com.baidu.pyramid.runtime.multiprocess.a.OS()) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            return n.aID().i(str, str2, i);
+        }
+        return k(str, s.tS(str2), i);
+    }
+
+    public void upload() {
+        n.aID().upload();
+    }
+
+    public void aIG() {
+        n.aID().aIb();
+    }
+
+    private IRemoteUBCService aIi() throws RemoteException {
+        return e.aIi();
+    }
+
+    private Flow k(String str, String str2, int i) {
+        Flow flow;
+        try {
+            flow = aIi().ubcBeginFlow(str, str2, i);
+        } catch (RemoteException e) {
+            e.printStackTrace();
+            flow = null;
+        }
+        if (flow == null) {
+            return new Flow();
+        }
+        return flow;
     }
 }

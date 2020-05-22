@@ -14,129 +14,129 @@ import com.baidu.tieba.im.data.UpdatesItemData;
 import java.util.Date;
 /* loaded from: classes13.dex */
 public class b extends com.baidu.adp.base.b<UpdatesActivity> {
-    private TextView dFQ;
-    private UpdatesActivity iqE;
-    private View iqF;
-    private HeadImageView iqG;
-    private TextView iqH;
-    private TextView iqI;
-    private TextView iqJ;
-    private ImageView iqK;
-    private RelativeLayout iqL;
-    private RelativeLayout iqM;
-    private UpdatesItemData iqN;
+    private TextView dUc;
+    private UpdatesActivity iFk;
+    private View iFl;
+    private HeadImageView iFm;
+    private TextView iFn;
+    private TextView iFo;
+    private TextView iFp;
+    private ImageView iFq;
+    private RelativeLayout iFr;
+    private RelativeLayout iFs;
+    private UpdatesItemData iFt;
 
     public b(UpdatesActivity updatesActivity) {
         super(updatesActivity.getPageContext(), R.layout.updates_item);
-        this.iqE = updatesActivity;
+        this.iFk = updatesActivity;
         initView();
     }
 
     void initView() {
-        this.iqF = this.mConvertView.findViewById(R.id.root_view);
-        this.iqG = (HeadImageView) this.iqF.findViewById(R.id.iv_head);
-        this.iqH = (TextView) this.iqF.findViewById(R.id.tv_group_name);
-        this.iqI = (TextView) this.iqF.findViewById(R.id.tv_content);
-        this.dFQ = (TextView) this.iqF.findViewById(R.id.tv_title);
-        this.iqJ = (TextView) this.iqF.findViewById(R.id.tv_time);
-        this.iqK = (ImageView) this.iqF.findViewById(R.id.cb_select);
-        this.iqL = (RelativeLayout) this.iqF.findViewById(R.id.layout_body);
-        this.iqM = (RelativeLayout) this.iqF.findViewById(R.id.layout_title);
-        this.iqG.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.groupUpdates.b.1
+        this.iFl = this.mConvertView.findViewById(R.id.root_view);
+        this.iFm = (HeadImageView) this.iFl.findViewById(R.id.iv_head);
+        this.iFn = (TextView) this.iFl.findViewById(R.id.tv_group_name);
+        this.iFo = (TextView) this.iFl.findViewById(R.id.tv_content);
+        this.dUc = (TextView) this.iFl.findViewById(R.id.tv_title);
+        this.iFp = (TextView) this.iFl.findViewById(R.id.tv_time);
+        this.iFq = (ImageView) this.iFl.findViewById(R.id.cb_select);
+        this.iFr = (RelativeLayout) this.iFl.findViewById(R.id.layout_body);
+        this.iFs = (RelativeLayout) this.iFl.findViewById(R.id.layout_title);
+        this.iFm.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.groupUpdates.b.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
             }
         });
-        this.iqL.setClickable(true);
-        this.iqL.setLongClickable(true);
-        this.iqM.setClickable(true);
-        this.iqM.setLongClickable(true);
-        this.iqL.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.groupUpdates.b.2
+        this.iFr.setClickable(true);
+        this.iFr.setLongClickable(true);
+        this.iFs.setClickable(true);
+        this.iFs.setLongClickable(true);
+        this.iFr.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.groupUpdates.b.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (b.this.iqE.bND()) {
-                    b.this.iqK.performClick();
+                if (b.this.iFk.bTY()) {
+                    b.this.iFq.performClick();
                 } else {
-                    b.this.iqE.a(b.this.iqF, 101, 0, 0L, b.this.iqN);
+                    b.this.iFk.a(b.this.iFl, 101, 0, 0L, b.this.iFt);
                 }
             }
         });
-        this.iqL.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.im.groupUpdates.b.3
+        this.iFr.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.im.groupUpdates.b.3
             @Override // android.view.View.OnLongClickListener
             public boolean onLongClick(View view) {
-                b.this.iqE.b(b.this.iqF, 200, 0, 0L, b.this.iqN);
+                b.this.iFk.b(b.this.iFl, 200, 0, 0L, b.this.iFt);
                 return true;
             }
         });
-        this.iqM.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.groupUpdates.b.4
+        this.iFs.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.groupUpdates.b.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                b.this.iqE.a(b.this.iqF, 101, 0, 0L, b.this.iqN);
+                b.this.iFk.a(b.this.iFl, 101, 0, 0L, b.this.iFt);
             }
         });
-        this.iqM.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.im.groupUpdates.b.5
+        this.iFs.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.im.groupUpdates.b.5
             @Override // android.view.View.OnLongClickListener
             public boolean onLongClick(View view) {
-                b.this.iqE.b(b.this.iqF, 200, 0, 0L, b.this.iqN);
+                b.this.iFk.b(b.this.iFl, 200, 0, 0L, b.this.iFt);
                 return true;
             }
         });
-        this.iqK.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.groupUpdates.b.6
+        this.iFq.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.groupUpdates.b.6
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 view.setSelected(!view.isSelected());
-                b.this.iqE.a(view, view.isSelected(), b.this.iqN);
+                b.this.iFk.a(view, view.isSelected(), b.this.iFt);
             }
         });
     }
 
     public void refresh() {
-        if (this.iqN != null) {
-            if (this.iqE.bND()) {
-                this.iqK.setVisibility(0);
+        if (this.iFt != null) {
+            if (this.iFk.bTY()) {
+                this.iFq.setVisibility(0);
             } else {
-                this.iqK.setVisibility(8);
-                this.iqL.setSelected(false);
+                this.iFq.setVisibility(8);
+                this.iFr.setSelected(false);
             }
-            String groupHeadUrl = this.iqN.getGroupHeadUrl();
+            String groupHeadUrl = this.iFt.getGroupHeadUrl();
             if (!TextUtils.isEmpty(groupHeadUrl)) {
-                this.iqG.setTag(groupHeadUrl);
-                this.iqG.startLoad(groupHeadUrl, 10, false);
+                this.iFm.setTag(groupHeadUrl);
+                this.iFm.startLoad(groupHeadUrl, 10, false);
             } else {
-                this.iqG.setTag(null);
+                this.iFm.setTag(null);
             }
-            this.iqG.setClickable(false);
-            if (!TextUtils.isEmpty(this.iqN.getTitle())) {
-                this.dFQ.setText(this.iqN.getTitle());
+            this.iFm.setClickable(false);
+            if (!TextUtils.isEmpty(this.iFt.getTitle())) {
+                this.dUc.setText(this.iFt.getTitle());
             } else {
-                this.dFQ.setText(this.iqE.getPageContext().getString(R.string.inform));
+                this.dUc.setText(this.iFk.getPageContext().getString(R.string.inform));
             }
             Date date = new Date();
-            date.setTime(this.iqN.getTime());
-            this.iqJ.setText(aq.j(date));
-            if (!TextUtils.isEmpty(this.iqN.getContent())) {
-                this.iqI.setText(this.iqN.getContent());
+            date.setTime(this.iFt.getTime());
+            this.iFp.setText(aq.j(date));
+            if (!TextUtils.isEmpty(this.iFt.getContent())) {
+                this.iFo.setText(this.iFt.getContent());
             } else {
-                this.iqI.setText("");
+                this.iFo.setText("");
             }
-            if (!TextUtils.isEmpty(this.iqN.getGroupName())) {
-                this.iqH.setText(this.iqN.getGroupName());
+            if (!TextUtils.isEmpty(this.iFt.getGroupName())) {
+                this.iFn.setText(this.iFt.getGroupName());
             } else {
-                this.iqH.setText("");
+                this.iFn.setText("");
             }
-            int paddingLeft = this.iqL.getPaddingLeft();
-            int paddingTop = this.iqL.getPaddingTop();
-            int paddingRight = this.iqL.getPaddingRight();
-            int paddingBottom = this.iqL.getPaddingBottom();
-            this.iqE.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
-            this.iqE.getLayoutMode().onModeChanged(this.mConvertView);
-            this.iqK.setSelected(this.iqN.isSelected());
-            if (this.iqN.isSelected() && this.iqE.bND()) {
-                am.setBackgroundResource(this.iqL, R.drawable.bg_information_down_s);
+            int paddingLeft = this.iFr.getPaddingLeft();
+            int paddingTop = this.iFr.getPaddingTop();
+            int paddingRight = this.iFr.getPaddingRight();
+            int paddingBottom = this.iFr.getPaddingBottom();
+            this.iFk.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
+            this.iFk.getLayoutMode().onModeChanged(this.mConvertView);
+            this.iFq.setSelected(this.iFt.isSelected());
+            if (this.iFt.isSelected() && this.iFk.bTY()) {
+                am.setBackgroundResource(this.iFr, R.drawable.bg_information_down_s);
             } else {
-                am.setBackgroundResource(this.iqL, R.drawable.selector_group_updates_bottom_bg);
+                am.setBackgroundResource(this.iFr, R.drawable.selector_group_updates_bottom_bg);
             }
-            this.iqL.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
+            this.iFr.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
         }
     }
 
@@ -146,6 +146,6 @@ public class b extends com.baidu.adp.base.b<UpdatesActivity> {
     }
 
     public void c(UpdatesItemData updatesItemData) {
-        this.iqN = updatesItemData;
+        this.iFt = updatesItemData;
     }
 }

@@ -20,25 +20,25 @@ public class a extends com.baidu.tieba.ad.download.mvp.a<b, AdDownloadData> {
     public void a(AdDownloadData adDownloadData) {
         if (adDownloadData != null) {
             DownloadStatus currentState = adDownloadData.getCurrentState();
-            DownloadCacheKey yr = d.bgs().yr(adDownloadData.adId());
+            DownloadCacheKey zX = d.bmD().zX(adDownloadData.adId());
             switch (currentState) {
                 case STATUS_NONE:
-                    if (yr != null) {
-                        d.bgs().c(yr, null);
+                    if (zX != null) {
+                        d.bmD().c(zX, null);
                         return;
                     }
                     return;
                 case STATUS_DOWNLOADING:
-                    d.bgs().yo(adDownloadData.adId());
+                    d.bmD().zU(adDownloadData.adId());
                     return;
                 case STATUS_PAUSED:
-                    d.bgs().yp(adDownloadData.adId());
+                    d.bmD().zV(adDownloadData.adId());
                     return;
                 case STATUS_SUCCESS:
-                    if (yr != null) {
+                    if (zX != null) {
                         String downloadFilePath = adDownloadData.extra().getDownloadFilePath();
                         if (!TextUtils.isEmpty(downloadFilePath) && new File(downloadFilePath).exists()) {
-                            d.bgs().a(bgu().getRealView().getContext(), yr, adDownloadData.extra().getDownloadFilePath());
+                            d.bmD().a(bmF().getRealView().getContext(), zX, adDownloadData.extra().getDownloadFilePath());
                             return;
                         }
                         adDownloadData.extra().setStatus(DownloadStatus.STATUS_NONE);
@@ -47,7 +47,7 @@ public class a extends com.baidu.tieba.ad.download.mvp.a<b, AdDownloadData> {
                     }
                     return;
                 case STATUS_INSTALL_SUCCESS:
-                    d.bgs().av(bgu().getRealView().getContext(), adDownloadData.pkgName());
+                    d.bmD().aw(bmF().getRealView().getContext(), adDownloadData.pkgName());
                     return;
                 default:
                     return;

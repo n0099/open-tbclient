@@ -11,14 +11,14 @@ import java.util.concurrent.atomic.AtomicReference;
 import org.a.d;
 /* loaded from: classes7.dex */
 public final class ParallelReduceFull<T> extends g<T> {
-    final a<? extends T> mTX;
+    final a<? extends T> npb;
     final c<T, T, T> reducer;
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        ParallelReduceFullMainSubscriber parallelReduceFullMainSubscriber = new ParallelReduceFullMainSubscriber(cVar, this.mTX.dCO(), this.reducer);
+        ParallelReduceFullMainSubscriber parallelReduceFullMainSubscriber = new ParallelReduceFullMainSubscriber(cVar, this.npb.dKI(), this.reducer);
         cVar.onSubscribe(parallelReduceFullMainSubscriber);
-        this.mTX.a(parallelReduceFullMainSubscriber.subscribers);
+        this.npb.a(parallelReduceFullMainSubscriber.subscribers);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -98,7 +98,7 @@ public final class ParallelReduceFull<T> extends g<T> {
                         break;
                     }
                     try {
-                        t = (T) io.reactivex.internal.functions.a.h(this.reducer.apply(addValue.first, addValue.second), "The reducer returned a null value");
+                        t = (T) io.reactivex.internal.functions.a.k(this.reducer.apply(addValue.first, addValue.second), "The reducer returned a null value");
                     } catch (Throwable th) {
                         io.reactivex.exceptions.a.L(th);
                         innerError(th);
@@ -148,7 +148,7 @@ public final class ParallelReduceFull<T> extends g<T> {
                     return;
                 }
                 try {
-                    this.value = (T) io.reactivex.internal.functions.a.h(this.reducer.apply(t2, t), "The reducer returned a null value");
+                    this.value = (T) io.reactivex.internal.functions.a.k(this.reducer.apply(t2, t), "The reducer returned a null value");
                 } catch (Throwable th) {
                     io.reactivex.exceptions.a.L(th);
                     get().cancel();

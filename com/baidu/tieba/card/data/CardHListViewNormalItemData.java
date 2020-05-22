@@ -4,7 +4,7 @@ import com.baidu.adp.BdUniqueId;
 import java.io.Serializable;
 import tbclient.GuessLikeThreadInfo;
 /* loaded from: classes8.dex */
-public class CardHListViewNormalItemData implements com.baidu.adp.widget.ListView.m, Serializable {
+public class CardHListViewNormalItemData implements com.baidu.adp.widget.ListView.o, Serializable {
     public static final BdUniqueId TYPE = BdUniqueId.gen();
     private static final long serialVersionUID = 9123181123453164969L;
     public long forumId;
@@ -15,7 +15,7 @@ public class CardHListViewNormalItemData implements com.baidu.adp.widget.ListVie
     public long threadId;
     public String title;
 
-    @Override // com.baidu.adp.widget.ListView.m
+    @Override // com.baidu.adp.widget.ListView.o
     public BdUniqueId getType() {
         return TYPE;
     }

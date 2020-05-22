@@ -37,8 +37,8 @@ public class ei extends ai.a {
         r1 = null;
         fileInputStream2 = null;
         FileLock fileLock2 = null;
-        dp m228a = dq.a().m228a();
-        String a = m228a == null ? "" : m228a.a();
+        dp m230a = dq.a().m230a();
+        String a = m230a == null ? "" : m230a.a();
         if (TextUtils.isEmpty(a)) {
             return null;
         }
@@ -47,7 +47,7 @@ public class ei extends ai.a {
         synchronized (dv.a) {
             try {
                 File file2 = new File(this.a.getExternalFilesDir(null), "push_cdata.lock");
-                y.m586a(file2);
+                y.m588a(file2);
                 randomAccessFile = new RandomAccessFile(file2, "rw");
                 try {
                     fileLock = randomAccessFile.getChannel().lock();
@@ -134,7 +134,7 @@ public class ei extends ai.a {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private boolean m233a() {
+    private boolean m235a() {
         if (az.d(this.a)) {
             return false;
         }
@@ -160,7 +160,7 @@ public class ei extends ai.a {
 
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
-    public int mo162a() {
+    public int mo164a() {
         return 1;
     }
 
@@ -171,7 +171,7 @@ public class ei extends ai.a {
             if (file.length() > 1863680) {
                 file.delete();
             }
-        } else if (m233a() || !file.exists()) {
+        } else if (m235a() || !file.exists()) {
         } else {
             List<hu> a = a(file);
             if (!ad.a(a)) {
@@ -185,9 +185,9 @@ public class ei extends ai.a {
                 il ilVar = new il("-1", false);
                 ilVar.c(hw.DataCollection.f475a);
                 ilVar.a(a2);
-                dp m228a = dq.a().m228a();
-                if (m228a != null) {
-                    m228a.a(ilVar, hm.Notification, null);
+                dp m230a = dq.a().m230a();
+                if (m230a != null) {
+                    m230a.a(ilVar, hm.Notification, null);
                 }
                 a();
             }

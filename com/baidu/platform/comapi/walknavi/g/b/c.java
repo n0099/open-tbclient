@@ -155,16 +155,16 @@ public class c extends com.baidu.platform.comapi.walknavi.g.b.b implements Compo
         }
         this.q = (ImageButton) view.findViewById(2131165278);
         this.q.setOnClickListener(new w(this));
-        this.y = (RelativeLayout) view.findViewById(2131165269);
-        this.C = (ImageButton) view.findViewById(2131165272);
+        this.y = (RelativeLayout) view.findViewById(R.raw.sapi_camera_too_near);
+        this.C = (ImageButton) view.findViewById(R.raw.sweep);
         this.C.setOnClickListener(new x(this));
-        this.B = (RelativeLayout) view.findViewById(2131165271);
+        this.B = (RelativeLayout) view.findViewById(R.raw.shake_tone);
         this.B.setOnClickListener(new y(this));
         this.A = (TextView) view.findViewById(2131165275);
         this.D = true;
         this.A.setOnClickListener(new z(this));
         this.z = (ImageButton) view.findViewById(2131165274);
-        this.F = (RelativeLayout) view.findViewById(2131165273);
+        this.F = (RelativeLayout) view.findViewById(R.raw.tnconfig);
         this.F.setOnClickListener(this.ag);
         this.z.setOnClickListener(this.ag);
         this.N = view.findViewById(2131165284);
@@ -180,7 +180,7 @@ public class c extends com.baidu.platform.comapi.walknavi.g.b.b implements Compo
     }
 
     private void a(View view) {
-        this.k = (FrameLayout) view.findViewById(R.raw.sapi_camera_too_far);
+        this.k = (FrameLayout) view.findViewById(R.raw.rim_video_too_near);
     }
 
     private void a(String str, String str2) {
@@ -268,12 +268,12 @@ public class c extends com.baidu.platform.comapi.walknavi.g.b.b implements Compo
     }
 
     private void b(View view) {
-        this.ac = view.findViewById(R.raw.shake_tone);
-        this.aa = view.findViewById(2131165267);
-        this.ab = view.findViewById(R.raw.sweep);
-        this.ad = (TextView) view.findViewById(2131165268);
-        this.ae = (ImageView) view.findViewById(R.raw.tnconfig);
-        this.af = (TextView) view.findViewById(2131165266);
+        this.ac = view.findViewById(R.raw.sapi_camera_nod);
+        this.aa = view.findViewById(R.raw.sapi_camera_special_recg);
+        this.ab = view.findViewById(R.raw.sapi_camera_open_mouth);
+        this.ad = (TextView) view.findViewById(R.raw.sapi_camera_too_far);
+        this.ae = (ImageView) view.findViewById(R.raw.sapi_camera_photo_done);
+        this.af = (TextView) view.findViewById(R.raw.sapi_camera_put_face_round);
     }
 
     public void a(int i) {
@@ -318,7 +318,7 @@ public class c extends com.baidu.platform.comapi.walknavi.g.b.b implements Compo
                 MapStatus.Builder builder = new MapStatus.Builder();
                 builder.overlook(0.0f);
                 builder.zoom(19.0f);
-                builder.targetScreen(new Point((i.winRound.right + i.winRound.left) / 2, ((i.winRound.f991top + i.winRound.bottom) / 2) - ((int) (0.0d - ((Math.abs(i.winRound.bottom - i.winRound.f991top) - 75) * 0.25d)))));
+                builder.targetScreen(new Point((i.winRound.right + i.winRound.left) / 2, ((i.winRound.f989top + i.winRound.bottom) / 2) - ((int) (0.0d - ((Math.abs(i.winRound.bottom - i.winRound.f989top) - 75) * 0.25d)))));
                 com.baidu.mapapi.model.inner.Point K = com.baidu.platform.comapi.walknavi.b.a().K();
                 if (K != null) {
                     builder.target(new LatLng(K.getmPty(), K.getmPtx()));
@@ -333,7 +333,7 @@ public class c extends com.baidu.platform.comapi.walknavi.g.b.b implements Compo
 
     public void c() {
         if (this.T) {
-            com.baidu.platform.comapi.walknavi.d.e.c().a(new C0192c(this));
+            com.baidu.platform.comapi.walknavi.d.e.c().a(new C0225c(this));
             String a2 = com.baidu.platform.comapi.walknavi.d.e.c().a();
             if (TextUtils.isEmpty(a2)) {
                 b(true);
@@ -349,10 +349,10 @@ public class c extends com.baidu.platform.comapi.walknavi.g.b.b implements Compo
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.platform.comapi.walknavi.g.b.c$c  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static class C0192c implements g.a {
+    public static class C0225c implements g.a {
         private WeakReference<com.baidu.platform.comapi.walknavi.g.b.b> a;
 
-        public C0192c(com.baidu.platform.comapi.walknavi.g.b.b bVar) {
+        public C0225c(com.baidu.platform.comapi.walknavi.g.b.b bVar) {
             this.a = null;
             this.a = new WeakReference<>(bVar);
         }

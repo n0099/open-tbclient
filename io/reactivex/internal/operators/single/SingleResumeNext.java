@@ -44,7 +44,7 @@ public final class SingleResumeNext<T> extends w<T> {
         @Override // io.reactivex.y
         public void onError(Throwable th) {
             try {
-                ((aa) io.reactivex.internal.functions.a.h(this.nextFunction.apply(th), "The nextFunction returned a null SingleSource.")).a(new d(this, this.actual));
+                ((aa) io.reactivex.internal.functions.a.k(this.nextFunction.apply(th), "The nextFunction returned a null SingleSource.")).a(new d(this, this.actual));
             } catch (Throwable th2) {
                 io.reactivex.exceptions.a.L(th2);
                 this.actual.onError(new CompositeException(th, th2));

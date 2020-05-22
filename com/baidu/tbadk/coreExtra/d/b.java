@@ -4,29 +4,29 @@ public class b {
 
     /* loaded from: classes.dex */
     private static class a {
-        private static b dUS = new b();
+        private static b ejb = new b();
     }
 
-    public static b aVP() {
-        return a.dUS;
+    public static b bbY() {
+        return a.ejb;
     }
 
     private b() {
     }
 
-    public void aVQ() {
-        wd("kLCSError=1");
+    public void bbZ() {
+        xJ("kLCSError=1");
     }
 
-    public void mt(int i) {
-        wd("kNetStatus=" + i);
+    public void mV(int i) {
+        xJ("kNetStatus=" + i);
     }
 
-    public void wc(String str) {
-        wd("kNewIpResult=" + str);
+    public void xI(String str) {
+        xJ("kNewIpResult=" + str);
     }
 
-    private void wd(String str) {
-        com.baidu.adp.framework.client.socket.i.debug("IpReconnLogHelper", 0, 0, null, com.baidu.tbadk.core.g.RETRY_IPLIST, str);
+    private void xJ(String str) {
+        com.baidu.adp.framework.client.socket.i.debug("IpReconnLogHelper", 0, 0, null, com.baidu.tbadk.core.h.RETRY_IPLIST, str);
     }
 }

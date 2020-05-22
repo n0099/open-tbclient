@@ -15,40 +15,40 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a extends BaseAdapter {
-    private ViewGroup eNo;
-    private InterfaceC0475a eNp;
-    public List<d> anP = new ArrayList();
-    private int eLO = -1;
-    private int eLP = -1;
-    private int eNq = 0;
+    private ViewGroup eZL;
+    private InterfaceC0522a eZM;
+    public List<d> asJ = new ArrayList();
+    private int eYl = -1;
+    private int eYm = -1;
+    private int eZN = 0;
 
     /* renamed from: com.baidu.tieba.ala.alaar.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC0475a {
+    public interface InterfaceC0522a {
         void b(int i, int[] iArr);
     }
 
     public a(ViewGroup viewGroup) {
-        this.eNo = viewGroup;
+        this.eZL = viewGroup;
     }
 
-    public void a(InterfaceC0475a interfaceC0475a) {
-        this.eNp = interfaceC0475a;
+    public void a(InterfaceC0522a interfaceC0522a) {
+        this.eZM = interfaceC0522a;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.anP == null) {
+        if (this.asJ == null) {
             return 0;
         }
-        return this.anP.size();
+        return this.asJ.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: oU */
+    /* renamed from: pv */
     public d getItem(int i) {
-        return (d) ListUtils.getItem(this.anP, i);
+        return (d) ListUtils.getItem(this.asJ, i);
     }
 
     @Override // android.widget.Adapter
@@ -58,21 +58,21 @@ public class a extends BaseAdapter {
 
     public void setDatas(List<d> list) {
         if (!ListUtils.isEmpty(list)) {
-            this.anP.clear();
-            this.anP.addAll(list);
+            this.asJ.clear();
+            this.asJ.addAll(list);
             notifyDataSetChanged();
         }
     }
 
     public List<d> getDatas() {
-        return this.anP;
+        return this.asJ;
     }
 
     @Override // android.widget.Adapter
     public View getView(final int i, View view, ViewGroup viewGroup) {
         final c cVar;
         if (view == null) {
-            view = LayoutInflater.from(this.eNo.getContext()).inflate(a.h.filter_ar_item_layout, (ViewGroup) null);
+            view = LayoutInflater.from(this.eZL.getContext()).inflate(a.h.filter_ar_item_layout, (ViewGroup) null);
             cVar = new c(view);
             view.setTag(cVar);
         } else {
@@ -90,14 +90,14 @@ public class a extends BaseAdapter {
         });
         if (cVar != null) {
             cVar.b(getItem(i));
-            if (this.eLO == i) {
-                cVar.bkM();
+            if (this.eYl == i) {
+                cVar.bqg();
             } else {
-                cVar.bkL();
+                cVar.bqf();
             }
         }
-        if (i == 0 && this.eNq != 0) {
-            view.setPadding(this.eNq, 0, 0, 0);
+        if (i == 0 && this.eZN != 0) {
+            view.setPadding(this.eZN, 0, 0, 0);
         } else {
             view.setPadding(0, 0, 0, 0);
         }
@@ -107,14 +107,14 @@ public class a extends BaseAdapter {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(d dVar, int i, c cVar, int[] iArr) {
         if (dVar != null) {
-            this.eLP = i;
-            if (e.zb(dVar.tQ())) {
-                if (this.eNp != null) {
-                    this.eNp.b(i, iArr);
+            this.eYm = i;
+            if (e.AH(dVar.uX())) {
+                if (this.eZM != null) {
+                    this.eZM.b(i, iArr);
                 }
-                this.eLO = i;
+                this.eYl = i;
                 notifyDataSetChanged();
-            } else if (TextUtils.isEmpty(dVar.tQ()) || !e.cy(dVar.tQ())) {
+            } else if (TextUtils.isEmpty(dVar.uX()) || !e.cz(dVar.uX())) {
                 a(dVar, cVar, i, iArr);
             }
         }
@@ -122,9 +122,9 @@ public class a extends BaseAdapter {
 
     private void a(d dVar, final c cVar, final int i, final int[] iArr) {
         if (!BdNetTypeUtil.isNetWorkAvailable()) {
-            BdUtilHelper.showToast(this.eNo.getContext(), a.i.sdk_network_not_available);
-        } else if (dVar != null && !TextUtils.isEmpty(dVar.tQ())) {
-            e.a(dVar.tQ(), new e.a() { // from class: com.baidu.tieba.ala.alaar.view.a.2
+            BdUtilHelper.showToast(this.eZL.getContext(), a.i.sdk_network_not_available);
+        } else if (dVar != null && !TextUtils.isEmpty(dVar.uX())) {
+            e.a(dVar.uX(), new e.a() { // from class: com.baidu.tieba.ala.alaar.view.a.2
                 @Override // com.baidu.tieba.ala.alaar.sticker.a.e.a
                 public void onStarted() {
                     if (cVar != null) {
@@ -138,14 +138,14 @@ public class a extends BaseAdapter {
 
                 @Override // com.baidu.tieba.ala.alaar.sticker.a.e.a
                 public void onCompleted(String str) {
-                    if (a.this.eLP != i) {
+                    if (a.this.eYm != i) {
                         a.this.notifyDataSetChanged();
                         return;
                     }
-                    a.this.eLO = i;
+                    a.this.eYl = i;
                     a.this.notifyDataSetChanged();
-                    if (a.this.eNp != null) {
-                        a.this.eNp.b(i, iArr);
+                    if (a.this.eZM != null) {
+                        a.this.eZM.b(i, iArr);
                     }
                 }
 
@@ -157,37 +157,37 @@ public class a extends BaseAdapter {
         }
     }
 
-    public void zn(String str) {
-        String za;
-        if (this.anP != null && this.anP.size() > 0 && !TextUtils.isEmpty(str)) {
+    public void AT(String str) {
+        String AG;
+        if (this.asJ != null && this.asJ.size() > 0 && !TextUtils.isEmpty(str)) {
             int i = 0;
             int i2 = -1;
             while (true) {
                 int i3 = i;
-                if (i3 < this.anP.size()) {
-                    if (this.eNo.getContext().getString(a.i.beauty_yuantu).equals(this.anP.get(i3).getName())) {
-                        com.baidu.minivideo.arface.b.JX();
-                        za = com.baidu.minivideo.arface.c.Ka();
+                if (i3 < this.asJ.size()) {
+                    if (this.eZL.getContext().getString(a.i.beauty_yuantu).equals(this.asJ.get(i3).getName())) {
+                        com.baidu.minivideo.arface.b.LQ();
+                        AG = com.baidu.minivideo.arface.c.LT();
                         i2 = i3;
                     } else {
-                        za = e.za(this.anP.get(i3).tQ());
+                        AG = e.AG(this.asJ.get(i3).uX());
                     }
-                    if (!str.equals(za)) {
+                    if (!str.equals(AG)) {
                         i = i3 + 1;
                     } else {
-                        this.eLO = i3;
+                        this.eYl = i3;
                         notifyDataSetChanged();
-                        if (this.eNp != null) {
-                            this.eNp.b(i3, null);
+                        if (this.eZM != null) {
+                            this.eZM.b(i3, null);
                             return;
                         }
                         return;
                     }
                 } else if (i2 >= 0) {
-                    this.eLO = i2;
+                    this.eYl = i2;
                     notifyDataSetChanged();
-                    if (this.eNp != null) {
-                        this.eNp.b(i2, null);
+                    if (this.eZM != null) {
+                        this.eZM.b(i2, null);
                         return;
                     }
                     return;
@@ -198,7 +198,7 @@ public class a extends BaseAdapter {
         }
     }
 
-    public void oV(int i) {
-        this.eNq = i;
+    public void pw(int i) {
+        this.eZN = i;
     }
 }

@@ -9,81 +9,81 @@ import com.baidu.tieba.f.a;
 /* loaded from: classes9.dex */
 public class c {
     private static final int TOUCH_SLOP = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.ds20);
-    private boolean jpL;
-    private boolean jpM;
-    private final a jpN;
-    private final com.baidu.tieba.f.b jpO;
-    private a.InterfaceC0557a jpP = new a.InterfaceC0557a() { // from class: com.baidu.tieba.pb.pb.godreply.c.1
-        @Override // com.baidu.tieba.f.a.InterfaceC0557a
-        public void y(int i, int i2) {
-            if (c.this.jpN.isActive() && !c.this.cwD() && !c.this.cwE()) {
-                c.this.qJ(true);
+    private boolean jGu;
+    private boolean jGv;
+    private final a jGw;
+    private final com.baidu.tieba.f.b jGx;
+    private a.InterfaceC0607a jGy = new a.InterfaceC0607a() { // from class: com.baidu.tieba.pb.pb.godreply.c.1
+        @Override // com.baidu.tieba.f.a.InterfaceC0607a
+        public void B(int i, int i2) {
+            if (c.this.jGw.isActive() && !c.this.cDA() && !c.this.cDB()) {
+                c.this.rh(true);
                 c.this.setFullscreen(true);
-                c.this.jpN.cwz().w(new Runnable() { // from class: com.baidu.tieba.pb.pb.godreply.c.1.1
+                c.this.jGw.cDw().y(new Runnable() { // from class: com.baidu.tieba.pb.pb.godreply.c.1.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        c.this.qJ(false);
+                        c.this.rh(false);
                     }
                 });
             }
         }
 
-        @Override // com.baidu.tieba.f.a.InterfaceC0557a
-        public void z(int i, int i2) {
-            if (c.this.jpN.isActive() && !c.this.cwD() && c.this.jpN.cwz().cwJ() && Math.abs(i2) > c.TOUCH_SLOP) {
-                c.this.jpN.v(new Runnable() { // from class: com.baidu.tieba.pb.pb.godreply.c.1.2
+        @Override // com.baidu.tieba.f.a.InterfaceC0607a
+        public void C(int i, int i2) {
+            if (c.this.jGw.isActive() && !c.this.cDA() && c.this.jGw.cDw().cDG() && Math.abs(i2) > c.TOUCH_SLOP) {
+                c.this.jGw.x(new Runnable() { // from class: com.baidu.tieba.pb.pb.godreply.c.1.2
                     @Override // java.lang.Runnable
                     public void run() {
-                        c.this.qJ(false);
+                        c.this.rh(false);
                     }
                 });
-                c.this.qJ(true);
+                c.this.rh(true);
                 c.this.setFullscreen(false);
             }
         }
 
-        @Override // com.baidu.tieba.f.a.InterfaceC0557a
-        public void bG(int i, int i2) {
+        @Override // com.baidu.tieba.f.a.InterfaceC0607a
+        public void bK(int i, int i2) {
         }
 
-        @Override // com.baidu.tieba.f.a.InterfaceC0557a
-        public void A(int i, int i2) {
+        @Override // com.baidu.tieba.f.a.InterfaceC0607a
+        public void D(int i, int i2) {
         }
     };
-    private View.OnTouchListener jpQ = new View.OnTouchListener() { // from class: com.baidu.tieba.pb.pb.godreply.c.2
+    private View.OnTouchListener jGz = new View.OnTouchListener() { // from class: com.baidu.tieba.pb.pb.godreply.c.2
         @Override // android.view.View.OnTouchListener
         public boolean onTouch(View view, MotionEvent motionEvent) {
-            c.this.jpO.onTouchEvent(motionEvent);
+            c.this.jGx.onTouchEvent(motionEvent);
             return false;
         }
     };
 
     public c(a aVar) {
-        this.jpN = aVar;
-        this.jpO = new com.baidu.tieba.f.b(aVar.jpp.getPageContext().getPageActivity());
-        this.jpO.a(this.jpP);
+        this.jGw = aVar;
+        this.jGx = new com.baidu.tieba.f.b(aVar.jFY.getPageContext().getPageActivity());
+        this.jGx.a(this.jGy);
     }
 
     public void initialize() {
-        d cwz = this.jpN.cwz();
-        if (cwz.cwG()) {
-            cwz.getListView().setOnTouchListener(this.jpQ);
+        d cDw = this.jGw.cDw();
+        if (cDw.cDD()) {
+            cDw.getListView().setOnTouchListener(this.jGz);
         }
     }
 
-    public boolean cwD() {
-        return this.jpL;
+    public boolean cDA() {
+        return this.jGu;
     }
 
-    public void qJ(boolean z) {
-        this.jpL = z;
+    public void rh(boolean z) {
+        this.jGu = z;
     }
 
-    public boolean cwE() {
-        return this.jpM;
+    public boolean cDB() {
+        return this.jGv;
     }
 
     public void setFullscreen(boolean z) {
-        this.jpM = z;
+        this.jGv = z;
     }
 }

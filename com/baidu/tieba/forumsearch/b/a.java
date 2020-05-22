@@ -4,33 +4,33 @@ import com.baidu.adp.BdUniqueId;
 import java.util.ArrayList;
 /* loaded from: classes11.dex */
 public class a extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId gWN = BdUniqueId.gen();
-    public static final BdUniqueId gWO = BdUniqueId.gen();
-    public static final BdUniqueId gWP = BdUniqueId.gen();
-    private BdUniqueId Ty;
-    private ArrayList<String> gWQ;
+    private BdUniqueId TK;
+    private ArrayList<String> hlC;
+    public static final BdUniqueId hlz = BdUniqueId.gen();
+    public static final BdUniqueId hlA = BdUniqueId.gen();
+    public static final BdUniqueId hlB = BdUniqueId.gen();
 
-    @Override // com.baidu.adp.widget.ListView.m
+    @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.o
     public BdUniqueId getType() {
-        return this.Ty;
+        return this.TK;
     }
 
-    public void o(BdUniqueId bdUniqueId) {
-        this.Ty = bdUniqueId;
+    public void g(BdUniqueId bdUniqueId) {
+        this.TK = bdUniqueId;
     }
 
     public a() {
-        this.Ty = gWO;
-        this.Ty = gWO;
+        this.TK = hlA;
+        this.TK = hlA;
     }
 
     public a(ArrayList<String> arrayList) {
-        this.Ty = gWO;
-        this.gWQ = arrayList;
-        this.Ty = gWN;
+        this.TK = hlA;
+        this.hlC = arrayList;
+        this.TK = hlz;
     }
 
-    public ArrayList<String> bNv() {
-        return this.gWQ;
+    public ArrayList<String> bTQ() {
+        return this.hlC;
     }
 }

@@ -5,11 +5,11 @@ import tbclient.Myrecord;
 /* loaded from: classes8.dex */
 public class d {
     private String apply_declaration;
-    private int giT;
-    private int giU;
-    private int giV;
-    private int giW;
-    private boolean giX = false;
+    private int gxJ;
+    private int gxK;
+    private int gxL;
+    private int gxM;
+    private boolean gxN = false;
     private String nickname;
     private String portrait;
     private int post_num;
@@ -18,16 +18,16 @@ public class d {
     private long tid;
     private long uid;
 
-    public int bDJ() {
-        return this.giW;
+    public int bKa() {
+        return this.gxM;
     }
 
-    public int bDK() {
-        return this.giT;
+    public int bKb() {
+        return this.gxJ;
     }
 
-    public int bDL() {
-        return this.giU;
+    public int bKc() {
+        return this.gxK;
     }
 
     public int getPost_num() {
@@ -46,11 +46,11 @@ public class d {
         return this.uid;
     }
 
-    public int bDM() {
-        return this.giV;
+    public int bKd() {
+        return this.gxL;
     }
 
-    public String bDN() {
+    public String bKe() {
         return this.apply_declaration;
     }
 
@@ -66,8 +66,8 @@ public class d {
         return this.tid;
     }
 
-    public boolean bDO() {
-        return this.giX;
+    public boolean bKf() {
+        return this.gxN;
     }
 
     public static d a(ElectionList electionList) {
@@ -75,19 +75,19 @@ public class d {
             return null;
         }
         d dVar = new d();
-        dVar.ry(electionList.vote_num.intValue());
+        dVar.sb(electionList.vote_num.intValue());
         dVar.setNickname(electionList.name_show);
         dVar.setPortrait(electionList.portrait);
-        dVar.rx(electionList.forum_level.intValue());
-        dVar.Bz(electionList.apply_declaration);
+        dVar.sa(electionList.forum_level.intValue());
+        dVar.Di(electionList.apply_declaration);
         dVar.setRank(electionList.rank.intValue());
-        dVar.rw(electionList.apply_id.intValue());
+        dVar.rZ(electionList.apply_id.intValue());
         dVar.setPost_num(electionList.post_num.intValue());
         dVar.setThread_num(electionList.thread_num.intValue());
-        dVar.rv(electionList.agree_num.intValue());
+        dVar.rY(electionList.agree_num.intValue());
         dVar.setUid(electionList.uid.longValue());
         dVar.setTid(electionList.tid.longValue());
-        dVar.ll(electionList.is_cheat.intValue() == 1);
+        dVar.lH(electionList.is_cheat.intValue() == 1);
         return dVar;
     }
 
@@ -96,35 +96,35 @@ public class d {
             return null;
         }
         d dVar = new d();
-        dVar.ry(myrecord.vote_num.intValue());
+        dVar.sb(myrecord.vote_num.intValue());
         dVar.setNickname(myrecord.name_show);
         dVar.setPortrait(myrecord.portrait);
-        dVar.rx(myrecord.forum_level.intValue());
-        dVar.Bz(myrecord.apply_declaration);
+        dVar.sa(myrecord.forum_level.intValue());
+        dVar.Di(myrecord.apply_declaration);
         dVar.setRank(myrecord.rank.intValue());
-        dVar.rw(myrecord.apply_id.intValue());
+        dVar.rZ(myrecord.apply_id.intValue());
         dVar.setPost_num(myrecord.post_num.intValue());
         dVar.setThread_num(myrecord.thread_num.intValue());
-        dVar.rv(myrecord.agree_num.intValue());
+        dVar.rY(myrecord.agree_num.intValue());
         dVar.setUid(myrecord.uid.longValue());
         dVar.setTid(myrecord.tid.longValue());
         return dVar;
     }
 
-    public void rv(int i) {
-        this.giW = i;
+    public void rY(int i) {
+        this.gxM = i;
     }
 
-    public void rw(int i) {
-        this.giT = i;
+    public void rZ(int i) {
+        this.gxJ = i;
     }
 
-    public void Bz(String str) {
+    public void Di(String str) {
         this.apply_declaration = str;
     }
 
-    public void rx(int i) {
-        this.giU = i;
+    public void sa(int i) {
+        this.gxK = i;
     }
 
     public void setNickname(String str) {
@@ -151,12 +151,12 @@ public class d {
         this.uid = j;
     }
 
-    public void ry(int i) {
-        this.giV = i;
+    public void sb(int i) {
+        this.gxL = i;
     }
 
-    public void ll(boolean z) {
-        this.giX = z;
+    public void lH(boolean z) {
+        this.gxN = z;
     }
 
     public void setTid(long j) {

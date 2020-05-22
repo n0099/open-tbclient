@@ -172,6 +172,7 @@ public class CmdConfigCustom {
     public static final int CMD_GET_HOT_GOD_CACHE = 2016446;
     public static final int CMD_GET_LEVEL_INFO_CACHE = 2003007;
     public static final int CMD_GET_LIKE_FORUM_LIST = 2016550;
+    public static final int CMD_GET_LIVE_INFO_TIME = 2921347;
     public static final int CMD_GET_MANGA_DB_DATA = 2001421;
     public static final int CMD_GET_MANGA_READ_RECORD = 2001423;
     public static final int CMD_GET_MEMBER_CENTER_CACHE = 2016460;

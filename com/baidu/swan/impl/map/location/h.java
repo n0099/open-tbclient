@@ -7,40 +7,40 @@ import android.animation.ObjectAnimator;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
-import com.baidu.swan.apps.as.af;
+import com.baidu.swan.apps.aq.ag;
 /* loaded from: classes12.dex */
 public class h {
-    private static final int cWw = af.C(58.0f);
-    private View cWs;
-    private View cWt;
-    private boolean cWu;
-    private a cWv;
+    private static final int dhx = ag.B(58.0f);
+    private View dht;
+    private View dhu;
+    private boolean dhv;
+    private a dhw;
     private View mListContainer;
 
     /* loaded from: classes12.dex */
     interface a {
-        void fM(boolean z);
+        void fX(boolean z);
 
-        void fN(boolean z);
+        void fY(boolean z);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(View view, FrameLayout frameLayout, View view2) {
         this.mListContainer = view;
-        this.cWs = frameLayout;
-        this.cWt = view2;
+        this.dht = frameLayout;
+        this.dhu = view2;
     }
 
-    public void fO(final boolean z) {
-        if (this.cWv != null) {
-            this.cWv.fN(z);
+    public void fZ(final boolean z) {
+        if (this.dhw != null) {
+            this.dhw.fY(z);
         }
-        this.cWu = z;
-        final int i = z ? -cWw : cWw;
+        this.dhv = z;
+        final int i = z ? -dhx : dhx;
         float[] fArr = z ? new float[]{0.0f, i} : new float[]{-i, 0.0f};
         float[] fArr2 = z ? new float[]{0.0f, i * 2} : new float[]{(-i) * 2, 0.0f};
         AnimatorSet animatorSet = new AnimatorSet();
-        animatorSet.playTogether(ObjectAnimator.ofFloat(this.cWs, "translationY", fArr), ObjectAnimator.ofFloat(this.mListContainer, "translationY", fArr2), ObjectAnimator.ofFloat(this.cWt, "translationY", fArr2));
+        animatorSet.playTogether(ObjectAnimator.ofFloat(this.dht, "translationY", fArr), ObjectAnimator.ofFloat(this.mListContainer, "translationY", fArr2), ObjectAnimator.ofFloat(this.dhu, "translationY", fArr2));
         animatorSet.setDuration(200L);
         animatorSet.start();
         animatorSet.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.swan.impl.map.location.h.1
@@ -49,26 +49,26 @@ public class h {
                 super.onAnimationEnd(animator);
                 animator.removeAllListeners();
                 if (!z) {
-                    h.this.iq(i);
+                    h.this.iH(i);
                 }
-                if (h.this.cWv != null) {
-                    h.this.cWv.fM(z);
+                if (h.this.dhw != null) {
+                    h.this.dhw.fX(z);
                 }
             }
         });
         if (z) {
-            iq(i);
+            iH(i);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void iq(int i) {
+    public void iH(int i) {
         ViewGroup.LayoutParams layoutParams = this.mListContainer.getLayoutParams();
         layoutParams.height = this.mListContainer.getHeight() - (i * 2);
         this.mListContainer.setLayoutParams(layoutParams);
     }
 
     public boolean isFlipped() {
-        return this.cWu;
+        return this.dhv;
     }
 }

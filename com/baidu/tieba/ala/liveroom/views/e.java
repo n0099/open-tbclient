@@ -4,24 +4,26 @@ public interface e {
 
     /* loaded from: classes3.dex */
     public interface a {
-        void bxW();
+        void bDZ();
 
-        void bxX();
+        void bEa();
     }
 
     /* loaded from: classes3.dex */
     public interface b {
-        void bxY();
+        void bEb();
 
-        void bxZ();
+        void bEc();
 
-        void bya();
+        void bEd();
 
-        boolean byb();
+        boolean bEe();
 
-        void byc();
+        void bEf();
 
-        void byd();
+        void bEg();
+
+        void d(com.baidu.tieba.ala.category.b.a aVar);
 
         void onCloseClicked();
     }

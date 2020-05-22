@@ -23,7 +23,7 @@ public final class d extends com.baidu.swan.apps.component.b.b {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static d q(UnitedSchemeEntity unitedSchemeEntity) {
+    public static d p(UnitedSchemeEntity unitedSchemeEntity) {
         if (unitedSchemeEntity == null) {
             return null;
         }
@@ -40,6 +40,6 @@ public final class d extends com.baidu.swan.apps.component.b.b {
 
     @Override // com.baidu.swan.apps.component.b.b, com.baidu.swan.apps.model.a
     public boolean isValid() {
-        return !TextUtils.isEmpty(this.bGO);
+        return !TextUtils.isEmpty(this.bPG);
     }
 }

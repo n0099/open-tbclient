@@ -105,7 +105,7 @@ public class a extends UploadBean {
 
     @Override // com.baidu.fsg.base.restnet.beans.ApollonBean
     public String getUrl() {
-        return EnvConfig.getInstance(this.mContext).getRimHttpsHost() + e.v;
+        return EnvConfig.getInstance(this.mContext).getRimHttpsHost() + f.w;
     }
 
     @Override // com.baidu.fsg.base.restnet.beans.ApollonBean

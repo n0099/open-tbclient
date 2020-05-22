@@ -255,19 +255,15 @@ public final class IMSDK {
     }
 
     private boolean heartbeat() {
-        boolean isNetworkAvailable = RequsetNetworkUtils.isNetworkAvailable(this.mContext);
-        LogUtils.d(TAG, "heartbeat networkConnected :" + isNetworkAvailable);
-        if (isNetworkAvailable) {
-            notifyHeartbeatListener();
-            if (this.mConnection != null) {
-                if (!this.mConnection.isConnected()) {
-                    scheduleConnect();
-                } else {
-                    this.mConnection.sendHeartbeatMessage();
-                }
-                return true;
+        LogUtils.d(TAG, "heartbeat notifyHeartbeatListener");
+        notifyHeartbeatListener();
+        if (this.mConnection != null) {
+            if (!this.mConnection.isConnected()) {
+                scheduleConnect();
+            } else {
+                this.mConnection.sendHeartbeatMessage();
             }
-            return false;
+            return true;
         }
         return false;
     }

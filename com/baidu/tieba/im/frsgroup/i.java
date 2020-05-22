@@ -3,7 +3,7 @@ package com.baidu.tieba.im.frsgroup;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import com.baidu.adp.widget.ListView.y;
+import com.baidu.adp.widget.ListView.aa;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
@@ -11,20 +11,20 @@ import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes10.dex */
-public class i extends y.a {
-    private int dFU;
-    public TbImageView ilM;
-    public TBSpecificationBtn ilN;
+public class i extends aa.a {
+    private int dUg;
+    public TbImageView iAu;
+    public TBSpecificationBtn iAv;
     public TextView mDescView;
     public TextView mTitleView;
 
     public i(View view, View.OnClickListener onClickListener) {
         super(view);
-        this.ilM = (TbImageView) view.findViewById(R.id.net_refresh_image);
+        this.iAu = (TbImageView) view.findViewById(R.id.net_refresh_image);
         this.mDescView = (TextView) view.findViewById(R.id.net_refresh_desc);
         this.mTitleView = (TextView) view.findViewById(R.id.net_refresh_title);
-        this.ilN = (TBSpecificationBtn) view.findViewById(R.id.net_refresh_button);
-        this.ilN.setOnClickListener(onClickListener);
+        this.iAv = (TBSpecificationBtn) view.findViewById(R.id.net_refresh_button);
+        this.iAv.setOnClickListener(onClickListener);
     }
 
     public void a(NoDataViewFactory.ImgType imgType, String str, String str2, String str3) {
@@ -32,34 +32,34 @@ public class i extends y.a {
         am.setViewTextColor(this.mTitleView, R.color.cp_cont_j, 1);
         this.mDescView.setText(str);
         this.mTitleView.setText(str2);
-        this.ilN.setText(str3);
+        this.iAv.setText(str3);
         setLayoutMargin(0);
-        wZ(com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.ds30));
+        xF(com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.ds30));
         if (imgType == NoDataViewFactory.ImgType.WEBVIEW) {
-            this.ilM.setImageBitmap(am.getBitmap565Quality(R.drawable.new_pic_emotion_08));
+            this.iAu.setImageBitmap(am.getBitmap565Quality(R.drawable.new_pic_emotion_08));
         } else if (imgType == NoDataViewFactory.ImgType.NODATA) {
-            this.ilM.setImageBitmap(am.getBitmap565Quality(R.drawable.new_pic_emotion_05));
+            this.iAu.setImageBitmap(am.getBitmap565Quality(R.drawable.new_pic_emotion_05));
         } else {
             d(imgType);
-            this.ilM.setImageBitmap(am.getBitmap565Quality(this.dFU));
+            this.iAu.setImageBitmap(am.getBitmap565Quality(this.dUg));
         }
     }
 
     public void setLayoutMargin(int i) {
-        ViewGroup.LayoutParams layoutParams = this.ilM.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams = this.iAu.getLayoutParams();
         if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
             marginLayoutParams.topMargin = i;
-            this.ilM.setLayoutParams(marginLayoutParams);
+            this.iAu.setLayoutParams(marginLayoutParams);
         }
     }
 
-    public void wZ(int i) {
-        ViewGroup.LayoutParams layoutParams = this.ilN.getLayoutParams();
+    public void xF(int i) {
+        ViewGroup.LayoutParams layoutParams = this.iAv.getLayoutParams();
         if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
             marginLayoutParams.bottomMargin = i;
-            this.ilN.setLayoutParams(marginLayoutParams);
+            this.iAv.setLayoutParams(marginLayoutParams);
         }
     }
 
@@ -67,25 +67,25 @@ public class i extends y.a {
         if (imgType != null) {
             switch (imgType) {
                 case CREATE:
-                    this.dFU = R.drawable.new_pic_emotion_03;
+                    this.dUg = R.drawable.new_pic_emotion_03;
                     return;
                 case NODATA:
-                    this.dFU = R.drawable.new_pic_emotion_05;
+                    this.dUg = R.drawable.new_pic_emotion_05;
                     return;
                 case FINDBAR:
-                    this.dFU = R.drawable.new_pic_emotion_01;
+                    this.dUg = R.drawable.new_pic_emotion_01;
                     return;
                 case EMOTION:
-                    this.dFU = R.drawable.new_pic_emotion_02;
+                    this.dUg = R.drawable.new_pic_emotion_02;
                     return;
                 case GIFT:
-                    this.dFU = R.drawable.new_pic_emotion_07;
+                    this.dUg = R.drawable.new_pic_emotion_07;
                     return;
                 case SINGALL:
-                    this.dFU = R.drawable.new_pic_emotion_06;
+                    this.dUg = R.drawable.new_pic_emotion_06;
                     return;
                 case WEBVIEW:
-                    this.dFU = R.drawable.new_pic_emotion_08;
+                    this.dUg = R.drawable.new_pic_emotion_08;
                     return;
                 default:
                     return;

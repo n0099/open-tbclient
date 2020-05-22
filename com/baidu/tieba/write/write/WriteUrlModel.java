@@ -11,7 +11,7 @@ public class WriteUrlModel extends NewWriteModel {
         super(tbPageContext);
     }
 
-    public void as(Intent intent) {
+    public void aq(Intent intent) {
         if (intent != null) {
             WriteData writeData = new WriteData();
             writeData.setType(intent.getIntExtra("type", 0));
@@ -23,19 +23,19 @@ public class WriteUrlModel extends NewWriteModel {
     }
 
     public void e(String str, String str2, String str3, String str4, String str5, String str6) {
-        WriteData cSL = cSL();
-        if (cSL != null) {
+        WriteData cZP = cZP();
+        if (cZP != null) {
             cancelLoadData();
-            cSL.setTitle(str);
-            cSL.setIsNoTitle(StringUtils.isNull(str));
-            cSL.setContent(str2);
-            cSL.setLinkUrl(str3);
-            cSL.setLinkUrlCode(str4);
-            cSL.setIsLinkThread(true);
-            cSL.setPostLatLng(true);
-            cSL.setLat(str5);
-            cSL.setLng(str6);
-            cXz();
+            cZP.setTitle(str);
+            cZP.setIsNoTitle(StringUtils.isNull(str));
+            cZP.setContent(str2);
+            cZP.setLinkUrl(str3);
+            cZP.setLinkUrlCode(str4);
+            cZP.setIsLinkThread(true);
+            cZP.setPostLatLng(true);
+            cZP.setLat(str5);
+            cZP.setLng(str6);
+            deN();
         }
     }
 }

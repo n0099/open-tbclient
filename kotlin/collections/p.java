@@ -6,9 +6,9 @@ import java.util.List;
 @kotlin.h
 /* loaded from: classes7.dex */
 public class p {
-    public static final <T> List<T> bC(T t) {
+    public static final <T> List<T> bI(T t) {
         List<T> singletonList = Collections.singletonList(t);
-        kotlin.jvm.internal.q.i(singletonList, "java.util.Collections.singletonList(element)");
+        kotlin.jvm.internal.q.l((Object) singletonList, "java.util.Collections.singletonList(element)");
         return singletonList;
     }
 }

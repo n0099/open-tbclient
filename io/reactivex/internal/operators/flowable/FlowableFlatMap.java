@@ -20,8 +20,8 @@ public final class FlowableFlatMap<T, U> extends a<T, U> {
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super U> cVar) {
-        if (!g.a(this.mRM, cVar, this.mapper)) {
-            this.mRM.a((j) a(cVar, this.mapper, this.delayErrors, this.maxConcurrency, this.bufferSize));
+        if (!g.a(this.nmU, cVar, this.mapper)) {
+            this.nmU.a((j) a(cVar, this.mapper, this.delayErrors, this.maxConcurrency, this.bufferSize));
         }
     }
 
@@ -84,7 +84,7 @@ public final class FlowableFlatMap<T, U> extends a<T, U> {
         public void onNext(T t) {
             if (!this.done) {
                 try {
-                    org.a.b bVar = (org.a.b) io.reactivex.internal.functions.a.h(this.mapper.apply(t), "The mapper returned a null Publisher");
+                    org.a.b bVar = (org.a.b) io.reactivex.internal.functions.a.k(this.mapper.apply(t), "The mapper returned a null Publisher");
                     if (bVar instanceof Callable) {
                         try {
                             Object call = ((Callable) bVar).call();

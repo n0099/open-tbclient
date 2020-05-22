@@ -16,32 +16,32 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class AlaAudienceLiveRoomBottomPanelView extends LinearLayout {
-    private final List<d> aoo;
-    private final List<e> aop;
-    private e aoq;
-    private AlaLiveRoomPanelTabHost aor;
-    private com.baidu.live.bottompanel.a aos;
-    private boolean aot;
-    private a aou;
+    private final List<d> ati;
+    private final List<e> atj;
+    private e atk;
+    private AlaLiveRoomPanelTabHost atl;
+    private com.baidu.live.bottompanel.a atm;
+    private boolean atn;
+    private a ato;
     private float mDownX;
     private Scroller mScroller;
     private int mTouchSlop;
 
     /* loaded from: classes3.dex */
     public interface a {
-        void ub();
+        void vi();
     }
 
     public AlaAudienceLiveRoomBottomPanelView(Context context) {
         super(context);
-        this.aoo = new LinkedList();
-        this.aop = new LinkedList();
+        this.ati = new LinkedList();
+        this.atj = new LinkedList();
         this.mDownX = 0.0f;
-        this.aot = false;
-        this.aou = new a() { // from class: com.baidu.live.bottompanel.AlaAudienceLiveRoomBottomPanelView.1
+        this.atn = false;
+        this.ato = new a() { // from class: com.baidu.live.bottompanel.AlaAudienceLiveRoomBottomPanelView.1
             @Override // com.baidu.live.bottompanel.AlaAudienceLiveRoomBottomPanelView.a
-            public void ub() {
-                AlaAudienceLiveRoomBottomPanelView.this.ua();
+            public void vi() {
+                AlaAudienceLiveRoomBottomPanelView.this.vh();
             }
         };
         init();
@@ -51,17 +51,17 @@ public class AlaAudienceLiveRoomBottomPanelView extends LinearLayout {
         setOrientation(0);
         this.mScroller = new Scroller(getContext());
         this.mTouchSlop = BdUtilHelper.getScreenDimensions(getContext())[0] / 4;
-        this.aor = new AlaLiveRoomPanelTabHost(getContext());
-        this.aor.setOnPageChangeListener(new AlaLiveRoomPanelTabHost.a() { // from class: com.baidu.live.bottompanel.AlaAudienceLiveRoomBottomPanelView.2
+        this.atl = new AlaLiveRoomPanelTabHost(getContext());
+        this.atl.setOnPageChangeListener(new AlaLiveRoomPanelTabHost.a() { // from class: com.baidu.live.bottompanel.AlaAudienceLiveRoomBottomPanelView.2
             @Override // com.baidu.live.bottompanel.AlaLiveRoomPanelTabHost.a
             public void a(int i, d dVar) {
-                if (dVar != null && dVar.AT() != 1) {
+                if (dVar != null && dVar.Cj() != 1) {
                     BdUtilHelper.hideSoftKeyPad(AlaAudienceLiveRoomBottomPanelView.this.getContext(), AlaAudienceLiveRoomBottomPanelView.this);
                 }
             }
         });
-        addView(this.aor);
-        this.aos = new com.baidu.live.bottompanel.a(getContext(), this.aou);
+        addView(this.atl);
+        this.atm = new com.baidu.live.bottompanel.a(getContext(), this.ato);
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -75,44 +75,44 @@ public class AlaAudienceLiveRoomBottomPanelView extends LinearLayout {
     }
 
     public void setTabCtlList(List<d> list) {
-        this.aoo.clear();
+        this.ati.clear();
         if (!ListUtils.isEmpty(list)) {
-            this.aoo.addAll(list);
+            this.ati.addAll(list);
         }
-        Collections.sort(this.aoo, new Comparator<d>() { // from class: com.baidu.live.bottompanel.AlaAudienceLiveRoomBottomPanelView.3
+        Collections.sort(this.ati, new Comparator<d>() { // from class: com.baidu.live.bottompanel.AlaAudienceLiveRoomBottomPanelView.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.Comparator
             /* renamed from: a */
             public int compare(d dVar, d dVar2) {
-                return dVar.AT() - dVar2.AT();
+                return dVar.Cj() - dVar2.Cj();
             }
         });
-        this.aor.setData(this.aoo, true);
+        this.atl.setData(this.ati, true);
     }
 
     public void setPageCtlList(List<e> list) {
-        this.aop.clear();
+        this.atj.clear();
         if (!ListUtils.isEmpty(list)) {
-            this.aop.addAll(list);
+            this.atj.addAll(list);
         }
     }
 
-    public boolean ua() {
-        if (this.aoq != null) {
-            View rootView = this.aos.getRootView();
+    public boolean vh() {
+        if (this.atk != null) {
+            View rootView = this.atm.getRootView();
             this.mScroller.startScroll(rootView.getMeasuredWidth(), 0, -rootView.getMeasuredWidth(), 0);
-            this.aoq.enterBackground();
+            this.atk.enterBackground();
             removeView(rootView);
-            this.aos.reset();
-            this.aoq = null;
-            this.aot = false;
+            this.atm.reset();
+            this.atk = null;
+            this.atn = false;
             return true;
         }
         return false;
     }
 
     public void setPageSelectedListener(AlaLiveRoomPanelTabHost.b bVar) {
-        this.aor.setPageSelectedListener(bVar);
+        this.atl.setPageSelectedListener(bVar);
     }
 
     @Override // android.view.View
@@ -131,7 +131,7 @@ public class AlaAudienceLiveRoomBottomPanelView extends LinearLayout {
 
     @Override // android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (this.aot) {
+        if (this.atn) {
             switch (motionEvent.getAction() & 255) {
                 case 0:
                     this.mDownX = (int) motionEvent.getX();
@@ -150,7 +150,7 @@ public class AlaAudienceLiveRoomBottomPanelView extends LinearLayout {
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (this.aot) {
+        if (this.atn) {
             switch (motionEvent.getAction() & 255) {
                 case 0:
                 default:
@@ -159,10 +159,10 @@ public class AlaAudienceLiveRoomBottomPanelView extends LinearLayout {
                     this.mDownX = 0.0f;
                     return false;
                 case 2:
-                    if (((int) motionEvent.getX()) - this.mDownX < this.mTouchSlop || this.aoq == null) {
+                    if (((int) motionEvent.getX()) - this.mDownX < this.mTouchSlop || this.atk == null) {
                         return true;
                     }
-                    ua();
+                    vh();
                     return true;
             }
         }

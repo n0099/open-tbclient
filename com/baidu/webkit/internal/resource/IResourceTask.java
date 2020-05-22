@@ -37,4 +37,6 @@ public interface IResourceTask extends INoProGuard {
     String getTaskUrl();
 
     void onResourceReady(String str, ResultType resultType);
+
+    boolean shouldForceLoadFromFile();
 }

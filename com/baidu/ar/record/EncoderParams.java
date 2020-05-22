@@ -22,7 +22,7 @@ public class EncoderParams {
     private boolean mVideoIncluded = true;
     private int mVideoWidth = VIDEO_WIDTH;
     private int mVideoHeight = VIDEO_HEIGHT;
-    private String mVideoCodec = VIDEO_MIME_TYPE;
+    private String mVideoCodec = "video/avc";
     private int mVideoBitrate = VIDEO_BIT_RATE;
     private int mVideoFrameRate = 30;
     private int mVideoIFrameInterval = 1;

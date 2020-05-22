@@ -7,17 +7,17 @@ import android.view.View;
 import android.view.ViewGroup;
 /* loaded from: classes11.dex */
 public abstract class PagerAdapterImpl extends PagerAdapter {
-    private c<View> cYX = new c<>(5);
-    private SparseArray<View> cbj = new SparseArray<>();
+    private c<View> dkb = new c<>(5);
+    private SparseArray<View> clM = new SparseArray<>();
 
     /* loaded from: classes11.dex */
     public interface a {
         void recycle();
     }
 
-    protected abstract void f(View view, int i);
+    protected abstract View f(ViewGroup viewGroup, int i);
 
-    protected abstract View h(ViewGroup viewGroup, int i);
+    protected abstract void f(View view, int i);
 
     @Override // android.support.v4.view.PagerAdapter
     public int getCount() {
@@ -36,17 +36,17 @@ public abstract class PagerAdapterImpl extends PagerAdapter {
             ((a) view).recycle();
         }
         viewGroup.removeView(view);
-        this.cYX.recycle(view);
-        this.cbj.remove(i);
+        this.dkb.recycle(view);
+        this.clM.remove(i);
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i) {
-        View view = this.cYX.get();
+        View view = this.dkb.get();
         if (view == null) {
-            view = h(viewGroup, i);
+            view = f(viewGroup, i);
         }
-        this.cbj.put(i, view);
+        this.clM.put(i, view);
         viewGroup.addView(view);
         f(view, i);
         return view;

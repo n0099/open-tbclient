@@ -6,7 +6,6 @@ import android.os.Process;
 /* loaded from: classes11.dex */
 public final class ZeusSDK {
     static final /* synthetic */ boolean $assertionsDisabled;
-    private static boolean ENABLE_REPLACE_ZES_ENGINE = false;
     private static final String TAG = "ZeusSDK";
     private static Client mClient;
     private static Configuration mConfig;
@@ -30,10 +29,10 @@ public final class ZeusSDK {
     public static final class Configuration {
         private String mAPPIDString;
         private String mCUIDString;
-        private boolean mForceUsingSystemWebView = false;
-        private boolean mThreadingInitialization = false;
         private volatile boolean mEnableBrandPromotion = true;
-        private volatile boolean mEnablePullToRefresh = false;
+        private volatile boolean mEnablePullToRefresh;
+        private boolean mForceUsingSystemWebView;
+        private boolean mThreadingInitialization;
 
         public final boolean forceUsingSystemWebView() {
             return this.mForceUsingSystemWebView;
@@ -100,9 +99,6 @@ public final class ZeusSDK {
         $assertionsDisabled = !ZeusSDK.class.desiredAssertionStatus();
         mClient = new Client();
         mConfig = new Configuration();
-        mHasInited = false;
-        mTimeInit = 0L;
-        ENABLE_REPLACE_ZES_ENGINE = false;
     }
 
     public static void crashNow() {
@@ -161,7 +157,7 @@ public final class ZeusSDK {
         if ((Looper.getMainLooper() == Looper.myLooper()) && mConfig.threadingInitialization()) {
             new Thread(new Runnable() { // from class: com.baidu.webkit.sdk.ZeusSDK.1
                 @Override // java.lang.Runnable
-                public final void run() {
+                public void run() {
                     Process.setThreadPriority(0);
                     long currentTimeMillis = System.currentTimeMillis();
                     long unused = ZeusSDK.mTimeInit = currentTimeMillis;

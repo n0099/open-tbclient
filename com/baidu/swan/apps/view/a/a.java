@@ -2,77 +2,77 @@ package com.baidu.swan.apps.view.a;
 /* loaded from: classes11.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public int cyN;
-    public boolean cyO;
-    public boolean cyP;
-    public boolean cyQ;
-    public boolean cyR;
+    public int cLG;
+    public boolean cLH;
+    public boolean cLI;
+    public boolean cLJ;
+    public boolean cLK;
     public boolean isShowNavBar;
     public int statusBarColor;
 
     private a() {
-        this.cyR = true;
+        this.cLK = true;
     }
 
     /* renamed from: com.baidu.swan.apps.view.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public static class C0355a {
+    public static class C0398a {
         private int customStatBarViewBg;
         private int statusBarColor;
         private boolean isShowNavBar = true;
         private boolean useLightStatBar = true;
         private boolean isShowStatBar = true;
-        private boolean cyQ = false;
-        private boolean cyR = true;
+        private boolean cLJ = false;
+        private boolean cLK = true;
 
-        public static C0355a apC() {
-            return new C0355a();
+        public static C0398a auj() {
+            return new C0398a();
         }
 
-        public C0355a ho(int i) {
+        public C0398a hL(int i) {
             this.statusBarColor = i;
             return this;
         }
 
-        public C0355a hp(int i) {
+        public C0398a hM(int i) {
             this.customStatBarViewBg = i;
             return this;
         }
 
-        public C0355a fa(boolean z) {
+        public C0398a fv(boolean z) {
             this.isShowNavBar = z;
             return this;
         }
 
-        public C0355a fb(boolean z) {
+        public C0398a fw(boolean z) {
             this.useLightStatBar = z;
             return this;
         }
 
-        public C0355a fc(boolean z) {
+        public C0398a fx(boolean z) {
             this.isShowStatBar = z;
             return this;
         }
 
-        public C0355a fd(boolean z) {
-            this.cyQ = z;
+        public C0398a fy(boolean z) {
+            this.cLJ = z;
             return this;
         }
 
-        public C0355a fe(boolean z) {
-            this.cyR = z;
+        public C0398a fz(boolean z) {
+            this.cLK = z;
             return this;
         }
 
-        public a apD() {
+        public a auk() {
             a aVar = new a();
-            aVar.cyN = this.customStatBarViewBg;
+            aVar.cLG = this.customStatBarViewBg;
             aVar.isShowNavBar = this.isShowNavBar;
-            aVar.cyP = this.isShowStatBar;
-            aVar.cyO = this.useLightStatBar;
+            aVar.cLI = this.isShowStatBar;
+            aVar.cLH = this.useLightStatBar;
             aVar.statusBarColor = this.statusBarColor;
-            aVar.cyQ = this.cyQ;
-            aVar.cyR = this.cyR;
+            aVar.cLJ = this.cLJ;
+            aVar.cLK = this.cLK;
             return aVar;
         }
     }

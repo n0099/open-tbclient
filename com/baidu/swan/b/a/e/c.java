@@ -10,18 +10,18 @@ public class c extends b {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     public c(String str) {
-        super("onSuccess", 0, c(null, str));
+        super("onSuccess", 0, f(null, str));
     }
 
     public c(Download download) {
-        super("onSuccess", 0, c(d(download), ""));
+        super("onSuccess", 0, f(d(download), ""));
     }
 
     public c(Collection<Download> collection) {
-        super("onSuccess", 0, c(g(collection), ""));
+        super("onSuccess", 0, f(i(collection), ""));
     }
 
-    private static JSONArray g(Collection<Download> collection) {
+    private static JSONArray i(Collection<Download> collection) {
         JSONArray jSONArray = new JSONArray();
         if (collection == null) {
             return jSONArray;
@@ -38,7 +38,7 @@ public class c extends b {
         JSONObject jSONObject = new JSONObject();
         if (download != null) {
             try {
-                jSONObject.put("apkId", new com.baidu.swan.b.a.b.a(download).atp());
+                jSONObject.put("apkId", new com.baidu.swan.b.a.b.a(download).awW());
                 jSONObject.put("downloadId", download.getId());
                 jSONObject.put("packageName", download.getKeyByUser());
                 jSONObject.put("url", download.getUrl());
@@ -55,7 +55,7 @@ public class c extends b {
         return jSONObject;
     }
 
-    private static String c(Object obj, String str) {
+    private static String f(Object obj, String str) {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("data", obj);

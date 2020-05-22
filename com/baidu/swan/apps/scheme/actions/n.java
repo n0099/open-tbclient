@@ -11,12 +11,12 @@ import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
-public class n extends ab {
+public class n extends aa {
     public n(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swanAPI/openApp4Ad");
     }
 
-    @Override // com.baidu.swan.apps.scheme.actions.ab
+    @Override // com.baidu.swan.apps.scheme.actions.aa
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
         JSONObject b = b(unitedSchemeEntity, "params");
         if (b == null) {

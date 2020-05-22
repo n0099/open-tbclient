@@ -8,14 +8,14 @@ public class MediaModel implements Parcelable, Comparable<Object> {
     public static final Parcelable.Creator<MediaModel> CREATOR = new Parcelable.Creator<MediaModel>() { // from class: com.baidu.swan.apps.media.chooser.model.MediaModel.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: s */
+        /* renamed from: t */
         public MediaModel createFromParcel(Parcel parcel) {
             return new MediaModel(parcel);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: fA */
+        /* renamed from: fO */
         public MediaModel[] newArray(int i) {
             return new MediaModel[i];
         }
@@ -61,18 +61,18 @@ public class MediaModel implements Parcelable, Comparable<Object> {
 
     @Override // java.lang.Comparable
     public int compareTo(Object obj) {
-        return Long.valueOf(((MediaModel) obj).afM()).compareTo(Long.valueOf(this.addDate));
+        return Long.valueOf(((MediaModel) obj).ajb()).compareTo(Long.valueOf(this.addDate));
     }
 
     public String getPath() {
         return this.path;
     }
 
-    public long afM() {
+    public long ajb() {
         return this.addDate;
     }
 
-    public void aT(long j) {
+    public void ba(long j) {
         this.addDate = j;
     }
 
@@ -84,11 +84,11 @@ public class MediaModel implements Parcelable, Comparable<Object> {
         this.type = str;
     }
 
-    public String afN() {
+    public String ajc() {
         return this.tempPath;
     }
 
-    public void kx(String str) {
+    public void lK(String str) {
         this.tempPath = str;
     }
 

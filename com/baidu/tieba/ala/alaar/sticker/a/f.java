@@ -4,13 +4,13 @@ import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes3.dex */
 public class f {
-    public static void bkv() {
+    public static void bpP() {
         com.baidu.tieba.ala.alaar.messages.b bVar = new com.baidu.tieba.ala.alaar.messages.b("");
         bVar.setParams();
         MessageManager.getInstance().sendMessage(bVar);
     }
 
-    public static void cZ(String str, String str2) {
+    public static void dx(String str, String str2) {
         com.baidu.tieba.ala.alaar.messages.a aVar = new com.baidu.tieba.ala.alaar.messages.a();
         aVar.setParams();
         aVar.addParam("user_id", TbadkCoreApplication.getCurrentAccountId());

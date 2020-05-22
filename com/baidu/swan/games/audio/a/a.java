@@ -1,7 +1,7 @@
 package com.baidu.swan.games.audio.a;
 /* loaded from: classes11.dex */
 public interface a {
-    void X(int i, String str);
+    void ab(int i, String str);
 
-    void bK(String str, String str2);
+    void ce(String str, String str2);
 }

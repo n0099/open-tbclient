@@ -131,7 +131,7 @@ public class TBLottieAnimationView extends LottieAnimationView {
             cancelAnimation();
             InputStream animationInputStream = getAnimationInputStream(str, JSON_FILE);
             if (animationInputStream != null) {
-                e.h(animationInputStream, str).a(new h<d>() { // from class: com.baidu.live.tbadk.widget.lottie.TBLottieAnimationView.2
+                e.i(animationInputStream, str).a(new h<d>() { // from class: com.baidu.live.tbadk.widget.lottie.TBLottieAnimationView.2
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // com.tb.airbnb.lottie.h
                     public void onResult(d dVar) {

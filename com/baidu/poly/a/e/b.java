@@ -37,7 +37,7 @@ public class b implements Closeable {
         this(inputStream, 8192, charset);
     }
 
-    private void Z() {
+    private void MW() {
         InputStream inputStream = this.in;
         byte[] bArr = this.buf;
         int read = inputStream.read(bArr, 0, bArr.length);
@@ -59,10 +59,6 @@ public class b implements Closeable {
         }
     }
 
-    public boolean l() {
-        return this.end == -1;
-    }
-
     public String readLine() {
         int i;
         String aVar;
@@ -70,7 +66,7 @@ public class b implements Closeable {
         synchronized (this.in) {
             if (this.buf != null) {
                 if (this.pos >= this.end) {
-                    Z();
+                    MW();
                 }
                 int i3 = this.pos;
                 while (true) {
@@ -95,7 +91,7 @@ public class b implements Closeable {
                         loop1: while (true) {
                             aVar2.write(this.buf, this.pos, this.end - this.pos);
                             this.end = -1;
-                            Z();
+                            MW();
                             i = this.pos;
                             while (i != this.end) {
                                 if (this.buf[i] == 10) {
@@ -116,6 +112,10 @@ public class b implements Closeable {
             }
         }
         return aVar;
+    }
+
+    public boolean t() {
+        return this.end == -1;
     }
 
     public b(InputStream inputStream, int i, Charset charset) {

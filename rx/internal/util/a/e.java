@@ -3,7 +3,7 @@ package rx.internal.util.a;
 import rx.internal.util.atomic.LinkedQueueNode;
 /* loaded from: classes6.dex */
 abstract class e<E> extends c<E> {
-    protected static final long noq = ae.l(e.class, "producerNode");
+    protected static final long nJq = ae.l(e.class, "producerNode");
     protected LinkedQueueNode<E> producerNode;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -12,7 +12,7 @@ abstract class e<E> extends c<E> {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final LinkedQueueNode<E> dIi() {
-        return (LinkedQueueNode) ae.noE.d(this, noq);
+    public final LinkedQueueNode<E> dQc() {
+        return (LinkedQueueNode) ae.nJC.d(this, nJq);
     }
 }

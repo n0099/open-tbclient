@@ -5,5 +5,5 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 /* loaded from: classes.dex */
 public abstract class ResponseStreamCallbackForUrlRequest extends UrlRequest.Callback {
-    private static ExecutorService byg = Executors.newCachedThreadPool();
+    private static ExecutorService bFJ = Executors.newCachedThreadPool();
 }

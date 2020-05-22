@@ -9,12 +9,12 @@ import org.json.JSONException;
 import org.json.JSONObject;
 @Deprecated
 /* loaded from: classes11.dex */
-public class i extends ab {
+public class i extends aa {
     public i(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swanAPI/getAppInfoSync");
     }
 
-    @Override // com.baidu.swan.apps.scheme.actions.ab
+    @Override // com.baidu.swan.apps.scheme.actions.aa
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
         if (DEBUG) {
             Log.d("GetAppInfoSyncAction", "handle entity: " + unitedSchemeEntity.toString());
@@ -25,7 +25,7 @@ public class i extends ab {
             return false;
         }
         try {
-            JSONObject a = com.baidu.swan.apps.api.module.i.a.a(eVar, context);
+            JSONObject a = com.baidu.swan.apps.api.module.h.a.a(eVar, context);
             if (DEBUG && a != null) {
                 Log.d("GetAppInfoSyncAction", "data: " + a.toString());
             }

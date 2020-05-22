@@ -5,9 +5,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.support.annotation.NonNull;
-import android.util.LongSparseArray;
 import com.baidu.android.imsdk.IMReceiver;
 import com.baidu.android.imsdk.account.AccountManager;
+import com.baidu.android.imsdk.account.LoginManager;
 import com.baidu.android.imsdk.account.TodoAfterLogin;
 import com.baidu.android.imsdk.chatmessage.ChatMsgManagerImpl;
 import com.baidu.android.imsdk.chatmessage.IFetchMsgByIdListener;
@@ -26,11 +26,14 @@ import com.baidu.imsdk.IMService;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Random;
+import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicInteger;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class McastManagerImpl {
+    private static final int FETCH_INTERVAL_TIME = 1000;
     private static final int FIRST_RETRY = 0;
     private static final long FIRST_RETRY_TIME = 1000;
     private static final int MAX_RETRY_NUM = 3;
@@ -42,22 +45,46 @@ public class McastManagerImpl {
     private static BroadcastReceiver mNetChangedReceiver;
     private static Random mRandom;
     private static McastHeartbeat mcastHeartbeat;
-    private long mCastId;
+    private long mBeginMsgCastId;
+    private long mBeginReliableCastId;
     private boolean mIsPull;
-    private long mJoinCastId;
+    private long mJoinMsgCastId;
+    private long mJoinReliableCastId;
+    private long mReliableCastId;
     private static final String TAG = McastManagerImpl.class.getSimpleName();
     public static int mCastHeartBeatTime = 3000;
+    private static long mLocalCursorMsgId = 0;
     private boolean isRegisterNetReceiver = false;
     private int mFetchNum = 0;
-    private LongSparseArray<Boolean> mReliableCastList = new LongSparseArray<>();
     private long mMinMsgId = 0;
     private long mMaxMsgId = 0;
-    private IFetchMsgByIdListener mFetchMsgListener = new IFetchMsgByIdListener() { // from class: com.baidu.android.imsdk.mcast.McastManagerImpl.1
+    private long reliableMsgCount = 0;
+    private long reliableMaxMsgId = 0;
+    private AtomicInteger reliableFetchCount = new AtomicInteger(0);
+    private AtomicBoolean reliableFetching = new AtomicBoolean(false);
+    private Runnable fetchRunnable = new Runnable() { // from class: com.baidu.android.imsdk.mcast.McastManagerImpl.1
+        @Override // java.lang.Runnable
+        public void run() {
+            IMService.mHandler.removeCallbacks(McastManagerImpl.this.fetchRunnable);
+            if (McastManagerImpl.this.reliableFetchCount.get() > 0) {
+                LogUtils.d(McastManagerImpl.TAG, "handleMessage fetchCastMsgByMsgId ");
+                McastManagerImpl.this.reliableFetchCount.set(0);
+                McastManagerImpl.this.fetchCastMsgByMsgId();
+                IMService.mHandler.postDelayed(McastManagerImpl.this.fetchRunnable, 1000L);
+                return;
+            }
+            LogUtils.d(McastManagerImpl.TAG, "fetchRunnable reliableFetching reset ");
+            McastManagerImpl.this.reliableFetching.set(false);
+        }
+    };
+    private IFetchMsgByIdListener mFetchMsgListener = new IFetchMsgByIdListener() { // from class: com.baidu.android.imsdk.mcast.McastManagerImpl.2
         @Override // com.baidu.android.imsdk.chatmessage.IFetchMsgByIdListener
         public void onFetchMsgByIdResult(int i, String str, String str2, int i2, long j, long j2, long j3, int i3, int i4, long j4, ArrayList<ChatMsg> arrayList) {
-            boolean booleanValue = McastManagerImpl.this.isReliable(McastManagerImpl.this.mCastId).booleanValue();
-            LogUtils.d(McastManagerImpl.TAG, "onFetchMsgByIdResult response :" + i + ", maxMsgid :" + j4 + ", fetch :" + arrayList.size() + ", real :" + i4 + ", count :" + i3 + "，  mcastId = " + McastManagerImpl.this.mCastId + "，isReliable" + booleanValue);
+            boolean booleanValue = McastManagerImpl.this.isReliable(McastManagerImpl.this.mReliableCastId).booleanValue();
+            LogUtils.d(McastManagerImpl.TAG, "onFetchMsgByIdResult response :" + i + ", maxMsgid :" + j4 + ", fetch :" + arrayList.size() + ", real :" + i4 + ", count :" + i3 + "，  mcastId = " + McastManagerImpl.this.mReliableCastId + "，isReliable" + booleanValue);
             if (booleanValue) {
+                McastManagerImpl.this.reliableMaxMsgId = j4;
+                LogUtils.d(McastManagerImpl.TAG, "reliableMaxMsgId :" + McastManagerImpl.this.reliableMaxMsgId);
                 if (i != 0) {
                     if (McastManagerImpl.this.mFetchNum == 0) {
                         LogUtils.e(McastManagerImpl.TAG, "onFetchMsgByIdResult：fetch msg failed and first retry.");
@@ -69,10 +96,10 @@ public class McastManagerImpl {
             }
         }
     };
-    private Runnable mReliableRunnable = new Runnable() { // from class: com.baidu.android.imsdk.mcast.McastManagerImpl.2
+    private Runnable mReliableRunnable = new Runnable() { // from class: com.baidu.android.imsdk.mcast.McastManagerImpl.3
         @Override // java.lang.Runnable
         public void run() {
-            McastManagerImpl.access$308(McastManagerImpl.this);
+            McastManagerImpl.access$708(McastManagerImpl.this);
             if (McastManagerImpl.this.mFetchNum <= 3) {
                 McastManagerImpl.this.fetchCastMsgByMsgId();
                 IMService.mHandler.removeCallbacks(this);
@@ -91,7 +118,7 @@ public class McastManagerImpl {
         void startHeartbeat();
     }
 
-    static /* synthetic */ int access$308(McastManagerImpl mcastManagerImpl) {
+    static /* synthetic */ int access$708(McastManagerImpl mcastManagerImpl) {
         int i = mcastManagerImpl.mFetchNum;
         mcastManagerImpl.mFetchNum = i + 1;
         return i;
@@ -121,55 +148,66 @@ public class McastManagerImpl {
     }
 
     public void setCastIdReliable(long j, boolean z) {
-        if (this.mReliableCastList != null) {
-            this.mReliableCastList.put(j, Boolean.valueOf(z));
+        if (z) {
+            this.mReliableCastId = j;
         }
     }
 
     public Boolean isReliable(long j) {
-        if (this.mReliableCastList == null || this.mReliableCastList.indexOfKey(j) == -1) {
-            return false;
-        }
-        return Boolean.valueOf(this.mReliableCastList.get(j) != null ? this.mReliableCastList.get(j).booleanValue() : false);
+        return Boolean.valueOf(j == this.mReliableCastId);
     }
 
     public void clearReliableCastList() {
-        if (this.mReliableCastList != null) {
-            this.mReliableCastList.clear();
-            this.mReliableCastList = null;
-        }
+        LogUtils.d(TAG, "clearReliableCastList delete List");
+    }
+
+    public String getAllCastIdList() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("begin:").append(this.mBeginMsgCastId);
+        sb.append(com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SP).append(this.mBeginReliableCastId);
+        sb.append(",joined:").append(this.mJoinMsgCastId);
+        sb.append(com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SP).append(this.mJoinReliableCastId);
+        return sb.toString();
     }
 
     public long getJoinedCastId() {
-        return this.mJoinCastId;
+        return this.mJoinReliableCastId;
     }
 
     public long getMaxReliableMsgId(long j) {
         if (isReliable(j).booleanValue()) {
-            return ChatMsgManagerImpl.getInstance(mContext).getMaxReliableMsgId(j);
+            return this.reliableMaxMsgId;
         }
         return 0L;
     }
 
     public long getReliableMsgCount(long j) {
         if (isReliable(j).booleanValue()) {
-            return ChatMsgManagerImpl.getInstance(mContext).getReliableMsgCount(j);
+            return this.reliableMsgCount;
         }
         return 0L;
     }
 
     public void beginWithCompletion(long j, IMcastSetListener iMcastSetListener) {
-        this.mCastId = j;
+        if (isReliable(j).booleanValue()) {
+            this.mBeginReliableCastId = j;
+            this.reliableMaxMsgId = 0L;
+            this.reliableMsgCount = 0L;
+        } else {
+            this.mBeginMsgCastId = j;
+        }
         String addListener = ListenerManager.getInstance().addListener(iMcastSetListener);
-        if (AccountManager.isLogin(mContext)) {
+        if (LoginManager.getInstance(mContext).isIMLogined()) {
             Intent createMcastMethodIntent = Utility.createMcastMethodIntent(mContext, 201);
             createMcastMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
             createMcastMethodIntent.putExtra("mcast_id", j);
             try {
                 IMService.enqueueWork(mContext, createMcastMethodIntent);
+                new IMTrack.RequestBuilder(mContext).requestId("" + j).requestTime(System.currentTimeMillis()).ext("service enqueue join").aliasId(501112L).build();
                 return;
             } catch (Exception e) {
                 ListenerManager.getInstance().removeListener(addListener);
+                onJoinCastResult(addListener, 1003, Constants.ERROR_MSG_SERVICE_ERROR, j);
                 LogUtils.e(TAG, "Exception ", e);
                 return;
             }
@@ -178,27 +216,33 @@ public class McastManagerImpl {
     }
 
     public void onJoinCastResult(String str, int i, String str2, long j) {
+        String str3;
         IMcastSetListener iMcastSetListener = (IMcastSetListener) ListenerManager.getInstance().removeListener(str);
         LogUtils.d(TAG, "onJoinCastResult----errorCode: " + i + " msg: " + str2 + ", castId :" + j + ", listener :" + iMcastSetListener);
         if (iMcastSetListener != null) {
             iMcastSetListener.onResult(i, j, -1L);
-            if (i == 0) {
-                this.mJoinCastId = j;
-                if (isReliable(this.mCastId).booleanValue()) {
+            if (i != 0) {
+                str3 = "join callback ok";
+            } else {
+                if (isReliable(j).booleanValue()) {
+                    this.mJoinReliableCastId = j;
                     this.mIsPull = true;
                     fetchCastMsgByMsgId();
+                } else {
+                    this.mJoinMsgCastId = j;
                 }
                 registerNetChangedReceiver();
                 setMcastQuickHeartBeat();
-                return;
+                str3 = "join callback ok";
             }
-            return;
+        } else {
+            str3 = "join callback fail";
+            LogUtils.d(TAG, "IMcastSetistener is null");
         }
-        LogUtils.d(TAG, "IMcastSetistener is null");
+        new IMTrack.RequestBuilder(mContext).requestId("" + j).requestTime(System.currentTimeMillis()).ext(str3).errorCode(i).aliasId(501113L).build();
     }
 
     public void onQuitCastResult(String str, int i, String str2, long j) {
-        this.mJoinCastId = 0L;
         LogUtils.d(TAG, "onQuitCastResult----errorCode: " + i + " msg: " + str2);
         IMcastSetListener iMcastSetListener = (IMcastSetListener) ListenerManager.getInstance().removeListener(str);
         if (iMcastSetListener != null) {
@@ -212,6 +256,13 @@ public class McastManagerImpl {
 
     public void endWithCompletion(long j, IMcastSetListener iMcastSetListener) {
         String addListener = ListenerManager.getInstance().addListener(iMcastSetListener);
+        if (isReliable(j).booleanValue()) {
+            this.mBeginReliableCastId = 0L;
+            this.reliableMsgCount = 0L;
+            this.reliableMaxMsgId = 0L;
+        } else {
+            this.mBeginMsgCastId = 0L;
+        }
         if (AccountManager.isLogin(mContext)) {
             Intent createMcastMethodIntent = Utility.createMcastMethodIntent(mContext, 202);
             createMcastMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
@@ -221,6 +272,7 @@ public class McastManagerImpl {
                 return;
             } catch (Exception e) {
                 ListenerManager.getInstance().removeListener(addListener);
+                onQuitCastResult(addListener, 1003, Constants.ERROR_MSG_SERVICE_ERROR, j);
                 LogUtils.e(TAG, "Exception ", e);
                 return;
             }
@@ -258,7 +310,13 @@ public class McastManagerImpl {
             if (booleanValue) {
                 this.mIsPull = false;
                 LogUtils.d(TAG, "handleMessage push reliable castId :" + optLong + ", min :" + this.mMinMsgId + ", max :" + this.mMaxMsgId);
-                fetchCastMsgByMsgId();
+                this.reliableFetchCount.incrementAndGet();
+                if (!this.reliableFetching.get()) {
+                    LogUtils.d(TAG, "begin set fetchRunnable");
+                    this.reliableFetching.set(true);
+                    IMService.mHandler.removeCallbacks(this.fetchRunnable);
+                    IMService.mHandler.postDelayed(this.fetchRunnable, 1000L);
+                }
             } else if (jSONArray.length() != 0) {
                 ChatMsgManagerImpl.getInstance(mContext).deliverMcastMessage(optLong + "", jSONArray);
             }
@@ -284,28 +342,27 @@ public class McastManagerImpl {
             LogUtils.e(TAG, "Exception ", e);
         }
         if (jSONArray.length() > 0) {
-            LogUtils.d(TAG, "DeliverCastReliableMsg :" + jSONArray.toString());
+            this.reliableMsgCount += arrayList2.size();
+            LogUtils.d(TAG, "reliableMsgCount :" + this.reliableMsgCount + ", DeliverCastReliableMsg :" + arrayList2.toString());
             ChatMsgManagerImpl.getInstance(mContext).deliverReliableMcastMessage(j + "", jSONArray, arrayList2);
         }
     }
 
     private void fetchCastMsg(long j, long j2) {
-        ChatMsgManagerImpl.getInstance(mContext).fetchMsgidByMsgid(mContext, 4, this.mCastId, j, j2, 160, 2, 0, this.mFetchMsgListener, this.mFetchNum);
-        if (j == 0) {
-            new IMTrack.RequestBuilder(mContext).requestId("" + this.mCastId).requestTime(System.currentTimeMillis()).ext("request endmsgid :" + j2).aliasId(501102L).build();
-        }
+        ChatMsgManagerImpl.getInstance(mContext).fetchMsgidByMsgid(mContext, 4, this.mReliableCastId, j, j2, 160, 2, 0, this.mFetchMsgListener, this.mFetchNum);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void fetchCastMsgByMsgId() {
         if (McastConfig.mLiveShowing) {
-            long maxReliableMsgId = ChatMsgManagerImpl.getInstance(mContext).getMaxReliableMsgId(this.mCastId);
+            long maxReliableMsgId = ChatMsgManagerImpl.getInstance(mContext).getMaxReliableMsgId(this.mReliableCastId);
+            if (maxReliableMsgId > 0) {
+                mLocalCursorMsgId = maxReliableMsgId;
+            }
             if (this.mIsPull) {
-                fetchCastMsg(maxReliableMsgId > 0 ? maxReliableMsgId : 0L, Long.MAX_VALUE);
-            } else if (maxReliableMsgId <= 0) {
-                fetchCastMsg(0L, this.mMaxMsgId);
-            } else if (maxReliableMsgId < this.mMaxMsgId) {
-                fetchCastMsg(maxReliableMsgId, this.mMaxMsgId);
+                fetchCastMsg(mLocalCursorMsgId, Long.MAX_VALUE);
+            } else {
+                fetchCastMsg(mLocalCursorMsgId, this.mMaxMsgId);
             }
         }
     }
@@ -324,6 +381,7 @@ public class McastManagerImpl {
                 return;
             } catch (Exception e) {
                 ListenerManager.getInstance().removeListener(addListener);
+                onSendQuizOptsResult(addListener, 1003, Constants.ERROR_MSG_SERVICE_ERROR, j2, j);
                 LogUtils.e(TAG, "Exception ", e);
                 return;
             }

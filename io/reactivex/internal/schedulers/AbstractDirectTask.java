@@ -9,8 +9,8 @@ abstract class AbstractDirectTask extends AtomicReference<Future<?>> implements 
     private static final long serialVersionUID = 1811839108042568751L;
     protected final Runnable runnable;
     protected Thread runner;
-    protected static final FutureTask<Void> FINISHED = new FutureTask<>(Functions.mRr, null);
-    protected static final FutureTask<Void> DISPOSED = new FutureTask<>(Functions.mRr, null);
+    protected static final FutureTask<Void> FINISHED = new FutureTask<>(Functions.nmz, null);
+    protected static final FutureTask<Void> DISPOSED = new FutureTask<>(Functions.nmz, null);
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public AbstractDirectTask(Runnable runnable) {

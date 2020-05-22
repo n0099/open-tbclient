@@ -1,12 +1,12 @@
 package com.baidu.tbadk.ala;
 
 import com.baidu.tbadk.core.data.AlaUserInfoData;
-import com.baidu.tbadk.core.data.k;
+import com.baidu.tbadk.core.data.j;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.AlaUserInfo;
 /* loaded from: classes.dex */
-public class AlaLiveUserInfoData extends k implements Serializable {
+public class AlaLiveUserInfoData extends j implements Serializable {
     private static final long serialVersionUID = -3860430259513905402L;
     public long alaId;
     public long anchorLive;
@@ -30,7 +30,7 @@ public class AlaLiveUserInfoData extends k implements Serializable {
     public String userName;
     public String verifyStatus;
 
-    @Override // com.baidu.tbadk.core.data.k
+    @Override // com.baidu.tbadk.core.data.j
     public void parserJson(JSONObject jSONObject) {
     }
 

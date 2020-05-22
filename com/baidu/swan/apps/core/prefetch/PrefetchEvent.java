@@ -14,14 +14,14 @@ public class PrefetchEvent extends SwanAppIPCData {
     public static final Parcelable.Creator<PrefetchEvent> CREATOR = new Parcelable.Creator<PrefetchEvent>() { // from class: com.baidu.swan.apps.core.prefetch.PrefetchEvent.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: n */
+        /* renamed from: o */
         public PrefetchEvent createFromParcel(Parcel parcel) {
             return new PrefetchEvent(parcel);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: eP */
+        /* renamed from: eZ */
         public PrefetchEvent[] newArray(int i) {
             return new PrefetchEvent[i];
         }
@@ -91,35 +91,35 @@ public class PrefetchEvent extends SwanAppIPCData {
 
     /* loaded from: classes11.dex */
     public static class a {
-        private PrefetchEvent bPo = new PrefetchEvent();
+        private PrefetchEvent bYR = new PrefetchEvent();
 
-        public a iy(@NonNull String str) {
-            this.bPo.appId = str;
+        public a jC(@NonNull String str) {
+            this.bYR.appId = str;
             return this;
         }
 
-        public a iz(@NonNull String str) {
-            this.bPo.schema = str;
+        public a jD(@NonNull String str) {
+            this.bYR.schema = str;
             return this;
         }
 
-        public a iA(String str) {
-            this.bPo.state = str;
+        public a jE(String str) {
+            this.bYR.state = str;
             return this;
         }
 
-        public a iB(@NonNull String str) {
-            this.bPo.scene = str;
+        public a jF(@NonNull String str) {
+            this.bYR.scene = str;
             return this;
         }
 
-        public PrefetchEvent XD() {
-            return this.bPo;
+        public PrefetchEvent aar() {
+            return this.bYR;
         }
     }
 
     /* loaded from: classes11.dex */
-    public static class b extends com.baidu.swan.apps.n.a.b {
+    public static class b extends com.baidu.swan.apps.event.a.b {
         public b(@Nullable Map<String, String> map) {
             super("prefetch", map);
         }

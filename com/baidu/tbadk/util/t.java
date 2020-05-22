@@ -43,6 +43,7 @@ public class t {
                 builder.from = TbadkCoreApplication.getFrom();
                 builder.cuid = TbadkCoreApplication.getInst().getCuid();
                 builder.cuid_galaxy2 = TbadkCoreApplication.getInst().getCuidGalaxy2();
+                builder.c3_aid = TbadkCoreApplication.getInst().getCuidGalaxy3();
                 builder.cuid_gid = TbadkCoreApplication.getInst().getCuidGid();
                 builder._timestamp = Long.valueOf(System.currentTimeMillis());
                 builder.model = Build.MODEL;
@@ -63,11 +64,11 @@ public class t {
                 }
                 builder.pversion = "1.0.3";
                 builder.lego_lib_version = TbConfig.getLegoLibVersion();
-                if (com.baidu.tbadk.core.sharedPref.b.aNT().getInt(SharedPrefConfig.ANDROID_SAFE_SDK_OPEN, 0) == 1) {
+                if (com.baidu.tbadk.core.sharedPref.b.aTX().getInt(SharedPrefConfig.ANDROID_SAFE_SDK_OPEN, 0) == 1) {
                     builder.z_id = FH.gz(TbadkCoreApplication.getInst());
                 }
                 builder.net_type = Integer.valueOf(com.baidu.adp.lib.util.j.netType());
-                builder.oaid = w.bax();
+                builder.oaid = x.bgI();
                 field.set(obj, builder.build(false));
             } catch (Throwable th) {
                 if (BdLog.isDebugMode()) {

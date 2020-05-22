@@ -15,6 +15,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.lang.reflect.InvocationTargetException;
+import java.net.Inet4Address;
+import java.net.InetAddress;
 import java.net.Socket;
 import java.security.KeyManagementException;
 import java.security.KeyStoreException;
@@ -96,17 +98,46 @@ public class MessageHandler extends IMessageHandler {
         return new Socket(str, i);
     }
 
+    /* JADX WARN: Code restructure failed: missing block: B:14:0x002a, code lost:
+        r8 = r4.getHostAddress();
+     */
     @SuppressLint({"NewApi"})
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     private Socket createSocketOnLine(String str, int i) throws IOException, IllegalArgumentException, AssertionError {
         SSLCertificateSocketFactory sSLCertificateSocketFactory;
         SSLSessionCache sSLSessionCache = new SSLSessionCache(this.mContext);
         if (Constants.URL_SOCKET_SERVER.equals(str)) {
+            try {
+                InetAddress[] allByName = InetAddress.getAllByName(str);
+                if (allByName != null && allByName.length > 0 && Utility.isIpv4Reachable()) {
+                    int length = allByName.length;
+                    int i2 = 0;
+                    while (true) {
+                        if (i2 >= length) {
+                            break;
+                        }
+                        InetAddress inetAddress = allByName[i2];
+                        if (inetAddress instanceof Inet4Address) {
+                            break;
+                        }
+                        i2++;
+                    }
+                }
+            } catch (Exception e) {
+                LogUtils.e(TAG, "createSocketOnLine", e);
+            }
+        }
+        LogUtils.e(TAG, "createSocketOnLine request ip = " + str);
+        if (Constants.URL_SOCKET_SERVER.equals(str)) {
             sSLCertificateSocketFactory = (SSLCertificateSocketFactory) SSLCertificateSocketFactory.getDefault(10000, sSLSessionCache);
         } else {
-            sSLCertificateSocketFactory = Utility.isIp(str) ? (SSLCertificateSocketFactory) SSLCertificateSocketFactory.getInsecure(10000, sSLSessionCache) : null;
+            sSLCertificateSocketFactory = (SSLCertificateSocketFactory) SSLCertificateSocketFactory.getInsecure(10000, sSLSessionCache);
         }
+        SSLSocket sSLSocket = null;
         if (sSLCertificateSocketFactory != null) {
-            SSLSocket sSLSocket = (SSLSocket) sSLCertificateSocketFactory.createSocket(str, i);
+            sSLSocket = (SSLSocket) sSLCertificateSocketFactory.createSocket(str, i);
             sSLSocket.setEnabledCipherSuites(sSLSocket.getEnabledCipherSuites());
             sSLSocket.setEnabledProtocols(sSLSocket.getEnabledProtocols());
             enableSessionTicket(sSLCertificateSocketFactory, sSLSocket);
@@ -117,12 +148,11 @@ public class MessageHandler extends IMessageHandler {
             sSLSocket.startHandshake();
             SSLSession session = sSLSocket.getSession();
             Utility.writeLoginFlag(this.mContext, "14N_4", "SSLHandshakeException");
-            if (Utility.isIp(str) && !HOSTNAME_VERIFIER.verify(Constants.URL_SOCKET_SERVER, session)) {
+            if (!str.equals(Constants.URL_SOCKET_SERVER) && !HOSTNAME_VERIFIER.verify(Constants.URL_SOCKET_SERVER, session)) {
                 throw new SSLHandshakeException("Exepected pimc.baidu.com, found" + session.getPeerPrincipal());
             }
-            return sSLSocket;
         }
-        return null;
+        return sSLSocket;
     }
 
     @TargetApi(17)

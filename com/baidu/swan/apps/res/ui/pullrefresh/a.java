@@ -4,5 +4,5 @@ import android.content.Context;
 import android.view.View;
 /* loaded from: classes11.dex */
 public interface a<T extends View> {
-    T bx(Context context);
+    T bG(Context context);
 }

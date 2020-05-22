@@ -1,239 +1,173 @@
 package com.baidu.swan.apps.al;
 
-import android.annotation.TargetApi;
-import android.app.Activity;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.content.pm.ProviderInfo;
-import android.content.pm.ResolveInfo;
-import android.content.pm.ShortcutInfo;
-import android.content.pm.ShortcutManager;
-import android.database.Cursor;
-import android.graphics.Bitmap;
-import android.graphics.drawable.Icon;
-import android.net.Uri;
-import android.support.annotation.NonNull;
-import android.text.SpannableStringBuilder;
-import android.text.TextPaint;
 import android.text.TextUtils;
-import android.text.style.ClickableSpan;
-import android.text.style.ForegroundColorSpan;
 import android.util.Log;
-import android.view.View;
-import android.widget.Toast;
-import com.baidu.adp.plugin.proxy.ContentProviderProxy;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.apps.a;
-import com.baidu.swan.apps.as.ai;
-import com.baidu.swan.apps.as.m;
-import com.baidu.swan.apps.as.p;
-import com.baidu.swan.apps.as.v;
-import com.baidu.swan.apps.b;
-import com.baidu.swan.apps.core.pms.d.c;
-import com.baidu.swan.apps.res.widget.dialog.g;
-import com.baidu.swan.apps.runtime.d;
-import com.baidu.swan.apps.runtime.e;
-import com.baidu.swan.apps.x.b.c;
-import java.util.List;
-import java.util.concurrent.TimeUnit;
-import java.util.regex.Pattern;
+import com.baidu.swan.apps.al.b.c;
+import java.io.File;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public final class a {
-    private static final boolean DEBUG = b.DEBUG;
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
+    private static a cFE;
+    private com.baidu.swan.apps.al.b.b cFF = new com.baidu.swan.apps.al.b.b();
+    private c cFG = new c();
+    private C0288a cFH = new C0288a();
+    private com.baidu.swan.apps.al.a.a cFI = new com.baidu.swan.apps.al.a.a();
 
+    private a() {
+    }
+
+    public static a aqT() {
+        if (cFE == null) {
+            synchronized (a.class) {
+                if (cFE == null) {
+                    cFE = new a();
+                }
+            }
+        }
+        return cFE;
+    }
+
+    public void bq(JSONObject jSONObject) {
+        this.cFF.bs(jSONObject);
+    }
+
+    public void oo(String str) {
+        bQ(str, null);
+    }
+
+    public void bQ(String str, String str2) {
+        this.cFF.add(str, str2);
+    }
+
+    public void u(String str, Object obj) {
+        this.cFH.add(str, obj);
+    }
+
+    public void br(JSONObject jSONObject) {
+        this.cFG.bs(jSONObject);
+    }
+
+    public JSONObject aqU() {
+        JSONObject ara = this.cFF.ara();
+        if (DEBUG) {
+            Log.d("SwanStabilityTracer", "LaunchTraces: " + ara);
+        }
+        return ara;
+    }
+
+    public JSONObject aqV() {
+        JSONObject ara = this.cFG.ara();
+        if (DEBUG) {
+            Log.d("SwanStabilityTracer", "WhiteTraces: " + ara);
+        }
+        return ara;
+    }
+
+    public JSONObject aqW() {
+        JSONObject ara = this.cFH.ara();
+        if (DEBUG) {
+            Log.d("SwanStabilityTracer", "extraTraces: " + ara);
+        }
+        return ara;
+    }
+
+    public void clear() {
+        this.cFF.clear();
+        this.cFG.clear();
+        this.cFH.clear();
+    }
+
+    public File aqX() {
+        JSONArray jSONArray = new JSONArray();
+        jSONArray.put(aqU());
+        jSONArray.put(aqV());
+        jSONArray.put(aqW());
+        return this.cFI.D(jSONArray);
+    }
+
+    public void aqY() {
+        if (this.cFH.cFJ != null && this.cFH.cFJ.length() != 0) {
+            JSONArray jSONArray = new JSONArray();
+            jSONArray.put(aqU());
+            jSONArray.put(aqV());
+            jSONArray.put(aqW());
+            this.cFI.D(jSONArray);
+        }
+    }
+
+    public com.baidu.swan.apps.al.a.a aqZ() {
+        return this.cFI;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.swan.apps.al.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public interface InterfaceC0254a {
-        void gx(int i);
-    }
+    public class C0288a implements com.baidu.swan.apps.al.b.a<JSONObject> {
+        private JSONArray cFJ;
 
-    public static void a(Context context, com.baidu.swan.apps.x.b.b bVar) {
-        a(context, bVar, (InterfaceC0254a) null);
-    }
+        private C0288a() {
+        }
 
-    public static void a(Context context, final com.baidu.swan.apps.x.b.b bVar, final InterfaceC0254a interfaceC0254a) {
-        Uri uri;
-        String iconUrl = bVar.getIconUrl();
-        if (!TextUtils.isEmpty(iconUrl) && (uri = ai.getUri(iconUrl)) != null) {
-            m(bVar);
-            final c.a aVar = (c.a) ((c.a) ((c.a) ((c.a) ((c.a) ((c.a) ((c.a) ((c.a) ((c.a) ((c.a) new c.a().jK(bVar.getAppId())).jN(bVar.adA())).jR(bVar.adI())).jP(bVar.getPage())).jQ(bVar.adH())).dJ(bVar.isDebug())).jS(bVar.adL())).fo(bVar.getAppFrameType())).fn(bVar.getOrientation())).jO(c.f(bVar.getAppId(), bVar.adA(), bVar.getAppFrameType()));
-            if (p.g(uri)) {
-                a(context, bVar, aVar, p.a(uri, context));
-                b(context, bVar, interfaceC0254a);
-                return;
-            }
-            com.baidu.swan.apps.core.pms.d.c.a(iconUrl, aVar.getAppFrameType(), new c.a() { // from class: com.baidu.swan.apps.al.a.1
-                @Override // com.baidu.swan.apps.core.pms.d.c.a
-                public void i(Bitmap bitmap) {
-                    if (e.akM() != null) {
-                        SwanAppActivity akI = d.akJ().akI();
-                        a.a(akI, com.baidu.swan.apps.x.b.b.this, aVar, bitmap);
-                        a.b(akI, com.baidu.swan.apps.x.b.b.this, interfaceC0254a);
-                    }
+        public void bs(JSONObject jSONObject) {
+            if (jSONObject != null) {
+                if (this.cFJ == null) {
+                    this.cFJ = new JSONArray();
                 }
-            });
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public static void a(Context context, com.baidu.swan.apps.x.b.b bVar, com.baidu.swan.apps.x.b.c cVar, Bitmap bitmap) {
-        if (context != null) {
-            if (bitmap == null) {
-                Toast.makeText(context, a.h.aiapps_common_emptyview_detail_text, 0).show();
-                return;
-            }
-            if (com.baidu.swan.apps.as.a.hasOreo()) {
-                a(context, bVar.getAppId(), bVar.YS(), bitmap, com.baidu.swan.apps.x.b.c.a(context, cVar));
-            } else {
-                context.sendBroadcast(a(bVar.YS(), bitmap, com.baidu.swan.apps.x.b.c.a(context, cVar)));
-            }
-            bX(context);
-        }
-    }
-
-    private static void m(com.baidu.swan.apps.x.b.b bVar) {
-        bVar.jP(null);
-        bVar.jN("1230000000000000");
-    }
-
-    private static void bX(Context context) {
-        if (!(context instanceof Activity)) {
-            if (DEBUG) {
-                throw new IllegalArgumentException("context must be activity.");
-            }
-            return;
-        }
-        g.a aVar = new g.a(context);
-        aVar.a(new com.baidu.swan.apps.view.c.a());
-        g WT = aVar.WT();
-        aVar.eI(a.h.aiapps_add_shortcut_note_dialog_title).a(a(context, WT)).akt().e(a.h.aiapps_add_shortcut_note_dialog_button, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.al.a.2
-            @Override // android.content.DialogInterface.OnClickListener
-            public void onClick(DialogInterface dialogInterface, int i) {
-            }
-        }).eB(com.baidu.swan.apps.w.a.acj().getNightModeSwitcherState()).aks();
-        WT.setCancelable(false);
-        WT.show();
-    }
-
-    private static SpannableStringBuilder a(final Context context, final g gVar) {
-        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-        String string = context.getString(a.h.aiapps_add_shortcut_note_dialog_content);
-        String string2 = context.getString(a.h.aiapps_add_shortcut_permission_setting);
-        int indexOf = string.indexOf(string2);
-        int length = string2.length() + indexOf;
-        spannableStringBuilder.append((CharSequence) string);
-        spannableStringBuilder.setSpan(new ClickableSpan() { // from class: com.baidu.swan.apps.al.a.3
-            @Override // android.text.style.ClickableSpan
-            public void onClick(View view) {
-                g.this.dismiss();
-                v.cc(context);
-            }
-
-            @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
-            public void updateDrawState(TextPaint textPaint) {
-                textPaint.setUnderlineText(false);
-            }
-        }, indexOf, length, 33);
-        spannableStringBuilder.setSpan(new ForegroundColorSpan(context.getResources().getColor(a.c.aiapps_go_permission_color)), indexOf, length, 33);
-        return spannableStringBuilder;
-    }
-
-    private static Intent a(String str, Bitmap bitmap, Intent intent) {
-        Intent intent2 = new Intent("com.android.launcher.action.INSTALL_SHORTCUT");
-        intent2.putExtra("android.intent.extra.shortcut.INTENT", intent);
-        intent2.putExtra("android.intent.extra.shortcut.NAME", str);
-        intent2.putExtra("android.intent.extra.shortcut.ICON", bitmap);
-        intent2.putExtra("duplicate", false);
-        return intent2;
-    }
-
-    @TargetApi(26)
-    private static void a(Context context, String str, String str2, Bitmap bitmap, Intent intent) {
-        ShortcutManager shortcutManager = (ShortcutManager) context.getSystemService(ShortcutManager.class);
-        if (shortcutManager.isRequestPinShortcutSupported() && bitmap != null) {
-            try {
-                shortcutManager.requestPinShortcut(new ShortcutInfo.Builder(context, str).setShortLabel(str2).setLongLabel(str2).setIcon(Icon.createWithBitmap(bitmap)).setIntent(intent).build(), null);
-                return;
-            } catch (IllegalStateException e) {
-                if (DEBUG) {
-                    throw e;
-                }
-                return;
-            }
-        }
-        com.baidu.swan.apps.res.widget.b.d.k(context, a.h.aiapps_shortcut_not_supported_text).showToast();
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public static void b(final Context context, final com.baidu.swan.apps.x.b.b bVar, final InterfaceC0254a interfaceC0254a) {
-        if (interfaceC0254a != null) {
-            if (context == null) {
-                interfaceC0254a.gx(-1);
-            } else {
-                m.a(new Runnable() { // from class: com.baidu.swan.apps.al.a.4
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        InterfaceC0254a.this.gx(a.p(context, bVar.YS(), bVar.getAppId()));
-                    }
-                }, "SwanAppShortcutHelper", 1000L, TimeUnit.MILLISECONDS);
-            }
-        }
-    }
-
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [377=5] */
-    public static int p(@NonNull Context context, String str, String str2) {
-        try {
-            Cursor query = context.getContentResolver().query(Uri.parse(String.format("content://%s/favorites?notify=true", bY(context))), new String[]{"title", "intent"}, "title = ?", new String[]{str}, null);
-            while (query != null && query.moveToNext()) {
-                String string = query.getString(query.getColumnIndex("intent"));
-                if (string != null && string.contains(str2)) {
-                    if (query != null) {
-                        if (0 != 0) {
-                            query.close();
-                        } else {
-                            query.close();
+                if (this.cFJ.length() >= 200) {
+                    try {
+                        this.cFJ.put(0, jSONObject);
+                    } catch (JSONException e) {
+                        if (DEBUG) {
+                            Log.e("SwanStabilityTracer", "ExtraCollector JSONException", e);
                         }
                     }
-                    return 1;
-                }
-            }
-            if (query != null) {
-                if (0 != 0) {
-                    query.close();
                 } else {
-                    query.close();
+                    this.cFJ.put(jSONObject);
+                }
+                if (DEBUG) {
+                    Log.d("SwanStabilityTracer", "add: " + jSONObject);
                 }
             }
-            return 0;
-        } catch (Exception e) {
-            if (DEBUG) {
-                Log.d("SwanAppShortcutHelper", "fail: " + e);
-            }
-            return -1;
         }
-    }
 
-    @NonNull
-    private static String bY(Context context) {
-        List<ProviderInfo> queryContentProviders;
-        String[] split;
-        Intent intent = new Intent("android.intent.action.MAIN");
-        intent.addCategory("android.intent.category.HOME");
-        ResolveInfo resolveActivity = context.getPackageManager().resolveActivity(intent, 0);
-        if (resolveActivity == null || resolveActivity.activityInfo == null || "android".equals(resolveActivity.activityInfo.packageName) || (queryContentProviders = context.getPackageManager().queryContentProviders(resolveActivity.activityInfo.processName, resolveActivity.activityInfo.applicationInfo.uid, 65536)) == null) {
-            return "com.android.launcher3.settings";
-        }
-        for (ProviderInfo providerInfo : queryContentProviders) {
-            if (!TextUtils.isEmpty(providerInfo.authority) && !TextUtils.isEmpty(providerInfo.readPermission) && Pattern.matches(".*launcher.*permission\\.READ_SETTINGS", providerInfo.readPermission)) {
-                for (String str : providerInfo.authority.split(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR)) {
-                    if (str != null && str.endsWith(".settings")) {
-                        return str;
-                    }
+        public void add(String str, Object obj) {
+            if (TextUtils.isEmpty(str)) {
+                if (DEBUG) {
+                    Log.d("SwanStabilityTracer", "event is empty");
+                    return;
                 }
-                continue;
+                return;
+            }
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("actionId", str);
+                jSONObject.put("timeStamp", String.valueOf(System.currentTimeMillis()));
+                jSONObject.put("info", obj);
+                bs(jSONObject);
+            } catch (JSONException e) {
+                if (DEBUG) {
+                    Log.w("SwanStabilityTracer", Log.getStackTraceString(e));
+                }
             }
         }
-        return "com.android.launcher3.settings";
+
+        public JSONObject ara() {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("extra", this.cFJ);
+            } catch (JSONException e) {
+                if (DEBUG) {
+                    Log.e("SwanStabilityTracer", Log.getStackTraceString(e));
+                }
+            }
+            return jSONObject;
+        }
+
+        public void clear() {
+            this.cFJ = null;
+        }
     }
 }

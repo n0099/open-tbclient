@@ -1,13 +1,25 @@
 package com.baidu.swan.bdprivate.a;
 
 import android.os.Bundle;
-import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
+import android.support.annotation.NonNull;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 /* loaded from: classes11.dex */
-public class g extends ProviderDelegation {
-    @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
-    public Bundle execCall(Bundle bundle) {
-        Bundle bundle2 = new Bundle();
-        bundle2.putString("result", a.getUid(getAgent().getContext()));
-        return bundle2;
+public class g extends com.baidu.swan.apps.process.a.a.a {
+    @Override // com.baidu.swan.apps.process.a.a.a
+    public void A(@NonNull Bundle bundle) {
+        String[] stringArray = bundle.getStringArray("key_param_tpl_list");
+        if (stringArray == null || stringArray.length < 1) {
+            finish();
+        } else {
+            a.b(AppRuntime.getAppContext(), new com.baidu.swan.apps.aq.e.b<Bundle>() { // from class: com.baidu.swan.bdprivate.a.g.1
+                /* JADX DEBUG: Method merged with bridge method */
+                @Override // com.baidu.swan.apps.aq.e.b
+                /* renamed from: C */
+                public void H(Bundle bundle2) {
+                    g.this.ctk.putBundle("key_result_stokent", bundle2);
+                    g.this.finish();
+                }
+            }, stringArray);
+        }
     }
 }

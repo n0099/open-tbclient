@@ -2,6 +2,7 @@ package com.baidu.tieba.aiapps.apps.share;
 
 import android.app.Activity;
 import android.content.Context;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import com.baidu.adp.framework.MessageManager;
@@ -12,22 +13,22 @@ import com.baidu.searchbox.process.ipc.delegate.DelegateListener;
 import com.baidu.searchbox.process.ipc.delegate.DelegateResult;
 import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
 import com.baidu.swan.apps.jsbridge.SwanAppUtilsJavaScriptInterface;
-import com.baidu.swan.apps.w.b.k;
+import com.baidu.swan.apps.u.b.i;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes12.dex */
-public class d implements k {
-    k.a eGB;
-    private CustomMessageListener eGC = new CustomMessageListener(2921366) { // from class: com.baidu.tieba.aiapps.apps.share.d.1
+public class d implements i {
+    i.a eTf;
+    private CustomMessageListener eTg = new CustomMessageListener(2921366) { // from class: com.baidu.tieba.aiapps.apps.share.d.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (d.this.eGB != null && (customResponsedMessage.getData() instanceof Boolean)) {
+            if (d.this.eTf != null && (customResponsedMessage.getData() instanceof Boolean)) {
                 if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                    d.this.eGB.ada();
+                    d.this.eTf.agk();
                 } else {
-                    d.this.eGB.adb();
+                    d.this.eTf.agl();
                 }
             }
         }
@@ -35,13 +36,13 @@ public class d implements k {
 
     public d() {
         TbadkCoreApplication.getInst().setSkinType(0);
-        MessageManager.getInstance().registerListener(this.eGC);
+        MessageManager.getInstance().registerListener(this.eTg);
     }
 
-    @Override // com.baidu.swan.apps.w.b.k
-    public void a(Context context, JSONObject jSONObject, final k.a aVar) {
+    @Override // com.baidu.swan.apps.u.b.i
+    public void a(Context context, JSONObject jSONObject, final i.a aVar) {
         if (context instanceof Activity) {
-            this.eGB = aVar;
+            this.eTf = aVar;
             Bundle bundle = new Bundle();
             try {
                 String optString = jSONObject.optString("shareUrl");
@@ -66,13 +67,17 @@ public class d implements k {
                 public void onDelegateCallBack(@NonNull DelegateResult delegateResult) {
                     if (delegateResult.isOk()) {
                         if (delegateResult.mResult.getBoolean("share_result")) {
-                            aVar.ada();
+                            aVar.agk();
                         } else {
-                            aVar.adb();
+                            aVar.agl();
                         }
                     }
                 }
             });
         }
+    }
+
+    @Override // com.baidu.swan.apps.u.b.i
+    public void a(Context context, String str, Uri uri) {
     }
 }

@@ -220,6 +220,8 @@ public class TbConfig {
     public static final String GOOD_LIST_ADDRESS = "c/c/bawu/goodlist";
     public static final String GROUP_HEAD_FILE = "tieba_group_image";
     public static final boolean GROUP_MSG_DEFAULT_SWITCH = true;
+    public static final String GUIDE_INTERESTED_FORUM_URL = "c/f/forum/getVerticalForumList";
+    public static final String GUIDE_INTEREST_COMMIT_URL = "c/s/newUserInterestSave";
     public static final int HEAD_IMG_SIZE = 960;
     public static final String HOME_FORUM_FEED_LIST = "c/u/feed/forum";
     public static final String HOME_REALTIME_ADDRESS = "c/f/excellent/realtime";
@@ -279,6 +281,7 @@ public class TbConfig {
     public static final String MEMBER_FREE_BOOK = "c/c/encourage/tbread/memberFreeBook";
     public static final String MEMBER_PAY = "c/e/pay/andmember";
     public static final String MEMBER_PRIVILEGE = "c/e/pay/tmall";
+    public static final String MERCATOR_LOCATION_URL = "c/s/getMercatorByLocation";
     public static final boolean MSG_DEFAULT_ATME_SWITCH = true;
     public static final boolean MSG_DEFAULT_CHAT_SWITCH = true;
     public static final boolean MSG_DEFAULT_FANS_SWITCH = true;
@@ -302,6 +305,7 @@ public class TbConfig {
     public static final int NET_MSG_GETLENTH = 900002;
     public static final int NET_MSG_TOTALLENTH = 900001;
     public static final int NEW_FRAME_MUTI_IMAGE_MAX_COUNT = 9;
+    public static final String NEW_USER_GET_MONEY_URL = "https://tieba.baidu.com/mo/q/newusermission";
     public static final int NOTIFY_AGREE_ME_ID = 29;
     public static final int NOTIFY_AT_ME_ID = 25;
     public static final int NOTIFY_CHAT_ID = 16;
@@ -616,6 +620,7 @@ public class TbConfig {
     public static final int VALUE_SUBPB_FONT_LINE_SPACE_MID = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds5);
     public static final int VALUE_SUBPB_FONT_LINE_SPACE_SMALL = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds3);
     private static int MAX_PHOTO_MEMORY_CACHE = 60;
+    private static int MAX_PHOTO_MEMORY_CACHE_REMOTE_PROCESS = 10;
     public static boolean IS_START_BAIDU_KUANG_CLOSE_SELF = false;
     public static boolean IS_CHECK_OFFICAL_APPLICATION = true;
     public static final String RECOMMEND_APP_ADDRESS = SERVER_ADDRESS_WEB_VIEW + "mo/q/topic_page/136_1";
@@ -747,12 +752,16 @@ public class TbConfig {
         return MAX_PHOTO_MEMORY_CACHE;
     }
 
+    public static int getMaxPhotoMemoryCacheForRemoteProcess() {
+        return MAX_PHOTO_MEMORY_CACHE_REMOTE_PROCESS;
+    }
+
     public static void setMaxPhotoMemoryCache(int i) {
         if (i < 60) {
             i = 60;
         }
         if (MAX_PHOTO_MEMORY_CACHE != i) {
-            c.aYk().setPhotoMaxNum(i);
+            c.bet().setPhotoMaxNum(i);
         }
         MAX_PHOTO_MEMORY_CACHE = i;
     }

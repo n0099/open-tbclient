@@ -1,6 +1,5 @@
 package kotlin.internal.a;
 
-import com.baidu.fsg.base.statistics.b;
 import kotlin.h;
 import kotlin.jvm.internal.q;
 @h
@@ -8,8 +7,8 @@ import kotlin.jvm.internal.q;
 public class a extends kotlin.internal.a {
     @Override // kotlin.internal.a
     public void addSuppressed(Throwable th, Throwable th2) {
-        q.j(th, "cause");
-        q.j(th2, b.k);
+        q.m(th, "cause");
+        q.m(th2, "exception");
         th.addSuppressed(th2);
     }
 }

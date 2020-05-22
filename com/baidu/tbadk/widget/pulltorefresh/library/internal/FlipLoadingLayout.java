@@ -14,20 +14,20 @@ import com.baidu.tieba.R;
 @SuppressLint({"ViewConstructor"})
 /* loaded from: classes.dex */
 public class FlipLoadingLayout extends LoadingLayout {
-    private final Animation cmv;
-    private final Animation enQ;
+    private final Animation cxY;
+    private final Animation eCt;
 
     public FlipLoadingLayout(Context context, PullToRefreshBase.Mode mode, PullToRefreshBase.Orientation orientation, TypedArray typedArray) {
         super(context, mode, orientation, typedArray);
         int i = mode == PullToRefreshBase.Mode.PULL_FROM_START ? -180 : 180;
-        this.cmv = new RotateAnimation(0.0f, i, 1, 0.5f, 1, 0.5f);
-        this.cmv.setInterpolator(cmu);
-        this.cmv.setDuration(150L);
-        this.cmv.setFillAfter(true);
-        this.enQ = new RotateAnimation(i, 0.0f, 1, 0.5f, 1, 0.5f);
-        this.enQ.setInterpolator(cmu);
-        this.enQ.setDuration(150L);
-        this.enQ.setFillAfter(true);
+        this.cxY = new RotateAnimation(0.0f, i, 1, 0.5f, 1, 0.5f);
+        this.cxY.setInterpolator(cxX);
+        this.cxY.setDuration(150L);
+        this.cxY.setFillAfter(true);
+        this.eCt = new RotateAnimation(i, 0.0f, 1, 0.5f, 1, 0.5f);
+        this.eCt.setInterpolator(cxX);
+        this.eCt.setDuration(150L);
+        this.eCt.setFillAfter(true);
     }
 
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.internal.LoadingLayout
@@ -54,8 +54,8 @@ public class FlipLoadingLayout extends LoadingLayout {
 
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.internal.LoadingLayout
     protected void pullToRefreshImpl() {
-        if (this.cmv == this.mHeaderImage.getAnimation()) {
-            this.mHeaderImage.startAnimation(this.enQ);
+        if (this.cxY == this.mHeaderImage.getAnimation()) {
+            this.mHeaderImage.startAnimation(this.eCt);
         }
     }
 
@@ -67,7 +67,7 @@ public class FlipLoadingLayout extends LoadingLayout {
 
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.internal.LoadingLayout
     protected void releaseToRefreshImpl() {
-        this.mHeaderImage.startAnimation(this.cmv);
+        this.mHeaderImage.startAnimation(this.cxY);
     }
 
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.internal.LoadingLayout
@@ -83,14 +83,14 @@ public class FlipLoadingLayout extends LoadingLayout {
     }
 
     private float getDrawableRotationAngle() {
-        switch (this.enw) {
+        switch (this.eBZ) {
             case PULL_FROM_END:
-                if (this.enV == PullToRefreshBase.Orientation.HORIZONTAL) {
+                if (this.eCy == PullToRefreshBase.Orientation.HORIZONTAL) {
                     return 90.0f;
                 }
                 return 180.0f;
             case PULL_FROM_START:
-                if (this.enV != PullToRefreshBase.Orientation.HORIZONTAL) {
+                if (this.eCy != PullToRefreshBase.Orientation.HORIZONTAL) {
                     return 0.0f;
                 }
                 return 270.0f;

@@ -1,6 +1,7 @@
 package com.baidu.searchbox.network.core.http;
 
 import android.text.TextUtils;
+import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import com.baidu.searchbox.network.core.Headers;
 import com.baidu.searchbox.network.core.Interceptor;
 import com.baidu.searchbox.network.core.Protocol;
@@ -77,7 +78,7 @@ public final class CallServerInterceptor implements Interceptor {
             builder.dnsTime(Long.parseLong(headers.get("dns")) / 1000);
             builder.sslTime(Long.parseLong(headers.get("ssl")) / 1000);
             builder.tcpTime(Long.parseLong(headers.get("tcp")) / 1000);
-            builder.sendTime(Long.parseLong(headers.get("send")));
+            builder.sendTime(Long.parseLong(headers.get(UbcStatConstant.ContentType.UBC_TYPE_IM_SEND)));
             builder.cached(TextUtils.equals(headers.get("cached"), "1"));
         } catch (Exception e) {
             e.printStackTrace();

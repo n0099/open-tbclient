@@ -315,19 +315,19 @@ public class AccountManagerImpl {
 
     public boolean clearToken(String str) {
         boolean clearAccessToken = Utility.clearAccessToken(mContext);
+        if (clearAccessToken) {
+            Utility.clearCache(mContext);
+            this.mToken = null;
+        }
         if (!IMService.isSmallFlow) {
             clearLoginParam(mContext);
-            if (clearAccessToken) {
-                Utility.clearCache(mContext);
-                this.mToken = null;
-            }
             clearUid(mContext);
             disconnect(str);
         } else if (!TextUtils.isEmpty(str)) {
             IMListener removeListener = ListenerManager.getInstance().removeListener(str);
             if (removeListener instanceof ILoginListener) {
                 LoginManager.getInstance(mContext).logoutInternal((ILoginListener) removeListener);
-                ((ILoginListener) removeListener).onLogoutResult(0, "logout success", -1);
+                ((ILoginListener) removeListener).onLogoutResult(0, "logout success", getInstance(mContext).getLoginType());
             }
         }
         return clearAccessToken;
@@ -376,6 +376,7 @@ public class AccountManagerImpl {
 
     public void logout(int i, ILoginListener iLoginListener) {
         noticeStateChanged(4);
+        BIMManager.connectStatusNotify(1);
         Iterator<TodoBeforeLogout> it = this.mToDoListenersBeforeLogout.iterator();
         while (it.hasNext()) {
             TodoBeforeLogout next = it.next();
@@ -393,7 +394,7 @@ public class AccountManagerImpl {
                 return;
             } catch (Exception e) {
                 LogUtils.e(TAG, "Exception ", e);
-                onLogoutResult(addListener, 1003, "start service error", i);
+                onLogoutResult(addListener, 1003, Constants.ERROR_MSG_SERVICE_ERROR, i);
                 return;
             }
         }
@@ -402,16 +403,16 @@ public class AccountManagerImpl {
 
     public void onLoginResult(String str, int i, String str2, boolean z) {
         LogUtils.d(TAG, "onLoginResult----errorCode: " + i + " msg: " + str2);
+        LoginManager.getInstance(mContext).onLoginResultInternal(i, str2);
         if (i == 0) {
             noticeStateChanged(3);
+            BIMManager.connectStatusNotify(0);
             if (!IMService.isSmallFlow) {
-                BIMManager.connectStatusNotify(0);
                 Utility.sendConnectionStateBroadCast(mContext, 0);
             }
         } else {
             noticeStateChanged(2);
         }
-        LoginManager.getInstance(mContext).onLoginResultInternal(i, str2);
         if (i == 0 && this.mToDoListenersAfterLogin != null && this.mToDoListenersAfterLogin.size() > 0) {
             Iterator<TodoAfterLogin> it = this.mToDoListenersAfterLogin.iterator();
             while (it.hasNext()) {
@@ -478,7 +479,7 @@ public class AccountManagerImpl {
             LogUtils.e(TAG, LogConfig.DISCONNECT, e);
             IMListener removeListener = ListenerManager.getInstance().removeListener(str);
             if (removeListener != null && (removeListener instanceof ILoginListener)) {
-                ((ILoginListener) removeListener).onLogoutResult(1003, "start service error", BIMManager.getLoginType(mContext));
+                ((ILoginListener) removeListener).onLogoutResult(1003, Constants.ERROR_MSG_SERVICE_ERROR, BIMManager.getLoginType(mContext));
             }
         }
     }

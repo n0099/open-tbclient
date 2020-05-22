@@ -2,6 +2,7 @@ package com.baidu.tieba.sdk.login.a;
 
 import com.baidu.live.adp.framework.controller.HttpResponsedRule;
 import com.baidu.live.adp.framework.message.HttpResponsedMessage;
+import com.baidu.live.im.message.ALAGroupCommitHttpResponsedMessage;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 /* loaded from: classes3.dex */
 public class a extends HttpResponsedRule {
@@ -14,9 +15,9 @@ public class a extends HttpResponsedRule {
     /* renamed from: a */
     public HttpResponsedMessage process(HttpResponsedMessage httpResponsedMessage) {
         if ((httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1001536) && (httpResponsedMessage instanceof JsonHttpResponsedMessage)) {
-            com.baidu.tieba.sdk.login.a cPr = com.baidu.tieba.sdk.login.a.cPr();
-            if (((JsonHttpResponsedMessage) httpResponsedMessage).getError() == 1) {
-                cPr.cox();
+            com.baidu.tieba.sdk.login.a cWu = com.baidu.tieba.sdk.login.a.cWu();
+            if (((JsonHttpResponsedMessage) httpResponsedMessage).getError() == 1 && !(httpResponsedMessage instanceof ALAGroupCommitHttpResponsedMessage)) {
+                cWu.cuZ();
                 return null;
             }
             return httpResponsedMessage;

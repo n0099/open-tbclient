@@ -3,48 +3,48 @@ package com.baidu.tieba.forumMember.member;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
 /* loaded from: classes10.dex */
-public class p implements com.baidu.adp.widget.ListView.m {
-    public static final BdUniqueId gVx = BdUniqueId.gen();
-    private String gVA;
-    private String gVB;
-    private int gVy = -1;
-    private int gVz = -1;
-    private int gVC = -1;
+public class p implements com.baidu.adp.widget.ListView.o {
+    public static final BdUniqueId hkj = BdUniqueId.gen();
+    private String hkm;
+    private String hkn;
+    private int hkk = -1;
+    private int hkl = -1;
+    private int hko = -1;
 
-    @Override // com.baidu.adp.widget.ListView.m
+    @Override // com.baidu.adp.widget.ListView.o
     public BdUniqueId getType() {
-        return gVx;
+        return hkj;
     }
 
-    public void sR(int i) {
-        this.gVy = i;
+    public void tw(int i) {
+        this.hkk = i;
     }
 
-    public void sS(int i) {
-        this.gVC = i;
+    public void tx(int i) {
+        this.hko = i;
     }
 
-    public int bNf() {
-        return this.gVz;
+    public int bTA() {
+        return this.hkl;
     }
 
-    public void sT(int i) {
-        this.gVz = i;
+    public void ty(int i) {
+        this.hkl = i;
     }
 
-    public void CM(String str) {
-        this.gVA = str;
+    public void Ev(String str) {
+        this.hkm = str;
     }
 
-    public String bNg() {
-        return this.gVB;
+    public String bTB() {
+        return this.hkn;
     }
 
-    public void CN(String str) {
-        this.gVB = str;
+    public void Ew(String str) {
+        this.hkn = str;
     }
 
     public boolean isEmpty() {
-        return StringUtils.isNull(this.gVA) || StringUtils.isNull(this.gVB) || this.gVy < 0 || this.gVz < 0;
+        return StringUtils.isNull(this.hkm) || StringUtils.isNull(this.hkn) || this.hkk < 0 || this.hkl < 0;
     }
 }

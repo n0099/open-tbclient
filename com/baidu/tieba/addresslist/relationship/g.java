@@ -32,7 +32,7 @@ public class g extends SQLiteOpenHelper {
         }
     }
 
-    private void L(SQLiteDatabase sQLiteDatabase) {
+    private void M(SQLiteDatabase sQLiteDatabase) {
         try {
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
             if (!TextUtils.isEmpty(currentAccount)) {
@@ -46,7 +46,7 @@ public class g extends SQLiteOpenHelper {
 
     @Override // android.database.sqlite.SQLiteOpenHelper
     public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-        L(sQLiteDatabase);
+        M(sQLiteDatabase);
         y(sQLiteDatabase);
         try {
             MessageManager.getInstance().sendMessageFromBackground(new RequestGetAddressListMessage(CmdConfigSocket.CMD_GET_ADDRESSLIST));

@@ -5,5 +5,5 @@ import java.io.InputStream;
 public interface l {
     void a(long j, InputStream inputStream);
 
-    void n(Throwable th);
+    void o(Throwable th);
 }

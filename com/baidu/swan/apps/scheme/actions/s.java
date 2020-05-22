@@ -5,15 +5,15 @@ import android.content.Context;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.as.af;
+import com.baidu.swan.apps.aq.ag;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
-public class s extends ab {
+public class s extends aa {
     public s(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swanAPI/pageScrollTo");
     }
 
-    @Override // com.baidu.swan.apps.scheme.actions.ab
+    @Override // com.baidu.swan.apps.scheme.actions.aa
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
         if (eVar == null || context == null) {
             com.baidu.swan.apps.console.c.e("PageScrollToAction", "swanApp is null");
@@ -33,14 +33,14 @@ public class s extends ab {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "illegal params");
             return false;
         }
-        final com.baidu.swan.apps.adaptation.b.d aev = com.baidu.swan.apps.y.f.aeJ().aev();
-        if (aev != null) {
-            ValueAnimator ofInt = ValueAnimator.ofInt(aev.getWebViewScrollY(), com.baidu.swan.apps.api.module.e.d.a(aev, af.dip2px(context, optInt)));
+        final com.baidu.swan.apps.adaptation.b.d ahG = com.baidu.swan.apps.w.f.ahV().ahG();
+        if (ahG != null) {
+            ValueAnimator ofInt = ValueAnimator.ofInt(ahG.getWebViewScrollY(), com.baidu.swan.apps.api.module.e.d.a(ahG, ag.dip2px(context, optInt)));
             ofInt.setDuration(optInt2);
             ofInt.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.swan.apps.scheme.actions.s.1
                 @Override // android.animation.ValueAnimator.AnimatorUpdateListener
                 public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                    aev.webViewScrollTo(0, ((Integer) valueAnimator.getAnimatedValue()).intValue());
+                    ahG.webViewScrollTo(0, ((Integer) valueAnimator.getAnimatedValue()).intValue());
                 }
             });
             ofInt.start();

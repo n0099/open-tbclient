@@ -8,7 +8,7 @@ import android.os.IBinder;
 public class WebViewRendererService extends Service {
     public static final String RENDER_SERVICE_PROCESS_NAME_SUFFIX = "sandboxed_process";
     private static final String TAG = "WebViewRendererService";
-    private ServiceProvider mServiceImpl = null;
+    private ServiceProvider mServiceImpl;
 
     /* loaded from: classes11.dex */
     public interface ServiceProvider {

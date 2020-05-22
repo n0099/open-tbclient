@@ -25,14 +25,14 @@ import okhttp3.Response;
 import okhttp3.ResponseBody;
 /* loaded from: classes12.dex */
 public class b extends c<a> {
-    private volatile Call.Factory lZK;
-    private volatile Executor lZL;
     private Context mContext;
+    private volatile Call.Factory mtF;
+    private volatile Executor mtG;
 
     /* loaded from: classes12.dex */
     public static class a extends t {
-        public long lZR;
-        public long lZS;
+        public long mtM;
+        public long mtN;
         public long responseTime;
 
         public a(k<e> kVar, ak akVar) {
@@ -45,8 +45,8 @@ public class b extends c<a> {
     }
 
     public b(Call.Factory factory, Executor executor) {
-        this.lZK = factory;
-        this.lZL = executor;
+        this.mtF = factory;
+        this.mtG = executor;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -59,23 +59,23 @@ public class b extends c<a> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.imagepipeline.producers.af
     public void a(a aVar, af.a aVar2) {
-        aVar.lZR = SystemClock.elapsedRealtime();
+        aVar.mtM = SystemClock.elapsedRealtime();
         Uri uri = aVar.getUri();
-        dqh();
+        dxz();
         try {
             Request.Builder builder = new Request.Builder().cacheControl(new CacheControl.Builder().noStore().build()).url(uri.toString()).get();
-            com.facebook.imagepipeline.common.a dsU = aVar.due().dtR().dsU();
-            if (dsU != null) {
-                builder.addHeader(Headers.RANGE, dsU.dqG());
+            com.facebook.imagepipeline.common.a dAm = aVar.dBv().dBi().dAm();
+            if (dAm != null) {
+                builder.addHeader(Headers.RANGE, dAm.dxY());
             }
-            Map<String, String> dui = aVar.dui();
-            if (dui == null) {
+            Map<String, String> dBz = aVar.dBz();
+            if (dBz == null) {
                 builder.addHeader("User-Agent", "Mozilla/5.0 (Linux; Android 4.4.2; Nexus 5 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/30.0.0.0 Mobile Safari/537.36");
             } else {
-                if (!dui.containsKey("User-Agent")) {
+                if (!dBz.containsKey("User-Agent")) {
                     builder.addHeader("User-Agent", "Mozilla/5.0 (Linux; Android 4.4.2; Nexus 5 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/30.0.0.0 Mobile Safari/537.36");
                 }
-                for (Map.Entry<String, String> entry : dui.entrySet()) {
+                for (Map.Entry<String, String> entry : dBz.entrySet()) {
                     builder.addHeader(entry.getKey(), entry.getValue());
                 }
             }
@@ -89,7 +89,7 @@ public class b extends c<a> {
     @Override // com.facebook.imagepipeline.producers.c, com.facebook.imagepipeline.producers.af
     /* renamed from: a */
     public void b(a aVar, int i) {
-        aVar.lZS = SystemClock.elapsedRealtime();
+        aVar.mtN = SystemClock.elapsedRealtime();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -97,20 +97,20 @@ public class b extends c<a> {
     /* renamed from: b */
     public Map<String, String> a(a aVar, int i) {
         HashMap hashMap = new HashMap(4);
-        hashMap.put("queue_time", Long.toString(aVar.responseTime - aVar.lZR));
-        hashMap.put("fetch_time", Long.toString(aVar.lZS - aVar.responseTime));
-        hashMap.put("total_time", Long.toString(aVar.lZS - aVar.lZR));
+        hashMap.put("queue_time", Long.toString(aVar.responseTime - aVar.mtM));
+        hashMap.put("fetch_time", Long.toString(aVar.mtN - aVar.responseTime));
+        hashMap.put("total_time", Long.toString(aVar.mtN - aVar.mtM));
         hashMap.put("image_size", Integer.toString(i));
         return hashMap;
     }
 
     protected void a(final a aVar, final af.a aVar2, Request request) {
-        final Call newCall = this.lZK.newCall(request);
-        aVar.due().a(new com.facebook.imagepipeline.producers.e() { // from class: com.facebook.imagepipeline.a.a.b.1
+        final Call newCall = this.mtF.newCall(request);
+        aVar.dBv().a(new com.facebook.imagepipeline.producers.e() { // from class: com.facebook.imagepipeline.a.a.b.1
             @Override // com.facebook.imagepipeline.producers.e, com.facebook.imagepipeline.producers.al
-            public void dqi() {
+            public void dxA() {
                 if (Looper.myLooper() == Looper.getMainLooper()) {
-                    b.this.lZL.execute(new Runnable() { // from class: com.facebook.imagepipeline.a.a.b.1.1
+                    b.this.mtG.execute(new Runnable() { // from class: com.facebook.imagepipeline.a.a.b.1.1
                         @Override // java.lang.Runnable
                         public void run() {
                             newCall.cancel();
@@ -131,10 +131,10 @@ public class b extends c<a> {
                         b.this.a(call, new IOException("Unexpected HTTP code " + response), aVar2);
                         return;
                     }
-                    com.facebook.imagepipeline.common.a On = com.facebook.imagepipeline.common.a.On(response.header(Headers.CONTENT_RANGE));
-                    if (On != null && (On.from != 0 || On.to != Integer.MAX_VALUE)) {
-                        aVar.c(On);
-                        aVar.Ht(8);
+                    com.facebook.imagepipeline.common.a Qb = com.facebook.imagepipeline.common.a.Qb(response.header(Headers.CONTENT_RANGE));
+                    if (Qb != null && (Qb.from != 0 || Qb.to != Integer.MAX_VALUE)) {
+                        aVar.c(Qb);
+                        aVar.If(8);
                     }
                     long contentLength = body.contentLength();
                     aVar2.g(body.byteStream(), (int) (contentLength >= 0 ? contentLength : 0L));
@@ -155,19 +155,19 @@ public class b extends c<a> {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Call call, Exception exc, af.a aVar) {
         if (call.isCanceled()) {
-            aVar.dmT();
+            aVar.dum();
         } else {
             aVar.G(exc);
         }
     }
 
-    private void dqh() {
-        if (this.lZL == null) {
+    private void dxz() {
+        if (this.mtG == null) {
             synchronized (this) {
-                if (this.lZL == null) {
+                if (this.mtG == null) {
                     OkHttpClient okHttpClient = HttpManager.newHttpManager(this.mContext).getOkHttpClient();
-                    this.lZK = okHttpClient;
-                    this.lZL = okHttpClient.dispatcher().executorService();
+                    this.mtF = okHttpClient;
+                    this.mtG = okHttpClient.dispatcher().executorService();
                 }
             }
         }

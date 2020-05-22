@@ -83,7 +83,7 @@ public class AlaActiveRootView extends FrameLayout implements com.baidu.live.g.b
     }
 
     @Override // com.baidu.live.g.b
-    public boolean vm() {
+    public boolean wC() {
         return getVisibility() == 0;
     }
 }

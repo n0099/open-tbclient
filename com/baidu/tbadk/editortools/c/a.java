@@ -8,9 +8,9 @@ import com.baidu.tieba.R;
 public class a extends l {
     public a(Context context, int i) {
         super(context, TbadkCoreApplication.getInst().getString(R.string.editor_hot_tipc), 26, i);
-        this.dXy = R.drawable.icon_pure_post_topic24_svg;
-        this.dXA = true;
-        this.dXB = false;
-        this.dXF = new int[]{43};
+        this.elH = R.drawable.icon_pure_post_topic24_svg;
+        this.elJ = true;
+        this.elK = false;
+        this.elO = new int[]{43};
     }
 }

@@ -3,9 +3,17 @@ package com.baidu.poly.a.a;
 import java.util.Map;
 /* loaded from: classes11.dex */
 public abstract class d<K, V> {
-    private Map<K, V> map = com.baidu.poly.util.d.KZ();
+    private Map<K, V> map = com.baidu.poly.util.e.Ni();
 
-    public void f(K k, V v) {
+    public Map<K, V> MK() {
+        return this.map;
+    }
+
+    public void b(Map<K, V> map) {
+        this.map = map;
+    }
+
+    public void g(K k, V v) {
         this.map.put(k, v);
     }
 
@@ -14,10 +22,6 @@ public abstract class d<K, V> {
     }
 
     public Map<K, V> getMap() {
-        return this.map;
-    }
-
-    public Map<K, V> st() {
         return this.map;
     }
 }

@@ -6,8 +6,8 @@ import kotlin.jvm.internal.q;
 /* loaded from: classes7.dex */
 public class h extends g {
     public static final <T> c<T> a(kotlin.jvm.a.a<? extends T> aVar, kotlin.jvm.a.b<? super T, ? extends T> bVar) {
-        q.j(aVar, "seedFunction");
-        q.j(bVar, "nextFunction");
+        q.m(aVar, "seedFunction");
+        q.m(bVar, "nextFunction");
         return new b(aVar, bVar);
     }
 }

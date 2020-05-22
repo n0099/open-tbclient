@@ -1,73 +1,82 @@
 package com.baidu.swan.apps.storage.b;
 
-import android.text.TextUtils;
-import com.baidu.swan.apps.runtime.e;
+import android.support.annotation.NonNull;
 /* loaded from: classes11.dex */
 public class b implements c {
     @Override // com.baidu.swan.apps.storage.b.c
-    public String ns(String str) {
-        e akM = e.akM();
-        return akM == null ? str : com.baidu.swan.apps.storage.b.d(str, akM);
+    public String oY(String str) {
+        return str;
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
-    public String nt(String str) {
-        e akM = e.akM();
-        if (akM == null) {
-            return null;
-        }
-        return com.baidu.swan.apps.storage.b.a(str, akM, akM.getVersion());
+    public String oZ(String str) {
+        return null;
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
-    public String nu(String str) {
-        e akM = e.akM();
-        if (akM == null) {
-            return null;
-        }
-        return com.baidu.swan.apps.storage.b.by(str, akM.id);
+    public String pa(String str) {
+        return null;
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
-    public String nv(String str) {
-        e akM = e.akM();
-        return akM == null ? str : com.baidu.swan.apps.storage.b.bA(str, akM.id);
+    public String pb(String str) {
+        return null;
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
-    public String nw(String str) {
-        String su = com.baidu.swan.d.c.su(str);
-        return TextUtils.isEmpty(su) ? nv(str) : nv(str) + "." + su;
+    public String pc(String str) {
+        return null;
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
-    public String nx(String str) {
-        e akM = e.akM();
-        return akM == null ? "" : com.baidu.swan.apps.storage.b.H(akM.id, str, null);
+    public String pd(String str) {
+        return null;
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
-    public String anw() {
-        e akM = e.akM();
-        return akM == null ? "" : com.baidu.swan.apps.storage.b.nk(akM.id);
+    public String arI() {
+        return null;
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
-    public String nl(String str) {
-        return com.baidu.swan.apps.storage.b.nl(str);
+    public String arJ() {
+        return null;
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
-    public boolean ng(String str) {
-        return com.baidu.swan.apps.storage.b.ng(str);
+    public String oP(String str) {
+        return null;
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
-    public boolean bi(long j) {
+    public boolean oJ(String str) {
         return false;
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
-    public void bj(long j) {
+    public boolean oK(String str) {
+        return false;
+    }
+
+    @Override // com.baidu.swan.apps.storage.b.c
+    public boolean U(String str, boolean z) {
+        return false;
+    }
+
+    @Override // com.baidu.swan.apps.storage.b.c
+    @NonNull
+    public d arK() {
+        return new a() { // from class: com.baidu.swan.apps.storage.b.b.1
+            @Override // com.baidu.swan.apps.storage.b.a
+            @NonNull
+            public String arH() {
+                return "";
+            }
+
+            @Override // com.baidu.swan.apps.storage.b.d
+            public long getMaxSize() {
+                return 0L;
+            }
+        };
     }
 }

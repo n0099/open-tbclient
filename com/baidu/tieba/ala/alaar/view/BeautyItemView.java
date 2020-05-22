@@ -11,12 +11,12 @@ import android.widget.TextView;
 import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class BeautyItemView extends LinearLayout {
-    public ImageView eMA;
-    public TextView eNv;
-    public ImageView eNw;
-    public ImageView eNx;
-    public FrameLayout eNy;
-    public TextView eNz;
+    public ImageView eYX;
+    public TextView eZS;
+    public ImageView eZT;
+    public ImageView eZU;
+    public FrameLayout eZV;
+    public TextView eZW;
 
     public BeautyItemView(Context context) {
         super(context);
@@ -25,32 +25,32 @@ public class BeautyItemView extends LinearLayout {
 
     private void init(Context context) {
         View inflate = LayoutInflater.from(context).inflate(a.h.beauty_ar_item_layout, (ViewGroup) this, true);
-        this.eNw = (ImageView) inflate.findViewById(a.g.filter_img);
-        this.eNw.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.eMA = (ImageView) inflate.findViewById(a.g.filter_unload);
-        this.eMA.setVisibility(8);
-        this.eNx = (ImageView) inflate.findViewById(a.g.filter_bg);
-        this.eNv = (TextView) inflate.findViewById(a.g.filter_text);
-        this.eNy = (FrameLayout) inflate.findViewById(a.g.fl_head);
-        this.eNz = (TextView) inflate.findViewById(a.g.line);
-        this.eNz.setVisibility(8);
+        this.eZT = (ImageView) inflate.findViewById(a.g.filter_img);
+        this.eZT.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.eYX = (ImageView) inflate.findViewById(a.g.filter_unload);
+        this.eYX.setVisibility(8);
+        this.eZU = (ImageView) inflate.findViewById(a.g.filter_bg);
+        this.eZS = (TextView) inflate.findViewById(a.g.filter_text);
+        this.eZV = (FrameLayout) inflate.findViewById(a.g.fl_head);
+        this.eZW = (TextView) inflate.findViewById(a.g.line);
+        this.eZW.setVisibility(8);
     }
 
     public void setUnselectedBackground() {
-        this.eNv.setTextColor(getResources().getColor(a.d.sdk_cp_cont_i));
-        this.eNx.setVisibility(4);
+        this.eZS.setTextColor(getResources().getColor(a.d.sdk_cp_cont_i));
+        this.eZU.setVisibility(4);
     }
 
     public void setSelectedBackground() {
-        this.eNv.setTextColor(getResources().getColor(a.d.sdk_cp_other_b));
-        this.eNx.setVisibility(0);
+        this.eZS.setTextColor(getResources().getColor(a.d.sdk_cp_other_b));
+        this.eZU.setVisibility(0);
     }
 
     public void setItemIcon(int i) {
-        this.eNw.setImageDrawable(getResources().getDrawable(i));
+        this.eZT.setImageDrawable(getResources().getDrawable(i));
     }
 
     public void setItemText(String str) {
-        this.eNv.setText(str);
+        this.eZS.setText(str);
     }
 }

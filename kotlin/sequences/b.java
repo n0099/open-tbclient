@@ -8,14 +8,14 @@ import kotlin.jvm.internal.q;
 @kotlin.h
 /* loaded from: classes7.dex */
 public final class b<T> implements c<T> {
-    private final kotlin.jvm.a.a<T> mYB;
-    private final kotlin.jvm.a.b<T, T> mYC;
+    private final kotlin.jvm.a.a<T> ntD;
+    private final kotlin.jvm.a.b<T, T> ntE;
 
     @kotlin.h
     /* loaded from: classes7.dex */
     public static final class a implements Iterator<T> {
-        private int mYz = -2;
         private T nextItem;
+        private int ntB = -2;
 
         @Override // java.util.Iterator
         public void remove() {
@@ -26,44 +26,44 @@ public final class b<T> implements c<T> {
         a() {
         }
 
-        private final void dEl() {
+        private final void dMf() {
             T t;
-            if (this.mYz == -2) {
-                t = (T) b.this.mYB.invoke();
+            if (this.ntB == -2) {
+                t = (T) b.this.ntD.invoke();
             } else {
-                kotlin.jvm.a.b bVar = b.this.mYC;
+                kotlin.jvm.a.b bVar = b.this.ntE;
                 T t2 = this.nextItem;
                 if (t2 == null) {
-                    q.dDS();
+                    q.dLM();
                 }
                 t = (T) bVar.invoke(t2);
             }
             this.nextItem = t;
-            this.mYz = this.nextItem == null ? 0 : 1;
+            this.ntB = this.nextItem == null ? 0 : 1;
         }
 
         @Override // java.util.Iterator
         public T next() {
-            if (this.mYz < 0) {
-                dEl();
+            if (this.ntB < 0) {
+                dMf();
             }
-            if (this.mYz == 0) {
+            if (this.ntB == 0) {
                 throw new NoSuchElementException();
             }
             T t = this.nextItem;
             if (t == null) {
                 throw new TypeCastException("null cannot be cast to non-null type T");
             }
-            this.mYz = -1;
+            this.ntB = -1;
             return t;
         }
 
         @Override // java.util.Iterator
         public boolean hasNext() {
-            if (this.mYz < 0) {
-                dEl();
+            if (this.ntB < 0) {
+                dMf();
             }
-            return this.mYz == 1;
+            return this.ntB == 1;
         }
     }
 
@@ -71,10 +71,10 @@ public final class b<T> implements c<T> {
     /* JADX DEBUG: Multi-variable search result rejected for r3v0, resolved type: kotlin.jvm.a.b<? super T, ? extends T> */
     /* JADX WARN: Multi-variable type inference failed */
     public b(kotlin.jvm.a.a<? extends T> aVar, kotlin.jvm.a.b<? super T, ? extends T> bVar) {
-        q.j(aVar, "getInitialValue");
-        q.j(bVar, "getNextValue");
-        this.mYB = aVar;
-        this.mYC = bVar;
+        q.m(aVar, "getInitialValue");
+        q.m(bVar, "getNextValue");
+        this.ntD = aVar;
+        this.ntE = bVar;
     }
 
     @Override // kotlin.sequences.c

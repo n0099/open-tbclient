@@ -17,16 +17,16 @@ import com.baidu.adp.lib.util.BdLog;
 import java.sql.SQLException;
 /* loaded from: classes.dex */
 public class b {
-    private a Gl;
+    private a Gm;
     private SQLiteDatabase database = null;
-    private a.InterfaceC0015a Gk = null;
+    private a.InterfaceC0017a Gl = null;
 
     public b(a aVar) {
-        this.Gl = aVar;
+        this.Gm = aVar;
     }
 
-    public void a(a.InterfaceC0015a interfaceC0015a) {
-        this.Gk = interfaceC0015a;
+    public void a(a.InterfaceC0017a interfaceC0017a) {
+        this.Gl = interfaceC0017a;
     }
 
     public SQLiteDatabase getOpenedDatabase() {
@@ -42,8 +42,8 @@ public class b {
         synchronized (b.class) {
             if (this.database == null || !this.database.isOpen()) {
                 try {
-                    this.Gl.a(this.Gk);
-                    this.database = this.Gl.getWritableDatabase();
+                    this.Gm.a(this.Gl);
+                    this.database = this.Gm.getWritableDatabase();
                 } catch (RuntimeException e) {
                     if (z) {
                         notifySQLException(e, "ensureDatabaseReady");
@@ -107,7 +107,7 @@ public class b {
         synchronized (b.class) {
             closeDatabase();
             try {
-                dropDatabase = this.Gl.dropDatabase(BdBaseApplication.getInst().getContext());
+                dropDatabase = this.Gm.dropDatabase(BdBaseApplication.getInst().getContext());
             } catch (Exception e) {
                 BdLog.e("deleteDatabase：" + e.getMessage());
                 this.database = null;

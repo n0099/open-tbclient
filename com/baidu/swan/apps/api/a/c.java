@@ -1,138 +1,83 @@
 package com.baidu.swan.apps.api.a;
 
-import android.content.Context;
-import android.os.Looper;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.annotation.UiThread;
-import android.text.TextUtils;
 import android.util.Log;
-import android.util.Pair;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.NullableCallbackHandler;
-import com.baidu.swan.apps.as.ai;
-import com.baidu.swan.apps.runtime.e;
-import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
-public abstract class c implements com.baidu.swan.apps.api.a.a {
-    public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    @NonNull
-    private CallbackHandler mCallbackHandler;
-    @NonNull
-    private b mSwanApiContext;
+public abstract class c {
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
+    private String bJM;
+    private d bJN;
 
+    /* JADX INFO: Access modifiers changed from: protected */
     /* loaded from: classes11.dex */
     public interface a {
-        com.baidu.swan.apps.api.b.b a(e eVar, JSONObject jSONObject, @Nullable String str);
+        void a(com.baidu.swan.apps.api.c.b bVar);
     }
 
-    public c(@NonNull b bVar) {
-        this.mSwanApiContext = bVar;
-        this.mCallbackHandler = bVar.Rq();
-    }
+    protected abstract boolean TT();
 
-    @Override // com.baidu.swan.apps.api.a.a
     @NonNull
-    public final b Rs() {
-        return this.mSwanApiContext;
+    protected abstract com.baidu.swan.apps.api.c.b a(@NonNull JSONObject jSONObject, @NonNull a aVar);
+
+    @NonNull
+    protected abstract com.baidu.swan.apps.api.c.b af(@NonNull JSONObject jSONObject);
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public c(@NonNull String str) {
+        this.bJM = str;
     }
 
-    @Override // com.baidu.swan.apps.api.a.a
-    public final void a(final String str, final com.baidu.swan.apps.api.b.b bVar) {
+    public com.baidu.swan.apps.api.c.b a(@NonNull JSONObject jSONObject, @NonNull String str, @NonNull d dVar) {
+        this.bJN = dVar;
         if (DEBUG) {
-            Log.d("Api-Base", "invokeCallback: " + str);
+            Log.d("SwanAutoSyncApiHandler", this.bJM + " is called, can use sync mode: " + TT() + ", params" + jSONObject.toString() + ", callback: " + str);
         }
-        if (TextUtils.isEmpty(str)) {
-            if (DEBUG) {
-                Log.e("Api-Base", "invokeCallback: do callback with a empty callback");
-                throw new RuntimeException("invokeCallback: do callback with a empty callback");
-            }
-        } else if (bVar == null) {
-            if (DEBUG) {
-                Log.e("Api-Base", "invokeCallback: do callback with a null result");
-                throw new RuntimeException("invokeCallback: do callback with a null result");
-            }
-        } else if (Looper.myLooper() == Looper.getMainLooper()) {
-            b(str, bVar);
-        } else {
-            if (DEBUG) {
-                Log.d("Api-Base", "invokeCallback: other thread " + Thread.currentThread().getName());
-            }
-            ai.o(new Runnable() { // from class: com.baidu.swan.apps.api.a.c.1
-                @Override // java.lang.Runnable
-                public void run() {
-                    c.this.b(str, bVar);
-                }
-            });
-        }
+        return TT() ? ae(jSONObject) : p(jSONObject, str);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @NonNull
-    public final Context getContext() {
-        return this.mSwanApiContext.getContext();
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public final boolean Rt() {
-        e akN = e.akN();
-        if (akN == null) {
-            return true;
+    private com.baidu.swan.apps.api.c.b ae(@NonNull JSONObject jSONObject) {
+        if (DEBUG) {
+            Log.d("SwanAutoSyncApiHandler", this.bJM + " start handle sync");
         }
-        return akN.Rt();
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    @UiThread
-    public void b(@NonNull String str, @NonNull com.baidu.swan.apps.api.b.b bVar) {
-        if (!TextUtils.isEmpty(str) || (this.mCallbackHandler instanceof NullableCallbackHandler)) {
+        com.baidu.swan.apps.api.c.b af = af(jSONObject);
+        if (!af.l("isSync", true)) {
             if (DEBUG) {
-                Log.d("Api-Base", "realInvokeCallback: invoke 【" + str + "】 with 【" + bVar + "】");
+                Log.e("SwanAutoSyncApiHandler", this.bJM + " handleSync encounter error, json exception");
             }
-            this.mCallbackHandler.handleSchemeDispatchCallback(str, bVar.toJsonString());
+            return new com.baidu.swan.apps.api.c.b(1001, "make result json error");
         } else if (DEBUG) {
-            Log.e("Api-Base", "realInvokeCallback: callback check fail: " + str);
+            Log.d("SwanAutoSyncApiHandler", this.bJM + " end handle sync, result: " + af.toString());
+            return af;
+        } else {
+            return af;
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public com.baidu.swan.apps.api.b.b a(String str, boolean z, a aVar) {
-        e akM = e.akM();
-        if (akM == null) {
-            return new com.baidu.swan.apps.api.b.b(1001, "swan app is null");
+    private com.baidu.swan.apps.api.c.b p(@NonNull JSONObject jSONObject, @Nullable final String str) {
+        if (DEBUG) {
+            Log.d("SwanAutoSyncApiHandler", this.bJM + " start handle async");
         }
-        Pair<com.baidu.swan.apps.api.b.b, JSONObject> az = com.baidu.swan.apps.api.c.b.az("Api-Base", str);
-        com.baidu.swan.apps.api.b.b bVar = (com.baidu.swan.apps.api.b.b) az.first;
-        if (!bVar.isSuccess()) {
-            com.baidu.swan.apps.console.c.e("Api-Base", "parse fail");
-            return bVar;
-        }
-        JSONObject jSONObject = (JSONObject) az.second;
-        String str2 = null;
-        if (z) {
-            str2 = jSONObject.optString("cb");
-            if (TextUtils.isEmpty(str2)) {
-                com.baidu.swan.apps.console.c.e("Api-Base", "callback is null");
-                return new com.baidu.swan.apps.api.b.b(1001, "callback is null");
+        com.baidu.swan.apps.api.c.b a2 = a(jSONObject, new a() { // from class: com.baidu.swan.apps.api.a.c.1
+            @Override // com.baidu.swan.apps.api.a.c.a
+            public void a(com.baidu.swan.apps.api.c.b bVar) {
+                if (c.DEBUG) {
+                    Log.d("SwanAutoSyncApiHandler", c.this.bJM + " async callback: " + bVar.toString());
+                }
+                c.this.bJN.a(str, bVar);
             }
-        }
-        return aVar.a(akM, jSONObject, str2);
-    }
-
-    @Nullable
-    public static JSONObject go(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return null;
-        }
-        try {
-            return new JSONObject(str);
-        } catch (JSONException e) {
+        });
+        if (!a2.l("isSync", false)) {
             if (DEBUG) {
-                e.printStackTrace();
-                return null;
+                Log.e("SwanAutoSyncApiHandler", this.bJM + " handleAsync encounter error, json exception");
             }
-            return null;
+            return new com.baidu.swan.apps.api.c.b(1001, "make result json error");
+        } else if (DEBUG) {
+            Log.d("SwanAutoSyncApiHandler", this.bJM + " end handle async, processing in other thread, sync result: " + a2.toString());
+            return a2;
+        } else {
+            return a2;
         }
     }
 }

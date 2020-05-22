@@ -30,7 +30,7 @@ import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.core.view.PbListView;
-import com.baidu.tbadk.util.ad;
+import com.baidu.tbadk.util.ae;
 import com.baidu.tieba.R;
 import com.baidu.tieba.enterForum.hotuserrank.view.HotUserRankLikeButton;
 import com.baidu.tieba.enterForum.hotuserrank.view.UserHeadCoverView;
@@ -39,29 +39,29 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes9.dex */
 public class c {
-    private PbListView ePr;
-    private com.baidu.tieba.enterForum.hotuserrank.a gDi;
-    private BdRecyclerView gir;
+    private PbListView fbY;
+    private com.baidu.tieba.enterForum.hotuserrank.a gRQ;
+    private BdRecyclerView gxh;
     private String mCategory;
     private long mForumId;
     private List<com.baidu.tieba.enterForum.hotuserrank.a.b> mDataList = new ArrayList();
-    private BdRecyclerView.a Ul = new BdRecyclerView.a() { // from class: com.baidu.tieba.enterForum.hotuserrank.c.1
+    private BdRecyclerView.a Uw = new BdRecyclerView.a() { // from class: com.baidu.tieba.enterForum.hotuserrank.c.1
         @Override // com.baidu.adp.widget.ListView.BdRecyclerView.a
         public void a(ViewGroup viewGroup, View view, Object obj, int i, long j) {
             com.baidu.tieba.enterForum.hotuserrank.a.b bVar = (com.baidu.tieba.enterForum.hotuserrank.a.b) c.this.mDataList.get(i);
-            if (bVar != null && bVar.gDD != null) {
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(c.this.gir.getContext(), bVar.gDD.getUserId(), bVar.gDD.getName_show())));
+            if (bVar != null && bVar.gSm != null) {
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(c.this.gxh.getContext(), bVar.gSm.getUserId(), bVar.gSm.getName_show())));
                 if (!TextUtils.isEmpty(c.this.mCategory)) {
                     an anVar = new an("c13660");
-                    anVar.t("uid", TbadkCoreApplication.getCurrentAccountId());
-                    anVar.cI("resource_id", c.this.mCategory);
-                    anVar.cI("friend_uid", bVar.rankNum);
+                    anVar.s("uid", TbadkCoreApplication.getCurrentAccountId());
+                    anVar.dh("resource_id", c.this.mCategory);
+                    anVar.dh("friend_uid", bVar.rankNum);
                     TiebaStatic.log(anVar);
                     return;
                 }
                 an anVar2 = new an("c13668");
-                anVar2.cI("uid", bVar.gDD.getUserId());
-                anVar2.t("fid", c.this.mForumId);
+                anVar2.dh("uid", bVar.gSm.getUserId());
+                anVar2.s("fid", c.this.mForumId);
                 TiebaStatic.log(anVar2);
             }
         }
@@ -69,10 +69,10 @@ public class c {
     private RecyclerView.Adapter mAdapter = new RecyclerView.Adapter<a>() { // from class: com.baidu.tieba.enterForum.hotuserrank.c.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.support.v7.widget.RecyclerView.Adapter
-        /* renamed from: s */
+        /* renamed from: q */
         public a onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
             a aVar = new a(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.hot_user_rank_item_view, (ViewGroup) null));
-            aVar.sp(0);
+            aVar.sU(0);
             aVar.setCategory(c.this.mCategory);
             aVar.setForumId(c.this.mForumId);
             return aVar;
@@ -94,29 +94,29 @@ public class c {
     public c(View view, String str, long j) {
         this.mCategory = str;
         this.mForumId = j;
-        this.gir = (BdRecyclerView) view;
-        this.gir.setLayoutManager(new LinearLayoutManager(view.getContext()));
-        this.gir.setAdapter(this.mAdapter);
+        this.gxh = (BdRecyclerView) view;
+        this.gxh.setLayoutManager(new LinearLayoutManager(view.getContext()));
+        this.gxh.setAdapter(this.mAdapter);
         View inflate = LayoutInflater.from(view.getContext()).inflate(R.layout.hot_user_rank_top_user, (ViewGroup) null);
-        this.gDi = new com.baidu.tieba.enterForum.hotuserrank.a(inflate, this.mCategory, this.mForumId);
+        this.gRQ = new com.baidu.tieba.enterForum.hotuserrank.a(inflate, this.mCategory, this.mForumId);
         inflate.setLayoutParams(new RecyclerView.LayoutParams(-1, -2));
-        this.gir.addHeaderView(inflate);
-        this.ePr = new PbListView(view.getContext());
-        this.ePr.createView();
-        this.ePr.setContainerBackgroundColorResId(R.color.cp_bg_line_e);
-        this.ePr.setLineGone();
-        this.ePr.setTextColor(am.getColor(R.color.cp_cont_j));
-        this.ePr.setTextSize(R.dimen.tbfontsize33);
-        this.ePr.setNoMoreTextColorId(R.color.cp_cont_e);
-        this.gir.setNextPage(this.ePr);
-        this.gir.setOnItemClickListener(this.Ul);
+        this.gxh.addHeaderView(inflate);
+        this.fbY = new PbListView(view.getContext());
+        this.fbY.createView();
+        this.fbY.setContainerBackgroundColorResId(R.color.cp_bg_line_e);
+        this.fbY.setLineGone();
+        this.fbY.setTextColor(am.getColor(R.color.cp_cont_j));
+        this.fbY.setTextSize(R.dimen.tbfontsize33);
+        this.fbY.setNoMoreTextColorId(R.color.cp_cont_e);
+        this.gxh.setNextPage(this.fbY);
+        this.gxh.setOnItemClickListener(this.Uw);
     }
 
     public void b(com.baidu.tieba.enterForum.hotuserrank.a.a aVar, boolean z) {
-        this.gDi.a(aVar, z);
+        this.gRQ.a(aVar, z);
     }
 
-    public void bY(List<com.baidu.tieba.enterForum.hotuserrank.a.b> list) {
+    public void bV(List<com.baidu.tieba.enterForum.hotuserrank.a.b> list) {
         if (list != null) {
             this.mDataList.clear();
             this.mDataList.addAll(list);
@@ -125,50 +125,51 @@ public class c {
     }
 
     public void setOnSrollToBottomListener(BdListView.e eVar) {
-        this.gir.setOnSrollToBottomListener(eVar);
+        this.gxh.setOnSrollToBottomListener(eVar);
     }
 
-    public void bmm() {
-        this.ePr.setTopExtraViewGone();
-        this.ePr.startLoadData();
-        this.ePr.setText(this.gir.getContext().getString(R.string.list_loading));
-        this.ePr.showEmptyView(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+    public void brK() {
+        this.fbY.setTopExtraViewGone();
+        this.fbY.startLoadData();
+        this.fbY.setText(this.gxh.getContext().getString(R.string.list_loading));
+        this.fbY.showEmptyView(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
     }
 
-    public void Cc(String str) {
+    public void DL(String str) {
         String string;
-        this.ePr.lu(l.getDimens(this.gir.getContext(), R.dimen.tbds96));
+        this.fbY.lW(l.getDimens(this.gxh.getContext(), R.dimen.tbds96));
         if (!TextUtils.isEmpty(str)) {
-            string = String.format(this.gir.getContext().getString(R.string.hot_user_rank_list_no_more), str);
+            string = String.format(this.gxh.getContext().getString(R.string.hot_user_rank_list_no_more), str);
         } else {
-            string = this.gir.getContext().getString(R.string.forum_hot_user_rank_list_no_more);
+            string = this.gxh.getContext().getString(R.string.forum_hot_user_rank_list_no_more);
         }
-        this.ePr.al(string, l.getDimens(this.gir.getContext(), R.dimen.tbds156));
-        this.ePr.endLoadData();
-        this.ePr.showEmptyView(l.getDimens(this.gir.getContext(), R.dimen.tbds44));
+        this.fbY.am(string, l.getDimens(this.gxh.getContext(), R.dimen.tbds156));
+        this.fbY.endLoadData();
+        this.fbY.showEmptyView(l.getDimens(this.gxh.getContext(), R.dimen.tbds44));
     }
 
     public void onChangeSkinType(int i) {
-        this.gDi.onChangeSkinType(i);
+        this.gRQ.onChangeSkinType(i);
         this.mAdapter.notifyDataSetChanged();
-        if (this.ePr != null) {
-            this.ePr.setTextColor(am.getColor(R.color.cp_cont_d));
-            this.ePr.changeSkin(i);
+        if (this.fbY != null) {
+            this.fbY.setTextColor(am.getColor(R.color.cp_cont_d));
+            this.fbY.changeSkin(i);
         }
     }
 
     /* loaded from: classes9.dex */
     public static class a extends RecyclerView.ViewHolder {
-        private com.baidu.tbadk.core.view.userLike.c agp;
-        private TextView cBd;
-        private TextView gDk;
-        private HeadImageView gDl;
-        private UserHeadCoverView gDm;
-        private TextView gDn;
-        private ImageView gDo;
-        private TextView gDp;
-        private HotUserRankLikeButton gDq;
-        private int gDr;
+        private com.baidu.tbadk.core.view.userLike.c agS;
+        private TextView dXU;
+        private TextView gRS;
+        private HeadImageView gRT;
+        private UserHeadCoverView gRU;
+        private TextView gRV;
+        private ImageView gRW;
+        private TextView gRX;
+        private HotUserRankLikeButton gRY;
+        private int gRZ;
+        private boolean gSa;
         private String mCategory;
         private long mForumId;
         private TbPageContext mPageContext;
@@ -178,108 +179,112 @@ public class c {
             super(view);
             this.mSkinType = 3;
             this.mCategory = "";
-            this.gDr = 0;
-            this.mPageContext = er(view.getContext());
-            this.gDk = (TextView) view.findViewById(R.id.rank_num);
-            this.gDk.getPaint().setFakeBoldText(true);
-            this.gDl = (HeadImageView) view.findViewById(R.id.head_icon);
-            this.gDl.setIsRound(true);
-            this.gDl.setPlaceHolder(2);
-            this.gDl.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.gDm = (UserHeadCoverView) view.findViewById(R.id.head_cover);
-            this.cBd = (TextView) view.findViewById(R.id.user_name);
-            this.gDn = (TextView) view.findViewById(R.id.user_intro);
-            this.gDo = (ImageView) view.findViewById(R.id.grade);
-            this.gDp = (TextView) view.findViewById(R.id.user_influence);
-            this.gDq = (HotUserRankLikeButton) view.findViewById(R.id.like_button);
+            this.gRZ = 0;
+            this.mPageContext = eG(view.getContext());
+            this.gRS = (TextView) view.findViewById(R.id.rank_num);
+            this.gRS.getPaint().setFakeBoldText(true);
+            this.gRT = (HeadImageView) view.findViewById(R.id.head_icon);
+            this.gRT.setIsRound(true);
+            this.gRT.setPlaceHolder(2);
+            this.gRT.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            this.gRU = (UserHeadCoverView) view.findViewById(R.id.head_cover);
+            this.dXU = (TextView) view.findViewById(R.id.user_name);
+            this.gRV = (TextView) view.findViewById(R.id.user_intro);
+            this.gRW = (ImageView) view.findViewById(R.id.grade);
+            this.gRX = (TextView) view.findViewById(R.id.user_influence);
+            this.gRY = (HotUserRankLikeButton) view.findViewById(R.id.like_button);
         }
 
         public void a(final com.baidu.tieba.enterForum.hotuserrank.a.b bVar) {
             int i;
             if (bVar != null) {
                 if (!TextUtils.isEmpty(bVar.rankNum)) {
-                    RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.gDk.getLayoutParams();
+                    RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.gRS.getLayoutParams();
                     int dimension = (int) this.mPageContext.getResources().getDimension(R.dimen.tbds44);
-                    this.gDk.setText(bVar.rankNum);
-                    if (this.gDr == 1) {
+                    this.gRS.setText(bVar.rankNum);
+                    if (this.gRZ == 1) {
                         dimension = (int) this.mPageContext.getResources().getDimension(R.dimen.tbds26);
                         layoutParams.width = (int) this.mPageContext.getResources().getDimension(R.dimen.tbds129);
                     }
                     layoutParams.setMargins(dimension, 0, 0, 0);
-                    this.gDk.setLayoutParams(layoutParams);
+                    this.gRS.setLayoutParams(layoutParams);
                 }
-                if ("1".equals(this.gDk.getText())) {
+                if ("1".equals(this.gRS.getText())) {
                     i = R.color.cp_other_h;
-                } else if ("2".equals(this.gDk.getText())) {
+                } else if ("2".equals(this.gRS.getText())) {
                     i = R.color.cp_other_i;
-                } else if ("3".equals(this.gDk.getText())) {
+                } else if ("3".equals(this.gRS.getText())) {
                     i = R.color.cp_other_j;
                 } else {
                     i = R.color.cp_cont_b;
                 }
-                am.setViewTextColor(this.gDk, i);
-                this.gDl.startLoad(bVar.gDA, 10, false);
-                this.gDm.setData(bVar);
+                am.setViewTextColor(this.gRS, i);
+                this.gRT.startLoad(bVar.gSj, 10, false);
+                this.gRU.setData(bVar);
                 String str = bVar.userName;
-                if (ad.getTextLengthWithEmoji(str) > 12) {
-                    str = ad.subStringWithEmoji(str, 10) + StringHelper.STRING_MORE;
+                if (ae.getTextLengthWithEmoji(str) > 12) {
+                    str = ae.subStringWithEmoji(str, 10) + StringHelper.STRING_MORE;
                 }
-                this.cBd.setText(str);
-                if (TextUtils.isEmpty(bVar.gDB)) {
-                    this.gDn.setVisibility(8);
+                this.dXU.setText(str);
+                this.gSa = bVar.gSa;
+                if (bVar.gSa) {
+                    am.setViewTextColor(this.dXU, (int) R.color.cp_cont_h);
+                }
+                if (TextUtils.isEmpty(bVar.gSk)) {
+                    this.gRV.setVisibility(8);
                 } else {
-                    this.gDn.setVisibility(0);
-                    this.gDn.setText(aq.ag(bVar.gDB, 26));
+                    this.gRV.setVisibility(0);
+                    this.gRV.setText(aq.ah(bVar.gSk, 26));
                 }
-                if (bVar.gDD.getLevel_id() == 0) {
-                    this.gDo.setVisibility(8);
+                if (bVar.gSm.getLevel_id() == 0) {
+                    this.gRW.setVisibility(8);
                 } else {
-                    this.gDo.setVisibility(0);
-                    am.setImageResource(this.gDo, BitmapHelper.getGradeResourceIdInEnterForum(bVar.gDD.getLevel_id()));
+                    this.gRW.setVisibility(0);
+                    am.setImageResource(this.gRW, BitmapHelper.getGradeResourceIdInEnterForum(bVar.gSm.getLevel_id()));
                 }
-                if (TextUtils.isEmpty(bVar.gDC)) {
-                    this.gDp.setVisibility(8);
+                if (TextUtils.isEmpty(bVar.gSl)) {
+                    this.gRX.setVisibility(8);
                 } else {
-                    this.gDp.setVisibility(0);
-                    this.gDp.setText(bVar.gDC);
+                    this.gRX.setVisibility(0);
+                    this.gRX.setText(bVar.gSl);
                 }
-                if (this.agp == null && this.mPageContext != null) {
-                    this.agp = new com.baidu.tbadk.core.view.userLike.c(this.mPageContext, this.gDq);
-                    this.agp.j(this.mPageContext.getUniqueId());
+                if (this.agS == null && this.mPageContext != null) {
+                    this.agS = new com.baidu.tbadk.core.view.userLike.c(this.mPageContext, this.gRY);
+                    this.agS.l(this.mPageContext.getUniqueId());
                 }
-                this.agp.a(bVar.gDD);
-                this.gDq.setOnClickEvent(new DynamicUserLikeButton.a() { // from class: com.baidu.tieba.enterForum.hotuserrank.c.a.1
+                this.agS.a(bVar.gSm);
+                this.gRY.setOnClickEvent(new DynamicUserLikeButton.a() { // from class: com.baidu.tieba.enterForum.hotuserrank.c.a.1
                     @Override // com.baidu.tieba.view.DynamicUserLikeButton.a
-                    public void G(View view) {
+                    public void bO(View view) {
                         if (!TextUtils.isEmpty(a.this.mCategory)) {
                             an anVar = new an("c13661");
-                            anVar.t("uid", TbadkCoreApplication.getCurrentAccountId());
-                            anVar.cI("resource_id", a.this.mCategory);
-                            anVar.cI("friend_uid", bVar.rankNum);
-                            anVar.af("obj_type", bVar.gDD.getIsLike() ? 2 : 1);
+                            anVar.s("uid", TbadkCoreApplication.getCurrentAccountId());
+                            anVar.dh("resource_id", a.this.mCategory);
+                            anVar.dh("friend_uid", bVar.rankNum);
+                            anVar.ag("obj_type", bVar.gSm.getIsLike() ? 2 : 1);
                             TiebaStatic.log(anVar);
                             return;
                         }
                         an anVar2 = new an("c13672");
-                        anVar2.cI("obj_id", bVar.gDD.getUserId());
-                        anVar2.t("uid", TbadkCoreApplication.getCurrentAccountId());
-                        anVar2.cI("resource_id", a.this.mCategory);
-                        anVar2.t("fid", a.this.mForumId);
-                        anVar2.cI("friend_uid", bVar.rankNum);
-                        anVar2.af("obj_type", bVar.gDD.getIsLike() ? 2 : 1);
+                        anVar2.dh("obj_id", bVar.gSm.getUserId());
+                        anVar2.s("uid", TbadkCoreApplication.getCurrentAccountId());
+                        anVar2.dh("resource_id", a.this.mCategory);
+                        anVar2.s("fid", a.this.mForumId);
+                        anVar2.dh("friend_uid", bVar.rankNum);
+                        anVar2.ag("obj_type", bVar.gSm.getIsLike() ? 2 : 1);
                         TiebaStatic.log(anVar2);
                     }
                 });
-                if (bVar.gDD != null && bVar.gDD.getUserId() != null && bVar.gDD.getUserId().equals(TbadkCoreApplication.getCurrentAccount())) {
-                    this.gDq.setVisibility(8);
+                if (bVar.gSm != null && bVar.gSm.getUserId() != null && bVar.gSm.getUserId().equals(TbadkCoreApplication.getCurrentAccount())) {
+                    this.gRY.setVisibility(8);
                 } else {
-                    this.gDq.setVisibility(0);
+                    this.gRY.setVisibility(0);
                 }
                 onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
             }
         }
 
-        private TbPageContext er(Context context) {
+        private TbPageContext eG(Context context) {
             if (context instanceof BaseActivity) {
                 return ((BaseActivity) context).getPageContext();
             }
@@ -292,10 +297,14 @@ public class c {
         public void onChangeSkinType(int i) {
             if (this.mSkinType != i) {
                 this.mSkinType = i;
-                am.setViewTextColor(this.cBd, (int) R.color.cp_cont_b);
-                am.setViewTextColor(this.gDn, (int) R.color.cp_cont_d);
-                am.setViewTextColor(this.gDp, (int) R.color.cp_cont_d);
-                this.gDq.onChangeSkinType(this.mSkinType);
+                if (!this.gSa) {
+                    am.setViewTextColor(this.dXU, (int) R.color.cp_cont_b);
+                } else {
+                    am.setViewTextColor(this.dXU, (int) R.color.cp_cont_h);
+                }
+                am.setViewTextColor(this.gRV, (int) R.color.cp_cont_d);
+                am.setViewTextColor(this.gRX, (int) R.color.cp_cont_d);
+                this.gRY.onChangeSkinType(this.mSkinType);
             }
         }
 
@@ -307,13 +316,13 @@ public class c {
             this.mForumId = j;
         }
 
-        public void sp(int i) {
-            this.gDr = i;
+        public void sU(int i) {
+            this.gRZ = i;
         }
 
-        public void bIQ() {
-            this.gDn.setVisibility(8);
-            this.gDq.setVisibility(8);
+        public void bPj() {
+            this.gRV.setVisibility(8);
+            this.gRY.setVisibility(8);
         }
     }
 }

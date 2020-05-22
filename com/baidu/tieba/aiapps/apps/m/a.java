@@ -1,20 +1,14 @@
 package com.baidu.tieba.aiapps.apps.m;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
 /* loaded from: classes12.dex */
-public class a extends com.baidu.swan.apps.process.a.a.a {
-    @Override // com.baidu.swan.apps.process.a.a.a
-    public void y(@NonNull Bundle bundle) {
-        String string = bundle.getString("key_param_url");
-        if (StringUtils.isNull(string)) {
-            finish();
-        } else {
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_OPEN_WALLET_ICASH, string));
-        }
+public class a extends ProviderDelegation {
+    @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
+    public Bundle execCall(Bundle bundle) {
+        Bundle bundle2 = new Bundle();
+        bundle2.putString("result", b.getZid(AppRuntime.getAppContext()));
+        return bundle2;
     }
 }

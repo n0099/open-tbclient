@@ -4,14 +4,14 @@ import android.text.TextUtils;
 import org.json.JSONObject;
 /* loaded from: classes13.dex */
 public class c {
-    public static String g(JSONObject jSONObject, String str) {
+    public static String l(JSONObject jSONObject, String str) {
         if (jSONObject != null && !TextUtils.isEmpty(str) && jSONObject.has(str)) {
             return jSONObject.optString(str);
         }
         return "";
     }
 
-    public static double h(JSONObject jSONObject, String str) {
+    public static double m(JSONObject jSONObject, String str) {
         if (jSONObject == null || TextUtils.isEmpty(str) || !jSONObject.has(str)) {
             return -10000.0d;
         }
@@ -22,7 +22,7 @@ public class c {
         return Math.abs(d - d2) <= 0.001d;
     }
 
-    public static int i(JSONObject jSONObject, String str) {
+    public static int n(JSONObject jSONObject, String str) {
         if (jSONObject == null || TextUtils.isEmpty(str) || !jSONObject.has(str)) {
             return Integer.MIN_VALUE;
         }

@@ -4,7 +4,6 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Proxy;
-import com.baidu.webkit.net.BdNetEngine;
 import java.util.Map;
 /* loaded from: classes8.dex */
 public abstract class e {
@@ -17,7 +16,7 @@ public abstract class e {
     public byte[] n = null;
     public String o = null;
     public static int g = a.g;
-    private static String a = BdNetEngine.URI_PROXY_CMWAP;
+    private static String a = "10.0.0.172";
     private static int b = 80;
     protected static int p = 0;
 
@@ -26,17 +25,11 @@ public abstract class e {
         if (networkInfo != null && networkInfo.getExtraInfo() != null && (lowerCase = networkInfo.getExtraInfo().toLowerCase()) != null) {
             if (lowerCase.startsWith("cmwap") || lowerCase.startsWith("uniwap") || lowerCase.startsWith("3gwap")) {
                 String defaultHost = Proxy.getDefaultHost();
-                if (defaultHost == null || defaultHost.equals("") || defaultHost.equals("null")) {
-                    defaultHost = BdNetEngine.URI_PROXY_CMWAP;
-                }
-                a = defaultHost;
+                a = (defaultHost == null || defaultHost.equals("") || defaultHost.equals("null")) ? "10.0.0.172" : "10.0.0.172";
                 return a.d;
             } else if (lowerCase.startsWith("ctwap")) {
                 String defaultHost2 = Proxy.getDefaultHost();
-                if (defaultHost2 == null || defaultHost2.equals("") || defaultHost2.equals("null")) {
-                    defaultHost2 = BdNetEngine.URI_PROXY_CTWAP;
-                }
-                a = defaultHost2;
+                a = (defaultHost2 == null || defaultHost2.equals("") || defaultHost2.equals("null")) ? "10.0.0.200" : "10.0.0.200";
                 return a.d;
             } else if (lowerCase.startsWith("cmnet") || lowerCase.startsWith("uninet") || lowerCase.startsWith("ctnet") || lowerCase.startsWith("3gnet")) {
                 return a.e;
@@ -44,11 +37,11 @@ public abstract class e {
         }
         String defaultHost3 = Proxy.getDefaultHost();
         if (defaultHost3 != null && defaultHost3.length() > 0) {
-            if (BdNetEngine.URI_PROXY_CMWAP.equals(defaultHost3.trim())) {
-                a = BdNetEngine.URI_PROXY_CMWAP;
+            if ("10.0.0.172".equals(defaultHost3.trim())) {
+                a = "10.0.0.172";
                 return a.d;
-            } else if (BdNetEngine.URI_PROXY_CTWAP.equals(defaultHost3.trim())) {
-                a = BdNetEngine.URI_PROXY_CTWAP;
+            } else if ("10.0.0.200".equals(defaultHost3.trim())) {
+                a = "10.0.0.200";
                 return a.d;
             }
         }

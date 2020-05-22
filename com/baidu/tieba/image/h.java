@@ -8,6 +8,7 @@ import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
 import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import com.baidu.tbadk.core.atomData.MissonDetailsActivityConfig;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tbadk.core.data.AlaInfoData;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import org.json.JSONArray;
@@ -16,19 +17,20 @@ import tbclient.App;
 import tbclient.GoodsInfo;
 /* loaded from: classes8.dex */
 public class h {
-    private String iDA;
-    private String iDB;
-    private LinkedList<f> iDy;
+    private LinkedList<f> iSo;
+    private String iSq;
+    private String iSr;
     private String fid = null;
-    private int iDx = 0;
-    private AdvertAppInfo iDz = null;
+    private int iSn = 0;
+    private AdvertAppInfo iSp = null;
+    private LinkedList<AlaInfoData> iSs = new LinkedList<>();
 
     public h() {
-        this.iDy = null;
-        this.iDy = new LinkedList<>();
+        this.iSo = null;
+        this.iSo = new LinkedList<>();
     }
 
-    public void av(String str, boolean z) {
+    public void aI(String str, boolean z) {
         try {
             a(new JSONObject(str), Boolean.valueOf(z));
         } catch (Exception e) {
@@ -36,20 +38,24 @@ public class h {
         }
     }
 
-    public LinkedList<f> clp() {
-        return this.iDy;
+    public LinkedList<f> crP() {
+        return this.iSo;
+    }
+
+    public LinkedList<AlaInfoData> crQ() {
+        return this.iSs;
     }
 
     public int getImageNum() {
-        return this.iDx;
+        return this.iSn;
     }
 
-    public String aMi() {
-        return this.iDA;
+    public String aSh() {
+        return this.iSq;
     }
 
-    public String aMj() {
-        return this.iDB;
+    public String aSi() {
+        return this.iSr;
     }
 
     public void a(JSONObject jSONObject, Boolean bool) {
@@ -58,10 +64,10 @@ public class h {
                 JSONObject optJSONObject = jSONObject.optJSONObject("forum");
                 if (optJSONObject != null) {
                     this.fid = optJSONObject.optString("id");
-                    this.iDA = optJSONObject.optString("frist_class");
-                    this.iDB = optJSONObject.optString("second_class");
+                    this.iSq = optJSONObject.optString("frist_class");
+                    this.iSr = optJSONObject.optString("second_class");
                 }
-                this.iDx = jSONObject.optInt("pic_amount", 0);
+                this.iSn = jSONObject.optInt("pic_amount", 0);
                 JSONArray optJSONArray = jSONObject.optJSONArray("pic_list");
                 if (optJSONArray != null) {
                     if (bool.booleanValue()) {
@@ -69,8 +75,8 @@ public class h {
                             f fVar = new f();
                             fVar.paserJson(optJSONArray.optJSONObject(i));
                             int index = fVar.getIndex();
-                            if (index >= 1 && index <= this.iDx) {
-                                this.iDy.addLast(fVar);
+                            if (index >= 1 && index <= this.iSn) {
+                                this.iSo.addLast(fVar);
                             }
                         }
                     } else {
@@ -78,20 +84,40 @@ public class h {
                             f fVar2 = new f();
                             fVar2.paserJson(optJSONArray.getJSONObject(length));
                             int index2 = fVar2.getIndex();
-                            if (index2 >= 1 && index2 <= this.iDx) {
-                                this.iDy.addFirst(fVar2);
+                            if (index2 >= 1 && index2 <= this.iSn) {
+                                this.iSo.addFirst(fVar2);
                             }
                         }
                     }
                 }
-                db(jSONObject);
+                e(jSONObject, bool.booleanValue());
+                di(jSONObject);
             } catch (Exception e) {
                 BdLog.detailException(e);
             }
         }
     }
 
-    private void db(JSONObject jSONObject) {
+    private void e(JSONObject jSONObject, boolean z) {
+        JSONArray optJSONArray;
+        if (jSONObject != null && (optJSONArray = jSONObject.optJSONArray("recom_ala_info")) != null) {
+            if (z) {
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    AlaInfoData alaInfoData = new AlaInfoData();
+                    alaInfoData.parserJson(optJSONArray.optJSONObject(i));
+                    this.iSs.addLast(alaInfoData);
+                }
+                return;
+            }
+            for (int length = optJSONArray.length() - 1; length >= 0; length--) {
+                AlaInfoData alaInfoData2 = new AlaInfoData();
+                alaInfoData2.parserJson(optJSONArray.optJSONObject(length));
+                this.iSs.addFirst(alaInfoData2);
+            }
+        }
+    }
+
+    private void di(JSONObject jSONObject) {
         JSONObject optJSONObject;
         JSONArray optJSONArray = jSONObject.optJSONArray("app");
         if (optJSONArray != null && (optJSONObject = optJSONArray.optJSONObject(0)) != null) {
@@ -127,21 +153,21 @@ public class h {
             builder.verify = optJSONObject.optString(SmsLoginView.f.j);
             builder.ext_info = optJSONObject.optString(UgcConstant.EXT_INFO);
             builder.pos_name = optJSONObject.optString("pos_name");
-            GoodsInfo dc = dc(optJSONObject);
-            if (dc != null) {
+            GoodsInfo dj = dj(optJSONObject);
+            if (dj != null) {
                 builder.goods_info = new ArrayList();
-                builder.goods_info.add(dc);
+                builder.goods_info.add(dj);
             }
             builder.loc_code = optJSONObject.optString("loc_code");
             App build = builder.build(true);
-            this.iDz = new AdvertAppInfo();
-            this.iDz.a(build);
-            this.iDz.adPosition = "c0111";
-            this.iDz.dmG = this.fid;
+            this.iSp = new AdvertAppInfo();
+            this.iSp.a(build);
+            this.iSp.adPosition = "c0111";
+            this.iSp.dAI = this.fid;
         }
     }
 
-    private GoodsInfo dc(JSONObject jSONObject) {
+    private GoodsInfo dj(JSONObject jSONObject) {
         JSONObject optJSONObject;
         JSONArray optJSONArray = jSONObject.optJSONArray("goods_info");
         if (optJSONArray == null || (optJSONObject = optJSONArray.optJSONObject(0)) == null) {
@@ -170,7 +196,7 @@ public class h {
         return builder.build(true);
     }
 
-    public AdvertAppInfo clq() {
-        return this.iDz;
+    public AdvertAppInfo crR() {
+        return this.iSp;
     }
 }

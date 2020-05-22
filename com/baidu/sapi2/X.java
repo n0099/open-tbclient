@@ -75,7 +75,7 @@ public final class X {
     public static class a {
         private static final String a = ".BD_SAPI_CACHE";
         private String c;
-        private List<C0227a> d = new ArrayList();
+        private List<C0260a> d = new ArrayList();
         private boolean b = true;
 
         public String b() {
@@ -92,8 +92,8 @@ public final class X {
                 jSONObject.put(X.i, this.b);
                 jSONObject.put("version", this.c);
                 JSONArray jSONArray = new JSONArray();
-                for (C0227a c0227a : a()) {
-                    jSONArray.put(c0227a.a());
+                for (C0260a c0260a : a()) {
+                    jSONArray.put(c0260a.a());
                 }
                 jSONObject.put(X.k, jSONArray);
                 return jSONObject;
@@ -104,7 +104,7 @@ public final class X {
 
         /* renamed from: com.baidu.sapi2.X$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public static class C0227a {
+        public static class C0260a {
             public String a;
             public String b;
             public String c;
@@ -137,18 +137,18 @@ public final class X {
                 if (this == obj) {
                     return true;
                 }
-                if (obj != null && C0227a.class == obj.getClass()) {
-                    return this.a.equals(((C0227a) obj).a);
+                if (obj != null && C0260a.class == obj.getClass()) {
+                    return this.a.equals(((C0260a) obj).a);
                 }
                 return false;
             }
 
-            static C0227a a(JSONObject jSONObject) {
-                C0227a c0227a = new C0227a();
-                c0227a.a = jSONObject.optString("id");
-                c0227a.b = jSONObject.optString(X.m);
-                c0227a.c = jSONObject.optString(X.n);
-                return c0227a;
+            static C0260a a(JSONObject jSONObject) {
+                C0260a c0260a = new C0260a();
+                c0260a.a = jSONObject.optString("id");
+                c0260a.b = jSONObject.optString(X.m);
+                c0260a.c = jSONObject.optString(X.n);
+                return c0260a;
             }
 
             public static String a(String str) {
@@ -156,7 +156,7 @@ public final class X {
             }
         }
 
-        public List<C0227a> a() {
+        public List<C0260a> a() {
             return this.d;
         }
 
@@ -168,7 +168,7 @@ public final class X {
                     aVar.c = jSONObject.optLong("version") + "";
                     JSONArray optJSONArray = jSONObject.optJSONArray(X.k);
                     for (int i = 0; i < optJSONArray.length(); i++) {
-                        aVar.a().add(C0227a.a(optJSONArray.getJSONObject(i)));
+                        aVar.a().add(C0260a.a(optJSONArray.getJSONObject(i)));
                     }
                 } catch (Throwable th) {
                 }
@@ -180,13 +180,13 @@ public final class X {
     /* loaded from: classes6.dex */
     public static class b {
         String a;
-        private List<a.C0227a> b = new ArrayList();
+        private List<a.C0260a> b = new ArrayList();
 
         public String b() {
             return this.a;
         }
 
-        public List<a.C0227a> a() {
+        public List<a.C0260a> a() {
             return this.b;
         }
 
@@ -197,7 +197,7 @@ public final class X {
                     bVar.a = jSONObject.optString(X.h);
                     JSONArray optJSONArray = jSONObject.optJSONArray(X.k);
                     for (int i = 0; i < optJSONArray.length(); i++) {
-                        bVar.a().add(a.C0227a.a(optJSONArray.getJSONObject(i)));
+                        bVar.a().add(a.C0260a.a(optJSONArray.getJSONObject(i)));
                     }
                 } catch (Throwable th) {
                 }

@@ -41,12 +41,12 @@ public class k {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static a m112a(d dVar) {
+    public static a m114a(d dVar) {
         return a.get(dVar);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static hr m113a(d dVar) {
+    public static hr m115a(d dVar) {
         return hr.AggregatePushSwitch;
     }
 

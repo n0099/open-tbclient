@@ -5,13 +5,13 @@ import java.util.Map;
 import javax.annotation.Nullable;
 /* loaded from: classes13.dex */
 public interface d {
-    d O(Uri uri);
+    d Q(Uri uri);
 
-    d aZ(Object obj);
+    d bd(Object obj);
 
     d c(Uri uri, Map<String, String> map);
 
     d c(@Nullable a aVar);
 
-    a doE();
+    a dvW();
 }

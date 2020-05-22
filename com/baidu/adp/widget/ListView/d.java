@@ -6,11 +6,11 @@ import android.widget.TextView;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.R;
 import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.widget.ListView.y;
+import com.baidu.adp.widget.ListView.aa;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class d {
-    public a TI = null;
+    public a TU = null;
     public ArrayList<c> mFooterViewInfos;
     public ArrayList<c> mHeaderViewInfos;
 
@@ -27,7 +27,7 @@ public class d {
     }
 
     public void a(a aVar) {
-        this.TI = aVar;
+        this.TU = aVar;
     }
 
     public int getHeadersCount() {
@@ -41,7 +41,7 @@ public class d {
     public void addHeaderView(View view, Object obj, boolean z, int i) {
         if (view != null) {
             c cVar = new c();
-            cVar.TK = new y.a(view);
+            cVar.TW = new aa.a(view);
             cVar.data = obj;
             cVar.isSelectable = z;
             cVar.type = BdUniqueId.gen().getId();
@@ -58,7 +58,7 @@ public class d {
     public void addFooterView(View view, Object obj, boolean z, int i) {
         if (view != null) {
             c cVar = new c();
-            cVar.TK = new y.a(view);
+            cVar.TW = new aa.a(view);
             cVar.data = obj;
             cVar.isSelectable = z;
             cVar.type = BdUniqueId.gen().getId();
@@ -78,7 +78,7 @@ public class d {
         }
         for (int i = 0; i < this.mHeaderViewInfos.size(); i++) {
             c cVar = this.mHeaderViewInfos.get(i);
-            if (cVar != null && cVar.TK != null && cVar.TK.itemView == view) {
+            if (cVar != null && cVar.TW != null && cVar.TW.itemView == view) {
                 this.mHeaderViewInfos.remove(i);
                 return true;
             }
@@ -92,7 +92,7 @@ public class d {
         }
         for (int i = 0; i < this.mFooterViewInfos.size(); i++) {
             c cVar = this.mFooterViewInfos.get(i);
-            if (cVar != null && cVar.TK != null && cVar.TK.itemView == view) {
+            if (cVar != null && cVar.TW != null && cVar.TW.itemView == view) {
                 this.mFooterViewInfos.remove(i);
                 return true;
             }
@@ -100,7 +100,7 @@ public class d {
         return false;
     }
 
-    public y.a ax(int i) {
+    public aa.a ay(int i) {
         int i2 = 0;
         while (true) {
             int i3 = i2;
@@ -108,7 +108,7 @@ public class d {
                 if (this.mHeaderViewInfos.get(i3) == null || i != this.mHeaderViewInfos.get(i3).type) {
                     i2 = i3 + 1;
                 } else {
-                    return this.mHeaderViewInfos.get(i3).TK;
+                    return this.mHeaderViewInfos.get(i3).TW;
                 }
             } else {
                 return null;
@@ -116,7 +116,7 @@ public class d {
         }
     }
 
-    public y.a ay(int i) {
+    public aa.a az(int i) {
         int i2 = 0;
         while (true) {
             int i3 = i2;
@@ -124,7 +124,7 @@ public class d {
                 if (this.mFooterViewInfos.get(i3) == null || i != this.mFooterViewInfos.get(i3).type) {
                     i2 = i3 + 1;
                 } else {
-                    return this.mFooterViewInfos.get(i3).TK;
+                    return this.mFooterViewInfos.get(i3).TW;
                 }
             } else {
                 return null;
@@ -132,7 +132,7 @@ public class d {
         }
     }
 
-    public y.a H(Context context) {
+    public aa.a I(Context context) {
         TextView textView = new TextView(context);
         textView.setText(BdBaseApplication.getInst().getContext().getString(R.string.load_res_failed));
         int dip2px = com.baidu.adp.lib.util.l.dip2px(context, 15.0f);
@@ -142,7 +142,7 @@ public class d {
     }
 
     /* loaded from: classes.dex */
-    class b extends y.a {
+    class b extends aa.a {
         public b(View view) {
             super(view);
         }
@@ -150,7 +150,7 @@ public class d {
 
     /* loaded from: classes.dex */
     public class c {
-        public y.a TK;
+        public aa.a TW;
         public Object data;
         public long id;
         public boolean isSelectable;

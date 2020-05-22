@@ -3,7 +3,7 @@ package com.baidu.webkit.internal.daemon;
 import com.baidu.webkit.internal.INoProGuard;
 /* loaded from: classes11.dex */
 public final class Statistics implements INoProGuard {
-    private static boolean mIsInited = false;
+    private static boolean mIsInited;
 
     public static synchronized void close() {
         synchronized (Statistics.class) {

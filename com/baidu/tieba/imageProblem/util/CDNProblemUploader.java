@@ -11,7 +11,7 @@ import com.baidu.adp.lib.stats.a;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.data.n;
+import com.baidu.tbadk.core.data.m;
 import com.baidu.tbadk.core.util.p;
 import com.baidu.tbadk.core.util.s;
 import com.baidu.tbadk.core.util.x;
@@ -20,46 +20,46 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class CDNProblemUploader extends p {
-    private static Object iFO = new Object();
-    private static volatile CDNProblemUploader iFP;
-    private n dMN;
-    private int iFI;
-    private int iFJ;
-    private int iFK;
-    private int iFL;
+    private static volatile CDNProblemUploader iUN;
+    private static Object lockObject = new Object();
+    private m ebe;
+    private int iUH;
+    private int iUI;
+    private int iUJ;
+    private int iUK;
     private Handler mHandler;
-    private final int iFv = 5;
-    private final int iFw = 0;
-    private final int iFx = 1;
-    private final int iFy = 2;
-    private final int iFz = 3;
-    private final byte iFA = 0;
-    private final byte iFB = 1;
-    private int iFC = 0;
-    private final int iFD = 5;
-    private boolean iFE = false;
-    private long Ml = 0;
-    private final long iFF = 86400000;
-    private final float iFG = 100.0f;
-    private float iFH = 0.0f;
-    private BdAsyncTaskParallel iFM = null;
-    private final CdnErrorJsonData iFN = new CdnErrorJsonData();
+    private final int iUu = 5;
+    private final int iUv = 0;
+    private final int iUw = 1;
+    private final int iUx = 2;
+    private final int iUy = 3;
+    private final byte iUz = 0;
+    private final byte iUA = 1;
+    private int iUB = 0;
+    private final int iUC = 5;
+    private boolean iUD = false;
+    private long Mu = 0;
+    private final long iUE = 86400000;
+    private final float iUF = 100.0f;
+    private float iUG = 0.0f;
+    private BdAsyncTaskParallel iUL = null;
+    private final CdnErrorJsonData iUM = new CdnErrorJsonData();
 
     static /* synthetic */ int a(CDNProblemUploader cDNProblemUploader) {
-        int i = cDNProblemUploader.iFC + 1;
-        cDNProblemUploader.iFC = i;
+        int i = cDNProblemUploader.iUB + 1;
+        cDNProblemUploader.iUB = i;
         return i;
     }
 
     public static CDNProblemUploader getInstance() {
-        if (iFP == null) {
+        if (iUN == null) {
             synchronized (CDNProblemUploader.class) {
-                if (iFP == null) {
-                    iFP = new CDNProblemUploader();
+                if (iUN == null) {
+                    iUN = new CDNProblemUploader();
                 }
             }
         }
-        return iFP;
+        return iUN;
     }
 
     private CDNProblemUploader() {
@@ -82,14 +82,14 @@ public class CDNProblemUploader extends p {
     }
 
     @Override // com.baidu.tbadk.core.util.p
-    public n getmCdnLogData() {
-        return this.dMN;
+    public m getmCdnLogData() {
+        return this.ebe;
     }
 
     @Override // com.baidu.tbadk.core.util.p
-    public void setmCdnLogData(n nVar) {
-        synchronized (iFO) {
-            this.dMN = nVar;
+    public void setmCdnLogData(m mVar) {
+        synchronized (lockObject) {
+            this.ebe = mVar;
         }
     }
 
@@ -105,32 +105,32 @@ public class CDNProblemUploader extends p {
 
     public void _insertErrorData(int i, String str) {
         int i2 = 1;
-        synchronized (iFO) {
+        synchronized (lockObject) {
             if (getmCdnLogData() == null) {
-                this.iFH += 25.0f;
+                this.iUG += 25.0f;
             } else {
-                this.iFH += getmCdnLogData().getErrRank();
+                this.iUG += getmCdnLogData().getErrRank();
             }
-            this.iFK++;
-            this.iFJ++;
-            this.iFN.add(i);
-            int i3 = this.iFK;
-            int i4 = this.iFJ;
-            int i5 = this.iFI;
-            int i6 = this.iFI != 0 ? this.iFL / this.iFI : 0;
-            String cdnErrorJsonData = this.iFN.toString();
-            if (getmCdnLogData() != null && this.Ml > 0 && System.currentTimeMillis() - this.Ml > 86400000) {
+            this.iUJ++;
+            this.iUI++;
+            this.iUM.add(i);
+            int i3 = this.iUJ;
+            int i4 = this.iUI;
+            int i5 = this.iUH;
+            int i6 = this.iUH != 0 ? this.iUK / this.iUH : 0;
+            String cdnErrorJsonData = this.iUM.toString();
+            if (getmCdnLogData() != null && this.Mu > 0 && System.currentTimeMillis() - this.Mu > 86400000) {
                 getmCdnLogData().setmSwitch(true);
-                this.iFC = 0;
+                this.iUB = 0;
             }
             if (getmCdnLogData() != null && getmCdnLogData().ismSwitch()) {
-                if (this.iFK < 5) {
+                if (this.iUJ < 5) {
                     i2 = 0;
-                } else if (this.iFH < 100.0f || this.iFJ < getmCdnLogData().getErrNumber() || this.iFI < getmCdnLogData().getSlowNumber()) {
-                    if (this.iFH >= 100.0f && this.iFJ >= getmCdnLogData().getErrNumber()) {
+                } else if (this.iUG < 100.0f || this.iUI < getmCdnLogData().getErrNumber() || this.iUH < getmCdnLogData().getSlowNumber()) {
+                    if (this.iUG >= 100.0f && this.iUI >= getmCdnLogData().getErrNumber()) {
                         i2 = 2;
                     } else {
-                        i2 = (this.iFH < 100.0f || this.iFI < getmCdnLogData().getSlowNumber()) ? 0 : 3;
+                        i2 = (this.iUG < 100.0f || this.iUH < getmCdnLogData().getSlowNumber()) ? 0 : 3;
                     }
                 }
                 a(i2, i3, i4, cdnErrorJsonData, i5, i6);
@@ -145,34 +145,34 @@ public class CDNProblemUploader extends p {
         if (getmCdnLogData() != null) {
             i3 = getmCdnLogData().getTime();
         }
-        synchronized (iFO) {
+        synchronized (lockObject) {
             if (j >= i3) {
                 if (getmCdnLogData() == null) {
-                    this.iFH += 10.0f;
+                    this.iUG += 10.0f;
                 } else {
-                    this.iFH += getmCdnLogData().getSlowRank();
+                    this.iUG += getmCdnLogData().getSlowRank();
                 }
-                this.iFI++;
-                this.iFL = (int) (this.iFL + j);
-                this.iFK++;
-                int i4 = this.iFK;
-                int i5 = this.iFJ;
-                int i6 = this.iFI;
-                if (this.iFI != 0) {
-                    i = this.iFL / this.iFI;
+                this.iUH++;
+                this.iUK = (int) (this.iUK + j);
+                this.iUJ++;
+                int i4 = this.iUJ;
+                int i5 = this.iUI;
+                int i6 = this.iUH;
+                if (this.iUH != 0) {
+                    i = this.iUK / this.iUH;
                 }
-                String cdnErrorJsonData = this.iFN.toString();
-                if (getmCdnLogData() != null && this.Ml > 0 && System.currentTimeMillis() - this.Ml > 86400000) {
+                String cdnErrorJsonData = this.iUM.toString();
+                if (getmCdnLogData() != null && this.Mu > 0 && System.currentTimeMillis() - this.Mu > 86400000) {
                     getmCdnLogData().setmSwitch(true);
-                    this.iFC = 0;
+                    this.iUB = 0;
                 }
                 if (getmCdnLogData() != null && getmCdnLogData().ismSwitch()) {
-                    if (this.iFK >= 5) {
-                        if (this.iFH >= 100.0f && this.iFJ >= getmCdnLogData().getErrNumber() && this.iFI >= getmCdnLogData().getSlowNumber()) {
+                    if (this.iUJ >= 5) {
+                        if (this.iUG >= 100.0f && this.iUI >= getmCdnLogData().getErrNumber() && this.iUH >= getmCdnLogData().getSlowNumber()) {
                             i2 = 1;
-                        } else if (this.iFH >= 100.0f && this.iFJ >= getmCdnLogData().getErrNumber()) {
+                        } else if (this.iUG >= 100.0f && this.iUI >= getmCdnLogData().getErrNumber()) {
                             i2 = 2;
-                        } else if (this.iFH >= 100.0f && this.iFI >= getmCdnLogData().getSlowNumber()) {
+                        } else if (this.iUG >= 100.0f && this.iUH >= getmCdnLogData().getSlowNumber()) {
                             i2 = 3;
                         } else {
                             i2 = 0;
@@ -184,89 +184,89 @@ public class CDNProblemUploader extends p {
                 return;
             }
             if (getmCdnLogData() == null) {
-                this.iFH -= 25.0f;
+                this.iUG -= 25.0f;
             } else {
-                this.iFH -= getmCdnLogData().getSuccRank();
+                this.iUG -= getmCdnLogData().getSuccRank();
             }
-            if (this.iFH < 0.0f) {
-                this.iFH = 0.0f;
+            if (this.iUG < 0.0f) {
+                this.iUG = 0.0f;
             }
         }
     }
 
     private void a(int i, int i2, int i3, String str, int i4, int i5) {
-        if (getmCdnLogData() != null && getmCdnLogData().ismSwitch() && i != 0 && !this.iFE) {
+        if (getmCdnLogData() != null && getmCdnLogData().ismSwitch() && i != 0 && !this.iUD) {
             a(i, i2, i3, str, i4, i5 + "");
         }
     }
 
     private void a(int i, int i2, int i3, String str, int i4, String str2) {
-        if (this.iFM == null) {
-            this.iFM = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
+        if (this.iUL == null) {
+            this.iUL = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
         }
         CDNUpLoadTask cDNUpLoadTask = new CDNUpLoadTask(i, i2, i3, str, i4, str2);
-        cDNUpLoadTask.setParallel(this.iFM);
+        cDNUpLoadTask.setParallel(this.iUL);
         cDNUpLoadTask.execute(new Object[0]);
-        this.iFE = true;
-        a kW = s.kW();
-        kW.append("act", "fallback");
-        kW.append("type", "start");
-        BdStatisticsManager.getInstance().debug("img", kW);
+        this.iUD = true;
+        a kY = s.kY();
+        kY.append("act", "fallback");
+        kY.append("type", "start");
+        BdStatisticsManager.getInstance().debug("img", kY);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void reset() {
-        this.iFK = 0;
-        this.iFI = 0;
-        this.iFJ = 0;
-        this.iFL = 0;
-        this.iFH = 0.0f;
-        this.iFN.clear();
+        this.iUJ = 0;
+        this.iUH = 0;
+        this.iUI = 0;
+        this.iUK = 0;
+        this.iUG = 0.0f;
+        this.iUM.clear();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes6.dex */
     public class CDNUpLoadTask extends BdAsyncTask<Object, Integer, JSONObject> {
-        private final String aVb;
-        private final x blK = new x(TbConfig.SERVER_ADDRESS + TbConfig.CDN_LOG_ADDRESS);
-        private final int iFI;
-        private final int iFJ;
-        private final int iFK;
-        private final String iFR;
+        private final String bcp;
+        private final x bth = new x(TbConfig.SERVER_ADDRESS + TbConfig.CDN_LOG_ADDRESS);
+        private final int iUH;
+        private final int iUI;
+        private final int iUJ;
+        private final String iUP;
         private final int mType;
 
         public CDNUpLoadTask(int i, int i2, int i3, String str, int i4, String str2) {
-            this.iFJ = i3;
-            this.iFI = i4;
-            this.aVb = str;
-            this.iFR = str2;
+            this.iUI = i3;
+            this.iUH = i4;
+            this.bcp = str;
+            this.iUP = str2;
             this.mType = i;
-            this.iFK = i2;
+            this.iUJ = i2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: C */
+        /* renamed from: D */
         public JSONObject doInBackground(Object... objArr) {
             if (CDNProblemUploader.this.getmCdnLogData() == null || !CDNProblemUploader.this.getmCdnLogData().ismSwitch() || this.mType == 0) {
                 return null;
             }
-            this.blK.addPostData("number", String.valueOf(this.iFK));
+            this.bth.addPostData("number", String.valueOf(this.iUJ));
             if (this.mType == 1) {
-                this.blK.addPostData("ab_num_error", String.valueOf(this.iFJ));
-                this.blK.addPostData(BdStatsConstant.StatsType.ERROR, this.aVb);
-                this.blK.addPostData("ab_num_slow", String.valueOf(this.iFI));
-                this.blK.addPostData("time", this.iFR);
+                this.bth.addPostData("ab_num_error", String.valueOf(this.iUI));
+                this.bth.addPostData(BdStatsConstant.StatsType.ERROR, this.bcp);
+                this.bth.addPostData("ab_num_slow", String.valueOf(this.iUH));
+                this.bth.addPostData("time", this.iUP);
             } else if (this.mType == 3) {
-                this.blK.addPostData("ab_num_slow", this.iFI + "");
-                this.blK.addPostData("time", this.iFR);
+                this.bth.addPostData("ab_num_slow", this.iUH + "");
+                this.bth.addPostData("time", this.iUP);
             } else if (this.mType == 2) {
-                this.blK.addPostData("ab_num_error", this.iFJ + "");
-                this.blK.addPostData(BdStatsConstant.StatsType.ERROR, this.aVb);
+                this.bth.addPostData("ab_num_error", this.iUI + "");
+                this.bth.addPostData(BdStatsConstant.StatsType.ERROR, this.bcp);
             }
-            String postNetData = this.blK.postNetData();
-            if (!this.blK.isNetSuccess() || TextUtils.isEmpty(postNetData)) {
+            String postNetData = this.bth.postNetData();
+            if (!this.bth.isNetSuccess() || TextUtils.isEmpty(postNetData)) {
                 return null;
             }
             try {
@@ -281,48 +281,48 @@ public class CDNProblemUploader extends p {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: dd */
+        /* renamed from: dk */
         public void onPostExecute(JSONObject jSONObject) {
             super.onPostExecute(jSONObject);
             try {
                 if (jSONObject == null) {
-                    a kW = s.kW();
-                    kW.append("act", "fallback");
-                    kW.append("result", "1");
-                    kW.append("type", "end");
-                    BdStatisticsManager.getInstance().debug("img", kW);
+                    a kY = s.kY();
+                    kY.append("act", "fallback");
+                    kY.append("result", "1");
+                    kY.append("type", "end");
+                    BdStatisticsManager.getInstance().debug("img", kY);
                 } else if (CDNProblemUploader.a(CDNProblemUploader.this) >= 5) {
-                    CDNProblemUploader.this.dMN.setmSwitch(false);
-                    CDNProblemUploader.this.Ml = System.currentTimeMillis();
+                    CDNProblemUploader.this.ebe.setmSwitch(false);
+                    CDNProblemUploader.this.Mu = System.currentTimeMillis();
                 } else {
                     if (jSONObject.optJSONObject("ret").optInt("err_no", -1) != 0) {
-                        a kW2 = s.kW();
-                        kW2.append("act", "fallback");
-                        kW2.append("result", "2");
-                        kW2.append("type", "end");
-                        BdStatisticsManager.getInstance().debug("img", kW2);
+                        a kY2 = s.kY();
+                        kY2.append("act", "fallback");
+                        kY2.append("result", "2");
+                        kY2.append("type", "end");
+                        BdStatisticsManager.getInstance().debug("img", kY2);
                     } else {
-                        a kW3 = s.kW();
-                        kW3.append("act", "fallback");
-                        kW3.append("result", "0");
-                        kW3.append("type", "end");
-                        BdStatisticsManager.getInstance().debug("img", kW3);
+                        a kY3 = s.kY();
+                        kY3.append("act", "fallback");
+                        kY3.append("result", "0");
+                        kY3.append("type", "end");
+                        BdStatisticsManager.getInstance().debug("img", kY3);
                         CDNProblemUploader.this.reset();
-                        CDNProblemUploader.this.dMN.setmSwitch(false);
-                        CDNProblemUploader.this.Ml = System.currentTimeMillis();
+                        CDNProblemUploader.this.ebe.setmSwitch(false);
+                        CDNProblemUploader.this.Mu = System.currentTimeMillis();
                     }
                     String optString = jSONObject.optString("photo_strategy");
-                    n nVar = new n();
-                    nVar.parseJson(optString);
-                    if (nVar.ismSwitch() == CDNProblemUploader.this.getmCdnLogData().ismSwitch() && nVar.getErrNumber() == CDNProblemUploader.this.getmCdnLogData().getErrNumber() && nVar.getSlowNumber() == CDNProblemUploader.this.getmCdnLogData().getSlowNumber() && nVar.getTime() == CDNProblemUploader.this.getmCdnLogData().getTime()) {
+                    m mVar = new m();
+                    mVar.parseJson(optString);
+                    if (mVar.ismSwitch() == CDNProblemUploader.this.getmCdnLogData().ismSwitch() && mVar.getErrNumber() == CDNProblemUploader.this.getmCdnLogData().getErrNumber() && mVar.getSlowNumber() == CDNProblemUploader.this.getmCdnLogData().getSlowNumber() && mVar.getTime() == CDNProblemUploader.this.getmCdnLogData().getTime()) {
                         return;
                     }
-                    CDNProblemUploader.this.setmCdnLogData(nVar);
+                    CDNProblemUploader.this.setmCdnLogData(mVar);
                 }
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             } finally {
-                CDNProblemUploader.this.iFE = false;
+                CDNProblemUploader.this.iUD = false;
             }
         }
     }
@@ -330,25 +330,25 @@ public class CDNProblemUploader extends p {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes6.dex */
     public class CdnErrorJsonData {
-        StringBuffer iFS;
+        StringBuffer iUQ;
 
         private CdnErrorJsonData() {
-            this.iFS = new StringBuffer(100);
+            this.iUQ = new StringBuffer(100);
         }
 
         public void add(int i) {
-            if (this.iFS.length() != 0) {
-                this.iFS.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+            if (this.iUQ.length() != 0) {
+                this.iUQ.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
             }
-            this.iFS.append(i);
+            this.iUQ.append(i);
         }
 
         public void clear() {
-            this.iFS.setLength(0);
+            this.iUQ.setLength(0);
         }
 
         public String toString() {
-            return this.iFS.toString();
+            return this.iUQ.toString();
         }
     }
 }

@@ -1,6 +1,7 @@
 package com.baidu.tieba.ala.person.view;
 
-import android.graphics.drawable.GradientDrawable;
+import android.content.res.Resources;
+import android.os.Build;
 import android.os.Handler;
 import android.support.v4.view.ViewPager;
 import android.text.TextUtils;
@@ -9,7 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -21,8 +21,10 @@ import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.adp.lib.util.StringUtils;
 import com.baidu.live.data.AlaRelationData;
 import com.baidu.live.data.PersonUserData;
+import com.baidu.live.data.ad;
 import com.baidu.live.data.z;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
+import com.baidu.live.tbadk.core.util.ListUtils;
 import com.baidu.live.tbadk.core.util.StringHelper;
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.live.tbadk.core.util.ViewHelper;
@@ -37,68 +39,74 @@ import com.baidu.live.tbadk.statics.HKStaticKeys;
 import com.baidu.live.tbadk.statics.HKStaticManager;
 import com.baidu.live.tbadk.statics.QMStaticKeys;
 import com.baidu.live.tbadk.statics.QMStaticManager;
+import com.baidu.live.tbadk.util.ScreenHelper;
+import com.baidu.live.tbadk.util.TextHelper;
+import com.baidu.live.tbadk.widget.TbImageView;
 import com.baidu.live.u.a;
 import com.baidu.live.utils.k;
 import com.baidu.tieba.ala.person.PersonCardActivity;
 import com.baidu.tieba.ala.person.a;
 /* loaded from: classes3.dex */
 public class PersonCardViewNew implements ViewPager.OnPageChangeListener, View.OnClickListener {
-    private PersonUserData aRg;
-    private boolean aqR;
-    private boolean fVd;
-    protected final PersonCardActivity fXW;
-    private TextView fXX;
-    private TextView fXY;
-    private TextView fXZ;
-    private com.baidu.tieba.ala.person.view.a fYA;
-    private boolean fYB;
-    private com.baidu.tieba.ala.person.a fYC;
-    private a fYD;
-    private TextView fYa;
-    private TextView fYb;
-    private TextView fYc;
-    private TextView fYd;
-    private TextView fYe;
-    private TextView fYf;
-    private TextView fYg;
-    private TextView fYh;
-    private LinearLayout fYi;
-    private ImageView fYj;
-    private TextView fYk;
-    private TextView fYl;
-    private TextView fYm;
-    private TextView fYn;
-    private HeadImageView fYo;
-    private LinearLayout fYp;
-    private FrameLayout fYq;
-    private View fYr;
-    private View fYs;
-    private View fYt;
-    private View fYu;
-    private HeadImageView fYv;
-    private boolean fYw;
-    private String fYx;
-    private boolean fYy;
-    private a.InterfaceC0529a fYz;
-    private Animation foM;
+    private PersonUserData aYt;
+    private boolean avR;
+    private Animation fCC;
+    private View fpX;
+    private boolean gjX;
+    protected final PersonCardActivity gmO;
+    private TextView gmP;
+    private TextView gmQ;
+    private TextView gmR;
+    private TextView gmS;
+    private TextView gmT;
+    private TextView gmU;
+    private TextView gmV;
+    private TextView gmW;
+    private TextView gmX;
+    private TextView gmY;
+    private TextView gmZ;
+    private LinearLayout gna;
+    private ImageView gnb;
+    private TextView gnc;
+    private TextView gnd;
+    private TextView gne;
+    private TextView gnf;
+    private ViewGroup gng;
+    private HeadImageView gnh;
+    private TbImageView gni;
+    private LinearLayout gnj;
+    private View gnk;
+    private View gnl;
+    private View gnm;
+    private View gnn;
+    private HeadImageView gno;
+    private ViewGroup gnp;
+    private boolean gnq;
+    private String gnr;
+    private boolean gns;
+    private a.InterfaceC0579a gnt;
+    private com.baidu.tieba.ala.person.view.a gnu;
+    private boolean gnv;
+    private com.baidu.tieba.ala.person.a gnw;
+    private a gnx;
+    private Handler mHandler = new Handler();
     protected View mRootView;
     private String otherParams;
     private int screenWidth;
     private String uid;
-    private final int fXV = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_ds34);
-    private final int fEh = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_ds24);
-    private Handler mHandler = new Handler();
 
     /* loaded from: classes3.dex */
     public interface a {
-        void bBy();
+        void bHQ();
+
+        void bHR();
     }
 
     public PersonCardViewNew(final PersonCardActivity personCardActivity, boolean z) {
-        this.fXW = personCardActivity;
-        this.fYB = z;
+        this.gmO = personCardActivity;
+        this.gnv = z;
         this.screenWidth = (int) ((1.0f * personCardActivity.getPageContext().getResources().getDisplayMetrics().widthPixels) / personCardActivity.getPageContext().getResources().getDisplayMetrics().density);
-        this.mRootView = jJ(z);
+        this.mRootView = kc(z);
         this.mRootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.person.view.PersonCardViewNew.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -107,345 +115,520 @@ public class PersonCardViewNew implements ViewPager.OnPageChangeListener, View.O
         });
         initView();
         initListener();
-        this.fYA = new com.baidu.tieba.ala.person.view.a(personCardActivity, this.mRootView.findViewById(a.g.user_icon_layout), this.mRootView);
+        this.gnu = new com.baidu.tieba.ala.person.view.a(personCardActivity, this.mRootView.findViewById(a.g.user_icon_layout), this.mRootView);
     }
 
     public void a(a aVar) {
-        this.fYD = aVar;
+        this.gnx = aVar;
     }
 
     private void initView() {
-        this.fYr = this.mRootView.findViewById(a.g.person_card_layout);
-        this.fXX = (TextView) this.mRootView.findViewById(a.g.ala_user_manage);
-        this.fYi = (LinearLayout) this.mRootView.findViewById(a.g.report);
-        this.fYj = (ImageView) this.mRootView.findViewById(a.g.report_img_view);
-        this.fYk = (TextView) this.mRootView.findViewById(a.g.report_text_view);
-        this.fXY = (TextView) this.mRootView.findViewById(a.g.user_name);
-        this.fXZ = (TextView) this.mRootView.findViewById(a.g.fans_num);
-        this.fYa = (TextView) this.mRootView.findViewById(a.g.bean_num);
-        this.fYb = (TextView) this.mRootView.findViewById(a.g.fans_num_unit);
-        this.fYd = (TextView) this.mRootView.findViewById(a.g.bean_num_unit);
-        this.fYc = (TextView) this.mRootView.findViewById(a.g.attention_num_unit);
-        this.fYe = (TextView) this.mRootView.findViewById(a.g.user_location);
-        this.fYf = (TextView) this.mRootView.findViewById(a.g.attention_num);
-        this.fYg = (TextView) this.mRootView.findViewById(a.g.user_id);
-        this.fYn = (TextView) this.mRootView.findViewById(a.g.user_desc);
-        this.fYh = (TextView) this.mRootView.findViewById(a.g.btn_person_card_follow);
-        this.fYm = (TextView) this.mRootView.findViewById(a.g.user_receive_charm);
-        this.fYp = (LinearLayout) this.mRootView.findViewById(a.g.bottom_layout);
-        this.fYs = this.mRootView.findViewById(a.g.user_divide);
-        this.fYt = this.mRootView.findViewById(a.g.user_divide2);
-        this.fYq = (FrameLayout) this.mRootView.findViewById(a.g.portrait_layout);
-        this.fYl = (TextView) this.mRootView.findViewById(a.g.btn_person_card_ate);
+        this.gnk = this.mRootView.findViewById(a.g.person_card_layout);
+        this.gmP = (TextView) this.mRootView.findViewById(a.g.ala_user_manage);
+        this.gna = (LinearLayout) this.mRootView.findViewById(a.g.report);
+        this.gnb = (ImageView) this.mRootView.findViewById(a.g.report_img_view);
+        this.gnc = (TextView) this.mRootView.findViewById(a.g.report_text_view);
+        this.fpX = this.mRootView.findViewById(a.g.name_layout);
+        this.gmQ = (TextView) this.mRootView.findViewById(a.g.user_name);
+        this.gmR = (TextView) this.mRootView.findViewById(a.g.fans_num);
+        this.gmS = (TextView) this.mRootView.findViewById(a.g.bean_num);
+        this.gmT = (TextView) this.mRootView.findViewById(a.g.fans_num_unit);
+        this.gmV = (TextView) this.mRootView.findViewById(a.g.bean_num_unit);
+        this.gmU = (TextView) this.mRootView.findViewById(a.g.attention_num_unit);
+        this.gmW = (TextView) this.mRootView.findViewById(a.g.user_location);
+        this.gmX = (TextView) this.mRootView.findViewById(a.g.attention_num);
+        this.gmY = (TextView) this.mRootView.findViewById(a.g.user_id);
+        this.gnf = (TextView) this.mRootView.findViewById(a.g.user_desc);
+        this.gmZ = (TextView) this.mRootView.findViewById(a.g.btn_person_card_follow);
+        this.gne = (TextView) this.mRootView.findViewById(a.g.user_receive_charm);
+        this.gnj = (LinearLayout) this.mRootView.findViewById(a.g.bottom_layout);
+        this.gnl = this.mRootView.findViewById(a.g.user_divide);
+        this.gnm = this.mRootView.findViewById(a.g.user_divide2);
+        this.gnd = (TextView) this.mRootView.findViewById(a.g.btn_person_card_ate);
         if (TbadkCoreApplication.getInst().isMobileBaidu()) {
-            this.fYl.setBackgroundResource(a.f.ala_person_card_bottom_tab_text_bg_gray_bd);
+            this.gnd.setBackgroundResource(a.f.ala_person_card_bottom_tab_text_bg_gray_bd);
         } else {
-            this.fYl.setBackgroundResource(a.f.ala_person_card_bottom_tab_text_bg_gray);
+            this.gnd.setBackgroundResource(a.f.ala_person_card_bottom_tab_text_bg_gray);
         }
-        this.fYo = (HeadImageView) this.mRootView.findViewById(a.g.user_portrait);
+        this.gng = (ViewGroup) this.mRootView.findViewById(a.g.layout_avatar);
+        this.gnh = (HeadImageView) this.mRootView.findViewById(a.g.user_portrait);
         if (TbadkCoreApplication.getInst().isHaokan()) {
-            this.fYo.setDefaultResource(a.f.sdk_pic_mycenter_avatar_def_hk);
-            this.fYo.setDefaultErrorResource(a.f.sdk_pic_mycenter_avatar_def_hk);
+            this.gnh.setDefaultResource(a.f.sdk_pic_mycenter_avatar_def_hk);
+            this.gnh.setDefaultErrorResource(a.f.sdk_pic_mycenter_avatar_def_hk);
         } else {
-            this.fYo.setDefaultResource(a.f.sdk_pic_mycenter_avatar_def);
-            this.fYo.setDefaultErrorResource(a.f.sdk_pic_mycenter_avatar_def);
+            this.gnh.setDefaultResource(a.f.sdk_pic_mycenter_avatar_def);
+            this.gnh.setDefaultErrorResource(a.f.sdk_pic_mycenter_avatar_def);
         }
-        this.fYo.setIsRound(true);
-        this.fYo.setAutoChangeStyle(false);
-        this.fYo.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.fYo.setBorderWidth(BdUtilHelper.getDimens(this.fXW.getPageContext().getPageActivity(), a.e.sdk_ds4));
-        this.fYo.setBorderColor(872415231);
-        this.fYi.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.person.view.PersonCardViewNew.2
+        this.gnh.setIsRound(true);
+        this.gnh.setAutoChangeStyle(false);
+        this.gnh.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.gnh.setBorderWidth(BdUtilHelper.getDimens(this.gmO.getPageContext().getPageActivity(), a.e.sdk_ds4));
+        this.gnh.setBorderColor(-1);
+        this.gna.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.person.view.PersonCardViewNew.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                PersonCardViewNew.this.bBN();
+                PersonCardViewNew.this.bIg();
             }
         });
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.fXX.getLayoutParams();
-        layoutParams.addRule(1, this.fYi.getId());
-        this.fXX.setLayoutParams(layoutParams);
-        this.fYj.setVisibility(8);
-        this.fYk.setText(a.i.ala_person_report);
-        this.fYq.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.person.view.PersonCardViewNew.3
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.gmP.getLayoutParams();
+        layoutParams.addRule(1, this.gna.getId());
+        this.gmP.setLayoutParams(layoutParams);
+        this.gnb.setVisibility(8);
+        this.gnc.setText(a.i.ala_person_report);
+        this.gnh.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.person.view.PersonCardViewNew.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 ISchemeAbility buildSchemeAbility;
                 if (TbadkCoreApplication.getInst().isMobileBaidu()) {
-                    if (!TextUtils.isEmpty(PersonCardViewNew.this.fYx) && (buildSchemeAbility = SchemeAbilityManager.getInstance().buildSchemeAbility()) != null) {
-                        buildSchemeAbility.openScheme(PersonCardViewNew.this.fYx);
+                    if (!TextUtils.isEmpty(PersonCardViewNew.this.gnr) && (buildSchemeAbility = SchemeAbilityManager.getInstance().buildSchemeAbility()) != null) {
+                        buildSchemeAbility.openScheme(PersonCardViewNew.this.gnr);
                         return;
                     }
                     return;
                 }
                 IExtraJump buildJumpExtra = ExtraJumpManager.getInstance().buildJumpExtra();
                 if (buildJumpExtra != null) {
-                    buildJumpExtra.jumpToPersonalCenter(PersonCardViewNew.this.fXW.getPageContext().getPageActivity(), PersonCardViewNew.this.uid);
-                    PersonCardViewNew.this.fXW.finish();
+                    buildJumpExtra.jumpToPersonalCenter(PersonCardViewNew.this.gmO.getPageContext().getPageActivity(), PersonCardViewNew.this.uid);
+                    PersonCardViewNew.this.gmO.finish();
                 }
             }
         });
-        this.fYu = this.mRootView.findViewById(a.g.layout_charm_rank);
-        this.fYv = (HeadImageView) this.mRootView.findViewById(a.g.avatar_charm);
-        this.fYv.setIsRound(true);
-        this.fYv.setAutoChangeStyle(false);
-        this.fYv.setDrawBorder(false);
-        this.fYv.setDefaultBgResource(a.f.sdk_default_avatar);
-        GradientDrawable gradientDrawable = new GradientDrawable();
-        gradientDrawable.setShape(1);
-        gradientDrawable.setStroke(this.fXW.getResources().getDimensionPixelOffset(a.e.sdk_ds4), -1);
-        this.mRootView.findViewById(a.g.portrait_ring).setBackgroundDrawable(gradientDrawable);
+        this.gnn = this.mRootView.findViewById(a.g.layout_charm_rank);
+        this.gno = (HeadImageView) this.mRootView.findViewById(a.g.avatar_charm);
+        this.gno.setIsRound(true);
+        this.gno.setAutoChangeStyle(false);
+        this.gno.setDrawBorder(false);
+        this.gno.setDefaultBgResource(a.f.sdk_default_avatar);
+        if (!this.gnv) {
+            this.gnp = (ViewGroup) this.mRootView.findViewById(a.g.anchor_tag_layout);
+            this.gnp.setVisibility(8);
+        }
     }
 
     private void initListener() {
-        this.fXX.setOnClickListener(this);
-        this.fYl.setOnClickListener(this);
-        this.fYh.setOnClickListener(this);
-        a(new a.InterfaceC0529a() { // from class: com.baidu.tieba.ala.person.view.PersonCardViewNew.4
-            @Override // com.baidu.tieba.ala.person.a.InterfaceC0529a
-            public void bBB() {
-                PersonCardViewNew.this.fXW.bBw();
+        this.gmP.setOnClickListener(this);
+        this.gnd.setOnClickListener(this);
+        this.gmZ.setOnClickListener(this);
+        a(new a.InterfaceC0579a() { // from class: com.baidu.tieba.ala.person.view.PersonCardViewNew.4
+            @Override // com.baidu.tieba.ala.person.a.InterfaceC0579a
+            public void bHU() {
+                PersonCardViewNew.this.gmO.bHO();
             }
         });
     }
 
-    public void a(a.InterfaceC0529a interfaceC0529a) {
-        this.fYz = interfaceC0529a;
+    public void a(a.InterfaceC0579a interfaceC0579a) {
+        this.gnt = interfaceC0579a;
     }
 
     public void a(PersonUserData personUserData, boolean z) {
         if (personUserData != null) {
-            this.aRg = personUserData;
+            this.aYt = personUserData;
+            f(personUserData);
             e(personUserData);
-            d(personUserData);
             b(personUserData, z);
-            g(personUserData);
-            this.fYA.setData(personUserData.user_info);
-            if (this.fVd) {
-                this.fYp.setVisibility(8);
+            h(personUserData);
+            d(personUserData);
+            this.gnu.setData(personUserData.user_info);
+            if (this.gjX) {
+                this.gnj.setVisibility(8);
             }
         }
     }
 
     private void d(PersonUserData personUserData) {
+        if (!this.gnv) {
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            if (personUserData != null && personUserData.user_info != null) {
+                if (currentAccount == null || !currentAccount.equals(personUserData.user_info.user_id)) {
+                    if (!z.wh() || personUserData.mAnchorTagData == null || !personUserData.mAnchorTagData.vS()) {
+                        this.gnp.setVisibility(8);
+                        return;
+                    }
+                    this.gnp.setVisibility(0);
+                    this.gnp.removeAllViews();
+                    int dimensionPixelSize = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_ds40);
+                    int dimensionPixelSize2 = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_ds10);
+                    if (!ListUtils.isEmpty(personUserData.mAnchorTagData.vR())) {
+                        int min = Math.min(3, personUserData.mAnchorTagData.vR().size());
+                        for (int i = 0; i < min; i++) {
+                            String str = personUserData.mAnchorTagData.vR().get(i);
+                            if (!StringUtils.isNull(str)) {
+                                AlaPersonTagView alaPersonTagView = new AlaPersonTagView(this.gmO.getPageContext().getPageActivity());
+                                alaPersonTagView.setTagView(str, rH(i));
+                                this.gnp.addView(alaPersonTagView);
+                                a(alaPersonTagView, dimensionPixelSize2, dimensionPixelSize);
+                            }
+                        }
+                    }
+                    AlaPersonTagView alaPersonTagView2 = new AlaPersonTagView(this.gmO.getPageContext().getPageActivity());
+                    alaPersonTagView2.setAddTagView();
+                    alaPersonTagView2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.person.view.PersonCardViewNew.5
+                        @Override // android.view.View.OnClickListener
+                        public void onClick(View view) {
+                            if (PersonCardViewNew.this.gnx != null) {
+                                PersonCardViewNew.this.gnx.bHR();
+                            }
+                        }
+                    });
+                    this.gnp.addView(alaPersonTagView2);
+                    a(alaPersonTagView2, dimensionPixelSize2, dimensionPixelSize);
+                }
+            }
+        }
+    }
+
+    private void a(AlaPersonTagView alaPersonTagView, int i, int i2) {
+        ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) alaPersonTagView.getLayoutParams();
+        marginLayoutParams.leftMargin = i;
+        marginLayoutParams.rightMargin = i;
+        marginLayoutParams.height = i2;
+        alaPersonTagView.setLayoutParams(marginLayoutParams);
+    }
+
+    private int rH(int i) {
+        if (i == 0) {
+            return a.f.bg_tag_checked1;
+        }
+        if (i == 1) {
+            return a.f.bg_tag_checked2;
+        }
+        return a.f.bg_tag_checked3;
+    }
+
+    private void e(PersonUserData personUserData) {
         if (personUserData != null) {
             boolean z = (personUserData.location_info == null || TextUtils.isEmpty(personUserData.location_info.location)) ? false : true;
             boolean z2 = (personUserData.user_info == null || personUserData.user_info.ala_id == 0) ? false : true;
-            this.aqR = personUserData.user_info != null && this.fXW.Bk(personUserData.user_info.user_id);
+            this.avR = personUserData.user_info != null && this.gmO.CS(personUserData.user_info.user_id);
             this.uid = personUserData.user_info != null ? personUserData.user_info.user_id : "";
-            this.fYx = personUserData.user_info != null ? personUserData.user_info.atX : "";
+            this.gnr = personUserData.user_info != null ? personUserData.user_info.azb : "";
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            this.fYy = (currentAccount == null || "".equals(currentAccount) || !currentAccount.equals(personUserData.user_info.user_id)) ? false : true;
-            if (this.fYy) {
-                this.fYp.setVisibility(8);
+            this.gns = (currentAccount == null || "".equals(currentAccount) || !currentAccount.equals(personUserData.user_info.user_id)) ? false : true;
+            if (this.gns) {
+                this.gnj.setVisibility(8);
             } else {
-                this.fYp.setVisibility(0);
+                this.gnj.setVisibility(0);
             }
             if (!z) {
-                this.fYe.setText("火星");
+                this.gmW.setText("火星");
             } else {
-                this.fYe.setText(personUserData.location_info.location);
+                this.gmW.setText(personUserData.location_info.location);
             }
             if (personUserData.user_info == null || personUserData.user_info.charm_count == 0) {
-                this.fYm.setVisibility(8);
-                this.fYt.setVisibility(8);
+                this.gne.setVisibility(8);
+                this.gnm.setVisibility(8);
             } else {
-                this.fYm.setText(String.format(this.fXW.getString(a.i.ala_person_receive_charm), StringHelper.formatForPersonCardCharmValue(personUserData.user_info.charm_count)));
-                this.fYt.setVisibility(0);
-                this.fYm.setVisibility(0);
+                this.gne.setText(String.format(this.gmO.getString(a.i.ala_person_receive_charm), StringHelper.formatForPersonCardCharmValue(personUserData.user_info.charm_count)));
+                this.gnm.setVisibility(0);
+                this.gne.setVisibility(0);
             }
             if (z2) {
-                this.fYg.setText(String.format(this.fXW.getString(a.i.ala_person_id), String.valueOf(personUserData.user_info.ala_id)));
-                this.fYg.setVisibility(0);
-                this.fYs.setVisibility(0);
+                this.gmY.setText(String.format(this.gmO.getString(a.i.ala_person_id), String.valueOf(personUserData.user_info.ala_id)));
+                this.gmY.setVisibility(0);
+                this.gnl.setVisibility(0);
                 return;
             }
-            this.fYg.setVisibility(8);
-            this.fYs.setVisibility(8);
+            this.gmY.setVisibility(8);
+            this.gnl.setVisibility(8);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bBN() {
+    public void bIg() {
         if (!TbadkCoreApplication.isLogin()) {
-            ViewHelper.skipToLoginActivity(this.fXW.getActivity());
-            this.fXW.finish();
+            ViewHelper.skipToLoginActivity(this.gmO.getActivity());
+            this.gmO.finish();
             return;
         }
-        if (this.fYC != null && this.fYC.isShowing()) {
-            this.fYC.dismiss();
+        if (this.gnw != null && this.gnw.isShowing()) {
+            this.gnw.dismiss();
         }
-        com.baidu.tieba.ala.person.a aVar = new com.baidu.tieba.ala.person.a(this.fXW.getActivity(), true);
-        aVar.a(new a.InterfaceC0529a() { // from class: com.baidu.tieba.ala.person.view.PersonCardViewNew.5
-            @Override // com.baidu.tieba.ala.person.a.InterfaceC0529a
-            public void bBB() {
-                if (PersonCardViewNew.this.fYz != null) {
-                    PersonCardViewNew.this.fYz.bBB();
+        com.baidu.tieba.ala.person.a aVar = new com.baidu.tieba.ala.person.a(this.gmO.getActivity(), true);
+        aVar.a(new a.InterfaceC0579a() { // from class: com.baidu.tieba.ala.person.view.PersonCardViewNew.6
+            @Override // com.baidu.tieba.ala.person.a.InterfaceC0579a
+            public void bHU() {
+                if (PersonCardViewNew.this.gnt != null) {
+                    PersonCardViewNew.this.gnt.bHU();
                 }
             }
         });
         aVar.show();
-        this.fYC = aVar;
+        this.gnw = aVar;
     }
 
-    private void e(PersonUserData personUserData) {
+    private void f(PersonUserData personUserData) {
         int i = 26;
-        z zVar = personUserData.user_info;
-        if (zVar != null) {
-            f(personUserData);
-            String[] formatForPersonCardBeanValue = StringHelper.formatForPersonCardBeanValue(zVar.fans_count < 0 ? 0L : zVar.fans_count);
-            this.fXZ.setText(formatForPersonCardBeanValue[0]);
+        ad adVar = personUserData.user_info;
+        if (adVar != null) {
+            g(personUserData);
+            String[] formatForPersonCardBeanValue = StringHelper.formatForPersonCardBeanValue(adVar.fans_count < 0 ? 0L : adVar.fans_count);
+            this.gmR.setText(formatForPersonCardBeanValue[0]);
             if (!TextUtils.isEmpty(formatForPersonCardBeanValue[1])) {
-                this.fYb.setText(formatForPersonCardBeanValue[1]);
+                this.gmT.setText(formatForPersonCardBeanValue[1]);
             }
-            String[] formatForPersonCardBeanValue2 = StringHelper.formatForPersonCardBeanValue(zVar.follow_count < 0 ? 0L : zVar.follow_count);
-            this.fYf.setText(formatForPersonCardBeanValue2[0]);
+            String[] formatForPersonCardBeanValue2 = StringHelper.formatForPersonCardBeanValue(adVar.follow_count < 0 ? 0L : adVar.follow_count);
+            this.gmX.setText(formatForPersonCardBeanValue2[0]);
             if (!TextUtils.isEmpty(formatForPersonCardBeanValue2[1])) {
-                this.fYc.setText(formatForPersonCardBeanValue2[1]);
+                this.gmU.setText(formatForPersonCardBeanValue2[1]);
             }
             String[] formatForPersonCardBeanValue3 = StringHelper.formatForPersonCardBeanValue(personUserData.user_info.send_count);
-            this.fYa.setText(formatForPersonCardBeanValue3[0]);
+            this.gmS.setText(formatForPersonCardBeanValue3[0]);
             if (!TextUtils.isEmpty(formatForPersonCardBeanValue3[1])) {
-                this.fYd.setText(formatForPersonCardBeanValue3[1]);
+                this.gmV.setText(formatForPersonCardBeanValue3[1]);
             } else {
-                this.fYd.setText("");
+                this.gmV.setText("");
             }
-            int i2 = this.fYB ? 26 : 30;
+            int i2 = this.gnv ? 26 : 30;
             if (this.screenWidth >= 360) {
                 i = i2;
-            } else if (this.fYB) {
+            } else if (this.gnv) {
                 i = 22;
             }
-            this.fXZ.setTextSize(1, i);
-            this.fYf.setTextSize(1, i);
-            this.fYa.setTextSize(1, i);
+            this.gmR.setTextSize(1, i);
+            this.gmX.setTextSize(1, i);
+            this.gmS.setTextSize(1, i);
             if (personUserData.user_info == null || JavaTypesHelper.toLong(personUserData.user_info.user_id, 0L) == 0 || (TbadkCoreApplication.getCurrentAccount() != null && TbadkCoreApplication.getCurrentAccount().equals(personUserData.user_info.user_id))) {
-                this.fXX.setVisibility(8);
-                this.fYi.setVisibility(8);
-            } else if (this.fXW.Bk(TbadkCoreApplication.getCurrentAccount())) {
-                this.fYi.setVisibility(8);
-                this.fXX.setPadding(this.fXV, this.fEh, 0, 0);
-                this.fXX.setVisibility(0);
+                this.gmP.setVisibility(8);
+                this.gna.setVisibility(8);
+            } else if (this.gmO.CS(TbadkCoreApplication.getCurrentAccount())) {
+                this.gna.setVisibility(8);
+                this.gmP.setPadding(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_ds16), TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_ds32), 0, 0);
+                this.gmP.setVisibility(0);
             } else if (personUserData.login_user_info != null && personUserData.login_user_info.is_live_admin == 1 && personUserData.user_info != null && personUserData.user_info.is_live_admin == 0) {
-                this.fXX.setVisibility(0);
-                this.fYi.setVisibility(0);
+                this.gmP.setVisibility(0);
+                this.gna.setVisibility(0);
             } else {
-                this.fYi.setVisibility(0);
-                this.fXX.setVisibility(8);
+                this.gna.setVisibility(0);
+                this.gmP.setVisibility(8);
             }
         }
     }
 
-    private void f(PersonUserData personUserData) {
-        z zVar = personUserData.user_info;
-        this.fXY.setText(zVar.getNameShow());
-        k.a(this.fYo, personUserData.user_info.portrait, true, !StringUtils.isNull(personUserData.user_info.third_app_id));
-        if (StringUtils.isNull(zVar.description)) {
-            this.fYn.setText(a.i.ala_person_desc_default_text);
+    private void g(PersonUserData personUserData) {
+        ad adVar = personUserData.user_info;
+        if (adVar != null && !StringUtils.isNull(adVar.getNameShow())) {
+            String nameShow = adVar.getNameShow();
+            if (TextHelper.getTextLengthWithEmoji(nameShow) > 20) {
+                nameShow = TextHelper.subStringWithEmoji(nameShow, 20) + StringHelper.STRING_MORE;
+            }
+            this.gmQ.setText(nameShow);
+        }
+        k.a(this.gnh, personUserData.user_info.portrait, true, !StringUtils.isNull(personUserData.user_info.third_app_id));
+        if (StringUtils.isNull(adVar.description)) {
+            this.gnf.setText(a.i.ala_person_desc_default_text);
         } else {
-            this.fYn.setText(zVar.description);
+            this.gnf.setText(adVar.description);
+        }
+        CV(adVar.ayX);
+    }
+
+    private void CV(final String str) {
+        if (getRootView().getVisibility() == 0 && !TextUtils.isEmpty(str)) {
+            if (this.gni == null) {
+                this.gni = new TbImageView(this.gng.getContext());
+            }
+            this.gni.setEvent(new TbImageView.ImageViewEvent() { // from class: com.baidu.tieba.ala.person.view.PersonCardViewNew.7
+                /* JADX WARN: Removed duplicated region for block: B:24:0x0060  */
+                /* JADX WARN: Removed duplicated region for block: B:27:0x0081  */
+                /* JADX WARN: Removed duplicated region for block: B:36:0x00bd  */
+                /* JADX WARN: Removed duplicated region for block: B:42:0x00f4  */
+                /* JADX WARN: Removed duplicated region for block: B:45:0x0122  */
+                /* JADX WARN: Removed duplicated region for block: B:58:0x01bf  */
+                @Override // com.baidu.live.tbadk.widget.TbImageView.ImageViewEvent
+                /*
+                    Code decompiled incorrectly, please refer to instructions dump.
+                */
+                public void onComplete(String str2, boolean z) {
+                    Resources resources;
+                    float f;
+                    int realScreenWidth;
+                    ViewGroup.LayoutParams layoutParams;
+                    if (z && str.equals(str2) && PersonCardViewNew.this.gng != null && PersonCardViewNew.this.gni != null && PersonCardViewNew.this.gni.getLoadedWidth() > 0 && PersonCardViewNew.this.gni.getLoadedHeight() > 0 && (resources = TbadkCoreApplication.getInst().getResources()) != null) {
+                        if (resources.getDisplayMetrics() != null) {
+                            float f2 = resources.getDisplayMetrics().density;
+                            if (f2 > 0.0f) {
+                                f = 3.0f / f2;
+                                if (!PersonCardViewNew.this.gnv) {
+                                    realScreenWidth = resources.getDimensionPixelOffset(a.e.sdk_ds800);
+                                } else {
+                                    realScreenWidth = ScreenHelper.getRealScreenWidth(TbadkCoreApplication.getInst());
+                                }
+                                float loadedWidth = (realScreenWidth * 1.0f) / PersonCardViewNew.this.gni.getLoadedWidth();
+                                layoutParams = PersonCardViewNew.this.gng.getLayoutParams();
+                                if (layoutParams != null) {
+                                    layoutParams.width = -1;
+                                    layoutParams.height = (int) (PersonCardViewNew.this.gni.getLoadedHeight() * loadedWidth);
+                                    if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
+                                        ((ViewGroup.MarginLayoutParams) layoutParams).bottomMargin = (int) ((f > 0.0f ? f : 1.0f) * (-resources.getDimensionPixelOffset(a.e.sdk_ds214)) * loadedWidth);
+                                    }
+                                    PersonCardViewNew.this.gng.setLayoutParams(layoutParams);
+                                }
+                                if (PersonCardViewNew.this.gnh != null) {
+                                    RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) PersonCardViewNew.this.gnh.getLayoutParams();
+                                    if (Build.VERSION.SDK_INT >= 17) {
+                                        layoutParams2.removeRule(14);
+                                    } else {
+                                        layoutParams2.addRule(14, 0);
+                                    }
+                                    layoutParams2.addRule(13);
+                                    PersonCardViewNew.this.gnh.setLayoutParams(layoutParams2);
+                                }
+                                if (PersonCardViewNew.this.gng.indexOfChild(PersonCardViewNew.this.gni) < 0) {
+                                    PersonCardViewNew.this.gng.addView(PersonCardViewNew.this.gni, PersonCardViewNew.this.gng.indexOfChild(PersonCardViewNew.this.gnh) + 1, new ViewGroup.LayoutParams(-1, -1));
+                                }
+                                if (PersonCardViewNew.this.fpX != null) {
+                                    ViewGroup.LayoutParams layoutParams3 = PersonCardViewNew.this.fpX.getLayoutParams();
+                                    if (layoutParams3 instanceof ViewGroup.MarginLayoutParams) {
+                                        ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) PersonCardViewNew.this.fpX.getLayoutParams();
+                                        float dimensionPixelOffset = resources.getDimensionPixelOffset(a.e.sdk_ds192) * loadedWidth;
+                                        if (f <= 0.0f) {
+                                            f = 1.0f;
+                                        }
+                                        marginLayoutParams.topMargin = (int) (f * dimensionPixelOffset);
+                                        PersonCardViewNew.this.fpX.setLayoutParams(layoutParams3);
+                                    }
+                                }
+                                if (PersonCardViewNew.this.gna.getVisibility() != 0 && PersonCardViewNew.this.gmP.getVisibility() == 0) {
+                                    PersonCardViewNew.this.gmP.setPadding(PersonCardViewNew.this.gmP.getPaddingLeft(), PersonCardViewNew.this.gmP.getPaddingTop(), resources.getDimensionPixelOffset(a.e.sdk_ds16), PersonCardViewNew.this.gmP.getPaddingBottom());
+                                    RelativeLayout.LayoutParams layoutParams4 = (RelativeLayout.LayoutParams) PersonCardViewNew.this.gmP.getLayoutParams();
+                                    if (Build.VERSION.SDK_INT >= 17) {
+                                        layoutParams4.removeRule(1);
+                                    } else {
+                                        layoutParams4.addRule(1, 0);
+                                    }
+                                    layoutParams4.addRule(11);
+                                    PersonCardViewNew.this.gmP.setLayoutParams(layoutParams4);
+                                    return;
+                                }
+                            }
+                        }
+                        f = 0.0f;
+                        if (!PersonCardViewNew.this.gnv) {
+                        }
+                        float loadedWidth2 = (realScreenWidth * 1.0f) / PersonCardViewNew.this.gni.getLoadedWidth();
+                        layoutParams = PersonCardViewNew.this.gng.getLayoutParams();
+                        if (layoutParams != null) {
+                        }
+                        if (PersonCardViewNew.this.gnh != null) {
+                        }
+                        if (PersonCardViewNew.this.gng.indexOfChild(PersonCardViewNew.this.gni) < 0) {
+                        }
+                        if (PersonCardViewNew.this.fpX != null) {
+                        }
+                        if (PersonCardViewNew.this.gna.getVisibility() != 0) {
+                        }
+                    }
+                }
+
+                @Override // com.baidu.live.tbadk.widget.TbImageView.ImageViewEvent
+                public void onCancel() {
+                }
+            });
+            this.gni.startLoad(str, 10, false, false);
         }
     }
 
     private void b(PersonUserData personUserData, boolean z) {
         AlaRelationData alaRelationData;
         if (!TbadkCoreApplication.isLogin()) {
-            this.fYw = false;
-            la(false);
-        } else if (!this.fYy && (alaRelationData = personUserData.relation_info) != null) {
-            this.fYw = alaRelationData.follow_status != 0;
+            this.gnq = false;
+            lx(false);
+        } else if (!this.gns && (alaRelationData = personUserData.relation_info) != null) {
+            this.gnq = alaRelationData.follow_status != 0;
             if (z) {
-                this.fYh.setVisibility(8);
+                this.gmZ.setVisibility(8);
             } else {
-                la(this.fYw);
+                lx(this.gnq);
             }
         }
     }
 
-    private void g(PersonUserData personUserData) {
+    private void h(PersonUserData personUserData) {
         if (personUserData != null && personUserData.topContributionUserInfo != null && !TextUtils.isEmpty(personUserData.topContributionUserInfo.portrait)) {
-            this.fYu.setVisibility(0);
-            this.fYu.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.person.view.PersonCardViewNew.6
+            this.gnn.setVisibility(0);
+            this.gnn.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.person.view.PersonCardViewNew.8
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (PersonCardViewNew.this.fYD != null) {
-                        PersonCardViewNew.this.fYD.bBy();
+                    if (PersonCardViewNew.this.gnx != null) {
+                        PersonCardViewNew.this.gnx.bHQ();
                     }
                 }
             });
-            this.fYv.startLoad(personUserData.topContributionUserInfo.portrait, 12, false, false);
+            this.gno.startLoad(personUserData.topContributionUserInfo.portrait, 12, false, false);
             return;
         }
-        this.fYu.setVisibility(4);
+        this.gnn.setVisibility(4);
     }
 
-    private void la(boolean z) {
+    private void lx(boolean z) {
         if (z) {
-            this.fYh.setText("已关注");
+            this.gmZ.setText("已关注");
             if (TbadkCoreApplication.getInst().isMobileBaidu()) {
-                this.fYh.setBackgroundResource(a.f.ala_person_card_followed_bg_bd);
-                this.fYh.setTextColor(this.fXW.getPageContext().getResources().getColor(a.d.sdk_white_alpha60));
+                this.gmZ.setBackgroundResource(a.f.ala_person_card_followed_bg_bd);
+                this.gmZ.setTextColor(this.gmO.getPageContext().getResources().getColor(a.d.sdk_white_alpha60));
             } else {
-                this.fYh.setBackgroundResource(a.f.ala_person_card_bottom_tab_text_bg_gray);
-                this.fYh.setTextColor(this.fXW.getPageContext().getResources().getColor(a.d.sdk_white_alpha20));
+                this.gmZ.setBackgroundResource(a.f.ala_person_card_bottom_tab_text_bg_gray);
+                this.gmZ.setTextColor(this.gmO.getPageContext().getResources().getColor(a.d.sdk_white_alpha20));
             }
         } else {
-            this.fYh.setText("关注");
+            this.gmZ.setText("关注");
             if (TbadkCoreApplication.getInst().isMobileBaidu()) {
-                this.fYh.setBackgroundResource(a.f.ala_person_card_bottom_tab_text_bg_bd_selector);
+                this.gmZ.setBackgroundResource(a.f.ala_person_card_bottom_tab_text_bg_bd_selector);
             } else {
-                this.fYh.setBackgroundResource(a.f.ala_person_card_bottom_tab_text_bg_red);
+                this.gmZ.setBackgroundResource(a.f.ala_person_card_bottom_tab_text_bg_red);
             }
-            this.fYh.setTextColor(this.fXW.getPageContext().getResources().getColor(a.d.sdk_white_alpha100));
+            this.gmZ.setTextColor(this.gmO.getPageContext().getResources().getColor(a.d.sdk_white_alpha100));
         }
-        this.fYh.setVisibility(0);
+        this.gmZ.setVisibility(0);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.fYh) {
-            bBO();
-        } else if (view == this.fYl) {
-            bBJ();
-        } else if (view == this.fXX) {
+        if (view == this.gmZ) {
+            bIh();
+        } else if (view == this.gnd) {
+            bIc();
+        } else if (view == this.gmP) {
             TiebaInitialize.log("c12266");
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913025, new Object[]{this.fXW, this.aRg}));
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913025, new Object[]{this.gmO, this.aYt}));
         }
     }
 
-    private void bBJ() {
-        if (this.aRg != null) {
+    private void bIc() {
+        if (this.aYt != null) {
             if (!TbadkCoreApplication.isLogin()) {
-                ViewHelper.skipToLoginActivity(this.fXW.getActivity());
-            } else if (this.aRg.user_info == null || JavaTypesHelper.toLong(this.aRg.user_info.user_id, 0L) == 0) {
-                BdUtilHelper.showToast(this.fXW.getActivity(), a.i.ala_cannot_reply_tourist);
-            } else if (this.aRg.user_info.user_id.equals(TbadkCoreApplication.getCurrentAccount())) {
-                BdUtilHelper.showToast(this.fXW.getActivity(), a.i.ala_cannot_reply_self);
+                ViewHelper.skipToLoginActivity(this.gmO.getActivity());
+            } else if (this.aYt.user_info == null || JavaTypesHelper.toLong(this.aYt.user_info.user_id, 0L) == 0) {
+                BdUtilHelper.showToast(this.gmO.getActivity(), a.i.ala_cannot_reply_tourist);
+            } else if (this.aYt.user_info.user_id.equals(TbadkCoreApplication.getCurrentAccount())) {
+                BdUtilHelper.showToast(this.gmO.getActivity(), a.i.ala_cannot_reply_self);
             } else {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913054));
                 com.baidu.live.liveroom.d.c cVar = new com.baidu.live.liveroom.d.c();
-                cVar.aPU = (short) 1;
+                cVar.aWd = (short) 1;
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913047, cVar));
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913012, this.aRg.user_info));
-                this.fXW.finish();
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913012, this.aYt.user_info));
+                this.gmO.finish();
             }
         }
     }
 
-    private void bBO() {
+    private void bIh() {
         String str;
-        if (this.aRg != null) {
+        if (this.aYt != null) {
             if (!TbadkCoreApplication.isLogin()) {
-                ViewHelper.skipToLoginActivity(this.fXW.getActivity());
-                this.fXW.finish();
-            } else if (this.aRg.user_info == null || JavaTypesHelper.toLong(this.aRg.user_info.user_id, 0L) == 0) {
-                BdUtilHelper.showToast(this.fXW.getActivity(), a.i.ala_cannot_follow_tourist);
+                ViewHelper.skipToLoginActivity(this.gmO.getActivity());
+                this.gmO.finish();
+            } else if (this.aYt.user_info == null || JavaTypesHelper.toLong(this.aYt.user_info.user_id, 0L) == 0) {
+                BdUtilHelper.showToast(this.gmO.getActivity(), a.i.ala_cannot_follow_tourist);
             } else {
-                if (this.fYw) {
-                    rf(1);
-                    this.fXW.bBv();
+                if (this.gnq) {
+                    rI(1);
+                    this.gmO.bHN();
                 } else {
-                    rf(0);
-                    this.fXW.bBu();
+                    rI(0);
+                    this.gmO.bHM();
                     if (TbadkCoreApplication.getInst().isHaokan()) {
                         AlaStaticItem alaStaticItem = new AlaStaticItem(HKStaticKeys.HK_STATIC_FOLLOW_CLICK);
                         alaStaticItem.addParams("live_id", HKStaticManager.LIVE_ID);
@@ -456,11 +639,11 @@ public class PersonCardViewNew implements ViewPager.OnPageChangeListener, View.O
                     }
                 }
                 if (TbadkCoreApplication.getInst().isQuanmin()) {
-                    AlaStaticItem alaStaticItem2 = new AlaStaticItem(!this.fYw ? QMStaticKeys.QM_STATIC_FOLLOW_CANCEL_CLICK : QMStaticKeys.QM_STATIC_FOLLOW_CLICK);
+                    AlaStaticItem alaStaticItem2 = new AlaStaticItem(!this.gnq ? QMStaticKeys.QM_STATIC_FOLLOW_CANCEL_CLICK : QMStaticKeys.QM_STATIC_FOLLOW_CLICK);
                     alaStaticItem2.addParams("live_id", QMStaticManager.LIVE_ID);
                     alaStaticItem2.addParams("room_id", QMStaticManager.ROOM_ID);
                     alaStaticItem2.addParams("feed_id", QMStaticManager.FEED_ID);
-                    if (this.aqR) {
+                    if (this.avR) {
                         str = "author_profile";
                     } else {
                         str = "guest_profile";
@@ -473,31 +656,31 @@ public class PersonCardViewNew implements ViewPager.OnPageChangeListener, View.O
         }
     }
 
-    public void rf(int i) {
+    public void rI(int i) {
         switch (i) {
             case 0:
-                this.fYw = true;
-                la(true);
-                if (this.aRg != null && this.aRg.user_info != null) {
-                    this.aRg.user_info.fans_count++;
-                    String[] formatForPersonCardBeanValue = StringHelper.formatForPersonCardBeanValue(this.aRg.user_info.fans_count >= 0 ? this.aRg.user_info.fans_count : 0L);
-                    this.fXZ.setText(formatForPersonCardBeanValue[0]);
+                this.gnq = true;
+                lx(true);
+                if (this.aYt != null && this.aYt.user_info != null) {
+                    this.aYt.user_info.fans_count++;
+                    String[] formatForPersonCardBeanValue = StringHelper.formatForPersonCardBeanValue(this.aYt.user_info.fans_count >= 0 ? this.aYt.user_info.fans_count : 0L);
+                    this.gmR.setText(formatForPersonCardBeanValue[0]);
                     if (!TextUtils.isEmpty(formatForPersonCardBeanValue[1])) {
-                        this.fYb.setText(formatForPersonCardBeanValue[1]);
+                        this.gmT.setText(formatForPersonCardBeanValue[1]);
                         return;
                     }
                     return;
                 }
                 return;
             case 1:
-                this.fYw = false;
-                la(false);
-                if (this.aRg != null && this.aRg.user_info != null) {
-                    this.aRg.user_info.fans_count--;
-                    String[] formatForPersonCardBeanValue2 = StringHelper.formatForPersonCardBeanValue(this.aRg.user_info.fans_count >= 0 ? this.aRg.user_info.fans_count : 0L);
-                    this.fXZ.setText(formatForPersonCardBeanValue2[0]);
+                this.gnq = false;
+                lx(false);
+                if (this.aYt != null && this.aYt.user_info != null) {
+                    this.aYt.user_info.fans_count--;
+                    String[] formatForPersonCardBeanValue2 = StringHelper.formatForPersonCardBeanValue(this.aYt.user_info.fans_count >= 0 ? this.aYt.user_info.fans_count : 0L);
+                    this.gmR.setText(formatForPersonCardBeanValue2[0]);
                     if (!TextUtils.isEmpty(formatForPersonCardBeanValue2[1])) {
-                        this.fYb.setText(formatForPersonCardBeanValue2[1]);
+                        this.gmT.setText(formatForPersonCardBeanValue2[1]);
                         return;
                     }
                     return;
@@ -520,33 +703,33 @@ public class PersonCardViewNew implements ViewPager.OnPageChangeListener, View.O
     public void onPageScrollStateChanged(int i) {
     }
 
-    public void lb(boolean z) {
-        if (this.aRg != null && this.aRg.user_info != null) {
+    public void ly(boolean z) {
+        if (this.aYt != null && this.aYt.user_info != null) {
             if (z) {
-                this.aRg.user_info.follow_count++;
+                this.aYt.user_info.follow_count++;
             } else {
-                this.aRg.user_info.follow_count--;
+                this.aYt.user_info.follow_count--;
             }
-            if (this.aRg.user_info.follow_count < 0) {
-                this.aRg.user_info.follow_count = 0L;
+            if (this.aYt.user_info.follow_count < 0) {
+                this.aYt.user_info.follow_count = 0L;
             }
-            this.fYh.setText(com.baidu.tieba.ala.person.d.a.dL(this.aRg.user_info.follow_count));
+            this.gmZ.setText(com.baidu.tieba.ala.person.d.a.dM(this.aYt.user_info.follow_count));
         }
     }
 
-    private View jJ(boolean z) {
+    private View kc(boolean z) {
         if (z) {
-            return LayoutInflater.from(this.fXW.getPageContext().getPageActivity()).inflate(a.h.ala_activity_person_card_new_land, (ViewGroup) null);
+            return LayoutInflater.from(this.gmO.getPageContext().getPageActivity()).inflate(a.h.ala_activity_person_card_new_land, (ViewGroup) null);
         }
-        return LayoutInflater.from(this.fXW.getPageContext().getPageActivity()).inflate(a.h.ala_activity_person_card_new, (ViewGroup) null);
+        return LayoutInflater.from(this.gmO.getPageContext().getPageActivity()).inflate(a.h.ala_activity_person_card_new, (ViewGroup) null);
     }
 
     public void setOtherParams(String str) {
         this.otherParams = str;
     }
 
-    public void lc(boolean z) {
-        this.fVd = z;
+    public void lz(boolean z) {
+        this.gjX = z;
     }
 
     public View getRootView() {
@@ -555,45 +738,48 @@ public class PersonCardViewNew implements ViewPager.OnPageChangeListener, View.O
 
     public void onResume() {
         if (this.mHandler != null) {
-            this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.tieba.ala.person.view.PersonCardViewNew.7
+            this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.tieba.ala.person.view.PersonCardViewNew.9
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (PersonCardViewNew.this.foM == null) {
-                        PersonCardViewNew.this.foM = AnimationUtils.loadAnimation(PersonCardViewNew.this.fXW.getActivity(), a.C0149a.sdk_push_up_in);
+                    if (PersonCardViewNew.this.fCC == null) {
+                        PersonCardViewNew.this.fCC = AnimationUtils.loadAnimation(PersonCardViewNew.this.gmO.getActivity(), a.C0182a.sdk_push_up_in);
                     }
-                    PersonCardViewNew.this.fYr.setAnimation(PersonCardViewNew.this.foM);
-                    PersonCardViewNew.this.fYr.setVisibility(0);
-                    PersonCardViewNew.this.foM.setDuration(300L);
-                    PersonCardViewNew.this.foM.start();
+                    PersonCardViewNew.this.gnk.setAnimation(PersonCardViewNew.this.fCC);
+                    PersonCardViewNew.this.gnk.setVisibility(0);
+                    PersonCardViewNew.this.fCC.setDuration(300L);
+                    PersonCardViewNew.this.fCC.start();
                 }
             }, 50L);
         }
     }
 
     public void onDestroy() {
-        if (this.fYr != null) {
-            this.fYr.clearAnimation();
+        if (this.gnk != null) {
+            this.gnk.clearAnimation();
         }
-        if (this.fYC != null && this.fYC.isShowing()) {
-            this.fYC.dismiss();
+        if (this.gnw != null && this.gnw.isShowing()) {
+            this.gnw.dismiss();
         }
     }
 
-    public Animation bpI() {
+    public Animation bvz() {
         this.mHandler.removeCallbacksAndMessages(null);
         this.mHandler = null;
-        if (this.foM != null) {
-            this.foM.cancel();
+        if (this.fCC != null) {
+            this.fCC.cancel();
         }
-        Animation loadAnimation = AnimationUtils.loadAnimation(this.fXW.getActivity(), a.C0149a.sdk_push_up_out);
-        this.fYr.setAnimation(loadAnimation);
-        this.fYr.setVisibility(8);
+        Animation loadAnimation = AnimationUtils.loadAnimation(this.gmO.getActivity(), a.C0182a.sdk_push_up_out);
+        this.gnk.setAnimation(loadAnimation);
+        this.gnk.setVisibility(8);
         return loadAnimation;
     }
 
-    public void aHo() {
-        if (this.fYC != null && this.fYC.isShowing()) {
-            this.fYC.resize();
+    public void aNc() {
+        if (this.gnw != null && this.gnw.isShowing()) {
+            this.gnw.resize();
+        }
+        if (this.aYt != null && this.aYt.user_info != null) {
+            CV(this.aYt.user_info.ayX);
         }
     }
 }

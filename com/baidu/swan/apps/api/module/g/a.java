@@ -1,73 +1,78 @@
 package com.baidu.swan.apps.api.module.g;
 
 import android.support.annotation.NonNull;
-import android.text.TextUtils;
 import android.util.Log;
 import android.util.Pair;
-import com.baidu.android.util.devices.NetWorkUtils;
-import com.baidu.swan.apps.network.SwanAppNetworkUtils;
-import com.baidu.swan.apps.runtime.d;
-import com.baidu.swan.apps.runtime.e;
-import org.json.JSONException;
+import com.baidu.swan.apps.aq.aj;
+import com.baidu.swan.apps.core.d.e;
+import com.baidu.swan.apps.performance.UbcFlowEvent;
+import com.baidu.swan.apps.performance.g;
+import com.baidu.swan.apps.performance.h;
+import com.baidu.swan.apps.w.f;
+import java.util.UUID;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
-public class a extends com.baidu.swan.apps.api.a.c {
+public class a extends com.baidu.swan.apps.api.a.d {
     public a(@NonNull com.baidu.swan.apps.api.a.b bVar) {
         super(bVar);
     }
 
-    public com.baidu.swan.apps.api.b.b RH() {
-        String networkClass = SwanAppNetworkUtils.getNetworkClass();
-        if (TextUtils.isEmpty(networkClass)) {
-            networkClass = "unknown";
-        } else if (NetWorkUtils.NETWORK_TYPE_CELL_UN_CONNECTED.equals(networkClass)) {
-            networkClass = "none";
+    public com.baidu.swan.apps.api.c.b hO(String str) {
+        if (DEBUG) {
+            Log.d("Api-NavigateBack", "handle: " + str);
         }
-        JSONObject jSONObject = new JSONObject();
-        try {
-            jSONObject.put("networkType", networkClass);
-            if (DEBUG) {
-                Log.i("Api-Network", "getNetworkType:  " + jSONObject);
-            }
-            return new com.baidu.swan.apps.api.b.b(0, jSONObject);
-        } catch (JSONException e) {
-            if (DEBUG) {
-                e.printStackTrace();
-            }
-            return new com.baidu.swan.apps.api.b.b(202);
-        }
-    }
-
-    public com.baidu.swan.apps.api.b.b gR(String str) {
-        final e akM = e.akM();
-        if (akM == null) {
-            if (DEBUG) {
-                com.baidu.swan.apps.console.c.e("Api-Network", "swan app is null");
-            }
-            return new com.baidu.swan.apps.api.b.b(202, "swan app is null");
-        }
-        Pair<com.baidu.swan.apps.api.b.b, JSONObject> az = com.baidu.swan.apps.api.c.b.az("Api-Network", str);
-        com.baidu.swan.apps.api.b.b bVar = (com.baidu.swan.apps.api.b.b) az.first;
+        String uuid = UUID.randomUUID().toString();
+        h.mC(uuid);
+        Pair<com.baidu.swan.apps.api.c.b, JSONObject> aP = com.baidu.swan.apps.api.d.b.aP("Api-NavigateBack", str);
+        com.baidu.swan.apps.api.c.b bVar = (com.baidu.swan.apps.api.c.b) aP.first;
         if (!bVar.isSuccess()) {
             if (DEBUG) {
-                com.baidu.swan.apps.console.c.e("Api-Network", "parse fail");
+                com.baidu.swan.apps.console.c.e("Api-NavigateBack", "parse fail");
                 return bVar;
             }
             return bVar;
         }
-        final String optString = ((JSONObject) az.second).optString("cb");
-        if (TextUtils.isEmpty(optString)) {
-            if (DEBUG) {
-                com.baidu.swan.apps.console.c.e("Api-Network", "callback is null");
-            }
-            return new com.baidu.swan.apps.api.b.b(1001, "callback is null");
+        int optInt = ((JSONObject) aP.second).optInt("delta", 1);
+        final e QH = f.ahV().QH();
+        if (QH == null) {
+            com.baidu.swan.apps.console.c.e("Api-NavigateBack", "manager is null");
+            return new com.baidu.swan.apps.api.c.b(1001, "manager is null");
         }
-        d.getMainHandler().post(new Runnable() { // from class: com.baidu.swan.apps.api.module.g.a.1
+        if (DEBUG) {
+            Log.d("Api-NavigateBack", "back delta: " + optInt);
+        }
+        final int YS = QH.YS();
+        if (DEBUG) {
+            Log.d("Api-NavigateBack", "fragment count " + YS);
+        }
+        if (YS == 1) {
+            com.baidu.swan.apps.console.c.e("Api-NavigateBack", "navigateBack api can only work when slave's count greater than 1");
+            return new com.baidu.swan.apps.api.c.b(1001, "navigateBack api can only work when slave's count greater than 1");
+        }
+        if (optInt >= YS) {
+            optInt = YS - 1;
+        }
+        if (DEBUG) {
+            Log.d("Api-NavigateBack", "real back delta: " + optInt);
+        }
+        final e.b eM = QH.jp("navigateBack").ae(e.bVP, e.bVO).eM(optInt);
+        aj.p(new Runnable() { // from class: com.baidu.swan.apps.api.module.g.a.1
             @Override // java.lang.Runnable
             public void run() {
-                akM.akY().c(a.this.Rs().Rq(), optString);
+                if (YS > 1) {
+                    com.baidu.swan.apps.aq.e.a(QH, a.this.getContext(), 1);
+                }
+                eM.commit();
             }
         });
-        return new com.baidu.swan.apps.api.b.b(0);
+        g.bA("route", uuid).f(new UbcFlowEvent("na_push_page_end"));
+        h.S(1, uuid);
+        h.mD(uuid);
+        if (!(QH.YP() instanceof com.baidu.swan.apps.core.d.d)) {
+            com.baidu.swan.apps.console.c.e("Api-NavigateBack", "top fragment error");
+            return new com.baidu.swan.apps.api.c.b(1001, "top fragment error");
+        }
+        com.baidu.swan.apps.core.d.d dVar = (com.baidu.swan.apps.core.d.d) QH.YP();
+        return new com.baidu.swan.apps.api.c.b(0, com.baidu.swan.apps.scheme.actions.k.a.oc(dVar != null ? dVar.YB() : ""));
     }
 }

@@ -18,7 +18,7 @@ public final class ObservableBuffer<T, U extends Collection<? super T>> extends 
     protected void a(u<? super U> uVar) {
         if (this.skip == this.count) {
             a aVar = new a(uVar, this.count, this.bufferSupplier);
-            if (aVar.dCM()) {
+            if (aVar.dKG()) {
                 this.source.subscribe(aVar);
                 return;
             }
@@ -42,9 +42,9 @@ public final class ObservableBuffer<T, U extends Collection<? super T>> extends 
             this.bufferSupplier = callable;
         }
 
-        boolean dCM() {
+        boolean dKG() {
             try {
-                this.buffer = (U) io.reactivex.internal.functions.a.h(this.bufferSupplier.call(), "Empty buffer supplied");
+                this.buffer = (U) io.reactivex.internal.functions.a.k(this.bufferSupplier.call(), "Empty buffer supplied");
                 return true;
             } catch (Throwable th) {
                 io.reactivex.exceptions.a.L(th);
@@ -87,7 +87,7 @@ public final class ObservableBuffer<T, U extends Collection<? super T>> extends 
                 if (i >= this.count) {
                     this.actual.onNext(u);
                     this.size = 0;
-                    dCM();
+                    dKG();
                 }
             }
         }
@@ -153,7 +153,7 @@ public final class ObservableBuffer<T, U extends Collection<? super T>> extends 
             this.index = 1 + j;
             if (j % this.skip == 0) {
                 try {
-                    this.buffers.offer((Collection) io.reactivex.internal.functions.a.h(this.bufferSupplier.call(), "The bufferSupplier returned a null collection. Null values are generally not allowed in 2.x operators and sources."));
+                    this.buffers.offer((Collection) io.reactivex.internal.functions.a.k(this.bufferSupplier.call(), "The bufferSupplier returned a null collection. Null values are generally not allowed in 2.x operators and sources."));
                 } catch (Throwable th) {
                     this.buffers.clear();
                     this.s.dispose();

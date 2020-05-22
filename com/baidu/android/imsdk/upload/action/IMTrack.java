@@ -247,10 +247,9 @@ public class IMTrack {
 
     /* loaded from: classes3.dex */
     public static final class RequestBuilder {
-        public static final int REQUEST_DELIVER_RELIABLE_MSG = 501104;
-        public static final int REQUEST_FETCH_FIRST_RELIABLE = 501102;
-        public static final int REQUEST_FETCH_RELIABLE_SUCCESS = 501103;
         public static final int REQUEST_INIT = 501100;
+        public static final int REQUEST_JOIN = 501112;
+        public static final int REQUEST_JOIN_CALLBACK = 501113;
         public static final int REQUEST_LOGIN = 501101;
         private Context context;
         private Request request = new Request();

@@ -97,32 +97,32 @@ public class bi {
 
     public static boolean a(hq hqVar, boolean z) {
         if (hqVar == null) {
-            com.xiaomi.channel.commonutils.logger.b.m50a("item is null, verfiy ClientUploadDataItem failed.");
+            com.xiaomi.channel.commonutils.logger.b.m52a("item is null, verfiy ClientUploadDataItem failed.");
             return true;
         } else if (!z && TextUtils.isEmpty(hqVar.f447a)) {
-            com.xiaomi.channel.commonutils.logger.b.m50a("item.channel is null or empty, verfiy ClientUploadDataItem failed.");
+            com.xiaomi.channel.commonutils.logger.b.m52a("item.channel is null or empty, verfiy ClientUploadDataItem failed.");
             return true;
         } else if (TextUtils.isEmpty(hqVar.f454d)) {
-            com.xiaomi.channel.commonutils.logger.b.m50a("item.category is null or empty, verfiy ClientUploadDataItem failed.");
+            com.xiaomi.channel.commonutils.logger.b.m52a("item.category is null or empty, verfiy ClientUploadDataItem failed.");
             return true;
         } else if (TextUtils.isEmpty(hqVar.f453c)) {
-            com.xiaomi.channel.commonutils.logger.b.m50a("item.name is null or empty, verfiy ClientUploadDataItem failed.");
+            com.xiaomi.channel.commonutils.logger.b.m52a("item.name is null or empty, verfiy ClientUploadDataItem failed.");
             return true;
-        } else if (!com.xiaomi.push.bf.m159a(hqVar.f454d)) {
-            com.xiaomi.channel.commonutils.logger.b.m50a("item.category can only contain ascii char, verfiy ClientUploadDataItem failed.");
+        } else if (!com.xiaomi.push.bf.m161a(hqVar.f454d)) {
+            com.xiaomi.channel.commonutils.logger.b.m52a("item.category can only contain ascii char, verfiy ClientUploadDataItem failed.");
             return true;
-        } else if (!com.xiaomi.push.bf.m159a(hqVar.f453c)) {
-            com.xiaomi.channel.commonutils.logger.b.m50a("item.name can only contain ascii char, verfiy ClientUploadDataItem failed.");
+        } else if (!com.xiaomi.push.bf.m161a(hqVar.f453c)) {
+            com.xiaomi.channel.commonutils.logger.b.m52a("item.name can only contain ascii char, verfiy ClientUploadDataItem failed.");
             return true;
         } else if (hqVar.f452b == null || hqVar.f452b.length() <= 10240) {
             return false;
         } else {
-            com.xiaomi.channel.commonutils.logger.b.m50a("item.data is too large(" + hqVar.f452b.length() + "), max size for data is 10240 , verfiy ClientUploadDataItem failed.");
+            com.xiaomi.channel.commonutils.logger.b.m52a("item.data is too large(" + hqVar.f452b.length() + "), max size for data is 10240 , verfiy ClientUploadDataItem failed.");
             return true;
         }
     }
 
     public static boolean a(String str) {
-        return !com.xiaomi.push.t.m584b() || Constants.HYBRID_PACKAGE_NAME.equals(str);
+        return !com.xiaomi.push.t.m586b() || Constants.HYBRID_PACKAGE_NAME.equals(str);
     }
 }

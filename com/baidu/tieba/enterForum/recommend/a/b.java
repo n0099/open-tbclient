@@ -3,18 +3,18 @@ package com.baidu.tieba.enterForum.recommend.a;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.card.z;
+import com.baidu.tieba.card.aa;
 /* loaded from: classes9.dex */
 public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.enterForum.recommend.b.c, com.baidu.tieba.card.a.a<com.baidu.tieba.enterForum.recommend.view.b>> {
-    private z<com.baidu.tieba.enterForum.recommend.b.c> gEm;
+    private aa<com.baidu.tieba.enterForum.recommend.b.c> gSU;
     private TbPageContext<?> mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public b(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.enterForum.recommend.b.c.gEA);
-        this.gEm = new z<com.baidu.tieba.enterForum.recommend.b.c>() { // from class: com.baidu.tieba.enterForum.recommend.a.b.1
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.enterForum.recommend.b.c.gTi);
+        this.gSU = new aa<com.baidu.tieba.enterForum.recommend.b.c>() { // from class: com.baidu.tieba.enterForum.recommend.a.b.1
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.card.z
+            @Override // com.baidu.tieba.card.aa
             public void a(View view, com.baidu.tieba.enterForum.recommend.b.c cVar) {
                 if (cVar == null) {
                 }
@@ -26,7 +26,7 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.enterForu
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: ax */
+    /* renamed from: aG */
     public com.baidu.tieba.card.a.a<com.baidu.tieba.enterForum.recommend.view.b> b(ViewGroup viewGroup) {
         com.baidu.tieba.enterForum.recommend.view.b bVar = new com.baidu.tieba.enterForum.recommend.view.b(this.mPageContext);
         bVar.setTag(this.mPageId);
@@ -37,11 +37,11 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.enterForu
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.enterForum.recommend.b.c cVar, com.baidu.tieba.card.a.a<com.baidu.tieba.enterForum.recommend.view.b> aVar) {
-        if (cVar == null || aVar == null || aVar.bFA() == null) {
+        if (cVar == null || aVar == null || aVar.bLU() == null) {
             return null;
         }
-        aVar.bFA().a(cVar);
-        aVar.bFA().c(this.gEm);
+        aVar.bLU().a(cVar);
+        aVar.bLU().c(this.gSU);
         return aVar.getView();
     }
 }

@@ -1,8 +1,8 @@
 package com.baidu.tieba.homepage.video.b;
 
 import android.util.SparseArray;
-import com.baidu.adp.widget.ListView.m;
-import com.baidu.tbadk.core.data.bj;
+import com.baidu.adp.widget.ListView.o;
+import com.baidu.tbadk.core.data.bk;
 import com.baidu.tbadk.core.util.v;
 import com.baidu.tieba.card.data.c;
 import java.util.HashMap;
@@ -11,13 +11,13 @@ import tbclient.RecomVideo.DislikeReason;
 import tbclient.RecomVideo.ThreadPersonalized;
 /* loaded from: classes9.dex */
 public class a {
-    public static void n(List<ThreadPersonalized> list, List<m> list2) {
-        o(list, list2);
+    public static void o(List<ThreadPersonalized> list, List<o> list2) {
+        p(list, list2);
     }
 
-    private static void o(List<ThreadPersonalized> list, List<m> list2) {
+    private static void p(List<ThreadPersonalized> list, List<o> list2) {
         c cVar;
-        bj aIu;
+        bk aOi;
         ThreadPersonalized threadPersonalized;
         if (list != null && list2 != null) {
             HashMap hashMap = new HashMap();
@@ -28,16 +28,16 @@ public class a {
             }
             int count = v.getCount(list2);
             for (int i = 0; i < count; i++) {
-                m mVar = (m) v.getItem(list2, i);
-                if ((mVar instanceof c) && (aIu = (cVar = (c) mVar).aIu()) != null && (threadPersonalized = (ThreadPersonalized) hashMap.get(aIu.getTid())) != null) {
+                o oVar = (o) v.getItem(list2, i);
+                if ((oVar instanceof c) && (aOi = (cVar = (c) oVar).aOi()) != null && (threadPersonalized = (ThreadPersonalized) hashMap.get(aOi.getTid())) != null) {
                     cVar.setSource(threadPersonalized.source);
                     cVar.setWeight(threadPersonalized.weight);
-                    cVar.BG(threadPersonalized.abtest_tag);
-                    aIu.mRecomAbTag = threadPersonalized.abtest_tag;
-                    aIu.mRecomSource = threadPersonalized.source;
-                    aIu.mRecomWeight = threadPersonalized.weight;
-                    if (aIu.aKT() != null) {
-                        cVar.j(aIu.aKT().is_vertical);
+                    cVar.Dp(threadPersonalized.abtest_tag);
+                    aOi.mRecomAbTag = threadPersonalized.abtest_tag;
+                    aOi.mRecomSource = threadPersonalized.source;
+                    aOi.mRecomWeight = threadPersonalized.weight;
+                    if (aOi.aQQ() != null) {
+                        cVar.k(aOi.aQQ().is_vertical);
                     }
                     List<DislikeReason> list3 = threadPersonalized.dislike_resource;
                     if (list3 != null) {

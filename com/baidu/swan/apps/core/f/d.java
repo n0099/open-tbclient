@@ -3,11 +3,11 @@ package com.baidu.swan.apps.core.f;
 public interface d {
     void d(int i, String str, String str2);
 
-    void fe(String str);
+    void fQ(String str);
 
-    void ff(String str);
+    void fR(String str);
 
-    boolean fg(String str);
+    boolean fS(String str);
 
     void goBack();
 }

@@ -15,7 +15,7 @@ public class PMSAppInfo implements Parcelable {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: iL */
+        /* renamed from: jb */
         public PMSAppInfo[] newArray(int i) {
             return new PMSAppInfo[i];
         }
@@ -32,6 +32,7 @@ public class PMSAppInfo implements Parcelable {
     public long appSign;
     public int appStatus;
     public String bearInfo;
+    public String brandsInfo;
     public long createTime;
     public int customerService;
     public String description;
@@ -98,6 +99,7 @@ public class PMSAppInfo implements Parcelable {
         this.globalPrivate = parcel.readInt();
         this.paNumber = parcel.readString();
         this.pluginInfo = parcel.readString();
+        this.brandsInfo = parcel.readString();
     }
 
     @Override // android.os.Parcelable
@@ -139,6 +141,7 @@ public class PMSAppInfo implements Parcelable {
         parcel.writeInt(this.globalPrivate);
         parcel.writeString(this.paNumber);
         parcel.writeString(this.pluginInfo);
+        parcel.writeString(this.brandsInfo);
     }
 
     public void setOrientation(int i) {
@@ -151,20 +154,20 @@ public class PMSAppInfo implements Parcelable {
         return this.orientation;
     }
 
-    public boolean aBU() {
+    public boolean aGh() {
         return this.pendingErrCode != 0;
     }
 
-    public boolean ark() {
+    public boolean aGi() {
         return (System.currentTimeMillis() - this.createTime) / 1000 > this.maxAge;
     }
 
     public void h(f fVar) {
         if (fVar != null) {
-            this.appId = fVar.dan;
+            this.appId = fVar.dlx;
             this.versionCode = fVar.versionCode;
             this.versionName = fVar.versionName;
-            this.type = fVar.daz;
+            this.type = fVar.dlH;
             this.pkgSize = fVar.size;
         }
     }
@@ -174,12 +177,12 @@ public class PMSAppInfo implements Parcelable {
             this.appId = gVar.appId;
             this.versionCode = gVar.versionCode;
             this.versionName = gVar.versionName;
-            this.type = gVar.daz;
+            this.type = gVar.dlH;
             this.pkgSize = gVar.size;
         }
     }
 
-    public void o(PMSAppInfo pMSAppInfo) {
+    public void q(PMSAppInfo pMSAppInfo) {
         if (pMSAppInfo != null && TextUtils.equals(this.appId, pMSAppInfo.appId)) {
             this.versionCode = pMSAppInfo.versionCode;
             this.versionName = pMSAppInfo.versionName;
@@ -190,14 +193,18 @@ public class PMSAppInfo implements Parcelable {
         }
     }
 
-    public void aBV() {
+    public void aGj() {
         if (this.maxAge <= 0) {
             this.maxAge = DEFAULT_SWAN_APP_PKG_MAX_AGE;
         }
         this.createTime = System.currentTimeMillis();
     }
 
-    public boolean XL() {
+    public boolean aaF() {
         return !TextUtils.isEmpty(this.appKey) && this.appSign > 0;
+    }
+
+    public String toString() {
+        return "{appId=" + this.appId + ", appKey=" + this.appKey + ", appSign=" + this.appSign + ", versionCode=" + this.versionCode + ", versionName=" + this.versionName + ", description=" + this.description + ", appStatus=" + this.appStatus + ", statusDetail=" + this.statusDetail + ", statusDesc=" + this.statusDesc + ", resumeDate=" + this.resumeDate + ", iconUrl=" + this.iconUrl + ", appName=" + this.appName + ", serviceCategory=" + this.serviceCategory + ", subjectInfo=" + this.subjectInfo + ", type=" + this.type + ", pkgSize=" + this.pkgSize + ", pendingErrCode=" + this.pendingErrCode + ", appCategory=" + this.appCategory + ", orientation=" + this.orientation + ", maxAge=" + this.maxAge + ", createTime=" + this.createTime + ", webViewDomains=" + this.webViewDomains + ", webAction=" + this.webAction + ", domains=" + this.domains + ", bearInfo=" + this.bearInfo + ", serverExt=" + this.serverExt + ", payProtected=" + this.payProtected + ", customerService=" + this.customerService + ", globalNotice=" + this.globalNotice + ", globalPrivate=" + this.globalPrivate + ", paNumber=" + this.paNumber + ", pluginInfo=" + this.pluginInfo + ", brandsInfo=" + this.brandsInfo + "}";
     }
 }

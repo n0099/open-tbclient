@@ -135,7 +135,7 @@ public final class MaybeFlatMapIterableFlowable<T, R> extends g<R> {
                         while (j2 != j) {
                             if (!this.cancelled) {
                                 try {
-                                    cVar.onNext((Object) io.reactivex.internal.functions.a.h(it2.next(), "The iterator returned a null value"));
+                                    cVar.onNext((Object) io.reactivex.internal.functions.a.k(it2.next(), "The iterator returned a null value"));
                                     if (!this.cancelled) {
                                         j2++;
                                         try {
@@ -202,7 +202,7 @@ public final class MaybeFlatMapIterableFlowable<T, R> extends g<R> {
         public R poll() throws Exception {
             Iterator<? extends R> it = this.it;
             if (it != null) {
-                R r = (R) io.reactivex.internal.functions.a.h(it.next(), "The iterator returned a null value");
+                R r = (R) io.reactivex.internal.functions.a.k(it.next(), "The iterator returned a null value");
                 if (!it.hasNext()) {
                     this.it = null;
                     return r;

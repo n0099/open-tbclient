@@ -9,22 +9,22 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 /* loaded from: classes9.dex */
 public class o extends h<p, q> {
-    private final int eLS;
+    private final int eYp;
 
     public o(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
-        this.eLS = (com.baidu.adp.lib.util.l.getEquipmentHeight(TbadkCoreApplication.getInst()) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds100)) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds90);
+        this.eYp = (com.baidu.adp.lib.util.l.getEquipmentHeight(TbadkCoreApplication.getInst()) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds100)) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds90);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aP */
+    /* renamed from: C */
     public q b(ViewGroup viewGroup) {
         View inflate = LayoutInflater.from(this.mContext).inflate(R.layout.frs_no_list_item_view, viewGroup, false);
         ViewGroup.LayoutParams generateLayoutParamsByParent = generateLayoutParamsByParent(viewGroup);
         generateLayoutParamsByParent.width = -1;
-        generateLayoutParamsByParent.height = this.eLS;
+        generateLayoutParamsByParent.height = this.eYp;
         inflate.setLayoutParams(generateLayoutParamsByParent);
         return new q(inflate, viewGroup);
     }
@@ -34,13 +34,13 @@ public class o extends h<p, q> {
     @Override // com.baidu.tieba.frs.h, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, p pVar, q qVar) {
         super.a(i, view, viewGroup, (ViewGroup) pVar, (p) qVar);
-        if (pVar.bQd() == 6) {
-            qVar.hbs.setText(R.string.attention_no_post_tip);
+        if (pVar.bWz() == 6) {
+            qVar.hqg.setText(R.string.attention_no_post_tip);
         } else {
-            qVar.hbs.setText(R.string.no_data_common_txt);
+            qVar.hqg.setText(R.string.no_data_common_txt);
         }
-        com.baidu.tbadk.core.util.am.setViewTextColor(qVar.hbs, R.color.cp_cont_j, 1);
-        com.baidu.tbadk.core.util.am.setImageResource(qVar.hbt, R.drawable.new_pic_emotion_06);
+        com.baidu.tbadk.core.util.am.setViewTextColor(qVar.hqg, R.color.cp_cont_j, 1);
+        com.baidu.tbadk.core.util.am.setImageResource(qVar.hqh, R.drawable.new_pic_emotion_06);
         return view;
     }
 }

@@ -8,6 +8,7 @@ import com.baidu.android.imsdk.account.IGetMsgSettingSwitchListener;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
 import com.baidu.android.imsdk.utils.BaseHttpRequest;
+import com.baidu.android.imsdk.utils.HttpHelper;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.ar.constants.HttpConstants;
@@ -48,6 +49,11 @@ public class IMGetMsgSettingSwitchRequest extends BaseHttpRequest {
         } catch (Exception e) {
             return null;
         }
+    }
+
+    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
+    public String getContentType() {
+        return HttpHelper.CONTENT_JSON;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:19:? A[RETURN, SYNTHETIC] */

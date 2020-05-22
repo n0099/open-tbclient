@@ -6,8 +6,8 @@ import kotlin.jvm.internal.q;
 /* loaded from: classes7.dex */
 public class b {
     public static final void addSuppressed(Throwable th, Throwable th2) {
-        q.j(th, "receiver$0");
-        q.j(th2, com.baidu.fsg.base.statistics.b.k);
-        kotlin.internal.b.mXE.addSuppressed(th, th2);
+        q.m(th, "receiver$0");
+        q.m(th2, "exception");
+        kotlin.internal.b.nsG.addSuppressed(th, th2);
     }
 }

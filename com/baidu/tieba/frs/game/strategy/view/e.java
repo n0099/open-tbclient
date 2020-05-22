@@ -8,7 +8,7 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.lib.util.l;
-import com.baidu.adp.widget.ListView.m;
+import com.baidu.adp.widget.ListView.o;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.atomData.ForumDetailActivityConfig;
 import com.baidu.tbadk.core.util.am;
@@ -20,16 +20,16 @@ import com.baidu.tieba.frs.game.strategy.tab.ScrollLabelTabHost;
 import java.util.List;
 /* loaded from: classes9.dex */
 public class e {
-    private NoNetworkView ePq;
-    private ImageView fit;
-    private ScrollLabelTabHost hlA;
-    private FrsGameStrategyMainFragment hlz;
+    private NoNetworkView fbX;
+    private ImageView fwb;
+    private FrsGameStrategyMainFragment hAn;
+    private ScrollLabelTabHost hAo;
     private String mFrom;
     private NavigationBar mNavigationBar;
     private View mRootView;
 
     public e(FrsGameStrategyMainFragment frsGameStrategyMainFragment, View view) {
-        this.hlz = frsGameStrategyMainFragment;
+        this.hAn = frsGameStrategyMainFragment;
         this.mRootView = view;
         if (this.mRootView != null) {
             initUI();
@@ -39,14 +39,14 @@ public class e {
     private void initUI() {
         this.mNavigationBar = (NavigationBar) this.mRootView.findViewById(R.id.view_navigation_bar);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-        layoutParams.setMargins(0, 0, l.getDimens(this.hlz.getPageContext().getPageActivity(), R.dimen.ds24), 0);
-        this.fit = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.widget_frs_game_forum_info_item, (View.OnClickListener) null);
-        this.fit.setLayoutParams(layoutParams);
-        this.fit.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.game.strategy.view.e.1
+        layoutParams.setMargins(0, 0, l.getDimens(this.hAn.getPageContext().getPageActivity(), R.dimen.ds24), 0);
+        this.fwb = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.widget_frs_game_forum_info_item, (View.OnClickListener) null);
+        this.fwb.setLayoutParams(layoutParams);
+        this.fwb.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.game.strategy.view.e.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (!StringUtils.isNull(e.this.hlz.getFid())) {
-                    e.this.hlz.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ForumDetailActivityConfig(e.this.hlz.getPageContext().getPageActivity(), e.this.hlz.getFid(), ForumDetailActivityConfig.FromType.FRS_GAME_STRATEGY)));
+                if (!StringUtils.isNull(e.this.hAn.getFid())) {
+                    e.this.hAn.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ForumDetailActivityConfig(e.this.hAn.getPageContext().getPageActivity(), e.this.hAn.getFid(), ForumDetailActivityConfig.FromType.FRS_GAME_STRATEGY)));
                 }
             }
         });
@@ -54,17 +54,17 @@ public class e {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if ("from_single_act".equals(e.this.mFrom)) {
-                    e.this.hlz.getActivity().finish();
+                    e.this.hAn.getActivity().finish();
                     return;
                 }
                 CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(CmdConfigCustom.CMD_CLICK_CLOSE_GAME_FRS_CONFIRM);
-                customResponsedMessage.setmOrginalMessage(new CustomMessage((int) CmdConfigCustom.CMD_GAME_FRS_TAB_CHANGE, e.this.hlz.getPageContext().getUniqueId()));
+                customResponsedMessage.setmOrginalMessage(new CustomMessage((int) CmdConfigCustom.CMD_GAME_FRS_TAB_CHANGE, e.this.hAn.getPageContext().getUniqueId()));
                 MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
             }
         });
-        this.ePq = (NoNetworkView) this.mRootView.findViewById(R.id.view_no_network);
-        this.hlA = (ScrollLabelTabHost) this.mRootView.findViewById(R.id.frs_game_tabview);
-        this.hlA.setPageId(this.hlz.getBaseFragmentActivity().getUniqueId());
+        this.fbX = (NoNetworkView) this.mRootView.findViewById(R.id.view_no_network);
+        this.hAo = (ScrollLabelTabHost) this.mRootView.findViewById(R.id.frs_game_tabview);
+        this.hAo.setPageId(this.hAn.getBaseFragmentActivity().getUniqueId());
     }
 
     public void setFrom(String str) {
@@ -75,42 +75,42 @@ public class e {
         return this.mRootView;
     }
 
-    public NavigationBar bof() {
+    public NavigationBar btY() {
         return this.mNavigationBar;
     }
 
     public void onChangeSkinType(int i) {
-        this.mNavigationBar.onChangeSkinType(this.hlz.getPageContext(), i);
-        this.ePq.onChangeSkinType(this.hlz.getPageContext(), i);
-        this.hlA.onChangeSkinType(i);
-        if (this.fit != null) {
-            am.setNavbarIconSrc(this.fit, R.drawable.btn_more_selector_s, R.drawable.btn_more_selector);
+        this.mNavigationBar.onChangeSkinType(this.hAn.getPageContext(), i);
+        this.fbX.onChangeSkinType(this.hAn.getPageContext(), i);
+        this.hAo.onChangeSkinType(i);
+        if (this.fwb != null) {
+            am.setNavbarIconSrc(this.fwb, R.drawable.btn_more_selector_s, R.drawable.btn_more_selector);
         }
     }
 
     public void setFrsGameTabDataLoadListener(com.baidu.tieba.frs.game.strategy.tab.a aVar) {
-        this.hlA.setDelegateFrsGameTabDataLoadListener(aVar);
+        this.hAo.setDelegateFrsGameTabDataLoadListener(aVar);
     }
 
     public void setTabData(List<com.baidu.tieba.frs.game.strategy.tab.e> list, boolean z) {
-        this.hlA.setTabData(list, z);
+        this.hAo.setTabData(list, z);
     }
 
-    public void b(int i, int i2, List<m> list, List<com.baidu.tieba.frs.game.strategy.tab.e> list2, boolean z, boolean z2, int i3) {
-        this.hlA.b(i, i2, list, list2, z, z2, i3);
+    public void b(int i, int i2, List<o> list, List<com.baidu.tieba.frs.game.strategy.tab.e> list2, boolean z, boolean z2, int i3) {
+        this.hAo.b(i, i2, list, list2, z, z2, i3);
     }
 
     public void k(int i, int i2, String str) {
-        this.hlA.k(i, i2, str);
+        this.hAo.k(i, i2, str);
     }
 
     public void onDestory() {
-        this.hlA.onDestory();
+        this.hAo.onDestory();
     }
 
-    public void bml() {
-        if (this.hlA != null) {
-            this.hlA.bml();
+    public void brJ() {
+        if (this.hAo != null) {
+            this.hAo.brJ();
         }
     }
 }

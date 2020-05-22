@@ -15,7 +15,7 @@ public final class FlowableFlatMapCompletable<T> extends a<T, T> {
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        this.mRM.a((j) new FlatMapCompletableMainSubscriber(cVar, this.mapper, this.delayErrors, this.maxConcurrency));
+        this.nmU.a((j) new FlatMapCompletableMainSubscriber(cVar, this.mapper, this.delayErrors, this.maxConcurrency));
     }
 
     /* loaded from: classes7.dex */
@@ -55,7 +55,7 @@ public final class FlowableFlatMapCompletable<T> extends a<T, T> {
         @Override // org.a.c
         public void onNext(T t) {
             try {
-                io.reactivex.e eVar = (io.reactivex.e) io.reactivex.internal.functions.a.h(this.mapper.apply(t), "The mapper returned a null CompletableSource");
+                io.reactivex.e eVar = (io.reactivex.e) io.reactivex.internal.functions.a.k(this.mapper.apply(t), "The mapper returned a null CompletableSource");
                 getAndIncrement();
                 InnerConsumer innerConsumer = new InnerConsumer();
                 if (!this.cancelled && this.set.a(innerConsumer)) {

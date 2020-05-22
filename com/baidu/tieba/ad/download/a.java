@@ -14,7 +14,7 @@ import java.io.File;
 import java.util.List;
 /* loaded from: classes8.dex */
 public class a {
-    public static boolean f(Context context, File file) {
+    public static boolean h(Context context, File file) {
         return b(context, file, false);
     }
 
@@ -86,7 +86,7 @@ public class a {
         return false;
     }
 
-    public static String ar(Context context, String str) {
+    public static String as(Context context, String str) {
         PackageInfo packageArchiveInfo;
         if (context == null || TextUtils.isEmpty(str) || (packageArchiveInfo = context.getApplicationContext().getPackageManager().getPackageArchiveInfo(str, 1)) == null) {
             return null;

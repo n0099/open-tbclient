@@ -121,7 +121,6 @@ public class BdNet implements INoProGuard, BdNetEngine.b {
     }
 
     public BdNet(Context context) {
-        this.mContext = null;
         this.mContext = new WeakReference<>(context);
         if (e.a().c == null) {
             e.a().c = getContext().getApplicationContext();

@@ -1,16 +1,7 @@
 package com.baidu.tieba.sdk.b;
-
-import com.baidu.live.adp.lib.util.StringUtils;
 /* loaded from: classes3.dex */
-public class a {
-    public String bduss;
-    public String nickName;
-    public String portrait;
-    public int sex;
-    public String userId;
-    public String userName;
+public interface a {
+    com.baidu.tieba.sdk.c.a cuY();
 
-    public boolean isValid() {
-        return (StringUtils.isNull(this.userId) || StringUtils.isNull(this.bduss)) ? false : true;
-    }
+    void cuZ();
 }

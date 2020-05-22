@@ -12,25 +12,25 @@ public class d {
         if (aVar == null || aVar.headers == null || aVar.headers.size() < 1) {
             return null;
         }
-        if (com.baidu.swan.apps.console.v8inspector.websocket.a.m(aVar.headers)) {
-            aVar.bJR = true;
+        if (com.baidu.swan.apps.console.v8inspector.websocket.a.o(aVar.headers)) {
+            aVar.bSO = true;
             return new a(aVar);
         }
-        aVar.bJR = false;
+        aVar.bSO = false;
         return new b(aVar);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes11.dex */
     public static class b extends c.b {
-        private String bJT;
+        private String bSQ;
 
         b(c.a aVar) {
             super(aVar);
         }
 
         @Override // com.baidu.swan.apps.console.v8inspector.a.c.b
-        protected Map<String, String> TZ() {
+        protected Map<String, String> WF() {
             HashMap hashMap = new HashMap();
             hashMap.put("Content-Type", "application/json; charset=UTF-8");
             hashMap.put("Accept-Ranges", "bytes");
@@ -39,16 +39,16 @@ public class d {
         }
 
         @Override // com.baidu.swan.apps.console.v8inspector.a.c.b
-        String Ua() {
+        String WG() {
             return "200 OK";
         }
 
         @Override // com.baidu.swan.apps.console.v8inspector.a.c.b
         protected String getContent() {
-            if (this.bJT == null) {
-                this.bJT = new com.baidu.swan.apps.console.v8inspector.b().toString();
+            if (this.bSQ == null) {
+                this.bSQ = new com.baidu.swan.apps.console.v8inspector.b().toString();
             }
-            return this.bJT;
+            return this.bSQ;
         }
     }
 
@@ -62,12 +62,12 @@ public class d {
         }
 
         @Override // com.baidu.swan.apps.console.v8inspector.a.c.b
-        Map<String, String> TZ() {
+        Map<String, String> WF() {
             HashMap hashMap = new HashMap();
             hashMap.put("Upgrade", "websocket");
             hashMap.put(HTTP.CONN_DIRECTIVE, "Upgrade");
             try {
-                hashMap.put("Sec-WebSocket-Accept", com.baidu.swan.apps.console.v8inspector.websocket.a.hV(this.bJS.headers.get("sec-websocket-key")));
+                hashMap.put("Sec-WebSocket-Accept", com.baidu.swan.apps.console.v8inspector.websocket.a.iW(this.bSP.headers.get("sec-websocket-key")));
             } catch (NoSuchAlgorithmException e) {
                 if (DEBUG) {
                     Log.e("HandShakeResponse", "make accept key fail for error invalid algorithm", e);
@@ -77,7 +77,7 @@ public class d {
         }
 
         @Override // com.baidu.swan.apps.console.v8inspector.a.c.b
-        String Ua() {
+        String WG() {
             return "101 Switching Protocols";
         }
     }

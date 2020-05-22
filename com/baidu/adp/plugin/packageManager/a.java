@@ -8,10 +8,10 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class a {
-    private static a Rh;
-    private c Ri;
-    private ArrayList<b> Rj = new ArrayList<>();
-    private C0025a Rk;
+    private static a Rr;
+    private c Rs;
+    private ArrayList<b> Rt = new ArrayList<>();
+    private C0027a Ru;
 
     /* loaded from: classes.dex */
     public interface c {
@@ -21,26 +21,26 @@ public class a {
     private a() {
     }
 
-    public static a nO() {
-        if (Rh == null) {
+    public static a nQ() {
+        if (Rr == null) {
             synchronized (a.class) {
-                if (Rh == null) {
-                    Rh = new a();
+                if (Rr == null) {
+                    Rr = new a();
                 }
             }
         }
-        return Rh;
+        return Rr;
     }
 
     public void a(ArrayList<b> arrayList, c cVar) {
         boolean z;
         if (arrayList != null && arrayList.size() != 0) {
-            this.Ri = cVar;
+            this.Rs = cVar;
             Iterator<b> it = arrayList.iterator();
             while (it.hasNext()) {
                 b next = it.next();
                 if (next != null && !TextUtils.isEmpty(next.apkPath) && !TextUtils.isEmpty(next.packageName)) {
-                    Iterator<b> it2 = this.Rj.iterator();
+                    Iterator<b> it2 = this.Rt.iterator();
                     while (true) {
                         if (!it2.hasNext()) {
                             z = false;
@@ -51,38 +51,38 @@ public class a {
                         }
                     }
                     if (!z) {
-                        this.Rj.add(next);
+                        this.Rt.add(next);
                     }
                 }
             }
-            nP();
+            nR();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void nP() {
-        if (this.Rj.size() != 0 && this.Rk == null) {
-            this.Rk = new C0025a(this.Rj.get(0));
-            this.Rk.execute(new String[0]);
+    public void nR() {
+        if (this.Rt.size() != 0 && this.Ru == null) {
+            this.Ru = new C0027a(this.Rt.get(0));
+            this.Ru.execute(new String[0]);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.adp.plugin.packageManager.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0025a extends BdAsyncTask<String, Integer, Boolean> {
-        private b Rl;
+    public class C0027a extends BdAsyncTask<String, Integer, Boolean> {
+        private b Rv;
 
-        public C0025a(b bVar) {
-            this.Rl = bVar;
+        public C0027a(b bVar) {
+            this.Rv = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Boolean doInBackground(String... strArr) {
-            if (this.Rl != null) {
-                return Boolean.valueOf(cn(this.Rl.apkPath));
+            if (this.Rv != null) {
+                return Boolean.valueOf(co(this.Rv.apkPath));
             }
             return false;
         }
@@ -91,36 +91,36 @@ public class a {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
-            super.onPostExecute((C0025a) bool);
-            a.this.Rk = null;
-            if (a.this.Rj.size() > 0) {
-                Iterator it = a.this.Rj.iterator();
+            super.onPostExecute((C0027a) bool);
+            a.this.Ru = null;
+            if (a.this.Rt.size() > 0) {
+                Iterator it = a.this.Rt.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
                     }
                     b bVar = (b) it.next();
-                    if (a.this.a(this.Rl, bVar)) {
-                        a.this.Rj.remove(bVar);
+                    if (a.this.a(this.Rv, bVar)) {
+                        a.this.Rt.remove(bVar);
                         break;
                     }
                 }
             }
-            if (bool != null && bool.booleanValue() && a.this.Ri != null) {
-                a.this.Ri.F(this.Rl.packageName, this.Rl.apkPath);
+            if (bool != null && bool.booleanValue() && a.this.Rs != null) {
+                a.this.Rs.F(this.Rv.packageName, this.Rv.apkPath);
             }
-            a.this.nP();
+            a.this.nR();
         }
 
-        private boolean cn(String str) {
+        private boolean co(String str) {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
             try {
                 f.forceDelete(new File(str));
-                com.baidu.adp.plugin.b.a.nF().f("plugin_del_unuse", "delete_unuse", str, null);
+                com.baidu.adp.plugin.b.a.nH().f("plugin_del_unuse", "delete_unuse", str, null);
             } catch (Throwable th) {
-                com.baidu.adp.plugin.b.a.nF().f("plugin_del_unuse", "delete_unuse_fail", str, th.getMessage());
+                com.baidu.adp.plugin.b.a.nH().f("plugin_del_unuse", "delete_unuse_fail", str, th.getMessage());
             }
             int length = str.length();
             if (length >= 4) {
@@ -128,9 +128,9 @@ public class a {
                 if (file.exists() && file.isDirectory()) {
                     try {
                         f.forceDelete(file);
-                        com.baidu.adp.plugin.b.a.nF().f("plugin_del_unuse", "delete_unuse", str, null);
+                        com.baidu.adp.plugin.b.a.nH().f("plugin_del_unuse", "delete_unuse", str, null);
                     } catch (Throwable th2) {
-                        com.baidu.adp.plugin.b.a.nF().f("plugin_del_unuse", "delete_unuse_fail", str, th2.getMessage());
+                        com.baidu.adp.plugin.b.a.nH().f("plugin_del_unuse", "delete_unuse_fail", str, th2.getMessage());
                     }
                 }
                 return true;

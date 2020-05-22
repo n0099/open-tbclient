@@ -5,18 +5,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.card.a.a;
-import com.baidu.tbadk.core.data.a;
+import com.baidu.tbadk.core.data.AbsThreadDataSupport;
 /* loaded from: classes8.dex */
-public abstract class b<T extends com.baidu.tbadk.core.data.a> implements m<T>, n {
-    protected ad acY;
-    private Boolean acZ = false;
-    private com.baidu.tieba.card.z<T> ada;
-    public a adb;
+public abstract class b<T extends AbsThreadDataSupport> implements n<T>, o {
+    protected ae adr;
+    private Boolean ads = false;
+    private com.baidu.tieba.card.aa<T> adt;
+    public a adu;
     protected Context mContext;
 
     /* loaded from: classes8.dex */
     public interface a {
-        void a(com.baidu.tbadk.core.data.a aVar);
+        void a(AbsThreadDataSupport absThreadDataSupport);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -26,33 +26,33 @@ public abstract class b<T extends com.baidu.tbadk.core.data.a> implements m<T>, 
         this.mContext = context;
     }
 
-    public void a(ad adVar) {
-        this.acY = adVar;
-    }
-
-    public void aW(int i) {
+    public void a(ae aeVar) {
+        this.adr = aeVar;
     }
 
     public void aX(int i) {
     }
 
+    public void aY(int i) {
+    }
+
     /* JADX INFO: Access modifiers changed from: protected */
-    public void rk() {
+    public void rr() {
     }
 
-    public com.baidu.tieba.card.z<T> rl() {
-        return this.ada;
+    public com.baidu.tieba.card.aa<T> rs() {
+        return this.adt;
     }
 
-    public void setOnCardSubClickListener(com.baidu.tieba.card.z<T> zVar) {
-        this.ada = zVar;
+    public void setOnCardSubClickListener(com.baidu.tieba.card.aa<T> aaVar) {
+        this.adt = aaVar;
     }
 
     public void a(int i, a.b bVar) {
-        this.acY.a(i, bVar);
+        this.adr.a(i, bVar);
     }
 
-    public void aY(int i) {
+    public void aZ(int i) {
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
@@ -68,11 +68,11 @@ public abstract class b<T extends com.baidu.tbadk.core.data.a> implements m<T>, 
         }
     }
 
-    public Boolean rm() {
-        return this.acZ;
+    public Boolean rt() {
+        return this.ads;
     }
 
     public void b(Boolean bool) {
-        this.acZ = bool;
+        this.ads = bool;
     }
 }

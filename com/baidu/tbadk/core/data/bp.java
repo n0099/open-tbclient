@@ -1,29 +1,46 @@
 package com.baidu.tbadk.core.data;
 
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tieba.tbadkCore.data.PostData;
 import org.json.JSONObject;
-import tbclient.BirthdayInfo;
+import tbclient.FrsPage.TopNews;
 /* loaded from: classes.dex */
-public class bp {
-    public int age;
-    public String constellation;
-    public long dup;
-    public int duq;
+public class bp extends PostData {
+    public static final BdUniqueId dIj = BdUniqueId.gen();
+    private String dDo;
+    private int position = 0;
+    private String summary;
 
-    public void parseJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            this.dup = jSONObject.optLong("birthday_time", 0L);
-            this.duq = jSONObject.optInt("birthday_show_status", 0);
-            this.constellation = jSONObject.optString("constellation", "");
-            this.age = jSONObject.optInt("age", 0);
+    public String aSL() {
+        return this.dDo;
+    }
+
+    public String getSummary() {
+        return this.summary;
+    }
+
+    public void a(TopNews topNews) {
+        if (topNews != null) {
+            this.dDo = topNews.news_link;
+            this.summary = topNews.summary;
         }
     }
 
-    public void a(BirthdayInfo birthdayInfo) {
-        if (birthdayInfo != null) {
-            this.dup = birthdayInfo.birthday_time.longValue();
-            this.duq = birthdayInfo.birthday_show_status.intValue();
-            this.constellation = birthdayInfo.constellation;
-            this.age = birthdayInfo.age.intValue();
+    public void parseJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                this.dDo = jSONObject.optString("news_link");
+                this.summary = jSONObject.optString("summary");
+                this.position = jSONObject.optInt("position", 0);
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+            }
         }
+    }
+
+    @Override // com.baidu.tieba.tbadkCore.data.PostData, com.baidu.adp.widget.ListView.o
+    public BdUniqueId getType() {
+        return dIj;
     }
 }

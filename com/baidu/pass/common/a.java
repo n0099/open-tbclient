@@ -78,7 +78,7 @@ class a {
 
     /* renamed from: com.baidu.pass.common.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    static class C0184a {
+    static class C0217a {
         private static final String a = "UTF-8";
         private static final String b = "AES/CBC/NoPadding";
         private static final String c = "AES";
@@ -86,11 +86,11 @@ class a {
         private String e;
         private String f;
 
-        public C0184a() {
+        public C0217a() {
             this("AES", b, "UTF-8");
         }
 
-        public C0184a(String str, String str2, String str3) {
+        public C0217a(String str, String str2, String str3) {
             this.d = "UTF-8";
             this.e = b;
             this.f = "AES";

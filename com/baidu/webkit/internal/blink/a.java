@@ -2,8 +2,10 @@ package com.baidu.webkit.internal.blink;
 
 import com.baidu.webkit.internal.GlobalConstants;
 import com.baidu.webkit.internal.utils.UtilsBlink;
+import com.baidu.webkit.internal.utils.ZipUtils;
 import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.WebKitFactory;
+import com.baidu.webkit.sdk.ZeusWebViewPreloadClass;
 import java.io.File;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes11.dex */
@@ -20,7 +22,7 @@ public abstract class a {
     /* JADX INFO: Access modifiers changed from: package-private */
     public final boolean a() {
         String[] strArr;
-        boolean a;
+        boolean unZip;
         if (this.b != null) {
             this.b.onInstallStart();
         }
@@ -32,7 +34,7 @@ public abstract class a {
         }
         String c = c();
         if (c == null) {
-            a = false;
+            unZip = false;
         } else {
             String downloadLibPath = UtilsBlink.getDownloadLibPath(WebKitFactory.getContext());
             int length = GlobalConstants.LIB_ZEUS_SO.length;
@@ -41,27 +43,26 @@ public abstract class a {
                 if (i < length) {
                     String str = downloadLibPath + strArr[i];
                     if (new File(str).exists() && !com.baidu.webkit.internal.utils.a.a(str)) {
-                        a = false;
+                        unZip = false;
                         break;
                     }
                     i++;
                 } else if (UtilsBlink.createDownloadLibPath(WebKitFactory.getContext())) {
-                    com.baidu.webkit.internal.utils.d a2 = com.baidu.webkit.internal.utils.d.a();
-                    WebKitFactory.getContext();
-                    a = a2.a(c, downloadLibPath, null);
-                    if (!a) {
+                    unZip = ZipUtils.getInstance().unZip(WebKitFactory.getContext(), c, downloadLibPath, false);
+                    if (!unZip) {
                         Log.i(EngineManager.LOG_TAG, "BlinkEngineInstaller.install unzip failed");
                         this.c = 6;
                     }
                 } else {
                     Log.i(EngineManager.LOG_TAG, "BlinkEngineInstaller.install create path failed");
-                    a = false;
+                    unZip = false;
                 }
             }
         }
-        Log.i(EngineManager.LOG_TAG, "BlinkEngineInstaller.install result=" + a);
-        if (a) {
+        Log.i(EngineManager.LOG_TAG, "BlinkEngineInstaller.install result=" + unZip);
+        if (unZip) {
             this.c = 0;
+            ZeusWebViewPreloadClass.getInstance().deleteSavingClassesFile();
         }
         if (this.a != null) {
             if (this.c == 0) {
@@ -73,7 +74,7 @@ public abstract class a {
         if (this.b != null) {
             this.b.onInstallFinish(this.c == 0);
         }
-        return a;
+        return unZip;
     }
 
     protected abstract boolean b();

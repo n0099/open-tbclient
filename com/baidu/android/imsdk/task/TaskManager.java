@@ -1,8 +1,6 @@
 package com.baidu.android.imsdk.task;
 
 import android.content.Context;
-import android.util.Log;
-import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
@@ -16,17 +14,15 @@ public class TaskManager {
     private static final int KEEP_ALIVE_SECONDS = 30;
     public static final String TAG = "TaskManager";
     private static volatile TaskManager mInstance;
-    private Context mContext;
     private ThreadPoolExecutor service;
     private ExecutorService singleThreadService;
     private static final int CPU_COUNT = Runtime.getRuntime().availableProcessors();
     private static final int CORE_POOL_SIZE = Math.max(4, Math.min(CPU_COUNT - 1, 4));
     private static final int MAXIMUM_POOL_SIZE = (CPU_COUNT * 3) + 1;
 
-    private TaskManager(Context context) {
+    private TaskManager() {
         this.service = null;
         this.singleThreadService = null;
-        this.mContext = context;
         ThreadPoolExecutor.DiscardOldestPolicy discardOldestPolicy = new ThreadPoolExecutor.DiscardOldestPolicy();
         this.service = new ThreadPoolExecutor(CORE_POOL_SIZE, MAXIMUM_POOL_SIZE, 30L, TimeUnit.SECONDS, new LinkedBlockingQueue(), Executors.defaultThreadFactory(), discardOldestPolicy);
         this.service.allowCoreThreadTimeOut(false);
@@ -34,13 +30,10 @@ public class TaskManager {
     }
 
     public static TaskManager getInstance(Context context) {
-        if (context == null) {
-            return null;
-        }
         if (mInstance == null) {
             synchronized (TaskManager.class) {
                 if (mInstance == null) {
-                    mInstance = new TaskManager(context);
+                    mInstance = new TaskManager();
                 }
             }
         }
@@ -52,7 +45,6 @@ public class TaskManager {
             this.singleThreadService.submit(runnable);
         } catch (Exception e) {
             LogUtils.e(TAG, "Exception ", e);
-            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
         }
     }
 

@@ -53,7 +53,7 @@ public class RequestBlessMessage extends NetMessage {
     @Override // com.baidu.adp.framework.message.NetMessage
     protected Object encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
-        builder.f1270common = this.f1023common;
+        builder.f1272common = this.f1023common;
         builder.pk_id = this.pk_id;
         builder.topic_id = this.topic_id;
         builder.pk_index = Integer.valueOf(this.pk_index);

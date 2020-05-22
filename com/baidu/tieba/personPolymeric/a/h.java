@@ -10,14 +10,14 @@ public class h extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personPol
     private TbPageContext<?> mPageContext;
 
     public h(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.personPolymeric.c.i.kaY, bdUniqueId);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.personPolymeric.c.i.ksQ, bdUniqueId);
         this.mPageContext = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: ax */
+    /* renamed from: aG */
     public com.baidu.tieba.card.a.a<com.baidu.tieba.personPolymeric.view.g> b(ViewGroup viewGroup) {
         return new com.baidu.tieba.card.a.a<>(new com.baidu.tieba.personPolymeric.view.g(this.mPageContext));
     }
@@ -26,8 +26,8 @@ public class h extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personPol
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.personPolymeric.c.i iVar, com.baidu.tieba.card.a.a<com.baidu.tieba.personPolymeric.view.g> aVar) {
-        aVar.bFA().a(iVar);
-        aVar.bFA().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        aVar.bLU().a(iVar);
+        aVar.bLU().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         return aVar.getView();
     }
 }

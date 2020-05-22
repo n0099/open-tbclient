@@ -9,33 +9,33 @@ public class c {
         String str;
         int i = -1;
         try {
-            i = Integer.parseInt(cVar.bdR);
+            i = Integer.parseInt(cVar.blt);
         } catch (NumberFormatException e) {
             e.printStackTrace();
         }
         switch (i) {
             case 0:
             case 3:
-                return (cVar.bdV == null || cVar.bdV.bew == null || TextUtils.isEmpty(cVar.bdV.bew.word)) ? "" : "" + cVar.bdV.bew.word;
+                return (cVar.blx == null || cVar.blx.blW == null || TextUtils.isEmpty(cVar.blx.blW.word)) ? "" : "" + cVar.blx.blW.word;
             case 1:
             case 2:
             case 4:
-                if (cVar.bdV == null || cVar.bdV.bew == null || TextUtils.isEmpty(cVar.bdV.bew.word)) {
+                if (cVar.blx == null || cVar.blx.blW == null || TextUtils.isEmpty(cVar.blx.blW.word)) {
                     str = "";
                 } else {
-                    str = cVar.bdV.bew.word;
+                    str = cVar.blx.blW.word;
                 }
-                return str + context.getString(a.C0092a.livesdk_pic);
+                return str + context.getString(a.C0094a.livesdk_pic);
             case 5:
-                return "" + context.getString(a.C0092a.livesdk_voice);
+                return "" + context.getString(a.C0094a.livesdk_voice);
             default:
-                return "" + context.getString(a.C0092a.livesdk_not_support_msg_type);
+                return "" + context.getString(a.C0094a.livesdk_not_support_msg_type);
         }
     }
 
     public static String a(Context context, com.baidu.c.a.b.a.c cVar, boolean z) {
         String a = a(context, cVar);
-        if (z && !TextUtils.isEmpty(cVar.bdW)) {
+        if (z && !TextUtils.isEmpty(cVar.bly)) {
             String b = b(context, cVar);
             if (!a.startsWith(b)) {
                 return b + a;
@@ -46,14 +46,14 @@ public class c {
     }
 
     public static String b(Context context, com.baidu.c.a.b.a.c cVar) {
-        return (cVar == null || TextUtils.isEmpty(cVar.bdW)) ? "" : context.getString(a.C0092a.livesdk_reply) + cVar.bdY + " ";
+        return (cVar == null || TextUtils.isEmpty(cVar.bly)) ? "" : context.getString(a.C0094a.livesdk_reply) + cVar.blA + " ";
     }
 
     public static void c(Context context, com.baidu.c.a.b.a.c cVar) {
-        if (cVar != null && cVar.bed != null && cVar.bed.bew != null && !TextUtils.isEmpty(cVar.bed.bew.word)) {
+        if (cVar != null && cVar.blF != null && cVar.blF.blW != null && !TextUtils.isEmpty(cVar.blF.blW.word)) {
             String b = b(context, cVar);
-            if (cVar.bed.bew.word.startsWith(b)) {
-                cVar.bed.bew.word = cVar.bed.bew.word.replace(b, "");
+            if (cVar.blF.blW.word.startsWith(b)) {
+                cVar.blF.blW.word = cVar.blF.blW.word.replace(b, "");
             }
         }
     }

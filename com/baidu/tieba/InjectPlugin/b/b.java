@@ -1,82 +1,82 @@
 package com.baidu.tieba.InjectPlugin.b;
 
-import com.baidu.adp.widget.ListView.m;
+import com.baidu.adp.widget.ListView.o;
 import com.baidu.tieba.InjectPlugin.a.g;
 import java.util.List;
 /* loaded from: classes.dex */
 public class b extends g {
-    private Object afJ;
-    private int afW;
+    private Object agg;
+    private int agt;
     private int currentPage;
-    private List<m> etL;
-    private List<m> etM;
-    private List<Object> etN;
-    private boolean etO;
-    private boolean etP;
-    private boolean etQ;
-    private String etR;
-    private String etS;
-    private String etT;
+    private List<o> eIk;
+    private List<o> eIl;
+    private List<Object> eIm;
+    private boolean eIn;
+    private boolean eIo;
+    private boolean eIp;
+    private String eIq;
+    private String eIr;
+    private String eIs;
     private String forumId;
     private int pageNum;
 
     public b(com.baidu.tieba.InjectPlugin.a.b bVar, int i) {
         super(bVar, i);
-        this.etO = false;
-        this.etP = false;
+        this.eIn = false;
+        this.eIo = false;
         this.currentPage = 0;
-        this.etQ = false;
+        this.eIp = false;
     }
 
-    public Object rJ() {
-        return this.afJ;
+    public Object rS() {
+        return this.agg;
     }
 
     public void setExtraData(Object obj) {
-        this.afJ = obj;
+        this.agg = obj;
     }
 
-    public List<m> getThreadList() {
-        return this.etL;
+    public List<o> getThreadList() {
+        return this.eIk;
     }
 
-    public void bd(List<m> list) {
-        this.etL = list;
+    public void aY(List<o> list) {
+        this.eIk = list;
     }
 
-    public List<Object> bdU() {
-        return this.etN;
+    public List<Object> bkf() {
+        return this.eIm;
     }
 
-    public void be(List<Object> list) {
-        this.etN = list;
+    public void aZ(List<Object> list) {
+        this.eIm = list;
     }
 
-    public List<m> bdV() {
-        return this.etM;
+    public List<o> bkg() {
+        return this.eIl;
     }
 
-    public void bf(List<m> list) {
-        this.etM = list;
+    public void ba(List<o> list) {
+        this.eIl = list;
     }
 
-    public boolean bdW() {
-        return this.etO;
+    public boolean bkh() {
+        return this.eIn;
     }
 
-    public void is(boolean z) {
-        this.etO = z;
+    public void iP(boolean z) {
+        this.eIn = z;
     }
 
-    public boolean bdX() {
-        return this.etP;
+    public boolean bki() {
+        return this.eIo;
     }
 
-    public void it(boolean z) {
-        this.etP = z;
+    public void iQ(boolean z) {
+        this.eIo = z;
     }
 
-    public int bdY() {
+    public int bkj() {
         return this.currentPage;
     }
 
@@ -85,19 +85,19 @@ public class b extends g {
     }
 
     public int getSkinType() {
-        return this.afW;
+        return this.agt;
     }
 
     public void setSkinType(int i) {
-        this.afW = i;
+        this.agt = i;
     }
 
-    public boolean bdZ() {
-        return this.etQ;
+    public boolean bkk() {
+        return this.eIp;
     }
 
-    public void iu(boolean z) {
-        this.etQ = z;
+    public void iR(boolean z) {
+        this.eIp = z;
     }
 
     public int getPageNum() {
@@ -116,27 +116,27 @@ public class b extends g {
         this.forumId = str;
     }
 
-    public String bea() {
-        return this.etR;
+    public String bkl() {
+        return this.eIq;
     }
 
-    public void xA(String str) {
-        this.etR = str;
+    public void zg(String str) {
+        this.eIq = str;
     }
 
-    public String beb() {
-        return this.etS;
+    public String bkm() {
+        return this.eIr;
     }
 
-    public void xB(String str) {
-        this.etS = str;
+    public void zh(String str) {
+        this.eIr = str;
     }
 
-    public String bec() {
-        return this.etT;
+    public String bkn() {
+        return this.eIs;
     }
 
-    public void xC(String str) {
-        this.etT = str;
+    public void zi(String str) {
+        this.eIs = str;
     }
 }

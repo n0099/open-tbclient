@@ -18,8 +18,8 @@ import com.xiaomi.mipush.sdk.Constants;
 import tbclient.SkinInfo;
 /* loaded from: classes.dex */
 public class ThreadSkinView extends TbImageView {
-    private SkinInfo jlB;
-    private a.C0675a jlC;
+    private SkinInfo jBY;
+    private a.C0728a jBZ;
     private TbPageContext mTbPageContext;
 
     public ThreadSkinView(Context context) {
@@ -41,22 +41,22 @@ public class ThreadSkinView extends TbImageView {
         setVisibility(8);
     }
 
-    public void setData(TbPageContext tbPageContext, SkinInfo skinInfo, a.C0675a c0675a) {
+    public void setData(TbPageContext tbPageContext, SkinInfo skinInfo, a.C0728a c0728a) {
         if (tbPageContext == null || skinInfo == null || StringUtils.isNull(skinInfo.skin)) {
             setVisibility(8);
             return;
         }
         this.mTbPageContext = tbPageContext;
-        if (this.jlB != skinInfo && c0675a != null) {
-            this.jlC = c0675a;
-            this.jlC.delete(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE);
-            this.jlC.eR("obj_id", skinInfo.obj_id);
-            this.jlC.eR(TiebaInitialize.Params.OBJ_URL, skinInfo.url);
-            this.jlC.eR("obj_name", skinInfo.monitor_id);
-            this.jlC.eR(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, "VIEW_TRUE");
-            this.jlC.save();
+        if (this.jBY != skinInfo && c0728a != null) {
+            this.jBZ = c0728a;
+            this.jBZ.delete(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE);
+            this.jBZ.fs("obj_id", skinInfo.obj_id);
+            this.jBZ.fs(TiebaInitialize.Params.OBJ_URL, skinInfo.url);
+            this.jBZ.fs("obj_name", skinInfo.monitor_id);
+            this.jBZ.fs(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, "VIEW_TRUE");
+            this.jBZ.save();
         }
-        this.jlB = skinInfo;
+        this.jBY = skinInfo;
         int equipmentWidth = l.getEquipmentWidth(tbPageContext.getPageActivity());
         ViewGroup.LayoutParams layoutParams = getLayoutParams();
         layoutParams.width = equipmentWidth;
@@ -83,13 +83,13 @@ public class ThreadSkinView extends TbImageView {
 
     @Override // com.baidu.tbadk.widget.TbImageView, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.jlB != null && !StringUtils.isNull(this.jlB.url)) {
-            if (this.jlC != null) {
-                this.jlC.delete(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE);
-                this.jlC.eR(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, "CLICK");
-                this.jlC.save();
+        if (this.jBY != null && !StringUtils.isNull(this.jBY.url)) {
+            if (this.jBZ != null) {
+                this.jBZ.delete(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE);
+                this.jBZ.fs(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, "CLICK");
+                this.jBZ.save();
             }
-            ba.aOV().b(this.mTbPageContext, new String[]{this.jlB.url});
+            ba.aUZ().b(this.mTbPageContext, new String[]{this.jBY.url});
         }
     }
 }

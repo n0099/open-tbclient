@@ -11,32 +11,32 @@ import java.net.Socket;
 /* loaded from: classes9.dex */
 public class n {
     private static final String TAG = n.class.getSimpleName();
-    private ServerSocket exQ;
+    private ServerSocket eMs;
     private Context mContext;
     private Runnable mRunnable = new Runnable() { // from class: com.baidu.tieba.VideoCache.n.1
         @Override // java.lang.Runnable
         public void run() {
             long j;
             j.D(n.TAG, "run ...");
-            n.this.bfy();
+            n.this.blK();
             int i = 9000;
-            while (n.this.exQ == null && i < 10000) {
+            while (n.this.eMs == null && i < 10000) {
                 try {
-                    n.this.exQ = new ServerSocket(i);
+                    n.this.eMs = new ServerSocket(i);
                 } catch (Exception e) {
                     e.printStackTrace();
-                    n.this.exQ = null;
+                    n.this.eMs = null;
                     i++;
                 }
             }
             j.D(n.TAG, "service port " + i);
-            n.this.on(i);
-            e.bfn();
-            k.bfv();
-            while (!n.this.exQ.isClosed()) {
+            n.this.oU(i);
+            e.blz();
+            k.blH();
+            while (!n.this.eMs.isClosed()) {
                 try {
                     j.D(n.TAG, "accept start");
-                    Socket accept = n.this.exQ.accept();
+                    Socket accept = n.this.eMs.accept();
                     j.D(n.TAG, "accept end");
                     if (accept != null) {
                         j.D(n.TAG, "连接视频服务的client:" + accept);
@@ -53,19 +53,19 @@ public class n {
                         } else if (originUrl != null && originUrl.contains("?segment_postion=")) {
                             try {
                                 int indexOf = originUrl.indexOf("?segment_postion=", 0);
-                                b.xP(originUrl.substring(0, indexOf));
-                                j = com.baidu.adp.lib.f.b.toLong(originUrl.substring(indexOf + i.exK), 0L);
+                                b.zv(originUrl.substring(0, indexOf));
+                                j = com.baidu.adp.lib.f.b.toLong(originUrl.substring(indexOf + i.eMm), 0L);
                             } catch (Exception e2) {
                                 j = 0;
                             }
-                            b.cW(j);
+                            b.cY(j);
                             n.this.b(b, accept);
                         } else {
-                            j.D(n.TAG, "HandleSocketRunnable new request b=" + b.bfs() + " e=" + b.bft());
+                            j.D(n.TAG, "HandleSocketRunnable new request b=" + b.blE() + " e=" + b.blF());
                             f fVar = new f(n.this.mContext);
                             fVar.setSocket(accept);
                             fVar.a(b);
-                            l.bfw().q(fVar);
+                            l.blI().s(fVar);
                         }
                     }
                 } catch (Exception e3) {
@@ -80,16 +80,16 @@ public class n {
 
     public n(Context context) {
         this.mContext = context;
-        l.bfw().q(this.mRunnable);
+        l.blI().s(this.mRunnable);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bfy() {
-        File file = new File(i.exE);
+    public void blK() {
+        File file = new File(i.eMg);
         if (!file.exists()) {
             file.mkdir();
         }
-        File file2 = new File(i.exF);
+        File file2 = new File(i.eMh);
         if (!file2.exists()) {
             file2.mkdir();
         }
@@ -101,11 +101,11 @@ public class n {
                 }
             }
         }
-        File file4 = new File(i.HJ);
+        File file4 = new File(i.HV);
         if (!file4.exists()) {
             file4.mkdir();
         }
-        File file5 = new File(i.exH);
+        File file5 = new File(i.eMj);
         if (!file5.exists()) {
             file5.mkdir();
         }
@@ -127,8 +127,8 @@ public class n {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void on(int i) {
-        BufferedWriter bufferedWriter = i.exJ;
+    public void oU(int i) {
+        BufferedWriter bufferedWriter = i.eMl;
         try {
             try {
                 bufferedWriter = new BufferedWriter(new FileWriter(new File((String) bufferedWriter)));
@@ -178,8 +178,8 @@ public class n {
 
     public void destroy() {
         try {
-            if (this.exQ != null) {
-                this.exQ.close();
+            if (this.eMs != null) {
+                this.eMs.close();
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -193,7 +193,7 @@ public class n {
         if (originUrl != null) {
             originUrl = originUrl.replace("?stop_cache=1", "");
         }
-        e.bfn().xL(originUrl);
+        e.blz().zr(originUrl);
         d(socket);
         j.D(TAG, "handleStopCache out");
     }
@@ -203,7 +203,7 @@ public class n {
         j.D(TAG, "handleNotifyDownLoadNextSegment in");
         String originUrl = hVar.getOriginUrl();
         if (originUrl != null) {
-            e.bfn().w(originUrl, hVar.bfu());
+            e.blz().v(originUrl, hVar.blG());
         }
         d(socket);
         j.D(TAG, "handleNotifyDownLoadNextSegment out");
@@ -216,7 +216,7 @@ public class n {
         if (originUrl != null) {
             originUrl = originUrl.replace("?file_access=1", "");
         }
-        k.bfv().xG(originUrl);
+        k.blH().zm(originUrl);
         d(socket);
         j.D(TAG, "handleFileAccess out");
     }
@@ -224,7 +224,7 @@ public class n {
     /* JADX INFO: Access modifiers changed from: private */
     public void d(h hVar, Socket socket) {
         j.D(TAG, "handleDeleteExpiredFiles in");
-        k.bfv().bfh();
+        k.blH().blt();
         d(socket);
         j.D(TAG, "handleDeleteExpiredFiles out");
     }
@@ -232,7 +232,7 @@ public class n {
     /* JADX INFO: Access modifiers changed from: private */
     public void e(h hVar, Socket socket) {
         j.D(TAG, "handleClearCache in");
-        k.bfv().clearCache();
+        k.blH().clearCache();
         d(socket);
         j.D(TAG, "handleClearCache out");
     }

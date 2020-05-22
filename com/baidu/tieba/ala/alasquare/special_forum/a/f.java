@@ -7,13 +7,13 @@ import com.baidu.tieba.ala.alasquare.special_forum.subtab.a.i;
 import com.baidu.tieba.ala.alasquare.special_forum.subtab.a.j;
 /* loaded from: classes3.dex */
 public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasquare.subtablist.b.b, j> {
-    private i eVt;
-    private com.baidu.tieba.ala.alasquare.subtablist.c.i eVu;
+    private i fib;
+    private com.baidu.tieba.ala.alasquare.subtablist.c.i fic;
     private int mFrom;
     private TbPageContext<?> mPageContext;
 
     public f(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.alasquare.subtablist.b.b.eXy);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.alasquare.subtablist.b.b.fki);
         this.mPageContext = tbPageContext;
     }
 
@@ -24,27 +24,27 @@ public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasq
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: N */
+    /* renamed from: S */
     public j b(ViewGroup viewGroup) {
-        this.eVt = new i(this.mPageContext, viewGroup);
-        if (this.eVu != null) {
-            this.eVt.d(this.eVu);
+        this.fib = new i(this.mPageContext, viewGroup);
+        if (this.fic != null) {
+            this.fib.d(this.fic);
         }
-        return new j(this.eVt);
+        return new j(this.fib);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.ala.alasquare.subtablist.b.b bVar, j jVar) {
-        jVar.eVt.a(bVar, this.mFrom);
+        jVar.fib.a(bVar, this.mFrom);
         return jVar.getView();
     }
 
     public void b(com.baidu.tieba.ala.alasquare.subtablist.c.i iVar) {
-        this.eVu = iVar;
-        if (this.eVt != null) {
-            this.eVt.d(this.eVu);
+        this.fic = iVar;
+        if (this.fib != null) {
+            this.fib.d(this.fic);
         }
     }
 }

@@ -1,19 +1,27 @@
 package com.baidu.tieba.live.tbean;
 
 import android.content.Intent;
+import android.graphics.Rect;
 import android.os.Bundle;
 import android.view.KeyEvent;
+import android.view.ViewTreeObserver;
+import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.tbadk.BaseActivity;
+import com.baidu.live.tbadk.core.TbadkCoreApplication;
+import com.baidu.live.tbadk.core.util.ViewCommonUtil;
 /* loaded from: classes3.dex */
 public class BuyTBeanFullscreenActivity extends BaseActivity<BuyTBeanActivity> implements IBuyTBeanActivity {
+    private int availableHeight;
     private BuyTBeanController buyTBeanController;
+    private ViewTreeObserver.OnGlobalLayoutListener globalListener;
+    private boolean mIsKeyboardOpen = false;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.live.tbadk.BaseActivity, com.baidu.live.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         getWindow().setSoftInputMode(16);
         setIsAddSwipeBackLayout(false);
-        setUseStyleImmersiveSticky(false);
+        setUseStyleImmersiveSticky(true);
         addGlobalLayoutListener();
         adjustResizeForSoftInput();
         super.onCreate(bundle);
@@ -77,6 +85,31 @@ public class BuyTBeanFullscreenActivity extends BaseActivity<BuyTBeanActivity> i
         if (this.buyTBeanController != null) {
             this.buyTBeanController.onDestroy();
         }
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.live.tbadk.BaseActivity
+    public void addGlobalLayoutListener() {
+        this.globalListener = new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.tieba.live.tbean.BuyTBeanFullscreenActivity.1
+            @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
+            public void onGlobalLayout() {
+                Rect rect = new Rect();
+                BuyTBeanFullscreenActivity.this.getPageContext().getPageActivity().getWindow().getDecorView().getWindowVisibleDisplayFrame(rect);
+                int statusBarHeight = BdUtilHelper.getStatusBarHeight(BuyTBeanFullscreenActivity.this.getPageContext().getPageActivity());
+                int[] screenFullSize = ViewCommonUtil.getScreenFullSize(BuyTBeanFullscreenActivity.this.getPageContext().getPageActivity());
+                boolean z = BuyTBeanFullscreenActivity.this.availableHeight != rect.bottom;
+                BuyTBeanFullscreenActivity.this.availableHeight = rect.bottom;
+                if (Math.abs(screenFullSize[1] - rect.bottom) > screenFullSize[1] / 4 && (!BuyTBeanFullscreenActivity.this.mIsKeyboardOpen || z)) {
+                    BuyTBeanFullscreenActivity.this.mIsKeyboardOpen = true;
+                    TbadkCoreApplication.getInst().setKeyboardHeight(screenFullSize[1] - rect.bottom);
+                    BuyTBeanFullscreenActivity.this.onKeyboardVisibilityChanged(true);
+                } else if (Math.abs(screenFullSize[1] - rect.height()) <= statusBarHeight && BuyTBeanFullscreenActivity.this.mIsKeyboardOpen) {
+                    BuyTBeanFullscreenActivity.this.mIsKeyboardOpen = false;
+                    BuyTBeanFullscreenActivity.this.onKeyboardVisibilityChanged(false);
+                }
+            }
+        };
+        getWindow().getDecorView().getViewTreeObserver().addOnGlobalLayoutListener(this.globalListener);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

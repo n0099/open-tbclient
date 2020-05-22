@@ -1,7 +1,7 @@
 package com.baidu.tieba.im;
 
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.a.j;
+import com.baidu.adp.framework.b.j;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.framework.task.SocketMessageTask;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
@@ -21,11 +21,11 @@ import java.util.Iterator;
 /* loaded from: classes.dex */
 public class b {
     public static void init() {
-        cch();
-        cci();
+        ciF();
+        ciG();
     }
 
-    private static void cch() {
+    private static void ciF() {
         c.b(CmdConfigSocket.CMD_UPDATE_MASK_INFO, ResponseUpdateMaskInfoMessage.class, false);
         c.b(CmdConfigSocket.CMD_MESSAGE_SYNC, ResponsePullMessage.class, false).a(SocketMessageTask.DupLicateMode.REMOVE_WAITING);
         c.b(CmdConfigSocket.CMD_PUSH_MESSAGE, PushResponseMessage.class, false);
@@ -39,10 +39,10 @@ public class b {
         MessageManager.getInstance().registerStickyMode(CmdConfigCustom.CMD_MESSAGE_NOTIFY_LOCAL);
     }
 
-    private static boolean cci() {
+    private static boolean ciG() {
         MessageManager.getInstance().addResponsedMessageRule(new j(CmdConfigSocket.CMD_PUSH_NOTIFY) { // from class: com.baidu.tieba.im.b.1
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.framework.a.g
+            @Override // com.baidu.adp.framework.b.g
             /* renamed from: e */
             public SocketResponsedMessage a(SocketResponsedMessage socketResponsedMessage) {
                 if (socketResponsedMessage instanceof PushNotifyMessageDecoder) {

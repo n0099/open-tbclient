@@ -1,24 +1,24 @@
 package com.baidu.live.liveroom.f;
 /* loaded from: classes3.dex */
 public class c {
-    private static volatile c aQg = null;
-    private b aQh = null;
+    private static volatile c aWp = null;
+    private b aWq = null;
 
     private c() {
     }
 
-    public static c DI() {
-        if (aQg == null) {
+    public static c Fg() {
+        if (aWp == null) {
             synchronized (c.class) {
-                if (aQg == null) {
-                    aQg = new c();
+                if (aWp == null) {
+                    aWp = new c();
                 }
             }
         }
-        return aQg;
+        return aWp;
     }
 
-    public b DJ() {
-        return this.aQh;
+    public b Fh() {
+        return this.aWq;
     }
 }

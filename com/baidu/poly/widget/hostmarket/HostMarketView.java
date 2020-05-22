@@ -14,25 +14,25 @@ import android.widget.Toast;
 import com.baidu.poly.a.j.a;
 import com.baidu.poly.b;
 import com.baidu.poly.widget.SwitchButton;
-import com.baidu.poly.widget.n;
+import com.baidu.poly.widget.o;
 import com.xiaomi.mipush.sdk.Constants;
 import java.text.DecimalFormat;
 /* loaded from: classes11.dex */
 public class HostMarketView extends FrameLayout {
-    private TextView bpR;
-    private a bqA;
-    private boolean bqB;
-    private ImageView bqv;
-    private TextView bqw;
-    private TextView bqx;
-    private SwitchButton bqy;
-    private n bqz;
+    private ImageView bxX;
+    private TextView bxY;
+    private TextView bxZ;
+    private TextView bxu;
+    private SwitchButton bya;
+    private o byb;
+    private a byc;
+    private boolean byd;
 
     /* loaded from: classes11.dex */
     public interface a {
-        void a(boolean z, n nVar, com.baidu.poly.a.j.a aVar);
+        void a(boolean z, o oVar, com.baidu.poly.a.j.a aVar);
 
-        void b(a.C0207a c0207a);
+        void b(a.C0240a c0240a);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -54,20 +54,20 @@ public class HostMarketView extends FrameLayout {
         }
 
         @Override // com.baidu.poly.a.j.a
-        public void a(a.C0207a c0207a) {
-            HostMarketView.this.bqA.b(c0207a);
-            if (c0207a != null) {
-                if (c0207a.statusCode == 0) {
-                    if (HostMarketView.this.bqy.isChecked()) {
-                        HostMarketView.this.bqx.setVisibility(0);
+        public void a(a.C0240a c0240a) {
+            HostMarketView.this.byc.b(c0240a);
+            if (c0240a != null) {
+                if (c0240a.statusCode == 0) {
+                    if (HostMarketView.this.bya.isChecked()) {
+                        HostMarketView.this.bxZ.setVisibility(0);
                     } else {
-                        HostMarketView.this.bqx.setVisibility(4);
+                        HostMarketView.this.bxZ.setVisibility(4);
                     }
                 } else {
-                    HostMarketView.this.bqy.g();
+                    HostMarketView.this.bya.j();
                     Toast.makeText(HostMarketView.this.getContext(), HostMarketView.this.getResources().getString(b.g.host_market_calculate_error), 0).show();
                 }
-                HostMarketView.this.bqz.h(HostMarketView.this.bqy.isChecked() ? 1 : 0);
+                HostMarketView.this.byb.h(HostMarketView.this.bya.isChecked() ? 1 : 0);
             }
         }
     }
@@ -76,38 +76,38 @@ public class HostMarketView extends FrameLayout {
         this(context, null);
     }
 
-    private void e() {
-        if (this.bqz == null) {
+    private void g() {
+        if (this.byb == null) {
             setVisibility(8);
             return;
         }
         setVisibility(0);
-        com.baidu.poly.a.c.b.KT().b(this.bqv, this.bqz.getIcon());
-        this.bpR.setText(this.bqz.t());
-        this.bqw.setText(this.bqz.z());
-        if (!TextUtils.isEmpty(this.bqz.s())) {
+        com.baidu.poly.a.c.b.MP().b(this.bxX, this.byb.getIcon());
+        this.bxu.setText(this.byb.getDisplayName());
+        this.bxY.setText(this.byb.J());
+        if (!TextUtils.isEmpty(this.byb.D())) {
             try {
-                this.bqw.setTextColor(Color.parseColor(this.bqz.s()));
+                this.bxY.setTextColor(Color.parseColor(this.byb.D()));
             } catch (Exception e) {
             }
         }
-        if (this.bqB) {
-            this.bqy.setVisibility(4);
-            this.bqx.setVisibility(0);
-            this.bqx.setText(Constants.ACCEPT_TIME_SEPARATOR_SERVER + a(this.bqz.r()) + "元");
+        if (this.byd) {
+            this.bya.setVisibility(4);
+            this.bxZ.setVisibility(0);
+            this.bxZ.setText(Constants.ACCEPT_TIME_SEPARATOR_SERVER + a(this.byb.C()) + "元");
             return;
         }
-        this.bqy.setVisibility(0);
-        this.bqx.setVisibility(4);
-        if (this.bqz.w() == 1) {
-            this.bqy.setChecked(true);
+        this.bya.setVisibility(0);
+        this.bxZ.setVisibility(4);
+        if (this.byb.G() == 1) {
+            this.bya.setChecked(true);
         } else {
-            this.bqy.setChecked(false);
+            this.bya.setChecked(false);
         }
     }
 
     public void setListener(a aVar) {
-        this.bqA = aVar;
+        this.byc = aVar;
     }
 
     public HostMarketView(Context context, AttributeSet attributeSet) {
@@ -116,27 +116,27 @@ public class HostMarketView extends FrameLayout {
 
     private void c(Context context) {
         LayoutInflater.from(context).inflate(b.f.hostmarket_item, (ViewGroup) this, true);
-        this.bqv = (ImageView) findViewById(b.e.icon);
-        this.bpR = (TextView) findViewById(b.e.title);
-        this.bqw = (TextView) findViewById(b.e.subtitle);
-        this.bqx = (TextView) findViewById(b.e.cut_text);
-        this.bqy = (SwitchButton) findViewById(b.e.switch_button);
-        this.bqy.setOnCheckedChangeListener(new b());
+        this.bxX = (ImageView) findViewById(b.e.icon);
+        this.bxu = (TextView) findViewById(b.e.title);
+        this.bxY = (TextView) findViewById(b.e.subtitle);
+        this.bxZ = (TextView) findViewById(b.e.cut_text);
+        this.bya = (SwitchButton) findViewById(b.e.switch_button);
+        this.bya.setOnCheckedChangeListener(new b());
     }
 
     public HostMarketView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.bqB = false;
+        this.byd = false;
         c(context);
     }
 
-    public void a(n nVar) {
-        this.bqz = nVar;
-        n nVar2 = this.bqz;
-        if (nVar2 != null) {
-            this.bqB = nVar2.w() == 1;
+    public void a(o oVar) {
+        this.byb = oVar;
+        o oVar2 = this.byb;
+        if (oVar2 != null) {
+            this.byd = oVar2.G() == 1;
         }
-        e();
+        g();
     }
 
     private String a(long j) {
@@ -145,9 +145,9 @@ public class HostMarketView extends FrameLayout {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(boolean z) {
-        if (this.bqA != null) {
-            this.bqz.h(this.bqy.isChecked() ? 1 : 0);
-            this.bqA.a(z, this.bqz, new c());
+        if (this.byc != null) {
+            this.byb.h(this.bya.isChecked() ? 1 : 0);
+            this.byc.a(z, this.byb, new c());
         }
     }
 }

@@ -8,30 +8,30 @@ import com.baidu.tieba.R;
 public class a extends l {
     public a(Context context, int i, boolean z) {
         super(context, TbadkCoreApplication.getInst().getString(R.string.editor_express), 5, i);
-        this.dXy = R.drawable.icon_pure_post_expression24_svg;
-        this.dXz = R.drawable.icon_mask_post_expression24_selection_svg;
-        this.dXA = true;
+        this.elH = R.drawable.icon_pure_post_expression24_svg;
+        this.elI = R.drawable.icon_mask_post_expression24_selection_svg;
+        this.elJ = true;
         EmotionTabHost emotionTabHost = new EmotionTabHost(context);
         emotionTabHost.setShowBigEmotion(z);
-        this.dWM = emotionTabHost;
-        this.dXE = true;
-        this.dXD = 6;
-        this.dXF = new int[]{1, 34, 35};
+        this.ekV = emotionTabHost;
+        this.elN = true;
+        this.elM = 6;
+        this.elO = new int[]{1, 34, 35};
     }
 
     public a(Context context, int i) {
         super(context, TbadkCoreApplication.getInst().getString(R.string.editor_express), 5, i);
-        this.dXy = R.drawable.icon_pure_post_expression24_svg;
-        this.dXz = R.drawable.icon_mask_post_expression24_selection_svg;
-        this.dXA = true;
-        this.dWM = new EmotionTabHost(context);
-        this.dXE = true;
-        this.dXD = 6;
-        this.dXF = new int[]{1, 34, 35};
+        this.elH = R.drawable.icon_pure_post_expression24_svg;
+        this.elI = R.drawable.icon_mask_post_expression24_selection_svg;
+        this.elJ = true;
+        this.ekV = new EmotionTabHost(context);
+        this.elN = true;
+        this.elM = 6;
+        this.elO = new int[]{1, 34, 35};
     }
 
     @Override // com.baidu.tbadk.editortools.l
-    public void hD(boolean z) {
-        ((EmotionTabHost) this.dWM).setShowUserCollect(z);
+    public void hZ(boolean z) {
+        ((EmotionTabHost) this.ekV).setShowUserCollect(z);
     }
 }

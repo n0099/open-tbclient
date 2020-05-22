@@ -5,8 +5,8 @@ import com.baidu.tieba.ala.alaar.sticker.download.exception.DownloadException;
 public class c {
     private boolean acceptRanges;
     private boolean calledCompleted;
-    private DownloadException eKn;
-    private a eKo;
+    private DownloadException eWK;
+    private a eWL;
     private long finished;
     private long length;
     private int percent;
@@ -59,19 +59,19 @@ public class c {
     }
 
     public Exception getException() {
-        return this.eKn;
+        return this.eWK;
     }
 
     public void d(DownloadException downloadException) {
-        this.eKn = downloadException;
+        this.eWK = downloadException;
     }
 
-    public a bkk() {
-        return this.eKo;
+    public a bpE() {
+        return this.eWL;
     }
 
     public void a(a aVar) {
-        this.eKo = aVar;
+        this.eWL = aVar;
     }
 
     public String getSavedPath() {

@@ -10,15 +10,15 @@ import javax.annotation.concurrent.NotThreadSafe;
 public class b<E> implements Iterable<E> {
     static final /* synthetic */ boolean $assertionsDisabled;
     public final List<E> mObservers = new ArrayList();
-    private int lHR = 0;
+    private int mbi = 0;
     private int mCount = 0;
-    private boolean lHS = false;
+    private boolean mbj = false;
 
     static {
         $assertionsDisabled = !b.class.desiredAssertionStatus();
     }
 
-    public boolean aG(E e) {
+    public boolean aJ(E e) {
         if (e == null || this.mObservers.contains(e)) {
             return false;
         }
@@ -36,7 +36,7 @@ public class b<E> implements Iterable<E> {
     }
 
     private void compact() {
-        if (!$assertionsDisabled && this.lHR != 0) {
+        if (!$assertionsDisabled && this.mbi != 0) {
             throw new AssertionError();
         }
         for (int size = this.mObservers.size() - 1; size >= 0; size--) {
@@ -47,18 +47,18 @@ public class b<E> implements Iterable<E> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void diA() {
-        this.lHR++;
+    public void dpR() {
+        this.mbi++;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void diB() {
-        this.lHR--;
-        if (!$assertionsDisabled && this.lHR < 0) {
+    public void dpS() {
+        this.mbi--;
+        if (!$assertionsDisabled && this.mbi < 0) {
             throw new AssertionError();
         }
-        if (this.lHR <= 0 && this.lHS) {
-            this.lHS = false;
+        if (this.mbi <= 0 && this.mbj) {
+            this.mbj = false;
             compact();
         }
     }
@@ -69,48 +69,48 @@ public class b<E> implements Iterable<E> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public E Fi(int i) {
+    public E FV(int i) {
         return this.mObservers.get(i);
     }
 
     /* loaded from: classes.dex */
     private class a implements c<E> {
-        private int lHT;
-        private boolean lHU;
         private int mIndex;
+        private int mbk;
+        private boolean mbl;
 
         private a() {
             this.mIndex = 0;
-            this.lHU = false;
-            b.this.diA();
-            this.lHT = b.this.capacity();
+            this.mbl = false;
+            b.this.dpR();
+            this.mbk = b.this.capacity();
         }
 
         @Override // java.util.Iterator
         public boolean hasNext() {
             int i = this.mIndex;
-            while (i < this.lHT && b.this.Fi(i) == null) {
+            while (i < this.mbk && b.this.FV(i) == null) {
                 i++;
             }
-            if (i < this.lHT) {
+            if (i < this.mbk) {
                 return true;
             }
-            diC();
+            dpT();
             return false;
         }
 
         @Override // java.util.Iterator
         public E next() {
-            while (this.mIndex < this.lHT && b.this.Fi(this.mIndex) == null) {
+            while (this.mIndex < this.mbk && b.this.FV(this.mIndex) == null) {
                 this.mIndex++;
             }
-            if (this.mIndex < this.lHT) {
+            if (this.mIndex < this.mbk) {
                 b bVar = b.this;
                 int i = this.mIndex;
                 this.mIndex = i + 1;
-                return (E) bVar.Fi(i);
+                return (E) bVar.FV(i);
             }
-            diC();
+            dpT();
             throw new NoSuchElementException();
         }
 
@@ -119,10 +119,10 @@ public class b<E> implements Iterable<E> {
             throw new UnsupportedOperationException();
         }
 
-        private void diC() {
-            if (!this.lHU) {
-                this.lHU = true;
-                b.this.diB();
+        private void dpT() {
+            if (!this.mbl) {
+                this.mbl = true;
+                b.this.dpS();
             }
         }
     }

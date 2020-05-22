@@ -7,51 +7,51 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes6.dex */
 public class a {
-    private Map<String, com.baidu.j.a> dfD;
+    private Map<String, com.baidu.j.a> dtr;
 
     private a() {
-        this.dfD = new HashMap();
+        this.dtr = new HashMap();
     }
 
     /* renamed from: com.baidu.j.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    private static class C0122a {
-        private static final a dfE = new a();
+    private static class C0153a {
+        private static final a dtt = new a();
     }
 
-    public static a aFf() {
-        return C0122a.dfE;
+    public static a aKA() {
+        return C0153a.dtt;
     }
 
     public boolean a(com.baidu.j.a aVar, String str) {
         if (aVar == null || str == null) {
             return false;
         }
-        for (Map.Entry<String, com.baidu.j.a> entry : this.dfD.entrySet()) {
+        for (Map.Entry<String, com.baidu.j.a> entry : this.dtr.entrySet()) {
             entry.getValue().stop();
         }
-        this.dfD.clear();
-        this.dfD.put(str, aVar);
+        this.dtr.clear();
+        this.dtr.put(str, aVar);
         return true;
     }
 
-    public void sC(String str) {
+    public void ug(String str) {
         com.baidu.j.a aVar;
-        if (str != null && (aVar = this.dfD.get(str)) != null) {
+        if (str != null && (aVar = this.dtr.get(str)) != null) {
             aVar.stop();
-            this.dfD.remove(str);
+            this.dtr.remove(str);
         }
     }
 
-    public com.baidu.j.a sD(String str) {
+    public com.baidu.j.a uh(String str) {
         com.baidu.j.a aVar;
-        if (str == null || (aVar = this.dfD.get(str)) == null) {
+        if (str == null || (aVar = this.dtr.get(str)) == null) {
             return null;
         }
         return aVar;
     }
 
-    public static boolean bj(Context context) {
-        return !com.baidu.swan.apps.as.a.hasMarshMallow() || ActivityCompat.checkSelfPermission(context, PermissionRequest.RESOURCE_AUDIO_CAPTURE) == 0;
+    public static boolean bt(Context context) {
+        return !com.baidu.swan.apps.aq.b.hasMarshMallow() || ActivityCompat.checkSelfPermission(context, PermissionRequest.RESOURCE_AUDIO_CAPTURE) == 0;
     }
 }

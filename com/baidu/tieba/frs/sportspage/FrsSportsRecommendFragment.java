@@ -18,12 +18,12 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.j;
 import com.baidu.adp.lib.util.l;
-import com.baidu.adp.widget.ListView.m;
+import com.baidu.adp.widget.ListView.o;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.live.tbadk.core.util.StringHelper;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.bj;
+import com.baidu.tbadk.core.data.bk;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.am;
@@ -41,58 +41,58 @@ import com.baidu.tieba.frs.commontab.d;
 import java.util.Iterator;
 /* loaded from: classes9.dex */
 public class FrsSportsRecommendFragment extends FrsCommonTabFragment {
-    private AppBarLayout Wc;
-    private View aWc;
-    private FrameLayout cVI;
-    private CollapsingToolbarLayout eUL;
-    private NoNetworkView gAM;
-    private View haS;
-    private View har;
-    private long hgg;
-    private TextView hlE;
-    private aw hqI;
-    private ObservedChangeLinearLayout htF;
-    private View htG;
-    private View htH;
-    private ImageView htI;
-    private a htJ;
-    private b htK;
-    private int htM;
+    private AppBarLayout Wr;
+    private View bdq;
+    private FrameLayout dgJ;
+    private NoNetworkView fan;
+    private CollapsingToolbarLayout fht;
+    private TextView hAs;
+    private aw hFw;
+    private int hIA;
+    private ObservedChangeLinearLayout hIt;
+    private View hIu;
+    private View hIv;
+    private ImageView hIw;
+    private a hIx;
+    private b hIy;
+    private View hpG;
+    private View hpf;
+    private long huU;
     private ImageView mBackImageView;
     private NavigationBar mNavigationBar;
-    private boolean htL = true;
-    public final View.OnClickListener haG = new View.OnClickListener() { // from class: com.baidu.tieba.frs.sportspage.FrsSportsRecommendFragment.2
+    private boolean hIz = true;
+    public final View.OnClickListener hpu = new View.OnClickListener() { // from class: com.baidu.tieba.frs.sportspage.FrsSportsRecommendFragment.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (FrsSportsRecommendFragment.this.har != null && view == FrsSportsRecommendFragment.this.har) {
+            if (FrsSportsRecommendFragment.this.hpf != null && view == FrsSportsRecommendFragment.this.hpf) {
                 CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(CmdConfigCustom.CMD_CLICK_CLOSE_GAME_FRS_CONFIRM);
                 customResponsedMessage.setmOrginalMessage(new CustomMessage((int) CmdConfigCustom.CMD_GAME_FRS_TAB_CHANGE, FrsSportsRecommendFragment.this.getPageContext().getUniqueId()));
                 MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
             }
         }
     };
-    private CustomMessageListener eVk = new CustomMessageListener(CmdConfigCustom.CMD_FORCE_REFRESH) { // from class: com.baidu.tieba.frs.sportspage.FrsSportsRecommendFragment.3
+    private CustomMessageListener fhS = new CustomMessageListener(CmdConfigCustom.CMD_FORCE_REFRESH) { // from class: com.baidu.tieba.frs.sportspage.FrsSportsRecommendFragment.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && !TextUtils.isEmpty((String) customResponsedMessage.getData())) {
                 String[] split = ((String) customResponsedMessage.getData()).split(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
                 if (split.length == 2 && "FrsSportsRecommendTab".equals(split[0]) && 25 == com.baidu.adp.lib.f.b.toInt(split[1], 0)) {
-                    FrsSportsRecommendFragment.this.Wc.setExpanded(true, false);
-                    FrsSportsRecommendFragment.this.hfM.setSelection(0);
-                    FrsSportsRecommendFragment.this.bml();
+                    FrsSportsRecommendFragment.this.Wr.setExpanded(true, false);
+                    FrsSportsRecommendFragment.this.huA.setSelection(0);
+                    FrsSportsRecommendFragment.this.brJ();
                 }
             }
         }
     };
-    private AppBarLayout.OnOffsetChangedListener htN = new AppBarLayout.OnOffsetChangedListener() { // from class: com.baidu.tieba.frs.sportspage.FrsSportsRecommendFragment.4
+    private AppBarLayout.OnOffsetChangedListener hIB = new AppBarLayout.OnOffsetChangedListener() { // from class: com.baidu.tieba.frs.sportspage.FrsSportsRecommendFragment.4
         @Override // android.support.design.widget.AppBarLayout.OnOffsetChangedListener
         public void onOffsetChanged(AppBarLayout appBarLayout, int i) {
             float f = 1.0f;
-            if (FrsSportsRecommendFragment.this.htM != i) {
+            if (FrsSportsRecommendFragment.this.hIA != i) {
                 int statusBarHeight = UtilHelper.canUseStyleImmersiveSticky() ? UtilHelper.getStatusBarHeight() : 0;
                 int height = FrsSportsRecommendFragment.this.mNavigationBar.getHeight();
-                int height2 = (FrsSportsRecommendFragment.this.gAM == null || j.isNetWorkAvailable()) ? 0 : FrsSportsRecommendFragment.this.gAM.getHeight();
+                int height2 = (FrsSportsRecommendFragment.this.fan == null || j.isNetWorkAvailable()) ? 0 : FrsSportsRecommendFragment.this.fan.getHeight();
                 int dimens = ((l.getDimens(FrsSportsRecommendFragment.this.getContext(), R.dimen.tbds318) - height) - height2) - statusBarHeight;
                 int i2 = statusBarHeight + height + height2 + dimens;
                 int totalScrollRange = (appBarLayout.getTotalScrollRange() - i2) - dimens;
@@ -102,20 +102,20 @@ public class FrsSportsRecommendFragment extends FrsCommonTabFragment {
                     if (Float.compare(abs, 1.0f) > 0) {
                         abs = 1.0f;
                     }
-                    if (Float.compare(abs, 0.05f) <= 0 && FrsSportsRecommendFragment.this.htM - i < 0) {
+                    if (Float.compare(abs, 0.05f) <= 0 && FrsSportsRecommendFragment.this.hIA - i < 0) {
                         abs = 0.0f;
                     }
                     if (dimens + i <= 0 || FrsSportsRecommendFragment.this.mNavigationBar == null || FrsSportsRecommendFragment.this.mNavigationBar.getBarBgView() == null || FrsSportsRecommendFragment.this.mNavigationBar.getBarBgView().getAlpha() != 0.0f) {
                         if (Float.compare(abs, 1.0f) == 0) {
-                            FrsSportsRecommendFragment.this.th(Math.abs(i2 - totalScrollRange2));
-                            if (FrsSportsRecommendFragment.this.haS != null) {
-                                FrsSportsRecommendFragment.this.haS.setVisibility(0);
+                            FrsSportsRecommendFragment.this.tM(Math.abs(i2 - totalScrollRange2));
+                            if (FrsSportsRecommendFragment.this.hpG != null) {
+                                FrsSportsRecommendFragment.this.hpG.setVisibility(0);
                             }
-                        } else if (FrsSportsRecommendFragment.this.haS != null && FrsSportsRecommendFragment.this.aWc != null) {
-                            if (FrsSportsRecommendFragment.this.aWc.getHeight() != UtilHelper.getStatusBarHeight()) {
-                                FrsSportsRecommendFragment.this.th(0);
+                        } else if (FrsSportsRecommendFragment.this.hpG != null && FrsSportsRecommendFragment.this.bdq != null) {
+                            if (FrsSportsRecommendFragment.this.bdq.getHeight() != UtilHelper.getStatusBarHeight()) {
+                                FrsSportsRecommendFragment.this.tM(0);
                             }
-                            FrsSportsRecommendFragment.this.haS.setVisibility(8);
+                            FrsSportsRecommendFragment.this.hpG.setVisibility(8);
                         }
                         if (abs > 0.5f) {
                             UtilHelper.changeStatusBarIconAndTextColor(false, FrsSportsRecommendFragment.this.getPageContext().getPageActivity());
@@ -125,11 +125,11 @@ public class FrsSportsRecommendFragment extends FrsCommonTabFragment {
                         }
                         if (FrsSportsRecommendFragment.this.mNavigationBar != null) {
                             FrsSportsRecommendFragment.this.mNavigationBar.getBarBgView().setAlpha(f);
-                            FrsSportsRecommendFragment.this.bPL();
+                            FrsSportsRecommendFragment.this.bWh();
                         }
                         FrsSportsRecommendFragment.this.h(i, f);
-                        FrsSportsRecommendFragment.this.htM = i;
-                        FrsSportsRecommendFragment.this.tH(i);
+                        FrsSportsRecommendFragment.this.hIA = i;
+                        FrsSportsRecommendFragment.this.um(i);
                     }
                 }
             }
@@ -139,28 +139,28 @@ public class FrsSportsRecommendFragment extends FrsCommonTabFragment {
     @Override // com.baidu.tieba.frs.commontab.FrsCommonTabFragment, com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        registerListener(this.eVk);
+        registerListener(this.fhS);
     }
 
     @Override // com.baidu.tieba.frs.commontab.FrsCommonTabFragment, com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     @Nullable
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
         super.onCreateView(layoutInflater, viewGroup, bundle);
-        this.hfM.mU(true);
-        bUr();
-        this.eUL = (CollapsingToolbarLayout) this.mRootView.findViewById(R.id.frs_collapse_layout);
-        this.aWc = this.mRootView.findViewById(R.id.statebar_view);
-        this.haS = this.mRootView.findViewById(R.id.statebar_view_holder);
-        this.Wc = (AppBarLayout) this.mRootView.findViewById(R.id.frs_app_bar_layout);
-        this.Wc.addOnOffsetChangedListener(this.htN);
-        Fl();
-        this.htJ = new a(this, this.mRootView);
-        this.htJ.g(this.hfO);
-        this.htK = new b(this, this.mRootView);
-        if (this.hfN != null) {
-            this.hfN.ef(0L);
+        this.huA.np(true);
+        caO();
+        this.fht = (CollapsingToolbarLayout) this.mRootView.findViewById(R.id.frs_collapse_layout);
+        this.bdq = this.mRootView.findViewById(R.id.statebar_view);
+        this.hpG = this.mRootView.findViewById(R.id.statebar_view_holder);
+        this.Wr = (AppBarLayout) this.mRootView.findViewById(R.id.frs_app_bar_layout);
+        this.Wr.addOnOffsetChangedListener(this.hIB);
+        Hc();
+        this.hIx = new a(this, this.mRootView);
+        this.hIx.g(this.huC);
+        this.hIy = new b(this, this.mRootView);
+        if (this.huB != null) {
+            this.huB.eg(0L);
         }
-        this.cVI = (FrameLayout) this.mRootView.findViewById(R.id.frs_sports_recommend_list_container);
+        this.dgJ = (FrameLayout) this.mRootView.findViewById(R.id.frs_sports_recommend_list_container);
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         return this.mRootView;
     }
@@ -171,7 +171,7 @@ public class FrsSportsRecommendFragment extends FrsCommonTabFragment {
             long currentTimeMillis = System.currentTimeMillis() - this.lastResumeTime;
             if (currentTimeMillis >= 0 && (getFragmentActivity() instanceof FrsActivity)) {
                 FrsActivity frsActivity = (FrsActivity) getFragmentActivity();
-                frsActivity.gXA = currentTimeMillis + frsActivity.gXA;
+                frsActivity.hmm = currentTimeMillis + frsActivity.hmm;
             }
         }
         super.onPrimary();
@@ -183,7 +183,7 @@ public class FrsSportsRecommendFragment extends FrsCommonTabFragment {
             long currentTimeMillis = System.currentTimeMillis() - this.lastResumeTime;
             if (currentTimeMillis >= 0 && (getFragmentActivity() instanceof FrsActivity)) {
                 FrsActivity frsActivity = (FrsActivity) getFragmentActivity();
-                frsActivity.gXA = currentTimeMillis + frsActivity.gXA;
+                frsActivity.hmm = currentTimeMillis + frsActivity.hmm;
             }
         }
         super.onPause();
@@ -192,21 +192,21 @@ public class FrsSportsRecommendFragment extends FrsCommonTabFragment {
     @Override // com.baidu.tieba.frs.commontab.FrsCommonTabFragment, com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.htJ != null) {
-            this.htJ.onChangeSkinType();
+        if (this.hIx != null) {
+            this.hIx.onChangeSkinType();
         }
-        if (this.htK != null) {
-            this.htK.onChangeSkinType();
+        if (this.hIy != null) {
+            this.hIy.onChangeSkinType();
         }
-        if (this.gAM != null) {
-            this.gAM.onChangeSkinType(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
+        if (this.fan != null) {
+            this.fan.onChangeSkinType(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
         }
-        am.setBackgroundResource(this.htG, R.drawable.top_shadow);
-        am.setBackgroundResource(this.htH, R.drawable.top_shadow);
-        am.setBackgroundColor(this.aWc, R.color.cp_bg_line_d);
-        am.setBackgroundColor(this.haS, R.color.cp_bg_line_d);
-        SvgManager.aOR().a(this.htI, R.drawable.icon_pure_topbar_return44_svg, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-        SvgManager.aOR().a(this.mBackImageView, R.drawable.icon_pure_topbar_return44_svg, R.color.cp_cont_f, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        am.setBackgroundResource(this.hIu, R.drawable.top_shadow);
+        am.setBackgroundResource(this.hIv, R.drawable.top_shadow);
+        am.setBackgroundColor(this.bdq, R.color.cp_bg_line_d);
+        am.setBackgroundColor(this.hpG, R.color.cp_bg_line_d);
+        SvgManager.aUV().a(this.hIw, R.drawable.icon_pure_topbar_return44_svg, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        SvgManager.aUV().a(this.mBackImageView, R.drawable.icon_pure_topbar_return44_svg, R.color.cp_cont_f, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         if (this.mNavigationBar != null) {
             am.setBackgroundColor(this.mNavigationBar.getBarBgView(), R.color.cp_bg_line_h);
             this.mNavigationBar.onChangeSkinType(getPageContext(), i);
@@ -214,16 +214,16 @@ public class FrsSportsRecommendFragment extends FrsCommonTabFragment {
                 this.mNavigationBar.getBackground().mutate().setAlpha(0);
             }
         }
-        bPL();
+        bWh();
     }
 
     @Override // com.baidu.tieba.frs.commontab.FrsCommonTabFragment, com.baidu.tieba.frs.an
-    public void aQk() {
-        bUs();
-        if (this.hfN != null) {
-            this.hfN.ef(this.hgg);
+    public void aWo() {
+        caP();
+        if (this.huB != null) {
+            this.huB.eg(this.huU);
         }
-        super.aQk();
+        super.aWo();
     }
 
     @Override // com.baidu.tieba.frs.commontab.FrsCommonTabFragment
@@ -235,45 +235,45 @@ public class FrsSportsRecommendFragment extends FrsCommonTabFragment {
     public void a(d dVar) {
         super.a(dVar);
         if (dVar != null) {
-            if (this.htJ != null) {
-                this.htJ.setData(dVar.hgi, dVar.hgj, dVar.hgk);
+            if (this.hIx != null) {
+                this.hIx.setData(dVar.huW, dVar.huX, dVar.huY);
             }
-            if (this.htK != null && this.hfO != null && this.hfO.getForum() != null) {
-                this.htK.a(dVar.hgl, this.hfO.getForum().getId());
+            if (this.hIy != null && this.huC != null && this.huC.getForum() != null) {
+                this.hIy.a(dVar.huZ, this.huC.getForum().getId());
             }
-            if (this.hfN != null && this.hfN.bRw()) {
-                sw(dVar.hgh);
+            if (this.huB != null && this.huB.bXS()) {
+                tb(dVar.huV);
             }
             if (!v.isEmpty(dVar.threadList)) {
-                Iterator<m> it = dVar.threadList.iterator();
+                Iterator<o> it = dVar.threadList.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
                     }
-                    m next = it.next();
-                    if (next instanceof bj) {
-                        bj bjVar = (bj) next;
-                        if (bjVar.isTop()) {
+                    o next = it.next();
+                    if (next instanceof bk) {
+                        bk bkVar = (bk) next;
+                        if (bkVar.isTop()) {
                             continue;
                         } else {
-                            long j = com.baidu.adp.lib.f.b.toLong(bjVar.getId(), 0L);
+                            long j = com.baidu.adp.lib.f.b.toLong(bkVar.getId(), 0L);
                             if (j > 0) {
-                                this.hgg = j;
+                                this.huU = j;
                                 break;
                             }
                         }
                     }
                 }
             }
-            this.htL = false;
+            this.hIz = false;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragment
     public void showLoadingView(View view, boolean z, int i) {
-        if (this.hfM != null) {
-            this.hfM.it(true);
+        if (this.huA != null) {
+            this.huA.iQ(true);
         }
     }
 
@@ -282,48 +282,48 @@ public class FrsSportsRecommendFragment extends FrsCommonTabFragment {
     public void hideLoadingView(View view) {
     }
 
-    private void bUr() {
+    private void caO() {
         if (this.mNavigationBar == null) {
             this.mNavigationBar = (NavigationBar) this.mRootView.findViewById(R.id.view_navigation_bar);
             this.mNavigationBar.getBarBgView().setAlpha(0.0f);
         }
-        if (this.htF == null) {
-            this.htF = (ObservedChangeLinearLayout) this.mRootView.findViewById(R.id.navigation_bar_wrapperLayout);
-            this.htF.setOnSizeChangeListener(new e() { // from class: com.baidu.tieba.frs.sportspage.FrsSportsRecommendFragment.1
+        if (this.hIt == null) {
+            this.hIt = (ObservedChangeLinearLayout) this.mRootView.findViewById(R.id.navigation_bar_wrapperLayout);
+            this.hIt.setOnSizeChangeListener(new e() { // from class: com.baidu.tieba.frs.sportspage.FrsSportsRecommendFragment.1
                 @Override // com.baidu.tbadk.widget.layout.e
                 public void d(View view, int i, int i2, int i3, int i4) {
                     if (i2 != i4) {
-                        FrsSportsRecommendFragment.this.eUL.setMinimumHeight(i2);
+                        FrsSportsRecommendFragment.this.fht.setMinimumHeight(i2);
                     }
                 }
             });
         }
-        if (this.htG == null) {
-            this.htG = this.mRootView.findViewById(R.id.navbar_bottom_divider_shadow);
+        if (this.hIu == null) {
+            this.hIu = this.mRootView.findViewById(R.id.navbar_bottom_divider_shadow);
         }
-        if (this.htH == null) {
-            this.htH = this.mRootView.findViewById(R.id.feed_top_divider_shadow);
+        if (this.hIv == null) {
+            this.hIv = this.mRootView.findViewById(R.id.feed_top_divider_shadow);
         }
-        if (this.har == null) {
-            this.har = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.har.setOnClickListener(this.haG);
-            this.mBackImageView = (ImageView) this.har.findViewById(R.id.widget_navi_back_button);
+        if (this.hpf == null) {
+            this.hpf = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+            this.hpf.setOnClickListener(this.hpu);
+            this.mBackImageView = (ImageView) this.hpf.findViewById(R.id.widget_navi_back_button);
         }
-        if (this.htI == null) {
-            this.htI = (ImageView) this.mRootView.findViewById(R.id.navbar_fake_back_icon);
+        if (this.hIw == null) {
+            this.hIw = (ImageView) this.mRootView.findViewById(R.id.navbar_fake_back_icon);
         }
-        if (this.gAM == null) {
-            this.gAM = new NoNetworkView(getContext());
-            this.gAM.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
-            this.htF.addView(this.gAM);
+        if (this.fan == null) {
+            this.fan = new NoNetworkView(getContext());
+            this.fan.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
+            this.hIt.addView(this.fan);
         }
         if (j.isNetworkAvailableForImmediately()) {
-            this.gAM.setVisibility(8);
+            this.fan.setVisibility(8);
         } else {
-            this.gAM.setVisibility(0);
+            this.fan.setVisibility(0);
         }
-        if (this.mNavigationBar != null && this.hfO != null && this.hfO.getForum() != null) {
-            String name = this.hfO.getForum().getName();
+        if (this.mNavigationBar != null && this.huC != null && this.huC.getForum() != null) {
+            String name = this.huC.getForum().getName();
             if (aq.getChineseAndEnglishLength(name) > 14) {
                 name = aq.cutForumNameWithSuffix(name, 14, StringHelper.STRING_MORE);
             }
@@ -333,34 +333,34 @@ public class FrsSportsRecommendFragment extends FrsCommonTabFragment {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void h(int i, float f) {
-        if (this.htG != null && this.htH != null && this.mNavigationBar != null) {
+        if (this.hIu != null && this.hIv != null && this.mNavigationBar != null) {
             int height = this.mNavigationBar.getHeight();
             if (!(f == 1.0f)) {
-                this.htG.setVisibility(8);
-                this.htH.setVisibility(8);
+                this.hIu.setVisibility(8);
+                this.hIv.setVisibility(8);
                 return;
             }
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.htG.getLayoutParams();
-            FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) this.htH.getLayoutParams();
-            if (this.hfM.bRv().getFirstCompletelyVisiblePosition() != 0) {
-                this.htG.setVisibility(8);
-                this.htH.setVisibility(0);
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.hIu.getLayoutParams();
+            FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) this.hIv.getLayoutParams();
+            if (this.huA.bXR().getFirstCompletelyVisiblePosition() != 0) {
+                this.hIu.setVisibility(8);
+                this.hIv.setVisibility(0);
                 if (layoutParams2.topMargin != 0) {
                     layoutParams2.topMargin = 0;
                     return;
                 }
                 return;
             }
-            int height2 = height - (this.Wc.getHeight() + i);
+            int height2 = height - (this.Wr.getHeight() + i);
             int dimens = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds16);
             if (height2 > 0 && height2 < dimens) {
-                this.htG.setVisibility(0);
-                this.htH.setVisibility(0);
+                this.hIu.setVisibility(0);
+                this.hIv.setVisibility(0);
                 layoutParams.bottomMargin = -height2;
                 layoutParams2.topMargin = -(dimens - height2);
             } else if (height2 > dimens) {
-                this.htG.setVisibility(8);
-                this.htH.setVisibility(0);
+                this.hIu.setVisibility(8);
+                this.hIv.setVisibility(0);
                 if (layoutParams2.topMargin != 0) {
                     layoutParams2.topMargin = 0;
                 }
@@ -368,31 +368,31 @@ public class FrsSportsRecommendFragment extends FrsCommonTabFragment {
                 if (layoutParams.bottomMargin != 0) {
                     layoutParams.bottomMargin = 0;
                 }
-                this.htG.setVisibility(0);
-                this.htH.setVisibility(8);
+                this.hIu.setVisibility(0);
+                this.hIv.setVisibility(8);
             }
         }
     }
 
-    private void Fl() {
-        if (this.aWc != null) {
-            if (UtilHelper.canUseStyleImmersiveSticky() && this.aWc.getLayoutParams() != null) {
-                ViewGroup.LayoutParams layoutParams = this.aWc.getLayoutParams();
+    private void Hc() {
+        if (this.bdq != null) {
+            if (UtilHelper.canUseStyleImmersiveSticky() && this.bdq.getLayoutParams() != null) {
+                ViewGroup.LayoutParams layoutParams = this.bdq.getLayoutParams();
                 layoutParams.height = UtilHelper.getStatusBarHeight();
-                this.aWc.setLayoutParams(layoutParams);
-                this.aWc.setVisibility(0);
-                if (this.htI != null && (this.htI.getLayoutParams() instanceof CollapsingToolbarLayout.LayoutParams)) {
-                    ((CollapsingToolbarLayout.LayoutParams) this.htI.getLayoutParams()).topMargin = layoutParams.height;
+                this.bdq.setLayoutParams(layoutParams);
+                this.bdq.setVisibility(0);
+                if (this.hIw != null && (this.hIw.getLayoutParams() instanceof CollapsingToolbarLayout.LayoutParams)) {
+                    ((CollapsingToolbarLayout.LayoutParams) this.hIw.getLayoutParams()).topMargin = layoutParams.height;
                     return;
                 }
                 return;
             }
-            this.aWc.setVisibility(8);
+            this.bdq.setVisibility(8);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bPL() {
+    public void bWh() {
         if (this.mNavigationBar != null) {
             float f = 0.0f;
             if (this.mNavigationBar.getBarBgView() != null) {
@@ -401,46 +401,46 @@ public class FrsSportsRecommendFragment extends FrsCommonTabFragment {
             if (this.mNavigationBar.mCenterText != null) {
                 this.mNavigationBar.mCenterText.setAlpha(f);
             }
-            if (this.mBackImageView != null && this.htI != null) {
-                this.htI.setAlpha(1.0f - f);
+            if (this.mBackImageView != null && this.hIw != null) {
+                this.hIw.setAlpha(1.0f - f);
                 this.mBackImageView.setAlpha(f);
             }
-            if (this.aWc != null) {
-                this.aWc.setAlpha(f);
+            if (this.bdq != null) {
+                this.bdq.setAlpha(f);
             }
-            if (this.haS != null) {
-                this.haS.setAlpha(f);
+            if (this.hpG != null) {
+                this.hpG.setAlpha(f);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void th(int i) {
-        if (UtilHelper.canUseStyleImmersiveSticky() && this.aWc != null && this.haS != null && this.aWc.getLayoutParams() != null && this.haS.getLayoutParams() != null) {
-            ViewGroup.LayoutParams layoutParams = this.aWc.getLayoutParams();
+    public void tM(int i) {
+        if (UtilHelper.canUseStyleImmersiveSticky() && this.bdq != null && this.hpG != null && this.bdq.getLayoutParams() != null && this.hpG.getLayoutParams() != null) {
+            ViewGroup.LayoutParams layoutParams = this.bdq.getLayoutParams();
             layoutParams.height = UtilHelper.getStatusBarHeight() - i;
             if (layoutParams.height < 0) {
                 layoutParams.height = 0;
             }
-            this.aWc.setLayoutParams(layoutParams);
-            ViewGroup.LayoutParams layoutParams2 = this.haS.getLayoutParams();
+            this.bdq.setLayoutParams(layoutParams);
+            ViewGroup.LayoutParams layoutParams2 = this.hpG.getLayoutParams();
             layoutParams2.height = i;
             if (layoutParams2.height > UtilHelper.getStatusBarHeight()) {
                 layoutParams2.height = UtilHelper.getStatusBarHeight();
             }
-            this.haS.setLayoutParams(layoutParams2);
+            this.hpG.setLayoutParams(layoutParams2);
         }
     }
 
-    private void sw(int i) {
+    private void tb(int i) {
         String string;
-        if (this.hlE == null) {
-            this.hlE = new TextView(getContext());
-            this.hlE.setTextSize(0, getResources().getDimensionPixelSize(R.dimen.fontsize28));
-            this.hlE.setGravity(17);
+        if (this.hAs == null) {
+            this.hAs = new TextView(getContext());
+            this.hAs.setTextSize(0, getResources().getDimensionPixelSize(R.dimen.fontsize28));
+            this.hAs.setGravity(17);
         }
-        if (this.hlE != null) {
-            if (this.htL) {
+        if (this.hAs != null) {
+            if (this.hIz) {
                 if (i > 0) {
                     string = TbadkCoreApplication.getInst().getString(R.string.frs_sports_recommend_first_time_tip);
                 } else {
@@ -451,19 +451,19 @@ public class FrsSportsRecommendFragment extends FrsCommonTabFragment {
             } else {
                 string = TbadkCoreApplication.getInst().getString(R.string.frs_sports_recommend_no_new_thread);
             }
-            this.hlE.setText(string);
+            this.hAs.setText(string);
         }
-        am.setBackgroundResource(this.hlE, R.color.cp_link_tip_a);
-        am.setViewTextColor(this.hlE, (int) R.color.cp_cont_i);
+        am.setBackgroundResource(this.hAs, R.color.cp_link_tip_a);
+        am.setViewTextColor(this.hAs, (int) R.color.cp_cont_i);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, l.getDimens(TbadkCoreApplication.getInst(), R.dimen.ds56));
-        if (this.hqI == null) {
-            this.hqI = new aw();
+        if (this.hFw == null) {
+            this.hFw = new aw();
         }
-        this.hqI.a(this.hlE, this.cVI, layoutParams, 2000);
+        this.hFw.a(this.hAs, this.dgJ, layoutParams, 2000);
     }
 
-    private void bUs() {
-        this.Wc.setExpanded(true);
+    private void caP() {
+        this.Wr.setExpanded(true);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tbadk.m.a
@@ -482,7 +482,7 @@ public class FrsSportsRecommendFragment extends FrsCommonTabFragment {
 
     @Override // com.baidu.tieba.frs.commontab.FrsCommonTabFragment, com.baidu.tbadk.core.BaseFragment
     public void showNetRefreshView(View view, String str, boolean z) {
-        super.showNetRefreshView(this.cVI, str, z);
-        tH(0);
+        super.showNetRefreshView(this.dgJ, str, z);
+        um(0);
     }
 }

@@ -18,12 +18,12 @@ public final class j {
     public static JSONObject a(String str, OnUploadFilesCallback onUploadFilesCallback, String str2, String str3, String str4) {
         JSONObject jSONObject;
         try {
-            byte[] dq = com.baidu.crabsdk.sender.i.dq(str);
-            if (dq == null || dq.length == 0) {
+            byte[] dL = com.baidu.crabsdk.sender.i.dL(str);
+            if (dL == null || dL.length == 0) {
                 onUploadFilesCallback.onFailed("Read file error!");
                 jSONObject = null;
             } else {
-                String encodeToString = Base64.encodeToString(dq, 0);
+                String encodeToString = Base64.encodeToString(dL, 0);
                 jSONObject = a(str2, str3, str4);
                 jSONObject.put(IjkMediaMeta.IJKM_KEY_FORMAT, 1);
                 jSONObject.put(TbConfig.TMP_LOG_DIR_NAME, encodeToString);
@@ -49,18 +49,18 @@ public final class j {
             jSONObject.put("phoneTime", System.currentTimeMillis());
             jSONObject.put("networkInfo", o.H());
             jSONObject.put(BdStatsConstant.StatsKey.UNAME, t.getUserName());
-            jSONObject.put("uid", t.sG());
+            jSONObject.put("uid", t.sP());
             jSONObject.put("batVN", "7.5.1");
             jSONObject.put("nativeVN", CrabSDK.NDK_VERSION);
-            jSONObject.put("isRoot", q.sE());
-            jSONObject.put(PushClientConstants.TAG_PKG_NAME, p.sB());
-            jSONObject.put("appLabel", p.sC());
+            jSONObject.put("isRoot", q.sN());
+            jSONObject.put(PushClientConstants.TAG_PKG_NAME, p.J());
+            jSONObject.put("appLabel", p.sL());
             if (TextUtils.isEmpty(com.baidu.crabsdk.a.o)) {
                 jSONObject.put("appVN", p.L());
             } else {
                 jSONObject.put("appVN", com.baidu.crabsdk.a.o);
             }
-            jSONObject.put("appVC", p.sD());
+            jSONObject.put("appVC", p.sM());
             jSONObject.put("model", Build.MODEL);
             jSONObject.put(Constants.PHONE_BRAND, Build.BRAND);
             jSONObject.put("os", "Android");
@@ -75,8 +75,8 @@ public final class j {
             jSONObject.put("romVN", str);
             jSONObject.put("launcherVN", str2);
             jSONObject.put("type", str3);
-            if (!TextUtils.isEmpty(t.sI())) {
-                jSONObject.put("usersCustom", t.sI());
+            if (!TextUtils.isEmpty(t.T())) {
+                jSONObject.put("usersCustom", t.T());
             }
         } catch (JSONException e) {
             e.printStackTrace();

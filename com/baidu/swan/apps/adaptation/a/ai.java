@@ -1,25 +1,7 @@
 package com.baidu.swan.apps.adaptation.a;
 
-import android.content.Context;
+import com.baidu.searchbox.widget.SlideInterceptor;
 /* loaded from: classes11.dex */
-public interface ai {
-    void PD();
-
-    ai PE();
-
-    void PF();
-
-    void a(com.baidu.swan.apps.media.d.c cVar, Context context);
-
-    void a(com.baidu.swan.apps.media.d.c cVar, boolean z);
-
-    boolean isPlaying();
-
-    boolean onBackPressed();
-
-    void pause();
-
-    void resume();
-
-    void stop();
+public interface ai extends SlideInterceptor {
+    double SU();
 }

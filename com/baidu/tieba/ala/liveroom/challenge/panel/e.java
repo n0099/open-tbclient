@@ -12,8 +12,8 @@ import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public abstract class e {
-    private final int fAy = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_tbds589);
-    protected k fAz;
+    private final int fOB = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_tbds589);
+    protected k fOC;
     protected Context mContext;
     protected View mRootView;
 
@@ -21,7 +21,7 @@ public abstract class e {
 
     public e(Context context, k kVar) {
         this.mContext = context;
-        this.fAz = kVar;
+        this.fOC = kVar;
         if (this.mContext != null) {
             this.mRootView = createView();
             if (this.mRootView != null) {
@@ -36,8 +36,8 @@ public abstract class e {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public int buc() {
-        return this.fAy;
+    public int bAb() {
+        return this.fOB;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -47,14 +47,14 @@ public abstract class e {
                 ((ViewGroup) this.mRootView.getParent()).removeView(this.mRootView);
             }
             if (this.mRootView.getLayoutParams() == null) {
-                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, buc());
+                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, bAb());
                 layoutParams.gravity = 80;
                 frameLayout.addView(this.mRootView, layoutParams);
             } else {
                 frameLayout.addView(this.mRootView);
             }
             if (i <= 0) {
-                Animation loadAnimation = AnimationUtils.loadAnimation(this.mContext, a.C0149a.sdk_push_up_in);
+                Animation loadAnimation = AnimationUtils.loadAnimation(this.mContext, a.C0182a.sdk_push_up_in);
                 loadAnimation.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.panel.e.2
                     @Override // android.view.animation.Animation.AnimationListener
                     public void onAnimationStart(Animation animation) {
@@ -62,7 +62,7 @@ public abstract class e {
 
                     @Override // android.view.animation.Animation.AnimationListener
                     public void onAnimationEnd(Animation animation) {
-                        e.this.Cc();
+                        e.this.Dz();
                     }
 
                     @Override // android.view.animation.Animation.AnimationListener
@@ -70,8 +70,8 @@ public abstract class e {
                     }
                 });
                 this.mRootView.startAnimation(loadAnimation);
-            } else if (i != buc()) {
-                ValueAnimator ofInt = ValueAnimator.ofInt(i, buc());
+            } else if (i != bAb()) {
+                ValueAnimator ofInt = ValueAnimator.ofInt(i, bAb());
                 ofInt.setDuration(300L);
                 ofInt.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.panel.e.3
                     @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -90,7 +90,7 @@ public abstract class e {
 
                     @Override // android.animation.Animator.AnimatorListener
                     public void onAnimationEnd(Animator animator) {
-                        e.this.Cc();
+                        e.this.Dz();
                     }
 
                     @Override // android.animation.Animator.AnimatorListener
@@ -103,17 +103,17 @@ public abstract class e {
                 });
                 ofInt.start();
             } else {
-                Cc();
+                Dz();
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void Cc() {
+    public void Dz() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void buo() {
+    public void bAn() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

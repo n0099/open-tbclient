@@ -15,7 +15,7 @@ import org.apache.http.protocol.HTTP;
 /* loaded from: classes11.dex */
 public class SessionMonitorNetWorker implements INoProGuard, INetListener {
     private static final String LOG_TAG = "ZeusMonitorEngine";
-    private static boolean mLogSdkInit = false;
+    private static boolean mLogSdkInit;
 
     private String getUploadUrl() {
         return WebSettingsGlobalBlink.getSessionUploadUrl();

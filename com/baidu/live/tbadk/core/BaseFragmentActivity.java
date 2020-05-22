@@ -566,8 +566,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void showToastWithIcon(String str, int i) {
+    protected void showToastWithIcon(String str, int i) {
         BdUtilHelper.showToast(getPageContext().getContext(), str);
     }
 

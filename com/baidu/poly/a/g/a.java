@@ -1,55 +1,98 @@
 package com.baidu.poly.a.g;
 
 import android.text.TextUtils;
-import com.baidu.mobstat.Config;
-import com.baidu.poly.util.e;
-import com.meizu.cloud.pushsdk.notification.model.AdvanceSetting;
-import org.json.JSONException;
+import com.baidu.android.util.io.BaseJsonData;
+import kotlin.jvm.internal.q;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
-public class a {
-    private String action;
-    private long bnA = System.currentTimeMillis();
-    private String bnB = e.getNetworkType();
-    private JSONObject bnC;
-    private String content;
+public final class a {
+    private static Long buX = 0L;
+    private static Long buY = 0L;
 
-    public a(String str) {
-        this.action = str;
+    public static final void a(Long l) {
+        buX = l;
     }
 
-    public JSONObject KV() {
-        if (TextUtils.isEmpty(this.action)) {
-            com.baidu.poly.util.c.l("statistics action can not null");
-            return null;
-        }
+    public static final void c(Long l) {
+        buY = l;
+    }
+
+    public static final void h(String str) {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put(Config.APP_VERSION_CODE, this.action);
-            jSONObject.put("t", this.bnA);
-            jSONObject.put(Config.EXCEPTION_CRASH_TYPE, this.bnB);
-            if (this.bnC != null) {
-                jSONObject.put(AdvanceSetting.CLEAR_NOTIFICATION, this.bnC);
-            } else if (!TextUtils.isEmpty(this.content)) {
-                jSONObject.put(AdvanceSetting.CLEAR_NOTIFICATION, this.content);
+            jSONObject.put("exceptionCode", 1);
+        } catch (Exception e) {
+        }
+        d.a(new b(str).U(jSONObject));
+    }
+
+    public static final void i(String str) {
+        JSONObject jSONObject = new JSONObject();
+        try {
+            jSONObject.put("exceptionCode", 0);
+        } catch (Exception e) {
+        }
+        d.a(new b(str).U(jSONObject));
+    }
+
+    public static final void u() {
+        Long l = buY;
+        if (l != null) {
+            if (l == null) {
+                q.dLM();
             }
-            return jSONObject;
-        } catch (JSONException e) {
-            if (com.baidu.poly.util.c.box) {
-                e.printStackTrace();
-                return jSONObject;
+            if (l.longValue() > 0) {
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    Long l2 = buY;
+                    if (l2 == null) {
+                        q.dLM();
+                    }
+                    jSONObject.put("3", l2.longValue());
+                    jSONObject.put("4", System.currentTimeMillis());
+                } catch (Exception e) {
+                }
+                d.a(new b("1000").U(jSONObject));
+                buY = 0L;
             }
-            return jSONObject;
         }
     }
 
-    public a P(JSONObject jSONObject) {
-        this.bnC = jSONObject;
-        return this;
+    public static final void w() {
+        Long l = buX;
+        if (l != null) {
+            if (l == null) {
+                q.dLM();
+            }
+            if (l.longValue() > 0) {
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    Long l2 = buX;
+                    if (l2 == null) {
+                        q.dLM();
+                    }
+                    jSONObject.put("1", l2.longValue());
+                    jSONObject.put("2", System.currentTimeMillis());
+                } catch (Exception e) {
+                }
+                d.a(new b("1000").U(jSONObject));
+                buX = 0L;
+            }
+        }
     }
 
-    public a fK(String str) {
-        this.content = str;
-        return this;
+    public static final void a(String str, String str2, String str3) {
+        JSONObject jSONObject = new JSONObject();
+        try {
+            jSONObject.put("exceptionCode", 3);
+            if (!TextUtils.isEmpty(str2)) {
+                jSONObject.put(BaseJsonData.TAG_ERRNO, str2);
+            }
+            if (!TextUtils.isEmpty(str3)) {
+                jSONObject.put(BaseJsonData.TAG_ERRMSG, str3);
+            }
+        } catch (Exception e) {
+        }
+        d.a(new b(str).U(jSONObject));
     }
 }

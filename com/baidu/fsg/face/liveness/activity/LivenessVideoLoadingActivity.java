@@ -11,7 +11,7 @@ import com.baidu.fsg.base.utils.LogUtil;
 import com.baidu.fsg.face.base.d.f;
 import com.baidu.fsg.face.liveness.SapiLivenessRecogManager;
 import com.baidu.fsg.face.liveness.beans.FaceSDKBeansFactory;
-import com.baidu.fsg.face.liveness.beans.n;
+import com.baidu.fsg.face.liveness.beans.o;
 import com.baidu.fsg.face.liveness.d;
 import com.baidu.fsg.face.liveness.datamodel.VideoGetPortraitModel;
 import com.baidu.fsg.face.liveness.result.LivenessRecogResult;
@@ -32,6 +32,11 @@ public class LivenessVideoLoadingActivity extends LivenessBaseActivity {
             a();
             c();
         }
+    }
+
+    @Override // com.baidu.fsg.base.activity.BaseActivity
+    protected boolean isRequestedOrientation() {
+        return false;
     }
 
     private void a() {
@@ -60,9 +65,9 @@ public class LivenessVideoLoadingActivity extends LivenessBaseActivity {
     }
 
     private void c() {
-        n nVar = (n) FaceSDKBeansFactory.getInstance().getBean(getActivity(), 9, TAG);
-        nVar.setResponseCallback(this);
-        nVar.execBean();
+        o oVar = (o) FaceSDKBeansFactory.getInstance().getBean(getActivity(), 9, TAG);
+        oVar.setResponseCallback(this);
+        oVar.execBean();
     }
 
     @Override // com.baidu.fsg.face.liveness.activity.LivenessBaseActivity, com.baidu.fsg.base.activity.BeanActivity

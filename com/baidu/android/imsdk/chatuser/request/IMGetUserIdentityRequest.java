@@ -8,6 +8,7 @@ import com.baidu.android.imsdk.chatuser.IGetUserIdentityListener;
 import com.baidu.android.imsdk.chatuser.db.ChatUserDBManager;
 import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
+import com.baidu.android.imsdk.utils.HttpHelper;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.ar.constants.HttpConstants;
@@ -67,6 +68,11 @@ public class IMGetUserIdentityRequest extends IMUserBaseHttpRequest {
         return jSONObject.toString().getBytes();
     }
 
+    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
+    public String getContentType() {
+        return HttpHelper.CONTENT_JSON;
+    }
+
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
     public void onFailure(int i, byte[] bArr, Throwable th) {
         if (this.mListener != null) {
@@ -74,7 +80,7 @@ public class IMGetUserIdentityRequest extends IMUserBaseHttpRequest {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:22:0x0103  */
+    /* JADX WARN: Removed duplicated region for block: B:22:0x0110  */
     /* JADX WARN: Removed duplicated region for block: B:34:? A[RETURN, SYNTHETIC] */
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
     /*
@@ -123,6 +129,7 @@ public class IMGetUserIdentityRequest extends IMUserBaseHttpRequest {
                         chatUser.setHasSpecialIdentity(optInt3);
                         chatUser.setSpecialIdentity(optString5);
                         chatUser.setVPortrait(optString3);
+                        chatUser.setUserExt(jSONObject2.optString(TableDefine.UserInfoColumns.COLUMN_USER_EXT, ""));
                         ChatUser chatUser2 = ChatUserDBManager.getInstance(this.mContext).getChatUser(optLong2);
                         if (chatUser2 != null) {
                             chatUser.setMarkTop(chatUser2.getMarkTop());

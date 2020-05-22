@@ -22,11 +22,9 @@ public class ResourceSchedulerEngine implements INoProGuard {
     }
 
     public static ResourceSchedulerEngine getInstance() {
-        if (sIntance == null) {
-            synchronized (ResourceSchedulerEngine.class) {
-                if (sIntance == null) {
-                    sIntance = new ResourceSchedulerEngine();
-                }
+        synchronized (ResourceSchedulerEngine.class) {
+            if (sIntance == null) {
+                sIntance = new ResourceSchedulerEngine();
             }
         }
         return sIntance;

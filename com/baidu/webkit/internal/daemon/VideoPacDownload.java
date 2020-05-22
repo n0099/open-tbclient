@@ -18,17 +18,12 @@ import java.util.Map;
 /* loaded from: classes11.dex */
 public class VideoPacDownload implements IResourceTask, INetListener {
     private static final String LOG_TAG = "VideoPacDownload";
-    private ByteArrayOutputStream mData;
-    private Map<String, String> mHeader = null;
+    private static boolean mDownloading;
+    private static boolean mSuccessDownload;
+    private ByteArrayOutputStream mData = null;
+    private Map<String, String> mHeader;
     private static WebSettings.ProxyType mPacType = WebSettings.ProxyType.NO_PROXY;
-    private static boolean mDownloading = false;
-    private static boolean mSuccessDownload = false;
     private static String sPacUrl = "https://browserkernel.baidu.com/newpac31/videoproxy.conf.txt";
-
-    public VideoPacDownload() {
-        this.mData = null;
-        this.mData = null;
-    }
 
     public static String getPacUrl() {
         return sPacUrl;
@@ -194,5 +189,10 @@ public class VideoPacDownload implements IResourceTask, INetListener {
             CfgFileUtils.set(CfgFileUtils.KEY_VIDEO_PROXY_DATA, str);
         }
         ResourceSchedulerEngine.getInstance().unregistTaskAndListener(this);
+    }
+
+    @Override // com.baidu.webkit.internal.resource.IResourceTask
+    public boolean shouldForceLoadFromFile() {
+        return false;
     }
 }

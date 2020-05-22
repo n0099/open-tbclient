@@ -12,16 +12,16 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class a extends BdAsyncTask<String, Void, b> {
-    private c aRf;
+    private c aYs;
 
     public a(c cVar) {
-        this.aRf = cVar;
+        this.aYs = cVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.live.adp.lib.asynctask.BdAsyncTask
-    /* renamed from: o */
+    /* renamed from: n */
     public b doInBackground(String... strArr) {
         b bVar = new b();
         NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + "ala/user/getUserInfoSDK");
@@ -43,8 +43,8 @@ public class a extends BdAsyncTask<String, Void, b> {
                     bVar.errCode = errorData.error_code;
                     bVar.errMsg = errorData.error_msg;
                     if (optJSONObject != null) {
-                        bVar.aRg = new PersonUserData();
-                        bVar.aRg.parserJson(optJSONObject);
+                        bVar.aYt = new PersonUserData();
+                        bVar.aYt.parserJson(optJSONObject);
                     }
                 } catch (JSONException e) {
                     BdLog.detailException(e);
@@ -59,11 +59,11 @@ public class a extends BdAsyncTask<String, Void, b> {
     @Override // com.baidu.live.adp.lib.asynctask.BdAsyncTask
     /* renamed from: a */
     public void onPostExecute(b bVar) {
-        if (this.aRf != null && bVar != null) {
+        if (this.aYs != null && bVar != null) {
             if (bVar.errCode == 0) {
-                this.aRf.a(bVar.aRg);
+                this.aYs.a(bVar.aYt);
             } else {
-                this.aRf.o(bVar.errCode, bVar.errMsg);
+                this.aYs.o(bVar.errCode, bVar.errMsg);
             }
         }
     }

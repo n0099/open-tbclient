@@ -16,8 +16,8 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 /* loaded from: classes9.dex */
 public class RefreshView extends FrameLayout implements a {
-    private int afW;
-    private ImageView bqg;
+    private int agt;
+    private ImageView bxI;
     private int status;
     private TextView textView;
 
@@ -31,13 +31,13 @@ public class RefreshView extends FrameLayout implements a {
 
     public RefreshView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.afW = 3;
+        this.agt = 3;
         init(context);
     }
 
     private void init(Context context) {
         LayoutInflater.from(context).inflate(R.layout.pull_left_item_view, (ViewGroup) this, true);
-        this.bqg = (ImageView) findViewById(R.id.arrow_icon);
+        this.bxI = (ImageView) findViewById(R.id.arrow_icon);
         this.textView = (TextView) findViewById(R.id.text);
     }
 
@@ -46,7 +46,7 @@ public class RefreshView extends FrameLayout implements a {
         if (this.status != 1) {
             this.status = 1;
             this.textView.setText("查看更多");
-            SvgManager.aOR().a(this.bqg, R.drawable.ic_icon_pure_jump_more24, R.color.cp_cont_d, (SvgManager.SvgResourceStateType) null);
+            SvgManager.aUV().a(this.bxI, R.drawable.ic_icon_pure_jump_more24, R.color.cp_cont_d, (SvgManager.SvgResourceStateType) null);
         }
     }
 
@@ -55,7 +55,7 @@ public class RefreshView extends FrameLayout implements a {
         if (this.status != 2) {
             this.status = 2;
             this.textView.setText("释放跳转");
-            SvgManager.aOR().a(this.bqg, R.drawable.ic_icon_pure_jump24, R.color.cp_cont_d, (SvgManager.SvgResourceStateType) null);
+            SvgManager.aUV().a(this.bxI, R.drawable.ic_icon_pure_jump24, R.color.cp_cont_d, (SvgManager.SvgResourceStateType) null);
         }
     }
 
@@ -66,9 +66,9 @@ public class RefreshView extends FrameLayout implements a {
 
     public void onChangeSkinType() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        if (skinType != this.afW) {
+        if (skinType != this.agt) {
             this.status = 0;
-            this.afW = skinType;
+            this.agt = skinType;
             am.setViewTextColor(this.textView, (int) R.color.cp_cont_d);
         }
     }

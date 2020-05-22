@@ -7,15 +7,15 @@ import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
 public final class FlowableWithLatestFrom<T, U, R> extends io.reactivex.internal.operators.flowable.a<T, R> {
     final io.reactivex.c.c<? super T, ? super U, ? extends R> combiner;
-    final org.a.b<? extends U> mSn;
+    final org.a.b<? extends U> nnu;
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super R> cVar) {
         io.reactivex.subscribers.b bVar = new io.reactivex.subscribers.b(cVar);
         WithLatestFromSubscriber withLatestFromSubscriber = new WithLatestFromSubscriber(bVar, this.combiner);
         bVar.onSubscribe(withLatestFromSubscriber);
-        this.mSn.subscribe(new a(withLatestFromSubscriber));
-        this.mRM.a((j) withLatestFromSubscriber);
+        this.nnu.subscribe(new a(withLatestFromSubscriber));
+        this.nmU.a((j) withLatestFromSubscriber);
     }
 
     /* loaded from: classes7.dex */
@@ -49,7 +49,7 @@ public final class FlowableWithLatestFrom<T, U, R> extends io.reactivex.internal
             U u = get();
             if (u != null) {
                 try {
-                    this.actual.onNext(io.reactivex.internal.functions.a.h(this.combiner.apply(t, u), "The combiner returned a null value"));
+                    this.actual.onNext(io.reactivex.internal.functions.a.k(this.combiner.apply(t, u), "The combiner returned a null value"));
                     return true;
                 } catch (Throwable th) {
                     io.reactivex.exceptions.a.L(th);
@@ -96,27 +96,27 @@ public final class FlowableWithLatestFrom<T, U, R> extends io.reactivex.internal
 
     /* loaded from: classes7.dex */
     final class a implements j<U> {
-        private final WithLatestFromSubscriber<T, U, R> mSR;
+        private final WithLatestFromSubscriber<T, U, R> nnV;
 
         a(WithLatestFromSubscriber<T, U, R> withLatestFromSubscriber) {
-            this.mSR = withLatestFromSubscriber;
+            this.nnV = withLatestFromSubscriber;
         }
 
         @Override // io.reactivex.j, org.a.c
         public void onSubscribe(org.a.d dVar) {
-            if (this.mSR.setOther(dVar)) {
+            if (this.nnV.setOther(dVar)) {
                 dVar.request(Long.MAX_VALUE);
             }
         }
 
         @Override // org.a.c
         public void onNext(U u) {
-            this.mSR.lazySet(u);
+            this.nnV.lazySet(u);
         }
 
         @Override // org.a.c
         public void onError(Throwable th) {
-            this.mSR.otherError(th);
+            this.nnV.otherError(th);
         }
 
         @Override // org.a.c

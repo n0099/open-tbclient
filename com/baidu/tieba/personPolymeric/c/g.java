@@ -9,12 +9,12 @@ import tbclient.GiftInfo;
 import tbclient.User;
 /* loaded from: classes11.dex */
 public class g extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId kaT = BdUniqueId.gen();
-    public String LD;
+    public static final BdUniqueId ksL = BdUniqueId.gen();
+    public String LR;
     public int giftNum = 0;
-    public boolean kaU;
-    public String kaV;
-    public List<com.baidu.adp.widget.ListView.m> kaW;
+    public boolean ksM;
+    public String ksN;
+    public List<com.baidu.adp.widget.ListView.o> ksO;
     public boolean mIsHost;
     public int mSex;
     public String mUid;
@@ -22,8 +22,8 @@ public class g extends com.baidu.tieba.card.data.b {
     public void parserProtoBuf(User user) {
         if (user != null && !v.isEmpty(user.gift_list)) {
             this.mUid = String.valueOf(user.id);
-            this.LD = user.name;
-            this.kaV = user.name_show;
+            this.LR = user.name;
+            this.ksN = user.name_show;
             this.mSex = user.sex.intValue();
             if (this.mUid != null && this.mUid.equals(TbadkCoreApplication.getCurrentAccount())) {
                 this.mIsHost = true;
@@ -31,28 +31,28 @@ public class g extends com.baidu.tieba.card.data.b {
                 this.mIsHost = false;
             }
             if (user.sex.intValue() == 2) {
-                this.kaU = false;
+                this.ksM = false;
             } else {
-                this.kaU = true;
+                this.ksM = true;
             }
             this.giftNum = user.gift_num != null ? user.gift_num.intValue() : 0;
-            this.kaW = new ArrayList();
+            this.ksO = new ArrayList();
             for (GiftInfo giftInfo : user.gift_list) {
                 if (giftInfo != null) {
                     o oVar = new o();
                     oVar.a(giftInfo);
-                    this.kaW.add(oVar);
+                    this.ksO.add(oVar);
                 }
             }
         }
     }
 
     public boolean isValid() {
-        return !v.isEmpty(this.kaW);
+        return !v.isEmpty(this.ksO);
     }
 
-    @Override // com.baidu.adp.widget.ListView.m
+    @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.o
     public BdUniqueId getType() {
-        return kaT;
+        return ksL;
     }
 }

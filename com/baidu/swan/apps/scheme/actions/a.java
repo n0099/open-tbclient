@@ -9,12 +9,12 @@ import com.baidu.swan.apps.a;
 import java.io.File;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
-public class a extends ab {
+public class a extends aa {
     public a(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swanAPI/abTestConfig");
     }
 
-    @Override // com.baidu.swan.apps.scheme.actions.ab
+    @Override // com.baidu.swan.apps.scheme.actions.aa
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
         if (DEBUG) {
             JSONObject b = b(unitedSchemeEntity, "params");
@@ -24,9 +24,9 @@ public class a extends ab {
             }
             JSONObject optJSONObject = b.optJSONObject("abtest");
             if (optJSONObject != null) {
-                Toast.makeText(context, aU(optJSONObject) ? a.h.swanapp_debug_abtest_config_success : a.h.swanapp_debug_abtest_config_fail, 1).show();
+                Toast.makeText(context, bd(optJSONObject) ? a.h.swanapp_debug_abtest_config_success : a.h.swanapp_debug_abtest_config_fail, 1).show();
             } else {
-                alR();
+                apP();
                 Toast.makeText(context, a.h.swanapp_delete_debug_abtest_config, 1).show();
             }
             return true;
@@ -34,33 +34,33 @@ public class a extends ab {
         return false;
     }
 
-    private boolean aU(JSONObject jSONObject) {
+    private boolean bd(JSONObject jSONObject) {
         if (jSONObject == null) {
             return false;
         }
-        String alS = alS();
-        if (TextUtils.isEmpty(alS)) {
+        String apQ = apQ();
+        if (TextUtils.isEmpty(apQ)) {
             return false;
         }
-        return com.baidu.swan.apps.v.a.j(alS, jSONObject.toString(), false);
+        return com.baidu.swan.apps.t.a.l(apQ, jSONObject.toString(), false);
     }
 
-    private void alR() {
-        String alS = alS();
-        if (!TextUtils.isEmpty(alS)) {
-            File file = new File(alS);
+    private void apP() {
+        String apQ = apQ();
+        if (!TextUtils.isEmpty(apQ)) {
+            File file = new File(apQ);
             if (file.exists()) {
                 file.delete();
             }
         }
     }
 
-    public static String alS() {
-        File aoQ = com.baidu.swan.apps.as.i.aoQ();
-        if (aoQ == null) {
+    public static String apQ() {
+        File atr = com.baidu.swan.apps.aq.j.atr();
+        if (atr == null) {
             return null;
         }
-        String path = aoQ.getPath();
+        String path = atr.getPath();
         if (TextUtils.isEmpty(path)) {
             return null;
         }

@@ -35,11 +35,8 @@ public class IMService extends ABIMService {
     };
 
     public static void enqueueWork(Context context, Intent intent) {
-        try {
-            enqueueWork(context, IMService.class, (int) JOB_ID, intent);
-        } catch (Exception e) {
-            LogUtils.e(TAG, "IMService enqueueWork", e);
-        }
+        LogUtils.e(TAG, "IMService enqueueWork");
+        enqueueWork(context, IMService.class, (int) JOB_ID, intent);
     }
 
     @Override // android.support.v4.app.JobIntentService, android.app.Service
@@ -84,7 +81,7 @@ public class IMService extends ABIMService {
 
     @Override // android.support.v4.app.JobIntentService
     public synchronized void onHandleWork(@NonNull Intent intent) {
-        LogUtils.d(TAG, "-- onStartCommand -- " + intent + ", isSmallFlow :" + isSmallFlow);
+        LogUtils.d(TAG, "-- onHandleWork -- " + intent + ", isSmallFlow :" + isSmallFlow);
         if (intent == null) {
             intent = new Intent();
             LogUtils.i(TAG, "--- onStart by null intent!");

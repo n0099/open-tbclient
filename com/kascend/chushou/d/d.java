@@ -12,20 +12,20 @@ import kotlin.text.l;
 @kotlin.h
 /* loaded from: classes5.dex */
 public final class d {
-    public static final d mnI = new d();
+    public static final d mHE = new d();
 
     private d() {
     }
 
     public final File n(String str, File file) {
         String str2;
-        q.j(file, "f");
+        q.m(file, "f");
         String str3 = str;
         if (str3 == null || str3.length() == 0) {
             return null;
         }
         if (str == null) {
-            q.dDS();
+            q.dLM();
         }
         List b = l.b((CharSequence) str, new String[]{Constants.ACCEPT_TIME_SEPARATOR_SP}, false, 0, 6, (Object) null);
         if (b.size() > 1) {
@@ -51,14 +51,14 @@ public final class d {
     }
 
     public final void a(String str, String str2, tv.chushou.zues.widget.a.c cVar, int i, int i2) {
-        q.j(str2, "avatarUrl");
-        q.j(cVar, "sp");
+        q.m(str2, "avatarUrl");
+        q.m(cVar, "sp");
         int length = cVar.length();
-        ImageRequestBuilder vQ = ImageRequestBuilder.Z(i.OI(str2)).a(new com.kascend.chushou.widget.gif.a(i, i2, str)).vQ(true);
-        com.facebook.drawee.view.b a = com.facebook.drawee.view.b.a(new com.facebook.drawee.generic.b(tv.chushou.widget.a.c.getResources()).Gv(com.kascend.chushou.view.a.a(null)).dpo(), tv.chushou.basis.d.b.dJq());
-        com.facebook.drawee.controller.a doA = com.facebook.drawee.a.a.c.dnN().aX(vQ.duU()).doE();
-        q.i(a, "draweeHolder");
-        a.setController(doA);
+        ImageRequestBuilder wo = ImageRequestBuilder.ab(i.Qw(str2)).a(new com.kascend.chushou.widget.gif.a(i, i2, str)).wo(true);
+        com.facebook.drawee.view.b a = com.facebook.drawee.view.b.a(new com.facebook.drawee.generic.b(tv.chushou.widget.a.c.getResources()).Hh(com.kascend.chushou.view.a.a(null)).dwG(), tv.chushou.basis.d.b.dRk());
+        com.facebook.drawee.controller.a dvS = com.facebook.drawee.a.a.c.dvf().bb(wo.dCl()).dvW();
+        q.l((Object) a, "draweeHolder");
+        a.setController(dvS);
         cVar.append(" ");
         String str3 = str;
         int i3 = str3 == null || str3.length() == 0 ? i2 : i;
@@ -67,7 +67,7 @@ public final class d {
     }
 
     public final void a() {
-        tv.chushou.zues.utils.h.dJV();
+        tv.chushou.zues.utils.h.dRP();
         System.gc();
     }
 }

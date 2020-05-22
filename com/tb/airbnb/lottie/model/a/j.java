@@ -14,8 +14,8 @@ public class j extends n<com.tb.airbnb.lottie.model.b, com.tb.airbnb.lottie.mode
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.tb.airbnb.lottie.model.a.m
-    /* renamed from: dBq */
-    public com.tb.airbnb.lottie.a.b.n dBp() {
+    /* renamed from: dIJ */
+    public com.tb.airbnb.lottie.a.b.n dII() {
         return new com.tb.airbnb.lottie.a.b.n(this.Ci);
     }
 }

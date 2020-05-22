@@ -15,375 +15,375 @@ import java.util.List;
 public class c {
     public static DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     private int dividerColor;
-    private WheelView.DividerType erU;
-    private boolean[] erj;
-    private int esA;
-    private com.baidu.tbadk.widget.timepicker.a.d.b esB;
-    private WheelView esq;
-    private WheelView esr;
-    private WheelView ess;
-    private WheelView est;
-    private WheelView esu;
-    private WheelView esv;
+    private boolean[] eFK;
+    private WheelView eGQ;
+    private WheelView eGR;
+    private WheelView eGS;
+    private WheelView eGT;
+    private WheelView eGU;
+    private WheelView eGV;
+    private WheelView.DividerType eGu;
+    private int eHa;
+    private com.baidu.tbadk.widget.timepicker.a.d.b eHb;
     private int gravity;
     private float lineSpacingMultiplier;
     private int textColorCenter;
     private int textColorOut;
     private int textSize;
     private View view;
-    private int ern = FeatureCodes.SKY_SEG;
-    private int ero = PushConstants.BROADCAST_MESSAGE_ARRIVE;
-    private int esw = 1;
-    private int esx = 12;
-    private int esy = 1;
-    private int esz = 31;
-    private boolean erq = false;
+    private int eFO = FeatureCodes.SKY_SEG;
+    private int eFP = PushConstants.BROADCAST_MESSAGE_ARRIVE;
+    private int eGW = 1;
+    private int eGX = 12;
+    private int eGY = 1;
+    private int eGZ = 31;
+    private boolean eFR = false;
 
     public c(View view, boolean[] zArr, int i, int i2) {
         this.view = view;
-        this.erj = zArr;
+        this.eFK = zArr;
         this.gravity = i;
         this.textSize = i2;
         setView(view);
     }
 
-    public void ir(boolean z) {
-        this.erq = z;
+    public void iO(boolean z) {
+        this.eFR = z;
     }
 
     public void h(int i, int i2, int i3, int i4, int i5, int i6) {
-        if (this.erq) {
-            int[] D = com.baidu.tbadk.widget.timepicker.a.e.b.D(i, i2 + 1, i3);
-            a(D[0], D[1] - 1, D[2], D[3] == 1, i4, i5, i6);
+        if (this.eFR) {
+            int[] C = com.baidu.tbadk.widget.timepicker.a.e.b.C(i, i2 + 1, i3);
+            a(C[0], C[1] - 1, C[2], C[3] == 1, i4, i5, i6);
             return;
         }
         i(i, i2, i3, i4, i5, i6);
     }
 
     private void a(int i, int i2, int i3, boolean z, int i4, int i5, int i6) {
-        this.esq = (WheelView) this.view.findViewById(R.id.year);
-        this.esq.setAdapter(new com.baidu.tbadk.widget.timepicker.a.a.a(com.baidu.tbadk.widget.timepicker.a.e.a.bb(this.ern, this.ero)));
-        this.esq.setLabel("");
-        this.esq.setCurrentItem(i - this.ern);
-        this.esq.setGravity(this.gravity);
-        this.esr = (WheelView) this.view.findViewById(R.id.month);
-        this.esr.setAdapter(new com.baidu.tbadk.widget.timepicker.a.a.a(com.baidu.tbadk.widget.timepicker.a.e.a.nZ(i)));
-        this.esr.setLabel("");
-        int nW = com.baidu.tbadk.widget.timepicker.a.e.a.nW(i);
-        if (nW != 0 && (i2 > nW - 1 || z)) {
-            this.esr.setCurrentItem(i2 + 1);
+        this.eGQ = (WheelView) this.view.findViewById(R.id.year);
+        this.eGQ.setAdapter(new com.baidu.tbadk.widget.timepicker.a.a.a(com.baidu.tbadk.widget.timepicker.a.e.a.bf(this.eFO, this.eFP)));
+        this.eGQ.setLabel("");
+        this.eGQ.setCurrentItem(i - this.eFO);
+        this.eGQ.setGravity(this.gravity);
+        this.eGR = (WheelView) this.view.findViewById(R.id.month);
+        this.eGR.setAdapter(new com.baidu.tbadk.widget.timepicker.a.a.a(com.baidu.tbadk.widget.timepicker.a.e.a.oE(i)));
+        this.eGR.setLabel("");
+        int oB = com.baidu.tbadk.widget.timepicker.a.e.a.oB(i);
+        if (oB != 0 && (i2 > oB - 1 || z)) {
+            this.eGR.setCurrentItem(i2 + 1);
         } else {
-            this.esr.setCurrentItem(i2);
+            this.eGR.setCurrentItem(i2);
         }
-        this.esr.setGravity(this.gravity);
-        this.ess = (WheelView) this.view.findViewById(R.id.day);
-        if (com.baidu.tbadk.widget.timepicker.a.e.a.nW(i) == 0) {
-            this.ess.setAdapter(new com.baidu.tbadk.widget.timepicker.a.a.a(com.baidu.tbadk.widget.timepicker.a.e.a.oa(com.baidu.tbadk.widget.timepicker.a.e.a.ba(i, i2))));
+        this.eGR.setGravity(this.gravity);
+        this.eGS = (WheelView) this.view.findViewById(R.id.day);
+        if (com.baidu.tbadk.widget.timepicker.a.e.a.oB(i) == 0) {
+            this.eGS.setAdapter(new com.baidu.tbadk.widget.timepicker.a.a.a(com.baidu.tbadk.widget.timepicker.a.e.a.oF(com.baidu.tbadk.widget.timepicker.a.e.a.be(i, i2))));
         } else {
-            this.ess.setAdapter(new com.baidu.tbadk.widget.timepicker.a.a.a(com.baidu.tbadk.widget.timepicker.a.e.a.oa(com.baidu.tbadk.widget.timepicker.a.e.a.nV(i))));
+            this.eGS.setAdapter(new com.baidu.tbadk.widget.timepicker.a.a.a(com.baidu.tbadk.widget.timepicker.a.e.a.oF(com.baidu.tbadk.widget.timepicker.a.e.a.oA(i))));
         }
-        this.ess.setLabel("");
-        this.ess.setCurrentItem(i3 - 1);
-        this.ess.setGravity(this.gravity);
-        this.est = (WheelView) this.view.findViewById(R.id.hour);
-        this.est.setAdapter(new com.baidu.tbadk.widget.timepicker.a.a.b(0, 23));
-        this.est.setCurrentItem(i4);
-        this.est.setGravity(this.gravity);
-        this.esu = (WheelView) this.view.findViewById(R.id.min);
-        this.esu.setAdapter(new com.baidu.tbadk.widget.timepicker.a.a.b(0, 59));
-        this.esu.setCurrentItem(i5);
-        this.esu.setGravity(this.gravity);
-        this.esv = (WheelView) this.view.findViewById(R.id.second);
-        this.esv.setAdapter(new com.baidu.tbadk.widget.timepicker.a.a.b(0, 59));
-        this.esv.setCurrentItem(i5);
-        this.esv.setGravity(this.gravity);
-        this.esq.setOnItemSelectedListener(new com.baidu.tbadk.widget.timepicker.wheel.c.b() { // from class: com.baidu.tbadk.widget.timepicker.a.f.c.1
+        this.eGS.setLabel("");
+        this.eGS.setCurrentItem(i3 - 1);
+        this.eGS.setGravity(this.gravity);
+        this.eGT = (WheelView) this.view.findViewById(R.id.hour);
+        this.eGT.setAdapter(new com.baidu.tbadk.widget.timepicker.a.a.b(0, 23));
+        this.eGT.setCurrentItem(i4);
+        this.eGT.setGravity(this.gravity);
+        this.eGU = (WheelView) this.view.findViewById(R.id.min);
+        this.eGU.setAdapter(new com.baidu.tbadk.widget.timepicker.a.a.b(0, 59));
+        this.eGU.setCurrentItem(i5);
+        this.eGU.setGravity(this.gravity);
+        this.eGV = (WheelView) this.view.findViewById(R.id.second);
+        this.eGV.setAdapter(new com.baidu.tbadk.widget.timepicker.a.a.b(0, 59));
+        this.eGV.setCurrentItem(i5);
+        this.eGV.setGravity(this.gravity);
+        this.eGQ.setOnItemSelectedListener(new com.baidu.tbadk.widget.timepicker.wheel.c.b() { // from class: com.baidu.tbadk.widget.timepicker.a.f.c.1
             @Override // com.baidu.tbadk.widget.timepicker.wheel.c.b
             public void onItemSelected(int i7) {
-                int ba;
-                int i8 = c.this.ern + i7;
-                c.this.esr.setAdapter(new com.baidu.tbadk.widget.timepicker.a.a.a(com.baidu.tbadk.widget.timepicker.a.e.a.nZ(i8)));
-                if (com.baidu.tbadk.widget.timepicker.a.e.a.nW(i8) == 0 || c.this.esr.getCurrentItem() <= com.baidu.tbadk.widget.timepicker.a.e.a.nW(i8) - 1) {
-                    c.this.esr.setCurrentItem(c.this.esr.getCurrentItem());
+                int be;
+                int i8 = c.this.eFO + i7;
+                c.this.eGR.setAdapter(new com.baidu.tbadk.widget.timepicker.a.a.a(com.baidu.tbadk.widget.timepicker.a.e.a.oE(i8)));
+                if (com.baidu.tbadk.widget.timepicker.a.e.a.oB(i8) == 0 || c.this.eGR.getCurrentItem() <= com.baidu.tbadk.widget.timepicker.a.e.a.oB(i8) - 1) {
+                    c.this.eGR.setCurrentItem(c.this.eGR.getCurrentItem());
                 } else {
-                    c.this.esr.setCurrentItem(c.this.esr.getCurrentItem() + 1);
+                    c.this.eGR.setCurrentItem(c.this.eGR.getCurrentItem() + 1);
                 }
-                if (com.baidu.tbadk.widget.timepicker.a.e.a.nW(i8) == 0 || c.this.esr.getCurrentItem() <= com.baidu.tbadk.widget.timepicker.a.e.a.nW(i8) - 1) {
-                    c.this.ess.setAdapter(new com.baidu.tbadk.widget.timepicker.a.a.a(com.baidu.tbadk.widget.timepicker.a.e.a.oa(com.baidu.tbadk.widget.timepicker.a.e.a.ba(i8, c.this.esr.getCurrentItem() + 1))));
-                    ba = com.baidu.tbadk.widget.timepicker.a.e.a.ba(i8, c.this.esr.getCurrentItem() + 1);
-                } else if (c.this.esr.getCurrentItem() == com.baidu.tbadk.widget.timepicker.a.e.a.nW(i8) + 1) {
-                    c.this.ess.setAdapter(new com.baidu.tbadk.widget.timepicker.a.a.a(com.baidu.tbadk.widget.timepicker.a.e.a.oa(com.baidu.tbadk.widget.timepicker.a.e.a.nV(i8))));
-                    ba = com.baidu.tbadk.widget.timepicker.a.e.a.nV(i8);
+                if (com.baidu.tbadk.widget.timepicker.a.e.a.oB(i8) == 0 || c.this.eGR.getCurrentItem() <= com.baidu.tbadk.widget.timepicker.a.e.a.oB(i8) - 1) {
+                    c.this.eGS.setAdapter(new com.baidu.tbadk.widget.timepicker.a.a.a(com.baidu.tbadk.widget.timepicker.a.e.a.oF(com.baidu.tbadk.widget.timepicker.a.e.a.be(i8, c.this.eGR.getCurrentItem() + 1))));
+                    be = com.baidu.tbadk.widget.timepicker.a.e.a.be(i8, c.this.eGR.getCurrentItem() + 1);
+                } else if (c.this.eGR.getCurrentItem() == com.baidu.tbadk.widget.timepicker.a.e.a.oB(i8) + 1) {
+                    c.this.eGS.setAdapter(new com.baidu.tbadk.widget.timepicker.a.a.a(com.baidu.tbadk.widget.timepicker.a.e.a.oF(com.baidu.tbadk.widget.timepicker.a.e.a.oA(i8))));
+                    be = com.baidu.tbadk.widget.timepicker.a.e.a.oA(i8);
                 } else {
-                    c.this.ess.setAdapter(new com.baidu.tbadk.widget.timepicker.a.a.a(com.baidu.tbadk.widget.timepicker.a.e.a.oa(com.baidu.tbadk.widget.timepicker.a.e.a.ba(i8, c.this.esr.getCurrentItem()))));
-                    ba = com.baidu.tbadk.widget.timepicker.a.e.a.ba(i8, c.this.esr.getCurrentItem());
+                    c.this.eGS.setAdapter(new com.baidu.tbadk.widget.timepicker.a.a.a(com.baidu.tbadk.widget.timepicker.a.e.a.oF(com.baidu.tbadk.widget.timepicker.a.e.a.be(i8, c.this.eGR.getCurrentItem()))));
+                    be = com.baidu.tbadk.widget.timepicker.a.e.a.be(i8, c.this.eGR.getCurrentItem());
                 }
-                if (c.this.ess.getCurrentItem() > ba - 1) {
-                    c.this.ess.setCurrentItem(ba - 1);
+                if (c.this.eGS.getCurrentItem() > be - 1) {
+                    c.this.eGS.setCurrentItem(be - 1);
                 }
-                if (c.this.esB != null) {
-                    c.this.esB.bdf();
+                if (c.this.eHb != null) {
+                    c.this.eHb.bjq();
                 }
             }
         });
-        this.esr.setOnItemSelectedListener(new com.baidu.tbadk.widget.timepicker.wheel.c.b() { // from class: com.baidu.tbadk.widget.timepicker.a.f.c.2
+        this.eGR.setOnItemSelectedListener(new com.baidu.tbadk.widget.timepicker.wheel.c.b() { // from class: com.baidu.tbadk.widget.timepicker.a.f.c.2
             @Override // com.baidu.tbadk.widget.timepicker.wheel.c.b
             public void onItemSelected(int i7) {
-                int ba;
-                int currentItem = c.this.esq.getCurrentItem() + c.this.ern;
-                if (com.baidu.tbadk.widget.timepicker.a.e.a.nW(currentItem) == 0 || i7 <= com.baidu.tbadk.widget.timepicker.a.e.a.nW(currentItem) - 1) {
-                    c.this.ess.setAdapter(new com.baidu.tbadk.widget.timepicker.a.a.a(com.baidu.tbadk.widget.timepicker.a.e.a.oa(com.baidu.tbadk.widget.timepicker.a.e.a.ba(currentItem, i7 + 1))));
-                    ba = com.baidu.tbadk.widget.timepicker.a.e.a.ba(currentItem, i7 + 1);
-                } else if (c.this.esr.getCurrentItem() == com.baidu.tbadk.widget.timepicker.a.e.a.nW(currentItem) + 1) {
-                    c.this.ess.setAdapter(new com.baidu.tbadk.widget.timepicker.a.a.a(com.baidu.tbadk.widget.timepicker.a.e.a.oa(com.baidu.tbadk.widget.timepicker.a.e.a.nV(currentItem))));
-                    ba = com.baidu.tbadk.widget.timepicker.a.e.a.nV(currentItem);
+                int be;
+                int currentItem = c.this.eGQ.getCurrentItem() + c.this.eFO;
+                if (com.baidu.tbadk.widget.timepicker.a.e.a.oB(currentItem) == 0 || i7 <= com.baidu.tbadk.widget.timepicker.a.e.a.oB(currentItem) - 1) {
+                    c.this.eGS.setAdapter(new com.baidu.tbadk.widget.timepicker.a.a.a(com.baidu.tbadk.widget.timepicker.a.e.a.oF(com.baidu.tbadk.widget.timepicker.a.e.a.be(currentItem, i7 + 1))));
+                    be = com.baidu.tbadk.widget.timepicker.a.e.a.be(currentItem, i7 + 1);
+                } else if (c.this.eGR.getCurrentItem() == com.baidu.tbadk.widget.timepicker.a.e.a.oB(currentItem) + 1) {
+                    c.this.eGS.setAdapter(new com.baidu.tbadk.widget.timepicker.a.a.a(com.baidu.tbadk.widget.timepicker.a.e.a.oF(com.baidu.tbadk.widget.timepicker.a.e.a.oA(currentItem))));
+                    be = com.baidu.tbadk.widget.timepicker.a.e.a.oA(currentItem);
                 } else {
-                    c.this.ess.setAdapter(new com.baidu.tbadk.widget.timepicker.a.a.a(com.baidu.tbadk.widget.timepicker.a.e.a.oa(com.baidu.tbadk.widget.timepicker.a.e.a.ba(currentItem, i7))));
-                    ba = com.baidu.tbadk.widget.timepicker.a.e.a.ba(currentItem, i7);
+                    c.this.eGS.setAdapter(new com.baidu.tbadk.widget.timepicker.a.a.a(com.baidu.tbadk.widget.timepicker.a.e.a.oF(com.baidu.tbadk.widget.timepicker.a.e.a.be(currentItem, i7))));
+                    be = com.baidu.tbadk.widget.timepicker.a.e.a.be(currentItem, i7);
                 }
-                if (c.this.ess.getCurrentItem() > ba - 1) {
-                    c.this.ess.setCurrentItem(ba - 1);
+                if (c.this.eGS.getCurrentItem() > be - 1) {
+                    c.this.eGS.setCurrentItem(be - 1);
                 }
-                if (c.this.esB != null) {
-                    c.this.esB.bdf();
+                if (c.this.eHb != null) {
+                    c.this.eHb.bjq();
                 }
             }
         });
-        a(this.ess);
-        a(this.est);
-        a(this.esu);
-        a(this.esv);
-        if (this.erj.length != 6) {
+        a(this.eGS);
+        a(this.eGT);
+        a(this.eGU);
+        a(this.eGV);
+        if (this.eFK.length != 6) {
             throw new RuntimeException("type[] length is not 6");
         }
-        this.esq.setVisibility(this.erj[0] ? 0 : 8);
-        this.esr.setVisibility(this.erj[1] ? 0 : 8);
-        this.ess.setVisibility(this.erj[2] ? 0 : 8);
-        this.est.setVisibility(this.erj[3] ? 0 : 8);
-        this.esu.setVisibility(this.erj[4] ? 0 : 8);
-        this.esv.setVisibility(this.erj[5] ? 0 : 8);
-        bdn();
+        this.eGQ.setVisibility(this.eFK[0] ? 0 : 8);
+        this.eGR.setVisibility(this.eFK[1] ? 0 : 8);
+        this.eGS.setVisibility(this.eFK[2] ? 0 : 8);
+        this.eGT.setVisibility(this.eFK[3] ? 0 : 8);
+        this.eGU.setVisibility(this.eFK[4] ? 0 : 8);
+        this.eGV.setVisibility(this.eFK[5] ? 0 : 8);
+        bjy();
     }
 
     private void i(int i, int i2, int i3, int i4, int i5, int i6) {
         final List asList = Arrays.asList("1", "3", "5", "7", "8", "10", "12");
         final List asList2 = Arrays.asList("4", "6", "9", "11");
-        this.esA = i;
-        this.esq = (WheelView) this.view.findViewById(R.id.year);
-        this.esq.setAdapter(new com.baidu.tbadk.widget.timepicker.a.a.b(this.ern, this.ero));
-        this.esq.setCurrentItem(i - this.ern);
-        this.esq.setGravity(this.gravity);
-        this.esr = (WheelView) this.view.findViewById(R.id.month);
-        if (this.ern == this.ero) {
-            this.esr.setAdapter(new com.baidu.tbadk.widget.timepicker.a.a.b(this.esw, this.esx));
-            this.esr.setCurrentItem((i2 + 1) - this.esw);
-        } else if (i == this.ern) {
-            this.esr.setAdapter(new com.baidu.tbadk.widget.timepicker.a.a.b(this.esw, 12));
-            this.esr.setCurrentItem((i2 + 1) - this.esw);
-        } else if (i == this.ero) {
-            this.esr.setAdapter(new com.baidu.tbadk.widget.timepicker.a.a.b(1, this.esx));
-            this.esr.setCurrentItem(i2);
+        this.eHa = i;
+        this.eGQ = (WheelView) this.view.findViewById(R.id.year);
+        this.eGQ.setAdapter(new com.baidu.tbadk.widget.timepicker.a.a.b(this.eFO, this.eFP));
+        this.eGQ.setCurrentItem(i - this.eFO);
+        this.eGQ.setGravity(this.gravity);
+        this.eGR = (WheelView) this.view.findViewById(R.id.month);
+        if (this.eFO == this.eFP) {
+            this.eGR.setAdapter(new com.baidu.tbadk.widget.timepicker.a.a.b(this.eGW, this.eGX));
+            this.eGR.setCurrentItem((i2 + 1) - this.eGW);
+        } else if (i == this.eFO) {
+            this.eGR.setAdapter(new com.baidu.tbadk.widget.timepicker.a.a.b(this.eGW, 12));
+            this.eGR.setCurrentItem((i2 + 1) - this.eGW);
+        } else if (i == this.eFP) {
+            this.eGR.setAdapter(new com.baidu.tbadk.widget.timepicker.a.a.b(1, this.eGX));
+            this.eGR.setCurrentItem(i2);
         } else {
-            this.esr.setAdapter(new com.baidu.tbadk.widget.timepicker.a.a.b(1, 12));
-            this.esr.setCurrentItem(i2);
+            this.eGR.setAdapter(new com.baidu.tbadk.widget.timepicker.a.a.b(1, 12));
+            this.eGR.setCurrentItem(i2);
         }
-        this.esr.setGravity(this.gravity);
-        this.ess = (WheelView) this.view.findViewById(R.id.day);
-        if (this.ern == this.ero && this.esw == this.esx) {
+        this.eGR.setGravity(this.gravity);
+        this.eGS = (WheelView) this.view.findViewById(R.id.day);
+        if (this.eFO == this.eFP && this.eGW == this.eGX) {
             if (asList.contains(String.valueOf(i2 + 1))) {
-                if (this.esz > 31) {
-                    this.esz = 31;
+                if (this.eGZ > 31) {
+                    this.eGZ = 31;
                 }
-                this.ess.setAdapter(new com.baidu.tbadk.widget.timepicker.a.a.b(this.esy, this.esz));
+                this.eGS.setAdapter(new com.baidu.tbadk.widget.timepicker.a.a.b(this.eGY, this.eGZ));
             } else if (asList2.contains(String.valueOf(i2 + 1))) {
-                if (this.esz > 30) {
-                    this.esz = 30;
+                if (this.eGZ > 30) {
+                    this.eGZ = 30;
                 }
-                this.ess.setAdapter(new com.baidu.tbadk.widget.timepicker.a.a.b(this.esy, this.esz));
+                this.eGS.setAdapter(new com.baidu.tbadk.widget.timepicker.a.a.b(this.eGY, this.eGZ));
             } else if ((i % 4 == 0 && i % 100 != 0) || i % 400 == 0) {
-                if (this.esz > 29) {
-                    this.esz = 29;
+                if (this.eGZ > 29) {
+                    this.eGZ = 29;
                 }
-                this.ess.setAdapter(new com.baidu.tbadk.widget.timepicker.a.a.b(this.esy, this.esz));
+                this.eGS.setAdapter(new com.baidu.tbadk.widget.timepicker.a.a.b(this.eGY, this.eGZ));
             } else {
-                if (this.esz > 28) {
-                    this.esz = 28;
+                if (this.eGZ > 28) {
+                    this.eGZ = 28;
                 }
-                this.ess.setAdapter(new com.baidu.tbadk.widget.timepicker.a.a.b(this.esy, this.esz));
+                this.eGS.setAdapter(new com.baidu.tbadk.widget.timepicker.a.a.b(this.eGY, this.eGZ));
             }
-            this.ess.setCurrentItem(i3 - this.esy);
-        } else if (i == this.ern && i2 + 1 == this.esw) {
+            this.eGS.setCurrentItem(i3 - this.eGY);
+        } else if (i == this.eFO && i2 + 1 == this.eGW) {
             if (asList.contains(String.valueOf(i2 + 1))) {
-                this.ess.setAdapter(new com.baidu.tbadk.widget.timepicker.a.a.b(this.esy, 31));
+                this.eGS.setAdapter(new com.baidu.tbadk.widget.timepicker.a.a.b(this.eGY, 31));
             } else if (asList2.contains(String.valueOf(i2 + 1))) {
-                this.ess.setAdapter(new com.baidu.tbadk.widget.timepicker.a.a.b(this.esy, 30));
+                this.eGS.setAdapter(new com.baidu.tbadk.widget.timepicker.a.a.b(this.eGY, 30));
             } else if ((i % 4 == 0 && i % 100 != 0) || i % 400 == 0) {
-                this.ess.setAdapter(new com.baidu.tbadk.widget.timepicker.a.a.b(this.esy, 29));
+                this.eGS.setAdapter(new com.baidu.tbadk.widget.timepicker.a.a.b(this.eGY, 29));
             } else {
-                this.ess.setAdapter(new com.baidu.tbadk.widget.timepicker.a.a.b(this.esy, 28));
+                this.eGS.setAdapter(new com.baidu.tbadk.widget.timepicker.a.a.b(this.eGY, 28));
             }
-            this.ess.setCurrentItem(i3 - this.esy);
-        } else if (i == this.ero && i2 + 1 == this.esx) {
+            this.eGS.setCurrentItem(i3 - this.eGY);
+        } else if (i == this.eFP && i2 + 1 == this.eGX) {
             if (asList.contains(String.valueOf(i2 + 1))) {
-                if (this.esz > 31) {
-                    this.esz = 31;
+                if (this.eGZ > 31) {
+                    this.eGZ = 31;
                 }
-                this.ess.setAdapter(new com.baidu.tbadk.widget.timepicker.a.a.b(1, this.esz));
+                this.eGS.setAdapter(new com.baidu.tbadk.widget.timepicker.a.a.b(1, this.eGZ));
             } else if (asList2.contains(String.valueOf(i2 + 1))) {
-                if (this.esz > 30) {
-                    this.esz = 30;
+                if (this.eGZ > 30) {
+                    this.eGZ = 30;
                 }
-                this.ess.setAdapter(new com.baidu.tbadk.widget.timepicker.a.a.b(1, this.esz));
+                this.eGS.setAdapter(new com.baidu.tbadk.widget.timepicker.a.a.b(1, this.eGZ));
             } else if ((i % 4 == 0 && i % 100 != 0) || i % 400 == 0) {
-                if (this.esz > 29) {
-                    this.esz = 29;
+                if (this.eGZ > 29) {
+                    this.eGZ = 29;
                 }
-                this.ess.setAdapter(new com.baidu.tbadk.widget.timepicker.a.a.b(1, this.esz));
+                this.eGS.setAdapter(new com.baidu.tbadk.widget.timepicker.a.a.b(1, this.eGZ));
             } else {
-                if (this.esz > 28) {
-                    this.esz = 28;
+                if (this.eGZ > 28) {
+                    this.eGZ = 28;
                 }
-                this.ess.setAdapter(new com.baidu.tbadk.widget.timepicker.a.a.b(1, this.esz));
+                this.eGS.setAdapter(new com.baidu.tbadk.widget.timepicker.a.a.b(1, this.eGZ));
             }
-            this.ess.setCurrentItem(i3 - 1);
+            this.eGS.setCurrentItem(i3 - 1);
         } else {
             if (asList.contains(String.valueOf(i2 + 1))) {
-                this.ess.setAdapter(new com.baidu.tbadk.widget.timepicker.a.a.b(1, 31));
+                this.eGS.setAdapter(new com.baidu.tbadk.widget.timepicker.a.a.b(1, 31));
             } else if (asList2.contains(String.valueOf(i2 + 1))) {
-                this.ess.setAdapter(new com.baidu.tbadk.widget.timepicker.a.a.b(1, 30));
+                this.eGS.setAdapter(new com.baidu.tbadk.widget.timepicker.a.a.b(1, 30));
             } else if ((i % 4 == 0 && i % 100 != 0) || i % 400 == 0) {
-                this.ess.setAdapter(new com.baidu.tbadk.widget.timepicker.a.a.b(1, 29));
+                this.eGS.setAdapter(new com.baidu.tbadk.widget.timepicker.a.a.b(1, 29));
             } else {
-                this.ess.setAdapter(new com.baidu.tbadk.widget.timepicker.a.a.b(1, 28));
+                this.eGS.setAdapter(new com.baidu.tbadk.widget.timepicker.a.a.b(1, 28));
             }
-            this.ess.setCurrentItem(i3 - 1);
+            this.eGS.setCurrentItem(i3 - 1);
         }
-        this.ess.setGravity(this.gravity);
-        this.est = (WheelView) this.view.findViewById(R.id.hour);
-        this.est.setAdapter(new com.baidu.tbadk.widget.timepicker.a.a.b(0, 23));
-        this.est.setCurrentItem(i4);
-        this.est.setGravity(this.gravity);
-        this.esu = (WheelView) this.view.findViewById(R.id.min);
-        this.esu.setAdapter(new com.baidu.tbadk.widget.timepicker.a.a.b(0, 59));
-        this.esu.setCurrentItem(i5);
-        this.esu.setGravity(this.gravity);
-        this.esv = (WheelView) this.view.findViewById(R.id.second);
-        this.esv.setAdapter(new com.baidu.tbadk.widget.timepicker.a.a.b(0, 59));
-        this.esv.setCurrentItem(i6);
-        this.esv.setGravity(this.gravity);
-        this.esq.setOnItemSelectedListener(new com.baidu.tbadk.widget.timepicker.wheel.c.b() { // from class: com.baidu.tbadk.widget.timepicker.a.f.c.3
+        this.eGS.setGravity(this.gravity);
+        this.eGT = (WheelView) this.view.findViewById(R.id.hour);
+        this.eGT.setAdapter(new com.baidu.tbadk.widget.timepicker.a.a.b(0, 23));
+        this.eGT.setCurrentItem(i4);
+        this.eGT.setGravity(this.gravity);
+        this.eGU = (WheelView) this.view.findViewById(R.id.min);
+        this.eGU.setAdapter(new com.baidu.tbadk.widget.timepicker.a.a.b(0, 59));
+        this.eGU.setCurrentItem(i5);
+        this.eGU.setGravity(this.gravity);
+        this.eGV = (WheelView) this.view.findViewById(R.id.second);
+        this.eGV.setAdapter(new com.baidu.tbadk.widget.timepicker.a.a.b(0, 59));
+        this.eGV.setCurrentItem(i6);
+        this.eGV.setGravity(this.gravity);
+        this.eGQ.setOnItemSelectedListener(new com.baidu.tbadk.widget.timepicker.wheel.c.b() { // from class: com.baidu.tbadk.widget.timepicker.a.f.c.3
             @Override // com.baidu.tbadk.widget.timepicker.wheel.c.b
             public void onItemSelected(int i7) {
-                int i8 = i7 + c.this.ern;
-                c.this.esA = i8;
-                int currentItem = c.this.esr.getCurrentItem();
-                if (c.this.ern == c.this.ero) {
-                    c.this.esr.setAdapter(new com.baidu.tbadk.widget.timepicker.a.a.b(c.this.esw, c.this.esx));
-                    if (currentItem > c.this.esr.getAdapter().getItemsCount() - 1) {
-                        currentItem = c.this.esr.getAdapter().getItemsCount() - 1;
-                        c.this.esr.setCurrentItem(currentItem);
+                int i8 = i7 + c.this.eFO;
+                c.this.eHa = i8;
+                int currentItem = c.this.eGR.getCurrentItem();
+                if (c.this.eFO == c.this.eFP) {
+                    c.this.eGR.setAdapter(new com.baidu.tbadk.widget.timepicker.a.a.b(c.this.eGW, c.this.eGX));
+                    if (currentItem > c.this.eGR.getAdapter().getItemsCount() - 1) {
+                        currentItem = c.this.eGR.getAdapter().getItemsCount() - 1;
+                        c.this.eGR.setCurrentItem(currentItem);
                     }
-                    int i9 = c.this.esw + currentItem;
-                    if (c.this.esw == c.this.esx) {
-                        c.this.a(i8, i9, c.this.esy, c.this.esz, asList, asList2);
-                    } else if (i9 == c.this.esw) {
-                        c.this.a(i8, i9, c.this.esy, 31, asList, asList2);
-                    } else if (i9 == c.this.esx) {
-                        c.this.a(i8, i9, 1, c.this.esz, asList, asList2);
+                    int i9 = c.this.eGW + currentItem;
+                    if (c.this.eGW == c.this.eGX) {
+                        c.this.a(i8, i9, c.this.eGY, c.this.eGZ, asList, asList2);
+                    } else if (i9 == c.this.eGW) {
+                        c.this.a(i8, i9, c.this.eGY, 31, asList, asList2);
+                    } else if (i9 == c.this.eGX) {
+                        c.this.a(i8, i9, 1, c.this.eGZ, asList, asList2);
                     } else {
                         c.this.a(i8, i9, 1, 31, asList, asList2);
                     }
-                } else if (i8 == c.this.ern) {
-                    c.this.esr.setAdapter(new com.baidu.tbadk.widget.timepicker.a.a.b(c.this.esw, 12));
-                    if (currentItem > c.this.esr.getAdapter().getItemsCount() - 1) {
-                        currentItem = c.this.esr.getAdapter().getItemsCount() - 1;
-                        c.this.esr.setCurrentItem(currentItem);
+                } else if (i8 == c.this.eFO) {
+                    c.this.eGR.setAdapter(new com.baidu.tbadk.widget.timepicker.a.a.b(c.this.eGW, 12));
+                    if (currentItem > c.this.eGR.getAdapter().getItemsCount() - 1) {
+                        currentItem = c.this.eGR.getAdapter().getItemsCount() - 1;
+                        c.this.eGR.setCurrentItem(currentItem);
                     }
-                    int i10 = c.this.esw + currentItem;
-                    if (i10 == c.this.esw) {
-                        c.this.a(i8, i10, c.this.esy, 31, asList, asList2);
+                    int i10 = c.this.eGW + currentItem;
+                    if (i10 == c.this.eGW) {
+                        c.this.a(i8, i10, c.this.eGY, 31, asList, asList2);
                     } else {
                         c.this.a(i8, i10, 1, 31, asList, asList2);
                     }
-                } else if (i8 == c.this.ero) {
-                    c.this.esr.setAdapter(new com.baidu.tbadk.widget.timepicker.a.a.b(1, c.this.esx));
-                    if (currentItem > c.this.esr.getAdapter().getItemsCount() - 1) {
-                        currentItem = c.this.esr.getAdapter().getItemsCount() - 1;
-                        c.this.esr.setCurrentItem(currentItem);
+                } else if (i8 == c.this.eFP) {
+                    c.this.eGR.setAdapter(new com.baidu.tbadk.widget.timepicker.a.a.b(1, c.this.eGX));
+                    if (currentItem > c.this.eGR.getAdapter().getItemsCount() - 1) {
+                        currentItem = c.this.eGR.getAdapter().getItemsCount() - 1;
+                        c.this.eGR.setCurrentItem(currentItem);
                     }
                     int i11 = currentItem + 1;
-                    if (i11 == c.this.esx) {
-                        c.this.a(i8, i11, 1, c.this.esz, asList, asList2);
+                    if (i11 == c.this.eGX) {
+                        c.this.a(i8, i11, 1, c.this.eGZ, asList, asList2);
                     } else {
                         c.this.a(i8, i11, 1, 31, asList, asList2);
                     }
                 } else {
-                    c.this.esr.setAdapter(new com.baidu.tbadk.widget.timepicker.a.a.b(1, 12));
-                    c.this.a(i8, c.this.esr.getCurrentItem() + 1, 1, 31, asList, asList2);
+                    c.this.eGR.setAdapter(new com.baidu.tbadk.widget.timepicker.a.a.b(1, 12));
+                    c.this.a(i8, c.this.eGR.getCurrentItem() + 1, 1, 31, asList, asList2);
                 }
-                if (c.this.esB != null) {
-                    c.this.esB.bdf();
+                if (c.this.eHb != null) {
+                    c.this.eHb.bjq();
                 }
             }
         });
-        this.esr.setOnItemSelectedListener(new com.baidu.tbadk.widget.timepicker.wheel.c.b() { // from class: com.baidu.tbadk.widget.timepicker.a.f.c.4
+        this.eGR.setOnItemSelectedListener(new com.baidu.tbadk.widget.timepicker.wheel.c.b() { // from class: com.baidu.tbadk.widget.timepicker.a.f.c.4
             @Override // com.baidu.tbadk.widget.timepicker.wheel.c.b
             public void onItemSelected(int i7) {
                 int i8 = i7 + 1;
-                if (c.this.ern == c.this.ero) {
-                    int i9 = (c.this.esw + i8) - 1;
-                    if (c.this.esw == c.this.esx) {
-                        c.this.a(c.this.esA, i9, c.this.esy, c.this.esz, asList, asList2);
-                    } else if (c.this.esw == i9) {
-                        c.this.a(c.this.esA, i9, c.this.esy, 31, asList, asList2);
-                    } else if (c.this.esx == i9) {
-                        c.this.a(c.this.esA, i9, 1, c.this.esz, asList, asList2);
+                if (c.this.eFO == c.this.eFP) {
+                    int i9 = (c.this.eGW + i8) - 1;
+                    if (c.this.eGW == c.this.eGX) {
+                        c.this.a(c.this.eHa, i9, c.this.eGY, c.this.eGZ, asList, asList2);
+                    } else if (c.this.eGW == i9) {
+                        c.this.a(c.this.eHa, i9, c.this.eGY, 31, asList, asList2);
+                    } else if (c.this.eGX == i9) {
+                        c.this.a(c.this.eHa, i9, 1, c.this.eGZ, asList, asList2);
                     } else {
-                        c.this.a(c.this.esA, i9, 1, 31, asList, asList2);
+                        c.this.a(c.this.eHa, i9, 1, 31, asList, asList2);
                     }
-                } else if (c.this.esA == c.this.ern) {
-                    int i10 = (c.this.esw + i8) - 1;
-                    if (i10 == c.this.esw) {
-                        c.this.a(c.this.esA, i10, c.this.esy, 31, asList, asList2);
+                } else if (c.this.eHa == c.this.eFO) {
+                    int i10 = (c.this.eGW + i8) - 1;
+                    if (i10 == c.this.eGW) {
+                        c.this.a(c.this.eHa, i10, c.this.eGY, 31, asList, asList2);
                     } else {
-                        c.this.a(c.this.esA, i10, 1, 31, asList, asList2);
+                        c.this.a(c.this.eHa, i10, 1, 31, asList, asList2);
                     }
-                } else if (c.this.esA == c.this.ero) {
-                    if (i8 == c.this.esx) {
-                        c.this.a(c.this.esA, c.this.esr.getCurrentItem() + 1, 1, c.this.esz, asList, asList2);
+                } else if (c.this.eHa == c.this.eFP) {
+                    if (i8 == c.this.eGX) {
+                        c.this.a(c.this.eHa, c.this.eGR.getCurrentItem() + 1, 1, c.this.eGZ, asList, asList2);
                     } else {
-                        c.this.a(c.this.esA, c.this.esr.getCurrentItem() + 1, 1, 31, asList, asList2);
+                        c.this.a(c.this.eHa, c.this.eGR.getCurrentItem() + 1, 1, 31, asList, asList2);
                     }
                 } else {
-                    c.this.a(c.this.esA, i8, 1, 31, asList, asList2);
+                    c.this.a(c.this.eHa, i8, 1, 31, asList, asList2);
                 }
-                if (c.this.esB != null) {
-                    c.this.esB.bdf();
+                if (c.this.eHb != null) {
+                    c.this.eHb.bjq();
                 }
             }
         });
-        a(this.ess);
-        a(this.est);
-        a(this.esu);
-        a(this.esv);
-        if (this.erj.length != 6) {
+        a(this.eGS);
+        a(this.eGT);
+        a(this.eGU);
+        a(this.eGV);
+        if (this.eFK.length != 6) {
             throw new IllegalArgumentException("type[] length is not 6");
         }
-        this.esq.setVisibility(this.erj[0] ? 0 : 8);
-        this.esr.setVisibility(this.erj[1] ? 0 : 8);
-        this.ess.setVisibility(this.erj[2] ? 0 : 8);
-        this.est.setVisibility(this.erj[3] ? 0 : 8);
-        this.esu.setVisibility(this.erj[4] ? 0 : 8);
-        this.esv.setVisibility(this.erj[5] ? 0 : 8);
-        bdn();
+        this.eGQ.setVisibility(this.eFK[0] ? 0 : 8);
+        this.eGR.setVisibility(this.eFK[1] ? 0 : 8);
+        this.eGS.setVisibility(this.eFK[2] ? 0 : 8);
+        this.eGT.setVisibility(this.eFK[3] ? 0 : 8);
+        this.eGU.setVisibility(this.eFK[4] ? 0 : 8);
+        this.eGV.setVisibility(this.eFK[5] ? 0 : 8);
+        bjy();
     }
 
     private void a(WheelView wheelView) {
-        if (this.esB != null) {
+        if (this.eHb != null) {
             wheelView.setOnItemSelectedListener(new com.baidu.tbadk.widget.timepicker.wheel.c.b() { // from class: com.baidu.tbadk.widget.timepicker.a.f.c.5
                 @Override // com.baidu.tbadk.widget.timepicker.wheel.c.b
                 public void onItemSelected(int i) {
-                    c.this.esB.bdf();
+                    c.this.eHb.bjq();
                 }
             });
         }
@@ -391,177 +391,177 @@ public class c {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int i, int i2, int i3, int i4, List<String> list, List<String> list2) {
-        int currentItem = this.ess.getCurrentItem();
+        int currentItem = this.eGS.getCurrentItem();
         if (list.contains(String.valueOf(i2))) {
             if (i4 > 31) {
                 i4 = 31;
             }
-            this.ess.setAdapter(new com.baidu.tbadk.widget.timepicker.a.a.b(i3, i4));
+            this.eGS.setAdapter(new com.baidu.tbadk.widget.timepicker.a.a.b(i3, i4));
         } else if (list2.contains(String.valueOf(i2))) {
             if (i4 > 30) {
                 i4 = 30;
             }
-            this.ess.setAdapter(new com.baidu.tbadk.widget.timepicker.a.a.b(i3, i4));
+            this.eGS.setAdapter(new com.baidu.tbadk.widget.timepicker.a.a.b(i3, i4));
         } else if ((i % 4 == 0 && i % 100 != 0) || i % 400 == 0) {
             if (i4 > 29) {
                 i4 = 29;
             }
-            this.ess.setAdapter(new com.baidu.tbadk.widget.timepicker.a.a.b(i3, i4));
+            this.eGS.setAdapter(new com.baidu.tbadk.widget.timepicker.a.a.b(i3, i4));
         } else {
             if (i4 > 28) {
                 i4 = 28;
             }
-            this.ess.setAdapter(new com.baidu.tbadk.widget.timepicker.a.a.b(i3, i4));
+            this.eGS.setAdapter(new com.baidu.tbadk.widget.timepicker.a.a.b(i3, i4));
         }
-        if (currentItem > this.ess.getAdapter().getItemsCount() - 1) {
-            this.ess.setCurrentItem(this.ess.getAdapter().getItemsCount() - 1);
+        if (currentItem > this.eGS.getAdapter().getItemsCount() - 1) {
+            this.eGS.setCurrentItem(this.eGS.getAdapter().getItemsCount() - 1);
         }
     }
 
-    private void bdn() {
-        this.ess.setTextSize(this.textSize);
-        this.esr.setTextSize(this.textSize);
-        this.esq.setTextSize(this.textSize);
-        this.est.setTextSize(this.textSize);
-        this.esu.setTextSize(this.textSize);
-        this.esv.setTextSize(this.textSize);
+    private void bjy() {
+        this.eGS.setTextSize(this.textSize);
+        this.eGR.setTextSize(this.textSize);
+        this.eGQ.setTextSize(this.textSize);
+        this.eGT.setTextSize(this.textSize);
+        this.eGU.setTextSize(this.textSize);
+        this.eGV.setTextSize(this.textSize);
     }
 
-    private void bdo() {
-        this.ess.setTextColorOut(this.textColorOut);
-        this.esr.setTextColorOut(this.textColorOut);
-        this.esq.setTextColorOut(this.textColorOut);
-        this.est.setTextColorOut(this.textColorOut);
-        this.esu.setTextColorOut(this.textColorOut);
-        this.esv.setTextColorOut(this.textColorOut);
+    private void bjz() {
+        this.eGS.setTextColorOut(this.textColorOut);
+        this.eGR.setTextColorOut(this.textColorOut);
+        this.eGQ.setTextColorOut(this.textColorOut);
+        this.eGT.setTextColorOut(this.textColorOut);
+        this.eGU.setTextColorOut(this.textColorOut);
+        this.eGV.setTextColorOut(this.textColorOut);
     }
 
-    private void bdp() {
-        this.ess.setTextColorCenter(this.textColorCenter);
-        this.esr.setTextColorCenter(this.textColorCenter);
-        this.esq.setTextColorCenter(this.textColorCenter);
-        this.est.setTextColorCenter(this.textColorCenter);
-        this.esu.setTextColorCenter(this.textColorCenter);
-        this.esv.setTextColorCenter(this.textColorCenter);
+    private void bjA() {
+        this.eGS.setTextColorCenter(this.textColorCenter);
+        this.eGR.setTextColorCenter(this.textColorCenter);
+        this.eGQ.setTextColorCenter(this.textColorCenter);
+        this.eGT.setTextColorCenter(this.textColorCenter);
+        this.eGU.setTextColorCenter(this.textColorCenter);
+        this.eGV.setTextColorCenter(this.textColorCenter);
     }
 
-    private void bdq() {
-        this.ess.setDividerColor(this.dividerColor);
-        this.esr.setDividerColor(this.dividerColor);
-        this.esq.setDividerColor(this.dividerColor);
-        this.est.setDividerColor(this.dividerColor);
-        this.esu.setDividerColor(this.dividerColor);
-        this.esv.setDividerColor(this.dividerColor);
+    private void bjB() {
+        this.eGS.setDividerColor(this.dividerColor);
+        this.eGR.setDividerColor(this.dividerColor);
+        this.eGQ.setDividerColor(this.dividerColor);
+        this.eGT.setDividerColor(this.dividerColor);
+        this.eGU.setDividerColor(this.dividerColor);
+        this.eGV.setDividerColor(this.dividerColor);
     }
 
-    private void bdr() {
-        this.ess.setDividerType(this.erU);
-        this.esr.setDividerType(this.erU);
-        this.esq.setDividerType(this.erU);
-        this.est.setDividerType(this.erU);
-        this.esu.setDividerType(this.erU);
-        this.esv.setDividerType(this.erU);
+    private void bjC() {
+        this.eGS.setDividerType(this.eGu);
+        this.eGR.setDividerType(this.eGu);
+        this.eGQ.setDividerType(this.eGu);
+        this.eGT.setDividerType(this.eGu);
+        this.eGU.setDividerType(this.eGu);
+        this.eGV.setDividerType(this.eGu);
     }
 
-    private void bds() {
-        this.ess.setLineSpacingMultiplier(this.lineSpacingMultiplier);
-        this.esr.setLineSpacingMultiplier(this.lineSpacingMultiplier);
-        this.esq.setLineSpacingMultiplier(this.lineSpacingMultiplier);
-        this.est.setLineSpacingMultiplier(this.lineSpacingMultiplier);
-        this.esu.setLineSpacingMultiplier(this.lineSpacingMultiplier);
-        this.esv.setLineSpacingMultiplier(this.lineSpacingMultiplier);
+    private void bjD() {
+        this.eGS.setLineSpacingMultiplier(this.lineSpacingMultiplier);
+        this.eGR.setLineSpacingMultiplier(this.lineSpacingMultiplier);
+        this.eGQ.setLineSpacingMultiplier(this.lineSpacingMultiplier);
+        this.eGT.setLineSpacingMultiplier(this.lineSpacingMultiplier);
+        this.eGU.setLineSpacingMultiplier(this.lineSpacingMultiplier);
+        this.eGV.setLineSpacingMultiplier(this.lineSpacingMultiplier);
     }
 
     public void c(String str, String str2, String str3, String str4, String str5, String str6) {
-        if (!this.erq) {
+        if (!this.eFR) {
             if (str != null) {
-                this.esq.setLabel(str);
+                this.eGQ.setLabel(str);
             } else {
-                this.esq.setLabel(this.view.getContext().getString(R.string.pickerview_year));
+                this.eGQ.setLabel(this.view.getContext().getString(R.string.pickerview_year));
             }
             if (str2 != null) {
-                this.esr.setLabel(str2);
+                this.eGR.setLabel(str2);
             } else {
-                this.esr.setLabel(this.view.getContext().getString(R.string.pickerview_month));
+                this.eGR.setLabel(this.view.getContext().getString(R.string.pickerview_month));
             }
             if (str3 != null) {
-                this.ess.setLabel(str3);
+                this.eGS.setLabel(str3);
             } else {
-                this.ess.setLabel(this.view.getContext().getString(R.string.pickerview_day));
+                this.eGS.setLabel(this.view.getContext().getString(R.string.pickerview_day));
             }
             if (str4 != null) {
-                this.est.setLabel(str4);
+                this.eGT.setLabel(str4);
             } else {
-                this.est.setLabel(this.view.getContext().getString(R.string.pickerview_hours));
+                this.eGT.setLabel(this.view.getContext().getString(R.string.pickerview_hours));
             }
             if (str5 != null) {
-                this.esu.setLabel(str5);
+                this.eGU.setLabel(str5);
             } else {
-                this.esu.setLabel(this.view.getContext().getString(R.string.pickerview_minutes));
+                this.eGU.setLabel(this.view.getContext().getString(R.string.pickerview_minutes));
             }
             if (str6 != null) {
-                this.esv.setLabel(str6);
+                this.eGV.setLabel(str6);
             } else {
-                this.esv.setLabel(this.view.getContext().getString(R.string.pickerview_seconds));
+                this.eGV.setLabel(this.view.getContext().getString(R.string.pickerview_seconds));
             }
         }
     }
 
     public void j(int i, int i2, int i3, int i4, int i5, int i6) {
-        this.ess.setTextXOffset(i);
-        this.esr.setTextXOffset(i2);
-        this.esq.setTextXOffset(i3);
-        this.est.setTextXOffset(i4);
-        this.esu.setTextXOffset(i5);
-        this.esv.setTextXOffset(i6);
+        this.eGS.setTextXOffset(i);
+        this.eGR.setTextXOffset(i2);
+        this.eGQ.setTextXOffset(i3);
+        this.eGT.setTextXOffset(i4);
+        this.eGU.setTextXOffset(i5);
+        this.eGV.setTextXOffset(i6);
     }
 
     public void setCyclic(boolean z) {
-        this.esq.setCyclic(z);
-        this.esr.setCyclic(z);
-        this.ess.setCyclic(z);
-        this.est.setCyclic(z);
-        this.esu.setCyclic(z);
-        this.esv.setCyclic(z);
+        this.eGQ.setCyclic(z);
+        this.eGR.setCyclic(z);
+        this.eGS.setCyclic(z);
+        this.eGT.setCyclic(z);
+        this.eGU.setCyclic(z);
+        this.eGV.setCyclic(z);
     }
 
     public String getTime() {
-        if (this.erq) {
-            return bdt();
+        if (this.eFR) {
+            return bjE();
         }
         StringBuilder sb = new StringBuilder();
-        if (this.esA == this.ern) {
-            if (this.esr.getCurrentItem() + this.esw == this.esw) {
-                sb.append(this.esq.getCurrentItem() + this.ern).append(Constants.ACCEPT_TIME_SEPARATOR_SERVER).append(this.esr.getCurrentItem() + this.esw).append(Constants.ACCEPT_TIME_SEPARATOR_SERVER).append(this.ess.getCurrentItem() + this.esy).append(" ").append(this.est.getCurrentItem()).append(":").append(this.esu.getCurrentItem()).append(":").append(this.esv.getCurrentItem());
+        if (this.eHa == this.eFO) {
+            if (this.eGR.getCurrentItem() + this.eGW == this.eGW) {
+                sb.append(this.eGQ.getCurrentItem() + this.eFO).append(Constants.ACCEPT_TIME_SEPARATOR_SERVER).append(this.eGR.getCurrentItem() + this.eGW).append(Constants.ACCEPT_TIME_SEPARATOR_SERVER).append(this.eGS.getCurrentItem() + this.eGY).append(" ").append(this.eGT.getCurrentItem()).append(":").append(this.eGU.getCurrentItem()).append(":").append(this.eGV.getCurrentItem());
             } else {
-                sb.append(this.esq.getCurrentItem() + this.ern).append(Constants.ACCEPT_TIME_SEPARATOR_SERVER).append(this.esr.getCurrentItem() + this.esw).append(Constants.ACCEPT_TIME_SEPARATOR_SERVER).append(this.ess.getCurrentItem() + 1).append(" ").append(this.est.getCurrentItem()).append(":").append(this.esu.getCurrentItem()).append(":").append(this.esv.getCurrentItem());
+                sb.append(this.eGQ.getCurrentItem() + this.eFO).append(Constants.ACCEPT_TIME_SEPARATOR_SERVER).append(this.eGR.getCurrentItem() + this.eGW).append(Constants.ACCEPT_TIME_SEPARATOR_SERVER).append(this.eGS.getCurrentItem() + 1).append(" ").append(this.eGT.getCurrentItem()).append(":").append(this.eGU.getCurrentItem()).append(":").append(this.eGV.getCurrentItem());
             }
         } else {
-            sb.append(this.esq.getCurrentItem() + this.ern).append(Constants.ACCEPT_TIME_SEPARATOR_SERVER).append(this.esr.getCurrentItem() + 1).append(Constants.ACCEPT_TIME_SEPARATOR_SERVER).append(this.ess.getCurrentItem() + 1).append(" ").append(this.est.getCurrentItem()).append(":").append(this.esu.getCurrentItem()).append(":").append(this.esv.getCurrentItem());
+            sb.append(this.eGQ.getCurrentItem() + this.eFO).append(Constants.ACCEPT_TIME_SEPARATOR_SERVER).append(this.eGR.getCurrentItem() + 1).append(Constants.ACCEPT_TIME_SEPARATOR_SERVER).append(this.eGS.getCurrentItem() + 1).append(" ").append(this.eGT.getCurrentItem()).append(":").append(this.eGU.getCurrentItem()).append(":").append(this.eGV.getCurrentItem());
         }
         return sb.toString();
     }
 
-    private String bdt() {
+    private String bjE() {
         int currentItem;
         boolean z;
         StringBuilder sb = new StringBuilder();
-        int currentItem2 = this.esq.getCurrentItem() + this.ern;
-        if (com.baidu.tbadk.widget.timepicker.a.e.a.nW(currentItem2) == 0) {
-            currentItem = this.esr.getCurrentItem() + 1;
+        int currentItem2 = this.eGQ.getCurrentItem() + this.eFO;
+        if (com.baidu.tbadk.widget.timepicker.a.e.a.oB(currentItem2) == 0) {
+            currentItem = this.eGR.getCurrentItem() + 1;
             z = false;
-        } else if ((this.esr.getCurrentItem() + 1) - com.baidu.tbadk.widget.timepicker.a.e.a.nW(currentItem2) <= 0) {
-            currentItem = this.esr.getCurrentItem() + 1;
+        } else if ((this.eGR.getCurrentItem() + 1) - com.baidu.tbadk.widget.timepicker.a.e.a.oB(currentItem2) <= 0) {
+            currentItem = this.eGR.getCurrentItem() + 1;
             z = false;
-        } else if ((this.esr.getCurrentItem() + 1) - com.baidu.tbadk.widget.timepicker.a.e.a.nW(currentItem2) == 1) {
-            currentItem = this.esr.getCurrentItem();
+        } else if ((this.eGR.getCurrentItem() + 1) - com.baidu.tbadk.widget.timepicker.a.e.a.oB(currentItem2) == 1) {
+            currentItem = this.eGR.getCurrentItem();
             z = true;
         } else {
-            currentItem = this.esr.getCurrentItem();
+            currentItem = this.eGR.getCurrentItem();
             z = false;
         }
-        int[] c = com.baidu.tbadk.widget.timepicker.a.e.b.c(currentItem2, currentItem, this.ess.getCurrentItem() + 1, z);
-        sb.append(c[0]).append(Constants.ACCEPT_TIME_SEPARATOR_SERVER).append(c[1]).append(Constants.ACCEPT_TIME_SEPARATOR_SERVER).append(c[2]).append(" ").append(this.est.getCurrentItem()).append(":").append(this.esu.getCurrentItem()).append(":").append(this.esv.getCurrentItem());
+        int[] c = com.baidu.tbadk.widget.timepicker.a.e.b.c(currentItem2, currentItem, this.eGS.getCurrentItem() + 1, z);
+        sb.append(c[0]).append(Constants.ACCEPT_TIME_SEPARATOR_SERVER).append(c[1]).append(Constants.ACCEPT_TIME_SEPARATOR_SERVER).append(c[2]).append(" ").append(this.eGT.getCurrentItem()).append(":").append(this.eGU.getCurrentItem()).append(":").append(this.eGV.getCurrentItem());
         return sb.toString();
     }
 
@@ -569,12 +569,12 @@ public class c {
         this.view = view;
     }
 
-    public void ob(int i) {
-        this.ern = i;
+    public void oG(int i) {
+        this.eFO = i;
     }
 
-    public void oc(int i) {
-        this.ero = i;
+    public void oH(int i) {
+        this.eFP = i;
     }
 
     public void a(Calendar calendar, Calendar calendar2) {
@@ -582,85 +582,85 @@ public class c {
             int i = calendar2.get(1);
             int i2 = calendar2.get(2) + 1;
             int i3 = calendar2.get(5);
-            if (i > this.ern) {
-                this.ero = i;
-                this.esx = i2;
-                this.esz = i3;
-            } else if (i == this.ern) {
-                if (i2 > this.esw) {
-                    this.ero = i;
-                    this.esx = i2;
-                    this.esz = i3;
-                } else if (i2 == this.esw && i3 > this.esy) {
-                    this.ero = i;
-                    this.esx = i2;
-                    this.esz = i3;
+            if (i > this.eFO) {
+                this.eFP = i;
+                this.eGX = i2;
+                this.eGZ = i3;
+            } else if (i == this.eFO) {
+                if (i2 > this.eGW) {
+                    this.eFP = i;
+                    this.eGX = i2;
+                    this.eGZ = i3;
+                } else if (i2 == this.eGW && i3 > this.eGY) {
+                    this.eFP = i;
+                    this.eGX = i2;
+                    this.eGZ = i3;
                 }
             }
         } else if (calendar != null && calendar2 == null) {
             int i4 = calendar.get(1);
             int i5 = calendar.get(2) + 1;
             int i6 = calendar.get(5);
-            if (i4 < this.ero) {
-                this.esw = i5;
-                this.esy = i6;
-                this.ern = i4;
-            } else if (i4 == this.ero) {
-                if (i5 < this.esx) {
-                    this.esw = i5;
-                    this.esy = i6;
-                    this.ern = i4;
-                } else if (i5 == this.esx && i6 < this.esz) {
-                    this.esw = i5;
-                    this.esy = i6;
-                    this.ern = i4;
+            if (i4 < this.eFP) {
+                this.eGW = i5;
+                this.eGY = i6;
+                this.eFO = i4;
+            } else if (i4 == this.eFP) {
+                if (i5 < this.eGX) {
+                    this.eGW = i5;
+                    this.eGY = i6;
+                    this.eFO = i4;
+                } else if (i5 == this.eGX && i6 < this.eGZ) {
+                    this.eGW = i5;
+                    this.eGY = i6;
+                    this.eFO = i4;
                 }
             }
         } else if (calendar != null && calendar2 != null) {
-            this.ern = calendar.get(1);
-            this.ero = calendar2.get(1);
-            this.esw = calendar.get(2) + 1;
-            this.esx = calendar2.get(2) + 1;
-            this.esy = calendar.get(5);
-            this.esz = calendar2.get(5);
+            this.eFO = calendar.get(1);
+            this.eFP = calendar2.get(1);
+            this.eGW = calendar.get(2) + 1;
+            this.eGX = calendar2.get(2) + 1;
+            this.eGY = calendar.get(5);
+            this.eGZ = calendar2.get(5);
         }
     }
 
     public void setLineSpacingMultiplier(float f) {
         this.lineSpacingMultiplier = f;
-        bds();
+        bjD();
     }
 
     public void setDividerColor(int i) {
         this.dividerColor = i;
-        bdq();
+        bjB();
     }
 
     public void setDividerType(WheelView.DividerType dividerType) {
-        this.erU = dividerType;
-        bdr();
+        this.eGu = dividerType;
+        bjC();
     }
 
     public void setTextColorCenter(int i) {
         this.textColorCenter = i;
-        bdp();
+        bjA();
     }
 
     public void setTextColorOut(int i) {
         this.textColorOut = i;
-        bdo();
+        bjz();
     }
 
     public void isCenterLabel(boolean z) {
-        this.ess.isCenterLabel(z);
-        this.esr.isCenterLabel(z);
-        this.esq.isCenterLabel(z);
-        this.est.isCenterLabel(z);
-        this.esu.isCenterLabel(z);
-        this.esv.isCenterLabel(z);
+        this.eGS.isCenterLabel(z);
+        this.eGR.isCenterLabel(z);
+        this.eGQ.isCenterLabel(z);
+        this.eGT.isCenterLabel(z);
+        this.eGU.isCenterLabel(z);
+        this.eGV.isCenterLabel(z);
     }
 
     public void a(com.baidu.tbadk.widget.timepicker.a.d.b bVar) {
-        this.esB = bVar;
+        this.eHb = bVar;
     }
 }

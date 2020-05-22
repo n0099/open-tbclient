@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.message.HttpMessage;
-import com.baidu.live.data.n;
+import com.baidu.live.data.q;
 import com.baidu.live.message.GetUserInfoHttpResponseMessage;
 import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.TbPageContext;
@@ -21,26 +21,26 @@ import com.baidu.live.tbadk.task.TbHttpMessageTask;
 import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class a {
-    private n aDK;
-    private View.OnClickListener dRK = new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.s.a.2
+    private q aJj;
+    private View.OnClickListener ege = new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.s.a.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (a.this.fOZ != null && view == a.this.fOZ.getView() && !UtilHelper.isFastDoubleClick()) {
+            if (a.this.gdJ != null && view == a.this.gdJ.getView() && !UtilHelper.isFastDoubleClick()) {
                 if (TbadkCoreApplication.getInst().isHaokan() || TbadkCoreApplication.getInst().isQuanmin()) {
                     AlaStaticItem alaStaticItem = new AlaStaticItem(SdkStaticKeys.RENAME_CLICK);
                     alaStaticItem.addParams("other_params", a.this.otherParams);
                     AlaStaticsManager.getInst().onStatic(alaStaticItem);
                 }
-                if (!com.baidu.live.r.a.Ej().Ek().c(a.this.getPageContext().getPageActivity(), RequestResponseCode.REQUEST_SDK_RENAME)) {
-                    a.this.fPa = new c(a.this.mTbPageContext.getPageActivity(), a.this.mTbPageContext, a.this.aDK, a.this.otherParams);
-                    a.this.fPa.show();
+                if (!com.baidu.live.r.a.Ga().Gb().c(a.this.getPageContext().getPageActivity(), RequestResponseCode.REQUEST_SDK_RENAME)) {
+                    a.this.gdK = new c(a.this.mTbPageContext.getPageActivity(), a.this.mTbPageContext, a.this.aJj, a.this.otherParams);
+                    a.this.gdK.show();
                 }
             }
         }
     };
-    protected b fOZ;
-    private c fPa;
-    private ViewGroup faV;
+    private ViewGroup fox;
+    protected b gdJ;
+    private c gdK;
     protected TbPageContext mTbPageContext;
     private String otherParams;
 
@@ -53,22 +53,22 @@ public class a {
         return this.mTbPageContext;
     }
 
-    protected boolean d(ViewGroup viewGroup, n nVar) {
+    protected boolean d(ViewGroup viewGroup, q qVar) {
         if (viewGroup == null) {
             return false;
         }
-        this.aDK = nVar;
-        if (this.fOZ == null) {
-            this.fOZ = new b(getPageContext(), nVar.aqD, this.dRK);
+        this.aJj = qVar;
+        if (this.gdJ == null) {
+            this.gdJ = new b(getPageContext(), qVar.avC, this.ege);
         }
-        if (this.faV != null && this.faV.indexOfChild(this.fOZ.getView()) > 0) {
-            this.faV.removeView(this.fOZ.getView());
+        if (this.fox != null && this.fox.indexOfChild(this.gdJ.getView()) > 0) {
+            this.fox.removeView(this.gdJ.getView());
         }
-        this.faV = viewGroup;
-        this.fOZ.getView().setId(a.g.guide_rename_view);
-        this.fOZ.getView().setVisibility(0);
+        this.fox = viewGroup;
+        this.gdJ.getView().setId(a.g.guide_rename_view);
+        this.gdJ.getView().setVisibility(0);
         initTasks();
-        bzN();
+        bGa();
         return true;
     }
 
@@ -76,16 +76,16 @@ public class a {
         this.otherParams = str;
     }
 
-    private void bzN() {
-        com.baidu.live.r.a.Ej().a(new com.baidu.live.r.c() { // from class: com.baidu.tieba.ala.liveroom.s.a.1
+    private void bGa() {
+        com.baidu.live.r.a.Ga().a(new com.baidu.live.r.c() { // from class: com.baidu.tieba.ala.liveroom.s.a.1
         });
     }
 
-    private void Ba(String str) {
-        if (this.aDK != null) {
-            bzO();
-            if (this.fPa != null && this.fPa.isShowing()) {
-                this.fPa.onSuccess();
+    private void CI(String str) {
+        if (this.aJj != null) {
+            bGb();
+            if (this.gdK != null && this.gdK.isShowing()) {
+                this.gdK.onSuccess();
             }
             if (TbadkCoreApplication.getInst().isHaokan() || TbadkCoreApplication.getInst().isQuanmin()) {
                 AlaStaticItem alaStaticItem = new AlaStaticItem(SdkStaticKeys.REMANE_SUC);
@@ -95,15 +95,15 @@ public class a {
             if (this.mTbPageContext != null) {
                 this.mTbPageContext.showToast(this.mTbPageContext.getPageActivity().getResources().getString(a.i.sdk_rename_success_toast));
             }
-            if (this.aDK != null && this.aDK.mLiveInfo != null) {
-                k(this.aDK.mLiveInfo.live_id, 1);
+            if (this.aJj != null && this.aJj.mLiveInfo != null) {
+                k(this.aJj.mLiveInfo.live_id, 1);
             }
         }
     }
 
-    private void Bb(String str) {
-        if (this.fPa != null && this.fPa.isShowing()) {
-            this.fPa.onFail();
+    private void CJ(String str) {
+        if (this.gdK != null && this.gdK.isShowing()) {
+            this.gdK.onFail();
         }
         if (!TextUtils.isEmpty(str)) {
             this.mTbPageContext.showToast(str);
@@ -112,29 +112,29 @@ public class a {
         }
     }
 
-    public void Q(Intent intent) {
+    public void N(Intent intent) {
         if (intent == null) {
-            Bb(this.mTbPageContext.getPageActivity().getResources().getString(a.i.sdk_rename_fail_toast));
+            CJ(this.mTbPageContext.getPageActivity().getResources().getString(a.i.sdk_rename_fail_toast));
         } else if (intent.getBooleanExtra("isModifySuccess", false)) {
-            Ba(this.mTbPageContext.getPageActivity().getResources().getString(a.i.sdk_rename_success_toast));
+            CI(this.mTbPageContext.getPageActivity().getResources().getString(a.i.sdk_rename_success_toast));
         } else {
-            Bb(this.mTbPageContext.getPageActivity().getResources().getString(a.i.sdk_rename_fail_toast));
+            CJ(this.mTbPageContext.getPageActivity().getResources().getString(a.i.sdk_rename_fail_toast));
         }
     }
 
-    public void e(ViewGroup viewGroup, n nVar) {
-        if (d(viewGroup, nVar)) {
+    public void e(ViewGroup viewGroup, q qVar) {
+        if (d(viewGroup, qVar)) {
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
             layoutParams.addRule(12);
             layoutParams.setMargins(getPageContext().getPageActivity().getResources().getDimensionPixelSize(a.e.sdk_ds18), 0, getPageContext().getPageActivity().getResources().getDimensionPixelSize(a.e.sdk_ds180), 0);
             layoutParams.bottomMargin = getPageContext().getPageActivity().getResources().getDimensionPixelSize(a.e.sdk_tbds130) + getPageContext().getPageActivity().getResources().getDimensionPixelSize(a.e.sdk_ds18);
-            viewGroup.addView(this.fOZ.getView(), layoutParams);
+            viewGroup.addView(this.gdJ.getView(), layoutParams);
         }
     }
 
-    public void bzO() {
-        if (this.faV != null && this.faV.indexOfChild(this.fOZ.getView()) > 0) {
-            this.faV.removeView(this.fOZ.getView());
+    public void bGb() {
+        if (this.fox != null && this.fox.indexOfChild(this.gdJ.getView()) > 0) {
+            this.fox.removeView(this.gdJ.getView());
         }
     }
 

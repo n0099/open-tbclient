@@ -1,0 +1,40 @@
+package com.baidu.live.tbadk.ubc;
+/* loaded from: classes3.dex */
+public class UbcStatisticLiveKey {
+    public static final String KEY_ID_1391 = "1391";
+    public static final String KEY_ID_1392 = "1392";
+    public static final String KEY_ID_1393 = "1393";
+    public static final String KEY_ID_1394 = "1394";
+    public static final String KEY_ID_1395 = "1395";
+    public static final String KEY_ID_1396 = "1396";
+    public static final String KEY_ID_CREATE_LIVE_REQ = "1526";
+    public static final String KEY_ID_CREATE_LIVE_RESP = "1534";
+    public static final String KEY_ID_DOWN_RES_REQ = "1542";
+    public static final String KEY_ID_DOWN_RES_RESP = "1543";
+    public static final String KEY_ID_ENTER_LIVE_REQ = "1527";
+    public static final String KEY_ID_ENTER_LIVE_RESP = "1535";
+    public static final String KEY_ID_FLOW = "1397";
+    public static final String KEY_ID_GIFT_LIST_REQ = "1531";
+    public static final String KEY_ID_GIFT_LIST_RESP = "1539";
+    public static final String KEY_ID_GOODS_AUTH_REQ = "1533";
+    public static final String KEY_ID_GOODS_AUTH_RESP = "1541";
+    public static final String KEY_ID_GOODS_LIST_REQ = "1533";
+    public static final String KEY_ID_GOODS_LIST_RESP = "1541";
+    public static final String KEY_ID_IM_EXCEPTION = "1537";
+    public static final String KEY_ID_IM_JOIN = "1529";
+    public static final String KEY_ID_IM_JOIN_FAIL = "1537";
+    public static final String KEY_ID_IM_LEAVE = "1529";
+    public static final String KEY_ID_IM_SEND = "1529";
+    public static final String KEY_ID_IM_SEND_RESULT = "1537";
+    public static final String KEY_ID_IM_WRONG_ID = "1537";
+    public static final String KEY_ID_PK_REQ = "1528";
+    public static final String KEY_ID_PK_RESP = "1536";
+    public static final String KEY_ID_QM_STRATEGY_REQ = "1526";
+    public static final String KEY_ID_QM_STRATEGY_RESP = "1534";
+    public static final String KEY_ID_RECHARGE_REQ = "1532";
+    public static final String KEY_ID_RECHARGE_RESP = "1540";
+    public static final String KEY_ID_SEND_GIFT_REQ = "1530";
+    public static final String KEY_ID_SEND_GIFT_RESP = "1538";
+    public static final String KEY_ID_STRATEGY_REQ = "1526";
+    public static final String KEY_ID_STRATEGY_RESP = "1534";
+}

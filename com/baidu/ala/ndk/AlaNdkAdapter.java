@@ -30,6 +30,8 @@ public class AlaNdkAdapter {
 
     public static native void setDomainConfigEnable(int i);
 
+    public static native void setHttpDnsEnable(int i);
+
     public static native void setLibraryPrintLogNative(int i);
 
     public static long getMediaStreamTS(boolean z) {

@@ -6,47 +6,47 @@ import kotlin.jvm.internal.q;
 @h
 /* loaded from: classes7.dex */
 public abstract class a extends d {
-    public abstract Random dDW();
+    public abstract Random dLQ();
 
     @Override // kotlin.random.d
-    public int Jg(int i) {
-        return e.dG(dDW().nextInt(), i);
+    public int JR(int i) {
+        return e.dL(dLQ().nextInt(), i);
     }
 
     @Override // kotlin.random.d
     public int nextInt() {
-        return dDW().nextInt();
+        return dLQ().nextInt();
     }
 
     @Override // kotlin.random.d
     public int nextInt(int i) {
-        return dDW().nextInt(i);
+        return dLQ().nextInt(i);
     }
 
     @Override // kotlin.random.d
     public long nextLong() {
-        return dDW().nextLong();
+        return dLQ().nextLong();
     }
 
     @Override // kotlin.random.d
     public boolean nextBoolean() {
-        return dDW().nextBoolean();
+        return dLQ().nextBoolean();
     }
 
     @Override // kotlin.random.d
     public double nextDouble() {
-        return dDW().nextDouble();
+        return dLQ().nextDouble();
     }
 
     @Override // kotlin.random.d
     public float nextFloat() {
-        return dDW().nextFloat();
+        return dLQ().nextFloat();
     }
 
     @Override // kotlin.random.d
-    public byte[] ap(byte[] bArr) {
-        q.j(bArr, com.baidu.fsg.base.statistics.b.j);
-        dDW().nextBytes(bArr);
+    public byte[] aw(byte[] bArr) {
+        q.m(bArr, com.baidu.fsg.base.statistics.b.j);
+        dLQ().nextBytes(bArr);
         return bArr;
     }
 }

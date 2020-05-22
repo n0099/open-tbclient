@@ -4,13 +4,13 @@ import android.text.TextUtils;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.swan.apps.runtime.e;
 import com.baidu.swan.apps.storage.PathType;
-import com.baidu.swan.games.k.a;
+import com.baidu.swan.games.l.a;
 import java.io.File;
 /* loaded from: classes11.dex */
 public class d {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    public static PathType nm(String str) {
+    public static PathType oQ(String str) {
         if (TextUtils.isEmpty(str)) {
             return PathType.ERROR;
         }
@@ -20,11 +20,11 @@ public class d {
         return PathType.RELATIVE;
     }
 
-    public static String azc() {
-        File aT;
-        e akG = com.baidu.swan.apps.runtime.d.akJ().akG();
-        if (akG.available() && akG.getVersion() != null && (aT = a.c.aT(akG.getAppId(), akG.getVersion())) != null && aT.exists()) {
-            return "file://" + aT.getAbsolutePath();
+    public static String aCU() {
+        File bk;
+        e aox = com.baidu.swan.apps.runtime.d.aoB().aox();
+        if (aox.available() && aox.getVersion() != null && (bk = a.c.bk(aox.getAppId(), aox.getVersion())) != null && bk.exists()) {
+            return "file://" + bk.getAbsolutePath();
         }
         return null;
     }

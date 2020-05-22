@@ -11,29 +11,29 @@ import java.util.Set;
 /* loaded from: classes8.dex */
 public class a implements c {
     private static final String TAG = a.class.getSimpleName();
-    public final DownloadCacheKey eAj;
+    public final DownloadCacheKey eOJ;
     private final Object mLock = new Object();
     private int mPercent = 0;
     private int mState = 0;
-    private final Set<d> eAk = new HashSet();
-    private final com.baidu.tieba.ad.download.c eAi = new com.baidu.tieba.ad.download.c("DOWNLOAD_PAGE", "DOWNLOAD_BUTTON", "");
+    private final Set<d> eOK = new HashSet();
+    private final com.baidu.tieba.ad.download.c eOI = new com.baidu.tieba.ad.download.c("DOWNLOAD_PAGE", "DOWNLOAD_BUTTON", "");
 
     public a(DownloadCacheKey downloadCacheKey) {
-        this.eAj = downloadCacheKey;
+        this.eOJ = downloadCacheKey;
     }
 
     public void setState(int i) {
         this.mState = i;
     }
 
-    public int bgx() {
+    public int bmI() {
         return this.mState;
     }
 
     public boolean a(d dVar) {
         boolean add;
         synchronized (this.mLock) {
-            add = this.eAk.add(dVar);
+            add = this.eOK.add(dVar);
         }
         return add;
     }
@@ -41,87 +41,47 @@ public class a implements c {
     public boolean b(d dVar) {
         boolean remove;
         synchronized (this.mLock) {
-            remove = this.eAk.remove(dVar);
+            remove = this.eOK.remove(dVar);
         }
         return remove;
     }
 
-    public boolean bgy() {
-        return this.eAk.isEmpty();
+    public boolean bmJ() {
+        return this.eOK.isEmpty();
     }
 
-    public void bgz() {
-        if (this.eAj != null) {
-            this.eAi.an(710, this.eAj.mPackageName);
-            AdDownloadData d = com.baidu.tieba.ad.download.d.bgs().d(this.eAj);
+    public void bmK() {
+        if (this.eOJ != null) {
+            this.eOI.as(710, this.eOJ.mPackageName);
+            AdDownloadData d = com.baidu.tieba.ad.download.d.bmD().d(this.eOJ);
             d.extra().setStatus(DownloadStatus.STATUS_INSTALL_SUCCESS);
             d.extra().setPercent(100);
-            if (!bgy()) {
-                for (d dVar : this.eAk) {
-                    dVar.f(this.eAj);
+            if (!bmJ()) {
+                for (d dVar : this.eOK) {
+                    dVar.f(this.eOJ);
                 }
             }
         }
     }
 
-    public void bgA() {
-        if (this.eAj != null) {
-            com.baidu.tieba.ad.download.d.bgs().d(this.eAj).extra().setStatus(DownloadStatus.STATUS_NONE);
-            if (!bgy()) {
-                for (d dVar : this.eAk) {
-                    dVar.g(this.eAj);
-                }
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.ad.download.a.c
-    public void yt(String str) {
-        if (this.eAj != null) {
-            com.baidu.tieba.ad.download.d.bgs().d(this.eAj).extra().setStatus(DownloadStatus.STATUS_DOWNLOADING);
-            if (!bgy()) {
-                for (d dVar : this.eAk) {
-                    dVar.e(this.eAj);
+    public void bmL() {
+        if (this.eOJ != null) {
+            com.baidu.tieba.ad.download.d.bmD().d(this.eOJ).extra().setStatus(DownloadStatus.STATUS_NONE);
+            if (!bmJ()) {
+                for (d dVar : this.eOK) {
+                    dVar.g(this.eOJ);
                 }
             }
         }
     }
 
     @Override // com.baidu.tieba.ad.download.a.c
-    public void as(String str, int i) {
-        if (this.eAj != null) {
-            com.baidu.tieba.ad.download.d.bgs().d(this.eAj).extra().setStatus(DownloadStatus.STATUS_PAUSED);
-            if (!bgy()) {
-                for (d dVar : this.eAk) {
-                    dVar.b(this.eAj, this.mPercent);
-                }
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.ad.download.a.c
-    public void a(String str, StopStatus stopStatus) {
-        if (this.eAj != null) {
-            com.baidu.tieba.ad.download.d.bgs().d(this.eAj).extra().setStatus(DownloadStatus.STATUS_NONE);
-            if (!bgy()) {
-                for (d dVar : this.eAk) {
-                    dVar.a(this.eAj, stopStatus);
-                }
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.ad.download.a.c
-    public void onSuccess(String str, String str2) {
-        if (this.eAj != null) {
-            this.eAi.an(704, this.eAj.mPackageName);
-            AdDownloadData d = com.baidu.tieba.ad.download.d.bgs().d(this.eAj);
-            d.extra().setStatus(DownloadStatus.STATUS_SUCCESS);
-            d.extra().setPercent(100);
-            com.baidu.tieba.ad.download.d.bgs().d(this.eAj).extra().setDownloadPath(str2);
-            if (!bgy()) {
-                for (d dVar : this.eAk) {
-                    dVar.a(this.eAj, str2, false);
+    public void zZ(String str) {
+        if (this.eOJ != null) {
+            com.baidu.tieba.ad.download.d.bmD().d(this.eOJ).extra().setStatus(DownloadStatus.STATUS_DOWNLOADING);
+            if (!bmJ()) {
+                for (d dVar : this.eOK) {
+                    dVar.e(this.eOJ);
                 }
             }
         }
@@ -129,12 +89,52 @@ public class a implements c {
 
     @Override // com.baidu.tieba.ad.download.a.c
     public void at(String str, int i) {
-        if (this.eAj != null) {
+        if (this.eOJ != null) {
+            com.baidu.tieba.ad.download.d.bmD().d(this.eOJ).extra().setStatus(DownloadStatus.STATUS_PAUSED);
+            if (!bmJ()) {
+                for (d dVar : this.eOK) {
+                    dVar.b(this.eOJ, this.mPercent);
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.ad.download.a.c
+    public void a(String str, StopStatus stopStatus) {
+        if (this.eOJ != null) {
+            com.baidu.tieba.ad.download.d.bmD().d(this.eOJ).extra().setStatus(DownloadStatus.STATUS_NONE);
+            if (!bmJ()) {
+                for (d dVar : this.eOK) {
+                    dVar.a(this.eOJ, stopStatus);
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.ad.download.a.c
+    public void onSuccess(String str, String str2) {
+        if (this.eOJ != null) {
+            this.eOI.as(704, this.eOJ.mPackageName);
+            AdDownloadData d = com.baidu.tieba.ad.download.d.bmD().d(this.eOJ);
+            d.extra().setStatus(DownloadStatus.STATUS_SUCCESS);
+            d.extra().setPercent(100);
+            com.baidu.tieba.ad.download.d.bmD().d(this.eOJ).extra().setDownloadPath(str2);
+            if (!bmJ()) {
+                for (d dVar : this.eOK) {
+                    dVar.a(this.eOJ, str2, false);
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.ad.download.a.c
+    public void au(String str, int i) {
+        if (this.eOJ != null) {
             this.mPercent = i;
-            com.baidu.tieba.ad.download.d.bgs().d(this.eAj).extra().setPercent(i);
-            if (!bgy()) {
-                for (d dVar : this.eAk) {
-                    dVar.a(this.eAj, this.mPercent);
+            com.baidu.tieba.ad.download.d.bmD().d(this.eOJ).extra().setPercent(i);
+            if (!bmJ()) {
+                for (d dVar : this.eOK) {
+                    dVar.a(this.eOJ, this.mPercent);
                 }
             }
         }
@@ -143,19 +143,19 @@ public class a implements c {
     public void a(String str, DownloadStatus downloadStatus, @Nullable String str2) {
         switch (downloadStatus) {
             case STATUS_NONE:
-                this.eAi.n(str, 701, str2);
+                this.eOI.l(str, 701, str2);
                 return;
             case STATUS_DOWNLOADING:
-                this.eAi.n(str, CyberPlayerManager.MEDIA_INFO_BUFFERING_END, str2);
+                this.eOI.l(str, CyberPlayerManager.MEDIA_INFO_BUFFERING_END, str2);
                 return;
             case STATUS_PAUSED:
-                this.eAi.n(str, 703, str2);
+                this.eOI.l(str, 703, str2);
                 return;
             case STATUS_SUCCESS:
-                this.eAi.n(str, 705, str2);
+                this.eOI.l(str, 705, str2);
                 return;
             case STATUS_INSTALL_SUCCESS:
-                this.eAi.n(str, 706, str2);
+                this.eOI.l(str, 706, str2);
                 return;
             default:
                 return;

@@ -22,7 +22,7 @@ public abstract class BeanConstants {
     public static final String rim_timeout_error = ResUtils.string("rim_timeout_error");
     public static String CHANNEL_ID = "";
     public static String CHANNEL_ID_RIM = "Channel";
-    public static String VERSION_NO = a.j;
+    public static String VERSION_NO = a.k;
     public static String SDK_VERSION = "";
     public static String ANIMSTYLE = "1";
     public static String TestSpNo = "1000000001";

@@ -13,7 +13,7 @@ public final class q {
             try {
                 process = Runtime.getRuntime().exec("ls -l " + str);
                 String readLine = new BufferedReader(new InputStreamReader(process.getInputStream())).readLine();
-                com.baidu.crabsdk.c.a.de("isExecutable" + readLine);
+                com.baidu.crabsdk.c.a.dg("isExecutable" + readLine);
                 if (readLine != null && readLine.length() >= 4) {
                     char charAt = readLine.charAt(3);
                     if (charAt == 's' || charAt == 'x') {
@@ -37,7 +37,7 @@ public final class q {
         }
     }
 
-    public static int sE() {
+    public static int sN() {
         if (new File("/system/bin/su").exists() && b("/system/bin/su")) {
             return 1;
         }

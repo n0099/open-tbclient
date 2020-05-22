@@ -14,17 +14,17 @@ import java.io.OutputStream;
 import java.nio.ByteBuffer;
 /* loaded from: classes.dex */
 public class b {
-    private static b Hm = null;
+    private static b Hn = null;
 
     public static b jD() {
-        if (Hm == null) {
+        if (Hn == null) {
             synchronized (b.class) {
-                if (Hm == null) {
-                    Hm = new b();
+                if (Hn == null) {
+                    Hn = new b();
                 }
             }
         }
-        return Hm;
+        return Hn;
     }
 
     private b() {
@@ -62,10 +62,10 @@ public class b {
     }
 
     public c a(c cVar) throws CoderException {
-        if (cVar == null || cVar.Hn == null || cVar.body == null) {
+        if (cVar == null || cVar.Ho == null || cVar.body == null) {
             throw new CoderException(h.CODEC_INVALID_MSG);
         }
-        a aVar = cVar.Hn;
+        a aVar = cVar.Ho;
         if (aVar.getEncryptType() && cVar.bodyLength > 0) {
             if (d.jE().getSecretKey() == null) {
                 throw new CoderException(h.CODEC_SECURE_KEY_NOT_READY);
@@ -100,7 +100,7 @@ public class b {
             throw new CoderException(h.CODEC_INVALID_MSG);
         }
         c cVar = new c();
-        cVar.Hn = h;
+        cVar.Ho = h;
         cVar.body = bArr;
         cVar.bodyOffset = headerLengthInBytes;
         cVar.bodyLength = bArr.length - headerLengthInBytes;

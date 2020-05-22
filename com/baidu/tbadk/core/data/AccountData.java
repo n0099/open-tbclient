@@ -20,6 +20,7 @@ public class AccountData implements Serializable {
     private int mMemberCloseAdVipClose;
     private String mMemberIconUrl;
     private int mMemberType;
+    private int mNewGodStatus;
     private int mSex;
     private List<IconData> mUserIcons;
     private UserVipInfoData mVipInfo;
@@ -247,5 +248,13 @@ public class AccountData implements Serializable {
 
     public void setBjhAvatar(String str) {
         this.bjhAvatar = str;
+    }
+
+    public int getNewGodStatus() {
+        return this.mNewGodStatus;
+    }
+
+    public void setNewGodStatus(int i) {
+        this.mNewGodStatus = i;
     }
 }

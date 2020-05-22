@@ -4,15 +4,15 @@ import java.util.HashMap;
 import java.util.HashSet;
 /* loaded from: classes13.dex */
 public class f {
-    public HashSet<String> lNw = new HashSet<>();
-    public HashSet<String> lNx = new HashSet<>();
-    public HashSet<String> lNy = new HashSet<>();
-    public HashSet<String> lNz = new HashSet<>();
-    public HashSet<String> lNA = new HashSet<>();
-    public HashMap<String, String> lNB = new HashMap<>();
-    public HashMap<String, String> lNC = new HashMap<>();
-    public HashMap<String, m> lND = new HashMap<>();
-    public HashSet<String> lNE = new HashSet<>();
-    public HashSet<String> lNF = new HashSet<>();
-    public HashMap<String, String> lNG = new HashMap<>();
+    public HashSet<String> mgL = new HashSet<>();
+    public HashSet<String> mgM = new HashSet<>();
+    public HashSet<String> mgN = new HashSet<>();
+    public HashSet<String> mgO = new HashSet<>();
+    public HashSet<String> mgP = new HashSet<>();
+    public HashMap<String, String> mgQ = new HashMap<>();
+    public HashMap<String, String> mgR = new HashMap<>();
+    public HashMap<String, m> mgS = new HashMap<>();
+    public HashSet<String> mgT = new HashSet<>();
+    public HashSet<String> mgU = new HashSet<>();
+    public HashMap<String, String> mgV = new HashMap<>();
 }

@@ -18,17 +18,17 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class h extends b {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    protected com.baidu.swan.apps.adaptation.b.f bNd;
-    private String bNe;
-    boolean bNf = true;
-    protected com.baidu.swan.apps.adaptation.b.d bzE;
+    protected com.baidu.swan.apps.adaptation.b.d bHi;
+    protected com.baidu.swan.apps.adaptation.b.f bWj;
+    private String bWk;
+    boolean bWl = true;
     protected String mParams;
     public String mUrl;
 
     @Override // com.baidu.swan.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        VK();
+        Yw();
         if (DEBUG) {
             Log.d("SwanAppWebViewFragment", "onCreate() : " + this);
         }
@@ -39,12 +39,12 @@ public class h extends b {
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         View inflate = layoutInflater.inflate(a.g.aiapps_webview_fragment, viewGroup, false);
         ae(inflate);
-        this.bNd = Qx();
-        this.bNd.a(QS());
-        this.bzE = this.bNd.QD();
-        this.bNd.loadUrl(this.mUrl);
+        this.bWj = Tb();
+        this.bWj.a(Tx());
+        this.bHi = this.bWj.Th();
+        this.bWj.loadUrl(this.mUrl);
         FrameLayout frameLayout = (FrameLayout) inflate.findViewById(a.f.aiapps_webView_container);
-        this.bNd.a(frameLayout, this.bzE.covertToView());
+        this.bWj.a(frameLayout, this.bHi.covertToView());
         a(frameLayout);
         return enableSliding(immersionEnabled() ? initImmersion(inflate) : inflate, this);
     }
@@ -53,34 +53,34 @@ public class h extends b {
     public void a(FrameLayout frameLayout) {
     }
 
-    public com.baidu.swan.apps.adaptation.b.f Qx() {
+    public com.baidu.swan.apps.adaptation.b.f Tb() {
         return new SwanAppWebViewWidget(getContext()) { // from class: com.baidu.swan.apps.core.d.h.1
             @Override // com.baidu.swan.apps.core.slave.SwanAppWebViewWidget
-            protected boolean Wv() {
-                return h.this.bNf;
+            protected boolean Zh() {
+                return h.this.bWl;
             }
         };
     }
 
-    protected com.baidu.swan.apps.core.f.d QS() {
+    protected com.baidu.swan.apps.core.f.d Tx() {
         return new com.baidu.swan.apps.core.f.a() { // from class: com.baidu.swan.apps.core.d.h.2
             @Override // com.baidu.swan.apps.core.f.a, com.baidu.swan.apps.core.f.d
-            public void ff(String str) {
-                if (h.this.iq(str) && h.this.bNe != null) {
-                    h.this.bLW.setTitle(h.this.bNe);
+            public void fR(String str) {
+                if (h.this.jr(str) && h.this.bWk != null) {
+                    h.this.bVa.setTitle(h.this.bWk);
                 } else {
-                    h.this.bLW.setTitle(str);
+                    h.this.bVa.setTitle(str);
                 }
             }
         };
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean iq(String str) {
+    public boolean jr(String str) {
         return TextUtils.equals(this.mUrl, str) || TextUtils.equals(this.mUrl.replace("http://", "").replace(SapiUtils.COOKIE_HTTPS_URL_PREFIX, ""), str);
     }
 
-    private void VK() {
+    private void Yw() {
         Bundle arguments = getArguments();
         if (arguments != null) {
             this.mUrl = arguments.getString("url");
@@ -88,8 +88,8 @@ public class h extends b {
             if (!TextUtils.isEmpty(this.mParams)) {
                 try {
                     JSONObject jSONObject = new JSONObject(this.mParams);
-                    this.bNe = jSONObject.optString("fallback_title", null);
-                    this.bNf = jSONObject.optBoolean("should_check_domain", true);
+                    this.bWk = jSONObject.optString("fallback_title", null);
+                    this.bWl = jSONObject.optBoolean("should_check_domain", true);
                 } catch (JSONException e) {
                     if (DEBUG) {
                         e.printStackTrace();
@@ -133,10 +133,16 @@ public class h extends b {
                     break;
                 }
                 break;
+            case 1339472410:
+                if (str.equals("qrCodePay")) {
+                    c = 5;
+                    break;
+                }
+                break;
         }
         switch (c) {
             case 0:
-                hVar = new com.baidu.swan.apps.ae.c();
+                hVar = new com.baidu.swan.apps.ac.f();
                 break;
             case 1:
                 hVar = new SwanAppAdLandingFragment();
@@ -145,10 +151,13 @@ public class h extends b {
                 hVar = new h();
                 break;
             case 3:
-                hVar = new com.baidu.swan.apps.c.a.d();
+                hVar = new com.baidu.swan.apps.c.a.e();
                 break;
             case 4:
                 hVar = new com.baidu.swan.apps.c.a.b.a.c();
+                break;
+            case 5:
+                hVar = new com.baidu.swan.apps.ac.c();
                 break;
             default:
                 if (DEBUG) {
@@ -173,32 +182,32 @@ public class h extends b {
     }
 
     public static boolean b(String str, com.baidu.swan.apps.model.b bVar) {
-        e Ot = com.baidu.swan.apps.y.f.aeJ().Ot();
-        if (Ot == null) {
+        e QH = com.baidu.swan.apps.w.f.ahV().QH();
+        if (QH == null) {
             com.baidu.swan.apps.console.c.i("SwanAppWebViewFragment", "open page failed");
             return false;
         }
         com.baidu.swan.apps.console.c.i("SwanAppWebViewFragment", "open page url=" + bVar.mBaseUrl);
-        Ot.Wh().ab(e.bME, e.bMG).a(str, bVar).Wp();
+        QH.YT().ae(e.bVN, e.bVP).a(str, bVar).Zb();
         return true;
     }
 
-    public static a ir(String str) {
+    public static a js(String str) {
         return new a(str);
     }
 
     /* loaded from: classes11.dex */
     static final class a {
-        private com.baidu.swan.apps.model.b bNh;
-        JSONObject bNi = new JSONObject();
+        private com.baidu.swan.apps.model.b bWn;
+        JSONObject bWo = new JSONObject();
 
         a(String str) {
-            this.bNh = com.baidu.swan.apps.model.b.bg(str, str);
+            this.bWn = com.baidu.swan.apps.model.b.bx(str, str);
         }
 
-        public a is(String str) {
+        public a jt(String str) {
             try {
-                this.bNi.put("fallback_title", str);
+                this.bWo.put("fallback_title", str);
             } catch (JSONException e) {
                 if (h.DEBUG) {
                     e.printStackTrace();
@@ -207,9 +216,9 @@ public class h extends b {
             return this;
         }
 
-        public a ds(boolean z) {
+        public a dH(boolean z) {
             try {
-                this.bNi.put("should_check_domain", z);
+                this.bWo.put("should_check_domain", z);
             } catch (JSONException e) {
                 if (h.DEBUG) {
                     e.printStackTrace();
@@ -218,87 +227,87 @@ public class h extends b {
             return this;
         }
 
-        public void Ww() {
-            this.bNh.mParams = this.bNi.toString();
-            h.b("default_webview", this.bNh);
+        public void Zi() {
+            this.bWn.mParams = this.bWo.toString();
+            h.b("default_webview", this.bWn);
         }
     }
 
-    public static boolean Wu() {
-        e Ot = com.baidu.swan.apps.y.f.aeJ().Ot();
-        if (Ot == null) {
+    public static boolean Zg() {
+        e QH = com.baidu.swan.apps.w.f.ahV().QH();
+        if (QH == null) {
             com.baidu.swan.apps.console.c.i("SwanAppWebViewFragment", "close page failed");
             return false;
         }
         com.baidu.swan.apps.console.c.i("SwanAppWebViewFragment", "page closed! ");
-        Ot.Wh().ab(e.bMG, e.bMF).Wl().commit();
+        QH.YT().ae(e.bVP, e.bVO).YX().commit();
         return true;
     }
 
     @Override // com.baidu.swan.support.v4.app.Fragment
     public void onDestroy() {
-        if (this.bNd != null) {
-            this.bNd.destroy();
-            this.bNd = null;
+        if (this.bWj != null) {
+            this.bWj.destroy();
+            this.bWj = null;
         }
         super.onDestroy();
     }
 
     @Override // com.baidu.swan.apps.core.d.b
-    protected void Vk() {
-        this.bNd.Qz();
-        QW();
-        this.bLX.j(com.baidu.swan.apps.w.a.acj().getNightModeSwitcherState(), VE());
+    protected void XP() {
+        this.bWj.Td();
+        TC();
+        this.bVb.n(com.baidu.swan.apps.u.a.afm().getNightModeSwitcherState(), Yp());
     }
 
     @Override // com.baidu.swan.apps.core.d.b
-    protected boolean QT() {
+    protected boolean Ty() {
         return false;
     }
 
     @Override // com.baidu.swan.apps.core.d.b, com.baidu.searchbox.widget.SlideInterceptor
     public boolean isSlidable(MotionEvent motionEvent) {
-        if (this.bNd != null) {
-            return this.bNd.isSlidable(motionEvent);
+        if (this.bWj != null) {
+            return this.bWj.isSlidable(motionEvent);
         }
         return true;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.core.d.b
-    public boolean Vl() {
+    public boolean XQ() {
         return false;
     }
 
     @Override // com.baidu.swan.apps.core.d.b
-    public boolean Qy() {
-        if (this.bzE == null || !this.bzE.canGoBack()) {
+    public boolean Tc() {
+        if (this.bHi == null || !this.bHi.canGoBack()) {
             return false;
         }
-        this.bzE.goBack();
+        this.bHi.goBack();
         return true;
     }
 
     @Override // com.baidu.swan.apps.core.d.b
-    protected void QW() {
+    protected void TC() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.core.d.b
     public void ae(View view) {
         super.ae(view);
-        ey(-1);
-        ez(ViewCompat.MEASURED_STATE_MASK);
-        this.bLW.setTitle(this.bNe == null ? "" : this.bNe);
-        this.bLW.setRightZoneVisibility(false);
-        dn(true);
-        this.bLW.setLeftBackViewClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.core.d.h.3
+        eH(-1);
+        eI(ViewCompat.MEASURED_STATE_MASK);
+        this.bVa.setTitle(this.bWk == null ? "" : this.bWk);
+        this.bVa.setRightZoneVisibility(false);
+        dC(true);
+        this.bVa.setLeftBackViewClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.core.d.h.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (h.this.bzE.canGoBack()) {
-                    h.this.bzE.goBack();
+                if (h.this.bHi.canGoBack()) {
+                    h.this.bHi.goBack();
                 } else {
-                    h.this.Vw();
+                    h.this.Ye();
                 }
             }
         });

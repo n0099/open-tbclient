@@ -13,7 +13,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.live.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.HotTopicActivityConfig;
-import com.baidu.tbadk.core.data.bb;
+import com.baidu.tbadk.core.data.bc;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.util.an;
@@ -22,7 +22,7 @@ import com.baidu.tieba.R;
 import java.util.List;
 /* loaded from: classes9.dex */
 public class PbTopicContainer extends LinearLayout implements View.OnClickListener {
-    private int jOA;
+    private int kgs;
     private TbPageContext pageContext;
 
     public PbTopicContainer(Context context) {
@@ -31,7 +31,7 @@ public class PbTopicContainer extends LinearLayout implements View.OnClickListen
 
     public PbTopicContainer(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.jOA = 3;
+        this.kgs = 3;
         setOrientation(0);
     }
 
@@ -40,10 +40,10 @@ public class PbTopicContainer extends LinearLayout implements View.OnClickListen
         int i3 = 0;
         int size = (View.MeasureSpec.getSize(i) - getPaddingRight()) - getPaddingLeft();
         int childCount = getChildCount();
-        if (childCount > this.jOA) {
+        if (childCount > this.kgs) {
             while (true) {
                 childCount--;
-                if (childCount <= this.jOA) {
+                if (childCount <= this.kgs) {
                     break;
                 }
                 removeViewAt(childCount);
@@ -66,7 +66,7 @@ public class PbTopicContainer extends LinearLayout implements View.OnClickListen
         super.onMeasure(i, i2);
     }
 
-    public void setData(List<bb.a> list) {
+    public void setData(List<bc.a> list) {
         int i = 0;
         if (v.isEmpty(list)) {
             setVisibility(8);
@@ -77,7 +77,7 @@ public class PbTopicContainer extends LinearLayout implements View.OnClickListen
         while (true) {
             int i2 = i;
             if (i2 < 3 && i2 < list.size()) {
-                bb.a aVar = list.get(i2);
+                bc.a aVar = list.get(i2);
                 if (aVar != null) {
                     b(aVar);
                 }
@@ -88,7 +88,7 @@ public class PbTopicContainer extends LinearLayout implements View.OnClickListen
         }
     }
 
-    private void b(bb.a aVar) {
+    private void b(bc.a aVar) {
         if (aVar != null) {
             Context context = getContext();
             TextView textView = new TextView(context);
@@ -96,7 +96,7 @@ public class PbTopicContainer extends LinearLayout implements View.OnClickListen
             int dimens = l.getDimens(context, R.dimen.tbds22);
             layoutParams.rightMargin = dimens;
             textView.setTag(aVar);
-            textView.setText(com.baidu.tbadk.plugins.b.xd(aVar.getTopicName()));
+            textView.setText(com.baidu.tbadk.plugins.b.yJ(aVar.getTopicName()));
             addView(textView, layoutParams);
             textView.setTextSize(0, l.getDimens(context, R.dimen.tbds33));
             textView.setGravity(17);
@@ -112,14 +112,14 @@ public class PbTopicContainer extends LinearLayout implements View.OnClickListen
     }
 
     public void setMaxChildCount(int i) {
-        this.jOA = i;
+        this.kgs = i;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view.getTag() instanceof bb.a) {
-            TiebaStatic.log(new an(TbadkCoreStatisticKey.HOT_TOPIC_CLICK).cI("obj_locate", "pb_bottom"));
-            bb.a aVar = (bb.a) view.getTag();
+        if (view.getTag() instanceof bc.a) {
+            TiebaStatic.log(new an(TbadkCoreStatisticKey.HOT_TOPIC_CLICK).dh("obj_locate", "pb_bottom"));
+            bc.a aVar = (bc.a) view.getTag();
             if (this.pageContext != null && !com.baidu.tbadk.plugins.b.a(this.pageContext, false, true)) {
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new HotTopicActivityConfig(getContext()).createNormalConfig(aVar.getTopicId() + "", aVar.getTopicName(), "2")));
                 return;

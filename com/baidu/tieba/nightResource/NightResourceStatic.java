@@ -8,6 +8,8 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.c;
 /* loaded from: classes6.dex */
 public class NightResourceStatic {
+    public static String Tag = "tag";
+
     static {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_NIGHT_RESOURCE_AVAILABLE, new CustomMessageTask.CustomRunnable<Boolean>() { // from class: com.baidu.tieba.nightResource.NightResourceStatic.1
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable

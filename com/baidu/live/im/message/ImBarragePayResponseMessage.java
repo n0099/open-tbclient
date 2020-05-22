@@ -5,14 +5,14 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class ImBarragePayResponseMessage extends JsonHttpResponsedMessage {
-    private long aNF;
+    private long aTL;
 
     public ImBarragePayResponseMessage() {
         super(AlaCmdConfigHttp.CMD_ALA_GET_ENTER_EFFECT);
     }
 
-    public long zi() {
-        return this.aNF;
+    public long Ax() {
+        return this.aTL;
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
@@ -21,7 +21,7 @@ public class ImBarragePayResponseMessage extends JsonHttpResponsedMessage {
             super.decodeLogicInBackGround(i, jSONObject);
             JSONObject optJSONObject = jSONObject.optJSONObject("data");
             if (optJSONObject != null) {
-                this.aNF = optJSONObject.optLong("left_scores");
+                this.aTL = optJSONObject.optLong("left_scores");
             }
         }
     }

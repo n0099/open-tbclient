@@ -5,11 +5,11 @@ import java.io.StringWriter;
 import java.io.Writer;
 /* loaded from: classes11.dex */
 public class b {
-    public static String ry(String str) {
-        return U(str, true);
+    public static String ta(String str) {
+        return ah(str, true);
     }
 
-    private static String U(String str, boolean z) {
+    private static String ah(String str, boolean z) {
         if (str == null) {
             return "";
         }

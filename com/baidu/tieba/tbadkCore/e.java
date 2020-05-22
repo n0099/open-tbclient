@@ -18,42 +18,42 @@ import tbclient.User;
 /* loaded from: classes.dex */
 public class e {
     public static final Wire WIRE = new Wire(new Class[0]);
-    private static e kQf;
-    private com.baidu.adp.lib.cache.l<byte[]> gUe;
+    private static e liv;
+    private com.baidu.adp.lib.cache.l<byte[]> hiQ;
     private m responseData = null;
 
     private e() {
-        this.gUe = null;
-        this.gUe = BdCacheService.kd().b("tb.frs.protobuf", BdCacheService.CacheStorage.SQLite_CACHE_All_IN_ONE_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 20);
+        this.hiQ = null;
+        this.hiQ = BdCacheService.kf().b("tb.frs.protobuf", BdCacheService.CacheStorage.SQLite_CACHE_All_IN_ONE_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 20);
     }
 
-    public static e cVq() {
-        if (kQf == null) {
+    public static e dcu() {
+        if (liv == null) {
             synchronized (e.class) {
-                if (kQf == null) {
-                    kQf = new e();
+                if (liv == null) {
+                    liv = new e();
                 }
             }
         }
-        return kQf;
+        return liv;
     }
 
-    public long cVr() {
-        long j = com.baidu.tbadk.core.sharedPref.b.aNT().getLong("key_frs_cache_time", 604800000L);
+    public long dcv() {
+        long j = com.baidu.tbadk.core.sharedPref.b.aTX().getLong("key_frs_cache_time", 604800000L);
         if (j < 0) {
             return 604800000L;
         }
         return j;
     }
 
-    public boolean KD(String str) {
-        if (this.gUe != null && str != null) {
-            byte[] bArr = this.gUe.get(TbadkCoreApplication.getCurrentAccount() + str);
+    public boolean Mp(String str) {
+        if (this.hiQ != null && str != null) {
+            byte[] bArr = this.hiQ.get(TbadkCoreApplication.getCurrentAccount() + str);
             if (bArr != null && bArr.length > 0) {
                 this.responseData = new m();
                 this.responseData.parserProtobuf(bArr, false);
                 if (this.responseData.forum != null && this.responseData.forum.getFrsBannerData() != null) {
-                    this.responseData.forum.getFrsBannerData().dos = false;
+                    this.responseData.forum.getFrsBannerData().dCs = false;
                 }
                 return true;
             }
@@ -61,9 +61,9 @@ public class e {
         return false;
     }
 
-    public void eL(String str, String str2) {
-        if (this.gUe != null && str != null) {
-            byte[] bArr = this.gUe.get(TbadkCoreApplication.getCurrentAccount() + str);
+    public void fm(String str, String str2) {
+        if (this.hiQ != null && str != null) {
+            byte[] bArr = this.hiQ.get(TbadkCoreApplication.getCurrentAccount() + str);
             if (bArr != null && bArr.length > 0) {
                 try {
                     FrsPageResIdl frsPageResIdl = (FrsPageResIdl) WIRE.parseFrom(bArr, FrsPageResIdl.class);
@@ -83,9 +83,9 @@ public class e {
         }
     }
 
-    public void eM(String str, String str2) {
-        if (this.gUe != null && str != null) {
-            byte[] bArr = this.gUe.get(TbadkCoreApplication.getCurrentAccount() + str);
+    public void fn(String str, String str2) {
+        if (this.hiQ != null && str != null) {
+            byte[] bArr = this.hiQ.get(TbadkCoreApplication.getCurrentAccount() + str);
             if (bArr != null && bArr.length > 0) {
                 try {
                     FrsPageResIdl frsPageResIdl = (FrsPageResIdl) WIRE.parseFrom(bArr, FrsPageResIdl.class);
@@ -111,9 +111,9 @@ public class e {
         }
     }
 
-    public void eN(String str, String str2) {
-        if (this.gUe != null && str != null) {
-            byte[] bArr = this.gUe.get(TbadkCoreApplication.getCurrentAccount() + str);
+    public void fo(String str, String str2) {
+        if (this.hiQ != null && str != null) {
+            byte[] bArr = this.hiQ.get(TbadkCoreApplication.getCurrentAccount() + str);
             if (bArr != null && bArr.length > 0) {
                 try {
                     FrsPageResIdl frsPageResIdl = (FrsPageResIdl) WIRE.parseFrom(bArr, FrsPageResIdl.class);
@@ -147,7 +147,7 @@ public class e {
         List<ThreadInfo> list;
         int count;
         int i;
-        if (this.gUe != null && str != null && bArr != null && bArr.length > 0) {
+        if (this.hiQ != null && str != null && bArr != null && bArr.length > 0) {
             try {
                 FrsPageResIdl frsPageResIdl = (FrsPageResIdl) WIRE.parseFrom(bArr, FrsPageResIdl.class);
                 if (frsPageResIdl != null && frsPageResIdl.data != null && (count = com.baidu.tbadk.core.util.v.getCount((list = frsPageResIdl.data.thread_list))) > 0) {
@@ -155,7 +155,7 @@ public class e {
                         c(str, bArr, true);
                         return;
                     }
-                    byte[] bArr2 = this.gUe.get(TbadkCoreApplication.getCurrentAccount() + str);
+                    byte[] bArr2 = this.hiQ.get(TbadkCoreApplication.getCurrentAccount() + str);
                     if (bArr2 == null) {
                         c(str, bArr, true);
                         return;
@@ -224,29 +224,29 @@ public class e {
     public void c(String str, byte[] bArr, boolean z) {
         if (str != null && str.length() > 0) {
             if (z) {
-                this.gUe.set(TbadkCoreApplication.getCurrentAccount() + str, bArr, cVr());
+                this.hiQ.set(TbadkCoreApplication.getCurrentAccount() + str, bArr, dcv());
                 return;
             }
-            this.gUe.asyncSet(TbadkCoreApplication.getCurrentAccount() + str, bArr, cVr());
+            this.hiQ.asyncSet(TbadkCoreApplication.getCurrentAccount() + str, bArr, dcv());
         }
     }
 
-    public void aG(String str, boolean z) {
+    public void aT(String str, boolean z) {
         if (str != null && str.length() > 0) {
             if (z) {
-                this.gUe.remove(TbadkCoreApplication.getCurrentAccount() + str);
+                this.hiQ.remove(TbadkCoreApplication.getCurrentAccount() + str);
                 return;
             }
-            this.gUe.asyncRemove(TbadkCoreApplication.getCurrentAccount() + str);
+            this.hiQ.asyncRemove(TbadkCoreApplication.getCurrentAccount() + str);
         }
     }
 
     public boolean isSameDay(String str) {
-        l.b<byte[]> bs;
-        if (str == null || str.length() <= 0 || (bs = this.gUe.bs(str)) == null) {
+        l.b<byte[]> bt;
+        if (str == null || str.length() <= 0 || (bt = this.hiQ.bt(str)) == null) {
             return false;
         }
-        return UtilHelper.isSameDay(bs.lastSaveTime, System.currentTimeMillis());
+        return UtilHelper.isSameDay(bt.lastSaveTime, System.currentTimeMillis());
     }
 
     public m getResponseData() {

@@ -28,7 +28,7 @@ public class RequestGetTopicListMessage extends NetMessage {
     @Override // com.baidu.adp.framework.message.NetMessage
     protected Object encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
-        builder.f1194common = this.f1019common;
+        builder.f1196common = this.f1019common;
         builder.call_from = this.callFrom;
         if (z) {
             t.a(builder, true);

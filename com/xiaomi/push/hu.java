@@ -32,9 +32,9 @@ public class hu implements ix<hu, Object>, Serializable, Cloneable {
         int a3;
         int a4;
         if (getClass().equals(huVar.getClass())) {
-            int compareTo = Boolean.valueOf(m352a()).compareTo(Boolean.valueOf(huVar.m352a()));
+            int compareTo = Boolean.valueOf(m354a()).compareTo(Boolean.valueOf(huVar.m354a()));
             if (compareTo == 0) {
-                if (!m352a() || (a4 = iy.a(this.f465a, huVar.f465a)) == 0) {
+                if (!m354a() || (a4 = iy.a(this.f465a, huVar.f465a)) == 0) {
                     int compareTo2 = Boolean.valueOf(b()).compareTo(Boolean.valueOf(huVar.b()));
                     if (compareTo2 == 0) {
                         if (!b() || (a3 = iy.a(this.f466a, huVar.f466a)) == 0) {
@@ -79,7 +79,7 @@ public class hu implements ix<hu, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m351a() {
+    public void m353a() {
         if (this.f466a == null) {
             throw new jj("Required field 'collectionType' was not present! Struct: " + toString());
         }
@@ -90,45 +90,45 @@ public class hu implements ix<hu, Object>, Serializable, Cloneable {
 
     @Override // com.xiaomi.push.ix
     public void a(ji jiVar) {
-        jiVar.m485a();
+        jiVar.m487a();
         while (true) {
-            jf m481a = jiVar.m481a();
-            if (m481a.a == 0) {
+            jf m483a = jiVar.m483a();
+            if (m483a.a == 0) {
                 jiVar.f();
-                if (!m352a()) {
+                if (!m354a()) {
                     throw new jj("Required field 'collectedAt' was not found in serialized data! Struct: " + toString());
                 }
-                m351a();
+                m353a();
                 return;
             }
-            switch (m481a.f777a) {
+            switch (m483a.f777a) {
                 case 1:
-                    if (m481a.a != 10) {
-                        jl.a(jiVar, m481a.a);
+                    if (m483a.a != 10) {
+                        jl.a(jiVar, m483a.a);
                         break;
                     } else {
-                        this.f465a = jiVar.m480a();
+                        this.f465a = jiVar.m482a();
                         a(true);
                         break;
                     }
                 case 2:
-                    if (m481a.a != 8) {
-                        jl.a(jiVar, m481a.a);
+                    if (m483a.a != 8) {
+                        jl.a(jiVar, m483a.a);
                         break;
                     } else {
-                        this.f466a = ho.a(jiVar.m479a());
+                        this.f466a = ho.a(jiVar.m481a());
                         break;
                     }
                 case 3:
-                    if (m481a.a != 11) {
-                        jl.a(jiVar, m481a.a);
+                    if (m483a.a != 11) {
+                        jl.a(jiVar, m483a.a);
                         break;
                     } else {
-                        this.f467a = jiVar.m486a();
+                        this.f467a = jiVar.m488a();
                         break;
                     }
                 default:
-                    jl.a(jiVar, m481a.a);
+                    jl.a(jiVar, m483a.a);
                     break;
             }
             jiVar.g();
@@ -140,12 +140,12 @@ public class hu implements ix<hu, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m352a() {
+    public boolean m354a() {
         return this.f468a.get(0);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m353a(hu huVar) {
+    public boolean m355a(hu huVar) {
         if (huVar != null && this.f465a == huVar.f465a) {
             boolean b2 = b();
             boolean b3 = huVar.b();
@@ -161,7 +161,7 @@ public class hu implements ix<hu, Object>, Serializable, Cloneable {
 
     @Override // com.xiaomi.push.ix
     public void b(ji jiVar) {
-        m351a();
+        m353a();
         jiVar.a(f464a);
         jiVar.a(a);
         jiVar.a(this.f465a);
@@ -177,7 +177,7 @@ public class hu implements ix<hu, Object>, Serializable, Cloneable {
             jiVar.b();
         }
         jiVar.c();
-        jiVar.m489a();
+        jiVar.m491a();
     }
 
     public boolean b() {
@@ -190,7 +190,7 @@ public class hu implements ix<hu, Object>, Serializable, Cloneable {
 
     public boolean equals(Object obj) {
         if (obj != null && (obj instanceof hu)) {
-            return m353a((hu) obj);
+            return m355a((hu) obj);
         }
         return false;
     }

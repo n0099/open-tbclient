@@ -8,8 +8,8 @@ import java.util.List;
 public class e extends b<com.baidu.swan.pms.model.d> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.pms.database.a.b
-    /* renamed from: k */
-    public com.baidu.swan.pms.model.d i(Cursor cursor) {
+    /* renamed from: l */
+    public com.baidu.swan.pms.model.d j(Cursor cursor) {
         if (cursor != null && cursor.getCount() > 0 && cursor.moveToFirst()) {
             com.baidu.swan.pms.model.d dVar = new com.baidu.swan.pms.model.d();
             if (a(cursor, dVar)) {
@@ -20,7 +20,7 @@ public class e extends b<com.baidu.swan.pms.model.d> {
     }
 
     @Override // com.baidu.swan.pms.database.a.b
-    public List<com.baidu.swan.pms.model.d> g(Cursor cursor) {
+    public List<com.baidu.swan.pms.model.d> h(Cursor cursor) {
         ArrayList arrayList = new ArrayList();
         if (cursor != null && cursor.getCount() > 0 && cursor.moveToFirst()) {
             do {
@@ -36,8 +36,8 @@ public class e extends b<com.baidu.swan.pms.model.d> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.pms.database.a.b
-    /* renamed from: i */
-    public ContentValues ab(com.baidu.swan.pms.model.d dVar) {
+    /* renamed from: h */
+    public ContentValues af(com.baidu.swan.pms.model.d dVar) {
         return e(dVar);
     }
 }

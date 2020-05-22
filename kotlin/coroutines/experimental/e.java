@@ -7,26 +7,26 @@ import kotlin.jvm.internal.q;
 @h
 /* loaded from: classes7.dex */
 public final class e implements d {
-    public static final e mXw = new e();
+    public static final e nsy = new e();
 
     private e() {
     }
 
     @Override // kotlin.coroutines.experimental.d
     public <E extends d.b> E a(d.c<E> cVar) {
-        q.j(cVar, "key");
+        q.m(cVar, "key");
         return null;
     }
 
     @Override // kotlin.coroutines.experimental.d
     public <R> R fold(R r, m<? super R, ? super d.b, ? extends R> mVar) {
-        q.j(mVar, "operation");
+        q.m(mVar, "operation");
         return r;
     }
 
     @Override // kotlin.coroutines.experimental.d
     public d b(d.c<?> cVar) {
-        q.j(cVar, "key");
+        q.m(cVar, "key");
         return this;
     }
 

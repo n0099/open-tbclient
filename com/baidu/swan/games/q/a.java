@@ -1,24 +1,69 @@
 package com.baidu.swan.games.q;
 
-import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.http.HttpManager;
-import com.baidu.searchbox.http.callback.ResponseCallback;
+import com.baidu.swan.apps.core.d.e;
+import com.baidu.swan.apps.core.d.i;
+import com.baidu.swan.apps.w.f;
+import com.baidu.swan.games.binding.model.c;
+import java.util.ArrayList;
+import java.util.Iterator;
+import kotlin.h;
+import kotlin.jvm.internal.q;
+@h
 /* loaded from: classes11.dex */
-public class a extends com.baidu.swan.games.bdtls.b.a {
-    protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
+public final class a {
+    private final ArrayList<Integer> dai = new ArrayList<>();
 
-    public <T> void b(String str, String str2, ResponseCallback<T> responseCallback) {
-        if (DEBUG) {
-            Log.d("requestWithUrlAndBody", "url:" + str + "\nbody:" + str2);
+    public final void i(c cVar) {
+        if (cVar != null) {
+            cv(cVar.optString("action"), cVar.optString("menuItemName"));
         }
-        if (!TextUtils.isEmpty(str)) {
-            if (com.baidu.swan.games.bdtls.c.atY().pG(str)) {
-                a(str, str2, responseCallback);
-                return;
+    }
+
+    private final boolean cv(String str, String str2) {
+        if (str != null) {
+            switch (str.hashCode()) {
+                case 3202370:
+                    if (str.equals("hide")) {
+                        f ahV = f.ahV();
+                        q.l((Object) ahV, "SwanAppController.getInstance()");
+                        e QH = ahV.QH();
+                        i iVar = QH != null ? (i) QH.q(i.class) : null;
+                        com.baidu.swan.menu.h Zt = iVar != null ? iVar.Zt() : null;
+                        if (Zt != null && iVar != null) {
+                            iVar.dI(true);
+                        }
+                        return a(Zt, str2);
+                    }
+                    break;
             }
-            HttpManager.getDefault(AppRuntime.getAppContext()).postStringRequest().url(str).cookieManager(com.baidu.swan.apps.w.a.acl().Qi()).mediaType("application/json;charset=utf-8").content(str2).build().executeAsync(responseCallback);
+        }
+        return false;
+    }
+
+    private final boolean a(com.baidu.swan.menu.h hVar, String str) {
+        Integer sf = b.sf(str);
+        if (sf != null) {
+            if (!this.dai.contains(sf)) {
+                this.dai.add(sf);
+            }
+            if (hVar != null) {
+                hVar.iN(sf.intValue());
+            }
+            return true;
+        }
+        return false;
+    }
+
+    public final void a(com.baidu.swan.menu.h hVar) {
+        if (!this.dai.isEmpty()) {
+            Iterator<Integer> it = this.dai.iterator();
+            while (it.hasNext()) {
+                Integer next = it.next();
+                if (hVar != null) {
+                    q.l((Object) next, "id");
+                    hVar.iN(next.intValue());
+                }
+            }
         }
     }
 }

@@ -2,6 +2,7 @@ package com.baidu.webkit.sdk.system;
 
 import android.annotation.TargetApi;
 import android.net.Uri;
+import android.os.Build;
 import com.baidu.webkit.sdk.WebResourceRequest;
 import java.util.Map;
 @TargetApi(21)
@@ -44,5 +45,14 @@ final class WebResourceRequestImpl implements WebResourceRequest {
     @Override // com.baidu.webkit.sdk.WebResourceRequest
     public final boolean isForMainFrame() {
         return this.mRequest.isForMainFrame();
+    }
+
+    @Override // com.baidu.webkit.sdk.WebResourceRequest
+    @TargetApi(24)
+    public final boolean isRedirect() {
+        if (Build.VERSION.SDK_INT >= 24) {
+            return this.mRequest.isRedirect();
+        }
+        return false;
     }
 }

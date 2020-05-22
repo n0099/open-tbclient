@@ -16,7 +16,7 @@ public class a extends com.baidu.adp.widget.ListView.a<b, c> {
     private int mSkinType;
 
     public a(com.baidu.adp.base.e eVar) {
-        super(eVar.getPageActivity(), b.gUG, eVar.getUniqueId());
+        super(eVar.getPageActivity(), b.hjs, eVar.getUniqueId());
         this.mClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.forumMember.member.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -36,7 +36,7 @@ public class a extends com.baidu.adp.widget.ListView.a<b, c> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aJ */
+    /* renamed from: aV */
     public c b(ViewGroup viewGroup) {
         return new c(LayoutInflater.from(this.mContext).inflate(R.layout.item_complaint_bar_lord_view, viewGroup, false));
     }
@@ -56,16 +56,16 @@ public class a extends com.baidu.adp.widget.ListView.a<b, c> {
         this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
         if (cVar.mSkinType != this.mSkinType) {
             cVar.mSkinType = this.mSkinType;
-            am.setBackgroundResource(cVar.aWR, R.drawable.frs_member_manito_bg);
+            am.setBackgroundResource(cVar.bej, R.drawable.frs_member_manito_bg);
             am.setBackgroundColor(cVar.mLineView, R.color.cp_bg_line_c);
             am.setViewTextColor(cVar.mTitleView, R.color.cp_cont_b, 1);
-            am.setImageResource(cVar.gdo, R.drawable.icon_arrow12_gray66_right);
+            am.setImageResource(cVar.gsi, R.drawable.icon_arrow12_gray66_right);
         }
     }
 
     private void a(c cVar, b bVar) {
-        cVar.mTitleView.setText(bVar.gUH);
-        cVar.aWR.setTag(bVar.mUrl);
-        cVar.aWR.setOnClickListener(this.mClickListener);
+        cVar.mTitleView.setText(bVar.hjt);
+        cVar.bej.setTag(bVar.mUrl);
+        cVar.bej.setOnClickListener(this.mClickListener);
     }
 }

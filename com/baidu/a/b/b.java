@@ -9,62 +9,62 @@ import com.baidu.searchbox.suspensionball.SuspensionBallEntity;
 import com.baidu.util.Base64Encoder;
 /* loaded from: classes12.dex */
 public final class b {
-    private static b ajd;
-    private c aje;
-    private e ajf;
-    private f ajg;
-    private String ajh;
-    private volatile String aji = null;
+    private static b ajH;
+    private c ajI;
+    private e ajJ;
+    private f ajK;
+    private String ajL;
+    private volatile String ajM = null;
 
     private b() {
         init();
     }
 
-    public static b sj() {
-        if (ajd == null) {
+    public static b st() {
+        if (ajH == null) {
             synchronized (b.class) {
-                if (ajd == null) {
-                    ajd = new b();
+                if (ajH == null) {
+                    ajH = new b();
                 }
             }
         }
-        return ajd;
+        return ajH;
     }
 
     private void init() {
-        this.ajf = new e();
-        this.aje = new c();
-        this.ajg = new f();
-        String deviceId = a.si().getDeviceId();
+        this.ajJ = new e();
+        this.ajI = new c();
+        this.ajK = new f();
+        String deviceId = a.ss().getDeviceId();
         if (!TextUtils.isEmpty(deviceId)) {
-            this.ajh = new String(Base64Encoder.B64Encode(deviceId.getBytes()));
+            this.ajL = new String(Base64Encoder.B64Encode(deviceId.getBytes()));
         }
     }
 
     public String processUrl(String str) {
-        d si = a.si();
-        String sr = this.ajg.sr();
-        String appName = com.baidu.a.a.a.sg().getAppName();
-        String zid = si.getZid();
-        String sl = si.sl();
-        String sm = si.sm();
-        String deviceInfo = this.aje.getDeviceInfo();
-        String str2 = this.ajh;
-        String from = si.getFrom();
-        String sn = si.sn();
-        String k = si.k(this.ajf.l(addParam(addParam(addParam(addParam(addParam(addParam(addParam(addParam(addParam(addParam(str, "appname", appName), UbcStatConstant.KEY_CONTENT_EXT_SID, sm), "ut", deviceInfo), j.c, sr), "bdvc", sl), "zid", zid), "uid", str2), BdStatsConstant.StatsKey.CURRENT_CHANNEL, sn), "from", from), SuspensionBallEntity.KEY_SCHEME, si.sp()), true), true);
-        if (TextUtils.isEmpty(this.aji)) {
-            this.aji = si.so();
+        d ss = a.ss();
+        String sB = this.ajK.sB();
+        String appName = com.baidu.a.a.a.sq().getAppName();
+        String zid = ss.getZid();
+        String sv = ss.sv();
+        String sw = ss.sw();
+        String deviceInfo = this.ajI.getDeviceInfo();
+        String str2 = this.ajL;
+        String from = ss.getFrom();
+        String sx = ss.sx();
+        String k = ss.k(this.ajJ.l(addParam(addParam(addParam(addParam(addParam(addParam(addParam(addParam(addParam(addParam(str, "appname", appName), UbcStatConstant.KEY_CONTENT_EXT_SID, sw), "ut", deviceInfo), j.c, sB), "bdvc", sv), "zid", zid), "uid", str2), BdStatsConstant.StatsKey.CURRENT_CHANNEL, sx), "from", from), SuspensionBallEntity.KEY_SCHEME, ss.sz()), true), true);
+        if (TextUtils.isEmpty(this.ajM)) {
+            this.ajM = ss.sy();
         }
-        if (!TextUtils.isEmpty(this.aji)) {
-            return addParam(k, "c3_aid", this.aji);
+        if (!TextUtils.isEmpty(this.ajM)) {
+            return addParam(k, "c3_aid", this.ajM);
         }
         return k;
     }
 
     private String addParam(String str, String str2, String str3) {
         if (!TextUtils.isEmpty(str3)) {
-            return UrlUtil.addParam(str, str2, g.dc(str3));
+            return UrlUtil.addParam(str, str2, g.de(str3));
         }
         return str;
     }

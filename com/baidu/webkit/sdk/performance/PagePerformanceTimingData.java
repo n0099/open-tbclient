@@ -20,7 +20,6 @@ public class PagePerformanceTimingData {
     public long mFirstScreenLayout;
     public long mFirstScreenPaint;
     public int mFirstScreenPaintContentHeight;
-    public long mFirstTextPaint;
     public long mLoadEventEnd;
     public long mLoadEventStart;
     public long mLoadUrlFinish;

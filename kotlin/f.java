@@ -6,7 +6,7 @@ import kotlin.jvm.internal.q;
 /* loaded from: classes7.dex */
 public class f {
     public static final <T> d<T> b(kotlin.jvm.a.a<? extends T> aVar) {
-        q.j(aVar, "initializer");
+        q.m(aVar, "initializer");
         return new SynchronizedLazyImpl(aVar, null, 2, null);
     }
 }

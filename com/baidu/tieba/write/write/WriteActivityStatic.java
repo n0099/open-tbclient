@@ -49,8 +49,8 @@ import com.baidu.tieba.write.video.WriteVideoActivity;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public class WriteActivityStatic {
-    private static int lFF = 11;
-    private static int lFG = 18;
+    private static int lYT = 11;
+    private static int lYU = 18;
 
     static {
         TbadkCoreApplication.getInst().RegisterIntent(WriteActivityConfig.class, WriteActivity.class);
@@ -67,9 +67,9 @@ public class WriteActivityStatic {
         TbadkCoreApplication.getInst().RegisterIntent(HotTopicChangeActivityConfig.class, HotTopicChangeFourmActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(WriteUrlActivityConfig.class, WriteUrlActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(AccountAccessActivityConfig.class, AccountAccessActivity.class);
-        LocationModel.cXb();
-        bXC();
-        ba.aOV().a(UrlSchemaHelper.SCHEMA_TYPE_FEED_BACK, new ba.b() { // from class: com.baidu.tieba.write.write.WriteActivityStatic.1
+        LocationModel.dei();
+        cea();
+        ba.aUZ().a(UrlSchemaHelper.SCHEMA_TYPE_FEED_BACK, new ba.b() { // from class: com.baidu.tieba.write.write.WriteActivityStatic.1
             @Override // com.baidu.tbadk.core.util.ba.b
             public void a(TbPageContext<?> tbPageContext, Map<String, String> map) {
                 if (tbPageContext != null) {
@@ -85,7 +85,7 @@ public class WriteActivityStatic {
     /* JADX INFO: Access modifiers changed from: private */
     public static void I(TbPageContext<?> tbPageContext) {
         BdStatisticsManager.getInstance().forceUploadAllLogIgnoreSwitch();
-        if (Build.VERSION.SDK_INT <= lFG && Build.VERSION.SDK_INT >= lFF) {
+        if (Build.VERSION.SDK_INT <= lYU && Build.VERSION.SDK_INT >= lYT) {
             M(tbPageContext);
         } else {
             N(tbPageContext);
@@ -124,7 +124,7 @@ public class WriteActivityStatic {
         });
     }
 
-    public static void bXC() {
+    public static void cea() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_GET_SELECT_FORUM_CONTROLLER, new CustomMessageTask.CustomRunnable<Object>() { // from class: com.baidu.tieba.write.write.WriteActivityStatic.3
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<com.baidu.tieba.c.a> run(CustomMessage<Object> customMessage) {

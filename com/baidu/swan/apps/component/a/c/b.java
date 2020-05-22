@@ -2,15 +2,15 @@ package com.baidu.swan.apps.component.a.c;
 
 import android.graphics.Color;
 import android.support.annotation.NonNull;
-import com.baidu.swan.apps.as.af;
+import com.baidu.swan.apps.aq.ag;
 import com.baidu.swan.apps.console.c;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class b extends com.baidu.swan.apps.component.a.d.b {
-    public boolean bGr;
-    public String bGs;
-    public String bGt;
+    public boolean bPj;
+    public String bPk;
+    public String bPl;
     public double fontSize;
     public String fontWeight;
     public int lineSpace;
@@ -21,11 +21,11 @@ public class b extends com.baidu.swan.apps.component.a.d.b {
     public b(String str, @NonNull String str2) {
         super(str, str2);
         this.text = "";
-        this.bGr = false;
+        this.bPj = false;
         this.textAlign = "";
         this.fontWeight = "";
-        this.bGs = "";
-        this.bGt = "";
+        this.bPk = "";
+        this.bPl = "";
     }
 
     @Override // com.baidu.swan.apps.component.a.d.b, com.baidu.swan.apps.component.b.b, com.baidu.swan.apps.model.a
@@ -33,36 +33,36 @@ public class b extends com.baidu.swan.apps.component.a.d.b {
         if (jSONObject != null) {
             super.parseFromJson(jSONObject);
             this.text = jSONObject.optString("text");
-            Sq();
+            Vb();
         }
     }
 
     @Override // com.baidu.swan.apps.component.a.d.b, com.baidu.swan.apps.component.b.b
-    public void aj(JSONObject jSONObject) {
-        super.aj(jSONObject);
+    public void ar(JSONObject jSONObject) {
+        super.ar(jSONObject);
         this.text = jSONObject.optString("text", this.text);
-        Sq();
+        Vb();
     }
 
-    private void Sq() {
-        if (this.bGy != null) {
+    private void Vb() {
+        if (this.bPq != null) {
             try {
-                this.textColor = Color.parseColor(this.bGy.optString("color"));
-                this.bGr = true;
+                this.textColor = Color.parseColor(this.bPq.optString("color"));
+                this.bPj = true;
             } catch (Exception e) {
                 c.w("Component-Model-TextView", "text color occurs exception");
-                this.bGr = false;
+                this.bPj = false;
             }
-            this.fontSize = this.bGy.optDouble("fontSize", 0.0d);
-            this.lineSpace = af.C((float) this.bGy.optDouble("lineSpace", 0.0d));
-            this.textAlign = this.bGy.optString("textAlign");
-            this.fontWeight = this.bGy.optString("fontWeight");
-            this.bGs = this.bGy.optString("whiteSpace");
-            this.bGt = this.bGy.optString("lineBreak");
+            this.fontSize = this.bPq.optDouble("fontSize", 0.0d);
+            this.lineSpace = ag.B((float) this.bPq.optDouble("lineSpace", 0.0d));
+            this.textAlign = this.bPq.optString("textAlign");
+            this.fontWeight = this.bPq.optString("fontWeight");
+            this.bPk = this.bPq.optString("whiteSpace");
+            this.bPl = this.bPq.optString("lineBreak");
         }
     }
 
-    public void hD(String str) {
+    public void iD(String str) {
         this.text = str;
     }
 }

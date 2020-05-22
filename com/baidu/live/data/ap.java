@@ -1,35 +1,22 @@
 package com.baidu.live.data;
 
-import android.text.TextUtils;
-import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class ap {
-    private String avo;
-    private String avp;
+    public int aAi;
+    public int aAj;
+    public int aAk;
+    public String aAl;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ap(String str) {
-        parserJson(str);
-    }
-
-    public boolean vb() {
-        return "1".equals(this.avo) && !TextUtils.isEmpty(this.avp);
-    }
-
-    public String vc() {
-        return this.avp;
-    }
-
-    private void parserJson(String str) {
-        if (!TextUtils.isEmpty(str)) {
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                this.avo = jSONObject.optString("is_open");
-                this.avp = jSONObject.optString("homepage_url");
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
+    public static ap x(JSONObject jSONObject) {
+        if (jSONObject == null) {
+            return null;
         }
+        ap apVar = new ap();
+        apVar.aAi = jSONObject.optInt("supernatant_time") * 1000;
+        apVar.aAj = jSONObject.optInt("suoernatant_shownum");
+        apVar.aAk = jSONObject.optInt("pop_window_time") * 1000;
+        apVar.aAl = jSONObject.optString("guide_follow_text");
+        return apVar;
     }
 }

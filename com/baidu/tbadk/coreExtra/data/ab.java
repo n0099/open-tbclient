@@ -5,50 +5,50 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ab {
-    private String dNp;
-    private long dNq;
-    private long dNr;
-    private long dNs;
-    private String dNt;
-    private String dNu;
+    private String ebG;
+    private long ebH;
+    private long ebI;
+    private long ebJ;
+    private String ebK;
+    private String ebL;
 
     public void parseJson(String str) {
         if (!aq.isEmpty(str)) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                this.dNp = jSONObject.optString("splash_video_url");
-                this.dNq = jSONObject.optLong("splash_video_start_time") * 1000;
-                this.dNr = jSONObject.optLong("splash_video_end_time") * 1000;
-                this.dNs = jSONObject.optLong("splash_video_interval_time") * 1000;
-                this.dNt = jSONObject.optString("splash_video_h5_url");
-                this.dNu = jSONObject.optString("splash_video_h5_text");
+                this.ebG = jSONObject.optString("splash_video_url");
+                this.ebH = jSONObject.optLong("splash_video_start_time") * 1000;
+                this.ebI = jSONObject.optLong("splash_video_end_time") * 1000;
+                this.ebJ = jSONObject.optLong("splash_video_interval_time") * 1000;
+                this.ebK = jSONObject.optString("splash_video_h5_url");
+                this.ebL = jSONObject.optString("splash_video_h5_text");
             } catch (JSONException e) {
                 e.printStackTrace();
             }
         }
     }
 
-    public String aSg() {
-        return this.dNp;
+    public String aYn() {
+        return this.ebG;
     }
 
-    public long aSh() {
-        return this.dNq;
+    public long aYo() {
+        return this.ebH;
     }
 
-    public long aSi() {
-        return this.dNr;
+    public long aYp() {
+        return this.ebI;
     }
 
-    public long aSj() {
-        return this.dNs;
+    public long aYq() {
+        return this.ebJ;
     }
 
-    public String aSk() {
-        return this.dNt;
+    public String aYr() {
+        return this.ebK;
     }
 
-    public String aSl() {
-        return this.dNu;
+    public String aYs() {
+        return this.ebL;
     }
 }

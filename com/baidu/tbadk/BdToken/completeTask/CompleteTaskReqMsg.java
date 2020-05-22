@@ -4,7 +4,7 @@ import android.util.Base64;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.util.ag;
+import com.baidu.tbadk.util.ah;
 import com.baidu.tbadk.util.t;
 import tbclient.CompleteTask.CompleteTaskReqIdl;
 import tbclient.CompleteTask.DataReq;
@@ -31,7 +31,7 @@ public class CompleteTaskReqMsg extends NetMessage {
     protected Object encode(boolean z) {
         if (z) {
             try {
-                getHttpMessage().setUserAgent(ag.getUserAgent());
+                getHttpMessage().setUserAgent(ah.getUserAgent());
             } catch (Exception e) {
                 return null;
             }

@@ -10,24 +10,24 @@ import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes3.dex */
 public class c extends BdBaseModel {
-    private HttpMessageListener fBE;
+    private HttpMessageListener fPH;
 
     public c(BdPageContext<?> bdPageContext) {
         super(bdPageContext);
-        this.fBE = new HttpMessageListener(1021104) { // from class: com.baidu.tieba.ala.liveroom.challenge.rewarddialog.c.1
+        this.fPH = new HttpMessageListener(1021104) { // from class: com.baidu.tieba.ala.liveroom.challenge.rewarddialog.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaChallengeRewardResponseMessage)) {
                     AlaChallengeRewardResponseMessage alaChallengeRewardResponseMessage = (AlaChallengeRewardResponseMessage) httpResponsedMessage;
                     if (c.this.mLoadDataCallBack != null) {
-                        c.this.mLoadDataCallBack.callback(alaChallengeRewardResponseMessage.fBG);
+                        c.this.mLoadDataCallBack.callback(alaChallengeRewardResponseMessage.fPJ);
                     }
                 }
             }
         };
         initTasks();
-        registerListener(this.fBE);
+        registerListener(this.fPH);
     }
 
     private void initTasks() {

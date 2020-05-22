@@ -27,7 +27,7 @@ public class LibsInfoDef {
         a.put(16, new d(16, "cyber-player", SDKVersion.VERSION));
         a.put(8, new d(8, "cyber-sdl", SDKVersion.VERSION));
         a.put(32, new d(32, "cyber-ffmpeg-extend", "4.1.2.12"));
-        a.put(64, new d(64, "cyber-pcdn", "2.0.1.1118"));
+        a.put(64, new d(64, "cyber-pcdn", "2.0.1.1187"));
         a.put(128, new d(128, "paddle-mobile-cl", "0.5.0.3"));
         a.put(256, new d(256, "opencv_java3", "0.3.2.0"));
         a.put(512, new d(512, "mml_framework", "0.5.0.3"));

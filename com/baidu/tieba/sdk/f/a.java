@@ -1,72 +1,68 @@
 package com.baidu.tieba.sdk.f;
 
+import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.live.adp.framework.message.CustomMessage;
-import com.baidu.live.adp.framework.message.CustomResponsedMessage;
-import com.baidu.live.adp.framework.task.CustomMessageTask;
-import com.baidu.live.adp.lib.util.StringUtils;
-import com.baidu.live.data.n;
-import com.baidu.live.data.o;
-import com.baidu.live.tbadk.data.ShareEntity;
-import com.baidu.live.tbadk.data.ShareEntityWrapperData;
-import com.baidu.searchbox.ugc.model.UgcConstant;
-import com.baidu.tieba.sdk.a.f;
+import com.baidu.live.tbadk.core.TbadkCoreApplication;
+import com.baidu.live.tbadk.core.atomdata.AlaLiveRoomActivityConfig;
+import com.baidu.live.tbadk.scheme.ILiveScheme;
+import com.baidu.live.tbadk.scheme.SchemeCallback;
+import java.util.Map;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class a implements CustomMessageTask.CustomRunnable {
-    @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage customMessage) {
-        f cPm = com.baidu.tieba.sdk.c.a.cPh().cPm();
-        if (cPm != null) {
-            if (customMessage.getData() instanceof o) {
-                o oVar = (o) customMessage.getData();
-                ShareEntity shareEntity = new ShareEntity();
-                a(oVar.aqQ, shareEntity);
-                f(shareEntity);
-                cPm.a(oVar.activity, shareEntity);
-            } else if (customMessage.getData() instanceof ShareEntityWrapperData) {
-                ShareEntityWrapperData shareEntityWrapperData = (ShareEntityWrapperData) customMessage.getData();
-                f(shareEntityWrapperData.shareEntity);
-                cPm.a(shareEntityWrapperData.activity, shareEntityWrapperData.shareEntity);
+public class a implements ILiveScheme {
+    @Override // com.baidu.live.tbadk.scheme.ILiveScheme
+    public void excute(Context context, Map<String, String> map, SchemeCallback schemeCallback) {
+        String str = map.get("room_id");
+        String str2 = map.get("live_id");
+        String str3 = map.get("username");
+        String str4 = map.get("userrec");
+        String str5 = map.get("cover");
+        String str6 = map.get("live_url");
+        String str7 = map.get(AlaLiveRoomActivityConfig.LIVE_SHOW_GITE_PANEL);
+        String str8 = map.get("tab");
+        String str9 = map.get("tag");
+        String str10 = map.get("source");
+        String str11 = map.get("from");
+        String str12 = map.get("extra");
+        JSONObject jSONObject = new JSONObject();
+        try {
+            if (!TextUtils.isEmpty(str8)) {
+                jSONObject.put("tab", str8);
             }
+            if (!TextUtils.isEmpty(str9)) {
+                jSONObject.put("tag", str9);
+            }
+            if (!TextUtils.isEmpty(str10)) {
+                jSONObject.put("source", str10);
+            }
+            if (!TextUtils.isEmpty(str11)) {
+                jSONObject.put("from", str11);
+            }
+            if (!TextUtils.isEmpty(str5)) {
+                jSONObject.put("cover", str5);
+            }
+            if (!TextUtils.isEmpty(str6)) {
+                jSONObject.put("live_url", str6);
+            }
+            if (!TextUtils.isEmpty(str)) {
+                jSONObject.put("enterRoomId", str);
+            }
+            if (!TextUtils.isEmpty(str2)) {
+                jSONObject.put("enterLiveId", str2);
+            }
+            if (!TextUtils.isEmpty(str12)) {
+                jSONObject.put("extra", str12);
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
-        return null;
-    }
-
-    private void a(n nVar, ShareEntity shareEntity) {
-        if (nVar != null && shareEntity != null) {
-            shareEntity.userId = nVar.aqk.userId;
-            shareEntity.userName = nVar.aqk.userName;
-            if (nVar.aqE != null && !TextUtils.isEmpty(nVar.aqE.aqC)) {
-                shareEntity.title = nVar.aqE.aqC;
-            } else {
-                shareEntity.title = StringUtils.isNull(shareEntity.userName) ? "" : shareEntity.userName + "的直播";
-            }
-            if (nVar.aqE != null && !TextUtils.isEmpty(nVar.aqE.subTitle)) {
-                shareEntity.content = nVar.aqE.subTitle;
-            } else {
-                shareEntity.content = "精彩直播正在进行，邀请你速来围观。";
-            }
-            if (nVar.aqE != null && !TextUtils.isEmpty(nVar.aqE.imgUrl)) {
-                shareEntity.imageUrl = nVar.aqE.imgUrl;
-            } else {
-                String str = nVar.mLiveInfo.cover;
-                if (str != null && !str.contains(".jpg")) {
-                    str = str + ".jpg";
-                }
-                shareEntity.imageUrl = str;
-            }
-            shareEntity.linkUrl = nVar.mLiveInfo.share_url;
-            shareEntity.liveId = nVar.mLiveInfo.live_id;
-        }
-    }
-
-    private void f(ShareEntity shareEntity) {
-        if (!TextUtils.isEmpty(shareEntity.imageUrl) && shareEntity.imageUrl.contains(UgcConstant.AT_RULE_TAG)) {
-            try {
-                shareEntity.imageUrl = shareEntity.imageUrl.substring(0, shareEntity.imageUrl.indexOf(UgcConstant.AT_RULE_TAG));
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+        if (!TextUtils.isEmpty(str)) {
+            com.baidu.tieba.sdk.a.cWf().a(context != null ? context : TbadkCoreApplication.getInst(), str, "1".equals(str4), str7, jSONObject);
+        } else if (!TextUtils.isEmpty(str2)) {
+            com.baidu.tieba.sdk.a.cWf().a(context != null ? context : TbadkCoreApplication.getInst(), Long.parseLong(str2), "1".equals(str4), str7, jSONObject);
+        } else if (!TextUtils.isEmpty(str3)) {
+            com.baidu.tieba.sdk.a.cWf().b(context != null ? context : TbadkCoreApplication.getInst(), str3, "1".equals(str4), str7, jSONObject);
         }
     }
 }

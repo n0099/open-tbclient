@@ -5,8 +5,8 @@ import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.apps.t.a.a;
-import com.baidu.swan.d.c;
+import com.baidu.swan.apps.r.a.a;
+import com.baidu.swan.e.d;
 import java.io.File;
 import java.io.FileFilter;
 /* loaded from: classes11.dex */
@@ -23,11 +23,11 @@ public class b {
         if (TextUtils.isEmpty(appId) || TextUtils.isEmpty(bundleId)) {
             return null;
         }
-        return P(appId, bundleId, String.valueOf(aVar.getVersionCode()));
+        return S(appId, bundleId, String.valueOf(aVar.getVersionCode()));
     }
 
     @NonNull
-    public static File P(@NonNull String str, @NonNull String str2, @NonNull String str3) {
+    public static File S(@NonNull String str, @NonNull String str2, @NonNull String str3) {
         return new File(AppRuntime.getAppContext().getFilesDir() + File.separator + "swan_mini_folder" + File.separator + str + File.separator + str2, str3);
     }
 
@@ -51,13 +51,13 @@ public class b {
         if (!b.exists() && !b.mkdirs()) {
             return new com.baidu.swan.pms.b.b.b(1002, "解压失败：解压文件夹创建失败");
         }
-        a.b s = com.baidu.swan.apps.t.a.a.s(file);
-        if (s.type != -1) {
-            if (com.baidu.swan.apps.t.a.a.a(s.bWi, b, s.type).isSuccess) {
+        a.b w = com.baidu.swan.apps.r.a.a.w(file);
+        if (w.type != -1) {
+            if (com.baidu.swan.apps.r.a.a.a(w.cgD, b, w.type).isSuccess) {
                 return new com.baidu.swan.pms.b.b.b(0, "解密成功");
             }
             return new com.baidu.swan.pms.b.b.b(1011, "解密失败");
-        } else if (c.unzipFile(file.getAbsolutePath(), b.getAbsolutePath())) {
+        } else if (d.unzipFile(file.getAbsolutePath(), b.getAbsolutePath())) {
             return new com.baidu.swan.pms.b.b.b(0, "解压成功");
         } else {
             return new com.baidu.swan.pms.b.b.b(1002, "解压失败");
@@ -79,11 +79,11 @@ public class b {
             }
         })) != null && listFiles.length > 0) {
             for (File file : listFiles) {
-                if (file != null && e(j, file.getName()) && !com.baidu.swan.mini.a.aBs().contains(file.getAbsolutePath())) {
+                if (file != null && e(j, file.getName()) && !com.baidu.swan.mini.a.aFk().contains(file.getAbsolutePath())) {
                     if (DEBUG) {
                         Log.i("Mini-Pm", "删除低版本文件夹：" + file.getAbsolutePath());
                     }
-                    c.deleteFile(file);
+                    d.deleteFile(file);
                 }
             }
         }

@@ -8,8 +8,11 @@ public abstract class HttpResponsedMessage extends ResponsedMessage<byte[]> {
     private String contentEncoding;
     private String contentLength;
     private String contentType;
+    private String exception;
     private Map<String, List<String>> mHeader;
     private int mStatusCode;
+    private String realHost;
+    private long responseTime;
 
     public HttpResponsedMessage(int i) {
         super(i);
@@ -71,5 +74,29 @@ public abstract class HttpResponsedMessage extends ResponsedMessage<byte[]> {
             setError(-1);
             setErrorString(str);
         }
+    }
+
+    public long getResponseTime() {
+        return this.responseTime;
+    }
+
+    public void setResponseTime(long j) {
+        this.responseTime = j;
+    }
+
+    public void setRealHost(String str) {
+        this.realHost = str;
+    }
+
+    public String getRealHost() {
+        return this.realHost;
+    }
+
+    public void setException(String str) {
+        this.exception = str;
+    }
+
+    public String getException() {
+        return this.exception;
     }
 }

@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
 public class AlaRecentHistoryActivity extends AbsTabActivity {
-    private AbsTabPagerAdapter eUe = new AlaRecentHistoryAdapter(getSupportFragmentManager());
+    private AbsTabPagerAdapter fgM = new AlaRecentHistoryAdapter(getSupportFragmentManager());
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.ala.widget.multicolumn.absView.AbsTabActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
@@ -47,7 +47,7 @@ public class AlaRecentHistoryActivity extends AbsTabActivity {
 
     @Override // com.baidu.ala.widget.multicolumn.absView.AbsTabActivity
     protected AbsTabPagerAdapter getAdapter() {
-        return this.eUe;
+        return this.fgM;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

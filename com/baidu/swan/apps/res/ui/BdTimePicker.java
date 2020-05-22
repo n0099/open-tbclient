@@ -10,29 +10,29 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.widget.LinearLayout;
 import com.baidu.swan.apps.a;
-import com.baidu.swan.apps.as.af;
+import com.baidu.swan.apps.aq.ag;
 import com.baidu.swan.apps.res.ui.wheelview3d.WheelView3d;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 /* loaded from: classes11.dex */
 public class BdTimePicker extends LinearLayout {
-    private int SX;
-    private WheelView3d cjA;
-    private a cjB;
-    private LinearLayout cjC;
-    private int cjD;
-    private int cjE;
-    private int cjF;
-    private int cjG;
-    private Paint cjH;
-    private Date cja;
-    private Date cjb;
-    private boolean cjk;
-    private int cjl;
-    private int cjm;
-    private int cjy;
-    private WheelView3d cjz;
+    private int Ti;
+    private Date cuE;
+    private Date cuF;
+    private boolean cuO;
+    private int cuP;
+    private int cuQ;
+    private int cvc;
+    private WheelView3d cvd;
+    private WheelView3d cve;
+    private a cvf;
+    private LinearLayout cvg;
+    private int cvh;
+    private int cvi;
+    private int cvj;
+    private int cvk;
+    private Paint cvl;
     private int mTextSize;
 
     /* loaded from: classes11.dex */
@@ -41,17 +41,17 @@ public class BdTimePicker extends LinearLayout {
 
     public BdTimePicker(Context context) {
         super(context);
-        this.cjy = 0;
-        this.SX = 0;
-        this.cjl = 15;
+        this.cvc = 0;
+        this.Ti = 0;
+        this.cuP = 15;
         init(context);
     }
 
     public BdTimePicker(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.cjy = 0;
-        this.SX = 0;
-        this.cjl = 15;
+        this.cvc = 0;
+        this.Ti = 0;
+        this.cuP = 15;
         init(context);
     }
 
@@ -59,118 +59,118 @@ public class BdTimePicker extends LinearLayout {
     @TargetApi(11)
     public BdTimePicker(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.cjy = 0;
-        this.SX = 0;
-        this.cjl = 15;
+        this.cvc = 0;
+        this.Ti = 0;
+        this.cuP = 15;
         init(context);
     }
 
     private void init(Context context) {
         setOrientation(0);
         LayoutInflater.from(context).inflate(a.g.aiapps_timepicker_layout, this);
-        this.cjl = af.dip2px(context, this.cjl);
-        this.mTextSize = af.dip2px(context, 16.0f);
-        this.cjm = af.dip2px(context, 14.0f);
-        qs();
-        this.cjC = (LinearLayout) findViewById(a.f.timepicker_root);
-        this.cjz = (WheelView3d) findViewById(a.f.wheel_hour);
-        this.cjz.setLineSpacingMultiplier(3.0f);
-        this.cjz.setCenterTextSize(this.mTextSize);
-        this.cjz.setOuterTextSize(this.cjm);
-        this.cjz.setTextColorCenter(ViewCompat.MEASURED_STATE_MASK);
-        this.cjz.setTextColorOut(ViewCompat.MEASURED_STATE_MASK);
-        this.cjz.setVisibleItem(7);
-        this.cjz.setGravityOffset(this.cjl);
-        this.cjz.setGravity(5);
-        this.cjz.setDividerType(WheelView3d.DividerType.FILL);
-        this.cjz.setDividerColor(0);
-        this.cjz.setOnItemSelectedListener(new com.baidu.swan.apps.res.ui.wheelview3d.c.b() { // from class: com.baidu.swan.apps.res.ui.BdTimePicker.1
+        this.cuP = ag.dip2px(context, this.cuP);
+        this.mTextSize = ag.dip2px(context, 16.0f);
+        this.cuQ = ag.dip2px(context, 14.0f);
+        qy();
+        this.cvg = (LinearLayout) findViewById(a.f.timepicker_root);
+        this.cvd = (WheelView3d) findViewById(a.f.wheel_hour);
+        this.cvd.setLineSpacingMultiplier(3.0f);
+        this.cvd.setCenterTextSize(this.mTextSize);
+        this.cvd.setOuterTextSize(this.cuQ);
+        this.cvd.setTextColorCenter(ViewCompat.MEASURED_STATE_MASK);
+        this.cvd.setTextColorOut(ViewCompat.MEASURED_STATE_MASK);
+        this.cvd.setVisibleItem(7);
+        this.cvd.setGravityOffset(this.cuP);
+        this.cvd.setGravity(5);
+        this.cvd.setDividerType(WheelView3d.DividerType.FILL);
+        this.cvd.setDividerColor(0);
+        this.cvd.setOnItemSelectedListener(new com.baidu.swan.apps.res.ui.wheelview3d.c.b() { // from class: com.baidu.swan.apps.res.ui.BdTimePicker.1
             @Override // com.baidu.swan.apps.res.ui.wheelview3d.c.b
             public void a(WheelView3d wheelView3d, int i) {
-                BdTimePicker.this.cjy = BdTimePicker.this.cjD + i;
-                BdTimePicker.this.ajO();
+                BdTimePicker.this.cvc = BdTimePicker.this.cvh + i;
+                BdTimePicker.this.anC();
             }
         });
-        this.cjA = (WheelView3d) findViewById(a.f.wheel_minute);
-        this.cjA.setLineSpacingMultiplier(3.0f);
-        this.cjA.setCenterTextSize(this.mTextSize);
-        this.cjA.setOuterTextSize(this.cjm);
-        this.cjA.setTextColorCenter(ViewCompat.MEASURED_STATE_MASK);
-        this.cjA.setTextColorOut(ViewCompat.MEASURED_STATE_MASK);
-        this.cjA.setGravityOffset(this.cjl);
-        this.cjA.setGravity(3);
-        this.cjA.setDividerType(WheelView3d.DividerType.FILL);
-        this.cjA.setDividerColor(0);
-        this.cjA.setVisibleItem(7);
-        this.cjA.setOnItemSelectedListener(new com.baidu.swan.apps.res.ui.wheelview3d.c.b() { // from class: com.baidu.swan.apps.res.ui.BdTimePicker.2
+        this.cve = (WheelView3d) findViewById(a.f.wheel_minute);
+        this.cve.setLineSpacingMultiplier(3.0f);
+        this.cve.setCenterTextSize(this.mTextSize);
+        this.cve.setOuterTextSize(this.cuQ);
+        this.cve.setTextColorCenter(ViewCompat.MEASURED_STATE_MASK);
+        this.cve.setTextColorOut(ViewCompat.MEASURED_STATE_MASK);
+        this.cve.setGravityOffset(this.cuP);
+        this.cve.setGravity(3);
+        this.cve.setDividerType(WheelView3d.DividerType.FILL);
+        this.cve.setDividerColor(0);
+        this.cve.setVisibleItem(7);
+        this.cve.setOnItemSelectedListener(new com.baidu.swan.apps.res.ui.wheelview3d.c.b() { // from class: com.baidu.swan.apps.res.ui.BdTimePicker.2
             @Override // com.baidu.swan.apps.res.ui.wheelview3d.c.b
             public void a(WheelView3d wheelView3d, int i) {
-                BdTimePicker.this.SX = BdTimePicker.this.cjF + i;
+                BdTimePicker.this.Ti = BdTimePicker.this.cvj + i;
             }
         });
-        ajJ();
+        anx();
     }
 
-    private void qs() {
-        this.cjH = new Paint();
-        this.cjH.setColor(ViewCompat.MEASURED_STATE_MASK);
-        this.cjH.setAntiAlias(true);
-        this.cjH.setTextSize(this.mTextSize);
+    private void qy() {
+        this.cvl = new Paint();
+        this.cvl.setColor(ViewCompat.MEASURED_STATE_MASK);
+        this.cvl.setAntiAlias(true);
+        this.cvl.setTextSize(this.mTextSize);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void dispatchDraw(Canvas canvas) {
         super.dispatchDraw(canvas);
-        canvas.drawText(":", getWidth() / 2, (getHeight() / 2.0f) + (this.cjz.getCenterContentOffset() * 2.0f), this.cjH);
+        canvas.drawText(":", getWidth() / 2, (getHeight() / 2.0f) + (this.cvd.getCenterContentOffset() * 2.0f), this.cvl);
     }
 
-    private void ajJ() {
+    private void anx() {
         Calendar calendar = Calendar.getInstance();
-        this.cjy = calendar.get(11);
-        this.SX = calendar.get(12);
-        ajK();
+        this.cvc = calendar.get(11);
+        this.Ti = calendar.get(12);
+        any();
     }
 
-    public void ajK() {
-        ajP();
-        ajO();
+    public void any() {
+        anD();
+        anC();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ajO() {
-        this.cjF = 0;
-        this.cjG = 59;
-        if (this.cja != null && this.cjy == this.cjD) {
-            this.cjF = this.cja.getMinutes();
+    public void anC() {
+        this.cvj = 0;
+        this.cvk = 59;
+        if (this.cuE != null && this.cvc == this.cvh) {
+            this.cvj = this.cuE.getMinutes();
         }
-        if (this.cjb != null && this.cjy == this.cjE) {
-            this.cjG = this.cjb.getMinutes();
+        if (this.cuF != null && this.cvc == this.cvi) {
+            this.cvk = this.cuF.getMinutes();
         }
-        ArrayList arrayList = new ArrayList((this.cjG - this.cjF) + 1);
-        for (int i = this.cjF; i <= this.cjG; i++) {
+        ArrayList arrayList = new ArrayList((this.cvk - this.cvj) + 1);
+        for (int i = this.cvj; i <= this.cvk; i++) {
             arrayList.add(String.format("%02d", Integer.valueOf(i)));
         }
-        this.cjA.setAdapter(new com.baidu.swan.apps.res.ui.wheelview3d.a.b(this.cjF, this.cjG));
-        a(this.cjA, this.cjF, this.cjG);
-        setMinute(this.SX);
+        this.cve.setAdapter(new com.baidu.swan.apps.res.ui.wheelview3d.a.b(this.cvj, this.cvk));
+        a(this.cve, this.cvj, this.cvk);
+        setMinute(this.Ti);
     }
 
-    private void ajP() {
-        this.cjD = 0;
-        this.cjE = 23;
-        if (this.cja != null) {
-            this.cjD = this.cja.getHours();
+    private void anD() {
+        this.cvh = 0;
+        this.cvi = 23;
+        if (this.cuE != null) {
+            this.cvh = this.cuE.getHours();
         }
-        if (this.cjb != null) {
-            this.cjE = this.cjb.getHours();
+        if (this.cuF != null) {
+            this.cvi = this.cuF.getHours();
         }
-        ArrayList arrayList = new ArrayList((this.cjE - this.cjD) + 1);
-        for (int i = this.cjD; i <= this.cjE; i++) {
+        ArrayList arrayList = new ArrayList((this.cvi - this.cvh) + 1);
+        for (int i = this.cvh; i <= this.cvi; i++) {
             arrayList.add(String.format("%02d", Integer.valueOf(i)));
         }
-        this.cjz.setAdapter(new com.baidu.swan.apps.res.ui.wheelview3d.a.b(this.cjD, this.cjE));
-        a(this.cjz, this.cjD, this.cjE);
-        setHour(this.cjy);
+        this.cvd.setAdapter(new com.baidu.swan.apps.res.ui.wheelview3d.a.b(this.cvh, this.cvi));
+        a(this.cvd, this.cvh, this.cvi);
+        setHour(this.cvc);
     }
 
     private void a(WheelView3d wheelView3d, int i, int i2) {
@@ -180,53 +180,53 @@ public class BdTimePicker extends LinearLayout {
     }
 
     public void setStartDate(Date date) {
-        this.cja = date;
+        this.cuE = date;
     }
 
     public void setmEndDate(Date date) {
-        this.cjb = date;
+        this.cuF = date;
     }
 
     public void setDisabled(boolean z) {
-        this.cjk = z;
-        this.cjz.setIsOptions(z);
-        this.cjA.setIsOptions(z);
+        this.cuO = z;
+        this.cvd.setIsOptions(z);
+        this.cve.setIsOptions(z);
     }
 
     public void setOnTimeChangeListener(a aVar) {
-        this.cjB = aVar;
+        this.cvf = aVar;
     }
 
     public void setHour(int i) {
-        if (i < this.cjD) {
-            i = this.cjD;
-        } else if (i > this.cjE) {
-            i = this.cjE;
+        if (i < this.cvh) {
+            i = this.cvh;
+        } else if (i > this.cvi) {
+            i = this.cvi;
         }
-        this.cjy = i;
-        this.cjz.setCurrentItem(i - this.cjD);
+        this.cvc = i;
+        this.cvd.setCurrentItem(i - this.cvh);
     }
 
     public int getHour() {
-        return this.cjy;
+        return this.cvc;
     }
 
     public void setMinute(int i) {
-        if (i < this.cjF) {
-            i = this.cjF;
-        } else if (i > this.cjG) {
-            i = this.cjG;
+        if (i < this.cvj) {
+            i = this.cvj;
+        } else if (i > this.cvk) {
+            i = this.cvk;
         }
-        this.SX = i;
-        this.cjA.setCurrentItem(i - this.cjF);
+        this.Ti = i;
+        this.cve.setCurrentItem(i - this.cvj);
     }
 
     public int getMinute() {
-        return this.SX;
+        return this.Ti;
     }
 
     public void setScrollCycle(boolean z) {
-        this.cjA.setCyclic(z);
-        this.cjz.setCyclic(z);
+        this.cve.setCyclic(z);
+        this.cvd.setCyclic(z);
     }
 }

@@ -35,7 +35,7 @@ public class a {
     private TelephonyManager b;
     private WifiManager h;
     private String m;
-    private C0174a c = new C0174a();
+    private C0207a c = new C0207a();
     private b i = null;
     private long j = 0;
     private String k = null;
@@ -74,7 +74,7 @@ public class a {
             i = 3;
         }
         try {
-            C0174a b2 = b();
+            C0207a b2 = b();
             if (b2 == null || !b2.b()) {
                 a(this.b.getCellLocation());
             } else {
@@ -107,7 +107,7 @@ public class a {
     private void a(CellLocation cellLocation) {
         int i = 0;
         if (cellLocation != null && this.b != null) {
-            C0174a c0174a = new C0174a();
+            C0207a c0207a = new C0207a();
             String networkOperator = this.b.getNetworkOperator();
             if (networkOperator != null && networkOperator.length() > 0) {
                 try {
@@ -116,7 +116,7 @@ public class a {
                         if (intValue < 0) {
                             intValue = this.c.c;
                         }
-                        c0174a.c = intValue;
+                        c0207a.c = intValue;
                     }
                     String substring = networkOperator.substring(3);
                     if (substring != null) {
@@ -129,16 +129,16 @@ public class a {
                     if (intValue2 < 0) {
                         intValue2 = this.c.d;
                     }
-                    c0174a.d = intValue2;
+                    c0207a.d = intValue2;
                 } catch (Exception e2) {
                 }
             }
             if (cellLocation instanceof GsmCellLocation) {
-                c0174a.a = ((GsmCellLocation) cellLocation).getLac();
-                c0174a.b = ((GsmCellLocation) cellLocation).getCid();
-                c0174a.e = 'g';
+                c0207a.a = ((GsmCellLocation) cellLocation).getLac();
+                c0207a.b = ((GsmCellLocation) cellLocation).getCid();
+                c0207a.e = 'g';
             } else if (cellLocation instanceof CdmaCellLocation) {
-                c0174a.e = 'w';
+                c0207a.e = 'w';
                 if (g == null) {
                     try {
                         g = Class.forName("android.telephony.cdma.CdmaCellLocation");
@@ -156,21 +156,21 @@ public class a {
                         if (intValue3 < 0) {
                             intValue3 = this.c.d;
                         }
-                        c0174a.d = intValue3;
-                        c0174a.b = ((Integer) d.invoke(cellLocation, new Object[0])).intValue();
-                        c0174a.a = ((Integer) e.invoke(cellLocation, new Object[0])).intValue();
+                        c0207a.d = intValue3;
+                        c0207a.b = ((Integer) d.invoke(cellLocation, new Object[0])).intValue();
+                        c0207a.a = ((Integer) e.invoke(cellLocation, new Object[0])).intValue();
                     } catch (Exception e4) {
                         return;
                     }
                 }
             }
-            if (c0174a.b()) {
-                this.c = c0174a;
+            if (c0207a.b()) {
+                this.c = c0207a;
             }
         }
     }
 
-    private C0174a b() {
+    private C0207a b() {
         if (Integer.valueOf(Build.VERSION.SDK_INT).intValue() < 17) {
             return null;
         }
@@ -180,11 +180,11 @@ public class a {
                 if (allCellInfo == null || allCellInfo.size() <= 0) {
                     return null;
                 }
-                C0174a c0174a = null;
+                C0207a c0207a = null;
                 for (CellInfo cellInfo : allCellInfo) {
                     try {
                         if (cellInfo.isRegistered()) {
-                            C0174a a = a(cellInfo);
+                            C0207a a = a(cellInfo);
                             if (a != null) {
                                 try {
                                     if (!a.b()) {
@@ -195,13 +195,13 @@ public class a {
                                     return a;
                                 }
                             }
-                            c0174a = a;
+                            c0207a = a;
                         }
                     } catch (Exception e3) {
-                        return c0174a;
+                        return c0207a;
                     }
                 }
-                return c0174a;
+                return c0207a;
             } catch (NoSuchMethodError e4) {
                 return null;
             }
@@ -210,51 +210,51 @@ public class a {
         }
     }
 
-    private C0174a a(CellInfo cellInfo) {
+    private C0207a a(CellInfo cellInfo) {
         int intValue = Integer.valueOf(Build.VERSION.SDK_INT).intValue();
         if (intValue < 17) {
             return null;
         }
-        C0174a c0174a = new C0174a();
+        C0207a c0207a = new C0207a();
         boolean z = false;
         if (cellInfo instanceof CellInfoGsm) {
             CellIdentityGsm cellIdentity = ((CellInfoGsm) cellInfo).getCellIdentity();
-            c0174a.c = b(cellIdentity.getMcc());
-            c0174a.d = b(cellIdentity.getMnc());
-            c0174a.a = b(cellIdentity.getLac());
-            c0174a.b = b(cellIdentity.getCid());
-            c0174a.e = 'g';
+            c0207a.c = b(cellIdentity.getMcc());
+            c0207a.d = b(cellIdentity.getMnc());
+            c0207a.a = b(cellIdentity.getLac());
+            c0207a.b = b(cellIdentity.getCid());
+            c0207a.e = 'g';
             z = true;
         } else if (cellInfo instanceof CellInfoCdma) {
             CellIdentityCdma cellIdentity2 = ((CellInfoCdma) cellInfo).getCellIdentity();
-            c0174a.d = b(cellIdentity2.getSystemId());
-            c0174a.a = b(cellIdentity2.getNetworkId());
-            c0174a.b = b(cellIdentity2.getBasestationId());
-            c0174a.e = 'w';
+            c0207a.d = b(cellIdentity2.getSystemId());
+            c0207a.a = b(cellIdentity2.getNetworkId());
+            c0207a.b = b(cellIdentity2.getBasestationId());
+            c0207a.e = 'w';
             z = true;
         } else if (cellInfo instanceof CellInfoLte) {
             CellIdentityLte cellIdentity3 = ((CellInfoLte) cellInfo).getCellIdentity();
-            c0174a.c = b(cellIdentity3.getMcc());
-            c0174a.d = b(cellIdentity3.getMnc());
-            c0174a.a = b(cellIdentity3.getTac());
-            c0174a.b = b(cellIdentity3.getCi());
-            c0174a.e = 'g';
+            c0207a.c = b(cellIdentity3.getMcc());
+            c0207a.d = b(cellIdentity3.getMnc());
+            c0207a.a = b(cellIdentity3.getTac());
+            c0207a.b = b(cellIdentity3.getCi());
+            c0207a.e = 'g';
             z = true;
         }
         if (intValue >= 18 && !z) {
             try {
                 if (cellInfo instanceof CellInfoWcdma) {
                     CellIdentityWcdma cellIdentity4 = ((CellInfoWcdma) cellInfo).getCellIdentity();
-                    c0174a.c = b(cellIdentity4.getMcc());
-                    c0174a.d = b(cellIdentity4.getMnc());
-                    c0174a.a = b(cellIdentity4.getLac());
-                    c0174a.b = b(cellIdentity4.getCid());
-                    c0174a.e = 'g';
+                    c0207a.c = b(cellIdentity4.getMcc());
+                    c0207a.d = b(cellIdentity4.getMnc());
+                    c0207a.a = b(cellIdentity4.getLac());
+                    c0207a.b = b(cellIdentity4.getCid());
+                    c0207a.e = 'g';
                 }
             } catch (Exception e2) {
             }
         }
-        return c0174a;
+        return c0207a;
     }
 
     private int b(int i) {
@@ -267,14 +267,14 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.mobads.h.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public class C0174a {
+    public class C0207a {
         public int a;
         public int b;
         public int c;
         public int d;
         public char e;
 
-        private C0174a() {
+        private C0207a() {
             this.a = -1;
             this.b = -1;
             this.c = -1;

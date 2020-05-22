@@ -12,16 +12,24 @@ import android.widget.TextView;
 import com.baidu.poly.b;
 /* loaded from: classes11.dex */
 public class c extends FrameLayout {
-    private ImageView bon;
-    private TextView boo;
-    private Animation bop;
-    private boolean boq;
+    private ImageView bvN;
+    private TextView bvO;
+    private Animation bvP;
+    private boolean bvQ;
 
     public c(Context context) {
         this(context, null);
     }
 
-    private void Q() {
+    private void c(Context context) {
+        LayoutInflater.from(context).inflate(b.f.view_toast_loading, (ViewGroup) this, true);
+        this.bvN = (ImageView) findViewById(b.e.toast_loading_view);
+        this.bvO = (TextView) findViewById(b.e.toast_text_view);
+        this.bvP = AnimationUtils.loadAnimation(context, b.a.loading_rotate);
+        setClickable(true);
+    }
+
+    private void ca() {
         ViewGroup.LayoutParams layoutParams = getLayoutParams();
         if (layoutParams == null) {
             setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
@@ -31,32 +39,24 @@ public class c extends FrameLayout {
         layoutParams.height = -1;
     }
 
-    private void c(Context context) {
-        LayoutInflater.from(context).inflate(b.f.view_toast_loading, (ViewGroup) this, true);
-        this.bon = (ImageView) findViewById(b.e.toast_loading_view);
-        this.boo = (TextView) findViewById(b.e.toast_text_view);
-        this.bop = AnimationUtils.loadAnimation(context, b.a.loading_rotate);
-        setClickable(true);
-    }
-
     public boolean getIsLoading() {
-        return this.boq;
+        return this.bvQ;
     }
 
     public void setLoading(boolean z) {
-        Q();
-        this.boq = z;
+        ca();
+        this.bvQ = z;
         if (z) {
             setVisibility(0);
-            this.bon.startAnimation(this.bop);
+            this.bvN.startAnimation(this.bvP);
             return;
         }
-        this.bon.clearAnimation();
+        this.bvN.clearAnimation();
         setVisibility(8);
     }
 
     public void setText(String str) {
-        this.boo.setText(str);
+        this.bvO.setText(str);
     }
 
     public c(Context context, AttributeSet attributeSet) {

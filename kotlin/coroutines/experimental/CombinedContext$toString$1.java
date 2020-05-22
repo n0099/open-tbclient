@@ -17,8 +17,8 @@ final class CombinedContext$toString$1 extends Lambda implements m<String, d.b, 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // kotlin.jvm.a.m
     public final String invoke(String str, d.b bVar) {
-        q.j(str, "acc");
-        q.j(bVar, "element");
+        q.m(str, "acc");
+        q.m(bVar, "element");
         return str.length() == 0 ? bVar.toString() : str + ", " + bVar;
     }
 }

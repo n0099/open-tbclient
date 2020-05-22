@@ -180,7 +180,7 @@ public class QuickMediaPlayerBinder extends IQuickMediaPlayer.Stub {
                     } else if (MODEL_MX4.equals(Build.MODEL)) {
                         i = 2;
                     }
-                    TiebaStatic.log(new an("c12200").af("obj_type", i).cI("uid", TbadkCoreApplication.getCurrentAccount()));
+                    TiebaStatic.log(new an("c12200").ag("obj_type", i).dh("uid", TbadkCoreApplication.getCurrentAccount()));
                 }
                 if (this.mContext instanceof a) {
                     ((a) this.mContext).addPlayer(this.mMediaPlayer, this.mUri);
@@ -211,7 +211,7 @@ public class QuickMediaPlayerBinder extends IQuickMediaPlayer.Stub {
             this.mCurrentState = -1;
             this.mTargetState = -1;
             if (this.mOnSubErrorInfoListener != null) {
-                this.mOnSubErrorInfoListener.onSubError(-24399, -24399, com.baidu.tieba.k.a.s(e));
+                this.mOnSubErrorInfoListener.onSubError(-24399, -24399, com.baidu.tieba.k.a.t(e));
             }
             if (this.mOnErrorListener != null) {
                 this.mOnErrorListener.onError(this.mMediaPlayer, isIjkPlayer() ? -200 : -100, -24399, -24399);
@@ -223,7 +223,7 @@ public class QuickMediaPlayerBinder extends IQuickMediaPlayer.Stub {
             this.mCurrentState = -1;
             this.mTargetState = -1;
             if (this.mOnSubErrorInfoListener != null) {
-                this.mOnSubErrorInfoListener.onSubError(-34399, -34399, com.baidu.tieba.k.a.s(e2));
+                this.mOnSubErrorInfoListener.onSubError(-34399, -34399, com.baidu.tieba.k.a.t(e2));
             }
             if (this.mOnErrorListener != null) {
                 this.mOnErrorListener.onError(this.mMediaPlayer, isIjkPlayer() ? -200 : -100, -34399, -34399);

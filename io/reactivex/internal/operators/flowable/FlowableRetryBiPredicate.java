@@ -12,7 +12,7 @@ public final class FlowableRetryBiPredicate<T> extends a<T, T> {
     public void a(org.a.c<? super T> cVar) {
         SubscriptionArbiter subscriptionArbiter = new SubscriptionArbiter();
         cVar.onSubscribe(subscriptionArbiter);
-        new RetryBiSubscriber(cVar, this.predicate, subscriptionArbiter, this.mRM).subscribeNext();
+        new RetryBiSubscriber(cVar, this.predicate, subscriptionArbiter, this.nmU).subscribeNext();
     }
 
     /* loaded from: classes7.dex */
@@ -49,7 +49,7 @@ public final class FlowableRetryBiPredicate<T> extends a<T, T> {
                 io.reactivex.c.d<? super Integer, ? super Throwable> dVar = this.predicate;
                 int i = this.retries + 1;
                 this.retries = i;
-                if (!dVar.i(Integer.valueOf(i), th)) {
+                if (!dVar.j(Integer.valueOf(i), th)) {
                     this.actual.onError(th);
                 } else {
                     subscribeNext();

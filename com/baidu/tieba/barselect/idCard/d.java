@@ -8,34 +8,34 @@ public interface d {
 
     /* loaded from: classes8.dex */
     public interface a {
-        int h(byte[] bArr, int i);
+        int i(byte[] bArr, int i);
     }
 
     /* loaded from: classes8.dex */
     public interface b {
-        void S(byte[] bArr);
+        void Z(byte[] bArr);
     }
 
     void a(b bVar);
 
     void a(e eVar);
 
-    void bEa();
+    Rect bKB();
+
+    void bKC();
+
+    void bKr();
 
     @ICameraControl.FlashMode
-    int bEb();
+    int bKs();
 
-    View bEc();
-
-    Rect bEk();
-
-    void bEl();
+    View bKt();
 
     void pause();
 
-    void rB(@ICameraControl.FlashMode int i);
-
     void resume();
+
+    void se(@ICameraControl.FlashMode int i);
 
     void setDisplayOrientation(int i);
 

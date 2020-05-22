@@ -30,8 +30,8 @@ import tv.chushou.zues.utils.g;
 import tv.chushou.zues.widget.sweetalert.b;
 /* loaded from: classes5.dex */
 public class a {
-    public final List<String> mnn = new ArrayList();
-    public List<C0737a> mno;
+    public List<C0795a> A;
+    public final List<String> mHk = new ArrayList();
     public static String a = "10001";
     public static String b = "10002";
     public static String c = "10003";
@@ -57,10 +57,10 @@ public class a {
     public static int w = 2;
     public static int x = 3;
     public static int y = 6;
-    private static a mnm = null;
-    private static HashSet<Integer> mnp = new HashSet<>();
+    private static a mHj = null;
+    private static HashSet<Integer> mHl = new HashSet<>();
     private static String D = "";
-    private static final RequestTag mnq = new RequestTag();
+    private static final RequestTag mHm = new RequestTag();
 
     /* loaded from: classes5.dex */
     public interface b {
@@ -73,94 +73,94 @@ public class a {
     }
 
     static {
-        mnq.supportEmpty = true;
-        mnq.signType = 2;
-        mnq.respType = String.class;
-        mnq.thread = EventThread.IO;
-        mnq.executorService = null;
+        mHm.supportEmpty = true;
+        mHm.signType = 2;
+        mHm.respType = String.class;
+        mHm.thread = EventThread.IO;
+        mHm.executorService = null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.kascend.chushou.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C0737a {
+    public class C0795a {
         String a;
         long b;
         long c;
 
-        C0737a() {
+        C0795a() {
         }
     }
 
-    public static a dwC() {
-        if (mnm == null) {
+    public static a dDT() {
+        if (mHj == null) {
             synchronized (a.class) {
-                if (mnm == null) {
-                    mnm = new a();
+                if (mHj == null) {
+                    mHj = new a();
                 }
             }
         }
-        return mnm;
+        return mHj;
     }
 
     private a() {
-        String p2 = h.dwI().p();
+        String p2 = h.dDZ().p();
         if (!tv.chushou.zues.utils.h.isEmpty(p2)) {
             try {
-                this.mno = (List) new Gson().fromJson(p2, new com.google.gson.b.a<List<C0737a>>() { // from class: com.kascend.chushou.a.a.1
+                this.A = (List) new Gson().fromJson(p2, new com.google.gson.b.a<List<C0795a>>() { // from class: com.kascend.chushou.a.a.1
                 }.getType());
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
         }
-        mnp.clear();
-        this.mnn.add(d);
-        this.mnn.add(f);
-        this.mnn.add(g);
-        this.mnn.add(h);
-        this.mnn.add(i);
-        this.mnn.add(j);
-        this.mnn.add(l);
-        this.mnn.add(m);
+        mHl.clear();
+        this.mHk.add(d);
+        this.mHk.add(f);
+        this.mHk.add(g);
+        this.mHk.add(h);
+        this.mHk.add(i);
+        this.mHk.add(j);
+        this.mHk.add(l);
+        this.mHk.add(m);
     }
 
     public boolean a(String str, long j2) {
-        return b(str, j2, true);
+        return a(str, j2, true);
     }
 
-    public boolean b(String str, long j2, boolean z) {
+    public boolean a(String str, long j2, boolean z) {
         if (tv.chushou.zues.utils.h.isEmpty(str)) {
             return false;
         }
         if (j2 <= 0) {
             j2 = 0;
         }
-        if (this.mno == null) {
-            this.mno = new ArrayList();
+        if (this.A == null) {
+            this.A = new ArrayList();
         }
         int i2 = 0;
         while (true) {
             int i3 = i2;
-            if (i3 < this.mno.size()) {
-                C0737a c0737a = this.mno.get(i3);
-                if (!str.equals(c0737a.a)) {
+            if (i3 < this.A.size()) {
+                C0795a c0795a = this.A.get(i3);
+                if (!str.equals(c0795a.a)) {
                     i2 = i3 + 1;
-                } else if (j2 == 0 && c0737a.b == 0) {
+                } else if (j2 == 0 && c0795a.b == 0) {
                     return true;
                 } else {
-                    if (j2 != c0737a.b) {
+                    if (j2 != c0795a.b) {
                         if (z) {
-                            c0737a.b = j2;
-                            c0737a.c = System.currentTimeMillis();
-                            h.dwI().d(new Gson().toJson(this.mno));
+                            c0795a.b = j2;
+                            c0795a.c = System.currentTimeMillis();
+                            h.dDZ().d(new Gson().toJson(this.A));
                         }
                         return true;
                     }
                     long currentTimeMillis = System.currentTimeMillis();
-                    if (currentTimeMillis - c0737a.c < 0 || currentTimeMillis - c0737a.c > c0737a.b * 1000) {
+                    if (currentTimeMillis - c0795a.c < 0 || currentTimeMillis - c0795a.c > c0795a.b * 1000) {
                         if (z) {
-                            c0737a.c = currentTimeMillis;
-                            h.dwI().d(new Gson().toJson(this.mno));
+                            c0795a.c = currentTimeMillis;
+                            h.dDZ().d(new Gson().toJson(this.A));
                         }
                         return true;
                     }
@@ -168,12 +168,12 @@ public class a {
                 }
             } else {
                 if (z) {
-                    C0737a c0737a2 = new C0737a();
-                    c0737a2.b = j2;
-                    c0737a2.c = System.currentTimeMillis();
-                    c0737a2.a = str;
-                    this.mno.add(c0737a2);
-                    h.dwI().d(new Gson().toJson(this.mno));
+                    C0795a c0795a2 = new C0795a();
+                    c0795a2.b = j2;
+                    c0795a2.c = System.currentTimeMillis();
+                    c0795a2.a = str;
+                    this.A.add(c0795a2);
+                    h.dDZ().d(new Gson().toJson(this.A));
                 }
                 return true;
             }
@@ -181,25 +181,25 @@ public class a {
     }
 
     public void a(String str, String str2, final c cVar) {
-        if (!tv.chushou.zues.utils.h.isEmpty(str) && tv.chushou.basis.d.b.dJq() != null) {
-            Point fU = tv.chushou.zues.utils.a.fU(tv.chushou.basis.d.b.dJq());
-            com.kascend.chushou.c.c.dwE().a(str, String.valueOf(fU.x), String.valueOf(fU.y), str2, new com.kascend.chushou.c.b() { // from class: com.kascend.chushou.a.a.2
+        if (!tv.chushou.zues.utils.h.isEmpty(str) && tv.chushou.basis.d.b.dRk() != null) {
+            Point gv = tv.chushou.zues.utils.a.gv(tv.chushou.basis.d.b.dRk());
+            com.kascend.chushou.c.c.dDV().a(str, String.valueOf(gv.x), String.valueOf(gv.y), str2, new com.kascend.chushou.c.b() { // from class: com.kascend.chushou.a.a.2
                 @Override // com.kascend.chushou.c.b
                 public void a() {
                 }
 
                 @Override // com.kascend.chushou.c.b
                 public void a(String str3, JSONObject jSONObject) {
-                    ParserRet dy = d.dy(jSONObject);
-                    if (dy.mRc == 0 && dy.mData != null) {
-                        List<ListItem> list = (List) dy.mData;
+                    ParserRet dF = d.dF(jSONObject);
+                    if (dF.mRc == 0 && dF.mData != null) {
+                        List<ListItem> list = (List) dF.mData;
                         if (cVar != null) {
                             cVar.a(list);
                             return;
                         }
                         return;
                     }
-                    a(dy.mRc, dy.mMessage);
+                    a(dF.mRc, dF.mMessage);
                 }
 
                 @Override // com.kascend.chushou.c.b
@@ -213,23 +213,23 @@ public class a {
     }
 
     public void a(String str, String str2, final b bVar) {
-        com.kascend.chushou.c.c.dwE().d(str, str2, new com.kascend.chushou.c.b() { // from class: com.kascend.chushou.a.a.3
+        com.kascend.chushou.c.c.dDV().d(str, str2, new com.kascend.chushou.c.b() { // from class: com.kascend.chushou.a.a.3
             @Override // com.kascend.chushou.c.b
             public void a() {
             }
 
             @Override // com.kascend.chushou.c.b
             public void a(String str3, JSONObject jSONObject) {
-                ParserRet dC = d.dC(jSONObject);
-                if (dC.mRc == 0 && dC.mData != null) {
-                    ListItem listItem = (ListItem) dC.mData;
+                ParserRet dJ = d.dJ(jSONObject);
+                if (dJ.mRc == 0 && dJ.mData != null) {
+                    ListItem listItem = (ListItem) dJ.mData;
                     if (bVar != null) {
                         bVar.a(listItem);
                         return;
                     }
                     return;
                 }
-                a(dC.mRc, dC.mMessage);
+                a(dJ.mRc, dJ.mMessage);
             }
 
             @Override // com.kascend.chushou.c.b
@@ -245,7 +245,7 @@ public class a {
         if (listItem != null && listItem.mAdExtraInfo != null) {
             final ListItem listItem2 = (ListItem) listItem.deepCopy();
             if (z) {
-                dwC().a(listItem2, jSONObject != null ? jSONObject.optInt("PLAY_DURATION", -1) : -1, jSONObject);
+                dDT().a(listItem2, jSONObject != null ? jSONObject.optInt("PLAY_DURATION", -1) : -1, jSONObject);
             }
             D = listItem2.mAdExtraInfo.mAdvertLink;
             if (!tv.chushou.zues.utils.h.isEmpty(D)) {
@@ -266,7 +266,7 @@ public class a {
             } else if (o.equals(listItem2.mAdExtraInfo.mActType)) {
                 if (!tv.chushou.zues.utils.h.isEmpty(D)) {
                     final int hashCode = listItem2.mAdExtraInfo.mAdvertLink.hashCode();
-                    final File file = new File(com.kascend.chushou.d.c.mnH.dwF(), hashCode + ".apk");
+                    final File file = new File(com.kascend.chushou.d.c.mHD.dDW(), hashCode + ".apk");
                     new tv.chushou.zues.widget.sweetalert.b(context, 0).a(new b.a() { // from class: com.kascend.chushou.a.a.5
                         @Override // tv.chushou.zues.widget.sweetalert.b.a
                         public void onClick(tv.chushou.zues.widget.sweetalert.b bVar) {
@@ -276,18 +276,18 @@ public class a {
                         @Override // tv.chushou.zues.widget.sweetalert.b.a
                         public void onClick(tv.chushou.zues.widget.sweetalert.b bVar) {
                             bVar.dismiss();
-                            if (a.mnp.contains(Integer.valueOf(hashCode))) {
+                            if (a.mHl.contains(Integer.valueOf(hashCode))) {
                                 g.F(context, a.i.ad_down_exist_msg);
                                 return;
                             }
                             if (file.exists()) {
                                 file.delete();
                             }
-                            a.mnp.add(Integer.valueOf(hashCode));
-                            a.dwC().b(listItem2);
+                            a.mHl.add(Integer.valueOf(hashCode));
+                            a.dDT().b(listItem2);
                             g.F(context, a.i.cs_confirm_download);
                         }
-                    }).Qw(context.getString(a.i.cancel)).Qy(context.getString(a.i.cs_confirm)).Qv(context.getString(a.i.cs_info_title)).w(context.getString(a.i.cs_confirm_download)).show();
+                    }).SC(context.getString(a.i.cancel)).SE(context.getString(a.i.cs_confirm)).SB(context.getString(a.i.cs_info_title)).x(context.getString(a.i.cs_confirm_download)).show();
                 }
             } else if (p.equals(listItem2.mAdExtraInfo.mActType)) {
                 if (!tv.chushou.zues.utils.h.isEmpty(D)) {
@@ -388,7 +388,7 @@ public class a {
                 }
                 if (!tv.chushou.zues.utils.h.isEmpty(str)) {
                     if (v == adTrackInfo.mSource) {
-                        com.kascend.chushou.c.c.dwE().a(adTrackInfo.mUrl);
+                        com.kascend.chushou.c.c.dDV().a(adTrackInfo.mUrl);
                     } else {
                         a(adTrackInfo.mUrl, (com.kascend.chushou.c.b) null, new Object[0]);
                     }
@@ -445,7 +445,7 @@ public class a {
                     }
                     if (!tv.chushou.zues.utils.h.isEmpty(str)) {
                         if (v == adTrackInfo.mSource) {
-                            com.kascend.chushou.c.c.dwE().a(str);
+                            com.kascend.chushou.c.c.dDV().a(str);
                         } else {
                             a(str, (com.kascend.chushou.c.b) null, new Object[0]);
                         }
@@ -486,7 +486,7 @@ public class a {
                     }
                     if (!tv.chushou.zues.utils.h.isEmpty(str)) {
                         if (v == adTrackInfo.mSource) {
-                            com.kascend.chushou.c.c.dwE().a(str);
+                            com.kascend.chushou.c.c.dDV().a(str);
                         } else {
                             a(str, (com.kascend.chushou.c.b) null, new Object[0]);
                         }
@@ -527,7 +527,7 @@ public class a {
                     }
                     if (!tv.chushou.zues.utils.h.isEmpty(str)) {
                         if (v == adTrackInfo.mSource) {
-                            com.kascend.chushou.c.c.dwE().a(str);
+                            com.kascend.chushou.c.c.dDV().a(str);
                         } else {
                             a(str, (com.kascend.chushou.c.b) null, new Object[0]);
                         }
@@ -574,7 +574,7 @@ public class a {
     }
 
     private static void a(String str, final com.kascend.chushou.c.b bVar, Object... objArr) {
-        Http http = (Http) tv.chushou.basis.d.b.dJs().S(Http.class);
+        Http http = (Http) tv.chushou.basis.d.b.dRm().S(Http.class);
         if (http != null) {
             HashMap hashMap = new HashMap();
             if (objArr != null) {
@@ -585,7 +585,7 @@ public class a {
                     hashMap.put(String.valueOf(objArr[i2]), objArr[i2 + 1]);
                 }
             }
-            http.getAsync(str, "", hashMap, mnq, new tv.chushou.basis.d.a.c.a<Http.Resp>() { // from class: com.kascend.chushou.a.a.7
+            http.getAsync(str, "", hashMap, mHm, new tv.chushou.basis.d.a.c.a<Http.Resp>() { // from class: com.kascend.chushou.a.a.7
                 @Override // tv.chushou.basis.d.a.c.a
                 public void onStart() {
                     if (com.kascend.chushou.c.b.this != null) {

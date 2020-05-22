@@ -8,19 +8,19 @@ import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
-public class q extends ab {
+public class q extends aa {
     public q(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swanAPI/openStatisticEvent");
     }
 
-    @Override // com.baidu.swan.apps.scheme.actions.ab
+    @Override // com.baidu.swan.apps.scheme.actions.aa
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
-        JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+        final JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
         if (optParamsAsJo == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams");
             return false;
         }
-        String optString = optParamsAsJo.optString("bizId", "-1");
+        final String optString = optParamsAsJo.optString("bizId", "-1");
         if (TextUtils.isEmpty(optString)) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty flowId");
             return false;
@@ -34,7 +34,12 @@ public class q extends ab {
             }
         }
         com.baidu.swan.apps.console.c.i("OpenStatisticEvent", "OpenStat : " + optParamsAsJo);
-        com.baidu.swan.ubc.s.onEvent(optString, optParamsAsJo);
+        com.baidu.swan.apps.aq.n.postOnIO(new Runnable() { // from class: com.baidu.swan.apps.scheme.actions.q.1
+            @Override // java.lang.Runnable
+            public void run() {
+                com.baidu.swan.apps.statistic.b.onEvent(optString, optParamsAsJo);
+            }
+        }, "OpenStatisticEvent");
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
         return true;
     }

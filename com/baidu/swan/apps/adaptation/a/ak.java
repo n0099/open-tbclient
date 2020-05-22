@@ -1,10 +1,18 @@
 package com.baidu.swan.apps.adaptation.a;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import org.json.JSONObject;
+import java.util.concurrent.ExecutorService;
+import org.json.JSONArray;
 /* loaded from: classes11.dex */
 public interface ak {
-    @Nullable
-    com.baidu.swan.apps.api.b.b a(@NonNull String str, @NonNull JSONObject jSONObject, @NonNull com.baidu.swan.apps.p.b bVar);
+    void G(String str, int i);
+
+    ExecutorService St();
+
+    void a(String str, int i, JSONArray jSONArray);
+
+    void a(String str, String str2, int i, String str3, int i2);
+
+    void a(String str, String str2, int i, String str3, long j, int i2);
+
+    void f(String str, int i, String str2);
 }

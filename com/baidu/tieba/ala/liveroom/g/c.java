@@ -10,12 +10,12 @@ import java.util.ArrayList;
 import java.util.Arrays;
 /* loaded from: classes3.dex */
 public class c extends BaseAdapter {
-    private ViewGroup eNo;
-    private b fEV;
-    public final a[] fEU = {new a(a.f.img_live_filter_ziran, "delta", "自然"), new a(a.f.img_live_filter_fennen, "slowlived", "粉嫩"), new a(a.f.img_live_filter_rouguang, "pink", "柔光"), new a(a.f.img_live_filter_fsqq, "sakura", "粉红气球"), new a(a.f.img_live_filter_mgzc, "hongkong", "暮光之城")};
-    private int eNC = -1;
-    private int eNq = 0;
-    private ArrayList<Boolean> eNB = new ArrayList<>();
+    private ViewGroup eZL;
+    private b fSP;
+    public final a[] fSO = {new a(a.f.img_live_filter_ziran, "delta", "自然"), new a(a.f.img_live_filter_fennen, "slowlived", "粉嫩"), new a(a.f.img_live_filter_rouguang, "pink", "柔光"), new a(a.f.img_live_filter_fsqq, "sakura", "粉红气球"), new a(a.f.img_live_filter_mgzc, "hongkong", "暮光之城")};
+    private int eZZ = -1;
+    private int eZN = 0;
+    private ArrayList<Boolean> eZY = new ArrayList<>();
 
     /* loaded from: classes3.dex */
     public interface b {
@@ -23,33 +23,33 @@ public class c extends BaseAdapter {
     }
 
     public c(ViewGroup viewGroup) {
-        this.eNo = viewGroup;
-        bkK();
+        this.eZL = viewGroup;
+        bqe();
     }
 
-    private void bkK() {
-        if (this.eNB != null) {
-            this.eNB.clear();
-            this.eNB.addAll(Arrays.asList(new Boolean[this.fEU.length]));
+    private void bqe() {
+        if (this.eZY != null) {
+            this.eZY.clear();
+            this.eZY.addAll(Arrays.asList(new Boolean[this.fSO.length]));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void qr(int i) {
+    public void qS(int i) {
         if (i >= 0) {
-            this.eNB.set(i, true);
-            this.eNC = i;
-            if (this.fEV != null) {
-                this.fEV.onItemSelected(i);
+            this.eZY.set(i, true);
+            this.eZZ = i;
+            if (this.fSP != null) {
+                this.fSP.onItemSelected(i);
             }
         }
     }
 
-    public void zn(String str) {
+    public void AT(String str) {
         if (!TextUtils.isEmpty(str)) {
-            for (int i = 0; i < this.fEU.length; i++) {
-                if (str.equals(this.fEU[i].mFilterName)) {
-                    qr(i);
+            for (int i = 0; i < this.fSO.length; i++) {
+                if (str.equals(this.fSO[i].mFilterName)) {
+                    qS(i);
                     return;
                 }
             }
@@ -57,12 +57,12 @@ public class c extends BaseAdapter {
     }
 
     public void a(b bVar) {
-        this.fEV = bVar;
+        this.fSP = bVar;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return this.fEU.length;
+        return this.fSO.length;
     }
 
     @Override // android.widget.Adapter
@@ -77,59 +77,59 @@ public class c extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(final int i, View view, ViewGroup viewGroup) {
-        C0514c c0514c;
+        C0561c c0561c;
         if (view == null) {
-            C0514c c0514c2 = new C0514c();
-            c0514c2.fEX = new AlaLiveMultiBeautyFilterItemView(this.eNo.getContext());
-            c0514c2.fEX.setTag(c0514c2);
-            c0514c = c0514c2;
+            C0561c c0561c2 = new C0561c();
+            c0561c2.fSR = new AlaLiveMultiBeautyFilterItemView(this.eZL.getContext());
+            c0561c2.fSR.setTag(c0561c2);
+            c0561c = c0561c2;
         } else {
-            c0514c = (C0514c) view.getTag();
+            c0561c = (C0561c) view.getTag();
         }
-        if (this.eNB.get(i) == null || !this.eNB.get(i).booleanValue()) {
-            c0514c.fEX.setUnselectedBackground();
+        if (this.eZY.get(i) == null || !this.eZY.get(i).booleanValue()) {
+            c0561c.fSR.setUnselectedBackground();
         } else {
-            c0514c.fEX.setSelectedBackground();
+            c0561c.fSR.setSelectedBackground();
         }
-        c0514c.fEX.setItemIcon(this.fEU[i % this.fEU.length].mDrawableId);
-        c0514c.fEX.setItemText(this.fEU[i % this.fEU.length].mShowName);
-        c0514c.fEX.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.g.c.1
+        c0561c.fSR.setItemIcon(this.fSO[i % this.fSO.length].mDrawableId);
+        c0561c.fSR.setItemText(this.fSO[i % this.fSO.length].mShowName);
+        c0561c.fSR.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.g.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (c.this.eNC != i) {
-                    View childAt = c.this.eNo.getChildAt(c.this.eNC);
+                if (c.this.eZZ != i) {
+                    View childAt = c.this.eZL.getChildAt(c.this.eZZ);
                     if (childAt != null && (childAt instanceof AlaLiveMultiBeautyFilterItemView)) {
                         ((AlaLiveMultiBeautyFilterItemView) childAt).setUnselectedBackground();
                     }
-                    if (c.this.eNC >= 0) {
-                        c.this.eNB.set(c.this.eNC, false);
+                    if (c.this.eZZ >= 0) {
+                        c.this.eZY.set(c.this.eZZ, false);
                     }
                 }
                 if (view2.getTag() != null) {
-                    ((C0514c) view2.getTag()).fEX.setSelectedBackground();
+                    ((C0561c) view2.getTag()).fSR.setSelectedBackground();
                 }
-                c.this.qr(i);
+                c.this.qS(i);
                 c.this.notifyDataSetChanged();
             }
         });
-        if (i == 0 && this.eNq != 0) {
-            c0514c.fEX.setPadding(this.eNq, 0, 0, 0);
+        if (i == 0 && this.eZN != 0) {
+            c0561c.fSR.setPadding(this.eZN, 0, 0, 0);
         } else {
-            c0514c.fEX.setPadding(0, 0, 0, 0);
+            c0561c.fSR.setPadding(0, 0, 0, 0);
         }
-        return c0514c.fEX;
+        return c0561c.fSR;
     }
 
-    public void oV(int i) {
-        this.eNq = i;
+    public void pw(int i) {
+        this.eZN = i;
     }
 
     /* renamed from: com.baidu.tieba.ala.liveroom.g.c$c  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    class C0514c {
-        AlaLiveMultiBeautyFilterItemView fEX;
+    class C0561c {
+        AlaLiveMultiBeautyFilterItemView fSR;
 
-        C0514c() {
+        C0561c() {
         }
     }
 

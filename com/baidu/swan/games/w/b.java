@@ -1,68 +1,118 @@
 package com.baidu.swan.games.w;
 
+import android.annotation.SuppressLint;
+import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.adp.plugin.proxy.ContentProviderProxy;
-import com.baidu.searchbox.v8engine.V8ExceptionInfo;
-import com.baidu.searchbox.v8engine.util.TimeUtils;
-import com.baidu.swan.apps.network.SwanAppNetworkUtils;
-import com.baidu.swan.apps.runtime.e;
-import com.baidu.swan.apps.statistic.f;
-import com.baidu.swan.apps.x.b.b;
-import com.baidu.swan.games.u.d;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.swan.apps.an.c;
+import com.baidu.swan.apps.an.e;
+import java.io.File;
+import java.util.Set;
 /* loaded from: classes11.dex */
 public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
+    private File dcz;
+    private SharedPreferences mPref;
 
-    public static void b(com.baidu.smallgame.sdk.b.b bVar) {
-        V8ExceptionInfo NX;
-        if (bVar != null && (NX = bVar.NX()) != null) {
-            String str = NX.exceptionMsg;
-            String str2 = NX.exceptionTrace;
-            if (!TextUtils.isEmpty(str) || !TextUtils.isEmpty(str2)) {
-                if (DEBUG) {
-                    Log.d("StuckScreenReporter", String.format("LastTouchTime %s; exceptionTime %s", TimeUtils.logTimeOfDay(com.baidu.swan.games.glsurface.a.b.awN()), TimeUtils.logTimeOfDay(NX.exceptionTime)));
-                }
-                if (NX.exceptionTime < com.baidu.swan.games.glsurface.a.b.awN()) {
-                    a aVar = new a();
-                    aVar.mType = "stuck";
-                    aVar.mValue = "jserror";
-                    aVar.mAppId = e.akO();
-                    if (e.akM() != null && e.akM().Ov() != null) {
-                        b.a Ov = e.akM().Ov();
-                        aVar.mSource = Ov.adA();
-                        aVar.mFrom = f.gz(Ov.getAppFrameType());
-                    }
-                    aVar.errMsg = str + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR + str2;
-                    aVar.cRy = d.axU() ? 20 : 10;
-                    aVar.cRF = com.baidu.swan.games.glsurface.a.b.awM();
-                    aVar.cRG = System.currentTimeMillis() - NX.exceptionTime;
-                    a(aVar);
-                }
-            }
+    public b() {
+        String aBN = aBN();
+        if (DEBUG) {
+            Log.i("SwanGameStorageManager", "preferencesName:" + aBN);
         }
+        if (aBN != null) {
+            this.mPref = com.baidu.swan.apps.u.a.aeR().getSharedPreferences(aBN, 0);
+            this.dcz = new File(aBR(), aBN + ".xml");
+        }
+        e.cJd.a(new c.a<Long>() { // from class: com.baidu.swan.games.w.b.1
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.swan.apps.an.c.a
+            /* renamed from: arC */
+            public Long arD() throws IllegalStateException {
+                return Long.valueOf(b.this.arA());
+            }
+        });
     }
 
-    private static void a(final a aVar) {
-        if (aVar != null) {
-            com.baidu.swan.apps.process.messaging.client.a.ajc().a(null, com.baidu.swan.games.network.d.class, new com.baidu.swan.apps.process.a.b.c.b() { // from class: com.baidu.swan.games.w.b.1
-                /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.baidu.swan.apps.process.a.b.c.a
-                public void onEvent(@NonNull com.baidu.swan.apps.process.a.b.a.b bVar) {
-                    int i = -1;
-                    if (!SwanAppNetworkUtils.isNetworkConnected(null)) {
-                        i = -2;
-                    } else if (bVar.getResult() != null) {
-                        i = bVar.getResult().getInt("net_quality");
-                    }
-                    if (b.DEBUG) {
-                        Log.d("StuckScreenReporter", "get NetworkQuality: " + i);
-                    }
-                    a.this.cRE = i;
-                    f.a("976", a.this);
+    @Nullable
+    private String aBN() {
+        String aoH = com.baidu.swan.apps.runtime.e.aoH();
+        if (TextUtils.isEmpty(aoH)) {
+            return null;
+        }
+        return String.format("aigame_storage_%s_anonymous", aoH);
+    }
+
+    private boolean aBO() {
+        return this.mPref != null;
+    }
+
+    public long arA() {
+        if (this.dcz != null) {
+            return this.dcz.length();
+        }
+        return 0L;
+    }
+
+    public long arB() {
+        return 10485760L;
+    }
+
+    public String getString(String str, String str2) {
+        if (aBO()) {
+            return this.mPref.getString(str, str2);
+        }
+        return null;
+    }
+
+    public String[] aBP() {
+        if (!aBO()) {
+            return new String[0];
+        }
+        Set<String> keySet = this.mPref.getAll().keySet();
+        String[] strArr = new String[keySet.size()];
+        keySet.toArray(strArr);
+        return strArr;
+    }
+
+    @SuppressLint({"ApplySharedPref"})
+    public boolean putString(String str, String str2) {
+        return aBO() && this.mPref.edit().putString(str, str2).commit();
+    }
+
+    @SuppressLint({"ApplySharedPref"})
+    public boolean remove(String str) {
+        return aBO() && this.mPref.edit().remove(str).commit();
+    }
+
+    @SuppressLint({"ApplySharedPref"})
+    public boolean aBQ() {
+        return aBO() && this.mPref.edit().clear().commit();
+    }
+
+    @NonNull
+    public static File aBR() {
+        return new File(AppRuntime.getAppContext().getApplicationInfo().dataDir, "shared_prefs");
+    }
+
+    public static void su(String str) {
+        sv(String.format("aigame_storage_%s_anonymous", str, ""));
+    }
+
+    public static void aBS() {
+        sv("aigame_storage_");
+    }
+
+    private static void sv(String str) {
+        File[] listFiles;
+        if (str != null && str.startsWith("aigame_storage_") && (listFiles = aBR().listFiles()) != null) {
+            for (File file : listFiles) {
+                if (file.getName().startsWith(str)) {
+                    file.delete();
                 }
-            });
+            }
         }
     }
 }

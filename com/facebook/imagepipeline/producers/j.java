@@ -3,26 +3,26 @@ package com.facebook.imagepipeline.producers;
 import com.facebook.imagepipeline.request.ImageRequest;
 /* loaded from: classes12.dex */
 public class j implements aj<com.facebook.imagepipeline.g.e> {
-    private final aj<com.facebook.imagepipeline.g.e> meS;
-    private final aj<com.facebook.imagepipeline.g.e> meT;
+    private final aj<com.facebook.imagepipeline.g.e> myJ;
+    private final aj<com.facebook.imagepipeline.g.e> myK;
 
     public j(aj<com.facebook.imagepipeline.g.e> ajVar, aj<com.facebook.imagepipeline.g.e> ajVar2) {
-        this.meS = ajVar;
-        this.meT = ajVar2;
+        this.myJ = ajVar;
+        this.myK = ajVar2;
     }
 
     @Override // com.facebook.imagepipeline.producers.aj
     public void c(k<com.facebook.imagepipeline.g.e> kVar, ak akVar) {
-        this.meS.c(new a(kVar, akVar), akVar);
+        this.myJ.c(new a(kVar, akVar), akVar);
     }
 
     /* loaded from: classes12.dex */
     private class a extends n<com.facebook.imagepipeline.g.e, com.facebook.imagepipeline.g.e> {
-        private ak meU;
+        private ak myL;
 
         private a(k<com.facebook.imagepipeline.g.e> kVar, ak akVar) {
             super(kVar);
-            this.meU = akVar;
+            this.myL = akVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -30,25 +30,25 @@ public class j implements aj<com.facebook.imagepipeline.g.e> {
         @Override // com.facebook.imagepipeline.producers.b
         /* renamed from: a */
         public void g(com.facebook.imagepipeline.g.e eVar, int i) {
-            ImageRequest dtR = this.meU.dtR();
-            boolean Hr = Hr(i);
-            boolean a = ax.a(eVar, dtR.duL());
-            if (eVar != null && (a || dtR.duP())) {
-                if (Hr && a) {
-                    dud().h(eVar, i);
+            ImageRequest dBi = this.myL.dBi();
+            boolean Id = Id(i);
+            boolean a = ax.a(eVar, dBi.dCc());
+            if (eVar != null && (a || dBi.dCg())) {
+                if (Id && a) {
+                    dBu().h(eVar, i);
                 } else {
-                    dud().h(eVar, dk(i, 1));
+                    dBu().h(eVar, dp(i, 1));
                 }
             }
-            if (Hr && !a) {
+            if (Id && !a) {
                 com.facebook.imagepipeline.g.e.e(eVar);
-                j.this.meT.c(dud(), this.meU);
+                j.this.myK.c(dBu(), this.myL);
             }
         }
 
         @Override // com.facebook.imagepipeline.producers.n, com.facebook.imagepipeline.producers.b
         protected void F(Throwable th) {
-            j.this.meT.c(dud(), this.meU);
+            j.this.myK.c(dBu(), this.myL);
         }
     }
 }

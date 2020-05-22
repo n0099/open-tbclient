@@ -93,7 +93,7 @@ public class a {
         }
     }
 
-    public static String l(File file) {
+    public static String p(File file) {
         FileReader fileReader;
         Throwable th;
         String str = null;

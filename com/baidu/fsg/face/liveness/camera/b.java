@@ -2,18 +2,23 @@ package com.baidu.fsg.face.liveness.camera;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.ImageFormat;
 import android.hardware.Camera;
 import android.media.MediaRecorder;
 import android.os.Build;
+import android.util.Log;
 import android.view.Display;
 import android.view.SurfaceHolder;
 import android.view.WindowManager;
 import com.baidu.fsg.base.statistics.RimStatisticsUtil;
+import com.baidu.fsg.base.utils.LogUtil;
 import com.baidu.fsg.face.base.d.d;
 import com.baidu.fsg.face.base.d.f;
 import com.baidu.fsg.face.base.d.g;
+import com.baidu.fsg.face.liveness.video.e;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.File;
+import java.io.IOException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
@@ -24,21 +29,30 @@ public class b {
     public static final int c = 3;
     public static final int d = 480;
     public static final int e = 640;
-    private static final String i = "CameraInterface";
-    private static final float j = 0.2f;
-    private static int n = -1;
+    public static int i = 0;
+    private static final String j = "CameraInterface";
+    private static final float k = 0.2f;
+    private static int o = -1;
     Camera f;
     MediaRecorder g;
     SurfaceHolder h;
-    private a k;
-    private int o;
-    private String l = "off";
-    private boolean m = false;
+    private a l;
+    private String m = "off";
+    private boolean n = false;
     private boolean p = true;
     private int q = 2;
     private boolean r = true;
+    private boolean s = false;
+    private com.baidu.fsg.face.liveness.video.a t;
+    private e u;
+    private boolean v;
+
+    public void a(boolean z) {
+        this.v = z;
+    }
 
     public boolean a(Activity activity, int i2) {
+        LogUtil.d("调用 doOpenCamera");
         this.q = i2;
         if (this.f != null) {
             this.f.stopPreview();
@@ -49,12 +63,12 @@ public class b {
             this.p = false;
         }
         if (this.p) {
-            n = 1;
+            o = 1;
         } else {
-            n = 0;
+            o = 0;
         }
         try {
-            this.f = Camera.open(n);
+            this.f = Camera.open(o);
             a(activity);
             return true;
         } catch (Throwable th) {
@@ -68,6 +82,7 @@ public class b {
     }
 
     public void a(Activity activity, SurfaceHolder surfaceHolder) {
+        LogUtil.d("调用 doStartPreview");
         if (this.f != null) {
             try {
                 this.h = surfaceHolder;
@@ -76,7 +91,7 @@ public class b {
             } catch (Throwable th) {
                 d.a(th);
             }
-            this.m = true;
+            this.n = true;
         }
     }
 
@@ -91,13 +106,21 @@ public class b {
     }
 
     public void c() {
+        LogUtil.d("调用 stopPreview");
         if (this.f != null) {
+            if (this.v && this.s) {
+                f();
+            }
             this.f.stopPreview();
         }
     }
 
     public synchronized void d() {
+        LogUtil.d("调用 doStopCamera");
         try {
+            if (this.v && this.s) {
+                f();
+            }
             if (this.h != null && Build.VERSION.SDK_INT >= 14) {
                 this.h.getSurface().release();
             }
@@ -105,12 +128,77 @@ public class b {
                 this.f.setPreviewCallback(null);
                 this.f.stopPreview();
                 this.f.release();
-                this.m = false;
+                this.n = false;
                 this.f = null;
             }
             this.p = true;
         } catch (Exception e2) {
             d.a(e2);
+        }
+    }
+
+    public boolean e() {
+        return this.s;
+    }
+
+    public void a(byte[] bArr) {
+        if (this.v && this.u != null && this.s) {
+            this.u.a(bArr, System.nanoTime() / 1000);
+        }
+    }
+
+    public void f() {
+        LogUtil.d("调用 stopRecordVideo");
+        this.s = false;
+        if (this.t != null) {
+            this.t.g();
+            this.t = null;
+        }
+    }
+
+    public void a(Context context) {
+        LogUtil.d("调用 startRecordVideo");
+        if (!this.s) {
+            this.s = true;
+            com.baidu.fsg.face.liveness.video.b bVar = new com.baidu.fsg.face.liveness.video.b() { // from class: com.baidu.fsg.face.liveness.camera.b.1
+                @Override // com.baidu.fsg.face.liveness.video.b
+                public void a(e eVar) {
+                    b.this.u = eVar;
+                }
+
+                @Override // com.baidu.fsg.face.liveness.video.b
+                public void b(e eVar) {
+                    b.this.u = null;
+                }
+
+                @Override // com.baidu.fsg.face.liveness.video.b
+                public int a() {
+                    return b.this.l.a;
+                }
+
+                @Override // com.baidu.fsg.face.liveness.video.b
+                public int b() {
+                    return b.this.l.b;
+                }
+
+                @Override // com.baidu.fsg.face.liveness.video.b
+                public int c() {
+                    return 270;
+                }
+            };
+            String c2 = g.c(context);
+            File file = new File(c2);
+            try {
+                g.a(file);
+                if (!file.exists()) {
+                    file.createNewFile();
+                }
+            } catch (IOException e2) {
+                e2.printStackTrace();
+                Log.e(j, "创建保存视频路径失败:", e2);
+            }
+            this.t = new com.baidu.fsg.face.liveness.video.a(c2, bVar);
+            this.t.f();
         }
     }
 
@@ -134,23 +222,23 @@ public class b {
             }
             if (Build.VERSION.SDK_INT >= 9) {
                 Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
-                Camera.getCameraInfo(n, cameraInfo);
+                Camera.getCameraInfo(o, cameraInfo);
                 if (cameraInfo.facing == 1) {
-                    this.o = (i2 + cameraInfo.orientation) % 360;
-                    this.o = (360 - this.o) % 360;
+                    i = (i2 + cameraInfo.orientation) % 360;
+                    i = (360 - i) % 360;
                 } else {
-                    this.o = ((cameraInfo.orientation - i2) + 360) % 360;
+                    i = ((cameraInfo.orientation - i2) + 360) % 360;
                 }
-                this.f.setDisplayOrientation(this.o);
+                this.f.setDisplayOrientation(i);
             } else if (Build.VERSION.SDK_INT == 8) {
-                this.o = ((90 - i2) + 360) % 360;
-                this.f.setDisplayOrientation(this.o);
+                i = ((90 - i2) + 360) % 360;
+                this.f.setDisplayOrientation(i);
             } else {
-                this.o = ((90 - i2) + 360) % 360;
+                i = ((90 - i2) + 360) % 360;
                 try {
                     Method method = this.f.getClass().getMethod("setDisplayOrientation", Integer.TYPE);
                     if (method != null) {
-                        method.invoke(this.f, Integer.valueOf(this.o));
+                        method.invoke(this.f, Integer.valueOf(i));
                     }
                 } catch (Exception e2) {
                     d.a(e2);
@@ -161,13 +249,13 @@ public class b {
             }
             if (parameters.getSupportedFlashModes() != null) {
                 if (this.p) {
-                    this.l = "off";
-                    parameters.setFlashMode(this.l);
+                    this.m = "off";
+                    parameters.setFlashMode(this.m);
                 } else {
-                    parameters.setFlashMode(this.l);
+                    parameters.setFlashMode(this.m);
                 }
             } else {
-                this.l = "off";
+                this.m = "off";
             }
             this.f.setParameters(parameters);
         }
@@ -188,7 +276,7 @@ public class b {
                 this.g.reset();
             }
             Camera.Parameters parameters = this.f.getParameters();
-            a a2 = a(activity, parameters, this.k);
+            a a2 = a(activity, parameters, this.l);
             Camera camera = this.f;
             camera.getClass();
             Camera.Size size = new Camera.Size(camera, a2.a, a2.b);
@@ -207,7 +295,7 @@ public class b {
             this.g.setAudioEncoder(3);
             this.g.setVideoSize(a2.a, a2.b);
             Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
-            Camera.getCameraInfo(n, cameraInfo);
+            Camera.getCameraInfo(o, cameraInfo);
             this.g.setOrientationHint(cameraInfo.orientation);
             File file = new File(g.a(activity));
             if (!file.exists()) {
@@ -221,15 +309,14 @@ public class b {
         } catch (Exception e2) {
             d.a(e2);
             if (this.f != null) {
-                this.f.lock();
             }
-            e();
+            g();
             this.r = false;
             return false;
         }
     }
 
-    public synchronized void e() {
+    public synchronized void g() {
         try {
             if (this.g != null && this.r) {
                 this.g.stop();
@@ -238,7 +325,6 @@ public class b {
                 this.g = null;
             }
             if (this.f != null) {
-                this.f.lock();
             }
         } catch (Exception e2) {
             d.a(e2);
@@ -331,13 +417,13 @@ public class b {
     }
 
     private a b(Activity activity, Camera.Parameters parameters) {
-        if (this.k != null) {
-            return this.k;
+        if (this.l != null) {
+            return this.l;
         }
         List<a> a2 = a(activity, parameters);
-        this.k = new a(640, 480);
+        this.l = new a(640, 480);
         if (a2 == null || a2.size() == 0) {
-            return this.k;
+            return this.l;
         }
         Display defaultDisplay = ((WindowManager) activity.getSystemService("window")).getDefaultDisplay();
         a aVar = new a(defaultDisplay.getWidth(), defaultDisplay.getHeight() + f.a(activity));
@@ -346,7 +432,7 @@ public class b {
         arrayList.add(aVar.a + "*" + aVar.b);
         arrayList.add(f + "");
         StringBuilder sb = new StringBuilder();
-        float f2 = this.k.a / this.k.b;
+        float f2 = this.l.a / this.l.b;
         for (int i2 = 0; i2 < a2.size(); i2++) {
             a aVar2 = a2.get(i2);
             float f3 = aVar2.a / aVar2.b;
@@ -358,18 +444,19 @@ public class b {
             sb.append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
             float abs = Math.abs(f3 - f);
             if (abs < f2) {
-                this.k = aVar2;
+                this.l = aVar2;
                 f2 = abs;
             }
         }
         arrayList.add(sb.length() > 1 ? sb.substring(0, sb.length() - 1) : "");
         RimStatisticsUtil.onEventWithValues(com.baidu.fsg.face.liveness.d.G, arrayList);
-        return this.k;
+        return this.l;
     }
 
     public a a(Activity activity, Camera.Parameters parameters, boolean z) {
         a b2 = b(activity, parameters);
         parameters.setPreviewSize(b2.a, b2.b);
+        LogUtil.d("cameraSize.width:" + b2.a + ",cameraSize.height:" + b2.b);
         return b2;
     }
 
@@ -401,20 +488,21 @@ public class b {
         }
     }
 
-    public boolean f() {
+    public boolean h() {
         if (a() == 1) {
             this.p = false;
         }
         return this.p;
     }
 
-    public a g() {
-        return this.k;
+    public a i() {
+        return this.l;
     }
 
     public void a(Camera.PreviewCallback previewCallback) {
         if (this.f != null) {
-            this.f.setPreviewCallback(previewCallback);
+            this.f.setPreviewCallbackWithBuffer(previewCallback);
+            this.f.addCallbackBuffer(new byte[((i().a * i().b) * ImageFormat.getBitsPerPixel(this.f.getParameters().getPreviewFormat())) / 8]);
         }
     }
 

@@ -10,7 +10,7 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.data.ErrorData;
-import com.baidu.tbadk.core.i;
+import com.baidu.tbadk.core.k;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.m;
 import com.baidu.tbadk.core.util.x;
@@ -23,9 +23,9 @@ import java.util.LinkedList;
 public class f {
     private int bigHeight;
     private int bigWidth;
-    private a ebi;
-    private e ebj;
-    public boolean ebk;
+    private a epu;
+    private e epv;
+    public boolean epw;
     private String from;
     private boolean isCancelled;
     private Object progressObject;
@@ -52,7 +52,7 @@ public class f {
     }
 
     public void a(a aVar, Object obj) {
-        this.ebi = aVar;
+        this.epu = aVar;
         this.progressObject = obj;
         if (aVar != null) {
             this.chunkSize = 10240;
@@ -85,7 +85,7 @@ public class f {
                     UploadedImageInfo uploadedPicInfo = a2.getUploadedPicInfo();
                     if (uploadedPicInfo != null && !TextUtils.isEmpty(uploadedPicInfo.toPostString())) {
                         uploadedPicInfo.isGif = imageFileInfo.isGif();
-                        uploadedPicInfo.isBJH = this.ebk;
+                        uploadedPicInfo.isBJH = this.epw;
                         imageFileInfo.setServerImageCode(uploadedPicInfo.toPostString());
                     } else {
                         errorData.setError_code(-53);
@@ -127,17 +127,17 @@ public class f {
         if (imageFileInfo == null) {
             return null;
         }
-        if (this.ebj == null) {
-            this.ebj = new e();
+        if (this.epv == null) {
+            this.epv = new e();
         }
-        return f(this.ebj.c(imageFileInfo, z), z, z2);
+        return f(this.epv.c(imageFileInfo, z), z, z2);
     }
 
     public ImageUploadResult d(ImageFileInfo imageFileInfo, boolean z) {
         return a(imageFileInfo, false, z);
     }
 
-    public ImageUploadResult Z(String str, boolean z) {
+    public ImageUploadResult am(String str, boolean z) {
         return f(str, false, z);
     }
 
@@ -338,7 +338,7 @@ public class f {
                                             } else {
                                                 this.mNetwork.addPostData("isFinish", String.valueOf(0));
                                             }
-                                            if (this.ebk) {
+                                            if (this.epw) {
                                                 this.mNetwork.addPostData(ImageViewerConfig.IS_BJH, String.valueOf(1));
                                             } else {
                                                 this.mNetwork.addPostData(ImageViewerConfig.IS_BJH, String.valueOf(0));
@@ -362,7 +362,7 @@ public class f {
                                                 this.mNetwork.addPostData("saveOrigin", "0");
                                             }
                                             if (z2) {
-                                                int imageWaterType = i.aIc().getImageWaterType();
+                                                int imageWaterType = k.aNQ().getImageWaterType();
                                                 if (imageWaterType != 0) {
                                                     this.mNetwork.addPostData("pic_water_type", String.valueOf(imageWaterType));
                                                 }
@@ -370,12 +370,12 @@ public class f {
                                                 if (!StringUtils.isNull(currentAccountName) && imageWaterType == 1) {
                                                     this.mNetwork.addPostData("user_name", currentAccountName);
                                                 }
-                                                String forumNameForWaterImage = i.aIc().getForumNameForWaterImage();
+                                                String forumNameForWaterImage = k.aNQ().getForumNameForWaterImage();
                                                 if (!StringUtils.isNull(forumNameForWaterImage) && imageWaterType == 2) {
                                                     this.mNetwork.addPostData("forum_name", forumNameForWaterImage);
                                                 }
                                             }
-                                            String forumNameForWaterImage2 = i.aIc().getForumNameForWaterImage();
+                                            String forumNameForWaterImage2 = k.aNQ().getForumNameForWaterImage();
                                             if (!StringUtils.isNull(forumNameForWaterImage2)) {
                                                 this.mNetwork.addPostData("small_flow_fname", forumNameForWaterImage2);
                                             }
@@ -392,8 +392,8 @@ public class f {
                                                     int i5 = i3 + 1;
                                                     long j4 = j3 + i4;
                                                     long j5 = i5 > 1 ? j4 + ((i5 - 1) * this.chunkSize) : j4;
-                                                    if (this.ebi != null) {
-                                                        this.ebi.onImageDataSentInBackground(str, this.progressObject, j5, length);
+                                                    if (this.epu != null) {
+                                                        this.epu.onImageDataSentInBackground(str, this.progressObject, j5, length);
                                                     }
                                                     i = i5;
                                                     j = j4;

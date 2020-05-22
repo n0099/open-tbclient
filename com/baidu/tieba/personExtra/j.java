@@ -17,39 +17,39 @@ import java.util.List;
 import tbclient.SmartApp;
 /* loaded from: classes11.dex */
 public class j {
-    private k grw;
-    private SmartApp jYf;
-    private com.baidu.tbadk.core.dialog.i jYi;
-    private com.baidu.tbadk.core.dialog.g jYj;
-    private a jYk;
+    private k gGl;
+    private SmartApp kpY;
+    private com.baidu.tbadk.core.dialog.i kqb;
+    private com.baidu.tbadk.core.dialog.g kqc;
+    private a kqd;
     private Context mContext;
     private TbPageContext mPageContext;
-    private k.b jYl = new k.b() { // from class: com.baidu.tieba.personExtra.j.1
+    private k.b kqe = new k.b() { // from class: com.baidu.tieba.personExtra.j.1
         @Override // com.baidu.tbadk.core.dialog.k.b
         public void onClick() {
-            if (j.this.jYf != null) {
+            if (j.this.kpY != null) {
                 HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SMART_APP_DEL_BROWSE_HISTORY);
-                httpMessage.addParam("swan_app_key", j.this.jYf.id);
+                httpMessage.addParam("swan_app_key", j.this.kpY.id);
                 MessageManager.getInstance().sendMessage(httpMessage);
-                if (j.this.jYk != null) {
-                    j.this.jYk.IA(j.this.jYf.id);
+                if (j.this.kqd != null) {
+                    j.this.kqd.Km(j.this.kpY.id);
                 }
                 an anVar = new an("c13436");
-                anVar.t("uid", TbadkCoreApplication.getCurrentAccountId());
-                anVar.t("obj_id", j.this.jYf.swan_app_id.longValue());
-                anVar.cI("obj_name", j.this.jYf.name);
+                anVar.s("uid", TbadkCoreApplication.getCurrentAccountId());
+                anVar.s("obj_id", j.this.kpY.swan_app_id.longValue());
+                anVar.dh("obj_name", j.this.kpY.name);
                 TiebaStatic.log(anVar);
-                if (j.this.jYi != null) {
-                    j.this.jYi.dismiss();
+                if (j.this.kqb != null) {
+                    j.this.kqb.dismiss();
                 }
             }
         }
     };
-    private List<com.baidu.tbadk.core.dialog.g> dex = new ArrayList();
+    private List<com.baidu.tbadk.core.dialog.g> dqr = new ArrayList();
 
     /* loaded from: classes11.dex */
     public interface a {
-        void IA(String str);
+        void Km(String str);
     }
 
     static {
@@ -59,30 +59,30 @@ public class j {
     public j(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
         this.mContext = tbPageContext.getPageActivity();
-        this.grw = new k(this.mContext);
+        this.gGl = new k(this.mContext);
     }
 
     public void create() {
-        if (this.jYi == null) {
-            this.jYj = new com.baidu.tbadk.core.dialog.g(this.mContext.getString(R.string.delete), this.grw);
-            this.jYj.a(this.jYl);
-            this.dex.add(this.jYj);
-            this.grw.aI(this.dex);
-            this.jYi = new com.baidu.tbadk.core.dialog.i(this.mPageContext, this.grw);
+        if (this.kqb == null) {
+            this.kqc = new com.baidu.tbadk.core.dialog.g(this.mContext.getString(R.string.delete), this.gGl);
+            this.kqc.a(this.kqe);
+            this.dqr.add(this.kqc);
+            this.gGl.aD(this.dqr);
+            this.kqb = new com.baidu.tbadk.core.dialog.i(this.mPageContext, this.gGl);
         }
     }
 
     public void a(a aVar) {
-        this.jYk = aVar;
+        this.kqd = aVar;
     }
 
     public void b(SmartApp smartApp) {
-        this.jYf = smartApp;
+        this.kpY = smartApp;
     }
 
     public void show() {
-        if (this.jYi != null) {
-            this.jYi.showDialog();
+        if (this.kqb != null) {
+            this.kqb.showDialog();
         }
     }
 }

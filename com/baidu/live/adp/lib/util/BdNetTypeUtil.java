@@ -105,6 +105,7 @@ public class BdNetTypeUtil {
             this.isNetAvailable = false;
             this.curMobileNetDetailType = 0;
             this.curMobileNetDetailType = 0;
+            this.curMobileNetClassify = 0;
         }
         this.operatorType = readNetworkOperatorType();
         this.mProxyHost = Proxy.getDefaultHost();

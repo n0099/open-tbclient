@@ -8,35 +8,35 @@ import java.util.List;
 import rx.k;
 /* loaded from: classes6.dex */
 public final class i implements k {
-    private volatile boolean nji;
-    private List<k> non;
+    private volatile boolean nEi;
+    private List<k> nJn;
 
     public i() {
     }
 
     public i(k... kVarArr) {
-        this.non = new LinkedList(Arrays.asList(kVarArr));
+        this.nJn = new LinkedList(Arrays.asList(kVarArr));
     }
 
     public i(k kVar) {
-        this.non = new LinkedList();
-        this.non.add(kVar);
+        this.nJn = new LinkedList();
+        this.nJn.add(kVar);
     }
 
     @Override // rx.k
     public boolean isUnsubscribed() {
-        return this.nji;
+        return this.nEi;
     }
 
     public void add(k kVar) {
         if (!kVar.isUnsubscribed()) {
-            if (!this.nji) {
+            if (!this.nEi) {
                 synchronized (this) {
-                    if (!this.nji) {
-                        List list = this.non;
+                    if (!this.nEi) {
+                        List list = this.nJn;
                         if (list == null) {
                             list = new LinkedList();
-                            this.non = list;
+                            this.nJn = list;
                         }
                         list.add(kVar);
                         return;
@@ -48,10 +48,10 @@ public final class i implements k {
     }
 
     public void a(k kVar) {
-        if (!this.nji) {
+        if (!this.nEi) {
             synchronized (this) {
-                List<k> list = this.non;
-                if (!this.nji && list != null) {
+                List<k> list = this.nJn;
+                if (!this.nEi && list != null) {
                     boolean remove = list.remove(kVar);
                     if (remove) {
                         kVar.unsubscribe();
@@ -63,19 +63,19 @@ public final class i implements k {
 
     @Override // rx.k
     public void unsubscribe() {
-        if (!this.nji) {
+        if (!this.nEi) {
             synchronized (this) {
-                if (!this.nji) {
-                    this.nji = true;
-                    List<k> list = this.non;
-                    this.non = null;
-                    r(list);
+                if (!this.nEi) {
+                    this.nEi = true;
+                    List<k> list = this.nJn;
+                    this.nJn = null;
+                    t(list);
                 }
             }
         }
     }
 
-    private static void r(Collection<k> collection) {
+    private static void t(Collection<k> collection) {
         if (collection != null) {
             ArrayList arrayList = null;
             for (k kVar : collection) {
@@ -87,7 +87,7 @@ public final class i implements k {
                     arrayList = arrayList2;
                 }
             }
-            rx.exceptions.a.fo(arrayList);
+            rx.exceptions.a.fv(arrayList);
         }
     }
 }

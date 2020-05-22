@@ -17,14 +17,14 @@ import java.util.List;
 public final class a {
     public static long a = 0;
     private static a b;
-    private C0243a c;
+    private C0276a c;
     private e d;
     private SQLiteDatabase e;
     private Context f;
 
     private a(Context context) {
         this.f = context;
-        this.c = new C0243a(context);
+        this.c = new C0276a(context);
         this.d = new e(context);
         try {
             this.e = this.c.getWritableDatabase();
@@ -577,8 +577,8 @@ public final class a {
 
     /* renamed from: com.baidu.sofire.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    class C0243a extends SQLiteOpenHelper {
-        public C0243a(Context context) {
+    class C0276a extends SQLiteOpenHelper {
+        public C0276a(Context context) {
             super(context, "d.db", (SQLiteDatabase.CursorFactory) null, 3);
         }
 

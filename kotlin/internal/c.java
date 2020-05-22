@@ -4,22 +4,22 @@ import kotlin.h;
 @h
 /* loaded from: classes7.dex */
 public final class c {
-    private static final int dD(int i, int i2) {
+    private static final int dI(int i, int i2) {
         int i3 = i % i2;
         return i3 >= 0 ? i3 : i3 + i2;
     }
 
-    private static final long N(long j, long j2) {
+    private static final long O(long j, long j2) {
         long j3 = j % j2;
         return j3 >= 0 ? j3 : j3 + j2;
     }
 
     private static final int am(int i, int i2, int i3) {
-        return dD(dD(i, i3) - dD(i2, i3), i3);
+        return dI(dI(i, i3) - dI(i2, i3), i3);
     }
 
     private static final long f(long j, long j2, long j3) {
-        return N(N(j, j3) - N(j2, j3), j3);
+        return O(O(j, j3) - O(j2, j3), j3);
     }
 
     public static final int an(int i, int i2, int i3) {

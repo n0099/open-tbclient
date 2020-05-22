@@ -9,13 +9,15 @@ import com.baidu.tieba.pb.pb.main.PushThreadActivityConfig;
 import com.baidu.tieba.tbadkCore.a.a;
 /* loaded from: classes9.dex */
 public class PushThreadActivityStatic {
+    public static String Tag = "tag";
+
     static {
         TbadkCoreApplication.getInst().RegisterIntent(PushThreadActivityConfig.class, PushThreadActivity.class);
-        cFi();
+        cMg();
     }
 
-    private static void cFi() {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1001806, a.bE(Config.PB_PUSH_THREAD_ADDRESS, CmdConfigSocket.CMD_PUSH_THREAD));
+    private static void cMg() {
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1001806, a.bF(Config.PB_PUSH_THREAD_ADDRESS, CmdConfigSocket.CMD_PUSH_THREAD));
         tbHttpMessageTask.setResponsedClass(PbPushHttpResponseMessage.class);
         tbHttpMessageTask.setIsNeedTbs(true);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);

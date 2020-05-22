@@ -5,6 +5,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.text.TextUtils;
+import com.baidu.webkit.internal.daemon.PacDownload;
+import com.baidu.webkit.internal.daemon.VideoPacDownload;
 import com.baidu.webkit.sdk.WebSettings;
 import com.baidu.webkit.sdk.WebView;
 import com.baidu.webkit.sdk.WebViewRendererService;
@@ -12,11 +14,13 @@ import com.baidu.webkit.sdk.dumper.ZeusLogUploader;
 import com.baidu.webkit.sdk.jschecker.BdJsCheckPolicy;
 import com.baidu.webkit.sdk.location.ZeusGeoLocationInfo;
 import java.net.HttpURLConnection;
+import java.nio.ByteBuffer;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Observable;
 /* loaded from: classes11.dex */
 public abstract class WebViewFactoryProvider extends Observable {
+    private static final String LOG_TAG = "WebViewFactoryProvider";
     public static final String SETTING_AD_BLOCK = "ADBlock";
     public static final String SETTING_DEBUG = "Debug";
     public static final String SETTING_ENABLE_JS_PROMPT = "JsPromptEnable";
@@ -78,6 +82,8 @@ public abstract class WebViewFactoryProvider extends Observable {
 
         String getDNSStatistic();
 
+        boolean getDitingMaxForceLoadSwitch();
+
         String getDnsInfo(String str);
 
         int getDownTraffic();
@@ -131,8 +137,6 @@ public abstract class WebViewFactoryProvider extends Observable {
         String getMfJsUrl();
 
         int getNQE();
-
-        boolean getNetworkChangeNotifyNative();
 
         int getNetworkFlow();
 
@@ -220,6 +224,14 @@ public abstract class WebViewFactoryProvider extends Observable {
 
         boolean isShowWebProviderBy();
 
+        ByteBuffer kernelBrotliCreate(long[] jArr);
+
+        void kernelBrotliDestroy(long[] jArr);
+
+        ByteBuffer kernelBrotliPull(long[] jArr);
+
+        void kernelBrotliPush(long[] jArr, int i);
+
         void kernelEncrypt(byte[] bArr, int i, byte[] bArr2);
 
         void notifyBdAppStatusChange(int i);
@@ -228,7 +240,7 @@ public abstract class WebViewFactoryProvider extends Observable {
 
         void removeMainFrameIdInfo(int i);
 
-        void setAdBehaviourLimited(String str);
+        void setAbTestSwitch(String str);
 
         void setAltServiceToBlink(String str);
 
@@ -274,13 +286,19 @@ public abstract class WebViewFactoryProvider extends Observable {
 
         void setHisHijackStopAbEnable(int i);
 
-        void setHttpDnsCache(String str);
+        void setHttpDnsCache(String str, int i);
 
-        void setHttpDnsExtHostcache(String str);
+        void setHttpDnsDnFailed(String str);
+
+        void setIPV6CheckList(String str);
+
+        void setIPV6Timeout(int i);
 
         void setImgQuality(WebSettings.ImgQuality imgQuality);
 
         void setImproveContentCache(boolean z);
+
+        void setIpv6First(boolean z);
 
         void setKeepAliveTime(int i);
 
@@ -356,6 +374,8 @@ public abstract class WebViewFactoryProvider extends Observable {
 
         void setWebessenseEnabled(boolean z);
 
+        void setWhiteAndBlackList(String str);
+
         void setWormholeEnabled(boolean z);
 
         void setZeusManagerPkgName(String str);
@@ -379,7 +399,7 @@ public abstract class WebViewFactoryProvider extends Observable {
 
         void clearPageCacheCounts();
 
-        void crashIntentionally();
+        void crashIntentionally(int i);
 
         void enableSlowWholeDocumentDraw();
 
@@ -396,8 +416,6 @@ public abstract class WebViewFactoryProvider extends Observable {
         int historyNavigationCount();
 
         void initPageCacheCounts(Context context);
-
-        boolean loadAdBlockModel(String str);
 
         void makeMF30Inited();
 
@@ -418,6 +436,9 @@ public abstract class WebViewFactoryProvider extends Observable {
         void resolveUrl(String str);
 
         void setWebContentsDebuggingEnabled(boolean z);
+    }
+
+    public void RecordUrl(String str) {
     }
 
     public CookieSyncManager createCookieSyncManager(Context context) {
@@ -516,6 +537,10 @@ public abstract class WebViewFactoryProvider extends Observable {
     }
 
     public void lazyInitialize() {
+        Log.i(LOG_TAG, "lazyInitialize");
+        VideoPacDownload.tryToDownLoadAsync(WebViewFactory.getContext());
+        PacDownload.tryToDownLoadAsyncFreeFlow(WebViewFactory.getContext());
+        PacDownload.tryToDownLoadAsync(WebViewFactory.getContext());
     }
 
     public void onABTestReady() {
@@ -535,5 +560,8 @@ public abstract class WebViewFactoryProvider extends Observable {
     }
 
     public void setWebviewNumber(String str) {
+    }
+
+    public void startBrowserProcess(boolean z) {
     }
 }

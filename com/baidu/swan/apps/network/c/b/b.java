@@ -4,9 +4,9 @@ import android.support.annotation.NonNull;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public abstract class b {
-    public abstract void aG(JSONObject jSONObject);
+    public abstract void aK(JSONObject jSONObject);
 
-    public abstract void ahs();
+    public abstract void akM();
 
     @NonNull
     public abstract String getNodeName();

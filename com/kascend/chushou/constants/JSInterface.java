@@ -9,6 +9,7 @@ import android.support.v4.app.FragmentActivity;
 import android.text.TextUtils;
 import android.webkit.JavascriptInterface;
 import com.baidu.live.tbadk.data.Config;
+import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import com.baidu.sapi2.outsdk.c;
 import com.baidu.searchbox.ugc.utils.UgcUBCUtils;
 import com.kascend.chushou.a;
@@ -104,11 +105,11 @@ public class JSInterface {
         Http.Resp sync;
         e.d(TAG, "isLogin()");
         final String a = com.kascend.chushou.d.e.a("_fromView", "9");
-        if (!tv.chushou.zues.utils.a.dJP()) {
+        if (!tv.chushou.zues.utils.a.dRJ()) {
             g.F(this.mContext, a.i.s_no_available_network);
             return false;
         } else if (LoginManager.Instance().islogined()) {
-            Http http = (Http) tv.chushou.basis.d.b.dJs().S(Http.class);
+            Http http = (Http) tv.chushou.basis.d.b.dRm().S(Http.class);
             if (http == null) {
                 RxExecutor.post(null, EventThread.MAIN_THREAD, new Runnable() { // from class: com.kascend.chushou.constants.JSInterface.1
                     @Override // java.lang.Runnable
@@ -119,7 +120,7 @@ public class JSInterface {
                 return false;
             }
             try {
-                sync = http.getSync(tv.chushou.common.a.dJt(), "api/token/verify.htm?", null, RequestTag.normal());
+                sync = http.getSync(tv.chushou.common.a.dRn(), "api/token/verify.htm?", null, RequestTag.normal());
             } catch (Exception e) {
                 e.e(TAG, "verfify token sync failed", e);
             }
@@ -215,7 +216,7 @@ public class JSInterface {
                     }
                     break;
                 case 3506395:
-                    if (str.equals("room")) {
+                    if (str.equals(UbcStatConstant.KEY_CONTENT_ROOM)) {
                         c = 2;
                         break;
                     }
@@ -325,7 +326,7 @@ public class JSInterface {
                         HashMap hashMap = new HashMap();
                         hashMap.put("_fromView", "9");
                         if (str6 != null) {
-                            hashMap.putAll(tv.chushou.zues.utils.d.Qn(str6));
+                            hashMap.putAll(tv.chushou.zues.utils.d.St(str6));
                         }
                         com.kascend.chushou.d.e.a(this.mContext, listItem, com.kascend.chushou.d.e.a(hashMap));
                         return;
@@ -360,7 +361,7 @@ public class JSInterface {
                         }
                         listItem2.mType = str7;
                         listItem2.mUrl = str6;
-                        com.kascend.chushou.d.e.a(this.mContext, listItem2, com.kascend.chushou.d.e.O("_fromView", "9"));
+                        com.kascend.chushou.d.e.a(this.mContext, listItem2, com.kascend.chushou.d.e.P("_fromView", "9"));
                         return;
                     }
                     return;
@@ -386,7 +387,7 @@ public class JSInterface {
                         ListItem listItem3 = new ListItem();
                         listItem3.mTargetKey = str5;
                         listItem3.mType = "5";
-                        com.kascend.chushou.d.e.a(this.mContext, listItem3, com.kascend.chushou.d.e.O("_fromView", "9"));
+                        com.kascend.chushou.d.e.a(this.mContext, listItem3, com.kascend.chushou.d.e.P("_fromView", "9"));
                         return;
                     }
                     return;
@@ -413,8 +414,8 @@ public class JSInterface {
 
     @JavascriptInterface
     public void updatePoint() {
-        if (tv.chushou.zues.utils.a.dJP() && LoginManager.Instance().islogined()) {
-            com.kascend.chushou.c.c.dwE().c((com.kascend.chushou.c.b) null, "");
+        if (tv.chushou.zues.utils.a.dRJ() && LoginManager.Instance().islogined()) {
+            com.kascend.chushou.c.c.dDV().c((com.kascend.chushou.c.b) null, "");
         }
     }
 
@@ -440,7 +441,7 @@ public class JSInterface {
             shareInfo.mTargetKey = shareInfo.mUrl;
             shareInfo.mShareType = "99";
             shareInfo.mPic = jSONObject.optString(UgcUBCUtils.UGC_TYPE_PIC_BTN);
-            com.kascend.cstvsdk.utils.b.mJa.a(this.mContext, shareInfo, com.kascend.chushou.d.e.a("_fromView", "9"));
+            com.kascend.cstvsdk.utils.b.ncX.a(this.mContext, shareInfo, com.kascend.chushou.d.e.a("_fromView", "9"));
         } catch (Exception e) {
         }
     }
@@ -480,7 +481,7 @@ public class JSInterface {
         e.d(TAG, "copyBoard " + str);
         if (!h.isEmpty(str)) {
             ((ClipboardManager) this.mContext.getSystemService("clipboard")).setText(str);
-            g.JO(a.i.str_copy_success);
+            g.Kz(a.i.str_copy_success);
         }
     }
 
@@ -494,7 +495,7 @@ public class JSInterface {
     public void userProfile(String str) {
         e.d(TAG, "userProfile " + str);
         try {
-            com.kascend.chushou.d.a.a(this.mContext, com.kascend.chushou.d.e.O("_fromView", "9"), (String) null, new JSONObject(str).optString("uid"), (String) null, false);
+            com.kascend.chushou.d.a.a(this.mContext, com.kascend.chushou.d.e.P("_fromView", "9"), (String) null, new JSONObject(str).optString("uid"), (String) null, false);
         } catch (Exception e) {
             e.e(TAG, "userProfile fail e=" + e.toString(), e);
         }
@@ -605,7 +606,7 @@ public class JSInterface {
                 }
             }
             if (!h.isEmpty(str4)) {
-                com.kascend.chushou.d.h.dwI().b(str3);
+                com.kascend.chushou.d.h.dDZ().b(str3);
                 closeView();
                 return;
             }
@@ -621,11 +622,11 @@ public class JSInterface {
                         }).b(new b.a() { // from class: com.kascend.chushou.constants.JSInterface.9.1
                             @Override // tv.chushou.zues.widget.sweetalert.b.a
                             public void onClick(tv.chushou.zues.widget.sweetalert.b bVar) {
-                                com.kascend.chushou.d.h.dwI().b(str3);
+                                com.kascend.chushou.d.h.dDZ().b(str3);
                                 bVar.dismiss();
                                 JSInterface.this.closeView();
                             }
-                        }).Qw(JSInterface.this.mContext.getString(a.i.cancel)).Qy(JSInterface.this.mContext.getString(a.i.cs_confirm)).Qv(JSInterface.this.mContext.getString(a.i.cs_info_title)).w(str4).show();
+                        }).SC(JSInterface.this.mContext.getString(a.i.cancel)).SE(JSInterface.this.mContext.getString(a.i.cs_confirm)).SB(JSInterface.this.mContext.getString(a.i.cs_info_title)).x(str4).show();
                     }
                 }
             });
@@ -647,7 +648,7 @@ public class JSInterface {
             shareInfo.mUrl = jSONObject.optString("targetKey");
             shareInfo.mPic = jSONObject.optString("imageUrl");
             shareInfo.mContent = jSONObject.optString("content");
-            com.kascend.cstvsdk.utils.b.mJa.a(this.mContext, shareInfo, com.kascend.chushou.d.e.a("_fromView", "9"));
+            com.kascend.cstvsdk.utils.b.ncX.a(this.mContext, shareInfo, com.kascend.chushou.d.e.a("_fromView", "9"));
         } catch (Exception e) {
             e.e(TAG, "share fail e=" + e.toString());
         }
@@ -692,16 +693,16 @@ public class JSInterface {
         try {
             JSONObject jSONObject = new JSONObject(str);
             String optString = jSONObject.optString("type");
-            ListItem dB = com.kascend.chushou.c.a.dB(jSONObject.optJSONObject("listItem"));
+            ListItem dI = com.kascend.chushou.c.a.dI(jSONObject.optJSONObject("listItem"));
             if ("1".equals(optString)) {
-                com.kascend.chushou.a.a.dwC().a(dB);
+                com.kascend.chushou.a.a.dDT().a(dI);
             } else if ("2".equals(optString)) {
                 JSONObject optJSONObject = jSONObject.optJSONObject("dataInfo");
                 if (this.mContext != null) {
-                    com.kascend.chushou.d.e.a(this.mContext, dB, optJSONObject);
+                    com.kascend.chushou.d.e.a(this.mContext, dI, optJSONObject);
                 }
             } else if ("3".equals(optString)) {
-                com.kascend.chushou.a.a.dwC().c(dB);
+                com.kascend.chushou.a.a.dDT().c(dI);
             }
         } catch (JSONException e) {
             e.printStackTrace();
@@ -746,7 +747,7 @@ public class JSInterface {
             } catch (JSONException e) {
             }
             if (!h.isEmpty(str2) || !h.isEmpty(str3)) {
-                final File dwG = com.kascend.chushou.d.c.mnH.dwG();
+                final File dDX = com.kascend.chushou.d.c.mHD.dDX();
                 new tv.chushou.zues.widget.sweetalert.b(this.mContext).a(new b.a() { // from class: com.kascend.chushou.constants.JSInterface.11
                     @Override // tv.chushou.zues.widget.sweetalert.b.a
                     public void onClick(tv.chushou.zues.widget.sweetalert.b bVar) {
@@ -757,49 +758,49 @@ public class JSInterface {
                     public void onClick(tv.chushou.zues.widget.sweetalert.b bVar) {
                         bVar.dismiss();
                         if (!h.isEmpty(str2)) {
-                            tv.chushou.zues.widget.fresco.a.a(str2, dwG.getAbsolutePath(), new a.InterfaceC0860a() { // from class: com.kascend.chushou.constants.JSInterface.10.1
-                                @Override // tv.chushou.zues.widget.fresco.a.InterfaceC0860a
+                            tv.chushou.zues.widget.fresco.a.a(str2, dDX.getAbsolutePath(), new a.InterfaceC0922a() { // from class: com.kascend.chushou.constants.JSInterface.10.1
+                                @Override // tv.chushou.zues.widget.fresco.a.InterfaceC0922a
                                 public void onComplete(boolean z, String str5) {
                                     if (z) {
                                         if (!h.isEmpty(str4)) {
-                                            g.t(str4);
+                                            g.u(str4);
                                             return;
                                         } else {
-                                            g.t(tv.chushou.widget.a.c.getString(a.i.str_img_already_download, str5));
+                                            g.u(tv.chushou.widget.a.c.getString(a.i.str_img_already_download, str5));
                                             return;
                                         }
                                     }
-                                    g.JO(a.i.str_download_fail);
+                                    g.Kz(a.i.str_download_fail);
                                 }
                             });
                             return;
                         }
-                        File n = com.kascend.chushou.d.d.mnI.n(str3, new File(dwG, System.currentTimeMillis() + ".jpg"));
+                        File n = com.kascend.chushou.d.d.mHE.n(str3, new File(dDX, System.currentTimeMillis() + ".jpg"));
                         if (n != null) {
                             Intent intent = new Intent("android.intent.action.MEDIA_SCANNER_SCAN_FILE");
                             intent.setData(Uri.fromFile(n));
-                            tv.chushou.basis.d.b.dJq().sendBroadcast(intent);
+                            tv.chushou.basis.d.b.dRk().sendBroadcast(intent);
                             if (!h.isEmpty(str4)) {
-                                g.t(str4);
+                                g.u(str4);
                                 return;
                             } else {
-                                g.t(tv.chushou.widget.a.c.getString(a.i.str_img_already_download, n.getAbsolutePath()));
+                                g.u(tv.chushou.widget.a.c.getString(a.i.str_img_already_download, n.getAbsolutePath()));
                                 return;
                             }
                         }
-                        g.JO(a.i.str_download_fail);
+                        g.Kz(a.i.str_download_fail);
                     }
-                }).Qw(this.mContext.getString(a.i.alert_dialog_cancel)).Qy(this.mContext.getString(a.i.alert_dialog_ok)).w(this.mContext.getString(a.i.str_download_img)).show();
+                }).SC(this.mContext.getString(a.i.alert_dialog_cancel)).SE(this.mContext.getString(a.i.alert_dialog_ok)).x(this.mContext.getString(a.i.str_download_img)).show();
                 return;
             }
-            g.t(tv.chushou.widget.a.c.getString(a.i.str_download_fail));
+            g.u(tv.chushou.widget.a.c.getString(a.i.str_download_fail));
         }
     }
 
     @JavascriptInterface
     public void savePicture(final String str) {
         if (!new com.yanzhenjie.permission.a.b().e(this.mContext, "android.permission.READ_EXTERNAL_STORAGE", "android.permission.WRITE_EXTERNAL_STORAGE")) {
-            com.yanzhenjie.permission.b.fQ(this.mContext).V("android.permission.READ_EXTERNAL_STORAGE", "android.permission.WRITE_EXTERNAL_STORAGE").a(new com.yanzhenjie.permission.g() { // from class: com.kascend.chushou.constants.JSInterface.12
+            com.yanzhenjie.permission.b.gk(this.mContext).Y("android.permission.READ_EXTERNAL_STORAGE", "android.permission.WRITE_EXTERNAL_STORAGE").a(new com.yanzhenjie.permission.g() { // from class: com.kascend.chushou.constants.JSInterface.12
                 @Override // com.yanzhenjie.permission.g
                 public void showRationale(Context context, List<String> list, final com.yanzhenjie.permission.i iVar) {
                     List<String> c = com.yanzhenjie.permission.e.c(context, list);
@@ -807,22 +808,22 @@ public class JSInterface {
                     bVar.a(new b.a() { // from class: com.kascend.chushou.constants.JSInterface.12.2
                         @Override // tv.chushou.zues.widget.sweetalert.b.a
                         public void onClick(tv.chushou.zues.widget.sweetalert.b bVar2) {
-                            bVar.dKu();
+                            bVar.dSo();
                             iVar.cancel();
                         }
                     }).b(new b.a() { // from class: com.kascend.chushou.constants.JSInterface.12.1
                         @Override // tv.chushou.zues.widget.sweetalert.b.a
                         public void onClick(tv.chushou.zues.widget.sweetalert.b bVar2) {
-                            bVar.dKu();
+                            bVar.dSo();
                             iVar.execute();
                         }
-                    }).Qw(context.getString(a.i.alert_dialog_cancel)).Qy(context.getString(a.i.gallery_permissions_continue)).w(context.getString(a.i.gallery_permissions_rationale, c)).setCanceledOnTouchOutside(false);
+                    }).SC(context.getString(a.i.alert_dialog_cancel)).SE(context.getString(a.i.gallery_permissions_continue)).x(context.getString(a.i.gallery_permissions_rationale, c)).setCanceledOnTouchOutside(false);
                     bVar.show();
                 }
             }).b(new com.yanzhenjie.permission.a() { // from class: com.kascend.chushou.constants.JSInterface.14
                 @Override // com.yanzhenjie.permission.a
                 public void onAction(List<String> list) {
-                    g.JO(a.i.gallery_sdcard_permission_denied);
+                    g.Kz(a.i.gallery_sdcard_permission_denied);
                 }
             }).a(new com.yanzhenjie.permission.a() { // from class: com.kascend.chushou.constants.JSInterface.13
                 @Override // com.yanzhenjie.permission.a

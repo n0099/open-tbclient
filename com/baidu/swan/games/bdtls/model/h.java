@@ -6,14 +6,14 @@ import kotlin.jvm.internal.q;
 @kotlin.h
 /* loaded from: classes11.dex */
 public final class h {
-    public static final a cKs = new a(null);
-    private byte[] cKl;
-    private byte[] cKm;
-    private byte cKn;
-    private byte cKo;
-    private short cKp;
-    private int cKq;
-    private byte[] cKr;
+    public static final a cUZ = new a(null);
+    private byte[] cUS;
+    private byte[] cUT;
+    private byte cUU;
+    private byte cUV;
+    private short cUW;
+    private int cUX;
+    private byte[] cUY;
     private byte[] content;
 
     public h() {
@@ -26,19 +26,19 @@ public final class h {
                 return false;
             }
             h hVar = (h) obj;
-            if (!q.k(this.cKl, hVar.cKl) || !q.k(this.cKm, hVar.cKm)) {
+            if (!q.l(this.cUS, hVar.cUS) || !q.l(this.cUT, hVar.cUT)) {
                 return false;
             }
-            if (!(this.cKn == hVar.cKn)) {
+            if (!(this.cUU == hVar.cUU)) {
                 return false;
             }
-            if (!(this.cKo == hVar.cKo)) {
+            if (!(this.cUV == hVar.cUV)) {
                 return false;
             }
-            if (!(this.cKp == hVar.cKp)) {
+            if (!(this.cUW == hVar.cUW)) {
                 return false;
             }
-            if (!(this.cKq == hVar.cKq) || !q.k(this.cKr, hVar.cKr) || !q.k(this.content, hVar.content)) {
+            if (!(this.cUX == hVar.cUX) || !q.l(this.cUY, hVar.cUY) || !q.l(this.content, hVar.content)) {
                 return false;
             }
         }
@@ -46,24 +46,24 @@ public final class h {
     }
 
     public int hashCode() {
-        byte[] bArr = this.cKl;
+        byte[] bArr = this.cUS;
         int hashCode = (bArr != null ? Arrays.hashCode(bArr) : 0) * 31;
-        byte[] bArr2 = this.cKm;
-        int hashCode2 = ((((((((((bArr2 != null ? Arrays.hashCode(bArr2) : 0) + hashCode) * 31) + this.cKn) * 31) + this.cKo) * 31) + this.cKp) * 31) + this.cKq) * 31;
-        byte[] bArr3 = this.cKr;
+        byte[] bArr2 = this.cUT;
+        int hashCode2 = ((((((((((bArr2 != null ? Arrays.hashCode(bArr2) : 0) + hashCode) * 31) + this.cUU) * 31) + this.cUV) * 31) + this.cUW) * 31) + this.cUX) * 31;
+        byte[] bArr3 = this.cUY;
         int hashCode3 = ((bArr3 != null ? Arrays.hashCode(bArr3) : 0) + hashCode2) * 31;
         byte[] bArr4 = this.content;
         return hashCode3 + (bArr4 != null ? Arrays.hashCode(bArr4) : 0);
     }
 
     public h(byte[] bArr, byte[] bArr2, byte b, byte b2, short s, int i, byte[] bArr3, byte[] bArr4) {
-        this.cKl = bArr;
-        this.cKm = bArr2;
-        this.cKn = b;
-        this.cKo = b2;
-        this.cKp = s;
-        this.cKq = i;
-        this.cKr = bArr3;
+        this.cUS = bArr;
+        this.cUT = bArr2;
+        this.cUU = b;
+        this.cUV = b2;
+        this.cUW = s;
+        this.cUX = i;
+        this.cUY = bArr3;
         this.content = bArr4;
     }
 
@@ -71,60 +71,60 @@ public final class h {
         this((i2 & 1) != 0 ? new byte[2] : bArr, (i2 & 2) != 0 ? new byte[2] : bArr2, (i2 & 4) != 0 ? (byte) 0 : b, (i2 & 8) != 0 ? (byte) 0 : b2, (i2 & 16) != 0 ? (short) 0 : s, (i2 & 32) != 0 ? 0 : i, (i2 & 64) != 0 ? null : bArr3, (i2 & 128) != 0 ? null : bArr4);
     }
 
-    public final void H(byte[] bArr) {
-        this.cKl = bArr;
+    public final void O(byte[] bArr) {
+        this.cUS = bArr;
     }
 
-    public final byte[] auQ() {
-        return this.cKl;
+    public final byte[] ayD() {
+        return this.cUS;
     }
 
-    public final void I(byte[] bArr) {
-        this.cKm = bArr;
+    public final void P(byte[] bArr) {
+        this.cUT = bArr;
     }
 
-    public final byte[] auR() {
-        return this.cKm;
+    public final byte[] ayE() {
+        return this.cUT;
     }
 
-    public final byte auS() {
-        return this.cKn;
-    }
-
-    public final void b(byte b) {
-        this.cKn = b;
-    }
-
-    public final byte auT() {
-        return this.cKo;
+    public final byte ayF() {
+        return this.cUU;
     }
 
     public final void c(byte b) {
-        this.cKo = b;
+        this.cUU = b;
     }
 
-    public final short auU() {
-        return this.cKp;
+    public final byte ayG() {
+        return this.cUV;
+    }
+
+    public final void d(byte b) {
+        this.cUV = b;
+    }
+
+    public final short ayH() {
+        return this.cUW;
     }
 
     public final void c(short s) {
-        this.cKp = s;
+        this.cUW = s;
     }
 
-    public final int auV() {
-        return this.cKq;
+    public final int ayI() {
+        return this.cUX;
     }
 
-    public final void hT(int i) {
-        this.cKq = i;
+    public final void ik(int i) {
+        this.cUX = i;
     }
 
-    public final void J(byte[] bArr) {
-        this.cKr = bArr;
+    public final void Q(byte[] bArr) {
+        this.cUY = bArr;
     }
 
-    public final byte[] auW() {
-        return this.cKr;
+    public final byte[] ayJ() {
+        return this.cUY;
     }
 
     public final byte[] getContent() {
@@ -145,31 +145,31 @@ public final class h {
             this();
         }
 
-        public final h auX() {
+        public final h ayK() {
             h hVar = new h(null, null, (byte) 0, (byte) 0, (short) 0, 0, null, null, 255, null);
-            hVar.H(new byte[2]);
-            byte[] auQ = hVar.auQ();
-            if (auQ != null) {
-                auQ[0] = 0;
+            hVar.O(new byte[2]);
+            byte[] ayD = hVar.ayD();
+            if (ayD != null) {
+                ayD[0] = 0;
             }
-            byte[] auQ2 = hVar.auQ();
-            if (auQ2 != null) {
-                auQ2[1] = 1;
+            byte[] ayD2 = hVar.ayD();
+            if (ayD2 != null) {
+                ayD2[1] = 2;
             }
-            hVar.I(new byte[2]);
-            byte[] auR = hVar.auR();
-            if (auR != null) {
-                auR[0] = -27;
+            hVar.P(new byte[2]);
+            byte[] ayE = hVar.ayE();
+            if (ayE != null) {
+                ayE[0] = -27;
             }
-            byte[] auR2 = hVar.auR();
-            if (auR2 != null) {
-                auR2[1] = -89;
+            byte[] ayE2 = hVar.ayE();
+            if (ayE2 != null) {
+                ayE2[1] = -89;
             }
             return hVar;
         }
     }
 
     public String toString() {
-        return "RecordParams(protocolVersion=" + Arrays.toString(this.cKl) + ", schemeType=" + ((int) this.cKn) + ", schemeExtType=" + ((int) this.cKo) + ", schemeLen=" + ((int) this.cKp) + ", contentLen=" + this.cKq + ", scheme=" + Arrays.toString(this.cKr) + ')';
+        return "RecordParams(protocolVersion=" + Arrays.toString(this.cUS) + ", schemeType=" + ((int) this.cUU) + ", schemeExtType=" + ((int) this.cUV) + ", schemeLen=" + ((int) this.cUW) + ", contentLen=" + this.cUX + ", scheme=" + Arrays.toString(this.cUY) + ')';
     }
 }

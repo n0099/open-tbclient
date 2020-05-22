@@ -1,245 +1,172 @@
 package com.baidu.swan.games.n;
 
 import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
-import android.os.Bundle;
-import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.searchbox.suspensionball.SuspensionBallEntity;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.intercept.UnitedSchemeBaseInterceptor;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.ap.e;
-import com.baidu.swan.apps.as.ag;
-import com.baidu.swan.apps.as.ai;
-import com.baidu.swan.apps.b;
-import com.baidu.swan.apps.env.launch.SwanLauncher;
-import com.baidu.swan.apps.statistic.a.d;
-import com.baidu.swan.apps.statistic.f;
-import com.baidu.swan.apps.t.e;
-import com.baidu.swan.apps.x.b.c;
-import com.baidu.swan.games.k.a;
-import com.sina.weibo.sdk.statistic.LogBuilder;
-import java.io.File;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.v8engine.JsObject;
+import com.baidu.swan.apps.aq.aj;
+import com.baidu.swan.games.binding.model.JSTypeMismatchException;
 /* loaded from: classes11.dex */
-public class a extends UnitedSchemeBaseInterceptor {
-    private static final boolean DEBUG = b.DEBUG;
-    private static final Set<String> crr = new HashSet();
+public class a {
+    private com.baidu.swan.games.f.b cTU;
+    private b cVH;
+    private com.baidu.swan.games.binding.model.c cZA;
+    private com.baidu.swan.games.binding.model.c cZB;
+    private com.baidu.swan.games.binding.model.c cZC;
+    private c cZD;
+    private com.baidu.swan.games.n.b.b cZE;
+    private com.baidu.swan.games.n.b.a cZF;
+    private com.baidu.swan.games.n.b.a cZG;
+    private InterfaceC0431a cZH = new InterfaceC0431a() { // from class: com.baidu.swan.games.n.a.1
+        @Override // com.baidu.swan.games.n.a.InterfaceC0431a
+        public void ir(int i) {
+            com.baidu.swan.games.n.b.b bVar = new com.baidu.swan.games.n.b.b();
+            bVar.errMsg = "showKeyboard:ok";
+            bVar.height = i;
+            com.baidu.swan.games.utils.b.a(a.this.cZA, true, bVar);
+        }
 
-    static {
-        crr.add("_baiduboxapp");
-    }
+        @Override // com.baidu.swan.games.n.a.InterfaceC0431a
+        public void aAS() {
+            a.this.hideKeyboard();
+        }
 
-    @Override // com.baidu.searchbox.unitedscheme.intercept.UnitedSchemeBaseInterceptor
-    public String getInterceptorName() {
-        return "aigames_launch_interceptor";
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:42:0x01ab  */
-    @Override // com.baidu.searchbox.unitedscheme.intercept.UnitedSchemeBaseInterceptor, com.baidu.searchbox.unitedscheme.intercept.UnitedSchemeAbsInterceptor
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public boolean shouldInterceptDispatch(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-        JSONException e;
-        String str;
-        JSONObject jSONObject;
-        String param;
-        Uri uri = unitedSchemeEntity.getUri();
-        if (uri == null || !TextUtils.equals(uri.getHost(), "swangame")) {
-            return false;
-        }
-        if (unitedSchemeEntity.isOnlyVerify()) {
-            return true;
-        }
-        String h = h(uri);
-        if (DEBUG) {
-            Log.d("SwanGameLaunchAction", "mAppId: " + h);
-        }
-        if (TextUtils.isEmpty(h)) {
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-            com.baidu.swan.apps.ap.a nL = new com.baidu.swan.apps.ap.a().bn(1L).bo(1L).nL("appId is empty");
-            e.aov().f(nL);
-            f.b(new d().mZ(f.gz(1)).e(nL).bx(SuspensionBallEntity.KEY_SCHEME, uri.toString()));
-            return true;
-        }
-        String b = b(h, uri);
-        if (DEBUG) {
-            Log.d("SwanGameLaunchAction", "pagePath: " + b);
-        }
-        String j = j(uri);
-        if (DEBUG) {
-            Log.d("SwanGameLaunchAction", "query: " + j);
-        }
-        c.a aVar = (c.a) ((c.a) ((c.a) ((c.a) new c.a().jK(h)).jO(uri.toString())).fo(1)).dI(false);
-        if (!TextUtils.isEmpty(b)) {
-            aVar.jP(b + "?" + j);
-        }
-        String param2 = unitedSchemeEntity.getParam("_baiduboxapp");
-        if (TextUtils.isEmpty(param2)) {
-            str = null;
-        } else {
-            try {
-                jSONObject = new JSONObject(param2);
-                aVar.jN(jSONObject.optString("from"));
-                aVar.jR(jSONObject.optString("notinhis"));
-                aVar.ba("srcAppId", jSONObject.optString("srcAppId"));
-                if (!jSONObject.isNull("extraData")) {
-                    aVar.ba("extraData", jSONObject.optString("extraData"));
-                }
-                str = jSONObject.optString("navi");
-            } catch (JSONException e2) {
-                e = e2;
-                str = null;
-            }
-            try {
-                JSONObject a = com.baidu.swan.d.b.a(aVar.adA(), jSONObject.optJSONObject("ubc"), "pre_source");
-                if (a != null) {
-                    aVar.ba("ubc", a.toString());
-                }
-                String optString = jSONObject.optString("veloce");
-                if (!TextUtils.isEmpty(optString)) {
-                    long optLong = new JSONObject(optString).optLong(LogBuilder.KEY_START_TIME);
-                    if (optLong > 0) {
-                        aVar.k("veloce_start_time", optLong);
-                    }
-                }
-            } catch (JSONException e3) {
-                e = e3;
-                if (DEBUG) {
-                    Log.d("SwanGameLaunchAction", "getLaunchFrom failed: " + Log.getStackTraceString(e));
-                }
-                if (DEBUG) {
-                }
-                param = unitedSchemeEntity.getParam("downloadUrl");
-                if (!com.baidu.swan.apps.ah.a.a.aiG()) {
-                }
-                aVar.dI(true);
-                a(aVar, param, context, unitedSchemeEntity, callbackHandler);
-                return true;
+        @Override // com.baidu.swan.games.n.a.InterfaceC0431a
+        public void rY(String str) {
+            if (a.this.cVH != null) {
+                a.this.cVH.sb(str);
             }
         }
-        if (DEBUG) {
-            Log.d("SwanGameLaunchAction", "launchParams: " + aVar);
+
+        @Override // com.baidu.swan.games.n.a.InterfaceC0431a
+        public void rZ(String str) {
+            if (a.this.cVH != null) {
+                a.this.cVH.sc(str);
+            }
         }
-        param = unitedSchemeEntity.getParam("downloadUrl");
-        if ((!com.baidu.swan.apps.ah.a.a.aiG() || DEBUG) && !TextUtils.isEmpty(param)) {
-            aVar.dI(true);
-            a(aVar, param, context, unitedSchemeEntity, callbackHandler);
-            return true;
+
+        @Override // com.baidu.swan.games.n.a.InterfaceC0431a
+        public void sa(String str) {
+            if (a.this.cVH != null) {
+                a.this.cVH.sd(str);
+            }
         }
-        SwanLauncher.Zx().a(aVar, (Bundle) null);
-        com.baidu.swan.apps.x.a.a(str, h, callbackHandler, unitedSchemeEntity);
-        return true;
+    };
+    private Context mContext = AppRuntime.getAppContext();
+    private com.baidu.swan.games.view.b.a cZz = new com.baidu.swan.games.view.b.a(this.mContext);
+
+    /* renamed from: com.baidu.swan.games.n.a$a  reason: collision with other inner class name */
+    /* loaded from: classes11.dex */
+    public interface InterfaceC0431a {
+        void aAS();
+
+        void ir(int i);
+
+        void rY(String str);
+
+        void rZ(String str);
+
+        void sa(String str);
     }
 
-    private String h(Uri uri) {
-        List<String> pathSegments = uri.getPathSegments();
-        if (pathSegments == null || pathSegments.isEmpty()) {
-            return null;
-        }
-        return pathSegments.get(0);
+    public a(com.baidu.swan.games.f.b bVar, b bVar2) {
+        this.cVH = null;
+        this.cTU = bVar;
+        this.cZz.a(this.cZH);
+        this.cVH = bVar2;
     }
 
-    private String b(String str, Uri uri) {
-        String path = uri.getPath();
-        if (TextUtils.isEmpty(path)) {
-            return null;
+    public void showKeyboard(JsObject jsObject) {
+        this.cZE = new com.baidu.swan.games.n.b.b();
+        this.cZA = com.baidu.swan.games.binding.model.c.e(jsObject);
+        if (this.cZA == null) {
+            this.cZA = new com.baidu.swan.games.binding.model.c();
         }
-        String substring = path.substring(str.length() + 1);
-        if (substring.endsWith(File.separator)) {
-            return substring.substring(0, substring.length() - 1);
+        if (this.cTU == null || this.cZz == null || this.cZz.aCY()) {
+            this.cZE.errMsg = "showKeyboard:fail";
+            com.baidu.swan.games.utils.b.a(this.cZA, false, this.cZE);
+            return;
         }
-        return substring;
-    }
-
-    private String j(Uri uri) {
-        return ag.deleteQueryParam(uri.getQuery(), crr);
-    }
-
-    private void a(final c cVar, String str, Context context, final UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler) {
-        e.c cVar2 = new e.c();
-        cVar2.mAppId = cVar.getAppId();
-        cVar2.mDownloadUrl = str;
-        final Context applicationContext = context.getApplicationContext();
-        if (applicationContext != null) {
-            com.baidu.swan.games.k.a.a(cVar2, new e.b() { // from class: com.baidu.swan.games.n.a.1
-                @Override // com.baidu.swan.apps.t.e.b
-                public void dm(int i) {
-                }
-
-                @Override // com.baidu.swan.apps.t.e.b
-                public void onSuccess() {
-                    if (a.DEBUG) {
-                        Log.d("SwanGameLaunchAction", "onSuccess");
-                    }
-                    ai.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.n.a.1.1
-                        @Override // java.lang.Runnable
-                        public void run() {
-                            com.baidu.swan.apps.res.widget.b.d.a(applicationContext, "小游戏包下载成功").showToast();
+        this.cZD = new c();
+        try {
+            if (this.cZD.h(this.cZA)) {
+                aj.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.n.a.2
+                    @Override // java.lang.Runnable
+                    public void run() {
+                        if (!com.baidu.swan.games.view.b.b.aCZ().f(a.this.cZz)) {
+                            a.this.cZE.errMsg = "showKeyboard:fail";
+                            com.baidu.swan.games.utils.b.a(a.this.cZA, false, a.this.cZE);
+                            return;
                         }
-                    });
-                    cVar.jS("1.6.0");
-                    cVar.dJ(true);
-                    com.baidu.swan.apps.x.b.b e = a.this.e(cVar);
-                    if (e != null) {
-                        com.baidu.swan.games.k.a.c(e, new com.baidu.swan.apps.t.b() { // from class: com.baidu.swan.games.n.a.1.2
-                            @Override // com.baidu.swan.apps.t.b
-                            public void a(int i, com.baidu.swan.apps.t.a aVar) {
-                                a.b bVar = (a.b) aVar;
-                                if (i == 0 && bVar != null && bVar.cOG != null) {
-                                    cVar.fn(bVar.cOG.cQr);
-                                    Intent a = c.a(applicationContext, cVar);
-                                    a.setAction("com.baidu.searchbox.action.aiapps.LAUNCH");
-                                    a.setFlags(268435456);
-                                    applicationContext.startActivity(a);
-                                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                                }
-                            }
-                        });
+                        a.this.cZz.a(a.this.cZD);
                     }
-                }
-
-                @Override // com.baidu.swan.apps.t.e.b
-                public void onFailed() {
-                    if (a.DEBUG) {
-                        Log.d("SwanGameLaunchAction", "onFailed");
-                    }
-                    com.baidu.swan.apps.ap.a nL = new com.baidu.swan.apps.ap.a().bn(7L).bo(9L).nL("debug download pkg fail");
-                    com.baidu.swan.apps.ap.e.aov().f(nL);
-                    com.baidu.swan.apps.x.a.a.a(applicationContext, nL, 1, cVar.getAppId());
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                }
-            });
+                }, 500L);
+            } else {
+                this.cZE.errMsg = "showKeyboard:fail";
+                com.baidu.swan.games.utils.b.a(this.cZA, false, this.cZE);
+            }
+        } catch (JSTypeMismatchException e) {
+            this.cZE.errMsg = "showKeyboard:fail";
+            com.baidu.swan.games.utils.b.a(this.cZA, false, this.cZE);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public com.baidu.swan.apps.x.b.b e(c cVar) {
-        if (cVar == null) {
-            return null;
+    public void hideKeyboard(JsObject jsObject) {
+        this.cZF = new com.baidu.swan.games.n.b.a();
+        this.cZB = com.baidu.swan.games.binding.model.c.e(jsObject);
+        if (this.cZB == null) {
+            this.cZB = new com.baidu.swan.games.binding.model.c();
         }
-        com.baidu.swan.apps.x.b.b adj = com.baidu.swan.apps.x.b.b.adj();
-        adj.jK(cVar.getAppId());
-        adj.jN(cVar.adA());
-        adj.jP(cVar.getPage());
-        adj.dJ(cVar.isDebug());
-        adj.jQ(cVar.adH());
-        adj.E(cVar.adG());
-        adj.jO(cVar.adC());
-        adj.jR(cVar.adI());
-        adj.b(cVar.YH());
-        adj.c(cVar.YI());
-        adj.jS(cVar.adL());
-        adj.jF("0");
-        adj.fo(cVar.getAppFrameType());
-        return adj;
+        if (this.cTU == null || this.cZz == null || !this.cZz.aCY()) {
+            this.cZF.errMsg = "hideKeyboard:fail";
+            com.baidu.swan.games.utils.b.a(this.cZB, false, this.cZF);
+            return;
+        }
+        aj.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.n.a.3
+            @Override // java.lang.Runnable
+            public void run() {
+                if (com.baidu.swan.games.view.b.b.aCZ().g(a.this.cZz)) {
+                    a.this.cZF.errMsg = "hideKeyboard:ok";
+                    com.baidu.swan.games.utils.b.a(a.this.cZB, true, a.this.cZF);
+                    return;
+                }
+                a.this.cZF.errMsg = "hideKeyboard:fail";
+                com.baidu.swan.games.utils.b.a(a.this.cZB, false, a.this.cZF);
+            }
+        });
+    }
+
+    public void hideKeyboard() {
+        aj.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.n.a.4
+            @Override // java.lang.Runnable
+            public void run() {
+                com.baidu.swan.games.view.b.b.aCZ().g(a.this.cZz);
+            }
+        });
+    }
+
+    public void updateKeyboard(JsObject jsObject) {
+        this.cZG = new com.baidu.swan.games.n.b.a();
+        this.cZC = com.baidu.swan.games.binding.model.c.e(jsObject);
+        if (this.cZC == null) {
+            this.cZC = new com.baidu.swan.games.binding.model.c();
+        }
+        if (this.cTU == null || this.cZz == null) {
+            this.cZG.errMsg = "updateKeyboard:fail";
+            com.baidu.swan.games.utils.b.a(this.cZC, false, this.cZG);
+            return;
+        }
+        final String optString = this.cZC.optString("value");
+        aj.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.n.a.5
+            @Override // java.lang.Runnable
+            public void run() {
+                if (a.this.cZz.sK(optString)) {
+                    a.this.cZG.errMsg = "updateKeyboard:ok";
+                    com.baidu.swan.games.utils.b.a(a.this.cZC, true, a.this.cZG);
+                    return;
+                }
+                a.this.cZG.errMsg = "updateKeyboard:fail";
+                com.baidu.swan.games.utils.b.a(a.this.cZC, false, a.this.cZG);
+            }
+        });
     }
 }

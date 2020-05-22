@@ -8,7 +8,7 @@ import android.text.TextUtils;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.as.af;
+import com.baidu.swan.apps.aq.ag;
 import com.baidu.swan.apps.scheme.j;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -20,20 +20,20 @@ public class e extends a {
     }
 
     @Override // com.baidu.swan.apps.canvas.a.a
-    public /* bridge */ /* synthetic */ JSONObject eg(int i) {
-        return super.eg(i);
+    public /* bridge */ /* synthetic */ JSONObject ep(int i) {
+        return super.ep(i);
     }
 
     public e(j jVar) {
         super(jVar, "/swanAPI/canvas/measureTextSync");
     }
 
-    @Override // com.baidu.swan.apps.scheme.actions.ab
+    @Override // com.baidu.swan.apps.scheme.actions.aa
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
         int i;
         int i2;
         Rect rect;
-        unitedSchemeEntity.result = eg(201);
+        unitedSchemeEntity.result = ep(201);
         com.baidu.swan.apps.canvas.b.d d = d(unitedSchemeEntity);
         if (d == null) {
             return false;
@@ -41,18 +41,18 @@ public class e extends a {
         if (d.mText == null || d.mText.length() <= 0) {
             i = 0;
         } else {
-            if (d.bFx && d.mItalic) {
+            if (d.bOp && d.mItalic) {
                 i2 = 3;
-            } else if (d.bFx) {
+            } else if (d.bOp) {
                 i2 = 1;
             } else {
                 i2 = d.mItalic ? 2 : 0;
             }
             TextPaint textPaint = new TextPaint();
-            textPaint.setTypeface(Typeface.create(d.bFv, i2));
-            textPaint.setTextSize(d.bFw);
+            textPaint.setTypeface(Typeface.create(d.bOn, i2));
+            textPaint.setTextSize(d.bOo);
             textPaint.getTextBounds(d.mText, 0, d.mText.length(), new Rect());
-            i = af.E(rect.width());
+            i = ag.D(rect.width());
         }
         JSONObject jSONObject = new JSONObject();
         try {

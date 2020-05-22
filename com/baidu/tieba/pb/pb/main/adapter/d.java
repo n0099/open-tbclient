@@ -1,125 +1,108 @@
 package com.baidu.tieba.pb.pb.main.adapter;
 
-import android.text.TextUtils;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.sofire.ac.FH;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.adp.lib.util.l;
+import com.baidu.adp.widget.ListView.aa;
+import com.baidu.card.view.CardForumHeadLayout;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.pb.data.PbFloorAgreeResponseMessage;
-import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
-import com.baidu.tieba.tbadkCore.data.AgreeData;
+import com.baidu.tbadk.core.util.SvgManager;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.an;
+import com.baidu.tieba.R;
+import com.baidu.tieba.pb.data.g;
 /* loaded from: classes9.dex */
-public class d {
-    private final com.baidu.tieba.pb.videopb.b jCv;
-    private final HttpMessageListener jCw = new HttpMessageListener(1001601, true) { // from class: com.baidu.tieba.pb.pb.main.adapter.d.1
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            d.this.a(httpResponsedMessage, 1001601);
-        }
-    };
-    private final HttpMessageListener jCx = new HttpMessageListener(1001604) { // from class: com.baidu.tieba.pb.pb.main.adapter.d.2
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            d.this.a(httpResponsedMessage, 1001604);
-        }
-    };
-
-    public d(com.baidu.tieba.pb.videopb.b bVar) {
-        if (bVar == null) {
-            throw new NullPointerException("PbActivity is NullPointerException");
-        }
-        this.jCv = bVar;
-        cBG();
+public class d extends com.baidu.adp.widget.ListView.a<g, a> {
+    public d(Context context, BdUniqueId bdUniqueId) {
+        super(context, bdUniqueId);
     }
 
-    public void onDestroy() {
-        cBF();
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    /* renamed from: cc */
+    public a b(ViewGroup viewGroup) {
+        FrameLayout frameLayout = new FrameLayout(this.mContext);
+        CardForumHeadLayout cardForumHeadLayout = new CardForumHeadLayout(this.mContext);
+        cardForumHeadLayout.setPadding(l.getDimens(this.mContext, R.dimen.tbds44), l.getDimens(this.mContext, R.dimen.tbds19), l.getDimens(this.mContext, R.dimen.tbds44), l.getDimens(this.mContext, R.dimen.tbds54));
+        frameLayout.addView(cardForumHeadLayout, new FrameLayout.LayoutParams(-1, -2));
+        View view = new View(this.mContext);
+        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, l.getDimens(this.mContext, R.dimen.tbds1));
+        layoutParams.leftMargin = l.getDimens(this.mContext, R.dimen.tbds44);
+        layoutParams.rightMargin = l.getDimens(this.mContext, R.dimen.tbds44);
+        frameLayout.addView(view, layoutParams);
+        ImageView imageView = new ImageView(this.mContext);
+        FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(l.getDimens(this.mContext, R.dimen.tbds52), l.getDimens(this.mContext, R.dimen.tbds52));
+        layoutParams2.gravity = 5;
+        layoutParams2.topMargin = l.getDimens(this.mContext, R.dimen.tbds76);
+        layoutParams2.rightMargin = l.getDimens(this.mContext, R.dimen.tbds44);
+        frameLayout.addView(imageView, layoutParams2);
+        View view2 = new View(this.mContext);
+        FrameLayout.LayoutParams layoutParams3 = new FrameLayout.LayoutParams(-1, l.getDimens(this.mContext, R.dimen.tbds1));
+        layoutParams3.leftMargin = l.getDimens(this.mContext, R.dimen.tbds44);
+        layoutParams3.rightMargin = l.getDimens(this.mContext, R.dimen.tbds44);
+        layoutParams3.gravity = 80;
+        frameLayout.addView(view2, layoutParams3);
+        return new a(frameLayout);
     }
 
-    private boolean cBF() {
-        MessageManager.getInstance().unRegisterListener(this.jCw);
-        MessageManager.getInstance().unRegisterListener(this.jCx);
-        return true;
-    }
-
-    public boolean cBG() {
-        if (this.jCv != null) {
-            this.jCv.registerListener(this.jCw);
-            this.jCv.registerListener(this.jCx);
-            return true;
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    public View a(int i, View view, ViewGroup viewGroup, g gVar, a aVar) {
+        if (gVar != null) {
+            aVar.a(gVar);
         }
-        return true;
+        aVar.aWq();
+        return view;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(HttpResponsedMessage httpResponsedMessage, int i) {
-        PbFloorAgreeResponseMessage pbFloorAgreeResponseMessage;
-        if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == i && (httpResponsedMessage instanceof PbFloorAgreeResponseMessage) && (pbFloorAgreeResponseMessage = (PbFloorAgreeResponseMessage) httpResponsedMessage) != null && !pbFloorAgreeResponseMessage.hasError() && this.jCv != null && pbFloorAgreeResponseMessage.getActivityDialogData() != null) {
-            CustomDialogData activityDialogData = pbFloorAgreeResponseMessage.getActivityDialogData();
-            activityDialogData.type = 0;
-            com.baidu.tieba.pb.interactionpopupwindow.c.a(this.jCv.getPageContext(), activityDialogData).show();
+    /* loaded from: classes9.dex */
+    public class a extends aa.a implements View.OnClickListener {
+        View dJr;
+        ImageView hPo;
+        View hwZ;
+        CardForumHeadLayout jTR;
+        private g jTS;
+
+        public a(View view) {
+            super(view);
+            this.jTR = (CardForumHeadLayout) ((ViewGroup) view).getChildAt(0);
+            if (this.jTR != null) {
+                this.jTR.setOnClickListener(this.jTR);
+                this.jTR.setAfterClickListener(this);
+            }
+            this.dJr = ((ViewGroup) view).getChildAt(1);
+            this.hPo = (ImageView) ((ViewGroup) view).getChildAt(2);
+            this.hwZ = ((ViewGroup) view).getChildAt(3);
         }
-    }
 
-    public void d(AgreeData agreeData) {
-        int i = 1;
-        if (agreeData != null) {
-            if (agreeData.hasAgree) {
-                if (agreeData.agreeType == 2) {
-                    agreeData.agreeType = 2;
-                    agreeData.hasAgree = false;
-                    agreeData.agreeNum--;
-                } else {
-                    agreeData.agreeType = 2;
-                    agreeData.hasAgree = true;
-                    agreeData.agreeNum++;
-                    com.baidu.tieba.o.a.cMS().E(this.jCv.getPageContext());
-                    i = 0;
+        public void a(g gVar) {
+            if (gVar != null) {
+                this.jTS = gVar;
+                this.hwZ.setVisibility(gVar.jES ? 0 : 8);
+                if (getView() != null) {
+                    getView().setPadding(0, 0, 0, gVar.jES ? l.getDimens(d.this.mContext, R.dimen.tbds42) : 0);
                 }
-            } else {
-                agreeData.agreeType = 2;
-                agreeData.hasAgree = true;
-                agreeData.agreeNum++;
-                com.baidu.tieba.o.a.cMS().E(this.jCv.getPageContext());
-                i = 0;
+                this.jTR.setData(gVar.forumName, gVar.jER, gVar.postNum, gVar.memberNum);
             }
-            HttpMessage httpMessage = new HttpMessage(1001601);
-            httpMessage.addParam("z_id", FH.gz(TbadkCoreApplication.getInst()));
-            httpMessage.addParam("thread_id", agreeData.threadId);
-            httpMessage.addParam("op_type", i);
-            if (agreeData.objType == 0) {
-                agreeData.objType = 3;
-            }
-            httpMessage.addParam("obj_type", agreeData.objType);
-            httpMessage.addParam("agree_type", agreeData.agreeType);
-            httpMessage.addParam("forum_id", agreeData.forumId);
-            if (!TextUtils.isEmpty(agreeData.postId)) {
-                httpMessage.addParam("post_id", agreeData.postId);
-            }
-            if (agreeData.baijiahaoData != null) {
-                httpMessage.addParam("ori_ugc_tid", agreeData.baijiahaoData.oriUgcTid);
-                httpMessage.addParam("ori_ugc_nid", agreeData.baijiahaoData.oriUgcNid);
-                httpMessage.addParam("ori_ugc_vid", agreeData.baijiahaoData.oriUgcVid);
-                httpMessage.addParam("ori_ugc_type", agreeData.baijiahaoData.oriUgcType);
-            }
-            httpMessage.setTag(getPageId());
-            httpMessage.setExtra(Integer.valueOf(i));
-            httpMessage.addHeader("needSig", "1");
-            MessageManager.getInstance().sendMessage(httpMessage);
         }
-    }
 
-    public BdUniqueId getPageId() {
-        TbPageContext pageContext = this.jCv.getPageContext();
-        if (pageContext != null) {
-            return pageContext.getUniqueId();
+        public void aWq() {
+            SvgManager.aUV().a(this.hPo, R.drawable.icon_pure_list_arrow16_right_svg, R.color.cp_cont_j, (SvgManager.SvgResourceStateType) null);
+            am.setBackgroundColor(this.dJr, R.color.cp_bg_line_b);
+            am.setBackgroundColor(this.hwZ, R.color.cp_bg_line_b);
+            this.jTR.onChangeSkinType();
         }
-        return null;
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            TiebaStatic.log(new an("c13698").dh("tid", this.jTS.tid).dh("fid", this.jTS.fid).s("uid", TbadkCoreApplication.getCurrentAccountId()));
+        }
     }
 }

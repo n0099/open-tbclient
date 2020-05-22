@@ -12,7 +12,7 @@ import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class d extends BdIListPage {
-    private View ecZ;
+    private View erl;
     private TbPageContext<?> mContext;
     private int padding;
     private TextView mTextView = null;
@@ -31,36 +31,36 @@ public class d extends BdIListPage {
         this.mRoot = LayoutInflater.from(this.mContext.getPageActivity()).inflate(a.h.ala_person_loadmore_layout, (ViewGroup) null);
         this.mRoot.setPadding(0, this.padding, 0, this.padding);
         this.mTextView = (TextView) this.mRoot.findViewById(a.g.th_more_text);
-        this.ecZ = this.mRoot.findViewById(a.g.th_more_view);
-        this.ecZ.setVisibility(8);
+        this.erl = this.mRoot.findViewById(a.g.th_more_view);
+        this.erl.setVisibility(8);
         this.mProgressBar = (ProgressBar) this.mRoot.findViewById(a.g.progress);
         a(this.mContext, TbadkCoreApplication.getInst().getSkinType());
-        this.ecZ.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
+        this.erl.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
         return this.mRoot;
     }
 
     public boolean a(TbPageContext<?> tbPageContext, int i) {
-        this.mContext.getLayoutMode().onModeChanged(this.ecZ);
+        this.mContext.getLayoutMode().onModeChanged(this.erl);
         return true;
     }
 
     public void hide() {
-        this.ecZ.setVisibility(8);
+        this.erl.setVisibility(8);
         this.mRoot.setPadding(0, 0, 0, 0);
     }
 
     public void display() {
-        this.ecZ.setVisibility(0);
+        this.erl.setVisibility(0);
         this.mRoot.setPadding(0, this.padding, 0, this.padding);
     }
 
-    public void mV(int i) {
+    public void nx(int i) {
         this.mProgressBar.setVisibility(0);
         this.mTextView.setText(i);
-        this.ecZ.setVisibility(0);
+        this.erl.setVisibility(0);
     }
 
-    public void rg(int i) {
+    public void rJ(int i) {
         this.mProgressBar.setVisibility(8);
         this.mTextView.setText(i);
     }

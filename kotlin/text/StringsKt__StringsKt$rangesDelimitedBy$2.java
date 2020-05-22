@@ -23,11 +23,11 @@ final class StringsKt__StringsKt$rangesDelimitedBy$2 extends Lambda implements k
     }
 
     public final Pair<Integer, Integer> invoke(CharSequence charSequence, int i) {
-        kotlin.jvm.internal.q.j(charSequence, "receiver$0");
+        kotlin.jvm.internal.q.m(charSequence, "receiver$0");
         int a = l.a(charSequence, this.$delimiters, i, this.$ignoreCase);
         if (a < 0) {
             return null;
         }
-        return kotlin.j.j(Integer.valueOf(a), 1);
+        return kotlin.j.k(Integer.valueOf(a), 1);
     }
 }

@@ -12,11 +12,11 @@ import java.lang.ref.WeakReference;
 import javax.annotation.Nullable;
 /* loaded from: classes13.dex */
 public class k extends m {
-    private WeakReference<Bitmap> lVB;
     @Nullable
     private final Bitmap mBitmap;
     private final Paint mBorderPaint;
     private final Paint mPaint;
+    private WeakReference<Bitmap> mpu;
 
     public k(Resources resources, @Nullable Bitmap bitmap, @Nullable Paint paint) {
         super(new BitmapDrawable(resources, bitmap));
@@ -32,40 +32,40 @@ public class k extends m {
 
     @Override // com.facebook.drawee.drawable.m, android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
-        if (!doQ()) {
+        if (!dwi()) {
             super.draw(canvas);
             return;
         }
-        doS();
-        doR();
+        dwk();
+        dwj();
         updatePaint();
         int save = canvas.save();
-        canvas.concat(this.lVZ);
+        canvas.concat(this.mpT);
         canvas.drawPath(this.mPath, this.mPaint);
         if (this.mBorderWidth > 0.0f) {
             this.mBorderPaint.setStrokeWidth(this.mBorderWidth);
-            this.mBorderPaint.setColor(e.df(this.mBorderColor, this.mPaint.getAlpha()));
-            canvas.drawPath(this.cEo, this.mBorderPaint);
+            this.mBorderPaint.setColor(e.dk(this.mBorderColor, this.mPaint.getAlpha()));
+            canvas.drawPath(this.mpz, this.mBorderPaint);
         }
         canvas.restoreToCount(save);
     }
 
     private void updatePaint() {
-        if (this.lVB == null || this.lVB.get() != this.mBitmap) {
-            this.lVB = new WeakReference<>(this.mBitmap);
+        if (this.mpu == null || this.mpu.get() != this.mBitmap) {
+            this.mpu = new WeakReference<>(this.mBitmap);
             this.mPaint.setShader(new BitmapShader(this.mBitmap, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP));
-            this.lVP = true;
+            this.mpJ = true;
         }
-        if (this.lVP) {
+        if (this.mpJ) {
             this.mPaint.getShader().setLocalMatrix(this.mTransform);
-            this.lVP = false;
+            this.mpJ = false;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.facebook.drawee.drawable.m
-    public boolean doQ() {
-        return super.doQ() && this.mBitmap != null;
+    public boolean dwi() {
+        return super.dwi() && this.mBitmap != null;
     }
 
     @Override // com.facebook.drawee.drawable.m, android.graphics.drawable.Drawable

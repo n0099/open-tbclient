@@ -3,15 +3,17 @@ package com.baidu.fsg.face.liveness.activity;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
 import com.baidu.fsg.base.statistics.RimStatisticsUtil;
 import com.baidu.fsg.base.utils.LogUtil;
 import com.baidu.fsg.face.base.c.a;
+import com.baidu.fsg.face.base.d.f;
 import com.baidu.fsg.face.liveness.SapiLivenessRecogManager;
 import com.baidu.fsg.face.liveness.beans.c;
-import com.baidu.fsg.face.liveness.beans.f;
-import com.baidu.fsg.face.liveness.beans.h;
+import com.baidu.fsg.face.liveness.beans.g;
+import com.baidu.fsg.face.liveness.beans.i;
 import com.baidu.fsg.face.liveness.callback.LivenessRecogCallback;
 import com.baidu.fsg.face.liveness.d;
 import com.baidu.fsg.face.liveness.dto.LivenessRecogDTO;
@@ -27,8 +29,8 @@ public class LivenessLoadingActivity extends LivenessBaseActivity {
     public static final String CLOSE_LOADING_ACTION = "com.baidu.sapi2.biometrics.liveness.close.loading";
     public static final String TAG = "LivenessLoadingActivity";
     private LoadingDialog a;
-    private h b;
-    private f c;
+    private i b;
+    private g c;
     private LivenessRecogDTO d;
     private boolean e;
 
@@ -63,6 +65,11 @@ public class LivenessLoadingActivity extends LivenessBaseActivity {
         this.c.execBean();
     }
 
+    @Override // com.baidu.fsg.base.activity.BaseActivity
+    protected boolean isRequestedOrientation() {
+        return false;
+    }
+
     /* JADX WARN: Removed duplicated region for block: B:13:0x0038  */
     /* JADX WARN: Removed duplicated region for block: B:16:0x003f  */
     /* JADX WARN: Removed duplicated region for block: B:21:0x0077  */
@@ -95,7 +102,7 @@ public class LivenessLoadingActivity extends LivenessBaseActivity {
                         return;
                     }
                     RimStatisticsUtil.onEventStart(d.e);
-                    this.c = new f(this);
+                    this.c = new g(this);
                     this.c.setResponseCallback(this);
                     LogUtil.d("hello", "onEventStart(StatServiceEvent.GETPORTRAIT):  获取公安网小图开始");
                     this.c.execBean();
@@ -175,15 +182,15 @@ public class LivenessLoadingActivity extends LivenessBaseActivity {
     }
 
     private void a() {
-        this.b = new h(this);
+        this.b = new i(this);
         this.b.setResponseCallback(this);
-        this.c = new f(this);
+        this.c = new g(this);
         this.c.setResponseCallback(this);
         this.d = (LivenessRecogDTO) c.a().a("request_data");
     }
 
     private void b() {
-        com.baidu.fsg.face.base.d.f.a(this, getResources().getColor(R.color.sapi_liveness_guide_bg_color));
+        f.a(this, getResources().getColor(R.color.sapi_liveness_guide_bg_color));
         a(this);
     }
 
@@ -193,17 +200,33 @@ public class LivenessLoadingActivity extends LivenessBaseActivity {
             this.a.setMessage(context.getString(R.string.sapi_liveness_recog_loading));
             this.a.setCancelable(false);
         }
-        if ((context instanceof Activity) && !((Activity) context).isFinishing() && this.a != null && !this.a.isShowing()) {
+        if ((context instanceof Activity) && isUseable((Activity) context) && !this.a.isShowing()) {
             this.a.show();
         }
     }
 
     private void c() {
-        if (this.a != null) {
-            if (!isFinishing() || !this.a.isShowing()) {
-                this.a.dismiss();
-                finish();
+        if (isUseable(this) && this.a.isShowing()) {
+            this.a.dismiss();
+            finish();
+        }
+    }
+
+    public boolean isUseable(Activity activity) {
+        if (activity == null || activity.isFinishing() || activity.isRestricted()) {
+            return false;
+        }
+        if (Build.VERSION.SDK_INT >= 17) {
+            try {
+                if (activity.isDestroyed()) {
+                    return false;
+                }
+            } catch (Error e) {
+                e.printStackTrace();
+            } catch (Exception e2) {
+                e2.printStackTrace();
             }
         }
+        return true;
     }
 }

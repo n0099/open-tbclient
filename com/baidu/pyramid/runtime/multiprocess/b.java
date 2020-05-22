@@ -6,8 +6,8 @@ public class b {
 
     /* loaded from: classes.dex */
     public static class a {
-        public static Bundle MI() {
-            return IPCServiceManager.MI();
+        public static Bundle OV() {
+            return IPCServiceManager.OV();
         }
     }
 }

@@ -133,16 +133,16 @@ public class c {
             try {
                 try {
                     String readLine = bufferedReader.readLine();
-                    com.baidu.swan.d.c.closeSafely(bufferedReader);
+                    com.baidu.swan.e.d.closeSafely(bufferedReader);
                     return readLine == null ? "" : readLine;
                 } catch (IOException e) {
-                    com.baidu.swan.d.c.closeSafely(bufferedReader);
-                    com.baidu.swan.d.c.closeSafely(bufferedReader);
+                    com.baidu.swan.e.d.closeSafely(bufferedReader);
+                    com.baidu.swan.e.d.closeSafely(bufferedReader);
                     return "";
                 }
             } catch (Throwable th2) {
                 th = th2;
-                com.baidu.swan.d.c.closeSafely(bufferedReader);
+                com.baidu.swan.e.d.closeSafely(bufferedReader);
                 throw th;
             }
         } catch (IOException e2) {
@@ -150,7 +150,7 @@ public class c {
         } catch (Throwable th3) {
             bufferedReader = null;
             th = th3;
-            com.baidu.swan.d.c.closeSafely(bufferedReader);
+            com.baidu.swan.e.d.closeSafely(bufferedReader);
             throw th;
         }
     }

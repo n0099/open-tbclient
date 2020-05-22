@@ -1,10 +1,9 @@
 package com.baidu.searchbox.v8engine.bean;
 
 import android.graphics.Bitmap;
-import com.baidu.smallgame.sdk.Log;
 /* loaded from: classes11.dex */
 public class ImageBitmapBean {
-    private static final boolean DEBUG = true;
+    private static final boolean DEBUG = false;
     private static final String TAG = "ImageBitmapBean";
     private int byteCount;
     private Bitmap mBitmap;
@@ -31,7 +30,6 @@ public class ImageBitmapBean {
 
     public void reset() {
         if (this.mBitmap != null) {
-            Log.d(TAG, "recycle WebGLImage bitmap. src = " + this.mSrc);
             this.mBitmap.recycle();
             this.mBitmap = null;
         }

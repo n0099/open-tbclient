@@ -9,30 +9,31 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class e {
-    public a csA;
-    public JSONObject csB;
-    public String csC;
-    public String csD;
-    public boolean cst;
+    public String cEA;
+    public JSONObject cEp;
+    public boolean cEq;
+    public a cEx;
+    public JSONObject cEy;
+    public String cEz;
     public boolean forbidden;
     public final String id;
     public String grade = "";
     public String name = "";
-    public String csu = "";
+    public String cEr = "";
     public String description = "";
-    public List<String> csv = new ArrayList();
-    public final List<String> csw = new ArrayList();
-    public int csx = -1;
+    public List<String> cEs = new ArrayList();
+    public final List<String> cEt = new ArrayList();
+    public int cEu = -1;
     private String type = "";
-    public String csy = "";
-    public String csz = "";
+    public String cEv = "";
+    public String cEw = "";
 
     /* loaded from: classes11.dex */
     public static class a {
-        public String csE;
-        public String csF;
-        public String csG;
-        public String csH;
+        public String cEB;
+        public String cEC;
+        public String cED;
+        public String cEE;
         public String detailUrl;
     }
 
@@ -41,19 +42,19 @@ public class e {
         this.id = str;
     }
 
-    public boolean amv() {
-        return this.csx > 0;
+    public boolean aqy() {
+        return this.cEu > 0;
     }
 
-    public boolean amw() {
-        return this.csx != 0;
+    public boolean aqz() {
+        return this.cEu != 0;
     }
 
-    public boolean amx() {
+    public boolean aqA() {
         return "1".equals(this.type);
     }
 
-    public static e bb(JSONObject jSONObject) {
+    public static e bk(JSONObject jSONObject) {
         if (jSONObject == null) {
             return null;
         }
@@ -66,48 +67,49 @@ public class e {
 
     public static e i(String str, JSONObject jSONObject) {
         e eVar = new e(str);
-        eVar.cst = jSONObject.optBoolean("permit", false);
+        eVar.cEp = jSONObject;
+        eVar.cEq = jSONObject.optBoolean("permit", false);
         eVar.forbidden = jSONObject.optBoolean("forbidden", true);
         eVar.grade = jSONObject.optString("grade");
         eVar.type = jSONObject.optString("type", "");
         eVar.name = jSONObject.optString("name", "");
-        eVar.csu = jSONObject.optString("short_name", "");
+        eVar.cEr = jSONObject.optString("short_name", "");
         eVar.description = jSONObject.optString("description", "");
-        eVar.csx = jSONObject.optInt("tip_status", -1);
-        eVar.csy = jSONObject.optString("explain", "");
-        eVar.csz = jSONObject.optString("sub_explain", "");
+        eVar.cEu = jSONObject.optInt("tip_status", -1);
+        eVar.cEv = jSONObject.optString("explain", "");
+        eVar.cEw = jSONObject.optString("sub_explain", "");
         JSONArray optJSONArray = jSONObject.optJSONArray("ext");
         if (optJSONArray != null) {
             int length = optJSONArray.length();
             for (int i = 0; i < length; i++) {
-                eVar.csw.add(optJSONArray.optString(i));
+                eVar.cEt.add(optJSONArray.optString(i));
             }
         }
         JSONArray optJSONArray2 = jSONObject.optJSONArray(Message.RULE);
         if (optJSONArray2 != null) {
             int length2 = optJSONArray2.length();
             for (int i2 = 0; i2 < length2; i2++) {
-                eVar.csv.add(optJSONArray2.optString(i2));
+                eVar.cEs.add(optJSONArray2.optString(i2));
             }
         }
-        eVar.csB = jSONObject.optJSONObject("other");
-        eVar.csC = jSONObject.optString("plugin_app_name");
-        eVar.csD = jSONObject.optString("plugin_icon_url");
+        eVar.cEy = jSONObject.optJSONObject("other");
+        eVar.cEz = jSONObject.optString("plugin_app_name");
+        eVar.cEA = jSONObject.optString("plugin_icon_url");
         return eVar;
     }
 
-    public void amy() {
-        if (this.csB != null && this.csB.keys() != null && this.csB.keys().hasNext()) {
-            this.csA = new a();
-            this.csA.csE = this.csB.optString("detail_text");
-            this.csA.detailUrl = this.csB.optString("detail_url");
-            this.csA.csF = this.csB.optString("text_color");
-            this.csA.csG = this.csB.optString("keyword");
-            this.csA.csH = this.csB.optString("key_color");
+    public void aqB() {
+        if (this.cEy != null && this.cEy.keys() != null && this.cEy.keys().hasNext()) {
+            this.cEx = new a();
+            this.cEx.cEB = this.cEy.optString("detail_text");
+            this.cEx.detailUrl = this.cEy.optString("detail_url");
+            this.cEx.cEC = this.cEy.optString("text_color");
+            this.cEx.cED = this.cEy.optString("keyword");
+            this.cEx.cEE = this.cEy.optString("key_color");
         }
     }
 
     public String toString() {
-        return String.format(Locale.getDefault(), "Scope(%s) tipStatus=%d", this.id, Integer.valueOf(this.csx));
+        return String.format(Locale.getDefault(), "Scope(%s) tipStatus=%d", this.id, Integer.valueOf(this.cEu));
     }
 }

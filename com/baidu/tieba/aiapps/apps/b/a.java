@@ -1,7 +1,15 @@
 package com.baidu.tieba.aiapps.apps.b;
+
+import com.baidu.swan.apps.adaptation.implementation.f;
 /* loaded from: classes12.dex */
-public class a {
-    public static String getGameServerHost() {
-        return "https://gamecenter.baidu.com";
+public class a extends f {
+    @Override // com.baidu.swan.apps.adaptation.implementation.f, com.baidu.swan.apps.u.b.a, com.baidu.swan.apps.adaptation.a.q
+    public boolean RN() {
+        return isDebug();
+    }
+
+    @Override // com.baidu.swan.apps.u.b.a, com.baidu.swan.apps.adaptation.a.q
+    public String SG() {
+        return "flFqXclepWs7RdugAszy9eERL7G5dS0I";
     }
 }

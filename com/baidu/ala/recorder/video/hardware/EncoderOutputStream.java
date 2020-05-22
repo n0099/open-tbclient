@@ -2,7 +2,6 @@ package com.baidu.ala.recorder.video.hardware;
 
 import android.media.MediaCodec;
 import android.os.Bundle;
-import com.baidu.fsg.base.statistics.b;
 import com.baidu.live.adp.lib.stats.BdStatisticsManager;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.live.adp.lib.util.BdLog;
@@ -123,13 +122,13 @@ public class EncoderOutputStream {
                         illegalStateException = e2;
                         byteBufferArr = byteBufferArr2;
                         BdLog.d("EncoderStreamException:" + illegalStateException.getMessage());
-                        BdStatisticsManager.getInstance().newDebug("AlaLiveEncoder", 0L, null, b.k, illegalStateException.getMessage());
+                        BdStatisticsManager.getInstance().newDebug("AlaLiveEncoder", 0L, null, "exception", illegalStateException.getMessage());
                         outputBuffers = byteBufferArr;
                     } catch (Throwable th3) {
                         th = th3;
                         outputBuffers = byteBufferArr2;
                         BdLog.d("EncoderStreamException:" + th.getMessage());
-                        BdStatisticsManager.getInstance().newDebug("AlaLiveEncoder", 0L, null, b.k, th.getMessage());
+                        BdStatisticsManager.getInstance().newDebug("AlaLiveEncoder", 0L, null, "exception", th.getMessage());
                     }
                 }
             } catch (Exception e3) {

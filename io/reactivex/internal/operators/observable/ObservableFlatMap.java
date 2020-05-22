@@ -74,7 +74,7 @@ public final class ObservableFlatMap<T, U> extends a<T, U> {
         public void onNext(T t) {
             if (!this.done) {
                 try {
-                    t<? extends U> tVar = (t) io.reactivex.internal.functions.a.h(this.mapper.apply(t), "The mapper returned a null ObservableSource");
+                    t<? extends U> tVar = (t) io.reactivex.internal.functions.a.k(this.mapper.apply(t), "The mapper returned a null ObservableSource");
                     if (this.maxConcurrency != Integer.MAX_VALUE) {
                         synchronized (this) {
                             if (this.wip == this.maxConcurrency) {

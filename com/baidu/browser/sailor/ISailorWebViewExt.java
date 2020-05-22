@@ -135,6 +135,8 @@ public interface ISailorWebViewExt extends INoProGuard {
 
     void pauseMediaExt();
 
+    void resetLoadingAnimation();
+
     void resumeExt(boolean z);
 
     void resumeMediaExt();
@@ -150,6 +152,8 @@ public interface ISailorWebViewExt extends INoProGuard {
     boolean setBorderNightColorExt(int i);
 
     boolean setDefaultLinkTextNightColorExt(int i);
+
+    void setDefaultViewSizeExt(int i, int i2);
 
     void setDrawSelectionPointerExt(boolean z);
 

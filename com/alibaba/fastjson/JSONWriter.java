@@ -28,7 +28,7 @@ public class JSONWriter implements Closeable, Flushable {
             beginStructure();
         }
         this.context = new JSONStreamContext(this.context, 1001);
-        this.writer.write(Constants.METHOD_IM_FRIEND_GROUP_QUERY);
+        this.writer.write(123);
     }
 
     public void endObject() {

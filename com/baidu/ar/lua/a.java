@@ -7,7 +7,7 @@ import java.util.List;
 public class a implements c {
 
     /* renamed from: rx  reason: collision with root package name */
-    private boolean f978rx = false;
+    private boolean f976rx = false;
     private boolean ry = false;
 
     @Override // com.baidu.ar.lua.c
@@ -17,7 +17,7 @@ public class a implements c {
                 this.ry = true;
                 return;
             case 104:
-                this.f978rx = true;
+                this.f976rx = true;
                 return;
             default:
                 return;
@@ -29,7 +29,7 @@ public class a implements c {
     }
 
     public void dI() {
-        this.f978rx = false;
+        this.f976rx = false;
         this.ry = false;
     }
 

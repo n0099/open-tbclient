@@ -1,7 +1,7 @@
 package com.baidu.tieba.frs;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.ba;
+import com.baidu.tbadk.core.data.bb;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes9.dex */
@@ -16,8 +16,8 @@ public class w extends com.baidu.tieba.card.data.a {
         return this.mList;
     }
 
-    @Override // com.baidu.adp.widget.ListView.m
+    @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.o
     public BdUniqueId getType() {
-        return ba.dpV;
+        return bb.dDS;
     }
 }

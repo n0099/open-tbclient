@@ -3,11 +3,11 @@ package com.tb.airbnb.lottie.model.content;
 import com.tb.airbnb.lottie.a.a.r;
 /* loaded from: classes6.dex */
 public class ShapeTrimPath implements b {
-    private final Type mOP;
-    private final com.tb.airbnb.lottie.model.a.b mPX;
-    private final com.tb.airbnb.lottie.model.a.b mQa;
-    private final com.tb.airbnb.lottie.model.a.b mQb;
     private final String name;
+    private final Type niU;
+    private final com.tb.airbnb.lottie.model.a.b nka;
+    private final com.tb.airbnb.lottie.model.a.b nkd;
+    private final com.tb.airbnb.lottie.model.a.b nke;
 
     /* loaded from: classes6.dex */
     public enum Type {
@@ -28,30 +28,30 @@ public class ShapeTrimPath implements b {
 
     public ShapeTrimPath(String str, Type type, com.tb.airbnb.lottie.model.a.b bVar, com.tb.airbnb.lottie.model.a.b bVar2, com.tb.airbnb.lottie.model.a.b bVar3) {
         this.name = str;
-        this.mOP = type;
-        this.mQa = bVar;
-        this.mQb = bVar2;
-        this.mPX = bVar3;
+        this.niU = type;
+        this.nkd = bVar;
+        this.nke = bVar2;
+        this.nka = bVar3;
     }
 
     public String getName() {
         return this.name;
     }
 
-    public Type dBf() {
-        return this.mOP;
+    public Type dIy() {
+        return this.niU;
     }
 
-    public com.tb.airbnb.lottie.model.a.b dBX() {
-        return this.mQb;
+    public com.tb.airbnb.lottie.model.a.b dJq() {
+        return this.nke;
     }
 
-    public com.tb.airbnb.lottie.model.a.b dBY() {
-        return this.mQa;
+    public com.tb.airbnb.lottie.model.a.b dJr() {
+        return this.nkd;
     }
 
-    public com.tb.airbnb.lottie.model.a.b dBT() {
-        return this.mPX;
+    public com.tb.airbnb.lottie.model.a.b dJm() {
+        return this.nka;
     }
 
     @Override // com.tb.airbnb.lottie.model.content.b
@@ -60,6 +60,6 @@ public class ShapeTrimPath implements b {
     }
 
     public String toString() {
-        return "Trim Path: {start: " + this.mQa + ", end: " + this.mQb + ", offset: " + this.mPX + "}";
+        return "Trim Path: {start: " + this.nkd + ", end: " + this.nke + ", offset: " + this.nka + "}";
     }
 }

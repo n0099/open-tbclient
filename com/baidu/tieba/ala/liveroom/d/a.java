@@ -6,47 +6,47 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
-import com.baidu.live.data.n;
+import com.baidu.live.data.q;
 import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class a {
-    private n aDK;
-    private ViewGroup faV;
-    protected c fyQ;
+    private q aJj;
+    protected c fMS;
+    private ViewGroup fox;
     private ViewGroup mParentView;
     private TbPageContext mTbPageContext;
-    private boolean fbb = true;
-    private ViewGroup.LayoutParams faW = new ViewGroup.LayoutParams(-2, -1);
+    private boolean foD = true;
+    private ViewGroup.LayoutParams foy = new ViewGroup.LayoutParams(-2, -1);
 
     public a(TbPageContext tbPageContext) {
         this.mTbPageContext = tbPageContext;
-        this.faV = (ViewGroup) this.mTbPageContext.getPageActivity().findViewById(a.g.live_root_view);
-        bni();
+        this.fox = (ViewGroup) this.mTbPageContext.getPageActivity().findViewById(a.g.live_root_view);
+        bta();
     }
 
-    private void bni() {
-        this.mParentView = new FrameLayout(this.faV.getContext());
+    private void bta() {
+        this.mParentView = new FrameLayout(this.fox.getContext());
         this.mParentView.setBackgroundColor(0);
-        this.faV.addView(this.mParentView, this.faW);
+        this.fox.addView(this.mParentView, this.foy);
     }
 
-    public void a(n nVar, b bVar) {
-        if (nVar != null && nVar.mLiveInfo != null && !TextUtils.isEmpty(TbConfig.getLiveEnterFrom()) && bVar != null) {
-            this.aDK = nVar;
-            if (this.mParentView == null || this.faV.indexOfChild(this.mParentView) < 0) {
-                bni();
-                this.mParentView.setVisibility(this.fbb ? 0 : 8);
+    public void a(q qVar, b bVar) {
+        if (qVar != null && qVar.mLiveInfo != null && !TextUtils.isEmpty(TbConfig.getLiveEnterFrom()) && bVar != null) {
+            this.aJj = qVar;
+            if (this.mParentView == null || this.fox.indexOfChild(this.mParentView) < 0) {
+                bta();
+                this.mParentView.setVisibility(this.foD ? 0 : 8);
             }
-            if (this.fyQ == null || (this.mParentView != null && this.mParentView.indexOfChild(this.fyQ.getView()) < 0)) {
-                this.fyQ = new c(this.mTbPageContext);
-                this.mParentView.addView(this.fyQ.getView(), new FrameLayout.LayoutParams(-2, -1));
-                this.fyQ.bty().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.d.a.1
+            if (this.fMS == null || (this.mParentView != null && this.mParentView.indexOfChild(this.fMS.getView()) < 0)) {
+                this.fMS = new c(this.mTbPageContext);
+                this.mParentView.addView(this.fMS.getView(), new FrameLayout.LayoutParams(-2, -1));
+                this.fMS.bzx().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.d.a.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        a.this.fyQ.btx();
-                        a.this.fyQ.hide();
+                        a.this.fMS.bzw();
+                        a.this.fMS.hide();
                     }
                 });
             }
@@ -55,23 +55,23 @@ public class a {
             bVar2.setImageUrl(bVar.getImageUrl());
             bVar2.setScheme(bVar.getScheme());
             bVar2.setImageId(a.f.back_to_come_logo);
-            bVar2.qq(a.i.ala_back_to_come_title);
-            this.fyQ.a(bVar2);
-            this.fyQ.show();
+            bVar2.qR(a.i.ala_back_to_come_title);
+            this.fMS.a(bVar2);
+            this.fMS.show();
         }
     }
 
-    public void cl(int i) {
-        View bty;
+    public void cs(int i) {
+        View bzx;
         LinearLayout.LayoutParams layoutParams;
-        if (this.fyQ != null && (bty = this.fyQ.bty()) != null && (layoutParams = (LinearLayout.LayoutParams) bty.getLayoutParams()) != null) {
+        if (this.fMS != null && (bzx = this.fMS.bzx()) != null && (layoutParams = (LinearLayout.LayoutParams) bzx.getLayoutParams()) != null) {
             if (i == 1) {
                 layoutParams.bottomMargin = BdUtilHelper.getDimens(this.mTbPageContext.getPageActivity(), a.e.sdk_ds288);
-                this.fyQ.show();
+                this.fMS.show();
             } else if (i == 2) {
-                this.fyQ.hide();
+                this.fMS.hide();
             }
-            bty.setLayoutParams(layoutParams);
+            bzx.setLayoutParams(layoutParams);
         }
     }
 
@@ -80,13 +80,13 @@ public class a {
     }
 
     private void reset(boolean z) {
-        this.fbb = true;
-        iS(z);
+        this.foD = true;
+        jk(z);
     }
 
-    private void iS(boolean z) {
-        if (this.fyQ != null && this.fyQ.getView() != null && (this.fyQ.getView().getParent() instanceof ViewGroup)) {
-            ((ViewGroup) this.fyQ.getView().getParent()).removeView(this.fyQ.getView());
+    private void jk(boolean z) {
+        if (this.fMS != null && this.fMS.getView() != null && (this.fMS.getView().getParent() instanceof ViewGroup)) {
+            ((ViewGroup) this.fMS.getView().getParent()).removeView(this.fMS.getView());
         }
         if (z && this.mParentView != null && (this.mParentView.getParent() instanceof ViewGroup)) {
             ((ViewGroup) this.mParentView.getParent()).removeView(this.mParentView);

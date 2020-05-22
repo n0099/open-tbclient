@@ -28,7 +28,7 @@ import com.baidu.location.f;
 import java.lang.ref.WeakReference;
 /* loaded from: classes8.dex */
 public class a extends Service implements LLSInterface {
-    static HandlerC0159a a = null;
+    static HandlerC0192a a = null;
     private static long f = 0;
     private Looper c;
     private HandlerThread d;
@@ -37,10 +37,10 @@ public class a extends Service implements LLSInterface {
 
     /* renamed from: com.baidu.location.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static class HandlerC0159a extends Handler {
+    public static class HandlerC0192a extends Handler {
         private final WeakReference<a> a;
 
-        public HandlerC0159a(Looper looper, a aVar) {
+        public HandlerC0192a(Looper looper, a aVar) {
             super(looper);
             this.a = new WeakReference<>(aVar);
         }
@@ -171,9 +171,9 @@ public class a extends Service implements LLSInterface {
         this.d = v.a();
         this.c = this.d.getLooper();
         if (this.c == null) {
-            a = new HandlerC0159a(Looper.getMainLooper(), this);
+            a = new HandlerC0192a(Looper.getMainLooper(), this);
         } else {
-            a = new HandlerC0159a(this.c, this);
+            a = new HandlerC0192a(this.c, this);
         }
         this.b = new Messenger(a);
         a.sendEmptyMessage(0);

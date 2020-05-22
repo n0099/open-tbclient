@@ -9,17 +9,17 @@ import android.util.Pair;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
-public class a extends com.baidu.swan.apps.api.a.c {
+public class a extends com.baidu.swan.apps.api.a.d {
     public a(@NonNull com.baidu.swan.apps.api.a.b bVar) {
         super(bVar);
     }
 
-    public com.baidu.swan.apps.api.b.b hq(String str) {
+    public com.baidu.swan.apps.api.c.b in(String str) {
         if (DEBUG) {
             Log.d("Api-CheckAppInstall", "start check app install");
         }
-        Pair<com.baidu.swan.apps.api.b.b, JSONObject> az = com.baidu.swan.apps.api.c.b.az("Api-CheckAppInstall", str);
-        com.baidu.swan.apps.api.b.b bVar = (com.baidu.swan.apps.api.b.b) az.first;
+        Pair<com.baidu.swan.apps.api.c.b, JSONObject> aP = com.baidu.swan.apps.api.d.b.aP("Api-CheckAppInstall", str);
+        com.baidu.swan.apps.api.c.b bVar = (com.baidu.swan.apps.api.c.b) aP.first;
         if (!bVar.isSuccess()) {
             if (DEBUG) {
                 com.baidu.swan.apps.console.c.e("Api-CheckAppInstall", "parse fail");
@@ -27,10 +27,10 @@ public class a extends com.baidu.swan.apps.api.a.c {
             }
             return bVar;
         }
-        String optString = ((JSONObject) az.second).optString("name");
+        String optString = ((JSONObject) aP.second).optString("name");
         if (TextUtils.isEmpty(optString)) {
             com.baidu.swan.apps.console.c.i("Api-CheckAppInstall", "packageName empty");
-            return new com.baidu.swan.apps.api.b.b(201, "parameter error");
+            return new com.baidu.swan.apps.api.c.b(201, "parameter error");
         }
         PackageInfo packageInfo = null;
         try {
@@ -47,10 +47,10 @@ public class a extends com.baidu.swan.apps.api.a.c {
             } else {
                 jSONObject.put("hasApp", false);
             }
-            return new com.baidu.swan.apps.api.b.b(0, "success", jSONObject);
+            return new com.baidu.swan.apps.api.c.b(0, "success", jSONObject);
         } catch (JSONException e2) {
             com.baidu.swan.apps.console.c.e("Api-CheckAppInstall", e2.getMessage(), e2);
-            return new com.baidu.swan.apps.api.b.b(1001, e2.getMessage());
+            return new com.baidu.swan.apps.api.c.b(1001, e2.getMessage());
         }
     }
 }

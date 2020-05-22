@@ -4,7 +4,7 @@ import android.util.Base64;
 import java.io.UnsupportedEncodingException;
 /* loaded from: classes5.dex */
 public final class UrlSafeBase64 {
-    public static String Pj(String str) {
+    public static String QZ(String str) {
         try {
             return encodeToString(str.getBytes("utf-8"));
         } catch (UnsupportedEncodingException e) {

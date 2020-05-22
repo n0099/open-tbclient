@@ -7,35 +7,35 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class c extends BdAsyncTask<String, String, Integer> {
-    private String lgp;
-    private a lgq;
+    private String lza;
+    private a lzb;
 
     /* loaded from: classes.dex */
     public interface a {
-        void clG();
+        void csi();
 
-        void clH();
+        void csj();
 
-        void clI();
+        void csk();
 
         void onError(String str);
     }
 
     public c(String str, a aVar) {
-        this.lgp = "https://lookup.api.bsb.baidu.com/urlquery?url=" + str + "&ver=2.0&key=Gar7ku5AswED&cid=" + TbadkCoreApplication.getInst().getImei();
-        this.lgq = aVar;
+        this.lza = "https://lookup.api.bsb.baidu.com/urlquery?url=" + str + "&ver=2.0&key=Gar7ku5AswED&cid=" + TbadkCoreApplication.getInst().getImei();
+        this.lzb = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: K */
+    /* renamed from: N */
     public Integer doInBackground(String... strArr) {
         int i = -1;
         try {
-            x xVar = new x(this.lgp);
-            xVar.aOw().aOW().mIsNeedAddCommenParam = false;
-            xVar.aOw().aOW().mIsUseCurrentBDUSS = false;
+            x xVar = new x(this.lza);
+            xVar.aUA().aVa().mIsNeedAddCommenParam = false;
+            xVar.aUA().aVa().mIsUseCurrentBDUSS = false;
             JSONArray optJSONArray = new JSONObject(new String(xVar.getNetData())).optJSONArray("result");
             if (optJSONArray == null || optJSONArray.length() <= 0) {
                 return i;
@@ -57,15 +57,15 @@ public class c extends BdAsyncTask<String, String, Integer> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPostExecute(Integer num) {
-        if (this.lgq != null && num != null) {
+        if (this.lzb != null && num != null) {
             if (num.intValue() == -1) {
-                this.lgq.onError(null);
+                this.lzb.onError(null);
             } else if (num.intValue() == 1) {
-                this.lgq.clG();
+                this.lzb.csi();
             } else if (num.intValue() == 2 || num.intValue() == 0) {
-                this.lgq.clH();
+                this.lzb.csj();
             } else {
-                this.lgq.clI();
+                this.lzb.csk();
             }
         }
     }

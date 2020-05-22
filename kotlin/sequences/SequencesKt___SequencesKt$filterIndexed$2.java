@@ -20,7 +20,7 @@ final class SequencesKt___SequencesKt$filterIndexed$2 extends Lambda implements 
 
     /* JADX WARN: Type inference failed for: r0v1, types: [T, java.lang.Object] */
     public final T invoke(ac<? extends T> acVar) {
-        q.j(acVar, AdvanceSetting.NETWORK_TYPE);
+        q.m(acVar, AdvanceSetting.NETWORK_TYPE);
         return acVar.getValue();
     }
 }

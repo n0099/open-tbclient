@@ -20,7 +20,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes13.dex */
 public class c {
-    private com.baidu.cesium.c.d.d aiS;
+    private com.baidu.cesium.c.d.d ajw;
     private List<b> g;
 
     public c() {
@@ -40,7 +40,7 @@ public class c {
     }
 
     private void a() {
-        this.aiS = new com.baidu.cesium.c.d.e(d.a(), d.b());
+        this.ajw = new com.baidu.cesium.c.d.e(d.a(), d.b());
     }
 
     private boolean a(String[] strArr, String[] strArr2) {
@@ -59,9 +59,9 @@ public class c {
     }
 
     private static byte[] a(byte[] bArr, com.baidu.cesium.c.d.d dVar) {
-        com.baidu.cesium.c.d.a rY = com.baidu.cesium.c.d.a.rY();
-        rY.a(2, dVar);
-        return rY.a(bArr);
+        com.baidu.cesium.c.d.a si = com.baidu.cesium.c.d.a.si();
+        si.a(2, dVar);
+        return si.a(bArr);
     }
 
     private String[] a(Signature[] signatureArr) {
@@ -73,7 +73,7 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public List<b> Q(Context context) {
+    public List<b> T(Context context) {
         if (this.g != null) {
             return this.g;
         }
@@ -113,7 +113,7 @@ public class c {
                                             strArr[i] = jSONArray.getString(i);
                                         }
                                         if (a(strArr, a(packageInfo.signatures))) {
-                                            byte[] a2 = a(com.baidu.cesium.d.a.a(string2.getBytes()), this.aiS);
+                                            byte[] a2 = a(com.baidu.cesium.d.a.a(string2.getBytes()), this.ajw);
                                             if (a2 != null && Arrays.equals(a2, com.baidu.cesium.d.c.a(a))) {
                                                 bVar.c = true;
                                             }

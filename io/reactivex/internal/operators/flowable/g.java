@@ -15,7 +15,7 @@ public final class g {
                     return true;
                 }
                 try {
-                    org.a.b bVar2 = (org.a.b) io.reactivex.internal.functions.a.h(hVar.apply(obj), "The mapper returned a null Publisher");
+                    org.a.b bVar2 = (org.a.b) io.reactivex.internal.functions.a.k(hVar.apply(obj), "The mapper returned a null Publisher");
                     if (bVar2 instanceof Callable) {
                         try {
                             Object call = ((Callable) bVar2).call();

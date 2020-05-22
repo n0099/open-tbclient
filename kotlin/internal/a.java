@@ -7,11 +7,11 @@ import kotlin.random.d;
 /* loaded from: classes7.dex */
 public class a {
     public void addSuppressed(Throwable th, Throwable th2) {
-        q.j(th, "cause");
-        q.j(th2, com.baidu.fsg.base.statistics.b.k);
+        q.m(th, "cause");
+        q.m(th2, "exception");
     }
 
-    public d dDO() {
+    public d dLI() {
         return new kotlin.random.b();
     }
 }

@@ -1,16 +1,15 @@
 package com.baidu.swan.apps.adlanding;
 
 import android.content.Context;
+import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.util.Log;
+import com.baidu.searchbox.http.callback.ResponseCallback;
 import com.baidu.swan.apps.network.SwanAppNetworkUtils;
 import com.baidu.swan.apps.runtime.e;
-import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.util.HashMap;
-import okhttp3.Call;
-import okhttp3.Callback;
 import okhttp3.HttpUrl;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -19,21 +18,21 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class b {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private com.baidu.swan.apps.media.c.a bAn;
-    private JSONObject bAo;
+    private com.baidu.swan.apps.media.b.a bIb;
+    private JSONObject bIc;
     private Context mContext;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public b(Context context, JSONObject jSONObject, com.baidu.swan.apps.media.c.a aVar) {
+    public b(Context context, JSONObject jSONObject, com.baidu.swan.apps.media.b.a aVar) {
         this.mContext = context;
-        this.bAo = jSONObject;
-        this.bAn = aVar;
+        this.bIc = jSONObject;
+        this.bIb = aVar;
     }
 
-    private String b(String str, HashMap<String, String> hashMap) {
+    private String c(String str, HashMap<String, String> hashMap) {
         HashMap hashMap2 = new HashMap();
-        if (this.bAn != null) {
-            hashMap2.put("cur_time", String.valueOf(this.bAn.getDuration() / 1000));
+        if (this.bIb != null) {
+            hashMap2.put("cur_time", String.valueOf(this.bIb.getDuration() / 1000));
         }
         hashMap2.put("origin_time", String.valueOf(System.currentTimeMillis()));
         hashMap.putAll(hashMap2);
@@ -54,11 +53,11 @@ public class b {
         return str;
     }
 
-    public void gn(String str) {
-        c(str, new HashMap<>());
+    public void ha(String str) {
+        d(str, new HashMap<>());
     }
 
-    public void c(String str, HashMap<String, String> hashMap) {
+    public void d(String str, HashMap<String, String> hashMap) {
         if (TextUtils.equals(str, "da_area")) {
             hashMap.put("da_page", "VIDEODETAIL_TAIL");
         } else if (TextUtils.equals(str, "lpin") || TextUtils.equals(str, "lpout")) {
@@ -67,40 +66,48 @@ public class b {
             hashMap.put("da_page", "VIDEOADDETAI");
         }
         hashMap.put("play_mode", String.valueOf((SwanAppNetworkUtils.isWifiNetworkConnected(this.mContext) && TextUtils.equals(str, "vstart")) ? 0 : 1));
-        JSONArray optJSONArray = this.bAo != null ? this.bAo.optJSONArray(str) : null;
+        JSONArray optJSONArray = this.bIc != null ? this.bIc.optJSONArray(str) : null;
         if (optJSONArray != null) {
             for (int i = 0; i < optJSONArray.length(); i++) {
                 String optString = optJSONArray.optString(i);
                 if (SwanAppNetworkUtils.isNetworkConnected(this.mContext) && !TextUtils.isEmpty(optString)) {
-                    final String b = b(optString, hashMap);
-                    HttpUrl parse = HttpUrl.parse(b);
+                    HttpUrl parse = HttpUrl.parse(c(optString, hashMap));
                     if (parse != null) {
-                        Request build = new Request.Builder().url(parse.newBuilder().build()).build();
-                        e akN = e.akN();
-                        if (akN != null) {
-                            akN.akY().a(build, new Callback() { // from class: com.baidu.swan.apps.adlanding.b.1
-                                @Override // okhttp3.Callback
-                                public void onFailure(Call call, IOException iOException) {
-                                    if (b.DEBUG) {
-                                        Log.d("AlsSender", "onFailure: " + iOException.getMessage());
-                                    }
-                                }
-
-                                @Override // okhttp3.Callback
-                                public void onResponse(Call call, Response response) {
-                                    if (b.DEBUG) {
-                                        Log.d("AlsSender", "onResponse: respCode:" + response.code() + ", url:" + b + ", msg:" + response.message());
-                                    }
-                                }
-                            });
-                        } else {
-                            return;
-                        }
+                        a(new Request.Builder().url(parse.newBuilder().build()).build());
                     } else {
                         return;
                     }
                 }
             }
+        }
+    }
+
+    private void a(@NonNull final Request request) {
+        if (e.aoG() != null) {
+            com.baidu.swan.c.b.a aVar = new com.baidu.swan.c.b.a(request.url().toString(), new ResponseCallback() { // from class: com.baidu.swan.apps.adlanding.b.1
+                @Override // com.baidu.searchbox.http.callback.ResponseCallback
+                public Object parseResponse(Response response, int i) throws Exception {
+                    if (b.DEBUG) {
+                        Log.d("AlsSender", "onResponse: respCode:" + response.code() + ", url:" + request.url().toString() + ", msg:" + response.message());
+                    }
+                    return response;
+                }
+
+                @Override // com.baidu.searchbox.http.callback.ResponseCallback
+                public void onSuccess(Object obj, int i) {
+                }
+
+                @Override // com.baidu.searchbox.http.callback.ResponseCallback
+                public void onFail(Exception exc) {
+                    if (b.DEBUG) {
+                        Log.d("AlsSender", "onFailure: " + exc.getMessage());
+                    }
+                }
+            });
+            aVar.dld = true;
+            aVar.dle = false;
+            aVar.dlf = false;
+            com.baidu.swan.c.c.a.aFx().a(aVar);
         }
     }
 }

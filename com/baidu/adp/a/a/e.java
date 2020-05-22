@@ -7,23 +7,23 @@ import java.io.InputStreamReader;
 import java.io.Reader;
 /* loaded from: classes.dex */
 public class e extends com.baidu.adp.a.a.a implements Runnable {
-    private int GA;
-    private a GC;
+    private int GC;
+    private a GD;
 
     public a js() throws IOException {
         a aVar = new a();
-        aVar.GF = bj("/proc/uid_stat/" + this.GA + "/tcp_rcv");
-        aVar.GG = bj("/proc/uid_stat/" + this.GA + "/tcp_snd");
-        aVar.GD = d.g(aVar.GF + aVar.GG);
+        aVar.GG = bj("/proc/uid_stat/" + this.GC + "/tcp_rcv");
+        aVar.GH = bj("/proc/uid_stat/" + this.GC + "/tcp_snd");
+        aVar.GF = d.g(aVar.GG + aVar.GH);
         return aVar;
     }
 
     public a jt() throws IOException {
         a js = js();
-        this.GC.GF = d.g(js.GF - d.jr().GF);
-        this.GC.GG = d.g(js.GG - d.jr().GG);
-        this.GC.GD = d.g(js.GD - d.jr().GD);
-        return this.GC;
+        this.GD.GG = d.g(js.GG - d.jr().GG);
+        this.GD.GH = d.g(js.GH - d.jr().GH);
+        this.GD.GF = d.g(js.GF - d.jr().GF);
+        return this.GD;
     }
 
     public double bj(String str) {
@@ -72,9 +72,9 @@ public class e extends com.baidu.adp.a.a.a implements Runnable {
 
     /* loaded from: classes.dex */
     public class a {
-        double GD = 0.0d;
         double GF = 0.0d;
         double GG = 0.0d;
+        double GH = 0.0d;
 
         public a() {
         }

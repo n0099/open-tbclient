@@ -11,7 +11,7 @@ public final class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     @NonNull
-    public static WebSettings.CodeCacheSetting aG(String str, @NonNull String str2) {
+    public static WebSettings.CodeCacheSetting aW(String str, @NonNull String str2) {
         WebSettings.CodeCacheSetting codeCacheSetting = new WebSettings.CodeCacheSetting();
         codeCacheSetting.id = str;
         codeCacheSetting.pathList = new ArrayList<>();
@@ -27,9 +27,9 @@ public final class b {
         }
         switch (c) {
             case 0:
-                a.C0295a UZ = a.b.UZ();
-                codeCacheSetting.maxCount = UZ.maxCount;
-                codeCacheSetting.sizeLimit = UZ.sizeLimit;
+                a.C0332a XF = a.b.XF();
+                codeCacheSetting.maxCount = XF.maxCount;
+                codeCacheSetting.sizeLimit = XF.sizeLimit;
                 break;
             default:
                 codeCacheSetting.maxCount = 5;

@@ -23,7 +23,7 @@ public final class fc {
         void a(boolean z);
 
         /* renamed from: a  reason: collision with other method in class */
-        boolean m271a();
+        boolean m273a();
     }
 
     public static synchronized void a() {
@@ -78,7 +78,7 @@ public final class fc {
                     } catch (Exception e3) {
                         e = e3;
                         z2 = z3;
-                        com.xiaomi.channel.commonutils.logger.b.m50a("check service err : " + e.getMessage());
+                        com.xiaomi.channel.commonutils.logger.b.m52a("check service err : " + e.getMessage());
                         if (z2) {
                         }
                         if (Build.VERSION.SDK_INT < 21) {
@@ -92,7 +92,7 @@ public final class fc {
             z2 = z;
             e = e4;
         }
-        if (z2 && t.m583a(applicationContext)) {
+        if (z2 && t.m585a(applicationContext)) {
             throw new RuntimeException("Should export service: " + f312a + " with permission android.permission.BIND_JOB_SERVICE in AndroidManifest.xml file");
         }
         if (Build.VERSION.SDK_INT < 21) {
@@ -120,7 +120,7 @@ public final class fc {
     public static synchronized void a(boolean z) {
         synchronized (fc.class) {
             if (f311a == null) {
-                com.xiaomi.channel.commonutils.logger.b.m50a("timer is not initialized");
+                com.xiaomi.channel.commonutils.logger.b.m52a("timer is not initialized");
             } else {
                 com.xiaomi.channel.commonutils.logger.b.c("register alarm. (" + z + ")");
                 f311a.a(z);
@@ -129,11 +129,11 @@ public final class fc {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static synchronized boolean m270a() {
-        boolean m271a;
+    public static synchronized boolean m272a() {
+        boolean m273a;
         synchronized (fc.class) {
-            m271a = f311a == null ? false : f311a.m271a();
+            m273a = f311a == null ? false : f311a.m273a();
         }
-        return m271a;
+        return m273a;
     }
 }

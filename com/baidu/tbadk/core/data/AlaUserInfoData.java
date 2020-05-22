@@ -7,6 +7,7 @@ import tbclient.AlaUserInfo;
 /* loaded from: classes.dex */
 public class AlaUserInfoData extends OrmObject {
     public long ala_id;
+    public int anchor_fans;
     public long anchor_live;
     public long charm_count;
     public String description;
@@ -26,6 +27,7 @@ public class AlaUserInfoData extends OrmObject {
     public String portrait;
     public String sex;
     public int update_time;
+    public long user_id;
     public String user_name;
     public String verify_status;
 
@@ -54,6 +56,8 @@ public class AlaUserInfoData extends OrmObject {
                 this.great_anchor_desc_role = jSONObject.optString("great_anchor_desc_role");
                 this.lng = jSONObject.optDouble("lng");
                 this.lat = jSONObject.optDouble("lat");
+                this.user_id = jSONObject.optLong("user_id");
+                this.anchor_fans = jSONObject.optInt("anchor_fans");
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
@@ -84,6 +88,8 @@ public class AlaUserInfoData extends OrmObject {
                 this.great_anchor_desc_role = alaUserInfo.great_anchor_desc_role;
                 this.lng = alaUserInfo.lng.doubleValue();
                 this.lat = alaUserInfo.lat.doubleValue();
+                this.user_id = alaUserInfo.user_id.longValue();
+                this.anchor_fans = alaUserInfo.anchor_fans.intValue();
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }

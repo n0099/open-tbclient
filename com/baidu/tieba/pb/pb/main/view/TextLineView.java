@@ -12,13 +12,13 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 /* loaded from: classes9.dex */
 public class TextLineView extends TextView {
-    private int aIm;
-    private int aIn;
-    private int aJC;
-    private int jGi;
-    private int jGj;
-    private int jGk;
-    private int jGl;
+    private int aNV;
+    private int aNW;
+    private int aPl;
+    private int jXP;
+    private int jXQ;
+    private int jXR;
+    private int jXS;
     private int mHeight;
     private int mMargin;
     private Paint mPaint;
@@ -32,42 +32,42 @@ public class TextLineView extends TextView {
     public TextLineView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.TextLineView);
-        this.jGi = obtainStyledAttributes.getDimensionPixelSize(0, 0);
-        this.jGj = obtainStyledAttributes.getDimensionPixelSize(4, 0);
-        this.jGk = obtainStyledAttributes.getDimensionPixelSize(5, 0);
-        this.aIm = obtainStyledAttributes.getColor(2, am.getColor(R.color.cp_cont_b));
-        this.aIn = obtainStyledAttributes.getColor(3, am.getColor(R.color.cp_cont_j));
-        setPadding(getPaddingLeft(), getPaddingTop(), getPaddingRight(), getPaddingBottom() + this.jGj + this.jGi + this.jGk);
-        setTextColor(this.aIm);
-        this.jGl = l.getDimens(context, R.dimen.ds56);
+        this.jXP = obtainStyledAttributes.getDimensionPixelSize(0, 0);
+        this.jXQ = obtainStyledAttributes.getDimensionPixelSize(4, 0);
+        this.jXR = obtainStyledAttributes.getDimensionPixelSize(5, 0);
+        this.aNV = obtainStyledAttributes.getColor(2, am.getColor(R.color.cp_cont_b));
+        this.aNW = obtainStyledAttributes.getColor(3, am.getColor(R.color.cp_cont_j));
+        setPadding(getPaddingLeft(), getPaddingTop(), getPaddingRight(), getPaddingBottom() + this.jXQ + this.jXP + this.jXR);
+        setTextColor(this.aNV);
+        this.jXS = l.getDimens(context, R.dimen.ds56);
         this.mRectF = new RectF();
-        this.aJC = l.getDimens(getContext(), R.dimen.ds4);
+        this.aPl = l.getDimens(getContext(), R.dimen.ds4);
         obtainStyledAttributes.recycle();
     }
 
     @Override // android.widget.TextView, android.view.View
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        cCi();
+        cJf();
         if (this.mRectF == null) {
             this.mRectF = new RectF();
         }
-        this.mRectF.set(this.mMargin + 0, (this.mHeight - this.jGk) - this.jGi, this.mWidth - this.mMargin, this.mHeight - this.jGk);
-        canvas.drawRoundRect(this.mRectF, this.aJC, this.aJC, this.mPaint);
+        this.mRectF.set(this.mMargin + 0, (this.mHeight - this.jXR) - this.jXP, this.mWidth - this.mMargin, this.mHeight - this.jXR);
+        canvas.drawRoundRect(this.mRectF, this.aPl, this.aPl, this.mPaint);
     }
 
     @Override // android.widget.TextView, android.view.View
     public void setSelected(boolean z) {
         super.setSelected(z);
         if (z) {
-            setTextColor(this.aIm);
+            setTextColor(this.aNV);
         } else {
-            setTextColor(this.aIn);
+            setTextColor(this.aNW);
         }
         invalidate();
     }
 
-    private void cCi() {
+    private void cJf() {
         if (this.mPaint == null) {
             this.mPaint = new Paint();
         }
@@ -81,14 +81,14 @@ public class TextLineView extends TextView {
     }
 
     public void onChangeSkinType(int i) {
-        this.aIm = am.getColor(R.color.cp_cont_b);
-        this.aIn = am.getColor(R.color.cp_cont_j);
+        this.aNV = am.getColor(R.color.cp_cont_b);
+        this.aNW = am.getColor(R.color.cp_cont_j);
         if (isSelected()) {
-            setTextColor(this.aIm);
+            setTextColor(this.aNV);
         } else {
-            setTextColor(this.aIn);
+            setTextColor(this.aNW);
         }
-        cCi();
+        cJf();
         invalidate();
     }
 
@@ -97,6 +97,6 @@ public class TextLineView extends TextView {
         super.onSizeChanged(i, i2, i3, i4);
         this.mWidth = i;
         this.mHeight = i2;
-        this.mMargin = (this.mWidth - this.jGl) / 2;
+        this.mMargin = (this.mWidth - this.jXS) / 2;
     }
 }

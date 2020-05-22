@@ -2,15 +2,16 @@ package com.baidu.tieba.ala.personcenter.privilege.entereffect.data;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.f.b;
-import com.baidu.adp.widget.ListView.m;
+import com.baidu.adp.widget.ListView.o;
 import com.baidu.ala.gift.AlaDynamicGift;
 import com.baidu.ala.gift.AlaDynamicGiftConfigInfo;
 import com.baidu.ala.gift.AlaDynamicGiftZip;
 import com.baidu.live.tbadk.log.LogConfig;
+import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class AlaEnterEffectData implements m, Serializable {
+public class AlaEnterEffectData implements o, Serializable {
     public static final int ALA_ENTER_EFFECT_DOWNLOADING = 102;
     public static final int ALA_ENTER_EFFECT_HAS_DOWNLOAD = 101;
     public static final int ALA_ENTER_EFFECT_NOT_DOWNLOAD = 100;
@@ -44,7 +45,7 @@ public class AlaEnterEffectData implements m, Serializable {
     public int type;
     public int use_status;
 
-    @Override // com.baidu.adp.widget.ListView.m
+    @Override // com.baidu.adp.widget.ListView.o
     public BdUniqueId getType() {
         return TYPE_ENTER_EFFECT_DATA;
     }
@@ -82,7 +83,7 @@ public class AlaEnterEffectData implements m, Serializable {
             }
             if (this.type == 1) {
                 this.thumbnail_url = jSONObject.optString("thumbnail_url");
-                JSONObject optJSONObject3 = jSONObject.optJSONObject("gift");
+                JSONObject optJSONObject3 = jSONObject.optJSONObject(UbcStatConstant.DebugContentValue.GIFT);
                 if (optJSONObject3 != null) {
                     this.gift = new AlaDynamicGift();
                     this.gift.giftId = optJSONObject3.optString(LogConfig.LOG_GIFT_ID);

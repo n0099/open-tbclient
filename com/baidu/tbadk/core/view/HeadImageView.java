@@ -6,20 +6,25 @@ import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.AlaInfoData;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.widget.TbClipImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class HeadImageView extends TbClipImageView {
-    private int dEJ;
-    private int dEK;
-    private float dEL;
-    private float dEM;
+    private int WV;
+    private AlaInfoData alaInfo;
+    private int dSV;
+    private int dSW;
+    private float dSX;
+    private float dSY;
+    private String fName;
     private String fid;
     private int height;
     private int iconMargin;
     private boolean isShowV;
+    private int liveStatus;
     private int mDefaultBgId;
     private int mDefaultId;
     private int mIconWidth;
@@ -50,9 +55,11 @@ public class HeadImageView extends TbClipImageView {
         this.fid = null;
         this.tid = null;
         this.mUrl = null;
+        this.fName = null;
         this.mDefaultId = R.drawable.transparent_bg;
         this.mDefaultBgId = R.color.cp_bg_line_j;
-        this.dEJ = R.drawable.ic_icon_mask_shen20_n;
+        this.dSV = R.drawable.ic_icon_mask_shen20_n;
+        this.liveStatus = -1;
         init();
     }
 
@@ -117,12 +124,44 @@ public class HeadImageView extends TbClipImageView {
         return this.user_name;
     }
 
+    public void setAlaInfo(AlaInfoData alaInfoData) {
+        this.alaInfo = alaInfoData;
+    }
+
+    public AlaInfoData getAlaInfo() {
+        return this.alaInfo;
+    }
+
+    public void setLiveStatus(int i) {
+        this.liveStatus = i;
+    }
+
+    public int getLiveStatus() {
+        return this.liveStatus;
+    }
+
+    public void setFName(String str) {
+        this.fName = str;
+    }
+
+    public String getFName() {
+        return this.fName;
+    }
+
+    public void setFloor(int i) {
+        this.WV = i;
+    }
+
+    public int getFloor() {
+        return this.WV;
+    }
+
     @Override // com.baidu.tbadk.widget.TbImageView
     public void startLogPerf() {
         if (!this.canLogPerf) {
             this.canLogPerf = true;
-        } else if (this.eiE != null && this.eiE.edI) {
-            this.eiE.aZt();
+        } else if (this.ewW != null && this.ewW.erV) {
+            this.ewW.bfD();
         }
     }
 
@@ -132,14 +171,14 @@ public class HeadImageView extends TbClipImageView {
         if (canvas != null) {
             if (this.mMaskColor != 0) {
                 this.mPaint.setColor(this.mMaskColor);
-                canvas.drawCircle(this.dEL, this.dEM, this.dEL, this.mPaint);
+                canvas.drawCircle(this.dSX, this.dSY, this.dSX, this.mPaint);
             }
             updateVIcon(canvas);
         }
     }
 
     public void setBjhAuthIconRes(int i) {
-        this.dEK = i;
+        this.dSW = i;
     }
 
     public void setGodIconWidth(int i) {
@@ -182,13 +221,13 @@ public class HeadImageView extends TbClipImageView {
 
     public void updateVIcon(Canvas canvas) {
         Drawable bjhBigVIconDrawable;
-        if (this.isShowV && this.dEK != 0 && this.mIconWidth > 0) {
-            Drawable bjhBigVIconDrawable2 = UtilHelper.getBjhBigVIconDrawable(this.dEK);
+        if (this.isShowV && this.dSW != 0 && this.mIconWidth > 0) {
+            Drawable bjhBigVIconDrawable2 = UtilHelper.getBjhBigVIconDrawable(this.dSW);
             if (bjhBigVIconDrawable2 != null) {
                 bjhBigVIconDrawable2.setBounds((this.width - this.mIconWidth) - this.iconMargin, (this.height - this.mIconWidth) - this.iconMargin, this.width - this.iconMargin, this.height - this.iconMargin);
                 bjhBigVIconDrawable2.draw(canvas);
             }
-        } else if (this.isShowV && this.mIconWidth > 0 && (bjhBigVIconDrawable = UtilHelper.getBjhBigVIconDrawable(this.dEJ)) != null) {
+        } else if (this.isShowV && this.mIconWidth > 0 && (bjhBigVIconDrawable = UtilHelper.getBjhBigVIconDrawable(this.dSV)) != null) {
             bjhBigVIconDrawable.setBounds((this.width - this.mIconWidth) - this.iconMargin, (this.height - this.mIconWidth) - this.iconMargin, this.width - this.iconMargin, this.height - this.iconMargin);
             bjhBigVIconDrawable.draw(canvas);
         }
@@ -200,7 +239,7 @@ public class HeadImageView extends TbClipImageView {
         super.onSizeChanged(i, i2, i3, i4);
         this.width = getWidth();
         this.height = getHeight();
-        this.dEL = this.width / 2.0f;
-        this.dEM = this.height / 2.0f;
+        this.dSX = this.width / 2.0f;
+        this.dSY = this.height / 2.0f;
     }
 }

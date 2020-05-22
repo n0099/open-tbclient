@@ -17,21 +17,21 @@ import com.baidu.tieba.R;
 import tbclient.HotThread.tinfo;
 /* loaded from: classes10.dex */
 public class b extends com.baidu.tbadk.mvc.f.a<tinfo, com.baidu.tbadk.mvc.d.b> {
-    private TextView dko;
-    private TextView gum;
-    private TextView gun;
-    private TextView gur;
-    private LinearLayout gus;
+    private TextView dyo;
+    private TextView gIX;
+    private TextView gIY;
+    private TextView gJc;
+    private LinearLayout gJd;
     private TextView subTextView;
 
     public b(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
-        this.dko = (TextView) view.findViewById(R.id.chosen_no_picture_title);
-        this.gum = (TextView) view.findViewById(R.id.chosen_no_picture_praise);
-        this.gun = (TextView) view.findViewById(R.id.chosen_no_picture_comment);
-        this.gur = (TextView) view.findViewById(R.id.chosen_no_picture_head);
+        this.dyo = (TextView) view.findViewById(R.id.chosen_no_picture_title);
+        this.gIX = (TextView) view.findViewById(R.id.chosen_no_picture_praise);
+        this.gIY = (TextView) view.findViewById(R.id.chosen_no_picture_comment);
+        this.gJc = (TextView) view.findViewById(R.id.chosen_no_picture_head);
         this.subTextView = (TextView) view.findViewById(R.id.chosen_no_picture_sub);
-        this.gus = (LinearLayout) view.findViewById(R.id.chosen_no_picture_comment_line);
+        this.gJd = (LinearLayout) view.findViewById(R.id.chosen_no_picture_comment_line);
     }
 
     @Override // com.baidu.tieba.tbadkCore.r
@@ -45,21 +45,21 @@ public class b extends com.baidu.tbadk.mvc.f.a<tinfo, com.baidu.tbadk.mvc.d.b> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.mvc.f.e
     /* renamed from: a */
-    public void aj(final tinfo tinfoVar) {
-        super.aj(tinfoVar);
+    public void an(final tinfo tinfoVar) {
+        super.an(tinfoVar);
         if (StringUtils.isNull(tinfoVar.title)) {
-            this.gur.setVisibility(8);
+            this.gJc.setVisibility(8);
         } else {
-            this.gur.setVisibility(0);
-            this.gur.setText(tinfoVar.title);
+            this.gJc.setVisibility(0);
+            this.gJc.setText(tinfoVar.title);
         }
         if (StringUtils.isNull(tinfoVar.forum_name)) {
-            this.gus.setVisibility(8);
+            this.gJd.setVisibility(8);
         } else {
-            this.gus.setVisibility(0);
-            this.dko.setVisibility(0);
-            this.dko.setText(UtilHelper.getFixedText(getContext().getString(R.string.chosen_pb_original_bar, tinfoVar.forum_name), 7, false));
-            this.dko.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.chosen.posts.a.b.1
+            this.gJd.setVisibility(0);
+            this.dyo.setVisibility(0);
+            this.dyo.setText(UtilHelper.getFixedText(getContext().getString(R.string.chosen_pb_original_bar, tinfoVar.forum_name), 7, false));
+            this.dyo.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.chosen.posts.a.b.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     String str = tinfoVar.forum_name;
@@ -70,16 +70,16 @@ public class b extends com.baidu.tbadk.mvc.f.a<tinfo, com.baidu.tbadk.mvc.d.b> {
                 }
             });
             if (tinfoVar.zan_num == null) {
-                this.gum.setVisibility(8);
+                this.gIX.setVisibility(8);
             } else {
-                this.gum.setVisibility(0);
-                this.gum.setText(tinfoVar.zan_num + "");
+                this.gIX.setVisibility(0);
+                this.gIX.setText(tinfoVar.zan_num + "");
             }
             if (tinfoVar.reply_num == null) {
-                this.gun.setVisibility(8);
+                this.gIY.setVisibility(8);
             } else {
-                this.gun.setVisibility(0);
-                this.gun.setText(tinfoVar.reply_num + "");
+                this.gIY.setVisibility(0);
+                this.gIY.setText(tinfoVar.reply_num + "");
             }
         }
         if (StringUtils.isNull(tinfoVar._abstract)) {

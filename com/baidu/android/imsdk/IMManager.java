@@ -3,7 +3,6 @@ package com.baidu.android.imsdk;
 import android.content.Context;
 import com.baidu.android.imsdk.chatmessage.BindStateManager;
 import com.baidu.android.imsdk.internal.BaseManager;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
 import com.baidu.android.imsdk.internal.IMManagerImpl;
 import com.baidu.android.imsdk.internal.IMSettings;
@@ -23,7 +22,6 @@ public final class IMManager extends BaseManager implements NoProGuard {
             return false;
         }
         Context applicationContext = context.getApplicationContext();
-        Constants.setEnv(applicationContext, Constants.getEnv(applicationContext));
         boolean productLine = IMConfigInternal.getInstance().setProductLine(applicationContext, i);
         IMManagerImpl.getInstance(applicationContext);
         BindStateManager.activeUnBind(context);

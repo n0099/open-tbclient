@@ -15,7 +15,7 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 /* loaded from: classes.dex */
 public class e {
-    private static e bin;
+    private static e bpJ;
     private static String b = null;
     private static String c = null;
     private static final Set<String> d = new LinkedHashSet();
@@ -23,14 +23,14 @@ public class e {
     private e() {
     }
 
-    public static synchronized e JM() {
+    public static synchronized e LF() {
         e eVar;
         synchronized (e.class) {
-            if (bin == null) {
+            if (bpJ == null) {
                 b = Utils.f();
-                bin = new e();
+                bpJ = new e();
             }
-            eVar = bin;
+            eVar = bpJ;
         }
         return eVar;
     }
@@ -100,7 +100,7 @@ public class e {
         }
     }
 
-    public String[] JN() {
+    public String[] LG() {
         return (String[]) d.toArray(new String[d.size()]);
     }
 
@@ -127,11 +127,11 @@ public class e {
     }
 
     public String c(int i) {
-        d dv = dv(i);
-        if (dv == null) {
+        d dA = dA(i);
+        if (dA == null) {
             return null;
         }
-        return b + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dv.a() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dv.b() + ".zip";
+        return b + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dA.a() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dA.b() + ".zip";
     }
 
     public void d() {
@@ -164,11 +164,11 @@ public class e {
         return (i & 28) == i;
     }
 
-    public d dv(int i) {
+    public d dA(int i) {
         return LibsInfoDef.getAllGroupMap().get(Integer.valueOf(i));
     }
 
-    public boolean dw(int i) {
+    public boolean dB(int i) {
         return (i & 896) == i;
     }
 

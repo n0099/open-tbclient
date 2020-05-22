@@ -3,7 +3,7 @@ package com.baidu.swan.bdprivate.a;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.swan.apps.as.ag;
+import com.baidu.swan.apps.aq.ah;
 import com.baidu.webkit.internal.ETAG;
 import com.baidu.webkit.sdk.CookieManager;
 import com.baidu.webkit.sdk.CookieSyncManager;
@@ -17,20 +17,20 @@ import java.util.SimpleTimeZone;
 /* loaded from: classes11.dex */
 public class x {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public static String cAB = "cookieMap";
-    public static String cAC = "ptokenDomains";
-    public static String cAD = "bdussDomains";
+    public static String cNG = "cookieMap";
+    public static String cNH = "ptokenDomains";
+    public static String cNI = "bdussDomains";
 
-    public static void cH(Context context) {
-        cI(context);
+    public static void cV(Context context) {
+        cW(context);
     }
 
-    public static void cI(Context context) {
+    public static void cW(Context context) {
         if (context != null) {
-            String ct = a.ct(context);
-            String cA = a.cA(context);
-            b(context, ct, aqb());
-            c(context, cA, aqb());
+            String cH = a.cH(context);
+            String cO = a.cO(context);
+            b(context, cH, auJ());
+            c(context, cO, auJ());
         }
     }
 
@@ -45,23 +45,23 @@ public class x {
         }
         for (String str2 : list) {
             if (TextUtils.isEmpty(str)) {
-                buildBDUSSCookie = ag.getCookieStr(str2, "BDUSS", "deleted", 0L);
+                buildBDUSSCookie = ah.getCookieStr(str2, "BDUSS", "deleted", 0L);
             } else {
                 buildBDUSSCookie = buildBDUSSCookie(str2, str);
             }
-            n("http://www." + str2, buildBDUSSCookie, false);
+            p("http://www." + str2, buildBDUSSCookie, false);
         }
     }
 
     private static String buildBDUSSCookie(String str, String str2) {
-        return K(str, "BDUSS", str2);
+        return N(str, "BDUSS", str2);
     }
 
     private static String buildPtokenCookie(String str, String str2) {
-        return K(str, "PTOKEN", str2);
+        return N(str, "PTOKEN", str2);
     }
 
-    private static String K(String str, String str2, String str3) {
+    private static String N(String str, String str2, String str3) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(new Date());
         calendar.add(1, TextUtils.isEmpty(str3) ? -8 : 8);
@@ -85,22 +85,22 @@ public class x {
         }
         for (String str2 : list) {
             if (TextUtils.isEmpty(str)) {
-                buildPtokenCookie = ag.getCookieStr(str2, "PTOKEN", "deleted", 0L);
+                buildPtokenCookie = ah.getCookieStr(str2, "PTOKEN", "deleted", 0L);
             } else {
                 buildPtokenCookie = buildPtokenCookie(str2, str);
             }
-            n("http://www." + str2, buildPtokenCookie, false);
+            p("http://www." + str2, buildPtokenCookie, false);
         }
     }
 
-    private static void n(String str, String str2, boolean z) {
+    private static void p(String str, String str2, boolean z) {
         CookieManager.getInstance().setCookie(str, str2);
         if (z) {
             CookieSyncManager.getInstance().sync();
         }
     }
 
-    private static List<String> aqb() {
+    private static List<String> auJ() {
         ArrayList arrayList = new ArrayList();
         arrayList.add("baidu.com");
         arrayList.add("hao123.com");

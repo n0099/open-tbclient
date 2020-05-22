@@ -23,20 +23,21 @@ import com.baidu.webkit.sdk.WebViewFactoryProvider;
 import com.baidu.webkit.sdk.WebViewProvider;
 import com.baidu.webkit.sdk.location.ZeusGeoLocationInfo;
 import java.net.HttpURLConnection;
+import java.nio.ByteBuffer;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes11.dex */
 public final class WebViewSystemFactoryProvider extends WebViewFactoryProvider {
     private static final String LOGTAG = "WebViewSystemFactoryProvider";
-    private static WebViewSystemFactoryProvider mInstance = null;
+    private static WebViewSystemFactoryProvider mInstance;
+    private CookieManagerImpl mCookieManager;
+    private CookieSyncManagerImpl mCookieSyncManager;
+    private GeolocationPermissionsImpl mGeolocationPermissions;
     private final Object mLock = new Object();
-    private GeolocationPermissionsImpl mGeolocationPermissions = null;
-    private CookieManagerImpl mCookieManager = null;
-    private WebIconDatabaseImpl mWebIconDatabase = null;
-    private WebStorageImpl mWebStorage = null;
-    private WebViewDatabaseImpl mWebViewDatabase = null;
-    private CookieSyncManagerImpl mCookieSyncManager = null;
-    private MimeTypeMapImpl mMimeTypeMap = null;
+    private MimeTypeMapImpl mMimeTypeMap;
+    private WebIconDatabaseImpl mWebIconDatabase;
+    private WebStorageImpl mWebStorage;
+    private WebViewDatabaseImpl mWebViewDatabase;
 
     private WebViewSystemFactoryProvider() {
         if (this.mStaticWebSettings == null) {
@@ -185,6 +186,11 @@ public final class WebViewSystemFactoryProvider extends WebViewFactoryProvider {
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
+            public boolean getDitingMaxForceLoadSwitch() {
+                return false;
+            }
+
+            @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public String getDnsInfo(String str) {
                 return null;
             }
@@ -317,11 +323,6 @@ public final class WebViewSystemFactoryProvider extends WebViewFactoryProvider {
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public int getNQE() {
                 return 0;
-            }
-
-            @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
-            public boolean getNetworkChangeNotifyNative() {
-                return false;
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
@@ -539,6 +540,24 @@ public final class WebViewSystemFactoryProvider extends WebViewFactoryProvider {
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
+            public ByteBuffer kernelBrotliCreate(long[] jArr) {
+                return ByteBuffer.allocate(0);
+            }
+
+            @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
+            public void kernelBrotliDestroy(long[] jArr) {
+            }
+
+            @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
+            public ByteBuffer kernelBrotliPull(long[] jArr) {
+                return ByteBuffer.allocate(0);
+            }
+
+            @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
+            public void kernelBrotliPush(long[] jArr, int i) {
+            }
+
+            @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public void kernelEncrypt(byte[] bArr, int i, byte[] bArr2) {
             }
 
@@ -555,7 +574,7 @@ public final class WebViewSystemFactoryProvider extends WebViewFactoryProvider {
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
-            public void setAdBehaviourLimited(String str) {
+            public void setAbTestSwitch(String str) {
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
@@ -647,11 +666,19 @@ public final class WebViewSystemFactoryProvider extends WebViewFactoryProvider {
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
-            public void setHttpDnsCache(String str) {
+            public void setHttpDnsCache(String str, int i) {
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
-            public void setHttpDnsExtHostcache(String str) {
+            public void setHttpDnsDnFailed(String str) {
+            }
+
+            @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
+            public void setIPV6CheckList(String str) {
+            }
+
+            @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
+            public void setIPV6Timeout(int i) {
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
@@ -660,6 +687,10 @@ public final class WebViewSystemFactoryProvider extends WebViewFactoryProvider {
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public void setImproveContentCache(boolean z) {
+            }
+
+            @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
+            public void setIpv6First(boolean z) {
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
@@ -811,6 +842,10 @@ public final class WebViewSystemFactoryProvider extends WebViewFactoryProvider {
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
+            public void setWhiteAndBlackList(String str) {
+            }
+
+            @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public void setWormholeEnabled(boolean z) {
             }
 
@@ -864,7 +899,7 @@ public final class WebViewSystemFactoryProvider extends WebViewFactoryProvider {
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.Statics
-            public void crashIntentionally() {
+            public void crashIntentionally(int i) {
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.Statics
@@ -905,11 +940,6 @@ public final class WebViewSystemFactoryProvider extends WebViewFactoryProvider {
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.Statics
             public void initPageCacheCounts(Context context) {
-            }
-
-            @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.Statics
-            public boolean loadAdBlockModel(String str) {
-                return false;
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.Statics

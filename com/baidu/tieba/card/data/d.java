@@ -4,22 +4,22 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
 /* loaded from: classes.dex */
 public class d extends b implements p {
-    public String eQk = "";
+    public String evm = "";
     public int mPn = 0;
     public String mPageType = "";
-    public AdvertAppInfo gsg = null;
+    public AdvertAppInfo gGV = null;
 
-    @Override // com.baidu.adp.widget.ListView.m
+    @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.o
     public BdUniqueId getType() {
-        if (this.gsg != null && this.gsg.getType() == AdvertAppInfo.dmb) {
-            return AdvertAppInfo.dmh;
+        if (this.gGV != null && this.gGV.getType() == AdvertAppInfo.dAd) {
+            return AdvertAppInfo.dAj;
         }
-        if (this.gsg != null && this.gsg.legoCard != null) {
-            BdUniqueId bdUniqueId = AdvertAppInfo.dmk;
-            switch (this.gsg.legoCard.getGoodsStyle()) {
+        if (this.gGV != null && this.gGV.legoCard != null) {
+            BdUniqueId bdUniqueId = AdvertAppInfo.dAm;
+            switch (this.gGV.legoCard.getGoodsStyle()) {
                 case 2:
                 case 8:
-                    return AdvertAppInfo.dml;
+                    return AdvertAppInfo.dAn;
                 case 3:
                 case 4:
                 case 5:
@@ -29,13 +29,13 @@ public class d extends b implements p {
                 default:
                     return bdUniqueId;
                 case 6:
-                    return AdvertAppInfo.dmm;
+                    return AdvertAppInfo.dAo;
                 case 7:
-                    return AdvertAppInfo.dmn;
+                    return AdvertAppInfo.dAp;
                 case 12:
-                    return AdvertAppInfo.dmp;
+                    return AdvertAppInfo.dAr;
                 case 13:
-                    return AdvertAppInfo.dmo;
+                    return AdvertAppInfo.dAq;
             }
         }
         return null;
@@ -43,23 +43,23 @@ public class d extends b implements p {
 
     @Override // com.baidu.tieba.card.data.p
     public int getPosition() {
-        return com.baidu.adp.lib.f.b.toInt(this.gsg != null ? this.gsg.adPosition : "-1", -1);
+        return com.baidu.adp.lib.f.b.toInt(this.gGV != null ? this.gGV.adPosition : "-1", -1);
     }
 
     @Override // com.baidu.tieba.card.data.p
-    public boolean bFm() {
+    public boolean bLG() {
         return false;
     }
 
     @Override // com.baidu.tieba.card.data.p
-    public void lA(boolean z) {
+    public void lW(boolean z) {
     }
 
     @Override // com.baidu.tieba.card.data.p
-    public void lB(boolean z) {
+    public void lX(boolean z) {
     }
 
-    public AdvertAppInfo bFn() {
-        return this.gsg;
+    public AdvertAppInfo bLH() {
+        return this.gGV;
     }
 }

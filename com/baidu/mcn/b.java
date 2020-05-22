@@ -7,44 +7,44 @@ import java.util.HashSet;
 import java.util.Set;
 /* loaded from: classes.dex */
 public class b {
-    private static String bhp = com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("advert_hide_list");
-    private Set<String> bhq;
+    private static String boN = com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("advert_hide_list");
+    private Set<String> boO;
     private SharedPreferences mPreference;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        public static b bhr = new b();
+        public static b boP = new b();
     }
 
-    public static b JE() {
-        return a.bhr;
+    public static b Lx() {
+        return a.boP;
     }
 
     private b() {
         this.mPreference = TbadkCoreApplication.getInst().getSharedPreferences("mcn_advert_hide_list", 0);
     }
 
-    public void ft(String str) {
+    public void gf(String str) {
         if (!StringUtils.isNull(str)) {
-            this.bhq = this.mPreference.getStringSet(bhp, null);
-            if (this.bhq == null) {
-                this.bhq = new HashSet();
+            this.boO = this.mPreference.getStringSet(boN, null);
+            if (this.boO == null) {
+                this.boO = new HashSet();
             }
-            this.bhq.add(str);
-            this.mPreference.edit().putStringSet(bhp, this.bhq).commit();
+            this.boO.add(str);
+            this.mPreference.edit().putStringSet(boN, this.boO).commit();
         }
     }
 
-    public boolean fu(String str) {
+    public boolean gg(String str) {
         if (StringUtils.isNull(str)) {
             return false;
         }
-        if (this.bhq == null) {
-            this.bhq = this.mPreference.getStringSet(bhp, null);
+        if (this.boO == null) {
+            this.boO = this.mPreference.getStringSet(boN, null);
         }
-        if (this.bhq != null) {
-            return this.bhq.contains(str);
+        if (this.boO != null) {
+            return this.boO.contains(str);
         }
         return false;
     }

@@ -8,6 +8,7 @@ import com.baidu.cyberplayer.sdk.CyberTaskExcutor;
 import com.baidu.cyberplayer.sdk.SDKVersion;
 import com.baidu.cyberplayer.sdk.config.CyberCfgManager;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
+import com.baidu.webkit.internal.GlobalConstants;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Map;
@@ -22,7 +23,7 @@ public class b {
     public static void a(Context context, String str) {
         c = str;
         d = Utils.e(context);
-        e.JM().a(context, str);
+        e.LF().a(context, str);
     }
 
     private static void a(Context context, Map<String, String> map) {
@@ -58,7 +59,7 @@ public class b {
     }
 
     public static boolean a(int i) {
-        int b2 = e.JM().b(i);
+        int b2 = e.LF().b(i);
         return (a & b2) == b2;
     }
 
@@ -81,7 +82,7 @@ public class b {
     }
 
     public static String[] a() {
-        return e.JM().JN();
+        return e.LF().LG();
     }
 
     public static String b() {
@@ -140,8 +141,8 @@ public class b {
                 }
                 try {
                     try {
-                        File file = new File(e.JM().dv(1).c());
-                        File file2 = new File(e.JM().dv(2).c());
+                        File file = new File(e.LF().dA(1).c());
+                        File file2 = new File(e.LF().dA(2).c());
                         String parent = file.getParent();
                         String parent2 = file2.getParent();
                         try {
@@ -161,7 +162,7 @@ public class b {
                             file2.setExecutable(true);
                             CyberLog.d("CyberLibsLoader", "set " + file2.getAbsolutePath() + " executable");
                         }
-                        String[] strArr = {SDKVersion.VERSION, "neon", CyberPlayerManager.getClientID(), "unKnown", "0", "0", str2, "true", str, "10.0.0.0", parent, parent2};
+                        String[] strArr = {SDKVersion.VERSION, "neon", CyberPlayerManager.getClientID(), "unKnown", "0", "0", str2, "true", str, GlobalConstants.DEFAULT_VERSION, parent, parent2};
                         a.a(true);
                         a.a(CyberPlayerManager.getApplicationContext(), strArr);
                         String str4 = map.get("abtest_sid");
@@ -184,55 +185,55 @@ public class b {
     }
 
     public static void d(int i, Map<String, String> map) {
-        int b2 = e.JM().b(i);
+        int b2 = e.LF().b(i);
         if ((a & b2) == b2) {
             return;
         }
         for (int i2 = (a ^ b2) & b2; i2 > 0 && e(1 << Integer.numberOfTrailingZeros(i2), map); i2 = (a ^ b2) & b2) {
         }
-        e.JM().d();
+        e.LF().d();
     }
 
     private static boolean e(int i, Map<String, String> map) {
         boolean a2;
-        d dv = e.JM().dv(i);
-        if (dv == null) {
+        d dA = e.LF().dA(i);
+        if (dA == null) {
             CyberLog.e("CyberLibsLoader", "Unable to find (" + i + ") LibInfo");
             return false;
         }
-        String a3 = dv.a();
-        String b2 = dv.b();
-        String c2 = dv.c();
+        String a3 = dA.a();
+        String b2 = dA.b();
+        String c2 = dA.c();
         if (!new File(c2).exists()) {
             if (i == 8) {
                 i = 16;
             }
-            throw new FileNotFoundException(e.JM().c(i));
+            throw new FileNotFoundException(e.LF().c(i));
         }
-        if (e.JM().d(i)) {
+        if (e.LF().d(i)) {
             System.load(c2);
             if (i == 16) {
                 a(CyberPlayerManager.getApplicationContext(), map);
                 a2 = true;
             }
             a2 = true;
-        } else if (e.JM().e(i)) {
+        } else if (e.LF().e(i)) {
             IjkMediaPlayer.nativeSetEnableFFmpegExtend(c2);
             a2 = true;
-        } else if (e.JM().f(i)) {
+        } else if (e.LF().f(i)) {
             b = c2;
             a2 = true;
-        } else if (e.JM().h(i)) {
+        } else if (e.LF().h(i)) {
             a2 = c(i, map);
         } else {
-            if (e.JM().dw(i)) {
+            if (e.LF().dB(i)) {
                 a2 = a(i, c2);
             }
             a2 = true;
         }
         a |= i;
         if (a2) {
-            CyberLog.d("CyberLibsLoader", "isMediaProcess:" + d + " abi:" + e.JM().c() + " lib:" + a3 + " ver:" + b2 + " load success");
+            CyberLog.d("CyberLibsLoader", "isMediaProcess:" + d + " abi:" + e.LF().c() + " lib:" + a3 + " ver:" + b2 + " load success");
             return true;
         }
         return true;

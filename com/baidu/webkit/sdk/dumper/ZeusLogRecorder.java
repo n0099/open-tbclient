@@ -119,8 +119,6 @@ public class ZeusLogRecorder extends ZeusCrashHandler {
     private ZeusLogRecorder() {
         super(null);
         this.recordPrefName = ZeusLogUploader.RECORD_LOG;
-        this.isUploading = false;
-        this.isFilterLogRecord = false;
         this.list = new ArrayList();
         this.fileNameList = new ArrayList();
         this.lock = new ReentrantLock();
@@ -274,11 +272,9 @@ public class ZeusLogRecorder extends ZeusCrashHandler {
     }
 
     public static ZeusLogRecorder getInstance() {
-        if (instance == null) {
-            synchronized (ZeusLogRecorder.class) {
-                if (instance == null) {
-                    instance = new ZeusLogRecorder();
-                }
+        synchronized (ZeusLogRecorder.class) {
+            if (instance == null) {
+                instance = new ZeusLogRecorder();
             }
         }
         return instance;

@@ -8,94 +8,86 @@ import java.util.Iterator;
 /* loaded from: classes11.dex */
 public final class d {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static long cSf = -1;
+    private static long ddd = -1;
 
-    public static void ayw() {
-        if (!com.baidu.swan.apps.w.a.acz().Qr()) {
-            com.baidu.swan.apps.core.j.a.du(false);
-        } else if (!ayA()) {
-            SoLoader.loadV8EngineSo(AppRuntime.getAppContext());
+    public static boolean aCo() {
+        if (!com.baidu.swan.apps.u.a.afC().SV()) {
+            com.baidu.swan.apps.core.k.a.dJ(false);
+            return true;
+        } else if (!aCr()) {
+            return SoLoader.loadV8EngineSo(AppRuntime.getAppContext());
         } else {
-            com.baidu.swan.apps.w.a.acD().aE(a.cSg);
+            com.baidu.swan.apps.u.a.afG().aJ(a.dde);
+            return true;
         }
     }
 
-    public static void ayx() {
-        SoLoader.load(AppRuntime.getAppContext(), "audioengine");
+    public static boolean aCp() {
+        return SoLoader.load(AppRuntime.getAppContext(), "audioengine");
     }
 
-    public static void ayy() {
+    public static void aCq() {
         SoLoader.load(AppRuntime.getAppContext(), "arcore_sdk_c");
     }
 
-    public static void ayz() {
-        if (!com.baidu.swan.apps.w.a.acz().Qr()) {
-            com.baidu.swan.apps.core.j.a.du(false);
-        } else if (!ayA()) {
-            SoLoader.loadV8EngineSo(AppRuntime.getAppContext(), false);
-        } else {
-            com.baidu.swan.apps.w.a.acD().aE(a.cSg);
-        }
-    }
-
-    private static boolean ayA() {
-        boolean z = a.cSg > -1;
+    private static boolean aCr() {
+        boolean z = a.dde > -1;
         if (DEBUG) {
             Log.d("SwanSoLoader", "isNeedToLoadNewV8So: " + z);
         }
         return z;
     }
 
-    public static void ayB() {
-        com.baidu.swan.apps.w.a.acD().Pz();
+    public static void aCs() {
+        com.baidu.swan.apps.u.a.afG().Sq();
     }
 
     /* JADX WARN: Removed duplicated region for block: B:5:0x0012  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static void ayC() {
-        Iterator<com.baidu.swan.apps.process.messaging.service.c> it = com.baidu.swan.apps.process.messaging.service.e.ajB().ajD().iterator();
+    public static void aCt() {
+        Iterator<com.baidu.swan.apps.process.messaging.service.c> it = com.baidu.swan.apps.process.messaging.service.e.anp().anr().iterator();
         while (it.hasNext()) {
             com.baidu.swan.apps.process.messaging.service.c next = it.next();
-            if (next.ajs() || next.ajp()) {
+            if (next.ang() || next.and()) {
                 return;
             }
             while (it.hasNext()) {
             }
         }
-        com.baidu.swan.apps.w.a.acD().PA();
+        com.baidu.swan.apps.u.a.afG().Sr();
     }
 
-    public static String ayD() {
-        return com.baidu.swan.apps.w.a.acD().aF(a.cSg);
+    public static String aCu() {
+        return com.baidu.swan.apps.u.a.afG().aK(a.dde);
     }
 
-    public static void S(Bundle bundle) {
-        bundle.putLong("bundle_key_new_v8_so_switch", com.baidu.swan.apps.w.a.acD().PB());
+    public static void Y(Bundle bundle) {
+        bundle.putLong("bundle_key_new_v8_so_switch", com.baidu.swan.apps.u.a.afG().Ss());
     }
 
-    public static void B(Intent intent) {
+    public static void x(Intent intent) {
         if (intent != null && intent.hasExtra("bundle_key_new_v8_so_switch")) {
-            cSf = intent.getLongExtra("bundle_key_new_v8_so_switch", cSf);
+            ddd = intent.getLongExtra("bundle_key_new_v8_so_switch", ddd);
         }
         if (DEBUG) {
-            Log.i("SwanSoLoader", "updateNewV8SoEnabled: " + cSf);
+            Log.i("SwanSoLoader", "updateNewV8SoEnabled: " + ddd);
         }
     }
 
-    public static long PB() {
-        return a.cSg;
+    public static long Ss() {
+        return a.dde;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes11.dex */
     public static class a {
-        private static final long cSg = d.cSf;
+        private static final long dde = d.ddd;
 
         static {
             if (d.DEBUG) {
-                Log.i("SwanSoLoader", "CURRENT_V8_SO_VERSION: " + cSg);
+                Log.i("SwanSoLoader", "CURRENT_V8_SO_VERSION: " + dde);
             }
         }
     }

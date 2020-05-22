@@ -4,25 +4,25 @@ import android.graphics.drawable.Animatable;
 import javax.annotation.Nullable;
 /* loaded from: classes13.dex */
 public class a extends com.facebook.drawee.controller.b {
-    private long lVa = -1;
-    private long lVb = -1;
+    private long moT = -1;
+    private long moU = -1;
     @Nullable
-    private b lVc;
+    private b moV;
 
     public a(@Nullable b bVar) {
-        this.lVc = bVar;
+        this.moV = bVar;
     }
 
     @Override // com.facebook.drawee.controller.b, com.facebook.drawee.controller.c
     public void g(String str, Object obj) {
-        this.lVa = System.currentTimeMillis();
+        this.moT = System.currentTimeMillis();
     }
 
     @Override // com.facebook.drawee.controller.b, com.facebook.drawee.controller.c
     public void a(String str, @Nullable Object obj, @Nullable Animatable animatable) {
-        this.lVb = System.currentTimeMillis();
-        if (this.lVc != null) {
-            this.lVc.fM(this.lVb - this.lVa);
+        this.moU = System.currentTimeMillis();
+        if (this.moV != null) {
+            this.moV.fM(this.moU - this.moT);
         }
     }
 }

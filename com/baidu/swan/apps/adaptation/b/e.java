@@ -5,19 +5,19 @@ import com.baidu.searchbox.unitedscheme.TypedCallbackHandler;
 import com.baidu.swan.apps.adaptation.b.d;
 /* loaded from: classes11.dex */
 public interface e<T extends d> extends TypedCallbackHandler {
-    void D(Activity activity);
+    T Th();
 
-    T QD();
+    String Ti();
 
-    String QE();
+    String Tj();
 
-    String QF();
-
-    void QG();
+    void Tk();
 
     void a(com.baidu.swan.apps.core.b bVar);
 
     void a(com.baidu.swan.apps.core.f.c cVar);
+
+    void attachActivity(Activity activity);
 
     void b(com.baidu.swan.apps.core.f.c cVar);
 

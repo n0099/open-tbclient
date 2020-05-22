@@ -44,4 +44,9 @@ public class GetTsRequest extends FileMessageHttpRequest {
     public boolean shouldAbort() {
         return false;
     }
+
+    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
+    public String getContentType() {
+        return "application/x-www-form-urlencoded";
+    }
 }

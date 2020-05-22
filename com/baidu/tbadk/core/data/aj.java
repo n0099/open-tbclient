@@ -1,15 +1,23 @@
 package com.baidu.tbadk.core.data;
 
-import tbclient.LotteryTheme;
+import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
+import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
+import org.json.JSONObject;
+import tbclient.McnAdInfo;
 /* loaded from: classes.dex */
 public class aj {
-    private String doX;
-    private String mBgcolor;
-
-    public void a(LotteryTheme lotteryTheme) {
-        if (lotteryTheme != null) {
-            this.mBgcolor = lotteryTheme.bgcolor;
-            this.doX = lotteryTheme.bgimage;
+    public static McnAdInfo cy(JSONObject jSONObject) {
+        McnAdInfo.Builder builder = new McnAdInfo.Builder();
+        if (jSONObject != null) {
+            builder.ad_start_time = Long.valueOf(jSONObject.optLong(SharedPrefConfig.AD_START_TIME));
+            builder.ad_end_time = Long.valueOf(jSONObject.optLong(SharedPrefConfig.AD_END_TIME));
+            builder.pic_url = jSONObject.optString("pic_url");
+            builder.jump_url = jSONObject.optString(BigdayActivityConfig.JUMP_URL);
+            builder.card_title = jSONObject.optString("card_title");
+            builder.button_title = jSONObject.optString("button_title");
+            builder.effect_time = Long.valueOf(jSONObject.optLong("effect_time"));
+            builder.expire_time = Long.valueOf(jSONObject.optLong("expire_time"));
         }
+        return builder.build(true);
     }
 }

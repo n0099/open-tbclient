@@ -14,10 +14,10 @@ public class c extends b {
     }
 
     @Override // com.baidu.swan.apps.scheme.actions.b.b
-    protected void a(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str) {
+    protected void b(com.baidu.swan.apps.runtime.e eVar, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str) {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("isFavor", com.baidu.swan.apps.database.favorite.a.iP(this.cqB) ? 1 : 0);
+            jSONObject.put("isFavor", com.baidu.swan.apps.database.favorite.a.jW(this.cCs) ? 1 : 0);
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -25,14 +25,14 @@ public class c extends b {
     }
 
     @Override // com.baidu.swan.apps.scheme.actions.b.b
-    protected boolean o(UnitedSchemeEntity unitedSchemeEntity) {
+    protected boolean b(com.baidu.swan.apps.runtime.e eVar, UnitedSchemeEntity unitedSchemeEntity) {
         String param = unitedSchemeEntity.getParam("params");
         if (TextUtils.isEmpty(param)) {
             return false;
         }
         try {
-            this.cqB = new JSONObject(param).optString("appid");
-            return !TextUtils.isEmpty(this.cqB);
+            this.cCs = this.cCt ? eVar.getAppId() : new JSONObject(param).optString("appid");
+            return !TextUtils.isEmpty(this.cCs);
         } catch (JSONException e) {
             e.printStackTrace();
             return false;

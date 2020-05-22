@@ -10,9 +10,9 @@ import android.widget.Filterable;
 import android.widget.ListAdapter;
 import android.widget.WrapperListAdapter;
 import com.baidu.adp.widget.ListView.e;
-import com.baidu.adp.widget.ListView.n;
+import com.baidu.adp.widget.ListView.p;
 /* loaded from: classes3.dex */
-public class BdSimplePreLoadListAdapter extends BaseAdapter implements n {
+public class BdSimplePreLoadListAdapter extends BaseAdapter implements p {
     private DataSetObserver mAdapterDataSetObserver;
     private Context mContext;
     private ListAdapter mAdapter = null;
@@ -100,7 +100,7 @@ public class BdSimplePreLoadListAdapter extends BaseAdapter implements n {
         return this.mAdapter;
     }
 
-    @Override // android.widget.Adapter, com.baidu.adp.widget.ListView.n
+    @Override // android.widget.Adapter, com.baidu.adp.widget.ListView.p
     public int getCount() {
         if (this.mAdapter != null) {
             return this.mAdapter.getCount();
@@ -108,7 +108,7 @@ public class BdSimplePreLoadListAdapter extends BaseAdapter implements n {
         return 0;
     }
 
-    @Override // android.widget.Adapter, com.baidu.adp.widget.ListView.n
+    @Override // android.widget.Adapter, com.baidu.adp.widget.ListView.p
     public Object getItem(int i) {
         if (this.mAdapter != null) {
             return this.mAdapter.getItem(i);
@@ -137,7 +137,7 @@ public class BdSimplePreLoadListAdapter extends BaseAdapter implements n {
         return this.mAdapter != null ? this.mAdapter.hasStableIds() : super.hasStableIds();
     }
 
-    @Override // android.widget.BaseAdapter, com.baidu.adp.widget.ListView.n
+    @Override // android.widget.BaseAdapter, com.baidu.adp.widget.ListView.p
     public void notifyDataSetChanged() {
         super.notifyDataSetChanged();
         if (this.mAdapter instanceof BaseAdapter) {

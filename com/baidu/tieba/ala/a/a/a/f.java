@@ -5,15 +5,15 @@ import android.os.Build;
 import java.io.File;
 /* loaded from: classes3.dex */
 public class f {
-    public static void g(Context context, File file) {
-        bnd().g(context, file);
+    public static void i(Context context, File file) {
+        bsB().i(context, file);
     }
 
-    public static boolean h(Context context, File file) {
-        return bnd().h(context, file);
+    public static boolean j(Context context, File file) {
+        return bsB().j(context, file);
     }
 
-    private static a bnd() {
+    private static a bsB() {
         if (Build.VERSION.SDK_INT >= 26) {
             return new d();
         }

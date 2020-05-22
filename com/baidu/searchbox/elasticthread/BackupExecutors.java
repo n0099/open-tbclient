@@ -4,7 +4,7 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public class BackupExecutors {
     private static final int BACKUP_THREAD_POOL_CORE_SIZE = 15;
     private static volatile BackupExecutors sInstance = null;

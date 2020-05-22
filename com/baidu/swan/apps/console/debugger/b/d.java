@@ -1,40 +1,39 @@
 package com.baidu.swan.apps.console.debugger.b;
 
 import android.os.Bundle;
-import com.baidu.swan.apps.as.r;
+import com.baidu.swan.apps.aq.s;
 import com.baidu.swan.apps.runtime.e;
 /* loaded from: classes11.dex */
 public class d implements com.baidu.swan.apps.console.debugger.a {
-    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static String NZ;
+    private static String Oh;
 
-    public static String TO() {
-        return NZ;
+    public static String Wv() {
+        return Oh;
     }
 
     @Override // com.baidu.swan.apps.console.debugger.a
-    public String Tl() {
-        return b.Ts().getPath();
+    public String VS() {
+        return b.VZ().getPath();
     }
 
     @Override // com.baidu.swan.apps.console.debugger.a
-    public void n(Bundle bundle) {
-        NZ = r.e(bundle, "extraWSUrl");
-        com.baidu.swan.apps.console.debugger.b.hM(r.e(bundle, "masterPreload"));
-        com.baidu.swan.apps.console.debugger.b.hN(r.e(bundle, "slavePreload"));
+    public void p(Bundle bundle) {
+        Oh = s.f(bundle, "extraWSUrl");
+        com.baidu.swan.apps.console.debugger.b.iN(s.f(bundle, "masterPreload"));
+        com.baidu.swan.apps.console.debugger.b.iO(s.f(bundle, "slavePreload"));
     }
 
     @Override // com.baidu.swan.apps.console.debugger.a
-    public void o(Bundle bundle) {
-        bundle.putString("extraWSUrl", NZ);
-        bundle.putString("slavePreload", com.baidu.swan.apps.console.debugger.b.Tn());
-        bundle.putString("masterPreload", com.baidu.swan.apps.console.debugger.b.Tm());
+    public void q(Bundle bundle) {
+        bundle.putString("extraWSUrl", Oh);
+        bundle.putString("slavePreload", com.baidu.swan.apps.console.debugger.b.VU());
+        bundle.putString("masterPreload", com.baidu.swan.apps.console.debugger.b.VT());
     }
 
-    public static void TP() {
-        e akM = e.akM();
-        if (akM != null) {
-            com.baidu.swan.apps.as.c.P(akM.getActivity());
+    public static void Ww() {
+        e aoF = e.aoF();
+        if (aoF != null) {
+            com.baidu.swan.apps.aq.d.N(aoF.getActivity());
             System.exit(0);
         }
     }

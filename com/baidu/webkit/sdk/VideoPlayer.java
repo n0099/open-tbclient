@@ -6,11 +6,13 @@ import java.util.HashMap;
 /* loaded from: classes11.dex */
 public abstract class VideoPlayer {
     public static final int DATA_ID_ATTRIBUTE_ID = 8;
+    public static final int DATA_ID_AUTOPLAY = 15;
     public static final int DATA_ID_COOKIE = 3;
     public static final int DATA_ID_FIXED = 14;
     public static final int DATA_ID_HEIGHT = 13;
     public static final int DATA_ID_HIDE_URL_LOG = 4;
     public static final int DATA_ID_HTTP_HEADER = 7;
+    public static final int DATA_ID_PLAYER_EXT = 16;
     public static final int DATA_ID_PROXY = 6;
     public static final int DATA_ID_REFERRER = 9;
     public static final int DATA_ID_USER_AGENT = 2;
@@ -27,6 +29,7 @@ public abstract class VideoPlayer {
     public static final int ERROR_TYPE_OTHER = 1000;
     public static final int INFO_BUFFERING = 0;
     public static final int INFO_CANCEL_PLAY = 100;
+    public static final int INFO_ENTER_FULLSCREEN = 105;
     public static final int INFO_EXIT_FULLSCREEN = 101;
     public static final int INFO_NEED_FILTER_CLICK = 102;
     public static final int INFO_NET_SPEED = 1;
@@ -38,6 +41,7 @@ public abstract class VideoPlayer {
     public static final int NOTIFY_SET_RATE = 6;
     public static final int NOTIFY_SET_SURFACE = 3;
     public static final int NOTIFY_SET_VOLUME = 5;
+    public static final int NOTIFY_SET_ZEUS_VIDEO_EXT = 8;
     public static final int NOTIFY_UPDATE_VIDEO_RECT = 7;
     protected Context mContext;
     protected VideoPlayerListener mListener;

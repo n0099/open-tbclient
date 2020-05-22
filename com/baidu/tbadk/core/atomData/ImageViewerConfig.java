@@ -6,10 +6,9 @@ import android.graphics.Rect;
 import android.graphics.RectF;
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.a.b;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.core.data.bj;
+import com.baidu.tbadk.core.data.bk;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.coreExtra.view.ImageUrlData;
@@ -69,7 +68,6 @@ public class ImageViewerConfig extends IntentConfig {
     public ImageViewerConfig createConfig(ArrayList<String> arrayList, int i, String str, String str2, String str3, boolean z, String str4, boolean z2, ConcurrentHashMap<String, ImageUrlData> concurrentHashMap, boolean z3, boolean z4, boolean z5) {
         ImageUrlData imageUrlData;
         Intent intent = getIntent();
-        intent.putExtra("abtest", b.sY("picpage_content_clear"));
         intent.putExtra(START_ACTIVITY_TYPE, START_ACTIVITY_NORMAL);
         if (arrayList != null && arrayList.size() > 0) {
             intent.putExtra(IS_DATA_VALID, DATA_VALID);
@@ -188,13 +186,19 @@ public class ImageViewerConfig extends IntentConfig {
         return this;
     }
 
-    public ImageViewerConfig setThreadData(bj bjVar) {
+    public ImageViewerConfig setThreadData(bk bkVar) {
         Intent intent = getIntent();
-        if (bjVar != null && intent != null) {
-            intent.putExtra(IS_BJH, bjVar.aMy());
-            if (bjVar.aMy()) {
+        if (bkVar != null && intent != null) {
+            intent.putExtra(IS_BJH, bkVar.aSx());
+            if (bkVar.aSx()) {
                 intent.putExtra(PARAM_IS_CDN, true);
             }
+            getIntent().putExtra("nid", bkVar.getNid());
+            getIntent().putExtra(IntentConfig.CARD_TYPE, bkVar.aSA());
+            getIntent().putExtra(IntentConfig.RECOM_SOURCE, bkVar.mRecomSource);
+            getIntent().putExtra("ab_tag", bkVar.mRecomAbTag);
+            getIntent().putExtra("weight", bkVar.mRecomWeight);
+            getIntent().putExtra("extra", bkVar.mRecomExtra);
         }
         return this;
     }

@@ -1,7 +1,7 @@
 package com.kascend.chushou.widget;
 /* loaded from: classes5.dex */
 public class a {
-    public static int IB(int i) {
+    public static int Jm(int i) {
         if (i == 401) {
             return 5;
         }

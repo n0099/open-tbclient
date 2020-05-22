@@ -1,37 +1,38 @@
 package com.baidu.tieba.ala.live.b;
 
 import com.baidu.live.adp.base.BdBaseModel;
+import com.baidu.live.adp.framework.message.HttpResponsedMessage;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.pay.PayConfig;
 import com.baidu.live.tbadk.pay.channel.interfaces.PayChannelType;
 import java.util.HashMap;
 /* loaded from: classes3.dex */
 public abstract class a extends BdBaseModel {
-    private InterfaceC0503a fpv;
-    private HashMap<String, String> fpw;
-    private String fpx;
+    private InterfaceC0549a fDj;
+    private HashMap<String, String> fDk;
+    private String fDl;
     protected TbPageContext mPageContext;
     private PayChannelType mPayChannelType;
 
     /* renamed from: com.baidu.tieba.ala.live.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC0503a {
-        void a(PayChannelType payChannelType, int i, String str, int i2);
+    public interface InterfaceC0549a {
+        void a(PayChannelType payChannelType, int i, String str, int i2, HttpResponsedMessage httpResponsedMessage);
 
         void a(PayChannelType payChannelType, int i, String str, HashMap<String, String> hashMap, String str2, boolean z);
     }
 
-    public abstract void As(String str);
+    public abstract void BZ(String str);
 
     public abstract void a(PayConfig payConfig);
 
-    public abstract void bpM();
+    public abstract void bvE();
 
-    public a(TbPageContext tbPageContext, PayChannelType payChannelType, InterfaceC0503a interfaceC0503a) {
+    public a(TbPageContext tbPageContext, PayChannelType payChannelType, InterfaceC0549a interfaceC0549a) {
         super(tbPageContext);
         this.mPageContext = tbPageContext;
         this.mPayChannelType = payChannelType;
-        this.fpv = interfaceC0503a;
+        this.fDj = interfaceC0549a;
     }
 
     @Override // com.baidu.live.adp.base.BdBaseModel
@@ -46,32 +47,32 @@ public abstract class a extends BdBaseModel {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(int i, String str, String str2, HashMap<String, String> hashMap, String str3, boolean z) {
-        if (this.fpv != null) {
-            this.fpx = str2;
-            this.fpw = hashMap;
-            this.fpv.a(this.mPayChannelType, i, str, hashMap, str3, z);
+        if (this.fDj != null) {
+            this.fDl = str2;
+            this.fDk = hashMap;
+            this.fDj.a(this.mPayChannelType, i, str, hashMap, str3, z);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void e(int i, String str, int i2) {
-        if (this.fpv != null) {
-            this.fpv.a(this.mPayChannelType, i, str, i2);
+    public void a(int i, String str, int i2, HttpResponsedMessage httpResponsedMessage) {
+        if (this.fDj != null) {
+            this.fDj.a(this.mPayChannelType, i, str, i2, httpResponsedMessage);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void dg(String str, String str2) {
-        if (this.fpw != null && str != null) {
-            this.fpw.put(str, str2);
+    public void dE(String str, String str2) {
+        if (this.fDk != null && str != null) {
+            this.fDk.put(str, str2);
         }
     }
 
-    public HashMap<String, String> bpK() {
-        return this.fpw;
+    public HashMap<String, String> bvC() {
+        return this.fDk;
     }
 
-    public String bpN() {
-        return this.fpx;
+    public String bvF() {
+        return this.fDl;
     }
 }

@@ -7,13 +7,13 @@ import com.baidu.live.tbadk.encryption.EncryptionHelper;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class f {
-    public int aIQ;
-    public long aIR;
-    public boolean aJm;
-    public String aJn;
-    public String aJo;
-    public int aJp;
-    public String awj;
+    public String aBs;
+    public long aOA;
+    public boolean aOV;
+    public String aOW;
+    public String aOX;
+    public int aOY;
+    public int aOz;
     public String portrait;
     public String rank;
     public String score;
@@ -49,8 +49,8 @@ public class f {
                         this.userName = jSONObject.optString("user_name");
                         this.score = jSONObject.optString(GestureAR.SDK_TO_LUA_GESTURE_RESULT_SCORE);
                         this.rank = jSONObject.optString("rank");
-                        this.aJm = jSONObject.optInt("follow_status") != 1;
-                        this.aJn = jSONObject.optString("guard_club_id");
+                        this.aOV = jSONObject.optInt("follow_status") != 1;
+                        this.aOW = jSONObject.optString("guard_club_id");
                         String str6 = "0";
                         str2 = jSONObject.optString("anchor_id");
                         try {
@@ -61,19 +61,19 @@ public class f {
                             e = e2;
                             e.printStackTrace();
                             str2 = str6;
-                            this.awj = str2;
-                            this.aIQ = jSONObject.optInt("member_level");
-                            this.aIR = jSONObject.optLong("next_level_need_score");
+                            this.aBs = str2;
+                            this.aOz = jSONObject.optInt("member_level");
+                            this.aOA = jSONObject.optLong("next_level_need_score");
                             this.portrait = jSONObject.optString("portrait");
-                            this.aJo = jSONObject.optString("bd_portrait");
-                            this.aJp = jSONObject.optInt("attenuat_date");
+                            this.aOX = jSONObject.optString("bd_portrait");
+                            this.aOY = jSONObject.optInt("attenuat_date");
                         }
-                        this.awj = str2;
-                        this.aIQ = jSONObject.optInt("member_level");
-                        this.aIR = jSONObject.optLong("next_level_need_score");
+                        this.aBs = str2;
+                        this.aOz = jSONObject.optInt("member_level");
+                        this.aOA = jSONObject.optLong("next_level_need_score");
                         this.portrait = jSONObject.optString("portrait");
-                        this.aJo = jSONObject.optString("bd_portrait");
-                        this.aJp = jSONObject.optInt("attenuat_date");
+                        this.aOX = jSONObject.optString("bd_portrait");
+                        this.aOY = jSONObject.optInt("attenuat_date");
                     }
                 } catch (Exception e3) {
                     BdLog.e(e3.getMessage());
@@ -86,8 +86,8 @@ public class f {
             this.userName = jSONObject.optString("user_name");
             this.score = jSONObject.optString(GestureAR.SDK_TO_LUA_GESTURE_RESULT_SCORE);
             this.rank = jSONObject.optString("rank");
-            this.aJm = jSONObject.optInt("follow_status") != 1;
-            this.aJn = jSONObject.optString("guard_club_id");
+            this.aOV = jSONObject.optInt("follow_status") != 1;
+            this.aOW = jSONObject.optString("guard_club_id");
             String str62 = "0";
             try {
                 str2 = jSONObject.optString("anchor_id");
@@ -97,12 +97,12 @@ public class f {
             } catch (NumberFormatException e5) {
                 e = e5;
             }
-            this.awj = str2;
-            this.aIQ = jSONObject.optInt("member_level");
-            this.aIR = jSONObject.optLong("next_level_need_score");
+            this.aBs = str2;
+            this.aOz = jSONObject.optInt("member_level");
+            this.aOA = jSONObject.optLong("next_level_need_score");
             this.portrait = jSONObject.optString("portrait");
-            this.aJo = jSONObject.optString("bd_portrait");
-            this.aJp = jSONObject.optInt("attenuat_date");
+            this.aOX = jSONObject.optString("bd_portrait");
+            this.aOY = jSONObject.optInt("attenuat_date");
         }
     }
 }

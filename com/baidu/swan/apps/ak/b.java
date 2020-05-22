@@ -1,41 +1,33 @@
 package com.baidu.swan.apps.ak;
 
-import android.util.Log;
-import com.baidu.swan.apps.ak.c;
-import com.baidu.swan.apps.y.f;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import com.baidu.swan.apps.a;
 /* loaded from: classes11.dex */
 public final class b {
-    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static a crs;
+    private FrameLayout cFD = null;
 
-    public static void alX() {
-        c.bV(com.baidu.swan.apps.w.a.abN());
-        if (DEBUG) {
-            Log.d("SwanAppScreenshot", "registerScreenshotEvent.");
-        }
-        if (crs == null) {
-            crs = new a() { // from class: com.baidu.swan.apps.ak.b.1
-                @Override // com.baidu.swan.apps.ak.a
-                public void a(c.b bVar) {
-                    b.alZ();
-                }
-            };
-        }
-        c.a(crs);
-    }
-
-    public static void alY() {
-        if (DEBUG) {
-            Log.d("SwanAppScreenshot", "unRegisterScreenshotEvent.");
-        }
-        if (crs != null) {
-            c.b(crs);
-            crs = null;
+    public void v(ViewGroup viewGroup) {
+        if (viewGroup != null) {
+            if (this.cFD == null) {
+                this.cFD = new FrameLayout(viewGroup.getContext());
+                this.cFD.setBackgroundResource(a.c.aiapps_night_mode_cover_layer);
+            }
+            viewGroup.removeView(this.cFD);
+            viewGroup.addView(this.cFD, new FrameLayout.LayoutParams(-1, -1));
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public static void alZ() {
-        f.aeJ().a(new com.baidu.swan.apps.n.a.b("onUserCaptureScreen"));
+    public void w(ViewGroup viewGroup) {
+        if (viewGroup != null && this.cFD != null) {
+            viewGroup.removeView(this.cFD);
+            this.cFD = null;
+        }
+    }
+
+    public void setVisibility(int i) {
+        if (this.cFD != null) {
+            this.cFD.setVisibility(i);
+        }
     }
 }

@@ -26,6 +26,8 @@ import com.baidu.tieba.frs.ag;
 import com.baidu.tieba.frs.ah;
 /* loaded from: classes3.dex */
 public class AlaFrsLiveStatic {
+    public static String Tag = "tag";
+
     static {
         TbadkCoreApplication.getInst().RegisterIntent(AlaFrsStoryLiveGatherActivityConfig.class, AlaFrsStoryLiveGatherActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(AlaGameFrsLiveListActivityConfig.class, AlaGameFrsLiveListActivity.class);
@@ -59,7 +61,7 @@ public class AlaFrsLiveStatic {
                         aVar.setForumName(ahVar.getForumName());
                         aVar.setForumGameLabel(ahVar.getForumGameLabel());
                         aVar.setFromType(1);
-                        aVar.jB(false);
+                        aVar.jU(false);
                         ahVar.b(aVar);
                     }
                 }
@@ -79,8 +81,8 @@ public class AlaFrsLiveStatic {
                         aVar.setForumName(agVar.getForumName());
                         aVar.setForumGameLabel(agVar.getForumGameLabel());
                         aVar.setFromType(1);
-                        aVar.jB(true);
-                        if (agVar.tC(9)) {
+                        aVar.jU(true);
+                        if (agVar.uh(9)) {
                             agVar.b(aVar);
                         }
                     }
@@ -101,7 +103,7 @@ public class AlaFrsLiveStatic {
                         aVar.setForumName(ahVar.getForumName());
                         aVar.setForumGameLabel(ahVar.getForumGameLabel());
                         aVar.setFromType(2);
-                        aVar.jB(false);
+                        aVar.jU(false);
                         ahVar.b(aVar);
                     }
                 }
@@ -119,7 +121,7 @@ public class AlaFrsLiveStatic {
                         aVar.getFragmentTabStructure().type = 3;
                         aVar.setForumId(ahVar.getForumId());
                         aVar.setForumName(ahVar.getForumName());
-                        aVar.jC(false);
+                        aVar.jV(false);
                         ahVar.b(aVar);
                     }
                 }
@@ -138,8 +140,8 @@ public class AlaFrsLiveStatic {
                         aVar.getFragmentTabStructure().textResId = R.string.ala_video;
                         aVar.setForumId(agVar.getForumId());
                         aVar.setForumName(agVar.getForumName());
-                        aVar.jC(true);
-                        if (agVar.tC(8)) {
+                        aVar.jV(true);
+                        if (agVar.uh(8)) {
                             agVar.b(aVar);
                         }
                     }

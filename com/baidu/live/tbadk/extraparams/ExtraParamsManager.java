@@ -29,6 +29,7 @@ public class ExtraParamsManager {
     public static final String KEY_GET_WALLET_SDK_UA = "getWalletSdkUa";
     public static final String KEY_GO_FEED_BACK = "goFeedBack";
     public static final String KEY_GO_SHARE_WITH_CHANNEL = "go_share_with_channel";
+    public static final String KEY_GO_USER_INFO = "go_user_info";
     public static final String KEY_ID = "id";
     public static final String KEY_PARAMS_JSON = "params_json";
     public static final String KEY_PROCESS_PLUGIN_ASYNC_CALLBACK = "process_plugin_async_callback";

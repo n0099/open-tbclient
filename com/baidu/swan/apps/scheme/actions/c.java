@@ -6,14 +6,14 @@ import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.apps.as.ai;
+import com.baidu.swan.apps.aq.aj;
 /* loaded from: classes11.dex */
-public class c extends ab {
+public class c extends aa {
     public c(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swanAPI/applyUpdate");
     }
 
-    @Override // com.baidu.swan.apps.scheme.actions.ab
+    @Override // com.baidu.swan.apps.scheme.actions.aa
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
         if (eVar == null) {
             com.baidu.swan.apps.console.c.e("applyUpdate", "swanApp is null");
@@ -31,7 +31,7 @@ public class c extends ab {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty launchScheme");
                 return false;
             }
-            ai.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.scheme.actions.c.1
+            aj.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.scheme.actions.c.1
                 @Override // java.lang.Runnable
                 public void run() {
                     com.baidu.swan.games.utils.a.m(swanAppActivity);

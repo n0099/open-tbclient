@@ -438,8 +438,8 @@ public class ChatMsgManager extends BaseManager {
         ChatMsgManagerImpl.getInstance(context).fetchMsgRequst(j, j2, i, j3, j4, j5, i2, iFetchMsgByIdListener);
     }
 
-    public static void fetchMsgByHostRequst(Context context, long j, long j2, int i, long j3, long j4, long j5, int i2, IFetchMsgByIdListener iFetchMsgByIdListener) {
-        ChatMsgManagerImpl.getInstance(context).fetchMsgByHostRequst(j, j2, i, j3, j4, j5, i2, iFetchMsgByIdListener);
+    public static void fetchMsgByHostRequst(Context context, long j, int i, long j2, long j3, long j4, int i2, IFetchMsgByIdListener iFetchMsgByIdListener) {
+        ChatMsgManagerImpl.getInstance(context).fetchMsgByHostRequst(j, i, j2, j3, j4, i2, iFetchMsgByIdListener);
     }
 
     public static void setInterActiveMsgStatus(Context context, long j, long j2, int i, int i2) {

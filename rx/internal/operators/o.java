@@ -3,7 +3,7 @@ package rx.internal.operators;
 import rx.d;
 /* loaded from: classes6.dex */
 public final class o<T> implements d.b<T, T> {
-    final rx.functions.g<? super T, ? super Integer, Boolean> nmj;
+    final rx.functions.g<? super T, ? super Integer, Boolean> nHj;
 
     @Override // rx.functions.f
     public /* bridge */ /* synthetic */ Object call(Object obj) {
@@ -15,28 +15,28 @@ public final class o<T> implements d.b<T, T> {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // rx.functions.g
             /* renamed from: a */
-            public Boolean n(T t, Integer num) {
+            public Boolean o(T t, Integer num) {
                 return (Boolean) rx.functions.f.this.call(t);
             }
         });
     }
 
     public o(rx.functions.g<? super T, ? super Integer, Boolean> gVar) {
-        this.nmj = gVar;
+        this.nHj = gVar;
     }
 
     public rx.j<? super T> call(final rx.j<? super T> jVar) {
         rx.j jVar2 = (rx.j<T>) new rx.j<T>(jVar, false) { // from class: rx.internal.operators.o.2
             private boolean done;
-            private int mYR;
+            private int ntT;
 
             @Override // rx.e
             public void onNext(T t) {
                 try {
-                    rx.functions.g<? super T, ? super Integer, Boolean> gVar = o.this.nmj;
-                    int i = this.mYR;
-                    this.mYR = i + 1;
-                    if (gVar.n(t, Integer.valueOf(i)).booleanValue()) {
+                    rx.functions.g<? super T, ? super Integer, Boolean> gVar = o.this.nHj;
+                    int i = this.ntT;
+                    this.ntT = i + 1;
+                    if (gVar.o(t, Integer.valueOf(i)).booleanValue()) {
                         jVar.onNext(t);
                         return;
                     }

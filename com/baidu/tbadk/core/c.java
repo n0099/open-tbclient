@@ -34,7 +34,7 @@ public class c {
     private Resources pluginRes;
     private boolean isNightMode = false;
     Map<String, b> viewModeInfos = new HashMap();
-    public boolean dkZ = false;
+    public boolean dyZ = false;
 
     public void initModeInfos(String str, Context context, AttributeSet attributeSet) {
         int[] resID;
@@ -297,7 +297,7 @@ public class c {
 
     private Drawable getDrawable(boolean z, int i, int i2) {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        if (skinType == 2 || (!this.dkZ && skinType == 4)) {
+        if (skinType == 2 || (!this.dyZ && skinType == 4)) {
             return am.getDrawable(i);
         }
         if (!z) {
@@ -333,7 +333,7 @@ public class c {
 
     private int getColor(boolean z, int i, int i2) {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        if (skinType == 2 || (!this.dkZ && skinType == 4)) {
+        if (skinType == 2 || (!this.dyZ && skinType == 4)) {
             return am.getColor(i);
         }
         if (!z) {
@@ -355,7 +355,7 @@ public class c {
 
     private ColorStateList getColorList(boolean z, int i, int i2) {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        if (skinType == 2 || (!this.dkZ && skinType == 4)) {
+        if (skinType == 2 || (!this.dyZ && skinType == 4)) {
             return am.getColorList(i);
         }
         if (!z) {

@@ -1,24 +1,36 @@
 package com.baidu.fsg.face.base.d;
 
 import android.content.Context;
+import android.os.Environment;
+import com.baidu.fsg.base.ApollonConstants;
 import java.io.File;
 import java.io.IOException;
 /* loaded from: classes4.dex */
 public class g {
-    public static final String a = "SapiBioFileUtils";
-    public static final String b = "liveness_video.mp4";
-    private static final String c = "BI0_VIDEO";
+    public static boolean a = ApollonConstants.VIDEO_DEBUG;
+    public static final String b = "SapiBioFileUtils";
+    public static final String c = "liveness_video.mp4";
+    public static final String d = "liveness_action_video.mp4";
+    private static final String e = "BI0_VIDEO";
 
-    private static String c(Context context) {
-        return context.getDir(c, 0).getAbsolutePath();
+    private static String d(Context context) {
+        return context.getDir(e, 0).getAbsolutePath();
     }
 
     public static String a(Context context) {
-        return context.getDir(c, 0).getAbsolutePath();
+        return context.getDir(e, 0).getAbsolutePath();
     }
 
     public static String b(Context context) {
-        return a(context) + File.separator + b;
+        return (a ? a() : a(context)) + File.separator + c;
+    }
+
+    public static String a() {
+        return Environment.getExternalStorageDirectory().getAbsolutePath();
+    }
+
+    public static String c(Context context) {
+        return (a ? a() : a(context)) + File.separator + d;
     }
 
     public static String a(String str, String str2) {
@@ -48,8 +60,8 @@ public class g {
     public static boolean a(File file) {
         try {
             return file.delete();
-        } catch (Exception e) {
-            d.a(e);
+        } catch (Exception e2) {
+            d.a(e2);
             return false;
         }
     }
@@ -66,7 +78,7 @@ public class g {
         	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:45)
         	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
         */
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [125=5, 126=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [142=5, 143=4] */
     public static boolean a(java.io.File r3, byte[] r4, boolean r5) throws java.io.IOException {
         /*
             r0 = 0

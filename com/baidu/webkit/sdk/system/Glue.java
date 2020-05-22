@@ -161,7 +161,6 @@ final class Glue {
     }
 
     static {
-        ImmutableField = null;
         try {
             Field declaredField = WebResourceResponse.class.getDeclaredField("mImmutable");
             ImmutableField = declaredField;

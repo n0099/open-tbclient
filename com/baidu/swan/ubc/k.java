@@ -1,47 +1,134 @@
 package com.baidu.swan.ubc;
 
-import android.content.Context;
-import java.util.concurrent.ExecutorService;
+import android.text.TextUtils;
 import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes11.dex */
-public interface k {
-    void C(String str, int i);
+public class k {
+    private long YT;
+    private int dpY;
+    private JSONObject dpZ;
+    private String dqa;
+    private boolean dqb = false;
+    private JSONArray dqd;
+    private String mCategory;
+    private String mContent;
+    private long mEndTime;
+    private String mId;
+    private boolean mIsSampled;
+    private int mOption;
+    private String mState;
 
-    int Ol();
+    public k() {
+    }
 
-    ExecutorService PC();
+    public k(String str, int i, String str2, int i2, boolean z) {
+        this.mId = str;
+        this.dpY = i;
+        this.mContent = str2;
+        this.mOption = i2;
+        this.mIsSampled = z;
+    }
 
-    l Qp();
+    public String getId() {
+        return this.mId;
+    }
 
-    void a(String str, int i, JSONArray jSONArray);
+    public int aIt() {
+        return this.dpY;
+    }
 
-    void a(String str, String str2, int i, String str3, int i2);
+    public String getContent() {
+        return this.mContent;
+    }
 
-    void a(String str, String str2, int i, String str3, long j, int i2);
+    public JSONObject aIv() {
+        return this.dpZ;
+    }
 
-    String acN();
+    public long aIA() {
+        return this.YT;
+    }
 
-    String ahx();
+    public long getEndTime() {
+        return this.mEndTime;
+    }
 
-    boolean ahy();
+    public String aIB() {
+        return this.mState;
+    }
 
-    boolean ahz();
+    public int getOption() {
+        return this.mOption;
+    }
 
-    String bQ(Context context);
+    public String aIu() {
+        return this.dqa;
+    }
 
-    void c(String str, Object obj, int i);
+    public void setId(String str) {
+        this.mId = str;
+    }
 
-    void f(String str, int i, String str2);
+    public void jy(int i) {
+        this.dpY = i;
+    }
 
-    String getAppId();
+    public void setContent(String str) {
+        this.mContent = str;
+    }
 
-    String getAppVersion();
+    public void bR(long j) {
+        this.YT = j;
+    }
 
-    String getDeviceId(Context context);
+    public void setEndTime(long j) {
+        this.mEndTime = j;
+    }
 
-    String getHostName();
+    public void tP(String str) {
+        this.mState = str;
+    }
 
-    String getUserId(Context context);
+    public void tQ(String str) {
+        this.dqa = str;
+    }
 
-    boolean kV(String str);
+    public void aIx() {
+        if (d.aId().tF(this.mId)) {
+            this.dqa = e.aIh().akR();
+        }
+    }
+
+    public void setCategory(String str) {
+        this.mCategory = str;
+    }
+
+    public String getCategory() {
+        return this.mCategory;
+    }
+
+    public void gn(boolean z) {
+        this.dqb = z;
+    }
+
+    public boolean aIq() {
+        return this.dqb;
+    }
+
+    public void tR(String str) {
+        if (!TextUtils.isEmpty(str)) {
+            try {
+                this.dqd = new JSONArray(str);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public JSONArray aIC() {
+        return this.dqd;
+    }
 }

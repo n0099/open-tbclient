@@ -13,13 +13,13 @@ import com.baidu.live.utils.i;
 /* loaded from: classes3.dex */
 public class b {
     private long count;
-    private com.baidu.tieba.ala.liveroom.operation.b fwF;
-    private TextView fyE;
-    private ImageView fyF;
+    private com.baidu.tieba.ala.liveroom.operation.b fKC;
+    private TextView fMF;
+    private ImageView fMG;
     private boolean isHost;
     private Context mContext;
     private View mView = null;
-    private boolean fyG = true;
+    private boolean fMH = true;
 
     public b(Context context, boolean z) {
         this.isHost = false;
@@ -32,26 +32,26 @@ public class b {
         this.mView = View.inflate(this.mContext, a.h.ala_liveroom_audience_count_layout, null);
         this.mView.setMinimumWidth(this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds90));
         this.mView.setId(a.g.ala_liveroom_audience_count_layout);
-        this.fyE = (TextView) this.mView.findViewById(a.g.ala_live_room_audience_count);
-        this.fyF = (ImageView) this.mView.findViewById(a.g.close_imageView);
+        this.fMF = (TextView) this.mView.findViewById(a.g.ala_live_room_audience_count);
+        this.fMG = (ImageView) this.mView.findViewById(a.g.close_imageView);
         if (TbadkCoreApplication.getInst().isHaokan() || TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isTieba() || TbadkCoreApplication.getInst().isMobileBaidu()) {
-            this.fyF.setVisibility(0);
-            this.fyF.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.audiencelist.b.1
+            this.fMG.setVisibility(0);
+            this.fMG.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.audiencelist.b.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (b.this.fwF != null) {
-                        b.this.fwF.l(view, 8);
+                    if (b.this.fKC != null) {
+                        b.this.fKC.l(view, 8);
                     }
                 }
             });
         } else {
-            this.fyF.setVisibility(8);
+            this.fMG.setVisibility(8);
         }
-        this.fyE.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.audiencelist.b.2
+        this.fMF.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.audiencelist.b.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (b.this.fwF != null) {
-                    b.this.fwF.l(view, 14);
+                if (b.this.fKC != null) {
+                    b.this.fKC.l(view, 14);
                 }
             }
         });
@@ -61,7 +61,7 @@ public class b {
         if (this.mView.getParent() != null) {
             ((ViewGroup) this.mView.getParent()).removeView(this.mView);
         }
-        dk(j);
+        dm(j);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds72));
         layoutParams.addRule(11);
         layoutParams.addRule(8, i);
@@ -70,27 +70,27 @@ public class b {
     }
 
     public void setVisible(int i) {
-        if (this.fyG) {
+        if (this.fMH) {
             this.mView.setVisibility(i);
         } else {
             this.mView.setVisibility(8);
         }
     }
 
-    public void kk(boolean z) {
+    public void kE(boolean z) {
         if (z) {
-            this.fyF.setVisibility(0);
+            this.fMG.setVisibility(0);
         } else {
-            this.fyF.setVisibility(8);
+            this.fMG.setVisibility(8);
         }
     }
 
-    public void dk(long j) {
+    public void dm(long j) {
         if (j < 0) {
             j = 0;
         }
         this.count = j;
-        this.fyE.setText(i.numFormatOverWanNaForAudienceNum(j));
+        this.fMF.setText(i.numFormatOverWanNaForAudienceNum(j));
     }
 
     public long getCount() {
@@ -98,12 +98,12 @@ public class b {
     }
 
     public void a(com.baidu.tieba.ala.liveroom.operation.b bVar) {
-        this.fwF = bVar;
+        this.fKC = bVar;
     }
 
-    public void kl(boolean z) {
-        if (this.fyE != null) {
-            this.fyE.setEnabled(z);
+    public void kF(boolean z) {
+        if (this.fMF != null) {
+            this.fMF.setEnabled(z);
         }
     }
 }

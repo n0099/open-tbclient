@@ -7,6 +7,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.swan.apps.api.a.b;
+import com.baidu.swan.apps.api.module.network.SwanApiNetworkV8Module;
 import java.lang.ref.WeakReference;
 import java.util.Map;
 /* loaded from: classes11.dex */
@@ -33,73 +34,83 @@ public class a implements b {
 
     @Override // com.baidu.swan.apps.api.a.b
     @NonNull
-    public CallbackHandler Rq() {
+    public CallbackHandler TQ() {
         return this.mCallbackHandler;
     }
 
     @Override // com.baidu.swan.apps.api.a.b
     @NonNull
-    public com.baidu.swan.apps.core.container.a Rr() {
+    public com.baidu.swan.apps.core.container.a TR() {
         return this.mJSContainer;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:18:0x0053 A[Catch: Exception -> 0x0028, TryCatch #0 {Exception -> 0x0028, blocks: (B:3:0x0004, B:7:0x001b, B:9:0x001f, B:10:0x0027, B:18:0x0053, B:19:0x005b, B:21:0x0061, B:23:0x0077, B:25:0x007b, B:26:0x0083, B:28:0x0086, B:30:0x008a, B:31:0x0092, B:32:0x0093, B:34:0x009a, B:35:0x00b5, B:37:0x00b9, B:39:0x00c4, B:16:0x004e), top: B:41:0x0004 }] */
-    /* JADX WARN: Removed duplicated region for block: B:7:0x001b A[Catch: Exception -> 0x0028, TryCatch #0 {Exception -> 0x0028, blocks: (B:3:0x0004, B:7:0x001b, B:9:0x001f, B:10:0x0027, B:18:0x0053, B:19:0x005b, B:21:0x0061, B:23:0x0077, B:25:0x007b, B:26:0x0083, B:28:0x0086, B:30:0x008a, B:31:0x0092, B:32:0x0093, B:34:0x009a, B:35:0x00b5, B:37:0x00b9, B:39:0x00c4, B:16:0x004e), top: B:41:0x0004 }] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void a(@NonNull com.baidu.swan.apps.core.container.a aVar) {
+    public final void a(@NonNull com.baidu.swan.apps.core.container.a aVar) {
+        if (aVar instanceof com.baidu.swan.games.f.b) {
+            a((com.baidu.swan.games.f.b) aVar);
+        } else {
+            b(aVar);
+        }
+    }
+
+    private void a(@NonNull com.baidu.swan.games.f.b bVar) {
+        a(bVar, SwanApi$$ModulesProvider.getV8ApiModules(this), com.baidu.swan.apps.u.a.afr().getV8ApiModules(this));
+    }
+
+    private void b(@NonNull com.baidu.swan.apps.core.container.a aVar) {
+        a(aVar, SwanApi$$ModulesProvider.getWebviewApiModules(this), com.baidu.swan.apps.u.a.afr().getWebviewApiModules(this));
+    }
+
+    private void a(@NonNull com.baidu.swan.apps.core.container.a aVar, Map<String, Object> map, Map<String, Object> map2) {
         long currentTimeMillis = System.currentTimeMillis();
-        try {
-            Map<String, Object> apiModules = new SwanApi$$ModulesProvider(this).getApiModules();
-            Map<String, Object> a = com.baidu.swan.apps.w.a.aco().a(this);
-            if (a != null) {
-                if (apiModules != null) {
-                    apiModules.putAll(a);
-                }
-                if (a != null) {
+        if (map2 != null) {
+            if (map == null) {
+                map = map2;
+            } else {
+                try {
+                    map.putAll(map2);
+                } catch (Exception e) {
+                    e.printStackTrace();
                     if (DEBUG) {
-                        throw new RuntimeException("bindSwanAppApis fail: api modules is null");
+                        throw new RuntimeException("doBindSwanApis fail: " + e.getMessage());
                     }
                     return;
                 }
-                for (Map.Entry<String, Object> entry : a.entrySet()) {
-                    String key = entry.getKey();
-                    Object value = entry.getValue();
-                    if (TextUtils.isEmpty(key)) {
-                        if (DEBUG) {
-                            throw new RuntimeException("bindSwanAppApis fail: moduleName is empty");
-                        }
-                    } else if (value == null) {
-                        if (DEBUG) {
-                            throw new RuntimeException("bindSwanAppApis fail: module obj is null");
-                        }
-                    } else {
-                        aVar.addJavascriptInterface(value, key);
-                        if (DEBUG) {
-                            Log.d("Api-Binder", "bindSwanAppApis: bound " + key);
-                        }
-                    }
-                }
-                if (DEBUG) {
-                    long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
-                    if (currentTimeMillis2 > 5) {
-                        Log.w("Api-Binder", "bindSwanAppApis: 耗时 " + currentTimeMillis2 + "ms");
-                        return;
-                    }
-                    return;
-                }
-                return;
-            }
-            a = apiModules;
-            if (a != null) {
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-            if (DEBUG) {
-                throw new RuntimeException("bindSwanAppApis fail: " + e.getMessage());
             }
         }
+        if (map == null) {
+            if (DEBUG) {
+                throw new RuntimeException("doBindSwanApis fail: api modules cannot be null");
+            }
+            return;
+        }
+        for (Map.Entry<String, Object> entry : map.entrySet()) {
+            String key = entry.getKey();
+            Object value = entry.getValue();
+            if (TextUtils.isEmpty(key)) {
+                if (DEBUG) {
+                    throw new RuntimeException("doBindSwanApis fail: moduleName cannot be empty");
+                }
+            } else if (value == null) {
+                if (DEBUG) {
+                    throw new RuntimeException("doBindSwanApis fail: module obj cannot be null");
+                }
+            } else {
+                aVar.addJavascriptInterface(value, key);
+                if (DEBUG) {
+                    Log.d("Api-Binder", "doBindSwanApis(" + (aVar instanceof com.baidu.swan.games.f.b ? "V8" : "Webview") + "): bound " + key);
+                }
+            }
+        }
+        if (DEBUG) {
+            long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
+            if (currentTimeMillis2 > 5) {
+                Log.w("Api-Binder", "doBindSwanApis: 耗时 " + currentTimeMillis2 + "ms");
+            }
+        }
+    }
+
+    public void c(@NonNull com.baidu.swan.apps.core.container.a aVar) {
+        aVar.addJavascriptInterface(new SwanApiNetworkV8Module(this), SwanApiNetworkV8Module.MODULE_NAME);
     }
 
     public void setActivityRef(Activity activity) {

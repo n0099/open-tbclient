@@ -5,18 +5,19 @@ import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.tbadk.core.util.an;
 /* loaded from: classes.dex */
 public class y {
-    public String ahO;
-    public String dop;
-    public String eQk;
-    public String kir;
-    public String kis;
-    public String kit;
-    public int kiu;
-    public String kiv;
-    public String kiw;
-    public String kix;
-    public String kiy;
-    public String kiz;
+    public String ais;
+    public String dCp;
+    public String evm;
+    public String kAl;
+    public String kAm;
+    public String kAn;
+    public int kAo;
+    public String kAp;
+    public String kAq;
+    public String kAr;
+    public String kAs;
+    public String kAt;
+    public String kAu;
     public String mExtra;
     public String mFloor;
     public String mGroupId;
@@ -30,90 +31,92 @@ public class y {
     public an f(an anVar) {
         if (anVar != null) {
             if (!StringUtils.isNull(this.mLocate)) {
-                anVar.cI("obj_locate", this.mLocate);
+                anVar.dh("obj_locate", this.mLocate);
             }
-            if (!StringUtils.isNull(this.ahO)) {
-                anVar.cI("tid", this.ahO);
+            if (!StringUtils.isNull(this.ais)) {
+                anVar.dh("tid", this.ais);
             }
-            if (!StringUtils.isNull(this.eQk)) {
-                anVar.cI("fid", this.eQk);
+            if (!StringUtils.isNull(this.evm)) {
+                anVar.dh("fid", this.evm);
             }
             if (!StringUtils.isNull(this.mUid)) {
-                anVar.cI("uid", this.mUid);
+                anVar.dh("uid", this.mUid);
             }
             if (!StringUtils.isNull(this.mSource)) {
-                anVar.cI("obj_source", this.mSource);
+                anVar.dh("obj_source", this.mSource);
             } else {
-                anVar.af("obj_source", 0);
+                anVar.ag("obj_source", 0);
             }
-            if (!StringUtils.isNull(this.kir)) {
-                anVar.cI("obj_param1", this.kir);
+            if (!StringUtils.isNull(this.kAl)) {
+                anVar.dh("obj_param1", this.kAl);
             } else {
-                anVar.af("obj_param1", 0);
+                anVar.ag("obj_param1", 0);
             }
-            if (!StringUtils.isNull(this.kis)) {
-                anVar.cI(TiebaInitialize.Params.OBJ_PARAM2, this.kis);
+            if (!StringUtils.isNull(this.kAm)) {
+                anVar.dh(TiebaInitialize.Params.OBJ_PARAM2, this.kAm);
             }
-            if (!StringUtils.isNull(this.kit)) {
-                anVar.cI(TiebaInitialize.Params.OBJ_PARAM3, this.kit);
+            if (!StringUtils.isNull(this.kAn)) {
+                anVar.dh(TiebaInitialize.Params.OBJ_PARAM3, this.kAn);
             }
-            if (this.kiu > 0) {
-                anVar.af("obj_param5", this.kiu);
+            if (this.kAo > 0) {
+                anVar.ag("obj_param5", this.kAo);
             }
-            if (!StringUtils.isNull(this.dop)) {
-                anVar.cI("obj_id", this.dop);
+            if (!StringUtils.isNull(this.dCp)) {
+                anVar.dh("obj_id", this.dCp);
             }
-            if (!StringUtils.isNull(this.kiv)) {
-                anVar.cI(TiebaInitialize.Params.AB_TAG, this.kiv);
+            if (!StringUtils.isNull(this.kAp)) {
+                anVar.dh("ab_tag", this.kAp);
             } else {
-                anVar.af(TiebaInitialize.Params.AB_TAG, 0);
+                anVar.ag("ab_tag", 0);
             }
-            if (!StringUtils.isNull(this.kix)) {
-                anVar.cI("topic_type", this.kix);
+            if (!StringUtils.isNull(this.kAr)) {
+                anVar.dh("topic_type", this.kAr);
             }
             if (!StringUtils.isNull(this.mExtra)) {
-                anVar.cI("extra", this.mExtra);
+                anVar.dh("extra", this.mExtra);
             } else {
-                anVar.af("extra", 0);
+                anVar.ag("extra", 0);
             }
-            if (!StringUtils.isNull(this.kiy)) {
-                anVar.cI("is_vertical", this.kiy);
+            if (!StringUtils.isNull(this.kAs)) {
+                anVar.dh("is_vertical", this.kAs);
             }
             if (!StringUtils.isNull(this.mFloor)) {
-                anVar.cI("obj_floor", this.mFloor);
+                anVar.dh("obj_floor", this.mFloor);
             }
-            if (!StringUtils.isNull(this.kiz)) {
-                anVar.cI("resource_id", this.kiz);
+            if (!StringUtils.isNull(this.kAt)) {
+                anVar.dh("resource_id", this.kAt);
             }
             if (!StringUtils.isNull(this.mGroupId)) {
-                anVar.cI("group_id", this.mGroupId);
+                anVar.dh("group_id", this.mGroupId);
             }
-            anVar.cI("obj_param4", StringUtils.isNull(this.mNid) ? "" : this.mNid);
-            anVar.cI("obj_param6", StringUtils.isNull(this.mVid) ? "" : this.mVid);
+            anVar.dh("obj_param4", StringUtils.isNull(this.mNid) ? "" : this.mNid);
+            anVar.dh("obj_param6", StringUtils.isNull(this.mVid) ? "" : this.mVid);
+            anVar.dh("nid", StringUtils.isNull(this.kAu) ? "" : this.kAu);
         }
         return anVar;
     }
 
-    public y cKq() {
+    public y cRp() {
         y yVar = new y();
         yVar.mLocate = this.mLocate;
         yVar.mType = this.mType;
-        yVar.ahO = this.ahO;
-        yVar.eQk = this.eQk;
+        yVar.ais = this.ais;
+        yVar.evm = this.evm;
         yVar.mUid = this.mUid;
         yVar.mSource = this.mSource;
-        yVar.kir = this.kir;
-        yVar.kis = this.kis;
-        yVar.kit = this.kit;
-        yVar.dop = this.dop;
-        yVar.kiv = this.kiv;
-        yVar.kiw = this.kiw;
-        yVar.kix = this.kix;
+        yVar.kAl = this.kAl;
+        yVar.kAm = this.kAm;
+        yVar.kAn = this.kAn;
+        yVar.dCp = this.dCp;
+        yVar.kAp = this.kAp;
+        yVar.kAq = this.kAq;
+        yVar.kAr = this.kAr;
         yVar.mFloor = this.mFloor;
-        yVar.kiz = this.kiz;
+        yVar.kAt = this.kAt;
         yVar.mGroupId = this.mGroupId;
         yVar.mNid = this.mNid;
         yVar.mVid = this.mVid;
+        yVar.kAu = this.kAu;
         return yVar;
     }
 }

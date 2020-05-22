@@ -7,20 +7,20 @@ import android.view.View;
 import android.widget.FrameLayout;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.l;
-import com.baidu.tbadk.core.data.bj;
+import com.baidu.tbadk.core.data.bk;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.core.util.o;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.pb.pb.main.PbActivity;
-import com.baidu.tieba.pb.pb.main.al;
+import com.baidu.tieba.pb.pb.main.at;
 import org.apache.http.HttpHost;
 /* loaded from: classes9.dex */
 public class PbVideoFullscreenAttentionLayout extends FrameLayout {
-    private HeadImageView jMU;
-    private PbVideoFullscreenLikeBtn jMV;
-    private al jMW;
+    private HeadImageView keL;
+    private PbVideoFullscreenLikeBtn keM;
+    private at keN;
     private BdUniqueId uniqueId;
 
     public PbVideoFullscreenAttentionLayout(Context context) {
@@ -40,13 +40,13 @@ public class PbVideoFullscreenAttentionLayout extends FrameLayout {
 
     private void init(Context context) {
         inflate(context, R.layout.pb_video_attention, this);
-        this.jMU = (HeadImageView) findViewById(R.id.attention_img);
-        this.jMV = (PbVideoFullscreenLikeBtn) findViewById(R.id.concern_video_info_item);
-        this.jMU.setIsRound(true);
-        this.jMU.setBorderWidth(l.getDimens(context, R.dimen.tbds3));
-        this.jMU.setBorderColor(context.getResources().getColor(R.color.cp_border_b));
-        this.jMU.setAutoChangeStyle(false);
-        this.jMV.setConfig(new com.baidu.tbadk.core.view.commonBtn.b());
+        this.keL = (HeadImageView) findViewById(R.id.attention_img);
+        this.keM = (PbVideoFullscreenLikeBtn) findViewById(R.id.concern_video_info_item);
+        this.keL.setIsRound(true);
+        this.keL.setBorderWidth(l.getDimens(context, R.dimen.tbds3));
+        this.keL.setBorderColor(context.getResources().getColor(R.color.cp_border_b));
+        this.keL.setAutoChangeStyle(false);
+        this.keM.setConfig(new com.baidu.tbadk.core.view.commonBtn.b());
     }
 
     public void setUniqueId(BdUniqueId bdUniqueId) {
@@ -54,61 +54,62 @@ public class PbVideoFullscreenAttentionLayout extends FrameLayout {
     }
 
     public void setOnClickEvent(View.OnClickListener onClickListener) {
-        this.jMV.setOnclickEvent(onClickListener);
+        this.keM.setOnclickEvent(onClickListener);
     }
 
-    public void setData(bj bjVar) {
-        if (bjVar != null && bjVar.aKC() != null) {
-            String uD = o.uD(bjVar.aKC().getAvater());
-            if (uD.startsWith(HttpHost.DEFAULT_SCHEME_NAME)) {
-                this.jMU.startLoad(uD, 10, false);
+    public void setData(bk bkVar) {
+        if (bkVar != null && bkVar.aQx() != null) {
+            String wj = o.wj(bkVar.aQx().getAvater());
+            if (wj.startsWith(HttpHost.DEFAULT_SCHEME_NAME)) {
+                this.keL.startLoad(wj, 10, false);
             } else {
-                this.jMU.startLoad(uD, 25, false);
+                this.keL.startLoad(wj, 25, false);
             }
-            if (bjVar.aKC().getBaijiahaoInfo() != null && bjVar.aKC().getBaijiahaoInfo().auth_id.intValue() > 0) {
-                this.jMU.setBjhAuthIconRes(UtilHelper.getBjhBigVIconId(bjVar.aKC().getBaijiahaoInfo().auth_id.intValue(), 1));
-                this.jMU.setShowV(true);
-                this.jMU.setGodIconWidth(R.dimen.tbds31);
+            if (bkVar.aQx().getBaijiahaoInfo() != null && bkVar.aQx().getBaijiahaoInfo().auth_id.intValue() > 0) {
+                this.keL.setBjhAuthIconRes(UtilHelper.getBjhBigVIconId(bkVar.aQx().getBaijiahaoInfo().auth_id.intValue(), 1));
+                this.keL.setShowV(true);
+                this.keL.setGodIconWidth(R.dimen.tbds31);
             } else {
-                this.jMU.setBjhAuthIconRes(0);
-                this.jMU.setIsBigV(bjVar.aKC().isBigV());
-                this.jMU.setShowV(bjVar.aKC().isBigV());
+                this.keL.setBjhAuthIconRes(0);
+                this.keL.setIsBigV(bkVar.aQx().isBigV());
+                this.keL.setShowV(bkVar.aQx().isBigV());
             }
-            aU(bjVar);
+            aU(bkVar);
         }
     }
 
-    public void aU(bj bjVar) {
-        if (bjVar != null && bjVar.aKC() != null) {
-            String str = bjVar.tid;
-            int aV = aV(bjVar);
-            if (this.jMW == null) {
+    public void aU(bk bkVar) {
+        if (bkVar != null && bkVar.aQx() != null) {
+            String str = bkVar.tid;
+            int aV = aV(bkVar);
+            if (this.keN == null) {
                 if (getContext() instanceof PbActivity) {
-                    this.jMW = new al(((PbActivity) getContext()).getPageContext(), this.jMV, -1);
-                    this.jMW.tU("11");
-                    this.jMW.j(this.uniqueId);
+                    this.keN = new at(((PbActivity) getContext()).getPageContext(), this.keM, -1);
+                    this.keN.vA("11");
+                    this.keN.l(this.uniqueId);
                 } else {
                     return;
                 }
             }
-            this.jMW.a(bjVar.aKC());
-            this.jMW.setTid(str);
-            this.jMW.jzE = true;
-            this.jMW.zL(aV);
+            this.keN.a(bkVar.aQx());
+            this.keN.setTid(str);
+            this.keN.setThreadData(bkVar);
+            this.keN.jQX = true;
+            this.keN.Aw(aV);
         }
     }
 
-    public int aV(bj bjVar) {
-        if (bjVar == null) {
+    public int aV(bk bkVar) {
+        if (bkVar == null) {
             return 0;
         }
-        if (bjVar.aLW()) {
-            return !aq.isEmpty(bjVar.aKH()) ? 2 : 0;
+        if (bkVar.aRV()) {
+            return !aq.isEmpty(bkVar.aQC()) ? 2 : 0;
         }
         return 1;
     }
 
-    public boolean cEY() {
-        return (this.jMW == null || this.jMW.aQT() == null || !this.jMW.aQT().getIsLike()) ? false : true;
+    public boolean cLW() {
+        return (this.keN == null || this.keN.aXb() == null || !this.keN.aXb().getIsLike()) ? false : true;
     }
 }

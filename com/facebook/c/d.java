@@ -9,45 +9,45 @@ import java.util.List;
 import javax.annotation.Nullable;
 /* loaded from: classes13.dex */
 public class d {
-    private static d lZc;
-    private int lZd;
+    private static d msX;
+    private int msY;
     @Nullable
-    private List<c.a> lZe;
-    private final c.a lZf = new a();
+    private List<c.a> msZ;
+    private final c.a mta = new a();
 
     private d() {
-        dpW();
+        dxo();
     }
 
-    public void eU(@Nullable List<c.a> list) {
-        this.lZe = list;
-        dpW();
+    public void fb(@Nullable List<c.a> list) {
+        this.msZ = list;
+        dxo();
     }
 
-    public c q(InputStream inputStream) throws IOException {
+    public c r(InputStream inputStream) throws IOException {
         g.checkNotNull(inputStream);
-        byte[] bArr = new byte[this.lZd];
-        int a = a(this.lZd, inputStream, bArr);
-        c n = this.lZf.n(bArr, a);
-        if (n == null || n == c.lZa) {
-            if (this.lZe != null) {
-                for (c.a aVar : this.lZe) {
-                    c n2 = aVar.n(bArr, a);
-                    if (n2 != null && n2 != c.lZa) {
-                        return n2;
+        byte[] bArr = new byte[this.msY];
+        int a = a(this.msY, inputStream, bArr);
+        c o = this.mta.o(bArr, a);
+        if (o == null || o == c.msV) {
+            if (this.msZ != null) {
+                for (c.a aVar : this.msZ) {
+                    c o2 = aVar.o(bArr, a);
+                    if (o2 != null && o2 != c.msV) {
+                        return o2;
                     }
                 }
             }
-            return c.lZa;
+            return c.msV;
         }
-        return n;
+        return o;
     }
 
-    private void dpW() {
-        this.lZd = this.lZf.getHeaderSize();
-        if (this.lZe != null) {
-            for (c.a aVar : this.lZe) {
-                this.lZd = Math.max(this.lZd, aVar.getHeaderSize());
+    private void dxo() {
+        this.msY = this.mta.getHeaderSize();
+        if (this.msZ != null) {
+            for (c.a aVar : this.msZ) {
+                this.msY = Math.max(this.msY, aVar.getHeaderSize());
             }
         }
     }
@@ -67,24 +67,24 @@ public class d {
         return com.facebook.common.internal.a.a(inputStream, bArr, 0, i);
     }
 
-    public static synchronized d dpX() {
+    public static synchronized d dxp() {
         d dVar;
         synchronized (d.class) {
-            if (lZc == null) {
-                lZc = new d();
+            if (msX == null) {
+                msX = new d();
             }
-            dVar = lZc;
+            dVar = msX;
         }
         return dVar;
     }
 
-    public static c r(InputStream inputStream) throws IOException {
-        return dpX().q(inputStream);
+    public static c s(InputStream inputStream) throws IOException {
+        return dxp().r(inputStream);
     }
 
-    public static c s(InputStream inputStream) {
+    public static c t(InputStream inputStream) {
         try {
-            return r(inputStream);
+            return s(inputStream);
         } catch (IOException e) {
             throw l.y(e);
         }

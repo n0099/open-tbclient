@@ -36,7 +36,7 @@ public final class a extends Handler {
                     }
                     try {
                         Log.d(BdSailorPlatform.TAG, "do pause");
-                        this.a.mWebkitTimerPaused = com.baidu.browser.sailor.webkit.a.rh().c();
+                        this.a.mWebkitTimerPaused = com.baidu.browser.sailor.webkit.a.ro().c();
                         context3 = this.a.mContext;
                         CookieSyncManager createInstance = CookieSyncManager.createInstance(context3);
                         if (createInstance != null) {

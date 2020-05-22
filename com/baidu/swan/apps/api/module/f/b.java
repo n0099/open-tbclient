@@ -4,78 +4,78 @@ import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import com.baidu.mapsdkplatform.comapi.location.CoordinateType;
 import com.baidu.swan.apps.api.module.f.a;
-import com.baidu.swan.apps.as.ai;
+import com.baidu.swan.apps.aq.aj;
 import com.baidu.swan.apps.console.c;
-import com.baidu.swan.apps.w.b.f;
+import com.baidu.swan.apps.u.b.d;
 /* loaded from: classes11.dex */
 public class b {
-    private static volatile b bDe;
-    private a bDf;
+    private static volatile b bLA;
+    private a bLB;
 
     /* loaded from: classes11.dex */
     public interface a {
-        void a(a.C0269a c0269a, int i);
+        void a(a.C0303a c0303a, int i);
 
-        void a(a.C0269a c0269a, com.baidu.swan.apps.scheme.actions.f.b bVar);
+        void a(a.C0303a c0303a, com.baidu.swan.apps.scheme.actions.f.b bVar);
 
-        void a(a.C0269a c0269a, String str);
+        void a(a.C0303a c0303a, String str);
     }
 
     private b() {
     }
 
-    public static b RG() {
-        if (bDe == null) {
+    public static b Uh() {
+        if (bLA == null) {
             synchronized (b.class) {
-                if (bDe == null) {
-                    bDe = new b();
+                if (bLA == null) {
+                    bLA = new b();
                 }
             }
         }
-        return bDe;
+        return bLA;
     }
 
-    public void a(@NonNull final a.C0269a c0269a, @NonNull a aVar, boolean z) {
-        this.bDf = aVar;
-        if (ai.apo()) {
-            a(c0269a);
+    public void a(@NonNull final a.C0303a c0303a, @NonNull a aVar, boolean z) {
+        this.bLB = aVar;
+        if (aj.atO()) {
+            a(c0303a);
         } else if (z) {
-            this.bDf.a(c0269a, "GetLocation does not supported when app is invisible");
+            this.bLB.a(c0303a, "GetLocation does not supported when app is invisible");
         } else {
-            com.baidu.swan.apps.af.a.a(new String[]{"android.permission.ACCESS_FINE_LOCATION", "android.permission.ACCESS_COARSE_LOCATION"}, 0, new com.baidu.swan.apps.af.b() { // from class: com.baidu.swan.apps.api.module.f.b.1
-                @Override // com.baidu.swan.apps.af.b
-                public void gQ(String str) {
-                    b.this.a(c0269a);
+            com.baidu.swan.apps.ad.a.a(new String[]{"android.permission.ACCESS_FINE_LOCATION", "android.permission.ACCESS_COARSE_LOCATION"}, 0, new com.baidu.swan.apps.ad.b() { // from class: com.baidu.swan.apps.api.module.f.b.1
+                @Override // com.baidu.swan.apps.ad.b
+                public void gY(String str) {
+                    b.this.a(c0303a);
                 }
 
-                @Override // com.baidu.swan.apps.af.b
+                @Override // com.baidu.swan.apps.ad.b
                 public void M(int i, String str) {
                     c.e("GetLocationHelper", str);
-                    b.this.bDf.a(c0269a, str);
+                    b.this.bLB.a(c0303a, str);
                 }
             });
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(final a.C0269a c0269a) {
+    public void a(final a.C0303a c0303a) {
         String str;
-        if (TextUtils.equals(c0269a.mType, "gcj02")) {
+        if (TextUtils.equals(c0303a.mType, "gcj02")) {
             str = "gcj02";
-        } else if (TextUtils.equals(c0269a.mType, "bd09ll")) {
+        } else if (TextUtils.equals(c0303a.mType, "bd09ll")) {
             str = "bd09ll";
         } else {
             str = CoordinateType.WGS84;
         }
-        com.baidu.swan.apps.w.a.acg().a(str, false, c0269a.bDc, new f.a() { // from class: com.baidu.swan.apps.api.module.f.b.2
-            @Override // com.baidu.swan.apps.w.b.f.a
+        com.baidu.swan.apps.u.a.afj().a(str, false, c0303a.bLy, new d.a() { // from class: com.baidu.swan.apps.api.module.f.b.2
+            @Override // com.baidu.swan.apps.u.b.d.a
             public void a(com.baidu.swan.apps.scheme.actions.f.b bVar) {
-                b.this.bDf.a(c0269a, bVar);
+                b.this.bLB.a(c0303a, bVar);
             }
 
-            @Override // com.baidu.swan.apps.w.b.f.a
+            @Override // com.baidu.swan.apps.u.b.d.a
             public void onFailed(int i) {
-                b.this.bDf.a(c0269a, i);
+                b.this.bLB.a(c0303a, i);
             }
         });
     }

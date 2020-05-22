@@ -13,30 +13,30 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 /* loaded from: classes9.dex */
 public class a implements View.OnClickListener {
-    private PopupWindow gCd;
-    private boolean hwk;
+    private PopupWindow gQM;
+    private boolean hKX;
     private View mAnchor;
     private TbPageContext mPageContext;
-    private int hwj = R.string.attention_post_update_tip;
+    private int hKW = R.string.attention_post_update_tip;
     private Handler mHandler = new Handler();
-    private Runnable hwl = new Runnable() { // from class: com.baidu.tieba.frs.vc.a.1
+    private Runnable hKY = new Runnable() { // from class: com.baidu.tieba.frs.vc.a.1
         @Override // java.lang.Runnable
         public void run() {
             if (a.this.mPageContext != null && a.this.mAnchor != null) {
                 Activity pageActivity = a.this.mPageContext.getPageActivity();
                 int dimens = com.baidu.adp.lib.util.l.getDimens(pageActivity, R.dimen.ds64);
-                View i = a.this.i(pageActivity, a.this.hwj);
+                View h = a.this.h(pageActivity, a.this.hKW);
                 int[] iArr = new int[2];
                 a.this.mAnchor.getLocationInWindow(iArr);
                 int dimens2 = com.baidu.adp.lib.util.l.getDimens(pageActivity, R.dimen.ds32);
                 int dimens3 = com.baidu.adp.lib.util.l.getDimens(pageActivity, R.dimen.ds16) + (iArr[1] - dimens);
-                a.this.gCd = new PopupWindow(i, -2, dimens);
-                a.this.gCd.showAtLocation(a.this.mAnchor, 53, dimens2, dimens3);
+                a.this.gQM = new PopupWindow(h, -2, dimens);
+                a.this.gQM.showAtLocation(a.this.mAnchor, 53, dimens2, dimens3);
                 a.this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.tieba.frs.vc.a.1.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        if (a.this.gCd != null) {
-                            a.this.bUQ();
+                        if (a.this.gQM != null) {
+                            a.this.cbn();
                         }
                     }
                 }, 3000L);
@@ -46,30 +46,30 @@ public class a implements View.OnClickListener {
 
     public a(TbPageContext tbPageContext, boolean z) {
         this.mPageContext = tbPageContext;
-        this.hwk = z;
+        this.hKX = z;
     }
 
     public void cd(View view) {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (this.mPageContext != null && view != null && !StringUtils.isNull(currentAccount)) {
             this.mAnchor = view;
-            if (this.hwk) {
-                this.hwj = R.string.attention_post_update_tip;
+            if (this.hKX) {
+                this.hKW = R.string.attention_post_update_tip;
                 String str = currentAccount + SharedPrefConfig.FRS_GOD_NEW_POST_TIP_COUNT;
-                int i = com.baidu.tbadk.core.sharedPref.b.aNT().getInt(str, 0);
+                int i = com.baidu.tbadk.core.sharedPref.b.aTX().getInt(str, 0);
                 if (i >= 3) {
-                    this.hwk = false;
+                    this.hKX = false;
                     return;
                 }
-                com.baidu.tbadk.core.sharedPref.b.aNT().putInt(str, i + 1);
-                this.hwk = false;
-                this.mHandler.postDelayed(this.hwl, 500L);
+                com.baidu.tbadk.core.sharedPref.b.aTX().putInt(str, i + 1);
+                this.hKX = false;
+                this.mHandler.postDelayed(this.hKY, 500L);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public View i(Activity activity, int i) {
+    public View h(Activity activity, int i) {
         TextView textView = new TextView(activity);
         int dimens = com.baidu.adp.lib.util.l.getDimens(activity, R.dimen.ds20);
         textView.setPadding(dimens, 0 - activity.getResources().getDimensionPixelSize(R.dimen.ds12), dimens, 0);
@@ -86,18 +86,18 @@ public class a implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        bUQ();
+        cbn();
     }
 
-    public void bUQ() {
-        if (this.gCd != null) {
-            this.gCd.dismiss();
-            this.gCd = null;
+    public void cbn() {
+        if (this.gQM != null) {
+            this.gQM.dismiss();
+            this.gQM = null;
         }
     }
 
     public void destory() {
         this.mHandler.removeCallbacksAndMessages(null);
-        bUQ();
+        cbn();
     }
 }

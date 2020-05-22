@@ -7,23 +7,24 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.bj;
-import com.baidu.tieba.card.x;
-import com.baidu.tieba.card.z;
+import com.baidu.tbadk.core.data.bk;
+import com.baidu.tieba.card.aa;
+import com.baidu.tieba.card.y;
 /* loaded from: classes3.dex */
-public class c extends com.baidu.tieba.frs.h<bj, com.baidu.tieba.ala.livecard.a.a> implements x {
-    private com.baidu.tieba.ala.livecard.b.b fse;
-    private z<bj> fsf;
+public class c extends com.baidu.tieba.frs.h<bk, com.baidu.tieba.ala.livecard.a.a> implements y {
+    private com.baidu.tieba.ala.livecard.b.b fFW;
+    private aa<bk> fFX;
     private String mForumName;
 
     public c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         super(tbPageContext, bdUniqueId, bdUniqueId2);
-        this.fsf = new z<bj>() { // from class: com.baidu.tieba.ala.livecard.adapters.c.1
+        this.fFX = new aa<bk>() { // from class: com.baidu.tieba.ala.livecard.adapters.c.1
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.card.z
-            public void a(View view, bj bjVar) {
-                if (view != null && bjVar != null) {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_FRS_TAB_LIVE_START, Integer.valueOf(bjVar.getThreadType())));
+            @Override // com.baidu.tieba.card.aa
+            /* renamed from: b */
+            public void a(View view, bk bkVar) {
+                if (view != null && bkVar != null) {
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_FRS_TAB_LIVE_START, Integer.valueOf(bkVar.getThreadType())));
                 }
             }
         };
@@ -37,36 +38,36 @@ public class c extends com.baidu.tieba.frs.h<bj, com.baidu.tieba.ala.livecard.a.
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: ac */
+    /* renamed from: aj */
     public com.baidu.tieba.ala.livecard.a.a b(ViewGroup viewGroup) {
         if (this.mPageContext == null) {
             return null;
         }
-        this.fse = new com.baidu.tieba.ala.livecard.b.b(this.mPageContext);
-        this.fse.m(this.mPageId);
-        this.fse.setForumName(this.mForumName);
-        return new com.baidu.tieba.ala.livecard.a.a(this.fse);
+        this.fFW = new com.baidu.tieba.ala.livecard.b.b(this.mPageContext);
+        this.fFW.o(this.mPageId);
+        this.fFW.setForumName(this.mForumName);
+        return new com.baidu.tieba.ala.livecard.a.a(this.fFW);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.frs.h, com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, bj bjVar, com.baidu.tieba.ala.livecard.a.a aVar) {
-        aVar.fsr.a(bjVar);
-        aVar.fsr.setForumName(this.mForumName);
-        aVar.fsr.c(this.fsf);
-        if (bjVar != null) {
-            bjVar.aLL();
+    public View a(int i, View view, ViewGroup viewGroup, bk bkVar, com.baidu.tieba.ala.livecard.a.a aVar) {
+        aVar.fGj.a(bkVar);
+        aVar.fGj.setForumName(this.mForumName);
+        aVar.fGj.c(this.fFX);
+        if (bkVar != null) {
+            bkVar.aRK();
         }
         return aVar.getView();
     }
 
-    @Override // com.baidu.tieba.card.x
+    @Override // com.baidu.tieba.card.y
     public void setForumName(String str) {
         this.mForumName = str;
     }
 
-    @Override // com.baidu.tieba.card.x
-    public void pV(int i) {
+    @Override // com.baidu.tieba.card.y
+    public void qw(int i) {
     }
 }

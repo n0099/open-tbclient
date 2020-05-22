@@ -1,37 +1,33 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.atomData.ForumSquareActivityConfig;
-import org.json.JSONObject;
-import tbclient.FrsPage.Classify;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tieba.lego.card.model.ICardInfo;
 /* loaded from: classes.dex */
-public class ad {
-    private String class_name = null;
-    private int doL = 0;
+public class ad extends com.baidu.tieba.card.data.b {
+    public static final BdUniqueId TYPE = BdUniqueId.gen();
+    private ICardInfo Xl;
+    private String card;
+    private boolean dCL;
 
-    public String aIX() {
-        return this.class_name;
+    public void vt(String str) {
+        this.card = str;
     }
 
-    public int aIY() {
-        return this.doL;
+    public void aOU() {
+        this.Xl = com.baidu.tieba.lego.card.b.Ht(this.card);
+        this.dCL = this.Xl != null;
     }
 
-    public void parserJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.doL = jSONObject.optInt("class_id", 0);
-                this.class_name = jSONObject.optString(ForumSquareActivityConfig.FORUM_CLASS_NAME);
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-            }
-        }
+    public ICardInfo aOV() {
+        return this.Xl;
     }
 
-    public void a(Classify classify) {
-        if (classify != null) {
-            this.doL = classify.class_id.intValue();
-            this.class_name = classify.class_name;
-        }
+    public boolean isValid() {
+        return this.dCL;
+    }
+
+    @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.o
+    public BdUniqueId getType() {
+        return TYPE;
     }
 }

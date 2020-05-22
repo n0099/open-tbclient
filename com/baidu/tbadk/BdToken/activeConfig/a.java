@@ -1,46 +1,50 @@
 package com.baidu.tbadk.BdToken.activeConfig;
 
 import com.baidu.tbadk.BdToken.p;
+import com.baidu.tbadk.core.data.NewUserRedPackageData;
 import java.util.ArrayList;
 import tbclient.ActiveConfig.DataRes;
 import tbclient.FloatStrategy;
 import tbclient.MissionInfo;
 /* loaded from: classes.dex */
 public class a {
-    private DataRes diA;
+    private DataRes dws;
+    public NewUserRedPackageData dww;
     public boolean isNewUser = false;
-    public String diB = "";
-    private final ArrayList<com.baidu.tbadk.BdToken.b> diC = new ArrayList<>();
-    private final ArrayList<FloatStrategy> diD = new ArrayList<>();
+    public String dwt = "";
+    private final ArrayList<com.baidu.tbadk.BdToken.b> dwu = new ArrayList<>();
+    private final ArrayList<FloatStrategy> dwv = new ArrayList<>();
 
-    public ArrayList<com.baidu.tbadk.BdToken.b> aGy() {
-        return this.diC;
+    public ArrayList<com.baidu.tbadk.BdToken.b> aLT() {
+        return this.dwu;
     }
 
-    public ArrayList<FloatStrategy> aGz() {
-        return this.diD;
+    public ArrayList<FloatStrategy> aLU() {
+        return this.dwv;
     }
 
     public void a(DataRes dataRes) {
-        this.diA = dataRes;
-        this.diC.clear();
-        this.diD.clear();
+        this.dws = dataRes;
+        this.dwu.clear();
+        this.dwv.clear();
         if (dataRes != null) {
             this.isNewUser = dataRes.is_new_user.intValue() == 1;
-            this.diB = dataRes.active_url;
-            this.diD.addAll(dataRes.float_list);
-            for (MissionInfo missionInfo : this.diA.mission_list) {
+            this.dwt = dataRes.active_url;
+            this.dwv.addAll(dataRes.float_list);
+            for (MissionInfo missionInfo : this.dws.mission_list) {
                 if (missionInfo != null) {
                     com.baidu.tbadk.BdToken.b bVar = new com.baidu.tbadk.BdToken.b(missionInfo);
                     if (missionInfo.tasktype.intValue() == 5) {
-                        com.baidu.tbadk.core.f.a.aNQ().a(missionInfo);
+                        com.baidu.tbadk.core.f.a.aTU().a(missionInfo);
                     } else if (missionInfo.tasktype.intValue() == 9) {
-                        p.aGm().q(bVar);
-                    } else if (bVar.aFq()) {
-                        this.diC.add(bVar);
+                        p.aLH().q(bVar);
+                    } else if (bVar.aKL()) {
+                        this.dwu.add(bVar);
                     }
                 }
             }
+            this.dww = new NewUserRedPackageData();
+            this.dww.parseProto(dataRes);
         }
     }
 }

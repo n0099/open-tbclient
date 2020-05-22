@@ -10,11 +10,11 @@ public class SwanAppAdLandingWebViewWidget extends SwanAppSimpleH5Widget {
 
     public SwanAppAdLandingWebViewWidget(Context context) {
         super(context);
-        this.bKF.setDownloadListener(new DownloadListener());
+        this.bTC.setDownloadListener(new DownloadListener());
     }
 
     @Override // com.baidu.swan.apps.core.slave.SwanAppWebViewWidget, com.baidu.swan.apps.core.SwanAppWebViewManager, com.baidu.swan.apps.adaptation.b.e
-    public String QE() {
+    public String Ti() {
         return "ai_apps_ad_landing";
     }
 
@@ -37,7 +37,7 @@ public class SwanAppAdLandingWebViewWidget extends SwanAppSimpleH5Widget {
             aVar.contentDisposition = str3;
             aVar.mimeType = str4;
             aVar.contentLength = j;
-            com.baidu.swan.apps.w.a.abX().h(SwanAppAdLandingWebViewWidget.this.mContext, aVar.QV());
+            com.baidu.swan.apps.u.a.afb().h(SwanAppAdLandingWebViewWidget.this.bTB.getBaseContext(), aVar.TA());
         }
 
         @Override // com.baidu.browser.sailor.ISailorDownloadListener

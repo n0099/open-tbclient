@@ -1,37 +1,44 @@
 package com.baidu.tieba.ala.alasquare.live_tab.a;
 
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.am;
+import com.baidu.tieba.R;
+import com.baidu.tieba.frs.p;
+import com.baidu.tieba.frs.q;
 /* loaded from: classes3.dex */
-public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasquare.live_tab.b.c, com.baidu.tieba.ala.alasquare.live_tab.view.c> {
-    private com.baidu.tieba.ala.alasquare.live_tab.view.b ePK;
-    private TbPageContext mPageContext;
+public class a extends com.baidu.adp.widget.ListView.a<p, q> {
+    private final int eYp;
 
     public a(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.alasquare.live_tab.b.c.ePP);
-        this.mPageContext = tbPageContext;
+        super(tbPageContext.getPageActivity(), p.hqd);
+        this.eYp = (l.getEquipmentHeight(TbadkCoreApplication.getInst()) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds100)) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds90);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: y */
-    public com.baidu.tieba.ala.alasquare.live_tab.view.c b(ViewGroup viewGroup) {
-        this.ePK = new com.baidu.tieba.ala.alasquare.live_tab.view.b(this.mPageContext, viewGroup);
-        return new com.baidu.tieba.ala.alasquare.live_tab.view.c(this.ePK);
+    /* renamed from: C */
+    public q b(ViewGroup viewGroup) {
+        View inflate = LayoutInflater.from(this.mContext).inflate(R.layout.frs_no_list_item_view, viewGroup, false);
+        ViewGroup.LayoutParams generateLayoutParamsByParent = generateLayoutParamsByParent(viewGroup);
+        generateLayoutParamsByParent.width = -1;
+        generateLayoutParamsByParent.height = this.eYp;
+        inflate.setLayoutParams(generateLayoutParamsByParent);
+        return new q(inflate, viewGroup);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.ala.alasquare.live_tab.b.c cVar, com.baidu.tieba.ala.alasquare.live_tab.view.c cVar2) {
-        if (cVar2 == null || cVar2.ePK == null) {
-            return null;
-        }
-        cVar2.ePK.a(cVar);
-        cVar2.ePK.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        return cVar2.getView();
+    public View a(int i, View view, ViewGroup viewGroup, p pVar, q qVar) {
+        qVar.hqg.setText(R.string.no_data_common_txt);
+        am.setViewTextColor(qVar.hqg, R.color.cp_cont_j, 1);
+        am.setImageResource(qVar.hqh, R.drawable.new_pic_emotion_06);
+        return view;
     }
 }

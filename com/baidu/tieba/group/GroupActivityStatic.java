@@ -68,7 +68,7 @@ import com.baidu.tieba.im.message.ResponseRequestGroupLocMessage;
 import com.baidu.tieba.im.updategroup.UpdateGroupActivity;
 /* loaded from: classes10.dex */
 public class GroupActivityStatic {
-    public static final BdUniqueId hGL = BdUniqueId.gen();
+    public static final BdUniqueId hVx = BdUniqueId.gen();
 
     static {
         TbadkApplication.getInst().RegisterIntent(GroupSettingActivityConfig.class, GroupSettingActivity.class);
@@ -94,10 +94,10 @@ public class GroupActivityStatic {
         c.b(CmdConfigSocket.CMD_REQUEST_GROUP_INFO_BY_ID, ResponseGroupInfoMessage.class, false);
         c.b(CmdConfigCustom.CMD_REQUEST_GROUP_INFO_BY_ID_LOCAL, h.class);
         c.b(CmdConfigCustom.CMD_REQUEST_GROUP_ACTIVITY_BY_ID_LOCAL, d.class);
-        bXw();
-        bXx();
-        bXy();
-        bXz();
+        cdU();
+        cdV();
+        cdW();
+        cdX();
         MessageManager.getInstance().registerListener(CmdConfigSocket.CMD_REQUEST_GROUP_INFO_BY_ID, new com.baidu.adp.framework.listener.c(0) { // from class: com.baidu.tieba.group.GroupActivityStatic.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
@@ -124,12 +124,12 @@ public class GroupActivityStatic {
                     long longValue = ((Long) customResponsedMessage.getData()).longValue();
                     if (longValue != 0) {
                         RequestGroupInfoMessage requestGroupInfoMessage = new RequestGroupInfoMessage();
-                        LocalViewSize.ImageSize aOu = LocalViewSize.aOt().aOu();
-                        LocalViewSize.ImageSize aOv = LocalViewSize.aOt().aOv();
-                        requestGroupInfoMessage.setBigHeight(aOv.height);
-                        requestGroupInfoMessage.setBigWidth(aOv.width);
-                        requestGroupInfoMessage.setSmallHeight(aOu.height);
-                        requestGroupInfoMessage.setSmallWidth(aOu.width);
+                        LocalViewSize.ImageSize aUy = LocalViewSize.aUx().aUy();
+                        LocalViewSize.ImageSize aUz = LocalViewSize.aUx().aUz();
+                        requestGroupInfoMessage.setBigHeight(aUz.height);
+                        requestGroupInfoMessage.setBigWidth(aUz.width);
+                        requestGroupInfoMessage.setSmallHeight(aUy.height);
+                        requestGroupInfoMessage.setSmallWidth(aUy.width);
                         requestGroupInfoMessage.setGroupId(longValue);
                         MessageManager.getInstance().sendMessage(requestGroupInfoMessage);
                     }
@@ -138,7 +138,7 @@ public class GroupActivityStatic {
         });
     }
 
-    private static void bXw() {
+    private static void cdU() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.IM_APPLE_JOIN_GROUP_ACTIVITY_START, new CustomMessageTask.CustomRunnable<ApplyJoinGroupActivityConfig>() { // from class: com.baidu.tieba.group.GroupActivityStatic.3
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<ApplyJoinGroupActivityConfig> customMessage) {
@@ -152,8 +152,8 @@ public class GroupActivityStatic {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void bXx() {
-        ae.bQq().tA(4);
+    private static void cdV() {
+        ae.bWM().uf(4);
         MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.CMD_FRS_ADD_ADAPTER) { // from class: com.baidu.tieba.group.GroupActivityStatic.4
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
@@ -162,7 +162,7 @@ public class GroupActivityStatic {
                     AbsDelegateAdapterList absDelegateAdapterList = (AbsDelegateAdapterList) customResponsedMessage.getData();
                     absDelegateAdapterList.add(new e(null, GroupInfoData.TYPE_FRS_GROUP));
                     absDelegateAdapterList.add(new com.baidu.tieba.im.frsgroup.a(null, GroupPermData.TYPE_FRS_CREATE_GROUP));
-                    absDelegateAdapterList.add(new g(null, com.baidu.tieba.im.frsgroup.h.ilG));
+                    absDelegateAdapterList.add(new g(null, com.baidu.tieba.im.frsgroup.h.iAo));
                 }
             }
         });
@@ -172,14 +172,14 @@ public class GroupActivityStatic {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2003011 && (customResponsedMessage.getData() instanceof ad)) {
                     com.baidu.tieba.im.frsgroup.d dVar = new com.baidu.tieba.im.frsgroup.d();
-                    dVar.setTag(GroupActivityStatic.hGL);
+                    dVar.setTag(GroupActivityStatic.hVx);
                     ((ad) customResponsedMessage.getData()).a(4, dVar);
                 }
             }
         });
     }
 
-    private static void bXy() {
+    private static void cdW() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.IM_GROUP_INFO_ACTIVITY_START, new CustomMessageTask.CustomRunnable<GroupInfoActivityConfig>() { // from class: com.baidu.tieba.group.GroupActivityStatic.6
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<GroupInfoActivityConfig> customMessage) {
@@ -198,8 +198,8 @@ public class GroupActivityStatic {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void bXz() {
-        ba.aOV().a(new ba.a() { // from class: com.baidu.tieba.group.GroupActivityStatic.7
+    private static void cdX() {
+        ba.aUZ().a(new ba.a() { // from class: com.baidu.tieba.group.GroupActivityStatic.7
             @Override // com.baidu.tbadk.core.util.ba.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (strArr == null || strArr.length == 0) {

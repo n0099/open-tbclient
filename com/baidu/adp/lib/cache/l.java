@@ -21,7 +21,7 @@ public interface l<T> {
 
         String getNameSpace();
 
-        k<T> kf();
+        k<T> kh();
     }
 
     void a(String str, a<T> aVar);
@@ -32,7 +32,7 @@ public interface l<T> {
 
     void asyncSetForever(String str, T t);
 
-    b<T> bs(String str);
+    b<T> bt(String str);
 
     T get(String str);
 

@@ -13,7 +13,7 @@ public class h extends a {
         super(jVar, "/swanAPI/setTabBarItem");
     }
 
-    @Override // com.baidu.swan.apps.scheme.actions.ab
+    @Override // com.baidu.swan.apps.scheme.actions.aa
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
         if (DEBUG) {
             Log.d("SetTabBarItemAction", "handle entity: " + unitedSchemeEntity.toString());
@@ -23,17 +23,17 @@ public class h extends a {
             com.baidu.swan.apps.console.c.e("setTabBarItem", "paramsJson is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
-        } else if (RD()) {
+        } else if (Ue()) {
             com.baidu.swan.apps.console.c.e("SetTabBarItemAction", "fail not TabBar page");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "fail not TabBar page");
             return false;
         } else {
-            com.baidu.swan.apps.tabbar.b.a RC = RC();
-            if (RC == null) {
+            com.baidu.swan.apps.tabbar.b.a Ud = Ud();
+            if (Ud == null) {
                 com.baidu.swan.apps.console.c.e("SetTabBarItemAction", "tabBarViewController is null");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
-            } else if (!RC.b(optParamsAsJo.optInt("index"), optParamsAsJo.optString("text"), optParamsAsJo.optString("iconPath"), optParamsAsJo.optString("selectedIconPath"))) {
+            } else if (!Ud.b(optParamsAsJo.optInt("index"), optParamsAsJo.optString("text"), optParamsAsJo.optString("iconPath"), optParamsAsJo.optString("selectedIconPath"))) {
                 com.baidu.swan.apps.console.c.e("setTabBarItem", "set tab bar item fail");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;

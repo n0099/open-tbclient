@@ -491,7 +491,8 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
         return this.mWaitingDialog;
     }
 
-    protected void showToastWithIcon(String str, int i) {
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void showToastWithIcon(String str, int i) {
         BdToast.makeTextWithIcon(getPageContext().getContext(), str, i).show();
     }
 

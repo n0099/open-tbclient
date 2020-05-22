@@ -49,7 +49,7 @@ public final class SingleFlatMapMaybe<T, R> extends k<R> {
         @Override // io.reactivex.y
         public void onSuccess(T t) {
             try {
-                o oVar = (o) io.reactivex.internal.functions.a.h(this.mapper.apply(t), "The mapper returned a null MaybeSource");
+                o oVar = (o) io.reactivex.internal.functions.a.k(this.mapper.apply(t), "The mapper returned a null MaybeSource");
                 if (!isDisposed()) {
                     oVar.a(new a(this, this.actual));
                 }
@@ -68,16 +68,16 @@ public final class SingleFlatMapMaybe<T, R> extends k<R> {
     /* loaded from: classes7.dex */
     static final class a<R> implements m<R> {
         final m<? super R> actual;
-        final AtomicReference<io.reactivex.disposables.b> mRE;
+        final AtomicReference<io.reactivex.disposables.b> nmM;
 
         a(AtomicReference<io.reactivex.disposables.b> atomicReference, m<? super R> mVar) {
-            this.mRE = atomicReference;
+            this.nmM = atomicReference;
             this.actual = mVar;
         }
 
         @Override // io.reactivex.m
         public void onSubscribe(io.reactivex.disposables.b bVar) {
-            DisposableHelper.replace(this.mRE, bVar);
+            DisposableHelper.replace(this.nmM, bVar);
         }
 
         @Override // io.reactivex.m

@@ -7,14 +7,14 @@ import com.baidu.adp.lib.util.h;
 import com.baidu.adp.lib.util.i;
 /* loaded from: classes.dex */
 public class NSGif implements b {
-    private static final String HJ = BdBaseApplication.getInst().getCacheDir().getAbsolutePath();
-    public static boolean HK = h.ml().a("nsgif_jni", 2, new i() { // from class: com.baidu.adp.gif.NSGif.2
+    private static final String HV = BdBaseApplication.getInst().getCacheDir().getAbsolutePath();
+    public static boolean HW = h.mn().a("nsgif_jni", 2, new i() { // from class: com.baidu.adp.gif.NSGif.2
         @Override // com.baidu.adp.lib.util.i
         public void callback(boolean z) {
-            NSGif.HK = z;
+            NSGif.HW = z;
         }
     });
-    private int HL;
+    private int HX;
     private final int mFrameCount;
     private final int mHeight;
     private final int mWidth;
@@ -41,14 +41,14 @@ public class NSGif implements b {
     private static native boolean nativeWriteTo(int i, Bitmap bitmap);
 
     private NSGif(int i) {
-        this.HL = i;
+        this.HX = i;
         this.mWidth = nativeGetWidth(i);
         this.mHeight = nativeGetHeight(i);
         this.mFrameCount = nativeGetFrameCount(i);
     }
 
-    public static NSGif bn(String str) {
-        int nativeCreate = nativeCreate(HJ, str);
+    public static NSGif bo(String str) {
+        int nativeCreate = nativeCreate(HV, str);
         if (nativeCreate != 0) {
             return new NSGif(nativeCreate);
         }
@@ -56,7 +56,7 @@ public class NSGif implements b {
     }
 
     public static NSGif g(byte[] bArr, int i, int i2) {
-        int nativeCreate = nativeCreate(HJ, bArr, i, i2);
+        int nativeCreate = nativeCreate(HV, bArr, i, i2);
         if (nativeCreate != 0) {
             return new NSGif(nativeCreate);
         }
@@ -65,10 +65,10 @@ public class NSGif implements b {
 
     @Override // com.baidu.adp.gif.b
     public void close() {
-        if (this.HL != 0) {
-            final int i = this.HL;
-            this.HL = 0;
-            com.baidu.adp.lib.f.h.lc().submitTaskToSingleThread(new Runnable() { // from class: com.baidu.adp.gif.NSGif.1
+        if (this.HX != 0) {
+            final int i = this.HX;
+            this.HX = 0;
+            com.baidu.adp.lib.f.h.le().submitTaskToSingleThread(new Runnable() { // from class: com.baidu.adp.gif.NSGif.1
                 @Override // java.lang.Runnable
                 public void run() {
                     NSGif.nativeDestroy(i);
@@ -101,8 +101,8 @@ public class NSGif implements b {
     }
 
     @Override // com.baidu.adp.gif.b
-    public int R(int i) {
-        int nativeGetFrameDelay = nativeGetFrameDelay(this.HL, i);
+    public int S(int i) {
+        int nativeGetFrameDelay = nativeGetFrameDelay(this.HX, i);
         if (nativeGetFrameDelay <= 0) {
             return 100;
         }
@@ -110,8 +110,8 @@ public class NSGif implements b {
     }
 
     @Override // com.baidu.adp.gif.b
-    public boolean Q(int i) {
-        return nativeDecodeFrame(this.HL, i);
+    public boolean R(int i) {
+        return nativeDecodeFrame(this.HX, i);
     }
 
     @Override // com.baidu.adp.gif.b
@@ -119,6 +119,6 @@ public class NSGif implements b {
         if (bitmap == null) {
             return false;
         }
-        return nativeWriteTo(this.HL, bitmap);
+        return nativeWriteTo(this.HX, bitmap);
     }
 }

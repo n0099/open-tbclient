@@ -4,19 +4,19 @@ import com.baidu.live.tbadk.log.LogConfig;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class i {
-    private long feP;
-    private int feu;
+    private int frZ;
+    private long fsu;
 
     public void parserJson(JSONObject jSONObject) {
-        this.feu = jSONObject.optInt("loot_result");
-        this.feP = jSONObject.optLong(LogConfig.LOG_AMOUNT);
+        this.frZ = jSONObject.optInt("loot_result");
+        this.fsu = jSONObject.optLong(LogConfig.LOG_AMOUNT);
     }
 
-    public boolean bnF() {
-        return this.feu == 1;
+    public boolean btx() {
+        return this.frZ == 1;
     }
 
-    public long bnG() {
-        return this.feP;
+    public long bty() {
+        return this.fsu;
     }
 }

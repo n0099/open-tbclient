@@ -4,9 +4,11 @@ import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.IMListener;
 import com.baidu.android.imsdk.task.TaskManager;
+import com.baidu.android.imsdk.utils.HttpHelper;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.searchbox.dns.DnsHelper;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -78,10 +80,12 @@ public class IMSocketAddrProvider {
                         public void run() {
                             Utility.writeLoginFlag(IMSocketAddrProvider.mContext, "11N_1", "BDHttpDNS exception");
                             LogUtils.d(IMSocketAddrProvider.TAG, "bddns > bdDnsIps is time out");
-                            IMSocketAddrProvider.this.fullDnsAndUrlAddress(null);
+                            IMSocketAddrProvider.this.getHttpDnsAddress();
                         }
                     }, 5000L);
-                    List<String> ipListForceHttp = new DnsHelper(IMSocketAddrProvider.mContext).getIpListForceHttp(Constants.URL_SOCKET_SERVER);
+                    DnsHelper dnsHelper = new DnsHelper(IMSocketAddrProvider.mContext);
+                    dnsHelper.setHttpDnsState(false, null, false, true);
+                    List<String> ipListForceHttp = dnsHelper.getIpListForceHttp(Constants.URL_SOCKET_SERVER);
                     LogUtils.d(IMSocketAddrProvider.TAG, "bddns > bdDnsIps = " + ipListForceHttp);
                     Utility.writeLoginFlag(IMSocketAddrProvider.mContext, "11Y", "BDHttpDNS success, ip=" + ipListForceHttp);
                     timer.cancel();
@@ -90,26 +94,56 @@ public class IMSocketAddrProvider {
                 }
             });
         } catch (Throwable th) {
-            fullDnsAndUrlAddress(null);
+            getHttpDnsAddress();
             Utility.writeLoginFlag(mContext, "11N_2", "BDHttpDNS exception");
             th.printStackTrace();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
+    public void getHttpDnsAddress() {
+        LogUtils.d(TAG, "will getHttpDnsAddress......");
+        try {
+            IMHttpDnsUrlRequest iMHttpDnsUrlRequest = new IMHttpDnsUrlRequest(mContext);
+            HttpHelper.executor(mContext, iMHttpDnsUrlRequest, iMHttpDnsUrlRequest);
+        } catch (Exception e) {
+            onGetHttpDNSAddressResult(null);
+        }
+    }
+
+    public void onGetHttpDNSAddressResult(List<String> list) {
+        fullDnsAndUrlAddress(list);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
     public void fullDnsAndUrlAddress(List<String> list) {
         LogUtils.d(TAG, "socket queue is adding...... ");
+        ArrayList arrayList = new ArrayList();
+        ArrayList arrayList2 = new ArrayList();
         if (list != null && !list.isEmpty()) {
             for (int i = 0; i < list.size(); i++) {
-                offerSocketAddressToQueue(list.get(i) + ":" + Constants.SOCKET_PORT_SSL);
+                if (Utility.isIpv4(list.get(i))) {
+                    arrayList.add(list.get(i));
+                } else {
+                    arrayList2.add(list.get(i));
+                }
             }
+        }
+        String str = !arrayList.isEmpty() ? (String) arrayList.get(0) : null;
+        String str2 = !arrayList2.isEmpty() ? (String) arrayList2.get(0) : null;
+        if (str != null) {
+            offerSocketAddressToQueue(str + ":" + Constants.SOCKET_PORT_SSL);
+        }
+        if (str2 != null) {
+            offerSocketAddressToQueue(str2 + ":" + Constants.SOCKET_PORT_SSL);
+        }
+        if (str != null) {
+            offerSocketAddressToQueue(str + ":" + Constants.SOCKET_BACKUP_PORT_SSL);
+        }
+        if (str2 != null) {
+            offerSocketAddressToQueue(str2 + ":" + Constants.SOCKET_BACKUP_PORT_SSL);
         }
         offerSocketAddressToQueue(Constants.URL_SOCKET_SERVER + ":" + Constants.SOCKET_PORT_SSL);
-        if (list != null && !list.isEmpty()) {
-            for (int i2 = 0; i2 < list.size(); i2++) {
-                offerSocketAddressToQueue(list.get(i2) + ":" + Constants.SOCKET_BACKUP_PORT_SSL);
-            }
-        }
         offerSocketAddressToQueue(Constants.URL_SOCKET_SERVER + ":" + Constants.SOCKET_BACKUP_PORT_SSL);
         LogUtils.d(TAG, "new socket queue is " + SOCKET_ADDR_PRIORITY_QUEUE.toString());
         pollSocketAddrsQueue();
@@ -144,7 +178,9 @@ public class IMSocketAddrProvider {
         this.mLastSuccAddr = str;
         if (SOCKET_ADDR_PRIORITY_QUEUE != null) {
             SOCKET_ADDR_PRIORITY_QUEUE.clear();
-            SOCKET_ADDR_PRIORITY_QUEUE.offer(this.mLastSuccAddr);
+            if (!this.mLastSuccAddr.startsWith(Constants.URL_SOCKET_SERVER)) {
+                SOCKET_ADDR_PRIORITY_QUEUE.offer(this.mLastSuccAddr);
+            }
         }
     }
 

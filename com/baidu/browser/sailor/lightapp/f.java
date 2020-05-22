@@ -4,13 +4,13 @@ import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.WebView;
 /* loaded from: classes11.dex */
 class f implements Runnable {
-    final /* synthetic */ BdLightappKernelClient act;
+    final /* synthetic */ BdLightappKernelClient acL;
     final /* synthetic */ String val$callback;
     final /* synthetic */ String val$result;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(BdLightappKernelClient bdLightappKernelClient, String str, String str2) {
-        this.act = bdLightappKernelClient;
+        this.acL = bdLightappKernelClient;
         this.val$callback = str;
         this.val$result = str2;
     }
@@ -20,12 +20,12 @@ class f implements Runnable {
         WebView webView;
         WebView webView2;
         String format = String.format("javascript:%s(%s);", this.val$callback, this.val$result);
-        webView = this.act.mWebView;
+        webView = this.acL.mWebView;
         if (webView == null) {
             Log.w("BdLightappKernelClient", "webview is null");
             return;
         }
-        webView2 = this.act.mWebView;
+        webView2 = this.acL.mWebView;
         webView2.loadUrl(format);
         Log.d("BdLightappKernelClient", "load js:" + format);
     }

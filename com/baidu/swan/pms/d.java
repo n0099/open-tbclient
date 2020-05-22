@@ -1,13 +1,18 @@
 package com.baidu.swan.pms;
 /* loaded from: classes7.dex */
 public class d {
-    public static boolean DEBUG = aBC().isDebug();
+    public static boolean DEBUG = aFP().isDebug();
 
-    public static b aBC() {
-        return com.baidu.swan.apps.w.a.b.acT();
+    public static b aFP() {
+        return com.baidu.swan.apps.u.a.b.agd();
     }
 
-    public static a aBD() {
-        return com.baidu.tieba.aiapps.apps.k.b.bjj();
+    public static a aFQ() {
+        return new a() { // from class: com.baidu.swan.pms.d.1
+            @Override // com.baidu.swan.pms.a
+            public String aFN() {
+                return "";
+            }
+        };
     }
 }

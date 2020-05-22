@@ -10,8 +10,8 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class a {
     private String appId;
-    private String dan;
-    private long dao = 0;
+    private String dlx;
+    private long dly = 0;
     private String downloadUrl;
     private String md5;
     private String sign;
@@ -23,12 +23,12 @@ public class a {
     }
 
     @NonNull
-    public static a bX(@NonNull JSONObject jSONObject) {
+    public static a bY(@NonNull JSONObject jSONObject) {
         a aVar = new a();
         aVar.appId = jSONObject.optString("appKey");
         JSONObject optJSONObject = jSONObject.optJSONObject("packageInfo");
         if (optJSONObject != null) {
-            aVar.dan = optJSONObject.optString("bundle_id");
+            aVar.dlx = optJSONObject.optString("bundle_id");
             aVar.downloadUrl = optJSONObject.optString("download_url");
             aVar.md5 = optJSONObject.optString("md5");
             aVar.sign = optJSONObject.optString("sign");
@@ -40,7 +40,7 @@ public class a {
     }
 
     @NonNull
-    public static a q(@NonNull Cursor cursor) {
+    public static a r(@NonNull Cursor cursor) {
         a aVar = new a();
         int columnIndex = cursor.getColumnIndex("app_id");
         int columnIndex2 = cursor.getColumnIndex("bundle_id");
@@ -53,7 +53,7 @@ public class a {
         int columnIndex9 = cursor.getColumnIndex(IMConstants.MSG_ROW_ID);
         String string = cursor.getString(columnIndex2);
         if (!TextUtils.isEmpty(string)) {
-            aVar.dan = string;
+            aVar.dlx = string;
             aVar.appId = cursor.getString(columnIndex);
             aVar.versionName = cursor.getString(columnIndex3);
             aVar.versionCode = cursor.getInt(columnIndex4);
@@ -61,23 +61,23 @@ public class a {
             aVar.md5 = cursor.getString(columnIndex6);
             aVar.sign = cursor.getString(columnIndex7);
             aVar.downloadUrl = cursor.getString(columnIndex8);
-            aVar.dao = cursor.getLong(columnIndex9);
+            aVar.dly = cursor.getLong(columnIndex9);
         }
         return aVar;
     }
 
-    public boolean XL() {
-        return (TextUtils.isEmpty(this.appId) || TextUtils.isEmpty(this.dan) || this.versionCode <= 0 || this.size <= 0 || TextUtils.isEmpty(this.md5) || TextUtils.isEmpty(this.sign) || TextUtils.isEmpty(this.downloadUrl)) ? false : true;
+    public boolean aaF() {
+        return (TextUtils.isEmpty(this.appId) || TextUtils.isEmpty(this.dlx) || this.versionCode <= 0 || this.size <= 0 || TextUtils.isEmpty(this.md5) || TextUtils.isEmpty(this.sign) || TextUtils.isEmpty(this.downloadUrl)) ? false : true;
     }
 
     @NonNull
     public String toString() {
-        return "SwanMiniPackageInfo{appId='" + this.appId + "', bundleId='" + this.dan + "', versionCode=" + this.versionCode + ", versionName='" + this.versionName + "', size=" + this.size + ", md5='" + this.md5 + "', sign='" + this.sign + "', downloadUrl='" + this.downloadUrl + "', rawid=" + this.dao + '}';
+        return "SwanMiniPackageInfo{appId='" + this.appId + "', bundleId='" + this.dlx + "', versionCode=" + this.versionCode + ", versionName='" + this.versionName + "', size=" + this.size + ", md5='" + this.md5 + "', sign='" + this.sign + "', downloadUrl='" + this.downloadUrl + "', rawid=" + this.dly + '}';
     }
 
     @NonNull
-    public String YR() {
-        return "SwanMiniPackageInfo{appId='" + this.appId + "', bundleId='" + this.dan + "', versionCode=" + this.versionCode + ", md5='" + this.md5 + "'}";
+    public String abS() {
+        return "SwanMiniPackageInfo{appId='" + this.appId + "', bundleId='" + this.dlx + "', versionCode=" + this.versionCode + ", md5='" + this.md5 + "'}";
     }
 
     public String getAppId() {
@@ -85,7 +85,7 @@ public class a {
     }
 
     public String getBundleId() {
-        return this.dan;
+        return this.dlx;
     }
 
     public int getVersionCode() {

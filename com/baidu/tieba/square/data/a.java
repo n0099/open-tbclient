@@ -8,9 +8,9 @@ import org.json.JSONObject;
 public abstract class a {
     private int errorCode;
     private String errorMsg;
-    private Date kLB;
+    private Date ldR;
 
-    protected abstract void ds(JSONObject jSONObject) throws Exception;
+    protected abstract void dz(JSONObject jSONObject) throws Exception;
 
     public int getErrorCode() {
         return this.errorCode;
@@ -54,9 +54,9 @@ public abstract class a {
             }
             long optLong = jSONObject.optLong("ctime", 0L);
             if (optLong > 0) {
-                this.kLB = new Date(optLong * 1000);
+                this.ldR = new Date(optLong * 1000);
             }
-            ds(jSONObject);
+            dz(jSONObject);
         } catch (Exception e) {
             setErrorMsg("网络不给力呀");
             e.printStackTrace();

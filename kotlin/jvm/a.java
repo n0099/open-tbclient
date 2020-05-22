@@ -10,8 +10,8 @@ import kotlin.reflect.c;
 public final class a {
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [61=10] */
     public static final <T> Class<T> a(c<T> cVar) {
-        q.j(cVar, "receiver$0");
-        Class<T> cls = (Class<T>) ((l) cVar).dDQ();
+        q.m(cVar, "receiver$0");
+        Class<T> cls = (Class<T>) ((l) cVar).dLK();
         if (cls.isPrimitive()) {
             String name = cls.getName();
             if (name != null) {

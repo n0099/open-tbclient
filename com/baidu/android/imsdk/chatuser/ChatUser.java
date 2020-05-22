@@ -5,6 +5,7 @@ import android.os.Parcelable;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.utils.NoProGuard;
 import com.baidu.android.imsdk.utils.PinYinUtils;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public final class ChatUser implements Parcelable, NoProGuard, PinYinUtils.PinYinObject {
     public static final Parcelable.Creator<ChatUser> CREATOR = new Parcelable.Creator<ChatUser>() { // from class: com.baidu.android.imsdk.chatuser.ChatUser.1
@@ -36,6 +37,7 @@ public final class ChatUser implements Parcelable, NoProGuard, PinYinUtils.PinYi
     private long mMarkTopTime;
     private long mPhone;
     private int mPhoneRelation;
+    private String mSchema;
     private int mSex;
     private int mShield;
     private long mShieldTime;
@@ -44,6 +46,7 @@ public final class ChatUser implements Parcelable, NoProGuard, PinYinUtils.PinYi
     private String mTinyUrl;
     private long mUk;
     private String mUserDetail;
+    private String mUserExt;
     private String mUserName;
     private String mUserNamePy;
     private String mVipId;
@@ -71,6 +74,7 @@ public final class ChatUser implements Parcelable, NoProGuard, PinYinUtils.PinYi
         this.mPhoneRelation = 0;
         this.mHasSpecialIdentity = 0;
         this.mSpecialIdentity = "";
+        this.mUserExt = "";
         this.mUk = j;
         this.mBuid = j2;
         this.mUserName = str;
@@ -99,6 +103,7 @@ public final class ChatUser implements Parcelable, NoProGuard, PinYinUtils.PinYi
         this.mPhoneRelation = 0;
         this.mHasSpecialIdentity = 0;
         this.mSpecialIdentity = "";
+        this.mUserExt = "";
         this.mUk = parcel.readLong();
         this.mBuid = parcel.readLong();
         this.mUserName = parcel.readString();
@@ -123,6 +128,8 @@ public final class ChatUser implements Parcelable, NoProGuard, PinYinUtils.PinYi
         this.mPhoneRelation = parcel.readInt();
         this.mHasSpecialIdentity = parcel.readInt();
         this.mSpecialIdentity = parcel.readString();
+        this.mUserExt = parcel.readString();
+        this.mSchema = parcel.readString();
     }
 
     @Override // android.os.Parcelable
@@ -156,6 +163,8 @@ public final class ChatUser implements Parcelable, NoProGuard, PinYinUtils.PinYi
         parcel.writeInt(this.mPhoneRelation);
         parcel.writeInt(this.mHasSpecialIdentity);
         parcel.writeString(this.mSpecialIdentity);
+        parcel.writeString(this.mUserExt);
+        parcel.writeString(this.mSchema);
     }
 
     public int getHasSpecialIdentity() {
@@ -377,7 +386,37 @@ public final class ChatUser implements Parcelable, NoProGuard, PinYinUtils.PinYi
         this.mUserNamePy = str;
     }
 
+    public String getUserExt() {
+        return this.mUserExt;
+    }
+
+    public void setUserExt(String str) {
+        this.mUserExt = str;
+        if (!TextUtils.isEmpty(str)) {
+            try {
+                setSchema(new JSONObject(str).optString("homepage", ""));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public String getSchema() {
+        if (TextUtils.isEmpty(this.mSchema) && !TextUtils.isEmpty(this.mUserExt)) {
+            try {
+                this.mSchema = new JSONObject(this.mUserExt).optString("homepage", "");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return this.mSchema;
+    }
+
+    public void setSchema(String str) {
+        this.mSchema = str;
+    }
+
     public String toString() {
-        return "ChatUser [mUk=" + this.mUk + ", mBuid=" + this.mBuid + ", mUserName=" + this.mUserName + ", mIconUrl=" + this.mIconUrl + ", mSex=" + this.mSex + ", mTinyUrl=" + this.mTinyUrl + ", mPhone=" + this.mPhone + ", mUserDetail=" + this.mUserDetail + ", mUserNamePy=" + this.mUserNamePy + ", mAccountType=" + this.mAccountType + ", mIsIpLocatonExist=" + this.mIsIpLocatonExist + ", mIpInfo=" + this.mIpInfo + ", mAttrDisturb=" + this.mAttrDisturb + ", mAttrBlack=" + this.mAttrBlack + ", vPortrait=" + this.vPortrait + ", mIdentity=" + this.mIdentity + ", mLastUpdate=" + this.mLastUpdate + ", mShield=" + this.mShield + ", mShieldTime=" + this.mShieldTime + ", mVipId=" + this.mVipId + ", mMarkTop=" + this.mMarkTop + ", mMarkTopTime=" + this.mMarkTopTime + ", mSubscribe=" + this.mSubscribe + "mPhoneRelation=" + this.mPhoneRelation + ", mHasSpecialIdentity= " + this.mHasSpecialIdentity + ", mSpecialIdentity= " + this.mSpecialIdentity + "]";
+        return "ChatUser [mUk=" + this.mUk + ", mBuid=" + this.mBuid + ", mUserName=" + this.mUserName + ", mIconUrl=" + this.mIconUrl + ", mSex=" + this.mSex + ", mTinyUrl=" + this.mTinyUrl + ", mPhone=" + this.mPhone + ", mUserDetail=" + this.mUserDetail + ", mUserNamePy=" + this.mUserNamePy + ", mAccountType=" + this.mAccountType + ", mIsIpLocatonExist=" + this.mIsIpLocatonExist + ", mIpInfo=" + this.mIpInfo + ", mAttrDisturb=" + this.mAttrDisturb + ", mAttrBlack=" + this.mAttrBlack + ", vPortrait=" + this.vPortrait + ", mIdentity=" + this.mIdentity + ", mLastUpdate=" + this.mLastUpdate + ", mShield=" + this.mShield + ", mShieldTime=" + this.mShieldTime + ", mVipId=" + this.mVipId + ", mMarkTop=" + this.mMarkTop + ", mMarkTopTime=" + this.mMarkTopTime + ", mSubscribe=" + this.mSubscribe + "mPhoneRelation=" + this.mPhoneRelation + ", mHasSpecialIdentity= " + this.mHasSpecialIdentity + ", mUserExt=" + this.mUserExt + ", mSchema=" + this.mSchema + ", mSpecialIdentity= " + this.mSpecialIdentity + "]";
     }
 }

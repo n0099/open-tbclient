@@ -10,14 +10,14 @@ public class SwanCoreVersion extends SwanAppIPCData {
     public static final Parcelable.Creator<SwanCoreVersion> CREATOR = new Parcelable.Creator<SwanCoreVersion>() { // from class: com.baidu.swan.apps.swancore.model.SwanCoreVersion.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: v */
+        /* renamed from: w */
         public SwanCoreVersion createFromParcel(Parcel parcel) {
             return new SwanCoreVersion(parcel);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: gK */
+        /* renamed from: he */
         public SwanCoreVersion[] newArray(int i) {
             return new SwanCoreVersion[i];
         }
@@ -55,6 +55,11 @@ public class SwanCoreVersion extends SwanAppIPCData {
     }
 
     public boolean isAvailable() {
-        return !TextUtils.isEmpty(this.swanCorePath) && new File(this.swanCorePath).exists();
+        String[] list;
+        if (TextUtils.isEmpty(this.swanCorePath)) {
+            return false;
+        }
+        File file = new File(this.swanCorePath);
+        return file.isDirectory() && (list = file.list()) != null && list.length > 0;
     }
 }

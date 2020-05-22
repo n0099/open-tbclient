@@ -28,32 +28,32 @@ public class a {
                         messageDigest.update(bArr, 0, read);
                     }
                     str = toHexString(messageDigest.digest(), "", z);
-                    com.baidu.swan.d.c.closeSafely(fileInputStream);
+                    com.baidu.swan.e.d.closeSafely(fileInputStream);
                 } catch (FileNotFoundException e) {
                     e = e;
                     if (com.baidu.swan.pms.d.DEBUG) {
                         e.printStackTrace();
                     }
-                    com.baidu.swan.d.c.closeSafely(fileInputStream);
+                    com.baidu.swan.e.d.closeSafely(fileInputStream);
                     return str;
                 } catch (IOException e2) {
                     e = e2;
                     if (com.baidu.swan.pms.d.DEBUG) {
                         e.printStackTrace();
                     }
-                    com.baidu.swan.d.c.closeSafely(fileInputStream);
+                    com.baidu.swan.e.d.closeSafely(fileInputStream);
                     return str;
                 } catch (NoSuchAlgorithmException e3) {
                     e = e3;
                     if (com.baidu.swan.pms.d.DEBUG) {
                         e.printStackTrace();
                     }
-                    com.baidu.swan.d.c.closeSafely(fileInputStream);
+                    com.baidu.swan.e.d.closeSafely(fileInputStream);
                     return str;
                 }
             } catch (Throwable th2) {
                 th = th2;
-                com.baidu.swan.d.c.closeSafely(null);
+                com.baidu.swan.e.d.closeSafely(null);
                 throw th;
             }
         } catch (FileNotFoundException e4) {
@@ -67,7 +67,7 @@ public class a {
             fileInputStream = null;
         } catch (Throwable th3) {
             th = th3;
-            com.baidu.swan.d.c.closeSafely(null);
+            com.baidu.swan.e.d.closeSafely(null);
             throw th;
         }
         return str;

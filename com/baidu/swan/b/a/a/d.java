@@ -14,7 +14,7 @@ public class d extends com.baidu.swan.b.d.a {
     }
 
     @Override // com.baidu.swan.b.d.a
-    public com.baidu.swan.apps.api.b.b b(@NonNull JSONObject jSONObject, @NonNull com.baidu.swan.apps.p.b bVar) {
+    public com.baidu.swan.apps.api.c.b b(@NonNull JSONObject jSONObject, @NonNull com.baidu.swan.apps.n.b bVar) {
         if (DEBUG) {
             Log.d("GameCenterOpenAppAction", "handle: " + jSONObject);
         }
@@ -27,7 +27,7 @@ public class d extends com.baidu.swan.b.d.a {
                 bVar.onFail(31011, "app is not installed");
                 com.baidu.swan.b.a.f.c.a(optString, "openApp", "fail", String.valueOf(31011), null);
             } else if (com.baidu.swan.b.a.c.a.ac(AppRuntime.getAppContext(), optString)) {
-                bVar.V(null);
+                bVar.aa(null);
                 com.baidu.swan.b.a.f.c.a(optString, "openApp", "success", null, null);
             } else {
                 bVar.onFail(31019, "open app fail");

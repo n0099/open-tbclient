@@ -14,19 +14,19 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class e extends b {
-    private static final String cqE = SchemeConfig.getSchemeHead() + "://v19/swan/launch?params={\"appid\":\"";
-    private static final String cqF = SchemeConfig.getSchemeHead() + "://swangame/%s";
+    private static final String cCw = SchemeConfig.getSchemeHead() + "://v19/swan/launch?params={\"appid\":\"";
+    private static final String cCx = SchemeConfig.getSchemeHead() + "://swangame/%s";
 
     public e(j jVar) {
         super(jVar, "/swanAPI/getFavor");
     }
 
     @Override // com.baidu.swan.apps.scheme.actions.b.b
-    protected void a(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str) {
+    protected void b(com.baidu.swan.apps.runtime.e eVar, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str) {
         JSONArray jSONArray = new JSONArray();
-        List<SwanFavorItemData> ZX = SwanFavorDataManager.ZW().ZX();
-        if (ZX.size() > 0) {
-            for (SwanFavorItemData swanFavorItemData : ZX) {
+        List<SwanFavorItemData> acX = SwanFavorDataManager.acW().acX();
+        if (acX.size() > 0) {
+            for (SwanFavorItemData swanFavorItemData : acX) {
                 jSONArray.put(b(swanFavorItemData));
             }
         }
@@ -49,9 +49,9 @@ public class e extends b {
             jSONObject.put("title", swanFavorItemData.getAppName());
             jSONObject.put("frameType", swanFavorItemData.getAppFrameType());
             if (swanFavorItemData.getAppFrameType() == 1) {
-                str = String.format(cqF, swanFavorItemData.getAppKey());
+                str = String.format(cCx, swanFavorItemData.getAppKey());
             } else {
-                str = cqE + swanFavorItemData.getAppKey() + "\"}";
+                str = cCw + swanFavorItemData.getAppKey() + "\"}";
             }
             jSONObject.put(SuspensionBallEntity.KEY_SCHEME, str);
         } catch (JSONException e) {
@@ -61,7 +61,7 @@ public class e extends b {
     }
 
     @Override // com.baidu.swan.apps.scheme.actions.b.b
-    protected boolean o(UnitedSchemeEntity unitedSchemeEntity) {
+    protected boolean b(com.baidu.swan.apps.runtime.e eVar, UnitedSchemeEntity unitedSchemeEntity) {
         return true;
     }
 }

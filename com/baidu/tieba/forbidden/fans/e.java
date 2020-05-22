@@ -9,89 +9,89 @@ import com.baidu.tieba.view.a;
 import java.util.ArrayList;
 /* loaded from: classes10.dex */
 public class e {
-    private com.baidu.tieba.person.e dkF;
-    private TbPageContext duK;
-    private ai gTK;
-    private d gTL;
-    private com.baidu.tieba.view.a gTM;
-    private a gTN;
+    private TbPageContext dIF;
+    private com.baidu.tieba.person.e dyF;
+    private ai hiw;
+    private d hix;
+    private com.baidu.tieba.view.a hiy;
+    private a hiz;
 
     /* loaded from: classes10.dex */
     public interface a {
         void a(int i, String str, boolean z, int i2, long j);
 
-        void bMO();
+        void bTj();
     }
 
     public e(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        this.duK = tbPageContext;
-        this.gTL = new d(tbPageContext, bdUniqueId);
-        this.gTL.a(new d.a() { // from class: com.baidu.tieba.forbidden.fans.e.1
+        this.dIF = tbPageContext;
+        this.hix = new d(tbPageContext, bdUniqueId);
+        this.hix.a(new d.a() { // from class: com.baidu.tieba.forbidden.fans.e.1
             @Override // com.baidu.tieba.forbidden.fans.d.a
             public void k(int i, String str, boolean z) {
-                if (e.this.gTN != null) {
-                    e.this.gTN.a(i, str, z, 0, 0L);
+                if (e.this.hiz != null) {
+                    e.this.hiz.a(i, str, z, 0, 0L);
                 }
             }
         });
-        this.gTK = new ai(tbPageContext, bdUniqueId);
-        this.gTK.a(new ai.a() { // from class: com.baidu.tieba.forbidden.fans.e.2
+        this.hiw = new ai(tbPageContext, bdUniqueId);
+        this.hiw.a(new ai.a() { // from class: com.baidu.tieba.forbidden.fans.e.2
             @Override // com.baidu.tbadk.core.util.ai.a
             public void a(int i, String str, long j, boolean z) {
-                if (e.this.gTN != null) {
-                    e.this.gTN.a(i, str, z, 1, j);
+                if (e.this.hiz != null) {
+                    e.this.hiz.a(i, str, z, 1, j);
                 }
             }
         });
     }
 
     public void removeAll() {
-        aHT();
+        aNH();
     }
 
-    public void eb(long j) {
-        this.gTK.ce(j);
+    public void ec(long j) {
+        this.hiw.ce(j);
     }
 
-    private void aHT() {
-        if (this.dkF == null) {
-            this.gTM = new com.baidu.tieba.view.a(this.duK.getContext());
-            this.gTM.setTitleText(this.duK.getString(R.string.confirm_remove_all_forbidden_fans));
+    private void aNH() {
+        if (this.dyF == null) {
+            this.hiy = new com.baidu.tieba.view.a(this.dIF.getContext());
+            this.hiy.setTitleText(this.dIF.getString(R.string.confirm_remove_all_forbidden_fans));
             ArrayList arrayList = new ArrayList();
-            a.C0692a c0692a = new a.C0692a(this.duK.getString(R.string.confirm), this.gTM);
-            c0692a.a(new a.c() { // from class: com.baidu.tieba.forbidden.fans.e.3
+            a.C0745a c0745a = new a.C0745a(this.dIF.getString(R.string.confirm), this.hiy);
+            c0745a.a(new a.c() { // from class: com.baidu.tieba.forbidden.fans.e.3
                 @Override // com.baidu.tieba.view.a.c
                 public void onClick() {
-                    e.this.dkF.dismiss();
-                    if (e.this.gTN != null) {
-                        e.this.gTN.bMO();
+                    e.this.dyF.dismiss();
+                    if (e.this.hiz != null) {
+                        e.this.hiz.bTj();
                     }
-                    e.this.gTL.bMS();
+                    e.this.hix.bTn();
                 }
             });
-            arrayList.add(c0692a);
-            this.gTM.a(new a.b() { // from class: com.baidu.tieba.forbidden.fans.e.4
+            arrayList.add(c0745a);
+            this.hiy.a(new a.b() { // from class: com.baidu.tieba.forbidden.fans.e.4
                 @Override // com.baidu.tieba.view.a.b
                 public void onClick() {
-                    if (e.this.dkF != null) {
-                        e.this.dkF.dismiss();
+                    if (e.this.dyF != null) {
+                        e.this.dyF.dismiss();
                     }
                 }
             });
-            this.gTM.aI(arrayList);
-            this.dkF = new com.baidu.tieba.person.e(this.duK.getPageActivity(), this.gTM.aNh());
-            this.dkF.O(0.7f);
+            this.hiy.aD(arrayList);
+            this.dyF = new com.baidu.tieba.person.e(this.dIF.getPageActivity(), this.hiy.aTh());
+            this.dyF.N(0.7f);
         }
-        this.dkF.show();
+        this.dyF.show();
     }
 
     public void onChangeSkinType() {
-        if (this.gTM != null) {
-            this.gTM.onChangeSkinType();
+        if (this.hiy != null) {
+            this.hiy.onChangeSkinType();
         }
     }
 
     public void a(a aVar) {
-        this.gTN = aVar;
+        this.hiz = aVar;
     }
 }

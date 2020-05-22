@@ -29,19 +29,19 @@ public class VideoPasterRequestData extends HttpMessage {
         super(CmdConfigHttp.CMD_VIDEO_PASTER_AD_REQUEST);
         addCommonParams();
         addHeader(SM.COOKIE, CookieManager.getInstance().getCookie("tieba.baidu.com"));
-        addParam("pid", aVar.pw());
+        addParam("pid", aVar.pC());
         addParam("ac", "1");
         String ext = getExt(aVar);
         if (!StringUtils.isNull(ext)) {
             addParam("ext", ext);
         }
         addParam("is_https", 1);
-        addParam("flr", String.valueOf(aVar.pl()));
+        addParam("flr", String.valueOf(aVar.pr()));
         addParam("sw", String.valueOf(aVar.width()));
         addParam(IXAdRequestInfo.SCREEN_HEIGHT, String.valueOf(aVar.height()));
         addParam("apna", TbadkCoreApplication.getInst().getPackageName());
-        addParam("fc", String.valueOf(aVar.pl()));
-        addParam("ft", aVar.pj());
+        addParam("fc", String.valueOf(aVar.pr()));
+        addParam("ft", aVar.pp());
         addParam(Config.EXCEPTION_CRASH_TYPE, "2");
     }
 
@@ -49,10 +49,10 @@ public class VideoPasterRequestData extends HttpMessage {
         if (aVar == null) {
             return null;
         }
-        if (aVar == null || aVar.pm() != null) {
-            if (aVar == null || !aVar.pm().isEmpty()) {
+        if (aVar == null || aVar.ps() != null) {
+            if (aVar == null || !aVar.ps().isEmpty()) {
                 JSONArray jSONArray = new JSONArray();
-                for (Map.Entry<String, String> entry : aVar.pm().entrySet()) {
+                for (Map.Entry<String, String> entry : aVar.ps().entrySet()) {
                     jSONArray.put(create(entry.getKey(), entry.getValue()));
                 }
                 return jSONArray.toString();
@@ -67,6 +67,7 @@ public class VideoPasterRequestData extends HttpMessage {
         addParam("uid", TbadkCoreApplication.getCurrentAccount());
         addParam("cuid", TbadkCoreApplication.getInst().getCuid());
         addParam("cuid_galaxy2", TbadkCoreApplication.getInst().getCuidGalaxy2());
+        addParam("c3_aid", TbadkCoreApplication.getInst().getCuidGalaxy3());
         addParam("model", Build.MODEL);
         addParam("_client_type", "2");
         addParam("_os_version", Build.VERSION.RELEASE);

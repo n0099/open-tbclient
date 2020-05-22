@@ -15,7 +15,7 @@ import com.baidu.tieba.write.upload.VideoUploadData;
 /* loaded from: classes2.dex */
 public final class b {
     private boolean isInit;
-    private com.baidu.tieba.write.b.b.a lAu;
+    private com.baidu.tieba.write.b.b.a lTI;
 
     /* loaded from: classes2.dex */
     public interface a {
@@ -26,12 +26,12 @@ public final class b {
 
     /* renamed from: com.baidu.tieba.write.b.c.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    private static class C0697b {
-        private static final b lAx = new b();
+    private static class C0750b {
+        private static final b lTL = new b();
     }
 
-    public static final b dfT() {
-        return C0697b.lAx;
+    public static final b dnj() {
+        return C0750b.lTL;
     }
 
     private b() {
@@ -44,17 +44,17 @@ public final class b {
             this.isInit = true;
             UgcServerApiUtils.setHostAddress(UgcServerApiUtils.ONLINE_HOST_ADRESS);
             UgcServerApiUtils.setPublisherUserAgent(UgcServerApiUtils.DEFAULT_PUBLISHER_USER_AGENT);
-            com.baidu.a.a.a.sg().setAppName("tieba");
-            if (this.lAu == null) {
-                this.lAu = new com.baidu.tieba.write.b.b.a();
+            com.baidu.a.a.a.sq().setAppName("tieba");
+            if (this.lTI == null) {
+                this.lTI = new com.baidu.tieba.write.b.b.a();
             }
-            this.lAu.uW(false);
+            this.lTI.vu(false);
             MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE) { // from class: com.baidu.tieba.write.b.c.b.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.adp.framework.listener.MessageListener
                 public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                    if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016 && b.this.lAu != null) {
-                        b.this.lAu.uW(false);
+                    if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016 && b.this.lTI != null) {
+                        b.this.lTI.vu(false);
                     }
                 }
             });

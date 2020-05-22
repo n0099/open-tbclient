@@ -2,28 +2,30 @@ package com.baidu.live.challenge;
 
 import android.view.ViewGroup;
 import com.baidu.live.challenge.j;
-import com.baidu.live.data.n;
+import com.baidu.live.data.q;
 /* loaded from: classes3.dex */
 public interface i extends j.c, j.k {
     void a(h hVar);
 
     void a(j jVar);
 
-    void a(n nVar);
+    void a(q qVar);
 
-    int aS(boolean z);
+    int aW(boolean z);
 
     void b(boolean z, boolean z2, boolean z3);
 
-    void bx(int i);
-
-    void f(ViewGroup viewGroup);
+    void bE(int i);
 
     boolean isActive();
 
+    void j(ViewGroup viewGroup);
+
     void onDestroy();
 
-    void uf();
+    void setNeedCloseRecommendFloat(boolean z);
 
-    void uo();
+    void vm();
+
+    void vv();
 }

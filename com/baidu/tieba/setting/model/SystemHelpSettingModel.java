@@ -19,38 +19,38 @@ import com.baidu.tieba.setting.model.MoreModel;
 import com.baidu.tieba.setting.more.SystemHelpSettingActivity;
 /* loaded from: classes13.dex */
 public class SystemHelpSettingModel extends BdBaseModel {
-    private a kCA;
-    private b kCB;
-    private BaseActivity.LoadDataCallBack kCC;
+    private a kUC;
+    private b kUD;
+    private BaseActivity.LoadDataCallBack kUE;
     private Context mContext;
 
     public SystemHelpSettingModel(SystemHelpSettingActivity systemHelpSettingActivity) {
         super(systemHelpSettingActivity.getPageContext());
-        this.kCA = null;
-        this.kCB = null;
+        this.kUC = null;
+        this.kUD = null;
         this.mContext = null;
-        this.kCC = null;
+        this.kUE = null;
         this.mContext = systemHelpSettingActivity.getPageContext().getPageActivity();
     }
 
-    public void bEt() {
-        if (this.kCA == null) {
-            this.kCA = new a();
-            this.kCA.execute(new String[0]);
+    public void bKK() {
+        if (this.kUC == null) {
+            this.kUC = new a();
+            this.kUC.execute(new String[0]);
         }
     }
 
-    public void cQa() {
+    public void cXd() {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (!TextUtils.isEmpty(currentAccount)) {
             MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.IM_DELETE_IM_DB, currentAccount));
         }
     }
 
-    public void cQb() {
-        if (this.kCB == null) {
-            this.kCB = new b();
-            this.kCB.execute(new String[0]);
+    public void cXe() {
+        if (this.kUD == null) {
+            this.kUD = new b();
+            this.kUD.execute(new String[0]);
         }
     }
 
@@ -69,9 +69,9 @@ public class SystemHelpSettingModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
             super.onPostExecute((a) str);
-            SystemHelpSettingModel.this.kCA = null;
-            if (SystemHelpSettingModel.this.kCC != null) {
-                SystemHelpSettingModel.this.kCC.callback(MoreModel.TaskType.DO_CACHE_CLEAR);
+            SystemHelpSettingModel.this.kUC = null;
+            if (SystemHelpSettingModel.this.kUE != null) {
+                SystemHelpSettingModel.this.kUE.callback(MoreModel.TaskType.DO_CACHE_CLEAR);
             }
         }
 
@@ -80,11 +80,11 @@ public class SystemHelpSettingModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public String doInBackground(String... strArr) {
             TiebaDatabase.getInstance().getSdcardMainDBDatabaseManager().deleteDatabase();
-            com.baidu.tbadk.core.voice.a.b.aRh();
+            com.baidu.tbadk.core.voice.a.b.aXo();
             try {
-                m.uC("image");
-                m.uC(TbConfig.IMAGE_CACHE_DIR_NAME);
-                ap.aOP().aOQ();
+                m.wi("image");
+                m.wi(TbConfig.IMAGE_CACHE_DIR_NAME);
+                ap.aUT().aUU();
                 return null;
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
@@ -120,9 +120,9 @@ public class SystemHelpSettingModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
             super.onPostExecute((b) str);
-            SystemHelpSettingModel.this.kCB = null;
-            if (SystemHelpSettingModel.this.kCC != null) {
-                SystemHelpSettingModel.this.kCC.callback(MoreModel.TaskType.GET_SIZE, str);
+            SystemHelpSettingModel.this.kUD = null;
+            if (SystemHelpSettingModel.this.kUE != null) {
+                SystemHelpSettingModel.this.kUE.callback(MoreModel.TaskType.GET_SIZE, str);
             }
         }
     }
@@ -138,6 +138,6 @@ public class SystemHelpSettingModel extends BdBaseModel {
     }
 
     public void a(BaseActivity.LoadDataCallBack loadDataCallBack) {
-        this.kCC = loadDataCallBack;
+        this.kUE = loadDataCallBack;
     }
 }

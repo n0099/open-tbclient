@@ -33,15 +33,15 @@ public class NativeCrashHandler {
     public final void aj() {
         try {
             if (this.mContext == null) {
-                com.baidu.crabsdk.c.a.de("NativeCrashHandler openNativeCrashHandler failed context is null!");
+                com.baidu.crabsdk.c.a.dg("NativeCrashHandler openNativeCrashHandler failed context is null!");
             } else {
                 System.loadLibrary("crab_native");
                 this.ca = true;
-                com.baidu.crabsdk.c.a.de("Native version is:" + CrabSDK.NDK_VERSION);
+                com.baidu.crabsdk.c.a.dg("Native version is:" + CrabSDK.NDK_VERSION);
                 if (CrabSDK.NDK_VERSION.equals("-1")) {
                     CrabSDK.NDK_VERSION = "3.2.0";
                 }
-                com.baidu.crabsdk.c.a.de("NativeCrashHandler openNativeCrashHandler success!  CPU_ABI is " + Build.CPU_ABI);
+                com.baidu.crabsdk.c.a.dg("NativeCrashHandler openNativeCrashHandler success!  CPU_ABI is " + Build.CPU_ABI);
             }
         } catch (Exception e) {
             this.ca = false;
@@ -55,7 +55,7 @@ public class NativeCrashHandler {
         if (this.ca) {
             try {
                 this.cb.startWatching();
-                nRequiredVarParams(com.baidu.crabsdk.c.d.dj(g.h(this.mContext).toString()));
+                nRequiredVarParams(com.baidu.crabsdk.c.d.dl(g.h(this.mContext).toString()));
             } catch (Exception e3) {
                 com.baidu.crabsdk.c.a.a("Init gather java info error!", e3);
             }

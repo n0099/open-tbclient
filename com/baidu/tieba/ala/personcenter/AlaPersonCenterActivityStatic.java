@@ -17,11 +17,13 @@ import com.baidu.tieba.ala.personcenter.privilege.entereffect.AlaGetEnterEffectR
 import com.baidu.tieba.frs.ag;
 /* loaded from: classes3.dex */
 public class AlaPersonCenterActivityStatic {
+    public static String Tag = "tag";
+
     static {
         TbadkCoreApplication.getInst().RegisterIntent(AlaPersonCenterActivityConfig.class, AlaPersonCenterActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(AlaPrivilegeListActivityConfig.class, AlaPersonCenterPrivilegeActivity.class);
-        bqo();
-        bBP();
+        aTm();
+        bIi();
         MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.CMD_GAME_FRS_ADD_TAB) { // from class: com.baidu.tieba.ala.personcenter.AlaPersonCenterActivityStatic.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
@@ -34,7 +36,7 @@ public class AlaPersonCenterActivityStatic {
                         aVar.setForumId(agVar.getForumId());
                         aVar.setForumName(agVar.getForumName());
                         aVar.setForumGameLabel(agVar.getForumGameLabel());
-                        aVar.Bo(agVar.bQx());
+                        aVar.CX(agVar.bWT());
                         aVar.a(agVar);
                     }
                 }
@@ -42,7 +44,7 @@ public class AlaPersonCenterActivityStatic {
         });
     }
 
-    private static final void bqo() {
+    private static final void aTm() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(AlaCmdConfigHttp.CMD_ALA_GET_GLOBAL_PUSH_SWITCH, TbConfig.SERVER_ADDRESS + AlaConfig.ALA_GET_GLOBAL_PUSH_SWITCH_URL);
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsUseCurrentBDUSS(true);
@@ -50,7 +52,7 @@ public class AlaPersonCenterActivityStatic {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void bBP() {
+    private static void bIi() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(AlaCmdConfigHttp.CMD_ALA_GET_ENTER_EFFECT, TbConfig.SERVER_ADDRESS + AlaConfig.ALA_GET_ENTER_EFFECT);
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedAddCommenParam(true);

@@ -2,18 +2,18 @@ package com.baidu.live.v;
 
 import android.text.TextUtils;
 import com.baidu.live.adp.framework.MessageManager;
-import com.baidu.live.data.f;
+import com.baidu.live.data.i;
 import com.baidu.live.message.g;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class d {
-    private long aRM;
-    private f.a aRN;
-    private List<String> aRO;
+    private long aZa;
+    private i.a aZb;
+    private List<String> aZc;
 
-    public static d Eu() {
-        return a.aRP;
+    public static d Gl() {
+        return a.aZd;
     }
 
     public void a(long j, long j2, int i) {
@@ -25,37 +25,37 @@ public class d {
         MessageManager.getInstance().sendMessage(gVar);
     }
 
-    public void b(f.a aVar) {
-        if (this.aRO != null) {
-            this.aRO.clear();
+    public void b(i.a aVar) {
+        if (this.aZc != null) {
+            this.aZc.clear();
         }
-        ak(0L);
-        this.aRN = aVar;
-        if (this.aRN != null) {
-            List<String> list = aVar.aqh;
+        ap(0L);
+        this.aZb = aVar;
+        if (this.aZb != null) {
+            List<String> list = aVar.avg;
             if (list != null && !list.isEmpty()) {
-                if (this.aRO == null) {
-                    this.aRO = new ArrayList();
+                if (this.aZc == null) {
+                    this.aZc = new ArrayList();
                 }
-                this.aRO.addAll(list);
+                this.aZc.addAll(list);
             }
-            ak(aVar.endTime - aVar.currentTime);
+            ap(aVar.endTime - aVar.currentTime);
         }
     }
 
     public double f(boolean z, String str) {
         double a2;
-        if (this.aRN == null || this.aRN.aqe != 1) {
+        if (this.aZb == null || this.aZb.avd != 1) {
             return 0.0d;
         }
         if (z) {
-            if (Ev()) {
-                a2 = Math.max(a(str, this.aRN.aqg), a(str, this.aRN.aqf));
+            if (Gm()) {
+                a2 = Math.max(a(str, this.aZb.avf), a(str, this.aZb.ave));
             } else {
-                a2 = a(str, this.aRN.aqf);
+                a2 = a(str, this.aZb.ave);
             }
         } else {
-            a2 = Ev() ? a(str, this.aRN.aqg) : 0.0d;
+            a2 = Gm() ? a(str, this.aZb.avf) : 0.0d;
         }
         if (a2 == 1.0d || a2 < 0.0d) {
             return 0.0d;
@@ -64,9 +64,9 @@ public class d {
     }
 
     private double a(String str, double d) {
-        if (!TextUtils.isEmpty(str) && this.aRN != null) {
-            if (this.aRN.aqi != null && !this.aRN.aqi.isEmpty()) {
-                for (String str2 : this.aRN.aqi) {
+        if (!TextUtils.isEmpty(str) && this.aZb != null) {
+            if (this.aZb.avh != null && !this.aZb.avh.isEmpty()) {
+                for (String str2 : this.aZb.avh) {
                     if (str.equals(str2)) {
                         return d;
                     }
@@ -78,31 +78,31 @@ public class d {
         return 0.0d;
     }
 
-    public boolean Ev() {
-        return this.aRM > 0;
+    public boolean Gm() {
+        return this.aZa > 0;
     }
 
-    public void Ew() {
-        this.aRM = 0L;
+    public void Gn() {
+        this.aZa = 0L;
     }
 
-    public void ak(long j) {
-        this.aRM = j;
+    public void ap(long j) {
+        this.aZa = j;
     }
 
-    public boolean eQ(String str) {
-        if (this.aRO == null || this.aRO.isEmpty()) {
+    public boolean fC(String str) {
+        if (this.aZc == null || this.aZc.isEmpty()) {
             return false;
         }
-        return this.aRO.contains(str);
+        return this.aZc.contains(str);
     }
 
     public void release() {
-        this.aRM = 0L;
-        if (this.aRO != null) {
-            this.aRO.clear();
+        this.aZa = 0L;
+        if (this.aZc != null) {
+            this.aZc.clear();
         }
-        this.aRN = null;
+        this.aZb = null;
     }
 
     private d() {
@@ -110,6 +110,6 @@ public class d {
 
     /* loaded from: classes3.dex */
     private static class a {
-        private static final d aRP = new d();
+        private static final d aZd = new d();
     }
 }

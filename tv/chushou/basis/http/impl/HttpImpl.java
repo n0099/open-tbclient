@@ -53,10 +53,10 @@ public class HttpImpl extends HttpExecutor implements Http {
 
     /* JADX INFO: Access modifiers changed from: private */
     public Request.Builder commonHeaders(Request.Builder builder) {
-        Map<String, String> dyF;
-        b bVar = (b) tv.chushou.basis.d.b.dJs().S(b.class);
-        if (bVar != null && (dyF = bVar.dyF()) != null) {
-            for (Map.Entry<String, String> entry : dyF.entrySet()) {
+        Map<String, String> dFX;
+        b bVar = (b) tv.chushou.basis.d.b.dRm().S(b.class);
+        if (bVar != null && (dFX = bVar.dFX()) != null) {
+            for (Map.Entry<String, String> entry : dFX.entrySet()) {
                 builder.header(entry.getKey(), entry.getValue());
             }
         }
@@ -66,21 +66,21 @@ public class HttpImpl extends HttpExecutor implements Http {
     private v getScheduler(EventThread eventThread, ExecutorService executorService) {
         switch (eventThread) {
             case NEW_THREAD:
-                return a.dDl();
+                return a.dLf();
             case IO:
-                return a.dDj();
+                return a.dLd();
             case COMPUTATION:
-                return a.dDi();
+                return a.dLc();
             case TRAMPOLINE:
-                return a.dDk();
+                return a.dLe();
             case SINGLE:
-                return a.dDm();
+                return a.dLg();
             case EXECUTOR:
-                return executorService != null ? a.a(executorService) : a.dDj();
+                return executorService != null ? a.a(executorService) : a.dLd();
             case HANDLER:
                 return io.reactivex.a.b.a.a(ThreadHandler.DEFAULT.getHandler().getLooper());
             default:
-                return io.reactivex.a.b.a.dCE();
+                return io.reactivex.a.b.a.dKy();
         }
     }
 
@@ -345,7 +345,7 @@ public class HttpImpl extends HttpExecutor implements Http {
                 */
                 throw new UnsupportedOperationException("Method not decompiled: tv.chushou.basis.http.impl.HttpImpl.AnonymousClass7.subscribe(io.reactivex.h):void");
             }
-        }, BackpressureStrategy.LATEST).b(a.dDj()).a(new io.reactivex.c.g<d>() { // from class: tv.chushou.basis.http.impl.HttpImpl.6
+        }, BackpressureStrategy.LATEST).b(a.dLd()).a(new io.reactivex.c.g<d>() { // from class: tv.chushou.basis.http.impl.HttpImpl.6
             /* JADX DEBUG: Method merged with bridge method */
             @Override // io.reactivex.c.g
             /* renamed from: a */
@@ -354,7 +354,7 @@ public class HttpImpl extends HttpExecutor implements Http {
                     downloadListener.onStart();
                 }
             }
-        }).b(io.reactivex.a.b.a.dCE()).a(io.reactivex.a.b.a.dCE()).a(new io.reactivex.c.g<File>() { // from class: tv.chushou.basis.http.impl.HttpImpl.3
+        }).b(io.reactivex.a.b.a.dKy()).a(io.reactivex.a.b.a.dKy()).a(new io.reactivex.c.g<File>() { // from class: tv.chushou.basis.http.impl.HttpImpl.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // io.reactivex.c.g
             /* renamed from: a */
@@ -368,7 +368,7 @@ public class HttpImpl extends HttpExecutor implements Http {
             @Override // io.reactivex.c.g
             /* renamed from: a */
             public void accept(Throwable th) {
-                tv.chushou.basis.d.b.dJr().e(HttpExecutor.TAG, "", th);
+                tv.chushou.basis.d.b.dRl().e(HttpExecutor.TAG, "", th);
                 if (downloadListener != null) {
                     downloadListener.onFailure(-1, "", th);
                 }
@@ -503,9 +503,9 @@ public class HttpImpl extends HttpExecutor implements Http {
             public Http.Resp apply(Http.Resp resp) {
                 if (JSONObject.class.equals(thirdParty.respType)) {
                     if ((resp.respJson != null ? resp.respJson.optInt("code", -1) : -1) == 602) {
-                        c cVar = (c) tv.chushou.basis.d.b.dJs().S(c.class);
+                        c cVar = (c) tv.chushou.basis.d.b.dRm().S(c.class);
                         if (cVar != null) {
-                            cVar.dyK();
+                            cVar.dGc();
                         }
                         throw new HttpException(6);
                     }
@@ -515,7 +515,7 @@ public class HttpImpl extends HttpExecutor implements Http {
         }).a(1L, new j<Throwable>() { // from class: tv.chushou.basis.http.impl.HttpImpl.10
             /* JADX DEBUG: Method merged with bridge method */
             @Override // io.reactivex.c.j
-            /* renamed from: j */
+            /* renamed from: k */
             public boolean test(Throwable th) {
                 return (th instanceof HttpException) && ((HttpException) th).errorCode() == 602;
             }
@@ -542,7 +542,7 @@ public class HttpImpl extends HttpExecutor implements Http {
             @Override // io.reactivex.c.g
             /* renamed from: a */
             public void accept(Throwable th) {
-                tv.chushou.basis.d.b.dJr().e(HttpExecutor.TAG, "", th);
+                tv.chushou.basis.d.b.dRl().e(HttpExecutor.TAG, "", th);
                 if (aVar != null) {
                     aVar.onFailure(-1, "", th);
                 }
@@ -640,9 +640,9 @@ public class HttpImpl extends HttpExecutor implements Http {
             public Http.Resp apply(Http.Resp resp) {
                 if (JSONObject.class.equals(thirdParty.respType)) {
                     if ((resp.respJson != null ? resp.respJson.optInt("code", -1) : -1) == 602) {
-                        c cVar = (c) tv.chushou.basis.d.b.dJs().S(c.class);
+                        c cVar = (c) tv.chushou.basis.d.b.dRm().S(c.class);
                         if (cVar != null) {
-                            cVar.dyK();
+                            cVar.dGc();
                         }
                         throw new HttpException(6);
                     }
@@ -652,7 +652,7 @@ public class HttpImpl extends HttpExecutor implements Http {
         }).a(1L, new j<Throwable>() { // from class: tv.chushou.basis.http.impl.HttpImpl.22
             /* JADX DEBUG: Method merged with bridge method */
             @Override // io.reactivex.c.j
-            /* renamed from: j */
+            /* renamed from: k */
             public boolean test(Throwable th) {
                 return (th instanceof HttpException) && ((HttpException) th).errorCode() == 602;
             }
@@ -679,7 +679,7 @@ public class HttpImpl extends HttpExecutor implements Http {
             @Override // io.reactivex.c.g
             /* renamed from: a */
             public void accept(Throwable th) {
-                tv.chushou.basis.d.b.dJr().e(HttpExecutor.TAG, "", th);
+                tv.chushou.basis.d.b.dRl().e(HttpExecutor.TAG, "", th);
                 if (aVar != null) {
                     aVar.onFailure(-1, "", th);
                 }
@@ -718,7 +718,7 @@ public class HttpImpl extends HttpExecutor implements Http {
         httpParam.b();
         httpParam.c();
         MultipartBody.Builder type = new MultipartBody.Builder().setType(MultipartBody.FORM);
-        for (Map.Entry<String, String> entry2 : httpParam.dJp()) {
+        for (Map.Entry<String, String> entry2 : httpParam.dRj()) {
             type.addFormDataPart(entry2.getKey(), entry2.getValue());
         }
         if (list != null) {
@@ -770,7 +770,7 @@ public class HttpImpl extends HttpExecutor implements Http {
         }
         HttpUrl parse = HttpUrl.parse(str);
         if (parse == null) {
-            tv.chushou.basis.d.b.dJr().e(HttpExecutor.TAG, "pack h5 url, parse failed:" + str);
+            tv.chushou.basis.d.b.dRl().e(HttpExecutor.TAG, "pack h5 url, parse failed:" + str);
             return str;
         }
         HttpUrl.Builder newBuilder = parse.newBuilder();
@@ -825,7 +825,7 @@ public class HttpImpl extends HttpExecutor implements Http {
         for (String str2 : hashSet) {
             newBuilder.removeAllQueryParameters(str2);
         }
-        for (Map.Entry<String, String> entry2 : httpParam.dJp()) {
+        for (Map.Entry<String, String> entry2 : httpParam.dRj()) {
             newBuilder.addQueryParameter(entry2.getKey(), entry2.getValue());
         }
         return newBuilder.toString();
@@ -850,9 +850,9 @@ public class HttpImpl extends HttpExecutor implements Http {
             public Http.Resp apply(Http.Resp resp) {
                 if (JSONObject.class.equals(thirdParty.respType)) {
                     if ((resp.respJson != null ? resp.respJson.optInt("code", -1) : -1) == 602) {
-                        c cVar = (c) tv.chushou.basis.d.b.dJs().S(c.class);
+                        c cVar = (c) tv.chushou.basis.d.b.dRm().S(c.class);
                         if (cVar != null) {
-                            cVar.dyK();
+                            cVar.dGc();
                         }
                         throw new HttpException(6);
                     }
@@ -862,7 +862,7 @@ public class HttpImpl extends HttpExecutor implements Http {
         }).a(1L, new j<Throwable>() { // from class: tv.chushou.basis.http.impl.HttpImpl.12
             /* JADX DEBUG: Method merged with bridge method */
             @Override // io.reactivex.c.j
-            /* renamed from: j */
+            /* renamed from: k */
             public boolean test(Throwable th) {
                 return (th instanceof HttpException) && ((HttpException) th).errorCode() == 602;
             }
@@ -889,7 +889,7 @@ public class HttpImpl extends HttpExecutor implements Http {
             @Override // io.reactivex.c.g
             /* renamed from: a */
             public void accept(Throwable th) {
-                tv.chushou.basis.d.b.dJr().e(HttpExecutor.TAG, "", th);
+                tv.chushou.basis.d.b.dRl().e(HttpExecutor.TAG, "", th);
                 if (aVar != null) {
                     aVar.onFailure(-1, "", th);
                 }

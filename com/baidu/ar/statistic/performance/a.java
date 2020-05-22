@@ -12,19 +12,19 @@ class a {
     long vs;
     long vt;
     long vu;
-    BlockingQueue<C0084a> vv = new LinkedBlockingQueue();
+    BlockingQueue<C0086a> vv = new LinkedBlockingQueue();
 
     /* renamed from: com.baidu.ar.statistic.performance.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    static class C0084a {
+    static class C0086a {
         int vw;
         long vx;
         long vy;
-        BlockingQueue<C0085a> vz = new LinkedBlockingQueue();
+        BlockingQueue<C0087a> vz = new LinkedBlockingQueue();
 
         /* renamed from: com.baidu.ar.statistic.performance.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        static class C0085a {
+        static class C0087a {
             int count;
             String name;
             String vA;
@@ -42,20 +42,20 @@ class a {
             jSONObject.put("mem_total", String.valueOf(this.vt));
             jSONObject.put("mem_used", String.valueOf(this.vu));
             JSONArray jSONArray = new JSONArray();
-            for (C0084a c0084a : this.vv) {
+            for (C0086a c0086a : this.vv) {
                 try {
                     JSONObject jSONObject2 = new JSONObject();
-                    jSONObject2.put("frame_index", c0084a.vw);
-                    jSONObject2.put("frame_in", c0084a.vx);
-                    jSONObject2.put("frame_out", c0084a.vy);
+                    jSONObject2.put("frame_index", c0086a.vw);
+                    jSONObject2.put("frame_in", c0086a.vx);
+                    jSONObject2.put("frame_out", c0086a.vy);
                     JSONArray jSONArray2 = new JSONArray();
-                    for (C0084a.C0085a c0085a : c0084a.vz) {
+                    for (C0086a.C0087a c0087a : c0086a.vz) {
                         try {
                             JSONObject jSONObject3 = new JSONObject();
-                            jSONObject3.put("name", c0085a.name);
-                            jSONObject3.put("func", c0085a.vA);
-                            jSONObject3.put("time_cost", c0085a.vB);
-                            jSONObject3.put("count", c0085a.count);
+                            jSONObject3.put("name", c0087a.name);
+                            jSONObject3.put("func", c0087a.vA);
+                            jSONObject3.put("time_cost", c0087a.vB);
+                            jSONObject3.put("count", c0087a.count);
                             jSONArray2.put(jSONObject3);
                         } catch (JSONException e) {
                             e.printStackTrace();

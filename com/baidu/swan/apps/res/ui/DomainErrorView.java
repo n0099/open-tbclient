@@ -4,10 +4,10 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import com.baidu.swan.apps.a;
-import com.baidu.swan.apps.as.af;
-import com.baidu.swan.apps.as.ai;
+import com.baidu.swan.apps.aq.ag;
+import com.baidu.swan.apps.aq.aj;
 import com.baidu.swan.apps.runtime.e;
-import com.baidu.swan.apps.statistic.f;
+import com.baidu.swan.apps.statistic.h;
 import java.net.MalformedURLException;
 import java.net.URL;
 /* loaded from: classes11.dex */
@@ -24,7 +24,7 @@ public class DomainErrorView extends CommonEmptyView {
         super(context, attributeSet, i);
     }
 
-    public void lP(String str) {
+    public void nk(String str) {
         if (TextUtils.isEmpty(str)) {
             str = "";
         } else {
@@ -39,7 +39,7 @@ public class DomainErrorView extends CommonEmptyView {
         setIcon(a.e.aiapps_empty_icon_error);
         setTitle(a.h.aiapps_emptyview_domain_error_title);
         setSubTitle(String.format("不支持跳转非业务域名，请重新配置\n%s", str));
-        this.mSubTitle.setPadding(af.C(70.0f), 0, af.C(70.0f), 0);
-        f.b(new com.baidu.swan.apps.statistic.a.d().e(new com.baidu.swan.apps.ap.a().bn(5L).bo(41L).nL("domain not in white list--" + str)).mZ(f.gz(0)).na(e.akO()).bx("errorDomain", str).bx("path", ai.apu().getPage()));
+        this.mSubTitle.setPadding(ag.B(70.0f), 0, ag.B(70.0f), 0);
+        h.b(new com.baidu.swan.apps.statistic.a.d().f(new com.baidu.swan.apps.an.a().bw(5L).bx(41L).pt("domain not in white list--" + str)).oC(h.gS(0)).oD(e.aoH()).bS("errorDomain", str).bS("path", aj.atU().getPage()));
     }
 }

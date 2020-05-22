@@ -1,10 +1,10 @@
 package com.baidu.tieba.im.data;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.m;
+import com.baidu.adp.widget.ListView.o;
 import java.io.Serializable;
 /* loaded from: classes8.dex */
-public class GroupPermData implements m, Serializable {
+public class GroupPermData implements o, Serializable {
     private static final int MANAGER = 1;
     private static final int NORMAL = 1;
     private static final int OFFICIAL = 1;
@@ -123,7 +123,7 @@ public class GroupPermData implements m, Serializable {
         this.canCreatePersonalNum = i;
     }
 
-    @Override // com.baidu.adp.widget.ListView.m
+    @Override // com.baidu.adp.widget.ListView.o
     public BdUniqueId getType() {
         return TYPE_FRS_CREATE_GROUP;
     }

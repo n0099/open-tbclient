@@ -14,12 +14,12 @@ public class n {
     private static int everyDayUser = 0;
     private static int everyDayDevice = 0;
     private static int deviceNotClick = 0;
-    private static boolean aXR = false;
-    private static HashMap<Long, Integer> aXS = new HashMap<>();
+    private static boolean bfm = false;
+    private static HashMap<Long, Integer> bfn = new HashMap<>();
 
     private static void init() {
-        if (com.baidu.live.v.a.En().aQu.atz != null) {
-            AlaFeedDiversionData alaFeedDiversionData = com.baidu.live.v.a.En().aQu.atz;
+        if (com.baidu.live.v.a.Ge().aWF.ayx != null) {
+            AlaFeedDiversionData alaFeedDiversionData = com.baidu.live.v.a.Ge().aWF.ayx;
             if (alaFeedDiversionData.frequencyData != null) {
                 AlaFrequencyData alaFrequencyData = alaFeedDiversionData.frequencyData;
                 startEveryLive = alaFrequencyData.startEveryLive;
@@ -30,24 +30,24 @@ public class n {
         }
     }
 
-    private static boolean aq(long j) {
+    private static boolean av(long j) {
         if (startEveryLive <= 0) {
             init();
         }
         if (startEveryLive <= 0) {
             return false;
         }
-        if (aXS.containsKey(Long.valueOf(j)) && aXS.get(Long.valueOf(j)).intValue() >= startEveryLive) {
+        if (bfn.containsKey(Long.valueOf(j)) && bfn.get(Long.valueOf(j)).intValue() >= startEveryLive) {
             return false;
         }
         return true;
     }
 
-    private static boolean Gh() {
+    private static boolean Ia() {
         if (everyDayUser <= 0 || everyDayDevice <= 0) {
             init();
         }
-        JSONObject optJSONObject = Gj().optJSONObject(j.b(new Date()));
+        JSONObject optJSONObject = Ic().optJSONObject(j.b(new Date()));
         if (optJSONObject == null) {
             optJSONObject = new JSONObject();
         }
@@ -55,22 +55,22 @@ public class n {
         return ((currentAccountId > 0L ? 1 : (currentAccountId == 0L ? 0 : -1)) > 0 ? optJSONObject.optInt(new StringBuilder().append("uid_").append(currentAccountId).toString()) : 0) < everyDayUser && optJSONObject.optInt("dev") < everyDayDevice;
     }
 
-    private static boolean Gi() {
+    private static boolean Ib() {
         if (deviceNotClick <= 0) {
             init();
         }
-        return com.baidu.live.c.tG().getInt("feed_diversion_noclick_frequency", 0) < deviceNotClick;
+        return com.baidu.live.c.uN().getInt("feed_diversion_noclick_frequency", 0) < deviceNotClick;
     }
 
-    public static void ar(long j) {
+    public static void aw(long j) {
         Integer num = 0;
-        if (aXS.containsKey(Long.valueOf(j))) {
-            num = aXS.get(Long.valueOf(j));
+        if (bfn.containsKey(Long.valueOf(j))) {
+            num = bfn.get(Long.valueOf(j));
         }
-        aXS.put(Long.valueOf(j), Integer.valueOf(num.intValue() + 1));
-        JSONObject Gj = Gj();
+        bfn.put(Long.valueOf(j), Integer.valueOf(num.intValue() + 1));
+        JSONObject Ic = Ic();
         String b = j.b(new Date());
-        JSONObject optJSONObject = Gj.optJSONObject(b);
+        JSONObject optJSONObject = Ic.optJSONObject(b);
         if (optJSONObject == null) {
             optJSONObject = new JSONObject();
         }
@@ -94,7 +94,7 @@ public class n {
         } catch (JSONException e3) {
             e3.printStackTrace();
         }
-        com.baidu.live.c.tG().putString("feed_diversion_show_frequency", jSONObject.toString());
+        com.baidu.live.c.uN().putString("feed_diversion_show_frequency", jSONObject.toString());
     }
 
     /* JADX WARN: Removed duplicated region for block: B:13:? A[RETURN, SYNTHETIC] */
@@ -102,9 +102,9 @@ public class n {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private static JSONObject Gj() {
+    private static JSONObject Ic() {
         JSONObject jSONObject;
-        String string = com.baidu.live.c.tG().getString("feed_diversion_show_frequency", "");
+        String string = com.baidu.live.c.uN().getString("feed_diversion_show_frequency", "");
         if (!TextUtils.isEmpty(string)) {
             try {
                 jSONObject = new JSONObject(string);
@@ -121,15 +121,15 @@ public class n {
         }
     }
 
-    public static void cc(boolean z) {
-        com.baidu.live.c.tG().putInt("feed_diversion_noclick_frequency", z ? 0 : com.baidu.live.c.tG().getInt("feed_diversion_noclick_frequency", 0) + 1);
+    public static void co(boolean z) {
+        com.baidu.live.c.uN().putInt("feed_diversion_noclick_frequency", z ? 0 : com.baidu.live.c.uN().getInt("feed_diversion_noclick_frequency", 0) + 1);
     }
 
-    public static boolean as(long j) {
-        boolean aq;
-        if (!aXR && (aq = aq(j))) {
-            aXR = (Gh() && Gi()) ? false : true;
-            return aq & (aXR ? false : true);
+    public static boolean ax(long j) {
+        boolean av;
+        if (!bfm && (av = av(j))) {
+            bfm = (Ia() && Ib()) ? false : true;
+            return av & (bfm ? false : true);
         }
         return false;
     }

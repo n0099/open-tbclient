@@ -24,7 +24,7 @@ public class IjkplayerPlugin implements MethodChannel.MethodCallHandler {
 
     public IjkplayerPlugin(PluginRegistry.Registrar registrar, IjkManager ijkManager) {
         this.manager = null;
-        q.j(registrar, "registrar");
+        q.m(registrar, "registrar");
         this.registrar = registrar;
         this.manager = ijkManager;
     }

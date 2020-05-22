@@ -5,94 +5,94 @@ import com.facebook.common.memory.PooledByteBuffer;
 import com.facebook.imagepipeline.request.ImageRequest;
 /* loaded from: classes12.dex */
 public class s implements aj<com.facebook.imagepipeline.g.e> {
-    private final com.facebook.imagepipeline.c.p<com.facebook.cache.common.b, PooledByteBuffer> lTj;
-    private final com.facebook.imagepipeline.c.f mbI;
-    private final aj<com.facebook.imagepipeline.g.e> meH;
+    private final com.facebook.imagepipeline.c.p<com.facebook.cache.common.b, PooledByteBuffer> mnb;
+    private final com.facebook.imagepipeline.c.f mvz;
+    private final aj<com.facebook.imagepipeline.g.e> myy;
 
     public s(com.facebook.imagepipeline.c.p<com.facebook.cache.common.b, PooledByteBuffer> pVar, com.facebook.imagepipeline.c.f fVar, aj<com.facebook.imagepipeline.g.e> ajVar) {
-        this.lTj = pVar;
-        this.mbI = fVar;
-        this.meH = ajVar;
+        this.mnb = pVar;
+        this.mvz = fVar;
+        this.myy = ajVar;
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [97=4] */
     @Override // com.facebook.imagepipeline.producers.aj
     public void c(k<com.facebook.imagepipeline.g.e> kVar, ak akVar) {
         String id = akVar.getId();
-        am dtS = akVar.dtS();
-        dtS.fi(id, "EncodedMemoryCacheProducer");
-        com.facebook.cache.common.b c = this.mbI.c(akVar.dtR(), akVar.dou());
-        com.facebook.common.references.a<PooledByteBuffer> be = this.lTj.be(c);
+        am dBj = akVar.dBj();
+        dBj.fK(id, "EncodedMemoryCacheProducer");
+        com.facebook.cache.common.b c = this.mvz.c(akVar.dBi(), akVar.dvM());
+        com.facebook.common.references.a<PooledByteBuffer> bi = this.mnb.bi(c);
         try {
-            if (be != null) {
-                com.facebook.imagepipeline.g.e eVar = new com.facebook.imagepipeline.g.e(be);
-                dtS.a(id, "EncodedMemoryCacheProducer", dtS.Oo(id) ? ImmutableMap.of("cached_value_found", "true") : null);
-                dtS.D(id, "EncodedMemoryCacheProducer", true);
-                kVar.au(1.0f);
+            if (bi != null) {
+                com.facebook.imagepipeline.g.e eVar = new com.facebook.imagepipeline.g.e(bi);
+                dBj.a(id, "EncodedMemoryCacheProducer", dBj.Qc(id) ? ImmutableMap.of("cached_value_found", "true") : null);
+                dBj.F(id, "EncodedMemoryCacheProducer", true);
+                kVar.at(1.0f);
                 kVar.h(eVar, 1);
                 com.facebook.imagepipeline.g.e.e(eVar);
-            } else if (akVar.dtT().getValue() >= ImageRequest.RequestLevel.ENCODED_MEMORY_CACHE.getValue()) {
-                dtS.a(id, "EncodedMemoryCacheProducer", dtS.Oo(id) ? ImmutableMap.of("cached_value_found", "false") : null);
-                dtS.D(id, "EncodedMemoryCacheProducer", false);
+            } else if (akVar.dBk().getValue() >= ImageRequest.RequestLevel.ENCODED_MEMORY_CACHE.getValue()) {
+                dBj.a(id, "EncodedMemoryCacheProducer", dBj.Qc(id) ? ImmutableMap.of("cached_value_found", "false") : null);
+                dBj.F(id, "EncodedMemoryCacheProducer", false);
                 kVar.h(null, 1);
             } else {
-                a aVar = new a(kVar, this.lTj, c, akVar.dtR().duQ());
-                dtS.a(id, "EncodedMemoryCacheProducer", dtS.Oo(id) ? ImmutableMap.of("cached_value_found", "false") : null);
-                this.meH.c(aVar, akVar);
+                a aVar = new a(kVar, this.mnb, c, akVar.dBi().dCh());
+                dBj.a(id, "EncodedMemoryCacheProducer", dBj.Qc(id) ? ImmutableMap.of("cached_value_found", "false") : null);
+                this.myy.c(aVar, akVar);
             }
         } finally {
-            com.facebook.common.references.a.c((com.facebook.common.references.a<?>) be);
+            com.facebook.common.references.a.c(bi);
         }
     }
 
     /* loaded from: classes12.dex */
     private static class a extends n<com.facebook.imagepipeline.g.e, com.facebook.imagepipeline.g.e> {
-        private final com.facebook.imagepipeline.c.p<com.facebook.cache.common.b, PooledByteBuffer> lTj;
-        private final com.facebook.cache.common.b mfk;
-        private final boolean mfl;
+        private final com.facebook.imagepipeline.c.p<com.facebook.cache.common.b, PooledByteBuffer> mnb;
+        private final com.facebook.cache.common.b mzb;
+        private final boolean mzc;
 
         public a(k<com.facebook.imagepipeline.g.e> kVar, com.facebook.imagepipeline.c.p<com.facebook.cache.common.b, PooledByteBuffer> pVar, com.facebook.cache.common.b bVar, boolean z) {
             super(kVar);
-            this.lTj = pVar;
-            this.mfk = bVar;
-            this.mfl = z;
+            this.mnb = pVar;
+            this.mzb = bVar;
+            this.mzc = z;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.facebook.imagepipeline.producers.b
         /* renamed from: a */
         public void g(com.facebook.imagepipeline.g.e eVar, int i) {
-            if (Hs(i) || eVar == null || dm(i, 10)) {
-                dud().h(eVar, i);
+            if (Ie(i) || eVar == null || dr(i, 10)) {
+                dBu().h(eVar, i);
                 return;
             }
-            com.facebook.common.references.a<PooledByteBuffer> dsS = eVar.dsS();
-            if (dsS != null) {
+            com.facebook.common.references.a<PooledByteBuffer> dAk = eVar.dAk();
+            if (dAk != null) {
                 com.facebook.common.references.a<PooledByteBuffer> aVar = null;
                 try {
-                    if (this.mfl) {
-                        aVar = this.lTj.a(this.mfk, dsS);
+                    if (this.mzc) {
+                        aVar = this.mnb.a(this.mzb, dAk);
                     }
                     if (aVar != null) {
                         try {
                             com.facebook.imagepipeline.g.e eVar2 = new com.facebook.imagepipeline.g.e(aVar);
                             eVar2.c(eVar);
                             try {
-                                dud().au(1.0f);
-                                dud().h(eVar2, i);
+                                dBu().at(1.0f);
+                                dBu().h(eVar2, i);
                                 return;
                             } finally {
                                 com.facebook.imagepipeline.g.e.e(eVar2);
                             }
                         } finally {
-                            com.facebook.common.references.a.c((com.facebook.common.references.a<?>) aVar);
+                            com.facebook.common.references.a.c(aVar);
                         }
                     }
                 } finally {
-                    com.facebook.common.references.a.c((com.facebook.common.references.a<?>) dsS);
+                    com.facebook.common.references.a.c(dAk);
                 }
             }
-            dud().h(eVar, i);
+            dBu().h(eVar, i);
         }
     }
 }

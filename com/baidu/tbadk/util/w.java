@@ -1,33 +1,56 @@
 package com.baidu.tbadk.util;
 
-import android.text.TextUtils;
-import com.baidu.mobstat.Config;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import org.json.JSONException;
-import org.json.JSONObject;
+import android.os.Environment;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Properties;
 /* loaded from: classes.dex */
-public class w {
-    public static final String bax() {
-        com.baidu.l.a dlC = com.baidu.l.c.fu(TbadkCoreApplication.getInst()).dlC();
-        if (dlC == null) {
-            return null;
+public final class w {
+    public static boolean isEMUI() {
+        return G("ro.build.version.emui", "ro.build.hw_emui_api_level");
+    }
+
+    private static boolean G(String... strArr) {
+        if (strArr == null || strArr.length == 0) {
+            return false;
         }
         try {
-            JSONObject jSONObject = new JSONObject();
-            String dlB = dlC.dlB();
-            if (!TextUtils.isEmpty(dlB)) {
-                jSONObject.put("v", dlB);
+            a bgH = a.bgH();
+            for (String str : strArr) {
+                if (bgH.getProperty(str) != null) {
+                    return true;
+                }
             }
-            jSONObject.put(Config.STAT_SDK_CHANNEL, dlC.getStatusCode());
-            jSONObject.put("sup", dlC.isSupport() ? 1 : 0);
-            jSONObject.put("tl", dlC.dlA() ? 1 : 0);
-            return jSONObject.toString();
-        } catch (JSONException e) {
-            if (TbadkCoreApplication.getInst().isDebugMode()) {
-                e.printStackTrace();
-                return null;
+            return false;
+        } catch (IOException e) {
+            return false;
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    /* loaded from: classes.dex */
+    public static final class a {
+        private static a evq;
+        private final Properties evr = new Properties();
+
+        private a() throws IOException {
+            this.evr.load(new FileInputStream(new File(Environment.getRootDirectory(), "build.prop")));
+        }
+
+        public static a bgH() throws IOException {
+            if (evq == null) {
+                synchronized (a.class) {
+                    if (evq == null) {
+                        evq = new a();
+                    }
+                }
             }
-            return null;
+            return evq;
+        }
+
+        public String getProperty(String str) {
+            return this.evr.getProperty(str);
         }
     }
 }

@@ -17,8 +17,8 @@ public final class WebSocketManager {
     }
 
     public final WebSocketTask connect(WebSocketRequest webSocketRequest, final IWebSocketListener iWebSocketListener) {
-        q.j(webSocketRequest, "request");
-        q.j(iWebSocketListener, "listener");
+        q.m(webSocketRequest, "request");
+        q.m(iWebSocketListener, "listener");
         final WebSocketTask webSocketTask = new WebSocketTask(createWebSocketClientImpl());
         webSocketTask.connect(webSocketRequest, new IWebSocketListener(webSocketTask) { // from class: com.baidu.searchbox.websocket.WebSocketManager$connect$1
             private final /* synthetic */ IWebSocketListener $$delegate_0;
@@ -26,19 +26,19 @@ public final class WebSocketManager {
 
             @Override // com.baidu.searchbox.websocket.IWebSocketListener
             public void onMessage(String str) {
-                q.j(str, "message");
+                q.m(str, "message");
                 this.$$delegate_0.onMessage(str);
             }
 
             @Override // com.baidu.searchbox.websocket.IWebSocketListener
             public void onMessage(ByteBuffer byteBuffer) {
-                q.j(byteBuffer, "data");
+                q.m(byteBuffer, "data");
                 this.$$delegate_0.onMessage(byteBuffer);
             }
 
             @Override // com.baidu.searchbox.websocket.IWebSocketListener
             public void onOpen(Map<String, String> map) {
-                q.j(map, "headers");
+                q.m(map, "headers");
                 this.$$delegate_0.onOpen(map);
             }
 
@@ -60,7 +60,7 @@ public final class WebSocketManager {
             @Override // com.baidu.searchbox.websocket.IWebSocketListener
             public void onError(Throwable th, JSONObject jSONObject) {
                 HashMap hashMap;
-                q.j(th, "t");
+                q.m(th, "t");
                 IWebSocketListener.this.onError(th, jSONObject);
                 WebSocketManager webSocketManager = WebSocketManager.INSTANCE;
                 hashMap = WebSocketManager.mTasks;
@@ -76,8 +76,8 @@ public final class WebSocketManager {
     }
 
     public final void send(String str, String str2) {
-        q.j(str, "taskId");
-        q.j(str2, "message");
+        q.m(str, "taskId");
+        q.m(str2, "message");
         WebSocketTask webSocketTask = mTasks.get(str);
         if (webSocketTask == null) {
             throw new IllegalStateException("The specified Task was not found, taskId = " + str);
@@ -86,8 +86,8 @@ public final class WebSocketManager {
     }
 
     public final void send(String str, ByteBuffer byteBuffer) {
-        q.j(str, "taskId");
-        q.j(byteBuffer, "data");
+        q.m(str, "taskId");
+        q.m(byteBuffer, "data");
         WebSocketTask webSocketTask = mTasks.get(str);
         if (webSocketTask == null) {
             throw new IllegalStateException("The specified Task was not found, taskId = " + str);
@@ -96,8 +96,8 @@ public final class WebSocketManager {
     }
 
     public final void close(String str, int i, String str2) {
-        q.j(str, "taskId");
-        q.j(str2, TiebaInitialize.LogFields.REASON);
+        q.m(str, "taskId");
+        q.m(str2, TiebaInitialize.LogFields.REASON);
         HashMap<String, WebSocketTask> hashMap = mTasks;
         if (hashMap.containsKey(str)) {
             WebSocketTask webSocketTask = hashMap.get(str);

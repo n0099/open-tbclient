@@ -130,7 +130,7 @@ public final class ObservableConcatMapCompletable<T> extends io.reactivex.a {
                                 return;
                             } else if (!z2) {
                                 try {
-                                    e eVar = (e) io.reactivex.internal.functions.a.h(this.mapper.apply(poll), "The mapper returned a null CompletableSource");
+                                    e eVar = (e) io.reactivex.internal.functions.a.k(this.mapper.apply(poll), "The mapper returned a null CompletableSource");
                                     this.active = true;
                                     eVar.a(this.inner);
                                 } catch (Throwable th) {

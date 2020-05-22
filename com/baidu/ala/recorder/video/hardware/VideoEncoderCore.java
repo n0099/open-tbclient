@@ -13,6 +13,7 @@ import com.baidu.ala.recorder.video.hardware.TextureEncoder;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import tv.danmaku.ijk.media.player.IjkMediaMeta;
+@TargetApi(16)
 /* loaded from: classes3.dex */
 public class VideoEncoderCore {
     private static final int DEFAULT_FRAME_RATE = 15;
@@ -56,7 +57,7 @@ public class VideoEncoderCore {
         void onFormatChanged(MediaFormat mediaFormat);
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [151=7, 152=7] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [152=7, 153=7] */
     @TargetApi(19)
     public VideoEncoderCore(TextureEncoder.EncodeConfig encodeConfig, OutputCallback outputCallback) {
         try {
@@ -68,12 +69,12 @@ public class VideoEncoderCore {
                             this.mOutputCallback = outputCallback;
                             this.mEncodeConfig = TextureEncoder.EncodeConfig.CloneObj(encodeConfig);
                             checkTextureEncoderConfig(this.mEncodeConfig);
-                            MediaFormat createVideoFormat = MediaFormat.createVideoFormat(MIME_TYPE, this.mEncodeConfig.isLandscape ? this.mEncodeConfig.encodeHeight : this.mEncodeConfig.encodeWidth, this.mEncodeConfig.isLandscape ? this.mEncodeConfig.encodeWidth : this.mEncodeConfig.encodeHeight);
+                            MediaFormat createVideoFormat = MediaFormat.createVideoFormat("video/avc", this.mEncodeConfig.isLandscape ? this.mEncodeConfig.encodeHeight : this.mEncodeConfig.encodeWidth, this.mEncodeConfig.isLandscape ? this.mEncodeConfig.encodeWidth : this.mEncodeConfig.encodeHeight);
                             createVideoFormat.setInteger("color-format", 2130708361);
                             createVideoFormat.setInteger(IjkMediaMeta.IJKM_KEY_BITRATE, this.mEncodeConfig.encodeBitrate);
                             createVideoFormat.setInteger("frame-rate", this.mEncodeConfig.H264FPS);
                             createVideoFormat.setInteger("i-frame-interval", this.mEncodeConfig.H264GOP);
-                            this.mEncoder = MediaCodec.createEncoderByType(MIME_TYPE);
+                            this.mEncoder = MediaCodec.createEncoderByType("video/avc");
                             this.mEncoder.configure(createVideoFormat, (Surface) null, (MediaCrypto) null, 1);
                             this.mInputSurface = this.mEncoder.createInputSurface();
                             this.mEncoder.start();
@@ -118,6 +119,15 @@ public class VideoEncoderCore {
 
     public Surface getInputSurface() {
         return this.mInputSurface;
+    }
+
+    public void updateBitrate(int i) {
+        if (Build.VERSION.SDK_INT >= 19) {
+            Bundle bundle = new Bundle();
+            bundle.putInt("video-bitrate", i);
+            this.mEncoder.setParameters(bundle);
+            this.mEncodeConfig.encodeBitrate = i;
+        }
     }
 
     @TargetApi(16)

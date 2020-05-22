@@ -1,7 +1,7 @@
 package com.baidu.tieba.lego.card.view;
 
-import com.baidu.tieba.card.a;
+import com.baidu.tieba.card.b;
 /* loaded from: classes.dex */
 public interface g {
-    void a(a aVar);
+    void a(b bVar);
 }

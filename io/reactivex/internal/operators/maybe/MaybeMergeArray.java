@@ -36,7 +36,7 @@ public final class MaybeMergeArray<T> extends g<T> {
         a clqSimpleQueue;
         o[] oVarArr = this.sources;
         int length = oVarArr.length;
-        if (length <= dCy()) {
+        if (length <= dKs()) {
             clqSimpleQueue = new MpscFillOnceSimpleQueue(length);
         } else {
             clqSimpleQueue = new ClqSimpleQueue();
@@ -256,7 +256,7 @@ public final class MaybeMergeArray<T> extends g<T> {
 
         @Override // io.reactivex.internal.a.g
         public boolean offer(T t) {
-            io.reactivex.internal.functions.a.h(t, "value is null");
+            io.reactivex.internal.functions.a.k(t, "value is null");
             int andIncrement = this.producerIndex.getAndIncrement();
             if (andIncrement < length()) {
                 lazySet(andIncrement, t);

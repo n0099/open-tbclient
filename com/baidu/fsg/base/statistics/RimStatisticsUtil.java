@@ -14,7 +14,7 @@ public final class RimStatisticsUtil {
     private static boolean mInited = false;
     private static Context sAppContext;
     private boolean hasInit;
-    private s mHttpImpl;
+    private r mHttpImpl;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes4.dex */

@@ -8,22 +8,22 @@ public class a {
 
     /* renamed from: com.facebook.drawee.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes13.dex */
-    public static class C0726a {
+    public static class C0781a {
         public int height;
         public int width;
     }
 
-    public static void a(C0726a c0726a, float f, @Nullable ViewGroup.LayoutParams layoutParams, int i, int i2) {
+    public static void a(C0781a c0781a, float f, @Nullable ViewGroup.LayoutParams layoutParams, int i, int i2) {
         if (f > 0.0f && layoutParams != null) {
-            if (Gz(layoutParams.height)) {
-                c0726a.height = View.MeasureSpec.makeMeasureSpec(View.resolveSize((int) (((View.MeasureSpec.getSize(c0726a.width) - i) / f) + i2), c0726a.height), 1073741824);
-            } else if (Gz(layoutParams.width)) {
-                c0726a.width = View.MeasureSpec.makeMeasureSpec(View.resolveSize((int) (((View.MeasureSpec.getSize(c0726a.height) - i2) * f) + i), c0726a.width), 1073741824);
+            if (Hl(layoutParams.height)) {
+                c0781a.height = View.MeasureSpec.makeMeasureSpec(View.resolveSize((int) (((View.MeasureSpec.getSize(c0781a.width) - i) / f) + i2), c0781a.height), 1073741824);
+            } else if (Hl(layoutParams.width)) {
+                c0781a.width = View.MeasureSpec.makeMeasureSpec(View.resolveSize((int) (((View.MeasureSpec.getSize(c0781a.height) - i2) * f) + i), c0781a.width), 1073741824);
             }
         }
     }
 
-    private static boolean Gz(int i) {
+    private static boolean Hl(int i) {
         return i == 0 || i == -2;
     }
 }

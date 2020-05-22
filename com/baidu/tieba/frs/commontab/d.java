@@ -1,8 +1,8 @@
 package com.baidu.tieba.frs.commontab;
 
-import com.baidu.adp.widget.ListView.m;
+import com.baidu.adp.widget.ListView.o;
 import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.data.bj;
+import com.baidu.tbadk.core.data.bk;
 import com.baidu.tbadk.core.util.v;
 import com.baidu.tbadk.mvc.b.j;
 import com.squareup.wire.Message;
@@ -16,13 +16,13 @@ import tbclient.User;
 /* loaded from: classes9.dex */
 public class d implements j {
     public boolean hasMore;
-    public int hgh;
-    public String hgi;
-    public String hgj;
-    public boolean hgk;
-    public SportScheduleInfo hgl;
+    public int huV;
+    public String huW;
+    public String huX;
+    public boolean huY;
+    public SportScheduleInfo huZ;
     public HashMap<String, MetaData> userMap = new HashMap<>();
-    public ArrayList<m> threadList = new ArrayList<>();
+    public ArrayList<o> threadList = new ArrayList<>();
     public int sortType = 1;
 
     public void a(DataRes dataRes) {
@@ -43,21 +43,22 @@ public class d implements j {
             if (!v.isEmpty(dataRes.general_list)) {
                 for (ThreadInfo threadInfo : dataRes.general_list) {
                     if (threadInfo != null) {
-                        bj bjVar = new bj();
-                        bjVar.setUserMap(this.userMap);
-                        bjVar.a(threadInfo);
-                        bjVar.aLx();
-                        this.threadList.add(bjVar);
+                        bk bkVar = new bk();
+                        bkVar.setUserMap(this.userMap);
+                        bkVar.a(threadInfo);
+                        bkVar.aRw();
+                        this.threadList.add(bkVar);
                     }
                 }
             }
-            this.hgh = dataRes.new_thread_num.intValue();
+            com.baidu.tbadk.a.a.c.a(com.baidu.tbadk.a.a.c.aMx(), this.threadList);
+            this.huV = dataRes.new_thread_num.intValue();
             if (dataRes.sport_head_info != null) {
-                this.hgi = dataRes.sport_head_info.head_url;
-                this.hgj = dataRes.sport_head_info.jump_url;
-                this.hgk = dataRes.sport_head_info.is_ad.intValue() == 1;
+                this.huW = dataRes.sport_head_info.head_url;
+                this.huX = dataRes.sport_head_info.jump_url;
+                this.huY = dataRes.sport_head_info.is_ad.intValue() == 1;
             }
-            this.hgl = dataRes.sport_schedule_info;
+            this.huZ = dataRes.sport_schedule_info;
             this.sortType = dataRes.sort_type.intValue();
         }
     }

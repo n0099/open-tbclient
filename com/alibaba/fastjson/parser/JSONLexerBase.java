@@ -194,7 +194,7 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
                     case 'x':
                         scanHex();
                         return;
-                    case Constants.METHOD_IM_FRIEND_GROUP_QUERY /* 123 */:
+                    case '{':
                         next();
                         this.token = 12;
                         return;

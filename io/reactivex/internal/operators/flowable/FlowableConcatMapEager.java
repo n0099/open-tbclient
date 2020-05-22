@@ -18,7 +18,7 @@ public final class FlowableConcatMapEager<T, R> extends a<T, R> {
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super R> cVar) {
-        this.mRM.a((j) new ConcatMapEagerDelayErrorSubscriber(cVar, this.mapper, this.maxConcurrency, this.prefetch, this.errorMode));
+        this.nmU.a((j) new ConcatMapEagerDelayErrorSubscriber(cVar, this.mapper, this.maxConcurrency, this.prefetch, this.errorMode));
     }
 
     /* loaded from: classes7.dex */
@@ -58,7 +58,7 @@ public final class FlowableConcatMapEager<T, R> extends a<T, R> {
         @Override // org.a.c
         public void onNext(T t) {
             try {
-                org.a.b bVar = (org.a.b) io.reactivex.internal.functions.a.h(this.mapper.apply(t), "The mapper returned a null Publisher");
+                org.a.b bVar = (org.a.b) io.reactivex.internal.functions.a.k(this.mapper.apply(t), "The mapper returned a null Publisher");
                 InnerQueuedSubscriber<R> innerQueuedSubscriber = new InnerQueuedSubscriber<>(this, this.prefetch);
                 if (!this.cancelled) {
                     this.subscribers.offer(innerQueuedSubscriber);

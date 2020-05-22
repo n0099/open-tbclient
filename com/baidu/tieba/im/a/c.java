@@ -1,7 +1,7 @@
 package com.baidu.tieba.im.a;
 
 import android.support.v4.util.LongSparseArray;
-import com.baidu.adp.framework.a.k;
+import com.baidu.adp.framework.b.k;
 import com.baidu.adp.framework.message.SocketMessage;
 import com.baidu.adp.framework.task.SocketMessageTask;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
@@ -15,7 +15,7 @@ public class c extends k {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.a.f
+    @Override // com.baidu.adp.framework.b.f
     /* renamed from: d */
     public SocketMessage process(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
         StringBuilder sb = new StringBuilder(200);

@@ -10,38 +10,38 @@ import okhttp3.Interceptor;
 import okhttp3.Response;
 /* loaded from: classes11.dex */
 public class d implements Interceptor {
-    private a.InterfaceC0318a cfG;
-    final e cfm = new e() { // from class: com.baidu.swan.games.network.a.d.1
+    final e cpU = new e() { // from class: com.baidu.swan.games.network.a.d.1
         @Override // com.baidu.swan.apps.network.e
         public void a(long j, long j2, boolean z) {
-            if (d.this.cfG == null) {
+            if (d.this.cqp == null) {
                 if (com.baidu.swan.apps.b.DEBUG) {
                     Log.e("onProgress", "DownloadProgressInterceptor.mIProgressCallback == null");
                 }
             } else if (j2 == -1 && j != 0) {
-                d.this.cfG.b(0, j, j2);
+                d.this.cqp.b(0, j, j2);
             } else if (j2 > Config.RAVEN_LOG_LIMIT) {
-                d.this.cfG.aX(j2);
-                d.this.cfG = null;
+                d.this.cqp.be(j2);
+                d.this.cqp = null;
             } else if (j2 <= 0 || j > j2 || j == 0) {
-                d.this.cfG.k(j, j2);
-                d.this.cfG = null;
+                d.this.cqp.l(j, j2);
+                d.this.cqp = null;
             } else {
                 int floor = (int) Math.floor((100 * j) / j2);
                 if (floor <= 100) {
-                    d.this.cfG.b(floor, j, j2);
+                    d.this.cqp.b(floor, j, j2);
                 }
             }
         }
     };
+    private a.InterfaceC0360a cqp;
 
-    public void a(a.InterfaceC0318a interfaceC0318a) {
-        this.cfG = interfaceC0318a;
+    public void a(a.InterfaceC0360a interfaceC0360a) {
+        this.cqp = interfaceC0360a;
     }
 
     @Override // okhttp3.Interceptor
     public Response intercept(Interceptor.Chain chain) throws IOException {
         Response proceed = chain.proceed(chain.request());
-        return proceed.newBuilder().body(new h(proceed.body(), this.cfm)).build();
+        return proceed.newBuilder().body(new h(proceed.body(), this.cpU)).build();
     }
 }

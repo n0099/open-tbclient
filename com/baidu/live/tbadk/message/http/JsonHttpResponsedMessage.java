@@ -8,6 +8,8 @@ import com.baidu.live.u.a;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class JsonHttpResponsedMessage extends TbHttpResponsedMessage {
+    private long mLogId;
+
     public JsonHttpResponsedMessage(int i) {
         super(i);
     }
@@ -19,6 +21,9 @@ public class JsonHttpResponsedMessage extends TbHttpResponsedMessage {
         String parseToString = parseToString(bArr);
         if (!TextUtils.isEmpty(parseToString)) {
             jSONObject = parseServerResponsedData(parseToString);
+        }
+        if (jSONObject != null) {
+            this.mLogId = jSONObject.optLong("logid");
         }
         decodeLogicInBackGround(i, jSONObject);
     }
@@ -55,5 +60,9 @@ public class JsonHttpResponsedMessage extends TbHttpResponsedMessage {
             jSONObject = null;
             e = e3;
         }
+    }
+
+    public long getLogId() {
+        return this.mLogId;
     }
 }

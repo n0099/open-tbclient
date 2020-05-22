@@ -1,53 +1,32 @@
 package com.baidu.live.data;
 
-import com.baidu.live.tbadk.core.util.ListUtils;
-import java.util.ArrayList;
-import java.util.Iterator;
-import org.json.JSONArray;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class x {
-    public int atO;
-    public ArrayList<w> atP;
+    public String auL;
+    public int avZ;
+    public int awa;
+    public String awb;
+    public String awc;
+    public int duration;
+    public String iconUrl;
+    public int limit;
+    public String picUrl;
 
-    public void parserJson(JSONObject jSONObject) {
-        this.atO = jSONObject.optInt("received");
-        this.atP = new ArrayList<>();
-        JSONArray optJSONArray = jSONObject.optJSONArray("task_list");
-        if (optJSONArray != null) {
-            for (int i = 0; i < optJSONArray.length(); i++) {
-                JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-                if (optJSONObject != null) {
-                    w wVar = new w();
-                    wVar.parseJson(optJSONObject);
-                    this.atP.add(wVar);
-                }
-            }
+    public void parseJson(JSONObject jSONObject) {
+        JSONObject optJSONObject;
+        if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
+            this.avZ = optJSONObject.optInt("interval");
+            this.picUrl = optJSONObject.optString("pic_url");
+            this.awa = optJSONObject.optInt("is_super_customer");
+            this.auL = optJSONObject.optString(BigdayActivityConfig.JUMP_URL);
+            this.limit = optJSONObject.optInt(Constants.EXTRA_CONFIG_LIMIT);
+            this.duration = optJSONObject.optInt("duration");
+            this.awb = optJSONObject.optString("toast_text");
+            this.iconUrl = optJSONObject.optString("icon_url");
+            this.awc = optJSONObject.optString("btn_url");
         }
-    }
-
-    public boolean uX() {
-        if (!ListUtils.isEmpty(this.atP)) {
-            Iterator<w> it = this.atP.iterator();
-            while (it.hasNext()) {
-                if (it.next().uW()) {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-
-    public w uY() {
-        if (!ListUtils.isEmpty(this.atP)) {
-            Iterator<w> it = this.atP.iterator();
-            while (it.hasNext()) {
-                w next = it.next();
-                if (next.uU()) {
-                    return next;
-                }
-            }
-        }
-        return null;
     }
 }

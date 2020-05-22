@@ -14,7 +14,7 @@ import java.util.Map;
 public class d {
     private Rect bounds;
     private Map<String, g> images;
-    private final m mNX = new m();
+    private final m nib = new m();
     private final HashSet<String> zH = new HashSet<>();
     private Map<String, List<Layer>> zI;
     private Map<String, com.tb.airbnb.lottie.model.c> zJ;
@@ -45,11 +45,11 @@ public class d {
     }
 
     public void setPerformanceTrackingEnabled(boolean z) {
-        this.mNX.setEnabled(z);
+        this.nib.setEnabled(z);
     }
 
     public m getPerformanceTracker() {
-        return this.mNX;
+        return this.nib;
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})

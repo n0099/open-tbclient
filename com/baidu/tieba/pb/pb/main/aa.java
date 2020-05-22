@@ -1,53 +1,59 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.R;
-import com.baidu.tieba.view.NavigationBarCoverTip;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.core.data.MetaData;
+import java.util.HashMap;
+import tbclient.AlaLiveInfo;
 /* loaded from: classes9.dex */
-public class aa {
-    private NavigationBarCoverTip hyN;
-    private int hyO;
-    private com.baidu.adp.base.e mContext;
-    private TextView mTipView;
+public class aa implements com.baidu.adp.widget.ListView.o {
+    public static final BdUniqueId jNg = BdUniqueId.gen();
+    public String cover;
+    private boolean dCL;
+    public MetaData dFJ;
+    public String description;
+    public boolean isChushou;
+    public int jMM;
+    public boolean jMN = false;
+    public long liveId;
+    public int liveStatus;
+    public String routeType;
+    public String thirdLiveType;
+    public String thirdRoomId;
+    private HashMap<String, MetaData> userMap;
+    public String userName;
 
-    public aa(com.baidu.adp.base.e eVar, NavigationBarCoverTip navigationBarCoverTip) {
-        this.mContext = eVar;
-        this.hyN = navigationBarCoverTip;
-        init();
-    }
-
-    private void init() {
-        this.mTipView = new TextView(this.mContext.getPageActivity());
-        this.mTipView.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
-        this.mTipView.setMinHeight(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds112));
-        this.mTipView.setPadding(this.mContext.getResources().getDimensionPixelSize(R.dimen.ds34), 0, this.mContext.getResources().getDimensionPixelSize(R.dimen.ds34), 0);
-        this.mTipView.setGravity(19);
-        this.mTipView.setTextSize(0, this.mContext.getResources().getDimensionPixelSize(R.dimen.tbfontsize42));
-        this.mTipView.setLineSpacing(this.mContext.getResources().getDimensionPixelSize(R.dimen.ds2), 1.0f);
-    }
-
-    public void HL(String str) {
-        if (this.hyN != null) {
-            if (com.baidu.tbadk.core.util.aq.isEmpty(str) || this.hyO > 0) {
-                onDestory();
-                this.hyN.setVisibility(8);
-                return;
+    public void a(AlaLiveInfo alaLiveInfo) {
+        MetaData metaData;
+        if (alaLiveInfo != null && alaLiveInfo.user_info != null && alaLiveInfo.pb_display_type.intValue() == 3 && alaLiveInfo.live_status.intValue() == 1) {
+            this.userName = alaLiveInfo.user_info.user_name;
+            this.liveStatus = alaLiveInfo.live_status.intValue();
+            this.jMM = alaLiveInfo.audience_count.intValue();
+            this.description = alaLiveInfo.description;
+            this.cover = alaLiveInfo.cover;
+            this.liveId = alaLiveInfo.live_id.longValue();
+            this.isChushou = alaLiveInfo.live_from.intValue() == 1;
+            this.thirdLiveType = alaLiveInfo.third_live_type;
+            this.thirdRoomId = alaLiveInfo.third_room_id;
+            this.routeType = alaLiveInfo.router_type;
+            if (alaLiveInfo.user_info.user_id != null && alaLiveInfo.user_info.user_id.longValue() > 0 && this.userMap != null && (metaData = this.userMap.get(alaLiveInfo.user_info.user_id.toString())) != null) {
+                this.dFJ = metaData;
             }
-            this.hyN.setVisibility(0);
-            this.hyO++;
-            this.mTipView.setText(str);
-            com.baidu.tbadk.core.util.am.setViewTextColor(this.mTipView, (int) R.color.cp_cont_a);
-            this.hyN.removeAllViews();
-            this.hyN.addView(this.mTipView);
-            this.hyN.k(this.mContext.getPageActivity(), 5000);
+            this.dCL = true;
+            return;
         }
+        this.dCL = false;
     }
 
-    public void onDestory() {
-        if (this.hyN != null) {
-            this.hyN.onDestroy();
-        }
+    public boolean isValid() {
+        return this.dCL;
+    }
+
+    public void setUserMap(HashMap<String, MetaData> hashMap) {
+        this.userMap = hashMap;
+    }
+
+    @Override // com.baidu.adp.widget.ListView.o
+    public BdUniqueId getType() {
+        return jNg;
     }
 }

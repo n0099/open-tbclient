@@ -32,25 +32,25 @@ import org.apache.http.client.methods.HttpTrace;
 import org.json.JSONException;
 /* loaded from: classes11.dex */
 public class c extends a {
-    private static final Set<String> bDl = i.N("text", "arraybuffer");
-    private static final Set<String> bDj = i.N(HttpOptions.METHOD_NAME, "GET", HttpHead.METHOD_NAME, "POST", HttpPut.METHOD_NAME, HttpDelete.METHOD_NAME, HttpTrace.METHOD_NAME, "CONNECT");
+    private static final Set<String> bLH = i.O("text", "arraybuffer");
+    private static final Set<String> bLF = i.O(HttpOptions.METHOD_NAME, "GET", HttpHead.METHOD_NAME, "POST", HttpPut.METHOD_NAME, HttpDelete.METHOD_NAME, HttpTrace.METHOD_NAME, "CONNECT");
 
-    public c(com.baidu.swan.games.e.b bVar, com.baidu.swan.games.binding.model.c cVar) {
+    public c(com.baidu.swan.games.f.b bVar, com.baidu.swan.games.binding.model.c cVar) {
         super(bVar, cVar);
-        this.cPr = 1;
+        this.daj = 1;
     }
 
     public void start() {
-        Request axm;
-        if (this.cPs != null && (axm = axm()) != null) {
-            a(axm);
+        Request aBd;
+        if (this.dak != null && (aBd = aBd()) != null) {
+            d(aBd);
         }
     }
 
-    protected void a(Request request) {
-        final String k = k(this.cPs);
+    protected void d(Request request) {
+        final String k = k(this.dak);
         final String httpUrl = request.url().toString();
-        b.aBv().a(request, new Callback() { // from class: com.baidu.swan.mini.a.a.c.1
+        b.aFn().a(request, new Callback() { // from class: com.baidu.swan.mini.a.a.c.1
             @Override // okhttp3.Callback
             public void onResponse(Call call, Response response) {
                 if (!response.isSuccessful()) {
@@ -99,7 +99,7 @@ public class c extends a {
 
             @Override // okhttp3.Callback
             public void onFailure(Call call, IOException iOException) {
-                b.aBv().cancelTag(c.this.mTaskId);
+                b.aFn().cancelTag(c.this.mTaskId);
                 c.this.j(httpUrl, 0, iOException.getMessage());
             }
         });
@@ -165,52 +165,52 @@ public class c extends a {
     @NonNull
     private static String k(@NonNull com.baidu.swan.games.binding.model.c cVar) {
         String lowerCase = cVar.optString("responseType").toLowerCase();
-        if (!bDl.contains(lowerCase)) {
+        if (!bLH.contains(lowerCase)) {
             return "text";
         }
         return lowerCase;
     }
 
-    private Request axm() {
-        String axf = axf();
-        if (TextUtils.isEmpty(axf)) {
+    private Request aBd() {
+        String aAW = aAW();
+        if (TextUtils.isEmpty(aAW)) {
             if (DEBUG) {
-                Log.d("SwanMiniRequestTask", "buildRequest url =" + axf);
+                Log.d("SwanMiniRequestTask", "buildRequest url =" + aAW);
                 return null;
             }
             return null;
         }
-        String optString = this.cPs.optString("method");
+        String optString = this.dak.optString("method");
         if (TextUtils.isEmpty(optString)) {
             optString = "GET";
         }
         String upperCase = optString.toUpperCase();
-        if (!bDj.contains(upperCase)) {
-            i(axf, -1, "request:method is invalid");
+        if (!bLF.contains(upperCase)) {
+            i(aAW, -1, "request:method is invalid");
             return null;
         }
         HashMap hashMap = new HashMap();
         Request.Builder builder = new Request.Builder();
-        a(builder, this.cPs.pS(WebSocketRequest.PARAM_KEY_HEADER), (Map<String, String>) hashMap, true);
+        a(builder, this.dak.ru(WebSocketRequest.PARAM_KEY_HEADER), (Map<String, String>) hashMap, true);
         if (DEBUG) {
             Log.d("SwanMiniRequestTask", "lowerCaseHeaderMap =" + hashMap);
         }
-        String optString2 = this.cPs.optString("data", null);
-        JsArrayBuffer a = optString2 == null ? this.cPs.a("data", (JsArrayBuffer) null) : optString2;
+        String optString2 = this.dak.optString("data", null);
+        JsArrayBuffer a = optString2 == null ? this.dak.a("data", (JsArrayBuffer) null) : optString2;
         boolean z = a != null;
         if (z && !HttpMethod.permitsRequestBody(upperCase)) {
-            return builder.url(axf).method(upperCase, null).tag(this.mTaskId).build();
+            return builder.url(aAW).method(upperCase, null).tag(this.mTaskId).build();
         }
-        RequestBody b = (z || HttpMethod.requiresRequestBody(upperCase)) ? b(a, hashMap) : null;
-        if (HttpMethod.requiresRequestBody(upperCase) && b == null) {
+        RequestBody c = (z || HttpMethod.requiresRequestBody(upperCase)) ? c(a, hashMap) : null;
+        if (HttpMethod.requiresRequestBody(upperCase) && c == null) {
             return null;
         }
-        return builder.url(axf).method(upperCase, b).tag(this.mTaskId).build();
+        return builder.url(aAW).method(upperCase, c).tag(this.mTaskId).build();
     }
 
-    private RequestBody b(Object obj, Map<String, String> map) {
+    private RequestBody c(Object obj, Map<String, String> map) {
         String str = map.get(Headers.CONTENT_TYPE);
-        MediaType parse = !TextUtils.isEmpty(str) ? MediaType.parse(str) : f.a.cfj;
+        MediaType parse = !TextUtils.isEmpty(str) ? MediaType.parse(str) : f.a.cpR;
         if (obj instanceof JsArrayBuffer) {
             byte[] buffer = ((JsArrayBuffer) obj).buffer();
             if (buffer == null) {
@@ -231,6 +231,6 @@ public class c extends a {
     @Override // com.baidu.swan.mini.a.a.a
     public void i(String str, int i, String str2) {
         super.i(str, i, str2);
-        com.baidu.swan.games.u.c.a(str, i, str2, SwanAppNetworkUtils.isNetworkConnected(null));
+        com.baidu.swan.games.v.c.a(str, i, str2, SwanAppNetworkUtils.isNetworkConnected(null));
     }
 }

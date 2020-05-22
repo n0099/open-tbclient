@@ -1,40 +1,40 @@
 package com.baidu.tieba.frs.entelechy.a;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.bj;
+import com.baidu.tbadk.core.data.bk;
 import com.baidu.tieba.tbadkCore.FrsViewData;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes9.dex */
 public interface ai {
-    void a(com.baidu.adp.widget.ListView.v vVar);
+    void a(com.baidu.adp.widget.ListView.x xVar);
 
     void a(com.baidu.tieba.frs.d dVar);
 
-    void b(ArrayList<com.baidu.adp.widget.ListView.m> arrayList, FrsViewData frsViewData);
+    void b(ArrayList<com.baidu.adp.widget.ListView.o> arrayList, FrsViewData frsViewData);
 
-    HashMap<Integer, bj> bRQ();
+    HashMap<Integer, bk> bYm();
 
-    int bRR();
+    int bYn();
 
-    void bRS();
+    void bYo();
 
-    int bRT();
+    int bYp();
 
-    int bRU();
+    int bYq();
 
-    void bRV();
+    void bYr();
 
-    List<com.baidu.adp.widget.ListView.m> getDatas();
-
-    void mX(boolean z);
+    List<com.baidu.adp.widget.ListView.o> getDatas();
 
     void notifyDataSetChanged();
 
+    void ns(boolean z);
+
     void onDestory();
 
-    boolean p(BdUniqueId bdUniqueId);
+    boolean r(BdUniqueId bdUniqueId);
 
     void setForumName(String str);
 

@@ -14,7 +14,7 @@ public class UnitedSchemeBaseInterceptor_UnitedSchemeRuntime_ListProvider implem
         arrayList.add(new com.baidu.swan.apps.scheme.a.a());
         arrayList.add(new b());
         arrayList.add(new c());
-        arrayList.add(new com.baidu.swan.games.n.a());
+        arrayList.add(new com.baidu.swan.games.o.a());
         arrayList.add(new n());
         return arrayList;
     }

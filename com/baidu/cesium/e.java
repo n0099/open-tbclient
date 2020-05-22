@@ -36,11 +36,15 @@ public class e {
         return TextUtils.isEmpty(str);
     }
 
-    public static e cY(String str) {
-        return cZ(e(str));
+    private static String d(String str) {
+        return new String(com.baidu.cesium.d.a.a(str.getBytes()));
     }
 
-    private static e cZ(String str) {
+    public static e da(String str) {
+        return db(e(str));
+    }
+
+    private static e db(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -75,10 +79,6 @@ public class e {
             com.baidu.cesium.f.c.a(e);
         }
         return null;
-    }
-
-    private static String d(String str) {
-        return new String(com.baidu.cesium.d.a.a(str.getBytes()));
     }
 
     private static String e(String str) {

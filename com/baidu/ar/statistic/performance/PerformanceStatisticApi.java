@@ -9,7 +9,7 @@ import com.baidu.ar.statistic.performance.a;
 import java.util.Random;
 /* loaded from: classes3.dex */
 public class PerformanceStatisticApi implements f {
-    private a.C0084a vo;
+    private a.C0086a vo;
     private int vl = 0;
     private boolean vm = false;
     private a vn = new a();
@@ -17,7 +17,7 @@ public class PerformanceStatisticApi implements f {
 
     private void eO() {
         if (this.vo == null) {
-            this.vo = new a.C0084a();
+            this.vo = new a.C0086a();
             this.vl++;
             this.vo.vw = this.vl;
             this.vn.vv.add(this.vo);
@@ -68,12 +68,12 @@ public class PerformanceStatisticApi implements f {
         try {
             if (this.vm) {
                 eO();
-                a.C0084a.C0085a c0085a = new a.C0084a.C0085a();
-                c0085a.name = str;
-                c0085a.vA = str2;
-                c0085a.vB = j;
-                c0085a.count = i;
-                this.vo.vz.add(c0085a);
+                a.C0086a.C0087a c0087a = new a.C0086a.C0087a();
+                c0087a.name = str;
+                c0087a.vA = str2;
+                c0087a.vB = j;
+                c0087a.count = i;
+                this.vo.vz.add(c0087a);
             }
         } catch (RuntimeException e) {
             e.printStackTrace();

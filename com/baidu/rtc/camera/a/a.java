@@ -7,31 +7,31 @@ import com.baidu.rtc.camera.a.d;
 /* loaded from: classes6.dex */
 public class a {
     private static final String TAG = a.class.getSimpleName();
-    private com.baidu.rtc.camera.filter.a.a buQ;
+    private com.baidu.rtc.camera.filter.a.a bCt;
     private Context mContext;
-    private c buP = null;
+    private c bCs = null;
     private volatile boolean mRequestEncoderReset = false;
 
     public a(Context context, com.baidu.rtc.camera.filter.a.a aVar) {
         this.mContext = context;
-        this.buQ = aVar;
-        Na();
+        this.bCt = aVar;
+        Pn();
     }
 
-    public void MZ() {
-        Na();
+    public void Pm() {
+        Pn();
     }
 
-    private void Na() {
+    private void Pn() {
         this.mRequestEncoderReset = false;
-        if (this.buP != null) {
-            this.buP.release();
-            this.buP = new c(this.mContext);
+        if (this.bCs != null) {
+            this.bCs.release();
+            this.bCs = new c(this.mContext);
         }
-        if (this.buP == null) {
-            this.buP = new c(this.mContext);
+        if (this.bCs == null) {
+            this.bCs = new c(this.mContext);
         }
-        this.buP.a(this.buQ.getEGLContext(), new d.a() { // from class: com.baidu.rtc.camera.a.a.1
+        this.bCs.a(this.bCt.getEGLContext(), new d.a() { // from class: com.baidu.rtc.camera.a.a.1
             @Override // com.baidu.rtc.camera.a.d.a
             public void onFormatChanged(MediaFormat mediaFormat) {
             }
@@ -42,8 +42,8 @@ public class a {
 
             @Override // com.baidu.rtc.camera.a.d.a
             public void onCodecData(byte[] bArr, int i, int i2, int i3, long j) {
-                if (b.Nb().buT != null) {
-                    b.Nb().buT.a(bArr, i, i2, i3 == 2 ? 1 : 0, j);
+                if (b.Po().bCw != null) {
+                    b.Po().bCw.a(bArr, i, i2, i3 == 2 ? 1 : 0, j);
                 }
             }
 
@@ -51,8 +51,8 @@ public class a {
             public void onCodecError(int i) {
                 Log.e(a.TAG, "setupTextureEncoder onCodecError -- " + i);
                 a.this.mRequestEncoderReset = true;
-                if (b.Nb().buT != null) {
-                    b.Nb().buT.onError(i);
+                if (b.Po().bCw != null) {
+                    b.Po().bCw.onError(i);
                 }
             }
         });
@@ -60,16 +60,16 @@ public class a {
 
     public void e(int i, long j) {
         if (this.mRequestEncoderReset) {
-            Na();
+            Pn();
         }
-        if (this.buP != null) {
-            this.buP.f(i, j);
+        if (this.bCs != null) {
+            this.bCs.f(i, j);
         }
     }
 
     public void release() {
-        if (this.buP != null) {
-            this.buP.release();
+        if (this.bCs != null) {
+            this.bCs.release();
         }
     }
 }

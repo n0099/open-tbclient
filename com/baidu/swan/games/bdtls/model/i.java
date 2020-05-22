@@ -5,8 +5,8 @@ import kotlin.jvm.internal.q;
 @kotlin.h
 /* loaded from: classes11.dex */
 public final class i {
-    private String cKt;
-    private Integer cKu;
+    private String cVa;
+    private Integer cVb;
 
     public i() {
         this(null, null, 3, null);
@@ -16,7 +16,7 @@ public final class i {
         if (this != obj) {
             if (obj instanceof i) {
                 i iVar = (i) obj;
-                if (!q.k(this.cKt, iVar.cKt) || !q.k(this.cKu, iVar.cKu)) {
+                if (!q.l((Object) this.cVa, (Object) iVar.cVa) || !q.l(this.cVb, iVar.cVb)) {
                 }
             }
             return false;
@@ -25,19 +25,19 @@ public final class i {
     }
 
     public int hashCode() {
-        String str = this.cKt;
+        String str = this.cVa;
         int hashCode = (str != null ? str.hashCode() : 0) * 31;
-        Integer num = this.cKu;
+        Integer num = this.cVb;
         return hashCode + (num != null ? num.hashCode() : 0);
     }
 
     public String toString() {
-        return "ResponseParams(responseMessage=" + this.cKt + ", responseStatusCode=" + this.cKu + ")";
+        return "ResponseParams(responseMessage=" + this.cVa + ", responseStatusCode=" + this.cVb + ")";
     }
 
     public i(String str, Integer num) {
-        this.cKt = str;
-        this.cKu = num;
+        this.cVa = str;
+        this.cVb = num;
     }
 
     public /* synthetic */ i(String str, Integer num, int i, o oVar) {
@@ -45,18 +45,18 @@ public final class i {
     }
 
     public final String getResponseMessage() {
-        return this.cKt;
+        return this.cVa;
     }
 
-    public final void pI(String str) {
-        this.cKt = str;
+    public final void rj(String str) {
+        this.cVa = str;
     }
 
-    public final Integer auY() {
-        return this.cKu;
+    public final Integer ayL() {
+        return this.cVb;
     }
 
-    public final void b(Integer num) {
-        this.cKu = num;
+    public final void c(Integer num) {
+        this.cVb = num;
     }
 }

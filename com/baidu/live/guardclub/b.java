@@ -5,31 +5,31 @@ import com.baidu.live.tbadk.encryption.EncryptionHelper;
 import com.baidu.live.utils.q;
 /* loaded from: classes3.dex */
 public class b extends HttpMessage {
-    private boolean aIV;
-    private int aIW;
-    private long aps;
+    private boolean aOE;
+    private int aOF;
+    private long aul;
 
     public b() {
         super(1021137);
-        this.aIW = 2;
-        this.aIV = false;
+        this.aOF = 2;
+        this.aOE = false;
     }
 
-    public boolean An() {
-        return this.aIV;
+    public boolean BD() {
+        return this.aOE;
     }
 
-    public void Ao() {
-        this.aIV = true;
+    public void BE() {
+        this.aOE = true;
     }
 
-    public void ab(long j) {
-        this.aps = j;
+    public void af(long j) {
+        this.aul = j;
     }
 
     public void setParams() {
-        addParam("scene_from", q.xf());
-        addParam("anchor_id", EncryptionHelper.getEncryptionUserId(this.aps + ""));
-        addParam("client_type", this.aIW);
+        addParam("scene_from", q.yu());
+        addParam("anchor_id", EncryptionHelper.getEncryptionUserId(this.aul + ""));
+        addParam("client_type", this.aOF);
     }
 }

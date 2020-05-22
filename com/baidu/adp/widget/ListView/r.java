@@ -1,16 +1,11 @@
 package com.baidu.adp.widget.ListView;
-
-import android.view.ViewGroup;
-import java.util.List;
 /* loaded from: classes.dex */
-public interface r<V extends ViewGroup> {
-    void addAdapters(List<a> list);
+public interface r {
+    void cancelRefresh();
 
-    List<m> getData();
+    p getAdapter();
 
-    n getListAdapter();
+    int getFirstVisiblePosition();
 
-    V getListView();
-
-    void setData(List<m> list);
+    int getLastVisiblePosition();
 }

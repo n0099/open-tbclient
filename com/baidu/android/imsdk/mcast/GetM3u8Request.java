@@ -46,6 +46,11 @@ public class GetM3u8Request extends FileMessageHttpRequest {
     }
 
     @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
+    public String getContentType() {
+        return "application/x-www-form-urlencoded";
+    }
+
+    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
     public boolean shouldAbort() {
         return false;
     }

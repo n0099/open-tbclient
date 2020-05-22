@@ -6,7 +6,7 @@ import com.baidu.live.u.a;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class b implements com.baidu.live.liveroom.d.e {
-    private int aqX = 1;
+    private int avX = 1;
     private List<com.baidu.live.liveroom.d.d> mDataList;
     private TbPageContext mPageContext;
     private View mRootView;
@@ -29,15 +29,15 @@ public class b implements com.baidu.live.liveroom.d.e {
     }
 
     @Override // com.baidu.live.liveroom.d.d
-    public String AS() {
-        if (this.aqX == 1) {
-            return com.baidu.live.v.a.En().aQu.asp;
+    public String Ci() {
+        if (this.avX == 1) {
+            return com.baidu.live.v.a.Ge().aWF.axp;
         }
         return null;
     }
 
     @Override // com.baidu.live.liveroom.d.d
-    public short AT() {
+    public short Cj() {
         return (short) 5;
     }
 

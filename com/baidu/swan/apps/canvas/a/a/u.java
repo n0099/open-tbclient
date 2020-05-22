@@ -16,8 +16,8 @@ public class u extends a {
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void a(b bVar, Canvas canvas) {
-        if (bVar.Sg() == 0) {
-            bVar.eh(canvas.save());
+        if (bVar.US() == 0) {
+            bVar.eq(canvas.save());
         }
         canvas.rotate(this.mRotateAngle);
     }

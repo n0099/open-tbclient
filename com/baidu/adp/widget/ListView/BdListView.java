@@ -18,19 +18,19 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.widget.ListView.e;
 import java.security.InvalidParameterException;
 /* loaded from: classes.dex */
-public class BdListView extends ListView implements o<BdListView> {
-    private com.baidu.adp.widget.ListView.e TM;
-    private b TO;
-    private a TP;
-    private d TQ;
-    private g TR;
-    private h TS;
-    private e TT;
-    private f TU;
-    private com.baidu.adp.base.h TV;
-    private final p TW;
-    private c TX;
-    private i TY;
+public class BdListView extends ListView implements q<BdListView> {
+    private com.baidu.adp.widget.ListView.e TY;
+    private b TZ;
+    private a Ua;
+    private d Ub;
+    private g Uc;
+    private h Ue;
+    private e Uf;
+    private f Ug;
+    private com.baidu.adp.base.h Uh;
+    private final r Ui;
+    private c Uj;
+    private i Uk;
     private Runnable mDelayedRunnable;
     private int mFirstVisibleItemIndex;
     private boolean mHasKeybord;
@@ -93,78 +93,78 @@ public class BdListView extends ListView implements o<BdListView> {
     }
 
     public void setScrollable(com.baidu.adp.base.h hVar) {
-        this.TV = hVar;
+        this.Uh = hVar;
     }
 
-    public p getPreLoadHandle() {
-        return this.TW;
+    public r getPreLoadHandle() {
+        return this.Ui;
     }
 
     public BdListView(Context context) {
         super(context);
-        this.TM = null;
+        this.TY = null;
         this.mOnItemClickListener = null;
         this.mOnItemLongClickListener = null;
         this.mOnItemSelectedListener = null;
-        this.TO = null;
-        this.TP = null;
+        this.TZ = null;
+        this.Ua = null;
         this.mOnScrollListener = null;
-        this.TQ = null;
-        this.TR = null;
+        this.Ub = null;
+        this.Uc = null;
         this.mOnScrollStopDelayedMillis = 100L;
-        this.TS = null;
+        this.Ue = null;
         this.mScrollToTopNum = 0;
-        this.TT = null;
-        this.TU = null;
+        this.Uf = null;
+        this.Ug = null;
         this.mPrePage = null;
         this.mNextPage = null;
         this.mNoDataView = null;
         this.mFirstVisibleItemIndex = 0;
-        this.TV = null;
+        this.Uh = null;
         this.mDelayedRunnable = new Runnable() { // from class: com.baidu.adp.widget.ListView.BdListView.1
             @Override // java.lang.Runnable
             public void run() {
                 int i2 = 0;
                 int i3 = -1;
-                if (BdListView.this.TQ != null) {
+                if (BdListView.this.Ub != null) {
                     int firstVisiblePosition = BdListView.this.getFirstVisiblePosition();
                     int lastVisiblePosition = BdListView.this.getLastVisiblePosition();
-                    if (BdListView.this.TM == null || BdListView.this.TM.getWrappedAdapter() == null || BdListView.this.TM.getWrappedCount() <= 0) {
+                    if (BdListView.this.TY == null || BdListView.this.TY.getWrappedAdapter() == null || BdListView.this.TY.getWrappedCount() <= 0) {
                         i2 = -1;
                     } else {
-                        i3 = firstVisiblePosition - BdListView.this.TM.getHeadersCount();
+                        i3 = firstVisiblePosition - BdListView.this.TY.getHeadersCount();
                         if (i3 < 0) {
                             i3 = 0;
                         }
-                        int headersCount = lastVisiblePosition - BdListView.this.TM.getHeadersCount();
-                        if (headersCount >= BdListView.this.TM.getWrappedCount()) {
-                            headersCount = BdListView.this.TM.getWrappedCount() - 1;
+                        int headersCount = lastVisiblePosition - BdListView.this.TY.getHeadersCount();
+                        if (headersCount >= BdListView.this.TY.getWrappedCount()) {
+                            headersCount = BdListView.this.TY.getWrappedCount() - 1;
                         }
                         if (headersCount >= 0) {
                             i2 = headersCount;
                         }
                     }
-                    BdListView.this.TQ.onScrollStop(i3, i2);
+                    BdListView.this.Ub.onScrollStop(i3, i2);
                 }
             }
         };
-        this.TW = new p() { // from class: com.baidu.adp.widget.ListView.BdListView.4
-            @Override // com.baidu.adp.widget.ListView.p
-            public n getAdapter() {
+        this.Ui = new r() { // from class: com.baidu.adp.widget.ListView.BdListView.4
+            @Override // com.baidu.adp.widget.ListView.r
+            public p getAdapter() {
                 return BdListView.this.getAdapter2();
             }
 
-            @Override // com.baidu.adp.widget.ListView.p
+            @Override // com.baidu.adp.widget.ListView.r
             public int getFirstVisiblePosition() {
                 return BdListView.this.getFirstVisiblePosition();
             }
 
-            @Override // com.baidu.adp.widget.ListView.p
+            @Override // com.baidu.adp.widget.ListView.r
             public int getLastVisiblePosition() {
                 return BdListView.this.getLastVisiblePosition();
             }
 
-            @Override // com.baidu.adp.widget.ListView.p
+            @Override // com.baidu.adp.widget.ListView.r
             public void cancelRefresh() {
                 BdListView.this.removeCallbacks(BdListView.this.refreshRunnable);
             }
@@ -177,20 +177,20 @@ public class BdListView extends ListView implements o<BdListView> {
                 for (int i2 = 0; i2 < childCount; i2++) {
                     refreshImage(BdListView.this.getChildAt(i2));
                 }
-                if (BdListView.this.TV != null) {
-                    E = BdListView.this.TV;
+                if (BdListView.this.Uh != null) {
+                    E = BdListView.this.Uh;
                 } else {
                     E = com.baidu.adp.base.i.E(BdListView.this.getContext());
                 }
                 if (E != null) {
-                    E.onPreLoad(BdListView.this.TW);
+                    E.onPreLoad(BdListView.this.Ui);
                 }
             }
 
             private void refreshImage(View view) {
                 if (view != null) {
-                    if (view instanceof com.baidu.adp.newwidget.ImageView.h) {
-                        ((com.baidu.adp.newwidget.ImageView.h) view).refresh();
+                    if (view instanceof com.baidu.adp.newwidget.ImageView.i) {
+                        ((com.baidu.adp.newwidget.ImageView.i) view).refresh();
                     }
                     if (view instanceof ViewGroup) {
                         ViewGroup viewGroup = (ViewGroup) view;
@@ -206,13 +206,13 @@ public class BdListView extends ListView implements o<BdListView> {
             @Override // java.lang.Runnable
             public void run() {
                 com.baidu.adp.base.h E;
-                if (BdListView.this.TV != null) {
-                    E = BdListView.this.TV;
+                if (BdListView.this.Uh != null) {
+                    E = BdListView.this.Uh;
                 } else {
                     E = com.baidu.adp.base.i.E(BdListView.this.getContext());
                 }
                 if (E != null) {
-                    E.onPreLoad(BdListView.this.TW);
+                    E.onPreLoad(BdListView.this.Ui);
                 }
             }
         };
@@ -221,82 +221,82 @@ public class BdListView extends ListView implements o<BdListView> {
         this.mKeybordScrollBottom = false;
         this.mMaxHeight = 0;
         this.mPreHeight = 0;
-        this.TX = null;
+        this.Uj = null;
         this.mSelectRunnable = new Runnable() { // from class: com.baidu.adp.widget.ListView.BdListView.2
             @Override // java.lang.Runnable
             public void run() {
                 BdListView.this.setSelection(BdListView.this.getCount() - 1);
             }
         };
-        this.TY = null;
+        this.Uk = null;
         initial();
     }
 
     public BdListView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.TM = null;
+        this.TY = null;
         this.mOnItemClickListener = null;
         this.mOnItemLongClickListener = null;
         this.mOnItemSelectedListener = null;
-        this.TO = null;
-        this.TP = null;
+        this.TZ = null;
+        this.Ua = null;
         this.mOnScrollListener = null;
-        this.TQ = null;
-        this.TR = null;
+        this.Ub = null;
+        this.Uc = null;
         this.mOnScrollStopDelayedMillis = 100L;
-        this.TS = null;
+        this.Ue = null;
         this.mScrollToTopNum = 0;
-        this.TT = null;
-        this.TU = null;
+        this.Uf = null;
+        this.Ug = null;
         this.mPrePage = null;
         this.mNextPage = null;
         this.mNoDataView = null;
         this.mFirstVisibleItemIndex = 0;
-        this.TV = null;
+        this.Uh = null;
         this.mDelayedRunnable = new Runnable() { // from class: com.baidu.adp.widget.ListView.BdListView.1
             @Override // java.lang.Runnable
             public void run() {
                 int i2 = 0;
                 int i3 = -1;
-                if (BdListView.this.TQ != null) {
+                if (BdListView.this.Ub != null) {
                     int firstVisiblePosition = BdListView.this.getFirstVisiblePosition();
                     int lastVisiblePosition = BdListView.this.getLastVisiblePosition();
-                    if (BdListView.this.TM == null || BdListView.this.TM.getWrappedAdapter() == null || BdListView.this.TM.getWrappedCount() <= 0) {
+                    if (BdListView.this.TY == null || BdListView.this.TY.getWrappedAdapter() == null || BdListView.this.TY.getWrappedCount() <= 0) {
                         i2 = -1;
                     } else {
-                        i3 = firstVisiblePosition - BdListView.this.TM.getHeadersCount();
+                        i3 = firstVisiblePosition - BdListView.this.TY.getHeadersCount();
                         if (i3 < 0) {
                             i3 = 0;
                         }
-                        int headersCount = lastVisiblePosition - BdListView.this.TM.getHeadersCount();
-                        if (headersCount >= BdListView.this.TM.getWrappedCount()) {
-                            headersCount = BdListView.this.TM.getWrappedCount() - 1;
+                        int headersCount = lastVisiblePosition - BdListView.this.TY.getHeadersCount();
+                        if (headersCount >= BdListView.this.TY.getWrappedCount()) {
+                            headersCount = BdListView.this.TY.getWrappedCount() - 1;
                         }
                         if (headersCount >= 0) {
                             i2 = headersCount;
                         }
                     }
-                    BdListView.this.TQ.onScrollStop(i3, i2);
+                    BdListView.this.Ub.onScrollStop(i3, i2);
                 }
             }
         };
-        this.TW = new p() { // from class: com.baidu.adp.widget.ListView.BdListView.4
-            @Override // com.baidu.adp.widget.ListView.p
-            public n getAdapter() {
+        this.Ui = new r() { // from class: com.baidu.adp.widget.ListView.BdListView.4
+            @Override // com.baidu.adp.widget.ListView.r
+            public p getAdapter() {
                 return BdListView.this.getAdapter2();
             }
 
-            @Override // com.baidu.adp.widget.ListView.p
+            @Override // com.baidu.adp.widget.ListView.r
             public int getFirstVisiblePosition() {
                 return BdListView.this.getFirstVisiblePosition();
             }
 
-            @Override // com.baidu.adp.widget.ListView.p
+            @Override // com.baidu.adp.widget.ListView.r
             public int getLastVisiblePosition() {
                 return BdListView.this.getLastVisiblePosition();
             }
 
-            @Override // com.baidu.adp.widget.ListView.p
+            @Override // com.baidu.adp.widget.ListView.r
             public void cancelRefresh() {
                 BdListView.this.removeCallbacks(BdListView.this.refreshRunnable);
             }
@@ -309,20 +309,20 @@ public class BdListView extends ListView implements o<BdListView> {
                 for (int i2 = 0; i2 < childCount; i2++) {
                     refreshImage(BdListView.this.getChildAt(i2));
                 }
-                if (BdListView.this.TV != null) {
-                    E = BdListView.this.TV;
+                if (BdListView.this.Uh != null) {
+                    E = BdListView.this.Uh;
                 } else {
                     E = com.baidu.adp.base.i.E(BdListView.this.getContext());
                 }
                 if (E != null) {
-                    E.onPreLoad(BdListView.this.TW);
+                    E.onPreLoad(BdListView.this.Ui);
                 }
             }
 
             private void refreshImage(View view) {
                 if (view != null) {
-                    if (view instanceof com.baidu.adp.newwidget.ImageView.h) {
-                        ((com.baidu.adp.newwidget.ImageView.h) view).refresh();
+                    if (view instanceof com.baidu.adp.newwidget.ImageView.i) {
+                        ((com.baidu.adp.newwidget.ImageView.i) view).refresh();
                     }
                     if (view instanceof ViewGroup) {
                         ViewGroup viewGroup = (ViewGroup) view;
@@ -338,13 +338,13 @@ public class BdListView extends ListView implements o<BdListView> {
             @Override // java.lang.Runnable
             public void run() {
                 com.baidu.adp.base.h E;
-                if (BdListView.this.TV != null) {
-                    E = BdListView.this.TV;
+                if (BdListView.this.Uh != null) {
+                    E = BdListView.this.Uh;
                 } else {
                     E = com.baidu.adp.base.i.E(BdListView.this.getContext());
                 }
                 if (E != null) {
-                    E.onPreLoad(BdListView.this.TW);
+                    E.onPreLoad(BdListView.this.Ui);
                 }
             }
         };
@@ -353,82 +353,82 @@ public class BdListView extends ListView implements o<BdListView> {
         this.mKeybordScrollBottom = false;
         this.mMaxHeight = 0;
         this.mPreHeight = 0;
-        this.TX = null;
+        this.Uj = null;
         this.mSelectRunnable = new Runnable() { // from class: com.baidu.adp.widget.ListView.BdListView.2
             @Override // java.lang.Runnable
             public void run() {
                 BdListView.this.setSelection(BdListView.this.getCount() - 1);
             }
         };
-        this.TY = null;
+        this.Uk = null;
         initial();
     }
 
     public BdListView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.TM = null;
+        this.TY = null;
         this.mOnItemClickListener = null;
         this.mOnItemLongClickListener = null;
         this.mOnItemSelectedListener = null;
-        this.TO = null;
-        this.TP = null;
+        this.TZ = null;
+        this.Ua = null;
         this.mOnScrollListener = null;
-        this.TQ = null;
-        this.TR = null;
+        this.Ub = null;
+        this.Uc = null;
         this.mOnScrollStopDelayedMillis = 100L;
-        this.TS = null;
+        this.Ue = null;
         this.mScrollToTopNum = 0;
-        this.TT = null;
-        this.TU = null;
+        this.Uf = null;
+        this.Ug = null;
         this.mPrePage = null;
         this.mNextPage = null;
         this.mNoDataView = null;
         this.mFirstVisibleItemIndex = 0;
-        this.TV = null;
+        this.Uh = null;
         this.mDelayedRunnable = new Runnable() { // from class: com.baidu.adp.widget.ListView.BdListView.1
             @Override // java.lang.Runnable
             public void run() {
                 int i22 = 0;
                 int i3 = -1;
-                if (BdListView.this.TQ != null) {
+                if (BdListView.this.Ub != null) {
                     int firstVisiblePosition = BdListView.this.getFirstVisiblePosition();
                     int lastVisiblePosition = BdListView.this.getLastVisiblePosition();
-                    if (BdListView.this.TM == null || BdListView.this.TM.getWrappedAdapter() == null || BdListView.this.TM.getWrappedCount() <= 0) {
+                    if (BdListView.this.TY == null || BdListView.this.TY.getWrappedAdapter() == null || BdListView.this.TY.getWrappedCount() <= 0) {
                         i22 = -1;
                     } else {
-                        i3 = firstVisiblePosition - BdListView.this.TM.getHeadersCount();
+                        i3 = firstVisiblePosition - BdListView.this.TY.getHeadersCount();
                         if (i3 < 0) {
                             i3 = 0;
                         }
-                        int headersCount = lastVisiblePosition - BdListView.this.TM.getHeadersCount();
-                        if (headersCount >= BdListView.this.TM.getWrappedCount()) {
-                            headersCount = BdListView.this.TM.getWrappedCount() - 1;
+                        int headersCount = lastVisiblePosition - BdListView.this.TY.getHeadersCount();
+                        if (headersCount >= BdListView.this.TY.getWrappedCount()) {
+                            headersCount = BdListView.this.TY.getWrappedCount() - 1;
                         }
                         if (headersCount >= 0) {
                             i22 = headersCount;
                         }
                     }
-                    BdListView.this.TQ.onScrollStop(i3, i22);
+                    BdListView.this.Ub.onScrollStop(i3, i22);
                 }
             }
         };
-        this.TW = new p() { // from class: com.baidu.adp.widget.ListView.BdListView.4
-            @Override // com.baidu.adp.widget.ListView.p
-            public n getAdapter() {
+        this.Ui = new r() { // from class: com.baidu.adp.widget.ListView.BdListView.4
+            @Override // com.baidu.adp.widget.ListView.r
+            public p getAdapter() {
                 return BdListView.this.getAdapter2();
             }
 
-            @Override // com.baidu.adp.widget.ListView.p
+            @Override // com.baidu.adp.widget.ListView.r
             public int getFirstVisiblePosition() {
                 return BdListView.this.getFirstVisiblePosition();
             }
 
-            @Override // com.baidu.adp.widget.ListView.p
+            @Override // com.baidu.adp.widget.ListView.r
             public int getLastVisiblePosition() {
                 return BdListView.this.getLastVisiblePosition();
             }
 
-            @Override // com.baidu.adp.widget.ListView.p
+            @Override // com.baidu.adp.widget.ListView.r
             public void cancelRefresh() {
                 BdListView.this.removeCallbacks(BdListView.this.refreshRunnable);
             }
@@ -441,20 +441,20 @@ public class BdListView extends ListView implements o<BdListView> {
                 for (int i22 = 0; i22 < childCount; i22++) {
                     refreshImage(BdListView.this.getChildAt(i22));
                 }
-                if (BdListView.this.TV != null) {
-                    E = BdListView.this.TV;
+                if (BdListView.this.Uh != null) {
+                    E = BdListView.this.Uh;
                 } else {
                     E = com.baidu.adp.base.i.E(BdListView.this.getContext());
                 }
                 if (E != null) {
-                    E.onPreLoad(BdListView.this.TW);
+                    E.onPreLoad(BdListView.this.Ui);
                 }
             }
 
             private void refreshImage(View view) {
                 if (view != null) {
-                    if (view instanceof com.baidu.adp.newwidget.ImageView.h) {
-                        ((com.baidu.adp.newwidget.ImageView.h) view).refresh();
+                    if (view instanceof com.baidu.adp.newwidget.ImageView.i) {
+                        ((com.baidu.adp.newwidget.ImageView.i) view).refresh();
                     }
                     if (view instanceof ViewGroup) {
                         ViewGroup viewGroup = (ViewGroup) view;
@@ -470,13 +470,13 @@ public class BdListView extends ListView implements o<BdListView> {
             @Override // java.lang.Runnable
             public void run() {
                 com.baidu.adp.base.h E;
-                if (BdListView.this.TV != null) {
-                    E = BdListView.this.TV;
+                if (BdListView.this.Uh != null) {
+                    E = BdListView.this.Uh;
                 } else {
                     E = com.baidu.adp.base.i.E(BdListView.this.getContext());
                 }
                 if (E != null) {
-                    E.onPreLoad(BdListView.this.TW);
+                    E.onPreLoad(BdListView.this.Ui);
                 }
             }
         };
@@ -485,14 +485,14 @@ public class BdListView extends ListView implements o<BdListView> {
         this.mKeybordScrollBottom = false;
         this.mMaxHeight = 0;
         this.mPreHeight = 0;
-        this.TX = null;
+        this.Uj = null;
         this.mSelectRunnable = new Runnable() { // from class: com.baidu.adp.widget.ListView.BdListView.2
             @Override // java.lang.Runnable
             public void run() {
                 BdListView.this.setSelection(BdListView.this.getCount() - 1);
             }
         };
-        this.TY = null;
+        this.Uk = null;
         initial();
     }
 
@@ -529,8 +529,8 @@ public class BdListView extends ListView implements o<BdListView> {
 
     private void initial() {
         setFadingEdgeLength(0);
-        this.TM = new com.baidu.adp.widget.ListView.e(getContext());
-        this.TM.setListPreLoad(new e.a() { // from class: com.baidu.adp.widget.ListView.BdListView.7
+        this.TY = new com.baidu.adp.widget.ListView.e(getContext());
+        this.TY.setListPreLoad(new e.a() { // from class: com.baidu.adp.widget.ListView.BdListView.7
             @Override // com.baidu.adp.widget.ListView.e.a
             public void onPreLoad() {
                 BdListView.this.removeCallbacks(BdListView.this.preLoadRunnable);
@@ -540,11 +540,11 @@ public class BdListView extends ListView implements o<BdListView> {
         super.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.adp.widget.ListView.BdListView.8
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
-                int headersCount = BdListView.this.TM.getHeadersCount();
+                int headersCount = BdListView.this.TY.getHeadersCount();
                 if (i2 < headersCount) {
                     if (BdListView.this.mPrePage == null || view != BdListView.this.mPrePage.getView()) {
-                        if (BdListView.this.TO != null) {
-                            BdListView.this.TO.onClick(view);
+                        if (BdListView.this.TZ != null) {
+                            BdListView.this.TZ.onClick(view);
                             return;
                         }
                         return;
@@ -553,11 +553,11 @@ public class BdListView extends ListView implements o<BdListView> {
                     return;
                 }
                 int i3 = i2 - headersCount;
-                ListAdapter wrappedAdapter = BdListView.this.TM.getWrappedAdapter();
+                ListAdapter wrappedAdapter = BdListView.this.TY.getWrappedAdapter();
                 if (wrappedAdapter == null || i3 >= wrappedAdapter.getCount()) {
                     if (BdListView.this.mNextPage == null || view != BdListView.this.mNextPage.getView()) {
-                        if (BdListView.this.TP != null) {
-                            BdListView.this.TP.onClick(view);
+                        if (BdListView.this.Ua != null) {
+                            BdListView.this.Ua.onClick(view);
                             return;
                         }
                         return;
@@ -572,8 +572,8 @@ public class BdListView extends ListView implements o<BdListView> {
             @Override // android.widget.AbsListView.OnScrollListener
             public void onScrollStateChanged(AbsListView absListView, int i2) {
                 com.baidu.adp.base.h E;
-                if (BdListView.this.TV != null) {
-                    E = BdListView.this.TV;
+                if (BdListView.this.Uh != null) {
+                    E = BdListView.this.Uh;
                 } else {
                     E = com.baidu.adp.base.i.E(BdListView.this.getContext());
                 }
@@ -594,14 +594,14 @@ public class BdListView extends ListView implements o<BdListView> {
                     BdListView.this.mOnScrollListener.onScrollStateChanged(absListView, i2);
                 }
                 if (i2 == 0) {
-                    if (BdListView.this.TT != null && absListView.getLastVisiblePosition() == absListView.getCount() - 1 && absListView.getFirstVisiblePosition() != 0) {
-                        BdListView.this.TT.onScrollToBottom();
+                    if (BdListView.this.Uf != null && absListView.getLastVisiblePosition() == absListView.getCount() - 1 && absListView.getFirstVisiblePosition() != 0) {
+                        BdListView.this.Uf.onScrollToBottom();
                     }
-                    if (BdListView.this.TU != null && absListView.getLastVisiblePosition() == absListView.getCount() - 1 && absListView.getFirstVisiblePosition() != 0) {
-                        BdListView.this.TU.v(BdListView.this);
+                    if (BdListView.this.Ug != null && absListView.getLastVisiblePosition() == absListView.getCount() - 1 && absListView.getFirstVisiblePosition() != 0) {
+                        BdListView.this.Ug.v(BdListView.this);
                     }
-                    if (BdListView.this.TS != null && absListView.getFirstVisiblePosition() <= BdListView.this.mScrollToTopNum) {
-                        BdListView.this.TS.onScrollToTop();
+                    if (BdListView.this.Ue != null && absListView.getFirstVisiblePosition() <= BdListView.this.mScrollToTopNum) {
+                        BdListView.this.Ue.onScrollToTop();
                     }
                 }
             }
@@ -612,7 +612,7 @@ public class BdListView extends ListView implements o<BdListView> {
                 if (BdListView.this.mOnScrollListener != null) {
                     BdListView.this.mOnScrollListener.onScroll(absListView, i2, i3, i4);
                 }
-                if (BdListView.this.TQ != null && BdListView.this.mOnScrollStopDelayedMillis > 0) {
+                if (BdListView.this.Ub != null && BdListView.this.mOnScrollStopDelayedMillis > 0) {
                     BdListView.this.getHandler().removeCallbacks(BdListView.this.mDelayedRunnable);
                     BdListView.this.getHandler().postDelayed(BdListView.this.mDelayedRunnable, BdListView.this.mOnScrollStopDelayedMillis);
                 }
@@ -621,7 +621,7 @@ public class BdListView extends ListView implements o<BdListView> {
     }
 
     public void setOnScrollToPullListener(g gVar) {
-        this.TR = gVar;
+        this.Uc = gVar;
     }
 
     public void setMaxHeight(int i2) {
@@ -644,11 +644,11 @@ public class BdListView extends ListView implements o<BdListView> {
     }
 
     public void setOnSrollToTopListener(h hVar) {
-        this.TS = hVar;
+        this.Ue = hVar;
     }
 
     public void setOnSrollToTopListener(h hVar, int i2) {
-        this.TS = hVar;
+        this.Ue = hVar;
         int i3 = i2 - 1;
         if (i3 < 0) {
             i3 = 0;
@@ -657,15 +657,15 @@ public class BdListView extends ListView implements o<BdListView> {
     }
 
     public void setOnSrollToBottomListener(e eVar) {
-        this.TT = eVar;
+        this.Uf = eVar;
     }
 
     public void setExOnSrollToBottomListener(f fVar) {
-        this.TU = fVar;
+        this.Ug = fVar;
     }
 
     public void setOnScrollStopDelayedListener(d dVar, long j) {
-        this.TQ = dVar;
+        this.Ub = dVar;
         this.mOnScrollStopDelayedMillis = j;
     }
 
@@ -679,12 +679,12 @@ public class BdListView extends ListView implements o<BdListView> {
         super.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() { // from class: com.baidu.adp.widget.ListView.BdListView.10
             @Override // android.widget.AdapterView.OnItemLongClickListener
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i2, long j) {
-                int headersCount = BdListView.this.TM.getHeadersCount();
+                int headersCount = BdListView.this.TY.getHeadersCount();
                 if (i2 < headersCount) {
                     return true;
                 }
                 int i3 = i2 - headersCount;
-                ListAdapter wrappedAdapter = BdListView.this.TM.getWrappedAdapter();
+                ListAdapter wrappedAdapter = BdListView.this.TY.getWrappedAdapter();
                 if (wrappedAdapter == null || i3 >= wrappedAdapter.getCount()) {
                     return true;
                 }
@@ -706,10 +706,10 @@ public class BdListView extends ListView implements o<BdListView> {
         super.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() { // from class: com.baidu.adp.widget.ListView.BdListView.11
             @Override // android.widget.AdapterView.OnItemSelectedListener
             public void onItemSelected(AdapterView<?> adapterView, View view, int i2, long j) {
-                int headersCount = BdListView.this.TM.getHeadersCount();
+                int headersCount = BdListView.this.TY.getHeadersCount();
                 if (i2 >= headersCount) {
                     int i3 = i2 - headersCount;
-                    ListAdapter wrappedAdapter = BdListView.this.TM.getWrappedAdapter();
+                    ListAdapter wrappedAdapter = BdListView.this.TY.getWrappedAdapter();
                     if (wrappedAdapter != null && i3 < wrappedAdapter.getCount() && BdListView.this.mOnItemSelectedListener != null) {
                         BdListView.this.mOnItemSelectedListener.onItemSelected(adapterView, view, i3, j);
                     }
@@ -740,23 +740,23 @@ public class BdListView extends ListView implements o<BdListView> {
     @Override // android.widget.ListView, android.widget.AdapterView
     /* renamed from: getAdapter */
     public ListAdapter getAdapter2() {
-        return this.TM;
+        return this.TY;
     }
 
     public ListAdapter getWrappedAdapter() {
-        if (this.TM instanceof com.baidu.adp.widget.ListView.e) {
-            return this.TM.getWrappedAdapter();
+        if (this.TY instanceof com.baidu.adp.widget.ListView.e) {
+            return this.TY.getWrappedAdapter();
         }
         return null;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.widget.ListView.o
+    @Override // com.baidu.adp.widget.ListView.q
     public BdListView getListView() {
         return this;
     }
 
-    public n getListAdapter() {
+    public p getListAdapter() {
         return getAdapter2();
     }
 
@@ -764,43 +764,43 @@ public class BdListView extends ListView implements o<BdListView> {
     @Override // android.widget.AdapterView
     public void setAdapter(ListAdapter listAdapter) {
         super.setAdapter((ListAdapter) null);
-        this.TM.setAdaper(listAdapter);
-        super.setAdapter((ListAdapter) this.TM);
+        this.TY.setAdaper(listAdapter);
+        super.setAdapter((ListAdapter) this.TY);
     }
 
     public void setOnHeaderClickListener(b bVar) {
-        this.TO = bVar;
+        this.TZ = bVar;
     }
 
     public void setOnFooterClickListener(a aVar) {
-        this.TP = aVar;
+        this.Ua = aVar;
     }
 
     @Override // android.widget.ListView
     public void addHeaderView(View view, Object obj, boolean z) {
-        this.TM.addHeaderView(view, obj, z, getHeaderIndex());
+        this.TY.addHeaderView(view, obj, z, getHeaderIndex());
     }
 
     @Override // android.widget.ListView
     public void addHeaderView(View view) {
-        this.TM.addHeaderView(view, getHeaderIndex());
+        this.TY.addHeaderView(view, getHeaderIndex());
     }
 
     public void addHeaderView(View view, int i2) {
-        this.TM.addHeaderView(view, i2);
+        this.TY.addHeaderView(view, i2);
     }
 
-    @Override // android.widget.ListView, com.baidu.adp.widget.ListView.o
+    @Override // android.widget.ListView, com.baidu.adp.widget.ListView.q
     public int getHeaderViewsCount() {
-        return this.TM.getHeaderViewsCount();
+        return this.TY.getHeaderViewsCount();
     }
 
-    @Override // android.widget.ListView, com.baidu.adp.widget.ListView.o
+    @Override // android.widget.ListView, com.baidu.adp.widget.ListView.q
     public int getFooterViewsCount() {
-        return this.TM.getFooterViewsCount();
+        return this.TY.getFooterViewsCount();
     }
 
-    @Override // com.baidu.adp.widget.ListView.o
+    @Override // com.baidu.adp.widget.ListView.q
     public int getContentViewsCount() {
         if (getWrappedAdapter() != null) {
             return getWrappedAdapter().getCount();
@@ -813,27 +813,27 @@ public class BdListView extends ListView implements o<BdListView> {
     }
 
     public void addPullRefreshView(View view) {
-        this.TM.addHeaderView(view, null, false, 0);
+        this.TY.addHeaderView(view, null, false, 0);
     }
 
     @Override // android.widget.ListView
     public void addFooterView(View view, Object obj, boolean z) {
-        this.TM.addFooterView(view, obj, z, -1);
+        this.TY.addFooterView(view, obj, z, -1);
     }
 
     @Override // android.widget.ListView
     public void addFooterView(View view) {
-        this.TM.addFooterView(view);
+        this.TY.addFooterView(view);
     }
 
-    @Override // android.widget.ListView, com.baidu.adp.widget.ListView.o
+    @Override // android.widget.ListView, com.baidu.adp.widget.ListView.q
     public boolean removeHeaderView(View view) {
-        return this.TM.removeHeader(view);
+        return this.TY.removeHeader(view);
     }
 
     @Override // android.widget.ListView
     public boolean removeFooterView(View view) {
-        return this.TM.removeFooter(view);
+        return this.TY.removeFooter(view);
     }
 
     public void setNoData(String str) {
@@ -879,14 +879,14 @@ public class BdListView extends ListView implements o<BdListView> {
             this.mNextPage = null;
         }
         if (bVar != null) {
-            this.TM.addFooterView(bVar.getView(), null, true, 0);
+            this.TY.addFooterView(bVar.getView(), null, true, 0);
             this.mNextPage = bVar;
         }
     }
 
     private int getHeaderIndex() {
         if (this.mPrePage != null) {
-            return this.TM.getHeadersCount() - 1;
+            return this.TY.getHeadersCount() - 1;
         }
         return -1;
     }
@@ -907,7 +907,7 @@ public class BdListView extends ListView implements o<BdListView> {
     }
 
     public void setOnkbdStateListener(c cVar) {
-        this.TX = cVar;
+        this.Uj = cVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -919,16 +919,16 @@ public class BdListView extends ListView implements o<BdListView> {
             if (!this.mLayoutHasInit) {
                 this.mLayoutHasInit = true;
                 this.mMaxHeight = i5;
-                if (this.TX != null) {
-                    this.TX.onKeyBoardStateChange(-1);
+                if (this.Uj != null) {
+                    this.Uj.onKeyBoardStateChange(-1);
                 }
             } else {
                 this.mMaxHeight = this.mMaxHeight < i5 ? i5 : this.mMaxHeight;
             }
             if (this.mLayoutHasInit && this.mMaxHeight > i5 && i5 != this.mPreHeight) {
                 this.mHasKeybord = true;
-                if (this.TX != null) {
-                    this.TX.onKeyBoardStateChange(-3);
+                if (this.Uj != null) {
+                    this.Uj.onKeyBoardStateChange(-3);
                 }
                 if (this.mKeybordScrollBottom && lastVisiblePosition >= getCount() - 1) {
                     getHandler().postDelayed(this.mSelectRunnable, 1L);
@@ -936,8 +936,8 @@ public class BdListView extends ListView implements o<BdListView> {
             }
             if (this.mLayoutHasInit && this.mHasKeybord && this.mMaxHeight == i5) {
                 this.mHasKeybord = false;
-                if (this.TX != null) {
-                    this.TX.onKeyBoardStateChange(-2);
+                if (this.Uj != null) {
+                    this.Uj.onKeyBoardStateChange(-2);
                 }
             }
             this.mPreHeight = i5;
@@ -950,51 +950,51 @@ public class BdListView extends ListView implements o<BdListView> {
     }
 
     public void setPullRefresh(com.baidu.adp.widget.ListView.c cVar) {
-        if (this.TY != null) {
-            removeHeaderView(this.TY.getBdIListPullView().getView());
+        if (this.Uk != null) {
+            removeHeaderView(this.Uk.getBdIListPullView().getView());
         }
-        this.TY = null;
+        this.Uk = null;
         if (cVar != null) {
-            this.TY = new i(this, cVar);
-            this.TY.setOnScrollToPullListener(this.TR);
+            this.Uk = new i(this, cVar);
+            this.Uk.setOnScrollToPullListener(this.Uc);
         }
     }
 
     public void completePullRefresh() {
-        if (this.TY != null) {
-            if (this.TY.getBdIListPullView() != null) {
-                this.TY.mBdIListPullView.onCompletePullRefresh();
+        if (this.Uk != null) {
+            if (this.Uk.getBdIListPullView() != null) {
+                this.Uk.mBdIListPullView.onCompletePullRefresh();
             }
-            this.TY.animatePullView();
+            this.Uk.animatePullView();
         }
     }
 
     public void completePullRefreshPostDelayed(long j) {
-        if (this.TY != null && this.TY.getBdIListPullView() != null) {
-            this.TY.mBdIListPullView.onCompletePullRefresh();
+        if (this.Uk != null && this.Uk.getBdIListPullView() != null) {
+            this.Uk.mBdIListPullView.onCompletePullRefresh();
         }
-        com.baidu.adp.lib.f.e.lb().postDelayed(new Runnable() { // from class: com.baidu.adp.widget.ListView.BdListView.3
+        com.baidu.adp.lib.f.e.ld().postDelayed(new Runnable() { // from class: com.baidu.adp.widget.ListView.BdListView.3
             @Override // java.lang.Runnable
             public void run() {
-                if (BdListView.this.TY == null) {
+                if (BdListView.this.Uk == null) {
                     return;
                 }
-                BdListView.this.TY.animatePullView();
+                BdListView.this.Uk.animatePullView();
             }
         }, j);
     }
 
     public void startPullRefresh() {
-        if (this.TY != null) {
+        if (this.Uk != null) {
             setSelection(0);
-            this.TY.startPullRefresh(true);
+            this.Uk.startPullRefresh(true);
         }
     }
 
     @Override // android.widget.AbsListView, android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (this.TY != null) {
-            this.TY.onInterceptTouchEvent(motionEvent, this.mFirstVisibleItemIndex);
+        if (this.Uk != null) {
+            this.Uk.onInterceptTouchEvent(motionEvent, this.mFirstVisibleItemIndex);
         }
         try {
             return super.onInterceptTouchEvent(motionEvent);
@@ -1006,8 +1006,8 @@ public class BdListView extends ListView implements o<BdListView> {
 
     @Override // android.widget.AbsListView, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (this.TY != null) {
-            this.TY.onTouchEvent(motionEvent, this.mFirstVisibleItemIndex);
+        if (this.Uk != null) {
+            this.Uk.onTouchEvent(motionEvent, this.mFirstVisibleItemIndex);
         }
         try {
             return super.onTouchEvent(motionEvent);
@@ -1018,24 +1018,24 @@ public class BdListView extends ListView implements o<BdListView> {
     }
 
     public boolean isRefreshDone() {
-        return this.TY == null || this.TY.mState == 3;
+        return this.Uk == null || this.Uk.mState == 3;
     }
 
     /* loaded from: classes.dex */
     private static class i {
         private static float sRatio = 3.0f;
-        private BdListView Ua;
+        private BdListView Um;
         private com.baidu.adp.widget.ListView.c mBdIListPullView;
         private boolean mIsRecored = false;
         private int mStartY = 0;
         protected int mState = 3;
         private Boolean mIsBack = false;
-        private g TR = null;
+        private g Uc = null;
         private int mAnimDurationTime = 800;
 
         public i(BdListView bdListView, com.baidu.adp.widget.ListView.c cVar) {
             this.mBdIListPullView = null;
-            this.Ua = null;
+            this.Um = null;
             if (cVar == null) {
                 throw new InvalidParameterException("PullRefresh view is null");
             }
@@ -1043,11 +1043,11 @@ public class BdListView extends ListView implements o<BdListView> {
                 throw new InvalidParameterException("PullRefresh listView is null");
             }
             this.mBdIListPullView = cVar;
-            this.Ua = bdListView;
+            this.Um = bdListView;
             View view = this.mBdIListPullView.getView();
             view.setPadding(0, -this.mBdIListPullView.getHeadContentHeight(), 0, 0);
             view.invalidate();
-            this.Ua.addPullRefreshView(view);
+            this.Um.addPullRefreshView(view);
         }
 
         public com.baidu.adp.widget.ListView.c getBdIListPullView() {
@@ -1058,8 +1058,8 @@ public class BdListView extends ListView implements o<BdListView> {
             this.mState = 3;
             this.mBdIListPullView.setPadding(0, -this.mBdIListPullView.getHeadContentHeight(), 0, 0);
             this.mBdIListPullView.done(true);
-            if (this.TR != null) {
-                this.TR.onScrollToPull(false);
+            if (this.Uc != null) {
+                this.Uc.onScrollToPull(false);
             }
         }
 
@@ -1071,14 +1071,14 @@ public class BdListView extends ListView implements o<BdListView> {
         }
 
         public void setOnScrollToPullListener(g gVar) {
-            this.TR = gVar;
+            this.Uc = gVar;
         }
 
         public void onInterceptTouchEvent(MotionEvent motionEvent, int i) {
             if (motionEvent.getAction() == 0 && getBdIListPullView().isEnable()) {
                 this.mIsRecored = false;
                 this.mIsBack = false;
-                if (i == 0 && !this.mIsRecored && this.Ua.getChildAt(0) != null && this.Ua.getChildAt(0).getTop() >= 0) {
+                if (i == 0 && !this.mIsRecored && this.Um.getChildAt(0) != null && this.Um.getChildAt(0).getTop() >= 0) {
                     this.mIsRecored = true;
                     this.mStartY = (int) motionEvent.getY();
                 }
@@ -1095,20 +1095,20 @@ public class BdListView extends ListView implements o<BdListView> {
                                 this.mState = 3;
                                 this.mBdIListPullView.setPadding(0, -this.mBdIListPullView.getHeadContentHeight(), 0, 0);
                                 this.mBdIListPullView.done(false);
-                                if (this.TR != null) {
-                                    this.TR.onScrollToPull(true);
+                                if (this.Uc != null) {
+                                    this.Uc.onScrollToPull(true);
                                     return;
                                 }
                                 return;
                             } else if (this.mState == 0) {
                                 startPullRefresh(false);
-                                if (this.TR != null) {
-                                    this.TR.onScrollToPull(true);
+                                if (this.Uc != null) {
+                                    this.Uc.onScrollToPull(true);
                                     return;
                                 }
                                 return;
-                            } else if (this.mState == 3 && this.TR != null) {
-                                this.TR.onScrollToPull(false);
+                            } else if (this.mState == 3 && this.Uc != null) {
+                                this.Uc.onScrollToPull(false);
                                 return;
                             } else {
                                 return;
@@ -1117,43 +1117,43 @@ public class BdListView extends ListView implements o<BdListView> {
                         return;
                     case 2:
                         int y = (int) motionEvent.getY();
-                        if (!this.mIsRecored && i == 0 && this.Ua.getChildAt(0) != null && this.Ua.getChildAt(0).getTop() >= 0) {
+                        if (!this.mIsRecored && i == 0 && this.Um.getChildAt(0) != null && this.Um.getChildAt(0).getTop() >= 0) {
                             this.mIsRecored = true;
                             this.mStartY = y;
                         }
                         if (this.mState != 2 && this.mIsRecored) {
                             if (this.mState == 0) {
-                                this.Ua.setSelection(0);
+                                this.Um.setSelection(0);
                                 if (((int) ((y - this.mStartY) / sRatio)) < com.baidu.adp.lib.util.l.getDimens(this.mBdIListPullView.getContext(), R.dimen.adp_list_view_pull_maxoffset) && y - this.mStartY > 0) {
                                     this.mState = 1;
                                     this.mBdIListPullView.pullToRefresh(this.mIsBack.booleanValue());
                                     this.mIsBack = false;
-                                    if (this.TR != null) {
-                                        this.TR.onScrollToPull(true);
+                                    if (this.Uc != null) {
+                                        this.Uc.onScrollToPull(true);
                                     }
                                 } else if (y - this.mStartY <= 0) {
                                     this.mState = 3;
                                     this.mBdIListPullView.setPadding(0, -this.mBdIListPullView.getHeadContentHeight(), 0, 0);
                                     this.mBdIListPullView.done(false);
-                                    if (this.TR != null) {
-                                        this.TR.onScrollToPull(true);
+                                    if (this.Uc != null) {
+                                        this.Uc.onScrollToPull(true);
                                     }
                                 }
                             } else if (this.mState == 1) {
-                                this.Ua.setSelection(0);
+                                this.Um.setSelection(0);
                                 if (((int) ((y - this.mStartY) / sRatio)) >= com.baidu.adp.lib.util.l.getDimens(this.mBdIListPullView.getContext(), R.dimen.adp_list_view_pull_maxoffset)) {
                                     this.mState = 0;
                                     this.mIsBack = true;
                                     this.mBdIListPullView.releaseToRefresh();
-                                    if (this.TR != null) {
-                                        this.TR.onScrollToPull(true);
+                                    if (this.Uc != null) {
+                                        this.Uc.onScrollToPull(true);
                                     }
                                 } else if (y - this.mStartY <= 0) {
                                     this.mState = 3;
                                     this.mBdIListPullView.setPadding(0, -this.mBdIListPullView.getHeadContentHeight(), 0, 0);
                                     this.mBdIListPullView.done(false);
-                                    if (this.TR != null) {
-                                        this.TR.onScrollToPull(true);
+                                    if (this.Uc != null) {
+                                        this.Uc.onScrollToPull(true);
                                     }
                                 }
                             } else if (this.mState == 3) {
@@ -1161,11 +1161,11 @@ public class BdListView extends ListView implements o<BdListView> {
                                     this.mState = 1;
                                     this.mBdIListPullView.pullToRefresh(this.mIsBack.booleanValue());
                                     this.mIsBack = false;
-                                    if (this.TR != null) {
-                                        this.TR.onScrollToPull(true);
+                                    if (this.Uc != null) {
+                                        this.Uc.onScrollToPull(true);
                                     }
-                                } else if (this.TR != null) {
-                                    this.TR.onScrollToPull(false);
+                                } else if (this.Uc != null) {
+                                    this.Uc.onScrollToPull(false);
                                 }
                             }
                             if (this.mState == 1 || this.mState == 0) {
@@ -1193,7 +1193,7 @@ public class BdListView extends ListView implements o<BdListView> {
                         i.this.done();
                     }
                 });
-                fVar.a(bdIListPullView.TG);
+                fVar.a(bdIListPullView.TS);
                 fVar.startAnimation(view);
             }
         }

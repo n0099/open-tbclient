@@ -11,6 +11,8 @@ import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.switchs.IdentifyImageSwitch;
 /* loaded from: classes8.dex */
 public class ImageViewerActivityStatic {
+    public static String Tag = "tag";
+
     static {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, new CustomMessageTask.CustomRunnable<ImageViewerConfig>() { // from class: com.baidu.tieba.image.ImageViewerActivityStatic.1
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable

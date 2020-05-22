@@ -18,7 +18,7 @@ import java.io.InputStream;
 import java.util.regex.Pattern;
 /* loaded from: classes8.dex */
 public class FaceSDK {
-    private static final String VERSION = "3.0.3.0";
+    private static final String VERSION = "3.0.1.0";
     private static String mApiKey = null;
     private static FaceSDK mInstance = null;
     private static final String tag = "FaceSDK";
@@ -96,6 +96,16 @@ public class FaceSDK {
 
     public static synchronized void getInstance(AssetManager assetManager, final Context context, final String str, final String str2, final String str3, AlignMethodType alignMethodType, ParsMethodType parsMethodType) {
         synchronized (FaceSDK.class) {
+            File dir = context.getDir("FaceSDKLibs", 0);
+            File file = new File(dir.getAbsolutePath() + File.separator + "libFaceSDK.so");
+            File file2 = new File(dir.getAbsolutePath() + File.separator + "libidl_license.so");
+            if (file.exists() && file2.exists()) {
+                System.load(file2.getAbsolutePath());
+                System.load(file.getAbsolutePath());
+            } else {
+                System.loadLibrary("idl_license");
+                System.loadLibrary(tag);
+            }
             if (mAuthorityStatus > 48) {
                 new Thread(new Runnable() { // from class: com.baidu.idl.facesdk.FaceSDK.1
                     @Override // java.lang.Runnable

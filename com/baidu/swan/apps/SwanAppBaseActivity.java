@@ -5,29 +5,29 @@ import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.ViewGroup;
 import android.view.Window;
-import com.baidu.swan.apps.as.ai;
+import com.baidu.swan.apps.aq.aj;
 import com.baidu.swan.support.v4.app.FragmentActivity;
 /* loaded from: classes11.dex */
 public class SwanAppBaseActivity extends FragmentActivity {
     private static final boolean DEBUG = b.DEBUG;
-    private com.baidu.swan.apps.am.b bzz = null;
+    private com.baidu.swan.apps.ak.b bHd = null;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.app.Activity
     public void onPostCreate(Bundle bundle) {
         super.onPostCreate(bundle);
-        i(com.baidu.swan.apps.w.a.acj().getNightModeSwitcherState(), false);
+        j(com.baidu.swan.apps.u.a.afm().getNightModeSwitcherState(), false);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.support.v4.app.FragmentActivity, com.baidu.swan.support.v4.app.f, android.app.Activity
     public void onCreate(@Nullable Bundle bundle) {
-        int releaseFixedOrientation = ai.releaseFixedOrientation(this);
+        int releaseFixedOrientation = aj.releaseFixedOrientation(this);
         super.onCreate(bundle);
-        ai.fixedOrientation(this, releaseFixedOrientation);
+        aj.fixedOrientation(this, releaseFixedOrientation);
     }
 
-    public void i(boolean z, boolean z2) {
+    public void j(boolean z, boolean z2) {
         Window window = getWindow();
         if (window == null) {
             if (DEBUG) {
@@ -36,21 +36,21 @@ public class SwanAppBaseActivity extends FragmentActivity {
             }
             return;
         }
-        if (this.bzz == null) {
-            this.bzz = new com.baidu.swan.apps.am.b();
+        if (this.bHd == null) {
+            this.bHd = new com.baidu.swan.apps.ak.b();
         }
         ViewGroup viewGroup = (ViewGroup) window.getDecorView();
         if (z) {
-            this.bzz.r(viewGroup);
+            this.bHd.v(viewGroup);
         } else {
-            this.bzz.s(viewGroup);
+            this.bHd.w(viewGroup);
         }
         if (z2) {
-            com.baidu.swan.apps.process.messaging.a.aiS().a(new com.baidu.swan.apps.process.messaging.c(5).ep(true));
+            com.baidu.swan.apps.process.messaging.a.amG().a(new com.baidu.swan.apps.process.messaging.c(5).eI(true));
         }
     }
 
-    public com.baidu.swan.apps.am.b OH() {
-        return this.bzz;
+    public com.baidu.swan.apps.ak.b QT() {
+        return this.bHd;
     }
 }

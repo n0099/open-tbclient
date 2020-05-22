@@ -69,7 +69,7 @@ public enum SubscriptionHelper implements d {
     }
 
     public static boolean setOnce(AtomicReference<d> atomicReference, d dVar) {
-        io.reactivex.internal.functions.a.h(dVar, "s is null");
+        io.reactivex.internal.functions.a.k(dVar, "s is null");
         if (atomicReference.compareAndSet(null, dVar)) {
             return true;
         }

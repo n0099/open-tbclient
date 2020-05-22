@@ -8,16 +8,16 @@ public class a {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.poly.a.k.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public static class RunnableC0208a implements Runnable {
-        final /* synthetic */ c bom;
+    public static class RunnableC0241a implements Runnable {
+        final /* synthetic */ c bvM;
 
-        RunnableC0208a(c cVar) {
-            this.bom = cVar;
+        RunnableC0241a(c cVar) {
+            this.bvM = cVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            a.a(this.bom);
+            a.a(this.bvM);
         }
     }
 
@@ -40,7 +40,7 @@ public class a {
         viewGroup.addView(cVar, layoutParams);
         cVar.setLoading(true);
         if (j != -1) {
-            viewGroup.postDelayed(new RunnableC0208a(cVar), j);
+            viewGroup.postDelayed(new RunnableC0241a(cVar), j);
         }
     }
 

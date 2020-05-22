@@ -87,7 +87,7 @@ public class WebGLImageLoader {
         }
         if (obj instanceof String) {
             String str2 = (String) obj;
-            if (a.gh(str2)) {
+            if (a.gT(str2)) {
                 bitmap = BitmapFactory.decodeFile(str2, options);
                 if (bitmap == null) {
                     bitmap = BitmapFactory.decodeFile(str2);

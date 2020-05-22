@@ -1,23 +1,24 @@
 package com.baidu.swan.apps.view.b.b;
 
 import com.baidu.swan.apps.b;
-import com.baidu.swan.apps.n.a.f;
+import com.baidu.swan.apps.event.a.g;
+import com.baidu.swan.apps.w.f;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class a {
     /* JADX WARN: Type inference failed for: r1v0, types: [org.json.JSONObject, T] */
     public static void a(String str, String str2, String str3, String str4, JSONObject jSONObject) {
-        f fVar = new f();
-        fVar.mData = c(str, str2, str3, str4, jSONObject);
-        com.baidu.swan.apps.y.f.aeJ().a(str, fVar);
+        g gVar = new g();
+        gVar.mData = c(str, str2, str3, str4, jSONObject);
+        f.ahV().a(str, gVar);
     }
 
     /* JADX WARN: Type inference failed for: r1v0, types: [org.json.JSONObject, T] */
     public static void b(String str, String str2, String str3, String str4, JSONObject jSONObject) {
-        f fVar = new f();
-        fVar.mData = c(str, str2, str3, str4, jSONObject);
-        com.baidu.swan.apps.y.f.aeJ().a(fVar);
+        g gVar = new g();
+        gVar.mData = c(str, str2, str3, str4, jSONObject);
+        f.ahV().a(gVar);
     }
 
     public static JSONObject c(String str, String str2, String str3, String str4, JSONObject jSONObject) {
@@ -41,7 +42,7 @@ public class a {
         return jSONObject2;
     }
 
-    public static JSONObject bG(String str, String str2) {
+    public static JSONObject cc(String str, String str2) {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("slaveId", str);

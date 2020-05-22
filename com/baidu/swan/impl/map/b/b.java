@@ -12,10 +12,10 @@ import com.baidu.swan.impl.map.item.c;
 public class b implements View.OnClickListener, BaiduMap.OnMapClickListener, BaiduMap.OnMapLoadedCallback, BaiduMap.OnMapRenderCallback, BaiduMap.OnMapStatusChangeListener, BaiduMap.OnMarkerClickListener, BaiduMap.OnMyLocationClickListener {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static final String TAG = b.class.getSimpleName();
-    private c cUW;
+    private c dfX;
 
     public b(@NonNull c cVar) {
-        this.cUW = cVar;
+        this.dfX = cVar;
     }
 
     @Override // com.baidu.mapapi.map.BaiduMap.OnMapLoadedCallback
@@ -25,29 +25,29 @@ public class b implements View.OnClickListener, BaiduMap.OnMapClickListener, Bai
 
     @Override // com.baidu.mapapi.map.BaiduMap.OnMapClickListener
     public void onMapClick(LatLng latLng) {
-        a.a(this.cUW, latLng);
+        a.a(this.dfX, latLng);
         com.baidu.swan.apps.console.c.i("map", "onMapClick LatLng " + latLng);
     }
 
     @Override // com.baidu.mapapi.map.BaiduMap.OnMapClickListener
     public boolean onMapPoiClick(MapPoi mapPoi) {
-        a.a(this.cUW, mapPoi);
+        a.a(this.dfX, mapPoi);
         com.baidu.swan.apps.console.c.i("map", "onMapPoiClick MapPoi " + mapPoi.getPosition());
         return true;
     }
 
     @Override // com.baidu.mapapi.map.BaiduMap.OnMapRenderCallback
     public void onMapRenderFinished() {
-        a.b(this.cUW);
+        a.b(this.dfX);
         com.baidu.swan.apps.console.c.i("map", "onMapRenderFinished");
     }
 
     @Override // com.baidu.mapapi.map.BaiduMap.OnMarkerClickListener
     public boolean onMarkerClick(Marker marker) {
-        com.baidu.swan.impl.map.item.b b = this.cUW.b(marker);
+        com.baidu.swan.impl.map.item.b b = this.dfX.b(marker);
         if (b != null) {
-            a.a(marker, this.cUW);
-            b.c(this.cUW);
+            a.a(marker, this.dfX);
+            b.c(this.dfX);
             com.baidu.swan.apps.console.c.i("map", "onMarkerClick marker id " + marker.getId());
             return true;
         }
@@ -56,7 +56,7 @@ public class b implements View.OnClickListener, BaiduMap.OnMapClickListener, Bai
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        a.a(view, this.cUW);
+        a.a(view, this.dfX);
         com.baidu.swan.apps.console.c.i("map", "Control View click");
     }
 
@@ -75,7 +75,7 @@ public class b implements View.OnClickListener, BaiduMap.OnMapClickListener, Bai
 
     @Override // com.baidu.mapapi.map.BaiduMap.OnMapStatusChangeListener
     public void onMapStatusChangeFinish(MapStatus mapStatus) {
-        a.a(this.cUW, mapStatus);
+        a.a(this.dfX, mapStatus);
         com.baidu.swan.apps.console.c.i("map", "onMapStatusChangeFinish");
     }
 

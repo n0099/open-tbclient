@@ -274,6 +274,7 @@ public class PaManagerImpl {
                             return;
                         } catch (Exception e) {
                             ListenerManager.getInstance().removeListener(addListener);
+                            PaManagerImpl.this.onSubscribePaResult(addListener, 1003, Constants.ERROR_MSG_SERVICE_ERROR, j);
                             LogUtils.e(PaManagerImpl.TAG, "Exception ", e);
                             return;
                         }
@@ -297,6 +298,7 @@ public class PaManagerImpl {
                 return;
             } catch (Exception e) {
                 ListenerManager.getInstance().removeListener(addListener);
+                onUnsubscribePaResult(addListener, 1003, Constants.ERROR_MSG_SERVICE_ERROR, j);
                 LogUtils.e(TAG, "Exception ", e);
                 return;
             }
@@ -392,6 +394,7 @@ public class PaManagerImpl {
                 return;
             } catch (Exception e) {
                 ListenerManager.getInstance().removeListener(addListener);
+                onSearchPaListResult(addListener, 1003, Constants.ERROR_MSG_SERVICE_ERROR, null);
                 LogUtils.e(TAG, "Exception ", e);
                 return;
             }
@@ -409,6 +412,7 @@ public class PaManagerImpl {
                 return;
             } catch (Exception e) {
                 ListenerManager.getInstance().removeListener(addListener);
+                onQueryScribedPaListResult(addListener, 1003, Constants.ERROR_MSG_SERVICE_ERROR, null);
                 LogUtils.e(TAG, "Exception ", e);
                 return;
             }
@@ -428,6 +432,7 @@ public class PaManagerImpl {
                 return;
             } catch (Exception e) {
                 ListenerManager.getInstance().removeListener(addListener);
+                onAcceptPaPushResult(addListener, 1003, Constants.ERROR_MSG_SERVICE_ERROR, j);
                 LogUtils.e(TAG, "Exception ", e);
                 return;
             }
@@ -446,6 +451,7 @@ public class PaManagerImpl {
                 return;
             } catch (Exception e) {
                 ListenerManager.getInstance().removeListener(addListener);
+                onIsSubscribedResult(addListener, 1003, Constants.ERROR_MSG_SERVICE_ERROR, j, false);
                 LogUtils.e(TAG, "Exception ", e);
                 return;
             }

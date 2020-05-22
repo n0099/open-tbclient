@@ -10,7 +10,6 @@ final class WebHistoryItemImpl extends WebHistoryItem implements Cloneable {
     private final android.webkit.WebHistoryItem mItem;
 
     static {
-        cloneMethod = null;
         try {
             cloneMethod = android.webkit.WebHistoryItem.class.getDeclaredMethod("clone", null);
         } catch (Exception e) {

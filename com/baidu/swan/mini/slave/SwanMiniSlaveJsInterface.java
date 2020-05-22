@@ -23,12 +23,12 @@ public class SwanMiniSlaveJsInterface {
 
     @JavascriptInterface
     public void loadMasters(String str) {
-        if (!this.mMiniRuntime.aBt()) {
+        if (!this.mMiniRuntime.aFl()) {
             if (DEBUG) {
                 Log.e("SwanMiniRuntime", "Slave not loaded -- loadMasters");
             }
         } else if (TextUtils.isEmpty(str)) {
-            this.mMiniRuntime.d(2, "No info param", false);
+            this.mMiniRuntime.e(2, "No info param", false);
         } else {
             this.mMiniRuntime.loadMasters(str);
         }
@@ -36,7 +36,7 @@ public class SwanMiniSlaveJsInterface {
 
     @JavascriptInterface
     public void disposeMasters(String str) {
-        if (!this.mMiniRuntime.aBt()) {
+        if (!this.mMiniRuntime.aFl()) {
             if (DEBUG) {
                 Log.e("SwanMiniRuntime", "Slave not loaded -- disposeMasters");
                 return;
@@ -46,7 +46,7 @@ public class SwanMiniSlaveJsInterface {
         try {
             JSONArray jSONArray = new JSONArray(str);
             if (jSONArray.length() == 0) {
-                this.mMiniRuntime.d(5, "Id array empty", false);
+                this.mMiniRuntime.e(5, "Id array empty", false);
                 return;
             }
             ArrayList arrayList = new ArrayList();
@@ -57,12 +57,12 @@ public class SwanMiniSlaveJsInterface {
                 }
             }
             if (arrayList.size() == 0) {
-                this.mMiniRuntime.d(5, "No valid instance id", false);
+                this.mMiniRuntime.e(5, "No valid instance id", false);
             } else {
-                this.mMiniRuntime.at(arrayList);
+                this.mMiniRuntime.ao(arrayList);
             }
         } catch (Exception e) {
-            this.mMiniRuntime.d(5, "Id array illegal", false);
+            this.mMiniRuntime.e(5, "Id array illegal", false);
         }
     }
 
@@ -73,7 +73,7 @@ public class SwanMiniSlaveJsInterface {
 
     @JavascriptInterface
     public void sendMessage(String str, String str2) {
-        if (!this.mMiniRuntime.aBt()) {
+        if (!this.mMiniRuntime.aFl()) {
             if (DEBUG) {
                 Log.e("SwanMiniRuntime", "Slave not loaded -- sendMessage");
                 return;
@@ -83,12 +83,12 @@ public class SwanMiniSlaveJsInterface {
         if (DEBUG) {
             Log.v("SwanMiniRuntime", "Slave == sendMessage(" + str + ", " + str2 + ")");
         }
-        this.mMiniRuntime.ck(str, str2);
+        this.mMiniRuntime.cF(str, str2);
     }
 
     @JavascriptInterface
     public void report(int i, String str) {
-        if (!this.mMiniRuntime.aBt()) {
+        if (!this.mMiniRuntime.aFl()) {
             if (DEBUG) {
                 Log.e("SwanMiniRuntime", "Slave not loaded -- report");
                 return;
@@ -118,31 +118,34 @@ public class SwanMiniSlaveJsInterface {
     }
 
     private void processPerformanceReport(JSONObject jSONObject) {
-        int optInt = jSONObject.optInt("keyFrameType", -1);
-        if (optInt >= 0) {
-            String optString = jSONObject.optString("cardInstanceId");
-            String optString2 = jSONObject.optString("message");
-            if (TextUtils.isEmpty(optString)) {
-                this.mMiniRuntime.aBu().ad(optInt, optString2);
+        String optString = jSONObject.optString("keypoint");
+        if (!TextUtils.isEmpty(optString)) {
+            String optString2 = jSONObject.optString("appInstanceId");
+            String optString3 = jSONObject.optString("message");
+            if (TextUtils.isEmpty(optString2)) {
+                this.mMiniRuntime.aFm().cI(optString, optString3);
             } else {
-                this.mMiniRuntime.aBu().m(optString, optInt, optString2);
+                this.mMiniRuntime.aFm().U(optString2, optString, optString3);
             }
-            if (optInt == 109 && !TextUtils.isEmpty(optString)) {
-                String optString3 = jSONObject.optString("appKey");
-                String optString4 = jSONObject.optString("bundleId");
+            if (optString.equals("fe_render_mini_end") && !TextUtils.isEmpty(optString2)) {
+                String optString4 = jSONObject.optString("appKey");
+                String optString5 = jSONObject.optString("bundleId");
                 HashMap hashMap = new HashMap();
-                if (!TextUtils.isEmpty(optString3)) {
-                    hashMap.put("appKey", optString3);
-                }
                 if (!TextUtils.isEmpty(optString4)) {
-                    hashMap.put("bundleId", optString4);
+                    hashMap.put("appKey", optString4);
                 }
-                this.mMiniRuntime.aBu().g(optString, hashMap);
+                if (!TextUtils.isEmpty(optString5)) {
+                    hashMap.put("bundleId", optString5);
+                }
+                if (!TextUtils.isEmpty(optString2)) {
+                    hashMap.put("appInstanceId", optString2);
+                }
+                this.mMiniRuntime.aFm().j(optString2, hashMap);
             }
         }
     }
 
     private void processErrorReport(JSONObject jSONObject) {
-        this.mMiniRuntime.aBu().d(jSONObject.optInt("errCode", -1), jSONObject.optString("errMessage"), jSONObject.optString("appKey"), jSONObject.optString("bundleId"));
+        this.mMiniRuntime.aFm().a(jSONObject.optInt("errCode", -1), jSONObject.optString("errMessage"), jSONObject.optString("appKey"), jSONObject.optString("bundleId"), jSONObject.optString("appInstanceId"));
     }
 }

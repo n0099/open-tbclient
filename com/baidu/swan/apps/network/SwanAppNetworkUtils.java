@@ -7,8 +7,10 @@ import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.android.util.devices.NetWorkUtils;
 import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.http.callback.ResponseCallback;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.aq.aj;
 import java.util.Iterator;
 import okhttp3.Call;
 import okhttp3.OkHttpClient;
@@ -141,7 +143,7 @@ public class SwanAppNetworkUtils {
         return "unknown";
     }
 
-    public static NetType ahh() {
+    public static NetType akA() {
         String networkClass = getNetworkClass();
         char c = 65535;
         switch (networkClass.hashCode()) {
@@ -211,6 +213,23 @@ public class SwanAppNetworkUtils {
 
         NetType(String str) {
             this.type = str;
+        }
+    }
+
+    public static String akB() {
+        String pP = aj.pP(com.baidu.swan.apps.core.turbo.d.abl().abJ());
+        if (TextUtils.isEmpty(pP)) {
+            return "";
+        }
+        return pP;
+    }
+
+    public static <T> void a(String str, String str2, ResponseCallback<T> responseCallback) {
+        if (DEBUG) {
+            Log.d("postJsonRequest", "url:" + str + "\nbody:" + str2);
+        }
+        if (!TextUtils.isEmpty(str)) {
+            com.baidu.swan.c.c.a.aFx().postStringRequest().url(str).cookieManager(com.baidu.swan.apps.u.a.afo().SM()).mediaType("application/json;charset=utf-8").content(str2).build().executeAsync(responseCallback);
         }
     }
 }

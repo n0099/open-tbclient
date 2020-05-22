@@ -11,6 +11,8 @@ public interface ZeusPlugin {
     public static class Command {
         private static final int MAX_POOL_SIZE = 50;
         private static Command sPool;
+        private static int sPoolSize;
+        private static final Object sPoolSync = new Object();
         public int arg1;
         public int arg2;
         public int arg3;
@@ -21,8 +23,6 @@ public interface ZeusPlugin {
         public Object obj;
         public int ret;
         public String what;
-        private static final Object sPoolSync = new Object();
-        private static int sPoolSize = 0;
 
         public static Command obtain() {
             synchronized (sPoolSync) {

@@ -1,6 +1,7 @@
 package com.baidu.ar.http;
 
 import android.text.TextUtils;
+import com.baidu.android.imsdk.utils.HttpHelper;
 import com.baidu.ar.ihttp.HttpException;
 import com.baidu.ar.ihttp.IHttpRequest;
 import com.baidu.ar.ihttp.IHttpResponse;
@@ -271,7 +272,7 @@ class f implements IHttpRequest {
     @Override // com.baidu.ar.ihttp.IHttpRequest
     public IHttpRequest setBody(JSONObject jSONObject) {
         if (jSONObject != null) {
-            a(jSONObject.toString().getBytes(this.pq.pH), "application/json");
+            a(jSONObject.toString().getBytes(this.pq.pH), HttpHelper.CONTENT_JSON);
         }
         return this;
     }

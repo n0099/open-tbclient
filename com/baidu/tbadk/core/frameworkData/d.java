@@ -1,53 +1,52 @@
 package com.baidu.tbadk.core.frameworkData;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.a.j;
-import com.baidu.adp.framework.a.k;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.adp.framework.message.SocketMessage;
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.adp.framework.task.SocketMessageTask;
-import com.baidu.live.adp.framework.MessageConfig;
+import android.util.Log;
+import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.adp.framework.a.f;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.util.ax;
 /* loaded from: classes.dex */
 public class d {
-    public static void init() {
-        k kVar = new k(0) { // from class: com.baidu.tbadk.core.frameworkData.d.1
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.framework.a.f
-            /* renamed from: d */
-            public SocketMessage process(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
-                if (socketMessage != null && socketMessage.getExtra() != null && (socketMessage.getExtra() instanceof NetMessage) && !com.baidu.tbadk.coreExtra.d.c.aVS().isAPIAvailableNow(socketMessage.getCmd())) {
-                    ((NetMessage) socketMessage.getExtra()).setSocketErrNo(com.baidu.tbadk.coreExtra.d.c.aVS().getLongConnectionFailedErrno());
-                    return null;
+    private static String[] dKe = {"com.baidu.tieba.aiapps.apps.abtest.SwanAppAbTestStatic", "com.baidu.tbadk.core.LaunchStatic", "com.baidu.tieba.emotion.BasePlugInFaceProviderStatic", "com.baidu.tieba.image.ImageViewerActivityStatic", "com.baidu.tieba.im.TiebaIMActivityStatic", "com.baidu.tbadk.plugins.Static", "com.baidu.tieba.imMessageCenter.im.chat.notify.ImMessageCenterDelegateStatic", "com.baidu.tieba.enterForum.home.EnterForumDelegateStatic", "com.baidu.tieba.homepage.framework.RecommendFrsDelegateStatic", "com.baidu.tieba.personCenter.PersonInfoDelegateStatic", "com.baidu.tieba.write.bottomButton.WriteThreadDelegateStatic", "com.baidu.tieba.location.LocationProvidersStatic", "com.baidu.tieba.ala.livecard.Static", "com.baidu.tieba.emotion.PlugInFaceProviderStatic", "com.baidu.tieba.flutter.FlutterStatic"};
+    public static boolean dKf;
+
+    public static void initial() {
+        try {
+            dKf = com.baidu.tbadk.core.sharedPref.b.aTX().getInt("static_opt_open", 0) > 0;
+            long currentTimeMillis = System.currentTimeMillis();
+            if (dKf) {
+                if (loadStaticClasses()) {
+                    f.H(BdBaseApplication.getInst());
+                } else {
+                    Log.e("TiebaStaticClassesArray", "load from dex fail ");
+                    if (!ax.loadStaticClasses()) {
+                        f.loadStaticClass(BdBaseApplication.getInst());
+                    }
                 }
-                return socketMessage;
+            } else if (!ax.loadStaticClasses()) {
+                f.loadStaticClass(BdBaseApplication.getInst());
             }
-        };
-        kVar.setPriority(Integer.MIN_VALUE);
-        MessageManager.getInstance().addMessageRule(kVar);
-        MessageManager.getInstance().addResponsedMessageRule(new j(0) { // from class: com.baidu.tbadk.core.frameworkData.d.2
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.framework.a.g
-            /* renamed from: e */
-            public SocketResponsedMessage a(SocketResponsedMessage socketResponsedMessage) {
-                if (socketResponsedMessage != null) {
-                    com.baidu.tbadk.coreExtra.d.c.aVS().onAPISuccessed(socketResponsedMessage.getCmd());
-                }
-                return socketResponsedMessage;
+            Log.e("Tasks", "load from dex coast time " + (System.currentTimeMillis() - currentTimeMillis));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static boolean loadStaticClasses() {
+        String[] strArr;
+        try {
+            if (dKe.length <= 0) {
+                return false;
             }
-        });
-        CustomMessageListener customMessageListener = new CustomMessageListener(MessageConfig.NET_AUTO_SOCKET_FAIL) { // from class: com.baidu.tbadk.core.frameworkData.d.3
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.framework.listener.MessageListener
-            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof Integer)) {
-                    com.baidu.tbadk.coreExtra.d.c.aVS().onAPIFailed(((Integer) customResponsedMessage.getData()).intValue());
-                }
+            for (String str : dKe) {
+                long currentTimeMillis = System.currentTimeMillis();
+                Class.forName(str);
+                Log.e("TiebaStaticClassesArray", str + " " + (System.currentTimeMillis() - currentTimeMillis));
             }
-        };
-        customMessageListener.setPriority(Integer.MIN_VALUE);
-        MessageManager.getInstance().registerListener(customMessageListener);
+            return true;
+        } catch (Throwable th) {
+            BdLog.e(th);
+            return false;
+        }
     }
 }

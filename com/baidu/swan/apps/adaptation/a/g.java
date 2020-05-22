@@ -1,11 +1,15 @@
 package com.baidu.swan.apps.adaptation.a;
 
-import okhttp3.OkHttpClient;
+import android.content.Context;
+import android.view.View;
+import com.baidu.swan.apps.adlanding.download.model.SwanAdDownloadState;
 /* loaded from: classes11.dex */
-public interface g {
-    c PG();
+public interface g<VIEW extends View> {
+    void J(Object obj);
 
-    b PH();
+    g a(Context context, com.baidu.swan.apps.adlanding.download.model.a aVar, com.baidu.swan.apps.adlanding.download.a.a aVar2);
 
-    OkHttpClient PI();
+    void a(SwanAdDownloadState swanAdDownloadState);
+
+    VIEW getRealView();
 }

@@ -6,7 +6,7 @@ import android.os.Bundle;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public interface a {
-    boolean au(Context context);
+    boolean aE(Context context);
 
     void b(Context context, JSONObject jSONObject, com.baidu.g.a.a aVar);
 
@@ -14,9 +14,11 @@ public interface a {
 
     void f(Activity activity, String str, com.baidu.g.a.a aVar);
 
-    void fE(String str);
-
     void g(Context context, JSONObject jSONObject);
 
-    void i(Bundle bundle);
+    String getZid(Context context);
+
+    void gq(String str);
+
+    void k(Bundle bundle);
 }

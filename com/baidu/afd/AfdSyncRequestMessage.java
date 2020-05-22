@@ -28,15 +28,15 @@ public class AfdSyncRequestMessage extends HttpMessage {
         setUserAgent("bdtb for Android " + TbConfig.getVersion());
         addParam("pid", "1517888290046");
         addParam("ac", "1");
-        addParam("ft", gVar.pj());
+        addParam("ft", gVar.pp());
         addParam("ext", getExt(gVar));
-        addParam("flr", String.valueOf(gVar.pl()));
-        addParam("fc", String.valueOf(gVar.pl()));
+        addParam("flr", String.valueOf(gVar.pr()));
+        addParam("fc", String.valueOf(gVar.pr()));
     }
 
     private static String getExt(g gVar) {
         JSONArray jSONArray = new JSONArray();
-        for (Map.Entry<String, String> entry : gVar.pm().entrySet()) {
+        for (Map.Entry<String, String> entry : gVar.ps().entrySet()) {
             jSONArray.put(create(entry.getKey(), entry.getValue()));
         }
         return jSONArray.toString();
@@ -47,6 +47,7 @@ public class AfdSyncRequestMessage extends HttpMessage {
         addParam("ver", TbConfig.getVersion());
         addParam("cuid", TbadkCoreApplication.getInst().getCuid());
         addParam("cuid_galaxy2", TbadkCoreApplication.getInst().getCuidGalaxy2());
+        addParam("c3_aid", TbadkCoreApplication.getInst().getCuidGalaxy3());
         addParam("ov", Build.VERSION.RELEASE);
         addParam("apna", TbadkCoreApplication.getInst().getPackageName());
         addParam("imei", TbadkCoreApplication.getInst().getImei());

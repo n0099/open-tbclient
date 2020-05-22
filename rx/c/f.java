@@ -5,70 +5,70 @@ import java.util.Properties;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes6.dex */
 public class f {
-    private static final f npg = new f();
-    static final b npl = new b() { // from class: rx.c.f.1
+    private static final f nKe = new f();
+    static final b nKj = new b() { // from class: rx.c.f.1
     };
-    private final AtomicReference<b> nph = new AtomicReference<>();
-    private final AtomicReference<d> npi = new AtomicReference<>();
-    private final AtomicReference<h> npj = new AtomicReference<>();
-    private final AtomicReference<a> npk = new AtomicReference<>();
-    private final AtomicReference<g> njd = new AtomicReference<>();
+    private final AtomicReference<b> nKf = new AtomicReference<>();
+    private final AtomicReference<d> nKg = new AtomicReference<>();
+    private final AtomicReference<h> nKh = new AtomicReference<>();
+    private final AtomicReference<a> nKi = new AtomicReference<>();
+    private final AtomicReference<g> nEd = new AtomicReference<>();
 
     @Deprecated
-    public static f dIw() {
-        return npg;
+    public static f dQq() {
+        return nKe;
     }
 
     f() {
     }
 
-    public b dIx() {
-        if (this.nph.get() == null) {
+    public b dQr() {
+        if (this.nKf.get() == null) {
             Object a = a(b.class, System.getProperties());
             if (a == null) {
-                this.nph.compareAndSet(null, npl);
+                this.nKf.compareAndSet(null, nKj);
             } else {
-                this.nph.compareAndSet(null, (b) a);
+                this.nKf.compareAndSet(null, (b) a);
             }
         }
-        return this.nph.get();
+        return this.nKf.get();
     }
 
-    public d dIy() {
-        if (this.npi.get() == null) {
+    public d dQs() {
+        if (this.nKg.get() == null) {
             Object a = a(d.class, System.getProperties());
             if (a == null) {
-                this.npi.compareAndSet(null, e.dIv());
+                this.nKg.compareAndSet(null, e.dQp());
             } else {
-                this.npi.compareAndSet(null, (d) a);
+                this.nKg.compareAndSet(null, (d) a);
             }
         }
-        return this.npi.get();
+        return this.nKg.get();
     }
 
-    public h dIz() {
-        if (this.npj.get() == null) {
+    public h dQt() {
+        if (this.nKh.get() == null) {
             Object a = a(h.class, System.getProperties());
             if (a == null) {
-                this.npj.compareAndSet(null, i.dIJ());
+                this.nKh.compareAndSet(null, i.dQD());
             } else {
-                this.npj.compareAndSet(null, (h) a);
+                this.nKh.compareAndSet(null, (h) a);
             }
         }
-        return this.npj.get();
+        return this.nKh.get();
     }
 
-    public a dIA() {
-        if (this.npk.get() == null) {
+    public a dQu() {
+        if (this.nKi.get() == null) {
             Object a = a(a.class, System.getProperties());
             if (a == null) {
-                this.npk.compareAndSet(null, new a() { // from class: rx.c.f.2
+                this.nKi.compareAndSet(null, new a() { // from class: rx.c.f.2
                 });
             } else {
-                this.npk.compareAndSet(null, (a) a);
+                this.nKi.compareAndSet(null, (a) a);
             }
         }
-        return this.npk.get();
+        return this.nKi.get();
     }
 
     /* JADX WARN: Removed duplicated region for block: B:33:0x0154 A[RETURN, SYNTHETIC] */
@@ -113,15 +113,15 @@ public class f {
         }
     }
 
-    public g dIB() {
-        if (this.njd.get() == null) {
+    public g dQv() {
+        if (this.nEd.get() == null) {
             Object a = a(g.class, System.getProperties());
             if (a == null) {
-                this.njd.compareAndSet(null, g.dII());
+                this.nEd.compareAndSet(null, g.dQC());
             } else {
-                this.njd.compareAndSet(null, (g) a);
+                this.nEd.compareAndSet(null, (g) a);
             }
         }
-        return this.njd.get();
+        return this.nEd.get();
     }
 }

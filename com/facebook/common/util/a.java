@@ -3,7 +3,7 @@ package com.facebook.common.util;
 import javax.annotation.Nullable;
 /* loaded from: classes13.dex */
 public class a {
-    public static int g(@Nullable Object obj, @Nullable Object obj2) {
+    public static int h(@Nullable Object obj, @Nullable Object obj2) {
         return hashCode(obj == null ? 0 : obj.hashCode(), obj2 != null ? obj2.hashCode() : 0);
     }
 

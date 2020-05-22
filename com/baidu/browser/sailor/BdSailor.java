@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.net.NetworkInfo;
+import android.os.Build;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.view.KeyEvent;
@@ -13,8 +14,13 @@ import com.baidu.browser.sailor.platform.BdSailorPlatform;
 import com.baidu.browser.sailor.platform.nativeability.BdGeoLocationInfo;
 import com.baidu.browser.sailor.webkit.loader.BdWebkitManager;
 import com.baidu.browser.sailor.webkit.loader.IWebkitLoaderListener;
+import com.baidu.crashpad.ZwCrashpad;
+import com.baidu.crashpad.ZwDebugExtra;
+import com.baidu.webkit.internal.ABTestConstants;
 import com.baidu.webkit.internal.GlobalConstants;
+import com.baidu.webkit.internal.blink.EngineManager;
 import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
+import com.baidu.webkit.internal.daemon.ZeusThreadPoolUtil;
 import com.baidu.webkit.internal.utils.NetWorkUtils;
 import com.baidu.webkit.sdk.IABTestInterface;
 import com.baidu.webkit.sdk.INetProbeInterface;
@@ -23,6 +29,7 @@ import com.baidu.webkit.sdk.WebKitFactory;
 import com.baidu.webkit.sdk.WebViewDatabase;
 import com.baidu.webkit.sdk.WebViewFactory;
 import com.baidu.webkit.sdk.dumper.CrashCallback;
+import com.baidu.webkit.sdk.dumper.ZwDebug;
 import com.baidu.webkit.sdk.location.ZeusGeoLocationInfo;
 import com.baidu.webkit.sdk.performance.ZeusPerformanceTiming;
 import java.util.HashMap;
@@ -46,6 +53,31 @@ public class BdSailor implements INoProGuard {
         WebKitFactory.addListener(iForceInitZeusListener);
     }
 
+    public static void crashIntentionally(int i) {
+        Log.d("CRASHPAD", "bdsailor.crashIntentionally type:" + i);
+        switch (i) {
+            case 1:
+                ZwDebugExtra.crashIntentionally(1);
+                return;
+            case 2:
+                ZwDebugExtra.crashIntentionally(2);
+                return;
+            case 3:
+                ZwDebug.crashIntentionally(1);
+                return;
+            case 4:
+                ZwDebug.crashIntentionally(2);
+                return;
+            case 5:
+                WebKitFactory.RecordUrl("https://record_test_url.html");
+                ZwDebug.crashIntentionally(3);
+                return;
+            default:
+                Log.d("CRASHPAD", "bdsailor.crashIntentionally default type:" + i);
+                return;
+        }
+    }
+
     private void enableFeatureInternal(String str) {
         com.baidu.browser.sailor.feature.a featureByName;
         if (TextUtils.isEmpty(str) || (featureByName = BdSailorPlatform.getInstance().getFeatureByName(str)) == null) {
@@ -67,6 +99,23 @@ public class BdSailor implements INoProGuard {
 
     public static void initCookieSyncManager(Context context) {
         BdSailorPlatform.initCookieSyncManager(context);
+    }
+
+    private void notifyCuidChanged(String str) {
+        IABTestInterface abTestInterface;
+        if (WebKitFactory.getCurEngine() == 1 || (abTestInterface = WebViewFactory.getAbTestInterface()) == null || !abTestInterface.getSwitch("no_zeus_under_5", true)) {
+            return;
+        }
+        ZwCrashpad.setCuid(str);
+    }
+
+    private void notifyUserPrivacyConfirmedInner() {
+        if (!BdSailorPlatform.getInstance().isNeedUpdateKernel() || getAppContext() == null) {
+            return;
+        }
+        Log.i(EngineManager.LOG_TAG, "start check zeus update after notifyUserPrivacyConfirmInner");
+        getAppContext();
+        com.baidu.browser.sailor.webkit.update.a.rp().a(getAppContext());
     }
 
     private void setSailorFeatureListener() {
@@ -215,7 +264,7 @@ public class BdSailor implements INoProGuard {
         if (TextUtils.isEmpty(str2)) {
             str2 = CommonParam.getCUID(BdSailorPlatform.getInstance().getAppContext());
         }
-        BdSailorPlatform.getInstance().setCuid(str2);
+        WebKitFactory.setCUIDString(str2);
         return init;
     }
 
@@ -236,21 +285,35 @@ public class BdSailor implements INoProGuard {
     }
 
     public void initWebkit(String str, boolean z, Class<? extends CrashCallback> cls) {
+        boolean z2 = true;
         long currentTimeMillis = System.currentTimeMillis();
-        boolean z2 = BdWebkitManager.a.a == BdSailorPlatform.getWebkitManager().getWebkitType$630ca8f2();
-        if (z2) {
+        boolean z3 = BdWebkitManager.a.a == BdSailorPlatform.getWebkitManager().getWebkitType$630ca8f2();
+        if (z3) {
             ZeusPerformanceTiming.initSysWebkitStart();
         } else {
             ZeusPerformanceTiming.initWebkitStart();
         }
         BdSailorPlatform.getInstance().initWebkit(str, z, cls);
-        if (z2) {
+        if (z3) {
             ZeusPerformanceTiming.initSysWebkitEnd();
             android.util.Log.i(GlobalConstants.LOG_PER_TAG, "initWebkit = " + (System.currentTimeMillis() - currentTimeMillis) + " " + ZeusPerformanceTiming.getSysInitTiming());
+        } else {
+            ZeusPerformanceTiming.initWebkitEnd();
+            android.util.Log.i(GlobalConstants.LOG_PER_TAG, "initWebkit = " + (System.currentTimeMillis() - currentTimeMillis) + " " + ZeusPerformanceTiming.getZeusInitTiming());
+        }
+        if (WebKitFactory.getCurEngine() == 1 || getAppContext() == null) {
             return;
         }
-        ZeusPerformanceTiming.initWebkitEnd();
-        android.util.Log.i(GlobalConstants.LOG_PER_TAG, "initWebkit = " + (System.currentTimeMillis() - currentTimeMillis) + " " + ZeusPerformanceTiming.getZeusInitTiming());
+        IABTestInterface abTestInterface = WebViewFactory.getAbTestInterface();
+        if (Build.VERSION.SDK_INT >= 21) {
+            z2 = abTestInterface != null ? abTestInterface.getSwitch(ABTestConstants.DULI_CRASHPAD_5_AND_ABOVE, false) : false;
+        } else if (abTestInterface != null) {
+            z2 = abTestInterface.getSwitch("no_zeus_under_5", true);
+        }
+        Log.d("CRASHPAD", " not zeus kernelinit duli zwcrashpad enableCrashpad=" + z2);
+        if (z2) {
+            ZeusThreadPoolUtil.executeIgnoreZeus(new a(this));
+        }
     }
 
     public void installZeusFromDownload(String str) {
@@ -275,6 +338,15 @@ public class BdSailor implements INoProGuard {
 
     public boolean isZeusForceInited() {
         return isWebkitInit() && WebKitFactory.isForceInitT7() && WebViewFactory.isForceZeusProviderInited();
+    }
+
+    public void notifyUserPrivacyConfirmIfNeeded(boolean z) {
+        if (WebKitFactory.isUserPrivacyEnabled() != z) {
+            if (z) {
+                notifyUserPrivacyConfirmedInner();
+            }
+            WebKitFactory.notifyUserPrivacyConfirmIfNeeded(z);
+        }
     }
 
     public void onAccountLoginSuccess(String str) {
@@ -351,6 +423,14 @@ public class BdSailor implements INoProGuard {
         }
     }
 
+    public void setCuid(String str) {
+        if (TextUtils.isEmpty(str) || TextUtils.equals(str, WebKitFactory.getCUIDString())) {
+            return;
+        }
+        notifyCuidChanged(str);
+        WebKitFactory.setCUIDString(str);
+    }
+
     /* JADX INFO: Access modifiers changed from: protected */
     public void setCurrentSailorWebView(BdSailorWebView bdSailorWebView) {
         this.mCurSailorWebView = bdSailorWebView;
@@ -371,7 +451,6 @@ public class BdSailor implements INoProGuard {
     }
 
     public void setSailorAbTestInterface(ISailorAbTestInterface iSailorAbTestInterface) {
-        Log.i(LOG_TAG, "setSailorAbTestInterface");
         WebViewFactory.setAbTestInterface(iSailorAbTestInterface);
     }
 
@@ -379,7 +458,7 @@ public class BdSailor implements INoProGuard {
         this.mClient = bdSailorClient;
         WebKitFactory.setWebKitClient(bdSailorClient);
         setSailorFeatureListener();
-        BdSailorPlatform.getStatic().acF = this.mClient;
+        BdSailorPlatform.getStatic().acW = this.mClient;
     }
 
     public void setSailorNetProbeInterface(ISailorNetProbeInterface iSailorNetProbeInterface) {

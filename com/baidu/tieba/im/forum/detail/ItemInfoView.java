@@ -20,7 +20,7 @@ import tbclient.PbContent;
 import tbclient.RecommendForumInfo;
 /* loaded from: classes13.dex */
 public class ItemInfoView extends LinearLayout {
-    private TextView ikL;
+    private TextView izt;
 
     public ItemInfoView(Context context) {
         super(context);
@@ -36,14 +36,14 @@ public class ItemInfoView extends LinearLayout {
         setOrientation(1);
         LayoutInflater.from(context).inflate(R.layout.forum_detail_info, (ViewGroup) this, true);
         setVisibility(8);
-        this.ikL = (TextView) findViewById(R.id.info_brief_content);
+        this.izt = (TextView) findViewById(R.id.info_brief_content);
     }
 
     public void setData(RecommendForumInfo recommendForumInfo) {
         if ((recommendForumInfo != null && recommendForumInfo.content != null && recommendForumInfo.content.size() > 0) || (recommendForumInfo != null && !aq.isEmpty(recommendForumInfo.slogan))) {
-            this.ikL.setText(h(recommendForumInfo.content, recommendForumInfo.slogan));
+            this.izt.setText(h(recommendForumInfo.content, recommendForumInfo.slogan));
         } else {
-            this.ikL.setText(getResources().getString(R.string.forum_detail_info_no_brief));
+            this.izt.setText(getResources().getString(R.string.forum_detail_info_no_brief));
         }
         setVisibility(0);
     }
@@ -56,7 +56,7 @@ public class ItemInfoView extends LinearLayout {
             PbContent pbContent = list.get(i);
             if (pbContent != null) {
                 if (pbContent.type.intValue() == 2) {
-                    Bitmap cashBitmap = BitmapHelper.getCashBitmap(bVar.ws(pbContent.text));
+                    Bitmap cashBitmap = BitmapHelper.getCashBitmap(bVar.xY(pbContent.text));
                     if (cashBitmap != null) {
                         BitmapDrawable bitmapDrawable = new BitmapDrawable(cashBitmap);
                         bitmapDrawable.setBounds(0, 0, cashBitmap.getWidth(), cashBitmap.getHeight());
@@ -73,7 +73,7 @@ public class ItemInfoView extends LinearLayout {
     }
 
     public void a(ForumDetailActivity forumDetailActivity, int i) {
-        am.setViewTextColor(this.ikL, R.color.common_color_10177, 1);
+        am.setViewTextColor(this.izt, R.color.common_color_10177, 1);
         forumDetailActivity.getLayoutMode().setNightMode(i == 1);
         forumDetailActivity.getLayoutMode().onModeChanged(this);
     }

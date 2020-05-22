@@ -11,7 +11,7 @@ import java.io.OutputStream;
 /* loaded from: classes11.dex */
 class c {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static File abH() {
+    public static File aeL() {
         File file = new File(AppRuntime.getAppContext().getFilesDir(), "swan_mini_zip");
         if (!file.exists()) {
             file.mkdirs();
@@ -20,7 +20,7 @@ class c {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static boolean q(String str, long j) {
+    public static boolean p(String str, long j) {
         boolean z = false;
         if (str != null) {
             try {
@@ -32,7 +32,7 @@ class c {
                 }
             } catch (Throwable th) {
                 if (com.baidu.swan.pms.d.DEBUG) {
-                    Log.d("Mini-Pm-Download", com.baidu.swan.pms.d.aBC().getProcessName() + ": path exception or no space left." + th.toString());
+                    Log.d("Mini-Pm-Download", com.baidu.swan.pms.d.aFP().getProcessName() + ": path exception or no space left." + th.toString());
                 }
             }
         }
@@ -119,7 +119,7 @@ class c {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static boolean d(String str, long j, String str2) {
-        if (r(str, j)) {
+        if (q(str, j)) {
             String md5 = str != null ? com.baidu.swan.pms.f.a.toMd5(new File(str), true) : null;
             if (str2 == null || md5 == null) {
                 if (com.baidu.swan.pms.d.DEBUG) {
@@ -141,7 +141,7 @@ class c {
         return false;
     }
 
-    private static boolean r(String str, long j) {
+    private static boolean q(String str, long j) {
         File file = new File(str);
         if (!file.exists()) {
             if (com.baidu.swan.pms.d.DEBUG) {

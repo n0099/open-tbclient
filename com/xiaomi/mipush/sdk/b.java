@@ -72,7 +72,7 @@ public class b {
         }
 
         private String a() {
-            return com.xiaomi.push.g.m303a(this.f65a, this.f65a.getPackageName());
+            return com.xiaomi.push.g.m305a(this.f65a, this.f65a.getPackageName());
         }
 
         public static String a(a aVar) {
@@ -96,7 +96,7 @@ public class b {
         }
 
         /* renamed from: a  reason: collision with other method in class */
-        public void m102a() {
+        public void m104a() {
             b.a(this.f65a).edit().clear().commit();
             this.f66a = null;
             this.b = null;
@@ -138,12 +138,12 @@ public class b {
         }
 
         /* renamed from: a  reason: collision with other method in class */
-        public boolean m103a() {
-            return m104a(this.f66a, this.b);
+        public boolean m105a() {
+            return m106a(this.f66a, this.b);
         }
 
         /* renamed from: a  reason: collision with other method in class */
-        public boolean m104a(String str, String str2) {
+        public boolean m106a(String str, String str2) {
             return TextUtils.equals(this.f66a, str) && TextUtils.equals(this.b, str2) && !TextUtils.isEmpty(this.c) && !TextUtils.isEmpty(this.d) && (TextUtils.equals(this.f, com.xiaomi.push.i.l(this.f65a)) || TextUtils.equals(this.f, com.xiaomi.push.i.k(this.f65a)));
         }
 
@@ -186,7 +186,7 @@ public class b {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static b m90a(Context context) {
+    public static b m92a(Context context) {
         if (a == null) {
             synchronized (b.class) {
                 if (a == null) {
@@ -206,7 +206,7 @@ public class b {
         this.f62a.c = a2.getString("regId", null);
         this.f62a.d = a2.getString("regSec", null);
         this.f62a.f = a2.getString("devId", null);
-        if (!TextUtils.isEmpty(this.f62a.f) && com.xiaomi.push.i.m387a(this.f62a.f)) {
+        if (!TextUtils.isEmpty(this.f62a.f) && com.xiaomi.push.i.m389a(this.f62a.f)) {
             this.f62a.f = com.xiaomi.push.i.l(this.f61a);
             a2.edit().putString("devId", this.f62a.f).commit();
         }
@@ -237,13 +237,13 @@ public class b {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m91a() {
+    public String m93a() {
         return this.f62a.f66a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m92a() {
-        this.f62a.m102a();
+    public void m94a() {
+        this.f62a.m104a();
     }
 
     public void a(int i) {
@@ -252,7 +252,7 @@ public class b {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m93a(String str) {
+    public void m95a(String str) {
         SharedPreferences.Editor edit = a(this.f61a).edit();
         edit.putString("vName", str);
         edit.commit();
@@ -275,16 +275,16 @@ public class b {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m94a() {
-        return !TextUtils.equals(com.xiaomi.push.g.m303a(this.f61a, this.f61a.getPackageName()), this.f62a.e);
+    public boolean m96a() {
+        return !TextUtils.equals(com.xiaomi.push.g.m305a(this.f61a, this.f61a.getPackageName()), this.f62a.e);
     }
 
     public boolean a(String str, String str2) {
-        return this.f62a.m104a(str, str2);
+        return this.f62a.m106a(str, str2);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m95a(String str, String str2, String str3) {
+    public boolean m97a(String str, String str2, String str3) {
         a a2 = a(str3);
         return a2 != null && TextUtils.equals(str, a2.f66a) && TextUtils.equals(str2, a2.b);
     }
@@ -294,7 +294,7 @@ public class b {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public void m96b() {
+    public void m98b() {
         this.f62a.b();
     }
 
@@ -308,22 +308,22 @@ public class b {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public boolean m97b() {
-        if (this.f62a.m103a()) {
+    public boolean m99b() {
+        if (this.f62a.m105a()) {
             return true;
         }
-        com.xiaomi.channel.commonutils.logger.b.m50a("Don't send message before initialization succeeded!");
+        com.xiaomi.channel.commonutils.logger.b.m52a("Don't send message before initialization succeeded!");
         return false;
     }
 
     /* renamed from: c  reason: collision with other method in class */
-    public String m98c() {
+    public String m100c() {
         return this.f62a.c;
     }
 
     /* renamed from: c  reason: collision with other method in class */
-    public boolean m99c() {
-        return this.f62a.m103a();
+    public boolean m101c() {
+        return this.f62a.m105a();
     }
 
     public String d() {
@@ -331,7 +331,7 @@ public class b {
     }
 
     /* renamed from: d  reason: collision with other method in class */
-    public boolean m100d() {
+    public boolean m102d() {
         return this.f62a.f68b;
     }
 
@@ -340,7 +340,7 @@ public class b {
     }
 
     /* renamed from: e  reason: collision with other method in class */
-    public boolean m101e() {
+    public boolean m103e() {
         return !this.f62a.f67a;
     }
 

@@ -8,8 +8,6 @@ import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.intercept.UnitedSchemeBaseInterceptor;
 /* loaded from: classes11.dex */
 public class b extends UnitedSchemeBaseInterceptor {
-    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-
     @Override // com.baidu.searchbox.unitedscheme.intercept.UnitedSchemeBaseInterceptor
     public String getInterceptorName() {
         return "aiapps_scheme_compat_interceptor";

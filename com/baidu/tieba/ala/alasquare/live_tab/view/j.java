@@ -7,41 +7,41 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
-public class j extends com.baidu.tieba.card.a<com.baidu.tieba.ala.alasquare.live_tab.b.e> {
-    private l eTI;
-    private l eTJ;
+public class j extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.live_tab.b.e> {
+    private l fgq;
+    private l fgr;
     private ViewGroup rootView;
 
     public j(TbPageContext<?> tbPageContext, ViewGroup viewGroup, int i) {
         super(tbPageContext, viewGroup);
-        this.eTI = new l(tbPageContext, i);
-        this.eTJ = new l(tbPageContext, i);
+        this.fgq = new l(tbPageContext, i);
+        this.fgr = new l(tbPageContext, i);
         this.rootView = (ViewGroup) getView();
         View view = new View(getContext());
         this.rootView.setPadding(getTbPageContext().getResources().getDimensionPixelSize(R.dimen.tbds44), getTbPageContext().getResources().getDimensionPixelSize(R.dimen.tbds12), getTbPageContext().getResources().getDimensionPixelSize(R.dimen.tbds44), 0);
-        this.rootView.addView(this.eTI.getView());
+        this.rootView.addView(this.fgq.getView());
         this.rootView.addView(view, new LinearLayout.LayoutParams(getTbPageContext().getResources().getDimensionPixelSize(R.dimen.tbds12), -1));
-        this.rootView.addView(this.eTJ.getView());
+        this.rootView.addView(this.fgr.getView());
     }
 
-    @Override // com.baidu.tieba.card.a
+    @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         am.setBackgroundColor(this.rootView, R.color.cp_bg_line_d);
-        this.eTI.onChangeSkinType(tbPageContext, i);
-        this.eTJ.onChangeSkinType(tbPageContext, i);
+        this.fgq.onChangeSkinType(tbPageContext, i);
+        this.fgr.onChangeSkinType(tbPageContext, i);
     }
 
-    @Override // com.baidu.tieba.card.a
+    @Override // com.baidu.tieba.card.b
     public int getLayout() {
         return R.layout.tab_recommend_list_live_row;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.card.a
+    @Override // com.baidu.tieba.card.b
     public void a(com.baidu.tieba.ala.alasquare.live_tab.b.e eVar) {
         if (eVar != null) {
-            this.eTI.a(eVar.ePS);
-            this.eTJ.a(eVar.ePT);
+            this.fgq.a(eVar.fcB);
+            this.fgr.a(eVar.fcC);
         }
     }
 

@@ -13,9 +13,6 @@ public class WebStorage {
         private long mUsage;
 
         protected Origin(String str, long j, long j2) {
-            this.mOrigin = null;
-            this.mQuota = 0L;
-            this.mUsage = 0L;
             this.mOrigin = str;
             this.mQuota = j;
             this.mUsage = j2;

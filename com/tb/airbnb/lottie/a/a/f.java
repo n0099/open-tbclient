@@ -11,37 +11,37 @@ import com.tb.airbnb.lottie.a.b.a;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class f implements d, j, a.InterfaceC0784a {
+public class f implements d, j, a.InterfaceC0844a {
     private final com.tb.airbnb.lottie.f lottieDrawable;
-    private final com.tb.airbnb.lottie.model.layer.a mOn;
-    private final com.tb.airbnb.lottie.a.b.a<Integer, Integer> mOp;
-    @Nullable
-    private com.tb.airbnb.lottie.a.b.a<ColorFilter, ColorFilter> mOr;
-    private final com.tb.airbnb.lottie.a.b.a<Integer, Integer> mOx;
     private final String name;
+    private final com.tb.airbnb.lottie.a.b.a<Integer, Integer> niC;
+    private final com.tb.airbnb.lottie.model.layer.a nis;
+    private final com.tb.airbnb.lottie.a.b.a<Integer, Integer> niu;
+    @Nullable
+    private com.tb.airbnb.lottie.a.b.a<ColorFilter, ColorFilter> niw;
     private final Path path = new Path();
     private final Paint paint = new Paint(1);
     private final List<l> Bu = new ArrayList();
 
     public f(com.tb.airbnb.lottie.f fVar, com.tb.airbnb.lottie.model.layer.a aVar, com.tb.airbnb.lottie.model.content.i iVar) {
-        this.mOn = aVar;
+        this.nis = aVar;
         this.name = iVar.getName();
         this.lottieDrawable = fVar;
-        if (iVar.dBV() == null || iVar.dBv() == null) {
-            this.mOx = null;
-            this.mOp = null;
+        if (iVar.dJo() == null || iVar.dIO() == null) {
+            this.niC = null;
+            this.niu = null;
             return;
         }
         this.path.setFillType(iVar.hX());
-        this.mOx = iVar.dBV().dBp();
-        this.mOx.b(this);
-        aVar.a(this.mOx);
-        this.mOp = iVar.dBv().dBp();
-        this.mOp.b(this);
-        aVar.a(this.mOp);
+        this.niC = iVar.dJo().dII();
+        this.niC.b(this);
+        aVar.a(this.niC);
+        this.niu = iVar.dIO().dII();
+        this.niu.b(this);
+        aVar.a(this.niu);
     }
 
-    @Override // com.tb.airbnb.lottie.a.b.a.InterfaceC0784a
+    @Override // com.tb.airbnb.lottie.a.b.a.InterfaceC0844a
     public void ha() {
         this.lottieDrawable.invalidateSelf();
     }
@@ -71,10 +71,10 @@ public class f implements d, j, a.InterfaceC0784a {
     @Override // com.tb.airbnb.lottie.a.a.d
     public void a(Canvas canvas, Matrix matrix, int i) {
         com.tb.airbnb.lottie.c.beginSection("FillContent#draw");
-        this.paint.setColor(this.mOx.getValue().intValue());
-        this.paint.setAlpha(com.tb.airbnb.lottie.d.e.clamp((int) (((this.mOp.getValue().intValue() * (i / 255.0f)) / 100.0f) * 255.0f), 0, 255));
-        if (this.mOr != null) {
-            this.paint.setColorFilter(this.mOr.getValue());
+        this.paint.setColor(this.niC.getValue().intValue());
+        this.paint.setAlpha(com.tb.airbnb.lottie.d.e.clamp((int) (((this.niu.getValue().intValue() * (i / 255.0f)) / 100.0f) * 255.0f), 0, 255));
+        if (this.niw != null) {
+            this.paint.setColorFilter(this.niw.getValue());
         }
         this.path.reset();
         for (int i2 = 0; i2 < this.Bu.size(); i2++) {
@@ -102,17 +102,17 @@ public class f implements d, j, a.InterfaceC0784a {
     @Override // com.tb.airbnb.lottie.model.f
     public <T> void a(T t, @Nullable com.tb.airbnb.lottie.e.c<T> cVar) {
         if (t == com.tb.airbnb.lottie.j.Av) {
-            this.mOx.a(cVar);
+            this.niC.a(cVar);
         } else if (t == com.tb.airbnb.lottie.j.Ay) {
-            this.mOp.a(cVar);
+            this.niu.a(cVar);
         } else if (t == com.tb.airbnb.lottie.j.AV) {
             if (cVar == null) {
-                this.mOr = null;
+                this.niw = null;
                 return;
             }
-            this.mOr = new com.tb.airbnb.lottie.a.b.p(cVar);
-            this.mOr.b(this);
-            this.mOn.a(this.mOr);
+            this.niw = new com.tb.airbnb.lottie.a.b.p(cVar);
+            this.niw.b(this);
+            this.nis.a(this.niw);
         }
     }
 }

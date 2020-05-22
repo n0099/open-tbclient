@@ -7,16 +7,16 @@ public class a {
 
     /* renamed from: com.baidu.browser.sailor.util.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    static abstract class AbstractC0090a {
+    static abstract class AbstractC0092a {
         public byte[] a;
         public int b;
 
-        AbstractC0090a() {
+        AbstractC0092a() {
         }
     }
 
     /* loaded from: classes11.dex */
-    static class b extends AbstractC0090a {
+    static class b extends AbstractC0092a {
         static final /* synthetic */ boolean j;
         private static final byte[] k;
         private static final byte[] l;

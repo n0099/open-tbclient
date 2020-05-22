@@ -1,90 +1,30 @@
 package com.baidu.tieba.aiapps.apps.j;
 
-import android.app.Activity;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.sapi2.service.AbstractThirdPartyService;
-import com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.pay.d;
-import java.util.Map;
+import android.content.DialogInterface;
+import com.baidu.live.tbadk.core.util.TiebaInitialize;
+import com.baidu.swan.apps.u.b.g;
+import com.baidu.swan.apps.view.SwanAppErrorDialog;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.an;
+import com.baidu.tieba.R;
 /* loaded from: classes12.dex */
-public class a extends ActivityDelegation implements com.baidu.swan.apps.a.a {
-    private com.baidu.tieba.aiapps.apps.j.a.a eGi;
-    private Activity eGj;
-    public Map<String, String> eds;
-    private BdUniqueId mPageId = BdUniqueId.gen();
-    private CustomMessageListener eGk = new CustomMessageListener(2921393) { // from class: com.baidu.tieba.aiapps.apps.j.a.1
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && customResponsedMessage.getData() != null) {
-                Object data = customResponsedMessage.getData();
-                if (data instanceof d) {
-                    d dVar = (d) data;
-                    if (getTag() == dVar.tag || dVar.edt) {
-                        a.this.mResult.putInt("result_code", dVar.type);
-                        a.this.mResult.putString(AbstractThirdPartyService.EXTRA_RESULT_MSG, dVar.message);
-                        if (a.this.eGi != null) {
-                            a.this.eGi.ab(a.this.mResult);
-                        }
-                        a.this.finish();
-                    }
-                }
-            }
+public class a implements g {
+    @Override // com.baidu.swan.apps.u.b.g
+    public boolean a(String str, com.baidu.swan.apps.an.a aVar) {
+        an anVar = new an("c13607");
+        anVar.dh("obj_id", str);
+        anVar.dh("uid", com.baidu.tieba.aiapps.apps.a.a.bnX().getUid() == null ? "" : com.baidu.tieba.aiapps.apps.a.a.bnX().getUid());
+        anVar.s("obj_param1", aVar.asI());
+        anVar.dh(TiebaInitialize.Params.OBJ_PARAM2, aVar.asJ());
+        TiebaStatic.log(anVar);
+        if (aVar.asH() == 10 && aVar.asI() == 1013) {
+            boJ();
+            return true;
         }
-    };
-
-    public void a(com.baidu.tieba.aiapps.apps.j.a.a aVar) {
-        this.eGi = aVar;
-    }
-
-    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
-    public boolean onExec() {
-        this.eGk.setTag(this.mPageId);
-        MessageManager.getInstance().registerListener(this.eGk);
-        int i = this.mParams.getInt("type");
-        String string = this.mParams.getString("orderInfo");
-        d dVar = new d();
-        dVar.tag = this.mPageId;
-        dVar.type = i;
-        dVar.message = string;
-        dVar.params = (Map) this.mParams.getSerializable("params");
-        dVar.eds = this.eds;
-        if (getAgent() != null) {
-            dVar.context = getAgent();
-        } else if (this.eGj != null) {
-            dVar.context = this.eGj;
-        } else {
-            dVar.context = TbadkCoreApplication.getInst().getCurrentActivity();
-        }
-        CustomMessage customMessage = new CustomMessage(2921393, dVar);
-        customMessage.setTag(this.mPageId);
-        boolean sendMessage = MessageManager.getInstance().sendMessage(customMessage);
-        this.mResult.putInt("result_code", sendMessage ? 0 : 1);
-        this.mResult.putString(AbstractThirdPartyService.EXTRA_RESULT_MSG, "" + sendMessage);
         return false;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
-    public void finish() {
-        this.eGi = null;
-        MessageManager.getInstance().unRegisterListener(this.eGk);
-        super.finish();
-    }
-
-    @Override // com.baidu.swan.apps.a.a
-    public void onResult(int i) {
-        this.mResult.putInt("result_code", i);
-        this.mResult.putString(AbstractThirdPartyService.EXTRA_RESULT_MSG, "");
-        finish();
-    }
-
-    public void af(Activity activity) {
-        this.eGj = activity;
+    private void boJ() {
+        SwanAppErrorDialog.aup().gn(R.string.swan_app_update_title).gp(R.string.swan_app_update_msg).a(R.string.swan_app_update_btn, (DialogInterface.OnClickListener) null).show();
     }
 }

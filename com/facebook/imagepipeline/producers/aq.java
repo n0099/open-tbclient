@@ -3,52 +3,52 @@ package com.facebook.imagepipeline.producers;
 import java.util.Map;
 /* loaded from: classes12.dex */
 public abstract class aq<T> extends com.facebook.common.b.h<T> {
+    private final String mAh;
     private final String mRequestId;
-    private final am meJ;
-    private final k<T> mff;
-    private final String mgq;
+    private final am myA;
+    private final k<T> myW;
 
     @Override // com.facebook.common.b.h
-    protected abstract void aI(T t);
+    protected abstract void aM(T t);
 
     public aq(k<T> kVar, am amVar, String str, String str2) {
-        this.mff = kVar;
-        this.meJ = amVar;
-        this.mgq = str;
+        this.myW = kVar;
+        this.myA = amVar;
+        this.mAh = str;
         this.mRequestId = str2;
-        this.meJ.fi(this.mRequestId, this.mgq);
+        this.myA.fK(this.mRequestId, this.mAh);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.facebook.common.b.h
     public void onSuccess(T t) {
-        this.meJ.a(this.mRequestId, this.mgq, this.meJ.Oo(this.mRequestId) ? bk(t) : null);
-        this.mff.h(t, 1);
+        this.myA.a(this.mRequestId, this.mAh, this.myA.Qc(this.mRequestId) ? bo(t) : null);
+        this.myW.h(t, 1);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.facebook.common.b.h
     public void onFailure(Exception exc) {
-        this.meJ.a(this.mRequestId, this.mgq, exc, this.meJ.Oo(this.mRequestId) ? r(exc) : null);
-        this.mff.G(exc);
+        this.myA.a(this.mRequestId, this.mAh, exc, this.myA.Qc(this.mRequestId) ? y(exc) : null);
+        this.myW.G(exc);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.facebook.common.b.h
-    public void dmT() {
-        this.meJ.b(this.mRequestId, this.mgq, this.meJ.Oo(this.mRequestId) ? duE() : null);
-        this.mff.dmT();
+    public void dum() {
+        this.myA.b(this.mRequestId, this.mAh, this.myA.Qc(this.mRequestId) ? dBV() : null);
+        this.myW.dum();
     }
 
-    protected Map<String, String> bk(T t) {
+    protected Map<String, String> bo(T t) {
         return null;
     }
 
-    protected Map<String, String> r(Exception exc) {
+    protected Map<String, String> y(Exception exc) {
         return null;
     }
 
-    protected Map<String, String> duE() {
+    protected Map<String, String> dBV() {
         return null;
     }
 }

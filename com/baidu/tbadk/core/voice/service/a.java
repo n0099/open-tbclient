@@ -8,50 +8,50 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 /* loaded from: classes.dex */
 public class a implements d {
-    public static int dLo = CoolPraiseGuideLottieView.ANIM_DURATION;
-    public static int dLp = 2;
-    public static int dLq = 2;
-    public static int dLr = 1;
+    public static int dZF = CoolPraiseGuideLottieView.ANIM_DURATION;
+    public static int dZG = 2;
+    public static int dZH = 2;
+    public static int dZI = 1;
     private int channelConfiguration;
-    private RandomAccessFile dLs;
-    private int dLt;
-    private int dLu;
-    private short dLv;
-    private short dLw;
+    private RandomAccessFile dZJ;
+    private int dZK;
+    private int dZL;
+    private short dZM;
+    private short dZN;
     private int dataSize;
     private String filePath;
     private int bufferSize = 0;
-    private boolean Zf = false;
+    private boolean Zv = false;
     private AudioRecord mAudioRecord = null;
     private File file = null;
 
     public boolean a(int i, int i2, int i3, int i4, String str) {
         this.bufferSize = AudioRecord.getMinBufferSize(i2, i3, i4) + 2048;
-        this.dLt = i2;
+        this.dZK = i2;
         this.channelConfiguration = i3;
-        this.dLu = i4;
+        this.dZL = i4;
         if (this.mAudioRecord != null) {
             this.mAudioRecord.release();
         }
-        this.mAudioRecord = new AudioRecord(i, this.dLt, this.channelConfiguration, this.dLu, this.bufferSize);
-        this.dLv = (short) (this.channelConfiguration == 12 ? 2 : 1);
-        this.dLw = (short) (this.dLu == 2 ? 16 : 8);
+        this.mAudioRecord = new AudioRecord(i, this.dZK, this.channelConfiguration, this.dZL, this.bufferSize);
+        this.dZM = (short) (this.channelConfiguration == 12 ? 2 : 1);
+        this.dZN = (short) (this.dZL == 2 ? 16 : 8);
         this.file = new File(str);
         if (this.file.exists()) {
             this.file.delete();
         }
         try {
             this.file.createNewFile();
-            if (this.dLs != null) {
+            if (this.dZJ != null) {
                 try {
-                    this.dLs.close();
+                    this.dZJ.close();
                 } catch (IOException e) {
                     e.printStackTrace();
                     return false;
                 }
             }
             try {
-                this.dLs = new RandomAccessFile(this.file, "rw");
+                this.dZJ = new RandomAccessFile(this.file, "rw");
                 writeHeader();
                 setFilePath(this.file.getParent());
                 return true;
@@ -66,30 +66,30 @@ public class a implements d {
     }
 
     @Override // com.baidu.tbadk.core.voice.service.d
-    public boolean vv(String str) {
-        return a(dLr, dLo, dLp, dLq, str);
+    public boolean xb(String str) {
+        return a(dZI, dZF, dZG, dZH, str);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aRi() {
+    public void aXp() {
         if (this.mAudioRecord != null && this.file != null) {
             try {
-                this.Zf = true;
+                this.Zv = true;
                 byte[] bArr = new byte[this.bufferSize];
                 this.mAudioRecord.startRecording();
-                while (this.Zf) {
+                while (this.Zv) {
                     this.mAudioRecord.read(bArr, 0, bArr.length);
-                    this.dLs.write(bArr);
+                    this.dZJ.write(bArr);
                     this.dataSize += bArr.length;
                 }
-                this.dLs.seek(4L);
-                this.dLs.writeInt(Integer.reverseBytes(this.dataSize + 36));
-                this.dLs.seek(40L);
-                this.dLs.writeInt(Integer.reverseBytes(this.dataSize));
-                this.dLs.close();
+                this.dZJ.seek(4L);
+                this.dZJ.writeInt(Integer.reverseBytes(this.dataSize + 36));
+                this.dZJ.seek(40L);
+                this.dZJ.writeInt(Integer.reverseBytes(this.dataSize));
+                this.dZJ.close();
                 this.mAudioRecord.stop();
                 this.mAudioRecord.release();
-                this.Zf = false;
+                this.Zv = false;
             } catch (Throwable th) {
                 if (this.file.exists()) {
                     this.file.delete();
@@ -99,11 +99,11 @@ public class a implements d {
     }
 
     @Override // com.baidu.tbadk.core.voice.service.d
-    public boolean aRj() {
+    public boolean aXq() {
         Thread thread = new Thread(new Runnable() { // from class: com.baidu.tbadk.core.voice.service.a.1
             @Override // java.lang.Runnable
             public void run() {
-                a.this.aRi();
+                a.this.aXp();
             }
         });
         thread.setPriority(10);
@@ -113,31 +113,31 @@ public class a implements d {
     }
 
     @Override // com.baidu.tbadk.core.voice.service.d
-    public void aRk() {
-        this.Zf = false;
+    public void aXr() {
+        this.Zv = false;
     }
 
     @Override // com.baidu.tbadk.core.voice.service.d
-    public boolean aRl() {
-        return this.Zf;
+    public boolean aXs() {
+        return this.Zv;
     }
 
     private void writeHeader() {
         try {
-            this.dLs.setLength(0L);
-            this.dLs.writeBytes("RIFF");
-            this.dLs.writeInt(0);
-            this.dLs.writeBytes("WAVE");
-            this.dLs.writeBytes("fmt ");
-            this.dLs.writeInt(Integer.reverseBytes(16));
-            this.dLs.writeShort(Short.reverseBytes((short) 1));
-            this.dLs.writeShort(Short.reverseBytes(this.dLv));
-            this.dLs.writeInt(Integer.reverseBytes(this.dLt));
-            this.dLs.writeInt(Integer.reverseBytes(((this.dLt * this.dLv) * this.dLw) / 8));
-            this.dLs.writeShort(Short.reverseBytes((short) ((this.dLv * this.dLw) / 8)));
-            this.dLs.writeShort(Short.reverseBytes(this.dLw));
-            this.dLs.writeBytes("data");
-            this.dLs.writeInt(0);
+            this.dZJ.setLength(0L);
+            this.dZJ.writeBytes("RIFF");
+            this.dZJ.writeInt(0);
+            this.dZJ.writeBytes("WAVE");
+            this.dZJ.writeBytes("fmt ");
+            this.dZJ.writeInt(Integer.reverseBytes(16));
+            this.dZJ.writeShort(Short.reverseBytes((short) 1));
+            this.dZJ.writeShort(Short.reverseBytes(this.dZM));
+            this.dZJ.writeInt(Integer.reverseBytes(this.dZK));
+            this.dZJ.writeInt(Integer.reverseBytes(((this.dZK * this.dZM) * this.dZN) / 8));
+            this.dZJ.writeShort(Short.reverseBytes((short) ((this.dZM * this.dZN) / 8)));
+            this.dZJ.writeShort(Short.reverseBytes(this.dZN));
+            this.dZJ.writeBytes("data");
+            this.dZJ.writeInt(0);
         } catch (IOException e) {
             if (this.file.exists()) {
                 this.file.delete();

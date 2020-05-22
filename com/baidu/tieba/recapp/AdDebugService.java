@@ -49,31 +49,31 @@ public class AdDebugService extends Service {
         this.mParams.gravity = 51;
         this.mWindowManager.addView(mFloatView, this.mParams);
         mFloatView.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.recapp.AdDebugService.1
-            private int kqR;
-            private int kqS;
-            private float kqT;
-            private float kqU;
+            private int kIL;
+            private int kIM;
+            private float kIN;
+            private float kIO;
 
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 switch (motionEvent.getAction()) {
                     case 0:
-                        this.kqR = AdDebugService.this.mParams.x;
-                        this.kqS = AdDebugService.this.mParams.y;
-                        this.kqT = motionEvent.getRawX();
-                        this.kqU = motionEvent.getRawY();
+                        this.kIL = AdDebugService.this.mParams.x;
+                        this.kIM = AdDebugService.this.mParams.y;
+                        this.kIN = motionEvent.getRawX();
+                        this.kIO = motionEvent.getRawY();
                         return true;
                     case 1:
-                        float abs = Math.abs(motionEvent.getRawX() - this.kqT);
-                        float abs2 = Math.abs(motionEvent.getRawY() - this.kqU);
+                        float abs = Math.abs(motionEvent.getRawX() - this.kIN);
+                        float abs2 = Math.abs(motionEvent.getRawY() - this.kIO);
                         if (abs >= 10.0f || abs2 >= 10.0f) {
                             return true;
                         }
                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AdDebugActivityConfig(TbadkCoreApplication.getInst().getContext())));
                         return true;
                     case 2:
-                        AdDebugService.this.mParams.x = this.kqR + ((int) (motionEvent.getRawX() - this.kqT));
-                        AdDebugService.this.mParams.y = this.kqS + ((int) (motionEvent.getRawY() - this.kqU));
+                        AdDebugService.this.mParams.x = this.kIL + ((int) (motionEvent.getRawX() - this.kIN));
+                        AdDebugService.this.mParams.y = this.kIM + ((int) (motionEvent.getRawY() - this.kIO));
                         AdDebugService.this.mWindowManager.updateViewLayout(AdDebugService.mFloatView, AdDebugService.this.mParams);
                         return true;
                     default:

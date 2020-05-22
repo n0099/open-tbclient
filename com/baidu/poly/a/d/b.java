@@ -4,7 +4,7 @@ import android.graphics.Bitmap;
 import android.util.LruCache;
 /* loaded from: classes11.dex */
 public class b {
-    private LruCache<String, Bitmap> bmZ = new a(((int) (Runtime.getRuntime().maxMemory() / 1024)) / 8);
+    private LruCache<String, Bitmap> buw = new a(((int) (Runtime.getRuntime().maxMemory() / 1024)) / 8);
 
     /* loaded from: classes11.dex */
     class a extends LruCache<String, Bitmap> {
@@ -21,18 +21,18 @@ public class b {
         }
     }
 
-    private Bitmap fG(String str) {
-        return this.bmZ.get(str);
+    private Bitmap gt(String str) {
+        return this.buw.get(str);
     }
 
     public void e(String str, Bitmap bitmap) {
-        String h = com.baidu.poly.a.f.b.h(str);
-        if (fG(h) == null) {
-            this.bmZ.put(h, bitmap);
+        String g = com.baidu.poly.a.f.b.g(str);
+        if (gt(g) == null) {
+            this.buw.put(g, bitmap);
         }
     }
 
-    public Bitmap fH(String str) {
-        return fG(com.baidu.poly.a.f.b.h(str));
+    public Bitmap gu(String str) {
+        return gt(com.baidu.poly.a.f.b.g(str));
     }
 }

@@ -72,7 +72,7 @@ public final class MaybeZipArray<T, R> extends k<R> {
             this.values[i] = t;
             if (decrementAndGet() == 0) {
                 try {
-                    this.actual.onSuccess(io.reactivex.internal.functions.a.h(this.zipper.apply(this.values), "The zipper returned a null value"));
+                    this.actual.onSuccess(io.reactivex.internal.functions.a.k(this.zipper.apply(this.values), "The zipper returned a null value"));
                 } catch (Throwable th) {
                     io.reactivex.exceptions.a.L(th);
                     this.actual.onError(th);
@@ -153,7 +153,7 @@ public final class MaybeZipArray<T, R> extends k<R> {
         /* JADX WARN: Type inference failed for: r1v1, types: [java.lang.Object[], java.lang.Object] */
         @Override // io.reactivex.c.h
         public R apply(T t) throws Exception {
-            return (R) io.reactivex.internal.functions.a.h(MaybeZipArray.this.zipper.apply(new Object[]{t}), "The zipper returned a null value");
+            return (R) io.reactivex.internal.functions.a.k(MaybeZipArray.this.zipper.apply(new Object[]{t}), "The zipper returned a null value");
         }
     }
 }

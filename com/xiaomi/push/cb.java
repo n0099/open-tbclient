@@ -63,19 +63,19 @@ public class cb {
         }
 
         /* renamed from: a  reason: collision with other method in class */
-        public Object m194a() {
+        public Object m196a() {
             return null;
         }
 
         /* renamed from: a  reason: collision with other method in class */
-        public String m195a() {
+        public String m197a() {
             return this.f153a;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public void a(Context context) {
             if (this.f152a != null) {
-                this.f152a.a(context, m194a());
+                this.f152a.a(context, m196a());
             }
             b(context);
         }
@@ -97,7 +97,7 @@ public class cb {
         }
 
         /* renamed from: a  reason: collision with other method in class */
-        public boolean m196a() {
+        public boolean m198a() {
             return this.f151a == null || TextUtils.isEmpty(this.b) || this.f154a == null;
         }
 
@@ -278,7 +278,7 @@ public class cb {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m193a(String str) {
+    public String m195a(String str) {
         return a(str).a();
     }
 
@@ -290,12 +290,12 @@ public class cb {
         if (this.f147a == null) {
             throw new IllegalStateException("should exec init method first!");
         }
-        String m195a = aVar.m195a();
+        String m197a = aVar.m197a();
         synchronized (this.f149a) {
-            bzVar = this.f149a.get(m195a);
+            bzVar = this.f149a.get(m197a);
             if (bzVar == null) {
-                bzVar = this.f147a.a(this.f146a, m195a);
-                this.f149a.put(m195a, bzVar);
+                bzVar = this.f147a.a(this.f146a, m197a);
+                this.f149a.put(m197a, bzVar);
             }
         }
         if (this.f150a.isShutdown()) {
@@ -326,13 +326,13 @@ public class cb {
         Iterator<a> it = arrayList.iterator();
         while (it.hasNext()) {
             a next = it.next();
-            if (next.m196a()) {
-                next.a(a(next.m195a()), this.f146a);
+            if (next.m198a()) {
+                next.a(a(next.m197a()), this.f146a);
             }
-            ArrayList arrayList2 = (ArrayList) hashMap.get(next.m195a());
+            ArrayList arrayList2 = (ArrayList) hashMap.get(next.m197a());
             if (arrayList2 == null) {
                 arrayList2 = new ArrayList();
-                hashMap.put(next.m195a(), arrayList2);
+                hashMap.put(next.m197a(), arrayList2);
             }
             arrayList2.add(next);
         }
@@ -354,12 +354,12 @@ public class cb {
         if (this.f147a == null) {
             throw new IllegalStateException("should exec init method first!");
         }
-        String m195a = aVar.m195a();
+        String m197a = aVar.m197a();
         synchronized (this.f149a) {
-            bzVar = this.f149a.get(m195a);
+            bzVar = this.f149a.get(m197a);
             if (bzVar == null) {
-                bzVar = this.f147a.a(this.f146a, m195a);
-                this.f149a.put(m195a, bzVar);
+                bzVar = this.f147a.a(this.f146a, m197a);
+                this.f149a.put(m197a, bzVar);
             }
         }
         if (this.f150a.isShutdown()) {

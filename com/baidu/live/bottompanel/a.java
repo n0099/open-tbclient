@@ -16,16 +16,16 @@ import com.baidu.live.tbadk.core.util.UrlManager;
 import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class a {
-    private e aoA;
-    private FrameLayout aow;
-    private ImageView aox;
-    private TextView aoy;
-    private AlaAudienceLiveRoomBottomPanelView.a aoz;
+    private FrameLayout atq;
+    private ImageView atr;
+    private TextView ats;
+    private AlaAudienceLiveRoomBottomPanelView.a att;
+    private e atu;
     private View.OnClickListener mClickListener = new View.OnClickListener() { // from class: com.baidu.live.bottompanel.a.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (view == a.this.aox && a.this.aoz != null) {
-                a.this.aoz.ub();
+            if (view == a.this.atr && a.this.att != null) {
+                a.this.att.vi();
             }
         }
     };
@@ -35,7 +35,7 @@ public class a {
 
     public a(Context context, AlaAudienceLiveRoomBottomPanelView.a aVar) {
         this.mContext = context;
-        this.aoz = aVar;
+        this.att = aVar;
         createView();
     }
 
@@ -43,21 +43,21 @@ public class a {
         if (this.mRootView == null) {
             this.mRootView = (ViewGroup) LayoutInflater.from(this.mContext).inflate(a.h.sdk_live_room_bottom_panel_shell_layout, (ViewGroup) null);
         }
-        this.aow = (FrameLayout) this.mRootView.findViewById(a.g.ala_live_room_bottom_panel_top_layout);
-        this.aox = (ImageView) this.mRootView.findViewById(a.g.ala_live_room_bottom_panel_back_btn);
-        this.aox.setOnClickListener(this.mClickListener);
+        this.atq = (FrameLayout) this.mRootView.findViewById(a.g.ala_live_room_bottom_panel_top_layout);
+        this.atr = (ImageView) this.mRootView.findViewById(a.g.ala_live_room_bottom_panel_back_btn);
+        this.atr.setOnClickListener(this.mClickListener);
         this.mTitleView = (TextView) this.mRootView.findViewById(a.g.ala_live_room_bottom_panel_title);
-        this.aoy = (TextView) this.mRootView.findViewById(a.g.ala_live_room_bottom_panel_entry);
+        this.ats = (TextView) this.mRootView.findViewById(a.g.ala_live_room_bottom_panel_entry);
         if (this.mRootView.getParent() != null) {
             ((ViewGroup) this.mRootView.getParent()).removeView(this.mRootView);
         }
-        this.aoy.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.bottompanel.a.2
+        this.ats.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.bottompanel.a.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (a.this.aoA != null && !StringUtils.isNull(a.this.aoA.AS())) {
-                    UrlManager.getInstance().dealOneLink((TbPageContext) IScrollableHelper.getBbPageContext(a.this.mContext), new String[]{a.this.aoA.AS()}, true);
+                if (a.this.atu != null && !StringUtils.isNull(a.this.atu.Ci())) {
+                    UrlManager.getInstance().dealOneLink((TbPageContext) IScrollableHelper.getBbPageContext(a.this.mContext), new String[]{a.this.atu.Ci()}, true);
                 } else {
-                    UrlManager.getInstance().dealOneLink((TbPageContext) IScrollableHelper.getBbPageContext(a.this.mContext), new String[]{com.baidu.live.v.a.En().aQu.asp}, true);
+                    UrlManager.getInstance().dealOneLink((TbPageContext) IScrollableHelper.getBbPageContext(a.this.mContext), new String[]{com.baidu.live.v.a.Ge().aWF.axp}, true);
                 }
             }
         });
@@ -68,9 +68,9 @@ public class a {
     }
 
     public void reset() {
-        if (this.aoA != null && this.aoA.getPanelView() != null && this.mRootView.indexOfChild(this.aoA.getPanelView()) >= 0) {
-            this.mRootView.removeView(this.aoA.getPanelView());
+        if (this.atu != null && this.atu.getPanelView() != null && this.mRootView.indexOfChild(this.atu.getPanelView()) >= 0) {
+            this.mRootView.removeView(this.atu.getPanelView());
         }
-        this.aoA = null;
+        this.atu = null;
     }
 }

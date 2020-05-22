@@ -27,7 +27,7 @@ public abstract class SuspendLambda extends ContinuationImpl implements p<Object
     public String toString() {
         if (getCompletion() == null) {
             String a = t.a(this);
-            q.i(a, "Reflection.renderLambdaToString(this)");
+            q.l((Object) a, "Reflection.renderLambdaToString(this)");
             return a;
         }
         return super.toString();

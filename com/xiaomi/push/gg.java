@@ -80,7 +80,7 @@ public class gg implements gk {
         }
         Parcelable[] parcelableArr = new Parcelable[ggVarArr.length];
         for (int i = 0; i < ggVarArr.length; i++) {
-            parcelableArr[i] = ggVarArr[i].m307a();
+            parcelableArr[i] = ggVarArr[i].m309a();
         }
         return parcelableArr;
     }
@@ -104,12 +104,12 @@ public class gg implements gk {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public Parcelable m307a() {
+    public Parcelable m309a() {
         return a();
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m308a() {
+    public String m310a() {
         return this.a;
     }
 
@@ -128,7 +128,7 @@ public class gg implements gk {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m309a(String str) {
+    public void m311a(String str) {
         if (TextUtils.isEmpty(str)) {
             this.c = str;
         } else {

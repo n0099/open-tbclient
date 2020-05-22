@@ -1,12 +1,12 @@
 package com.baidu.tieba.frs.entelechy.b;
 
-import com.baidu.adp.widget.ListView.r;
+import com.baidu.adp.widget.ListView.t;
 import com.baidu.tbadk.core.view.NoPressedRelativeLayout;
 import com.baidu.tieba.frs.FrsFragment;
 import com.baidu.tieba.frs.entelechy.a.ai;
 /* loaded from: classes9.dex */
 public interface a {
-    ai a(FrsFragment frsFragment, r rVar, boolean z);
+    ai a(FrsFragment frsFragment, t tVar, boolean z);
 
     com.baidu.tieba.frs.vc.d a(FrsFragment frsFragment, NoPressedRelativeLayout noPressedRelativeLayout);
 
@@ -14,5 +14,5 @@ public interface a {
 
     c b(FrsFragment frsFragment, NoPressedRelativeLayout noPressedRelativeLayout);
 
-    b bRx();
+    b bXT();
 }

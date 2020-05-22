@@ -6,16 +6,16 @@ public interface e {
     public interface a {
         void onChange(boolean z);
 
-        void pZ(boolean z);
+        void qw(boolean z);
 
-        void yP(int i);
+        void zx(int i);
     }
 
     void a(a aVar);
 
-    void crx();
+    void cya();
 
-    void cry();
+    void cyb();
 
-    void crz();
+    void cyc();
 }

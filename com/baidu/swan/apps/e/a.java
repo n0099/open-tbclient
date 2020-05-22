@@ -2,11 +2,11 @@ package com.baidu.swan.apps.e;
 
 import android.text.TextUtils;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
-import com.baidu.swan.apps.x.b.b;
+import com.baidu.swan.apps.v.b.b;
 /* loaded from: classes11.dex */
 public class a {
     @Deprecated
-    public static boolean hu(String str) {
+    public static boolean it(String str) {
         return (TextUtils.isEmpty(str) || str.contains(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS)) ? false : true;
     }
 
@@ -22,7 +22,20 @@ public class a {
         return bVar != null && bVar.getType() == 2;
     }
 
-    public static String hv(String str) {
+    public static int iu(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return 0;
+        }
+        if (str.contains("_dev")) {
+            return 1;
+        }
+        if (str.endsWith("_trial")) {
+            return 3;
+        }
+        return str.contains("_trial") ? 2 : 0;
+    }
+
+    public static String iv(String str) {
         if (!TextUtils.isEmpty(str)) {
             int indexOf = str.indexOf("_dev");
             if (indexOf > 0) {
@@ -37,7 +50,7 @@ public class a {
         return str;
     }
 
-    public static String hw(String str) {
+    public static String iw(String str) {
         if (TextUtils.isEmpty(str)) {
             return "";
         }

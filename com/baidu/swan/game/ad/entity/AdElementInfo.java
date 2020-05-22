@@ -27,7 +27,7 @@ public class AdElementInfo implements Parcelable {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: hJ */
+        /* renamed from: ia */
         public AdElementInfo[] newArray(int i) {
             return new AdElementInfo[i];
         }
@@ -113,7 +113,7 @@ public class AdElementInfo implements Parcelable {
                     if (next.equals("s")) {
                         JSONArray optJSONArray = optJSONObject.optJSONArray(next);
                         for (int i = 0; i < optJSONArray.length(); i++) {
-                            oT(optJSONArray.optString(i));
+                            qr(optJSONArray.optString(i));
                         }
                     } else if (next.equals("vskip")) {
                         JSONArray optJSONArray2 = optJSONObject.optJSONArray(next);
@@ -133,12 +133,12 @@ public class AdElementInfo implements Parcelable {
                     } else if (next.equals("click")) {
                         JSONArray optJSONArray5 = optJSONObject.optJSONArray(next);
                         for (int i5 = 0; i5 < optJSONArray5.length(); i5++) {
-                            oV(optJSONArray5.optString(i5));
+                            qt(optJSONArray5.optString(i5));
                         }
                     } else if (next.equals("c")) {
                         JSONArray optJSONArray6 = optJSONObject.optJSONArray(next);
                         for (int i6 = 0; i6 < optJSONArray6.length(); i6++) {
-                            oU(optJSONArray6.optString(i6));
+                            qs(optJSONArray6.optString(i6));
                         }
                     }
                 }
@@ -239,7 +239,7 @@ public class AdElementInfo implements Parcelable {
         return this.mTitle;
     }
 
-    public String asy() {
+    public String awf() {
         return this.mPictureUrl;
     }
 
@@ -247,7 +247,7 @@ public class AdElementInfo implements Parcelable {
         return this.mVideoUrl;
     }
 
-    public String asz() {
+    public String awg() {
         return this.mClickUrl;
     }
 
@@ -268,19 +268,19 @@ public class AdElementInfo implements Parcelable {
         return 0;
     }
 
-    public int asA() {
+    public int awh() {
         return this.mExpire;
     }
 
-    public String asB() {
+    public String awi() {
         return this.mBannerHtml;
     }
 
-    public String asC() {
+    public String awj() {
         return this.mEndFrameHtml;
     }
 
-    public List<String> asD() {
+    public List<String> awk() {
         return new ArrayList(this.mImpressionUrls);
     }
 
@@ -304,13 +304,13 @@ public class AdElementInfo implements Parcelable {
         return new ArrayList(this.mCloseTrackers);
     }
 
-    private void oT(String str) {
+    private void qr(String str) {
         if (!TextUtils.isEmpty(str)) {
             this.mThirdImpMonitorTrackers.add(str);
         }
     }
 
-    private void oU(String str) {
+    private void qs(String str) {
         if (!TextUtils.isEmpty(str)) {
             this.mThirdClickMonitorTrackers.add(str);
         }
@@ -334,7 +334,7 @@ public class AdElementInfo implements Parcelable {
         }
     }
 
-    private void oV(String str) {
+    private void qt(String str) {
         if (str != null && !str.equals("")) {
             this.mMonitorClickers.add(str);
         }

@@ -4,14 +4,14 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 /* loaded from: classes8.dex */
 public final class p extends n {
-    private static final LinkedHashMap<Long, String> ajX = new LinkedHashMap<>();
+    private static final LinkedHashMap<Long, String> akC = new LinkedHashMap<>();
     private int X;
-    private Thread ajY;
+    private Thread akD;
 
     private p(Thread thread, int i, long j) {
         super(j);
         this.X = a.X;
-        this.ajY = thread;
+        this.akD = thread;
         this.X = i;
     }
 
@@ -21,14 +21,14 @@ public final class p extends n {
 
     public static ArrayList<String> c(long j, long j2) {
         ArrayList<String> arrayList = new ArrayList<>();
-        synchronized (ajX) {
-            for (Long l : ajX.keySet()) {
+        synchronized (akC) {
+            for (Long l : akC.keySet()) {
                 if (j < l.longValue() && l.longValue() < j2) {
-                    arrayList.add(ajX.get(l));
+                    arrayList.add(akC.get(l));
                 }
             }
         }
-        com.baidu.crabsdk.c.a.de("result : " + arrayList.toString());
+        com.baidu.crabsdk.c.a.dg("result : " + arrayList.toString());
         return arrayList;
     }
 
@@ -36,14 +36,14 @@ public final class p extends n {
     @Override // com.baidu.crabsdk.a.n
     public final void o() {
         StringBuilder sb = new StringBuilder();
-        for (StackTraceElement stackTraceElement : this.ajY.getStackTrace()) {
+        for (StackTraceElement stackTraceElement : this.akD.getStackTrace()) {
             sb.append(stackTraceElement.toString()).append("\r\n");
         }
-        synchronized (ajX) {
-            if (ajX.size() == this.X && this.X > 0) {
-                ajX.remove(ajX.keySet().iterator().next());
+        synchronized (akC) {
+            if (akC.size() == this.X && this.X > 0) {
+                akC.remove(akC.keySet().iterator().next());
             }
-            ajX.put(Long.valueOf(System.currentTimeMillis()), sb.toString());
+            akC.put(Long.valueOf(System.currentTimeMillis()), sb.toString());
         }
     }
 }

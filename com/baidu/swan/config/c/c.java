@@ -3,8 +3,9 @@ package com.baidu.swan.config.c;
 import android.content.SharedPreferences;
 import android.text.TextUtils;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.config.e;
-import com.baidu.swan.d.h;
+import com.baidu.swan.e.d;
+import com.baidu.swan.e.i;
+import com.baidu.swan.e.j;
 import com.tencent.open.SocialOperation;
 import java.io.File;
 import java.util.HashSet;
@@ -14,61 +15,51 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class c {
-    private static volatile c cEI;
-    private volatile boolean cEK = false;
-    private a cEJ = new a();
+    private static volatile c cOV;
+    private volatile boolean cOX = false;
+    private a cOW = new a();
 
-    public static c aro() {
-        if (cEI == null) {
+    public static c auZ() {
+        if (cOV == null) {
             synchronized (c.class) {
-                if (cEI == null) {
-                    cEI = new c();
+                if (cOV == null) {
+                    cOV = new c();
                 }
             }
         }
-        return cEI;
+        return cOV;
     }
 
     private c() {
     }
 
-    public int arp() {
-        if (this.cEJ.contains("version")) {
-            return this.cEJ.getInt("version", 0);
-        }
-        if (arr()) {
-            return this.cEJ.getInt("version", 0);
-        }
-        return 0;
-    }
-
     public String getHostName() {
-        String oH = oH("hostName");
-        if (TextUtils.isEmpty(oH)) {
-            if (e.DEBUG) {
+        String qf = qf("hostName");
+        if (TextUtils.isEmpty(qf)) {
+            if (com.baidu.swan.config.c.DEBUG) {
                 throw new IllegalStateException("获取 HostName-宿主名称 失败");
             }
             return "";
         }
-        return oH;
+        return qf;
     }
 
-    public String sp() {
-        String oH = oH("schemeHead");
-        if (TextUtils.isEmpty(oH)) {
-            if (e.DEBUG) {
+    public String sz() {
+        String qf = qf("schemeHead");
+        if (TextUtils.isEmpty(qf)) {
+            if (com.baidu.swan.config.c.DEBUG) {
                 throw new IllegalStateException("获取 SchemeHead-协议头 失败");
             }
             return "";
         }
-        return oH;
+        return qf;
     }
 
-    public Set<String> arq() {
-        Set<String> stringSet = this.cEJ.getStringSet(SocialOperation.GAME_SIGNATURE, null);
+    public Set<String> ava() {
+        Set<String> stringSet = this.cOW.getStringSet(SocialOperation.GAME_SIGNATURE, null);
         if (stringSet == null) {
-            if (arr()) {
-                return this.cEJ.getStringSet(SocialOperation.GAME_SIGNATURE, null);
+            if (avb()) {
+                return this.cOW.getStringSet(SocialOperation.GAME_SIGNATURE, null);
             }
             return null;
         }
@@ -79,24 +70,20 @@ public class c {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        String oH = oH("shareCallBackUrl");
-        if (!TextUtils.isEmpty(oH)) {
-            String addParam = h.addParam(h.addParam(oH, "type", String.valueOf(i)), "appKey", str);
+        String qf = qf("shareCallBackUrl");
+        if (!TextUtils.isEmpty(qf)) {
+            String addParam = i.addParam(i.addParam(qf, "type", String.valueOf(i)), "appKey", str);
             if (!TextUtils.isEmpty(str2)) {
-                return h.addParam(addParam, "path", str2);
+                return i.addParam(addParam, "path", str2);
             }
             return addParam;
         }
         return "";
     }
 
-    public void d(String str, String str2, String str3, int i) {
-        a(str, str2, str3, i, null);
-    }
-
     private void a(String str, String str2, String str3, int i, Set<String> set) {
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && i >= 0) {
-            SharedPreferences.Editor putInt = this.cEJ.edit().putString("hostName", str).putString("schemeHead", str2).putString("shareCallBackUrl", str3).putInt("version", i);
+            SharedPreferences.Editor putInt = this.cOW.edit().putString("hostName", str).putString("schemeHead", str2).putString("shareCallBackUrl", str3).putInt("version", i);
             if (set != null && !set.isEmpty()) {
                 putInt.putStringSet(SocialOperation.GAME_SIGNATURE, set);
             }
@@ -104,14 +91,14 @@ public class c {
         }
     }
 
-    private String oH(String str) {
+    private String qf(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        String string = this.cEJ.getString(str, "");
+        String string = this.cOW.getString(str, "");
         if (TextUtils.isEmpty(string)) {
-            if (arr()) {
-                String string2 = this.cEJ.getString(str, "");
+            if (avb()) {
+                String string2 = this.cOW.getString(str, "");
                 if (TextUtils.isEmpty(string2)) {
                     return null;
                 }
@@ -122,17 +109,17 @@ public class c {
         return string;
     }
 
-    private synchronized boolean arr() {
+    private synchronized boolean avb() {
         boolean z;
         HashSet hashSet = null;
         synchronized (this) {
-            if (this.cEK) {
+            if (this.cOX) {
                 z = true;
             } else {
-                String readAssetData = com.baidu.swan.d.c.readAssetData(AppRuntime.getAppContext(), "config/union-cfg.json");
+                String readAssetData = d.readAssetData(AppRuntime.getAppContext(), "config/union-cfg.json");
                 if (TextUtils.isEmpty(readAssetData)) {
                     File file = new File(AppRuntime.getAppContext().getFilesDir(), "aiapps_config/union-cfg.json");
-                    readAssetData = file.exists() ? com.baidu.swan.d.c.readFileData(file) : null;
+                    readAssetData = file.exists() ? d.readFileData(file) : null;
                 }
                 if (TextUtils.isEmpty(readAssetData)) {
                     z = false;
@@ -151,10 +138,10 @@ public class c {
                             }
                         }
                         a(optString, optString2, optString3, optInt, hashSet);
-                        this.cEK = true;
+                        this.cOX = true;
                         z = true;
                     } catch (JSONException e) {
-                        if (e.DEBUG) {
+                        if (com.baidu.swan.config.c.DEBUG) {
                             e.printStackTrace();
                         }
                         z = false;
@@ -167,7 +154,7 @@ public class c {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes11.dex */
-    public static class a extends com.baidu.swan.d.e {
+    public static class a extends j {
         a() {
             super("swan_host_info_config_sp_name");
         }

@@ -9,6 +9,7 @@ import com.airbnb.lottie.e;
 import com.airbnb.lottie.f;
 import com.airbnb.lottie.l;
 import com.airbnb.lottie.m;
+import com.baidu.android.imsdk.utils.HttpHelper;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -116,7 +117,7 @@ public class b {
                     }
                     break;
                 case -43840953:
-                    if (contentType.equals("application/json")) {
+                    if (contentType.equals(HttpHelper.CONTENT_JSON)) {
                         c = 1;
                         break;
                     }

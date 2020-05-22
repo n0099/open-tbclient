@@ -5,17 +5,17 @@ import com.baidu.live.adp.framework.message.HttpMessage;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes3.dex */
 public class b {
-    private static volatile b aRH;
+    private static volatile b aYV;
 
-    public static b Er() {
-        if (aRH == null) {
+    public static b Gi() {
+        if (aYV == null) {
             synchronized (b.class) {
-                if (aRH == null) {
-                    aRH = new b();
+                if (aYV == null) {
+                    aYV = new b();
                 }
             }
         }
-        return aRH;
+        return aYV;
     }
 
     private b() {

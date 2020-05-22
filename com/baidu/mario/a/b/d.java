@@ -7,7 +7,7 @@ public class d {
     private boolean mVideoIncluded = true;
     private int mVideoWidth = 720;
     private int mVideoHeight = 1280;
-    private String mVideoCodec = "video/avc";
+    private String mVideoCodec = com.baidu.fsg.face.liveness.video.f.b;
     private int mVideoBitrate = 8294400;
     private int mVideoFrameRate = 30;
     private int mVideoIFrameInterval = 1;

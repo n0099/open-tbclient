@@ -9,11 +9,11 @@ public class DH {
 
     private static native byte[] getSecretKey(int i, int i2, int i3);
 
-    public static int ard() {
+    public static int auU() {
         return getSecret();
     }
 
-    public static int are() {
+    public static int auV() {
         return getGroupId();
     }
 
@@ -21,7 +21,7 @@ public class DH {
         return getPublicKey(i, i2);
     }
 
-    public static byte[] v(int i, int i2, int i3) {
+    public static byte[] u(int i, int i2, int i3) {
         return getSecretKey(i, i2, i3);
     }
 

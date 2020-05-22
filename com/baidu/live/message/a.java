@@ -3,28 +3,28 @@ package com.baidu.live.message;
 import com.baidu.live.adp.framework.message.HttpMessage;
 /* loaded from: classes3.dex */
 public class a extends HttpMessage {
-    private String aQi;
-    private int aQj;
-    private int aQk;
+    private String aWr;
+    private int aWs;
+    private int aWt;
 
     public a(String str, int i, int i2) {
         super(1021154);
-        this.aQi = "";
-        this.aQj = 1;
-        this.aQk = 1;
-        this.aQi = str;
-        this.aQj = i;
-        this.aQk = i2;
+        this.aWr = "";
+        this.aWs = 1;
+        this.aWt = 1;
+        this.aWr = str;
+        this.aWs = i;
+        this.aWt = i2;
         setParams();
     }
 
-    public int DL() {
-        return this.aQj;
+    public int Fj() {
+        return this.aWs;
     }
 
     private void setParams() {
-        addParam("anchor_id", this.aQi);
-        addParam("open_status", this.aQj);
-        addParam("check_status", this.aQk);
+        addParam("anchor_id", this.aWr);
+        addParam("open_status", this.aWs);
+        addParam("check_status", this.aWt);
     }
 }

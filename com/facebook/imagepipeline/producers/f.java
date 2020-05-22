@@ -11,7 +11,7 @@ public class f extends h {
     }
 
     @Override // com.facebook.imagepipeline.producers.h
-    protected String dub() {
+    protected String dBs() {
         return "BitmapMemoryCacheGetProducer";
     }
 }

@@ -4,15 +4,15 @@ import android.media.MediaPlayer;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes11.dex */
 public class k implements Runnable {
-    final /* synthetic */ BdLightappKernelJsCallback acA;
-    final /* synthetic */ int acC;
-    final /* synthetic */ BdLightappKernelClient act;
+    final /* synthetic */ BdLightappKernelClient acL;
+    final /* synthetic */ BdLightappKernelJsCallback acR;
+    final /* synthetic */ int acT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(BdLightappKernelClient bdLightappKernelClient, int i, BdLightappKernelJsCallback bdLightappKernelJsCallback) {
-        this.act = bdLightappKernelClient;
-        this.acC = i;
-        this.acA = bdLightappKernelJsCallback;
+        this.acL = bdLightappKernelClient;
+        this.acT = i;
+        this.acR = bdLightappKernelJsCallback;
     }
 
     @Override // java.lang.Runnable
@@ -20,22 +20,22 @@ public class k implements Runnable {
         MediaPlayer mediaPlayer;
         MediaPlayer mediaPlayer2;
         MediaPlayer mediaPlayer3;
-        mediaPlayer = this.act.mMediaPlayer;
+        mediaPlayer = this.acL.mMediaPlayer;
         if (mediaPlayer == null) {
-            this.acA.sendFailCallBack("AudioSeekTo Not palying Audio");
+            this.acR.sendFailCallBack("AudioSeekTo Not palying Audio");
             return;
         }
         try {
-            mediaPlayer2 = this.act.mMediaPlayer;
+            mediaPlayer2 = this.acL.mMediaPlayer;
             if (mediaPlayer2.isPlaying()) {
-                mediaPlayer3 = this.act.mMediaPlayer;
-                mediaPlayer3.seekTo(this.acC);
-                this.acA.sendCallBack("AudioSeekTo", "true", true);
+                mediaPlayer3 = this.acL.mMediaPlayer;
+                mediaPlayer3.seekTo(this.acT);
+                this.acR.sendCallBack("AudioSeekTo", "true", true);
             } else {
-                this.acA.sendFailCallBack("AudioSeekTo Not palying Audio");
+                this.acR.sendFailCallBack("AudioSeekTo Not palying Audio");
             }
         } catch (IllegalStateException e) {
-            this.acA.sendFailCallBack(e.getMessage());
+            this.acR.sendFailCallBack(e.getMessage());
         }
     }
 }

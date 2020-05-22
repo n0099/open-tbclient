@@ -30,31 +30,31 @@ public class a {
         return TypedValue.applyDimension(i, f, context.getResources().getDisplayMetrics());
     }
 
-    public static void e(@NonNull ViewGroup viewGroup, boolean z) {
+    public static void f(@NonNull ViewGroup viewGroup, boolean z) {
         int childCount = viewGroup.getChildCount();
         for (int i = 0; i < childCount; i++) {
             View childAt = viewGroup.getChildAt(i);
             if (childAt instanceof ViewGroup) {
-                e((ViewGroup) childAt, z);
+                f((ViewGroup) childAt, z);
             } else {
                 childAt.setEnabled(z);
             }
         }
     }
 
-    public static Point fU(Context context) {
+    public static Point gv(Context context) {
         Point point = new Point();
         ((WindowManager) context.getSystemService("window")).getDefaultDisplay().getSize(point);
         return point;
     }
 
-    public static Point fV(Context context) {
+    public static Point gw(Context context) {
         if (Build.VERSION.SDK_INT >= 17) {
             Point point = new Point();
             ((WindowManager) context.getSystemService("window")).getDefaultDisplay().getRealSize(point);
             return point;
         }
-        return fU(context);
+        return gv(context);
     }
 
     public static boolean isIntentAvailable(Context context, Intent intent) {
@@ -74,16 +74,16 @@ public class a {
         return packageInfo != null;
     }
 
-    public static boolean dJP() {
-        Application dJq = h.dJq();
-        if (dJq == null) {
+    public static boolean dRJ() {
+        Application dRk = h.dRk();
+        if (dRk == null) {
             return false;
         }
-        NetworkInfo activeNetworkInfo = ((ConnectivityManager) dJq.getSystemService("connectivity")).getActiveNetworkInfo();
+        NetworkInfo activeNetworkInfo = ((ConnectivityManager) dRk.getSystemService("connectivity")).getActiveNetworkInfo();
         return activeNetworkInfo != null && activeNetworkInfo.isAvailable();
     }
 
-    public static boolean fW(Context context) {
+    public static boolean gx(Context context) {
         try {
             NetworkInfo networkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getNetworkInfo(1);
             if (networkInfo != null) {
@@ -95,12 +95,12 @@ public class a {
         }
     }
 
-    public static boolean fX(Context context) {
+    public static boolean gy(Context context) {
         NetworkInfo networkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getNetworkInfo(0);
         return networkInfo != null && networkInfo.getState() == NetworkInfo.State.CONNECTED;
     }
 
-    public static boolean dJQ() {
+    public static boolean dRK() {
         FileInputStream fileInputStream;
         boolean z = false;
         try {
@@ -137,7 +137,7 @@ public class a {
         return true;
     }
 
-    public static String JM(@ColorInt int i) {
+    public static String Kx(@ColorInt int i) {
         int red = Color.red(i);
         int green = Color.green(i);
         int blue = Color.blue(i);

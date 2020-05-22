@@ -1,68 +1,54 @@
 package com.baidu.swan.apps.scheme.actions;
 
 import android.content.Context;
-import android.support.annotation.Nullable;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.text.TextUtils;
-import android.util.Log;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
-public abstract class ab extends d<com.baidu.swan.apps.scheme.j> {
-    protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-
-    public abstract boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar);
-
-    public ab(com.baidu.swan.apps.scheme.j jVar, String str) {
-        super(jVar, str);
+public class ab extends aa {
+    public ab(com.baidu.swan.apps.scheme.j jVar) {
+        super(jVar, "/swanAPI/checkAppInstalled");
     }
 
-    public com.baidu.swan.apps.runtime.e Wq() {
-        return com.baidu.swan.apps.runtime.e.akM();
-    }
-
-    public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str) {
-        boolean e;
-        try {
-            if (TextUtils.equals(this.name, str)) {
-                e = a(context, unitedSchemeEntity, callbackHandler, Wq());
-            } else {
-                e = e(context, unitedSchemeEntity, callbackHandler, str, Wq());
-            }
-            return e;
-        } catch (Throwable th) {
-            if (DEBUG) {
-                Log.e("SwanAppAction", Log.getStackTraceString(th));
-            }
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "execute with exception: " + Log.getStackTraceString(th));
+    @Override // com.baidu.swan.apps.scheme.actions.aa
+    public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
+        JSONObject b = b(unitedSchemeEntity, "params");
+        if (b == null) {
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal parameter");
+            com.baidu.swan.apps.console.c.i("SwanCheckAppInstalledAction", "params parse error");
             return false;
         }
-    }
-
-    public boolean e(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, com.baidu.swan.apps.runtime.e eVar) {
-        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(101, "not support such action ：" + this.name + str);
-        return false;
-    }
-
-    @Nullable
-    public static JSONObject b(UnitedSchemeEntity unitedSchemeEntity, String str) {
-        if (unitedSchemeEntity == null) {
-            return null;
+        String optString = b.optString("name");
+        if (TextUtils.isEmpty(optString)) {
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "parameter error");
+            com.baidu.swan.apps.console.c.i("SwanCheckAppInstalledAction", "packageName empty");
+            return false;
         }
-        String param = unitedSchemeEntity.getParam(str);
-        if (TextUtils.isEmpty(param)) {
-            return null;
+        PackageInfo packageInfo = null;
+        try {
+            packageInfo = context.getPackageManager().getPackageInfo(optString, 0);
+        } catch (PackageManager.NameNotFoundException e) {
+            com.baidu.swan.apps.console.c.e("SwanCheckAppInstalledAction", e.getMessage(), e);
         }
         try {
-            return new JSONObject(param);
-        } catch (JSONException e) {
-            if (DEBUG) {
-                e.printStackTrace();
-                return null;
+            JSONObject jSONObject = new JSONObject();
+            if (packageInfo != null) {
+                jSONObject.put("hasApp", true);
+                jSONObject.put("versionName", packageInfo.versionName);
+                jSONObject.put("versionCode", packageInfo.versionCode);
+            } else {
+                jSONObject.put("hasApp", false);
             }
-            return null;
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0, "success"));
+        } catch (JSONException e2) {
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, e2.getMessage());
+            com.baidu.swan.apps.console.c.e("SwanCheckAppInstalledAction", e2.getMessage(), e2);
         }
+        return true;
     }
 }

@@ -39,7 +39,7 @@ public class ar extends Handler {
                 int i = message.arg1;
                 synchronized (ag.class) {
                     context = this.a.f49a;
-                    if (ag.a(context).m70a(str)) {
+                    if (ag.a(context).m72a(str)) {
                         context2 = this.a.f49a;
                         if (ag.a(context2).a(str) < 10) {
                             if (av.DISABLE_PUSH.ordinal() == i) {

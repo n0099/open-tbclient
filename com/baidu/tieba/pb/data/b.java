@@ -8,17 +8,17 @@ public class b {
     public String card_logo;
     public String card_name;
     public String card_pro;
-    public long jnp;
-    public int jnq;
-    public String jnr;
+    public long jDL;
+    public int jDM;
+    public String jDN;
 
     public void a(SendCardInfo sendCardInfo) {
         if (sendCardInfo != null) {
             this.card_logo = sendCardInfo.card_logo;
             this.card_name = sendCardInfo.card_name;
             this.card_pro = sendCardInfo.card_pro;
-            this.jnq = sendCardInfo.card_get_status.intValue();
-            this.jnp = sendCardInfo.packet_id.longValue();
+            this.jDM = sendCardInfo.card_get_status.intValue();
+            this.jDL = sendCardInfo.packet_id.longValue();
         }
     }
 
@@ -27,17 +27,17 @@ public class b {
             this.card_logo = jSONObject.optString("card_logo");
             this.card_name = jSONObject.optString("card_name");
             this.card_pro = jSONObject.optString("card_pro");
-            this.jnq = jSONObject.optInt("card_get_status");
-            this.jnp = jSONObject.optLong(CardBoxMemberPayActivityConfig.PACKET_ID);
-            this.jnr = jSONObject.optString("card_num");
+            this.jDM = jSONObject.optInt("card_get_status");
+            this.jDL = jSONObject.optLong(CardBoxMemberPayActivityConfig.PACKET_ID);
+            this.jDN = jSONObject.optString("card_num");
         }
     }
 
-    public boolean cvo() {
-        return this.jnq == 3;
+    public boolean cCe() {
+        return this.jDM == 3;
     }
 
-    public boolean cvp() {
-        return this.jnq == 1;
+    public boolean cCf() {
+        return this.jDM == 1;
     }
 }

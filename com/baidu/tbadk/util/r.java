@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.util.an;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 /* loaded from: classes.dex */
 public class r {
-    public static final boolean bat() {
+    public static final boolean bgD() {
         Message message;
         int i = 0;
         Object valueForField = com.baidu.adp.lib.OrmObject.a.a.getValueForField(Looper.myQueue(), "mMessages");
@@ -25,7 +25,7 @@ public class r {
         boolean z = false;
         while (message2 != null && message2.obj != null && !z && i < 10) {
             i++;
-            boolean M = M(message2);
+            boolean P = P(message2);
             Object valueForField2 = com.baidu.adp.lib.OrmObject.a.a.getValueForField(message2, UnitedSchemeConstants.UNITED_SCHEME_NEXT);
             if (valueForField2 != null && (valueForField2 instanceof Message)) {
                 message = (Message) valueForField2;
@@ -33,12 +33,12 @@ public class r {
                 message = null;
             }
             message2 = message;
-            z = M;
+            z = P;
         }
         return z;
     }
 
-    private static final boolean M(Message message) {
+    private static final boolean P(Message message) {
         Object valueForField;
         ComponentName component;
         if (message == null) {
@@ -48,7 +48,7 @@ public class r {
         return (obj == null || (valueForField = com.baidu.adp.lib.OrmObject.a.a.getValueForField(obj, "intent")) == null || !(valueForField instanceof Intent) || (component = ((Intent) valueForField).getComponent()) == null || !"com.baidu.tieba.LogoActivity".equals(component.getClassName())) ? false : true;
     }
 
-    public static boolean dJ(Context context) {
+    public static boolean ea(Context context) {
         for (ActivityManager.RunningTaskInfo runningTaskInfo : ((ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getRunningTasks(100)) {
             if ("com.baidu.tieba.LogoActivity".equals(runningTaskInfo.baseActivity.getClassName()) && "com.baidu.tieba.LogoActivity".equals(runningTaskInfo.topActivity.getClassName())) {
                 return true;
@@ -57,7 +57,7 @@ public class r {
         return false;
     }
 
-    public static final boolean ia(boolean z) {
+    public static final boolean ix(boolean z) {
         Message message;
         Object valueForField;
         Intent intent;
@@ -73,7 +73,7 @@ public class r {
                     try {
                         Class.forName(component.getClassName());
                     } catch (Throwable th) {
-                        TiebaStatic.log(new an("check_change_intent_tologo").cI("obj_param1", (i2 == 1) + "").cI(TiebaInitialize.Params.OBJ_PARAM2, component.getClassName()));
+                        TiebaStatic.log(new an("check_change_intent_tologo").dh("obj_param1", (i2 == 1) + "").dh(TiebaInitialize.Params.OBJ_PARAM2, component.getClassName()));
                         if (z && i2 == 1) {
                             intent.setClassName(TbadkCoreApplication.getInst(), "com.baidu.tieba.LogoActivity");
                             return false;

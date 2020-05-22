@@ -1,22 +1,19 @@
 package com.baidu.swan.apps.adaptation.a;
-
-import com.baidu.swan.apps.core.container.a.a;
-import com.baidu.webkit.sdk.VideoPlayerFactory;
 /* loaded from: classes11.dex */
 public interface j {
-    int OO();
+    void a(String str, com.baidu.swan.apps.media.audio.service.a aVar);
 
-    boolean OP();
+    int getDuration();
 
-    boolean OQ();
+    boolean isPlaying();
 
-    int OR();
+    void onRelease();
 
-    void OS();
+    void pause();
 
-    VideoPlayerFactory OT();
+    void play();
 
-    void a(a.InterfaceC0296a interfaceC0296a);
+    void seek(int i);
 
-    void dX(int i);
+    void stop();
 }

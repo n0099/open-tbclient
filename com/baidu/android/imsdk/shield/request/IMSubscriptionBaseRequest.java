@@ -5,6 +5,7 @@ import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
 import com.baidu.android.imsdk.utils.BaseHttpRequest;
+import com.baidu.android.imsdk.utils.HttpHelper;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.ar.constants.HttpConstants;
@@ -39,7 +40,7 @@ public abstract class IMSubscriptionBaseRequest extends BaseHttpRequest {
     public Map<String, String> getHeaders() {
         HashMap hashMap = new HashMap();
         hashMap.put(SM.COOKIE, "BDUSS=" + IMConfigInternal.getInstance().getIMConfig(this.mContext).getBduss(this.mContext));
-        hashMap.put("Content-Type", "application/json");
+        hashMap.put("Content-Type", HttpHelper.CONTENT_JSON);
         return hashMap;
     }
 
@@ -106,5 +107,10 @@ public abstract class IMSubscriptionBaseRequest extends BaseHttpRequest {
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
     public String getMethod() {
         return "POST";
+    }
+
+    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
+    public String getContentType() {
+        return HttpHelper.CONTENT_JSON;
     }
 }

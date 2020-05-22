@@ -12,7 +12,7 @@ import android.text.style.DynamicDrawableSpan;
 import java.io.InputStream;
 /* loaded from: classes.dex */
 public class c extends DynamicDrawableSpan {
-    private a Vt;
+    private a VH;
     private Uri mContentUri;
     private Context mContext;
     private Drawable mDrawable;
@@ -32,12 +32,12 @@ public class c extends DynamicDrawableSpan {
         super(i2);
         this.mRect = new Rect();
         this.mResourceId = i;
-        this.Vt = aVar;
+        this.VH = aVar;
     }
 
     @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
     public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
-        if (this.mDrawable != null || this.Vt == null) {
+        if (this.mDrawable != null || this.VH == null) {
             return super.getSize(paint, charSequence, i, i2, fontMetricsInt);
         }
         if (fontMetricsInt != null) {
@@ -54,8 +54,8 @@ public class c extends DynamicDrawableSpan {
         Drawable drawable = null;
         if (this.mDrawable != null) {
             drawable = this.mDrawable;
-        } else if (this.Vt != null) {
-            drawable = this.Vt.a(this);
+        } else if (this.VH != null) {
+            drawable = this.VH.a(this);
         }
         if (drawable != null) {
             return drawable;

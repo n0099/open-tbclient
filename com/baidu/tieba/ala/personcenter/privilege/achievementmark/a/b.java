@@ -1,6 +1,5 @@
 package com.baidu.tieba.ala.personcenter.privilege.achievementmark.a;
 
-import com.baidu.android.imsdk.db.TableDefine;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
@@ -10,14 +9,14 @@ public class b {
     public int buy_staus;
     private String description;
     private String end_time;
-    private String gbm;
-    private int gbo;
-    private int gbp;
-    private int gbq;
-    private int gbr;
-    private String gbs;
-    private String gbt;
-    private String gbu;
+    private String gqg;
+    private int gqi;
+    private int gqj;
+    private int gqk;
+    private int gql;
+    private String gqm;
+    private String gqn;
+    private String gqo;
     private int height;
     private String mark_name;
     private String mark_pic;
@@ -30,22 +29,22 @@ public class b {
     private int weight;
     private int width;
     public int propId = -1;
-    private List<d> gbv = new ArrayList();
+    private List<d> gqp = new ArrayList();
 
     public void parserJson(JSONObject jSONObject) {
         this.type = jSONObject.optInt("type");
-        this.gbp = jSONObject.optInt("mark_id");
+        this.gqj = jSONObject.optInt("mark_id");
         this.mark_name = jSONObject.optString("mark_name");
         this.description = jSONObject.optString("description");
-        this.gbr = jSONObject.optInt("wear_status");
+        this.gql = jSONObject.optInt("wear_status");
         this.mark_pic = jSONObject.optString("mark_pic");
-        this.gbq = jSONObject.optInt("mark_rank");
+        this.gqk = jSONObject.optInt("mark_rank");
         this.width = jSONObject.optInt("width");
         this.height = jSONObject.optInt("height");
-        this.weight = jSONObject.optInt(TableDefine.SessionColumns.COLUMN_WEIGHT);
-        this.gbt = jSONObject.optString("next_level_diff");
-        this.gbs = jSONObject.optString("mark_dir_level");
-        this.gbu = jSONObject.optString("expire_text");
+        this.weight = jSONObject.optInt("weight");
+        this.gqn = jSONObject.optString("next_level_diff");
+        this.gqm = jSONObject.optString("mark_dir_level");
+        this.gqo = jSONObject.optString("expire_text");
         this.start_time = jSONObject.optString("begin_time");
         this.end_time = jSONObject.optString("end_time");
         JSONArray optJSONArray = jSONObject.optJSONArray("mark_other");
@@ -53,7 +52,7 @@ public class b {
             for (int i = 0; i < optJSONArray.length(); i++) {
                 d dVar = new d();
                 dVar.parseJson(optJSONArray.optJSONObject(i));
-                this.gbv.add(dVar);
+                this.gqp.add(dVar);
             }
         }
         JSONObject optJSONObject = jSONObject.optJSONObject("props_info");
@@ -70,70 +69,70 @@ public class b {
         }
     }
 
-    public List<d> bCb() {
-        if (this.gbv == null) {
-            this.gbv = new ArrayList();
+    public List<d> bIv() {
+        if (this.gqp == null) {
+            this.gqp = new ArrayList();
         }
-        return this.gbv;
+        return this.gqp;
     }
 
-    public boolean bCc() {
-        return this.gbo == 1;
+    public boolean bIw() {
+        return this.gqi == 1;
     }
 
-    public void rj(int i) {
-        this.gbo = i;
+    public void rM(int i) {
+        this.gqi = i;
     }
 
-    public String bCa() {
-        return this.gbm;
+    public String bIu() {
+        return this.gqg;
     }
 
-    public void Bp(String str) {
-        this.gbm = str;
+    public void CY(String str) {
+        this.gqg = str;
     }
 
-    public int bCd() {
-        return this.gbp;
+    public int bIx() {
+        return this.gqj;
     }
 
-    public String bCe() {
+    public String bIy() {
         return this.mark_name;
     }
 
-    public String bCf() {
+    public String bIz() {
         return this.mark_pic;
     }
 
-    public int bCg() {
-        return this.gbr;
+    public int bIA() {
+        return this.gql;
     }
 
-    public void rk(int i) {
-        this.gbr = i;
+    public void rN(int i) {
+        this.gql = i;
     }
 
     public String getDescription() {
         return this.description;
     }
 
-    public String bCh() {
-        return this.gbt;
+    public String bIB() {
+        return this.gqn;
     }
 
-    public int bCi() {
-        return this.gbq;
+    public int bIC() {
+        return this.gqk;
     }
 
-    public String bCj() {
-        return this.gbu;
+    public String bID() {
+        return this.gqo;
     }
 
-    public boolean bCk() {
+    public boolean bIE() {
         return this.type == 10;
     }
 
-    public boolean bCl() {
+    public boolean bIF() {
         return this.type == 9;
     }
 }

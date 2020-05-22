@@ -50,7 +50,7 @@ public class e implements c {
                 inputStream = context.getContentResolver().openInputStream(uri);
                 decodeStream = BitmapFactory.decodeStream(inputStream, null, options);
             } finally {
-                com.baidu.swan.d.c.closeSafely(inputStream);
+                com.baidu.swan.e.d.closeSafely(inputStream);
             }
         }
         if (decodeStream == null) {

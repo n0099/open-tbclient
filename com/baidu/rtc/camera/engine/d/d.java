@@ -41,7 +41,7 @@ public class d extends Handler {
                     fVar.surfaceDestroyed();
                     return;
                 case 4:
-                    fVar.Ns();
+                    fVar.PF();
                     return;
                 case 5:
                 case 7:
@@ -61,17 +61,17 @@ public class d extends Handler {
                     fVar.stopRecording();
                     return;
                 case 9:
-                    fVar.Nv();
+                    fVar.PI();
                     fVar.startPreview();
                     return;
                 case 16:
                     fVar.switchCamera();
                     return;
                 case 17:
-                    fVar.v((byte[]) message.obj);
+                    fVar.C((byte[]) message.obj);
                     return;
                 case 19:
-                    fVar.Nt();
+                    fVar.PG();
                     return;
             }
         }

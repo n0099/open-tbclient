@@ -1,7 +1,35 @@
 package com.baidu.tbadk.data;
 /* loaded from: classes.dex */
 public class j {
-    public String dVP;
-    public String mLink;
-    public int type;
+    private boolean ejX;
+    private String method;
+    private boolean open;
+
+    public boolean bcz() {
+        return this.ejX;
+    }
+
+    public void hO(boolean z) {
+        this.ejX = z;
+    }
+
+    public void bcA() {
+        this.ejX = false;
+    }
+
+    public boolean isOpen() {
+        return this.open;
+    }
+
+    public void setOpen(boolean z) {
+        this.open = z;
+    }
+
+    public String getMethod() {
+        return this.method;
+    }
+
+    public void setMethod(String str) {
+        this.method = str;
+    }
 }

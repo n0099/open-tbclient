@@ -9,6 +9,8 @@ public class MainTabActivityConfig extends IntentConfig {
     public static final String IS_NEW_USER = "is_new_user";
     public static final String MAIN_TAB = "main_tab";
     public static final String NEED_CLOSE_MENU = "need_close_menu";
+    public static final String PUSH_DES_PAGE = "des_page";
+    public static final String PUSH_FOLLOW_UP_ACTION = "follow_up_action";
     public static final String TARGET_SCHEME = "target_scheme";
     public static final String VIDEOTHREAD_ON_SQUARE_ID = "videothread_on_square_id";
     public static boolean IS_BACK_CLOSE_ALL_ACTIVITY = false;
@@ -74,5 +76,27 @@ public class MainTabActivityConfig extends IntentConfig {
 
     public void setTargetScheme(String str) {
         getIntent().putExtra(TARGET_SCHEME, str);
+    }
+
+    public void setSubTab(int i, String str) {
+        if (getIntent() != null) {
+            if (str == null) {
+                getIntent().putExtra("sub_locate_type", i);
+            } else {
+                getIntent().putExtra("sub_locate_type", str);
+            }
+        }
+    }
+
+    public void setPushFollowUpAction(int i) {
+        if (getIntent() != null) {
+            getIntent().putExtra(PUSH_FOLLOW_UP_ACTION, i);
+        }
+    }
+
+    public void setPushDesPage(String str) {
+        if (getIntent() != null) {
+            getIntent().putExtra(PUSH_DES_PAGE, str);
+        }
     }
 }

@@ -1,82 +1,92 @@
 package com.baidu.tieba.ala.guardthrone.a;
 
-import android.content.Context;
-import android.view.LayoutInflater;
+import android.content.res.Configuration;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.TextView;
-import com.baidu.live.tbadk.widget.TbImageView;
+import android.widget.RelativeLayout;
+import com.baidu.live.h.b;
+import com.baidu.live.tbadk.TbPageContext;
+import com.baidu.live.tbadk.core.util.UtilHelper;
 import com.baidu.live.u.a;
-import com.baidu.tieba.ala.guardthrone.b.a;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes3.dex */
-public class a extends BaseAdapter {
-    private Context mContext;
-    private List<a.C0497a.C0498a> mList = new ArrayList();
+public class a implements b {
+    private String aWr;
+    private String ayw;
+    private com.baidu.tieba.ala.guardthrone.view.a fBL;
+    private com.baidu.tieba.ala.guardthrone.view.a fBM;
+    private boolean mIsHost;
+    private String mLiveId;
+    private RelativeLayout mRootView;
+    private int mTabId;
+    private TbPageContext mTbPageContext;
 
-    public a(Context context) {
-        this.mContext = context;
+    @Override // com.baidu.live.h.b
+    public void a(TbPageContext tbPageContext, String str, String str2, String str3, int i, boolean z) {
+        this.mTbPageContext = tbPageContext;
+        this.mLiveId = str;
+        this.aWr = str2;
+        this.ayw = str3;
+        this.mTabId = i;
+        this.mIsHost = z;
+        initView();
     }
 
-    public void setList(List<a.C0497a.C0498a> list) {
-        if (this.mList != null) {
-            this.mList.clear();
-            this.mList.addAll(list);
-        }
-        notifyDataSetChanged();
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        if (this.mList == null) {
-            return 0;
-        }
-        return this.mList.size();
-    }
-
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        if (this.mList == null) {
-            return null;
-        }
-        return this.mList.get(i);
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        return i;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        C0496a c0496a;
-        if (view == null || view.getTag() == null) {
-            view = LayoutInflater.from(this.mContext).inflate(a.h.ala_guard_throne_privilege_item_layout, (ViewGroup) null);
-            c0496a = new C0496a();
-            c0496a.eyE = (TextView) view.findViewById(a.g.tv_text);
-            c0496a.fnT = (TbImageView) view.findViewById(a.g.iv_pic);
-            c0496a.fnT.setDefaultBgResource(a.f.ala_guard_throne_privilege_corner_bg);
-            view.setTag(c0496a);
+    private void initView() {
+        this.mRootView = new RelativeLayout(this.mTbPageContext.getPageActivity());
+        this.fBL = new com.baidu.tieba.ala.guardthrone.view.a(this.mTbPageContext, false, this.mIsHost);
+        this.fBL.d(this.mLiveId, this.aWr, this.ayw, this.mTabId);
+        this.fBM = new com.baidu.tieba.ala.guardthrone.view.a(this.mTbPageContext, true, this.mIsHost);
+        this.fBM.d(this.mLiveId, this.aWr, this.ayw, this.mTabId);
+        if (UtilHelper.getRealScreenOrientation(this.mTbPageContext.getPageActivity()) == 2) {
+            this.fBM.getRootView().setVisibility(0);
+            this.fBL.getRootView().setVisibility(8);
         } else {
-            c0496a = (C0496a) view.getTag();
+            this.fBM.getRootView().setVisibility(8);
+            this.fBL.getRootView().setVisibility(0);
         }
-        a.C0497a.C0498a c0498a = (this.mList == null || this.mList.size() <= i) ? null : this.mList.get(i);
-        if (c0498a != null) {
-            c0496a.eyE.setText(c0498a.text);
-            c0496a.fnT.startLoad(c0498a.pic, 10, false);
-        }
-        return view;
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
+        layoutParams.addRule(12);
+        this.mRootView.addView(this.fBL.getRootView(), layoutParams);
+        this.mRootView.addView(this.fBM.getRootView(), layoutParams);
     }
 
-    /* renamed from: com.baidu.tieba.ala.guardthrone.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    private class C0496a {
-        public TextView eyE;
-        public TbImageView fnT;
+    @Override // com.baidu.live.h.b
+    public void bB(boolean z) {
+    }
 
-        private C0496a() {
+    @Override // com.baidu.live.h.b
+    public String getTitle() {
+        return this.mTbPageContext != null ? this.mTbPageContext.getResources().getString(a.i.guard_throne_title) : "";
+    }
+
+    @Override // com.baidu.live.h.b
+    public void onConfigurationChanged(Configuration configuration) {
+        if (this.fBL != null && this.fBM != null) {
+            if (configuration.orientation == 2) {
+                this.fBM.getRootView().setVisibility(0);
+                this.fBL.getRootView().setVisibility(8);
+            } else {
+                this.fBM.getRootView().setVisibility(8);
+                this.fBL.getRootView().setVisibility(0);
+            }
+            this.fBL.aNc();
+            this.fBM.aNc();
         }
+    }
+
+    @Override // com.baidu.live.h.b
+    public void onDestroy() {
+        if (this.fBL != null) {
+            this.fBL.bvz();
+            this.fBL.onDestroy();
+        }
+        if (this.fBM != null) {
+            this.fBM.bvz();
+            this.fBM.onDestroy();
+        }
+    }
+
+    @Override // com.baidu.live.h.b
+    public View getView() {
+        return this.mRootView;
     }
 }

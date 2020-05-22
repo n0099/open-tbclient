@@ -5,6 +5,7 @@ import com.baidu.live.tbadk.core.frameworkdata.IntentAction;
 import com.baidu.live.tbadk.core.frameworkdata.IntentConfig;
 /* loaded from: classes3.dex */
 public class AlaGuardThroneActivityConfig extends IntentConfig {
+    public static final String DEFAULT_TAB_TYPE = "DEFAULT_TAB_TYPE";
     public static final String GUARD_THRONE_ANCHOR_ID = "GUARD_THRONE_ANCHOR_ID";
     public static final String GUARD_THRONE_GIFT_ID = "GUARD_THRONE_GIFT_ID";
     public static final String GUARD_THRONE_IS_HOST = "GUARD_THRONE_IS_HOST";
@@ -19,5 +20,9 @@ public class AlaGuardThroneActivityConfig extends IntentConfig {
         getIntent().putExtra(GUARD_THRONE_TAB_ID, i);
         getIntent().putExtra(GUARD_THRONE_IS_HOST, z);
         setIntentAction(IntentAction.Activity);
+    }
+
+    public void setDefaultTabType(String str) {
+        getIntent().putExtra(DEFAULT_TAB_TYPE, str);
     }
 }

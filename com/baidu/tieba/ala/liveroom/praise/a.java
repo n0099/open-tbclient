@@ -1,5 +1,6 @@
 package com.baidu.tieba.ala.liveroom.praise;
 
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import com.baidu.live.adp.framework.MessageManager;
@@ -10,17 +11,20 @@ import com.baidu.tieba.ala.liveroom.operation.b;
 import com.baidu.tieba.ala.liveroom.praise.DetailPraiseView;
 /* loaded from: classes3.dex */
 public class a {
-    private DetailPraiseView fOI;
-    private b fOJ;
-    private DetailPraiseView.a fOK = new DetailPraiseView.a() { // from class: com.baidu.tieba.ala.liveroom.praise.a.1
+    private DetailPraiseView gcN;
+    private b gcO;
+    private boolean gcP;
+    private TbPageContext mTbPageContext;
+    private String otherParams;
+    private DetailPraiseView.a gcQ = new DetailPraiseView.a() { // from class: com.baidu.tieba.ala.liveroom.praise.a.1
         @Override // com.baidu.tieba.ala.liveroom.praise.DetailPraiseView.a
-        public void bzJ() {
-            if (a.this.fOJ != null) {
-                a.this.fOJ.l(a.this.fOI, 12);
+        public void bFS() {
+            if (a.this.gcO != null) {
+                a.this.gcO.l(a.this.gcN, 12);
             }
         }
     };
-    private CustomMessageListener faq = new CustomMessageListener(2913095) { // from class: com.baidu.tieba.ala.liveroom.praise.a.2
+    private CustomMessageListener fnT = new CustomMessageListener(2913095) { // from class: com.baidu.tieba.ala.liveroom.praise.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -33,51 +37,63 @@ public class a {
             }
         }
     };
-    private TbPageContext mTbPageContext;
-    private String otherParams;
 
     public a(TbPageContext tbPageContext) {
         this.mTbPageContext = tbPageContext;
-        this.faq.setTag(this.mTbPageContext.getUniqueId());
-        MessageManager.getInstance().registerListener(this.faq);
+        this.fnT.setTag(this.mTbPageContext.getUniqueId());
+        MessageManager.getInstance().registerListener(this.fnT);
     }
 
     public void b(b bVar) {
-        this.fOJ = bVar;
+        this.gcO = bVar;
     }
 
-    public void kQ(boolean z) {
-        if (this.fOI != null) {
-            this.fOI.setShowPraise(z);
+    public void ll(boolean z) {
+        if (this.gcP && z) {
+            z = false;
         }
+        if (this.gcN != null) {
+            this.gcN.setShowPraise(z);
+        }
+    }
+
+    public void lm(boolean z) {
+        this.gcP = z;
     }
 
     public void setPraiseEnable(boolean z) {
-        if (this.fOI != null) {
-            this.fOI.setPraiseEnable(z);
+        if (this.gcP && z) {
+            z = false;
+        }
+        if (this.gcN != null) {
+            this.gcN.setPraiseEnable(z);
         }
     }
 
-    public void an(ViewGroup viewGroup) {
+    public void au(ViewGroup viewGroup) {
         if (viewGroup != null && this.mTbPageContext != null) {
-            if (this.fOI == null) {
-                this.fOI = new DetailPraiseView(this.mTbPageContext.getPageActivity());
+            if (this.gcN == null) {
+                this.gcN = new DetailPraiseView(this.mTbPageContext.getPageActivity());
             }
-            this.fOI.setOnDoubleClickListener(this.fOK);
-            if (this.fOI.getParent() != null) {
-                ((ViewGroup) this.fOI.getParent()).removeView(this.fOI);
+            this.gcN.setOnDoubleClickListener(this.gcQ);
+            if (this.gcN.getParent() != null) {
+                ((ViewGroup) this.gcN.getParent()).removeView(this.gcN);
             }
-            viewGroup.addView(this.fOI, 0, new RelativeLayout.LayoutParams(-1, -1));
+            viewGroup.addView(this.gcN, 0, new RelativeLayout.LayoutParams(-1, -1));
         }
     }
 
-    public void bpp() {
-        if (this.fOI != null) {
-            this.fOI.bpp();
+    public void bvg() {
+        if (this.gcN != null) {
+            this.gcN.bvg();
         }
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.faq);
+        MessageManager.getInstance().unRegisterListener(this.fnT);
+    }
+
+    public View getView() {
+        return this.gcN;
     }
 }

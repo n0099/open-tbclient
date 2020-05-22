@@ -4,13 +4,13 @@ import android.view.View;
 import com.baidu.card.b;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.OriginalThreadInfo;
-import com.baidu.tieba.card.z;
+import com.baidu.tieba.card.aa;
 /* loaded from: classes9.dex */
 public abstract class a {
-    protected b.a adb;
-    protected TbPageContext duK;
-    protected z jEV;
-    protected OriginalThreadInfo jEW;
+    protected b.a adu;
+    protected TbPageContext dIF;
+    protected aa jWw;
+    protected OriginalThreadInfo jWx;
     protected int mSkinType = 3;
 
     public abstract void g(OriginalThreadInfo originalThreadInfo);
@@ -20,14 +20,14 @@ public abstract class a {
     public abstract void onChangeSkinType(TbPageContext tbPageContext, int i);
 
     public a(TbPageContext tbPageContext) {
-        this.duK = tbPageContext;
+        this.dIF = tbPageContext;
     }
 
-    public void a(z zVar) {
-        this.jEV = zVar;
+    public void a(aa aaVar) {
+        this.jWw = aaVar;
     }
 
     public void a(b.a aVar) {
-        this.adb = aVar;
+        this.adu = aVar;
     }
 }

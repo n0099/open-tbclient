@@ -1,8 +1,10 @@
 package com.baidu.live.im;
 
 import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.live.adp.lib.safe.JavaTypesHelper;
+import com.baidu.live.tbadk.TbConfig;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
@@ -11,7 +13,15 @@ import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class r {
     public static List<a> a(com.baidu.c.a.b.a.c cVar) {
-        switch (JavaTypesHelper.toInt(cVar.type, 0)) {
+        return a(cVar, false);
+    }
+
+    public static List<a> a(com.baidu.c.a.b.a.c cVar, boolean z) {
+        int i = JavaTypesHelper.toInt(cVar.type, 0);
+        if (TbConfig.IM_LOG) {
+            Log.i("imlog", "@.@ IM消息 接收: 消息类型：  " + i);
+        }
+        switch (i) {
             case 0:
                 return c(cVar);
             case 1:
@@ -37,8 +47,8 @@ public class r {
     }
 
     private static final List<a> b(com.baidu.c.a.b.a.c cVar) {
-        int i = cVar.bee.bes;
-        String str = cVar.bee.beu;
+        int i = cVar.blG.blT;
+        String str = cVar.blG.blU;
         if (str != null) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
@@ -48,7 +58,7 @@ public class r {
                 for (int i2 = 0; i2 < length; i2++) {
                     JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
                     a aVar = new a();
-                    if (aVar.z(optJSONObject)) {
+                    if (aVar.D(optJSONObject)) {
                         arrayList.add(aVar);
                     }
                 }
@@ -61,7 +71,7 @@ public class r {
     }
 
     private static final List<a> c(com.baidu.c.a.b.a.c cVar) {
-        String str = cVar.bef;
+        String str = cVar.blH;
         if (str != null) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
@@ -71,7 +81,7 @@ public class r {
                 for (int i = 0; i < length; i++) {
                     JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                     a aVar = new a();
-                    if (aVar.z(optJSONObject)) {
+                    if (aVar.D(optJSONObject)) {
                         arrayList.add(aVar);
                     }
                 }
@@ -79,12 +89,25 @@ public class r {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
+        } else if (!TextUtils.isEmpty(cVar.content) && !TextUtils.isEmpty(cVar.name) && !TextUtils.isEmpty(cVar.uid)) {
+            ArrayList arrayList2 = new ArrayList();
+            a aVar2 = new a();
+            aVar2.setMsgType(1);
+            aVar2.setContent(cVar.content);
+            aVar2.setUserId(JavaTypesHelper.toLong(cVar.uid, 0L));
+            com.baidu.live.data.a aVar3 = new com.baidu.live.data.a();
+            aVar3.userId = cVar.uid;
+            aVar3.name_show = cVar.name;
+            aVar3.portrait = cVar.portrait;
+            aVar2.e(aVar3);
+            arrayList2.add(aVar2);
+            return arrayList2;
         }
         return null;
     }
 
     private static final List<a> d(com.baidu.c.a.b.a.c cVar) {
-        int i = cVar.bee.feedback;
+        int i = cVar.blG.feedback;
         ArrayList arrayList = new ArrayList();
         if (i > 0) {
             a aVar = new a();
@@ -105,8 +128,8 @@ public class r {
 
     private static final List<a> e(com.baidu.c.a.b.a.c cVar) {
         ArrayList arrayList = new ArrayList();
-        if (cVar != null && cVar.bee != null) {
-            String str = cVar.bee.bev;
+        if (cVar != null && cVar.blG != null) {
+            String str = cVar.blG.blV;
             if (!TextUtils.isEmpty(str)) {
                 a aVar = new a();
                 aVar.setContent(str);

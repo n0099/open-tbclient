@@ -24,7 +24,7 @@ public final class a {
 
     /* renamed from: com.baidu.fsg.base.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC0113a {
+    public interface InterfaceC0116a {
         void a(c cVar);
     }
 
@@ -41,9 +41,9 @@ public final class a {
         return c;
     }
 
-    public void a(Context context, long j, InterfaceC0113a interfaceC0113a) {
+    public void a(Context context, long j, InterfaceC0116a interfaceC0116a) {
         b bVar;
-        if (interfaceC0113a != null && -1 != j) {
+        if (interfaceC0116a != null && -1 != j) {
             b bVar2 = this.e.get(Long.valueOf(j));
             if (bVar2 == null) {
                 bVar = new b(context, j);
@@ -52,16 +52,16 @@ public final class a {
             } else {
                 bVar = bVar2;
             }
-            bVar.a(interfaceC0113a);
+            bVar.a(interfaceC0116a);
         }
     }
 
-    public void b(Context context, long j, InterfaceC0113a interfaceC0113a) {
+    public void b(Context context, long j, InterfaceC0116a interfaceC0116a) {
         b bVar;
         if (j == -1 || (bVar = this.e.get(Long.valueOf(j))) == null) {
             return;
         }
-        bVar.b(interfaceC0113a);
+        bVar.b(interfaceC0116a);
         if (bVar.a()) {
             context.getContentResolver().unregisterContentObserver(bVar);
             this.e.remove(Uri.parse(b + j));
@@ -152,7 +152,7 @@ public final class a {
     /* loaded from: classes4.dex */
     private final class b extends ContentObserver {
         private final c b;
-        private final HashSet<InterfaceC0113a> c;
+        private final HashSet<InterfaceC0116a> c;
         private long d;
         private long e;
         private int f;
@@ -181,23 +181,23 @@ public final class a {
                 this.f = this.b.a();
                 this.e = currentTimeMillis;
                 synchronized (this) {
-                    InterfaceC0113a[] interfaceC0113aArr = new InterfaceC0113a[this.c.size()];
-                    this.c.toArray(interfaceC0113aArr);
-                    for (InterfaceC0113a interfaceC0113a : interfaceC0113aArr) {
-                        interfaceC0113a.a(this.b);
+                    InterfaceC0116a[] interfaceC0116aArr = new InterfaceC0116a[this.c.size()];
+                    this.c.toArray(interfaceC0116aArr);
+                    for (InterfaceC0116a interfaceC0116a : interfaceC0116aArr) {
+                        interfaceC0116a.a(this.b);
                     }
                 }
             }
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public synchronized boolean a(InterfaceC0113a interfaceC0113a) {
-            return this.c.add(interfaceC0113a);
+        public synchronized boolean a(InterfaceC0116a interfaceC0116a) {
+            return this.c.add(interfaceC0116a);
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public synchronized boolean b(InterfaceC0113a interfaceC0113a) {
-            return this.c.remove(interfaceC0113a);
+        public synchronized boolean b(InterfaceC0116a interfaceC0116a) {
+            return this.c.remove(interfaceC0116a);
         }
 
         /* JADX INFO: Access modifiers changed from: private */

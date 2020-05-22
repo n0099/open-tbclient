@@ -4,24 +4,24 @@ import com.baidu.tieba.ala.alaar.sticker.a.h;
 import java.io.File;
 /* loaded from: classes3.dex */
 public class c extends b {
-    private static File eKO = h.getPrivateCaptureRootChildDir("duSo");
+    private static File eXl = h.getPrivateCaptureRootChildDir("duSo");
 
     public c(a aVar) {
-        super(aVar, eKO);
+        super(aVar, eXl);
     }
 
     @Override // com.baidu.tieba.ala.alaar.sticker.model.b
     public boolean isLoaded() {
-        return bkz() && super.isLoaded();
+        return bpT() && super.isLoaded();
     }
 
-    public boolean bkz() {
+    public boolean bpT() {
         File localFile = getLocalFile();
-        com.baidu.minivideo.arface.b.JW();
+        com.baidu.minivideo.arface.b.LP();
         if (localFile != null && localFile.exists()) {
             File[] listFiles = localFile.listFiles();
             for (File file : listFiles) {
-                if (!new File(com.baidu.minivideo.arface.b.JW(), file.getName()).exists()) {
+                if (!new File(com.baidu.minivideo.arface.b.LP(), file.getName()).exists()) {
                     return false;
                 }
             }
@@ -30,19 +30,19 @@ public class c extends b {
     }
 
     @Override // com.baidu.tieba.ala.alaar.sticker.model.b
-    protected boolean zh(String str) {
+    protected boolean AN(String str) {
         boolean z = false;
         try {
             File file = new File(str);
-            File JW = com.baidu.minivideo.arface.b.JW();
-            com.baidu.tieba.ala.alaar.sticker.b.a.e("AR_DuAbilityModel", "clearAll lib:" + JW + ", def:" + eKO);
-            com.baidu.tieba.ala.alaar.sticker.b.a.e("AR_DuAbilityModel", "onCompleted-unzip:" + str + "\nto " + getLocalFile().getAbsolutePath() + ", sk:" + bkw());
+            File LP = com.baidu.minivideo.arface.b.LP();
+            com.baidu.tieba.ala.alaar.sticker.b.a.e("AR_DuAbilityModel", "clearAll lib:" + LP + ", def:" + eXl);
+            com.baidu.tieba.ala.alaar.sticker.b.a.e("AR_DuAbilityModel", "onCompleted-unzip:" + str + "\nto " + getLocalFile().getAbsolutePath() + ", sk:" + bpQ());
             File file2 = new File(getLocalFile() + ".ziping");
             if (file2.exists()) {
                 com.baidu.tieba.ala.alaar.sticker.b.c.deleteFileOrDir(file2);
             }
             com.baidu.tieba.ala.alaar.sticker.b.c.k(file, file2);
-            if (file2.exists() && com.baidu.tieba.ala.alaar.sticker.b.c.a(file2.listFiles(), JW)) {
+            if (file2.exists() && com.baidu.tieba.ala.alaar.sticker.b.c.a(file2.listFiles(), LP)) {
                 file2.renameTo(getLocalFile());
             }
             z = true;

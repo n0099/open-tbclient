@@ -28,7 +28,7 @@ public enum DisposableHelper implements io.reactivex.disposables.b {
     }
 
     public static boolean setOnce(AtomicReference<io.reactivex.disposables.b> atomicReference, io.reactivex.disposables.b bVar) {
-        io.reactivex.internal.functions.a.h(bVar, "d is null");
+        io.reactivex.internal.functions.a.k(bVar, "d is null");
         if (atomicReference.compareAndSet(null, bVar)) {
             return true;
         }

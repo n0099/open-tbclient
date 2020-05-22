@@ -5,7 +5,7 @@ import com.baidu.live.data.AlaLiveInfoData;
 public interface c {
     void C(int i, String str);
 
-    void Gz();
+    void Is();
 
     void a(int i, String str, AlaLiveInfoData alaLiveInfoData, com.baidu.live.videochat.b.a aVar, com.baidu.live.videochat.b.c cVar);
 

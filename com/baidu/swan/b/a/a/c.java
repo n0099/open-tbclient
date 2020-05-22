@@ -16,10 +16,10 @@ public class c extends com.baidu.swan.b.d.a {
     }
 
     @Override // com.baidu.swan.b.d.a
-    public com.baidu.swan.apps.api.b.b b(@NonNull JSONObject jSONObject, @NonNull com.baidu.swan.apps.p.b bVar) {
+    public com.baidu.swan.apps.api.c.b b(@NonNull JSONObject jSONObject, @NonNull com.baidu.swan.apps.n.b bVar) {
         JSONObject jSONObject2 = new JSONObject();
         try {
-            jSONObject2.put("data", atn());
+            jSONObject2.put("data", awU());
             if (DEBUG) {
                 Log.i("GetAppListAction", jSONObject2.toString());
             }
@@ -28,19 +28,19 @@ public class c extends com.baidu.swan.b.d.a {
                 e.printStackTrace();
             }
         }
-        bVar.V(jSONObject2);
+        bVar.aa(jSONObject2);
         return null;
     }
 
-    private JSONArray atn() throws JSONException {
+    private JSONArray awU() throws JSONException {
         JSONArray jSONArray = new JSONArray();
         for (PackageInfo packageInfo : AppRuntime.getAppContext().getPackageManager().getInstalledPackages(1)) {
-            jSONArray.put(d(packageInfo));
+            jSONArray.put(c(packageInfo));
         }
         return jSONArray;
     }
 
-    private JSONObject d(PackageInfo packageInfo) throws JSONException {
+    private JSONObject c(PackageInfo packageInfo) throws JSONException {
         JSONObject jSONObject = new JSONObject();
         jSONObject.put("appName", packageInfo.applicationInfo.name);
         jSONObject.put("appPackageName", packageInfo.packageName);

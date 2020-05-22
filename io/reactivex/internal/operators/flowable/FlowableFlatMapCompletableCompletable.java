@@ -10,13 +10,13 @@ import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
 public final class FlowableFlatMapCompletableCompletable<T> extends io.reactivex.a {
     final boolean delayErrors;
-    final io.reactivex.g<T> mRM;
     final h<? super T, ? extends io.reactivex.e> mapper;
     final int maxConcurrency;
+    final io.reactivex.g<T> nmU;
 
     @Override // io.reactivex.a
     protected void b(io.reactivex.c cVar) {
-        this.mRM.a((j) new FlatMapCompletableMainSubscriber(cVar, this.mapper, this.delayErrors, this.maxConcurrency));
+        this.nmU.a((j) new FlatMapCompletableMainSubscriber(cVar, this.mapper, this.delayErrors, this.maxConcurrency));
     }
 
     /* loaded from: classes7.dex */
@@ -56,7 +56,7 @@ public final class FlowableFlatMapCompletableCompletable<T> extends io.reactivex
         @Override // org.a.c
         public void onNext(T t) {
             try {
-                io.reactivex.e eVar = (io.reactivex.e) io.reactivex.internal.functions.a.h(this.mapper.apply(t), "The mapper returned a null CompletableSource");
+                io.reactivex.e eVar = (io.reactivex.e) io.reactivex.internal.functions.a.k(this.mapper.apply(t), "The mapper returned a null CompletableSource");
                 getAndIncrement();
                 InnerObserver innerObserver = new InnerObserver();
                 if (!this.disposed && this.set.a(innerObserver)) {

@@ -9,8 +9,8 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
 public abstract class a {
-    protected int ePk;
-    protected com.baidu.tieba.ala.alasquare.special_forum.data.a eXl;
+    protected int fbR;
+    protected com.baidu.tieba.ala.alasquare.special_forum.data.a fjV;
     protected View mMaskView;
     protected int mScreenWidth;
     protected TbPageContext mTbPageContext;
@@ -19,9 +19,9 @@ public abstract class a {
 
     public abstract View getContentView();
 
-    public abstract void iR(boolean z);
-
     public abstract void init();
+
+    public abstract void jj(boolean z);
 
     public abstract void onChangeSkinType(int i);
 
@@ -34,14 +34,14 @@ public abstract class a {
     public a(TbPageContext tbPageContext) {
         this.mTbPageContext = tbPageContext;
         this.mScreenWidth = l.getEquipmentWidth(this.mTbPageContext.getPageActivity());
-        this.ePk = (int) ((this.mScreenWidth * 9.0d) / 16.0d);
+        this.fbR = (int) ((this.mScreenWidth * 9.0d) / 16.0d);
     }
 
     public void a(com.baidu.tieba.ala.alasquare.special_forum.data.a aVar) {
-        this.eXl = aVar;
+        this.fjV = aVar;
     }
 
-    public void O(ViewGroup viewGroup) {
+    public void T(ViewGroup viewGroup) {
         if (viewGroup != null) {
             viewGroup.removeAllViews();
             viewGroup.addView(getContentView());
@@ -49,9 +49,9 @@ public abstract class a {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public View bmp() {
+    public View brN() {
         this.mMaskView = new View(this.mTbPageContext.getPageActivity());
-        this.mMaskView.setLayoutParams(new FrameLayout.LayoutParams(this.mScreenWidth, this.ePk));
+        this.mMaskView.setLayoutParams(new FrameLayout.LayoutParams(this.mScreenWidth, this.fbR));
         this.mMaskView.setBackgroundDrawable(new ColorDrawable(this.mTbPageContext.getPageActivity().getResources().getColor(R.color.black_alpha30)));
         return this.mMaskView;
     }
@@ -62,13 +62,13 @@ public abstract class a {
     public void resume() {
     }
 
-    public void bmq() {
+    public void brO() {
         this.mScreenWidth = l.getEquipmentWidth(this.mTbPageContext.getPageActivity());
-        this.ePk = (int) ((this.mScreenWidth * 9.0d) / 16.0d);
+        this.fbR = (int) ((this.mScreenWidth * 9.0d) / 16.0d);
         if (this.mMaskView != null) {
             FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.mMaskView.getLayoutParams();
             layoutParams.width = this.mScreenWidth;
-            layoutParams.height = this.ePk;
+            layoutParams.height = this.fbR;
             this.mMaskView.setLayoutParams(layoutParams);
         }
     }

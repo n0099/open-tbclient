@@ -11,8 +11,8 @@ import org.a.d;
 /* loaded from: classes7.dex */
 public final class ParallelCollect<T, C> extends a<C> {
     final b<? super C, ? super T> collector;
-    final a<? extends T> mTX;
-    final Callable<? extends C> mTY;
+    final a<? extends T> npb;
+    final Callable<? extends C> npc;
 
     @Override // io.reactivex.parallel.a
     public void a(c<? super C>[] cVarArr) {
@@ -21,14 +21,14 @@ public final class ParallelCollect<T, C> extends a<C> {
             c<? super Object>[] cVarArr2 = new c[length];
             for (int i = 0; i < length; i++) {
                 try {
-                    cVarArr2[i] = new ParallelCollectSubscriber(cVarArr[i], io.reactivex.internal.functions.a.h(this.mTY.call(), "The initialSupplier returned a null value"), this.collector);
+                    cVarArr2[i] = new ParallelCollectSubscriber(cVarArr[i], io.reactivex.internal.functions.a.k(this.npc.call(), "The initialSupplier returned a null value"), this.collector);
                 } catch (Throwable th) {
                     io.reactivex.exceptions.a.L(th);
                     a(cVarArr, th);
                     return;
                 }
             }
-            this.mTX.a(cVarArr2);
+            this.npb.a(cVarArr2);
         }
     }
 
@@ -39,8 +39,8 @@ public final class ParallelCollect<T, C> extends a<C> {
     }
 
     @Override // io.reactivex.parallel.a
-    public int dCO() {
-        return this.mTX.dCO();
+    public int dKI() {
+        return this.npb.dKI();
     }
 
     /* loaded from: classes7.dex */
@@ -70,7 +70,7 @@ public final class ParallelCollect<T, C> extends a<C> {
         public void onNext(T t) {
             if (!this.done) {
                 try {
-                    this.collector.h((C) this.collection, t);
+                    this.collector.i((C) this.collection, t);
                 } catch (Throwable th) {
                     io.reactivex.exceptions.a.L(th);
                     cancel();

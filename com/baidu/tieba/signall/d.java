@@ -8,19 +8,19 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class d implements ae {
     private String avatar;
-    private int eVM;
     private String errorMsg;
+    private int fiv;
     private int forumId;
     private String forumName;
     private boolean isSigned;
-    private int kJl;
-    private int kJm;
-    private int kJn;
-    private int kJo;
-    private boolean kJp;
-    private boolean kJq;
-    private boolean kJr;
-    private int kJs;
+    private int lbB;
+    private int lbC;
+    private int lbD;
+    private int lbE;
+    private boolean lbF;
+    private boolean lbG;
+    private boolean lbH;
+    private int lbI;
 
     public int getForumId() {
         return this.forumId;
@@ -34,82 +34,82 @@ public class d implements ae {
         return this.avatar;
     }
 
-    public int cTE() {
-        return this.kJl;
+    public int daI() {
+        return this.lbB;
     }
 
-    public int cTF() {
-        return this.eVM;
+    public int daJ() {
+        return this.fiv;
     }
 
-    public int cTG() {
-        return this.kJm;
+    public int daK() {
+        return this.lbC;
     }
 
-    public int cTH() {
-        return this.kJn;
+    public int daL() {
+        return this.lbD;
     }
 
-    public int cTI() {
-        return this.kJo;
+    public int daM() {
+        return this.lbE;
     }
 
-    public void CM(int i) {
-        this.kJl = i;
+    public void Dw(int i) {
+        this.lbB = i;
     }
 
-    public void CN(int i) {
-        this.eVM = i;
+    public void Dx(int i) {
+        this.fiv = i;
     }
 
-    public void CO(int i) {
-        this.kJm = i;
+    public void Dy(int i) {
+        this.lbC = i;
     }
 
-    public boolean bmb() {
+    public boolean brz() {
         return this.isSigned;
     }
 
-    public void tG(boolean z) {
+    public void ue(boolean z) {
         this.isSigned = z;
-        this.kJl = 1;
+        this.lbB = 1;
     }
 
-    public boolean cTJ() {
-        return this.kJq;
+    public boolean daN() {
+        return this.lbG;
     }
 
-    public void tH(boolean z) {
-        this.kJq = z;
-        this.kJl = 0;
+    public void uf(boolean z) {
+        this.lbG = z;
+        this.lbB = 0;
     }
 
-    public boolean cTK() {
-        return this.kJr;
+    public boolean daO() {
+        return this.lbH;
     }
 
-    public void tI(boolean z) {
-        this.kJr = z;
+    public void ug(boolean z) {
+        this.lbH = z;
     }
 
-    public int cTL() {
-        return this.kJs;
+    public int daP() {
+        return this.lbI;
     }
 
-    public void CP(int i) {
-        this.kJs = i;
+    public void Dz(int i) {
+        this.lbI = i;
     }
 
     public void setErrorMsg(String str) {
         this.errorMsg = str;
     }
 
-    public boolean cTM() {
-        return this.kJp;
+    public boolean daQ() {
+        return this.lbF;
     }
 
-    public void tJ(boolean z) {
-        this.kJp = z;
+    public void uh(boolean z) {
+        this.lbF = z;
     }
 
     public void parserJson(JSONObject jSONObject) throws Exception {
@@ -117,14 +117,14 @@ public class d implements ae {
             this.forumId = jSONObject.optInt("forum_id");
             this.forumName = jSONObject.optString("forum_name");
             this.avatar = jSONObject.optString(TableDefine.PaSubscribeColumns.COLUMN_AVATAR);
-            this.kJl = jSONObject.optInt("is_sign_in");
-            this.eVM = jSONObject.optInt("cont_sign_num");
-            this.kJm = jSONObject.optInt("user_level");
-            this.kJn = jSONObject.optInt("user_exp");
-            this.kJo = jSONObject.optInt("need_exp");
-            if (this.kJl != 0) {
+            this.lbB = jSONObject.optInt("is_sign_in");
+            this.fiv = jSONObject.optInt("cont_sign_num");
+            this.lbC = jSONObject.optInt("user_level");
+            this.lbD = jSONObject.optInt("user_exp");
+            this.lbE = jSONObject.optInt("need_exp");
+            if (this.lbB != 0) {
                 this.isSigned = true;
-                this.kJq = false;
+                this.lbG = false;
             }
         }
     }

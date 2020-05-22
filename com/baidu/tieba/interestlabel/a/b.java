@@ -16,43 +16,43 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes10.dex */
 public class b extends BaseAdapter {
-    private LabelSettingView iFY;
-    private List<com.baidu.tieba.interestlabel.b.a> iGa;
-    private List<Integer> iGb = new ArrayList();
+    private LabelSettingView iUW;
+    private List<com.baidu.tieba.interestlabel.b.a> iUY;
+    private List<Integer> iUZ = new ArrayList();
     private com.baidu.tieba.interestlabel.b.b mLabelDataSet;
 
     public b(LabelSettingView labelSettingView) {
-        this.iFY = labelSettingView;
+        this.iUW = labelSettingView;
     }
 
     public void setData(com.baidu.tieba.interestlabel.b.b bVar) {
-        if (bVar != null && !v.isEmpty(bVar.clS())) {
+        if (bVar != null && !v.isEmpty(bVar.csu())) {
             this.mLabelDataSet = bVar;
-            this.iGa = bVar.clS();
-            if (!v.isEmpty(bVar.clT())) {
-                this.iGb = new ArrayList(bVar.clT());
+            this.iUY = bVar.csu();
+            if (!v.isEmpty(bVar.csv())) {
+                this.iUZ = new ArrayList(bVar.csv());
             }
         }
     }
 
-    public List<Integer> clP() {
-        return this.mLabelDataSet == null ? new ArrayList() : this.mLabelDataSet.clT();
+    public List<Integer> csr() {
+        return this.mLabelDataSet == null ? new ArrayList() : this.mLabelDataSet.csv();
     }
 
-    public List<Integer> clQ() {
-        return this.iGb;
+    public List<Integer> css() {
+        return this.iUZ;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return v.getCount(this.iGa);
+        return v.getCount(this.iUY);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: xS */
+    /* renamed from: yA */
     public com.baidu.tieba.interestlabel.b.a getItem(int i) {
-        return (com.baidu.tieba.interestlabel.b.a) v.getItem(this.iGa, i);
+        return (com.baidu.tieba.interestlabel.b.a) v.getItem(this.iUY, i);
     }
 
     @Override // android.widget.Adapter
@@ -66,20 +66,20 @@ public class b extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0603b c0603b;
+        C0653b c0653b;
         View view2;
         if (view == null) {
-            view2 = LayoutInflater.from(this.iFY.getContext()).inflate(R.layout.item_label_layout, (ViewGroup) null);
-            C0603b c0603b2 = new C0603b();
-            c0603b2.iGd = (TextView) view2;
-            view2.setTag(c0603b2);
-            c0603b = c0603b2;
+            view2 = LayoutInflater.from(this.iUW.getContext()).inflate(R.layout.item_label_layout, (ViewGroup) null);
+            C0653b c0653b2 = new C0653b();
+            c0653b2.iVb = (TextView) view2;
+            view2.setTag(c0653b2);
+            c0653b = c0653b2;
         } else {
-            c0603b = (C0603b) view.getTag();
+            c0653b = (C0653b) view.getTag();
             view2 = view;
         }
-        c0603b.iGd.setOnClickListener(new a(i));
-        a(c0603b.iGd, getItem(i));
+        c0653b.iVb.setOnClickListener(new a(i));
+        a(c0653b.iVb, getItem(i));
         return view2;
     }
 
@@ -105,10 +105,10 @@ public class b extends BaseAdapter {
 
     /* renamed from: com.baidu.tieba.interestlabel.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    class C0603b {
-        TextView iGd;
+    class C0653b {
+        TextView iVb;
 
-        C0603b() {
+        C0653b() {
         }
     }
 
@@ -129,12 +129,12 @@ public class b extends BaseAdapter {
                     b.this.a((TextView) view, item);
                 }
                 if (item.isFollow) {
-                    b.this.iGb.add(Integer.valueOf(item.labelId));
+                    b.this.iUZ.add(Integer.valueOf(item.labelId));
                 } else {
-                    b.this.iGb.remove(Integer.valueOf(item.labelId));
+                    b.this.iUZ.remove(Integer.valueOf(item.labelId));
                 }
-                if (b.this.iFY != null) {
-                    b.this.iFY.pA(v.getCount(b.this.iGb) > 0);
+                if (b.this.iUW != null) {
+                    b.this.iUW.pX(v.getCount(b.this.iUZ) > 0);
                 }
             }
         }

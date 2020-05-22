@@ -30,7 +30,7 @@ public class MutiTextHorizontalMarqueeView extends HorizontalMarqueeView {
         if (z) {
             textView.setShadowLayer(i5, i6, i7, i8);
         }
-        m(textView, i3, i4);
+        o(textView, i3, i4);
         textView.measure(0, 0);
         this.u = textView.getMeasuredWidth();
         this.v = i3;
@@ -44,7 +44,7 @@ public class MutiTextHorizontalMarqueeView extends HorizontalMarqueeView {
             if (z) {
                 textView2.setShadowLayer(i5, i6, i7, i8);
             }
-            m(textView2, i3, i4);
+            o(textView2, i3, i4);
         }
     }
 

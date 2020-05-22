@@ -19,6 +19,7 @@ import com.baidu.webkit.internal.ETAG;
 import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.PermissionRequest;
 import com.baidu.webkit.sdk.WebChromeClient;
+import com.baidu.webkit.sdk.WebKitFactory;
 import java.io.File;
 /* loaded from: classes11.dex */
 public class BdUploadHandler implements INoProGuard {
@@ -51,7 +52,7 @@ public class BdUploadHandler implements INoProGuard {
         Intent intent = new Intent(this.mActivity.getApplicationContext(), BdPermissionActivity.class);
         intent.putExtra("request_code", 4099);
         intent.putExtra("permissions", new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE});
-        com.baidu.browser.core.permission.a.rd().a(4099, new b(this));
+        com.baidu.browser.core.permission.a.rk().a(4099, new b(this));
         return intent;
     }
 
@@ -59,15 +60,17 @@ public class BdUploadHandler implements INoProGuard {
     @SuppressLint({"NewApi"})
     public Intent createCameraIntentAfterCheckPermission() {
         Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
-        File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).getAbsolutePath() + File.separator + "browser-photos");
-        file.mkdirs();
-        this.mCameraFilePath = file.getAbsolutePath() + File.separator + System.currentTimeMillis() + ".jpg";
-        if (Build.VERSION.SDK_INT >= 24) {
-            ContentValues contentValues = new ContentValues(1);
-            contentValues.put("_data", this.mCameraFilePath);
-            intent.putExtra("output", BdSailor.getInstance().getAppContext().getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, contentValues));
-        } else {
-            intent.putExtra("output", Uri.fromFile(new File(this.mCameraFilePath)));
+        if (WebKitFactory.getContext() != null) {
+            File file = new File(WebKitFactory.getContext().getExternalFilesDir(Environment.DIRECTORY_DCIM).getAbsolutePath() + File.separator + "browser-photos");
+            file.mkdirs();
+            this.mCameraFilePath = file.getAbsolutePath() + File.separator + System.currentTimeMillis() + ".jpg";
+            if (Build.VERSION.SDK_INT >= 24) {
+                ContentValues contentValues = new ContentValues(1);
+                contentValues.put("_data", this.mCameraFilePath);
+                intent.putExtra("output", BdSailor.getInstance().getAppContext().getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, contentValues));
+            } else {
+                intent.putExtra("output", Uri.fromFile(new File(this.mCameraFilePath)));
+            }
         }
         if (Build.VERSION.SDK_INT >= 19) {
             intent.setFlags(3);
@@ -96,13 +99,13 @@ public class BdUploadHandler implements INoProGuard {
     }
 
     public Intent createCameraIntent() {
-        if (com.baidu.browser.core.permission.b.checkCamera(this.mActivity)) {
+        if (com.baidu.browser.core.permission.b.checkCamera(this.mActivity) && com.baidu.browser.core.permission.b.M(this.mActivity)) {
             return createCameraIntentAfterCheckPermission();
         }
         Intent intent = new Intent(this.mActivity.getApplicationContext(), BdPermissionActivity.class);
         intent.putExtra("request_code", 4099);
-        intent.putExtra("permissions", new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE});
-        com.baidu.browser.core.permission.a.rd().a(4099, new a(this));
+        intent.putExtra("permissions", new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE, "android.permission.WRITE_EXTERNAL_STORAGE"});
+        com.baidu.browser.core.permission.a.rk().a(4099, new a(this));
         return intent;
     }
 

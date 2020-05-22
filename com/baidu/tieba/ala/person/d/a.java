@@ -4,7 +4,7 @@ import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.data.AlaLocationData;
 import com.baidu.live.data.AlaRelationData;
 import com.baidu.live.data.PersonUserData;
-import com.baidu.live.data.z;
+import com.baidu.live.data.ad;
 import com.baidu.tieba.ala.person.a.b;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -12,20 +12,20 @@ import org.json.JSONObject;
 public class a {
     public static PersonUserData a(b bVar) {
         PersonUserData personUserData = new PersonUserData();
-        personUserData.user_info = new z();
+        personUserData.user_info = new ad();
         personUserData.relation_info = new AlaRelationData();
         personUserData.location_info = new AlaLocationData();
-        personUserData.user_info.atT = bVar.metaKey;
+        personUserData.user_info.ayW = bVar.metaKey;
         personUserData.user_info.user_id = bVar.id;
         personUserData.user_info.user_name = bVar.name;
         personUserData.user_info.user_nickname = bVar.name_show;
         personUserData.user_info.description = bVar.intro;
         personUserData.user_info.portrait = bVar.portrait;
-        personUserData.relation_info.follow_status = bVar.fqH;
+        personUserData.relation_info.follow_status = bVar.fEB;
         return personUserData;
     }
 
-    public static String aP(int i, String str) {
+    public static String aU(int i, String str) {
         String str2;
         String str3;
         String str4 = null;
@@ -58,11 +58,11 @@ public class a {
         return null;
     }
 
-    public static String dL(long j) {
-        return j / 10000 > 0 ? p(Math.floor(j / 1000.0d) / 10.0d) + "w" : String.valueOf(j);
+    public static String dM(long j) {
+        return j / 10000 > 0 ? q(Math.floor(j / 1000.0d) / 10.0d) + "w" : String.valueOf(j);
     }
 
-    public static String p(double d) {
+    public static String q(double d) {
         String valueOf = String.valueOf(d);
         int indexOf = valueOf.indexOf(".");
         String substring = valueOf.substring(indexOf + 1, valueOf.length());

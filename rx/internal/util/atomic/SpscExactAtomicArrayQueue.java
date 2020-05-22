@@ -15,7 +15,7 @@ public final class SpscExactAtomicArrayQueue<T> extends AtomicReferenceArray<T> 
     final AtomicLong producerIndex;
 
     public SpscExactAtomicArrayQueue(int i) {
-        super(h.Ja(i));
+        super(h.JL(i));
         int length = length();
         this.mask = length - 1;
         this.capacitySkip = length - i;

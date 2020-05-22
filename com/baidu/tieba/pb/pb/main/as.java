@@ -1,58 +1,46 @@
 package com.baidu.tieba.pb.pb.main;
 
+import android.net.Uri;
 import android.text.TextUtils;
 import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.message.GameLaunchMessage;
-import com.baidu.tbadk.core.util.ba;
-import java.util.Map;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.data.ForumData;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes9.dex */
 public class as {
-    private static as jCa = null;
+    private TbPageContext dIF;
+    private boolean jQV;
+    private com.baidu.tbadk.core.data.at jQW;
 
-    public static as cBB() {
-        if (jCa == null) {
-            synchronized (as.class) {
-                if (jCa == null) {
-                    jCa = new as();
-                }
+    public as(TbPageContext tbPageContext) {
+        Uri uri;
+        this.jQV = false;
+        this.dIF = tbPageContext;
+        if (this.dIF.getPageActivity() != null && this.dIF.getPageActivity().getIntent() != null && (uri = (Uri) this.dIF.getPageActivity().getIntent().getParcelableExtra(IntentConfig.KEY_URI)) != null) {
+            String queryParameter = uri.getQueryParameter("tid");
+            uri.getQueryParameter("eqid");
+            this.jQW = new com.baidu.tbadk.core.data.at();
+            this.jQW.tid = uri.getQueryParameter("tid");
+            this.jQW.dDx = uri.getQueryParameter("eqid");
+            if (!TextUtils.isEmpty(queryParameter) && com.baidu.adp.base.a.jm().getSize() <= 3) {
+                this.jQV = true;
             }
         }
-        return jCa;
     }
 
-    public void d(TbPageContext tbPageContext, String str) {
-        if (tbPageContext != null && !TextUtils.isEmpty(str)) {
-            if (str.contains("is_native_app=1")) {
-            }
-            if (HT(str)) {
-                MessageManager.getInstance().dispatchResponsedMessage(new GameLaunchMessage(tbPageContext.getPageActivity(), null, str, null));
-            } else if (HU(str)) {
-                ba.aOV().a((TbPageContext<?>) tbPageContext, new String[]{str}, true);
+    public void h(PbModel pbModel) {
+        if (this.jQV && this.jQW != null && pbModel != null && pbModel.getPbData() != null && pbModel.getPbData().getForum() != null) {
+            ForumData forum = pbModel.getPbData().getForum();
+            this.jQW.firstDir = forum.getFirst_class();
+            this.jQW.secondDir = forum.getSecond_class();
+            TbSingleton.getInstance().setPbToHomeUpdateData(this.jQW);
+            if (com.baidu.adp.base.a.jm().bi("MainTabActivity")) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921455));
             } else {
-                ba.aOV().b(tbPageContext, new String[]{str});
+                TbSingleton.getInstance().setForceRefreshHomeRecommend(true);
             }
         }
-    }
-
-    public static boolean HS(String str) {
-        return str != null && str.contains("bookcover:");
-    }
-
-    private boolean HT(String str) {
-        Map<String, String> paramPair;
-        if (!TextUtils.isEmpty(str) && (paramPair = ba.getParamPair(ba.getParamStr(str))) != null) {
-            String str2 = paramPair.get("url");
-            if (!TextUtils.isEmpty(str2)) {
-                return HT(com.baidu.adp.lib.util.k.getUrlDecode(str2));
-            }
-            String str3 = paramPair.get("tbgametype");
-            return !TextUtils.isEmpty(str3) && str3.equals("1");
-        }
-        return false;
-    }
-
-    private boolean HU(String str) {
-        return !TextUtils.isEmpty(str) && str.contains("xiaoying.tv");
     }
 }

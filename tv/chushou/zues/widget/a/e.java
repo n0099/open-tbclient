@@ -7,11 +7,11 @@ import android.graphics.drawable.Drawable;
 import android.text.style.ImageSpan;
 /* loaded from: classes5.dex */
 public class e extends ImageSpan {
-    private final Paint.FontMetricsInt mhe;
+    private final Paint.FontMetricsInt mAV;
 
     public e(Drawable drawable) {
         super(drawable);
-        this.mhe = new Paint.FontMetricsInt();
+        this.mAV = new Paint.FontMetricsInt();
     }
 
     @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
@@ -34,8 +34,8 @@ public class e extends ImageSpan {
     @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
     public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
         Drawable drawable = getDrawable();
-        paint.getFontMetricsInt(this.mhe);
-        int height = (((this.mhe.descent - this.mhe.ascent) - drawable.getBounds().height()) / 2) + this.mhe.ascent + i4;
+        paint.getFontMetricsInt(this.mAV);
+        int height = (((this.mAV.descent - this.mAV.ascent) - drawable.getBounds().height()) / 2) + this.mAV.ascent + i4;
         canvas.translate(f, height);
         drawable.draw(canvas);
         canvas.translate(-f, -height);

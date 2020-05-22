@@ -32,10 +32,12 @@ import java.util.Map;
 /* loaded from: classes6.dex */
 public class BoostFlutterActivity extends Activity implements j, FlutterActivityAndFragmentDelegate.Host {
     protected static final String DEFAULT_BACKGROUND_MODE = BackgroundMode.opaque.name();
+    protected static final String EXTRA_ANIMATED = "animated";
     protected static final String EXTRA_BACKGROUND_MODE = "background_mode";
     protected static final String EXTRA_DART_ENTRYPOINT = "dart_entrypoint";
     protected static final String EXTRA_DESTROY_ENGINE_WITH_ACTIVITY = "destroy_engine_with_activity";
     protected static final String EXTRA_PARAMS = "params";
+    protected static final String EXTRA_SWIPEBACK = "swipeback";
     protected static final String EXTRA_URL = "url";
     protected static final String NORMAL_THEME_META_DATA_KEY = "io.flutter.embedding.android.NormalTheme";
     protected static final String SPLASH_SCREEN_META_DATA_KEY = "io.flutter.embedding.android.SplashScreenDrawable";
@@ -323,5 +325,13 @@ public class BoostFlutterActivity extends Activity implements j, FlutterActivity
             return ((SerializableMap) getIntent().getSerializableExtra("params")).getMap();
         }
         return new HashMap();
+    }
+
+    @Override // com.idlefish.flutterboost.containers.FlutterActivityAndFragmentDelegate.Host
+    public void onFlutterContainerOpen() {
+    }
+
+    @Override // com.idlefish.flutterboost.containers.FlutterActivityAndFragmentDelegate.Host
+    public void onFlutterContainerClose() {
     }
 }

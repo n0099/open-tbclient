@@ -13,19 +13,19 @@ public class eh extends ed {
 
     @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public int mo162a() {
+    public int mo164a() {
         return 9;
     }
 
     @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public ho mo162a() {
+    public ho mo164a() {
         return ho.TopApp;
     }
 
     @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public String mo162a() {
+    public String mo164a() {
         return null;
     }
 }

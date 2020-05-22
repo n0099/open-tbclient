@@ -23,7 +23,7 @@ import com.baidu.ala.helper.AlaFrameTrack;
 import com.baidu.ala.recorder.video.AlaLiveVideoConfig;
 import com.baidu.ala.recorder.video.IVideoRecorder;
 import com.baidu.ala.recorder.video.RecorderHandler;
-import com.baidu.ala.recorder.video.gles.FullFrameRect2;
+import com.baidu.ala.recorder.video.gles.AFullFrameRect;
 import com.baidu.ala.recorder.video.gles.GlUtil;
 import com.baidu.ala.recorder.video.gles.Texture2dProgram;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
@@ -202,7 +202,7 @@ public class AlaScreenRecorderThread extends Thread {
     /* loaded from: classes3.dex */
     public static class RenderWindow {
         private static final int MAX_FPS = 30;
-        private FullFrameRect2 mFullScreen;
+        private AFullFrameRect mFullScreen;
         private int mInputHeight;
         private int mInputWidth;
         private Surface mSurface;
@@ -258,7 +258,7 @@ public class AlaScreenRecorderThread extends Thread {
             this.mSurfaceTexture.setDefaultBufferSize(this.mInputWidth, this.mInputHeight);
             this.mSurfaceTexture.setOnFrameAvailableListener(this.mSurfaceTextureListener);
             this.mSurface = new Surface(this.mSurfaceTexture);
-            this.mFullScreen = new FullFrameRect2(new Texture2dProgram(Texture2dProgram.ProgramType.TEXTURE_EXT));
+            this.mFullScreen = new AFullFrameRect(new Texture2dProgram(Texture2dProgram.ProgramType.TEXTURE_EXT));
             GlUtil.checkGlError("build Program");
             return 0;
         }

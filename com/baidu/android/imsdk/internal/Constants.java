@@ -48,6 +48,7 @@ public final class Constants {
     public static final String ERROR_MSG_NOT_MEDIA_ROLE_ERROR = "not amedia role";
     public static final String ERROR_MSG_PARAMETER_ERROR = "Parameter error!";
     public static final String ERROR_MSG_SERVER_INTERNAL_ERROR = "Server error!";
+    public static final String ERROR_MSG_SERVICE_ERROR = "service exception";
     public static final String ERROR_MSG_SUCCESS = "Sucess!";
     public static final String EXTRA_ALARM_ALERT = "AlarmAlert";
     public static final String EXTRA_BAIDU_UID = "buid";
@@ -146,6 +147,7 @@ public final class Constants {
     public static final String KEY_PUSH_BIND_STATUS = "push_bindCUID_status";
     public static final String KEY_PUSH_CHANNEL_ID = "push_channelId";
     public static final String KEY_PUSH_USER_ID = "push_userId";
+    public static final String KEY_STUDIO_IS_HOST_SEND_MSG = "is_host_send_msg";
     public static final String KEY_SYNC_DAILOG_MAXMSGID = "sync_max_msgid";
     public static final String KEY_SYNC_FIRST_TIME = "sync first time";
     public static final String KEY_SYNC_MSG_TAB_TIME = "sync_msg_tab_time";
@@ -157,7 +159,7 @@ public final class Constants {
     public static final String KEY_USER_SETTING_NOT_CONCERNED = "user_setting_not_concerned";
     public static final String KEY_VCODE = "imsdk_product_vcode";
     public static final String KEY_ZID = "imsdk_product_zid";
-    public static final String LITTLE_VERSION = "1";
+    public static final String LITTLE_VERSION = "7";
     public static final int LOGIN_STATE_LOGIN = 3;
     public static final int LOGIN_STATE_LOGINING = 1;
     public static final int LOGIN_STATE_LOGIN_FAILED = 2;
@@ -272,6 +274,7 @@ public final class Constants {
     public static String URL_SOCKET_SERVER = "pimc.baidu.com";
     public static final int SOCKET_PORT_TCP = 8100;
     public static int URL_SOCKET_PORT = SOCKET_PORT_TCP;
+    public static int IM_ENV = 0;
     public static final String[] mSdkPermissions = {"android.permission.INTERNET", "android.permission.READ_PHONE_STATE", "android.permission.ACCESS_NETWORK_STATE", "android.permission.RECEIVE_BOOT_COMPLETED", "android.permission.VIBRATE", "android.permission.ACCESS_COARSE_LOCATION", "android.permission.ACCESS_WIFI_STATE"};
 
     public static boolean isDebugMode() {
@@ -287,41 +290,41 @@ public final class Constants {
     }
 
     public static boolean setEnv(Context context, int i) {
-        boolean writeIntData = Utility.writeIntData(context, KEY_ENV, i);
-        if (writeIntData) {
-            long appid = AccountManager.getAppid(context);
-            switch (i) {
-                case 0:
-                    if (dispatchToPimc2(appid)) {
-                        URL_SOCKET_SERVER = URL_SOCKET_SERVER_OL_HQ;
-                        URL_SOCKET_PORT = URL_SOCKET_PORT_OL_SSL;
-                        break;
-                    } else {
-                        URL_SOCKET_SERVER = "pimc.baidu.com";
-                        URL_SOCKET_PORT = URL_SOCKET_PORT_OL_SSL;
-                        break;
-                    }
-                case 1:
-                    URL_SOCKET_SERVER = URL_SOCKET_SERVER_RD;
+        long appid = AccountManager.getAppid(context);
+        switch (i) {
+            case 0:
+                if (dispatchToPimc2(appid)) {
+                    URL_SOCKET_SERVER = URL_SOCKET_SERVER_OL_HQ;
+                    URL_SOCKET_PORT = URL_SOCKET_PORT_OL_SSL;
+                    break;
+                } else {
+                    URL_SOCKET_SERVER = "pimc.baidu.com";
+                    URL_SOCKET_PORT = URL_SOCKET_PORT_OL_SSL;
+                    break;
+                }
+            case 1:
+                URL_SOCKET_SERVER = URL_SOCKET_SERVER_RD;
+                URL_SOCKET_PORT = SOCKET_PORT_TCP;
+                break;
+            case 2:
+                URL_SOCKET_SERVER = URL_SOCKET_SERVER_QA;
+                URL_SOCKET_PORT = SOCKET_PORT_TCP;
+                break;
+            case 3:
+                if (dispatchToPimc2(appid)) {
+                    URL_SOCKET_SERVER = URL_SOCKET_SERVER_OL_HQ;
+                    URL_SOCKET_PORT = URL_SOCKET_PORT_OL_SSL;
+                    break;
+                } else {
+                    URL_SOCKET_SERVER = URL_SOCKET_SERVER_TEST_BOX;
                     URL_SOCKET_PORT = SOCKET_PORT_TCP;
                     break;
-                case 2:
-                    URL_SOCKET_SERVER = URL_SOCKET_SERVER_QA;
-                    URL_SOCKET_PORT = SOCKET_PORT_TCP;
-                    break;
-                case 3:
-                    if (dispatchToPimc2(appid)) {
-                        URL_SOCKET_SERVER = URL_SOCKET_SERVER_OL_HQ;
-                        URL_SOCKET_PORT = URL_SOCKET_PORT_OL_SSL;
-                        break;
-                    } else {
-                        URL_SOCKET_SERVER = URL_SOCKET_SERVER_TEST_BOX;
-                        URL_SOCKET_PORT = SOCKET_PORT_TCP;
-                        break;
-                    }
-            }
+                }
         }
-        return writeIntData;
+        if (IM_ENV != getEnv(context)) {
+            Utility.writeIntData(context, KEY_ENV, i);
+        }
+        return true;
     }
 
     private static boolean dispatchToPimc2(long j) {

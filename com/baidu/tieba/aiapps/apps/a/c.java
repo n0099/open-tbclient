@@ -18,34 +18,41 @@ import com.baidu.sapi2.result.GetTplStokenResult;
 import com.baidu.sapi2.result.RealNameFaceIDResult;
 import com.baidu.sapi2.result.SapiResult;
 import com.baidu.sapi2.result.UnRealNameFaceIDResult;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.sofire.ac.FH;
 import com.baidu.swan.apps.storage.c.h;
 import com.baidu.swan.bdprivate.a.aa;
 import com.baidu.swan.bdprivate.a.l;
 import com.baidu.swan.bdprivate.a.y;
 import com.baidu.swan.bdprivate.a.z;
+import com.baidu.swan.bdprivate.api.b;
+import com.baidu.swan.bdprivate.b.a;
+import com.baidu.swan.bdprivate.e.a;
+import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes12.dex */
 public class c implements com.baidu.swan.bdprivate.a.a.a {
     @Override // com.baidu.swan.bdprivate.a.a.a
     public void a(Context context, Bundle bundle, com.baidu.swan.apps.a.a aVar) {
-        a.bhM().a(context, bundle, aVar);
+        a.bnX().a(context, bundle, aVar);
     }
 
     @Override // com.baidu.swan.bdprivate.a.a.a
     public boolean isLogin(Context context) {
-        return a.bhM().isLogin();
+        return a.bnX().isLogin();
     }
 
     @Override // com.baidu.swan.bdprivate.a.a.a
     public String getBduss(Context context) {
-        return a.bhM().getBduss();
+        return a.bnX().getBduss();
+    }
+
+    @Override // com.baidu.swan.bdprivate.a.a.a
+    public void a(String str, ArrayList<String> arrayList, b.a aVar) {
+        a.bnX().b(str, arrayList, aVar);
     }
 
     @Override // com.baidu.swan.bdprivate.a.a.a
     public String getUid(Context context) {
-        return a.bhM().getUid();
+        return a.bnX().getUid();
     }
 
     @Override // com.baidu.swan.bdprivate.a.a.a
@@ -63,16 +70,16 @@ public class c implements com.baidu.swan.bdprivate.a.a.a {
     }
 
     @Override // com.baidu.swan.bdprivate.a.a.a
-    public z cF(Context context) {
+    public z cT(Context context) {
         z zVar = new z();
-        zVar.displayName = a.bhM().getDisplayName();
-        zVar.aJo = a.bhM().bhO();
+        zVar.displayName = a.bnX().getDisplayName();
+        zVar.aOX = a.bnX().bnZ();
         return zVar;
     }
 
     @Override // com.baidu.swan.bdprivate.a.a.a
     public void b(com.baidu.swan.apps.a.c cVar) {
-        a.bhM().a(cVar);
+        a.bnX().a(cVar);
     }
 
     @Override // com.baidu.swan.bdprivate.a.a.a
@@ -129,13 +136,13 @@ public class c implements com.baidu.swan.bdprivate.a.a.a {
     }
 
     @Override // com.baidu.swan.bdprivate.a.a.a
-    public String cC(Context context) {
-        return h.any().getString("bd_box_ptoken", "");
+    public String cQ(Context context) {
+        return h.arO().getString("bd_box_ptoken", "");
     }
 
     @Override // com.baidu.swan.bdprivate.a.a.a
     public String getZid(Context context) {
-        return FH.gz(AppRuntime.getAppContext());
+        return null;
     }
 
     private static String generateUID(Context context) {
@@ -189,5 +196,15 @@ public class c implements com.baidu.swan.bdprivate.a.a.a {
                 aaVar.onFailure(accountRealNameResult.getResultMsg());
             }
         }, realNameDTO);
+    }
+
+    @Override // com.baidu.swan.bdprivate.a.a.a
+    public void a(Context context, a.InterfaceC0408a interfaceC0408a) {
+        a.bnX().a(context, "1", interfaceC0408a);
+    }
+
+    @Override // com.baidu.swan.bdprivate.a.a.a
+    public void a(Context context, a.InterfaceC0412a interfaceC0412a) {
+        a.bnX().a(context, "1", interfaceC0412a);
     }
 }

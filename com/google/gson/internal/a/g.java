@@ -25,7 +25,7 @@ public final class g implements TypeAdapterFactory {
     @Override // com.google.gson.TypeAdapterFactory
     public <T> TypeAdapter<T> create(Gson gson, com.google.gson.b.a<T> aVar) {
         Type type = aVar.getType();
-        if (!Map.class.isAssignableFrom(aVar.dwa())) {
+        if (!Map.class.isAssignableFrom(aVar.dDr())) {
             return null;
         }
         Type[] b = C$Gson$Types.b(type, C$Gson$Types.f(type));
@@ -33,37 +33,37 @@ public final class g implements TypeAdapterFactory {
     }
 
     private TypeAdapter<?> a(Gson gson, Type type) {
-        return (type == Boolean.TYPE || type == Boolean.class) ? n.mkF : gson.getAdapter(com.google.gson.b.a.k(type));
+        return (type == Boolean.TYPE || type == Boolean.class) ? n.mEz : gson.getAdapter(com.google.gson.b.a.k(type));
     }
 
     /* loaded from: classes7.dex */
     private final class a<K, V> extends TypeAdapter<Map<K, V>> {
-        private final com.google.gson.internal.f<? extends Map<K, V>> mjQ;
-        private final TypeAdapter<K> mkb;
-        private final TypeAdapter<V> mkc;
+        private final com.google.gson.internal.f<? extends Map<K, V>> mDK;
+        private final TypeAdapter<K> mDV;
+        private final TypeAdapter<V> mDW;
 
         public a(Gson gson, Type type, TypeAdapter<K> typeAdapter, Type type2, TypeAdapter<V> typeAdapter2, com.google.gson.internal.f<? extends Map<K, V>> fVar) {
-            this.mkb = new m(gson, typeAdapter, type);
-            this.mkc = new m(gson, typeAdapter2, type2);
-            this.mjQ = fVar;
+            this.mDV = new m(gson, typeAdapter, type);
+            this.mDW = new m(gson, typeAdapter2, type2);
+            this.mDK = fVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.gson.TypeAdapter
         /* renamed from: c */
         public Map<K, V> read(com.google.gson.stream.a aVar) throws IOException {
-            JsonToken dvH = aVar.dvH();
-            if (dvH == JsonToken.NULL) {
-                aVar.dvM();
+            JsonToken dCY = aVar.dCY();
+            if (dCY == JsonToken.NULL) {
+                aVar.dDd();
                 return null;
             }
-            Map<K, V> construct = this.mjQ.construct();
-            if (dvH == JsonToken.BEGIN_ARRAY) {
-                aVar.dvF();
+            Map<K, V> construct = this.mDK.construct();
+            if (dCY == JsonToken.BEGIN_ARRAY) {
+                aVar.dCW();
                 while (aVar.hasNext()) {
-                    aVar.dvF();
-                    K read = this.mkb.read(aVar);
-                    if (construct.put(read, this.mkc.read(aVar)) != null) {
+                    aVar.dCW();
+                    K read = this.mDV.read(aVar);
+                    if (construct.put(read, this.mDW.read(aVar)) != null) {
                         throw new JsonSyntaxException("duplicate key: " + read);
                     }
                     aVar.endArray();
@@ -71,11 +71,11 @@ public final class g implements TypeAdapterFactory {
                 aVar.endArray();
                 return construct;
             }
-            aVar.dvG();
+            aVar.dCX();
             while (aVar.hasNext()) {
-                com.google.gson.internal.e.mji.a(aVar);
-                K read2 = this.mkb.read(aVar);
-                if (construct.put(read2, this.mkc.read(aVar)) != null) {
+                com.google.gson.internal.e.mCZ.a(aVar);
+                K read2 = this.mDV.read(aVar);
+                if (construct.put(read2, this.mDW.read(aVar)) != null) {
                     throw new JsonSyntaxException("duplicate key: " + read2);
                 }
             }
@@ -92,45 +92,45 @@ public final class g implements TypeAdapterFactory {
         public void write(com.google.gson.stream.b bVar, Map<K, V> map) throws IOException {
             int i = 0;
             if (map == null) {
-                bVar.dvW();
+                bVar.dDn();
             } else if (!g.this.complexMapKeySerialization) {
-                bVar.dvU();
+                bVar.dDl();
                 for (Map.Entry<K, V> entry : map.entrySet()) {
-                    bVar.OA(String.valueOf(entry.getKey()));
-                    this.mkc.write(bVar, entry.getValue());
+                    bVar.Qo(String.valueOf(entry.getKey()));
+                    this.mDW.write(bVar, entry.getValue());
                 }
-                bVar.dvV();
+                bVar.dDm();
             } else {
                 ArrayList arrayList = new ArrayList(map.size());
                 ArrayList arrayList2 = new ArrayList(map.size());
                 boolean z = false;
                 for (Map.Entry<K, V> entry2 : map.entrySet()) {
-                    JsonElement jsonTree = this.mkb.toJsonTree(entry2.getKey());
+                    JsonElement jsonTree = this.mDV.toJsonTree(entry2.getKey());
                     arrayList.add(jsonTree);
                     arrayList2.add(entry2.getValue());
                     z = (jsonTree.isJsonArray() || jsonTree.isJsonObject()) | z;
                 }
                 if (z) {
-                    bVar.dvS();
+                    bVar.dDj();
                     int size = arrayList.size();
                     while (i < size) {
-                        bVar.dvS();
+                        bVar.dDj();
                         com.google.gson.internal.i.a((JsonElement) arrayList.get(i), bVar);
-                        this.mkc.write(bVar, arrayList2.get(i));
-                        bVar.dvT();
+                        this.mDW.write(bVar, arrayList2.get(i));
+                        bVar.dDk();
                         i++;
                     }
-                    bVar.dvT();
+                    bVar.dDk();
                     return;
                 }
-                bVar.dvU();
+                bVar.dDl();
                 int size2 = arrayList.size();
                 while (i < size2) {
-                    bVar.OA(b((JsonElement) arrayList.get(i)));
-                    this.mkc.write(bVar, arrayList2.get(i));
+                    bVar.Qo(b((JsonElement) arrayList.get(i)));
+                    this.mDW.write(bVar, arrayList2.get(i));
                     i++;
                 }
-                bVar.dvV();
+                bVar.dDm();
             }
         }
 

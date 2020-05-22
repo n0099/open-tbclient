@@ -5,8 +5,8 @@ import android.support.annotation.NonNull;
 /* loaded from: classes11.dex */
 public class d extends com.baidu.swan.apps.process.a.a.a {
     @Override // com.baidu.swan.apps.process.a.a.a
-    public void y(@NonNull Bundle bundle) {
-        this.chU.putInt("net_quality", -1000);
+    public void A(@NonNull Bundle bundle) {
+        this.ctk.putInt("net_quality", -1000);
         finish();
     }
 }

@@ -10,7 +10,27 @@ import java.util.Map;
 import java.util.Objects;
 /* loaded from: classes11.dex */
 public class b extends f {
-    private List<a> dbp;
+    private List<a> dmB;
+
+    public b(List<a> list) {
+        super(-1);
+        if (list != null && !list.isEmpty()) {
+            LinkedHashSet linkedHashSet = new LinkedHashSet(list.size());
+            linkedHashSet.addAll(list);
+            if (linkedHashSet.size() != list.size()) {
+                list.clear();
+                list.addAll(linkedHashSet);
+            }
+            Map<String, PMSAppInfo> aFX = com.baidu.swan.pms.database.a.aFV().aFX();
+            Map<String, com.baidu.swan.pms.model.f> aFW = com.baidu.swan.pms.database.a.aFV().aFW();
+            for (a aVar : list) {
+                if (aVar != null && !TextUtils.isEmpty(aVar.getBundleId())) {
+                    a(aFX, aFW, aVar);
+                }
+            }
+            this.dmB = list;
+        }
+    }
 
     public b(Collection<String> collection) {
         super(-1);
@@ -21,17 +41,17 @@ public class b extends f {
                 collection.clear();
                 collection.addAll(linkedHashSet);
             }
-            Map<String, PMSAppInfo> aBK = com.baidu.swan.pms.database.a.aBI().aBK();
-            Map<String, com.baidu.swan.pms.model.f> aBJ = com.baidu.swan.pms.database.a.aBI().aBJ();
+            Map<String, PMSAppInfo> aFX = com.baidu.swan.pms.database.a.aFV().aFX();
+            Map<String, com.baidu.swan.pms.model.f> aFW = com.baidu.swan.pms.database.a.aFV().aFW();
             ArrayList arrayList = new ArrayList();
             for (String str : collection) {
                 if (!TextUtils.isEmpty(str)) {
                     a aVar = new a(str);
-                    a(aBK, aBJ, aVar);
+                    a(aFX, aFW, aVar);
                     arrayList.add(aVar);
                 }
             }
-            this.dbp = arrayList;
+            this.dmB = arrayList;
         }
     }
 
@@ -42,51 +62,62 @@ public class b extends f {
                 aVar.setCategory(pMSAppInfo.appCategory);
             }
             if (!map2.containsKey(aVar.getBundleId())) {
-                aVar.iP(0);
+                aVar.jf(0);
             } else {
-                aVar.iP(pMSAppInfo.versionCode);
+                aVar.jf(pMSAppInfo.versionCode);
             }
-            aVar.bP(pMSAppInfo.appSign);
+            aVar.bN(pMSAppInfo.appSign);
         }
     }
 
-    public List<a> aCx() {
-        return this.dbp;
+    public List<a> aGN() {
+        return this.dmB;
     }
 
     /* loaded from: classes11.dex */
     public static class a {
-        private String dbq;
-        private int mCategory = -1;
-        private int dbr = 0;
-        private long dbs = 0;
+        private String dmC;
+        private int dmD;
+        private long dmE;
+        private int mCategory;
 
         public a(String str) {
-            this.dbq = str;
+            this.mCategory = -1;
+            this.dmD = 0;
+            this.dmE = 0L;
+            this.dmC = str;
+        }
+
+        public a(String str, int i) {
+            this.mCategory = -1;
+            this.dmD = 0;
+            this.dmE = 0L;
+            this.dmC = str;
+            this.mCategory = i;
         }
 
         public String getBundleId() {
-            return this.dbq;
+            return this.dmC;
         }
 
-        public int aCy() {
-            return this.dbr;
+        public int aGO() {
+            return this.dmD;
         }
 
         public int getCategory() {
             return this.mCategory;
         }
 
-        public long aCz() {
-            return this.dbs;
+        public long aGP() {
+            return this.dmE;
         }
 
-        void iP(int i) {
-            this.dbr = i;
+        void jf(int i) {
+            this.dmD = i;
         }
 
-        void bP(long j) {
-            this.dbs = j;
+        void bN(long j) {
+            this.dmE = j;
         }
 
         void setCategory(int i) {
@@ -94,7 +125,7 @@ public class b extends f {
         }
 
         public int hashCode() {
-            return Objects.hash(this.dbq, Integer.valueOf(this.mCategory));
+            return Objects.hash(this.dmC, Integer.valueOf(this.mCategory));
         }
 
         public boolean equals(Object obj) {
@@ -103,7 +134,7 @@ public class b extends f {
             }
             if (obj instanceof a) {
                 a aVar = (a) obj;
-                return TextUtils.equals(aVar.getBundleId(), this.dbq) && aVar.getCategory() == this.mCategory;
+                return TextUtils.equals(aVar.getBundleId(), this.dmC) && aVar.getCategory() == this.mCategory;
             }
             return false;
         }

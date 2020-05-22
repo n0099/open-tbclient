@@ -73,7 +73,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     public static final int VIRTUAL_MEMORY_PRESSURE_LEVEL_CRITICAL = 2;
     public static final int VIRTUAL_MEMORY_PRESSURE_LEVEL_MODERATE = 1;
     public static final int VIRTUAL_MEMORY_PRESSURE_LEVEL_NONE = 0;
-    private static volatile boolean sEnforceThreadChecking = false;
+    private static volatile boolean sEnforceThreadChecking;
     private boolean mDestroyed;
     private FindListenerDistributor mFindListener;
     public boolean mHasPerformedLongPress;
@@ -114,17 +114,17 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
 
         @Override // com.baidu.webkit.sdk.WebViewProvider.ScrollDelegate
         public final int computeVerticalScrollExtent() {
-            return WebView.super.computeVerticalScrollExtent();
+            return this.mChildView.computeVerticalScrollExtent();
         }
 
         @Override // com.baidu.webkit.sdk.WebViewProvider.ScrollDelegate
         public final int computeVerticalScrollOffset() {
-            return WebView.super.computeVerticalScrollOffset();
+            return this.mChildView.computeVerticalScrollOffset();
         }
 
         @Override // com.baidu.webkit.sdk.WebViewProvider.ScrollDelegate
         public final int computeVerticalScrollRange() {
-            return WebView.super.computeVerticalScrollRange();
+            return this.mChildView.computeVerticalScrollRange();
         }
 
         @Override // com.baidu.webkit.sdk.WebViewProvider.ViewDelegate
@@ -401,12 +401,12 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         private String mExtra2;
         private String mFirstNavigationUrl;
         private String mFrameUrl;
+        private boolean mIsSelectable;
+        private boolean mIsTextNode;
         private String mOriginFrameSrcUrl;
         private String mOriginLinkUrl;
         private String mOriginSrcUrl;
         private String mPageUrl;
-        private boolean mIsTextNode = false;
-        private boolean mIsSelectable = false;
         private int mType = 0;
 
         public String getExtra() {
@@ -759,17 +759,24 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
 
     /* loaded from: classes11.dex */
     public class WebViewTransport {
+        private final Object lockObject = new Object();
         private WebView mWebview;
 
         public WebViewTransport() {
         }
 
-        public synchronized WebView getWebView() {
-            return this.mWebview;
+        public WebView getWebView() {
+            WebView webView;
+            synchronized (this.lockObject) {
+                webView = this.mWebview;
+            }
+            return webView;
         }
 
-        public synchronized void setWebView(WebView webView) {
-            this.mWebview = webView;
+        public void setWebView(WebView webView) {
+            synchronized (this.lockObject) {
+                this.mWebview = webView;
+            }
         }
     }
 
@@ -795,10 +802,8 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     public WebView(Context context, AttributeSet attributeSet, int i, int i2) {
         super(context, attributeSet, i, i2);
         this.mSetOverScrollModeBeforeProviderReady = -1;
-        this.mDestroyed = false;
         this.mOnViewHierarchy = true;
         this.mSoftInputMode = 0;
-        this.mIsPrivateInit = false;
         this.mWebViewThread = Looper.myLooper();
         initWebView(context, null, false);
     }
@@ -807,10 +812,8 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     public WebView(Context context, AttributeSet attributeSet, int i, boolean z) {
         super(context, attributeSet, i);
         this.mSetOverScrollModeBeforeProviderReady = -1;
-        this.mDestroyed = false;
         this.mOnViewHierarchy = true;
         this.mSoftInputMode = 0;
-        this.mIsPrivateInit = false;
         this.mWebViewThread = Looper.myLooper();
         initWebView(context, null, z);
     }
@@ -818,10 +821,8 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     public WebView(Context context, boolean z) {
         super(context, null, Resources.getSystem().getIdentifier("webViewStyle", "attr", "android"));
         this.mSetOverScrollModeBeforeProviderReady = -1;
-        this.mDestroyed = false;
         this.mOnViewHierarchy = true;
         this.mSoftInputMode = 0;
-        this.mIsPrivateInit = false;
         this.mWebViewThread = Looper.myLooper();
         this.mIsPrivateInit = z;
         initWebView(context, null, false);
@@ -944,7 +945,13 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         sEnforceThreadChecking = context.getApplicationInfo().targetSdkVersion >= 18;
         checkThread();
         ensureProviderCreated();
+        if (!this.mIsPrivateInit) {
+            ZeusPerformanceTiming.newWebViewChromiumConstructorEnd();
+        }
         this.mProvider.init(map, z);
+        if (!this.mIsPrivateInit) {
+            ZeusPerformanceTiming.newWebViewChromiumInitEnd();
+        }
         if (Build.VERSION.SDK_INT >= 11) {
             removeJavascriptInterface("searchBoxJavaBridge_");
             removeJavascriptInterface("accessibility");
@@ -965,13 +972,15 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         CookieSyncManager.setGetInstanceIsAllowed();
         this.mJsBridge = new ZeusJsBridge(this);
         this.mJsBridge.init();
-        if (this.mIsPrivateInit) {
-            return;
+        if (!this.mIsPrivateInit) {
+            if (WebViewFactory.isZeusProvider()) {
+                ZeusPerformanceTiming.newWebViewEnd();
+            } else {
+                ZeusPerformanceTiming.newSysWebViewEnd();
+            }
         }
         if (WebViewFactory.isZeusProvider()) {
-            ZeusPerformanceTiming.newWebViewEnd();
-        } else {
-            ZeusPerformanceTiming.newSysWebViewEnd();
+            ZeusWebViewPreloadClass.getInstance().flushLoadClassesToFile();
         }
     }
 
@@ -1038,11 +1047,12 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     }
 
     public static void setDataDirectorySuffix(String str) {
-        if (Build.VERSION.SDK_INT < 28) {
+        if (str == null) {
+            Log.e(LOGTAG, "suffix is null", new IllegalArgumentException("null"));
             return;
         }
         setDataDirectorySuffixSystem(str);
-        WebKitFactory.setDataDirectorySuffix(str);
+        WebViewFactory.setDataDirectorySuffix(str);
     }
 
     private static void setDataDirectorySuffixSystem(String str) {
@@ -2053,11 +2063,6 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         return 0;
     }
 
-    void notifyFindDialogDismissed() {
-        checkThread();
-        this.mProvider.notifyFindDialogDismissedZeus();
-    }
-
     public boolean notifyNativeExitFullScreenIfNeeded(int i) {
         return true;
     }
@@ -2468,6 +2473,10 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         return getWebView().requestFocus();
     }
 
+    public void resetLoadingAnimation() {
+        this.mProvider.resetLoadingAnimation();
+    }
+
     public WebBackForwardList restoreState(Bundle bundle) {
         checkThread();
         return this.mProvider.restoreStateZeus(bundle);
@@ -2580,6 +2589,11 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         this.mViewDelegate.setCurrentTitleBar(z);
     }
 
+    public void setDefaultViewSize(int i, int i2) {
+        checkThread();
+        this.mProvider.setDefaultViewSize(i, i2);
+    }
+
     public void setDownloadListener(DownloadListener downloadListener) {
         checkThread();
         this.mProvider.setDownloadListener(downloadListener);
@@ -2603,12 +2617,6 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
 
     public void setEndScale() {
         this.mProvider.setEndScale();
-    }
-
-    void setFindDialogFindListener(FindListener findListener) {
-        checkThread();
-        setupFindListenerIfNeeded();
-        this.mFindListener.mFindDialogFindListener = findListener;
     }
 
     public void setFindListener(FindListener findListener) {

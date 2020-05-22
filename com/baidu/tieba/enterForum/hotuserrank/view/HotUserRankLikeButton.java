@@ -24,10 +24,10 @@ public class HotUserRankLikeButton extends DynamicUserLikeButton {
     }
 
     @Override // com.baidu.tieba.view.DynamicUserLikeButton, com.baidu.tbadk.core.view.userLike.b
-    public void n(boolean z, int i) {
+    public void r(boolean z, int i) {
         if (z) {
             c cVar = new c();
-            cVar.lI(R.color.cp_cont_d);
+            cVar.mk(R.color.cp_cont_d);
             setConfig(cVar);
             setClickable(true);
             if (i == 1) {
@@ -37,7 +37,7 @@ public class HotUserRankLikeButton extends DynamicUserLikeButton {
             }
         } else {
             c cVar2 = new c();
-            cVar2.lG(R.color.cp_link_tip_a);
+            cVar2.mi(R.color.cp_link_tip_a);
             setConfig(cVar2);
             setClickable(true);
             setText(TbadkCoreApplication.getInst().getString(R.string.attention));

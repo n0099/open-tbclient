@@ -3,9 +3,9 @@ package io.reactivex.internal.functions;
 import io.reactivex.c.d;
 /* loaded from: classes7.dex */
 public final class a {
-    static final d<Object, Object> mRC = new C0806a();
+    static final d<Object, Object> nmK = new C0868a();
 
-    public static <T> T h(T t, String str) {
+    public static <T> T k(T t, String str) {
         if (t == null) {
             throw new NullPointerException(str);
         }
@@ -23,14 +23,14 @@ public final class a {
         return i > i2 ? 1 : 0;
     }
 
-    public static int K(long j, long j2) {
+    public static int L(long j, long j2) {
         if (j < j2) {
             return -1;
         }
         return j > j2 ? 1 : 0;
     }
 
-    public static int by(int i, String str) {
+    public static int bD(int i, String str) {
         if (i <= 0) {
             throw new IllegalArgumentException(str + " > 0 required but it was " + i);
         }
@@ -46,12 +46,12 @@ public final class a {
 
     /* renamed from: io.reactivex.internal.functions.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    static final class C0806a implements d<Object, Object> {
-        C0806a() {
+    static final class C0868a implements d<Object, Object> {
+        C0868a() {
         }
 
         @Override // io.reactivex.c.d
-        public boolean i(Object obj, Object obj2) {
+        public boolean j(Object obj, Object obj2) {
             return a.equals(obj, obj2);
         }
     }

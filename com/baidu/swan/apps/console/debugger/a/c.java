@@ -12,32 +12,32 @@ public class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     String appId;
     String appKey;
-    JSONArray bIA;
-    String bIB;
+    JSONArray bRr;
+    String bRs;
     String page;
 
     private c() {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public String ep(int i) {
-        if (this.bIA == null) {
+    public String ey(int i) {
+        if (this.bRr == null) {
             return "";
         }
-        String optString = this.bIA.optString(i);
+        String optString = this.bRr.optString(i);
         if (!TextUtils.isEmpty(optString)) {
-            return "http://" + optString + ":" + this.bIB;
+            return "http://" + optString + ":" + this.bRs;
         }
         return "";
     }
 
-    public static c ap(JSONObject jSONObject) {
+    public static c ax(JSONObject jSONObject) {
         c cVar = new c();
         try {
-            cVar.bIA = jSONObject.getJSONArray("host");
+            cVar.bRr = jSONObject.getJSONArray("host");
             cVar.appKey = jSONObject.getString("appKey");
             cVar.appId = jSONObject.getString("appId");
-            cVar.bIB = jSONObject.getString(ClientCookie.PORT_ATTR);
+            cVar.bRs = jSONObject.getString(ClientCookie.PORT_ATTR);
             cVar.page = Uri.decode(jSONObject.optString("url"));
             return cVar;
         } catch (JSONException e) {

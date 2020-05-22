@@ -21,7 +21,7 @@ public class l implements CustomMessageTask.CustomRunnable<String> {
         if (customMessage == null || !(customMessage instanceof RequestLocalHistoryMessage)) {
             return null;
         }
-        byte[] bArr = com.baidu.tbadk.core.c.a.aMR().uf("tb.im_official_history").get(TbadkApplication.getCurrentAccount() + UgcConstant.AT_RULE_TAG + ((RequestLocalHistoryMessage) customMessage).getData());
+        byte[] bArr = com.baidu.tbadk.core.c.a.aSS().vL("tb.im_official_history").get(TbadkApplication.getCurrentAccount() + UgcConstant.AT_RULE_TAG + ((RequestLocalHistoryMessage) customMessage).getData());
         if (bArr == null) {
             return null;
         }

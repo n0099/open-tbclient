@@ -1,6 +1,6 @@
 package com.baidu.live.view.input;
 
-import com.baidu.live.data.n;
+import com.baidu.live.data.q;
 import com.baidu.live.tbadk.TbPageContext;
 import java.util.List;
 /* loaded from: classes3.dex */
@@ -8,18 +8,20 @@ public interface c {
 
     /* loaded from: classes3.dex */
     public interface a {
-        boolean Bg();
+        boolean CC();
 
-        boolean Cd();
+        int CH();
 
-        void HH();
+        boolean DA();
 
-        void HI();
+        void JA();
+
+        void JB();
     }
 
-    List<String> BT();
+    List<String> Dq();
 
-    void a(n nVar, String str);
+    void a(q qVar, String str);
 
     void a(a aVar);
 
@@ -27,11 +29,11 @@ public interface c {
 
     void c(TbPageContext tbPageContext);
 
-    void cl(int i);
+    void cs(int i);
 
-    void em(String str);
+    void eW(String str);
 
     void release();
 
-    void xi();
+    void yw();
 }

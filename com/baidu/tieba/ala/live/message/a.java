@@ -3,7 +3,7 @@ package com.baidu.tieba.ala.live.message;
 import com.baidu.live.adp.framework.message.HttpMessage;
 import com.baidu.live.adp.lib.safe.JavaTypesHelper;
 import com.baidu.live.adp.lib.util.StringUtils;
-import com.baidu.live.data.bn;
+import com.baidu.live.data.bs;
 import com.baidu.live.tbadk.TbConfig;
 /* loaded from: classes3.dex */
 public class a extends HttpMessage {
@@ -11,7 +11,7 @@ public class a extends HttpMessage {
         super(1003411);
     }
 
-    public void a(int i, int i2, String str, int i3, int i4, int i5, String str2, String str3, String str4) {
+    public void a(int i, int i2, String str, int i3, int i4, int i5, String str2, String str3, String str4, String str5) {
         addParam("pay_type", i);
         addParam("is_left", i2);
         addParam("order_url", "");
@@ -25,19 +25,22 @@ public class a extends HttpMessage {
             i6 = 0;
         }
         addParam("no_wechat", i6);
-        bn bnVar = new bn();
-        bnVar.props_id = JavaTypesHelper.toInt(str, 0);
-        bnVar.new_props_id = str;
-        bnVar.money = i3;
-        bnVar.axs = i4;
-        bnVar.wars_name = "";
-        bnVar.wars_item = "";
-        addParam("wares", bnVar.toJson());
+        bs bsVar = new bs();
+        bsVar.props_id = JavaTypesHelper.toInt(str, 0);
+        bsVar.new_props_id = str;
+        bsVar.money = i3;
+        bsVar.aCI = i4;
+        bsVar.wars_name = "";
+        bsVar.wars_item = "";
+        addParam("wares", bsVar.toJson());
         if (!StringUtils.isNull(str3)) {
             addParam("refer_page", str3);
         }
         if (!StringUtils.isNull(str4)) {
             addParam("click_zone", str4);
+        }
+        if (!StringUtils.isNull(str5)) {
+            addParam("live_id", str5);
         }
     }
 }

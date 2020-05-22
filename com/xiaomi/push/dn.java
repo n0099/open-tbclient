@@ -24,7 +24,7 @@ public class dn extends al.b {
         }
         try {
             if (aa.d()) {
-                this.a.m226a();
+                this.a.m228a();
             } else {
                 str2 = this.a.b;
                 Log.w(str2, "SDCard is unavailable.");

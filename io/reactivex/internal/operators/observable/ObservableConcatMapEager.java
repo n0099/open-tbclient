@@ -358,7 +358,7 @@ public final class ObservableConcatMapEager<T, R> extends a<T, R> {
                                 if (poll == null) {
                                     break;
                                 }
-                                t tVar = (t) io.reactivex.internal.functions.a.h(this.mapper.apply(poll), "The mapper returned a null ObservableSource");
+                                t tVar = (t) io.reactivex.internal.functions.a.k(this.mapper.apply(poll), "The mapper returned a null ObservableSource");
                                 InnerQueuedObserver<R> innerQueuedObserver = new InnerQueuedObserver<>(this, this.prefetch);
                                 arrayDeque.offer(innerQueuedObserver);
                                 tVar.subscribe(innerQueuedObserver);

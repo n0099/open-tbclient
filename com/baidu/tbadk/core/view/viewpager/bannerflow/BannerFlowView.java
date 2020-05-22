@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.FrameLayout;
 import com.baidu.adp.lib.util.l;
 import com.baidu.adp.widget.IndicatorView;
-import com.baidu.adp.widget.ListView.m;
+import com.baidu.adp.widget.ListView.o;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.view.viewpager.bannerflow.b;
 import com.baidu.tbadk.core.view.viewpager.c;
@@ -15,10 +15,10 @@ import com.baidu.tieba.R;
 import java.util.List;
 /* loaded from: classes.dex */
 public class BannerFlowView extends FrameLayout {
-    private com.baidu.tbadk.core.view.viewpager.b dKO;
-    private IndicatorView dKR;
-    private ViewPager dLl;
-    private b dLm;
+    private ViewPager dZC;
+    private b dZD;
+    private com.baidu.tbadk.core.view.viewpager.b dZf;
+    private IndicatorView dZi;
     private View mBottomLine;
 
     public BannerFlowView(Context context) {
@@ -32,19 +32,19 @@ public class BannerFlowView extends FrameLayout {
     }
 
     private void initView(Context context) {
-        this.dLl = new ViewPager(context);
-        this.dKR = new IndicatorView(context);
-        this.dKR.setSpacing(0);
-        aRf();
-        this.dKO = new com.baidu.tbadk.core.view.viewpager.b(context, this.dLl, this.dKR, null);
-        this.dLm = new b(context, a.dLk);
-        this.dKO.setAutoScrollIntervalTime(5000L);
-        this.dKO.a(context, this.dLm);
-        addView(this.dLl, new FrameLayout.LayoutParams(-1, -1));
+        this.dZC = new ViewPager(context);
+        this.dZi = new IndicatorView(context);
+        this.dZi.setSpacing(0);
+        aXm();
+        this.dZf = new com.baidu.tbadk.core.view.viewpager.b(context, this.dZC, this.dZi, null);
+        this.dZD = new b(context, a.dZB);
+        this.dZf.setAutoScrollIntervalTime(5000L);
+        this.dZf.a(context, this.dZD);
+        addView(this.dZC, new FrameLayout.LayoutParams(-1, -1));
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
         layoutParams.gravity = 85;
         layoutParams.setMargins(0, 0, l.getDimens(context, R.dimen.ds20), l.getDimens(context, R.dimen.ds16));
-        addView(this.dKR, layoutParams);
+        addView(this.dZi, layoutParams);
         this.mBottomLine = new View(context);
         this.mBottomLine.setBackgroundColor(am.getColor(R.color.common_color_10043));
         FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(-1, l.getDimens(context, R.dimen.ds1));
@@ -53,22 +53,22 @@ public class BannerFlowView extends FrameLayout {
     }
 
     public void setMaxScrollCountLimit(int i) {
-        this.dKO.setMaxScrollCountLimit(i);
+        this.dZf.setMaxScrollCountLimit(i);
     }
 
-    public void setData(List<m> list) {
-        this.dLl.removeAllViews();
-        this.dKO.setDatas(list);
+    public void setData(List<o> list) {
+        this.dZC.removeAllViews();
+        this.dZf.setDatas(list);
     }
 
-    private void aRf() {
-        this.dKR.setSelector(am.getDrawable(R.drawable.icon_diandian_white_s));
-        this.dKR.setDrawable(am.getDrawable(R.drawable.icon_diandian_white_n));
+    private void aXm() {
+        this.dZi.setSelector(am.getDrawable(R.drawable.icon_diandian_white_s));
+        this.dZi.setDrawable(am.getDrawable(R.drawable.icon_diandian_white_n));
     }
 
     public void setOnItemClickListener(c.a<a, b.a> aVar) {
-        if (this.dLm != null) {
-            this.dLm.setOnItemClickListener(aVar);
+        if (this.dZD != null) {
+            this.dZD.setOnItemClickListener(aVar);
         }
     }
 }

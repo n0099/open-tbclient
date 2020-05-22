@@ -26,7 +26,7 @@ public class AlaInfoData implements Serializable {
     public boolean haveRedpkg;
     public String hls_url;
     public boolean isChushou;
-    public e label;
+    public d label;
     public String label_name;
     public boolean liveStageForceTop;
     public String liveStagePicUrl;
@@ -38,11 +38,17 @@ public class AlaInfoData implements Serializable {
     public String media_pic;
     public String media_subtitle;
     public String media_url;
+    public int openRecomDuration;
+    public int openRecomFans;
+    public int openRecomLocation;
+    public int openRecomReason;
+    public String recomReason;
     public String routeType;
     public String rtmp_url;
     public int screen_direction;
     public String session_id;
     public AlaShareInfoData share_info;
+    public String tag;
     public String thirdLiveType;
     public String thirdRoomId;
     public long thread_id;
@@ -85,7 +91,7 @@ public class AlaInfoData implements Serializable {
                 this.thread_id = jSONObject.optLong("thread_id");
                 JSONObject optJSONObject = jSONObject.optJSONObject("label");
                 if (optJSONObject != null) {
-                    this.label = new e();
+                    this.label = new d();
                     this.label.parserJson(optJSONObject);
                 }
                 JSONArray optJSONArray = jSONObject.optJSONArray("stage_dislike_info");
@@ -113,6 +119,12 @@ public class AlaInfoData implements Serializable {
                 this.thirdLiveType = jSONObject.optString("third_live_type");
                 this.thirdRoomId = jSONObject.optString("third_room_id", "");
                 this.routeType = jSONObject.optString("router_type", "");
+                this.tag = jSONObject.optString("tag");
+                this.recomReason = jSONObject.optString("recom_reason");
+                this.openRecomReason = jSONObject.optInt("open_recom_reason");
+                this.openRecomLocation = jSONObject.optInt("open_recom_location");
+                this.openRecomFans = jSONObject.optInt("open_recom_fans");
+                this.openRecomDuration = jSONObject.optInt("open_recom_duration");
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
@@ -167,6 +179,11 @@ public class AlaInfoData implements Serializable {
                 this.thirdLiveType = alaLiveInfo.third_live_type;
                 this.thirdRoomId = alaLiveInfo.third_room_id;
                 this.routeType = alaLiveInfo.router_type;
+                this.recomReason = alaLiveInfo.recom_reason;
+                this.openRecomReason = alaLiveInfo.open_recom_reason.intValue();
+                this.openRecomLocation = alaLiveInfo.open_recom_location.intValue();
+                this.openRecomFans = alaLiveInfo.open_recom_fans.intValue();
+                this.openRecomDuration = alaLiveInfo.open_recom_duration.intValue();
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }

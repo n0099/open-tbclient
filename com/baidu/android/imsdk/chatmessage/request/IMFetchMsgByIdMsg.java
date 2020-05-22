@@ -198,7 +198,6 @@ public class IMFetchMsgByIdMsg extends Message {
                             if (arrayList2.size() > 0) {
                                 parserMessage = ChatMessageDBManager.getInstance(this.mContext).addCastReliableMsgs(arrayList2);
                                 McastManagerImpl.getInstance(this.mContext).deliverCastReliableMsg(((TextMsg) parserMessage.get(0)).getCastId(), parserMessage);
-                                new IMTrack.RequestBuilder(this.mContext).method(arrayList3.toString()).requestId("" + ((TextMsg) parserMessage.get(0)).getCastId()).requestTime(System.currentTimeMillis()).ext("fetch msgIs size :" + arrayList3.size()).aliasId(501103L).build();
                             }
                         } else {
                             parserMessage = ChatMessageDBManager.getInstance(this.mContext).addMsgs(this.mContext, parserMessage, true, IMFetchMsgByIdMsg.this.mTriggerReason);

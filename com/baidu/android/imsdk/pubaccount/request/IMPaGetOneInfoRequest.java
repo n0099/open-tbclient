@@ -13,6 +13,7 @@ import com.baidu.android.imsdk.pubaccount.IGetPaInfoListener;
 import com.baidu.android.imsdk.pubaccount.PaInfo;
 import com.baidu.android.imsdk.pubaccount.db.PaInfoDBManager;
 import com.baidu.android.imsdk.upload.action.IMTrack;
+import com.baidu.android.imsdk.utils.HttpHelper;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.ar.constants.HttpConstants;
@@ -84,6 +85,11 @@ public class IMPaGetOneInfoRequest extends PaBaseHttpRequest {
             new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
         }
         return jSONObject.toString().getBytes();
+    }
+
+    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
+    public String getContentType() {
+        return HttpHelper.CONTENT_JSON;
     }
 
     @Override // com.baidu.android.imsdk.utils.HttpHelper.Request

@@ -15,6 +15,8 @@ import com.baidu.tieba.location.data.LocationSearchResponseMessage;
 import com.baidu.tieba.location.data.SearchLocationActivityConfig;
 /* loaded from: classes10.dex */
 public class SearchLocationActivityStatic {
+    public static String Tag = "tag";
+
     static {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.START_SEARCH_LOCATION_PAGE, new CustomMessageTask.CustomRunnable<SearchLocationActivityConfig>() { // from class: com.baidu.tieba.location.selectpoi.SearchLocationActivityStatic.1
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
@@ -28,13 +30,13 @@ public class SearchLocationActivityStatic {
         });
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
-        coN();
+        cvp();
         com.baidu.tieba.tbadkCore.a.a.c(CmdConfigSocket.CMD_GET_SUGGESTLOCSTION_BY_NAME, LocationSearchResponseMessage.class, false);
         TbadkCoreApplication.getInst().RegisterIntent(SelectLocationActivityConfig.class, SelectLocationActivity.class);
     }
 
-    public static void coN() {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003002, com.baidu.tieba.tbadkCore.a.a.bE(TbConfig.GET_SUGGEST_LOCATION_BY_NAME, CmdConfigSocket.CMD_GET_SUGGESTLOCSTION_BY_NAME));
+    public static void cvp() {
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003002, com.baidu.tieba.tbadkCore.a.a.bF(TbConfig.GET_SUGGEST_LOCATION_BY_NAME, CmdConfigSocket.CMD_GET_SUGGESTLOCSTION_BY_NAME));
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(false);
         tbHttpMessageTask.setIsNeedAddCommenParam(false);

@@ -10,16 +10,16 @@ import java.io.StringWriter;
 import java.lang.Thread;
 /* loaded from: classes8.dex */
 public final class f implements Thread.UncaughtExceptionHandler {
-    public static boolean akZ = false;
-    private static final String ala = Environment.getExternalStorageDirectory().getPath() + File.separator + com.baidu.crabsdk.b.p.sC() + File.separator + "oom" + File.separator;
-    private static f alb = new f();
-    private Thread.UncaughtExceptionHandler alc = null;
-    private Context ald = null;
+    public static boolean amC = false;
+    private static final String amD = Environment.getExternalStorageDirectory().getPath() + File.separator + com.baidu.crabsdk.b.p.sL() + File.separator + "oom" + File.separator;
+    private static f amE = new f();
+    private Thread.UncaughtExceptionHandler amF = null;
+    private Context amG = null;
 
     private f() {
     }
 
-    private static boolean j(Throwable th) {
+    private static boolean k(Throwable th) {
         while (!"java.lang.OutOfMemoryError".equals(th.getClass().getName())) {
             th = th.getCause();
             if (th == null) {
@@ -29,17 +29,17 @@ public final class f implements Thread.UncaughtExceptionHandler {
         return true;
     }
 
-    public static f sP() {
-        return alb;
+    public static f sY() {
+        return amE;
     }
 
     public final void e(Context context) {
-        if (this.alc == null) {
-            this.alc = Thread.getDefaultUncaughtExceptionHandler();
+        if (this.amF == null) {
+            this.amF = Thread.getDefaultUncaughtExceptionHandler();
             Thread.setDefaultUncaughtExceptionHandler(this);
         }
-        if (this.ald == null) {
-            this.ald = context.getApplicationContext();
+        if (this.amG == null) {
+            this.amG = context.getApplicationContext();
         }
     }
 
@@ -76,9 +76,9 @@ public final class f implements Thread.UncaughtExceptionHandler {
             com.baidu.crabsdk.c.a.a("pw", e2);
         }
         if (obj != null && !str.trim().equals("")) {
-            if (com.baidu.crabsdk.a.n && j(th)) {
+            if (com.baidu.crabsdk.a.n && k(th)) {
                 try {
-                    String str2 = ala;
+                    String str2 = amD;
                     File file = new File(str2);
                     if (!file.exists()) {
                         if (file.mkdirs()) {
@@ -94,20 +94,20 @@ public final class f implements Thread.UncaughtExceptionHandler {
                     com.baidu.crabsdk.c.a.w("oom save fail" + th3.getMessage());
                 }
             }
-            if (h.sR() && h.sT() && h.k(th)) {
-                akZ = false;
-                if (this.ald != null && thread != null && th != null) {
-                    i.c(this.ald, i.d(g.a(this.ald, th, false)));
+            if (h.ta() && h.tc() && h.l(th)) {
+                amC = false;
+                if (this.amG != null && thread != null && th != null) {
+                    i.c(this.amG, i.e(g.a(this.amG, th, false)));
                     h.c(th);
-                    h.l(th);
+                    h.m(th);
                     h.af();
-                    k.a(false, this.ald);
+                    k.a(false, this.amG);
                 }
                 try {
                     long currentTimeMillis = System.currentTimeMillis();
                     while (true) {
                         long currentTimeMillis2 = System.currentTimeMillis();
-                        if (!akZ) {
+                        if (!amC) {
                             if (currentTimeMillis2 - currentTimeMillis > 2500) {
                                 com.baidu.crabsdk.c.a.v("T^T upload timeout!");
                                 break;
@@ -122,9 +122,9 @@ public final class f implements Thread.UncaughtExceptionHandler {
                 }
             }
         }
-        if (this.alc.equals(this)) {
+        if (this.amF.equals(this)) {
             return;
         }
-        this.alc.uncaughtException(thread, th);
+        this.amF.uncaughtException(thread, th);
     }
 }

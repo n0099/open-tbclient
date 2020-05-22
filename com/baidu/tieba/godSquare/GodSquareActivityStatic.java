@@ -9,6 +9,8 @@ import com.baidu.tieba.godSquare.model.res.GodSquareHttpResponsedMsg;
 import com.baidu.tieba.godSquare.model.res.GodSquareSocketResponsedMsg;
 /* loaded from: classes11.dex */
 public class GodSquareActivityStatic {
+    public static String Tag = "tag";
+
     static {
         com.baidu.tieba.tbadkCore.a.a.b(CmdConfigCustom.CMD_GET_HOT_GOD_CACHE, com.baidu.tieba.godSquare.model.req.a.class);
         com.baidu.tieba.tbadkCore.a.a.b(1003099, CmdConfigSocket.CMD_GET_HOT_GOD, TbConfig.GET_HOT_GOD, GodSquareHttpResponsedMsg.class, GodSquareSocketResponsedMsg.class);

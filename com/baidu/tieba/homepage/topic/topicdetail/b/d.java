@@ -1,27 +1,27 @@
 package com.baidu.tieba.homepage.topic.topicdetail.b;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.bj;
+import com.baidu.tbadk.core.data.bk;
 import tbclient.ThreadInfo;
 /* loaded from: classes9.dex */
 public class d extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId hRN = BdUniqueId.gen();
-    public bj dqE;
-    public boolean hRO;
-    public String hRP;
+    public static final BdUniqueId igx = BdUniqueId.gen();
+    public bk dEA;
+    public boolean igy;
+    public String igz;
     public int index;
     public long topicId;
 
-    @Override // com.baidu.adp.widget.ListView.m
+    @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.o
     public BdUniqueId getType() {
-        return hRN;
+        return igx;
     }
 
-    public void b(ThreadInfo threadInfo) {
+    public void c(ThreadInfo threadInfo) {
         if (threadInfo != null) {
-            this.dqE = new bj();
-            this.dqE.a(threadInfo);
-            this.dqE.aLx();
+            this.dEA = new bk();
+            this.dEA.a(threadInfo);
+            this.dEA.aRw();
         }
     }
 }

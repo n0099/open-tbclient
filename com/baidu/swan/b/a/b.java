@@ -6,12 +6,12 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes11.dex */
 public class b {
-    private volatile HashMap<String, List<com.baidu.swan.b.a.d.b>> cIu = new HashMap<>();
+    private volatile HashMap<String, List<com.baidu.swan.b.a.d.b>> cSF = new HashMap<>();
 
     public synchronized void a(String str, com.baidu.swan.b.a.e.b bVar) {
         for (com.baidu.swan.b.a.d.b bVar2 : new ArrayList(getEventListeners(str))) {
             if (bVar2 != null) {
-                bVar2.b(bVar);
+                bVar2.a(bVar);
             }
         }
     }
@@ -22,8 +22,8 @@ public class b {
             if (!eventListeners.contains(bVar)) {
                 eventListeners.add(bVar);
             }
-            if (!this.cIu.containsKey(str)) {
-                this.cIu.put(str, eventListeners);
+            if (!this.cSF.containsKey(str)) {
+                this.cSF.put(str, eventListeners);
             }
         }
     }
@@ -35,13 +35,13 @@ public class b {
     public synchronized void g(String str, com.baidu.swan.b.a.d.b bVar) {
         if (!TextUtils.isEmpty(str)) {
             if (bVar == null) {
-                this.cIu.remove(str);
+                this.cSF.remove(str);
             } else {
                 List<com.baidu.swan.b.a.d.b> eventListeners = getEventListeners(str);
                 if (eventListeners.contains(bVar)) {
                     eventListeners.remove(bVar);
                     if (eventListeners.isEmpty()) {
-                        this.cIu.remove(str);
+                        this.cSF.remove(str);
                     }
                 }
             }
@@ -53,7 +53,7 @@ public class b {
         boolean z2 = false;
         synchronized (this) {
             if (!TextUtils.isEmpty(str)) {
-                List<com.baidu.swan.b.a.d.b> list = this.cIu.get(str);
+                List<com.baidu.swan.b.a.d.b> list = this.cSF.get(str);
                 if (list != null) {
                     if (!list.isEmpty()) {
                         z = true;
@@ -75,7 +75,7 @@ public class b {
         if (TextUtils.isEmpty(str)) {
             return new ArrayList();
         }
-        List<com.baidu.swan.b.a.d.b> list = this.cIu.get(str);
+        List<com.baidu.swan.b.a.d.b> list = this.cSF.get(str);
         return list == null ? new ArrayList() : list;
     }
 }

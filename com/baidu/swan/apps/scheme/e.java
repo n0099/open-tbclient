@@ -1,14 +1,13 @@
 package com.baidu.swan.apps.scheme;
 
 import com.baidu.searchbox.unitedscheme.UnitedSchemeMainDispatcher;
-import com.baidu.swan.apps.scheme.actions.aa;
+import com.baidu.swan.apps.scheme.actions.k.k;
 import com.baidu.swan.apps.scheme.actions.m;
 import com.baidu.swan.apps.scheme.actions.n;
 import com.baidu.swan.apps.scheme.actions.o;
 import com.baidu.swan.apps.scheme.actions.s;
 import com.baidu.swan.apps.scheme.actions.v;
 import com.baidu.swan.apps.scheme.actions.z;
-import com.baidu.swan.apps.storage.a.k;
 /* loaded from: classes11.dex */
 public final class e {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
@@ -16,10 +15,10 @@ public final class e {
     public static j a(UnitedSchemeMainDispatcher unitedSchemeMainDispatcher) {
         j jVar = new j();
         unitedSchemeMainDispatcher.setDynamicDispatcher("swanAPI", jVar);
-        com.baidu.swan.apps.w.a.aco().a(jVar);
+        com.baidu.swan.apps.u.a.afr().a(jVar);
         jVar.a(new com.baidu.swan.apps.scheme.actions.k.e(jVar));
         jVar.a(new com.baidu.swan.apps.scheme.actions.k.d(jVar));
-        jVar.a(new com.baidu.swan.apps.scheme.actions.k.j(jVar));
+        jVar.a(new k(jVar));
         jVar.a(new com.baidu.swan.apps.scheme.actions.k.i(jVar));
         jVar.a(new com.baidu.swan.apps.scheme.actions.k.h(jVar));
         jVar.a(new com.baidu.swan.apps.scheme.actions.k.b(jVar));
@@ -42,18 +41,17 @@ public final class e {
         jVar.a(new com.baidu.swan.apps.canvas.a.h(jVar));
         jVar.a(new com.baidu.swan.apps.media.audio.a.b(jVar));
         jVar.a(new com.baidu.swan.apps.media.audio.a.a(jVar));
-        jVar.a(new com.baidu.swan.apps.media.a.a.a(jVar));
-        jVar.a(new com.baidu.swan.apps.media.c.a.f(jVar));
+        jVar.a(new com.baidu.swan.apps.media.b.a.f(jVar));
         jVar.a(new com.baidu.swan.apps.core.c.a(jVar));
         jVar.a(new com.baidu.swan.apps.console.debugger.a.b(jVar));
-        jVar.a(new k(jVar));
+        jVar.a(new com.baidu.swan.apps.storage.a.k(jVar));
         jVar.a(new com.baidu.swan.apps.storage.a.d(jVar));
         jVar.a(new com.baidu.swan.apps.storage.a.e(jVar));
         jVar.a(new com.baidu.swan.apps.storage.a.h(jVar));
         jVar.a(new com.baidu.swan.apps.network.g(jVar));
-        jVar.a(new com.baidu.swan.apps.s.d(jVar));
-        jVar.a(new com.baidu.swan.apps.s.a(jVar));
-        jVar.a(new com.baidu.swan.apps.s.e(jVar));
+        jVar.a(new com.baidu.swan.apps.q.d(jVar));
+        jVar.a(new com.baidu.swan.apps.q.a(jVar));
+        jVar.a(new com.baidu.swan.apps.q.e(jVar));
         jVar.a(new com.baidu.swan.apps.tabbar.a.b(jVar));
         jVar.a(new com.baidu.swan.apps.tabbar.a.c(jVar));
         jVar.a(new com.baidu.swan.apps.tabbar.a.d(jVar));
@@ -62,7 +60,7 @@ public final class e {
         jVar.a(new com.baidu.swan.apps.tabbar.a.g(jVar));
         jVar.a(new com.baidu.swan.apps.tabbar.a.h(jVar));
         jVar.a(new com.baidu.swan.apps.tabbar.a.i(jVar));
-        jVar.a(new com.baidu.swan.apps.z.a(jVar));
+        jVar.a(new com.baidu.swan.apps.x.a(jVar));
         jVar.a(new com.baidu.swan.apps.camera.a.b(jVar));
         jVar.a(new com.baidu.swan.apps.camera.a.g(jVar));
         jVar.a(new com.baidu.swan.apps.camera.a.c(jVar));
@@ -71,12 +69,12 @@ public final class e {
         jVar.a(new com.baidu.swan.apps.camera.a.e(jVar));
         jVar.a(new com.baidu.swan.apps.component.components.e.a.a(jVar));
         jVar.a(new com.baidu.swan.apps.component.components.e.a.b(jVar));
-        jVar.a(new com.baidu.swan.apps.o.a(jVar));
-        jVar.a(new com.baidu.swan.apps.u.a(jVar));
+        jVar.a(new com.baidu.swan.apps.m.a(jVar));
+        jVar.a(new com.baidu.swan.apps.s.a(jVar));
         jVar.a(new com.baidu.swan.apps.b.a.a(jVar));
-        jVar.a(new com.baidu.swan.apps.ao.j.a.a(jVar));
-        jVar.a(new com.baidu.swan.apps.ao.j.a.b(jVar));
-        jVar.a(new com.baidu.swan.apps.ao.d.a.a(jVar));
+        jVar.a(new com.baidu.swan.apps.am.j.a.a(jVar));
+        jVar.a(new com.baidu.swan.apps.am.j.a.b(jVar));
+        jVar.a(new com.baidu.swan.apps.am.d.a.a(jVar));
         jVar.a(new com.baidu.swan.apps.view.d.a(jVar));
         jVar.a(new com.baidu.swan.apps.f.b(jVar));
         jVar.a(new com.baidu.swan.apps.media.chooser.a.b(jVar));
@@ -87,7 +85,7 @@ public final class e {
         jVar.a(new com.baidu.swan.apps.textarea.a.b(jVar));
         jVar.a(new com.baidu.swan.apps.textarea.a.a(jVar));
         jVar.a(new com.baidu.swan.apps.textarea.a.c(jVar));
-        jVar.a(new com.baidu.swan.apps.ao.f.a.a(jVar));
+        jVar.a(new com.baidu.swan.apps.am.f.a.a(jVar));
         jVar.a(new com.baidu.swan.apps.scheme.actions.e.d(jVar));
         jVar.a(new com.baidu.swan.apps.scheme.actions.e.a(jVar));
         jVar.a(new s(jVar));
@@ -116,15 +114,13 @@ public final class e {
         jVar.a(new com.baidu.swan.apps.scheme.actions.b.g(jVar));
         jVar.a(new z(jVar));
         jVar.a(new com.baidu.swan.apps.scheme.actions.e(jVar));
-        jVar.a(new com.baidu.swan.apps.aa.b(jVar));
+        jVar.a(new com.baidu.swan.apps.y.b(jVar));
         jVar.a(new n(jVar));
-        jVar.a(new com.baidu.swan.apps.r.b.a(jVar));
-        jVar.a(new com.baidu.swan.apps.r.b.c(jVar));
+        jVar.a(new com.baidu.swan.apps.p.b.a(jVar));
+        jVar.a(new com.baidu.swan.apps.p.b.c(jVar));
         jVar.a(new com.baidu.swan.apps.scheme.actions.c.a(jVar));
         jVar.a(new com.baidu.swan.apps.scheme.actions.c.b(jVar));
-        jVar.a(new com.baidu.swan.apps.media.d.a.b(jVar));
-        jVar.a(new com.baidu.swan.apps.adlanding.a(jVar));
-        jVar.a(new aa(jVar));
+        jVar.a(new com.baidu.swan.apps.media.c.a.b(jVar));
         return jVar;
     }
 }

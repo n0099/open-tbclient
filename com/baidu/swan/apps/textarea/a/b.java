@@ -10,18 +10,18 @@ import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.swan.apps.component.components.textarea.a;
 import com.baidu.swan.apps.core.d.d;
 import com.baidu.swan.apps.runtime.e;
-import com.baidu.swan.apps.scheme.actions.ab;
+import com.baidu.swan.apps.scheme.actions.aa;
 import com.baidu.swan.apps.scheme.j;
-import com.baidu.swan.apps.y.f;
+import com.baidu.swan.apps.w.f;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
-public class b extends ab {
+public class b extends aa {
     public b(j jVar) {
         super(jVar, "/swanAPI/openTextarea");
     }
 
-    @Override // com.baidu.swan.apps.scheme.actions.ab
+    @Override // com.baidu.swan.apps.scheme.actions.aa
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, e eVar) {
         if (DEBUG) {
             Log.d("OpenTextAreaAction", "handle entity: " + unitedSchemeEntity.toString());
@@ -39,32 +39,32 @@ public class b extends ab {
             e.printStackTrace();
             com.baidu.swan.apps.console.c.e("OpenTextAreaAction", "model parse exception:", e);
         }
-        SwanAppActivity aeu = f.aeJ().aeu();
-        if (aeu == null) {
+        SwanAppActivity ahF = f.ahV().ahF();
+        if (ahF == null) {
             com.baidu.swan.apps.console.c.e("OpenTextAreaAction", "activity is null when add textarea");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "activity is null when add textarea");
             return false;
         }
-        com.baidu.swan.apps.core.d.e Ot = f.aeJ().Ot();
-        if (Ot == null) {
+        com.baidu.swan.apps.core.d.e QH = f.ahV().QH();
+        if (QH == null) {
             com.baidu.swan.apps.console.c.e("OpenTextAreaAction", "fragmentManager is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "fragmentManager is null");
             return false;
         }
-        d We = Ot.We();
-        if (We == null) {
+        d YQ = QH.YQ();
+        if (YQ == null) {
             com.baidu.swan.apps.console.c.e("OpenTextAreaAction", "fragment is null when add input");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "fragment is null when add input");
             return false;
         }
-        com.baidu.swan.apps.component.b.c Sv = new com.baidu.swan.apps.component.components.textarea.a(context, bVar, aeu, We, new a.InterfaceC0284a() { // from class: com.baidu.swan.apps.textarea.a.b.1
-            @Override // com.baidu.swan.apps.component.components.textarea.a.InterfaceC0284a
+        com.baidu.swan.apps.component.b.c Vg = new com.baidu.swan.apps.component.components.textarea.a(context, bVar, ahF, YQ, new a.InterfaceC0321a() { // from class: com.baidu.swan.apps.textarea.a.b.1
+            @Override // com.baidu.swan.apps.component.components.textarea.a.InterfaceC0321a
             public void a(String str, String str2, JSONObject jSONObject) {
                 b.this.a(str, str2, callbackHandler, 0, jSONObject);
             }
-        }).Sv();
-        if (!Sv.isSuccess()) {
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, Sv.msg);
+        }).Vg();
+        if (!Vg.isSuccess()) {
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, Vg.msg);
             return false;
         }
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
@@ -78,7 +78,7 @@ public class b extends ab {
         }
         com.baidu.swan.apps.console.c.d("OpenTextAreaAction", "sendAsyncCallback, arg0: " + i + ", arg1: " + jSONObject);
         if (TextUtils.isEmpty(str2)) {
-            com.baidu.swan.apps.component.e.a.aC("OpenTextAreaAction", "sendAsyncCallback with a empty callback");
+            com.baidu.swan.apps.component.e.a.aS("OpenTextAreaAction", "sendAsyncCallback with a empty callback");
         } else {
             callbackHandler.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
         }

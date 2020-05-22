@@ -10,7 +10,7 @@ import android.widget.TextView;
 import com.baidu.adp.lib.util.j;
 import com.baidu.adp.lib.util.l;
 import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.adp.widget.ListView.m;
+import com.baidu.adp.widget.ListView.o;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.am;
@@ -24,186 +24,186 @@ import com.baidu.tieba.square.a.a;
 import java.util.List;
 /* loaded from: classes9.dex */
 public class a {
-    private View byT;
-    private g eYg;
-    private ForumHeaderView gBB;
-    private ForumSquareActivity kLg;
-    private RelativeLayout kLh;
-    private TextView kLi;
-    private com.baidu.tieba.square.view.b kLj;
-    private RelativeLayout kLk;
-    private View.OnClickListener kLl;
+    private View bGw;
+    private g fkQ;
+    private ForumHeaderView gQk;
+    private RelativeLayout ldA;
+    private View.OnClickListener ldB;
+    private ForumSquareActivity ldw;
+    private RelativeLayout ldx;
+    private TextView ldy;
+    private com.baidu.tieba.square.view.b ldz;
     private NavigationBar mNavigationBar;
     private NoDataView mNoDataView;
     private h mRefreshView;
 
     public a(ForumSquareActivity forumSquareActivity) {
-        this.kLg = forumSquareActivity;
-        this.byT = LayoutInflater.from(this.kLg).inflate(R.layout.forum_square_activity, (ViewGroup) null);
-        forumSquareActivity.setContentView(this.byT);
+        this.ldw = forumSquareActivity;
+        this.bGw = LayoutInflater.from(this.ldw).inflate(R.layout.forum_square_activity, (ViewGroup) null);
+        forumSquareActivity.setContentView(this.bGw);
         initUI();
     }
 
     private void initUI() {
-        this.mNavigationBar = (NavigationBar) this.byT.findViewById(R.id.navigation_bar);
+        this.mNavigationBar = (NavigationBar) this.bGw.findViewById(R.id.navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.mNavigationBar.setCenterTextTitle(this.kLg.getString(R.string.forum_square));
-        this.kLi = (TextView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.navigation_right_button_layout, (View.OnClickListener) null).findViewById(R.id.right_textview);
-        this.kLi.setText(this.kLg.getString(R.string.forum_square_create_bar));
-        this.kLh = (RelativeLayout) this.byT.findViewById(R.id.forum_header_serch_container);
-        this.gBB = (ForumHeaderView) this.byT.findViewById(R.id.forum_header_serch_view);
-        this.gBB.setFrom(1);
-        this.gBB.setSearchHint(TbSingleton.getInstance().getHotSearch());
-        this.kLj = new com.baidu.tieba.square.view.b(this.kLg.getPageContext());
-        this.kLk = (RelativeLayout) this.kLg.findViewById(R.id.layout_container);
+        this.mNavigationBar.setCenterTextTitle(this.ldw.getString(R.string.forum_square));
+        this.ldy = (TextView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.navigation_right_button_layout, (View.OnClickListener) null).findViewById(R.id.right_textview);
+        this.ldy.setText(this.ldw.getString(R.string.forum_square_create_bar));
+        this.ldx = (RelativeLayout) this.bGw.findViewById(R.id.forum_header_serch_container);
+        this.gQk = (ForumHeaderView) this.bGw.findViewById(R.id.forum_header_serch_view);
+        this.gQk.setFrom(1);
+        this.gQk.setSearchHint(TbSingleton.getInstance().getHotSearch());
+        this.ldz = new com.baidu.tieba.square.view.b(this.ldw.getPageContext());
+        this.ldA = (RelativeLayout) this.ldw.findViewById(R.id.layout_container);
         changeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public Pair<Integer, Integer> cUp() {
-        return this.kLj != null ? this.kLj.cUp() : new Pair<>(0, 0);
+    public Pair<Integer, Integer> dbt() {
+        return this.ldz != null ? this.ldz.dbt() : new Pair<>(0, 0);
     }
 
     public void scrollToPositionWithOffset(int i, int i2) {
-        if (this.kLj != null) {
-            this.kLj.scrollToPositionWithOffset(i, i2);
+        if (this.ldz != null) {
+            this.ldz.scrollToPositionWithOffset(i, i2);
         }
     }
 
-    public void a(a.InterfaceC0668a interfaceC0668a) {
-        if (this.kLj != null) {
-            this.kLj.a(interfaceC0668a);
+    public void a(a.InterfaceC0721a interfaceC0721a) {
+        if (this.ldz != null) {
+            this.ldz.a(interfaceC0721a);
         }
     }
 
     public void e(BdListView.e eVar) {
-        if (this.kLj != null) {
-            this.kLj.e(eVar);
+        if (this.ldz != null) {
+            this.ldz.e(eVar);
         }
     }
 
     public void a(RecyclerView.OnScrollListener onScrollListener) {
-        if (this.kLj != null) {
-            this.kLj.a(onScrollListener);
+        if (this.ldz != null) {
+            this.ldz.a(onScrollListener);
         }
     }
 
-    public String cUq() {
-        return this.kLj.cUq();
+    public String dbu() {
+        return this.ldz.dbu();
     }
 
     public void b(String str, List<String> list, boolean z) {
-        if (this.kLj != null) {
-            this.kLj.b(str, list, z);
+        if (this.ldz != null) {
+            this.ldz.b(str, list, z);
         }
     }
 
-    public void er(List<m> list) {
-        if (this.kLj != null) {
-            this.kLj.er(list);
+    public void ey(List<o> list) {
+        if (this.ldz != null) {
+            this.ldz.ey(list);
         }
     }
 
-    public void o(List<m> list, int i) {
-        if (this.kLj != null) {
-            this.kLj.o(list, i);
+    public void q(List<o> list, int i) {
+        if (this.ldz != null) {
+            this.ldz.q(list, i);
         }
     }
 
-    public void cUr() {
-        if (this.kLj != null) {
-            this.kLj.cUr();
+    public void dbv() {
+        if (this.ldz != null) {
+            this.ldz.dbv();
         }
     }
 
     public void af(View.OnClickListener onClickListener) {
-        if (this.kLi != null) {
-            this.kLi.setOnClickListener(onClickListener);
+        if (this.ldy != null) {
+            this.ldy.setOnClickListener(onClickListener);
         }
     }
 
     public void changeSkinType(int i) {
-        if (this.gBB != null) {
-            this.gBB.onChangeSkinType();
+        if (this.gQk != null) {
+            this.gQk.onChangeSkinType();
         }
-        if (this.mNavigationBar != null && this.kLg != null) {
-            this.mNavigationBar.onChangeSkinType(this.kLg.getPageContext(), i);
+        if (this.mNavigationBar != null && this.ldw != null) {
+            this.mNavigationBar.onChangeSkinType(this.ldw.getPageContext(), i);
         }
-        if (this.kLj != null) {
-            this.kLj.onChangeSkinType(i);
+        if (this.ldz != null) {
+            this.ldz.onChangeSkinType(i);
         }
-        if (this.eYg != null) {
-            this.eYg.onChangeSkinType();
+        if (this.fkQ != null) {
+            this.fkQ.onChangeSkinType();
         }
         if (this.mRefreshView != null) {
             this.mRefreshView.onChangeSkinType();
         }
-        if (this.mNoDataView != null && this.kLg != null) {
+        if (this.mNoDataView != null && this.ldw != null) {
             this.mNoDataView.setSubTitleTextColor(R.color.cp_cont_b);
-            this.mNoDataView.onChangeSkinType(this.kLg.getPageContext(), i);
+            this.mNoDataView.onChangeSkinType(this.ldw.getPageContext(), i);
         }
-        am.setViewTextColor(this.kLi, R.color.cp_cont_b, 1);
-        am.setBackgroundColor(this.byT, R.color.cp_bg_line_e);
-        am.setBackgroundColor(this.kLh, R.color.cp_bg_line_h);
+        am.setViewTextColor(this.ldy, R.color.cp_cont_b, 1);
+        am.setBackgroundColor(this.bGw, R.color.cp_bg_line_e);
+        am.setBackgroundColor(this.ldx, R.color.cp_bg_line_h);
         am.setBackgroundColor(this.mNavigationBar, R.color.cp_bg_line_h, i);
     }
 
     public void setSearchHint(String str) {
-        if (this.gBB != null) {
-            this.gBB.setSearchHint(str);
+        if (this.gQk != null) {
+            this.gQk.setSearchHint(str);
         }
     }
 
     public void ag(View.OnClickListener onClickListener) {
-        this.kLl = onClickListener;
+        this.ldB = onClickListener;
     }
 
-    public void lV(boolean z) {
-        if (!bJt()) {
+    public void mq(boolean z) {
+        if (!bPM()) {
             if (this.mRefreshView == null) {
-                this.mRefreshView = new h(this.kLg, this.kLl);
-                this.mRefreshView.setLayoutMargin(l.getDimens(this.kLg, R.dimen.ds250));
+                this.mRefreshView = new h(this.ldw, this.ldB);
+                this.mRefreshView.setLayoutMargin(l.getDimens(this.ldw, R.dimen.ds250));
             }
-            this.mRefreshView.attachView(this.kLk, z);
+            this.mRefreshView.attachView(this.ldA, z);
             this.mRefreshView.showRefreshButton();
         }
     }
 
-    private boolean bJt() {
+    private boolean bPM() {
         if (this.mRefreshView != null) {
             return this.mRefreshView.isViewAttached();
         }
         return false;
     }
 
-    public void blr() {
+    public void bqO() {
         if (this.mRefreshView != null) {
-            this.mRefreshView.dettachView(this.kLk);
+            this.mRefreshView.dettachView(this.ldA);
             this.mRefreshView = null;
         }
     }
 
     public void hideLoadingView() {
-        if (this.eYg != null) {
-            this.eYg.dettachView(this.kLk);
-            this.eYg = null;
+        if (this.fkQ != null) {
+            this.fkQ.dettachView(this.ldA);
+            this.fkQ = null;
         }
     }
 
-    public boolean bJs() {
-        if (this.eYg != null) {
-            return this.eYg.isViewAttached();
+    public boolean bPL() {
+        if (this.fkQ != null) {
+            return this.fkQ.isViewAttached();
         }
         return false;
     }
 
-    public void fK(boolean z) {
-        if (!bJs()) {
-            if (this.eYg == null) {
-                this.eYg = new g(this.kLg);
-                this.eYg.setTopMargin(l.getDimens(this.kLg, R.dimen.ds250));
+    public void fV(boolean z) {
+        if (!bPL()) {
+            if (this.fkQ == null) {
+                this.fkQ = new g(this.ldw);
+                this.fkQ.setTopMargin(l.getDimens(this.ldw, R.dimen.ds250));
             }
-            this.eYg.onChangeSkinType();
-            this.eYg.attachView(this.kLk, z);
+            this.fkQ.onChangeSkinType();
+            this.fkQ.attachView(this.ldA, z);
         }
     }
 
@@ -213,75 +213,75 @@ public class a {
         }
     }
 
-    public void cUs() {
+    public void dbw() {
         hideLoadingView();
         hideNoDataView();
-        lV(true);
-        if (this.kLj != null) {
-            this.kLj.AH(8);
+        mq(true);
+        if (this.ldz != null) {
+            this.ldz.Bs(8);
         }
     }
 
-    public void cUt() {
-        blr();
+    public void dbx() {
+        bqO();
         hideNoDataView();
-        fK(true);
+        fV(true);
     }
 
-    public void cUu() {
+    public void dby() {
         hideLoadingView();
-        blr();
+        bqO();
         hideNoDataView();
-        if (this.kLj != null) {
-            this.kLj.hideLoadingView();
-            this.kLj.AH(0);
+        if (this.ldz != null) {
+            this.ldz.hideLoadingView();
+            this.ldz.Bs(0);
         }
     }
 
-    public void cUv() {
+    public void dbz() {
         hideLoadingView();
-        blr();
+        bqO();
         hideNoDataView();
-        if (this.kLj != null) {
-            this.kLj.fK(true);
-            this.kLj.CX(8);
+        if (this.ldz != null) {
+            this.ldz.fV(true);
+            this.ldz.DH(8);
         }
     }
 
-    public void cUw() {
-        if (this.kLj != null) {
-            this.kLj.cUw();
+    public void dbA() {
+        if (this.ldz != null) {
+            this.ldz.dbA();
         }
     }
 
-    public void cUx() {
-        if (this.kLj != null) {
-            this.kLj.cUx();
+    public void dbB() {
+        if (this.ldz != null) {
+            this.ldz.dbB();
         }
     }
 
-    public void cUy() {
-        if (this.kLj != null) {
-            this.kLj.cUy();
+    public void dbC() {
+        if (this.ldz != null) {
+            this.ldz.dbC();
         }
     }
 
-    public void bmo() {
-        if (this.kLj != null) {
-            this.kLj.bmo();
+    public void brM() {
+        if (this.ldz != null) {
+            this.ldz.brM();
         }
     }
 
-    public boolean tL(boolean z) {
+    public boolean uj(boolean z) {
         if (z) {
             if (j.isNetWorkAvailable()) {
-                cUy();
+                dbC();
             } else {
-                cUw();
+                dbA();
             }
             return true;
         }
-        cUx();
+        dbB();
         return false;
     }
 }

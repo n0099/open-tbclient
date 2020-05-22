@@ -11,8 +11,8 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class AlaSearchTargetListResponseMessage extends JsonHttpResponsedMessage {
-    private b fzC;
-    private List<d> fzD;
+    private b fNE;
+    private List<d> fNF;
 
     public AlaSearchTargetListResponseMessage() {
         super(1021182);
@@ -25,24 +25,24 @@ public class AlaSearchTargetListResponseMessage extends JsonHttpResponsedMessage
             JSONObject optJSONObject = jSONObject.optJSONObject("data");
             JSONObject optJSONObject2 = optJSONObject.optJSONObject("page");
             if (optJSONObject2 != null) {
-                this.fzC = new b();
-                this.fzC.parseJson(optJSONObject2);
+                this.fNE = new b();
+                this.fNE.parseJson(optJSONObject2);
             }
             String optString = optJSONObject.optString("query_words");
             JSONArray optJSONArray = optJSONObject.optJSONArray("user_list");
             if (optJSONArray != null && optJSONArray.length() > 0) {
-                this.fzD = new ArrayList();
+                this.fNF = new ArrayList();
                 for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                     d dVar = new d();
                     dVar.parseJson(optJSONArray.optJSONObject(i2));
-                    dVar.userName = dh(optString, dVar.userName);
-                    this.fzD.add(dVar);
+                    dVar.userName = dF(optString, dVar.userName);
+                    this.fNF.add(dVar);
                 }
             }
         }
     }
 
-    private static String dh(String str, String str2) {
+    private static String dF(String str, String str2) {
         Matcher matcher = Pattern.compile(str, 2).matcher(str2);
         StringBuffer stringBuffer = new StringBuffer();
         while (matcher.find()) {
@@ -52,11 +52,11 @@ public class AlaSearchTargetListResponseMessage extends JsonHttpResponsedMessage
         return stringBuffer.toString();
     }
 
-    public b btS() {
-        return this.fzC;
+    public b bzR() {
+        return this.fNE;
     }
 
-    public List<d> btT() {
-        return this.fzD;
+    public List<d> bzS() {
+        return this.fNF;
     }
 }

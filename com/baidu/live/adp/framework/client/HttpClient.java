@@ -124,7 +124,7 @@ public class HttpClient extends Client<HttpMessage, HttpMessageTask> {
                         }
 
                         @Override // com.baidu.live.adp.lib.network.http.interfaces.DownLoadCallback
-                        public void onFileDownloaded(Object obj, int i) {
+                        public void onFileDownloaded(Object obj, int i, String str) {
                         }
                     });
                     post = null;
@@ -153,9 +153,6 @@ public class HttpClient extends Client<HttpMessage, HttpMessageTask> {
             if (netResponse == null) {
                 return null;
             }
-            if (netResponse.netErrorCode != 0 && netResponse.responseCode == 0) {
-                netResponse.responseCode = 400;
-            }
             newInstance.setStatusCode(netResponse.responseCode, BdBaseApplication.getInst().getResources().getString(R.string.sdk_neterror));
             newInstance.setError(netResponse.netErrorCode);
             newInstance.setHeader(netResponse.headers);
@@ -163,7 +160,10 @@ public class HttpClient extends Client<HttpMessage, HttpMessageTask> {
             newInstance.setContentLength(netResponse.contentLength);
             newInstance.setContentType(netResponse.contentType);
             newInstance.setDownSize(netResponse.downSize);
-            if (!newInstance.isSuccess()) {
+            newInstance.setRealHost(netResponse.realHost);
+            newInstance.setException(netResponse.exception);
+            newInstance.setResponseTime(System.currentTimeMillis());
+            if (!newInstance.isSuccess() && newInstance.getStatusCode() != 0 && newInstance.getError() == 0) {
                 newInstance.setError(newInstance.getStatusCode());
             }
             newInstance.setOrginalMessage(this.mRequestMsg);

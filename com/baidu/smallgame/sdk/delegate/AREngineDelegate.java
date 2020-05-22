@@ -36,6 +36,8 @@ public interface AREngineDelegate {
 
     void initDisplayMetrics();
 
+    boolean isDestroyed();
+
     void onAttachedToWindow();
 
     void onDetachedFromWindow();

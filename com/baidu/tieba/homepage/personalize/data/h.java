@@ -9,14 +9,14 @@ import java.io.IOException;
 import tbclient.Personalized.DataRes;
 /* loaded from: classes9.dex */
 public class h {
-    public static boolean hQv = false;
+    public static boolean ifa = false;
 
-    public static DataRes bZW() {
-        l<byte[]> cA = com.baidu.tbadk.core.c.a.aMR().cA("tb.rec_old_data", TbadkCoreApplication.getCurrentAccount());
-        if (cA == null) {
+    public static DataRes cgs() {
+        l<byte[]> cZ = com.baidu.tbadk.core.c.a.aSS().cZ("tb.rec_old_data", TbadkCoreApplication.getCurrentAccount());
+        if (cZ == null) {
             return null;
         }
-        byte[] bArr = cA.get("0");
+        byte[] bArr = cZ.get("0");
         if (bArr == null || bArr.length == 0) {
             return null;
         }
@@ -28,10 +28,10 @@ public class h {
         }
     }
 
-    public static void bZX() {
-        l<byte[]> cA = com.baidu.tbadk.core.c.a.aMR().cA("tb.rec_old_data", TbadkCoreApplication.getCurrentAccount());
-        if (cA != null) {
-            cA.set("0", new byte[0], 0L);
+    public static void cgt() {
+        l<byte[]> cZ = com.baidu.tbadk.core.c.a.aSS().cZ("tb.rec_old_data", TbadkCoreApplication.getCurrentAccount());
+        if (cZ != null) {
+            cZ.set("0", new byte[0], 0L);
         }
     }
 

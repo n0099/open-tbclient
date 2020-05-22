@@ -7,8 +7,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ag extends Thread {
-    private String dzw;
-    private boolean dzx;
+    private String dNA;
+    private boolean dNB;
     private String mObjTp;
     private String mParam;
     private String mType;
@@ -16,19 +16,19 @@ public class ag extends Thread {
     public ag(String str, boolean z) {
         this.mType = null;
         this.mParam = null;
-        this.dzw = null;
+        this.dNA = null;
         this.mObjTp = null;
-        this.dzx = false;
+        this.dNB = false;
         this.mType = str;
-        this.dzx = z;
+        this.dNB = z;
     }
 
     public ag(String str, String str2) {
         this.mType = null;
         this.mParam = null;
-        this.dzw = null;
+        this.dNA = null;
         this.mObjTp = null;
-        this.dzx = false;
+        this.dNB = false;
         this.mType = str;
         this.mParam = str2;
     }
@@ -38,7 +38,7 @@ public class ag extends Thread {
         String str;
         super.run();
         if (!TbadkCoreApplication.getInst().checkInterrupt()) {
-            if (this.dzx) {
+            if (this.dNB) {
                 str = TbConfig.IN_PV_ADDRESS;
             } else {
                 str = TbConfig.LOAD_REG_PV_ADDRESS;
@@ -48,8 +48,8 @@ public class ag extends Thread {
             if (this.mParam != null) {
                 xVar.addPostData("st_param", this.mParam);
             }
-            if (this.dzw != null) {
-                xVar.addPostData("obj", this.dzw);
+            if (this.dNA != null) {
+                xVar.addPostData("obj", this.dNA);
             }
             if (this.mObjTp != null) {
                 xVar.addPostData("obj_tp", this.mObjTp);

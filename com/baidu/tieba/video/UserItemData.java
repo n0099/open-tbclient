@@ -15,7 +15,7 @@ public class UserItemData implements Parcelable {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: Ed */
+        /* renamed from: EO */
         public UserItemData[] newArray(int i) {
             return new UserItemData[i];
         }
@@ -35,7 +35,7 @@ public class UserItemData implements Parcelable {
     public String user_name;
     public String video_num;
 
-    public String das() {
+    public String dhG() {
         return !TextUtils.isEmpty(this.name_show) ? this.name_show : this.user_name;
     }
 

@@ -12,6 +12,7 @@ public abstract class ApollonConstants {
     public static final int METHOD_HTTP_GET = 0;
     public static final int METHOD_HTTP_POST = 1;
     public static boolean DEBUG = false;
+    public static boolean VIDEO_DEBUG = false;
     public static boolean RES_PARTITION_DEBUG = false;
     public static boolean WALLET_SPECIFIC = true;
 }

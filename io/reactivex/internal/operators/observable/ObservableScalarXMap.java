@@ -17,7 +17,7 @@ public final class ObservableScalarXMap {
                     return true;
                 }
                 try {
-                    t tVar2 = (t) io.reactivex.internal.functions.a.h(hVar.apply(obj), "The mapper returned a null ObservableSource");
+                    t tVar2 = (t) io.reactivex.internal.functions.a.k(hVar.apply(obj), "The mapper returned a null ObservableSource");
                     if (tVar2 instanceof Callable) {
                         try {
                             Object call = ((Callable) tVar2).call();

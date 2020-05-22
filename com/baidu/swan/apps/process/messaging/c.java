@@ -10,28 +10,28 @@ import java.util.HashSet;
 import java.util.Set;
 /* loaded from: classes11.dex */
 public final class c {
-    private final Message cig;
-    private final Set<SwanAppProcessInfo> cih;
-    private final Set<String> cii;
-    private boolean cij;
-    private boolean cik;
-    private long cil;
+    private final Message ctK;
+    private final Set<SwanAppProcessInfo> ctL;
+    private final Set<String> ctM;
+    private boolean ctN;
+    private long ctO;
+    private boolean ctz;
 
     @NonNull
-    public Message aiW() {
-        if (this.cig.obj == null) {
-            N(new Bundle());
+    public Message amK() {
+        if (this.ctK.obj == null) {
+            Q(new Bundle());
         }
-        return this.cig;
+        return this.ctK;
     }
 
     public c(Message message) {
-        this.cih = new HashSet();
-        this.cii = new HashSet();
-        this.cij = false;
-        this.cik = false;
-        this.cil = 0L;
-        this.cig = message == null ? Message.obtain() : message;
+        this.ctL = new HashSet();
+        this.ctM = new HashSet();
+        this.ctz = false;
+        this.ctN = false;
+        this.ctO = 0L;
+        this.ctK = message == null ? Message.obtain() : message;
     }
 
     public c(int i, Object obj) {
@@ -46,13 +46,13 @@ public final class c {
         this(Message.obtain());
     }
 
-    public c eo(boolean z) {
-        this.cik = z;
+    public c eH(boolean z) {
+        this.ctN = z;
         return this;
     }
 
     public boolean isSticky() {
-        return this.cik;
+        return this.ctN;
     }
 
     private boolean a(int[] iArr, int i) {
@@ -68,24 +68,31 @@ public final class c {
     }
 
     public c a(SwanAppProcessInfo... swanAppProcessInfoArr) {
-        this.cih.addAll(Arrays.asList(swanAppProcessInfoArr));
-        return this;
-    }
-
-    public c u(String... strArr) {
-        this.cii.addAll(Arrays.asList(strArr));
-        return this;
-    }
-
-    public c e(int... iArr) {
-        int length = iArr.length;
-        for (int i = 0; i < length; i++) {
-            a(SwanAppProcessInfo.indexOf(iArr[i]));
+        if (swanAppProcessInfoArr != null) {
+            this.ctL.addAll(Arrays.asList(swanAppProcessInfoArr));
         }
         return this;
     }
 
-    public c aiX() {
+    public c u(String... strArr) {
+        if (strArr != null) {
+            this.ctM.addAll(Arrays.asList(strArr));
+        }
+        return this;
+    }
+
+    public c e(int... iArr) {
+        if (iArr != null) {
+            for (int i : iArr) {
+                if (SwanAppProcessInfo.checkProcessId(i)) {
+                    a(SwanAppProcessInfo.indexOf(i));
+                }
+            }
+        }
+        return this;
+    }
+
+    public c amL() {
         SwanAppProcessInfo[] indices;
         for (SwanAppProcessInfo swanAppProcessInfo : SwanAppProcessInfo.indices()) {
             if (swanAppProcessInfo.isSwanAppProcess()) {
@@ -105,40 +112,40 @@ public final class c {
         return this;
     }
 
-    public c ep(boolean z) {
-        this.cij = z;
+    public c eI(boolean z) {
+        this.ctz = z;
         return this;
     }
 
-    public Set<SwanAppProcessInfo> aiY() {
-        return new HashSet(this.cih);
+    public Set<SwanAppProcessInfo> amM() {
+        return new HashSet(this.ctL);
     }
 
-    public Set<String> aiZ() {
-        return new HashSet(this.cii);
+    public Set<String> amN() {
+        return new HashSet(this.ctM);
     }
 
-    public boolean aja() {
-        return this.cij;
+    public boolean amO() {
+        return this.ctz;
     }
 
-    public c N(Object obj) {
-        this.cig.obj = obj;
+    public c Q(Object obj) {
+        this.ctK.obj = obj;
         return this;
     }
 
-    public c ba(long j) {
+    public c bk(long j) {
         if (j < 0) {
             j = 0;
         }
-        this.cil = j;
+        this.ctO = j;
         return this;
     }
 
-    public long ajb() {
-        if (this.cil < 0) {
+    public long amP() {
+        if (this.ctO < 0) {
             return 0L;
         }
-        return this.cil;
+        return this.ctO;
     }
 }

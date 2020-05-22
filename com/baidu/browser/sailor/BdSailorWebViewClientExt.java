@@ -44,6 +44,9 @@ public class BdSailorWebViewClientExt implements INoProGuard {
     public void onFirstContentfulPaintExt(BdSailorWebView bdSailorWebView, String str) {
     }
 
+    public void onFirstImagePaintExt(BdSailorWebView bdSailorWebView, String str) {
+    }
+
     public void onFirstLayoutDidExt(BdSailorWebView bdSailorWebView, String str) {
     }
 
@@ -51,6 +54,9 @@ public class BdSailorWebViewClientExt implements INoProGuard {
     }
 
     public void onFirstScreenPaintFinishedExt(BdSailorWebView bdSailorWebView, String str) {
+    }
+
+    public void onFirstTextPaintExt(BdSailorWebView bdSailorWebView, String str) {
     }
 
     public void onFullScreenModeExt(BdSailorWebView bdSailorWebView, boolean z, int i, int i2) {
@@ -80,7 +86,7 @@ public class BdSailorWebViewClientExt implements INoProGuard {
         if (bdSailorWebView == null || !bdSailorWebView.isAutoShowTitlebar()) {
             return;
         }
-        bdSailorWebView.post(new b(this, bdSailorWebView));
+        bdSailorWebView.post(new c(this, bdSailorWebView));
     }
 
     public void onGoPreloadForwardExt(BdSailorWebView bdSailorWebView) {

@@ -8,7 +8,7 @@ import org.json.JSONObject;
 public final class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static String TAG = "SwanAppParam";
-    private boolean cen;
+    private boolean coU;
     private String mBaseUrl;
     private String mPage;
     private String mParams;
@@ -21,12 +21,12 @@ public final class c {
         return this.mParams;
     }
 
-    public String aer() {
+    public String ahC() {
         return this.mBaseUrl;
     }
 
-    public void Wc() {
-        this.cen = false;
+    public void YO() {
+        this.coU = false;
     }
 
     public String toJSONString() {
@@ -35,7 +35,7 @@ public final class c {
             jSONObject.put("page", this.mPage);
             jSONObject.put("params", this.mParams);
             jSONObject.put("baseUrl", this.mBaseUrl);
-            jSONObject.put("isFirstPage", this.cen);
+            jSONObject.put("isFirstPage", this.coU);
         } catch (JSONException e) {
             if (DEBUG) {
                 Log.e(TAG, "toJSONString error: " + Log.getStackTraceString(e));
@@ -44,7 +44,7 @@ public final class c {
         return jSONObject.toString();
     }
 
-    public static c kI(String str) {
+    public static c lW(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -54,7 +54,7 @@ public final class c {
             cVar.mPage = jSONObject.optString("page");
             cVar.mParams = jSONObject.optString("params");
             cVar.mBaseUrl = jSONObject.optString("baseUrl");
-            cVar.cen = jSONObject.optBoolean("isFirstPage");
+            cVar.coU = jSONObject.optBoolean("isFirstPage");
             return cVar;
         } catch (JSONException e) {
             if (DEBUG) {
@@ -67,30 +67,30 @@ public final class c {
 
     /* loaded from: classes11.dex */
     public static class a {
-        private c bLU = new c();
+        private c bUY = new c();
 
-        public a kJ(String str) {
-            this.bLU.mPage = str;
+        public a lX(String str) {
+            this.bUY.mPage = str;
             return this;
         }
 
-        public a kK(String str) {
-            this.bLU.mParams = str;
+        public a lY(String str) {
+            this.bUY.mParams = str;
             return this;
         }
 
-        public a kL(String str) {
-            this.bLU.mBaseUrl = str;
+        public a lZ(String str) {
+            this.bUY.mBaseUrl = str;
             return this;
         }
 
-        public a dX(boolean z) {
-            this.bLU.cen = z;
+        public a eo(boolean z) {
+            this.bUY.coU = z;
             return this;
         }
 
-        public c agD() {
-            return this.bLU;
+        public c ajS() {
+            return this.bUY;
         }
     }
 }

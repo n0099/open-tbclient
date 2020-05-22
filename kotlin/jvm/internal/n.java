@@ -8,18 +8,18 @@ import kotlin.TypeCastException;
 @kotlin.h
 /* loaded from: classes7.dex */
 public final class n {
-    private static final Object[] mXQ = new Object[0];
+    private static final Object[] nsS = new Object[0];
 
-    public static final Object[] n(Collection<?> collection) {
+    public static final Object[] p(Collection<?> collection) {
         Object[] objArr;
-        q.j(collection, "collection");
+        q.m(collection, "collection");
         int size = collection.size();
         if (size == 0) {
-            return mXQ;
+            return nsS;
         }
         Iterator<?> it = collection.iterator();
         if (!it.hasNext()) {
-            return mXQ;
+            return nsS;
         }
         Object[] objArr2 = new Object[size];
         int i = 0;
@@ -39,10 +39,10 @@ public final class n {
                     i3 = 2147483645;
                 }
                 objArr = Arrays.copyOf(objArr3, i3);
-                q.i(objArr, "Arrays.copyOf(result, newSize)");
+                q.l((Object) objArr, "Arrays.copyOf(result, newSize)");
             } else if (!it.hasNext()) {
                 Object[] copyOf = Arrays.copyOf(objArr3, i2);
-                q.i(copyOf, "Arrays.copyOf(result, size)");
+                q.l((Object) copyOf, "Arrays.copyOf(result, size)");
                 return copyOf;
             } else {
                 objArr = objArr3;
@@ -55,7 +55,7 @@ public final class n {
     public static final Object[] a(Collection<?> collection, Object[] objArr) {
         Object[] objArr2;
         int i = 0;
-        q.j(collection, "collection");
+        q.m(collection, "collection");
         if (objArr == null) {
             throw new NullPointerException();
         }
@@ -99,14 +99,14 @@ public final class n {
                     i3 = 2147483645;
                 }
                 objArr2 = Arrays.copyOf(objArr2, i3);
-                q.i(objArr2, "Arrays.copyOf(result, newSize)");
+                q.l((Object) objArr2, "Arrays.copyOf(result, newSize)");
             } else if (!it.hasNext()) {
                 if (objArr2 == objArr) {
                     objArr[i2] = null;
                     return objArr;
                 }
                 Object[] copyOf = Arrays.copyOf(objArr2, i2);
-                q.i(copyOf, "Arrays.copyOf(result, size)");
+                q.l((Object) copyOf, "Arrays.copyOf(result, size)");
                 return copyOf;
             }
             i = i2;

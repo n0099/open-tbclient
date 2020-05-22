@@ -9,14 +9,14 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes7.dex */
 public final class CompletableMergeIterable extends a {
-    final Iterable<? extends e> mRI;
+    final Iterable<? extends e> nmQ;
 
     @Override // io.reactivex.a
     public void b(c cVar) {
         io.reactivex.disposables.a aVar = new io.reactivex.disposables.a();
         cVar.onSubscribe(aVar);
         try {
-            Iterator it = (Iterator) io.reactivex.internal.functions.a.h(this.mRI.iterator(), "The source iterator returned is null");
+            Iterator it = (Iterator) io.reactivex.internal.functions.a.k(this.nmQ.iterator(), "The source iterator returned is null");
             AtomicInteger atomicInteger = new AtomicInteger(1);
             MergeCompletableObserver mergeCompletableObserver = new MergeCompletableObserver(cVar, aVar, atomicInteger);
             while (!aVar.isDisposed()) {
@@ -24,7 +24,7 @@ public final class CompletableMergeIterable extends a {
                     if (it.hasNext()) {
                         if (!aVar.isDisposed()) {
                             try {
-                                e eVar = (e) io.reactivex.internal.functions.a.h(it.next(), "The iterator returned a null CompletableSource");
+                                e eVar = (e) io.reactivex.internal.functions.a.k(it.next(), "The iterator returned a null CompletableSource");
                                 if (!aVar.isDisposed()) {
                                     atomicInteger.getAndIncrement();
                                     eVar.a(mergeCompletableObserver);

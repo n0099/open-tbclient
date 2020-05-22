@@ -25,15 +25,13 @@ public final class e {
         this.b = new Vector<>();
     }
 
-    public static synchronized e a() {
-        e eVar;
+    public static e a() {
         synchronized (e.class) {
             if (f == null) {
                 f = new e();
             }
-            eVar = f;
         }
-        return eVar;
+        return f;
     }
 
     public static boolean b() {

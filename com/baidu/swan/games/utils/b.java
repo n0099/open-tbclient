@@ -11,23 +11,23 @@ public class b {
         if (z) {
             f.onSuccess(obj);
         } else {
-            f.U(obj);
+            f.Y(obj);
         }
     }
 
-    public static void a(com.baidu.swan.games.e.b bVar, JSTypeMismatchException jSTypeMismatchException) {
-        bVar.throwJSException(JSExceptionType.TypeError, String.format("The \"%s\" argument must be %s. Received type %s", jSTypeMismatchException.name, ie(jSTypeMismatchException.requiredType), ie(jSTypeMismatchException.actualType)));
+    public static void a(com.baidu.swan.games.f.b bVar, JSTypeMismatchException jSTypeMismatchException) {
+        bVar.throwJSException(JSExceptionType.TypeError, String.format("The \"%s\" argument must be %s. Received type %s", jSTypeMismatchException.name, iv(jSTypeMismatchException.requiredType), iv(jSTypeMismatchException.actualType)));
     }
 
     public static String a(@NonNull String str, @NonNull JSTypeMismatchException jSTypeMismatchException) {
-        return String.format("%s:fail parameter error: parameter.%s should be %s instead of %s", str, jSTypeMismatchException.name, ie(jSTypeMismatchException.requiredType), ie(jSTypeMismatchException.actualType));
+        return String.format("%s:fail parameter error: parameter.%s should be %s instead of %s", str, jSTypeMismatchException.name, iv(jSTypeMismatchException.requiredType), iv(jSTypeMismatchException.actualType));
     }
 
-    public static String cf(@NonNull String str, @NonNull String str2) {
+    public static String cA(@NonNull String str, @NonNull String str2) {
         return String.format("%s: %s", str, str2);
     }
 
-    private static String ie(int i) {
+    private static String iv(int i) {
         switch (i) {
             case 1:
                 return "boolean";

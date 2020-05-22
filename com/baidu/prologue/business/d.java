@@ -4,18 +4,18 @@ import android.support.annotation.NonNull;
 import android.view.ViewGroup;
 /* loaded from: classes6.dex */
 public interface d {
-    void LH();
+    void NU();
 
     @NonNull
-    ViewGroup LI();
+    ViewGroup NV();
 
-    void LJ();
+    void NW();
 
-    void LK();
+    void NX();
 
     void onAdClick();
 
     void onAdShow();
 
-    void pB();
+    void pH();
 }

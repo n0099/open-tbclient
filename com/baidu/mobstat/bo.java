@@ -6,7 +6,6 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Environment;
 import com.baidu.android.imsdk.IMConstants;
-import com.baidu.webkit.net.BdNetEngine;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -20,8 +19,8 @@ import java.net.Proxy;
 import java.net.URL;
 /* loaded from: classes11.dex */
 public final class bo {
-    private static final Proxy a = new Proxy(Proxy.Type.HTTP, new InetSocketAddress(BdNetEngine.URI_PROXY_CMWAP, 80));
-    private static final Proxy b = new Proxy(Proxy.Type.HTTP, new InetSocketAddress(BdNetEngine.URI_PROXY_CTWAP, 80));
+    private static final Proxy a = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("10.0.0.172", 80));
+    private static final Proxy b = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("10.0.0.200", 80));
 
     public static String a() {
         try {

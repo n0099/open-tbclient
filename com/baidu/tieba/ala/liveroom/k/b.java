@@ -4,17 +4,17 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 class b {
-    boolean fHH = false;
-    String date = "";
-    int flN = 0;
+    boolean fVD = false;
+    String fzt = "";
+    int fzu = 0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String toJsonString() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("hasShowMax", this.fHH);
-            jSONObject.put("date", this.date);
-            jSONObject.put("times", this.flN);
+            jSONObject.put("hasShowMax", this.fVD);
+            jSONObject.put("date", this.fzt);
+            jSONObject.put("times", this.fzu);
             return jSONObject.toString();
         } catch (JSONException e) {
             e.printStackTrace();

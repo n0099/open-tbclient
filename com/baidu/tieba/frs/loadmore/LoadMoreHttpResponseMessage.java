@@ -3,11 +3,11 @@ package com.baidu.tieba.frs.loadmore;
 import android.text.TextUtils;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.framework.message.Message;
-import com.baidu.adp.widget.ListView.m;
+import com.baidu.adp.widget.ListView.o;
 import com.baidu.tbadk.core.data.BannerListData;
 import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.data.ae;
-import com.baidu.tbadk.core.data.bj;
+import com.baidu.tbadk.core.data.ad;
+import com.baidu.tbadk.core.data.bk;
 import com.baidu.tbadk.core.util.v;
 import com.baidu.tieba.recapp.report.b;
 import com.squareup.wire.Wire;
@@ -21,14 +21,14 @@ import tbclient.User;
 /* loaded from: classes9.dex */
 public class LoadMoreHttpResponseMessage extends HttpResponsedMessage {
     private BannerListData bannerListData;
-    private ArrayList<m> threadList;
+    private ArrayList<o> threadList;
     private HashMap<String, MetaData> userMap;
 
     public LoadMoreHttpResponseMessage(int i) {
         super(i);
     }
 
-    public ArrayList<m> getThreadList() {
+    public ArrayList<o> getThreadList() {
         return this.threadList;
     }
 
@@ -64,24 +64,24 @@ public class LoadMoreHttpResponseMessage extends HttpResponsedMessage {
                         ArrayList arrayList = new ArrayList();
                         for (int i3 = 0; i3 < list2.size(); i3++) {
                             ThreadInfo threadInfo = list2.get(i3);
-                            bj bjVar = new bj();
-                            bjVar.setUserMap(this.userMap);
-                            bjVar.a(threadInfo);
-                            bjVar.aLx();
-                            bjVar.dtE = isBrandForum;
-                            if (!TextUtils.isEmpty(bjVar.aLJ())) {
-                                ae aeVar = new ae();
-                                aeVar.tN(bjVar.aLJ());
-                                this.threadList.add(aeVar);
+                            bk bkVar = new bk();
+                            bkVar.setUserMap(this.userMap);
+                            bkVar.a(threadInfo);
+                            bkVar.aRw();
+                            bkVar.dHx = isBrandForum;
+                            if (!TextUtils.isEmpty(bkVar.aRI())) {
+                                ad adVar = new ad();
+                                adVar.vt(bkVar.aRI());
+                                this.threadList.add(adVar);
                             } else {
-                                this.threadList.add(bjVar);
-                                JSONObject e = b.e(threadInfo);
-                                if (e != null) {
-                                    arrayList.add(e);
+                                this.threadList.add(bkVar);
+                                JSONObject f = b.f(threadInfo);
+                                if (f != null) {
+                                    arrayList.add(f);
                                 }
                             }
                         }
-                        b.cOd().em(arrayList);
+                        b.cVe().et(arrayList);
                     }
                 }
                 this.bannerListData = null;

@@ -10,11 +10,11 @@ import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import java.util.List;
 /* loaded from: classes11.dex */
 public abstract class b<T> {
-    public abstract ContentValues ab(T t);
+    public abstract ContentValues af(T t);
 
-    public abstract <T> List<T> g(Cursor cursor) throws SQLException;
+    public abstract <T> List<T> h(Cursor cursor) throws SQLException;
 
-    public abstract <T> T i(Cursor cursor) throws SQLException;
+    public abstract <T> T j(Cursor cursor) throws SQLException;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public boolean a(Cursor cursor, com.baidu.swan.pms.model.e eVar) {
@@ -37,7 +37,7 @@ public abstract class b<T> {
             if (TextUtils.isEmpty(string)) {
                 return false;
             }
-            eVar.dan = string;
+            eVar.dlx = string;
             eVar.category = cursor.getInt(columnIndex2);
             eVar.versionName = cursor.getString(columnIndex3);
             eVar.versionCode = cursor.getInt(columnIndex4);
@@ -49,7 +49,7 @@ public abstract class b<T> {
             eVar.currentSize = cursor.getLong(columnIndex11);
             eVar.createTime = cursor.getLong(columnIndex12);
             eVar.updateTime = cursor.getLong(columnIndex13);
-            eVar.dao = cursor.getLong(columnIndex9);
+            eVar.dly = cursor.getLong(columnIndex9);
             eVar.state = cursor.getInt(columnIndex14);
             return true;
         }
@@ -58,7 +58,7 @@ public abstract class b<T> {
 
     public ContentValues e(com.baidu.swan.pms.model.e eVar) {
         ContentValues contentValues = new ContentValues();
-        contentValues.put("bundle_id", eVar.dan);
+        contentValues.put("bundle_id", eVar.dlx);
         contentValues.put("category", Integer.valueOf(eVar.category));
         contentValues.put(SharedPrefConfig.VERSION_NAME, eVar.versionName);
         contentValues.put("version_code", Integer.valueOf(eVar.versionCode));

@@ -14,7 +14,7 @@ import com.baidu.tieba.play.operableVideoView.OperableVideoNetworkStateTipView;
 import com.baidu.tieba.video.g;
 /* loaded from: classes9.dex */
 public class PbVideoNetworkStateTipView extends OperableVideoNetworkStateTipView {
-    private TextView eFU;
+    private TextView dsQ;
 
     public PbVideoNetworkStateTipView(Context context) {
         super(context);
@@ -37,23 +37,23 @@ public class PbVideoNetworkStateTipView extends OperableVideoNetworkStateTipView
     }
 
     private void init() {
-        this.eFU = (TextView) findViewById(R.id.video_net_tip_duration);
+        this.dsQ = (TextView) findViewById(R.id.video_net_tip_duration);
     }
 
     @Override // com.baidu.tieba.play.operableVideoView.OperableVideoNetworkStateTipView
     public void setVideoDuration(int i) {
         if (i > 0) {
-            this.eFU.setText(String.format(getResources().getString(R.string.pb_video_duration), aq.stringForVideoTime(i * 1000)));
+            this.dsQ.setText(String.format(getResources().getString(R.string.pb_video_duration), aq.stringForVideoTime(i * 1000)));
         }
     }
 
     @Override // com.baidu.tieba.play.operableVideoView.OperableVideoNetworkStateTipView
-    public boolean cEZ() {
-        return (hasAgreeToPlay() || g.daw().dax() || TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 2 || !j.isMobileNet()) ? false : true;
+    public boolean cLX() {
+        return (hasAgreeToPlay() || g.dhK().dhL() || TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 2 || !j.isMobileNet()) ? false : true;
     }
 
     @Override // com.baidu.tieba.play.operableVideoView.OperableVideoNetworkStateTipView
-    public void ai(boolean z, boolean z2) {
+    public void al(boolean z, boolean z2) {
     }
 
     @Override // com.baidu.tieba.play.operableVideoView.OperableVideoNetworkStateTipView, android.view.View.OnClickListener
@@ -62,8 +62,8 @@ public class PbVideoNetworkStateTipView extends OperableVideoNetworkStateTipView
             if (view.getId() == R.id.free_flow) {
                 com.baidu.tbadk.browser.a.startWebActivity(true, getContext(), getResources().getString(R.string.free_data_privilege), TbConfig.URL_BAIDU_SINGKIL);
             } else if (view.getId() == R.id.play) {
-                if (this.kkv != null) {
-                    this.kkv.onClick(view);
+                if (this.kCq != null) {
+                    this.kCq.onClick(view);
                 }
                 TiebaStatic.log("c12618");
             }

@@ -6,37 +6,37 @@ import org.json.JSONObject;
 import tbclient.PrivSets;
 /* loaded from: classes.dex */
 public class PersonPrivateData extends OrmObject {
-    private int dVH = 1;
-    private int dVI = 1;
-    private int dVJ = 1;
-    private int dVK = 1;
-    private int dVL = 1;
-    private int dVM = 1;
+    private int ejQ = 1;
+    private int ejR = 1;
+    private int ejS = 1;
+    private int ejT = 1;
+    private int ejU = 1;
+    private int ejV = 1;
 
-    public int aWn() {
-        return this.dVI;
+    public int bcw() {
+        return this.ejR;
     }
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.dVH = jSONObject.optInt("location", 1);
-            this.dVI = jSONObject.optInt("like", 1);
-            this.dVJ = jSONObject.optInt(TbEnum.ParamKey.GROUP, 1);
-            this.dVK = jSONObject.optInt("post", 1);
-            this.dVL = jSONObject.optInt("friend", 1);
-            this.dVM = jSONObject.optInt("live", 1);
+            this.ejQ = jSONObject.optInt("location", 1);
+            this.ejR = jSONObject.optInt("like", 1);
+            this.ejS = jSONObject.optInt(TbEnum.ParamKey.GROUP, 1);
+            this.ejT = jSONObject.optInt("post", 1);
+            this.ejU = jSONObject.optInt("friend", 1);
+            this.ejV = jSONObject.optInt("live", 1);
         }
     }
 
     public void a(PrivSets privSets) {
         if (privSets != null) {
             try {
-                this.dVH = privSets.location.intValue();
-                this.dVI = privSets.like.intValue();
-                this.dVJ = privSets.group.intValue();
-                this.dVK = privSets.post.intValue();
-                this.dVL = privSets.friend.intValue();
-                this.dVM = privSets.live.intValue();
+                this.ejQ = privSets.location.intValue();
+                this.ejR = privSets.like.intValue();
+                this.ejS = privSets.group.intValue();
+                this.ejT = privSets.post.intValue();
+                this.ejU = privSets.friend.intValue();
+                this.ejV = privSets.live.intValue();
             } catch (Exception e) {
                 e.printStackTrace();
             }

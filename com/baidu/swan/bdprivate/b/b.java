@@ -1,66 +1,20 @@
 package com.baidu.swan.bdprivate.b;
 
-import android.util.Log;
-import android.webkit.CookieManager;
-import android.webkit.CookieSyncManager;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.apps.setting.oauth.g;
-import java.util.List;
+import android.app.Activity;
+import android.content.Context;
+import com.baidu.swan.apps.adaptation.a.n;
 /* loaded from: classes11.dex */
-public class b extends g {
-    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
+public class b implements n {
+    private static final String TAG = b.class.getSimpleName();
 
-    static {
-        try {
-            CookieSyncManager.createInstance(AppRuntime.getAppContext());
-        } catch (Exception e) {
-        }
-    }
-
-    @Override // com.baidu.swan.apps.setting.oauth.g, com.baidu.searchbox.http.cookie.CookieManager
-    public boolean shouldAcceptCookie(String str, String str2) {
-        return true;
-    }
-
-    @Override // com.baidu.swan.apps.setting.oauth.g, com.baidu.searchbox.http.cookie.CookieManager
-    public boolean shouldSendCookie(String str, String str2) {
-        return true;
-    }
-
-    @Override // com.baidu.swan.apps.setting.oauth.g, com.baidu.searchbox.http.cookie.CookieManager
-    public void storeCookie(String str, List<String> list) {
-        if (DEBUG) {
-            Log.d("RealCookieManager", "storeCookie httpUrl: " + str);
-            Log.d("RealCookieManager", "storeCookie cookies: " + list);
-        }
-        try {
-            for (String str2 : list) {
-                CookieManager.getInstance().setCookie(str, str2);
+    @Override // com.baidu.swan.apps.adaptation.a.n
+    public void a(Context context, String str, String str2, com.baidu.swan.apps.b.a.b bVar) {
+        if (bVar != null) {
+            if (!(context instanceof Activity)) {
+                bVar.ei(0);
+            } else {
+                com.baidu.swan.bdprivate.a.a.a((Activity) context, bVar);
             }
-            UB();
-        } catch (Exception e) {
         }
-    }
-
-    public void UB() {
-        if (com.baidu.swan.apps.as.a.hasLollipop()) {
-            CookieManager.getInstance().flush();
-            return;
-        }
-        CookieSyncManager.createInstance(AppRuntime.getAppContext());
-        CookieSyncManager.getInstance().sync();
-    }
-
-    @Override // com.baidu.swan.apps.setting.oauth.g, com.baidu.searchbox.http.cookie.CookieManager
-    public String getCookie(String str) {
-        String str2 = "";
-        try {
-            str2 = CookieManager.getInstance().getCookie(str);
-            if (DEBUG) {
-                Log.d("RealCookieManager", "RealCookieManager:" + str2);
-            }
-        } catch (Exception e) {
-        }
-        return str2;
     }
 }

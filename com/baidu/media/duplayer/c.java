@@ -7,6 +7,7 @@ import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.cyberplayer.sdk.CyberLog;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
+import com.baidu.fsg.face.liveness.video.f;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -16,11 +17,11 @@ import java.util.Map;
 import java.util.TreeMap;
 /* loaded from: classes.dex */
 public class c {
-    private static MediaCodecInfo[] bim;
+    private static MediaCodecInfo[] bpI;
     private static Map<String, Integer> d = new TreeMap(String.CASE_INSENSITIVE_ORDER);
     private static Map<String, MediaCodecInfo> f = new HashMap();
     public int b = 0;
-    public MediaCodecInfo bil;
+    public MediaCodecInfo bpH;
     public String c;
 
     static {
@@ -101,7 +102,7 @@ public class c {
             }
         }
         c cVar = new c();
-        cVar.bil = mediaCodecInfo;
+        cVar.bpH = mediaCodecInfo;
         cVar.b = i;
         cVar.c = str;
         return cVar;
@@ -117,18 +118,18 @@ public class c {
 
     private static String a(String str, int i, int i2, double d2) {
         a();
-        MediaCodecInfo fw = fw(str);
-        if (fw != null) {
+        MediaCodecInfo gi = gi(str);
+        if (gi != null) {
             boolean z = true;
             if (Build.VERSION.SDK_INT >= 21 && i > 0 && i2 > 0) {
-                MediaCodecInfo.CodecCapabilities capabilitiesForType = fw.getCapabilitiesForType(str);
+                MediaCodecInfo.CodecCapabilities capabilitiesForType = gi.getCapabilitiesForType(str);
                 z = d2 > 0.0d ? capabilitiesForType.getVideoCapabilities().areSizeAndRateSupported(i, i2, d2) : capabilitiesForType.getVideoCapabilities().isSizeSupported(i, i2);
             }
             if (z) {
-                CyberLog.d("CyberMediaCodecInfo", "mineType:" + str + " decoder:" + fw.getName());
-                return fw.getName();
+                CyberLog.d("CyberMediaCodecInfo", "mineType:" + str + " decoder:" + gi.getName());
+                return gi.getName();
             }
-            CyberLog.d("CyberMediaCodecInfo", "decoder not support [" + fw.getName() + Constants.ACCEPT_TIME_SEPARATOR_SP + i + Constants.ACCEPT_TIME_SEPARATOR_SP + i2 + Constants.ACCEPT_TIME_SEPARATOR_SP + d2 + "]");
+            CyberLog.d("CyberMediaCodecInfo", "decoder not support [" + gi.getName() + Constants.ACCEPT_TIME_SEPARATOR_SP + i + Constants.ACCEPT_TIME_SEPARATOR_SP + i2 + Constants.ACCEPT_TIME_SEPARATOR_SP + d2 + "]");
         }
         return null;
     }
@@ -136,26 +137,26 @@ public class c {
     public static synchronized void a() {
         synchronized (c.class) {
             try {
-                if (bim == null && Build.VERSION.SDK_INT >= 16) {
+                if (bpI == null && Build.VERSION.SDK_INT >= 16) {
                     if (Build.VERSION.SDK_INT < 21) {
                         ArrayList arrayList = new ArrayList();
                         int codecCount = MediaCodecList.getCodecCount();
                         for (int i = 0; i < codecCount; i++) {
                             arrayList.add(MediaCodecList.getCodecInfoAt(i));
                         }
-                        bim = (MediaCodecInfo[]) arrayList.toArray(new MediaCodecInfo[arrayList.size()]);
+                        bpI = (MediaCodecInfo[]) arrayList.toArray(new MediaCodecInfo[arrayList.size()]);
                     } else {
-                        bim = new MediaCodecList(0).getCodecInfos();
+                        bpI = new MediaCodecList(0).getCodecInfos();
                     }
-                    fw("video/avc");
-                    fw("video/hevc");
+                    gi(f.b);
+                    gi("video/hevc");
                 }
             } catch (Exception e) {
             }
         }
     }
 
-    private static MediaCodecInfo fw(String str) {
+    private static MediaCodecInfo gi(String str) {
         c cVar;
         String[] supportedTypes;
         c a;
@@ -164,8 +165,8 @@ public class c {
             return mediaCodecInfo;
         }
         ArrayList arrayList = new ArrayList();
-        for (int i = 0; i < bim.length; i++) {
-            MediaCodecInfo mediaCodecInfo2 = bim[i];
+        for (int i = 0; i < bpI.length; i++) {
+            MediaCodecInfo mediaCodecInfo2 = bpI[i];
             if (!mediaCodecInfo2.isEncoder() && (supportedTypes = mediaCodecInfo2.getSupportedTypes()) != null) {
                 for (String str2 : supportedTypes) {
                     if (!TextUtils.isEmpty(str2) && str2.equalsIgnoreCase(str) && (a = a(mediaCodecInfo2, str)) != null) {
@@ -192,7 +193,7 @@ public class c {
         if (cVar.b < 600) {
             return null;
         }
-        f.put(str, cVar.bil);
-        return cVar.bil;
+        f.put(str, cVar.bpH);
+        return cVar.bpH;
     }
 }

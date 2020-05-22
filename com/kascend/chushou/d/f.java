@@ -26,10 +26,10 @@ public final class f {
         String str2 = str;
         if (str2 == null || str2.length() == 0) {
             String string = tv.chushou.widget.a.c.getString(i);
-            q.i(string, "Res.getString(id)");
+            q.l((Object) string, "Res.getString(id)");
             return string;
         } else if (str == null) {
-            q.dDS();
+            q.dLM();
             return str;
         } else {
             return str;

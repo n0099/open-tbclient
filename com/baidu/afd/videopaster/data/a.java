@@ -8,59 +8,59 @@ import com.baidu.tieba.lego.card.b.b;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class a implements com.baidu.tieba.lego.card.b.b {
-    public int XA;
-    public int XB;
-    private b.a XE;
-    public String Xs;
-    public String Xt;
-    public int Xu;
-    public String Xv;
-    public String Xw;
-    public String Xx;
-    public String Xy;
-    public boolean Xz;
+    public String XH;
+    public String XI;
+    public int XJ;
+    public String XK;
+    public String XL;
+    public String XM;
+    public String XN;
+    public boolean XO;
+    public int XP;
+    public int XQ;
+    private b.a XT;
     public String adid;
     public String extra;
     public String picUrl;
     public String tplName;
     public String videoUrl;
-    private int Xr = 3;
-    public ArrayList<String> XC = new ArrayList<>();
-    public ArrayList<String> XD = new ArrayList<>();
+    private int XG = 3;
+    public ArrayList<String> XR = new ArrayList<>();
+    public ArrayList<String> XS = new ArrayList<>();
 
-    public void aK(int i) {
-        this.Xr = i;
+    public void aL(int i) {
+        this.XG = i;
     }
 
     public boolean isEmpty() {
-        return this.Xr == 2;
+        return this.XG == 2;
     }
 
-    public int pR() {
-        return this.Xr;
+    public int pX() {
+        return this.XG;
     }
 
     public boolean isValid() {
-        if (pR() == 0) {
+        if (pX() == 0) {
             return this.picUrl != null && (this.picUrl.startsWith("http://") || this.picUrl.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX));
-        } else if (pR() == 1) {
+        } else if (pX() == 1) {
             return this.videoUrl != null && (this.videoUrl.startsWith("http://") || this.videoUrl.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX));
         } else {
             return false;
         }
     }
 
-    public String pS() {
-        return StringUtils.isNull(this.Xx) ? TbadkCoreApplication.getInst().getResources().getString(R.string.check_detail) : this.Xx;
+    public String pY() {
+        return StringUtils.isNull(this.XM) ? TbadkCoreApplication.getInst().getResources().getString(R.string.check_detail) : this.XM;
     }
 
     @Override // com.baidu.tieba.lego.card.b.b
     public b.a getParallelCharge() {
-        if (this.XE == null) {
-            this.XE = new b.a();
-            this.XE.iJw = this.XC;
-            this.XE.iJx = this.XD;
+        if (this.XT == null) {
+            this.XT = new b.a();
+            this.XT.iYw = this.XR;
+            this.XT.iYx = this.XS;
         }
-        return this.XE;
+        return this.XT;
     }
 }

@@ -4,7 +4,7 @@ import android.os.Handler;
 import android.os.Looper;
 /* loaded from: classes5.dex */
 public final class AsyncRun {
-    public static void G(Runnable runnable) {
+    public static void I(Runnable runnable) {
         new Handler(Looper.getMainLooper()).post(runnable);
     }
 }

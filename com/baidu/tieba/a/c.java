@@ -9,11 +9,11 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes8.dex */
 public class c {
-    private boolean eyg = false;
+    private boolean eMH = false;
     private int mChannel;
 
     public c() {
-        bfK();
+        blW();
     }
 
     public void a(ArrayList<Integer> arrayList, b bVar) {
@@ -21,30 +21,30 @@ public class c {
             Iterator<Integer> it = arrayList.iterator();
             while (it.hasNext()) {
                 int intValue = it.next().intValue();
-                bVar.bd(intValue, or(intValue));
+                bVar.bi(intValue, oY(intValue));
             }
         }
     }
 
-    private int or(int i) {
+    private int oY(int i) {
         if (i == 1) {
-            return os(i);
+            return oZ(i);
         }
         if (this.mChannel == 1) {
-            return ou(i);
+            return pb(i);
         }
         if (this.mChannel == 0) {
-            return os(i);
+            return oZ(i);
         }
         return 0;
     }
 
-    private int os(int i) {
-        String ot = ot(i);
-        return (!aq.isEmpty(ot) && com.baidu.tbadk.core.sharedPref.b.aNT().getInt(ot, 0) == 1) ? 1 : 0;
+    private int oZ(int i) {
+        String pa = pa(i);
+        return (!aq.isEmpty(pa) && com.baidu.tbadk.core.sharedPref.b.aTX().getInt(pa, 0) == 1) ? 1 : 0;
     }
 
-    private String ot(int i) {
+    private String pa(int i) {
         if (i == 1) {
             return "key_card_show_type";
         }
@@ -54,53 +54,53 @@ public class c {
         return null;
     }
 
-    private int ou(int i) {
-        String ov = ov(i);
-        if (aq.isEmpty(ov)) {
+    private int pb(int i) {
+        String pc = pc(i);
+        if (aq.isEmpty(pc)) {
             return 0;
         }
-        SampleResult NC = com.baidu.ubs.analytics.a.NC(ov);
-        return (NC == SampleResult.T1 || NC == SampleResult.T2 || NC == SampleResult.T3 || NC == SampleResult.T4 || NC == SampleResult.T5) ? 1 : 0;
+        SampleResult Pp = com.baidu.ubs.analytics.a.Pp(pc);
+        return (Pp == SampleResult.T1 || Pp == SampleResult.T2 || Pp == SampleResult.T3 || Pp == SampleResult.T4 || Pp == SampleResult.T5) ? 1 : 0;
     }
 
-    private String ov(int i) {
+    private String pc(int i) {
         if (i == 2) {
             return "46";
         }
         return null;
     }
 
-    private void bfK() {
-        this.mChannel = com.baidu.tbadk.core.sharedPref.b.aNT().getInt(SharedPrefConfig.KEY_ABTEST_CHANNEL, 0);
+    private void blW() {
+        this.mChannel = com.baidu.tbadk.core.sharedPref.b.aTX().getInt(SharedPrefConfig.KEY_ABTEST_CHANNEL, 0);
         initSdk();
     }
 
-    public void ow(int i) {
+    public void pd(int i) {
         if (i == 1 || i == 0) {
             this.mChannel = i;
-            com.baidu.tbadk.core.sharedPref.b.aNT().putInt(SharedPrefConfig.KEY_ABTEST_CHANNEL, this.mChannel);
+            com.baidu.tbadk.core.sharedPref.b.aTX().putInt(SharedPrefConfig.KEY_ABTEST_CHANNEL, this.mChannel);
             initSdk();
         }
     }
 
     private void initSdk() {
-        if (!this.eyg && this.mChannel == 1) {
-            this.eyg = bfM();
-            if (!this.eyg) {
+        if (!this.eMH && this.mChannel == 1) {
+            this.eMH = blY();
+            if (!this.eMH) {
                 this.mChannel = 0;
             }
         }
     }
 
-    public boolean bfL() {
-        return this.eyg;
+    public boolean blX() {
+        return this.eMH;
     }
 
-    public boolean bfM() {
+    public boolean blY() {
         boolean z = true;
         if (TbadkCoreApplication.getInst().isMainProcess(true)) {
             try {
-                com.baidu.ubs.analytics.a.a(new c.a().ft(TbadkCoreApplication.getInst()).vq(false).fA(30L).FM(1).vr(false).fB(15L).FN(1000).dkS());
+                com.baidu.ubs.analytics.a.a(new c.a().fI(TbadkCoreApplication.getInst()).vO(false).fA(30L).Gz(1).vP(false).fB(15L).GA(1000).dsi());
             } catch (Exception e) {
                 e.printStackTrace();
                 z = false;

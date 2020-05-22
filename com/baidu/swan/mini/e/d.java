@@ -12,13 +12,13 @@ public class d {
             return false;
         }
         if (aVar.isWebView()) {
-            String str2 = "javascript:(function(){var event = new Event('mini'); event.message = '" + b.ry(str) + "'; window.___NA_SWAN_MINI___.dispatchEvent(event);})();";
+            String str2 = "javascript:(function(){var event = new Event('mini'); event.message = '" + b.ta(str) + "'; window.___NA_SWAN_MINI___.dispatchEvent(event);})();";
             aVar.evaluateJavascript(str2, null);
             if (DEBUG) {
                 Log.v("SwanMiniRuntime", "Message js : " + str2);
             }
         } else {
-            String str3 = "javascript:(function(){var event = new Object(); event.type = 'mini';event.message = '" + b.ry(str) + "'; _naSwan.dispatchEvent(event);})();";
+            String str3 = "javascript:(function(){var event = new Object(); event.type = 'mini';event.message = '" + b.ta(str) + "'; _naSwan.dispatchEvent(event);})();";
             aVar.evaluateJavascript(str3, null);
             if (DEBUG) {
                 Log.v("SwanMiniRuntime", "Message js : " + str3);
@@ -32,13 +32,13 @@ public class d {
             return false;
         }
         if (aVar.isWebView()) {
-            String str3 = "(function() {'use strict';(function() {" + ("var event = new Event('mini'); event.appInstanceId = '" + b.ry(str) + "'; event.message = '" + b.ry(str2) + "'; window.___NA_SWAN_MINI___.dispatchEvent(event);") + "}).call();})();";
+            String str3 = "(function() {'use strict';(function() {" + ("var event = new Event('mini'); event.appInstanceId = '" + b.ta(str) + "'; event.message = '" + b.ta(str2) + "'; window.___NA_SWAN_MINI___.dispatchEvent(event);") + "}).call();})();";
             aVar.evaluateJavascript(str3, null);
             if (DEBUG) {
                 Log.v("SwanMiniRuntime", "Message js : " + str3);
             }
         } else {
-            String str4 = "var event = new Object(); event.appInstanceId = '" + b.ry(str) + "'; event.type = 'mini'; event.message = '" + b.ry(str2) + "'; _naSwan.dispatchEvent(event);";
+            String str4 = "var event = new Object(); event.appInstanceId = '" + b.ta(str) + "'; event.type = 'mini'; event.message = '" + b.ta(str2) + "'; _naSwan.dispatchEvent(event);";
             aVar.evaluateJavascript(str4, null);
             if (DEBUG) {
                 Log.v("SwanMiniRuntime", "Message js : " + str4);

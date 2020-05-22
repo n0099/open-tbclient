@@ -1,18 +1,29 @@
 package com.baidu.adp.framework.a;
+
+import android.util.Log;
+import com.baidu.adp.lib.util.BdLog;
+import java.util.HashSet;
+import java.util.Set;
 /* loaded from: classes.dex */
-public abstract class h<T> extends com.baidu.adp.framework.d {
-    private int mCmd;
+public class h {
+    private static String[] HD = {"com.baidu.tieba.route.NightResourceStaticAutoGenerateUrlCollectorImpl", "com.baidu.tieba.route.DnsProxyStaticAutoGenerateUrlCollectorImpl", "com.baidu.tieba.route.EmotionIntefaceStaticAutoGenerateUrlCollectorImpl", "com.baidu.tieba.route.SwanAppAbTestStaticAutoGenerateUrlCollectorImpl", "com.baidu.tieba.route.EasterEggStaticAutoGenerateUrlCollectorImpl", "com.baidu.tieba.route.ShareStaticAutoGenerateUrlCollectorImpl", "com.baidu.tieba.route.WriteShareActivityStaticAutoGenerateUrlCollectorImpl", "com.baidu.tieba.route.GodSquareActivityStaticAutoGenerateUrlCollectorImpl", "com.baidu.tieba.route.PersonExtraStaticAutoGenerateUrlCollectorImpl", "com.baidu.tieba.route.DiscoverDelegateStaticAutoGenerateUrlCollectorImpl", "com.baidu.tieba.route.HomeExtraStaticAutoGenerateUrlCollectorImpl", "com.baidu.tieba.route.ThreadDelegateStaticAutoGenerateUrlCollectorImpl", "com.baidu.tieba.route.StaticAutoGenerateUrlCollectorImpl", "com.baidu.tieba.route.PostSearchActivityStaticAutoGenerateUrlCollectorImpl", "com.baidu.tieba.route.ForumSearchStaticAutoGenerateUrlCollectorImpl", "com.baidu.tieba.route.SquareSearchActivityStaticAutoGenerateUrlCollectorImpl", "com.baidu.tieba.route.SignStaticAutoGenerateUrlCollectorImpl", "com.baidu.tieba.route.RecorderManagerStaticAutoGenerateUrlCollectorImpl", "com.baidu.tieba.route.VideoPlayActivityStaticAutoGenerateUrlCollectorImpl", "com.baidu.tieba.route.CreateBarActivityStaticAutoGenerateUrlCollectorImpl", "com.baidu.tieba.route.WriteThreadDelegateStaticAutoGenerateUrlCollectorImpl", "com.baidu.tieba.route.WriteActivityStaticAutoGenerateUrlCollectorImpl", "com.baidu.tieba.route.AlaLiveSdkStaticAutoGenerateUrlCollectorImpl", "com.baidu.tieba.route.AlaSquareDelegateStaticAutoGenerateUrlCollectorImpl", "com.baidu.tieba.route.AlaFrsLiveStaticAutoGenerateUrlCollectorImpl", "com.baidu.tieba.route.AlaPersonCenterPrivilegeActivityStaticAutoGenerateUrlCollectorImpl", "com.baidu.tieba.route.AlaPersonCenterActivityStaticAutoGenerateUrlCollectorImpl", "com.baidu.tieba.route.SettingStaticAutoGenerateUrlCollectorImpl", "com.baidu.tieba.route.TiebaIMActivityStaticAutoGenerateUrlCollectorImpl", "com.baidu.tieba.route.TbAdvertStaticAutoGenerateUrlCollectorImpl", "com.baidu.tieba.route.QuickPlayerStaticAutoGenerateUrlCollectorImpl", "com.baidu.tieba.route.PushDialogStaticAutoGenerateUrlCollectorImpl", "com.baidu.tieba.route.FrsBannerAdStaticAutoGenerateUrlCollectorImpl", "com.baidu.tieba.route.FrsFeedAdStaticAutoGenerateUrlCollectorImpl", "com.baidu.tieba.route.AdStaticAutoGenerateUrlCollectorImpl", "com.baidu.tieba.route.SearchFriendActivityStaticAutoGenerateUrlCollectorImpl", "com.baidu.tieba.route.TaskRegisterStaticAutoGenerateUrlCollectorImpl", "com.baidu.tieba.route.NewFriendDbManagerStaticAutoGenerateUrlCollectorImpl", "com.baidu.tieba.route.RelationshipStaticAutoGenerateUrlCollectorImpl", "com.baidu.tieba.route.PushStaticAutoGenerateUrlCollectorImpl", "com.baidu.tieba.route.CrabSdkStaticAutoGenerateUrlCollectorImpl", "com.baidu.tieba.route.PassManagerStaticAutoGenerateUrlCollectorImpl", "com.baidu.tieba.route.ImageViewerActivityStaticAutoGenerateUrlCollectorImpl", "com.baidu.tieba.route.ScreenLockActivityStaticAutoGenerateUrlCollectorImpl", "com.baidu.tieba.route.KeepLiveStaticAutoGenerateUrlCollectorImpl", "com.baidu.tieba.route.PluginCenterActivityStaticAutoGenerateUrlCollectorImpl", "com.baidu.tieba.route.TbLaunchStaticAutoGenerateUrlCollectorImpl", "com.baidu.tieba.route.TbadkStaticAutoGenerateUrlCollectorImpl", "com.baidu.tieba.route.SocketStaticAutoGenerateUrlCollectorImpl", "com.baidu.tieba.route.AlaJumpStatStaticAutoGenerateUrlCollectorImpl", "com.baidu.tieba.route.LaunchStaticAutoGenerateUrlCollectorImpl", "com.baidu.tieba.route.ServiceStaticInitAutoGenerateUrlCollectorImpl", "com.baidu.tieba.route.LogoActivityStaticAutoGenerateUrlCollectorImpl", "com.baidu.tieba.route.AdvertSDKStaticAutoGenerateUrlCollectorImpl", "com.baidu.tieba.route.PersonListActivityStaticAutoGenerateUrlCollectorImpl", "com.baidu.tieba.route.QRCodeStaticAutoGenerateUrlCollectorImpl", "com.baidu.tieba.route.InterestLabelStaticAutoGenerateUrlCollectorImpl", "com.baidu.tieba.route.FrsMemberStaticAutoGenerateUrlCollectorImpl", "com.baidu.tieba.route.TbTitleActivityStaticAutoGenerateUrlCollectorImpl", "com.baidu.tieba.route.GroupActivityStaticAutoGenerateUrlCollectorImpl", "com.baidu.tieba.route.ForumRankActivityStaticAutoGenerateUrlCollectorImpl", "com.baidu.tieba.route.VideoPlatformStaticAutoGenerateUrlCollectorImpl", "com.baidu.tieba.route.GuideActivityStaticAutoGenerateUrlCollectorImpl", "com.baidu.tieba.route.LocalVideoActivityStaticAutoGenerateUrlCollectorImpl", "com.baidu.tieba.route.SearchLocationActivityStaticAutoGenerateUrlCollectorImpl", "com.baidu.tieba.route.RecommendsStaticAutoGenerateUrlCollectorImpl", "com.baidu.tieba.route.RecommendFrsDelegateStaticAutoGenerateUrlCollectorImpl", "com.baidu.tieba.route.TopicStaticAutoGenerateUrlCollectorImpl", "com.baidu.tieba.route.RecommendFrsStaticAutoGenerateUrlCollectorImpl", "com.baidu.tieba.route.FrsActivityStaticAutoGenerateUrlCollectorImpl", "com.baidu.tieba.route.VCacheClientStaticAutoGenerateUrlCollectorImpl", "com.baidu.tieba.route.PersonalChatActivityStaticAutoGenerateUrlCollectorImpl", "com.baidu.tieba.route.ImMessageCenterDelegateStaticAutoGenerateUrlCollectorImpl", "com.baidu.tieba.route.MainTabActivityStaticAutoGenerateUrlCollectorImpl", "com.baidu.tieba.route.ClientStartStaticAutoGenerateUrlCollectorImpl", "com.baidu.tieba.route.FRSExtraStaticAutoGenerateUrlCollectorImpl", "com.baidu.tieba.route.FrsGameStrategyFragmentDelegateStaticAutoGenerateUrlCollectorImpl", "com.baidu.tieba.route.PersonInfoDelegateStaticAutoGenerateUrlCollectorImpl", "com.baidu.tieba.route.PraiseListActivityStaticAutoGenerateUrlCollectorImpl", "com.baidu.tieba.route.PbExtraStaticAutoGenerateUrlCollectorImpl", "com.baidu.tieba.route.PushThreadActivityStaticAutoGenerateUrlCollectorImpl", "com.baidu.tieba.route.NewUserGuideActivityStaticAutoGenerateUrlCollectorImpl", "com.baidu.tieba.route.PbActivityStaticAutoGenerateUrlCollectorImpl", "com.baidu.tieba.route.AccountActivityStaticAutoGenerateUrlCollectorImpl", "com.baidu.tieba.route.EnterForumDelegateStaticAutoGenerateUrlCollectorImpl"};
 
-    public h(int i) {
-        this.mCmd = 0;
-        this.mCmd = i;
-    }
-
-    public int getCmd() {
-        return this.mCmd;
-    }
-
-    public void setCmd(int i) {
-        this.mCmd = i;
+    public static Set<String> jH() {
+        String[] strArr;
+        HashSet hashSet = new HashSet();
+        Log.e("TiebaCmdClassesArray", " " + HD.length);
+        try {
+            if (HD.length > 0) {
+                for (String str : HD) {
+                    long currentTimeMillis = System.currentTimeMillis();
+                    hashSet.add(str);
+                    Log.e("TiebaCmdClassesArray", str + " " + (System.currentTimeMillis() - currentTimeMillis));
+                }
+            }
+        } catch (Throwable th) {
+            BdLog.e(th);
+            Log.e("TiebaCmdClassesArray", "init class failed. " + th.getMessage());
+        }
+        return hashSet;
     }
 }

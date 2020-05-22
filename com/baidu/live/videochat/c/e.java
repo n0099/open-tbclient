@@ -5,15 +5,15 @@ public interface e extends c {
 
     void B(int i, String str);
 
-    void Gu();
+    void In();
 
-    void Gv();
+    void Io();
 
-    void Gw();
+    void Ip();
 
-    void Gx();
+    void Iq();
 
-    void Gy();
+    void Ir();
 
     void a(com.baidu.live.videochat.b.a aVar);
 

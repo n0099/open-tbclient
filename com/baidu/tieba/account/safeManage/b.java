@@ -10,9 +10,9 @@ import com.baidu.tieba.R;
 import tbclient.SimpleUser;
 /* loaded from: classes9.dex */
 public class b {
-    private LinearLayout eza;
-    private TbSettingTextTipView ezb;
-    private TbSettingTextTipView ezc;
+    private LinearLayout eNA;
+    private TbSettingTextTipView eNB;
+    private TbSettingTextTipView eNC;
     private BaseActivity mActivity;
     private final View.OnClickListener mOnClickListener;
     private LinearLayout mRootLayout;
@@ -20,28 +20,28 @@ public class b {
     public b(BaseActivity baseActivity, View.OnClickListener onClickListener) {
         this.mActivity = baseActivity;
         this.mOnClickListener = onClickListener;
-        aVr();
+        bbA();
     }
 
-    private void aVr() {
+    private void bbA() {
         this.mRootLayout = (LinearLayout) LayoutInflater.from(this.mActivity).inflate(R.layout.account_safe_activity, (ViewGroup) null);
-        this.eza = (LinearLayout) this.mRootLayout.findViewById(R.id.content_container);
-        this.ezb = (TbSettingTextTipView) this.mRootLayout.findViewById(R.id.bar_record);
-        this.ezc = (TbSettingTextTipView) this.mRootLayout.findViewById(R.id.account_status);
-        this.ezb.aVt();
-        this.ezc.aVt();
-        this.ezb.setOnClickListener(this.mOnClickListener);
-        this.ezc.setOnClickListener(this.mOnClickListener);
+        this.eNA = (LinearLayout) this.mRootLayout.findViewById(R.id.content_container);
+        this.eNB = (TbSettingTextTipView) this.mRootLayout.findViewById(R.id.bar_record);
+        this.eNC = (TbSettingTextTipView) this.mRootLayout.findViewById(R.id.account_status);
+        this.eNB.bbC();
+        this.eNC.bbC();
+        this.eNB.setOnClickListener(this.mOnClickListener);
+        this.eNC.setOnClickListener(this.mOnClickListener);
     }
 
-    public void ms(int i) {
+    public void mU(int i) {
         this.mActivity.getLayoutMode().setNightMode(i == 1);
         this.mActivity.getLayoutMode().onModeChanged(this.mRootLayout);
     }
 
     public void a(SimpleUser simpleUser) {
         if (simpleUser != null) {
-            this.ezc.setTip(simpleUser.block_msg);
+            this.eNC.setTip(simpleUser.block_msg);
         }
     }
 

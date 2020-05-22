@@ -37,8 +37,8 @@ public final class FlowableConcatMap<T, R> extends io.reactivex.internal.operato
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super R> cVar) {
-        if (!g.a(this.mRM, cVar, this.mapper)) {
-            this.mRM.subscribe(a(cVar, this.mapper, this.prefetch, this.errorMode));
+        if (!g.a(this.nmU, cVar, this.mapper)) {
+            this.nmU.subscribe(a(cVar, this.mapper, this.prefetch, this.errorMode));
         }
     }
 
@@ -202,7 +202,7 @@ public final class FlowableConcatMap<T, R> extends io.reactivex.internal.operato
                                 return;
                             } else if (!z2) {
                                 try {
-                                    org.a.b bVar = (org.a.b) io.reactivex.internal.functions.a.h(this.mapper.apply(poll), "The mapper returned a null Publisher");
+                                    org.a.b bVar = (org.a.b) io.reactivex.internal.functions.a.k(this.mapper.apply(poll), "The mapper returned a null Publisher");
                                     if (this.sourceMode != 1) {
                                         int i = this.consumed + 1;
                                         if (i == this.limit) {
@@ -377,7 +377,7 @@ public final class FlowableConcatMap<T, R> extends io.reactivex.internal.operato
                                 }
                             } else if (!z2) {
                                 try {
-                                    org.a.b bVar = (org.a.b) io.reactivex.internal.functions.a.h(this.mapper.apply(poll), "The mapper returned a null Publisher");
+                                    org.a.b bVar = (org.a.b) io.reactivex.internal.functions.a.k(this.mapper.apply(poll), "The mapper returned a null Publisher");
                                     if (this.sourceMode != 1) {
                                         int i = this.consumed + 1;
                                         if (i == this.limit) {

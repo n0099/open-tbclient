@@ -4,61 +4,61 @@ import javax.annotation.concurrent.NotThreadSafe;
 @NotThreadSafe
 /* loaded from: classes12.dex */
 public class q {
-    private c lZT;
-    private com.facebook.common.memory.g lZW;
-    private i lZY;
-    private com.facebook.common.memory.j man;
-    private final p men;
-    private k meo;
-    private com.facebook.common.memory.a mep;
+    private c mtO;
+    private com.facebook.common.memory.g mtR;
+    private i mtT;
+    private com.facebook.common.memory.j mug;
+    private final p mye;
+    private k myf;
+    private com.facebook.common.memory.a myg;
 
     public q(p pVar) {
-        this.men = (p) com.facebook.common.internal.g.checkNotNull(pVar);
+        this.mye = (p) com.facebook.common.internal.g.checkNotNull(pVar);
     }
 
-    public c dtH() {
-        if (this.lZT == null) {
-            this.lZT = new c(this.men.drs(), this.men.dty(), this.men.dtz());
+    public c dAY() {
+        if (this.mtO == null) {
+            this.mtO = new c(this.mye.dyK(), this.mye.dAP(), this.mye.dAQ());
         }
-        return this.lZT;
+        return this.mtO;
     }
 
-    public i dtI() {
-        if (this.lZY == null) {
-            this.lZY = new i(this.men.drs(), this.men.dtC());
+    public i dAZ() {
+        if (this.mtT == null) {
+            this.mtT = new i(this.mye.dyK(), this.mye.dAT());
         }
-        return this.lZY;
+        return this.mtT;
     }
 
-    public int dtJ() {
-        return this.men.dtC().mew;
+    public int dBa() {
+        return this.mye.dAT().myn;
     }
 
-    public k dtK() {
-        if (this.meo == null) {
-            this.meo = new k(this.men.drs(), this.men.dtA(), this.men.dtB());
+    public k dBb() {
+        if (this.myf == null) {
+            this.myf = new k(this.mye.dyK(), this.mye.dAR(), this.mye.dAS());
         }
-        return this.meo;
+        return this.myf;
     }
 
-    public com.facebook.common.memory.g dtL() {
-        if (this.lZW == null) {
-            this.lZW = new m(dtK(), dtM());
+    public com.facebook.common.memory.g dBc() {
+        if (this.mtR == null) {
+            this.mtR = new m(dBb(), dBd());
         }
-        return this.lZW;
+        return this.mtR;
     }
 
-    public com.facebook.common.memory.j dtM() {
-        if (this.man == null) {
-            this.man = new com.facebook.common.memory.j(dtN());
+    public com.facebook.common.memory.j dBd() {
+        if (this.mug == null) {
+            this.mug = new com.facebook.common.memory.j(dBe());
         }
-        return this.man;
+        return this.mug;
     }
 
-    public com.facebook.common.memory.a dtN() {
-        if (this.mep == null) {
-            this.mep = new j(this.men.drs(), this.men.dtD(), this.men.dtE());
+    public com.facebook.common.memory.a dBe() {
+        if (this.myg == null) {
+            this.myg = new j(this.mye.dyK(), this.mye.dAU(), this.mye.dAV());
         }
-        return this.mep;
+        return this.myg;
     }
 }

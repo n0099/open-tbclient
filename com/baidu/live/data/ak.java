@@ -3,53 +3,37 @@ package com.baidu.live.data;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class ak {
-    public String auO;
-    public String auP;
-    public JSONObject auQ;
-    public JSONObject auR;
-    public JSONObject auS;
-    public JSONObject auT;
-    public String auU;
-    public String auV;
-    public int auW;
-    public String auX;
-    public int auY;
-    public int auZ;
-    public int ava;
-    public int avb;
-    public String avc;
-    public String avd;
+    public int azq;
+    public int azr;
+    public long azs;
+    public long azt;
+    public long azu;
+    public long azv;
+    public long azw;
+    public int azx;
+    public int azy;
+    public String azz;
+    public long challengeId;
+    public int challengeResult;
+    public long endTime;
+    public long startTime;
 
-    public ak(JSONObject jSONObject) {
+    public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.auW = jSONObject.optInt("join_amount");
-            this.auO = jSONObject.optString("guard_club_category");
-            this.auP = jSONObject.optString("guard_club_gift_type");
-            this.auQ = jSONObject.optJSONObject("club_level_icon_large");
-            this.auR = jSONObject.optJSONObject("club_level_icon_small");
-            this.auS = jSONObject.optJSONObject("member_level_icon");
-            this.auT = jSONObject.optJSONObject("level_discount");
-            JSONObject optJSONObject = jSONObject.optJSONObject("join_club_remind");
-            if (optJSONObject != null) {
-                this.auU = optJSONObject.optString("to_join");
-                this.auV = optJSONObject.optString("has_join");
-            }
-            JSONObject optJSONObject2 = jSONObject.optJSONObject("join_club_guide");
-            if (optJSONObject2 != null) {
-                this.auX = optJSONObject2.optString("guide_text");
-                this.auY = optJSONObject2.optInt("show_times_daily");
-                this.auZ = optJSONObject2.optInt("continue_show_times");
-                this.ava = optJSONObject2.optInt("condition");
-            }
-            JSONObject optJSONObject3 = jSONObject.optJSONObject("attenuat_conf");
-            if (optJSONObject3 != null) {
-                this.avb = optJSONObject3.optInt("show_times_daily");
-            }
-            JSONObject optJSONObject4 = jSONObject.optJSONObject("tips_img");
-            if (optJSONObject4 != null) {
-                this.avc = optJSONObject4.optString("attenuat_tip_img");
-                this.avd = optJSONObject4.optString("quit_tip_img");
-            }
+            this.challengeId = jSONObject.optLong("challenge_id");
+            this.azq = jSONObject.optInt("challenge_status");
+            this.challengeResult = jSONObject.optInt("challenge_ret");
+            this.azr = jSONObject.optInt("challenge_ret_type");
+            this.startTime = jSONObject.optLong("start_time");
+            this.endTime = jSONObject.optLong("end_time");
+            this.azs = jSONObject.optLong("stage_start_time");
+            this.azt = jSONObject.optLong("stage_end_time");
+            this.azu = jSONObject.optLong("now_time");
+            this.azv = jSONObject.optLong("anchor_score");
+            this.azw = jSONObject.optLong("rival_score");
+            this.azx = jSONObject.optInt("winning_num");
+            this.azy = jSONObject.optInt("anchor_rank");
+            this.azz = jSONObject.optString("rank_url");
         }
     }
 }

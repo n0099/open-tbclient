@@ -1,106 +1,23 @@
 package com.baidu.live.data;
 
-import com.baidu.live.adp.BdUniqueId;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class b implements Cloneable {
-    private String from;
-    private String mInLive;
-    private boolean mIsAttention;
-    private BdUniqueId mPageId;
-    private String mPortrait;
-    private String mUserId;
-    private String metaKey;
+public class b {
+    private String auA;
+    private int auy;
+    private String auz;
 
-    public b() {
-        this.mInLive = "0";
-        this.from = "";
+    public void parseJson(JSONObject jSONObject) {
+        this.auy = jSONObject.optInt("tags_switch", 0);
+        this.auz = jSONObject.optString("anchor_category_info");
+        this.auA = jSONObject.optString("anchor_category_msg");
     }
 
-    public b(String str, String str2, boolean z, BdUniqueId bdUniqueId) {
-        this(str, str2, "0", z, bdUniqueId);
+    public String vP() {
+        return this.auA;
     }
 
-    public b(String str, String str2, String str3, boolean z, BdUniqueId bdUniqueId) {
-        this.mInLive = "0";
-        this.from = "";
-        this.mPortrait = str;
-        this.mUserId = str2;
-        this.mIsAttention = z;
-        this.mInLive = str3;
-        this.mPageId = bdUniqueId;
-    }
-
-    public b(String str, String str2, String str3, String str4, boolean z, BdUniqueId bdUniqueId) {
-        this.mInLive = "0";
-        this.from = "";
-        this.mPortrait = str;
-        this.mUserId = str2;
-        this.metaKey = str3;
-        this.mIsAttention = z;
-        this.mInLive = str4;
-        this.mPageId = bdUniqueId;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: uI */
-    public b clone() {
-        try {
-            return (b) super.clone();
-        } catch (CloneNotSupportedException e) {
-            e.printStackTrace();
-            return null;
-        }
-    }
-
-    public String getPortrait() {
-        return this.mPortrait;
-    }
-
-    public void setPortrait(String str) {
-        this.mPortrait = str;
-    }
-
-    public String getUserId() {
-        return this.mUserId;
-    }
-
-    public void setUserId(String str) {
-        this.mUserId = str;
-    }
-
-    public boolean isAttention() {
-        return this.mIsAttention;
-    }
-
-    public void setIsAttention(boolean z) {
-        this.mIsAttention = z;
-    }
-
-    public String getInLive() {
-        return this.mInLive;
-    }
-
-    public void setInLive(String str) {
-        this.mInLive = str;
-    }
-
-    public BdUniqueId uJ() {
-        return this.mPageId;
-    }
-
-    public void setPageId(BdUniqueId bdUniqueId) {
-        this.mPageId = bdUniqueId;
-    }
-
-    public void setFrom(String str) {
-        this.from = str;
-    }
-
-    public String getFrom() {
-        return this.from;
-    }
-
-    public String uK() {
-        return this.metaKey;
+    public boolean vQ() {
+        return this.auy == 1;
     }
 }

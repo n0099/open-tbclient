@@ -3,31 +3,31 @@ package com.baidu.adp.lib.e;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 /* loaded from: classes.dex */
 public class d {
-    private static int Lj = 0;
-    private static int Lk = 0;
-    private static int Ll = 0;
-    private static int Lm = 0;
-    private static int Ln = 0;
-    private static int Lo = 0;
-    private static Object Lp = new Object();
+    private static int Lu = 0;
+    private static int Lv = 0;
+    private static int Lw = 0;
+    private static int Lx = 0;
+    private static int Ly = 0;
+    private static int Lz = 0;
+    private static Object syncLock = new Object();
 
-    public static com.baidu.adp.lib.stats.a kW() {
+    public static com.baidu.adp.lib.stats.a kY() {
         return BdStatisticsManager.getInstance().getStatsItem("dbg");
     }
 
     public static void a(com.baidu.adp.lib.stats.a aVar, com.baidu.adp.lib.stats.a aVar2) {
         if (aVar != null || aVar2 != null) {
-            synchronized (Lp) {
+            synchronized (syncLock) {
                 if (aVar != null) {
-                    Ll = (int) (Ll + aVar.getTimeCost());
+                    Lw = (int) (Lw + aVar.getTimeCost());
                 }
                 if (aVar2 != null) {
-                    Lk = (int) (Lk + aVar2.getTimeCost());
+                    Lv = (int) (Lv + aVar2.getTimeCost());
                 }
-                int i = Lj + 1;
-                Lj = i;
-                if (i + Lm > 100) {
-                    kX();
+                int i = Lu + 1;
+                Lu = i;
+                if (i + Lx > 100) {
+                    kZ();
                 }
             }
         }
@@ -35,40 +35,40 @@ public class d {
 
     public static void b(com.baidu.adp.lib.stats.a aVar, com.baidu.adp.lib.stats.a aVar2) {
         if (aVar != null || aVar2 != null) {
-            synchronized (Lp) {
+            synchronized (syncLock) {
                 if (aVar != null) {
-                    Lo = (int) (Lo + aVar.getTimeCost());
+                    Lz = (int) (Lz + aVar.getTimeCost());
                 }
                 if (aVar2 != null) {
-                    Ln = (int) (Ln + aVar2.getTimeCost());
+                    Ly = (int) (Ly + aVar2.getTimeCost());
                 }
-                int i = Lm + 1;
-                Lm = i;
-                if (i + Lj > 100) {
-                    kX();
+                int i = Lx + 1;
+                Lx = i;
+                if (i + Lu > 100) {
+                    kZ();
                 }
             }
         }
     }
 
-    public static void kX() {
-        if (Lj + Lm > 10) {
-            com.baidu.adp.lib.stats.a kW = kW();
-            kW.append("act", "allStat");
-            kW.append("diskTaskCostTime", String.valueOf(Ll));
-            kW.append("diskCostTime", String.valueOf(Lk));
-            kW.append("diskNum", String.valueOf(Lj));
-            kW.append("netTaskCostTime", String.valueOf(Lo));
-            kW.append("netCostTime", String.valueOf(Ln));
-            kW.append("netNum", String.valueOf(Lm));
-            kW.append("isWifi", "1");
-            BdStatisticsManager.getInstance().debug("img", kW);
-            Lk = 0;
-            Lj = 0;
-            Ln = 0;
-            Lm = 0;
-            Ll = 0;
-            Lo = 0;
+    public static void kZ() {
+        if (Lu + Lx > 10) {
+            com.baidu.adp.lib.stats.a kY = kY();
+            kY.append("act", "allStat");
+            kY.append("diskTaskCostTime", String.valueOf(Lw));
+            kY.append("diskCostTime", String.valueOf(Lv));
+            kY.append("diskNum", String.valueOf(Lu));
+            kY.append("netTaskCostTime", String.valueOf(Lz));
+            kY.append("netCostTime", String.valueOf(Ly));
+            kY.append("netNum", String.valueOf(Lx));
+            kY.append("isWifi", "1");
+            BdStatisticsManager.getInstance().debug("img", kY);
+            Lv = 0;
+            Lu = 0;
+            Ly = 0;
+            Lx = 0;
+            Lw = 0;
+            Lz = 0;
         }
     }
 }

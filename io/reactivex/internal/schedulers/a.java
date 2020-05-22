@@ -8,68 +8,68 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
 public final class a extends v implements h {
-    static final b mUv;
-    static final RxThreadFactory mUw;
-    static final int mUx = dy(Runtime.getRuntime().availableProcessors(), Integer.getInteger("rx2.computation-threads", 0).intValue());
-    static final c mUy = new c(new RxThreadFactory("RxComputationShutdown"));
-    final ThreadFactory bos;
-    final AtomicReference<b> mUz;
+    static final int npA = dD(Runtime.getRuntime().availableProcessors(), Integer.getInteger("rx2.computation-threads", 0).intValue());
+    static final c npB = new c(new RxThreadFactory("RxComputationShutdown"));
+    static final b npy;
+    static final RxThreadFactory npz;
+    final ThreadFactory bvS;
+    final AtomicReference<b> npC;
 
     static {
-        mUy.dispose();
-        mUw = new RxThreadFactory("RxComputationThreadPool", Math.max(1, Math.min(10, Integer.getInteger("rx2.computation-priority", 5).intValue())), true);
-        mUv = new b(0, mUw);
-        mUv.shutdown();
+        npB.dispose();
+        npz = new RxThreadFactory("RxComputationThreadPool", Math.max(1, Math.min(10, Integer.getInteger("rx2.computation-priority", 5).intValue())), true);
+        npy = new b(0, npz);
+        npy.shutdown();
     }
 
-    static int dy(int i, int i2) {
+    static int dD(int i, int i2) {
         return (i2 <= 0 || i2 > i) ? i : i2;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes7.dex */
     public static final class b implements h {
-        final int mUE;
-        final c[] mUF;
         long n;
+        final int npH;
+        final c[] npI;
 
         b(int i, ThreadFactory threadFactory) {
-            this.mUE = i;
-            this.mUF = new c[i];
+            this.npH = i;
+            this.npI = new c[i];
             for (int i2 = 0; i2 < i; i2++) {
-                this.mUF[i2] = new c(threadFactory);
+                this.npI[i2] = new c(threadFactory);
             }
         }
 
-        public c dCW() {
-            int i = this.mUE;
+        public c dKQ() {
+            int i = this.npH;
             if (i == 0) {
-                return a.mUy;
+                return a.npB;
             }
-            c[] cVarArr = this.mUF;
+            c[] cVarArr = this.npI;
             long j = this.n;
             this.n = 1 + j;
             return cVarArr[(int) (j % i)];
         }
 
         public void shutdown() {
-            for (c cVar : this.mUF) {
+            for (c cVar : this.npI) {
                 cVar.dispose();
             }
         }
 
         @Override // io.reactivex.internal.schedulers.h
         public void a(int i, h.a aVar) {
-            int i2 = this.mUE;
+            int i2 = this.npH;
             if (i2 == 0) {
                 for (int i3 = 0; i3 < i; i3++) {
-                    aVar.a(i3, a.mUy);
+                    aVar.a(i3, a.npB);
                 }
                 return;
             }
             int i4 = ((int) this.n) % i2;
             for (int i5 = 0; i5 < i; i5++) {
-                aVar.a(i5, new C0811a(this.mUF[i4]));
+                aVar.a(i5, new C0873a(this.npI[i4]));
                 i4++;
                 if (i4 == i2) {
                     i4 = 0;
@@ -80,40 +80,40 @@ public final class a extends v implements h {
     }
 
     public a() {
-        this(mUw);
+        this(npz);
     }
 
     public a(ThreadFactory threadFactory) {
-        this.bos = threadFactory;
-        this.mUz = new AtomicReference<>(mUv);
+        this.bvS = threadFactory;
+        this.npC = new AtomicReference<>(npy);
         start();
     }
 
     @Override // io.reactivex.v
-    public v.c dCD() {
-        return new C0811a(this.mUz.get().dCW());
+    public v.c dKx() {
+        return new C0873a(this.npC.get().dKQ());
     }
 
     @Override // io.reactivex.internal.schedulers.h
     public void a(int i, h.a aVar) {
-        io.reactivex.internal.functions.a.by(i, "number > 0 required");
-        this.mUz.get().a(i, aVar);
+        io.reactivex.internal.functions.a.bD(i, "number > 0 required");
+        this.npC.get().a(i, aVar);
     }
 
     @Override // io.reactivex.v
     public io.reactivex.disposables.b b(Runnable runnable, long j, TimeUnit timeUnit) {
-        return this.mUz.get().dCW().b(runnable, j, timeUnit);
+        return this.npC.get().dKQ().b(runnable, j, timeUnit);
     }
 
     @Override // io.reactivex.v
     public io.reactivex.disposables.b a(Runnable runnable, long j, long j2, TimeUnit timeUnit) {
-        return this.mUz.get().dCW().a(runnable, j, j2, timeUnit);
+        return this.npC.get().dKQ().a(runnable, j, j2, timeUnit);
     }
 
     @Override // io.reactivex.v
     public void start() {
-        b bVar = new b(mUx, this.bos);
-        if (!this.mUz.compareAndSet(mUv, bVar)) {
+        b bVar = new b(npA, this.bvS);
+        if (!this.npC.compareAndSet(npy, bVar)) {
             bVar.shutdown();
         }
     }
@@ -121,24 +121,24 @@ public final class a extends v implements h {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: io.reactivex.internal.schedulers.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static final class C0811a extends v.c {
+    public static final class C0873a extends v.c {
         volatile boolean disposed;
-        private final io.reactivex.internal.disposables.e mUA = new io.reactivex.internal.disposables.e();
-        private final io.reactivex.disposables.a mUB = new io.reactivex.disposables.a();
-        private final io.reactivex.internal.disposables.e mUC = new io.reactivex.internal.disposables.e();
-        private final c mUD;
+        private final io.reactivex.internal.disposables.e npD = new io.reactivex.internal.disposables.e();
+        private final io.reactivex.disposables.a npE = new io.reactivex.disposables.a();
+        private final io.reactivex.internal.disposables.e npF = new io.reactivex.internal.disposables.e();
+        private final c npG;
 
-        C0811a(c cVar) {
-            this.mUD = cVar;
-            this.mUC.a(this.mUA);
-            this.mUC.a(this.mUB);
+        C0873a(c cVar) {
+            this.npG = cVar;
+            this.npF.a(this.npD);
+            this.npF.a(this.npE);
         }
 
         @Override // io.reactivex.disposables.b
         public void dispose() {
             if (!this.disposed) {
                 this.disposed = true;
-                this.mUC.dispose();
+                this.npF.dispose();
             }
         }
 
@@ -148,13 +148,13 @@ public final class a extends v implements h {
         }
 
         @Override // io.reactivex.v.c
-        public io.reactivex.disposables.b I(Runnable runnable) {
-            return this.disposed ? EmptyDisposable.INSTANCE : this.mUD.a(runnable, 0L, TimeUnit.MILLISECONDS, this.mUA);
+        public io.reactivex.disposables.b K(Runnable runnable) {
+            return this.disposed ? EmptyDisposable.INSTANCE : this.npG.a(runnable, 0L, TimeUnit.MILLISECONDS, this.npD);
         }
 
         @Override // io.reactivex.v.c
         public io.reactivex.disposables.b c(Runnable runnable, long j, TimeUnit timeUnit) {
-            return this.disposed ? EmptyDisposable.INSTANCE : this.mUD.a(runnable, j, timeUnit, this.mUB);
+            return this.disposed ? EmptyDisposable.INSTANCE : this.npG.a(runnable, j, timeUnit, this.npE);
         }
     }
 

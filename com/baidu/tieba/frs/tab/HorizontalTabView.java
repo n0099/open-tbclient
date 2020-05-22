@@ -31,26 +31,26 @@ import java.util.List;
 @SuppressLint({"ResourceAsColor"})
 /* loaded from: classes9.dex */
 public class HorizontalTabView extends MyHorizontalScrollView implements com.baidu.tieba.frs.tab.b {
-    private TbPageContext gNw;
-    private a huA;
-    private b huB;
-    private e.b huC;
-    private e.a huD;
-    private ak huE;
-    private c huF;
-    public int hun;
-    private final LinearLayout huo;
-    private final e hup;
-    private List<d> huq;
-    private TabItemView hur;
-    private com.baidu.tieba.frs.tab.b hus;
-    private final int hut;
-    private final int huu;
-    private int huv;
-    private boolean huw;
-    private int hux;
-    private boolean huy;
-    private int huz;
+    public int hJa;
+    private final LinearLayout hJb;
+    private final e hJc;
+    private List<d> hJd;
+    private TabItemView hJe;
+    private com.baidu.tieba.frs.tab.b hJf;
+    private final int hJg;
+    private final int hJh;
+    private int hJi;
+    private boolean hJj;
+    private int hJk;
+    private boolean hJl;
+    private int hJm;
+    private a hJn;
+    private b hJo;
+    private e.b hJp;
+    private e.a hJq;
+    private ak hJr;
+    private c hJs;
+    private TbPageContext hci;
     private List<d> mData;
     private View.OnClickListener mOnClickListener;
     private final Paint mPaint;
@@ -67,40 +67,40 @@ public class HorizontalTabView extends MyHorizontalScrollView implements com.bai
 
     /* loaded from: classes9.dex */
     public interface c {
-        void uE(int i);
+        void vk(int i);
 
-        boolean uF(int i);
+        boolean vl(int i);
     }
 
-    public void bUv() {
+    public void caS() {
         final ay ayVar;
-        if (this.gNw != null) {
+        if (this.hci != null) {
             ArrayList arrayList = new ArrayList();
-            if (this.mData != null && this.mData.size() > 0 && this.mData.get(0) != null && (ayVar = this.mData.get(0).huI) != null && ayVar.hcj != null) {
-                for (ax axVar : ayVar.hcj) {
+            if (this.mData != null && this.mData.size() > 0 && this.mData.get(0) != null && (ayVar = this.mData.get(0).hJv) != null && ayVar.hqX != null) {
+                for (ax axVar : ayVar.hqX) {
                     if (axVar != null) {
                         arrayList.add(axVar.name);
                     }
                 }
-                com.baidu.tbadk.core.dialog.b bVar = new com.baidu.tbadk.core.dialog.b(this.gNw.getPageActivity());
+                com.baidu.tbadk.core.dialog.b bVar = new com.baidu.tbadk.core.dialog.b(this.hci.getPageActivity());
                 bVar.a(arrayList, new b.a() { // from class: com.baidu.tieba.frs.tab.HorizontalTabView.4
                     @Override // com.baidu.tbadk.core.dialog.b.a
                     public void a(com.baidu.tbadk.core.dialog.b bVar2, int i, View view) {
-                        if (ayVar.hcj.size() > i && ayVar.hcj.get(i) != null) {
+                        if (ayVar.hqX.size() > i && ayVar.hqX.get(i) != null) {
                             bVar2.dismiss();
-                            HorizontalTabView.this.a(HorizontalTabView.this.ux(ayVar.hcj.get(i).hcf));
+                            HorizontalTabView.this.a(HorizontalTabView.this.vd(ayVar.hqX.get(i).hqT));
                         }
                     }
                 });
-                bVar.d(this.gNw);
-                bVar.aMT();
+                bVar.d(this.hci);
+                bVar.aSU();
             }
         }
     }
 
-    public d ux(int i) {
-        if (!v.isEmpty(this.huq)) {
-            for (d dVar : this.huq) {
+    public d vd(int i) {
+        if (!v.isEmpty(this.hJd)) {
+            for (d dVar : this.hJd) {
                 if (dVar != null && dVar.tabId == i) {
                     return dVar;
                 }
@@ -112,37 +112,37 @@ public class HorizontalTabView extends MyHorizontalScrollView implements com.bai
     public void a(d dVar) {
         boolean z;
         if (dVar != null) {
-            if (dVar.tabId != 302 && this.huB != null) {
-                this.huB.c(dVar);
+            if (dVar.tabId != 302 && this.hJo != null) {
+                this.hJo.c(dVar);
             }
             if (dVar.tabId == 49) {
                 TiebaStatic.log("c11841");
             }
-            if (uC(dVar.tabId)) {
-                if (this.huE != null && !TextUtils.isEmpty(dVar.url)) {
+            if (vi(dVar.tabId)) {
+                if (this.hJr != null && !TextUtils.isEmpty(dVar.url)) {
                     as asVar = new as();
                     asVar.ext = dVar.url;
-                    this.huE.a(dVar.tabId, -1, asVar);
+                    this.hJr.a(dVar.tabId, -1, asVar);
                 }
             } else if (dVar.tabId == 301 || dVar.tabId == 302) {
-                if (this.huE != null) {
-                    this.huE.a(dVar.tabId, -1, null);
+                if (this.hJr != null) {
+                    this.hJr.a(dVar.tabId, -1, null);
                 }
             } else {
-                if (dVar.tabId != 49 || this.huE == null) {
+                if (dVar.tabId != 49 || this.hJr == null) {
                     z = true;
                 } else {
                     as asVar2 = new as();
                     asVar2.ext = dVar.url;
                     asVar2.stType = dVar.name;
-                    this.huE.a(dVar.tabId, 0, asVar2);
-                    if (asVar2.hcz) {
+                    this.hJr.a(dVar.tabId, 0, asVar2);
+                    if (asVar2.hrn) {
                         return;
                     }
                     z = false;
                 }
-                for (int i = 0; i < this.huo.getChildCount(); i++) {
-                    View childAt = this.huo.getChildAt(i);
+                for (int i = 0; i < this.hJb.getChildCount(); i++) {
+                    View childAt = this.hJb.getChildAt(i);
                     if (childAt instanceof TabItemView) {
                         TabItemView tabItemView = (TabItemView) childAt;
                         if (tabItemView.getTabId() == 1) {
@@ -156,8 +156,8 @@ public class HorizontalTabView extends MyHorizontalScrollView implements com.bai
                     asVar3.ext = dVar.url;
                     asVar3.stType = dVar.name;
                 }
-                if (this.huE != null && z) {
-                    this.huE.a(dVar.tabId, 0, asVar3);
+                if (this.hJr != null && z) {
+                    this.hJr.a(dVar.tabId, 0, asVar3);
                 }
             }
         }
@@ -170,20 +170,20 @@ public class HorizontalTabView extends MyHorizontalScrollView implements com.bai
             if (tabItemView.getTabId() == 49) {
                 TiebaStatic.log("c11841");
             }
-            if (uC(tabItemView.getTabId())) {
-                if (this.huE != null && !TextUtils.isEmpty(tabItemView.getUrl())) {
+            if (vi(tabItemView.getTabId())) {
+                if (this.hJr != null && !TextUtils.isEmpty(tabItemView.getUrl())) {
                     as asVar2 = new as();
                     asVar2.ext = tabItemView.getUrl();
-                    this.huE.a(tabItemView.getTabId(), -1, asVar2);
+                    this.hJr.a(tabItemView.getTabId(), -1, asVar2);
                 }
             } else if (tabItemView.getTabId() == 301) {
-                if (this.huE != null) {
-                    this.huE.a(tabItemView.getTabId(), -1, null);
+                if (this.hJr != null) {
+                    this.hJr.a(tabItemView.getTabId(), -1, null);
                 }
             } else {
-                this.hur = tabItemView;
+                this.hJe = tabItemView;
                 int[] iArr = new int[2];
-                this.hur.getLocationOnScreen(iArr);
+                this.hJe.getLocationOnScreen(iArr);
                 int equipmentWidth = l.getEquipmentWidth(getContext()) - iArr[0];
                 final int dimensionPixelSize = getContext().getResources().getDimensionPixelSize(R.dimen.ds160);
                 if (iArr[0] < 0) {
@@ -201,44 +201,44 @@ public class HorizontalTabView extends MyHorizontalScrollView implements com.bai
                         }
                     });
                 }
-                for (int i2 = 0; i2 < this.huo.getChildCount(); i2++) {
-                    View childAt = this.huo.getChildAt(i2);
+                for (int i2 = 0; i2 < this.hJb.getChildCount(); i2++) {
+                    View childAt = this.hJb.getChildAt(i2);
                     if (childAt instanceof TabItemView) {
                         TabItemView tabItemView2 = (TabItemView) childAt;
-                        if (tabItemView2.getTabId() != this.hur.getTabId() && !uC(tabItemView2.getTabId())) {
-                            tabItemView2.setState(TabItemView.huJ);
+                        if (tabItemView2.getTabId() != this.hJe.getTabId() && !vi(tabItemView2.getTabId())) {
+                            tabItemView2.setState(TabItemView.hJw);
                         }
                     }
                 }
-                if (this.hur.getState() == TabItemView.huJ || this.hur.getState() == TabItemView.STATE_EXPANDED) {
-                    this.hup.dismissMenu();
-                    boolean z2 = this.hur.getState() == TabItemView.huJ;
-                    this.hur.setState(TabItemView.huK);
-                    d uy = uy(this.hur.getTabId());
-                    if (uy != null) {
-                        if (!TextUtils.isEmpty(uy.url)) {
+                if (this.hJe.getState() == TabItemView.hJw || this.hJe.getState() == TabItemView.STATE_EXPANDED) {
+                    this.hJc.dismissMenu();
+                    boolean z2 = this.hJe.getState() == TabItemView.hJw;
+                    this.hJe.setState(TabItemView.hJx);
+                    d ve = ve(this.hJe.getTabId());
+                    if (ve != null) {
+                        if (!TextUtils.isEmpty(ve.url)) {
                             as asVar3 = new as();
-                            asVar3.ext = uy.url;
-                            asVar3.stType = uy.name;
+                            asVar3.ext = ve.url;
+                            asVar3.stType = ve.name;
                             asVar = asVar3;
                         }
-                        if (uy.huI != null && uy.huI.hcj != null && uy.huI.hcj.size() > 0) {
-                            for (ax axVar : uy.huI.hcj) {
+                        if (ve.hJv != null && ve.hJv.hqX != null && ve.hJv.hqX.size() > 0) {
+                            for (ax axVar : ve.hJv.hqX) {
                                 if (axVar != null && axVar.isSelected) {
-                                    i = axVar.hcf;
+                                    i = axVar.hqT;
                                 }
                             }
                         }
-                        if (z2 && this.huE != null) {
-                            this.huE.a(this.hur.getTabId(), i, asVar);
+                        if (z2 && this.hJr != null) {
+                            this.hJr.a(this.hJe.getTabId(), i, asVar);
                         }
                     } else {
                         return;
                     }
-                } else if (uz(this.hur.getTabId()) && !z) {
-                    if (this.huF == null || this.huF.uF(this.hur.getTabId())) {
-                        this.hur.setState(TabItemView.STATE_EXPANDED);
-                        this.hup.a((Activity) getContext(), this, this.hur, uy(this.hur.getTabId()).huI);
+                } else if (vf(this.hJe.getTabId()) && !z) {
+                    if (this.hJs == null || this.hJs.vl(this.hJe.getTabId())) {
+                        this.hJe.setState(TabItemView.STATE_EXPANDED);
+                        this.hJc.a((Activity) getContext(), this, this.hJe, ve(this.hJe.getTabId()).hJv);
                     } else {
                         return;
                     }
@@ -250,28 +250,28 @@ public class HorizontalTabView extends MyHorizontalScrollView implements com.bai
 
     public HorizontalTabView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.hun = 0;
-        this.hur = null;
-        this.hus = null;
+        this.hJa = 0;
+        this.hJe = null;
+        this.hJf = null;
         this.mPaint = new Paint();
-        this.hut = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds6);
-        this.huu = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds1);
-        this.huv = 0;
-        this.huw = true;
-        this.hux = R.color.transparent;
-        this.huz = 0;
-        this.huC = new e.b() { // from class: com.baidu.tieba.frs.tab.HorizontalTabView.1
+        this.hJg = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds6);
+        this.hJh = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds1);
+        this.hJi = 0;
+        this.hJj = true;
+        this.hJk = R.color.transparent;
+        this.hJm = 0;
+        this.hJp = new e.b() { // from class: com.baidu.tieba.frs.tab.HorizontalTabView.1
             @Override // com.baidu.tieba.frs.tab.e.b
-            public void uD(int i) {
-                if (HorizontalTabView.this.hur != null && HorizontalTabView.this.huE != null && HorizontalTabView.this.huE != null) {
-                    HorizontalTabView.this.huE.a(HorizontalTabView.this.hur.getTabId(), i, null);
+            public void vj(int i) {
+                if (HorizontalTabView.this.hJe != null && HorizontalTabView.this.hJr != null && HorizontalTabView.this.hJr != null) {
+                    HorizontalTabView.this.hJr.a(HorizontalTabView.this.hJe.getTabId(), i, null);
                 }
-                if (HorizontalTabView.this.hus != null) {
-                    HorizontalTabView.this.hus.uB(i);
+                if (HorizontalTabView.this.hJf != null) {
+                    HorizontalTabView.this.hJf.vh(i);
                 }
             }
         };
-        this.huD = new e.a() { // from class: com.baidu.tieba.frs.tab.HorizontalTabView.2
+        this.hJq = new e.a() { // from class: com.baidu.tieba.frs.tab.HorizontalTabView.2
             @Override // com.baidu.tieba.frs.tab.e.a
             public void a(TabItemView tabItemView) {
                 HorizontalTabView.this.a(tabItemView, false);
@@ -281,13 +281,13 @@ public class HorizontalTabView extends MyHorizontalScrollView implements com.bai
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 d dVar;
-                if (HorizontalTabView.this.huy) {
+                if (HorizontalTabView.this.hJl) {
                     if (view instanceof TabItemView) {
                         if (((TabItemView) view).getTabId() == 1) {
-                            if (HorizontalTabView.this.huA != null) {
-                                HorizontalTabView.this.huA.b(HorizontalTabView.this.ux(1));
+                            if (HorizontalTabView.this.hJn != null) {
+                                HorizontalTabView.this.hJn.b(HorizontalTabView.this.vd(1));
                             }
-                            HorizontalTabView.this.bUv();
+                            HorizontalTabView.this.caS();
                             return;
                         } else if (((TabItemView) view).getTabId() == 302) {
                             Iterator it = HorizontalTabView.this.mData.iterator();
@@ -312,41 +312,41 @@ public class HorizontalTabView extends MyHorizontalScrollView implements com.bai
                 if (view instanceof TabItemView) {
                     HorizontalTabView.this.a((TabItemView) view, false);
                 }
-                if (HorizontalTabView.this.hus != null) {
-                    if (!(view instanceof TabItemView) || !HorizontalTabView.uC(((TabItemView) view).getTabId())) {
-                        if (HorizontalTabView.this.hur != null) {
-                            HorizontalTabView.this.hus.uA(HorizontalTabView.this.hur.getTabId());
+                if (HorizontalTabView.this.hJf != null) {
+                    if (!(view instanceof TabItemView) || !HorizontalTabView.vi(((TabItemView) view).getTabId())) {
+                        if (HorizontalTabView.this.hJe != null) {
+                            HorizontalTabView.this.hJf.vg(HorizontalTabView.this.hJe.getTabId());
                             return;
                         }
                         return;
                     }
-                    HorizontalTabView.this.hus.uA(((TabItemView) view).getTabId());
+                    HorizontalTabView.this.hJf.vg(((TabItemView) view).getTabId());
                 }
             }
         };
-        this.huo = new LinearLayout(context);
-        this.huo.setOrientation(0);
-        this.huo.setGravity(16);
+        this.hJb = new LinearLayout(context);
+        this.hJb.setOrientation(0);
+        this.hJb.setGravity(16);
         AbsListView.LayoutParams layoutParams = new AbsListView.LayoutParams(-1, context.getResources().getDimensionPixelSize(R.dimen.ds88));
-        this.hup = new e(context, this.huC, this.huD);
+        this.hJc = new e(context, this.hJp, this.hJq);
         a(layoutParams);
     }
 
     @SuppressLint({"ResourceAsColor"})
     private void a(AbsListView.LayoutParams layoutParams) {
-        addView(this.huo, layoutParams);
+        addView(this.hJb, layoutParams);
         setLayoutParams(layoutParams);
         setHorizontalScrollBarEnabled(false);
         am.setBackgroundColor(this, R.color.transparent);
         setDescendantFocusability(262144);
     }
 
-    private boolean cC(List<d> list) {
+    private boolean cz(List<d> list) {
         d dVar;
         if (list == null) {
             return false;
         }
-        d uy = uy(1);
+        d ve = ve(1);
         Iterator<d> it = list.iterator();
         while (true) {
             if (!it.hasNext()) {
@@ -359,28 +359,28 @@ public class HorizontalTabView extends MyHorizontalScrollView implements com.bai
                 break;
             }
         }
-        if (uy == null || dVar == null) {
+        if (ve == null || dVar == null) {
             return false;
         }
-        if (uy.huI == null && dVar.huI == null) {
+        if (ve.hJv == null && dVar.hJv == null) {
             return false;
         }
-        if ((uy.huI != null || dVar.huI == null) && (dVar.huI != null || uy.huI == null)) {
-            if (uy.huI == null || dVar.huI == null) {
+        if ((ve.hJv != null || dVar.hJv == null) && (dVar.hJv != null || ve.hJv == null)) {
+            if (ve.hJv == null || dVar.hJv == null) {
                 return false;
             }
-            if (uy.huI.hcj == null && dVar.huI.hcj == null) {
+            if (ve.hJv.hqX == null && dVar.hJv.hqX == null) {
                 return false;
             }
-            if ((uy.huI.hcj != null || dVar.huI.hcj == null) && (dVar.huI.hcj != null || uy.huI.hcj == null)) {
-                int size = uy.huI.hcj.size();
-                if (size != dVar.huI.hcj.size()) {
+            if ((ve.hJv.hqX != null || dVar.hJv.hqX == null) && (dVar.hJv.hqX != null || ve.hJv.hqX == null)) {
+                int size = ve.hJv.hqX.size();
+                if (size != dVar.hJv.hqX.size()) {
                     return true;
                 }
                 for (int i = 0; i < size; i++) {
-                    ax axVar = dVar.huI.hcj.get(i);
-                    ax axVar2 = uy.huI.hcj.get(i);
-                    if (axVar.hcf != axVar2.hcf || !axVar.name.equals(axVar2.name)) {
+                    ax axVar = dVar.hJv.hqX.get(i);
+                    ax axVar2 = ve.hJv.hqX.get(i);
+                    if (axVar.hqT != axVar2.hqT || !axVar.name.equals(axVar2.name)) {
                         return true;
                     }
                 }
@@ -394,38 +394,38 @@ public class HorizontalTabView extends MyHorizontalScrollView implements com.bai
     public void setData(List<d> list, int i, int i2) {
         d dVar;
         ay ayVar;
-        if (this.huy) {
-            this.huq = new ArrayList();
-            this.huq.addAll(list);
+        if (this.hJl) {
+            this.hJd = new ArrayList();
+            this.hJd.addAll(list);
             if (list != null && list.size() > 0 && (dVar = list.get(0)) != null && dVar.tabId == 1) {
-                ay ayVar2 = dVar.huI;
-                if (ayVar2 != null && ayVar2.hcj != null) {
-                    ayVar2.hcj.clear();
+                ay ayVar2 = dVar.hJv;
+                if (ayVar2 != null && ayVar2.hqX != null) {
+                    ayVar2.hqX.clear();
                     ayVar = ayVar2;
                 } else {
                     ay ayVar3 = new ay();
-                    ayVar3.hcj = new ArrayList();
+                    ayVar3.hqX = new ArrayList();
                     ayVar = ayVar3;
                 }
                 d dVar2 = null;
                 if (v.getCount(list) > 1) {
                     ax axVar = new ax();
-                    axVar.hcf = 1;
+                    axVar.hqT = 1;
                     axVar.name = getContext().getString(R.string.chosen_pb_title);
-                    ayVar.hcj.add(axVar);
+                    ayVar.hqX.add(axVar);
                     for (d dVar3 : list) {
                         if (dVar3 != null && dVar3.tabId != 1 && dVar3.tabId != 302) {
                             ax axVar2 = new ax();
-                            axVar2.hcf = dVar3.tabId;
+                            axVar2.hqT = dVar3.tabId;
                             axVar2.name = dVar3.name;
-                            ayVar.hcj.add(axVar2);
+                            ayVar.hqX.add(axVar2);
                         }
                         if (dVar3 == null || dVar3.tabId != 302) {
                             dVar3 = dVar2;
                         }
                         dVar2 = dVar3;
                     }
-                    dVar.huI = ayVar;
+                    dVar.hJv = ayVar;
                 }
                 list.clear();
                 list.add(dVar);
@@ -434,7 +434,7 @@ public class HorizontalTabView extends MyHorizontalScrollView implements com.bai
                 }
             }
         } else {
-            this.huq = list;
+            this.hJd = list;
         }
         a(list, i, i2, false);
     }
@@ -442,8 +442,8 @@ public class HorizontalTabView extends MyHorizontalScrollView implements com.bai
     private void a(List<d> list, int i, int i2, boolean z) {
         LinearLayout.LayoutParams layoutParams;
         int i3 = 0;
-        if (this.huv > 0 && list.size() == this.huv) {
-            layoutParams = new LinearLayout.LayoutParams(l.getEquipmentWidth(getContext()) / this.huv, -1);
+        if (this.hJi > 0 && list.size() == this.hJi) {
+            layoutParams = new LinearLayout.LayoutParams(l.getEquipmentWidth(getContext()) / this.hJi, -1);
         } else {
             LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -1);
             int dimensionPixelSize = getContext().getResources().getDimensionPixelSize(R.dimen.ds15);
@@ -456,45 +456,45 @@ public class HorizontalTabView extends MyHorizontalScrollView implements com.bai
             d dVar = new d();
             dVar.tabId = 1;
             dVar.name = getContext().getResources().getString(R.string.chosen_pb_title);
-            this.huo.removeAllViews();
-            TabItemView tabItemView = new TabItemView(getContext(), dVar, i2, this.huy);
-            if (this.huz != 0) {
-                tabItemView.setSelectItemColorResId(this.huz);
+            this.hJb.removeAllViews();
+            TabItemView tabItemView = new TabItemView(getContext(), dVar, i2, this.hJl);
+            if (this.hJm != 0) {
+                tabItemView.setSelectItemColorResId(this.hJm);
             }
             tabItemView.setOnClickListener(this.mOnClickListener);
             layoutParams.leftMargin = getContext().getResources().getDimensionPixelSize(R.dimen.ds32);
-            this.huo.addView(tabItemView, layoutParams);
-            this.hur = tabItemView;
-            tabItemView.setState(TabItemView.huK);
+            this.hJb.addView(tabItemView, layoutParams);
+            this.hJe = tabItemView;
+            tabItemView.setState(TabItemView.hJx);
             return;
         }
         setVisibility(0);
-        if (this.mData == null || cC(list)) {
+        if (this.mData == null || cz(list)) {
             this.mData = list;
-            this.huo.removeAllViews();
+            this.hJb.removeAllViews();
             while (true) {
                 int i4 = i3;
                 if (i4 < list.size()) {
                     d dVar2 = list.get(i4);
                     if (dVar2 != null) {
-                        TabItemView tabItemView2 = new TabItemView(getContext(), dVar2, i2, this.huy);
+                        TabItemView tabItemView2 = new TabItemView(getContext(), dVar2, i2, this.hJl);
                         if (302 == dVar2.tabId) {
                             am.setViewTextColor(tabItemView2, R.color.cp_cont_j, 1);
                         }
-                        if (this.huz != 0) {
-                            tabItemView2.setSelectItemColorResId(this.huz);
+                        if (this.hJm != 0) {
+                            tabItemView2.setSelectItemColorResId(this.hJm);
                         }
                         tabItemView2.setOnClickListener(this.mOnClickListener);
-                        if (uC(dVar2.tabId)) {
+                        if (vi(dVar2.tabId)) {
                             am.setViewTextColor(tabItemView2, (int) R.color.cp_cont_b);
                         }
                         if (i4 == 0) {
                             layoutParams.leftMargin = getContext().getResources().getDimensionPixelSize(R.dimen.tbds44);
                         }
-                        this.huo.addView(tabItemView2, layoutParams);
+                        this.hJb.addView(tabItemView2, layoutParams);
                         if (dVar2.tabId == i) {
-                            this.hur = tabItemView2;
-                            tabItemView2.setState(TabItemView.huK);
+                            this.hJe = tabItemView2;
+                            tabItemView2.setState(TabItemView.hJx);
                         }
                     }
                     i3 = i4 + 1;
@@ -505,11 +505,11 @@ public class HorizontalTabView extends MyHorizontalScrollView implements com.bai
         }
     }
 
-    private d uy(int i) {
-        if (i < 0 || this.huq == null || this.huq.size() == 0) {
+    private d ve(int i) {
+        if (i < 0 || this.hJd == null || this.hJd.size() == 0) {
             return null;
         }
-        for (d dVar : this.huq) {
+        for (d dVar : this.hJd) {
             if (dVar != null && dVar.tabId == i) {
                 return dVar;
             }
@@ -517,104 +517,104 @@ public class HorizontalTabView extends MyHorizontalScrollView implements com.bai
         return null;
     }
 
-    private boolean uz(int i) {
-        d uy = uy(i);
-        return (uy == null || uy.huI == null || uy.huI.hcj == null || uy.huI.hcj.size() <= 0) ? false : true;
+    private boolean vf(int i) {
+        d ve = ve(i);
+        return (ve == null || ve.hJv == null || ve.hJv.hqX == null || ve.hJv.hqX.size() <= 0) ? false : true;
     }
 
     public void setFakeTab(com.baidu.tieba.frs.tab.b bVar) {
-        this.hus = bVar;
+        this.hJf = bVar;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void dispatchDraw(Canvas canvas) {
         super.dispatchDraw(canvas);
-        if (this.hur != null) {
+        if (this.hJe != null) {
             this.mPaint.setColor(am.getColor(R.color.cp_bg_line_c));
-            if (this.huw) {
-                canvas.drawRect(this.huo.getLeft(), getMeasuredHeight() - this.huu, this.huo.getRight() > getRight() ? this.huo.getRight() : getRight(), getMeasuredHeight(), this.mPaint);
+            if (this.hJj) {
+                canvas.drawRect(this.hJb.getLeft(), getMeasuredHeight() - this.hJh, this.hJb.getRight() > getRight() ? this.hJb.getRight() : getRight(), getMeasuredHeight(), this.mPaint);
             }
-            if (!this.huy) {
-                if (this.huz == 0) {
+            if (!this.hJl) {
+                if (this.hJm == 0) {
                     this.mPaint.setColor(am.getSkinColor(null, R.color.cp_link_tip_a));
                 } else {
-                    this.mPaint.setColor(am.getSkinColor(null, this.huz));
+                    this.mPaint.setColor(am.getSkinColor(null, this.hJm));
                 }
-                canvas.drawRect(this.hur.getLeft() + getBottomLineMargin(), getMeasuredHeight() - this.hut, (this.hur.getRight() - getBottomLineMargin()) - this.hur.getDrawableWidth(), getMeasuredHeight(), this.mPaint);
+                canvas.drawRect(this.hJe.getLeft() + getBottomLineMargin(), getMeasuredHeight() - this.hJg, (this.hJe.getRight() - getBottomLineMargin()) - this.hJe.getDrawableWidth(), getMeasuredHeight(), this.mPaint);
             }
         }
-        if (this.huy) {
+        if (this.hJl) {
             this.mPaint.setAntiAlias(true);
             this.mPaint.setColor(am.getSkinColor(null, R.color.cp_cont_b));
             int dimens = l.getDimens(getContext(), R.dimen.ds96);
-            if (this.hur != null) {
-                dimens = this.hur.getRight() - this.hur.getDrawableWidth();
+            if (this.hJe != null) {
+                dimens = this.hJe.getRight() - this.hJe.getDrawableWidth();
             }
             canvas.drawRoundRect(new RectF(l.getDimens(getContext(), R.dimen.tbds44), l.getDimens(getContext(), R.dimen.tbds98), dimens, l.getDimens(getContext(), R.dimen.tbds104)), l.getDimens(getContext(), R.dimen.tbds6), l.getDimens(getContext(), R.dimen.tbds6), this.mPaint);
         }
     }
 
     private int getBottomLineMargin() {
-        if (this.hur == null || this.hun == 0) {
+        if (this.hJe == null || this.hJa == 0) {
             return 0;
         }
-        return ((this.hur.getMeasuredWidth() - this.hun) - this.hur.getDrawableWidth()) / 2;
+        return ((this.hJe.getMeasuredWidth() - this.hJa) - this.hJe.getDrawableWidth()) / 2;
     }
 
     @Override // com.baidu.tieba.frs.tab.b
-    public void uA(int i) {
-        a(ux(i));
+    public void vg(int i) {
+        a(vd(i));
     }
 
     public void setDataLoadInterface(ak akVar) {
-        this.huE = akVar;
+        this.hJr = akVar;
     }
 
     public void setmShowMenuCallBack(c cVar) {
-        this.huF = cVar;
+        this.hJs = cVar;
     }
 
     public c getmShowMenuCallBack() {
-        return this.huF;
+        return this.hJs;
     }
 
     public void setTabBackgroudColor(int i) {
-        this.hux = i;
+        this.hJk = i;
     }
 
     public void setAutoFillTabCount(int i) {
-        this.huv = i;
+        this.hJi = i;
     }
 
     @Override // com.baidu.tieba.frs.tab.b
-    public void uB(int i) {
-        if (this.hur != null && this.huE != null) {
-            this.huE.a(this.hur.getTabId(), i, null);
+    public void vh(int i) {
+        if (this.hJe != null && this.hJr != null) {
+            this.hJr.a(this.hJe.getTabId(), i, null);
         }
     }
 
     public void setOnTabItemClickListener(a aVar) {
-        this.huA = aVar;
+        this.hJn = aVar;
     }
 
     public void setOnTabItemSelectListener(b bVar) {
-        this.huB = bVar;
+        this.hJo = bVar;
     }
 
     public void setForNewFrame(boolean z) {
-        this.huy = z;
+        this.hJl = z;
     }
 
-    public static boolean uC(int i) {
+    public static boolean vi(int i) {
         return i > 200 && i <= 300;
     }
 
     public void setNeedBottomLine(boolean z) {
-        this.huw = z;
+        this.hJj = z;
         invalidate();
     }
 
     public void setSelectedItemColorResourceId(int i) {
-        this.huz = i;
+        this.hJm = i;
     }
 }

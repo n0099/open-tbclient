@@ -38,50 +38,50 @@ import com.baidu.tieba.ala.personcenter.model.AlaPersonCenterModel;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class a implements com.baidu.tieba.ala.personcenter.d.a, com.baidu.tieba.ala.personcenter.model.a {
-    private TbPageContext duK;
-    private NoNetworkView ePq;
-    private g eYg;
-    private AlaPersonCenterModel fZq;
-    private c fZr;
-    private com.baidu.tieba.ala.personcenter.a.c fZs;
-    private BdTypeListView fZt;
-    private ImageView fZu;
-    private TextView fZv;
-    private boolean fZw;
-    private int fqo;
+    private TbPageContext dIF;
+    private int fEi;
+    private NoNetworkView fbX;
+    private g fkQ;
+    private AlaPersonCenterModel gok;
+    private c gol;
+    private com.baidu.tieba.ala.personcenter.a.c gom;
+    private BdTypeListView gon;
+    private ImageView goo;
+    private TextView gop;
+    private boolean goq;
     private String mForumId;
     private String mForumName;
     private boolean mIsHost;
     private NavigationBar mNavigationBar;
     private h mRefreshView;
     private View mRootView;
-    private boolean fqn = true;
-    private boolean eWc = false;
-    private boolean fZx = false;
-    private CustomMessageListener fZy = new CustomMessageListener(AlaCmdConfigCustom.CMD_ALA_LIVE_USER_AUTHENT_UPLOAD_FINISH) { // from class: com.baidu.tieba.ala.personcenter.b.a.2
+    private boolean fEh = true;
+    private boolean fiM = false;
+    private boolean gor = false;
+    private CustomMessageListener gos = new CustomMessageListener(AlaCmdConfigCustom.CMD_ALA_LIVE_USER_AUTHENT_UPLOAD_FINISH) { // from class: com.baidu.tieba.ala.personcenter.b.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (a.this.fZq != null) {
-                a.this.fZq.loadData();
+            if (a.this.gok != null) {
+                a.this.gok.loadData();
             }
         }
     };
 
     public a(TbPageContext tbPageContext, boolean z) {
-        this.fqo = 0;
-        this.fZw = false;
-        this.duK = tbPageContext;
-        this.fZw = z;
-        this.fqo = (int) this.duK.getResources().getDimension(R.dimen.ds400);
-        this.fZq = new AlaPersonCenterModel(tbPageContext);
-        this.fZq.a(this);
-        em(tbPageContext.getPageActivity());
+        this.fEi = 0;
+        this.goq = false;
+        this.dIF = tbPageContext;
+        this.goq = z;
+        this.fEi = (int) this.dIF.getResources().getDimension(R.dimen.ds400);
+        this.gok = new AlaPersonCenterModel(tbPageContext);
+        this.gok.a(this);
+        eB(tbPageContext.getPageActivity());
     }
 
-    private void blq() {
+    private void bqN() {
         if (this.mRefreshView == null) {
-            this.mRefreshView = new h(this.duK.getPageActivity(), new View.OnClickListener() { // from class: com.baidu.tieba.ala.personcenter.b.a.1
+            this.mRefreshView = new h(this.dIF.getPageActivity(), new View.OnClickListener() { // from class: com.baidu.tieba.ala.personcenter.b.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     a.this.loadData();
@@ -89,82 +89,82 @@ public class a implements com.baidu.tieba.ala.personcenter.d.a, com.baidu.tieba.
             });
             this.mRefreshView.setTitle(null);
             this.mRefreshView.setButtonText(null);
-            this.mRefreshView.setLayoutMargin(this.duK.getResources().getDimensionPixelSize(R.dimen.ds340));
+            this.mRefreshView.setLayoutMargin(this.dIF.getResources().getDimensionPixelSize(R.dimen.ds340));
             this.mRefreshView.showRefreshButton();
             this.mRefreshView.getAttachedView().setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
         }
         this.mRefreshView.setSubText(null);
-        this.mRefreshView.setTitle(this.duK.getResources().getString(R.string.refresh_view_title_text));
+        this.mRefreshView.setTitle(this.dIF.getResources().getString(R.string.refresh_view_title_text));
         this.mRefreshView.onChangeSkinType();
-        if (!this.eWc) {
+        if (!this.fiM) {
             ((ViewGroup) this.mRootView).addView(this.mRefreshView.getAttachedView(), 0);
         }
-        this.eWc = true;
+        this.fiM = true;
     }
 
-    private void blr() {
+    private void bqO() {
         if (this.mRefreshView != null && this.mRefreshView.getAttachedView().getParent() != null) {
             ((ViewGroup) this.mRefreshView.getAttachedView().getParent()).removeView(this.mRefreshView.getAttachedView());
         }
-        this.eWc = false;
+        this.fiM = false;
     }
 
     public View getView() {
         return this.mRootView;
     }
 
-    private void em(Context context) {
+    private void eB(Context context) {
         this.mRootView = View.inflate(context, R.layout.ala_person_center_layout, null);
         this.mNavigationBar = (NavigationBar) this.mRootView.findViewById(R.id.ala_person_center_navigation_bar);
         View addSystemImageButton = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        if (this.fZw) {
+        if (this.goq) {
             addSystemImageButton.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.personcenter.b.a.3
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(CmdConfigCustom.CMD_CLICK_CLOSE_GAME_FRS_CONFIRM);
-                    customResponsedMessage.setmOrginalMessage(new CustomMessage((int) CmdConfigCustom.CMD_GAME_FRS_TAB_CHANGE, a.this.duK.getUniqueId()));
+                    customResponsedMessage.setmOrginalMessage(new CustomMessage((int) CmdConfigCustom.CMD_GAME_FRS_TAB_CHANGE, a.this.dIF.getUniqueId()));
                     MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
                 }
             });
         }
-        this.fZu = (ImageView) addSystemImageButton.findViewById(R.id.widget_navi_back_button);
+        this.goo = (ImageView) addSystemImageButton.findViewById(R.id.widget_navi_back_button);
         this.mNavigationBar.showBottomLine(false);
-        if (!this.fZw) {
-            this.fZv = this.mNavigationBar.setCenterTextTitle(this.duK.getString(R.string.ala_live));
+        if (!this.goq) {
+            this.gop = this.mNavigationBar.setCenterTextTitle(this.dIF.getString(R.string.ala_live));
         } else {
             StringBuilder sb = new StringBuilder();
-            sb.append(UtilHelper.getFixedBarText(this.mForumName, 5, true, true) + this.duK.getResources().getString(R.string.forum));
-            this.fZv = this.mNavigationBar.setCenterTextTitle(sb.toString());
+            sb.append(UtilHelper.getFixedBarText(this.mForumName, 5, true, true) + this.dIF.getResources().getString(R.string.forum));
+            this.gop = this.mNavigationBar.setCenterTextTitle(sb.toString());
         }
-        this.ePq = (NoNetworkView) this.mRootView.findViewById(R.id.ala_person_center_no_network_view);
-        this.fZt = (BdTypeListView) this.mRootView.findViewById(R.id.ala_person_center_listview);
-        this.fZt.setItemsCanFocus(true);
-        this.fZt.setVisibility(8);
-        this.fZs = new com.baidu.tieba.ala.personcenter.a.c(this.duK, this.fZt, this);
-        this.fZs.ld(this.fZw);
-        if (this.fZw) {
+        this.fbX = (NoNetworkView) this.mRootView.findViewById(R.id.ala_person_center_no_network_view);
+        this.gon = (BdTypeListView) this.mRootView.findViewById(R.id.ala_person_center_listview);
+        this.gon.setItemsCanFocus(true);
+        this.gon.setVisibility(8);
+        this.gom = new com.baidu.tieba.ala.personcenter.a.c(this.dIF, this.gon, this);
+        this.gom.jl(this.goq);
+        if (this.goq) {
             this.mRootView.setPadding(0, 0, 0, TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
         }
-        this.eYg = new g(this.duK.getPageActivity());
-        this.eYg.attachView(this.mRootView, false);
-        this.fZt.setOnScrollListener(new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.ala.personcenter.b.a.4
+        this.fkQ = new g(this.dIF.getPageActivity());
+        this.fkQ.attachView(this.mRootView, false);
+        this.gon.setOnScrollListener(new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.ala.personcenter.b.a.4
             @Override // android.widget.AbsListView.OnScrollListener
             public void onScrollStateChanged(AbsListView absListView, int i) {
             }
 
             @Override // android.widget.AbsListView.OnScrollListener
             public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-                a.this.bpY();
-                a.this.bpZ();
+                a.this.bvR();
+                a.this.bvS();
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bpY() {
-        if (Build.VERSION.SDK_INT >= 11 && this.fZt.getChildAt(0) != null) {
-            int dimension = (int) this.duK.getResources().getDimension(R.dimen.ds98);
-            int i = this.fqo - (-this.fZt.getChildAt(0).getTop());
+    public void bvR() {
+        if (Build.VERSION.SDK_INT >= 11 && this.gon.getChildAt(0) != null) {
+            int dimension = (int) this.dIF.getResources().getDimension(R.dimen.ds98);
+            int i = this.fEi - (-this.gon.getChildAt(0).getTop());
             if (i < dimension) {
                 if (this.mNavigationBar.getBarBgView().getAlpha() != 1.0f) {
                     this.mNavigationBar.getBarBgView().setAlpha(1.0f);
@@ -178,7 +178,7 @@ public class a implements com.baidu.tieba.ala.personcenter.d.a, com.baidu.tieba.
                 this.mNavigationBar.getBarBgView().setAlpha(0.0f);
                 this.mNavigationBar.getTopCoverBgView().setAlpha(1.0f);
             }
-            if (this.fZt.getFirstVisiblePosition() > 0 && this.mNavigationBar.getBarBgView().getAlpha() != 1.0f) {
+            if (this.gon.getFirstVisiblePosition() > 0 && this.mNavigationBar.getBarBgView().getAlpha() != 1.0f) {
                 this.mNavigationBar.getBarBgView().setAlpha(1.0f);
                 this.mNavigationBar.getTopCoverBgView().setAlpha(0.0f);
             }
@@ -186,183 +186,183 @@ public class a implements com.baidu.tieba.ala.personcenter.d.a, com.baidu.tieba.
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bpZ() {
+    public void bvS() {
         if (2 != TbadkCoreApplication.getInst().getSkinType()) {
             float alpha = this.mNavigationBar.getBarBgView().getAlpha();
             if (alpha < 0.5f) {
                 alpha = 1.0f - alpha;
-                if (!this.fqn) {
-                    this.fqn = true;
+                if (!this.fEh) {
+                    this.fEh = true;
                 }
-            } else if (this.fqn) {
-                this.fqn = false;
+            } else if (this.fEh) {
+                this.fEh = false;
             }
-            a(alpha, this.fqn ? false : true);
+            a(alpha, this.fEh ? false : true);
         }
     }
 
     protected void a(float f, boolean z) {
-        if (z || this.eWc) {
-            am.setNavbarIconSrc(this.fZu, R.drawable.icon_return_bg_s, R.drawable.icon_return_bg);
-            am.setNavbarTitleColor(this.fZv, R.color.cp_cont_b, R.color.s_navbar_title_color);
+        if (z || this.fiM) {
+            am.setNavbarIconSrc(this.goo, R.drawable.icon_return_bg_s, R.drawable.icon_return_bg);
+            am.setNavbarTitleColor(this.gop, R.color.cp_cont_b, R.color.s_navbar_title_color);
         } else {
-            am.setNavbarIconSrc(this.fZu, R.drawable.selector_topbar_return_white, R.drawable.selector_topbar_return_white_1);
-            am.setNavbarTitleColor(this.fZv, R.color.cp_cont_a, R.color.cp_cont_a);
+            am.setNavbarIconSrc(this.goo, R.drawable.selector_topbar_return_white, R.drawable.selector_topbar_return_white_1);
+            am.setNavbarTitleColor(this.gop, R.color.cp_cont_a, R.color.cp_cont_a);
         }
-        this.fZv.setAlpha(f);
-        this.fZu.setAlpha(f);
+        this.gop.setAlpha(f);
+        this.goo.setAlpha(f);
     }
 
     public void onChangeSkinType(int i) {
-        this.mNavigationBar.onChangeSkinType(this.duK, i);
+        this.mNavigationBar.onChangeSkinType(this.dIF, i);
         this.mNavigationBar.getBackground().mutate().setAlpha(0);
         am.setNavbarTitleColor(this.mNavigationBar.mTextTitle, R.color.cp_cont_a, R.color.cp_cont_a);
-        am.setNavbarIconSrc(this.fZu, R.drawable.selector_topbar_return_white, R.drawable.selector_topbar_return_white_1);
-        this.fZt.setDivider(am.getDrawable(i, (int) R.color.cp_bg_line_c));
-        this.fZt.setDividerHeight(this.duK.getResources().getDimensionPixelSize(R.dimen.ds2));
+        am.setNavbarIconSrc(this.goo, R.drawable.selector_topbar_return_white, R.drawable.selector_topbar_return_white_1);
+        this.gon.setDivider(am.getDrawable(i, (int) R.color.cp_bg_line_c));
+        this.gon.setDividerHeight(this.dIF.getResources().getDimensionPixelSize(R.dimen.ds2));
         am.setBackgroundColor(this.mRootView, R.color.cp_bg_line_d);
-        if (this.fZt.getAdapter() instanceof e) {
-            this.fZt.getAdapter().notifyDataSetChanged();
-            if (this.eYg != null) {
-                this.eYg.onChangeSkinType();
+        if (this.gon.getAdapter() instanceof e) {
+            this.gon.getAdapter().notifyDataSetChanged();
+            if (this.fkQ != null) {
+                this.fkQ.onChangeSkinType();
             }
-            this.ePq.onChangeSkinType(this.duK, i);
+            this.fbX.onChangeSkinType(this.dIF, i);
             if (i == 1) {
-                this.mNavigationBar.getBarBgView().setBackgroundColor(this.duK.getResources().getColor(R.color.cp_bg_line_h_1));
-                this.mNavigationBar.getTopCoverBgView().setBackgroundColor(this.duK.getResources().getColor(R.color.cp_bg_line_d_1));
+                this.mNavigationBar.getBarBgView().setBackgroundColor(this.dIF.getResources().getColor(R.color.cp_bg_line_h_1));
+                this.mNavigationBar.getTopCoverBgView().setBackgroundColor(this.dIF.getResources().getColor(R.color.cp_bg_line_d_1));
             } else if (i == 0) {
-                this.mNavigationBar.getBarBgView().setBackgroundColor(this.duK.getResources().getColor(R.color.cp_bg_line_h));
-                this.mNavigationBar.getTopCoverBgView().setBackgroundColor(this.duK.getResources().getColor(R.color.cp_bg_line_d));
+                this.mNavigationBar.getBarBgView().setBackgroundColor(this.dIF.getResources().getColor(R.color.cp_bg_line_h));
+                this.mNavigationBar.getTopCoverBgView().setBackgroundColor(this.dIF.getResources().getColor(R.color.cp_bg_line_d));
             }
         }
     }
 
     public void f(String str, String str2, String str3, boolean z) {
-        this.fZq.setUid(str);
+        this.gok.setUid(str);
         this.mIsHost = z;
     }
 
     public void loadData() {
-        this.fZq.loadData();
+        this.gok.loadData();
     }
 
     @Override // com.baidu.tieba.ala.personcenter.model.a
     public void c(Object obj, int i) {
         if (obj != null) {
-            blr();
+            bqO();
             if ((obj instanceof c) && i == 1) {
-                this.fZr = (c) obj;
-                this.fZr.setIsHost(this.mIsHost);
-                this.eYg.dettachView(this.mRootView);
-                this.fZt.setVisibility(0);
-                bBR();
+                this.gol = (c) obj;
+                this.gol.setIsHost(this.mIsHost);
+                this.fkQ.dettachView(this.mRootView);
+                this.gon.setVisibility(0);
+                bIk();
             }
         }
     }
 
     @Override // com.baidu.tieba.ala.personcenter.model.a
     public void c(int i, String str, Object obj) {
-        if (this.eYg != null) {
-            this.eYg.dettachView(this.mRootView);
+        if (this.fkQ != null) {
+            this.fkQ.dettachView(this.mRootView);
         }
-        this.fZt.setVisibility(0);
-        if (this.fZt != null && v.isEmpty(this.fZt.getData())) {
-            blq();
+        this.gon.setVisibility(0);
+        if (this.gon != null && v.isEmpty(this.gon.getData())) {
+            bqN();
         }
     }
 
     public void onDestory() {
-        if (this.eYg != null) {
-            this.eYg.release();
-            this.eYg.dettachView(this.mRootView);
+        if (this.fkQ != null) {
+            this.fkQ.release();
+            this.fkQ.dettachView(this.mRootView);
         }
-        if (this.fZq != null) {
-            this.fZq.destory();
+        if (this.gok != null) {
+            this.gok.destory();
         }
     }
 
-    public void bBR() {
+    public void bIk() {
         ArrayList arrayList;
-        if (this.fZr != null) {
+        if (this.gol != null) {
             if (this.mIsHost) {
                 arrayList = new ArrayList(10);
                 com.baidu.tieba.ala.personcenter.c.e eVar = new com.baidu.tieba.ala.personcenter.c.e();
-                eVar.a(this.fZr);
+                eVar.a(this.gol);
                 arrayList.add(eVar);
                 l lVar = new l();
-                lVar.a(this.fZr);
+                lVar.a(this.gol);
                 arrayList.add(lVar);
                 i iVar = new i();
-                iVar.a(this.fZr);
+                iVar.a(this.gol);
                 arrayList.add(iVar);
                 j jVar = new j();
-                jVar.a(this.fZr);
+                jVar.a(this.gol);
                 arrayList.add(jVar);
                 com.baidu.tieba.ala.personcenter.c.g gVar = new com.baidu.tieba.ala.personcenter.c.g();
-                gVar.a(this.fZr);
+                gVar.a(this.gol);
                 arrayList.add(gVar);
                 k kVar = new k();
-                kVar.a(this.fZr);
+                kVar.a(this.gol);
                 arrayList.add(kVar);
                 f fVar = new f();
-                fVar.a(this.fZr);
+                fVar.a(this.gol);
                 arrayList.add(fVar);
                 d dVar = new d();
-                dVar.a(this.fZr);
+                dVar.a(this.gol);
                 arrayList.add(dVar);
                 n nVar = new n();
-                nVar.a(this.fZr);
+                nVar.a(this.gol);
                 arrayList.add(nVar);
                 m mVar = new m();
-                mVar.a(this.fZr);
+                mVar.a(this.gol);
                 arrayList.add(mVar);
             } else {
                 arrayList = new ArrayList(4);
                 com.baidu.tieba.ala.personcenter.c.e eVar2 = new com.baidu.tieba.ala.personcenter.c.e();
-                eVar2.a(this.fZr);
+                eVar2.a(this.gol);
                 arrayList.add(eVar2);
             }
-            this.fZs.setData(arrayList);
+            this.gom.setData(arrayList);
         }
     }
 
     public void setForumId(String str) {
         this.mForumId = str;
-        if (this.fZs != null) {
-            this.fZs.setForumId(str);
+        if (this.gom != null) {
+            this.gom.setForumId(str);
         }
     }
 
     public void setForumName(String str) {
         this.mForumName = str;
-        if (this.fZs != null) {
-            this.fZs.setForumName(str);
+        if (this.gom != null) {
+            this.gom.setForumName(str);
         }
-        if (!this.fZw) {
-            this.fZv = this.mNavigationBar.setCenterTextTitle(this.duK.getString(R.string.ala_live));
+        if (!this.goq) {
+            this.gop = this.mNavigationBar.setCenterTextTitle(this.dIF.getString(R.string.ala_live));
             return;
         }
         StringBuilder sb = new StringBuilder();
-        sb.append(UtilHelper.getFixedBarText(this.mForumName, 5, true, true) + this.duK.getResources().getString(R.string.forum));
-        this.fZv = this.mNavigationBar.setCenterTextTitle(sb.toString());
+        sb.append(UtilHelper.getFixedBarText(this.mForumName, 5, true, true) + this.dIF.getResources().getString(R.string.forum));
+        this.gop = this.mNavigationBar.setCenterTextTitle(sb.toString());
     }
 
-    public void Bo(String str) {
-        if (this.fZs != null) {
-            this.fZs.Bo(str);
+    public void CX(String str) {
+        if (this.gom != null) {
+            this.gom.CX(str);
         }
     }
 
     @Override // com.baidu.tieba.ala.personcenter.d.a
-    public void rh(int i) {
+    public void rK(int i) {
         if (i == 1) {
-            this.fZx = true;
+            this.gor = true;
         }
     }
 
     public void onResume() {
-        if (this.fZx) {
-            this.fZx = false;
+        if (this.gor) {
+            this.gor = false;
             loadData();
         }
     }

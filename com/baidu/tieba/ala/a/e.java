@@ -7,16 +7,16 @@ import java.util.HashSet;
 import java.util.Set;
 /* loaded from: classes3.dex */
 public class e {
-    private b eZN = null;
-    private b eZO = null;
-    private Set<j> eZP = new HashSet();
-    private Set<j> eZQ = null;
-    private boolean eZR = false;
     private Context mContext;
+    private b fmx = null;
+    private b fmy = null;
+    private Set<j> fmz = new HashSet();
+    private Set<j> fmA = null;
+    private boolean fmB = false;
 
     /* loaded from: classes3.dex */
     public interface a {
-        void bmY();
+        void bsw();
 
         void onCancel();
     }
@@ -27,45 +27,45 @@ public class e {
     }
 
     private void initResource() {
-        this.eZO = new b("so");
-        this.eZP.add(this.eZO);
-        this.eZN = new b("source");
-        this.eZP.add(this.eZN);
+        this.fmy = new b("so");
+        this.fmz.add(this.fmy);
+        this.fmx = new b("source");
+        this.fmz.add(this.fmx);
     }
 
-    public boolean bmX() {
-        if (this.eZQ == null) {
-            this.eZQ = new HashSet();
-            for (j jVar : this.eZP) {
+    public boolean bsv() {
+        if (this.fmA == null) {
+            this.fmA = new HashSet();
+            for (j jVar : this.fmz) {
                 if (!jVar.isReady()) {
-                    this.eZQ.add(jVar);
+                    this.fmA.add(jVar);
                 }
             }
-            if (this.eZQ.size() > 0) {
-                this.eZR = true;
+            if (this.fmA.size() > 0) {
+                this.fmB = true;
             } else {
-                this.eZR = false;
+                this.fmB = false;
             }
         }
-        return this.eZR;
+        return this.fmB;
     }
 
     public void a(final a aVar) {
-        if (!bmX()) {
-            aVar.bmY();
+        if (!bsv()) {
+            aVar.bsw();
             return;
         }
         ArrayList arrayList = new ArrayList();
-        for (j jVar : this.eZQ) {
+        for (j jVar : this.fmA) {
             jVar.load();
-            arrayList.add(jVar.bmP());
+            arrayList.add(jVar.bsn());
         }
-        f.a(this.mContext, new com.baidu.tieba.ala.a.a((g[]) arrayList.toArray(new g[0]))).r(new Runnable() { // from class: com.baidu.tieba.ala.a.e.3
+        f.a(this.mContext, new com.baidu.tieba.ala.a.a((g[]) arrayList.toArray(new g[0]))).t(new Runnable() { // from class: com.baidu.tieba.ala.a.e.3
             @Override // java.lang.Runnable
             public void run() {
-                aVar.bmY();
+                aVar.bsw();
             }
-        }).s(new Runnable() { // from class: com.baidu.tieba.ala.a.e.2
+        }).u(new Runnable() { // from class: com.baidu.tieba.ala.a.e.2
             @Override // java.lang.Runnable
             public void run() {
                 aVar.onCancel();

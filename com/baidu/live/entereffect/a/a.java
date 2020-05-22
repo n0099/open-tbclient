@@ -1,72 +1,60 @@
 package com.baidu.live.entereffect.a;
 
-import android.text.TextUtils;
 import com.baidu.live.gift.c;
+import com.baidu.tieba.ala.alaar.sticker.model.FuFaceItem;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class a {
-    public c axN;
-    private JSONObject axO;
+    public String aDd;
+    public c aDe;
     public int frameCount;
     public String id;
     public int priority;
-    public String url;
+    public String videoMd5;
+    public String videoUrl;
 
-    public a(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            this.axO = jSONObject;
+    public JSONObject wF() {
+        JSONObject jSONObject = new JSONObject();
+        try {
+            jSONObject.put("id", this.id);
+            jSONObject.put("mp4_file_url", this.videoUrl);
+            jSONObject.put("video_md5", this.videoMd5);
+            jSONObject.put(FuFaceItem.JK_SO_URL, this.aDd);
+            jSONObject.put("frame_count", this.frameCount);
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
+        return jSONObject;
     }
 
-    public JSONObject vq() {
-        return this.axO;
-    }
-
-    public a c(String str, List<String> list) {
-        if (this.axN == null) {
-            this.axN = new c();
+    public a k(String str, String str2, String str3, String str4) {
+        this.videoUrl = str;
+        this.videoMd5 = str4;
+        if (this.aDe == null) {
+            this.aDe = new c();
         }
-        this.axN.upZipDirPath = str;
-        if (list != null) {
-            this.frameCount = list.size();
-            if (this.axN.ays != null && this.axN.ays.ayr != null) {
-                this.axN.ays.ayr.frame_count = this.frameCount;
-            }
-            this.axN.unZipFilesPathList = new ArrayList<>();
-            this.axN.unZipFilesPathList.addAll(list);
-            if (this.axO != null) {
-                try {
-                    this.axO.put("frame_count", this.frameCount);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
+        this.aDe.aDL = str2;
+        this.aDe.videoPath = str3;
         return this;
     }
 
-    public boolean equals(Object obj) {
-        boolean z = true;
-        if (obj == null) {
-            return false;
+    public a b(String str, String str2, List<String> list) {
+        this.aDd = str;
+        if (this.aDe == null) {
+            this.aDe = new c();
         }
-        if (this == obj) {
-            return true;
+        this.aDe.upZipDirPath = str2;
+        if (list != null) {
+            this.frameCount = list.size();
+            if (this.aDe.aDK != null && this.aDe.aDK.aDJ != null) {
+                this.aDe.aDK.aDJ.frame_count = this.frameCount;
+            }
+            this.aDe.unZipFilesPathList = new ArrayList<>();
+            this.aDe.unZipFilesPathList.addAll(list);
         }
-        if (getClass() != obj.getClass() || TextUtils.isEmpty(this.id) || TextUtils.isEmpty(this.url)) {
-            return false;
-        }
-        a aVar = (a) obj;
-        if (!this.id.equals(aVar.id) || !this.url.equals(aVar.url)) {
-            z = false;
-        }
-        return z;
-    }
-
-    public int hashCode() {
-        return (((this.id != null ? this.id.hashCode() : 0) + 629) * 37) + (this.url != null ? this.url.hashCode() : 0);
+        return this;
     }
 }

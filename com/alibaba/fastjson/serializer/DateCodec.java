@@ -49,7 +49,7 @@ public class DateCodec extends AbstractDateDeserializer implements ObjectDeseria
                 serializeWriter.write(41);
                 return;
             }
-            serializeWriter.write(Constants.METHOD_IM_FRIEND_GROUP_QUERY);
+            serializeWriter.write(123);
             serializeWriter.writeFieldName(JSON.DEFAULT_TYPE_KEY);
             jSONSerializer.write(obj.getClass().getName());
             serializeWriter.writeFieldValue(',', "val", ((Date) obj).getTime());
@@ -160,7 +160,7 @@ public class DateCodec extends AbstractDateDeserializer implements ObjectDeseria
                     if ("0000-00-00".equals(str) || "0000-00-00T00:00:00".equalsIgnoreCase(str) || "0001-01-01T00:00:00+08:00".equalsIgnoreCase(str)) {
                         return null;
                     }
-                    int lastIndexOf = str.lastIndexOf(Constants.METHOD_IM_FRIEND_GROUP_QUERY_MEMBER);
+                    int lastIndexOf = str.lastIndexOf(124);
                     if (lastIndexOf > 20) {
                         TimeZone timeZone = TimeZone.getTimeZone(str.substring(lastIndexOf + 1));
                         if (!"GMT".equals(timeZone.getID())) {

@@ -6,18 +6,18 @@ public interface l {
 
     /* loaded from: classes3.dex */
     public interface a {
-        void Bn();
+        void CK();
     }
 
-    void AJ();
+    void BZ();
 
-    View Bl();
+    View CI();
 
-    void Bm();
+    void CJ();
 
-    void a(com.baidu.live.data.n nVar);
+    void a(com.baidu.live.data.q qVar);
 
-    void a(com.baidu.live.data.n nVar, boolean z);
+    void a(com.baidu.live.data.q qVar, boolean z);
 
     void a(a aVar);
 

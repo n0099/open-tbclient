@@ -23,6 +23,7 @@ public class AlaLiveSwitchData extends BaseData {
     public String mGuardFans;
     public String mGuardThrone;
     public String mLiveSwitch;
+    public String mNobleInfo;
     public String mPopupWindow;
     public String mQuickGift;
     public String mRankHour;
@@ -56,6 +57,7 @@ public class AlaLiveSwitchData extends BaseData {
             this.mVideoGoodslist = jSONObject.optString("f_video_goodslist");
             this.mActivityTaskWatch = jSONObject.optString("f_activity_task_watch");
             this.mGmsgGetLiveStatus = jSONObject.optString("f_gmsg_getLiveStatus");
+            this.mNobleInfo = jSONObject.optString("s_noble_info");
         }
     }
 
@@ -83,6 +85,7 @@ public class AlaLiveSwitchData extends BaseData {
             jSONObject.put("f_video_goodslist", this.mVideoGoodslist);
             jSONObject.put("f_activity_task_watch", this.mActivityTaskWatch);
             jSONObject.put("f_gmsg_getLiveStatus", this.mGmsgGetLiveStatus);
+            jSONObject.put("s_noble_info", this.mNobleInfo);
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -167,5 +170,9 @@ public class AlaLiveSwitchData extends BaseData {
 
     public boolean isGuardThroneSwitchUnabled() {
         return TextUtils.equals(this.mGuardThrone, "0");
+    }
+
+    public boolean isNobleInfoSwitchUnabled() {
+        return TextUtils.equals(this.mNobleInfo, "0");
     }
 }

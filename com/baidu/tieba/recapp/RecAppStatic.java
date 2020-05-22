@@ -10,7 +10,7 @@ import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.searchbox.suspensionball.SuspensionBallEntity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.bj;
+import com.baidu.tbadk.core.data.bk;
 import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
 import com.baidu.tieba.recapp.activity.AdDebugActivity;
 import com.baidu.tieba.recapp.activity.AdDebugActivityConfig;
@@ -25,9 +25,9 @@ import org.json.JSONObject;
 /* loaded from: classes13.dex */
 public class RecAppStatic {
     static {
-        q.krx.set(new s());
+        q.kJr.set(new s());
         TbadkCoreApplication.getInst().setRecAppExist(true);
-        com.baidu.tieba.ad.a.bgh().a(new g.a() { // from class: com.baidu.tieba.recapp.RecAppStatic.1
+        com.baidu.tieba.ad.a.bms().a(new g.a() { // from class: com.baidu.tieba.recapp.RecAppStatic.1
             @Override // com.baidu.tieba.recapp.g.a
             public int d(Context context, String[] strArr) {
                 if (strArr == null || strArr[0] == null) {
@@ -76,9 +76,9 @@ public class RecAppStatic {
                 return 3;
             }
         });
-        com.baidu.tieba.InjectPlugin.a.e.bdP().a(1, new e());
-        com.baidu.tieba.InjectPlugin.a.e.bdP().a(2, new c());
-        bj.dro.set(true);
+        com.baidu.tieba.InjectPlugin.a.e.bka().a(1, new e());
+        com.baidu.tieba.InjectPlugin.a.e.bka().a(2, new c());
+        bk.dFk.set(true);
         final TbadkCoreApplication inst = TbadkCoreApplication.getInst();
         inst.RegisterIntent(WebVideoActivityConfig.class, WebVideoActivity.class);
         inst.RegisterIntent(NewWebVideoActivityConfig.class, NewWebVideoActivity.class);
@@ -92,13 +92,13 @@ public class RecAppStatic {
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("com.tieba.baidu.notifyprocess");
         inst.registerReceiver(broadcastReceiver, intentFilter);
-        a.cMX().cNa();
-        a.cMX().cMY();
+        a.cTX().cUa();
+        a.cTX().cTY();
         com.baidu.b.a.a.init(TbadkCoreApplication.getInst());
         com.baidu.b.a.a.a(new o());
         com.baidu.b.a.a.a(new p());
         if (BdLog.isDebugMode()) {
         }
-        com.baidu.tieba.ad.download.b.a.brU.set(new com.baidu.tieba.recapp.download.b());
+        com.baidu.tieba.ad.download.b.a.bzx.set(new com.baidu.tieba.recapp.download.b());
     }
 }

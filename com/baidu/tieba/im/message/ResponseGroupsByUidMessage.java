@@ -118,7 +118,7 @@ public class ResponseGroupsByUidMessage extends TbSocketReponsedMessage {
                 str = TbadkApplication.getCurrentAccountObj().getID();
             }
             if (groupsByUidMessage != null && groupsByUidMessage.getFriendUid() == 0) {
-                saveProtocolBufferDataToCache(com.baidu.tbadk.core.c.a.aMR().uf("tb.im_entergroup"), CACHE_KEY_PREFIX + str, bArr);
+                saveProtocolBufferDataToCache(com.baidu.tbadk.core.c.a.aSS().vL("tb.im_entergroup"), CACHE_KEY_PREFIX + str, bArr);
             }
         }
     }

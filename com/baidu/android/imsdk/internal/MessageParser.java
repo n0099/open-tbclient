@@ -219,7 +219,7 @@ public class MessageParser {
                         type.t = type2.t;
                     }
                     if (parserMessage != null) {
-                        if (parserMessage.isSelf(context)) {
+                        if (parserMessage.isSelf(context) && parserMessage.getCategory() != 4) {
                             parserMessage.setMsgReaded(1);
                             parserMessage.setIsClicked(true);
                         }
@@ -342,6 +342,7 @@ public class MessageParser {
                                 tripule.setAck(jSONObject);
                             }
                             if (category == 4 && McastManagerImpl.getInstance(context).isReliable(((TextMsg) chatMsg).getCastId()).booleanValue()) {
+                                tripule.setMcastId(((TextMsg) chatMsg).getCastId());
                                 tripule.setStudioIsReliable(true);
                                 z2 = true;
                             } else {

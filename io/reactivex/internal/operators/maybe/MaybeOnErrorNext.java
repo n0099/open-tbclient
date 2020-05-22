@@ -58,7 +58,7 @@ public final class MaybeOnErrorNext<T> extends a<T, T> {
                 return;
             }
             try {
-                o oVar = (o) io.reactivex.internal.functions.a.h(this.resumeFunction.apply(th), "The resumeFunction returned a null MaybeSource");
+                o oVar = (o) io.reactivex.internal.functions.a.k(this.resumeFunction.apply(th), "The resumeFunction returned a null MaybeSource");
                 DisposableHelper.replace(this, null);
                 oVar.a(new a(this.actual, this));
             } catch (Throwable th2) {

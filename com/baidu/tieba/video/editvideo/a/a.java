@@ -15,18 +15,18 @@ import com.baidu.tieba.video.editvideo.data.PendantData;
 import java.util.List;
 /* loaded from: classes10.dex */
 public class a extends BaseAdapter {
-    private e dvg;
-    private InterfaceC0682a liH;
+    private e dJb;
+    private InterfaceC0735a lBs;
     private List<PendantData> mList;
 
     /* renamed from: com.baidu.tieba.video.editvideo.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public interface InterfaceC0682a {
+    public interface InterfaceC0735a {
         void a(View view, int i, PendantData pendantData);
     }
 
     public a(e eVar) {
-        this.dvg = eVar;
+        this.dJb = eVar;
     }
 
     public void setData(List<PendantData> list) {
@@ -58,23 +58,23 @@ public class a extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         b bVar;
         if (view == null) {
-            view = LayoutInflater.from(this.dvg.getPageActivity()).inflate(R.layout.layout_pendant_item, (ViewGroup) null);
+            view = LayoutInflater.from(this.dJb.getPageActivity()).inflate(R.layout.layout_pendant_item, (ViewGroup) null);
             bVar = new b();
-            bVar.liJ = (TextView) view.findViewById(R.id.cover_text);
-            bVar.liK = (TbImageView) view.findViewById(R.id.pendant_image);
-            bVar.liL = (ProgressBar) view.findViewById(R.id.pendant_progressbar);
-            bVar.liK.setDefaultBgResource(R.color.transparent);
-            bVar.liK.setDefaultErrorResource(R.color.cp_cont_a);
-            bVar.liK.setDefaultResource(R.color.cp_cont_a);
+            bVar.lBu = (TextView) view.findViewById(R.id.cover_text);
+            bVar.lBv = (TbImageView) view.findViewById(R.id.pendant_image);
+            bVar.lBw = (ProgressBar) view.findViewById(R.id.pendant_progressbar);
+            bVar.lBv.setDefaultBgResource(R.color.transparent);
+            bVar.lBv.setDefaultErrorResource(R.color.cp_cont_a);
+            bVar.lBv.setDefaultResource(R.color.cp_cont_a);
             view.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.video.editvideo.a.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (a.this.liH != null) {
+                    if (a.this.lBs != null) {
                         b bVar2 = (b) view2.getTag();
-                        if (bVar2.liK.getTag() instanceof Integer) {
-                            Integer num = (Integer) bVar2.liK.getTag();
+                        if (bVar2.lBv.getTag() instanceof Integer) {
+                            Integer num = (Integer) bVar2.lBv.getTag();
                             if (a.this.mList.size() > num.intValue()) {
-                                a.this.liH.a(view2, num.intValue(), (PendantData) a.this.mList.get(num.intValue()));
+                                a.this.lBs.a(view2, num.intValue(), (PendantData) a.this.mList.get(num.intValue()));
                             }
                         }
                     }
@@ -87,60 +87,60 @@ public class a extends BaseAdapter {
         }
         PendantData pendantData = this.mList.get(i);
         if (pendantData != null) {
-            bVar.liK.setTag(Integer.valueOf(i));
+            bVar.lBv.setTag(Integer.valueOf(i));
             switch (pendantData.pendantType) {
                 case 0:
-                    bVar.liJ.setVisibility(0);
-                    bVar.liK.setVisibility(8);
-                    bVar.liL.setVisibility(8);
-                    bVar.liJ.setTextColor(am.getColor(R.color.cp_cont_e));
-                    bVar.liJ.setText("No");
-                    bVar.liJ.setBackgroundDrawable(am.getDrawable(R.drawable.bg_cover_text_border));
+                    bVar.lBu.setVisibility(0);
+                    bVar.lBv.setVisibility(8);
+                    bVar.lBw.setVisibility(8);
+                    bVar.lBu.setTextColor(am.getColor(R.color.cp_cont_e));
+                    bVar.lBu.setText("No");
+                    bVar.lBu.setBackgroundDrawable(am.getDrawable(R.drawable.bg_cover_text_border));
                     break;
                 case 1:
-                    bVar.liJ.setVisibility(0);
-                    bVar.liK.setVisibility(8);
-                    bVar.liL.setVisibility(8);
-                    bVar.liJ.setTextColor(am.getColor(R.color.cp_cont_g));
-                    bVar.liJ.setText(ExifInterface.GPS_DIRECTION_TRUE);
-                    bVar.liJ.setBackgroundColor(am.getColor(R.color.cp_link_tip_a));
+                    bVar.lBu.setVisibility(0);
+                    bVar.lBv.setVisibility(8);
+                    bVar.lBw.setVisibility(8);
+                    bVar.lBu.setTextColor(am.getColor(R.color.cp_cont_g));
+                    bVar.lBu.setText(ExifInterface.GPS_DIRECTION_TRUE);
+                    bVar.lBu.setBackgroundColor(am.getColor(R.color.cp_link_tip_a));
                     break;
                 case 2:
-                    bVar.liJ.setVisibility(0);
-                    bVar.liK.setVisibility(8);
-                    bVar.liL.setVisibility(8);
-                    bVar.liJ.setTextColor(am.getColor(R.color.cp_cont_g));
-                    bVar.liJ.setText(ExifInterface.GPS_DIRECTION_TRUE);
-                    bVar.liJ.setBackgroundColor(am.getColor(R.color.cp_cont_d));
+                    bVar.lBu.setVisibility(0);
+                    bVar.lBv.setVisibility(8);
+                    bVar.lBw.setVisibility(8);
+                    bVar.lBu.setTextColor(am.getColor(R.color.cp_cont_g));
+                    bVar.lBu.setText(ExifInterface.GPS_DIRECTION_TRUE);
+                    bVar.lBu.setBackgroundColor(am.getColor(R.color.cp_cont_d));
                     break;
                 case 3:
-                    bVar.liJ.setVisibility(0);
-                    bVar.liK.setVisibility(8);
-                    bVar.liL.setVisibility(8);
-                    bVar.liJ.setTextColor(am.getColor(R.color.cp_cont_d));
-                    bVar.liJ.setText(ExifInterface.GPS_DIRECTION_TRUE);
-                    bVar.liJ.setBackgroundDrawable(am.getDrawable(R.drawable.bg_cover_text_border));
+                    bVar.lBu.setVisibility(0);
+                    bVar.lBv.setVisibility(8);
+                    bVar.lBw.setVisibility(8);
+                    bVar.lBu.setTextColor(am.getColor(R.color.cp_cont_d));
+                    bVar.lBu.setText(ExifInterface.GPS_DIRECTION_TRUE);
+                    bVar.lBu.setBackgroundDrawable(am.getDrawable(R.drawable.bg_cover_text_border));
                     break;
                 default:
-                    bVar.liJ.setVisibility(8);
-                    bVar.liK.setVisibility(0);
-                    bVar.liL.setVisibility(8);
-                    bVar.liK.startLoad(pendantData.img, 10, false);
+                    bVar.lBu.setVisibility(8);
+                    bVar.lBv.setVisibility(0);
+                    bVar.lBw.setVisibility(8);
+                    bVar.lBv.startLoad(pendantData.img, 10, false);
                     break;
             }
         }
         return view;
     }
 
-    public void a(InterfaceC0682a interfaceC0682a) {
-        this.liH = interfaceC0682a;
+    public void a(InterfaceC0735a interfaceC0735a) {
+        this.lBs = interfaceC0735a;
     }
 
     /* loaded from: classes10.dex */
     public class b {
-        public TextView liJ;
-        public TbImageView liK;
-        public ProgressBar liL;
+        public TextView lBu;
+        public TbImageView lBv;
+        public ProgressBar lBw;
 
         public b() {
         }

@@ -42,15 +42,15 @@ public class LivePKBarUserValue extends RelativeLayout implements View.OnClickLi
     private LinearLayout k;
     private LinearLayout l;
     private ImageView m;
-    private LinearLayout mBI;
-    private RelativeLayout mBM;
-    private LinearLayout mCk;
-    private RelativeLayout mCl;
-    private c mCm;
-    private io.reactivex.disposables.b mCn;
-    private AnimatorSet mCo;
-    private a mCp;
-    private FrescoThumbnailView myF;
+    private LinearLayout mVL;
+    private RelativeLayout mVP;
+    private LinearLayout mWn;
+    private RelativeLayout mWo;
+    private FrescoThumbnailView mWp;
+    private c mWq;
+    private io.reactivex.disposables.b mWr;
+    private AnimatorSet mWs;
+    private a mWt;
     private ImageView n;
     private ImageView o;
     private View r;
@@ -118,13 +118,13 @@ public class LivePKBarUserValue extends RelativeLayout implements View.OnClickLi
         this.m = (ImageView) findViewById(a.f.iv_pk_left_fire_ball);
         this.n = (ImageView) findViewById(a.f.iv_pk_right_fire_ball);
         this.o = (ImageView) findViewById(a.f.iv_pk_fire_ball_bang);
-        this.mCk = (LinearLayout) findViewById(a.f.ll_pk_energy_bar);
-        this.mCl = (RelativeLayout) findViewById(a.f.ll_pk_energy_bar_animation);
+        this.mWn = (LinearLayout) findViewById(a.f.ll_pk_energy_bar);
+        this.mWo = (RelativeLayout) findViewById(a.f.ll_pk_energy_bar_animation);
         this.r = findViewById(a.f.view_pk_left_animation);
         this.s = findViewById(a.f.view_pk_right_animation);
         this.t = (RelativeLayout) findViewById(a.f.rl_live_pk_rule);
         this.u = (TextView) findViewById(a.f.tv_pk_rule);
-        this.mBI = (LinearLayout) findViewById(a.f.ll_live_pk_addition_notice);
+        this.mVL = (LinearLayout) findViewById(a.f.ll_live_pk_addition_notice);
         this.w = (TextView) findViewById(a.f.tv_live_pk_addition_notice);
         this.x = (TextView) findViewById(a.f.tv_live_pk_addition_countdown);
         this.u.setVisibility(8);
@@ -132,10 +132,10 @@ public class LivePKBarUserValue extends RelativeLayout implements View.OnClickLi
         this.k.setOnClickListener(this);
         this.l.setOnClickListener(this);
         this.y = (TextView) findViewById(a.f.tv_combat_crunchies);
-        this.mBM = (RelativeLayout) findViewById(a.f.rl_live_pk);
+        this.mVP = (RelativeLayout) findViewById(a.f.rl_live_pk);
         this.A = (LinearLayout) findViewById(a.f.ll_live_destiny);
         this.B = (TextView) findViewById(a.f.tv_promotion);
-        this.myF = (FrescoThumbnailView) findViewById(a.f.iv_destiny);
+        this.mWp = (FrescoThumbnailView) findViewById(a.f.iv_destiny);
         this.y.setVisibility(8);
         this.y.setOnClickListener(this);
         for (int i = 0; i < 4; i++) {
@@ -185,9 +185,9 @@ public class LivePKBarUserValue extends RelativeLayout implements View.OnClickLi
             this.r.setBackgroundResource(a.e.pk_live_online_live_destiny_bar_yellow);
             this.s.setBackgroundResource(a.e.pk_live_online_live_destiny_bar_green);
             this.B.setText(str2);
-            this.myF.bU(str, a.e.icon_live_destiny_promotion);
+            this.mWp.bV(str, a.e.icon_live_destiny_promotion);
             this.A.setVisibility(0);
-            this.mBM.setVisibility(8);
+            this.mVP.setVisibility(8);
             return;
         }
         this.m.setImageDrawable(getResources().getDrawable(a.e.pk_live_online_live_pk_bar_fire_ball_left));
@@ -197,7 +197,7 @@ public class LivePKBarUserValue extends RelativeLayout implements View.OnClickLi
         this.r.setBackgroundResource(a.e.pk_live_online_live_pk_bar_purple);
         this.s.setBackgroundResource(a.e.pk_live_online_live_pk_bar_blue);
         this.A.setVisibility(8);
-        this.mBM.setVisibility(0);
+        this.mVP.setVisibility(0);
     }
 
     private void f() {
@@ -302,7 +302,7 @@ public class LivePKBarUserValue extends RelativeLayout implements View.OnClickLi
             public void onAnimationEnd(Animator animator) {
                 super.onAnimationEnd(animator);
                 LivePKBarUserValue.this.n.setVisibility(0);
-                final Animation loadAnimation = AnimationUtils.loadAnimation(LivePKBarUserValue.this.getContext(), a.C0736a.pk_live_online_live_fire_ball_bang_anim);
+                final Animation loadAnimation = AnimationUtils.loadAnimation(LivePKBarUserValue.this.getContext(), a.C0794a.pk_live_online_live_fire_ball_bang_anim);
                 LivePKBarUserValue.this.postDelayed(new Runnable() { // from class: com.kascend.chushou.player.ui.pk.LivePKBarUserValue.3.1
                     @Override // java.lang.Runnable
                     public void run() {
@@ -314,8 +314,8 @@ public class LivePKBarUserValue extends RelativeLayout implements View.OnClickLi
                     @Override // java.lang.Runnable
                     public void run() {
                         LivePKBarUserValue.this.i();
-                        LivePKBarUserValue.this.mCk.setVisibility(0);
-                        LivePKBarUserValue.this.mCl.setVisibility(4);
+                        LivePKBarUserValue.this.mWn.setVisibility(0);
+                        LivePKBarUserValue.this.mWo.setVisibility(4);
                     }
                 }, 760L);
                 LivePKBarUserValue.this.o.setVisibility(0);
@@ -363,8 +363,8 @@ public class LivePKBarUserValue extends RelativeLayout implements View.OnClickLi
     }
 
     public void c() {
-        if (this.mCm != null) {
-            e.dyB().c(this.mCm);
+        if (this.mWq != null) {
+            e.dFT().c(this.mWq);
         }
         this.h.setVisibility(4);
     }
@@ -379,7 +379,7 @@ public class LivePKBarUserValue extends RelativeLayout implements View.OnClickLi
                         LivePKBarUserValue.this.getViewTreeObserver().removeOnGlobalLayoutListener(this);
                     }
                     if (LivePKBarUserValue.this.h != null) {
-                        int width2 = (int) (((LivePKBarUserValue.this.getWidth() * LivePKBarUserValue.this.c) / (LivePKBarUserValue.this.c + LivePKBarUserValue.this.d)) - tv.chushou.widget.a.c.C(3.5f));
+                        int width2 = (int) (((LivePKBarUserValue.this.getWidth() * LivePKBarUserValue.this.c) / (LivePKBarUserValue.this.c + LivePKBarUserValue.this.d)) - tv.chushou.widget.a.c.B(3.5f));
                         RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) LivePKBarUserValue.this.h.getLayoutParams();
                         layoutParams.leftMargin = width2;
                         LivePKBarUserValue.this.h.setLayoutParams(layoutParams);
@@ -388,18 +388,18 @@ public class LivePKBarUserValue extends RelativeLayout implements View.OnClickLi
             });
             return;
         }
-        int C = (int) (((width * this.c) / (this.c + this.d)) - tv.chushou.widget.a.c.C(3.5f));
+        int B = (int) (((width * this.c) / (this.c + this.d)) - tv.chushou.widget.a.c.B(3.5f));
         RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.h.getLayoutParams();
-        layoutParams.leftMargin = C;
+        layoutParams.leftMargin = B;
         this.h.setLayoutParams(layoutParams);
     }
 
-    public void b(float f, final int i) {
+    public void c(float f, final int i) {
         if (i > 0) {
             this.t.setVisibility(4);
-            this.mBI.setVisibility(0);
+            this.mVL.setVisibility(0);
             this.w.setText(((int) (100.0f * f)) + getContext().getResources().getString(a.i.str_live_across_pk_chat_notice_addition));
-            this.mCn = io.reactivex.g.a(0L, 1L, TimeUnit.SECONDS).a(io.reactivex.a.b.a.dCE()).b(new io.reactivex.c.g<Long>() { // from class: com.kascend.chushou.player.ui.pk.LivePKBarUserValue.6
+            this.mWr = io.reactivex.g.a(0L, 1L, TimeUnit.SECONDS).a(io.reactivex.a.b.a.dKy()).b(new io.reactivex.c.g<Long>() { // from class: com.kascend.chushou.player.ui.pk.LivePKBarUserValue.6
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // io.reactivex.c.g
                 /* renamed from: a */
@@ -416,12 +416,12 @@ public class LivePKBarUserValue extends RelativeLayout implements View.OnClickLi
             ofInt.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.kascend.chushou.player.ui.pk.LivePKBarUserValue.7
                 @Override // android.animation.ValueAnimator.AnimatorUpdateListener
                 public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                    LivePKBarUserValue.this.mBI.getLayoutParams().width = ((Integer) valueAnimator.getAnimatedValue()).intValue();
-                    LivePKBarUserValue.this.mBI.requestLayout();
+                    LivePKBarUserValue.this.mVL.getLayoutParams().width = ((Integer) valueAnimator.getAnimatedValue()).intValue();
+                    LivePKBarUserValue.this.mVL.requestLayout();
                 }
             });
-            this.mCo = new AnimatorSet();
-            this.mCo.addListener(new AnimatorListenerAdapter() { // from class: com.kascend.chushou.player.ui.pk.LivePKBarUserValue.8
+            this.mWs = new AnimatorSet();
+            this.mWs.addListener(new AnimatorListenerAdapter() { // from class: com.kascend.chushou.player.ui.pk.LivePKBarUserValue.8
                 @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                 public void onAnimationStart(Animator animator) {
                 }
@@ -430,23 +430,23 @@ public class LivePKBarUserValue extends RelativeLayout implements View.OnClickLi
                 public void onAnimationEnd(Animator animator) {
                 }
             });
-            this.mCo.playTogether(ofInt);
-            this.mCo.setInterpolator(new LinearInterpolator());
-            this.mCo.setDuration(1000L);
-            this.mCo.start();
+            this.mWs.playTogether(ofInt);
+            this.mWs.setInterpolator(new LinearInterpolator());
+            this.mWs.setDuration(1000L);
+            this.mWs.start();
         }
     }
 
     public void d() {
-        if (this.mCn != null) {
-            this.mCn.dispose();
-            this.mCn = null;
+        if (this.mWr != null) {
+            this.mWr.dispose();
+            this.mWr = null;
         }
-        if (this.mCo != null) {
-            this.mCo.cancel();
-            this.mCo = null;
+        if (this.mWs != null) {
+            this.mWs.cancel();
+            this.mWs = null;
         }
-        this.mBI.setVisibility(8);
+        this.mVL.setVisibility(8);
         this.t.setVisibility(0);
     }
 
@@ -521,7 +521,7 @@ public class LivePKBarUserValue extends RelativeLayout implements View.OnClickLi
                     long longValue = lArr[i].longValue();
                     View childAt = this.k.getChildAt(i2);
                     childAt.setTag(Long.valueOf(longValue));
-                    ((FrescoThumbnailView) childAt.findViewById(a.f.iv_pk_icon)).bU(linkedHashMap.get(Long.valueOf(longValue)), tv.chushou.widget.a.c.dJH());
+                    ((FrescoThumbnailView) childAt.findViewById(a.f.iv_pk_icon)).bV(linkedHashMap.get(Long.valueOf(longValue)), tv.chushou.widget.a.c.dRB());
                 } else {
                     return;
                 }
@@ -548,7 +548,7 @@ public class LivePKBarUserValue extends RelativeLayout implements View.OnClickLi
                 if (i < childCount) {
                     View childAt = this.l.getChildAt(i);
                     childAt.setTag(Long.valueOf(longValue));
-                    ((FrescoThumbnailView) childAt.findViewById(a.f.iv_pk_icon)).bU(str, tv.chushou.widget.a.c.dJH());
+                    ((FrescoThumbnailView) childAt.findViewById(a.f.iv_pk_icon)).bV(str, tv.chushou.widget.a.c.dRB());
                 } else {
                     return;
                 }
@@ -562,7 +562,7 @@ public class LivePKBarUserValue extends RelativeLayout implements View.OnClickLi
         for (int i = 0; i < childCount; i++) {
             View childAt = this.k.getChildAt(i);
             childAt.setTag(null);
-            ((FrescoThumbnailView) childAt.findViewById(a.f.iv_pk_icon)).xW(a.e.icon_live_pk_watcher_avatar_init);
+            ((FrescoThumbnailView) childAt.findViewById(a.f.iv_pk_icon)).yE(a.e.icon_live_pk_watcher_avatar_init);
             ((TextView) childAt.findViewById(a.f.tv_pk_ranking)).setVisibility(0);
             childAt.findViewById(a.f.iv_pk_mvp).setVisibility(8);
         }
@@ -574,7 +574,7 @@ public class LivePKBarUserValue extends RelativeLayout implements View.OnClickLi
         for (int i = 0; i < childCount; i++) {
             View childAt = this.l.getChildAt(i);
             childAt.setTag(null);
-            ((FrescoThumbnailView) childAt.findViewById(a.f.iv_pk_icon)).xW(a.e.icon_live_pk_watcher_avatar_init);
+            ((FrescoThumbnailView) childAt.findViewById(a.f.iv_pk_icon)).yE(a.e.icon_live_pk_watcher_avatar_init);
             ((TextView) childAt.findViewById(a.f.tv_pk_ranking)).setVisibility(0);
             childAt.findViewById(a.f.iv_pk_mvp).setVisibility(8);
         }
@@ -612,23 +612,23 @@ public class LivePKBarUserValue extends RelativeLayout implements View.OnClickLi
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view == this.u) {
-            if (this.mCp != null) {
-                this.mCp.a();
+            if (this.mWt != null) {
+                this.mWt.a();
             }
         } else if (view == this.k) {
-            if (this.mCp != null) {
-                this.mCp.A(0L, 0);
+            if (this.mWt != null) {
+                this.mWt.A(0L, 0);
             }
         } else if (view == this.l) {
-            if (this.mCp != null) {
-                this.mCp.A(0L, 1);
+            if (this.mWt != null) {
+                this.mWt.A(0L, 1);
             }
-        } else if (view == this.y && this.mCp != null) {
-            this.mCp.b();
+        } else if (view == this.y && this.mWt != null) {
+            this.mWt.b();
         }
     }
 
     public void setClickListener(a aVar) {
-        this.mCp = aVar;
+        this.mWt = aVar;
     }
 }

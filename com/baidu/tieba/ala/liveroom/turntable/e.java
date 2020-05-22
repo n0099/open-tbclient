@@ -16,76 +16,76 @@ import com.baidu.tieba.ala.liveroom.turntable.d;
 import com.baidu.webkit.internal.ETAG;
 /* loaded from: classes3.dex */
 public class e {
-    private Activity caN;
-    private CustomMessageListener eZc;
-    private d.a fQm;
-    private d fQo;
+    private Activity clq;
+    private CustomMessageListener flM;
+    private d.a geX;
+    private d geZ;
 
     public e(Activity activity) {
-        this.caN = activity;
-        bmB();
+        this.clq = activity;
+        brZ();
     }
 
     public void a(String str, long j, long j2, long j3) {
-        this.fQo = new d(this.caN);
-        this.fQo.a(this.fQm);
-        this.fQo.bmC().setBackgroundColor(zt(str));
+        this.geZ = new d(this.clq);
+        this.geZ.a(this.geX);
+        this.geZ.bsa().setBackgroundColor(AZ(str));
         g gVar = new g();
-        gVar.u(this.caN).a(this.fQo).a(this.fQo.bmC().getSchemeCallback());
-        com.baidu.live.view.web.a[] HM = gVar.HM();
-        for (com.baidu.live.view.web.a aVar : HM) {
-            this.fQo.bmC().addJavascriptInterface(aVar, aVar.getName());
+        gVar.u(this.clq).a(this.geZ).a(this.geZ.bsa().getSchemeCallback());
+        com.baidu.live.view.web.a[] JF = gVar.JF();
+        for (com.baidu.live.view.web.a aVar : JF) {
+            this.geZ.bsa().addJavascriptInterface(aVar, aVar.getName());
         }
-        this.fQo.show(b(str, j, j2, j3));
+        this.geZ.show(b(str, j, j2, j3));
     }
 
     public void resume() {
-        if (this.fQo != null && this.fQo.isShowing() && this.fQo.bmC() != null) {
-            this.fQo.bmC().onResume();
+        if (this.geZ != null && this.geZ.isShowing() && this.geZ.bsa() != null) {
+            this.geZ.bsa().onResume();
         }
     }
 
     public void pause() {
-        if (this.fQo != null && this.fQo.isShowing() && this.fQo.bmC() != null) {
-            this.fQo.bmC().onPause();
+        if (this.geZ != null && this.geZ.isShowing() && this.geZ.bsa() != null) {
+            this.geZ.bsa().onPause();
         }
     }
 
     public void dismiss() {
-        if (this.fQo != null) {
-            this.fQo.bmD();
+        if (this.geZ != null) {
+            this.geZ.bsb();
         }
     }
 
-    public void cl(int i) {
-        if (this.fQo != null && this.fQo.isShowing()) {
-            this.fQo.cl(i);
+    public void cs(int i) {
+        if (this.geZ != null && this.geZ.isShowing()) {
+            this.geZ.cs(i);
         }
     }
 
-    public void xi() {
+    public void yw() {
         dismiss();
     }
 
     public void release() {
-        xi();
-        MessageManager.getInstance().unRegisterListener(this.eZc);
+        yw();
+        MessageManager.getInstance().unRegisterListener(this.flM);
     }
 
-    private void bmB() {
-        this.eZc = new CustomMessageListener(2913123) { // from class: com.baidu.tieba.ala.liveroom.turntable.e.1
+    private void brZ() {
+        this.flM = new CustomMessageListener(2913123) { // from class: com.baidu.tieba.ala.liveroom.turntable.e.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (e.this.fQo != null && e.this.fQo.isShowing()) {
-                    e.this.fQo.dismiss();
+                if (e.this.geZ != null && e.this.geZ.isShowing()) {
+                    e.this.geZ.dismiss();
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.eZc);
+        MessageManager.getInstance().registerListener(this.flM);
     }
 
-    private int zt(String str) {
+    private int AZ(String str) {
         int indexOf;
         String queryParameter = Uri.parse(str).getQueryParameter("background");
         if ((TextUtils.isEmpty(queryParameter) || queryParameter.length() != 8) && (indexOf = str.indexOf("background=")) >= 0 && indexOf + 19 <= str.length()) {
@@ -122,15 +122,15 @@ public class e {
         sb.append("&_sdk_version=");
         sb.append(TbConfig.SDK_VERSION);
         sb.append("&scene_from=");
-        sb.append(q.Gk());
+        sb.append(q.Id());
         return sb.toString();
     }
 
     public void a(d.a aVar) {
-        this.fQm = aVar;
+        this.geX = aVar;
     }
 
-    public d.a bAf() {
-        return this.fQm;
+    public d.a bGs() {
+        return this.geX;
     }
 }

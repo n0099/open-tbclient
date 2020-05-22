@@ -5,16 +5,16 @@ import android.text.TextUtils;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.scheme.actions.ab;
+import com.baidu.swan.apps.scheme.actions.aa;
 import org.json.JSONObject;
 @Deprecated
 /* loaded from: classes11.dex */
-public class g extends ab {
+public class g extends aa {
     public g(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swanAPI/networkStatusChange");
     }
 
-    @Override // com.baidu.swan.apps.scheme.actions.ab
+    @Override // com.baidu.swan.apps.scheme.actions.aa
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
         if (eVar == null || context == null || callbackHandler == null) {
             com.baidu.swan.apps.console.c.e("networkStatusChange", "execute fail");
@@ -33,7 +33,7 @@ public class g extends ab {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
         }
-        eVar.akY().c(callbackHandler, optString);
+        eVar.aoT().b(callbackHandler, optString);
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams((JSONObject) null, 0));
         return true;
     }

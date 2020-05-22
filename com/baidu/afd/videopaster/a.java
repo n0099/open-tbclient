@@ -6,13 +6,13 @@ import java.util.Map;
 public interface a {
     int height();
 
-    int pj();
+    String pC();
 
-    int pl();
+    int pp();
 
-    Map<String, String> pm();
+    int pr();
 
-    String pw();
+    Map<String, String> ps();
 
     void w(HashMap hashMap);
 

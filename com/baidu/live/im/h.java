@@ -4,15 +4,15 @@ import java.util.HashSet;
 import java.util.Set;
 /* loaded from: classes3.dex */
 public class h {
-    public com.baidu.live.im.data.a aLH;
-    public long aLI;
-    public long aLJ;
-    public double aLK;
-    public boolean aLL;
-    public long aLM;
-    public boolean aLN = false;
-    public Set<Long> aLO = new HashSet();
-    public long azH;
+    public long aEZ;
+    public com.baidu.live.im.data.a aRH;
+    public long aRI;
+    public long aRJ;
+    public double aRK;
+    public boolean aRL;
+    public long aRM;
+    public boolean aRN = false;
+    public Set<Long> aRO = new HashSet();
     public long count;
     public String giftId;
     public String giftName;

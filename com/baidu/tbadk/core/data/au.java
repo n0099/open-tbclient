@@ -6,34 +6,34 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class au {
-    private ArrayList<UserData> dpz = new ArrayList<>();
-    private ArrayList<UserData> dpA = new ArrayList<>();
-    private ap dpB = new ap();
-    private int dpC = 0;
-    private int dpD = 0;
+    private ArrayList<UserData> dDy = new ArrayList<>();
+    private ArrayList<UserData> dDz = new ArrayList<>();
+    private ao dDA = new ao();
+    private int dDB = 0;
+    private int dDC = 0;
 
-    public void setPage(ap apVar) {
-        this.dpB = apVar;
+    public void setPage(ao aoVar) {
+        this.dDA = aoVar;
     }
 
-    public ap getPage() {
-        return this.dpB;
+    public ao getPage() {
+        return this.dDA;
     }
 
-    public ArrayList<UserData> aJB() {
-        return this.dpz;
+    public ArrayList<UserData> aPw() {
+        return this.dDy;
     }
 
-    public ArrayList<UserData> aJC() {
-        return this.dpA;
+    public ArrayList<UserData> aPx() {
+        return this.dDz;
     }
 
-    public int aJD() {
-        return this.dpC;
+    public int aPy() {
+        return this.dDB;
     }
 
-    public int aJE() {
-        return this.dpD;
+    public int aPz() {
+        return this.dDC;
     }
 
     public void parserJson(String str) {
@@ -54,7 +54,7 @@ public class au {
                         UserData userData = new UserData();
                         userData.parserJson(optJSONArray.getJSONObject(i));
                         userData.mAttentionType = 2;
-                        this.dpz.add(userData);
+                        this.dDy.add(userData);
                     }
                 }
                 if (optJSONArray2 != null) {
@@ -62,12 +62,12 @@ public class au {
                         UserData userData2 = new UserData();
                         userData2.parserJson(optJSONArray2.getJSONObject(i2));
                         userData2.mAttentionType = 1;
-                        this.dpA.add(userData2);
+                        this.dDz.add(userData2);
                     }
                 }
-                this.dpB.parserJson(jSONObject.optJSONObject("page"));
-                this.dpC = jSONObject.optInt("tafriendnum", 0);
-                this.dpD = jSONObject.optInt("commonfriendnum", 0);
+                this.dDA.parserJson(jSONObject.optJSONObject("page"));
+                this.dDB = jSONObject.optInt("tafriendnum", 0);
+                this.dDC = jSONObject.optInt("commonfriendnum", 0);
             } catch (Exception e) {
                 BdLog.detailException(e);
             }

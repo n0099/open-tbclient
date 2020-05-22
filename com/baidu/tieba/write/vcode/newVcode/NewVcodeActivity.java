@@ -16,13 +16,13 @@ import com.baidu.tieba.write.vcode.newVcode.a.b;
 import com.baidu.tieba.write.vcode.newVcode.a.c;
 /* loaded from: classes2.dex */
 public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
-    private NewWriteModel dYy;
-    private NewVcodeView lBA;
-    private b lBB;
-    private boolean lBD;
-    private WriteData lxL = null;
+    private NewWriteModel emH;
+    private NewVcodeView lUO;
+    private b lUP;
+    private boolean lUR;
+    private WriteData lRa = null;
     private int mPageType = 0;
-    private NewWriteModel.d lBC = new NewWriteModel.d() { // from class: com.baidu.tieba.write.vcode.newVcode.NewVcodeActivity.1
+    private NewWriteModel.d lUQ = new NewWriteModel.d() { // from class: com.baidu.tieba.write.vcode.newVcode.NewVcodeActivity.1
         @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.d
         public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, aa aaVar, WriteData writeData, AntiData antiData) {
             if (postWriteCallBackData != null && !z) {
@@ -43,17 +43,17 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
                     NewVcodeActivity.this.finish();
                 } else if (aaVar != null && writeData != null) {
                     NewVcodeActivity.this.mPageType = com.baidu.adp.lib.f.b.toInt("4", 0);
-                    NewVcodeActivity.this.lBB.dfj();
-                    NewVcodeActivity.this.lBB.onDestroy();
-                    NewVcodeActivity.this.lxL = writeData;
-                    NewVcodeActivity.this.lxL.setVcodeMD5(aaVar.getVcode_md5());
-                    NewVcodeActivity.this.lxL.setVcodeUrl(aaVar.getVcode_pic_url());
-                    NewVcodeActivity.this.lxL.setVcodeExtra(aaVar.aSf());
-                    NewVcodeActivity.this.dYy.d(NewVcodeActivity.this.lxL);
-                    NewVcodeActivity.this.lBB = NewVcodeActivity.this.dgb();
-                    NewVcodeActivity.this.lBB.B(true, postWriteCallBackData.getErrorString());
-                    NewVcodeActivity.this.lBA.setPresenter(NewVcodeActivity.this.lBB);
-                    NewVcodeActivity.this.lBB.start(NewVcodeActivity.this.lBD);
+                    NewVcodeActivity.this.lUP.dmz();
+                    NewVcodeActivity.this.lUP.onDestroy();
+                    NewVcodeActivity.this.lRa = writeData;
+                    NewVcodeActivity.this.lRa.setVcodeMD5(aaVar.getVcode_md5());
+                    NewVcodeActivity.this.lRa.setVcodeUrl(aaVar.getVcode_pic_url());
+                    NewVcodeActivity.this.lRa.setVcodeExtra(aaVar.aYm());
+                    NewVcodeActivity.this.emH.d(NewVcodeActivity.this.lRa);
+                    NewVcodeActivity.this.lUP = NewVcodeActivity.this.dnr();
+                    NewVcodeActivity.this.lUP.B(true, postWriteCallBackData.getErrorString());
+                    NewVcodeActivity.this.lUO.setPresenter(NewVcodeActivity.this.lUP);
+                    NewVcodeActivity.this.lUP.start(NewVcodeActivity.this.lUR);
                 }
             }
         }
@@ -63,49 +63,49 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.lBA = new NewVcodeView(this);
+        this.lUO = new NewVcodeView(this);
         if (bundle != null) {
-            this.lxL = WriteData.fromDraftString(bundle.getString("model"));
-            this.lBD = bundle.getBoolean(NewVcodeActivityConfig.NEED_FEED_BACK_BUTTON);
+            this.lRa = WriteData.fromDraftString(bundle.getString("model"));
+            this.lUR = bundle.getBoolean(NewVcodeActivityConfig.NEED_FEED_BACK_BUTTON);
             this.mPageType = bundle.getInt("page_type");
         } else {
             Intent intent = getIntent();
-            this.lxL = (WriteData) intent.getSerializableExtra("model");
-            this.lBD = intent.getBooleanExtra(NewVcodeActivityConfig.NEED_FEED_BACK_BUTTON, true);
+            this.lRa = (WriteData) intent.getSerializableExtra("model");
+            this.lUR = intent.getBooleanExtra(NewVcodeActivityConfig.NEED_FEED_BACK_BUTTON, true);
             this.mPageType = intent.getIntExtra("page_type", 0);
         }
-        if (this.lxL == null) {
+        if (this.lRa == null) {
             finish();
             return;
         }
-        this.dYy = new NewWriteModel(this);
-        this.dYy.d(this.lxL);
-        if (this.lxL.getWriteImagesInfo() != null) {
-            this.dYy.ua(this.lxL.getWriteImagesInfo().size() > 0);
+        this.emH = new NewWriteModel(this);
+        this.emH.d(this.lRa);
+        if (this.lRa.getWriteImagesInfo() != null) {
+            this.emH.uy(this.lRa.getWriteImagesInfo().size() > 0);
         }
-        this.lBB = dgb();
-        this.lBA.setPresenter(this.lBB);
-        this.lBB.start(this.lBD);
+        this.lUP = dnr();
+        this.lUO.setPresenter(this.lUP);
+        this.lUP.start(this.lUR);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public b dgb() {
+    public b dnr() {
         b cVar;
         if (this.mPageType == com.baidu.adp.lib.f.b.toInt("5", 0)) {
-            cVar = new a(this.lBA, this.dYy);
+            cVar = new a(this.lUO, this.emH);
         } else {
-            cVar = new c(this.lBA, this.dYy);
+            cVar = new c(this.lUO, this.emH);
         }
-        cVar.d(this.lBC);
+        cVar.d(this.lUQ);
         return cVar;
     }
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
-        if (this.lxL != null) {
-            bundle.putString("model", this.lxL.toDraftString());
+        if (this.lRa != null) {
+            bundle.putString("model", this.lRa.toDraftString());
         }
-        bundle.putBoolean(NewVcodeActivityConfig.NEED_FEED_BACK_BUTTON, this.lBD);
+        bundle.putBoolean(NewVcodeActivityConfig.NEED_FEED_BACK_BUTTON, this.lUR);
         bundle.putInt("page_type", this.mPageType);
         super.onSaveInstanceState(bundle);
     }
@@ -114,8 +114,8 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        dgc();
-        this.lBB.onDestroy();
+        dnt();
+        this.lUP.onDestroy();
     }
 
     @Override // com.baidu.tbadk.BaseActivity
@@ -128,8 +128,8 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
         ActivityPendingTransitionFactory.closeAnimation(getPageContext(), 4);
     }
 
-    private void dgc() {
-        if (this.lxL != null && this.lxL.getType() == 3) {
+    private void dnt() {
+        if (this.lRa != null && this.lRa.getType() == 3) {
             com.baidu.tbadk.core.e.b.c(getPageContext().getPageActivity(), 200, false);
         }
     }

@@ -63,6 +63,13 @@ public class AlaLiveVideoRecorder implements IFaceUnityOperator, IVideoRecorder,
     }
 
     @Override // com.baidu.ala.recorder.video.IVideoRecorder
+    public void willSwitchSense(int i) {
+        if (this.mRealRecorder != null) {
+            this.mRealRecorder.willSwitchSense(i);
+        }
+    }
+
+    @Override // com.baidu.ala.recorder.video.IVideoRecorder
     public VideoFormat getVideoFormat() {
         return this.mRealRecorder != null ? this.mRealRecorder.getVideoFormat() : VideoFormat.RGBA;
     }
@@ -241,9 +248,9 @@ public class AlaLiveVideoRecorder implements IFaceUnityOperator, IVideoRecorder,
     }
 
     @Override // com.baidu.ala.recorder.IFaceUnityOperator
-    public void onFilterSelected(String str, float f) {
+    public void onFilterSelected(String str, String str2, float f) {
         if (this.mRealRecorder != null && (this.mRealRecorder instanceof AlaCameraRecorder)) {
-            ((AlaCameraRecorder) this.mRealRecorder).onFilterSelected(str, f);
+            ((AlaCameraRecorder) this.mRealRecorder).onFilterSelected(str, str2, f);
         }
     }
 

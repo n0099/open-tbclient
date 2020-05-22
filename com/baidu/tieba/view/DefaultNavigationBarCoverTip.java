@@ -16,33 +16,33 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.view.NavigationBarCoverTip;
 /* loaded from: classes.dex */
 public class DefaultNavigationBarCoverTip extends NavigationBarCoverTip {
-    private String dnX;
-    private final com.baidu.tbadk.h.e ecc;
-    private View hcI;
-    private View.OnClickListener lud;
-    private NavigationBarCoverTip.a lue;
+    private String dBY;
+    private final com.baidu.tbadk.h.e eqo;
+    private View hrw;
+    private View.OnClickListener lMG;
+    private NavigationBarCoverTip.a lMH;
     private Activity mActivity;
 
-    public static DefaultNavigationBarCoverTip d(Activity activity, String str, String str2) {
+    public static DefaultNavigationBarCoverTip c(Activity activity, String str, String str2) {
         if (activity == null) {
             activity = TbadkCoreApplication.getInst().getCurrentActivity();
         }
-        return new DefaultNavigationBarCoverTip(activity).fb(str, str2);
+        return new DefaultNavigationBarCoverTip(activity).fC(str, str2);
     }
 
     private DefaultNavigationBarCoverTip(Activity activity) {
         super(activity);
-        this.lud = new View.OnClickListener() { // from class: com.baidu.tieba.view.DefaultNavigationBarCoverTip.1
+        this.lMG = new View.OnClickListener() { // from class: com.baidu.tieba.view.DefaultNavigationBarCoverTip.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 TbPageContext<?> tbPageContext;
                 DefaultNavigationBarCoverTip.this.hideTip();
-                if (DefaultNavigationBarCoverTip.this.mActivity != null && !TextUtils.isEmpty(DefaultNavigationBarCoverTip.this.dnX) && (tbPageContext = UtilHelper.getTbPageContext(DefaultNavigationBarCoverTip.this.mActivity)) != null) {
-                    ba.aOV().b(tbPageContext, new String[]{DefaultNavigationBarCoverTip.this.dnX});
+                if (DefaultNavigationBarCoverTip.this.mActivity != null && !TextUtils.isEmpty(DefaultNavigationBarCoverTip.this.dBY) && (tbPageContext = UtilHelper.getTbPageContext(DefaultNavigationBarCoverTip.this.mActivity)) != null) {
+                    ba.aUZ().b(tbPageContext, new String[]{DefaultNavigationBarCoverTip.this.dBY});
                 }
             }
         };
-        this.ecc = new com.baidu.tbadk.h.e() { // from class: com.baidu.tieba.view.DefaultNavigationBarCoverTip.2
+        this.eqo = new com.baidu.tbadk.h.e() { // from class: com.baidu.tieba.view.DefaultNavigationBarCoverTip.2
             @Override // com.baidu.tbadk.h.e, android.app.Application.ActivityLifecycleCallbacks
             public void onActivityDestroyed(Activity activity2) {
                 if (activity2 == DefaultNavigationBarCoverTip.this.mActivity) {
@@ -51,40 +51,40 @@ public class DefaultNavigationBarCoverTip extends NavigationBarCoverTip {
                 }
             }
         };
-        this.lue = new NavigationBarCoverTip.a() { // from class: com.baidu.tieba.view.DefaultNavigationBarCoverTip.3
+        this.lMH = new NavigationBarCoverTip.a() { // from class: com.baidu.tieba.view.DefaultNavigationBarCoverTip.3
             @Override // com.baidu.tieba.view.NavigationBarCoverTip.a
-            public void Cc() {
+            public void Dz() {
             }
 
             @Override // com.baidu.tieba.view.NavigationBarCoverTip.a
-            public void deC() {
+            public void dlR() {
                 DefaultNavigationBarCoverTip.this.detach();
             }
         };
         this.mActivity = activity;
-        bjv();
-        setCoverTipListener(this.lue);
+        boM();
+        setCoverTipListener(this.lMH);
     }
 
     public void show() {
         ViewGroup viewGroup;
-        if (this.mActivity != null && this.hcI != null && (viewGroup = (ViewGroup) this.mActivity.findViewById(16908290)) != null) {
+        if (this.mActivity != null && this.hrw != null && (viewGroup = (ViewGroup) this.mActivity.findViewById(16908290)) != null) {
             viewGroup.addView(this, new ViewGroup.LayoutParams(-1, -2));
-            g(this.mActivity, this.hcI);
+            f(this.mActivity, this.hrw);
         }
     }
 
-    private DefaultNavigationBarCoverTip fb(String str, String str2) {
+    private DefaultNavigationBarCoverTip fC(String str, String str2) {
         if (!TextUtils.isEmpty(str)) {
             Context context = getContext();
-            this.dnX = str2;
-            this.hcI = View.inflate(context, R.layout.write_thread_share_guide, null);
-            TextView textView = (TextView) this.hcI.findViewById(R.id.write_thread_success_tips);
-            TextView textView2 = (TextView) this.hcI.findViewById(R.id.share_icon);
+            this.dBY = str2;
+            this.hrw = View.inflate(context, R.layout.write_thread_share_guide, null);
+            TextView textView = (TextView) this.hrw.findViewById(R.id.write_thread_success_tips);
+            TextView textView2 = (TextView) this.hrw.findViewById(R.id.share_icon);
             textView.setSingleLine();
             textView.setEllipsize(TextUtils.TruncateAt.END);
             textView.setText(str);
-            textView2.setOnClickListener(this.lud);
+            textView2.setOnClickListener(this.lMG);
             if (TextUtils.isEmpty(str2)) {
                 textView2.setVisibility(8);
             } else {
@@ -99,9 +99,9 @@ public class DefaultNavigationBarCoverTip extends NavigationBarCoverTip {
         return this;
     }
 
-    private void bjv() {
+    private void boM() {
         try {
-            TbadkCoreApplication.getInst().registerActivityLifecycleCallbacks(this.ecc);
+            TbadkCoreApplication.getInst().registerActivityLifecycleCallbacks(this.eqo);
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -5,7 +5,7 @@ import android.graphics.SurfaceTexture;
 import android.media.AudioManager;
 import android.view.Surface;
 import android.view.TextureView;
-import com.baidu.ala.ndk.AlaNDKPlayerAdapter;
+import com.baidu.ala.ndk.AlaNDKPKPlayerAdapter;
 import com.baidu.ala.ndk.AudioProcessModule;
 import com.baidu.ala.player.AlaAudioPlayer;
 import com.baidu.ala.player.CallStateReceiver;
@@ -31,7 +31,7 @@ public class AlaLivePKPlayer {
     public static final int PLAYER_VIDEO_MODEL_FIT = 2;
     private WeakReference<Context> mContext;
     private RecorderHandler mHandler;
-    private AlaNDKPlayerAdapter mNDKAdapter;
+    private AlaNDKPKPlayerAdapter mNDKAdapter;
     private boolean mNativeFunctionsRegisted;
     private boolean mRunOpenSLES;
     private Map<Integer, AlaLivePKVideoPlayer> mPlayersMap = new ConcurrentHashMap();
@@ -52,7 +52,7 @@ public class AlaLivePKPlayer {
         this.mNativeFunctionsRegisted = false;
         this.mHandler = null;
         this.mRunOpenSLES = false;
-        this.mNDKAdapter = new AlaNDKPlayerAdapter();
+        this.mNDKAdapter = new AlaNDKPKPlayerAdapter();
         this.mNDKAdapter.setNativeObject(j);
         this.mContext = new WeakReference<>(context);
         registerCallState();
@@ -109,9 +109,6 @@ public class AlaLivePKPlayer {
             }
         } else if (this.mAudioPlayer == null) {
             this.mAudioPlayer = new AlaAudioPlayer(44100, 4, this.mEnableRtcACE);
-        }
-        if (this.mNDKAdapter != null && this.mNDKAdapter.getNativeObject() != 0) {
-            this.mNDKAdapter.setVideoFillModel(1, 2);
         }
         this.mExeService.submit(new Runnable() { // from class: com.baidu.ala.recorder.AlaLivePKPlayer.1
             @Override // java.lang.Runnable

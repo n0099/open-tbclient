@@ -10,9 +10,9 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes10.dex */
 public class a {
-    private com.baidu.tieba.video.editvideo.data.a liS;
-    private b liT;
-    b.a liU;
+    private com.baidu.tieba.video.editvideo.data.a lBD;
+    private b lBE;
+    b.a lBF;
     private Context mContext;
 
     public a(Context context) {
@@ -20,49 +20,49 @@ public class a {
     }
 
     public void a(com.baidu.tieba.video.editvideo.data.a aVar) {
-        this.liS = aVar;
+        this.lBD = aVar;
     }
 
-    public boolean dba() {
-        return (this.liS == null || "normal".equalsIgnoreCase(this.liS.value)) ? false : true;
+    public boolean dio() {
+        return (this.lBD == null || "normal".equalsIgnoreCase(this.lBD.value)) ? false : true;
     }
 
-    public void LN(String str) {
-        if ((this.liT == null || !this.liT.isRunning()) && !TextUtils.isEmpty(str) && new File(str).exists()) {
-            String dbd = dbd();
+    public void NA(String str) {
+        if ((this.lBE == null || !this.lBE.isRunning()) && !TextUtils.isEmpty(str) && new File(str).exists()) {
+            String dir = dir();
             String str2 = "normal";
-            if (this.liS != null) {
-                str2 = this.liS.value;
+            if (this.lBD != null) {
+                str2 = this.lBD.value;
             }
-            this.liT = new b(this.mContext, str, dbd, str2);
-            if (this.liU != null) {
-                this.liT.a(this.liU);
+            this.lBE = new b(this.mContext, str, dir, str2);
+            if (this.lBF != null) {
+                this.lBE.a(this.lBF);
             }
-            this.liT.dbe();
+            this.lBE.dis();
         }
     }
 
-    public boolean dbb() {
-        if (this.liT != null) {
-            return this.liT.isRunning();
+    public boolean dip() {
+        if (this.lBE != null) {
+            return this.lBE.isRunning();
         }
         return false;
     }
 
-    public void dbc() {
-        if (this.liT != null) {
-            this.liT.dbf();
+    public void diq() {
+        if (this.lBE != null) {
+            this.lBE.dit();
         }
     }
 
     public void a(b.a aVar) {
-        this.liU = aVar;
-        if (this.liT != null) {
-            this.liT.a(this.liU);
+        this.lBF = aVar;
+        if (this.lBE != null) {
+            this.lBE.a(this.lBF);
         }
     }
 
-    public static List<com.baidu.tieba.video.editvideo.data.a> fe(Context context) {
+    public static List<com.baidu.tieba.video.editvideo.data.a> ft(Context context) {
         ArrayList arrayList = new ArrayList();
         if (context == null) {
             context = TbadkCoreApplication.getInst();
@@ -94,7 +94,7 @@ public class a {
         }
     }
 
-    private static String dbd() {
-        return com.baidu.tieba.video.c.lgU + "video_addfilter_" + System.currentTimeMillis() + ".mp4";
+    private static String dir() {
+        return com.baidu.tieba.video.c.lzF + "video_addfilter_" + System.currentTimeMillis() + ".mp4";
     }
 }

@@ -7,29 +7,29 @@ import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.apps.scheme.actions.ab;
+import com.baidu.swan.apps.scheme.actions.aa;
 import com.baidu.swan.apps.scheme.j;
 /* loaded from: classes11.dex */
-public class b extends ab {
+public class b extends aa {
     public b(j jVar) {
         super(jVar, "/swanAPI/remoteDebug");
     }
 
-    @Override // com.baidu.swan.apps.scheme.actions.ab
+    @Override // com.baidu.swan.apps.scheme.actions.aa
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
         com.baidu.swan.apps.console.c.d("RemoteDebugAction", "handle entity: " + unitedSchemeEntity.toString());
         return false;
     }
 
-    @Override // com.baidu.swan.apps.scheme.actions.ab
-    public boolean e(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, com.baidu.swan.apps.runtime.e eVar) {
+    @Override // com.baidu.swan.apps.scheme.actions.aa
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, com.baidu.swan.apps.runtime.e eVar) {
         com.baidu.swan.apps.console.c.i("RemoteDebugAction", "handleSubAction subAction: " + str);
-        if (!e.TF()) {
+        if (!e.Wm()) {
             com.baidu.swan.apps.console.c.e("RemoteDebugAction", "Can't invoke this action outside Remote Debug mode");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
             return false;
         }
-        SwanAppActivity akI = com.baidu.swan.apps.runtime.d.akJ().akI();
+        SwanAppActivity aoz = com.baidu.swan.apps.runtime.d.aoB().aoz();
         char c = 65535;
         switch (str.hashCode()) {
             case -279631955:
@@ -48,25 +48,25 @@ public class b extends ab {
         switch (c) {
             case 0:
                 com.baidu.swan.apps.console.c.i("RemoteDebugAction", "Remote Debug reload");
-                if (akI != null) {
-                    Intent intent = akI.getIntent();
-                    e.TH();
-                    com.baidu.swan.apps.runtime.d.akJ().v(new String[0]);
-                    com.baidu.swan.apps.runtime.d.akJ().c(intent.getExtras(), "update_tag_by_remote_debug");
+                if (aoz != null) {
+                    Intent intent = aoz.getIntent();
+                    e.Wo();
+                    com.baidu.swan.apps.runtime.d.aoB().w(new String[0]);
+                    com.baidu.swan.apps.runtime.d.aoB().d(intent.getExtras(), "update_tag_by_remote_debug");
                 }
                 return true;
             case 1:
-                if (akI != null) {
+                if (aoz != null) {
                     if (Build.VERSION.SDK_INT >= 21) {
-                        akI.finishAndRemoveTask();
+                        aoz.finishAndRemoveTask();
                     } else {
-                        akI.finish();
+                        aoz.finish();
                     }
                     System.exit(0);
                 }
                 return true;
             default:
-                return super.e(context, unitedSchemeEntity, callbackHandler, str, eVar);
+                return super.d(context, unitedSchemeEntity, callbackHandler, str, eVar);
         }
     }
 }

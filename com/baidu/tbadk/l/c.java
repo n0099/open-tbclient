@@ -17,12 +17,12 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c {
-    private static boolean aZf() {
+    private static boolean bfp() {
         return TbadkCoreApplication.getInst().isDebugMode();
     }
 
-    private static final void d(Object obj, String str) {
-        if (aZf()) {
+    private static final void g(Object obj, String str) {
+        if (bfp()) {
             if (obj != null) {
                 str = str + " : " + obj.getClass().getSimpleName();
             }
@@ -31,93 +31,93 @@ public class c {
     }
 
     private static final void a(Fragment fragment, List<Fragment> list) {
-        if (aZf()) {
-            d((Object) null, "--------------------------------------------------");
-            d((Object) null, "ParentFragment:" + fragment);
-            d((Object) null, "Print All ChildFragments=" + v.getCount(list));
+        if (bfp()) {
+            g(null, "--------------------------------------------------");
+            g(null, "ParentFragment:" + fragment);
+            g(null, "Print All ChildFragments=" + v.getCount(list));
             if (!v.isEmpty(list)) {
                 for (Fragment fragment2 : list) {
                     boolean isPrimary = fragment2 instanceof BaseFragment ? ((BaseFragment) fragment2).isPrimary() : false;
-                    d(fragment2, "isUserVisible=" + fragment2.getUserVisibleHint() + ",isVisible=" + fragment2.isVisible() + ",isPrimary=" + isPrimary);
+                    g(fragment2, "isUserVisible=" + fragment2.getUserVisibleHint() + ",isVisible=" + fragment2.isVisible() + ",isPrimary=" + isPrimary);
                 }
             }
         }
     }
 
     private static final void a(b bVar) {
-        if (aZf() && bVar != null) {
+        if (bfp() && bVar != null) {
             String currentPageKey = bVar.getCurrentPageKey();
-            ArrayList<String> aZd = bVar.aZd();
-            ArrayList<String> aZe = bVar.aZe();
+            ArrayList<String> bfn = bVar.bfn();
+            ArrayList<String> bfo = bVar.bfo();
             StringBuilder sb = new StringBuilder("Current TbPageExtra:");
             sb.append("currentKey=").append(currentPageKey).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
-            sb.append("preList=").append(aZd.toString()).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
-            sb.append("nextList=").append(aZe.toString());
-            d(bVar, sb.toString());
+            sb.append("preList=").append(bfn.toString()).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+            sb.append("nextList=").append(bfo.toString());
+            g(bVar, sb.toString());
         }
     }
 
-    public static b dB(Context context) {
+    public static b dS(Context context) {
         b bVar = null;
-        Activity dC = dC(context);
-        if (dC instanceof BaseFragmentActivity) {
-            BaseFragmentActivity baseFragmentActivity = (BaseFragmentActivity) dC;
-            d(baseFragmentActivity, "BaseFragmentActivity");
+        Activity dT = dT(context);
+        if (dT instanceof BaseFragmentActivity) {
+            BaseFragmentActivity baseFragmentActivity = (BaseFragmentActivity) dT;
+            g(baseFragmentActivity, "BaseFragmentActivity");
             BaseFragment d = d(baseFragmentActivity);
             if (d != null) {
                 bVar = d.getTbPageExtra();
-                d(baseFragmentActivity, "FragmentExtra-->" + bVar);
+                g(baseFragmentActivity, "FragmentExtra-->" + bVar);
             }
             if (bVar == null || TextUtils.isEmpty(bVar.getCurrentPageKey())) {
                 bVar = baseFragmentActivity.getTbPageExtra();
-                d(baseFragmentActivity, "ActivityExtra-->" + bVar);
+                g(baseFragmentActivity, "ActivityExtra-->" + bVar);
             }
             b bVar2 = bVar;
             a(bVar2);
             return bVar2;
-        } else if (dC instanceof BaseActivity) {
-            BaseActivity baseActivity = (BaseActivity) dC;
-            d(baseActivity, "BaseActivity");
+        } else if (dT instanceof BaseActivity) {
+            BaseActivity baseActivity = (BaseActivity) dT;
+            g(baseActivity, "BaseActivity");
             b tbPageExtra = baseActivity.getTbPageExtra();
-            d(baseActivity, "ActivityExtra=" + tbPageExtra);
+            g(baseActivity, "ActivityExtra=" + tbPageExtra);
             a(tbPageExtra);
             return tbPageExtra;
         } else {
-            d(context, "------Not Activity，No TbPageExtra!------");
+            g(context, "------Not Activity，No TbPageExtra!------");
             return null;
         }
     }
 
-    public static Activity dC(Context context) {
-        d(context, "currentContext");
+    public static Activity dT(Context context) {
+        g(context, "currentContext");
         Context context2 = context;
         while (context2 instanceof ContextWrapper) {
             if (context2 instanceof Activity) {
                 Activity activity = (Activity) context2;
-                d(activity, "currentActivity");
+                g(activity, "currentActivity");
                 return activity;
             }
             context2 = ((ContextWrapper) context2).getBaseContext();
-            d(context2, "currentContextWrapper");
+            g(context2, "currentContextWrapper");
         }
         return null;
     }
 
     public static BaseFragment d(BaseFragmentActivity baseFragmentActivity) {
-        d(baseFragmentActivity, "fragmentActivity--->getVisibleFragment");
+        g(baseFragmentActivity, "fragmentActivity--->getVisibleFragment");
         return c(baseFragmentActivity.getSupportFragmentManager());
     }
 
     private static BaseFragment c(FragmentManager fragmentManager) {
-        d(fragmentManager, "FragmentManager=" + fragmentManager);
+        g(fragmentManager, "FragmentManager=" + fragmentManager);
         List<Fragment> fragments = fragmentManager.getFragments();
         a(null, fragments);
         for (Fragment fragment : fragments) {
-            d(fragment, "foreach fragment");
+            g(fragment, "foreach fragment");
             if (fragment instanceof BaseFragment) {
                 BaseFragment a = a((BaseFragment) fragment);
                 if (b(a)) {
-                    d(a, "Current VisibleFragment");
+                    g(a, "Current VisibleFragment");
                     return a;
                 }
             }
@@ -128,7 +128,7 @@ public class c {
     private static BaseFragment a(BaseFragment baseFragment) {
         if (b(baseFragment)) {
             FragmentManager childFragmentManager = baseFragment.getChildFragmentManager();
-            d(childFragmentManager, "getChildFragmentManager=" + childFragmentManager);
+            g(childFragmentManager, "getChildFragmentManager=" + childFragmentManager);
             List<Fragment> fragments = childFragmentManager.getFragments();
             a(baseFragment, fragments);
             if (!v.isEmpty(fragments)) {

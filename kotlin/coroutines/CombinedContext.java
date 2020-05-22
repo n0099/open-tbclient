@@ -16,30 +16,30 @@ public final class CombinedContext implements Serializable, c {
     private final c left;
 
     public CombinedContext(c cVar, c.b bVar) {
-        q.j(cVar, "left");
-        q.j(bVar, "element");
+        q.m(cVar, "left");
+        q.m(bVar, "element");
         this.left = cVar;
         this.element = bVar;
     }
 
     @Override // kotlin.coroutines.c
     public c plus(c cVar) {
-        q.j(cVar, "context");
+        q.m(cVar, "context");
         return c.a.a(this, cVar);
     }
 
     @Override // kotlin.coroutines.c
-    public <E extends c.b> E get(c.InterfaceC0815c<E> interfaceC0815c) {
-        q.j(interfaceC0815c, "key");
+    public <E extends c.b> E get(c.InterfaceC0877c<E> interfaceC0877c) {
+        q.m(interfaceC0877c, "key");
         CombinedContext combinedContext = this;
         while (true) {
-            E e = (E) combinedContext.element.get(interfaceC0815c);
+            E e = (E) combinedContext.element.get(interfaceC0877c);
             if (e == null) {
                 c cVar = combinedContext.left;
                 if (cVar instanceof CombinedContext) {
                     combinedContext = (CombinedContext) cVar;
                 } else {
-                    return (E) cVar.get(interfaceC0815c);
+                    return (E) cVar.get(interfaceC0877c);
                 }
             } else {
                 return e;
@@ -49,17 +49,17 @@ public final class CombinedContext implements Serializable, c {
 
     @Override // kotlin.coroutines.c
     public <R> R fold(R r, m<? super R, ? super c.b, ? extends R> mVar) {
-        q.j(mVar, "operation");
+        q.m(mVar, "operation");
         return mVar.invoke((Object) this.left.fold(r, mVar), this.element);
     }
 
     @Override // kotlin.coroutines.c
-    public c minusKey(c.InterfaceC0815c<?> interfaceC0815c) {
-        q.j(interfaceC0815c, "key");
-        if (this.element.get(interfaceC0815c) != null) {
+    public c minusKey(c.InterfaceC0877c<?> interfaceC0877c) {
+        q.m(interfaceC0877c, "key");
+        if (this.element.get(interfaceC0877c) != null) {
             return this.left;
         }
-        c minusKey = this.left.minusKey(interfaceC0815c);
+        c minusKey = this.left.minusKey(interfaceC0877c);
         return minusKey == this.left ? this : minusKey == EmptyCoroutineContext.INSTANCE ? this.element : new CombinedContext(minusKey, this.element);
     }
 
@@ -81,7 +81,7 @@ public final class CombinedContext implements Serializable, c {
     }
 
     private final boolean contains(c.b bVar) {
-        return q.k(get(bVar.dDK()), bVar);
+        return q.l(get(bVar.dLE()), bVar);
     }
 
     private final boolean containsAll(CombinedContext combinedContext) {
@@ -115,7 +115,7 @@ public final class CombinedContext implements Serializable, c {
         c[] cVarArr = new c[size];
         Ref.IntRef intRef = new Ref.IntRef();
         intRef.element = 0;
-        fold(l.mXc, new CombinedContext$writeReplace$1(cVarArr, intRef));
+        fold(l.nse, new CombinedContext$writeReplace$1(cVarArr, intRef));
         if (intRef.element == size) {
             return new Serialized(cVarArr);
         }
@@ -141,7 +141,7 @@ public final class CombinedContext implements Serializable, c {
         }
 
         public Serialized(c[] cVarArr) {
-            q.j(cVarArr, "elements");
+            q.m(cVarArr, "elements");
             this.elements = cVarArr;
         }
 

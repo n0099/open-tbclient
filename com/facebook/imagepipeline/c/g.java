@@ -9,34 +9,34 @@ import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 /* loaded from: classes13.dex */
 public class g<K, V> {
+    private final v<V> muq;
     @GuardedBy("this")
-    private final LinkedHashMap<K, V> maA = new LinkedHashMap<>();
+    private final LinkedHashMap<K, V> mur = new LinkedHashMap<>();
     @GuardedBy("this")
-    private int maB = 0;
-    private final v<V> maz;
+    private int mus = 0;
 
     public g(v<V> vVar) {
-        this.maz = vVar;
+        this.muq = vVar;
     }
 
     public synchronized int getCount() {
-        return this.maA.size();
+        return this.mur.size();
     }
 
     public synchronized int getSizeInBytes() {
-        return this.maB;
+        return this.mus;
     }
 
     @Nullable
-    public synchronized K dqn() {
-        return this.maA.isEmpty() ? null : this.maA.keySet().iterator().next();
+    public synchronized K dxF() {
+        return this.mur.isEmpty() ? null : this.mur.keySet().iterator().next();
     }
 
     public synchronized ArrayList<Map.Entry<K, V>> a(@Nullable com.facebook.common.internal.h<K> hVar) {
         ArrayList<Map.Entry<K, V>> arrayList;
-        arrayList = new ArrayList<>(this.maA.entrySet().size());
-        for (Map.Entry<K, V> entry : this.maA.entrySet()) {
-            if (hVar == null || hVar.aK(entry.getKey())) {
+        arrayList = new ArrayList<>(this.mur.entrySet().size());
+        for (Map.Entry<K, V> entry : this.mur.entrySet()) {
+            if (hVar == null || hVar.aO(entry.getKey())) {
                 arrayList.add(entry);
             }
         }
@@ -44,36 +44,36 @@ public class g<K, V> {
     }
 
     public synchronized boolean contains(K k) {
-        return this.maA.containsKey(k);
+        return this.mur.containsKey(k);
     }
 
     @Nullable
     public synchronized V get(K k) {
-        return this.maA.get(k);
+        return this.mur.get(k);
     }
 
     @Nullable
     public synchronized V put(K k, V v) {
         V remove;
-        remove = this.maA.remove(k);
-        this.maB -= bc(remove);
-        this.maA.put(k, v);
-        this.maB += bc(v);
+        remove = this.mur.remove(k);
+        this.mus -= bg(remove);
+        this.mur.put(k, v);
+        this.mus += bg(v);
         return remove;
     }
 
     @Nullable
     public synchronized V remove(K k) {
         V remove;
-        remove = this.maA.remove(k);
-        this.maB -= bc(remove);
+        remove = this.mur.remove(k);
+        this.mus -= bg(remove);
         return remove;
     }
 
-    private int bc(V v) {
+    private int bg(V v) {
         if (v == null) {
             return 0;
         }
-        return this.maz.ba(v);
+        return this.muq.be(v);
     }
 }

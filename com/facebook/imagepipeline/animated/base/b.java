@@ -1,13 +1,13 @@
 package com.facebook.imagepipeline.animated.base;
 /* loaded from: classes13.dex */
 public interface b {
-    AnimatedDrawableFrameInfo FU(int i);
+    AnimatedDrawableFrameInfo GG(int i);
 
-    c FW(int i);
+    c GI(int i);
 
-    int[] dmd();
+    int[] dtw();
 
-    boolean dme();
+    boolean dtx();
 
     int getFrameCount();
 

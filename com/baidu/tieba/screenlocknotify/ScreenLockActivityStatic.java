@@ -6,14 +6,16 @@ import com.baidu.tbadk.core.atomData.ScreenLockActivityConfig;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes8.dex */
 public class ScreenLockActivityStatic {
+    public static String Tag = "tag";
+
     static {
         TbadkApplication.getInst().RegisterIntent(ScreenLockActivityConfig.class, ScreenLockActivity.class);
         try {
-            a.cOV();
+            a.cVX();
             new IntentConfig(TbadkApplication.getInst()).startService(ScreenLockNotifyService.class);
         } catch (Exception e) {
             BdLog.e(e);
-            com.baidu.adp.plugin.b.a.nF().h("plugin_load", "screenlock_failed", null, e.getMessage() + "---" + e.getClass().getName());
+            com.baidu.adp.plugin.b.a.nH().h("plugin_load", "screenlock_failed", null, e.getMessage() + "---" + e.getClass().getName());
         }
     }
 }

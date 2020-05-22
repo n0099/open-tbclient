@@ -3,25 +3,25 @@ package com.baidu.tieba.godSquare;
 import android.view.View;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.adp.widget.ListView.BdTypeListView;
-import com.baidu.adp.widget.ListView.m;
+import com.baidu.adp.widget.ListView.o;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tbadk.core.view.PbListView;
+import com.baidu.tbadk.core.view.f;
 import com.baidu.tbadk.core.view.g;
-import com.baidu.tbadk.core.view.h;
 import com.baidu.tieba.R;
 import java.util.List;
 /* loaded from: classes11.dex */
 public class a {
-    private BdTypeListView eOj;
-    private PbListView ePr;
-    private NoNetworkView gAM;
-    private com.baidu.tieba.godSquare.a.a hGi;
+    private BdTypeListView faQ;
+    private NoNetworkView fan;
+    private PbListView fbY;
+    private com.baidu.tieba.godSquare.a.a hUU;
     private BaseActivity mActivity;
     private NavigationBar mNavigationBar;
-    private h mPullView;
+    private g mPullView;
     private View mRootView;
 
     public a(BaseActivity baseActivity) {
@@ -31,87 +31,87 @@ public class a {
         this.mNavigationBar = (NavigationBar) this.mActivity.findViewById(R.id.view_navigation_bar);
         this.mNavigationBar.setTitleText(R.string.god_square);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.gAM = (NoNetworkView) this.mActivity.findViewById(R.id.view_no_network);
-        this.ePr = new PbListView(this.mActivity.getPageContext().getPageActivity());
-        this.ePr.createView();
-        this.ePr.startLoadData();
-        this.eOj = (BdTypeListView) this.mActivity.findViewById(R.id.god_square_list_view);
-        this.mPullView = new h(this.mActivity.getPageContext());
-        if (this.mActivity instanceof g.c) {
-            this.mPullView.setListPullRefreshListener((g.c) this.mActivity);
+        this.fan = (NoNetworkView) this.mActivity.findViewById(R.id.view_no_network);
+        this.fbY = new PbListView(this.mActivity.getPageContext().getPageActivity());
+        this.fbY.createView();
+        this.fbY.startLoadData();
+        this.faQ = (BdTypeListView) this.mActivity.findViewById(R.id.god_square_list_view);
+        this.mPullView = new g(this.mActivity.getPageContext());
+        if (this.mActivity instanceof f.c) {
+            this.mPullView.setListPullRefreshListener((f.c) this.mActivity);
         }
         if (this.mActivity instanceof BdListView.e) {
-            this.eOj.setOnSrollToBottomListener((BdListView.e) this.mActivity);
+            this.faQ.setOnSrollToBottomListener((BdListView.e) this.mActivity);
         }
-        this.eOj.setPullRefresh(this.mPullView);
-        this.hGi = new com.baidu.tieba.godSquare.a.a(this.mActivity.getPageContext(), this.eOj);
-        this.eOj.addAdapters(this.hGi.bly());
-        this.eOj.setNextPage(this.ePr);
+        this.faQ.setPullRefresh(this.mPullView);
+        this.hUU = new com.baidu.tieba.godSquare.a.a(this.mActivity.getPageContext(), this.faQ);
+        this.faQ.addAdapters(this.hUU.bqW());
+        this.faQ.setNextPage(this.fbY);
     }
 
     public void showLoadingView() {
-        this.eOj.setVisibility(8);
+        this.faQ.setVisibility(8);
         this.mActivity.showLoadingView(this.mRootView, true);
     }
 
     public void hideLoadingView() {
-        this.eOj.setVisibility(0);
+        this.faQ.setVisibility(0);
         this.mActivity.hideLoadingView(this.mRootView);
     }
 
-    public void CO(String str) {
-        this.eOj.setVisibility(8);
+    public void Ex(String str) {
+        this.faQ.setVisibility(8);
         this.mActivity.showNetRefreshView(this.mRootView, str, true);
     }
 
-    public void blr() {
-        this.eOj.setVisibility(0);
+    public void bqO() {
+        this.faQ.setVisibility(0);
         this.mActivity.hideNetRefreshView(this.mRootView);
     }
 
-    public void cK(List<m> list) {
+    public void cH(List<o> list) {
         if (list != null) {
-            this.eOj.setData(list);
+            this.faQ.setData(list);
         }
     }
 
     public BdTypeListView getListView() {
-        return this.eOj;
+        return this.faQ;
     }
 
     public void notifyDataSetChanged() {
-        this.hGi.notifyDataSetChanged();
+        this.hUU.notifyDataSetChanged();
     }
 
-    public void bXp() {
-        this.ePr.startLoadData();
+    public void cdN() {
+        this.fbY.startLoadData();
     }
 
-    public void bXq() {
-        this.ePr.setText(this.mActivity.getResources().getString(R.string.network_ungeilivable));
-        this.ePr.endLoadData();
+    public void cdO() {
+        this.fbY.setText(this.mActivity.getResources().getString(R.string.network_ungeilivable));
+        this.fbY.endLoadData();
     }
 
-    public void bXr() {
-        this.ePr.setText(this.mActivity.getResources().getString(R.string.list_no_more));
-        this.ePr.endLoadData();
+    public void cdP() {
+        this.fbY.setText(this.mActivity.getResources().getString(R.string.list_no_more));
+        this.fbY.endLoadData();
     }
 
     public void onChangeSkinType(int i) {
         this.mNavigationBar.onChangeSkinType(this.mActivity.getPageContext(), i);
-        this.ePr.setContainerBackgroundColorResId(R.color.cp_bg_line_c);
-        this.ePr.setTextColor(am.getColor(R.color.cp_cont_d));
-        this.ePr.changeSkin(i);
-        this.gAM.onChangeSkinType(this.mActivity.getPageContext(), i);
+        this.fbY.setContainerBackgroundColorResId(R.color.cp_bg_line_c);
+        this.fbY.setTextColor(am.getColor(R.color.cp_cont_d));
+        this.fbY.changeSkin(i);
+        this.fan.onChangeSkinType(this.mActivity.getPageContext(), i);
     }
 
     public void startPullRefresh() {
-        this.eOj.startPullRefresh();
+        this.faQ.startPullRefresh();
     }
 
     public void f(NoNetworkView.a aVar) {
         if (aVar != null) {
-            this.gAM.a(aVar);
+            this.fan.a(aVar);
         }
     }
 }

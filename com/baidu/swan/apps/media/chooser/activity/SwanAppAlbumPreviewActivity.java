@@ -27,8 +27,8 @@ import android.widget.TextView;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 import com.baidu.swan.apps.SwanAppBaseActivity;
 import com.baidu.swan.apps.a;
-import com.baidu.swan.apps.as.ai;
-import com.baidu.swan.apps.as.r;
+import com.baidu.swan.apps.aq.aj;
+import com.baidu.swan.apps.aq.s;
 import com.baidu.swan.apps.b;
 import com.baidu.swan.apps.media.chooser.adapter.SwanAppAlbumPreviewAdapter;
 import com.baidu.swan.apps.media.chooser.adapter.c;
@@ -45,34 +45,34 @@ import java.util.ArrayList;
 /* loaded from: classes11.dex */
 public class SwanAppAlbumPreviewActivity extends SwanAppBaseActivity implements View.OnClickListener, a, g, DragView.a {
     private static final boolean DEBUG = b.DEBUG;
-    private View caA;
-    private d caB;
-    private SwanAppAlbumPreviewAdapter caC;
-    private c caD;
-    private ArrayList<MediaModel> caH;
-    private DragView cas;
-    private RecyclerView cat;
-    private ImageView cau;
-    private View cav;
-    private View caw;
-    private TextView cax;
-    private TextView cay;
-    private View caz;
+    private DragView ckV;
+    private RecyclerView ckW;
+    private ImageView ckX;
+    private View ckY;
+    private View ckZ;
+    private TextView cla;
+    private TextView clb;
+    private View clc;
+    private View cld;
+    private d cle;
+    private SwanAppAlbumPreviewAdapter clf;
+    private c clg;
+    private ArrayList<MediaModel> clk;
     private String mFrom;
     private int mIndex;
     private View mLineView;
     private View mRootView;
     private ViewPager mViewPager;
-    private boolean caE = true;
-    private boolean caF = true;
-    private boolean caG = false;
+    private boolean clh = true;
+    private boolean cli = true;
+    private boolean clj = false;
     private int mDuration = 200;
-    private ViewPager.OnPageChangeListener caI = new ViewPager.OnPageChangeListener() { // from class: com.baidu.swan.apps.media.chooser.activity.SwanAppAlbumPreviewActivity.3
+    private ViewPager.OnPageChangeListener cll = new ViewPager.OnPageChangeListener() { // from class: com.baidu.swan.apps.media.chooser.activity.SwanAppAlbumPreviewActivity.3
         @Override // android.support.v4.view.ViewPager.OnPageChangeListener
         public void onPageSelected(int i) {
             SwanAppAlbumPreviewActivity.this.mIndex = i;
-            SwanAppAlbumPreviewActivity.this.afv();
-            SwanAppAlbumPreviewActivity.this.afu();
+            SwanAppAlbumPreviewActivity.this.aiK();
+            SwanAppAlbumPreviewActivity.this.aiJ();
         }
 
         @Override // android.support.v4.view.ViewPager.OnPageChangeListener
@@ -81,51 +81,51 @@ public class SwanAppAlbumPreviewActivity extends SwanAppBaseActivity implements 
 
         @Override // android.support.v4.view.ViewPager.OnPageChangeListener
         public void onPageScrollStateChanged(int i) {
-            SwanAppAlbumPreviewActivity.this.caC.afE();
+            SwanAppAlbumPreviewActivity.this.clf.aiT();
         }
     };
 
     @Override // com.baidu.swan.apps.SwanAppBaseActivity, com.baidu.swan.support.v4.app.FragmentActivity, com.baidu.swan.support.v4.app.f, android.app.Activity
     protected void onCreate(Bundle bundle) {
-        int releaseFixedOrientation = ai.releaseFixedOrientation(this);
+        int releaseFixedOrientation = aj.releaseFixedOrientation(this);
         super.onCreate(bundle);
-        ai.fixedOrientation(this, releaseFixedOrientation);
-        afr();
-        this.caB = new d(this);
-        this.caB.setStatusBarTintEnabled(false);
+        aj.fixedOrientation(this, releaseFixedOrientation);
+        aiG();
+        this.cle = new d(this);
+        this.cle.setStatusBarTintEnabled(false);
         getWindow().setFlags(1024, 1024);
         setContentView(a.g.swanapp_album_preview_layout);
         if (getIntent() != null) {
-            Bundle safeGetBundleExtra = r.safeGetBundleExtra(getIntent(), "launchParams");
-            this.mIndex = r.a(safeGetBundleExtra, "previewPosition", 0);
-            this.mFrom = r.safeGetString(safeGetBundleExtra, "previewFrom");
+            Bundle safeGetBundleExtra = s.safeGetBundleExtra(getIntent(), "launchParams");
+            this.mIndex = s.a(safeGetBundleExtra, "previewPosition", 0);
+            this.mFrom = s.safeGetString(safeGetBundleExtra, "previewFrom");
             if (TextUtils.equals(this.mFrom, "bottomPreview")) {
-                this.caH = new ArrayList<>();
-                this.caH.addAll(e.afI());
+                this.clk = new ArrayList<>();
+                this.clk.addAll(e.aiX());
             } else if (TextUtils.equals(this.mFrom, UnitedSchemeConstants.SCHEME_INVOKE_TYPE_OUTSIDE)) {
-                this.caH = safeGetBundleExtra == null ? null : safeGetBundleExtra.getParcelableArrayList("mediaModels");
+                this.clk = safeGetBundleExtra == null ? null : safeGetBundleExtra.getParcelableArrayList("mediaModels");
             } else {
-                this.caH = com.baidu.swan.apps.media.chooser.b.d.afH();
+                this.clk = com.baidu.swan.apps.media.chooser.b.d.aiW();
             }
-            if (this.caH == null) {
-                this.caH = new ArrayList<>();
+            if (this.clk == null) {
+                this.clk = new ArrayList<>();
             }
         }
         initView();
-        afu();
-        afs();
-        afq();
+        aiJ();
+        aiH();
+        aiF();
     }
 
-    private void afq() {
+    private void aiF() {
         if (TextUtils.equals(this.mFrom, UnitedSchemeConstants.SCHEME_INVOKE_TYPE_OUTSIDE)) {
-            this.cax.setVisibility(8);
-            this.caz.setVisibility(8);
+            this.cla.setVisibility(8);
+            this.clc.setVisibility(8);
         }
     }
 
     @TargetApi(19)
-    private void afr() {
+    private void aiG() {
         Window window = getWindow();
         WindowManager.LayoutParams attributes = window.getAttributes();
         attributes.flags |= 67108864;
@@ -135,38 +135,38 @@ public class SwanAppAlbumPreviewActivity extends SwanAppBaseActivity implements 
     private void initView() {
         String string;
         this.mRootView = findViewById(a.f.album_preview_content);
-        this.cas = (DragView) findViewById(a.f.drag_view);
-        this.cas.setOnCloseListener(this);
-        this.cas.setBackgroundColor(getResources().getColor(a.c.aiapps_black));
+        this.ckV = (DragView) findViewById(a.f.drag_view);
+        this.ckV.setOnCloseListener(this);
+        this.ckV.setBackgroundColor(getResources().getColor(a.c.aiapps_black));
         this.mViewPager = (ViewPager) findViewById(a.f.album_preview_viewpager);
-        this.cau = (ImageView) findViewById(a.f.album_preview_select_checkbox);
-        this.caw = findViewById(a.f.album_preview_back_layout);
-        this.cav = findViewById(a.f.album_preview_select_view);
-        this.cax = (TextView) findViewById(a.f.album_preview_done);
-        this.cay = (TextView) findViewById(a.f.album_preview_select);
-        this.caz = findViewById(a.f.album_preview_bottom);
-        this.caA = findViewById(a.f.album_preview_header);
-        this.caw.setOnClickListener(this);
-        this.cax.setOnClickListener(this);
-        this.mViewPager.setOnPageChangeListener(this.caI);
-        this.caC = new SwanAppAlbumPreviewAdapter(this, this.caH);
-        this.mViewPager.setAdapter(this.caC);
-        this.caC.a(this);
+        this.ckX = (ImageView) findViewById(a.f.album_preview_select_checkbox);
+        this.ckZ = findViewById(a.f.album_preview_back_layout);
+        this.ckY = findViewById(a.f.album_preview_select_view);
+        this.cla = (TextView) findViewById(a.f.album_preview_done);
+        this.clb = (TextView) findViewById(a.f.album_preview_select);
+        this.clc = findViewById(a.f.album_preview_bottom);
+        this.cld = findViewById(a.f.album_preview_header);
+        this.ckZ.setOnClickListener(this);
+        this.cla.setOnClickListener(this);
+        this.mViewPager.setOnPageChangeListener(this.cll);
+        this.clf = new SwanAppAlbumPreviewAdapter(this, this.clk);
+        this.mViewPager.setAdapter(this.clf);
+        this.clf.a(this);
         this.mViewPager.setCurrentItem(this.mIndex);
-        this.cav.setOnClickListener(this);
-        this.cax.setBackgroundResource(a.e.swanapp_album_preview_done_bg);
-        this.cax.setTextColor(getResources().getColor(a.c.swanapp_album_preview_select_done_color));
+        this.ckY.setOnClickListener(this);
+        this.cla.setBackgroundResource(a.e.swanapp_album_preview_done_bg);
+        this.cla.setTextColor(getResources().getColor(a.c.swanapp_album_preview_select_done_color));
         if (e.getSelectedCount() != 0) {
             string = getString(a.h.swanapp_album_selected_done) + "(" + e.getSelectedCount() + ")";
         } else {
             string = getString(a.h.swanapp_album_selected_done);
         }
-        this.cax.setText(string);
+        this.cla.setText(string);
     }
 
-    private void afs() {
-        ArrayList<MediaModel> afI;
-        this.cat = (RecyclerView) findViewById(a.f.thumbnail_drag_view);
+    private void aiH() {
+        ArrayList<MediaModel> aiX;
+        this.ckW = (RecyclerView) findViewById(a.f.thumbnail_drag_view);
         this.mLineView = findViewById(a.f.album_preview_line);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this) { // from class: com.baidu.swan.apps.media.chooser.activity.SwanAppAlbumPreviewActivity.1
             @Override // android.support.v7.widget.LinearLayoutManager, android.support.v7.widget.RecyclerView.LayoutManager
@@ -187,29 +187,29 @@ public class SwanAppAlbumPreviewActivity extends SwanAppBaseActivity implements 
             }
         };
         linearLayoutManager.setOrientation(0);
-        this.cat.setLayoutManager(linearLayoutManager);
-        this.caD = new c(this);
-        this.cat.setAdapter(this.caD);
-        if (e.afI() == null) {
-            afI = null;
+        this.ckW.setLayoutManager(linearLayoutManager);
+        this.clg = new c(this);
+        this.ckW.setAdapter(this.clg);
+        if (e.aiX() == null) {
+            aiX = null;
         } else {
-            afI = e.afI();
+            aiX = e.aiX();
         }
-        this.caD.n(afI);
-        final ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new h(this, this.caD));
-        itemTouchHelper.attachToRecyclerView(this.cat);
+        this.clg.n(aiX);
+        final ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new h(this, this.clg));
+        itemTouchHelper.attachToRecyclerView(this.ckW);
         final com.baidu.swan.apps.media.chooser.b.a a = a(this.mViewPager);
-        this.cat.addOnItemTouchListener(new f(this.cat) { // from class: com.baidu.swan.apps.media.chooser.activity.SwanAppAlbumPreviewActivity.2
+        this.ckW.addOnItemTouchListener(new f(this.ckW) { // from class: com.baidu.swan.apps.media.chooser.activity.SwanAppAlbumPreviewActivity.2
             @Override // com.baidu.swan.apps.media.chooser.c.f
             public void a(RecyclerView.ViewHolder viewHolder) {
-                if (SwanAppAlbumPreviewActivity.this.caH != null) {
-                    MediaModel fy = SwanAppAlbumPreviewActivity.this.caD.fy(viewHolder.getAdapterPosition());
-                    int size = SwanAppAlbumPreviewActivity.this.caH.size();
+                if (SwanAppAlbumPreviewActivity.this.clk != null) {
+                    MediaModel fM = SwanAppAlbumPreviewActivity.this.clg.fM(viewHolder.getAdapterPosition());
+                    int size = SwanAppAlbumPreviewActivity.this.clk.size();
                     for (int i = 0; i < size; i++) {
-                        if (SwanAppAlbumPreviewActivity.this.caH.get(i) != null && ((MediaModel) SwanAppAlbumPreviewActivity.this.caH.get(i)).equals(fy)) {
-                            a.dQ(true);
+                        if (SwanAppAlbumPreviewActivity.this.clk.get(i) != null && ((MediaModel) SwanAppAlbumPreviewActivity.this.clk.get(i)).equals(fM)) {
+                            a.eh(true);
                             SwanAppAlbumPreviewActivity.this.mViewPager.setCurrentItem(i);
-                            a.dQ(false);
+                            a.eh(false);
                             return;
                         }
                     }
@@ -218,14 +218,14 @@ public class SwanAppAlbumPreviewActivity extends SwanAppBaseActivity implements 
 
             @Override // com.baidu.swan.apps.media.chooser.c.f
             public void b(RecyclerView.ViewHolder viewHolder) {
-                ArrayList<MediaModel> afF = SwanAppAlbumPreviewActivity.this.caD.afF();
-                if (viewHolder.getLayoutPosition() >= 0 && afF != null && viewHolder.getLayoutPosition() != afF.size()) {
+                ArrayList<MediaModel> aiU = SwanAppAlbumPreviewActivity.this.clg.aiU();
+                if (viewHolder.getLayoutPosition() >= 0 && aiU != null && viewHolder.getLayoutPosition() != aiU.size()) {
                     itemTouchHelper.startDrag(viewHolder);
                 }
             }
         });
-        aft();
-        afv();
+        aiI();
+        aiK();
     }
 
     private com.baidu.swan.apps.media.chooser.b.a a(ViewPager viewPager) {
@@ -243,67 +243,67 @@ public class SwanAppAlbumPreviewActivity extends SwanAppBaseActivity implements 
     }
 
     @Override // com.baidu.swan.apps.media.chooser.c.g
-    public void ad(int i, int i2) {
-        if (this.caH != null && this.mIndex < this.caH.size()) {
-            this.cay.setText(a(this.caH.get(this.mIndex)));
+    public void ag(int i, int i2) {
+        if (this.clk != null && this.mIndex < this.clk.size()) {
+            this.clb.setText(a(this.clk.get(this.mIndex)));
         }
     }
 
-    private void aft() {
-        ArrayList<MediaModel> afI = e.afI();
-        ViewGroup.LayoutParams layoutParams = this.caz.getLayoutParams();
+    private void aiI() {
+        ArrayList<MediaModel> aiX = e.aiX();
+        ViewGroup.LayoutParams layoutParams = this.clc.getLayoutParams();
         int dimensionPixelSize = getResources().getDimensionPixelSize(a.d.swanapp_preview_bottom_height);
-        if (afI != null && afI.size() > 0) {
-            this.cat.setVisibility(0);
+        if (aiX != null && aiX.size() > 0) {
+            this.ckW.setVisibility(0);
             this.mLineView.setVisibility(0);
             layoutParams.height = dimensionPixelSize;
             return;
         }
-        this.cat.setVisibility(8);
+        this.ckW.setVisibility(8);
         this.mLineView.setVisibility(8);
         layoutParams.height = (dimensionPixelSize - getResources().getDimensionPixelSize(a.d.swanapp_album_line)) - getResources().getDimensionPixelSize(a.d.swanapp_preview_drag_view_height);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void afu() {
-        if (this.caH != null) {
+    public void aiJ() {
+        if (this.clk != null) {
             MediaModel mediaModel = null;
-            if (this.mIndex < this.caH.size()) {
-                mediaModel = this.caH.get(this.mIndex);
+            if (this.mIndex < this.clk.size()) {
+                mediaModel = this.clk.get(this.mIndex);
             }
             if (mediaModel != null) {
                 if (e.c(mediaModel)) {
-                    this.cay.setVisibility(0);
-                    this.cay.setText(a(this.caH.get(this.mIndex)));
-                    this.cay.setBackgroundResource(a.e.swanapp_album_preview_select_bg);
+                    this.clb.setVisibility(0);
+                    this.clb.setText(a(this.clk.get(this.mIndex)));
+                    this.clb.setBackgroundResource(a.e.swanapp_album_preview_select_bg);
                     return;
                 }
-                this.cay.setVisibility(8);
+                this.clb.setVisibility(8);
                 if (com.baidu.swan.apps.media.chooser.b.d.a(com.baidu.swan.apps.media.chooser.b.d.mMode, mediaModel)) {
-                    this.cau.setImageResource(a.e.swanapp_album_preview_unselect_unable);
+                    this.ckX.setImageResource(a.e.swanapp_album_preview_unselect_unable);
                 } else {
-                    this.cau.setImageResource(a.e.swanapp_album_preview_unselect);
+                    this.ckX.setImageResource(a.e.swanapp_album_preview_unselect);
                 }
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void afv() {
+    public void aiK() {
         final int b;
-        if (this.caD != null && this.mIndex < this.caH.size() && (b = this.caD.b(this.caH.get(this.mIndex))) >= 0) {
-            if (b + 1 < this.caD.getItemCount()) {
-                this.cat.smoothScrollToPosition(b + 1);
+        if (this.clg != null && this.mIndex < this.clk.size() && (b = this.clg.b(this.clk.get(this.mIndex))) >= 0) {
+            if (b + 1 < this.clg.getItemCount()) {
+                this.ckW.smoothScrollToPosition(b + 1);
             } else {
-                this.cat.smoothScrollToPosition(b);
+                this.ckW.smoothScrollToPosition(b);
             }
-            this.cat.postDelayed(new Runnable() { // from class: com.baidu.swan.apps.media.chooser.activity.SwanAppAlbumPreviewActivity.4
+            this.ckW.postDelayed(new Runnable() { // from class: com.baidu.swan.apps.media.chooser.activity.SwanAppAlbumPreviewActivity.4
                 @Override // java.lang.Runnable
                 public void run() {
                     if (b > 0) {
-                        SwanAppAlbumPreviewActivity.this.cat.smoothScrollToPosition(b - 1);
+                        SwanAppAlbumPreviewActivity.this.ckW.smoothScrollToPosition(b - 1);
                     } else {
-                        SwanAppAlbumPreviewActivity.this.cat.smoothScrollToPosition(b);
+                        SwanAppAlbumPreviewActivity.this.ckW.smoothScrollToPosition(b);
                     }
                 }
             }, 300L);
@@ -313,58 +313,58 @@ public class SwanAppAlbumPreviewActivity extends SwanAppBaseActivity implements 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         String string;
-        if (view == this.caw) {
-            afw();
+        if (view == this.ckZ) {
+            aiL();
             finish();
-        } else if (this.caH != null && this.mIndex < this.caH.size()) {
-            MediaModel mediaModel = this.caH.get(this.mIndex);
-            if (view == this.cav) {
+        } else if (this.clk != null && this.mIndex < this.clk.size()) {
+            MediaModel mediaModel = this.clk.get(this.mIndex);
+            if (view == this.ckY) {
                 if (e.g(mediaModel)) {
-                    this.caD.notifyItemRemoved(e.d(mediaModel));
+                    this.clg.notifyItemRemoved(e.d(mediaModel));
                     e.f(mediaModel);
                     if (e.getSelectedCount() == 0) {
-                        this.caD.n(null);
+                        this.clg.n(null);
                     }
-                    this.cay.setVisibility(8);
-                    this.cau.setImageResource(a.e.swanapp_album_preview_unselect);
+                    this.clb.setVisibility(8);
+                    this.ckX.setImageResource(a.e.swanapp_album_preview_unselect);
                     if (e.getSelectedCount() > 0) {
                         string = getString(a.h.swanapp_album_selected_done) + "(" + e.getSelectedCount() + ")";
                     } else {
                         string = getString(a.h.swanapp_album_selected_done);
                     }
-                    this.cax.setText(string);
-                    aft();
+                    this.cla.setText(string);
+                    aiI();
                     return;
                 }
                 int selectedCount = e.getSelectedCount();
-                if (selectedCount == com.baidu.swan.apps.media.chooser.b.d.cbI) {
-                    com.baidu.swan.apps.media.chooser.b.d.ku(com.baidu.swan.apps.media.chooser.b.d.mMode);
-                } else if (selectedCount > 0 && TextUtils.equals(com.baidu.swan.apps.media.chooser.b.d.mMode, "single") && !TextUtils.equals(e.afJ(), mediaModel.getType())) {
+                if (selectedCount == com.baidu.swan.apps.media.chooser.b.d.cmm) {
+                    com.baidu.swan.apps.media.chooser.b.d.lH(com.baidu.swan.apps.media.chooser.b.d.mMode);
+                } else if (selectedCount > 0 && TextUtils.equals(com.baidu.swan.apps.media.chooser.b.d.mMode, "single") && !TextUtils.equals(e.aiY(), mediaModel.getType())) {
                     com.baidu.swan.apps.res.widget.b.d.k(this, a.h.swanapp_album_select_single).showToast();
                 } else {
                     int selectedCount2 = e.getSelectedCount();
-                    this.caD.notifyItemInserted(selectedCount2);
+                    this.clg.notifyItemInserted(selectedCount2);
                     e.e(mediaModel);
-                    if (this.caD.afF() == null) {
-                        this.caD.n(e.afI());
+                    if (this.clg.aiU() == null) {
+                        this.clg.n(e.aiX());
                     }
-                    this.cat.smoothScrollToPosition(selectedCount2);
-                    this.cay.setVisibility(0);
-                    this.cay.setText(a(mediaModel));
-                    this.cay.setBackgroundResource(a.e.swanapp_album_preview_select_bg);
-                    this.cax.setText(getString(a.h.swanapp_album_selected_done) + "(" + e.getSelectedCount() + ")");
-                    this.cax.setTextColor(getResources().getColor(a.c.swanapp_album_preview_select_done_color));
-                    aft();
+                    this.ckW.smoothScrollToPosition(selectedCount2);
+                    this.clb.setVisibility(0);
+                    this.clb.setText(a(mediaModel));
+                    this.clb.setBackgroundResource(a.e.swanapp_album_preview_select_bg);
+                    this.cla.setText(getString(a.h.swanapp_album_selected_done) + "(" + e.getSelectedCount() + ")");
+                    this.cla.setTextColor(getResources().getColor(a.c.swanapp_album_preview_select_done_color));
+                    aiI();
                 }
-            } else if (view == this.cax) {
-                if (e.getSelectedCount() == 0 && this.caH != null && this.caH.size() > 0 && this.mIndex < this.caH.size()) {
+            } else if (view == this.cla) {
+                if (e.getSelectedCount() == 0 && this.clk != null && this.clk.size() > 0 && this.mIndex < this.clk.size()) {
                     e.e(mediaModel);
                 }
                 Bundle bundle = new Bundle();
-                bundle.putBoolean("compressed", com.baidu.swan.apps.media.chooser.b.d.bZT);
-                bundle.putString("swanAppId", com.baidu.swan.apps.media.chooser.b.d.cbJ);
-                bundle.putParcelableArrayList("mediaModels", e.afI());
-                bundle.putString("swanTmpPath", com.baidu.swan.apps.media.chooser.b.d.cbL);
+                bundle.putBoolean("compressed", com.baidu.swan.apps.media.chooser.b.d.ckw);
+                bundle.putString("swanAppId", com.baidu.swan.apps.media.chooser.b.d.cmn);
+                bundle.putParcelableArrayList("mediaModels", e.aiX());
+                bundle.putString("swanTmpPath", com.baidu.swan.apps.media.chooser.b.d.cmp);
                 com.baidu.swan.apps.media.chooser.b.d.c(this, bundle);
             }
         }
@@ -373,12 +373,12 @@ public class SwanAppAlbumPreviewActivity extends SwanAppBaseActivity implements 
     @Override // com.baidu.swan.support.v4.app.FragmentActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4) {
-            afw();
+            aiL();
         }
         return super.onKeyDown(i, keyEvent);
     }
 
-    private void afw() {
+    private void aiL() {
         Intent intent = new Intent();
         intent.putExtra("isRefresh", true);
         setResult(-1, intent);
@@ -388,33 +388,33 @@ public class SwanAppAlbumPreviewActivity extends SwanAppBaseActivity implements 
     @Override // com.baidu.swan.support.v4.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.caC != null) {
-            this.caC.destroy();
-            this.caC = null;
+        if (this.clf != null) {
+            this.clf.destroy();
+            this.clf = null;
         }
-        this.caD = null;
-        this.caB = null;
-        if (this.caH != null) {
-            this.caH = null;
-        }
-    }
-
-    @Override // com.baidu.swan.apps.media.chooser.c.a
-    public void afx() {
-        if (!this.caG && this.caF) {
-            afy();
-        } else if (!this.caG) {
-            afz();
+        this.clg = null;
+        this.cle = null;
+        if (this.clk != null) {
+            this.clk = null;
         }
     }
 
     @Override // com.baidu.swan.apps.media.chooser.c.a
-    public void afy() {
-        if (this.caF) {
-            this.caG = true;
-            float y = this.caA.getY();
-            float y2 = this.caz.getY();
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.caA, "y", y, y - this.caA.getHeight());
+    public void aiM() {
+        if (!this.clj && this.cli) {
+            aiN();
+        } else if (!this.clj) {
+            aiO();
+        }
+    }
+
+    @Override // com.baidu.swan.apps.media.chooser.c.a
+    public void aiN() {
+        if (this.cli) {
+            this.clj = true;
+            float y = this.cld.getY();
+            float y2 = this.clc.getY();
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.cld, "y", y, y - this.cld.getHeight());
             ofFloat.setDuration(this.mDuration);
             ofFloat.addListener(new Animator.AnimatorListener() { // from class: com.baidu.swan.apps.media.chooser.activity.SwanAppAlbumPreviewActivity.5
                 @Override // android.animation.Animator.AnimatorListener
@@ -423,8 +423,8 @@ public class SwanAppAlbumPreviewActivity extends SwanAppBaseActivity implements 
 
                 @Override // android.animation.Animator.AnimatorListener
                 public void onAnimationEnd(Animator animator) {
-                    SwanAppAlbumPreviewActivity.this.caG = false;
-                    SwanAppAlbumPreviewActivity.this.caF = SwanAppAlbumPreviewActivity.this.caF ? false : true;
+                    SwanAppAlbumPreviewActivity.this.clj = false;
+                    SwanAppAlbumPreviewActivity.this.cli = SwanAppAlbumPreviewActivity.this.cli ? false : true;
                 }
 
                 @Override // android.animation.Animator.AnimatorListener
@@ -436,19 +436,19 @@ public class SwanAppAlbumPreviewActivity extends SwanAppBaseActivity implements 
                 }
             });
             ofFloat.start();
-            ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.caz, "y", y2, y2 + this.caz.getHeight());
+            ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.clc, "y", y2, y2 + this.clc.getHeight());
             ofFloat2.setDuration(this.mDuration);
             ofFloat2.start();
         }
     }
 
     @Override // com.baidu.swan.apps.media.chooser.c.a
-    public void afz() {
-        if (!this.caF) {
-            this.caG = true;
-            float y = this.caA.getY();
-            float y2 = this.caz.getY();
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.caA, "y", y, y + this.caA.getHeight());
+    public void aiO() {
+        if (!this.cli) {
+            this.clj = true;
+            float y = this.cld.getY();
+            float y2 = this.clc.getY();
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.cld, "y", y, y + this.cld.getHeight());
             ofFloat.setDuration(this.mDuration);
             ofFloat.addListener(new Animator.AnimatorListener() { // from class: com.baidu.swan.apps.media.chooser.activity.SwanAppAlbumPreviewActivity.6
                 @Override // android.animation.Animator.AnimatorListener
@@ -457,8 +457,8 @@ public class SwanAppAlbumPreviewActivity extends SwanAppBaseActivity implements 
 
                 @Override // android.animation.Animator.AnimatorListener
                 public void onAnimationEnd(Animator animator) {
-                    SwanAppAlbumPreviewActivity.this.caG = false;
-                    SwanAppAlbumPreviewActivity.this.caF = SwanAppAlbumPreviewActivity.this.caF ? false : true;
+                    SwanAppAlbumPreviewActivity.this.clj = false;
+                    SwanAppAlbumPreviewActivity.this.cli = SwanAppAlbumPreviewActivity.this.cli ? false : true;
                 }
 
                 @Override // android.animation.Animator.AnimatorListener
@@ -470,7 +470,7 @@ public class SwanAppAlbumPreviewActivity extends SwanAppBaseActivity implements 
                 }
             });
             ofFloat.start();
-            ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.caz, "y", y2, y2 - this.caz.getHeight());
+            ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.clc, "y", y2, y2 - this.clc.getHeight());
             ofFloat2.setDuration(this.mDuration);
             ofFloat2.start();
         }
@@ -479,28 +479,28 @@ public class SwanAppAlbumPreviewActivity extends SwanAppBaseActivity implements 
     @Override // com.baidu.swan.apps.view.DragView.a
     public void onClose() {
         finish();
-        overridePendingTransition(a.C0248a.swanapp_album_preview_enter, a.C0248a.aiapps_hold);
+        overridePendingTransition(a.C0281a.swanapp_album_preview_enter, a.C0281a.aiapps_hold);
     }
 
     @Override // com.baidu.swan.apps.view.DragView.a
-    public void fu(int i) {
-        fv(i);
-        fw(i);
-        if (i != 0 && this.caE) {
+    public void fI(int i) {
+        fJ(i);
+        fK(i);
+        if (i != 0 && this.clh) {
             c(new ColorDrawable(Color.parseColor("#1a1a1a")));
-            this.cas.setBackground(new ColorDrawable(0));
-            if (this.caC != null) {
-                this.caC.ae(this.mIndex, a.c.aiapps_transparent);
+            this.ckV.setBackground(new ColorDrawable(0));
+            if (this.clf != null) {
+                this.clf.ah(this.mIndex, a.c.aiapps_transparent);
             }
-            this.caE = false;
+            this.clh = false;
         }
         if (i == 0) {
             c(new ColorDrawable(0));
-            this.cas.setBackgroundColor(getResources().getColor(a.c.aiapps_black));
-            if (this.caC != null) {
-                this.caC.ae(this.mIndex, a.c.aiapps_black);
+            this.ckV.setBackgroundColor(getResources().getColor(a.c.aiapps_black));
+            if (this.clf != null) {
+                this.clf.ah(this.mIndex, a.c.aiapps_black);
             }
-            this.caE = true;
+            this.clh = true;
         }
     }
 
@@ -514,17 +514,17 @@ public class SwanAppAlbumPreviewActivity extends SwanAppBaseActivity implements 
         }
     }
 
-    private void fv(int i) {
+    private void fJ(int i) {
         float f = i == 0 ? 0.0f : 1.0f;
-        if (this.caz != null) {
-            this.caz.setAlpha(1.0f - f);
+        if (this.clc != null) {
+            this.clc.setAlpha(1.0f - f);
         }
-        if (this.caA != null) {
-            this.caA.setAlpha(1.0f - f);
+        if (this.cld != null) {
+            this.cld.setAlpha(1.0f - f);
         }
     }
 
-    private void fw(int i) {
+    private void fK(int i) {
         int i2;
         int abs = Math.abs(i);
         if (abs >= 0 && abs < 300.0f) {

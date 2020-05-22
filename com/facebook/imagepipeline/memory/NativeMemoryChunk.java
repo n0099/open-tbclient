@@ -61,26 +61,26 @@ public class NativeMemoryChunk implements Closeable {
     }
 
     public synchronized int d(int i, byte[] bArr, int i2, int i3) {
-        int dj;
+        int m40do;
         com.facebook.common.internal.g.checkNotNull(bArr);
         com.facebook.common.internal.g.checkState(!isClosed());
-        dj = dj(i, i3);
-        G(i, bArr.length, i2, dj);
-        nativeCopyFromByteArray(this.mNativePtr + i, bArr, i2, dj);
-        return dj;
+        m40do = m40do(i, i3);
+        H(i, bArr.length, i2, m40do);
+        nativeCopyFromByteArray(this.mNativePtr + i, bArr, i2, m40do);
+        return m40do;
     }
 
     public synchronized int c(int i, byte[] bArr, int i2, int i3) {
-        int dj;
+        int m40do;
         com.facebook.common.internal.g.checkNotNull(bArr);
         com.facebook.common.internal.g.checkState(!isClosed());
-        dj = dj(i, i3);
-        G(i, bArr.length, i2, dj);
-        nativeCopyToByteArray(this.mNativePtr + i, bArr, i2, dj);
-        return dj;
+        m40do = m40do(i, i3);
+        H(i, bArr.length, i2, m40do);
+        nativeCopyToByteArray(this.mNativePtr + i, bArr, i2, m40do);
+        return m40do;
     }
 
-    public synchronized byte Ga(int i) {
+    public synchronized byte GM(int i) {
         byte nativeReadByte;
         synchronized (this) {
             com.facebook.common.internal.g.checkState(!isClosed());
@@ -112,14 +112,14 @@ public class NativeMemoryChunk implements Closeable {
         }
     }
 
-    public long dne() {
+    public long dux() {
         return this.mNativePtr;
     }
 
     private void b(int i, NativeMemoryChunk nativeMemoryChunk, int i2, int i3) {
         com.facebook.common.internal.g.checkState(!isClosed());
         com.facebook.common.internal.g.checkState(nativeMemoryChunk.isClosed() ? false : true);
-        G(i, nativeMemoryChunk.mSize, i2, i3);
+        H(i, nativeMemoryChunk.mSize, i2, i3);
         nativeMemcpy(nativeMemoryChunk.mNativePtr + i2, this.mNativePtr + i, i3);
     }
 
@@ -134,11 +134,12 @@ public class NativeMemoryChunk implements Closeable {
         }
     }
 
-    private int dj(int i, int i2) {
+    /* renamed from: do  reason: not valid java name */
+    private int m40do(int i, int i2) {
         return Math.min(Math.max(0, this.mSize - i), i2);
     }
 
-    private void G(int i, int i2, int i3, int i4) {
+    private void H(int i, int i2, int i3, int i4) {
         com.facebook.common.internal.g.checkArgument(i4 >= 0);
         com.facebook.common.internal.g.checkArgument(i >= 0);
         com.facebook.common.internal.g.checkArgument(i3 >= 0);

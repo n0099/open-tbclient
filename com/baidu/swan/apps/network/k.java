@@ -9,8 +9,8 @@ import kotlin.jvm.internal.q;
 @kotlin.h
 /* loaded from: classes11.dex */
 public final class k {
-    public static final a cfy = new a(null);
-    private volatile Set<String> cfx;
+    public static final a cqh = new a(null);
+    private volatile Set<String> cqg;
 
     @kotlin.h
     /* loaded from: classes11.dex */
@@ -24,26 +24,26 @@ public final class k {
     }
 
     public final synchronized void a(WebSocketTask webSocketTask) {
-        q.j(webSocketTask, "task");
-        if (this.cfx == null) {
-            this.cfx = new LinkedHashSet();
+        q.m(webSocketTask, "task");
+        if (this.cqg == null) {
+            this.cqg = new LinkedHashSet();
         }
-        Set<String> set = this.cfx;
+        Set<String> set = this.cqg;
         if (set != null) {
             set.add(webSocketTask.getTaskId());
         }
     }
 
-    public final synchronized void kT(String str) {
-        q.j(str, "taskId");
-        Set<String> set = this.cfx;
+    public final synchronized void mh(String str) {
+        q.m(str, "taskId");
+        Set<String> set = this.cqg;
         if (set != null) {
             set.remove(str);
         }
     }
 
     public final synchronized void release() {
-        Set<String> set = this.cfx;
+        Set<String> set = this.cqg;
         if (set != null) {
             for (String str : set) {
                 try {
@@ -53,16 +53,16 @@ public final class k {
                 }
             }
         }
-        Set<String> set2 = this.cfx;
+        Set<String> set2 = this.cqg;
         if (set2 != null) {
             set2.clear();
         }
     }
 
-    public final synchronized boolean ahi() {
+    public final synchronized boolean akC() {
         boolean z;
         synchronized (this) {
-            Set<String> set = this.cfx;
+            Set<String> set = this.cqg;
             z = (set != null ? set.size() : 0) < 5;
         }
         return z;

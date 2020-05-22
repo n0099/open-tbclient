@@ -52,7 +52,7 @@ public final class BlockingObservableIterable<T> implements Iterable<T> {
                 }
                 if (isEmpty) {
                     try {
-                        c.dDb();
+                        c.dKV();
                         this.lock.lock();
                         while (!this.done && this.queue.isEmpty()) {
                             this.condition.await();

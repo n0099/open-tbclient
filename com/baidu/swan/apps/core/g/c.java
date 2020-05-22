@@ -15,15 +15,15 @@ public class c extends SwanAppWebViewManager implements com.baidu.swan.apps.adap
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.core.SwanAppWebViewManager
-    public void UH() {
+    public void Xn() {
     }
 
     @Override // com.baidu.swan.apps.core.SwanAppWebViewManager
-    protected void UE() {
+    protected void Xk() {
     }
 
     @Override // com.baidu.swan.apps.core.SwanAppWebViewManager, com.baidu.swan.apps.adaptation.b.e
-    public String QF() {
+    public String Tj() {
         return "master";
     }
 
@@ -33,22 +33,22 @@ public class c extends SwanAppWebViewManager implements com.baidu.swan.apps.adap
     }
 
     @Override // com.baidu.swan.apps.core.g.a
-    public com.baidu.swan.apps.core.container.a Rr() {
-        return QD();
+    public com.baidu.swan.apps.core.container.a TR() {
+        return Th();
     }
 
     @Override // com.baidu.swan.apps.core.g.a
-    public void a(com.baidu.swan.apps.core.k.a aVar) {
-        if (aVar != null && a.b.dY(0)) {
+    public void a(com.baidu.swan.apps.core.turbo.a aVar) {
+        if (aVar != null && a.b.ee(0)) {
             if (DEBUG) {
                 Log.d("SwanAppMasterManager", "pathList item: " + aVar.appPath);
             }
-            this.bKF.getSettings().setCodeCacheSetting(com.baidu.swan.apps.core.b.b.aG("appjs", aVar.appPath));
+            this.bTC.getSettings().setCodeCacheSetting(com.baidu.swan.apps.core.b.b.aW("appjs", aVar.appPath));
         }
     }
 
     @Override // com.baidu.swan.apps.core.SwanAppWebViewManager, com.baidu.swan.apps.adaptation.b.e
     public void onJSLoaded() {
-        com.baidu.swan.apps.core.k.d.Yn().dx(true);
+        com.baidu.swan.apps.core.turbo.d.abl().dM(true);
     }
 }

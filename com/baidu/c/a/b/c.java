@@ -9,7 +9,7 @@ public interface c {
 
     void b(b bVar);
 
-    void fm(String str);
+    void fY(String str);
 
     void quitLiveShow();
 

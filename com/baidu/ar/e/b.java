@@ -29,9 +29,9 @@ public class b {
         }
     }
 
-    public void b(a.InterfaceC0079a interfaceC0079a) {
+    public void b(a.InterfaceC0081a interfaceC0081a) {
         if (this.um != null) {
-            this.um.a(interfaceC0079a);
+            this.um.a(interfaceC0081a);
             if (this.un) {
                 return;
             }

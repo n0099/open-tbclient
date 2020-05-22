@@ -1,157 +1,253 @@
 package com.baidu.swan.apps.media.b;
 
+import android.content.Context;
+import android.support.annotation.NonNull;
 import android.text.TextUtils;
-import com.baidu.ala.recorder.video.hardware.AudioEncoderCore;
-import com.baidu.searchbox.ugc.transcoder.TranscoderPlugin;
-import com.baidu.searchbox.ui.CoolPraiseGuideLottieView;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import org.json.JSONObject;
-import tv.danmaku.ijk.media.player.IjkMediaMeta;
+import android.util.Log;
+import android.widget.FrameLayout;
+import com.baidu.swan.apps.u.b.j;
+import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 /* loaded from: classes11.dex */
-public class a {
-    protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public String ccz;
-    public int ccw = 60000;
-    public String ccx = TranscoderPlugin.AUDIO_CODEC;
-    public int channel = 1;
-    public int sampleRate = CoolPraiseGuideLottieView.ANIM_DURATION;
-    public int bitRate = 16000;
-    public int ccy = 1;
+public class a implements com.baidu.swan.apps.media.a {
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
+    private j cnE;
+    private String cnF;
+    private c cnG;
+    private boolean cnH;
+    private b cnI;
+    private Context mContext;
+    private boolean mIsForeground = true;
 
-    public static a a(JSONObject jSONObject, a aVar) {
-        if (jSONObject != null && jSONObject.length() > 0) {
-            aVar = new a();
-            aVar.ccw = jSONObject.optInt("duration", 60000);
-            aVar.ccx = jSONObject.optString(IjkMediaMeta.IJKM_KEY_FORMAT);
-            if (TextUtils.isEmpty(aVar.ccx)) {
-                aVar.ccx = TranscoderPlugin.AUDIO_CODEC;
-            }
-            aVar.channel = jSONObject.optInt("numberOfChannels", 1);
-            aVar.sampleRate = jSONObject.optInt("sampleRate", CoolPraiseGuideLottieView.ANIM_DURATION);
-            aVar.bitRate = jSONObject.optInt("encodeBitRate");
-            if (aVar.bitRate == 0) {
-                switch (aVar.sampleRate) {
-                    case CoolPraiseGuideLottieView.ANIM_DURATION /* 8000 */:
-                        aVar.bitRate = 16000;
-                        break;
-                    case 16000:
-                        aVar.bitRate = 24000;
-                        break;
-                    case 44100:
-                        aVar.bitRate = AudioEncoderCore.EncodeConfig.BIT_RATE;
-                        break;
-                }
-            }
-            aVar.ccy = kA(jSONObject.optString("audioSource", "auto"));
-            aVar.ccz = jSONObject.optString("cb");
-        }
-        return aVar;
+    public a(Context context, @NonNull c cVar) {
+        this.mContext = context;
+        this.cnG = cVar;
+        this.cnF = cVar.cjA;
+        ajB();
+        ajA();
     }
 
-    public JSONObject aga() {
-        if (this.ccw > 600000 || this.ccw < 0) {
-            return UnitedSchemeUtility.wrapCallbackParams(202, "error duration");
+    private void ajA() {
+        if (!TextUtils.isEmpty(this.cnF)) {
+            com.baidu.swan.apps.media.b.a(this);
         }
-        if (this.channel != 1 && this.channel != 2) {
-            return UnitedSchemeUtility.wrapCallbackParams(202, "error channels");
-        }
-        if (!TextUtils.equals(this.ccx, TranscoderPlugin.AUDIO_CODEC) && !TextUtils.equals(this.ccx, "pcm")) {
-            return UnitedSchemeUtility.wrapCallbackParams(202, "error format");
-        }
-        if (this.sampleRate != 8000 && this.sampleRate != 16000 && this.sampleRate != 44100) {
-            return UnitedSchemeUtility.wrapCallbackParams(202, "error sampleRate");
-        }
-        if (!TextUtils.equals(this.ccx, "pcm")) {
-            boolean z = false;
-            switch (this.sampleRate) {
-                case CoolPraiseGuideLottieView.ANIM_DURATION /* 8000 */:
-                    if (this.bitRate > 48000 || this.bitRate < 16000) {
-                        z = true;
-                        break;
-                    }
-                    break;
-                case 16000:
-                    if (this.bitRate > 96000 || this.bitRate < 24000) {
-                        z = true;
-                        break;
-                    }
-                    break;
-                case 44100:
-                    if (this.bitRate > 320000 || this.bitRate < 64000) {
-                        z = true;
-                        break;
-                    }
-                    break;
-            }
-            if (z) {
-                return UnitedSchemeUtility.wrapCallbackParams(202, "error bitRate");
-            }
-        }
-        if (this.ccy < 0) {
-            return UnitedSchemeUtility.wrapCallbackParams(202, "error audioSource");
-        }
-        return null;
     }
 
-    public String toString() {
-        return "recordTime : " + this.ccw + "; channel : " + this.channel + "; audioFormat : " + this.ccx + "; sampleRate : " + this.sampleRate + "; bitRate : " + this.bitRate + "; callbacks : " + this.ccz;
+    public void c(c cVar) {
+        if (DEBUG) {
+            Log.e("SwanAppVideoPlayer", "update 接口");
+        }
+        if (this.cnE != null) {
+            this.cnE.a(cVar, true);
+        }
+        this.cnG = cVar;
     }
 
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    private static int kA(String str) {
-        char c;
-        switch (str.hashCode()) {
-            case -401509030:
-                if (str.equals("camcorder")) {
-                    c = 2;
-                    break;
-                }
-                c = 65535;
-                break;
-            case 108103:
-                if (str.equals("mic")) {
-                    c = 1;
-                    break;
-                }
-                c = 65535;
-                break;
-            case 3005871:
-                if (str.equals("auto")) {
-                    c = 0;
-                    break;
-                }
-                c = 65535;
-                break;
-            case 1059882026:
-                if (str.equals("voice_recognition")) {
-                    c = 4;
-                    break;
-                }
-                c = 65535;
-                break;
-            case 1611170697:
-                if (str.equals("voice_communication")) {
-                    c = 3;
-                    break;
-                }
-                c = 65535;
-                break;
-            default:
-                c = 65535;
-                break;
+    public void a(b bVar) {
+        this.cnI = bVar;
+    }
+
+    public c Tz() {
+        return this.cnG;
+    }
+
+    public void d(c cVar) {
+        com.baidu.swan.apps.console.c.d("video", "Open Player " + cVar.cjA);
+        if (this.cnE != null) {
+            this.cnE.a(cVar);
         }
-        switch (c) {
-            case 0:
-            case 1:
-                return 1;
-            case 2:
-                return 5;
-            case 3:
-                return 7;
-            case 4:
-                return 6;
-            default:
-                return -1;
+        this.cnG = cVar;
+    }
+
+    public void dX(boolean z) {
+        if (this.cnE != null) {
+            this.cnE.dX(z);
+        }
+    }
+
+    public void pause() {
+        if (ajC()) {
+            ajB().pause();
+        }
+    }
+
+    public void resume() {
+        if (ajC() && !isPlaying() && this.mIsForeground && this.cnE != null) {
+            this.cnE.resume();
+        }
+    }
+
+    public void seekTo(int i) {
+        if (ajC() && this.cnE != null) {
+            this.cnE.seekTo(i);
+        }
+    }
+
+    public int getDuration() {
+        return ajB().getDuration();
+    }
+
+    public int getCurrentPosition() {
+        return ajB().getCurrentPosition();
+    }
+
+    public boolean isPlaying() {
+        return this.cnE != null && this.cnE.isPlaying();
+    }
+
+    public boolean isEnd() {
+        return this.cnE != null && this.cnE.isEnd();
+    }
+
+    public void b(FrameLayout frameLayout) {
+        if (this.cnE != null) {
+            this.cnE.b(frameLayout);
+        }
+    }
+
+    public void i(boolean z, int i) {
+        if (this.cnE != null) {
+            this.cnE.i(z, i);
+        }
+    }
+
+    public void b(b bVar) {
+        this.cnI = bVar;
+    }
+
+    public j ajB() {
+        if (this.cnE == null) {
+            com.baidu.swan.apps.console.c.i("video", "create player");
+            this.cnE = com.baidu.swan.apps.u.a.afe().a(this.mContext, this.cnG);
+            this.cnE.a(new j.a() { // from class: com.baidu.swan.apps.media.b.a.1
+                @Override // com.baidu.swan.apps.u.b.j.a
+                public void b(j jVar) {
+                    if (a.this.cnI != null) {
+                        a.this.cnI.b(jVar);
+                    }
+                }
+            });
+            this.cnE.a(new j.b() { // from class: com.baidu.swan.apps.media.b.a.2
+                @Override // com.baidu.swan.apps.u.b.j.b
+                public boolean a(j jVar, int i, int i2) {
+                    return a.this.cnI != null && a.this.cnI.a(jVar, i, i2);
+                }
+            });
+            this.cnE.a(new j.d() { // from class: com.baidu.swan.apps.media.b.a.3
+                @Override // com.baidu.swan.apps.u.b.j.d
+                public void a(j jVar) {
+                    if (a.this.cnI != null) {
+                        a.this.cnI.a(jVar);
+                    }
+                }
+            });
+            this.cnE.a(new j.e() { // from class: com.baidu.swan.apps.media.b.a.4
+                @Override // com.baidu.swan.apps.u.b.j.e
+                public void c(j jVar) {
+                    if (a.this.cnI != null) {
+                        a.this.cnI.c(jVar);
+                    }
+                }
+            });
+            this.cnE.a(new j.f() { // from class: com.baidu.swan.apps.media.b.a.5
+                @Override // com.baidu.swan.apps.u.b.j.f
+                public void d(j jVar) {
+                    if (a.this.cnI != null) {
+                        a.this.cnI.d(jVar);
+                    }
+                }
+            });
+            this.cnE.a(new j.c() { // from class: com.baidu.swan.apps.media.b.a.6
+                @Override // com.baidu.swan.apps.u.b.j.c
+                public void e(j jVar) {
+                    if (a.this.cnI != null) {
+                        a.this.cnI.e(jVar);
+                    }
+                }
+            });
+        }
+        return this.cnE;
+    }
+
+    @Override // com.baidu.swan.apps.media.a
+    public String aey() {
+        return this.cnF;
+    }
+
+    @Override // com.baidu.swan.apps.media.a
+    public String aih() {
+        return this.cnG != null ? this.cnG.cnT : "";
+    }
+
+    @Override // com.baidu.swan.apps.media.a
+    public String getSlaveId() {
+        return this.cnG.bPG;
+    }
+
+    @Override // com.baidu.swan.apps.media.a
+    public Object aii() {
+        return this;
+    }
+
+    @Override // com.baidu.swan.apps.media.a
+    public void ee(boolean z) {
+        this.mIsForeground = z;
+        if (z) {
+            if (this.cnH) {
+                ajB().resume();
+            }
+            ajB().Su();
+        } else if (this.cnE != null) {
+            this.cnH = ajB().isPlaying();
+            ajB().pause();
+            ajB().Sw();
+        }
+    }
+
+    @Override // com.baidu.swan.apps.media.a
+    public void ef(boolean z) {
+    }
+
+    @Override // com.baidu.swan.apps.media.a
+    public boolean onBackPressed() {
+        com.baidu.swan.apps.console.c.d("video", "onBackPressed");
+        return this.cnE != null && this.cnE.onBackPressed();
+    }
+
+    @Override // com.baidu.swan.apps.media.a
+    public void onDestroy() {
+        com.baidu.swan.apps.console.c.d("video", MissionEvent.MESSAGE_DESTROY);
+        if (this.cnE != null) {
+            this.cnE.stop();
+            this.cnE = null;
+        }
+        com.baidu.swan.apps.media.b.b(this);
+    }
+
+    public void kG(String str) {
+        if (this.cnE != null) {
+            this.cnE.kG(str);
+        }
+    }
+
+    public void b(c cVar) {
+        if (this.cnE != null) {
+            this.cnE.b(cVar);
+        }
+    }
+
+    public void agm() {
+        if (this.cnE != null) {
+            this.cnE.agm();
+        }
+    }
+
+    private boolean ajC() {
+        return (this.cnG == null || TextUtils.isEmpty(this.cnG.mSrc) || TextUtils.isEmpty(this.cnF) || TextUtils.isEmpty(this.cnG.bPF)) ? false : true;
+    }
+
+    public void dW(boolean z) {
+        if (this.cnE != null) {
+            this.cnE.dW(z);
         }
     }
 }

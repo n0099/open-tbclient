@@ -8,16 +8,16 @@ import com.baidu.tbadk.core.util.v;
 import java.util.LinkedList;
 /* loaded from: classes3.dex */
 public class AlaPrivilegeFragmentAdapter extends AbsTabPagerAdapter {
-    private LinkedList<AbsFragment> gah;
+    private LinkedList<AbsFragment> gpb;
 
     public AlaPrivilegeFragmentAdapter(FragmentManager fragmentManager, LinkedList<AbsFragment> linkedList) {
         super(fragmentManager);
-        this.gah = new LinkedList<>();
+        this.gpb = new LinkedList<>();
         if (!v.isEmpty(linkedList)) {
-            if (!v.isEmpty(this.gah)) {
-                this.gah.clear();
+            if (!v.isEmpty(this.gpb)) {
+                this.gpb.clear();
             }
-            this.gah.addAll(linkedList);
+            this.gpb.addAll(linkedList);
         }
     }
 
@@ -28,16 +28,16 @@ public class AlaPrivilegeFragmentAdapter extends AbsTabPagerAdapter {
 
     @Override // com.baidu.ala.widget.multicolumn.absView.AbsTabPagerAdapter
     public String getTabTitle(int i) {
-        return (i < 0 || i >= this.gah.size()) ? "" : this.gah.get(i).getTabTitle();
+        return (i < 0 || i >= this.gpb.size()) ? "" : this.gpb.get(i).getTabTitle();
     }
 
     @Override // android.support.v4.app.FragmentPagerAdapter
     public Fragment getItem(int i) {
-        return (AbsFragment) v.getItem(this.gah, i);
+        return (AbsFragment) v.getItem(this.gpb, i);
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public int getCount() {
-        return v.getCount(this.gah);
+        return v.getCount(this.gpb);
     }
 }

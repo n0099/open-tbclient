@@ -9,6 +9,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
 import com.baidu.adp.lib.util.l;
+import com.baidu.tbadk.a.d;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
@@ -16,11 +17,11 @@ import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class FragmentTabWidget extends LinearLayout {
-    private int dxV;
-    private a dxW;
-    private c dxX;
-    private boolean dxY;
-    private View dxZ;
+    private int dMb;
+    private a dMc;
+    private c dMd;
+    private boolean dMe;
+    private View dMf;
     private boolean isAbsoluteDivide;
     private int left;
     private int mBackgroundColorResId;
@@ -59,7 +60,7 @@ public class FragmentTabWidget extends LinearLayout {
         this.mCursorRect = new Rect();
         this.mButtomRectDviderRect = new Rect();
         this.mTopDviderRect = new Rect();
-        this.dxV = 0;
+        this.dMb = 0;
         this.mSelectedTabIndex = -1;
         this.mPaint = new Paint();
         this.mCursorWidth = 0;
@@ -67,7 +68,7 @@ public class FragmentTabWidget extends LinearLayout {
         this.shouldDrawTopLine = false;
         this.tabItemNeedPadding = false;
         this.isAbsoluteDivide = false;
-        this.dxY = true;
+        this.dMe = true;
         init();
     }
 
@@ -76,7 +77,7 @@ public class FragmentTabWidget extends LinearLayout {
         this.mCursorRect = new Rect();
         this.mButtomRectDviderRect = new Rect();
         this.mTopDviderRect = new Rect();
-        this.dxV = 0;
+        this.dMb = 0;
         this.mSelectedTabIndex = -1;
         this.mPaint = new Paint();
         this.mCursorWidth = 0;
@@ -84,7 +85,7 @@ public class FragmentTabWidget extends LinearLayout {
         this.shouldDrawTopLine = false;
         this.tabItemNeedPadding = false;
         this.isAbsoluteDivide = false;
-        this.dxY = true;
+        this.dMe = true;
         init();
     }
 
@@ -128,8 +129,8 @@ public class FragmentTabWidget extends LinearLayout {
     @Override // android.view.View
     protected void onSizeChanged(int i, int i2, int i3, int i4) {
         super.onSizeChanged(i, i2, i3, i4);
-        if (this.dxX != null) {
-            this.dxX.onSizeChanged(i, i2, i3, i4);
+        if (this.dMd != null) {
+            this.dMd.onSizeChanged(i, i2, i3, i4);
         }
     }
 
@@ -148,21 +149,21 @@ public class FragmentTabWidget extends LinearLayout {
     }
 
     public void addView(View view, int i, boolean z) {
-        c(view, z);
+        e(view, z);
         super.addView(view, i);
         if (z) {
-            this.dxZ = view;
+            this.dMf = view;
         }
         view.setOnClickListener(new b(getChildCount() - 1));
     }
 
     public View getWriteView() {
-        return this.dxZ;
+        return this.dMf;
     }
 
-    public void c(View view, boolean z) {
+    public void e(View view, boolean z) {
         LinearLayout.LayoutParams layoutParams;
-        int dimens = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds73);
+        int dimens = !d.aMs() ? l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds73) : 0;
         if (this.isAbsoluteDivide) {
             layoutParams = new LinearLayout.LayoutParams(0, -1, 1.0f);
         } else {
@@ -246,7 +247,7 @@ public class FragmentTabWidget extends LinearLayout {
     }
 
     public void onChangeSkinType(int i) {
-        if (this.mBackgroundColorResId != 0 && this.dxV == 0) {
+        if (this.mBackgroundColorResId != 0 && this.dMb == 0) {
             am.setBackgroundColor(this, this.mBackgroundColorResId);
         }
         this.mCursorColor = am.getColor(R.color.cp_cont_b);
@@ -265,7 +266,7 @@ public class FragmentTabWidget extends LinearLayout {
     public void draw(Canvas canvas) {
         super.draw(canvas);
         this.mPaint.setColor(this.mDividerColor);
-        if (this.dxY) {
+        if (this.dMe) {
             canvas.drawRect(this.mButtomRectDviderRect, this.mPaint);
         }
         if (this.shouldDrawTopLine) {
@@ -278,7 +279,7 @@ public class FragmentTabWidget extends LinearLayout {
     }
 
     public void setShouldDrawDividerLine(boolean z) {
-        this.dxY = z;
+        this.dMe = z;
     }
 
     public void setShouldDrawIndicatorLine(boolean z) {
@@ -290,11 +291,11 @@ public class FragmentTabWidget extends LinearLayout {
     }
 
     public void setTabSelectionListener(a aVar) {
-        this.dxW = aVar;
+        this.dMc = aVar;
     }
 
     public void setOnSizeChangedListener(c cVar) {
-        this.dxX = cVar;
+        this.dMd = cVar;
     }
 
     public void setDviderRectWidth(int i) {
@@ -310,7 +311,7 @@ public class FragmentTabWidget extends LinearLayout {
     }
 
     public void setBackGroundStyle(int i) {
-        this.dxV = i;
+        this.dMb = i;
     }
 
     public void setAbsoluteWeight(boolean z) {
@@ -327,7 +328,7 @@ public class FragmentTabWidget extends LinearLayout {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            FragmentTabWidget.this.dxW.onTabSelectionChanged(this.mTabIndex, true);
+            FragmentTabWidget.this.dMc.onTabSelectionChanged(this.mTabIndex, true);
         }
     }
 }

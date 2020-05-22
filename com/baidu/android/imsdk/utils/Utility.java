@@ -10,6 +10,7 @@ import android.net.NetworkInfo;
 import android.os.Build;
 import android.os.Environment;
 import android.os.Looper;
+import android.support.v4.app.ActivityCompat;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.Log;
@@ -682,20 +683,20 @@ public final class Utility {
         }
     }
 
-    @SuppressLint({"MissingPermission", "HardwareIds"})
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:13:0x0025 -> B:9:0x001e). Please submit an issue!!! */
+    @SuppressLint({"HardwareIds"})
     public static String getImei(Context context) {
-        String deviceId;
         try {
             TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
-            if (Build.VERSION.SDK_INT >= 26) {
-                deviceId = telephonyManager.getImei();
-            } else {
-                deviceId = telephonyManager.getDeviceId();
+            if (telephonyManager != null) {
+                if (Build.VERSION.SDK_INT >= 26 && ActivityCompat.checkSelfPermission(context, "android.permission.READ_PHONE_STATE") == 0) {
+                    return telephonyManager.getImei();
+                }
+                return telephonyManager.getDeviceId();
             }
-            return deviceId;
         } catch (Exception e) {
-            return "";
         }
+        return "";
     }
 
     public static String getLoginCookie(Context context) {
@@ -824,8 +825,17 @@ public final class Utility {
         return cipher.doFinal(bArr);
     }
 
-    public static boolean isIp(String str) {
+    public static boolean isIpv4(String str) {
         return (str == null || str.isEmpty() || !str.matches("^(1\\d{2}|2[0-4]\\d|25[0-5]|[1-9]\\d|[1-9])\\.(1\\d{2}|2[0-4]\\d|25[0-5]|[1-9]\\d|\\d)\\.(1\\d{2}|2[0-4]\\d|25[0-5]|[1-9]\\d|\\d)\\.(1\\d{2}|2[0-4]\\d|25[0-5]|[1-9]\\d|\\d)$")) ? false : true;
+    }
+
+    public static boolean isIpv4Reachable() {
+        try {
+            return InetAddress.getByName("180.76.76.76").isReachable(1000);
+        } catch (Exception e) {
+            LogUtils.e(TAG, "isIpv4Reachable", e);
+            return true;
+        }
     }
 
     public static int getLoginRole(Context context) {
@@ -863,5 +873,13 @@ public final class Utility {
             return i == 25 ? 20 : 3;
         }
         return 3;
+    }
+
+    public static void setStudioHostSendMsg(Context context, boolean z) {
+        writeBooleanData(context, Constants.KEY_STUDIO_IS_HOST_SEND_MSG, z);
+    }
+
+    public static boolean isStudioHostSendMsg(Context context) {
+        return readBooleanData(context, Constants.KEY_STUDIO_IS_HOST_SEND_MSG, false);
     }
 }

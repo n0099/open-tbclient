@@ -1,18 +1,18 @@
 package com.baidu.tieba.personCenter;
 /* loaded from: classes9.dex */
 public class a {
-    private static a jSQ = new a();
+    private static a kkI = new a();
     private long creatTime = 0;
-    private long edT = 0;
+    private long esg = 0;
     private long beginTime = 0;
-    private long jSR = 0;
-    private long jSS = 0;
+    private long kkJ = 0;
+    private long kkK = 0;
 
     private a() {
     }
 
-    public static a cGc() {
-        return jSQ;
+    public static a cNb() {
+        return kkI;
     }
 
     public long getCreateTime() {
@@ -23,7 +23,7 @@ public class a {
         this.creatTime = j;
     }
 
-    public long aDQ() {
+    public long aIA() {
         return this.beginTime;
     }
 
@@ -31,27 +31,27 @@ public class a {
         this.beginTime = j;
     }
 
-    public long cGd() {
-        return this.edT;
-    }
-
-    public void fe(long j) {
-        this.edT = j;
-    }
-
-    public long getRefreshTime() {
-        return this.jSR;
-    }
-
-    public void setRefreshTime(long j) {
-        this.jSR = j;
-    }
-
-    public long cGe() {
-        return this.jSS;
+    public long cNc() {
+        return this.esg;
     }
 
     public void ff(long j) {
-        this.jSS = j;
+        this.esg = j;
+    }
+
+    public long getRefreshTime() {
+        return this.kkJ;
+    }
+
+    public void setRefreshTime(long j) {
+        this.kkJ = j;
+    }
+
+    public long cNd() {
+        return this.kkK;
+    }
+
+    public void fg(long j) {
+        this.kkK = j;
     }
 }

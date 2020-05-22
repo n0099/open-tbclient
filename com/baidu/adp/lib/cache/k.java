@@ -7,7 +7,7 @@ public interface k<T> {
 
     T get(String str, String str2);
 
-    e ka();
+    e kc();
 
     l.b<T> r(String str, String str2);
 

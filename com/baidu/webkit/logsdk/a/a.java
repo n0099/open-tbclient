@@ -24,13 +24,13 @@ import java.util.Iterator;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public final class a {
-    private static String n = null;
+    private static String n;
     private String a;
     private int b;
     private int c;
     private int d;
     private String e;
-    private int f = 0;
+    private int f;
     private String g;
     private String h;
     private String i;
@@ -148,7 +148,7 @@ public final class a {
             return "fail";
         } catch (Exception e) {
             com.baidu.webkit.logsdk.d.c.a(e);
-            return com.baidu.fsg.base.statistics.b.k;
+            return "exception";
         }
     }
 
@@ -273,7 +273,6 @@ public final class a {
         return this.m;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     public final int a(String str, Context context) {
         char c;
@@ -550,7 +549,6 @@ public final class a {
         return sb.toString();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public final String a(String str, Context context, com.baidu.webkit.logsdk.b bVar) {
         char c = 65535;
         switch (str.hashCode()) {

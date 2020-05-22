@@ -4,8 +4,8 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.os.Handler;
 import android.widget.LinearLayout;
-import com.baidu.live.data.ab;
-import com.baidu.live.data.be;
+import com.baidu.live.data.af;
+import com.baidu.live.data.bj;
 import com.baidu.live.im.view.LandscapeImBarrageTrackView;
 import com.baidu.live.u.a;
 import java.util.ArrayList;
@@ -14,8 +14,8 @@ import java.util.List;
 import java.util.Queue;
 /* loaded from: classes3.dex */
 public class ImBarrageTrackListView extends LinearLayout {
-    private List<LandscapeImBarrageTrackView> aPo;
-    private Queue<LandscapeImBarrageTrackView> aPp;
+    private List<LandscapeImBarrageTrackView> aVx;
+    private Queue<LandscapeImBarrageTrackView> aVy;
     private Handler handler;
     private boolean isPlaying;
     private Runnable runnable;
@@ -25,9 +25,9 @@ public class ImBarrageTrackListView extends LinearLayout {
         this.runnable = new Runnable() { // from class: com.baidu.live.im.view.barrage.ImBarrageTrackListView.1
             @Override // java.lang.Runnable
             public void run() {
-                if (ImBarrageTrackListView.this.aPo != null && !ImBarrageTrackListView.this.aPo.isEmpty() && ImBarrageTrackListView.this.isPlaying) {
-                    for (LandscapeImBarrageTrackView landscapeImBarrageTrackView : ImBarrageTrackListView.this.aPo) {
-                        landscapeImBarrageTrackView.Db();
+                if (ImBarrageTrackListView.this.aVx != null && !ImBarrageTrackListView.this.aVx.isEmpty() && ImBarrageTrackListView.this.isPlaying) {
+                    for (LandscapeImBarrageTrackView landscapeImBarrageTrackView : ImBarrageTrackListView.this.aVx) {
+                        landscapeImBarrageTrackView.Ez();
                     }
                     ImBarrageTrackListView.this.handler.postDelayed(ImBarrageTrackListView.this.runnable, 16L);
                 }
@@ -35,8 +35,8 @@ public class ImBarrageTrackListView extends LinearLayout {
         };
         setOrientation(1);
         this.handler = new Handler();
-        this.aPo = new ArrayList(i);
-        this.aPp = new LinkedList();
+        this.aVx = new ArrayList(i);
+        this.aVy = new LinkedList();
         for (int i2 = 0; i2 < i; i2++) {
             LandscapeImBarrageTrackView landscapeImBarrageTrackView = new LandscapeImBarrageTrackView(context);
             Resources resources = context.getResources();
@@ -46,16 +46,16 @@ public class ImBarrageTrackListView extends LinearLayout {
             }
             landscapeImBarrageTrackView.setCallback(aVar);
             addView(landscapeImBarrageTrackView, layoutParams);
-            this.aPo.add(landscapeImBarrageTrackView);
+            this.aVx.add(landscapeImBarrageTrackView);
         }
     }
 
-    public void Df() {
-        if (this.aPo != null && this.aPp != null && !this.aPo.isEmpty()) {
-            this.aPp.clear();
-            for (LandscapeImBarrageTrackView landscapeImBarrageTrackView : this.aPo) {
+    public void ED() {
+        if (this.aVx != null && this.aVy != null && !this.aVx.isEmpty()) {
+            this.aVy.clear();
+            for (LandscapeImBarrageTrackView landscapeImBarrageTrackView : this.aVx) {
                 if (landscapeImBarrageTrackView != null) {
-                    this.aPp.offer(landscapeImBarrageTrackView);
+                    this.aVy.offer(landscapeImBarrageTrackView);
                 }
             }
             this.isPlaying = true;
@@ -66,26 +66,26 @@ public class ImBarrageTrackListView extends LinearLayout {
     }
 
     public void setCanAddNext() {
-        if (this.aPo != null && !this.aPo.isEmpty()) {
-            for (LandscapeImBarrageTrackView landscapeImBarrageTrackView : this.aPo) {
+        if (this.aVx != null && !this.aVx.isEmpty()) {
+            for (LandscapeImBarrageTrackView landscapeImBarrageTrackView : this.aVx) {
                 landscapeImBarrageTrackView.setCanAddNext();
             }
         }
     }
 
-    public boolean Da() {
-        return (this.aPp == null || this.aPp.isEmpty()) ? false : true;
+    public boolean Ey() {
+        return (this.aVy == null || this.aVy.isEmpty()) ? false : true;
     }
 
     public void c(LandscapeImBarrageTrackView landscapeImBarrageTrackView) {
-        if (this.aPp != null && !this.aPp.contains(landscapeImBarrageTrackView)) {
-            this.aPp.offer(landscapeImBarrageTrackView);
+        if (this.aVy != null && !this.aVy.contains(landscapeImBarrageTrackView)) {
+            this.aVy.offer(landscapeImBarrageTrackView);
         }
     }
 
-    public void Bm() {
-        if (this.aPo != null && !this.aPo.isEmpty()) {
-            for (final LandscapeImBarrageTrackView landscapeImBarrageTrackView : this.aPo) {
+    public void CJ() {
+        if (this.aVx != null && !this.aVx.isEmpty()) {
+            for (final LandscapeImBarrageTrackView landscapeImBarrageTrackView : this.aVx) {
                 landscapeImBarrageTrackView.post(new Runnable() { // from class: com.baidu.live.im.view.barrage.ImBarrageTrackListView.2
                     @Override // java.lang.Runnable
                     public void run() {
@@ -96,15 +96,15 @@ public class ImBarrageTrackListView extends LinearLayout {
         }
     }
 
-    public boolean c(be beVar, ab abVar, com.baidu.live.data.a aVar, String str, String str2, int i) {
-        if (this.aPp == null || this.aPp.isEmpty()) {
+    public boolean c(bj bjVar, af afVar, com.baidu.live.data.a aVar, String str, String str2, int i) {
+        if (this.aVy == null || this.aVy.isEmpty()) {
             return false;
         }
-        LandscapeImBarrageTrackView poll = this.aPp.poll();
-        if (poll != null && poll.Da()) {
-            poll.a(beVar, abVar, aVar, str, str2, i);
+        LandscapeImBarrageTrackView poll = this.aVy.poll();
+        if (poll != null && poll.Ey()) {
+            poll.a(bjVar, afVar, aVar, str, str2, i);
         }
-        return !this.aPp.isEmpty();
+        return !this.aVy.isEmpty();
     }
 
     public void release() {
@@ -112,11 +112,11 @@ public class ImBarrageTrackListView extends LinearLayout {
         if (this.handler != null) {
             this.handler.removeCallbacksAndMessages(null);
         }
-        if (this.aPp != null && !this.aPp.isEmpty()) {
-            this.aPp.clear();
+        if (this.aVy != null && !this.aVy.isEmpty()) {
+            this.aVy.clear();
         }
-        if (this.aPo != null && !this.aPo.isEmpty()) {
-            for (LandscapeImBarrageTrackView landscapeImBarrageTrackView : this.aPo) {
+        if (this.aVx != null && !this.aVx.isEmpty()) {
+            for (LandscapeImBarrageTrackView landscapeImBarrageTrackView : this.aVx) {
                 landscapeImBarrageTrackView.release();
             }
         }

@@ -6,11 +6,13 @@ import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class PayConfig {
     public static final int PAYTYPE_MEMBER = 1;
+    public static final int PAYTYPE_NOBLE = 14;
     public static final int PAYTYPE_PAY_DIRECT = 3;
     public static final int PAYTYPE_TDOU = 2;
     public static final int PAYTYPE_TYPE_CARDBOX = 4;
     public String from;
     private int isAutoPay;
+    public String liveId;
     public String mClickZone;
     private int mFrom;
     private String mIsLeft;
@@ -40,7 +42,7 @@ public class PayConfig {
         this.mPayForm = PageDialogHelper.PayForm.NOT_SET;
     }
 
-    public PayConfig(int i, String str, String str2, String str3, String str4, boolean z, String str5, boolean z2, PageDialogHelper.PayForm payForm, String str6, String str7, String str8) {
+    public PayConfig(int i, String str, String str2, String str3, String str4, boolean z, String str5, boolean z2, PageDialogHelper.PayForm payForm, String str6, String str7, String str8, String str9) {
         this.mOrderName = "";
         this.mTitle = "";
         this.mOrderInfo = "";
@@ -56,6 +58,7 @@ public class PayConfig {
         this.mReferPage = str6;
         this.mClickZone = str7;
         this.from = str8;
+        this.liveId = str9;
         this.tBeanNum = Integer.parseInt(str5);
         payForm = payForm == null ? PageDialogHelper.PayForm.NOT_SET : payForm;
         if (payForm == PageDialogHelper.PayForm.NOT_SET) {
@@ -90,6 +93,7 @@ public class PayConfig {
             jSONObject.put("mReferPage", this.mReferPage);
             jSONObject.put("mClickZone", this.mClickZone);
             jSONObject.put("from", this.from);
+            jSONObject.put("liveId", this.liveId);
             return jSONObject.toString();
         } catch (Exception e) {
             e.printStackTrace();
@@ -123,6 +127,7 @@ public class PayConfig {
                 this.mReferPage = jSONObject.optString("mReferPage");
                 this.mClickZone = jSONObject.optString("mClickZone");
                 this.from = jSONObject.optString("from");
+                this.liveId = jSONObject.optString("liveId");
             } catch (Exception e) {
                 e.printStackTrace();
             }

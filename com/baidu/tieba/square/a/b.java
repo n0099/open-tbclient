@@ -1,38 +1,38 @@
 package com.baidu.tieba.square.a;
 
 import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
-import com.baidu.adp.widget.ListView.m;
-import com.baidu.adp.widget.ListView.s;
+import com.baidu.adp.widget.ListView.o;
+import com.baidu.adp.widget.ListView.u;
 import com.baidu.tbadk.TbPageContext;
 import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes9.dex */
 public class b {
-    private List<com.baidu.adp.widget.ListView.a> aMj = new LinkedList();
-    private BdTypeRecyclerView kLx;
-    private c kLy;
-    private s kLz;
+    private List<com.baidu.adp.widget.ListView.a> aSj = new LinkedList();
+    private BdTypeRecyclerView ldN;
+    private c ldO;
+    private u ldP;
     private TbPageContext<?> mPageContext;
 
     public b(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
         this.mPageContext = tbPageContext;
-        this.kLx = bdTypeRecyclerView;
-        BB();
+        this.ldN = bdTypeRecyclerView;
+        CY();
     }
 
-    private void BB() {
-        this.kLy = new c(this.mPageContext);
-        this.aMj.add(this.kLy);
-        this.kLz = new s(this.mPageContext);
-        this.aMj.add(this.kLz);
-        this.kLx.addAdapters(this.aMj);
+    private void CY() {
+        this.ldO = new c(this.mPageContext);
+        this.aSj.add(this.ldO);
+        this.ldP = new u(this.mPageContext);
+        this.aSj.add(this.ldP);
+        this.ldN.addAdapters(this.aSj);
     }
 
     public void notifyDataSetChanged() {
-        this.kLx.getAdapter().notifyDataSetChanged();
+        this.ldN.getAdapter().notifyDataSetChanged();
     }
 
-    public void setData(List<m> list) {
-        this.kLx.setData(list);
+    public void setData(List<o> list) {
+        this.ldN.setData(list);
     }
 }

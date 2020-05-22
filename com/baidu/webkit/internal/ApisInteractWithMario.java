@@ -15,7 +15,6 @@ public abstract class ApisInteractWithMario implements INoProGuard {
     static {
         $assertionsDisabled = !ApisInteractWithMario.class.desiredAssertionStatus();
         mPenddingOps = new ArrayList<>();
-        sInstance = null;
     }
 
     public static void clearCrashKey(String str) {

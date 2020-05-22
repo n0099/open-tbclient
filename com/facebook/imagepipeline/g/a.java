@@ -1,28 +1,28 @@
 package com.facebook.imagepipeline.g;
 /* loaded from: classes13.dex */
 public class a extends c {
-    private com.facebook.imagepipeline.animated.base.d mdu;
+    private com.facebook.imagepipeline.animated.base.d mxl;
 
     public a(com.facebook.imagepipeline.animated.base.d dVar) {
-        this.mdu = dVar;
+        this.mxl = dVar;
     }
 
     @Override // com.facebook.imagepipeline.g.f
     public synchronized int getWidth() {
-        return isClosed() ? 0 : this.mdu.dqa().getWidth();
+        return isClosed() ? 0 : this.mxl.dxs().getWidth();
     }
 
     @Override // com.facebook.imagepipeline.g.f
     public synchronized int getHeight() {
-        return isClosed() ? 0 : this.mdu.dqa().getHeight();
+        return isClosed() ? 0 : this.mxl.dxs().getHeight();
     }
 
     @Override // com.facebook.imagepipeline.g.c, java.io.Closeable, java.lang.AutoCloseable
     public void close() {
         synchronized (this) {
-            if (this.mdu != null) {
-                com.facebook.imagepipeline.animated.base.d dVar = this.mdu;
-                this.mdu = null;
+            if (this.mxl != null) {
+                com.facebook.imagepipeline.animated.base.d dVar = this.mxl;
+                this.mxl = null;
                 dVar.dispose();
             }
         }
@@ -30,12 +30,12 @@ public class a extends c {
 
     @Override // com.facebook.imagepipeline.g.c
     public synchronized boolean isClosed() {
-        return this.mdu == null;
+        return this.mxl == null;
     }
 
     @Override // com.facebook.imagepipeline.g.c
     public synchronized int getSizeInBytes() {
-        return isClosed() ? 0 : this.mdu.dqa().getSizeInBytes();
+        return isClosed() ? 0 : this.mxl.dxs().getSizeInBytes();
     }
 
     @Override // com.facebook.imagepipeline.g.c
@@ -43,7 +43,7 @@ public class a extends c {
         return true;
     }
 
-    public synchronized com.facebook.imagepipeline.animated.base.d dsK() {
-        return this.mdu;
+    public synchronized com.facebook.imagepipeline.animated.base.d dAc() {
+        return this.mxl;
     }
 }

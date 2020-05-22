@@ -17,7 +17,6 @@ import com.baidu.android.util.media.MimeType;
 import com.baidu.down.request.db.DownloadDataConstants;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.searchbox.ui.animview.praise.resource.ComboPraiseProvider;
-import com.baidu.webkit.net.BdNetEngine;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.UnsupportedEncodingException;
@@ -134,7 +133,7 @@ public class Utils {
             }
             String defaultHost = Proxy.getDefaultHost();
             if (defaultHost != null && defaultHost.length() > 0) {
-                if (BdNetEngine.URI_PROXY_CMWAP.equals(defaultHost.trim()) || BdNetEngine.URI_PROXY_CTWAP.equals(defaultHost.trim())) {
+                if ("10.0.0.172".equals(defaultHost.trim()) || "10.0.0.200".equals(defaultHost.trim())) {
                     mApnType = 1;
                 } else {
                     mApnType = 2;

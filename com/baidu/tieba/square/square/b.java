@@ -20,61 +20,61 @@ import com.baidu.tieba.square.view.BestStringsFitTextView;
 import java.util.ArrayList;
 /* loaded from: classes10.dex */
 public class b extends BaseAdapter {
-    private Activity caN;
-    private ArrayList<e> kNM;
-    View.OnClickListener kNN = new View.OnClickListener() { // from class: com.baidu.tieba.square.square.b.1
+    private Activity clq;
+    private ArrayList<e> lgd;
+    View.OnClickListener lge = new View.OnClickListener() { // from class: com.baidu.tieba.square.square.b.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             e eVar;
             Object tag = view.getTag();
-            if ((tag instanceof a) && (eVar = ((a) tag).kNR) != null) {
-                if (eVar.kLO == null) {
-                    com.baidu.tieba.square.square.a.g(b.this.cUY(), null);
+            if ((tag instanceof a) && (eVar = ((a) tag).lgi) != null) {
+                if (eVar.lee == null) {
+                    com.baidu.tieba.square.square.a.g(b.this.dcc(), null);
                 } else {
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SQUARE_FORUM_LIST, new ForumListActivityConfig(b.this.cUY(), eVar.kLN, eVar.kLO, eVar.kLP)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SQUARE_FORUM_LIST, new ForumListActivityConfig(b.this.dcc(), eVar.led, eVar.lee, eVar.lef)));
                 }
             }
         }
     };
 
     public b(Activity activity, c cVar, boolean z) {
-        this.caN = activity;
-        this.kNM = cVar.cUX();
+        this.clq = activity;
+        this.lgd = cVar.dcb();
     }
 
-    public ArrayList<e> cUX() {
-        return this.kNM;
+    public ArrayList<e> dcb() {
+        return this.lgd;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     /* loaded from: classes10.dex */
     public static class a {
-        public TextView cTw;
-        public BarImageView kNP;
-        public BestStringsFitTextView kNQ;
-        public e kNR;
+        public TextView dez;
+        public BarImageView lgg;
+        public BestStringsFitTextView lgh;
+        public e lgi;
 
         protected a() {
         }
     }
 
-    public void aS(ArrayList<e> arrayList) {
-        this.kNM = arrayList;
+    public void aT(ArrayList<e> arrayList) {
+        this.lgd = arrayList;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.kNM == null) {
+        if (this.lgd == null) {
             return 0;
         }
-        return (this.kNM.size() * 2) + 1;
+        return (this.lgd.size() * 2) + 1;
     }
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         int itemViewType = getItemViewType(i);
         if (view == null) {
-            view = D(viewGroup, itemViewType);
+            view = C(viewGroup, itemViewType);
             bc.prepareNewView(view);
         }
         bc.processCurrentSkin(view);
@@ -93,41 +93,41 @@ public class b extends BaseAdapter {
         return view;
     }
 
-    private View D(ViewGroup viewGroup, int i) {
+    private View C(ViewGroup viewGroup, int i) {
         if (i == 3) {
-            return LayoutInflater.from(this.caN).inflate(R.layout.bar_home_list_line, viewGroup, false);
+            return LayoutInflater.from(this.clq).inflate(R.layout.bar_home_list_line, viewGroup, false);
         }
         if (i == 2) {
-            return LayoutInflater.from(this.caN).inflate(R.layout.bar_folder_first_dir_bottom_item, viewGroup, false);
+            return LayoutInflater.from(this.clq).inflate(R.layout.bar_folder_first_dir_bottom_item, viewGroup, false);
         }
-        View inflate = LayoutInflater.from(this.caN).inflate(R.layout.bar_folder_first_dir_item, viewGroup, false);
-        inflate.setOnClickListener(this.kNN);
+        View inflate = LayoutInflater.from(this.clq).inflate(R.layout.bar_folder_first_dir_item, viewGroup, false);
+        inflate.setOnClickListener(this.lge);
         a aVar = new a();
-        aVar.kNP = (BarImageView) inflate.findViewById(R.id.portrait);
-        aVar.cTw = (TextView) inflate.findViewById(R.id.name);
-        aVar.kNQ = (BestStringsFitTextView) inflate.findViewById(R.id.description);
+        aVar.lgg = (BarImageView) inflate.findViewById(R.id.portrait);
+        aVar.dez = (TextView) inflate.findViewById(R.id.name);
+        aVar.lgh = (BestStringsFitTextView) inflate.findViewById(R.id.description);
         inflate.setTag(aVar);
         return inflate;
     }
 
     private void a(ViewGroup viewGroup, a aVar, int i) {
-        e eVar = this.kNM.get(i / 2);
-        aVar.kNR = eVar;
-        aVar.cTw.setText(eVar.kLN);
-        if (eVar.kNU != null) {
-            aVar.kNQ.setVisibility(0);
-            String[] strArr = new String[eVar.kNU.size()];
-            for (int i2 = 0; i2 < eVar.kNU.size(); i2++) {
-                strArr[i2] = eVar.kNU.get(i2).kLN;
+        e eVar = this.lgd.get(i / 2);
+        aVar.lgi = eVar;
+        aVar.dez.setText(eVar.led);
+        if (eVar.lgl != null) {
+            aVar.lgh.setVisibility(0);
+            String[] strArr = new String[eVar.lgl.size()];
+            for (int i2 = 0; i2 < eVar.lgl.size(); i2++) {
+                strArr[i2] = eVar.lgl.get(i2).led;
             }
-            aVar.kNQ.setTextArray(strArr);
+            aVar.lgh.setTextArray(strArr);
         } else {
-            aVar.kNQ.setVisibility(8);
+            aVar.lgh.setVisibility(8);
         }
         if (eVar.logoUrl != null) {
-            int dip2px = l.dip2px(this.caN, 45.0f);
-            aVar.kNP.setTag(eVar.logoUrl);
-            aVar.kNP.a(eVar.logoUrl, 10, dip2px, dip2px, false);
+            int dip2px = l.dip2px(this.clq, 45.0f);
+            aVar.lgg.setTag(eVar.logoUrl);
+            aVar.lgg.a(eVar.logoUrl, 10, dip2px, dip2px, false);
         }
     }
 
@@ -154,7 +154,7 @@ public class b extends BaseAdapter {
         return 2;
     }
 
-    protected Activity cUY() {
-        return this.caN;
+    protected Activity dcc() {
+        return this.clq;
     }
 }

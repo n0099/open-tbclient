@@ -9,7 +9,7 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class f {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static e e(JSONObject jSONObject, String str) throws ParseError {
+    public static e j(JSONObject jSONObject, String str) throws ParseError {
         if (jSONObject == null) {
             throw new ParseError(1, "afd/entry retun null");
         }
@@ -24,10 +24,10 @@ public class f {
         if (optJSONArray == null || optJSONArray.length() == 0) {
             throw new ParseError(1, "res missing key ad");
         }
-        return f(optJSONArray.optJSONObject(0), str);
+        return k(optJSONArray.optJSONObject(0), str);
     }
 
-    private static e f(JSONObject jSONObject, String str) throws ParseError {
+    private static e k(JSONObject jSONObject, String str) throws ParseError {
         String str2;
         if (jSONObject == null) {
             throw new ParseError(1, "ad has no element");
@@ -98,8 +98,8 @@ public class f {
                     throw new ParseError(1, "info array has no first element");
                 }
                 e eVar = new e();
-                eVar.WO = z;
-                eVar.WP = com.baidu.tieba.lego.card.b.FK(optJSONObject4.optJSONObject("lego_card").toString());
+                eVar.Xc = z;
+                eVar.Xe = com.baidu.tieba.lego.card.b.Ht(optJSONObject4.optJSONObject("lego_card").toString());
                 eVar.ext = str2;
                 return eVar;
             } catch (JSONException e) {

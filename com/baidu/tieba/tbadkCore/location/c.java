@@ -3,20 +3,20 @@ package com.baidu.tieba.tbadkCore.location;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 /* loaded from: classes.dex */
 public class c {
-    private static c kUN;
-    private boolean kUO = com.baidu.tbadk.core.sharedPref.b.aNT().getBoolean(SharedPrefConfig.NO_LONGER_SHOW_ADDRESS, false);
+    private static c lnj;
+    private boolean lnk = com.baidu.tbadk.core.sharedPref.b.aTX().getBoolean(SharedPrefConfig.NO_LONGER_SHOW_ADDRESS, false);
     private a mLocationData;
     private long mTimeStamp;
 
-    public static c cWV() {
-        if (kUN == null) {
+    public static c dec() {
+        if (lnj == null) {
             synchronized (c.class) {
-                if (kUN == null) {
-                    kUN = new c();
+                if (lnj == null) {
+                    lnj = new c();
                 }
             }
         }
-        return kUN;
+        return lnj;
     }
 
     public long getTimeStamp() {
@@ -35,11 +35,11 @@ public class c {
         this.mLocationData = aVar;
     }
 
-    public boolean cWW() {
-        return this.kUO;
+    public boolean ded() {
+        return this.lnk;
     }
 
-    public void tX(boolean z) {
-        this.kUO = z;
+    public void uv(boolean z) {
+        this.lnk = z;
     }
 }

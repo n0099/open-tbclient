@@ -20,7 +20,7 @@ public final class FlowableGroupBy<T, K, V> extends io.reactivex.internal.operat
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super io.reactivex.b.b<K, V>> cVar) {
-        this.mRM.a((j) new GroupBySubscriber(cVar, this.keySelector, this.valueSelector, this.bufferSize, this.delayError));
+        this.nmU.a((j) new GroupBySubscriber(cVar, this.keySelector, this.valueSelector, this.bufferSize, this.delayError));
     }
 
     /* loaded from: classes7.dex */
@@ -82,7 +82,7 @@ public final class FlowableGroupBy<T, K, V> extends io.reactivex.internal.operat
                         return;
                     }
                     try {
-                        aVar2.onNext(io.reactivex.internal.functions.a.h(this.valueSelector.apply(t), "The valueSelector returned null"));
+                        aVar2.onNext(io.reactivex.internal.functions.a.k(this.valueSelector.apply(t), "The valueSelector returned null"));
                         if (z) {
                             aVar.offer(aVar2);
                             drain();
@@ -293,7 +293,7 @@ public final class FlowableGroupBy<T, K, V> extends io.reactivex.internal.operat
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes7.dex */
     public static final class a<K, T> extends io.reactivex.b.b<K, T> {
-        final State<T, K> mSm;
+        final State<T, K> nnt;
 
         public static <T, K> a<K, T> a(K k, int i, GroupBySubscriber<?, K, T> groupBySubscriber, boolean z) {
             return new a<>(k, new State(i, groupBySubscriber, k, z));
@@ -301,24 +301,24 @@ public final class FlowableGroupBy<T, K, V> extends io.reactivex.internal.operat
 
         protected a(K k, State<T, K> state) {
             super(k);
-            this.mSm = state;
+            this.nnt = state;
         }
 
         @Override // io.reactivex.g
         protected void a(org.a.c<? super T> cVar) {
-            this.mSm.subscribe(cVar);
+            this.nnt.subscribe(cVar);
         }
 
         public void onNext(T t) {
-            this.mSm.onNext(t);
+            this.nnt.onNext(t);
         }
 
         public void onError(Throwable th) {
-            this.mSm.onError(th);
+            this.nnt.onError(th);
         }
 
         public void onComplete() {
-            this.mSm.onComplete();
+            this.nnt.onComplete();
         }
     }
 

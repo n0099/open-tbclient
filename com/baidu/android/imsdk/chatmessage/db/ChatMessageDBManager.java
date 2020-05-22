@@ -409,7 +409,7 @@ public class ChatMessageDBManager extends DBBase {
         contentValues.put("show", Integer.valueOf(chatSession.getShow()));
         contentValues.put(TableDefine.SessionColumns.COLUMN_STATE, Integer.valueOf(chatSession.getState()));
         if (i == 0) {
-            contentValues.put(TableDefine.SessionColumns.COLUMN_WEIGHT, Integer.valueOf(chatSession.getWeight()));
+            contentValues.put("weight", Integer.valueOf(chatSession.getWeight()));
         }
         contentValues.put(TableDefine.SessionColumns.COLUMN_CHAT_TYPE, Integer.valueOf(chatSession.getChatType()));
         contentValues.put(TableDefine.SessionColumns.COLUMN_COLLECTION_TYPE, Integer.valueOf(chatSession.getCollectionType()));
@@ -736,7 +736,7 @@ public class ChatMessageDBManager extends DBBase {
         long j3 = cursor.getLong(cursor.getColumnIndex(TableDefine.SessionColumns.COLUMN_LAST_MSG_TIME));
         long j4 = cursor.getLong(cursor.getColumnIndex(TableDefine.SessionColumns.COLUMN_LAST_OPEN_TIME));
         long j5 = cursor.getInt(cursor.getColumnIndex(TableDefine.SessionColumns.COLUMN_NEW_MSG_SUM));
-        int i2 = cursor.getInt(cursor.getColumnIndex(TableDefine.SessionColumns.COLUMN_WEIGHT));
+        int i2 = cursor.getInt(cursor.getColumnIndex("weight"));
         int i3 = cursor.getInt(cursor.getColumnIndex("show"));
         int i4 = cursor.getInt(cursor.getColumnIndex(TableDefine.SessionColumns.COLUMN_COLLECTION_TYPE));
         int i5 = cursor.getInt(cursor.getColumnIndex(TableDefine.SessionColumns.COLUMN_CHAT_TYPE));
@@ -1548,7 +1548,7 @@ public class ChatMessageDBManager extends DBBase {
                     long j2 = cursor.getLong(cursor.getColumnIndex(TableDefine.SessionColumns.COLUMN_LAST_MSG_TIME));
                     long j3 = cursor.getLong(cursor.getColumnIndex(TableDefine.SessionColumns.COLUMN_LAST_OPEN_TIME));
                     long j4 = cursor.getInt(cursor.getColumnIndex(TableDefine.SessionColumns.COLUMN_NEW_MSG_SUM));
-                    int i3 = cursor.getInt(cursor.getColumnIndex(TableDefine.SessionColumns.COLUMN_WEIGHT));
+                    int i3 = cursor.getInt(cursor.getColumnIndex("weight"));
                     int i4 = cursor.getInt(cursor.getColumnIndex("show"));
                     int i5 = cursor.getInt(cursor.getColumnIndex(TableDefine.SessionColumns.COLUMN_COLLECTION_TYPE));
                     int i6 = cursor.getInt(cursor.getColumnIndex(TableDefine.SessionColumns.COLUMN_CHAT_TYPE));
@@ -3628,7 +3628,6 @@ public class ChatMessageDBManager extends DBBase {
                 ContentValues contentValues = new ContentValues();
                 contentValues.put("msgid", Long.valueOf(textMsg.getMsgId()));
                 contentValues.put("category", Integer.valueOf(textMsg.getCategory()));
-                contentValues.put("content", textMsg.getMsgContent());
                 contentValues.put("type", Integer.valueOf(textMsg.getRealMsgType()));
                 contentValues.put("from_user", Long.valueOf(textMsg.getFromUser()));
                 contentValues.put("create_time", Long.valueOf(textMsg.getMsgTime()));
@@ -3645,7 +3644,7 @@ public class ChatMessageDBManager extends DBBase {
         return j;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [3507=5, 3508=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [3506=5, 3507=4] */
     public long getMaxReliableMsgId(long j) {
         long j2;
         Cursor cursor = null;
@@ -3700,7 +3699,7 @@ public class ChatMessageDBManager extends DBBase {
         return j2;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [3537=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [3536=4] */
     /* JADX WARN: Removed duplicated region for block: B:13:0x006b A[Catch: all -> 0x00a7, TRY_ENTER, TryCatch #3 {, blocks: (B:13:0x006b, B:14:0x006e, B:29:0x00a3, B:30:0x00a6, B:23:0x0098, B:24:0x009b), top: B:40:0x0006 }] */
     /* JADX WARN: Removed duplicated region for block: B:29:0x00a3 A[Catch: all -> 0x00a7, TryCatch #3 {, blocks: (B:13:0x006b, B:14:0x006e, B:29:0x00a3, B:30:0x00a6, B:23:0x0098, B:24:0x009b), top: B:40:0x0006 }] */
     /*
@@ -3801,61 +3800,6 @@ public class ChatMessageDBManager extends DBBase {
         return j;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [3604=5, 3605=4] */
-    public long getReliableMsgCount(long j) {
-        long j2;
-        Cursor cursor = null;
-        String str = "select count(*) from liveroom_message where mcast_id = " + j;
-        synchronized (mSyncLock) {
-            SQLiteDatabase openDatabase = openDatabase();
-            if (openDatabase == null) {
-                LogUtils.e(TAG, "getMaxReliableMsgId db is null!");
-                j2 = -1;
-            } else {
-                try {
-                    try {
-                        Cursor rawQuery = openDatabase.rawQuery(str, null);
-                        if (rawQuery != null) {
-                            try {
-                                if (rawQuery.moveToFirst()) {
-                                    j2 = rawQuery.getLong(0);
-                                    if (rawQuery != null) {
-                                        rawQuery.close();
-                                    }
-                                }
-                            } catch (Exception e) {
-                                e = e;
-                                cursor = rawQuery;
-                                LogUtils.e(TAG, "getReliableMsgCount:", e);
-                                if (cursor != null) {
-                                    cursor.close();
-                                }
-                                j2 = 0;
-                                return j2;
-                            } catch (Throwable th) {
-                                th = th;
-                                cursor = rawQuery;
-                                if (cursor != null) {
-                                    cursor.close();
-                                }
-                                throw th;
-                            }
-                        }
-                        if (rawQuery != null) {
-                            rawQuery.close();
-                        }
-                    } catch (Exception e2) {
-                        e = e2;
-                    }
-                    j2 = 0;
-                } catch (Throwable th2) {
-                    th = th2;
-                }
-            }
-        }
-        return j2;
-    }
-
     public int updateChatMsgContent(ChatMsg chatMsg) {
         int i = -1;
         synchronized (mSyncLock) {
@@ -3876,7 +3820,7 @@ public class ChatMessageDBManager extends DBBase {
         return i;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [3672=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [3645=4] */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:14:0x0055 */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:20:0x005f */
     /* JADX WARN: Multi-variable type inference failed */

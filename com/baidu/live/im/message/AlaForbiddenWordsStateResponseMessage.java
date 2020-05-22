@@ -5,20 +5,20 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class AlaForbiddenWordsStateResponseMessage extends JsonHttpResponsedMessage {
-    public ImForbiddenStateData aND;
+    public ImForbiddenStateData aTJ;
 
     public AlaForbiddenWordsStateResponseMessage() {
-        super(1021187);
+        super(1021194);
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         super.decodeLogicInBackGround(i, jSONObject);
         if (getStatusCode() == 200 && jSONObject != null) {
-            this.aND = new ImForbiddenStateData();
-            this.aND.errno = getError();
-            this.aND.errMsg = getErrorString();
-            this.aND.parseJson(jSONObject);
+            this.aTJ = new ImForbiddenStateData();
+            this.aTJ.errno = getError();
+            this.aTJ.errMsg = getErrorString();
+            this.aTJ.parseJson(jSONObject);
         }
     }
 }

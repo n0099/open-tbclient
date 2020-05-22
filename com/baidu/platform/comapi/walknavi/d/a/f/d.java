@@ -2,6 +2,7 @@ package com.baidu.platform.comapi.walknavi.d.a.f;
 
 import android.os.AsyncTask;
 import android.text.TextUtils;
+import com.baidu.android.imsdk.utils.HttpHelper;
 import com.baidu.platform.comapi.walknavi.d.a.f.f;
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
@@ -36,7 +37,7 @@ public class d extends AsyncTask<String, Void, String> implements c {
             httpURLConnection.setUseCaches(false);
             httpURLConnection.setRequestMethod("POST");
             httpURLConnection.setRequestProperty(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
-            httpURLConnection.setRequestProperty("Content-Type", "application/json");
+            httpURLConnection.setRequestProperty("Content-Type", HttpHelper.CONTENT_JSON);
             DataOutputStream dataOutputStream = new DataOutputStream(httpURLConnection.getOutputStream());
             com.baidu.platform.comapi.walknavi.d.a.g.a.a("post params = " + strArr[0]);
             dataOutputStream.write(strArr[0].getBytes());

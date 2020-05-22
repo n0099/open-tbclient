@@ -1,39 +1,31 @@
 package com.baidu.swan.games.c;
 
-import com.baidu.searchbox.unitedscheme.SchemeRouter;
-import com.baidu.searchbox.v8engine.JsObject;
-import com.baidu.swan.apps.runtime.e;
-import com.baidu.swan.games.binding.c;
-import java.net.URLEncoder;
+import com.baidu.searchbox.v8engine.V8JavascriptField;
+import com.baidu.searchbox.v8engine.event.JSEvent;
+import org.json.JSONObject;
 /* loaded from: classes11.dex */
-public class a {
-    public static void a(c cVar, JsObject jsObject) {
-        boolean z = false;
-        b bVar = new b();
-        com.baidu.swan.games.binding.model.c c = com.baidu.swan.games.binding.model.c.c(jsObject);
-        if (c == null) {
-            c = new com.baidu.swan.games.binding.model.c();
+public class a extends JSEvent {
+
+    /* renamed from: com.baidu.swan.games.c.a$a  reason: collision with other inner class name */
+    /* loaded from: classes11.dex */
+    public static class C0425a {
+        @V8JavascriptField
+        public String cmd;
+        @V8JavascriptField
+        public String type;
+    }
+
+    public a(Object obj) {
+        super("sconsoleCmdMessage", obj);
+    }
+
+    public static a bI(JSONObject jSONObject) {
+        C0425a c0425a = new C0425a();
+        if (jSONObject == null) {
+            jSONObject = new JSONObject();
         }
-        if (cVar == null) {
-            bVar.errMsg = "openCustomerServiceConversation:fail";
-            com.baidu.swan.games.utils.b.a(c, false, bVar);
-            return;
-        }
-        if (com.baidu.swan.games.glsurface.a.b.awK()) {
-            e akM = e.akM();
-            if (akM != null) {
-                if (SchemeRouter.invoke(com.baidu.swan.apps.w.a.abN(), "baiduboxapp://v35/message/deliverMnpAppKey?params=" + URLEncoder.encode("{\"appKey\":\"" + akM.getAppKey() + "\"}"))) {
-                    bVar.errMsg = "openCustomerServiceConversation:ok";
-                    z = true;
-                } else {
-                    bVar.errMsg = "openCustomerServiceConversation:fail";
-                }
-            } else {
-                bVar.errMsg = "openCustomerServiceConversation:fail";
-            }
-        } else {
-            bVar.errMsg = "openCustomerServiceConversation:fail require user interaction";
-        }
-        com.baidu.swan.games.utils.b.a(c, z, bVar);
+        c0425a.type = jSONObject.optString("type");
+        c0425a.cmd = jSONObject.optString("cmd");
+        return new a(c0425a);
     }
 }

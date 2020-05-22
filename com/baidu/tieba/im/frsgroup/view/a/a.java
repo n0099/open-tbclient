@@ -10,15 +10,15 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes10.dex */
 public class a {
-    private List<com.baidu.adp.widget.ListView.a> aMj = new ArrayList();
+    private List<com.baidu.adp.widget.ListView.a> aSj = new ArrayList();
 
-    public List<com.baidu.adp.widget.ListView.a> bly() {
-        return this.aMj;
+    public List<com.baidu.adp.widget.ListView.a> bqW() {
+        return this.aSj;
     }
 
     public a(BaseActivity baseActivity) {
-        this.aMj.add(new e(baseActivity.getPageContext(), GroupInfoData.TYPE_FRS_GROUP));
-        this.aMj.add(new com.baidu.tieba.im.frsgroup.a(baseActivity.getPageContext(), GroupPermData.TYPE_FRS_CREATE_GROUP));
-        this.aMj.add(new g(baseActivity.getPageContext(), h.ilG));
+        this.aSj.add(new e(baseActivity.getPageContext(), GroupInfoData.TYPE_FRS_GROUP));
+        this.aSj.add(new com.baidu.tieba.im.frsgroup.a(baseActivity.getPageContext(), GroupPermData.TYPE_FRS_CREATE_GROUP));
+        this.aSj.add(new g(baseActivity.getPageContext(), h.iAo));
     }
 }

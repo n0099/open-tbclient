@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Message;
+import com.baidu.android.common.util.CommonParam;
 import com.baidu.android.util.io.BaseJsonData;
 import com.baidu.idl.license.License;
 import com.baidu.idl.util.FileUtil;
@@ -48,7 +49,7 @@ public class Statistics {
         this.app = context;
         this.appId = str;
         try {
-            this.userId = "0000";
+            this.userId = CommonParam.getCUID(context);
         } catch (SecurityException e) {
             e.printStackTrace();
         }

@@ -6,31 +6,32 @@ import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.apps.adaptation.a.j;
-import com.baidu.swan.apps.as.ai;
+import com.baidu.swan.apps.adaptation.a.k;
+import com.baidu.swan.apps.aq.aj;
+import com.baidu.swan.apps.aq.am;
 import com.baidu.swan.apps.console.b;
 import com.baidu.swan.apps.env.c;
 import com.baidu.swan.apps.env.launch.SwanLauncher;
 /* loaded from: classes11.dex */
 public final class e implements c.a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private c bSu;
-    private volatile boolean bSv;
+    private c cck;
+    private volatile boolean ccl;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes11.dex */
     public static class a {
-        static final e bSz = new e();
+        static final e ccp = new e();
     }
 
     private e() {
-        this.bSv = false;
-        this.bSu = new c(this);
-        com.baidu.swan.apps.extcore.cores.a.ZI().ZJ();
+        this.ccl = false;
+        this.cck = new c(this);
+        com.baidu.swan.apps.extcore.cores.a.acI().acJ();
     }
 
-    public static e Zu() {
-        return a.bSz;
+    public static e acv() {
+        return a.ccp;
     }
 
     @Override // com.baidu.swan.apps.env.b
@@ -39,61 +40,63 @@ public final class e implements c.a {
         return AppRuntime.getAppContext();
     }
 
-    public void p(Bundle bundle) {
-        if (!this.bSv) {
+    public void s(Bundle bundle) {
+        if (!this.ccl) {
             synchronized (this) {
-                if (!this.bSv) {
-                    q(bundle);
-                    this.bSv = true;
+                if (!this.ccl) {
+                    t(bundle);
+                    this.ccl = true;
                 }
             }
         }
     }
 
-    public c Zv() {
-        return this.bSu;
+    public c acw() {
+        return this.cck;
     }
 
-    private void q(Bundle bundle) {
-        r(bundle);
-        SwanLauncher.Zx().initEnv();
-        b.a.Ti();
+    private void t(Bundle bundle) {
+        u(bundle);
+        SwanLauncher.acy().e(null);
+        b.a.VP();
+        am.atV();
+        com.baidu.swan.apps.u.a.afP().So();
     }
 
-    private void r(final Bundle bundle) {
+    private void u(final Bundle bundle) {
         if (DEBUG) {
             Log.d("SwanAppEnv", "preloadSwanAppZygoteProcess");
         }
-        j ack = com.baidu.swan.apps.w.a.ack();
-        if (ack != null) {
-            final int OO = ack.OO();
+        k afn = com.baidu.swan.apps.u.a.afn();
+        if (afn != null) {
+            final int Ra = afn.Ra();
             if (DEBUG) {
-                Log.d("SwanAppEnv", "zygoteSwanProcess switch : " + OO);
+                Log.d("SwanAppEnv", "zygoteSwanProcess switch : " + Ra);
             }
-            if (!ack.OP()) {
+            if (!afn.Rb()) {
                 if (bundle == null) {
                     bundle = new Bundle();
                 }
                 if (TextUtils.isEmpty(bundle.getString("bundle_key_preload_preload_scene"))) {
                     bundle.putString("bundle_key_preload_preload_scene", "0");
                 }
-                if (bundle.getBoolean("bundle_key_preload_delay", false) && ack.OQ()) {
+                if (bundle.getBoolean("bundle_key_preload_delay", false) && afn.Rc()) {
                     if (DEBUG) {
-                        Log.d("SwanAppEnv", "zygoteSwanProcess delay - start. switch: " + OO);
+                        Log.d("SwanAppEnv", "zygoteSwanProcess delay - start. switch: " + Ra);
                     }
-                    ai.c(new Runnable() { // from class: com.baidu.swan.apps.env.e.1
+                    aj.c(new Runnable() { // from class: com.baidu.swan.apps.env.e.1
                         @Override // java.lang.Runnable
                         public void run() {
                             if (e.DEBUG) {
-                                Log.d("SwanAppEnv", "zygoteSwanProcess delay - run. switch: " + OO);
+                                Log.d("SwanAppEnv", "zygoteSwanProcess delay - run. switch: " + Ra);
                             }
                             com.baidu.swan.apps.process.messaging.service.b.b(e.this.requireContext(), bundle);
                         }
-                    }, com.baidu.swan.apps.w.a.ack().OR());
+                    }, com.baidu.swan.apps.u.a.afn().Rd());
                     return;
                 }
                 if (DEBUG) {
-                    Log.d("SwanAppEnv", "zygoteSwanProcess start. switch: " + OO);
+                    Log.d("SwanAppEnv", "zygoteSwanProcess start. switch: " + Ra);
                 }
                 com.baidu.swan.apps.process.messaging.service.b.b(requireContext(), bundle);
             }

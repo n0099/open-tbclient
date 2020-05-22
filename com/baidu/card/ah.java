@@ -2,83 +2,171 @@ package com.baidu.card;
 
 import android.content.Context;
 import android.view.View;
-import android.widget.LinearLayout;
-import com.baidu.card.b;
-import com.baidu.card.view.BjhArticleLayout;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import com.baidu.card.a.a;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.am;
-import com.baidu.tieba.R;
+import com.baidu.tbadk.core.data.AbsThreadDataSupport;
+import com.baidu.tbadk.core.view.ThreadCardBottomOpSegmentLayout;
+import com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout;
+import java.util.List;
 /* loaded from: classes8.dex */
-public class ah extends h {
-    private com.baidu.tbadk.core.data.a ade;
-    private BjhArticleLayout afl;
-    private LinearLayout mRootView;
-    private int mSkinType;
+public class ah extends b<AbsThreadDataSupport> {
+    private int afB;
+    private int afC;
+    private ThreadCommentAndPraiseInfoLayout afD;
+    private AbsThreadDataSupport afE;
+    private a.C0097a afF;
+    private Runnable afG;
 
     public ah(Context context) {
         super(context);
-        this.mSkinType = 3;
+        this.afB = 11;
+        this.afC = this.afB;
+        this.afF = new a.C0097a(5);
+        this.afG = new Runnable() { // from class: com.baidu.card.ah.1
+            @Override // java.lang.Runnable
+            public void run() {
+                ah.this.afF.setExtraData(Integer.valueOf(ah.this.afD.getCommentContainer().getRight() + ah.this.adr.rK().afq));
+                ah.this.adr.b(ah.this.afF);
+            }
+        };
+        this.afD = new ThreadCardBottomOpSegmentLayout(context);
+        this.afD.setReplyTimeVisible(false);
+        this.afD.setShowPraiseNum(true);
+        this.afD.setNeedAddPraiseIcon(true);
+        this.afD.setNeedAddReplyIcon(true);
+        this.afD.setShareVisible(true);
+        this.afD.setForumAfterClickListener(new View.OnClickListener() { // from class: com.baidu.card.ah.2
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view) {
+                if (ah.this.rs() != null) {
+                    ah.this.rs().a(view, ah.this.afE);
+                }
+            }
+        });
+    }
+
+    public void setOnCommentClickCallback(ThreadCommentAndPraiseInfoLayout.a aVar) {
+        if (this.afD != null) {
+            this.afD.setOnCommentClickCallback(aVar);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.card.b
+    public void rr() {
+        this.adr.a(4, new a.b() { // from class: com.baidu.card.ah.3
+            @Override // com.baidu.card.a.a.b
+            public boolean a(a.C0097a c0097a) {
+                if (c0097a.rS() instanceof Boolean) {
+                    if (((Boolean) c0097a.rS()).booleanValue()) {
+                        ah.this.afB = ah.this.afC;
+                    } else {
+                        ah.this.afB &= -5;
+                        ah.this.afB |= 64;
+                    }
+                    ah.this.afD.setShowFlag(ah.this.afB);
+                }
+                return false;
+            }
+        });
     }
 
     @Override // com.baidu.card.b
+    public void aX(int i) {
+        this.afB |= i;
+        this.afD.setShowFlag(this.afB);
+        this.afC = this.afB;
+    }
+
+    @Override // com.baidu.card.b
+    public void aY(int i) {
+        this.afB &= i ^ (-1);
+        this.afD.setShowFlag(this.afB);
+        this.afC = this.afB;
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.card.b
     public View getView() {
-        if (this.mRootView == null) {
-            this.mRootView = new LinearLayout(this.mContext);
-            am.setBackgroundColor(this.mRootView, R.color.cp_bg_line_g);
-            this.mRootView.setOrientation(1);
-            this.mRootView.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
-        }
-        this.mRootView.removeAllViews();
-        if (this.afl == null) {
-            this.afl = new BjhArticleLayout(this.mContext);
-            this.afl.setJumpToPbListener(new View.OnClickListener() { // from class: com.baidu.card.ah.1
-                @Override // android.view.View.OnClickListener
-                public void onClick(View view) {
-                    if (ah.this.adb != null) {
-                        ah.this.adb.a(ah.this.ade);
-                    }
-                }
-            });
-        }
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-        layoutParams.topMargin = this.mContext.getResources().getDimensionPixelSize(R.dimen.tbds22);
-        layoutParams.leftMargin = this.mContext.getResources().getDimensionPixelSize(R.dimen.tbds44);
-        layoutParams.rightMargin = this.mContext.getResources().getDimensionPixelSize(R.dimen.tbds44);
-        layoutParams.bottomMargin = this.mContext.getResources().getDimensionPixelSize(R.dimen.tbds40);
-        this.mRootView.addView(this.afl, layoutParams);
-        return this.mRootView;
+        return this.afD;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.card.m
-    /* renamed from: b */
-    public void B(com.baidu.tbadk.core.data.a aVar) {
-        this.ade = aVar;
-        if (this.afl != null) {
-            this.afl.B(this.ade);
-        }
-    }
-
-    public void a(b.a aVar) {
-        this.adb = aVar;
-    }
-
-    @Override // com.baidu.card.b
-    public void setOnCardSubClickListener(com.baidu.tieba.card.z<com.baidu.tbadk.core.data.a> zVar) {
-        super.setOnCardSubClickListener(zVar);
-        if (this.afl != null) {
-            this.afl.setSubClickListener(zVar);
-        }
-    }
-
     @Override // com.baidu.card.n
-    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        if (i != this.mSkinType) {
-            this.mSkinType = i;
-            am.setBackgroundColor(this.mRootView, R.color.cp_bg_line_g);
-            if (this.afl != null) {
-                this.afl.onChangeSkinType(tbPageContext, i);
+    /* renamed from: b */
+    public void D(AbsThreadDataSupport absThreadDataSupport) {
+        this.afE = absThreadDataSupport;
+        this.afD.setData(absThreadDataSupport.aOi());
+        if ((this.afB & 4) > 0 || (this.afB & 64) > 0) {
+            this.afD.post(this.afG);
+        }
+        rP();
+    }
+
+    private void rP() {
+        boolean z;
+        setMarginsTop(this.afD, 0);
+        b rF = this.adr.rF();
+        if (rF != null) {
+            ViewGroup viewGroup = (ViewGroup) rF.getView();
+            int childCount = viewGroup.getChildCount();
+            int i = 0;
+            while (true) {
+                if (i >= childCount) {
+                    z = true;
+                    break;
+                } else if (!(viewGroup.getChildAt(i) instanceof TextView) && viewGroup.getChildAt(i).getVisibility() == 0) {
+                    z = false;
+                    break;
+                } else {
+                    i++;
+                }
+            }
+            if (z) {
+                List<h> rH = this.adr.rH();
+                if (!com.baidu.tbadk.core.util.v.isEmpty(rH)) {
+                    for (h hVar : rH) {
+                        if (hVar != null && hVar.getView() != null && hVar.getView().getVisibility() == 0) {
+                            return;
+                        }
+                    }
+                }
             }
         }
+    }
+
+    @Override // com.baidu.card.o
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
+        this.afD.onChangeSkinType();
+    }
+
+    public void bm(int i) {
+        this.afD.dWv = i;
+    }
+
+    public void setFrom(int i) {
+        this.afD.setFrom(i);
+    }
+
+    public void setStType(String str) {
+        this.afD.setStType(str);
+    }
+
+    public void setAgreeStatisticData(com.baidu.tbadk.core.data.c cVar) {
+        this.afD.setAgreeStatisticData(cVar);
+    }
+
+    public void setShareReportFrom(int i) {
+        this.afD.setShareReportFrom(i);
+    }
+
+    public void setGameId(int i) {
+        this.afD.setGameId(i);
+    }
+
+    public void setTabName(String str) {
+        this.afD.setTabName(str);
     }
 }

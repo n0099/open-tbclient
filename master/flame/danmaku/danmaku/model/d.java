@@ -2,18 +2,18 @@ package master.flame.danmaku.danmaku.model;
 /* loaded from: classes5.dex */
 public abstract class d {
     public int index;
-    protected f naD;
-    public long naX;
-    public String[] naY;
-    public float naZ;
-    public int nba;
-    public g nbf;
-    public n<?> nbk;
-    public boolean nbl;
-    public boolean nbm;
-    public String nbn;
-    public boolean nbo;
-    public boolean nbu;
+    protected f nvG;
+    public long nwa;
+    public String[] nwb;
+    public float nwc;
+    public int nwd;
+    public g nwi;
+    public n<?> nwn;
+    public boolean nwo;
+    public boolean nwp;
+    public String nwq;
+    public boolean nwr;
+    public boolean nwx;
     public Object obj;
     public float rotationY;
     public Object tag;
@@ -21,122 +21,122 @@ public abstract class d {
     public int textColor;
     private long time;
     public int visibility;
-    public boolean naW = false;
-    public int nbb = 0;
-    public float baR = -1.0f;
+    public boolean nvZ = false;
+    public int nwe = 0;
+    public float bir = -1.0f;
     public int borderColor = 0;
     public int padding = 0;
-    public byte nbc = 0;
-    public float nbd = -1.0f;
-    public float nbe = -1.0f;
-    private int nbg = 0;
-    public int nbh = 0;
-    public int nbi = 0;
-    public int nbj = -1;
+    public byte nwf = 0;
+    public float nwg = -1.0f;
+    public float nwh = -1.0f;
+    private int nwj = 0;
+    public int nwk = 0;
+    public int nwl = 0;
+    public int nwm = -1;
     public int userId = 0;
     protected int alpha = c.MAX;
-    public int nbp = 0;
-    public int nbq = -1;
-    public j nbr = null;
-    public int nbs = 0;
-    public int nbt = -1;
+    public int nws = 0;
+    public int nwt = -1;
+    public j nwu = null;
+    public int nwv = 0;
+    public int nww = -1;
 
     public abstract void a(m mVar, float f, float f2);
 
     public abstract float[] a(m mVar, long j);
 
-    public abstract float dFl();
+    public abstract float dNf();
 
-    public abstract float dFm();
+    public abstract float dNg();
 
-    public abstract float dFn();
+    public abstract float dNh();
 
-    public abstract float dFo();
+    public abstract float dNi();
 
     public abstract int getType();
 
     public long getDuration() {
-        return this.nbf.value;
+        return this.nwi.value;
     }
 
     public int a(m mVar) {
         return mVar.n(this);
     }
 
-    public boolean dFf() {
-        return this.nbd > -1.0f && this.nbe > -1.0f && this.nbh == this.nbr.nbD;
+    public boolean dMZ() {
+        return this.nwg > -1.0f && this.nwh > -1.0f && this.nwk == this.nwu.nwG;
     }
 
     public void a(m mVar, boolean z) {
         mVar.c(this, z);
-        this.nbh = this.nbr.nbD;
+        this.nwk = this.nwu.nwG;
     }
 
     public boolean isPrepared() {
-        return this.nbj == this.nbr.nbI;
+        return this.nwm == this.nwu.nwL;
     }
 
     public void b(m mVar, boolean z) {
         mVar.b(this, z);
-        this.nbj = this.nbr.nbI;
+        this.nwm = this.nwu.nwL;
     }
 
-    public n<?> dFg() {
-        return this.nbk;
+    public n<?> dNa() {
+        return this.nwn;
     }
 
     public boolean isShown() {
-        return this.visibility == 1 && this.nbg == this.nbr.nbE;
+        return this.visibility == 1 && this.nwj == this.nwu.nwH;
     }
 
     public boolean isTimeOut() {
-        return this.naD == null || gm(this.naD.nbv);
-    }
-
-    public boolean gm(long j) {
-        return j - dFq() >= this.nbf.value;
-    }
-
-    public boolean dFh() {
-        return this.naD == null || gn(this.naD.nbv);
+        return this.nvG == null || gn(this.nvG.nwy);
     }
 
     public boolean gn(long j) {
-        long dFq = j - dFq();
-        return dFq <= 0 || dFq >= this.nbf.value;
+        return j - dNk() >= this.nwi.value;
     }
 
-    public boolean dFi() {
-        return this.naD == null || this.naD.nbv < dFq();
+    public boolean dNb() {
+        return this.nvG == null || go(this.nvG.nwy);
     }
 
-    public boolean dFj() {
-        if (this.nbq != this.nbr.nbF) {
-            this.nbp = 0;
+    public boolean go(long j) {
+        long dNk = j - dNk();
+        return dNk <= 0 || dNk >= this.nwi.value;
+    }
+
+    public boolean dNc() {
+        return this.nvG == null || this.nvG.nwy < dNk();
+    }
+
+    public boolean dNd() {
+        if (this.nwt != this.nwu.nwI) {
+            this.nws = 0;
             return false;
         }
         return true;
     }
 
-    public boolean dFk() {
-        return this.nbq == this.nbr.nbF && this.nbp != 0;
+    public boolean dNe() {
+        return this.nwt == this.nwu.nwI && this.nws != 0;
     }
 
     public void setVisibility(boolean z) {
         if (z) {
-            this.nbg = this.nbr.nbE;
+            this.nwj = this.nwu.nwH;
             this.visibility = 1;
             return;
         }
         this.visibility = 0;
     }
 
-    public f dFp() {
-        return this.naD;
+    public f dNj() {
+        return this.nvG;
     }
 
     public void c(f fVar) {
-        this.naD = fVar;
+        this.nvG = fVar;
     }
 
     public int getAlpha() {
@@ -147,28 +147,28 @@ public abstract class d {
         this.tag = obj;
     }
 
-    public void go(long j) {
-        this.naX = j;
-        this.nbi = this.nbr.nbH;
+    public void gp(long j) {
+        this.nwa = j;
+        this.nwl = this.nwu.nwK;
     }
 
     public void setTime(long j) {
         this.time = j;
-        this.naX = 0L;
+        this.nwa = 0L;
     }
 
     public long getTime() {
         return this.time;
     }
 
-    public long dFq() {
-        return (this.nbr == null || this.nbr.nbH != this.nbi) ? this.time : this.time + this.naX;
+    public long dNk() {
+        return (this.nwu == null || this.nwu.nwK != this.nwl) ? this.time : this.time + this.nwa;
     }
 
-    public boolean dFr() {
-        if (this.nbr == null || this.nbr.nbH != this.nbi) {
+    public boolean dNl() {
+        if (this.nwu == null || this.nwu.nwK != this.nwl) {
             return false;
         }
-        return this.nbu;
+        return this.nwx;
     }
 }

@@ -17,19 +17,19 @@ import org.a.d;
 /* loaded from: classes7.dex */
 public final class ParallelJoin<T> extends g<T> {
     final boolean delayErrors;
-    final a<? extends T> mTX;
+    final a<? extends T> npb;
     final int prefetch;
 
     @Override // io.reactivex.g
     protected void a(c<? super T> cVar) {
         JoinSubscriptionBase joinSubscription;
         if (this.delayErrors) {
-            joinSubscription = new JoinSubscriptionDelayError(cVar, this.mTX.dCO(), this.prefetch);
+            joinSubscription = new JoinSubscriptionDelayError(cVar, this.npb.dKI(), this.prefetch);
         } else {
-            joinSubscription = new JoinSubscription(cVar, this.mTX.dCO(), this.prefetch);
+            joinSubscription = new JoinSubscription(cVar, this.npb.dKI(), this.prefetch);
         }
         cVar.onSubscribe(joinSubscription);
-        this.mTX.a(joinSubscription.subscribers);
+        this.npb.a(joinSubscription.subscribers);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

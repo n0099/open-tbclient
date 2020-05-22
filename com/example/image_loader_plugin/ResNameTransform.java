@@ -67,6 +67,8 @@ public class ResNameTransform {
         platformImageNameMap.put("icon_mask_v20_n", "ic_icon_mask_v20_n_svg");
         platformImageNameMap.put("pic_emotion01", "new_pic_emotion_01");
         platformImageNameMap.put("pic_emotion07", "new_pic_emotion_07");
+        platformImageNameMap.put("icon_mask_shen_hui20", "icon_mask_shen_hui20_svg");
+        platformImageNameMap.put("icon_mask_shen_liang20", "icon_mask_shen_liang20_svg");
         svgColorMap.put("icon_pure_topbar_sign44_svg", "cp_cont_b");
         svgColorMap.put("icon_pure_topbar_scan44_svg", "cp_cont_b");
         svgColorMap.put("icon_pure_topbar_store44_svg", "cp_cont_b");

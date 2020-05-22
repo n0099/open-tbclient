@@ -24,7 +24,7 @@ public class t {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static Context m579a() {
+    public static Context m581a() {
         return a;
     }
 
@@ -42,13 +42,13 @@ public class t {
         try {
             return Class.forName(str);
         } catch (ClassNotFoundException e2) {
-            com.xiaomi.channel.commonutils.logger.b.m50a(String.format("loadClass fail hasContext= %s, errMsg = %s", Boolean.valueOf(z), e2.getLocalizedMessage()));
+            com.xiaomi.channel.commonutils.logger.b.m52a(String.format("loadClass fail hasContext= %s, errMsg = %s", Boolean.valueOf(z), e2.getLocalizedMessage()));
             throw new ClassNotFoundException("loadClass fail ", e2);
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static synchronized String m580a() {
+    public static synchronized String m582a() {
         String str;
         synchronized (t.class) {
             if (f936a != null) {
@@ -76,7 +76,7 @@ public class t {
     }
 
     public static String a(Context context) {
-        if (l.m497b()) {
+        if (l.m499b()) {
             return "";
         }
         String str = (String) ba.a("com.xiaomi.xmsf.helper.MIIDAccountHelper", "getMIID", context);
@@ -84,17 +84,17 @@ public class t {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m581a(Context context) {
+    public static void m583a(Context context) {
         a = context.getApplicationContext();
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m582a() {
+    public static boolean m584a() {
         return TextUtils.equals((String) ba.a("android.os.SystemProperties", "get", "sys.boot_completed"), "1");
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m583a(Context context) {
+    public static boolean m585a(Context context) {
         try {
             return (context.getApplicationInfo().flags & 2) != 0;
         } catch (Exception e) {
@@ -109,7 +109,7 @@ public class t {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public static boolean m584b() {
+    public static boolean m586b() {
         try {
             return a(null, "miui.os.Build").getField("IS_GLOBAL_BUILD").getBoolean(false);
         } catch (ClassNotFoundException e) {

@@ -12,70 +12,70 @@ import com.baidu.live.u.a;
 import com.baidu.tieba.ala.person.b.a;
 /* loaded from: classes3.dex */
 public class d implements com.baidu.live.liveroom.d.d {
-    private int fXc;
-    private b fXg;
-    private BdUniqueId fbA;
-    private CustomMessageListener ftV = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tieba.ala.person.b.d.1
+    private CustomMessageListener fHR = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tieba.ala.person.b.d.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (BdNetTypeUtil.isNetWorkAvailable() && d.this.fXg != null && d.this.fXg.isEmpty() && !d.this.fXg.isLoading()) {
-                d.this.fXg.refreshData();
+            if (BdNetTypeUtil.isNetWorkAvailable() && d.this.gma != null && d.this.gma.isEmpty() && !d.this.gma.isLoading()) {
+                d.this.gma.refreshData();
             }
         }
     };
+    private BdUniqueId fpc;
+    private int glW;
+    private b gma;
     private TbPageContext mPageContext;
     private String mUserId;
 
     public d(TbPageContext tbPageContext, int i, String str, BdUniqueId bdUniqueId) {
-        this.fbA = null;
+        this.fpc = null;
         this.mPageContext = tbPageContext;
-        this.fXc = i;
+        this.glW = i;
         this.mUserId = str;
-        this.fbA = bdUniqueId;
-        this.fXg = new b(this.mPageContext, this.fXc, this.mUserId, this.fbA);
-        if (this.fXg != null && this.fXg.isEmpty() && !this.fXg.isLoading()) {
-            this.fXg.refreshData();
+        this.fpc = bdUniqueId;
+        this.gma = new b(this.mPageContext, this.glW, this.mUserId, this.fpc);
+        if (this.gma != null && this.gma.isEmpty() && !this.gma.isLoading()) {
+            this.gma.refreshData();
         }
-        MessageManager.getInstance().registerListener(this.ftV);
+        MessageManager.getInstance().registerListener(this.fHR);
     }
 
-    public void af(String str, boolean z) {
-        if (this.fXg != null) {
-            this.fXg.af(str, z);
+    public void as(String str, boolean z) {
+        if (this.gma != null) {
+            this.gma.as(str, z);
         }
     }
 
     public int getTabType() {
-        return this.fXc;
+        return this.glW;
     }
 
     @Override // com.baidu.live.liveroom.d.d
     public View getPanelView() {
-        if (this.fXg == null) {
+        if (this.gma == null) {
             return null;
         }
-        return this.fXg.aQF();
+        return this.gma.aWN();
     }
 
     @Override // com.baidu.live.liveroom.d.d
     public String getTitle() {
-        return this.fXc == 0 ? this.mPageContext.getString(a.i.ala_person_fans) : this.mPageContext.getString(a.i.ala_person_attentions);
+        return this.glW == 0 ? this.mPageContext.getString(a.i.ala_person_fans) : this.mPageContext.getString(a.i.ala_person_attentions);
     }
 
     @Override // com.baidu.live.liveroom.d.d
-    public String AS() {
+    public String Ci() {
         return null;
     }
 
-    public void a(a.InterfaceC0531a interfaceC0531a) {
-        if (this.fXg != null) {
-            this.fXg.a(interfaceC0531a);
+    public void a(a.InterfaceC0581a interfaceC0581a) {
+        if (this.gma != null) {
+            this.gma.a(interfaceC0581a);
         }
     }
 
     @Override // com.baidu.live.liveroom.d.d
-    public short AT() {
+    public short Cj() {
         return (short) 0;
     }
 
@@ -89,16 +89,16 @@ public class d implements com.baidu.live.liveroom.d.d {
 
     @Override // com.baidu.live.liveroom.d.d
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.ftV);
-        if (this.fXg != null) {
-            this.fXg.onDestory();
+        MessageManager.getInstance().unRegisterListener(this.fHR);
+        if (this.gma != null) {
+            this.gma.onDestory();
         }
     }
 
     @Override // com.baidu.live.liveroom.d.d
     public void onChangeSkinType(int i) {
-        if (this.fXg != null) {
-            this.fXg.onChangeSkinType(i);
+        if (this.gma != null) {
+            this.gma.onChangeSkinType(i);
         }
     }
 }

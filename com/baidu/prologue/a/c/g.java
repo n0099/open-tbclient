@@ -11,7 +11,7 @@ public class g {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static String k(File file) {
+    public static String o(File file) {
         FileInputStream fileInputStream;
         int read;
         if (!file.exists()) {
@@ -46,16 +46,16 @@ public class g {
                     throw th;
                 }
             } while (read > 0);
-            String u = u(messageDigest.digest());
+            String B = B(messageDigest.digest());
             if (fileInputStream == null) {
-                return u;
+                return B;
             }
             try {
                 fileInputStream.close();
-                return u;
+                return B;
             } catch (IOException e3) {
                 e3.printStackTrace();
-                return u;
+                return B;
             }
         } catch (Exception e4) {
             e = e4;
@@ -69,7 +69,7 @@ public class g {
         }
     }
 
-    public static String u(byte[] bArr) {
+    public static String B(byte[] bArr) {
         char[] cArr = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
         StringBuilder sb = new StringBuilder(bArr.length * 2);
         for (byte b : bArr) {

@@ -5,6 +5,7 @@ import android.os.Looper;
 import android.os.Message;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseApplication;
+import java.io.IOException;
 import java.util.LinkedList;
 import java.util.concurrent.Callable;
 import java.util.concurrent.CancellationException;
@@ -17,7 +18,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public abstract class BdAsyncTask<Params, Progress, Result> {
     private static final int MESSAGE_POST_PROGRESS = 2;
     private static final int MESSAGE_POST_RESULT = 1;
-    private static final com.baidu.adp.lib.asyncTask.a sDefaultExecutor = com.baidu.adp.lib.asyncTask.a.jV();
+    private static final com.baidu.adp.lib.asyncTask.a sDefaultExecutor = com.baidu.adp.lib.asyncTask.a.jX();
     private static final b sHandler = new b(Looper.getMainLooper());
     private volatile BdAsyncTaskStatus mStatus = BdAsyncTaskStatus.PENDING;
     private int mPriority = 1;
@@ -66,7 +67,7 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
         FINISHED
     }
 
-    protected abstract Result doInBackground(Params... paramsArr);
+    protected abstract Result doInBackground(Params... paramsArr) throws IOException;
 
     public synchronized int setPriority(int i) {
         int i2;
@@ -257,10 +258,10 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
             a aVar = (a) message.obj;
             switch (message.what) {
                 case 1:
-                    aVar.IH.finish(aVar.mData[0]);
+                    aVar.IW.finish(aVar.mData[0]);
                     return;
                 case 2:
-                    aVar.IH.onProgressUpdate(aVar.mData);
+                    aVar.IW.onProgressUpdate(aVar.mData);
                     return;
                 default:
                     return;
@@ -280,11 +281,11 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a<Data> {
-        final BdAsyncTask IH;
+        final BdAsyncTask IW;
         final Data[] mData;
 
         a(BdAsyncTask bdAsyncTask, Data... dataArr) {
-            this.IH = bdAsyncTask;
+            this.IW = bdAsyncTask;
             this.mData = dataArr;
         }
     }

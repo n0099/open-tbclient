@@ -296,7 +296,7 @@ public class LottieAnimationView extends ImageView {
     public void setAnimation(String str) {
         this.animationName = str;
         this.animationResId = 0;
-        setCompositionTask(e.bb(getContext(), str));
+        setCompositionTask(e.bc(getContext(), str));
     }
 
     @Deprecated
@@ -313,7 +313,7 @@ public class LottieAnimationView extends ImageView {
     }
 
     public void setAnimationFromUrl(String str) {
-        setCompositionTask(e.ba(getContext(), str));
+        setCompositionTask(e.bb(getContext(), str));
     }
 
     private void setCompositionTask(l<d> lVar) {
@@ -591,7 +591,7 @@ public class LottieAnimationView extends ImageView {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // android.os.Parcelable.Creator
-            /* renamed from: IT */
+            /* renamed from: JE */
             public SavedState[] newArray(int i) {
                 return new SavedState[i];
             }

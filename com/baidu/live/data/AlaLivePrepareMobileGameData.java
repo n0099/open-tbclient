@@ -9,14 +9,14 @@ public class AlaLivePrepareMobileGameData extends com.baidu.live.tieba.b.a.a imp
     public static final Parcelable.Creator<AlaLivePrepareMobileGameData> CREATOR = new Parcelable.Creator<AlaLivePrepareMobileGameData>() { // from class: com.baidu.live.data.AlaLivePrepareMobileGameData.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: f */
+        /* renamed from: g */
         public AlaLivePrepareMobileGameData createFromParcel(Parcel parcel) {
             return new AlaLivePrepareMobileGameData(parcel);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: bB */
+        /* renamed from: bI */
         public AlaLivePrepareMobileGameData[] newArray(int i) {
             return new AlaLivePrepareMobileGameData[i];
         }

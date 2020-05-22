@@ -8,6 +8,8 @@ import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes11.dex */
 public class VideoPlayActivityStatic {
+    public static String Tag = "tag";
+
     static {
         TbadkCoreApplication.getInst().RegisterIntent(VideoPlayActivityConfig.class, VideoPlayActivity.class);
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003399, TbConfig.SERVER_ADDRESS + Config.VIDEO_MIDDLE_AGGREGATION);

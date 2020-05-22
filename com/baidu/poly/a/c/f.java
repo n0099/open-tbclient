@@ -5,11 +5,11 @@ import android.widget.ImageView;
 /* loaded from: classes11.dex */
 public class f {
     public Bitmap bitmap;
-    public ImageView bmT;
+    public ImageView buq;
     public String url;
 
     public f(ImageView imageView, String str, Bitmap bitmap) {
-        this.bmT = imageView;
+        this.buq = imageView;
         this.url = str;
         this.bitmap = bitmap;
     }

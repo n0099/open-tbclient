@@ -1,7 +1,7 @@
 package com.baidu.tieba.frs.smartsort;
 
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.widget.ListView.m;
+import com.baidu.adp.widget.ListView.o;
 import com.baidu.tbadk.core.util.v;
 import com.baidu.tieba.card.data.CardHListViewData;
 import com.baidu.tieba.tbadkCore.FrsRequestData;
@@ -12,14 +12,14 @@ public class b {
         return frsRequestData != null && frsRequestData.getLoadType() == 1;
     }
 
-    public static boolean a(ArrayList<m> arrayList, String str, CardHListViewData cardHListViewData, int i) {
+    public static boolean a(ArrayList<o> arrayList, String str, CardHListViewData cardHListViewData, int i) {
         if (cardHListViewData == null || v.isEmpty(arrayList) || StringUtils.isNull(str) || i < 0) {
             return false;
         }
         int size = arrayList.size();
         for (int i2 = 0; i2 < size; i2++) {
-            m mVar = arrayList.get(i2);
-            if ((mVar instanceof CardHListViewData) && str.equals(((CardHListViewData) mVar).threadId)) {
+            o oVar = arrayList.get(i2);
+            if ((oVar instanceof CardHListViewData) && str.equals(((CardHListViewData) oVar).threadId)) {
                 return false;
             }
         }

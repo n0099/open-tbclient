@@ -27,12 +27,12 @@ import java.util.regex.Pattern;
 /* loaded from: classes11.dex */
 public final class b {
     private static final String a;
-    private static SimpleDateFormat acN = null;
+    private static SimpleDateFormat adf = null;
     private static final Pattern b;
     private static Handler c;
 
     static {
-        String str = "(((?<=[\\.])|^)((([a-zA-Z0-9 -\ud7ff豈-﷏ﷰ-\uffef][a-zA-Z0-9 -\ud7ff豈-﷏ﷰ-\uffef\\-]*)*[a-zA-Z0-9 -\ud7ff豈-﷏ﷰ-\uffef]\\.)(" + f.a + "\\.)*" + f.a + ")|^" + f.acO + ")$";
+        String str = "(((?<=[\\.])|^)((([a-zA-Z0-9 -\ud7ff豈-﷏ﷰ-\uffef][a-zA-Z0-9 -\ud7ff豈-﷏ﷰ-\uffef\\-]*)*[a-zA-Z0-9 -\ud7ff豈-﷏ﷰ-\uffef]\\.)(" + f.a + "\\.)*" + f.a + ")|^" + f.adg + ")$";
         a = str;
         b = Pattern.compile(str);
     }
@@ -143,7 +143,7 @@ public final class b {
 
     public static void a(Runnable runnable) {
         if (Thread.currentThread() != Looper.getMainLooper().getThread()) {
-            rg().post(runnable);
+            rn().post(runnable);
         } else {
             runnable.run();
         }
@@ -152,10 +152,10 @@ public final class b {
     public static boolean a() {
         boolean z = false;
         long currentTimeMillis = System.currentTimeMillis();
-        if (TextUtils.equals("mounted", Environment.getExternalStorageState())) {
-            File externalStorageDirectory = Environment.getExternalStorageDirectory();
-            if (externalStorageDirectory.exists() && externalStorageDirectory.canWrite()) {
-                File file = new File(externalStorageDirectory, ".696E5309-E4A7-27C0-A787-0B2CEBF1F1AB");
+        if (TextUtils.equals("mounted", Environment.getExternalStorageState()) && WebKitFactory.getContext() != null) {
+            File externalFilesDir = WebKitFactory.getContext().getExternalFilesDir("");
+            if (externalFilesDir.exists() && externalFilesDir.canWrite()) {
+                File file = new File(externalFilesDir, ".696E5309-E4A7-27C0-A787-0B2CEBF1F1AB");
                 if (file.exists()) {
                     z = true;
                 } else {
@@ -207,6 +207,9 @@ public final class b {
     }
 
     public static boolean a(File file) {
+        if (file == null) {
+            return false;
+        }
         if (!file.exists()) {
             try {
                 file.mkdirs();
@@ -231,8 +234,8 @@ public final class b {
     }
 
     public static boolean b() {
-        if (Environment.getExternalStorageDirectory() != null && "mounted".equals(Environment.getExternalStorageState())) {
-            StatFs statFs = new StatFs(Environment.getExternalStorageDirectory().getPath());
+        if (WebKitFactory.getContext() != null && WebKitFactory.getContext().getExternalFilesDir("") != null && "mounted".equals(Environment.getExternalStorageState())) {
+            StatFs statFs = new StatFs(WebKitFactory.getContext().getExternalFilesDir("").getPath());
             long blockSize = statFs.getBlockSize();
             long availableBlocks = statFs.getAvailableBlocks();
             Log.d("CommonUtils", "Available size:" + (blockSize * availableBlocks));
@@ -252,7 +255,7 @@ public final class b {
         return false;
     }
 
-    private static Handler rg() {
+    private static Handler rn() {
         synchronized (b.class) {
             if (c == null) {
                 c = new Handler(Looper.getMainLooper());

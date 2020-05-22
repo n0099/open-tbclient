@@ -3,7 +3,7 @@ package com.baidu.tieba.ala.alasquare.live.a;
 import android.widget.BaseAdapter;
 import com.baidu.adp.base.e;
 import com.baidu.adp.widget.ListView.BdTypeListView;
-import com.baidu.adp.widget.ListView.m;
+import com.baidu.adp.widget.ListView.o;
 import com.baidu.ala.square.IAlaSquareTabController;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.ala.alasquare.subtablist.c.i;
@@ -11,54 +11,54 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class b {
-    private final List<com.baidu.adp.widget.ListView.a> aMj = new ArrayList();
-    private e dvg;
-    private BdTypeListView eOj;
-    private a eOk;
-    private com.baidu.tieba.ala.alasquare.subtablist.a.a eOl;
-    private com.baidu.tieba.ala.alasquare.subtablist.a.b eOm;
+    private final List<com.baidu.adp.widget.ListView.a> aSj = new ArrayList();
+    private e dJb;
+    private BdTypeListView faQ;
+    private a faR;
+    private com.baidu.tieba.ala.alasquare.subtablist.a.a faS;
+    private com.baidu.tieba.ala.alasquare.subtablist.a.b faT;
 
     public b(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView) {
-        this.dvg = tbPageContext;
-        this.eOj = bdTypeListView;
-        BB();
+        this.dJb = tbPageContext;
+        this.faQ = bdTypeListView;
+        CY();
     }
 
-    private void BB() {
-        this.eOm = new com.baidu.tieba.ala.alasquare.subtablist.a.b((TbPageContext) this.dvg);
-        this.eOm.setFrom(1);
-        this.eOl = new com.baidu.tieba.ala.alasquare.subtablist.a.a((TbPageContext) this.dvg);
-        this.eOl.setFrom(1);
-        this.eOk = new a((TbPageContext) this.dvg, com.baidu.tieba.ala.alasquare.live.b.b.eOq);
-        this.aMj.add(this.eOm);
-        this.aMj.add(this.eOl);
-        this.aMj.add(this.eOk);
-        this.eOj.addAdapters(this.aMj);
+    private void CY() {
+        this.faT = new com.baidu.tieba.ala.alasquare.subtablist.a.b((TbPageContext) this.dJb);
+        this.faT.setFrom(1);
+        this.faS = new com.baidu.tieba.ala.alasquare.subtablist.a.a((TbPageContext) this.dJb);
+        this.faS.setFrom(1);
+        this.faR = new a((TbPageContext) this.dJb, com.baidu.tieba.ala.alasquare.live.b.b.faX);
+        this.aSj.add(this.faT);
+        this.aSj.add(this.faS);
+        this.aSj.add(this.faR);
+        this.faQ.addAdapters(this.aSj);
     }
 
-    public void setDatas(List<m> list) {
-        if (this.eOj != null) {
-            this.eOj.setData(list);
+    public void setDatas(List<o> list) {
+        if (this.faQ != null) {
+            this.faQ.setData(list);
         }
     }
 
-    public void oW(int i) {
-        this.eOm.oW(i);
-        this.eOl.oW(i);
+    public void px(int i) {
+        this.faT.px(i);
+        this.faS.px(i);
     }
 
     public void notifyDataSetChanged() {
-        if (this.eOj != null && (this.eOj.getAdapter() instanceof BaseAdapter)) {
-            this.eOj.getAdapter().notifyDataSetChanged();
+        if (this.faQ != null && (this.faQ.getAdapter() instanceof BaseAdapter)) {
+            this.faQ.getAdapter().notifyDataSetChanged();
         }
     }
 
     public void a(IAlaSquareTabController iAlaSquareTabController) {
-        this.eOk.a(iAlaSquareTabController);
+        this.faR.a(iAlaSquareTabController);
     }
 
     public void a(i iVar) {
-        this.eOm.b(iVar);
-        this.eOl.b(iVar);
+        this.faT.b(iVar);
+        this.faS.b(iVar);
     }
 }

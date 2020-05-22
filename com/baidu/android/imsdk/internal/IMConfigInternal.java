@@ -84,7 +84,7 @@ public class IMConfigInternal {
 
     public int getSDKVersionValue(Context context) {
         try {
-            return Integer.valueOf("581" + String.format("%03d", Integer.valueOf(getProductLine(context))) + "6").intValue();
+            return Integer.valueOf("587" + String.format("%03d", Integer.valueOf(getProductLine(context))) + "6").intValue();
         } catch (Exception e) {
             new IMTrack.CrashBuilder(context).exception(Log.getStackTraceString(e)).build();
             return 0;

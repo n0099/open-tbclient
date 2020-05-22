@@ -3,18 +3,18 @@ package com.baidu.tbadk.p;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.relogin.ReloginManager;
 /* loaded from: classes.dex */
-public class d extends com.baidu.adp.framework.a.e {
+public class d extends com.baidu.adp.framework.b.e {
     public d(int i) {
         super(i);
     }
 
-    @Override // com.baidu.adp.framework.a.e
+    @Override // com.baidu.adp.framework.b.e
     public void b(int i, BdUniqueId bdUniqueId) {
-        ReloginManager.aNM().d(i, bdUniqueId);
+        ReloginManager.aTQ().d(i, bdUniqueId);
     }
 
-    @Override // com.baidu.adp.framework.a.e
+    @Override // com.baidu.adp.framework.b.e
     public void b(BdUniqueId bdUniqueId) {
-        ReloginManager.aNM().i(bdUniqueId);
+        ReloginManager.aTQ().k(bdUniqueId);
     }
 }

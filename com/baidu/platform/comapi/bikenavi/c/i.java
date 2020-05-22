@@ -6,7 +6,7 @@ import com.baidu.platform.comapi.walknavi.widget.a;
 import com.baidu.tieba.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes8.dex */
-public class i implements a.InterfaceC0194a {
+public class i implements a.InterfaceC0227a {
     final /* synthetic */ b a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,7 +14,7 @@ public class i implements a.InterfaceC0194a {
         this.a = bVar;
     }
 
-    @Override // com.baidu.platform.comapi.walknavi.widget.a.InterfaceC0194a
+    @Override // com.baidu.platform.comapi.walknavi.widget.a.InterfaceC0227a
     public void a() {
         Activity activity;
         Activity activity2;

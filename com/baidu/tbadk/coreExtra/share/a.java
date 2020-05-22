@@ -11,11 +11,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private InterfaceC0438a dQi;
+    private InterfaceC0485a eeC;
 
     /* renamed from: com.baidu.tbadk.coreExtra.share.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0438a {
+    public interface InterfaceC0485a {
         void d(ShareItem shareItem);
     }
 
@@ -51,7 +51,7 @@ public class a {
                     BdLog.e(e);
                 }
                 if (shareItem2.typeShareToSmallApp != 4) {
-                    shareItem2.dQR = str;
+                    shareItem2.efk = str;
                     shareItem2.imageUri = Uri.parse(str);
                 }
                 return shareItem2;
@@ -63,14 +63,14 @@ public class a {
             /* renamed from: c */
             public void onPostExecute(ShareItem shareItem2) {
                 super.onPostExecute(shareItem2);
-                if (a.this.dQi != null) {
-                    a.this.dQi.d(shareItem2);
+                if (a.this.eeC != null) {
+                    a.this.eeC.d(shareItem2);
                 }
             }
         }.execute(shareItem);
     }
 
-    public void a(InterfaceC0438a interfaceC0438a) {
-        this.dQi = interfaceC0438a;
+    public void a(InterfaceC0485a interfaceC0485a) {
+        this.eeC = interfaceC0485a;
     }
 }

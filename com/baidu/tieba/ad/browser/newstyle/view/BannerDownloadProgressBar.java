@@ -14,13 +14,13 @@ import android.util.AttributeSet;
 import com.baidu.tieba.R;
 /* loaded from: classes8.dex */
 public class BannerDownloadProgressBar extends AppCompatTextView {
-    private int ezR;
-    private int ezS;
-    private int ezT;
-    private final Paint ezU;
-    private final RectF ezV;
-    private final RectF ezW;
-    private Shader ezX;
+    private int eOr;
+    private int eOs;
+    private int eOt;
+    private final Paint eOu;
+    private final RectF eOv;
+    private final RectF eOw;
+    private Shader eOx;
     private final Paint mForegroundPaint;
     private int mProgress;
     private int mRadius;
@@ -35,14 +35,14 @@ public class BannerDownloadProgressBar extends AppCompatTextView {
         this.mProgress = 0;
         this.mTextColor = -1;
         this.mTextSize = 10.0f;
-        this.ezT = 100;
+        this.eOt = 100;
         this.mRadius = 0;
         this.strokeWidth = 0;
         this.mForegroundPaint = new Paint();
-        this.ezU = new Paint();
+        this.eOu = new Paint();
         this.mTextPaint = new Paint();
-        this.ezV = new RectF();
-        this.ezW = new RectF();
+        this.eOv = new RectF();
+        this.eOw = new RectF();
         init(context, attributeSet);
     }
 
@@ -51,14 +51,14 @@ public class BannerDownloadProgressBar extends AppCompatTextView {
         this.mProgress = 0;
         this.mTextColor = -1;
         this.mTextSize = 10.0f;
-        this.ezT = 100;
+        this.eOt = 100;
         this.mRadius = 0;
         this.strokeWidth = 0;
         this.mForegroundPaint = new Paint();
-        this.ezU = new Paint();
+        this.eOu = new Paint();
         this.mTextPaint = new Paint();
-        this.ezV = new RectF();
-        this.ezW = new RectF();
+        this.eOv = new RectF();
+        this.eOw = new RectF();
         init(context, attributeSet);
     }
 
@@ -69,26 +69,26 @@ public class BannerDownloadProgressBar extends AppCompatTextView {
         int parseColor2 = Color.parseColor("#2BBCFF");
         int parseColor3 = Color.parseColor("#2B87FF");
         this.strokeWidth = getResources().getDimensionPixelSize(R.dimen.progress_button_frame);
-        this.ezR = obtainStyledAttributes.getColor(0, parseColor2);
-        this.ezS = obtainStyledAttributes.getColor(1, parseColor3);
+        this.eOr = obtainStyledAttributes.getColor(0, parseColor2);
+        this.eOs = obtainStyledAttributes.getColor(1, parseColor3);
         this.mTextColor = obtainStyledAttributes.getColor(2, parseColor);
-        this.ezT = obtainStyledAttributes.getInteger(3, this.ezT);
+        this.eOt = obtainStyledAttributes.getInteger(3, this.eOt);
         this.mProgress = obtainStyledAttributes.getInteger(4, 0);
         this.mText = obtainStyledAttributes.getString(6);
         this.mTextSize = obtainStyledAttributes.getDimension(5, (int) getResources().getDimension(R.dimen.progress_button_font_size));
         this.mRadius = obtainStyledAttributes.getDimensionPixelSize(7, dimensionPixelSize);
         obtainStyledAttributes.recycle();
-        qs();
+        qy();
     }
 
-    private void qs() {
+    private void qy() {
         this.mTextPaint.setAntiAlias(true);
         this.mTextPaint.setTextSize(this.mTextSize);
         this.mTextPaint.setColor(this.mTextColor);
         this.mForegroundPaint.setAntiAlias(true);
         this.mForegroundPaint.setStyle(Paint.Style.FILL);
-        this.ezU.setAntiAlias(true);
-        this.ezU.setStyle(Paint.Style.STROKE);
+        this.eOu.setAntiAlias(true);
+        this.eOu.setStyle(Paint.Style.STROKE);
         setGravity(17);
     }
 
@@ -96,45 +96,45 @@ public class BannerDownloadProgressBar extends AppCompatTextView {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         if (this.mProgress > 0) {
-            t(canvas);
+            u(canvas);
         }
-        F(canvas);
+        G(canvas);
         if (!TextUtils.isEmpty(this.mText)) {
-            E(canvas);
+            F(canvas);
         }
     }
 
-    private void E(Canvas canvas) {
+    private void F(Canvas canvas) {
         Paint.FontMetrics fontMetrics = this.mTextPaint.getFontMetrics();
         float height = (getHeight() / 2) - fontMetrics.descent;
         float measuredWidth = (getMeasuredWidth() - this.mTextPaint.measureText(this.mText)) / 2.0f;
         canvas.drawText(this.mText, measuredWidth, (float) (((fontMetrics.descent - fontMetrics.ascent) / 2.0f) + height + 0.5d), this.mTextPaint);
     }
 
-    private void F(Canvas canvas) {
+    private void G(Canvas canvas) {
         this.mRadius = getMeasuredHeight() / 2;
-        this.ezW.left = 0.0f;
-        this.ezW.top = 0.0f;
-        this.ezW.right = getMeasuredWidth();
-        this.ezW.bottom = getMeasuredHeight();
-        this.ezU.setStrokeWidth(this.strokeWidth);
-        this.ezU.setColor(Color.parseColor("#E5E5E5"));
-        canvas.drawRoundRect(this.ezW, this.mRadius, this.mRadius, this.ezU);
+        this.eOw.left = 0.0f;
+        this.eOw.top = 0.0f;
+        this.eOw.right = getMeasuredWidth();
+        this.eOw.bottom = getMeasuredHeight();
+        this.eOu.setStrokeWidth(this.strokeWidth);
+        this.eOu.setColor(Color.parseColor("#E5E5E5"));
+        canvas.drawRoundRect(this.eOw, this.mRadius, this.mRadius, this.eOu);
     }
 
-    private void t(Canvas canvas) {
+    private void u(Canvas canvas) {
         this.mRadius = getMeasuredHeight() / 2;
-        float f = this.mProgress / (this.ezT + 0.0f);
-        this.ezV.left = this.strokeWidth;
-        this.ezV.top = this.strokeWidth;
-        this.ezV.bottom = getMeasuredHeight() - this.strokeWidth;
-        this.ezV.right = f * getMeasuredWidth();
-        if (this.ezV.right < this.mRadius * 2) {
-            this.ezV.right = this.mRadius * 2;
+        float f = this.mProgress / (this.eOt + 0.0f);
+        this.eOv.left = this.strokeWidth;
+        this.eOv.top = this.strokeWidth;
+        this.eOv.bottom = getMeasuredHeight() - this.strokeWidth;
+        this.eOv.right = f * getMeasuredWidth();
+        if (this.eOv.right < this.mRadius * 2) {
+            this.eOv.right = this.mRadius * 2;
         }
-        this.ezX = new LinearGradient(0.0f, 0.0f, this.ezV.right, 0.0f, new int[]{this.ezR, this.ezS}, (float[]) null, Shader.TileMode.CLAMP);
-        this.mForegroundPaint.setShader(this.ezX);
-        canvas.drawRoundRect(this.ezV, this.mRadius, this.mRadius, this.mForegroundPaint);
+        this.eOx = new LinearGradient(0.0f, 0.0f, this.eOv.right, 0.0f, new int[]{this.eOr, this.eOs}, (float[]) null, Shader.TileMode.CLAMP);
+        this.mForegroundPaint.setShader(this.eOx);
+        canvas.drawRoundRect(this.eOv, this.mRadius, this.mRadius, this.mForegroundPaint);
     }
 
     public void setText(String str) {
@@ -146,10 +146,10 @@ public class BannerDownloadProgressBar extends AppCompatTextView {
     }
 
     public void setForeground(int i, int i2) {
-        if (i != this.ezR || i2 != this.ezS) {
-            this.ezR = i;
-            this.ezS = i2;
-            qs();
+        if (i != this.eOr || i2 != this.eOs) {
+            this.eOr = i;
+            this.eOs = i2;
+            qy();
             postInvalidate();
         }
     }
@@ -165,17 +165,17 @@ public class BannerDownloadProgressBar extends AppCompatTextView {
     public void setTextColor(int i) {
         if (i != this.mTextColor) {
             this.mTextColor = i;
-            qs();
+            qy();
             postInvalidate();
         }
     }
 
     public int getMaxProgress() {
-        return this.ezT;
+        return this.eOt;
     }
 
     public void setMaxProgress(int i) {
-        this.ezT = i;
+        this.eOt = i;
     }
 
     public int getProgress() {
@@ -183,10 +183,10 @@ public class BannerDownloadProgressBar extends AppCompatTextView {
     }
 
     public void setProgress(int i) {
-        if (i >= 0 && i <= this.ezT && i != this.mProgress) {
+        if (i >= 0 && i <= this.eOt && i != this.mProgress) {
             this.mProgress = i;
             this.mText = getResources().getString(R.string.ad_button_already_download) + this.mProgress + "%";
-            if (this.mProgress == this.ezT) {
+            if (this.mProgress == this.eOt) {
                 this.mText = "";
             }
             postInvalidate();

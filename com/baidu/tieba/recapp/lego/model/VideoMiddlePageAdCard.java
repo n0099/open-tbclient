@@ -7,6 +7,7 @@ import com.baidu.afd.h;
 import com.baidu.searchbox.suspensionball.SuspensionBallEntity;
 import com.baidu.tbadk.core.atomData.MissonDetailsActivityConfig;
 import com.baidu.tbadk.core.atomData.WriteVideoActivityConfig;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tieba.lego.card.b.b;
 import com.baidu.tieba.lego.card.model.BaseLegoCardInfo;
 import com.baidu.tieba.lego.card.view.i;
@@ -65,8 +66,8 @@ public class VideoMiddlePageAdCard extends BaseLegoCardInfo implements h, b, i {
         this.operateData.parseFromJson(optJSONObject3);
         this.parallelChargeInfo = new b.a();
         this.parallelChargeInfo.parseFromJson(jSONObject);
-        if (TextUtils.isEmpty(this.operateData.ksQ)) {
-            this.operateData.ksQ = this.userName;
+        if (TextUtils.isEmpty(this.operateData.kKK)) {
+            this.operateData.kKK = this.userName;
         }
     }
 
@@ -113,7 +114,7 @@ public class VideoMiddlePageAdCard extends BaseLegoCardInfo implements h, b, i {
     private JSONObject toJson() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("card_type", this.cardType);
+            jSONObject.put(IntentConfig.CARD_TYPE, this.cardType);
             jSONObject.put("user_portrait", this.userPortrait);
             jSONObject.put("user_name", this.userPortrait);
             jSONObject.put(MissonDetailsActivityConfig.THREAD_TITLE, this.userPortrait);
@@ -133,8 +134,8 @@ public class VideoMiddlePageAdCard extends BaseLegoCardInfo implements h, b, i {
             jSONObject.put(WriteVideoActivityConfig.VIDEO_INFO, jSONObject2);
             jSONObject.put("tail_frame", this.tailFrame.toJson());
             jSONObject.put("operate", this.operateData.toJsonObject());
-            if (this.adFacadeData != null && this.adFacadeData.pp() != null) {
-                jSONObject.put("extraparams", this.adFacadeData.pp().ext);
+            if (this.adFacadeData != null && this.adFacadeData.pv() != null) {
+                jSONObject.put("extraparams", this.adFacadeData.pv().ext);
             }
         } catch (JSONException e) {
             e.printStackTrace();

@@ -3,42 +3,42 @@ package com.baidu.tieba.forumMember.member;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
 /* loaded from: classes10.dex */
-public class s implements com.baidu.adp.widget.ListView.m {
-    public static final BdUniqueId gVH = BdUniqueId.gen();
-    private String gVB;
-    private int gVz = -1;
-    private int gVI = -1;
+public class s implements com.baidu.adp.widget.ListView.o {
+    public static final BdUniqueId hkt = BdUniqueId.gen();
+    private String hkn;
+    private int hkl = -1;
+    private int hku = -1;
 
-    @Override // com.baidu.adp.widget.ListView.m
+    @Override // com.baidu.adp.widget.ListView.o
     public BdUniqueId getType() {
-        return gVH;
+        return hkt;
     }
 
-    public int bNh() {
-        return this.gVI;
+    public int bTC() {
+        return this.hku;
     }
 
-    public void sU(int i) {
-        this.gVI = i;
+    public void tz(int i) {
+        this.hku = i;
     }
 
-    public int bNf() {
-        return this.gVz;
+    public int bTA() {
+        return this.hkl;
     }
 
-    public void sT(int i) {
-        this.gVz = i;
+    public void ty(int i) {
+        this.hkl = i;
     }
 
-    public String bNg() {
-        return this.gVB;
+    public String bTB() {
+        return this.hkn;
     }
 
-    public void CN(String str) {
-        this.gVB = str;
+    public void Ew(String str) {
+        this.hkn = str;
     }
 
     public boolean isEmpty() {
-        return StringUtils.isNull(this.gVB) || this.gVz < 0;
+        return StringUtils.isNull(this.hkn) || this.hkl < 0;
     }
 }

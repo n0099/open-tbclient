@@ -6,33 +6,36 @@ import android.view.View;
 import com.baidu.android.imsdk.chatmessage.sync.SyncStrategy;
 import com.baidu.live.adp.lib.util.StringUtils;
 import com.baidu.live.gift.a.c;
-import com.baidu.live.gift.q;
+import com.baidu.live.gift.r;
 import com.baidu.live.gift.smallgift.AlaSmallGiftView;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes3.dex */
 public class b {
-    private AlaSmallGiftView aHN;
-    private c aHO;
-    private a aHP;
-    private int aHQ;
-    private AlaSmallGiftView.a aFf = new AlaSmallGiftView.a() { // from class: com.baidu.live.gift.smallgift.b.1
+    private AlaSmallGiftView aNw;
+    private c aNx;
+    private a aNy;
+    private int aNz;
+    private AlaSmallGiftView.a aKH = new AlaSmallGiftView.a() { // from class: com.baidu.live.gift.smallgift.b.1
         @Override // com.baidu.live.gift.smallgift.AlaSmallGiftView.a
-        public void yD() {
+        public void zT() {
             b.this.mHandler.sendEmptyMessage(2);
         }
 
         @Override // com.baidu.live.gift.smallgift.AlaSmallGiftView.a
-        public void P(View view) {
+        public void O(View view) {
             view.setVisibility(4);
             view.clearAnimation();
-            b.this.aHO = null;
-            if (b.this.aHP != null) {
-                b.this.aHP.zI();
+            if (b.this.aNy != null) {
+                b.this.aNy.u(b.this.aNx);
+            }
+            b.this.aNx = null;
+            if (b.this.aNy != null) {
+                b.this.aNy.AY();
             }
         }
 
         @Override // com.baidu.live.gift.smallgift.AlaSmallGiftView.a
-        public void yE() {
+        public void zU() {
             b.this.mHandler.sendEmptyMessageDelayed(2, 240L);
         }
     };
@@ -41,25 +44,25 @@ public class b {
         public boolean handleMessage(Message message) {
             switch (message.what) {
                 case 1:
-                    b.this.zP();
+                    b.this.Bf();
                     return false;
                 case 2:
-                    b.this.zZ();
+                    b.this.Bp();
                     return false;
                 case 3:
-                    b.this.zQ();
+                    b.this.Bg();
                     return false;
                 default:
                     return false;
             }
         }
     });
-    private Runnable aHR = new Runnable() { // from class: com.baidu.live.gift.smallgift.b.3
+    private Runnable aNA = new Runnable() { // from class: com.baidu.live.gift.smallgift.b.3
         @Override // java.lang.Runnable
         public void run() {
-            if (b.this.aHO != null) {
-                if (System.currentTimeMillis() - b.this.aHO.yn() < b.this.aHQ || b.this.aHO.aEi < b.this.aHO.aEh) {
-                    b.this.mHandler.postDelayed(b.this.aHR, 1000L);
+            if (b.this.aNx != null) {
+                if (System.currentTimeMillis() - b.this.aNx.zD() < b.this.aNz || b.this.aNx.aJH < b.this.aNx.aJG) {
+                    b.this.mHandler.postDelayed(b.this.aNA, 1000L);
                     return;
                 }
                 b.this.mHandler.removeMessages(2);
@@ -71,153 +74,155 @@ public class b {
 
     /* loaded from: classes3.dex */
     public interface a {
-        void r(c cVar);
+        void AY();
 
-        void zI();
+        void u(c cVar);
+
+        void v(c cVar);
     }
 
     public b(AlaSmallGiftView alaSmallGiftView) {
-        this.aHN = alaSmallGiftView;
-        this.aHN.setSmallAnimCallBack(this.aFf);
+        this.aNw = alaSmallGiftView;
+        this.aNw.setSmallAnimCallBack(this.aKH);
     }
 
     public boolean isReady() {
-        return this.aHO == null;
+        return this.aNx == null;
     }
 
-    public boolean zW() {
-        if (this.aHO == null || StringUtils.isNull(this.aHO.userId)) {
+    public boolean Bm() {
+        if (this.aNx == null || StringUtils.isNull(this.aNx.userId)) {
             return false;
         }
-        return this.aHO.userId.equals(TbadkCoreApplication.getCurrentAccount());
+        return this.aNx.userId.equals(TbadkCoreApplication.getCurrentAccount());
     }
 
-    public boolean s(c cVar) {
-        return (cVar == null || this.aHO == null || cVar.priority <= this.aHO.priority) ? false : true;
+    public boolean w(c cVar) {
+        return (cVar == null || this.aNx == null || cVar.priority <= this.aNx.priority) ? false : true;
     }
 
-    public boolean t(c cVar) {
-        if (this.aHN == null || this.aHN.getVisibility() == 0 || this.aHO != null || cVar == null || StringUtils.isNull(cVar.userId) || StringUtils.isNull(cVar.giftId)) {
+    public boolean x(c cVar) {
+        if (this.aNw == null || this.aNw.getVisibility() == 0 || this.aNx != null || cVar == null || StringUtils.isNull(cVar.userId) || StringUtils.isNull(cVar.giftId)) {
             return false;
         }
-        this.aHO = cVar;
-        zX();
+        this.aNx = cVar;
+        Bn();
         this.mHandler.sendEmptyMessage(1);
-        this.mHandler.postDelayed(this.aHR, 1000L);
+        this.mHandler.postDelayed(this.aNA, 1000L);
         return true;
     }
 
-    public void u(c cVar) {
-        zY();
-        if (this.aHP != null) {
-            this.aHP.r(this.aHO);
-            this.aHO = null;
+    public void y(c cVar) {
+        Bo();
+        if (this.aNy != null) {
+            this.aNy.v(this.aNx);
+            this.aNx = null;
         }
-        this.aHO = cVar;
-        zX();
-        this.aHN.setVisibility(0);
-        this.aHN.setTag(this.aHO.yp());
-        this.aHN.setData(this.aHO, false);
-        this.mHandler.postDelayed(this.aHR, 1000L);
+        this.aNx = cVar;
+        Bn();
+        this.aNw.setVisibility(0);
+        this.aNw.setTag(this.aNx.zF());
+        this.aNw.setData(this.aNx, false);
+        this.mHandler.postDelayed(this.aNA, 1000L);
         this.mHandler.sendEmptyMessage(2);
     }
 
-    private void zX() {
-        this.aHQ = this.aHO.aEh > 10 ? SyncStrategy.DEFAULT_LOGIN_FETCH_SLEEP_TIME : 3000;
+    private void Bn() {
+        this.aNz = this.aNx.aJG > 10 ? SyncStrategy.DEFAULT_LOGIN_FETCH_SLEEP_TIME : 3000;
     }
 
-    public void wD() {
-        if (this.aHO != null) {
-            zY();
-            this.aHN.setVisibility(4);
-            q.g(this.aHO);
-            if (this.aHP != null) {
-                this.aHP.r(this.aHO);
-                this.aHO = null;
+    public void xU() {
+        if (this.aNx != null) {
+            Bo();
+            this.aNw.setVisibility(4);
+            r.g(this.aNx);
+            if (this.aNy != null) {
+                this.aNy.v(this.aNx);
+                this.aNx = null;
             }
         }
     }
 
-    public void wE() {
-        if (this.aHP != null) {
-            this.aHP.zI();
+    public void xV() {
+        if (this.aNy != null) {
+            this.aNy.AY();
         }
     }
 
     public void onDestroy() {
-        zY();
-        if (this.aHN != null) {
-            this.aHN.onDestroy();
+        Bo();
+        if (this.aNw != null) {
+            this.aNw.onDestroy();
         }
     }
 
-    private void zY() {
-        this.mHandler.removeCallbacks(this.aHR);
+    private void Bo() {
+        this.mHandler.removeCallbacks(this.aNA);
         this.mHandler.removeMessages(1);
         this.mHandler.removeMessages(2);
         this.mHandler.removeMessages(3);
     }
 
-    public boolean v(c cVar) {
-        if (this.aHO == null || StringUtils.isNull(this.aHO.userId) || StringUtils.isNull(this.aHO.giftId) || !com.baidu.live.gift.smallgift.a.c(this.aHO, cVar)) {
+    public boolean z(c cVar) {
+        if (this.aNx == null || StringUtils.isNull(this.aNx.userId) || StringUtils.isNull(this.aNx.giftId) || !com.baidu.live.gift.smallgift.a.c(this.aNx, cVar)) {
             return false;
         }
-        com.baidu.live.gift.smallgift.a.d(this.aHO, cVar);
+        com.baidu.live.gift.smallgift.a.d(this.aNx, cVar);
         return true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void zP() {
-        if (this.aHO != null) {
-            this.aHN.setVisibility(0);
-            this.aHN.setTag(this.aHO.yp());
-            this.aHN.setData(this.aHO, false);
-            this.aHN.zP();
-            zZ();
+    public void Bf() {
+        if (this.aNx != null) {
+            this.aNw.setVisibility(0);
+            this.aNw.setTag(this.aNx.zF());
+            this.aNw.setData(this.aNx, false);
+            this.aNw.Bf();
+            Bp();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void zQ() {
-        if (this.aHO != null) {
-            q.g(this.aHO);
+    public void Bg() {
+        if (this.aNx != null) {
+            r.g(this.aNx);
         }
-        this.aHN.zQ();
+        this.aNw.Bg();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void zZ() {
+    public void Bp() {
         long j;
-        if (this.aHN.getVisibility() == 0) {
-            this.aHN.clearAnimation();
-            if (this.aHO != null) {
-                if (this.aHO.aEi >= this.aHO.aEh) {
+        if (this.aNw.getVisibility() == 0) {
+            this.aNw.clearAnimation();
+            if (this.aNx != null) {
+                if (this.aNx.aJH >= this.aNx.aJG) {
                     this.mHandler.sendEmptyMessageDelayed(2, 240L);
                     return;
                 }
-                this.aHO.Z(System.currentTimeMillis());
-                boolean z = this.aHO.aEh > 10;
-                c cVar = this.aHO;
+                this.aNx.ad(System.currentTimeMillis());
+                boolean z = this.aNx.aJG > 10;
+                c cVar = this.aNx;
                 if (z) {
-                    j = this.aHO.aEh;
+                    j = this.aNx.aJG;
                 } else {
-                    c cVar2 = this.aHO;
-                    j = cVar2.aEi + 1;
-                    cVar2.aEi = j;
+                    c cVar2 = this.aNx;
+                    j = cVar2.aJH + 1;
+                    cVar2.aJH = j;
                 }
-                cVar.aEi = j;
-                this.aHN.e(this.aHO.aEh, this.aHO.aEi);
+                cVar.aJH = j;
+                this.aNw.f(this.aNx.aJG, this.aNx.aJH);
             }
         }
     }
 
-    public void xx() {
-        if (this.aHO != null && this.aHO.aEh == this.aHO.aEi) {
-            this.mHandler.postDelayed(this.aHR, 1000L);
+    public void yL() {
+        if (this.aNx != null && this.aNx.aJG == this.aNx.aJH) {
+            this.mHandler.postDelayed(this.aNA, 1000L);
         }
     }
 
     public void a(a aVar) {
-        this.aHP = aVar;
+        this.aNy = aVar;
     }
 }

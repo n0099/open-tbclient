@@ -14,25 +14,27 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.forbidden.fans.MyForbiddenFansActivity;
 /* loaded from: classes10.dex */
 public class PersonListActivityStatic {
+    public static String Tag = "tag";
+
     static {
         TbadkCoreApplication.getInst().RegisterIntent(PersonListActivityConfig.class, PersonListActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(MyForbiddenFansActivityConfig.class, MyForbiddenFansActivity.class);
-        bNV();
+        bUq();
     }
 
-    public static void bNV() {
-        com.baidu.tbadk.ala.b.aGN().a(5, new e() { // from class: com.baidu.tieba.myAttentionAndFans.PersonListActivityStatic.1
+    public static void bUq() {
+        com.baidu.tbadk.ala.b.aMC().a(5, new e() { // from class: com.baidu.tieba.myAttentionAndFans.PersonListActivityStatic.1
             @Override // com.baidu.tbadk.ala.e
             public View createView(Context context) {
-                TextView dj = com.baidu.tbadk.ala.c.dj(context);
-                if (dj != null) {
+                TextView dB = com.baidu.tbadk.ala.c.dB(context);
+                if (dB != null) {
                     LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-                    am.setViewTextColor(dj, (int) R.color.cp_link_tip_a);
+                    am.setViewTextColor(dB, (int) R.color.cp_link_tip_a);
                     layoutParams.setMargins(l.getDimens(context, R.dimen.ds8), 0, l.getDimens(context, R.dimen.ds8), 0);
                     layoutParams.gravity = 16;
-                    dj.setLayoutParams(layoutParams);
+                    dB.setLayoutParams(layoutParams);
                 }
-                return dj;
+                return dB;
             }
         });
     }

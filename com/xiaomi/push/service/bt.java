@@ -16,11 +16,11 @@ class bt extends ContentObserver {
 
     @Override // android.database.ContentObserver
     public void onChange(boolean z) {
-        boolean m511f;
+        boolean m513f;
         super.onChange(z);
-        m511f = this.a.m511f();
-        com.xiaomi.channel.commonutils.logger.b.m50a("ExtremePowerMode:" + m511f);
-        if (m511f) {
+        m513f = this.a.m513f();
+        com.xiaomi.channel.commonutils.logger.b.m52a("ExtremePowerMode:" + m513f);
+        if (m513f) {
             this.a.a(new XMPushService.f(23, null));
         } else {
             this.a.a(true);

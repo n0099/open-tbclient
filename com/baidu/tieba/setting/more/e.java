@@ -23,357 +23,357 @@ import com.baidu.tieba.R;
 import java.util.ArrayList;
 /* loaded from: classes13.dex */
 public class e extends com.baidu.adp.base.c<MoreActivity> {
-    private MoreActivity kDX;
-    private d kDY;
-    private com.baidu.tbadk.core.dialog.i kDZ;
-    private k kEa;
-    private SettingTextNormalImageView kEb;
-    private SettingTextImageView kEc;
-    private TbSettingTextTipView kEd;
-    private TbSettingTextTipView kEe;
-    private TbSettingTextTipView kEf;
-    private TbSettingTextTipView kEg;
-    private TbSettingTextTipView kEh;
-    private TbSettingTextTipView kEi;
-    private SettingTextVersionView kEj;
-    private TbSettingTextTipView kEk;
-    private TbSettingTextTipView kEl;
-    private TbSettingTextNewDotView kEm;
-    private TextView kEn;
-    private RelativeLayout kEo;
-    private View kEp;
-    private View kEq;
-    private View kEr;
-    private View kEs;
-    private View kEt;
-    private View kEu;
-    private View kEv;
-    private RelativeLayout kEw;
-    private BdSwitchView kEx;
-    private RelativeLayout kEy;
-    private BdSwitchView kEz;
+    private MoreActivity kVZ;
+    private RelativeLayout kWA;
+    private BdSwitchView kWB;
+    private d kWa;
+    private com.baidu.tbadk.core.dialog.i kWb;
+    private k kWc;
+    private SettingTextNormalImageView kWd;
+    private SettingTextImageView kWe;
+    private TbSettingTextTipView kWf;
+    private TbSettingTextTipView kWg;
+    private TbSettingTextTipView kWh;
+    private TbSettingTextTipView kWi;
+    private TbSettingTextTipView kWj;
+    private TbSettingTextTipView kWk;
+    private SettingTextVersionView kWl;
+    private TbSettingTextTipView kWm;
+    private TbSettingTextTipView kWn;
+    private TbSettingTextNewDotView kWo;
+    private TextView kWp;
+    private RelativeLayout kWq;
+    private View kWr;
+    private View kWs;
+    private View kWt;
+    private View kWu;
+    private View kWv;
+    private View kWw;
+    private View kWx;
+    private RelativeLayout kWy;
+    private BdSwitchView kWz;
     private NavigationBar mNavigationBar;
 
     public e(MoreActivity moreActivity, d dVar) {
         super(moreActivity.getPageContext());
-        this.kEr = null;
-        this.kEs = null;
-        this.kEt = null;
-        this.kEu = null;
-        this.kEv = null;
-        this.kEw = null;
-        this.kEx = null;
-        this.kEy = null;
-        this.kEz = null;
-        this.kDX = moreActivity;
-        this.kDY = dVar;
-        this.kDX.setContentView(R.layout.more_activity);
-        aVr();
-        cQS();
+        this.kWt = null;
+        this.kWu = null;
+        this.kWv = null;
+        this.kWw = null;
+        this.kWx = null;
+        this.kWy = null;
+        this.kWz = null;
+        this.kWA = null;
+        this.kWB = null;
+        this.kVZ = moreActivity;
+        this.kWa = dVar;
+        this.kVZ.setContentView(R.layout.more_activity);
+        bbA();
+        cXV();
     }
 
-    public void cQQ() {
+    public void cXT() {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (currentAccount == null || currentAccount.length() <= 0) {
-            this.kEc.setVisibility(8);
+            this.kWe.setVisibility(8);
         } else {
-            this.kEc.setVisibility(0);
+            this.kWe.setVisibility(0);
         }
     }
 
-    public void aF(String str, boolean z) {
+    public void aS(String str, boolean z) {
         if (str == null || str.length() <= 0) {
-            if (this.kEc != null) {
-                this.kEc.cRV();
+            if (this.kWe != null) {
+                this.kWe.cYY();
                 return;
             }
             return;
         }
-        this.kEc.cRW();
-        this.kEc.setIcon(str, z);
+        this.kWe.cYZ();
+        this.kWe.setIcon(str, z);
     }
 
-    public void cQR() {
-        if (this.kEj != null) {
-            this.kEj.refresh();
+    public void cXU() {
+        if (this.kWl != null) {
+            this.kWl.refresh();
         }
-        if (this.kEm != null) {
-            this.kEm.refresh();
+        if (this.kWo != null) {
+            this.kWo.refresh();
         }
     }
 
-    public void cQS() {
+    public void cXV() {
         if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-            this.kEx.turnOn();
+            this.kWz.turnOn();
         } else {
-            this.kEx.turnOff();
+            this.kWz.turnOff();
         }
     }
 
-    public void Cp(int i) {
+    public void CZ(int i) {
         if (TbadkCoreApplication.getInst().getSkinType() != i) {
             if (i == 1) {
                 onChangeSkinType(i);
                 TbadkCoreApplication.getInst().setSkinType(i);
                 TiebaStatic.eventStat(TbadkCoreApplication.getInst().getApp(), TbConfig.ST_TYPE_EYESHIELD_MODE, null, 1, new Object[0]);
-                TiebaStatic.log(new an(TbadkCoreStatisticKey.SET_NIGHT_MODE).cI("obj_type", "1").cI("obj_source", "0"));
+                TiebaStatic.log(new an(TbadkCoreStatisticKey.SET_NIGHT_MODE).dh("obj_type", "1").dh("obj_source", "0"));
             } else if (i == 0 || i == 4) {
                 onChangeSkinType(i);
                 TbadkCoreApplication.getInst().setSkinType(i);
-                TiebaStatic.log(new an(TbadkCoreStatisticKey.SET_NIGHT_MODE).cI("obj_type", "0").cI("obj_source", "0"));
+                TiebaStatic.log(new an(TbadkCoreStatisticKey.SET_NIGHT_MODE).dh("obj_type", "0").dh("obj_source", "0"));
             }
             BitmapHelper.clearCashBitmap();
         }
     }
 
-    public void cPU() {
-        this.kEc.recycle();
-        this.kEd.recycle();
-        this.kEe.recycle();
-        this.kEf.recycle();
-        this.kEh.recycle();
-        this.kEi.recycle();
-        this.kEj.recycle();
-        this.kEk.recycle();
-        this.kEl.recycle();
+    public void cWX() {
+        this.kWe.recycle();
+        this.kWf.recycle();
+        this.kWg.recycle();
+        this.kWh.recycle();
+        this.kWj.recycle();
+        this.kWk.recycle();
+        this.kWl.recycle();
+        this.kWm.recycle();
+        this.kWn.recycle();
     }
 
     public void onChangeSkinType(int i) {
-        ms(i);
-        if (this.kEa != null) {
-            this.kDX.getLayoutMode().setNightMode(i == 1);
-            this.kDX.getLayoutMode().onModeChanged(this.kEa.getView());
+        mU(i);
+        if (this.kWc != null) {
+            this.kVZ.getLayoutMode().setNightMode(i == 1);
+            this.kVZ.getLayoutMode().onModeChanged(this.kWc.getView());
         }
         if (i == 1) {
-            this.kEx.turnOnNoCallback();
+            this.kWz.turnOnNoCallback();
         } else {
-            this.kEx.turnOffNoCallback();
+            this.kWz.turnOffNoCallback();
         }
     }
 
-    public void ms(int i) {
-        am.setBackgroundColor(this.kEo, R.color.cp_bg_line_d);
+    public void mU(int i) {
+        am.setBackgroundColor(this.kWq, R.color.cp_bg_line_d);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        this.kEc.ms(i);
-        this.kDX.getLayoutMode().setNightMode(i == 1);
-        this.kDX.getLayoutMode().onModeChanged(this.kEo);
+        this.kWe.mU(i);
+        this.kVZ.getLayoutMode().setNightMode(i == 1);
+        this.kVZ.getLayoutMode().onModeChanged(this.kWq);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        cQR();
-        this.kEx.setBackgroundRes(am.getBitmap(R.drawable.bg_switch_open), am.getBitmap(R.drawable.bg_switch_close), am.getBitmap(R.drawable.btn_handle));
-        this.kEz.setBackgroundRes(am.getBitmap(R.drawable.bg_switch_open), am.getBitmap(R.drawable.bg_switch_close), am.getBitmap(R.drawable.btn_handle));
-        am.setBackgroundColor(this.kEp, R.color.cp_bg_line_d);
-        this.kEb.setLocalIcon(am.kB(R.drawable.icon_mine_list_baidu));
-        if (this.kEa != null) {
-            this.kEa.onChangeSkinType();
+        cXU();
+        this.kWz.setBackgroundRes(am.getBitmap(R.drawable.bg_switch_open), am.getBitmap(R.drawable.bg_switch_close), am.getBitmap(R.drawable.btn_handle));
+        this.kWB.setBackgroundRes(am.getBitmap(R.drawable.bg_switch_open), am.getBitmap(R.drawable.bg_switch_close), am.getBitmap(R.drawable.btn_handle));
+        am.setBackgroundColor(this.kWr, R.color.cp_bg_line_d);
+        this.kWd.setLocalIcon(am.lb(R.drawable.icon_mine_list_baidu));
+        if (this.kWc != null) {
+            this.kWc.onChangeSkinType();
         }
-        this.kEb.ms(i);
-        this.kEc.ms(i);
-        this.kEd.onChangeSkinType(i);
-        this.kEe.onChangeSkinType(i);
-        this.kEf.onChangeSkinType(i);
-        this.kEg.onChangeSkinType(i);
-        this.kEh.onChangeSkinType(i);
-        this.kEi.onChangeSkinType(i);
-        this.kEj.onChangeSkinType(i);
-        this.kEk.onChangeSkinType(i);
-        this.kEl.onChangeSkinType(i);
-        this.kEm.onChangeSkinType(i);
+        this.kWd.mU(i);
+        this.kWe.mU(i);
+        this.kWf.onChangeSkinType(i);
+        this.kWg.onChangeSkinType(i);
+        this.kWh.onChangeSkinType(i);
+        this.kWi.onChangeSkinType(i);
+        this.kWj.onChangeSkinType(i);
+        this.kWk.onChangeSkinType(i);
+        this.kWl.onChangeSkinType(i);
+        this.kWm.onChangeSkinType(i);
+        this.kWn.onChangeSkinType(i);
+        this.kWo.onChangeSkinType(i);
     }
 
-    private void aVr() {
+    private void bbA() {
         View.OnClickListener clickListener = getClickListener();
-        this.kEo = (RelativeLayout) this.kDX.findViewById(R.id.parent);
-        this.kEp = this.kDX.findViewById(R.id.scroll);
-        this.kDX.findViewById(R.id.head_top_view).getLayoutParams().height = BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
-        this.mNavigationBar = (NavigationBar) this.kDX.findViewById(R.id.view_navigation_bar);
-        this.kEq = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.mNavigationBar.setCenterTextTitle(this.kDX.getPageContext().getString(R.string.setup));
+        this.kWq = (RelativeLayout) this.kVZ.findViewById(R.id.parent);
+        this.kWr = this.kVZ.findViewById(R.id.scroll);
+        this.kVZ.findViewById(R.id.head_top_view).getLayoutParams().height = BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
+        this.mNavigationBar = (NavigationBar) this.kVZ.findViewById(R.id.view_navigation_bar);
+        this.kWs = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.mNavigationBar.setCenterTextTitle(this.kVZ.getPageContext().getString(R.string.setup));
         this.mNavigationBar.showBottomLine();
-        this.kEb = (SettingTextNormalImageView) this.kDX.findViewById(R.id.accountSafeSetting);
-        this.kEc = (SettingTextImageView) this.kDX.findViewById(R.id.personInfo);
-        this.kEd = (TbSettingTextTipView) this.kDX.findViewById(R.id.interest_label_setting);
-        this.kEd.setTopLineVisibility(true);
-        this.kEe = (TbSettingTextTipView) this.kDX.findViewById(R.id.accountManager);
-        this.kEe.setTopLineVisibility(true);
-        this.kEf = (TbSettingTextTipView) this.kDX.findViewById(R.id.browseSetting);
-        this.kEf.setBottomLineVisibility(true);
-        this.kEg = (TbSettingTextTipView) this.kDX.findViewById(R.id.adSetting);
-        this.kEg.setBottomLineVisibility(true);
-        this.kEh = (TbSettingTextTipView) this.kDX.findViewById(R.id.messageSetting);
-        this.kEh.setBottomLineVisibility(true);
-        this.kEf.setBottomLineVisibility(true);
-        this.kEi = (TbSettingTextTipView) this.kDX.findViewById(R.id.secretSetting);
-        this.kEi.setBottomLineVisibility(true);
-        this.kEj = (SettingTextVersionView) this.kDX.findViewById(R.id.versionInfo);
-        this.kEk = (TbSettingTextTipView) this.kDX.findViewById(R.id.feedBack);
-        this.kEk.setTopLineVisibility(true);
-        this.kEk.setBottomLineVisibility(true);
-        this.kEl = (TbSettingTextTipView) this.kDX.findViewById(R.id.recommend);
+        this.kWd = (SettingTextNormalImageView) this.kVZ.findViewById(R.id.accountSafeSetting);
+        this.kWe = (SettingTextImageView) this.kVZ.findViewById(R.id.personInfo);
+        this.kWf = (TbSettingTextTipView) this.kVZ.findViewById(R.id.interest_label_setting);
+        this.kWf.setTopLineVisibility(true);
+        this.kWg = (TbSettingTextTipView) this.kVZ.findViewById(R.id.accountManager);
+        this.kWg.setTopLineVisibility(true);
+        this.kWh = (TbSettingTextTipView) this.kVZ.findViewById(R.id.browseSetting);
+        this.kWh.setBottomLineVisibility(true);
+        this.kWi = (TbSettingTextTipView) this.kVZ.findViewById(R.id.adSetting);
+        this.kWi.setBottomLineVisibility(true);
+        this.kWj = (TbSettingTextTipView) this.kVZ.findViewById(R.id.messageSetting);
+        this.kWj.setBottomLineVisibility(true);
+        this.kWh.setBottomLineVisibility(true);
+        this.kWk = (TbSettingTextTipView) this.kVZ.findViewById(R.id.secretSetting);
+        this.kWk.setBottomLineVisibility(true);
+        this.kWl = (SettingTextVersionView) this.kVZ.findViewById(R.id.versionInfo);
+        this.kWm = (TbSettingTextTipView) this.kVZ.findViewById(R.id.feedBack);
+        this.kWm.setTopLineVisibility(true);
+        this.kWm.setBottomLineVisibility(true);
+        this.kWn = (TbSettingTextTipView) this.kVZ.findViewById(R.id.recommend);
         if (!TbadkCoreApplication.getInst().getIsAppOn()) {
-            this.kEl.setVisibility(8);
-            this.kEl.setBottomLineVisibility(false);
+            this.kWn.setVisibility(8);
+            this.kWn.setBottomLineVisibility(false);
         } else {
-            this.kEl.setVisibility(0);
-            this.kEl.setBottomLineVisibility(true);
+            this.kWn.setVisibility(0);
+            this.kWn.setBottomLineVisibility(true);
         }
-        this.kEm = (TbSettingTextNewDotView) this.kDX.findViewById(R.id.systemhelpsetting);
-        this.kEn = (TextView) this.kDX.findViewById(R.id.quit);
-        this.kEw = (RelativeLayout) this.kDX.findViewById(R.id.eyeshield_mode);
-        this.kEx = (BdSwitchView) this.kDX.findViewById(R.id.item_switch);
-        l.addToParentArea(this.kDX.getPageContext().getPageActivity(), this.kEx, 10, 10, 10, 10);
-        this.kEy = (RelativeLayout) this.kDX.findViewById(R.id.follow_system_day_night_mode);
-        this.kEz = (BdSwitchView) this.kDX.findViewById(R.id.follow_system_item_switch);
-        l.addToParentArea(this.kDX.getPageContext().getPageActivity(), this.kEz, 10, 10, 10, 10);
-        this.kEr = this.kDX.findViewById(R.id.divide_view2);
-        this.kEs = this.kDX.findViewById(R.id.divide_view1);
-        this.kEt = this.kDX.findViewById(R.id.divide_view3);
-        this.kEu = this.kDX.findViewById(R.id.divide_view4);
-        this.kEv = this.kDX.findViewById(R.id.divide_view5);
-        cQR();
-        cQQ();
-        this.kEc.cRV();
-        ms(TbadkCoreApplication.getInst().getSkinType());
-        this.kEs.setVisibility(0);
-        this.kEt.setVisibility(0);
-        this.kEu.setVisibility(0);
-        this.kEv.setVisibility(0);
+        this.kWo = (TbSettingTextNewDotView) this.kVZ.findViewById(R.id.systemhelpsetting);
+        this.kWp = (TextView) this.kVZ.findViewById(R.id.quit);
+        this.kWy = (RelativeLayout) this.kVZ.findViewById(R.id.eyeshield_mode);
+        this.kWz = (BdSwitchView) this.kVZ.findViewById(R.id.item_switch);
+        l.addToParentArea(this.kVZ.getPageContext().getPageActivity(), this.kWz, 10, 10, 10, 10);
+        this.kWA = (RelativeLayout) this.kVZ.findViewById(R.id.follow_system_day_night_mode);
+        this.kWB = (BdSwitchView) this.kVZ.findViewById(R.id.follow_system_item_switch);
+        l.addToParentArea(this.kVZ.getPageContext().getPageActivity(), this.kWB, 10, 10, 10, 10);
+        this.kWt = this.kVZ.findViewById(R.id.divide_view2);
+        this.kWu = this.kVZ.findViewById(R.id.divide_view1);
+        this.kWv = this.kVZ.findViewById(R.id.divide_view3);
+        this.kWw = this.kVZ.findViewById(R.id.divide_view4);
+        this.kWx = this.kVZ.findViewById(R.id.divide_view5);
+        cXU();
+        cXT();
+        this.kWe.cYY();
+        mU(TbadkCoreApplication.getInst().getSkinType());
+        this.kWu.setVisibility(0);
+        this.kWv.setVisibility(0);
+        this.kWw.setVisibility(0);
+        this.kWx.setVisibility(0);
         ab(clickListener);
-        if (!cQT()) {
-            this.kEf.setTip(this.kDX.getResources().getString(R.string.browsing_settings_tip_no_night));
-            this.kEr.setVisibility(8);
-            this.kEw.setVisibility(8);
+        if (!cXW()) {
+            this.kWh.setTip(this.kVZ.getResources().getString(R.string.browsing_settings_tip_no_night));
+            this.kWt.setVisibility(8);
+            this.kWy.setVisibility(8);
         } else {
-            this.kEr.setVisibility(0);
-            this.kEw.setVisibility(0);
+            this.kWt.setVisibility(0);
+            this.kWy.setVisibility(0);
         }
-        this.kEy.setVisibility(cQU() ? 0 : 8);
-        if (com.baidu.tbadk.core.sharedPref.b.aNT().getBoolean("key_is_follow_system_mode", false)) {
-            this.kEz.turnOnNoCallback();
+        this.kWA.setVisibility(cXX() ? 0 : 8);
+        if (com.baidu.tbadk.core.sharedPref.b.aTX().getBoolean("key_is_follow_system_mode", false)) {
+            this.kWB.turnOnNoCallback();
         } else {
-            this.kEz.turnOffNoCallback();
+            this.kWB.turnOffNoCallback();
         }
     }
 
-    private boolean cQT() {
+    private boolean cXW() {
         return MessageManager.getInstance().runTask(CmdConfigCustom.CMD_NIGHT_RESOURCE_AVAILABLE, Boolean.class) != null;
     }
 
-    private boolean cQU() {
-        if (cQT()) {
+    private boolean cXX() {
+        if (cXW()) {
             if (Build.VERSION.SDK_INT >= 29) {
                 return true;
             }
-            return com.baidu.tbadk.core.sharedPref.b.aNT().getBoolean("key_is_dark_mode_notify_shown", false);
+            return com.baidu.tbadk.core.sharedPref.b.aTX().getBoolean("key_is_dark_mode_notify_shown", false);
         }
         return false;
     }
 
-    private void WP() {
-        this.kEa = new k(getPageContext().getPageActivity());
-        this.kEa.setTitleText(getPageContext().getString(R.string.quit_account_tip));
+    private void ZB() {
+        this.kWc = new k(getPageContext().getPageActivity());
+        this.kWc.setTitleText(getPageContext().getString(R.string.quit_account_tip));
         ArrayList arrayList = new ArrayList();
-        final com.baidu.tbadk.core.dialog.g gVar = new com.baidu.tbadk.core.dialog.g(getPageContext().getString(R.string.quite_current_account), this.kEa);
+        final com.baidu.tbadk.core.dialog.g gVar = new com.baidu.tbadk.core.dialog.g(getPageContext().getString(R.string.quite_current_account), this.kWc);
         gVar.setTextColor(R.color.cp_cont_h);
         arrayList.add(gVar);
-        this.kDX.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
-        this.kDX.getLayoutMode().onModeChanged(this.kEa.getView());
+        this.kVZ.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
+        this.kVZ.getLayoutMode().onModeChanged(this.kWc.getView());
         k.c cVar = new k.c() { // from class: com.baidu.tieba.setting.more.e.1
             @Override // com.baidu.tbadk.core.dialog.k.c
             public void a(k kVar, int i, View view) {
                 if (i == gVar.getId()) {
-                    e.this.xk();
-                    e.this.kDY.Ck(12);
+                    e.this.yy();
+                    e.this.kWa.CU(12);
                 }
             }
         };
         k.a aVar = new k.a() { // from class: com.baidu.tieba.setting.more.e.2
             @Override // com.baidu.tbadk.core.dialog.k.a
             public void onClick() {
-                e.this.xk();
+                e.this.yy();
             }
         };
-        this.kEa.aI(arrayList);
-        this.kEa.a(cVar);
-        this.kEa.a(aVar);
-        this.kDZ = new com.baidu.tbadk.core.dialog.i(this.mContext);
-        this.kDZ.setCanceledOnTouchOutside(true);
-        this.kDZ.a(this.kEa);
+        this.kWc.aD(arrayList);
+        this.kWc.a(cVar);
+        this.kWc.a(aVar);
+        this.kWb = new com.baidu.tbadk.core.dialog.i(this.mContext);
+        this.kWb.setCanceledOnTouchOutside(true);
+        this.kWb.a(this.kWc);
     }
 
     private void ab(View.OnClickListener onClickListener) {
-        this.kEb.setOnClickListener(onClickListener);
-        this.kEq.setOnClickListener(onClickListener);
-        this.kEc.setOnClickListener(onClickListener);
-        this.kEd.setOnClickListener(onClickListener);
-        this.kEe.setOnClickListener(onClickListener);
-        this.kEf.setOnClickListener(onClickListener);
-        this.kEg.setOnClickListener(onClickListener);
-        this.kEh.setOnClickListener(onClickListener);
-        this.kEi.setOnClickListener(onClickListener);
-        this.kEj.setOnClickListener(onClickListener);
-        this.kEk.setOnClickListener(onClickListener);
-        this.kEl.setOnClickListener(onClickListener);
-        this.kEm.setOnClickListener(onClickListener);
-        this.kEn.setOnClickListener(onClickListener);
-        this.kEx.setOnSwitchStateChangeListener(this.kDX);
-        this.kEz.setOnSwitchStateChangeListener(this.kDX);
+        this.kWd.setOnClickListener(onClickListener);
+        this.kWs.setOnClickListener(onClickListener);
+        this.kWe.setOnClickListener(onClickListener);
+        this.kWf.setOnClickListener(onClickListener);
+        this.kWg.setOnClickListener(onClickListener);
+        this.kWh.setOnClickListener(onClickListener);
+        this.kWi.setOnClickListener(onClickListener);
+        this.kWj.setOnClickListener(onClickListener);
+        this.kWk.setOnClickListener(onClickListener);
+        this.kWl.setOnClickListener(onClickListener);
+        this.kWm.setOnClickListener(onClickListener);
+        this.kWn.setOnClickListener(onClickListener);
+        this.kWo.setOnClickListener(onClickListener);
+        this.kWp.setOnClickListener(onClickListener);
+        this.kWz.setOnSwitchStateChangeListener(this.kVZ);
+        this.kWB.setOnSwitchStateChangeListener(this.kVZ);
     }
 
     private View.OnClickListener getClickListener() {
         return new View.OnClickListener() { // from class: com.baidu.tieba.setting.more.e.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (view == e.this.kEq) {
-                    e.this.kDY.Ck(0);
-                } else if (view == e.this.kEc) {
-                    e.this.kDY.Ck(1);
-                } else if (view == e.this.kEd) {
-                    e.this.kDY.Ck(15);
-                } else if (view == e.this.kEe) {
-                    e.this.kDY.Ck(2);
-                } else if (view == e.this.kEf) {
-                    e.this.kDY.Ck(3);
-                } else if (view == e.this.kEh) {
-                    e.this.kDY.Ck(4);
-                } else if (view == e.this.kEi) {
-                    e.this.kDY.Ck(9);
-                } else if (view == e.this.kEj) {
-                    e.this.kDY.Ck(6);
-                } else if (view == e.this.kEk) {
-                    e.this.kDY.Ck(7);
-                } else if (view == e.this.kEl) {
-                    e.this.kDY.Ck(8);
-                } else if (view == e.this.kEm) {
-                    e.this.kDY.Ck(5);
-                } else if (view == e.this.kEn) {
-                    e.this.kDY.Ck(10);
-                } else if (view == e.this.kEb) {
-                    e.this.kDY.Ck(13);
-                } else if (view == e.this.kEg) {
-                    e.this.kDY.Ck(16);
+                if (view == e.this.kWs) {
+                    e.this.kWa.CU(0);
+                } else if (view == e.this.kWe) {
+                    e.this.kWa.CU(1);
+                } else if (view == e.this.kWf) {
+                    e.this.kWa.CU(15);
+                } else if (view == e.this.kWg) {
+                    e.this.kWa.CU(2);
+                } else if (view == e.this.kWh) {
+                    e.this.kWa.CU(3);
+                } else if (view == e.this.kWj) {
+                    e.this.kWa.CU(4);
+                } else if (view == e.this.kWk) {
+                    e.this.kWa.CU(9);
+                } else if (view == e.this.kWl) {
+                    e.this.kWa.CU(6);
+                } else if (view == e.this.kWm) {
+                    e.this.kWa.CU(7);
+                } else if (view == e.this.kWn) {
+                    e.this.kWa.CU(8);
+                } else if (view == e.this.kWo) {
+                    e.this.kWa.CU(5);
+                } else if (view == e.this.kWp) {
+                    e.this.kWa.CU(10);
+                } else if (view == e.this.kWd) {
+                    e.this.kWa.CU(13);
+                } else if (view == e.this.kWi) {
+                    e.this.kWa.CU(16);
                 }
             }
         };
     }
 
-    public void cQV() {
-        if (this.kDZ == null) {
-            WP();
+    public void cXY() {
+        if (this.kWb == null) {
+            ZB();
         }
-        this.kDZ.showDialog();
+        this.kWb.showDialog();
     }
 
-    public void xk() {
-        if (this.kDZ != null) {
-            this.kDZ.dismiss();
+    public void yy() {
+        if (this.kWb != null) {
+            this.kWb.dismiss();
         }
     }
 
-    public BdSwitchView cQW() {
-        return this.kEx;
+    public BdSwitchView cXZ() {
+        return this.kWz;
     }
 
-    public BdSwitchView cQX() {
-        return this.kEz;
+    public BdSwitchView cYa() {
+        return this.kWB;
     }
 }

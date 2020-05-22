@@ -35,7 +35,7 @@ public class ImageInfo implements Parcelable {
     public int width;
 
     public ImageInfo() {
-        this.type = c.lZa.getName().toLowerCase();
+        this.type = c.msV.getName().toLowerCase();
         this.width = -1;
         this.height = -1;
         this.frameCount = 0;
@@ -44,7 +44,7 @@ public class ImageInfo implements Parcelable {
     }
 
     protected ImageInfo(Parcel parcel) {
-        this.type = c.lZa.getName().toLowerCase();
+        this.type = c.msV.getName().toLowerCase();
         this.width = -1;
         this.height = -1;
         this.frameCount = 0;
@@ -88,17 +88,17 @@ public class ImageInfo implements Parcelable {
         if (!file.exists() || file.isDirectory()) {
             return imageInfo;
         }
-        c cVar = c.lZa;
+        c cVar = c.msV;
         try {
             fileInputStream = new FileInputStream(file);
             try {
                 imageInfo.size = fileInputStream.available();
-                cVar = tv.chushou.zues.utils.c.r(fileInputStream);
+                cVar = tv.chushou.zues.utils.c.s(fileInputStream);
                 a.b(fileInputStream);
             } catch (Exception e) {
                 a.b(fileInputStream);
                 imageInfo.type = cVar.getName().toLowerCase();
-                if (cVar != c.lZa) {
+                if (cVar != c.msV) {
                 }
             } catch (Throwable th) {
                 th = th;
@@ -112,10 +112,10 @@ public class ImageInfo implements Parcelable {
             fileInputStream = null;
         }
         imageInfo.type = cVar.getName().toLowerCase();
-        if (cVar != c.lZa) {
+        if (cVar != c.msV) {
             return imageInfo;
         }
-        if (cVar == b.lYS) {
+        if (cVar == b.msN) {
             try {
                 GifDrawable gifDrawable = new GifDrawable(file);
                 imageInfo.frameCount = gifDrawable.getNumberOfFrames();
@@ -124,7 +124,7 @@ public class ImageInfo implements Parcelable {
             } catch (Throwable th3) {
             }
             return imageInfo;
-        } else if (cVar == b.lYY) {
+        } else if (cVar == b.msT) {
             return imageInfo;
         } else {
             BitmapFactory.Options options = new BitmapFactory.Options();

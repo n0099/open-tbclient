@@ -5,21 +5,21 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.data.UserData;
 /* loaded from: classes9.dex */
 public class g extends com.baidu.tieba.card.data.b {
-    public static BdUniqueId jTH = BdUniqueId.gen();
-    public String arb;
+    public static BdUniqueId kly = BdUniqueId.gen();
+    public String auL;
     public int itemId;
-    public int jTB;
-    public boolean jTC;
-    public boolean jTD;
-    public boolean jTE = false;
-    public i jTF;
-    public Bundle jTG;
+    public int kls;
+    public boolean klt;
+    public boolean klu;
+    public boolean klv = false;
+    public i klw;
+    public Bundle klx;
     public String title;
     public int type;
     public UserData userData;
 
-    @Override // com.baidu.adp.widget.ListView.m
+    @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.o
     public BdUniqueId getType() {
-        return jTH;
+        return kly;
     }
 }

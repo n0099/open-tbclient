@@ -3,7 +3,7 @@ package com.baidu.swan.mini.c;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.swan.apps.as.ab;
+import com.baidu.swan.apps.aq.ac;
 import com.baidu.swan.mini.e.c;
 import com.baidu.swan.pms.b.b.d;
 import java.io.File;
@@ -12,15 +12,15 @@ import java.util.concurrent.CopyOnWriteArrayList;
 /* loaded from: classes11.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final ConcurrentHashMap<Integer, CopyOnWriteArrayList<c.a>> cZI = new ConcurrentHashMap<>();
+    private static final ConcurrentHashMap<Integer, CopyOnWriteArrayList<c.a>> dkM = new ConcurrentHashMap<>();
 
     public static void a(@NonNull final com.baidu.swan.pms.b.a aVar, @NonNull c.a aVar2) {
         File b;
         final int a = a(aVar);
         if (DEBUG) {
-            Log.d("Mini-Pm", "==========开始获取mini小程序包 " + a + " ========== pkg: " + aVar.YR());
+            Log.d("Mini-Pm", "==========开始获取mini小程序包 " + a + " ========== pkg: " + aVar.abS());
         }
-        if (cZI.containsKey(Integer.valueOf(a))) {
+        if (dkM.containsKey(Integer.valueOf(a))) {
             if (DEBUG) {
                 Log.d("Mini-Pm", "==========重复获取 hash: " + a + " ========== pkg: " + aVar);
             }
@@ -28,27 +28,27 @@ public class a {
             return;
         }
         a(a, aVar2);
-        if (!aVar.XL()) {
+        if (!aVar.aaF()) {
             a(a, new com.baidu.swan.pms.b.b.b(1010, "参数错误 " + aVar), "");
             return;
         }
         final String appId = aVar.getAppId();
         final String bundleId = aVar.getBundleId();
         final int versionCode = aVar.getVersionCode();
-        com.baidu.swan.pms.b.a co = com.baidu.swan.pms.database.a.aBI().co(appId, bundleId);
-        if (co != null && co.getVersionCode() >= versionCode && (b = b.b(co)) != null && b.exists()) {
+        com.baidu.swan.pms.b.a cL = com.baidu.swan.pms.database.a.aFV().cL(appId, bundleId);
+        if (cL != null && cL.getVersionCode() >= versionCode && (b = b.b(cL)) != null && b.exists()) {
             if (DEBUG) {
-                Log.d("Mini-Pm", "==========获取mini小程序成功(同步本地有包) " + a + " ========== pkg: " + aVar.YR() + " local pkg: " + co.YR());
+                Log.d("Mini-Pm", "==========获取mini小程序成功(同步本地有包) " + a + " ========== pkg: " + aVar.abS() + " local pkg: " + cL.abS());
             }
             a(a, new com.baidu.swan.pms.b.b.b(0, "成功：本地有包"), b.getPath());
             return;
         }
-        d.aBR().a(new com.baidu.swan.pms.b.b.a(aVar.getDownloadUrl(), aVar.getSize(), aVar.getMd5(), new com.baidu.swan.pms.b.b() { // from class: com.baidu.swan.mini.c.a.1
+        d.aGe().a(new com.baidu.swan.pms.b.b.a(aVar.getDownloadUrl(), aVar.getSize(), aVar.getMd5(), new com.baidu.swan.pms.b.b() { // from class: com.baidu.swan.mini.c.a.1
             @Override // com.baidu.swan.pms.b.b
             public void a(@NonNull com.baidu.swan.pms.b.b.b bVar) {
                 String str = bVar.filePath;
                 if (!TextUtils.isEmpty(str)) {
-                    com.baidu.swan.d.c.deleteFile(str);
+                    com.baidu.swan.e.d.deleteFile(str);
                 }
                 a.a(a, bVar, "");
             }
@@ -63,32 +63,32 @@ public class a {
                 File file = new File(str);
                 if (!file.exists()) {
                     a.a(a, new com.baidu.swan.pms.b.b.b(1013, "文件不存在: " + str), "");
-                } else if (!ab.e(file, aVar.getSign())) {
-                    com.baidu.swan.d.c.deleteFile(str);
+                } else if (!ac.e(file, aVar.getSign())) {
+                    com.baidu.swan.e.d.deleteFile(str);
                     a.a(a, new com.baidu.swan.pms.b.b.b(1001, "签名校验失败"), "");
                 } else {
                     com.baidu.swan.pms.b.b.b a2 = b.a(aVar, str);
                     if (!a2.isSuccess()) {
-                        com.baidu.swan.d.c.deleteFile(str);
+                        com.baidu.swan.e.d.deleteFile(str);
                         a.a(a, a2, "");
                         return;
                     }
-                    com.baidu.swan.d.c.deleteFile(str);
-                    if (!com.baidu.swan.pms.database.a.aBI().d(aVar)) {
+                    com.baidu.swan.e.d.deleteFile(str);
+                    if (!com.baidu.swan.pms.database.a.aFV().d(aVar)) {
                         a.a(a, new com.baidu.swan.pms.b.b.b(1012, "db insert fail"), "");
                         return;
                     }
                     if (a.DEBUG) {
-                        Log.d("Mini-Pm", "==========获取mini小程序成功(异步) " + a + " ========== pkg: " + aVar.YR());
+                        Log.d("Mini-Pm", "==========获取mini小程序成功(异步) " + a + " ========== pkg: " + aVar.abS());
                     }
-                    a.a(a, bVar, b.P(appId, bundleId, String.valueOf(versionCode)).getPath());
+                    a.a(a, bVar, b.S(appId, bundleId, String.valueOf(versionCode)).getPath());
                 }
             }
         }));
     }
 
     private static void a(int i, @NonNull c.a aVar) {
-        CopyOnWriteArrayList<c.a> copyOnWriteArrayList = cZI.get(Integer.valueOf(i));
+        CopyOnWriteArrayList<c.a> copyOnWriteArrayList = dkM.get(Integer.valueOf(i));
         if (copyOnWriteArrayList == null) {
             copyOnWriteArrayList = new CopyOnWriteArrayList<>();
         }
@@ -96,7 +96,7 @@ public class a {
             Log.d("Mini-Pm", "addCallback: " + i);
         }
         copyOnWriteArrayList.add(aVar);
-        cZI.put(Integer.valueOf(i), copyOnWriteArrayList);
+        dkM.put(Integer.valueOf(i), copyOnWriteArrayList);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -107,7 +107,7 @@ public class a {
             }
             Log.d("Mini-Pm", bVar.toString());
         }
-        CopyOnWriteArrayList<c.a> remove = cZI.remove(Integer.valueOf(i));
+        CopyOnWriteArrayList<c.a> remove = dkM.remove(Integer.valueOf(i));
         if (remove == null || remove.isEmpty()) {
             if (DEBUG) {
                 Log.d("Mini-Pm", "notifyCallbacks: callbacks is empty");

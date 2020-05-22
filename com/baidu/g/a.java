@@ -2,23 +2,25 @@ package com.baidu.g;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import com.baidu.poly.a;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import java.util.Iterator;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class a {
     private static final String TAG = a.class.getSimpleName();
-    private static com.baidu.poly.a bmg = null;
-    private static com.baidu.poly.c.a.a bmh = null;
-    private static int bmi = 1;
+    private static com.baidu.poly.a btD = null;
+    private static com.baidu.poly.c.a.a btE = null;
+    private static int btF = 1;
 
     public boolean a(Activity activity, String str, com.baidu.g.a.a aVar) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        b.KK().e(activity, str, aVar);
+        b.ME().e(activity, str, aVar);
         return true;
     }
 
@@ -26,7 +28,7 @@ public class a {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        b.KK().f(activity, str, aVar);
+        b.ME().f(activity, str, aVar);
         return true;
     }
 
@@ -43,6 +45,12 @@ public class a {
                 String str = strArr[i];
                 char c = 65535;
                 switch (str.hashCode()) {
+                    case -2122629326:
+                        if (str.equals("Huabei")) {
+                            c = 4;
+                            break;
+                        }
+                        break;
                     case -1708856474:
                         if (str.equals("WeChat")) {
                             c = 1;
@@ -81,10 +89,14 @@ public class a {
                     case 3:
                         strArr2[i] = "BAIDU-QUICKPAY";
                         break;
+                    case 4:
+                        strArr2[i] = "BAIDU-ALIPAY-WISE-HUABEI-PAY";
+                        break;
                 }
             }
             bundle.putStringArray("blockedPayChannels", strArr2);
         }
+        bundle.putString("zid", b.ME().getZid(activity));
         x(activity).a(activity, bundle, new a.b() { // from class: com.baidu.g.a.1
             @Override // com.baidu.poly.a.b
             public void onResult(int i2, String str2) {
@@ -106,13 +118,14 @@ public class a {
     }
 
     private static com.baidu.poly.a x(Activity activity) {
-        if (bmg != null) {
-            return bmg;
+        if (btD != null) {
+            return btD;
         }
-        bmg = new a.C0199a().a(new com.baidu.poly.c.a.c() { // from class: com.baidu.g.a.2
+        btF = PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext()).getInt("poly_cashier_env", 1);
+        btD = new a.C0232a().a(new com.baidu.poly.c.a.c() { // from class: com.baidu.g.a.2
             @Override // com.baidu.poly.c.a.c
             public void a(Activity activity2, com.baidu.poly.c.a.b bVar, final com.baidu.poly.c.a.a aVar) {
-                if (bVar == null || TextUtils.isEmpty(bVar.channel) || bVar.boz == null) {
+                if (bVar == null || TextUtils.isEmpty(bVar.channel) || bVar.bvZ == null) {
                     a.a(aVar, 6, "支付信息不能为空");
                     return;
                 }
@@ -121,13 +134,19 @@ public class a {
                 switch (str.hashCode()) {
                     case -1537577171:
                         if (str.equals("BAIDU-QUICKPAY")) {
-                            c = 3;
+                            c = 4;
+                            break;
+                        }
+                        break;
+                    case -1021180251:
+                        if (str.equals("BAIDU-ALIPAY-WISE-HUABEI-PAY")) {
+                            c = 1;
                             break;
                         }
                         break;
                     case 299450696:
                         if (str.equals("BAIDU-BAIFUBAO-WISE")) {
-                            c = 2;
+                            c = 3;
                             break;
                         }
                         break;
@@ -139,22 +158,15 @@ public class a {
                         break;
                     case 2009937959:
                         if (str.equals("BAIDU-SUPER-WECHAT-WISE")) {
-                            c = 1;
+                            c = 2;
                             break;
                         }
                         break;
                 }
                 switch (c) {
                     case 0:
-                        c.KL().d(activity2, bVar.boz.optString("orderInfo"), new com.baidu.g.a.a() { // from class: com.baidu.g.a.2.1
-                            @Override // com.baidu.g.a.a
-                            public void onPayResult(int i, String str2) {
-                                a.a(aVar, i, str2);
-                            }
-                        });
-                        break;
                     case 1:
-                        c.KL().a(activity2, bVar.boz, new com.baidu.g.a.a() { // from class: com.baidu.g.a.2.2
+                        c.MF().d(activity2, bVar.bvZ.optString("orderInfo"), new com.baidu.g.a.a() { // from class: com.baidu.g.a.2.1
                             @Override // com.baidu.g.a.a
                             public void onPayResult(int i, String str2) {
                                 a.a(aVar, i, str2);
@@ -162,7 +174,7 @@ public class a {
                         });
                         break;
                     case 2:
-                        c.KL().c(activity2, bVar.boz.optString("orderInfo"), new com.baidu.g.a.a() { // from class: com.baidu.g.a.2.3
+                        c.MF().a(activity2, bVar.bvZ, new com.baidu.g.a.a() { // from class: com.baidu.g.a.2.2
                             @Override // com.baidu.g.a.a
                             public void onPayResult(int i, String str2) {
                                 a.a(aVar, i, str2);
@@ -170,9 +182,17 @@ public class a {
                         });
                         break;
                     case 3:
-                        com.baidu.poly.c.a.a unused = a.bmh = aVar;
-                        d.KM();
-                        c.KL().f(activity2, bVar.boz);
+                        c.MF().c(activity2, bVar.bvZ.optString("orderInfo"), new com.baidu.g.a.a() { // from class: com.baidu.g.a.2.3
+                            @Override // com.baidu.g.a.a
+                            public void onPayResult(int i, String str2) {
+                                a.a(aVar, i, str2);
+                            }
+                        });
+                        break;
+                    case 4:
+                        com.baidu.poly.c.a.a unused = a.btE = aVar;
+                        d.MG();
+                        c.MF().f(activity2, bVar.bvZ);
                         break;
                     default:
                         aVar.onResult(3, "未知的支付方式");
@@ -180,14 +200,14 @@ public class a {
                 }
                 activity2.finish();
             }
-        }).dy(bmi).av(activity.getApplicationContext()).cF(false).KP();
-        return bmg;
+        }).dE(btF).aF(activity.getApplicationContext()).cR(false).MJ();
+        return btD;
     }
 
     public static void J(int i, String str) {
-        if (bmh != null) {
-            bmh.onResult(i, str);
-            bmh = null;
+        if (btE != null) {
+            btE.onResult(i, str);
+            btE = null;
         }
     }
 
@@ -213,7 +233,7 @@ public class a {
         }
     }
 
-    public static boolean KJ() {
+    public static boolean MD() {
         return false;
     }
 }

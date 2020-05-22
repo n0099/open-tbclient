@@ -1,21 +1,21 @@
 package org.java_websocket.c;
 /* loaded from: classes7.dex */
 public class e extends g implements i {
-    private short nip;
-    private String niq;
+    private short nDp;
+    private String nDq;
 
     @Override // org.java_websocket.c.h
-    public String dHd() {
-        return this.niq;
+    public String dOX() {
+        return this.nDq;
     }
 
     @Override // org.java_websocket.c.i
-    public void PO(String str) {
-        this.niq = str;
+    public void RU(String str) {
+        this.nDq = str;
     }
 
     @Override // org.java_websocket.c.i
     public void l(short s) {
-        this.nip = s;
+        this.nDp = s;
     }
 }

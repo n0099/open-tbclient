@@ -1,7 +1,7 @@
 package com.baidu.swan.mini.e;
 
 import android.support.annotation.NonNull;
-import com.baidu.swan.apps.as.m;
+import com.baidu.swan.apps.aq.n;
 import java.io.File;
 /* loaded from: classes11.dex */
 public class c {
@@ -16,7 +16,7 @@ public class c {
 
     /* loaded from: classes11.dex */
     public interface b {
-        void ru(@NonNull String str);
+        void sX(@NonNull String str);
     }
 
     /* JADX DEBUG: Marked for inline */
@@ -26,12 +26,12 @@ public class c {
     }
 
     @NonNull
-    public static String rz(@NonNull String str) {
+    public static String tb(@NonNull String str) {
         return str + File.separator + "mini";
     }
 
     public static void a(@NonNull final String str, @NonNull final b bVar) {
-        m.postOnIO(new Runnable() { // from class: com.baidu.swan.mini.e.c.1
+        n.postOnIO(new Runnable() { // from class: com.baidu.swan.mini.e.c.1
             /*  JADX ERROR: JadxRuntimeException in pass: BlockProcessor
                 jadx.core.utils.exceptions.JadxRuntimeException: Found unreachable blocks
                 	at jadx.core.dex.visitors.blocks.DominatorTree.sortBlocks(DominatorTree.java:35)
@@ -107,7 +107,7 @@ public class c {
                 L69:
                     com.baidu.swan.mini.e.c$b r0 = r2
                     java.lang.String r1 = ""
-                    r0.ru(r1)
+                    r0.sX(r1)
                 L71:
                     return
                 L72:
@@ -133,7 +133,7 @@ public class c {
                 La4:
                     com.baidu.swan.mini.e.c$b r1 = r2
                     java.lang.String r0 = r0.toString()
-                    r1.ru(r0)
+                    r1.sX(r0)
                     goto L71
                 Lae:
                     r4 = move-exception

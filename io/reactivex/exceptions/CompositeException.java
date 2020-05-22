@@ -112,7 +112,7 @@ public final class CompositeException extends RuntimeException {
                 appendStackTrace(sb, it.next(), "\t");
                 i = i2 + 1;
             } else {
-                aVar.bu(sb.toString());
+                aVar.bA(sb.toString());
                 return;
             }
         }
@@ -132,7 +132,7 @@ public final class CompositeException extends RuntimeException {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes7.dex */
     public static abstract class a {
-        abstract void bu(Object obj);
+        abstract void bA(Object obj);
 
         a() {
         }
@@ -141,29 +141,29 @@ public final class CompositeException extends RuntimeException {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes7.dex */
     public static final class b extends a {
-        private final PrintStream mRn;
+        private final PrintStream nmv;
 
         b(PrintStream printStream) {
-            this.mRn = printStream;
+            this.nmv = printStream;
         }
 
         @Override // io.reactivex.exceptions.CompositeException.a
-        void bu(Object obj) {
-            this.mRn.println(obj);
+        void bA(Object obj) {
+            this.nmv.println(obj);
         }
     }
 
     /* loaded from: classes7.dex */
     static final class c extends a {
-        private final PrintWriter mRo;
+        private final PrintWriter nmw;
 
         c(PrintWriter printWriter) {
-            this.mRo = printWriter;
+            this.nmw = printWriter;
         }
 
         @Override // io.reactivex.exceptions.CompositeException.a
-        void bu(Object obj) {
-            this.mRo.println(obj);
+        void bA(Object obj) {
+            this.nmw.println(obj);
         }
     }
 

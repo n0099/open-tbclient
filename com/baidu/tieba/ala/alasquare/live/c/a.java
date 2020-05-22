@@ -22,22 +22,22 @@ import java.util.List;
 import tbclient.LiveSquare.FunctionListInfo;
 /* loaded from: classes3.dex */
 public class a {
-    private TextView eIp;
-    private View eOA;
-    private LinearLayout eOB;
-    private ImageView eOC;
-    private TextView eOD;
-    private TextView eOE;
-    private View eOF;
-    private View eOG;
-    private LinearLayout eOs;
-    private LinearLayout eOt;
-    private ImageView eOu;
-    private TextView eOv;
-    private LinearLayout eOw;
-    private ImageView eOx;
-    private TextView eOy;
-    private TextView eOz;
+    private TextView eUO;
+    private LinearLayout faZ;
+    private LinearLayout fba;
+    private ImageView fbb;
+    private TextView fbc;
+    private LinearLayout fbd;
+    private ImageView fbe;
+    private TextView fbf;
+    private TextView fbg;
+    private View fbh;
+    private LinearLayout fbi;
+    private ImageView fbj;
+    private TextView fbk;
+    private TextView fbl;
+    private View fbm;
+    private View fbn;
     private Context mContext;
     private List<FunctionListInfo> mData;
     private View mRootView;
@@ -50,87 +50,87 @@ public class a {
 
     private void initUI() {
         this.mRootView = LayoutInflater.from(this.mContext).inflate(R.layout.square_live_function_region_layout, (ViewGroup) null);
-        this.eOs = (LinearLayout) this.mRootView.findViewById(R.id.square_function_container);
-        this.eOt = (LinearLayout) this.mRootView.findViewById(R.id.square_function_rank);
-        this.eOt.setVisibility(8);
-        this.eOu = (ImageView) this.mRootView.findViewById(R.id.square_function_rank_img);
-        this.eIp = (TextView) this.mRootView.findViewById(R.id.square_function_rank_title);
-        this.eOv = (TextView) this.mRootView.findViewById(R.id.square_function_rank_desc);
-        this.eOw = (LinearLayout) this.mRootView.findViewById(R.id.square_function_history);
-        this.eOw.setVisibility(8);
-        this.eOx = (ImageView) this.mRootView.findViewById(R.id.square_function_history_img);
-        this.eOy = (TextView) this.mRootView.findViewById(R.id.square_function_history_title);
-        this.eOz = (TextView) this.mRootView.findViewById(R.id.square_function_history_desc);
-        this.eOA = this.mRootView.findViewById(R.id.square_function_history_red_pointer);
-        this.eOB = (LinearLayout) this.mRootView.findViewById(R.id.square_function_activity);
-        this.eOB.setVisibility(8);
-        this.eOC = (ImageView) this.mRootView.findViewById(R.id.square_function_activity_img);
-        this.eOD = (TextView) this.mRootView.findViewById(R.id.square_function_activity_title);
-        this.eOE = (TextView) this.mRootView.findViewById(R.id.square_function_activity_desc);
-        this.eOF = this.mRootView.findViewById(R.id.square_function_activity_red_pointer);
-        this.eOG = this.mRootView.findViewById(R.id.square_function_bottom_space);
+        this.faZ = (LinearLayout) this.mRootView.findViewById(R.id.square_function_container);
+        this.fba = (LinearLayout) this.mRootView.findViewById(R.id.square_function_rank);
+        this.fba.setVisibility(8);
+        this.fbb = (ImageView) this.mRootView.findViewById(R.id.square_function_rank_img);
+        this.eUO = (TextView) this.mRootView.findViewById(R.id.square_function_rank_title);
+        this.fbc = (TextView) this.mRootView.findViewById(R.id.square_function_rank_desc);
+        this.fbd = (LinearLayout) this.mRootView.findViewById(R.id.square_function_history);
+        this.fbd.setVisibility(8);
+        this.fbe = (ImageView) this.mRootView.findViewById(R.id.square_function_history_img);
+        this.fbf = (TextView) this.mRootView.findViewById(R.id.square_function_history_title);
+        this.fbg = (TextView) this.mRootView.findViewById(R.id.square_function_history_desc);
+        this.fbh = this.mRootView.findViewById(R.id.square_function_history_red_pointer);
+        this.fbi = (LinearLayout) this.mRootView.findViewById(R.id.square_function_activity);
+        this.fbi.setVisibility(8);
+        this.fbj = (ImageView) this.mRootView.findViewById(R.id.square_function_activity_img);
+        this.fbk = (TextView) this.mRootView.findViewById(R.id.square_function_activity_title);
+        this.fbl = (TextView) this.mRootView.findViewById(R.id.square_function_activity_desc);
+        this.fbm = this.mRootView.findViewById(R.id.square_function_activity_red_pointer);
+        this.fbn = this.mRootView.findViewById(R.id.square_function_bottom_space);
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public void bp(List<FunctionListInfo> list) {
+    public void bk(List<FunctionListInfo> list) {
         this.mData = list;
         for (final FunctionListInfo functionListInfo : this.mData) {
             if (functionListInfo != null) {
                 switch (functionListInfo.id.intValue()) {
                     case 1:
-                        this.eOt.setVisibility(0);
+                        this.fba.setVisibility(0);
                         if (!TextUtils.isEmpty(functionListInfo.title)) {
-                            this.eIp.setText(functionListInfo.title);
+                            this.eUO.setText(functionListInfo.title);
                         }
                         if (!TextUtils.isEmpty(functionListInfo.describe)) {
-                            this.eOv.setVisibility(0);
-                            this.eOv.setText(functionListInfo.describe);
+                            this.fbc.setVisibility(0);
+                            this.fbc.setText(functionListInfo.describe);
                         }
-                        this.eOt.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.alasquare.live.c.a.1
+                        this.fba.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.alasquare.live.c.a.1
                             @Override // android.view.View.OnClickListener
                             public void onClick(View view) {
-                                a.this.aw(1, functionListInfo.url);
+                                a.this.aA(1, functionListInfo.url);
                             }
                         });
                         continue;
                     case 2:
-                        this.eOw.setVisibility(0);
+                        this.fbd.setVisibility(0);
                         if (!TextUtils.isEmpty(functionListInfo.title)) {
-                            this.eOy.setText(functionListInfo.title);
+                            this.fbf.setText(functionListInfo.title);
                         }
                         if (!TextUtils.isEmpty(functionListInfo.describe)) {
-                            this.eOz.setVisibility(0);
-                            this.eOz.setText(functionListInfo.describe);
+                            this.fbg.setVisibility(0);
+                            this.fbg.setText(functionListInfo.describe);
                         }
-                        a(functionListInfo.id.intValue(), functionListInfo.update_time.longValue(), this.eOA);
-                        this.eOw.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.alasquare.live.c.a.2
+                        a(functionListInfo.id.intValue(), functionListInfo.update_time.longValue(), this.fbh);
+                        this.fbd.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.alasquare.live.c.a.2
                             @Override // android.view.View.OnClickListener
                             public void onClick(View view) {
                                 if (!TbadkCoreApplication.isLogin()) {
                                     bc.skipToLoginActivity(a.this.mContext);
                                     return;
                                 }
-                                a.this.a("prefer_key_history", a.this.eOA);
+                                a.this.a("prefer_key_history", a.this.fbh);
                                 a.this.mContext.startActivity(new Intent(a.this.mContext, AlaRecentHistoryActivity.class));
                                 TiebaStatic.log("c12648");
                             }
                         });
                         continue;
                     case 3:
-                        this.eOB.setVisibility(0);
+                        this.fbi.setVisibility(0);
                         if (!TextUtils.isEmpty(functionListInfo.title)) {
-                            this.eOD.setText(functionListInfo.title);
+                            this.fbk.setText(functionListInfo.title);
                         }
                         if (!TextUtils.isEmpty(functionListInfo.describe)) {
-                            this.eOE.setVisibility(0);
-                            this.eOE.setText(functionListInfo.describe);
+                            this.fbl.setVisibility(0);
+                            this.fbl.setText(functionListInfo.describe);
                         }
-                        a(functionListInfo.id.intValue(), functionListInfo.update_time.longValue(), this.eOF);
-                        this.eOB.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.alasquare.live.c.a.3
+                        a(functionListInfo.id.intValue(), functionListInfo.update_time.longValue(), this.fbm);
+                        this.fbi.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.alasquare.live.c.a.3
                             @Override // android.view.View.OnClickListener
                             public void onClick(View view) {
-                                a.this.aw(3, functionListInfo.url);
-                                a.this.a("prefer_key_activity", a.this.eOF);
+                                a.this.aA(3, functionListInfo.url);
+                                a.this.a("prefer_key_activity", a.this.fbm);
                             }
                         });
                         continue;
@@ -154,7 +154,7 @@ public class a {
                 str = "prefer_key_activity";
                 break;
         }
-        if (zp(str) < j) {
+        if (AV(str) < j) {
             view.setVisibility(0);
         } else {
             view.setVisibility(8);
@@ -163,33 +163,33 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str, View view) {
-        b.aNT().putLong(str, System.currentTimeMillis() / 1000);
+        b.aTX().putLong(str, System.currentTimeMillis() / 1000);
         view.setVisibility(8);
     }
 
-    private long zp(String str) {
-        return b.aNT().getLong(str, 0L);
+    private long AV(String str) {
+        return b.aTX().getLong(str, 0L);
     }
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
             this.mSkinType = i;
-            am.setBackgroundResource(this.eOs, R.color.cp_bg_line_d);
-            am.setImageResource(this.eOu, R.drawable.live_portal_rank);
-            am.setViewTextColor(this.eIp, (int) R.color.cp_cont_b);
-            am.setViewTextColor(this.eOv, (int) R.color.cp_cont_d);
-            am.setImageResource(this.eOx, R.drawable.live_import_history);
-            am.setViewTextColor(this.eOy, (int) R.color.cp_cont_b);
-            am.setViewTextColor(this.eOz, (int) R.color.cp_cont_d);
-            am.setImageResource(this.eOC, R.drawable.live_import_activity);
-            am.setViewTextColor(this.eOD, (int) R.color.cp_cont_b);
-            am.setViewTextColor(this.eOE, (int) R.color.cp_cont_d);
-            am.setBackgroundResource(this.eOG, R.color.cp_bg_line_e);
+            am.setBackgroundResource(this.faZ, R.color.cp_bg_line_d);
+            am.setImageResource(this.fbb, R.drawable.live_portal_rank);
+            am.setViewTextColor(this.eUO, (int) R.color.cp_cont_b);
+            am.setViewTextColor(this.fbc, (int) R.color.cp_cont_d);
+            am.setImageResource(this.fbe, R.drawable.live_import_history);
+            am.setViewTextColor(this.fbf, (int) R.color.cp_cont_b);
+            am.setViewTextColor(this.fbg, (int) R.color.cp_cont_d);
+            am.setImageResource(this.fbj, R.drawable.live_import_activity);
+            am.setViewTextColor(this.fbk, (int) R.color.cp_cont_b);
+            am.setViewTextColor(this.fbl, (int) R.color.cp_cont_d);
+            am.setBackgroundResource(this.fbn, R.color.cp_bg_line_e);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aw(int i, String str) {
+    public void aA(int i, String str) {
         TiebaStatic.log(new an("c12215"));
         com.baidu.tbadk.browser.a.startWebActivity(this.mContext, str);
         if (3 == i) {

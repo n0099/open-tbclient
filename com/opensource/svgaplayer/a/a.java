@@ -12,66 +12,66 @@ import kotlin.jvm.internal.q;
 @h
 /* loaded from: classes.dex */
 public class a {
-    private final f mJn;
-    private final d mKm;
+    private final f ndq;
+    private final d nep;
 
     public a(f fVar) {
-        q.j(fVar, "videoItem");
-        this.mJn = fVar;
-        this.mKm = new d();
+        q.m(fVar, "videoItem");
+        this.ndq = fVar;
+        this.nep = new d();
     }
 
-    public final f dzg() {
-        return this.mJn;
+    public final f dGz() {
+        return this.ndq;
     }
 
-    public final d dzC() {
-        return this.mKm;
+    public final d dGV() {
+        return this.nep;
     }
 
     @h
     /* renamed from: com.opensource.svgaplayer.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public final class C0779a {
+    public final class C0837a {
         private final String imageKey;
-        private final g mKn;
-        final /* synthetic */ a mKo;
+        private final g neq;
+        final /* synthetic */ a ner;
 
-        public C0779a(a aVar, String str, g gVar) {
-            q.j(gVar, "frameEntity");
-            this.mKo = aVar;
+        public C0837a(a aVar, String str, g gVar) {
+            q.m(gVar, "frameEntity");
+            this.ner = aVar;
             this.imageKey = str;
-            this.mKn = gVar;
+            this.neq = gVar;
         }
 
-        public final String dzD() {
+        public final String dGW() {
             return this.imageKey;
         }
 
-        public final g dzE() {
-            return this.mKn;
+        public final g dGX() {
+            return this.neq;
         }
     }
 
-    public final List<C0779a> II(int i) {
-        C0779a c0779a;
+    public final List<C0837a> Jt(int i) {
+        C0837a c0837a;
         ArrayList arrayList = new ArrayList();
-        for (com.opensource.svgaplayer.entities.f fVar : this.mJn.dzx()) {
-            if (i < 0 || i >= fVar.dAb().size()) {
-                c0779a = null;
+        for (com.opensource.svgaplayer.entities.f fVar : this.ndq.dGQ()) {
+            if (i < 0 || i >= fVar.dHu().size()) {
+                c0837a = null;
             } else {
-                c0779a = fVar.dAb().get(i).dAc() <= 0.0d ? null : new C0779a(this, fVar.dzD(), fVar.dAb().get(i));
+                c0837a = fVar.dHu().get(i).dHv() <= 0.0d ? null : new C0837a(this, fVar.dGW(), fVar.dHu().get(i));
             }
-            if (c0779a != null) {
-                arrayList.add(c0779a);
+            if (c0837a != null) {
+                arrayList.add(c0837a);
             }
         }
         return arrayList;
     }
 
     public void a(Canvas canvas, int i, ImageView.ScaleType scaleType) {
-        q.j(canvas, "canvas");
-        q.j(scaleType, "scaleType");
-        this.mKm.a(canvas.getWidth(), canvas.getHeight(), (float) this.mJn.dzv().getWidth(), (float) this.mJn.dzv().getHeight(), scaleType);
+        q.m(canvas, "canvas");
+        q.m(scaleType, "scaleType");
+        this.nep.a(canvas.getWidth(), canvas.getHeight(), (float) this.ndq.dGO().getWidth(), (float) this.ndq.dGO().getHeight(), scaleType);
     }
 }

@@ -1,30 +1,50 @@
 package com.baidu.tieba.pb.data;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.task.SocketMessageTask;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.core.data.AntiData;
+import com.baidu.tbadk.core.data.bk;
 /* loaded from: classes9.dex */
-public class m {
-    private TbPageContext duK;
+public class m implements com.baidu.adp.widget.ListView.o {
+    public static final BdUniqueId jFp = BdUniqueId.gen();
+    private bk ahg;
+    private AntiData dUO;
+    private boolean jFq = false;
+    public boolean jFr = false;
 
-    public m(TbPageContext tbPageContext) {
-        this.duK = tbPageContext;
-        SocketMessageTask socketMessageTask = new SocketMessageTask(309644);
-        socketMessageTask.setResponsedClass(ThreadPublishSocketResMessage.class);
-        MessageManager.getInstance().registerTask(socketMessageTask);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_VOTE_THREAD_PULISH, com.baidu.tieba.tbadkCore.a.a.bE(TbConfig.URL_THREAD_PUBLISH, 309644));
-        tbHttpMessageTask.setResponsedClass(ThreadPublishHttpResMeesage.class);
-        MessageManager.getInstance().registerTask(tbHttpMessageTask);
+    public m(bk bkVar, AntiData antiData) {
+        this.ahg = bkVar;
+        this.dUO = antiData;
     }
 
-    public void E(long j, long j2) {
-        ThreadPublishReqMessage threadPublishReqMessage = new ThreadPublishReqMessage();
-        threadPublishReqMessage.tid = j;
-        threadPublishReqMessage.fid = j2;
-        threadPublishReqMessage.setTag(this.duK.getUniqueId());
-        MessageManager.getInstance().sendMessage(threadPublishReqMessage);
+    @Override // com.baidu.adp.widget.ListView.o
+    public BdUniqueId getType() {
+        return jFp;
+    }
+
+    public int aRZ() {
+        if (this.ahg != null) {
+            return this.ahg.aRZ();
+        }
+        return 0;
+    }
+
+    public boolean cCZ() {
+        return this.ahg != null && this.ahg.aRY() == 1;
+    }
+
+    public AntiData getAnti() {
+        return this.dUO;
+    }
+
+    public bk aOi() {
+        return this.ahg;
+    }
+
+    public void rd(boolean z) {
+        this.jFq = z;
+    }
+
+    public boolean cDa() {
+        return this.jFq;
     }
 }

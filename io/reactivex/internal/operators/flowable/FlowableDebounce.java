@@ -14,7 +14,7 @@ public final class FlowableDebounce<T, U> extends a<T, T> {
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        this.mRM.a((j) new DebounceSubscriber(new io.reactivex.subscribers.b(cVar), this.debounceSelector));
+        this.nmU.a((j) new DebounceSubscriber(new io.reactivex.subscribers.b(cVar), this.debounceSelector));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -52,7 +52,7 @@ public final class FlowableDebounce<T, U> extends a<T, T> {
                     bVar.dispose();
                 }
                 try {
-                    org.a.b bVar2 = (org.a.b) io.reactivex.internal.functions.a.h(this.debounceSelector.apply(t), "The publisher supplied is null");
+                    org.a.b bVar2 = (org.a.b) io.reactivex.internal.functions.a.k(this.debounceSelector.apply(t), "The publisher supplied is null");
                     a aVar = new a(this, j, t);
                     if (this.debouncer.compareAndSet(bVar, aVar)) {
                         bVar2.subscribe(aVar);
@@ -113,12 +113,12 @@ public final class FlowableDebounce<T, U> extends a<T, T> {
         static final class a<T, U> extends io.reactivex.subscribers.a<U> {
             boolean done;
             final long index;
-            final DebounceSubscriber<T, U> mSd;
+            final DebounceSubscriber<T, U> nnl;
             final AtomicBoolean once = new AtomicBoolean();
             final T value;
 
             a(DebounceSubscriber<T, U> debounceSubscriber, long j, T t) {
-                this.mSd = debounceSubscriber;
+                this.nnl = debounceSubscriber;
                 this.index = j;
                 this.value = t;
             }
@@ -134,7 +134,7 @@ public final class FlowableDebounce<T, U> extends a<T, T> {
 
             void emit() {
                 if (this.once.compareAndSet(false, true)) {
-                    this.mSd.emit(this.index, this.value);
+                    this.nnl.emit(this.index, this.value);
                 }
             }
 
@@ -145,7 +145,7 @@ public final class FlowableDebounce<T, U> extends a<T, T> {
                     return;
                 }
                 this.done = true;
-                this.mSd.onError(th);
+                this.nnl.onError(th);
             }
 
             @Override // org.a.c

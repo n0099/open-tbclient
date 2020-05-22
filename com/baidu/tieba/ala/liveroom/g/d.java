@@ -7,7 +7,7 @@ import com.baidu.live.tbadk.share.single.interfaces.IShareCallback;
 import com.baidu.tieba.ala.liveroom.views.e;
 /* loaded from: classes3.dex */
 public class d {
-    private com.baidu.tieba.ala.liveroom.views.c fEY;
+    private com.baidu.tieba.ala.liveroom.views.c fSS;
     private TbPageContext mPageContext;
     private View mRootView;
 
@@ -17,19 +17,19 @@ public class d {
     }
 
     private void init() {
-        this.fEY = new com.baidu.tieba.ala.liveroom.views.c(this.mPageContext);
-        this.fEY.f(this.mPageContext);
-        this.mRootView = this.fEY.getView();
+        this.fSS = new com.baidu.tieba.ala.liveroom.views.c(this.mPageContext);
+        this.fSS.f(this.mPageContext);
+        this.mRootView = this.fSS.getView();
     }
 
     public void a(IShareCallback iShareCallback) {
-        if (this.fEY != null) {
-            this.fEY.a(iShareCallback);
+        if (this.fSS != null) {
+            this.fSS.a(iShareCallback);
         }
     }
 
-    private void buW() {
-        this.fEY.buW();
+    private void bAV() {
+        this.fSS.bAV();
     }
 
     public View getView() {
@@ -37,40 +37,40 @@ public class d {
     }
 
     public void a(AlaLiveRecorder alaLiveRecorder, int i) {
-        this.fEY.a(alaLiveRecorder);
-        buW();
+        this.fSS.a(alaLiveRecorder);
+        bAV();
     }
 
-    public boolean buX() {
-        return this.fEY.buX();
+    public boolean bAW() {
+        return this.fSS.bAW();
     }
 
-    public boolean buY() {
-        return this.fEY.buY();
+    public boolean bAX() {
+        return this.fSS.bAX();
     }
 
     public String getLiveTitle() {
-        return this.fEY.getLiveTitle();
+        return this.fSS.getLiveTitle();
     }
 
-    public boolean buZ() {
-        return this.fEY.buZ();
+    public boolean bAY() {
+        return this.fSS.bAY();
     }
 
-    public boolean bva() {
-        return this.fEY.bva();
+    public boolean bAZ() {
+        return this.fSS.bAZ();
     }
 
-    public void kp(boolean z) {
-        this.fEY.kp(z);
+    public void kJ(boolean z) {
+        this.fSS.kJ(z);
     }
 
-    public void bvb() {
-        this.fEY.fQR = false;
+    public void bBa() {
+        this.fSS.gfC = false;
     }
 
-    public String bvc() {
-        return this.fEY.bvc();
+    public String bBb() {
+        return this.fSS.bBb();
     }
 
     public void setVisibility(int i) {
@@ -82,56 +82,62 @@ public class d {
     }
 
     public void a(e.b bVar) {
-        this.fEY.a(bVar);
+        this.fSS.a(bVar);
     }
 
-    public void E(boolean z, boolean z2) {
+    public void H(boolean z, boolean z2) {
         if (z) {
-            this.fEY.onKeyboardVisibilityChanged(false);
+            this.fSS.onKeyboardVisibilityChanged(false);
         } else {
-            this.fEY.onKeyboardVisibilityChanged(z2);
+            this.fSS.onKeyboardVisibilityChanged(z2);
         }
     }
 
     public void a(e.a aVar) {
-        this.fEY.a(aVar);
+        this.fSS.a(aVar);
     }
 
-    public void AG(String str) {
-        this.fEY.AG(str);
+    public void Co(String str) {
+        this.fSS.Co(str);
     }
 
     public void onResume() {
-        this.fEY.onResume();
+        this.fSS.onResume();
     }
 
     public void onRefresh() {
-        this.fEY.onRefresh();
+        this.fSS.onRefresh();
     }
 
-    public boolean bvd() {
-        return this.fEY.bvd();
+    public boolean bBc() {
+        return this.fSS.bBc();
     }
 
-    public void bve() {
-        this.fEY.bve();
+    public void bBd() {
+        this.fSS.bBd();
     }
 
     public void release() {
-        this.fEY.release();
+        this.fSS.release();
     }
 
     public void destroy() {
-        this.fEY.destroy();
+        this.fSS.destroy();
     }
 
-    public void kq(boolean z) {
-        this.fEY.kq(z);
+    public void kK(boolean z) {
+        this.fSS.kK(z);
     }
 
-    public void bvf() {
-        if (this.fEY != null) {
-            this.fEY.bvf();
+    public void bBe() {
+        if (this.fSS != null) {
+            this.fSS.bBe();
+        }
+    }
+
+    public void kL(boolean z) {
+        if (this.fSS != null) {
+            this.fSS.kL(z);
         }
     }
 }

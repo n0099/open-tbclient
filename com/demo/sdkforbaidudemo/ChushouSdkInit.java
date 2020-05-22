@@ -8,7 +8,7 @@ import com.baidu.adp.lib.util.j;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.util.w;
+import com.baidu.tbadk.util.x;
 import com.kascend.cstvsdk.CSTVSdk;
 import com.kascend.cstvsdk.SdkConfig;
 import java.util.HashMap;
@@ -56,9 +56,9 @@ public class ChushouSdkInit {
             hashMap.put("from", from);
         }
         hashMap.put("net_type", String.valueOf(j.netType()));
-        String bax = w.bax();
-        if (!TextUtils.isEmpty(bax)) {
-            hashMap.put("oaid", bax);
+        String bgI = x.bgI();
+        if (!TextUtils.isEmpty(bgI)) {
+            hashMap.put("oaid", bgI);
         }
         hashMap.put("cuid", TbadkCoreApplication.getInst().getCuid());
         hashMap.put("cuid_galaxy2", TbadkCoreApplication.getInst().getCuidGalaxy2());

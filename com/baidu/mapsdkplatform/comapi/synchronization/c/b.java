@@ -3,7 +3,7 @@ package com.baidu.mapsdkplatform.comapi.synchronization.c;
 import com.baidu.mapsdkplatform.comapi.synchronization.c.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes8.dex */
-public class b extends a.AbstractRunnableC0165a {
+public class b extends a.AbstractRunnableC0198a {
     final /* synthetic */ e a;
     final /* synthetic */ String b;
     final /* synthetic */ a c;
@@ -17,7 +17,7 @@ public class b extends a.AbstractRunnableC0165a {
         this.b = str;
     }
 
-    @Override // com.baidu.mapsdkplatform.comapi.synchronization.c.a.AbstractRunnableC0165a
+    @Override // com.baidu.mapsdkplatform.comapi.synchronization.c.a.AbstractRunnableC0198a
     public void a() {
         int i;
         int i2;

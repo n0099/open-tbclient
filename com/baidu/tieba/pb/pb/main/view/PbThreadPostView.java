@@ -13,10 +13,10 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.pb.data.e;
 /* loaded from: classes9.dex */
 public class PbThreadPostView extends LinearLayout {
-    public View jGe;
-    public TextView jGf;
-    public TextView jGg;
-    private e jqZ;
+    private e jHO;
+    public View jXL;
+    public TextView jXM;
+    public TextView jXN;
     private Context mContext;
     private View.OnClickListener mOnClickListener;
 
@@ -36,30 +36,30 @@ public class PbThreadPostView extends LinearLayout {
         setOrientation(1);
         setGravity(17);
         LayoutInflater.from(getContext()).inflate(R.layout.pb_thread_post_view, (ViewGroup) this, true);
-        rL();
+        rV();
     }
 
-    private void rL() {
-        this.jGe = findViewById(R.id.pb_thread_post_container);
-        this.jGf = (TextView) findViewById(R.id.pb_thread_post_content);
-        this.jGg = (TextView) findViewById(R.id.pb_thread_post_button);
+    private void rV() {
+        this.jXL = findViewById(R.id.pb_thread_post_container);
+        this.jXM = (TextView) findViewById(R.id.pb_thread_post_content);
+        this.jXN = (TextView) findViewById(R.id.pb_thread_post_button);
     }
 
     public void setData(e eVar) {
-        this.jqZ = eVar;
-        pH(TbadkCoreApplication.getInst().getSkinType());
+        this.jHO = eVar;
+        qi(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void setChildOnClickLinstener(View.OnClickListener onClickListener) {
         if (this.mOnClickListener == null) {
             this.mOnClickListener = onClickListener;
-            this.jGg.setOnClickListener(this.mOnClickListener);
+            this.jXN.setOnClickListener(this.mOnClickListener);
         }
     }
 
-    public void pH(int i) {
-        am.setBackgroundColor(this.jGe, R.color.cp_bg_line_e, i);
-        am.setViewTextColor(this.jGf, (int) R.color.cp_cont_j);
-        am.setViewTextColor(this.jGg, (int) R.color.cp_link_tip_a);
+    public void qi(int i) {
+        am.setBackgroundColor(this.jXL, R.color.cp_bg_line_e, i);
+        am.setViewTextColor(this.jXM, (int) R.color.cp_cont_j);
+        am.setViewTextColor(this.jXN, (int) R.color.cp_link_tip_a);
     }
 }

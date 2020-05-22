@@ -4,15 +4,15 @@ import android.content.Context;
 /* loaded from: classes5.dex */
 public class b implements tv.chushou.zues.toolkit.richtext.a {
     private Context mContext;
-    private int nqq;
+    private int nLo;
 
     public b(int i, Context context) {
-        this.nqq = i;
+        this.nLo = i;
         this.mContext = context;
     }
 
     @Override // tv.chushou.zues.toolkit.richtext.a
-    public CharSequence OM(String str) {
+    public CharSequence QA(String str) {
         return str;
     }
 }

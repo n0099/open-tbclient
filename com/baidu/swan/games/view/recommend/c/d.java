@@ -8,16 +8,16 @@ import com.baidu.swan.apps.a;
 import com.facebook.drawee.view.SimpleDraweeView;
 /* loaded from: classes11.dex */
 public class d extends RecyclerView.ViewHolder {
-    public TextView cTG;
-    public Button cTH;
-    public SimpleDraweeView cTv;
-    public TextView cTw;
+    public TextView deJ;
+    public Button deK;
+    public SimpleDraweeView dey;
+    public TextView dez;
 
     public d(View view) {
         super(view);
-        this.cTv = (SimpleDraweeView) view.findViewById(a.f.swangame_recommend_item_icon);
-        this.cTw = (TextView) view.findViewById(a.f.swangame_recommend_item_name);
-        this.cTG = (TextView) view.findViewById(a.f.swangame_recommend_item_detail);
-        this.cTH = (Button) view.findViewById(a.f.swangame_recommend_item_play);
+        this.dey = (SimpleDraweeView) view.findViewById(a.f.swangame_recommend_item_icon);
+        this.dez = (TextView) view.findViewById(a.f.swangame_recommend_item_name);
+        this.deJ = (TextView) view.findViewById(a.f.swangame_recommend_item_detail);
+        this.deK = (Button) view.findViewById(a.f.swangame_recommend_item_play);
     }
 }

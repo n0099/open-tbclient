@@ -307,6 +307,7 @@ public class ChatUserManagerImpl {
                 IMService.enqueueWork(mContext, creatMethodIntent);
             } catch (Exception e) {
                 ListenerManager.getInstance().removeListener(addListener);
+                onGetUsersStatusResult(addListener, 1003, Constants.ERROR_MSG_SERVICE_ERROR, null);
                 LogUtils.e(TAG, "Exception ", e);
             }
         } else {
@@ -390,6 +391,7 @@ public class ChatUserManagerImpl {
                 IMService.enqueueWork(mContext, creatMethodIntent);
             } catch (Exception e) {
                 ListenerManager.getInstance().removeListener(addListener);
+                onGetUserIpResult(mContext, i, addListener, 1003, Constants.ERROR_MSG_SERVICE_ERROR, arrayList, null);
                 LogUtils.e(TAG, "Exception ", e);
             }
         } else {

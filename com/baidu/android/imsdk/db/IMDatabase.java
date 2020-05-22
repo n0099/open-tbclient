@@ -53,7 +53,7 @@ public class IMDatabase {
         synchronized (IMDatabase.class) {
             String path = context.getDatabasePath(TableDefine.DB_NAME_PREFIX + str + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + j + ".db").getPath();
             if (mDbHelper == null) {
-                mDbHelper = new DbOpenHelper(context, path, 44);
+                mDbHelper = new DbOpenHelper(context, path, 45);
             } else {
                 try {
                     str2 = mDbHelper.getReadableDatabase().getPath();
@@ -65,7 +65,7 @@ public class IMDatabase {
                 if (!str2.equals(path)) {
                     mDbHelper.close();
                     mDbHelper = null;
-                    mDbHelper = new DbOpenHelper(context, path, 44);
+                    mDbHelper = new DbOpenHelper(context, path, 45);
                 }
             }
             dbOpenHelper = mDbHelper;

@@ -105,6 +105,11 @@ public class IMDelStarMemberRequest extends GroupBaseHttpRequest {
     }
 
     @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
+    public String getContentType() {
+        return "application/x-www-form-urlencoded";
+    }
+
+    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
     public boolean shouldAbort() {
         return false;
     }

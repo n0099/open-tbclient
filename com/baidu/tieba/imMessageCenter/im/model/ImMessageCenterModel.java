@@ -44,9 +44,9 @@ public class ImMessageCenterModel extends ImBaseMessageCenterModel {
         if (imMessageCenterPojo != null && !TextUtils.isEmpty(imMessageCenterPojo.getGroup_name()) && (buildNormalItem = buildNormalItem(imMessageCenterPojo, imMessageCenterShowItemData)) != null) {
             buildNormalItem.setSendStatus(imMessageCenterPojo.getSend_status());
             buildNormalItem.setOwnerName(String.valueOf(1));
-            GroupSettingItemData dS = b.ciS().dS(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
-            if (dS != null) {
-                buildNormalItem.setGroupSetting(dS);
+            GroupSettingItemData et = b.cpp().et(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
+            if (et != null) {
+                buildNormalItem.setGroupSetting(et);
             }
             if (!TextUtils.isEmpty(imMessageCenterPojo.getLast_user_name()) && !imMessageCenterPojo.getLast_user_name().equals(TbadkCoreApplication.getCurrentAccountNameShow())) {
                 if (TextUtils.isEmpty(buildNormalItem.getMsgContent())) {
@@ -65,9 +65,9 @@ public class ImMessageCenterModel extends ImBaseMessageCenterModel {
             if ((!TextUtils.isEmpty(imMessageCenterPojo.getGroup_name()) || !TextUtils.isEmpty(imMessageCenterPojo.getNameShow())) && imMessageCenterPojo.getIsFriend() != 0 && (buildNormalItem = buildNormalItem(imMessageCenterPojo, imMessageCenterShowItemData)) != null) {
                 buildNormalItem.setSendStatus(imMessageCenterPojo.getSend_status());
                 buildNormalItem.setOwnerName(String.valueOf(4));
-                PersonalSettingItemData dS = e.ciV().dS(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
-                if (dS != null) {
-                    buildNormalItem.setGroupSetting(dS);
+                PersonalSettingItemData et = e.cps().et(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
+                if (et != null) {
+                    buildNormalItem.setGroupSetting(et);
                 }
                 insertShowData(buildNormalItem, this.mList);
             }
@@ -170,10 +170,10 @@ public class ImMessageCenterModel extends ImBaseMessageCenterModel {
     }
 
     private boolean u(ImMessageCenterPojo imMessageCenterPojo) {
-        HashMap<Integer, HashSet> aTC = com.baidu.tbadk.coreExtra.messageCenter.b.aTe().aTC();
-        if (aTC != null && aTC.size() > 0) {
-            HashSet hashSet = aTC.get(0);
-            HashSet hashSet2 = aTC.get(1);
+        HashMap<Integer, HashSet> aZJ = com.baidu.tbadk.coreExtra.messageCenter.b.aZl().aZJ();
+        if (aZJ != null && aZJ.size() > 0) {
+            HashSet hashSet = aZJ.get(0);
+            HashSet hashSet2 = aZJ.get(1);
             if (hashSet != null && !aq.isEmpty(imMessageCenterPojo.getGid()) && hashSet.contains(imMessageCenterPojo.getGid())) {
                 return false;
             }

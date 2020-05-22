@@ -8,59 +8,59 @@ import com.baidu.tbadk.core.util.s;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class CDNLogSyncData {
-    private int dnA;
-    private int dnB;
-    private int dnC = 25;
-    private int dnD = 25;
-    private int dnE = 10;
-    private boolean dnz;
+    private boolean dBA;
+    private int dBB;
+    private int dBC;
+    private int dBD = 25;
+    private int dBE = 25;
+    private int dBF = 10;
     private int time;
 
     public int getSuccRank() {
-        return this.dnC;
+        return this.dBD;
     }
 
     public void setSuccRank(int i) {
-        this.dnC = i;
+        this.dBD = i;
     }
 
     public int getErrRank() {
-        return this.dnD;
+        return this.dBE;
     }
 
     public void setErrRank(int i) {
-        this.dnD = i;
+        this.dBE = i;
     }
 
     public int getSlowRank() {
-        return this.dnE;
+        return this.dBF;
     }
 
     public void setSlowRank(int i) {
-        this.dnE = i;
+        this.dBF = i;
     }
 
     public boolean ismSwitch() {
-        return this.dnz;
+        return this.dBA;
     }
 
     public void setmSwitch(boolean z) {
-        if (this.dnz != z) {
-            a kW = s.kW();
-            kW.append("act", "fallback");
-            kW.append("result", z ? "1" : "0");
-            kW.append("type", "switch");
-            BdStatisticsManager.getInstance().debug("img", kW);
+        if (this.dBA != z) {
+            a kY = s.kY();
+            kY.append("act", "fallback");
+            kY.append("result", z ? "1" : "0");
+            kY.append("type", "switch");
+            BdStatisticsManager.getInstance().debug("img", kY);
         }
-        this.dnz = z;
+        this.dBA = z;
     }
 
     public int getSlowNumber() {
-        return this.dnA;
+        return this.dBB;
     }
 
     public void setSlowNumber(int i) {
-        this.dnA = i;
+        this.dBB = i;
     }
 
     public int getTime() {
@@ -72,11 +72,11 @@ public class CDNLogSyncData {
     }
 
     public int getErrNumber() {
-        return this.dnB;
+        return this.dBC;
     }
 
     public void setErrNumber(int i) {
-        this.dnB = i;
+        this.dBC = i;
     }
 
     public void parseJson(String str) {
@@ -85,7 +85,7 @@ public class CDNLogSyncData {
                 parseJson(new JSONObject(str));
             }
         } catch (Exception e) {
-            this.dnz = false;
+            this.dBA = false;
             BdLog.e(e.getMessage());
         }
     }
@@ -94,30 +94,30 @@ public class CDNLogSyncData {
         if (jSONObject != null) {
             try {
                 if (jSONObject.optInt("switch") == 1) {
-                    this.dnz = true;
+                    this.dBA = true;
                 } else {
-                    this.dnz = false;
+                    this.dBA = false;
                 }
                 JSONObject optJSONObject = jSONObject.optJSONObject("err");
                 if (optJSONObject != null) {
-                    this.dnB = optJSONObject.optInt("num");
+                    this.dBC = optJSONObject.optInt("num");
                 }
                 JSONObject optJSONObject2 = jSONObject.optJSONObject("slow");
                 if (optJSONObject2 != null) {
                     this.time = optJSONObject2.optInt("time");
-                    this.dnA = optJSONObject2.optInt("num");
+                    this.dBB = optJSONObject2.optInt("num");
                 }
                 JSONObject optJSONObject3 = jSONObject.optJSONObject("rank");
                 if (optJSONObject3 != null) {
-                    this.dnC = optJSONObject3.optInt("succ");
-                    this.dnD = optJSONObject3.optInt("err");
-                    this.dnE = optJSONObject3.optInt("slow");
+                    this.dBD = optJSONObject3.optInt("succ");
+                    this.dBE = optJSONObject3.optInt("err");
+                    this.dBF = optJSONObject3.optInt("slow");
                 }
-                if (this.time <= 0 || this.dnA <= 0 || this.dnB <= 0) {
-                    this.dnz = false;
+                if (this.time <= 0 || this.dBB <= 0 || this.dBC <= 0) {
+                    this.dBA = false;
                 }
             } catch (Exception e) {
-                this.dnz = false;
+                this.dBA = false;
                 BdLog.e(e.getMessage());
             }
         }

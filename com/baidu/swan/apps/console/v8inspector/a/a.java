@@ -5,6 +5,7 @@ import android.util.Log;
 import com.baidu.searchbox.v8engine.InspectorNativeChannel;
 import com.baidu.searchbox.v8engine.InspectorNativeClient;
 import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.console.v8inspector.a;
 import com.baidu.swan.apps.console.v8inspector.a.c;
 import com.baidu.swan.apps.console.v8inspector.websocket.WebSocketFrame;
@@ -23,12 +24,12 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class a implements Runnable {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static boolean bJH;
-    private com.baidu.swan.apps.console.v8inspector.websocket.a bJC;
-    private LinkedBlockingQueue<String> bJD = new LinkedBlockingQueue<>();
-    private InspectorNativeClient bJE;
-    private com.baidu.swan.games.e.a bJF;
-    private a.InterfaceC0289a bJG;
+    private static int bSD;
+    private InspectorNativeClient bSA;
+    private com.baidu.swan.games.f.a bSB;
+    private a.InterfaceC0326a bSC;
+    private com.baidu.swan.apps.console.v8inspector.websocket.a bSy;
+    private LinkedBlockingQueue<String> bSz = new LinkedBlockingQueue<>();
     private InputStream mInputStream;
     private OutputStream mOutputStream;
 
@@ -39,10 +40,13 @@ public class a implements Runnable {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void b(a.InterfaceC0289a interfaceC0289a) {
-        this.bJG = interfaceC0289a;
+    public void b(a.InterfaceC0326a interfaceC0326a) {
+        if (bSD == 0) {
+            this.bSC = interfaceC0326a;
+        }
     }
 
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [211=4, 212=4] */
     @Override // java.lang.Runnable
     public void run() {
         try {
@@ -50,57 +54,66 @@ public class a implements Runnable {
             c.a aVar = new c.a();
             a(bufferedReader, aVar);
             d.a(aVar).send(this.mOutputStream);
-            if (aVar.bJR) {
-                this.bJC = new com.baidu.swan.apps.console.v8inspector.websocket.a();
-                this.bJC.a(new a.InterfaceC0293a() { // from class: com.baidu.swan.apps.console.v8inspector.a.a.1
-                    @Override // com.baidu.swan.apps.console.v8inspector.websocket.a.InterfaceC0293a
+            if (aVar.bSO) {
+                if (bSD != 0 && bSD != 3) {
+                    com.baidu.swan.apps.res.widget.b.d.k(com.baidu.swan.apps.u.a.aeR(), a.h.aiapps_debug_inspect_doing).showToast();
+                    return;
+                }
+                this.bSy = new com.baidu.swan.apps.console.v8inspector.websocket.a();
+                this.bSy.a(new a.InterfaceC0330a() { // from class: com.baidu.swan.apps.console.v8inspector.a.a.1
+                    @Override // com.baidu.swan.apps.console.v8inspector.websocket.a.InterfaceC0330a
                     public void onOpen() {
                         com.baidu.swan.apps.console.c.d("ClientHandler", "V8 inspector opened");
-                        a.this.bJF = (com.baidu.swan.games.e.a) com.baidu.swan.apps.core.k.d.Yn().YC().Rr();
-                        a.this.bJE = a.this.bJF.initInspector(new C0291a());
+                        a.this.bSB = (com.baidu.swan.games.f.a) com.baidu.swan.apps.core.turbo.d.abl().abB().TR();
+                        if (a.this.bSA != null) {
+                            a.this.bSA.destroy();
+                        }
+                        a.this.bSA = a.this.bSB.initInspector(new C0328a());
+                        int unused = a.bSD = 1;
                     }
 
-                    @Override // com.baidu.swan.apps.console.v8inspector.websocket.a.InterfaceC0293a
+                    @Override // com.baidu.swan.apps.console.v8inspector.websocket.a.InterfaceC0330a
                     public void onClose() {
                         com.baidu.swan.apps.console.c.d("ClientHandler", "V8 inspector closed");
-                        a.this.TX();
+                        a.this.close();
                     }
 
-                    @Override // com.baidu.swan.apps.console.v8inspector.websocket.a.InterfaceC0293a
+                    @Override // com.baidu.swan.apps.console.v8inspector.websocket.a.InterfaceC0330a
                     public void a(WebSocketFrame webSocketFrame) {
-                        a.this.bJD.offer(webSocketFrame.Ug());
-                        a.this.bJF.postOnJSThread(new Runnable() { // from class: com.baidu.swan.apps.console.v8inspector.a.a.1.1
+                        a.this.bSz.offer(webSocketFrame.WM());
+                        a.this.bSB.postOnJSThread(new Runnable() { // from class: com.baidu.swan.apps.console.v8inspector.a.a.1.1
                             @Override // java.lang.Runnable
                             public void run() {
-                                String str = (String) a.this.bJD.poll();
+                                String str = (String) a.this.bSz.poll();
                                 while (str != null) {
-                                    a.this.bJE.dispatchProtocolMessage(str);
-                                    hT(str);
-                                    str = (String) a.this.bJD.poll();
+                                    a.this.bSA.dispatchProtocolMessage(str);
+                                    iU(str);
+                                    str = (String) a.this.bSz.poll();
                                 }
                             }
                         });
                     }
 
-                    @Override // com.baidu.swan.apps.console.v8inspector.websocket.a.InterfaceC0293a
+                    @Override // com.baidu.swan.apps.console.v8inspector.websocket.a.InterfaceC0330a
                     public void onException(IOException iOException) {
                         com.baidu.swan.apps.console.c.e("ClientHandler", "V8 inspector exception", iOException);
-                        a.this.TX();
+                        a.this.close();
                     }
 
                     /* JADX INFO: Access modifiers changed from: private */
-                    public void hT(String str) {
-                        if (!TextUtils.isEmpty(str) && a.this.bJG != null && !a.bJH) {
+                    public void iU(String str) {
+                        if (!TextUtils.isEmpty(str) && a.this.bSC != null && a.bSD != 2) {
                             try {
                                 if (TextUtils.equals(new JSONObject(str).optString("method"), "Debugger.enable")) {
-                                    com.baidu.swan.apps.runtime.d akJ = com.baidu.swan.apps.runtime.d.akJ();
-                                    SwanAppActivity akI = com.baidu.swan.apps.runtime.d.akJ().akI();
-                                    if (akJ.ajq() && akI != null) {
-                                        akI.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.console.v8inspector.a.a.1.2
+                                    com.baidu.swan.apps.runtime.d aoB = com.baidu.swan.apps.runtime.d.aoB();
+                                    SwanAppActivity aoz = com.baidu.swan.apps.runtime.d.aoB().aoz();
+                                    if (aoB.ane() && aoz != null) {
+                                        aoz.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.console.v8inspector.a.a.1.2
                                             @Override // java.lang.Runnable
                                             public void run() {
-                                                a.this.bJG.onConnected();
-                                                boolean unused = a.bJH = true;
+                                                a.this.bSC.onConnected();
+                                                a.this.bSC = null;
+                                                int unused = a.bSD = 2;
                                             }
                                         });
                                     }
@@ -113,38 +126,42 @@ public class a implements Runnable {
                         }
                     }
                 });
-                this.bJC.d(this.mInputStream, this.mOutputStream);
+                this.bSy.d(this.mInputStream, this.mOutputStream);
             }
         } catch (RuntimeException e) {
             if (DEBUG) {
                 Log.e("ClientHandler", "Request parse fail", e);
             }
         } finally {
-            com.baidu.swan.d.c.closeSafely(this.mInputStream);
-            com.baidu.swan.d.c.closeSafely(this.mOutputStream);
+            com.baidu.swan.e.d.closeSafely(this.mInputStream);
+            com.baidu.swan.e.d.closeSafely(this.mOutputStream);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void TX() {
-        if (this.bJD != null) {
-            this.bJD.clear();
-            this.mInputStream = null;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public void close() {
+        if (this.bSz != null) {
+            this.bSz.clear();
+            this.bSz = null;
+        }
+        if (this.bSA != null) {
+            this.bSA.destroy();
+            this.bSA = null;
         }
         if (this.mInputStream != null) {
-            com.baidu.swan.d.c.closeSafely(this.mInputStream);
+            com.baidu.swan.e.d.closeSafely(this.mInputStream);
             this.mInputStream = null;
         }
         if (this.mOutputStream != null) {
-            com.baidu.swan.d.c.closeSafely(this.mOutputStream);
+            com.baidu.swan.e.d.closeSafely(this.mOutputStream);
             this.mOutputStream = null;
         }
-        this.bJC = null;
-        this.bJF = null;
-        this.bJE = null;
+        this.bSy = null;
+        this.bSB = null;
+        bSD = 3;
     }
 
-    private static String hS(String str) {
+    private static String iT(String str) {
         try {
             return URLDecoder.decode(str, "UTF8");
         } catch (UnsupportedEncodingException e) {
@@ -168,11 +185,11 @@ public class a implements Runnable {
                 if (!stringTokenizer.hasMoreTokens()) {
                     throw new RuntimeException("BAD REQUEST: Missing URI. Usage: GET /example/file.html");
                 }
-                aVar.uri = hS(stringTokenizer.nextToken());
+                aVar.uri = iT(stringTokenizer.nextToken());
                 if (stringTokenizer.hasMoreTokens()) {
-                    aVar.bJQ = stringTokenizer.nextToken();
+                    aVar.bSN = stringTokenizer.nextToken();
                 } else {
-                    aVar.bJQ = "HTTP/1.1";
+                    aVar.bSN = "HTTP/1.1";
                     if (DEBUG) {
                         Log.d("ClientHandler", "no protocol version specified, Assuming HTTP/1.1.");
                     }
@@ -198,14 +215,14 @@ public class a implements Runnable {
 
     /* renamed from: com.baidu.swan.apps.console.v8inspector.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public class C0291a extends InspectorNativeChannel {
-        public C0291a() {
+    public class C0328a extends InspectorNativeChannel {
+        public C0328a() {
         }
 
         @Override // com.baidu.searchbox.v8engine.InspectorNativeChannel
         public void sendMessage(String str) {
             try {
-                a.this.bJC.e(new WebSocketFrame(WebSocketFrame.OpCode.Text, true, str));
+                a.this.bSy.e(new WebSocketFrame(WebSocketFrame.OpCode.Text, true, str));
             } catch (Exception e) {
                 if (a.DEBUG) {
                     Log.d("ClientHandler", "V8 send message fail, try to check if websocket has opened");
@@ -219,7 +236,7 @@ public class a implements Runnable {
                 Log.d("ClientHandler", "getInspectorMessage");
             }
             try {
-                return (String) a.this.bJD.take();
+                return (String) a.this.bSz.take();
             } catch (InterruptedException e) {
                 if (a.DEBUG) {
                     Log.e("ClientHandler", "awaitMessage on Debugger", e);

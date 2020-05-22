@@ -10,15 +10,15 @@ import org.json.JSONArray;
 public class f extends a {
     private Rect mRect;
     private Paint mPaint = new Paint();
-    private PorterDuffXfermode bFn = new PorterDuffXfermode(PorterDuff.Mode.CLEAR);
+    private PorterDuffXfermode bOf = new PorterDuffXfermode(PorterDuff.Mode.CLEAR);
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void parseJson(JSONArray jSONArray) {
         try {
             if (jSONArray.length() == 4) {
-                int C = com.baidu.swan.apps.as.af.C((float) jSONArray.optDouble(0));
-                int C2 = com.baidu.swan.apps.as.af.C((float) jSONArray.optDouble(1));
-                this.mRect = new Rect(C, C2, com.baidu.swan.apps.as.af.C((float) jSONArray.optDouble(2)) + C, com.baidu.swan.apps.as.af.C((float) jSONArray.optDouble(3)) + C2);
+                int B = com.baidu.swan.apps.aq.ag.B((float) jSONArray.optDouble(0));
+                int B2 = com.baidu.swan.apps.aq.ag.B((float) jSONArray.optDouble(1));
+                this.mRect = new Rect(B, B2, com.baidu.swan.apps.aq.ag.B((float) jSONArray.optDouble(2)) + B, com.baidu.swan.apps.aq.ag.B((float) jSONArray.optDouble(3)) + B2);
             }
         } catch (Exception e) {
             if (com.baidu.swan.apps.b.DEBUG) {
@@ -30,7 +30,7 @@ public class f extends a {
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void a(b bVar, Canvas canvas) {
         if (this.mRect != null) {
-            this.mPaint.setXfermode(this.bFn);
+            this.mPaint.setXfermode(this.bOf);
             canvas.drawRect(this.mRect, this.mPaint);
         }
     }

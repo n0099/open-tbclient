@@ -1,53 +1,25 @@
 package com.baidu.tbadk.core.data;
 
-import java.util.ArrayList;
-import tbclient.PbPresent;
-import tbclient.PbPresentList;
+import tbclient.PbPage.NewsInfo;
 /* loaded from: classes.dex */
 public class ar {
-    private ArrayList<a> dpp;
-    private int total;
+    public String buttonText;
+    public String dDo;
+    public String dDp;
+    public int djB;
+    public int position = 0;
+    public String subtitle;
+    public String summary;
 
-    /* loaded from: classes.dex */
-    public static class a {
-        public int giftId;
-        public String giftName;
-        public int num;
-        public String thumbnailUrl;
-    }
-
-    public void a(PbPresent pbPresent) {
-        if (pbPresent != null) {
-            this.total = pbPresent.total.intValue();
-            if (pbPresent.list != null && pbPresent.list.size() > 0) {
-                this.dpp = new ArrayList<>();
-                for (PbPresentList pbPresentList : pbPresent.list) {
-                    if (pbPresentList != null) {
-                        a aVar = new a();
-                        aVar.giftId = pbPresentList.gift_id.intValue();
-                        aVar.giftName = pbPresentList.gift_name;
-                        aVar.thumbnailUrl = pbPresentList.thumbnail_url;
-                        aVar.num = pbPresentList.num.intValue();
-                        this.dpp.add(aVar);
-                    }
-                }
-            }
+    public void a(NewsInfo newsInfo) {
+        if (newsInfo != null) {
+            this.dDo = newsInfo.news_link;
+            this.summary = newsInfo.summary;
+            this.position = newsInfo.position.intValue();
+            this.djB = newsInfo.news_type.intValue();
+            this.dDp = newsInfo.news_icon;
+            this.subtitle = newsInfo.subtitle;
+            this.buttonText = newsInfo.button_text;
         }
-    }
-
-    public int getTotal() {
-        return this.total;
-    }
-
-    public void setTotal(int i) {
-        this.total = i;
-    }
-
-    public ArrayList<a> aJA() {
-        return this.dpp;
-    }
-
-    public void w(ArrayList<a> arrayList) {
-        this.dpp = arrayList;
     }
 }

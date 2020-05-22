@@ -8,48 +8,48 @@ import tbclient.GetTagList.DataRes;
 import tbclient.GetTagList.ResponseTagInfo;
 /* loaded from: classes10.dex */
 public class b {
-    private List<a> iGa;
-    private List<Integer> iGb;
-    private List<a> iGe;
+    private List<a> iUY;
+    private List<Integer> iUZ;
+    private List<a> iVc;
 
     public void a(DataRes dataRes) {
         if (dataRes != null) {
             if (!v.isEmpty(dataRes.sex_taglist)) {
-                this.iGe = new ArrayList();
-                q(this.iGe, dataRes.sex_taglist);
+                this.iVc = new ArrayList();
+                r(this.iVc, dataRes.sex_taglist);
             }
             if (!v.isEmpty(dataRes.taglist)) {
-                this.iGa = new ArrayList();
-                this.iGb = new ArrayList();
-                q(this.iGa, dataRes.taglist);
+                this.iUY = new ArrayList();
+                this.iUZ = new ArrayList();
+                r(this.iUY, dataRes.taglist);
             }
         }
     }
 
-    private void q(List<a> list, List<ResponseTagInfo> list2) {
+    private void r(List<a> list, List<ResponseTagInfo> list2) {
         if (list != null && list2 != null) {
             for (ResponseTagInfo responseTagInfo : list2) {
                 if (responseTagInfo != null && !StringUtils.isNull(responseTagInfo.tag_name)) {
                     a aVar = new a();
                     aVar.a(responseTagInfo);
                     list.add(aVar);
-                    if (this.iGb != null && aVar.isFollow) {
-                        this.iGb.add(Integer.valueOf(aVar.labelId));
+                    if (this.iUZ != null && aVar.isFollow) {
+                        this.iUZ.add(Integer.valueOf(aVar.labelId));
                     }
                 }
             }
         }
     }
 
-    public List<a> clR() {
-        return this.iGe;
+    public List<a> cst() {
+        return this.iVc;
     }
 
-    public List<a> clS() {
-        return this.iGa;
+    public List<a> csu() {
+        return this.iUY;
     }
 
-    public List<Integer> clT() {
-        return this.iGb;
+    public List<Integer> csv() {
+        return this.iUZ;
     }
 }

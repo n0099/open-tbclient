@@ -8,7 +8,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
 public final class ObservableSampleTimed<T> extends a<T, T> {
-    final boolean mSF;
+    final boolean nnK;
     final long period;
     final v scheduler;
     final TimeUnit unit;
@@ -16,7 +16,7 @@ public final class ObservableSampleTimed<T> extends a<T, T> {
     @Override // io.reactivex.q
     public void a(u<? super T> uVar) {
         io.reactivex.observers.b bVar = new io.reactivex.observers.b(uVar);
-        if (this.mSF) {
+        if (this.nnK) {
             this.source.subscribe(new SampleTimedEmitLast(bVar, this.period, this.unit, this.scheduler));
         } else {
             this.source.subscribe(new SampleTimedNoLast(bVar, this.period, this.unit, this.scheduler));

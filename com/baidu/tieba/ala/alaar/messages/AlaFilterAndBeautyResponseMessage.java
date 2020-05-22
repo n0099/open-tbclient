@@ -7,46 +7,46 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class AlaFilterAndBeautyResponseMessage extends JsonHttpResponsedMessage {
-    private String eJY;
-    private AlaFilterAndBeautyData eJZ;
+    private String eWv;
+    private AlaFilterAndBeautyData eWw;
 
     public AlaFilterAndBeautyResponseMessage() {
         super(1021163);
     }
 
-    public AlaFilterAndBeautyData bkf() {
-        return this.eJZ;
+    public AlaFilterAndBeautyData bpz() {
+        return this.eWw;
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject == null || hasError()) {
-            if (StringUtils.isNullObject(this.eJY)) {
-                this.eJY = c.tG().getString("sp_ar_filter_and_beauty_result", "");
+            if (StringUtils.isNullObject(this.eWv)) {
+                this.eWv = c.uN().getString("sp_ar_filter_and_beauty_result", "");
             }
-            jSONObject = new JSONObject(this.eJY);
+            jSONObject = new JSONObject(this.eWv);
         } else {
-            this.eJY = jSONObject.toString();
-            c.tG().putString("sp_ar_filter_and_beauty_result", this.eJY);
+            this.eWv = jSONObject.toString();
+            c.uN().putString("sp_ar_filter_and_beauty_result", this.eWv);
         }
         JSONObject optJSONObject = jSONObject.optJSONObject("data");
         if (optJSONObject != null) {
-            this.eJZ = new AlaFilterAndBeautyData();
-            this.eJZ.parse(optJSONObject);
+            this.eWw = new AlaFilterAndBeautyData();
+            this.eWw.parse(optJSONObject);
         }
     }
 
-    public AlaFilterAndBeautyData oQ(int i) {
-        if (i == c.tG().getInt("sp_ar_filter_and_beauty_version", -1)) {
+    public AlaFilterAndBeautyData pr(int i) {
+        if (i == c.uN().getInt("sp_ar_filter_and_beauty_version", -1)) {
             try {
                 decodeLogicInBackGround(1021163, null);
             } catch (Exception e) {
                 e.printStackTrace();
             }
         } else {
-            c.tG().putString("sp_ar_filter_and_beauty_result", "");
+            c.uN().putString("sp_ar_filter_and_beauty_result", "");
         }
-        return this.eJZ;
+        return this.eWw;
     }
 }

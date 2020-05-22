@@ -5,15 +5,15 @@ import android.os.HandlerThread;
 /* loaded from: classes3.dex */
 public class CameraExecutor {
     private static volatile CameraExecutor mInstance = null;
-    private Handler mHandler;
-    private HandlerThread mHandlerThread;
+    private Handler mCameraHandler;
+    private HandlerThread mCameraThread;
 
     private CameraExecutor() {
-        this.mHandlerThread = null;
-        this.mHandler = null;
-        this.mHandlerThread = new HandlerThread("rc_exec_camera_thread");
-        this.mHandlerThread.start();
-        this.mHandler = new Handler(this.mHandlerThread.getLooper());
+        this.mCameraThread = null;
+        this.mCameraHandler = null;
+        this.mCameraThread = new HandlerThread("rc_exec_camera_thread");
+        this.mCameraThread.start();
+        this.mCameraHandler = new Handler(this.mCameraThread.getLooper());
     }
 
     public static CameraExecutor getInst() {
@@ -30,7 +30,7 @@ public class CameraExecutor {
 
     public void posRunnable(Runnable runnable) {
         if (runnable != null) {
-            this.mHandler.post(runnable);
+            this.mCameraHandler.post(runnable);
         }
     }
 }

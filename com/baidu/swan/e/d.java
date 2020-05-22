@@ -1,331 +1,762 @@
 package com.baidu.swan.e;
 
 import android.content.Context;
-import android.content.res.AssetManager;
-import android.os.Build;
-import android.os.Environment;
-import android.os.StatFs;
-import android.support.v7.widget.ActivityChooserView;
+import android.media.MediaMetadataRetriever;
+import android.support.annotation.CheckResult;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.text.TextUtils;
-import com.baidu.webkit.internal.GlobalConstants;
-import com.baidu.webkit.sdk.SevenZipUtils;
+import com.baidu.android.util.io.FileUtils;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.BufferedReader;
+import java.io.ByteArrayInputStream;
+import java.io.Closeable;
 import java.io.File;
 import java.io.FileInputStream;
-import java.lang.reflect.Method;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.Enumeration;
+import java.util.List;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipFile;
+import java.util.zip.ZipInputStream;
+import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes11.dex */
-public class d {
-    private static final String SPLASH = File.separator;
-    private static final String dfs = "zeus" + SPLASH + "libs" + SPLASH;
-    private Method dfu;
-    private Context mContext;
-    private JSONObject mJson_elf;
-    private JSONObject mJson_meta;
-    private int mMaxAddr;
-    private int mMinAddr;
-    private int m7zCount = 0;
-    private int m7zTotal = 0;
-    private String m7zFile = null;
-    private int[] m7zSizes = null;
-    private int[] m7zOffsets = null;
-    private int[] m7zSzOffsets = null;
-    private int mOffset_meta = 0;
-    private int mOffset_elf = 0;
-    private int mOffset_7z = 0;
-    private boolean mHooked = false;
-    private String mTempPath = null;
-    private boolean dft = false;
+public final class d {
+    private static String sCacheDir = null;
+    private static int INVALID_INDEX = -1;
+    private static int ONE_INCREAMENT = 1;
 
-    private void init() {
-        try {
-            System.load(aFb() + "libzeuslzma.so");
-            this.dft = true;
-        } catch (Throwable th) {
-        }
+    public static boolean isExistFile(String str) {
+        return !TextUtils.isEmpty(str) && new File(str).exists();
     }
 
-    public d(Context context) {
-        this.mContext = context;
-        init();
-    }
-
-    private boolean aEU() {
-        try {
-            byte[] bArr = new byte[64];
-            new FileInputStream(aFa()).read(bArr);
-            return new String(bArr, "UTF-8").startsWith("zeusmeta");
-        } catch (Exception e) {
+    public static boolean deleteFile(String str) {
+        if (TextUtils.isEmpty(str)) {
             return false;
         }
+        File file = new File(str);
+        if (file.exists()) {
+            return deleteFile(file);
+        }
+        return false;
     }
 
-    public boolean aEV() {
-        if (aEU()) {
-            if (this.dft && aEW() && isEnoughSpace(this.m7zTotal)) {
-                hook(true);
-                return aEX() && aEZ() && aEY();
+    public static boolean deleteFile(File file) {
+        if (file == null) {
+            return false;
+        }
+        boolean z = true;
+        if (file.exists()) {
+            if (file.isFile()) {
+                z = true & file.delete();
+            } else if (file.isDirectory()) {
+                File[] listFiles = file.listFiles();
+                if (listFiles != null) {
+                    for (File file2 : listFiles) {
+                        z &= deleteFile(file2);
+                    }
+                }
+                z &= file.delete();
             }
+        }
+        return z;
+    }
+
+    public static boolean saveFile(String str, File file) {
+        if (TextUtils.isEmpty(str) || file.exists()) {
             return false;
+        }
+        saveFileCommon(str.getBytes(), file);
+        return true;
+    }
+
+    public static void saveFileCommon(byte[] bArr, File file) {
+        ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
+        saveToFile(byteArrayInputStream, file);
+        closeSafely(byteArrayInputStream);
+    }
+
+    public static void saveToFile(InputStream inputStream, File file) {
+        FileOutputStream fileOutputStream;
+        try {
+            fileOutputStream = new FileOutputStream(file);
+            try {
+                try {
+                    copyStream(inputStream, fileOutputStream);
+                    closeSafely(fileOutputStream);
+                } catch (FileNotFoundException e) {
+                    e = e;
+                    e.printStackTrace();
+                    closeSafely(fileOutputStream);
+                }
+            } catch (Throwable th) {
+                th = th;
+                closeSafely(fileOutputStream);
+                throw th;
+            }
+        } catch (FileNotFoundException e2) {
+            e = e2;
+            fileOutputStream = null;
+        } catch (Throwable th2) {
+            th = th2;
+            fileOutputStream = null;
+            closeSafely(fileOutputStream);
+            throw th;
+        }
+    }
+
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [395=4] */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r3v3, types: [java.io.OutputStream, java.io.Closeable, java.io.FileOutputStream] */
+    public static long copyFile(File file, File file2) {
+        FileInputStream fileInputStream;
+        FileInputStream fileInputStream2;
+        ?? fileOutputStream;
+        FileInputStream fileInputStream3 = null;
+        long j = 0;
+        if (file != null && file2 != null && file.exists()) {
+            try {
+                fileInputStream = new FileInputStream(file);
+                try {
+                    fileOutputStream = new FileOutputStream(file2);
+                } catch (Exception e) {
+                    e = e;
+                    fileInputStream2 = null;
+                    fileInputStream3 = fileInputStream;
+                } catch (Throwable th) {
+                    th = th;
+                }
+                try {
+                    j = copyStream(fileInputStream, fileOutputStream);
+                    closeSafely(fileInputStream);
+                    closeSafely(fileOutputStream);
+                } catch (Exception e2) {
+                    e = e2;
+                    fileInputStream3 = fileInputStream;
+                    fileInputStream2 = fileOutputStream;
+                    try {
+                        e.printStackTrace();
+                        closeSafely(fileInputStream3);
+                        closeSafely(fileInputStream2);
+                        return j;
+                    } catch (Throwable th2) {
+                        th = th2;
+                        fileInputStream = fileInputStream3;
+                        fileInputStream3 = fileInputStream2;
+                        closeSafely(fileInputStream);
+                        closeSafely(fileInputStream3);
+                        throw th;
+                    }
+                } catch (Throwable th3) {
+                    th = th3;
+                    fileInputStream3 = fileOutputStream;
+                    closeSafely(fileInputStream);
+                    closeSafely(fileInputStream3);
+                    throw th;
+                }
+            } catch (Exception e3) {
+                e = e3;
+                fileInputStream2 = null;
+            } catch (Throwable th4) {
+                th = th4;
+                fileInputStream = null;
+            }
+        }
+        return j;
+    }
+
+    public static void j(File file, File file2) {
+        String[] list;
+        if (file != null && file2 != null && (list = file.list()) != null && list.length != 0) {
+            ensureDirectoryExist(file2);
+            for (String str : list) {
+                if (!TextUtils.isEmpty(str)) {
+                    File file3 = new File(file, str);
+                    File file4 = new File(file2, str);
+                    if (file3.isDirectory()) {
+                        j(file3, file4);
+                    }
+                    if (file3.isFile()) {
+                        createNewFileSafely(file4);
+                        copyFile(file3, file4);
+                    }
+                }
+            }
+        }
+    }
+
+    public static long copyStream(InputStream inputStream, OutputStream outputStream) {
+        if (inputStream == null || outputStream == null) {
+            return 0L;
+        }
+        try {
+            byte[] bArr = new byte[3072];
+            long j = 0;
+            while (true) {
+                int read = inputStream.read(bArr);
+                if (read > 0) {
+                    outputStream.write(bArr, 0, read);
+                    j += read;
+                } else {
+                    outputStream.flush();
+                    return j;
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+            return 0L;
+        }
+    }
+
+    public static String readFileData(File file) {
+        try {
+            return readInputStream(new FileInputStream(file));
+        } catch (FileNotFoundException e) {
+            return "";
+        }
+    }
+
+    private static String readInputStream(FileInputStream fileInputStream) {
+        if (fileInputStream == null) {
+            return "";
+        }
+        StringBuilder sb = new StringBuilder();
+        try {
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(fileInputStream));
+            while (true) {
+                String readLine = bufferedReader.readLine();
+                if (readLine != null) {
+                    sb.append(readLine);
+                } else {
+                    return sb.toString();
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+            return "";
+        } finally {
+            closeSafely(fileInputStream);
+        }
+    }
+
+    public static boolean tW(String str) {
+        return !TextUtils.isEmpty(str) && safeDeleteFile(new File(str));
+    }
+
+    public static boolean safeDeleteFile(File file) {
+        boolean deleteFile;
+        if (file != null) {
+            try {
+                if (file.exists()) {
+                    String absolutePath = file.getAbsolutePath();
+                    File file2 = new File(absolutePath);
+                    File file3 = new File(absolutePath + System.currentTimeMillis() + ".tmp");
+                    if (file2.renameTo(file3)) {
+                        deleteFile = deleteFile(file3);
+                    } else {
+                        deleteFile = deleteFile(file);
+                    }
+                    return deleteFile;
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+                return false;
+            }
+        }
+        deleteFile = true;
+        return deleteFile;
+    }
+
+    public static boolean createNewFileSafely(File file) {
+        if (file == null || file.exists()) {
+            return false;
+        }
+        File parentFile = file.getParentFile();
+        if (parentFile != null && !parentFile.exists()) {
+            parentFile.mkdirs();
+        }
+        try {
+            return file.createNewFile();
+        } catch (IOException e) {
+            return false;
+        }
+    }
+
+    public static boolean unzipFile(String str, String str2) {
+        return cR(str, str2) == null;
+    }
+
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1046=4] */
+    public static Exception cR(String str, String str2) {
+        ZipFile zipFile;
+        BufferedOutputStream bufferedOutputStream;
+        BufferedInputStream bufferedInputStream;
+        BufferedOutputStream bufferedOutputStream2;
+        BufferedInputStream bufferedInputStream2;
+        BufferedOutputStream bufferedOutputStream3;
+        ZipFile zipFile2 = null;
+        System.currentTimeMillis();
+        if (str == null) {
+            return new Exception("srcFileName is null");
+        }
+        if (str2 == null) {
+            str2 = new File(str).getParent();
+        }
+        try {
+            zipFile = new ZipFile(str);
+            try {
+                Enumeration<? extends ZipEntry> entries = zipFile.entries();
+                bufferedOutputStream = null;
+                bufferedInputStream = null;
+                while (entries.hasMoreElements()) {
+                    try {
+                        ZipEntry nextElement = entries.nextElement();
+                        if (!TextUtils.isEmpty(nextElement.getName()) && !tZ(nextElement.getName())) {
+                            File file = new File(str2 + "/" + nextElement.getName());
+                            if (!nextElement.isDirectory()) {
+                                if (!file.exists()) {
+                                    createNewFileSafely(file);
+                                }
+                                BufferedInputStream bufferedInputStream3 = new BufferedInputStream(zipFile.getInputStream(nextElement));
+                                try {
+                                    bufferedOutputStream3 = new BufferedOutputStream(new FileOutputStream(file), 2048);
+                                } catch (IOException e) {
+                                    e = e;
+                                    zipFile2 = zipFile;
+                                    bufferedOutputStream2 = bufferedOutputStream;
+                                    bufferedInputStream2 = bufferedInputStream3;
+                                } catch (Throwable th) {
+                                    th = th;
+                                    bufferedInputStream = bufferedInputStream3;
+                                }
+                                try {
+                                    byte[] bArr = new byte[2048];
+                                    while (true) {
+                                        int read = bufferedInputStream3.read(bArr, 0, 2048);
+                                        if (read == -1) {
+                                            break;
+                                        }
+                                        bufferedOutputStream3.write(bArr, 0, read);
+                                    }
+                                    closeSafely(bufferedInputStream3);
+                                    closeSafely(bufferedOutputStream3);
+                                    bufferedOutputStream = bufferedOutputStream3;
+                                    bufferedInputStream = bufferedInputStream3;
+                                } catch (IOException e2) {
+                                    e = e2;
+                                    zipFile2 = zipFile;
+                                    bufferedInputStream2 = bufferedInputStream3;
+                                    bufferedOutputStream2 = bufferedOutputStream3;
+                                    try {
+                                        e.printStackTrace();
+                                        closeSafely(bufferedOutputStream2);
+                                        closeSafely(bufferedInputStream2);
+                                        closeSafely(zipFile2);
+                                        System.currentTimeMillis();
+                                        return e;
+                                    } catch (Throwable th2) {
+                                        th = th2;
+                                        bufferedInputStream = bufferedInputStream2;
+                                        bufferedOutputStream = bufferedOutputStream2;
+                                        zipFile = zipFile2;
+                                        closeSafely(bufferedOutputStream);
+                                        closeSafely(bufferedInputStream);
+                                        closeSafely(zipFile);
+                                        System.currentTimeMillis();
+                                        throw th;
+                                    }
+                                } catch (Throwable th3) {
+                                    th = th3;
+                                    bufferedOutputStream = bufferedOutputStream3;
+                                    bufferedInputStream = bufferedInputStream3;
+                                    closeSafely(bufferedOutputStream);
+                                    closeSafely(bufferedInputStream);
+                                    closeSafely(zipFile);
+                                    System.currentTimeMillis();
+                                    throw th;
+                                }
+                            } else if (!file.exists()) {
+                                file.mkdirs();
+                            }
+                        }
+                    } catch (IOException e3) {
+                        e = e3;
+                        zipFile2 = zipFile;
+                        bufferedOutputStream2 = bufferedOutputStream;
+                        bufferedInputStream2 = bufferedInputStream;
+                    } catch (Throwable th4) {
+                        th = th4;
+                    }
+                }
+                closeSafely(bufferedOutputStream);
+                closeSafely(bufferedInputStream);
+                closeSafely(zipFile);
+                System.currentTimeMillis();
+                return null;
+            } catch (IOException e4) {
+                e = e4;
+                bufferedInputStream2 = null;
+                zipFile2 = zipFile;
+                bufferedOutputStream2 = null;
+            } catch (Throwable th5) {
+                th = th5;
+                bufferedOutputStream = null;
+                bufferedInputStream = null;
+            }
+        } catch (IOException e5) {
+            e = e5;
+            bufferedOutputStream2 = null;
+            bufferedInputStream2 = null;
+        } catch (Throwable th6) {
+            th = th6;
+            zipFile = null;
+            bufferedOutputStream = null;
+            bufferedInputStream = null;
+        }
+    }
+
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1116=4] */
+    public static boolean cS(String str, String str2) {
+        ZipInputStream zipInputStream;
+        InputStream inputStream;
+        InputStream inputStream2;
+        BufferedOutputStream bufferedOutputStream;
+        ZipInputStream zipInputStream2 = null;
+        if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+            return false;
+        }
+        File file = new File(str2);
+        if (!file.exists()) {
+            file.mkdirs();
+        }
+        try {
+            inputStream = AppRuntime.getAppContext().getAssets().open(str);
+            try {
+                zipInputStream = new ZipInputStream(inputStream);
+            } catch (IOException e) {
+                inputStream2 = inputStream;
+            } catch (Throwable th) {
+                th = th;
+                zipInputStream = null;
+            }
+        } catch (IOException e2) {
+            inputStream2 = null;
+        } catch (Throwable th2) {
+            th = th2;
+            zipInputStream = null;
+            inputStream = null;
+        }
+        try {
+            byte[] bArr = new byte[1024];
+            BufferedOutputStream bufferedOutputStream2 = null;
+            while (true) {
+                ZipEntry nextEntry = zipInputStream.getNextEntry();
+                if (nextEntry == null) {
+                    closeSafely(inputStream);
+                    closeSafely(zipInputStream);
+                    return true;
+                } else if (!TextUtils.isEmpty(nextEntry.getName()) && !tZ(nextEntry.getName())) {
+                    File file2 = new File(str2 + File.separator + nextEntry.getName());
+                    if (nextEntry.isDirectory()) {
+                        if (!file2.exists()) {
+                            file2.mkdir();
+                        }
+                    } else if (file2.exists()) {
+                        continue;
+                    } else {
+                        createNewFileSafely(file2);
+                        try {
+                            bufferedOutputStream = new BufferedOutputStream(new FileOutputStream(file2), 2048);
+                            while (true) {
+                                try {
+                                    int read = zipInputStream.read(bArr);
+                                    if (read == -1) {
+                                        break;
+                                    }
+                                    bufferedOutputStream.write(bArr, 0, read);
+                                } catch (Throwable th3) {
+                                    th = th3;
+                                    closeSafely(bufferedOutputStream);
+                                    throw th;
+                                }
+                            }
+                            closeSafely(bufferedOutputStream);
+                            bufferedOutputStream2 = bufferedOutputStream;
+                        } catch (Throwable th4) {
+                            th = th4;
+                            bufferedOutputStream = bufferedOutputStream2;
+                        }
+                    }
+                }
+            }
+        } catch (IOException e3) {
+            zipInputStream2 = zipInputStream;
+            inputStream2 = inputStream;
+            closeSafely(inputStream2);
+            closeSafely(zipInputStream2);
+            return false;
+        } catch (Throwable th5) {
+            th = th5;
+            closeSafely(inputStream);
+            closeSafely(zipInputStream);
+            throw th;
+        }
+    }
+
+    @CheckResult
+    @Nullable
+    public static String tX(@Nullable String str) {
+        int lastIndexOf;
+        if (TextUtils.isEmpty(str) || (lastIndexOf = str.lastIndexOf(46)) <= -1 || lastIndexOf >= str.length() - 1) {
+            return null;
+        }
+        return str.substring(lastIndexOf + 1);
+    }
+
+    public static String getFileNameFromPath(String str) {
+        if (TextUtils.isEmpty(str) || str.endsWith(File.separator)) {
+            return null;
+        }
+        int lastIndexOf = str.lastIndexOf(File.separator);
+        int length = str.length();
+        if (lastIndexOf != INVALID_INDEX && length > lastIndexOf) {
+            return str.substring(lastIndexOf + ONE_INCREAMENT, length);
+        }
+        return str;
+    }
+
+    public static String tY(String str) {
+        int lastIndexOf;
+        String fileNameFromPath = getFileNameFromPath(str);
+        if (TextUtils.isEmpty(fileNameFromPath) || (lastIndexOf = fileNameFromPath.lastIndexOf(".")) == INVALID_INDEX || lastIndexOf == fileNameFromPath.length() - 1) {
+            return "";
+        }
+        return fileNameFromPath.substring(lastIndexOf + 1);
+    }
+
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1275=4] */
+    @Nullable
+    public static String readAssetData(Context context, String str) {
+        InputStream inputStream;
+        Throwable th;
+        BufferedReader bufferedReader;
+        String str2 = null;
+        if (context != null && !TextUtils.isEmpty(str)) {
+            try {
+                inputStream = context.getAssets().open(str);
+                try {
+                    bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+                } catch (IOException e) {
+                    bufferedReader = null;
+                } catch (Throwable th2) {
+                    bufferedReader = null;
+                    th = th2;
+                }
+            } catch (IOException e2) {
+                bufferedReader = null;
+                inputStream = null;
+            } catch (Throwable th3) {
+                inputStream = null;
+                th = th3;
+                bufferedReader = null;
+            }
+            try {
+                StringBuilder sb = new StringBuilder();
+                while (true) {
+                    String readLine = bufferedReader.readLine();
+                    if (readLine == null) {
+                        break;
+                    }
+                    sb.append(readLine);
+                }
+                str2 = sb.toString();
+                closeSafely(inputStream);
+                closeSafely(bufferedReader);
+            } catch (IOException e3) {
+                closeSafely(inputStream);
+                closeSafely(bufferedReader);
+                return str2;
+            } catch (Throwable th4) {
+                th = th4;
+                closeSafely(inputStream);
+                closeSafely(bufferedReader);
+                throw th;
+            }
+        }
+        return str2;
+    }
+
+    public static boolean ensureDirectoryExist(File file) {
+        if (file == null) {
+            return false;
+        }
+        if (!file.exists()) {
+            try {
+                file.mkdirs();
+            } catch (SecurityException e) {
+                return false;
+            }
         }
         return true;
     }
 
-    private boolean aEW() {
-        FileInputStream fileInputStream;
-        Throwable th;
-        FileInputStream fileInputStream2 = null;
-        String aFa = aFa();
-        if (!new File(aFa).exists()) {
-            return false;
+    public static String generateFileSizeText(long j) {
+        String str;
+        Float valueOf;
+        if (j <= 0) {
+            return FileUtils.UNKNOW;
         }
-        try {
-            fileInputStream = new FileInputStream(aFa);
+        if (j < 1024) {
+            return j + "B";
+        }
+        if (j < 1048576) {
+            str = "KB";
+            valueOf = Float.valueOf(((float) j) / 1024.0f);
+        } else if (j < IjkMediaMeta.AV_CH_STEREO_RIGHT) {
+            str = "MB";
+            valueOf = Float.valueOf(((float) j) / 1048576.0f);
+        } else {
+            str = "GB";
+            valueOf = Float.valueOf(((float) j) / 1.0737418E9f);
+        }
+        return new DecimalFormat("####.##").format(valueOf) + str;
+    }
+
+    public static void closeSafely(@Nullable Closeable closeable) {
+        if (closeable != null) {
             try {
-                byte[] bArr = new byte[512];
-                fileInputStream.read(bArr);
-                String str = new String(bArr, "UTF-8");
-                this.mOffset_meta = str.indexOf("##") + 2;
-                this.mOffset_elf = str.indexOf("##", this.mOffset_meta) + 2;
-                this.mOffset_7z = str.indexOf("##", this.mOffset_elf) + 2;
-                this.mJson_meta = new JSONObject(str.substring(this.mOffset_meta, this.mOffset_elf - 2));
-                this.mJson_elf = new JSONObject(str.substring(this.mOffset_elf, this.mOffset_7z - 2));
-                int i = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
-                JSONArray jSONArray = this.mJson_elf.getJSONArray("loadable");
-                int i2 = 0;
-                for (int i3 = 0; i3 < jSONArray.length(); i3++) {
-                    JSONObject jSONObject = jSONArray.getJSONObject(i3);
-                    int i4 = jSONObject.getInt("vaddr");
-                    int i5 = jSONObject.getInt("memsz");
-                    if (i4 < i) {
-                        i = i4;
-                    }
-                    if (i4 + i5 > i2) {
-                        i2 = i4 + i5;
-                    }
-                }
-                this.mMinAddr = i;
-                this.mMaxAddr = i2;
-                this.m7zCount = this.mJson_meta.getInt("count");
-                this.m7zSizes = new int[this.m7zCount];
-                this.m7zOffsets = new int[this.m7zCount];
-                this.m7zSzOffsets = new int[this.m7zCount];
-                this.m7zFile = aFa();
-                JSONArray jSONArray2 = this.mJson_meta.getJSONArray("offsets");
-                JSONArray jSONArray3 = this.mJson_meta.getJSONArray("szoffsets");
-                this.m7zOffsets[0] = 0;
-                for (int i6 = 0; i6 < this.m7zCount; i6++) {
-                    this.m7zSizes[i6] = jSONArray2.getInt(i6);
-                    if (i6 > 0) {
-                        this.m7zOffsets[i6] = this.m7zOffsets[i6 - 1] + this.m7zSizes[i6 - 1];
-                    }
-                    this.m7zSzOffsets[i6] = jSONArray3.getInt(i6) + this.mOffset_7z;
-                }
-                this.m7zTotal = this.mJson_meta.getInt("total");
-                if (fileInputStream != null) {
-                    try {
-                        fileInputStream.close();
-                    } catch (Exception e) {
-                    }
-                }
-                return true;
-            } catch (Exception e2) {
-                fileInputStream2 = fileInputStream;
-                if (fileInputStream2 != null) {
-                    try {
-                        fileInputStream2.close();
-                    } catch (Exception e3) {
-                    }
-                }
-                return false;
-            } catch (Throwable th2) {
-                th = th2;
-                if (fileInputStream != null) {
-                    try {
-                        fileInputStream.close();
-                    } catch (Exception e4) {
-                    }
-                }
-                throw th;
+                closeable.close();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-        } catch (Exception e5) {
+        }
+    }
+
+    public static boolean tZ(String str) {
+        return str.contains("../");
+    }
+
+    public static boolean E(File file) {
+        return file != null && file.exists() && file.isFile();
+    }
+
+    public static List<String> F(File file) {
+        try {
+            return a(new FileInputStream(file));
+        } catch (FileNotFoundException e) {
+            return new ArrayList();
+        }
+    }
+
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[MOVE_EXCEPTION, INVOKE, MOVE_EXCEPTION] complete} */
+    private static List<String> a(FileInputStream fileInputStream) {
+        ArrayList arrayList = new ArrayList();
+        try {
+            if (fileInputStream != null) {
+                try {
+                    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(fileInputStream));
+                    while (true) {
+                        String readLine = bufferedReader.readLine();
+                        if (readLine != null) {
+                            arrayList.add(readLine);
+                        } else {
+                            try {
+                                break;
+                            } catch (IOException e) {
+                            }
+                        }
+                    }
+                    fileInputStream.close();
+                } catch (IOException e2) {
+                    arrayList = new ArrayList();
+                }
+            }
+            return arrayList;
+        } finally {
+            try {
+                fileInputStream.close();
+            } catch (IOException e3) {
+            }
+        }
+    }
+
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1533=4] */
+    public static void b(@NonNull List<String> list, @NonNull File file) {
+        FileWriter fileWriter;
+        Throwable th;
+        if (!file.exists()) {
+            return;
+        }
+        FileWriter fileWriter2 = null;
+        try {
+            fileWriter = new FileWriter(file);
+            for (int i = 0; i < list.size(); i++) {
+                try {
+                    fileWriter.write(list.get(i));
+                    if (i != list.size() - 1) {
+                        fileWriter.write("\n");
+                    }
+                } catch (IOException e) {
+                    fileWriter2 = fileWriter;
+                    if (fileWriter2 != null) {
+                        try {
+                            fileWriter2.close();
+                            return;
+                        } catch (IOException e2) {
+                            return;
+                        }
+                    }
+                    return;
+                } catch (Throwable th2) {
+                    th = th2;
+                    if (fileWriter != null) {
+                        try {
+                            fileWriter.close();
+                        } catch (IOException e3) {
+                        }
+                    }
+                    throw th;
+                }
+            }
+            fileWriter.flush();
+            if (fileWriter != null) {
+                try {
+                    fileWriter.close();
+                } catch (IOException e4) {
+                }
+            }
+        } catch (IOException e5) {
         } catch (Throwable th3) {
-            fileInputStream = null;
+            fileWriter = null;
             th = th3;
         }
     }
 
-    private boolean aEX() {
-        File file = new File(aFb());
-        if (file.exists()) {
-            return true;
-        }
-        return file.mkdirs();
-    }
-
-    private boolean isEnoughSpace(long j) {
-        long blockSize;
-        long availableBlocks;
-        try {
-            StatFs statFs = new StatFs(Environment.getDataDirectory().getPath());
-            if (Build.VERSION.SDK_INT >= 18) {
-                blockSize = statFs.getBlockSizeLong();
-                availableBlocks = statFs.getAvailableBlocksLong();
-            } else {
-                blockSize = statFs.getBlockSize();
-                availableBlocks = statFs.getAvailableBlocks();
-            }
-            return availableBlocks * blockSize > j;
-        } catch (Exception e) {
-            return true;
-        }
-    }
-
-    private boolean aEY() {
-        if (this.m7zCount > 0 && this.m7zTotal > 0) {
-            int i = this.m7zCount;
-            int i2 = this.m7zTotal;
-            String str = this.m7zFile;
-            int[] iArr = this.m7zSizes;
-            int[] iArr2 = this.m7zOffsets;
-            int[] iArr3 = this.m7zSzOffsets;
-            if (!this.mHooked) {
-                this.mMinAddr = 0;
-                this.mMaxAddr = this.m7zTotal;
-            }
-            String str2 = aFb() + GlobalConstants.LIB_ZEUS_CHROMIUM;
-            String str3 = aFb() + GlobalConstants.LIB_ZEUS_CHROMIUM + ".tmp";
-            int doInit = doInit(this.mTempPath, str3, this.m7zTotal, this.mMinAddr, this.mMaxAddr, this.mHooked ? 1 : 0);
-            if (doInit != 0) {
-                return false;
-            }
-            for (int i3 = 0; i3 < i; i3++) {
-                a(null, str, iArr2[i3], iArr[i3], iArr3[i3]);
-            }
-            File file = new File(str3);
-            File file2 = new File(str2);
-            if (file2.exists()) {
-                file2.delete();
-            }
-            if (!file.renameTo(file2)) {
-                return false;
-            }
-            deleteDir(new File(this.mTempPath));
-            if (!this.mHooked) {
-                doInit = aFc();
-            }
-            return doInit == 0;
-        }
-        return true;
-    }
-
-    private boolean aEZ() {
-        this.mTempPath = aFb() + "temp";
-        File file = new File(this.mTempPath);
-        return file.exists() ? deleteDir(file) : file.mkdirs();
-    }
-
-    private void hook(boolean z) {
-        if (!z || (this.mMinAddr == 0 && !isCPU64())) {
+    public static long ua(String str) {
+        long j = -1;
+        if (!TextUtils.isEmpty(str)) {
+            MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
             try {
-                if (doHook(Build.VERSION.SDK_INT, z) > 0) {
-                    this.mHooked = true;
-                }
-            } catch (UnsatisfiedLinkError e) {
-            }
-        }
-    }
-
-    private String aFa() {
-        return aFb() + SPLASH + GlobalConstants.LIB_ZEUS_CHROMIUM;
-    }
-
-    private String aFb() {
-        return this.mContext.getFilesDir() + SPLASH + dfs;
-    }
-
-    private boolean deleteDir(File file) {
-        if (file == null) {
-            return false;
-        }
-        if (file.isDirectory()) {
-            for (String str : file.list()) {
-                if (!deleteDir(new File(file, str))) {
-                    return false;
-                }
-            }
-        }
-        if (file.exists()) {
-            return file.delete();
-        }
-        return true;
-    }
-
-    private boolean isCPU64() {
-        String property = System.getProperty("os.arch");
-        if (TextUtils.isEmpty(property) || !property.endsWith("64")) {
-            try {
-                Class<?> cls = Class.forName("android.os.SystemProperties");
-                String str = (String) cls.getMethod("get", String.class, String.class).invoke(cls, "ro.product.cpu.abilist64", "");
-                if (str != null) {
-                    if (!str.isEmpty()) {
-                        return true;
-                    }
+                mediaMetadataRetriever.setDataSource(str);
+                String extractMetadata = mediaMetadataRetriever.extractMetadata(9);
+                if (!TextUtils.isEmpty(extractMetadata)) {
+                    j = Long.parseLong(extractMetadata);
                 }
             } catch (Exception e) {
-            }
-            return false;
-        }
-        return true;
-    }
-
-    private int doInit(String str, String str2, int i, int i2, int i3, int i4) {
-        SevenZipUtils sevenZipUtils = SevenZipUtils.getInstance();
-        try {
-            Method declaredMethod = SevenZipUtils.class.getDeclaredMethod(com.baidu.sapi2.outsdk.c.l, String.class, String.class, Integer.TYPE, Integer.TYPE, Integer.TYPE, Integer.TYPE);
-            declaredMethod.setAccessible(true);
-            return ((Integer) declaredMethod.invoke(sevenZipUtils, str, str2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4))).intValue();
-        } catch (Exception e) {
-            return -1;
-        }
-    }
-
-    private void a(AssetManager assetManager, String str, int i, int i2, int i3) {
-        SevenZipUtils sevenZipUtils = SevenZipUtils.getInstance();
-        if (this.dfu == null) {
-            try {
-                this.dfu = SevenZipUtils.class.getDeclaredMethod("decodeAndMerge", AssetManager.class, String.class, Integer.TYPE, Integer.TYPE, Integer.TYPE);
-            } catch (Exception e) {
+            } finally {
+                mediaMetadataRetriever.release();
             }
         }
-        if (this.dfu != null) {
-            try {
-                this.dfu.setAccessible(true);
-                this.dfu.invoke(sevenZipUtils, assetManager, str, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3));
-            } catch (Exception e2) {
-            }
-        }
-    }
-
-    private int doHook(int i, boolean z) {
-        SevenZipUtils sevenZipUtils = SevenZipUtils.getInstance();
-        try {
-            Method declaredMethod = SevenZipUtils.class.getDeclaredMethod("doHook", Integer.TYPE, Boolean.TYPE);
-            declaredMethod.setAccessible(true);
-            return ((Integer) declaredMethod.invoke(sevenZipUtils, Integer.valueOf(i), Boolean.valueOf(z))).intValue();
-        } catch (Exception e) {
-            return -1;
-        }
-    }
-
-    private int aFc() {
-        SevenZipUtils sevenZipUtils = SevenZipUtils.getInstance();
-        try {
-            Method declaredMethod = SevenZipUtils.class.getDeclaredMethod("submit", new Class[0]);
-            declaredMethod.setAccessible(true);
-            return ((Integer) declaredMethod.invoke(sevenZipUtils, new Object[0])).intValue();
-        } catch (Exception e) {
-            return -1;
-        }
+        return j;
     }
 }

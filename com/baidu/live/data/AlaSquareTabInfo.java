@@ -8,14 +8,14 @@ public class AlaSquareTabInfo implements Parcelable {
     public static final Parcelable.Creator<AlaSquareTabInfo> CREATOR = new Parcelable.Creator<AlaSquareTabInfo>() { // from class: com.baidu.live.data.AlaSquareTabInfo.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: g */
+        /* renamed from: h */
         public AlaSquareTabInfo createFromParcel(Parcel parcel) {
             return new AlaSquareTabInfo(parcel);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: bC */
+        /* renamed from: bJ */
         public AlaSquareTabInfo[] newArray(int i) {
             return new AlaSquareTabInfo[i];
         }

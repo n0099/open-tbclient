@@ -31,25 +31,25 @@ public class an {
         this.key = str;
     }
 
-    public an cI(String str, String str2) {
+    public an dh(String str, String str2) {
         this.params.add(str);
         this.params.add(str2);
         return this;
     }
 
-    public an af(String str, int i) {
+    public an ag(String str, int i) {
         this.params.add(str);
         this.params.add(Integer.valueOf(i));
         return this;
     }
 
-    public an t(String str, long j) {
+    public an s(String str, long j) {
         this.params.add(str);
         this.params.add(Long.valueOf(j));
         return this;
     }
 
-    private void aK(List<Object> list) {
+    private void aF(List<Object> list) {
         this.params = list;
     }
 
@@ -61,22 +61,26 @@ public class an {
         }
     }
 
-    public boolean uK(String str) {
+    public boolean wq(String str) {
         int indexOf;
         return !aq.isEmpty(str) && (indexOf = this.params.indexOf(str)) >= 0 && this.params.size() > indexOf + 1;
     }
 
-    public an aON() {
+    public an aUR() {
         an anVar = new an(getKey());
-        anVar.aK(getParams());
+        anVar.aF(getParams());
         return anVar;
     }
 
-    public void aOO() {
+    public void aUS() {
         TiebaStatic.log(this);
     }
 
-    public static an uL(String str) {
+    public static an wr(String str) {
         return new an(str);
+    }
+
+    public String toString() {
+        return "StatisticItem{key='" + this.key + "', position=" + this.position + ", params=" + this.params + '}';
     }
 }

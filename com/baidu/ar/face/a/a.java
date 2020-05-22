@@ -32,7 +32,7 @@ public class a {
     private long nj;
     private long nk;
     private HandlerThread no;
-    private HandlerC0080a np;
+    private HandlerC0082a np;
     private boolean mI = false;
     private boolean mJ = false;
     private boolean mM = true;
@@ -68,10 +68,10 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.ar.face.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static final class HandlerC0080a extends Handler {
+    public static final class HandlerC0082a extends Handler {
         private boolean cs;
 
-        public HandlerC0080a(Looper looper) {
+        public HandlerC0082a(Looper looper) {
             super(looper);
             this.cs = false;
         }
@@ -699,7 +699,7 @@ public class a {
             this.no.start();
         }
         if (this.np == null) {
-            this.np = new HandlerC0080a(this.no.getLooper());
+            this.np = new HandlerC0082a(this.no.getLooper());
         }
         if (this.no == null || !this.no.isAlive() || this.np == null) {
             return false;

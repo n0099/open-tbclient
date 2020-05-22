@@ -1,6 +1,7 @@
 package com.xiaomi.push.service;
 
 import android.os.SystemClock;
+import com.baidu.tieba.keepLive.jobScheduler.KeepJobService;
 import java.util.concurrent.RejectedExecutionException;
 /* loaded from: classes8.dex */
 public class g {
@@ -116,7 +117,7 @@ public class g {
             }
 
             /* renamed from: a  reason: collision with other method in class */
-            public void m569a() {
+            public void m571a() {
                 this.f907a = new d[this.a];
                 this.b = 0;
             }
@@ -140,7 +141,7 @@ public class g {
             }
 
             /* renamed from: a  reason: collision with other method in class */
-            public void m570a(d dVar) {
+            public void m572a(d dVar) {
                 if (this.f907a.length == this.b) {
                     d[] dVarArr = new d[this.b * 2];
                     System.arraycopy(this.f907a, 0, dVarArr, 0, this.b);
@@ -154,12 +155,12 @@ public class g {
             }
 
             /* renamed from: a  reason: collision with other method in class */
-            public boolean m571a() {
+            public boolean m573a() {
                 return this.b == 0;
             }
 
             /* renamed from: a  reason: collision with other method in class */
-            public boolean m572a(int i) {
+            public boolean m574a(int i) {
                 for (int i2 = 0; i2 < this.b; i2++) {
                     if (this.f907a[i2].a == i) {
                         return true;
@@ -202,19 +203,19 @@ public class g {
 
         /* JADX INFO: Access modifiers changed from: private */
         public void a(d dVar) {
-            this.f904a.m570a(dVar);
+            this.f904a.m572a(dVar);
             notify();
         }
 
         public synchronized void a() {
             this.f906b = true;
-            this.f904a.m569a();
+            this.f904a.m571a();
             notify();
         }
 
         /* renamed from: a  reason: collision with other method in class */
-        public boolean m568a() {
-            return this.f905a && SystemClock.uptimeMillis() - this.a > 600000;
+        public boolean m570a() {
+            return this.f905a && SystemClock.uptimeMillis() - this.a > KeepJobService.JOB_CHECK_PERIODIC;
         }
 
         /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
@@ -246,7 +247,7 @@ public class g {
                     if (this.f906b) {
                         return;
                     }
-                    if (!this.f904a.m571a()) {
+                    if (!this.f904a.m573a()) {
                         long a2 = g.a();
                         d a3 = this.f904a.a();
                         synchronized (a3.f910a) {
@@ -396,7 +397,7 @@ public class g {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m563a() {
+    public void m565a() {
         this.f903a.a();
     }
 
@@ -429,23 +430,23 @@ public class g {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m564a() {
-        return this.f903a.m568a();
+    public boolean m566a() {
+        return this.f903a.m570a();
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m565a(int i) {
-        boolean m572a;
+    public boolean m567a(int i) {
+        boolean m574a;
         synchronized (this.f903a) {
-            m572a = this.f903a.f904a.m572a(i);
+            m574a = this.f903a.f904a.m574a(i);
         }
-        return m572a;
+        return m574a;
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public void m566b() {
+    public void m568b() {
         synchronized (this.f903a) {
-            this.f903a.f904a.m569a();
+            this.f903a.f904a.m571a();
         }
     }
 }

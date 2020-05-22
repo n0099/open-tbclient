@@ -34,8 +34,8 @@ public class a {
         }
         String format = String.format(TbadkCoreApplication.getInst().getContext().getString(R.string.url_notify), str);
         String string = TbadkCoreApplication.getInst().getContext().getString(R.string.confirm_title);
-        com.baidu.tbadk.core.dialog.a b = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity()).uh(string).ui(format).a(TbadkCoreApplication.getInst().getContext().getString(R.string.alert_yes_button), bVar).b(TbadkCoreApplication.getInst().getContext().getString(R.string.cancel), bVar2).b(tbPageContext);
-        b.aMS();
+        com.baidu.tbadk.core.dialog.a b = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity()).vN(string).vO(format).a(TbadkCoreApplication.getInst().getContext().getString(R.string.alert_yes_button), bVar).b(TbadkCoreApplication.getInst().getContext().getString(R.string.cancel), bVar2).b(tbPageContext);
+        b.aST();
         return b;
     }
 
@@ -52,15 +52,15 @@ public class a {
             return null;
         }
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity());
-        aVar.uh(str);
-        aVar.ui(str2);
+        aVar.vN(str);
+        aVar.vO(str2);
         aVar.a(str3, bVar);
         aVar.b(str4, bVar2);
         aVar.b(tbPageContext);
         return aVar;
     }
 
-    public static void a(final TbPageContext<?> tbPageContext, final boolean[] zArr, String str, String str2) {
+    public static void a(final TbPageContext<?> tbPageContext, final boolean[] zArr, String str, String str2, final int i) {
         int equipmentWidth;
         if (tbPageContext != null && tbPageContext.getPageActivity() != null && zArr != null && zArr.length == 2 && str2 != null) {
             View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.notification_permission_dialog, (ViewGroup) null);
@@ -71,9 +71,9 @@ public class a {
             TextView textView3 = (TextView) inflate.findViewById(R.id.permission_title);
             final com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity());
             aVar.aP(inflate);
-            aVar.kg(2);
-            aVar.gF(true);
-            aVar.gE(true);
+            aVar.kG(2);
+            aVar.gX(true);
+            aVar.gW(true);
             aVar.setAutoNight(true);
             int dimens = l.getDimens(tbPageContext.getPageActivity(), R.dimen.tbds31);
             am.c(inflate, dimens, R.color.cp_bg_line_d, R.color.cp_bg_line_d);
@@ -98,7 +98,7 @@ public class a {
             stateListDrawable.addState(new int[]{16842919}, mutate2);
             stateListDrawable.addState(new int[0], mutate);
             imageView.setBackgroundDrawable(stateListDrawable);
-            com.baidu.tbadk.core.util.e.a.aC(R.color.cp_link_tip_a, R.color.cp_link_tip_a_alpha50).a(textView);
+            com.baidu.tbadk.core.util.e.a.aF(R.color.cp_link_tip_a, R.color.cp_link_tip_a_alpha50).a(textView);
             textView2.setText(str2);
             am.setViewTextColor(textView2, (int) R.color.cp_cont_j);
             RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) textView3.getLayoutParams();
@@ -136,7 +136,7 @@ public class a {
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     if (zArr[0]) {
-                        a.h(tbPageContext);
+                        a.g(tbPageContext);
                     } else if (zArr[1]) {
                         tbPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MsgRemindActivityConfig(tbPageContext.getPageActivity())));
                     }
@@ -145,24 +145,22 @@ public class a {
                 }
             });
             an anVar = new an("c13674");
-            final int i = tbPageContext.getString(R.string.notification_permission_dialog_des_sign).equals(str2) ? 2 : 1;
-            anVar.af("obj_source", i);
+            anVar.ag("obj_source", i);
             TiebaStatic.log(anVar);
             aVar.c(new DialogInterface.OnDismissListener() { // from class: com.baidu.tbadk.coreExtra.c.a.3
                 @Override // android.content.DialogInterface.OnDismissListener
                 public void onDismiss(DialogInterface dialogInterface) {
                     an anVar2 = new an("c13673");
-                    anVar2.af("obj_source", i);
-                    anVar2.af("obj_type", iArr[0]);
+                    anVar2.ag("obj_source", i);
+                    anVar2.ag("obj_type", iArr[0]);
                     TiebaStatic.log(anVar2);
                 }
             });
-            aVar.b(tbPageContext).aMS();
+            aVar.b(tbPageContext).aST();
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public static void h(TbPageContext tbPageContext) {
+    public static void g(TbPageContext tbPageContext) {
         try {
             if (g.isHuaWei()) {
                 Intent intent = new Intent();

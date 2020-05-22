@@ -8,110 +8,110 @@ import com.baidu.rtc.RtcConfig;
 import com.baidu.webkit.sdk.PermissionRequest;
 /* loaded from: classes6.dex */
 public class b {
-    private com.baidu.j.b dfF;
-    private String dfv;
+    private String dtj;
+    private com.baidu.j.b dtu;
 
     private b() {
-        this.dfF = null;
-        this.dfv = "";
+        this.dtu = null;
+        this.dtj = "";
     }
 
     /* loaded from: classes6.dex */
     private static class a {
-        private static final b dfG = new b();
+        private static final b dtv = new b();
     }
 
-    public static b aFh() {
-        return a.dfG;
+    public static b aKC() {
+        return a.dtv;
     }
 
     public void a(Context context, RtcConfig rtcConfig, String str, String str2) {
-        if (this.dfF != null) {
-            this.dfF.stop();
-            this.dfF = null;
+        if (this.dtu != null) {
+            this.dtu.stop();
+            this.dtu = null;
         }
         if (context != null && rtcConfig != null && str != null && str2 != null) {
-            this.dfv = str;
-            this.dfF = new com.baidu.j.b(context, rtcConfig, str, str2);
+            this.dtj = str;
+            this.dtu = new com.baidu.j.b(context, rtcConfig, str, str2);
         }
     }
 
-    public void sE(String str) {
-        if (this.dfv.equals(str) && this.dfF != null) {
-            this.dfF.stop();
-            this.dfF = null;
+    public void ui(String str) {
+        if (this.dtj.equals(str) && this.dtu != null) {
+            this.dtu.stop();
+            this.dtu = null;
         }
     }
 
-    public boolean sF(String str) {
-        return (this.dfv == null || str == null || !this.dfv.equals(str)) ? false : true;
+    public boolean uj(String str) {
+        return (this.dtj == null || str == null || !this.dtj.equals(str)) ? false : true;
     }
 
     public void bk(String str) {
-        if (this.dfF != null) {
-            this.dfF.bk(str);
+        if (this.dtu != null) {
+            this.dtu.bk(str);
         }
     }
 
     public void stop() {
-        if (this.dfF.getPlayerView() != null && this.dfF.getPlayerView().getParent() != null) {
-            ((ViewGroup) this.dfF.getPlayerView().getParent()).removeView(this.dfF.getPlayerView());
+        if (this.dtu.getPlayerView() != null && this.dtu.getPlayerView().getParent() != null) {
+            ((ViewGroup) this.dtu.getPlayerView().getParent()).removeView(this.dtu.getPlayerView());
         }
-        if (this.dfF != null) {
-            this.dfF.stop();
+        if (this.dtu != null) {
+            this.dtu.stop();
         }
     }
 
     public void mute() {
-        if (this.dfF != null) {
-            this.dfF.mute();
+        if (this.dtu != null) {
+            this.dtu.mute();
         }
     }
 
     public void unMute() {
-        if (this.dfF != null) {
-            this.dfF.unMute();
+        if (this.dtu != null) {
+            this.dtu.unMute();
         }
     }
 
     public void switchCamera() {
-        if (this.dfF != null) {
-            this.dfF.switchCamera();
+        if (this.dtu != null) {
+            this.dtu.switchCamera();
         }
     }
 
     public boolean updateRTCConfig(RtcConfig rtcConfig) {
-        if (this.dfF != null) {
-            return this.dfF.updateRTCConfig(rtcConfig);
+        if (this.dtu != null) {
+            return this.dtu.updateRTCConfig(rtcConfig);
         }
         return false;
     }
 
     public void resetPreview() {
-        if (this.dfF != null) {
-            this.dfF.resetPreview();
+        if (this.dtu != null) {
+            this.dtu.resetPreview();
         }
     }
 
     public View getRecorderView() {
-        if (this.dfF != null) {
-            return this.dfF.getRecorderView();
+        if (this.dtu != null) {
+            return this.dtu.getRecorderView();
         }
         return null;
     }
 
     public View getPlayerView() {
-        if (this.dfF != null) {
-            return this.dfF.getPlayerView();
+        if (this.dtu != null) {
+            return this.dtu.getPlayerView();
         }
         return null;
     }
 
-    public static boolean bj(Context context) {
-        return !com.baidu.swan.apps.as.a.hasMarshMallow() || ActivityCompat.checkSelfPermission(context, PermissionRequest.RESOURCE_AUDIO_CAPTURE) == 0;
+    public static boolean bt(Context context) {
+        return !com.baidu.swan.apps.aq.b.hasMarshMallow() || ActivityCompat.checkSelfPermission(context, PermissionRequest.RESOURCE_AUDIO_CAPTURE) == 0;
     }
 
-    public static boolean bi(Context context) {
-        return !com.baidu.swan.apps.as.a.hasMarshMallow() || ActivityCompat.checkSelfPermission(context, PermissionRequest.RESOURCE_VIDEO_CAPTURE) == 0;
+    public static boolean bs(Context context) {
+        return !com.baidu.swan.apps.aq.b.hasMarshMallow() || ActivityCompat.checkSelfPermission(context, PermissionRequest.RESOURCE_VIDEO_CAPTURE) == 0;
     }
 }

@@ -1,28 +1,28 @@
 package com.baidu.tieba.ala.personcenter.a;
 
 import com.baidu.adp.widget.ListView.BdTypeListView;
-import com.baidu.adp.widget.ListView.m;
+import com.baidu.adp.widget.ListView.o;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.v;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class c {
-    private BdTypeListView eOj;
-    private com.baidu.tieba.ala.personcenter.d.a fYZ;
-    private i fZa;
+    private BdTypeListView faQ;
+    private com.baidu.tieba.ala.personcenter.d.a gnT;
+    private i gnU;
     private TbPageContext mPageContext;
-    private List<com.baidu.adp.widget.ListView.a> aMj = new ArrayList();
-    private List<m> mDataList = new ArrayList();
+    private List<com.baidu.adp.widget.ListView.a> aSj = new ArrayList();
+    private List<o> mDataList = new ArrayList();
 
     public c(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView, com.baidu.tieba.ala.personcenter.d.a aVar) {
         this.mPageContext = tbPageContext;
-        this.eOj = bdTypeListView;
-        this.fYZ = aVar;
-        BB();
+        this.faQ = bdTypeListView;
+        this.gnT = aVar;
+        CY();
     }
 
-    private void BB() {
+    private void CY() {
         b bVar = new b(this.mPageContext);
         f fVar = new f(this.mPageContext);
         g gVar = new g(this.mPageContext);
@@ -30,51 +30,51 @@ public class c {
         h hVar = new h(this.mPageContext);
         d dVar = new d(this.mPageContext);
         a aVar = new a(this.mPageContext);
-        this.fZa = new i(this.mPageContext);
-        k kVar = new k(this.mPageContext, this.fYZ);
+        this.gnU = new i(this.mPageContext);
+        k kVar = new k(this.mPageContext, this.gnT);
         j jVar = new j(this.mPageContext);
-        this.aMj.add(bVar);
-        this.aMj.add(this.fZa);
-        this.aMj.add(fVar);
-        this.aMj.add(gVar);
-        this.aMj.add(eVar);
-        this.aMj.add(hVar);
-        this.aMj.add(dVar);
-        this.aMj.add(aVar);
-        this.aMj.add(kVar);
-        this.aMj.add(jVar);
-        this.eOj.addAdapters(this.aMj);
+        this.aSj.add(bVar);
+        this.aSj.add(this.gnU);
+        this.aSj.add(fVar);
+        this.aSj.add(gVar);
+        this.aSj.add(eVar);
+        this.aSj.add(hVar);
+        this.aSj.add(dVar);
+        this.aSj.add(aVar);
+        this.aSj.add(kVar);
+        this.aSj.add(jVar);
+        this.faQ.addAdapters(this.aSj);
     }
 
-    public void setData(List<m> list) {
-        if (this.eOj != null && !v.isEmpty(list)) {
+    public void setData(List<o> list) {
+        if (this.faQ != null && !v.isEmpty(list)) {
             this.mDataList.clear();
             this.mDataList.addAll(list);
-            this.eOj.setData(this.mDataList);
+            this.faQ.setData(this.mDataList);
         }
     }
 
     public void setForumId(String str) {
-        if (this.fZa != null) {
-            this.fZa.setForumId(str);
+        if (this.gnU != null) {
+            this.gnU.setForumId(str);
         }
     }
 
     public void setForumName(String str) {
-        if (this.fZa != null) {
-            this.fZa.setForumName(str);
+        if (this.gnU != null) {
+            this.gnU.setForumName(str);
         }
     }
 
-    public void ld(boolean z) {
-        if (this.fZa != null) {
-            this.fZa.ld(z);
+    public void jl(boolean z) {
+        if (this.gnU != null) {
+            this.gnU.jl(z);
         }
     }
 
-    public void Bo(String str) {
-        if (this.fZa != null) {
-            this.fZa.Bo(str);
+    public void CX(String str) {
+        if (this.gnU != null) {
+            this.gnU.CX(str);
         }
     }
 }

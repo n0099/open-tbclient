@@ -61,7 +61,7 @@ public class FunctionReference extends CallableReference implements p, kotlin.re
         if (obj instanceof FunctionReference) {
             FunctionReference functionReference = (FunctionReference) obj;
             if (getOwner() != null ? getOwner().equals(functionReference.getOwner()) : functionReference.getOwner() == null) {
-                if (getName().equals(functionReference.getName()) && getSignature().equals(functionReference.getSignature()) && q.k(getBoundReceiver(), functionReference.getBoundReceiver())) {
+                if (getName().equals(functionReference.getName()) && getSignature().equals(functionReference.getSignature()) && q.l(getBoundReceiver(), functionReference.getBoundReceiver())) {
                     return true;
                 }
             }

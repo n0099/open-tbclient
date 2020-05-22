@@ -7,42 +7,42 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private boolean kiA;
-    private boolean kiB;
-    private HashMap<String, Integer> kiC;
+    private boolean kAv;
+    private boolean kAw;
+    private HashMap<String, Integer> kAx;
 
-    public void dp(JSONObject jSONObject) {
+    public void dw(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.kiA = jSONObject.optInt("switch", 0) == 1;
-            this.kiB = jSONObject.optInt("p2p_config", 0) == 1;
+            this.kAv = jSONObject.optInt("switch", 0) == 1;
+            this.kAw = jSONObject.optInt("p2p_config", 0) == 1;
             JSONArray optJSONArray = jSONObject.optJSONArray("domain_list");
             if (optJSONArray != null) {
-                this.kiC = new HashMap<>();
+                this.kAx = new HashMap<>();
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     String optString = optJSONArray.optString(i);
                     if (!StringUtils.isNull(optString)) {
-                        this.kiC.put(optString, 0);
+                        this.kAx.put(optString, 0);
                     }
                 }
             }
         }
     }
 
-    public boolean cKr() {
-        if (this.kiA) {
+    public boolean cRq() {
+        if (this.kAv) {
             c.init();
         }
-        return this.kiA;
+        return this.kAv;
     }
 
-    public boolean cKs() {
-        return this.kiB;
+    public boolean cRr() {
+        return this.kAw;
     }
 
-    public boolean v(Uri uri) {
-        if (this.kiC == null || uri == null) {
+    public boolean y(Uri uri) {
+        if (this.kAx == null || uri == null) {
             return false;
         }
-        return this.kiC.containsKey(uri.getHost());
+        return this.kAx.containsKey(uri.getHost());
     }
 }

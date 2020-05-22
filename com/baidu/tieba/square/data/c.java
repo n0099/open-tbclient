@@ -1,6 +1,6 @@
 package com.baidu.tieba.square.data;
 
-import com.baidu.adp.widget.ListView.m;
+import com.baidu.adp.widget.ListView.o;
 import com.baidu.tbadk.core.util.v;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,13 +11,13 @@ public class c {
     public String className;
     private List<RecommendForumInfo> forumList;
     private Page page;
-    private List<m> dataList = new ArrayList();
+    private List<o> dataList = new ArrayList();
     public boolean hasMore = true;
     public int pn = 0;
-    public int kLC = 0;
-    public int dEu = 0;
+    public int ldS = 0;
+    public int dSG = 0;
 
-    public List<m> getDataList() {
+    public List<o> getDataList() {
         return this.dataList;
     }
 

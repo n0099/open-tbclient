@@ -6,20 +6,20 @@ import java.util.Map;
 /* loaded from: classes11.dex */
 public class g extends f {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private Map<String, Object> coq;
+    private Map<String, Object> czX;
 
     public g(e eVar) {
         super(eVar);
-        this.coq = new HashMap();
+        this.czX = new HashMap();
     }
 
     public void putString(String str, String str2) {
-        r(str, str2);
+        t(str, str2);
     }
 
     public String getString(String str, String str2) {
         try {
-            return (String) q(str, str2);
+            return (String) s(str, str2);
         } catch (ClassCastException e) {
             if (DEBUG) {
                 e.printStackTrace();
@@ -29,12 +29,12 @@ public class g extends f {
     }
 
     public void a(String str, Boolean bool) {
-        r(str, bool);
+        t(str, bool);
     }
 
     public Boolean b(String str, Boolean bool) {
         try {
-            return (Boolean) q(str, bool);
+            return (Boolean) s(str, bool);
         } catch (ClassCastException e) {
             if (DEBUG) {
                 e.printStackTrace();
@@ -44,12 +44,12 @@ public class g extends f {
     }
 
     public void a(String str, Integer num) {
-        r(str, num);
+        t(str, num);
     }
 
     public Integer b(String str, Integer num) {
         try {
-            return (Integer) q(str, num);
+            return (Integer) s(str, num);
         } catch (ClassCastException e) {
             if (DEBUG) {
                 e.printStackTrace();
@@ -59,23 +59,23 @@ public class g extends f {
     }
 
     public void clear() {
-        this.coq.clear();
+        this.czX.clear();
     }
 
     public boolean containsKey(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        return this.coq.containsKey(str);
+        return this.czX.containsKey(str);
     }
 
-    private <V> V q(String str, V v) {
+    private <V> V s(String str, V v) {
         if (containsKey(str)) {
-            if (this.coq.get(str) == null) {
+            if (this.czX.get(str) == null) {
                 return null;
             }
             try {
-                return (V) this.coq.get(str);
+                return (V) this.czX.get(str);
             } catch (Exception e) {
                 if (DEBUG) {
                     e.printStackTrace();
@@ -87,8 +87,8 @@ public class g extends f {
         return v;
     }
 
-    private <V> void r(String str, V v) {
-        this.coq.put(str, v);
+    private <V> void t(String str, V v) {
+        this.czX.put(str, v);
     }
 
     @Override // com.baidu.swan.apps.runtime.f

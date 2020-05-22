@@ -1,52 +1,52 @@
 package com.baidu.tieba.person.a;
 
 import android.view.View;
-import com.baidu.adp.widget.ListView.m;
-import com.baidu.adp.widget.ListView.y;
+import com.baidu.adp.widget.ListView.aa;
+import com.baidu.adp.widget.ListView.o;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.data.l;
+import com.baidu.tbadk.data.m;
 import com.baidu.tieba.horizonalList.widget.HTypeListView;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes11.dex */
 public class e {
-    private List<com.baidu.adp.widget.ListView.a> aMj = new ArrayList();
-    private HTypeListView jRO;
-    private c jRP;
-    private b jRQ;
-    private a jRR;
+    private List<com.baidu.adp.widget.ListView.a> aSj = new ArrayList();
+    private HTypeListView kjH;
+    private c kjI;
+    private b kjJ;
+    private a kjK;
     private TbPageContext mTbPageContext;
 
     public e(TbPageContext tbPageContext, HTypeListView hTypeListView) {
         this.mTbPageContext = tbPageContext;
-        this.jRO = hTypeListView;
-        BB();
+        this.kjH = hTypeListView;
+        CY();
     }
 
-    private void BB() {
-        this.jRP = new c(this.mTbPageContext, l.afD);
-        this.jRQ = new b(this.mTbPageContext, com.baidu.tieba.person.data.c.jRZ);
-        this.jRR = new a(this.mTbPageContext.getPageActivity(), com.baidu.tieba.person.d.jRE);
-        this.aMj.add(this.jRP);
-        this.aMj.add(this.jRQ);
-        this.aMj.add(this.jRR);
-        this.jRO.addAdapters(this.aMj);
+    private void CY() {
+        this.kjI = new c(this.mTbPageContext, m.afZ);
+        this.kjJ = new b(this.mTbPageContext, com.baidu.tieba.person.data.c.kjS);
+        this.kjK = new a(this.mTbPageContext.getPageActivity(), com.baidu.tieba.person.d.kjx);
+        this.aSj.add(this.kjI);
+        this.aSj.add(this.kjJ);
+        this.aSj.add(this.kjK);
+        this.kjH.addAdapters(this.aSj);
     }
 
-    public void setDatas(List<m> list) {
-        if (this.jRO != null) {
-            this.jRO.setData(list);
+    public void setDatas(List<o> list) {
+        if (this.kjH != null) {
+            this.kjH.setData(list);
         }
     }
 
     public void notifyDataSetChanged() {
-        if (this.jRO != null && (this.jRO.getAdapter() instanceof y)) {
-            ((y) this.jRO.getAdapter()).notifyDataSetChanged();
+        if (this.kjH != null && (this.kjH.getAdapter() instanceof aa)) {
+            ((aa) this.kjH.getAdapter()).notifyDataSetChanged();
         }
     }
 
     public void setItemOnclickListener(View.OnClickListener onClickListener) {
-        this.jRP.E(onClickListener);
-        this.jRQ.E(onClickListener);
+        this.kjI.D(onClickListener);
+        this.kjJ.D(onClickListener);
     }
 }

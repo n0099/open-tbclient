@@ -25,7 +25,6 @@ import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class IMFetchMsgByHostRequest extends BaseHttpRequest {
     private static final String TAG = "IMFetchMsgByHostRequest";
-    private Long mAppid;
     private long mBeginid;
     private int mCategory;
     private long mContacter;
@@ -34,15 +33,14 @@ public class IMFetchMsgByHostRequest extends BaseHttpRequest {
     private String mKey;
     private long mUk;
 
-    public IMFetchMsgByHostRequest(Context context, String str, long j, long j2, long j3, int i, int i2, long j4, long j5) {
+    public IMFetchMsgByHostRequest(Context context, String str, long j, long j2, int i, int i2, long j3, long j4) {
         this.mContext = context;
-        this.mAppid = Long.valueOf(j);
-        this.mUk = j2;
-        this.mContacter = j3;
+        this.mUk = j;
+        this.mContacter = j2;
         this.mCategory = i;
         this.mCount = i2;
-        this.mBeginid = j4;
-        this.mEndid = j5;
+        this.mBeginid = j3;
+        this.mEndid = j4;
         this.mKey = str;
     }
 
@@ -125,7 +123,7 @@ public class IMFetchMsgByHostRequest extends BaseHttpRequest {
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
     public byte[] getRequestParameter() throws NoSuchAlgorithmException {
         StringBuilder sb = new StringBuilder();
-        sb.append("appid=").append(this.mAppid);
+        sb.append("appid=").append(Utility.readAppId(this.mContext));
         sb.append("&category=").append(this.mCategory);
         sb.append("&count=").append(this.mCount);
         sb.append("&msgid_begin=").append(this.mBeginid);
@@ -142,6 +140,11 @@ public class IMFetchMsgByHostRequest extends BaseHttpRequest {
         LogUtils.d(TAG, "smd5: " + str);
         sb.append("&sign=").append(getMd5(str));
         return sb.toString().getBytes();
+    }
+
+    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
+    public String getContentType() {
+        return "application/x-www-form-urlencoded";
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request

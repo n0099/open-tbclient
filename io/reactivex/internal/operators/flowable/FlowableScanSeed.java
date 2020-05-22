@@ -10,12 +10,12 @@ import java.util.concurrent.atomic.AtomicLong;
 /* loaded from: classes7.dex */
 public final class FlowableScanSeed<T, R> extends a<T, R> {
     final io.reactivex.c.c<R, ? super T, R> accumulator;
-    final Callable<R> mSH;
+    final Callable<R> nnM;
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super R> cVar) {
         try {
-            this.mRM.a((j) new ScanSeedSubscriber(cVar, this.accumulator, io.reactivex.internal.functions.a.h(this.mSH.call(), "The seed supplied is null"), dCy()));
+            this.nmU.a((j) new ScanSeedSubscriber(cVar, this.accumulator, io.reactivex.internal.functions.a.k(this.nnM.call(), "The seed supplied is null"), dKs()));
         } catch (Throwable th) {
             io.reactivex.exceptions.a.L(th);
             EmptySubscription.error(th, cVar);
@@ -62,7 +62,7 @@ public final class FlowableScanSeed<T, R> extends a<T, R> {
         public void onNext(T t) {
             if (!this.done) {
                 try {
-                    R r = (R) io.reactivex.internal.functions.a.h(this.accumulator.apply(this.value, t), "The accumulator returned a null value");
+                    R r = (R) io.reactivex.internal.functions.a.k(this.accumulator.apply(this.value, t), "The accumulator returned a null value");
                     this.value = r;
                     this.queue.offer(r);
                     drain();

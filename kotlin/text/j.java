@@ -8,27 +8,27 @@ import java.util.regex.Matcher;
 @kotlin.h
 /* loaded from: classes7.dex */
 public final class j implements i {
-    private final CharSequence mYM;
-    private final g mYU;
-    private final Matcher mYV;
+    private final CharSequence ntO;
+    private final g ntW;
+    private final Matcher ntX;
 
     public j(Matcher matcher, CharSequence charSequence) {
-        kotlin.jvm.internal.q.j(matcher, "matcher");
-        kotlin.jvm.internal.q.j(charSequence, Config.INPUT_PART);
-        this.mYV = matcher;
-        this.mYM = charSequence;
-        this.mYU = new a();
+        kotlin.jvm.internal.q.m(matcher, "matcher");
+        kotlin.jvm.internal.q.m(charSequence, Config.INPUT_PART);
+        this.ntX = matcher;
+        this.ntO = charSequence;
+        this.ntW = new a();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public final MatchResult dEp() {
-        return this.mYV;
+    public final MatchResult dMj() {
+        return this.ntX;
     }
 
     @Override // kotlin.text.i
-    public kotlin.b.h dEn() {
+    public kotlin.b.h dMh() {
         kotlin.b.h a2;
-        a2 = k.a(dEp());
+        a2 = k.a(dMj());
         return a2;
     }
 
@@ -53,7 +53,7 @@ public final class j implements i {
 
         @Override // kotlin.collections.a
         public int getSize() {
-            return j.this.dEp().groupCount() + 1;
+            return j.this.dMj().groupCount() + 1;
         }
 
         @Override // kotlin.collections.a, java.util.Collection
@@ -63,15 +63,15 @@ public final class j implements i {
 
         @Override // java.util.Collection, java.lang.Iterable
         public Iterator<f> iterator() {
-            return kotlin.sequences.e.c(kotlin.collections.o.i(kotlin.collections.o.k(this)), new MatcherMatchResult$groups$1$iterator$1(this)).iterator();
+            return kotlin.sequences.e.c(kotlin.collections.o.i(kotlin.collections.o.m(this)), new MatcherMatchResult$groups$1$iterator$1(this)).iterator();
         }
 
-        public f Ji(int i) {
+        public f JT(int i) {
             kotlin.b.h a;
-            a = k.a(j.this.dEp(), i);
-            if (a.dEe().intValue() >= 0) {
-                String group = j.this.dEp().group(i);
-                kotlin.jvm.internal.q.i(group, "matchResult.group(index)");
+            a = k.a(j.this.dMj(), i);
+            if (a.dLY().intValue() >= 0) {
+                String group = j.this.dMj().group(i);
+                kotlin.jvm.internal.q.l((Object) group, "matchResult.group(index)");
                 return new f(group, a);
             }
             return null;
@@ -79,13 +79,13 @@ public final class j implements i {
     }
 
     @Override // kotlin.text.i
-    public i dEo() {
+    public i dMi() {
         i a2;
-        int end = (dEp().end() == dEp().start() ? 1 : 0) + dEp().end();
-        if (end <= this.mYM.length()) {
-            Matcher matcher = this.mYV.pattern().matcher(this.mYM);
-            kotlin.jvm.internal.q.i(matcher, "matcher.pattern().matcher(input)");
-            a2 = k.a(matcher, end, this.mYM);
+        int end = (dMj().end() == dMj().start() ? 1 : 0) + dMj().end();
+        if (end <= this.ntO.length()) {
+            Matcher matcher = this.ntX.pattern().matcher(this.ntO);
+            kotlin.jvm.internal.q.l((Object) matcher, "matcher.pattern().matcher(input)");
+            a2 = k.a(matcher, end, this.ntO);
             return a2;
         }
         return null;

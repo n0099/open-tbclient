@@ -5,8 +5,8 @@ import kotlin.jvm.internal.q;
 @kotlin.h
 /* loaded from: classes7.dex */
 public final class k<T, R> implements c<R> {
-    private final kotlin.jvm.a.b<T, R> mYK;
-    private final c<T> mYw;
+    private final kotlin.jvm.a.b<T, R> ntM;
+    private final c<T> nty;
 
     @kotlin.h
     /* loaded from: classes7.dex */
@@ -20,12 +20,12 @@ public final class k<T, R> implements c<R> {
 
         /* JADX DEBUG: Incorrect args count in method signature: ()V */
         a() {
-            this.iterator = k.this.mYw.iterator();
+            this.iterator = k.this.nty.iterator();
         }
 
         @Override // java.util.Iterator
         public R next() {
-            return (R) k.this.mYK.invoke(this.iterator.next());
+            return (R) k.this.ntM.invoke(this.iterator.next());
         }
 
         @Override // java.util.Iterator
@@ -38,10 +38,10 @@ public final class k<T, R> implements c<R> {
     /* JADX DEBUG: Multi-variable search result rejected for r3v0, resolved type: kotlin.jvm.a.b<? super T, ? extends R> */
     /* JADX WARN: Multi-variable type inference failed */
     public k(c<? extends T> cVar, kotlin.jvm.a.b<? super T, ? extends R> bVar) {
-        q.j(cVar, "sequence");
-        q.j(bVar, "transformer");
-        this.mYw = cVar;
-        this.mYK = bVar;
+        q.m(cVar, "sequence");
+        q.m(bVar, "transformer");
+        this.nty = cVar;
+        this.ntM = bVar;
     }
 
     @Override // kotlin.sequences.c

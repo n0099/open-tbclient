@@ -14,9 +14,9 @@ import java.lang.reflect.Field;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes11.dex */
 public final class ZeusClassLoader extends BaseDexClassLoader {
-    static final String TAG = "ZeusClassLoader";
     static Class DexPathListClass = null;
     static Class ElementClass = null;
+    static final String TAG = "ZeusClassLoader";
     private static String ORG_CHROMIUM = "org.chromium.";
     private static String COM_BAIDU_BLINK = "com.baidu.blink.";
     private static String COM_BAIDU_CYBERPLAYER = "com.baidu.cyberplayer.";
@@ -135,6 +135,7 @@ public final class ZeusClassLoader extends BaseDexClassLoader {
                 }
                 Class<?> findClass = findClass(str);
                 if (findClass != null) {
+                    ZeusWebViewPreloadClass.getInstance().appendLoadClass(str);
                     ZeusPerformanceTiming.sumLoadClassTime(System.currentTimeMillis() - currentTimeMillis);
                     return findClass;
                 }

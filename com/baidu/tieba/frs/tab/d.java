@@ -3,9 +3,10 @@ package com.baidu.tieba.frs.tab;
 import com.baidu.tieba.frs.ay;
 /* loaded from: classes9.dex */
 public class d {
-    public ay huI;
+    public ay hJv;
     public String name;
     public int tabId;
+    public int tabType;
     public String url;
 
     public boolean equals(Object obj) {

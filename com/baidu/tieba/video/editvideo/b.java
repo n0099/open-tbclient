@@ -6,5 +6,5 @@ import java.util.List;
 public interface b {
     void setMusicData(List<MusicData> list);
 
-    void v(String str, int i, String str2);
+    void t(String str, int i, String str2);
 }

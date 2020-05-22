@@ -1,74 +1,74 @@
 package com.baidu.swan.pms.c.d;
 /* loaded from: classes11.dex */
 public class c extends f {
-    private String dbq;
-    private int dbr;
-    private long dbs;
-    private String dbt;
-    private String dbu;
-    private int dbv;
+    private String dmC;
+    private int dmD;
+    private long dmE;
+    private String dmF;
+    private String dmG;
+    private int dmH;
     private String mPath;
 
     public c(String str, int i) {
         super(i);
-        this.dbr = -1;
-        this.dbs = -1L;
-        this.dbv = -1;
-        this.dbq = str;
+        this.dmD = -1;
+        this.dmE = -1L;
+        this.dmH = -1;
+        this.dmC = str;
     }
 
-    public c iQ(int i) {
-        this.dbv = i;
+    public c jg(int i) {
+        this.dmH = i;
         return this;
     }
 
-    public int aCA() {
-        return this.dbv;
+    public int aGQ() {
+        return this.dmH;
     }
 
-    public c rI(String str) {
-        this.dbt = str;
+    public c tn(String str) {
+        this.dmF = str;
         return this;
     }
 
-    public c iR(int i) {
-        this.dbr = i;
+    public c jh(int i) {
+        this.dmD = i;
         return this;
     }
 
-    public c bQ(long j) {
-        this.dbs = j;
+    public c bO(long j) {
+        this.dmE = j;
         return this;
     }
 
-    public c rJ(String str) {
-        this.dbu = str;
+    public c to(String str) {
+        this.dmG = str;
         return this;
     }
 
-    public c rK(String str) {
+    public c tp(String str) {
         this.mPath = str;
         return this;
     }
 
     public String getBundleId() {
-        return this.dbq;
+        return this.dmC;
     }
 
-    public int aCy() {
-        return this.dbr;
+    public int aGO() {
+        return this.dmD;
     }
 
-    public long aCz() {
-        return this.dbs;
+    public long aGP() {
+        return this.dmE;
     }
 
-    public String aCB() {
-        return this.dbt;
+    public String aGR() {
+        return this.dmF;
     }
 
-    public String aCC() {
-        return this.dbu;
+    public String aGS() {
+        return this.dmG;
     }
 
     public String getPath() {

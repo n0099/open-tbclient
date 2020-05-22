@@ -54,7 +54,7 @@ public class AlaLiveVideoConfig {
         if (alaLiveVideoConfig.mRtcConfig != null) {
             this.mRtcConfig = alaLiveVideoConfig.mRtcConfig.deepCopy();
         }
-        this.mCurrentConfig = alaLiveVideoConfig.mCurrentConfig;
+        this.mCurrentConfig = alaLiveVideoConfig.mCurrentConfig.deepCopy();
     }
 
     public AlaLiveVideoConfig(List<DynamicBitRateConfig.DynamicBitRateItem> list, List<DynamicBitRateConfig.DynamicBitRateItem> list2, double d, double d2, int i, boolean z, boolean z2, int i2, int i3) {
@@ -215,5 +215,34 @@ public class AlaLiveVideoConfig {
 
     public DynamicBitRateConfig getSoftBitrateConfig() {
         return this.mSoftConfig;
+    }
+
+    public static boolean isUpdateBitrate(AlaLiveVideoConfig alaLiveVideoConfig, AlaLiveVideoConfig alaLiveVideoConfig2) {
+        int currentBitRate = (alaLiveVideoConfig == null || alaLiveVideoConfig.getCurrentBitRateConfig() == null) ? 0 : alaLiveVideoConfig.getCurrentBitRateConfig().getCurrentBitRate();
+        int currentBitRate2 = (alaLiveVideoConfig2 == null || alaLiveVideoConfig2.getCurrentBitRateConfig() == null) ? 0 : alaLiveVideoConfig2.getCurrentBitRateConfig().getCurrentBitRate();
+        return (alaLiveVideoConfig == null || alaLiveVideoConfig2 == null || alaLiveVideoConfig.getVideoWidth() != alaLiveVideoConfig2.getVideoWidth() || alaLiveVideoConfig.getVideoHeight() != alaLiveVideoConfig2.getVideoHeight() || alaLiveVideoConfig.getPreviewWidth() != alaLiveVideoConfig2.getPreviewWidth() || alaLiveVideoConfig.getPreviewHeight() != alaLiveVideoConfig2.getPreviewHeight() || currentBitRate == currentBitRate2 || currentBitRate == 0 || currentBitRate2 == 0) ? false : true;
+    }
+
+    public static boolean isEqual(AlaLiveVideoConfig alaLiveVideoConfig, AlaLiveVideoConfig alaLiveVideoConfig2) {
+        int currentBitRate;
+        if (alaLiveVideoConfig != null) {
+            try {
+                if (alaLiveVideoConfig.getCurrentBitRateConfig() != null) {
+                    currentBitRate = alaLiveVideoConfig.getCurrentBitRateConfig().getCurrentBitRate();
+                    int currentBitRate2 = (alaLiveVideoConfig2 != null || alaLiveVideoConfig2.getCurrentBitRateConfig() == null) ? 0 : alaLiveVideoConfig2.getCurrentBitRateConfig().getCurrentBitRate();
+                    if (alaLiveVideoConfig == null && alaLiveVideoConfig2 != null && alaLiveVideoConfig.getVideoWidth() == alaLiveVideoConfig2.getVideoWidth() && alaLiveVideoConfig.getVideoHeight() == alaLiveVideoConfig2.getVideoHeight() && alaLiveVideoConfig.getPreviewWidth() == alaLiveVideoConfig2.getPreviewWidth()) {
+                        return alaLiveVideoConfig.getPreviewHeight() == alaLiveVideoConfig2.getPreviewHeight() && currentBitRate == currentBitRate2 && currentBitRate != 0 && currentBitRate2 != 0;
+                    }
+                    return false;
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+                return false;
+            }
+        }
+        currentBitRate = 0;
+        if (alaLiveVideoConfig2 != null) {
+        }
+        return alaLiveVideoConfig == null ? false : false;
     }
 }

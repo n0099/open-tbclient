@@ -9,6 +9,7 @@ import com.baidu.fsg.base.restnet.beans.IBeanFactory;
 public class FaceSDKBeansFactory implements NoProguard, IBeanFactory {
     public static final int CONFIG_URL = 4;
     public static final int FACE_DETECT_BEAN = 8;
+    public static final int FACE_WARNING_CONFIRG = 13;
     public static final int GETPORTRAITBEAN = 2;
     public static final int GET_RECORDVIDEO_QUESTION = 6;
     public static final int GET_UPLOAD_PHOTO_CONTRAST = 5;
@@ -32,47 +33,50 @@ public class FaceSDKBeansFactory implements NoProguard, IBeanFactory {
 
     @Override // com.baidu.fsg.base.restnet.beans.IBeanFactory
     public ApollonBean getBean(Context context, int i, String str) {
-        ApollonBean jVar;
+        ApollonBean dVar;
         switch (i) {
             case 1:
-                jVar = new h(context);
+                dVar = new i(context);
                 break;
             case 2:
-                jVar = new f(context);
+                dVar = new g(context);
                 break;
             case 3:
             case 4:
             default:
-                jVar = null;
+                dVar = null;
                 break;
             case 5:
-                jVar = new i(context);
+                dVar = new j(context);
                 break;
             case 6:
-                jVar = new g(context);
+                dVar = new h(context);
                 break;
             case 7:
-                jVar = new l(context);
+                dVar = new m(context);
                 break;
             case 8:
-                jVar = new d(context);
+                dVar = new e(context);
                 break;
             case 9:
-                jVar = new n(context);
+                dVar = new o(context);
                 break;
             case 10:
-                jVar = new m(context);
+                dVar = new n(context);
                 break;
             case 11:
-                jVar = new a(context);
+                dVar = new a(context);
                 break;
             case 12:
-                jVar = new j(context);
+                dVar = new k(context);
+                break;
+            case 13:
+                dVar = new d(context);
                 break;
         }
-        if (jVar != null) {
-            BeanManager.getInstance().addBean(str, jVar);
+        if (dVar != null) {
+            BeanManager.getInstance().addBean(str, dVar);
         }
-        return jVar;
+        return dVar;
     }
 }

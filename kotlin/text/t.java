@@ -8,7 +8,7 @@ import kotlin.collections.ad;
 @kotlin.h
 /* loaded from: classes7.dex */
 public class t extends s {
-    public static final boolean F(String str, String str2, boolean z) {
+    public static final boolean H(String str, String str2, boolean z) {
         if (str == null) {
             return str2 == null;
         } else if (!z) {
@@ -27,9 +27,9 @@ public class t extends s {
 
     public static final String j(String str, String str2, String str3, boolean z) {
         String a;
-        kotlin.jvm.internal.q.j(str, "receiver$0");
-        kotlin.jvm.internal.q.j(str2, "oldValue");
-        kotlin.jvm.internal.q.j(str3, "newValue");
+        kotlin.jvm.internal.q.m(str, "receiver$0");
+        kotlin.jvm.internal.q.m(str2, "oldValue");
+        kotlin.jvm.internal.q.m(str3, "newValue");
         a = kotlin.sequences.e.a(l.a(str, new String[]{str2}, z, 0, 4, (Object) null), (r14 & 1) != 0 ? ", " : str3, (r14 & 2) != 0 ? "" : null, (r14 & 4) != 0 ? "" : null, (r14 & 8) != 0 ? -1 : 0, (r14 & 16) != 0 ? StringHelper.STRING_MORE : null, (r14 & 32) != 0 ? null : null);
         return a;
     }
@@ -38,22 +38,22 @@ public class t extends s {
         if ((i & 2) != 0) {
             z = false;
         }
-        return l.G(str, str2, z);
+        return l.I(str, str2, z);
     }
 
-    public static final boolean G(String str, String str2, boolean z) {
-        kotlin.jvm.internal.q.j(str, "receiver$0");
-        kotlin.jvm.internal.q.j(str2, "prefix");
+    public static final boolean I(String str, String str2, boolean z) {
+        kotlin.jvm.internal.q.m(str, "receiver$0");
+        kotlin.jvm.internal.q.m(str2, "prefix");
         return !z ? str.startsWith(str2) : l.a(str, 0, str2, 0, str2.length(), z);
     }
 
     public static final boolean isBlank(CharSequence charSequence) {
         boolean z;
-        kotlin.jvm.internal.q.j(charSequence, "receiver$0");
+        kotlin.jvm.internal.q.m(charSequence, "receiver$0");
         if (charSequence.length() != 0) {
-            kotlin.b.h r = l.r(charSequence);
-            if (!(r instanceof Collection) || !((Collection) r).isEmpty()) {
-                Iterator<Integer> it = r.iterator();
+            kotlin.b.h s = l.s(charSequence);
+            if (!(s instanceof Collection) || !((Collection) s).isEmpty()) {
+                Iterator<Integer> it = s.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         z = true;
@@ -74,8 +74,8 @@ public class t extends s {
     }
 
     public static final boolean a(String str, int i, String str2, int i2, int i3, boolean z) {
-        kotlin.jvm.internal.q.j(str, "receiver$0");
-        kotlin.jvm.internal.q.j(str2, "other");
+        kotlin.jvm.internal.q.m(str, "receiver$0");
+        kotlin.jvm.internal.q.m(str2, "other");
         if (!z) {
             return str.regionMatches(i, str2, i2, i3);
         }

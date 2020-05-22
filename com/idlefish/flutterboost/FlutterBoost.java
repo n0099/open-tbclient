@@ -4,9 +4,12 @@ import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
 import android.os.Bundle;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.plugin.packageManager.pluginSettings.PluginSetting;
 import com.baidu.adp.plugin.packageManager.pluginSettings.c;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.idlefish.flutterboost.interfaces.IContainerManager;
 import com.idlefish.flutterboost.interfaces.INativeRouter;
 import io.flutter.embedding.android.FlutterView;
@@ -133,16 +136,21 @@ public class FlutterBoost {
 
     public void doInitialFlutter() {
         if (this.mRegistry == null) {
+            long currentTimeMillis = System.currentTimeMillis();
             FlutterEngine createEngine = createEngine();
             if (this.mPlatform.lifecycleListener != null) {
                 this.mPlatform.lifecycleListener.onEngineCreated();
             }
-            if (!createEngine.getDartExecutor().isExecutingDart()) {
+            if (createEngine != null && !createEngine.getDartExecutor().isExecutingDart()) {
                 if (this.mPlatform.initialRoute() != null) {
                     createEngine.getNavigationChannel().setInitialRoute(this.mPlatform.initialRoute());
                 }
                 createEngine.getDartExecutor().executeDartEntrypoint(new DartExecutor.DartEntrypoint(FlutterMain.findAppBundlePath(), "main"));
                 this.mRegistry = new BoostPluginRegistry(createEngine());
+                HashMap hashMap = new HashMap();
+                hashMap.put("seb", String.valueOf(currentTimeMillis));
+                hashMap.put("see", String.valueOf(System.currentTimeMillis()));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921451, hashMap));
             }
         }
     }
@@ -258,7 +266,7 @@ public class FlutterBoost {
     public FlutterEngine createEngine() {
         if (this.mEngine == null) {
             FlutterMain.startInitialization(this.mPlatform.getApplication());
-            PluginSetting findPluginSetting = c.oz().findPluginSetting("com.baidu.tieba.pluginFlutter");
+            PluginSetting findPluginSetting = c.oA().findPluginSetting("com.baidu.tieba.pluginFlutter");
             if (findPluginSetting != null && findPluginSetting.apkPath != null) {
                 String replace = findPluginSetting.apkPath.replace(".apk", "");
                 try {
@@ -270,6 +278,8 @@ public class FlutterBoost {
                     BdLog.e("resSetSupplier2 exception");
                     e.printStackTrace();
                 }
+            } else if (!TbadkCoreApplication.getInst().isDebugMode()) {
+                return null;
             }
             FlutterMain.ensureInitializationComplete(this.mPlatform.getApplication().getApplicationContext(), new FlutterShellArgs(new String[0]).toArray());
             this.mEngine = new FlutterEngine(this.mPlatform.getApplication().getApplicationContext());

@@ -1,25 +1,25 @@
 package com.baidu.tieba.k;
 /* loaded from: classes.dex */
 public interface h {
-    void GL(String str);
+    void Iu(String str);
 
-    void GM(String str);
+    void Iv(String str);
 
-    void be(int i, String str);
+    void bj(int i, String str);
 
-    void bf(int i, String str);
+    void bk(int i, String str);
 
-    void bg(int i, String str);
+    void bl(int i, String str);
 
-    void bh(int i, String str);
+    void bm(int i, String str);
 
-    void crA();
+    void cyd();
 
-    void crB();
+    void cye();
 
-    void crC();
+    void cyf();
 
-    void crD();
+    void cyg();
 
     void l(int i, int i2, String str);
 }

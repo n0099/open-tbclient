@@ -17,7 +17,7 @@ public final class BiConsumerSingleObserver<T> extends AtomicReference<io.reacti
     public void onError(Throwable th) {
         try {
             lazySet(DisposableHelper.DISPOSED);
-            this.onCallback.h(null, th);
+            this.onCallback.i(null, th);
         } catch (Throwable th2) {
             io.reactivex.exceptions.a.L(th2);
             io.reactivex.e.a.onError(new CompositeException(th, th2));
@@ -33,7 +33,7 @@ public final class BiConsumerSingleObserver<T> extends AtomicReference<io.reacti
     public void onSuccess(T t) {
         try {
             lazySet(DisposableHelper.DISPOSED);
-            this.onCallback.h(t, null);
+            this.onCallback.i(t, null);
         } catch (Throwable th) {
             io.reactivex.exceptions.a.L(th);
             io.reactivex.e.a.onError(th);

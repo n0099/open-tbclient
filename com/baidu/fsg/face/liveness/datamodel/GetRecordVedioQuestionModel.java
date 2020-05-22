@@ -6,8 +6,8 @@ import java.io.Serializable;
 /* loaded from: classes4.dex */
 public class GetRecordVedioQuestionModel implements IBeanResponse, Serializable {
     public String callbackkey;
+    public int questime;
     public String[] question;
-    public int questiontime = 3;
 
     @Override // com.baidu.fsg.base.restnet.beans.IBeanResponse
     public boolean checkResponseValidity() {

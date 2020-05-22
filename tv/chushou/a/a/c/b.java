@@ -3,7 +3,7 @@ package tv.chushou.a.a.c;
 public interface b {
     void d(String str, String str2);
 
-    boolean dJD();
+    boolean dRx();
 
     void e(String str, String str2);
 
@@ -11,11 +11,11 @@ public interface b {
 
     void i(String str, String str2);
 
+    void showLog(boolean z);
+
     void v(String str, String str2);
 
     void w(String str, String str2);
 
-    void wP(boolean z);
-
-    void wQ(boolean z);
+    void xn(boolean z);
 }

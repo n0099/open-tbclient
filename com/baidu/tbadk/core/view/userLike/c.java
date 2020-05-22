@@ -18,28 +18,27 @@ import com.baidu.tbadk.h.d;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class c implements View.OnClickListener {
-    protected com.baidu.tbadk.core.view.userLike.a dKC;
-    private b dKD;
-    private BdUniqueId dKE;
-    private d dKF;
-    private a dKG;
-    private com.baidu.tbadk.coreExtra.model.a dzH;
+    private com.baidu.tbadk.coreExtra.model.a dNL;
+    protected com.baidu.tbadk.core.view.userLike.a dYT;
+    private b dYU;
+    private BdUniqueId dYV;
+    private d dYW;
+    private a dYX;
     private TbPageContext mPageContext;
-    private String aQl = "0";
-    private CustomMessageListener dzL = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_ATTENTION) { // from class: com.baidu.tbadk.core.view.userLike.c.1
+    private String aWu = "0";
+    private CustomMessageListener dNP = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_ATTENTION) { // from class: com.baidu.tbadk.core.view.userLike.c.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            int i;
             String string;
             if (customResponsedMessage instanceof UpdateAttentionMessage) {
                 UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
                 UpdateAttentionMessage.a data = updateAttentionMessage.getData();
-                if (c.this.dKC != null && !StringUtils.isNull(c.this.dKC.getUserId()) && data != null && c.this.dKC.getUserId().equals(data.toUid)) {
-                    boolean z = (updateAttentionMessage.getOrginalMessage() == null || c.this.dKE == null || !updateAttentionMessage.getOrginalMessage().getTag().equals(c.this.dKE)) ? false : true;
-                    if (data.dOt != null) {
-                        String str = data.dOt.appeal_msg;
-                        if (data.dOt.appeal_status == 1) {
+                if (c.this.dYT != null && !StringUtils.isNull(c.this.dYT.getUserId()) && data != null && c.this.dYT.getUserId().equals(data.toUid)) {
+                    boolean z = (updateAttentionMessage.getOrginalMessage() == null || c.this.dYV == null || !updateAttentionMessage.getOrginalMessage().getTag().equals(c.this.dYV)) ? false : true;
+                    if (data.ecK != null) {
+                        String str = data.ecK.appeal_msg;
+                        if (data.ecK.appeal_status == 1) {
                             if (TextUtils.isEmpty(str)) {
                                 string = TbadkCoreApplication.getInst().getString(R.string.anti_account_exception_appealing);
                             }
@@ -56,39 +55,37 @@ public class c implements View.OnClickListener {
                         if (TextUtils.isEmpty(str2)) {
                             str2 = TbadkCoreApplication.getInst().getString(R.string.operation_failed);
                         }
-                        BdToast.a(TbadkCoreApplication.getInst().getContext(), str2, R.drawable.icon_pure_toast_mistake40_svg, 3000, true).aMX();
-                        if (c.this.dKD != null) {
+                        BdToast.a(TbadkCoreApplication.getInst().getContext(), str2, R.drawable.icon_pure_toast_mistake40_svg, 3000, true).aSY();
+                        if (c.this.dYU != null) {
                             if (z) {
-                                c.this.dKD.a(c.this.dKC.getIsLike(), c.this.dKC.getLikeStatus(), z);
+                                c.this.dYU.a(c.this.dYT.getIsLike(), c.this.dYT.getLikeStatus(), z);
                             } else {
-                                c.this.dKD.n(c.this.dKC.getIsLike(), c.this.dKC.getLikeStatus());
+                                c.this.dYU.r(c.this.dYT.getIsLike(), c.this.dYT.getLikeStatus());
                             }
                         }
                     } else {
-                        int fansNum = c.this.dKC.getFansNum();
-                        boolean z2 = c.this.dKC.getIsLike() || c.this.dKC.getLikeStatus() == 1 || c.this.dKC.getLikeStatus() == 2;
-                        if (data.isAttention && !z2) {
-                            i = fansNum + 1;
-                        } else if (data.isAttention || !z2) {
-                            i = fansNum;
-                        } else {
-                            i = fansNum - 1;
+                        int fansNum = c.this.dYT.getFansNum();
+                        boolean isLike = c.this.dYT.getIsLike();
+                        if (data.isAttention && !isLike) {
+                            fansNum++;
+                        } else if (!data.isAttention && isLike) {
+                            fansNum--;
                             c.this.mPageContext.showToast(R.string.un_attention_success);
                         }
-                        c.this.dKC.setLikeStatus(data.status);
-                        c.this.dKC.setIsLike(data.isAttention);
-                        c.this.dKC.setIsFromNetWork(false);
-                        c.this.dKC.setFansNum(i);
-                        if (c.this.dKD != null) {
-                            c.this.dKD.lL(i);
+                        c.this.dYT.setLikeStatus(data.status);
+                        c.this.dYT.setIsLike(data.isAttention);
+                        c.this.dYT.setIsFromNetWork(false);
+                        c.this.dYT.setFansNum(fansNum);
+                        if (c.this.dYU != null) {
+                            c.this.dYU.mo(fansNum);
                             if (z) {
-                                if (c.this.dKG != null) {
-                                    c.this.dKG.gU(data.isAttention);
+                                if (c.this.dYX != null) {
+                                    c.this.dYX.hs(data.isAttention);
                                 }
-                                c.this.dKD.a(data.isAttention, data.status, true);
+                                c.this.dYU.a(data.isAttention, data.status, true);
                                 return;
                             }
-                            c.this.dKD.n(data.isAttention, data.status);
+                            c.this.dYU.r(data.isAttention, data.status);
                         }
                     }
                 }
@@ -98,78 +95,77 @@ public class c implements View.OnClickListener {
 
     /* loaded from: classes.dex */
     public interface a {
-        void gU(boolean z);
+        void hs(boolean z);
     }
 
     public c(TbPageContext tbPageContext, b bVar) {
         this.mPageContext = tbPageContext;
-        this.dzH = new com.baidu.tbadk.coreExtra.model.a(tbPageContext);
-        this.dKE = this.mPageContext.getUniqueId();
-        tbPageContext.registerListener(this.dzL);
+        this.dNL = new com.baidu.tbadk.coreExtra.model.a(tbPageContext);
+        this.dYV = this.mPageContext.getUniqueId();
+        tbPageContext.registerListener(this.dNP);
         a(bVar);
     }
 
-    public void tU(String str) {
-        this.aQl = str;
+    public void vA(String str) {
+        this.aWu = str;
     }
 
-    public void j(BdUniqueId bdUniqueId) {
+    public void l(BdUniqueId bdUniqueId) {
         if (bdUniqueId != null) {
-            this.dKE = bdUniqueId;
-            MessageManager.getInstance().unRegisterListener(this.dzL);
-            this.dzL.setTag(this.dKE);
-            MessageManager.getInstance().registerListener(this.dzL);
+            this.dYV = bdUniqueId;
+            MessageManager.getInstance().unRegisterListener(this.dNP);
+            this.dNP.setTag(this.dYV);
+            MessageManager.getInstance().registerListener(this.dNP);
         }
     }
 
     public void unRegisterListener(BdUniqueId bdUniqueId) {
         if (bdUniqueId != null) {
-            MessageManager.getInstance().unRegisterListener(this.dzL);
+            MessageManager.getInstance().unRegisterListener(this.dNP);
         }
     }
 
     public void a(b bVar) {
-        this.dKD = bVar;
-        if (this.dKD != null) {
-            this.dKD.g(this);
+        this.dYU = bVar;
+        if (this.dYU != null) {
+            this.dYU.g(this);
         }
     }
 
     public void a(com.baidu.tbadk.core.view.userLike.a aVar) {
-        this.dKC = aVar;
-        if (this.dKD != null && this.dKC != null) {
-            this.dKD.n(aVar.getIsLike(), aVar.getLikeStatus());
-            this.dKD.lL(aVar.getFansNum());
+        this.dYT = aVar;
+        if (this.dYU != null && this.dYT != null) {
+            this.dYU.r(aVar.getIsLike(), aVar.getLikeStatus());
+            this.dYU.mo(aVar.getFansNum());
         }
     }
 
-    public com.baidu.tbadk.core.view.userLike.a aQT() {
-        return this.dKC;
+    public com.baidu.tbadk.core.view.userLike.a aXb() {
+        return this.dYT;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        boolean z = true;
-        if (this.dKF == null || !this.dKF.onClickEvent(view)) {
+        if (this.dYW == null || !this.dYW.onClickEvent(view)) {
             if (!j.isNetworkAvailableForImmediately()) {
                 this.mPageContext.showToast(R.string.neterror);
                 return;
             }
-            if (this.dKD != null) {
-                this.dKD.bb(view);
+            if (this.dYU != null) {
+                this.dYU.bc(view);
             }
-            if (bc.checkUpIsLogin(this.mPageContext.getPageActivity()) && this.dKC != null) {
-                z = (this.dKC.getIsLike() || this.dKC.getLikeStatus() == 1 || this.dKC.getLikeStatus() == 2) ? false : false;
-                if (this.dKE == null) {
-                    this.dzH.a(z, this.dKC.getPortrait(), this.dKC.getUserId(), this.dKC.isGod(), this.aQl, this.mPageContext.getUniqueId(), null, "0");
+            if (bc.checkUpIsLogin(this.mPageContext.getPageActivity()) && this.dYT != null) {
+                boolean z = !this.dYT.getIsLike();
+                if (this.dYV == null) {
+                    this.dNL.a(z, this.dYT.getPortrait(), this.dYT.getUserId(), this.dYT.isGod(), this.aWu, this.mPageContext.getUniqueId(), null, "0");
                 } else {
-                    this.dzH.a(z, this.dKC.getPortrait(), this.dKC.getUserId(), this.dKC.isGod(), this.aQl, this.dKE, null, "0");
+                    this.dNL.a(z, this.dYT.getPortrait(), this.dYT.getUserId(), this.dYT.isGod(), this.aWu, this.dYV, null, "0");
                 }
             }
         }
     }
 
     public void a(a aVar) {
-        this.dKG = aVar;
+        this.dYX = aVar;
     }
 }

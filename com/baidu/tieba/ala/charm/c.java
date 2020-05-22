@@ -9,9 +9,9 @@ public interface c {
     public interface a {
         void b(List<ALaCharmData> list, List<ALaCharmData> list2, String str);
 
-        void om(String str);
-
         void onClose();
+
+        void pU(String str);
     }
 
     void a(a aVar);
@@ -20,7 +20,7 @@ public interface c {
 
     void a(String str, String str2, String str3, boolean z, String str4, String str5);
 
-    void bnh();
+    void bsZ();
 
     void release();
 }

@@ -12,74 +12,74 @@ import com.baidu.live.im.n;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes3.dex */
 public class p implements IConnectListener {
-    public static String aMe = "imlog";
-    private static boolean aMf = false;
-    private a aMh;
-    private String aMi;
-    private boolean aMg = false;
+    public static String aSe = "imlog";
+    private static boolean aSf = false;
+    private a aSh;
+    private String aSi;
+    private boolean aSg = false;
     private boolean mIsInited = false;
 
     public void init(String str) {
-        this.aMi = str;
+        this.aSi = str;
         if (!this.mIsInited) {
             this.mIsInited = true;
-            n.Bu().init(TbadkCoreApplication.getInst());
-            Bz();
-            By();
-            if (this.aMh == null) {
-                this.aMh = new a();
+            n.CR().init(TbadkCoreApplication.getInst());
+            CW();
+            CV();
+            if (this.aSh == null) {
+                this.aSh = new a();
             }
-            this.aMh.register();
-            if (!aMf) {
-                aMf = true;
+            this.aSh.register();
+            if (!aSf) {
+                aSf = true;
                 TbadkCoreApplication inst = TbadkCoreApplication.getInst();
-                com.baidu.c.b.a.ap(inst).a(new com.baidu.c.b.a.a.b(inst, new com.baidu.c.b.a.b(inst)));
-                f.AV().ae(inst);
+                com.baidu.c.b.a.az(inst).a(new com.baidu.c.b.a.a.b(inst, new com.baidu.c.b.a.b(inst)));
+                f.Cl().ao(inst);
             }
         }
     }
 
-    public void By() {
-        n.Bu().a(new n.a() { // from class: com.baidu.live.im.p.1
+    public void CV() {
+        n.CR().a(new n.a() { // from class: com.baidu.live.im.p.1
             @Override // com.baidu.live.im.n.a
             public void m(int i, String str) {
-                LogUtils.d(p.aMe + "LiveIMManager", "LiveIMManager onLoginResult errno = " + i + ", errMsg = " + str + ", isConnected = " + p.this.aMg);
-                if (i == 0 && !p.this.aMg) {
+                LogUtils.d(p.aSe + "LiveIMManager", "LiveIMManager onLoginResult errno = " + i + ", errMsg = " + str + ", isConnected = " + p.this.aSg);
+                if (i == 0 && !p.this.aSg) {
                     p.this.onResult(0);
                 }
             }
         });
     }
 
-    private void Bz() {
-        LogUtils.d(aMe + "LiveIMManager", "registerIMConnectListener");
-        this.aMg = false;
+    private void CW() {
+        LogUtils.d(aSe + "LiveIMManager", "registerIMConnectListener");
+        this.aSg = false;
         BIMManager.unregisterConnectListener();
         BIMManager.registerConnectListener(this);
     }
 
     @Override // com.baidu.android.imsdk.account.IConnectListener
     public void onResult(int i) {
-        LogUtils.d(aMe + "LiveIMManager", "IConnectListener onResult statusCode=" + i);
-        this.aMg = true;
+        LogUtils.d(aSe + "LiveIMManager", "IConnectListener onResult statusCode=" + i);
+        this.aSg = true;
         if (i == 0) {
-            LogUtils.d(aMe + "LiveIMManager", "IConnectListener net connect");
+            LogUtils.d(aSe + "LiveIMManager", "IConnectListener net connect");
         } else if (i == 1) {
-            LogUtils.d(aMe + "LiveIMManager", "IConnectListener net disconnect");
+            LogUtils.d(aSe + "LiveIMManager", "IConnectListener net disconnect");
         }
     }
 
     public void destroy(String str) {
-        if (this.aMi == null || this.aMi.equals(str)) {
+        if (this.aSi == null || this.aSi.equals(str)) {
             this.mIsInited = false;
-            LogUtils.d(aMe + "LiveIMManager", "destroy");
-            this.aMg = false;
-            if (this.aMh != null) {
-                this.aMh.destroy();
-                this.aMh = null;
+            LogUtils.d(aSe + "LiveIMManager", "destroy");
+            this.aSg = false;
+            if (this.aSh != null) {
+                this.aSh.destroy();
+                this.aSh = null;
             }
             BIMManager.unregisterConnectListener();
-            n.Bu().destroy();
+            n.CR().destroy();
         }
     }
 

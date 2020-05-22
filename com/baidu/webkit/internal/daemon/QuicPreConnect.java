@@ -15,12 +15,7 @@ public class QuicPreConnect implements INoProGuard, INetListener {
     private static final String LOG_TAG = "QuicPreConnect";
     private static boolean mDownloading = false;
     private static final String mQuicPreConnectUrl = "https://m.baidu.com/static/searchbox/common/prelink.html?word=";
-    private ByteArrayOutputStream mData;
-
-    public QuicPreConnect() {
-        this.mData = null;
-        this.mData = null;
-    }
+    private ByteArrayOutputStream mData = null;
 
     private static String getUrl(Context context) {
         String str = mQuicPreConnectUrl + System.currentTimeMillis();

@@ -1,70 +1,37 @@
 package com.baidu.live.data;
 
-import com.baidu.android.imsdk.db.TableDefine;
+import com.baidu.live.adp.lib.util.StringUtils;
+import com.heytap.mcssdk.mode.CommandMessage;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class c {
-    public String apF;
-    public List<a> apG = new ArrayList();
-    public boolean apH;
-    public String mName;
+    private List<String> auB;
+    private boolean auC = false;
 
-    /* loaded from: classes3.dex */
-    public static class a {
-        public String apI;
-        public int apJ;
-        public String ip;
-        public String status;
-    }
-
-    private int dL(String str) {
-        if (str == null || str.length() == 0) {
-            return 0;
-        }
-        if (str.contains("联通")) {
-            return 1;
-        }
-        if (str.contains("移动")) {
-            return 2;
-        }
-        return str.contains("电信") ? 3 : 0;
-    }
-
-    public void dM(String str) {
-        try {
-            JSONObject jSONObject = new JSONObject(str);
-            this.apH = jSONObject.optInt("switch", 1) == 1;
-            this.mName = jSONObject.optString("name");
-            this.apF = jSONObject.optString("rname");
-            JSONArray optJSONArray = jSONObject.optJSONArray("ipInfo");
+    public void parse(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            this.auC = jSONObject.optInt("tags_switch", 0) == 1;
+            JSONArray optJSONArray = jSONObject.optJSONArray(CommandMessage.TYPE_TAGS);
             if (optJSONArray != null && optJSONArray.length() > 0) {
+                this.auB = new ArrayList();
                 for (int i = 0; i < optJSONArray.length(); i++) {
-                    JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
-                    if (jSONObject2 != null) {
-                        a aVar = new a();
-                        aVar.apI = jSONObject2.optString("idc");
-                        aVar.ip = jSONObject2.optString(TableDefine.UserInfoColumns.COLUMN_IP);
-                        aVar.apJ = dL(jSONObject2.optString("isp"));
-                        aVar.status = jSONObject2.optString("status");
-                        this.apG.add(aVar);
+                    JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+                    if (optJSONObject != null && !StringUtils.isNull(optJSONObject.optString("member"))) {
+                        this.auB.add(optJSONObject.optString("member"));
                     }
                 }
             }
-        } catch (Exception e) {
-            e.printStackTrace();
         }
     }
 
-    public String toString() {
-        StringBuffer stringBuffer = new StringBuffer();
-        stringBuffer.append(String.format("mName:%s, mRanme:%s mIpList.size():%d\n", this.mName, this.apF, Integer.valueOf(this.apG.size())));
-        for (int i = 0; i < this.apG.size(); i++) {
-            a aVar = this.apG.get(i);
-            stringBuffer.append(String.format("ip:%s isp:%d status:%s idc:%s\n", aVar.ip, Integer.valueOf(aVar.apJ), aVar.status, aVar.apI));
-        }
-        return stringBuffer.toString();
+    public List<String> vR() {
+        return this.auB;
+    }
+
+    public boolean vS() {
+        return this.auC;
     }
 }

@@ -25,8 +25,8 @@ public class CfgFileUtils implements INoProGuard {
     public static final String KEY_FAKE_BAIDU_WHITE_LIST = "fakeBaiduWhiteList";
     public static final String KEY_FAKE_BAIDU_WHITE_LIST_TIME = "fakeBaiduWhiteListTime";
     public static final String KEY_HTTPDNS_AB_STAT = "httpdns_ab_stat";
-    public static final String KEY_HTTP_DNS_CACHE = "httpdnscache";
-    public static final String KEY_HTTP_DNS_NATIVE_CACHE_V1 = "http_dns_native_cache_v1";
+    public static final String KEY_HTTP_DNS_CACHE = "httpdnscache_v2";
+    public static final String KEY_HTTP_DNS_NATIVE_CACHE = "http_dns_native_cache";
     public static final String KEY_HTTP_DNS_PERSISTENCE_CACHE = "http_dns_persistence_cache";
     public static final String KEY_HTTP_WORMHOLE_IPLIST = "wormholeIpList";
     public static final String KEY_KEEP_ALIVE_TIME = "keep_alive_time";
@@ -42,15 +42,13 @@ public class CfgFileUtils implements INoProGuard {
     public static final String KEY_VIDEO_PROXY_DATA = "videoproxy_data";
     public static final String KEY_VIDEO_PROXY_LASTMODIFY = "videoproxy_lastmodify";
     public static final String TAG = "CfgFileUtils";
-    public static SharedPreferences mPref = null;
+    public static SharedPreferences mPref;
 
     private static SharedPreferences gerPrefs() {
-        if (mPref == null) {
-            synchronized (CfgFileUtils.class) {
-                if (mPref == null) {
-                    com.baidu.webkit.internal.utils.c.b();
-                    mPref = WebViewFactory.getContext().getSharedPreferences(GlobalConstants.SDK_CFG_RELATIVE_PATH_V2, 0);
-                }
+        synchronized (CfgFileUtils.class) {
+            if (mPref == null) {
+                com.baidu.webkit.internal.utils.b.b();
+                mPref = WebViewFactory.getContext().getSharedPreferences(GlobalConstants.SDK_CFG_RELATIVE_PATH_V2, 0);
             }
         }
         return mPref;
@@ -69,7 +67,7 @@ public class CfgFileUtils implements INoProGuard {
         if (!z) {
             return get(str, str2);
         }
-        com.baidu.webkit.internal.utils.c.b();
+        com.baidu.webkit.internal.utils.b.b();
         try {
             fileInputStream = new FileInputStream(getFilePath(str));
             try {
@@ -133,7 +131,7 @@ public class CfgFileUtils implements INoProGuard {
     }
 
     public static boolean isExist(String str) {
-        com.baidu.webkit.internal.utils.c.b();
+        com.baidu.webkit.internal.utils.b.b();
         File file = new File(getFilePath(str));
         if (file.isFile() && file.exists()) {
             Log.d(TAG, getFilePath(str) + " is Exist");

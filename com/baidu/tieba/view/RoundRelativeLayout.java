@@ -6,6 +6,8 @@ import android.graphics.Path;
 import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.widget.RelativeLayout;
+import com.baidu.adp.lib.util.l;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class RoundRelativeLayout extends RelativeLayout {
     private float[] mRadius;
@@ -55,16 +57,33 @@ public class RoundRelativeLayout extends RelativeLayout {
         }
     }
 
+    public void setAllCornerRound(float f) {
+        this.mRadius = new float[8];
+        for (int i = 0; i < this.mRadius.length; i++) {
+            this.mRadius[i] = f;
+        }
+        setRoundPath();
+        invalidate();
+    }
+
     @Override // android.widget.RelativeLayout, android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        super.onLayout(z, i, i2, i3, i4);
-        this.mRectF.set(0.0f, 0.0f, getMeasuredWidth(), getMeasuredHeight());
-        setRoundPath();
+        if (!isFullScreen()) {
+            super.onLayout(z, i, i2, i3, i4);
+            this.mRectF.set(0.0f, 0.0f, getMeasuredWidth(), getMeasuredHeight());
+            setRoundPath();
+        }
     }
 
     @Override // android.view.View
     public void draw(Canvas canvas) {
-        canvas.clipPath(this.mRoundPath);
-        super.draw(canvas);
+        if (!isFullScreen()) {
+            canvas.clipPath(this.mRoundPath);
+            super.draw(canvas);
+        }
+    }
+
+    private boolean isFullScreen() {
+        return getWidth() > l.getEquipmentWidth(TbadkCoreApplication.getInst());
     }
 }

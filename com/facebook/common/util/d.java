@@ -11,10 +11,10 @@ import javax.annotation.Nullable;
 import org.apache.http.HttpHost;
 /* loaded from: classes13.dex */
 public class d {
-    private static final Uri lSs = Uri.withAppendedPath(ContactsContract.AUTHORITY_URI, "display_photo");
+    private static final Uri mmk = Uri.withAppendedPath(ContactsContract.AUTHORITY_URI, "display_photo");
 
     @Nullable
-    public static URL F(@Nullable Uri uri) {
+    public static URL H(@Nullable Uri uri) {
         if (uri == null) {
             return null;
         }
@@ -25,7 +25,7 @@ public class d {
         }
     }
 
-    public static boolean G(@Nullable Uri uri) {
+    public static boolean I(@Nullable Uri uri) {
         String schemeOrNull = getSchemeOrNull(uri);
         return "https".equals(schemeOrNull) || HttpHost.DEFAULT_SCHEME_NAME.equals(schemeOrNull);
     }
@@ -38,28 +38,28 @@ public class d {
         return "content".equals(getSchemeOrNull(uri));
     }
 
-    public static boolean H(Uri uri) {
-        return isLocalContentUri(uri) && "com.android.contacts".equals(uri.getAuthority()) && !uri.getPath().startsWith(lSs.getPath());
+    public static boolean J(Uri uri) {
+        return isLocalContentUri(uri) && "com.android.contacts".equals(uri.getAuthority()) && !uri.getPath().startsWith(mmk.getPath());
     }
 
-    public static boolean I(Uri uri) {
+    public static boolean K(Uri uri) {
         String uri2 = uri.toString();
         return uri2.startsWith(MediaStore.Images.Media.EXTERNAL_CONTENT_URI.toString()) || uri2.startsWith(MediaStore.Images.Media.INTERNAL_CONTENT_URI.toString());
     }
 
-    public static boolean J(@Nullable Uri uri) {
+    public static boolean L(@Nullable Uri uri) {
         return "asset".equals(getSchemeOrNull(uri));
     }
 
-    public static boolean K(@Nullable Uri uri) {
+    public static boolean M(@Nullable Uri uri) {
         return "res".equals(getSchemeOrNull(uri));
     }
 
-    public static boolean L(@Nullable Uri uri) {
+    public static boolean N(@Nullable Uri uri) {
         return "android.resource".equals(getSchemeOrNull(uri));
     }
 
-    public static boolean M(@Nullable Uri uri) {
+    public static boolean O(@Nullable Uri uri) {
         return "data".equals(getSchemeOrNull(uri));
     }
 
@@ -116,7 +116,7 @@ public class d {
         }
     }
 
-    public static Uri Gc(int i) {
+    public static Uri GO(int i) {
         return new Uri.Builder().scheme("res").path(String.valueOf(i)).build();
     }
 }

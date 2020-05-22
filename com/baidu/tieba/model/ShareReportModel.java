@@ -11,10 +11,10 @@ import com.baidu.tieba.model.message.ShareReportSocketResponseMessage;
 public class ShareReportModel extends BdBaseModel {
     public ShareReportModel(TbPageContext tbPageContext) {
         super(tbPageContext);
-        bXC();
+        cea();
     }
 
-    private void bXC() {
+    private void cea() {
         com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_SHARE_REPORT, ShareReportSocketResponseMessage.class, false, false);
         com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_SHARE_REPORT, 1003363, TbConfig.URL_SHARE_REPORT, ShareReportHttpResponseMessage.class, false, false, false, false);
     }

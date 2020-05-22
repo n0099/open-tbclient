@@ -12,26 +12,26 @@ public class Als {
     private static final boolean DEBUG;
 
     static {
-        DEBUG = com.baidu.prologue.a.b.a.brU.get() != null && com.baidu.prologue.a.b.a.brU.get().Lq();
+        DEBUG = com.baidu.prologue.a.b.a.bzx.get() != null && com.baidu.prologue.a.b.a.bzx.get().ND();
     }
 
     public static void a(@NonNull a aVar) {
-        com.baidu.prologue.a.b.a aVar2 = com.baidu.prologue.a.b.a.brU.get();
+        com.baidu.prologue.a.b.a aVar2 = com.baidu.prologue.a.b.a.bzx.get();
         if (aVar2 == null) {
             if (DEBUG) {
                 throw new IllegalStateException("宿主App未初始化IAppContext");
             }
             return;
         }
-        Request.a aVar3 = new Request.a(aVar2.Lg(), "https://als.baidu.com/clog/clog");
+        Request.a aVar3 = new Request.a(aVar2.Nt(), "https://als.baidu.com/clog/clog");
         a(aVar3, aVar2);
         JSONArray jSONArray = new JSONArray();
-        jSONArray.put(aVar.bnC);
-        aVar3.aw("ad", jSONArray.toString());
-        aVar3.MB().Mz().a(new m() { // from class: com.baidu.prologue.service.network.Als.1
+        jSONArray.put(aVar.bBx);
+        aVar3.aL("ad", jSONArray.toString());
+        aVar3.OO().OM().a(new m() { // from class: com.baidu.prologue.service.network.Als.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.prologue.service.network.j
-            /* renamed from: fO */
+            /* renamed from: gA */
             public void onResponse(String str) {
                 if (Als.DEBUG) {
                     Log.d("Als", "Als get correct response.");
@@ -39,7 +39,7 @@ public class Als {
             }
 
             @Override // com.baidu.prologue.service.network.j
-            public void n(Throwable th) {
+            public void o(Throwable th) {
                 if (Als.DEBUG) {
                     Log.e("Als", "Als get error response, " + th);
                 }
@@ -48,50 +48,50 @@ public class Als {
     }
 
     private static void a(Request.a aVar, com.baidu.prologue.a.b.a aVar2) {
-        aVar.aw("_client_type", "2");
-        aVar.aw("_os_type", "2");
-        aVar.aw("_client_version", aVar2.Lh());
-        aVar.aw("_os_version", aVar2.Li());
-        aVar.aw("model", aVar2.Lk());
-        aVar.aw("cuid", aVar2.Lj());
-        aVar.aw("productId", aVar2.Lr());
-        aVar.aw("net_type", String.valueOf(new g(aVar2.Lg()).Mx()));
+        aVar.aL("_client_type", "2");
+        aVar.aL("_os_type", "2");
+        aVar.aL("_client_version", aVar2.Nu());
+        aVar.aL("_os_version", aVar2.Nv());
+        aVar.aL("model", aVar2.Nx());
+        aVar.aL("cuid", aVar2.Nw());
+        aVar.aL("productId", aVar2.NE());
+        aVar.aL("net_type", String.valueOf(new g(aVar2.Nt()).OK()));
     }
 
     /* loaded from: classes6.dex */
     public static final class a {
-        private final JSONObject bnC = new JSONObject();
+        private final JSONObject bBx = new JSONObject();
 
         public a(@NonNull Type type) {
-            au("da_type", type.value);
+            aJ("da_type", type.value);
             j("origin_time", Long.valueOf(System.currentTimeMillis()));
         }
 
         public a a(@NonNull Page page) {
-            return au("da_page", page.value);
+            return aJ("da_page", page.value);
         }
 
         public a b(@NonNull Area area) {
-            return au("da_area", area.value);
+            return aJ("da_area", area.value);
         }
 
-        public a fZ(@NonNull String str) {
-            return au("extra_param", str);
+        public a gL(@NonNull String str) {
+            return aJ("extra_param", str);
         }
 
-        public a ga(@NonNull String str) {
-            return au("da_ext1", str);
+        public a gM(@NonNull String str) {
+            return aJ("da_ext1", str);
         }
 
-        public a gb(@NonNull String str) {
-            return au("da_ext2", str);
+        public a gN(@NonNull String str) {
+            return aJ("da_ext2", str);
         }
 
-        public a gc(@NonNull String str) {
-            return au("da_ext3", str);
+        public a gO(@NonNull String str) {
+            return aJ("da_ext3", str);
         }
 
-        private a au(String str, String str2) {
+        private a aJ(String str, String str2) {
             return k(str, str2);
         }
 
@@ -100,11 +100,11 @@ public class Als {
         }
 
         private <T> a k(String str, T t) {
-            if (Als.DEBUG && this.bnC.has(str)) {
+            if (Als.DEBUG && this.bBx.has(str)) {
                 throw new IllegalArgumentException("key " + str + " has been set!");
             }
             try {
-                this.bnC.put(str, t);
+                this.bBx.put(str, t);
             } catch (JSONException e) {
                 if (Als.DEBUG) {
                     throw new IllegalArgumentException("Json put create invalid exception");

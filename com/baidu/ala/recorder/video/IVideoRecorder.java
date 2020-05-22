@@ -4,6 +4,9 @@ import android.view.View;
 import com.baidu.ala.recorder.RecorderCallback;
 /* loaded from: classes3.dex */
 public interface IVideoRecorder {
+    public static final int SENSE_CLOSE = 0;
+    public static final int SENSE_RTC = 2;
+    public static final int SENSE_RTMP = 1;
 
     /* loaded from: classes3.dex */
     public interface IVideoDataCallBack {
@@ -41,4 +44,6 @@ public interface IVideoRecorder {
     void startRecord();
 
     void stopRecord();
+
+    void willSwitchSense(int i);
 }

@@ -10,7 +10,7 @@ import javax.annotation.concurrent.Immutable;
 /* loaded from: classes13.dex */
 public class a {
     @Nullable
-    private static Pattern mba;
+    private static Pattern muR;
     public final int from;
     public final int to;
 
@@ -19,8 +19,8 @@ public class a {
         this.to = i2;
     }
 
-    public String dqG() {
-        return String.format(null, "bytes=%s-%s", GM(this.from), GM(this.to));
+    public String dxY() {
+        return String.format(null, "bytes=%s-%s", Hy(this.from), Hy(this.to));
     }
 
     public boolean a(@Nullable a aVar) {
@@ -28,10 +28,10 @@ public class a {
     }
 
     public String toString() {
-        return String.format(null, "%s-%s", GM(this.from), GM(this.to));
+        return String.format(null, "%s-%s", Hy(this.from), Hy(this.to));
     }
 
-    private static String GM(int i) {
+    private static String Hy(int i) {
         return i == Integer.MAX_VALUE ? "" : Integer.toString(i);
     }
 
@@ -50,25 +50,25 @@ public class a {
         return com.facebook.common.util.a.hashCode(this.from, this.to);
     }
 
-    public static a GN(int i) {
+    public static a Hz(int i) {
         g.checkArgument(i >= 0);
         return new a(i, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
     }
 
-    public static a GO(int i) {
+    public static a HA(int i) {
         g.checkArgument(i > 0);
         return new a(0, i);
     }
 
     @Nullable
-    public static a On(@Nullable String str) throws IllegalArgumentException {
+    public static a Qb(@Nullable String str) throws IllegalArgumentException {
         a aVar = null;
         if (str != null) {
-            if (mba == null) {
-                mba = Pattern.compile("[-/ ]");
+            if (muR == null) {
+                muR = Pattern.compile("[-/ ]");
             }
             try {
-                String[] split = mba.split(str);
+                String[] split = muR.split(str);
                 g.checkArgument(split.length == 4);
                 g.checkArgument(split[0].equals("bytes"));
                 int parseInt = Integer.parseInt(split[1]);

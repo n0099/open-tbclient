@@ -2,43 +2,43 @@ package com.baidu.swan.games.view;
 
 import android.content.Context;
 import android.view.View;
-import com.baidu.swan.apps.y.f;
+import com.baidu.swan.apps.w.f;
 /* loaded from: classes11.dex */
 public class c {
     public static boolean c(View view, com.baidu.swan.apps.model.a.a.a aVar) {
-        d aeM = f.aeJ().aeM();
-        return aeM != null && aeM.a(view, aVar);
+        d ahY = f.ahV().ahY();
+        return ahY != null && ahY.a(view, aVar);
     }
 
     public static boolean b(View view, com.baidu.swan.apps.model.a.a.a aVar) {
-        d aeM = f.aeJ().aeM();
-        return aeM != null && aeM.b(view, aVar);
+        d ahY = f.ahV().ahY();
+        return ahY != null && ahY.b(view, aVar);
     }
 
     public static boolean av(View view) {
-        d aeM = f.aeJ().aeM();
-        return aeM != null && aeM.av(view);
+        d ahY = f.ahV().ahY();
+        return ahY != null && ahY.av(view);
     }
 
-    public static Context ayG() {
-        d aeM = f.aeJ().aeM();
-        if (aeM != null) {
-            return aeM.getContext();
+    public static Context aCy() {
+        d ahY = f.ahV().ahY();
+        if (ahY != null) {
+            return ahY.getContext();
         }
         return null;
     }
 
     public static void a(a aVar) {
-        d aeM = f.aeJ().aeM();
-        if (aeM != null) {
-            aeM.a(aVar);
+        d ahY = f.ahV().ahY();
+        if (ahY != null) {
+            ahY.a(aVar);
         }
     }
 
     public static void b(a aVar) {
-        d aeM = f.aeJ().aeM();
-        if (aeM != null) {
-            aeM.b(aVar);
+        d ahY = f.ahV().ahY();
+        if (ahY != null) {
+            ahY.b(aVar);
         }
     }
 }

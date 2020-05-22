@@ -7,33 +7,33 @@ import java.util.List;
 /* loaded from: classes11.dex */
 public class i implements b {
     private static final boolean DEBUG = com.baidu.swan.pms.d.DEBUG;
-    private com.baidu.swan.pms.a.d bVS;
-    private List<com.baidu.swan.pms.model.e> dbb = new ArrayList();
-    private List<com.baidu.swan.pms.model.e> dbc = new ArrayList();
-    private List<com.baidu.swan.pms.model.e> dbd = new ArrayList();
-    private List<com.baidu.swan.pms.c.a.b> dba = new ArrayList();
+    private com.baidu.swan.pms.a.d cgn;
+    private List<com.baidu.swan.pms.model.e> dmm = new ArrayList();
+    private List<com.baidu.swan.pms.model.e> dmn = new ArrayList();
+    private List<com.baidu.swan.pms.model.e> dmo = new ArrayList();
+    private List<com.baidu.swan.pms.c.a.b> dml = new ArrayList();
 
     public i(com.baidu.swan.pms.a.d dVar) {
-        this.bVS = dVar;
-        d.aCi().c(this);
+        this.cgn = dVar;
+        d.aGy().c(this);
     }
 
     public void a(com.baidu.swan.pms.c.a.b bVar) {
         if (bVar != null) {
-            this.dba.add(bVar);
+            this.dml.add(bVar);
         }
     }
 
-    public void aCu() {
-        if (!aCv()) {
+    public void aGK() {
+        if (!aGL()) {
             if (DEBUG) {
-                Log.i("PMSTaskGroup", com.baidu.swan.pms.d.aBC().getProcessName() + " startDownload: total=" + this.dba.size());
+                Log.i("PMSTaskGroup", com.baidu.swan.pms.d.aFP().getProcessName() + " startDownload: total=" + this.dml.size());
             }
-            for (com.baidu.swan.pms.c.a.b bVar : this.dba) {
+            for (com.baidu.swan.pms.c.a.b bVar : this.dml) {
                 if (DEBUG) {
-                    Log.i("PMSTaskGroup", com.baidu.swan.pms.d.aBC().getProcessName() + " startDownload: for handler=" + bVar);
+                    Log.i("PMSTaskGroup", com.baidu.swan.pms.d.aFP().getProcessName() + " startDownload: for handler=" + bVar);
                 }
-                bVar.fV(false);
+                bVar.gg(false);
             }
         }
     }
@@ -44,43 +44,43 @@ public class i implements b {
 
     @Override // com.baidu.swan.pms.c.a.d.b
     public <T> void e(f<T> fVar) {
-        if (!fVar.aCt()) {
-            Iterator<com.baidu.swan.pms.c.a.b> it = this.dba.iterator();
+        if (!fVar.aGJ()) {
+            Iterator<com.baidu.swan.pms.c.a.b> it = this.dml.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
                 }
                 com.baidu.swan.pms.c.a.b next = it.next();
                 if (next.a(fVar)) {
-                    int aCl = fVar.aCl();
-                    this.dba.remove(next);
-                    switch (aCl) {
+                    int aGB = fVar.aGB();
+                    this.dml.remove(next);
+                    switch (aGB) {
                         case 2:
-                            this.dbd.add(next.aCd().daT.daS);
+                            this.dmo.add(next.aGs().dme.dmd);
                             break;
                         case 3:
-                            this.dbc.add(next.aCd().daT.daS);
+                            this.dmn.add(next.aGs().dme.dmd);
                             break;
                         case 10:
-                            this.dbb.add(next.aCd().daT.daS);
+                            this.dmm.add(next.aGs().dme.dmd);
                             break;
                         default:
                             if (com.baidu.swan.pms.d.DEBUG) {
-                                Log.e("PMSTaskGroup", "notifyTaskEnd error state:" + aCl);
+                                Log.e("PMSTaskGroup", "notifyTaskEnd error state:" + aGB);
                                 break;
                             }
                             break;
                     }
                 }
             }
-            aCv();
+            aGL();
         }
     }
 
-    private boolean aCv() {
-        if (this.dba.isEmpty()) {
-            this.bVS.WY();
-            d.aCi().d(this);
+    private boolean aGL() {
+        if (this.dml.isEmpty()) {
+            this.cgn.ZK();
+            d.aGy().d(this);
             return true;
         }
         return false;

@@ -2,12 +2,13 @@ package com.baidu.swan.facade.provider.a;
 
 import android.database.Cursor;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
+import com.baidu.swan.e.d;
 import com.baidu.swan.pms.model.PMSAppInfo;
 import java.util.HashMap;
 /* loaded from: classes11.dex */
 public class a {
-    public static HashMap<String, PMSAppInfo> arI() {
-        Cursor query = com.baidu.swan.pms.database.provider.a.aBP().getReadableDatabase().query("swan_app", null, null, null, null, null, null);
+    public static HashMap<String, PMSAppInfo> avr() {
+        Cursor query = com.baidu.swan.pms.database.provider.a.aGc().getReadableDatabase().query("swan_app", null, null, null, null, null, null);
         HashMap<String, PMSAppInfo> hashMap = new HashMap<>();
         if (query != null && query.moveToFirst()) {
             int columnIndex = query.getColumnIndex("app_id");
@@ -68,10 +69,10 @@ public class a {
                 pMSAppInfo.payProtected = query.getInt(columnIndex27);
                 hashMap.put(pMSAppInfo.appId, pMSAppInfo);
             } while (query.moveToNext());
-            com.baidu.swan.d.c.closeSafely(query);
+            d.closeSafely(query);
             return hashMap;
         }
-        com.baidu.swan.d.c.closeSafely(query);
+        d.closeSafely(query);
         return hashMap;
     }
 }

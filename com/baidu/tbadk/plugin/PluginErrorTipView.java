@@ -23,10 +23,10 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class PluginErrorTipView extends RelativeLayout implements View.OnClickListener {
-    private LinkedList<PluginStatus> efj;
-    private HashSet<Integer> efk;
-    MessageListener<?> efl;
-    MessageListener<?> efm;
+    MessageListener<?> etA;
+    private LinkedList<PluginStatus> etx;
+    private HashSet<Integer> ety;
+    MessageListener<?> etz;
     private Context mContext;
     private TextView mGuide;
 
@@ -40,30 +40,30 @@ public class PluginErrorTipView extends RelativeLayout implements View.OnClickLi
 
     public PluginErrorTipView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.efj = new LinkedList<>();
-        this.efk = new HashSet<>(10);
-        this.efl = new CustomMessageListener(0) { // from class: com.baidu.tbadk.plugin.PluginErrorTipView.1
+        this.etx = new LinkedList<>();
+        this.ety = new HashSet<>(10);
+        this.etz = new CustomMessageListener(0) { // from class: com.baidu.tbadk.plugin.PluginErrorTipView.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof PluginStatus)) {
-                    PluginErrorTipView.this.efj.add((PluginStatus) customResponsedMessage.getData());
+                    PluginErrorTipView.this.etx.add((PluginStatus) customResponsedMessage.getData());
                     PluginErrorTipView.this.update();
                 }
             }
         };
-        this.efm = new CustomMessageListener(0) { // from class: com.baidu.tbadk.plugin.PluginErrorTipView.2
+        this.etA = new CustomMessageListener(0) { // from class: com.baidu.tbadk.plugin.PluginErrorTipView.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof PluginStatus)) {
                     PluginStatus pluginStatus = (PluginStatus) customResponsedMessage.getData();
-                    synchronized (PluginErrorTipView.this.efj) {
-                        Iterator it = PluginErrorTipView.this.efj.iterator();
+                    synchronized (PluginErrorTipView.this.etx) {
+                        Iterator it = PluginErrorTipView.this.etx.iterator();
                         while (it.hasNext()) {
                             PluginStatus pluginStatus2 = (PluginStatus) it.next();
                             if (aq.equals(pluginStatus.getPkgName(), pluginStatus2.getPkgName())) {
-                                PluginErrorTipView.this.efj.remove(pluginStatus2);
+                                PluginErrorTipView.this.etx.remove(pluginStatus2);
                             }
                         }
                     }
@@ -81,16 +81,16 @@ public class PluginErrorTipView extends RelativeLayout implements View.OnClickLi
         findViewById(R.id.plugin_error_close).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.plugin.PluginErrorTipView.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (PluginErrorTipView.this.efj.size() > 0) {
-                    PluginErrorTipView.this.efk.add(Integer.valueOf(((PluginStatus) PluginErrorTipView.this.efj.getLast()).getErrorCode()));
+                if (PluginErrorTipView.this.etx.size() > 0) {
+                    PluginErrorTipView.this.ety.add(Integer.valueOf(((PluginStatus) PluginErrorTipView.this.etx.getLast()).getErrorCode()));
                 }
                 PluginErrorTipView.this.setVisibility(8);
             }
         });
         setOnClickListener(this);
-        List<PluginStatus> oG = com.baidu.adp.plugin.packageManager.status.a.oF().oG();
-        if (oG != null && oG.size() > 0) {
-            this.efj.addAll(oG);
+        List<PluginStatus> oH = com.baidu.adp.plugin.packageManager.status.a.oG().oH();
+        if (oH != null && oH.size() > 0) {
+            this.etx.addAll(oH);
             update();
             return;
         }
@@ -100,27 +100,27 @@ public class PluginErrorTipView extends RelativeLayout implements View.OnClickLi
     @Override // android.view.ViewGroup, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        MessageManager.getInstance().registerListener(MessageConfig.PLUGIN_INSTALL_FAIL, this.efl);
-        MessageManager.getInstance().registerListener(MessageConfig.PLUGIN_INSTALL_SUCCESS, this.efm);
-        MessageManager.getInstance().registerListener(MessageConfig.PLUGIN_LOAD_FAIL, this.efl);
+        MessageManager.getInstance().registerListener(MessageConfig.PLUGIN_INSTALL_FAIL, this.etz);
+        MessageManager.getInstance().registerListener(MessageConfig.PLUGIN_INSTALL_SUCCESS, this.etA);
+        MessageManager.getInstance().registerListener(MessageConfig.PLUGIN_LOAD_FAIL, this.etz);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        MessageManager.getInstance().unRegisterListener(this.efl);
-        MessageManager.getInstance().unRegisterListener(this.efm);
+        MessageManager.getInstance().unRegisterListener(this.etz);
+        MessageManager.getInstance().unRegisterListener(this.etA);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void update() {
-        if (this.efj.size() > 0) {
-            PluginStatus last = this.efj.getLast();
-            if (!this.efk.contains(Integer.valueOf(last.getErrorCode()))) {
+        if (this.etx.size() > 0) {
+            PluginStatus last = this.etx.getLast();
+            if (!this.ety.contains(Integer.valueOf(last.getErrorCode()))) {
                 if (last.getErrorCode() >= 100) {
-                    com.baidu.adp.plugin.b.a.nF().D("plugin_load_tip", last.getPkgName());
+                    com.baidu.adp.plugin.b.a.nH().D("plugin_load_tip", last.getPkgName());
                 } else {
-                    com.baidu.adp.plugin.b.a.nF().D("plugin_install_tip", last.getPkgName());
+                    com.baidu.adp.plugin.b.a.nH().D("plugin_install_tip", last.getPkgName());
                 }
                 this.mGuide.setText(last.getErrorMsg() + getResources().getString(R.string.pluginstatus_click_detail));
                 setVisibility(0);
@@ -133,15 +133,15 @@ public class PluginErrorTipView extends RelativeLayout implements View.OnClickLi
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.efj != null && !this.efj.isEmpty()) {
-            PluginStatus last = this.efj.getLast();
+        if (this.etx != null && !this.etx.isEmpty()) {
+            PluginStatus last = this.etx.getLast();
             PluginErrorTipActivity.a(this.mContext, last);
-            this.efj.clear();
+            this.etx.clear();
             update();
             if (last.getErrorCode() >= 100) {
-                com.baidu.adp.plugin.b.a.nF().D("plugin_load_tipclick", last.getPkgName());
+                com.baidu.adp.plugin.b.a.nH().D("plugin_load_tipclick", last.getPkgName());
             } else {
-                com.baidu.adp.plugin.b.a.nF().D("plugin_install_tipclick", last.getPkgName());
+                com.baidu.adp.plugin.b.a.nH().D("plugin_install_tipclick", last.getPkgName());
             }
         }
     }

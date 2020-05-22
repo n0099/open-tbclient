@@ -17,8 +17,8 @@ public final class FlowableSwitchMap<T, R> extends a<T, R> {
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super R> cVar) {
-        if (!g.a(this.mRM, cVar, this.mapper)) {
-            this.mRM.a((j) new SwitchMapSubscriber(cVar, this.mapper, this.bufferSize, this.delayErrors));
+        if (!g.a(this.nmU, cVar, this.mapper)) {
+            this.nmU.a((j) new SwitchMapSubscriber(cVar, this.mapper, this.bufferSize, this.delayErrors));
         }
     }
 
@@ -69,7 +69,7 @@ public final class FlowableSwitchMap<T, R> extends a<T, R> {
                     switchMapInnerSubscriber2.cancel();
                 }
                 try {
-                    org.a.b bVar = (org.a.b) io.reactivex.internal.functions.a.h(this.mapper.apply(t), "The publisher returned is null");
+                    org.a.b bVar = (org.a.b) io.reactivex.internal.functions.a.k(this.mapper.apply(t), "The publisher returned is null");
                     SwitchMapInnerSubscriber<T, R> switchMapInnerSubscriber3 = new SwitchMapInnerSubscriber<>(this, j, this.bufferSize);
                     do {
                         switchMapInnerSubscriber = this.active.get();

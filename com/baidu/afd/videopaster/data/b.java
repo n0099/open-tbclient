@@ -1,9 +1,9 @@
 package com.baidu.afd.videopaster.data;
 /* loaded from: classes8.dex */
 public class b {
-    private int XF = -1;
-    private int XG = -1;
-    private int XH = -1;
+    private int XU = -1;
+    private int XV = -1;
+    private int XW = -1;
     private String video_id;
 
     public String getVideoId() {
@@ -14,27 +14,27 @@ public class b {
         this.video_id = str;
     }
 
-    public int pT() {
-        return this.XF;
-    }
-
-    public void aL(int i) {
-        this.XF = i;
-    }
-
-    public int pU() {
-        return this.XG;
+    public int pZ() {
+        return this.XU;
     }
 
     public void aM(int i) {
-        this.XG = i;
+        this.XU = i;
     }
 
-    public int pV() {
-        return this.XH;
+    public int qa() {
+        return this.XV;
     }
 
     public void aN(int i) {
-        this.XH = i;
+        this.XV = i;
+    }
+
+    public int qb() {
+        return this.XW;
+    }
+
+    public void aO(int i) {
+        this.XW = i;
     }
 }

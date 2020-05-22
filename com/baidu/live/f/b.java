@@ -11,6 +11,12 @@ import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.live.tbadk.download.DownloadData;
 import com.baidu.live.tbadk.download.FileDownloadCallBack;
 import com.baidu.live.tbadk.download.FileSerialDownLoader;
+import com.baidu.live.tbadk.ubc.UbcStatConstant;
+import com.baidu.live.tbadk.ubc.UbcStatisticItem;
+import com.baidu.live.tbadk.ubc.UbcStatisticLiveKey;
+import com.baidu.live.tbadk.ubc.UbcStatisticManager;
+import com.baidu.searchbox.ui.animview.util.PraiseUBCHelper;
+import com.baidu.webkit.internal.ETAG;
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -25,12 +31,9 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class b {
-    public static void a(String str, String str2, String str3, String str4, String str5, String str6, int i, boolean z) {
-        a(str, str2, str3, str3, str4, str5, str6, i, z);
-    }
-
     public static void a(String str, String str2, final String str3, final String str4, final String str5, String str6, String str7, int i, boolean z) {
         if (!a.existFile(str3)) {
             new File(str3).mkdirs();
@@ -50,8 +53,8 @@ public class b {
             @Override // com.baidu.live.tbadk.download.FileDownloadCallBack
             public boolean onPreDownload(DownloadData downloadData2) {
                 c cVar = new c();
-                cVar.axC = 1;
-                cVar.axD = downloadData2;
+                cVar.aCS = 1;
+                cVar.aCT = downloadData2;
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913078, cVar));
                 return true;
             }
@@ -59,8 +62,8 @@ public class b {
             @Override // com.baidu.live.tbadk.download.FileDownloadCallBack
             public boolean onFileDownloaded(DownloadData downloadData2) {
                 c cVar = new c();
-                cVar.axC = 4;
-                cVar.axD = downloadData2;
+                cVar.aCS = 4;
+                cVar.aCT = downloadData2;
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913078, cVar));
                 return true;
             }
@@ -72,10 +75,38 @@ public class b {
 
             @Override // com.baidu.live.tbadk.download.FileDownloadCallBack
             public void onFileDownloadFailed(DownloadData downloadData2, int i2, String str8) {
-                BdLog.e("failed to donwload dynamic gift zip" + str8);
+                int i3 = 3;
+                BdLog.e("failed to download dynamic gift zip" + str8);
+                JSONObject jSONObject = new JSONObject();
+                JSONObject jSONObject2 = new JSONObject();
+                if (3 == i2) {
+                    i3 = 1;
+                } else if (2 == i2) {
+                    i3 = 2;
+                } else if (4 != i2) {
+                    if (6 == i2) {
+                        i3 = 4;
+                    } else if (7 != i2) {
+                        i3 = 0;
+                    } else {
+                        i3 = 5;
+                    }
+                }
+                try {
+                    jSONObject2.put("step_error", i3);
+                    jSONObject2.put("down_type", PraiseUBCHelper.SOURCE_DYNAMIC);
+                    jSONObject2.put("down_url", downloadData2.getUrl());
+                    if (downloadData2.getNetErrorJson() != null) {
+                        jSONObject2.put(ETAG.KEY_NET_ERROR, downloadData2.getNetErrorJson());
+                    }
+                    jSONObject.put("download", jSONObject2);
+                } catch (JSONException e) {
+                    BdLog.e(e);
+                }
+                UbcStatisticManager.getInstance().logSendResponse(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_DOWN_RES_RESP, UbcStatConstant.ContentType.UBC_TYPE_RES_DOWN, "liveroom", null).setContentExt(jSONObject), null, true);
                 c cVar = new c();
-                cVar.axC = 2;
-                cVar.axD = downloadData2;
+                cVar.aCS = 2;
+                cVar.aCT = downloadData2;
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913078, cVar));
             }
         });
@@ -92,6 +123,15 @@ public class b {
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.live.adp.lib.asynctask.BdAsyncTask
             public void onPostExecute(Boolean bool) {
+                JSONObject jSONObject = new JSONObject();
+                JSONObject jSONObject2 = new JSONObject();
+                try {
+                    jSONObject2.put("down_type", PraiseUBCHelper.SOURCE_DYNAMIC);
+                    jSONObject.put("download", jSONObject2);
+                } catch (JSONException e) {
+                    BdLog.e(e);
+                }
+                UbcStatisticManager.getInstance().logSendRequest(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_DOWN_RES_REQ, UbcStatConstant.ContentType.UBC_TYPE_RES_DOWN, "liveroom", null).setContentExt(jSONObject));
                 FileSerialDownLoader.getInstance().startDownLoadWithoutMax(downloadData);
             }
         }.execute(new Void[0]);
@@ -105,11 +145,23 @@ public class b {
             @Override // com.baidu.live.adp.lib.asynctask.BdAsyncTask
             public Boolean doInBackground(Void... voidArr) {
                 if (DownloadData.this.getPath() != null && new File(DownloadData.this.getPath()).exists()) {
-                    boolean unZipFile = b.unZipFile(DownloadData.this.getPath(), str);
-                    if (unZipFile) {
-                        b.T(str2, str);
+                    int ac = b.ac(DownloadData.this.getPath(), str);
+                    if (ac == 0) {
+                        b.ab(str2, str);
+                    } else {
+                        JSONObject jSONObject = new JSONObject();
+                        JSONObject jSONObject2 = new JSONObject();
+                        try {
+                            jSONObject2.put("step_error", ac);
+                            jSONObject2.put("down_type", PraiseUBCHelper.SOURCE_DYNAMIC);
+                            jSONObject2.put("down_url", DownloadData.this.getUrl());
+                            jSONObject.put("download", jSONObject2);
+                        } catch (JSONException e) {
+                            BdLog.e(e);
+                        }
+                        UbcStatisticManager.getInstance().logSendResponse(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_DOWN_RES_RESP, UbcStatConstant.ContentType.UBC_TYPE_RES_DOWN, "liveroom", null).setContentExt(jSONObject), null, true);
                     }
-                    return Boolean.valueOf(unZipFile);
+                    return Boolean.valueOf(ac == 0);
                 }
                 return false;
             }
@@ -121,14 +173,14 @@ public class b {
                 if (bool.booleanValue()) {
                     if (a.existFile(str)) {
                         c cVar = new c();
-                        cVar.axC = 5;
-                        cVar.axD = DownloadData.this;
+                        cVar.aCS = 5;
+                        cVar.aCT = DownloadData.this;
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913078, cVar));
                         return;
                     }
                     c cVar2 = new c();
-                    cVar2.axC = 6;
-                    cVar2.axD = DownloadData.this;
+                    cVar2.aCS = 6;
+                    cVar2.aCT = DownloadData.this;
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913078, cVar2));
                     BdLog.e("zip empty");
                     return;
@@ -138,9 +190,9 @@ public class b {
         }.execute(new Void[0]);
     }
 
-    public static ArrayList<String> dQ(String str) {
+    public static ArrayList<String> ev(String str) {
         ArrayList<String> arrayList = null;
-        String string = com.baidu.live.c.tG().getSharedPreferences().getString(str, null);
+        String string = com.baidu.live.c.uN().getSharedPreferences().getString(str, null);
         if (string == null) {
             return null;
         }
@@ -187,7 +239,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void T(String str, String str2) {
+    public static void ab(String str, String str2) {
         File[] listFiles;
         String fileMd5;
         if (!StringUtils.isNull(str2) && (listFiles = new File(str2).listFiles()) != null) {
@@ -197,13 +249,13 @@ public class b {
                     jSONArray.put(fileMd5);
                 }
             }
-            com.baidu.live.c.tG().putString(str, jSONArray.toString());
+            com.baidu.live.c.uN().putString(str, jSONArray.toString());
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [297=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [368=4] */
     /* JADX INFO: Access modifiers changed from: private */
-    public static boolean unZipFile(String str, String str2) {
+    public static int ac(String str, String str2) {
         ZipInputStream zipInputStream;
         try {
             try {
@@ -215,7 +267,7 @@ public class b {
                             zipInputStream.close();
                             FileHelper.deleteFile(new File(str));
                             CloseUtil.close((InputStream) zipInputStream);
-                            return true;
+                            return 0;
                         } else if (!nextEntry.isDirectory()) {
                             saveFile(str2, nextEntry.getName(), zipInputStream);
                         }
@@ -223,12 +275,12 @@ public class b {
                         e = e;
                         e.printStackTrace();
                         CloseUtil.close((InputStream) zipInputStream);
-                        return false;
+                        return 4;
                     } catch (IOException e2) {
                         e = e2;
                         e.printStackTrace();
                         CloseUtil.close((InputStream) zipInputStream);
-                        return false;
+                        return 5;
                     }
                 }
             } catch (Throwable th) {
@@ -249,7 +301,7 @@ public class b {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [360=5] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [431=5] */
     private static String saveFile(String str, String str2, InputStream inputStream) {
         String str3;
         FileOutputStream fileOutputStream;
@@ -323,7 +375,7 @@ public class b {
         }
     }
 
-    public static void bD(int i) {
+    public static void bK(int i) {
         FileSerialDownLoader.getInstance().cancelDownloadByType(i);
     }
 }

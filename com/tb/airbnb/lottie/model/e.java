@@ -10,7 +10,7 @@ import java.util.List;
 public class e {
     private final List<String> Dj;
     @Nullable
-    private f mPl;
+    private f njq;
 
     public e(String... strArr) {
         this.Dj = Arrays.asList(strArr);
@@ -18,12 +18,12 @@ public class e {
 
     private e(e eVar) {
         this.Dj = new ArrayList(eVar.Dj);
-        this.mPl = eVar.mPl;
+        this.njq = eVar.njq;
     }
 
     @CheckResult
     @RestrictTo({RestrictTo.Scope.LIBRARY})
-    public e Pl(String str) {
+    public e Rb(String str) {
         e eVar = new e(this);
         eVar.Dj.add(str);
         return eVar;
@@ -32,14 +32,14 @@ public class e {
     @RestrictTo({RestrictTo.Scope.LIBRARY})
     public e a(f fVar) {
         e eVar = new e(this);
-        eVar.mPl = fVar;
+        eVar.njq = fVar;
         return eVar;
     }
 
     @Nullable
     @RestrictTo({RestrictTo.Scope.LIBRARY})
-    public f dBn() {
-        return this.mPl;
+    public f dIG() {
+        return this.njq;
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
@@ -103,6 +103,6 @@ public class e {
     }
 
     public String toString() {
-        return "KeyPath{keys=" + this.Dj + ",resolved=" + (this.mPl != null) + '}';
+        return "KeyPath{keys=" + this.Dj + ",resolved=" + (this.njq != null) + '}';
     }
 }

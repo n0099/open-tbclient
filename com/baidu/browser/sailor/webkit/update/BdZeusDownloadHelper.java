@@ -2,7 +2,6 @@ package com.baidu.browser.sailor.webkit.update;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.os.Environment;
 import android.support.annotation.Keep;
 import android.text.TextUtils;
 import com.baidu.browser.sailor.BdSailor;
@@ -14,14 +13,14 @@ import com.baidu.webkit.sdk.WebKitFactory;
 import java.io.File;
 /* loaded from: classes11.dex */
 public final class BdZeusDownloadHelper {
-    public static final String a = BdZeusDownloadHelper.class.getSimpleName();
-    private static BdZeusDownloadHelper acT = null;
-    protected static final String d = Environment.getExternalStorageDirectory().getAbsolutePath() + "/baidu/zeus/";
-    protected static String e = d + "updateZeus.zes";
-    protected static String f = "com.baidu.android.appswitchsdk:web";
+    protected static String d;
+    protected static String e;
     protected long b;
     protected long c;
     private Context h;
+    public static final String a = BdZeusDownloadHelper.class.getSimpleName();
+    private static BdZeusDownloadHelper adl = null;
+    protected static String f = "com.baidu.android.appswitchsdk:web";
     private String i = "";
     private String k = "";
     private int j = a.c;
@@ -66,6 +65,9 @@ public final class BdZeusDownloadHelper {
             BdZeusDownloadHelper.this.j = a.d;
             Log.d(EngineManager.LOG_TAG, "aKey:" + str + ", aFilelength:" + j);
             Log.d(EngineManager.LOG_TAG, "onDownloadSuccess");
+            if (TextUtils.isEmpty(BdZeusDownloadHelper.e)) {
+                return;
+            }
             BdZeusDownloadHelper.this.a("");
             File file = new File(BdZeusDownloadHelper.e);
             if (!file.exists()) {
@@ -122,20 +124,27 @@ public final class BdZeusDownloadHelper {
 
     private BdZeusDownloadHelper(Context context) {
         this.h = context;
+        if (this.h != null) {
+            d = this.h.getExternalFilesDir("").getAbsolutePath() + "/baidu/zeus/";
+            e = d + "updateZeus.zes";
+        }
     }
 
-    public static BdZeusDownloadHelper O(Context context) {
-        if (acT == null) {
+    public static BdZeusDownloadHelper Q(Context context) {
+        if (adl == null) {
             synchronized (BdZeusDownloadHelper.class) {
-                if (acT == null) {
-                    acT = new BdZeusDownloadHelper(context);
+                if (adl == null) {
+                    adl = new BdZeusDownloadHelper(context);
                 }
             }
         }
-        return acT;
+        return adl;
     }
 
     public static void a() {
+        if (TextUtils.isEmpty(e)) {
+            return;
+        }
         try {
             File file = new File(e);
             if (!file.exists() || file.delete()) {
@@ -150,7 +159,7 @@ public final class BdZeusDownloadHelper {
         SharedPreferences.Editor edit = this.h.getSharedPreferences(f, 0).edit();
         edit.putString("zeus_download_id", str);
         edit.commit();
-        if (TextUtils.isEmpty(str)) {
+        if (TextUtils.isEmpty(str) || TextUtils.isEmpty(d)) {
             return;
         }
         try {
@@ -177,9 +186,10 @@ public final class BdZeusDownloadHelper {
         }
         try {
             BdSailorClient sailorClient = BdSailor.getInstance().getSailorClient();
-            if (sailorClient != null) {
-                sailorClient.onDownloadTask(this.i, "", d, "updateZeus.zes", BdSailorClient.DownloadTaskType.ZEUS, new ZeusDownloadTaskListener());
+            if (sailorClient == null || TextUtils.isEmpty(d)) {
+                return;
             }
+            sailorClient.onDownloadTask(this.i, "", d, "updateZeus.zes", BdSailorClient.DownloadTaskType.ZEUS, new ZeusDownloadTaskListener());
         } catch (Throwable th) {
             th.printStackTrace();
         }

@@ -1,10 +1,12 @@
 package com.baidu.browser.sailor.platform.nativeability;
 
 import android.text.TextUtils;
+import com.baidu.browser.sailor.lightapp.BdLightappConstants;
 import com.baidu.browser.sailor.lightapp.BdLightappKernelJsCallback;
 import com.baidu.browser.sailor.platform.BdSailorPlatform;
 import com.baidu.down.common.intercepter.IIntercepter;
 import com.baidu.webkit.sdk.Log;
+import com.baidu.webkit.sdk.WebKitFactory;
 import java.io.File;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -14,7 +16,7 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 final class b implements Runnable {
     final /* synthetic */ String a;
-    final /* synthetic */ BdLightappKernelJsCallback acI;
+    final /* synthetic */ BdLightappKernelJsCallback acZ;
     final /* synthetic */ String b;
     final /* synthetic */ String d;
     final /* synthetic */ String e;
@@ -23,7 +25,7 @@ final class b implements Runnable {
     public b(String str, String str2, BdLightappKernelJsCallback bdLightappKernelJsCallback, String str3, String str4) {
         this.a = str;
         this.b = str2;
-        this.acI = bdLightappKernelJsCallback;
+        this.acZ = bdLightappKernelJsCallback;
         this.d = str3;
         this.e = str4;
     }
@@ -44,15 +46,15 @@ final class b implements Runnable {
                                     String string = jSONObject2.getString("key");
                                     String string2 = jSONObject2.getString("value");
                                     if (!TextUtils.isEmpty(string) && !TextUtils.isEmpty(string2)) {
-                                        fVar.acM.append((CharSequence) ("--" + fVar.a)).append((CharSequence) "\r\n");
-                                        fVar.acM.append((CharSequence) ("Content-Disposition: form-data; name=\"" + string + "\"")).append((CharSequence) "\r\n");
-                                        fVar.acM.append((CharSequence) ("Content-Type: text/plain; charset=" + fVar.b)).append((CharSequence) "\r\n");
-                                        fVar.acM.append((CharSequence) "\r\n");
-                                        fVar.acM.append((CharSequence) string2).append((CharSequence) "\r\n");
-                                        fVar.acM.flush();
+                                        fVar.ade.append((CharSequence) ("--" + fVar.a)).append((CharSequence) "\r\n");
+                                        fVar.ade.append((CharSequence) ("Content-Disposition: form-data; name=\"" + string + "\"")).append((CharSequence) "\r\n");
+                                        fVar.ade.append((CharSequence) ("Content-Type: text/plain; charset=" + fVar.b)).append((CharSequence) "\r\n");
+                                        fVar.ade.append((CharSequence) "\r\n");
+                                        fVar.ade.append((CharSequence) string2).append((CharSequence) "\r\n");
+                                        fVar.ade.flush();
                                     }
                                 } catch (JSONException e) {
-                                    this.acI.sendCallBackWithRetCode(1);
+                                    this.acZ.sendCallBackWithRetCode(1);
                                     Log.d("BdWebappNativeAbility", e.getMessage());
                                 }
                             }
@@ -65,10 +67,13 @@ final class b implements Runnable {
                                 String string4 = jSONObject3.getString("value");
                                 if (!TextUtils.isEmpty(string3) && !TextUtils.isEmpty(string4)) {
                                     File file = new File(string4);
-                                    if (com.baidu.browser.sailor.feature.a.d.a(BdSailorPlatform.getInstance().getAppContext().getCacheDir(), file)) {
+                                    File file2 = new File(BdSailorPlatform.getInstance().getAppContext().getCacheDir(), BdLightappConstants.PLUGIN_PACKAGE_NAME);
+                                    File file3 = WebKitFactory.getContext() != null ? new File(WebKitFactory.getContext().getExternalFilesDir(""), "/baidu/SearchBox/com.baidu.searchbox.plugins.xsearch") : null;
+                                    String absolutePath = file.getAbsolutePath();
+                                    if (absolutePath.startsWith(file2.getAbsolutePath()) || (file3 != null && absolutePath.startsWith(file3.getAbsolutePath()))) {
                                         fVar.a(string3, file);
                                     } else if (!com.baidu.browser.sailor.util.b.a(this.e, file)) {
-                                        this.acI.sendCallBackWithRetCode(4);
+                                        this.acZ.sendCallBackWithRetCode(4);
                                         return;
                                     } else {
                                         fVar.a(string3, file);
@@ -77,11 +82,11 @@ final class b implements Runnable {
                             }
                         }
                     } catch (JSONException e2) {
-                        this.acI.sendCallBackWithRetCode(1);
+                        this.acZ.sendCallBackWithRetCode(1);
                         e2.printStackTrace();
                     }
                 } catch (IOException e3) {
-                    this.acI.sendCallBackWithRetCode(1);
+                    this.acZ.sendCallBackWithRetCode(1);
                     e3.printStackTrace();
                 }
             }
@@ -90,27 +95,27 @@ final class b implements Runnable {
                     try {
                         String str = fVar.a().get(0);
                         if (str != null) {
-                            this.acI.setResult(true);
-                            this.acI.addField(IIntercepter.TYPE_RESPONSE, str);
+                            this.acZ.setResult(true);
+                            this.acZ.addField(IIntercepter.TYPE_RESPONSE, str);
                         }
-                        this.acI.notifyResult();
+                        this.acZ.notifyResult();
                     } catch (IllegalStateException e4) {
-                        this.acI.sendCallBackWithRetCode(1);
+                        this.acZ.sendCallBackWithRetCode(1);
                         e4.printStackTrace();
                     }
                 } catch (IllegalStateException e5) {
-                    this.acI.sendCallBackWithRetCode(2);
+                    this.acZ.sendCallBackWithRetCode(2);
                     e5.printStackTrace();
                 }
             } catch (UnsupportedEncodingException e6) {
-                this.acI.sendCallBackWithRetCode(1);
+                this.acZ.sendCallBackWithRetCode(1);
                 e6.printStackTrace();
             } catch (IOException e7) {
-                this.acI.sendCallBackWithRetCode(1);
+                this.acZ.sendCallBackWithRetCode(1);
                 e7.printStackTrace();
             }
         } catch (IOException e8) {
-            this.acI.sendCallBackWithRetCode(2);
+            this.acZ.sendCallBackWithRetCode(2);
             e8.printStackTrace();
         }
     }

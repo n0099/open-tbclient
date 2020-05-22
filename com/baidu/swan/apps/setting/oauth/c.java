@@ -18,8 +18,8 @@ import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.swan.apps.a;
-import com.baidu.swan.apps.as.af;
-import com.baidu.swan.apps.as.ai;
+import com.baidu.swan.apps.aq.ag;
+import com.baidu.swan.apps.aq.aj;
 import com.baidu.swan.apps.res.widget.dialog.g;
 import com.baidu.swan.apps.setting.oauth.a.b;
 import java.util.HashMap;
@@ -33,10 +33,10 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public final class c {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final Map<String, a> csm = new HashMap();
-    private static OkHttpClient csn;
+    private static final Map<String, a> cEi = new HashMap();
+    private static OkHttpClient cEj;
 
-    public static boolean aZ(JSONObject jSONObject) {
+    public static boolean bi(JSONObject jSONObject) {
         if (jSONObject == null) {
             return false;
         }
@@ -47,7 +47,7 @@ public final class c {
         return AppRuntime.getAppContext();
     }
 
-    public static RequestBody n(Map<String, String> map) {
+    public static RequestBody q(Map<String, String> map) {
         FormBody.Builder builder = new FormBody.Builder();
         for (Map.Entry<String, String> entry : map.entrySet()) {
             String key = entry.getKey();
@@ -86,12 +86,12 @@ public final class c {
         }
     }
 
-    public static OkHttpClient ahe() {
-        if (csn != null) {
-            return csn;
+    public static OkHttpClient akx() {
+        if (cEj != null) {
+            return cEj;
         }
-        OkHttpClient build = com.baidu.swan.apps.runtime.d.akJ().akL().OM().PI().newBuilder().cookieJar(new CookieJarImpl(com.baidu.swan.apps.w.a.acl().Qi())).addNetworkInterceptor(new com.baidu.swan.apps.network.a.c()).build();
-        csn = build;
+        OkHttpClient build = com.baidu.swan.apps.runtime.d.aoB().aoD().QY().SB().newBuilder().cookieJar(new CookieJarImpl(com.baidu.swan.apps.u.a.afo().SM())).addNetworkInterceptor(new com.baidu.swan.apps.network.a.d()).build();
+        cEj = build;
         return build;
     }
 
@@ -99,7 +99,7 @@ public final class c {
         try {
             PackageInfo packageInfo = getAppContext().getPackageManager().getPackageInfo(getAppContext().getPackageName(), 64);
             if (packageInfo != null && packageInfo.signatures != null && packageInfo.signatures.length > 0) {
-                return com.baidu.swan.d.d.toMd5(packageInfo.signatures[0].toByteArray(), false);
+                return com.baidu.swan.e.e.toMd5(packageInfo.signatures[0].toByteArray(), false);
             }
             return "";
         } catch (PackageManager.NameNotFoundException e) {
@@ -113,52 +113,52 @@ public final class c {
             aVar.onResult(false);
             return;
         }
-        synchronized (csm) {
-            a aVar2 = csm.get(eVar2.id);
+        synchronized (cEi) {
+            a aVar2 = cEi.get(eVar2.id);
             if (aVar2 != null) {
                 aVar2.FD.add(aVar);
             } else {
                 a aVar3 = new a(eVar2.id);
                 aVar3.FD.add(aVar);
-                csm.put(eVar2.id, aVar3);
+                cEi.put(eVar2.id, aVar3);
                 DialogInterface.OnClickListener onClickListener = new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.setting.oauth.c.2
                     @Override // android.content.DialogInterface.OnClickListener
                     public void onClick(DialogInterface dialogInterface, int i) {
                         switch (i) {
                             case -2:
                                 c.c("onNegBtn", false);
-                                com.baidu.swan.apps.statistic.f.l("click", e.this.id, false);
-                                c.F(e.this.id, false);
+                                com.baidu.swan.apps.statistic.h.n("click", e.this.id, false);
+                                c.R(e.this.id, false);
                                 break;
                             case -1:
                                 c.c("onPosBtn", false);
-                                com.baidu.swan.apps.statistic.f.l("click", e.this.id, true);
-                                c.F(e.this.id, true);
+                                com.baidu.swan.apps.statistic.h.n("click", e.this.id, true);
+                                c.R(e.this.id, true);
                                 break;
                         }
-                        com.baidu.swan.games.u.d.qP("na_authorize_end");
+                        com.baidu.swan.games.v.d.st("na_authorize_end");
                     }
                 };
                 DialogInterface.OnCancelListener onCancelListener = new DialogInterface.OnCancelListener() { // from class: com.baidu.swan.apps.setting.oauth.c.3
                     @Override // android.content.DialogInterface.OnCancelListener
                     public void onCancel(DialogInterface dialogInterface) {
                         c.c("onCancel", false);
-                        com.baidu.swan.apps.statistic.f.l("click", e.this.id, false);
-                        c.F(e.this.id, false);
+                        com.baidu.swan.apps.statistic.h.n("click", e.this.id, false);
+                        c.R(e.this.id, false);
                     }
                 };
-                com.baidu.swan.apps.statistic.f.l("show", eVar2.id, false);
-                com.baidu.swan.games.u.d.qP("na_authorize_start");
+                com.baidu.swan.apps.statistic.h.n("show", eVar2.id, false);
+                com.baidu.swan.games.v.d.st("na_authorize_start");
                 a(context, eVar, eVar2, jSONObject, onClickListener, onCancelListener);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void F(String str, boolean z) {
+    public static void R(String str, boolean z) {
         a remove;
-        synchronized (csm) {
-            remove = csm.remove(str);
+        synchronized (cEi) {
+            remove = cEi.remove(str);
         }
         if (remove != null && !remove.FD.isEmpty()) {
             for (com.baidu.swan.apps.setting.oauth.a aVar : remove.FD) {
@@ -170,31 +170,31 @@ public final class c {
     }
 
     private static void a(Context context, com.baidu.swan.apps.runtime.e eVar, e eVar2, JSONObject jSONObject, DialogInterface.OnClickListener onClickListener, DialogInterface.OnCancelListener onCancelListener) {
-        g.a a2 = com.baidu.swan.apps.w.a.acC().a(context, eVar, eVar2, jSONObject, onClickListener);
+        g.a a2 = com.baidu.swan.apps.u.a.afF().a(context, eVar, eVar2, jSONObject, onClickListener);
         if (a2 == null) {
             if (DEBUG) {
                 throw new RuntimeException("auth dialog builder is null");
             }
             return;
         }
-        com.baidu.swan.apps.res.widget.dialog.g WT = a2.WT();
-        WT.setEnableImmersion(false);
-        WT.setOnCancelListener(onCancelListener);
-        Window window = WT.getWindow();
+        com.baidu.swan.apps.res.widget.dialog.g ZF = a2.ZF();
+        ZF.setEnableImmersion(false);
+        ZF.setOnCancelListener(onCancelListener);
+        Window window = ZF.getWindow();
         if (window != null) {
             window.setGravity(80);
-            window.setLayout(af.cl(context), -2);
+            window.setLayout(ag.cx(context), -2);
             window.setWindowAnimations(a.i.action_sheet_animation);
         }
-        SwanAppActivity akI = eVar == null ? null : eVar.akI();
-        if (akI != null && !akI.isFinishing()) {
-            WT.show();
+        SwanAppActivity aoz = eVar == null ? null : eVar.aoz();
+        if (aoz != null && !aoz.isFinishing()) {
+            ZF.show();
         }
     }
 
     @Deprecated
-    public static void j(Runnable runnable) {
-        ai.o(runnable);
+    public static void k(Runnable runnable) {
+        aj.p(runnable);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -208,25 +208,25 @@ public final class c {
         }
     }
 
-    public static JSONObject ba(JSONObject jSONObject) {
-        String PR = com.baidu.swan.apps.w.a.abZ().PR();
-        return (jSONObject == null || TextUtils.isEmpty(PR)) ? jSONObject : jSONObject.optJSONObject(PR);
+    public static JSONObject bj(JSONObject jSONObject) {
+        String RQ = com.baidu.swan.apps.u.a.afd().RQ();
+        return (jSONObject == null || TextUtils.isEmpty(RQ)) ? jSONObject : jSONObject.optJSONObject(RQ);
     }
 
     public static boolean b(h<b.d> hVar) {
-        return hVar != null && hVar.isOk() && hVar.mData.cst;
+        return hVar != null && hVar.isOk() && hVar.mData.cEq;
     }
 
     public static void a(int i, CallbackHandler callbackHandler, String str) {
         if (!TextUtils.isEmpty(str)) {
-            String gv = gv(i);
-            callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(i, gv).toString());
-            com.baidu.swan.apps.console.c.w("OAuthUtils", "authorize failed : " + gv);
+            String gM = gM(i);
+            callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(i, gM).toString());
+            com.baidu.swan.apps.console.c.w("OAuthUtils", "authorize failed : " + gM);
         }
     }
 
     public static void a(h<b.d> hVar, CallbackHandler callbackHandler, String str) {
-        if (hVar == null || hVar.amE() == null) {
+        if (hVar == null || hVar.aqH() == null) {
             com.baidu.swan.apps.console.c.e("OAuthUtils", "authorize failed : result is invalid");
         } else {
             a(hVar.getErrorCode(), callbackHandler, str);
@@ -234,21 +234,21 @@ public final class c {
     }
 
     public static void a(h<b.d> hVar, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity) {
-        if (hVar == null || hVar.amE() == null) {
+        if (hVar == null || hVar.aqH() == null) {
             com.baidu.swan.apps.console.c.e("OAuthUtils", "authorize failed : result is invalid");
             return;
         }
         int errorCode = hVar.getErrorCode();
-        String gv = gv(errorCode);
-        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(errorCode, gv));
-        com.baidu.swan.apps.console.c.w("OAuthUtils", "authorize failed : " + gv);
+        String gM = gM(errorCode);
+        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(errorCode, gM));
+        com.baidu.swan.apps.console.c.w("OAuthUtils", "authorize failed : " + gM);
     }
 
     public static void a(com.baidu.swan.apps.setting.b.a aVar, CallbackHandler callbackHandler, String str) {
         int i;
-        if (aVar != null && aVar.ctA != null) {
+        if (aVar != null && aVar.cFu != null) {
             try {
-                i = (int) aVar.ctA.aor();
+                i = (int) aVar.cFu.asM();
             } catch (ClassCastException e) {
                 if (DEBUG) {
                     Log.e("OAuthUtils", e.toString());
@@ -261,7 +261,7 @@ public final class c {
         }
     }
 
-    public static String gv(int i) {
+    public static String gM(int i) {
         String str;
         switch (i) {
             case 10001:
@@ -293,6 +293,6 @@ public final class c {
     }
 
     public static void release() {
-        csm.clear();
+        cEi.clear();
     }
 }

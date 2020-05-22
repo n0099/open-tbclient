@@ -9,41 +9,40 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.card.ad;
-import com.baidu.card.af;
-import com.baidu.card.w;
+import com.baidu.card.ae;
+import com.baidu.card.ag;
+import com.baidu.card.x;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.al;
+import com.baidu.tbadk.core.data.ak;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.an;
-import com.baidu.tbadk.core.util.x;
 import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
 /* loaded from: classes9.dex */
-public class n extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.concern.b.b, af<com.baidu.tieba.homepage.concern.b.b>> implements com.baidu.tieba.a.f {
-    private String aeB;
-    private com.baidu.adp.widget.ListView.r ahy;
-    public BdUniqueId ebA;
-    private NEGFeedBackView.a fsJ;
+public class n extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.concern.b.b, ag<com.baidu.tieba.homepage.concern.b.b>> implements com.baidu.tieba.a.f {
+    private String aeX;
+    private com.baidu.adp.widget.ListView.t aib;
+    public BdUniqueId epM;
+    private NEGFeedBackView.a fGB;
     private TbPageContext<?> mPageContext;
 
     public n(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.fsJ = new NEGFeedBackView.a() { // from class: com.baidu.tieba.homepage.concern.a.n.1
+        this.fGB = new NEGFeedBackView.a() { // from class: com.baidu.tieba.homepage.concern.a.n.1
             @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.a
-            public void b(al alVar) {
+            public void b(ak akVar) {
             }
 
             @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.a
-            public void a(al alVar, CompoundButton compoundButton, boolean z) {
+            public void a(ak akVar, CompoundButton compoundButton, boolean z) {
             }
 
             @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.a
-            public void a(ArrayList<Integer> arrayList, String str, al alVar) {
-                if (arrayList != null && alVar != null) {
+            public void a(ArrayList<Integer> arrayList, String str, ak akVar) {
+                if (arrayList != null && akVar != null) {
                     CustomMessage customMessage = new CustomMessage(2921425, n.this.mPageContext.getUniqueId());
                     CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921425);
                     customResponsedMessage.setOrginalMessage(customMessage);
@@ -56,53 +55,53 @@ public class n extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
         this.mPageContext = tbPageContext;
     }
 
-    public void a(com.baidu.adp.widget.ListView.r rVar) {
-        this.ahy = rVar;
+    public void a(com.baidu.adp.widget.ListView.t tVar) {
+        this.aib = tVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aA */
-    public af b(ViewGroup viewGroup) {
-        ad.a aVar = new ad.a(this.mPageContext.getPageActivity(), false);
-        aVar.c(new com.baidu.tieba.homepage.concern.view.d(this.mPageContext, this.ebA));
-        aVar.rB().bh(0);
-        aVar.rB().bj(0);
-        aVar.rB().bi(0);
-        aVar.rB().bd(0);
-        af afVar = new af(aVar.a(true, viewGroup, this.ahy));
-        afVar.setPageId(this.ebA);
-        w aF = afVar.aF(false);
-        aF.a(this.fsJ);
-        aF.setAutoProcess(false);
-        aF.setHeadText(this.mContext.getString(R.string.concern_recommend_dialog_title));
-        aF.aD(true);
-        return afVar;
+    /* renamed from: aM */
+    public ag b(ViewGroup viewGroup) {
+        ae.a aVar = new ae.a(this.mPageContext.getPageActivity(), false);
+        aVar.c(new com.baidu.tieba.homepage.concern.view.b(this.mPageContext, this.epM));
+        aVar.rK().bi(0);
+        aVar.rK().bk(0);
+        aVar.rK().bj(0);
+        aVar.rK().be(0);
+        ag agVar = new ag(aVar.a(true, viewGroup, this.aib));
+        agVar.setPageId(this.epM);
+        x aH = agVar.aH(false);
+        aH.a(this.fGB);
+        aH.setAutoProcess(false);
+        aH.setHeadText(this.mContext.getString(R.string.concern_recommend_dialog_title));
+        aH.aF(true);
+        return agVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.homepage.concern.b.b bVar, af<com.baidu.tieba.homepage.concern.b.b> afVar) {
-        if (bVar == null || afVar == null || afVar.getView() == null) {
+    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.homepage.concern.b.b bVar, ag<com.baidu.tieba.homepage.concern.b.b> agVar) {
+        if (bVar == null || agVar == null || agVar.getView() == null) {
             return null;
         }
         an anVar = new an("c13565");
-        anVar.af("obj_source", bVar.bYd() ? 1 : 2);
-        com.baidu.tieba.card.r.bEX().e(anVar);
-        afVar.rD().setPosition(i);
-        if (afVar.rD() instanceof com.baidu.tieba.a.e) {
-            afVar.rD().setPage(this.aeB);
+        anVar.ag("obj_source", bVar.ceB() ? 1 : 2);
+        com.baidu.tieba.card.s.bLq().e(anVar);
+        agVar.rM().setPosition(i);
+        if (agVar.rM() instanceof com.baidu.tieba.a.e) {
+            agVar.rM().setPage(this.aeX);
         }
-        afVar.b((af<com.baidu.tieba.homepage.concern.b.b>) bVar);
-        afVar.rD().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        return afVar.getView();
+        agVar.b((ag<com.baidu.tieba.homepage.concern.b.b>) bVar);
+        agVar.rM().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        return agVar.getView();
     }
 
     /* loaded from: classes9.dex */
     private class a extends BdAsyncTask<Integer, Integer, String> {
-        private x mNetwork;
+        private com.baidu.tbadk.core.util.x mNetwork;
 
         private a() {
             this.mNetwork = null;
@@ -113,11 +112,11 @@ public class n extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public String doInBackground(Integer... numArr) {
             try {
-                this.mNetwork = new x();
+                this.mNetwork = new com.baidu.tbadk.core.util.x();
                 this.mNetwork.setUrl(TbConfig.SERVER_ADDRESS + TbConfig.CONCERN_RECOMMEND_FEEDBACK);
                 this.mNetwork.addPostData("dislike_from", "concernpage");
                 this.mNetwork.addPostData("dislike_type", "1");
-                this.mNetwork.aOw().aOW().mIsNeedTbs = true;
+                this.mNetwork.aUA().aVa().mIsNeedTbs = true;
                 return this.mNetwork.postNetData();
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
@@ -143,7 +142,7 @@ public class n extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     }
 
     @Override // com.baidu.tieba.a.f
-    public void yf(String str) {
-        this.aeB = str;
+    public void zL(String str) {
+        this.aeX = str;
     }
 }

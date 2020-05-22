@@ -8,9 +8,13 @@ import java.util.HashMap;
 import java.util.UUID;
 /* loaded from: classes8.dex */
 public final class t {
-    private static SharedPreferences akv;
+    private static SharedPreferences alb;
     private static HashMap<String, String> bt = null;
     private static Context mContext;
+
+    public static String T() {
+        return bt != null ? com.baidu.crabsdk.sender.i.c(bt) : "";
+    }
 
     public static void a(HashMap<String, String> hashMap) {
         if (bt == null) {
@@ -22,61 +26,57 @@ public final class t {
 
     public static void d(String str) {
         com.baidu.crabsdk.a.c = str;
-        if (akv == null && mContext != null) {
-            akv = mContext.getSharedPreferences("crab_user_info", 0);
+        if (alb == null && mContext != null) {
+            alb = mContext.getSharedPreferences("crab_user_info", 0);
         }
-        if (akv == null || TextUtils.isEmpty(str)) {
+        if (alb == null || TextUtils.isEmpty(str)) {
             return;
         }
-        com.baidu.crabsdk.c.c.a(akv.edit().putString(TbEnum.SystemMessage.KEY_USER_ID, str), false);
+        com.baidu.crabsdk.c.c.a(alb.edit().putString(TbEnum.SystemMessage.KEY_USER_ID, str), false);
     }
 
     public static void e(Context context) {
         if (mContext == null) {
             mContext = context;
-            akv = context.getSharedPreferences("crab_user_info", 0);
+            alb = context.getSharedPreferences("crab_user_info", 0);
         }
     }
 
     public static String getUserName() {
-        return akv != null ? akv.getString(TbEnum.SystemMessage.KEY_USER_NAME, "") : "";
+        return alb != null ? alb.getString(TbEnum.SystemMessage.KEY_USER_NAME, "") : "";
     }
 
-    public static String sG() {
+    public static String sP() {
         if (!TextUtils.isEmpty(com.baidu.crabsdk.a.c)) {
-            com.baidu.crabsdk.c.a.de("uid is which user setted " + com.baidu.crabsdk.a.c);
+            com.baidu.crabsdk.c.a.dg("uid is which user setted " + com.baidu.crabsdk.a.c);
             return com.baidu.crabsdk.a.c;
         } else if (mContext == null) {
             com.baidu.crabsdk.c.a.w("get SharedPreferences error because context is null for unknown reasons!!!");
             return "N/A";
         } else {
-            if (akv == null) {
-                akv = mContext.getSharedPreferences("crab_user_info", 0);
+            if (alb == null) {
+                alb = mContext.getSharedPreferences("crab_user_info", 0);
             }
-            String string = akv.getString(TbEnum.SystemMessage.KEY_USER_ID, "");
+            String string = alb.getString(TbEnum.SystemMessage.KEY_USER_ID, "");
             if (TextUtils.isEmpty(string)) {
                 string = UUID.randomUUID().toString();
-                com.baidu.crabsdk.c.c.a(akv.edit().putString(TbEnum.SystemMessage.KEY_USER_ID, string), false);
+                com.baidu.crabsdk.c.c.a(alb.edit().putString(TbEnum.SystemMessage.KEY_USER_ID, string), false);
             }
-            com.baidu.crabsdk.c.a.de("uid is UUID " + string);
+            com.baidu.crabsdk.c.a.dg("uid is UUID " + string);
             return string;
         }
     }
 
-    public static HashMap<String, String> sH() {
+    public static HashMap<String, String> sQ() {
         if (bt == null) {
             bt = new HashMap<>();
         }
         return bt;
     }
 
-    public static String sI() {
-        return bt != null ? com.baidu.crabsdk.sender.i.c(bt) : "";
-    }
-
     public static void setUserName(String str) {
-        if (akv != null) {
-            com.baidu.crabsdk.c.c.a(akv.edit().putString(TbEnum.SystemMessage.KEY_USER_NAME, str), false);
+        if (alb != null) {
+            com.baidu.crabsdk.c.c.a(alb.edit().putString(TbEnum.SystemMessage.KEY_USER_NAME, str), false);
         }
     }
 }

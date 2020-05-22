@@ -2,164 +2,140 @@ package com.baidu.swan.apps.swancore.d;
 
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.swan.apps.aq.ac;
+import com.baidu.swan.apps.aq.n;
+import com.baidu.swan.apps.extcore.cores.SwanAppCores;
+import com.baidu.swan.apps.process.messaging.service.c;
 import com.baidu.swan.apps.storage.c.h;
 import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
-import com.baidu.swan.d.c;
-import com.baidu.swan.d.d;
+import com.baidu.swan.e.d;
+import com.baidu.swan.e.e;
 import java.io.File;
 import java.util.ArrayList;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.Arrays;
 /* loaded from: classes11.dex */
-public final class a {
+public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static C0350a cvl;
-    private static C0350a cvm;
 
-    public static void i(boolean z, int i) {
-        h.any().putBoolean(gM(i), z);
-    }
-
-    public static boolean gL(int i) {
-        return h.any().getBoolean(gM(i), false) || !h(i, gN(i)).isAvailable();
-    }
-
-    private static String gM(int i) {
-        return i == 1 ? "aigames_preset_update_key" : "aiapps_preset_update_key";
-    }
-
-    public static long gN(int i) {
-        return h.any().getLong(gR(i), 0L);
-    }
-
-    public static C0350a gO(int i) {
-        return i == 1 ? anI() : anJ();
-    }
-
-    private static C0350a anI() {
-        if (cvm == null) {
-            cvm = C0350a.c(gT(1), 1);
-        }
-        return cvm;
-    }
-
-    private static C0350a anJ() {
-        if (cvl == null) {
-            cvl = C0350a.c(gT(0), 0);
-        }
-        return cvl;
-    }
-
-    public static synchronized void gP(int i) {
-        synchronized (a.class) {
-            if (DEBUG) {
-                Log.d("PresetSwanCoreControl", "onPresetUpdate start.");
-            }
-            if (gL(i)) {
-                C0350a gO = gO(i);
-                long j = h.any().getLong(gQ(i), 0L);
-                long nB = com.baidu.swan.apps.swancore.b.nB(gO.cvn);
-                if (DEBUG) {
-                    Log.d("PresetSwanCoreControl", "onPresetUpdate curVer: " + j + " newVer: " + nB);
-                }
-                d(nB, i);
-                if (DEBUG) {
-                    Log.d("PresetSwanCoreControl", "onPresetUpdate end.");
-                }
-            }
-        }
-    }
-
-    public static void d(long j, int i) {
+    public static C0392a c(String str, String str2, String str3, int i) {
         if (DEBUG) {
-            Log.d("PresetSwanCoreControl", "doPresetUpdate.");
+            Log.d("RemoteSwanCoreControl", "doRemoteUpdate start.");
+            Log.d("RemoteSwanCoreControl", "doRemoteUpdate version: " + str + " ,filePath: " + str2 + " ,sign:" + str3);
         }
-        if (c.cu(gQ(i), e(j, i).getPath())) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(Long.valueOf(j));
-            com.baidu.swan.apps.swancore.b.b(gS(i), arrayList);
-            h.any().putLong(gR(i), j);
-            i(false, i);
-            if (DEBUG) {
-                String md5 = d.toMd5(new File(gQ(i)), false);
-                if (!TextUtils.isEmpty(md5)) {
-                    h.any().putString(com.baidu.swan.apps.swancore.a.gA(i), md5);
-                }
+        long pi = com.baidu.swan.apps.swancore.b.pi(str);
+        if (pi == 0) {
+            return C0392a.pj("invalid version code : " + str);
+        }
+        if (!ac.e(new File(str2), str3)) {
+            return C0392a.pj("sign failed.");
+        }
+        if (!d.unzipFile(str2, g(pi, i).getPath())) {
+            return C0392a.pj("unzip bundle failed.");
+        }
+        if (DEBUG) {
+            String md5 = e.toMd5(new File(str2), false);
+            if (!TextUtils.isEmpty(md5)) {
+                h.arO().putString(com.baidu.swan.apps.swancore.a.gU(i), md5);
             }
-        } else if (DEBUG) {
-            Log.e("PresetSwanCoreControl", "doPresetUpdate unzip failed: " + Log.getStackTraceString(new Exception()));
         }
+        if (ProcessUtils.isMainProcess()) {
+            com.baidu.swan.apps.swancore.b.b(hs(i), o(hq(i), pi));
+        }
+        f(pi, i);
+        if (DEBUG) {
+            Log.d("RemoteSwanCoreControl", "doRemoteUpdate end. version = " + pi);
+        }
+        return C0392a.asc();
     }
 
-    public static SwanCoreVersion h(int i, long j) {
+    private static ArrayList<Long> o(long j, long j2) {
+        SwanCoreVersion abG;
+        ArrayList<Long> arrayList = new ArrayList<>();
+        if (j != 0) {
+            arrayList.add(Long.valueOf(j));
+        }
+        arrayList.add(Long.valueOf(j2));
+        for (c cVar : com.baidu.swan.apps.process.messaging.service.e.anp().anr()) {
+            SwanAppCores anf = cVar.anf();
+            if (cVar.ang() && anf != null && (abG = anf.abG()) != null && !arrayList.contains(Long.valueOf(abG.swanCoreVersion))) {
+                arrayList.add(Long.valueOf(abG.swanCoreVersion));
+            }
+        }
+        arrayList.addAll(com.baidu.swan.mini.a.aFj());
+        if (DEBUG) {
+            Log.d("RemoteSwanCoreControl", "SwanCoreVersion usedVersions: " + Arrays.toString(arrayList.toArray()));
+        }
+        return arrayList;
+    }
+
+    public static SwanCoreVersion i(int i, long j) {
         SwanCoreVersion swanCoreVersion = new SwanCoreVersion();
-        swanCoreVersion.swanCorePath = e(j, i).getPath();
-        swanCoreVersion.swanCoreType = 0;
+        swanCoreVersion.swanCorePath = g(j, i).getPath();
+        swanCoreVersion.swanCoreType = 1;
         swanCoreVersion.swanCoreVersion = j;
         return swanCoreVersion;
     }
 
-    private static String gQ(int i) {
-        return i == 1 ? "aigames/game-core.zip" : "aiapps/swan-core.zip";
+    public static long hq(int i) {
+        return h.arO().getLong(hr(i), 0L);
     }
 
-    private static String gR(int i) {
-        return i == 1 ? "aigames_cur_preset_ver_key" : "aiapps_cur_preset_ver_key";
+    private static String hr(int i) {
+        return i == 1 ? "aigames_cur_remote_ver_key" : "aiapps_cur_remote_ver_key";
     }
 
-    private static File gS(int i) {
-        return new File(com.baidu.swan.apps.swancore.b.gI(i), "preset");
-    }
-
-    public static File e(long j, int i) {
-        return new File(gS(i), String.valueOf(j));
-    }
-
-    public static JSONObject gT(int i) {
-        if (DEBUG) {
-            Log.d("PresetSwanCoreControl", "readPresetConfig start.");
-        }
-        String readAssetData = c.readAssetData(AppRuntime.getAppContext(), gU(i));
-        if (TextUtils.isEmpty(readAssetData)) {
-            if (DEBUG) {
-                throw new RuntimeException("empty preset json.");
+    private static void f(final long j, final int i) {
+        h.arO().putLong(hr(i), j);
+        n.postOnIO(new Runnable() { // from class: com.baidu.swan.apps.swancore.d.a.1
+            @Override // java.lang.Runnable
+            public void run() {
+                try {
+                    com.baidu.swan.apps.swancore.a.arP().c(j, i);
+                } catch (Exception e) {
+                    if (a.DEBUG) {
+                        e.printStackTrace();
+                    }
+                }
             }
-            return null;
-        }
-        try {
-            JSONObject jSONObject = new JSONObject(readAssetData);
-            if (DEBUG) {
-                Log.d("PresetSwanCoreControl", "readPresetConfig end. config: " + jSONObject.toString());
-            }
-            return jSONObject;
-        } catch (JSONException e) {
-            if (DEBUG) {
-                throw new RuntimeException(e);
-            }
-            return null;
-        }
+        }, "cacheSwanCoreInfo");
     }
 
-    private static String gU(int i) {
-        return i == 1 ? "aigames/game-config.json" : "aiapps/swan-config.json";
+    private static File hs(int i) {
+        return new File(com.baidu.swan.apps.swancore.b.hc(i), "remote");
+    }
+
+    public static File g(long j, int i) {
+        return new File(hs(i), String.valueOf(j));
     }
 
     /* renamed from: com.baidu.swan.apps.swancore.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public static class C0350a {
-        public String cvn;
+    public static class C0392a {
+        public String message;
+        public int statusCode = 0;
 
-        public static C0350a c(JSONObject jSONObject, int i) {
-            C0350a c0350a = new C0350a();
-            if (jSONObject != null) {
-                c0350a.cvn = jSONObject.optString(gD(i));
-            }
-            return c0350a;
+        public boolean isOk() {
+            return this.statusCode == 0;
         }
 
-        private static String gD(int i) {
-            return i == 1 ? "game-core-version" : "swan-core-version";
+        public static C0392a asc() {
+            return U(0, "");
+        }
+
+        public static C0392a pj(String str) {
+            return U(1, str);
+        }
+
+        public static C0392a U(int i, String str) {
+            C0392a c0392a = new C0392a();
+            c0392a.statusCode = i;
+            c0392a.message = str;
+            return c0392a;
+        }
+
+        public String toString() {
+            return "RemoteCoreUpdateStatus{statusCode=" + this.statusCode + ", message='" + this.message + "'}";
         }
     }
 }

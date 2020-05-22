@@ -16,7 +16,7 @@ public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personPol
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: ax */
+    /* renamed from: aG */
     public com.baidu.tieba.card.a.a<com.baidu.tieba.personPolymeric.view.e> b(ViewGroup viewGroup) {
         return new com.baidu.tieba.card.a.a<>(new com.baidu.tieba.personPolymeric.view.e(this.mPageContext));
     }
@@ -25,10 +25,10 @@ public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personPol
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.personPolymeric.c.g gVar, com.baidu.tieba.card.a.a<com.baidu.tieba.personPolymeric.view.e> aVar) {
-        if (aVar == null || aVar.bFA() == null || gVar == null) {
+        if (aVar == null || aVar.bLU() == null || gVar == null) {
             return null;
         }
-        aVar.bFA().a(gVar);
-        return aVar.bFA().getView();
+        aVar.bLU().a(gVar);
+        return aVar.bLU().getView();
     }
 }

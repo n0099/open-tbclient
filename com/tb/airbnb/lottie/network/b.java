@@ -4,6 +4,7 @@ import android.content.Context;
 import android.support.annotation.Nullable;
 import android.support.annotation.WorkerThread;
 import android.support.v4.util.Pair;
+import com.baidu.android.imsdk.utils.HttpHelper;
 import com.tb.airbnb.lottie.c;
 import com.tb.airbnb.lottie.d;
 import com.tb.airbnb.lottie.e;
@@ -22,72 +23,72 @@ import java.util.zip.ZipInputStream;
 /* loaded from: classes6.dex */
 public class b {
     private final Context appContext;
-    private final a mQt;
+    private final a nkw;
     private final String url;
 
-    public static l<d> bd(Context context, String str) {
-        return new b(context, str).dCf();
+    public static l<d> be(Context context, String str) {
+        return new b(context, str).dJy();
     }
 
     private b(Context context, String str) {
         this.appContext = context.getApplicationContext();
         this.url = str;
-        this.mQt = new a(this.appContext, str);
+        this.nkw = new a(this.appContext, str);
     }
 
-    private l<d> dCf() {
+    private l<d> dJy() {
         return new l<>(new Callable<k<d>>() { // from class: com.tb.airbnb.lottie.network.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.concurrent.Callable
-            /* renamed from: dBb */
+            /* renamed from: dIu */
             public k<d> call() throws Exception {
-                return b.this.dCg();
+                return b.this.dJz();
             }
         });
     }
 
     @WorkerThread
-    public k<d> dCg() {
-        d dCh = dCh();
-        if (dCh != null) {
-            return new k<>(dCh);
+    public k<d> dJz() {
+        d dJA = dJA();
+        if (dJA != null) {
+            return new k<>(dJA);
         }
         c.debug("Animation for " + this.url + " not found in cache. Fetching from network.");
-        return dCi();
+        return dJB();
     }
 
     @WorkerThread
     @Nullable
-    private d dCh() {
-        k<d> i;
-        Pair<FileExtension, InputStream> iU = this.mQt.iU();
+    private d dJA() {
+        k<d> j;
+        Pair<FileExtension, InputStream> iU = this.nkw.iU();
         if (iU == null) {
             return null;
         }
         FileExtension fileExtension = iU.first;
         InputStream inputStream = iU.second;
         if (fileExtension == FileExtension.Zip) {
-            i = e.c(new ZipInputStream(inputStream), this.url);
+            j = e.c(new ZipInputStream(inputStream), this.url);
         } else {
-            i = e.i(inputStream, this.url);
+            j = e.j(inputStream, this.url);
         }
-        if (i.getValue() != null) {
-            return i.getValue();
+        if (j.getValue() != null) {
+            return j.getValue();
         }
         return null;
     }
 
     @WorkerThread
-    private k<d> dCi() {
+    private k<d> dJB() {
         try {
-            return dCj();
+            return dJC();
         } catch (IOException e) {
             return new k<>(e);
         }
     }
 
     @WorkerThread
-    private k dCj() throws IOException {
+    private k dJC() throws IOException {
         FileExtension fileExtension;
         k<d> c;
         c.debug("Fetching " + this.url);
@@ -116,7 +117,7 @@ public class b {
                     }
                     break;
                 case -43840953:
-                    if (contentType.equals("application/json")) {
+                    if (contentType.equals(HttpHelper.CONTENT_JSON)) {
                         c2 = 1;
                         break;
                     }
@@ -126,16 +127,16 @@ public class b {
                 case 0:
                     c.debug("Handling zip response.");
                     fileExtension = FileExtension.Zip;
-                    c = e.c(new ZipInputStream(new FileInputStream(this.mQt.a(httpURLConnection.getInputStream(), fileExtension))), this.url);
+                    c = e.c(new ZipInputStream(new FileInputStream(this.nkw.a(httpURLConnection.getInputStream(), fileExtension))), this.url);
                     break;
                 default:
                     c.debug("Received json response.");
                     fileExtension = FileExtension.Json;
-                    c = e.i(new FileInputStream(new File(this.mQt.a(httpURLConnection.getInputStream(), fileExtension).getAbsolutePath())), this.url);
+                    c = e.j(new FileInputStream(new File(this.nkw.a(httpURLConnection.getInputStream(), fileExtension).getAbsolutePath())), this.url);
                     break;
             }
             if (c.getValue() != null) {
-                this.mQt.a(fileExtension);
+                this.nkw.a(fileExtension);
             }
             c.debug("Completed fetch from network. Success: " + (c.getValue() != null));
             return c;

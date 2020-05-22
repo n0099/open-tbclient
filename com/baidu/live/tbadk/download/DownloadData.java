@@ -38,6 +38,7 @@ public class DownloadData implements Serializable, Cloneable {
     private long length;
     private Object mExtraData;
     private String name;
+    private Object netErrorJson;
     private int notifyId;
     private String path;
     private int position;
@@ -288,6 +289,14 @@ public class DownloadData implements Serializable, Cloneable {
 
     public void setErrorCode(int i) {
         this.errorCode = i;
+    }
+
+    public Object getNetErrorJson() {
+        return this.netErrorJson;
+    }
+
+    public void setNetErrorJson(Object obj) {
+        this.netErrorJson = obj;
     }
 
     public int getProcess() {

@@ -12,8 +12,8 @@ import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.adp.framework.message.HttpMessage;
 import com.baidu.live.adp.framework.message.HttpResponsedMessage;
 import com.baidu.live.adp.framework.task.CustomMessageTask;
-import com.baidu.live.data.as;
-import com.baidu.live.data.v;
+import com.baidu.live.data.ax;
+import com.baidu.live.data.y;
 import com.baidu.live.message.AlaSyncHttpResponseMessage;
 import com.baidu.live.message.LiveSyncHttpResponseMessage;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
@@ -23,11 +23,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class a {
-    private static volatile a aRA;
-    public v aQu;
-    public as aRB;
-    private boolean aRC;
-    private boolean aRD;
+    private static volatile a aYO;
+    public y aWF;
+    public ax aYP;
+    private boolean aYQ;
+    private boolean aYR;
     private HttpMessageListener syncListener = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_SYNC) { // from class: com.baidu.live.v.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
@@ -35,44 +35,44 @@ public class a {
             if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021011 && (httpResponsedMessage instanceof AlaSyncHttpResponseMessage)) {
                 if (httpResponsedMessage.getError() == 0) {
                     AlaSyncHttpResponseMessage alaSyncHttpResponseMessage = (AlaSyncHttpResponseMessage) httpResponsedMessage;
-                    if (alaSyncHttpResponseMessage.DQ() != null) {
-                        a.this.aQu = alaSyncHttpResponseMessage.DQ();
-                        a.this.aRC = true;
+                    if (alaSyncHttpResponseMessage.Fo() != null) {
+                        a.this.aWF = alaSyncHttpResponseMessage.Fo();
+                        a.this.aYQ = true;
                     }
                 }
-                if (a.this.aQu != null) {
-                    TbadkCoreApplication.getInst().setAlaMenuToast(a.this.aQu.arf);
-                    TbadkCoreApplication.getInst().setAlaToastShowType(a.this.aQu.are);
+                if (a.this.aWF != null) {
+                    TbadkCoreApplication.getInst().setAlaMenuToast(a.this.aWF.awe);
+                    TbadkCoreApplication.getInst().setAlaToastShowType(a.this.aWF.awd);
                 }
             }
         }
     };
-    private HttpMessageListener aRE = new HttpMessageListener(1021132) { // from class: com.baidu.live.v.a.2
+    private HttpMessageListener aYS = new HttpMessageListener(1021132) { // from class: com.baidu.live.v.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021132 && (httpResponsedMessage instanceof LiveSyncHttpResponseMessage)) {
                 if (httpResponsedMessage.getError() == 0) {
                     LiveSyncHttpResponseMessage liveSyncHttpResponseMessage = (LiveSyncHttpResponseMessage) httpResponsedMessage;
-                    if (liveSyncHttpResponseMessage.DW() != null) {
-                        a.this.aRB = liveSyncHttpResponseMessage.DW();
-                        a.this.aRD = true;
+                    if (liveSyncHttpResponseMessage.Fu() != null) {
+                        a.this.aYP = liveSyncHttpResponseMessage.Fu();
+                        a.this.aYR = true;
                     }
                 }
             }
         }
     };
-    CustomMessageTask.CustomRunnable aRF = new CustomMessageTask.CustomRunnable() { // from class: com.baidu.live.v.a.3
+    CustomMessageTask.CustomRunnable aYT = new CustomMessageTask.CustomRunnable() { // from class: com.baidu.live.v.a.3
         @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
         public CustomResponsedMessage<String> run(CustomMessage customMessage) {
             JSONObject jSONObject = new JSONObject();
             try {
-                if (a.this.aQu != null && !TextUtils.isEmpty(a.this.aQu.atg) && !TextUtils.isEmpty(a.this.aQu.atf) && a.this.aQu.ate == 1) {
-                    jSONObject.putOpt("photo_url", a.this.aQu.atg);
-                    jSONObject.putOpt("resource_url", a.this.aQu.atf);
+                if (a.this.aWF != null && !TextUtils.isEmpty(a.this.aWF.ayg) && !TextUtils.isEmpty(a.this.aWF.ayf) && a.this.aWF.aye == 1) {
+                    jSONObject.putOpt("photo_url", a.this.aWF.ayg);
+                    jSONObject.putOpt("resource_url", a.this.aWF.ayf);
                 }
-                if (a.this.aRB != null && a.this.aRB.avx != null && a.this.aRB.avx.vb() && (TbadkCoreApplication.getInst().isHaokan() || TbadkCoreApplication.getInst().isQuanmin())) {
-                    jSONObject.putOpt("general_exchange_homepage_url", a.this.aRB.avx.vc());
+                if (a.this.aYP != null && a.this.aYP.aAF != null && a.this.aYP.aAF.wq() && (TbadkCoreApplication.getInst().isHaokan() || TbadkCoreApplication.getInst().isQuanmin())) {
+                    jSONObject.putOpt("general_exchange_homepage_url", a.this.aYP.aAF.wr());
                 }
                 return new CustomResponsedMessage<>(CmdConfigCustom.CMS_TBEAN_RESOURCE_URL_AND_PHOTO, jSONObject.toString());
             } catch (JSONException e) {
@@ -81,38 +81,38 @@ public class a {
         }
     };
 
-    public static a En() {
-        if (aRA == null) {
+    public static a Ge() {
+        if (aYO == null) {
             synchronized (a.class) {
-                if (aRA == null) {
-                    aRA = new a();
+                if (aYO == null) {
+                    aYO = new a();
                 }
             }
         }
-        return aRA;
+        return aYO;
     }
 
     private a() {
         MessageManager.getInstance().registerListener(this.syncListener);
-        MessageManager.getInstance().registerListener(this.aRE);
-        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMS_TBEAN_RESOURCE_URL_AND_PHOTO, this.aRF);
+        MessageManager.getInstance().registerListener(this.aYS);
+        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMS_TBEAN_RESOURCE_URL_AND_PHOTO, this.aYT);
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
-        this.aQu = new v(true);
-        this.aRB = new as();
-        String string = com.baidu.live.c.tG().getString("key_live_sync_data", "");
+        this.aWF = new y(true);
+        this.aYP = new ax();
+        String string = com.baidu.live.c.uN().getString("key_live_sync_data", "");
         if (!TextUtils.isEmpty(string)) {
-            this.aRB.parserJson(string);
+            this.aYP.parserJson(string);
         }
     }
 
-    public void Eo() {
-        this.aRC = false;
-        this.aRD = false;
+    public void Gf() {
+        this.aYQ = false;
+        this.aYR = false;
     }
 
     public void b(BdUniqueId bdUniqueId) {
-        if (!this.aRC) {
+        if (!this.aYQ) {
             HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_SYNC);
             String activeVersion = TbadkCoreApplication.getInst().getActiveVersion();
             if (activeVersion != null) {
@@ -121,8 +121,8 @@ public class a {
                 }
                 httpMessage.addParam("_active", activeVersion);
             }
-            if (this.aQu.asf != null && !this.aQu.asf.isEmpty()) {
-                httpMessage.addParam("_client_id", this.aQu.asf);
+            if (this.aWF.axg != null && !this.aWF.axg.isEmpty()) {
+                httpMessage.addParam("_client_id", this.aWF.axg);
             } else {
                 httpMessage.addParam("_client_id", "0");
             }
@@ -133,8 +133,8 @@ public class a {
         }
     }
 
-    public void Ep() {
-        if (!this.aRD) {
+    public void Gg() {
+        if (!this.aYR) {
             HttpMessage httpMessage = new HttpMessage(1021132);
             String activeVersion = TbadkCoreApplication.getInst().getActiveVersion();
             if (activeVersion != null) {
@@ -144,7 +144,7 @@ public class a {
                 httpMessage.addParam("_active", activeVersion);
             }
             httpMessage.addParam(HttpConstants.DEVICE_TYPE, Build.VERSION.SDK_INT);
-            httpMessage.addParam("scene_from", q.xf());
+            httpMessage.addParam("scene_from", q.yu());
             httpMessage.addParam(HttpConstants.DEVICE_TYPE, Build.VERSION.SDK_INT);
             httpMessage.addParam("uid", TbadkCoreApplication.getCurrentAccount());
             MessageManager.getInstance().sendMessage(httpMessage);
@@ -152,7 +152,7 @@ public class a {
     }
 
     public void c(BdUniqueId bdUniqueId) {
-        if (!this.aRD) {
+        if (!this.aYR) {
             HttpMessage httpMessage = new HttpMessage(1021132);
             String activeVersion = TbadkCoreApplication.getInst().getActiveVersion();
             if (activeVersion != null) {
@@ -162,7 +162,7 @@ public class a {
                 httpMessage.addParam("_active", activeVersion);
             }
             httpMessage.addParam(HttpConstants.DEVICE_TYPE, Build.VERSION.SDK_INT);
-            httpMessage.addParam("scene_from", q.xf());
+            httpMessage.addParam("scene_from", q.yu());
             httpMessage.addParam(HttpConstants.DEVICE_TYPE, Build.VERSION.SDK_INT);
             httpMessage.addParam("uid", TbadkCoreApplication.getCurrentAccount());
             httpMessage.setTag(bdUniqueId);
@@ -170,8 +170,8 @@ public class a {
         }
     }
 
-    public boolean Eq() {
-        as asVar = En().aRB;
-        return (asVar == null || asVar.avD == null || !asVar.avD.axg || asVar.avA == null || asVar.avA.aww == null || TextUtils.isEmpty(asVar.avA.aww.awC)) ? false : true;
+    public boolean Gh() {
+        ax axVar = Ge().aYP;
+        return (axVar == null || axVar.aAL == null || !axVar.aAL.aCv || axVar.aAI == null || axVar.aAI.aBF == null || TextUtils.isEmpty(axVar.aAI.aBF.aBM)) ? false : true;
     }
 }

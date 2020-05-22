@@ -11,13 +11,13 @@ final class d {
     public static long getZipCrc(File file) throws IOException {
         RandomAccessFile randomAccessFile = new RandomAccessFile(file, "r");
         try {
-            return a(randomAccessFile, b(randomAccessFile));
+            return a(randomAccessFile, f(randomAccessFile));
         } finally {
             randomAccessFile.close();
         }
     }
 
-    static a b(RandomAccessFile randomAccessFile) throws IOException, ZipException {
+    static a f(RandomAccessFile randomAccessFile) throws IOException, ZipException {
         long length = randomAccessFile.length() - 22;
         if (length < 0) {
             throw new ZipException("File too short to be a zip file: " + randomAccessFile.length());

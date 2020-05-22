@@ -6,8 +6,8 @@ import android.os.Build;
 import android.os.Handler;
 import android.os.HandlerThread;
 import com.baidu.ala.helper.AlaLiveUtilHelper;
+import com.baidu.ala.recorder.video.gles.AFullFrameRect;
 import com.baidu.ala.recorder.video.gles.EglCore;
-import com.baidu.ala.recorder.video.gles.FullFrameRect2;
 import com.baidu.ala.recorder.video.gles.Texture2dProgram;
 import com.baidu.ala.recorder.video.gles.WindowSurface;
 import com.baidu.ala.recorder.video.hardware.VideoEncoderCore;
@@ -29,7 +29,7 @@ public class TextureEncoder {
     private long mLastOutputEncodeMS = 0;
     private VideoEncoderCore mVideoEncoder = null;
     private WindowSurface mInputWindowSurface = null;
-    private FullFrameRect2 mFullScreen = null;
+    private AFullFrameRect mFullScreen = null;
     private EglCore mEglCore = null;
 
     public TextureEncoder() {
@@ -79,6 +79,23 @@ public class TextureEncoder {
         });
     }
 
+    public static boolean isSupportBitRateOnFly() {
+        return Build.VERSION.SDK_INT >= 19;
+    }
+
+    public void updateBitrate(final int i) {
+        this.mHandler.post(new Runnable() { // from class: com.baidu.ala.recorder.video.hardware.TextureEncoder.2
+            @Override // java.lang.Runnable
+            public void run() {
+                TextureEncoder.this.doUpdateRate(i);
+            }
+        });
+    }
+
+    public void doUpdateRate(int i) {
+        this.mVideoEncoder.updateBitrate(i);
+    }
+
     /* JADX INFO: Access modifiers changed from: private */
     public void doPrepare(EGLContext eGLContext, EncodeConfig encodeConfig, VideoEncoderCore.OutputCallback outputCallback) {
         try {
@@ -87,7 +104,7 @@ public class TextureEncoder {
             this.mEglCore = new EglCore(eGLContext, 1);
             this.mInputWindowSurface = new WindowSurface(this.mEglCore, this.mVideoEncoder.getInputSurface(), true);
             this.mInputWindowSurface.makeCurrent();
-            this.mFullScreen = new FullFrameRect2(new Texture2dProgram(Texture2dProgram.ProgramType.TEXTURE_2D));
+            this.mFullScreen = new AFullFrameRect(new Texture2dProgram(Texture2dProgram.ProgramType.TEXTURE_2D));
             setVertexArray();
         } catch (Exception e) {
             e.printStackTrace();
@@ -107,7 +124,7 @@ public class TextureEncoder {
 
     public void drawFrame(final int i, final float[] fArr, final long j) {
         if (!this.mIsGoingRelase) {
-            this.mHandler.post(new Runnable() { // from class: com.baidu.ala.recorder.video.hardware.TextureEncoder.2
+            this.mHandler.post(new Runnable() { // from class: com.baidu.ala.recorder.video.hardware.TextureEncoder.3
                 @Override // java.lang.Runnable
                 public void run() {
                     TextureEncoder.this.mLastInputEncodeMS = System.currentTimeMillis();
@@ -136,7 +153,7 @@ public class TextureEncoder {
     public void release() {
         try {
             this.mIsGoingRelase = true;
-            this.mHandler.post(new Runnable() { // from class: com.baidu.ala.recorder.video.hardware.TextureEncoder.3
+            this.mHandler.post(new Runnable() { // from class: com.baidu.ala.recorder.video.hardware.TextureEncoder.4
                 @Override // java.lang.Runnable
                 public void run() {
                     TextureEncoder.this.doRelease();

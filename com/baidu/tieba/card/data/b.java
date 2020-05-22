@@ -1,6 +1,8 @@
 package com.baidu.tieba.card.data;
+
+import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
-public abstract class b implements com.baidu.adp.widget.ListView.m, com.baidu.afd.j {
+public abstract class b implements com.baidu.adp.widget.ListView.o, com.baidu.afd.j {
     public int position;
     private com.baidu.afd.i trigger;
     public boolean needTopMargin = false;
@@ -13,5 +15,10 @@ public abstract class b implements com.baidu.adp.widget.ListView.m, com.baidu.af
 
     public com.baidu.afd.i getTrigger() {
         return this.trigger;
+    }
+
+    @Override // com.baidu.adp.widget.ListView.o
+    public BdUniqueId getType() {
+        return null;
     }
 }

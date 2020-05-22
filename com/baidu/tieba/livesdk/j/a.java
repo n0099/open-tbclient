@@ -7,26 +7,26 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes3.dex */
 public class a {
-    public static void l(String str, Map<String, String> map) {
+    public static void n(String str, Map<String, String> map) {
         if (!aq.isEmpty(str)) {
             an anVar = new an(str);
             if (map != null) {
                 for (String str2 : map.keySet()) {
-                    anVar.cI(str2, map.get(str2));
+                    anVar.dh(str2, map.get(str2));
                 }
             }
             TiebaStatic.log(anVar);
         }
     }
 
-    public static void u(Map<String, String> map) {
+    public static void t(Map<String, String> map) {
         if (map != null) {
             HashMap hashMap = new HashMap();
             String remove = map.remove("key");
             for (String str : map.keySet()) {
                 hashMap.put(str, map.get(str));
             }
-            l(remove, hashMap);
+            n(remove, hashMap);
         }
     }
 }

@@ -1,5 +1,6 @@
 package com.baidubce.services.sts;
 
+import com.baidu.android.imsdk.utils.HttpHelper;
 import com.baidubce.AbstractBceClient;
 import com.baidubce.BceClientConfiguration;
 import com.baidubce.http.HttpMethodName;
@@ -38,7 +39,7 @@ public class StsClient extends AbstractBceClient {
         }
         internalRequest.setCredentials(getSessionTokenRequest.getRequestCredentials());
         internalRequest.addHeader("Content-Length", String.valueOf(getSessionTokenRequest.getAcl() != null ? getSessionTokenRequest.getAcl().length() : 0));
-        internalRequest.addHeader("Content-Type", "application/json");
+        internalRequest.addHeader("Content-Type", HttpHelper.CONTENT_JSON);
         if (getSessionTokenRequest.getAcl() != null) {
             internalRequest.setContent(RestartableInputStream.wrap(getSessionTokenRequest.getAcl().getBytes()));
         }

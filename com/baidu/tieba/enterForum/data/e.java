@@ -5,15 +5,15 @@ import com.baidu.tbadk.core.data.PrivateForumPopInfoData;
 import tbclient.ForumRecommend.DataRes;
 /* loaded from: classes9.dex */
 public class e {
-    private HotSearchInfoData gzT;
+    private HotSearchInfoData gOD;
     private boolean isSucc;
     private int sortType;
     private int time = 0;
-    private i gzO = new i();
-    private l gzP = new l();
-    private ForumCreateInfoData gzQ = new ForumCreateInfoData();
-    private PrivateForumPopInfoData gzR = new PrivateForumPopInfoData();
-    private p gzS = new p();
+    private i gOy = new i();
+    private l gOz = new l();
+    private ForumCreateInfoData gOA = new ForumCreateInfoData();
+    private PrivateForumPopInfoData gOB = new PrivateForumPopInfoData();
+    private p gOC = new p();
 
     public e() {
         this.isSucc = true;
@@ -25,7 +25,7 @@ public class e {
     }
 
     public HotSearchInfoData getHotSearchInfoData() {
-        return this.gzT;
+        return this.gOD;
     }
 
     public void a(DataRes dataRes) {
@@ -34,23 +34,23 @@ public class e {
                 setTime(dataRes.time.intValue());
                 this.sortType = dataRes.sort_type.intValue() == 0 ? 1 : dataRes.sort_type.intValue();
                 if (dataRes.like_forum != null) {
-                    this.gzO.bT(dataRes.like_forum);
+                    this.gOy.bQ(dataRes.like_forum);
                 }
                 if (dataRes.recommend_forum_info != null) {
-                    this.gzP.bU(dataRes.recommend_forum_info);
+                    this.gOz.bR(dataRes.recommend_forum_info);
                 }
                 if (dataRes.forum_create_info != null) {
-                    this.gzQ.a(dataRes.forum_create_info);
+                    this.gOA.a(dataRes.forum_create_info);
                 }
                 if (dataRes.private_forum_popinfo != null) {
-                    this.gzR.a(dataRes.private_forum_popinfo);
+                    this.gOB.a(dataRes.private_forum_popinfo);
                 }
                 if (dataRes.hot_search != null) {
-                    this.gzT = new HotSearchInfoData();
-                    this.gzT.a(dataRes.hot_search);
+                    this.gOD = new HotSearchInfoData();
+                    this.gOD.a(dataRes.hot_search);
                 }
                 if (dataRes.nav_tab_info != null) {
-                    this.gzS.bV(dataRes.nav_tab_info);
+                    this.gOC.bS(dataRes.nav_tab_info);
                 }
             } catch (Exception e) {
                 BdLog.detailException(e);
@@ -58,36 +58,36 @@ public class e {
         }
     }
 
-    public i bHy() {
-        return this.gzO;
+    public i bNR() {
+        return this.gOy;
     }
 
     public void a(i iVar) {
-        this.gzO = iVar;
+        this.gOy = iVar;
     }
 
     public void a(l lVar) {
-        this.gzP = lVar;
+        this.gOz = lVar;
     }
 
-    public l bHz() {
-        return this.gzP;
+    public l bNS() {
+        return this.gOz;
     }
 
     public void a(ForumCreateInfoData forumCreateInfoData) {
-        this.gzQ = forumCreateInfoData;
+        this.gOA = forumCreateInfoData;
     }
 
-    public ForumCreateInfoData bHA() {
-        return this.gzQ;
+    public ForumCreateInfoData bNT() {
+        return this.gOA;
     }
 
     public void a(PrivateForumPopInfoData privateForumPopInfoData) {
-        this.gzR = privateForumPopInfoData;
+        this.gOB = privateForumPopInfoData;
     }
 
-    public PrivateForumPopInfoData bHB() {
-        return this.gzR;
+    public PrivateForumPopInfoData bNU() {
+        return this.gOB;
     }
 
     public void setIsSuccess(boolean z) {
@@ -98,12 +98,12 @@ public class e {
         return this.isSucc;
     }
 
-    public boolean aFP() {
+    public boolean aLk() {
         return System.currentTimeMillis() / com.baidu.tbadk.data.d.NEARBY_GUIDE_TIME.longValue() == (((long) this.time) * 1000) / com.baidu.tbadk.data.d.NEARBY_GUIDE_TIME.longValue();
     }
 
     public void a(HotSearchInfoData hotSearchInfoData) {
-        this.gzT = hotSearchInfoData;
+        this.gOD = hotSearchInfoData;
     }
 
     public int getSortType() {
@@ -115,10 +115,10 @@ public class e {
     }
 
     public void a(p pVar) {
-        this.gzS = pVar;
+        this.gOC = pVar;
     }
 
-    public p bHC() {
-        return this.gzS;
+    public p bNV() {
+        return this.gOC;
     }
 }

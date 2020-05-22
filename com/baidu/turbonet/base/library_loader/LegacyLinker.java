@@ -10,14 +10,14 @@ import javax.annotation.Nullable;
 class LegacyLinker extends Linker {
     static final /* synthetic */ boolean $assertionsDisabled;
     private boolean mInitialized = false;
-    private boolean lIh = true;
-    private boolean lIi = false;
-    private boolean lIj = false;
-    private Bundle lIk = null;
-    private long lIl = -1;
-    private long lIm = -1;
-    private boolean lIn = false;
-    private HashMap<String, Linker.LibInfo> lIo = null;
+    private boolean mby = true;
+    private boolean mbz = false;
+    private boolean mbA = false;
+    private Bundle mbB = null;
+    private long mbC = -1;
+    private long mbD = -1;
+    private boolean mbE = false;
+    private HashMap<String, Linker.LibInfo> mbF = null;
 
     private static native boolean nativeCreateSharedRelro(String str, long j, Linker.LibInfo libInfo);
 
@@ -39,7 +39,7 @@ class LegacyLinker extends Linker {
 
     @CalledByNative
     public static void postCallbackOnMainThread(final long j) {
-        ThreadUtils.z(new Runnable() { // from class: com.baidu.turbonet.base.library_loader.LegacyLinker.1
+        ThreadUtils.B(new Runnable() { // from class: com.baidu.turbonet.base.library_loader.LegacyLinker.1
             @Override // java.lang.Runnable
             public void run() {
                 LegacyLinker.nativeRunCallbackOnUiThread(j);

@@ -1,7 +1,7 @@
 package com.baidu.swan.apps.favordata.a;
 /* loaded from: classes11.dex */
 public interface a {
-    void aad();
+    void add();
 
-    void aae();
+    void ade();
 }

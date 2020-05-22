@@ -18,15 +18,15 @@ public class f implements CustomMessageTask.CustomRunnable<Object> {
         if (currentAccount == null) {
             currentAccount = "";
         }
-        l<String> cB = com.baidu.tbadk.core.c.a.aMR().cB("tb.searchperson_history", currentAccount);
+        l<String> da = com.baidu.tbadk.core.c.a.aSS().da("tb.searchperson_history", currentAccount);
         if (requestSearchPersonHistoryWriteMessage.isClear()) {
-            BdCacheService.kd().a(cB);
+            BdCacheService.kf().a(da);
         } else {
             Object data = requestSearchPersonHistoryWriteMessage.getData();
             if (data == null || !(data instanceof String)) {
                 return null;
             }
-            cB.setForever((String) data, null);
+            da.setForever((String) data, null);
         }
         return new ResponseSearchPersonHistoryWriteMessage();
     }

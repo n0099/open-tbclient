@@ -1,17 +1,17 @@
 package com.baidu.live.x;
 
 import android.view.View;
-import com.baidu.live.data.x;
+import com.baidu.live.data.ab;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public interface b {
-    void B(JSONObject jSONObject);
+    void G(JSONObject jSONObject);
 
-    void EA();
+    void Gr();
 
-    void EB();
+    void Gs();
 
-    void a(x xVar);
+    void a(ab abVar);
 
     View getView();
 

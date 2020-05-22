@@ -59,7 +59,7 @@ public final class ObservableUnsubscribeOn<T> extends a<T, T> {
         @Override // io.reactivex.disposables.b
         public void dispose() {
             if (compareAndSet(false, true)) {
-                this.scheduler.H(new a());
+                this.scheduler.J(new a());
             }
         }
 

@@ -1,18 +1,29 @@
 package com.baidu.live.data;
 
-import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
+import com.baidu.live.tbadk.core.data.BaseData;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class m {
-    public String aqC;
-    public String imgUrl;
-    public String subTitle;
+public class m extends BaseData {
+    public AlaLiveInfoData mLiveInfo;
 
-    public void parseJson(JSONObject jSONObject) {
+    @Override // com.baidu.live.tbadk.core.data.BaseData
+    public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.aqC = jSONObject.optString("main_title");
-            this.subTitle = jSONObject.optString("subtitle");
-            this.imgUrl = jSONObject.optString(BigdayActivityConfig.IMG_URL);
+            this.mLiveInfo = new AlaLiveInfoData();
+            JSONObject optJSONObject = jSONObject.optJSONObject("ala_info");
+            if (optJSONObject != null) {
+                this.mLiveInfo.parserJson(optJSONObject);
+            }
+            JSONObject optJSONObject2 = jSONObject.optJSONObject("author");
+            if (optJSONObject2 != null) {
+                long optLong = optJSONObject2.optLong("id");
+                String optString = optJSONObject2.optString("name");
+                String optString2 = optJSONObject2.optString("name_show");
+                optJSONObject2.optString("portrait");
+                this.mLiveInfo.user_id = optLong;
+                this.mLiveInfo.user_name = optString;
+                this.mLiveInfo.user_nickname = optString2;
+            }
         }
     }
 }

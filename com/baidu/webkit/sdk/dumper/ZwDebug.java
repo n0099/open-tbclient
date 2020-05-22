@@ -7,15 +7,15 @@ import com.baidu.webkit.internal.ApisInteractWithMario;
 import com.baidu.webkit.sdk.WebViewFactory;
 /* loaded from: classes11.dex */
 public class ZwDebug {
-    private static boolean debugModel = false;
+    private static boolean debugModel;
 
     public static void clearCrashKey(String str) {
         ApisInteractWithMario.clearCrashKey(str);
     }
 
-    public static void crashIntentionally() {
+    public static void crashIntentionally(int i) {
         if (debugModel) {
-            WebViewFactory.getProvider().getStatics().crashIntentionally();
+            WebViewFactory.getProvider().getStatics().crashIntentionally(i);
         }
     }
 

@@ -13,15 +13,15 @@ import android.widget.TextView;
 import com.baidu.poly.b;
 /* loaded from: classes11.dex */
 public class a extends RelativeLayout implements View.OnClickListener {
-    private ImageView bpK;
-    private TextView bpL;
-    private TextView bpM;
-    private ImageView bpN;
-    private InterfaceC0212a bpO;
+    private ImageView bxn;
+    private TextView bxo;
+    private TextView bxp;
+    private ImageView bxq;
+    private InterfaceC0245a bxr;
 
     /* renamed from: com.baidu.poly.widget.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public interface InterfaceC0212a {
+    public interface InterfaceC0245a {
         void a();
     }
 
@@ -31,57 +31,57 @@ public class a extends RelativeLayout implements View.OnClickListener {
 
     private void c(Context context) {
         LayoutInflater.from(context).inflate(b.f.view_channel_list_item, (ViewGroup) this, true);
-        this.bpK = (ImageView) findViewById(b.e.channel_icon_view);
-        this.bpL = (TextView) findViewById(b.e.channel_name_view);
-        this.bpM = (TextView) findViewById(b.e.channel_desc_view);
-        this.bpN = (ImageView) findViewById(b.e.channel_select_view);
+        this.bxn = (ImageView) findViewById(b.e.channel_icon_view);
+        this.bxo = (TextView) findViewById(b.e.channel_name_view);
+        this.bxp = (TextView) findViewById(b.e.channel_desc_view);
+        this.bxq = (ImageView) findViewById(b.e.channel_select_view);
         setOnClickListener(this);
     }
 
-    public void a(n nVar, InterfaceC0212a interfaceC0212a) {
-        String t = nVar.t();
-        String z = nVar.z();
-        String icon = nVar.getIcon();
-        int w = nVar.w();
-        int u = nVar.u();
-        com.baidu.poly.a.c.b.KT().b(this.bpK, icon);
-        this.bpL.setText(t);
-        if (w == 1) {
-            this.bpN.setImageResource(b.d.channel_checked);
+    public void a(o oVar, InterfaceC0245a interfaceC0245a) {
+        String displayName = oVar.getDisplayName();
+        String J = oVar.J();
+        String icon = oVar.getIcon();
+        int G = oVar.G();
+        int E = oVar.E();
+        com.baidu.poly.a.c.b.MP().b(this.bxn, icon);
+        this.bxo.setText(displayName);
+        if (G == 1) {
+            this.bxq.setImageResource(b.d.channel_checked);
         } else {
-            this.bpN.setImageResource(b.d.unchecked);
+            this.bxq.setImageResource(b.d.unchecked);
         }
-        if (1 == u) {
-            this.bpO = interfaceC0212a;
+        if (1 == E) {
+            this.bxr = interfaceC0245a;
         } else {
-            this.bpK.setAlpha(0.4f);
-            this.bpL.setAlpha(0.4f);
-            this.bpM.setAlpha(0.4f);
-            this.bpN.setVisibility(8);
+            this.bxn.setAlpha(0.4f);
+            this.bxo.setAlpha(0.4f);
+            this.bxp.setAlpha(0.4f);
+            this.bxq.setVisibility(8);
         }
-        if (!TextUtils.isEmpty(z)) {
-            String s = nVar.s();
-            if (!TextUtils.isEmpty(s)) {
+        if (!TextUtils.isEmpty(J)) {
+            String D = oVar.D();
+            if (!TextUtils.isEmpty(D)) {
                 try {
-                    this.bpM.setTextColor(Color.parseColor(s));
+                    this.bxp.setTextColor(Color.parseColor(D));
                 } catch (Exception e) {
                 }
             }
-            this.bpM.setText(z);
+            this.bxp.setText(J);
             return;
         }
-        this.bpM.setVisibility(8);
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.bpL.getLayoutParams();
+        this.bxp.setVisibility(8);
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.bxo.getLayoutParams();
         layoutParams.addRule(15);
         layoutParams.topMargin = 0;
-        this.bpL.setLayoutParams(layoutParams);
+        this.bxo.setLayoutParams(layoutParams);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        InterfaceC0212a interfaceC0212a = this.bpO;
-        if (interfaceC0212a != null) {
-            interfaceC0212a.a();
+        InterfaceC0245a interfaceC0245a = this.bxr;
+        if (interfaceC0245a != null) {
+            interfaceC0245a.a();
         }
     }
 

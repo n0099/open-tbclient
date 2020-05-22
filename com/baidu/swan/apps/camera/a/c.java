@@ -13,7 +13,7 @@ public class c extends a {
         super(jVar, "/swanAPI/camera/remove");
     }
 
-    @Override // com.baidu.swan.apps.scheme.actions.ab
+    @Override // com.baidu.swan.apps.scheme.actions.aa
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
         if (!(context instanceof Activity)) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
@@ -21,9 +21,9 @@ public class c extends a {
         }
         com.baidu.swan.apps.component.components.c.a aVar = (com.baidu.swan.apps.component.components.c.a) com.baidu.swan.apps.component.container.a.d(c(unitedSchemeEntity));
         if (aVar != null) {
-            com.baidu.swan.apps.component.b.c Sx = aVar.Sx();
-            if (!Sx.isSuccess()) {
-                com.baidu.swan.apps.console.c.e("CameraRemoveAction", "remove camera fail: " + Sx.msg);
+            com.baidu.swan.apps.component.b.c Vi = aVar.Vi();
+            if (!Vi.isSuccess()) {
+                com.baidu.swan.apps.console.c.e("CameraRemoveAction", "remove camera fail: " + Vi.msg);
             }
             a(unitedSchemeEntity, callbackHandler, true);
             return true;

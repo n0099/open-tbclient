@@ -1,68 +1,147 @@
 package com.baidu.swan.apps.o;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.DialogInterface;
-import android.content.res.Resources;
-import android.graphics.drawable.BitmapDrawable;
+import android.content.SharedPreferences;
+import android.content.pm.PackageInfo;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.UiThread;
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
-import android.view.Window;
-import android.widget.CheckBox;
+import android.view.ViewGroup;
 import android.widget.TextView;
+import com.airbnb.lottie.LottieAnimationView;
 import com.baidu.swan.apps.a;
-import com.baidu.swan.apps.as.af;
-import com.baidu.swan.apps.as.ai;
-import com.baidu.swan.apps.res.widget.dialog.g;
-import com.baidu.swan.apps.runtime.e;
-import com.baidu.swan.apps.view.SwanAppRoundedImageView;
+import com.baidu.swan.apps.aq.ag;
+import com.baidu.swan.apps.aq.aj;
+import com.baidu.swan.apps.network.SwanAppNetworkUtils;
+import com.baidu.swan.apps.statistic.a.e;
+import com.baidu.swan.apps.statistic.h;
+import com.baidu.swan.apps.storage.c.g;
+import com.facebook.drawee.view.SimpleDraweeView;
 /* loaded from: classes11.dex */
-public final class c {
-    @UiThread
-    public static g a(@NonNull Activity activity, @NonNull e eVar, @Nullable String str, @Nullable String str2, @NonNull a aVar, @Nullable DialogInterface.OnCancelListener onCancelListener) {
-        View inflate = View.inflate(activity, a.g.swan_app_subscribe_msg_dialog, null);
-        g.a ez = new g.a(activity).ey(true).ao(inflate).a(new com.baidu.swan.apps.view.c.a()).gi(a.e.aiapps_action_sheet_bg).eD(false).aku().ez(false);
-        TextView textView = (TextView) inflate.findViewById(a.f.auth_negative_button);
-        TextView textView2 = (TextView) inflate.findViewById(a.f.auth_positive_button);
-        SwanAppRoundedImageView swanAppRoundedImageView = (SwanAppRoundedImageView) inflate.findViewById(a.f.swan_app_icon);
-        Resources resources = activity.getResources();
-        if (swanAppRoundedImageView != null) {
-            swanAppRoundedImageView.setImageDrawable(new BitmapDrawable(resources, ai.a((com.baidu.swan.apps.x.b.b) eVar.akP(), "SwanSubscribeMsgDialog", false)));
-            swanAppRoundedImageView.setBorderColor(resources.getColor(a.c.swan_app_auth_icon_border));
-        }
-        ((TextView) inflate.findViewById(a.f.swan_app_name)).setText(eVar.getName());
-        ((TextView) inflate.findViewById(a.f.template_title)).setText(str);
-        ((TextView) inflate.findViewById(a.f.template_content)).setText(str2);
-        aVar.a((CheckBox) inflate.findViewById(a.f.remember_checkbox));
-        ez.a(textView, -2, aVar);
-        ez.a(textView2, -1, aVar);
-        g WT = ez.WT();
-        WT.setEnableImmersion(false);
-        WT.setOnCancelListener(onCancelListener);
-        Window window = WT.getWindow();
-        if (window != null) {
-            window.setGravity(80);
-            window.setLayout(af.cl(activity), -2);
-            window.setWindowAnimations(a.i.action_sheet_animation);
-        }
-        return WT;
-    }
+public class c {
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
+    private g ceK;
+    private SharedPreferences.Editor mEditor;
 
     /* loaded from: classes11.dex */
-    public static abstract class a implements DialogInterface.OnClickListener {
-        @Nullable
-        private CheckBox bTV;
+    public interface a {
+        void Yv();
+    }
 
-        public abstract void a(DialogInterface dialogInterface, int i, boolean z);
+    private c() {
+        this.ceK = new g("aiapps_guide_dialog_sp");
+        this.mEditor = this.ceK.edit();
+    }
 
-        void a(@Nullable CheckBox checkBox) {
-            this.bTV = checkBox;
+    /* JADX INFO: Access modifiers changed from: private */
+    /* loaded from: classes11.dex */
+    public static final class b {
+        private static final c ceQ = new c();
+    }
+
+    public static c aec() {
+        return b.ceQ;
+    }
+
+    private int bP(@NonNull Context context) {
+        PackageInfo packageInfo = aj.getPackageInfo(context, context.getPackageName());
+        if (packageInfo != null) {
+            return packageInfo.versionCode;
         }
+        return -1;
+    }
 
-        @Override // android.content.DialogInterface.OnClickListener
-        public final void onClick(DialogInterface dialogInterface, int i) {
-            a(dialogInterface, i, this.bTV != null && this.bTV.isChecked());
+    private void G(@NonNull Activity activity) {
+        dR(false);
+        fm(bP(activity));
+    }
+
+    private void dR(boolean z) {
+        this.mEditor.putBoolean("new_first_in", z).apply();
+    }
+
+    private void fm(int i) {
+        if (DEBUG) {
+            Log.e("SwanAppGuideDialogManager", "versionCode " + i);
         }
+        this.mEditor.putInt("up_first_in", i).apply();
+    }
+
+    public void a(@NonNull Activity activity, final String str, final String str2, final a aVar) {
+        if (activity != null && !activity.isFinishing() && SwanAppNetworkUtils.isNetworkConnected(activity)) {
+            final com.baidu.swan.apps.res.widget.dialog.c cVar = new com.baidu.swan.apps.res.widget.dialog.c(activity, a.i.SwanFavoriteGuideDialog);
+            com.baidu.swan.apps.aq.d.b(activity, cVar);
+            cVar.setContentView(a.g.aiapps_entry_guide_layout);
+            View findViewById = cVar.findViewById(a.f.root);
+            cVar.findViewById(a.f.nightmode_mask).setVisibility(com.baidu.swan.apps.u.a.afm().getNightModeSwitcherState() ? 0 : 8);
+            if (TextUtils.isEmpty(str)) {
+                LottieAnimationView lottieAnimationView = (LottieAnimationView) cVar.findViewById(a.f.aiapps_guide_anim_view);
+                lottieAnimationView.setVisibility(0);
+                ViewGroup.LayoutParams layoutParams = findViewById.getLayoutParams();
+                layoutParams.height = ag.dip2px(activity, 312.3f);
+                findViewById.setLayoutParams(layoutParams);
+                lottieAnimationView.setImageAssetsFolder("lottieImage/images");
+                lottieAnimationView.setAnimation("lottieImage/closeGuide.json");
+                lottieAnimationView.playAnimation();
+            } else {
+                findViewById.setBackground(activity.getResources().getDrawable(a.e.aiapps_entry_guide_bg));
+                SimpleDraweeView simpleDraweeView = (SimpleDraweeView) cVar.findViewById(a.f.aiapps_guide_image);
+                simpleDraweeView.setVisibility(0);
+                cVar.findViewById(a.f.aiapps_split_line).setVisibility(0);
+                simpleDraweeView.setController(com.facebook.drawee.a.a.c.dvf().wa(true).PU(str).dvW());
+            }
+            TextView textView = (TextView) cVar.findViewById(a.f.aiapps_bottom_button);
+            textView.setOnTouchListener(new d());
+            textView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.o.c.1
+                @Override // android.view.View.OnClickListener
+                public void onClick(View view) {
+                    c.this.B(str, str2, "click");
+                    cVar.dismiss();
+                    if (aVar != null) {
+                        aVar.Yv();
+                    }
+                }
+            });
+            cVar.setOnShowListener(new DialogInterface.OnShowListener() { // from class: com.baidu.swan.apps.o.c.2
+                @Override // android.content.DialogInterface.OnShowListener
+                public void onShow(DialogInterface dialogInterface) {
+                    c.this.B(str, str2, "show");
+                }
+            });
+            cVar.show();
+            G(activity);
+            if (DEBUG) {
+                Log.e("SwanAppGuideDialogManager", "dialog has shown");
+            }
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void B(String str, String str2, String str3) {
+        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3)) {
+            e eVar = new e();
+            eVar.mPage = h.gS(com.baidu.swan.apps.runtime.d.aoB().Qz());
+            eVar.mType = str3;
+            if (TextUtils.equals(str2, "source_back")) {
+                eVar.mValue = "back";
+            } else {
+                eVar.mValue = "close";
+                eVar.mSource = str2;
+            }
+            eVar.v("appid", com.baidu.swan.apps.runtime.e.aoH());
+            eVar.v("img", str);
+            h.a("970", eVar);
+        }
+    }
+
+    public boolean aed() {
+        com.baidu.swan.apps.runtime.e aoF = com.baidu.swan.apps.runtime.e.aoF();
+        if (aoF == null) {
+            return false;
+        }
+        return aoF.aoX().b("boolean_var_key_fav_guide_show", (Boolean) false).booleanValue();
     }
 }

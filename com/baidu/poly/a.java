@@ -2,42 +2,43 @@ package com.baidu.poly;
 
 import android.content.Context;
 import android.os.Bundle;
-import com.baidu.poly.util.f;
+import com.baidu.poly.util.d;
+import com.baidu.poly.util.g;
 import com.baidu.poly.widget.PolyActivity;
 /* loaded from: classes11.dex */
 public class a {
-    private com.baidu.poly.c.a.c bmr;
-    private long bms;
+    private com.baidu.poly.c.a.c btN;
+    private long btO;
 
     /* renamed from: com.baidu.poly.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public static class C0199a {
-        private com.baidu.poly.c.a.c bmr;
+    public static class C0232a {
+        private com.baidu.poly.c.a.c btN;
         private Context context;
-        private int bmt = 1;
+        private int btP = 1;
         private boolean debug = false;
 
-        public a KP() {
+        public a MJ() {
             return new a(this);
         }
 
-        public C0199a a(com.baidu.poly.c.a.c cVar) {
-            this.bmr = cVar;
+        public C0232a a(com.baidu.poly.c.a.c cVar) {
+            this.btN = cVar;
             return this;
         }
 
-        public C0199a av(Context context) {
+        public C0232a aF(Context context) {
             this.context = context;
             return this;
         }
 
-        public C0199a cF(boolean z) {
+        public C0232a cR(boolean z) {
             this.debug = z;
             return this;
         }
 
-        public C0199a dy(int i) {
-            this.bmt = i;
+        public C0232a dE(int i) {
+            this.btP = i;
             return this;
         }
     }
@@ -53,27 +54,28 @@ public class a {
         }
         if (bundle != null) {
             long currentTimeMillis = System.currentTimeMillis();
-            if (currentTimeMillis - this.bms < 1000) {
-                com.baidu.poly.util.c.info("cashier pay time interval less than 1s");
+            if (currentTimeMillis - this.btO < 1000) {
+                d.info("cashier pay time interval less than 1s");
                 return;
             }
-            this.bms = currentTimeMillis;
-            com.baidu.poly.util.c.info("cashier pay");
-            PolyActivity.a(context, this.bmr, bVar, bundle);
+            this.btO = currentTimeMillis;
+            d.info("cashier pay");
+            com.baidu.poly.a.g.a.a(Long.valueOf(currentTimeMillis));
+            PolyActivity.a(context, this.btN, bVar, bundle);
             return;
         }
         throw new IllegalArgumentException("arguments can not be null");
     }
 
-    private a(C0199a c0199a) {
-        this.bms = 0L;
-        if (c0199a != null && c0199a.bmr != null) {
-            if (c0199a.context != null) {
-                this.bmr = c0199a.bmr;
-                com.baidu.poly.a.b.a.dz(c0199a.bmt);
-                com.baidu.poly.a.c.b.a(com.baidu.poly.a.c.a.aw(c0199a.context.getApplicationContext()));
-                f.b(c0199a.context.getApplicationContext());
-                com.baidu.poly.util.c.box = c0199a.debug;
+    private a(C0232a c0232a) {
+        this.btO = 0L;
+        if (c0232a != null && c0232a.btN != null) {
+            if (c0232a.context != null) {
+                this.btN = c0232a.btN;
+                com.baidu.poly.a.b.a.dF(c0232a.btP);
+                com.baidu.poly.a.c.b.a(com.baidu.poly.a.c.a.aG(c0232a.context.getApplicationContext()));
+                g.b(c0232a.context.getApplicationContext());
+                d.bvX = c0232a.debug;
                 return;
             }
             throw new IllegalArgumentException("context can not be null");

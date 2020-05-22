@@ -17,155 +17,155 @@ import java.net.URL;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class s {
-    private static long dym = 0;
-    private static long dyn = 0;
-    private static int dyo = 0;
-    private static a dyp = new a();
-    private static r dyq = new r();
-    private static r dyr = new r();
-    private static String dys = null;
-    private static Object Lp = new Object();
+    private static long dMr = 0;
+    private static long dMs = 0;
+    private static int dMt = 0;
+    private static a dMu = new a();
+    private static r dMv = new r();
+    private static r dMw = new r();
+    private static String dMx = null;
+    private static Object syncLock = new Object();
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        r dyA;
-        r dyB;
-        r dyC;
-        r dyD;
-        r dyE;
-        r dyF;
-        r dyG;
-        r dyH;
-        r dyI;
-        r dyJ;
-        int dyt;
-        boolean dyu;
-        r dyv;
-        r dyw;
-        r dyx;
-        r dyy;
-        r dyz;
+        r dMA;
+        r dMB;
+        r dMC;
+        r dMD;
+        r dME;
+        r dMF;
+        r dMG;
+        r dMH;
+        r dMI;
+        r dMJ;
+        r dMK;
+        r dML;
+        r dMM;
+        r dMN;
+        r dMO;
+        int dMy;
+        boolean dMz;
 
         private a() {
-            this.dyt = 0;
-            this.dyv = new r();
-            this.dyw = new r();
-            this.dyx = new r();
-            this.dyy = new r();
-            this.dyz = new r();
-            this.dyA = new r();
-            this.dyB = new r();
-            this.dyC = new r();
-            this.dyD = new r();
-            this.dyE = new r();
-            this.dyF = new r();
-            this.dyG = new r();
-            this.dyH = new r();
-            this.dyI = new r();
-            this.dyJ = new r();
+            this.dMy = 0;
+            this.dMA = new r();
+            this.dMB = new r();
+            this.dMC = new r();
+            this.dMD = new r();
+            this.dME = new r();
+            this.dMF = new r();
+            this.dMG = new r();
+            this.dMH = new r();
+            this.dMI = new r();
+            this.dMJ = new r();
+            this.dMK = new r();
+            this.dML = new r();
+            this.dMM = new r();
+            this.dMN = new r();
+            this.dMO = new r();
         }
 
-        public int aOn() {
-            return this.dyv.num + this.dyw.num + this.dyx.num + this.dyy.num + this.dyz.num;
+        public int aUr() {
+            return this.dMA.num + this.dMB.num + this.dMC.num + this.dMD.num + this.dME.num;
         }
 
-        public int aOo() {
-            return this.dyv.num + this.dyw.num + this.dyx.num + this.dyy.num + this.dyz.num + this.dyA.num + this.dyB.num + this.dyC.num + this.dyD.num + this.dyE.num + this.dyF.num + this.dyG.num + this.dyH.num + this.dyI.num + this.dyJ.num;
+        public int aUs() {
+            return this.dMA.num + this.dMB.num + this.dMC.num + this.dMD.num + this.dME.num + this.dMF.num + this.dMG.num + this.dMH.num + this.dMI.num + this.dMJ.num + this.dMK.num + this.dML.num + this.dMM.num + this.dMN.num + this.dMO.num;
         }
 
-        public int aOp() {
-            return this.dyA.num + this.dyB.num + this.dyC.num + this.dyD.num + this.dyE.num;
+        public int aUt() {
+            return this.dMF.num + this.dMG.num + this.dMH.num + this.dMI.num + this.dMJ.num;
         }
 
-        public int aOq() {
-            return this.dyF.num + this.dyG.num + this.dyH.num + this.dyI.num + this.dyJ.num;
+        public int aUu() {
+            return this.dMK.num + this.dML.num + this.dMM.num + this.dMN.num + this.dMO.num;
         }
 
         public void reset() {
-            this.dyt = 0;
-            this.dyv.reset();
-            this.dyw.reset();
-            this.dyx.reset();
-            this.dyy.reset();
-            this.dyz.reset();
-            this.dyA.reset();
-            this.dyB.reset();
-            this.dyC.reset();
-            this.dyD.reset();
-            this.dyE.reset();
-            this.dyF.reset();
-            this.dyG.reset();
-            this.dyH.reset();
-            this.dyI.reset();
-            this.dyJ.reset();
+            this.dMy = 0;
+            this.dMA.reset();
+            this.dMB.reset();
+            this.dMC.reset();
+            this.dMD.reset();
+            this.dME.reset();
+            this.dMF.reset();
+            this.dMG.reset();
+            this.dMH.reset();
+            this.dMI.reset();
+            this.dMJ.reset();
+            this.dMK.reset();
+            this.dML.reset();
+            this.dMM.reset();
+            this.dMN.reset();
+            this.dMO.reset();
         }
     }
 
     private static r a(boolean z, boolean z2, String str, boolean z3) {
         if (z) {
             if (z2 && !z3) {
-                return dyp.dyv;
+                return dMu.dMA;
             }
             if (str.startsWith("http://tb.himg")) {
-                return dyp.dyw;
+                return dMu.dMB;
             }
             if (str.startsWith("http://c.tieba.baidu.com")) {
-                return dyp.dyx;
+                return dMu.dMC;
             }
             if (z2 && z3) {
-                return dyp.dyz;
+                return dMu.dME;
             }
-            return dyp.dyy;
+            return dMu.dMD;
         } else if (com.baidu.adp.lib.util.j.is2GNet()) {
             if (z2) {
-                return dyp.dyA;
+                return dMu.dMF;
             }
             if (str.startsWith("http://tb.himg")) {
-                return dyp.dyB;
+                return dMu.dMG;
             }
             if (str.startsWith("http://c.tieba.baidu.com")) {
-                return dyp.dyC;
+                return dMu.dMH;
             }
-            return dyp.dyD;
+            return dMu.dMI;
         } else if (z2) {
-            return dyp.dyF;
+            return dMu.dMK;
         } else {
             if (str.startsWith("http://tb.himg")) {
-                return dyp.dyG;
+                return dMu.dML;
             }
             if (str.startsWith("http://c.tieba.baidu.com")) {
-                return dyp.dyH;
+                return dMu.dMM;
             }
-            return dyp.dyI;
+            return dMu.dMN;
         }
     }
 
-    public static com.baidu.adp.lib.stats.a kW() {
+    public static com.baidu.adp.lib.stats.a kY() {
         return BdStatisticsManager.getInstance().getStatsItem("dbg");
     }
 
     public static void a(com.baidu.adp.lib.stats.a aVar, String str, boolean z, long j, boolean z2) {
         if (z && z2) {
-            synchronized (Lp) {
-                dyq.num++;
-                dyq.time += j;
-                if (dyq.num >= 100) {
-                    aOg();
+            synchronized (syncLock) {
+                dMv.num++;
+                dMv.time += j;
+                if (dMv.num >= 100) {
+                    aUk();
                 }
             }
         }
     }
 
-    public static void aOg() {
-        if (dyq.num > 10) {
-            com.baidu.adp.lib.stats.a kW = kW();
-            kW.append("act", "locStat");
-            kW.append(TiebaInitialize.LogFields.COST_TIME, String.valueOf(dyq.time));
-            kW.append("num", String.valueOf(dyq.num));
-            kW.append("isWifi", "1");
-            BdStatisticsManager.getInstance().debug("img", kW);
-            dyq.reset();
+    public static void aUk() {
+        if (dMv.num > 10) {
+            com.baidu.adp.lib.stats.a kY = kY();
+            kY.append("act", "locStat");
+            kY.append(TiebaInitialize.LogFields.COST_TIME, String.valueOf(dMv.time));
+            kY.append("num", String.valueOf(dMv.num));
+            kY.append("isWifi", "1");
+            BdStatisticsManager.getInstance().debug("img", kY);
+            dMv.reset();
         }
     }
 
@@ -179,7 +179,7 @@ public class s {
             boolean z5 = false;
             if (com.baidu.tbadk.core.util.a.e.getInstance() != null) {
                 z5 = true;
-                if (!com.baidu.tbadk.core.util.a.e.getInstance().dAv) {
+                if (!com.baidu.tbadk.core.util.a.e.getInstance().dOB) {
                     com.baidu.tbadk.core.util.a.e.getInstance().init();
                 }
             }
@@ -187,11 +187,11 @@ public class s {
             if (!z5) {
                 z4 = false;
             } else if (isWifiNet) {
-                z4 = j > ((long) com.baidu.tbadk.core.util.a.e.getInstance().getCDNImageTimeData().dkM);
+                z4 = j > ((long) com.baidu.tbadk.core.util.a.e.getInstance().getCDNImageTimeData().dyM);
             } else if (com.baidu.adp.lib.util.j.is2GNet()) {
-                z4 = j > ((long) com.baidu.tbadk.core.util.a.e.getInstance().getCDNImageTimeData().dkO);
+                z4 = j > ((long) com.baidu.tbadk.core.util.a.e.getInstance().getCDNImageTimeData().dyO);
             } else {
-                z4 = j > ((long) com.baidu.tbadk.core.util.a.e.getInstance().getCDNImageTimeData().dkN);
+                z4 = j > ((long) com.baidu.tbadk.core.util.a.e.getInstance().getCDNImageTimeData().dyN);
             }
             boolean z6 = false;
             if (isCdn && z5) {
@@ -201,53 +201,53 @@ public class s {
                 if (z) {
                     p.getInstance().insertNormalData(j, str);
                 } else {
-                    str6 = t.aOr().aOs();
+                    str6 = t.aUv().aUw();
                     if (!TextUtils.isEmpty(str6)) {
-                        p.getInstance().insertErrorData(dVar.JS, str);
+                        p.getInstance().insertErrorData(dVar.Ke, str);
                     }
                 }
             }
             if (isCdn) {
-                dys = str;
+                dMx = str;
             }
             boolean z7 = false;
-            if (dVar.JU != null && dVar.JU.length() > 0) {
+            if (dVar.Kg != null && dVar.Kg.length() > 0) {
                 z7 = true;
             }
-            synchronized (Lp) {
+            synchronized (syncLock) {
                 r a2 = a(isWifiNet, isCdn, str2, z7);
-                boolean z8 = dyp.dyu;
+                boolean z8 = dMu.dMz;
                 if (a2 != null) {
                     a2.num++;
                     if (z) {
                         a2.time += j;
                         a2.downloadSize += j2;
-                        dyp.dyu = true;
+                        dMu.dMz = true;
                         if (z4) {
                             a2.slownum++;
                         }
-                        dyo = 0;
+                        dMt = 0;
                     } else {
                         if (com.baidu.adp.lib.util.j.isNetWorkAvailable()) {
-                            int i2 = dyo + 1;
-                            dyo = i2;
-                            if (i2 >= com.baidu.adp.lib.stats.switchs.a.lV().getMaxAlertCount(BdStatsConstant.AlertTypeKey.ALERT_IMG, 5)) {
-                                BdStatisticsManager.getInstance().alert(BdStatsConstant.AlertTypeKey.ALERT_IMG, "imgFailedCnt_" + String.valueOf(dyo) + "_url=" + str2);
+                            int i2 = dMt + 1;
+                            dMt = i2;
+                            if (i2 >= com.baidu.adp.lib.stats.switchs.a.lX().getMaxAlertCount(BdStatsConstant.AlertTypeKey.ALERT_IMG, 5)) {
+                                BdStatisticsManager.getInstance().alert(BdStatsConstant.AlertTypeKey.ALERT_IMG, "imgFailedCnt_" + String.valueOf(dMt) + "_url=" + str2);
                             }
                         }
                         a2.failnum++;
-                        dyp.dyu = false;
+                        dMu.dMz = false;
                     }
                 }
-                int aOo = dyp.aOo();
-                if (aOo > 100 || (aOo > 0 && z8 != dyp.dyu)) {
-                    aOh();
+                int aUs = dMu.aUs();
+                if (aUs > 100 || (aUs > 0 && z8 != dMu.dMz)) {
+                    aUl();
                 }
             }
             if (z && z5) {
-                if (!isWifiNet || j >= com.baidu.tbadk.core.util.a.e.getInstance().getCDNImageTimeData().dkM) {
-                    if (isWifiNet || !com.baidu.adp.lib.util.j.is2GNet() || j >= com.baidu.tbadk.core.util.a.e.getInstance().getCDNImageTimeData().dkO) {
-                        if (!isWifiNet && j < com.baidu.tbadk.core.util.a.e.getInstance().getCDNImageTimeData().dkN) {
+                if (!isWifiNet || j >= com.baidu.tbadk.core.util.a.e.getInstance().getCDNImageTimeData().dyM) {
+                    if (isWifiNet || !com.baidu.adp.lib.util.j.is2GNet() || j >= com.baidu.tbadk.core.util.a.e.getInstance().getCDNImageTimeData().dyO) {
+                        if (!isWifiNet && j < com.baidu.tbadk.core.util.a.e.getInstance().getCDNImageTimeData().dyN) {
                             return;
                         }
                     } else {
@@ -258,94 +258,94 @@ public class s {
                 }
             }
             if (aVar == null) {
-                aVar = kW();
+                aVar = kY();
             }
             if (TextUtils.isEmpty(str6)) {
-                str6 = t.aOr().aOs();
+                str6 = t.aUv().aUw();
             }
             if (!isCdn || !TextUtils.isEmpty("")) {
                 str4 = "";
             } else {
-                str4 = t.aOr().uG(str);
+                str4 = t.aUv().wm(str);
             }
             if (!TextUtils.isEmpty("")) {
                 str5 = "";
             } else {
-                str5 = aOj();
+                str5 = aUn();
             }
             aVar.append("url", str);
             aVar.append("act", IXAdCommonUtils.PKGS_PREF_DOWNLOAD_STATUS);
             aVar.append("result", z ? "1" : "0");
             aVar.append("requrl", str2);
-            aVar.append("netlib", dVar.Kc == 0 ? "Apache" : "HttpManager");
+            aVar.append("netlib", dVar.Ko == 0 ? "Apache" : "HttpManager");
             aVar.append(TiebaInitialize.LogFields.COST_TIME, String.valueOf(j));
             aVar.append("connTime", String.valueOf(dVar.connectTime));
-            aVar.append("rspTime", String.valueOf(dVar.JQ));
+            aVar.append("rspTime", String.valueOf(dVar.Kc));
             aVar.append("retry", String.valueOf(dVar.retry));
             aVar.append("clientIp", d.getIp());
             aVar.append("tiebaIp", str6);
-            String uF = t.aOr().uF(str);
-            if (!TextUtils.isEmpty(uF)) {
-                aVar.append("domainIp", uF);
+            String wl = t.aUv().wl(str);
+            if (!TextUtils.isEmpty(wl)) {
+                aVar.append("domainIp", wl);
             }
             aVar.append("wifiDnsIp", str5);
             if (dVar.connectTime > 1500 || dVar.connectTime < 0) {
-                aVar.append("connBaidu", String.valueOf(aOk()));
+                aVar.append("connBaidu", String.valueOf(aUo()));
             }
-            aVar.append("memory", aOl());
-            aVar.append("task", aOm());
-            aVar.append("status", String.valueOf(dVar.JT));
-            aVar.append("up", String.valueOf(dVar.JP));
+            aVar.append("memory", aUp());
+            aVar.append("task", aUq());
+            aVar.append("status", String.valueOf(dVar.Kf));
+            aVar.append("up", String.valueOf(dVar.Kb));
             aVar.append("down", String.valueOf(dVar.downloadSize));
             aVar.append("isCDN", isCdn ? "1" : "0");
             aVar.append("isWebp", bool.booleanValue() ? "1" : "0");
             aVar.append("isMobileProxy", z3 ? "1" : "0");
-            aVar.append(com.baidu.fsg.base.statistics.b.k, dVar.exception);
+            aVar.append("exception", dVar.exception);
             aVar.append(TiebaInitialize.LogFields.REASON, str3);
             if (i != 0) {
                 aVar.append("procType", Integer.valueOf(i));
             }
-            if (dVar.Ka != null) {
-                aVar.append("tracecode1", dVar.Ka);
+            if (dVar.Km != null) {
+                aVar.append("tracecode1", dVar.Km);
             }
-            if (dVar.Kb != null) {
-                aVar.append("tracecode2", dVar.Kb);
+            if (dVar.Kn != null) {
+                aVar.append("tracecode2", dVar.Kn);
             }
-            if (!aq.isEmpty(dVar.JU)) {
-                aVar.append("httpDnsIp", dVar.JU);
+            if (!aq.isEmpty(dVar.Kg)) {
+                aVar.append("httpDnsIp", dVar.Kg);
             } else {
-                aVar.append("httpDnsIp", dVar.JV);
+                aVar.append("httpDnsIp", dVar.Kh);
             }
-            aVar.append("ipIndex", Integer.valueOf(dVar.JZ));
-            aVar.append("dnsSwitch1", Boolean.valueOf(com.baidu.adp.lib.network.http.c.JI));
+            aVar.append("ipIndex", Integer.valueOf(dVar.Kl));
+            aVar.append("dnsSwitch1", Boolean.valueOf(com.baidu.adp.lib.network.http.c.JS));
             aVar.append("dnsSwitch2", Boolean.valueOf(UseHttpdnsSdkSwitch.isOn()));
-            aVar.append("httpDnsIpList", dVar.JY);
-            aVar.append("dnsResolveType", dVar.JW);
-            aVar.append("dnsResolveStatus", dVar.JX);
-            aVar.append("isUseIpDirectConnect", Boolean.valueOf(dVar.JG));
+            aVar.append("httpDnsIpList", dVar.Kk);
+            aVar.append("dnsResolveType", dVar.Ki);
+            aVar.append("dnsResolveStatus", dVar.Kj);
+            aVar.append("isUseIpDirectConnect", Boolean.valueOf(dVar.JQ));
             aVar.append("redirectUrl", dVar.redirectUrl);
             BdStatisticsManager.getInstance().debug("img", aVar);
             if (isCdn && !TextUtils.isEmpty(str6) && TextUtils.isEmpty(str4) && !z) {
-                dyp.dyt++;
+                dMu.dMy++;
             }
         }
     }
 
-    public static void aOh() {
-        if (dyp.aOo() > 10) {
-            if (dyp.aOn() > 0) {
-                a(dyp.dyv, dyp.dyw, dyp.dyx, dyp.dyz, dyp.dyy, 10000);
-                com.baidu.tbadk.n.k.b(dyp.dyv, dyp.dyw, dyp.dyx, dyp.dyz, dyp.dyy, 3);
+    public static void aUl() {
+        if (dMu.aUs() > 10) {
+            if (dMu.aUr() > 0) {
+                a(dMu.dMA, dMu.dMB, dMu.dMC, dMu.dME, dMu.dMD, 10000);
+                com.baidu.tbadk.n.k.b(dMu.dMA, dMu.dMB, dMu.dMC, dMu.dME, dMu.dMD, 3);
             }
-            if (dyp.aOq() > 0) {
-                a(dyp.dyF, dyp.dyG, dyp.dyH, dyp.dyJ, dyp.dyI, 100002);
-                com.baidu.tbadk.n.k.b(dyp.dyF, dyp.dyG, dyp.dyH, dyp.dyJ, dyp.dyI, 2);
+            if (dMu.aUu() > 0) {
+                a(dMu.dMK, dMu.dML, dMu.dMM, dMu.dMO, dMu.dMN, 100002);
+                com.baidu.tbadk.n.k.b(dMu.dMK, dMu.dML, dMu.dMM, dMu.dMO, dMu.dMN, 2);
             }
-            if (dyp.aOp() > 0) {
-                a(dyp.dyA, dyp.dyB, dyp.dyC, dyp.dyE, dyp.dyD, 100001);
-                com.baidu.tbadk.n.k.b(dyp.dyA, dyp.dyB, dyp.dyC, dyp.dyE, dyp.dyD, 1);
+            if (dMu.aUt() > 0) {
+                a(dMu.dMF, dMu.dMG, dMu.dMH, dMu.dMJ, dMu.dMI, 100001);
+                com.baidu.tbadk.n.k.b(dMu.dMF, dMu.dMG, dMu.dMH, dMu.dMJ, dMu.dMI, 1);
             }
-            dyp.reset();
+            dMu.reset();
         }
     }
 
@@ -355,66 +355,66 @@ public class s {
             String str2 = "";
             String str3 = "";
             if (TextUtils.isEmpty("")) {
-                str = t.aOr().aOs();
+                str = t.aUv().aUw();
             }
-            if (dys != null && TextUtils.isEmpty("")) {
-                str2 = t.aOr().uG(dys);
+            if (dMx != null && TextUtils.isEmpty("")) {
+                str2 = t.aUv().wm(dMx);
             }
             if (TextUtils.isEmpty("")) {
-                str3 = aOj();
+                str3 = aUn();
             }
-            com.baidu.adp.lib.stats.a kW = kW();
-            kW.append("act", "dlStat");
-            kW.append("cdnCostTime", String.valueOf(rVar.time));
-            kW.append("cdnNum", String.valueOf(rVar.num));
-            kW.append("cdnFailnum", String.valueOf(rVar.failnum));
-            kW.append("portraitCostTime", String.valueOf(rVar2.time));
-            kW.append("portraitNum", String.valueOf(rVar2.num));
-            kW.append("portraitFailnum", String.valueOf(rVar2.failnum));
-            kW.append("tiebaCostTime", String.valueOf(rVar3.time));
-            kW.append("tiebaNum", String.valueOf(rVar3.num));
-            kW.append("tiebaFailnum", String.valueOf(rVar3.failnum));
-            kW.append("otherCostTime", String.valueOf(rVar5.time));
-            kW.append("otherNum", String.valueOf(rVar5.num));
-            kW.append("otherFailnum", String.valueOf(rVar5.failnum));
-            kW.append("directIpCostTime", String.valueOf(rVar4.time));
-            kW.append("directIpNum", String.valueOf(rVar4.num));
-            kW.append("directIpFailnum", String.valueOf(rVar4.failnum));
-            kW.append("dnsFailNum", String.valueOf(dyp.dyt));
+            com.baidu.adp.lib.stats.a kY = kY();
+            kY.append("act", "dlStat");
+            kY.append("cdnCostTime", String.valueOf(rVar.time));
+            kY.append("cdnNum", String.valueOf(rVar.num));
+            kY.append("cdnFailnum", String.valueOf(rVar.failnum));
+            kY.append("portraitCostTime", String.valueOf(rVar2.time));
+            kY.append("portraitNum", String.valueOf(rVar2.num));
+            kY.append("portraitFailnum", String.valueOf(rVar2.failnum));
+            kY.append("tiebaCostTime", String.valueOf(rVar3.time));
+            kY.append("tiebaNum", String.valueOf(rVar3.num));
+            kY.append("tiebaFailnum", String.valueOf(rVar3.failnum));
+            kY.append("otherCostTime", String.valueOf(rVar5.time));
+            kY.append("otherNum", String.valueOf(rVar5.num));
+            kY.append("otherFailnum", String.valueOf(rVar5.failnum));
+            kY.append("directIpCostTime", String.valueOf(rVar4.time));
+            kY.append("directIpNum", String.valueOf(rVar4.num));
+            kY.append("directIpFailnum", String.valueOf(rVar4.failnum));
+            kY.append("dnsFailNum", String.valueOf(dMu.dMy));
             if (10000 == i) {
-                kW.append("isWifi", "1");
-                kW.append("netType", "WIFI");
+                kY.append("isWifi", "1");
+                kY.append("netType", "WIFI");
             } else if (100002 == i) {
-                kW.append("netType", "3G");
-                kW.append("isWifi", "0");
+                kY.append("netType", "3G");
+                kY.append("isWifi", "0");
             } else {
-                kW.append("netType", "2G");
-                kW.append("isWifi", "0");
+                kY.append("netType", "2G");
+                kY.append("isWifi", "0");
             }
-            kW.append("localIp", d.getIp());
-            kW.append("tbIp", str);
-            kW.append("cdnIp", str2);
-            kW.append("dnsIp", str3);
-            BdStatisticsManager.getInstance().debug("img", kW);
+            kY.append("localIp", d.getIp());
+            kY.append("tbIp", str);
+            kY.append("cdnIp", str2);
+            kY.append("dnsIp", str3);
+            BdStatisticsManager.getInstance().debug("img", kY);
         }
     }
 
     public static void a(com.baidu.adp.lib.stats.a aVar, String str, String str2, boolean z, boolean z2, boolean z3, int i, String str3, long j, String str4, com.baidu.adp.lib.network.http.d dVar) {
         if (com.baidu.adp.lib.util.l.isNetOk()) {
-            synchronized (Lp) {
-                dyr.num++;
+            synchronized (syncLock) {
+                dMw.num++;
                 if (z) {
-                    dyr.time += j;
+                    dMw.time += j;
                 } else {
-                    dyr.failnum++;
+                    dMw.failnum++;
                 }
-                if (dyr.num >= 100) {
-                    aOi();
+                if (dMw.num >= 100) {
+                    aUm();
                 }
             }
             if (!z) {
                 if (aVar == null) {
-                    aVar = kW();
+                    aVar = kY();
                 }
                 aVar.append("act", "dc");
                 aVar.append(TiebaInitialize.LogFields.COST_TIME, String.valueOf(j));
@@ -427,14 +427,14 @@ public class s {
                 aVar.append("result", z ? "0" : "1");
                 aVar.append("execption", str4);
                 if (dVar != null) {
-                    aVar.append("httpDnsIp", dVar.JV);
-                    aVar.append("ipIndex", Integer.valueOf(dVar.JZ));
-                    aVar.append("httpDnsIpList", dVar.JY);
-                    aVar.append("dnsResolveType", dVar.JW);
-                    aVar.append("dnsSwitch1", Boolean.valueOf(com.baidu.adp.lib.network.http.c.JI));
+                    aVar.append("httpDnsIp", dVar.Kh);
+                    aVar.append("ipIndex", Integer.valueOf(dVar.Kl));
+                    aVar.append("httpDnsIpList", dVar.Kk);
+                    aVar.append("dnsResolveType", dVar.Ki);
+                    aVar.append("dnsSwitch1", Boolean.valueOf(com.baidu.adp.lib.network.http.c.JS));
                     aVar.append("dnsSwitch2", Boolean.valueOf(UseHttpdnsSdkSwitch.isOn()));
-                    aVar.append("dnsResolveStatus", dVar.JX);
-                    aVar.append("isUseIpDirectConnect", Boolean.valueOf(dVar.JG));
+                    aVar.append("dnsResolveStatus", dVar.Kj);
+                    aVar.append("isUseIpDirectConnect", Boolean.valueOf(dVar.JQ));
                 }
                 BdStatisticsManager.getInstance().debug("img", aVar);
             }
@@ -442,36 +442,36 @@ public class s {
     }
 
     public static void u(String str, String str2, String str3, String str4) {
-        com.baidu.adp.lib.stats.a kW = kW();
-        kW.append("act", "ml");
-        kW.append("fullURL", str2);
-        kW.append("type", str);
-        kW.append(TiebaInitialize.LogFields.REASON, str3);
-        kW.append("extra", str4);
-        BdStatisticsManager.getInstance().debug("img", kW);
+        com.baidu.adp.lib.stats.a kY = kY();
+        kY.append("act", "ml");
+        kY.append("fullURL", str2);
+        kY.append("type", str);
+        kY.append(TiebaInitialize.LogFields.REASON, str3);
+        kY.append("extra", str4);
+        BdStatisticsManager.getInstance().debug("img", kY);
     }
 
-    public static void aOi() {
-        if (dyr.num > 10) {
-            com.baidu.adp.lib.stats.a kW = kW();
-            kW.append("act", "dcStat");
-            kW.append(TiebaInitialize.LogFields.COST_TIME, String.valueOf(dyr.time));
-            kW.append("num", String.valueOf(dyr.num));
-            kW.append("failnum", String.valueOf(dyr.failnum));
-            BdStatisticsManager.getInstance().debug("img", kW);
-            com.baidu.tbadk.n.k.b(dyr.num, dyr.failnum, dyr.time);
-            dyr.reset();
+    public static void aUm() {
+        if (dMw.num > 10) {
+            com.baidu.adp.lib.stats.a kY = kY();
+            kY.append("act", "dcStat");
+            kY.append(TiebaInitialize.LogFields.COST_TIME, String.valueOf(dMw.time));
+            kY.append("num", String.valueOf(dMw.num));
+            kY.append("failnum", String.valueOf(dMw.failnum));
+            BdStatisticsManager.getInstance().debug("img", kY);
+            com.baidu.tbadk.n.k.b(dMw.num, dMw.failnum, dMw.time);
+            dMw.reset();
         }
     }
 
-    public static void uE(String str) {
-        com.baidu.adp.lib.stats.a kW = kW();
-        kW.append("act", "assistant");
-        kW.append("content", str);
-        BdStatisticsManager.getInstance().debug("img", kW);
+    public static void wk(String str) {
+        com.baidu.adp.lib.stats.a kY = kY();
+        kY.append("act", "assistant");
+        kY.append("content", str);
+        BdStatisticsManager.getInstance().debug("img", kY);
     }
 
-    private static String aOj() {
+    private static String aUn() {
         try {
             DhcpInfo dhcpInfo = ((WifiManager) BdBaseApplication.getInst().getApp().getSystemService("wifi")).getDhcpInfo();
             return intToIp(dhcpInfo.dns1) + Constants.ACCEPT_TIME_SEPARATOR_SP + intToIp(dhcpInfo.dns2);
@@ -491,11 +491,11 @@ public class s {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private static long aOk() {
+    private static long aUo() {
         HttpURLConnection httpURLConnection;
         long j;
-        if (dym >= 3) {
-            return dyn;
+        if (dMr >= 3) {
+            return dMs;
         }
         long currentTimeMillis = System.currentTimeMillis();
         HttpURLConnection httpURLConnection2 = null;
@@ -531,56 +531,56 @@ public class s {
             throw th;
         }
         if (j > 0) {
-            if (dym > -1) {
-                dyn = ((dyn * dym) + j) / (dym + 1);
+            if (dMr > -1) {
+                dMs = ((dMs * dMr) + j) / (dMr + 1);
             } else {
-                dyn = j;
+                dMs = j;
             }
-            dym++;
+            dMr++;
             return j;
         }
         return j;
     }
 
-    private static String aOl() {
-        return com.baidu.tbadk.imageManager.c.aYk().toLogString();
+    private static String aUp() {
+        return com.baidu.tbadk.imageManager.c.bet().toLogString();
     }
 
-    private static String aOm() {
-        return com.baidu.adp.lib.asyncTask.a.jV().toLogString();
+    private static String aUq() {
+        return com.baidu.adp.lib.asyncTask.a.jX().toLogString();
     }
 
     public static void a(boolean z, boolean z2, String str, String str2) {
-        com.baidu.adp.lib.stats.a kW = kW();
-        kW.append("act", "getCDNList");
-        kW.append("errorNum", str);
-        kW.append(TiebaInitialize.LogFields.ERROR_MESSAGE, str2);
-        kW.append("isShortNetError", z2 ? "1" : "0");
-        kW.append("isSuccess", z ? "1" : "0");
-        BdStatisticsManager.getInstance().debug("img", kW);
+        com.baidu.adp.lib.stats.a kY = kY();
+        kY.append("act", "getCDNList");
+        kY.append("errorNum", str);
+        kY.append(TiebaInitialize.LogFields.ERROR_MESSAGE, str2);
+        kY.append("isShortNetError", z2 ? "1" : "0");
+        kY.append("isSuccess", z ? "1" : "0");
+        BdStatisticsManager.getInstance().debug("img", kY);
     }
 
     public static void a(boolean z, String str, String str2, String str3, String str4, String str5, long j, boolean z2) {
         String str6 = "";
         if (str != null) {
-            str6 = t.aOr().uG(str);
+            str6 = t.aUv().wm(str);
         }
-        String aOj = aOj();
+        String aUn = aUn();
         String ip = d.getIp();
-        com.baidu.adp.lib.stats.a kW = kW();
-        kW.append("act", "tachometerCDN");
-        kW.append("errorNum", str3);
-        kW.append("execption", str4);
-        kW.append(TiebaInitialize.LogFields.SIZE, str5);
-        kW.append("isScuess", z ? "1" : "0");
-        kW.append("url", str);
-        kW.append("localIp", ip);
-        kW.append("cdnIp", str6);
-        kW.append("dnsIP", aOj);
-        kW.append("usedIp", str2);
-        kW.append("isUsedIp", z2 ? "0" : "1");
-        kW.append(TiebaInitialize.LogFields.COST_TIME, String.valueOf(j));
-        BdStatisticsManager.getInstance().debug("img", kW);
+        com.baidu.adp.lib.stats.a kY = kY();
+        kY.append("act", "tachometerCDN");
+        kY.append("errorNum", str3);
+        kY.append("execption", str4);
+        kY.append(TiebaInitialize.LogFields.SIZE, str5);
+        kY.append("isScuess", z ? "1" : "0");
+        kY.append("url", str);
+        kY.append("localIp", ip);
+        kY.append("cdnIp", str6);
+        kY.append("dnsIP", aUn);
+        kY.append("usedIp", str2);
+        kY.append("isUsedIp", z2 ? "0" : "1");
+        kY.append(TiebaInitialize.LogFields.COST_TIME, String.valueOf(j));
+        BdStatisticsManager.getInstance().debug("img", kY);
     }
 
     public static void a(ArrayList<String> arrayList, long j) {
@@ -596,11 +596,11 @@ public class s {
                     sb.append(arrayList.get(i2));
                     i = i2 + 1;
                 } else {
-                    com.baidu.adp.lib.stats.a kW = kW();
-                    kW.append("act", "mobileTachometerCDN");
-                    kW.append(TiebaInitialize.LogFields.COST_TIME, String.valueOf(j));
-                    kW.append("ipList", sb.toString());
-                    BdStatisticsManager.getInstance().debug("img", kW);
+                    com.baidu.adp.lib.stats.a kY = kY();
+                    kY.append("act", "mobileTachometerCDN");
+                    kY.append(TiebaInitialize.LogFields.COST_TIME, String.valueOf(j));
+                    kY.append("ipList", sb.toString());
+                    BdStatisticsManager.getInstance().debug("img", kY);
                     return;
                 }
             }
@@ -608,11 +608,11 @@ public class s {
     }
 
     public static void k(boolean z, String str) {
-        com.baidu.adp.lib.stats.a kW = kW();
-        kW.append("act", "getCDNList");
-        kW.append("isSuccess", z ? "1" : "0");
-        kW.append(TiebaInitialize.LogFields.ERROR_MESSAGE, str);
-        BdStatisticsManager.getInstance().debug("img", kW);
+        com.baidu.adp.lib.stats.a kY = kY();
+        kY.append("act", "getCDNList");
+        kY.append("isSuccess", z ? "1" : "0");
+        kY.append(TiebaInitialize.LogFields.ERROR_MESSAGE, str);
+        BdStatisticsManager.getInstance().debug("img", kY);
     }
 
     public static void e(com.baidu.adp.lib.stats.a aVar) {

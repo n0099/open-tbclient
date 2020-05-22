@@ -9,14 +9,12 @@ import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
-public abstract class b extends ab {
+public abstract class b extends aa {
     public abstract boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, com.baidu.swan.apps.runtime.e eVar);
 
     public abstract boolean b(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, com.baidu.swan.apps.runtime.e eVar);
 
     public abstract boolean c(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, com.baidu.swan.apps.runtime.e eVar);
-
-    public abstract boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, com.baidu.swan.apps.runtime.e eVar);
 
     @NonNull
     public abstract String getModuleName();
@@ -25,28 +23,28 @@ public abstract class b extends ab {
         super(jVar, str);
     }
 
-    @Override // com.baidu.swan.apps.scheme.actions.ab
+    @Override // com.baidu.swan.apps.scheme.actions.aa
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
         return false;
     }
 
-    @Override // com.baidu.swan.apps.scheme.actions.ab
-    public boolean e(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, com.baidu.swan.apps.runtime.e eVar) {
-        boolean d;
-        String mC = mC("insert");
-        String mC2 = mC(IMTrack.DbBuilder.ACTION_UPDATE);
-        String mC3 = mC("remove");
-        if (TextUtils.equals(mC, str)) {
-            d = a(context, unitedSchemeEntity, callbackHandler, str, eVar);
-        } else if (TextUtils.equals(mC2, str)) {
-            d = b(context, unitedSchemeEntity, callbackHandler, str, eVar);
-        } else if (TextUtils.equals(mC3, str)) {
-            d = c(context, unitedSchemeEntity, callbackHandler, str, eVar);
+    @Override // com.baidu.swan.apps.scheme.actions.aa
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, com.baidu.swan.apps.runtime.e eVar) {
+        boolean e;
+        String nZ = nZ("insert");
+        String nZ2 = nZ(IMTrack.DbBuilder.ACTION_UPDATE);
+        String nZ3 = nZ("remove");
+        if (TextUtils.equals(nZ, str)) {
+            e = a(context, unitedSchemeEntity, callbackHandler, str, eVar);
+        } else if (TextUtils.equals(nZ2, str)) {
+            e = b(context, unitedSchemeEntity, callbackHandler, str, eVar);
+        } else if (TextUtils.equals(nZ3, str)) {
+            e = c(context, unitedSchemeEntity, callbackHandler, str, eVar);
         } else {
-            d = d(context, unitedSchemeEntity, callbackHandler, str, eVar);
+            e = e(context, unitedSchemeEntity, callbackHandler, str, eVar);
         }
-        com.baidu.swan.apps.console.c.i("AbsSwanAppWidget", "subAction = " + str + " ; handle result = " + d);
-        return d || super.e(context, unitedSchemeEntity, callbackHandler, str, eVar);
+        com.baidu.swan.apps.console.c.i("AbsSwanAppWidget", "subAction = " + str + " ; handle result = " + e);
+        return e;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -73,7 +71,11 @@ public abstract class b extends ab {
         return jSONObject;
     }
 
-    private String mC(String str) {
+    private String nZ(String str) {
         return getModuleName() + "/" + str;
+    }
+
+    public boolean e(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, com.baidu.swan.apps.runtime.e eVar) {
+        return super.d(context, unitedSchemeEntity, callbackHandler, str, eVar);
     }
 }

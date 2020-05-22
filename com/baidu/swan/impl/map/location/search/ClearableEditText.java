@@ -6,12 +6,12 @@ import android.graphics.drawable.Drawable;
 import android.support.v7.widget.AppCompatEditText;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
-import com.baidu.swan.apps.as.af;
+import com.baidu.swan.apps.aq.ag;
 import com.baidu.tieba.R;
 /* loaded from: classes12.dex */
 public class ClearableEditText extends AppCompatEditText {
-    private static final int cWP = af.C(10.0f);
-    private Drawable cWO;
+    private static final int dhQ = ag.B(10.0f);
+    private Drawable dhP;
 
     public ClearableEditText(Context context) {
         super(context);
@@ -29,7 +29,7 @@ public class ClearableEditText extends AppCompatEditText {
     }
 
     private void init() {
-        this.cWO = getResources().getDrawable(R.drawable.aiapps_location_search_del);
+        this.dhP = getResources().getDrawable(R.drawable.aiapps_location_search_del);
     }
 
     @Override // android.widget.TextView
@@ -49,7 +49,7 @@ public class ClearableEditText extends AppCompatEditText {
         switch (motionEvent.getAction()) {
             case 1:
                 Drawable drawable = getCompoundDrawables()[2];
-                if (drawable != null && motionEvent.getX() <= (getWidth() - getPaddingRight()) + cWP && motionEvent.getX() >= ((getWidth() - getPaddingRight()) - drawable.getBounds().width()) - cWP) {
+                if (drawable != null && motionEvent.getX() <= (getWidth() - getPaddingRight()) + dhQ && motionEvent.getX() >= ((getWidth() - getPaddingRight()) - drawable.getBounds().width()) - dhQ) {
                     setText("");
                     break;
                 }
@@ -59,6 +59,6 @@ public class ClearableEditText extends AppCompatEditText {
     }
 
     private void setClearIconVisible(boolean z) {
-        setCompoundDrawablesWithIntrinsicBounds(getCompoundDrawables()[0], getCompoundDrawables()[1], z ? this.cWO : null, getCompoundDrawables()[3]);
+        setCompoundDrawablesWithIntrinsicBounds(getCompoundDrawables()[0], getCompoundDrawables()[1], z ? this.dhP : null, getCompoundDrawables()[3]);
     }
 }

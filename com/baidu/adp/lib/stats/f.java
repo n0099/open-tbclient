@@ -1,17 +1,17 @@
 package com.baidu.adp.lib.stats;
 /* loaded from: classes.dex */
 public class f {
-    private static boolean LU;
-    private static String LV;
-    private static String LW;
-    private static String LX;
+    private static boolean Me;
+    private static String Mf;
+    private static String Mg;
+    private static String Mh;
 
-    public static boolean lo() {
-        return LU;
+    public static boolean lq() {
+        return Me;
     }
 
-    public static void am(boolean z) {
-        LU = z;
+    public static void ao(boolean z) {
+        Me = z;
     }
 
     public static boolean a(com.baidu.adp.lib.stats.base.a aVar) {
@@ -19,26 +19,26 @@ public class f {
     }
 
     public static String getClientIp() {
-        return LV;
-    }
-
-    public static void bQ(String str) {
-        LV = str;
-    }
-
-    public static String lp() {
-        return LW;
+        return Mf;
     }
 
     public static void bR(String str) {
-        LW = str;
+        Mf = str;
     }
 
-    public static String lq() {
-        return LX;
+    public static String lr() {
+        return Mg;
     }
 
     public static void bS(String str) {
-        LX = str;
+        Mg = str;
+    }
+
+    public static String ls() {
+        return Mh;
+    }
+
+    public static void bT(String str) {
+        Mh = str;
     }
 }

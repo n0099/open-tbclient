@@ -462,7 +462,7 @@ public class ChatSessionManagerImpl extends ChatMsgManagerImpl {
             try {
                 IMService.enqueueWork(mContext, creatMethodIntent);
             } catch (Exception e) {
-                onSyncDialogResult(6, "start service exception", addListener, maxMsgid, null);
+                onSyncDialogResult(1003, Constants.ERROR_MSG_SERVICE_ERROR, addListener, maxMsgid, null);
                 LogUtils.e(TAG, "Exception ", e);
             }
         }

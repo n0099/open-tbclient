@@ -1,6 +1,6 @@
 package com.baidu.tieba.homepage.topic.topicdetail.message;
 
-import com.baidu.adp.widget.ListView.m;
+import com.baidu.adp.widget.ListView.o;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.v;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
@@ -13,7 +13,7 @@ import tbclient.NewTopicThread.TopicThread;
 /* loaded from: classes9.dex */
 public class ResponseHttpGetTopicThreadMessage extends TbHttpResponsedMessage {
     private boolean hasMore;
-    private List<m> mDataList;
+    private List<o> mDataList;
 
     public ResponseHttpGetTopicThreadMessage() {
         super(CmdConfigHttp.CMD_TOPIC_THREAD);
@@ -24,7 +24,7 @@ public class ResponseHttpGetTopicThreadMessage extends TbHttpResponsedMessage {
         return this.hasMore;
     }
 
-    public List<m> getDataList() {
+    public List<o> getDataList() {
         return this.mDataList;
     }
 

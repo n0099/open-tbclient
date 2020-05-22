@@ -64,7 +64,7 @@ public final class ObservableSwitchMap<T, R> extends a<T, R> {
                 switchMapInnerObserver2.cancel();
             }
             try {
-                t tVar = (t) io.reactivex.internal.functions.a.h(this.mapper.apply(t), "The ObservableSource returned is null");
+                t tVar = (t) io.reactivex.internal.functions.a.k(this.mapper.apply(t), "The ObservableSource returned is null");
                 SwitchMapInnerObserver<T, R> switchMapInnerObserver3 = new SwitchMapInnerObserver<>(this, j, this.bufferSize);
                 do {
                     switchMapInnerObserver = this.active.get();

@@ -5,61 +5,61 @@ import android.support.annotation.Nullable;
 import com.tb.airbnb.lottie.a.b.o;
 /* loaded from: classes6.dex */
 public class l implements com.tb.airbnb.lottie.model.content.b {
+    private final g njA;
+    private final b njB;
+    private final d njC;
     @Nullable
-    private final b mPA;
+    private final b njD;
     @Nullable
-    private final b mPB;
-    private final e mPv;
-    private final m<PointF, PointF> mPw;
-    private final g mPx;
-    private final b mPy;
-    private final d mPz;
+    private final b njE;
+    private final e njy;
+    private final m<PointF, PointF> njz;
 
     public l() {
         this(new e(), new e(), new g(), new b(), new d(), new b(), new b());
     }
 
     public l(e eVar, m<PointF, PointF> mVar, g gVar, b bVar, d dVar, @Nullable b bVar2, @Nullable b bVar3) {
-        this.mPv = eVar;
-        this.mPw = mVar;
-        this.mPx = gVar;
-        this.mPy = bVar;
-        this.mPz = dVar;
-        this.mPA = bVar2;
-        this.mPB = bVar3;
+        this.njy = eVar;
+        this.njz = mVar;
+        this.njA = gVar;
+        this.njB = bVar;
+        this.njC = dVar;
+        this.njD = bVar2;
+        this.njE = bVar3;
     }
 
-    public e dBr() {
-        return this.mPv;
+    public e dIK() {
+        return this.njy;
     }
 
-    public m<PointF, PointF> dBs() {
-        return this.mPw;
+    public m<PointF, PointF> dIL() {
+        return this.njz;
     }
 
-    public g dBt() {
-        return this.mPx;
+    public g dIM() {
+        return this.njA;
     }
 
-    public b dBu() {
-        return this.mPy;
+    public b dIN() {
+        return this.njB;
     }
 
-    public d dBv() {
-        return this.mPz;
-    }
-
-    @Nullable
-    public b dBw() {
-        return this.mPA;
+    public d dIO() {
+        return this.njC;
     }
 
     @Nullable
-    public b dBx() {
-        return this.mPB;
+    public b dIP() {
+        return this.njD;
     }
 
-    public o dBy() {
+    @Nullable
+    public b dIQ() {
+        return this.njE;
+    }
+
+    public o dIR() {
         return new o(this);
     }
 

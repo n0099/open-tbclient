@@ -1,7 +1,7 @@
 package com.baidu.c.a.a;
 /* loaded from: classes6.dex */
 public interface a {
-    b HS();
+    b JL();
 
     void a(c cVar);
 

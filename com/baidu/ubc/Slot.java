@@ -18,7 +18,7 @@ public class Slot implements Parcelable {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: FL */
+        /* renamed from: Gy */
         public Slot[] newArray(int i) {
             return new Slot[i];
         }
@@ -70,19 +70,19 @@ public class Slot implements Parcelable {
         }
     }
 
-    public void co(JSONObject jSONObject) {
+    public void cu(JSONObject jSONObject) {
         this.mOption = jSONObject;
     }
 
-    public boolean aEe() {
+    public boolean aIN() {
         return this.mStart > 0;
     }
 
-    public boolean aEf() {
+    public boolean aIO() {
         return this.mEnd > 0;
     }
 
-    public JSONObject aEg() {
+    public JSONObject aIP() {
         JSONObject jSONObject;
         JSONException e;
         if (TextUtils.isEmpty(this.mCategory) || this.mDuration <= 0.0f) {

@@ -7,16 +7,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import com.baidu.swan.apps.a;
-import com.baidu.swan.apps.as.af;
-import com.baidu.swan.apps.as.w;
+import com.baidu.swan.apps.aq.ag;
+import com.baidu.swan.apps.aq.x;
 import com.baidu.swan.apps.res.ui.SelectorTextView;
 import com.baidu.swan.apps.res.widget.dialog.b;
 import com.baidu.swan.apps.res.widget.dialog.g;
 /* loaded from: classes11.dex */
 public class c extends com.baidu.swan.apps.res.widget.dialog.b {
-    private TextView bNO;
-    private SelectorTextView bNP;
-    private a bNQ;
+    private TextView bWU;
+    private SelectorTextView bWV;
+    private a bWW;
     private View mView;
 
     protected c(Context context) {
@@ -24,98 +24,98 @@ public class c extends com.baidu.swan.apps.res.widget.dialog.b {
     }
 
     public void a(a aVar) {
-        this.bNQ = aVar;
+        this.bWW = aVar;
     }
 
     @Override // com.baidu.swan.apps.res.widget.dialog.b
     protected View createContentView(ViewGroup viewGroup) {
         this.mView = LayoutInflater.from(this.mContext).inflate(a.g.aiapps_safe_dialog, viewGroup, false);
-        this.bNO = (TextView) this.mView.findViewById(a.f.safe_dialog_content);
-        this.bNO.setTextColor(getContext().getResources().getColor(a.c.aiapps_safe_dialog_message));
-        this.bNP = (SelectorTextView) this.mView.findViewById(a.f.safe_dialog_sub_content);
-        this.bNP.setTextColor(getContext().getResources().getColor(a.c.aiapps_safe_dialog_btn_blue));
-        WS();
+        this.bWU = (TextView) this.mView.findViewById(a.f.safe_dialog_content);
+        this.bWU.setTextColor(getContext().getResources().getColor(a.c.aiapps_safe_dialog_message));
+        this.bWV = (SelectorTextView) this.mView.findViewById(a.f.safe_dialog_sub_content);
+        this.bWV.setTextColor(getContext().getResources().getColor(a.c.aiapps_safe_dialog_btn_blue));
+        ZE();
         return this.mView;
     }
 
-    private void WS() {
-        if (this.bNQ == null) {
+    private void ZE() {
+        if (this.bWW == null) {
             return;
         }
-        this.bNO.setText(this.mContext.getText(this.bNQ.mMessageId));
-        this.bNO.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.core.e.c.1
+        this.bWU.setText(this.mContext.getText(this.bWW.mMessageId));
+        this.bWU.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.core.e.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (c.this.bNQ.bNV != null) {
-                    c.this.bNQ.bNV.onItemClick(view);
+                if (c.this.bWW.bXb != null) {
+                    c.this.bWW.bXb.onItemClick(view);
                 }
             }
         });
-        if (this.bNQ.bNS > 0) {
-            this.bNP.setVisibility(0);
-            this.bNP.setText(this.mContext.getText(this.bNQ.bNS));
-            this.bNP.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.core.e.c.2
+        if (this.bWW.bWY > 0) {
+            this.bWV.setVisibility(0);
+            this.bWV.setText(this.mContext.getText(this.bWW.bWY));
+            this.bWV.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.core.e.c.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (c.this.bNQ.bNU != null) {
-                        c.this.bNQ.bNU.onItemClick(view);
+                    if (c.this.bWW.bXa != null) {
+                        c.this.bWW.bXa.onItemClick(view);
                     }
                 }
             });
         } else {
-            this.bNP.setVisibility(8);
+            this.bWV.setVisibility(8);
         }
-        if (this.bNQ.bNT <= 0) {
+        if (this.bWW.bWZ <= 0) {
             return;
         }
-        Drawable drawable = this.mContext.getResources().getDrawable(this.bNQ.bNT);
-        w.decorateSrcATopMode(getContext(), drawable);
-        drawable.setBounds(0, 0, af.dip2px(this.mContext, 12.0f), af.dip2px(this.mContext, 12.0f));
-        this.bNP.setCompoundDrawables(drawable, null, null, null);
+        Drawable drawable = this.mContext.getResources().getDrawable(this.bWW.bWZ);
+        x.decorateSrcATopMode(getContext(), drawable);
+        drawable.setBounds(0, 0, ag.dip2px(this.mContext, 12.0f), ag.dip2px(this.mContext, 12.0f));
+        this.bWV.setCompoundDrawables(drawable, null, null, null);
     }
 
     /* loaded from: classes11.dex */
-    public static class a extends b.C0333b {
-        private int bNS;
-        private int bNT;
-        public b.c bNU;
-        public b.c bNV;
+    public static class a extends b.C0376b {
+        private int bWY;
+        private int bWZ;
+        public b.c bXa;
+        public b.c bXb;
         private int mMessageId;
 
         public a(Context context) {
             super(context);
         }
 
-        @Override // com.baidu.swan.apps.res.widget.dialog.b.C0333b, com.baidu.swan.apps.res.widget.dialog.g.a
-        protected g by(Context context) {
+        @Override // com.baidu.swan.apps.res.widget.dialog.b.C0376b, com.baidu.swan.apps.res.widget.dialog.g.a
+        protected g bH(Context context) {
             return new c(context);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.swan.apps.res.widget.dialog.g.a
-        /* renamed from: eF */
-        public a eI(int i) {
-            super.eI(i);
+        /* renamed from: eO */
+        public a eR(int i) {
+            super.eR(i);
             return this;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.swan.apps.res.widget.dialog.g.a
-        /* renamed from: eG */
-        public a eH(int i) {
+        /* renamed from: eP */
+        public a eQ(int i) {
             this.mMessageId = i;
             return this;
         }
 
         public a a(int i, b.c cVar) {
             this.mMessageId = i;
-            this.bNV = cVar;
+            this.bXb = cVar;
             return this;
         }
 
-        @Override // com.baidu.swan.apps.res.widget.dialog.b.C0333b, com.baidu.swan.apps.res.widget.dialog.g.a
-        public g WT() {
-            c cVar = (c) super.WT();
+        @Override // com.baidu.swan.apps.res.widget.dialog.b.C0376b, com.baidu.swan.apps.res.widget.dialog.g.a
+        public g ZF() {
+            c cVar = (c) super.ZF();
             cVar.a(this);
             return cVar;
         }

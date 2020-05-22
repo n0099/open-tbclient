@@ -3,8 +3,8 @@ package com.baidu.webkit.sdk;
 import android.content.Context;
 /* loaded from: classes11.dex */
 public class WebViewDatabase {
+    private static Context mContext;
     private static final WebViewDatabase mInstance = new WebViewDatabase();
-    private static Context mContext = null;
 
     public static WebViewDatabase getInstance(Context context) {
         if (mContext == null) {
@@ -26,6 +26,10 @@ public class WebViewDatabase {
         WebViewFactory.getProvider().getWebViewDatabase(mContext).clearUsernamePassword();
     }
 
+    public String[] getHttpAuthUsernamePassword(String str, String str2) {
+        return WebViewFactory.getProvider().getWebViewDatabase(mContext).getHttpAuthUsernamePassword(str, str2);
+    }
+
     public boolean hasFormData() {
         return WebViewFactory.getProvider().getWebViewDatabase(mContext).hasFormData();
     }
@@ -37,5 +41,9 @@ public class WebViewDatabase {
     @Deprecated
     public boolean hasUsernamePassword() {
         return WebViewFactory.getProvider().getWebViewDatabase(mContext).hasUsernamePassword();
+    }
+
+    public void setHttpAuthUsernamePassword(String str, String str2, String str3, String str4) {
+        WebViewFactory.getProvider().getWebViewDatabase(mContext).setHttpAuthUsernamePassword(str, str2, str3, str4);
     }
 }

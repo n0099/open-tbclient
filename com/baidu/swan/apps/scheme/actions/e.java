@@ -9,12 +9,12 @@ import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.swan.apps.setting.oauth.a.b;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
-public class e extends ab {
+public class e extends aa {
     public e(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swanAPI/confirmSwanClose");
     }
 
-    @Override // com.baidu.swan.apps.scheme.actions.ab
+    @Override // com.baidu.swan.apps.scheme.actions.aa
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
         if (eVar == null) {
             com.baidu.swan.apps.console.c.e("SwanConfirmClose", "framework runtime exception");
@@ -38,17 +38,17 @@ public class e extends ab {
                 return false;
             }
             final String optString2 = optParamsAsJo.optString("content");
-            eVar.akW().b(context, "mapp_confirm_close", new com.baidu.swan.apps.as.d.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.apps.scheme.actions.e.1
+            eVar.aoR().b(context, "mapp_confirm_close", new com.baidu.swan.apps.aq.e.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.apps.scheme.actions.e.1
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.baidu.swan.apps.as.d.b
+                @Override // com.baidu.swan.apps.aq.e.b
                 /* renamed from: a */
-                public void F(com.baidu.swan.apps.setting.oauth.h<b.d> hVar) {
+                public void H(com.baidu.swan.apps.setting.oauth.h<b.d> hVar) {
                     if (!com.baidu.swan.apps.setting.oauth.c.b(hVar)) {
                         com.baidu.swan.apps.setting.oauth.c.a(hVar, callbackHandler, optString);
                         return;
                     }
                     callbackHandler.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(0).toString());
-                    com.baidu.swan.apps.q.a.aaU().jj(optString2);
+                    com.baidu.swan.apps.o.a.adV().kr(optString2);
                 }
             });
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);

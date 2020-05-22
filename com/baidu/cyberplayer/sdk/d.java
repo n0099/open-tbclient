@@ -72,7 +72,7 @@ public class d {
 
     public static void a(String str, String str2, String str3, int i, int i2, int i3, CyberPlayerManager.HttpDNS httpDNS, String str4) {
         if (!com.baidu.cyberplayer.sdk.remote.g.a().a(str, str2, str3, i, i2, i3) && a(1)) {
-            a.prefetch(str, TextUtils.isEmpty(str2) ? "dumedia/7.7.2.14" : str2.indexOf("dumedia") == -1 ? str2 + " dumedia/" + SDKVersion.VERSION : str2, str3, i, i2, i3, httpDNS, str4);
+            a.prefetch(str, TextUtils.isEmpty(str2) ? "dumedia/7.7.2.20" : str2.indexOf("dumedia") == -1 ? str2 + " dumedia/" + SDKVersion.VERSION : str2, str3, i, i2, i3, httpDNS, str4);
         }
     }
 

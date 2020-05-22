@@ -25,54 +25,54 @@ import tv.chushou.zues.b;
 /* loaded from: classes5.dex */
 public class b extends Dialog implements View.OnClickListener {
     @ColorInt
-    private static int nwG = -1;
-    private TextView aNN;
-    private View cTz;
-    private Button cwB;
-    private Button eHt;
-    private String fHJ;
+    private static int nRC = -1;
+    private TextView aTU;
+    private Button cID;
+    private View deC;
+    private Button eTR;
+    private String fVF;
     private CharSequence mContentText;
     private Context mContext;
     private View mLineView;
     private String mTitleText;
     private TextView mTitleTextView;
     @ColorInt
-    private int nwH;
-    private AnimationSet nwI;
-    private AnimationSet nwJ;
-    private Animation nwK;
-    private Animation nwL;
-    private AnimationSet nwM;
-    private AnimationSet nwN;
-    private Animation nwO;
-    private EditText nwP;
-    private boolean nwQ;
-    private boolean nwR;
-    private String nwS;
-    private boolean nwT;
-    private String nwU;
-    private boolean nwV;
-    private boolean nwW;
-    private Drawable nwX;
-    private Drawable nwY;
-    private String nwZ;
-    private int nxa;
-    private FrameLayout nxb;
-    private FrameLayout nxc;
-    private FrameLayout nxd;
-    private SuccessTickView nxe;
-    private ImageView nxf;
-    private View nxg;
-    private View nxh;
-    private Drawable nxi;
-    private ImageView nxj;
-    private Button nxk;
-    private FrameLayout nxl;
-    private a nxm;
-    private a nxn;
-    private a nxo;
-    private boolean nxp;
-    private int nxq;
+    private int nRD;
+    private AnimationSet nRE;
+    private AnimationSet nRF;
+    private Animation nRG;
+    private Animation nRH;
+    private AnimationSet nRI;
+    private AnimationSet nRJ;
+    private Animation nRK;
+    private EditText nRL;
+    private boolean nRM;
+    private boolean nRN;
+    private String nRO;
+    private boolean nRP;
+    private String nRQ;
+    private boolean nRR;
+    private boolean nRS;
+    private Drawable nRT;
+    private Drawable nRU;
+    private String nRV;
+    private int nRW;
+    private FrameLayout nRX;
+    private FrameLayout nRY;
+    private FrameLayout nRZ;
+    private SuccessTickView nSa;
+    private ImageView nSb;
+    private View nSc;
+    private View nSd;
+    private Drawable nSe;
+    private ImageView nSf;
+    private Button nSg;
+    private FrameLayout nSh;
+    private a nSi;
+    private a nSj;
+    private a nSk;
+    private boolean nSl;
+    private int nSm;
 
     /* loaded from: classes5.dex */
     public interface a {
@@ -85,20 +85,20 @@ public class b extends Dialog implements View.OnClickListener {
 
     public b(Context context, int i) {
         super(context, b.h.zues_alert_dialog);
-        this.nwH = -1;
-        this.nwQ = true;
-        this.nwT = true;
-        this.nwV = true;
-        this.nwW = true;
-        this.nxq = 0;
+        this.nRD = -1;
+        this.nRM = true;
+        this.nRP = true;
+        this.nRR = true;
+        this.nRS = true;
+        this.nSm = 0;
         this.mContext = context;
         setCancelable(true);
         setCanceledOnTouchOutside(false);
-        this.nxa = i;
-        this.nwL = tv.chushou.zues.widget.sweetalert.a.K(getContext(), b.a.zues_sweetalert_error_frame_in);
-        this.nwM = (AnimationSet) tv.chushou.zues.widget.sweetalert.a.K(getContext(), b.a.zues_sweetalert_error_x_in);
+        this.nRW = i;
+        this.nRH = tv.chushou.zues.widget.sweetalert.a.K(getContext(), b.a.zues_sweetalert_error_frame_in);
+        this.nRI = (AnimationSet) tv.chushou.zues.widget.sweetalert.a.K(getContext(), b.a.zues_sweetalert_error_x_in);
         if (Build.VERSION.SDK_INT <= 10) {
-            List<Animation> animations = this.nwM.getAnimations();
+            List<Animation> animations = this.nRI.getAnimations();
             int i2 = 0;
             while (i2 < animations.size() && !(animations.get(i2) instanceof AlphaAnimation)) {
                 i2++;
@@ -107,22 +107,22 @@ public class b extends Dialog implements View.OnClickListener {
                 animations.remove(i2);
             }
         }
-        this.nwO = tv.chushou.zues.widget.sweetalert.a.K(getContext(), b.a.zues_sweetalert_success_bow_roate);
-        this.nwN = (AnimationSet) tv.chushou.zues.widget.sweetalert.a.K(getContext(), b.a.zues_sweetalert_success_mask_layout);
-        this.nwI = (AnimationSet) tv.chushou.zues.widget.sweetalert.a.K(getContext(), b.a.zues_sweetalert_modal_in);
-        this.nwJ = (AnimationSet) tv.chushou.zues.widget.sweetalert.a.K(getContext(), b.a.zues_sweetalert_modal_out);
-        this.nwJ.setAnimationListener(new Animation.AnimationListener() { // from class: tv.chushou.zues.widget.sweetalert.b.1
+        this.nRK = tv.chushou.zues.widget.sweetalert.a.K(getContext(), b.a.zues_sweetalert_success_bow_roate);
+        this.nRJ = (AnimationSet) tv.chushou.zues.widget.sweetalert.a.K(getContext(), b.a.zues_sweetalert_success_mask_layout);
+        this.nRE = (AnimationSet) tv.chushou.zues.widget.sweetalert.a.K(getContext(), b.a.zues_sweetalert_modal_in);
+        this.nRF = (AnimationSet) tv.chushou.zues.widget.sweetalert.a.K(getContext(), b.a.zues_sweetalert_modal_out);
+        this.nRF.setAnimationListener(new Animation.AnimationListener() { // from class: tv.chushou.zues.widget.sweetalert.b.1
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationStart(Animation animation) {
             }
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
-                b.this.cTz.setVisibility(8);
-                b.this.cTz.post(new Runnable() { // from class: tv.chushou.zues.widget.sweetalert.b.1.1
+                b.this.deC.setVisibility(8);
+                b.this.deC.post(new Runnable() { // from class: tv.chushou.zues.widget.sweetalert.b.1.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        if (b.this.nxp) {
+                        if (b.this.nSl) {
                             b.super.cancel();
                         } else {
                             b.super.dismiss();
@@ -135,7 +135,7 @@ public class b extends Dialog implements View.OnClickListener {
             public void onAnimationRepeat(Animation animation) {
             }
         });
-        this.nwK = new Animation() { // from class: tv.chushou.zues.widget.sweetalert.b.2
+        this.nRG = new Animation() { // from class: tv.chushou.zues.widget.sweetalert.b.2
             @Override // android.view.animation.Animation
             protected void applyTransformation(float f, Transformation transformation) {
                 WindowManager.LayoutParams attributes = b.this.getWindow().getAttributes();
@@ -143,142 +143,142 @@ public class b extends Dialog implements View.OnClickListener {
                 b.this.getWindow().setAttributes(attributes);
             }
         };
-        this.nwK.setDuration(120L);
+        this.nRG.setDuration(120L);
     }
 
     @Override // android.app.Dialog
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        if (this.nxa == 6) {
+        if (this.nRW == 6) {
             super.setContentView(b.f.zues_sweetalert_dialog_withinput);
-            findViewById(b.e.loading).getLayoutParams().width = tv.chushou.zues.utils.a.fV(this.mContext).x - (this.mContext.getResources().getDimensionPixelSize(b.c.zues_alert_spac_h) * 2);
-        } else if (this.nxa == 7) {
+            findViewById(b.e.loading).getLayoutParams().width = tv.chushou.zues.utils.a.gw(this.mContext).x - (this.mContext.getResources().getDimensionPixelSize(b.c.zues_alert_spac_h) * 2);
+        } else if (this.nRW == 7) {
             super.setContentView(b.f.zues_sweetalert_dialog_three_btn);
         } else {
             super.setContentView(b.f.zues_sweetalert_dialog);
         }
-        this.cTz = getWindow().getDecorView().findViewById(16908290);
+        this.deC = getWindow().getDecorView().findViewById(16908290);
         this.mTitleTextView = (TextView) findViewById(b.e.title_text);
-        this.aNN = (TextView) findViewById(b.e.content_text);
-        this.nxb = (FrameLayout) findViewById(b.e.error_frame);
-        if (this.nxb != null) {
-            this.nxf = (ImageView) this.nxb.findViewById(b.e.error_x);
+        this.aTU = (TextView) findViewById(b.e.content_text);
+        this.nRX = (FrameLayout) findViewById(b.e.error_frame);
+        if (this.nRX != null) {
+            this.nSb = (ImageView) this.nRX.findViewById(b.e.error_x);
         }
-        this.nxc = (FrameLayout) findViewById(b.e.success_frame);
-        this.nxd = (FrameLayout) findViewById(b.e.progress_dialog);
-        if (this.nxc != null) {
-            this.nxe = (SuccessTickView) this.nxc.findViewById(b.e.success_tick);
-            this.nxg = this.nxc.findViewById(b.e.mask_left);
-            this.nxh = this.nxc.findViewById(b.e.mask_right);
+        this.nRY = (FrameLayout) findViewById(b.e.success_frame);
+        this.nRZ = (FrameLayout) findViewById(b.e.progress_dialog);
+        if (this.nRY != null) {
+            this.nSa = (SuccessTickView) this.nRY.findViewById(b.e.success_tick);
+            this.nSc = this.nRY.findViewById(b.e.mask_left);
+            this.nSd = this.nRY.findViewById(b.e.mask_right);
         }
-        this.nxj = (ImageView) findViewById(b.e.custom_image);
-        this.nxl = (FrameLayout) findViewById(b.e.warning_frame);
-        this.cwB = (Button) findViewById(b.e.confirm_button);
-        this.eHt = (Button) findViewById(b.e.cancel_button);
+        this.nSf = (ImageView) findViewById(b.e.custom_image);
+        this.nSh = (FrameLayout) findViewById(b.e.warning_frame);
+        this.cID = (Button) findViewById(b.e.confirm_button);
+        this.eTR = (Button) findViewById(b.e.cancel_button);
         this.mLineView = findViewById(b.e.vertial_view);
-        this.nxk = (Button) findViewById(b.e.middle_btn);
-        this.nwP = (EditText) findViewById(b.e.et_input);
-        this.cwB.setOnClickListener(this);
-        if (this.eHt != null) {
-            this.eHt.setOnClickListener(this);
+        this.nSg = (Button) findViewById(b.e.middle_btn);
+        this.nRL = (EditText) findViewById(b.e.et_input);
+        this.cID.setOnClickListener(this);
+        if (this.eTR != null) {
+            this.eTR.setOnClickListener(this);
         }
-        if (this.nxk != null) {
-            this.nxk.setOnClickListener(this);
+        if (this.nSg != null) {
+            this.nSg.setOnClickListener(this);
         }
-        wW(this.nwQ);
-        wY(this.nwV);
-        Qv(this.mTitleText);
-        w(this.mContentText);
-        Km(this.nxq);
-        Qw(this.nwS);
-        Qy(this.fHJ);
-        Kn(this.nwH);
-        w(this.nwY);
-        Qz(this.nwZ);
-        Qx(this.nwU);
-        af(this.nxa, true);
-        if (this.nxa == 7) {
+        xt(this.nRM);
+        xv(this.nRR);
+        SB(this.mTitleText);
+        x(this.mContentText);
+        KX(this.nSm);
+        SC(this.nRO);
+        SE(this.fVF);
+        KY(this.nRD);
+        w(this.nRU);
+        SF(this.nRV);
+        SD(this.nRQ);
+        aj(this.nRW, true);
+        if (this.nRW == 7) {
             if (this.mTitleTextView != null) {
-                this.mTitleTextView.setTextColor(this.mContext.getResources().getColor(b.C0852b.zues_text_color));
+                this.mTitleTextView.setTextColor(this.mContext.getResources().getColor(b.C0914b.zues_text_color));
             }
-            if (this.aNN != null) {
-                this.aNN.setTextColor(this.mContext.getResources().getColor(b.C0852b.zues_text_color));
+            if (this.aTU != null) {
+                this.aTU.setTextColor(this.mContext.getResources().getColor(b.C0914b.zues_text_color));
             }
         }
     }
 
-    private void Sf() {
-        if (this.nxj != null) {
-            this.nxj.setVisibility(8);
+    private void UR() {
+        if (this.nSf != null) {
+            this.nSf.setVisibility(8);
         }
-        if (this.nxb != null) {
-            this.nxb.setVisibility(8);
+        if (this.nRX != null) {
+            this.nRX.setVisibility(8);
         }
-        if (this.nxc != null) {
-            this.nxc.setVisibility(8);
+        if (this.nRY != null) {
+            this.nRY.setVisibility(8);
         }
-        if (this.nxl != null) {
-            this.nxl.setVisibility(8);
+        if (this.nSh != null) {
+            this.nSh.setVisibility(8);
         }
-        if (this.nxd != null) {
-            this.nxd.setVisibility(8);
+        if (this.nRZ != null) {
+            this.nRZ.setVisibility(8);
         }
-        if (this.cwB != null) {
-            this.cwB.setVisibility(0);
+        if (this.cID != null) {
+            this.cID.setVisibility(0);
         }
-        this.cwB.setBackgroundResource(b.d.zues_sweetalert_kas_button_background);
-        if (this.nxb != null) {
-            this.nxb.clearAnimation();
+        this.cID.setBackgroundResource(b.d.zues_sweetalert_kas_button_background);
+        if (this.nRX != null) {
+            this.nRX.clearAnimation();
         }
-        if (this.nxf != null) {
-            this.nxf.clearAnimation();
+        if (this.nSb != null) {
+            this.nSb.clearAnimation();
         }
-        if (this.nxe != null) {
-            this.nxe.clearAnimation();
+        if (this.nSa != null) {
+            this.nSa.clearAnimation();
         }
-        if (this.nxg != null) {
-            this.nxg.clearAnimation();
+        if (this.nSc != null) {
+            this.nSc.clearAnimation();
         }
-        if (this.nxh != null) {
-            this.nxh.clearAnimation();
+        if (this.nSd != null) {
+            this.nSd.clearAnimation();
         }
     }
 
     private void playAnimation() {
-        if (this.nxa == 1) {
-            this.nxb.startAnimation(this.nwL);
-            this.nxf.startAnimation(this.nwM);
-        } else if (this.nxa == 2) {
-            this.nxe.dKt();
-            this.nxh.startAnimation(this.nwO);
+        if (this.nRW == 1) {
+            this.nRX.startAnimation(this.nRH);
+            this.nSb.startAnimation(this.nRI);
+        } else if (this.nRW == 2) {
+            this.nSa.dSn();
+            this.nSd.startAnimation(this.nRK);
         }
     }
 
-    private void af(int i, boolean z) {
-        this.nxa = i;
-        if (this.cTz != null) {
+    private void aj(int i, boolean z) {
+        this.nRW = i;
+        if (this.deC != null) {
             if (!z) {
-                Sf();
+                UR();
             }
-            switch (this.nxa) {
+            switch (this.nRW) {
                 case 1:
-                    this.nxb.setVisibility(0);
+                    this.nRX.setVisibility(0);
                     break;
                 case 2:
-                    this.nxc.setVisibility(0);
-                    this.nxg.startAnimation(this.nwN.getAnimations().get(0));
-                    this.nxh.startAnimation(this.nwN.getAnimations().get(1));
+                    this.nRY.setVisibility(0);
+                    this.nSc.startAnimation(this.nRJ.getAnimations().get(0));
+                    this.nSd.startAnimation(this.nRJ.getAnimations().get(1));
                     break;
                 case 3:
-                    this.cwB.setBackgroundResource(b.d.zues_sweetalert_red_button_background);
-                    this.nxl.setVisibility(0);
+                    this.cID.setBackgroundResource(b.d.zues_sweetalert_red_button_background);
+                    this.nSh.setVisibility(0);
                     break;
                 case 4:
-                    v(this.nxi);
+                    v(this.nSe);
                     break;
                 case 5:
-                    this.nxd.setVisibility(0);
-                    this.cwB.setVisibility(8);
+                    this.nRZ.setVisibility(0);
+                    this.cID.setVisibility(8);
                     break;
             }
             if (!z) {
@@ -287,7 +287,7 @@ public class b extends Dialog implements View.OnClickListener {
         }
     }
 
-    public b Qv(String str) {
+    public b SB(String str) {
         this.mTitleText = str;
         if (this.mTitleTextView != null) {
             if (this.mTitleText != null) {
@@ -300,7 +300,7 @@ public class b extends Dialog implements View.OnClickListener {
         return this;
     }
 
-    public b aS(String str, boolean z) {
+    public b bf(String str, boolean z) {
         this.mTitleText = str;
         if (this.mTitleTextView != null) {
             if (this.mTitleText != null) {
@@ -317,182 +317,182 @@ public class b extends Dialog implements View.OnClickListener {
     }
 
     public b v(Drawable drawable) {
-        this.nxi = drawable;
-        if (this.nxj != null && this.nxi != null) {
-            this.nxj.setVisibility(0);
-            this.nxj.setImageDrawable(this.nxi);
+        this.nSe = drawable;
+        if (this.nSf != null && this.nSe != null) {
+            this.nSf.setVisibility(0);
+            this.nSf.setImageDrawable(this.nSe);
         }
         return this;
     }
 
-    public b w(CharSequence charSequence) {
+    public b x(CharSequence charSequence) {
         this.mContentText = charSequence;
-        if (this.aNN != null) {
+        if (this.aTU != null) {
             if (this.mContentText != null && this.mContentText.length() > 0) {
-                wX(true);
-                this.aNN.setText(this.mContentText);
+                xu(true);
+                this.aTU.setText(this.mContentText);
             } else {
-                wX(false);
+                xu(false);
             }
         }
         return this;
     }
 
-    public b Km(int i) {
-        this.nxq = i;
-        if (this.aNN != null && this.nxq > 0) {
-            this.aNN.setTextSize(2, this.nxq);
+    public b KX(int i) {
+        this.nSm = i;
+        if (this.aTU != null && this.nSm > 0) {
+            this.aTU.setTextSize(2, this.nSm);
         }
         return this;
     }
 
-    public b wW(boolean z) {
-        this.nwQ = z;
-        if (this.eHt != null) {
-            this.eHt.setVisibility(this.nwQ ? 0 : 8);
+    public b xt(boolean z) {
+        this.nRM = z;
+        if (this.eTR != null) {
+            this.eTR.setVisibility(this.nRM ? 0 : 8);
         }
         return this;
     }
 
-    public b wX(boolean z) {
-        this.nwR = z;
-        if (this.aNN != null) {
-            this.aNN.setVisibility(this.nwR ? 0 : 8);
+    public b xu(boolean z) {
+        this.nRN = z;
+        if (this.aTU != null) {
+            this.aTU.setVisibility(this.nRN ? 0 : 8);
         }
         return this;
     }
 
-    public b Qw(String str) {
-        this.nwS = str;
-        if (this.eHt != null && this.nwS != null) {
-            wW(true);
-            this.eHt.setText(this.nwS);
-            if (this.nwT) {
-                this.eHt.setTypeface(Typeface.defaultFromStyle(1));
+    public b SC(String str) {
+        this.nRO = str;
+        if (this.eTR != null && this.nRO != null) {
+            xt(true);
+            this.eTR.setText(this.nRO);
+            if (this.nRP) {
+                this.eTR.setTypeface(Typeface.defaultFromStyle(1));
             } else {
-                this.eHt.setTypeface(Typeface.defaultFromStyle(0));
+                this.eTR.setTypeface(Typeface.defaultFromStyle(0));
             }
-            if (this.nwX != null) {
-                ViewCompat.setBackground(this.eHt, this.nwX);
+            if (this.nRT != null) {
+                ViewCompat.setBackground(this.eTR, this.nRT);
             }
         }
         return this;
     }
 
-    public b Qx(String str) {
-        this.nwU = str;
-        if (this.nxk != null && this.nwU != null) {
-            this.nxk.setText(this.nwU);
+    public b SD(String str) {
+        this.nRQ = str;
+        if (this.nSg != null && this.nRQ != null) {
+            this.nSg.setText(this.nRQ);
         }
         return this;
     }
 
-    public b wY(boolean z) {
-        this.nwV = z;
-        if (this.nxk != null) {
+    public b xv(boolean z) {
+        this.nRR = z;
+        if (this.nSg != null) {
             if (z) {
-                this.nxk.setVisibility(0);
+                this.nSg.setVisibility(0);
             } else {
-                this.nxk.setVisibility(8);
+                this.nSg.setVisibility(8);
             }
         }
         return this;
     }
 
-    public b Qy(String str) {
-        this.fHJ = str;
-        if (this.cwB != null && this.fHJ != null) {
-            this.cwB.setText(this.fHJ);
-            if (this.nwW) {
-                this.cwB.setTypeface(Typeface.defaultFromStyle(1));
+    public b SE(String str) {
+        this.fVF = str;
+        if (this.cID != null && this.fVF != null) {
+            this.cID.setText(this.fVF);
+            if (this.nRS) {
+                this.cID.setTypeface(Typeface.defaultFromStyle(1));
             } else {
-                this.cwB.setTypeface(Typeface.defaultFromStyle(0));
+                this.cID.setTypeface(Typeface.defaultFromStyle(0));
             }
-            if (this.nwY != null) {
-                ViewCompat.setBackground(this.cwB, this.nwY);
+            if (this.nRU != null) {
+                ViewCompat.setBackground(this.cID, this.nRU);
             }
         }
         return this;
     }
 
-    public b Kn(@ColorInt int i) {
-        this.nwH = i;
-        if (this.cwB != null) {
-            if (this.nwH != -1) {
-                this.cwB.setTextColor(this.nwH);
-            } else if (nwG != -1) {
-                this.cwB.setTextColor(nwG);
+    public b KY(@ColorInt int i) {
+        this.nRD = i;
+        if (this.cID != null) {
+            if (this.nRD != -1) {
+                this.cID.setTextColor(this.nRD);
+            } else if (nRC != -1) {
+                this.cID.setTextColor(nRC);
             }
         }
         return this;
     }
 
     public b w(Drawable drawable) {
-        this.nwY = drawable;
-        if (this.cwB != null) {
-            ViewCompat.setBackground(this.cwB, drawable);
+        this.nRU = drawable;
+        if (this.cID != null) {
+            ViewCompat.setBackground(this.cID, drawable);
         }
         return this;
     }
 
     public b a(a aVar) {
-        this.nxm = aVar;
+        this.nSi = aVar;
         return this;
     }
 
     public b b(a aVar) {
-        this.nxn = aVar;
+        this.nSj = aVar;
         return this;
     }
 
     @Override // android.app.Dialog
     protected void onStart() {
-        this.cTz.startAnimation(this.nwI);
+        this.deC.startAnimation(this.nRE);
         playAnimation();
     }
 
     @Override // android.app.Dialog, android.content.DialogInterface
     public void cancel() {
-        wZ(true);
+        xw(true);
     }
 
-    public void dKu() {
-        wZ(false);
+    public void dSo() {
+        xw(false);
     }
 
-    private void wZ(boolean z) {
-        this.nxp = z;
-        this.cwB.startAnimation(this.nwK);
-        this.cTz.startAnimation(this.nwJ);
+    private void xw(boolean z) {
+        this.nSl = z;
+        this.cID.startAnimation(this.nRG);
+        this.deC.startAnimation(this.nRF);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view.getId() == b.e.cancel_button) {
-            if (this.nxm != null) {
-                this.nxm.onClick(this);
+            if (this.nSi != null) {
+                this.nSi.onClick(this);
             } else {
-                dKu();
+                dSo();
             }
         } else if (view.getId() == b.e.confirm_button) {
-            if (this.nxn != null) {
-                this.nxn.onClick(this);
+            if (this.nSj != null) {
+                this.nSj.onClick(this);
             } else {
-                dKu();
+                dSo();
             }
         } else if (view.getId() == b.e.middle_btn) {
-            if (this.nxo != null) {
-                this.nxo.onClick(this);
+            if (this.nSk != null) {
+                this.nSk.onClick(this);
             } else {
-                dKu();
+                dSo();
             }
         }
     }
 
-    public b Qz(String str) {
-        this.nwZ = str;
-        if (this.nwP != null && this.nwZ != null) {
-            this.nwP.setHint(str);
+    public b SF(String str) {
+        this.nRV = str;
+        if (this.nRL != null && this.nRV != null) {
+            this.nRL.setHint(str);
         }
         return this;
     }
@@ -500,8 +500,8 @@ public class b extends Dialog implements View.OnClickListener {
     @Override // android.app.Dialog
     public void show() {
         super.show();
-        if (this.eHt != null && this.cwB != null) {
-            if (this.eHt.getVisibility() == 0 && this.cwB.getVisibility() == 0) {
+        if (this.eTR != null && this.cID != null) {
+            if (this.eTR.getVisibility() == 0 && this.cID.getVisibility() == 0) {
                 if (this.mLineView != null) {
                     this.mLineView.setVisibility(0);
                     return;
@@ -511,10 +511,10 @@ public class b extends Dialog implements View.OnClickListener {
             if (this.mLineView != null) {
                 this.mLineView.setVisibility(8);
             }
-            if (this.eHt.getVisibility() == 0) {
-                ViewCompat.setBackground(this.eHt, ContextCompat.getDrawable(this.mContext, b.d.zues_bg_onebt_selector));
-            } else if (this.cwB.getVisibility() == 0) {
-                ViewCompat.setBackground(this.cwB, ContextCompat.getDrawable(this.mContext, b.d.zues_bg_onebt_selector));
+            if (this.eTR.getVisibility() == 0) {
+                ViewCompat.setBackground(this.eTR, ContextCompat.getDrawable(this.mContext, b.d.zues_bg_onebt_selector));
+            } else if (this.cID.getVisibility() == 0) {
+                ViewCompat.setBackground(this.cID, ContextCompat.getDrawable(this.mContext, b.d.zues_bg_onebt_selector));
             }
         }
     }

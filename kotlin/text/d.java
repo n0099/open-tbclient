@@ -9,30 +9,30 @@ import kotlin.TypeCastException;
 @kotlin.h
 /* loaded from: classes7.dex */
 public final class d implements kotlin.sequences.c<kotlin.b.h> {
-    private final int aXG;
+    private final int bfa;
     private final int limit;
-    private final CharSequence mYM;
-    private final kotlin.jvm.a.m<CharSequence, Integer, Pair<Integer, Integer>> mYN;
+    private final CharSequence ntO;
+    private final kotlin.jvm.a.m<CharSequence, Integer, Pair<Integer, Integer>> ntP;
 
     /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: kotlin.jvm.a.m<? super java.lang.CharSequence, ? super java.lang.Integer, kotlin.Pair<java.lang.Integer, java.lang.Integer>> */
     /* JADX WARN: Multi-variable type inference failed */
     public d(CharSequence charSequence, int i, int i2, kotlin.jvm.a.m<? super CharSequence, ? super Integer, Pair<Integer, Integer>> mVar) {
-        kotlin.jvm.internal.q.j(charSequence, Config.INPUT_PART);
-        kotlin.jvm.internal.q.j(mVar, "getNextMatch");
-        this.mYM = charSequence;
-        this.aXG = i;
+        kotlin.jvm.internal.q.m(charSequence, Config.INPUT_PART);
+        kotlin.jvm.internal.q.m(mVar, "getNextMatch");
+        this.ntO = charSequence;
+        this.bfa = i;
         this.limit = i2;
-        this.mYN = mVar;
+        this.ntP = mVar;
     }
 
     @kotlin.h
     /* loaded from: classes7.dex */
     public static final class a implements Iterator<kotlin.b.h> {
-        private int mYO;
-        private int mYP;
-        private kotlin.b.h mYQ;
-        private int mYR;
-        private int mYz = -1;
+        private int ntB = -1;
+        private int ntQ;
+        private int ntR;
+        private kotlin.b.h ntS;
+        private int ntT;
 
         @Override // java.util.Iterator
         public void remove() {
@@ -41,70 +41,70 @@ public final class d implements kotlin.sequences.c<kotlin.b.h> {
 
         /* JADX DEBUG: Incorrect args count in method signature: ()V */
         a() {
-            this.mYO = kotlin.b.l.ap(d.this.aXG, 0, d.this.mYM.length());
-            this.mYP = this.mYO;
+            this.ntQ = kotlin.b.l.ap(d.this.bfa, 0, d.this.ntO.length());
+            this.ntR = this.ntQ;
         }
 
         /* JADX WARN: Code restructure failed: missing block: B:9:0x0025, code lost:
-            if (r6.mYR < r6.mYS.limit) goto L13;
+            if (r6.ntT < r6.ntU.limit) goto L13;
          */
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
-        private final void dEl() {
-            if (this.mYP >= 0) {
+        private final void dMf() {
+            if (this.ntR >= 0) {
                 if (d.this.limit > 0) {
-                    this.mYR++;
+                    this.ntT++;
                 }
-                if (this.mYP <= d.this.mYM.length()) {
-                    Pair pair = (Pair) d.this.mYN.invoke(d.this.mYM, Integer.valueOf(this.mYP));
+                if (this.ntR <= d.this.ntO.length()) {
+                    Pair pair = (Pair) d.this.ntP.invoke(d.this.ntO, Integer.valueOf(this.ntR));
                     if (pair == null) {
-                        this.mYQ = new kotlin.b.h(this.mYO, l.s(d.this.mYM));
-                        this.mYP = -1;
+                        this.ntS = new kotlin.b.h(this.ntQ, l.t(d.this.ntO));
+                        this.ntR = -1;
                     } else {
                         int intValue = ((Number) pair.component1()).intValue();
                         int intValue2 = ((Number) pair.component2()).intValue();
-                        this.mYQ = kotlin.b.l.dJ(this.mYO, intValue);
-                        this.mYO = intValue + intValue2;
-                        this.mYP = (intValue2 == 0 ? 1 : 0) + this.mYO;
+                        this.ntS = kotlin.b.l.dO(this.ntQ, intValue);
+                        this.ntQ = intValue + intValue2;
+                        this.ntR = (intValue2 == 0 ? 1 : 0) + this.ntQ;
                     }
-                    this.mYz = 1;
+                    this.ntB = 1;
                     return;
                 }
-                this.mYQ = new kotlin.b.h(this.mYO, l.s(d.this.mYM));
-                this.mYP = -1;
-                this.mYz = 1;
+                this.ntS = new kotlin.b.h(this.ntQ, l.t(d.this.ntO));
+                this.ntR = -1;
+                this.ntB = 1;
                 return;
             }
-            this.mYz = 0;
-            this.mYQ = null;
+            this.ntB = 0;
+            this.ntS = null;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Iterator
-        /* renamed from: dEm */
+        /* renamed from: dMg */
         public kotlin.b.h next() {
-            if (this.mYz == -1) {
-                dEl();
+            if (this.ntB == -1) {
+                dMf();
             }
-            if (this.mYz == 0) {
+            if (this.ntB == 0) {
                 throw new NoSuchElementException();
             }
-            kotlin.b.h hVar = this.mYQ;
+            kotlin.b.h hVar = this.ntS;
             if (hVar == null) {
                 throw new TypeCastException("null cannot be cast to non-null type kotlin.ranges.IntRange");
             }
-            this.mYQ = null;
-            this.mYz = -1;
+            this.ntS = null;
+            this.ntB = -1;
             return hVar;
         }
 
         @Override // java.util.Iterator
         public boolean hasNext() {
-            if (this.mYz == -1) {
-                dEl();
+            if (this.ntB == -1) {
+                dMf();
             }
-            return this.mYz == 1;
+            return this.ntB == 1;
         }
     }
 

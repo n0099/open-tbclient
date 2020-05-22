@@ -1,14 +1,14 @@
 package com.baidu.tieba.ala.liveroom.challenge.message;
 
-import com.baidu.live.data.ag;
-import com.baidu.live.data.ah;
+import com.baidu.live.data.ak;
+import com.baidu.live.data.al;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class AlaGetChallengeInfoResponseMessage extends JsonHttpResponsedMessage {
-    private ag auh;
-    private ah aui;
-    private ah auj;
+    private ak azl;
+    private al azm;
+    private al azn;
 
     public AlaGetChallengeInfoResponseMessage() {
         super(1021112);
@@ -16,51 +16,48 @@ public class AlaGetChallengeInfoResponseMessage extends JsonHttpResponsedMessage
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
+        JSONObject optJSONObject;
         super.decodeLogicInBackGround(i, jSONObject);
-        if (jSONObject != null) {
-            JSONObject optJSONObject = jSONObject.optJSONObject("data");
-            if (optJSONObject != null && getError() == 0) {
-                JSONObject optJSONObject2 = optJSONObject.optJSONObject("challenge_info");
-                if (optJSONObject2 != null) {
-                    this.auh = new ag();
-                    this.auh.parseJson(optJSONObject2);
-                }
-                JSONObject optJSONObject3 = optJSONObject.optJSONObject("anchor_info");
-                if (optJSONObject3 != null) {
-                    this.aui = new ah();
-                    this.aui.parseJson(optJSONObject3);
-                }
-                JSONObject optJSONObject4 = optJSONObject.optJSONObject("rival_info");
-                if (optJSONObject4 != null) {
-                    this.auj = new ah();
-                    this.auj.parseJson(optJSONObject4);
-                }
+        if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null && getError() == 0) {
+            JSONObject optJSONObject2 = optJSONObject.optJSONObject("challenge_info");
+            if (optJSONObject2 != null) {
+                this.azl = new ak();
+                this.azl.parseJson(optJSONObject2);
             }
-            jSONObject.optString("logid");
+            JSONObject optJSONObject3 = optJSONObject.optJSONObject("anchor_info");
+            if (optJSONObject3 != null) {
+                this.azm = new al();
+                this.azm.parseJson(optJSONObject3);
+            }
+            JSONObject optJSONObject4 = optJSONObject.optJSONObject("rival_info");
+            if (optJSONObject4 != null) {
+                this.azn = new al();
+                this.azn.parseJson(optJSONObject4);
+            }
         }
     }
 
-    public void a(ag agVar) {
-        this.auh = agVar;
+    public void a(ak akVar) {
+        this.azl = akVar;
     }
 
-    public void a(ah ahVar) {
-        this.aui = ahVar;
+    public void a(al alVar) {
+        this.azm = alVar;
     }
 
-    public void b(ah ahVar) {
-        this.auj = ahVar;
+    public void b(al alVar) {
+        this.azn = alVar;
     }
 
-    public ag btN() {
-        return this.auh;
+    public ak bzM() {
+        return this.azl;
     }
 
-    public ah btO() {
-        return this.aui;
+    public al bzN() {
+        return this.azm;
     }
 
-    public ah btP() {
-        return this.auj;
+    public al bzO() {
+        return this.azn;
     }
 }

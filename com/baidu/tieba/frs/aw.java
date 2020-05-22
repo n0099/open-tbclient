@@ -10,38 +10,38 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class aw {
-    private TranslateAnimation bbJ;
-    private View hcI = null;
-    private int hcJ = 2000;
-    private Runnable bbK = new Runnable() { // from class: com.baidu.tieba.frs.aw.1
+    private TranslateAnimation bjj;
+    private View hrw = null;
+    private int hrx = 2000;
+    private Runnable bjk = new Runnable() { // from class: com.baidu.tieba.frs.aw.1
         @Override // java.lang.Runnable
         public void run() {
             aw.this.hideTip();
         }
     };
-    private ValueAnimator hcK = new ValueAnimator();
+    private ValueAnimator hry = new ValueAnimator();
 
     public aw() {
-        this.hcK.setFloatValues(1.0f, 0.0f);
-        this.hcK.setDuration(400L);
-        this.hcK.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.frs.aw.2
+        this.hry.setFloatValues(1.0f, 0.0f);
+        this.hry.setDuration(400L);
+        this.hry.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.frs.aw.2
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                if (aw.this.hcI != null && valueAnimator != null) {
-                    aw.this.hcI.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
+                if (aw.this.hrw != null && valueAnimator != null) {
+                    aw.this.hrw.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
                 }
             }
         });
-        this.hcK.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.frs.aw.3
+        this.hry.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.frs.aw.3
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
             }
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                if (aw.this.hcI != null) {
-                    aw.this.bQF();
-                    aw.this.hcI.setAlpha(1.0f);
+                if (aw.this.hrw != null) {
+                    aw.this.bXb();
+                    aw.this.hrw.setAlpha(1.0f);
                 }
             }
 
@@ -53,16 +53,16 @@ public class aw {
             public void onAnimationRepeat(Animator animator) {
             }
         });
-        this.bbJ = new TranslateAnimation(0.0f, 0.0f, 0.0f - TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.ds56), 0.0f);
-        this.bbJ.setDuration(400L);
-        this.bbJ.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.frs.aw.4
+        this.bjj = new TranslateAnimation(0.0f, 0.0f, 0.0f - TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.ds56), 0.0f);
+        this.bjj.setDuration(400L);
+        this.bjj.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.frs.aw.4
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationStart(Animation animation) {
             }
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
-                com.baidu.adp.lib.f.e.lb().postDelayed(aw.this.bbK, aw.this.hcJ);
+                com.baidu.adp.lib.f.e.ld().postDelayed(aw.this.bjk, aw.this.hrx);
             }
 
             @Override // android.view.animation.Animation.AnimationListener
@@ -73,47 +73,47 @@ public class aw {
 
     public void a(View view, ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams, int i) {
         if (viewGroup != null && view != null) {
-            this.hcI = view;
-            bQF();
-            viewGroup.addView(this.hcI, layoutParams);
-            this.hcI.setVisibility(0);
-            this.hcJ = i;
-            com.baidu.adp.lib.f.e.lb().removeCallbacks(this.bbK);
-            com.baidu.adp.lib.f.e.lb().postDelayed(this.bbK, this.hcJ);
+            this.hrw = view;
+            bXb();
+            viewGroup.addView(this.hrw, layoutParams);
+            this.hrw.setVisibility(0);
+            this.hrx = i;
+            com.baidu.adp.lib.f.e.ld().removeCallbacks(this.bjk);
+            com.baidu.adp.lib.f.e.ld().postDelayed(this.bjk, this.hrx);
         }
     }
 
     public void a(View view, ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams) {
         if (viewGroup != null && view != null) {
-            this.hcI = view;
-            bQF();
-            viewGroup.addView(this.hcI, layoutParams);
-            this.hcI.setVisibility(0);
+            this.hrw = view;
+            bXb();
+            viewGroup.addView(this.hrw, layoutParams);
+            this.hrw.setVisibility(0);
         }
     }
 
     public void hideTip() {
-        com.baidu.adp.lib.f.e.lb().removeCallbacks(this.bbK);
-        if (this.hcI != null && this.hcI.getParent() != null && this.hcI.getVisibility() == 0 && !this.hcK.isRunning()) {
-            this.hcK.start();
+        com.baidu.adp.lib.f.e.ld().removeCallbacks(this.bjk);
+        if (this.hrw != null && this.hrw.getParent() != null && this.hrw.getVisibility() == 0 && !this.hry.isRunning()) {
+            this.hry.start();
         }
     }
 
-    public void bQF() {
-        com.baidu.adp.lib.f.e.lb().removeCallbacks(this.bbK);
-        if (this.hcI != null) {
-            if (this.hcK != null && this.hcK.isRunning()) {
-                this.hcK.cancel();
+    public void bXb() {
+        com.baidu.adp.lib.f.e.ld().removeCallbacks(this.bjk);
+        if (this.hrw != null) {
+            if (this.hry != null && this.hry.isRunning()) {
+                this.hry.cancel();
             }
-            this.hcI.clearAnimation();
-            if (this.hcI.getParent() instanceof ViewGroup) {
-                ((ViewGroup) this.hcI.getParent()).removeView(this.hcI);
+            this.hrw.clearAnimation();
+            if (this.hrw.getParent() instanceof ViewGroup) {
+                ((ViewGroup) this.hrw.getParent()).removeView(this.hrw);
             }
-            this.hcI.setVisibility(8);
+            this.hrw.setVisibility(8);
         }
     }
 
     public void onDestroy() {
-        bQF();
+        bXb();
     }
 }

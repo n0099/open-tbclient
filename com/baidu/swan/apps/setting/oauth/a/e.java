@@ -11,82 +11,82 @@ import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.android.util.io.BaseJsonData;
 import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.http.request.HttpRequest;
 import com.baidu.swan.apps.api.module.a.b;
 import com.baidu.swan.apps.setting.oauth.OAuthException;
 import java.lang.ref.WeakReference;
-import okhttp3.Request;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class e extends g<c> {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    protected String csX;
-    public b.a ctj;
-    public b ctk = new b(Looper.getMainLooper(), this);
-    public Bundle ctl;
-    protected JSONObject ctm;
+    protected String cET;
+    public b.a cFf;
+    public b cFg = new b(Looper.getMainLooper(), this);
+    public Bundle cFh;
+    protected JSONObject cFi;
     protected final Activity mActivity;
 
     public e(Activity activity, b.a aVar, Bundle bundle) {
         this.mActivity = activity;
-        this.ctj = aVar;
+        this.cFf = aVar;
         if (bundle != null && bundle.containsKey("__plugin__")) {
-            this.csX = bundle.getString("__plugin__");
+            this.cET = bundle.getString("__plugin__");
             bundle.remove("__plugin__");
         }
-        this.ctl = bundle;
+        this.cFh = bundle;
     }
 
     @Override // com.baidu.swan.apps.setting.oauth.b
-    protected boolean amn() {
+    protected boolean aqq() {
         JSONObject jSONObject = new JSONObject();
         try {
-            boolean isEmpty = TextUtils.isEmpty(this.csX);
-            jSONObject.put("ma_id", isEmpty ? ali().id : this.csX);
+            boolean isEmpty = TextUtils.isEmpty(this.cET);
+            jSONObject.put("ma_id", isEmpty ? apd().id : this.cET);
             JSONObject jSONObject2 = new JSONObject();
-            jSONObject2.put("app_key", isEmpty ? ali().getAppKey() : this.csX);
+            jSONObject2.put("app_key", isEmpty ? apd().getAppKey() : this.cET);
             jSONObject2.put("host_pkgname", AppRuntime.getApplication().getPackageName());
             jSONObject2.put("host_key_hash", com.baidu.swan.apps.setting.oauth.c.getKeyHash());
-            String PQ = com.baidu.swan.apps.w.a.abZ().PQ();
-            if (!TextUtils.isEmpty(PQ)) {
-                jSONObject2.put("host_api_key", PQ);
+            String SG = com.baidu.swan.apps.u.a.afd().SG();
+            if (!TextUtils.isEmpty(SG)) {
+                jSONObject2.put("host_api_key", SG);
             }
             jSONObject.put("open", jSONObject2);
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        bu("data", jSONObject.toString());
+        bP("data", jSONObject.toString());
         return true;
     }
 
     @Override // com.baidu.swan.apps.setting.oauth.a.g
-    protected Request a(g gVar) {
-        return com.baidu.swan.apps.w.a.abZ().d(this.mActivity, gVar.amI());
+    protected HttpRequest a(g gVar) {
+        return com.baidu.swan.apps.u.a.afd().d(this.mActivity, gVar.aqM());
     }
 
     @Override // com.baidu.swan.apps.setting.oauth.b
-    protected boolean amm() {
-        a(amG());
-        return super.amm();
+    protected boolean aqp() {
+        a(aqJ());
+        return super.aqp();
     }
 
     @NonNull
-    protected com.baidu.swan.apps.setting.oauth.d amG() {
+    protected com.baidu.swan.apps.setting.oauth.d aqJ() {
         return new a();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.setting.oauth.b
-    /* renamed from: bg */
-    public c aY(JSONObject jSONObject) throws JSONException {
-        JSONObject ba = com.baidu.swan.apps.setting.oauth.c.ba(jSONObject);
-        int optInt = ba.optInt(BaseJsonData.TAG_ERRNO, 10001);
+    /* renamed from: bp */
+    public c bh(JSONObject jSONObject) throws JSONException {
+        JSONObject bj = com.baidu.swan.apps.setting.oauth.c.bj(jSONObject);
+        int optInt = bj.optInt(BaseJsonData.TAG_ERRNO, 10001);
         if (optInt != 0) {
-            throw new OAuthException(ba.optString(BaseJsonData.TAG_ERRMSG), optInt);
+            throw new OAuthException(bj.optString(BaseJsonData.TAG_ERRMSG), optInt);
         }
         String str = "";
-        JSONObject jSONObject2 = ba.getJSONObject("data");
+        JSONObject jSONObject2 = bj.getJSONObject("data");
         if (jSONObject2 != null) {
             str = jSONObject2.optString("code", "");
         }
@@ -95,12 +95,12 @@ public class e extends g<c> {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.setting.oauth.b
-    public void l(@Nullable Exception exc) {
-        super.l(exc);
+    public void s(@Nullable Exception exc) {
+        super.s(exc);
         if (DEBUG) {
             Log.d("LoginRequest", "finish: remove timeout msg");
         }
-        this.ctk.removeMessages(1);
+        this.cFg.removeMessages(1);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -110,14 +110,20 @@ public class e extends g<c> {
         }
 
         @Override // com.baidu.swan.apps.setting.oauth.d
-        protected boolean ams() throws Exception {
-            com.baidu.swan.apps.a.b akX = e.this.ali().akX();
-            boolean isLogin = akX.isLogin(e.this.mActivity);
+        protected boolean aqv() throws Exception {
+            com.baidu.swan.apps.a.b aoS = e.this.apd().aoS();
+            boolean isLogin = aoS.isLogin(e.this.mActivity);
             if (e.DEBUG) {
                 Log.d("LoginRequest", "LoginPreparation isLogin : " + isLogin + " call stack:" + Log.getStackTraceString(new Exception()));
             }
             if (!isLogin) {
-                akX.a(e.this.mActivity, e.this.ctl, this);
+                aoS.a(e.this.mActivity, e.this.cFh, this);
+            } else if (e.this.cFf != null && e.this.cFf.bJV) {
+                long j = e.this.cFf.bJW;
+                if (e.DEBUG) {
+                    Log.d("LoginRequest", "send timeout " + j + "ms msg");
+                }
+                e.this.cFg.sendEmptyMessageDelayed(1, j >= 0 ? j : 0L);
             }
             return isLogin;
         }
@@ -128,16 +134,16 @@ public class e extends g<c> {
             switch (i) {
                 case -2:
                     com.baidu.swan.apps.setting.oauth.c.c("login error ERR_BY_UESR_REFUSE", true);
-                    m(new OAuthException(10004));
+                    t(new OAuthException(10004));
                     return;
                 case -1:
                 default:
                     com.baidu.swan.apps.setting.oauth.c.c("login error ERR_BY_LOGIN", true);
-                    m(new OAuthException(10004));
+                    t(new OAuthException(10004));
                     return;
                 case 0:
                     com.baidu.swan.apps.setting.oauth.c.c("Login Preparation ok, is already login", false);
-                    amu();
+                    aqx();
                     return;
             }
         }
@@ -158,16 +164,16 @@ public class e extends g<c> {
 
     /* loaded from: classes11.dex */
     public static class b extends Handler {
-        private WeakReference<e> cto;
+        private WeakReference<e> cFk;
 
         private b(Looper looper, e eVar) {
             super(looper);
-            this.cto = new WeakReference<>(eVar);
+            this.cFk = new WeakReference<>(eVar);
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            e eVar = this.cto.get();
+            e eVar = this.cFk.get();
             if (eVar != null) {
                 switch (message.what) {
                     case 1:
@@ -175,7 +181,7 @@ public class e extends g<c> {
                             Log.d("LoginRequest", "handleMessage: timeout");
                         }
                         com.baidu.swan.apps.setting.oauth.c.c("request timeout", true);
-                        eVar.l(new OAuthException(10002));
+                        eVar.s(new OAuthException(10002));
                         return;
                     default:
                         return;

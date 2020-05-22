@@ -13,16 +13,16 @@ import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tieba.R;
 /* loaded from: classes11.dex */
 public class f {
-    private PostSearchActivity kmC;
-    private PostSearchListFragment knp;
-    private PostSearchListFragment knq;
-    private PostSearchListFragment knr;
+    private PostSearchActivity kEx;
+    private PostSearchListFragment kFk;
+    private PostSearchListFragment kFl;
+    private PostSearchListFragment kFm;
     private ViewPager.OnPageChangeListener mOnPageChangeListener;
     private View mRootView;
     private FragmentTabHost mTabHost;
 
     public f(PostSearchActivity postSearchActivity, View view) {
-        this.kmC = postSearchActivity;
+        this.kEx = postSearchActivity;
         this.mRootView = view;
     }
 
@@ -30,16 +30,16 @@ public class f {
         return this.mTabHost.getCurrentTabType();
     }
 
-    public void Bn(int i) {
+    public void BX(int i) {
         if (this.mTabHost == null) {
-            Bo(1);
+            BY(1);
             return;
         }
-        cLV();
+        cSV();
         if (this.mTabHost.getCurrentTabType() == i) {
-            PostSearchListFragment Bq = Bq(i);
-            if (Bq != null) {
-                Bq.requestData(true);
+            PostSearchListFragment Ca = Ca(i);
+            if (Ca != null) {
+                Ca.requestData(true);
                 return;
             }
             return;
@@ -59,9 +59,9 @@ public class f {
 
     public void a(int i, b bVar, boolean z) {
         setVisibility(true);
-        PostSearchListFragment Bq = Bq(i);
-        if (Bq != null) {
-            Bq.a(bVar, z);
+        PostSearchListFragment Ca = Ca(i);
+        if (Ca != null) {
+            Ca.a(bVar, z);
         }
     }
 
@@ -74,14 +74,14 @@ public class f {
         }
     }
 
-    private void Bo(int i) {
+    private void BY(int i) {
         View inflate = ((ViewStub) this.mRootView.findViewById(R.id.search_tab_host_viewstub)).inflate();
         inflate.setVisibility(0);
         this.mTabHost = (FragmentTabHost) inflate.findViewById(R.id.post_search_tab_host);
-        this.mTabHost.setup(this.kmC.getSupportFragmentManager());
-        this.mTabHost.setTabWidgetViewHeight((int) this.kmC.getResources().getDimension(R.dimen.ds80));
+        this.mTabHost.setup(this.kEx.getSupportFragmentManager());
+        this.mTabHost.setTabWidgetViewHeight((int) this.kEx.getResources().getDimension(R.dimen.ds80));
         this.mTabHost.setShouldDrawIndicatorLine(true);
-        cLU();
+        cSU();
         this.mTabHost.initViewPager(3);
         this.mTabHost.setCurrentTabByType(i);
         this.mTabHost.setNeedShowThemeStyle(false);
@@ -98,54 +98,54 @@ public class f {
         }
     }
 
-    private void cLU() {
+    private void cSU() {
         FragmentTabHost.b bVar = new FragmentTabHost.b();
-        this.knp = new PostSearchListFragment(1);
-        bVar.mContentFragment = this.knp;
-        bVar.dxJ = Bp(R.string.searching_time_tab);
+        this.kFk = new PostSearchListFragment(1);
+        bVar.mContentFragment = this.kFk;
+        bVar.dLP = BZ(R.string.searching_time_tab);
         bVar.mType = 1;
         this.mTabHost.a(bVar);
         FragmentTabHost.b bVar2 = new FragmentTabHost.b();
-        this.knq = new PostSearchListFragment(2);
-        bVar2.mContentFragment = this.knq;
-        bVar2.dxJ = Bp(R.string.searching_relative_tab);
+        this.kFl = new PostSearchListFragment(2);
+        bVar2.mContentFragment = this.kFl;
+        bVar2.dLP = BZ(R.string.searching_relative_tab);
         bVar2.mType = 2;
         this.mTabHost.a(bVar2);
         FragmentTabHost.b bVar3 = new FragmentTabHost.b();
-        this.knr = new PostSearchListFragment(3);
-        bVar3.mContentFragment = this.knr;
-        bVar3.dxJ = Bp(R.string.searching_only_thread_tab);
+        this.kFm = new PostSearchListFragment(3);
+        bVar3.mContentFragment = this.kFm;
+        bVar3.dLP = BZ(R.string.searching_only_thread_tab);
         bVar3.mType = 3;
         this.mTabHost.a(bVar3);
     }
 
-    private FragmentTabIndicator Bp(int i) {
-        int equipmentWidth = (l.getEquipmentWidth(this.kmC.getPageContext().getContext()) - (this.kmC.getResources().getDimensionPixelSize(R.dimen.ds34) * 2)) / 3;
-        FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) LayoutInflater.from(this.kmC.getPageContext().getPageActivity()).inflate(R.layout.fragmenttabindicator, (ViewGroup) null);
+    private FragmentTabIndicator BZ(int i) {
+        int equipmentWidth = (l.getEquipmentWidth(this.kEx.getPageContext().getContext()) - (this.kEx.getResources().getDimensionPixelSize(R.dimen.ds34) * 2)) / 3;
+        FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) LayoutInflater.from(this.kEx.getPageContext().getPageActivity()).inflate(R.layout.fragmenttabindicator, (ViewGroup) null);
         fragmentTabIndicator.setText(i);
-        fragmentTabIndicator.setTextSize(0, this.kmC.getResources().getDimensionPixelSize(R.dimen.ds32));
+        fragmentTabIndicator.setTextSize(0, this.kEx.getResources().getDimensionPixelSize(R.dimen.ds32));
         fragmentTabIndicator.dayTextColorResId = R.color.s_actionbar_text_color;
-        fragmentTabIndicator.setContentTvTopMargin(this.kmC.getResources().getDimensionPixelSize(R.dimen.ds4));
+        fragmentTabIndicator.setContentTvTopMargin(this.kEx.getResources().getDimensionPixelSize(R.dimen.ds4));
         fragmentTabIndicator.setWidth(equipmentWidth);
         return fragmentTabIndicator;
     }
 
-    private PostSearchListFragment Bq(int i) {
+    private PostSearchListFragment Ca(int i) {
         switch (i) {
             case 1:
-                return this.knp;
+                return this.kFk;
             case 2:
-                return this.knq;
+                return this.kFl;
             case 3:
-                return this.knr;
+                return this.kFm;
             default:
                 return null;
         }
     }
 
-    private void cLV() {
-        this.knp.cLM();
-        this.knq.cLM();
-        this.knr.cLM();
+    private void cSV() {
+        this.kFk.cSM();
+        this.kFl.cSM();
+        this.kFm.cSM();
     }
 }

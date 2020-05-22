@@ -62,6 +62,7 @@ public class V8Engine implements JSRuntime {
     private V8FileSystemDelegatePolicy mFileSystemDelegatePolicy;
     private String mInitBasePath;
     private String mInitJsPath;
+    private InspectorNativeChannel mInspectorChannel;
     private InspectorNativeClient mInspectorNativeClient;
     private V8EngineConfiguration.JSCacheCallback mJSCacheCallback;
     private JavaBoundObjectManager mJavaBoundObjectManager;
@@ -69,7 +70,7 @@ public class V8Engine implements JSRuntime {
     private long mNativeV8Engine;
     private Object mOpenGlobalObject;
     private PerformanceJsonBean mPerformanceJsonBean;
-    private boolean mReady;
+    private volatile boolean mReady;
     private V8ThreadDelegatePolicy mThreadDelegatePolicy;
     private V8Timer mTimer;
     private String mUserAgent;
@@ -232,11 +233,19 @@ public class V8Engine implements JSRuntime {
         }
     }
 
+    public InspectorNativeClient getInspectorNativeClient() {
+        return this.mInspectorNativeClient;
+    }
+
+    public void setInspectorChannel(InspectorNativeChannel inspectorNativeChannel) {
+        this.mInspectorChannel = inspectorNativeChannel;
+    }
+
     public void setCodeCacheSetting(V8EngineConfiguration.CodeCacheSetting codeCacheSetting) {
         this.mCodeCacheSetting = codeCacheSetting;
         if (this.mCodeCacheSetting.id != null && this.mCodeCacheSetting.pathList != null) {
             File dir = getAppContext().getDir(ALTERNATIVE_CACHE_PATH, 0);
-            if (!a.gh(getBuildInV8BinPath())) {
+            if (!a.gT(getBuildInV8BinPath())) {
                 dir = getAppContext().getDir(MARIO_CACHE_PATH, 0);
                 dir.mkdirs();
             }
@@ -418,7 +427,11 @@ public class V8Engine implements JSRuntime {
     }
 
     public synchronized void startEngine() {
-        this.mThreadDelegatePolicy.startV8Engine(this);
+        if (this.mThreadDelegatePolicy != null) {
+            this.mThreadDelegatePolicy.startV8Engine(this);
+        } else {
+            Log.w(TAG, "startV8Engine failed. please init thread delegate policy before");
+        }
     }
 
     public void startEngineInternal() {
@@ -432,6 +445,9 @@ public class V8Engine implements JSRuntime {
         }
         this.mTimer.initialize(this, new Handler(Looper.getMainLooper()));
         initializeV8();
+        if (this.mInspectorChannel != null) {
+            initInspector(this.mInspectorChannel);
+        }
         require(this.mNativeV8Engine, this.mInitBasePath, this.mInitJsPath, true, true);
         nativeOnReady(this.mNativeV8Engine);
         onReady();
@@ -464,7 +480,7 @@ public class V8Engine implements JSRuntime {
             try {
                 String str = this.mExternalV8BinPath;
                 String buildInV8BinPath = str == null ? getBuildInV8BinPath() : str;
-                if (buildInV8BinPath == null || !a.gh(buildInV8BinPath)) {
+                if (buildInV8BinPath == null || !a.gT(buildInV8BinPath)) {
                     Log.i(TAG, "can't find v8bin'AssetManager, path = " + buildInV8BinPath);
                     return null;
                 }
@@ -529,15 +545,27 @@ public class V8Engine implements JSRuntime {
         return this.mReady;
     }
 
+    public boolean isDestroyed() {
+        return this.mIsDestroyed.get();
+    }
+
     public void destroyEngine(final V8ExecuteCallback v8ExecuteCallback) {
         Log.e("V8", "v8engine.java::destroyEngine");
         runOnJSThreadDirectly(new Runnable() { // from class: com.baidu.searchbox.v8engine.V8Engine.2
             @Override // java.lang.Runnable
             public void run() {
-                Log.e("V8", "v8engine.java::destroyEngine run");
+                Log.e(V8Engine.TAG, "v8engine.java::destroyEngine run");
+                if (V8Engine.this.mIsDestroyed.getAndSet(true)) {
+                    Log.w(V8Engine.TAG, "v8engine.java:destroyEngine has been called before");
+                    return;
+                }
                 V8Engine.this.removeJavascriptInterface("jBenchmark");
-                V8Engine.this.mTimer.destroy();
-                V8Engine.this.mJavaBoundObjectManager.clear();
+                if (V8Engine.this.mTimer != null) {
+                    V8Engine.this.mTimer.destroy();
+                }
+                if (V8Engine.this.mJavaBoundObjectManager != null) {
+                    V8Engine.this.mJavaBoundObjectManager.clear();
+                }
                 synchronized (V8Engine.sEngines) {
                     V8Engine.sEngines.remove(Long.valueOf(V8Engine.this.mNativeV8Engine));
                 }
@@ -549,8 +577,9 @@ public class V8Engine implements JSRuntime {
                     V8Engine.sAppContext.unregisterComponentCallbacks(V8Engine.this.mComponentCallbacks2);
                 }
                 V8Engine.this.mNativeV8Engine = 0L;
-                V8Engine.this.mIsDestroyed.set(true);
-                V8Engine.this.mThreadDelegatePolicy.shutdown();
+                if (V8Engine.this.mThreadDelegatePolicy != null) {
+                    V8Engine.this.mThreadDelegatePolicy.shutdown();
+                }
                 if (V8Engine.this.mFileSystemDelegatePolicy != null) {
                     V8Engine.this.mFileSystemDelegatePolicy.destroy();
                 }
@@ -564,7 +593,9 @@ public class V8Engine implements JSRuntime {
     }
 
     private void delegateRunnable(Runnable runnable, boolean z) {
-        if (this.mThreadDelegatePolicy.getThread() == Thread.currentThread()) {
+        if (this.mThreadDelegatePolicy == null) {
+            Log.e(TAG, "delegate runnable failed. please init thread delegate policy");
+        } else if (this.mThreadDelegatePolicy.getThread() == Thread.currentThread()) {
             checkValid(this.mNativeV8Engine, this.mV8ThreadId);
             try {
                 runnable.run();
@@ -653,6 +684,8 @@ public class V8Engine implements JSRuntime {
     public void runOnJSThread(Runnable runnable) {
         if (!this.mIsDestroyed.get()) {
             delegateRunnable(runnable, false);
+        } else {
+            Log.w(TAG, "runOnJSThread fail. please start engine before execute js task");
         }
     }
 
@@ -660,6 +693,8 @@ public class V8Engine implements JSRuntime {
     public void runOnJSThreadDirectly(Runnable runnable) {
         if (!this.mIsDestroyed.get()) {
             delegateRunnable(runnable, true);
+        } else {
+            Log.w(TAG, "runOnJSThreadDirectly fail. please start engine before execute js task");
         }
     }
 
@@ -674,6 +709,8 @@ public class V8Engine implements JSRuntime {
     public void postOnJSThread(Runnable runnable) {
         if (!this.mIsDestroyed.get()) {
             delegateRunnableAsync(runnable);
+        } else {
+            Log.w(TAG, "postOnJsThread fail. please start engine before execute js task");
         }
     }
 
@@ -681,26 +718,32 @@ public class V8Engine implements JSRuntime {
     public void postOnJSThread(Runnable runnable, long j) {
         if (!this.mIsDestroyed.get()) {
             delegateRunnableAsync(runnable, j);
+        } else {
+            Log.w(TAG, "postOnJsThread fail. please start engine before execute js task");
         }
     }
 
     public void postSuspendableTaskOnJSThread(Runnable runnable) {
-        if (!this.mIsDestroyed.get()) {
-            synchronized (this) {
-                if (this.mPaused) {
-                    if (this.mSuspendableTasks == null) {
-                        this.mSuspendableTasks = new Vector<>(1);
-                    }
-                    this.mSuspendableTasks.add(runnable);
-                    return;
+        if (this.mIsDestroyed.get()) {
+            Log.w(TAG, "postOnJsThread fail. please start engine before execute js task");
+            return;
+        }
+        synchronized (this) {
+            if (this.mPaused) {
+                if (this.mSuspendableTasks == null) {
+                    this.mSuspendableTasks = new Vector<>(1);
                 }
-                delegateRunnableAsync(runnable);
+                this.mSuspendableTasks.add(runnable);
+                return;
             }
+            delegateRunnableAsync(runnable);
         }
     }
 
     private synchronized void postSuspendableTasks() {
-        if (this.mSuspendableTasks != null && !this.mSuspendableTasks.isEmpty() && !this.mIsDestroyed.get()) {
+        if (this.mSuspendableTasks == null || this.mSuspendableTasks.isEmpty() || this.mIsDestroyed.get()) {
+            Log.w(TAG, "postSuspendableTasks failed. mSuspendableTasks = " + this.mSuspendableTasks + ", mIsDestroyed = " + this.mIsDestroyed.get());
+        } else {
             Iterator<Runnable> it = this.mSuspendableTasks.iterator();
             while (it.hasNext()) {
                 delegateRunnableAsync(it.next());
@@ -857,8 +900,10 @@ public class V8Engine implements JSRuntime {
             if (!this.mIsDestroyed.get()) {
                 addJavascriptInterfaceImpl(this.mNativeV8Engine, obj, str, null, z);
                 return;
+            } else {
+                Log.w(TAG, "addPossiblyUnsafeJavascriptInterface fail. please start engine before execute js task");
+                return;
             }
-            return;
         }
         Log.i(TAG, "addPossiblyUnsafeJavascriptInterface object is null or mNativeV8Engine is null");
     }
@@ -869,6 +914,8 @@ public class V8Engine implements JSRuntime {
             public void run() {
                 if (!V8Engine.this.mIsDestroyed.get()) {
                     V8Engine.this.removeJavascriptInterfaceImpl(V8Engine.this.mNativeV8Engine, str, true);
+                } else {
+                    Log.w(V8Engine.TAG, "removeJavascriptInterface fail. please start engine before execute js task");
                 }
             }
         });
@@ -880,6 +927,8 @@ public class V8Engine implements JSRuntime {
             public void run() {
                 if (!V8Engine.this.mIsDestroyed.get()) {
                     V8Engine.this.removeJavascriptInterfaceImpl(V8Engine.this.mNativeV8Engine, str, false);
+                } else {
+                    Log.w(V8Engine.TAG, "removeJavascriptInterfaceForOpenData fail. please start engine before execute js task");
                 }
             }
         });
@@ -891,6 +940,8 @@ public class V8Engine implements JSRuntime {
             public void run() {
                 if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !V8Engine.this.mIsDestroyed.get()) {
                     V8Engine.this.require(V8Engine.this.mNativeV8Engine, str, str2, true, false);
+                } else {
+                    Log.w(V8Engine.TAG, "basePath is null ? " + TextUtils.isEmpty(str) + ", filePath is null ?  " + TextUtils.isEmpty(str2) + ", mIsDestroyed = " + V8Engine.this.mIsDestroyed.get());
                 }
             }
         });
@@ -902,6 +953,8 @@ public class V8Engine implements JSRuntime {
             public void run() {
                 if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !V8Engine.this.mIsDestroyed.get()) {
                     V8Engine.this.require(V8Engine.this.mNativeV8Engine, str, str2, false, false);
+                } else {
+                    Log.w(V8Engine.TAG, "basePath = " + str + ", filePath = " + str2 + ", mIsDestroyed = " + V8Engine.this.mIsDestroyed.get());
                 }
             }
         });
@@ -913,6 +966,8 @@ public class V8Engine implements JSRuntime {
             public void run() {
                 if (!V8Engine.this.mIsDestroyed.get()) {
                     V8Engine.this.nativeDestroyOpenDataContext(V8Engine.this.mNativeV8Engine);
+                } else {
+                    Log.w(V8Engine.TAG, "destroyOpenDataContext fail. please start engine before execute js task");
                 }
             }
         });
@@ -948,12 +1003,14 @@ public class V8Engine implements JSRuntime {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void evaluateJavascriptImpl(String str, ValueCallback<String> valueCallback, String str2, boolean z) {
-        if (!this.mIsDestroyed.get()) {
-            checkValid(this.mNativeV8Engine, this.mV8ThreadId);
-            String runScript = runScript(this.mNativeV8Engine, str, str2, z);
-            if (valueCallback != null) {
-                valueCallback.onReceiveValue(runScript);
-            }
+        if (this.mIsDestroyed.get()) {
+            Log.w(TAG, "v8engine has been destroyed or not init. please init firstly.");
+            return;
+        }
+        checkValid(this.mNativeV8Engine, this.mV8ThreadId);
+        String runScript = runScript(this.mNativeV8Engine, str, str2, z);
+        if (valueCallback != null) {
+            valueCallback.onReceiveValue(runScript);
         }
     }
 
@@ -968,6 +1025,7 @@ public class V8Engine implements JSRuntime {
 
     public byte[] serialize(JsSerializeValue jsSerializeValue, boolean z) {
         if (this.mIsDestroyed.get()) {
+            Log.w(TAG, "serialize fail. please start engine before execute js task");
             return null;
         }
         checkValid(this.mNativeV8Engine, this.mV8ThreadId);
@@ -976,6 +1034,7 @@ public class V8Engine implements JSRuntime {
 
     public JsSerializeValue deserialize(byte[] bArr, boolean z) {
         if (bArr == null || bArr.length == 0 || this.mIsDestroyed.get()) {
+            Log.w(TAG, "deserialize fail. please start engine before execute js task");
             return null;
         }
         checkValid(this.mNativeV8Engine, this.mV8ThreadId);
@@ -1045,6 +1104,17 @@ public class V8Engine implements JSRuntime {
             }
         }
         return memoryInfo2;
+    }
+
+    public static void dumpJavaStackTraceToLogcat(String str) {
+        StackTraceElement[] stackTraceElementArr = Thread.getAllStackTraces().get(Thread.currentThread());
+        Log.w(str, "================Java StackTrace================");
+        if (stackTraceElementArr != null) {
+            for (StackTraceElement stackTraceElement : stackTraceElementArr) {
+                Log.w(str, stackTraceElement.toString());
+            }
+        }
+        Log.w(str, "================Java StackTrace================");
     }
 
     public static void setCrashKeyValue(String str, String str2) {

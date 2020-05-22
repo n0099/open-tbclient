@@ -1,47 +1,94 @@
 package com.baidu.swan.games.b;
 
-import android.content.Context;
 import android.text.TextUtils;
-import android.widget.Toast;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.swan.apps.a;
-import com.baidu.swan.apps.scheme.actions.ab;
-import com.baidu.swan.apps.scheme.j;
-import com.baidu.swan.games.b.d;
+import com.baidu.android.imsdk.IMConstants;
+import com.baidu.android.util.io.BaseJsonData;
+import com.baidu.searchbox.http.callback.StringResponseCallback;
 import org.json.JSONObject;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes11.dex */
-public class e extends ab {
-    public e(j jVar) {
-        super(jVar, "/swanAPI/debugGameSconsole");
+public class e {
+
+    /* loaded from: classes11.dex */
+    public interface a {
+        void onFail(String str);
+
+        void onSuccess(Object obj);
     }
 
-    @Override // com.baidu.swan.apps.scheme.actions.ab
-    public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
-        if (DEBUG) {
-            JSONObject b = b(unitedSchemeEntity, "params");
-            if (b == null) {
-                Toast.makeText(context, a.h.aiapps_debug_swan_core_params_empty, 1).show();
-            } else {
-                String optString = b.optString("downloadurl");
-                if (TextUtils.isEmpty(optString)) {
-                    Toast.makeText(context, a.h.aiapps_debug_swan_core_url_empty, 1).show();
-                } else {
-                    d.avn().a(optString, new d.a() { // from class: com.baidu.swan.games.b.e.1
-                        @Override // com.baidu.swan.games.b.d.a
-                        public void dk(boolean z) {
-                            Context appContext = AppRuntime.getAppContext();
-                            if (z) {
-                                Toast.makeText(appContext, a.h.aiapps_debug_game_sconsole_download_success, 1).show();
-                            } else {
-                                Toast.makeText(appContext, a.h.aiapps_debug_game_sconsole_download_failed, 1).show();
-                            }
-                        }
-                    });
-                }
+    public static void a(long j, final a aVar) {
+        if (aVar != null) {
+            com.baidu.swan.apps.runtime.e aoG = com.baidu.swan.apps.runtime.e.aoG();
+            if (aoG == null) {
+                aVar.onFail("swan app is null");
+                return;
             }
+            com.baidu.swan.games.network.b.aAZ().getRequest().cookieManager(com.baidu.swan.apps.u.a.afo().SM()).url(com.baidu.swan.apps.u.a.afd().RZ()).addUrlParam("appkey", aoG.getAppKey()).addUrlParam("duration", String.valueOf(j)).build().executeAsync(new StringResponseCallback() { // from class: com.baidu.swan.games.b.e.1
+                /* JADX DEBUG: Method merged with bridge method */
+                @Override // com.baidu.searchbox.http.callback.ResponseCallback
+                public void onSuccess(String str, int i) {
+                    if (!TextUtils.isEmpty(str)) {
+                        JSONObject b = e.b(str, a.this);
+                        if (b != null) {
+                            a.this.onSuccess(g.bH(b));
+                            return;
+                        }
+                        return;
+                    }
+                    a.this.onFail("response is null");
+                }
+
+                @Override // com.baidu.searchbox.http.callback.ResponseCallback
+                public void onFail(Exception exc) {
+                    a.this.onFail(exc.getMessage());
+                }
+            });
         }
-        return false;
+    }
+
+    public static void a(String str, final a aVar) {
+        if (aVar != null) {
+            com.baidu.swan.apps.runtime.e aoG = com.baidu.swan.apps.runtime.e.aoG();
+            if (aoG == null) {
+                aVar.onFail("swan app is null");
+                return;
+            }
+            com.baidu.swan.games.network.b.aAZ().getRequest().cookieManager(com.baidu.swan.apps.u.a.afo().SM()).url(com.baidu.swan.apps.u.a.afd().Sa()).addUrlParam("appkey", aoG.getAppKey()).addUrlParam(IMConstants.SERVICE_TYPE_ORDER, str).build().executeAsync(new StringResponseCallback() { // from class: com.baidu.swan.games.b.e.2
+                /* JADX DEBUG: Method merged with bridge method */
+                @Override // com.baidu.searchbox.http.callback.ResponseCallback
+                public void onSuccess(String str2, int i) {
+                    if (!TextUtils.isEmpty(str2)) {
+                        JSONObject b = e.b(str2, a.this);
+                        if (b != null) {
+                            a.this.onSuccess(f.bG(b));
+                            return;
+                        }
+                        return;
+                    }
+                    a.this.onFail("response is null");
+                }
+
+                @Override // com.baidu.searchbox.http.callback.ResponseCallback
+                public void onFail(Exception exc) {
+                    a.this.onFail(exc.getMessage());
+                }
+            });
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public static JSONObject b(String str, a aVar) {
+        JSONObject jSONObject = null;
+        try {
+            JSONObject jSONObject2 = new JSONObject(str);
+            if (jSONObject2.optInt(BaseJsonData.TAG_ERRNO, -1) != 0) {
+                aVar.onFail(jSONObject2.optString(BaseJsonData.TAG_ERRMSG));
+            } else {
+                jSONObject = jSONObject2.optJSONObject("data");
+            }
+        } catch (Exception e) {
+            aVar.onFail(e.getMessage());
+        }
+        return jSONObject;
     }
 }

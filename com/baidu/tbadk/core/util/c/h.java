@@ -23,7 +23,7 @@ public class h extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.c.a, com.baidu.adp.lib.e.e
-    public boolean kY() {
+    public boolean la() {
         return true;
     }
 
@@ -43,17 +43,17 @@ public class h extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public boolean aPj() {
+    public boolean aVn() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public boolean aPk() {
+    public boolean aVo() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public int aPl() {
+    public int aVp() {
         return this.procType;
     }
 }

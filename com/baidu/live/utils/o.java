@@ -3,11 +3,14 @@ package com.baidu.live.utils;
 import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.live.adp.framework.MessageManager;
-import com.baidu.live.data.as;
+import com.baidu.live.data.ax;
 import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.browser.BrowserHelper;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.extraparams.ExtraParamsManager;
+import com.baidu.live.tbadk.ubc.UbcStatConstant;
+import com.baidu.live.tbadk.ubc.UbcStatisticItem;
+import com.baidu.live.tbadk.ubc.UbcStatisticManager;
 import com.baidu.webkit.internal.ETAG;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
@@ -15,27 +18,25 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes3.dex */
 public class o {
-    public static long aXW;
+    public static long bfr;
 
-    public static void g(String str, long j) {
+    public static void a(String str, long j, boolean z, boolean z2) {
         if (TbadkCoreApplication.sAlaLiveSwitchData == null || !TbadkCoreApplication.sAlaLiveSwitchData.isVideoGoodslistUnabled()) {
-            a(str, j, false);
+            com.baidu.live.message.h hVar = new com.baidu.live.message.h();
+            hVar.aEX = str;
+            hVar.liveId = j;
+            hVar.aWR = z2;
+            hVar.isHost = z;
+            hVar.setParams();
+            MessageManager.getInstance().sendMessage(hVar);
+            UbcStatisticManager.getInstance().logSendRequest(new UbcStatisticItem("1533", UbcStatConstant.ContentType.UBC_TYPE_GOODS_LIST, z ? UbcStatConstant.Page.AUTHOR_LIVE_ROOM : "liveroom", null));
         }
     }
 
-    public static void a(String str, long j, boolean z) {
-        com.baidu.live.message.h hVar = new com.baidu.live.message.h();
-        hVar.azF = str;
-        hVar.liveId = j;
-        hVar.aQG = z;
-        hVar.setParams();
-        MessageManager.getInstance().sendMessage(hVar);
-    }
-
     public static void m(Context context, String str, String str2) {
-        as asVar = com.baidu.live.v.a.En().aRB;
-        if (asVar != null && asVar.avE != null) {
-            String str3 = asVar.avE.axn;
+        ax axVar = com.baidu.live.v.a.Ge().aYP;
+        if (axVar != null && axVar.aAM != null) {
+            String str3 = axVar.aAM.aCD;
             if (!TextUtils.isEmpty(str3)) {
                 BrowserHelper.startInternalWebActivity(context, str3 + (str3.contains("?") ? ETAG.ITEM_SEPARATOR : "?") + "feed_id=" + str + "&live_id=" + str2 + "&subapp_type=" + TbConfig.getSubappType());
             }
@@ -43,16 +44,16 @@ public class o {
     }
 
     public static String a(String str, String str2, long j, boolean z, int i, String str3, String str4, String str5, String str6, String str7, String str8, String str9, String str10, String str11) {
-        as asVar = com.baidu.live.v.a.En().aRB;
-        if (asVar == null || asVar.avE == null) {
+        ax axVar = com.baidu.live.v.a.Ge().aYP;
+        if (axVar == null || axVar.aAM == null) {
             return "";
         }
-        String str12 = asVar.avE.axm;
+        String str12 = axVar.aAM.aCC;
         if (TextUtils.isEmpty(str12)) {
             return "";
         }
-        String str13 = asVar.avE.appKey;
-        String str14 = asVar.avE.axo;
+        String str13 = axVar.aAM.appKey;
+        String str14 = axVar.aAM.aCE;
         String str15 = str14 == null ? "" : str14;
         StringBuffer stringBuffer = new StringBuffer(str12);
         stringBuffer.append(str12.contains("?") ? ETAG.ITEM_SEPARATOR : "?");

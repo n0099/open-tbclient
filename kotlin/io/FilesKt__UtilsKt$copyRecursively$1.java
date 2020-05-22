@@ -17,8 +17,8 @@ final class FilesKt__UtilsKt$copyRecursively$1 extends Lambda implements m {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // kotlin.jvm.a.m
     public final Void invoke(File file, IOException iOException) {
-        q.j(file, "<anonymous parameter 0>");
-        q.j(iOException, com.baidu.fsg.base.statistics.b.k);
+        q.m(file, "<anonymous parameter 0>");
+        q.m(iOException, "exception");
         throw iOException;
     }
 }

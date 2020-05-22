@@ -17,29 +17,29 @@ import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.core.util.bc;
 import com.baidu.tbadk.core.view.BarImageView;
-import com.baidu.tbadk.util.ad;
+import com.baidu.tbadk.util.ae;
 import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.LikeModel;
 /* loaded from: classes11.dex */
-public class b extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.b> {
-    private LikeModel dKs;
-    private CustomMessageListener elp;
-    private CustomMessageListener elq;
+public class b extends com.baidu.tieba.card.b<com.baidu.tieba.personPolymeric.c.b> {
+    private LikeModel dYI;
+    private CustomMessageListener ezU;
+    private CustomMessageListener ezV;
     private boolean isHost;
-    private TextView kdc;
-    private TextView kdd;
-    private TextView kde;
-    private TextView kdf;
-    private BarImageView kdg;
-    private TextView kdh;
-    private TextView kdi;
-    private TextView kdj;
-    private com.baidu.tieba.personPolymeric.c.b kdk;
+    private TextView kuT;
+    private TextView kuU;
+    private TextView kuV;
+    private TextView kuW;
+    private BarImageView kuX;
+    private TextView kuY;
+    private TextView kuZ;
+    private TextView kva;
+    private com.baidu.tieba.personPolymeric.c.b kvb;
     private View mRootView;
 
     public b(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.elq = new CustomMessageListener(CmdConfigCustom.CMD_PERSON_LIKE_FORUM) { // from class: com.baidu.tieba.personPolymeric.view.b.1
+        this.ezV = new CustomMessageListener(CmdConfigCustom.CMD_PERSON_LIKE_FORUM) { // from class: com.baidu.tieba.personPolymeric.view.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -47,11 +47,11 @@ public class b extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
                     Object data = customResponsedMessage.getData();
                     if (data instanceof com.baidu.tieba.tbadkCore.writeModel.a) {
                         com.baidu.tieba.tbadkCore.writeModel.a aVar = (com.baidu.tieba.tbadkCore.writeModel.a) data;
-                        if (aVar.forumId == b.this.kdk.forumId) {
+                        if (aVar.forumId == b.this.kvb.forumId) {
                             if (aVar.isSuccess) {
-                                b.this.kdk.isAttention = true;
-                                b.this.kdj.setVisibility(0);
-                                b.this.sK(true);
+                                b.this.kvb.isAttention = true;
+                                b.this.kva.setVisibility(0);
+                                b.this.ti(true);
                                 com.baidu.adp.lib.util.l.showToast(b.this.mContext, (int) R.string.attention_success);
                             } else if (StringUtils.isNull(aVar.errorMessage)) {
                                 com.baidu.adp.lib.util.l.showToast(b.this.mContext, (int) R.string.attention_fail);
@@ -63,17 +63,17 @@ public class b extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
                 }
             }
         };
-        this.elp = new CustomMessageListener(CmdConfigCustom.CMD_PERSON_UNLIKE_FORUM) { // from class: com.baidu.tieba.personPolymeric.view.b.2
+        this.ezU = new CustomMessageListener(CmdConfigCustom.CMD_PERSON_UNLIKE_FORUM) { // from class: com.baidu.tieba.personPolymeric.view.b.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && !b.this.isHost) {
                     Object data = customResponsedMessage.getData();
-                    if ((data instanceof com.baidu.tieba.tbadkCore.writeModel.a) && ((com.baidu.tieba.tbadkCore.writeModel.a) data).forumId == b.this.kdk.forumId) {
+                    if ((data instanceof com.baidu.tieba.tbadkCore.writeModel.a) && ((com.baidu.tieba.tbadkCore.writeModel.a) data).forumId == b.this.kvb.forumId) {
                         if (((com.baidu.tieba.tbadkCore.writeModel.a) data).isSuccess) {
-                            b.this.kdk.isAttention = false;
-                            b.this.kdj.setVisibility(0);
-                            b.this.sK(b.this.kdk.isAttention);
+                            b.this.kvb.isAttention = false;
+                            b.this.kva.setVisibility(0);
+                            b.this.ti(b.this.kvb.isAttention);
                             com.baidu.adp.lib.util.l.showToast(b.this.mContext, (int) R.string.unlike_success);
                             return;
                         }
@@ -86,49 +86,49 @@ public class b extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
     }
 
     public void a(LikeModel likeModel) {
-        this.dKs = likeModel;
+        this.dYI = likeModel;
     }
 
     private void init(View view) {
         this.mRootView = view.findViewById(R.id.card_polymeric_attention_bar_rootview);
-        this.kdc = (TextView) view.findViewById(R.id.card_polymeric_attention_bar_day);
-        this.kdd = (TextView) view.findViewById(R.id.card_polymeric_attention_bar_month);
-        this.kde = (TextView) view.findViewById(R.id.card_polymeric_attention_sex);
-        this.kdf = (TextView) view.findViewById(R.id.card_polymeric_attention_bar_des);
-        this.kdg = (BarImageView) view.findViewById(R.id.card_polymeric_attention_icon);
-        this.kdh = (TextView) view.findViewById(R.id.card_polymeric_attention_bar_name);
-        this.kdi = (TextView) view.findViewById(R.id.card_polymeric_attention_post_num);
-        this.kdj = (TextView) view.findViewById(R.id.card_polymeric_attention_btn);
+        this.kuT = (TextView) view.findViewById(R.id.card_polymeric_attention_bar_day);
+        this.kuU = (TextView) view.findViewById(R.id.card_polymeric_attention_bar_month);
+        this.kuV = (TextView) view.findViewById(R.id.card_polymeric_attention_sex);
+        this.kuW = (TextView) view.findViewById(R.id.card_polymeric_attention_bar_des);
+        this.kuX = (BarImageView) view.findViewById(R.id.card_polymeric_attention_icon);
+        this.kuY = (TextView) view.findViewById(R.id.card_polymeric_attention_bar_name);
+        this.kuZ = (TextView) view.findViewById(R.id.card_polymeric_attention_post_num);
+        this.kva = (TextView) view.findViewById(R.id.card_polymeric_attention_btn);
         this.mRootView.setOnClickListener(this);
-        this.kdj.setOnClickListener(this);
-        this.mTbPageContext.registerListener(this.elq);
-        this.mTbPageContext.registerListener(this.elp);
+        this.kva.setOnClickListener(this);
+        this.mTbPageContext.registerListener(this.ezV);
+        this.mTbPageContext.registerListener(this.ezU);
     }
 
-    @Override // com.baidu.tieba.card.a
+    @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         if (this.mSkinType != i) {
             am.setBackgroundResource(this.mRootView, R.drawable.item_person_header_attention_bg_selector);
-            am.setViewTextColor(this.kdc, R.color.cp_cont_f, 1);
-            am.setViewTextColor(this.kdd, R.color.cp_cont_f, 1);
-            am.setViewTextColor(this.kde, R.color.cp_cont_f, 1);
-            am.setViewTextColor(this.kdf, R.color.cp_cont_f, 1);
-            am.setViewTextColor(this.kdh, R.color.cp_cont_b, 1);
-            am.setViewTextColor(this.kdi, R.color.cp_cont_c, 1);
-            if (this.kdk != null) {
-                sK(this.kdk.isAttention);
+            am.setViewTextColor(this.kuT, R.color.cp_cont_f, 1);
+            am.setViewTextColor(this.kuU, R.color.cp_cont_f, 1);
+            am.setViewTextColor(this.kuV, R.color.cp_cont_f, 1);
+            am.setViewTextColor(this.kuW, R.color.cp_cont_f, 1);
+            am.setViewTextColor(this.kuY, R.color.cp_cont_b, 1);
+            am.setViewTextColor(this.kuZ, R.color.cp_cont_c, 1);
+            if (this.kvb != null) {
+                ti(this.kvb.isAttention);
             }
         }
         this.mSkinType = i;
     }
 
-    @Override // com.baidu.tieba.card.a
+    @Override // com.baidu.tieba.card.b
     public int getLayout() {
         return R.layout.card_polymeric_attention_bar_view;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.card.a
+    @Override // com.baidu.tieba.card.b
     public void a(com.baidu.tieba.personPolymeric.c.b bVar) {
         String string;
         if (bVar == null) {
@@ -138,33 +138,33 @@ public class b extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
         if (this.mRootView.getVisibility() != 0) {
             this.mRootView.setVisibility(0);
         }
-        this.kdk = bVar;
+        this.kvb = bVar;
         this.isHost = bVar.isHost;
-        this.kdc.setVisibility(bVar.gtx ? 0 : 4);
-        this.kdd.setVisibility(bVar.gtx ? 0 : 4);
-        this.kdc.setText(bVar.gtr);
-        this.kdd.setText(bVar.gtq);
-        TextView textView = this.kde;
+        this.kuT.setVisibility(bVar.gIi ? 0 : 4);
+        this.kuU.setVisibility(bVar.gIi ? 0 : 4);
+        this.kuT.setText(bVar.gIc);
+        this.kuU.setText(bVar.gIb);
+        TextView textView = this.kuV;
         if (bVar.isHost) {
             string = this.mContext.getString(R.string.me);
         } else {
             string = bVar.sex == 2 ? this.mContext.getString(R.string.she) : this.mContext.getString(R.string.he);
         }
         textView.setText(string);
-        this.kdg.startLoad(bVar.avatar, 10, false);
-        String str = bVar.kaL;
-        if (ad.getTextLength(str) > 10) {
-            str = ad.subString(str, 0, 10) + StringHelper.STRING_MORE;
+        this.kuX.startLoad(bVar.avatar, 10, false);
+        String str = bVar.ksD;
+        if (ae.getTextLength(str) > 10) {
+            str = ae.subString(str, 0, 10) + StringHelper.STRING_MORE;
         }
-        this.kdh.setText(String.format(this.mContext.getString(R.string.person_polymeric_bar_suffix), str));
-        String numFormatOverWanNa = aq.numFormatOverWanNa(bVar.kaM);
-        this.kdi.setText(bVar.isHost ? String.format(this.mContext.getString(R.string.person_polymeric_attention_post_host), numFormatOverWanNa, aq.numFormatOverWanNa(bVar.postNum)) : String.format(this.mContext.getString(R.string.person_polymeric_attention_post_guess), numFormatOverWanNa));
+        this.kuY.setText(String.format(this.mContext.getString(R.string.person_polymeric_bar_suffix), str));
+        String numFormatOverWanNa = aq.numFormatOverWanNa(bVar.ksE);
+        this.kuZ.setText(bVar.isHost ? String.format(this.mContext.getString(R.string.person_polymeric_attention_post_host), numFormatOverWanNa, aq.numFormatOverWanNa(bVar.postNum)) : String.format(this.mContext.getString(R.string.person_polymeric_attention_post_guess), numFormatOverWanNa));
         if (bVar.isAttention || bVar.isHost) {
-            this.kdj.setVisibility(8);
+            this.kva.setVisibility(8);
             return;
         }
-        this.kdj.setVisibility(0);
-        sK(bVar.isAttention);
+        this.kva.setVisibility(0);
+        ti(bVar.isAttention);
     }
 
     @Override // android.view.View.OnClickListener
@@ -173,29 +173,29 @@ public class b extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
             if (!this.isHost) {
                 TiebaStatic.log(new an("c11595"));
             }
-            this.mTbPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(this.mContext).createNormalCfg(this.kdk.kaL, "")));
-        } else if (this.kdj == view) {
+            this.mTbPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(this.mContext).createNormalCfg(this.kvb.ksD, "")));
+        } else if (this.kva == view) {
             TiebaStatic.log(new an("c11596"));
             if (StringUtils.isNull(TbadkCoreApplication.getCurrentAccount())) {
                 bc.skipToLoginActivity(this.mContext);
-            } else if (aq.isForumName(this.kdk.kaL) && !this.kdk.isAttention) {
-                this.dKs.eP(this.kdk.kaL, String.valueOf(this.kdk.forumId));
+            } else if (aq.isForumName(this.kvb.ksD) && !this.kvb.isAttention) {
+                this.dYI.fq(this.kvb.ksD, String.valueOf(this.kvb.forumId));
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void sK(boolean z) {
+    public void ti(boolean z) {
         if (z) {
-            this.kdj.setText(this.mContext.getString(R.string.relate_forum_is_followed));
-            am.setViewTextColor(this.kdj, (int) R.color.cp_cont_e);
-            am.setBackgroundResource(this.kdj, R.color.transparent);
-            this.kdj.setClickable(false);
+            this.kva.setText(this.mContext.getString(R.string.relate_forum_is_followed));
+            am.setViewTextColor(this.kva, (int) R.color.cp_cont_e);
+            am.setBackgroundResource(this.kva, R.color.transparent);
+            this.kva.setClickable(false);
             return;
         }
-        this.kdj.setText(this.mContext.getString(R.string.focus_text));
-        am.setViewTextColor(this.kdj, R.color.cp_link_tip_a, 1);
-        am.setBackgroundResource(this.kdj, R.drawable.polymeric_attention_btn_bg);
-        this.kdj.setClickable(true);
+        this.kva.setText(this.mContext.getString(R.string.focus_text));
+        am.setViewTextColor(this.kva, R.color.cp_link_tip_a, 1);
+        am.setBackgroundResource(this.kva, R.drawable.polymeric_attention_btn_bg);
+        this.kva.setClickable(true);
     }
 }

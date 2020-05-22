@@ -5,34 +5,29 @@ import com.baidu.swan.pms.c.d.f;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class e extends com.baidu.swan.pms.c.d<com.baidu.swan.pms.c.c.e> {
-    public e(g gVar, f fVar) {
+    private g dmr;
+
+    public e(g gVar, f fVar, g gVar2) {
         super(gVar, fVar);
+        this.dmr = gVar2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.pms.c.d
-    /* renamed from: cd */
-    public com.baidu.swan.pms.c.c.e bA(JSONObject jSONObject) {
-        return com.baidu.swan.pms.f.d.cg(jSONObject);
+    /* renamed from: ce */
+    public com.baidu.swan.pms.c.c.e bz(JSONObject jSONObject) {
+        return com.baidu.swan.pms.f.d.cm(jSONObject);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.pms.c.d
     /* renamed from: a */
-    public com.baidu.swan.pms.model.a T(com.baidu.swan.pms.c.c.e eVar) {
-        this.daD.Xd();
-        com.baidu.swan.pms.e.a.j(this.daE.getCategory(), eVar.maxAge);
-        com.baidu.swan.pms.f.e eVar2 = new com.baidu.swan.pms.f.e();
-        a(eVar.dbl, eVar2);
-        a(eVar.dbn, eVar2);
-        if (eVar2.aCH() == 0) {
-            this.daD.WZ();
-            return null;
-        }
-        this.daD.a(eVar2);
-        com.baidu.swan.pms.c.a.a.a(eVar, this.daD);
+    public com.baidu.swan.pms.model.a X(com.baidu.swan.pms.c.c.e eVar) {
+        this.dlN.ZP();
+        com.baidu.swan.pms.e.a.j(this.dlO.getCategory(), eVar.maxAge);
+        com.baidu.swan.pms.node.e.b(eVar.data, this.dlN, this.dmr);
         return null;
     }
 
@@ -40,18 +35,12 @@ public class e extends com.baidu.swan.pms.c.d<com.baidu.swan.pms.c.c.e> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.pms.c.d
     /* renamed from: b */
-    public boolean S(com.baidu.swan.pms.c.c.e eVar) {
-        if (eVar == null) {
-            return false;
-        }
-        if (eVar.dbl == null || eVar.dbl.XL()) {
-            return eVar.dbn == null || eVar.dbn.XL();
-        }
-        return false;
+    public boolean W(com.baidu.swan.pms.c.c.e eVar) {
+        return eVar != null;
     }
 
     @Override // com.baidu.swan.pms.c.d
-    protected String arv() {
+    protected String ave() {
         return "updatecore";
     }
 }

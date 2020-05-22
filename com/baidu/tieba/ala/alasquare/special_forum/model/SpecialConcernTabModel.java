@@ -5,7 +5,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.adp.widget.ListView.m;
+import com.baidu.adp.widget.ListView.o;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.mobstat.Config;
 import com.baidu.tbadk.TbPageContext;
@@ -19,10 +19,10 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class SpecialConcernTabModel extends BdBaseModel {
-    private a eVS;
+    private a fiC;
     private TbPageContext mTbPageContext;
     private int pn = 1;
-    private HttpMessageListener eVT = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_SPECIAL_CONCERN_TAB) { // from class: com.baidu.tieba.ala.alasquare.special_forum.model.SpecialConcernTabModel.1
+    private HttpMessageListener fiD = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_SPECIAL_CONCERN_TAB) { // from class: com.baidu.tieba.ala.alasquare.special_forum.model.SpecialConcernTabModel.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -30,55 +30,55 @@ public class SpecialConcernTabModel extends BdBaseModel {
                 AlaSpecialConcernResponse alaSpecialConcernResponse = (AlaSpecialConcernResponse) httpResponsedMessage;
                 if (alaSpecialConcernResponse.isSuccess()) {
                     if (SpecialConcernTabModel.this.pn == 1) {
-                        SpecialConcernTabModel.this.eRx.clear();
+                        SpecialConcernTabModel.this.fef.clear();
                     }
                     boolean z = alaSpecialConcernResponse.hasMore;
                     if (v.isEmpty(alaSpecialConcernResponse.followList)) {
                         if (SpecialConcernTabModel.this.pn == 1) {
-                            SpecialConcernTabModel.this.eRx.add(new e());
+                            SpecialConcernTabModel.this.fef.add(new e());
                         }
                     } else {
                         for (d dVar : alaSpecialConcernResponse.followList) {
                             f fVar = new f();
                             fVar.mUserData = dVar.mUserData;
-                            fVar.eVC = dVar.eVB;
-                            fVar.eVD = false;
-                            SpecialConcernTabModel.this.eRx.add(fVar);
+                            fVar.fil = dVar.fik;
+                            fVar.fim = false;
+                            SpecialConcernTabModel.this.fef.add(fVar);
                         }
                     }
                     if (!v.isEmpty(alaSpecialConcernResponse.recommendList)) {
                         g gVar = new g();
                         if (!v.isEmpty(alaSpecialConcernResponse.followList)) {
-                            gVar.eVE = false;
+                            gVar.fin = false;
                         } else {
-                            gVar.eVE = true;
+                            gVar.fin = true;
                         }
-                        SpecialConcernTabModel.this.eRx.add(gVar);
+                        SpecialConcernTabModel.this.fef.add(gVar);
                         for (d dVar2 : alaSpecialConcernResponse.recommendList) {
                             f fVar2 = new f();
                             fVar2.mUserData = dVar2.mUserData;
-                            fVar2.eVC = dVar2.eVB;
-                            fVar2.eVD = true;
-                            SpecialConcernTabModel.this.eRx.add(fVar2);
+                            fVar2.fil = dVar2.fik;
+                            fVar2.fim = true;
+                            SpecialConcernTabModel.this.fef.add(fVar2);
                         }
                     }
                     SpecialConcernTabModel.c(SpecialConcernTabModel.this);
-                    if (SpecialConcernTabModel.this.eVS != null) {
-                        SpecialConcernTabModel.this.eVS.d(SpecialConcernTabModel.this.eRx, z, alaSpecialConcernResponse.totalFollowCount);
+                    if (SpecialConcernTabModel.this.fiC != null) {
+                        SpecialConcernTabModel.this.fiC.d(SpecialConcernTabModel.this.fef, z, alaSpecialConcernResponse.totalFollowCount);
                     }
-                } else if (SpecialConcernTabModel.this.eVS != null) {
-                    SpecialConcernTabModel.this.eVS.as(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                } else if (SpecialConcernTabModel.this.fiC != null) {
+                    SpecialConcernTabModel.this.fiC.ax(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
                 }
             }
         }
     };
-    private List<m> eRx = new ArrayList();
+    private List<o> fef = new ArrayList();
 
     /* loaded from: classes3.dex */
     public interface a {
-        void as(int i, String str);
+        void ax(int i, String str);
 
-        void d(List<m> list, boolean z, int i);
+        void d(List<o> list, boolean z, int i);
     }
 
     static /* synthetic */ int c(SpecialConcernTabModel specialConcernTabModel) {
@@ -89,30 +89,30 @@ public class SpecialConcernTabModel extends BdBaseModel {
 
     public SpecialConcernTabModel(TbPageContext tbPageContext) {
         this.mTbPageContext = tbPageContext;
-        MessageManager.getInstance().registerListener(this.eVT);
+        MessageManager.getInstance().registerListener(this.fiD);
     }
 
-    public void FG() {
+    public void Ho() {
         this.pn = 1;
-        pa(1);
+        pB(1);
     }
 
-    public void blz() {
-        pa(this.pn + 1);
+    public void bqX() {
+        pB(this.pn + 1);
     }
 
-    private void pa(int i) {
+    private void pB(int i) {
         HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_SPECIAL_CONCERN_TAB);
         httpMessage.addParam(Config.PACKAGE_NAME, i);
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.eVT);
+        MessageManager.getInstance().unRegisterListener(this.fiD);
     }
 
     public void a(a aVar) {
-        this.eVS = aVar;
+        this.fiC = aVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel

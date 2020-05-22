@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 /* loaded from: classes5.dex */
 public class e {
-    public static int nvE = 0;
+    public static int nQA = 0;
 
     public static boolean D(View view, int i) {
         if (view.isInEditMode()) {
@@ -18,10 +18,10 @@ public class e {
         }
         tv.chushou.zues.utils.e.d("ViewUtil", String.format("refresh Height %d %d", Integer.valueOf(view.getHeight()), Integer.valueOf(i)));
         if (view.getHeight() != i) {
-            nvE = i;
+            nQA = i;
             Context context = view.getContext();
-            int i2 = nvE;
-            if (gj(context)) {
+            int i2 = nQA;
+            if (gK(context)) {
                 i2 += tv.chushou.zues.utils.systemBar.b.getStatusBarHeight(context);
             }
             ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
@@ -47,14 +47,14 @@ public class e {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @TargetApi(16)
-    public static boolean aE(Activity activity) {
+    public static boolean aD(Activity activity) {
         if (Build.VERSION.SDK_INT >= 16) {
             return ((ViewGroup) activity.findViewById(16908290)).getChildAt(0).getFitsSystemWindows();
         }
         return false;
     }
 
-    private static boolean gj(Context context) {
+    private static boolean gK(Context context) {
         Window window;
         View decorView;
         Activity activity = getActivity(context);

@@ -14,48 +14,48 @@ import java.util.concurrent.Executors;
 /* loaded from: classes11.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile a cJx;
-    private HashMap<String, ArrayList<InterfaceC0381a>> cJy = new HashMap<>();
-    final ExecutorService cJz = Executors.newCachedThreadPool();
+    private static volatile a cUe;
+    private HashMap<String, ArrayList<InterfaceC0421a>> cUf = new HashMap<>();
+    final ExecutorService cUg = Executors.newCachedThreadPool();
     private Object mLock = new Object();
-    private String cJA = f.atM() + f.atN();
+    private String cUh = f.axz() + f.axA();
 
     /* renamed from: com.baidu.swan.games.audio.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public interface InterfaceC0381a {
-        void atQ();
+    public interface InterfaceC0421a {
+        void axD();
 
-        void gt(String str);
+        void hg(String str);
     }
 
     private a() {
     }
 
-    public static a atR() {
-        if (cJx == null) {
+    public static a axE() {
+        if (cUe == null) {
             synchronized (a.class) {
-                if (cJx == null) {
-                    cJx = new a();
+                if (cUe == null) {
+                    cUe = new a();
                 }
             }
         }
-        return cJx;
+        return cUe;
     }
 
-    public void a(final JsArrayBuffer jsArrayBuffer, final InterfaceC0381a interfaceC0381a) {
-        this.cJz.execute(new Runnable() { // from class: com.baidu.swan.games.audio.b.a.1
+    public void a(final JsArrayBuffer jsArrayBuffer, final InterfaceC0421a interfaceC0421a) {
+        this.cUg.execute(new Runnable() { // from class: com.baidu.swan.games.audio.b.a.1
             @Override // java.lang.Runnable
             public void run() {
-                String E = a.this.E(jsArrayBuffer.buffer());
-                File file = new File(E);
+                String L = a.this.L(jsArrayBuffer.buffer());
+                File file = new File(L);
                 if (!file.exists()) {
-                    if (!a.this.a(E, interfaceC0381a)) {
-                        a.this.g(E, jsArrayBuffer.buffer());
+                    if (!a.this.a(L, interfaceC0421a)) {
+                        a.this.g(L, jsArrayBuffer.buffer());
                     }
                 } else if (!file.isDirectory()) {
-                    interfaceC0381a.gt(E);
+                    interfaceC0421a.hg(L);
                 } else {
-                    interfaceC0381a.atQ();
+                    interfaceC0421a.axD();
                 }
             }
         });
@@ -69,7 +69,7 @@ public class a {
     /* JADX WARN: Type inference failed for: r1v5, types: [java.io.Closeable] */
     public void g(String str, byte[] bArr) {
         FileOutputStream fileOutputStream;
-        File file = new File(this.cJA);
+        File file = new File(this.cUh);
         if (!file.exists()) {
             file.mkdirs();
         }
@@ -89,15 +89,15 @@ public class a {
                         if (DEBUG) {
                             Log.e("AudioBufferManager", "buffer load rename success path = " + str);
                         }
-                        oj(str);
+                        pR(str);
                     } else {
                         if (DEBUG) {
                             Log.e("AudioBufferManager", "buffer load rename error path = " + str);
                         }
                         file2.delete();
-                        oj(null);
+                        pR(null);
                     }
-                    com.baidu.swan.d.c.closeSafely(fileOutputStream);
+                    com.baidu.swan.e.d.closeSafely(fileOutputStream);
                 } catch (Exception e) {
                     e = e;
                     if (DEBUG) {
@@ -106,12 +106,12 @@ public class a {
                     if (file2 != null && file2.exists()) {
                         file2.delete();
                     }
-                    oj(null);
-                    com.baidu.swan.d.c.closeSafely(fileOutputStream);
+                    pR(null);
+                    com.baidu.swan.e.d.closeSafely(fileOutputStream);
                 }
             } catch (Throwable th) {
                 th = th;
-                com.baidu.swan.d.c.closeSafely(r1);
+                com.baidu.swan.e.d.closeSafely(r1);
                 throw th;
             }
         } catch (Exception e2) {
@@ -120,59 +120,59 @@ public class a {
         } catch (Throwable th2) {
             th = th2;
             r1 = 0;
-            com.baidu.swan.d.c.closeSafely(r1);
+            com.baidu.swan.e.d.closeSafely(r1);
             throw th;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean a(String str, InterfaceC0381a interfaceC0381a) {
-        ArrayList<InterfaceC0381a> arrayList;
+    public boolean a(String str, InterfaceC0421a interfaceC0421a) {
+        ArrayList<InterfaceC0421a> arrayList;
         boolean z;
         synchronized (this.mLock) {
-            ArrayList<InterfaceC0381a> arrayList2 = this.cJy.get(str);
+            ArrayList<InterfaceC0421a> arrayList2 = this.cUf.get(str);
             if (arrayList2 != null) {
                 arrayList = arrayList2;
                 z = true;
             } else {
                 arrayList = new ArrayList<>();
-                this.cJy.put(str, arrayList);
+                this.cUf.put(str, arrayList);
                 z = false;
             }
-            arrayList.add(interfaceC0381a);
+            arrayList.add(interfaceC0421a);
         }
         return z;
     }
 
-    private void oj(String str) {
+    private void pR(String str) {
         synchronized (this.mLock) {
-            ArrayList<InterfaceC0381a> arrayList = this.cJy.get(str);
+            ArrayList<InterfaceC0421a> arrayList = this.cUf.get(str);
             if (arrayList != null) {
                 boolean isEmpty = TextUtils.isEmpty(str);
-                Iterator<InterfaceC0381a> it = arrayList.iterator();
+                Iterator<InterfaceC0421a> it = arrayList.iterator();
                 while (it.hasNext()) {
-                    InterfaceC0381a next = it.next();
+                    InterfaceC0421a next = it.next();
                     if (!isEmpty) {
                         if (DEBUG) {
                             Log.e("AudioBufferManager", "save success path: " + str);
                         }
-                        next.gt(str);
+                        next.hg(str);
                     } else {
-                        next.atQ();
+                        next.axD();
                     }
                 }
-                this.cJy.remove(str);
+                this.cUf.remove(str);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String E(byte[] bArr) {
-        String D = f.D(bArr);
-        StringBuilder append = new StringBuilder().append(this.cJA).append(bArr.length);
-        if (TextUtils.isEmpty(D)) {
-            D = "";
+    public String L(byte[] bArr) {
+        String K = f.K(bArr);
+        StringBuilder append = new StringBuilder().append(this.cUh).append(bArr.length);
+        if (TextUtils.isEmpty(K)) {
+            K = "";
         }
-        return append.append(D).toString();
+        return append.append(K).toString();
     }
 }

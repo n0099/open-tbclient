@@ -1,27 +1,25 @@
 package com.baidu.swan.games.h.a;
 
-import android.webkit.JavascriptInterface;
-import com.baidu.searchbox.v8engine.V8JavascriptField;
+import com.baidu.swan.e.d;
+import java.io.File;
 /* loaded from: classes11.dex */
 public class b {
-    private int cNp;
-    private int cNq;
-    @V8JavascriptField
-    public String errMsg;
-
-    public b() {
-        this.cNp = 0;
-        int i = this.cNp;
-        this.cNp = i + 1;
-        this.cNq = i;
+    public static File acK() {
+        return com.baidu.swan.games.l.a.rW("aigames_debug_extension_core");
     }
 
-    @JavascriptInterface
-    public int jsObjectID() {
-        return this.cNq;
+    public static void acL() {
+        File acK = acK();
+        if (acK.exists()) {
+            d.deleteFile(acK);
+        }
     }
 
-    public String toString() {
-        return "FileSystemJsCallBack" + this.cNq;
+    public static File acM() {
+        File acK = acK();
+        if (!acK.exists()) {
+            acK.mkdirs();
+        }
+        return new File(acK, "debugExtensionCore.zip");
     }
 }

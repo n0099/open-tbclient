@@ -33,7 +33,7 @@ public class SwanMiniMasterJsInterface {
         if (DEBUG) {
             Log.v("SwanMiniRuntime", "Master == sendMessage(" + str + ", " + str2 + ")");
         }
-        this.mMiniRuntime.cl(str, str2);
+        this.mMiniRuntime.cG(str, str2);
     }
 
     @JavascriptInterface
@@ -47,19 +47,19 @@ public class SwanMiniMasterJsInterface {
                 Log.e("SwanMiniRuntime", "Master == request: null param");
             }
         } else {
-            a rr = this.mMiniRuntime.rr(this.mInstanceId);
-            if (rr == null) {
+            a sU = this.mMiniRuntime.sU(this.mInstanceId);
+            if (sU == null) {
                 if (DEBUG) {
                     Log.e("SwanMiniRuntime", "Master == request: null master");
                 }
             } else {
-                com.baidu.swan.games.e.a v8Engine = rr.getV8Engine();
+                com.baidu.swan.games.f.a v8Engine = sU.getV8Engine();
                 if (v8Engine == null) {
                     if (DEBUG) {
                         Log.e("SwanMiniRuntime", "Master == request: master type error");
                     }
                 } else {
-                    cVar = new c(v8Engine, com.baidu.swan.games.binding.model.c.c(jsObject));
+                    cVar = new c(v8Engine, com.baidu.swan.games.binding.model.c.e(jsObject));
                     cVar.start();
                     if (DEBUG) {
                         Log.v("SwanMiniRuntime", "Master == request stated");

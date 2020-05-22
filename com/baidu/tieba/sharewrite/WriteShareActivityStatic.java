@@ -4,6 +4,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.WriteShareActivityConfig;
 /* loaded from: classes11.dex */
 public class WriteShareActivityStatic {
+    public static String Tag = "tag";
+
     static {
         TbadkCoreApplication.getInst().RegisterIntent(WriteShareActivityConfig.class, WriteShareActivity.class);
     }

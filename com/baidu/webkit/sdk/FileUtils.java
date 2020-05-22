@@ -43,7 +43,7 @@ class FileUtils {
         if (file.exists() && file.isDirectory()) {
             String[] list = file.list(new FilenameFilter() { // from class: com.baidu.webkit.sdk.FileUtils.1
                 @Override // java.io.FilenameFilter
-                public final boolean accept(File file2, String str5) {
+                public boolean accept(File file2, String str5) {
                     return str5.startsWith(str2);
                 }
             });
@@ -66,7 +66,7 @@ class FileUtils {
         if (file.exists() && file.isDirectory()) {
             for (String str3 : file.list(new FilenameFilter() { // from class: com.baidu.webkit.sdk.FileUtils.2
                 @Override // java.io.FilenameFilter
-                public final boolean accept(File file2, String str4) {
+                public boolean accept(File file2, String str4) {
                     return str4.startsWith(str2);
                 }
             })) {
@@ -248,10 +248,10 @@ class FileUtils {
                 }
             }
         }
-        if (file != file2) {
-            return file.delete();
+        if (file.equals(file2)) {
+            return true;
         }
-        return true;
+        return file.delete();
     }
 
     public static String getFileRwErrorDetailAndReset() {

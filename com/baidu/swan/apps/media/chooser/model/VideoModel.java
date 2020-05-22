@@ -8,14 +8,14 @@ public class VideoModel extends MediaModel {
     public static final Parcelable.Creator<MediaModel> CREATOR = new Parcelable.Creator<MediaModel>() { // from class: com.baidu.swan.apps.media.chooser.model.VideoModel.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: s */
+        /* renamed from: t */
         public MediaModel createFromParcel(Parcel parcel) {
             return new VideoModel(parcel);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: fA */
+        /* renamed from: fO */
         public MediaModel[] newArray(int i) {
             return new MediaModel[i];
         }

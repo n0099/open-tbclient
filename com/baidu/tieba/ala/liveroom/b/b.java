@@ -5,12 +5,13 @@ import android.widget.RelativeLayout;
 import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.listener.CustomMessageListener;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
-import com.baidu.live.data.n;
+import com.baidu.live.data.q;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class b {
-    private CustomMessageListener faq = new CustomMessageListener(2913095) { // from class: com.baidu.tieba.ala.liveroom.b.b.1
+    private c fJq;
+    private CustomMessageListener fnT = new CustomMessageListener(2913095) { // from class: com.baidu.tieba.ala.liveroom.b.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -23,7 +24,6 @@ public class b {
             }
         }
     };
-    private c fvt;
     private final boolean mIsHost;
     private TbPageContext mTbPageContext;
     private String otherParams;
@@ -31,29 +31,29 @@ public class b {
     public b(TbPageContext tbPageContext, boolean z) {
         this.mTbPageContext = tbPageContext;
         this.mIsHost = z;
-        this.faq.setTag(tbPageContext.getUniqueId());
-        MessageManager.getInstance().registerListener(this.faq);
+        this.fnT.setTag(tbPageContext.getUniqueId());
+        MessageManager.getInstance().registerListener(this.fnT);
     }
 
-    public void b(ViewGroup viewGroup, n nVar) {
-        if (viewGroup != null && this.mTbPageContext != null && nVar != null) {
-            this.fvt = new c(this.mTbPageContext);
-            brC();
+    public void b(ViewGroup viewGroup, q qVar) {
+        if (viewGroup != null && this.mTbPageContext != null && qVar != null) {
+            this.fJq = new c(this.mTbPageContext);
+            bxw();
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
             layoutParams.addRule(11);
             layoutParams.rightMargin = this.mTbPageContext.getPageActivity().getResources().getDimensionPixelSize(a.e.sdk_ds24);
             layoutParams.addRule(3, a.g.ala_liveroom_hostheader);
-            layoutParams.topMargin = this.mTbPageContext.getPageActivity().getResources().getDimensionPixelOffset(a.e.sdk_ds34);
-            viewGroup.addView(this.fvt.getView(), layoutParams);
-            if (nVar.aqk != null) {
-                this.fvt.dz(nVar.aqk.alaId);
+            layoutParams.topMargin = this.mTbPageContext.getPageActivity().getResources().getDimensionPixelOffset(a.e.sdk_ds58);
+            viewGroup.addView(this.fJq.getView(), layoutParams);
+            if (qVar.avj != null) {
+                this.fJq.dA(qVar.avj.alaId);
             }
         }
     }
 
-    public void brC() {
-        if (this.fvt != null && this.fvt.getView() != null && this.fvt.getView().getParent() != null) {
-            ((ViewGroup) this.fvt.getView().getParent()).removeView(this.fvt.getView());
+    public void bxw() {
+        if (this.fJq != null && this.fJq.getView() != null && this.fJq.getView().getParent() != null) {
+            ((ViewGroup) this.fJq.getView().getParent()).removeView(this.fJq.getView());
         }
     }
 }

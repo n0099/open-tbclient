@@ -22,11 +22,11 @@ public class b extends a {
     private HttpMessageListener mHttpMessageListener;
 
     static {
-        xB();
+        Fv();
     }
 
-    public b(TbPageContext tbPageContext, a.InterfaceC0503a interfaceC0503a) {
-        super(tbPageContext, PayChannelType.NUOMI, interfaceC0503a);
+    public b(TbPageContext tbPageContext, a.InterfaceC0549a interfaceC0549a) {
+        super(tbPageContext, PayChannelType.NUOMI, interfaceC0549a);
         this.mHttpMessageListener = new HttpMessageListener(0) { // from class: com.baidu.tieba.ala.live.b.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
@@ -56,18 +56,18 @@ public class b extends a {
     }
 
     @Override // com.baidu.tieba.ala.live.b.a
-    public void bpM() {
+    public void bvE() {
         HttpMessage httpMessage = new HttpMessage(1003412);
         httpMessage.setTag(getUniqueId());
-        httpMessage.addParam("pay_id", bpN());
+        httpMessage.addParam("pay_id", bvF());
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
     @Override // com.baidu.tieba.ala.live.b.a
-    public void As(String str) {
+    public void BZ(String str) {
     }
 
-    private static void xB() {
+    private static void Fv() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003411, TbConfig.SERVER_ADDRESS + TbConfig.GET_NUOMI_ORDER);
         tbHttpMessageTask.setResponsedClass(GetNuomiOrderHttpResponsedMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
@@ -78,9 +78,13 @@ public class b extends a {
 
     private com.baidu.tieba.ala.live.message.a b(PayConfig payConfig) {
         com.baidu.tieba.ala.live.message.a aVar = new com.baidu.tieba.ala.live.message.a();
-        aVar.a(payConfig.getPayType(), JavaTypesHelper.toInt(payConfig.getIsLeft(), 0), payConfig.getPropsId(), JavaTypesHelper.toInt(payConfig.getMoney(), 0), JavaTypesHelper.toInt(payConfig.getPropsMon(), 0), payConfig.isAutoPay(), payConfig.paymentPosKey, payConfig.mReferPage, payConfig.mClickZone);
+        aVar.a(payConfig.getPayType(), JavaTypesHelper.toInt(payConfig.getIsLeft(), 0), payConfig.getPropsId(), JavaTypesHelper.toInt(payConfig.getMoney(), 0), JavaTypesHelper.toInt(payConfig.getPropsMon(), 0), payConfig.isAutoPay(), payConfig.paymentPosKey, payConfig.mReferPage, payConfig.mClickZone, payConfig.liveId);
         if (TextUtils.equals("firstCharge", payConfig.from)) {
             aVar.addParam("payment_pos_id", "3204");
+        } else if (TextUtils.equals("noble", payConfig.from)) {
+            aVar.addParam("payment_pos_id", "3213");
+        } else if (TextUtils.equals("superCustomer", payConfig.from)) {
+            aVar.addParam("payment_pos_id", "3214");
         }
         return aVar;
     }
@@ -88,7 +92,7 @@ public class b extends a {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(GetNuomiOrderHttpResponsedMessage getNuomiOrderHttpResponsedMessage) {
         String errorString;
-        HashMap<String, String> bpK = getNuomiOrderHttpResponsedMessage.bpK();
+        HashMap<String, String> bvC = getNuomiOrderHttpResponsedMessage.bvC();
         if (getNuomiOrderHttpResponsedMessage.hasError() || getNuomiOrderHttpResponsedMessage.getError() != 0) {
             if (StringUtils.isNull(getNuomiOrderHttpResponsedMessage.getErrorString())) {
                 errorString = this.mPageContext.getResources().getString(a.i.sdk_neterror);
@@ -96,10 +100,10 @@ public class b extends a {
                 errorString = getNuomiOrderHttpResponsedMessage.getErrorString();
             }
             a(getNuomiOrderHttpResponsedMessage.getError(), errorString, null, null, null, false);
-        } else if (bpK == null) {
+        } else if (bvC == null) {
             a(getNuomiOrderHttpResponsedMessage.getError(), getNuomiOrderHttpResponsedMessage.getErrorString(), null, null, null, false);
         } else {
-            a(getNuomiOrderHttpResponsedMessage.getError(), getNuomiOrderHttpResponsedMessage.getErrorString(), getNuomiOrderHttpResponsedMessage.getOrderId(), bpK, null, true);
+            a(getNuomiOrderHttpResponsedMessage.getError(), getNuomiOrderHttpResponsedMessage.getErrorString(), getNuomiOrderHttpResponsedMessage.getOrderId(), bvC, null, true);
         }
     }
 
@@ -115,6 +119,6 @@ public class b extends a {
         if (responseGetNuomiPayinfoMessage.getPayInfoResultData() != null) {
             i = responseGetNuomiPayinfoMessage.getPayInfoResultData().getPay_status();
         }
-        e(responseGetNuomiPayinfoMessage.getError(), errorString, i);
+        a(responseGetNuomiPayinfoMessage.getError(), errorString, i, responseGetNuomiPayinfoMessage);
     }
 }

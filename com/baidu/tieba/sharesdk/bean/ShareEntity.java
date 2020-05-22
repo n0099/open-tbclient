@@ -19,28 +19,28 @@ public class ShareEntity implements Parcelable {
             shareEntity.setTitle(parcel.readString());
             shareEntity.setContent(parcel.readString());
             shareEntity.setLinkUrl(parcel.readString());
-            shareEntity.Ke(parcel.readString());
-            shareEntity.Cs(parcel.readInt());
+            shareEntity.LQ(parcel.readString());
+            shareEntity.Dc(parcel.readInt());
             shareEntity.setVideoUrl(parcel.readString());
             shareEntity.setImageUri((Uri) parcel.readParcelable(Uri.class.getClassLoader()));
             shareEntity.setLocation((Location) parcel.readParcelable(Location.class.getClassLoader()));
-            shareEntity.Y(parcel.readBundle());
-            shareEntity.Cu(parcel.readInt());
+            shareEntity.ae(parcel.readBundle());
+            shareEntity.De(parcel.readInt());
             shareEntity.setTid(parcel.readString());
-            shareEntity.Ct(parcel.readInt());
-            shareEntity.Kf(parcel.readString());
+            shareEntity.Dd(parcel.readInt());
+            shareEntity.LR(parcel.readString());
             shareEntity.topic = parcel.readString();
             shareEntity.taskCompleteId = parcel.readString();
             shareEntity.diskPicOperate = parcel.readBundle();
             shareEntity.canShareBySmartApp = parcel.readByte() == 1;
             shareEntity.fp(parcel.readLong());
-            shareEntity.tC(parcel.readByte() == 1);
+            shareEntity.ua(parcel.readByte() == 1);
             return shareEntity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: Cv */
+        /* renamed from: Df */
         public ShareEntity[] newArray(int i) {
             return new ShareEntity[i];
         }
@@ -65,11 +65,11 @@ public class ShareEntity implements Parcelable {
     private int typeShareToSmallApp = 0;
     public boolean canShareBySmartApp = true;
 
-    public void Y(Bundle bundle) {
+    public void ae(Bundle bundle) {
         this.stats = bundle;
     }
 
-    public Bundle aUR() {
+    public Bundle bbb() {
         return this.stats;
     }
 
@@ -101,15 +101,15 @@ public class ShareEntity implements Parcelable {
         this.readCount = j;
     }
 
-    public long cSi() {
+    public long cZl() {
         return this.readCount;
     }
 
-    public void tC(boolean z) {
+    public void ua(boolean z) {
         this.isVideoThread = z;
     }
 
-    public boolean cSj() {
+    public boolean cZm() {
         return this.isVideoThread;
     }
 
@@ -121,15 +121,15 @@ public class ShareEntity implements Parcelable {
         this.linkUrl = str;
     }
 
-    public void Ke(String str) {
+    public void LQ(String str) {
         this.localFile = str;
     }
 
-    public String cSk() {
+    public String cZn() {
         return this.localFile;
     }
 
-    public String aIU() {
+    public String aOP() {
         return this.imageUri == null ? "" : this.imageUri.toString();
     }
 
@@ -145,15 +145,15 @@ public class ShareEntity implements Parcelable {
         this.location = location;
     }
 
-    public int cSl() {
+    public int cZo() {
         return this.shareTo;
     }
 
-    public void Cs(int i) {
+    public void Dc(int i) {
         this.shareTo = i;
     }
 
-    public int cSm() {
+    public int cZp() {
         return this.shareType;
     }
 
@@ -165,27 +165,27 @@ public class ShareEntity implements Parcelable {
         return this.tid;
     }
 
-    public void Kf(String str) {
+    public void LR(String str) {
         this.fName = str;
     }
 
-    public String cSn() {
+    public String cZq() {
         return this.fName;
     }
 
-    public void Ct(int i) {
+    public void Dd(int i) {
         this.typeShareToSmallApp = i;
     }
 
-    public int cSo() {
+    public int cZr() {
         return this.typeShareToSmallApp;
     }
 
-    public void Cu(int i) {
+    public void De(int i) {
         this.shareType = i;
     }
 
-    public boolean cSp() {
+    public boolean cZs() {
         return this.shareType != 0 && (this.shareTo == 8 || this.shareTo == 4 || this.shareTo == 3 || this.shareTo == 2);
     }
 

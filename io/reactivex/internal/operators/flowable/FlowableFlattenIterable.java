@@ -19,9 +19,9 @@ public final class FlowableFlattenIterable<T, R> extends a<T, R> {
 
     @Override // io.reactivex.g
     public void a(org.a.c<? super R> cVar) {
-        if (this.mRM instanceof Callable) {
+        if (this.nmU instanceof Callable) {
             try {
-                Object call = ((Callable) this.mRM).call();
+                Object call = ((Callable) this.nmU).call();
                 if (call == null) {
                     EmptySubscription.complete(cVar);
                     return;
@@ -40,7 +40,7 @@ public final class FlowableFlattenIterable<T, R> extends a<T, R> {
                 return;
             }
         }
-        this.mRM.a((j) new FlattenIterableSubscriber(cVar, this.mapper, this.prefetch));
+        this.nmU.a((j) new FlattenIterableSubscriber(cVar, this.mapper, this.prefetch));
     }
 
     /* loaded from: classes7.dex */
@@ -183,7 +183,7 @@ public final class FlowableFlattenIterable<T, R> extends a<T, R> {
                                                         break;
                                                     } else if (!checkTerminated(this.done, false, cVar, gVar)) {
                                                         try {
-                                                            cVar.onNext((Object) io.reactivex.internal.functions.a.h(it.next(), "The iterator returned a null value"));
+                                                            cVar.onNext((Object) io.reactivex.internal.functions.a.k(it.next(), "The iterator returned a null value"));
                                                             if (!checkTerminated(this.done, false, cVar, gVar)) {
                                                                 j3++;
                                                                 try {
@@ -338,7 +338,7 @@ public final class FlowableFlattenIterable<T, R> extends a<T, R> {
                     break;
                 }
             }
-            R r = (R) io.reactivex.internal.functions.a.h(it.next(), "The iterator returned a null value");
+            R r = (R) io.reactivex.internal.functions.a.k(it.next(), "The iterator returned a null value");
             if (!it.hasNext()) {
                 this.current = null;
             }

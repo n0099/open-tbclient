@@ -10,7 +10,6 @@ import com.baidu.mapapi.search.poi.OnGetPoiSearchResultListener;
 import com.baidu.mapapi.search.poi.PoiDetailResult;
 import com.baidu.mapapi.search.poi.PoiDetailSearchResult;
 import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
-import com.baidu.swan.bdprivate.invoice.model.InvoiceInfo;
 import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
 import java.util.ArrayList;
 import org.json.JSONArray;
@@ -52,7 +51,7 @@ public class d extends com.baidu.platform.base.d {
         poiDetailResult.setName(jSONObject.optString("name"));
         poiDetailResult.setLocation(a(jSONObject.optJSONObject("location")));
         poiDetailResult.setAddress(jSONObject.optString("address"));
-        poiDetailResult.setTelephone(jSONObject.optString(InvoiceInfo.KEY_TELEPHONE));
+        poiDetailResult.setTelephone(jSONObject.optString("telephone"));
         poiDetailResult.setUid(jSONObject.optString("uid"));
         JSONObject optJSONObject = jSONObject.optJSONObject("detail_info");
         if (optJSONObject != null && optJSONObject.length() != 0) {
@@ -91,7 +90,7 @@ public class d extends com.baidu.platform.base.d {
                 poiDetailInfo.setProvince(jSONObject.optString("province"));
                 poiDetailInfo.setCity(jSONObject.optString("city"));
                 poiDetailInfo.setArea(jSONObject.optString(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_AREA));
-                poiDetailInfo.setTelephone(jSONObject.optString(InvoiceInfo.KEY_TELEPHONE));
+                poiDetailInfo.setTelephone(jSONObject.optString("telephone"));
                 poiDetailInfo.setUid(jSONObject.optString("uid"));
                 poiDetailInfo.setStreetId(jSONObject.optString("setStreetId"));
                 poiDetailInfo.setDetail(jSONObject.optString("detail"));

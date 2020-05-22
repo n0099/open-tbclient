@@ -16,8 +16,8 @@ public class n extends a {
         try {
             if (jSONArray.length() > 2) {
                 this.mText = jSONArray.optString(0);
-                this.mX = com.baidu.swan.apps.as.af.C((float) jSONArray.optDouble(1));
-                this.mY = com.baidu.swan.apps.as.af.C((float) jSONArray.optDouble(2));
+                this.mX = com.baidu.swan.apps.aq.ag.B((float) jSONArray.optDouble(1));
+                this.mY = com.baidu.swan.apps.aq.ag.B((float) jSONArray.optDouble(2));
             }
         } catch (Exception e) {
             if (com.baidu.swan.apps.b.DEBUG) {
@@ -30,8 +30,8 @@ public class n extends a {
     public void a(b bVar, Canvas canvas) {
         float f;
         if (!TextUtils.isEmpty(this.mText)) {
-            TextPaint textPaint = bVar.bEY;
-            int i = bVar.bFd;
+            TextPaint textPaint = bVar.bNQ;
+            int i = bVar.bNV;
             Paint.FontMetrics fontMetrics = textPaint.getFontMetrics();
             float f2 = fontMetrics.top + this.mY;
             float f3 = fontMetrics.ascent + this.mY;

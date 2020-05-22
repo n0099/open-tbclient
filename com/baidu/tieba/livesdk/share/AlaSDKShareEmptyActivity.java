@@ -19,9 +19,9 @@ import com.baidu.tieba.livesdk.b;
 import com.baidu.tieba.share.ImplicitShareMessage;
 /* loaded from: classes3.dex */
 public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActivity> {
-    private String dnX;
-    private com.baidu.tieba.livesdk.share.a.a iPA;
-    private String iPz;
+    private String dBY;
+    private String jeA;
+    private com.baidu.tieba.livesdk.share.a.a jeB;
     private String mContent;
     private String mLiveId;
     private ShareItem mShareItem;
@@ -34,12 +34,12 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
     public void onCreate(Bundle bundle) {
         setIsAddSwipeBackLayout(false);
         super.onCreate(bundle);
-        this.iPA = new com.baidu.tieba.livesdk.share.a.a(getPageContext());
+        this.jeB = new com.baidu.tieba.livesdk.share.a.a(getPageContext());
         if (bundle != null) {
             this.mTitle = bundle.getString("title");
             this.mContent = bundle.getString("content");
-            this.iPz = bundle.getString(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_IMAGEURI_KEY);
-            this.dnX = bundle.getString(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LINKURL_KEY);
+            this.jeA = bundle.getString(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_IMAGEURI_KEY);
+            this.dBY = bundle.getString(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LINKURL_KEY);
             this.mChannel = bundle.getInt("channel");
             this.mAction = bundle.getInt("action");
             this.mLiveId = bundle.getString(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LIVE_ID);
@@ -49,29 +49,29 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
         } else {
             this.mTitle = getIntent().getStringExtra("title");
             this.mContent = getIntent().getStringExtra("content");
-            this.iPz = getIntent().getStringExtra(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_IMAGEURI_KEY);
-            this.dnX = getIntent().getStringExtra(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LINKURL_KEY);
+            this.jeA = getIntent().getStringExtra(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_IMAGEURI_KEY);
+            this.dBY = getIntent().getStringExtra(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LINKURL_KEY);
             this.mChannel = getIntent().getIntExtra("channel", 0);
             this.mAction = getIntent().getIntExtra("action", 0);
             this.mLiveId = getIntent().getStringExtra(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LIVE_ID);
         }
-        this.mShareItem = coC();
+        this.mShareItem = cve();
         if (this.mAction == 1) {
-            coB();
+            cvd();
         } else if (this.mAction == 2) {
-            coA();
+            cvc();
         } else {
             finish();
         }
     }
 
-    private void coA() {
+    private void cvc() {
         if (this.mShareItem != null) {
             MessageManager.getInstance().sendMessage(new ImplicitShareMessage(this, this.mChannel, this.mShareItem, true));
         }
     }
 
-    private void coB() {
+    private void cvd() {
         if (this.mShareItem != null) {
             ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this, this.mShareItem, true);
             shareDialogConfig.setAlaLiveRoomShare(true);
@@ -83,42 +83,42 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
                     AlaSDKShareEmptyActivity.this.finish();
                 }
             });
-            shareDialogConfig.addOutsideTextView(b.C0610b.ala_share_to_tieba_frs_title, b.a.icon_pure_ala_share_morebar40_svg, new View.OnClickListener() { // from class: com.baidu.tieba.livesdk.share.AlaSDKShareEmptyActivity.2
+            shareDialogConfig.addOutsideTextView(b.C0660b.ala_share_to_tieba_frs_title, b.a.icon_pure_ala_share_morebar40_svg, new View.OnClickListener() { // from class: com.baidu.tieba.livesdk.share.AlaSDKShareEmptyActivity.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    AlaSDKShareEmptyActivity.this.coD();
+                    AlaSDKShareEmptyActivity.this.cvf();
                 }
             });
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SHARE_DIALOG_SHOW, shareDialogConfig));
-            if (this.iPA != null) {
-                this.iPA.coF();
+            if (this.jeB != null) {
+                this.jeB.cvh();
             }
         }
     }
 
-    private ShareItem coC() {
+    private ShareItem cve() {
         ShareItem shareItem = new ShareItem();
         shareItem.title = this.mTitle;
         shareItem.content = this.mContent;
-        if (!StringUtils.isNull(this.iPz)) {
-            if (this.iPz.startsWith("file://")) {
-                shareItem.localFile = this.iPz.substring(7);
+        if (!StringUtils.isNull(this.jeA)) {
+            if (this.jeA.startsWith("file://")) {
+                shareItem.localFile = this.jeA.substring(7);
             } else {
-                shareItem.imageUri = Uri.parse(this.iPz);
+                shareItem.imageUri = Uri.parse(this.jeA);
             }
         }
-        shareItem.linkUrl = this.dnX;
+        shareItem.linkUrl = this.dBY;
         shareItem.extData = this.mLiveId;
         return shareItem;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void coD() {
-        if (bc.checkUpIsLogin(getPageContext().getPageActivity()) && this.iPA != null) {
-            if (v.isEmpty(this.iPA.coG())) {
-                this.iPA.coF();
+    public void cvf() {
+        if (bc.checkUpIsLogin(getPageContext().getPageActivity()) && this.jeB != null) {
+            if (v.isEmpty(this.jeB.cvi())) {
+                this.jeB.cvh();
             }
-            this.iPA.eR(com.baidu.adp.lib.f.b.toLong(this.mLiveId, 0L));
+            this.jeB.eS(com.baidu.adp.lib.f.b.toLong(this.mLiveId, 0L));
         }
     }
 
@@ -139,8 +139,8 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
         super.onSaveInstanceState(bundle);
         bundle.putString("title", this.mTitle);
         bundle.putString("content", this.mContent);
-        bundle.putString(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_IMAGEURI_KEY, this.iPz);
-        bundle.putString(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LINKURL_KEY, this.dnX);
+        bundle.putString(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_IMAGEURI_KEY, this.jeA);
+        bundle.putString(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LINKURL_KEY, this.dBY);
         bundle.putInt("channel", this.mChannel);
         bundle.putInt("action", this.mAction);
         bundle.putString(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LIVE_ID, this.mLiveId);
@@ -150,8 +150,8 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.iPA != null) {
-            this.iPA.onDestroy();
+        if (this.jeB != null) {
+            this.jeB.onDestroy();
         }
     }
 }

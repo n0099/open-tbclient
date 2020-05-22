@@ -5,19 +5,19 @@ import com.baidu.bdhttpdns.BDHttpDnsResult;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 class a implements Runnable {
-    final /* synthetic */ BDHttpDns.a aaP;
-    final /* synthetic */ BDHttpDns aaQ;
+    final /* synthetic */ BDHttpDns.a abg;
+    final /* synthetic */ BDHttpDns abh;
     final /* synthetic */ ArrayList b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(BDHttpDns bDHttpDns, BDHttpDns.a aVar, ArrayList arrayList) {
-        this.aaQ = bDHttpDns;
-        this.aaP = aVar;
+        this.abh = bDHttpDns;
+        this.abg = aVar;
         this.b = arrayList;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.aaP.a(new BDHttpDnsResult(BDHttpDnsResult.ResolveType.RESOLVE_NONEED, BDHttpDnsResult.ResolveStatus.BDHttpDnsResolveOK, this.b, null));
+        this.abg.a(new BDHttpDnsResult(BDHttpDnsResult.ResolveType.RESOLVE_NONEED, BDHttpDnsResult.ResolveStatus.BDHttpDnsResolveOK, this.b, null));
     }
 }

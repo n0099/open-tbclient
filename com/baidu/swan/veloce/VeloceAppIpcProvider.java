@@ -12,11 +12,11 @@ import android.text.TextUtils;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 /* loaded from: classes11.dex */
 public class VeloceAppIpcProvider extends ContentProvider {
-    public static final String cEW = AppRuntime.getAppContext().getPackageName() + ".veloce.ipc";
-    public static final Uri dfe = Uri.parse("content://" + cEW);
-    public static final Uri dff = Uri.parse("content://com.baidu.searchbox.veloce.ipc");
-    public static String dfg = "ipc_veloce_call_app";
-    public static String dfh = "ipc_app_call_veloce";
+    public static final String cPg = AppRuntime.getAppContext().getPackageName() + ".veloce.ipc";
+    public static final Uri dqX = Uri.parse("content://" + cPg);
+    public static final Uri dqY = Uri.parse("content://com.baidu.searchbox.veloce.ipc");
+    public static String dqZ = "ipc_veloce_call_app";
+    public static String dra = "ipc_app_call_veloce";
 
     @Override // android.content.ContentProvider
     public boolean onCreate() {
@@ -28,16 +28,16 @@ public class VeloceAppIpcProvider extends ContentProvider {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        if (dfg.equals(str)) {
-            return X(bundle);
+        if (dqZ.equals(str)) {
+            return ad(bundle);
         }
-        if (dfh.equals(str)) {
+        if (dra.equals(str)) {
             return f(AppRuntime.getAppContext(), bundle);
         }
         return null;
     }
 
-    private Bundle X(Bundle bundle) {
+    private Bundle ad(Bundle bundle) {
         if (bundle == null) {
             return null;
         }
@@ -47,14 +47,14 @@ public class VeloceAppIpcProvider extends ContentProvider {
         if (TextUtils.isEmpty(string) || TextUtils.isEmpty(string2)) {
             return null;
         }
-        return f(string2, bundle2);
+        return i(string2, bundle2);
     }
 
-    private Bundle f(String str, Bundle bundle) {
-        if (TextUtils.isEmpty(str) || b.aEF() == null) {
+    private Bundle i(String str, Bundle bundle) {
+        if (TextUtils.isEmpty(str) || b.aJn() == null) {
             return null;
         }
-        return b.aEF().e(str, bundle);
+        return b.aJn().h(str, bundle);
     }
 
     @Override // android.content.ContentProvider
@@ -96,7 +96,7 @@ public class VeloceAppIpcProvider extends ContentProvider {
         bundle3.putString("action", string);
         bundle3.putBundle("data", bundle2);
         try {
-            return context.getContentResolver().call(dff, dfh, (String) null, bundle3);
+            return context.getContentResolver().call(dqY, dra, (String) null, bundle3);
         } catch (Exception e) {
             return null;
         }

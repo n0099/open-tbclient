@@ -34,7 +34,7 @@ public class RequestSubLabelMessage extends NetMessage {
     @Override // com.baidu.adp.framework.message.NetMessage
     protected Object encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
-        builder.f1252common = this.f1021common;
+        builder.f1254common = this.f1021common;
         builder.arr_tag_id = this.labelList;
         if (z) {
             t.a(builder, true);

@@ -13,42 +13,42 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class b {
-    private static b djf;
+    private static b dwY;
     private final HashMap<String, a> mSwitchs = new HashMap<>();
 
     public b() {
-        HashMap<String, a> aGI = aGI();
+        HashMap<String, a> aMd = aMd();
         this.mSwitchs.clear();
-        this.mSwitchs.putAll(aGI);
+        this.mSwitchs.putAll(aMd);
     }
 
-    public static b aGG() {
-        if (djf == null) {
+    public static b aMb() {
+        if (dwY == null) {
             synchronized (b.class) {
-                if (djf == null) {
-                    djf = new b();
+                if (dwY == null) {
+                    dwY = new b();
                 }
             }
         }
-        return djf;
+        return dwY;
     }
 
-    private static String aGH() {
+    private static String aMc() {
         return "pref_name_abtest_" + TbadkCoreApplication.getCurrentAccount();
     }
 
     private static SharedPreferences getSharedPreferences() {
-        return TbadkCoreApplication.getInst().getSharedPreferences(aGH(), 0);
+        return TbadkCoreApplication.getInst().getSharedPreferences(aMc(), 0);
     }
 
-    public synchronized a sW(String str) {
+    public synchronized a uB(String str) {
         return this.mSwitchs.get(str);
     }
 
-    private String cw(String str, String str2) {
-        a sW = sW(str);
-        if (sW != null && !TextUtils.isEmpty(sW.djd)) {
-            return sW.djd;
+    private String cV(String str, String str2) {
+        a uB = uB(str);
+        if (uB != null && !TextUtils.isEmpty(uB.dwW)) {
+            return uB.dwW;
         }
         return str2;
     }
@@ -70,7 +70,7 @@ public class b {
         }
     }
 
-    public void K(JSONArray jSONArray) {
+    public void J(JSONArray jSONArray) {
         try {
             if (jSONArray == null) {
                 clearAll();
@@ -89,15 +89,16 @@ public class b {
                 this.mSwitchs.putAll(hashMap);
             }
             EditorHelper.putString(getSharedPreferences(), "pref_key_abtest_switchs", jSONArray.toString());
-            if ((sY("cyber_player_test") || sX("cyber_player_test")) && !CyberPlayerManager.isCoreLoaded(1)) {
+            if ((uD("cyber_player_test") || uC("cyber_player_test")) && !CyberPlayerManager.isCoreLoaded(1)) {
                 CyberPlayerManager.install(TbadkCoreApplication.getInst().getContext(), TbadkCoreApplication.getInst().getCuid(), null, 1, null, null, null);
             }
+            com.baidu.tbadk.core.sharedPref.b.aTX().putInt("static_opt_open", uD("static_opt_open_test") ? 1 : 0);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    private HashMap<String, a> aGI() {
+    private HashMap<String, a> aMd() {
         HashMap<String, a> hashMap = new HashMap<>();
         try {
             JSONArray jSONArray = new JSONArray(getSharedPreferences().getString("pref_key_abtest_switchs", "[]"));
@@ -114,11 +115,11 @@ public class b {
         return hashMap;
     }
 
-    public static boolean sX(String str) {
-        return TextUtils.isEmpty(aGG().cw(str, ""));
+    public static boolean uC(String str) {
+        return TextUtils.isEmpty(aMb().cV(str, ""));
     }
 
-    public static boolean sY(String str) {
-        return Config.APP_VERSION_CODE.equalsIgnoreCase(aGG().cw(str, ""));
+    public static boolean uD(String str) {
+        return Config.APP_VERSION_CODE.equalsIgnoreCase(aMb().cV(str, ""));
     }
 }

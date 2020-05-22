@@ -12,8 +12,8 @@ import android.view.View;
 import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class AlaRoundProgress extends View {
-    private float aDI;
-    private int aDJ;
+    private float aJh;
+    private int aJi;
     private int max;
     private Paint paint;
     private int progress;
@@ -37,9 +37,9 @@ public class AlaRoundProgress extends View {
         this.roundColor = obtainStyledAttributes.getColor(a.k.AlaRoundProgress_ala_srp_roundColor, SupportMenu.CATEGORY_MASK);
         this.roundWidth = obtainStyledAttributes.getDimension(a.k.AlaRoundProgress_ala_srp_roundWidth, 5.0f);
         this.progressColor = obtainStyledAttributes.getColor(a.k.AlaRoundProgress_ala_srp_progressColor, -16711936);
-        this.aDI = obtainStyledAttributes.getDimension(a.k.AlaRoundProgress_ala_srp_progressWidth, this.roundWidth);
+        this.aJh = obtainStyledAttributes.getDimension(a.k.AlaRoundProgress_ala_srp_progressWidth, this.roundWidth);
         this.max = obtainStyledAttributes.getInteger(a.k.AlaRoundProgress_ala_srp_max, 100);
-        this.aDJ = obtainStyledAttributes.getInt(a.k.AlaRoundProgress_ala_srp_startAngle, 0);
+        this.aJi = obtainStyledAttributes.getInt(a.k.AlaRoundProgress_ala_srp_startAngle, 0);
         obtainStyledAttributes.recycle();
     }
 
@@ -53,13 +53,13 @@ public class AlaRoundProgress extends View {
         this.paint.setAntiAlias(true);
         this.paint.setStyle(Paint.Style.STROKE);
         canvas.drawCircle(width, width, f, this.paint);
-        this.paint.setStrokeWidth(this.aDI);
+        this.paint.setStrokeWidth(this.aJh);
         this.paint.setColor(this.progressColor);
         RectF rectF = new RectF(width - f, width - f, width + f, width + f);
         int i = (this.progress * 360) / this.max;
-        canvas.drawArc(rectF, this.aDJ, i, false, this.paint);
+        canvas.drawArc(rectF, this.aJi, i, false, this.paint);
         this.paint.setColor(this.roundColor);
-        canvas.drawArc(rectF, this.aDJ + i, 630 - (this.aDJ + i), false, this.paint);
+        canvas.drawArc(rectF, this.aJi + i, 630 - (this.aJi + i), false, this.paint);
     }
 
     public synchronized void setMax(int i) {

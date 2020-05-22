@@ -90,8 +90,8 @@ public class AudioSession {
         this.mNDKAdapter.setNDKCallback(this.mRecorderCallback);
         this.mNdkPlayer = new AlaNDKPlayerAdapter();
         this.mNdkPlayer.setNDKCallback(this.mPlayerCallback);
-        if (!NetworkManager.NK().NL()) {
-            NetworkManager.NK().init((Application) context.getApplicationContext());
+        if (!NetworkManager.PX().PY()) {
+            NetworkManager.PX().init((Application) context.getApplicationContext());
         }
         this.mPlayerService.submit(new Runnable() { // from class: com.baidu.rtc.AudioSession.4
             @Override // java.lang.Runnable
@@ -128,7 +128,7 @@ public class AudioSession {
             this.mAudioDevices = new a(this.mContext, this.mNDKAdapter.getNativeObject());
             startAudioRecord();
             startAudioPlayer();
-            NetworkManager.NK().a(this.mNetworkChangeListener);
+            NetworkManager.PX().a(this.mNetworkChangeListener);
             this.mHasStart = true;
             this.mIsStop = false;
             return 0;
@@ -144,7 +144,7 @@ public class AudioSession {
         if (stopNativeObject() != 0) {
             Log.e(TAG, "stopNativeObject failed");
         }
-        NetworkManager.NK().b(this.mNetworkChangeListener);
+        NetworkManager.PX().b(this.mNetworkChangeListener);
         this.mIsStop = true;
         if (this.mHasStart && this.mRtcHandler != null && this.mRtcConfig != null) {
             this.mRtcHandler.onStop(this.mRtcConfig.roomId, this.mRtcConfig.lineId);
@@ -208,7 +208,7 @@ public class AudioSession {
             if (this.mNDKAdapter.startNative(this.mRtcUrl, getNetworkState(), this.mBaseInfo.toJsonString()) != 0) {
                 Log.e(TAG, "startNative failed");
                 return -1;
-            } else if (this.mNDKAdapter.initAudioEncoderNative(d.bwZ, 1, 16) != 0) {
+            } else if (this.mNDKAdapter.initAudioEncoderNative(d.bEC, 1, 16) != 0) {
                 Log.e(TAG, "initAudioEncoderNative failed");
                 return -1;
             } else if (this.mNDKAdapter.initPKPlayer(this.mNdkPlayer) != 0) {
@@ -242,7 +242,7 @@ public class AudioSession {
         this.mPlayerService.submit(new Runnable() { // from class: com.baidu.rtc.AudioSession.6
             @Override // java.lang.Runnable
             public void run() {
-                if (!AudioSession.this.mAudioDevices.S(d.OUTPUT_SAMPLE_RATE, 4)) {
+                if (!AudioSession.this.mAudioDevices.V(d.OUTPUT_SAMPLE_RATE, 4)) {
                     Log.e(AudioSession.TAG, "initAudioPlayer failed");
                     AudioSession.this.mAudioDevices.stopAudioPlayer();
                 } else if (!d.useOpenSLES()) {
@@ -279,16 +279,16 @@ public class AudioSession {
         this.mRecordService.submit(new Runnable() { // from class: com.baidu.rtc.AudioSession.8
             @Override // java.lang.Runnable
             public void run() {
-                if (!AudioSession.this.mAudioDevices.T(d.bwZ, 16)) {
+                if (!AudioSession.this.mAudioDevices.W(d.bEC, 16)) {
                     Log.e(AudioSession.TAG, "initAudioRecord failed");
                     AudioSession.this.mAudioDevices.stopAudioRecord();
                 } else if (!d.useOpenSLES()) {
                     while (!AudioSession.this.mIsStop && !AudioSession.this.mRecordService.isShutdown()) {
                         if (AudioSession.this.mIsEnablePlaySound) {
                             try {
-                                byte[] ND = AudioSession.this.mAudioDevices.ND();
-                                if (ND != null) {
-                                    AudioSession.this.mNDKAdapter.sendPCMDataNative2(ND, 2048);
+                                byte[] PQ = AudioSession.this.mAudioDevices.PQ();
+                                if (PQ != null) {
+                                    AudioSession.this.mNDKAdapter.sendPCMDataNative2(PQ, 2048);
                                 }
                             } catch (Exception e) {
                                 e.printStackTrace();
@@ -319,7 +319,7 @@ public class AudioSession {
         c.getAppVersion(this.mContext);
         this.mBaseInfo.mStreamType = AlaLiveBaseInfo.STREAM_TYPE_SEND;
         this.mBaseInfo.mUid = "" + this.mRtcConfig.userId;
-        this.mBaseInfo.mNetWork = NetworkManager.NK().NM().toString();
+        this.mBaseInfo.mNetWork = NetworkManager.PX().PZ().toString();
         this.mBaseInfo.mCuid = this.mRtcConfig.cuid;
     }
 
@@ -361,12 +361,12 @@ public class AudioSession {
 
     /* JADX INFO: Access modifiers changed from: private */
     public int getNetworkState() {
-        int NN = NetworkManager.NK().NN();
-        if (NN <= 0) {
+        int Qa = NetworkManager.PX().Qa();
+        if (Qa <= 0) {
             return 0;
         }
-        if (NN < 2) {
-            return NN;
+        if (Qa < 2) {
+            return Qa;
         }
         return 2;
     }

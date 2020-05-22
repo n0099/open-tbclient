@@ -47,7 +47,7 @@ public final class b<T, R> extends io.reactivex.internal.operators.maybe.a<T, R>
         @Override // io.reactivex.m
         public void onSuccess(T t) {
             try {
-                this.actual.onSuccess(io.reactivex.internal.functions.a.h(this.mapper.apply(t), "The mapper returned a null item"));
+                this.actual.onSuccess(io.reactivex.internal.functions.a.k(this.mapper.apply(t), "The mapper returned a null item"));
             } catch (Throwable th) {
                 io.reactivex.exceptions.a.L(th);
                 this.actual.onError(th);

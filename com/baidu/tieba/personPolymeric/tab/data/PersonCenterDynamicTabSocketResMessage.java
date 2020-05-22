@@ -1,7 +1,7 @@
 package com.baidu.tieba.personPolymeric.tab.data;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.tbadk.core.data.bj;
+import com.baidu.tbadk.core.data.bk;
 import com.baidu.tbadk.core.util.v;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
@@ -12,7 +12,7 @@ import tbclient.ThreadInfo;
 public class PersonCenterDynamicTabSocketResMessage extends SocketResponsedMessage {
     public long mCursor;
     public boolean mHasMore;
-    public List<bj> mThreadDataList;
+    public List<bk> mThreadDataList;
 
     public PersonCenterDynamicTabSocketResMessage() {
         super(309647);
@@ -33,9 +33,9 @@ public class PersonCenterDynamicTabSocketResMessage extends SocketResponsedMessa
             if (!v.isEmpty(getShoubaiThreadListResIdl.data.thread_list)) {
                 for (ThreadInfo threadInfo : getShoubaiThreadListResIdl.data.thread_list) {
                     if (threadInfo != null) {
-                        bj bjVar = new bj();
-                        bjVar.a(threadInfo);
-                        this.mThreadDataList.add(bjVar);
+                        bk bkVar = new bk();
+                        bkVar.a(threadInfo);
+                        this.mThreadDataList.add(bkVar);
                     }
                 }
             }

@@ -6,8 +6,8 @@ import com.baidu.pass.biometrics.face.liveness.dto.PassFaceRecogDTO;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class RealAuthenSpResponseMessage extends JsonHttpResponsedMessage {
-    public String kqM;
-    public String kqw;
+    public String kIG;
+    public String kIq;
     public String sign;
 
     public RealAuthenSpResponseMessage() {
@@ -21,8 +21,8 @@ public class RealAuthenSpResponseMessage extends JsonHttpResponsedMessage {
             Log.i("FaceRecognition", "RealAuthenSp retJson:" + jSONObject.toString());
             JSONObject optJSONObject = jSONObject.optJSONObject("data");
             if (optJSONObject != null) {
-                this.kqw = optJSONObject.optString(PassFaceRecogDTO.KEY_EXTRA_PASS_PRODUCT_ID);
-                this.kqM = optJSONObject.optString("reqid");
+                this.kIq = optJSONObject.optString(PassFaceRecogDTO.KEY_EXTRA_PASS_PRODUCT_ID);
+                this.kIG = optJSONObject.optString("reqid");
                 this.sign = optJSONObject.optString("sign");
             }
         }

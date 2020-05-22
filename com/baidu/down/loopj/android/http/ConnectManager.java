@@ -4,7 +4,6 @@ import android.content.Context;
 import android.net.NetworkInfo;
 import android.net.Proxy;
 import com.baidu.down.utils.Utils;
-import com.baidu.webkit.net.BdNetEngine;
 /* loaded from: classes6.dex */
 public class ConnectManager {
     private static final boolean DEBUG = false;
@@ -34,13 +33,13 @@ public class ConnectManager {
             if (lowerCase.startsWith("cmwap") || lowerCase.startsWith("uniwap") || lowerCase.startsWith("3gwap")) {
                 this.mUseWap = true;
                 this.mApn = lowerCase;
-                this.mProxy = BdNetEngine.URI_PROXY_CMWAP;
+                this.mProxy = "10.0.0.172";
                 this.mPort = "80";
                 return;
             } else if (lowerCase.startsWith("ctwap")) {
                 this.mUseWap = true;
                 this.mApn = lowerCase;
-                this.mProxy = BdNetEngine.URI_PROXY_CTWAP;
+                this.mProxy = "10.0.0.200";
                 this.mPort = "80";
                 return;
             } else if (lowerCase.startsWith("cmnet") || lowerCase.startsWith("uninet") || lowerCase.startsWith("ctnet") || lowerCase.startsWith("3gnet")) {
@@ -53,11 +52,11 @@ public class ConnectManager {
         int defaultPort = Proxy.getDefaultPort();
         if (defaultHost != null && defaultHost.length() > 0) {
             this.mProxy = defaultHost;
-            if (BdNetEngine.URI_PROXY_CMWAP.equals(this.mProxy.trim())) {
+            if ("10.0.0.172".equals(this.mProxy.trim())) {
                 this.mUseWap = true;
                 this.mPort = "80";
                 return;
-            } else if (BdNetEngine.URI_PROXY_CTWAP.equals(this.mProxy.trim())) {
+            } else if ("10.0.0.200".equals(this.mProxy.trim())) {
                 this.mUseWap = true;
                 this.mPort = "80";
                 return;

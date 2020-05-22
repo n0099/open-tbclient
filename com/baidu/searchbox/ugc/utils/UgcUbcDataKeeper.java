@@ -1,12 +1,13 @@
 package com.baidu.searchbox.ugc.utils;
 
 import android.text.TextUtils;
+import com.baidu.fsg.face.liveness.video.f;
 /* loaded from: classes13.dex */
 public class UgcUbcDataKeeper {
     private static String voteSourceFrom = "default";
     private static String naShareSourceFrom = "default";
     private static String naSharePublishType = "9";
-    private static String videoUploadVideoMime = "video/avc";
+    private static String videoUploadVideoMime = f.b;
     private static String videoUploadAudioMime = "audio/mp4a-latm";
     private static int videoIndex = -1;
 
