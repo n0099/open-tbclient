@@ -17,12 +17,12 @@ public class U implements V.a {
     }
 
     @Override // com.baidu.sapi2.V.a
-    public void a(X.a.C0227a c0227a) {
+    public void a(X.a.C0260a c0260a) {
         Context context;
         Context context2;
         Context context3;
-        String c = X.a.C0227a.c(c0227a.a);
-        String b = X.a.C0227a.b(c0227a.a);
+        String c = X.a.C0260a.c(c0260a.a);
+        String b = X.a.C0260a.b(c0260a.a);
         context = this.a.d;
         if (new File(context.getFilesDir(), c).exists()) {
             try {
@@ -40,6 +40,6 @@ public class U implements V.a {
     }
 
     @Override // com.baidu.sapi2.V.a
-    public void a(X.a.C0227a c0227a, String str) {
+    public void a(X.a.C0260a c0260a, String str) {
     }
 }

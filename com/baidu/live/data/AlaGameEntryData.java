@@ -15,14 +15,14 @@ public class AlaGameEntryData implements Parcelable, IAdapterData {
     public static final Parcelable.Creator<AlaGameEntryData> CREATOR = new Parcelable.Creator<AlaGameEntryData>() { // from class: com.baidu.live.data.AlaGameEntryData.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: e */
+        /* renamed from: f */
         public AlaGameEntryData createFromParcel(Parcel parcel) {
             return new AlaGameEntryData(parcel);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: bA */
+        /* renamed from: bH */
         public AlaGameEntryData[] newArray(int i) {
             return new AlaGameEntryData[i];
         }

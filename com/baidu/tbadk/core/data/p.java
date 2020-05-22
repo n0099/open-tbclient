@@ -1,37 +1,35 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.atomData.MangaBrowserActivityConfig;
-import org.json.JSONObject;
-import tbclient.CartoonThread;
+import com.baidu.adp.lib.util.StringUtils;
+import java.util.ArrayList;
+import tbclient.FrsPage.ColorEgg;
 /* loaded from: classes.dex */
 public class p {
-    private long cartoonId;
-    private int chapterId;
+    private ArrayList<String> dBG = new ArrayList<>();
+    private int dBH;
 
-    public void a(CartoonThread cartoonThread) {
-        if (cartoonThread != null) {
-            this.cartoonId = cartoonThread.cartoon_id.longValue();
-            this.chapterId = cartoonThread.chapter_id.intValue();
-        }
+    public ArrayList<String> aOE() {
+        return this.dBG;
     }
 
-    public void parserJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.cartoonId = jSONObject.optLong("cartoon_id");
-                this.chapterId = jSONObject.optInt(MangaBrowserActivityConfig.CHAPTER_ID);
-            } catch (Exception e) {
-                BdLog.e(e.toString());
+    public int aOF() {
+        return this.dBH;
+    }
+
+    public boolean a(ColorEgg colorEgg) {
+        this.dBH = 0;
+        if (colorEgg == null || colorEgg.holiday_words == null || colorEgg.holiday_words.size() <= 0) {
+            return false;
+        }
+        for (String str : colorEgg.holiday_words) {
+            if (!StringUtils.isNull(str)) {
+                this.dBG.add(str);
             }
         }
-    }
-
-    public long getCartoonId() {
-        return this.cartoonId;
-    }
-
-    public int getChapterId() {
-        return this.chapterId;
+        if (this.dBG.size() <= 0) {
+            return false;
+        }
+        this.dBH = colorEgg.style_flag.intValue();
+        return true;
     }
 }

@@ -1,55 +1,82 @@
 package com.baidu.live.view.web.a;
 
-import android.app.Activity;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.live.adp.framework.MessageManager;
-import com.baidu.live.adp.framework.message.CustomMessage;
-import com.baidu.live.tbadk.core.TbadkCoreApplication;
-import com.baidu.live.tbadk.core.atomdata.AlaPersonCardActivityConfig;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-import com.baidu.live.tbadk.extrajump.ExtraJumpManager;
-import com.baidu.live.tbadk.schemeability.ISchemeAbility;
-import com.baidu.live.tbadk.schemeability.SchemeAbilityManager;
+import com.baidu.live.adp.framework.message.CustomResponsedMessage;
+import com.baidu.live.tbadk.BaseActivity;
+import com.baidu.live.tbadk.core.atomdata.BuyTBeanActivityConfig;
+import com.baidu.live.tbadk.core.data.PayChannelData;
+import com.baidu.live.tbadk.extraparams.ExtraParamsManager;
+import com.baidu.live.tbadk.extraparams.ResultCallback;
+import com.baidu.live.tbadk.pay.channel.interfaces.IChannelPayController;
+import com.baidu.live.tbadk.scheme.SchemeCallback;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class g extends com.baidu.live.view.web.a {
-    private Activity context;
-    private boolean isHost;
+    private BaseActivity baseActivity;
+    private SchemeCallback bkf;
+    private IChannelPayController bkm;
 
-    public g(Activity activity) {
-        this.context = activity;
+    public g(SchemeCallback schemeCallback) {
+        this.bkf = schemeCallback;
     }
 
     @Override // com.baidu.live.view.web.a
     public String getName() {
-        return "personalCenterBridge";
+        return "payChannelBridge";
     }
 
-    public void setHost(boolean z) {
-        this.isHost = z;
+    public void b(BaseActivity baseActivity) {
+        Log.d(IChannelPayController.TAG, "PayChannelBridgeJsInterface setBaseActivity:" + baseActivity);
+        this.baseActivity = baseActivity;
     }
 
     @Override // com.baidu.live.view.web.a
-    public void fc(String str) {
-        ISchemeAbility buildSchemeAbility;
-        Log.d("JsInterface", "@@ JsInterface-impl PersonalCenterBridgeJsInterface params = " + str);
+    public void fO(String str) {
+        CustomResponsedMessage runTask;
+        Log.d(IChannelPayController.TAG, "@@ PersonalCenterBridgeJsInterface params = " + str);
         try {
             JSONObject jSONObject = new JSONObject(str);
-            String optString = jSONObject.optString("uid");
-            boolean optBoolean = jSONObject.optBoolean("isCard");
-            String optString2 = jSONObject.optString("bd_scheme");
-            if (optBoolean) {
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaPersonCardActivityConfig(TbadkCoreApplication.getInst(), optString)));
-            } else if (!this.isHost) {
-                if (TbadkCoreApplication.getInst().isMobileBaidu()) {
-                    if (!TextUtils.isEmpty(optString2) && (buildSchemeAbility = SchemeAbilityManager.getInstance().buildSchemeAbility()) != null) {
-                        buildSchemeAbility.openScheme(optString2);
+            final String optString = jSONObject.optString(BuyTBeanActivityConfig.CALLBACK);
+            if (jSONObject.optInt("is_translucent") == 1) {
+            }
+            PayChannelData payChannelData = new PayChannelData(this.baseActivity, jSONObject.optString("channel"), jSONObject.optString("icon_id"), jSONObject.optString("price"), jSONObject.optString("from"), jSONObject.optString("live_id"), 14);
+            payChannelData.setShowToast(false);
+            if (this.bkm == null && (runTask = MessageManager.getInstance().runTask(2913197, IChannelPayController.class, payChannelData)) != null && runTask.getData() != null) {
+                this.bkm = (IChannelPayController) runTask.getData();
+            }
+            if (this.bkm != null) {
+                this.bkm.pay(payChannelData);
+            }
+            if (this.bkf != null) {
+                ExtraParamsManager.addEnterBuyTBeanCallback(new ResultCallback() { // from class: com.baidu.live.view.web.a.g.1
+                    @Override // com.baidu.live.tbadk.extraparams.ResultCallback
+                    public void onCallback(JSONObject jSONObject2) {
+                        try {
+                            int optInt = jSONObject2.optInt("status", 0);
+                            String optString2 = jSONObject2.optString("message");
+                            String optString3 = jSONObject2.optString("productId");
+                            String optString4 = jSONObject2.optString("total");
+                            String optString5 = jSONObject2.optString("transitionId");
+                            JSONObject jSONObject3 = new JSONObject();
+                            if (!TextUtils.isEmpty(optString3)) {
+                                jSONObject3.put("productId", optString3);
+                            }
+                            if (!TextUtils.isEmpty(optString4)) {
+                                jSONObject3.put("total", optString4);
+                            }
+                            if (!TextUtils.isEmpty(optString5)) {
+                                jSONObject3.put("transitionId", optString5);
+                            }
+                            g.this.bkf.doJsCallback(optInt, optString2, jSONObject3, optString);
+                            Log.d(IChannelPayController.TAG, "@@ doJsCallback status = " + optInt + ", message:" + optString2 + ", data:" + jSONObject3.toString());
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
                     }
-                } else {
-                    ExtraJumpManager.getInstance().buildJumpExtra().jumpToPersonalCenter(this.context, optString);
-                }
+                });
             }
         } catch (JSONException e) {
             e.printStackTrace();

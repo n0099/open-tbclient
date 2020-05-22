@@ -1,76 +1,76 @@
 package com.baidu.swan.game.ad.c;
 
-import com.baidu.swan.apps.as.af;
+import com.baidu.swan.apps.aq.ag;
 /* loaded from: classes11.dex */
 public class b {
-    private String cGS;
-    private String cGT;
-    private String cGU;
-    private int cGV;
-    private int cGW;
+    private String cRc;
+    private String cRd;
+    private String cRe;
+    private int cRf;
+    private int cRg;
 
     private b(a aVar) {
-        this.cGT = aVar.cGT;
-        this.cGS = aVar.cGS;
-        this.cGV = aVar.cGV;
-        this.cGW = aVar.cGW;
-        this.cGU = aVar.cGU;
+        this.cRd = aVar.cRd;
+        this.cRc = aVar.cRc;
+        this.cRf = aVar.cRf;
+        this.cRg = aVar.cRg;
+        this.cRe = aVar.cRe;
     }
 
-    public int asJ() {
-        return this.cGV;
+    public int awq() {
+        return this.cRf;
     }
 
-    public int asK() {
-        return this.cGW;
+    public int awr() {
+        return this.cRg;
     }
 
     public String getAppSid() {
-        return this.cGT;
+        return this.cRd;
     }
 
-    public String asL() {
-        return this.cGS;
+    public String aws() {
+        return this.cRc;
     }
 
-    public String asM() {
-        return this.cGU;
+    public String awt() {
+        return this.cRe;
     }
 
     /* loaded from: classes11.dex */
     public static class a {
-        private String cGS;
-        private String cGT;
-        private String cGU;
-        private int cGV;
-        private int cGW;
+        private String cRc;
+        private String cRd;
+        private String cRe;
+        private int cRf;
+        private int cRg;
 
-        public a pc(String str) {
-            this.cGT = str;
+        public a qA(String str) {
+            this.cRd = str;
             return this;
         }
 
-        public a pd(String str) {
-            this.cGS = str;
+        public a qB(String str) {
+            this.cRc = str;
             return this;
         }
 
-        public a pe(String str) {
-            this.cGU = str;
+        public a qC(String str) {
+            this.cRe = str;
             return this;
         }
 
-        public a hL(int i) {
-            this.cGV = af.C(i);
+        public a ic(int i) {
+            this.cRf = ag.B(i);
             return this;
         }
 
-        public a hM(int i) {
-            this.cGW = af.C(i);
+        public a id(int i) {
+            this.cRg = ag.B(i);
             return this;
         }
 
-        public b asN() {
+        public b awu() {
             return new b(this);
         }
     }

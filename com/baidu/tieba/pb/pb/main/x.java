@@ -1,96 +1,76 @@
 package com.baidu.tieba.pb.pb.main;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.pb.pb.godreply.LookMoreHttpResMessage;
-import com.baidu.tieba.pb.pb.godreply.LookMoreReqMessage;
-import com.baidu.tieba.pb.pb.godreply.LookMoreSocketResMessage;
-import com.baidu.tieba.tbadkCore.data.PostData;
-import java.util.List;
+import com.baidu.tbadk.core.data.MetaData;
+import java.util.HashMap;
+import tbclient.AlaLiveInfo;
 /* loaded from: classes9.dex */
-public class x {
-    private PbModel jqg;
-    private a juh;
-    protected final com.baidu.adp.framework.listener.a jxC = new com.baidu.adp.framework.listener.a(1001603, CmdConfigSocket.CMD_SOCKET_GOD_REPLY_LOOKMORE) { // from class: com.baidu.tieba.pb.pb.main.x.1
-        @Override // com.baidu.adp.framework.listener.a
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
-            if (responsedMessage != null) {
-                if (responsedMessage.getOrginalMessage() == null || responsedMessage.getOrginalMessage().getTag() == null || responsedMessage.getOrginalMessage().getTag() == x.this.jxB) {
-                    if (responsedMessage instanceof LookMoreHttpResMessage) {
-                        LookMoreHttpResMessage lookMoreHttpResMessage = (LookMoreHttpResMessage) responsedMessage;
-                        List<PostData> data = lookMoreHttpResMessage.getData();
-                        String errorString = lookMoreHttpResMessage.getErrorString();
-                        int error = lookMoreHttpResMessage.getError();
-                        if (error != 0) {
-                            x.this.juh.m(error, errorString, "");
-                        } else if (!com.baidu.tbadk.core.util.v.isEmpty(data)) {
-                            x.this.juh.aS(data);
-                        }
-                    } else if (responsedMessage instanceof LookMoreSocketResMessage) {
-                        LookMoreSocketResMessage lookMoreSocketResMessage = (LookMoreSocketResMessage) responsedMessage;
-                        List<PostData> data2 = lookMoreSocketResMessage.getData();
-                        String errorString2 = lookMoreSocketResMessage.getErrorString();
-                        int error2 = lookMoreSocketResMessage.getError();
-                        if (error2 != 0) {
-                            x.this.juh.m(error2, errorString2, "");
-                        } else if (data2 != null) {
-                            x.this.juh.aS(data2);
-                        }
-                    }
-                }
+public class x implements com.baidu.adp.widget.ListView.o {
+    public static final BdUniqueId jML = BdUniqueId.gen();
+    public String cover;
+    public MetaData dFJ;
+    public String description;
+    public boolean isChushou;
+    public int jMM;
+    public long liveId;
+    public int liveStatus;
+    public String routeType;
+    public String thirdLiveType;
+    public String thirdRoomId;
+    private HashMap<String, MetaData> userMap;
+    public String userName;
+    private boolean dCL = false;
+    public boolean jMN = false;
+    public boolean jMO = false;
+
+    public void a(AlaLiveInfo alaLiveInfo) {
+        MetaData metaData;
+        if (alaLiveInfo != null && alaLiveInfo.user_info != null && alaLiveInfo.live_status.intValue() == 1 && alaLiveInfo.pb_display_type.intValue() == 1) {
+            this.userName = alaLiveInfo.user_info.user_name;
+            this.description = alaLiveInfo.description;
+            this.cover = alaLiveInfo.cover;
+            this.jMM = alaLiveInfo.audience_count.intValue();
+            this.liveStatus = alaLiveInfo.live_status.intValue();
+            this.liveId = alaLiveInfo.live_id.longValue();
+            this.isChushou = alaLiveInfo.live_from.intValue() == 1;
+            this.thirdLiveType = alaLiveInfo.third_live_type;
+            this.thirdRoomId = alaLiveInfo.third_room_id;
+            this.routeType = alaLiveInfo.router_type;
+            if (alaLiveInfo.user_info.user_id != null && alaLiveInfo.user_info.user_id.longValue() > 0 && this.userMap != null && (metaData = this.userMap.get(alaLiveInfo.user_info.user_id.toString())) != null) {
+                this.dFJ = metaData;
+                this.dFJ.setIsLike(this.dFJ.hadConcerned());
             }
+            this.dCL = true;
         }
-    };
-    private final BdUniqueId jxB = BdUniqueId.gen();
-
-    /* loaded from: classes9.dex */
-    public interface a {
-        void aS(List<PostData> list);
-
-        void m(int i, String str, String str2);
     }
 
-    public x(PbModel pbModel, BaseFragmentActivity baseFragmentActivity) {
-        this.jqg = pbModel;
-        xB();
-        MessageManager.getInstance().registerListener(this.jxC);
-        this.juh = null;
+    public boolean isValid() {
+        return this.dCL;
     }
 
-    public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.jxC);
+    public void reset() {
+        this.userName = null;
+        this.jMM = 0;
+        this.description = null;
+        this.cover = null;
+        this.liveStatus = 0;
+        this.liveId = 0L;
+        this.dFJ = null;
+        this.userMap = null;
+        this.isChushou = false;
+        this.thirdLiveType = null;
+        this.thirdRoomId = null;
+        this.routeType = null;
+        this.jMO = false;
+        this.dCL = false;
     }
 
-    public void b(a aVar) {
-        this.juh = aVar;
+    public void setUserMap(HashMap<String, MetaData> hashMap) {
+        this.userMap = hashMap;
     }
 
-    private void xB() {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1001603, com.baidu.tieba.tbadkCore.a.a.bE(TbConfig.PB_MORE_GOD_REPLY_URL, CmdConfigSocket.CMD_SOCKET_GOD_REPLY_LOOKMORE));
-        tbHttpMessageTask.setResponsedClass(LookMoreHttpResMessage.class);
-        MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        com.baidu.tieba.tbadkCore.a.a.c(CmdConfigSocket.CMD_SOCKET_GOD_REPLY_LOOKMORE, LookMoreSocketResMessage.class, false);
-    }
-
-    public void dR(List<Long> list) {
-        if (this.jqg != null && this.jqg.getPbData() != null) {
-            int equipmentWidth = com.baidu.adp.lib.util.l.getEquipmentWidth(TbadkCoreApplication.getInst());
-            int equipmentHeight = com.baidu.adp.lib.util.l.getEquipmentHeight(TbadkCoreApplication.getInst());
-            LookMoreReqMessage lookMoreReqMessage = new LookMoreReqMessage();
-            lookMoreReqMessage.setKz(Long.valueOf(com.baidu.adp.lib.f.b.toLong(this.jqg.jvW, 0L)));
-            lookMoreReqMessage.setPost_id(list);
-            lookMoreReqMessage.setSt_type(com.baidu.adp.lib.f.b.toInt(this.jqg.mStType, 0));
-            lookMoreReqMessage.setWith_floor(1);
-            lookMoreReqMessage.setScr_w(equipmentWidth);
-            lookMoreReqMessage.setScr_h(equipmentHeight);
-            lookMoreReqMessage.setTag(this.jxB);
-            MessageManager.getInstance().sendMessage(lookMoreReqMessage);
-        }
+    @Override // com.baidu.adp.widget.ListView.o
+    public BdUniqueId getType() {
+        return jML;
     }
 }

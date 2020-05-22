@@ -9,7 +9,7 @@ abstract class ReferenceDisposable<T> extends AtomicReference<T> implements b {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ReferenceDisposable(T t) {
-        super(io.reactivex.internal.functions.a.h(t, "value is null"));
+        super(io.reactivex.internal.functions.a.k(t, "value is null"));
     }
 
     @Override // io.reactivex.disposables.b

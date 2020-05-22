@@ -402,6 +402,10 @@ public class DBVersionManager {
             }
             if (i3 == 43 && i2 >= 44) {
                 new Version43And44Handler().onUpgrade(sQLiteDatabase, i3, i2);
+                i3 = 44;
+            }
+            if (i3 == 44 && i2 >= 45) {
+                new Version44And45Handler().onUpgrade(sQLiteDatabase, i3, i2);
             }
             Cursor cursor = null;
             try {
@@ -441,6 +445,26 @@ public class DBVersionManager {
                     }
                 }
             }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class Version44And45Handler implements VersionHandler {
+        public Version44And45Handler() {
+        }
+
+        @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
+        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+            try {
+                sQLiteDatabase.execSQL("ALTER TABLE userinfo ADD COLUMN user_ext TEXT ");
+            } catch (Exception e) {
+                new IMTrack.CrashBuilder(DBVersionManager.this.mContext).exception(Log.getStackTraceString(e)).build();
+                LogUtils.e(LogUtils.TAG, "onUpgrade:44->45", e);
+            }
+        }
+
+        @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
+        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
         }
     }
 

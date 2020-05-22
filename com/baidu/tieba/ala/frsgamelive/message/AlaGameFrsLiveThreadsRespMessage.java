@@ -1,8 +1,8 @@
 package com.baidu.tieba.ala.frsgamelive.message;
 
-import com.baidu.adp.widget.ListView.m;
+import com.baidu.adp.widget.ListView.o;
 import com.baidu.ala.AlaCmdConfigHttp;
-import com.baidu.tbadk.core.data.bj;
+import com.baidu.tbadk.core.data.bk;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.ala.frsgamelive.b.c;
 import java.util.ArrayList;
@@ -13,8 +13,8 @@ import org.json.JSONObject;
 public class AlaGameFrsLiveThreadsRespMessage extends JsonHttpResponsedMessage {
     private boolean hasMore;
     private int liveCount;
-    private List<m> liveList;
-    private List<m> recommandList;
+    private List<o> liveList;
+    private List<o> recommandList;
 
     public AlaGameFrsLiveThreadsRespMessage() {
         super(AlaCmdConfigHttp.CMD_ALA_LIVE_FRS_GAME);
@@ -39,9 +39,9 @@ public class AlaGameFrsLiveThreadsRespMessage extends JsonHttpResponsedMessage {
                 JSONObject optJSONObject2 = optJSONArray.optJSONObject(i2);
                 if (optJSONObject2 != null) {
                     c cVar = new c();
-                    bj bjVar = new bj();
-                    bjVar.parserJson(optJSONObject2);
-                    cVar.dqE = bjVar;
+                    bk bkVar = new bk();
+                    bkVar.parserJson(optJSONObject2);
+                    cVar.dEA = bkVar;
                     this.liveList.add(cVar);
                 }
             }
@@ -53,20 +53,20 @@ public class AlaGameFrsLiveThreadsRespMessage extends JsonHttpResponsedMessage {
                 JSONObject optJSONObject3 = optJSONArray2.optJSONObject(i3);
                 if (optJSONObject3 != null) {
                     c cVar2 = new c();
-                    bj bjVar2 = new bj();
-                    bjVar2.parserJson(optJSONObject3);
-                    cVar2.dqE = bjVar2;
+                    bk bkVar2 = new bk();
+                    bkVar2.parserJson(optJSONObject3);
+                    cVar2.dEA = bkVar2;
                     this.recommandList.add(cVar2);
                 }
             }
         }
     }
 
-    public List<m> getLiveList() {
+    public List<o> getLiveList() {
         return this.liveList;
     }
 
-    public List<m> getRecommandList() {
+    public List<o> getRecommandList() {
         return this.recommandList;
     }
 

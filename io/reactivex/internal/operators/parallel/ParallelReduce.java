@@ -9,8 +9,8 @@ import java.util.concurrent.Callable;
 import org.a.d;
 /* loaded from: classes7.dex */
 public final class ParallelReduce<T, R> extends a<R> {
-    final Callable<R> mRV;
-    final a<? extends T> mTX;
+    final Callable<R> nnd;
+    final a<? extends T> npb;
     final c<R, ? super T, R> reducer;
 
     @Override // io.reactivex.parallel.a
@@ -20,14 +20,14 @@ public final class ParallelReduce<T, R> extends a<R> {
             org.a.c<? super Object>[] cVarArr2 = new org.a.c[length];
             for (int i = 0; i < length; i++) {
                 try {
-                    cVarArr2[i] = new ParallelReduceSubscriber(cVarArr[i], io.reactivex.internal.functions.a.h(this.mRV.call(), "The initialSupplier returned a null value"), this.reducer);
+                    cVarArr2[i] = new ParallelReduceSubscriber(cVarArr[i], io.reactivex.internal.functions.a.k(this.nnd.call(), "The initialSupplier returned a null value"), this.reducer);
                 } catch (Throwable th) {
                     io.reactivex.exceptions.a.L(th);
                     a(cVarArr, th);
                     return;
                 }
             }
-            this.mTX.a(cVarArr2);
+            this.npb.a(cVarArr2);
         }
     }
 
@@ -38,8 +38,8 @@ public final class ParallelReduce<T, R> extends a<R> {
     }
 
     @Override // io.reactivex.parallel.a
-    public int dCO() {
-        return this.mTX.dCO();
+    public int dKI() {
+        return this.npb.dKI();
     }
 
     /* loaded from: classes7.dex */
@@ -68,7 +68,7 @@ public final class ParallelReduce<T, R> extends a<R> {
         public void onNext(T t) {
             if (!this.done) {
                 try {
-                    this.accumulator = (R) io.reactivex.internal.functions.a.h(this.reducer.apply(this.accumulator, t), "The reducer returned a null value");
+                    this.accumulator = (R) io.reactivex.internal.functions.a.k(this.reducer.apply(this.accumulator, t), "The reducer returned a null value");
                 } catch (Throwable th) {
                     io.reactivex.exceptions.a.L(th);
                     cancel();

@@ -14,7 +14,7 @@ public class b extends com.baidu.swan.pms.database.a.b<com.baidu.swan.pms.b.a> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.pms.database.a.b
     /* renamed from: e */
-    public ContentValues ab(@NonNull com.baidu.swan.pms.b.a aVar) {
+    public ContentValues af(@NonNull com.baidu.swan.pms.b.a aVar) {
         ContentValues contentValues = new ContentValues();
         contentValues.put("app_id", aVar.getAppId());
         contentValues.put("bundle_id", aVar.getBundleId());
@@ -30,20 +30,20 @@ public class b extends com.baidu.swan.pms.database.a.b<com.baidu.swan.pms.b.a> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.pms.database.a.b
     @Nullable
-    /* renamed from: r */
-    public com.baidu.swan.pms.b.a i(Cursor cursor) throws SQLException {
+    /* renamed from: s */
+    public com.baidu.swan.pms.b.a j(Cursor cursor) throws SQLException {
         if (cursor == null || cursor.getCount() <= 0 || !cursor.moveToFirst()) {
             return null;
         }
-        return s(cursor);
+        return t(cursor);
     }
 
     @Override // com.baidu.swan.pms.database.a.b
-    public List<com.baidu.swan.pms.b.a> g(Cursor cursor) throws SQLException {
+    public List<com.baidu.swan.pms.b.a> h(Cursor cursor) throws SQLException {
         ArrayList arrayList = new ArrayList();
         if (cursor != null && cursor.getCount() > 0 && cursor.moveToFirst()) {
             do {
-                arrayList.add(s(cursor));
+                arrayList.add(t(cursor));
             } while (cursor.moveToNext());
             return arrayList;
         }
@@ -51,9 +51,9 @@ public class b extends com.baidu.swan.pms.database.a.b<com.baidu.swan.pms.b.a> {
     }
 
     @Nullable
-    private com.baidu.swan.pms.b.a s(Cursor cursor) {
+    private com.baidu.swan.pms.b.a t(Cursor cursor) {
         if (cursor != null) {
-            return com.baidu.swan.pms.b.a.q(cursor);
+            return com.baidu.swan.pms.b.a.r(cursor);
         }
         return null;
     }

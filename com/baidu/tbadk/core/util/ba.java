@@ -5,11 +5,13 @@ import android.text.SpannableString;
 import android.text.TextUtils;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.live.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -20,10 +22,10 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class ba {
-    private static ba dAi = new ba() { // from class: com.baidu.tbadk.core.util.ba.1
+    private static ba dOo = new ba() { // from class: com.baidu.tbadk.core.util.ba.1
     };
     private static final Pattern pattern = Pattern.compile("(http://|ftp://|https://|www){1,1}[^一-龥\\s]*", 2);
-    private c dAj;
+    private c dOp;
     private final ConcurrentHashMap<String, b> mHandlers;
     private final List<a> mListeners;
 
@@ -49,10 +51,10 @@ public class ba {
     private ba() {
         this.mListeners = new LinkedList();
         this.mHandlers = new ConcurrentHashMap<>();
-        this.dAj = null;
+        this.dOp = null;
     }
 
-    public static SpannableString ah(Context context, String str) {
+    public static SpannableString ai(Context context, String str) {
         int start;
         Matcher matcher = pattern.matcher(str);
         SpannableString spannableString = new SpannableString(str);
@@ -68,15 +70,15 @@ public class ba {
         return spannableString;
     }
 
-    public static ba aOV() {
-        return dAi;
+    public static ba aUZ() {
+        return dOo;
     }
 
     public void a(final a aVar) {
         if (com.baidu.adp.lib.util.l.isMainThread()) {
             b(aVar);
         } else {
-            com.baidu.adp.lib.f.e.lb().post(new Runnable() { // from class: com.baidu.tbadk.core.util.ba.2
+            com.baidu.adp.lib.f.e.ld().post(new Runnable() { // from class: com.baidu.tbadk.core.util.ba.2
                 @Override // java.lang.Runnable
                 public void run() {
                     ba.this.b(aVar);
@@ -93,7 +95,7 @@ public class ba {
     }
 
     public void a(c cVar) {
-        this.dAj = cVar;
+        this.dOp = cVar;
     }
 
     public boolean a(TbPageContext<?> tbPageContext, String[] strArr, boolean z, d dVar, boolean z2) {
@@ -131,19 +133,35 @@ public class ba {
             bVar.a(tbPageContext, getInnerParamPair(getParamStrBehindScheme(str2)));
             return true;
         }
-        Iterator<a> it = this.mListeners.iterator();
+        if (com.baidu.adp.framework.a.b.Hx.s("3001000") != null) {
+            for (String str3 : com.baidu.adp.framework.a.b.Hx.s("3001000")) {
+                for (ArrayList<String> arrayList : com.baidu.adp.framework.a.b.Hw.s(str3)) {
+                    Iterator<String> it = arrayList.iterator();
+                    while (it.hasNext()) {
+                        if (str2.contains(it.next())) {
+                            try {
+                                Class.forName(str3);
+                            } catch (Throwable th) {
+                                BdLog.e(th);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        Iterator<a> it2 = this.mListeners.iterator();
         while (true) {
-            if (!it.hasNext()) {
+            if (!it2.hasNext()) {
                 z3 = false;
                 break;
             }
-            a next = it.next();
+            a next = it2.next();
             if (next != null && next.deal(tbPageContext, strArr) != 3) {
                 z3 = true;
                 break;
             }
         }
-        if (!z3 && this.dAj != null) {
+        if (!z3 && this.dOp != null) {
             if (str2.contains("nohead:url") || str2.contains("booktown") || str2.contains("bookreader")) {
                 z4 = true;
             } else if (strArr.length > 1 && !StringUtils.isNull(strArr[1]) && "yun_push_tag".equals(strArr[1])) {
@@ -255,7 +273,7 @@ public class ba {
 
     private void b(TbPageContext<?> tbPageContext, String str, String str2, boolean z, d dVar, boolean z2) {
         if (pattern.matcher(str2).find()) {
-            this.dAj.a(tbPageContext, str, str2, z, dVar, z2);
+            this.dOp.a(tbPageContext, str, str2, z, dVar, z2);
         }
     }
 

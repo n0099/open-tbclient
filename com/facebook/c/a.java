@@ -6,96 +6,96 @@ import com.facebook.common.internal.g;
 import javax.annotation.Nullable;
 /* loaded from: classes13.dex */
 public class a implements c.a {
-    private static final byte[] lYG = {-1, -40, -1};
-    private static final int lYH = lYG.length;
-    private static final byte[] lYI = {-119, 80, 78, 71, 13, 10, 26, 10};
-    private static final int lYJ = lYI.length;
-    private static final byte[] lYK = e.Of("GIF87a");
-    private static final byte[] lYL = e.Of("GIF89a");
-    private static final byte[] lYM = e.Of("BM");
-    private static final int lYN = lYM.length;
-    private static final String[] lYO = {"heic", "heix", "hevc", "hevx"};
-    private static final int lYP = e.Of(FileTypeBox.TYPE + lYO[0]).length;
-    final int lYF = com.facebook.common.internal.e.m(21, 20, lYH, lYJ, 6, lYN, lYP);
+    private static final byte[] msB = {-1, -40, -1};
+    private static final int msC = msB.length;
+    private static final byte[] msD = {-119, 80, 78, 71, 13, 10, 26, 10};
+    private static final int msE = msD.length;
+    private static final byte[] msF = e.PT("GIF87a");
+    private static final byte[] msG = e.PT("GIF89a");
+    private static final byte[] msH = e.PT("BM");
+    private static final int msI = msH.length;
+    private static final String[] msJ = {"heic", "heix", "hevc", "hevx"};
+    private static final int msK = e.PT(FileTypeBox.TYPE + msJ[0]).length;
+    final int msA = com.facebook.common.internal.e.m(21, 20, msC, msE, 6, msI, msK);
 
     @Override // com.facebook.c.c.a
     public int getHeaderSize() {
-        return this.lYF;
+        return this.msA;
     }
 
     @Override // com.facebook.c.c.a
     @Nullable
-    public final c n(byte[] bArr, int i) {
+    public final c o(byte[] bArr, int i) {
         g.checkNotNull(bArr);
-        if (com.facebook.common.g.c.s(bArr, 0, i)) {
-            return o(bArr, i);
-        }
-        if (p(bArr, i)) {
-            return b.lYQ;
+        if (com.facebook.common.g.c.t(bArr, 0, i)) {
+            return p(bArr, i);
         }
         if (q(bArr, i)) {
-            return b.lYR;
+            return b.msL;
         }
         if (r(bArr, i)) {
-            return b.lYS;
+            return b.msM;
         }
         if (s(bArr, i)) {
-            return b.lYT;
+            return b.msN;
         }
         if (t(bArr, i)) {
-            return b.lYZ;
+            return b.msO;
         }
-        return c.lZa;
+        if (u(bArr, i)) {
+            return b.msU;
+        }
+        return c.msV;
     }
 
-    private static c o(byte[] bArr, int i) {
-        g.checkArgument(com.facebook.common.g.c.s(bArr, 0, i));
-        if (com.facebook.common.g.c.k(bArr, 0)) {
-            return b.lYU;
-        }
+    private static c p(byte[] bArr, int i) {
+        g.checkArgument(com.facebook.common.g.c.t(bArr, 0, i));
         if (com.facebook.common.g.c.l(bArr, 0)) {
-            return b.lYV;
+            return b.msP;
         }
-        if (com.facebook.common.g.c.r(bArr, 0, i)) {
-            if (com.facebook.common.g.c.j(bArr, 0)) {
-                return b.lYY;
-            }
-            if (com.facebook.common.g.c.m(bArr, 0)) {
-                return b.lYX;
-            }
-            return b.lYW;
+        if (com.facebook.common.g.c.m(bArr, 0)) {
+            return b.msQ;
         }
-        return c.lZa;
-    }
-
-    private static boolean p(byte[] bArr, int i) {
-        return i >= lYG.length && e.d(bArr, lYG);
+        if (com.facebook.common.g.c.s(bArr, 0, i)) {
+            if (com.facebook.common.g.c.k(bArr, 0)) {
+                return b.msT;
+            }
+            if (com.facebook.common.g.c.n(bArr, 0)) {
+                return b.msS;
+            }
+            return b.msR;
+        }
+        return c.msV;
     }
 
     private static boolean q(byte[] bArr, int i) {
-        return i >= lYI.length && e.d(bArr, lYI);
+        return i >= msB.length && e.e(bArr, msB);
     }
 
     private static boolean r(byte[] bArr, int i) {
-        if (i < 6) {
-            return false;
-        }
-        return e.d(bArr, lYK) || e.d(bArr, lYL);
+        return i >= msD.length && e.e(bArr, msD);
     }
 
     private static boolean s(byte[] bArr, int i) {
-        if (i < lYM.length) {
+        if (i < 6) {
             return false;
         }
-        return e.d(bArr, lYM);
+        return e.e(bArr, msF) || e.e(bArr, msG);
     }
 
     private static boolean t(byte[] bArr, int i) {
+        if (i < msH.length) {
+            return false;
+        }
+        return e.e(bArr, msH);
+    }
+
+    private static boolean u(byte[] bArr, int i) {
         String[] strArr;
-        if (i >= lYP && bArr[3] >= 8) {
-            int length = lYO.length;
+        if (i >= msK && bArr[3] >= 8) {
+            int length = msJ.length;
             for (int i2 = 0; i2 < length; i2++) {
-                if (e.c(bArr, bArr.length, e.Of(FileTypeBox.TYPE + strArr[i2]), lYP) > -1) {
+                if (e.c(bArr, bArr.length, e.PT(FileTypeBox.TYPE + strArr[i2]), msK) > -1) {
                     return true;
                 }
             }

@@ -48,7 +48,7 @@ public final class MaybeFlatten<T, R> extends a<T, R> {
         @Override // io.reactivex.m
         public void onSuccess(T t) {
             try {
-                o oVar = (o) io.reactivex.internal.functions.a.h(this.mapper.apply(t), "The mapper returned a null MaybeSource");
+                o oVar = (o) io.reactivex.internal.functions.a.k(this.mapper.apply(t), "The mapper returned a null MaybeSource");
                 if (!isDisposed()) {
                     oVar.a(new a());
                 }

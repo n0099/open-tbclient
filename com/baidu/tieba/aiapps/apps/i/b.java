@@ -1,16 +1,8 @@
 package com.baidu.tieba.aiapps.apps.i;
-/* loaded from: classes7.dex */
-public class b {
-    private static volatile a eGh;
-
-    public static synchronized a biP() {
-        a aVar;
-        synchronized (b.class) {
-            if (eGh == null) {
-                eGh = new a();
-            }
-            aVar = eGh;
-        }
-        return aVar;
+/* loaded from: classes12.dex */
+public class b extends com.baidu.swan.apps.adaptation.a.a {
+    @Override // com.baidu.swan.apps.adaptation.a.a
+    public void dd(boolean z) {
+        a.jd(z);
     }
 }

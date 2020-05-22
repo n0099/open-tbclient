@@ -2,13 +2,13 @@ package com.baidu.swan.b.d;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import com.baidu.swan.apps.adaptation.a.ak;
+import com.baidu.swan.apps.adaptation.a.ap;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
-public class d implements ak {
-    @Override // com.baidu.swan.apps.adaptation.a.ak
+public class d implements ap {
+    @Override // com.baidu.swan.apps.adaptation.a.ap
     @Nullable
-    public com.baidu.swan.apps.api.b.b a(@NonNull String str, @NonNull JSONObject jSONObject, @NonNull com.baidu.swan.apps.p.b bVar) {
-        return c.aty().a(str, jSONObject, bVar);
+    public com.baidu.swan.apps.api.c.b a(@NonNull String str, @NonNull JSONObject jSONObject, @NonNull com.baidu.swan.apps.n.b bVar) {
+        return c.axf().a(str, jSONObject, bVar);
     }
 }

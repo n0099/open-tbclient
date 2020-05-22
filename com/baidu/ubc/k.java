@@ -3,33 +3,33 @@ package com.baidu.ubc;
 import android.text.TextUtils;
 /* loaded from: classes12.dex */
 public class k {
-    private String ddV;
-    private String ddW;
-    private int ddX;
-    private String ddY;
-    private int ddZ;
-    private int dea;
-    private String deb;
-    private String lNM;
-    private String lNN;
-    private String lNO;
-    private String lNP;
+    private String dpO;
+    private String dpP;
+    private int dpQ;
+    private String dpR;
+    private int dpS;
+    private int dpT;
+    private String dpU;
     private String mCategory;
     private String mId;
     private int mRate;
     private String mType;
     private String mVersion;
+    private String mhb;
+    private String mhc;
+    private String mhd;
+    private String mhe;
 
     public k(String str, String str2, String str3, int i, String str4, String str5) {
         this.mId = str;
-        this.ddV = str2;
-        this.ddW = str3;
-        this.ddX = i;
+        this.dpO = str2;
+        this.dpP = str3;
+        this.dpQ = i;
         this.mType = str4;
-        this.ddY = str5;
+        this.dpR = str5;
     }
 
-    public void jb(int i) {
+    public void ju(int i) {
         this.mRate = i;
     }
 
@@ -37,47 +37,47 @@ public class k {
         this.mCategory = str;
     }
 
-    public void jc(int i) {
-        this.ddZ = i;
+    public void jv(int i) {
+        this.dpS = i;
     }
 
-    public void jd(int i) {
-        this.dea = i;
+    public void jw(int i) {
+        this.dpT = i;
     }
 
-    public void Ns(String str) {
-        this.lNM = str;
+    public void Pf(String str) {
+        this.mhb = str;
     }
 
     public String getId() {
         return this.mId;
     }
 
-    public String aDA() {
-        return this.ddV;
+    public String aIj() {
+        return this.dpO;
     }
 
-    public String aDB() {
-        return this.ddW;
+    public String aIk() {
+        return this.dpP;
     }
 
     public int getTimeout() {
-        return this.ddX;
+        return this.dpQ;
     }
 
     public String getType() {
         return this.mType;
     }
 
-    public String aDC() {
-        return this.ddY;
+    public String aIl() {
+        return this.dpR;
     }
 
-    public String dkB() {
-        return this.lNM;
+    public String drR() {
+        return this.mhb;
     }
 
-    public int aDD() {
+    public int aIm() {
         return this.mRate;
     }
 
@@ -85,28 +85,28 @@ public class k {
         return this.mCategory;
     }
 
-    public int aDE() {
-        return this.ddZ;
+    public int aIn() {
+        return this.dpS;
     }
 
-    public int aDF() {
-        return this.dea;
+    public int aIo() {
+        return this.dpT;
     }
 
-    public void si(String str) {
-        this.deb = str;
+    public void tN(String str) {
+        this.dpU = str;
     }
 
-    public String aDG() {
-        return this.deb;
+    public String aIp() {
+        return this.dpU;
     }
 
-    public String dkC() {
-        return this.lNN;
+    public String drS() {
+        return this.mhc;
     }
 
-    public void Nt(String str) {
-        this.lNN = str;
+    public void Pg(String str) {
+        this.mhc = str;
     }
 
     public void setVersion(String str) {
@@ -117,19 +117,19 @@ public class k {
         return TextUtils.isEmpty(this.mVersion) ? "0" : this.mVersion;
     }
 
-    public void Nu(String str) {
-        this.lNO = str;
+    public void Ph(String str) {
+        this.mhd = str;
     }
 
-    public String dkD() {
-        return this.lNO;
+    public String drT() {
+        return this.mhd;
     }
 
-    public void Nv(String str) {
-        this.lNP = str;
+    public void Pi(String str) {
+        this.mhe = str;
     }
 
-    public String dkE() {
-        return this.lNP;
+    public String drU() {
+        return this.mhe;
     }
 }

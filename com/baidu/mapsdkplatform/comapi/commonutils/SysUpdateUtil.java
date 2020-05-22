@@ -6,7 +6,6 @@ import android.net.Proxy;
 import com.baidu.mapapi.NetworkUtil;
 import com.baidu.mapsdkplatform.comapi.util.SysUpdateObserver;
 import com.baidu.mapsdkplatform.comjni.engine.AppEngine;
-import com.baidu.webkit.net.BdNetEngine;
 /* loaded from: classes8.dex */
 public class SysUpdateUtil implements SysUpdateObserver {
     static com.baidu.mapsdkplatform.comjni.map.commonmemcache.a a = new com.baidu.mapsdkplatform.comjni.map.commonmemcache.a();
@@ -43,11 +42,11 @@ public class SysUpdateUtil implements SysUpdateObserver {
             if (extraInfo != null) {
                 String lowerCase2 = extraInfo.toLowerCase();
                 if (lowerCase2.startsWith("cmwap") || lowerCase2.startsWith("uniwap") || lowerCase2.startsWith("3gwap")) {
-                    c = BdNetEngine.URI_PROXY_CMWAP;
+                    c = "10.0.0.172";
                     d = 80;
                     b = true;
                 } else if (lowerCase2.startsWith("ctwap")) {
-                    c = BdNetEngine.URI_PROXY_CTWAP;
+                    c = "10.0.0.200";
                     d = 80;
                     b = true;
                 } else if (lowerCase2.startsWith("cmnet") || lowerCase2.startsWith("uninet") || lowerCase2.startsWith("ctnet") || lowerCase2.startsWith("3gnet")) {
@@ -57,12 +56,12 @@ public class SysUpdateUtil implements SysUpdateObserver {
                 String defaultHost = Proxy.getDefaultHost();
                 int defaultPort = Proxy.getDefaultPort();
                 if (defaultHost != null && defaultHost.length() > 0) {
-                    if (BdNetEngine.URI_PROXY_CMWAP.equals(defaultHost.trim())) {
-                        c = BdNetEngine.URI_PROXY_CMWAP;
+                    if ("10.0.0.172".equals(defaultHost.trim())) {
+                        c = "10.0.0.172";
                         d = defaultPort;
                         b = true;
-                    } else if (BdNetEngine.URI_PROXY_CTWAP.equals(defaultHost.trim())) {
-                        c = BdNetEngine.URI_PROXY_CTWAP;
+                    } else if ("10.0.0.200".equals(defaultHost.trim())) {
+                        c = "10.0.0.200";
                         d = 80;
                         b = true;
                     }

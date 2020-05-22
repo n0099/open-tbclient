@@ -11,24 +11,24 @@ import com.baidu.live.u.a;
 import com.baidu.live.utils.k;
 /* loaded from: classes3.dex */
 public class a extends Dialog implements View.OnClickListener {
-    private HeadImageView fGb;
-    private TextView fGc;
-    private TextView fGd;
-    private InterfaceC0516a fGe;
-    private String fGf;
-    private String fGg;
-    private String fGh;
-    private String fGi;
-    private String fGj;
+    private HeadImageView fTW;
+    private TextView fTX;
+    private TextView fTY;
+    private InterfaceC0563a fTZ;
+    private String fUa;
+    private String fUb;
+    private String fUc;
+    private String fUd;
+    private String fUe;
     private View mClose;
     private long roomId;
 
     /* renamed from: com.baidu.tieba.ala.liveroom.h.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC0516a {
-        void bvm();
+    public interface InterfaceC0563a {
+        void bBl();
 
-        void bvn();
+        void bBm();
     }
 
     public a(Context context) {
@@ -45,61 +45,61 @@ public class a extends Dialog implements View.OnClickListener {
     }
 
     private void initData() {
-        this.fGb.setIsRound(true);
-        this.fGb.setBorderWidth(getContext().getResources().getDimensionPixelSize(a.e.sdk_ds2));
-        this.fGb.setBorderColor(getContext().getResources().getColor(a.d.sdk_white_alpha100));
+        this.fTW.setIsRound(true);
+        this.fTW.setBorderWidth(getContext().getResources().getDimensionPixelSize(a.e.sdk_ds2));
+        this.fTW.setBorderColor(getContext().getResources().getColor(a.d.sdk_white_alpha100));
     }
 
     private void initView() {
-        this.fGb = (HeadImageView) findViewById(a.g.user_icon);
-        this.fGc = (TextView) findViewById(a.g.invite_txt);
-        this.fGd = (TextView) findViewById(a.g.go_to_client);
+        this.fTW = (HeadImageView) findViewById(a.g.user_icon);
+        this.fTX = (TextView) findViewById(a.g.invite_txt);
+        this.fTY = (TextView) findViewById(a.g.go_to_client);
         this.mClose = findViewById(a.g.close);
-        k.a(this.fGb, this.fGf, true, false);
-        this.fGc.setText(this.fGg);
-        this.fGd.setText(this.fGh);
+        k.a(this.fTW, this.fUa, true, false);
+        this.fTX.setText(this.fUb);
+        this.fTY.setText(this.fUc);
     }
 
     private void initListener() {
-        this.fGd.setOnClickListener(this);
+        this.fTY.setOnClickListener(this);
         this.mClose.setOnClickListener(this);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.fGd) {
-            if (this.fGe != null) {
-                this.fGe.bvn();
+        if (view == this.fTY) {
+            if (this.fTZ != null) {
+                this.fTZ.bBm();
             }
             dismiss();
-            LogManager.getFeedDiversionLogger().doClickGuideFloatDialogLog(this.roomId + "", this.fGi, this.fGj);
+            LogManager.getFeedDiversionLogger().doClickGuideFloatDialogLog(this.roomId + "", this.fUd, this.fUe);
         } else if (view == this.mClose) {
-            if (this.fGe != null) {
-                this.fGe.bvm();
+            if (this.fTZ != null) {
+                this.fTZ.bBl();
             }
             dismiss();
-            LogManager.getFeedDiversionLogger().doCloseGuideFloatDialogLog(this.roomId + "", this.fGj);
+            LogManager.getFeedDiversionLogger().doCloseGuideFloatDialogLog(this.roomId + "", this.fUe);
         }
     }
 
-    public void AI(String str) {
-        this.fGf = str;
-        if (this.fGb != null) {
-            k.a(this.fGb, this.fGf, true, false);
+    public void Cq(String str) {
+        this.fUa = str;
+        if (this.fTW != null) {
+            k.a(this.fTW, this.fUa, true, false);
         }
     }
 
-    public void AJ(String str) {
-        this.fGg = str;
-        if (this.fGc != null) {
-            this.fGc.setText(this.fGg);
+    public void Cr(String str) {
+        this.fUb = str;
+        if (this.fTX != null) {
+            this.fTX.setText(this.fUb);
         }
     }
 
-    public void AK(String str) {
-        this.fGh = str;
-        if (this.fGd != null) {
-            this.fGd.setText(this.fGh);
+    public void Cs(String str) {
+        this.fUc = str;
+        if (this.fTY != null) {
+            this.fTY.setText(this.fUc);
         }
     }
 
@@ -107,15 +107,15 @@ public class a extends Dialog implements View.OnClickListener {
         this.roomId = j;
     }
 
-    public void AL(String str) {
-        this.fGi = str;
+    public void Ct(String str) {
+        this.fUd = str;
     }
 
-    public void AM(String str) {
-        this.fGj = str;
+    public void Cu(String str) {
+        this.fUe = str;
     }
 
-    public void a(InterfaceC0516a interfaceC0516a) {
-        this.fGe = interfaceC0516a;
+    public void a(InterfaceC0563a interfaceC0563a) {
+        this.fTZ = interfaceC0563a;
     }
 }

@@ -11,26 +11,26 @@ import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes11.dex */
 public class a extends b {
     private static final String TAG = a.class.getSimpleName();
-    private long bgZ = 0;
+    private long box = 0;
 
     @Override // com.baidu.mario.a.b.b
-    public /* bridge */ /* synthetic */ long IX() {
-        return super.IX();
+    public /* bridge */ /* synthetic */ long KQ() {
+        return super.KQ();
     }
 
     @Override // com.baidu.mario.a.b.b
-    public /* bridge */ /* synthetic */ void Jx() {
-        super.Jx();
+    public /* bridge */ /* synthetic */ void Lq() {
+        super.Lq();
     }
 
     @Override // com.baidu.mario.a.b.b
-    public /* bridge */ /* synthetic */ void Jy() {
-        super.Jy();
+    public /* bridge */ /* synthetic */ void Lr() {
+        super.Lr();
     }
 
     @Override // com.baidu.mario.a.b.b
-    public /* bridge */ /* synthetic */ void Jz() {
-        super.Jz();
+    public /* bridge */ /* synthetic */ void Ls() {
+        super.Ls();
     }
 
     @Override // com.baidu.mario.a.b.b
@@ -44,8 +44,8 @@ public class a extends b {
     }
 
     @Override // com.baidu.mario.a.b.b
-    public /* bridge */ /* synthetic */ void cs(boolean z) {
-        super.cs(z);
+    public /* bridge */ /* synthetic */ void cE(boolean z) {
+        super.cE(z);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:11:0x0065  */
@@ -56,7 +56,7 @@ public class a extends b {
     public void a(d dVar, e eVar) {
         boolean z = true;
         if (dVar != null && eVar != null) {
-            this.bhc = eVar;
+            this.boA = eVar;
             MediaFormat mediaFormat = new MediaFormat();
             mediaFormat.setString(IMediaFormat.KEY_MIME, dVar.getAudioCodec());
             mediaFormat.setInteger("aac-profile", 2);
@@ -68,46 +68,46 @@ public class a extends b {
                 this.mEncoder = MediaCodec.createEncoderByType(dVar.getAudioCodec());
                 this.mEncoder.configure(mediaFormat, (Surface) null, (MediaCrypto) null, 1);
                 if (!dVar.isVideoIncluded()) {
-                    this.bhe = true;
+                    this.boC = true;
                 } else {
-                    this.bhe = false;
+                    this.boC = false;
                 }
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            if (this.bhd == null) {
-                this.bhd.cm(z);
+            if (this.boB == null) {
+                this.boB.cy(z);
                 return;
             }
             return;
         }
         z = false;
-        if (this.bhd == null) {
+        if (this.boB == null) {
         }
     }
 
     @Override // com.baidu.mario.a.b.b
-    protected void Jw() {
-        if (this.bhf == 0) {
-            this.bhf = this.mBufferInfo.presentationTimeUs;
+    protected void Lp() {
+        if (this.boD == 0) {
+            this.boD = this.mBufferInfo.presentationTimeUs;
         }
-        this.mBufferInfo.presentationTimeUs -= this.bhf;
-        if (this.mBufferInfo.presentationTimeUs < this.bgZ) {
+        this.mBufferInfo.presentationTimeUs -= this.boD;
+        if (this.mBufferInfo.presentationTimeUs < this.box) {
             MediaCodec.BufferInfo bufferInfo = this.mBufferInfo;
-            long j = this.bgZ + 10000;
-            this.bgZ = j;
+            long j = this.box + 10000;
+            this.box = j;
             bufferInfo.presentationTimeUs = j;
         }
-        if (this.mBufferInfo.presentationTimeUs > bhg + 500000) {
-            if (bhg > this.bgZ) {
-                this.mBufferInfo.presentationTimeUs = bhg + 5000;
+        if (this.mBufferInfo.presentationTimeUs > boE + 500000) {
+            if (boE > this.box) {
+                this.mBufferInfo.presentationTimeUs = boE + 5000;
             } else {
-                this.mBufferInfo.presentationTimeUs = this.bgZ + 5000;
+                this.mBufferInfo.presentationTimeUs = this.box + 5000;
             }
         }
-        if (bhg > this.mBufferInfo.presentationTimeUs + 500000) {
-            bhh = FeatureCodes.FACE;
+        if (boE > this.mBufferInfo.presentationTimeUs + 500000) {
+            boF = FeatureCodes.FACE;
         }
-        this.bgZ = this.mBufferInfo.presentationTimeUs;
+        this.box = this.mBufferInfo.presentationTimeUs;
     }
 }

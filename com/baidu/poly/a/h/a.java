@@ -10,7 +10,7 @@ public class a extends Exception {
         super(str);
     }
 
-    public String B() {
+    public String L() {
         Throwable cause = getCause();
         String str = null;
         if (cause != null) {

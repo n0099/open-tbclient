@@ -4,7 +4,6 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import com.baidu.live.adp.BdUniqueId;
-import com.baidu.live.adp.base.BdBaseApplication;
 import java.util.LinkedList;
 import java.util.concurrent.Callable;
 import java.util.concurrent.CancellationException;
@@ -44,11 +43,9 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
                 BdAsyncTask.this.postResult(null);
             } catch (ExecutionException e3) {
                 BdAsyncTask.this.postResult(null);
-                if (BdBaseApplication.getInst().isDebugMode()) {
-                    throw new RuntimeException("An error occured while executing doInBackground()", e3);
-                }
+                e3.printStackTrace();
             } catch (Throwable th) {
-                throw new RuntimeException("An error occured while executing doInBackground()", th);
+                th.printStackTrace();
             }
         }
 

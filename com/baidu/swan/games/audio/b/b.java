@@ -14,70 +14,70 @@ import java.util.HashMap;
 /* loaded from: classes11.dex */
 public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile b cJE;
-    private HandlerThread cJI;
-    private SwanAudioPlayer cJJ;
+    private static volatile b cUl;
+    private HandlerThread cUp;
+    private SwanAudioPlayer cUq;
     private Handler mHandler;
-    private HashMap<String, Long> cJG = new HashMap<>();
-    private String cJH = f.atM();
-    private com.baidu.swan.games.audio.a.b cJF = new com.baidu.swan.games.audio.a.b(this.cJH);
+    private HashMap<String, Long> cUn = new HashMap<>();
+    private String cUo = f.axz();
+    private com.baidu.swan.games.audio.a.b cUm = new com.baidu.swan.games.audio.a.b(this.cUo);
 
     static {
-        com.baidu.swan.games.utils.so.d.ayx();
+        com.baidu.swan.games.utils.so.d.aCp();
     }
 
     private b() {
-        atT();
-        atU().post(new Runnable() { // from class: com.baidu.swan.games.audio.b.b.1
+        axG();
+        axH().post(new Runnable() { // from class: com.baidu.swan.games.audio.b.b.1
             @Override // java.lang.Runnable
             public void run() {
-                b.this.cJJ = SwanAudioPlayer.getInstance();
+                b.this.cUq = SwanAudioPlayer.getInstance();
                 SwanAudioPlayer.settingNativeAudioParameters(AppRuntime.getApplication());
             }
         });
     }
 
-    public static b atS() {
-        if (cJE == null) {
+    public static b axF() {
+        if (cUl == null) {
             synchronized (b.class) {
-                if (cJE == null) {
-                    cJE = new b();
+                if (cUl == null) {
+                    cUl = new b();
                 }
             }
         }
-        return cJE;
+        return cUl;
     }
 
-    private void atT() {
-        if (this.cJI == null) {
-            this.cJI = new HandlerThread("audio_thread");
-            this.cJI.start();
-            this.mHandler = new Handler(this.cJI.getLooper());
+    private void axG() {
+        if (this.cUp == null) {
+            this.cUp = new HandlerThread("audio_thread");
+            this.cUp.start();
+            this.mHandler = new Handler(this.cUp.getLooper());
         }
     }
 
-    public Handler atU() {
+    public Handler axH() {
         return this.mHandler;
     }
 
     public void a(String str, com.baidu.swan.games.audio.a.a aVar) {
-        this.cJF.a(str, aVar);
+        this.cUm.a(str, aVar);
     }
 
-    public String pE(String str) throws MalformedURLException {
-        return this.cJH + f.pz(str);
+    public String re(String str) throws MalformedURLException {
+        return this.cUo + f.qZ(str);
     }
 
-    public synchronized c L(String str, boolean z) {
+    public synchronized c Y(String str, boolean z) {
         if (DEBUG) {
             Log.e("AudioPlayerManager", "create media player src = " + str);
         }
         return new d();
     }
 
-    public long pF(String str) {
-        if (this.cJG.containsKey(str)) {
-            return this.cJG.get(str).longValue();
+    public long rf(String str) {
+        if (this.cUn.containsKey(str)) {
+            return this.cUn.get(str).longValue();
         }
         MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
         try {
@@ -85,7 +85,7 @@ public class b {
                 mediaMetadataRetriever.setDataSource(str);
                 long parseLong = Long.parseLong(mediaMetadataRetriever.extractMetadata(9));
                 mediaMetadataRetriever.release();
-                this.cJG.put(str, Long.valueOf(parseLong));
+                this.cUn.put(str, Long.valueOf(parseLong));
                 return parseLong;
             } catch (Exception e) {
                 if (DEBUG) {
@@ -100,36 +100,36 @@ public class b {
     }
 
     public void pauseAll() {
-        if (this.cJJ != null) {
-            atU().postDelayed(new Runnable() { // from class: com.baidu.swan.games.audio.b.b.2
+        if (this.cUq != null) {
+            axH().postDelayed(new Runnable() { // from class: com.baidu.swan.games.audio.b.b.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    b.this.cJJ.pauseAll();
+                    b.this.cUq.pauseAll();
                 }
             }, 50L);
         }
     }
 
     public void onResume() {
-        if (this.cJJ != null) {
-            atU().post(new Runnable() { // from class: com.baidu.swan.games.audio.b.b.3
+        if (this.cUq != null) {
+            axH().post(new Runnable() { // from class: com.baidu.swan.games.audio.b.b.3
                 @Override // java.lang.Runnable
                 public void run() {
-                    b.this.cJJ.resume();
+                    b.this.cUq.resume();
                 }
             });
         }
     }
 
-    public boolean atV() {
-        if (this.cJJ != null) {
-            this.cJJ.isAudioPlayer();
+    public boolean axI() {
+        if (this.cUq != null) {
+            this.cUq.isAudioPlayer();
             return false;
         }
         return false;
     }
 
-    public void a(JsArrayBuffer jsArrayBuffer, a.InterfaceC0381a interfaceC0381a) {
-        a.atR().a(jsArrayBuffer, interfaceC0381a);
+    public void a(JsArrayBuffer jsArrayBuffer, a.InterfaceC0421a interfaceC0421a) {
+        a.axE().a(jsArrayBuffer, interfaceC0421a);
     }
 }

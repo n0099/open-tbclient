@@ -1,21 +1,21 @@
 package com.baidu.tbadk.core.util;
 /* loaded from: classes.dex */
 public class ar {
-    private static ar dAe = null;
+    private static ar dOk = null;
     private boolean mIsWifiCache = false;
-    private boolean dAf = false;
+    private boolean dOl = false;
     private int mPostImageSize = 1500;
     private String mUrlQuality = String.valueOf(45);
 
-    public static ar aOS() {
-        if (dAe == null) {
+    public static ar aUW() {
+        if (dOk == null) {
             synchronized (ar.class) {
-                if (dAe == null) {
-                    dAe = new ar();
+                if (dOk == null) {
+                    dOk = new ar();
                 }
             }
         }
-        return dAe;
+        return dOk;
     }
 
     public ar() {
@@ -29,12 +29,12 @@ public class ar {
         updatePostImageSize();
     }
 
-    public void gK(boolean z) {
-        this.dAf = z;
+    public void hc(boolean z) {
+        this.dOl = z;
     }
 
-    public boolean aOT() {
-        return this.dAf;
+    public boolean aUX() {
+        return this.dOl;
     }
 
     public void setNetworkIsWifi(boolean z) {
@@ -65,19 +65,19 @@ public class ar {
 
     public void updateFrsShowBigImage() {
         boolean z = true;
-        if (com.baidu.tbadk.core.i.aIc().getViewImageQuality() != 0 ? com.baidu.tbadk.core.i.aIc().getViewImageQuality() != 1 : !this.mIsWifiCache) {
+        if (com.baidu.tbadk.core.k.aNQ().getViewImageQuality() != 0 ? com.baidu.tbadk.core.k.aNQ().getViewImageQuality() != 1 : !this.mIsWifiCache) {
             z = false;
         }
-        gK(z);
+        hc(z);
     }
 
     public void updateUrlQuality() {
         String valueOf = String.valueOf(45);
-        if (com.baidu.tbadk.core.i.aIc().getViewImageQuality() == 0) {
+        if (com.baidu.tbadk.core.k.aNQ().getViewImageQuality() == 0) {
             if (getIsWifi()) {
                 valueOf = String.valueOf(80);
             }
-        } else if (com.baidu.tbadk.core.i.aIc().getViewImageQuality() == 1) {
+        } else if (com.baidu.tbadk.core.k.aNQ().getViewImageQuality() == 1) {
             valueOf = String.valueOf(80);
         }
         this.mUrlQuality = valueOf;
@@ -85,7 +85,7 @@ public class ar {
 
     public void updatePostImageSize() {
         int i = 2000;
-        switch (com.baidu.tbadk.core.i.aIc().getUploadImageQuality()) {
+        switch (com.baidu.tbadk.core.k.aNQ().getUploadImageQuality()) {
             case 0:
                 if (!getIsWifi()) {
                     i = 1500;
@@ -107,7 +107,7 @@ public class ar {
         this.mPostImageSize = i;
     }
 
-    public static boolean aOU() {
-        return m.checkSD() && com.baidu.adp.gif.c.jO();
+    public static boolean aUY() {
+        return m.checkSD() && com.baidu.adp.gif.c.jQ();
     }
 }

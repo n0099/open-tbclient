@@ -1,29 +1,27 @@
 package com.baidu.swan.b.f.a;
 
-import com.baidu.live.tbadk.ubc.UbcStatConstant;
+import android.util.Log;
+import com.baidu.swan.apps.aq.w;
 import com.baidu.swan.apps.b;
-import org.json.JSONException;
+import com.baidu.swan.apps.runtime.e;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class a extends com.baidu.swan.b.d.a {
     public static final boolean DEBUG = b.DEBUG;
 
     public a() {
-        super("getSid");
+        super("startPermissionsPage");
     }
 
     @Override // com.baidu.swan.b.d.a
-    public com.baidu.swan.apps.api.b.b b(JSONObject jSONObject, com.baidu.swan.apps.p.b bVar) {
-        String OV = com.baidu.swan.apps.w.a.abQ().OV();
-        JSONObject jSONObject2 = new JSONObject();
-        try {
-            jSONObject2.put(UbcStatConstant.KEY_CONTENT_EXT_SID, OV);
-        } catch (JSONException e) {
-            if (DEBUG) {
-                e.printStackTrace();
-            }
+    public com.baidu.swan.apps.api.c.b b(JSONObject jSONObject, com.baidu.swan.apps.n.b bVar) {
+        e aoG = e.aoG();
+        if (aoG != null && aoG.aoz() != null) {
+            w.co(aoG.aoz());
+            bVar.aa(null);
+        } else if (DEBUG) {
+            Log.d("StartPermissionsPage", "swan or activity is null");
         }
-        bVar.V(jSONObject2);
         return null;
     }
 }

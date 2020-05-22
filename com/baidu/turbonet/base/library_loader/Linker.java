@@ -9,11 +9,11 @@ import java.io.IOException;
 import java.util.Locale;
 /* loaded from: classes.dex */
 public abstract class Linker {
-    private static Linker lIu = null;
-    private static Object lIv = new Object();
-    protected int lIs = 0;
+    private static Linker mbL = null;
+    private static Object mbM = new Object();
+    protected int mbJ = 0;
     protected final Object mLock = new Object();
-    private String lIt = null;
+    private String mbK = null;
 
     private static native long nativeGetRandomBaseLoadAddress();
 
@@ -29,7 +29,7 @@ public abstract class Linker {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // android.os.Parcelable.Creator
-            /* renamed from: Fl */
+            /* renamed from: FY */
             public LibInfo[] newArray(int i) {
                 return new LibInfo[i];
             }

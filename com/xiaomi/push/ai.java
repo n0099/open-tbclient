@@ -25,7 +25,7 @@ public class ai {
     /* loaded from: classes8.dex */
     public static abstract class a implements Runnable {
         /* renamed from: a */
-        public abstract int mo162a();
+        public abstract int mo164a();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -74,7 +74,7 @@ public class ai {
     private ScheduledFuture a(a aVar) {
         ScheduledFuture scheduledFuture;
         synchronized (this.f95a) {
-            scheduledFuture = this.f94a.get(aVar.mo162a());
+            scheduledFuture = this.f94a.get(aVar.mo164a());
         }
         return scheduledFuture;
     }
@@ -88,7 +88,7 @@ public class ai {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m124a(int i) {
+    public boolean m126a(int i) {
         synchronized (this.f95a) {
             ScheduledFuture scheduledFuture = this.f94a.get(i);
             if (scheduledFuture == null) {
@@ -100,7 +100,7 @@ public class ai {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m125a(a aVar) {
+    public boolean m127a(a aVar) {
         return b(aVar, 0);
     }
 
@@ -112,7 +112,7 @@ public class ai {
         if (aVar == null || a(aVar) != null) {
             return false;
         }
-        String a2 = a(aVar.mo162a());
+        String a2 = a(aVar.mo164a());
         aj ajVar = new aj(this, aVar, a2);
         long abs = Math.abs(System.currentTimeMillis() - this.f93a.getLong(a2, 0L)) / 1000;
         if (abs < i - i2) {
@@ -121,7 +121,7 @@ public class ai {
         try {
             ScheduledFuture<?> scheduleAtFixedRate = this.f96a.scheduleAtFixedRate(ajVar, i2, i, TimeUnit.SECONDS);
             synchronized (this.f95a) {
-                this.f94a.put(aVar.mo162a(), scheduleAtFixedRate);
+                this.f94a.put(aVar.mo164a(), scheduleAtFixedRate);
             }
         } catch (Exception e) {
             com.xiaomi.channel.commonutils.logger.b.a(e);
@@ -135,7 +135,7 @@ public class ai {
         }
         ScheduledFuture<?> schedule = this.f96a.schedule(new ak(this, aVar), i, TimeUnit.SECONDS);
         synchronized (this.f95a) {
-            this.f94a.put(aVar.mo162a(), schedule);
+            this.f94a.put(aVar.mo164a(), schedule);
         }
         return true;
     }

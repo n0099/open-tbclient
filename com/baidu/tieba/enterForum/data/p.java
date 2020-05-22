@@ -8,50 +8,50 @@ import java.util.List;
 import tbclient.FrsTabInfo;
 /* loaded from: classes9.dex */
 public class p {
-    private ArrayList<o> gAp;
+    private ArrayList<o> gOZ;
 
-    public void bV(List<FrsTabInfo> list) {
-        if (this.gAp == null) {
-            this.gAp = new ArrayList<>();
+    public void bS(List<FrsTabInfo> list) {
+        if (this.gOZ == null) {
+            this.gOZ = new ArrayList<>();
         }
-        this.gAp.clear();
+        this.gOZ.clear();
         if (list != null) {
             for (FrsTabInfo frsTabInfo : list) {
                 if (frsTabInfo != null && !StringUtils.isNull(frsTabInfo.tab_code) && !StringUtils.isNull(frsTabInfo.tab_name)) {
-                    this.gAp.add(new o(frsTabInfo));
+                    this.gOZ.add(new o(frsTabInfo));
                 }
             }
         }
     }
 
-    public ArrayList<o> bIa() {
-        return this.gAp;
+    public ArrayList<o> bOt() {
+        return this.gOZ;
     }
 
     public boolean b(o oVar) {
         if (oVar == null) {
             return false;
         }
-        if (v.isEmpty(this.gAp)) {
+        if (v.isEmpty(this.gOZ)) {
             return true;
         }
-        Iterator<o> it = this.gAp.iterator();
+        Iterator<o> it = this.gOZ.iterator();
         while (it.hasNext()) {
             o next = it.next();
             if (oVar.a(next)) {
-                return oVar.bHY() > next.bHY();
+                return oVar.bOr() > next.bOr();
             }
         }
         return true;
     }
 
     public boolean b(p pVar) {
-        if (pVar == null || pVar.gAp == null || this.gAp.size() != pVar.gAp.size()) {
+        if (pVar == null || pVar.gOZ == null || this.gOZ.size() != pVar.gOZ.size()) {
             return false;
         }
-        for (int i = 0; i < this.gAp.size(); i++) {
-            o oVar = this.gAp.get(i);
-            o oVar2 = this.gAp.get(i);
+        for (int i = 0; i < this.gOZ.size(); i++) {
+            o oVar = this.gOZ.get(i);
+            o oVar2 = this.gOZ.get(i);
             if (oVar == null || oVar2 == null || !oVar.a(oVar2)) {
                 return false;
             }

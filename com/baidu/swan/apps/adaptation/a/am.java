@@ -1,21 +1,16 @@
 package com.baidu.swan.apps.adaptation.a;
 
 import android.content.Context;
+import com.baidu.swan.apps.core.container.NgWebView;
 /* loaded from: classes11.dex */
 public interface am {
-    com.baidu.swan.apps.adaptation.b.c aV(Context context);
+    void a(NgWebView ngWebView);
 
-    com.baidu.swan.apps.adaptation.b.a aW(Context context);
+    void a(NgWebView ngWebView, int i, int i2, int i3, int i4, String str, boolean z);
 
-    com.baidu.swan.apps.adaptation.b.a aX(Context context);
+    void a(NgWebView ngWebView, String str);
 
-    com.baidu.swan.apps.adaptation.b.f aY(Context context);
+    void p(String str, Context context);
 
-    com.baidu.swan.apps.adaptation.b.f aZ(Context context);
-
-    com.baidu.swan.apps.adaptation.b.f ba(Context context);
-
-    com.baidu.swan.apps.adaptation.b.g bb(Context context);
-
-    com.baidu.swan.apps.core.g.a h(Context context, int i);
+    void q(String str, Context context);
 }

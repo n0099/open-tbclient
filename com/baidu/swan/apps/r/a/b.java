@@ -1,28 +1,18 @@
 package com.baidu.swan.apps.r.a;
-
-import android.support.annotation.NonNull;
-import android.util.Log;
-import com.baidu.webkit.sdk.plugin.ZeusPlugin;
-import com.baidu.webkit.sdk.plugin.ZeusPluginFactory;
 /* loaded from: classes11.dex */
-public class b implements ZeusPluginFactory {
-    private String bAP;
+public class b {
+    public int cgE;
+    public int cgF;
+    public int cgG;
+    public long cgH;
+    public byte[] cgI = new byte[48];
+    public int versionCode;
 
-    public b(@NonNull String str) {
-        this.bAP = str;
-    }
-
-    @Override // com.baidu.webkit.sdk.plugin.ZeusPluginFactory
-    public String name() {
-        return "swan_input";
-    }
-
-    @Override // com.baidu.webkit.sdk.plugin.ZeusPluginFactory
-    public ZeusPlugin create(ZeusPluginFactory.Invoker invoker) {
-        c cVar = new c(invoker, this.bAP);
-        if (com.baidu.swan.apps.b.DEBUG) {
-            Log.i("【InlineInputFactory】", "Factory 「Hash:" + hashCode() + "」 is creating inline input「Hash:" + cVar.hashCode() + "」");
-        }
-        return new a(cVar);
+    /* loaded from: classes11.dex */
+    public static class a {
+        public int cgJ;
+        public int offset;
+        public String path;
+        public int size;
     }
 }

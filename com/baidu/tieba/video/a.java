@@ -2,13 +2,13 @@ package com.baidu.tieba.video;
 /* loaded from: classes10.dex */
 public class a {
     public int level;
-    public float lgN;
-    public float lgO;
-    public float lgP;
-    public float lgQ;
-    public float lgR;
+    public float lzA;
+    public float lzB;
+    public float lzC;
+    public float lzy;
+    public float lzz;
 
-    public static a Eb(int i) {
+    public static a EM(int i) {
         switch (i) {
             case 0:
                 return a(i, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f);
@@ -30,11 +30,11 @@ public class a {
     private static a a(int i, float f, float f2, float f3, float f4, float f5) {
         a aVar = new a();
         aVar.level = i;
-        aVar.lgN = f;
-        aVar.lgO = f2;
-        aVar.lgP = f3;
-        aVar.lgQ = f4;
-        aVar.lgR = f5;
+        aVar.lzy = f;
+        aVar.lzz = f2;
+        aVar.lzA = f3;
+        aVar.lzB = f4;
+        aVar.lzC = f5;
         return aVar;
     }
 }

@@ -15,6 +15,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONArray;
 @NotProguard
 /* loaded from: classes11.dex */
@@ -37,7 +38,7 @@ public class ArBridge {
     private e mVideoCallback;
     private List<Runnable> mPendingRunnables = new LinkedList();
     private boolean mIsInitNative = false;
-    private boolean mDestroyed = true;
+    private AtomicBoolean mDestroyed = new AtomicBoolean(true);
     private int mScreenTextureId = -1;
     public boolean mFirstFrameFinished = false;
     private long mCurrentGLThreadID = -1;
@@ -233,7 +234,7 @@ public class ArBridge {
 
     public void notifyFrameUpdated() {
         if (this.mGameRecorder != null) {
-            this.mGameRecorder.dt(getScreenTextureId());
+            this.mGameRecorder.dy(getScreenTextureId());
         }
     }
 
@@ -289,7 +290,7 @@ public class ArBridge {
                 if (ArBridge.this.mMsgHandlers != null) {
                     Iterator it = ArBridge.this.mMsgHandlers.iterator();
                     while (it.hasNext()) {
-                        if (((a) it.next()).bxH == dVar) {
+                        if (((a) it.next()).bFk == dVar) {
                             it.remove();
                         }
                     }
@@ -318,7 +319,7 @@ public class ArBridge {
         for (a aVar : this.mMsgHandlers) {
             if (aVar.mMessageType == 0 || bVar.mMessageType == aVar.mMessageType) {
                 if (-1 == aVar.mMessageId || bVar.mResMessageID == aVar.mMessageId) {
-                    aVar.bxH.handleMessage(bVar.mMessageType, bVar.mMessageID, bVar.mData);
+                    aVar.bFk.handleMessage(bVar.mMessageType, bVar.mMessageID, bVar.mData);
                 }
             }
         }
@@ -343,14 +344,14 @@ public class ArBridge {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes11.dex */
     public static class a {
-        public d bxH;
+        public d bFk;
         public int mMessageId;
         public int mMessageType;
 
         public a(int i, int i2, d dVar) {
             this.mMessageType = i;
             this.mMessageId = i2;
-            this.bxH = dVar;
+            this.bFk = dVar;
         }
     }
 
@@ -509,20 +510,23 @@ public class ArBridge {
     }
 
     public void smallGameDestroy() {
-        Log.e(TAG, "[V8Dispose][ArBridge] MiniGameDestroy, destroyed=" + this.mDestroyed);
-        if (!this.mDestroyed) {
+        Log.w(TAG, "[V8Dispose][ArBridge] MiniGameDestroy, destroyed=" + this.mDestroyed);
+        if (!this.mDestroyed.getAndSet(true)) {
             nativeSmallGameDestroy(this.mNativeARBridge);
+            this.mNativeARBridge = 0L;
+            this.mGameRecorder.stopRecord();
+            this.mGameRecorder.release();
         }
-        this.mNativeARBridge = 0L;
-        this.mGameRecorder.stopRecord();
-        this.mGameRecorder.release();
-        this.mDestroyed = true;
+    }
+
+    public boolean isDestroyed() {
+        return this.mDestroyed.get();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void smallGameOnInit() {
         nativeSmallGameOnInit(this.mNativeARBridge);
-        this.mDestroyed = false;
+        this.mDestroyed.set(false);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

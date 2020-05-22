@@ -39,13 +39,13 @@ public final class SingleObserveOn<T> extends w<T> {
         @Override // io.reactivex.y
         public void onSuccess(T t) {
             this.value = t;
-            DisposableHelper.replace(this, this.scheduler.H(this));
+            DisposableHelper.replace(this, this.scheduler.J(this));
         }
 
         @Override // io.reactivex.y
         public void onError(Throwable th) {
             this.error = th;
-            DisposableHelper.replace(this, this.scheduler.H(this));
+            DisposableHelper.replace(this, this.scheduler.J(this));
         }
 
         /* JADX DEBUG: Type inference failed for r1v0. Raw type applied. Possible types: T, ? super T */

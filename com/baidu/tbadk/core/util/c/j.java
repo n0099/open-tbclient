@@ -6,65 +6,65 @@ import java.util.LinkedList;
 import java.util.Queue;
 /* loaded from: classes.dex */
 public class j {
-    private static j dBz = null;
-    private Queue<a> dBA = new LinkedList();
-    private BdAsyncTaskParallel dBB = null;
-    private BdAsyncTaskParallel dBC = null;
-    private float dBD = 0.0f;
+    private static j dPG = null;
+    private Queue<a> dPH = new LinkedList();
+    private BdAsyncTaskParallel dPI = null;
+    private BdAsyncTaskParallel dPJ = null;
+    private float dPK = 0.0f;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a {
-        public int dBE;
-        public long dBF;
+        public int dPL;
+        public long dPM;
 
         private a() {
-            this.dBE = 0;
-            this.dBF = 0L;
+            this.dPL = 0;
+            this.dPM = 0L;
         }
     }
 
-    public static j aPn() {
-        if (dBz == null) {
-            dBz = new j();
+    public static j aVr() {
+        if (dPG == null) {
+            dPG = new j();
         }
-        return dBz;
+        return dPG;
     }
 
     public synchronized void s(int i, long j) {
         a aVar = new a();
-        aVar.dBE = i;
-        aVar.dBF = j;
-        this.dBA.offer(aVar);
-        if (this.dBA.size() > 5) {
-            this.dBA.poll();
+        aVar.dPL = i;
+        aVar.dPM = j;
+        this.dPH.offer(aVar);
+        if (this.dPH.size() > 5) {
+            this.dPH.poll();
         }
-        if (aPo()) {
+        if (aVs()) {
             int i2 = 0;
-            for (a aVar2 : this.dBA) {
-                i2 = j > 0 ? (int) ((aVar2.dBE / aVar2.dBF) + i2) : i2;
+            for (a aVar2 : this.dPH) {
+                i2 = j > 0 ? (int) ((aVar2.dPL / aVar2.dPM) + i2) : i2;
             }
-            this.dBD = i2 / 5;
+            this.dPK = i2 / 5;
         }
     }
 
-    public boolean aPo() {
-        return this.dBA.size() == 5;
+    public boolean aVs() {
+        return this.dPH.size() == 5;
     }
 
-    public BdAsyncTaskParallel kZ() {
+    public BdAsyncTaskParallel lb() {
         if (!com.baidu.adp.lib.util.j.is4GNet()) {
             return null;
         }
-        if (aPo() && this.dBD < 20.0f) {
-            if (this.dBB == null) {
-                this.dBB = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
+        if (aVs() && this.dPK < 20.0f) {
+            if (this.dPI == null) {
+                this.dPI = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
             }
-            return this.dBB;
+            return this.dPI;
         }
-        if (this.dBC == null) {
-            this.dBC = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.THREE_PARALLEL, BdUniqueId.gen());
+        if (this.dPJ == null) {
+            this.dPJ = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.THREE_PARALLEL, BdUniqueId.gen());
         }
-        return this.dBC;
+        return this.dPJ;
     }
 }

@@ -9,66 +9,66 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class e extends a {
-    private boolean dCv;
+    private boolean dQC;
 
     public e() {
-        this.dCv = false;
-        this.dKd = true;
-        this.dJX = R.color.cp_cont_a;
-        this.dJZ = R.color.cp_link_tip_a;
-        this.dCv = false;
-        this.dKh = this.bHQ;
-        this.dKg = this.dKf;
+        this.dQC = false;
+        this.dYt = true;
+        this.dYn = R.color.cp_cont_a;
+        this.dYp = R.color.cp_link_tip_a;
+        this.dQC = false;
+        this.dYx = this.bQI;
+        this.dYw = this.dYv;
     }
 
-    public void lK(@ColorRes int i) {
-        this.dJX = i;
-        this.dJZ = R.color.cp_btn_j;
-        this.dCv = false;
-        if (this.dKk != null) {
-            this.dKk.aQO();
+    public void mm(@ColorRes int i) {
+        this.dYn = i;
+        this.dYp = R.color.cp_btn_j;
+        this.dQC = false;
+        if (this.dYA != null) {
+            this.dYA.aWW();
         }
     }
 
     @Override // com.baidu.tbadk.core.view.commonBtn.a
     @Deprecated
     public void k(int i, int i2, boolean z) {
-        z(i, z);
+        C(i, z);
     }
 
-    public void z(@DrawableRes int i, boolean z) {
-        this.dKa[0] = i;
-        this.duL = z;
+    public void C(@DrawableRes int i, boolean z) {
+        this.dYq[0] = i;
+        this.dIG = z;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.baidu.tbadk.core.view.commonBtn.a
-    public Drawable U(float f) {
-        return X(f);
+    public Drawable T(float f) {
+        return W(f);
+    }
+
+    private Drawable W(float f) {
+        return this.dQC ? U(f) : X(f);
     }
 
     private Drawable X(float f) {
-        return this.dCv ? V(f) : Y(f);
-    }
-
-    private Drawable Y(float f) {
         GradientDrawable gradientDrawable = new GradientDrawable();
-        gradientDrawable.setColor(am.getColor(this.dJZ));
+        gradientDrawable.setColor(am.getColor(this.dYp));
         gradientDrawable.setShape(0);
         gradientDrawable.setCornerRadius(f);
         return gradientDrawable;
     }
 
-    private Drawable V(float f) {
+    private Drawable U(float f) {
         GradientDrawable gradientDrawable;
-        int color = am.getColor(this.dJZ);
-        int[] iArr = {com.baidu.tieba.tbadkCore.c.CY(color), color};
+        int color = am.getColor(this.dYp);
+        int[] iArr = {com.baidu.tieba.tbadkCore.c.DI(color), color};
         if (Build.VERSION.SDK_INT >= 16) {
             gradientDrawable = new GradientDrawable();
-            gradientDrawable.setOrientation(this.dKj);
+            gradientDrawable.setOrientation(this.dYz);
             gradientDrawable.setColors(iArr);
         } else {
-            gradientDrawable = new GradientDrawable(this.dKj, iArr);
+            gradientDrawable = new GradientDrawable(this.dYz, iArr);
         }
         gradientDrawable.setGradientType(0);
         gradientDrawable.setShape(0);

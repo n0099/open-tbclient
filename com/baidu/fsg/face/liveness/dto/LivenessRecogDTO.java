@@ -25,6 +25,11 @@ public class LivenessRecogDTO extends SapiBiometricDto {
     public String stoken;
     public String uid;
     public boolean showGuidePage = true;
+    public boolean soundSwitch = false;
+    public boolean randomLiveness = false;
+    public boolean recordLiveness = false;
+    public boolean switchVideo = false;
+    public boolean recordAudio = false;
     public LivenessRecogType livenessType = LivenessRecogType.RECOG_TYPE_BDUSS;
     public String livenessServiceId = "1";
     public String imageFlag = "0";

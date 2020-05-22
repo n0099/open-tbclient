@@ -57,7 +57,7 @@ public class TBLottieAnimationLoader extends BdAsyncTask<Void, String, String> {
         final String str2 = this.mPath + md5 + ".zip";
         this.mNetWork.downloadFile(str2, null, 0, 3, new NetWork.DownloadResultCallback() { // from class: com.baidu.live.tbadk.widget.lottie.TBLottieAnimationLoader.1
             @Override // com.baidu.live.tbadk.core.util.NetWork.DownloadResultCallback
-            public void onSucess() {
+            public void onSuccess() {
                 if (TBLottieAnimationLoader.this.unZip(str2, str)) {
                     TBLottieAnimationLoader.this.clearTemp(str2);
                     TBLottieAnimationLoader.this.publishProgress(md5);
@@ -65,7 +65,7 @@ public class TBLottieAnimationLoader extends BdAsyncTask<Void, String, String> {
             }
 
             @Override // com.baidu.live.tbadk.core.util.NetWork.DownloadResultCallback
-            public void onFail(int i) {
+            public void onFail(int i, String str3) {
                 TBLottieAnimationLoader.this.clearTemp(str2);
             }
         });

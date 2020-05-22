@@ -13,12 +13,12 @@ public interface b {
     }
 
     @Nullable
-    com.facebook.common.references.a<Bitmap> GB(int i);
+    com.facebook.common.references.a<Bitmap> Hn(int i);
 
     @Nullable
-    com.facebook.common.references.a<Bitmap> GC(int i);
+    com.facebook.common.references.a<Bitmap> Ho(int i);
 
-    boolean GD(int i);
+    boolean Hp(int i);
 
     void a(int i, com.facebook.common.references.a<Bitmap> aVar, int i2);
 

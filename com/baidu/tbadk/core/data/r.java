@@ -1,54 +1,49 @@
 package com.baidu.tbadk.core.data;
 
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.FrsPage.ActivityHead;
-import tbclient.FrsPage.HeadImgs;
+import tbclient.FrsPage.ForumBookInfo;
 /* loaded from: classes.dex */
 public class r {
-    private String dnH;
-    private int dnI;
-    private ArrayList<t> dnJ = new ArrayList<>();
-    private int height;
-    private String obj_id;
-    private int width;
+    private String author;
+    private String dBL;
+    private String dBM;
+    private String dBN;
+    private String dBO;
+    private String dBP;
+    private String dBQ;
+    private String dBR;
+    private long dBS;
+    private long dBT;
+    private long dBU;
+    private long dBV;
+    private long dBW;
+    private long dBX;
+    private int dBz;
 
-    public ArrayList<t> aIL() {
-        return this.dnJ;
+    public String aOI() {
+        return this.dBL;
     }
 
-    public void v(ArrayList<t> arrayList) {
-        this.dnJ = arrayList;
+    public int aOJ() {
+        return this.dBz;
     }
 
-    public String aIM() {
-        return this.obj_id;
-    }
-
-    public void a(ActivityHead activityHead) {
-        if (activityHead != null) {
-            this.dnI = activityHead.activity_type.intValue();
-            this.dnH = activityHead.activity_title;
-            this.width = activityHead.top_size == null ? 0 : activityHead.top_size.width.intValue();
-            this.height = activityHead.top_size != null ? activityHead.top_size.height.intValue() : 0;
-            this.obj_id = activityHead.obj_id;
-            aD(activityHead.head_imgs);
-        }
-    }
-
-    public void aD(List<HeadImgs> list) {
-        if (!com.baidu.tbadk.core.util.v.isEmpty(list)) {
-            for (HeadImgs headImgs : list) {
-                a(headImgs);
-            }
-        }
-    }
-
-    public void a(HeadImgs headImgs) {
-        if (headImgs != null) {
-            t tVar = new t();
-            tVar.b(headImgs);
-            this.dnJ.add(tVar);
+    public void a(ForumBookInfo forumBookInfo) {
+        if (forumBookInfo != null) {
+            this.dBL = forumBookInfo.book_id;
+            this.dBz = forumBookInfo.book_type.intValue();
+            this.dBM = forumBookInfo.book_title;
+            this.dBN = forumBookInfo.book_cover;
+            this.author = forumBookInfo.author;
+            this.dBO = forumBookInfo.forum_pic;
+            this.dBP = forumBookInfo.show_chapter_id;
+            this.dBQ = forumBookInfo.show_chapter_no;
+            this.dBR = forumBookInfo.show_chapter_title;
+            this.dBS = forumBookInfo.history_page_id.longValue();
+            this.dBT = forumBookInfo.history_paragraph_id.longValue();
+            this.dBU = forumBookInfo.history_word_id.longValue();
+            this.dBV = forumBookInfo.history_percent.longValue();
+            this.dBW = forumBookInfo.show_page_id.longValue();
+            this.dBX = forumBookInfo.show_paragraph_id.longValue();
         }
     }
 }

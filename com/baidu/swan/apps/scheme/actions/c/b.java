@@ -11,7 +11,7 @@ import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.swan.apps.console.c;
 import com.baidu.swan.apps.env.SwanAppDeleteInfo;
 import com.baidu.swan.apps.runtime.e;
-import com.baidu.swan.apps.scheme.actions.ab;
+import com.baidu.swan.apps.scheme.actions.aa;
 import com.baidu.swan.apps.scheme.j;
 import com.baidu.swan.apps.setting.oauth.a.b;
 import com.baidu.swan.apps.setting.oauth.h;
@@ -20,12 +20,12 @@ import rx.d;
 import rx.functions.f;
 import rx.schedulers.Schedulers;
 /* loaded from: classes11.dex */
-public class b extends ab {
+public class b extends aa {
     public b(j jVar) {
         super(jVar, "/swanAPI/deleteHistory");
     }
 
-    @Override // com.baidu.swan.apps.scheme.actions.ab
+    @Override // com.baidu.swan.apps.scheme.actions.aa
     public boolean a(Context context, final UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, e eVar) {
         if (eVar == null) {
             c.e("history", "none swanApp");
@@ -69,11 +69,11 @@ public class b extends ab {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "the context is not an activity");
             return false;
         } else {
-            eVar.akW().b(context, "mapp_i_delete_history", new com.baidu.swan.apps.as.d.b<h<b.d>>() { // from class: com.baidu.swan.apps.scheme.actions.c.b.1
+            eVar.aoR().b(context, "mapp_i_delete_history", new com.baidu.swan.apps.aq.e.b<h<b.d>>() { // from class: com.baidu.swan.apps.scheme.actions.c.b.1
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.baidu.swan.apps.as.d.b
+                @Override // com.baidu.swan.apps.aq.e.b
                 /* renamed from: a */
-                public void F(h<b.d> hVar) {
+                public void H(h<b.d> hVar) {
                     if (com.baidu.swan.apps.setting.oauth.c.b(hVar)) {
                         b.this.a(unitedSchemeEntity, callbackHandler, optString2, optString);
                     } else {
@@ -89,23 +89,23 @@ public class b extends ab {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(final UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, final String str, final String str2) {
         c.i("history", "start remove history");
-        d.bL(str).d(Schedulers.io()).d(new f<String, Boolean>() { // from class: com.baidu.swan.apps.scheme.actions.c.b.3
+        d.bR(str).d(Schedulers.io()).d(new f<String, Boolean>() { // from class: com.baidu.swan.apps.scheme.actions.c.b.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // rx.functions.f
-            /* renamed from: kD */
+            /* renamed from: lR */
             public Boolean call(String str3) {
                 return Boolean.valueOf(com.baidu.swan.apps.database.a.b.a(AppRuntime.getAppContext().getContentResolver(), str3, false));
             }
-        }).c(rx.a.b.a.dHB()).c(new rx.functions.b<Boolean>() { // from class: com.baidu.swan.apps.scheme.actions.c.b.2
+        }).c(rx.a.b.a.dPv()).c(new rx.functions.b<Boolean>() { // from class: com.baidu.swan.apps.scheme.actions.c.b.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // rx.functions.b
             /* renamed from: e */
             public void call(Boolean bool) {
-                e akM;
-                com.baidu.swan.apps.process.messaging.client.a akF;
+                e aoF;
+                com.baidu.swan.apps.process.messaging.client.a aow;
                 if (bool.booleanValue()) {
-                    if (!TextUtils.isEmpty(str) && (akM = e.akM()) != null && (akF = akM.akF()) != null) {
-                        akF.a(8, new SwanAppDeleteInfo(str));
+                    if (!TextUtils.isEmpty(str) && (aoF = e.aoF()) != null && (aow = aoF.aow()) != null) {
+                        aow.a(8, new SwanAppDeleteInfo(str));
                     }
                     c.i("history", "remove success");
                     if (b.DEBUG) {

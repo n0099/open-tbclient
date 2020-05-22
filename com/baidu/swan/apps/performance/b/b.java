@@ -1,29 +1,20 @@
 package com.baidu.swan.apps.performance.b;
+
+import android.util.Log;
 /* loaded from: classes11.dex */
-public class b implements e {
-    private long mStartTime = -1;
-    private long mEndTime = -1;
+public class b {
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
+    private static boolean csf;
 
-    @Override // com.baidu.swan.apps.performance.b.e
-    public void setStart(long j) {
-        this.mStartTime = j;
-    }
-
-    @Override // com.baidu.swan.apps.performance.b.e
-    public void setEnd(long j) {
-        this.mEndTime = j;
-    }
-
-    @Override // com.baidu.swan.apps.performance.b.e
-    public long aih() {
-        if (this.mStartTime < 0 || this.mEndTime < 0) {
-            return -1L;
+    static {
+        int i = com.baidu.swan.apps.u.a.aeU().getSwitch("swan_api_cost_opt_v1", 0);
+        if (DEBUG) {
+            Log.d("SwanApiCostOpt", "swan_api_cost_opt_v1 value : " + i);
         }
-        return this.mEndTime - this.mStartTime;
+        csf = i == 1;
     }
 
-    @Override // com.baidu.swan.apps.performance.b.e
-    public String getType() {
-        return "PageSwitchCost";
+    public static boolean alL() {
+        return csf;
     }
 }

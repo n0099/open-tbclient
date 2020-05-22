@@ -1,11 +1,11 @@
 package com.baidu.swan.config;
-/* loaded from: classes.dex */
-public final class c {
 
-    /* loaded from: classes.dex */
-    public static final class a {
-        public static final int app_name = 2131231757;
-        public static final int swan_launch_failed_default_dialog_msg = 2131236221;
-        public static final int swan_launch_failed_default_toast_msg = 2131236222;
+import com.baidu.swan.apps.u.a.d;
+/* loaded from: classes7.dex */
+public class c {
+    public static boolean DEBUG = auY().isDebug();
+
+    public static a auY() {
+        return d.age();
     }
 }

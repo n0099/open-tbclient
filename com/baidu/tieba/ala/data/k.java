@@ -3,17 +3,17 @@ package com.baidu.tieba.ala.data;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class k {
-    public String ffa;
-    public String ffb;
-    public String ffc;
-    public String ffd;
+    public String fsF;
+    public String fsG;
+    public String fsH;
+    public String fsI;
 
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.ffa = jSONObject.optString("pk_count");
-            this.ffb = jSONObject.optString("win_rate");
-            this.ffc = jSONObject.optString("pk_rank");
-            this.ffd = jSONObject.optString("last_pk_res");
+            this.fsF = jSONObject.optString("pk_count");
+            this.fsG = jSONObject.optString("win_rate");
+            this.fsH = jSONObject.optString("pk_rank");
+            this.fsI = jSONObject.optString("last_pk_res");
         }
     }
 }

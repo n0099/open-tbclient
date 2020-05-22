@@ -10,20 +10,20 @@ import javax.annotation.Nullable;
 public class e {
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [75=8, 77=8, 78=8, 79=8] */
     @Nullable
-    public static Pair<Integer, Integer> y(InputStream inputStream) {
+    public static Pair<Integer, Integer> z(InputStream inputStream) {
         Pair<Integer, Integer> pair = null;
         byte[] bArr = new byte[4];
         try {
             try {
                 inputStream.read(bArr);
                 if (f(bArr, "RIFF")) {
-                    C(inputStream);
+                    D(inputStream);
                     inputStream.read(bArr);
                     if (f(bArr, "WEBP")) {
                         inputStream.read(bArr);
-                        String ah = ah(bArr);
-                        if ("VP8 ".equals(ah)) {
-                            pair = z(inputStream);
+                        String ao = ao(bArr);
+                        if ("VP8 ".equals(ao)) {
+                            pair = A(inputStream);
                             if (inputStream != null) {
                                 try {
                                     inputStream.close();
@@ -31,8 +31,8 @@ public class e {
                                     e.printStackTrace();
                                 }
                             }
-                        } else if ("VP8L".equals(ah)) {
-                            pair = A(inputStream);
+                        } else if ("VP8L".equals(ao)) {
+                            pair = B(inputStream);
                             if (inputStream != null) {
                                 try {
                                     inputStream.close();
@@ -40,8 +40,8 @@ public class e {
                                     e2.printStackTrace();
                                 }
                             }
-                        } else if ("VP8X".equals(ah)) {
-                            pair = B(inputStream);
+                        } else if ("VP8X".equals(ao)) {
+                            pair = C(inputStream);
                             if (inputStream != null) {
                                 try {
                                     inputStream.close();
@@ -86,29 +86,29 @@ public class e {
         return pair;
     }
 
-    private static Pair<Integer, Integer> z(InputStream inputStream) throws IOException {
+    private static Pair<Integer, Integer> A(InputStream inputStream) throws IOException {
         inputStream.skip(7L);
-        short F = F(inputStream);
-        short F2 = F(inputStream);
-        short F3 = F(inputStream);
-        if (F == 157 && F2 == 1 && F3 == 42) {
-            return new Pair<>(Integer.valueOf(D(inputStream)), Integer.valueOf(D(inputStream)));
+        short G = G(inputStream);
+        short G2 = G(inputStream);
+        short G3 = G(inputStream);
+        if (G == 157 && G2 == 1 && G3 == 42) {
+            return new Pair<>(Integer.valueOf(E(inputStream)), Integer.valueOf(E(inputStream)));
         }
         return null;
     }
 
-    private static Pair<Integer, Integer> A(InputStream inputStream) throws IOException {
-        C(inputStream);
-        if (G(inputStream) != 47) {
+    private static Pair<Integer, Integer> B(InputStream inputStream) throws IOException {
+        D(inputStream);
+        if (H(inputStream) != 47) {
             return null;
         }
         int read = ((byte) inputStream.read()) & 255;
         return new Pair<>(Integer.valueOf(((((byte) inputStream.read()) & 255) | ((read & 63) << 8)) + 1), Integer.valueOf(((((((byte) inputStream.read()) & 255) & 15) << 10) | ((((byte) inputStream.read()) & 255) << 2) | ((read & 192) >> 6)) + 1));
     }
 
-    private static Pair<Integer, Integer> B(InputStream inputStream) throws IOException {
+    private static Pair<Integer, Integer> C(InputStream inputStream) throws IOException {
         inputStream.skip(8L);
-        return new Pair<>(Integer.valueOf(E(inputStream) + 1), Integer.valueOf(E(inputStream) + 1));
+        return new Pair<>(Integer.valueOf(F(inputStream) + 1), Integer.valueOf(F(inputStream) + 1));
     }
 
     private static boolean f(byte[] bArr, String str) {
@@ -123,7 +123,7 @@ public class e {
         return true;
     }
 
-    private static String ah(byte[] bArr) {
+    private static String ao(byte[] bArr) {
         StringBuilder sb = new StringBuilder();
         for (byte b : bArr) {
             sb.append((char) b);
@@ -131,26 +131,26 @@ public class e {
         return sb.toString();
     }
 
-    private static int C(InputStream inputStream) throws IOException {
+    private static int D(InputStream inputStream) throws IOException {
         int read = (((byte) inputStream.read()) << 16) & 16711680;
         int read2 = (((byte) inputStream.read()) << 8) & MotionEventCompat.ACTION_POINTER_INDEX_MASK;
         return (((byte) inputStream.read()) & 255) | read2 | read | ((((byte) inputStream.read()) << 24) & ViewCompat.MEASURED_STATE_MASK);
     }
 
-    public static int D(InputStream inputStream) throws IOException {
+    public static int E(InputStream inputStream) throws IOException {
         return (((byte) inputStream.read()) & 255) | ((((byte) inputStream.read()) << 8) & MotionEventCompat.ACTION_POINTER_INDEX_MASK);
     }
 
-    private static int E(InputStream inputStream) throws IOException {
-        byte G = G(inputStream);
-        return (G & 255) | ((G(inputStream) << 8) & MotionEventCompat.ACTION_POINTER_INDEX_MASK) | ((G(inputStream) << 16) & 16711680);
+    private static int F(InputStream inputStream) throws IOException {
+        byte H = H(inputStream);
+        return (H & 255) | ((H(inputStream) << 8) & MotionEventCompat.ACTION_POINTER_INDEX_MASK) | ((H(inputStream) << 16) & 16711680);
     }
 
-    private static short F(InputStream inputStream) throws IOException {
+    private static short G(InputStream inputStream) throws IOException {
         return (short) (inputStream.read() & 255);
     }
 
-    private static byte G(InputStream inputStream) throws IOException {
+    private static byte H(InputStream inputStream) throws IOException {
         return (byte) (inputStream.read() & 255);
     }
 }

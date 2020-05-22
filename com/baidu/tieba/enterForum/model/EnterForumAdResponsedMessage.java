@@ -16,7 +16,7 @@ public class EnterForumAdResponsedMessage extends JsonHttpResponsedMessage {
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         super.decodeLogicInBackGround(i, jSONObject);
         this.adData = new c();
-        this.adData.cR(jSONObject);
+        this.adData.cY(jSONObject);
         if (!this.adData.isValid()) {
             this.adData = null;
         }

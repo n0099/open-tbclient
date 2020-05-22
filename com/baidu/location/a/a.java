@@ -20,7 +20,7 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes8.dex */
 public class a {
-    private ArrayList<C0156a> f;
+    private ArrayList<C0189a> f;
     private static a e = null;
     public static long c = 0;
     private boolean g = false;
@@ -37,14 +37,14 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.location.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public class C0156a {
+    public class C0189a {
         public String a;
         public Messenger b;
         public LocationClientOption c = new LocationClientOption();
         public int d = 0;
         final /* synthetic */ a e;
 
-        public C0156a(a aVar, Message message) {
+        public C0189a(a aVar, Message message) {
             boolean z = false;
             this.e = aVar;
             this.a = null;
@@ -206,13 +206,13 @@ public class a {
         this.f = new ArrayList<>();
     }
 
-    private C0156a a(Messenger messenger) {
+    private C0189a a(Messenger messenger) {
         if (this.f == null) {
             return null;
         }
-        Iterator<C0156a> it = this.f.iterator();
+        Iterator<C0189a> it = this.f.iterator();
         while (it.hasNext()) {
-            C0156a next = it.next();
+            C0189a next = it.next();
             if (next.b.equals(messenger)) {
                 return next;
             }
@@ -227,16 +227,16 @@ public class a {
         return e;
     }
 
-    private void a(C0156a c0156a) {
-        if (c0156a == null) {
+    private void a(C0189a c0189a) {
+        if (c0189a == null) {
             return;
         }
-        if (a(c0156a.b) != null) {
-            c0156a.a(14);
+        if (a(c0189a.b) != null) {
+            c0189a.a(14);
             return;
         }
-        this.f.add(c0156a);
-        c0156a.a(13);
+        this.f.add(c0189a);
+        c0189a.a(13);
     }
 
     private void b(String str) {
@@ -254,11 +254,11 @@ public class a {
     }
 
     private void f() {
-        Iterator<C0156a> it = this.f.iterator();
+        Iterator<C0189a> it = this.f.iterator();
         boolean z = false;
         boolean z2 = false;
         while (it.hasNext()) {
-            C0156a next = it.next();
+            C0189a next = it.next();
             if (next.c.openGps) {
                 z2 = true;
             }
@@ -272,10 +272,10 @@ public class a {
     }
 
     public void a(Bundle bundle, int i) {
-        Iterator<C0156a> it = this.f.iterator();
+        Iterator<C0189a> it = this.f.iterator();
         while (it.hasNext()) {
             try {
-                C0156a next = it.next();
+                C0189a next = it.next();
                 next.a(i, bundle);
                 if (next.d > 4) {
                     it.remove();
@@ -293,7 +293,7 @@ public class a {
         c = System.currentTimeMillis();
         this.a = true;
         com.baidu.location.b.i.a().b();
-        a(new C0156a(this, message));
+        a(new C0189a(this, message));
         e();
         if (this.k) {
             b("start");
@@ -316,7 +316,7 @@ public class a {
     }
 
     public void b(Message message) {
-        C0156a a = a(message.replyTo);
+        C0189a a = a(message.replyTo);
         if (a != null) {
             this.f.remove(a);
         }
@@ -330,10 +330,10 @@ public class a {
 
     public void b(BDLocation bDLocation) {
         if (bDLocation == null || bDLocation.getLocType() != 161 || j.a().b()) {
-            Iterator<C0156a> it = this.f.iterator();
+            Iterator<C0189a> it = this.f.iterator();
             while (it.hasNext()) {
                 try {
-                    C0156a next = it.next();
+                    C0189a next = it.next();
                     next.a(bDLocation);
                     if (next.d > 4) {
                         it.remove();
@@ -346,10 +346,10 @@ public class a {
                 this.i = new BDLocation();
                 this.i.setLocType(505);
             }
-            Iterator<C0156a> it2 = this.f.iterator();
+            Iterator<C0189a> it2 = this.f.iterator();
             while (it2.hasNext()) {
                 try {
-                    C0156a next2 = it2.next();
+                    C0189a next2 = it2.next();
                     next2.a(this.i);
                     if (next2.d > 4) {
                         it2.remove();
@@ -383,13 +383,13 @@ public class a {
         if (this.f.isEmpty()) {
             return "&prod=" + com.baidu.location.d.b.e + ":" + com.baidu.location.d.b.d;
         }
-        C0156a c0156a = this.f.get(0);
-        if (c0156a.c.prodName != null) {
-            stringBuffer.append(c0156a.c.prodName);
+        C0189a c0189a = this.f.get(0);
+        if (c0189a.c.prodName != null) {
+            stringBuffer.append(c0189a.c.prodName);
         }
-        if (c0156a.a != null) {
+        if (c0189a.a != null) {
             stringBuffer.append(":");
-            stringBuffer.append(c0156a.a);
+            stringBuffer.append(c0189a.a);
             stringBuffer.append("|");
         }
         String stringBuffer2 = stringBuffer.toString();
@@ -418,7 +418,7 @@ public class a {
 
     public boolean c(Message message) {
         boolean z = false;
-        C0156a a = a(message.replyTo);
+        C0189a a = a(message.replyTo);
         if (a != null) {
             int i = a.c.scanSpan;
             a.c.scanSpan = message.getData().getInt("scanSpan", a.c.scanSpan);
@@ -468,7 +468,7 @@ public class a {
     }
 
     public int d(Message message) {
-        C0156a a;
+        C0189a a;
         if (message == null || message.replyTo == null || (a = a(message.replyTo)) == null || a.c == null) {
             return 1;
         }
@@ -476,14 +476,14 @@ public class a {
     }
 
     public void d() {
-        Iterator<C0156a> it = this.f.iterator();
+        Iterator<C0189a> it = this.f.iterator();
         while (it.hasNext()) {
             it.next().a();
         }
     }
 
     public int e(Message message) {
-        C0156a a;
+        C0189a a;
         if (message == null || message.replyTo == null || (a = a(message.replyTo)) == null || a.c == null) {
             return 1000;
         }

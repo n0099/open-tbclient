@@ -1,9 +1,9 @@
 package com.baidu.swan.apps.extcore.e.a;
 
-import com.baidu.swan.apps.extcore.e.b;
+import com.baidu.swan.apps.extcore.model.a.b;
 /* loaded from: classes11.dex */
-public class a extends b<com.baidu.swan.apps.extcore.model.a.a> {
+public class a extends com.baidu.swan.apps.extcore.e.a<b> {
     public a() {
-        super(new com.baidu.swan.apps.extcore.model.a.a());
+        super(new b());
     }
 }

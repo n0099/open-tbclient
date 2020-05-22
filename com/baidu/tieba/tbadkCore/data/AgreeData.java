@@ -8,7 +8,14 @@ import tbclient.Agree;
 public class AgreeData implements Serializable {
     public int agreeType;
     public BaijiahaoData baijiahaoData;
+    public int cardType;
+    public boolean isFromImageViewer;
+    public String mImageViewerFromPage;
     public String nid;
+    public String recomAbTag;
+    public String recomExtra;
+    public String recomSource;
+    public String recomWeight;
     public long diffAgreeNum = 0;
     public long agreeNum = 0;
     public long disAgreeNum = 0;

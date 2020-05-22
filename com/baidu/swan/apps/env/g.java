@@ -1,12 +1,12 @@
 package com.baidu.swan.apps.env;
 
-import com.baidu.swan.games.h.l;
-import com.baidu.swan.games.k.a;
+import com.baidu.swan.games.i.n;
+import com.baidu.swan.games.l.a;
 /* loaded from: classes11.dex */
 public class g extends a {
-    public void iV(String str) {
-        a.c.jt(str);
-        l.qp(str);
-        com.baidu.swan.games.v.b.qQ(str);
+    public void kc(String str) {
+        a.c.kE(str);
+        n.rS(str);
+        com.baidu.swan.games.w.b.su(str);
     }
 }

@@ -3,9 +3,21 @@ package com.baidu.live.tbadk.ubc;
 import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
+import com.baidu.live.adp.framework.MessageManager;
+import com.baidu.live.adp.framework.message.HttpResponsedMessage;
+import com.baidu.live.adp.framework.task.HttpMessageTask;
+import com.baidu.live.adp.framework.task.MessageTask;
 import com.baidu.live.adp.lib.util.BdLog;
+import com.baidu.live.adp.lib.util.BdNetTypeUtil;
+import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.tbadk.TbConfig;
+import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
+import com.baidu.live.tbadk.core.sharedpref.SharedPrefHelper;
 import com.baidu.live.tbadk.extraparams.ExtraParamsManager;
+import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
+import com.baidu.sapi2.SapiContext;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -19,11 +31,11 @@ public class UbcStatisticManager {
     public static volatile UbcStatisticManager mInstance = new UbcStatisticManager();
     private String mEntry;
     private String mLiveId;
+    private String mRoomId;
     private IUbcManager mUbcManager;
     private String mVid;
     private HashMap<String, FlowData> mFlowInstanceMap = new HashMap<>();
     private HashMap<String, List<SlotData>> mSlotMap = new HashMap<>();
-    private boolean mIsBackGround = false;
     private Handler mHandler = new Handler(Looper.getMainLooper());
     private Runnable mFlowLoopRunnable = new Runnable() { // from class: com.baidu.live.tbadk.ubc.UbcStatisticManager.1
         @Override // java.lang.Runnable
@@ -67,10 +79,11 @@ public class UbcStatisticManager {
         this.mUbcManager = iUbcManager;
     }
 
-    public void updateLiveRoom(String str, String str2, String str3) {
+    public void updateLiveRoom(String str, String str2, String str3, String str4) {
         this.mLiveId = str;
-        this.mVid = str2;
-        this.mEntry = str3;
+        this.mRoomId = str2;
+        this.mVid = str3;
+        this.mEntry = str4;
         this.mHandler.removeCallbacks(this.mFlowLoopRunnable);
         this.mHandler.postDelayed(this.mFlowLoopRunnable, FLOW_LOOP_DURATION);
     }
@@ -83,19 +96,222 @@ public class UbcStatisticManager {
     }
 
     public void liveRoomActivityBackgroundSwitch(boolean z) {
-        if (this.mIsBackGround != z) {
-            this.mIsBackGround = z;
-            if (this.mIsBackGround) {
-                pauseAllLiveFlowLoop();
-            } else {
-                resumeAllLiveFlowLoop();
-            }
+        if (z) {
+            pauseAllLiveFlowLoop();
+        } else {
+            resumeAllLiveFlowLoop();
         }
     }
 
     public void logEvent(UbcStatisticItem ubcStatisticItem) {
         if (ubcStatisticItem != null && !TextUtils.isEmpty(ubcStatisticItem.getId()) && this.mUbcManager != null) {
             this.mUbcManager.onEvent(ubcStatisticItem.getId(), genEventContent(ubcStatisticItem));
+        }
+    }
+
+    public void logSendRequest(UbcStatisticItem ubcStatisticItem) {
+        logSendRequest(ubcStatisticItem, true, true);
+    }
+
+    public void logSendRequest(final UbcStatisticItem ubcStatisticItem, boolean z, boolean z2) {
+        JSONObject contentExt;
+        if (!BdUtilHelper.isMainThread()) {
+            this.mHandler.post(new Runnable() { // from class: com.baidu.live.tbadk.ubc.UbcStatisticManager.2
+                @Override // java.lang.Runnable
+                public void run() {
+                    UbcStatisticManager.this.logSendRequest(ubcStatisticItem);
+                }
+            });
+        } else if (ubcStatisticItem != null && !TextUtils.isEmpty(ubcStatisticItem.getId()) && this.mUbcManager != null) {
+            JSONObject genStatisticContent = genStatisticContent(ubcStatisticItem);
+            try {
+                if (ubcStatisticItem.getContentExt() == null) {
+                    contentExt = new JSONObject();
+                } else {
+                    contentExt = ubcStatisticItem.getContentExt();
+                }
+                if (z) {
+                    JSONObject jSONObject = new JSONObject();
+                    fillCommonParams(jSONObject);
+                    contentExt.put("common", jSONObject);
+                }
+                if (z2) {
+                    JSONObject jSONObject2 = new JSONObject();
+                    fillLiveParams(jSONObject2, ubcStatisticItem);
+                    contentExt.put(UbcStatConstant.KEY_CONTENT_ROOM, jSONObject2);
+                }
+                genStatisticContent.put("ext", contentExt);
+            } catch (JSONException e) {
+                BdLog.e(e);
+            }
+            this.mUbcManager.onEvent(ubcStatisticItem.getId(), genStatisticContent);
+        }
+    }
+
+    public void logSendResponse(UbcStatisticItem ubcStatisticItem, HttpResponsedMessage httpResponsedMessage, boolean z) {
+        logSendResponse(ubcStatisticItem, httpResponsedMessage, z, true);
+    }
+
+    public void logSendResponse(final UbcStatisticItem ubcStatisticItem, final HttpResponsedMessage httpResponsedMessage, final boolean z, final boolean z2) {
+        JSONObject contentExt;
+        if (!BdUtilHelper.isMainThread()) {
+            this.mHandler.post(new Runnable() { // from class: com.baidu.live.tbadk.ubc.UbcStatisticManager.3
+                @Override // java.lang.Runnable
+                public void run() {
+                    UbcStatisticManager.this.logSendResponse(ubcStatisticItem, httpResponsedMessage, z, z2);
+                }
+            });
+        } else if (ubcStatisticItem != null) {
+            JSONObject genStatisticContent = genStatisticContent(ubcStatisticItem);
+            try {
+                if (ubcStatisticItem.getContentExt() == null) {
+                    contentExt = new JSONObject();
+                } else {
+                    contentExt = ubcStatisticItem.getContentExt();
+                }
+                if (z) {
+                    JSONObject jSONObject = new JSONObject();
+                    fillCommonParams(jSONObject);
+                    contentExt.put("common", jSONObject);
+                }
+                if (z2) {
+                    JSONObject jSONObject2 = new JSONObject();
+                    fillLiveParams(jSONObject2, ubcStatisticItem);
+                    contentExt.put(UbcStatConstant.KEY_CONTENT_ROOM, jSONObject2);
+                }
+                if (httpResponsedMessage != null) {
+                    JSONObject jSONObject3 = new JSONObject();
+                    fillNetParams(httpResponsedMessage, jSONObject3);
+                    contentExt.put("request", jSONObject3);
+                }
+                genStatisticContent.put("ext", contentExt);
+            } catch (JSONException e) {
+                BdLog.e(e);
+            }
+            if (this.mUbcManager != null) {
+                this.mUbcManager.onEvent(ubcStatisticItem.getId(), genStatisticContent);
+            }
+        }
+    }
+
+    public void debugStat(UbcDebugItem ubcDebugItem) {
+        if (ubcDebugItem != null && !TextUtils.isEmpty(ubcDebugItem.statId) && !TextUtils.isEmpty(ubcDebugItem.statCode) && this.mUbcManager != null) {
+            this.mUbcManager.onEvent(UbcStatConstant.DEBUG_EVENT_ID, genDebugContent(ubcDebugItem, null, "stat"));
+        }
+    }
+
+    public void debugException(UbcDebugItem ubcDebugItem, String str) {
+        if (ubcDebugItem != null && !TextUtils.isEmpty(str)) {
+            if (ubcDebugItem.otherExt == null) {
+                ubcDebugItem.otherExt = new JSONObject();
+            }
+            try {
+                ubcDebugItem.otherExt.put("exc_id", str);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            if (this.mUbcManager != null) {
+                this.mUbcManager.onEvent(UbcStatConstant.DEBUG_EVENT_ID, genDebugContent(ubcDebugItem, null, "exception"));
+            }
+        }
+    }
+
+    public void debugRequest(UbcDebugItem ubcDebugItem, HttpResponsedMessage httpResponsedMessage) {
+        if (ubcDebugItem != null && httpResponsedMessage != null) {
+            if (ubcDebugItem.otherExt == null) {
+                ubcDebugItem.otherExt = new JSONObject();
+            }
+            if (this.mUbcManager != null) {
+                this.mUbcManager.onEvent(UbcStatConstant.DEBUG_EVENT_ID, genDebugContent(ubcDebugItem, httpResponsedMessage, "request"));
+            }
+        }
+    }
+
+    private JSONObject genStatisticContent(UbcStatisticItem ubcStatisticItem) {
+        JSONObject jSONObject = new JSONObject();
+        try {
+            jSONObject.put("from", UbcStatConstant.KEY_STATISTIC_FROM);
+            jSONObject.put("source", TbConfig.getSubappType());
+            jSONObject.put("type", ubcStatisticItem.getContentType());
+            jSONObject.put("value", ubcStatisticItem.getContentValue());
+            jSONObject.put("page", ubcStatisticItem.getContentPage());
+        } catch (JSONException e) {
+            BdLog.e(e);
+        }
+        return jSONObject;
+    }
+
+    private void fillLiveParams(JSONObject jSONObject, UbcStatisticItem ubcStatisticItem) {
+        if (!jSONObject.has("live_id") && !TextUtils.isEmpty(this.mLiveId)) {
+            fillJson(jSONObject, "live_id", this.mLiveId);
+        }
+        if (!jSONObject.has("room_id")) {
+            fillJson(jSONObject, "room_id", this.mRoomId);
+        }
+        if (!jSONObject.has("vid") && !TextUtils.isEmpty(this.mVid)) {
+            fillJson(jSONObject, "vid", this.mVid);
+        }
+        if (!TextUtils.isEmpty(this.mEntry)) {
+            fillJson(jSONObject, "entry", this.mEntry);
+        }
+        String baiduSid = ExtraParamsManager.getBaiduSid();
+        if (!TextUtils.isEmpty(baiduSid)) {
+            fillJson(jSONObject, UbcStatConstant.KEY_CONTENT_EXT_SID, baiduSid);
+        }
+        if (ubcStatisticItem != null && ubcStatisticItem.getLoc() != null) {
+            try {
+                jSONObject.put("loc", ubcStatisticItem.getLoc());
+                jSONObject.put(UbcStatConstant.KEY_CONTENT_EXT_SUBPAGE, ubcStatisticItem.getSubPage());
+            } catch (JSONException e) {
+                BdLog.e(e);
+            }
+        }
+    }
+
+    private void fillCommonParams(JSONObject jSONObject) {
+        fillJson(jSONObject, SapiContext.KEY_SDK_VERSION, TbConfig.SDK_VERSION);
+        fillJson(jSONObject, "client_ip", SharedPrefHelper.getInstance().getString(SharedPrefConfig.KEY_SYNC_CLIENT_IP, ""));
+    }
+
+    private void fillNetParams(HttpResponsedMessage httpResponsedMessage, JSONObject jSONObject) {
+        if (httpResponsedMessage != null && jSONObject != null) {
+            MessageTask findTask = MessageManager.getInstance().findTask(httpResponsedMessage.getCmd());
+            if (findTask instanceof HttpMessageTask) {
+                try {
+                    URI uri = new URI(((HttpMessageTask) findTask).getUrl());
+                    if (uri != null) {
+                        fillJson(jSONObject, "path", uri.getPath());
+                    }
+                } catch (URISyntaxException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (httpResponsedMessage.getOrginalMessage() != null) {
+                fillJson(jSONObject, "start_time", String.valueOf(httpResponsedMessage.getOrginalMessage().getStartTime()));
+            }
+            fillJson(jSONObject, "res_time", String.valueOf(httpResponsedMessage.getResponseTime()));
+            fillJson(jSONObject, "http_sc", String.valueOf(httpResponsedMessage.getStatusCode()));
+            fillJson(jSONObject, "err_code", String.valueOf(httpResponsedMessage.getError()));
+            fillJson(jSONObject, "network_error", httpResponsedMessage.getException());
+            fillJson(jSONObject, "err_msg", httpResponsedMessage.getErrorString());
+            if (httpResponsedMessage instanceof JsonHttpResponsedMessage) {
+                fillJson(jSONObject, "logid", String.valueOf(((JsonHttpResponsedMessage) httpResponsedMessage).getLogId()));
+            }
+            fillJson(jSONObject, "client_ip", SharedPrefHelper.getInstance().getString(SharedPrefConfig.KEY_SYNC_CLIENT_IP, ""));
+            if (!TextUtils.isEmpty(httpResponsedMessage.getRealHost())) {
+                fillJson(jSONObject, "httpdns_ip", httpResponsedMessage.getRealHost());
+            }
+            fillJson(jSONObject, "net_type", String.valueOf(BdNetTypeUtil.netType()));
+        }
+    }
+
+    private void fillJson(JSONObject jSONObject, String str, String str2) {
+        if (jSONObject != null && str != null && str2 != null) {
+            try {
+                jSONObject.put(str, str2);
+            } catch (JSONException e) {
+                BdLog.e(e);
+            }
         }
     }
 
@@ -141,6 +357,7 @@ public class UbcStatisticManager {
                 flowData.item = ubcStatisticItem;
                 flowData.flow = flowBegin;
                 flowData.formattedValue = genFlowContent;
+                flowData.isStarted = true;
                 this.mFlowInstanceMap.put(genFlowKey(ubcStatisticItem), flowData);
             }
         }
@@ -167,6 +384,7 @@ public class UbcStatisticManager {
             }
             this.mUbcManager.flowSetValueWithDuration(flowData.flow, flowData.formattedValue);
             this.mUbcManager.flowEnd(flowData.flow);
+            flowData.isStarted = false;
             this.mFlowInstanceMap.remove(genFlowKey);
         }
     }
@@ -234,11 +452,6 @@ public class UbcStatisticManager {
         }
     }
 
-    private void endAllLiveFlowLoop() {
-        pauseAllLiveFlowLoop();
-        this.mFlowInstanceMap.clear();
-    }
-
     private void pauseAllLiveFlowLoop() {
         if (!this.mFlowInstanceMap.isEmpty() && this.mUbcManager != null) {
             for (Map.Entry<String, FlowData> entry : this.mFlowInstanceMap.entrySet()) {
@@ -253,6 +466,7 @@ public class UbcStatisticManager {
                     }
                     this.mUbcManager.flowSetValueWithDuration(entry.getValue().flow, entry.getValue().formattedValue);
                     this.mUbcManager.flowEnd(entry.getValue().flow);
+                    entry.getValue().isStarted = false;
                 }
             }
         }
@@ -262,11 +476,12 @@ public class UbcStatisticManager {
     private void resumeAllLiveFlowLoop() {
         if (!this.mFlowInstanceMap.isEmpty() && this.mUbcManager != null) {
             for (Map.Entry<String, FlowData> entry : this.mFlowInstanceMap.entrySet()) {
-                if (entry != null && entry.getValue() != null && entry.getValue().item != null) {
+                if (entry != null && entry.getValue() != null && entry.getValue().item != null && !entry.getValue().isStarted) {
                     if (entry.getValue().formattedValue == null) {
                         entry.getValue().formattedValue = genFlowContent(entry.getValue().item);
                     }
                     entry.getValue().flow = this.mUbcManager.flowBegin(entry.getValue().item.getId(), entry.getValue().formattedValue);
+                    entry.getValue().isStarted = true;
                     if (this.mSlotMap.containsKey(entry.getKey())) {
                         for (SlotData slotData : this.mSlotMap.get(entry.getKey())) {
                             doSlotStart(entry.getKey(), slotData);
@@ -303,12 +518,23 @@ public class UbcStatisticManager {
                 } else {
                     contentExt = ubcStatisticItem.getContentExt();
                 }
-                if (z && jSONObject != null) {
+                if (z) {
                     if (!contentExt.has("live_id") && !TextUtils.isEmpty(this.mLiveId)) {
                         contentExt.put("live_id", this.mLiveId);
                     }
+                    if (!contentExt.has("room_id")) {
+                        contentExt.put("room_id", this.mRoomId);
+                    }
                     if (!contentExt.has("vid") && !TextUtils.isEmpty(this.mVid)) {
                         contentExt.put("vid", this.mVid);
+                    }
+                }
+                if (ubcStatisticItem.getLoc() != null) {
+                    try {
+                        contentExt.put("loc", ubcStatisticItem.getLoc());
+                        contentExt.put(UbcStatConstant.KEY_CONTENT_EXT_SUBPAGE, ubcStatisticItem.getSubPage());
+                    } catch (JSONException e) {
+                        BdLog.e(e);
                     }
                 }
                 if (!TextUtils.isEmpty(this.mEntry)) {
@@ -319,13 +545,47 @@ public class UbcStatisticManager {
                     contentExt.put(UbcStatConstant.KEY_CONTENT_EXT_SID, baiduSid);
                 }
                 jSONObject.put("ext", contentExt);
-            } catch (JSONException e) {
-                BdLog.e(e);
+            } catch (JSONException e2) {
+                BdLog.e(e2);
             }
-        } catch (JSONException e2) {
-            BdLog.e(e2);
+        } catch (JSONException e3) {
+            BdLog.e(e3);
         }
         return jSONObject;
+    }
+
+    private JSONObject genDebugContent(UbcDebugItem ubcDebugItem, HttpResponsedMessage httpResponsedMessage, String str) {
+        JSONObject jSONObject;
+        JSONObject jSONObject2 = new JSONObject();
+        if (ubcDebugItem != null) {
+            try {
+                jSONObject2.put("from", UbcStatConstant.DEBUG_VALUE_CONTENT_FROM);
+                jSONObject2.put("source", TbConfig.getSubappType());
+                jSONObject2.put("type", str);
+                jSONObject2.put("value", ubcDebugItem.value);
+                jSONObject2.put("page", ubcDebugItem.page);
+                try {
+                    if (ubcDebugItem.otherExt == null) {
+                        jSONObject = new JSONObject();
+                    } else {
+                        jSONObject = ubcDebugItem.otherExt;
+                    }
+                    JSONObject jSONObject3 = new JSONObject();
+                    fillCommonParams(jSONObject3);
+                    jSONObject.put("common", jSONObject3);
+                    JSONObject jSONObject4 = new JSONObject();
+                    fillLiveParams(jSONObject4, null);
+                    jSONObject.put(UbcStatConstant.KEY_CONTENT_ROOM, jSONObject4);
+                    fillNetParams(httpResponsedMessage, ubcDebugItem.otherExt);
+                    jSONObject2.put("ext", jSONObject);
+                } catch (JSONException e) {
+                    BdLog.e(e);
+                }
+            } catch (JSONException e2) {
+                BdLog.e(e2);
+            }
+        }
+        return jSONObject2;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -333,6 +593,7 @@ public class UbcStatisticManager {
     public static class FlowData {
         public Object flow;
         public JSONObject formattedValue;
+        public boolean isStarted;
         public UbcStatisticItem item;
 
         private FlowData() {

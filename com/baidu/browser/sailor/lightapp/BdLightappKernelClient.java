@@ -1,6 +1,7 @@
 package com.baidu.browser.sailor.lightapp;
 
 import android.app.Activity;
+import android.content.ContentValues;
 import android.content.Intent;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
@@ -8,9 +9,11 @@ import android.media.MediaRecorder;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.text.TextUtils;
 import android.util.SparseArray;
 import com.baidu.browser.core.INoProGuard;
+import com.baidu.browser.sailor.BdSailor;
 import com.baidu.browser.sailor.BdSailorConfig;
 import com.baidu.browser.sailor.lightapp.BdLightappConstants;
 import com.baidu.browser.sailor.lightapp.BdLightappKernelJsCallback;
@@ -201,10 +204,11 @@ public abstract class BdLightappKernelClient implements INoProGuard, com.baidu.b
     public abstract void closeWindow();
 
     public void cloudaLaunchCamera(String str, String str2, String str3) {
-        Intent intent;
+        Uri uri;
+        Intent intent = null;
         BdLightappKernelJsCallback bdLightappKernelJsCallback = new BdLightappKernelJsCallback(str2, str3);
         bdLightappKernelJsCallback.setCallbackListener(this);
-        if (!parseAbilityConfigArgs(str, bdLightappKernelJsCallback, BdLightappConstants.a.acp)) {
+        if (!parseAbilityConfigArgs(str, bdLightappKernelJsCallback, BdLightappConstants.a.acH)) {
             bdLightappKernelJsCallback.sendCallBackWithRetCode(2);
             return;
         }
@@ -217,25 +221,30 @@ public abstract class BdLightappKernelClient implements INoProGuard, com.baidu.b
         if ("lightapp.device.MEDIA_TYPE.IMAGE".equals(str4)) {
             if (Build.VERSION.SDK_INT >= 24) {
                 File a = com.baidu.browser.sailor.feature.a.d.a(str4);
-                Uri a2 = com.baidu.browser.sailor.feature.a.d.a(a);
+                if (a != null) {
+                    ContentValues contentValues = new ContentValues(1);
+                    contentValues.put("_data", a.getAbsolutePath());
+                    uri = BdSailor.getInstance().getAppContext().getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, contentValues);
+                } else {
+                    uri = null;
+                }
                 intent = new Intent("android.media.action.IMAGE_CAPTURE");
-                intent.putExtra("output", a2);
+                intent.putExtra("output", uri);
                 this.mCurrentFilePath = a.getPath();
             } else {
-                File a3 = com.baidu.browser.sailor.feature.a.d.a(str4);
+                File a2 = com.baidu.browser.sailor.feature.a.d.a(str4);
                 intent = new Intent("android.media.action.IMAGE_CAPTURE");
-                intent.putExtra("output", Uri.fromFile(a3));
-                this.mCurrentFilePath = a3.getPath();
+                intent.putExtra("output", Uri.fromFile(a2));
+                this.mCurrentFilePath = a2.getPath();
             }
         } else if ("lightapp.device.MEDIA_TYPE.VIDEO".equals(str4)) {
-            File a4 = com.baidu.browser.sailor.feature.a.d.a(str4);
+            File a3 = com.baidu.browser.sailor.feature.a.d.a(str4);
             intent = new Intent("android.media.action.VIDEO_CAPTURE");
             intent.putExtra("android.intent.extra.videoQuality", 1);
-            this.mCurrentFilePath = a4.getPath();
+            this.mCurrentFilePath = a3.getPath();
         } else {
             bdLightappKernelJsCallback.sendCallBackWithRetCode(2);
             Log.e(TAG, "error camera type: " + str4);
-            intent = null;
         }
         if (intent != null) {
             this.mJsCallbacks.put(7, bdLightappKernelJsCallback);
@@ -247,7 +256,7 @@ public abstract class BdLightappKernelClient implements INoProGuard, com.baidu.b
     public void cloudaLaunchGallery(String str, String str2, String str3) {
         BdLightappKernelJsCallback bdLightappKernelJsCallback = new BdLightappKernelJsCallback(str2, str3);
         bdLightappKernelJsCallback.setCallbackListener(this);
-        if (!parseAbilityConfigArgs(str, bdLightappKernelJsCallback, BdLightappConstants.a.acp)) {
+        if (!parseAbilityConfigArgs(str, bdLightappKernelJsCallback, BdLightappConstants.a.acH)) {
             bdLightappKernelJsCallback.sendCallBackWithRetCode(2);
             return;
         }

@@ -17,7 +17,7 @@ final class SequencesKt__SequencesKt$generateSequence$1 extends Lambda implement
     /* JADX WARN: Type inference failed for: r0v2, types: [T, java.lang.Object] */
     @Override // kotlin.jvm.a.b
     public final T invoke(T t) {
-        q.j(t, AdvanceSetting.NETWORK_TYPE);
+        q.m(t, AdvanceSetting.NETWORK_TYPE);
         return this.$nextFunction.invoke();
     }
 }

@@ -18,7 +18,7 @@ public class f extends v.c implements io.reactivex.disposables.b {
     }
 
     @Override // io.reactivex.v.c
-    public io.reactivex.disposables.b I(Runnable runnable) {
+    public io.reactivex.disposables.b K(Runnable runnable) {
         return c(runnable, 0L, null);
     }
 
@@ -29,7 +29,7 @@ public class f extends v.c implements io.reactivex.disposables.b {
 
     public io.reactivex.disposables.b b(Runnable runnable, long j, TimeUnit timeUnit) {
         Future<?> schedule;
-        ScheduledDirectTask scheduledDirectTask = new ScheduledDirectTask(io.reactivex.e.a.K(runnable));
+        ScheduledDirectTask scheduledDirectTask = new ScheduledDirectTask(io.reactivex.e.a.M(runnable));
         try {
             if (j <= 0) {
                 schedule = this.executor.submit(scheduledDirectTask);
@@ -46,9 +46,9 @@ public class f extends v.c implements io.reactivex.disposables.b {
 
     public io.reactivex.disposables.b a(Runnable runnable, long j, long j2, TimeUnit timeUnit) {
         Future<?> schedule;
-        Runnable K = io.reactivex.e.a.K(runnable);
+        Runnable M = io.reactivex.e.a.M(runnable);
         if (j2 <= 0) {
-            c cVar = new c(K, this.executor);
+            c cVar = new c(M, this.executor);
             try {
                 if (j <= 0) {
                     schedule = this.executor.submit(cVar);
@@ -62,7 +62,7 @@ public class f extends v.c implements io.reactivex.disposables.b {
                 return EmptyDisposable.INSTANCE;
             }
         }
-        ScheduledDirectPeriodicTask scheduledDirectPeriodicTask = new ScheduledDirectPeriodicTask(K);
+        ScheduledDirectPeriodicTask scheduledDirectPeriodicTask = new ScheduledDirectPeriodicTask(M);
         try {
             scheduledDirectPeriodicTask.setFuture(this.executor.scheduleAtFixedRate(scheduledDirectPeriodicTask, j, j2, timeUnit));
             return scheduledDirectPeriodicTask;
@@ -74,7 +74,7 @@ public class f extends v.c implements io.reactivex.disposables.b {
 
     public ScheduledRunnable a(Runnable runnable, long j, TimeUnit timeUnit, io.reactivex.internal.disposables.a aVar) {
         Future<?> schedule;
-        ScheduledRunnable scheduledRunnable = new ScheduledRunnable(io.reactivex.e.a.K(runnable), aVar);
+        ScheduledRunnable scheduledRunnable = new ScheduledRunnable(io.reactivex.e.a.M(runnable), aVar);
         if (aVar == null || aVar.a(scheduledRunnable)) {
             try {
                 if (j <= 0) {

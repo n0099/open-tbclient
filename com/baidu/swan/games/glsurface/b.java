@@ -6,21 +6,21 @@ import java.util.Queue;
 /* loaded from: classes11.dex */
 public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile b cNQ;
-    private Queue<DuMixGameSurfaceView> cNR = new ArrayDeque();
+    private static volatile b cYI;
+    private Queue<DuMixGameSurfaceView> cYJ = new ArrayDeque();
 
-    public static b awJ() {
-        if (cNQ == null) {
+    public static b aAy() {
+        if (cYI == null) {
             synchronized (b.class) {
-                if (cNQ == null) {
-                    cNQ = new b();
+                if (cYI == null) {
+                    cYI = new b();
                 }
             }
         }
-        return cNQ;
+        return cYI;
     }
 
-    public DuMixGameSurfaceView cY(Context context) {
+    public DuMixGameSurfaceView dn(Context context) {
         return new DuMixGameSurfaceView(context);
     }
 }

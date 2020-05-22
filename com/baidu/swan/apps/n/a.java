@@ -1,76 +1,109 @@
 package com.baidu.swan.apps.n;
 
-import android.support.v4.app.NotificationCompat;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.swan.apps.as.ai;
-import com.baidu.swan.apps.b;
-import com.baidu.swan.apps.jsbridge.SwanAppNativeSwanJsBridge;
-import com.baidu.swan.apps.performance.e;
-import java.util.Locale;
+import android.util.Pair;
+import com.baidu.swan.apps.api.a.d;
+import com.baidu.swan.apps.console.c;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
-public final class a {
-    private static final boolean DEBUG = b.DEBUG;
+public class a extends d {
+    public a(@NonNull com.baidu.swan.apps.api.a.b bVar) {
+        super(bVar);
+    }
 
-    public static void a(final com.baidu.swan.apps.core.container.a aVar, com.baidu.swan.apps.n.a.a aVar2) {
-        String format;
-        String s;
-        if (aVar != null && aVar2 != null) {
-            e.D("postMessage", "dispatchJSEvent start.");
-            if (aVar.isWebView()) {
-                format = String.format(Locale.getDefault(), "var %s = new Event('%s');", NotificationCompat.CATEGORY_EVENT, aVar2.bSS);
-                s = "";
-            } else {
-                format = String.format(Locale.getDefault(), "var %s = new Object();", NotificationCompat.CATEGORY_EVENT);
-                s = s(NotificationCompat.CATEGORY_EVENT, "type", aVar2.bSS);
+    public com.baidu.swan.apps.api.c.b kp(String str) {
+        if (DEBUG) {
+            Log.d("Api-GameCenterApi", "postGameCenterMessage: " + str);
+        }
+        Pair<com.baidu.swan.apps.api.c.b, JSONObject> aP = com.baidu.swan.apps.api.d.b.aP("Api-GameCenterApi", str);
+        com.baidu.swan.apps.api.c.b bVar = (com.baidu.swan.apps.api.c.b) aP.first;
+        if (!bVar.isSuccess()) {
+            c.e("Api-GameCenterApi", "parse fail");
+            return bVar;
+        }
+        JSONObject jSONObject = (JSONObject) aP.second;
+        String optString = jSONObject.optString("cb");
+        if (TextUtils.isEmpty(optString)) {
+            c.e("Api-GameCenterApi", "empty cb");
+            return new com.baidu.swan.apps.api.c.b(202, "empty cb");
+        }
+        return a(jSONObject, new C0359a(optString));
+    }
+
+    public com.baidu.swan.apps.api.c.b kq(String str) {
+        if (DEBUG) {
+            Log.d("Api-GameCenterApi", "postGameCenterMessageSync: " + str);
+        }
+        Pair<com.baidu.swan.apps.api.c.b, JSONObject> aP = com.baidu.swan.apps.api.d.b.aP("Api-GameCenterApi", str);
+        com.baidu.swan.apps.api.c.b bVar = (com.baidu.swan.apps.api.c.b) aP.first;
+        if (!bVar.isSuccess()) {
+            c.e("Api-GameCenterApi", "parse fail");
+            return bVar;
+        }
+        return a((JSONObject) aP.second, new b());
+    }
+
+    private com.baidu.swan.apps.api.c.b a(@NonNull JSONObject jSONObject, @NonNull com.baidu.swan.apps.n.b bVar) {
+        String optString = jSONObject.optString("api");
+        if (TextUtils.isEmpty(optString)) {
+            return new com.baidu.swan.apps.api.c.b(202, "empty api name");
+        }
+        JSONObject optJSONObject = jSONObject.optJSONObject("params");
+        if (optJSONObject == null) {
+            optJSONObject = new JSONObject();
+        }
+        com.baidu.swan.apps.api.c.b a = com.baidu.swan.apps.u.a.afM().a(optString, optJSONObject, bVar);
+        if (a == null) {
+            return new com.baidu.swan.apps.api.c.b(0);
+        }
+        return a;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    /* renamed from: com.baidu.swan.apps.n.a$a  reason: collision with other inner class name */
+    /* loaded from: classes11.dex */
+    public class C0359a implements com.baidu.swan.apps.n.b {
+        private String cdu;
+
+        private C0359a(String str) {
+            this.cdu = str;
+        }
+
+        @Override // com.baidu.swan.apps.n.b
+        public void aa(@Nullable JSONObject jSONObject) {
+            a.this.a(this.cdu, jSONObject == null ? new com.baidu.swan.apps.api.c.b(0) : new com.baidu.swan.apps.api.c.b(0, jSONObject));
+        }
+
+        @Override // com.baidu.swan.apps.n.b
+        public void onFail(int i, @Nullable String str) {
+            if (d.DEBUG && i == 0) {
+                Log.e("Api-GameCenterApi", "GameCenterCallback:onFail errCode cannot be ERR_OK.");
             }
-            final String format2 = String.format(Locale.getDefault(), "javascript:(function(){%s %s %s})();", format, s + aVar2.iW(NotificationCompat.CATEGORY_EVENT), String.format(Locale.getDefault(), "%s.dispatchEvent(%s);", b(aVar), NotificationCompat.CATEGORY_EVENT));
-            e.D("postMessage", "dispatchJSEvent buildEvent");
-            if (DEBUG) {
-                Log.d("JSEventDispatcher", "dispatchJSEvent action: " + format2);
-            }
-            if (aVar.isWebView()) {
-                ai.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.n.a.1
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        a.a(com.baidu.swan.apps.core.container.a.this, format2);
-                    }
-                });
-            } else {
-                a(aVar, format2);
-            }
+            a.this.a(this.cdu, str == null ? new com.baidu.swan.apps.api.c.b(i) : new com.baidu.swan.apps.api.c.b(i, str));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void a(com.baidu.swan.apps.core.container.a aVar, String str) {
-        if (aVar.isDestroyed()) {
-            if (DEBUG) {
-                Log.e("JSEventDispatcher", Log.getStackTraceString(new Exception("webview is destroyed. dispatch action:" + str)));
-                return;
+    /* loaded from: classes11.dex */
+    public class b implements com.baidu.swan.apps.n.b {
+        private b() {
+        }
+
+        @Override // com.baidu.swan.apps.n.b
+        public void aa(@Nullable JSONObject jSONObject) {
+            if (d.DEBUG) {
+                Log.e("Api-GameCenterApi", "GameCenterEmptyCallback:onSuccess could not be invoked.");
             }
-            return;
         }
-        aVar.evaluateJavascript(str, null);
-        e.D("postMessage", "dispatchJSEvent evaluateJavascript");
-    }
 
-    private static String b(com.baidu.swan.apps.core.container.a aVar) {
-        if (aVar.isWebView()) {
-            return "document";
+        @Override // com.baidu.swan.apps.n.b
+        public void onFail(int i, @Nullable String str) {
+            if (d.DEBUG) {
+                Log.e("Api-GameCenterApi", "GameCenterEmptyCallback:onFail could not be invoked.");
+            }
         }
-        return SwanAppNativeSwanJsBridge.JAVASCRIPT_INTERFACE_NAME;
-    }
-
-    public static String s(String str, String str2, String str3) {
-        if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3)) {
-            return "";
-        }
-        return String.format(Locale.getDefault(), "%s.%s = %s;", str, str2, JSONObject.quote(str3));
-    }
-
-    public static String b(String str, String str2, JSONObject jSONObject) {
-        return (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || jSONObject == null) ? "" : String.format(Locale.getDefault(), "%s.%s = %s;", str, str2, jSONObject);
     }
 }

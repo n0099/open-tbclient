@@ -20,7 +20,7 @@ public class AES {
         return encrypt(bArr2, bArr);
     }
 
-    public static byte[] c(byte[] bArr, byte[] bArr2) {
+    public static byte[] d(byte[] bArr, byte[] bArr2) {
         return (bArr == null || bArr.length <= 0) ? new byte[]{-1} : decrypt(bArr, bArr2);
     }
 

@@ -67,9 +67,9 @@ public class NetWork {
 
     /* loaded from: classes3.dex */
     public interface DownloadResultCallback {
-        void onFail(int i);
+        void onFail(int i, String str);
 
-        void onSucess();
+        void onSuccess();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -269,12 +269,12 @@ public class NetWork {
             }
 
             @Override // com.baidu.live.adp.lib.network.http.interfaces.DownLoadCallback
-            public void onFileDownloaded(Object obj, int i3) {
+            public void onFileDownloaded(Object obj, int i3, String str2) {
                 if (downloadResultCallback != null) {
                     if (i3 == 0) {
-                        downloadResultCallback.onSucess();
+                        downloadResultCallback.onSuccess();
                     } else {
-                        downloadResultCallback.onFail(i3);
+                        downloadResultCallback.onFail(i3, str2);
                     }
                 }
             }

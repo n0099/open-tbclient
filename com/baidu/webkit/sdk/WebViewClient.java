@@ -49,8 +49,8 @@ public class WebViewClient {
 
     /* loaded from: classes11.dex */
     public static class SecurityInfo {
+        private WebSiteInfo info;
         private SecurityLevel level = SecurityLevel.UNCERTAIN;
-        private WebSiteInfo info = null;
 
         public SecurityLevel getSecurityLevel() {
             return this.level;
@@ -88,7 +88,6 @@ public class WebViewClient {
 
         public WebSiteInfo(WebSiteType webSiteType, String str) {
             this.type = WebSiteType.UNCERTAIN;
-            this.name = null;
             this.type = webSiteType;
             this.name = str;
         }
@@ -177,6 +176,9 @@ public class WebViewClient {
     public void onFirstDrawnDid(WebView webView, String str) {
     }
 
+    public void onFirstImagePaint(WebView webView, String str) {
+    }
+
     public void onFirstLayoutDid(WebView webView, String str) {
     }
 
@@ -187,6 +189,9 @@ public class WebViewClient {
     }
 
     public void onFirstScreenPaintFinished(WebView webView, String str, int i, int i2, int i3, int i4, int i5) {
+    }
+
+    public void onFirstTextPaint(WebView webView, String str) {
     }
 
     public void onFormResubmission(WebView webView, Message message, Message message2) {

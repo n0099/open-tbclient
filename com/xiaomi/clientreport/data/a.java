@@ -14,7 +14,7 @@ public class a {
     public int reportType;
     private String sdkVersion;
     private String os = bj.a();
-    private String miuiVersion = l.m493a();
+    private String miuiVersion = l.m495a();
 
     public String getPackageName() {
         return this.pkgName;

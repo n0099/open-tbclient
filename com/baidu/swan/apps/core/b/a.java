@@ -13,13 +13,13 @@ public final class a {
 
     /* renamed from: com.baidu.swan.apps.core.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public static class C0295a {
+    public static class C0332a {
         public int maxCount;
         public int sizeLimit;
     }
 
     @NonNull
-    public static V8EngineConfiguration.CodeCacheSetting aF(String str, @NonNull String str2) {
+    public static V8EngineConfiguration.CodeCacheSetting aV(String str, @NonNull String str2) {
         V8EngineConfiguration.CodeCacheSetting codeCacheSetting = new V8EngineConfiguration.CodeCacheSetting();
         codeCacheSetting.id = str;
         codeCacheSetting.pathList = new ArrayList<>();
@@ -35,9 +35,9 @@ public final class a {
         }
         switch (c) {
             case 0:
-                C0295a UZ = b.UZ();
-                codeCacheSetting.maxCount = UZ.maxCount;
-                codeCacheSetting.sizeLimit = UZ.sizeLimit;
+                C0332a XF = b.XF();
+                codeCacheSetting.maxCount = XF.maxCount;
+                codeCacheSetting.sizeLimit = XF.sizeLimit;
                 break;
             default:
                 codeCacheSetting.maxCount = 5;
@@ -52,7 +52,7 @@ public final class a {
         return codeCacheSetting;
     }
 
-    public static int j(boolean z, boolean z2) {
+    public static int k(boolean z, boolean z2) {
         if (z && z2) {
             return 3;
         }
@@ -68,73 +68,73 @@ public final class a {
     /* loaded from: classes11.dex */
     public static class b {
         private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-        private static int bLq = -1;
-        private static int bLr = -1;
-        private static int bLs = -1;
-        private static int bLt = -1;
+        private static int bUn = -1;
+        private static int bUo = -1;
+        private static int bUp = -1;
+        private static int bUq = -1;
 
-        public static String UW() {
+        public static String XC() {
             return PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext()).getString("swan_app_v8_code_cache", "ab");
         }
 
-        private static boolean ew(int i) {
+        private static boolean eF(int i) {
             switch (i) {
                 case 0:
-                    return UX();
+                    return XD();
                 case 1:
-                    return UY();
+                    return XE();
                 default:
-                    return UX();
+                    return XD();
             }
         }
 
-        private static boolean UX() {
-            boolean ait = com.baidu.swan.apps.ah.a.a.ait();
-            if (ait) {
-                bLq = 1;
+        private static boolean XD() {
+            boolean ama = com.baidu.swan.apps.af.a.a.ama();
+            if (ama) {
+                bUn = 1;
             }
-            if (bLq < 0) {
-                bLq = com.baidu.swan.apps.w.a.abQ().getSwitch("swan_app_v8_code_cache", 1);
+            if (bUn < 0) {
+                bUn = com.baidu.swan.apps.u.a.aeU().getSwitch("swan_app_v8_code_cache", 1);
             }
             if (DEBUG) {
-                Log.d("CodeCacheSwitcher", "getSwanAppCodeCacheAbSwitch() switcher: " + bLq + (ait ? " forceAb" : ""));
+                Log.d("CodeCacheSwitcher", "getSwanAppCodeCacheAbSwitch() switcher: " + bUn + (ama ? " forceAb" : ""));
             }
-            return bLq == 1;
+            return bUn == 1;
         }
 
-        private static boolean UY() {
-            boolean ait = com.baidu.swan.apps.ah.a.a.ait();
-            if (ait) {
-                bLr = 1;
+        private static boolean XE() {
+            boolean ama = com.baidu.swan.apps.af.a.a.ama();
+            if (ama) {
+                bUo = 1;
             }
-            if (bLr < 0) {
-                bLr = com.baidu.swan.apps.w.a.abQ().getSwitch("swan_game_v8_code_cache", 2);
+            if (bUo < 0) {
+                bUo = com.baidu.swan.apps.u.a.aeU().getSwitch("swan_game_v8_code_cache", 2);
             }
             if (DEBUG) {
-                Log.d("CodeCacheSwitcher", "getSwanGameCodeCacheAbSwitch() switcher: " + bLr + (ait ? " forceAb" : ""));
+                Log.d("CodeCacheSwitcher", "getSwanGameCodeCacheAbSwitch() switcher: " + bUo + (ama ? " forceAb" : ""));
             }
-            return bLr == 1;
+            return bUo == 1;
         }
 
-        public static boolean dY(int i) {
+        public static boolean ee(int i) {
             if (DEBUG) {
-                String UW = UW();
+                String XC = XC();
                 char c = 65535;
-                switch (UW.hashCode()) {
+                switch (XC.hashCode()) {
                     case 3105:
-                        if (UW.equals("ab")) {
+                        if (XC.equals("ab")) {
                             c = 2;
                             break;
                         }
                         break;
                     case 143821548:
-                        if (UW.equals("enable_code_cache")) {
+                        if (XC.equals("enable_code_cache")) {
                             c = 0;
                             break;
                         }
                         break;
                     case 2081401959:
-                        if (UW.equals("disable_code_cache")) {
+                        if (XC.equals("disable_code_cache")) {
                             c = 1;
                             break;
                         }
@@ -146,34 +146,34 @@ public final class a {
                     case 1:
                         return false;
                     case 2:
-                        return ew(i);
+                        return eF(i);
                 }
             }
-            return ew(i);
+            return eF(i);
         }
 
-        public static C0295a UZ() {
-            C0295a c0295a = new C0295a();
-            c0295a.maxCount = Va();
-            c0295a.sizeLimit = Vb();
+        public static C0332a XF() {
+            C0332a c0332a = new C0332a();
+            c0332a.maxCount = XG();
+            c0332a.sizeLimit = XH();
             if (DEBUG) {
-                Log.d("CodeCacheSwitcher", "getCodeCacheConfig() maxCount: " + c0295a.maxCount + " ,sizeLimit: " + c0295a.sizeLimit);
+                Log.d("CodeCacheSwitcher", "getCodeCacheConfig() maxCount: " + c0332a.maxCount + " ,sizeLimit: " + c0332a.sizeLimit);
             }
-            return c0295a;
+            return c0332a;
         }
 
-        private static int Va() {
-            if (bLs < 0) {
-                bLs = com.baidu.swan.apps.w.a.abQ().getSwitch("swan_code_cache_max_count", 5);
+        private static int XG() {
+            if (bUp < 0) {
+                bUp = com.baidu.swan.apps.u.a.aeU().getSwitch("swan_code_cache_max_count", 5);
             }
-            return bLs;
+            return bUp;
         }
 
-        private static int Vb() {
-            if (bLt < 0) {
-                bLt = com.baidu.swan.apps.w.a.abQ().getSwitch("swan_code_cache_size_limit", 100);
+        private static int XH() {
+            if (bUq < 0) {
+                bUq = com.baidu.swan.apps.u.a.aeU().getSwitch("swan_code_cache_size_limit", 100);
             }
-            return bLt * 1024;
+            return bUq * 1024;
         }
     }
 }

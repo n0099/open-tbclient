@@ -1,5 +1,6 @@
 package com.baidu.webkit.internal.utils;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import com.baidu.webkit.internal.GlobalConstants;
 import com.baidu.webkit.internal.INoProGuard;
@@ -19,6 +20,7 @@ public class UtilsBlink implements INoProGuard {
         return file.mkdirs();
     }
 
+    @SuppressLint({"SdCardPath"})
     private static String getDataPath(Context context) {
         File filesDir = context.getFilesDir();
         return filesDir != null ? filesDir.getParent() : "/data/data/" + context.getPackageName() + "/";
@@ -32,6 +34,7 @@ public class UtilsBlink implements INoProGuard {
         return null;
     }
 
+    @SuppressLint({"SdCardPath"})
     private static String getFilesPath(Context context) {
         File filesDir = context.getFilesDir();
         return filesDir != null ? filesDir.getAbsolutePath() : "/data/data/" + context.getPackageName() + "/files/";

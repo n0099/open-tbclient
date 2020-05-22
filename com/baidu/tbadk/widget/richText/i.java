@@ -5,9 +5,9 @@ import tbclient.PbContent;
 /* loaded from: classes.dex */
 public class i {
     private int duration;
-    private int epA;
-    private String epB;
-    private int epC;
+    private int eEb;
+    private String eEc;
+    private int eEd;
     private int height;
     private int playCount;
     private String thumbUrl;
@@ -20,11 +20,11 @@ public class i {
             this.thumbUrl = pbContent.src;
             this.width = pbContent.width.intValue();
             this.height = pbContent.height.intValue();
-            this.epA = pbContent.e_type.intValue();
-            this.epB = pbContent.text;
+            this.eEb = pbContent.e_type.intValue();
+            this.eEc = pbContent.text;
             this.duration = pbContent.during_time.intValue();
             this.playCount = pbContent.count.intValue();
-            this.epC = pbContent.origin_size.intValue();
+            this.eEd = pbContent.origin_size.intValue();
         }
     }
 
@@ -44,12 +44,12 @@ public class i {
         return this.height;
     }
 
-    public String bcT() {
-        return this.epB;
+    public String bje() {
+        return this.eEc;
     }
 
-    public boolean bcU() {
-        return this.epA == 15;
+    public boolean bjf() {
+        return this.eEb == 15;
     }
 
     public boolean isAvaliable() {
@@ -61,6 +61,6 @@ public class i {
     }
 
     public int getFileSize() {
-        return this.epC;
+        return this.eEd;
     }
 }

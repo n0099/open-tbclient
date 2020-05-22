@@ -48,7 +48,7 @@ public class ay {
             if (this.f870a[1] != 0) {
                 sb.append("   S[1]!=0");
             }
-            com.xiaomi.channel.commonutils.logger.b.m50a(sb.toString());
+            com.xiaomi.channel.commonutils.logger.b.m52a(sb.toString());
         }
     }
 
@@ -63,21 +63,21 @@ public class ay {
     }
 
     public static byte[] a(String str, String str2) {
-        byte[] m158a = com.xiaomi.push.bc.m158a(str);
+        byte[] m160a = com.xiaomi.push.bc.m160a(str);
         byte[] bytes = str2.getBytes();
-        byte[] bArr = new byte[m158a.length + 1 + bytes.length];
-        for (int i = 0; i < m158a.length; i++) {
-            bArr[i] = m158a[i];
+        byte[] bArr = new byte[m160a.length + 1 + bytes.length];
+        for (int i = 0; i < m160a.length; i++) {
+            bArr[i] = m160a[i];
         }
-        bArr[m158a.length] = 95;
+        bArr[m160a.length] = 95;
         for (int i2 = 0; i2 < bytes.length; i2++) {
-            bArr[m158a.length + 1 + i2] = bytes[i2];
+            bArr[m160a.length + 1 + i2] = bytes[i2];
         }
         return bArr;
     }
 
     public static byte[] a(byte[] bArr, String str) {
-        return a(bArr, com.xiaomi.push.bc.m158a(str));
+        return a(bArr, com.xiaomi.push.bc.m160a(str));
     }
 
     public static byte[] a(byte[] bArr, byte[] bArr2) {
@@ -86,7 +86,7 @@ public class ay {
         ayVar.a(bArr);
         ayVar.a();
         for (int i = 0; i < bArr2.length; i++) {
-            bArr3[i] = (byte) (bArr2[i] ^ ayVar.m550a());
+            bArr3[i] = (byte) (bArr2[i] ^ ayVar.m552a());
         }
         return bArr3;
     }
@@ -108,13 +108,13 @@ public class ay {
         ayVar.a(bArr);
         ayVar.a();
         for (int i4 = 0; i4 < i2; i4++) {
-            bArr3[i3 + i4] = (byte) (bArr2[i + i4] ^ ayVar.m550a());
+            bArr3[i3 + i4] = (byte) (bArr2[i + i4] ^ ayVar.m552a());
         }
         return bArr3;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    byte m550a() {
+    byte m552a() {
         this.b = (this.b + 1) % 256;
         this.c = (this.c + a(this.f870a[this.b])) % 256;
         a(this.f870a, this.b, this.c);

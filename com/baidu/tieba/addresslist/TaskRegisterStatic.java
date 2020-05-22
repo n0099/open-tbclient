@@ -14,6 +14,8 @@ import com.baidu.tieba.addresslist.im.newFriend.ResponsePassFriendMessage;
 import com.baidu.tieba.im.c;
 /* loaded from: classes8.dex */
 public class TaskRegisterStatic {
+    public static String Tag = "tag";
+
     static {
         TbadkCoreApplication.getInst().RegisterIntent(AddressListActivityConfig.class, AddressListActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(NewFriendsActivityConfig.class, NewFriendsActivity.class);

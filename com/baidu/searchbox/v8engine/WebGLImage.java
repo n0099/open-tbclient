@@ -381,7 +381,10 @@ public class WebGLImage {
             return saveTempFilePath(j2, compressCanvas(readCanvas(j, i, i2, i3, i4), i5, i6, str, f), str);
         } catch (Throwable th) {
             Log.e("V8", th.getMessage(), th);
-            V8Engine.getInstance(j2).throwJSException(JSExceptionType.Error, th.getMessage());
+            V8Engine v8Engine = V8Engine.getInstance(j2);
+            if (v8Engine != null) {
+                v8Engine.throwJSException(JSExceptionType.Error, th.getMessage());
+            }
             return null;
         }
     }

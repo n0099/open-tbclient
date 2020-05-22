@@ -11,7 +11,7 @@ import com.baidu.tieba.ala.guardthrone.c.a;
 /* loaded from: classes3.dex */
 public class GuardThroneInitialize {
     static {
-        TbadkCoreApplication.getInst().RegisterIntent(AlaGuardThroneActivityConfig.class, GuardThroneActivity.class);
+        TbadkCoreApplication.getInst().RegisterIntent(AlaGuardThroneActivityConfig.class, NewThroneAndNobleActivity.class);
         CustomMessageTask customMessageTask = new CustomMessageTask(2913152, new CustomMessageTask.CustomRunnable<TbPageContext>() { // from class: com.baidu.tieba.ala.guardthrone.GuardThroneInitialize.1
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<TbPageContext> customMessage) {

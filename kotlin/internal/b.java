@@ -7,28 +7,28 @@ import kotlin.text.l;
 @h
 /* loaded from: classes7.dex */
 public final class b {
-    public static final a mXE;
+    public static final a nsG;
 
     static {
         a aVar;
         Object newInstance;
         Object newInstance2;
-        int dDP = dDP();
-        if (dDP >= 65544) {
+        int dLJ = dLJ();
+        if (dLJ >= 65544) {
             try {
                 newInstance = Class.forName("kotlin.internal.b.a").newInstance();
-                q.i(newInstance, "Class.forName(\"kotlin.in…entations\").newInstance()");
+                q.l(newInstance, "Class.forName(\"kotlin.in…entations\").newInstance()");
                 try {
                 } catch (ClassCastException e) {
                     ClassLoader classLoader = newInstance.getClass().getClassLoader();
                     Throwable initCause = new ClassCastException("Instance classloader: " + classLoader + ", base type classloader: " + a.class.getClassLoader()).initCause(e);
-                    q.i(initCause, "ClassCastException(\"Inst…baseTypeCL\").initCause(e)");
+                    q.l((Object) initCause, "ClassCastException(\"Inst…baseTypeCL\").initCause(e)");
                     throw initCause;
                 }
             } catch (ClassNotFoundException e2) {
                 try {
                     Object newInstance3 = Class.forName("kotlin.internal.JRE8PlatformImplementations").newInstance();
-                    q.i(newInstance3, "Class.forName(\"kotlin.in…entations\").newInstance()");
+                    q.l(newInstance3, "Class.forName(\"kotlin.in…entations\").newInstance()");
                     try {
                         if (newInstance3 == null) {
                             throw new TypeCastException("null cannot be cast to non-null type kotlin.internal.PlatformImplementations");
@@ -37,7 +37,7 @@ public final class b {
                     } catch (ClassCastException e3) {
                         ClassLoader classLoader2 = newInstance3.getClass().getClassLoader();
                         Throwable initCause2 = new ClassCastException("Instance classloader: " + classLoader2 + ", base type classloader: " + a.class.getClassLoader()).initCause(e3);
-                        q.i(initCause2, "ClassCastException(\"Inst…baseTypeCL\").initCause(e)");
+                        q.l((Object) initCause2, "ClassCastException(\"Inst…baseTypeCL\").initCause(e)");
                         throw initCause2;
                     }
                 } catch (ClassNotFoundException e4) {
@@ -47,16 +47,16 @@ public final class b {
                 throw new TypeCastException("null cannot be cast to non-null type kotlin.internal.PlatformImplementations");
             }
             aVar = (a) newInstance;
-            mXE = aVar;
+            nsG = aVar;
         }
-        if (dDP >= 65543) {
+        if (dLJ >= 65543) {
             try {
                 newInstance2 = Class.forName("kotlin.internal.a.a").newInstance();
-                q.i(newInstance2, "Class.forName(\"kotlin.in…entations\").newInstance()");
+                q.l(newInstance2, "Class.forName(\"kotlin.in…entations\").newInstance()");
             } catch (ClassNotFoundException e5) {
                 try {
                     Object newInstance4 = Class.forName("kotlin.internal.JRE7PlatformImplementations").newInstance();
-                    q.i(newInstance4, "Class.forName(\"kotlin.in…entations\").newInstance()");
+                    q.l(newInstance4, "Class.forName(\"kotlin.in…entations\").newInstance()");
                     try {
                         if (newInstance4 == null) {
                             throw new TypeCastException("null cannot be cast to non-null type kotlin.internal.PlatformImplementations");
@@ -65,7 +65,7 @@ public final class b {
                     } catch (ClassCastException e6) {
                         ClassLoader classLoader3 = newInstance4.getClass().getClassLoader();
                         Throwable initCause3 = new ClassCastException("Instance classloader: " + classLoader3 + ", base type classloader: " + a.class.getClassLoader()).initCause(e6);
-                        q.i(initCause3, "ClassCastException(\"Inst…baseTypeCL\").initCause(e)");
+                        q.l((Object) initCause3, "ClassCastException(\"Inst…baseTypeCL\").initCause(e)");
                         throw initCause3;
                     }
                 } catch (ClassNotFoundException e7) {
@@ -76,19 +76,19 @@ public final class b {
                     throw new TypeCastException("null cannot be cast to non-null type kotlin.internal.PlatformImplementations");
                 }
                 aVar = (a) newInstance2;
-                mXE = aVar;
+                nsG = aVar;
             } catch (ClassCastException e8) {
                 ClassLoader classLoader4 = newInstance2.getClass().getClassLoader();
                 Throwable initCause4 = new ClassCastException("Instance classloader: " + classLoader4 + ", base type classloader: " + a.class.getClassLoader()).initCause(e8);
-                q.i(initCause4, "ClassCastException(\"Inst…baseTypeCL\").initCause(e)");
+                q.l((Object) initCause4, "ClassCastException(\"Inst…baseTypeCL\").initCause(e)");
                 throw initCause4;
             }
         }
         aVar = new a();
-        mXE = aVar;
+        nsG = aVar;
     }
 
-    private static final int dDP() {
+    private static final int dLJ() {
         int i;
         String property = System.getProperty("java.specification.version");
         if (property == null) {
@@ -111,13 +111,13 @@ public final class b {
             throw new TypeCastException("null cannot be cast to non-null type java.lang.String");
         }
         String substring = property.substring(0, a);
-        q.i(substring, "(this as java.lang.Strin…ing(startIndex, endIndex)");
+        q.l((Object) substring, "(this as java.lang.Strin…ing(startIndex, endIndex)");
         int i2 = a + 1;
         if (property == null) {
             throw new TypeCastException("null cannot be cast to non-null type java.lang.String");
         }
         String substring2 = property.substring(i2, a2);
-        q.i(substring2, "(this as java.lang.Strin…ing(startIndex, endIndex)");
+        q.l((Object) substring2, "(this as java.lang.Strin…ing(startIndex, endIndex)");
         try {
             return (Integer.parseInt(substring) * 65536) + Integer.parseInt(substring2);
         } catch (NumberFormatException e2) {

@@ -9,34 +9,34 @@ import com.baidu.swan.apps.res.widget.dialog.g;
 import com.baidu.swan.apps.runtime.e;
 /* loaded from: classes11.dex */
 public class a {
-    private static boolean bIh;
+    private static boolean bQY;
 
-    public static void i(Context context, boolean z) {
-        final e akM = e.akM();
-        if (akM != null) {
-            b.dd(z);
-            new g.a(context).e(context.getString(a.h.aiapps_debug_switch_title)).lV(context.getString(z ? a.h.aiapps_open_debug : a.h.aiapps_close_debug)).a(new com.baidu.swan.apps.view.c.a()).eA(false).c(a.h.aiapps_confirm, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.console.a.1
+    public static void k(Context context, boolean z) {
+        final e aoF = e.aoF();
+        if (aoF != null) {
+            b.dq(z);
+            new g.a(context).e(context.getString(a.h.aiapps_debug_switch_title)).nq(context.getString(z ? a.h.aiapps_open_debug : a.h.aiapps_close_debug)).a(new com.baidu.swan.apps.view.c.a()).eT(false).c(a.h.aiapps_confirm, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.console.a.1
                 @Override // android.content.DialogInterface.OnClickListener
                 public void onClick(DialogInterface dialogInterface, int i) {
-                    SwanAppActivity akI = e.this.akI();
-                    if (akI != null && Build.VERSION.SDK_INT >= 21) {
-                        akI.finishAndRemoveTask();
+                    SwanAppActivity aoz = e.this.aoz();
+                    if (aoz != null && Build.VERSION.SDK_INT >= 21) {
+                        aoz.finishAndRemoveTask();
                     }
                     System.exit(0);
                 }
-            }).akw();
+            }).aon();
         }
     }
 
-    public static void bs(Context context) {
-        i(context, !Th());
+    public static void bC(Context context) {
+        k(context, !VO());
     }
 
-    public static boolean Th() {
-        return bIh;
+    public static boolean VO() {
+        return bQY;
     }
 
-    public static void dc(boolean z) {
-        bIh = z;
+    public static void dp(boolean z) {
+        bQY = z;
     }
 }

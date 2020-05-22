@@ -49,27 +49,27 @@ public class a extends Drawable implements Animatable {
             a.this.unscheduleSelf(runnable);
         }
     };
-    private final C0031a Wj = new C0031a(this.mCallback);
+    private final C0033a Wx = new C0033a(this.mCallback);
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(Context context, View view) {
         this.mParent = view;
         this.mResources = context.getResources();
-        this.Wj.setColors(COLORS);
+        this.Wx.setColors(COLORS);
         updateSizes(1);
         setupAnimators();
     }
 
     private void setSizeParameters(double d, double d2, double d3, double d4, float f, float f2) {
-        C0031a c0031a = this.Wj;
+        C0033a c0033a = this.Wx;
         float f3 = this.mResources.getDisplayMetrics().density;
         this.mWidth = f3 * d;
         this.mHeight = f3 * d2;
-        c0031a.setStrokeWidth(((float) d4) * f3);
-        c0031a.setCenterRadius(f3 * d3);
-        c0031a.setColorIndex(0);
-        c0031a.setArrowDimensions(f * f3, f3 * f2);
-        c0031a.setInsets((int) this.mWidth, (int) this.mHeight);
+        c0033a.setStrokeWidth(((float) d4) * f3);
+        c0033a.setCenterRadius(f3 * d3);
+        c0033a.setColorIndex(0);
+        c0033a.setArrowDimensions(f * f3, f3 * f2);
+        c0033a.setInsets((int) this.mWidth, (int) this.mHeight);
     }
 
     public void updateSizes(int i) {
@@ -81,29 +81,29 @@ public class a extends Drawable implements Animatable {
     }
 
     public void showArrow(boolean z) {
-        this.Wj.setShowArrow(z);
+        this.Wx.setShowArrow(z);
     }
 
     public void setArrowScale(float f) {
-        this.Wj.setArrowScale(f);
+        this.Wx.setArrowScale(f);
     }
 
     public void setStartEndTrim(float f, float f2) {
-        this.Wj.setStartTrim(f);
-        this.Wj.setEndTrim(f2);
+        this.Wx.setStartTrim(f);
+        this.Wx.setEndTrim(f2);
     }
 
     public void setProgressRotation(float f) {
-        this.Wj.setRotation(f);
+        this.Wx.setRotation(f);
     }
 
     public void setBackgroundColor(int i) {
-        this.Wj.setBackgroundColor(i);
+        this.Wx.setBackgroundColor(i);
     }
 
     public void setColorSchemeColors(int... iArr) {
-        this.Wj.setColors(iArr);
-        this.Wj.setColorIndex(0);
+        this.Wx.setColors(iArr);
+        this.Wx.setColorIndex(0);
     }
 
     @Override // android.graphics.drawable.Drawable
@@ -121,23 +121,23 @@ public class a extends Drawable implements Animatable {
         Rect bounds = getBounds();
         int save = canvas.save();
         canvas.rotate(this.mRotation, bounds.exactCenterX(), bounds.exactCenterY());
-        this.Wj.draw(canvas, bounds);
+        this.Wx.draw(canvas, bounds);
         canvas.restoreToCount(save);
     }
 
     @Override // android.graphics.drawable.Drawable
     public void setAlpha(int i) {
-        this.Wj.setAlpha(i);
+        this.Wx.setAlpha(i);
     }
 
     @Override // android.graphics.drawable.Drawable
     public int getAlpha() {
-        return this.Wj.getAlpha();
+        return this.Wx.getAlpha();
     }
 
     @Override // android.graphics.drawable.Drawable
     public void setColorFilter(ColorFilter colorFilter) {
-        this.Wj.setColorFilter(colorFilter);
+        this.Wx.setColorFilter(colorFilter);
     }
 
     void setRotation(float f) {
@@ -166,15 +166,15 @@ public class a extends Drawable implements Animatable {
     @Override // android.graphics.drawable.Animatable
     public void start() {
         this.mAnimation.reset();
-        this.Wj.storeOriginals();
-        if (this.Wj.getEndTrim() != this.Wj.getStartTrim()) {
+        this.Wx.storeOriginals();
+        if (this.Wx.getEndTrim() != this.Wx.getStartTrim()) {
             this.mFinishing = true;
             this.mAnimation.setDuration(666L);
             this.mParent.startAnimation(this.mAnimation);
             return;
         }
-        this.Wj.setColorIndex(0);
-        this.Wj.resetOriginals();
+        this.Wx.setColorIndex(0);
+        this.Wx.resetOriginals();
         this.mAnimation.setDuration(1332L);
         this.mParent.startAnimation(this.mAnimation);
     }
@@ -183,13 +183,13 @@ public class a extends Drawable implements Animatable {
     public void stop() {
         this.mParent.clearAnimation();
         setRotation(0.0f);
-        this.Wj.setShowArrow(false);
-        this.Wj.setColorIndex(0);
-        this.Wj.resetOriginals();
+        this.Wx.setShowArrow(false);
+        this.Wx.setColorIndex(0);
+        this.Wx.resetOriginals();
     }
 
-    float a(C0031a c0031a) {
-        return (float) Math.toRadians(c0031a.getStrokeWidth() / (6.283185307179586d * c0031a.getCenterRadius()));
+    float a(C0033a c0033a) {
+        return (float) Math.toRadians(c0033a.getStrokeWidth() / (6.283185307179586d * c0033a.getCenterRadius()));
     }
 
     private int evaluateColorChange(float f, int i, int i2) {
@@ -202,41 +202,41 @@ public class a extends Drawable implements Animatable {
         return (i6 + ((int) (((intValue2 & 255) - i6) * f))) | ((i3 + ((int) ((((intValue2 >> 24) & 255) - i3) * f))) << 24) | ((i4 + ((int) ((((intValue2 >> 16) & 255) - i4) * f))) << 16) | ((((int) ((((intValue2 >> 8) & 255) - i5) * f)) + i5) << 8);
     }
 
-    void a(float f, C0031a c0031a) {
+    void a(float f, C0033a c0033a) {
         if (f > 0.75f) {
-            c0031a.setColor(evaluateColorChange((f - 0.75f) / 0.25f, c0031a.getStartingColor(), c0031a.getNextColor()));
+            c0033a.setColor(evaluateColorChange((f - 0.75f) / 0.25f, c0033a.getStartingColor(), c0033a.getNextColor()));
         }
     }
 
-    void b(float f, C0031a c0031a) {
-        a(f, c0031a);
-        float a = a(c0031a);
-        c0031a.setStartTrim((((c0031a.getStartingEndTrim() - a) - c0031a.getStartingStartTrim()) * f) + c0031a.getStartingStartTrim());
-        c0031a.setEndTrim(c0031a.getStartingEndTrim());
-        c0031a.setRotation(((((float) (Math.floor(c0031a.getStartingRotation() / 0.8f) + 1.0d)) - c0031a.getStartingRotation()) * f) + c0031a.getStartingRotation());
+    void b(float f, C0033a c0033a) {
+        a(f, c0033a);
+        float a = a(c0033a);
+        c0033a.setStartTrim((((c0033a.getStartingEndTrim() - a) - c0033a.getStartingStartTrim()) * f) + c0033a.getStartingStartTrim());
+        c0033a.setEndTrim(c0033a.getStartingEndTrim());
+        c0033a.setRotation(((((float) (Math.floor(c0033a.getStartingRotation() / 0.8f) + 1.0d)) - c0033a.getStartingRotation()) * f) + c0033a.getStartingRotation());
     }
 
     private void setupAnimators() {
-        final C0031a c0031a = this.Wj;
+        final C0033a c0033a = this.Wx;
         Animation animation = new Animation() { // from class: com.baidu.adp.widget.refresh.a.1
             @Override // android.view.animation.Animation
             public void applyTransformation(float f, Transformation transformation) {
                 if (a.this.mFinishing) {
-                    a.this.b(f, c0031a);
+                    a.this.b(f, c0033a);
                     return;
                 }
-                float a = a.this.a(c0031a);
-                float startingEndTrim = c0031a.getStartingEndTrim();
-                float startingStartTrim = c0031a.getStartingStartTrim();
-                float startingRotation = c0031a.getStartingRotation();
-                a.this.a(f, c0031a);
+                float a = a.this.a(c0033a);
+                float startingEndTrim = c0033a.getStartingEndTrim();
+                float startingStartTrim = c0033a.getStartingStartTrim();
+                float startingRotation = c0033a.getStartingRotation();
+                a.this.a(f, c0033a);
                 if (f <= 0.5f) {
-                    c0031a.setStartTrim(startingStartTrim + (a.MATERIAL_INTERPOLATOR.getInterpolation(f / 0.5f) * (0.8f - a)));
+                    c0033a.setStartTrim(startingStartTrim + (a.MATERIAL_INTERPOLATOR.getInterpolation(f / 0.5f) * (0.8f - a)));
                 }
                 if (f > 0.5f) {
-                    c0031a.setEndTrim(((0.8f - a) * a.MATERIAL_INTERPOLATOR.getInterpolation((f - 0.5f) / 0.5f)) + startingEndTrim);
+                    c0033a.setEndTrim(((0.8f - a) * a.MATERIAL_INTERPOLATOR.getInterpolation((f - 0.5f) / 0.5f)) + startingEndTrim);
                 }
-                c0031a.setRotation((0.25f * f) + startingRotation);
+                c0033a.setRotation((0.25f * f) + startingRotation);
                 a.this.setRotation((216.0f * f) + (1080.0f * (a.this.mRotationCount / 5.0f)));
             }
         };
@@ -255,13 +255,13 @@ public class a extends Drawable implements Animatable {
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationRepeat(Animation animation2) {
-                c0031a.storeOriginals();
-                c0031a.goToNextColor();
-                c0031a.setStartTrim(c0031a.getEndTrim());
+                c0033a.storeOriginals();
+                c0033a.goToNextColor();
+                c0033a.setStartTrim(c0033a.getEndTrim());
                 if (a.this.mFinishing) {
                     a.this.mFinishing = false;
                     animation2.setDuration(1332L);
-                    c0031a.setShowArrow(false);
+                    c0033a.setShowArrow(false);
                     return;
                 }
                 a.this.mRotationCount = (a.this.mRotationCount + 1.0f) % 5.0f;
@@ -273,7 +273,7 @@ public class a extends Drawable implements Animatable {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.adp.widget.refresh.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0031a {
+    public static class C0033a {
         private int mAlpha;
         private Path mArrow;
         private int mArrowHeight;
@@ -299,7 +299,7 @@ public class a extends Drawable implements Animatable {
         private float mStrokeInset = 2.5f;
         private final Paint mCirclePaint = new Paint(1);
 
-        C0031a(Drawable.Callback callback) {
+        C0033a(Drawable.Callback callback) {
             this.mCallback = callback;
             this.mPaint.setStrokeCap(Paint.Cap.SQUARE);
             this.mPaint.setAntiAlias(true);

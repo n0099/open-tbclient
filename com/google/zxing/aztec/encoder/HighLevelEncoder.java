@@ -40,11 +40,11 @@ public final class HighLevelEncoder {
         }
         CHAR_MAP[2][44] = 12;
         CHAR_MAP[2][46] = 13;
-        int[] iArr2 = {0, 32, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 27, 28, 29, 30, 31, 64, 92, 94, 95, 96, Constants.METHOD_IM_FRIEND_GROUP_QUERY_MEMBER, Opcodes.IAND, 127};
+        int[] iArr2 = {0, 32, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 27, 28, 29, 30, 31, 64, 92, 94, 95, 96, 124, Opcodes.IAND, 127};
         for (int i4 = 0; i4 < 28; i4++) {
             CHAR_MAP[3][iArr2[i4]] = i4;
         }
-        int[] iArr3 = {0, 13, 0, 0, 0, 0, 33, 39, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 58, 59, 60, 61, 62, 63, 91, 93, Constants.METHOD_IM_FRIEND_GROUP_QUERY, Constants.METHOD_IM_FRIEND_GROUP_ASSIGN};
+        int[] iArr3 = {0, 13, 0, 0, 0, 0, 33, 39, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 58, 59, 60, 61, 62, 63, 91, 93, 123, Constants.METHOD_IM_FRIEND_GROUP_ASSIGN};
         for (int i5 = 0; i5 < 31; i5++) {
             if (iArr3[i5] > 0) {
                 CHAR_MAP[4][iArr3[i5]] = i5;

@@ -13,23 +13,23 @@ public class a extends com.baidu.swan.b.d.a {
     }
 
     @Override // com.baidu.swan.b.d.a
-    public com.baidu.swan.apps.api.b.b b(@NonNull JSONObject jSONObject, @NonNull final com.baidu.swan.apps.p.b bVar) {
+    public com.baidu.swan.apps.api.c.b b(@NonNull JSONObject jSONObject, @NonNull final com.baidu.swan.apps.n.b bVar) {
         if (DEBUG && jSONObject.optBoolean("debug", false)) {
             Log.i("authorize", "debug mode: true.");
-            bVar.V(null);
+            bVar.aa(null);
         } else {
-            e akN = e.akN();
-            if (akN == null) {
+            e aoG = e.aoG();
+            if (aoG == null) {
                 bVar.onFail(10001, "authorize fail.");
             } else {
-                akN.akW().d("mapp_gamecenter_private_api", new com.baidu.swan.apps.as.d.b<com.baidu.swan.apps.setting.oauth.e>() { // from class: com.baidu.swan.b.b.a.1
+                aoG.aoR().d("mapp_gamecenter_private_api", new com.baidu.swan.apps.aq.e.b<com.baidu.swan.apps.setting.oauth.e>() { // from class: com.baidu.swan.b.b.a.1
                     /* JADX DEBUG: Method merged with bridge method */
-                    @Override // com.baidu.swan.apps.as.d.b
+                    @Override // com.baidu.swan.apps.aq.e.b
                     /* renamed from: c */
-                    public void F(com.baidu.swan.apps.setting.oauth.e eVar) {
+                    public void H(com.baidu.swan.apps.setting.oauth.e eVar) {
                         boolean z = true;
-                        if ((eVar == null || eVar.forbidden || eVar.csx != 1) ? false : false) {
-                            bVar.V(null);
+                        if ((eVar == null || eVar.forbidden || eVar.cEu != 1) ? false : false) {
+                            bVar.aa(null);
                         } else {
                             bVar.onFail(10001, "authorize fail.");
                         }

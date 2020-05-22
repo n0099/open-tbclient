@@ -1,101 +1,51 @@
 package com.baidu.swan.apps.swancore.d;
 
-import android.util.Log;
-import com.baidu.swan.apps.as.ai;
-import java.util.ArrayList;
-import java.util.Iterator;
+import android.support.annotation.Nullable;
+import com.baidu.swan.apps.v.b.c;
 /* loaded from: classes11.dex */
-public final class b {
-    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public static volatile b cvo;
-    private ArrayList<com.baidu.swan.apps.swancore.a.a> cvp = new ArrayList<>();
-    private ArrayList<com.baidu.swan.apps.swancore.a.a> cvq = new ArrayList<>();
+public class b {
+    public boolean cHv;
+    public boolean cHw;
+    @Nullable
+    public c cHx;
+    public String cHy;
 
-    public static b anK() {
-        if (cvo == null) {
-            synchronized (b.class) {
-                if (cvo == null) {
-                    cvo = new b();
-                }
-            }
-        }
-        return cvo;
+    private b() {
+        this.cHv = false;
+        this.cHw = false;
+        this.cHx = null;
+        this.cHy = "";
     }
 
-    public void gV(int i) {
-        synchronized (b.class) {
-            a.gP(i);
-            gW(i);
-        }
-    }
+    /* loaded from: classes11.dex */
+    public static class a {
+        private boolean cHv = false;
+        private boolean cHw = false;
+        @Nullable
+        private c cHx = null;
+        private String cHy = "";
 
-    public void a(com.baidu.swan.apps.swancore.a.a aVar, final int i) {
-        ArrayList<com.baidu.swan.apps.swancore.a.a> arrayList;
-        if (DEBUG) {
-            Log.d("PresetSwanCoreUpdater", "updateSwanCoreAsync start.");
+        public static a asd() {
+            return new a();
         }
-        synchronized (b.class) {
-            if (!a.gL(i)) {
-                if (DEBUG) {
-                    Log.d("PresetSwanCoreUpdater", "updateSwanCoreAsync isNeedUpdateStatus = false.");
-                }
-                a(aVar);
-                return;
-            }
-            if (i == 1) {
-                arrayList = this.cvq;
-            } else {
-                arrayList = this.cvp;
-            }
-            if (arrayList.isEmpty()) {
-                new Thread(new Runnable() { // from class: com.baidu.swan.apps.swancore.d.b.1
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        if (b.DEBUG) {
-                            Log.d("PresetSwanCoreUpdater", "onPresetUpdate start.");
-                        }
-                        a.gP(i);
-                        b.this.gW(i);
-                        if (b.DEBUG) {
-                            Log.d("PresetSwanCoreUpdater", "onPresetUpdate end.");
-                        }
-                    }
-                }, "updateSwanCoreAsync").start();
-            }
-            arrayList.add(aVar);
-            if (DEBUG) {
-                Log.d("PresetSwanCoreUpdater", "updateSwanCoreAsync end.");
-            }
-        }
-    }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void gW(int i) {
-        synchronized (b.class) {
-            if (i == 0) {
-                Iterator<com.baidu.swan.apps.swancore.a.a> it = this.cvp.iterator();
-                while (it.hasNext()) {
-                    a(it.next());
-                }
-                this.cvp.clear();
-            } else if (i == 1) {
-                Iterator<com.baidu.swan.apps.swancore.a.a> it2 = this.cvq.iterator();
-                while (it2.hasNext()) {
-                    a(it2.next());
-                }
-                this.cvq.clear();
-            }
+        public a fo(boolean z) {
+            this.cHv = z;
+            return this;
         }
-    }
 
-    private void a(final com.baidu.swan.apps.swancore.a.a aVar) {
-        if (aVar != null) {
-            ai.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.swancore.d.b.2
-                @Override // java.lang.Runnable
-                public void run() {
-                    aVar.Zz();
-                }
-            });
+        public a pk(String str) {
+            this.cHy = str;
+            return this;
+        }
+
+        public b ase() {
+            b bVar = new b();
+            bVar.cHv = this.cHv;
+            bVar.cHw = this.cHw;
+            bVar.cHx = this.cHx;
+            bVar.cHy = this.cHy;
+            return bVar;
         }
     }
 }

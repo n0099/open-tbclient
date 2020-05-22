@@ -31,7 +31,7 @@ public final class LogUtil {
             if (TextUtils.isEmpty(str)) {
                 Log.v("apollon_rest", str2);
             } else {
-                Log.v(str, str2);
+                Log.v("(" + a().getFileName() + ":" + a().getLineNumber() + ")[" + a().getMethodName() + "]" + str, str2);
             }
         }
     }
@@ -44,13 +44,15 @@ public final class LogUtil {
             if (TextUtils.isEmpty(str)) {
                 Log.d("apollon_rest", str2);
             } else {
-                Log.d(str, str2);
+                Log.d("(" + a().getFileName() + ":" + a().getLineNumber() + ")[" + a().getMethodName() + "]" + str, str2);
             }
         }
     }
 
     public static void d(String str) {
-        d("apollon_rest", str);
+        if (d) {
+            Log.d("(" + a().getFileName() + ":" + a().getLineNumber() + ")[" + a().getMethodName() + "]", str);
+        }
     }
 
     public static void i(String str, String str2) {
@@ -61,8 +63,14 @@ public final class LogUtil {
             if (TextUtils.isEmpty(str)) {
                 Log.i("apollon_rest", str2);
             } else {
-                Log.i(str, str2);
+                Log.i("(" + a().getFileName() + ":" + a().getLineNumber() + ")[" + a().getMethodName() + "]" + str, str2);
             }
+        }
+    }
+
+    public static void i(String str) {
+        if (d) {
+            Log.i("(" + a().getFileName() + ":" + a().getLineNumber() + ")[" + a().getMethodName() + "]", str);
         }
     }
 
@@ -74,8 +82,26 @@ public final class LogUtil {
             if (TextUtils.isEmpty(str)) {
                 Log.w("apollon_rest", str2);
             } else {
-                Log.w(str, str2);
+                Log.w("(" + a().getFileName() + ":" + a().getLineNumber() + ")[" + a().getMethodName() + "]" + str, str2);
             }
+        }
+    }
+
+    public static void w(String str) {
+        if (e) {
+            Log.w("(" + a().getFileName() + ":" + a().getLineNumber() + ")[" + a().getMethodName() + "]", str);
+        }
+    }
+
+    public static void e(String str) {
+        if (f) {
+            Log.e("(" + a().getFileName() + ":" + a().getLineNumber() + ")[" + a().getMethodName() + "]", str);
+        }
+    }
+
+    public static void e(String str, String str2) {
+        if (f) {
+            Log.e("(" + a().getFileName() + ":" + a().getLineNumber() + ")[" + a().getMethodName() + "]" + str, str2);
         }
     }
 
@@ -87,7 +113,7 @@ public final class LogUtil {
             if (TextUtils.isEmpty(str)) {
                 Log.e("apollon_rest", str2, th);
             } else {
-                Log.e(str, str2, th);
+                Log.e("(" + a().getFileName() + ":" + a().getLineNumber() + ")[" + a().getMethodName() + "]" + str, str2);
             }
         }
     }
@@ -169,5 +195,23 @@ public final class LogUtil {
                 e2.printStackTrace();
             }
         }
+    }
+
+    private static StackTraceElement a() {
+        StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
+        int length = stackTrace.length;
+        int i = 0;
+        boolean z = false;
+        while (i < length) {
+            StackTraceElement stackTraceElement = stackTrace[i];
+            boolean equals = stackTraceElement.getClassName().equals(LogUtil.class.getName());
+            if (!z || equals) {
+                i++;
+                z = equals;
+            } else {
+                return stackTraceElement;
+            }
+        }
+        return null;
     }
 }

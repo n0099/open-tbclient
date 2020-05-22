@@ -1134,7 +1134,7 @@ public class ASMDeserializerFactory implements Opcodes {
         methodVisitor.visitVarInsn(25, context.var("lexer"));
         methodVisitor.visitMethodInsn(Opcodes.INVOKEVIRTUAL, JSONLexerBase, "getCurrent", "()C");
         if (i == 12) {
-            methodVisitor.visitVarInsn(16, Constants.METHOD_IM_FRIEND_GROUP_QUERY);
+            methodVisitor.visitVarInsn(16, 123);
         } else if (i == 14) {
             methodVisitor.visitVarInsn(16, 91);
         } else {

@@ -8,7 +8,7 @@ import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.scheme.actions.ab;
+import com.baidu.swan.apps.scheme.actions.aa;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -20,40 +20,40 @@ import org.apache.http.cookie.SM;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
-public class a extends ab {
-    public static final Set<String> bDm = com.facebook.common.internal.i.N("REFERER", "USER-AGENT");
-    protected ConcurrentHashMap<String, Long> cff;
+public class a extends aa {
+    public static final Set<String> bLI = com.facebook.common.internal.i.O("REFERER", "USER-AGENT");
+    protected ConcurrentHashMap<String, Long> cpN;
 
     public a(com.baidu.swan.apps.scheme.j jVar, String str) {
         super(jVar, str);
-        this.cff = new ConcurrentHashMap<>();
+        this.cpN = new ConcurrentHashMap<>();
     }
 
-    @Override // com.baidu.swan.apps.scheme.actions.ab
+    @Override // com.baidu.swan.apps.scheme.actions.aa
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
         return false;
     }
 
-    public final long kR(String str) {
+    public final long mf(String str) {
         long j;
         if (TextUtils.isEmpty(str)) {
             return 0L;
         }
         try {
-            j = this.cff.get(str).longValue();
+            j = this.cpN.get(str).longValue();
         } catch (Exception e) {
             j = 0;
         }
         return j;
     }
 
-    public final void kS(String str) {
-        if (this.cff != null && !TextUtils.isEmpty(str)) {
-            this.cff.remove(str);
+    public final void mg(String str) {
+        if (this.cpN != null && !TextUtils.isEmpty(str)) {
+            this.cpN.remove(str);
         }
     }
 
-    protected static HashMap<String, String> aE(@Nullable JSONObject jSONObject) {
+    protected static HashMap<String, String> aI(@Nullable JSONObject jSONObject) {
         if (jSONObject == null || jSONObject.length() < 1) {
             return null;
         }
@@ -61,11 +61,12 @@ public class a extends ab {
         Iterator<String> keys = jSONObject.keys();
         while (keys.hasNext()) {
             String next = keys.next();
-            if (!TextUtils.isEmpty(next) && !bDm.contains(next.toUpperCase())) {
+            if (!TextUtils.isEmpty(next) && !bLI.contains(next.toUpperCase())) {
                 String optString = jSONObject.optString(next);
-                if (!TextUtils.isEmpty(optString)) {
-                    hashMap.put(next, optString);
+                if (TextUtils.isEmpty(optString)) {
+                    optString = "";
                 }
+                hashMap.put(next, optString);
             }
         }
         return hashMap;
@@ -73,18 +74,18 @@ public class a extends ab {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public static HashMap<String, String> c(@Nullable JSONObject jSONObject, boolean z) {
-        HashMap<String, String> aE = aE(jSONObject);
+        HashMap<String, String> aI = aI(jSONObject);
         if (z) {
-            if (aE == null) {
-                aE = new HashMap<>();
+            if (aI == null) {
+                aI = new HashMap<>();
             }
-            aE.put("Referer", com.baidu.swan.apps.api.module.g.c.RI());
+            aI.put("Referer", com.baidu.swan.apps.api.module.network.c.Uj());
         }
-        return aE;
+        return aI;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public JSONObject gX(String str) {
+    public JSONObject hN(String str) {
         JSONObject jSONObject = new JSONObject();
         try {
             if (!TextUtils.isEmpty(str)) {
@@ -143,7 +144,7 @@ public class a extends ab {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void m(@NonNull JSONObject jSONObject, String str) throws JSONException {
+    public void t(@NonNull JSONObject jSONObject, String str) throws JSONException {
         String str2;
         if (!TextUtils.isEmpty(str)) {
             String optString = jSONObject.optString(SM.COOKIE);
@@ -161,12 +162,12 @@ public class a extends ab {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public String ahd() {
-        return com.baidu.swan.apps.w.a.acl().Qi().getCookie(".baidu.com");
+    public String akw() {
+        return com.baidu.swan.apps.u.a.afo().SM().getCookie(".baidu.com");
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public JSONObject fJ(int i) {
+    public JSONObject fY(int i) {
         switch (i) {
             case 0:
                 return UnitedSchemeUtility.wrapCallbackParams(0);
@@ -174,6 +175,12 @@ public class a extends ab {
                 return UnitedSchemeUtility.wrapCallbackParams(202, "illegal request");
             case 2:
                 return UnitedSchemeUtility.wrapCallbackParams(202, "request url header must be https or wss");
+            case 3:
+                return UnitedSchemeUtility.wrapCallbackParams(202, "request:fail parameter error: arrayBuffer of data exceed size limit.");
+            case 4:
+                return UnitedSchemeUtility.wrapCallbackParams(202, "HTTP method is invalid");
+            case 5:
+                return UnitedSchemeUtility.wrapCallbackParams(202, "illegal upload file over size.");
             default:
                 return UnitedSchemeUtility.wrapCallbackParams(202, "illegal request");
         }

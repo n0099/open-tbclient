@@ -6,7 +6,7 @@ public class c implements d<ParserRet> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kascend.chushou.widget.a.d
     /* renamed from: c */
-    public long C(ParserRet parserRet) {
+    public long E(ParserRet parserRet) {
         return 1000L;
     }
 

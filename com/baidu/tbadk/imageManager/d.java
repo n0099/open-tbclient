@@ -52,12 +52,12 @@ public class d {
             }
             if (i2 > 0) {
                 an anVar = new an("c12223");
-                anVar.af("obj_param1", i2);
+                anVar.ag("obj_param1", i2);
                 TiebaStatic.log(anVar);
             }
             if (i > 0) {
                 an anVar2 = new an(TbadkCoreStatisticKey.FACESHOP_USE_EMOTION);
-                anVar2.af("obj_param1", i);
+                anVar2.ag("obj_param1", i);
                 TiebaStatic.log(anVar2);
             }
         }

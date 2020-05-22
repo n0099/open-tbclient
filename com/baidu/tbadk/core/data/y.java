@@ -1,100 +1,21 @@
 package com.baidu.tbadk.core.data;
 
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
-import com.xiaomi.mipush.sdk.Constants;
-import org.json.JSONObject;
-import tbclient.FrsPage.Banner;
+import tbclient.FrsPage.HeadSdk;
 /* loaded from: classes.dex */
 public class y {
-    private int dom;
-    private String don;
-    private int doo;
-    private String dop;
-    public String doq;
-    public float dor;
-    public boolean dos = true;
-    private String mDesc;
-    private String mTagName;
-    private int mType;
-    private String mValue;
+    private String dCt;
+    private String dCu;
+    private String dCv;
+    private String dCw;
+    private int dCx;
 
-    public int aIV() {
-        return this.dom;
-    }
-
-    public String aIW() {
-        return this.don;
-    }
-
-    public String getValue() {
-        return this.mValue;
-    }
-
-    public int getType() {
-        return this.mType;
-    }
-
-    public String aIM() {
-        return this.dop;
-    }
-
-    public void parserJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.dom = jSONObject.optInt("bannerType");
-                this.don = jSONObject.optString("bannerUrl");
-                this.mValue = jSONObject.optString("value");
-                this.mType = jSONObject.optInt("type");
-                this.mDesc = jSONObject.optString("desc");
-                this.doo = jSONObject.optInt("template_id");
-                this.dop = jSONObject.optString("obj_id");
-                this.mTagName = jSONObject.optString("tag_name");
-                this.doq = jSONObject.optString("tag_name_url");
-                tM(jSONObject.optString("tag_name_wh"));
-            } catch (Exception e) {
-                BdLog.e(e.toString());
-            }
+    public void a(HeadSdk headSdk) {
+        if (headSdk != null) {
+            this.dCt = headSdk.head_pic;
+            this.dCu = headSdk.head_text;
+            this.dCv = headSdk.sdk_name;
+            this.dCw = headSdk.sdk_params;
+            this.dCx = headSdk.head_type.intValue();
         }
-    }
-
-    public void a(Banner banner) {
-        if (banner != null) {
-            this.dom = banner.banner_type.intValue();
-            this.don = banner.banner_url;
-            this.mValue = banner.value;
-            this.mType = banner.type.intValue();
-            this.mDesc = banner.desc;
-            this.doo = banner.template_id.intValue();
-            this.dop = banner.obj_id;
-            this.mTagName = banner.tag_name;
-            this.doq = banner.tag_name_url;
-            tM(banner.tag_name_wh);
-        }
-    }
-
-    private void tM(String str) {
-        if (!TextUtils.isEmpty(str)) {
-            try {
-                String[] split = str.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
-                if (split != null && split.length >= 2) {
-                    int i = com.baidu.adp.lib.f.b.toInt(split[0], 1);
-                    int i2 = com.baidu.adp.lib.f.b.toInt(split[1], 1);
-                    if (i2 != 0) {
-                        this.dor = i / i2;
-                    }
-                }
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-            }
-        }
-    }
-
-    public boolean isValid() {
-        if (StringUtils.isNull(this.mValue)) {
-            return false;
-        }
-        return this.mType == 1 ? this.dom == 1 || this.dom == 4 || this.dom == 2 || this.dom == 3 : this.mType == 2 && !StringUtils.isNull(this.mDesc);
     }
 }

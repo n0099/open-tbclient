@@ -89,8 +89,8 @@ public class AnimeAR extends c {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str, final boolean z) {
         final a aVar = new a();
-        aVar.a(new a.InterfaceC0069a() { // from class: com.baidu.ar.anime.AnimeAR.3
-            @Override // com.baidu.ar.anime.a.InterfaceC0069a
+        aVar.a(new a.InterfaceC0071a() { // from class: com.baidu.ar.anime.AnimeAR.3
+            @Override // com.baidu.ar.anime.a.InterfaceC0071a
             public void b(FramePixels framePixels) {
                 AnimeAR.this.a(framePixels);
                 if (z && AnimeAR.this.bW != null) {
@@ -160,8 +160,8 @@ public class AnimeAR extends c {
             com.baidu.ar.f.b.b(TAG, "mAbilityName error: " + this.bx);
         }
         if (this.bW == null) {
-            this.bW = new b(new b.InterfaceC0071b() { // from class: com.baidu.ar.anime.AnimeAR.1
-                @Override // com.baidu.ar.anime.b.InterfaceC0071b
+            this.bW = new b(new b.InterfaceC0073b() { // from class: com.baidu.ar.anime.AnimeAR.1
+                @Override // com.baidu.ar.anime.b.InterfaceC0073b
                 public void a(int i, String str, long j) {
                     if (i == 200) {
                         j r = AnimeAR.this.r();

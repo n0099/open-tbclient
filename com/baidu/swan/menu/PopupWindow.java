@@ -18,7 +18,7 @@ import java.lang.ref.WeakReference;
 /* loaded from: classes11.dex */
 public class PopupWindow {
     private static final int[] ABOVE_ANCHOR_STATE_SET = {16842922};
-    private a cYe;
+    private a dji;
     private boolean mAboveAnchor;
     private Drawable mAboveAnchorBackgroundDrawable;
     private boolean mAllowScrollingAnchorParent;
@@ -392,7 +392,7 @@ public class PopupWindow {
     private int computeAnimationResource() {
         if (this.mAnimationStyle == -1) {
             if (this.mIsDropdown) {
-                return this.mAboveAnchor ? g.C0412g.PopupWindow_DropDownUp : g.C0412g.PopupWindow_DropDownDown;
+                return this.mAboveAnchor ? g.C0453g.PopupWindow_DropDownUp : g.C0453g.PopupWindow_DropDownDown;
             }
             return 0;
         }
@@ -462,24 +462,24 @@ public class PopupWindow {
                     ((ViewGroup) this.mPopupView).removeView(this.mContentView);
                 }
                 this.mPopupView = null;
-                if (this.cYe != null) {
-                    this.cYe.onDismiss();
+                if (this.dji != null) {
+                    this.dji.onDismiss();
                 }
             } catch (IllegalArgumentException e) {
                 if (this.mPopupView != this.mContentView && (this.mPopupView instanceof ViewGroup)) {
                     ((ViewGroup) this.mPopupView).removeView(this.mContentView);
                 }
                 this.mPopupView = null;
-                if (this.cYe != null) {
-                    this.cYe.onDismiss();
+                if (this.dji != null) {
+                    this.dji.onDismiss();
                 }
             } catch (Throwable th) {
                 if (this.mPopupView != this.mContentView && (this.mPopupView instanceof ViewGroup)) {
                     ((ViewGroup) this.mPopupView).removeView(this.mContentView);
                 }
                 this.mPopupView = null;
-                if (this.cYe != null) {
-                    this.cYe.onDismiss();
+                if (this.dji != null) {
+                    this.dji.onDismiss();
                 }
                 throw th;
             }
@@ -487,7 +487,7 @@ public class PopupWindow {
     }
 
     public void a(a aVar) {
-        this.cYe = aVar;
+        this.dji = aVar;
     }
 
     public void update() {

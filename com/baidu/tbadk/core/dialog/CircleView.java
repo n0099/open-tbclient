@@ -9,13 +9,13 @@ import android.view.View;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class CircleView extends View {
-    private static int duM = 360;
-    private static int duN = 100;
-    private int aVi;
-    private int duO;
-    private Paint duP;
-    private Paint duQ;
-    private RectF duR;
+    private static int dIH = 360;
+    private static int dII = 100;
+    private int bcw;
+    private int dIJ;
+    private Paint dIK;
+    private Paint dIL;
+    private RectF dIM;
     private int mValue;
     private int mWidth;
 
@@ -44,24 +44,24 @@ public class CircleView extends View {
 
     public void init() {
         this.mWidth = getResources().getDimensionPixelSize(R.dimen.ds100);
-        this.aVi = getResources().getDimensionPixelSize(R.dimen.ds4);
-        this.duO = getResources().getDimensionPixelSize(R.dimen.ds2);
-        this.duP = new Paint();
-        this.duP.setStrokeWidth(this.aVi);
-        this.duP.setColor(getResources().getColor(R.color.cp_cont_g));
-        this.duP.setStyle(Paint.Style.STROKE);
-        this.duP.setAntiAlias(true);
-        this.duQ = new Paint();
-        this.duQ.setStrokeWidth(this.duO);
-        this.duQ.setColor(getResources().getColor(R.color.common_color_10042));
-        this.duQ.setStyle(Paint.Style.STROKE);
-        this.duQ.setAntiAlias(true);
-        this.duR = new RectF(this.aVi, this.aVi, this.mWidth + this.aVi, this.mWidth + this.aVi);
+        this.bcw = getResources().getDimensionPixelSize(R.dimen.ds4);
+        this.dIJ = getResources().getDimensionPixelSize(R.dimen.ds2);
+        this.dIK = new Paint();
+        this.dIK.setStrokeWidth(this.bcw);
+        this.dIK.setColor(getResources().getColor(R.color.cp_cont_g));
+        this.dIK.setStyle(Paint.Style.STROKE);
+        this.dIK.setAntiAlias(true);
+        this.dIL = new Paint();
+        this.dIL.setStrokeWidth(this.dIJ);
+        this.dIL.setColor(getResources().getColor(R.color.common_color_10042));
+        this.dIL.setStyle(Paint.Style.STROKE);
+        this.dIL.setAntiAlias(true);
+        this.dIM = new RectF(this.bcw, this.bcw, this.mWidth + this.bcw, this.mWidth + this.bcw);
     }
 
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
-        canvas.drawArc(this.duR, 0.0f, duM, false, this.duQ);
-        canvas.drawArc(this.duR, 270.0f, (duM * this.mValue) / duN, false, this.duP);
+        canvas.drawArc(this.dIM, 0.0f, dIH, false, this.dIL);
+        canvas.drawArc(this.dIM, 270.0f, (dIH * this.mValue) / dII, false, this.dIK);
     }
 }

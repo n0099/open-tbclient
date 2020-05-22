@@ -25,8 +25,8 @@ public class a extends BaseAdapter {
 
     /* renamed from: com.baidu.tieba.pb.chosen.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public static class C0632a {
-        TbImageView XV;
+    public static class C0685a {
+        TbImageView Yl;
     }
 
     public a(Context context) {
@@ -45,7 +45,7 @@ public class a extends BaseAdapter {
         return this.list.size();
     }
 
-    public void dP(List<com.baidu.tieba.pb.b.a.d> list) {
+    public void dV(List<com.baidu.tieba.pb.b.a.d> list) {
         this.list.clear();
         if (list != null && list.size() > 0) {
             this.list.addAll(list);
@@ -54,7 +54,7 @@ public class a extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: zh */
+    /* renamed from: zR */
     public com.baidu.tieba.pb.b.a.d getItem(int i) {
         if (this.list == null || this.list.size() <= 0) {
             return null;
@@ -110,33 +110,33 @@ public class a extends BaseAdapter {
     }
 
     private View h(int i, View view) {
-        C0632a c0632a;
-        if (view == null || !(view.getTag() instanceof C0632a)) {
+        C0685a c0685a;
+        if (view == null || !(view.getTag() instanceof C0685a)) {
             view = LayoutInflater.from(this.context).inflate(R.layout.chosen_pb_image_item, (ViewGroup) null);
-            c0632a = new C0632a();
-            c0632a.XV = (TbImageView) view.findViewById(R.id.pb_chosen_list_image);
-            view.setTag(c0632a);
+            c0685a = new C0685a();
+            c0685a.Yl = (TbImageView) view.findViewById(R.id.pb_chosen_list_image);
+            view.setTag(c0685a);
         } else {
-            c0632a = (C0632a) view.getTag();
+            c0685a = (C0685a) view.getTag();
         }
         com.baidu.tieba.pb.b.a.d item = getItem(i);
         if (item instanceof com.baidu.tieba.pb.b.a.e) {
             com.baidu.tieba.pb.b.a.e eVar = (com.baidu.tieba.pb.b.a.e) item;
-            if (StringUtils.isNull(eVar.jIL) || "1".equals(eVar.jIL)) {
-                c0632a.XV.setVisibility(8);
+            if (StringUtils.isNull(eVar.kaw) || "1".equals(eVar.kaw)) {
+                c0685a.Yl.setVisibility(8);
             } else {
-                c0632a.XV.setVisibility(0);
-                ViewGroup.LayoutParams layoutParams = c0632a.XV.getLayoutParams();
+                c0685a.Yl.setVisibility(0);
+                ViewGroup.LayoutParams layoutParams = c0685a.Yl.getLayoutParams();
                 int i2 = this.maxWidth;
-                int Aa = eVar.Aa(i2);
+                int AL = eVar.AL(i2);
                 if (layoutParams == null) {
-                    layoutParams = new AbsListView.LayoutParams(i2, Aa);
+                    layoutParams = new AbsListView.LayoutParams(i2, AL);
                 } else {
-                    layoutParams.height = Aa;
+                    layoutParams.height = AL;
                     layoutParams.width = i2;
                 }
-                c0632a.XV.setLayoutParams(layoutParams);
-                c0632a.XV.startLoad(eVar.getSrc(), 17, false);
+                c0685a.Yl.setLayoutParams(layoutParams);
+                c0685a.Yl.startLoad(eVar.getSrc(), 17, false);
             }
         }
         return view;
@@ -156,8 +156,8 @@ public class a extends BaseAdapter {
         com.baidu.tieba.pb.b.a.d item = getItem(i);
         if (item instanceof g) {
             g gVar = (g) item;
-            textView.setText(gVar.cDg());
-            switch (gVar.cDi()) {
+            textView.setText(gVar.cKe());
+            switch (gVar.cKg()) {
                 case 1:
                     textView.setGravity(17);
                     break;
@@ -168,8 +168,8 @@ public class a extends BaseAdapter {
                     textView.setGravity(3);
                     break;
             }
-            if (!StringUtils.isNull(gVar.cDj())) {
-                if (!am.setViewTextColor(textView, gVar.cDj())) {
+            if (!StringUtils.isNull(gVar.cKh())) {
+                if (!am.setViewTextColor(textView, gVar.cKh())) {
                     am.setViewTextColor(textView, R.color.cp_cont_b, 1);
                 }
             } else {

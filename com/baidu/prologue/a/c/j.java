@@ -6,8 +6,8 @@ import android.preference.PreferenceManager;
 /* loaded from: classes6.dex */
 public final class j {
     private static SharedPreferences mPreference = null;
-    private static SharedPreferences brY = null;
-    private static String brZ = null;
+    private static SharedPreferences bzB = null;
+    private static String bzC = null;
 
     private static SharedPreferences getPreference() {
         if (mPreference == null) {

@@ -1,11 +1,15 @@
 package com.baidu.webkit.logsdk.upload;
 
+import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.down.request.db.DownloadDataConstants;
+import com.baidu.fsg.base.statistics.j;
 import com.baidu.live.tbadk.extraparams.ExtraParamsManager;
+import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.webkit.internal.ETAG;
 import java.net.URLEncoder;
 import java.util.ConcurrentModificationException;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -78,36 +82,97 @@ public final class b {
     }
 
     public final String a(com.baidu.webkit.logsdk.b.a aVar) {
-        String a;
         String str;
-        StringBuilder sb = new StringBuilder();
-        try {
-            if ("full".equals(aVar.e)) {
-                com.baidu.webkit.logsdk.a.b a2 = com.baidu.webkit.logsdk.a.b.a();
-                a = a2.g().a(a2.d, this.a);
-                str = aVar.a;
+        String str2;
+        if ("full".equals(aVar.e)) {
+            com.baidu.webkit.logsdk.a.b a = com.baidu.webkit.logsdk.a.b.a();
+            str = a.g().a(a.d, this.a);
+            str2 = aVar.a;
+        } else {
+            com.baidu.webkit.logsdk.a.b a2 = com.baidu.webkit.logsdk.a.b.a();
+            str = this.a;
+            String str3 = aVar.e;
+            if ("full".equals(str3)) {
+                str = a2.g().a(a2.d, str);
             } else {
-                a = com.baidu.webkit.logsdk.a.b.a().a(this.a, aVar.e);
-                str = aVar.e;
-            }
-            if (!TextUtils.isEmpty(a)) {
-                sb.append(a);
-                if (sb.indexOf("?") < 0) {
-                    sb.append("?");
+                com.baidu.webkit.logsdk.a.a g = a2.g();
+                Context context = a2.d;
+                com.baidu.webkit.logsdk.b.c c = com.baidu.webkit.logsdk.a.b.a().e().c(str3);
+                if ("full".equals(c.a)) {
+                    str = g.a(context, str);
                 } else {
-                    sb.append(ETAG.ITEM_SEPARATOR);
+                    HashSet<String> hashSet = c.b;
+                    if (hashSet != null) {
+                        String str4 = "";
+                        String str5 = "";
+                        String str6 = "";
+                        StringBuilder sb = new StringBuilder(str);
+                        if (!hashSet.isEmpty() && str.indexOf("?") < 0) {
+                            sb.append("?");
+                        }
+                        com.baidu.webkit.logsdk.b c2 = com.baidu.webkit.logsdk.a.b.a().c();
+                        Iterator<String> it = hashSet.iterator();
+                        while (it.hasNext()) {
+                            String next = it.next();
+                            String a3 = g.a(next, context, c2);
+                            if (j.c.equals(next)) {
+                                str4 = a3;
+                            } else if ("cuid".equals(next)) {
+                                str5 = a3;
+                            } else if ("uid".equals(next)) {
+                                str6 = a3;
+                            }
+                            if (TextUtils.isEmpty(a3)) {
+                                int a4 = g.a(next, context);
+                                if (a4 > 0) {
+                                    sb.append(ETAG.ITEM_SEPARATOR).append(next).append(ETAG.EQUAL).append(a4);
+                                }
+                            } else {
+                                sb.append(ETAG.ITEM_SEPARATOR).append(next).append(ETAG.EQUAL).append(a3);
+                            }
+                        }
+                        String str7 = TextUtils.isEmpty(str4) ? "" : "" + j.c;
+                        if (!TextUtils.isEmpty(str5)) {
+                            if (!TextUtils.isEmpty(str4)) {
+                                str7 = str7 + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS;
+                            }
+                            str7 = str7 + "cuid";
+                        }
+                        if (!TextUtils.isEmpty(str6)) {
+                            if (!TextUtils.isEmpty(str5) || !TextUtils.isEmpty(str4)) {
+                                str7 = str7 + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS;
+                            }
+                            str7 = str7 + "uid";
+                        }
+                        if (!TextUtils.isEmpty(str7)) {
+                            sb.append("&cen=").append(str7);
+                        }
+                        str = sb.toString();
+                    }
                 }
             }
-            String encode = URLEncoder.encode(str, "UTF-8");
-            if (TextUtils.isEmpty(encode)) {
-                sb.append("lt=").append(str);
+            str2 = aVar.e;
+        }
+        StringBuilder sb2 = new StringBuilder();
+        if (!TextUtils.isEmpty(str)) {
+            sb2.append(str);
+            if (sb2.indexOf("?") < 0) {
+                sb2.append("?");
             } else {
-                sb.append("lt=").append(encode);
+                sb2.append(ETAG.ITEM_SEPARATOR);
+            }
+        }
+        try {
+            String encode = URLEncoder.encode(str2, "UTF-8");
+            if (TextUtils.isEmpty(encode)) {
+                sb2.append("lt=").append(str2);
+            } else {
+                sb2.append("lt=").append(encode);
             }
         } catch (Exception e) {
             com.baidu.webkit.logsdk.d.c.a(e);
         }
-        return sb.toString();
+        return sb2.toString();
     }
 
     public final void a(long j) {

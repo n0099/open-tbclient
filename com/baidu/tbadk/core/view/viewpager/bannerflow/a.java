@@ -1,17 +1,17 @@
 package com.baidu.tbadk.core.view.viewpager.bannerflow;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.m;
+import com.baidu.adp.widget.ListView.o;
 /* loaded from: classes.dex */
-public abstract class a implements m {
-    public static final BdUniqueId dLk = BdUniqueId.gen();
+public abstract class a implements o {
+    public static final BdUniqueId dZB = BdUniqueId.gen();
 
-    public abstract Object aRe();
+    public abstract Object aXl();
 
     public abstract String getImageUrl();
 
-    @Override // com.baidu.adp.widget.ListView.m
+    @Override // com.baidu.adp.widget.ListView.o
     public BdUniqueId getType() {
-        return dLk;
+        return dZB;
     }
 }

@@ -5,10 +5,10 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.searchbox.ugc.model.UgcConstant;
 /* loaded from: classes.dex */
 public abstract class d<T> implements k<T> {
-    protected final e IU;
+    protected final e Jg;
     protected final boolean prefixNameSpaceToKey;
 
-    public abstract g<T> bq(String str);
+    public abstract g<T> br(String str);
 
     public abstract void c(g<T> gVar);
 
@@ -17,7 +17,7 @@ public abstract class d<T> implements k<T> {
     protected abstract void removeExpiredItem(String str);
 
     public d(e eVar, boolean z) {
-        this.IU = eVar;
+        this.Jg = eVar;
         this.prefixNameSpaceToKey = z;
     }
 
@@ -30,24 +30,24 @@ public abstract class d<T> implements k<T> {
 
     protected g<T> q(String str, String str2) {
         String buildUniqueKey = buildUniqueKey(str, str2);
-        g<T> bq = bq(buildUniqueKey);
-        if (bq == null) {
+        g<T> br = br(buildUniqueKey);
+        if (br == null) {
             if (BdLog.isDebugMode()) {
             }
             return null;
-        } else if (bq.timeToExpire < System.currentTimeMillis()) {
+        } else if (br.timeToExpire < System.currentTimeMillis()) {
             removeExpiredItem(buildUniqueKey);
             if (BdLog.isDebugMode()) {
             }
             return null;
         } else {
-            if (this.IU.shouldUpdateLastHitTime()) {
-                bq.lastHitTime = System.currentTimeMillis();
-                c(bq);
+            if (this.Jg.shouldUpdateLastHitTime()) {
+                br.lastHitTime = System.currentTimeMillis();
+                c(br);
             }
             if (BdLog.isDebugMode()) {
             }
-            return bq;
+            return br;
         }
     }
 
@@ -92,7 +92,7 @@ public abstract class d<T> implements k<T> {
     }
 
     @Override // com.baidu.adp.lib.cache.k
-    public e ka() {
-        return this.IU;
+    public e kc() {
+        return this.Jg;
     }
 }

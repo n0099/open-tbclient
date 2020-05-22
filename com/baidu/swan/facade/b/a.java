@@ -6,7 +6,7 @@ import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.http.HttpManager;
 import com.baidu.searchbox.http.callback.StringResponseCallback;
 import com.baidu.searchbox.unitedscheme.SchemeConfig;
-import com.baidu.swan.apps.ap.e;
+import com.baidu.swan.apps.an.e;
 import com.baidu.swan.apps.res.widget.b.d;
 import com.baidubce.http.Headers;
 import okhttp3.Response;
@@ -16,17 +16,17 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final String cEU = SchemeConfig.getSchemeHead() + "://";
+    private static final String cPe = SchemeConfig.getSchemeHead() + "://";
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static void oI(final String str) {
-        HttpManager.getDefault(AppRuntime.getAppContext()).getRequest().setHeader("Swan-Accept", "swan/json").userAgent(com.baidu.swan.apps.aq.a.aox()).url(str).build().executeAsyncOnUIBack(new StringResponseCallback() { // from class: com.baidu.swan.facade.b.a.1
-            private Response cEV;
+    public static void qg(final String str) {
+        HttpManager.getDefault(AppRuntime.getAppContext()).getRequest().setHeader("Swan-Accept", "swan/json").userAgent(com.baidu.swan.apps.ao.a.asS()).url(str).build().executeAsyncOnUIBack(new StringResponseCallback() { // from class: com.baidu.swan.facade.b.a.1
+            private Response cPf;
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.searchbox.http.callback.StringResponseCallback, com.baidu.searchbox.http.callback.ResponseCallback
             public String parseResponse(Response response, int i) throws Exception {
-                this.cEV = response;
+                this.cPf = response;
                 return super.parseResponse(response, i);
             }
 
@@ -38,20 +38,20 @@ public class a {
                     Log.d("SwanAppExchanger", "startLaunchAction onSuccess status: " + i);
                 }
                 if (i != 200) {
-                    String b = a.b(this.cEV);
-                    if (TextUtils.isEmpty(b)) {
+                    String e = a.e(this.cPf);
+                    if (TextUtils.isEmpty(e)) {
                         a.d("get launch scheme fail: request fail with code " + i, str, str2, true);
                         return;
                     } else {
-                        b.oL(b);
+                        b.qj(e);
                         return;
                     }
                 }
                 try {
-                    b.oL(new JSONObject(str2).optString("data"));
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                    a.d("get launch scheme fail: " + e.getMessage(), str, str2, false);
+                    b.qj(new JSONObject(str2).optString("data"));
+                } catch (JSONException e2) {
+                    e2.printStackTrace();
+                    a.d("get launch scheme fail: " + e2.getMessage(), str, str2, false);
                 }
             }
 
@@ -67,14 +67,14 @@ public class a {
         if (z) {
             d.a(AppRuntime.getAppContext(), "打开失败，请检查网络设置").showToast();
         }
-        e.aov().f(new com.baidu.swan.apps.ap.a().bn(1L).bo(12L).nL(str));
+        e.asQ().g(new com.baidu.swan.apps.an.a().bw(1L).bx(12L).pt(str));
         if (DEBUG) {
             Log.w("SwanAppExchanger", "open aiapp fail, url : " + str2);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static String b(Response response) {
+    public static String e(Response response) {
         if (response == null) {
             return null;
         }
@@ -82,6 +82,6 @@ public class a {
         if (TextUtils.isEmpty(header) || !header.startsWith("baiduboxapp://")) {
             return null;
         }
-        return header.replace("baiduboxapp://", cEU);
+        return header.replace("baiduboxapp://", cPe);
     }
 }

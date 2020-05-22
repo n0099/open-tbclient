@@ -49,7 +49,7 @@ public final class ObservableFlatMapMaybe<T, R> extends a<T, R> {
         @Override // io.reactivex.u
         public void onNext(T t) {
             try {
-                o oVar = (o) io.reactivex.internal.functions.a.h(this.mapper.apply(t), "The mapper returned a null MaybeSource");
+                o oVar = (o) io.reactivex.internal.functions.a.k(this.mapper.apply(t), "The mapper returned a null MaybeSource");
                 this.active.getAndIncrement();
                 InnerObserver innerObserver = new InnerObserver();
                 if (!this.cancelled && this.set.a(innerObserver)) {
@@ -131,7 +131,7 @@ public final class ObservableFlatMapMaybe<T, R> extends a<T, R> {
                 if (aVar != null) {
                     break;
                 }
-                aVar = new io.reactivex.internal.queue.a<>(q.dCy());
+                aVar = new io.reactivex.internal.queue.a<>(q.dKs());
             } while (!this.queue.compareAndSet(null, aVar));
             return aVar;
         }

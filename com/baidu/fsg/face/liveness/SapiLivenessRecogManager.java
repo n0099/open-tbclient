@@ -51,7 +51,7 @@ public class SapiLivenessRecogManager implements com.baidu.fsg.face.base.b {
             return;
         }
         if (livenessRecogDTO.livenessType == LivenessRecogType.RECOG_TYPE_BDUSS) {
-            if (TextUtils.isEmpty(livenessRecogDTO.bduss) || TextUtils.isEmpty(livenessRecogDTO.stoken)) {
+            if (TextUtils.isEmpty(livenessRecogDTO.bduss)) {
                 livenessRecogResult.setResultCode(101);
                 livenessRecogResult.setResultMsg(com.baidu.fsg.face.base.c.a.ERROR_MSG_NO_LOGIN);
                 if (livenessRecogCallback != null) {
@@ -189,7 +189,7 @@ public class SapiLivenessRecogManager implements com.baidu.fsg.face.base.b {
             return;
         }
         if (livenessRecogDTO.livenessType == LivenessRecogType.RECOG_TYPE_BDUSS) {
-            if (TextUtils.isEmpty(livenessRecogDTO.bduss) || TextUtils.isEmpty(livenessRecogDTO.stoken)) {
+            if (TextUtils.isEmpty(livenessRecogDTO.bduss)) {
                 livenessRecogResult.setResultCode(101);
                 livenessRecogResult.setResultMsg(com.baidu.fsg.face.base.c.a.ERROR_MSG_NO_LOGIN);
                 if (livenessRecogCallback != null) {

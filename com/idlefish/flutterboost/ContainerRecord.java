@@ -61,11 +61,13 @@ public class ContainerRecord implements IContainerRecord {
         this.mState = 2;
         this.mManager.pushRecord(this);
         if (FlutterAttachSwitch.isOn()) {
-            IContainerRecord popShowRecord = this.mManager.popShowRecord();
-            if (popShowRecord != null && popShowRecord.getContainer().getBoostFlutterView().isAttachedToFlutterEngine()) {
-                popShowRecord.getContainer().getBoostFlutterView().onDetach();
+            IContainerRecord peekShowRecord = this.mManager.peekShowRecord();
+            if (peekShowRecord != null && this != peekShowRecord && peekShowRecord.getContainer().getBoostFlutterView().isAttachedToFlutterEngine()) {
+                peekShowRecord.getContainer().getBoostFlutterView().onDetach();
             }
-            this.mManager.pushShowRecord(this);
+            if (this != peekShowRecord) {
+                this.mManager.pushShowRecord(this);
+            }
         }
         this.mProxy.appear();
         this.mContainer.getBoostFlutterView().onAttach();
@@ -97,8 +99,16 @@ public class ContainerRecord implements IContainerRecord {
         this.mState = 4;
         this.mProxy.destroy();
         if (FlutterAttachSwitch.isOn()) {
-            this.mManager.removeShowRecord(this);
             this.mContainer.getBoostFlutterView().onDetach();
+            if (this == this.mManager.peekShowRecord()) {
+                this.mManager.popShowRecord();
+            } else {
+                this.mManager.removeShowRecord(this);
+            }
+            IContainerRecord peekShowRecord = this.mManager.peekShowRecord();
+            if (peekShowRecord != null && !peekShowRecord.getContainer().getBoostFlutterView().isAttachedToFlutterEngine()) {
+                peekShowRecord.getContainer().getBoostFlutterView().onAttach();
+            }
         }
         this.mManager.removeRecord(this);
         this.mManager.setContainerResult(this, -1, -1, null);

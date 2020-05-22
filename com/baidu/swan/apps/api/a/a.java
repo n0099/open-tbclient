@@ -4,7 +4,7 @@ import android.support.annotation.NonNull;
 /* loaded from: classes11.dex */
 public interface a {
     @NonNull
-    b Rs();
+    b TS();
 
-    void a(String str, com.baidu.swan.apps.api.b.b bVar);
+    void a(String str, com.baidu.swan.apps.api.c.b bVar);
 }

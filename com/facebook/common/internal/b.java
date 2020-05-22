@@ -27,7 +27,7 @@ public final class b {
         }
     }
 
-    public static void o(@Nullable InputStream inputStream) {
+    public static void p(@Nullable InputStream inputStream) {
         try {
             close(inputStream, true);
         } catch (IOException e) {

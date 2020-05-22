@@ -1,7 +1,10 @@
 package com.baidu.swan.apps.adaptation.a;
 
-import com.baidu.webkit.sdk.plugin.ZeusPluginFactory;
+import android.content.ContentValues;
+import android.support.annotation.Nullable;
+import java.util.List;
 /* loaded from: classes11.dex */
 public interface v {
-    com.baidu.swan.apps.r.e.b.a a(ZeusPluginFactory.Invoker invoker, String str);
+    @Nullable
+    List<ContentValues> Sg();
 }

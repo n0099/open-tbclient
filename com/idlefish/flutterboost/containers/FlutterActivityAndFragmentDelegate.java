@@ -10,9 +10,14 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
+import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.t.a;
 import com.idlefish.flutterboost.BoostPluginRegistry;
 import com.idlefish.flutterboost.FlutterBoost;
@@ -70,6 +75,10 @@ public class FlutterActivityAndFragmentDelegate implements IFlutterViewContainer
         @NonNull
         FlutterView.TransparencyMode getTransparencyMode();
 
+        void onFlutterContainerClose();
+
+        void onFlutterContainerOpen();
+
         @Nullable
         FlutterEngine provideFlutterEngine(@NonNull Context context);
 
@@ -117,6 +126,37 @@ public class FlutterActivityAndFragmentDelegate implements IFlutterViewContainer
         this.platformPlugin = this.host.providePlatformPlugin(this.host.getActivity(), this.flutterEngine);
         this.host.configureFlutterEngine(this.flutterEngine);
         this.host.getActivity().getWindow().setFormat(-3);
+        setDisplayMode();
+    }
+
+    private void setDisplayMode() {
+        int i;
+        try {
+            WindowManager windowManager = (WindowManager) TbadkCoreApplication.getInst().getSystemService("window");
+            float refreshRate = windowManager.getDefaultDisplay().getRefreshRate();
+            if (refreshRate > 61.0f && this.host.getActivity() != null && Build.VERSION.SDK_INT >= 23) {
+                Window window = this.host.getActivity().getWindow();
+                WindowManager.LayoutParams attributes = window.getAttributes();
+                int i2 = attributes.preferredDisplayModeId;
+                Display.Mode[] supportedModes = windowManager.getDefaultDisplay().getSupportedModes();
+                int i3 = 0;
+                while (true) {
+                    if (i3 >= supportedModes.length) {
+                        i = i2;
+                        break;
+                    } else if (supportedModes[i3].getRefreshRate() != refreshRate) {
+                        i3++;
+                    } else {
+                        i = supportedModes[i3].getModeId();
+                        break;
+                    }
+                }
+                attributes.preferredDisplayModeId = i;
+                window.setAttributes(attributes);
+            }
+        } catch (Exception e) {
+            BdLog.e(e);
+        }
     }
 
     private void setupFlutterEngine() {
@@ -371,5 +411,15 @@ public class FlutterActivityAndFragmentDelegate implements IFlutterViewContainer
 
     @Override // com.idlefish.flutterboost.interfaces.IFlutterViewContainer
     public void onContainerHidden() {
+    }
+
+    @Override // com.idlefish.flutterboost.interfaces.IFlutterViewContainer
+    public void onFlutterContainerOpen() {
+        this.host.onFlutterContainerOpen();
+    }
+
+    @Override // com.idlefish.flutterboost.interfaces.IFlutterViewContainer
+    public void onFlutterContainerClose() {
+        this.host.onFlutterContainerClose();
     }
 }

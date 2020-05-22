@@ -22,13 +22,14 @@ import com.baidu.sapi2.SapiContext;
 import com.baidu.searchbox.ui.animview.praise.resource.ComboPraiseProvider;
 import com.baidu.webkit.internal.daemon.ZeusThreadPoolUtil;
 import com.baidu.webkit.sdk.Log;
+import com.baidu.webkit.sdk.WebKitFactory;
 import java.io.File;
 import java.util.Locale;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public final class a {
-    private static BroadcastReceiver acH;
+    private static BroadcastReceiver acY;
     private static final SparseArray<BdLightappKernelJsCallback> b = new SparseArray<>();
 
     public static String a() {
@@ -36,7 +37,7 @@ public final class a {
     }
 
     public static void a(String str, String str2, BdLightappKernelJsCallback.a aVar) {
-        File externalStorageDirectory;
+        File externalFilesDir;
         BdLightappKernelJsCallback bdLightappKernelJsCallback = new BdLightappKernelJsCallback(str, str2);
         bdLightappKernelJsCallback.setCallbackListener(aVar);
         bdLightappKernelJsCallback.setParam("device_info");
@@ -56,8 +57,8 @@ public final class a {
             WifiInfo connectionInfo = ((WifiManager) applicationContext.getSystemService("wifi")).getConnectionInfo();
             jSONObject.put("wifi_mac", connectionInfo != null ? connectionInfo.getMacAddress() : "");
             long[] jArr = new long[2];
-            if (Environment.getExternalStorageState().equals("mounted") && (externalStorageDirectory = Environment.getExternalStorageDirectory()) != null) {
-                StatFs statFs = new StatFs(externalStorageDirectory.getPath());
+            if (Environment.getExternalStorageState().equals("mounted") && WebKitFactory.getContext() != null && (externalFilesDir = WebKitFactory.getContext().getExternalFilesDir("")) != null) {
+                StatFs statFs = new StatFs(externalFilesDir.getPath());
                 int blockSize = statFs.getBlockSize();
                 jArr[0] = statFs.getBlockCount() * blockSize;
                 jArr[1] = statFs.getAvailableBlocks() * blockSize;
@@ -109,9 +110,9 @@ public final class a {
     }
 
     public static void b() {
-        if (acH != null) {
-            BdSailorPlatform.getInstance().getAppContext().unregisterReceiver(acH);
-            acH = null;
+        if (acY != null) {
+            BdSailorPlatform.getInstance().getAppContext().unregisterReceiver(acY);
+            acY = null;
         }
     }
 
@@ -150,10 +151,10 @@ public final class a {
         BdLightappKernelJsCallback bdLightappKernelJsCallback = new BdLightappKernelJsCallback(str, str2);
         bdLightappKernelJsCallback.setCallbackListener(aVar);
         b.put(10, bdLightappKernelJsCallback);
-        if (acH == null) {
-            acH = new d();
+        if (acY == null) {
+            acY = new d();
         }
-        BdSailorPlatform.getInstance().getAppContext().registerReceiver(acH, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
+        BdSailorPlatform.getInstance().getAppContext().registerReceiver(acY, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
     }
 
     public static void d(String str, String str2, BdLightappKernelJsCallback.a aVar) {
@@ -164,12 +165,12 @@ public final class a {
             return;
         }
         b.remove(10);
-        if (acH == null) {
+        if (acY == null) {
             bdLightappKernelJsCallback.sendFailCallBack("not start yet");
             return;
         }
-        BdSailorPlatform.getInstance().getAppContext().unregisterReceiver(acH);
-        acH = null;
+        BdSailorPlatform.getInstance().getAppContext().unregisterReceiver(acY);
+        acY = null;
         bdLightappKernelJsCallback.sendSuccCallBack();
     }
 

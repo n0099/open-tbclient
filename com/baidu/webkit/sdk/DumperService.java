@@ -23,10 +23,10 @@ public final class DumperService extends Service implements ZeusLogUploader.OnFi
     private static final String TIME = "CRASH_TIME";
     private static final String TYPE = "LOG_TYPE";
     private String mCallback;
+    private String mCrashImei;
     private int mCrashSignal;
     private long mCrashTime;
-    private String mCrashImei = null;
-    private ZeusLogUploader mLogUploader = null;
+    private ZeusLogUploader mLogUploader;
     private boolean mCrashLogFailedEncrypt = true;
     private String mEncryptKey = "";
 
@@ -65,7 +65,7 @@ public final class DumperService extends Service implements ZeusLogUploader.OnFi
                 a.a(th);
             }
         }
-        String str3 = (!this.mCrashLogFailedEncrypt || i != 3 || this.mLogUploader == null || ZeusLogUploader.encryptUploadFailedFile(str, true) == 6) ? str2 : "Failed to encrypt file.";
+        String str3 = (!this.mCrashLogFailedEncrypt || i != 3 || this.mLogUploader == null || this.mLogUploader.encryptUploadFailedFile(str, true) == 6) ? str2 : "Failed to encrypt file.";
         if (obj != null) {
             ((CrashCallback) obj).onCrash(applicationContext, this.mCrashImei, this.mCrashSignal, this.mCrashTime, str, i, str3);
         }

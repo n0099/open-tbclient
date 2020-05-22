@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes11.dex */
 public final class a {
+    static final int b;
     static final AbstractC0007a zr;
 
     /* renamed from: com.a.a.a.a.a.a.a$a  reason: collision with other inner class name */
@@ -141,21 +142,37 @@ public final class a {
         }
     }
 
+    /* JADX WARN: Removed duplicated region for block: B:10:0x0019  */
+    /* JADX WARN: Removed duplicated region for block: B:24:0x0065  */
     static {
+        Integer num;
+        Throwable th;
         AbstractC0007a dVar;
         try {
-            Integer a = a();
-            if (a == null || a.intValue() < 19) {
-                dVar = !Boolean.getBoolean("com.google.devtools.build.android.desugar.runtime.twr_disable_mimic") ? new c() : new d();
-            } else {
-                dVar = new e();
-            }
-        } catch (Throwable th) {
-            System.err.println("An error has occured when initializing the try-with-resources desuguring strategy. The default strategy " + d.class.getName() + "will be used. The error is: ");
-            th.printStackTrace(System.err);
-            dVar = new d();
+            num = a();
+        } catch (Throwable th2) {
+            num = null;
+            th = th2;
         }
+        if (num != null) {
+            try {
+            } catch (Throwable th3) {
+                th = th3;
+                System.err.println("An error has occured when initializing the try-with-resources desuguring strategy. The default strategy " + d.class.getName() + "will be used. The error is: ");
+                th.printStackTrace(System.err);
+                dVar = new d();
+                zr = dVar;
+                b = num == null ? 1 : num.intValue();
+            }
+            if (num.intValue() >= 19) {
+                dVar = new e();
+                zr = dVar;
+                b = num == null ? 1 : num.intValue();
+            }
+        }
+        dVar = !Boolean.getBoolean("com.google.devtools.build.android.desugar.runtime.twr_disable_mimic") ? new c() : new d();
         zr = dVar;
+        b = num == null ? 1 : num.intValue();
     }
 
     private static Integer a() {

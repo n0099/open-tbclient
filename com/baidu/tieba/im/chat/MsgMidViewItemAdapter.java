@@ -17,7 +17,7 @@ public class MsgMidViewItemAdapter extends e<f> {
     @Override // com.baidu.tieba.im.chat.e, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, e.a<f> aVar) {
         super.a(i, view, viewGroup, chatMessage, (e.a) aVar);
-        aVar.cdd().setData(chatMessage);
+        aVar.cjB().setData(chatMessage);
         this.mPageContext.getLayoutMode().setNightMode(false);
         this.mPageContext.getLayoutMode().onModeChanged(view);
         return view;
@@ -26,7 +26,7 @@ public class MsgMidViewItemAdapter extends e<f> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: by */
+    /* renamed from: bI */
     public e.a<f> b(ViewGroup viewGroup) {
         f fVar = new f(this.mPageContext);
         return new a(fVar.getConvertView(), fVar);

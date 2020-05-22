@@ -35,7 +35,7 @@ public final class ObservableBufferBoundary<T, U extends Collection<? super T>, 
         volatile boolean cancelled;
         volatile boolean done;
         long index;
-        final io.reactivex.internal.queue.a<C> queue = new io.reactivex.internal.queue.a<>(q.dCy());
+        final io.reactivex.internal.queue.a<C> queue = new io.reactivex.internal.queue.a<>(q.dKs());
         final io.reactivex.disposables.a observers = new io.reactivex.disposables.a();
         final AtomicReference<io.reactivex.disposables.b> upstream = new AtomicReference<>();
         Map<Long, C> buffers = new LinkedHashMap();
@@ -122,8 +122,8 @@ public final class ObservableBufferBoundary<T, U extends Collection<? super T>, 
         /* JADX WARN: Multi-variable type inference failed */
         void open(Open open) {
             try {
-                Collection collection = (Collection) io.reactivex.internal.functions.a.h(this.bufferSupplier.call(), "The bufferSupplier returned a null Collection");
-                t tVar = (t) io.reactivex.internal.functions.a.h(this.bufferClose.apply(open), "The bufferClose returned a null ObservableSource");
+                Collection collection = (Collection) io.reactivex.internal.functions.a.k(this.bufferSupplier.call(), "The bufferSupplier returned a null Collection");
+                t tVar = (t) io.reactivex.internal.functions.a.k(this.bufferClose.apply(open), "The bufferClose returned a null ObservableSource");
                 long j = this.index;
                 this.index = 1 + j;
                 synchronized (this) {

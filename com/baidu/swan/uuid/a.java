@@ -5,19 +5,19 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes11.dex */
 public class a<T> {
-    private List<com.baidu.swan.uuid.a.b<T>> dfa = new ArrayList(6);
+    private List<com.baidu.swan.uuid.a.b<T>> dqT = new ArrayList(6);
 
     public void a(com.baidu.swan.uuid.a.b<T> bVar) {
-        if (bVar != null && !this.dfa.contains(bVar)) {
-            this.dfa.add(bVar);
+        if (bVar != null && !this.dqT.contains(bVar)) {
+            this.dqT.add(bVar);
         }
     }
 
-    public T aEw() {
+    public T aJe() {
         T t;
         ArrayList<com.baidu.swan.uuid.a.b> arrayList = new ArrayList();
         T t2 = null;
-        Iterator<com.baidu.swan.uuid.a.b<T>> it = this.dfa.iterator();
+        Iterator<com.baidu.swan.uuid.a.b<T>> it = this.dqT.iterator();
         while (true) {
             if (!it.hasNext()) {
                 t = t2;
@@ -25,7 +25,7 @@ public class a<T> {
             }
             com.baidu.swan.uuid.a.b<T> next = it.next();
             t = next.get();
-            if (ae(t)) {
+            if (ai(t)) {
                 break;
             }
             arrayList.add(next);
@@ -39,7 +39,7 @@ public class a<T> {
         return t;
     }
 
-    private boolean ae(T t) {
+    private boolean ai(T t) {
         char[] charArray;
         if (t != null && (t instanceof String)) {
             String str = (String) t;
@@ -56,10 +56,10 @@ public class a<T> {
         return false;
     }
 
-    public void af(T t) {
-        if (!ae(t)) {
-            for (com.baidu.swan.uuid.a.b<T> bVar : this.dfa) {
-                if (bVar.aEx()) {
+    public void aj(T t) {
+        if (!ai(t)) {
+            for (com.baidu.swan.uuid.a.b<T> bVar : this.dqT) {
+                if (bVar.aJf()) {
                     bVar.put(t);
                 }
             }

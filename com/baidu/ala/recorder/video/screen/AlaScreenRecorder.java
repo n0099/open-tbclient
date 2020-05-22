@@ -146,6 +146,10 @@ public class AlaScreenRecorder implements IVideoRecorder {
     }
 
     @Override // com.baidu.ala.recorder.video.IVideoRecorder
+    public void willSwitchSense(int i) {
+    }
+
+    @Override // com.baidu.ala.recorder.video.IVideoRecorder
     public VideoFormat getVideoFormat() {
         return VideoFormat.RGBA;
     }

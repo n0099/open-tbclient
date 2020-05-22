@@ -1,8 +1,8 @@
 package com.baidu.swan.apps.adaptation.a;
 
-import android.app.Activity;
-import android.os.Bundle;
+import java.io.IOException;
+import java.io.InputStream;
 /* loaded from: classes11.dex */
 public interface m {
-    void a(Activity activity, Bundle bundle, com.baidu.swan.apps.media.chooser.c.d dVar);
+    InputStream j(InputStream inputStream) throws IOException;
 }

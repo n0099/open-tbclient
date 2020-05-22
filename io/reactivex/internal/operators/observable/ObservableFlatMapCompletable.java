@@ -47,7 +47,7 @@ public final class ObservableFlatMapCompletable<T> extends a<T, T> {
         @Override // io.reactivex.u
         public void onNext(T t) {
             try {
-                e eVar = (e) io.reactivex.internal.functions.a.h(this.mapper.apply(t), "The mapper returned a null CompletableSource");
+                e eVar = (e) io.reactivex.internal.functions.a.k(this.mapper.apply(t), "The mapper returned a null CompletableSource");
                 getAndIncrement();
                 InnerObserver innerObserver = new InnerObserver();
                 if (!this.disposed && this.set.a(innerObserver)) {

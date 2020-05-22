@@ -1,56 +1,80 @@
 package com.baidu.tbadk.util;
 
-import android.os.Environment;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.util.Properties;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.plugin.packageManager.PluginPackageManager;
+import com.baidu.live.tbadk.data.Config;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.coreExtra.data.NewGodData;
+import java.util.HashMap;
 /* loaded from: classes.dex */
-public final class v {
-    public static boolean isEMUI() {
-        return D("ro.build.version.emui", "ro.build.hw_emui_api_level");
+public class v {
+    private static v evn = null;
+    private String evm;
+    private Runnable evo = new Runnable() { // from class: com.baidu.tbadk.util.v.1
+        @Override // java.lang.Runnable
+        public void run() {
+            HashMap hashMap = new HashMap();
+            hashMap.put("from", String.valueOf(v.this.mFrom));
+            hashMap.put("field_id", v.this.mFieldId);
+            if (v.this.mFrom == 2) {
+                hashMap.put("fid", v.this.evm);
+            }
+            hashMap.put("animated", false);
+            hashMap.put("transparent", true);
+            hashMap.put("swipeback", false);
+            if (PluginPackageManager.nX().cv("com.baidu.tieba.pluginFlutter")) {
+                if (MessageManager.getInstance().findTask(2002015) == null) {
+                    com.baidu.adp.lib.f.e.ld().postDelayed(v.this.evo, 0L);
+                    return;
+                }
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new com.baidu.tieba.tbadkCore.data.m(TbadkApplication.getInst().getApplicationContext(), "GodDialog", hashMap)));
+                com.baidu.tbadk.core.sharedPref.b.aTX().putLong("key_new_god_dialog_showed_time", System.currentTimeMillis());
+            }
+        }
+    };
+    private String mFieldId;
+    private int mFrom;
+
+    private v() {
     }
 
-    private static boolean D(String... strArr) {
-        if (strArr == null || strArr.length == 0) {
-            return false;
-        }
-        try {
-            a baw = a.baw();
-            for (String str : strArr) {
-                if (baw.getProperty(str) != null) {
-                    return true;
-                }
+    public static synchronized v bgG() {
+        v vVar;
+        synchronized (v.class) {
+            if (evn == null) {
+                evn = new v();
             }
-            return false;
-        } catch (IOException e) {
-            return false;
+            vVar = evn;
+        }
+        return vVar;
+    }
+
+    private boolean a(int i, NewGodData newGodData) {
+        if (i != 5) {
+            return (((((System.currentTimeMillis() - com.baidu.tbadk.core.sharedPref.b.aTX().getLong("key_new_god_dialog_showed_time", 0L)) + 3000) > Config.THREAD_IMAGE_SAVE_MAX_TIME ? 1 : (((System.currentTimeMillis() - com.baidu.tbadk.core.sharedPref.b.aTX().getLong("key_new_god_dialog_showed_time", 0L)) + 3000) == Config.THREAD_IMAGE_SAVE_MAX_TIME ? 0 : -1)) < 0) || newGodData == null || !newGodData.isNewGodInvited()) ? false : true;
+        }
+        return true;
+    }
+
+    public void b(int i, NewGodData newGodData) {
+        a(i, newGodData, true);
+    }
+
+    public void a(int i, NewGodData newGodData, boolean z) {
+        if (a(i, newGodData)) {
+            removeCallbacks();
+            this.mFrom = i;
+            this.mFieldId = newGodData.getFieldId();
+            com.baidu.adp.lib.f.e.ld().postDelayed(this.evo, z ? 3000L : 0L);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
-    public static final class a {
-        private static a egY;
-        private final Properties egZ = new Properties();
+    public void removeCallbacks() {
+        com.baidu.adp.lib.f.e.ld().removeCallbacks(this.evo);
+    }
 
-        private a() throws IOException {
-            this.egZ.load(new FileInputStream(new File(Environment.getRootDirectory(), "build.prop")));
-        }
-
-        public static a baw() throws IOException {
-            if (egY == null) {
-                synchronized (a.class) {
-                    if (egY == null) {
-                        egY = new a();
-                    }
-                }
-            }
-            return egY;
-        }
-
-        public String getProperty(String str) {
-            return this.egZ.getProperty(str);
-        }
+    public void setFid(String str) {
+        this.evm = str;
     }
 }

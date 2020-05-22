@@ -8,67 +8,67 @@ import tbclient.AdInfo;
 import tbclient.Media;
 /* loaded from: classes9.dex */
 public class c extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId hdn = BdUniqueId.gen();
-    private String dmt;
-    private String dmu;
-    private String hdo;
-    private String hdp;
-    private List<MediaData> hdq;
-    private int hdr;
+    public static final BdUniqueId hsb = BdUniqueId.gen();
+    private String dAv;
+    private String dAw;
+    private String hsc;
+    private String hsd;
+    private List<MediaData> hse;
+    private int hsf;
     public boolean isLast = false;
 
     public void a(AdInfo adInfo) {
         if (adInfo != null) {
-            this.hdo = adInfo.portrait;
-            this.dmt = adInfo.ad_name;
-            this.hdp = adInfo.ad_desc;
-            this.dmu = adInfo.ad_url;
-            this.hdr = adInfo.show_rule.intValue();
+            this.hsc = adInfo.portrait;
+            this.dAv = adInfo.ad_name;
+            this.hsd = adInfo.ad_desc;
+            this.dAw = adInfo.ad_url;
+            this.hsf = adInfo.show_rule.intValue();
             if (adInfo.media != null) {
-                this.hdq = new ArrayList();
+                this.hse = new ArrayList();
                 for (Media media : adInfo.media) {
                     MediaData mediaData = new MediaData();
                     mediaData.parserProtobuf(media);
-                    this.hdq.add(mediaData);
+                    this.hse.add(mediaData);
                 }
             }
         }
     }
 
-    public int bQJ() {
-        return this.hdr;
+    public int bXf() {
+        return this.hsf;
     }
 
-    public String bQK() {
-        return this.hdo;
+    public String bXg() {
+        return this.hsc;
     }
 
-    public String bQL() {
-        return this.dmt;
+    public String bXh() {
+        return this.dAv;
     }
 
-    public String bQM() {
-        return this.hdp;
+    public String bXi() {
+        return this.hsd;
     }
 
-    public String bab() {
-        return this.dmu;
+    public String bgl() {
+        return this.dAw;
     }
 
-    public List<MediaData> bQN() {
-        return this.hdq;
+    public List<MediaData> bXj() {
+        return this.hse;
     }
 
-    public void mM(boolean z) {
+    public void nh(boolean z) {
         this.isLast = z;
     }
 
-    public boolean bQO() {
+    public boolean bXk() {
         return this.isLast;
     }
 
-    @Override // com.baidu.adp.widget.ListView.m
+    @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.o
     public BdUniqueId getType() {
-        return hdn;
+        return hsb;
     }
 }

@@ -11,29 +11,29 @@ import android.view.View;
 import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class RoundRectNumProgressBar extends View {
-    private int baA;
-    private int baB;
-    private float baR;
-    private int baS;
-    private int baT;
-    private Paint baU;
-    private Paint baV;
-    private float baW;
-    private int baX;
-    private int baY;
-    private String baZ;
-    private float bba;
-    private float bbb;
-    private float bbc;
-    private float bbd;
-    private float bbe;
-    private float bbf;
-    private float bbg;
-    private RectF bbh;
-    private RectF bbi;
-    private RectF bbj;
-    private float bbk;
-    private Path bbl;
+    private int bhX;
+    private int bhY;
+    private float biA;
+    private float biB;
+    private float biC;
+    private float biD;
+    private float biE;
+    private float biF;
+    private float biG;
+    private RectF biH;
+    private RectF biI;
+    private RectF biJ;
+    private float biK;
+    private Path biL;
+    private float bir;
+    private int bis;
+    private int bit;
+    private Paint biu;
+    private Paint biv;
+    private float biw;
+    private int bix;
+    private int biy;
+    private String biz;
     private float centerX;
     private float centerY;
     private int currentProgress;
@@ -54,87 +54,87 @@ public class RoundRectNumProgressBar extends View {
     public RoundRectNumProgressBar(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.currentProgress = 0;
-        this.baY = 100;
-        this.bba = 0.0f;
-        this.bbb = 0.0f;
-        this.bbc = 0.0f;
-        this.bbd = 0.0f;
-        this.bbe = 0.0f;
-        this.bbf = 0.0f;
-        this.bbg = 0.0f;
-        this.bbh = new RectF();
-        this.bbi = new RectF();
-        this.bbj = new RectF();
+        this.biy = 100;
+        this.biA = 0.0f;
+        this.biB = 0.0f;
+        this.biC = 0.0f;
+        this.biD = 0.0f;
+        this.biE = 0.0f;
+        this.biF = 0.0f;
+        this.biG = 0.0f;
+        this.biH = new RectF();
+        this.biI = new RectF();
+        this.biJ = new RectF();
         this.startX = 0.0f;
         this.startY = 0.0f;
-        this.bbk = 0.0f;
+        this.biK = 0.0f;
         this.centerX = 0.0f;
         this.centerY = 0.0f;
-        this.bbl = new Path();
+        this.biL = new Path();
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, a.k.sdk_NumberProgress);
         this.textColor = obtainStyledAttributes.getColor(a.k.sdk_NumberProgress_sdk_np_text_color, -16776961);
-        this.baR = obtainStyledAttributes.getDimension(a.k.sdk_NumberProgress_sdk_np_text_size, f(context, 14.0f));
-        this.baT = obtainStyledAttributes.getColor(a.k.sdk_NumberProgress_sdk_np_unprogress_color, -7829368);
+        this.bir = obtainStyledAttributes.getDimension(a.k.sdk_NumberProgress_sdk_np_text_size, f(context, 14.0f));
+        this.bit = obtainStyledAttributes.getColor(a.k.sdk_NumberProgress_sdk_np_unprogress_color, -7829368);
         this.progressColor = obtainStyledAttributes.getColor(a.k.sdk_NumberProgress_sdk_np_progress_color, -16776961);
         this.currentProgress = obtainStyledAttributes.getInt(a.k.sdk_NumberProgress_sdk_np_current_progress, 0);
-        this.baY = obtainStyledAttributes.getInt(a.k.sdk_NumberProgress_sdk_np_max_progress, 100);
-        this.baW = obtainStyledAttributes.getDimension(a.k.sdk_NumberProgress_sdk_np_progress_width, e(context, 4.0f));
-        this.baX = obtainStyledAttributes.getInt(a.k.sdk_NumberProgress_sdk_np_text_mode, 0);
-        this.baS = obtainStyledAttributes.getInt(a.k.sdk_NumberProgress_sdk_np_direction, 0);
+        this.biy = obtainStyledAttributes.getInt(a.k.sdk_NumberProgress_sdk_np_max_progress, 100);
+        this.biw = obtainStyledAttributes.getDimension(a.k.sdk_NumberProgress_sdk_np_progress_width, e(context, 4.0f));
+        this.bix = obtainStyledAttributes.getInt(a.k.sdk_NumberProgress_sdk_np_text_mode, 0);
+        this.bis = obtainStyledAttributes.getInt(a.k.sdk_NumberProgress_sdk_np_direction, 0);
         obtainStyledAttributes.recycle();
-        if (this.baS == 1) {
+        if (this.bis == 1) {
             int i2 = this.progressColor;
-            this.progressColor = this.baT;
-            this.baT = i2;
+            this.progressColor = this.bit;
+            this.bit = i2;
         }
-        this.baV = new Paint();
-        this.baV.setAntiAlias(true);
-        this.baV.setStyle(Paint.Style.STROKE);
-        this.baV.setStrokeWidth(this.baW);
-        this.baV.setColor(this.progressColor);
-        this.baU = new Paint();
-        this.baU.setAntiAlias(true);
-        this.baU.setStyle(Paint.Style.STROKE);
-        this.baU.setStrokeWidth(this.baW);
-        this.baU.setColor(this.baT);
+        this.biv = new Paint();
+        this.biv.setAntiAlias(true);
+        this.biv.setStyle(Paint.Style.STROKE);
+        this.biv.setStrokeWidth(this.biw);
+        this.biv.setColor(this.progressColor);
+        this.biu = new Paint();
+        this.biu.setAntiAlias(true);
+        this.biu.setStyle(Paint.Style.STROKE);
+        this.biu.setStrokeWidth(this.biw);
+        this.biu.setColor(this.bit);
         this.textPaint = new Paint(1);
         this.textPaint.setColor(this.textColor);
-        this.textPaint.setTextSize(this.baR);
+        this.textPaint.setTextSize(this.bir);
     }
 
     @Override // android.view.View
     protected void onMeasure(int i, int i2) {
         setMeasuredDimension(measureWidth(i), measureHeight(i2));
-        if (this.baA == 0 || this.baB == 0 || this.baA != getMeasuredWidth() || this.baB != getMeasuredHeight()) {
-            Hz();
-            this.baA = getMeasuredWidth();
-            this.baB = getMeasuredHeight();
+        if (this.bhX == 0 || this.bhY == 0 || this.bhX != getMeasuredWidth() || this.bhY != getMeasuredHeight()) {
+            Js();
+            this.bhX = getMeasuredWidth();
+            this.bhY = getMeasuredHeight();
         }
     }
 
-    private void Hz() {
-        this.bbf = 3.14f * getMeasuredHeight();
-        this.bbe = this.bbf / 2.0f;
-        this.bbg = (getMeasuredHeight() - this.baW) / 2.0f;
-        this.bbk = this.baW / 2.0f;
-        this.bba = (((getMeasuredWidth() - this.baW) - getMeasuredHeight()) + this.bbe) * 2.0f;
-        this.bbb = (getMeasuredWidth() - this.baW) - (this.bbg * 2.0f);
-        this.bbc = this.bbb + this.bbe;
-        this.bbd = this.bbc + this.bbb;
-        this.startX = this.bbk + this.bbg;
-        this.startY = this.bbk;
-        this.bbi.left = (this.startX + this.bbb) - this.bbg;
-        this.bbi.top = this.startY;
-        this.bbi.right = getMeasuredWidth() - this.bbk;
-        this.bbi.bottom = this.startY + (this.bbg * 2.0f);
-        this.bbh.left = this.bbk;
-        this.bbh.top = this.startY;
-        this.bbh.right = this.bbk + (this.bbg * 2.0f);
-        this.bbh.bottom = this.startY + (this.bbg * 2.0f);
-        this.bbj.left = this.bbk;
-        this.bbj.top = this.startY;
-        this.bbj.right = getMeasuredWidth() - this.bbk;
-        this.bbj.bottom = this.startY + (this.bbg * 2.0f);
+    private void Js() {
+        this.biF = 3.14f * getMeasuredHeight();
+        this.biE = this.biF / 2.0f;
+        this.biG = (getMeasuredHeight() - this.biw) / 2.0f;
+        this.biK = this.biw / 2.0f;
+        this.biA = (((getMeasuredWidth() - this.biw) - getMeasuredHeight()) + this.biE) * 2.0f;
+        this.biB = (getMeasuredWidth() - this.biw) - (this.biG * 2.0f);
+        this.biC = this.biB + this.biE;
+        this.biD = this.biC + this.biB;
+        this.startX = this.biK + this.biG;
+        this.startY = this.biK;
+        this.biI.left = (this.startX + this.biB) - this.biG;
+        this.biI.top = this.startY;
+        this.biI.right = getMeasuredWidth() - this.biK;
+        this.biI.bottom = this.startY + (this.biG * 2.0f);
+        this.biH.left = this.biK;
+        this.biH.top = this.startY;
+        this.biH.right = this.biK + (this.biG * 2.0f);
+        this.biH.bottom = this.startY + (this.biG * 2.0f);
+        this.biJ.left = this.biK;
+        this.biJ.top = this.startY;
+        this.biJ.right = getMeasuredWidth() - this.biK;
+        this.biJ.bottom = this.startY + (this.biG * 2.0f);
         this.centerX = ((getMeasuredWidth() - getPaddingLeft()) - getPaddingRight()) / 2.0f;
         this.centerY = ((getMeasuredHeight() - getPaddingTop()) - getPaddingBottom()) / 2.0f;
     }
@@ -173,50 +173,50 @@ public class RoundRectNumProgressBar extends View {
 
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
-        canvas.drawRoundRect(this.bbj, this.bbg, this.bbg, this.baU);
-        this.bbl.reset();
-        this.bbl.moveTo(this.startX, this.startY);
-        float f = (this.bba * this.currentProgress) / this.baY;
-        if (f >= this.bba) {
-            this.bbl.lineTo(this.startX + this.bbb, this.startY);
-            this.bbl.arcTo(this.bbi, -90.0f, 180.0f, false);
-            this.bbl.lineTo(this.bbk + this.bbg, this.startY + (this.bbg * 2.0f));
-            this.bbl.arcTo(this.bbh, 90.0f, 180.0f, false);
-            this.bbl.lineTo(this.startX, this.startY);
-        } else if (f > this.bbd) {
-            this.bbl.lineTo(this.startX + this.bbb, this.startY);
-            this.bbl.arcTo(this.bbi, -90.0f, 180.0f, false);
-            this.bbl.lineTo(this.bbk + this.bbg, this.startY + (this.bbg * 2.0f));
-            this.bbl.arcTo(this.bbh, 90.0f, ((f - this.bbd) * 360.0f) / this.bbf, false);
-        } else if (f > this.bbc) {
-            this.bbl.lineTo(this.startX + this.bbb, this.startY);
-            this.bbl.arcTo(this.bbi, -90.0f, 180.0f, false);
-            this.bbl.lineTo(getMeasuredWidth() - ((f + (this.bbk + this.bbg)) - this.bbc), this.startY + (this.bbg * 2.0f));
-        } else if (f > this.bbb) {
-            this.bbl.lineTo(this.startX + this.bbb, this.startY);
-            this.bbl.arcTo(this.bbi, -90.0f, ((f - this.bbb) * 360.0f) / this.bbf, false);
+        canvas.drawRoundRect(this.biJ, this.biG, this.biG, this.biu);
+        this.biL.reset();
+        this.biL.moveTo(this.startX, this.startY);
+        float f = (this.biA * this.currentProgress) / this.biy;
+        if (f >= this.biA) {
+            this.biL.lineTo(this.startX + this.biB, this.startY);
+            this.biL.arcTo(this.biI, -90.0f, 180.0f, false);
+            this.biL.lineTo(this.biK + this.biG, this.startY + (this.biG * 2.0f));
+            this.biL.arcTo(this.biH, 90.0f, 180.0f, false);
+            this.biL.lineTo(this.startX, this.startY);
+        } else if (f > this.biD) {
+            this.biL.lineTo(this.startX + this.biB, this.startY);
+            this.biL.arcTo(this.biI, -90.0f, 180.0f, false);
+            this.biL.lineTo(this.biK + this.biG, this.startY + (this.biG * 2.0f));
+            this.biL.arcTo(this.biH, 90.0f, ((f - this.biD) * 360.0f) / this.biF, false);
+        } else if (f > this.biC) {
+            this.biL.lineTo(this.startX + this.biB, this.startY);
+            this.biL.arcTo(this.biI, -90.0f, 180.0f, false);
+            this.biL.lineTo(getMeasuredWidth() - ((f + (this.biK + this.biG)) - this.biC), this.startY + (this.biG * 2.0f));
+        } else if (f > this.biB) {
+            this.biL.lineTo(this.startX + this.biB, this.startY);
+            this.biL.arcTo(this.biI, -90.0f, ((f - this.biB) * 360.0f) / this.biF, false);
         } else {
-            this.bbl.lineTo(f + this.startX, this.startY);
+            this.biL.lineTo(f + this.startX, this.startY);
         }
-        canvas.drawPath(this.bbl, this.baV);
-        if (this.baS == 0) {
-            if (this.baX == 0) {
-                this.baZ = String.format("%d", Integer.valueOf((this.currentProgress * 100) / this.baY));
-                this.baZ += "%";
-            } else if (this.baX == 2) {
-                this.baZ = String.format("%d", Integer.valueOf(this.currentProgress));
-            } else if (this.baX == 1) {
-                this.baZ = this.currentProgress + getContext().getResources().getString(a.i.sdk_time_second);
+        canvas.drawPath(this.biL, this.biv);
+        if (this.bis == 0) {
+            if (this.bix == 0) {
+                this.biz = String.format("%d", Integer.valueOf((this.currentProgress * 100) / this.biy));
+                this.biz += "%";
+            } else if (this.bix == 2) {
+                this.biz = String.format("%d", Integer.valueOf(this.currentProgress));
+            } else if (this.bix == 1) {
+                this.biz = this.currentProgress + getContext().getResources().getString(a.i.sdk_time_second);
             }
-        } else if (this.baX == 0) {
-            this.baZ = String.format("%d", Integer.valueOf(((this.baY - this.currentProgress) * 100) / this.baY));
-            this.baZ += "%";
-        } else if (this.baX == 2) {
-            this.baZ = String.format("%d", Integer.valueOf(this.baY - this.currentProgress));
-        } else if (this.baX == 1) {
-            this.baZ = (this.baY - this.currentProgress) + getContext().getResources().getString(a.i.sdk_time_second);
+        } else if (this.bix == 0) {
+            this.biz = String.format("%d", Integer.valueOf(((this.biy - this.currentProgress) * 100) / this.biy));
+            this.biz += "%";
+        } else if (this.bix == 2) {
+            this.biz = String.format("%d", Integer.valueOf(this.biy - this.currentProgress));
+        } else if (this.bix == 1) {
+            this.biz = (this.biy - this.currentProgress) + getContext().getResources().getString(a.i.sdk_time_second);
         }
-        canvas.drawText(this.baZ, this.centerX - (this.textPaint.measureText(this.baZ) / 2.0f), this.centerY - ((this.textPaint.descent() + this.textPaint.ascent()) / 2.0f), this.textPaint);
+        canvas.drawText(this.biz, this.centerX - (this.textPaint.measureText(this.biz) / 2.0f), this.centerY - ((this.textPaint.descent() + this.textPaint.ascent()) / 2.0f), this.textPaint);
     }
 
     public int getCurrentProgress() {
@@ -224,10 +224,10 @@ public class RoundRectNumProgressBar extends View {
     }
 
     public void setCurrentProgress(int i) {
-        if (this.baS == 0) {
+        if (this.bis == 0) {
             this.currentProgress = i;
         } else {
-            this.currentProgress = this.baY - i;
+            this.currentProgress = this.biy - i;
         }
         invalidate();
     }

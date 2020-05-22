@@ -3,21 +3,21 @@ package com.baidu.tieba.homepage.framework.indicator;
 import com.baidu.tieba.homepage.framework.e;
 /* loaded from: classes9.dex */
 public class b {
-    private int hLG = -1;
-    private boolean hLH = false;
-    private boolean hLI = false;
+    private int iah = -1;
+    private boolean iai = false;
+    private boolean iaj = false;
 
     public void a(e eVar) {
-        this.hLH = true;
-        if (this.hLG != -1 && this.hLI) {
-            eVar.vG(this.hLG);
+        this.iai = true;
+        if (this.iah != -1 && this.iaj) {
+            eVar.wm(this.iah);
         }
     }
 
     public void a(int i, e eVar) {
-        this.hLG = i;
-        if (this.hLH && this.hLI) {
-            eVar.vG(this.hLG);
+        this.iah = i;
+        if (this.iai && this.iaj) {
+            eVar.wm(this.iah);
         }
     }
 }

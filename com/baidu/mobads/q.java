@@ -3,11 +3,11 @@ package com.baidu.mobads;
 import java.util.HashMap;
 /* loaded from: classes10.dex */
 class q implements SplashAdListener {
-    final /* synthetic */ SplashAd blu;
+    final /* synthetic */ SplashAd bsQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(SplashAd splashAd) {
-        this.blu = splashAd;
+        this.bsQ = splashAd;
     }
 
     @Override // com.baidu.mobads.SplashAdListener

@@ -18,7 +18,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class g extends com.baidu.tieba.card.data.b implements com.baidu.tbadk.core.util.f.a, com.baidu.tieba.lego.card.view.i, com.baidu.tieba.video.b {
-    public static final BdUniqueId heB = BdUniqueId.gen();
+    public static final BdUniqueId htp = BdUniqueId.gen();
     public String abtest_tag;
     public long agreeNum;
     public int agreeType;
@@ -27,15 +27,16 @@ public class g extends com.baidu.tieba.card.data.b implements com.baidu.tbadk.co
     public String extra;
     public String firstPostId;
     public String forumId;
-    public int gsb;
+    public int gGQ;
     public boolean hasAgree;
-    public long heC;
-    public List<String> heD;
-    public List<String> heE;
-    public b heF;
-    public c heG;
-    public long heI;
+    public long htq;
+    public List<String> htr;
+    public List<String> hts;
+    public b htt;
+    public c htu;
+    public long htw;
     public BaijiahaoData mBaijiahao;
+    public String nid;
     public long playCount;
     public long postNum;
     public long shareNum;
@@ -43,7 +44,7 @@ public class g extends com.baidu.tieba.card.data.b implements com.baidu.tbadk.co
     public String threadId;
     public String title;
     public String weight;
-    public boolean heH = true;
+    public boolean htv = true;
     public boolean waitConfirm = false;
     public boolean isTitleExpanded = false;
     private AgreeData agreeData = new AgreeData();
@@ -51,7 +52,7 @@ public class g extends com.baidu.tieba.card.data.b implements com.baidu.tbadk.co
     /* loaded from: classes.dex */
     public static class b {
         public boolean hasFocus;
-        public a heQ;
+        public a htE;
         public boolean isBigV;
         public boolean isGod;
         public String portrait;
@@ -72,8 +73,8 @@ public class g extends com.baidu.tieba.card.data.b implements com.baidu.tbadk.co
 
     /* loaded from: classes.dex */
     public static class c {
-        public a heR;
-        public List<d> heS;
+        public a htF;
+        public List<d> htG;
         public String mcnLeadPage;
         public String originVideoUrl;
         public String thumbnailHeight;
@@ -98,18 +99,18 @@ public class g extends com.baidu.tieba.card.data.b implements com.baidu.tbadk.co
         public String videoWidth;
     }
 
-    public AgreeData aMq() {
+    public AgreeData aSp() {
         return this.agreeData;
     }
 
     @Override // com.baidu.tieba.video.b
     public long getVideoWatchDuration() {
-        return this.heI;
+        return this.htw;
     }
 
     @Override // com.baidu.tieba.video.b
     public void setVideoWatchDuration(long j) {
-        this.heI = j;
+        this.htw = j;
     }
 
     @Override // com.baidu.tieba.video.b
@@ -129,8 +130,8 @@ public class g extends com.baidu.tieba.card.data.b implements com.baidu.tbadk.co
 
     @Override // com.baidu.tbadk.core.util.f.a
     public String getVideoUrl() {
-        if (this.heG != null) {
-            return this.heG.videoUrl;
+        if (this.htu != null) {
+            return this.htu.videoUrl;
         }
         return null;
     }
@@ -147,26 +148,26 @@ public class g extends com.baidu.tieba.card.data.b implements com.baidu.tbadk.co
 
     /* loaded from: classes.dex */
     public static class a {
-        public String Xt;
-        public long heJ;
-        public long heK;
-        public String heL;
-        public String heM;
-        public String heN;
-        public long heO;
-        public long heP;
+        public String XI;
+        public String htA;
+        public String htB;
+        public long htC;
+        public long htD;
+        public long htx;
+        public long hty;
+        public String htz;
 
         public boolean isValid() {
-            return (StringUtils.isNull(this.heM) || StringUtils.isNull(this.Xt)) ? false : true;
+            return (StringUtils.isNull(this.htA) || StringUtils.isNull(this.XI)) ? false : true;
         }
 
         public String toString() {
             StringBuilder sb = new StringBuilder();
-            sb.append("startTime = " + this.heJ);
-            sb.append(",   ad_end_time = " + this.heK);
-            sb.append(",   pic_url = " + this.heL);
-            sb.append(",   card_title = " + this.heM);
-            sb.append(",   button_title = " + this.heN);
+            sb.append("startTime = " + this.htx);
+            sb.append(",   ad_end_time = " + this.hty);
+            sb.append(",   pic_url = " + this.htz);
+            sb.append(",   card_title = " + this.htA);
+            sb.append(",   button_title = " + this.htB);
             return sb.toString();
         }
     }
@@ -177,6 +178,7 @@ public class g extends com.baidu.tieba.card.data.b implements com.baidu.tbadk.co
                 JSONObject jSONObject = new JSONObject(str);
                 this.forumId = jSONObject.optString("forum_id");
                 this.threadId = jSONObject.optString("thread_id");
+                this.nid = jSONObject.optString("nid");
                 this.firstPostId = jSONObject.optString("first_post_id");
                 this.createTime = jSONObject.optString("create_time");
                 this.playCount = jSONObject.optLong("play_count");
@@ -184,84 +186,84 @@ public class g extends com.baidu.tieba.card.data.b implements com.baidu.tbadk.co
                 this.postNum = jSONObject.optLong("post_num");
                 this.shareNum = jSONObject.optLong("share_num");
                 this.agreeNum = jSONObject.optLong("agree_num");
-                this.heC = jSONObject.optLong("disagree_num");
+                this.htq = jSONObject.optLong("disagree_num");
                 this.agreeType = jSONObject.optInt("agree_type");
                 this.hasAgree = jSONObject.optInt("has_agree") == 1;
                 if (this.agreeNum < 0) {
                     this.agreeNum = 0L;
                 }
-                if (this.heC < 0) {
-                    this.heC = 0L;
+                if (this.htq < 0) {
+                    this.htq = 0L;
                 }
                 this.agreeData.threadId = this.threadId;
                 this.agreeData.agreeType = this.agreeType;
                 this.agreeData.hasAgree = this.hasAgree;
                 this.agreeData.agreeNum = this.agreeNum;
-                this.agreeData.disAgreeNum = this.heC;
+                this.agreeData.disAgreeNum = this.htq;
                 this.agreeData.diffAgreeNum = jSONObject.optLong("diff_agree_num", 0L);
                 this.source = jSONObject.optString("source");
                 this.extra = jSONObject.optString("extra");
                 this.abtest_tag = jSONObject.optString("abtest_tag");
-                this.weight = jSONObject.optString(TableDefine.SessionColumns.COLUMN_WEIGHT);
-                this.heD = new ArrayList();
+                this.weight = jSONObject.optString("weight");
+                this.htr = new ArrayList();
                 String optString = jSONObject.optString("forum_id_shared");
                 if (!StringUtils.isNull(optString)) {
                     JSONArray jSONArray = new JSONArray(optString);
                     for (int i = 0; i < jSONArray.length(); i++) {
-                        this.heD.add(jSONArray.optString(i));
+                        this.htr.add(jSONArray.optString(i));
                     }
                 }
-                this.heE = new ArrayList();
+                this.hts = new ArrayList();
                 String optString2 = jSONObject.optString("forum_name_shared");
                 if (!StringUtils.isNull(optString2)) {
                     JSONArray jSONArray2 = new JSONArray(optString2);
                     for (int i2 = 0; i2 < jSONArray2.length(); i2++) {
-                        this.heE.add(jSONArray2.optString(i2));
+                        this.hts.add(jSONArray2.optString(i2));
                     }
                 }
                 String optString3 = jSONObject.optString("author");
                 if (!TextUtils.isEmpty(optString3)) {
-                    this.heF = new b();
+                    this.htt = new b();
                     JSONObject jSONObject2 = new JSONObject(optString3);
-                    this.heF.userId = jSONObject2.optString("user_id");
-                    this.heF.userName = jSONObject2.optString("user_name");
-                    this.heF.userNickname = jSONObject2.optString("user_nickname");
-                    this.heF.portrait = jSONObject2.optString("portrait");
-                    this.heF.hasFocus = jSONObject2.optInt(AddFriendActivityConfig.TYPE_FOCUS) == 1;
-                    this.heF.isGod = jSONObject2.optInt("is_god") == 1;
+                    this.htt.userId = jSONObject2.optString("user_id");
+                    this.htt.userName = jSONObject2.optString("user_name");
+                    this.htt.userNickname = jSONObject2.optString("user_nickname");
+                    this.htt.portrait = jSONObject2.optString("portrait");
+                    this.htt.hasFocus = jSONObject2.optInt(AddFriendActivityConfig.TYPE_FOCUS) == 1;
+                    this.htt.isGod = jSONObject2.optInt("is_god") == 1;
                     String optString4 = jSONObject2.optString("baijiahao_info");
                     if (!TextUtils.isEmpty(optString4)) {
                         JSONObject jSONObject3 = new JSONObject(optString4);
-                        this.heF.heQ = new b.a();
-                        this.heF.heQ.name = jSONObject3.optString("name");
-                        this.heF.heQ.brief = jSONObject3.optString(DBTableDefine.GroupInfoColumns.COLUMN_BRIEF);
-                        this.heF.heQ.avatar = jSONObject3.optString(TableDefine.PaSubscribeColumns.COLUMN_AVATAR);
-                        this.heF.heQ.avatar_h = jSONObject3.optString("avatar_h");
-                        this.heF.heQ.auth_id = Integer.valueOf(jSONObject3.optInt("auth_id"));
-                        this.heF.heQ.auth_desc = jSONObject3.optString("auth_desc");
+                        this.htt.htE = new b.a();
+                        this.htt.htE.name = jSONObject3.optString("name");
+                        this.htt.htE.brief = jSONObject3.optString(DBTableDefine.GroupInfoColumns.COLUMN_BRIEF);
+                        this.htt.htE.avatar = jSONObject3.optString(TableDefine.PaSubscribeColumns.COLUMN_AVATAR);
+                        this.htt.htE.avatar_h = jSONObject3.optString("avatar_h");
+                        this.htt.htE.auth_id = Integer.valueOf(jSONObject3.optInt("auth_id"));
+                        this.htt.htE.auth_desc = jSONObject3.optString("auth_desc");
                     }
                 }
                 String optString5 = jSONObject.optString("video");
                 if (!TextUtils.isEmpty(optString5)) {
-                    this.heG = new c();
+                    this.htu = new c();
                     JSONObject jSONObject4 = new JSONObject(optString5);
-                    this.heG.thumbnailWidth = jSONObject4.optString("thumbnail_width");
-                    this.heG.thumbnailHeight = jSONObject4.optString("thumbnail_height");
-                    this.heG.videoMd5 = jSONObject4.optString("video_md5");
-                    this.heG.videoUrl = jSONObject4.optString("video_url");
-                    this.heG.videoDuration = jSONObject4.optInt("video_duration");
-                    this.heG.videoWidth = jSONObject4.optString("video_width");
-                    this.heG.videoHeight = jSONObject4.optString("video_height");
-                    this.heG.videoSize = jSONObject4.optLong("video_size");
-                    this.heG.videoType = jSONObject4.optString(LogConfig.LOG_VIDEO_TYPE);
-                    this.heG.thumbnailUrl = jSONObject4.optString("thumbnail_url");
-                    this.heG.videoFormat = jSONObject4.optString("video_format");
-                    this.heG.thumbnailPicid = jSONObject4.optString("thumbnail_picid");
-                    this.heG.originVideoUrl = jSONObject4.optString("origin_video_url");
-                    this.heG.mcnLeadPage = jSONObject4.optString("mcn_lead_page");
+                    this.htu.thumbnailWidth = jSONObject4.optString("thumbnail_width");
+                    this.htu.thumbnailHeight = jSONObject4.optString("thumbnail_height");
+                    this.htu.videoMd5 = jSONObject4.optString("video_md5");
+                    this.htu.videoUrl = jSONObject4.optString("video_url");
+                    this.htu.videoDuration = jSONObject4.optInt("video_duration");
+                    this.htu.videoWidth = jSONObject4.optString("video_width");
+                    this.htu.videoHeight = jSONObject4.optString("video_height");
+                    this.htu.videoSize = jSONObject4.optLong("video_size");
+                    this.htu.videoType = jSONObject4.optString(LogConfig.LOG_VIDEO_TYPE);
+                    this.htu.thumbnailUrl = jSONObject4.optString("thumbnail_url");
+                    this.htu.videoFormat = jSONObject4.optString("video_format");
+                    this.htu.thumbnailPicid = jSONObject4.optString("thumbnail_picid");
+                    this.htu.originVideoUrl = jSONObject4.optString("origin_video_url");
+                    this.htu.mcnLeadPage = jSONObject4.optString("mcn_lead_page");
                     String optString6 = jSONObject4.optString("video_desc");
                     if (!TextUtils.isEmpty(optString6)) {
-                        this.heG.heS = new ArrayList();
+                        this.htu.htG = new ArrayList();
                         JSONArray jSONArray3 = new JSONArray(optString6);
                         for (int i3 = 0; i3 < jSONArray3.length(); i3++) {
                             d dVar = new d();
@@ -269,21 +271,21 @@ public class g extends com.baidu.tieba.card.data.b implements com.baidu.tbadk.co
                             dVar.videoUrl = jSONArray3.optJSONObject(i3).optString("video_url");
                             dVar.videoWidth = jSONArray3.optJSONObject(i3).optString("video_width");
                             dVar.videoHeight = jSONArray3.optJSONObject(i3).optString("video_height");
-                            this.heG.heS.add(dVar);
+                            this.htu.htG.add(dVar);
                         }
                     }
                     JSONObject optJSONObject = jSONObject4.optJSONObject("mcn_ad_card");
                     if (optJSONObject != null) {
                         a aVar = new a();
-                        aVar.heJ = optJSONObject.optLong(SharedPrefConfig.AD_START_TIME);
-                        aVar.heK = optJSONObject.optLong(SharedPrefConfig.AD_END_TIME);
-                        aVar.heL = optJSONObject.optString("pic_url");
-                        aVar.Xt = optJSONObject.optString(BigdayActivityConfig.JUMP_URL);
-                        aVar.heM = optJSONObject.optString("card_title");
-                        aVar.heN = optJSONObject.optString("button_title");
-                        aVar.heO = optJSONObject.optLong("effect_time");
-                        aVar.heP = optJSONObject.optLong("expire_time");
-                        this.heG.heR = aVar;
+                        aVar.htx = optJSONObject.optLong(SharedPrefConfig.AD_START_TIME);
+                        aVar.hty = optJSONObject.optLong(SharedPrefConfig.AD_END_TIME);
+                        aVar.htz = optJSONObject.optString("pic_url");
+                        aVar.XI = optJSONObject.optString(BigdayActivityConfig.JUMP_URL);
+                        aVar.htA = optJSONObject.optString("card_title");
+                        aVar.htB = optJSONObject.optString("button_title");
+                        aVar.htC = optJSONObject.optLong("effect_time");
+                        aVar.htD = optJSONObject.optLong("expire_time");
+                        this.htu.htF = aVar;
                     }
                 }
                 JSONObject optJSONObject2 = jSONObject.optJSONObject(Constants.PAGE_BAIJIAHAO_NAME);
@@ -297,8 +299,8 @@ public class g extends com.baidu.tieba.card.data.b implements com.baidu.tbadk.co
         }
     }
 
-    @Override // com.baidu.adp.widget.ListView.m
+    @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.o
     public BdUniqueId getType() {
-        return heB;
+        return htp;
     }
 }

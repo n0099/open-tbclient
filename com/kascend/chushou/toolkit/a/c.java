@@ -21,7 +21,7 @@ public class c {
         HashMap hashMap = new HashMap();
         if (objArr != null && objArr.length > 0) {
             int length = objArr.length;
-            if (length % 2 != 0 && tv.chushou.basis.d.b.Lq()) {
+            if (length % 2 != 0 && tv.chushou.basis.d.b.ND()) {
                 throw new IllegalArgumentException("Supplied arguments must be even");
             }
             for (int i = 0; i < length; i += 2) {
@@ -32,7 +32,7 @@ public class c {
                 }
             }
         }
-        tv.chushou.basis.d.a.b.a aVar = (tv.chushou.basis.d.a.b.a) tv.chushou.basis.d.b.dJs().S(tv.chushou.basis.d.a.b.a.class);
+        tv.chushou.basis.d.a.b.a aVar = (tv.chushou.basis.d.a.b.a) tv.chushou.basis.d.b.dRm().S(tv.chushou.basis.d.a.b.a.class);
         if (aVar != null) {
             aVar.a(context, str, str2, hashMap);
         }

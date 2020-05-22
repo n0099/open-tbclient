@@ -14,7 +14,7 @@ import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
 public final class FlowableGroupJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> extends io.reactivex.internal.operators.flowable.a<TLeft, R> {
     final h<? super TLeft, ? extends org.a.b<TLeftEnd>> leftEnd;
-    final org.a.b<? extends TRight> mSn;
+    final org.a.b<? extends TRight> nnu;
     final io.reactivex.c.c<? super TLeft, ? super io.reactivex.g<TRight>, ? extends R> resultSelector;
     final h<? super TRight, ? extends org.a.b<TRightEnd>> rightEnd;
 
@@ -40,8 +40,8 @@ public final class FlowableGroupJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> exte
         groupJoinSubscription.disposables.a(leftRightSubscriber);
         LeftRightSubscriber leftRightSubscriber2 = new LeftRightSubscriber(groupJoinSubscription, false);
         groupJoinSubscription.disposables.a(leftRightSubscriber2);
-        this.mRM.a((j) leftRightSubscriber);
-        this.mSn.subscribe(leftRightSubscriber2);
+        this.nmU.a((j) leftRightSubscriber);
+        this.nnu.subscribe(leftRightSubscriber2);
     }
 
     /* loaded from: classes7.dex */
@@ -60,7 +60,7 @@ public final class FlowableGroupJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> exte
         static final Integer RIGHT_CLOSE = 4;
         final AtomicLong requested = new AtomicLong();
         final io.reactivex.disposables.a disposables = new io.reactivex.disposables.a();
-        final io.reactivex.internal.queue.a<Object> queue = new io.reactivex.internal.queue.a<>(io.reactivex.g.dCy());
+        final io.reactivex.internal.queue.a<Object> queue = new io.reactivex.internal.queue.a<>(io.reactivex.g.dKs());
         final Map<Integer, UnicastProcessor<TRight>> lefts = new LinkedHashMap();
         final Map<Integer, TRight> rights = new LinkedHashMap();
         final AtomicReference<Throwable> error = new AtomicReference<>();
@@ -142,12 +142,12 @@ public final class FlowableGroupJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> exte
                     } else if (!z2) {
                         Object poll = aVar.poll();
                         if (num == LEFT_VALUE) {
-                            UnicastProcessor<TRight> dDh = UnicastProcessor.dDh();
+                            UnicastProcessor<TRight> dLb = UnicastProcessor.dLb();
                             int i2 = this.leftIndex;
                             this.leftIndex = i2 + 1;
-                            this.lefts.put(Integer.valueOf(i2), dDh);
+                            this.lefts.put(Integer.valueOf(i2), dLb);
                             try {
-                                org.a.b bVar = (org.a.b) io.reactivex.internal.functions.a.h(this.leftEnd.apply(poll), "The leftEnd returned a null Publisher");
+                                org.a.b bVar = (org.a.b) io.reactivex.internal.functions.a.k(this.leftEnd.apply(poll), "The leftEnd returned a null Publisher");
                                 LeftRightEndSubscriber leftRightEndSubscriber = new LeftRightEndSubscriber(this, true, i2);
                                 this.disposables.a(leftRightEndSubscriber);
                                 bVar.subscribe(leftRightEndSubscriber);
@@ -158,12 +158,12 @@ public final class FlowableGroupJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> exte
                                     return;
                                 }
                                 try {
-                                    Object obj = (Object) io.reactivex.internal.functions.a.h(this.resultSelector.apply(poll, dDh), "The resultSelector returned a null value");
+                                    Object obj = (Object) io.reactivex.internal.functions.a.k(this.resultSelector.apply(poll, dLb), "The resultSelector returned a null value");
                                     if (this.requested.get() != 0) {
                                         cVar.onNext(obj);
                                         io.reactivex.internal.util.b.c(this.requested, 1L);
                                         for (TRight tright : this.rights.values()) {
-                                            dDh.onNext(tright);
+                                            dLb.onNext(tright);
                                         }
                                     } else {
                                         fail(new MissingBackpressureException("Could not emit value due to lack of requests"), cVar, aVar);
@@ -182,7 +182,7 @@ public final class FlowableGroupJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> exte
                             this.rightIndex = i3 + 1;
                             this.rights.put(Integer.valueOf(i3), poll);
                             try {
-                                org.a.b bVar2 = (org.a.b) io.reactivex.internal.functions.a.h(this.rightEnd.apply(poll), "The rightEnd returned a null Publisher");
+                                org.a.b bVar2 = (org.a.b) io.reactivex.internal.functions.a.k(this.rightEnd.apply(poll), "The rightEnd returned a null Publisher");
                                 LeftRightEndSubscriber leftRightEndSubscriber2 = new LeftRightEndSubscriber(this, false, i3);
                                 this.disposables.a(leftRightEndSubscriber2);
                                 bVar2.subscribe(leftRightEndSubscriber2);

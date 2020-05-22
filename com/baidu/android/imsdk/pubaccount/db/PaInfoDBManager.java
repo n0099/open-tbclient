@@ -18,7 +18,6 @@ import com.baidu.android.imsdk.shield.IGetUserShieldListener;
 import com.baidu.android.imsdk.task.TaskManager;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
-import com.baidu.fsg.base.statistics.b;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -586,7 +585,7 @@ public class PaInfoDBManager extends DBBase {
                         } catch (Exception e) {
                             e = e;
                             LogUtils.e(TAG, "getShieldUser:", e);
-                            iGetUserShieldListener.onResult(-1, b.k, null);
+                            iGetUserShieldListener.onResult(-1, "exception", null);
                             if (cursor != null) {
                                 cursor.close();
                             }

@@ -4,26 +4,27 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.swan.pms.model.PMSAppInfo;
+import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes11.dex */
 public class a extends b<PMSAppInfo> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.pms.database.a.b
-    /* renamed from: f */
-    public PMSAppInfo i(Cursor cursor) {
+    /* renamed from: g */
+    public PMSAppInfo j(Cursor cursor) {
         if (cursor == null || cursor.getCount() <= 0 || !cursor.moveToFirst()) {
             return null;
         }
-        return h(cursor);
+        return i(cursor);
     }
 
     @Override // com.baidu.swan.pms.database.a.b
-    public List<PMSAppInfo> g(Cursor cursor) {
+    public List<PMSAppInfo> h(Cursor cursor) {
         ArrayList arrayList = new ArrayList();
         if (cursor != null && cursor.getCount() > 0 && cursor.moveToFirst()) {
             do {
-                arrayList.add(h(cursor));
+                arrayList.add(i(cursor));
             } while (cursor.moveToNext());
             return arrayList;
         }
@@ -32,8 +33,8 @@ public class a extends b<PMSAppInfo> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.pms.database.a.b
-    /* renamed from: n */
-    public ContentValues ab(PMSAppInfo pMSAppInfo) throws IllegalArgumentException {
+    /* renamed from: p */
+    public ContentValues af(PMSAppInfo pMSAppInfo) throws IllegalArgumentException {
         ContentValues contentValues = new ContentValues();
         if (pMSAppInfo != null) {
             contentValues.put("app_id", pMSAppInfo.appId);
@@ -67,11 +68,12 @@ public class a extends b<PMSAppInfo> {
             contentValues.put("global_notice", Integer.valueOf(pMSAppInfo.globalNotice));
             contentValues.put("global_private", Integer.valueOf(pMSAppInfo.globalPrivate));
             contentValues.put("pa_number", pMSAppInfo.paNumber);
+            contentValues.put(Constants.PHONE_BRAND, pMSAppInfo.brandsInfo);
         }
         return contentValues;
     }
 
-    private PMSAppInfo h(Cursor cursor) {
+    private PMSAppInfo i(Cursor cursor) {
         if (cursor != null) {
             int columnIndex = cursor.getColumnIndex("app_id");
             int columnIndex2 = cursor.getColumnIndex("app_key");
@@ -104,6 +106,7 @@ public class a extends b<PMSAppInfo> {
             int columnIndex29 = cursor.getColumnIndex("global_notice");
             int columnIndex30 = cursor.getColumnIndex("global_private");
             int columnIndex31 = cursor.getColumnIndex("pa_number");
+            int columnIndex32 = cursor.getColumnIndex(Constants.PHONE_BRAND);
             PMSAppInfo pMSAppInfo = new PMSAppInfo();
             pMSAppInfo.appId = cursor.getString(columnIndex);
             pMSAppInfo.appKey = cursor.getString(columnIndex2);
@@ -136,6 +139,7 @@ public class a extends b<PMSAppInfo> {
             pMSAppInfo.globalNotice = cursor.getInt(columnIndex29);
             pMSAppInfo.globalPrivate = cursor.getInt(columnIndex30);
             pMSAppInfo.paNumber = cursor.getString(columnIndex31);
+            pMSAppInfo.brandsInfo = cursor.getString(columnIndex32);
             return pMSAppInfo;
         }
         return null;

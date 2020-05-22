@@ -16,7 +16,7 @@ import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.R;
 /* loaded from: classes11.dex */
 public class e implements com.baidu.tieba.personPolymeric.b.b {
-    private com.baidu.tieba.post.a.a jXU;
+    private com.baidu.tieba.post.a.a kpN;
     private BdUniqueId mId;
     private TbPageContext mTbPageContext;
     private int mStatus = 0;
@@ -36,14 +36,14 @@ public class e implements com.baidu.tieba.personPolymeric.b.b {
                     e.this.mTbPageContext.showToast(R.string.privacy_setting_toast);
                 }
                 e.this.mStatus = 1;
-                e.this.jXU.startPullRefresh();
+                e.this.kpN.startPullRefresh();
             }
         }
     };
 
     public e(TbPageContext tbPageContext, com.baidu.tieba.post.a.a aVar, BdUniqueId bdUniqueId) {
         this.mTbPageContext = tbPageContext;
-        this.jXU = aVar;
+        this.kpN = aVar;
         this.mId = bdUniqueId;
         CustomMessageListener customMessageListener = new CustomMessageListener(CmdConfigCustom.CMD_PRIVACY_STATUS) { // from class: com.baidu.tieba.personExtra.e.2
             /* JADX DEBUG: Method merged with bridge method */
@@ -57,7 +57,7 @@ public class e implements com.baidu.tieba.personPolymeric.b.b {
                         default:
                             return;
                         case 1:
-                            e.this.jXU.startPullRefresh();
+                            e.this.kpN.startPullRefresh();
                             return;
                     }
                 }
@@ -70,7 +70,7 @@ public class e implements com.baidu.tieba.personPolymeric.b.b {
     }
 
     @Override // com.baidu.tieba.personPolymeric.b.b
-    public void cHF() {
+    public void cOE() {
         if (!com.baidu.adp.lib.util.j.isNetWorkAvailable()) {
             if (this.mTbPageContext != null) {
                 this.mTbPageContext.showToast(R.string.neterror);
@@ -83,6 +83,6 @@ public class e implements com.baidu.tieba.personPolymeric.b.b {
         httpMessage.addParam("val", String.valueOf(1));
         httpMessage.setTag(this.mId);
         MessageManager.getInstance().sendMessage(httpMessage);
-        TiebaStatic.log(new an("c12515").af("obj_locate", 1));
+        TiebaStatic.log(new an("c12515").ag("obj_locate", 1));
     }
 }

@@ -22,14 +22,14 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class a {
     private static final boolean DEBUG = b.DEBUG;
-    private static final List<Long> cZk = new CopyOnWriteArrayList();
-    private static final Map<String, Integer> cZl = new ConcurrentHashMap();
-    private com.baidu.swan.mini.slave.a cZn;
-    private final ConcurrentHashMap<String, com.baidu.swan.mini.master.a> cZm = new ConcurrentHashMap<>();
-    private boolean cZo = false;
-    private SwanCoreVersion cZp = null;
-    private boolean cZq = false;
-    private com.baidu.swan.mini.d.b cZr = new com.baidu.swan.mini.d.b();
+    private static final List<Long> dko = new CopyOnWriteArrayList();
+    private static final Map<String, Integer> dkp = new ConcurrentHashMap();
+    private com.baidu.swan.mini.slave.a dkr;
+    private final ConcurrentHashMap<String, com.baidu.swan.mini.master.a> dkq = new ConcurrentHashMap<>();
+    private boolean dks = false;
+    private SwanCoreVersion dkt = null;
+    private boolean dku = false;
+    private com.baidu.swan.mini.d.b dkv = new com.baidu.swan.mini.d.b();
 
     public void loadMasters(@NonNull String str) {
         if (DEBUG) {
@@ -40,22 +40,22 @@ public class a {
             JSONArray jSONArray = new JSONArray(str);
             int length = jSONArray.length();
             if (length == 0) {
-                d(2, "Card info array empty", false);
+                e(2, "Card info array empty", false);
                 return;
             }
-            SwanCoreVersion swanCoreVersion = this.cZp;
+            SwanCoreVersion swanCoreVersion = this.dkt;
             for (int i = 0; i < length; i++) {
-                com.baidu.swan.mini.b.a bW = com.baidu.swan.mini.b.a.bW(jSONArray.optJSONObject(i));
+                com.baidu.swan.mini.b.a bX = com.baidu.swan.mini.b.a.bX(jSONArray.optJSONObject(i));
                 if (swanCoreVersion == null) {
-                    d(2, "Runtime has been reset while loading master", false);
+                    e(2, "Runtime has been reset while loading master", false);
                     return;
                 }
-                if (bW.aBx() && bW.bM(swanCoreVersion.swanCoreVersion)) {
-                    a(bW);
-                } else if (!TextUtils.isEmpty(bW.aBy())) {
-                    a(bW.aBy(), 2, "Card info data not valid", false, bW.aBz().getAppId(), bW.aBz().getBundleId());
+                if (bX.aFp() && bX.bK(swanCoreVersion.swanCoreVersion)) {
+                    a(bX);
+                } else if (!TextUtils.isEmpty(bX.aFq())) {
+                    a(bX.aFq(), 2, "Card info data not valid", false, bX.aFr().getAppId(), bX.aFr().getBundleId());
                 } else {
-                    d(2, "Card info data not valid, no instance id", false);
+                    e(2, "Card info data not valid, no instance id", false);
                     return;
                 }
             }
@@ -63,111 +63,111 @@ public class a {
                 Log.i("SwanMiniRuntime", "All master started to load (async)");
             }
         } catch (JSONException e) {
-            d(2, "Card info array parse error", false);
+            e(2, "Card info array parse error", false);
         } catch (Exception e2) {
-            d(2, "Caught exception: " + e2.getMessage(), false);
+            e(2, "Caught exception: " + e2.getMessage(), false);
         }
     }
 
-    public void at(@NonNull List<String> list) {
+    public void ao(@NonNull List<String> list) {
         for (String str : list) {
-            a(this.cZm.remove(str));
+            a(this.dkq.remove(str));
         }
     }
 
     private void a(@Nullable com.baidu.swan.mini.master.a aVar) {
         if (aVar != null) {
             if (DEBUG) {
-                Log.i("SwanMiniRuntime", "Destroying master: " + aVar.aBw());
+                Log.i("SwanMiniRuntime", "Destroying master: " + aVar.aFo());
             }
-            rt(aVar.aBw());
+            sW(aVar.aFo());
             aVar.finish();
         }
     }
 
     private void a(@NonNull final com.baidu.swan.mini.b.a aVar) {
-        final String aBy = aVar.aBy();
-        String appId = aVar.aBz().getAppId();
-        String bundleId = aVar.aBz().getBundleId();
+        final String aFq = aVar.aFq();
+        String appId = aVar.aFr().getAppId();
+        String bundleId = aVar.aFr().getBundleId();
         if (DEBUG) {
-            Log.i("SwanMiniRuntime", "Start load master (async), id = " + aBy + ", appKey = " + appId + "/" + bundleId);
+            Log.i("SwanMiniRuntime", "Start load master (async), id = " + aFq + ", appKey = " + appId + "/" + bundleId);
         }
-        SwanCoreVersion swanCoreVersion = this.cZp;
+        SwanCoreVersion swanCoreVersion = this.dkt;
         if (swanCoreVersion == null || TextUtils.isEmpty(swanCoreVersion.swanCorePath)) {
-            a(aBy, 2, "Can't load Master js", false, appId, bundleId);
+            a(aFq, 2, "Can't load Master js", false, appId, bundleId);
             return;
         }
-        this.cZr.m(aBy, 101, "NA Load Master");
-        com.baidu.swan.mini.master.a aVar2 = new com.baidu.swan.mini.master.a(c.rz(swanCoreVersion.swanCorePath), "master.js", new SwanMiniMasterJsInterface(this, aBy));
-        this.cZm.put(aBy, aVar2);
+        this.dkv.U(aFq, "na_load_master_start", "NA Load Master");
+        com.baidu.swan.mini.master.a aVar2 = new com.baidu.swan.mini.master.a(c.tb(swanCoreVersion.swanCorePath), "master.js", new SwanMiniMasterJsInterface(this, aFq));
+        this.dkq.put(aFq, aVar2);
         aVar2.a(new a.b() { // from class: com.baidu.swan.mini.a.1
             @Override // com.baidu.swan.mini.master.a.b
-            public void c(com.baidu.swan.games.e.a aVar3) {
+            public void c(com.baidu.swan.games.f.a aVar3) {
                 if (a.DEBUG) {
-                    Log.i("SwanMiniRuntime", "Master loaded, id = " + aBy);
+                    Log.i("SwanMiniRuntime", "Master loaded, id = " + aFq);
                 }
-                a.this.cZr.m(aBy, 102, "NA Master Loaded");
-                a.this.rq(aBy);
+                a.this.dkv.U(aFq, "na_load_master_end", "NA Master Loaded");
+                a.this.a(aFq, aVar);
                 a.this.b(aVar);
             }
         });
         if (DEBUG) {
-            Log.i("SwanMiniRuntime", "Started load master (async), id = " + aBy);
+            Log.i("SwanMiniRuntime", "Started load master (async), id = " + aFq);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(@NonNull final com.baidu.swan.mini.b.a aVar) {
-        final String aBy = aVar.aBy();
-        final com.baidu.swan.pms.b.a aBz = aVar.aBz();
-        final String appId = aBz.getAppId();
-        final String bundleId = aBz.getBundleId();
+        final String aFq = aVar.aFq();
+        final com.baidu.swan.pms.b.a aFr = aVar.aFr();
+        final String appId = aFr.getAppId();
+        final String bundleId = aFr.getBundleId();
         if (DEBUG) {
-            Log.i("SwanMiniRuntime", "Start load miniApp (async), id = " + aBy + ", appKey = " + appId + "/" + bundleId);
+            Log.i("SwanMiniRuntime", "Start load miniApp (async), id = " + aFq + ", appKey = " + appId + "/" + bundleId);
         }
-        this.cZr.m(aBy, 104, "NA Load App");
-        com.baidu.swan.mini.c.a.a(aBz, new c.a() { // from class: com.baidu.swan.mini.a.2
+        this.dkv.U(aFq, "na_download_app_start", "NA Load App");
+        com.baidu.swan.mini.c.a.a(aFr, new c.a() { // from class: com.baidu.swan.mini.a.2
             @Override // com.baidu.swan.mini.e.c.a
             public void onSuccess(final String str) {
                 if (a.DEBUG) {
-                    Log.i("SwanMiniRuntime", "Load MiniApp success, id = " + aBy + ", appKey = " + appId + "/" + bundleId);
+                    Log.i("SwanMiniRuntime", "Load MiniApp success, id = " + aFq + ", appKey = " + appId + "/" + bundleId);
                     Log.v("SwanMiniRuntime", "MiniApp path: " + str);
                 }
-                a.this.cZr.m(aBy, 105, "NA App Downloaded");
-                a.this.rs(str);
+                a.this.dkv.U(aFq, "na_download_app_end", "NA App Downloaded");
+                a.this.sV(str);
                 c.a(str, new c.b() { // from class: com.baidu.swan.mini.a.2.1
                     @Override // com.baidu.swan.mini.e.c.b
-                    public void ru(@NonNull String str2) {
+                    public void sX(@NonNull String str2) {
                         if (TextUtils.isEmpty(str2)) {
-                            a.this.rt(str);
-                            a.this.a(aBy, 4, "Can't load code info json", true, appId, bundleId);
+                            a.this.sW(str);
+                            a.this.a(aFq, 4, "Can't load code info json", true, appId, bundleId);
                             return;
                         }
                         a.this.a(aVar, str, str2);
-                        com.baidu.swan.mini.c.b.c(aBz);
+                        com.baidu.swan.mini.c.b.c(aFr);
                     }
                 });
             }
 
             @Override // com.baidu.swan.mini.e.c.a
             public void onFailed(int i, String str) {
-                a.this.a(aBy, 3, "Download error by pms: " + str + "(" + i + ")", true, appId, bundleId);
+                a.this.a(aFq, 3, "Download error by pms: " + str + "(" + i + ")", true, appId, bundleId);
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void rq(@Nullable String str) {
+    public void a(@Nullable String str, com.baidu.swan.mini.b.a aVar) {
         if (TextUtils.isEmpty(str)) {
             if (DEBUG) {
                 Log.e("SwanMiniRuntime", "Instance id is null when notifying master ready");
             }
-        } else if (this.cZn == null) {
+        } else if (this.dkr == null) {
             if (DEBUG) {
                 Log.e("SwanMiniRuntime", "Null Slave when notifying master ready, id: " + str);
             }
         } else {
-            this.cZn.evaluateJavascript(com.baidu.swan.mini.e.a.rx(str), null);
+            this.dkr.evaluateJavascript(com.baidu.swan.mini.e.a.b(str, aVar), null);
             if (DEBUG) {
                 Log.d("SwanMiniRuntime", "MasterReady notified to slave, id = " + str);
             }
@@ -176,46 +176,46 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(@NonNull com.baidu.swan.mini.b.a aVar, @Nullable String str, @Nullable String str2) {
-        String aBy = aVar.aBy();
-        if (this.cZn == null) {
+        String aFq = aVar.aFq();
+        if (this.dkr == null) {
             if (DEBUG) {
                 Log.e("SwanMiniRuntime", "Slave is null when notifying app ready");
             }
-            rt(str);
+            sW(str);
             return;
         }
-        com.baidu.swan.mini.master.a aVar2 = this.cZm.get(aBy);
-        com.baidu.swan.games.e.a v8Engine = aVar2 == null ? null : aVar2.getV8Engine();
+        com.baidu.swan.mini.master.a aVar2 = this.dkq.get(aFq);
+        com.baidu.swan.games.f.a v8Engine = aVar2 == null ? null : aVar2.getV8Engine();
         if (v8Engine == null) {
-            a(aBy, 4, "Master error", false, aVar.aBz().getAppId(), aVar.aBz().getBundleId());
-            rt(str);
+            a(aFq, 4, "Master error", false, aVar.aFr().getAppId(), aVar.aFr().getBundleId());
+            sW(str);
         } else if (TextUtils.isEmpty(str)) {
-            a(aBy, 4, "App file path empty", true, aVar.aBz().getAppId(), aVar.aBz().getBundleId());
+            a(aFq, 4, "App file path empty", true, aVar.aFr().getAppId(), aVar.aFr().getBundleId());
         } else {
-            aVar2.rv(str);
+            aVar2.sY(str);
             if (TextUtils.isEmpty(str2)) {
-                a(aBy, 4, "App info Json Empty", true, aVar.aBz().getAppId(), aVar.aBz().getBundleId());
+                a(aFq, 4, "App info Json Empty", true, aVar.aFr().getAppId(), aVar.aFr().getBundleId());
                 return;
             }
             try {
                 new JSONObject(str2);
-                this.cZr.m(aBy, 106, "NA App Loaded");
-                aVar2.setCodeCacheSetting(com.baidu.swan.apps.core.b.a.aF("appjs", str));
-                v8Engine.evaluateJavascript(com.baidu.swan.mini.e.a.s(str, str2, this.cZo), null);
+                this.dkv.U(aFq, "na_load_app_completed", "NA App Loaded");
+                aVar2.setCodeCacheSetting(com.baidu.swan.apps.core.b.a.aV("appjs", str));
+                v8Engine.evaluateJavascript(com.baidu.swan.mini.e.a.u(str, str2, this.dks), null);
                 if (DEBUG) {
-                    Log.d("SwanMiniRuntime", "AppReady sent to Master, id = " + aBy);
+                    Log.d("SwanMiniRuntime", "AppReady sent to Master, id = " + aFq);
                 }
-                this.cZn.evaluateJavascript(com.baidu.swan.mini.e.a.a(aVar, str2), null);
+                this.dkr.evaluateJavascript(com.baidu.swan.mini.e.a.a(aFq, str2, aVar), null);
                 if (DEBUG) {
-                    Log.d("SwanMiniRuntime", "AppReady sent to Slave, id = " + aBy);
+                    Log.d("SwanMiniRuntime", "AppReady sent to Slave, id = " + aFq);
                 }
             } catch (Exception e) {
-                a(aBy, 4, "App info json is illegal", true, aVar.aBz().getAppId(), aVar.aBz().getBundleId());
+                a(aFq, 4, "App info json is illegal", true, aVar.aFr().getAppId(), aVar.aFr().getBundleId());
             }
         }
     }
 
-    public void d(int i, @Nullable String str, boolean z) {
+    public void e(int i, @Nullable String str, boolean z) {
         a(null, i, str, z, null, null);
     }
 
@@ -228,34 +228,34 @@ public class a {
         if (!TextUtils.isEmpty(str)) {
             arrayList.add(str);
         }
-        if (this.cZn != null) {
-            this.cZn.evaluateJavascript(com.baidu.swan.mini.e.a.a(arrayList, i, str2, z), null);
+        if (this.dkr != null) {
+            this.dkr.evaluateJavascript(com.baidu.swan.mini.e.a.a(arrayList, i, str2, z), null);
         }
-        this.cZr.d(i, str2, str3, str4);
+        this.dkv.a(i, str2, str3, str4, str);
     }
 
-    public void ck(@Nullable String str, @Nullable String str2) {
-        com.baidu.swan.mini.master.a rr = rr(str);
-        if (rr != null && rr.getV8Engine() != null) {
+    public void cF(@Nullable String str, @Nullable String str2) {
+        com.baidu.swan.mini.master.a sU = sU(str);
+        if (sU != null && sU.getV8Engine() != null) {
             if (DEBUG) {
                 Log.v("SwanMiniRuntime", "Message sent to master, id = " + str + ", Message = " + str2);
             }
-            d.c(rr.getV8Engine(), str2);
+            d.c(sU.getV8Engine(), str2);
         }
     }
 
-    public void cl(@Nullable String str, @Nullable String str2) {
-        if (this.cZn != null) {
+    public void cG(@Nullable String str, @Nullable String str2) {
+        if (this.dkr != null) {
             if (DEBUG) {
                 Log.v("SwanMiniRuntime", "Message sent to slave, id = " + str + ", Message = " + str2);
             }
-            d.a(this.cZn, str, str2);
+            d.a(this.dkr, str, str2);
         }
     }
 
     @Nullable
-    public com.baidu.swan.mini.master.a rr(@Nullable String str) {
-        return this.cZm.get(str);
+    public com.baidu.swan.mini.master.a sU(@Nullable String str) {
+        return this.dkq.get(str);
     }
 
     public void b(boolean z, @Nullable String str, @NonNull String str2) {
@@ -265,48 +265,48 @@ public class a {
     }
 
     @NonNull
-    public static List<Long> aBr() {
-        return cZk;
+    public static List<Long> aFj() {
+        return dko;
     }
 
-    public static Set<String> aBs() {
-        return cZl.keySet();
+    public static Set<String> aFk() {
+        return dkp.keySet();
     }
 
-    public boolean aBt() {
-        return this.cZq;
+    public boolean aFl() {
+        return this.dku;
     }
 
     @NonNull
-    public com.baidu.swan.mini.d.b aBu() {
-        return this.cZr;
+    public com.baidu.swan.mini.d.b aFm() {
+        return this.dkv;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void rs(String str) {
+    public void sV(String str) {
         if (!TextUtils.isEmpty(str)) {
             synchronized (a.class) {
-                Integer num = cZl.get(str);
+                Integer num = dkp.get(str);
                 if (num != null) {
-                    cZl.put(str, Integer.valueOf(num.intValue() + 1));
+                    dkp.put(str, Integer.valueOf(num.intValue() + 1));
                 } else {
-                    cZl.put(str, 1);
+                    dkp.put(str, 1);
                 }
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void rt(String str) {
+    public void sW(String str) {
         if (!TextUtils.isEmpty(str)) {
             synchronized (a.class) {
-                Integer num = cZl.get(str);
+                Integer num = dkp.get(str);
                 if (num != null) {
                     Integer valueOf = Integer.valueOf(num.intValue() - 1);
                     if (valueOf.intValue() > 0) {
-                        cZl.put(str, valueOf);
+                        dkp.put(str, valueOf);
                     } else {
-                        cZl.remove(str);
+                        dkp.remove(str);
                     }
                 }
             }

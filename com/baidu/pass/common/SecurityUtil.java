@@ -17,10 +17,10 @@ public class SecurityUtil {
     }
 
     public static byte[] aesEncrypt(String str, String str2, String str3) throws Exception {
-        return new a.C0184a().a(str, str2, str3);
+        return new a.C0217a().a(str, str2, str3);
     }
 
     public byte[] aesDecrypt(byte[] bArr, String str, String str2) throws Exception {
-        return new a.C0184a().a(bArr, str, str2);
+        return new a.C0217a().a(bArr, str, str2);
     }
 }

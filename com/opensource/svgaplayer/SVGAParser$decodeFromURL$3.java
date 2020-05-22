@@ -26,12 +26,12 @@ public final class SVGAParser$decodeFromURL$3 extends Lambda implements kotlin.j
     @Override // kotlin.jvm.a.b
     public /* bridge */ /* synthetic */ l invoke(Exception exc) {
         invoke2(exc);
-        return l.mXc;
+        return l.nse;
     }
 
     /* renamed from: invoke  reason: avoid collision after fix types in other method */
     public final void invoke2(Exception exc) {
-        q.j(exc, AdvanceSetting.NETWORK_TYPE);
+        q.m(exc, AdvanceSetting.NETWORK_TYPE);
         this.this$0.a(exc, this.$callback);
     }
 }

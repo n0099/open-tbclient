@@ -18,7 +18,7 @@ public final class FlowableFlatMapSingle<T, R> extends a<T, R> {
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super R> cVar) {
-        this.mRM.a((j) new FlatMapSingleSubscriber(cVar, this.mapper, this.delayErrors, this.maxConcurrency));
+        this.nmU.a((j) new FlatMapSingleSubscriber(cVar, this.mapper, this.delayErrors, this.maxConcurrency));
     }
 
     /* loaded from: classes7.dex */
@@ -59,7 +59,7 @@ public final class FlowableFlatMapSingle<T, R> extends a<T, R> {
         @Override // org.a.c
         public void onNext(T t) {
             try {
-                aa aaVar = (aa) io.reactivex.internal.functions.a.h(this.mapper.apply(t), "The mapper returned a null SingleSource");
+                aa aaVar = (aa) io.reactivex.internal.functions.a.k(this.mapper.apply(t), "The mapper returned a null SingleSource");
                 this.active.getAndIncrement();
                 InnerObserver innerObserver = new InnerObserver();
                 if (!this.cancelled && this.set.a(innerObserver)) {
@@ -156,7 +156,7 @@ public final class FlowableFlatMapSingle<T, R> extends a<T, R> {
                 if (aVar != null) {
                     break;
                 }
-                aVar = new io.reactivex.internal.queue.a<>(io.reactivex.g.dCy());
+                aVar = new io.reactivex.internal.queue.a<>(io.reactivex.g.dKs());
             } while (!this.queue.compareAndSet(null, aVar));
             return aVar;
         }

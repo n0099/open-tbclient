@@ -5,15 +5,15 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes10.dex */
 public class d {
-    public final List<String> lgx;
-    public final String lgy;
+    public final List<String> lzi;
+    public final String lzj;
 
     public d(List<String> list, String str) {
         if (list != null) {
-            this.lgx = new ArrayList(list);
+            this.lzi = new ArrayList(list);
         } else {
-            this.lgx = new ArrayList();
+            this.lzi = new ArrayList();
         }
-        this.lgy = str;
+        this.lzj = str;
     }
 }

@@ -26,8 +26,8 @@ import java.util.HashMap;
 /* loaded from: classes11.dex */
 public class BaseActivityDialog extends Activity implements DialogInterface {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private SwanAppScrollView cjL;
-    private a cmO;
+    private SwanAppScrollView cvp;
+    private a cyu;
     private int mBtnHeight;
     private LinearLayout mBtnPanelLayout;
     private FrameLayout mDialogContent;
@@ -49,28 +49,28 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
         super.onCreate(bundle);
         setContentView(a.g.aiapps_alert_dialog);
         getWindow().setLayout(-1, -1);
-        this.cmO = a.lT(getIntent().getStringExtra("BOX_ACTIVITY_DIALOG_FOR_BUILDER"));
-        if (this.cmO == null) {
+        this.cyu = a.no(getIntent().getStringExtra("BOX_ACTIVITY_DIALOG_FOR_BUILDER"));
+        if (this.cyu == null) {
             if (DEBUG) {
                 Log.e("BaseActivityDialog", "The builder for dialog activity can NOT be null.");
             }
             finish();
             return;
         }
-        EventBusWrapper.register(this.cmO, a.b.class, new rx.functions.b<a.b>() { // from class: com.baidu.swan.apps.res.widget.dialog.BaseActivityDialog.1
+        EventBusWrapper.register(this.cyu, a.b.class, new rx.functions.b<a.b>() { // from class: com.baidu.swan.apps.res.widget.dialog.BaseActivityDialog.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // rx.functions.b
             /* renamed from: a */
             public void call(a.b bVar) {
-                BaseActivityDialog.this.cmO.onEvent(bVar);
+                BaseActivityDialog.this.cyu.onEvent(bVar);
             }
         });
-        EventBusWrapper.register(this.cmO, a.C0332a.class, new rx.functions.b<a.C0332a>() { // from class: com.baidu.swan.apps.res.widget.dialog.BaseActivityDialog.2
+        EventBusWrapper.register(this.cyu, a.C0375a.class, new rx.functions.b<a.C0375a>() { // from class: com.baidu.swan.apps.res.widget.dialog.BaseActivityDialog.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // rx.functions.b
             /* renamed from: a */
-            public void call(a.C0332a c0332a) {
-                if (c0332a.tag == BaseActivityDialog.this.cmO.mTag) {
+            public void call(a.C0375a c0375a) {
+                if (c0375a.tag == BaseActivityDialog.this.cyu.mTag) {
                     BaseActivityDialog.this.dismiss();
                 }
             }
@@ -89,7 +89,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
     @Override // android.content.DialogInterface
     public void cancel() {
         DialogInterface.OnCancelListener onCancelListener;
-        if (this.cmO != null && (onCancelListener = this.cmO.cancelListener) != null) {
+        if (this.cyu != null && (onCancelListener = this.cyu.cancelListener) != null) {
             onCancelListener.onCancel(this);
         }
         finish();
@@ -109,7 +109,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
 
     protected void onDismiss() {
         DialogInterface.OnDismissListener onDismissListener;
-        if (this.cmO != null && (onDismissListener = this.cmO.dismissListener) != null) {
+        if (this.cyu != null && (onDismissListener = this.cyu.dismissListener) != null) {
             onDismissListener.onDismiss(this);
         }
     }
@@ -130,21 +130,21 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
         this.mIcon = (ImageView) findViewById(a.f.dialog_icon);
         this.mDialogLayout = (RelativeLayout) findViewById(a.f.searchbox_alert_dialog);
         this.mDivider2 = findViewById(a.f.divider2);
-        this.cjL = (SwanAppScrollView) findViewById(a.f.message_scrollview);
+        this.cvp = (SwanAppScrollView) findViewById(a.f.message_scrollview);
         this.mBtnPanelLayout = (LinearLayout) findViewById(a.f.btn_panel);
         this.mBtnHeight = getResources().getDimensionPixelSize(a.d.aiapps_dialog_btns_height);
-        if (this.cmO.mScrollViewHeight > 0) {
-            this.cjL.getLayoutParams().height = this.cmO.mScrollViewHeight;
+        if (this.cyu.mScrollViewHeight > 0) {
+            this.cvp.getLayoutParams().height = this.cyu.mScrollViewHeight;
         }
-        if (com.baidu.swan.apps.as.a.isGingerbread() || com.baidu.swan.apps.as.a.isGingerbreadmr1()) {
+        if (com.baidu.swan.apps.aq.b.isGingerbread() || com.baidu.swan.apps.aq.b.isGingerbreadmr1()) {
             int dimensionPixelSize = this.mMessage.getResources().getDimensionPixelSize(a.d.aiapps_dialog_text_padding);
             this.mMessage.setPadding(dimensionPixelSize, 0, dimensionPixelSize, 0);
         }
     }
 
     protected void setupViews() {
-        if (this.cmO != null) {
-            a aVar = this.cmO;
+        if (this.cyu != null) {
+            a aVar = this.cyu;
             setTitle(aVar.title);
             setIcon(aVar.icon);
             setMessage(aVar.message);
@@ -298,10 +298,10 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
     }
 
     private void release() {
-        if (this.cmO != null) {
-            EventBusWrapper.unregister(this.cmO);
-            this.cmO.release();
-            this.cmO = null;
+        if (this.cyu != null) {
+            EventBusWrapper.unregister(this.cyu);
+            this.cyu.release();
+            this.cyu = null;
         }
         setView(null);
     }
@@ -343,20 +343,20 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
             this.mDialogClass = cls;
         }
 
-        public a fW(int i) {
-            return lR(this.mContext.getString(i));
+        public a gn(int i) {
+            return nm(this.mContext.getString(i));
         }
 
-        public a lR(String str) {
+        public a nm(String str) {
             this.title = str;
             return this;
         }
 
-        public a fX(int i) {
-            return lS(this.mContext.getString(i));
+        public a gp(int i) {
+            return nn(this.mContext.getString(i));
         }
 
-        public a lS(String str) {
+        public a nn(String str) {
             this.message = str;
             return this;
         }
@@ -420,12 +420,12 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
                     }
                     a.a(valueOf, a.this);
                     intent.addFlags(268435456);
-                    com.baidu.swan.apps.as.c.startActivitySafely(appContext, intent);
+                    com.baidu.swan.apps.aq.d.startActivitySafely(appContext, intent);
                 }
             });
         }
 
-        static a lT(String str) {
+        static a no(String str) {
             a remove;
             if (!TextUtils.isEmpty(str)) {
                 synchronized (sBuilderMap) {
@@ -477,14 +477,14 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
         /* JADX INFO: Access modifiers changed from: package-private */
         /* renamed from: com.baidu.swan.apps.res.widget.dialog.BaseActivityDialog$a$a  reason: collision with other inner class name */
         /* loaded from: classes11.dex */
-        public static class C0332a {
+        public static class C0375a {
             private Object tag;
         }
     }
 
     @Override // android.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
     public Resources getResources() {
-        Resources skinResources = com.baidu.swan.apps.w.a.acj().getSkinResources();
+        Resources skinResources = com.baidu.swan.apps.u.a.afm().getSkinResources();
         return skinResources != null ? skinResources : super.getResources();
     }
 }

@@ -2,21 +2,20 @@ package com.baidu.card;
 
 import android.content.Context;
 import android.view.View;
-import com.baidu.card.a.a;
-import com.baidu.card.view.MutiImgSingleVerticalLayout;
+import com.baidu.card.view.MutiImgSingleHorizontalLayout;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.R;
+import com.baidu.tbadk.core.data.AbsThreadDataSupport;
 /* loaded from: classes8.dex */
-public class u extends b<com.baidu.tbadk.core.data.a> {
-    public MutiImgSingleVerticalLayout adU;
-    private com.baidu.tbadk.core.data.a ade;
+public class u extends b<AbsThreadDataSupport> {
+    private AbsThreadDataSupport adw;
+    private MutiImgSingleHorizontalLayout aeo;
     private String mFrom;
     private int mSkinType;
 
     public u(Context context) {
         super(context);
         this.mSkinType = 3;
-        this.adU = new MutiImgSingleVerticalLayout(context);
+        this.aeo = new MutiImgSingleHorizontalLayout(context);
     }
 
     public void setFrom(String str) {
@@ -26,24 +25,23 @@ public class u extends b<com.baidu.tbadk.core.data.a> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.card.b
     public View getView() {
-        return this.adU;
+        return this.aeo;
     }
 
     @Override // com.baidu.card.b
-    public void setOnCardSubClickListener(com.baidu.tieba.card.z<com.baidu.tbadk.core.data.a> zVar) {
-        this.adU.setSubClickListener(zVar);
+    public void setOnCardSubClickListener(com.baidu.tieba.card.aa<AbsThreadDataSupport> aaVar) {
+        this.aeo.setSubClickListener(aaVar);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.card.m
+    @Override // com.baidu.card.n
     /* renamed from: b */
-    public void B(com.baidu.tbadk.core.data.a aVar) {
-        this.ade = aVar;
-        this.adU.setFrom(this.mFrom);
-        this.adU.B(aVar);
+    public void D(AbsThreadDataSupport absThreadDataSupport) {
+        this.adw = absThreadDataSupport;
+        this.aeo.D(absThreadDataSupport);
     }
 
-    @Override // com.baidu.card.n
+    @Override // com.baidu.card.o
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         if (this.mSkinType != i) {
         }
@@ -52,25 +50,10 @@ public class u extends b<com.baidu.tbadk.core.data.a> {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.card.b
-    public void rk() {
-        a(1, new a.b() { // from class: com.baidu.card.u.1
-            @Override // com.baidu.card.a.a.b
-            public boolean a(a.C0095a c0095a) {
-                if (u.this.ade != null && u.this.ade.aIu() != null) {
-                    com.baidu.tieba.card.l.BE(u.this.ade.aIu().getId());
-                    com.baidu.tieba.card.l.a(u.this.adU.mTitle, u.this.ade.aIu().getId(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
-                    com.baidu.tieba.card.l.a(u.this.adU.adB, u.this.ade.aIu().getId(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
-                }
-                return false;
-            }
-        });
+    public void rr() {
     }
 
     public void setFromCDN(boolean z) {
-        this.adU.setFromCDN(z);
-    }
-
-    public void setNeedFrsTabName(boolean z) {
-        this.adU.setNeedFrsTabName(z);
+        this.aeo.setFromCDN(z);
     }
 }

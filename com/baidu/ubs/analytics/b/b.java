@@ -1,5 +1,6 @@
 package com.baidu.ubs.analytics.b;
 
+import com.baidu.android.imsdk.utils.HttpHelper;
 import com.baidu.ubs.analytics.c.g;
 import com.baidu.ubs.analytics.d;
 import com.baidu.ubs.analytics.d.j;
@@ -33,7 +34,7 @@ public final class b {
         void a(T t);
     }
 
-    public static String m(String str, Map<String, Object> map) {
+    public static String c(String str, Map<String, Object> map) {
         String str2;
         String stringBuffer;
         if (map.size() <= 0) {
@@ -61,7 +62,7 @@ public final class b {
             httpURLConnection.setReadTimeout(20000);
             httpURLConnection.setDoOutput(true);
             httpURLConnection.setDoInput(true);
-            httpURLConnection.setRequestProperty("token", d.dkU().k());
+            httpURLConnection.setRequestProperty("token", d.dsk().k());
             PrintWriter printWriter = new PrintWriter(new OutputStreamWriter(httpURLConnection.getOutputStream(), "utf-8"));
             printWriter.write(str2);
             printWriter.flush();
@@ -108,7 +109,7 @@ public final class b {
                 httpURLConnection.setRequestProperty("Accept-Charset", "utf-8");
                 httpURLConnection.setRequestProperty(HTTP.CONN_DIRECTIVE, "keep-alive");
                 httpURLConnection.setRequestProperty("Content-Type", "multipart/form-data;boundary=" + uuid);
-                httpURLConnection.setRequestProperty("token", d.dkU().k());
+                httpURLConnection.setRequestProperty("token", d.dsk().k());
                 if (file != null) {
                     DataOutputStream dataOutputStream = new DataOutputStream(httpURLConnection.getOutputStream());
                     StringBuffer stringBuffer = new StringBuffer();
@@ -220,13 +221,13 @@ public final class b {
             httpURLConnection.setDoOutput(true);
             httpURLConnection.setDoInput(true);
             httpURLConnection.setRequestMethod(HttpPut.METHOD_NAME);
-            httpURLConnection.setRequestProperty("Content-Type", "application/json");
+            httpURLConnection.setRequestProperty("Content-Type", HttpHelper.CONTENT_JSON);
             httpURLConnection.setRequestProperty("Accept-Charset", "utf-8");
             httpURLConnection.setRequestProperty(HTTP.CONN_DIRECTIVE, "keep-alive");
             httpURLConnection.setRequestProperty("Content-Length", String.valueOf(str.toString().getBytes("UTF-8").length));
             httpURLConnection.setReadTimeout(20000);
             httpURLConnection.setConnectTimeout(10000);
-            httpURLConnection.setRequestProperty("token", d.dkU().k());
+            httpURLConnection.setRequestProperty("token", d.dsk().k());
             httpURLConnection.connect();
             OutputStream outputStream = httpURLConnection.getOutputStream();
             outputStream.write(str.getBytes("UTF-8"));
@@ -290,7 +291,7 @@ public final class b {
             return false;
         } else {
             if (jSONObject.getString("status").equals("2")) {
-                g.d(d.dkU().getContext());
+                g.d(d.dsk().getContext());
                 com.baidu.ubs.analytics.d.b.I("net  token error ");
                 return false;
             }

@@ -8,10 +8,10 @@ import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
 /* loaded from: classes7.dex */
 public abstract class AppleVariableSignedIntegerBox extends AppleDataBox {
-    private static final /* synthetic */ a.InterfaceC0826a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0826a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0826a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0826a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0888a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0888a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0888a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0888a ajc$tjp_3 = null;
     int intLength;
     long value;
 
@@ -39,7 +39,7 @@ public abstract class AppleVariableSignedIntegerBox extends AppleDataBox {
     }
 
     public void setIntLength(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.Jp(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.Ka(i)));
         this.intLength = i;
     }
 
@@ -49,7 +49,7 @@ public abstract class AppleVariableSignedIntegerBox extends AppleDataBox {
     }
 
     public void setValue(long j) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.gs(j)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.gt(j)));
         if (j <= 127 && j > -128) {
             this.intLength = 1;
         } else if (j <= 32767 && j > -32768 && this.intLength < 2) {

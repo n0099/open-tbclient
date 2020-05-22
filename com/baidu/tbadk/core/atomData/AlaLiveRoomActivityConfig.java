@@ -10,6 +10,7 @@ import java.util.ArrayList;
 public class AlaLiveRoomActivityConfig extends IntentConfig {
     public static final String FREM_TYPE_LIVE_FRS_STAGE_LIVE = "frs_live_stage_live";
     public static final String FROM_TYPE_ALTER_PLAY = "alter_play";
+    public static final String FROM_TYPE_ARTICLE_PB_RECOMMEND = "live_from_article_pb_recommend";
     public static final String FROM_TYPE_BROADCAST_GIFT_TOAST = "broadcast_gift_toast";
     public static final String FROM_TYPE_END_VIEW = "end_view";
     public static final String FROM_TYPE_FRS_AUTO_PLAY = "frs_auto_play";
@@ -48,6 +49,8 @@ public class AlaLiveRoomActivityConfig extends IntentConfig {
     public static final String FROM_TYPE_PERSON_ATTENTION = "person_attention";
     public static final String FROM_TYPE_PERSON_AUTO_PLAY = "person_auto_play";
     public static final String FROM_TYPE_PERSON_PLAY = "person_play";
+    public static final String FROM_TYPE_PHOTO_BROWSE_TOP = "live_from_photo_browse_top";
+    public static final String FROM_TYPE_REPLY_PORTRAIT = "live_from_reply_portrait";
     public static final String FROM_TYPE_SCAN_HISTORY = "scan_history";
     public static final String FROM_TYPE_SEARCH = "search";
     public static final String FROM_TYPE_SHARE_PLAY = "share_play";
@@ -67,7 +70,12 @@ public class AlaLiveRoomActivityConfig extends IntentConfig {
     public static final String FROM_TYPE_SQUARE_SUB_LIVE = "square_sub_live";
     public static final String FROM_TYPE_TAIL_LIGHT = "tail_light_play";
     public static final String FROM_TYPE_VIDEO_AUTO_PLAY = "video_auto_play";
+    public static final String FROM_TYPE_VIDEO_PB_CROSS_RECOMMEND = "live_from_video_pb_cross_recommend";
+    public static final String FROM_TYPE_VIDEO_PB_RECOMMEND = "live_from_video_pb_recommend";
     public static final String FROM_TYPE_VIDEO_PLAY = "video_play";
+    public static final String FRS_LIVE_FROM_PREFIX_FRIENDLIVE = "frs_play-friendlive-";
+    public static final String FRS_LIVE_FROM_PREFIX_HOT = "frs_play-hot-";
+    public static final String FRS_LIVE_FROM_PREFIX_NEW = "frs_play-new-";
     public static final String LIVE_COMMON_BROADCAST_QUEUE = "live_common_broadcast_queue";
     public static final String LIVE_ENTRY_LIVE_URL = "live_entry_live_url";
     public static final String LIVE_ENTRY_NAME = "live_entry_name";

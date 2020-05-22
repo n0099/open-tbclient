@@ -6,7 +6,7 @@ import java.util.Vector;
 /* loaded from: classes11.dex */
 public class l implements b {
     private Object lock = new Object();
-    private Vector<b> dbf = new Vector<>();
+    private Vector<b> dmq = new Vector<>();
 
     public l(b bVar) {
         e(bVar);
@@ -15,7 +15,7 @@ public class l implements b {
     public void e(b bVar) {
         if (bVar != null) {
             synchronized (this.lock) {
-                this.dbf.add(bVar);
+                this.dmq.add(bVar);
             }
         }
     }
@@ -23,8 +23,8 @@ public class l implements b {
     public void f(b bVar) {
         if (bVar != null) {
             synchronized (this.lock) {
-                if (!this.dbf.remove(bVar)) {
-                    this.dbf.remove(this.dbf.indexOf(bVar));
+                if (!this.dmq.remove(bVar)) {
+                    this.dmq.remove(this.dmq.indexOf(bVar));
                 }
             }
         }
@@ -34,7 +34,7 @@ public class l implements b {
     public <T> void d(f<T> fVar) {
         try {
             synchronized (this.lock) {
-                Iterator<b> it = this.dbf.iterator();
+                Iterator<b> it = this.dmq.iterator();
                 while (it.hasNext()) {
                     it.next().d(fVar);
                 }
@@ -51,7 +51,7 @@ public class l implements b {
         Vector vector = new Vector();
         try {
             synchronized (this.lock) {
-                Iterator<b> it = this.dbf.iterator();
+                Iterator<b> it = this.dmq.iterator();
                 while (it.hasNext()) {
                     vector.add(it.next());
                 }

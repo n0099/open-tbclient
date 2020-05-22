@@ -12,63 +12,63 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes3.dex */
 public class a extends BaseAdapter {
-    private ArrayList<ALaCharmData> dvu = new ArrayList<>();
-    private View.OnClickListener fbL;
-    private View.OnClickListener fbM;
-    private View.OnClickListener fbN;
-    private int fbO;
+    private ArrayList<ALaCharmData> dJp = new ArrayList<>();
+    private View.OnClickListener fpn;
+    private View.OnClickListener fpo;
+    private View.OnClickListener fpp;
+    private int fpq;
     private TbPageContext mPageContext;
     private int mSkinType;
 
     public a(TbPageContext tbPageContext, int i) {
-        this.fbO = 1;
+        this.fpq = 1;
         this.mPageContext = tbPageContext;
-        this.fbO = i;
+        this.fpq = i;
+    }
+
+    public void l(View.OnClickListener onClickListener) {
+        this.fpn = onClickListener;
     }
 
     public void m(View.OnClickListener onClickListener) {
-        this.fbL = onClickListener;
+        this.fpp = onClickListener;
     }
 
     public void n(View.OnClickListener onClickListener) {
-        this.fbN = onClickListener;
-    }
-
-    public void o(View.OnClickListener onClickListener) {
-        this.fbM = onClickListener;
+        this.fpo = onClickListener;
     }
 
     public void setData(ArrayList<ALaCharmData> arrayList) {
         if (arrayList != null) {
-            this.dvu.clear();
-            this.dvu.addAll(arrayList);
+            this.dJp.clear();
+            this.dJp.addAll(arrayList);
         }
         notifyDataSetChanged();
     }
 
     public void U(ArrayList<ALaCharmData> arrayList) {
         if (!ListUtils.isEmpty(arrayList)) {
-            this.dvu.addAll(arrayList);
+            this.dJp.addAll(arrayList);
         }
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.dvu == null) {
+        if (this.dJp == null) {
             return 0;
         }
-        return this.dvu.size();
+        return this.dJp.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: pw */
+    /* renamed from: pX */
     public ALaCharmData getItem(int i) {
-        if (this.dvu == null) {
+        if (this.dJp == null) {
             return null;
         }
-        return this.dvu.get(i);
+        return this.dJp.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -81,17 +81,17 @@ public class a extends BaseAdapter {
         d dVar;
         View inflate;
         if (view == null) {
-            if (this.fbO == 1) {
+            if (this.fpq == 1) {
                 inflate = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(a.h.ala_charm_detail_list_layout, (ViewGroup) null);
-            } else if (this.fbO == 2) {
+            } else if (this.fpq == 2) {
                 inflate = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(a.h.ala_charm_game_live_list_layout, (ViewGroup) null);
             } else {
                 inflate = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(a.h.ala_charm_detail_list_layout, (ViewGroup) null);
             }
-            d dVar2 = new d(inflate, this.fbO);
-            dVar2.p(this.fbN);
-            dVar2.m(this.fbL);
-            dVar2.q(this.fbM);
+            d dVar2 = new d(inflate, this.fpq);
+            dVar2.o(this.fpp);
+            dVar2.l(this.fpn);
+            dVar2.p(this.fpo);
             inflate.setTag(dVar2);
             view = inflate;
             dVar = dVar2;
@@ -105,9 +105,9 @@ public class a extends BaseAdapter {
         return view;
     }
 
-    public void ac(String str, boolean z) {
-        if (this.dvu != null && str != null) {
-            Iterator<ALaCharmData> it = this.dvu.iterator();
+    public void ap(String str, boolean z) {
+        if (this.dJp != null && str != null) {
+            Iterator<ALaCharmData> it = this.dJp.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;

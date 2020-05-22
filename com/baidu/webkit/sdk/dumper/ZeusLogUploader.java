@@ -4,6 +4,7 @@ import com.a.a.a.a.a.a.a;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.webkit.internal.e;
 import com.baidu.webkit.sdk.Log;
+import com.baidu.webkit.sdk.WebViewFactory;
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -39,7 +40,7 @@ public final class ZeusLogUploader {
     private static final String CRASH_TIME = "time_crash";
     public static final String NR_LOG = "nrlog";
     public static final String RECORD_LOG = "recordlog";
-    private static final String TAG = "BREAKPAD";
+    private static final String TAG = "ZeusLogUploader sdk";
     public static final int UploadStatus_CompressFailed = 1;
     public static final int UploadStatus_DecryptFailed = 8;
     public static final int UploadStatus_DecryptSuccess = 7;
@@ -50,13 +51,13 @@ public final class ZeusLogUploader {
     public static final int UploadStatus_Success = 0;
     public static final int UploadStatus_UploadFailed = 3;
     public static final String VIDEO_LOG = "videolog";
+    private static String mEncryptKey;
     private String mCuid;
     private String mType;
     private boolean mUseHttps;
     private static final BigInteger exponent = new BigInteger("65537");
-    private static boolean sIsEnabled = false;
+    private static boolean sIsEnabled = true;
     private static boolean mUploadCrashLogFailedEncrypt = true;
-    private static String mEncryptKey = null;
 
     /* loaded from: classes11.dex */
     public static class LogFilter implements FilenameFilter {
@@ -64,16 +65,15 @@ public final class ZeusLogUploader {
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public LogFilter(String str) {
-            this.mLogType = null;
             this.mLogType = str;
         }
 
         @Override // java.io.FilenameFilter
         public boolean accept(File file, String str) {
-            if ("crashlog".equals(this.mLogType) || ZeusLogUploader.RECORD_LOG.equals(this.mLogType)) {
+            if (ZeusLogUploader.CRASH_LOG.equals(this.mLogType) || ZeusLogUploader.RECORD_LOG.equals(this.mLogType)) {
                 return str.endsWith(".bdmp");
             }
-            if ("videolog".equals(this.mLogType)) {
+            if (ZeusLogUploader.VIDEO_LOG.equals(this.mLogType)) {
                 return str.endsWith(BdStatsConstant.StatsFile.LOG_FILE_SUFFIX);
             }
             if (ZeusLogUploader.NR_LOG.equals(this.mLogType)) {
@@ -85,7 +85,7 @@ public final class ZeusLogUploader {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes11.dex */
-    public static class MyRunner implements Runnable {
+    public class MyRunner implements Runnable {
         String cuid;
         boolean deletAfterUpload;
         String[] files;
@@ -96,12 +96,6 @@ public final class ZeusLogUploader {
         StringBuffer msg = new StringBuffer("");
 
         MyRunner(String str, String str2, String str3, boolean z, boolean z2, OnFinishedListener onFinishedListener) {
-            this.files = null;
-            this.listener = null;
-            this.deletAfterUpload = false;
-            this.logType = null;
-            this.cuid = null;
-            this.useHttps = false;
             this.files = new String[]{str};
             this.deletAfterUpload = z2;
             this.listener = onFinishedListener;
@@ -110,13 +104,8 @@ public final class ZeusLogUploader {
             this.useHttps = z;
         }
 
-        MyRunner(File[] fileArr, String str, String str2, boolean z, boolean z2, OnFinishedListener onFinishedListener) {
-            this.files = null;
-            this.listener = null;
-            this.deletAfterUpload = false;
-            this.logType = null;
-            this.cuid = null;
-            this.useHttps = false;
+        MyRunner(ZeusLogUploader zeusLogUploader, File[] fileArr, String str, String str2, boolean z, boolean z2, OnFinishedListener onFinishedListener) {
+            ZeusLogUploader.this = zeusLogUploader;
             this.files = new String[fileArr.length];
             for (int i = 0; i < fileArr.length; i++) {
                 this.files[i] = fileArr[i].getPath();
@@ -128,8 +117,8 @@ public final class ZeusLogUploader {
             this.useHttps = z;
         }
 
-        /* JADX WARN: Removed duplicated region for block: B:36:0x009e  */
-        /* JADX WARN: Removed duplicated region for block: B:72:0x00ab A[SYNTHETIC] */
+        /* JADX WARN: Removed duplicated region for block: B:36:0x00a2  */
+        /* JADX WARN: Removed duplicated region for block: B:72:0x00af A[SYNTHETIC] */
         @Override // java.lang.Runnable
         /*
             Code decompiled incorrectly, please refer to instructions dump.
@@ -146,7 +135,7 @@ public final class ZeusLogUploader {
                     fileInputStream = new FileInputStream(str);
                     try {
                         int available = fileInputStream.available();
-                        if (this.cuid == null || this.logType.equals("crashlog")) {
+                        if (this.cuid == null || this.logType.equals(ZeusLogUploader.CRASH_LOG)) {
                             bArr = new byte[available];
                             i = 0;
                         } else {
@@ -169,7 +158,7 @@ public final class ZeusLogUploader {
                     z = false;
                 }
                 try {
-                    if (this.logType.equals("crashlog") && z && (bArr = ZeusLogUploader.doEncryptUploadFailedFile(bArr, bArr.length - 12, false)) == null) {
+                    if (this.logType.equals(ZeusLogUploader.CRASH_LOG) && z && (bArr = ZeusLogUploader.this.doEncryptUploadFailedFile(bArr, bArr.length - 12, false)) == null) {
                         this.status = 8;
                     }
                     byte[] doCompress = ZeusLogUploader.doCompress(bArr, bArr.length, this.msg);
@@ -198,7 +187,7 @@ public final class ZeusLogUploader {
                     if (this.listener == null) {
                     }
                 }
-                if (ZeusLogUploader.mUploadCrashLogFailedEncrypt && this.status != 0 && this.logType.equals("crashlog") && !z && ZeusLogUploader.encryptUploadFailedFile(str, true) != 6) {
+                if (ZeusLogUploader.mUploadCrashLogFailedEncrypt && this.status != 0 && this.logType.equals(ZeusLogUploader.CRASH_LOG) && !z && ZeusLogUploader.this.encryptUploadFailedFile(str, true) != 6) {
                     this.status = 2;
                 }
                 if (this.listener == null) {
@@ -214,9 +203,6 @@ public final class ZeusLogUploader {
     }
 
     public ZeusLogUploader(String str, String str2, boolean z) {
-        this.mCuid = null;
-        this.mType = null;
-        this.mUseHttps = true;
         this.mType = str;
         this.mUseHttps = z;
         JSONObject jSONObject = new JSONObject();
@@ -231,34 +217,11 @@ public final class ZeusLogUploader {
     }
 
     public static boolean UploadLogDirectory(String str, String str2, boolean z, OnFinishedListener onFinishedListener) {
-        if (!sIsEnabled || str == null || str.isEmpty()) {
-            return false;
-        }
-        File file = new File(str);
-        if (file.exists()) {
-            File[] listFiles = file.listFiles(new LogFilter(str2));
-            if (listFiles == null || listFiles.length == 0) {
-                return false;
-            }
-            Thread thread = new Thread(new MyRunner(listFiles, str2, (String) null, true, z, onFinishedListener));
-            thread.setName("T7@ZeusLogDir2");
-            thread.start();
-            return true;
-        }
-        return false;
+        return new ZeusLogUploader(str2, null, true).uploadLogDirectory(str, z, onFinishedListener);
     }
 
     public static boolean UploadLogFile(String str, String str2, boolean z, OnFinishedListener onFinishedListener) {
-        if (!sIsEnabled || str == null || str.isEmpty()) {
-            return false;
-        }
-        if (new File(str).exists()) {
-            Thread thread = new Thread(new MyRunner(str, str2, (String) null, true, z, onFinishedListener));
-            thread.setName("T7@ZeusLogFile2");
-            thread.start();
-            return true;
-        }
-        return false;
+        return new ZeusLogUploader(str2, null, true).uploadLogFile(str, z, onFinishedListener);
     }
 
     static byte[] doCompress(byte[] bArr, int i, StringBuffer stringBuffer) {
@@ -323,6 +286,7 @@ public final class ZeusLogUploader {
         }
         File file = new File(str);
         if (file.isFile() && file.delete()) {
+            Log.d(TAG, "CRASHPAD  dodelete sucess return true file=" + str);
             return true;
         }
         stringBuffer.append("Failed to remove file:" + file.getName());
@@ -330,7 +294,7 @@ public final class ZeusLogUploader {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static byte[] doEncryptUploadFailedFile(byte[] bArr, int i, boolean z) {
+    public byte[] doEncryptUploadFailedFile(byte[] bArr, int i, boolean z) {
         byte[] bArr2 = null;
         if (bArr != null && bArr.length > 0 && i > 0 && mEncryptKey != null) {
             if (i > bArr.length) {
@@ -351,22 +315,22 @@ public final class ZeusLogUploader {
             Object[] objArr = new Object[2];
             objArr[0] = z ? "encrypt" : "decrypt";
             objArr[1] = Long.valueOf(currentTimeMillis2 - currentTimeMillis);
-            Log.i(TAG, "%s upload file run time: %d (ms)", objArr);
+            Log.d(TAG, "%s upload file run time: %d (ms)", objArr);
         }
         return bArr2;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:60:0x01db */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:86:0x0068 */
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x00e6: ARRAY_LENGTH  (r8v4 int A[REMOVE]) = (r11v0 byte[]))] */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:62:0x01f5 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:86:0x0082 */
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x0100: ARRAY_LENGTH  (r8v4 int A[REMOVE]) = (r11v0 byte[]))] */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r3v12 */
     /* JADX WARN: Type inference failed for: r3v22, types: [java.io.ByteArrayInputStream, java.io.InputStream] */
-    /* JADX WARN: Type inference failed for: r3v6 */
-    /* JADX WARN: Type inference failed for: r3v7, types: [java.io.InputStream] */
+    /* JADX WARN: Type inference failed for: r3v7 */
+    /* JADX WARN: Type inference failed for: r3v8, types: [java.io.InputStream] */
+    /* JADX WARN: Type inference failed for: r4v11 */
     /* JADX WARN: Type inference failed for: r4v12 */
-    /* JADX WARN: Type inference failed for: r4v13 */
-    /* JADX WARN: Type inference failed for: r4v16 */
+    /* JADX WARN: Type inference failed for: r4v15 */
     /* JADX WARN: Type inference failed for: r4v4, types: [java.io.OutputStream] */
     static boolean doUpload(byte[] bArr, String str, boolean z, String str2, StringBuffer stringBuffer) {
         String str3;
@@ -376,7 +340,6 @@ public final class ZeusLogUploader {
         HttpsURLConnection httpsURLConnection2 = null;
         r4 = 0;
         ?? r4 = 0;
-        httpsURLConnection2 = null;
         httpsURLConnection2 = null;
         httpsURLConnection2 = null;
         String substring = str2.substring(str2.lastIndexOf(47) + 1);
@@ -393,14 +356,17 @@ public final class ZeusLogUploader {
         str3 = "https://browserkernel.baidu.com/kw?type=engine";
         if (ZwDebug.debugModel()) {
             try {
-                File file = new File("/sdcard/log_server.txt");
-                if (file.exists()) {
-                    BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
-                    String readLine = bufferedReader.readLine();
-                    str3 = readLine != null ? readLine : "https://browserkernel.baidu.com/kw?type=engine";
-                    bufferedReader.close();
-                } else {
-                    Log.v(TAG, "no local server url ");
+                if (WebViewFactory.getContext() != null) {
+                    File file = new File(WebViewFactory.getContext().getExternalFilesDir(""), "log_server.txt");
+                    if (file.exists()) {
+                        Log.v(TAG, "zeusloguploader.java we have log_server.txt");
+                        BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
+                        String readLine = bufferedReader.readLine();
+                        str3 = readLine != null ? readLine : "https://browserkernel.baidu.com/kw?type=engine";
+                        bufferedReader.close();
+                    } else {
+                        Log.v(TAG, "no local server url ");
+                    }
                 }
             } catch (Exception e) {
                 a.a(e);
@@ -410,35 +376,28 @@ public final class ZeusLogUploader {
         try {
             if (z) {
                 URL url = new URL(str3);
+                Certificate generateCertificate = CertificateFactory.getInstance("X.509").generateCertificate(new ByteArrayInputStream("-----BEGIN CERTIFICATE-----\nMIICZTCCAc4CAQAwDQYJKoZIhvcNAQEEBQAwezELMAkGA1UEBhMCQ04xCzAJBgNV\nBAgTAkJKMQswCQYDVQQHEwJCSjELMAkGA1UEChMCQkQxCzAJBgNVBAsTAkJEMRYw\nFAYDVQQDEw13d3cuYmFpZHUuY29tMSAwHgYJKoZIhvcNAQkBFhFsaWJpbjAyQGJh\naWR1LmNvbTAeFw0xMjA1MTAwMjMzNTVaFw0xMjA2MDkwMjMzNTVaMHsxCzAJBgNV\nBAYTAkNOMQswCQYDVQQIEwJCSjELMAkGA1UEBxMCQkoxCzAJBgNVBAoTAkJEMQsw\nCQYDVQQLEwJCRDEWMBQGA1UEAxMNd3d3LmJhaWR1LmNvbTEgMB4GCSqGSIb3DQEJ\nARYRbGliaW4wMkBiYWlkdS5jb20wgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGB\nALckGzvn6jcMqYpXrZKuuCYlVJIgN2ETsnvjCtO1va5u3p0EL9CuR5BlHocJadzM\nhTI7rH/nao8mXRIcJ4Q6lOv5TAotcKUv7ri9YZ48smpE3+KXVB+Mjau05OfiYI2h\nqlYy56acRSgyp8Uj65PXL8+gae8Gx+6lq0XOKduolmmNAgMBAAEwDQYJKoZIhvcN\nAQEEBQADgYEAYGPEvv1fc4XySq+9+5jFi4TxlNy9vAWpHOjsmODM9gs5/9PQFG/c\nZc8Fz+T9IVRa8YI0mLuKlApGmvzHxwdWbtBU6AU8ifg1HBA/4VXweiq6fgRfaemd\njgW3PXjbd+OoZ0VI32TvrDErG83OYohQ5CAS2gKHfBXHJvKtmxUSdVE=\n-----END CERTIFICATE-----\n".getBytes()));
+                KeyStore keyStore = KeyStore.getInstance(KeyStore.getDefaultType());
+                keyStore.load(null, null);
+                keyStore.setCertificateEntry("ca", generateCertificate);
+                TrustManagerFactory trustManagerFactory = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
+                trustManagerFactory.init(keyStore);
+                SSLContext.getInstance("TLS").init(null, trustManagerFactory.getTrustManagers(), null);
+                HttpsURLConnection httpsURLConnection3 = (HttpsURLConnection) url.openConnection();
                 try {
-                    Certificate generateCertificate = CertificateFactory.getInstance("X.509").generateCertificate(new ByteArrayInputStream("-----BEGIN CERTIFICATE-----\nMIICZTCCAc4CAQAwDQYJKoZIhvcNAQEEBQAwezELMAkGA1UEBhMCQ04xCzAJBgNV\nBAgTAkJKMQswCQYDVQQHEwJCSjELMAkGA1UEChMCQkQxCzAJBgNVBAsTAkJEMRYw\nFAYDVQQDEw13d3cuYmFpZHUuY29tMSAwHgYJKoZIhvcNAQkBFhFsaWJpbjAyQGJh\naWR1LmNvbTAeFw0xMjA1MTAwMjMzNTVaFw0xMjA2MDkwMjMzNTVaMHsxCzAJBgNV\nBAYTAkNOMQswCQYDVQQIEwJCSjELMAkGA1UEBxMCQkoxCzAJBgNVBAoTAkJEMQsw\nCQYDVQQLEwJCRDEWMBQGA1UEAxMNd3d3LmJhaWR1LmNvbTEgMB4GCSqGSIb3DQEJ\nARYRbGliaW4wMkBiYWlkdS5jb20wgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGB\nALckGzvn6jcMqYpXrZKuuCYlVJIgN2ETsnvjCtO1va5u3p0EL9CuR5BlHocJadzM\nhTI7rH/nao8mXRIcJ4Q6lOv5TAotcKUv7ri9YZ48smpE3+KXVB+Mjau05OfiYI2h\nqlYy56acRSgyp8Uj65PXL8+gae8Gx+6lq0XOKduolmmNAgMBAAEwDQYJKoZIhvcN\nAQEEBQADgYEAYGPEvv1fc4XySq+9+5jFi4TxlNy9vAWpHOjsmODM9gs5/9PQFG/c\nZc8Fz+T9IVRa8YI0mLuKlApGmvzHxwdWbtBU6AU8ifg1HBA/4VXweiq6fgRfaemd\njgW3PXjbd+OoZ0VI32TvrDErG83OYohQ5CAS2gKHfBXHJvKtmxUSdVE=\n-----END CERTIFICATE-----\n".getBytes()));
-                    KeyStore keyStore = KeyStore.getInstance(KeyStore.getDefaultType());
-                    keyStore.load(null, null);
-                    keyStore.setCertificateEntry("ca", generateCertificate);
-                    TrustManagerFactory trustManagerFactory = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
-                    trustManagerFactory.init(keyStore);
-                    SSLContext.getInstance("TLS").init(null, trustManagerFactory.getTrustManagers(), null);
-                    HttpsURLConnection httpsURLConnection3 = (HttpsURLConnection) url.openConnection();
                     try {
-                        try {
-                            httpsURLConnection3.setDoInput(true);
-                            httpsURLConnection3.setDoOutput(true);
-                            httpsURLConnection3.setUseCaches(false);
-                            httpsURLConnection3.setRequestMethod("POST");
-                            httpsURLConnection3.setRequestProperty(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
-                            httpsURLConnection3.setRequestProperty("Content-Type", "application/x-gzip");
-                            httpsURLConnection3.setRequestProperty("Content-Length", new StringBuilder().append(bArr.length).toString());
-                            httpsURLConnection3.setRequestProperty("Content-Disposition", "attchment;filename=" + substring);
-                            httpsURLConnection3.setRequestProperty("LogType", str);
-                            httpsURLConnection3.setFixedLengthStreamingMode(bArr.length);
-                            httpsURLConnection3.connect();
-                            r3 = new ByteArrayInputStream(bArr);
-                        } catch (Throwable th) {
-                            httpsURLConnection2 = httpsURLConnection3;
-                            th = th;
-                            httpsURLConnection2.disconnect();
-                            throw th;
-                        }
+                        httpsURLConnection3.setDoInput(true);
+                        httpsURLConnection3.setDoOutput(true);
+                        httpsURLConnection3.setUseCaches(false);
+                        httpsURLConnection3.setRequestMethod("POST");
+                        httpsURLConnection3.setRequestProperty(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
+                        httpsURLConnection3.setRequestProperty("Content-Type", "application/x-gzip");
+                        httpsURLConnection3.setRequestProperty("Content-Length", new StringBuilder().append(bArr.length).toString());
+                        httpsURLConnection3.setRequestProperty("Content-Disposition", "attchment;filename=" + substring);
+                        httpsURLConnection3.setRequestProperty("LogType", str);
+                        httpsURLConnection3.setFixedLengthStreamingMode(bArr.length);
+                        httpsURLConnection3.connect();
+                        r3 = new ByteArrayInputStream(bArr);
                     } catch (Exception e2) {
                         r3 = null;
                         e = e2;
@@ -457,7 +416,7 @@ public final class ZeusLogUploader {
                         outputStream.flush();
                         outputStream.close();
                         int responseCode = httpsURLConnection3.getResponseCode();
-                        Log.d(TAG, "finish send the reqeust , responseCode = " + responseCode);
+                        Log.i(TAG, "CRASHPAD finish send the reqeust , responseCode = " + responseCode);
                         if (responseCode == 200) {
                             stringBuffer.append("Upload Success; The server has responed 200 . ");
                             httpsURLConnection3.disconnect();
@@ -490,18 +449,18 @@ public final class ZeusLogUploader {
                             Log.d(TAG, "failed http.");
                             httpsURLConnection.disconnect();
                             return false;
-                        } catch (Throwable th2) {
-                            th = th2;
+                        } catch (Throwable th) {
+                            th = th;
                             httpsURLConnection2 = httpsURLConnection;
                             httpsURLConnection2.disconnect();
                             throw th;
                         }
                     }
-                } catch (Throwable th3) {
-                    a.a(th3);
-                    stringBuffer.append("Upload Failed; " + th3.getMessage());
+                } catch (Throwable th2) {
+                    httpsURLConnection2 = httpsURLConnection3;
+                    th = th2;
                     httpsURLConnection2.disconnect();
-                    z2 = false;
+                    throw th;
                 }
             } else {
                 stringBuffer.append("doUpload Failed, HTTP is never supported!");
@@ -514,17 +473,34 @@ public final class ZeusLogUploader {
             httpsURLConnection = httpsURLConnection2;
             r3 = httpsURLConnection2;
             r4 = httpsURLConnection2;
-        } catch (Throwable th4) {
-            th = th4;
+        } catch (Throwable th3) {
+            th = th3;
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:24:0x004c A[ORIG_RETURN, RETURN] */
-    /* JADX WARN: Removed duplicated region for block: B:42:0x0070 A[Catch: Exception -> 0x0092, TRY_ENTER, TRY_LEAVE, TryCatch #7 {Exception -> 0x0092, blocks: (B:22:0x003d, B:42:0x0070), top: B:74:0x003d }] */
+    public static void setEnabled(boolean z) {
+        sIsEnabled = z;
+    }
+
+    public static void setEncryptKey(String str) {
+        mEncryptKey = str;
+    }
+
+    public static void setUploadCrashLogFailedEncrypt(boolean z) {
+        mUploadCrashLogFailedEncrypt = z;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public static boolean uploadFileEncryptJudge(byte[] bArr) {
+        return 12 < bArr.length && ADD_UPLOAD_FILE_FLAG.equals(new String(bArr, bArr.length + (-12), 12));
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:24:0x0062 A[ORIG_RETURN, RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:42:0x0086 A[Catch: Exception -> 0x00a8, TRY_ENTER, TRY_LEAVE, TryCatch #8 {Exception -> 0x00a8, blocks: (B:22:0x0053, B:42:0x0086), top: B:88:0x0053 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static int encryptUploadFailedFile(String str, boolean z) {
+    public final int encryptUploadFailedFile(String str, boolean z) {
         DataInputStream dataInputStream;
         ByteArrayOutputStream byteArrayOutputStream;
         DataInputStream dataInputStream2;
@@ -534,6 +510,7 @@ public final class ZeusLogUploader {
         ByteArrayOutputStream byteArrayOutputStream3 = null;
         FileOutputStream fileOutputStream = null;
         byteArrayOutputStream3 = null;
+        Log.d(TAG, "CRASHPAD encryptUploadFailedFile 1 file=" + str);
         int i2 = z ? 6 : 7;
         File file = new File(str);
         if (file.exists()) {
@@ -547,74 +524,74 @@ public final class ZeusLogUploader {
                 } catch (Throwable th) {
                     th = th;
                 }
-                try {
-                    byte[] bArr = new byte[1024];
-                    while (true) {
-                        int read = dataInputStream.read(bArr);
-                        if (read != -1) {
-                            byteArrayOutputStream2.write(bArr, 0, read);
-                        } else {
-                            try {
-                                break;
-                            } catch (Exception e2) {
-                                i2 = 5;
-                            }
-                        }
-                    }
-                    byteArrayOutputStream2.close();
-                    try {
-                        dataInputStream.close();
-                        i = i2;
-                        byteArrayOutputStream = byteArrayOutputStream2;
-                    } catch (Exception e3) {
-                        byteArrayOutputStream = byteArrayOutputStream2;
-                        i = 5;
-                    }
-                } catch (Exception e4) {
-                    byteArrayOutputStream = byteArrayOutputStream2;
-                    dataInputStream2 = dataInputStream;
-                    if (byteArrayOutputStream != null) {
-                        try {
-                            byteArrayOutputStream.close();
-                        } catch (Exception e5) {
-                        }
-                    }
-                    if (dataInputStream2 != null) {
-                        try {
-                            dataInputStream2.close();
-                            i = 5;
-                        } catch (Exception e6) {
-                            i = 5;
-                        }
-                    } else {
-                        i = 5;
-                    }
-                    doEncryptUploadFailedFile = doEncryptUploadFailedFile(byteArrayOutputStream.toByteArray(), byteArrayOutputStream.toByteArray().length, z);
-                    if (doEncryptUploadFailedFile != null) {
-                    }
-                } catch (Throwable th2) {
-                    th = th2;
-                    byteArrayOutputStream3 = byteArrayOutputStream2;
-                    if (byteArrayOutputStream3 != null) {
-                        try {
-                            byteArrayOutputStream3.close();
-                        } catch (Exception e7) {
-                        }
-                    }
-                    if (dataInputStream != null) {
-                        try {
-                            dataInputStream.close();
-                        } catch (Exception e8) {
-                        }
-                    }
-                    throw th;
-                }
-            } catch (Exception e9) {
+            } catch (Exception e2) {
                 byteArrayOutputStream = null;
                 dataInputStream2 = null;
+            } catch (Throwable th2) {
+                th = th2;
+                dataInputStream = null;
+            }
+            try {
+                byte[] bArr = new byte[1024];
+                while (true) {
+                    int read = dataInputStream.read(bArr);
+                    if (read != -1) {
+                        byteArrayOutputStream2.write(bArr, 0, read);
+                    } else {
+                        try {
+                            break;
+                        } catch (Exception e3) {
+                            i2 = 5;
+                        }
+                    }
+                }
+                byteArrayOutputStream2.close();
+                try {
+                    dataInputStream.close();
+                    i = i2;
+                    byteArrayOutputStream = byteArrayOutputStream2;
+                } catch (Exception e4) {
+                    byteArrayOutputStream = byteArrayOutputStream2;
+                    i = 5;
+                }
+            } catch (Exception e5) {
+                byteArrayOutputStream = byteArrayOutputStream2;
+                dataInputStream2 = dataInputStream;
+                if (byteArrayOutputStream != null) {
+                    try {
+                        byteArrayOutputStream.close();
+                    } catch (Exception e6) {
+                    }
+                }
+                if (dataInputStream2 != null) {
+                    try {
+                        dataInputStream2.close();
+                        i = 5;
+                    } catch (Exception e7) {
+                        i = 5;
+                    }
+                } else {
+                    i = 5;
+                }
+                doEncryptUploadFailedFile = doEncryptUploadFailedFile(byteArrayOutputStream.toByteArray(), byteArrayOutputStream.toByteArray().length, z);
+                if (doEncryptUploadFailedFile != null) {
+                }
             } catch (Throwable th3) {
                 th = th3;
-                dataInputStream = null;
+                byteArrayOutputStream3 = byteArrayOutputStream2;
+                if (byteArrayOutputStream3 != null) {
+                    try {
+                        byteArrayOutputStream3.close();
+                    } catch (Exception e8) {
+                    }
+                }
+                if (dataInputStream != null) {
+                    try {
+                        dataInputStream.close();
+                    } catch (Exception e9) {
+                    }
+                }
+                throw th;
             }
         } else {
             i = i2;
@@ -651,42 +628,24 @@ public final class ZeusLogUploader {
         }
     }
 
-    public static void setEnabled(boolean z) {
-        sIsEnabled = z;
-    }
-
-    public static void setEncryptKey(String str) {
-        mEncryptKey = str;
-    }
-
-    public static void setUploadCrashLogFailedEncrypt(boolean z) {
-        mUploadCrashLogFailedEncrypt = z;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public static boolean uploadFileEncryptJudge(byte[] bArr) {
-        return 12 < bArr.length && ADD_UPLOAD_FILE_FLAG.equals(new String(bArr, bArr.length + (-12), 12));
-    }
-
     public final boolean uploadLogDirectory(String str, boolean z, OnFinishedListener onFinishedListener) {
+        File[] listFiles;
+        Log.d(TAG, "CRASHPAD  uploadlogdirectory dir=" + str);
         if (!sIsEnabled || str == null || str.isEmpty()) {
             return false;
         }
         File file = new File(str);
-        if (file.exists()) {
-            File[] listFiles = file.listFiles(new LogFilter(this.mType));
-            if (listFiles.length != 0) {
-                Thread thread = new Thread(new MyRunner(listFiles, this.mType, this.mCuid, this.mUseHttps, z, onFinishedListener));
-                thread.setName("T7@ZeusLogDir1");
-                thread.start();
-                return true;
-            }
+        if (!file.exists() || (listFiles = file.listFiles(new LogFilter(this.mType))) == null || listFiles.length == 0) {
             return false;
         }
-        return false;
+        Thread thread = new Thread(new MyRunner(this, listFiles, this.mType, this.mCuid, this.mUseHttps, z, onFinishedListener));
+        thread.setName("T7@ZeusLogDir1");
+        thread.start();
+        return true;
     }
 
     public final boolean uploadLogFile(String str, boolean z, OnFinishedListener onFinishedListener) {
+        Log.d(TAG, "CRASHPAD  uploadlogfile  filePath=" + str);
         if (!sIsEnabled || str == null || str.isEmpty() || !new File(str).exists()) {
             return false;
         }

@@ -17,26 +17,26 @@ import java.util.LinkedList;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class g {
-    private static g ebY = null;
-    private d ecb;
-    private boolean aMa = false;
-    private final c ebU = new c() { // from class: com.baidu.tbadk.mutiprocess.g.1
+    private static g eqk = null;
+    private d eqn;
+    private boolean aSa = false;
+    private final c eqg = new c() { // from class: com.baidu.tbadk.mutiprocess.g.1
         @Override // com.baidu.tbadk.mutiprocess.c
         public void b(a aVar) {
             g.this.d(aVar);
         }
     };
     private Handler mUIHandler = new Handler(Looper.getMainLooper());
-    private final com.baidu.tbadk.h.e ecc = new com.baidu.tbadk.h.e() { // from class: com.baidu.tbadk.mutiprocess.g.3
+    private final com.baidu.tbadk.h.e eqo = new com.baidu.tbadk.h.e() { // from class: com.baidu.tbadk.mutiprocess.g.3
         @Override // com.baidu.tbadk.h.e, android.app.Application.ActivityLifecycleCallbacks
         public void onActivityDestroyed(Activity activity) {
             if (activity instanceof TbPageContextSupport) {
-                g.this.k(((TbPageContextSupport) activity).getPageContext().getUniqueId());
+                g.this.m(((TbPageContextSupport) activity).getPageContext().getUniqueId());
             }
         }
     };
-    private final Map<Class<? extends a>, b> ebZ = new HashMap();
-    private final Map<Class<? extends a>, LinkedList<h>> eca = new HashMap();
+    private final Map<Class<? extends a>, b> eql = new HashMap();
+    private final Map<Class<? extends a>, LinkedList<h>> eqm = new HashMap();
 
     private g() {
     }
@@ -45,33 +45,33 @@ public class g {
         int myPid = Process.myPid();
         int pid = aVar.getPid();
         if (aVar.getType() == 2 && myPid == pid) {
-            aYz().d(aVar);
+            beJ().d(aVar);
         } else {
-            aYz().f(aVar);
+            beJ().f(aVar);
         }
     }
 
-    public static g aYz() {
-        if (ebY == null) {
+    public static g beJ() {
+        if (eqk == null) {
             synchronized (g.class) {
-                if (ebY == null) {
-                    ebY = new g();
+                if (eqk == null) {
+                    eqk = new g();
                 }
             }
         }
-        return ebY;
+        return eqk;
     }
 
     public void init(Application application) {
-        if (!this.aMa) {
+        if (!this.aSa) {
             if (application == null) {
                 throw new NullPointerException("MutiProcessManager Initialized, application is null");
             }
             e(application);
-            this.ecb = new e(application);
-            this.ecb.a(this.ebU);
-            this.ecb.startService();
-            this.aMa = true;
+            this.eqn = new e(application);
+            this.eqn.a(this.eqg);
+            this.eqn.startService();
+            this.aSa = true;
         }
     }
 
@@ -94,7 +94,7 @@ public class g {
         if (aVar != null) {
             Class<?> cls = aVar.getClass();
             try {
-                b bVar = this.ebZ.get(cls);
+                b bVar = this.eql.get(cls);
                 if (bVar != null) {
                     bVar.a(aVar);
                 }
@@ -102,7 +102,7 @@ public class g {
                 BdLog.detailException(cls.getName(), e);
             }
             try {
-                LinkedList<h> linkedList = this.eca.get(cls);
+                LinkedList<h> linkedList = this.eqm.get(cls);
                 if (!v.isEmpty(linkedList)) {
                     int myPid = Process.myPid();
                     for (h hVar : linkedList) {
@@ -122,8 +122,8 @@ public class g {
     }
 
     private void f(a aVar) {
-        if (this.ecb != null) {
-            this.ecb.publishEvent(aVar);
+        if (this.eqn != null) {
+            this.eqn.publishEvent(aVar);
         }
     }
 
@@ -134,10 +134,10 @@ public class g {
         if (cls == null) {
             throw new NullPointerException("register IEvent class is null");
         }
-        if (this.ebZ.containsKey(cls)) {
+        if (this.eql.containsKey(cls)) {
             BdLog.e(cls + " has existed, Please unRegister old listener first！");
         } else {
-            this.ebZ.put(cls, bVar);
+            this.eql.put(cls, bVar);
         }
     }
 
@@ -148,10 +148,10 @@ public class g {
         if (cls == null) {
             throw new NullPointerException("register IEvent class is null");
         }
-        LinkedList<h> linkedList = this.eca.get(cls);
+        LinkedList<h> linkedList = this.eqm.get(cls);
         if (linkedList == null) {
             linkedList = new LinkedList<>();
-            this.eca.put(cls, linkedList);
+            this.eqm.put(cls, linkedList);
         }
         if (linkedList.contains(hVar)) {
             BdLog.e("listener has existed, Please unRegister old listener first！");
@@ -161,9 +161,9 @@ public class g {
         FrameHelper.a(linkedList, hVar);
     }
 
-    public void k(BdUniqueId bdUniqueId) {
+    public void m(BdUniqueId bdUniqueId) {
         if (bdUniqueId != null) {
-            for (Map.Entry<Class<? extends a>, LinkedList<h>> entry : this.eca.entrySet()) {
+            for (Map.Entry<Class<? extends a>, LinkedList<h>> entry : this.eqm.entrySet()) {
                 LinkedList<h> value = entry.getValue();
                 if (!v.isEmpty(value)) {
                     Iterator<h> it = value.iterator();
@@ -180,7 +180,7 @@ public class g {
 
     private void e(Application application) {
         try {
-            application.registerActivityLifecycleCallbacks(this.ecc);
+            application.registerActivityLifecycleCallbacks(this.eqo);
         } catch (Exception e) {
             e.printStackTrace();
         }

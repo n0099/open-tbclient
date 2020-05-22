@@ -4,7 +4,7 @@ import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import com.baidu.searchbox.suspensionball.SuspensionBallEntity;
 import com.baidu.searchbox.unitedscheme.SchemeConfig;
-import com.baidu.swan.apps.core.k.d;
+import com.baidu.swan.apps.core.turbo.d;
 import com.baidu.swan.apps.extcore.model.ExtensionCore;
 import com.baidu.swan.apps.storage.c.h;
 import org.json.JSONException;
@@ -18,21 +18,22 @@ public class b {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(SuspensionBallEntity.KEY_SCHEME, SchemeConfig.getSchemeHead());
-            jSONObject.put("sdkExtension", b(d.Yn().YI()));
-            jSONObject.put("gameSdkExtension", b(com.baidu.swan.games.i.a.awo().YI()));
+            jSONObject.put("sdkExtension", b(d.abl().abH()));
+            jSONObject.put("gameSdkExtension", b(com.baidu.swan.games.j.a.aAd().abH()));
             jSONObject.put("isDebugSdk", DEBUG);
-            String string = h.any().getString("ctsUrl", "");
-            if (!TextUtils.isEmpty(string) && com.baidu.swan.apps.ah.a.a.aiI()) {
+            String string = h.arO().getString("ctsUrl", "");
+            if (!TextUtils.isEmpty(string) && com.baidu.swan.apps.af.a.a.amp()) {
                 jSONObject.put("ctsJsAddress", new JSONObject(string));
             }
-            if (com.baidu.swan.apps.w.a.abZ() != null) {
-                String Qf = com.baidu.swan.apps.w.a.abZ().Qf();
-                if (!TextUtils.isEmpty(Qf)) {
-                    jSONObject.put("hostName", Qf);
+            if (com.baidu.swan.apps.u.a.afd() != null) {
+                String Se = com.baidu.swan.apps.u.a.afd().Se();
+                if (!TextUtils.isEmpty(Se)) {
+                    jSONObject.put("hostName", Se);
                 }
             }
             jSONObject.put("platform", "android");
-            jSONObject.put("abTestSwitch", com.baidu.swan.apps.swancore.b.a.anD());
+            jSONObject.put("abTestSwitch", com.baidu.swan.apps.swancore.a.a.arT());
+            jSONObject.put("userDataPath", com.baidu.swan.games.i.a.USER_DATA_PATH);
         } catch (JSONException e) {
             if (DEBUG) {
                 throw new RuntimeException(e);

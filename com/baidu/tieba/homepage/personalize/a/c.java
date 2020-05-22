@@ -4,7 +4,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.widget.ListView.y;
+import com.baidu.adp.widget.ListView.aa;
 import com.baidu.ala.atomdata.AlaSDKShareEmptyActivityConfig;
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.tbadk.TbPageContext;
@@ -14,55 +14,55 @@ import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
 /* loaded from: classes9.dex */
 public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data.j, a> implements com.baidu.tieba.a.f {
-    private String aeB;
-    public BdUniqueId ebA;
-    private NEGFeedBackView.a euX;
-    com.baidu.tieba.card.z<com.baidu.tieba.card.data.j> gEm;
-    private com.baidu.tieba.card.j hOD;
+    private String aeX;
+    private NEGFeedBackView.a eJz;
+    public BdUniqueId epM;
+    com.baidu.tieba.card.aa<com.baidu.tieba.card.data.j> gSU;
+    private com.baidu.tieba.card.k idk;
     private TbPageContext<?> mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.euX = null;
-        this.gEm = new com.baidu.tieba.card.z<com.baidu.tieba.card.data.j>() { // from class: com.baidu.tieba.homepage.personalize.a.c.1
+        this.eJz = null;
+        this.gSU = new com.baidu.tieba.card.aa<com.baidu.tieba.card.data.j>() { // from class: com.baidu.tieba.homepage.personalize.a.c.1
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.card.z
+            @Override // com.baidu.tieba.card.aa
             public void a(View view, com.baidu.tieba.card.data.j jVar) {
                 int i = 0;
-                if (c.this.hOD.eHe != view) {
-                    if (view == c.this.hOD.fsw.getCommentContainer()) {
+                if (c.this.idk.eTB != view) {
+                    if (view == c.this.idk.fGo.getCommentContainer()) {
                         c.this.b(jVar);
                         i = 5;
-                    } else if (view == c.this.hOD.fti.dJe.getCommentContainer()) {
+                    } else if (view == c.this.idk.gBE.getCommentContainer()) {
                         c.this.b(jVar);
-                    } else if (c.this.hOD.bEB() != null && view.getId() == c.this.hOD.bEB().getId()) {
+                    } else if (c.this.idk.bKV() != null && view.getId() == c.this.idk.bKV().getId()) {
                         i = 2;
-                    } else if (c.this.hOD.bEC() != null && view.getId() == c.this.hOD.bEC().getId()) {
+                    } else if (c.this.idk.bKW() != null && view.getId() == c.this.idk.bKW().getId()) {
                         i = 2;
                     }
                 } else {
                     String str = "";
                     long j = 0;
-                    if (jVar != null && jVar.aIu() != null) {
-                        i = jVar.aIu().aKV().live_type;
-                        str = jVar.aIu().getTid();
-                        j = jVar.aIu().aKV().live_id;
+                    if (jVar != null && jVar.aOi() != null) {
+                        i = jVar.aOi().aQS().live_type;
+                        str = jVar.aOi().getTid();
+                        j = jVar.aOi().aQS().live_id;
                     }
                     an anVar = new an("c11824");
-                    anVar.cI("uid", TbadkCoreApplication.getCurrentAccount());
-                    anVar.cI(TiebaInitialize.Params.AB_TAG, jVar.bFh());
-                    anVar.t(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LIVE_ID, j);
-                    anVar.af("obj_type", i);
-                    anVar.cI("tid", str);
-                    anVar.cI("obj_param1", jVar.getExtra());
-                    anVar.cI("obj_source", jVar.getSource());
-                    anVar.af("obj_floor", jVar.bFg());
+                    anVar.dh("uid", TbadkCoreApplication.getCurrentAccount());
+                    anVar.dh("ab_tag", jVar.bLA());
+                    anVar.s(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LIVE_ID, j);
+                    anVar.ag("obj_type", i);
+                    anVar.dh("tid", str);
+                    anVar.dh("obj_param1", jVar.getExtra());
+                    anVar.dh("obj_source", jVar.getSource());
+                    anVar.ag("obj_floor", jVar.bLz());
                     TiebaStatic.log(anVar);
                     i = 1;
                 }
                 if (i != 0) {
-                    com.baidu.tieba.homepage.personalize.c.a.a(jVar.dqE, c.this.ebA, jVar.bFg(), i);
+                    com.baidu.tieba.homepage.personalize.c.a.a(jVar.dEA, c.this.epM, jVar.bLz(), i);
                 }
             }
         };
@@ -72,89 +72,86 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bn */
+    /* renamed from: bx */
     public a b(ViewGroup viewGroup) {
-        this.hOD = new com.baidu.tieba.card.j(this.mPageContext, this.ebA);
-        this.hOD.currentPageType = 2;
-        if (this.hOD.fsw != null) {
-            this.hOD.fsw.dIg = 2;
+        this.idk = new com.baidu.tieba.card.k(this.mPageContext, this.epM);
+        this.idk.si(2);
+        if (this.epM != null) {
+            this.idk.o(this.epM);
         }
-        if (this.hOD.fti != null && this.hOD.fti.dJe != null) {
-            this.hOD.fti.dJe.dIg = 2;
-        }
-        if (this.ebA != null) {
-            this.hOD.m(this.ebA);
-        }
-        return new a(this.hOD);
+        return new a(this.idk);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.card.data.j jVar, a aVar) {
-        jVar.rN(jVar.position + 1);
-        if (aVar.hOF instanceof com.baidu.tieba.a.e) {
-            aVar.hOF.setPage(this.aeB);
+        jVar.sr(jVar.position + 1);
+        if (aVar.idn instanceof com.baidu.tieba.a.e) {
+            aVar.idn.setPage(this.aeX);
         }
-        aVar.hOF.rJ(i + 1);
-        aVar.hOF.a(jVar);
-        aVar.hOF.c(this.gEm);
-        aVar.hOF.b(this.euX);
+        aVar.idn.sn(i + 1);
+        aVar.idn.a(jVar);
+        aVar.idn.c(this.gSU);
+        aVar.idn.b(this.eJz);
         String str = "";
-        if (jVar != null && jVar.aIu() != null) {
-            int i2 = jVar.aIu().aKV().live_type;
-            String tid = jVar.aIu().getTid();
-            if (!StringUtils.isNull(jVar.aIu().aKV().appId)) {
-                str = jVar.aIu().aKV().appId;
+        if (jVar != null && jVar.aOi() != null) {
+            int i2 = jVar.aOi().aQS().live_type;
+            String tid = jVar.aOi().getTid();
+            if (!StringUtils.isNull(jVar.aOi().aQS().appId)) {
+                str = jVar.aOi().aQS().appId;
             }
-            long j = jVar.aIu().aKV().live_id;
+            long j = jVar.aOi().aQS().live_id;
             an anVar = new an("c11823");
-            anVar.af("obj_type", i2);
-            anVar.cI(TiebaInitialize.Params.OBJ_PARAM3, str);
-            anVar.cI("tid", tid);
-            anVar.cI(TiebaInitialize.Params.AB_TAG, jVar.bFh());
-            anVar.t(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LIVE_ID, j);
-            anVar.t("fid", jVar.aIu().getFid());
-            anVar.cI("uid", TbadkCoreApplication.getCurrentAccount());
-            anVar.cI("obj_param1", jVar.getExtra());
-            anVar.cI("obj_source", jVar.getSource());
-            anVar.af("obj_floor", jVar.bFg());
+            anVar.ag("obj_type", i2);
+            anVar.dh(TiebaInitialize.Params.OBJ_PARAM3, str);
+            anVar.dh("tid", tid);
+            anVar.dh("ab_tag", jVar.bLA());
+            anVar.s(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LIVE_ID, j);
+            anVar.s("fid", jVar.aOi().getFid());
+            anVar.dh("uid", TbadkCoreApplication.getCurrentAccount());
+            anVar.dh("obj_param1", jVar.getExtra());
+            anVar.dh("obj_source", jVar.getSource());
+            anVar.ag("obj_floor", jVar.bLz());
             TiebaStatic.log(anVar);
         }
-        com.baidu.tieba.homepage.personalize.c.a.a(jVar.dqE, this.ebA, jVar.bFg());
+        com.baidu.tieba.homepage.personalize.c.a.a(jVar.dEA, this.epM, jVar.bLz());
         return aVar.getView();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(com.baidu.tieba.card.data.j jVar) {
         String str = "";
-        if (jVar != null && jVar.aIu() != null) {
-            str = jVar.aIu().getTid();
+        String str2 = "";
+        if (jVar != null && jVar.aOi() != null) {
+            str = jVar.aOi().getTid();
+            str2 = jVar.aOi().getNid();
         }
         an anVar = new an("c12942");
-        anVar.af("obj_locate", 1);
-        anVar.af("obj_type", 5);
-        anVar.cI("tid", str);
-        anVar.cI("obj_source", jVar.getSource());
+        anVar.ag("obj_locate", 1);
+        anVar.ag("obj_type", 5);
+        anVar.dh("tid", str);
+        anVar.dh("obj_source", jVar.getSource());
+        anVar.dh("nid", str2);
         TiebaStatic.log(anVar);
     }
 
     public void setEventCallback(NEGFeedBackView.a aVar) {
-        this.euX = aVar;
+        this.eJz = aVar;
     }
 
     /* loaded from: classes9.dex */
-    public static class a extends y.a {
-        public com.baidu.tieba.card.j hOF;
+    public static class a extends aa.a {
+        public com.baidu.tieba.card.k idn;
 
-        public a(com.baidu.tieba.card.j jVar) {
-            super(jVar.getView());
-            this.hOF = jVar;
+        public a(com.baidu.tieba.card.k kVar) {
+            super(kVar.getView());
+            this.idn = kVar;
         }
     }
 
     @Override // com.baidu.tieba.a.f
-    public void yf(String str) {
-        this.aeB = str;
+    public void zL(String str) {
+        this.aeX = str;
     }
 }

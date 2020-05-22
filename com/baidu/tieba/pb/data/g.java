@@ -1,32 +1,41 @@
 package com.baidu.tieba.pb.data;
 
-import android.support.v7.widget.ActivityChooserView;
-import tbclient.PbPage.ForumHeadlineImgInfo;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.core.data.ForumData;
+import com.baidu.tbadk.core.data.bg;
 /* loaded from: classes9.dex */
-public class g {
-    private long dod = 0;
-    private String doe = "";
-    private String imgUrl = "";
-    private int jop = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
-    private String joq = "";
-    private String auv = "";
+public class g implements com.baidu.adp.widget.ListView.o {
+    public static BdUniqueId TYPE = BdUniqueId.gen();
+    public String fid;
+    public String forumName;
+    public String jER;
+    public boolean jES = false;
+    public int memberNum;
+    public int postNum;
+    public String tid;
 
-    public void a(ForumHeadlineImgInfo forumHeadlineImgInfo) {
-        if (forumHeadlineImgInfo != null) {
-            this.dod = forumHeadlineImgInfo.img_user_id.longValue();
-            this.doe = forumHeadlineImgInfo.img_user_name;
-            this.imgUrl = forumHeadlineImgInfo.img_url;
-            this.jop = forumHeadlineImgInfo.rank_num.intValue();
-            this.joq = forumHeadlineImgInfo.rank_up_info;
-            this.auv = forumHeadlineImgInfo.rank_url;
+    public g(ForumData forumData) {
+        if (forumData != null) {
+            this.forumName = forumData.getName();
+            this.jER = forumData.getImage_url();
+            this.postNum = forumData.getPost_num();
+            this.memberNum = forumData.getMember_num();
+            this.fid = forumData.getId();
         }
     }
 
-    public String cvV() {
-        return this.auv;
+    public g(bg bgVar) {
+        if (bgVar != null) {
+            this.forumName = bgVar.forumName;
+            this.jER = bgVar.avatar;
+            this.postNum = bgVar.postNum;
+            this.memberNum = bgVar.memberNum;
+            this.fid = bgVar.forumId;
+        }
     }
 
-    public String aIU() {
-        return this.imgUrl;
+    @Override // com.baidu.adp.widget.ListView.o
+    public BdUniqueId getType() {
+        return TYPE;
     }
 }

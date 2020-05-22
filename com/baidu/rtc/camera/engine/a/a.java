@@ -16,8 +16,8 @@ public class a {
 
     /* renamed from: com.baidu.rtc.camera.engine.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    private static class C0224a {
-        public static a bvh = new a(null);
+    private static class C0257a {
+        public static a bCK = new a(null);
     }
 
     /* synthetic */ a(AnonymousClass1 anonymousClass1) {
@@ -27,17 +27,17 @@ public class a {
     private a() {
     }
 
-    public static a Nc() {
-        return C0224a.bvh;
+    public static a Pp() {
+        return C0257a.bCK;
     }
 
-    public void aD(Context context) {
-        g(context, com.baidu.rtc.camera.engine.a.b.Nd().bvl);
+    public void aN(Context context) {
+        g(context, com.baidu.rtc.camera.engine.a.b.Pq().bCO);
     }
 
     public void g(Context context, int i) {
         try {
-            a(context, com.baidu.rtc.camera.engine.a.b.Nd().cameraId, i, com.baidu.rtc.camera.engine.a.b.Nd().bvn, com.baidu.rtc.camera.engine.a.b.Nd().bvo);
+            a(context, com.baidu.rtc.camera.engine.a.b.Pq().cameraId, i, com.baidu.rtc.camera.engine.a.b.Pq().bCQ, com.baidu.rtc.camera.engine.a.b.Pq().bCR);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -51,12 +51,12 @@ public class a {
         if (this.mCamera == null) {
             throw new RuntimeException("Unable to open camera");
         }
-        com.baidu.rtc.camera.engine.a.b Nd = com.baidu.rtc.camera.engine.a.b.Nd();
-        Nd.cameraId = i;
+        com.baidu.rtc.camera.engine.a.b Pq = com.baidu.rtc.camera.engine.a.b.Pq();
+        Pq.cameraId = i;
         this.mCamera.cancelAutoFocus();
         Camera.Parameters parameters = this.mCamera.getParameters();
-        Nd.bvq = b(parameters);
-        Nd.bvm = a(parameters, i2 * 1000);
+        Pq.bCT = b(parameters);
+        Pq.bCP = a(parameters, i2 * 1000);
         parameters.setRecordingHint(true);
         if (parameters.getSupportedFocusModes().contains("continuous-video")) {
             parameters.setFocusMode("continuous-video");
@@ -65,7 +65,7 @@ public class a {
         a(this.mCamera, i3, i4);
         b(this.mCamera, i3, i4);
         z((Activity) context);
-        this.mCamera.setDisplayOrientation(Nd.orientation);
+        this.mCamera.setDisplayOrientation(Pq.orientation);
     }
 
     public void b(SurfaceTexture surfaceTexture) {
@@ -95,7 +95,7 @@ public class a {
             this.mCamera.release();
             this.mCamera = null;
         }
-        com.baidu.rtc.camera.engine.a.b.Nd().bvq = false;
+        com.baidu.rtc.camera.engine.a.b.Pq().bCT = false;
     }
 
     public void setPreviewCallback(Camera.PreviewCallback previewCallback) {
@@ -108,8 +108,8 @@ public class a {
         Camera.Parameters parameters = camera.getParameters();
         Camera.Size a = a(parameters.getSupportedPreviewSizes(), i, i2, CalculateType.Lower);
         parameters.setPreviewSize(a.width, a.height);
-        com.baidu.rtc.camera.engine.a.b.Nd().previewWidth = a.width;
-        com.baidu.rtc.camera.engine.a.b.Nd().previewHeight = a.height;
+        com.baidu.rtc.camera.engine.a.b.Pq().previewWidth = a.width;
+        com.baidu.rtc.camera.engine.a.b.Pq().previewHeight = a.height;
         camera.setParameters(parameters);
     }
 
@@ -124,7 +124,7 @@ public class a {
         int i;
         int i2 = 0;
         Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
-        Camera.getCameraInfo(com.baidu.rtc.camera.engine.a.b.Nd().cameraId, cameraInfo);
+        Camera.getCameraInfo(com.baidu.rtc.camera.engine.a.b.Pq().cameraId, cameraInfo);
         switch (activity.getWindowManager().getDefaultDisplay().getRotation()) {
             case 1:
                 i2 = 90;
@@ -141,7 +141,7 @@ public class a {
         } else {
             i = ((cameraInfo.orientation - i2) + 360) % 360;
         }
-        com.baidu.rtc.camera.engine.a.b.Nd().orientation = i;
+        com.baidu.rtc.camera.engine.a.b.Pq().orientation = i;
         return i;
     }
 
@@ -149,12 +149,12 @@ public class a {
     /* renamed from: com.baidu.rtc.camera.engine.a.a$1  reason: invalid class name */
     /* loaded from: classes6.dex */
     public class AnonymousClass1 implements Camera.AutoFocusCallback {
-        final /* synthetic */ String bvf;
+        final /* synthetic */ String bCI;
 
         @Override // android.hardware.Camera.AutoFocusCallback
         public void onAutoFocus(boolean z, Camera camera) {
             Camera.Parameters parameters = camera.getParameters();
-            parameters.setFocusMode(this.bvf);
+            parameters.setFocusMode(this.bCI);
             camera.setParameters(parameters);
         }
     }
@@ -181,7 +181,7 @@ public class a {
         Camera.Size size;
         Camera.Size size2;
         boolean z;
-        S(list);
+        T(list);
         ArrayList arrayList = new ArrayList();
         ArrayList arrayList2 = new ArrayList();
         for (Camera.Size size3 : list) {
@@ -266,18 +266,18 @@ public class a {
             boolean z2 = false;
             Camera.Size size7 = list.get(0);
             for (Camera.Size size8 : list) {
-                if (size8.width != i || size8.height != i2 || size8.height / size8.width != com.baidu.rtc.camera.engine.a.b.Nd().bvk) {
+                if (size8.width != i || size8.height != i2 || size8.height / size8.width != com.baidu.rtc.camera.engine.a.b.Pq().bCN) {
                     if (size8.width == i) {
                         z2 = true;
-                        if (Math.abs(size7.height - i2) > Math.abs(size8.height - i2) && size8.height / size8.width == com.baidu.rtc.camera.engine.a.b.Nd().bvk) {
+                        if (Math.abs(size7.height - i2) > Math.abs(size8.height - i2) && size8.height / size8.width == com.baidu.rtc.camera.engine.a.b.Pq().bCN) {
                             return size8;
                         }
                     } else if (size8.height == i2) {
                         z2 = true;
-                        if (Math.abs(size7.width - i) > Math.abs(size8.width - i) && size8.height / size8.width == com.baidu.rtc.camera.engine.a.b.Nd().bvk) {
+                        if (Math.abs(size7.width - i) > Math.abs(size8.width - i) && size8.height / size8.width == com.baidu.rtc.camera.engine.a.b.Pq().bCN) {
                             return size8;
                         }
-                    } else if (!z2 && Math.abs(size7.width - i) > Math.abs(size8.width - i) && Math.abs(size7.height - i2) > Math.abs(size8.height - i2) && size8.height / size8.width == com.baidu.rtc.camera.engine.a.b.Nd().bvk) {
+                    } else if (!z2 && Math.abs(size7.width - i) > Math.abs(size8.width - i) && Math.abs(size7.height - i2) > Math.abs(size8.height - i2) && size8.height / size8.width == com.baidu.rtc.camera.engine.a.b.Pq().bCN) {
                         boolean z3 = z2;
                         size2 = size8;
                         z = z3;
@@ -297,7 +297,7 @@ public class a {
         return size;
     }
 
-    private static void S(List<Camera.Size> list) {
+    private static void T(List<Camera.Size> list) {
         Collections.sort(list, new b(null));
     }
 

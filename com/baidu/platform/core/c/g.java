@@ -12,7 +12,6 @@ import com.baidu.mapapi.search.poi.OnGetPoiSearchResultListener;
 import com.baidu.mapapi.search.poi.PoiResult;
 import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
 import com.baidu.platform.base.SearchType;
-import com.baidu.swan.bdprivate.invoice.model.InvoiceInfo;
 import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
 import java.util.ArrayList;
 import java.util.List;
@@ -98,7 +97,7 @@ public class g extends com.baidu.platform.base.d {
                 poiInfo.setArea(jSONObject2.optString(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_AREA));
                 poiInfo.setStreetId(jSONObject2.optString("street_id"));
                 poiInfo.setUid(jSONObject2.optString("uid"));
-                poiInfo.setPhoneNum(jSONObject2.optString(InvoiceInfo.KEY_TELEPHONE));
+                poiInfo.setPhoneNum(jSONObject2.optString("telephone"));
                 poiInfo.setDetail(jSONObject2.optInt("detail"));
                 poiInfo.setLocation(a(jSONObject2.optJSONObject("location")));
                 String optString = jSONObject2.optString("detail_info");

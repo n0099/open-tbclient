@@ -3,22 +3,22 @@ package com.baidu.tieba.ala.alaar.sticker.a;
 import java.io.File;
 /* loaded from: classes3.dex */
 public class a {
-    private static a eKA;
+    private static a eWX;
 
-    public static a bkm() {
-        if (eKA == null) {
-            eKA = bkn();
+    public static a bpG() {
+        if (eWX == null) {
+            eWX = bpH();
         }
-        return eKA;
+        return eWX;
     }
 
-    private static synchronized a bkn() {
+    private static synchronized a bpH() {
         a aVar;
         synchronized (a.class) {
-            if (eKA == null) {
-                eKA = new a();
+            if (eWX == null) {
+                eWX = new a();
             }
-            aVar = eKA;
+            aVar = eWX;
         }
         return aVar;
     }
@@ -26,11 +26,11 @@ public class a {
     private a() {
     }
 
-    public File bko() {
+    public File bpI() {
         return h.getPrivateCaptureRootChildDir("duModel");
     }
 
-    public File bkp() {
+    public File bpJ() {
         return h.getPrivateCaptureRootChildDir("duSo");
     }
 }

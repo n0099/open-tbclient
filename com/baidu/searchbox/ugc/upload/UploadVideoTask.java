@@ -218,7 +218,7 @@ public class UploadVideoTask extends UploadFileTask {
                     try {
                         String string = mediaExtractor.getTrackFormat(i).getString(IMediaFormat.KEY_MIME);
                         if (!TextUtils.isEmpty(string)) {
-                            if (string.equals(VIDEO_MIME)) {
+                            if (string.equals("video/avc")) {
                                 z3 = true;
                             } else if (string.equals(AUDIO_MIME)) {
                                 z2 = true;

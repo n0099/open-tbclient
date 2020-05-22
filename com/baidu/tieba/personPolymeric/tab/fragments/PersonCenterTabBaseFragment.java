@@ -8,7 +8,7 @@ import com.baidu.tieba.personPolymeric.view.l;
 import tbclient.User;
 /* loaded from: classes11.dex */
 public abstract class PersonCenterTabBaseFragment extends BaseFragment {
-    private l kcA;
+    private l kus;
 
     public abstract void d(User user);
 
@@ -16,34 +16,34 @@ public abstract class PersonCenterTabBaseFragment extends BaseFragment {
 
     public abstract boolean isHost();
 
-    public abstract void sH(boolean z);
+    public abstract void tf(boolean z);
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void showNetRefreshView(View view, String str, boolean z) {
-        if (this.kcA == null) {
-            this.kcA = new l(getPageContext().getPageActivity(), getNetRefreshListener());
-            this.kcA.setTitle(getPageContext().getResources().getString(R.string.refresh_view_title_text));
-            this.kcA.setSubText(null);
-            this.kcA.setButtonText(getPageContext().getResources().getString(R.string.refresh_view_button_text));
-            this.kcA.showRefreshButton();
-            this.kcA.getAttachedView().setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
+        if (this.kus == null) {
+            this.kus = new l(getPageContext().getPageActivity(), getNetRefreshListener());
+            this.kus.setTitle(getPageContext().getResources().getString(R.string.refresh_view_title_text));
+            this.kus.setSubText(null);
+            this.kus.setButtonText(getPageContext().getResources().getString(R.string.refresh_view_button_text));
+            this.kus.showRefreshButton();
+            this.kus.getAttachedView().setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
         }
-        this.kcA.onChangeSkinType();
-        this.kcA.attachView(view, z);
+        this.kus.onChangeSkinType();
+        this.kus.attachView(view, z);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void hideNetRefreshView(View view) {
-        if (this.kcA != null) {
-            this.kcA.dettachView(view);
+        if (this.kus != null) {
+            this.kus.dettachView(view);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.kcA != null) {
-            this.kcA.onChangeSkinType();
+        if (this.kus != null) {
+            this.kus.onChangeSkinType();
         }
     }
 }

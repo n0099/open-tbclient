@@ -9,22 +9,22 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.view.NavigationBarCoverTip;
 /* loaded from: classes.dex */
 public class f {
-    private static f dPq;
-    private a dPr = aUh();
-    private String dPs;
+    private static f edH;
+    private a edI = bao();
+    private String edJ;
 
-    public static f aUg() {
-        if (dPq == null) {
+    public static f ban() {
+        if (edH == null) {
             synchronized (f.class) {
-                if (dPq == null) {
-                    dPq = new f();
+                if (edH == null) {
+                    edH = new f();
                 }
             }
         }
-        return dPq;
+        return edH;
     }
 
-    private a aUh() {
+    private a bao() {
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2156675, a.class);
         if (runTask != null) {
             return (a) runTask.getData();
@@ -33,69 +33,69 @@ public class f {
     }
 
     public boolean isSignAlertOn() {
-        if (this.dPr != null) {
-            return this.dPr.isSignAlertOn();
+        if (this.edI != null) {
+            return this.edI.isSignAlertOn();
         }
         return false;
     }
 
     public void setSignAlertOn(boolean z) {
-        if (this.dPr != null) {
-            this.dPr.setSignAlertOn(z);
+        if (this.edI != null) {
+            this.edI.setSignAlertOn(z);
         }
     }
 
     public int getSignAlertHours() {
-        if (this.dPr != null) {
-            return this.dPr.getSignAlertHours();
+        if (this.edI != null) {
+            return this.edI.getSignAlertHours();
         }
         return 0;
     }
 
     public int getSignAlertMins() {
-        if (this.dPr != null) {
-            return this.dPr.getSignAlertMins();
+        if (this.edI != null) {
+            return this.edI.getSignAlertMins();
         }
         return 0;
     }
 
     public void setSignAlertTime(int i, int i2) {
-        if (this.dPr != null) {
-            this.dPr.setSignAlertTime(i, i2);
+        if (this.edI != null) {
+            this.edI.setSignAlertTime(i, i2);
         }
     }
 
     public void updateSignAlarm() {
-        if (this.dPr != null) {
-            this.dPr.updateSignAlarm();
+        if (this.edI != null) {
+            this.edI.updateSignAlarm();
         }
     }
 
     public void a(TbPageContext tbPageContext, ViewGroup viewGroup) {
-        if (this.dPr != null) {
-            this.dPr.a(tbPageContext, viewGroup);
+        if (this.edI != null) {
+            this.edI.a(tbPageContext, viewGroup);
         }
     }
 
     public Dialog a(TbPageContext tbPageContext, com.baidu.tbadk.widget.timepicker.a.d.e eVar) {
-        if (this.dPr != null) {
-            return this.dPr.a(tbPageContext, eVar);
+        if (this.edI != null) {
+            return this.edI.a(tbPageContext, eVar);
         }
         return null;
     }
 
     public NavigationBarCoverTip a(Activity activity, ViewGroup viewGroup) {
-        if (this.dPr != null) {
-            return this.dPr.a(activity, viewGroup);
+        if (this.edI != null) {
+            return this.edI.a(activity, viewGroup);
         }
         return null;
     }
 
-    public void vJ(String str) {
-        this.dPs = str;
+    public void xp(String str) {
+        this.edJ = str;
     }
 
-    public String aUi() {
-        return this.dPs;
+    public String bap() {
+        return this.edJ;
     }
 }

@@ -1,9 +1,7 @@
 package com.baidu.swan.apps.ai;
 
-import org.json.JSONObject;
+import com.baidu.swan.apps.ai.c;
 /* loaded from: classes11.dex */
 public interface a {
-    void V(JSONObject jSONObject);
-
-    void onFail(String str);
+    void a(c.b bVar);
 }

@@ -6,15 +6,15 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes13.dex */
 public class k implements ThreadFactory {
-    private final AtomicInteger bjX = new AtomicInteger(1);
-    private final int bjZ;
+    private final AtomicInteger brs = new AtomicInteger(1);
+    private final int bru;
     private final String mPrefix;
-    private final boolean mcJ;
+    private final boolean mwA;
 
     public k(int i, String str, boolean z) {
-        this.bjZ = i;
+        this.bru = i;
         this.mPrefix = str;
-        this.mcJ = z;
+        this.mwA = z;
     }
 
     @Override // java.util.concurrent.ThreadFactory
@@ -24,14 +24,14 @@ public class k implements ThreadFactory {
             @Override // java.lang.Runnable
             public void run() {
                 try {
-                    Process.setThreadPriority(k.this.bjZ);
+                    Process.setThreadPriority(k.this.bru);
                 } catch (Throwable th) {
                 }
                 runnable.run();
             }
         };
-        if (this.mcJ) {
-            str = this.mPrefix + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.bjX.getAndIncrement();
+        if (this.mwA) {
+            str = this.mPrefix + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.brs.getAndIncrement();
         } else {
             str = this.mPrefix;
         }

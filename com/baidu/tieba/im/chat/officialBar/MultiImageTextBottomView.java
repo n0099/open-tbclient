@@ -20,10 +20,10 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.im.chat.officialBar.c;
 /* loaded from: classes13.dex */
 public class MultiImageTextBottomView extends LinearLayout {
-    private com.baidu.adp.lib.b.b idV;
-    private TbImageView ifF;
-    private int ifG;
-    private String ifH;
+    private com.baidu.adp.lib.b.b isE;
+    private TbImageView iuo;
+    private int iup;
+    private String iuq;
     private Context mContext;
     private int mPosition;
     private TextView mTitle;
@@ -34,14 +34,14 @@ public class MultiImageTextBottomView extends LinearLayout {
 
     public MultiImageTextBottomView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.idV = null;
+        this.isE = null;
         this.mContext = context;
         initView();
         setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.im.chat.officialBar.MultiImageTextBottomView.1
             @Override // android.view.View.OnLongClickListener
             public boolean onLongClick(View view) {
-                if (MultiImageTextBottomView.this.idV != null) {
-                    MultiImageTextBottomView.this.idV.onItemViewLongClick(view, 9, MultiImageTextBottomView.this.mPosition, 0L);
+                if (MultiImageTextBottomView.this.isE != null) {
+                    MultiImageTextBottomView.this.isE.onItemViewLongClick(view, 9, MultiImageTextBottomView.this.mPosition, 0L);
                     return false;
                 }
                 return false;
@@ -52,8 +52,8 @@ public class MultiImageTextBottomView extends LinearLayout {
     private void initView() {
         setOrientation(0);
         LayoutInflater.from(this.mContext).inflate(R.layout.msg_multi_pic_text_bottom_view, (ViewGroup) this, true);
-        this.ifF = (TbImageView) findViewById(R.id.bottom_content_pic);
-        this.ifF.setAutoChangeStyle(false);
+        this.iuo = (TbImageView) findViewById(R.id.bottom_content_pic);
+        this.iuo.setAutoChangeStyle(false);
         this.mTitle = (TextView) findViewById(R.id.bottom_title);
     }
 
@@ -69,23 +69,23 @@ public class MultiImageTextBottomView extends LinearLayout {
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view2) {
                         if (aVar != null && !StringUtils.isNull(aVar.url)) {
-                            ba.aOV().b(tbPageContext, new String[]{aVar.url});
+                            ba.aUZ().b(tbPageContext, new String[]{aVar.url});
                             if (i == 1) {
                                 TiebaStatic.eventStat(MultiImageTextBottomView.this.mContext, "official_msg_ck", "click", 1, "fid", aVar.fid);
-                                com.baidu.tieba.im.data.d Fo = com.baidu.tieba.im.util.e.Fo(MultiImageTextBottomView.this.ifH);
-                                if (Fo != null) {
-                                    TiebaStatic.eventStat(MultiImageTextBottomView.this.mContext, "message_open_detail", "click", 1, "task_type", Fo.ijp, "task_id", Fo.taskId, "loc", "" + MultiImageTextBottomView.this.ifG);
-                                    if ((aVar.userType == 1 || aVar.userType == 3) && !"0".equals(Fo.taskId)) {
-                                        com.baidu.tieba.im.b.a.ciX().Fi(Fo.taskId);
+                                com.baidu.tieba.im.data.d GX = com.baidu.tieba.im.util.e.GX(MultiImageTextBottomView.this.iuq);
+                                if (GX != null) {
+                                    TiebaStatic.eventStat(MultiImageTextBottomView.this.mContext, "message_open_detail", "click", 1, "task_type", GX.ixX, "task_id", GX.taskId, "loc", "" + MultiImageTextBottomView.this.iup);
+                                    if ((aVar.userType == 1 || aVar.userType == 3) && !"0".equals(GX.taskId)) {
+                                        com.baidu.tieba.im.b.a.cpu().GR(GX.taskId);
                                     }
                                 }
                                 an anVar = new an("official_message_open_detail");
-                                anVar.t("msg_id", aVar.ifO / 100);
-                                anVar.cI("official_id", aVar.ifP);
-                                anVar.af("official_type", aVar.ifQ);
-                                anVar.t("operate_time", System.currentTimeMillis() / 1000);
-                                anVar.t("task_id", aVar.taskId);
-                                anVar.cI("obj_params1", aVar.url);
+                                anVar.s("msg_id", aVar.iux / 100);
+                                anVar.dh("official_id", aVar.iuy);
+                                anVar.ag("official_type", aVar.iuz);
+                                anVar.s("operate_time", System.currentTimeMillis() / 1000);
+                                anVar.s("task_id", aVar.taskId);
+                                anVar.dh("obj_params1", aVar.url);
                                 TiebaStatic.log(anVar);
                             }
                         }
@@ -93,20 +93,20 @@ public class MultiImageTextBottomView extends LinearLayout {
                 });
             }
             if (!TextUtils.isEmpty(aVar.src)) {
-                this.ifF.setTag(aVar.src);
-                this.ifF.startLoad(aVar.src, 10, false);
+                this.iuo.setTag(aVar.src);
+                this.iuo.startLoad(aVar.src, 10, false);
             }
         }
     }
 
     public void reset() {
         this.mTitle.setText("");
-        this.ifF.setBackgroundDrawable(null);
-        this.ifF.setImageDrawable(null);
+        this.iuo.setBackgroundDrawable(null);
+        this.iuo.setImageDrawable(null);
     }
 
     public void setOnItemViewLongClickListener(com.baidu.adp.lib.b.b bVar) {
-        this.idV = bVar;
+        this.isE = bVar;
     }
 
     public void setPosition(int i) {
@@ -114,19 +114,19 @@ public class MultiImageTextBottomView extends LinearLayout {
     }
 
     public void setStPosition(int i) {
-        this.ifG = i;
+        this.iup = i;
     }
 
     public void setTaskInfo(String str) {
-        this.ifH = str;
+        this.iuq = str;
     }
 
-    public void or(boolean z) {
+    public void oN(boolean z) {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         if (!z) {
             skinType = 0;
         }
-        this.ifF.setAutoChangeStyle(z);
+        this.iuo.setAutoChangeStyle(z);
         am.setViewTextColor(this.mTitle, R.color.common_color_10039, 1, skinType);
     }
 }

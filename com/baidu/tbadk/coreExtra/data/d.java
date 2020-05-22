@@ -5,55 +5,55 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class d {
-    private int dMj;
-    private long dMk;
-    private long dMl;
-    private String dMm;
-    public boolean dMw;
-    public String dMx;
+    private int eaA;
+    private long eaB;
+    private long eaC;
+    private String eaD;
+    public boolean eaN;
+    public String eaO;
     private String name;
     private String text_color;
     private String text_color_pressed;
     private String url;
-    private int dMg = 1;
-    private int dMi = 0;
-    private int dMn = 0;
-    private int dMo = 1;
-    private int dMp = 0;
-    private int dMq = 0;
-    private int dMr = 300;
-    private int dMs = 1;
-    public int dMt = 4;
-    public int dMu = 4;
-    public int dMv = 7;
-    private g dMh = new g();
+    private int eax = 1;
+    private int eaz = 0;
+    private int eaE = 0;
+    private int eaF = 1;
+    private int eaG = 0;
+    private int eaH = 0;
+    private int eaI = 300;
+    private int eaJ = 1;
+    public int eaK = 4;
+    public int eaL = 4;
+    public int eaM = 7;
+    private g eay = new g();
 
     public void parserJson(JSONObject jSONObject) throws JSONException {
         if (jSONObject != null) {
-            this.dMg = jSONObject.optInt("als_control", 1);
-            this.dMi = jSONObject.optInt("not_use_lego_patch", 0);
-            this.dMo = jSONObject.optInt("ad_video_not_autoplay", 1);
-            this.dMq = jSONObject.optInt("lp_video_not_autoplay", 0);
-            this.dMh.parserJson(jSONObject);
+            this.eax = jSONObject.optInt("als_control", 1);
+            this.eaz = jSONObject.optInt("not_use_lego_patch", 0);
+            this.eaF = jSONObject.optInt("ad_video_not_autoplay", 1);
+            this.eaH = jSONObject.optInt("lp_video_not_autoplay", 0);
+            this.eay.parserJson(jSONObject);
             JSONObject optJSONObject = jSONObject.optJSONObject("log_feed_control");
             if (optJSONObject != null) {
-                this.dMj = optJSONObject.optInt("log_feed_switch", 0);
-                this.dMk = optJSONObject.optLong("start_time", -1L);
-                this.dMl = optJSONObject.optLong("end_time", -1L);
-                this.dMm = optJSONObject.optString(UgcConstant.EXT_INFO);
+                this.eaA = optJSONObject.optInt("log_feed_switch", 0);
+                this.eaB = optJSONObject.optLong("start_time", -1L);
+                this.eaC = optJSONObject.optLong("end_time", -1L);
+                this.eaD = optJSONObject.optString(UgcConstant.EXT_INFO);
             }
-            this.dMn = jSONObject.optInt("ad_collect_switch", 0);
+            this.eaE = jSONObject.optInt("ad_collect_switch", 0);
             JSONObject optJSONObject2 = jSONObject.optJSONObject("splash");
             if (optJSONObject2 != null) {
-                this.dMr = optJSONObject2.optInt("interval", 300);
+                this.eaI = optJSONObject2.optInt("interval", 300);
             }
-            this.dMs = jSONObject.optInt("video_page_style", 1);
-            this.dMp = jSONObject.optInt("ad_download_lib", 0);
+            this.eaJ = jSONObject.optInt("video_page_style", 1);
+            this.eaG = jSONObject.optInt("ad_download_lib", 0);
             JSONObject optJSONObject3 = jSONObject.optJSONObject("afd_sync_config");
             if (optJSONObject3 != null) {
-                this.dMt = optJSONObject3.optInt("first_floor");
-                this.dMu = optJSONObject3.optInt("prefetch_step");
-                this.dMv = optJSONObject3.optInt("step");
+                this.eaK = optJSONObject3.optInt("first_floor");
+                this.eaL = optJSONObject3.optInt("prefetch_step");
+                this.eaM = optJSONObject3.optInt("step");
             }
             JSONObject optJSONObject4 = jSONObject.optJSONObject("action_control");
             if (optJSONObject4 != null) {
@@ -62,53 +62,53 @@ public class d {
                 this.text_color = optJSONObject4.optString("text_color");
                 this.text_color_pressed = optJSONObject4.optString("text_color_pressed");
             }
-            this.dMw = jSONObject.optInt("afd_jump_pb") == 1;
-            this.dMx = jSONObject.optString("afd_eid");
+            this.eaN = jSONObject.optInt("afd_jump_pb") == 1;
+            this.eaO = jSONObject.optString("afd_eid");
         }
     }
 
-    public g aRA() {
-        return this.dMh;
+    public g aXH() {
+        return this.eay;
     }
 
-    public boolean aRB() {
-        return this.dMg > 0;
+    public boolean aXI() {
+        return this.eax > 0;
     }
 
-    public boolean aRC() {
-        if (this.dMj == 1) {
+    public boolean aXJ() {
+        if (this.eaA == 1) {
             long currentTimeMillis = System.currentTimeMillis() / 1000;
-            return this.dMk < currentTimeMillis && currentTimeMillis < this.dMl;
+            return this.eaB < currentTimeMillis && currentTimeMillis < this.eaC;
         }
         return false;
     }
 
-    public boolean aRD() {
-        return this.dMo == 1;
+    public boolean aXK() {
+        return this.eaF == 1;
     }
 
-    public boolean aRE() {
-        return this.dMq == 1;
+    public boolean aXL() {
+        return this.eaH == 1;
     }
 
-    public String aRF() {
-        return this.dMm;
+    public String aXM() {
+        return this.eaD;
     }
 
-    public boolean aRG() {
-        return this.dMn == 1;
+    public boolean aXN() {
+        return this.eaE == 1;
     }
 
-    public int aRH() {
-        return this.dMr;
+    public int aXO() {
+        return this.eaI;
     }
 
-    public int aRI() {
-        return this.dMs;
+    public int aXP() {
+        return this.eaJ;
     }
 
-    public boolean aRJ() {
-        return this.dMp == 0;
+    public boolean aXQ() {
+        return this.eaG == 0;
     }
 
     public String getUrl() {

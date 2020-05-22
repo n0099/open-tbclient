@@ -14,12 +14,12 @@ import java.util.Locale;
 import java.util.TimeZone;
 /* loaded from: classes11.dex */
 public final class b implements Runnable {
-    private byte[] a = null;
+    private byte[] a;
     private Context b;
     private String c;
 
     /* loaded from: classes11.dex */
-    private class a implements d.c {
+    private class a implements d.b {
         private a() {
         }
 
@@ -27,7 +27,7 @@ public final class b implements Runnable {
             this();
         }
 
-        @Override // com.baidu.webkit.internal.d.c
+        @Override // com.baidu.webkit.internal.d.b
         public final boolean a() {
             Log.d("siteinfo", "FSO DownloadListener onConnShutdown.");
             try {
@@ -48,13 +48,13 @@ public final class b implements Runnable {
             }
         }
 
-        @Override // com.baidu.webkit.internal.d.c
+        @Override // com.baidu.webkit.internal.d.b
         public final boolean a(int i) {
             Log.d("siteinfo", "FSO DownloadListener onResponseCode:" + i);
             return i == 200 || d.a(i);
         }
 
-        @Override // com.baidu.webkit.internal.d.c
+        @Override // com.baidu.webkit.internal.d.b
         public final boolean a(byte[] bArr, int i) {
             Log.d("siteinfo", "FSO DownloadListener onReceivedData.");
             if (b.this.a == null) {
@@ -69,20 +69,26 @@ public final class b implements Runnable {
     }
 
     private b(Context context) {
-        this.b = null;
-        this.c = null;
         this.b = context;
         this.c = context.getFilesDir().getAbsolutePath();
     }
 
     public static void a(Context context) {
-        if (ConectivityUtils.getNetType(context) == "unknown") {
+        if ("unknown".equals(ConectivityUtils.getNetType(context))) {
             return;
         }
         try {
-            com.baidu.webkit.internal.daemon.a.a(new b(context));
-        } catch (Exception e) {
-            com.a.a.a.a.a.a.a.a(e);
+            b bVar = new b(context);
+            try {
+                if (com.baidu.webkit.internal.daemon.a.a != null) {
+                    com.baidu.webkit.sdk.Log.d("SdkDaemon", "execute");
+                    com.baidu.webkit.internal.daemon.a.a.execute(bVar);
+                }
+            } catch (Exception e) {
+                com.a.a.a.a.a.a.a.a(e);
+            }
+        } catch (Exception e2) {
+            com.a.a.a.a.a.a.a.a(e2);
         }
     }
 

@@ -73,7 +73,7 @@ public final class ObservableTimeout<T, U, V> extends io.reactivex.internal.oper
                 bVar.dispose();
             }
             try {
-                t tVar = (t) io.reactivex.internal.functions.a.h(this.itemTimeoutIndicator.apply(t), "The ObservableSource returned is null");
+                t tVar = (t) io.reactivex.internal.functions.a.k(this.itemTimeoutIndicator.apply(t), "The ObservableSource returned is null");
                 b bVar2 = new b(this, j);
                 if (compareAndSet(bVar, bVar2)) {
                     tVar.subscribe(bVar2);
@@ -128,10 +128,10 @@ public final class ObservableTimeout<T, U, V> extends io.reactivex.internal.oper
     static final class b<T, U, V> extends io.reactivex.observers.a<Object> {
         boolean done;
         final long index;
-        final a mTN;
+        final a noR;
 
         b(a aVar, long j) {
-            this.mTN = aVar;
+            this.noR = aVar;
             this.index = j;
         }
 
@@ -140,7 +140,7 @@ public final class ObservableTimeout<T, U, V> extends io.reactivex.internal.oper
             if (!this.done) {
                 this.done = true;
                 dispose();
-                this.mTN.timeout(this.index);
+                this.noR.timeout(this.index);
             }
         }
 
@@ -151,14 +151,14 @@ public final class ObservableTimeout<T, U, V> extends io.reactivex.internal.oper
                 return;
             }
             this.done = true;
-            this.mTN.innerError(th);
+            this.noR.innerError(th);
         }
 
         @Override // io.reactivex.u
         public void onComplete() {
             if (!this.done) {
                 this.done = true;
-                this.mTN.timeout(this.index);
+                this.noR.timeout(this.index);
             }
         }
     }
@@ -214,7 +214,7 @@ public final class ObservableTimeout<T, U, V> extends io.reactivex.internal.oper
                         bVar.dispose();
                     }
                     try {
-                        t tVar = (t) io.reactivex.internal.functions.a.h(this.itemTimeoutIndicator.apply(t), "The ObservableSource returned is null");
+                        t tVar = (t) io.reactivex.internal.functions.a.k(this.itemTimeoutIndicator.apply(t), "The ObservableSource returned is null");
                         b bVar2 = new b(this, j);
                         if (compareAndSet(bVar, bVar2)) {
                             tVar.subscribe(bVar2);

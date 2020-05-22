@@ -4,7 +4,7 @@ import com.baidu.live.adp.framework.message.HttpMessage;
 import com.baidu.live.tbadk.core.util.TbEnum;
 /* loaded from: classes3.dex */
 public class a extends HttpMessage {
-    private boolean aNB;
+    private boolean aTH;
     private String appId;
     private com.baidu.live.im.data.b barrageCardInfo;
     private String barrageId;
@@ -20,7 +20,7 @@ public class a extends HttpMessage {
 
     public a(String str, short s, int i, String str2) {
         super(1021013);
-        this.aNB = false;
+        this.aTH = false;
         this.content = str;
         this.msgType = s;
         this.groupId = i;
@@ -35,19 +35,19 @@ public class a extends HttpMessage {
         return this.content;
     }
 
-    public short Cp() {
+    public short DM() {
         return this.msgType;
     }
 
-    public void eG(String str) {
+    public void fs(String str) {
         this.liveId = str;
     }
 
-    public void eH(String str) {
+    public void ft(String str) {
         this.roomId = str;
     }
 
-    public String Cq() {
+    public String DN() {
         return this.otherParams;
     }
 
@@ -55,31 +55,31 @@ public class a extends HttpMessage {
         this.otherParams = str;
     }
 
-    public long Cr() {
+    public long DO() {
         return this.price;
     }
 
-    public void ag(long j) {
+    public void ak(long j) {
         this.price = j;
     }
 
-    public int Ci() {
+    public int DF() {
         return this.barrageType;
     }
 
-    public void cm(int i) {
+    public void ct(int i) {
         this.barrageType = i;
     }
 
-    public String Cj() {
+    public String DG() {
         return this.barrageId;
     }
 
-    public void eF(String str) {
+    public void fr(String str) {
         this.barrageId = str;
     }
 
-    public com.baidu.live.im.data.b Ck() {
+    public com.baidu.live.im.data.b DH() {
         return this.barrageCardInfo;
     }
 
@@ -87,19 +87,19 @@ public class a extends HttpMessage {
         this.barrageCardInfo = bVar;
     }
 
-    public String[] Cl() {
+    public String[] DI() {
         return this.imEffect;
     }
 
-    public void l(String[] strArr) {
+    public void k(String[] strArr) {
         this.imEffect = strArr;
     }
 
-    public void bA(boolean z) {
-        this.aNB = z;
+    public void bJ(boolean z) {
+        this.aTH = z;
     }
 
-    public boolean Cs() {
-        return this.aNB;
+    public boolean DP() {
+        return this.aTH;
     }
 }

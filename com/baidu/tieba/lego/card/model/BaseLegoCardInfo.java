@@ -4,6 +4,7 @@ import android.text.TextUtils;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.searchbox.suspensionball.SuspensionBallEntity;
 import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tieba.a;
 import java.io.Serializable;
 import org.json.JSONObject;
@@ -50,7 +51,7 @@ public abstract class BaseLegoCardInfo implements ICardInfo {
             this.mClientParams = null;
             return;
         }
-        this.cardType = jSONObject.optInt("card_type");
+        this.cardType = jSONObject.optInt(IntentConfig.CARD_TYPE);
         this.itemId = jSONObject.optString(LegoListActivityConfig.ITEM_ID);
         this.flipId = jSONObject.optString("flip_id");
         this.scheme = jSONObject.optString(SuspensionBallEntity.KEY_SCHEME);
@@ -203,7 +204,7 @@ public abstract class BaseLegoCardInfo implements ICardInfo {
         this.mBdUniqueId = bdUniqueId;
     }
 
-    @Override // com.baidu.adp.widget.ListView.m
+    @Override // com.baidu.adp.widget.ListView.o
     public BdUniqueId getType() {
         return this.mBdUniqueId;
     }
@@ -222,7 +223,7 @@ public abstract class BaseLegoCardInfo implements ICardInfo {
     public static class ClientParams implements Serializable {
         public ClientParams(JSONObject jSONObject) {
             if (jSONObject != null) {
-                a.bdA().parse(jSONObject);
+                a.bjL().parse(jSONObject);
             }
         }
     }

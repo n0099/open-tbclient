@@ -24,6 +24,7 @@ public class NewAckMessage extends Message {
         private String businessSource;
         private int contentType;
         private long fromUser;
+        private long mcastId;
         private String msgCategory;
         private String msgPage;
         private long msgReceiveTime;
@@ -70,6 +71,10 @@ public class NewAckMessage extends Message {
             this.isReliable = z;
         }
 
+        public void setMcastId(long j) {
+            this.mcastId = j;
+        }
+
         public JSONObject toJsonObject() {
             JSONObject jSONObject = new JSONObject();
             try {
@@ -95,6 +100,9 @@ public class NewAckMessage extends Message {
                 }
                 if (this.jack != null) {
                     jSONObject.put("ack", this.jack);
+                }
+                if (this.mcastId > 0) {
+                    jSONObject.put("mcast_id", this.mcastId);
                 }
                 if (this.isReliable) {
                     jSONObject.put("is_reliable", this.isReliable);

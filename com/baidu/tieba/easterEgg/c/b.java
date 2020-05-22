@@ -2,7 +2,7 @@ package com.baidu.tieba.easterEgg.c;
 
 import android.util.SparseArray;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.a.k;
+import com.baidu.adp.framework.b.k;
 import com.baidu.adp.framework.message.SocketMessage;
 import com.baidu.adp.framework.task.HttpMessageTask;
 import com.baidu.adp.framework.task.SocketMessageTask;
@@ -16,31 +16,31 @@ import java.util.ArrayList;
 import java.util.HashMap;
 /* loaded from: classes11.dex */
 public class b extends k {
-    private d gxA;
-    private HashMap<String, String> gxB;
-    private Gson gxC;
-    private SparseArray<String> gxD;
+    private d gMk;
+    private HashMap<String, String> gMl;
+    private Gson gMm;
+    private SparseArray<String> gMn;
 
     public b(int i) {
         super(i);
-        this.gxC = new Gson();
-        bHb();
+        this.gMm = new Gson();
+        bNu();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.a.f
+    @Override // com.baidu.adp.framework.b.f
     /* renamed from: d */
     public SocketMessage process(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
-        String str = this.gxD.get(socketMessage.getCmd());
-        if (str != null && this.gxB != null && this.gxB.get(str) != null && this.gxA != null) {
-            this.gxA.aj(str, this.gxC.toJson(this.gxB.get(str)), this.gxC.toJson(this.gxC.toJson(socketMessage.getData())));
+        String str = this.gMn.get(socketMessage.getCmd());
+        if (str != null && this.gMl != null && this.gMl.get(str) != null && this.gMk != null) {
+            this.gMk.an(str, this.gMm.toJson(this.gMl.get(str)), this.gMm.toJson(this.gMm.toJson(socketMessage.getData())));
         }
         return socketMessage;
     }
 
-    private void bHb() {
+    private void bNu() {
         int i;
-        this.gxD = new SparseArray<>();
+        this.gMn = new SparseArray<>();
         ArrayList<HttpMessageTask> findHttpTasks = MessageManager.getInstance().findHttpTasks();
         if (!v.isEmpty(findHttpTasks)) {
             for (int i2 = 0; i2 < findHttpTasks.size(); i2++) {
@@ -50,18 +50,18 @@ public class b extends k {
                     String str = split[1];
                     String str2 = split[0];
                     if (!aq.isEmpty(str) && str.contains(ETAG.EQUAL) && (i = com.baidu.adp.lib.f.b.toInt(str.split("[=]")[1], 0)) != 0) {
-                        this.gxD.put(i, str2.replace(TbConfig.SERVER_ADDRESS, ""));
+                        this.gMn.put(i, str2.replace(TbConfig.SERVER_ADDRESS, ""));
                     }
                 }
             }
         }
     }
 
-    public void F(HashMap<String, String> hashMap) {
-        this.gxB = hashMap;
+    public void H(HashMap<String, String> hashMap) {
+        this.gMl = hashMap;
     }
 
     public void a(d dVar) {
-        this.gxA = dVar;
+        this.gMk = dVar;
     }
 }

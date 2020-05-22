@@ -1,7 +1,7 @@
 package com.baidu.tieba.im.push;
 
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.a.j;
+import com.baidu.adp.framework.b.j;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
@@ -17,7 +17,7 @@ public class d extends j {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.a.g
+    @Override // com.baidu.adp.framework.b.g
     /* renamed from: e */
     public SocketResponsedMessage a(SocketResponsedMessage socketResponsedMessage) {
         if (socketResponsedMessage instanceof PushResponseMessage) {

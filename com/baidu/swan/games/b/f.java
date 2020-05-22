@@ -1,17 +1,19 @@
 package com.baidu.swan.games.b;
 
-import android.support.annotation.NonNull;
+import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class f {
-    public static String avz() {
-        return com.baidu.swan.apps.storage.c.h.any().getString("get_app_console_core", "-1");
+    public String msg;
+    public int state;
+
+    public static f bG(JSONObject jSONObject) {
+        f fVar = new f();
+        fVar.state = jSONObject.optInt("state");
+        fVar.msg = jSONObject.optString("msg");
+        return fVar;
     }
 
-    public static void pU(@NonNull String str) {
-        com.baidu.swan.apps.storage.c.h.any().putString("get_app_console_core", str);
-    }
-
-    public static void avA() {
-        pU("-1");
+    public String toString() {
+        return "CheckPayAuthModel{state=" + this.state + ", msg='" + this.msg + "'}";
     }
 }

@@ -7,51 +7,51 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class f {
-    private static LinkedList<Integer> QZ;
+    private static LinkedList<Integer> Rk;
 
-    public static int bai() {
-        return aW(null);
+    public static int bgs() {
+        return aR(null);
     }
 
-    public static int aW(List<Integer> list) {
-        if (QZ == null) {
+    public static int aR(List<Integer> list) {
+        if (Rk == null) {
             generate();
         }
-        Integer aX = aX(list);
-        return aX != null ? aX.intValue() : R.color.cp_atp_a;
+        Integer aS = aS(list);
+        return aS != null ? aS.intValue() : R.color.cp_atp_a;
     }
 
-    public static int nf(int i) {
+    public static int nH(int i) {
         Color.colorToHSV(am.getColor(i), r0);
         float[] fArr = {0.0f, 0.83f, 0.75f};
         return Color.HSVToColor(fArr);
     }
 
     private static void generate() {
-        QZ = new LinkedList<>();
-        QZ.offer(Integer.valueOf((int) R.color.cp_atp_a));
-        QZ.offer(Integer.valueOf((int) R.color.cp_atp_b));
-        QZ.offer(Integer.valueOf((int) R.color.cp_atp_c));
-        QZ.offer(Integer.valueOf((int) R.color.cp_atp_d));
-        QZ.offer(Integer.valueOf((int) R.color.cp_atp_e));
+        Rk = new LinkedList<>();
+        Rk.offer(Integer.valueOf((int) R.color.cp_atp_a));
+        Rk.offer(Integer.valueOf((int) R.color.cp_atp_b));
+        Rk.offer(Integer.valueOf((int) R.color.cp_atp_c));
+        Rk.offer(Integer.valueOf((int) R.color.cp_atp_d));
+        Rk.offer(Integer.valueOf((int) R.color.cp_atp_e));
     }
 
-    private static Integer aX(List<Integer> list) {
-        Integer peek = QZ.peek();
+    private static Integer aS(List<Integer> list) {
+        Integer peek = Rk.peek();
         if (list == null || list.size() == 0) {
-            QZ.offer(QZ.poll());
+            Rk.offer(Rk.poll());
             return peek;
         } else if (list.size() > 4) {
-            QZ.offer(QZ.poll());
+            Rk.offer(Rk.poll());
             return peek;
         } else {
             int i = 0;
             while (true) {
-                if (i >= QZ.size()) {
+                if (i >= Rk.size()) {
                     i = 0;
                     break;
                 }
-                Integer num = QZ.get(i);
+                Integer num = Rk.get(i);
                 boolean z = false;
                 for (Integer num2 : list) {
                     z = num2.intValue() == num.intValue() ? true : z;
@@ -61,8 +61,8 @@ public class f {
                 }
                 i++;
             }
-            Integer remove = QZ.remove(i);
-            QZ.offer(remove);
+            Integer remove = Rk.remove(i);
+            Rk.offer(remove);
             return remove;
         }
     }

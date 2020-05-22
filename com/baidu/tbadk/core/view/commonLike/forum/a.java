@@ -15,10 +15,10 @@ import com.baidu.tieba.tbadkCore.u;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 /* loaded from: classes.dex */
 public class a implements View.OnClickListener {
-    private LikeModel dKs;
-    private com.baidu.tbadk.core.view.commonLike.b dKt;
-    private b dKu;
-    private View.OnClickListener dKv;
+    private LikeModel dYI;
+    private com.baidu.tbadk.core.view.commonLike.b dYJ;
+    private b dYK;
+    private View.OnClickListener dYL;
     private TbPageContext mPageContext;
     private CustomMessageListener mLikeForumListener = new CustomMessageListener(CmdConfigCustom.CMD_PERSON_LIKE_FORUM) { // from class: com.baidu.tbadk.core.view.commonLike.forum.a.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -27,37 +27,37 @@ public class a implements View.OnClickListener {
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tieba.tbadkCore.writeModel.a)) {
                 com.baidu.tieba.tbadkCore.writeModel.a aVar = (com.baidu.tieba.tbadkCore.writeModel.a) customResponsedMessage.getData();
                 String l = Long.toString(aVar.forumId);
-                if (a.this.dKu != null && l.equals(a.this.dKu.getForumId()) && aVar.isSuccess) {
-                    a.this.dKu.setIsLike(true);
-                    a.this.dKu.gw(true);
-                    a.this.dKt.gT(true);
+                if (a.this.dYK != null && l.equals(a.this.dYK.getForumId()) && aVar.isSuccess) {
+                    a.this.dYK.setIsLike(true);
+                    a.this.dYK.gO(true);
+                    a.this.dYJ.hr(true);
                 }
             }
         }
     };
-    private CustomMessageListener dKw = new CustomMessageListener(CmdConfigCustom.CMD_PERSON_UNLIKE_FORUM) { // from class: com.baidu.tbadk.core.view.commonLike.forum.a.2
+    private CustomMessageListener dYM = new CustomMessageListener(CmdConfigCustom.CMD_PERSON_UNLIKE_FORUM) { // from class: com.baidu.tbadk.core.view.commonLike.forum.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tieba.tbadkCore.writeModel.a)) {
                 com.baidu.tieba.tbadkCore.writeModel.a aVar = (com.baidu.tieba.tbadkCore.writeModel.a) customResponsedMessage.getData();
                 String l = Long.toString(aVar.forumId);
-                if (a.this.dKu != null && l.equals(a.this.dKu.getForumId()) && aVar.isSuccess) {
-                    a.this.dKu.setIsLike(false);
-                    a.this.dKu.gw(false);
-                    a.this.dKt.gT(false);
+                if (a.this.dYK != null && l.equals(a.this.dYK.getForumId()) && aVar.isSuccess) {
+                    a.this.dYK.setIsLike(false);
+                    a.this.dYK.gO(false);
+                    a.this.dYJ.hr(false);
                 }
             }
         }
     };
-    d dKx = new d() { // from class: com.baidu.tbadk.core.view.commonLike.forum.a.3
+    d dYN = new d() { // from class: com.baidu.tbadk.core.view.commonLike.forum.a.3
         @Override // com.baidu.adp.base.d
         public void callback(Object obj) {
             if ((obj instanceof u) && ((u) obj).getErrorCode() != 0) {
-                if (AntiHelper.bq(a.this.dKs.getErrorCode(), a.this.dKs.getErrorString())) {
-                    AntiHelper.aW(a.this.mPageContext.getPageActivity(), a.this.dKs.getErrorString());
+                if (AntiHelper.bv(a.this.dYI.getErrorCode(), a.this.dYI.getErrorString())) {
+                    AntiHelper.aX(a.this.mPageContext.getPageActivity(), a.this.dYI.getErrorString());
                 } else {
-                    a.this.mPageContext.showToast(a.this.dKs.getErrorString());
+                    a.this.mPageContext.showToast(a.this.dYI.getErrorString());
                 }
             }
         }
@@ -65,48 +65,48 @@ public class a implements View.OnClickListener {
 
     public a(TbPageContext tbPageContext, com.baidu.tbadk.core.view.commonLike.b bVar) {
         this.mPageContext = tbPageContext;
-        this.dKs = new LikeModel(tbPageContext);
-        this.dKs.setLoadDataCallBack(this.dKx);
-        this.dKt = bVar;
-        this.dKt.g(this);
+        this.dYI = new LikeModel(tbPageContext);
+        this.dYI.setLoadDataCallBack(this.dYN);
+        this.dYJ = bVar;
+        this.dYJ.g(this);
         tbPageContext.registerListener(this.mLikeForumListener);
-        tbPageContext.registerListener(this.dKw);
+        tbPageContext.registerListener(this.dYM);
     }
 
     public void a(b bVar) {
         if (bVar != null) {
-            this.dKu = bVar;
-            this.dKt.gT(bVar.getIsLike());
+            this.dYK = bVar;
+            this.dYJ.hr(bVar.getIsLike());
         }
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
         this.mLikeForumListener.setTag(bdUniqueId);
-        this.dKw.setTag(bdUniqueId);
+        this.dYM.setTag(bdUniqueId);
     }
 
     public void setLikeButtonAfterClickListener(View.OnClickListener onClickListener) {
-        this.dKv = onClickListener;
+        this.dYL = onClickListener;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.dKt != null) {
-            this.dKt.bb(view);
+        if (this.dYJ != null) {
+            this.dYJ.bc(view);
         }
         if (!j.isNetWorkAvailable()) {
             this.mPageContext.showToast(R.string.neterror);
             return;
         }
         if (bc.checkUpIsLogin(this.mPageContext.getPageActivity())) {
-            if (this.dKu != null) {
-                this.dKs.eP(this.dKu.getForumName(), this.dKu.getForumId());
+            if (this.dYK != null) {
+                this.dYI.fq(this.dYK.getForumName(), this.dYK.getForumId());
             } else {
                 return;
             }
         }
-        if (this.dKv != null) {
-            this.dKv.onClick(view);
+        if (this.dYL != null) {
+            this.dYL.onClick(view);
         }
     }
 }

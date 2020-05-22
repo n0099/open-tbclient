@@ -2,30 +2,33 @@ package com.baidu.swan.games.bdtls;
 /* loaded from: classes11.dex */
 public class c {
     private static final boolean DEBUG = a.DEBUG;
-    private static volatile c cJX;
+    private static volatile c cUE;
     private boolean mEnable = true;
-    private a cJW = new a();
+    private a cUD = new a();
 
-    public static c atY() {
-        if (cJX == null) {
+    public static c axL() {
+        if (cUE == null) {
             synchronized (c.class) {
-                if (cJX == null) {
-                    cJX = new c();
+                if (cUE == null) {
+                    cUE = new c();
                 }
             }
         }
-        return cJX;
+        return cUE;
     }
 
     private c() {
     }
 
-    public boolean pG(String str) {
-        return this.cJW != null && this.cJW.pG(str);
+    public boolean rg(String str) {
+        return this.cUD != null && this.cUD.rg(str);
     }
 
     public boolean isEnable() {
-        return this.cJW.atX() && this.mEnable;
+        if (this.cUD == null) {
+            return false;
+        }
+        return this.cUD.axK();
     }
 
     public void setEnable(boolean z) {
@@ -33,6 +36,6 @@ public class c {
     }
 
     public void a(String str, com.baidu.swan.games.bdtls.b.b bVar) {
-        e.aua().b(str, bVar);
+        e.axN().b(str, bVar);
     }
 }

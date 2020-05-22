@@ -1,7 +1,5 @@
 package com.baidu.live.tbadk.ubc;
 
-import com.baidu.live.adp.lib.util.BdLog;
-import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class UbcStatisticItem {
@@ -10,6 +8,8 @@ public class UbcStatisticItem {
     private String mContentValue;
     private JSONObject mExtJson;
     private String mId;
+    private String mLoc;
+    private String mSubPage;
 
     public UbcStatisticItem(String str) {
         this.mId = str;
@@ -39,16 +39,10 @@ public class UbcStatisticItem {
 
     public UbcStatisticItem setContentExt(String str, String str2, JSONObject jSONObject) {
         this.mExtJson = jSONObject;
+        this.mLoc = str;
+        this.mSubPage = str2;
         if (this.mExtJson == null) {
             this.mExtJson = new JSONObject();
-        }
-        if (str != null) {
-            try {
-                this.mExtJson.put("loc", str);
-                this.mExtJson.put(UbcStatConstant.KEY_CONTENT_EXT_SUBPAGE, str2);
-            } catch (JSONException e) {
-                BdLog.e(e);
-            }
         }
         return this;
     }
@@ -76,6 +70,16 @@ public class UbcStatisticItem {
     /* JADX INFO: Access modifiers changed from: package-private */
     public String getContentType() {
         return this.mContentType;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public String getLoc() {
+        return this.mLoc;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public String getSubPage() {
+        return this.mSubPage;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

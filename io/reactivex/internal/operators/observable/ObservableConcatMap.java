@@ -13,16 +13,16 @@ import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
 public final class ObservableConcatMap<T, U> extends a<T, U> {
     final int bufferSize;
-    final ErrorMode mTu;
     final h<? super T, ? extends t<? extends U>> mapper;
+    final ErrorMode noy;
 
     @Override // io.reactivex.q
     public void a(u<? super U> uVar) {
         if (!ObservableScalarXMap.a(this.source, uVar, this.mapper)) {
-            if (this.mTu == ErrorMode.IMMEDIATE) {
+            if (this.noy == ErrorMode.IMMEDIATE) {
                 this.source.subscribe(new SourceObserver(new io.reactivex.observers.b(uVar), this.mapper, this.bufferSize));
             } else {
-                this.source.subscribe(new ConcatMapDelayErrorObserver(uVar, this.mapper, this.bufferSize, this.mTu == ErrorMode.END));
+                this.source.subscribe(new ConcatMapDelayErrorObserver(uVar, this.mapper, this.bufferSize, this.noy == ErrorMode.END));
             }
         }
     }
@@ -137,7 +137,7 @@ public final class ObservableConcatMap<T, U> extends a<T, U> {
                                 return;
                             } else if (!z2) {
                                 try {
-                                    t tVar = (t) io.reactivex.internal.functions.a.h(this.mapper.apply(poll), "The mapper returned a null ObservableSource");
+                                    t tVar = (t) io.reactivex.internal.functions.a.k(this.mapper.apply(poll), "The mapper returned a null ObservableSource");
                                     this.active = true;
                                     tVar.subscribe(this.inner);
                                 } catch (Throwable th) {
@@ -321,7 +321,7 @@ public final class ObservableConcatMap<T, U> extends a<T, U> {
                                     }
                                 } else if (!z2) {
                                     try {
-                                        t tVar = (t) io.reactivex.internal.functions.a.h(this.mapper.apply(poll), "The mapper returned a null ObservableSource");
+                                        t tVar = (t) io.reactivex.internal.functions.a.k(this.mapper.apply(poll), "The mapper returned a null ObservableSource");
                                         if (tVar instanceof Callable) {
                                             try {
                                                 Object obj = (Object) ((Callable) tVar).call();

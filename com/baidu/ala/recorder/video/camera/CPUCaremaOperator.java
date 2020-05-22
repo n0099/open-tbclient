@@ -1,23 +1,21 @@
 package com.baidu.ala.recorder.video.camera;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
+import android.graphics.SurfaceTexture;
 import android.hardware.Camera;
-import android.os.Handler;
-import android.view.Surface;
 import com.baidu.ala.helper.AlaFrameTrack;
 import com.baidu.ala.recorder.video.AlaLiveVideoConfig;
 import com.baidu.ala.recorder.video.IVideoRecorder;
 import com.baidu.ala.recorder.video.VideoFormat;
 import com.baidu.ala.recorder.video.camera.AlaCameraRecorder;
 import com.baidu.live.adp.lib.util.BdLog;
-import java.lang.reflect.Array;
+@TargetApi(16)
 /* loaded from: classes3.dex */
 public class CPUCaremaOperator implements ICameraOperator {
-    private static final int PREVIEW_BUFFER_COUNT = 3;
     private Activity mActivity;
     private Camera mCamera;
     private ICameraStatusHandler mCameraStatusHandler;
-    private byte[][] mPreviewCallbackBuffer;
     private int mPreviewHeight;
     private int mPreviewWidth;
     private AlaCameraRecorder.SurfaceHolder mSurfaceHolder;
@@ -26,6 +24,12 @@ public class CPUCaremaOperator implements ICameraOperator {
     private long lasttime = 0;
     private int mFps = 0;
     private AlaFrameTrack mPreviewFpsLimit = new AlaFrameTrack(15);
+    private Camera.PreviewCallback mPreviewCallback = new Camera.PreviewCallback() { // from class: com.baidu.ala.recorder.video.camera.CPUCaremaOperator.2
+        @Override // android.hardware.Camera.PreviewCallback
+        public void onPreviewFrame(byte[] bArr, Camera camera) {
+            camera.addCallbackBuffer(bArr);
+        }
+    };
 
     static /* synthetic */ int access$108(CPUCaremaOperator cPUCaremaOperator) {
         int i = cPUCaremaOperator.mFps;
@@ -33,9 +37,8 @@ public class CPUCaremaOperator implements ICameraOperator {
         return i;
     }
 
-    public CPUCaremaOperator(Activity activity, Camera camera, AlaCameraRecorder.SurfaceHolder surfaceHolder, ICameraStatusHandler iCameraStatusHandler, IVideoRecorder.IVideoDataCallBack iVideoDataCallBack) {
+    public CPUCaremaOperator(Activity activity, AlaCameraRecorder.SurfaceHolder surfaceHolder, ICameraStatusHandler iCameraStatusHandler, IVideoRecorder.IVideoDataCallBack iVideoDataCallBack) {
         this.mActivity = activity;
-        this.mCamera = camera;
         this.mSurfaceHolder = surfaceHolder;
         this.mCameraStatusHandler = iCameraStatusHandler;
         this.mVideoDataCallback = iVideoDataCallBack;
@@ -78,17 +81,27 @@ public class CPUCaremaOperator implements ICameraOperator {
     }
 
     @Override // com.baidu.ala.recorder.video.camera.ICameraOperator
+    public void willSwitchSense(int i) {
+    }
+
+    @Override // com.baidu.ala.recorder.video.camera.ICameraOperator
+    public SurfaceTexture getSurfaceTexture() {
+        return null;
+    }
+
+    @Override // com.baidu.ala.recorder.video.camera.ICameraOperator
     public VideoFormat getVideoFormat() {
         return VideoFormat.NV21;
     }
 
     @Override // com.baidu.ala.recorder.video.camera.ICameraOperator
-    public boolean onCameraOpened(Camera camera, int i, final int i2) {
+    public boolean onCameraOpened(Camera camera, int i) {
         this.mCamera = camera;
+        final int previewWidth = this.mVideoConfig.getPreviewWidth() * this.mVideoConfig.getPreviewHeight();
         this.mCamera.setPreviewCallbackWithBuffer(new Camera.PreviewCallback() { // from class: com.baidu.ala.recorder.video.camera.CPUCaremaOperator.1
             @Override // android.hardware.Camera.PreviewCallback
             public void onPreviewFrame(byte[] bArr, Camera camera2) {
-                int i3 = 0;
+                int i2 = 0;
                 if (CPUCaremaOperator.this.lasttime == 0) {
                     CPUCaremaOperator.this.lasttime = System.currentTimeMillis();
                 }
@@ -99,16 +112,16 @@ public class CPUCaremaOperator implements ICameraOperator {
                     CPUCaremaOperator.this.mFps = 0;
                 }
                 if (bArr != null) {
-                    if (bArr.length == i2) {
+                    if (bArr.length == previewWidth) {
                         if (CPUCaremaOperator.this.mVideoDataCallback != null && CPUCaremaOperator.this.mPreviewFpsLimit.trackFrame()) {
                             if (CPUCaremaOperator.this.mCameraStatusHandler != null) {
-                                i3 = CPUCaremaOperator.this.mCameraStatusHandler.getDisplayRotate();
+                                i2 = CPUCaremaOperator.this.mCameraStatusHandler.getDisplayRotate();
                                 if (!CPUCaremaOperator.this.mCameraStatusHandler.isBackCamera() && !CPUCaremaOperator.this.mVideoConfig.isLandscape()) {
-                                    i3 = (i3 + 180) % 360;
+                                    i2 = (i2 + 180) % 360;
                                 }
                             }
                             if (CPUCaremaOperator.this.mVideoDataCallback != null) {
-                                CPUCaremaOperator.this.mVideoDataCallback.onRawVideoFrameReceived(bArr, bArr.length, i3, CPUCaremaOperator.this.mVideoConfig.isLandscape() ? CPUCaremaOperator.this.mVideoConfig.getPreviewHeight() : CPUCaremaOperator.this.mVideoConfig.getPreviewWidth());
+                                CPUCaremaOperator.this.mVideoDataCallback.onRawVideoFrameReceived(bArr, bArr.length, i2, CPUCaremaOperator.this.mVideoConfig.isLandscape() ? CPUCaremaOperator.this.mVideoConfig.getPreviewHeight() : CPUCaremaOperator.this.mVideoConfig.getPreviewWidth());
                             }
                         }
                     } else {
@@ -118,24 +131,12 @@ public class CPUCaremaOperator implements ICameraOperator {
                 }
             }
         });
-        int previewWidth = (int) (this.mVideoConfig.getPreviewWidth() * this.mVideoConfig.getPreviewHeight() * 1.5d);
-        try {
-            createPreviewCallbackBuffer();
-            for (int i3 = 0; i3 < 3; i3++) {
-                this.mCamera.addCallbackBuffer(this.mPreviewCallbackBuffer[i3]);
-            }
-        } catch (Throwable th) {
-            BdLog.e(th);
-        }
-        try {
-            Thread.sleep(100L);
-            this.mCamera.setPreviewTexture(this.mSurfaceHolder.getSurfaceTexture());
-            this.mCamera.startPreview();
-            return true;
-        } catch (Exception e) {
-            BdLog.e(e);
-            return false;
-        }
+        return true;
+    }
+
+    @Override // com.baidu.ala.recorder.video.camera.ICameraOperator
+    public Camera.PreviewCallback getPreviewCallback() {
+        return this.mPreviewCallback;
     }
 
     @Override // com.baidu.ala.recorder.video.camera.ICameraOperator
@@ -145,27 +146,8 @@ public class CPUCaremaOperator implements ICameraOperator {
         }
     }
 
-    private void createPreviewCallbackBuffer() {
-        if (this.mPreviewCallbackBuffer == null) {
-            try {
-                this.mPreviewCallbackBuffer = (byte[][]) Array.newInstance(Byte.TYPE, 3, (int) (this.mVideoConfig.getPreviewWidth() * this.mVideoConfig.getPreviewHeight() * 1.5d));
-            } catch (Throwable th) {
-                th.printStackTrace();
-            }
-        }
-    }
-
-    @Override // com.baidu.ala.recorder.video.camera.ICameraOperator
-    public void setEncoderSurface(Surface surface) {
-    }
-
     @Override // com.baidu.ala.recorder.video.camera.ICameraOperator
     public void surfaceChanged(int i, int i2) {
-    }
-
-    @Override // com.baidu.ala.recorder.video.camera.ICameraOperator
-    public Handler getDataThreadHandler() {
-        return null;
     }
 
     @Override // com.baidu.ala.recorder.video.camera.ICameraOperator
@@ -174,20 +156,7 @@ public class CPUCaremaOperator implements ICameraOperator {
     }
 
     @Override // com.baidu.ala.recorder.video.camera.ICameraOperator
-    public void initResource() {
-    }
-
-    @Override // com.baidu.ala.recorder.video.camera.ICameraOperator
-    public void startRecorderData() {
-    }
-
-    @Override // com.baidu.ala.recorder.video.camera.ICameraOperator
     public void setPushMirror(boolean z) {
-    }
-
-    @Override // com.baidu.ala.recorder.video.camera.ICameraOperator
-    public boolean isPushMirror() {
-        return false;
     }
 
     @Override // com.baidu.ala.recorder.video.camera.ICameraOperator

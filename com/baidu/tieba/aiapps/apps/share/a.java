@@ -7,8 +7,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes12.dex */
 public class a extends ShareItem {
-    public void cE(JSONObject jSONObject) throws JSONException {
-        this.dQS = true;
+    public void cK(JSONObject jSONObject) throws JSONException {
+        this.efl = true;
         this.title = jSONObject.getString("title");
         this.linkUrl = jSONObject.getString("linkUrl");
         this.content = jSONObject.optString("content");
@@ -17,13 +17,13 @@ public class a extends ShareItem {
         this.imageUri = Uri.parse(this.imageUrl);
         JSONObject optJSONObject = jSONObject.optJSONObject("categoryInfo");
         if (optJSONObject != null) {
-            this.dQT = optJSONObject.optString("source2");
-            this.dQV = optJSONObject.optString("source3");
+            this.efm = optJSONObject.optString("source2");
+            this.efo = optJSONObject.optString("source3");
         }
         if (jSONObject.optJSONObject("command") != null) {
-            this.dQU = 2;
+            this.efn = 2;
         } else {
-            this.dQU = "url".equals(jSONObject.optString("type")) ? 1 : 3;
+            this.efn = "url".equals(jSONObject.optString("type")) ? 1 : 3;
         }
     }
 }

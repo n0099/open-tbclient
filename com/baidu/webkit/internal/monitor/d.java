@@ -37,7 +37,7 @@ public final class d implements Runnable {
             String GetCloudSettingsValue = WebSettingsGlobalBlink.GetCloudSettingsValue("gzip_support");
             if (GetCloudSettingsValue == null || !GetCloudSettingsValue.equals("false")) {
                 try {
-                    if (WebSettingsGlobalBlink.getLogsdkEnabled() || WebSettingsGlobalBlink.getDoubleLogEnabled()) {
+                    if (WebSettingsGlobalBlink.getLogsdkEnabled()) {
                         z = SessionMonitorNetWorker.mLogSdkInit;
                         if (!z) {
                             Log.i("ZeusMonitorEngine", "BdLogSDK.init1");
@@ -45,9 +45,6 @@ public final class d implements Runnable {
                             boolean unused = SessionMonitorNetWorker.mLogSdkInit = true;
                         }
                         com.baidu.webkit.logsdk.a.a(this.b, this.a);
-                        if (WebSettingsGlobalBlink.getDoubleLogEnabled()) {
-                            this.e.sendStatisticsDataToServer(e.b(e.c(this.a.getBytes())), this.c, this.d);
-                        }
                     } else {
                         this.e.sendStatisticsDataToServer(e.b(e.c(this.a.getBytes())), this.c, this.d);
                     }

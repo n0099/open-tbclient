@@ -3,11 +3,11 @@ package com.baidu.swan.apps.canvas.a;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.scheme.actions.ab;
+import com.baidu.swan.apps.scheme.actions.aa;
 import com.baidu.swan.apps.scheme.j;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
-abstract class a extends ab {
+abstract class a extends aa {
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(j jVar, String str) {
         super(jVar, str);
@@ -17,7 +17,7 @@ abstract class a extends ab {
         return new com.baidu.swan.apps.canvas.b.a(unitedSchemeEntity.getParams().get("params"));
     }
 
-    public JSONObject eg(int i) {
+    public JSONObject ep(int i) {
         return UnitedSchemeUtility.wrapCallbackParams(i);
     }
 

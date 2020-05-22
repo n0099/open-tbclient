@@ -2,6 +2,7 @@ package com.baidu.tieba.lego.card;
 
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tieba.lego.card.exception.CardParseException;
 import com.baidu.tieba.lego.card.model.ICardInfo;
 import java.util.ArrayList;
@@ -19,11 +20,11 @@ public class b extends e {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        private static final b iJn = new b();
+        private static final b iYn = new b();
     }
 
-    public static b cmC() {
-        return a.iJn;
+    public static b cte() {
+        return a.iYn;
     }
 
     public synchronized void a(e eVar) {
@@ -31,7 +32,7 @@ public class b extends e {
     }
 
     @Override // com.baidu.tieba.lego.card.e
-    protected void cmD() {
+    protected void ctf() {
     }
 
     @Override // com.baidu.tieba.lego.card.e
@@ -84,12 +85,12 @@ public class b extends e {
         return null;
     }
 
-    public static ICardInfo FK(String str) {
+    public static ICardInfo Ht(String str) {
         try {
-            ICardInfo dg = dg(new JSONObject(str));
-            if (dg != null) {
-                if (dg.isValid()) {
-                    return dg;
+            ICardInfo dn = dn(new JSONObject(str));
+            if (dn != null) {
+                if (dn.isValid()) {
+                    return dn;
                 }
             }
             return null;
@@ -102,15 +103,15 @@ public class b extends e {
         }
     }
 
-    public static ICardInfo FL(String str) throws Exception {
-        ICardInfo dg = dg(new JSONObject(str));
-        if (dg == null || !dg.isValid()) {
+    public static ICardInfo Hu(String str) throws Exception {
+        ICardInfo dn = dn(new JSONObject(str));
+        if (dn == null || !dn.isValid()) {
             return null;
         }
-        return dg;
+        return dn;
     }
 
-    public static ICardInfo dg(JSONObject jSONObject) throws CardParseException {
-        return cmC().d(jSONObject, jSONObject.optInt("card_type"));
+    public static ICardInfo dn(JSONObject jSONObject) throws CardParseException {
+        return cte().d(jSONObject, jSONObject.optInt(IntentConfig.CARD_TYPE));
     }
 }

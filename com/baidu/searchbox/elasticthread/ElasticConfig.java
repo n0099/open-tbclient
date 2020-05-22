@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes13.dex */
 public class ElasticConfig {
     public static final boolean DEBUG = false;
     private static final String ELASTIC_CONFIG_FILE_DIR = "elastic_config";

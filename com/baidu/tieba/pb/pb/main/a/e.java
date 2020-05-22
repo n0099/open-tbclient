@@ -7,7 +7,7 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.bj;
+import com.baidu.tbadk.core.data.bk;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.pb.pb.main.PbFragment;
@@ -17,107 +17,107 @@ import com.baidu.tieba.pb.video.h;
 import com.baidu.tieba.tbadkCore.data.PostData;
 /* loaded from: classes9.dex */
 public class e {
-    private h jDn;
-    private g jDo;
-    private boolean jDp = false;
-    private PbFragment jpW;
+    private PbFragment jGF;
+    private h jUM;
+    private g jUN;
+    private boolean jUO = false;
 
     public e(PbFragment pbFragment) {
-        this.jpW = pbFragment;
+        this.jGF = pbFragment;
     }
 
     public void a(com.baidu.tieba.pb.data.e eVar, PostData postData, BdTypeListView bdTypeListView, d dVar, FrameLayout frameLayout, com.baidu.tieba.pb.pb.main.view.c cVar, String str, long j) {
-        if (eVar != null && eVar.aQe()) {
-            if (this.jDn == null) {
-                this.jDn = new h(this.jpW, cVar, eVar.cvs().aKT(), j);
-                this.jDn.a(eVar.cvs().aKT(), eVar.cvs(), eVar.getForumId());
-                this.jDn.startPlay();
-            } else if (this.jDp) {
-                this.jDn.a(eVar.cvs().aKT(), eVar.cvs(), eVar.getForumId());
-                this.jDn.startPlay();
+        if (eVar != null && eVar.aWi()) {
+            if (this.jUM == null) {
+                this.jUM = new h(this.jGF, cVar, eVar.cCi().aQQ(), j);
+                this.jUM.a(eVar.cCi().aQQ(), eVar.cCi(), eVar.getForumId());
+                this.jUM.startPlay();
+            } else if (this.jUO) {
+                this.jUM.a(eVar.cCi().aQQ(), eVar.cCi(), eVar.getForumId());
+                this.jUM.startPlay();
             } else {
-                this.jDn.Ig(eVar.getForumId());
+                this.jUM.JS(eVar.getForumId());
             }
-            com.baidu.tieba.pb.c.a.a(this.jpW.getUniqueId(), eVar, postData, 1, 1);
-            if (eVar.cvt() != null && eVar.cvt().size() >= 1) {
-                bj bjVar = eVar.cvt().get(0);
-                this.jDn.aM(bjVar);
-                this.jDn.Ih(bjVar.getTitle());
+            com.baidu.tieba.pb.c.a.a(this.jGF.getUniqueId(), eVar, postData, 1, 1);
+            if (eVar.cCj() != null && eVar.cCj().size() >= 1) {
+                bk bkVar = eVar.cCj().get(0);
+                this.jUM.aM(bkVar);
+                this.jUM.JT(bkVar.getTitle());
             }
-            this.jDn.b(postData, eVar.cvs(), eVar.cvN());
-            this.jDp = false;
-            bdTypeListView.removeHeaderView(this.jDn.cDs());
-            bdTypeListView.addHeaderView(this.jDn.cDs(), 0);
-            if (this.jDn.blE() != null && this.jDn.blE().getParent() == null) {
-                frameLayout.addView(this.jDn.blE());
+            this.jUM.b(postData, eVar.cCi(), eVar.cCG());
+            this.jUO = false;
+            bdTypeListView.removeHeaderView(this.jUM.cKq());
+            bdTypeListView.addHeaderView(this.jUM.cKq(), 0);
+            if (this.jUM.brc() != null && this.jUM.brc().getParent() == null) {
+                frameLayout.addView(this.jUM.brc());
             }
-            if (this.jDo == null) {
-                this.jDo = new g(this.jpW.getBaseFragmentActivity());
+            if (this.jUN == null) {
+                this.jUN = new g(this.jGF.getBaseFragmentActivity());
             }
-            this.jDo.b(eVar, str);
-            bdTypeListView.removeHeaderView(this.jDo.cDl());
-            bdTypeListView.addHeaderView(this.jDo.cDl(), 1);
+            this.jUN.b(eVar, str);
+            bdTypeListView.removeHeaderView(this.jUN.cKj());
+            bdTypeListView.addHeaderView(this.jUN.cKj(), 1);
             dVar.c(bdTypeListView);
             dVar.a(bdTypeListView, 2);
-            if (this.jDn != null) {
-                cVar.rN(false);
-                this.jDn.zQ(TbadkCoreApplication.getInst().getSkinType());
+            if (this.jUM != null) {
+                cVar.sm(false);
+                this.jUM.AB(TbadkCoreApplication.getInst().getSkinType());
             }
         }
     }
 
     public void c(BdTypeListView bdTypeListView) {
         if (bdTypeListView != null) {
-            if (this.jDn != null) {
-                bdTypeListView.removeHeaderView(this.jDn.cDs());
+            if (this.jUM != null) {
+                bdTypeListView.removeHeaderView(this.jUM.cKq());
             }
-            if (this.jDo != null) {
-                this.jDo.e(bdTypeListView);
+            if (this.jUN != null) {
+                this.jUN.e(bdTypeListView);
             }
         }
     }
 
-    public void rE(boolean z) {
-        this.jDp = z;
+    public void sd(boolean z) {
+        this.jUO = z;
     }
 
     public void S(View.OnClickListener onClickListener) {
-        if (this.jDn != null) {
-            this.jDn.S(onClickListener);
+        if (this.jUM != null) {
+            this.jUM.S(onClickListener);
         }
     }
 
     public void d(BdTypeListView bdTypeListView) {
-        if (this.jDn != null) {
-            TiebaStatic.log(new an("c11997").af("obj_type", 1));
-            this.jDn.cBK();
+        if (this.jUM != null) {
+            TiebaStatic.log(new an("c11997").ag("obj_type", 1));
+            this.jUM.cIH();
             bdTypeListView.smoothScrollToPosition(0);
         }
     }
 
-    public boolean zP(int i) {
-        if (this.jDn != null) {
-            return this.jDn.tF(i);
+    public boolean AA(int i) {
+        if (this.jUM != null) {
+            return this.jUM.uk(i);
         }
         return false;
     }
 
     public void a(PbLandscapeListView pbLandscapeListView, TextView textView, int i) {
         if (pbLandscapeListView != null) {
-            if (this.jDn != null && this.jDn.blE() != null) {
+            if (this.jUM != null && this.jUM.brc() != null) {
                 if (textView != null) {
                     pbLandscapeListView.removeHeaderView(textView);
                     pbLandscapeListView.setTextViewAdded(false);
                 }
                 if (i != 1) {
-                    pbLandscapeListView.removeHeaderView(this.jDn.cDs());
-                    pbLandscapeListView.addHeaderView(this.jDn.cDs(), 0);
+                    pbLandscapeListView.removeHeaderView(this.jUM.cKq());
+                    pbLandscapeListView.addHeaderView(this.jUM.cKq(), 0);
                     return;
                 }
                 return;
             }
-            if (this.jDn != null) {
-                pbLandscapeListView.removeHeaderView(this.jDn.cDs());
+            if (this.jUM != null) {
+                pbLandscapeListView.removeHeaderView(this.jUM.cKq());
             }
             if (textView != null) {
                 pbLandscapeListView.removeHeaderView(textView);
@@ -126,101 +126,101 @@ public class e {
         }
     }
 
-    public boolean cBr() {
-        return this.jDn != null && this.jDn.cBr();
+    public boolean cIn() {
+        return this.jUM != null && this.jUM.cIn();
     }
 
-    public void cBs() {
-        if (this.jDn != null) {
-            this.jDn.onPause();
+    public void cIo() {
+        if (this.jUM != null) {
+            this.jUM.onPause();
         }
     }
 
     public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-        if (this.jDn != null) {
-            this.jDn.c(absListView, i);
+        if (this.jUM != null) {
+            this.jUM.c(absListView, i);
         }
     }
 
     public void onScrollStateChanged(AbsListView absListView, int i) {
-        if (this.jDn != null) {
-            this.jDn.onScrollStateChanged(absListView, i);
+        if (this.jUM != null) {
+            this.jUM.onScrollStateChanged(absListView, i);
         }
     }
 
-    public void rC(boolean z) {
-        if (this.jDn != null) {
-            this.jDn.rC(z);
+    public void sb(boolean z) {
+        if (this.jUM != null) {
+            this.jUM.sb(z);
         }
     }
 
-    public void cBK() {
-        if (this.jDn != null) {
-            this.jDn.cBK();
+    public void cIH() {
+        if (this.jUM != null) {
+            this.jUM.cIH();
         }
     }
 
     public void destroy() {
-        if (this.jDn != null) {
-            this.jDn.destroy();
+        if (this.jUM != null) {
+            this.jUM.destroy();
         }
     }
 
     public void onPause() {
-        if (this.jDn != null) {
-            this.jDn.onPause();
+        if (this.jUM != null) {
+            this.jUM.onPause();
         }
     }
 
     public void onResume() {
-        if (this.jDn != null) {
-            this.jDn.onResume();
+        if (this.jUM != null) {
+            this.jUM.onResume();
         }
     }
 
     public void onConfigurationChanged(Configuration configuration) {
-        if (this.jDn != null) {
-            this.jDn.onConfigurationChanged(configuration);
+        if (this.jUM != null) {
+            this.jUM.onConfigurationChanged(configuration);
         }
     }
 
-    public void zQ(int i) {
-        if (this.jDn != null) {
-            this.jDn.zQ(i);
+    public void AB(int i) {
+        if (this.jUM != null) {
+            this.jUM.AB(i);
         }
     }
 
     public void onChangeSkinType(int i) {
-        if (this.jDo != null) {
-            this.jDo.onChangeSkinType(i);
+        if (this.jUN != null) {
+            this.jUN.onChangeSkinType(i);
         }
     }
 
-    public View blE() {
-        if (this.jDn != null) {
-            return this.jDn.blE();
+    public View brc() {
+        if (this.jUM != null) {
+            return this.jUM.brc();
         }
         return null;
     }
 
-    public int cBL() {
-        View blE = blE();
-        if (blE != null) {
-            return blE.getHeight();
+    public int cII() {
+        View brc = brc();
+        if (brc != null) {
+            return brc.getHeight();
         }
         return 0;
     }
 
-    public int cBM() {
-        if (this.jDn != null) {
-            return this.jDn.cBM();
+    public int cIJ() {
+        if (this.jUM != null) {
+            return this.jUM.cIJ();
         }
         return 0;
     }
 
-    public boolean brI() {
-        if (this.jDn != null) {
-            return this.jDn.brI();
+    public boolean bxC() {
+        if (this.jUM != null) {
+            return this.jUM.bxC();
         }
         return false;
     }

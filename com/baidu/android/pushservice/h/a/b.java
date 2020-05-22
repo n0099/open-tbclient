@@ -82,12 +82,12 @@ public class b {
 
     /* renamed from: com.baidu.android.pushservice.h.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static final class C0063b {
+    public static final class C0065b {
         private Context a;
         private com.baidu.android.pushservice.c.a.b b = new com.baidu.android.pushservice.c.a.b();
         private boolean c;
 
-        public C0063b(Context context) {
+        public C0065b(Context context) {
             this.a = context;
             this.b.a = -1L;
             this.b.b = -1L;
@@ -98,17 +98,17 @@ public class b {
             this.b.g = -1L;
         }
 
-        public C0063b a(long j) {
+        public C0065b a(long j) {
             this.b.a = j;
             return this;
         }
 
-        public C0063b a(String str) {
+        public C0065b a(String str) {
             this.b.c = str;
             return this;
         }
 
-        public C0063b a(boolean z) {
+        public C0065b a(boolean z) {
             this.c = z;
             return this;
         }
@@ -121,22 +121,22 @@ public class b {
             }
         }
 
-        public C0063b b(long j) {
+        public C0065b b(long j) {
             this.b.b = j;
             return this;
         }
 
-        public C0063b b(String str) {
+        public C0065b b(String str) {
             this.b.f = str;
             return this;
         }
 
-        public C0063b c(long j) {
+        public C0065b c(long j) {
             this.b.e = j;
             return this;
         }
 
-        public C0063b d(long j) {
+        public C0065b d(long j) {
             this.b.g = j;
             return this;
         }

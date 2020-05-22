@@ -9,9 +9,9 @@ import java.io.OutputStream;
 import java.util.zip.GZIPOutputStream;
 /* loaded from: classes11.dex */
 public final class e {
-    private byte[] a = null;
-    private int b = 0;
-    private int c = 0;
+    private byte[] a;
+    private int b;
+    private int c;
     private byte[] d;
 
     /* loaded from: classes11.dex */
@@ -26,7 +26,6 @@ public final class e {
     }
 
     public e(String str) {
-        this.d = null;
         this.d = str.getBytes();
     }
 

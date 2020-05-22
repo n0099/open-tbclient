@@ -18,26 +18,26 @@ import com.facebook.rebound.SpringUtil;
 import tv.chushou.widget.b.a;
 /* loaded from: classes5.dex */
 public class ToggleButton extends View {
-    private float bbg;
+    private float biG;
     private int borderColor;
     private int borderWidth;
     private float centerY;
-    private float jvT;
-    private SpringSystem nrG;
-    private Spring nrH;
-    private int nrI;
-    private int nrJ;
-    private int nrK;
-    private int nrL;
-    private boolean nrM;
-    private float nrN;
-    private float nrO;
-    private int nrP;
-    private float nrQ;
-    private float nrR;
-    private boolean nrS;
-    private a nrT;
-    SimpleSpringListener nrU;
+    private float jNe;
+    private SpringSystem nMD;
+    private Spring nME;
+    private int nMF;
+    private int nMG;
+    private int nMH;
+    private int nMI;
+    private boolean nMJ;
+    private float nMK;
+    private float nML;
+    private int nMM;
+    private float nMN;
+    private float nMO;
+    private boolean nMP;
+    private a nMQ;
+    SimpleSpringListener nMR;
     private Paint paint;
     private RectF rect;
     private float startX;
@@ -49,19 +49,19 @@ public class ToggleButton extends View {
 
     public ToggleButton(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.nrI = Color.parseColor("#4ebb7f");
-        this.nrJ = Color.parseColor("#dadbda");
-        this.nrK = Color.parseColor("#ffffff");
-        this.nrL = Color.parseColor("#ffffff");
-        this.borderColor = this.nrJ;
-        this.nrM = false;
+        this.nMF = Color.parseColor("#4ebb7f");
+        this.nMG = Color.parseColor("#dadbda");
+        this.nMH = Color.parseColor("#ffffff");
+        this.nMI = Color.parseColor("#ffffff");
+        this.borderColor = this.nMG;
+        this.nMJ = false;
         this.borderWidth = 2;
         this.rect = new RectF();
-        this.nrS = true;
-        this.nrU = new SimpleSpringListener() { // from class: tv.chushou.widget.ToggleButton.2
+        this.nMP = true;
+        this.nMR = new SimpleSpringListener() { // from class: tv.chushou.widget.ToggleButton.2
             @Override // com.facebook.rebound.SimpleSpringListener, com.facebook.rebound.SpringListener
             public void onSpringUpdate(Spring spring) {
-                ToggleButton.this.E(spring.getCurrentValue());
+                ToggleButton.this.F(spring.getCurrentValue());
             }
         };
         setup(attributeSet);
@@ -69,19 +69,19 @@ public class ToggleButton extends View {
 
     public ToggleButton(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.nrI = Color.parseColor("#4ebb7f");
-        this.nrJ = Color.parseColor("#dadbda");
-        this.nrK = Color.parseColor("#ffffff");
-        this.nrL = Color.parseColor("#ffffff");
-        this.borderColor = this.nrJ;
-        this.nrM = false;
+        this.nMF = Color.parseColor("#4ebb7f");
+        this.nMG = Color.parseColor("#dadbda");
+        this.nMH = Color.parseColor("#ffffff");
+        this.nMI = Color.parseColor("#ffffff");
+        this.borderColor = this.nMG;
+        this.nMJ = false;
         this.borderWidth = 2;
         this.rect = new RectF();
-        this.nrS = true;
-        this.nrU = new SimpleSpringListener() { // from class: tv.chushou.widget.ToggleButton.2
+        this.nMP = true;
+        this.nMR = new SimpleSpringListener() { // from class: tv.chushou.widget.ToggleButton.2
             @Override // com.facebook.rebound.SimpleSpringListener, com.facebook.rebound.SpringListener
             public void onSpringUpdate(Spring spring) {
-                ToggleButton.this.E(spring.getCurrentValue());
+                ToggleButton.this.F(spring.getCurrentValue());
             }
         };
         setup(attributeSet);
@@ -90,67 +90,67 @@ public class ToggleButton extends View {
     @Override // android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        this.nrH.removeListener(this.nrU);
+        this.nME.removeListener(this.nMR);
     }
 
     @Override // android.view.View
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
-        this.nrH.addListener(this.nrU);
+        this.nME.addListener(this.nMR);
     }
 
     public void setOnColor(int i) {
-        this.nrI = i;
-        E(this.nrM ? 1.0d : 0.0d);
+        this.nMF = i;
+        F(this.nMJ ? 1.0d : 0.0d);
     }
 
     public void setup(AttributeSet attributeSet) {
         this.paint = new Paint(1);
         this.paint.setStyle(Paint.Style.FILL);
         this.paint.setStrokeCap(Paint.Cap.ROUND);
-        this.nrG = SpringSystem.create();
-        this.nrH = this.nrG.createSpring();
-        this.nrH.setSpringConfig(SpringConfig.fromOrigamiTensionAndFriction(50.0d, 7.0d));
+        this.nMD = SpringSystem.create();
+        this.nME = this.nMD.createSpring();
+        this.nME.setSpringConfig(SpringConfig.fromOrigamiTensionAndFriction(50.0d, 7.0d));
         setOnClickListener(new View.OnClickListener() { // from class: tv.chushou.widget.ToggleButton.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                ToggleButton.this.wR(ToggleButton.this.nrS);
+                ToggleButton.this.xo(ToggleButton.this.nMP);
             }
         });
-        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, a.C0851a.ToggleButton);
-        this.nrJ = obtainStyledAttributes.getColor(a.C0851a.ToggleButton_offBorderColor, this.nrJ);
-        this.nrI = obtainStyledAttributes.getColor(a.C0851a.ToggleButton_onColor, this.nrI);
-        this.nrL = obtainStyledAttributes.getColor(a.C0851a.ToggleButton_spotColor, this.nrL);
-        this.nrK = obtainStyledAttributes.getColor(a.C0851a.ToggleButton_offColor, this.nrK);
-        this.borderWidth = obtainStyledAttributes.getDimensionPixelSize(a.C0851a.ToggleButton_toggleBorderWidth, this.borderWidth);
-        this.nrS = obtainStyledAttributes.getBoolean(a.C0851a.ToggleButton_animate, this.nrS);
+        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, a.C0913a.ToggleButton);
+        this.nMG = obtainStyledAttributes.getColor(a.C0913a.ToggleButton_offBorderColor, this.nMG);
+        this.nMF = obtainStyledAttributes.getColor(a.C0913a.ToggleButton_onColor, this.nMF);
+        this.nMI = obtainStyledAttributes.getColor(a.C0913a.ToggleButton_spotColor, this.nMI);
+        this.nMH = obtainStyledAttributes.getColor(a.C0913a.ToggleButton_offColor, this.nMH);
+        this.borderWidth = obtainStyledAttributes.getDimensionPixelSize(a.C0913a.ToggleButton_toggleBorderWidth, this.borderWidth);
+        this.nMP = obtainStyledAttributes.getBoolean(a.C0913a.ToggleButton_animate, this.nMP);
         obtainStyledAttributes.recycle();
-        this.borderColor = this.nrJ;
+        this.borderColor = this.nMG;
     }
 
     public void toggle() {
-        wR(true);
+        xo(true);
     }
 
-    public void wR(boolean z) {
-        this.nrM = !this.nrM;
-        wS(z);
-        if (this.nrT != null) {
-            this.nrT.a(this.nrM, this);
+    public void xo(boolean z) {
+        this.nMJ = !this.nMJ;
+        xp(z);
+        if (this.nMQ != null) {
+            this.nMQ.a(this.nMJ, this);
         }
     }
 
-    public void dJF() {
+    public void dRz() {
         setToggleOn();
-        if (this.nrT != null) {
-            this.nrT.a(this.nrM, this);
+        if (this.nMQ != null) {
+            this.nMQ.a(this.nMJ, this);
         }
     }
 
-    public void dJG() {
+    public void dRA() {
         setToggleOff();
-        if (this.nrT != null) {
-            this.nrT.a(this.nrM, this);
+        if (this.nMQ != null) {
+            this.nMQ.a(this.nMJ, this);
         }
     }
 
@@ -159,8 +159,8 @@ public class ToggleButton extends View {
     }
 
     public void setToggleOn(boolean z) {
-        this.nrM = true;
-        wS(z);
+        this.nMJ = true;
+        xp(z);
     }
 
     public void setToggleOff() {
@@ -168,17 +168,17 @@ public class ToggleButton extends View {
     }
 
     public void setToggleOff(boolean z) {
-        this.nrM = false;
-        wS(z);
+        this.nMJ = false;
+        xp(z);
     }
 
-    private void wS(boolean z) {
+    private void xp(boolean z) {
         if (z) {
-            this.nrH.setEndValue(this.nrM ? 1.0d : 0.0d);
+            this.nME.setEndValue(this.nMJ ? 1.0d : 0.0d);
             return;
         }
-        this.nrH.setCurrentValue(this.nrM ? 1.0d : 0.0d);
-        E(this.nrM ? 1.0d : 0.0d);
+        this.nME.setCurrentValue(this.nMJ ? 1.0d : 0.0d);
+        F(this.nMJ ? 1.0d : 0.0d);
     }
 
     @Override // android.view.View
@@ -202,15 +202,15 @@ public class ToggleButton extends View {
         super.onLayout(z, i, i2, i3, i4);
         int width = getWidth();
         int height = getHeight();
-        this.bbg = Math.min(width, height) * 0.5f;
-        this.centerY = this.bbg;
-        this.startX = this.bbg;
-        this.jvT = width - this.bbg;
-        this.nrN = this.startX + this.borderWidth;
-        this.nrO = this.jvT - this.borderWidth;
-        this.nrP = height - (this.borderWidth * 4);
-        this.nrQ = this.nrM ? this.nrO : this.nrN;
-        this.nrR = this.nrP;
+        this.biG = Math.min(width, height) * 0.5f;
+        this.centerY = this.biG;
+        this.startX = this.biG;
+        this.jNe = width - this.biG;
+        this.nMK = this.startX + this.borderWidth;
+        this.nML = this.jNe - this.borderWidth;
+        this.nMM = height - (this.borderWidth * 4);
+        this.nMN = this.nMJ ? this.nML : this.nMK;
+        this.nMO = this.nMM;
     }
 
     private int clamp(int i, int i2, int i3) {
@@ -222,32 +222,32 @@ public class ToggleButton extends View {
         super.draw(canvas);
         this.rect.set(0.0f, 0.0f, getWidth(), getHeight());
         this.paint.setColor(this.borderColor);
-        canvas.drawRoundRect(this.rect, this.bbg, this.bbg, this.paint);
-        if (this.nrR > 0.0f) {
-            float f = this.nrR * 0.5f;
-            this.rect.set(this.nrQ - f, this.centerY - f, this.jvT + f, this.centerY + f);
-            this.paint.setColor(this.nrK);
+        canvas.drawRoundRect(this.rect, this.biG, this.biG, this.paint);
+        if (this.nMO > 0.0f) {
+            float f = this.nMO * 0.5f;
+            this.rect.set(this.nMN - f, this.centerY - f, this.jNe + f, this.centerY + f);
+            this.paint.setColor(this.nMH);
             canvas.drawRoundRect(this.rect, f, f, this.paint);
         }
-        this.rect.set((this.nrQ - 1.0f) - this.bbg, this.centerY - this.bbg, this.nrQ + 1.1f + this.bbg, this.centerY + this.bbg);
+        this.rect.set((this.nMN - 1.0f) - this.biG, this.centerY - this.biG, this.nMN + 1.1f + this.biG, this.centerY + this.biG);
         this.paint.setColor(this.borderColor);
-        canvas.drawRoundRect(this.rect, this.bbg, this.bbg, this.paint);
-        float f2 = this.nrP * 0.5f;
-        this.rect.set(this.nrQ - f2, this.centerY - f2, this.nrQ + f2, this.centerY + f2);
-        this.paint.setColor(this.nrL);
+        canvas.drawRoundRect(this.rect, this.biG, this.biG, this.paint);
+        float f2 = this.nMM * 0.5f;
+        this.rect.set(this.nMN - f2, this.centerY - f2, this.nMN + f2, this.centerY + f2);
+        this.paint.setColor(this.nMI);
         canvas.drawRoundRect(this.rect, f2, f2, this.paint);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void E(double d) {
-        this.nrQ = (float) SpringUtil.mapValueFromRangeToRange(d, 0.0d, 1.0d, this.nrN, this.nrO);
-        this.nrR = (float) SpringUtil.mapValueFromRangeToRange(1.0d - d, 0.0d, 1.0d, 10.0d, this.nrP);
-        int blue = Color.blue(this.nrI);
-        int red = Color.red(this.nrI);
-        int green = Color.green(this.nrI);
-        int blue2 = Color.blue(this.nrJ);
-        int red2 = Color.red(this.nrJ);
-        int green2 = Color.green(this.nrJ);
+    public void F(double d) {
+        this.nMN = (float) SpringUtil.mapValueFromRangeToRange(d, 0.0d, 1.0d, this.nMK, this.nML);
+        this.nMO = (float) SpringUtil.mapValueFromRangeToRange(1.0d - d, 0.0d, 1.0d, 10.0d, this.nMM);
+        int blue = Color.blue(this.nMF);
+        int red = Color.red(this.nMF);
+        int green = Color.green(this.nMF);
+        int blue2 = Color.blue(this.nMG);
+        int red2 = Color.red(this.nMG);
+        int green2 = Color.green(this.nMG);
         int mapValueFromRangeToRange = (int) SpringUtil.mapValueFromRangeToRange(1.0d - d, 0.0d, 1.0d, blue, blue2);
         int mapValueFromRangeToRange2 = (int) SpringUtil.mapValueFromRangeToRange(1.0d - d, 0.0d, 1.0d, red, red2);
         this.borderColor = Color.rgb(clamp(mapValueFromRangeToRange2, 0, 255), clamp((int) SpringUtil.mapValueFromRangeToRange(1.0d - d, 0.0d, 1.0d, green, green2), 0, 255), clamp(mapValueFromRangeToRange, 0, 255));
@@ -255,10 +255,10 @@ public class ToggleButton extends View {
     }
 
     public void setOnToggleChanged(a aVar) {
-        this.nrT = aVar;
+        this.nMQ = aVar;
     }
 
     public void setAnimate(boolean z) {
-        this.nrS = z;
+        this.nMP = z;
     }
 }

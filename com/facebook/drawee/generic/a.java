@@ -14,46 +14,46 @@ import com.facebook.drawee.drawable.p;
 import javax.annotation.Nullable;
 /* loaded from: classes13.dex */
 public class a implements com.facebook.drawee.d.c {
-    @Nullable
-    private RoundingParams lWp;
-    private final d lWq;
-    private final f lWr;
     private final Resources mResources;
-    private final Drawable lWo = new ColorDrawable(0);
-    private final g lWs = new g(this.lWo);
+    @Nullable
+    private RoundingParams mqj;
+    private final d mqk;
+    private final f mql;
+    private final Drawable mqi = new ColorDrawable(0);
+    private final g mqm = new g(this.mqi);
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(b bVar) {
         int i = 0;
         this.mResources = bVar.getResources();
-        this.lWp = bVar.doX();
-        int size = (bVar.dpm() != null ? bVar.dpm().size() : 1) + (bVar.dpn() != null ? 1 : 0);
+        this.mqj = bVar.dwp();
+        int size = (bVar.dwE() != null ? bVar.dwE().size() : 1) + (bVar.dwF() != null ? 1 : 0);
         Drawable[] drawableArr = new Drawable[size + 6];
         drawableArr[0] = a(bVar.getBackground(), null);
-        drawableArr[1] = a(bVar.dpb(), bVar.dpc());
-        drawableArr[2] = a(this.lWs, bVar.dpj(), bVar.dpk(), bVar.dpl());
-        drawableArr[3] = a(bVar.dph(), bVar.dpi());
-        drawableArr[4] = a(bVar.dpd(), bVar.dpe());
-        drawableArr[5] = a(bVar.dpf(), bVar.dpg());
+        drawableArr[1] = a(bVar.dwt(), bVar.dwu());
+        drawableArr[2] = a(this.mqm, bVar.dwB(), bVar.dwC(), bVar.dwD());
+        drawableArr[3] = a(bVar.dwz(), bVar.dwA());
+        drawableArr[4] = a(bVar.dwv(), bVar.dww());
+        drawableArr[5] = a(bVar.dwx(), bVar.dwy());
         if (size > 0) {
-            if (bVar.dpm() != null) {
-                for (Drawable drawable : bVar.dpm()) {
+            if (bVar.dwE() != null) {
+                for (Drawable drawable : bVar.dwE()) {
                     drawableArr[i + 6] = a(drawable, null);
                     i++;
                 }
             } else {
                 i = 1;
             }
-            if (bVar.dpn() != null) {
-                drawableArr[i + 6] = a(bVar.dpn(), null);
+            if (bVar.dwF() != null) {
+                drawableArr[i + 6] = a(bVar.dwF(), null);
             }
         }
-        this.lWr = new f(drawableArr);
-        this.lWr.Gn(bVar.doY());
-        this.lWq = new d(e.a(this.lWr, this.lWp));
-        this.lWq.vG(bVar.doZ());
-        this.lWq.mutate();
-        doV();
+        this.mql = new f(drawableArr);
+        this.mql.GZ(bVar.dwq());
+        this.mqk = new d(e.a(this.mql, this.mqj));
+        this.mqk.we(bVar.dwr());
+        this.mqk.mutate();
+        dwn();
     }
 
     @Nullable
@@ -64,57 +64,57 @@ public class a implements com.facebook.drawee.d.c {
 
     @Nullable
     private Drawable a(@Nullable Drawable drawable, @Nullable p.b bVar) {
-        return e.f(e.a(drawable, this.lWp, this.mResources), bVar);
+        return e.f(e.a(drawable, this.mqj, this.mResources), bVar);
     }
 
-    private void doU() {
-        this.lWs.setDrawable(this.lWo);
+    private void dwm() {
+        this.mqm.setDrawable(this.mqi);
     }
 
-    private void doV() {
-        if (this.lWr != null) {
-            this.lWr.doK();
-            this.lWr.doM();
-            doW();
-            Go(1);
-            this.lWr.doN();
-            this.lWr.doL();
+    private void dwn() {
+        if (this.mql != null) {
+            this.mql.dwc();
+            this.mql.dwe();
+            dwo();
+            Ha(1);
+            this.mql.dwf();
+            this.mql.dwd();
         }
     }
 
-    private void doW() {
-        Gp(1);
-        Gp(2);
-        Gp(3);
-        Gp(4);
-        Gp(5);
+    private void dwo() {
+        Hb(1);
+        Hb(2);
+        Hb(3);
+        Hb(4);
+        Hb(5);
     }
 
-    private void Go(int i) {
+    private void Ha(int i) {
         if (i >= 0) {
-            this.lWr.Go(i);
+            this.mql.Ha(i);
         }
     }
 
-    private void Gp(int i) {
+    private void Hb(int i) {
         if (i >= 0) {
-            this.lWr.Gp(i);
+            this.mql.Hb(i);
         }
     }
 
     private void setProgress(float f) {
-        Drawable drawable = this.lWr.getDrawable(3);
+        Drawable drawable = this.mql.getDrawable(3);
         if (drawable != null) {
             if (f >= 0.999f) {
                 if (drawable instanceof Animatable) {
                     ((Animatable) drawable).stop();
                 }
-                Gp(3);
+                Hb(3);
             } else {
                 if (drawable instanceof Animatable) {
                     ((Animatable) drawable).start();
                 }
-                Go(3);
+                Ha(3);
             }
             drawable.setLevel(Math.round(10000.0f * f));
         }
@@ -122,98 +122,98 @@ public class a implements com.facebook.drawee.d.c {
 
     @Override // com.facebook.drawee.d.b
     public Drawable getTopLevelDrawable() {
-        return this.lWq;
+        return this.mqk;
     }
 
     @Override // com.facebook.drawee.d.c
     public void reset() {
-        doU();
-        doV();
+        dwm();
+        dwn();
     }
 
     @Override // com.facebook.drawee.d.c
     public void a(Drawable drawable, float f, boolean z) {
-        Drawable a = e.a(drawable, this.lWp, this.mResources);
+        Drawable a = e.a(drawable, this.mqj, this.mResources);
         a.mutate();
-        this.lWs.setDrawable(a);
-        this.lWr.doK();
-        doW();
-        Go(2);
+        this.mqm.setDrawable(a);
+        this.mql.dwc();
+        dwo();
+        Ha(2);
         setProgress(f);
         if (z) {
-            this.lWr.doN();
+            this.mql.dwf();
         }
-        this.lWr.doL();
+        this.mql.dwd();
     }
 
     @Override // com.facebook.drawee.d.c
     public void c(float f, boolean z) {
-        if (this.lWr.getDrawable(3) != null) {
-            this.lWr.doK();
+        if (this.mql.getDrawable(3) != null) {
+            this.mql.dwc();
             setProgress(f);
             if (z) {
-                this.lWr.doN();
+                this.mql.dwf();
             }
-            this.lWr.doL();
+            this.mql.dwd();
         }
     }
 
     @Override // com.facebook.drawee.d.c
     public void D(Throwable th) {
-        this.lWr.doK();
-        doW();
-        if (this.lWr.getDrawable(5) != null) {
-            Go(5);
+        this.mql.dwc();
+        dwo();
+        if (this.mql.getDrawable(5) != null) {
+            Ha(5);
         } else {
-            Go(1);
+            Ha(1);
         }
-        this.lWr.doL();
+        this.mql.dwd();
     }
 
     @Override // com.facebook.drawee.d.c
     public void E(Throwable th) {
-        this.lWr.doK();
-        doW();
-        if (this.lWr.getDrawable(4) != null) {
-            Go(4);
+        this.mql.dwc();
+        dwo();
+        if (this.mql.getDrawable(4) != null) {
+            Ha(4);
         } else {
-            Go(1);
+            Ha(1);
         }
-        this.lWr.doL();
+        this.mql.dwd();
     }
 
     @Override // com.facebook.drawee.d.c
     public void j(@Nullable Drawable drawable) {
-        this.lWq.j(drawable);
+        this.mqk.j(drawable);
     }
 
-    private com.facebook.drawee.drawable.c Gq(int i) {
-        com.facebook.drawee.drawable.c Gk = this.lWr.Gk(i);
-        if (Gk.getDrawable() instanceof h) {
-            Gk = (h) Gk.getDrawable();
+    private com.facebook.drawee.drawable.c Hc(int i) {
+        com.facebook.drawee.drawable.c GW = this.mql.GW(i);
+        if (GW.getDrawable() instanceof h) {
+            GW = (h) GW.getDrawable();
         }
-        if (Gk.getDrawable() instanceof o) {
-            return (o) Gk.getDrawable();
+        if (GW.getDrawable() instanceof o) {
+            return (o) GW.getDrawable();
         }
-        return Gk;
+        return GW;
     }
 
     private void b(int i, @Nullable Drawable drawable) {
         if (drawable == null) {
-            this.lWr.a(i, null);
+            this.mql.a(i, null);
             return;
         }
-        Gq(i).setDrawable(e.a(drawable, this.lWp, this.mResources));
+        Hc(i).setDrawable(e.a(drawable, this.mqj, this.mResources));
     }
 
-    private o Gr(int i) {
-        com.facebook.drawee.drawable.c Gq = Gq(i);
-        return Gq instanceof o ? (o) Gq : e.a(Gq, p.b.lWe);
+    private o Hd(int i) {
+        com.facebook.drawee.drawable.c Hc = Hc(i);
+        return Hc instanceof o ? (o) Hc : e.a(Hc, p.b.mpY);
     }
 
     public void b(p.b bVar) {
         com.facebook.common.internal.g.checkNotNull(bVar);
-        Gr(2).a(bVar);
+        Hd(2).a(bVar);
     }
 
     public void m(@Nullable Drawable drawable) {
@@ -222,10 +222,10 @@ public class a implements com.facebook.drawee.d.c {
 
     public void b(Drawable drawable, p.b bVar) {
         b(1, drawable);
-        Gr(1).a(bVar);
+        Hd(1).a(bVar);
     }
 
-    public void Gs(int i) {
+    public void He(int i) {
         m(this.mResources.getDrawable(i));
     }
 
@@ -235,33 +235,33 @@ public class a implements com.facebook.drawee.d.c {
 
     public void c(Drawable drawable, p.b bVar) {
         b(5, drawable);
-        Gr(5).a(bVar);
+        Hd(5).a(bVar);
     }
 
-    public void Gt(int i) {
+    public void Hf(int i) {
         setFailureImage(this.mResources.getDrawable(i));
     }
 
     public void d(Drawable drawable, p.b bVar) {
         b(4, drawable);
-        Gr(4).a(bVar);
+        Hd(4).a(bVar);
     }
 
     public void e(Drawable drawable, p.b bVar) {
         b(3, drawable);
-        Gr(3).a(bVar);
+        Hd(3).a(bVar);
     }
 
     public void a(@Nullable RoundingParams roundingParams) {
-        this.lWp = roundingParams;
-        e.a((com.facebook.drawee.drawable.c) this.lWq, this.lWp);
-        for (int i = 0; i < this.lWr.doH(); i++) {
-            e.a(Gq(i), this.lWp, this.mResources);
+        this.mqj = roundingParams;
+        e.a((com.facebook.drawee.drawable.c) this.mqk, this.mqj);
+        for (int i = 0; i < this.mql.dvZ(); i++) {
+            e.a(Hc(i), this.mqj, this.mResources);
         }
     }
 
     @Nullable
-    public RoundingParams doX() {
-        return this.lWp;
+    public RoundingParams dwp() {
+        return this.mqj;
     }
 }

@@ -5,8 +5,9 @@ import com.baidu.android.util.io.BaseJsonData;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.live.data.AlaLiveInfoData;
 import com.baidu.live.data.AlaLiveUserInfoData;
-import com.baidu.live.data.l;
+import com.baidu.live.data.o;
 import com.baidu.live.tbadk.log.LogConfig;
+import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import com.baidu.tieba.ala.live.walletconfig.CashierData;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,34 +15,35 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class h {
-    public String aqK;
-    public boolean aqO;
-    public AlaLiveUserInfoData aqk;
-    public a fFV;
+    public String avJ;
+    public boolean avN;
+    public AlaLiveUserInfoData avj;
+    public a fTQ;
     public AlaLiveInfoData mLiveInfo;
-    public l mLiveSdkInfo;
+    public o mLiveSdkInfo;
     public int mErrorCode = 0;
     public String mErrorMsg = null;
-    public int fFQ = 0;
-    public int fFR = 1;
-    public String fFS = null;
-    public int fFT = 1;
-    public String fFU = null;
-    public long aqM = 0;
+    public int fTK = 0;
+    public int fTL = 1;
+    public String fTM = null;
+    public int fTN = 1;
+    public String fTO = null;
+    public int fTP = 0;
+    public long avL = 0;
 
     /* loaded from: classes3.dex */
     public static class a {
-        public List<String> fFW = new ArrayList();
+        public List<String> fTR = new ArrayList();
         public String notify;
     }
 
-    public boolean bvl() {
-        return this.fFQ == 0;
+    public boolean bBk() {
+        return this.fTK == 0;
     }
 
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.aqM = jSONObject.optLong("logid");
+            this.avL = jSONObject.optLong("logid");
             JSONObject optJSONObject = jSONObject.optJSONObject(BdStatsConstant.StatsType.ERROR);
             if (optJSONObject != null) {
                 this.mErrorCode = optJSONObject.optInt(BaseJsonData.TAG_ERRNO);
@@ -52,11 +54,11 @@ public class h {
             }
             JSONObject optJSONObject2 = jSONObject.optJSONObject("data");
             if (optJSONObject2 != null) {
-                this.fFQ = optJSONObject2.optInt("user_status");
+                this.fTK = optJSONObject2.optInt("user_status");
                 JSONObject optJSONObject3 = optJSONObject2.optJSONObject("user_info");
                 if (optJSONObject3 != null) {
-                    this.aqk = new AlaLiveUserInfoData();
-                    this.aqk.parserJson(optJSONObject3);
+                    this.avj = new AlaLiveUserInfoData();
+                    this.avj.parserJson(optJSONObject3);
                 }
                 JSONObject optJSONObject4 = optJSONObject2.optJSONObject("live_info");
                 if (optJSONObject4 != null) {
@@ -65,36 +67,40 @@ public class h {
                 }
                 JSONObject optJSONObject5 = optJSONObject2.optJSONObject(CashierData.SDK);
                 if (optJSONObject5 != null) {
-                    this.mLiveSdkInfo = new l();
+                    this.mLiveSdkInfo = new o();
                     this.mLiveSdkInfo.parseJson(optJSONObject5);
                 }
                 if (this.mLiveInfo != null && this.mLiveSdkInfo != null && this.mLiveInfo.room_id == 0 && this.mLiveSdkInfo.mRoomId != 0) {
                     this.mLiveInfo.room_id = this.mLiveSdkInfo.mRoomId;
                 }
-                this.aqK = optJSONObject2.optString("user_watermark");
-                JSONObject optJSONObject6 = optJSONObject2.optJSONObject("strategy");
+                this.avJ = optJSONObject2.optString("user_watermark");
+                JSONObject optJSONObject6 = optJSONObject2.optJSONObject(UbcStatConstant.ContentType.UBC_TYPE_STRATEGY);
                 if (optJSONObject6 != null) {
                     JSONObject optJSONObject7 = optJSONObject6.optJSONObject(LogConfig.VALUE_LIVE_HK_RECORD_START);
                     if (optJSONObject7 != null) {
-                        this.fFS = optJSONObject7.optString("text");
-                        this.fFR = optJSONObject7.optInt("switch");
+                        this.fTM = optJSONObject7.optString("text");
+                        this.fTL = optJSONObject7.optInt("switch");
                     }
                     JSONObject optJSONObject8 = optJSONObject6.optJSONObject("user_verify");
                     if (optJSONObject8 != null) {
-                        this.fFT = optJSONObject8.optInt("switch");
-                        this.fFU = optJSONObject8.optString("text");
+                        this.fTN = optJSONObject8.optInt("switch");
+                        this.fTO = optJSONObject8.optString("text");
+                    }
+                    JSONObject optJSONObject9 = optJSONObject6.optJSONObject("certify");
+                    if (optJSONObject9 != null) {
+                        this.fTP = optJSONObject9.optInt("switch");
                     }
                 }
-                JSONObject optJSONObject9 = optJSONObject2.optJSONObject("live_authen_info");
-                if (optJSONObject9 != null) {
-                    this.fFV = new a();
-                    this.fFV.notify = optJSONObject9.optString("notify");
-                    JSONArray optJSONArray = optJSONObject9.optJSONArray("questions");
+                JSONObject optJSONObject10 = optJSONObject2.optJSONObject("live_authen_info");
+                if (optJSONObject10 != null) {
+                    this.fTQ = new a();
+                    this.fTQ.notify = optJSONObject10.optString("notify");
+                    JSONArray optJSONArray = optJSONObject10.optJSONArray("questions");
                     for (int i = 0; optJSONArray != null && i < optJSONArray.length(); i++) {
-                        this.fFV.fFW.add(optJSONArray.optString(i));
+                        this.fTQ.fTR.add(optJSONArray.optString(i));
                     }
                 }
-                this.aqO = optJSONObject2.optInt("switch_guard_seat") == 1;
+                this.avN = optJSONObject2.optInt("switch_guard_seat") == 1;
             }
         }
     }

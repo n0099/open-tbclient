@@ -3,7 +3,7 @@ package com.baidu.swan.apps.favordata;
 import android.net.Uri;
 import android.support.annotation.Keep;
 import android.text.TextUtils;
-import com.baidu.swan.apps.x.b.c;
+import com.baidu.swan.apps.v.b.c;
 import java.io.Serializable;
 @Keep
 /* loaded from: classes11.dex */
@@ -34,7 +34,7 @@ public class SwanFavorItemData implements Serializable {
     }
 
     public String getSchema(String str) {
-        return TextUtils.isEmpty(str) ? "" : c.f(getAppKey(), str, getAppFrameType());
+        return TextUtils.isEmpty(str) ? "" : c.e(getAppKey(), str, getAppFrameType());
     }
 
     public String getAppKey() {

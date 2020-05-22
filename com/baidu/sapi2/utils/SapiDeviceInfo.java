@@ -6,6 +6,7 @@ import android.support.media.ExifInterface;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
+import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import com.baidu.mobstat.Config;
 import com.baidu.pass.common.SecurityUtil;
 import com.baidu.sapi2.SapiAccount;
@@ -207,7 +208,7 @@ public class SapiDeviceInfo implements com.baidu.sapi2.c {
             arrayList.add("internal_avail_memory");
             arrayList.add("up_time");
             arrayList.add("gps");
-            arrayList.add("package_list");
+            arrayList.add(UbcStatConstant.ContentType.UBC_TYPE_GIFT_PACKAGE_LIST);
             arrayList.add(TableDefine.UserInfoColumns.COLUMN_IP);
             arrayList.add("device_name");
             arrayList.add("map_location");

@@ -47,7 +47,7 @@ import com.baidu.adp.plugin.a.b;
 import com.baidu.adp.plugin.d;
 import com.baidu.adp.plugin.pluginBase.PluginBaseFragmentActivity;
 import com.baidu.adp.plugin.util.d;
-import com.baidu.adp.widget.ListView.p;
+import com.baidu.adp.widget.ListView.r;
 import com.baidu.megapp.ma.MAFragmentActivity;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import java.io.FileDescriptor;
@@ -1571,18 +1571,18 @@ public class FragmentActivityProxy extends MAFragmentActivity implements Handler
         String stringExtra = intent.getStringExtra(Plugin.INTENT_EXTRA_SERVICE);
         d.a aVar = null;
         if (stringExtra != null) {
-            aVar = com.baidu.adp.plugin.d.nk().ce(stringExtra);
+            aVar = com.baidu.adp.plugin.d.nm().cf(stringExtra);
         }
-        if (aVar == null || aVar.Qf == null) {
+        if (aVar == null || aVar.Qp == null) {
             BdLog.d("service stop error!" + intent.toString());
             return false;
-        } else if (com.baidu.adp.plugin.d.nk().nl() == 1) {
-            com.baidu.adp.plugin.d.nk().cf(stringExtra);
-            aVar.Qf.stopSelf();
+        } else if (com.baidu.adp.plugin.d.nm().nn() == 1) {
+            com.baidu.adp.plugin.d.nm().cg(stringExtra);
+            aVar.Qp.stopSelf();
             return true;
         } else {
-            aVar.Qf.onDestroy();
-            com.baidu.adp.plugin.d.nk().cf(stringExtra);
+            aVar.Qp.onDestroy();
+            com.baidu.adp.plugin.d.nm().cg(stringExtra);
             return true;
         }
     }
@@ -1638,9 +1638,9 @@ public class FragmentActivityProxy extends MAFragmentActivity implements Handler
     }
 
     @Override // com.baidu.adp.base.h
-    public void onPreLoad(p pVar) {
+    public void onPreLoad(r rVar) {
         if (this.mEntity != null) {
-            this.mEntity.onPreLoad(pVar);
+            this.mEntity.onPreLoad(rVar);
         }
     }
 

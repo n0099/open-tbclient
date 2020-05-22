@@ -15,16 +15,16 @@ import org.json.JSONException;
 /* loaded from: classes11.dex */
 public final class f {
     protected static final String a = "BdboxApp:".toLowerCase();
+    public HashMap<String, Object> b;
     public WebView d;
     public String e;
+    public boolean g;
+    private String i;
+    @SuppressLint({"SdCardPath"})
     private String h = "/data/data/";
-    public HashMap<String, Object> b = null;
     public boolean c = true;
-    private String i = null;
     public boolean f = true;
-    public boolean g = false;
-    private boolean j = false;
-    private boolean k = true;
+    private boolean j = true;
 
     public f(WebView webView) {
         this.d = webView;
@@ -78,7 +78,7 @@ public final class f {
     }
 
     public final void a(String str) {
-        if (!this.k || str == null || str.startsWith("javascript")) {
+        if (!this.j || str == null || str.startsWith("javascript")) {
             return;
         }
         this.i = str;

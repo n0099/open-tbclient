@@ -5,8 +5,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class c extends com.baidu.swan.apps.component.b.b {
-    public String bED;
-    public String bEE;
+    public String bNu;
+    public String bNv;
 
     public c(String str) {
         super(PixelReadParams.DEFAULT_FILTER_ID, "cameraId");
@@ -20,7 +20,7 @@ public class c extends com.baidu.swan.apps.component.b.b {
     @Override // com.baidu.swan.apps.component.b.b, com.baidu.swan.apps.model.a
     public void parseFromJson(JSONObject jSONObject) throws JSONException {
         super.parseFromJson(jSONObject);
-        this.bED = jSONObject.optString("cameraId");
-        this.bEE = jSONObject.optString("quality");
+        this.bNu = jSONObject.optString("cameraId");
+        this.bNv = jSONObject.optString("quality");
     }
 }

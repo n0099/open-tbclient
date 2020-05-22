@@ -1,9 +1,12 @@
 package com.baidu.swan.apps.core.j;
+
+import android.text.TextUtils;
 /* loaded from: classes11.dex */
-public interface c {
-    void onFail();
+public class c extends com.baidu.swan.pms.model.f {
+    public String bZm;
 
-    void onProgress(long j, long j2);
-
-    void onSuccess();
+    @Override // com.baidu.swan.pms.model.e
+    public boolean aaF() {
+        return super.aaF() && !TextUtils.isEmpty(this.bZm);
+    }
 }

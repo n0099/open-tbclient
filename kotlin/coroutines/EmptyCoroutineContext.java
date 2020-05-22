@@ -19,26 +19,26 @@ public final class EmptyCoroutineContext implements Serializable, c {
     }
 
     @Override // kotlin.coroutines.c
-    public <E extends c.b> E get(c.InterfaceC0815c<E> interfaceC0815c) {
-        q.j(interfaceC0815c, "key");
+    public <E extends c.b> E get(c.InterfaceC0877c<E> interfaceC0877c) {
+        q.m(interfaceC0877c, "key");
         return null;
     }
 
     @Override // kotlin.coroutines.c
     public <R> R fold(R r, m<? super R, ? super c.b, ? extends R> mVar) {
-        q.j(mVar, "operation");
+        q.m(mVar, "operation");
         return r;
     }
 
     @Override // kotlin.coroutines.c
     public c plus(c cVar) {
-        q.j(cVar, "context");
+        q.m(cVar, "context");
         return cVar;
     }
 
     @Override // kotlin.coroutines.c
-    public c minusKey(c.InterfaceC0815c<?> interfaceC0815c) {
-        q.j(interfaceC0815c, "key");
+    public c minusKey(c.InterfaceC0877c<?> interfaceC0877c) {
+        q.m(interfaceC0877c, "key");
         return this;
     }
 

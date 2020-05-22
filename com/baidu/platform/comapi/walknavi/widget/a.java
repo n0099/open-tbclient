@@ -16,14 +16,14 @@ public class a extends Dialog {
     private TextView d;
     private LinearLayout e;
     private LinearLayout f;
-    private InterfaceC0194a g;
-    private InterfaceC0194a h;
+    private InterfaceC0227a g;
+    private InterfaceC0227a h;
     private boolean i;
     private boolean j;
 
     /* renamed from: com.baidu.platform.comapi.walknavi.widget.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public interface InterfaceC0194a {
+    public interface InterfaceC0227a {
         void a();
     }
 
@@ -44,12 +44,12 @@ public class a extends Dialog {
         this(activity, R.dimen.pass_liveness_face_round_width);
         View a = com.baidu.platform.comapi.wnplatform.o.a.a.a(activity, R.layout.abc_action_mode_bar, null);
         setContentView(a);
-        this.a = (TextView) a.findViewById(R.raw.lottie_use_my_cj_n_1);
-        this.b = (TextView) a.findViewById(R.raw.lottie_use_publish_cj_n_2);
-        this.c = (TextView) a.findViewById(R.raw.lottie_use_refresh_home_n);
-        this.d = (TextView) a.findViewById(R.raw.lottie_use_refresh_home_n_1);
-        this.e = (LinearLayout) a.findViewById(R.raw.lottie_use_publish_n_2);
-        this.f = (LinearLayout) a.findViewById(R.raw.lottie_use_refresh_home_n_2);
+        this.a = (TextView) a.findViewById(R.raw.lottie_use_message_cj_n_1);
+        this.b = (TextView) a.findViewById(R.raw.lottie_use_my_cj_n_2);
+        this.c = (TextView) a.findViewById(R.raw.lottie_use_publish_n_1);
+        this.d = (TextView) a.findViewById(R.raw.lottie_use_publish_n_2);
+        this.e = (LinearLayout) a.findViewById(R.raw.lottie_use_publish_n);
+        this.f = (LinearLayout) a.findViewById(R.raw.lottie_use_refresh_home_n);
         this.c.setOnClickListener(new b(this));
         this.d.setOnClickListener(new c(this));
         this.i = false;
@@ -119,13 +119,13 @@ public class a extends Dialog {
         return this;
     }
 
-    public a a(InterfaceC0194a interfaceC0194a) {
-        this.g = interfaceC0194a;
+    public a a(InterfaceC0227a interfaceC0227a) {
+        this.g = interfaceC0227a;
         return this;
     }
 
-    public a b(InterfaceC0194a interfaceC0194a) {
-        this.h = interfaceC0194a;
+    public a b(InterfaceC0227a interfaceC0227a) {
+        this.h = interfaceC0227a;
         return this;
     }
 

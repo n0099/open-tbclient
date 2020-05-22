@@ -1,7 +1,7 @@
 package com.baidu.tieba.homepage.topic.topicdetail.message;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.adp.widget.ListView.m;
+import com.baidu.adp.widget.ListView.o;
 import com.baidu.tbadk.core.util.v;
 import com.baidu.tieba.homepage.topic.topicdetail.b.c;
 import com.squareup.wire.Wire;
@@ -12,14 +12,14 @@ import tbclient.NewTopicThread.TopicThread;
 /* loaded from: classes9.dex */
 public class ResponseSocketGetTopicThreadMessage extends SocketResponsedMessage {
     private boolean hasMore;
-    private List<m> mDataList;
+    private List<o> mDataList;
 
     public ResponseSocketGetTopicThreadMessage() {
         super(309631);
         this.hasMore = false;
     }
 
-    public List<m> getDataList() {
+    public List<o> getDataList() {
         return this.mDataList;
     }
 

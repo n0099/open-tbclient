@@ -23,7 +23,7 @@ public class g implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        bfp();
+        blB();
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:47:0x0144, code lost:
@@ -53,7 +53,7 @@ public class g implements Runnable {
         if (r10 == r14) goto L86;
      */
     /* JADX WARN: Code restructure failed: missing block: B:73:0x01a1, code lost:
-        com.baidu.tbadk.core.util.TiebaStatic.log(new com.baidu.tbadk.core.util.an("c12027").cI("errormsg", "准备合并文件时文件片段错误").cI("url", r18.mVideoUrl));
+        com.baidu.tbadk.core.util.TiebaStatic.log(new com.baidu.tbadk.core.util.an("c12027").dh("errormsg", "准备合并文件时文件片段错误").dh("url", r18.mVideoUrl));
      */
     /* JADX WARN: Code restructure failed: missing block: B:75:0x01cd, code lost:
         if (a(r12.getAbsolutePath(), r13) == false) goto L89;
@@ -66,24 +66,24 @@ public class g implements Runnable {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private synchronized void bfp() {
+    private synchronized void blB() {
         File file;
-        long xN;
+        long zt;
         File[] fileArr;
         int i;
         long j;
         long fileSize;
         long j2;
         j.D(TAG, "merge ...");
-        String xT = m.xT(this.mVideoUrl);
-        if (xT != null && !xT.isEmpty() && ((file = new File(i.exI + xT + "/completed")) == null || !file.exists())) {
-            File file2 = new File(i.exI + xT + "/completed.temp");
+        String zz = m.zz(this.mVideoUrl);
+        if (zz != null && !zz.isEmpty() && ((file = new File(i.eMk + zz + "/completed")) == null || !file.exists())) {
+            File file2 = new File(i.eMk + zz + "/completed.temp");
             if (file2 != null && file2.exists()) {
                 file2.delete();
             }
-            File file3 = new File(i.exI + xT + "/segments");
+            File file3 = new File(i.eMk + zz + "/segments");
             if (file3 != null && file3.exists()) {
-                xN = xN(xT);
+                zt = zt(zz);
                 File[] listFiles = file3.listFiles();
                 if (listFiles != null && listFiles.length != 0) {
                     ArrayList arrayList = new ArrayList();
@@ -130,7 +130,7 @@ public class g implements Runnable {
             }
             if (j + fileSize == j2) {
             }
-        } else if (m.getFileSize(fileArr[i]) + j == xN) {
+        } else if (m.getFileSize(fileArr[i]) + j == zt) {
             i++;
         }
     }
@@ -182,7 +182,7 @@ public class g implements Runnable {
                 e = e3;
                 fileChannel = channel;
                 try {
-                    TiebaStatic.log(new an("c12027").cI("errormsg", "合并文件出现异常").cI(BdStatsConstant.StatsType.ERROR, e.getMessage()).cI("url", this.mVideoUrl));
+                    TiebaStatic.log(new an("c12027").dh("errormsg", "合并文件出现异常").dh(BdStatsConstant.StatsType.ERROR, e.getMessage()).dh("url", this.mVideoUrl));
                     e.printStackTrace();
                     if (fileChannel != null) {
                         try {
@@ -244,12 +244,12 @@ public class g implements Runnable {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private long xN(String str) {
+    private long zt(String str) {
         FileInputStream fileInputStream;
         FileInputStream fileInputStream2;
         DataInputStream dataInputStream;
         DataInputStream dataInputStream2 = null;
-        File file = new File(i.exI + str + "/content_length");
+        File file = new File(i.eMk + str + "/content_length");
         if (file.exists()) {
             try {
                 fileInputStream = new FileInputStream(file);

@@ -11,16 +11,16 @@ public class em {
     }
 
     private static void a(Context context, HashMap<String, String> hashMap) {
-        eu m264a = eq.a(context).m264a();
-        if (m264a != null) {
-            m264a.a(context, hashMap);
+        eu m266a = eq.a(context).m266a();
+        if (m266a != null) {
+            m266a.a(context, hashMap);
         }
     }
 
     private static void b(Context context, HashMap<String, String> hashMap) {
-        eu m264a = eq.a(context).m264a();
-        if (m264a != null) {
-            m264a.c(context, hashMap);
+        eu m266a = eq.a(context).m266a();
+        if (m266a != null) {
+            m266a.c(context, hashMap);
         }
     }
 
@@ -53,9 +53,9 @@ public class em {
     }
 
     private static void c(Context context, HashMap<String, String> hashMap) {
-        eu m264a = eq.a(context).m264a();
-        if (m264a != null) {
-            m264a.b(context, hashMap);
+        eu m266a = eq.a(context).m266a();
+        if (m266a != null) {
+            m266a.b(context, hashMap);
         }
     }
 }

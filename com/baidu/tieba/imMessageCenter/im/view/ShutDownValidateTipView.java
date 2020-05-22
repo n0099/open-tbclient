@@ -15,11 +15,11 @@ import com.baidu.tieba.R;
 import java.util.ArrayList;
 /* loaded from: classes9.dex */
 public class ShutDownValidateTipView extends FrameLayout {
-    private boolean dHU;
-    private TextView izE;
-    private ImageView izF;
-    private TextView izG;
-    private TextView izH;
+    private boolean dWj;
+    private TextView iOl;
+    private ImageView iOm;
+    private TextView iOn;
+    private TextView iOo;
     private ArrayList<a> networkChangeListeners;
 
     /* loaded from: classes9.dex */
@@ -47,21 +47,21 @@ public class ShutDownValidateTipView extends FrameLayout {
 
     public void init(Context context) {
         addView(LayoutInflater.from(context).inflate(R.layout.shut_down_validate_tip, (ViewGroup) null));
-        this.izF = (ImageView) findViewById(R.id.no_network_icon);
-        this.izG = (TextView) findViewById(R.id.no_network_guide1);
-        this.izH = (TextView) findViewById(R.id.no_network_guide2);
-        this.izE = (TextView) findViewById(R.id.no_network_showmore);
+        this.iOm = (ImageView) findViewById(R.id.no_network_icon);
+        this.iOn = (TextView) findViewById(R.id.no_network_guide1);
+        this.iOo = (TextView) findViewById(R.id.no_network_guide2);
+        this.iOl = (TextView) findViewById(R.id.no_network_showmore);
     }
 
     public void setShutDownClickListener(View.OnClickListener onClickListener) {
-        if (this.izE != null) {
-            this.izE.setOnClickListener(onClickListener);
+        if (this.iOl != null) {
+            this.iOl.setOnClickListener(onClickListener);
         }
     }
 
     public void setVisible(boolean z) {
-        if (z != this.dHU) {
-            this.dHU = z;
+        if (z != this.dWj) {
+            this.dWj = z;
             if (z) {
                 AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
                 alphaAnimation.setFillAfter(true);
@@ -122,16 +122,16 @@ public class ShutDownValidateTipView extends FrameLayout {
     }
 
     public void onChangeSkinType(int i) {
-        am.setImageResource(this.izF, R.drawable.icon_error);
+        am.setImageResource(this.iOm, R.drawable.icon_error);
         am.setBackgroundResource(findViewById(R.id.no_network_parent), R.drawable.bg_no_network);
         if (i == 1 || i == 4) {
-            this.izG.setTextColor(-10523526);
-            this.izH.setTextColor(-8682095);
-            this.izE.setTextColor(-10523526);
+            this.iOn.setTextColor(-10523526);
+            this.iOo.setTextColor(-8682095);
+            this.iOl.setTextColor(-10523526);
             return;
         }
-        this.izG.setTextColor(-14277082);
-        this.izH.setTextColor(-5065030);
-        this.izE.setTextColor(-14277082);
+        this.iOn.setTextColor(-14277082);
+        this.iOo.setTextColor(-5065030);
+        this.iOl.setTextColor(-14277082);
     }
 }

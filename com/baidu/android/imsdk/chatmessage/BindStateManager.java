@@ -165,6 +165,7 @@ public class BindStateManager {
                     IMService.enqueueWork(context, creatMethodIntent);
                 } catch (Exception e) {
                     ListenerManager.getInstance().removeListener(addListener);
+                    onRegisterNotifyResult(context, addListener, 1003, Constants.ERROR_MSG_SERVICE_ERROR, false);
                     LogUtils.e(TAG, "Exception", e);
                 }
                 syncPushInfo(context, str, str2, str3);

@@ -8,32 +8,32 @@ import android.widget.LinearLayout;
 import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class PriorityVerticalLinearLayout extends LinearLayout {
-    private int baP;
+    private int bip;
 
     public PriorityVerticalLinearLayout(Context context) {
         super(context);
-        this.baP = -1;
+        this.bip = -1;
         setOrientation(1);
     }
 
     public PriorityVerticalLinearLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.baP = -1;
+        this.bip = -1;
         setOrientation(1);
     }
 
     public PriorityVerticalLinearLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.baP = -1;
+        this.bip = -1;
         setOrientation(1);
     }
 
     @Override // android.view.ViewGroup
     public void addView(View view, int i, ViewGroup.LayoutParams layoutParams) {
-        int X = X(view);
-        if (X >= 0) {
-            super.addView(view, X, layoutParams);
-            if (this.baP >= 0) {
+        int W = W(view);
+        if (W >= 0) {
+            super.addView(view, W, layoutParams);
+            if (this.bip >= 0) {
                 LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) view.getLayoutParams();
                 if (layoutParams2 != null) {
                     int i2 = -1;
@@ -43,7 +43,7 @@ public class PriorityVerticalLinearLayout extends LinearLayout {
                     if (i2 == 20) {
                         layoutParams2.bottomMargin = 0;
                     } else {
-                        layoutParams2.bottomMargin = this.baP;
+                        layoutParams2.bottomMargin = this.bip;
                     }
                     layoutParams2.topMargin = 0;
                 }
@@ -53,10 +53,10 @@ public class PriorityVerticalLinearLayout extends LinearLayout {
     }
 
     public void setDefaultItemMargin(int i) {
-        this.baP = i;
+        this.bip = i;
     }
 
-    private int X(View view) {
+    private int W(View view) {
         if (view == null || !(view.getTag(a.g.sdk_pvl_layout_priority_tag_key) instanceof Integer)) {
             return -1;
         }

@@ -30,11 +30,11 @@ public abstract class a<T extends com.baidu.tieba.play.b.b> implements c<T> {
         return this.list.size();
     }
 
-    public String crZ() {
+    public String cyC() {
         if (StringUtils.isNull(this.uuid) || !m.checkSD() || StringUtils.isNull(getKey())) {
             return null;
         }
-        String str = c.a.jbI + csa();
+        String str = c.a.jqL + cyD();
         try {
             File file = new File(str);
             if (!file.exists()) {
@@ -48,27 +48,27 @@ public abstract class a<T extends com.baidu.tieba.play.b.b> implements c<T> {
         }
     }
 
-    protected String csa() {
+    protected String cyD() {
         return PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + this.uuid + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + getKey();
     }
 
     @Override // com.baidu.tieba.k.a.c
-    public e csb() {
-        return new e(getKey(), crZ());
+    public e cyE() {
+        return new e(getKey(), cyC());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void dG(List<T> list) {
+    public void dE(List<T> list) {
         new BdAsyncTask<List<T>, Void, Void>() { // from class: com.baidu.tieba.k.a.a.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-            /* renamed from: a */
+            /* renamed from: b */
             public Void doInBackground(List<T>[] listArr) {
                 if (listArr != null && listArr.length == 1) {
-                    String crZ = a.this.crZ();
-                    if (!StringUtils.isNull(crZ)) {
-                        a.this.l(crZ, listArr[0]);
+                    String cyC = a.this.cyC();
+                    if (!StringUtils.isNull(cyC)) {
+                        a.this.l(cyC, listArr[0]);
                     }
                 }
                 return null;
@@ -81,7 +81,7 @@ public abstract class a<T extends com.baidu.tieba.play.b.b> implements c<T> {
         int size = list.size();
         JSONArray jSONArray = new JSONArray();
         for (int i = 0; i < size; i++) {
-            jSONArray.put(list.get(i).cKR());
+            jSONArray.put(list.get(i).cRR());
         }
         com.baidu.tieba.k.d.g(new File(str), jSONArray.toString() + "\n");
     }

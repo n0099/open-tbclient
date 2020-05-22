@@ -9,11 +9,11 @@ import rx.subjects.PublishSubject;
 import rx.subscriptions.RefCountSubscription;
 /* loaded from: classes6.dex */
 public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements d.a<R> {
-    final rx.d<T1> njW;
-    final rx.d<T2> njX;
-    final rx.functions.f<? super T1, ? extends rx.d<D1>> njY;
-    final rx.functions.f<? super T2, ? extends rx.d<D2>> njZ;
-    final rx.functions.g<? super T1, ? super rx.d<T2>, ? extends R> nka;
+    final rx.d<T1> nEW;
+    final rx.d<T2> nEX;
+    final rx.functions.f<? super T1, ? extends rx.d<D1>> nEY;
+    final rx.functions.f<? super T2, ? extends rx.d<D2>> nEZ;
+    final rx.functions.g<? super T1, ? super rx.d<T2>, ? extends R> nFa;
 
     @Override // rx.functions.b
     public /* bridge */ /* synthetic */ void call(Object obj) {
@@ -48,8 +48,8 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements d.a<R> {
             d dVar = new d();
             this.group.add(bVar);
             this.group.add(dVar);
-            OnSubscribeGroupJoin.this.njW.a((rx.j<? super T1>) bVar);
-            OnSubscribeGroupJoin.this.njX.a((rx.j<? super T2>) dVar);
+            OnSubscribeGroupJoin.this.nEW.a((rx.j<? super T1>) bVar);
+            OnSubscribeGroupJoin.this.nEX.a((rx.j<? super T2>) dVar);
         }
 
         @Override // rx.k
@@ -110,23 +110,23 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements d.a<R> {
                 int i;
                 ArrayList<Object> arrayList;
                 try {
-                    PublishSubject dIP = PublishSubject.dIP();
-                    rx.b.d dVar = new rx.b.d(dIP);
+                    PublishSubject dQJ = PublishSubject.dQJ();
+                    rx.b.d dVar = new rx.b.d(dQJ);
                     synchronized (ResultManager.this) {
                         ResultManager resultManager = ResultManager.this;
                         i = resultManager.leftIds;
                         resultManager.leftIds = i + 1;
                         ResultManager.this.leftMap().put(Integer.valueOf(i), dVar);
                     }
-                    rx.d a = rx.d.a((d.a) new a(dIP, ResultManager.this.cancel));
+                    rx.d a = rx.d.a((d.a) new a(dQJ, ResultManager.this.cancel));
                     a aVar = new a(i);
                     ResultManager.this.group.add(aVar);
-                    OnSubscribeGroupJoin.this.njY.call(t1).a((rx.j<? super D1>) aVar);
-                    R n = OnSubscribeGroupJoin.this.nka.n(t1, a);
+                    OnSubscribeGroupJoin.this.nEY.call(t1).a((rx.j<? super D1>) aVar);
+                    R o = OnSubscribeGroupJoin.this.nFa.o(t1, a);
                     synchronized (ResultManager.this) {
                         arrayList = new ArrayList(ResultManager.this.rightMap.values());
                     }
-                    ResultManager.this.subscriber.onNext(n);
+                    ResultManager.this.subscriber.onNext(o);
                     for (Object obj : arrayList) {
                         dVar.onNext(obj);
                     }
@@ -174,7 +174,7 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements d.a<R> {
                     }
                     c cVar = new c(i);
                     ResultManager.this.group.add(cVar);
-                    OnSubscribeGroupJoin.this.njZ.call(t2).a((rx.j<? super D2>) cVar);
+                    OnSubscribeGroupJoin.this.nEZ.call(t2).a((rx.j<? super D2>) cVar);
                     synchronized (ResultManager.this) {
                         arrayList = new ArrayList(ResultManager.this.leftMap().values());
                     }
@@ -275,8 +275,8 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements d.a<R> {
 
     /* loaded from: classes6.dex */
     static final class a<T> implements d.a<T> {
-        final RefCountSubscription nkc;
-        final rx.d<T> nkd;
+        final RefCountSubscription nFc;
+        final rx.d<T> nFd;
 
         @Override // rx.functions.b
         public /* bridge */ /* synthetic */ void call(Object obj) {
@@ -284,28 +284,28 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements d.a<R> {
         }
 
         public a(rx.d<T> dVar, RefCountSubscription refCountSubscription) {
-            this.nkc = refCountSubscription;
-            this.nkd = dVar;
+            this.nFc = refCountSubscription;
+            this.nFd = dVar;
         }
 
         public void call(rx.j<? super T> jVar) {
-            rx.k dIU = this.nkc.dIU();
-            C0834a c0834a = new C0834a(jVar, dIU);
-            c0834a.add(dIU);
-            this.nkd.a((rx.j) c0834a);
+            rx.k dQO = this.nFc.dQO();
+            C0896a c0896a = new C0896a(jVar, dQO);
+            c0896a.add(dQO);
+            this.nFd.a((rx.j) c0896a);
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
         /* renamed from: rx.internal.operators.OnSubscribeGroupJoin$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public final class C0834a extends rx.j<T> {
-            private final rx.k nke;
+        public final class C0896a extends rx.j<T> {
+            private final rx.k nFe;
             final rx.j<? super T> subscriber;
 
-            public C0834a(rx.j<? super T> jVar, rx.k kVar) {
+            public C0896a(rx.j<? super T> jVar, rx.k kVar) {
                 super(jVar);
                 this.subscriber = jVar;
-                this.nke = kVar;
+                this.nFe = kVar;
             }
 
             @Override // rx.e
@@ -316,13 +316,13 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements d.a<R> {
             @Override // rx.e
             public void onError(Throwable th) {
                 this.subscriber.onError(th);
-                this.nke.unsubscribe();
+                this.nFe.unsubscribe();
             }
 
             @Override // rx.e
             public void onCompleted() {
                 this.subscriber.onCompleted();
-                this.nke.unsubscribe();
+                this.nFe.unsubscribe();
             }
         }
     }

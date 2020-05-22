@@ -7,8 +7,8 @@ import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes3.dex */
 public class a {
-    private InterfaceC0534a gak;
-    private HttpMessageListener gal = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_ENTER_EFFECT_BUY_PROP) { // from class: com.baidu.tieba.ala.personcenter.privilege.a.1
+    private InterfaceC0584a gpe;
+    private HttpMessageListener gpf = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_ENTER_EFFECT_BUY_PROP) { // from class: com.baidu.tieba.ala.personcenter.privilege.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -16,8 +16,8 @@ public class a {
                 AlaTDouBuyPrivilegeResponsedMessage alaTDouBuyPrivilegeResponsedMessage = (AlaTDouBuyPrivilegeResponsedMessage) httpResponsedMessage;
                 boolean z = alaTDouBuyPrivilegeResponsedMessage.getError() == 0;
                 String errorString = alaTDouBuyPrivilegeResponsedMessage.getErrorString();
-                if (a.this.gak != null) {
-                    a.this.gak.m(z, errorString);
+                if (a.this.gpe != null) {
+                    a.this.gpe.m(z, errorString);
                 }
             }
         }
@@ -26,17 +26,17 @@ public class a {
 
     /* renamed from: com.baidu.tieba.ala.personcenter.privilege.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC0534a {
+    public interface InterfaceC0584a {
         void m(boolean z, String str);
     }
 
-    public a(TbPageContext tbPageContext, InterfaceC0534a interfaceC0534a) {
+    public a(TbPageContext tbPageContext, InterfaceC0584a interfaceC0584a) {
         this.mPageContext = tbPageContext;
-        this.gak = interfaceC0534a;
-        this.mPageContext.registerListener(this.gal);
+        this.gpe = interfaceC0584a;
+        this.mPageContext.registerListener(this.gpf);
     }
 
-    public void aE(String str, int i) {
+    public void aF(String str, int i) {
         HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_ENTER_EFFECT_BUY_PROP);
         httpMessage.addParam("props_id", i);
         httpMessage.addParam("effect_id", str);

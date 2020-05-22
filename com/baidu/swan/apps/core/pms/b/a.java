@@ -1,74 +1,47 @@
 package com.baidu.swan.apps.core.pms.b;
 
-import android.util.Log;
-import com.baidu.swan.apps.b;
-import com.baidu.swan.apps.core.a.a.a;
-import com.baidu.swan.apps.core.pms.PMSDownloadType;
-import com.baidu.swan.apps.core.pms.f;
-import com.baidu.swan.apps.env.e;
-import com.baidu.swan.apps.performance.UbcFlowEvent;
-import java.util.HashSet;
+import android.os.Bundle;
+import com.baidu.swan.apps.runtime.m;
+import com.baidu.swan.pms.c.f;
+import com.baidu.swan.pms.c.g;
+import java.util.HashMap;
+import java.util.Map;
+import org.json.JSONObject;
 /* loaded from: classes11.dex */
-public class a extends f {
-    private static final boolean DEBUG = b.DEBUG;
-    private a.InterfaceC0294a bOZ;
-
-    public a(String str, a.InterfaceC0294a interfaceC0294a) {
-        super(str);
-        this.bOZ = interfaceC0294a;
+public abstract class a extends m implements d {
+    public a(com.baidu.swan.apps.runtime.d dVar) {
+        super(dVar);
     }
 
-    @Override // com.baidu.swan.pms.a.g
-    public void WZ() {
-        super.WZ();
-        if (this.bOB != null) {
-            Xp();
-        }
-    }
-
-    @Override // com.baidu.swan.apps.core.pms.f, com.baidu.swan.pms.a.g
-    public void a(com.baidu.swan.pms.model.a aVar) {
-        super.a(aVar);
-        if (DEBUG) {
-            Log.e("SwanAppPkgPreDownloadCallback", "onFetchError: " + aVar.toString());
-        }
-        if (this.bOZ != null) {
-            if (aVar.errorNo == 1010) {
-                this.bOZ.UT();
-            } else {
-                this.bOZ.ev(0);
+    /* JADX INFO: Access modifiers changed from: protected */
+    public static final Bundle p(Map<String, String> map) {
+        Bundle bundle = new Bundle();
+        if (map != null && !map.isEmpty()) {
+            for (Map.Entry<String, String> entry : map.entrySet()) {
+                bundle.putString(entry.getKey(), entry.getValue());
             }
         }
-        eM(aVar.errorNo);
+        return bundle;
     }
 
-    @Override // com.baidu.swan.apps.core.pms.f
-    protected void Xf() {
-        this.bOC.add(new UbcFlowEvent("na_start_update_db"));
-        com.baidu.swan.apps.ap.a Xo = Xo();
-        this.bOC.add(new UbcFlowEvent("na_end_update_db"));
-        if (Xo == null) {
-            if (this.bOZ != null) {
-                this.bOZ.UT();
+    /* JADX INFO: Access modifiers changed from: protected */
+    public static final Map<String, String> r(Bundle bundle) {
+        HashMap hashMap = new HashMap();
+        if (bundle != null && !bundle.isEmpty()) {
+            for (String str : bundle.keySet()) {
+                hashMap.put(str, bundle.getString(str));
             }
-        } else if (this.bOZ != null) {
-            this.bOZ.ev(5);
         }
-        aJ("main_pre_download", this.bOD);
-        HashSet hashSet = new HashSet();
-        hashSet.add(this.mAppId);
-        e.Zu().Zv().d(hashSet);
+        return hashMap;
     }
 
-    @Override // com.baidu.swan.apps.core.pms.f
-    protected void o(Throwable th) {
-        if (this.bOZ != null) {
-            this.bOZ.ev(0);
-        }
+    @Override // com.baidu.swan.pms.c.f
+    public void a(String str, Map<String, String> map, Map<String, String> map2, f.a aVar) {
+        com.baidu.swan.pms.c.a.a(str, map, map2, new g(aVar));
     }
 
-    @Override // com.baidu.swan.apps.core.pms.f
-    protected PMSDownloadType Xg() {
-        return PMSDownloadType.PRE;
+    @Override // com.baidu.swan.pms.c.f
+    public void a(String str, Map<String, String> map, Map<String, String> map2, JSONObject jSONObject, f.a aVar) {
+        com.baidu.swan.pms.c.a.a(str, map, map2, jSONObject, new g(aVar));
     }
 }

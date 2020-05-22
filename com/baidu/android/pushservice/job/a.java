@@ -12,17 +12,17 @@ import com.baidu.android.pushservice.h.a.b;
 @TargetApi(21)
 /* loaded from: classes8.dex */
 public class a {
-    private static C0068a a;
+    private static C0070a a;
     private static boolean b;
 
     /* renamed from: com.baidu.android.pushservice.job.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    private static class C0068a {
+    private static class C0070a {
         private final Context a;
         private final JobScheduler b;
         private boolean c;
 
-        C0068a(Context context) {
+        C0070a(Context context) {
             this.a = context;
             this.b = (JobScheduler) this.a.getSystemService("jobscheduler");
         }
@@ -61,7 +61,7 @@ public class a {
         synchronized (a.class) {
             if (a == null && Build.VERSION.SDK_INT >= 21) {
                 try {
-                    a = new C0068a(context);
+                    a = new C0070a(context);
                 } catch (Exception e) {
                     new b.c(context).a(Log.getStackTraceString(e)).a();
                 }

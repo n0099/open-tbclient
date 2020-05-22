@@ -5,6 +5,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
+import com.baidu.fsg.base.utils.LogUtil;
 /* loaded from: classes4.dex */
 public class CameraSurfaceView extends SurfaceView implements SurfaceHolder.Callback {
     SurfaceHolder a;
@@ -14,6 +15,7 @@ public class CameraSurfaceView extends SurfaceView implements SurfaceHolder.Call
         super(context, attributeSet);
         this.a = getHolder();
         this.a.setFormat(-2);
+        this.a.setSizeFromLayout();
         this.a.setType(3);
         this.a.addCallback(this);
     }
@@ -28,6 +30,7 @@ public class CameraSurfaceView extends SurfaceView implements SurfaceHolder.Call
 
     @Override // android.view.SurfaceHolder.Callback
     public void surfaceChanged(SurfaceHolder surfaceHolder, int i, int i2, int i3) {
+        LogUtil.d("surfaceChanged被调用了");
         if (getContext() instanceof Activity) {
             this.b.a((Activity) getContext(), this.a);
         }
@@ -35,6 +38,7 @@ public class CameraSurfaceView extends SurfaceView implements SurfaceHolder.Call
 
     @Override // android.view.SurfaceHolder.Callback
     public void surfaceDestroyed(SurfaceHolder surfaceHolder) {
+        LogUtil.d("surfaceDestroyed被调用了");
         this.b.d();
     }
 

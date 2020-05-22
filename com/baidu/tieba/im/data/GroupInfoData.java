@@ -2,14 +2,14 @@ package com.baidu.tieba.im.data;
 
 import android.text.TextUtils;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.m;
+import com.baidu.adp.widget.ListView.o;
 import com.baidu.tbadk.core.util.AbstractImageProvider;
 import com.baidu.tbadk.core.util.PreLoadImageInfo;
 import com.baidu.tbadk.core.util.ae;
 import java.io.Serializable;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class GroupInfoData extends AbstractImageProvider implements m, ae, Serializable {
+public class GroupInfoData extends AbstractImageProvider implements o, ae, Serializable {
     public static final BdUniqueId TYPE_FRS_GROUP = BdUniqueId.gen();
     private static final int TYPE_USER_MEIZHI_TRUE = 1;
     private static final long serialVersionUID = 5616188082014345808L;
@@ -171,7 +171,7 @@ public class GroupInfoData extends AbstractImageProvider implements m, ae, Seria
         return arrayList;
     }
 
-    @Override // com.baidu.adp.widget.ListView.m
+    @Override // com.baidu.adp.widget.ListView.o
     public BdUniqueId getType() {
         return TYPE_FRS_GROUP;
     }

@@ -1,15 +1,15 @@
 package com.baidu.tieba.write.b.a;
 /* loaded from: classes7.dex */
 public class e {
-    private static volatile d lAi;
+    private static volatile d lTw;
 
-    public static synchronized d dfN() {
+    public static synchronized d dnd() {
         d dVar;
         synchronized (e.class) {
-            if (lAi == null) {
-                lAi = new d();
+            if (lTw == null) {
+                lTw = new d();
             }
-            dVar = lAi;
+            dVar = lTw;
         }
         return dVar;
     }

@@ -12,16 +12,16 @@ import com.baidu.swan.support.v4.app.FragmentActivity;
 /* loaded from: classes11.dex */
 public class c extends h {
     @Override // com.baidu.swan.apps.core.d.h
-    public f Qx() {
-        return com.baidu.swan.apps.core.k.d.Yn().Yo().ba(getContext());
+    public f Tb() {
+        return com.baidu.swan.apps.core.turbo.d.abl().abm().bk(getContext());
     }
 
     @Override // com.baidu.swan.apps.core.d.h
-    protected com.baidu.swan.apps.core.f.d QS() {
+    protected com.baidu.swan.apps.core.f.d Tx() {
         return new com.baidu.swan.apps.core.f.a() { // from class: com.baidu.swan.apps.c.a.b.a.c.1
             @Override // com.baidu.swan.apps.core.f.a, com.baidu.swan.apps.core.f.d
-            public boolean fg(String str) {
-                return super.fg(str);
+            public boolean fS(String str) {
+                return super.fS(str);
             }
         };
     }
@@ -29,20 +29,20 @@ public class c extends h {
     @Override // com.baidu.swan.apps.core.d.h, com.baidu.swan.apps.core.d.b
     protected void ae(View view) {
         super.ae(view);
-        this.bLW.setRightZoneVisibility(true);
+        this.bVa.setRightZoneVisibility(true);
     }
 
     @Override // com.baidu.swan.apps.core.d.h, com.baidu.swan.apps.core.d.b
-    protected void QW() {
-        FragmentActivity aCO = aCO();
-        if (aCO != null && this.bLX == null) {
-            this.bLX = new com.baidu.swan.menu.h(aCO, this.bLW, QX(), com.baidu.swan.apps.w.a.abR(), new com.baidu.swan.apps.view.c.b());
-            new com.baidu.swan.apps.aa.a(this.bLX, this).ags();
+    protected void TC() {
+        FragmentActivity aHv = aHv();
+        if (aHv != null && this.bVb == null) {
+            this.bVb = new com.baidu.swan.menu.h(aHv, this.bVa, TD(), com.baidu.swan.apps.u.a.aeV(), new com.baidu.swan.apps.view.c.b());
+            new com.baidu.swan.apps.y.a(this.bVb, this).ajG();
         }
     }
 
-    private int QX() {
-        return VF() ? 18 : 12;
+    private int TD() {
+        return Yq() ? 18 : 12;
     }
 
     /* JADX WARN: Type inference failed for: r0v4, types: [com.baidu.swan.apps.adaptation.b.d] */
@@ -50,28 +50,28 @@ public class c extends h {
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         View inflate = layoutInflater.inflate(a.g.aiapps_webview_fragment, viewGroup, false);
         ae(inflate);
-        this.bNd = Qx();
-        this.bNd.a(QS());
-        this.bzE = this.bNd.QD();
-        this.bNd.loadUrl(this.mUrl);
+        this.bWj = Tb();
+        this.bWj.a(Tx());
+        this.bHi = this.bWj.Th();
+        this.bWj.loadUrl(this.mUrl);
         FrameLayout frameLayout = (FrameLayout) inflate.findViewById(a.f.aiapps_webView_container);
-        this.bNd.a(frameLayout, this.bzE.covertToView());
+        this.bWj.a(frameLayout, this.bHi.covertToView());
         a(frameLayout);
         return immersionEnabled() ? initImmersion(inflate) : inflate;
     }
 
     @Override // com.baidu.swan.apps.core.d.h, com.baidu.swan.apps.core.d.b
-    protected boolean QT() {
+    protected boolean Ty() {
         return true;
     }
 
     @Override // com.baidu.swan.apps.core.d.h, com.baidu.swan.apps.core.d.b
-    public boolean Qy() {
-        if (this.bzE != null && this.bzE.canGoBack()) {
-            this.bzE.goBack();
+    public boolean Tc() {
+        if (this.bHi != null && this.bHi.canGoBack()) {
+            this.bHi.goBack();
             return true;
         }
-        d.Rn().ec(1);
+        d.TN().ei(1);
         return false;
     }
 }

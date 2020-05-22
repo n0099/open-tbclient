@@ -26,13 +26,13 @@ import java.util.List;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class l {
-    private static String Nq;
+    private static String Ny;
     private static float displayMetricsDensity;
     static int displayMetricsHeightPixels;
     static int displayMetricsWidthPixels;
     public static boolean deviceDataInited = false;
     private static Toast mToast = null;
-    private static a Np = null;
+    private static a Nx = null;
     private static Handler mHandler = new Handler(Looper.getMainLooper());
     private static Runnable mRunnable = new Runnable() { // from class: com.baidu.adp.lib.util.l.1
         @Override // java.lang.Runnable
@@ -101,7 +101,7 @@ public class l {
                 if (mToast != null) {
                     mToast.cancel();
                 }
-                if (Np == null || Np.getToastContentView() == null) {
+                if (Nx == null || Nx.getToastContentView() == null) {
                     if (i == 3500) {
                         mToast = Toast.makeText(BdBaseApplication.getInst().getApp(), str, 1);
                         w.b(mToast);
@@ -118,16 +118,16 @@ public class l {
                     } else {
                         mToast.setDuration(0);
                     }
-                    Np.setToastString(str);
-                    mToast.setView(Np.getToastContentView());
+                    Nx.setToastString(str);
+                    mToast.setView(Nx.getToastContentView());
                 }
                 mToast.setGravity(17, 0, dip2px(BdBaseApplication.getInst().getApp(), 100.0f));
             } else {
-                if (!str.equals(Nq)) {
-                    if (Np == null || Np.getToastContentView() == null) {
+                if (!str.equals(Ny)) {
+                    if (Nx == null || Nx.getToastContentView() == null) {
                         mToast.setText(str);
                     } else {
-                        Np.setToastString(str);
+                        Nx.setToastString(str);
                     }
                 }
                 int dip2px = dip2px(BdBaseApplication.getInst().getApp(), 100.0f);
@@ -141,7 +141,7 @@ public class l {
                 }
                 mToast.setGravity(17, 0, dip2px);
             }
-            Nq = str;
+            Ny = str;
             mHandler.postDelayed(mRunnable, i);
             mToast.show();
         }
@@ -342,8 +342,18 @@ public class l {
         return iArr;
     }
 
+    private static double rad(double d) {
+        return (3.141592653589793d * d) / 180.0d;
+    }
+
     public static int getDimens(Context context, int i) {
         return context.getResources().getDimensionPixelSize(i);
+    }
+
+    public static double GetDistance(double d, double d2, double d3, double d4) {
+        double rad = rad(d);
+        double rad2 = rad(d3);
+        return Math.round(((Math.asin(Math.sqrt(((Math.cos(rad) * Math.cos(rad2)) * Math.pow(Math.sin((rad(d2) - rad(d4)) / 2.0d), 2.0d)) + Math.pow(Math.sin((rad - rad2) / 2.0d), 2.0d))) * 2.0d) * 6378.137d) * 10000.0d) / 10000.0d;
     }
 
     public static boolean hasInstallApp(Context context, String str) {
@@ -495,11 +505,11 @@ public class l {
         return Pattern.compile("[^0-9]").matcher(str).replaceAll("").trim();
     }
 
-    public static a mq() {
-        return Np;
+    public static a ms() {
+        return Nx;
     }
 
     public static void a(a aVar) {
-        Np = aVar;
+        Nx = aVar;
     }
 }

@@ -1,67 +1,68 @@
 package com.baidu.tieba.im.frsgroup;
 
 import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.o;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
 /* loaded from: classes10.dex */
-public class h implements com.baidu.adp.widget.ListView.m {
-    public static final BdUniqueId ilG = BdUniqueId.gen();
-    private Object afJ;
-    private NoDataViewFactory.ImgType ilH;
-    private String ilI;
-    private String ilJ;
-    private String ilK;
-    private int ilL;
+public class h implements o {
+    public static final BdUniqueId iAo = BdUniqueId.gen();
+    private Object agg;
+    private NoDataViewFactory.ImgType iAp;
+    private String iAq;
+    private String iAr;
+    private String iAs;
+    private int iAt;
 
-    @Override // com.baidu.adp.widget.ListView.m
+    @Override // com.baidu.adp.widget.ListView.o
     public BdUniqueId getType() {
-        return ilG;
+        return iAo;
     }
 
-    public String cfN() {
-        return this.ilI;
+    public String cmk() {
+        return this.iAq;
     }
 
-    public void EO(String str) {
-        this.ilI = str;
+    public void Gx(String str) {
+        this.iAq = str;
     }
 
-    public String cfO() {
-        return this.ilJ;
+    public String cml() {
+        return this.iAr;
     }
 
-    public void EP(String str) {
-        this.ilJ = str;
+    public void Gy(String str) {
+        this.iAr = str;
     }
 
-    public String cfP() {
-        return this.ilK;
+    public String cmm() {
+        return this.iAs;
     }
 
-    public void EQ(String str) {
-        this.ilK = str;
+    public void Gz(String str) {
+        this.iAs = str;
     }
 
-    public int cfQ() {
-        return this.ilL;
+    public int cmn() {
+        return this.iAt;
     }
 
-    public void wY(int i) {
-        this.ilL = i;
+    public void xE(int i) {
+        this.iAt = i;
     }
 
-    public Object rJ() {
-        return this.afJ;
+    public Object rS() {
+        return this.agg;
     }
 
     public void setExtraData(Object obj) {
-        this.afJ = obj;
+        this.agg = obj;
     }
 
-    public NoDataViewFactory.ImgType cfR() {
-        return this.ilH;
+    public NoDataViewFactory.ImgType cmo() {
+        return this.iAp;
     }
 
     public void c(NoDataViewFactory.ImgType imgType) {
-        this.ilH = imgType;
+        this.iAp = imgType;
     }
 }

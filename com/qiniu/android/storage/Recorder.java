@@ -1,7 +1,7 @@
 package com.qiniu.android.storage;
 /* loaded from: classes5.dex */
 public interface Recorder {
-    void Pe(String str);
+    void QU(String str);
 
     byte[] get(String str);
 

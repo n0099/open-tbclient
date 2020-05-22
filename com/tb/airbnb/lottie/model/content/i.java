@@ -6,18 +6,18 @@ import android.support.annotation.Nullable;
 public class i implements b {
     private final Path.FillType DG;
     private final boolean Ei;
-    @Nullable
-    private final com.tb.airbnb.lottie.model.a.a mPr;
-    @Nullable
-    private final com.tb.airbnb.lottie.model.a.d mPz;
     private final String name;
+    @Nullable
+    private final com.tb.airbnb.lottie.model.a.d njC;
+    @Nullable
+    private final com.tb.airbnb.lottie.model.a.a nju;
 
     public i(String str, boolean z, Path.FillType fillType, @Nullable com.tb.airbnb.lottie.model.a.a aVar, @Nullable com.tb.airbnb.lottie.model.a.d dVar) {
         this.name = str;
         this.Ei = z;
         this.DG = fillType;
-        this.mPr = aVar;
-        this.mPz = dVar;
+        this.nju = aVar;
+        this.njC = dVar;
     }
 
     public String getName() {
@@ -25,13 +25,13 @@ public class i implements b {
     }
 
     @Nullable
-    public com.tb.airbnb.lottie.model.a.a dBV() {
-        return this.mPr;
+    public com.tb.airbnb.lottie.model.a.a dJo() {
+        return this.nju;
     }
 
     @Nullable
-    public com.tb.airbnb.lottie.model.a.d dBv() {
-        return this.mPz;
+    public com.tb.airbnb.lottie.model.a.d dIO() {
+        return this.njC;
     }
 
     public Path.FillType hX() {

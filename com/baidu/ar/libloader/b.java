@@ -13,8 +13,8 @@ public final class b {
         dG().a(context, bVar);
     }
 
-    public static void a(ARType aRType, String str, String str2, a.InterfaceC0082a interfaceC0082a) {
-        dG().a(aRType, str, str2, interfaceC0082a);
+    public static void a(ARType aRType, String str, String str2, a.InterfaceC0084a interfaceC0084a) {
+        dG().a(aRType, str, str2, interfaceC0084a);
     }
 
     public static void a(a aVar) {

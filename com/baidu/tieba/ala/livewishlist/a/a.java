@@ -16,7 +16,7 @@ import com.baidu.tieba.ala.data.e;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class a extends BaseAdapter {
-    private ArrayList<e> caH = new ArrayList<>();
+    private ArrayList<e> clk = new ArrayList<>();
     private Context mContext;
 
     public a(Context context) {
@@ -24,26 +24,26 @@ public class a extends BaseAdapter {
     }
 
     public void setData(ArrayList<e> arrayList) {
-        this.caH = new ArrayList<>(arrayList);
+        this.clk = new ArrayList<>(arrayList);
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.caH == null) {
+        if (this.clk == null) {
             return 0;
         }
-        return this.caH.size();
+        return this.clk.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: rb */
+    /* renamed from: rD */
     public e getItem(int i) {
-        if (this.caH == null) {
+        if (this.clk == null) {
             return null;
         }
-        return this.caH.get(i);
+        return this.clk.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -53,36 +53,36 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0526a c0526a;
+        C0576a c0576a;
         if (view == null) {
             view = LayoutInflater.from(this.mContext).inflate(a.h.ala_my_assis_wish_list_item_view, (ViewGroup) null);
-            C0526a c0526a2 = new C0526a();
-            c0526a2.fTP = (TbImageView) view.findViewById(a.g.gift_thumbnail);
-            c0526a2.fTP.setDefaultBgResource(a.f.icon_live_gift_default);
-            c0526a2.fTP.setDefaultErrorResource(a.f.icon_live_gift_default);
-            c0526a2.fTP.setAutoChangeStyle(false);
-            c0526a2.fTR = (TextView) view.findViewById(a.g.wish_name);
-            c0526a2.fTQ = (TextView) view.findViewById(a.g.wish_count);
-            c0526a2.fTS = (ImageView) view.findViewById(a.g.wish_icon_cheng);
-            view.setTag(c0526a2);
-            c0526a = c0526a2;
+            C0576a c0576a2 = new C0576a();
+            c0576a2.giI = (TbImageView) view.findViewById(a.g.gift_thumbnail);
+            c0576a2.giI.setDefaultBgResource(a.f.icon_live_gift_default);
+            c0576a2.giI.setDefaultErrorResource(a.f.icon_live_gift_default);
+            c0576a2.giI.setAutoChangeStyle(false);
+            c0576a2.giK = (TextView) view.findViewById(a.g.wish_name);
+            c0576a2.giJ = (TextView) view.findViewById(a.g.wish_count);
+            c0576a2.giL = (ImageView) view.findViewById(a.g.wish_icon_cheng);
+            view.setTag(c0576a2);
+            c0576a = c0576a2;
         } else {
-            c0526a = (C0526a) view.getTag();
+            c0576a = (C0576a) view.getTag();
         }
         e item = getItem(i);
         if (item != null) {
-            c0526a.fTP.startLoad(item.feF, 10, false);
-            c0526a.fTR.setText(item.mGiftName);
-            if (!TextUtils.isEmpty(item.feQ) && JavaTypesHelper.toInt(item.feQ, 0) <= 0) {
-                c0526a.fTS.setVisibility(8);
-                c0526a.fTQ.setText(this.mContext.getString(a.i.ala_my_not_assist));
-                c0526a.fTQ.setTextSize(0, this.mContext.getResources().getDimension(a.e.sdk_fontsize40));
-                c0526a.fTQ.setTextColor(this.mContext.getResources().getColor(a.d.sdk_white_alpha60));
+            c0576a.giI.startLoad(item.fsk, 10, false);
+            c0576a.giK.setText(item.mGiftName);
+            if (!TextUtils.isEmpty(item.fsv) && JavaTypesHelper.toInt(item.fsv, 0) <= 0) {
+                c0576a.giL.setVisibility(8);
+                c0576a.giJ.setText(this.mContext.getString(a.i.ala_my_not_assist));
+                c0576a.giJ.setTextSize(0, this.mContext.getResources().getDimension(a.e.sdk_fontsize40));
+                c0576a.giJ.setTextColor(this.mContext.getResources().getColor(a.d.sdk_white_alpha60));
             } else {
-                c0526a.fTS.setVisibility(0);
-                c0526a.fTQ.setText(String.format("%s", item.feQ));
-                c0526a.fTQ.setTextSize(0, this.mContext.getResources().getDimension(a.e.sdk_fontsize48));
-                c0526a.fTQ.setTextColor(Color.parseColor("#C4586A"));
+                c0576a.giL.setVisibility(0);
+                c0576a.giJ.setText(String.format("%s", item.fsv));
+                c0576a.giJ.setTextSize(0, this.mContext.getResources().getDimension(a.e.sdk_fontsize48));
+                c0576a.giJ.setTextColor(Color.parseColor("#C4586A"));
             }
         }
         return view;
@@ -90,13 +90,13 @@ public class a extends BaseAdapter {
 
     /* renamed from: com.baidu.tieba.ala.livewishlist.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    private static class C0526a {
-        public TbImageView fTP;
-        public TextView fTQ;
-        public TextView fTR;
-        public ImageView fTS;
+    private static class C0576a {
+        public TbImageView giI;
+        public TextView giJ;
+        public TextView giK;
+        public ImageView giL;
 
-        private C0526a() {
+        private C0576a() {
         }
     }
 }

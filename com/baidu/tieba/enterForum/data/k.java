@@ -4,7 +4,7 @@ import com.baidu.adp.lib.util.BdLog;
 import tbclient.RecommendForumInfo;
 /* loaded from: classes9.dex */
 public class k extends f implements com.baidu.tbadk.mvc.b.a {
-    private boolean gAk;
+    private boolean gOU;
     private String mAvatar;
     private long mForumId;
     private String mForumName;
@@ -29,18 +29,18 @@ public class k extends f implements com.baidu.tbadk.mvc.b.a {
     }
 
     public boolean isLike() {
-        return this.gAk;
+        return this.gOU;
     }
 
     public void setLike(boolean z) {
-        this.gAk = z;
+        this.gOU = z;
     }
 
-    public int bHV() {
+    public int bOo() {
         return this.member_count;
     }
 
-    public int bHW() {
+    public int bOp() {
         return this.thread_count;
     }
 
@@ -50,7 +50,7 @@ public class k extends f implements com.baidu.tbadk.mvc.b.a {
                 this.mForumId = recommendForumInfo.forum_id.longValue();
                 this.mAvatar = recommendForumInfo.avatar;
                 this.mForumName = recommendForumInfo.forum_name;
-                this.gAk = recommendForumInfo.is_like.intValue() == 1;
+                this.gOU = recommendForumInfo.is_like.intValue() == 1;
                 this.member_count = recommendForumInfo.member_count.intValue();
                 this.thread_count = recommendForumInfo.thread_count.intValue();
                 this.recom_reason = recommendForumInfo.recom_reason;
@@ -60,7 +60,7 @@ public class k extends f implements com.baidu.tbadk.mvc.b.a {
         }
     }
 
-    public String aIv() {
+    public String aOj() {
         return this.recom_reason;
     }
 }

@@ -5,18 +5,18 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.mobstat.Config;
 import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.swan.apps.SwanAppErrorActivity;
-import com.baidu.swan.apps.as.ag;
+import com.baidu.swan.apps.aq.ah;
 import com.baidu.swan.apps.performance.HybridUbcFlow;
 import com.baidu.swan.apps.performance.UbcFlowEvent;
 import com.baidu.swan.apps.process.SwanAppProcessInfo;
-import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
 import com.baidu.swan.apps.runtime.i;
-import com.baidu.swan.apps.x.b.b;
+import com.baidu.swan.apps.v.b.b;
 import com.baidu.swan.pms.model.PMSAppInfo;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.File;
@@ -24,55 +24,79 @@ import java.util.Locale;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes11.dex */
-public final class k extends l {
+public final class k extends m {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private PMSAppInfo bOB;
-    private final e bOS;
-    private boolean cov;
-    private boolean cow;
-    String cox;
+    private PMSAppInfo bXH;
+    private final e bYh;
+    private boolean cAc;
+    private boolean cAd;
+    private boolean cAe;
+    private boolean cAf;
+    private int cAg;
+    private boolean cAh;
+    String cAi;
+    private boolean cAj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(e eVar) {
         super(eVar);
-        this.cov = false;
-        this.cow = false;
-        this.cox = "";
-        this.bOS = eVar;
+        this.cAc = false;
+        this.cAd = false;
+        this.cAe = false;
+        this.cAf = false;
+        this.cAg = -1;
+        this.cAh = false;
+        this.cAi = "";
+        this.cAj = false;
+        this.bYh = eVar;
     }
 
-    public com.baidu.swan.apps.x.b.b alk() {
-        return this.bOS.akP();
+    public com.baidu.swan.apps.v.b.b apf() {
+        return this.bYh.aoJ();
     }
 
-    public synchronized boolean all() {
-        return this.cov;
+    public synchronized boolean apg() {
+        return this.cAc;
     }
 
-    public synchronized boolean alm() {
-        return this.cow;
+    public boolean aph() {
+        return this.cAd;
+    }
+
+    public int aoM() {
+        return this.cAg;
+    }
+
+    public synchronized boolean apj() {
+        return this.cAe;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public synchronized void aln() {
-        if (SwanAppProcessInfo.current().isSwanAppProcess() && this.bOS.cnZ && !all() && !alm()) {
-            this.cov = true;
-            com.baidu.swan.apps.performance.f.lb("startup").f(new UbcFlowEvent("maintain_start").ed(true));
-            if (1 == this.bOS.akP().getAppFrameType()) {
-                alo();
-            } else {
-                exec();
+    public synchronized void apk() {
+        synchronized (this) {
+            if (SwanAppProcessInfo.current().isSwanAppProcess() && this.bYh.czG && !apg() && !apj()) {
+                this.cAc = true;
+                com.baidu.swan.apps.performance.g.mp("startup").f(new UbcFlowEvent("maintain_start").eu(true));
+                boolean z = 1 == this.bYh.aoJ().getAppFrameType();
+                if (z || !com.baidu.swan.apps.core.turbo.d.abl().abr()) {
+                    ns("event_on_still_maintaining");
+                }
+                if (z) {
+                    apl();
+                } else {
+                    exec();
+                }
             }
         }
     }
 
-    private synchronized void alo() {
-        final HybridUbcFlow lb = com.baidu.swan.apps.performance.f.lb("startup");
-        lb.f(new UbcFlowEvent("postExec-onhold").ed(true));
+    private synchronized void apl() {
+        final HybridUbcFlow mp = com.baidu.swan.apps.performance.g.mp("startup");
+        mp.f(new UbcFlowEvent("postExec-onhold").eu(true));
         d.getMainHandler().post(new Runnable() { // from class: com.baidu.swan.apps.runtime.k.1
             @Override // java.lang.Runnable
             public void run() {
-                lb.f(new UbcFlowEvent("postExec-run").ed(true));
+                mp.f(new UbcFlowEvent("postExec-run").eu(true));
                 k.this.exec();
             }
         });
@@ -80,53 +104,61 @@ public final class k extends l {
 
     /* JADX INFO: Access modifiers changed from: private */
     public synchronized void exec() {
-        b.a akP = this.bOS.akP();
-        if (com.baidu.swan.apps.ah.a.a.aiK() || !TextUtils.isEmpty(akP.adP())) {
-            eL(true);
-        } else {
-            this.cox = akP.adT();
-            com.baidu.swan.apps.x.c.a.jY(this.cox).jZ("start");
-            HybridUbcFlow lb = com.baidu.swan.apps.performance.f.lb("startup");
-            lb.p("type", "1");
-            lb.bk("is_updating", String.valueOf(com.baidu.swan.apps.core.a.b.a.UU().UV()));
-            lb.f(new UbcFlowEvent("na_query_db_start"));
-            PMSAppInfo rA = com.baidu.swan.pms.database.a.aBI().rA(getAppId());
-            lb.f(new UbcFlowEvent("na_query_db"));
-            boolean i = com.baidu.swan.apps.x.d.a.i(rA);
-            lb.f(new UbcFlowEvent("has_local_file").ed(true));
-            if (i) {
-                j(rA);
-                k(this.bOB);
-                lb.f(new UbcFlowEvent("update_icon").ed(true));
-            }
-            if (!i && com.baidu.swan.apps.x.d.a.a(this.bOB, akP.getPage())) {
-                alp();
+        boolean z = true;
+        synchronized (this) {
+            this.cAg = 99;
+            b.a aoJ = this.bYh.aoJ();
+            if (com.baidu.swan.apps.af.a.a.amr() || !TextUtils.isEmpty(aoJ.agZ())) {
+                fe(true);
             } else {
-                alq();
+                this.cAi = aoJ.ahd();
+                com.baidu.swan.apps.v.c.a.lk(this.cAi).ll("start");
+                HybridUbcFlow mp = com.baidu.swan.apps.performance.g.mp("startup");
+                mp.r("type", "1");
+                mp.bD("is_updating", String.valueOf(com.baidu.swan.apps.core.a.b.a.XA().XB()));
+                mp.f(new UbcFlowEvent("na_query_db_start"));
+                PMSAppInfo aha = this.bYh.aoJ().aha();
+                if (aha == null || aha.aGi()) {
+                    aha = com.baidu.swan.pms.database.a.aFV().tf(getAppId());
+                }
+                mp.f(new UbcFlowEvent("na_query_db"));
+                this.cAj = com.baidu.swan.apps.v.d.a.j(aha);
+                this.cAf = (aha == null || this.cAj) ? false : false;
+                mp.f(new UbcFlowEvent("has_local_file").eu(true));
+                if (this.cAj) {
+                    k(aha);
+                    l(this.bXH);
+                    mp.f(new UbcFlowEvent("update_icon").eu(true));
+                }
+                if (!this.cAj && com.baidu.swan.apps.v.d.a.a(this.bXH, aoJ.getPage())) {
+                    apm();
+                } else {
+                    apn();
+                }
             }
         }
     }
 
-    private void alp() {
-        HybridUbcFlow lb = com.baidu.swan.apps.performance.f.lb("startup");
-        lb.f(new UbcFlowEvent("updateForIndependentPkgStart").ed(true));
+    private void apm() {
+        HybridUbcFlow mp = com.baidu.swan.apps.performance.g.mp("startup");
+        mp.f(new UbcFlowEvent("updateForIndependentPkgStart").eu(true));
         log("独立分包启动，本地有包--->打开小程序，异步更新主包");
-        com.baidu.swan.apps.x.b.b alk = alk();
-        String bq = bq(String.valueOf(this.bOB.versionCode), alk.getPage());
-        alk.dL(true);
-        alk.jU(bq);
+        com.baidu.swan.apps.v.b.b apf = apf();
+        String bL = bL(String.valueOf(this.bXH.versionCode), apf.getPage());
+        apf.eb(true);
+        apf.lg(bL);
         Bundle bundle = new Bundle();
-        bundle.putInt("pms_update_expect_pkg_ver", this.bOB.versionCode);
-        O(bundle);
-        lb.f(new UbcFlowEvent("updateForIndependentPkgEnd").ed(true));
+        bundle.putInt("pms_update_expect_pkg_ver", this.bXH.versionCode);
+        U(bundle);
+        mp.f(new UbcFlowEvent("updateForIndependentPkgEnd").eu(true));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void O(final Bundle bundle) {
-        HybridUbcFlow lb = com.baidu.swan.apps.performance.f.lb("startup");
-        lb.f(new UbcFlowEvent("updateLocalPkgWithAsyncUpdatePkgStart").ed(true));
+    public void U(final Bundle bundle) {
+        HybridUbcFlow mp = com.baidu.swan.apps.performance.g.mp("startup");
+        mp.f(new UbcFlowEvent("updateLocalPkgWithAsyncUpdatePkgStart").eu(true));
         log("启动本地包，进程预处理-加载本地包-后台异步更新");
-        b((com.baidu.swan.apps.ap.a) null);
+        c((com.baidu.swan.apps.an.a) null);
         d.getMainHandler().post(new Runnable() { // from class: com.baidu.swan.apps.runtime.k.2
             @Override // java.lang.Runnable
             public void run() {
@@ -134,205 +166,255 @@ public final class k extends l {
                 if (bundle != null) {
                     bundle2.putAll(bundle);
                 }
-                bundle2.putInt("appFrameType", k.this.alk().getAppFrameType());
+                bundle2.putInt("appFrameType", k.this.apf().getAppFrameType());
                 bundle2.putString("mAppId", k.this.getAppId());
                 k.log("updateLocalPkgWithAsyncUpdatePkg: swanAsyncUpdate -> 发送异步升级消息");
-                com.baidu.swan.apps.process.messaging.a.aiS().a(new com.baidu.swan.apps.process.messaging.c(17, bundle2).ba(5000L));
+                com.baidu.swan.apps.process.messaging.a.amG().a(new com.baidu.swan.apps.process.messaging.c(17, bundle2).bk(5000L));
             }
         });
-        lb.f(new UbcFlowEvent("updateLocalPkgWithAsyncUpdatePkgEnd").ed(true));
+        mp.f(new UbcFlowEvent("updateLocalPkgWithAsyncUpdatePkgEnd").eu(true));
     }
 
-    private void alq() {
-        HybridUbcFlow lb = com.baidu.swan.apps.performance.f.lb("startup");
-        lb.f(new UbcFlowEvent("updatePkgWithPresetCheckStart").ed(true));
-        log(this.bOB == null ? "数据库或本地无主包信息，尝试加载预置包，并下载主包" : "包信息、文件都存在，尝试加载更高版本的预置包");
-        com.baidu.swan.apps.core.i.c iD = com.baidu.swan.apps.core.i.f.XN().iD(getAppId());
-        int i = this.bOB == null ? -1 : this.bOB.versionCode;
-        int i2 = iD != null ? iD.versionCode : -1;
+    private void apn() {
+        HybridUbcFlow mp = com.baidu.swan.apps.performance.g.mp("startup");
+        mp.f(new UbcFlowEvent("updatePkgWithPresetCheckStart").eu(true));
+        log(this.bXH == null ? "数据库或本地无主包信息，尝试加载预置包，并下载主包" : "包信息、文件都存在，尝试加载更高版本的预置包");
+        com.baidu.swan.apps.core.j.c jJ = com.baidu.swan.apps.core.j.f.aaH().jJ(getAppId());
+        int i = this.bXH == null ? -1 : this.bXH.versionCode;
+        int i2 = jJ != null ? jJ.versionCode : -1;
         boolean z = i2 > i;
         log(String.format(Locale.getDefault(), "尝试加载预制包，命中预制包=%b  currentVersion/presetVersion = %d/%d", Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2)));
         if (!z) {
-            alr();
+            apo();
             return;
         }
-        lb.f(new UbcFlowEvent("updatePkgWithPresetCheckLoadPresetApp").ed(true));
-        com.baidu.swan.apps.core.i.f.XN().a(iD, new com.baidu.swan.apps.core.i.d() { // from class: com.baidu.swan.apps.runtime.k.3
-            @Override // com.baidu.swan.apps.core.i.d
-            public void e(PMSAppInfo pMSAppInfo) {
-                HybridUbcFlow lb2 = com.baidu.swan.apps.performance.f.lb("startup");
-                lb2.f(new UbcFlowEvent("updatePkgWithPresetCheckUpdate").ed(true));
-                k.this.k(pMSAppInfo);
-                lb2.f(new UbcFlowEvent("updatePkgWithPresetCheckUpdateIcon").ed(true));
-            }
-
-            @Override // com.baidu.swan.apps.core.i.d
+        ns("event_on_still_maintaining");
+        mp.f(new UbcFlowEvent("updatePkgWithPresetCheckLoadPresetApp").eu(true));
+        com.baidu.swan.apps.core.j.f.aaH().a(jJ, new com.baidu.swan.apps.core.j.d() { // from class: com.baidu.swan.apps.runtime.k.3
+            @Override // com.baidu.swan.apps.core.j.d
             public void f(PMSAppInfo pMSAppInfo) {
-                HybridUbcFlow lb2 = com.baidu.swan.apps.performance.f.lb("startup");
-                lb2.f(new UbcFlowEvent("updatePkgWithPresetCheck#OnSuccessStart").ed(true));
-                k.log("预制包安装成功");
-                k.a(k.this.alk(), pMSAppInfo, false, true);
-                k.this.j(pMSAppInfo);
-                k.this.O(null);
-                lb2.f(new UbcFlowEvent("updatePkgWithPresetCheck#OnSuccessEnd").ed(true));
+                HybridUbcFlow mp2 = com.baidu.swan.apps.performance.g.mp("startup");
+                mp2.f(new UbcFlowEvent("updatePkgWithPresetCheckUpdate").eu(true));
+                k.this.l(pMSAppInfo);
+                mp2.f(new UbcFlowEvent("updatePkgWithPresetCheckUpdateIcon").eu(true));
             }
 
-            @Override // com.baidu.swan.apps.core.i.d
+            @Override // com.baidu.swan.apps.core.j.d
+            public void g(PMSAppInfo pMSAppInfo) {
+                k.this.cAg = 5;
+                HybridUbcFlow mp2 = com.baidu.swan.apps.performance.g.mp("startup");
+                mp2.f(new UbcFlowEvent("updatePkgWithPresetCheck#OnSuccessStart").eu(true));
+                k.log("预制包安装成功");
+                k.a(k.this.apf(), pMSAppInfo, false, false, true);
+                k.this.k(pMSAppInfo);
+                k.this.U(null);
+                mp2.f(new UbcFlowEvent("updatePkgWithPresetCheck#OnSuccessEnd").eu(true));
+            }
+
+            @Override // com.baidu.swan.apps.core.j.d
             public void onFailed(int i3) {
-                HybridUbcFlow lb2 = com.baidu.swan.apps.performance.f.lb("startup");
-                lb2.f(new UbcFlowEvent("updatePkgWithPresetCheck#OnFailedStart").ed(true));
+                HybridUbcFlow mp2 = com.baidu.swan.apps.performance.g.mp("startup");
+                mp2.f(new UbcFlowEvent("updatePkgWithPresetCheck#OnFailedStart").eu(true));
                 k.log("预制包安装失败");
-                k.this.alr();
-                lb2.f(new UbcFlowEvent("updatePkgWithPresetCheck#OnonFailedEnd").ed(true));
+                k.this.apo();
+                mp2.f(new UbcFlowEvent("updatePkgWithPresetCheck#OnonFailedEnd").eu(true));
             }
         });
-        lb.f(new UbcFlowEvent("updatePkgWithPresetCheckReturn").ed(true));
+        mp.f(new UbcFlowEvent("updatePkgWithPresetCheckReturn").eu(true));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void alr() {
-        final HybridUbcFlow lb = com.baidu.swan.apps.performance.f.lb("startup");
-        lb.f(new UbcFlowEvent("updatePkgOnPresetUnavailableStart").ed(true));
-        com.baidu.swan.apps.x.b.b alk = alk();
+    public void apo() {
+        final HybridUbcFlow mp = com.baidu.swan.apps.performance.g.mp("startup");
+        mp.f(new UbcFlowEvent("updatePkgOnPresetUnavailableStart").eu(true));
+        final com.baidu.swan.apps.v.b.b apf = apf();
         log("预置包不可用");
-        if (!als()) {
+        if (!app()) {
             log("可以直接打开小程序，异步从Server拉取新包");
-            a(alk, this.bOB, false, false);
-            O(null);
+            this.cAg = 4;
+            a(apf, this.bXH, false, false, false);
+            this.cAg = this.cAh ? 3 : 4;
+            U(null);
             return;
         }
         log("不能直接打开小程序，同步从Server拉取新包");
-        a(alk, this.bOB, true, false);
-        com.baidu.swan.pms.c.d.c cVar = new com.baidu.swan.pms.c.d.c(getAppId(), alk.getAppFrameType());
-        cVar.rO("3");
-        cVar.iR(this.bOB != null ? this.bOB.versionCode : 0);
-        cVar.bQ(this.bOB == null ? 0L : this.bOB.appSign);
-        String delAllParamsFromUrl = ag.delAllParamsFromUrl(alk.getPage());
+        a(this.bYh.aoJ().getAppId(), new com.baidu.swan.apps.process.a.b.c.b() { // from class: com.baidu.swan.apps.runtime.k.4
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.swan.apps.process.a.b.c.a
+            public void onEvent(@NonNull com.baidu.swan.apps.process.a.b.a.b bVar) {
+                Bundle result = bVar.getResult();
+                k.a(apf, k.this.bXH, true, result != null ? result.getBoolean("isDownloading", false) : false, false);
+            }
+
+            @Override // com.baidu.swan.apps.process.a.b.c.b, com.baidu.swan.apps.process.a.b.c.a
+            public long getTimeoutMillis() {
+                return 1000L;
+            }
+        });
+        com.baidu.swan.pms.c.d.c cVar = new com.baidu.swan.pms.c.d.c(getAppId(), apf.getAppFrameType());
+        cVar.tt("3");
+        cVar.jh(this.bXH == null ? 0 : this.bXH.versionCode);
+        cVar.bO(this.bXH == null ? 0L : this.bXH.appSign);
+        String delAllParamsFromUrl = ah.delAllParamsFromUrl(apf.getPage());
         if (!TextUtils.isEmpty(delAllParamsFromUrl)) {
             if (delAllParamsFromUrl.startsWith(File.separator)) {
                 delAllParamsFromUrl = delAllParamsFromUrl.substring(1);
             }
-            cVar.rK(delAllParamsFromUrl);
+            cVar.tp(delAllParamsFromUrl);
         }
-        lb.f(new UbcFlowEvent("updatePkgOnPresetUnavailableRequest").ed(true));
-        com.baidu.swan.pms.c.a(cVar, new com.baidu.swan.apps.core.pms.g(this.bOS) { // from class: com.baidu.swan.apps.runtime.k.4
-            @Override // com.baidu.swan.apps.core.pms.g
-            protected void a(com.baidu.swan.apps.ap.a aVar, boolean z) {
-                lb.f(new UbcFlowEvent("updatePkgOnPresetUnavailableRequest#onFinalFailedStart").ed(true));
-                k.log("onFinalFailed");
-                com.baidu.swan.apps.ap.e.aov().f(aVar);
-                if (z) {
-                    k.this.a(aVar);
-                } else {
-                    k.this.eL(false);
-                }
-                lb.f(new UbcFlowEvent("updatePkgOnPresetUnavailableRequest#onFinalFailedEnd").ed(true));
+        mp.f(new UbcFlowEvent("updatePkgOnPresetUnavailableRequest").eu(true));
+        i((i.a) new i.a("event_on_still_maintaining").N(" event_params_pkg_update", this.cAj));
+        com.baidu.swan.pms.c.a(cVar, new com.baidu.swan.apps.core.pms.g(this.bYh) { // from class: com.baidu.swan.apps.runtime.k.7
+            @Override // com.baidu.swan.apps.core.pms.g, com.baidu.swan.apps.core.pms.f, com.baidu.swan.pms.a.g
+            public void a(com.baidu.swan.pms.f.e eVar) {
+                k.log("mFlagDownloading set onPrepareDownload");
+                k.this.cAd = true;
+                super.a(eVar);
             }
 
-            @Override // com.baidu.swan.apps.core.pms.g
-            protected void c(PMSAppInfo pMSAppInfo) {
-                lb.f(new UbcFlowEvent("updatePkgOnPresetUnavailableRequest#onFinalCompleteStart").ed(true));
-                k.log("onFinalComplete");
-                k.this.j(pMSAppInfo);
-                k.this.b((com.baidu.swan.apps.ap.a) null);
-                lb.f(new UbcFlowEvent("updatePkgOnPresetUnavailableRequest#onFinalCompleteEnd").ed(true));
+            @Override // com.baidu.swan.pms.a.g, com.baidu.swan.pms.a.d
+            public void ZK() {
+                k.log("mFlagDownloading reset onTotalPkgDownloadFinish");
+                k.this.cAd = false;
+                super.ZK();
             }
-
-            @Override // com.baidu.swan.apps.core.pms.f
-            public void a(PMSAppInfo pMSAppInfo) {
-                lb.f(new UbcFlowEvent("updatePkgOnPresetUnavailableRequest#onAppInfoReceivedStart").ed(true));
-                k.log("onAppInfoReceived");
-                super.a(pMSAppInfo);
+        }.b(new com.baidu.swan.apps.aq.e.b<PMSAppInfo>() { // from class: com.baidu.swan.apps.runtime.k.6
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.swan.apps.aq.e.b
+            /* renamed from: n */
+            public void H(PMSAppInfo pMSAppInfo) {
+                mp.f(new UbcFlowEvent("updatePkgOnPresetUnavailableRequest#onAppInfoReceivedStart").eu(true));
+                k.log("onAppInfoReceived appInfo=" + pMSAppInfo);
                 k.this.k(pMSAppInfo);
-                lb.f(new UbcFlowEvent("updatePkgOnPresetUnavailableRequest#onAppInfoReceivedEnd").ed(true));
+                mp.f(new UbcFlowEvent("updatePkgOnPresetUnavailableRequest#onAppInfoReceivedEnd").eu(true));
             }
-        });
-        lb.f(new UbcFlowEvent("updatePkgOnPresetUnavailableReturn").ed(true));
-    }
+        }).a(new com.baidu.swan.apps.core.pms.a.a() { // from class: com.baidu.swan.apps.runtime.k.5
+            @Override // com.baidu.swan.apps.core.pms.a.a
+            public void b(com.baidu.swan.apps.an.a aVar, boolean z) {
+                k.log("mFlagDownloading reset onFinalFailed");
+                k.this.cAd = false;
+                mp.f(new UbcFlowEvent("updatePkgOnPresetUnavailableRequest#onFinalFailedStart").eu(true));
+                k.log("onFinalFailed");
+                com.baidu.swan.apps.an.e.asQ().g(aVar);
+                if (z) {
+                    k.this.cAg = k.this.cAh ? 3 : 4;
+                    k.this.b(aVar);
+                } else {
+                    if (aVar != null && aVar.asI() == 1020) {
+                        k.this.e(aVar);
+                    }
+                    k.this.fe(false);
+                }
+                mp.f(new UbcFlowEvent("updatePkgOnPresetUnavailableRequest#onFinalFailedEnd").eu(true));
+            }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void j(PMSAppInfo pMSAppInfo) {
-        this.bOB = pMSAppInfo;
-        this.bOS.akP().h(pMSAppInfo);
+            @Override // com.baidu.swan.apps.core.pms.a.a
+            public void d(PMSAppInfo pMSAppInfo) {
+                k.log("mFlagDownloading reset onFinalComplete");
+                k.this.cAd = false;
+                k.this.cAg = k.this.cAf ? 2 : 0;
+                k.this.cAg = k.this.cAh ? 1 : k.this.cAg;
+                mp.f(new UbcFlowEvent("updatePkgOnPresetUnavailableRequest#onFinalCompleteStart").eu(true));
+                k.log("onFinalComplete");
+                k.this.k(pMSAppInfo);
+                k.this.c((com.baidu.swan.apps.an.a) null);
+                mp.f(new UbcFlowEvent("updatePkgOnPresetUnavailableRequest#onFinalCompleteEnd").eu(true));
+            }
+        }));
+        mp.f(new UbcFlowEvent("updatePkgOnPresetUnavailableReturn").eu(true));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void k(PMSAppInfo pMSAppInfo) {
+        this.bXH = pMSAppInfo;
+        this.bYh.aoJ().i(pMSAppInfo);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void l(PMSAppInfo pMSAppInfo) {
         if (pMSAppInfo != null) {
-            i.a aVar = (i.a) ((i.a) new i.a("event_on_app_icon_update").bb("mAppId", getAppId())).I("appFrameType", pMSAppInfo.appCategory);
+            i.a aVar = (i.a) ((i.a) new i.a("event_on_app_icon_update").bs("mAppId", getAppId())).M("appFrameType", pMSAppInfo.appCategory);
             log("dispatchPmsInfo appCategory=" + pMSAppInfo.appCategory);
             if (!TextUtils.isEmpty(pMSAppInfo.appName)) {
                 log("dispatchPmsInfo appName=" + pMSAppInfo.appName);
-                aVar.bb("app_name", pMSAppInfo.appName);
+                aVar.bs("app_name", pMSAppInfo.appName);
             }
             if (pMSAppInfo.versionCode > -1) {
                 log("dispatchPmsInfo versionCode=" + pMSAppInfo.versionCode);
-                aVar.I(Constants.EXTRA_KEY_APP_VERSION_CODE, pMSAppInfo.versionCode);
+                aVar.M(Constants.EXTRA_KEY_APP_VERSION_CODE, pMSAppInfo.versionCode);
             }
             if (!TextUtils.isEmpty(pMSAppInfo.iconUrl)) {
                 log("dispatchPmsInfo iconUrl=" + pMSAppInfo.iconUrl);
-                aVar.bb("app_icon_url", pMSAppInfo.iconUrl);
+                aVar.bs("app_icon_url", pMSAppInfo.iconUrl);
             }
-            aVar.B("event_flag_force_post", true);
-            d(aVar);
+            aVar.N("event_flag_force_post", true);
+            i(aVar);
         }
     }
 
-    private boolean als() {
-        HybridUbcFlow lb = com.baidu.swan.apps.performance.f.lb("startup");
-        if (this.bOB == null) {
+    private boolean app() {
+        HybridUbcFlow mp = com.baidu.swan.apps.performance.g.mp("startup");
+        if (this.bXH == null) {
             if (DEBUG) {
                 Log.i("SwanPkgMaintainer", "AppInfo 为空，走Server同步下载");
             }
-            lb.bk("launch_state", String.valueOf(0));
+            mp.bD("launch_state", String.valueOf(0));
             return true;
-        } else if (this.bOB.appStatus != 0) {
+        } else if (this.bXH.appStatus != 0) {
             if (DEBUG) {
                 Log.i("SwanPkgMaintainer", "有错误code，走Server同步下载");
             }
-            lb.bk("launch_state", String.valueOf(2));
+            this.cAf = true;
+            mp.bD("launch_state", String.valueOf(2));
             return true;
-        } else if (this.bOB.aBU()) {
+        } else if (this.bXH.aGh()) {
             if (DEBUG) {
                 Log.i("SwanPkgMaintainer", "有悬而未决的的errCode要处理，走Server同步下载");
             }
-            lb.bk("launch_state", String.valueOf(2));
+            this.cAf = true;
+            mp.bD("launch_state", String.valueOf(2));
             return true;
-        } else if (this.bOB.ark()) {
-            if (com.baidu.swan.apps.core.a.b.a.UU().ic(getAppId())) {
+        } else if (this.bXH.aGi()) {
+            if (com.baidu.swan.apps.core.a.b.a.XA().jd(getAppId())) {
                 if (DEBUG) {
                     Log.i("SwanPkgMaintainer", "MaxAge已过期，但5小时内已通过SilentUpdateManager检测无新包，id =" + getAppId());
                 }
-                lb.bk("launch_state", String.valueOf(3));
+                mp.bD("launch_state", String.valueOf(3));
                 return false;
             }
             if (DEBUG) {
                 Log.i("SwanPkgMaintainer", "本地包已过期");
             }
-            lb.bk("launch_state", String.valueOf(1));
+            mp.bD("launch_state", String.valueOf(1));
+            this.cAh = true;
             return true;
         } else {
-            lb.bk("launch_state", String.valueOf(4));
+            mp.bD("launch_state", String.valueOf(4));
             return false;
         }
     }
 
-    public static void a(com.baidu.swan.apps.x.b.e eVar, PMSAppInfo pMSAppInfo, boolean z, boolean z2) {
-        eVar.adG().putString("aiapp_extra_need_download", z ? "1" : "0");
-        eVar.adG().putString("aiapp_extra_preset_pkg", z2 ? "1" : "0");
+    public static void a(com.baidu.swan.apps.v.b.e eVar, PMSAppInfo pMSAppInfo, boolean z, boolean z2, boolean z3) {
+        if (DEBUG) {
+            Log.d("SwanPkgMaintainer", "SwanPkgMaintainer#launchStatistic");
+        }
+        eVar.agQ().putString("aiapp_extra_need_download", z ? "1" : "0");
+        eVar.agQ().putString("aiapp_extra_preset_pkg", z3 ? "1" : "0");
+        eVar.agQ().putString("aiapp_extra_pkg_downloading", z2 ? "1" : "0");
         com.baidu.swan.apps.statistic.a.f fVar = new com.baidu.swan.apps.statistic.a.f();
-        fVar.mFrom = com.baidu.swan.apps.statistic.f.gz(eVar.getAppFrameType());
+        fVar.mFrom = com.baidu.swan.apps.statistic.h.gS(eVar.getAppFrameType());
         fVar.d(eVar);
         fVar.mType = Config.LAUNCH;
-        fVar.cuA = z ? "1" : "0";
-        fVar.cuB = z2 ? "1" : "0";
+        fVar.cGz = z ? "1" : "0";
+        fVar.cGB = z3 ? "1" : "0";
+        fVar.cGA = z2 ? "1" : "0";
         if (pMSAppInfo != null) {
             fVar.mAppVersion = String.valueOf(pMSAppInfo.versionCode);
         }
-        JSONObject mU = com.baidu.swan.apps.statistic.f.mU(eVar.adC());
-        fVar.nd(eVar.adG().getString("ubc"));
-        fVar.bl(mU);
-        com.baidu.swan.apps.statistic.f.onEvent(fVar);
+        JSONObject ox = com.baidu.swan.apps.statistic.h.ox(eVar.agM());
+        fVar.oG(eVar.agQ().getString("ubc"));
+        fVar.bu(ox);
+        com.baidu.swan.apps.statistic.h.onEvent(fVar);
     }
 
     public static void log(String str) {
@@ -341,51 +423,54 @@ public final class k extends l {
         }
     }
 
-    private String bq(String str, String str2) {
+    private String bL(String str, String str2) {
         if (TextUtils.isEmpty(str2)) {
             return null;
         }
-        String oe = ag.oe(str2);
-        String str3 = oe;
-        int lastIndexOf = oe.lastIndexOf(File.separator);
+        String pN = ah.pN(str2);
+        String str3 = pN;
+        int lastIndexOf = pN.lastIndexOf(File.separator);
         while (lastIndexOf != -1) {
             str3 = str3.substring(0, lastIndexOf);
-            if (!com.baidu.swan.apps.t.e.A(getAppId(), str, str3)) {
+            if (!com.baidu.swan.apps.r.e.D(getAppId(), str, str3)) {
                 lastIndexOf = str3.lastIndexOf(File.separator);
             } else {
                 return str3;
             }
         }
-        return !com.baidu.swan.apps.t.e.A(getAppId(), str, str3) ? "" : str3;
+        return !com.baidu.swan.apps.r.e.D(getAppId(), str, str3) ? "" : str3;
     }
 
-    private void alt() {
-        if (this.bOB != null) {
+    private void apq() {
+        if (this.bXH != null) {
             Context context = getContext();
             Intent intent = new Intent();
-            intent.putExtra("pms_db_info_onload", this.bOB);
+            intent.putExtra("pms_db_info_onload", this.bXH);
             intent.setComponent(new ComponentName(context, SwanAppErrorActivity.class));
             if (!(context instanceof Activity)) {
                 intent.addFlags(268435456);
             }
             context.startActivity(intent);
             com.baidu.swan.apps.statistic.a.f fVar = new com.baidu.swan.apps.statistic.a.f();
-            com.baidu.swan.apps.x.b.b alk = alk();
-            fVar.mFrom = com.baidu.swan.apps.statistic.f.gz(alk.getAppFrameType());
+            com.baidu.swan.apps.v.b.b apf = apf();
+            fVar.mFrom = com.baidu.swan.apps.statistic.h.gS(apf.getAppFrameType());
             fVar.mType = Config.LAUNCH;
             fVar.mValue = "success";
-            fVar.c(alk);
-            fVar.s("status", "2");
-            fVar.nd(alk.adG().getString("ubc"));
-            com.baidu.swan.apps.statistic.f.onEvent(fVar);
+            fVar.c(apf);
+            fVar.v("status", "2");
+            fVar.oG(apf.agQ().getString("ubc"));
+            com.baidu.swan.apps.statistic.h.onEvent(fVar);
         }
     }
 
-    private int l(PMSAppInfo pMSAppInfo) {
-        if (pMSAppInfo == null || TextUtils.isEmpty(pMSAppInfo.appId)) {
+    private int m(@NonNull PMSAppInfo pMSAppInfo) {
+        if (pMSAppInfo.appStatus != 0) {
+            return pMSAppInfo.appStatus;
+        }
+        if (TextUtils.isEmpty(pMSAppInfo.appId)) {
             return 1;
         }
-        int appFrameType = alk().getAppFrameType();
+        int appFrameType = apf().getAppFrameType();
         int i = pMSAppInfo.appCategory;
         if (i <= -1 && appFrameType != i) {
             return 2;
@@ -393,103 +478,97 @@ public final class k extends l {
         return 0;
     }
 
-    private com.baidu.swan.apps.ap.a gs(int i) {
-        com.baidu.swan.apps.ap.a aVar = new com.baidu.swan.apps.ap.a();
+    private com.baidu.swan.apps.an.a gJ(int i) {
+        com.baidu.swan.apps.an.a aVar = new com.baidu.swan.apps.an.a();
         switch (i) {
             case 1:
-                aVar.bn(10L).bo(2902L).nL("no aiapps info in database");
+                aVar.bw(10L).bx(2902L).pt("no aiapps info in database");
                 break;
             case 2:
-                aVar.bn(10L).bo(27L).nL("category not match");
+                aVar.bw(10L).bx(27L).pt("category not match");
                 break;
         }
         return aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(com.baidu.swan.apps.ap.a aVar) {
-        if (b(aVar)) {
-            com.baidu.swan.apps.statistic.f.b(new com.baidu.swan.apps.statistic.a.d().e(aVar).a(alk()));
+    public void b(com.baidu.swan.apps.an.a aVar) {
+        if (c(aVar)) {
+            com.baidu.swan.apps.statistic.h.b(new com.baidu.swan.apps.statistic.a.d().f(aVar).a(apf()));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean b(com.baidu.swan.apps.ap.a aVar) {
-        HybridUbcFlow lb = com.baidu.swan.apps.performance.f.lb("startup");
-        lb.f(new UbcFlowEvent("updateInstalledPkgWithFinalCheckStart").ed(true));
-        if (!c(aVar)) {
+    public boolean c(com.baidu.swan.apps.an.a aVar) {
+        HybridUbcFlow mp = com.baidu.swan.apps.performance.g.mp("startup");
+        mp.f(new UbcFlowEvent("updateInstalledPkgWithFinalCheckStart").eu(true));
+        if (!d(aVar)) {
             log("updateInstalledPkgWithFinalCheck by null launchParams");
-            eL(false);
+            fe(false);
             return false;
         }
-        lb.f(new UbcFlowEvent("updateInfoWithFinalCheckOk").ed(true));
-        b.a akP = this.bOS.akP();
-        long nB = com.baidu.swan.apps.swancore.b.nB(akP.adL());
-        long j = akP.YH() != null ? akP.YH().swanCoreVersion : 0L;
+        mp.f(new UbcFlowEvent("updateInfoWithFinalCheckOk").eu(true));
+        b.a aoJ = this.bYh.aoJ();
+        long pi = com.baidu.swan.apps.swancore.b.pi(aoJ.agV());
+        long j = aoJ.abG() != null ? aoJ.abG().swanCoreVersion : 0L;
         if (DEBUG) {
-            Log.d("SwanPkgMaintainer", "SwanCoreVersion target string version: " + akP.adL() + " targetSwanVersion: " + nB + " ,curSwanVersion: " + j);
+            Log.d("SwanPkgMaintainer", "SwanCoreVersion target string version: " + aoJ.agV() + " targetSwanVersion: " + pi + " ,curSwanVersion: " + j);
         }
-        if (nB > j) {
-            com.baidu.swan.apps.swancore.b.gE(akP.getAppFrameType());
+        if (pi > j) {
+            com.baidu.swan.apps.swancore.b.gY(aoJ.getAppFrameType());
         }
-        akP.ba("extra_data_uid_key", com.baidu.swan.apps.w.a.abS().aR(getContext()));
-        com.baidu.swan.apps.performance.f.lb("startup").bk("launch_type", String.valueOf(com.baidu.swan.apps.ar.a.aoA()));
-        if (akP.getAppFrameType() == 0) {
-            alu();
+        aoJ.br("extra_data_uid_key", com.baidu.swan.apps.u.a.aeW().bb(getContext()));
+        com.baidu.swan.apps.performance.g.mp("startup").bD("launch_type", String.valueOf(com.baidu.swan.apps.ap.a.asV()));
+        if (aoJ.getAppFrameType() == 0) {
+            apr();
         }
-        lb.f(new UbcFlowEvent("updateInstalledPkgWithFinalCheckEnd").ed(true));
-        eL(true);
-        com.baidu.swan.apps.env.c Zv = com.baidu.swan.apps.env.e.Zu().Zv();
-        if (Zv != null && Zv.Zp()) {
-            Zv.iU(getAppId());
+        mp.f(new UbcFlowEvent("updateInstalledPkgWithFinalCheckEnd").eu(true));
+        fe(true);
+        com.baidu.swan.apps.env.c acw = com.baidu.swan.apps.env.e.acv().acw();
+        if (acw != null && acw.acq()) {
+            acw.kb(getAppId());
         }
         return true;
     }
 
-    private void alu() {
-        b.a akP = this.bOS.akP();
-        File a = com.baidu.swan.apps.t.e.a(getAppId(), akP.getVersion(), akP.adU(), akP.adV(), null);
-        if (a.exists()) {
-            String p = com.baidu.swan.apps.t.e.p(new File(a, "app.json"));
-            if (DEBUG && !TextUtils.isEmpty(p)) {
-                Log.i("SwanPkgMaintainer", "pre handle configData : " + p);
-            }
-            SwanAppConfigData k = SwanAppConfigData.k(p, a);
-            if (k != null) {
-                d.akJ().akG().c(k);
-            }
-            com.baidu.swan.apps.ag.b.b.a(k, true);
-            com.baidu.swan.apps.ag.g.b.b(k);
-        }
+    private void apr() {
+        com.baidu.swan.apps.r.e.d(this.bYh);
     }
 
-    private boolean c(com.baidu.swan.apps.ap.a aVar) {
-        com.baidu.swan.apps.performance.f.lb("startup").f(new UbcFlowEvent("updateInfoWithFinalCheckStart").ed(true));
-        if (this.bOB == null) {
+    private boolean d(com.baidu.swan.apps.an.a aVar) {
+        com.baidu.swan.apps.performance.g.mp("startup").f(new UbcFlowEvent("updateInfoWithFinalCheckStart").eu(true));
+        log("updateInfoWithFinalCheck: mAppInfo=" + this.bXH);
+        if (this.bXH == null) {
             if (aVar == null) {
-                aVar = new com.baidu.swan.apps.ap.a().bn(10L).bo(2902L).nL("no pkg was installed");
+                aVar = new com.baidu.swan.apps.an.a().bw(10L).bx(2902L).pt("no pkg was installed");
             }
-            com.baidu.swan.apps.ap.e.aov().f(aVar);
-            d(aVar);
+            com.baidu.swan.apps.an.e.asQ().g(aVar);
+            e(aVar);
+            com.baidu.swan.apps.performance.g.a(aVar);
             return false;
         }
-        int l = l(this.bOB);
-        if (l != 0) {
-            com.baidu.swan.apps.ap.a gs = gs(l);
-            com.baidu.swan.apps.ap.e.aov().f(gs);
-            d(gs);
+        int m = m(this.bXH);
+        if (m == 1 || m == 2) {
+            com.baidu.swan.apps.an.a gJ = gJ(m);
+            com.baidu.swan.apps.an.e.asQ().g(gJ);
+            e(gJ);
+            com.baidu.swan.apps.performance.g.a(gJ);
             return false;
         }
-        alv();
-        if (this.bOB.appStatus != 0) {
-            com.baidu.swan.apps.ap.e.aov().f(gs(l));
-            alt();
+        aps();
+        if (m != 0) {
+            com.baidu.swan.apps.an.a gJ2 = gJ(m);
+            com.baidu.swan.apps.an.e.asQ().g(gJ2);
+            apq();
+            com.baidu.swan.apps.performance.g.a(gJ2);
             return false;
         }
         return true;
     }
 
-    private void d(com.baidu.swan.apps.ap.a aVar) {
+    /* JADX INFO: Access modifiers changed from: private */
+    public void e(com.baidu.swan.apps.an.a aVar) {
+        com.baidu.swan.apps.performance.g.a(aVar);
         Context context = getContext();
         if ((context instanceof SwanAppActivity) && ((SwanAppActivity) context).isDestroyed()) {
             if (DEBUG) {
@@ -498,51 +577,87 @@ public final class k extends l {
             }
             return;
         }
-        com.baidu.swan.apps.x.b.b alk = alk();
-        int appFrameType = alk.getAppFrameType();
-        com.baidu.swan.apps.x.a.a.a(com.baidu.swan.apps.w.a.abN(), aVar, appFrameType, getAppId(), true);
+        com.baidu.swan.apps.v.b.b apf = apf();
+        int appFrameType = apf.getAppFrameType();
+        com.baidu.swan.apps.v.a.a.a(com.baidu.swan.apps.u.a.aeR(), aVar, appFrameType, getAppId(), true);
         com.baidu.swan.apps.statistic.a.f fVar = new com.baidu.swan.apps.statistic.a.f();
-        fVar.mFrom = com.baidu.swan.apps.statistic.f.gz(appFrameType);
+        fVar.mFrom = com.baidu.swan.apps.statistic.h.gS(appFrameType);
         fVar.mType = Config.LAUNCH;
         fVar.mValue = "fail";
-        fVar.s("errcode", String.valueOf(aVar.aor()));
-        fVar.s("msg", aVar.aoq().toString());
-        fVar.d(alk);
-        fVar.nd(alk.adG().getString("ubc"));
-        fVar.bl(com.baidu.swan.apps.statistic.f.mU(alk.adC()));
-        com.baidu.swan.apps.statistic.f.onEvent(fVar);
-        if (!aVar.aos()) {
-            com.baidu.swan.apps.statistic.f.b(new com.baidu.swan.apps.statistic.a.d().mZ(com.baidu.swan.apps.statistic.f.gz(appFrameType)).e(aVar).na(getAppId()).nb(alk.adA()));
-            aVar.aot();
+        fVar.v("errcode", String.valueOf(aVar.asM()));
+        fVar.v("msg", aVar.asL().toString());
+        fVar.d(apf);
+        fVar.oG(apf.agQ().getString("ubc"));
+        fVar.bu(com.baidu.swan.apps.statistic.h.ox(apf.agM()));
+        com.baidu.swan.apps.statistic.h.onEvent(fVar);
+        if (!aVar.asN()) {
+            com.baidu.swan.apps.statistic.h.b(new com.baidu.swan.apps.statistic.a.d().oC(com.baidu.swan.apps.statistic.h.gS(appFrameType)).f(aVar).oD(getAppId()).oE(apf.agK()));
+            aVar.asO();
         }
     }
 
-    private void alv() {
+    private void aps() {
         int i = 1;
-        b.a akP = akG().akP();
-        boolean z = (this.bOB == null || TextUtils.isEmpty(this.bOB.appId) || !TextUtils.equals(getAppId(), this.bOB.appId)) ? false : true;
+        b.a aoJ = aox().aoJ();
+        boolean z = (this.bXH == null || TextUtils.isEmpty(this.bXH.appId) || !TextUtils.equals(getAppId(), this.bXH.appId)) ? false : true;
         if (z) {
-            akP.g(this.bOB);
+            aoJ.h(this.bXH);
         }
-        if (!z || this.bOB.appCategory != 1) {
+        if (!z || this.bXH.appCategory != 1) {
             i = 0;
         }
-        akP.fo(i);
+        aoJ.fB(i);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void eL(boolean z) {
-        this.cov = false;
-        this.cow = z;
-        this.bOB = null;
+    public synchronized void fe(boolean z) {
+        this.cAc = false;
+        this.cAe = z;
+        this.bXH = null;
         log("notifyMaintainFinish: " + z);
-        d((i.a) new i.a("event_on_pkg_maintain_finish").bb("mAppId", this.bOS.id));
-        com.baidu.swan.apps.x.c.a.jY(this.cox).aeb();
-        this.cox = "";
+        i((i.a) new i.a("event_on_pkg_maintain_finish").bs("mAppId", this.bYh.id));
+        com.baidu.swan.apps.v.c.a.lk(this.cAi).ahl();
+        this.cAi = "";
     }
 
     private Context getContext() {
-        SwanAppActivity akI = this.bOS.akI();
-        return (akI == null || akI.isDestroyed()) ? com.baidu.swan.apps.w.a.abN() : akI;
+        SwanAppActivity aoz = this.bYh.aoz();
+        return (aoz == null || aoz.isDestroyed()) ? com.baidu.swan.apps.u.a.aeR() : aoz;
+    }
+
+    private void a(@NonNull String str, @NonNull com.baidu.swan.apps.process.a.b.c.b bVar) {
+        com.baidu.swan.apps.process.messaging.client.a amQ = com.baidu.swan.apps.process.messaging.client.a.amQ();
+        if (amQ == null) {
+            com.baidu.swan.apps.process.a.b.a.b bVar2 = new com.baidu.swan.apps.process.a.b.a.b(bVar.amw());
+            Bundle bundle = new Bundle();
+            bundle.putBoolean("isDownloading", false);
+            bVar2.m(bundle);
+            bVar.onEvent(bVar2);
+            return;
+        }
+        Bundle bundle2 = new Bundle();
+        bundle2.putString("appId", str);
+        amQ.b(bundle2, a.class, bVar);
+    }
+
+    /* loaded from: classes11.dex */
+    public static class a extends com.baidu.swan.apps.process.a.a.a {
+        @Override // com.baidu.swan.apps.process.a.a.a
+        public void A(@NonNull Bundle bundle) {
+            boolean z = false;
+            String string = bundle.getString("appId");
+            if (TextUtils.isEmpty(string)) {
+                this.ctk.putBoolean("isDownloading", false);
+                finish();
+                return;
+            }
+            boolean td = com.baidu.swan.pms.c.td(string);
+            boolean te = com.baidu.swan.pms.c.te(string);
+            if (DEBUG) {
+                Log.d("MDelegate-Delegation", "isDownloading: " + td + ", isInQueue: " + te);
+            }
+            this.ctk.putBoolean("isDownloading", (td || te) ? true : true);
+            finish();
+        }
     }
 }

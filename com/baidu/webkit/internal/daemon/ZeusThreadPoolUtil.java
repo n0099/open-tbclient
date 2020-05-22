@@ -10,14 +10,14 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 /* loaded from: classes11.dex */
 public class ZeusThreadPoolUtil implements INoProGuard {
+    private static final int CPU_COUNT = Runtime.getRuntime().availableProcessors();
     private static final String LOG_TAG = "ZeusThreadPoolUtil";
     private static final int THREAD_POOL_KEEP_ALIVE_TIME = 60;
     private static final int THREAD_POOL_MAX = 4;
     private static final int THREAD_POOL_MIN = 2;
     private static ThreadPoolExecutor mExecutor;
     private static Queue<Runnable> mLazyRunQueue;
-    private static final int CPU_COUNT = Runtime.getRuntime().availableProcessors();
-    private static volatile boolean sIsZeusLoaded = false;
+    private static volatile boolean sIsZeusLoaded;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes11.dex */

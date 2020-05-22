@@ -99,9 +99,9 @@ public final class i {
         WifiInfo connectionInfo = wifiManager.getConnectionInfo();
         if (connectionInfo != null && Config.DEF_MAC_ID.equals(connectionInfo.getMacAddress())) {
             try {
-                String dlk = dlk();
-                if (dlk != null) {
-                    encode = com.baidu.ubs.analytics.d.f.encode(dlk);
+                String dsz = dsz();
+                if (dsz != null) {
+                    encode = com.baidu.ubs.analytics.d.f.encode(dsz);
                 } else {
                     encode = com.baidu.ubs.analytics.d.f.encode(a(wifiManager));
                 }
@@ -117,7 +117,7 @@ public final class i {
         }
     }
 
-    private static String dlk() {
+    private static String dsz() {
         try {
             for (NetworkInterface networkInterface : Collections.list(NetworkInterface.getNetworkInterfaces())) {
                 if (networkInterface.getName().equalsIgnoreCase("wlan0")) {
@@ -211,26 +211,26 @@ public final class i {
 
     public static String y() {
         if (TextUtils.isEmpty(z)) {
-            X(com.baidu.ubs.analytics.d.dkU().getContext());
+            ab(com.baidu.ubs.analytics.d.dsk().getContext());
         }
         return z;
     }
 
     public static String z() {
         if (TextUtils.isEmpty(A)) {
-            X(com.baidu.ubs.analytics.d.dkU().getContext());
+            ab(com.baidu.ubs.analytics.d.dsk().getContext());
         }
         return A;
     }
 
     public static String A() {
         if (TextUtils.isEmpty(B)) {
-            X(com.baidu.ubs.analytics.d.dkU().getContext());
+            ab(com.baidu.ubs.analytics.d.dsk().getContext());
         }
         return B;
     }
 
-    private static void X(Context context) {
+    private static void ab(Context context) {
         DisplayMetrics displayMetrics = new DisplayMetrics();
         ((WindowManager) context.getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
         z = String.valueOf(displayMetrics.widthPixels);

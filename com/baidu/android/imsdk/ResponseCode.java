@@ -16,6 +16,16 @@ public interface ResponseCode {
     public static final int INTERNAL_ERROR = 1003;
     public static final int JSON_PARSE_EXCEPTION = 1010;
     public static final int LCP_STATE_CONNECTING = 8010;
+    public static final int MCASAT_SEND_MSG_BLOCKLIST = 22;
+    public static final int MCASAT_SEND_MSG_COLSE_ROOM = 1314;
+    public static final int MCASAT_SEND_MSG_CONFILTER = 1203;
+    public static final int MCASAT_SEND_MSG_FORBIDDEN = 24;
+    public static final int MCASAT_SEND_MSG_FULL_ROOM = 1316;
+    public static final int MCASAT_SEND_MSG_HIT_TIEBA = 1207;
+    public static final int MCASAT_SEND_MSG_INTERNA = 1;
+    public static final int MCASAT_SEND_MSG_LAWBREAKING = 1204;
+    public static final int MCASAT_SEND_MSG_MSGSTORE = 1000;
+    public static final int MCASAT_SEND_MSG_NO_ROOM = 1306;
     public static final int MENU_EXPIRED = 54002;
     public static final int MENU_FORBIDED = 54003;
     public static final int MENU_ILLEGAL = 54001;

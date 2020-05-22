@@ -7,6 +7,8 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 /* loaded from: classes13.dex */
 public class TbAdvertStatic {
+    public static String Tag = "tag";
+
     static {
         CustomMessageTask customMessageTask = new CustomMessageTask(2921390, new CustomMessageTask.CustomRunnable<Context>() { // from class: com.baidu.tieba.tbadvert.TbAdvertStatic.1
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable

@@ -29,7 +29,7 @@ import tv.chushou.zues.utils.g;
 @h
 /* loaded from: classes5.dex */
 public final class BaiduAuthActivity extends BaseActivity {
-    public static final a mDM = new a(null);
+    public static final a mXN = new a(null);
     private HashMap b;
 
     public View b(int i) {
@@ -64,7 +64,7 @@ public final class BaiduAuthActivity extends BaseActivity {
             hashMap.put("client_id", "43vLB6EGs9V4tVNugF3OdqjS");
             hashMap.put(WBConstants.AUTH_PARAMS_REDIRECT_URL, "cstvsdk://baiduauth");
             hashMap.put("changeAcc", 3);
-            Http http = (Http) tv.chushou.basis.d.b.dJs().S(Http.class);
+            Http http = (Http) tv.chushou.basis.d.b.dRm().S(Http.class);
             if (http == null || (packParams = http.packParams("https://openapi.baidu.com/oauth/2.0/authorize", hashMap)) == null) {
                 return "https://openapi.baidu.com/oauth/2.0/authorize";
             }
@@ -127,7 +127,7 @@ public final class BaiduAuthActivity extends BaseActivity {
                 z = true;
             }
             if (z) {
-                g.JO(a.i.cs_baidu_auth_failed);
+                g.Kz(a.i.cs_baidu_auth_failed);
             } else {
                 LoginManager.Instance().baiduLogin(a);
                 BaiduAuthActivity.this.finish();
@@ -147,8 +147,8 @@ public final class BaiduAuthActivity extends BaseActivity {
                 tag = null;
             }
             String str2 = (String) tag;
-            if (tv.chushou.zues.utils.a.dJP()) {
-                if (str2 != null && q.k(str2, BdStatsConstant.StatsType.ERROR)) {
+            if (tv.chushou.zues.utils.a.dRJ()) {
+                if (str2 != null && q.l((Object) str2, (Object) BdStatsConstant.StatsType.ERROR)) {
                     BaiduAuthActivity.this.a_(4);
                     return;
                 } else {
@@ -235,7 +235,7 @@ public final class BaiduAuthActivity extends BaseActivity {
             case 1:
                 EmptyLoadingView emptyLoadingView = (EmptyLoadingView) b(a.f.emptyView);
                 if (emptyLoadingView != null) {
-                    emptyLoadingView.IA(1);
+                    emptyLoadingView.Jl(1);
                 }
                 SimpleWebview simpleWebview = (SimpleWebview) b(a.f.webView);
                 if (simpleWebview != null) {
@@ -246,7 +246,7 @@ public final class BaiduAuthActivity extends BaseActivity {
             case 2:
                 EmptyLoadingView emptyLoadingView2 = (EmptyLoadingView) b(a.f.emptyView);
                 if (emptyLoadingView2 != null) {
-                    emptyLoadingView2.IA(2);
+                    emptyLoadingView2.Jl(2);
                 }
                 SimpleWebview simpleWebview2 = (SimpleWebview) b(a.f.webView);
                 if (simpleWebview2 != null) {
@@ -259,7 +259,7 @@ public final class BaiduAuthActivity extends BaseActivity {
             case 6:
                 EmptyLoadingView emptyLoadingView3 = (EmptyLoadingView) b(a.f.emptyView);
                 if (emptyLoadingView3 != null) {
-                    emptyLoadingView3.IA(i);
+                    emptyLoadingView3.Jl(i);
                 }
                 SimpleWebview simpleWebview3 = (SimpleWebview) b(a.f.webView);
                 if (simpleWebview3 != null) {
@@ -279,16 +279,16 @@ public final class BaiduAuthActivity extends BaseActivity {
         if (simpleWebview != null) {
             simpleWebview.setTag(null);
         }
-        String a2 = mDM.a();
+        String a2 = mXN.a();
         e.d(this.v, a2);
         ((SimpleWebview) b(a.f.webView)).loadUrl(a2);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public final String a(String str) {
-        Uri OI = i.OI(str);
-        if (OI != null) {
-            return OI.getQueryParameter("code");
+        Uri Qw = i.Qw(str);
+        if (Qw != null) {
+            return Qw.getQueryParameter("code");
         }
         return null;
     }

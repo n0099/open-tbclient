@@ -19,8 +19,8 @@ public class c extends LinearLayout implements View.OnClickListener {
     private TextView e;
     private boolean f;
     private int g;
-    private FrescoThumbnailView mzP;
-    private FrescoThumbnailView mzU;
+    private FrescoThumbnailView mTS;
+    private FrescoThumbnailView mTX;
 
     public c(Context context) {
         super(context);
@@ -32,12 +32,12 @@ public class c extends LinearLayout implements View.OnClickListener {
     private void a(Context context) {
         this.a = context;
         LayoutInflater.from(context).inflate(a.h.view_lucky_draw_notifier, (ViewGroup) this, true);
-        this.mzU = (FrescoThumbnailView) findViewById(a.f.iv_lucky_draw_icon);
-        this.mzU.setAnim(true);
-        this.mzP = (FrescoThumbnailView) findViewById(a.f.iv_lucky_draw_text_bg);
+        this.mTX = (FrescoThumbnailView) findViewById(a.f.iv_lucky_draw_icon);
+        this.mTX.setAnim(true);
+        this.mTS = (FrescoThumbnailView) findViewById(a.f.iv_lucky_draw_text_bg);
         this.d = (TextView) findViewById(a.f.tv_lucky_draw_text);
         this.e = (TextView) findViewById(a.f.tv_count);
-        this.mzU.setOnClickListener(this);
+        this.mTX.setOnClickListener(this);
         this.d.setOnClickListener(this);
     }
 
@@ -47,44 +47,44 @@ public class c extends LinearLayout implements View.OnClickListener {
 
     public void a(com.kascend.chushou.player.ui.h5.d.a aVar) {
         this.g = 2;
-        com.kascend.chushou.player.ui.h5.c.c dyy = aVar.dyy();
-        if (dyy == null) {
+        com.kascend.chushou.player.ui.h5.c.c dFQ = aVar.dFQ();
+        if (dFQ == null) {
             setVisibility(8);
         } else if (!this.f) {
-            this.mzU.i(dyy.a, a.e.open_vote, b.C0861b.nuc, b.C0861b.nuc);
-            this.mzP.i(dyy.b, a.e.open_vote_text_bg, b.C0861b.small, b.C0861b.small);
+            this.mTX.i(dFQ.a, a.e.open_vote, b.C0923b.nOZ, b.C0923b.nOZ);
+            this.mTS.i(dFQ.b, a.e.open_vote_text_bg, b.C0923b.small, b.C0923b.small);
             int color = ContextCompat.getColor(this.a, a.c.kas_white);
-            if (!h.isEmpty(dyy.c)) {
+            if (!h.isEmpty(dFQ.c)) {
                 try {
-                    color = Color.parseColor(dyy.c);
+                    color = Color.parseColor(dFQ.c);
                 } catch (Exception e) {
                     color = ContextCompat.getColor(this.a, a.c.kas_white);
                 }
             }
             this.d.setTextColor(color);
-            this.d.setText(b.f(this.a, dyy.e));
+            this.d.setText(b.e(this.a, dFQ.e));
             this.f = true;
         }
     }
 
     public void a(b bVar) {
         this.g = 1;
-        com.kascend.chushou.player.ui.h5.c.c dyy = bVar.dyy();
-        if (dyy == null) {
+        com.kascend.chushou.player.ui.h5.c.c dFQ = bVar.dFQ();
+        if (dFQ == null) {
             setVisibility(8);
         } else if (!this.f) {
-            this.mzU.i(dyy.a, a.e.open_luckydraw, b.C0861b.nuc, b.C0861b.nuc);
-            this.mzP.i(dyy.b, a.e.open_luckydraw_text_bg, b.C0861b.small, b.C0861b.small);
+            this.mTX.i(dFQ.a, a.e.open_luckydraw, b.C0923b.nOZ, b.C0923b.nOZ);
+            this.mTS.i(dFQ.b, a.e.open_luckydraw_text_bg, b.C0923b.small, b.C0923b.small);
             int color = ContextCompat.getColor(this.a, a.c.kas_white);
-            if (!h.isEmpty(dyy.c)) {
+            if (!h.isEmpty(dFQ.c)) {
                 try {
-                    color = Color.parseColor(dyy.c);
+                    color = Color.parseColor(dFQ.c);
                 } catch (Exception e) {
                     color = ContextCompat.getColor(this.a, a.c.kas_white);
                 }
             }
             this.d.setTextColor(color);
-            this.d.setText(b.f(this.a, dyy.e));
+            this.d.setText(b.e(this.a, dFQ.e));
             if (bVar.e() > 1) {
                 this.e.setVisibility(0);
                 this.e.setText(String.valueOf(bVar.e()));
@@ -98,7 +98,7 @@ public class c extends LinearLayout implements View.OnClickListener {
     public void a(long j) {
         if (j > 0) {
             setVisibility(0);
-            this.d.setText(b.f(this.a, j));
+            this.d.setText(b.e(this.a, j));
             return;
         }
         setVisibility(8);

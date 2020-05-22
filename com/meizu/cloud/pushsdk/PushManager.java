@@ -70,7 +70,7 @@ public class PushManager {
 
     @Deprecated
     public static void register(Context context) {
-        com.meizu.cloud.a.a.fH(context);
+        com.meizu.cloud.a.a.ga(context);
         if (!MzSystemUtils.isBrandMeizu(context)) {
             com.meizu.cloud.a.a.e(TAG, "please invoke register on meizu device Build-in FlymeOS");
             return;
@@ -99,7 +99,7 @@ public class PushManager {
     }
 
     public static void register(Context context, String str, String str2) {
-        com.meizu.cloud.a.a.fH(context);
+        com.meizu.cloud.a.a.ga(context);
         if (MzSystemUtils.isBrandMeizu(context)) {
             b.a(context).a(str, str2, context.getPackageName());
         } else {

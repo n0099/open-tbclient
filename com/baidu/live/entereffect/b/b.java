@@ -2,11 +2,17 @@ package com.baidu.live.entereffect.b;
 
 import android.text.TextUtils;
 import com.baidu.live.adp.lib.asynctask.BdAsyncTask;
+import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.adp.lib.util.BdNetTypeUtil;
 import com.baidu.live.tbadk.core.util.FileHelper;
 import com.baidu.live.tbadk.download.DownloadData;
 import com.baidu.live.tbadk.download.FileDownloadCallBack;
 import com.baidu.live.tbadk.download.FileSerialDownLoader;
+import com.baidu.live.tbadk.ubc.UbcStatConstant;
+import com.baidu.live.tbadk.ubc.UbcStatisticItem;
+import com.baidu.live.tbadk.ubc.UbcStatisticLiveKey;
+import com.baidu.live.tbadk.ubc.UbcStatisticManager;
+import com.baidu.webkit.internal.ETAG;
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -20,36 +26,39 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes3.dex */
 public class b {
-    private com.baidu.live.entereffect.a.a axX;
-    private String axY;
+    private boolean aDn;
+    private com.baidu.live.entereffect.a.a aDo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void a(final com.baidu.live.entereffect.a.a aVar, final String str, final String str2) {
+    public void a(final boolean z, final com.baidu.live.entereffect.a.a aVar, final String str, final String str2, final String str3) {
         new BdAsyncTask<Void, Void, DownloadData>() { // from class: com.baidu.live.entereffect.b.b.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.live.adp.lib.asynctask.BdAsyncTask
             /* renamed from: b */
             public DownloadData doInBackground(Void... voidArr) {
-                if (aVar == null || TextUtils.isEmpty(aVar.id) || TextUtils.isEmpty(aVar.url) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+                if (aVar == null || TextUtils.isEmpty(aVar.id) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3)) {
                     return null;
                 }
-                b.this.axX = aVar;
-                b.this.axY = str;
-                if (com.baidu.live.f.a.existFile(str)) {
-                    b.this.vr();
-                } else if (!new File(str).mkdirs()) {
+                b.this.aDn = z;
+                b.this.aDo = aVar;
+                if (com.baidu.live.f.a.existFile(str2)) {
+                    b.this.ey(str2);
+                } else if (!new File(str2).mkdirs()) {
                     return null;
                 }
+                final String str4 = "enter_effect_" + aVar.id;
                 DownloadData downloadData = new DownloadData();
                 downloadData.setId("enter_effect_" + aVar.id);
-                downloadData.setName(str2);
-                downloadData.setUrl(aVar.url);
+                downloadData.setName(str4);
+                downloadData.setUrl(str);
                 downloadData.setType(20);
-                downloadData.setPath(b.this.W(str, str2));
+                downloadData.setPath(b.this.ah(str2, str4));
                 downloadData.setCallback(new FileDownloadCallBack() { // from class: com.baidu.live.entereffect.b.b.1.1
                     @Override // com.baidu.live.tbadk.download.FileDownloadCallBack
                     public void onFileUpdateProgress(DownloadData downloadData2) {
@@ -67,11 +76,39 @@ public class b {
 
                     @Override // com.baidu.live.tbadk.download.FileDownloadCallBack
                     public void onFileDownloadSucceed(DownloadData downloadData2) {
-                        b.this.dT(b.this.W(b.this.axY, str2));
+                        b.this.ag(b.this.ah(str2, str4), str3);
                     }
 
                     @Override // com.baidu.live.tbadk.download.FileDownloadCallBack
-                    public void onFileDownloadFailed(DownloadData downloadData2, int i, String str3) {
+                    public void onFileDownloadFailed(DownloadData downloadData2, int i, String str5) {
+                        int i2 = 2;
+                        JSONObject jSONObject = new JSONObject();
+                        JSONObject jSONObject2 = new JSONObject();
+                        if (3 == i) {
+                            i2 = 1;
+                        } else if (2 != i) {
+                            if (4 == i) {
+                                i2 = 3;
+                            } else if (6 == i) {
+                                i2 = 4;
+                            } else if (7 != i) {
+                                i2 = 0;
+                            } else {
+                                i2 = 5;
+                            }
+                        }
+                        try {
+                            jSONObject2.put("step_error", i2);
+                            jSONObject2.put("down_type", UbcStatConstant.ContentType.UBC_TYPE_ENTEREFFECT_DYNAMIC_LIST);
+                            jSONObject2.put("down_url", downloadData2.getUrl());
+                            if (downloadData2.getNetErrorJson() != null) {
+                                jSONObject2.put(ETAG.KEY_NET_ERROR, downloadData2.getNetErrorJson());
+                            }
+                            jSONObject.put("download", jSONObject2);
+                        } catch (JSONException e) {
+                            BdLog.e(e);
+                        }
+                        UbcStatisticManager.getInstance().logSendResponse(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_DOWN_RES_RESP, UbcStatConstant.ContentType.UBC_TYPE_RES_DOWN, "liveroom", null).setContentExt(jSONObject), null, true);
                     }
                 });
                 return downloadData;
@@ -84,6 +121,15 @@ public class b {
             public void onPostExecute(DownloadData downloadData) {
                 super.onPostExecute(downloadData);
                 if (downloadData != null) {
+                    JSONObject jSONObject = new JSONObject();
+                    JSONObject jSONObject2 = new JSONObject();
+                    try {
+                        jSONObject2.put("down_type", UbcStatConstant.ContentType.UBC_TYPE_ENTEREFFECT_DYNAMIC_LIST);
+                        jSONObject.put("download", jSONObject2);
+                    } catch (JSONException e) {
+                        BdLog.e(e);
+                    }
+                    UbcStatisticManager.getInstance().logSendRequest(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_DOWN_RES_REQ, UbcStatConstant.ContentType.UBC_TYPE_RES_DOWN, "liveroom", null).setContentExt(jSONObject));
                     FileSerialDownLoader.getInstance().startDownLoadWithoutMax(downloadData);
                 }
             }
@@ -91,19 +137,35 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dT(final String str) {
-        if (!TextUtils.isEmpty(this.axY) && !TextUtils.isEmpty(str)) {
+    public void ag(final String str, final String str2) {
+        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
             new BdAsyncTask<Void, Void, List<String>>() { // from class: com.baidu.live.entereffect.b.b.2
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.live.adp.lib.asynctask.BdAsyncTask
                 /* renamed from: c */
                 public List<String> doInBackground(Void... voidArr) {
-                    List<String> X = b.this.X(b.this.axY, str);
-                    if (X == null || X.isEmpty()) {
-                        b.this.vr();
+                    List<String> ai = b.this.ai(str, str2);
+                    if (ai == null || ai.isEmpty()) {
+                        b.this.ey(str);
+                        b.this.ey(str2);
+                        JSONObject jSONObject = new JSONObject();
+                        JSONObject jSONObject2 = new JSONObject();
+                        try {
+                            String str3 = "";
+                            if (b.this.aDo != null) {
+                                str3 = b.this.aDn ? b.this.aDo.videoUrl : b.this.aDo.aDd;
+                            }
+                            jSONObject2.put("step_error", 6);
+                            jSONObject2.put("down_type", UbcStatConstant.ContentType.UBC_TYPE_ENTEREFFECT_DYNAMIC_LIST);
+                            jSONObject2.put("down_url", str3);
+                            jSONObject.put("download", jSONObject2);
+                        } catch (JSONException e) {
+                            BdLog.e(e);
+                        }
+                        UbcStatisticManager.getInstance().logSendResponse(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_DOWN_RES_RESP, UbcStatConstant.ContentType.UBC_TYPE_RES_DOWN, "liveroom", null).setContentExt(jSONObject), null, true);
                     }
-                    return X;
+                    return ai;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -113,7 +175,7 @@ public class b {
                 public void onPostExecute(List<String> list) {
                     super.onPostExecute(list);
                     if (list != null && !list.isEmpty()) {
-                        c.vs().a(b.this.axX, b.this.axY, list);
+                        c.wG().a(b.this.aDn, b.this.aDo, str2, list);
                     }
                 }
             }.execute(new Void[0]);
@@ -121,19 +183,19 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String W(String str, String str2) {
+    public String ah(String str, String str2) {
         return str + str2 + ".zip";
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [210=4, 211=4, 213=4, 214=4, 216=4, 217=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [298=4, 299=4, 301=4, 302=4, 304=4, 305=4] */
     /* JADX INFO: Access modifiers changed from: private */
-    public List<String> X(String str, String str2) {
+    public List<String> ai(String str, String str2) {
         ZipInputStream zipInputStream;
         FileInputStream fileInputStream;
         ZipInputStream zipInputStream2;
         try {
             try {
-                fileInputStream = new FileInputStream(str2);
+                fileInputStream = new FileInputStream(str);
             } catch (Throwable th) {
                 th = th;
             }
@@ -159,7 +221,7 @@ public class b {
                     if (nextEntry == null) {
                         break;
                     } else if (!nextEntry.isDirectory()) {
-                        String a = a(zipInputStream2, str, nextEntry.getName());
+                        String a = a(zipInputStream2, str2, nextEntry.getName());
                         if (!TextUtils.isEmpty(a)) {
                             if (arrayList == null) {
                                 arrayList = new ArrayList();
@@ -199,7 +261,7 @@ public class b {
                     return null;
                 }
             }
-            FileHelper.deleteFile(new File(str2));
+            FileHelper.deleteFile(new File(str));
             if (arrayList != null && !arrayList.isEmpty()) {
                 Collections.sort(arrayList, new Comparator<String>() { // from class: com.baidu.live.entereffect.b.b.3
                     /* JADX DEBUG: Method merged with bridge method */
@@ -246,8 +308,8 @@ public class b {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [279=5, 280=5, 281=5, 283=5, 284=5] */
-    /* JADX WARN: Removed duplicated region for block: B:65:0x00b3 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [374=5, 375=5, 376=5, 378=5, 379=5] */
+    /* JADX WARN: Removed duplicated region for block: B:80:0x00cb A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -264,6 +326,13 @@ public class b {
         try {
             String str3 = str + (str2.split("/").length > 1 ? split[split.length - 1] : split[0]);
             File file = new File(str3);
+            String parent = file.getParent();
+            if (!TextUtils.isEmpty(parent)) {
+                File file2 = new File(parent);
+                if (!file2.exists()) {
+                    file2.mkdirs();
+                }
+            }
             FileOutputStream fileOutputStream3 = null;
             try {
                 try {
@@ -352,9 +421,9 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void vr() {
-        if (!TextUtils.isEmpty(this.axY)) {
-            com.baidu.live.f.a.cleanDir(new File(this.axY));
+    public void ey(String str) {
+        if (!TextUtils.isEmpty(str)) {
+            com.baidu.live.f.a.cleanDir(new File(str));
         }
     }
 }

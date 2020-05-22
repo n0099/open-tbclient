@@ -13,44 +13,44 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class b {
-    private RelativeLayout gvf;
-    private ImageView gvg;
-    private MessageRedDotView gvh;
+    private RelativeLayout gJQ;
+    private ImageView gJR;
+    private MessageRedDotView gJS;
     private Context mContext;
     private View mRootView;
 
     public b(Context context) {
         this.mContext = context;
         this.mRootView = LayoutInflater.from(this.mContext).inflate(R.layout.widget_message_entrance, (ViewGroup) null);
-        this.gvf = (RelativeLayout) this.mRootView.findViewById(R.id.message_view_layout);
-        this.gvg = (ImageView) this.mRootView.findViewById(R.id.img_message);
-        this.gvh = (MessageRedDotView) this.mRootView.findViewById(R.id.img_red_tip);
+        this.gJQ = (RelativeLayout) this.mRootView.findViewById(R.id.message_view_layout);
+        this.gJR = (ImageView) this.mRootView.findViewById(R.id.img_message);
+        this.gJS = (MessageRedDotView) this.mRootView.findViewById(R.id.img_red_tip);
     }
 
     public View getView() {
         return this.mRootView;
     }
 
-    public ImageView bFW() {
-        return this.gvg;
+    public ImageView bMp() {
+        return this.gJR;
     }
 
-    public MessageRedDotView bFX() {
-        return this.gvh;
+    public MessageRedDotView bMq() {
+        return this.gJS;
     }
 
-    public void s(boolean z, int i) {
+    public void v(boolean z, int i) {
         if (z) {
-            this.gvh.refresh(i);
-            this.gvh.setVisibility(0);
+            this.gJS.refresh(i);
+            this.gJS.setVisibility(0);
             return;
         }
-        this.gvh.setVisibility(8);
+        this.gJS.setVisibility(8);
     }
 
     public void onChangeSkinType(int i) {
-        this.gvh.onChangeSkinType();
-        SvgManager.aOR().a(this.gvg, R.drawable.icon_pure_topbar_information44_svg, R.color.cp_cont_f, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        this.gJS.onChangeSkinType();
+        SvgManager.aUV().a(this.gJR, R.drawable.icon_pure_topbar_information44_svg, R.color.cp_cont_f, SvgManager.SvgResourceStateType.NORMAL_PRESS);
     }
 
     public void setVisibility(int i) {
@@ -61,9 +61,9 @@ public class b {
 
     public void a(NavigationBar.ControlAlign controlAlign, boolean z) {
         if (!z && controlAlign == NavigationBar.ControlAlign.HORIZONTAL_RIGHT) {
-            ((RelativeLayout.LayoutParams) this.gvg.getLayoutParams()).rightMargin = -l.getDimens(this.mContext, R.dimen.tbds10);
-            ((RelativeLayout.LayoutParams) this.gvh.getLayoutParams()).rightMargin = -l.getDimens(this.mContext, R.dimen.tbds10);
-            this.gvf.getLayoutParams().width = l.getDimens(this.mContext, R.dimen.ds88);
+            ((RelativeLayout.LayoutParams) this.gJR.getLayoutParams()).rightMargin = -l.getDimens(this.mContext, R.dimen.tbds10);
+            ((RelativeLayout.LayoutParams) this.gJS.getLayoutParams()).rightMargin = -l.getDimens(this.mContext, R.dimen.tbds10);
+            this.gJQ.getLayoutParams().width = l.getDimens(this.mContext, R.dimen.ds88);
         }
     }
 }

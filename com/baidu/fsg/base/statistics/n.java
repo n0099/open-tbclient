@@ -1,24 +1,32 @@
 package com.baidu.fsg.base.statistics;
 
-import com.baidu.fsg.base.restnet.beans.IBeanResponseCallback;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.fsg.base.statistics.r;
+import com.baidu.fsg.base.utils.LogUtil;
 /* loaded from: classes4.dex */
-public class n implements IBeanResponseCallback {
+class n implements r.a {
     final /* synthetic */ String a;
-    final /* synthetic */ l b;
+    final /* synthetic */ h[] b;
+    final /* synthetic */ l c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public n(l lVar, String str) {
-        this.b = lVar;
+    public n(l lVar, String str, h[] hVarArr) {
+        this.c = lVar;
         this.a = str;
+        this.b = hVarArr;
     }
 
-    @Override // com.baidu.fsg.base.restnet.beans.IBeanResponseCallback
-    public void onBeanExecSuccess(int i, Object obj, String str, String str2) {
-        f.a().a(this.a);
+    @Override // com.baidu.fsg.base.statistics.r.a
+    public void a() {
+        LogUtil.d("LogSender", "====send-success==");
+        if (b.o.equals(this.a)) {
+            f.a().a(this.a);
+        } else {
+            i.a(RimStatisticsUtil.getAppContext()).a(this.b);
+        }
     }
 
-    @Override // com.baidu.fsg.base.restnet.beans.IBeanResponseCallback
-    public void onBeanExecFailure(int i, int i2, String str) {
+    @Override // com.baidu.fsg.base.statistics.r.a
+    public void b() {
+        LogUtil.d("LogSender", "====send-fail=====");
     }
 }

@@ -5,74 +5,74 @@ import android.support.annotation.ColorRes;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 public class b {
-    private ColorStateList dBY;
-    private int dCa;
-    private int dCb;
-    private int dCc;
-    private int dCd;
-    private int dCe;
-    private int dBZ = 1;
-    private boolean dCf = false;
-    private boolean dCg = false;
-    private boolean dCh = false;
-    private boolean dCi = false;
+    private ColorStateList dQf;
+    private int dQh;
+    private int dQi;
+    private int dQj;
+    private int dQk;
+    private int dQl;
+    private int dQg = 1;
+    private boolean dQm = false;
+    private boolean dQn = false;
+    private boolean dQo = false;
+    private boolean dQp = false;
 
-    public static b aPs() {
+    public static b aVw() {
         return new b();
     }
 
-    public b kG(@ColorRes int i) {
+    public b li(@ColorRes int i) {
         int color = com.baidu.tbadk.core.util.e.c.a.getColor(i);
-        this.dCe = color;
-        if (!this.dCf) {
-            this.dCa = color;
+        this.dQl = color;
+        if (!this.dQm) {
+            this.dQh = color;
         }
-        if (!this.dCg) {
-            this.dCc = color;
+        if (!this.dQn) {
+            this.dQj = color;
         }
-        if (!this.dCh) {
-            this.dCd = color;
+        if (!this.dQo) {
+            this.dQk = color;
         }
-        if (!this.dCi) {
-            this.dCb = color;
+        if (!this.dQp) {
+            this.dQi = color;
         }
         return this;
     }
 
-    public b kH(@ColorRes int i) {
-        this.dCc = com.baidu.tbadk.core.util.e.c.a.getColor(i);
-        this.dCg = true;
+    public b lj(@ColorRes int i) {
+        this.dQj = com.baidu.tbadk.core.util.e.c.a.getColor(i);
+        this.dQn = true;
         return this;
     }
 
-    public b kI(int i) {
-        this.dBZ = i;
+    public b lk(int i) {
+        this.dQg = i;
         return this;
     }
 
     public void a(TextView textView) {
         if (textView != null) {
-            aPt();
-            if (2 == this.dBZ) {
-                textView.setHintTextColor(this.dBY);
+            aVx();
+            if (2 == this.dQg) {
+                textView.setHintTextColor(this.dQf);
             } else {
-                textView.setTextColor(this.dBY);
+                textView.setTextColor(this.dQf);
             }
         }
     }
 
-    public ColorStateList aPt() {
-        this.dBY = aPu();
-        return this.dBY;
+    public ColorStateList aVx() {
+        this.dQf = aVy();
+        return this.dQf;
     }
 
-    private ColorStateList aPu() {
+    private ColorStateList aVy() {
         int[] iArr = new int[5];
-        iArr[0] = this.dCf ? this.dCa : this.dCe;
-        iArr[1] = this.dCg ? this.dCc : this.dCe;
-        iArr[2] = this.dCh ? this.dCd : this.dCe;
-        iArr[3] = this.dCi ? this.dCb : this.dCe;
-        iArr[4] = this.dCe;
+        iArr[0] = this.dQm ? this.dQh : this.dQl;
+        iArr[1] = this.dQn ? this.dQj : this.dQl;
+        iArr[2] = this.dQo ? this.dQk : this.dQl;
+        iArr[3] = this.dQp ? this.dQi : this.dQl;
+        iArr[4] = this.dQl;
         return h(iArr);
     }
 

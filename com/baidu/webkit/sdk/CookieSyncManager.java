@@ -5,9 +5,10 @@ import android.os.Looper;
 @Deprecated
 /* loaded from: classes11.dex */
 public class CookieSyncManager implements Runnable {
+    private static boolean sGetInstanceAllowed;
     private static String TAG = "CookieSyncManager";
-    private static boolean sGetInstanceAllowed = false;
     private static final CookieSyncManager mInstance = new CookieSyncManager();
+    private static final Object sLockObject = new Object();
 
     private static void checkInstanceIsAllowed() {
         if (!sGetInstanceAllowed) {
@@ -15,28 +16,24 @@ public class CookieSyncManager implements Runnable {
         }
     }
 
-    public static synchronized CookieSyncManager createInstance(Context context) {
-        CookieSyncManager cookieSyncManager;
-        synchronized (CookieSyncManager.class) {
-            if (context == null) {
-                throw new IllegalArgumentException("Invalid context argument");
-            }
-            if (Looper.getMainLooper() != Looper.myLooper()) {
-                Log.e(TAG, "CookieSyncManager.createInstance() must be called on the main thread.");
-            }
-            setGetInstanceIsAllowed();
-            cookieSyncManager = getInstance();
+    public static CookieSyncManager createInstance(Context context) {
+        if (context == null) {
+            throw new IllegalArgumentException("Invalid context argument");
         }
-        return cookieSyncManager;
+        if (Looper.getMainLooper() != Looper.myLooper()) {
+            Log.e(TAG, "CookieSyncManager.createInstance() must be called on the main thread.");
+        }
+        synchronized (sLockObject) {
+            setGetInstanceIsAllowed();
+        }
+        return getInstance();
     }
 
-    public static synchronized CookieSyncManager getInstance() {
-        CookieSyncManager cookieSyncManager;
-        synchronized (CookieSyncManager.class) {
+    public static CookieSyncManager getInstance() {
+        synchronized (sLockObject) {
             checkInstanceIsAllowed();
-            cookieSyncManager = mInstance;
         }
-        return cookieSyncManager;
+        return mInstance;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

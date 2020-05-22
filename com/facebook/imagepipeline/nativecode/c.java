@@ -5,7 +5,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 /* loaded from: classes13.dex */
 public interface c {
-    void a(InputStream inputStream, OutputStream outputStream, int i) throws IOException;
+    void b(InputStream inputStream, OutputStream outputStream, int i) throws IOException;
 
     boolean d(com.facebook.c.c cVar);
 

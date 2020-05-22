@@ -2,6 +2,7 @@ package com.baidubce.services.bos;
 
 import android.annotation.SuppressLint;
 import android.util.Base64;
+import com.baidu.android.imsdk.utils.HttpHelper;
 import com.baidu.webkit.internal.ETAG;
 import com.baidubce.AbstractBceClient;
 import com.baidubce.BceClientException;
@@ -206,7 +207,7 @@ public class BosClient extends AbstractBceClient {
             try {
                 byte[] bytes = JsonUtils.setAclJson(setBucketAclRequest.getAccessControlList()).getBytes("UTF-8");
                 createRequest.addHeader("Content-Length", String.valueOf(bytes.length));
-                createRequest.addHeader("Content-Type", "application/json");
+                createRequest.addHeader("Content-Type", HttpHelper.CONTENT_JSON);
                 createRequest.setContent(RestartableInputStream.wrap(bytes));
             } catch (UnsupportedEncodingException e) {
                 throw new BceClientException("Fail to get UTF-8 bytes:" + e.getMessage(), e);
@@ -774,7 +775,7 @@ public class BosClient extends AbstractBceClient {
         try {
             byte[] bytes = JsonUtils.setPartETag(completeMultipartUploadRequest.getPartETags()).getBytes("UTF-8");
             createRequest.addHeader("Content-Length", String.valueOf(bytes.length));
-            createRequest.addHeader("Content-Type", "application/json");
+            createRequest.addHeader("Content-Type", HttpHelper.CONTENT_JSON);
             createRequest.setContent(RestartableInputStream.wrap(bytes));
             CompleteMultipartUploadResponse completeMultipartUploadResponse = (CompleteMultipartUploadResponse) invokeHttpClient(createRequest, CompleteMultipartUploadResponse.class);
             completeMultipartUploadResponse.setBucketName(completeMultipartUploadRequest.getBucketName());

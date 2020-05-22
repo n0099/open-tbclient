@@ -117,6 +117,12 @@ public class BioAlertDialog extends Dialog {
         this.f.setOnClickListener(onClickListener);
     }
 
+    public void setNegativeBtn(String str, int i, View.OnClickListener onClickListener) {
+        this.f.setText(str);
+        this.f.setTextColor(i);
+        this.f.setOnClickListener(onClickListener);
+    }
+
     public void setNeutralBtn(String str, View.OnClickListener onClickListener) {
         this.g.setText(str);
         this.g.setOnClickListener(onClickListener);

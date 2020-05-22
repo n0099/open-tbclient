@@ -1,18 +1,14 @@
 package com.baidu.swan.apps.performance.a;
 
-import com.baidu.swan.apps.as.ai;
-import com.baidu.swan.apps.performance.HybridUbcFlow;
+import com.facebook.common.internal.i;
+import java.util.Set;
 /* loaded from: classes11.dex */
-public class d implements com.baidu.swan.apps.as.d.b<HybridUbcFlow> {
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.swan.apps.as.d.b
-    /* renamed from: a */
-    public void F(HybridUbcFlow hybridUbcFlow) {
-        ai.c(new Runnable() { // from class: com.baidu.swan.apps.performance.a.d.1
-            @Override // java.lang.Runnable
-            public void run() {
-                ai.app();
-            }
-        }, 5000L);
-    }
+public interface d extends e {
+    public static final Set<String> csa = i.O("getAppInfoSync", "performancePanel", "openStatisticEvent", "ubcEvent", "getSlaveIdSync", "ubcFlowJar");
+
+    String format();
+
+    void iq(String str);
+
+    void ir(String str);
 }

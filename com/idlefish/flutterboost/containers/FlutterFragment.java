@@ -43,6 +43,7 @@ public class FlutterFragment extends BaseFragment implements FlutterActivityAndF
     private static final String TAG = "NewFlutterFragment";
     private FlutterActivityAndFragmentDelegate delegate;
     private boolean isResumedOrVisibleToUser;
+    private boolean sendReumeToDart = false;
 
     @Override // android.support.v4.app.Fragment, com.idlefish.flutterboost.containers.FlutterActivityAndFragmentDelegate.Host
     @Nullable
@@ -63,6 +64,7 @@ public class FlutterFragment extends BaseFragment implements FlutterActivityAndF
     /* loaded from: classes6.dex */
     public static class NewEngineFragmentBuilder {
         private final Class<? extends FlutterFragment> fragmentClass;
+        private boolean isUseTabHost;
         private Map params;
         private FlutterView.RenderMode renderMode;
         private FlutterShellArgs shellArgs;
@@ -77,6 +79,7 @@ public class FlutterFragment extends BaseFragment implements FlutterActivityAndF
             this.shouldAttachEngineToActivity = true;
             this.url = "";
             this.params = new HashMap();
+            this.isUseTabHost = false;
             this.fragmentClass = FlutterFragment.class;
         }
 
@@ -87,11 +90,17 @@ public class FlutterFragment extends BaseFragment implements FlutterActivityAndF
             this.shouldAttachEngineToActivity = true;
             this.url = "";
             this.params = new HashMap();
+            this.isUseTabHost = false;
             this.fragmentClass = cls;
         }
 
         public NewEngineFragmentBuilder url(@NonNull String str) {
             this.url = str;
+            return this;
+        }
+
+        public NewEngineFragmentBuilder isTabHost(@NonNull boolean z) {
+            this.isUseTabHost = z;
             return this;
         }
 
@@ -119,6 +128,7 @@ public class FlutterFragment extends BaseFragment implements FlutterActivityAndF
                     throw new RuntimeException("The NewFlutterFragment subclass sent in the constructor (" + this.fragmentClass.getCanonicalName() + ") does not match the expected return type.");
                 }
                 t.setArguments(createArgs());
+                t.sendReumeToDart(this.isUseTabHost ? false : true);
                 return t;
             } catch (Exception e) {
                 throw new RuntimeException("Could not instantiate NewFlutterFragment subclass (" + this.fragmentClass.getName() + ")", e);
@@ -141,6 +151,10 @@ public class FlutterFragment extends BaseFragment implements FlutterActivityAndF
         this.delegate.onAttach(context);
     }
 
+    public void sendReumeToDart(@NonNull boolean z) {
+        this.sendReumeToDart = z;
+    }
+
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     @Nullable
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
@@ -156,7 +170,7 @@ public class FlutterFragment extends BaseFragment implements FlutterActivityAndF
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onResume() {
         super.onResume();
-        if (!this.isResumedOrVisibleToUser) {
+        if (this.sendReumeToDart && !this.isResumedOrVisibleToUser) {
             this.isResumedOrVisibleToUser = true;
             this.delegate.onResume();
         }
@@ -167,10 +181,12 @@ public class FlutterFragment extends BaseFragment implements FlutterActivityAndF
         if (this.delegate != null) {
             if (z) {
                 if (!this.isResumedOrVisibleToUser) {
+                    this.sendReumeToDart = true;
                     this.isResumedOrVisibleToUser = true;
                     this.delegate.onResume();
                 }
             } else if (this.isResumedOrVisibleToUser) {
+                this.sendReumeToDart = false;
                 this.isResumedOrVisibleToUser = false;
                 this.delegate.onPause();
             }
@@ -184,7 +200,7 @@ public class FlutterFragment extends BaseFragment implements FlutterActivityAndF
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onPause() {
         super.onPause();
-        if (this.isResumedOrVisibleToUser) {
+        if (this.sendReumeToDart && this.isResumedOrVisibleToUser) {
             this.isResumedOrVisibleToUser = false;
             this.delegate.onPause();
         }
@@ -210,7 +226,7 @@ public class FlutterFragment extends BaseFragment implements FlutterActivityAndF
         this.delegate = null;
     }
 
-    @Override // android.support.v4.app.Fragment, com.baidu.h.a.a.InterfaceC0121a
+    @Override // android.support.v4.app.Fragment, com.baidu.h.a.a.InterfaceC0125a
     public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
         this.delegate.onRequestPermissionsResult(i, strArr, iArr);
     }
@@ -325,8 +341,14 @@ public class FlutterFragment extends BaseFragment implements FlutterActivityAndF
 
     @Override // com.idlefish.flutterboost.containers.FlutterActivityAndFragmentDelegate.Host
     public Map getContainerUrlParams() {
-        Map<String, Object> map = ((BoostFlutterActivity.SerializableMap) getArguments().getSerializable("params")).getMap();
-        map.put("isShowWhenCreate", Boolean.valueOf(isPrimary()));
-        return map;
+        return ((BoostFlutterActivity.SerializableMap) getArguments().getSerializable("params")).getMap();
+    }
+
+    @Override // com.idlefish.flutterboost.containers.FlutterActivityAndFragmentDelegate.Host
+    public void onFlutterContainerOpen() {
+    }
+
+    @Override // com.idlefish.flutterboost.containers.FlutterActivityAndFragmentDelegate.Host
+    public void onFlutterContainerClose() {
     }
 }

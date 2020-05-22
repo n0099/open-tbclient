@@ -17,19 +17,19 @@ import org.aspectj.lang.a;
 /* loaded from: classes7.dex */
 public class TrackFragmentRandomAccessBox extends AbstractFullBox {
     public static final String TYPE = "tfra";
-    private static final /* synthetic */ a.InterfaceC0826a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0826a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0826a ajc$tjp_10 = null;
-    private static final /* synthetic */ a.InterfaceC0826a ajc$tjp_11 = null;
-    private static final /* synthetic */ a.InterfaceC0826a ajc$tjp_12 = null;
-    private static final /* synthetic */ a.InterfaceC0826a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0826a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC0826a ajc$tjp_4 = null;
-    private static final /* synthetic */ a.InterfaceC0826a ajc$tjp_5 = null;
-    private static final /* synthetic */ a.InterfaceC0826a ajc$tjp_6 = null;
-    private static final /* synthetic */ a.InterfaceC0826a ajc$tjp_7 = null;
-    private static final /* synthetic */ a.InterfaceC0826a ajc$tjp_8 = null;
-    private static final /* synthetic */ a.InterfaceC0826a ajc$tjp_9 = null;
+    private static final /* synthetic */ a.InterfaceC0888a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0888a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0888a ajc$tjp_10 = null;
+    private static final /* synthetic */ a.InterfaceC0888a ajc$tjp_11 = null;
+    private static final /* synthetic */ a.InterfaceC0888a ajc$tjp_12 = null;
+    private static final /* synthetic */ a.InterfaceC0888a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0888a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0888a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC0888a ajc$tjp_5 = null;
+    private static final /* synthetic */ a.InterfaceC0888a ajc$tjp_6 = null;
+    private static final /* synthetic */ a.InterfaceC0888a ajc$tjp_7 = null;
+    private static final /* synthetic */ a.InterfaceC0888a ajc$tjp_8 = null;
+    private static final /* synthetic */ a.InterfaceC0888a ajc$tjp_9 = null;
     private List<Entry> entries;
     private int lengthSizeOfSampleNum;
     private int lengthSizeOfTrafNum;
@@ -126,22 +126,22 @@ public class TrackFragmentRandomAccessBox extends AbstractFullBox {
     }
 
     public void setTrackId(long j) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_0, this, this, org.aspectj.a.a.a.gs(j)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_0, this, this, org.aspectj.a.a.a.gt(j)));
         this.trackId = j;
     }
 
     public void setLengthSizeOfTrafNum(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.Jp(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.Ka(i)));
         this.lengthSizeOfTrafNum = i;
     }
 
     public void setLengthSizeOfTrunNum(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_2, this, this, org.aspectj.a.a.a.Jp(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_2, this, this, org.aspectj.a.a.a.Ka(i)));
         this.lengthSizeOfTrunNum = i;
     }
 
     public void setLengthSizeOfSampleNum(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.Jp(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.Ka(i)));
         this.lengthSizeOfSampleNum = i;
     }
 

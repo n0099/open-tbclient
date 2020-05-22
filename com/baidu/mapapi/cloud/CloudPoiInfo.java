@@ -1,6 +1,5 @@
 package com.baidu.mapapi.cloud;
 
-import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.mapapi.CoordType;
 import com.baidu.mapapi.SDKInitializer;
 import com.baidu.mapapi.model.LatLng;
@@ -65,8 +64,8 @@ public class CloudPoiInfo {
         jSONObject.remove(CommandMessage.TYPE_TAGS);
         this.distance = jSONObject.optInt("distance");
         jSONObject.remove("distance");
-        this.weight = jSONObject.optInt(TableDefine.SessionColumns.COLUMN_WEIGHT);
-        jSONObject.remove(TableDefine.SessionColumns.COLUMN_WEIGHT);
+        this.weight = jSONObject.optInt("weight");
+        jSONObject.remove("weight");
         this.extras = new HashMap();
         Iterator<String> keys = jSONObject.keys();
         while (keys.hasNext()) {

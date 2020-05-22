@@ -108,6 +108,7 @@ public class CmdConfigHttp {
     public static final int CMD_GET_LEVLE_INFO = 1001710;
     public static final int CMD_GET_LOCAL_PUSH_DATA = 1003416;
     public static final int CMD_GET_MANGA_COVER = 1003097;
+    public static final int CMD_GET_MERCATOR = 1003456;
     public static final int CMD_GET_MY_FORBIDDEN_FANS = 1003406;
     public static final int CMD_GET_MY_POST = 1003010;
     public static final int CMD_GET_MY_SHELF = 1003092;
@@ -140,6 +141,8 @@ public class CmdConfigHttp {
     public static final int CMD_GIFT_LIST_BY_CATEGORY = 1003046;
     public static final int CMD_GIFT_PALCE_ORDER = 1003053;
     public static final int CMD_GRAFFITI_LIST = 1003082;
+    public static final int CMD_GUIDE_INTERESTED_FORUM = 1003457;
+    public static final int CMD_GUIDE_INTEREST_COMMIT = 1003458;
     public static final int CMD_HISTORY_SWAN = 1003434;
     public static final int CMD_HOT_THREAD_UNLIKE = 1003017;
     public static final int CMD_HOT_TOPIC = 1003041;
@@ -165,6 +168,7 @@ public class CmdConfigHttp {
     public static final int CMD_MOOV_UPLOAD = 1003388;
     public static final int CMD_NEG_DELETE_THREAD = 1003185;
     public static final int CMD_NEG_FEED_BACK = 1003184;
+    public static final int CMD_NEW_USER_GET_MONEY = 1003459;
     public static final int CMD_OFFICIAL_ACCOUNT_PUSH = 1003419;
     public static final int CMD_PAYMENT_CONFIRM_INFO = 1001536;
     public static final int CMD_PAYMENT_PAY = 1001537;

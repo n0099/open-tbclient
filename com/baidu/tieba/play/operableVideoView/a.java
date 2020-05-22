@@ -2,7 +2,7 @@ package com.baidu.tieba.play.operableVideoView;
 
 import android.view.View;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.bj;
+import com.baidu.tbadk.core.data.bk;
 import com.baidu.tieba.play.QuickVideoView;
 import com.baidu.tieba.play.g;
 import com.baidu.tieba.play.u;
@@ -11,15 +11,17 @@ import com.baidu.tieba.play.y;
 public interface a extends View.OnClickListener, QuickVideoView.b, g.a, g.b, g.e, g.f {
     void aa(View.OnClickListener onClickListener);
 
-    void bpd();
+    void buU();
 
     void c(y yVar);
 
-    boolean cET();
+    boolean cLS();
 
-    u cJW();
+    u cQV();
 
-    View cJo();
+    View cQn();
+
+    boolean cRz();
 
     int getCurrentPosition();
 
@@ -27,13 +29,11 @@ public interface a extends View.OnClickListener, QuickVideoView.b, g.a, g.b, g.e
 
     boolean isPlaying();
 
-    boolean nV(boolean z);
-
-    boolean onBackPress();
+    boolean or(boolean z);
 
     void setAfterClickListener(View.OnClickListener onClickListener);
 
-    void setData(bj bjVar);
+    void setData(bk bkVar);
 
     void setFrom(String str);
 

@@ -3,5 +3,5 @@ package com.baidu.prologue.business;
 public interface c {
     void a(com.baidu.prologue.business.data.e eVar);
 
-    void m(Throwable th);
+    void n(Throwable th);
 }

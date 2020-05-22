@@ -7,15 +7,15 @@ import kotlin.jvm.internal.q;
 /* loaded from: classes7.dex */
 public final class d {
     public static final StackTraceElement a(BaseContinuationImpl baseContinuationImpl) {
-        q.j(baseContinuationImpl, "receiver$0");
+        q.m(baseContinuationImpl, "receiver$0");
         c b = b(baseContinuationImpl);
         if (b == null) {
             return null;
         }
-        dC(1, b.v());
+        dH(1, b.v());
         int c = c(baseContinuationImpl);
-        int i = c < 0 ? -1 : b.dDN()[c];
-        String d = f.mXA.d(baseContinuationImpl);
+        int i = c < 0 ? -1 : b.dLH()[c];
+        String d = f.nsC.d(baseContinuationImpl);
         return new StackTraceElement(d == null ? b.c() : d + '/' + b.c(), b.m(), b.f(), i);
     }
 
@@ -26,7 +26,7 @@ public final class d {
     private static final int c(BaseContinuationImpl baseContinuationImpl) {
         try {
             Field declaredField = baseContinuationImpl.getClass().getDeclaredField("label");
-            q.i(declaredField, "field");
+            q.l((Object) declaredField, "field");
             declaredField.setAccessible(true);
             Object obj = declaredField.get(baseContinuationImpl);
             if (!(obj instanceof Integer)) {
@@ -39,7 +39,7 @@ public final class d {
         }
     }
 
-    private static final void dC(int i, int i2) {
+    private static final void dH(int i, int i2) {
         if (i2 > i) {
             throw new IllegalStateException(("Debug metadata version mismatch. Expected: " + i + ", got " + i2 + ". Please update the Kotlin standard library.").toString());
         }

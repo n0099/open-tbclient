@@ -11,61 +11,61 @@ import com.baidu.live.tbadk.pagestayduration.PageStayDurationConstants;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.v;
-import com.baidu.tbadk.util.z;
+import com.baidu.tbadk.util.aa;
 import com.baidu.tieba.frs.aj;
 import com.baidu.tieba.homepage.gamevideo.b.c;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes9.dex */
 public class GameVideoFragment extends BaseFragment implements aj {
-    private c hLJ;
+    private c iak;
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        if (this.hLJ == null) {
-            this.hLJ = new c(getPageContext(), getUniqueId());
+        if (this.iak == null) {
+            this.iak = new c(getPageContext(), getUniqueId());
         }
-        this.hLJ.init();
+        this.iak.init();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     @Nullable
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
-        if (this.hLJ == null || this.hLJ.getView() == null) {
+        if (this.iak == null || this.iak.getView() == null) {
             return super.onCreateView(layoutInflater, viewGroup, bundle);
         }
-        if (this.hLJ.getView().getParent() instanceof ViewGroup) {
-            ((ViewGroup) this.hLJ.getView().getParent()).removeView(this.hLJ.getView());
+        if (this.iak.getView().getParent() instanceof ViewGroup) {
+            ((ViewGroup) this.iak.getView().getParent()).removeView(this.iak.getView());
         }
-        return this.hLJ.getView();
+        return this.iak.getView();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onLazyLoad() {
         super.onLazyLoad();
-        if (this.hLJ != null) {
-            this.hLJ.loadData();
+        if (this.iak != null) {
+            this.iak.loadData();
         }
     }
 
     @Override // com.baidu.tieba.frs.aj
-    public void FG() {
-        if (this.hLJ != null) {
-            this.hLJ.FG();
+    public void Ho() {
+        if (this.iak != null) {
+            this.iak.Ho();
         }
     }
 
     @Override // com.baidu.tieba.frs.aj
-    public void blt() {
+    public void bqQ() {
     }
 
     @Override // com.baidu.tieba.frs.aj
-    public void blu() {
+    public void bqR() {
     }
 
     @Override // com.baidu.tieba.frs.aj
-    public void setRecommendFrsNavigationAnimDispatcher(z zVar) {
+    public void setRecommendFrsNavigationAnimDispatcher(aa aaVar) {
     }
 
     @Override // com.baidu.tieba.frs.aj
@@ -73,15 +73,15 @@ public class GameVideoFragment extends BaseFragment implements aj {
     }
 
     @Override // com.baidu.tieba.frs.aj
-    public void aQm() {
+    public void aWq() {
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.hLJ != null) {
-            this.hLJ.aQm();
+        if (this.iak != null) {
+            this.iak.aWq();
         }
     }
 
@@ -91,24 +91,24 @@ public class GameVideoFragment extends BaseFragment implements aj {
         if (isPrimary()) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921400, false));
         }
-        if (this.hLJ != null) {
-            this.hLJ.setPrimary(isPrimary());
+        if (this.iak != null) {
+            this.iak.setPrimary(isPrimary());
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onPause() {
         super.onPause();
-        if (this.hLJ != null) {
-            this.hLJ.onPause();
+        if (this.iak != null) {
+            this.iak.onPause();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        if (this.hLJ != null) {
-            this.hLJ.onDestroy();
+        if (this.iak != null) {
+            this.iak.onDestroy();
         }
     }
 

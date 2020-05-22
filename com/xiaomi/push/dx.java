@@ -39,7 +39,7 @@ public class dx {
             if (z) {
                 aiVar.a((ai.a) eiVar, a(akVar.a(hr.UploadFrequency.a(), 86400)));
             } else {
-                aiVar.m125a((ai.a) eiVar);
+                aiVar.m127a((ai.a) eiVar);
             }
         }
     }
@@ -121,7 +121,7 @@ public class dx {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m230a() {
+    public void m232a() {
         ai.a(this.f229a).a(new dy(this));
     }
 }

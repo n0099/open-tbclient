@@ -24,7 +24,7 @@ public class cw {
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:7:0x001a, code lost:
-        com.xiaomi.push.cz.a().m215a(r0.a());
+        com.xiaomi.push.cz.a().m217a(r0.a());
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -38,7 +38,7 @@ public class cw {
                 break;
             }
             cvVar = this.f184a.get(size);
-            if (cvVar.m205a()) {
+            if (cvVar.m207a()) {
                 break;
             }
             size--;
@@ -56,24 +56,24 @@ public class cw {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m206a() {
+    public String m208a() {
         return this.a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public ArrayList<cv> m207a() {
+    public ArrayList<cv> m209a() {
         return this.f184a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized JSONObject m208a() {
+    public synchronized JSONObject m210a() {
         JSONObject jSONObject;
         jSONObject = new JSONObject();
         jSONObject.put("host", this.a);
         JSONArray jSONArray = new JSONArray();
         Iterator<cv> it = this.f184a.iterator();
         while (it.hasNext()) {
-            jSONArray.put(it.next().m203a());
+            jSONArray.put(it.next().m205a());
         }
         jSONObject.put("fbs", jSONArray);
         return jSONObject;

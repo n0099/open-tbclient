@@ -15,7 +15,7 @@ import com.baidu.tieba.R;
 import java.util.Arrays;
 /* loaded from: classes9.dex */
 public class RoundCornerLinearLayout extends LinearLayout {
-    private Shape dvy;
+    private Shape dJt;
     private Paint mPaint;
     private float mRadius;
     private RectF mRectF;
@@ -60,7 +60,7 @@ public class RoundCornerLinearLayout extends LinearLayout {
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
         if (z) {
-            if (this.dvy == null) {
+            if (this.dJt == null) {
                 float[] fArr = new float[8];
                 Arrays.fill(fArr, 0.0f);
                 float dimension = ((float) getPaddingLeft()) <= getResources().getDimension(R.dimen.tbds5) ? getResources().getDimension(R.dimen.tbds5) : getPaddingLeft();
@@ -70,10 +70,10 @@ public class RoundCornerLinearLayout extends LinearLayout {
                 RectF rectF = new RectF(dimension, paddingTop, dimension2, paddingBottom);
                 float[] fArr2 = new float[8];
                 Arrays.fill(fArr2, this.mRadius);
-                this.dvy = new RoundRectShape(fArr, rectF, fArr2);
+                this.dJt = new RoundRectShape(fArr, rectF, fArr2);
                 this.mRectF.set(dimension, paddingTop, getWidth() - dimension2, getHeight() - paddingBottom);
             }
-            this.dvy.resize(getWidth(), getHeight());
+            this.dJt.resize(getWidth(), getHeight());
         }
     }
 
@@ -82,8 +82,8 @@ public class RoundCornerLinearLayout extends LinearLayout {
         int saveCount = canvas.getSaveCount();
         canvas.save();
         super.dispatchDraw(canvas);
-        if (this.dvy != null) {
-            this.dvy.draw(canvas, this.mPaint);
+        if (this.dJt != null) {
+            this.dJt.draw(canvas, this.mPaint);
         }
         canvas.drawRoundRect(this.mRectF, this.mRadius, this.mRadius, this.mStrokePaint);
         canvas.restoreToCount(saveCount);

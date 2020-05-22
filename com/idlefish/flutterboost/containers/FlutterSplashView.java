@@ -5,15 +5,10 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v4.view.ViewCompat;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.FrameLayout;
-import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.base.g;
-import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.util.an;
 import com.idlefish.flutterboost.Debuger;
 import com.idlefish.flutterboost.FlutterBoost;
@@ -143,13 +138,6 @@ public class FlutterSplashView extends FrameLayout {
         this.splashScreen = splashScreen;
         if (splashScreen != null) {
             this.splashScreenView = splashScreen.createSplashView(getContext(), this.splashScreenState);
-            int identifier = g.jo().getResources().getIdentifier("cp_bg_line_c", "color", BdBaseApplication.getInst().getPackageName());
-            int i = TbadkCoreApplication.getInst().getSkinType() == 0 ? -1 : ViewCompat.MEASURED_STATE_MASK;
-            if (identifier == 0) {
-                this.splashScreenView.setBackgroundColor(i);
-            } else {
-                this.splashScreenView.setBackgroundColor(am.getColor(identifier));
-            }
             addView(this.splashScreenView);
             if (FlutterBoost.instance().isReady) {
                 xFlutterView.addOnFirstFrameRenderedListener(this.onFirstFrameRenderedListener);

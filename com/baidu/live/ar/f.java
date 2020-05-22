@@ -7,5 +7,5 @@ public interface f {
 
     void destory();
 
-    AlaFilterAndBeautyData tT();
+    AlaFilterAndBeautyData va();
 }

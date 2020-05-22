@@ -44,7 +44,7 @@ public final class SdkConfig {
     }
 
     public final void setServer(String str) {
-        q.j(str, "<set-?>");
+        q.m(str, "<set-?>");
         this.server = str;
     }
 

@@ -3,54 +3,54 @@ package com.baidu.tbadk.core.e;
 import android.content.Context;
 /* loaded from: classes.dex */
 public class b {
-    private static a dwS = null;
+    private static a dKY = null;
 
     public static void q(Context context, int i) {
-        if (dwS != null) {
-            dwS.q(context, i);
+        if (dKY != null) {
+            dKY.q(context, i);
         }
     }
 
     public static void b(Context context, int i, boolean z) {
-        if (dwS != null) {
-            dwS.b(context, i, z);
+        if (dKY != null) {
+            dKY.b(context, i, z);
         }
     }
 
-    public static void dn(Context context) {
-        if (dwS != null) {
-            dwS.dn(context);
+    public static void dF(Context context) {
+        if (dKY != null) {
+            dKY.dF(context);
         }
     }
 
     public static void c(Context context, int i, boolean z) {
-        if (dwS != null) {
-            dwS.c(context, i, z);
+        if (dKY != null) {
+            dKY.c(context, i, z);
         }
     }
 
-    public static Class<?> aNK() {
-        if (dwS == null) {
+    public static Class<?> aTO() {
+        if (dKY == null) {
             return null;
         }
-        return dwS.aNK();
+        return dKY.aTO();
     }
 
-    public static String aNL() {
-        if (dwS == null) {
+    public static String aTP() {
+        if (dKY == null) {
             return null;
         }
-        return dwS.aNL();
+        return dKY.aTP();
     }
 
     public static void a(a aVar) {
-        dwS = aVar;
+        dKY = aVar;
     }
 
     public static int getCurrentTabType() {
-        if (dwS == null) {
+        if (dKY == null) {
             return -1;
         }
-        return dwS.getCurrentTabType();
+        return dKY.getCurrentTabType();
     }
 }

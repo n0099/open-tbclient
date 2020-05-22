@@ -76,12 +76,12 @@ public class LoadMoreRequestMessage extends NetMessage {
         builder.st_type = Integer.valueOf(this.st_type);
         builder.scr_h = Integer.valueOf(equipmentHeight);
         builder.scr_w = Integer.valueOf(equipmentWidth);
-        builder.q_type = Integer.valueOf(ar.aOS().aOT() ? 2 : 1);
+        builder.q_type = Integer.valueOf(ar.aUW().aUX() ? 2 : 1);
         builder.last_click_tid = Long.valueOf(this.mLastClickTid);
         builder.sort_type = Integer.valueOf(this.mSortType);
-        builder.ad_context_list = com.baidu.tieba.recapp.report.b.cOd().cOf();
+        builder.ad_context_list = com.baidu.tieba.recapp.report.b.cVe().cVg();
         t.a(builder, true, false, true);
-        builder.app_pos = com.baidu.tieba.recapp.d.a.cNZ().cOc();
+        builder.app_pos = com.baidu.tieba.recapp.d.a.cUZ().cVc();
         AdParam.Builder builder2 = new AdParam.Builder();
         builder2.load_count = Integer.valueOf(this.loadCount);
         builder2.refresh_count = Integer.valueOf(this.refreshCount);

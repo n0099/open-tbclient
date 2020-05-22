@@ -46,7 +46,7 @@ public final class a {
         tbImageView.setDefaultResource(R.drawable.toastpic);
         tbImageView.setAutoChangeStyle(false);
         final PopupWindow popupWindow = new PopupWindow(currentActivity);
-        switch (gVar.aGf()) {
+        switch (gVar.aLA()) {
             case 3:
                 tbImageView.setImageResource(R.drawable.toastpic_scheme);
                 onClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.a.1
@@ -56,11 +56,11 @@ public final class a {
                             if (com.baidu.adp.base.a.jm().currentActivity() != null && !StringUtils.isNull(g.this.getUrl())) {
                                 Uri parse = Uri.parse(g.this.getUrl());
                                 if (parse != null && parse.getQueryParameters("obj_type") != null && parse.getQueryParameters("obj_source") != null) {
-                                    TiebaStatic.log(new an("c13391").cI("obj_type", parse.getQueryParameter("obj_type")).cI("obj_source", parse.getQueryParameter("obj_source")));
+                                    TiebaStatic.log(new an("c13391").dh("obj_type", parse.getQueryParameter("obj_type")).dh("obj_source", parse.getQueryParameter("obj_source")));
                                 }
-                                if (g.this.getUrl().startsWith(f.dhq)) {
+                                if (g.this.getUrl().startsWith(f.dvg)) {
                                     Uri.Builder buildUpon = Uri.parse(g.this.getUrl()).buildUpon();
-                                    buildUpon.appendQueryParameter(f.dhI, f.dhO);
+                                    buildUpon.appendQueryParameter(f.dvz, f.dvJ);
                                     parse = buildUpon.build();
                                 }
                                 UtilHelper.dealOneScheme(com.baidu.adp.base.a.jm().currentActivity(), parse.toString());
@@ -86,7 +86,7 @@ public final class a {
                     public void onClick(View view) {
                         if (view.getId() == R.id.go_to_aiapps_go) {
                             MessageManager.getInstance().sendMessage(new CustomMessage(2921361, url));
-                            TiebaStatic.log(new an("c13274").cI("uid", TbadkCoreApplication.getCurrentAccount()).cI("obj_id", gVar.dhU).cI("obj_source", "tb_password").cI("obj_name", gVar.appName).af("obj_param1", gVar.dhV.intValue()));
+                            TiebaStatic.log(new an("c13274").dh("uid", TbadkCoreApplication.getCurrentAccount()).dh("obj_id", gVar.dvP).dh("obj_source", "tb_password").dh("obj_name", gVar.appName).ag("obj_param1", gVar.dvQ.intValue()));
                             try {
                                 popupWindow.dismiss();
                             } catch (Throwable th) {
@@ -113,8 +113,8 @@ public final class a {
         }
         textView.setOnClickListener(onClickListener);
         textView2.setOnClickListener(onClickListener);
-        textView.setText(gVar.aGd());
-        textView2.setText(gVar.aGe());
+        textView.setText(gVar.aLy());
+        textView2.setText(gVar.aLz());
         textView3.setText(gVar.getTitle());
         textView4.setText(gVar.getTips());
         ColorDrawable colorDrawable = new ColorDrawable();

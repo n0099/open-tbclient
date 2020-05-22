@@ -1,78 +1,30 @@
 package com.baidu.fsg.face.liveness.beans;
 
-import android.content.Context;
-import com.baidu.fsg.base.EnvConfig;
-import com.baidu.fsg.base.restnet.RestNameValuePair;
-import com.baidu.fsg.base.restnet.beans.business.core.PayUtils;
-import com.baidu.fsg.face.liveness.dto.LivenessRecogDTO;
-import com.baidu.fsg.face.liveness.utils.enums.LivenessRecogType;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONObject;
+import com.baidu.pass.biometrics.base.utils.PassBioEnv;
 /* loaded from: classes4.dex */
-public class f extends b {
-    private static final String a = "bduss";
-    private static final String b = "certinfo";
-    private static final String c = "authtoken";
-    private static final String d = "outer";
-
-    public f(Context context) {
-        super(context);
-    }
-
-    @Override // com.baidu.fsg.base.restnet.beans.business.NetworkBean
-    public List<RestNameValuePair> generateRequestParam() {
-        ArrayList arrayList = new ArrayList();
-        LivenessRecogDTO livenessRecogDTO = (LivenessRecogDTO) c.a().a("request_data");
-        if (livenessRecogDTO != null) {
-            setSpParameter(livenessRecogDTO.spParams);
-            arrayList.add(new RestNameValuePair("processid", livenessRecogDTO.processid));
-            if (livenessRecogDTO.livenessType == LivenessRecogType.RECOG_TYPE_BDUSS) {
-                arrayList.add(new RestNameValuePair("atbc", a()));
-                arrayList.add(new RestNameValuePair("type", "bduss"));
-            } else if (livenessRecogDTO.livenessType == LivenessRecogType.RECOG_TYPE_CERTINFO) {
-                arrayList.add(new RestNameValuePair("type", "certinfo"));
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put("name", livenessRecogDTO.realName);
-                    jSONObject.put("cert", livenessRecogDTO.idCardNum);
-                    arrayList.add(new RestNameValuePair("certinfo", PayUtils.encrypt(PayUtils.KEY_PHONE_NUMBER, jSONObject.toString())));
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            } else if (livenessRecogDTO.livenessType == LivenessRecogType.RECOG_TYPE_AUTHTOKEN) {
-                arrayList.add(new RestNameValuePair("authtoken", livenessRecogDTO.authToken));
-                arrayList.add(new RestNameValuePair("type", "authtoken"));
-            } else if (livenessRecogDTO.livenessType == LivenessRecogType.RECOG_TYPE_OUTER) {
-                arrayList.add(new RestNameValuePair("exuid", livenessRecogDTO.exUid));
-                arrayList.add(new RestNameValuePair("type", "outer"));
-            }
-        }
-        return arrayList;
-    }
-
-    @Override // com.baidu.fsg.base.restnet.beans.ApollonBean
-    public int getBeanId() {
-        return 2;
-    }
-
-    @Override // com.baidu.fsg.base.restnet.beans.ApollonBean
-    public String getUrl() {
-        return EnvConfig.getInstance(this.mContext).getRimHttpsHost() + e.p;
-    }
-
-    @Override // com.baidu.fsg.base.restnet.beans.ApollonBean
-    public void execBean() {
-        execBean(String.class);
-    }
-
-    @Override // com.baidu.fsg.base.restnet.beans.ApollonBean
-    public Class<?> responseClass() {
-        return String.class;
-    }
-
-    @Override // com.baidu.fsg.base.restnet.beans.business.BaseBean
-    public boolean needCheckClientSign() {
-        return true;
-    }
+public class f {
+    public static String a = PassBioEnv.PASSPORT_DOMAIN;
+    public static String b = PassBioEnv.PASSPORT_QA_DOMAIN;
+    public static String c = PassBioEnv.PASSPORT_RD_DOMAIN;
+    public static String d = "http://wappass.baidu.com";
+    public static String e = "http://wappass.qatest.baidu.com";
+    public static String f = "http://wappass.rdtest.baidu.com";
+    public static String g = "https://gss0.bdstatic.com";
+    public static String h = PassBioEnv.PASSPORT_DOMAIN;
+    public static String i = PassBioEnv.PASSPORT_QA_DOMAIN;
+    public static String j = "https://voiceprint.baidu.com/echo.fcgi";
+    public static String k = "https://voiceprint.baidu.com/echo.fcgi";
+    public static String l = "/6bMWfDe8BsgCpNKfpU_Y_D3/static/appsapi/appdistribute/android.txt";
+    public static String m = PassBioEnv.GET_UPLOAD_PHOTO_CONTRAST_URI;
+    public static String n = PassBioEnv.FACE_DETECT_URI;
+    public static String o = "/risk/living/authuploadvideocert";
+    public static String p = "/risk/living/confirm";
+    public static String q = "/risk/living/asyncgetportrait";
+    public static String r = "/risk/living/authgetquestion";
+    public static String s = "/risk/living/authqueryvideoreview";
+    public static String t = "/risk/living/authqueryvideoreview";
+    public static String u = "/risk/living/sdk/getportrait";
+    public static String v = "/risk/living/sdk/faceMatch";
+    public static String w = "/risk/living/sdk/AudioVideoUpload";
+    public static String x = "/risk/living/info";
 }

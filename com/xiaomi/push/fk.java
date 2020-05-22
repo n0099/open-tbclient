@@ -30,7 +30,7 @@ class fk {
         flVar.b(bVar.f858a);
         flVar.a("BIND", (String) null);
         flVar.a(flVar.e());
-        com.xiaomi.channel.commonutils.logger.b.m50a("[Slim]: bind id=" + flVar.e());
+        com.xiaomi.channel.commonutils.logger.b.m52a("[Slim]: bind id=" + flVar.e());
         HashMap hashMap = new HashMap();
         hashMap.put("challenge", str);
         hashMap.put("token", bVar.c);

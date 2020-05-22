@@ -12,7 +12,7 @@ public class b extends a implements f {
         super(jVar, "/swanAPI/cancelRequest");
     }
 
-    @Override // com.baidu.swan.apps.network.a, com.baidu.swan.apps.scheme.actions.ab
+    @Override // com.baidu.swan.apps.network.a, com.baidu.swan.apps.scheme.actions.aa
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
         if (eVar == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "swanApp is null");
@@ -28,7 +28,7 @@ public class b extends a implements f {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal cancelTag");
             return false;
         }
-        SwanAppNetworkUtils.a(eVar.akY().ahe(), optString);
+        SwanAppNetworkUtils.a(com.baidu.swan.c.c.a.aFx().getOkHttpClient(), optString);
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
         return true;
     }

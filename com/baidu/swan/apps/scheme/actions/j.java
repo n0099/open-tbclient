@@ -14,40 +14,40 @@ import java.io.IOException;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
-public class j extends ab {
+public class j extends aa {
     public j(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swanAPI/getImageInfo");
     }
 
-    @Override // com.baidu.swan.apps.scheme.actions.ab
+    @Override // com.baidu.swan.apps.scheme.actions.aa
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
         if (eVar == null) {
             com.baidu.swan.apps.console.c.e("getImageInfo", "illegal swanApp");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal swanApp");
             return false;
         }
-        String optString = com.baidu.swan.apps.as.s.parseString(unitedSchemeEntity.getParam("params")).optString(UserAccountActionItem.KEY_SRC);
+        String optString = com.baidu.swan.apps.aq.t.parseString(unitedSchemeEntity.getParam("params")).optString(UserAccountActionItem.KEY_SRC);
         if (TextUtils.isEmpty(optString)) {
             com.baidu.swan.apps.console.c.e("getImageInfo", "path null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
         }
         JSONObject jSONObject = null;
-        if (com.baidu.swan.apps.storage.b.nm(optString) == PathType.BD_FILE) {
-            jSONObject = br(com.baidu.swan.apps.storage.b.by(optString, eVar.id), optString);
-        } else if (com.baidu.swan.apps.storage.b.nm(optString) == PathType.RELATIVE) {
-            jSONObject = br(com.baidu.swan.apps.storage.b.a(optString, eVar, eVar.getVersion()), optString);
+        if (com.baidu.swan.apps.storage.b.oQ(optString) == PathType.BD_FILE) {
+            jSONObject = bM(com.baidu.swan.apps.storage.b.bT(optString, eVar.id), optString);
+        } else if (com.baidu.swan.apps.storage.b.oQ(optString) == PathType.RELATIVE) {
+            jSONObject = bM(com.baidu.swan.apps.storage.b.a(optString, eVar, eVar.getVersion()), optString);
         }
         if (jSONObject != null) {
             com.baidu.swan.apps.console.c.i("getImageInfo", "getImgInfo success");
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
             return true;
         }
-        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "image not found");
         return false;
     }
 
-    private JSONObject br(String str, String str2) {
+    private JSONObject bM(String str, String str2) {
         int i = 1;
         com.baidu.swan.apps.console.c.i("getImageInfo", "getImgInfo start");
         if (TextUtils.isEmpty(str)) {
@@ -65,18 +65,18 @@ public class j extends ab {
             str4 = split[split.length - 1];
         }
         if (!TextUtils.equals("png", str4)) {
-            ExifInterface gN = gN(str);
-            if (gN == null) {
+            ExifInterface hE = hE(str);
+            if (hE == null) {
                 return null;
             }
-            i = gN.getAttributeInt(android.support.media.ExifInterface.TAG_ORIENTATION, 1);
+            i = hE.getAttributeInt(android.support.media.ExifInterface.TAG_ORIENTATION, 1);
         }
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("width", i2);
             jSONObject.put("height", i3);
             jSONObject.put("path", str2);
-            jSONObject.put("orientation", gu(i));
+            jSONObject.put("orientation", gL(i));
             jSONObject.put("type", str4);
         } catch (JSONException e) {
             com.baidu.swan.apps.console.c.e("getImageInfo", "getImgInfo failed by json exception");
@@ -88,7 +88,7 @@ public class j extends ab {
         return jSONObject;
     }
 
-    private String gu(int i) {
+    private String gL(int i) {
         switch (i) {
             case 0:
             case 1:
@@ -112,7 +112,7 @@ public class j extends ab {
         }
     }
 
-    private ExifInterface gN(String str) {
+    private ExifInterface hE(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

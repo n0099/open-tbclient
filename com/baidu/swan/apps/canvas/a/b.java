@@ -16,20 +16,20 @@ public class b extends a {
     }
 
     @Override // com.baidu.swan.apps.canvas.a.a
-    public /* bridge */ /* synthetic */ JSONObject eg(int i) {
-        return super.eg(i);
+    public /* bridge */ /* synthetic */ JSONObject ep(int i) {
+        return super.ep(i);
     }
 
     public b(j jVar) {
         super(jVar, "/swanAPI/canvas/drawCanvas");
     }
 
-    @Override // com.baidu.swan.apps.scheme.actions.ab
+    @Override // com.baidu.swan.apps.scheme.actions.aa
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
         com.baidu.swan.apps.canvas.b.b d = d(unitedSchemeEntity);
         if (d == null) {
             com.baidu.swan.apps.console.c.e("SwanAppCanvas", "draw model is null");
-            unitedSchemeEntity.result = eg(201);
+            unitedSchemeEntity.result = ep(201);
             return false;
         }
         JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
@@ -38,16 +38,16 @@ public class b extends a {
             return false;
         }
         final String optString = optParamsAsJo.optString("cb");
-        if (TextUtils.isEmpty(d.bGN)) {
-            com.baidu.swan.apps.component.e.a.aC("SwanAppAction", "canvasId is empty ");
-            unitedSchemeEntity.result = eg(201);
+        if (TextUtils.isEmpty(d.bPF)) {
+            com.baidu.swan.apps.component.e.a.aS("SwanAppAction", "canvasId is empty ");
+            unitedSchemeEntity.result = ep(201);
             return false;
         }
-        if (TextUtils.isEmpty(d.bGO)) {
-            com.baidu.swan.apps.component.e.a.aC("SwanAppAction", "drawCanvas slaveId is empty");
-            com.baidu.swan.apps.core.d.d We = com.baidu.swan.apps.y.f.aeJ().We();
-            if (We != null) {
-                d.bGO = We.VP();
+        if (TextUtils.isEmpty(d.bPG)) {
+            com.baidu.swan.apps.component.e.a.aS("SwanAppAction", "drawCanvas slaveId is empty");
+            com.baidu.swan.apps.core.d.d YQ = com.baidu.swan.apps.w.f.ahV().YQ();
+            if (YQ != null) {
+                d.bPG = YQ.YB();
             }
         }
         com.baidu.swan.apps.component.components.d.a aVar = (com.baidu.swan.apps.component.components.d.a) com.baidu.swan.apps.component.container.a.d(d);
@@ -57,7 +57,7 @@ public class b extends a {
         }
         boolean a = aVar.a(d, new CanvasView.b() { // from class: com.baidu.swan.apps.canvas.a.b.1
             @Override // com.baidu.swan.apps.canvas.view.CanvasView.b
-            public void Se() {
+            public void UQ() {
                 if (optString != null) {
                     callbackHandler.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(0, "draw complete").toString());
                 }

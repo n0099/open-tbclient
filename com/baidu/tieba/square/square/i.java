@@ -1,34 +1,34 @@
 package com.baidu.tieba.square.square;
 
-import com.baidu.tbadk.core.data.bg;
+import com.baidu.tbadk.core.data.bh;
 /* loaded from: classes10.dex */
 public class i implements com.baidu.tbadk.core.flow.a.a {
-    private bg kOS;
+    private bh lhi;
 
-    public i(bg bgVar) {
-        this.kOS = bgVar;
+    public i(bh bhVar) {
+        this.lhi = bhVar;
     }
 
     @Override // com.baidu.tbadk.core.flow.a.a
     public String getPicUrl() {
-        if (this.kOS == null) {
+        if (this.lhi == null) {
             return null;
         }
-        return this.kOS.aIU();
+        return this.lhi.aOP();
     }
 
     @Override // com.baidu.tbadk.core.flow.a.a
-    public String aIP() {
-        if (this.kOS == null) {
+    public String aOK() {
+        if (this.lhi == null) {
             return null;
         }
-        return this.kOS.getLink();
+        return this.lhi.getLink();
     }
 
-    public String cVg() {
-        if (this.kOS == null) {
+    public String dck() {
+        if (this.lhi == null) {
             return null;
         }
-        return this.kOS.aJU();
+        return this.lhi.aPP();
     }
 }

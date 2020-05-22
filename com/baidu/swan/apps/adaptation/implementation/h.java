@@ -1,21 +1,27 @@
 package com.baidu.swan.apps.adaptation.implementation;
 
-import android.content.Context;
-import java.io.File;
-import org.json.JSONObject;
+import java.util.Map;
 /* loaded from: classes11.dex */
-public class h implements com.baidu.swan.apps.adaptation.a.k {
-    @Override // com.baidu.swan.apps.adaptation.a.k
-    public void ax(String str, String str2) {
+public class h implements com.baidu.swan.apps.adaptation.a.t {
+    @Override // com.baidu.swan.apps.adaptation.a.t
+    public void a(com.baidu.swan.apps.commonsync.a.a aVar) {
+        if (aVar != null) {
+            aVar.onSuccess();
+        }
     }
 
-    @Override // com.baidu.swan.apps.adaptation.a.k
-    public File J(Context context, String str) {
-        return null;
+    @Override // com.baidu.swan.apps.adaptation.a.t
+    public void a(com.baidu.swan.apps.commonsync.a.b bVar) {
+        if (bVar != null) {
+            bVar.a(null);
+        }
     }
 
-    @Override // com.baidu.swan.apps.adaptation.a.k
-    public JSONObject K(Context context, String str) {
-        return null;
+    @Override // com.baidu.swan.apps.adaptation.a.t
+    public void l(Map<String, String> map) {
+    }
+
+    @Override // com.baidu.swan.apps.adaptation.a.t
+    public void m(Map<String, String> map) {
     }
 }

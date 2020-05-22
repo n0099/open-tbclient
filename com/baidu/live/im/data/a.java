@@ -6,12 +6,12 @@ import java.util.List;
 import org.json.JSONArray;
 /* loaded from: classes3.dex */
 public abstract class a implements IAdapterData {
-    private com.baidu.live.data.a aMF;
-    private com.baidu.live.data.a aNr;
-    private List<Long> aNs;
-    private long aNu;
-    private double aNv;
-    private long aNw;
+    private com.baidu.live.data.a aSF;
+    private long aTA;
+    private double aTB;
+    private long aTC;
+    private com.baidu.live.data.a aTx;
+    private List<Long> aTy;
     private b barrageCardInfo;
     private String barrageId;
     private int barrageType;
@@ -34,7 +34,7 @@ public abstract class a implements IAdapterData {
     private int progressValue = 0;
     private long statisticsTaskId = -1;
     private boolean mIsPushForOperateAccount = false;
-    private boolean aNt = false;
+    private boolean aTz = false;
     private boolean isGifLoadSuccess = true;
     private boolean isUploading = false;
 
@@ -118,20 +118,20 @@ public abstract class a implements IAdapterData {
         this.objContent = obj;
     }
 
-    public com.baidu.live.data.a Ce() {
-        return this.aMF;
-    }
-
-    public void d(com.baidu.live.data.a aVar) {
-        this.aMF = aVar;
-    }
-
-    public com.baidu.live.data.a Cf() {
-        return this.aNr;
+    public com.baidu.live.data.a DB() {
+        return this.aSF;
     }
 
     public void e(com.baidu.live.data.a aVar) {
-        this.aNr = aVar;
+        this.aSF = aVar;
+    }
+
+    public com.baidu.live.data.a DC() {
+        return this.aTx;
+    }
+
+    public void f(com.baidu.live.data.a aVar) {
+        this.aTx = aVar;
     }
 
     public int getMsgType() {
@@ -208,47 +208,47 @@ public abstract class a implements IAdapterData {
 
     public void l(JSONArray jSONArray) {
         if (jSONArray != null && jSONArray.length() > 0) {
-            if (this.aNs == null) {
-                this.aNs = new ArrayList();
+            if (this.aTy == null) {
+                this.aTy = new ArrayList();
             }
             for (int i = 0; i < jSONArray.length(); i++) {
                 long optLong = jSONArray.optLong(i);
                 if (optLong > 0) {
-                    this.aNs.add(Long.valueOf(optLong));
+                    this.aTy.add(Long.valueOf(optLong));
                 }
             }
         }
     }
 
-    public List<Long> Cg() {
-        return this.aNs;
+    public List<Long> DD() {
+        return this.aTy;
     }
 
-    public boolean Ch() {
-        return this.aNt;
+    public boolean DE() {
+        return this.aTz;
     }
 
-    public void bz(boolean z) {
-        this.aNt = z;
+    public void bI(boolean z) {
+        this.aTz = z;
     }
 
-    public int Ci() {
+    public int DF() {
         return this.barrageType;
     }
 
-    public void cm(int i) {
+    public void ct(int i) {
         this.barrageType = i;
     }
 
-    public String Cj() {
+    public String DG() {
         return this.barrageId;
     }
 
-    public void eF(String str) {
+    public void fr(String str) {
         this.barrageId = str;
     }
 
-    public b Ck() {
+    public b DH() {
         return this.barrageCardInfo;
     }
 
@@ -256,35 +256,35 @@ public abstract class a implements IAdapterData {
         this.barrageCardInfo = bVar;
     }
 
-    public String[] Cl() {
+    public String[] DI() {
         return this.imEffect;
     }
 
-    public void l(String[] strArr) {
+    public void k(String[] strArr) {
         this.imEffect = strArr;
     }
 
-    public long Cm() {
-        return this.aNu;
+    public long DJ() {
+        return this.aTA;
     }
 
-    public void ae(long j) {
-        this.aNu = j;
+    public void ai(long j) {
+        this.aTA = j;
     }
 
-    public double Cn() {
-        return this.aNv;
+    public double DK() {
+        return this.aTB;
     }
 
     public void i(double d) {
-        this.aNv = d;
+        this.aTB = d;
     }
 
-    public long Co() {
-        return this.aNw;
+    public long DL() {
+        return this.aTC;
     }
 
-    public void af(long j) {
-        this.aNw = j;
+    public void aj(long j) {
+        this.aTC = j;
     }
 }

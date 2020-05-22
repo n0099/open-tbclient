@@ -16,6 +16,8 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.frs.ag;
 /* loaded from: classes9.dex */
 public class FrsGameStrategyFragmentDelegateStatic extends b {
+    public static String Tag = "tag";
+
     static {
         MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.CMD_GAME_FRS_ADD_TAB) { // from class: com.baidu.tieba.frs.game.strategy.FrsGameStrategyFragmentDelegateStatic.1
             /* JADX DEBUG: Method merged with bridge method */

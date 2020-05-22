@@ -2,48 +2,44 @@ package com.baidu.swan.apps.performance;
 
 import android.text.TextUtils;
 import android.util.Log;
-import java.util.HashMap;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
-public class a implements com.baidu.swan.apps.as.d.b<HybridUbcFlow> {
+public class a implements com.baidu.swan.apps.aq.e.b<HybridUbcFlow> {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.swan.apps.as.d.b
+    @Override // com.baidu.swan.apps.aq.e.b
     /* renamed from: a */
-    public void F(HybridUbcFlow hybridUbcFlow) {
+    public void H(HybridUbcFlow hybridUbcFlow) {
         if (DEBUG) {
             Log.i("FlowJarToH5Reporter", "report: flow=" + hybridUbcFlow);
         }
-        com.baidu.swan.apps.y.f aeJ = com.baidu.swan.apps.y.f.aeJ();
-        if (aeJ.aeL()) {
-            if (DEBUG || com.baidu.swan.apps.y.f.aeJ().aeo()) {
-                HashMap hashMap = new HashMap();
+        if (com.baidu.swan.apps.w.f.ahV().ahX()) {
+            if (DEBUG || com.baidu.swan.apps.w.f.ahV().ahz()) {
                 try {
-                    hashMap.put("flow", b(hybridUbcFlow).toString());
+                    i.alA().aM(b(hybridUbcFlow));
                 } catch (JSONException e) {
                     if (DEBUG) {
                         e.printStackTrace();
                     }
                 }
-                aeJ.a(new com.baidu.swan.apps.n.a.b("collect_performance", hashMap));
             }
         }
     }
 
     private JSONObject b(HybridUbcFlow hybridUbcFlow) throws JSONException {
         JSONObject jSONObject = new JSONObject();
-        if (hybridUbcFlow != null && !hybridUbcFlow.cgw.isEmpty()) {
-            jSONObject.put("flowId", hybridUbcFlow.ahF());
+        if (hybridUbcFlow != null && !hybridUbcFlow.cro.isEmpty()) {
+            jSONObject.put("flowId", hybridUbcFlow.ala());
             JSONArray jSONArray = new JSONArray();
-            for (UbcFlowEvent ubcFlowEvent : hybridUbcFlow.cgw) {
-                if (!ubcFlowEvent.aif() && !TextUtils.isEmpty(ubcFlowEvent.id)) {
+            for (UbcFlowEvent ubcFlowEvent : hybridUbcFlow.cro) {
+                if (!ubcFlowEvent.alD() && !TextUtils.isEmpty(ubcFlowEvent.id)) {
                     if (DEBUG) {
                         Log.i("FlowJarToH5Reporter", "buildJoMsg: event=" + ubcFlowEvent);
                     }
-                    jSONArray.put(new JSONObject().put("actionId", ubcFlowEvent.id).put("timestamp", ubcFlowEvent.aid()));
+                    jSONArray.put(new JSONObject().put("actionId", ubcFlowEvent.id).put("timestamp", ubcFlowEvent.alB()));
                 }
             }
             jSONObject.put("data", jSONArray);

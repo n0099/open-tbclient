@@ -1,27 +1,22 @@
 package com.baidu.swan.d;
 
-import android.text.TextUtils;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.swan.e.j;
 /* loaded from: classes11.dex */
-public class b {
-    public static String c(JSONObject jSONObject, String str, String str2) {
-        return jSONObject == null ? str2 : jSONObject.optString(str, str2);
+public final class b extends j {
+    private static volatile b dqP;
+
+    public b() {
+        super("aiapp_open_stat");
     }
 
-    public static JSONObject a(String str, JSONObject jSONObject, String str2) {
-        if (TextUtils.isEmpty(str)) {
-            str = "NA";
-        }
-        if (jSONObject == null) {
-            jSONObject = new JSONObject();
-        }
-        try {
-            if (TextUtils.isEmpty(c(jSONObject, str2, null))) {
-                jSONObject.put(str2, str);
+    public static b aIZ() {
+        if (dqP == null) {
+            synchronized (b.class) {
+                if (dqP == null) {
+                    dqP = new b();
+                }
             }
-        } catch (JSONException e) {
         }
-        return jSONObject;
+        return dqP;
     }
 }

@@ -17,7 +17,7 @@ import com.baidu.tbadk.mutiprocess.competetask.CompeteTaskEvent;
 import com.baidu.tbadk.mutiprocess.g;
 /* loaded from: classes.dex */
 public class b {
-    private h diS;
+    private h dwL;
     private a mData;
 
     public void a(a aVar) {
@@ -26,40 +26,40 @@ public class b {
 
     public void show() {
         if (this.mData != null) {
-            if (this.mData.showType == a.diF) {
-                this.diS = h.b(TbadkCoreApplication.getInst().getCurrentActivity(), this.mData).aNd();
-            } else if (this.mData.showType == a.diG) {
+            if (this.mData.showType == a.dwy) {
+                this.dwL = h.b(TbadkCoreApplication.getInst().getCurrentActivity(), this.mData).aTe();
+            } else if (this.mData.showType == a.dwz) {
                 Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
                 com.baidu.tbadk.core.business.b bVar = new com.baidu.tbadk.core.business.b(currentActivity);
                 bVar.a(currentActivity, this.mData);
                 bVar.show();
                 String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                com.baidu.tbadk.core.business.a.aIo().putInt("business_count_hint" + currentAccount + this.mData.activityId, com.baidu.tbadk.core.business.a.aIo().getInt("business_count_hint" + currentAccount + this.mData.activityId) - 1);
-            } else if (this.mData.showType == a.diH) {
-                if (this.mData.diL == a.diJ) {
+                com.baidu.tbadk.core.business.a.aOc().putInt("business_count_hint" + currentAccount + this.mData.activityId, com.baidu.tbadk.core.business.a.aOc().getInt("business_count_hint" + currentAccount + this.mData.activityId) - 1);
+            } else if (this.mData.showType == a.dwA) {
+                if (this.mData.dwE == a.dwC) {
                     if (!UtilHelper.dealOneScheme(TbadkCoreApplication.getInst().getCurrentActivity(), this.mData.schema) && !aq.isEmpty(this.mData.url)) {
-                        sU(this.mData.url + "?page_type=open_full_screen_opacity_web_page");
+                        uz(this.mData.url + "?page_type=open_full_screen_opacity_web_page");
                     }
-                } else if (this.mData.diL == a.diK && !aq.isEmpty(this.mData.url)) {
-                    sU(this.mData.url + "?page_type=open_full_screen_opacity_web_page");
+                } else if (this.mData.dwE == a.dwD && !aq.isEmpty(this.mData.url)) {
+                    uz(this.mData.url + "?page_type=open_full_screen_opacity_web_page");
                 }
-            } else if (this.mData.showType == a.diI && !TextUtils.isEmpty(this.mData.message)) {
+            } else if (this.mData.showType == a.dwB && !TextUtils.isEmpty(this.mData.message)) {
                 CompleteTaskToastData completeTaskToastData = new CompleteTaskToastData();
                 completeTaskToastData.activityId = this.mData.activityId;
                 completeTaskToastData.missionId = this.mData.missionId;
                 completeTaskToastData.duration = this.mData.duration;
                 completeTaskToastData.message = this.mData.message;
                 completeTaskToastData.url = this.mData.url;
-                completeTaskToastData.pageId = com.baidu.tbadk.BdToken.c.aFN().aFR();
+                completeTaskToastData.pageId = com.baidu.tbadk.BdToken.c.aLi().aLm();
                 CompeteTaskEvent competeTaskEvent = new CompeteTaskEvent();
                 competeTaskEvent.taskToastData = completeTaskToastData;
                 g.publishEvent(competeTaskEvent);
-                c.ax(this.mData.activityId, this.mData.missionId);
+                c.aA(this.mData.activityId, this.mData.missionId);
             }
         }
     }
 
-    private void sU(String str) {
+    private void uz(String str) {
         Activity currentActivity;
         TbPageContext n;
         if (!aq.isEmpty(str) && (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) != null && (n = n(currentActivity)) != null && !StringUtils.isNull(str)) {
@@ -68,9 +68,9 @@ public class b {
     }
 
     public void clearData() {
-        if (this.diS != null) {
-            this.diS.hide();
-            this.diS = null;
+        if (this.dwL != null) {
+            this.dwL.hide();
+            this.dwL = null;
         }
     }
 

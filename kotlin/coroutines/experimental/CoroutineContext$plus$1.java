@@ -18,18 +18,18 @@ final class CoroutineContext$plus$1 extends Lambda implements m<d, d.b, d> {
     @Override // kotlin.jvm.a.m
     public final d invoke(d dVar, d.b bVar) {
         a aVar;
-        q.j(dVar, "acc");
-        q.j(bVar, "element");
-        d b = dVar.b(bVar.dDL());
-        if (b == e.mXw) {
+        q.m(dVar, "acc");
+        q.m(bVar, "element");
+        d b = dVar.b(bVar.dLF());
+        if (b == e.nsy) {
             return bVar;
         }
-        c cVar = (c) b.a(c.mXu);
+        c cVar = (c) b.a(c.nsw);
         if (cVar == null) {
             aVar = new a(b, bVar);
         } else {
-            d b2 = b.b(c.mXu);
-            aVar = b2 == e.mXw ? new a(bVar, cVar) : new a(new a(b2, bVar), cVar);
+            d b2 = b.b(c.nsw);
+            aVar = b2 == e.nsy ? new a(bVar, cVar) : new a(new a(b2, bVar), cVar);
         }
         return aVar;
     }

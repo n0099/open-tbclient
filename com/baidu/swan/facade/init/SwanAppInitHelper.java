@@ -7,10 +7,11 @@ import com.baidu.pyramid.runtime.multiprocess.e;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.common.runtime.AppRuntimeInit;
 import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.swan.apps.core.j.b;
-import com.baidu.swan.config.d;
-import com.baidu.swan.ubc.m;
-import com.baidu.swan.ubc.q;
+import com.baidu.swan.apps.b;
+import com.baidu.swan.apps.core.pms.i;
+import com.baidu.swan.pms.c.d.g;
+import com.baidu.swan.ubc.n;
+import com.baidu.swan.ubc.r;
 import com.baidu.webkit.sdk.WebViewFactory;
 import com.facebook.drawee.a.a.c;
 @Keep
@@ -43,31 +44,43 @@ public class SwanAppInitHelper {
     }
 
     private static void initRuntimeContext(Application application) {
-        AppRuntimeInit.onApplicationAttachBaseContext(application);
-        e.onApplicationAttachBaseContext(application);
+        AppRuntimeInit.onApplicationattachBaseContext(application);
+        e.onApplicationattachBaseContext(application);
     }
 
     private static void initStatisticsModule(Application application) {
-        if (com.baidu.pyramid.runtime.multiprocess.a.MF()) {
-            q.aEd();
-            m.aDT().initConfig();
+        if (com.baidu.pyramid.runtime.multiprocess.a.OS()) {
+            r.aIM();
+            n.aID().initConfig();
         }
     }
 
     private static void initSwanAppModule(Application application) {
-        if (!c.dnQ()) {
+        if (!c.dvi()) {
             c.initialize(application);
         }
         initWebView(application);
         if (ProcessUtils.isMainProcess()) {
-            a.cQ(application).arA();
-            asyncUpdateSwanConfig();
-            com.baidu.swan.apps.ar.a.ai(0, 1);
+            a.df(application).avj();
+            asyncUpdateSwanAppCore();
+            if (b.DEBUG) {
+                com.baidu.swan.apps.ap.a.al(0, 1);
+            }
         }
     }
 
-    private static void asyncUpdateSwanConfig() {
-        d.arh();
+    private static void asyncUpdateSwanAppCore() {
+        final boolean jj = com.baidu.swan.pms.e.a.jj(0);
+        if (jj) {
+            com.baidu.swan.apps.aq.n.postOnIO(new Runnable() { // from class: com.baidu.swan.facade.init.SwanAppInitHelper.1
+                @Override // java.lang.Runnable
+                public void run() {
+                    if (jj) {
+                        com.baidu.swan.pms.c.a(new g(0), new i(null), new com.baidu.swan.games.k.b.a(null));
+                    }
+                }
+            }, "asyncUpdateSwanAppCore by PMS");
+        }
     }
 
     private static void onlyInitForLollipopAndAbove(boolean z) {
@@ -79,7 +92,7 @@ public class SwanAppInitHelper {
     }
 
     public static boolean entranceOK() {
-        return !sOnlyInitForLollipopAndAbove || com.baidu.swan.apps.as.a.hasLollipop();
+        return !sOnlyInitForLollipopAndAbove || com.baidu.swan.apps.aq.b.hasLollipop();
     }
 
     public static boolean isDelayInit() {
@@ -87,16 +100,16 @@ public class SwanAppInitHelper {
     }
 
     private static void initWebView(Context context) {
-        WebViewFactory.initOnAppStart(AppRuntime.getAppContext(), com.baidu.swan.apps.w.a.acz().Qr(), false);
-        if (com.baidu.swan.apps.w.a.acz().Qs()) {
+        WebViewFactory.initOnAppStart(AppRuntime.getAppContext(), com.baidu.swan.apps.u.a.afC().SV(), false);
+        if (com.baidu.swan.apps.u.a.afC().SW()) {
             doWebViewInit(context);
         }
     }
 
     private static void doWebViewInit(Context context) {
-        b.bz(context).dv(ProcessUtils.isMainProcess());
+        com.baidu.swan.apps.core.k.b.bI(context).dK(ProcessUtils.isMainProcess());
         if (ProcessUtils.isMainProcess()) {
-            com.baidu.swan.apps.env.e.Zu().p(null);
+            com.baidu.swan.apps.env.e.acv().s(null);
         }
     }
 
@@ -105,6 +118,6 @@ public class SwanAppInitHelper {
     }
 
     public static void onTerminate() {
-        b.bz(AppRuntime.getAppContext()).onTerminate();
+        com.baidu.swan.apps.core.k.b.bI(AppRuntime.getAppContext()).onTerminate();
     }
 }

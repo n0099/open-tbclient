@@ -12,12 +12,12 @@ public class b implements g {
     }
 
     @Override // com.baidu.live.challenge.g
-    public k uj() {
+    public k vq() {
         return new com.baidu.tieba.ala.liveroom.challenge.panel.d(this.mContext);
     }
 
     @Override // com.baidu.live.challenge.g
-    public com.baidu.live.challenge.e uk() {
+    public com.baidu.live.challenge.e vr() {
         return new com.baidu.tieba.ala.liveroom.challenge.view.a(this.mContext);
     }
 }

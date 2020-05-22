@@ -1,6 +1,7 @@
 package com.baidu.prologue.service.network;
 
 import android.content.Context;
+import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Map;
@@ -16,44 +17,44 @@ import org.apache.http.protocol.HTTP;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes6.dex */
 public class h implements e {
-    private OkHttpClient btX;
-    private final OkHttpClient btY;
-    private final OkHttpClient btZ;
+    private OkHttpClient bBB;
+    private final OkHttpClient bBC;
+    private final OkHttpClient bBD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(Context context) {
         OkHttpClient.Builder builder = new OkHttpClient.Builder();
-        f fVar = f.brU.get();
+        f fVar = f.bzx.get();
         if (fVar != null) {
             builder.cookieJar(fVar.cookieJar());
         }
         builder.sslSocketFactory(k.getSSLSocketFactory());
         builder.hostnameVerifier(k.getHostnameVerifier());
-        this.btZ = builder.build();
+        this.bBD = builder.build();
         builder.readTimeout(d.READ_TIME_OUT, TimeUnit.MILLISECONDS);
-        builder.writeTimeout(d.btW, TimeUnit.MILLISECONDS);
+        builder.writeTimeout(d.bBA, TimeUnit.MILLISECONDS);
         builder.connectTimeout(d.CONNECT_TIME_OUT, TimeUnit.MILLISECONDS);
-        this.btY = builder.build();
+        this.bBC = builder.build();
     }
 
     @Override // com.baidu.prologue.service.network.e
     public void a(Request request, l lVar) {
         try {
-            cL(request.buh);
+            cX(request.bBK);
             a(a(request), lVar);
         } catch (IllegalArgumentException e) {
             if (com.baidu.prologue.a.a.a.GLOBAL_DEBUG) {
                 throw e;
             }
-            lVar.n(e);
+            lVar.o(e);
         }
     }
 
-    private void cL(boolean z) {
+    private void cX(boolean z) {
         if (z) {
-            this.btX = this.btY;
+            this.bBB = this.bBC;
         } else {
-            this.btX = this.btZ;
+            this.bBB = this.bBD;
         }
     }
 
@@ -63,7 +64,7 @@ public class h implements e {
         builder.header("Content-type", "application/x-www-form-urlencoded");
         builder.header("Charset", "UTF-8");
         builder.header(HTTP.CONN_DIRECTIVE, "close");
-        builder.header("accept", "*/*");
+        builder.header(UbcStatConstant.ContentType.UBC_TYPE_PK_ACCPET, "*/*");
         if (request.headers != null) {
             for (Map.Entry<String, String> entry : request.headers.entrySet()) {
                 builder.header(entry.getKey(), entry.getValue());
@@ -72,9 +73,9 @@ public class h implements e {
         if (!Arrays.asList("GET", "POST").contains(request.method)) {
             throw new IllegalArgumentException("Invalid request method " + request.method);
         }
-        if ("POST".equals(request.method) && request.buc != null) {
+        if ("POST".equals(request.method) && request.bBG != null) {
             FormBody.Builder builder2 = new FormBody.Builder();
-            for (Map.Entry<String, String> entry2 : request.buc.entrySet()) {
+            for (Map.Entry<String, String> entry2 : request.bBG.entrySet()) {
                 String value = entry2.getValue();
                 if (value == null) {
                     value = "";
@@ -88,10 +89,10 @@ public class h implements e {
 
     private void a(okhttp3.Request request, final l lVar) {
         try {
-            this.btX.newCall(request).enqueue(new Callback() { // from class: com.baidu.prologue.service.network.h.1
+            this.bBB.newCall(request).enqueue(new Callback() { // from class: com.baidu.prologue.service.network.h.1
                 @Override // okhttp3.Callback
                 public void onFailure(Call call, IOException iOException) {
-                    lVar.n(iOException);
+                    lVar.o(iOException);
                 }
 
                 @Override // okhttp3.Callback
@@ -101,7 +102,7 @@ public class h implements e {
                 }
             });
         } catch (OutOfMemoryError e) {
-            lVar.n(e);
+            lVar.o(e);
         }
     }
 }

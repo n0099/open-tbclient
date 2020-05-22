@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.ala.frsgamelive.c.c;
 /* loaded from: classes3.dex */
 public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.gamelist.b.a, c.a> {
-    private com.baidu.tieba.ala.d fgC;
+    private com.baidu.tieba.ala.d ful;
     private String labelName;
     private TbPageContext<?> mPageContext;
 
@@ -23,7 +23,7 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.gamel
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: U */
+    /* renamed from: ab */
     public c.a b(ViewGroup viewGroup) {
         com.baidu.tieba.ala.frsgamelive.c.c cVar = new com.baidu.tieba.ala.frsgamelive.c.c(this.mPageContext);
         cVar.setLabelName(this.labelName);
@@ -34,24 +34,24 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.gamel
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.ala.gamelist.b.a aVar, c.a aVar2) {
-        aVar2.fhT.a(aVar);
-        aVar2.fhT.c(this.fgC);
+        aVar2.fvC.a(aVar);
+        aVar2.fvC.c(this.ful);
         String str = "";
-        if (!StringUtils.isNull(aVar.fiN.aKV().appId)) {
-            str = aVar.fiN.aKV().appId;
+        if (!StringUtils.isNull(aVar.fwu.aQS().appId)) {
+            str = aVar.fwu.aQS().appId;
         }
-        com.baidu.tieba.ala.c.bjW().e(new an("c12115").t("obj_id", aVar.fiN.aKV().live_id).cI(TiebaInitialize.Params.OBJ_PARAM3, str));
-        if (aVar.fiO != null) {
+        com.baidu.tieba.ala.c.bpq().e(new an("c12115").s("obj_id", aVar.fwu.aQS().live_id).dh(TiebaInitialize.Params.OBJ_PARAM3, str));
+        if (aVar.fwv != null) {
             String str2 = "";
-            if (!StringUtils.isNull(aVar.fiO.aKV().appId)) {
-                str2 = aVar.fiO.aKV().appId;
+            if (!StringUtils.isNull(aVar.fwv.aQS().appId)) {
+                str2 = aVar.fwv.aQS().appId;
             }
-            com.baidu.tieba.ala.c.bjW().e(new an("c12115").t("obj_id", aVar.fiO.aKV().live_id).cI(TiebaInitialize.Params.OBJ_PARAM3, str2));
+            com.baidu.tieba.ala.c.bpq().e(new an("c12115").s("obj_id", aVar.fwv.aQS().live_id).dh(TiebaInitialize.Params.OBJ_PARAM3, str2));
         }
         return aVar2.getView();
     }
 
     public void a(com.baidu.tieba.ala.d dVar) {
-        this.fgC = dVar;
+        this.ful = dVar;
     }
 }

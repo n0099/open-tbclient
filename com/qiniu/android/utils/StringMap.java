@@ -11,7 +11,7 @@ public final class StringMap {
 
     /* loaded from: classes5.dex */
     public interface Consumer {
-        void K(String str, Object obj);
+        void N(String str, Object obj);
     }
 
     public StringMap() {
@@ -22,7 +22,7 @@ public final class StringMap {
         this.map = map;
     }
 
-    public StringMap L(String str, Object obj) {
+    public StringMap O(String str, Object obj) {
         this.map.put(str, obj);
         return this;
     }
@@ -34,7 +34,7 @@ public final class StringMap {
 
     public void a(Consumer consumer) {
         for (Map.Entry<String, Object> entry : this.map.entrySet()) {
-            consumer.K(entry.getKey(), entry.getValue());
+            consumer.N(entry.getKey(), entry.getValue());
         }
     }
 
@@ -45,17 +45,17 @@ public final class StringMap {
     /* renamed from: com.qiniu.android.utils.StringMap$1  reason: invalid class name */
     /* loaded from: classes5.dex */
     class AnonymousClass1 implements Consumer {
-        private boolean mND;
-        final /* synthetic */ StringBuilder mNE;
+        private boolean nhH;
+        final /* synthetic */ StringBuilder nhI;
 
         @Override // com.qiniu.android.utils.StringMap.Consumer
-        public void K(String str, Object obj) {
-            if (this.mND) {
-                this.mNE.append(ETAG.ITEM_SEPARATOR);
+        public void N(String str, Object obj) {
+            if (this.nhH) {
+                this.nhI.append(ETAG.ITEM_SEPARATOR);
             }
             try {
-                this.mNE.append(URLEncoder.encode(str, "UTF-8")).append('=').append(URLEncoder.encode(obj.toString(), "UTF-8"));
-                this.mND = true;
+                this.nhI.append(URLEncoder.encode(str, "UTF-8")).append('=').append(URLEncoder.encode(obj.toString(), "UTF-8"));
+                this.nhH = true;
             } catch (UnsupportedEncodingException e) {
                 throw new AssertionError(e);
             }

@@ -34,7 +34,7 @@ import com.baidu.fsg.face.base.d.g;
 import com.baidu.fsg.face.liveness.SapiLivenessRecogManager;
 import com.baidu.fsg.face.liveness.beans.FaceSDKBeansFactory;
 import com.baidu.fsg.face.liveness.beans.c;
-import com.baidu.fsg.face.liveness.beans.m;
+import com.baidu.fsg.face.liveness.beans.n;
 import com.baidu.fsg.face.liveness.callback.LivenessRecogCallback;
 import com.baidu.fsg.face.liveness.datamodel.AudioVideoUploadModel;
 import com.baidu.fsg.face.liveness.datamodel.VideoFaceMatchModel;
@@ -757,17 +757,17 @@ public class LivenessVideoActivity extends LivenessCameraBaseActivity {
     private void m() {
         RimStatisticsUtil.onEventStart(com.baidu.fsg.face.liveness.d.O);
         LogUtil.d("hello", "onEventStart(StatServiceEvent.FACEMATCH):  对比接口开始");
-        m mVar = (m) FaceSDKBeansFactory.getInstance().getBean(getActivity(), 10, b);
+        n nVar = (n) FaceSDKBeansFactory.getInstance().getBean(getActivity(), 10, b);
         if (this.livenessRecogDTO != null) {
-            mVar.a(this.livenessRecogDTO);
+            nVar.a(this.livenessRecogDTO);
         }
         if (this.G != null) {
-            mVar.a(new String(this.G));
+            nVar.a(new String(this.G));
         }
-        mVar.c(Base64Utils.encodeToString(this.F));
-        mVar.b(this.K.reqTimes + "");
-        mVar.setResponseCallback(this);
-        mVar.execBean();
+        nVar.d(Base64Utils.encodeToString(this.F));
+        nVar.b(this.K.reqTimes + "");
+        nVar.setResponseCallback(this);
+        nVar.execBean();
     }
 
     /* JADX INFO: Access modifiers changed from: private */

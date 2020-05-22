@@ -6,7 +6,7 @@ import android.util.Log;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.live.tbadk.statics.AlaStaticKeys;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.games.h.l;
+import com.baidu.swan.games.i.n;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import java.io.File;
 import java.net.MalformedURLException;
@@ -14,27 +14,27 @@ import java.util.HashMap;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class f {
-    private static final HashMap<String, String> cJl = new HashMap<>();
+    private static final HashMap<String, String> cTS = new HashMap<>();
 
     static {
-        cJl.put("494433", ".mp3");
-        cJl.put("524946", ".wav");
+        cTS.put("494433", ".mp3");
+        cTS.put("524946", ".wav");
     }
 
     public static d a(g gVar) {
         d dVar = new d();
-        dVar.bYY = gVar.bYY;
-        dVar.bZg = gVar.autoplay;
+        dVar.cjA = gVar.cjA;
+        dVar.cjJ = gVar.autoplay;
         dVar.mLoop = gVar.loop;
         dVar.mUrl = gVar.src;
-        dVar.cJi = gVar.startTime;
-        dVar.bZh = gVar.obeyMuteSwitch;
+        dVar.cTP = gVar.startTime;
+        dVar.cjK = gVar.obeyMuteSwitch;
         dVar.mVolume = gVar.volume;
-        dVar.bZd = atL().toString();
+        dVar.cjG = axy().toString();
         return dVar;
     }
 
-    public static JSONObject atL() {
+    public static JSONObject axy() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("onCanplay", "canplay");
@@ -56,33 +56,33 @@ public class f {
         return jSONObject;
     }
 
-    public static boolean K(float f) {
+    public static boolean J(float f) {
         return f <= 1.0f && f >= 0.0f;
     }
 
-    public static String pz(String str) throws MalformedURLException {
+    public static String qZ(String str) throws MalformedURLException {
         int lastIndexOf = str.lastIndexOf(46);
         String str2 = "";
         if (lastIndexOf != -1) {
             str2 = str.substring(lastIndexOf, str.length());
         }
-        return "/" + com.baidu.swan.apps.runtime.e.akO() + "/" + String.valueOf(str.hashCode() + str2);
+        return "/" + com.baidu.swan.apps.runtime.e.aoH() + "/" + String.valueOf(str.hashCode() + str2);
     }
 
-    public static String atM() {
-        String atO = atO();
-        if (!isExternalStorageWritable() || TextUtils.isEmpty(atO)) {
+    public static String axz() {
+        String axB = axB();
+        if (!isExternalStorageWritable() || TextUtils.isEmpty(axB)) {
             return AppRuntime.getAppContext().getCacheDir().getAbsolutePath();
         }
-        return atO;
+        return axB;
     }
 
-    public static String atN() {
+    public static String axA() {
         return File.separator + "bdata" + File.separator;
     }
 
-    private static String atO() {
-        String str = l.getBasePath() + "/usr";
+    private static String axB() {
+        String str = n.getBasePath() + "/usr";
         File file = new File(str);
         if (!file.exists() && !file.mkdirs()) {
             Log.e("AudioDataUtils", "create targetFile dir error, path is " + file.getAbsolutePath(), new Throwable());
@@ -95,7 +95,7 @@ public class f {
         return "mounted".equals(Environment.getExternalStorageState());
     }
 
-    public static String D(byte[] bArr) {
+    public static String K(byte[] bArr) {
         if (bArr == null || 3 > bArr.length) {
             return "";
         }
@@ -103,7 +103,7 @@ public class f {
         for (int i = 0; i < 3; i++) {
             bArr2[i] = bArr[i];
         }
-        return cJl.get(bytesToHexString(bArr2));
+        return cTS.get(bytesToHexString(bArr2));
     }
 
     private static String bytesToHexString(byte[] bArr) {

@@ -8,51 +8,51 @@ import com.baidu.tbadk.editortools.l;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class f extends l {
-    private EditText dYP;
+    private EditText emY;
 
     public f(Context context) {
         super(context, (String) null, 27);
-        this.dXE = false;
-        this.dXD = 3;
-        this.dWM = new PbNewInputContainer(context);
-        this.dYP = ((PbNewInputContainer) this.dWM).getInputView();
-        ((PbNewInputContainer) this.dWM).setHint(context.getString(R.string.say_your_point));
-        this.dXF = new int[]{4, 17, 24, 3, 9, 6, 44, 12, 10, 13, 11, 28, 29, 39};
+        this.elN = false;
+        this.elM = 3;
+        this.ekV = new PbNewInputContainer(context);
+        this.emY = ((PbNewInputContainer) this.ekV).getInputView();
+        ((PbNewInputContainer) this.ekV).setHint(context.getString(R.string.say_your_point));
+        this.elO = new int[]{4, 17, 24, 3, 9, 6, 44, 12, 10, 13, 11, 28, 29, 39};
+    }
+
+    public void b(TextWatcher textWatcher) {
+        this.emY.addTextChangedListener(textWatcher);
     }
 
     public void c(TextWatcher textWatcher) {
-        this.dYP.addTextChangedListener(textWatcher);
-    }
-
-    public void d(TextWatcher textWatcher) {
-        this.dYP.removeTextChangedListener(textWatcher);
+        this.emY.removeTextChangedListener(textWatcher);
     }
 
     public void setHint(String str) {
-        if (this.dWM != null && !StringUtils.isNull(str)) {
-            ((PbNewInputContainer) this.dWM).setHint(str);
+        if (this.ekV != null && !StringUtils.isNull(str)) {
+            ((PbNewInputContainer) this.ekV).setHint(str);
         }
     }
 
     public void setDefaultHint(String str) {
-        if (this.dWM != null && !StringUtils.isNull(str)) {
-            ((PbNewInputContainer) this.dWM).setDefaultHint(str);
+        if (this.ekV != null && !StringUtils.isNull(str)) {
+            ((PbNewInputContainer) this.ekV).setDefaultHint(str);
         }
     }
 
     public EditText getInputView() {
-        return this.dYP;
+        return this.emY;
     }
 
     public void setType(int i) {
-        if (this.dWM != null) {
-            ((PbNewInputContainer) this.dWM).setType(i);
+        if (this.ekV != null) {
+            ((PbNewInputContainer) this.ekV).setType(i);
         }
     }
 
-    public void mL(int i) {
-        if (this.dWM != null) {
-            ((PbNewInputContainer) this.dWM).mL(i);
+    public void nn(int i) {
+        if (this.ekV != null) {
+            ((PbNewInputContainer) this.ekV).nn(i);
         }
     }
 }

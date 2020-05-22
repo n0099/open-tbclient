@@ -5,7 +5,7 @@ import android.webkit.ValueCallback;
 public class CookieManager {
     static final /* synthetic */ boolean $assertionsDisabled;
     private static final CookieManager mInstance;
-    private volatile boolean mFlushAsyncing = false;
+    private volatile boolean mFlushAsyncing;
 
     static {
         $assertionsDisabled = !CookieManager.class.desiredAssertionStatus();
@@ -16,12 +16,8 @@ public class CookieManager {
         return getInstance().allowFileSchemeCookiesImpl();
     }
 
-    public static synchronized CookieManager getInstance() {
-        CookieManager cookieManager;
-        synchronized (CookieManager.class) {
-            cookieManager = mInstance;
-        }
-        return cookieManager;
+    public static CookieManager getInstance() {
+        return mInstance;
     }
 
     public static void setAcceptFileSchemeCookies(boolean z) {

@@ -3,11 +3,11 @@ package com.baidu.live.challenge;
 import android.view.View;
 /* loaded from: classes3.dex */
 public interface e {
-    void J(View view);
+    void I(View view);
 
-    void aQ(boolean z);
+    void aT(boolean z);
 
-    void bw(int i);
+    void bD(int i);
 
     void hide();
 
@@ -15,5 +15,5 @@ public interface e {
 
     void setClickListener(View.OnClickListener onClickListener);
 
-    boolean ui();
+    boolean vp();
 }

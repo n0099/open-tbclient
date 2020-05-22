@@ -8,10 +8,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 /* loaded from: classes7.dex */
 public final class h extends TypeAdapter<Object> {
-    public static final TypeAdapterFactory mjN = new TypeAdapterFactory() { // from class: com.google.gson.internal.a.h.1
+    public static final TypeAdapterFactory mDH = new TypeAdapterFactory() { // from class: com.google.gson.internal.a.h.1
         @Override // com.google.gson.TypeAdapterFactory
         public <T> TypeAdapter<T> create(Gson gson, com.google.gson.b.a<T> aVar) {
-            if (aVar.dwa() == Object.class) {
+            if (aVar.dDr() == Object.class) {
                 return new h(gson);
             }
             return null;
@@ -25,10 +25,10 @@ public final class h extends TypeAdapter<Object> {
 
     @Override // com.google.gson.TypeAdapter
     public Object read(com.google.gson.stream.a aVar) throws IOException {
-        switch (aVar.dvH()) {
+        switch (aVar.dCY()) {
             case BEGIN_ARRAY:
                 ArrayList arrayList = new ArrayList();
-                aVar.dvF();
+                aVar.dCW();
                 while (aVar.hasNext()) {
                     arrayList.add(read(aVar));
                 }
@@ -36,20 +36,20 @@ public final class h extends TypeAdapter<Object> {
                 return arrayList;
             case BEGIN_OBJECT:
                 LinkedTreeMap linkedTreeMap = new LinkedTreeMap();
-                aVar.dvG();
+                aVar.dCX();
                 while (aVar.hasNext()) {
-                    linkedTreeMap.put(aVar.dvK(), read(aVar));
+                    linkedTreeMap.put(aVar.dDb(), read(aVar));
                 }
                 aVar.endObject();
                 return linkedTreeMap;
             case STRING:
-                return aVar.dvL();
+                return aVar.dDc();
             case NUMBER:
                 return Double.valueOf(aVar.nextDouble());
             case BOOLEAN:
                 return Boolean.valueOf(aVar.nextBoolean());
             case NULL:
-                aVar.dvM();
+                aVar.dDd();
                 return null;
             default:
                 throw new IllegalStateException();
@@ -59,13 +59,13 @@ public final class h extends TypeAdapter<Object> {
     @Override // com.google.gson.TypeAdapter
     public void write(com.google.gson.stream.b bVar, Object obj) throws IOException {
         if (obj == null) {
-            bVar.dvW();
+            bVar.dDn();
             return;
         }
         TypeAdapter adapter = this.gson.getAdapter(obj.getClass());
         if (adapter instanceof h) {
-            bVar.dvU();
-            bVar.dvV();
+            bVar.dDl();
+            bVar.dDm();
             return;
         }
         adapter.write(bVar, obj);

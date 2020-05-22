@@ -5,64 +5,64 @@ import com.baidu.live.tbadk.core.util.StringHelper;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class n {
-    public int ffn;
-    public long ffo;
-    public long ffp;
-    public long ffq;
-    public String ffr;
-    public long ffs;
-    public boolean fft;
-    public boolean ffu;
+    public int fsS;
+    public long fsT;
+    public long fsU;
+    public long fsV;
+    public String fsW;
+    public long fsX;
+    public boolean fsY;
+    public boolean fsZ;
     public long userId;
     public String userName;
     public String userNickname;
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.ffn = jSONObject.optInt("current_rank");
-            this.ffo = jSONObject.optInt("current_charm_value");
-            this.ffp = jSONObject.optInt("up_charm_value");
-            this.ffq = jSONObject.optInt("down_charm_value");
+            this.fsS = jSONObject.optInt("current_rank");
+            this.fsT = jSONObject.optInt("current_charm_value");
+            this.fsU = jSONObject.optInt("up_charm_value");
+            this.fsV = jSONObject.optInt("down_charm_value");
             this.userId = JavaTypesHelper.toLong(jSONObject.optString("user_id"), 0L);
             this.userName = jSONObject.optString("user_name");
             this.userNickname = jSONObject.optString("user_nickname");
-            this.ffr = jSONObject.optString("bd_portrait");
+            this.fsW = jSONObject.optString("bd_portrait");
         }
     }
 
     public void a(g gVar) {
         if (gVar != null) {
-            this.ffn = gVar.rank;
-            this.ffo = JavaTypesHelper.toLong(gVar.point, 0L);
+            this.fsS = gVar.rank;
+            this.fsT = JavaTypesHelper.toLong(gVar.point, 0L);
             this.userId = gVar.user_id;
             this.userName = gVar.user_name;
             this.userNickname = gVar.user_nickname;
-            this.ffr = gVar.avatar;
+            this.fsW = gVar.avatar;
         }
     }
 
-    public void dp(long j) {
-        this.ffp = j;
-    }
-
-    public void dq(long j) {
-        this.ffq = j;
-    }
-
-    public void js(boolean z) {
-        this.fft = z;
-    }
-
-    public boolean bnW() {
-        return this.fft;
-    }
-
-    public void jt(boolean z) {
-        this.ffu = z;
-    }
-
     public void dr(long j) {
-        this.ffs = j;
+        this.fsU = j;
+    }
+
+    public void ds(long j) {
+        this.fsV = j;
+    }
+
+    public void jL(boolean z) {
+        this.fsY = z;
+    }
+
+    public boolean btO() {
+        return this.fsY;
+    }
+
+    public void jM(boolean z) {
+        this.fsZ = z;
+    }
+
+    public void dt(long j) {
+        this.fsX = j;
     }
 
     public String getNameShow() {
@@ -70,6 +70,6 @@ public class n {
     }
 
     public boolean isValid() {
-        return (StringHelper.isEmpty(getNameShow()) || StringHelper.isEmpty(this.ffr)) ? false : true;
+        return (StringHelper.isEmpty(getNameShow()) || StringHelper.isEmpty(this.fsW)) ? false : true;
     }
 }

@@ -22,9 +22,9 @@ import com.baidu.ala.recorder.video.IVideoRecorder;
 import com.baidu.ala.recorder.video.RecorderHandler;
 import com.baidu.ala.recorder.video.VideoFormat;
 import com.baidu.ala.recorder.video.camera.AlaCameraRecorder;
+import com.baidu.ala.recorder.video.gles.AFullFrameRect;
 import com.baidu.ala.recorder.video.gles.EglCore;
 import com.baidu.ala.recorder.video.gles.EglSurfaceBase;
-import com.baidu.ala.recorder.video.gles.FullFrameRectFU;
 import com.baidu.ala.recorder.video.gles.GlUtil;
 import com.baidu.ala.recorder.video.gles.OffscreenSurface;
 import com.baidu.ala.recorder.video.gles.Texture2dProgram;
@@ -35,17 +35,16 @@ import com.baidu.live.adp.lib.stats.BdStatisticsManager;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.live.adp.lib.util.BdLog;
 import java.lang.ref.WeakReference;
-import java.lang.reflect.Array;
 import java.nio.ByteBuffer;
+@TargetApi(16)
 /* loaded from: classes3.dex */
-public class GPUCameraOperator implements SurfaceTexture.OnFrameAvailableListener, Camera.PreviewCallback, ICameraOperator {
+public class GPUCameraOperator implements ICameraOperator {
     private static final int DEFAULT_ROTATE = 0;
     private static final int MAX_DROP_FIRST_FRAMES = 5;
     private static final int MIN_SURFACE_CHANGE = 10;
-    private static final int PREVIEW_BUFFER_COUNT = 3;
     private static final String TAG = "AlaLiveRecorder_GPU";
     private WeakReference<Activity> mActivityReference;
-    private FullFrameRectFU mCamFullScreen;
+    private AFullFrameRect mCamFullScreen;
     private Camera mCamera;
     private byte[] mCameraNV21Byte;
     private int mCameraPreviewHeight;
@@ -61,8 +60,7 @@ public class GPUCameraOperator implements SurfaceTexture.OnFrameAvailableListene
     private int mFramebuffer;
     private HandlerThread mHandlerThread;
     private ImageReader mImageReader;
-    private FullFrameRectFU mOffFullScreen;
-    private byte[][] mPreviewCallbackBuffer;
+    private AFullFrameRect mOffFullScreen;
     private float[] mPreviewVertex;
     private RecorderHandler mRecorderHandler;
     private AlaCameraRecorder.SurfaceHolder mSurfaceHolder;
@@ -89,10 +87,17 @@ public class GPUCameraOperator implements SurfaceTexture.OnFrameAvailableListene
     private volatile boolean mRequestEncoderReset = false;
     private int mEncoderRestCount = 0;
     private volatile boolean mRequestKeyFrame = true;
+    private Camera.PreviewCallback mPreviewCallback = new Camera.PreviewCallback() { // from class: com.baidu.ala.recorder.video.camera.GPUCameraOperator.1
+        @Override // android.hardware.Camera.PreviewCallback
+        public void onPreviewFrame(byte[] bArr, Camera camera) {
+            GPUCameraOperator.this.mCamera.addCallbackBuffer(bArr);
+            GPUCameraOperator.this.mCameraNV21Byte = bArr;
+            GPUCameraOperator.this.frameAvailable();
+        }
+    };
 
-    public GPUCameraOperator(Activity activity, Camera camera, AlaCameraRecorder.SurfaceHolder surfaceHolder, ICameraStatusHandler iCameraStatusHandler, IVideoRecorder.IVideoDataCallBack iVideoDataCallBack, RecorderHandler recorderHandler) {
+    public GPUCameraOperator(Activity activity, AlaCameraRecorder.SurfaceHolder surfaceHolder, ICameraStatusHandler iCameraStatusHandler, IVideoRecorder.IVideoDataCallBack iVideoDataCallBack, RecorderHandler recorderHandler) {
         this.mActivityReference = null;
-        this.mCamera = camera;
         this.mSurfaceHolder = surfaceHolder;
         this.mRecorderHandler = recorderHandler;
         this.mDataCallback = iVideoDataCallBack;
@@ -109,11 +114,8 @@ public class GPUCameraOperator implements SurfaceTexture.OnFrameAvailableListene
         this.mDataThreadHandler = new Handler(this.mHandlerThread.getLooper());
     }
 
-    @Override // android.graphics.SurfaceTexture.OnFrameAvailableListener
-    public void onFrameAvailable(SurfaceTexture surfaceTexture) {
-    }
-
-    private void frameAvailable() {
+    /* JADX INFO: Access modifiers changed from: private */
+    public void frameAvailable() {
         float[] fArr = new float[16];
         try {
             this.mCameraTexture.updateTexImage();
@@ -199,7 +201,7 @@ public class GPUCameraOperator implements SurfaceTexture.OnFrameAvailableListene
     }
 
     @Override // com.baidu.ala.recorder.video.camera.ICameraOperator
-    public boolean onCameraOpened(Camera camera, int i, int i2) {
+    public boolean onCameraOpened(Camera camera, int i) {
         this.mCamera = camera;
         if (this.mActivityReference.get() == null) {
             return false;
@@ -221,31 +223,12 @@ public class GPUCameraOperator implements SurfaceTexture.OnFrameAvailableListene
         } else {
             this.mRequestKeyFrame = true;
         }
-        try {
-            if (this.mCameraTexture != null) {
-                this.mCamera.stopPreview();
-                this.mCamera.setPreviewCallbackWithBuffer(this);
-                createPreviewCallbackBuffer();
-                for (int i3 = 0; i3 < 3; i3++) {
-                    this.mCamera.addCallbackBuffer(this.mPreviewCallbackBuffer[i3]);
-                }
-                this.mCamera.setPreviewTexture(this.mCameraTexture);
-                this.mCamera.startPreview();
-            }
-            return true;
-        } catch (Exception e) {
-            return false;
-        }
+        return true;
     }
 
-    private void createPreviewCallbackBuffer() {
-        if (this.mPreviewCallbackBuffer == null) {
-            try {
-                this.mPreviewCallbackBuffer = (byte[][]) Array.newInstance(Byte.TYPE, 3, (int) (this.mConfig.getPreviewWidth() * this.mConfig.getPreviewHeight() * 1.5d));
-            } catch (Throwable th) {
-                BdLog.e(th);
-            }
-        }
+    @Override // com.baidu.ala.recorder.video.camera.ICameraOperator
+    public Camera.PreviewCallback getPreviewCallback() {
+        return this.mPreviewCallback;
     }
 
     private void setupSurface(AlaCameraRecorder.SurfaceHolder surfaceHolder) {
@@ -264,16 +247,15 @@ public class GPUCameraOperator implements SurfaceTexture.OnFrameAvailableListene
                         }
                     }
                     if (this.mOffFullScreen == null) {
-                        this.mOffFullScreen = new FullFrameRectFU(new Texture2dProgram(Texture2dProgram.ProgramType.TEXTURE_2D));
+                        this.mOffFullScreen = new AFullFrameRect(new Texture2dProgram(Texture2dProgram.ProgramType.TEXTURE_2D));
                     }
                     if (this.mCamFullScreen == null) {
-                        this.mCamFullScreen = new FullFrameRectFU(new Texture2dProgram(Texture2dProgram.ProgramType.TEXTURE_EXT));
+                        this.mCamFullScreen = new AFullFrameRect(new Texture2dProgram(Texture2dProgram.ProgramType.TEXTURE_EXT));
                     }
                     if (this.mCameraTexture == null) {
-                        this.mCameraTxtId = new FullFrameRectFU(new Texture2dProgram(Texture2dProgram.ProgramType.TEXTURE_EXT)).createTextureObject();
+                        this.mCameraTxtId = GlUtil.createTextureOES();
                         this.mCameraTexture = new SurfaceTexture(this.mCameraTxtId);
                         setupSurfaceFinish();
-                        this.mCameraTexture.setOnFrameAvailableListener(this);
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -290,19 +272,6 @@ public class GPUCameraOperator implements SurfaceTexture.OnFrameAvailableListene
     private void setupSurfaceFinish() {
         GLES20.glViewport(0, 0, this.mWindowSurfaceWidth, this.mWindowSurfaceHeight);
         updateGeometry();
-        if (this.mCameraTexture != null) {
-            try {
-                this.mCamera.stopPreview();
-                this.mCamera.setPreviewCallbackWithBuffer(this);
-                createPreviewCallbackBuffer();
-                for (int i = 0; i < 3; i++) {
-                    this.mCamera.addCallbackBuffer(this.mPreviewCallbackBuffer[i]);
-                }
-                this.mCamera.setPreviewTexture(this.mCameraTexture);
-                this.mCamera.startPreview();
-            } catch (Throwable th) {
-            }
-        }
         prepareFramebuffer(this.mCameraPreviewHeight, this.mCameraPreviewWidth);
     }
 
@@ -379,15 +348,7 @@ public class GPUCameraOperator implements SurfaceTexture.OnFrameAvailableListene
         return true;
     }
 
-    @Override // com.baidu.ala.recorder.video.camera.ICameraOperator
-    public void startRecorderData() {
-        if (this.mConfig.getEncoderType() != 1) {
-            resetImageReader(true);
-        }
-    }
-
-    @Override // com.baidu.ala.recorder.video.camera.ICameraOperator
-    public void setEncoderSurface(Surface surface) {
+    private void setEncoderSurface(Surface surface) {
         try {
             if (this.mCodecWindowSurface != null) {
                 this.mCodecWindowSurface.release();
@@ -473,6 +434,7 @@ public class GPUCameraOperator implements SurfaceTexture.OnFrameAvailableListene
 
     @Override // com.baidu.ala.recorder.video.camera.ICameraOperator
     public void setVideoDataCallback(IVideoRecorder.IVideoDataCallBack iVideoDataCallBack) {
+        this.mDataCallback = iVideoDataCallBack;
     }
 
     @Override // com.baidu.ala.recorder.video.camera.ICameraOperator
@@ -496,16 +458,17 @@ public class GPUCameraOperator implements SurfaceTexture.OnFrameAvailableListene
     }
 
     @Override // com.baidu.ala.recorder.video.camera.ICameraOperator
-    public VideoFormat getVideoFormat() {
-        return VideoFormat.RGBA;
+    public void willSwitchSense(int i) {
     }
 
     @Override // com.baidu.ala.recorder.video.camera.ICameraOperator
-    public Handler getDataThreadHandler() {
-        if (this.mHandlerThread != null) {
-            return new Handler(this.mHandlerThread.getLooper());
-        }
-        return null;
+    public SurfaceTexture getSurfaceTexture() {
+        return this.mCameraTexture;
+    }
+
+    @Override // com.baidu.ala.recorder.video.camera.ICameraOperator
+    public VideoFormat getVideoFormat() {
+        return VideoFormat.RGBA;
     }
 
     @Override // com.baidu.ala.recorder.video.camera.ICameraOperator
@@ -533,8 +496,7 @@ public class GPUCameraOperator implements SurfaceTexture.OnFrameAvailableListene
         this.mDataThreadHandler = null;
     }
 
-    @Override // com.baidu.ala.recorder.video.camera.ICameraOperator
-    public void initResource() {
+    private void initResource() {
         try {
             this.mEglCore = new EglCore(null, 1);
         } catch (Exception e) {
@@ -547,18 +509,26 @@ public class GPUCameraOperator implements SurfaceTexture.OnFrameAvailableListene
 
     @Override // com.baidu.ala.recorder.video.camera.ICameraOperator
     public void setVideoConfig(AlaLiveVideoConfig alaLiveVideoConfig) {
-        if (alaLiveVideoConfig != null) {
-            this.mConfig = new AlaLiveVideoConfig(alaLiveVideoConfig);
-            if (this.mEncoder != null && alaLiveVideoConfig.getEncoderType() == 1) {
+        if (alaLiveVideoConfig != null && this.mEncoder != null && alaLiveVideoConfig.getEncoderType() == 1) {
+            if (!AlaLiveVideoConfig.isEqual(this.mConfig, alaLiveVideoConfig)) {
+                if (AlaLiveVideoConfig.isUpdateBitrate(this.mConfig, alaLiveVideoConfig) && TextureEncoder.isSupportBitRateOnFly()) {
+                    this.mEncoder.updateBitrate(alaLiveVideoConfig.getBitStream());
+                    this.mConfig = new AlaLiveVideoConfig(alaLiveVideoConfig);
+                    return;
+                }
+                this.mConfig = new AlaLiveVideoConfig(alaLiveVideoConfig);
                 resetTextureEncoder();
+                return;
             }
+            return;
         }
+        this.mConfig = new AlaLiveVideoConfig(alaLiveVideoConfig);
     }
 
     @TargetApi(19)
     private void resetImageReader(final boolean z) {
         if (this.mDataThreadHandler != null) {
-            this.mDataThreadHandler.post(new Runnable() { // from class: com.baidu.ala.recorder.video.camera.GPUCameraOperator.1
+            this.mDataThreadHandler.post(new Runnable() { // from class: com.baidu.ala.recorder.video.camera.GPUCameraOperator.2
                 @Override // java.lang.Runnable
                 public void run() {
                     try {
@@ -597,7 +567,7 @@ public class GPUCameraOperator implements SurfaceTexture.OnFrameAvailableListene
             encodeConfig.isLandscape = this.mConfig.isLandscape();
             encodeConfig.H264GOP = this.mConfig.getVideoGOP();
             encodeConfig.H264FPS = this.mConfig.getVideoFPS();
-            this.mEncoder.prepare(this.mEglCore.getEGLContext(), encodeConfig, new VideoEncoderCore.OutputCallback() { // from class: com.baidu.ala.recorder.video.camera.GPUCameraOperator.2
+            this.mEncoder.prepare(this.mEglCore.getEGLContext(), encodeConfig, new VideoEncoderCore.OutputCallback() { // from class: com.baidu.ala.recorder.video.camera.GPUCameraOperator.3
                 @Override // com.baidu.ala.recorder.video.hardware.VideoEncoderCore.OutputCallback
                 public void onFormatChanged(MediaFormat mediaFormat) {
                 }
@@ -636,7 +606,7 @@ public class GPUCameraOperator implements SurfaceTexture.OnFrameAvailableListene
         if (this.mImageReader == null && this.mCameraPreviewWidth != 0 && this.mCameraPreviewHeight != 0) {
             this.mImageReader = ImageReader.newInstance(this.mCameraPreviewHeight, this.mCameraPreviewWidth, 1, 1);
             try {
-                this.mImageReader.setOnImageAvailableListener(new ImageReader.OnImageAvailableListener() { // from class: com.baidu.ala.recorder.video.camera.GPUCameraOperator.3
+                this.mImageReader.setOnImageAvailableListener(new ImageReader.OnImageAvailableListener() { // from class: com.baidu.ala.recorder.video.camera.GPUCameraOperator.4
                     @Override // android.media.ImageReader.OnImageAvailableListener
                     public void onImageAvailable(ImageReader imageReader) {
                         if (GPUCameraOperator.this.mImageReader != null) {
@@ -697,13 +667,6 @@ public class GPUCameraOperator implements SurfaceTexture.OnFrameAvailableListene
         }
     }
 
-    @Override // android.hardware.Camera.PreviewCallback
-    public void onPreviewFrame(byte[] bArr, Camera camera) {
-        this.mCamera.addCallbackBuffer(bArr);
-        this.mCameraNV21Byte = bArr;
-        frameAvailable();
-    }
-
     public static boolean isValid() {
         return true;
     }
@@ -711,11 +674,6 @@ public class GPUCameraOperator implements SurfaceTexture.OnFrameAvailableListene
     @Override // com.baidu.ala.recorder.video.camera.ICameraOperator
     public void setPushMirror(boolean z) {
         this.mIsMirror = z;
-    }
-
-    @Override // com.baidu.ala.recorder.video.camera.ICameraOperator
-    public boolean isPushMirror() {
-        return this.mIsMirror;
     }
 
     @Override // com.baidu.ala.recorder.video.camera.ICameraOperator

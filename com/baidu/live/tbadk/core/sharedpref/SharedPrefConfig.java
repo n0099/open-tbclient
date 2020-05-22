@@ -125,6 +125,7 @@ public class SharedPrefConfig {
     public static final String KEY_SHOW_PRIVACY_TIP_TWO = "key_show_privacy_tip_two";
     public static final String KEY_SHOW_TAKE_PHOTO_TIP = "key_show_take_photo_tip";
     public static final String KEY_STEP_CHACHE_STRATEGY = "video_report_config_step_cache_strategy";
+    public static final String KEY_SYNC_CLIENT_IP = "key_sync_client_ip";
     public static final String KEY_VIDEO_EASTER_EGG_SWITCH = "key_video_easter_egg_switch";
     public static final String KEY_VIDEO_SPLASH_CONFIG = "key_video_splash_config";
     public static final String KEY_VIDEO_SPLASH_LAST_SHOW_TIME = "key_video_splash_last_show_time";

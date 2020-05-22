@@ -19,6 +19,6 @@ final class SequencesKt___SequencesKt$zip$1 extends Lambda implements m<T, R, Pa
 
     @Override // kotlin.jvm.a.m
     public final Pair<T, R> invoke(T t, R r) {
-        return kotlin.j.j(t, r);
+        return kotlin.j.k(t, r);
     }
 }

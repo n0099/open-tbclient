@@ -5,9 +5,9 @@ public abstract class w<T> implements aa<T> {
 
     @Override // io.reactivex.aa
     public final void a(y<? super T> yVar) {
-        io.reactivex.internal.functions.a.h(yVar, "subscriber is null");
+        io.reactivex.internal.functions.a.k(yVar, "subscriber is null");
         y<? super T> a = io.reactivex.e.a.a(this, yVar);
-        io.reactivex.internal.functions.a.h(a, "subscriber returned by the RxJavaPlugins hook is null");
+        io.reactivex.internal.functions.a.k(a, "subscriber returned by the RxJavaPlugins hook is null");
         try {
             b(a);
         } catch (NullPointerException e) {

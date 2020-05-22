@@ -11,6 +11,7 @@ import com.baidu.android.imsdk.internal.IMConfigInternal;
 import com.baidu.android.imsdk.pubaccount.GetPaInfoSliceListener;
 import com.baidu.android.imsdk.pubaccount.PaInfo;
 import com.baidu.android.imsdk.pubaccount.db.PaInfoDBManager;
+import com.baidu.android.imsdk.utils.HttpHelper;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.ar.constants.HttpConstants;
@@ -83,6 +84,11 @@ public class IMPaGetInfoListRequest extends PaBaseHttpRequest {
             LogUtils.e(TAG, "Exception ", e);
         }
         return jSONObject.toString().getBytes();
+    }
+
+    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
+    public String getContentType() {
+        return HttpHelper.CONTENT_JSON;
     }
 
     @Override // com.baidu.android.imsdk.utils.HttpHelper.Request

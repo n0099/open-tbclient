@@ -10,19 +10,19 @@ import java.util.HashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes11.dex */
 public class b implements Runnable {
-    final /* synthetic */ boolean acq;
-    final /* synthetic */ BdLightappKernelJsCallback acr;
-    final /* synthetic */ int acs;
-    final /* synthetic */ BdLightappKernelClient act;
+    final /* synthetic */ boolean acI;
+    final /* synthetic */ BdLightappKernelJsCallback acJ;
+    final /* synthetic */ int acK;
+    final /* synthetic */ BdLightappKernelClient acL;
     final /* synthetic */ String val$path;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(BdLightappKernelClient bdLightappKernelClient, boolean z, String str, BdLightappKernelJsCallback bdLightappKernelJsCallback, int i) {
-        this.act = bdLightappKernelClient;
-        this.acq = z;
+        this.acL = bdLightappKernelClient;
+        this.acI = z;
         this.val$path = str;
-        this.acr = bdLightappKernelJsCallback;
-        this.acs = i;
+        this.acJ = bdLightappKernelJsCallback;
+        this.acK = i;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:35:0x00f2  */
@@ -46,11 +46,11 @@ public class b implements Runnable {
         SparseArray sparseArray3;
         int i6 = 100;
         int i7 = 0;
-        if (!this.acq || TextUtils.isEmpty(this.val$path)) {
-            this.acr.setResult(3);
+        if (!this.acI || TextUtils.isEmpty(this.val$path)) {
+            this.acJ.setResult(3);
         } else {
             File file2 = new File(this.val$path);
-            HashMap<String, String> configsMap = this.acr.getConfigsMap();
+            HashMap<String, String> configsMap = this.acJ.getConfigsMap();
             try {
                 i3 = Integer.parseInt(configsMap.get("width"));
                 try {
@@ -86,22 +86,22 @@ public class b implements Runnable {
                 str = str3;
                 i5 = 0;
                 file = file2;
-                this.acr.addField("fullPath", str);
+                this.acJ.addField("fullPath", str);
                 int lastIndexOf = this.val$path.lastIndexOf(".");
                 mimeTypeFromExtension = MimeTypeMap.getSingleton().getMimeTypeFromExtension(lastIndexOf > 0 ? this.val$path.substring(lastIndexOf + 1) : "");
-                BdLightappKernelJsCallback bdLightappKernelJsCallback = this.acr;
+                BdLightappKernelJsCallback bdLightappKernelJsCallback = this.acJ;
                 if (TextUtils.isEmpty(mimeTypeFromExtension)) {
                 }
                 bdLightappKernelJsCallback.addField("type", mimeTypeFromExtension);
-                this.acr.addField("name", file.getName());
-                this.acr.addField("lastModified", Long.toString(file.lastModified()));
-                this.acr.addField(TiebaInitialize.LogFields.SIZE, Long.toString(file.length()));
-                this.acr.addField("height", String.valueOf(i5));
-                this.acr.addField("width", String.valueOf(i7));
-                this.acr.addField("base64", str2);
-                this.acr.notifyResult();
-                sparseArray = this.act.mJsCallbacks;
-                sparseArray.remove(this.acs);
+                this.acJ.addField("name", file.getName());
+                this.acJ.addField("lastModified", Long.toString(file.lastModified()));
+                this.acJ.addField(TiebaInitialize.LogFields.SIZE, Long.toString(file.length()));
+                this.acJ.addField("height", String.valueOf(i5));
+                this.acJ.addField("width", String.valueOf(i7));
+                this.acJ.addField("base64", str2);
+                this.acJ.notifyResult();
+                sparseArray = this.acL.mJsCallbacks;
+                sparseArray.remove(this.acK);
             }
             String str22 = null;
             String str32 = this.val$path;
@@ -113,21 +113,21 @@ public class b implements Runnable {
             } else {
                 Bitmap a = com.baidu.browser.sailor.util.d.a(this.val$path, Math.min(i3, i4));
                 if (a == null) {
-                    this.acr.sendCallBackWithRetCode(105);
-                    sparseArray3 = this.act.mJsCallbacks;
-                    sparseArray3.remove(this.acs);
+                    this.acJ.sendCallBackWithRetCode(105);
+                    sparseArray3 = this.acL.mJsCallbacks;
+                    sparseArray3.remove(this.acK);
                     return;
                 }
                 i7 = a.getWidth();
                 int height = a.getHeight();
                 String b = TextUtils.equals(configsMap.get("base64"), "true") ? com.baidu.browser.sailor.util.d.b(a, i6) : null;
-                String a2 = com.baidu.browser.sailor.util.b.a(this.act.getPaivateDir(), file2.getName());
+                String a2 = com.baidu.browser.sailor.util.b.a(this.acL.getPaivateDir(), file2.getName());
                 boolean a3 = com.baidu.browser.sailor.util.d.a(a, a2, i6);
                 a.recycle();
                 if (!a3) {
-                    this.acr.sendCallBackWithRetCode(106);
-                    sparseArray2 = this.act.mJsCallbacks;
-                    sparseArray2.remove(this.acs);
+                    this.acJ.sendCallBackWithRetCode(106);
+                    sparseArray2 = this.acL.mJsCallbacks;
+                    sparseArray2.remove(this.acK);
                     return;
                 }
                 str22 = b;
@@ -135,23 +135,23 @@ public class b implements Runnable {
                 file = new File(a2);
                 i5 = height;
             }
-            this.acr.addField("fullPath", str);
+            this.acJ.addField("fullPath", str);
             int lastIndexOf2 = this.val$path.lastIndexOf(".");
             mimeTypeFromExtension = MimeTypeMap.getSingleton().getMimeTypeFromExtension(lastIndexOf2 > 0 ? this.val$path.substring(lastIndexOf2 + 1) : "");
-            BdLightappKernelJsCallback bdLightappKernelJsCallback2 = this.acr;
+            BdLightappKernelJsCallback bdLightappKernelJsCallback2 = this.acJ;
             if (TextUtils.isEmpty(mimeTypeFromExtension)) {
                 mimeTypeFromExtension = "";
             }
             bdLightappKernelJsCallback2.addField("type", mimeTypeFromExtension);
-            this.acr.addField("name", file.getName());
-            this.acr.addField("lastModified", Long.toString(file.lastModified()));
-            this.acr.addField(TiebaInitialize.LogFields.SIZE, Long.toString(file.length()));
-            this.acr.addField("height", String.valueOf(i5));
-            this.acr.addField("width", String.valueOf(i7));
-            this.acr.addField("base64", str22);
+            this.acJ.addField("name", file.getName());
+            this.acJ.addField("lastModified", Long.toString(file.lastModified()));
+            this.acJ.addField(TiebaInitialize.LogFields.SIZE, Long.toString(file.length()));
+            this.acJ.addField("height", String.valueOf(i5));
+            this.acJ.addField("width", String.valueOf(i7));
+            this.acJ.addField("base64", str22);
         }
-        this.acr.notifyResult();
-        sparseArray = this.act.mJsCallbacks;
-        sparseArray.remove(this.acs);
+        this.acJ.notifyResult();
+        sparseArray = this.acL.mJsCallbacks;
+        sparseArray.remove(this.acK);
     }
 }

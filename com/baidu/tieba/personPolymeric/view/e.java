@@ -16,10 +16,10 @@ import com.baidu.tieba.horizonalList.widget.HTypeListView;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes11.dex */
-public class e extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.g> {
-    private View cXO;
-    private HTypeListView jRO;
-    private com.baidu.tieba.personPolymeric.a.o kdx;
+public class e extends com.baidu.tieba.card.b<com.baidu.tieba.personPolymeric.c.g> {
+    private View diS;
+    private HTypeListView kjH;
+    private com.baidu.tieba.personPolymeric.a.o kvo;
     private TbPageContext mPageContext;
     private View mRootView;
     private TextView mTitle;
@@ -28,26 +28,26 @@ public class e extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
         super(tbPageContext);
         this.mPageContext = tbPageContext;
         this.mRootView = getView();
-        this.cXO = this.mRootView.findViewById(R.id.divider_view);
+        this.diS = this.mRootView.findViewById(R.id.divider_view);
         this.mTitle = (TextView) this.mRootView.findViewById(R.id.gift_title);
-        this.jRO = (HTypeListView) this.mRootView.findViewById(R.id.gift_horizontal_list);
-        this.kdx = new com.baidu.tieba.personPolymeric.a.o(this.mPageContext, this.jRO);
+        this.kjH = (HTypeListView) this.mRootView.findViewById(R.id.gift_horizontal_list);
+        this.kvo = new com.baidu.tieba.personPolymeric.a.o(this.mPageContext, this.kjH);
     }
 
-    @Override // com.baidu.tieba.card.a
+    @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         am.setBackgroundColor(this.mRootView, R.color.cp_bg_line_d);
-        am.setBackgroundColor(this.cXO, R.color.cp_bg_line_c);
+        am.setBackgroundColor(this.diS, R.color.cp_bg_line_c);
         am.setViewTextColor(this.mTitle, (int) R.color.cp_cont_d);
     }
 
-    @Override // com.baidu.tieba.card.a
+    @Override // com.baidu.tieba.card.b
     public int getLayout() {
         return R.layout.card_gift_list;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.card.a
+    @Override // com.baidu.tieba.card.b
     public void a(final com.baidu.tieba.personPolymeric.c.g gVar) {
         if (gVar == null || !gVar.isValid()) {
             this.mRootView.setVisibility(8);
@@ -59,13 +59,13 @@ public class e extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
                 e.this.b(gVar);
             }
         };
-        this.kdx.X(onClickListener);
+        this.kvo.X(onClickListener);
         this.mRootView.setOnClickListener(onClickListener);
-        this.kdx.Y(onClickListener);
-        this.jRO.setData(eh(gVar.kaW));
+        this.kvo.Y(onClickListener);
+        this.kjH.setData(eo(gVar.ksO));
         if (gVar.mIsHost) {
             this.mTitle.setText(R.string.gift_received_by_me);
-        } else if (gVar.kaU) {
+        } else if (gVar.ksM) {
             this.mTitle.setText(R.string.gift_received_by_him);
         } else {
             this.mTitle.setText(R.string.gift_received_by_her);
@@ -78,14 +78,14 @@ public class e extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
         if (!TbadkCoreApplication.getInst().appResponseToIntentClass(MyGiftListActivityConfig.class)) {
             this.mPageContext.showToast(R.string.gift_load_fail);
         } else if (bc.checkUpIsLogin(this.mPageContext.getPageActivity())) {
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MyGiftListActivityConfig(this.mPageContext.getPageActivity(), gVar.mUid, gVar.LD, gVar.kaV, gVar.mSex)));
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MyGiftListActivityConfig(this.mPageContext.getPageActivity(), gVar.mUid, gVar.LR, gVar.ksN, gVar.mSex)));
         }
     }
 
-    private List<com.baidu.adp.widget.ListView.m> eh(List<com.baidu.adp.widget.ListView.m> list) {
+    private List<com.baidu.adp.widget.ListView.o> eo(List<com.baidu.adp.widget.ListView.o> list) {
         int count = v.getCount(list);
         if (count > 0) {
-            List<com.baidu.adp.widget.ListView.m> arrayList = new ArrayList<>(list);
+            List<com.baidu.adp.widget.ListView.o> arrayList = new ArrayList<>(list);
             int dimens = com.baidu.adp.lib.util.l.getDimens(this.mTbPageContext.getPageActivity(), R.dimen.ds100);
             int dimens2 = com.baidu.adp.lib.util.l.getDimens(this.mTbPageContext.getPageActivity(), R.dimen.ds32);
             if (count > 7) {

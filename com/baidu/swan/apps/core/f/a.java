@@ -9,17 +9,17 @@ import org.apache.http.HttpHost;
 /* loaded from: classes11.dex */
 public class a implements d {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final Set<String> bNY = new HashSet();
+    private static final Set<String> bXe = new HashSet();
 
     static {
-        bNY.add("https");
-        bNY.add(HttpHost.DEFAULT_SCHEME_NAME);
-        bNY.add(LoginConstants.SMS_LOGIN);
-        bNY.add("tel");
+        bXe.add("https");
+        bXe.add(HttpHost.DEFAULT_SCHEME_NAME);
+        bXe.add(LoginConstants.SMS_LOGIN);
+        bXe.add("tel");
     }
 
     @Override // com.baidu.swan.apps.core.f.d
-    public void ff(String str) {
+    public void fR(String str) {
     }
 
     @Override // com.baidu.swan.apps.core.f.d
@@ -27,12 +27,12 @@ public class a implements d {
     }
 
     @Override // com.baidu.swan.apps.core.f.d
-    public boolean fg(String str) {
+    public boolean fS(String str) {
         Uri parse;
         if (str == null || (parse = Uri.parse(str)) == null) {
             return true;
         }
-        boolean contains = bNY.contains(parse.getScheme());
+        boolean contains = bXe.contains(parse.getScheme());
         if (DEBUG) {
             Log.d("WebViewWidgetListener", (contains ? "legal schemes : " : "illegal schemes : ") + parse.getScheme());
         }
@@ -40,7 +40,7 @@ public class a implements d {
     }
 
     @Override // com.baidu.swan.apps.core.f.d
-    public void fe(String str) {
+    public void fQ(String str) {
     }
 
     @Override // com.baidu.swan.apps.core.f.d

@@ -10,13 +10,13 @@ import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.tieba.sharesdk.bean.ShareEntity;
 /* loaded from: classes11.dex */
 public class b implements com.baidu.tbadk.coreExtra.share.c {
-    private com.baidu.tbadk.coreExtra.share.b dQX;
+    private com.baidu.tbadk.coreExtra.share.b efq;
     private Context mContext;
 
     public b(Context context, com.baidu.tbadk.coreExtra.share.b bVar) {
         this.mContext = null;
         this.mContext = context;
-        this.dQX = bVar;
+        this.efq = bVar;
     }
 
     @Override // com.baidu.tbadk.coreExtra.share.c
@@ -31,25 +31,25 @@ public class b implements com.baidu.tbadk.coreExtra.share.c {
             shareEntity.setTitle(shareItem.title);
             shareEntity.setContent(shareItem.content);
             shareEntity.fp(shareItem.readCount);
-            shareEntity.tC(shareItem.dQH == 2 || shareItem.dQH == 6 || shareItem.dQH == 8);
+            shareEntity.ua(shareItem.efa == 2 || shareItem.efa == 6 || shareItem.efa == 8);
             shareEntity.setImageUri(shareItem.imageUri);
             shareEntity.canShareBySmartApp = shareItem.canShareBySmartApp;
             String str = shareItem.linkUrl;
-            if (i == 6 && !StringUtils.isNull(shareItem.dQy)) {
-                str = shareItem.dQy;
+            if (i == 6 && !StringUtils.isNull(shareItem.eeR)) {
+                str = shareItem.eeR;
             }
             shareEntity.setLinkUrl(str);
-            shareEntity.Ke(shareItem.localFile);
+            shareEntity.LQ(shareItem.localFile);
             shareEntity.setLocation(shareItem.location);
-            shareEntity.Cs(i);
-            shareEntity.Y(shareItem.aUR());
-            shareEntity.Cu(shareItem.shareType);
+            shareEntity.Dc(i);
+            shareEntity.ae(shareItem.bbb());
+            shareEntity.De(shareItem.shareType);
             shareEntity.setTid(shareItem.tid);
-            shareEntity.Kf(shareItem.fName);
-            shareEntity.Ct(shareItem.typeShareToSmallApp);
+            shareEntity.LR(shareItem.fName);
+            shareEntity.Dd(shareItem.typeShareToSmallApp);
             shareEntity.topic = shareItem.topic;
-            if (i == 6 && !StringUtils.isNull(shareItem.dQJ)) {
-                shareEntity.topic = shareItem.dQI + shareItem.dQJ;
+            if (i == 6 && !StringUtils.isNull(shareItem.efc)) {
+                shareEntity.topic = shareItem.efb + shareItem.efc;
                 shareEntity.setContent("");
             }
             shareEntity.taskCompleteId = shareItem.taskCompleteId;

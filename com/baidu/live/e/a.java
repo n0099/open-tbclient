@@ -3,26 +3,26 @@ package com.baidu.live.e;
 import com.baidu.live.adp.widget.IGuideTab;
 /* loaded from: classes3.dex */
 public class a {
-    private static volatile a apw;
-    private b apx;
+    private static volatile a aup;
+    private b auq;
 
     private a() {
     }
 
-    public static a uF() {
-        if (apw == null) {
+    public static a vM() {
+        if (aup == null) {
             synchronized (a.class) {
-                if (apw == null) {
-                    apw = new a();
+                if (aup == null) {
+                    aup = new a();
                 }
             }
         }
-        return apw;
+        return aup;
     }
 
-    public IGuideTab uG() {
-        if (this.apx != null) {
-            return this.apx.uH();
+    public IGuideTab vN() {
+        if (this.auq != null) {
+            return this.auq.vO();
         }
         return null;
     }

@@ -8,23 +8,23 @@ import com.baidu.live.adp.widget.VerticalTranslateLayout;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.as.af;
+import com.baidu.swan.apps.aq.ag;
 import com.baidu.swan.apps.core.d.b;
 import com.baidu.swan.apps.core.d.i;
 import com.baidu.swan.apps.runtime.e;
-import com.baidu.swan.apps.scheme.actions.ab;
+import com.baidu.swan.apps.scheme.actions.aa;
 import com.baidu.swan.apps.scheme.j;
 import com.baidu.swan.apps.view.SwanAppActionBar;
-import com.baidu.swan.apps.y.f;
+import com.baidu.swan.apps.w.f;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
-public class a extends ab {
+public class a extends aa {
     public a(j jVar) {
         super(jVar, "/swanAPI/getMenuButtonBoundingClientRect");
     }
 
-    @Override // com.baidu.swan.apps.scheme.actions.ab
+    @Override // com.baidu.swan.apps.scheme.actions.aa
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, e eVar) {
         if (eVar == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
@@ -33,30 +33,30 @@ public class a extends ab {
         if (DEBUG) {
             Log.d("GetMenuButtonBounding", "handle entity: " + unitedSchemeEntity.toString());
         }
-        com.baidu.swan.apps.core.d.e Ot = f.aeJ().Ot();
-        if (Ot == null) {
+        com.baidu.swan.apps.core.d.e QH = f.ahV().QH();
+        if (QH == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        b Wd = Ot.Wd();
-        if (Wd == null) {
+        b YP = QH.YP();
+        if (YP == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        if (eVar.ald() && (Wd instanceof i)) {
-            View WL = ((i) Wd).WL();
-            if (WL == null) {
+        if (eVar.aoY() && (YP instanceof i)) {
+            View Zx = ((i) YP).Zx();
+            if (Zx == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             }
-            unitedSchemeEntity.result = as(WL);
+            unitedSchemeEntity.result = as(Zx);
         } else {
-            SwanAppActionBar Vs = Wd.Vs();
-            if (Vs == null) {
+            SwanAppActionBar Ya = YP.Ya();
+            if (Ya == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             }
-            View rightMenu = Vs.getRightMenu();
+            View rightMenu = Ya.getRightMenu();
             if (rightMenu == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
@@ -68,12 +68,12 @@ public class a extends ab {
 
     private JSONObject as(View view) {
         JSONObject wrapCallbackParams;
-        e akM = e.akM();
-        int px2dpFloat = akM != null ? akM.ald() : false ? 0 : (int) (af.px2dpFloat(af.getStatusBarHeight()) + 0.5f);
-        int px2dpFloat2 = (int) (af.px2dpFloat(view.getLeft()) + 0.5f);
-        int px2dpFloat3 = (int) (af.px2dpFloat(view.getRight()) + 0.5f);
-        int px2dpFloat4 = ((int) (af.px2dpFloat(view.getTop()) + 0.5f)) + px2dpFloat;
-        int px2dpFloat5 = px2dpFloat + ((int) (af.px2dpFloat(view.getBottom()) + 0.5f));
+        e aoF = e.aoF();
+        int px2dpFloat = aoF != null ? aoF.aoY() : false ? 0 : (int) (ag.px2dpFloat(ag.getStatusBarHeight()) + 0.5f);
+        int px2dpFloat2 = (int) (ag.px2dpFloat(view.getLeft()) + 0.5f);
+        int px2dpFloat3 = (int) (ag.px2dpFloat(view.getRight()) + 0.5f);
+        int px2dpFloat4 = ((int) (ag.px2dpFloat(view.getTop()) + 0.5f)) + px2dpFloat;
+        int px2dpFloat5 = px2dpFloat + ((int) (ag.px2dpFloat(view.getBottom()) + 0.5f));
         int i = px2dpFloat3 - px2dpFloat2;
         int i2 = px2dpFloat5 - px2dpFloat4;
         try {

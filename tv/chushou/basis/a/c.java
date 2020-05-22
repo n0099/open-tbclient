@@ -4,66 +4,65 @@ import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.res.AssetManager;
 import android.content.res.Resources;
+import android.text.TextUtils;
 import dalvik.system.DexClassLoader;
+import java.io.File;
 import java.util.HashMap;
 /* loaded from: classes5.dex */
 public class c {
-    private static c nqs;
+    private static c nLq;
     private Context mContext;
-    private final HashMap<String, d> nqt = new HashMap<>();
-    private String nqu;
-    private String nqv;
+    private final HashMap<String, d> nLr = new HashMap<>();
+    private String nLs;
 
     private c(Context context) {
-        this.nqu = null;
+        this.nLs = null;
         this.mContext = context.getApplicationContext();
-        this.nqu = this.mContext.getDir("pluginlib", 0).getAbsolutePath();
+        this.nLs = this.mContext.getDir("pluginlib", 0).getAbsolutePath();
     }
 
-    public static c fR(Context context) {
-        if (nqs == null) {
+    public static c gs(Context context) {
+        if (nLq == null) {
             synchronized (c.class) {
-                if (nqs == null) {
-                    nqs = new c(context);
+                if (nLq == null) {
+                    nLq = new c(context);
                 }
             }
         }
-        return nqs;
+        return nLq;
     }
 
-    public d aR(String str, boolean z) {
-        PackageInfo packageArchiveInfo = this.mContext.getPackageManager().getPackageArchiveInfo(str, 5);
-        if (packageArchiveInfo == null) {
-            return null;
+    public d be(String str, boolean z) {
+        PackageInfo packageArchiveInfo;
+        d dVar = null;
+        if (!TextUtils.isEmpty(str) && an(new File(str)) && (packageArchiveInfo = this.mContext.getPackageManager().getPackageArchiveInfo(str, 5)) != null) {
+            dVar = b(packageArchiveInfo, str);
+            if (z) {
+                Sf(str);
+            }
         }
-        d b = b(packageArchiveInfo, str);
-        if (z) {
-            PZ(str);
-            return b;
-        }
-        return b;
+        return dVar;
     }
 
     private d b(PackageInfo packageInfo, String str) {
-        d dVar = this.nqt.get(packageInfo.packageName);
+        d dVar = this.nLr.get(packageInfo.packageName);
         if (dVar == null) {
-            d dVar2 = new d(PW(str), a(PX(str)), packageInfo);
-            this.nqt.put(packageInfo.packageName, dVar2);
+            d dVar2 = new d(Sc(str), a(Sd(str)), packageInfo);
+            this.nLr.put(packageInfo.packageName, dVar2);
             return dVar2;
         }
         return dVar;
     }
 
-    private DexClassLoader PW(String str) {
-        this.nqv = dJe();
-        return new DexClassLoader(str, this.nqv, this.nqu, this.mContext.getClassLoader());
+    private DexClassLoader Sc(String str) {
+        return new DexClassLoader(str, dQY(), this.nLs, this.mContext.getClassLoader());
     }
 
-    public String dJe() {
+    public String dQY() {
         return this.mContext.getDir("dex", 0).getAbsolutePath();
     }
 
-    private AssetManager PX(String str) {
+    private AssetManager Sd(String str) {
         try {
             AssetManager assetManager = (AssetManager) AssetManager.class.newInstance();
             assetManager.getClass().getMethod("addAssetPath", String.class).invoke(assetManager, str);
@@ -74,8 +73,8 @@ public class c {
         }
     }
 
-    public d PY(String str) {
-        return this.nqt.get(str);
+    public d Se(String str) {
+        return this.nLr.get(str);
     }
 
     private Resources a(AssetManager assetManager) {
@@ -83,7 +82,17 @@ public class c {
         return new Resources(assetManager, resources.getDisplayMetrics(), resources.getConfiguration());
     }
 
-    private void PZ(String str) {
-        e.dJg().x(this.mContext, str, this.nqu);
+    private void Sf(String str) {
+        e.dRa().w(this.mContext, str, this.nLs);
+    }
+
+    private boolean an(File file) {
+        File filesDir = this.mContext.getFilesDir();
+        for (File parentFile = file.getParentFile(); parentFile != null; parentFile = parentFile.getParentFile()) {
+            if (parentFile.equals(filesDir)) {
+                return true;
+            }
+        }
+        return false;
     }
 }

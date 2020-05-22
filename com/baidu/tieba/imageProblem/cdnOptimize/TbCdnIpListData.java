@@ -9,13 +9,13 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class TbCdnIpListData {
-    public ArrayList<ArrayList<String>> iEL;
-    public int iEJ = 0;
+    public ArrayList<ArrayList<String>> iTK;
+    public int iTI = 0;
     public String errorString = null;
     public String imageUrl = null;
-    public String iEK = null;
-    boolean iEM = false;
-    public String iEN = null;
+    public String iTJ = null;
+    boolean iTL = false;
+    public String iTM = null;
 
     public void parseJson(JSONObject jSONObject) {
         JSONArray optJSONArray;
@@ -23,19 +23,19 @@ public class TbCdnIpListData {
             try {
                 JSONObject optJSONObject = jSONObject.optJSONObject(BdStatsConstant.StatsType.ERROR);
                 if (optJSONObject != null) {
-                    this.iEJ = optJSONObject.optInt("errorno");
+                    this.iTI = optJSONObject.optInt("errorno");
                     this.errorString = optJSONObject.optString(BaseJsonData.TAG_ERRMSG);
                 }
                 if (1 == jSONObject.optInt("cdn_switch")) {
-                    this.iEM = true;
+                    this.iTL = true;
                 } else {
-                    this.iEM = false;
+                    this.iTL = false;
                 }
-                this.iEN = jSONObject.optString("cdn_domain");
+                this.iTM = jSONObject.optString("cdn_domain");
                 JSONObject optJSONObject2 = jSONObject.optJSONObject("cdn_img_info");
                 if (optJSONObject2 != null) {
                     this.imageUrl = optJSONObject2.optString(BigdayActivityConfig.IMG_URL);
-                    this.iEK = optJSONObject2.optString("img_md5");
+                    this.iTJ = optJSONObject2.optString("img_md5");
                 }
                 JSONArray optJSONArray2 = jSONObject.optJSONArray("ip_list");
                 if (optJSONArray2 != null) {
@@ -58,7 +58,7 @@ public class TbCdnIpListData {
                         }
                     }
                     if (arrayList.size() > 0) {
-                        this.iEL = arrayList;
+                        this.iTK = arrayList;
                     }
                 }
             } catch (Exception e) {

@@ -29,17 +29,17 @@ public abstract class BaseContinuationImpl implements Serializable, kotlin.corou
         while (true) {
             kotlin.coroutines.a<Object> aVar = baseContinuationImpl.completion;
             if (aVar == null) {
-                q.dDS();
+                q.dLM();
             }
             try {
                 invokeSuspend = baseContinuationImpl.invokeSuspend(obj);
             } catch (Throwable th) {
                 Result.a aVar2 = Result.Companion;
-                obj = Result.m588constructorimpl(i.R(th));
+                obj = Result.m590constructorimpl(i.R(th));
             }
-            if (invokeSuspend != kotlin.coroutines.intrinsics.a.dDM()) {
+            if (invokeSuspend != kotlin.coroutines.intrinsics.a.dLG()) {
                 Result.a aVar3 = Result.Companion;
-                obj = Result.m588constructorimpl(invokeSuspend);
+                obj = Result.m590constructorimpl(invokeSuspend);
                 baseContinuationImpl.releaseIntercepted();
                 if (aVar instanceof BaseContinuationImpl) {
                     baseContinuationImpl = (BaseContinuationImpl) aVar;
@@ -57,12 +57,12 @@ public abstract class BaseContinuationImpl implements Serializable, kotlin.corou
     }
 
     public kotlin.coroutines.a<l> create(kotlin.coroutines.a<?> aVar) {
-        q.j(aVar, "completion");
+        q.m(aVar, "completion");
         throw new UnsupportedOperationException("create(Continuation) has not been overridden");
     }
 
     public kotlin.coroutines.a<l> create(Object obj, kotlin.coroutines.a<?> aVar) {
-        q.j(aVar, "completion");
+        q.m(aVar, "completion");
         throw new UnsupportedOperationException("create(Any?;Continuation) has not been overridden");
     }
 

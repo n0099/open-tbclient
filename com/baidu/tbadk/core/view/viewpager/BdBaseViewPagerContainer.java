@@ -8,15 +8,15 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.adp.widget.IndicatorView;
-import com.baidu.adp.widget.ListView.m;
+import com.baidu.adp.widget.ListView.o;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 import java.util.List;
 /* loaded from: classes.dex */
 public class BdBaseViewPagerContainer extends RelativeLayout {
-    private a dKN;
-    private b dKO;
+    private a dZe;
+    private b dZf;
 
     public BdBaseViewPagerContainer(Context context) {
         super(context);
@@ -29,62 +29,62 @@ public class BdBaseViewPagerContainer extends RelativeLayout {
     }
 
     private void a(Context context, ViewGroup viewGroup, boolean z) {
-        this.dKN = new a(LayoutInflater.from(context).inflate(R.layout.bd_base_viewpager_container, viewGroup, z), context);
-        a(this.dKN);
-        this.dKO = new b(context, this.dKN.dKT, this.dKN.dKR, this.dKN.dKQ, 4, false, true);
+        this.dZe = new a(LayoutInflater.from(context).inflate(R.layout.bd_base_viewpager_container, viewGroup, z), context);
+        a(this.dZe);
+        this.dZf = new b(context, this.dZe.dZk, this.dZe.dZi, this.dZe.dZh, 4, false, true);
     }
 
     private void a(a aVar) {
         if (aVar != null) {
             am.setBackgroundColor(aVar.getView(), R.color.cp_bg_line_d);
             am.setViewTextColor(aVar.title, R.color.cp_cont_c, 1);
-            am.setBackgroundColor(aVar.dKS, R.color.cp_bg_line_c);
-            am.setViewTextColor(aVar.dKQ, R.color.cp_cont_d, 1);
-            am.setBackgroundColor(aVar.dKQ, R.color.cp_bg_line_d);
-            aVar.dKQ.setText(TbadkCoreApplication.getInst().getString(R.string.recommend_frs_hot_thread_more));
-            aVar.dKR.setSelector(am.getDrawable(R.drawable.icon_choose_dot_s));
-            aVar.dKR.setDrawable(am.getDrawable(R.drawable.icon_choose_dot_n));
+            am.setBackgroundColor(aVar.dZj, R.color.cp_bg_line_c);
+            am.setViewTextColor(aVar.dZh, R.color.cp_cont_d, 1);
+            am.setBackgroundColor(aVar.dZh, R.color.cp_bg_line_d);
+            aVar.dZh.setText(TbadkCoreApplication.getInst().getString(R.string.recommend_frs_hot_thread_more));
+            aVar.dZi.setSelector(am.getDrawable(R.drawable.icon_choose_dot_s));
+            aVar.dZi.setDrawable(am.getDrawable(R.drawable.icon_choose_dot_n));
         }
     }
 
     @Override // android.view.View
     public View getRootView() {
-        return this.dKN.getView();
+        return this.dZe.getView();
     }
 
     public BdBaseViewPager getViewPager() {
-        return this.dKN.dKT;
+        return this.dZe.dZk;
     }
 
     public IndicatorView getIndicatorView() {
-        return this.dKN.dKR;
+        return this.dZe.dZi;
     }
 
     public TextView getMoreView() {
-        return this.dKN.dKQ;
+        return this.dZe.dZh;
     }
 
     public a getViewHolder() {
-        return this.dKN;
+        return this.dZe;
     }
 
     public void setMaxScrollCountLimit(int i) {
-        this.dKO.setMaxScrollCountLimit(i);
+        this.dZf.setMaxScrollCountLimit(i);
     }
 
     public void setIsMaxScrollEnabled(boolean z) {
-        this.dKO.setIsMaxScrollEnabled(z);
+        this.dZf.setIsMaxScrollEnabled(z);
     }
 
     public void setIsAutoScrollEnabled(boolean z) {
-        this.dKO.gV(z);
+        this.dZf.ht(z);
     }
 
-    public void setDatas(List<m> list) {
-        this.dKO.setDatas(list);
+    public void setDatas(List<o> list) {
+        this.dZf.setDatas(list);
     }
 
     public void setAutoScrollIntervalTime(long j) {
-        this.dKO.setAutoScrollIntervalTime(j);
+        this.dZf.setAutoScrollIntervalTime(j);
     }
 }

@@ -11,43 +11,43 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private final Map<Integer, C0413a> cZO = new ConcurrentHashMap();
-    private final Map<String, ConcurrentHashMap<Integer, C0413a>> cZP = new ConcurrentHashMap();
+    private final Map<String, C0454a> dkS = new ConcurrentHashMap();
+    private final Map<String, ConcurrentHashMap<String, C0454a>> dkT = new ConcurrentHashMap();
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void record(int i, @Nullable String str) {
+    public void cH(String str, @Nullable String str2) {
         if (DEBUG) {
-            Log.v("MiniPerformanceTracer", "(" + System.currentTimeMillis() + ") record: " + i + ", " + str);
+            Log.v("MiniPerformanceTracer", "(" + System.currentTimeMillis() + ") record: " + str + ", " + str2);
         }
-        C0413a c0413a = new C0413a(i);
-        this.cZO.put(Integer.valueOf(c0413a.aBA()), c0413a);
+        C0454a c0454a = new C0454a(str, str2);
+        this.dkS.put(c0454a.aFs(), c0454a);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void l(@NonNull String str, int i, @Nullable String str2) {
+    public void T(@NonNull String str, String str2, @Nullable String str3) {
         if (DEBUG) {
-            Log.v("MiniPerformanceTracer", "(" + System.currentTimeMillis() + ") record: " + str + ", " + i + ", " + str2);
+            Log.v("MiniPerformanceTracer", "(" + System.currentTimeMillis() + ") record: " + str + ", " + str2 + ", " + str3);
         }
-        C0413a c0413a = new C0413a(i);
-        ConcurrentHashMap<Integer, C0413a> concurrentHashMap = this.cZP.get(str);
+        C0454a c0454a = new C0454a(str2, str3);
+        ConcurrentHashMap<String, C0454a> concurrentHashMap = this.dkT.get(str);
         if (concurrentHashMap == null) {
             concurrentHashMap = new ConcurrentHashMap<>();
-            this.cZP.put(str, concurrentHashMap);
+            this.dkT.put(str, concurrentHashMap);
         }
-        concurrentHashMap.put(Integer.valueOf(c0413a.aBA()), c0413a);
+        concurrentHashMap.put(c0454a.aFs(), c0454a);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Nullable
-    public JSONArray rw(@Nullable String str) {
-        ConcurrentHashMap<Integer, C0413a> concurrentHashMap;
-        if (!TextUtils.isEmpty(str) && (concurrentHashMap = this.cZP.get(str)) != null) {
+    public JSONArray sZ(@Nullable String str) {
+        ConcurrentHashMap<String, C0454a> concurrentHashMap;
+        if (!TextUtils.isEmpty(str) && (concurrentHashMap = this.dkT.get(str)) != null) {
             JSONArray jSONArray = new JSONArray();
-            for (C0413a c0413a : this.cZO.values()) {
-                jSONArray.put(c0413a.toJson());
+            for (C0454a c0454a : this.dkS.values()) {
+                jSONArray.put(c0454a.toJson());
             }
-            for (C0413a c0413a2 : concurrentHashMap.values()) {
-                jSONArray.put(c0413a2.toJson());
+            for (C0454a c0454a2 : concurrentHashMap.values()) {
+                jSONArray.put(c0454a2.toJson());
             }
             return jSONArray;
         }
@@ -56,24 +56,27 @@ public class a {
 
     /* renamed from: com.baidu.swan.mini.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    private static class C0413a {
-        private int cZQ;
+    private static class C0454a {
+        private String dkU;
+        private final String mMessage;
         private long mTimestamp = System.currentTimeMillis();
 
-        C0413a(int i) {
-            this.cZQ = i;
+        C0454a(String str, String str2) {
+            this.dkU = str;
+            this.mMessage = str2;
         }
 
-        int aBA() {
-            return this.cZQ;
+        String aFs() {
+            return this.dkU;
         }
 
         @NonNull
         public JSONObject toJson() {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("type", this.cZQ);
+                jSONObject.put("type", this.dkU);
                 jSONObject.put("timestamp", this.mTimestamp);
+                jSONObject.put("message", this.mMessage);
             } catch (Exception e) {
                 if (a.DEBUG) {
                     e.printStackTrace();

@@ -1,12 +1,12 @@
 package com.baidu.live.guardclub;
 
 import android.view.ViewGroup;
-import com.baidu.live.data.n;
+import com.baidu.live.data.q;
 /* loaded from: classes3.dex */
 public interface h {
-    void Av();
+    void BL();
 
-    void a(ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams, n nVar);
+    void a(ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams, q qVar);
 
     void a(l lVar);
 

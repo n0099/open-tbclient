@@ -1,92 +1,84 @@
 package com.baidu.card;
 
 import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-import com.baidu.card.a.a;
+import android.widget.LinearLayout;
+import com.baidu.card.b;
+import com.baidu.card.view.BjhArticleLayout;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.OriginalThreadInfo;
-import com.baidu.tbadk.core.util.au;
+import com.baidu.tbadk.core.data.AbsThreadDataSupport;
 import com.baidu.tieba.R;
-import com.baidu.tieba.card.OriginalThreadCardView;
 /* loaded from: classes8.dex */
-public class ai extends b<com.baidu.tbadk.core.data.a> {
-    private static final int adz = com.baidu.adp.lib.util.l.getEquipmentWidth(TbadkCoreApplication.getInst()) - (com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds44) * 2);
-    private TextView adB;
-    private com.baidu.tbadk.core.data.a ade;
-    private OriginalThreadCardView afn;
-    private boolean afo;
-    private OriginalThreadCardView.a afp;
-    private View mRootView;
-    private TextView mTitle;
+public class ai extends h {
+    private AbsThreadDataSupport adw;
+    private BjhArticleLayout afI;
+    private LinearLayout mRootView;
+    private int mSkinType;
 
     public ai(Context context) {
         super(context);
-        this.afo = false;
-        this.afp = new OriginalThreadCardView.a() { // from class: com.baidu.card.ai.1
-            @Override // com.baidu.tieba.card.OriginalThreadCardView.a
-            public void a(OriginalThreadInfo originalThreadInfo) {
-                if (ai.this.ade != null && ai.this.ade.aIu() != null) {
-                    if (ai.this.rl() != null) {
-                        ai.this.rl().a(ai.this.afn, ai.this.ade);
-                    }
-                    String id = ai.this.ade.aIu().getId();
-                    com.baidu.tieba.card.l.BE(id);
-                    ai.this.cW(id);
-                    ai.this.acY.b(new a.C0095a(1));
-                }
-            }
-        };
-        this.mRootView = LayoutInflater.from(context).inflate(R.layout.card_transmit_thread_layout, (ViewGroup) null, false);
-        this.mTitle = (TextView) this.mRootView.findViewById(R.id.thread_card_title);
-        this.adB = (TextView) this.mRootView.findViewById(R.id.thread_card_abstract);
-        this.afn = (OriginalThreadCardView) this.mRootView.findViewById(R.id.original_thread_view);
-        this.afn.setSubClickListener(this.afp);
+        this.mSkinType = 3;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.card.b
     public View getView() {
+        if (this.mRootView == null) {
+            this.mRootView = new LinearLayout(this.mContext);
+            com.baidu.tbadk.core.util.am.setBackgroundColor(this.mRootView, R.color.cp_bg_line_g);
+            this.mRootView.setOrientation(1);
+            this.mRootView.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
+        }
+        this.mRootView.removeAllViews();
+        if (this.afI == null) {
+            this.afI = new BjhArticleLayout(this.mContext);
+            this.afI.setJumpToPbListener(new View.OnClickListener() { // from class: com.baidu.card.ai.1
+                @Override // android.view.View.OnClickListener
+                public void onClick(View view) {
+                    if (ai.this.adu != null) {
+                        ai.this.adu.a(ai.this.adw);
+                    }
+                }
+            });
+        }
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
+        layoutParams.topMargin = this.mContext.getResources().getDimensionPixelSize(R.dimen.tbds22);
+        layoutParams.leftMargin = this.mContext.getResources().getDimensionPixelSize(R.dimen.tbds44);
+        layoutParams.rightMargin = this.mContext.getResources().getDimensionPixelSize(R.dimen.tbds44);
+        layoutParams.bottomMargin = this.mContext.getResources().getDimensionPixelSize(R.dimen.tbds40);
+        this.mRootView.addView(this.afI, layoutParams);
         return this.mRootView;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.card.m
+    @Override // com.baidu.card.n
     /* renamed from: b */
-    public void B(com.baidu.tbadk.core.data.a aVar) {
-        if (aVar != null && aVar.aIu() != null) {
-            this.ade = aVar;
-            au.a(this.mTitle, aVar.aIu(), this.afo);
-            au.a(this.adB, this.mTitle, aVar.aIu(), adz, this.afo);
-            this.afn.b(aVar.aIu().dtt);
+    public void D(AbsThreadDataSupport absThreadDataSupport) {
+        this.adw = absThreadDataSupport;
+        if (this.afI != null) {
+            this.afI.D(this.adw);
         }
     }
 
-    public void bm(int i) {
-        this.afn.grt = i;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void cW(String str) {
-        com.baidu.tieba.card.l.a(this.mTitle, str, (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
-        com.baidu.tieba.card.l.a(this.adB, str, (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
-        this.afn.setReadState(com.baidu.tieba.card.l.BF(str));
-    }
-
-    @Override // com.baidu.card.n
-    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        this.afn.onChangeSkinType();
+    public void a(b.a aVar) {
+        this.adu = aVar;
     }
 
     @Override // com.baidu.card.b
-    public void setOnCardSubClickListener(com.baidu.tieba.card.z<com.baidu.tbadk.core.data.a> zVar) {
-        super.setOnCardSubClickListener(zVar);
+    public void setOnCardSubClickListener(com.baidu.tieba.card.aa<AbsThreadDataSupport> aaVar) {
+        super.setOnCardSubClickListener(aaVar);
+        if (this.afI != null) {
+            this.afI.setSubClickListener(aaVar);
+        }
     }
 
-    public void setNeedFrsTabName(boolean z) {
-        this.afo = z;
+    @Override // com.baidu.card.o
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
+        if (i != this.mSkinType) {
+            this.mSkinType = i;
+            com.baidu.tbadk.core.util.am.setBackgroundColor(this.mRootView, R.color.cp_bg_line_g);
+            if (this.afI != null) {
+                this.afI.onChangeSkinType(tbPageContext, i);
+            }
+        }
     }
 }

@@ -56,6 +56,8 @@ public class JsObject extends JsReleaser {
 
     private native String[] nativeToStringArray(long j, int i);
 
+    private native int nativeType(long j);
+
     static {
         $assertionsDisabled = !JsObject.class.desiredAssertionStatus();
     }
@@ -134,6 +136,15 @@ public class JsObject extends JsReleaser {
             return nativePropertyType(j, i);
         }
         throw new AssertionError();
+    }
+
+    public int getType() {
+        V8Engine.checkValid(this.mOwnedNativeEngine, this.mOwnedThreadId);
+        long j = this.mNativeObject.get();
+        if (j == 0) {
+            return 0;
+        }
+        return nativeType(j);
     }
 
     public boolean toBoolean(int i) {

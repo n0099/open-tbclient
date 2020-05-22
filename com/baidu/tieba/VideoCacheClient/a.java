@@ -14,10 +14,10 @@ import java.util.List;
 /* loaded from: classes9.dex */
 public class a {
     private static final String TAG = a.class.getSimpleName();
-    private static a exS;
+    private static a eMu;
     private List<String> mUrlList = new ArrayList();
     private Object mLock = new Object();
-    private boolean exT = false;
+    private boolean eMv = false;
     private byte[] mBuffer = new byte[1024];
     private Runnable runnable = new Runnable() { // from class: com.baidu.tieba.VideoCacheClient.a.1
         /* JADX WARN: Code restructure failed: missing block: B:100:0x02d4, code lost:
@@ -54,7 +54,7 @@ public class a {
             r3.printStackTrace();
          */
         /* JADX WARN: Code restructure failed: missing block: B:87:0x028d, code lost:
-            com.baidu.tbadk.core.util.TiebaStatic.log(new com.baidu.tbadk.core.util.an("c12027").cI("errormsg", "预加载文件失败").cI(com.baidu.live.adp.lib.stats.BdStatsConstant.StatsType.ERROR, r3.getMessage()).cI("url", r14));
+            com.baidu.tbadk.core.util.TiebaStatic.log(new com.baidu.tbadk.core.util.an("c12027").dh("errormsg", "预加载文件失败").dh(com.baidu.live.adp.lib.stats.BdStatsConstant.StatsType.ERROR, r3.getMessage()).dh("url", r14));
             r3.printStackTrace();
          */
         /* JADX WARN: Code restructure failed: missing block: B:88:0x02b7, code lost:
@@ -106,7 +106,7 @@ public class a {
             int i3;
             long j2;
             String readLine;
-            while (!a.this.exT) {
+            while (!a.this.eMv) {
                 synchronized (a.this.mLock) {
                     try {
                         a.this.mLock.wait();
@@ -114,14 +114,14 @@ public class a {
                         e2.printStackTrace();
                     }
                 }
-                if (!a.this.exT) {
-                    String bfA = a.this.bfA();
-                    if (bfA != null && !bfA.isEmpty()) {
-                        File file = new File(c.exI + b.xT(bfA) + "/header_downloaded");
+                if (!a.this.eMv) {
+                    String blM = a.this.blM();
+                    if (blM != null && !blM.isEmpty()) {
+                        File file = new File(c.eMk + b.zz(blM) + "/header_downloaded");
                         if (file.exists()) {
-                            d.D(a.TAG, "header exists " + bfA);
+                            d.D(a.TAG, "header exists " + blM);
                         } else {
-                            d.D(a.TAG, "client preload start: " + bfA);
+                            d.D(a.TAG, "client preload start: " + blM);
                             j = 0;
                             i = 0;
                             i2 = 0;
@@ -140,8 +140,8 @@ public class a {
                                 BufferedReader bufferedReader2 = null;
                                 inputStream = null;
                                 try {
-                                    String str = "/video_cache/pre_load?origin_url=" + URLEncoder.encode(bfA);
-                                    int port = b.bfB().getPort();
+                                    String str = "/video_cache/pre_load?origin_url=" + URLEncoder.encode(blM);
+                                    int port = b.blN().getPort();
                                     socket = new Socket();
                                     try {
                                         socket.connect(new InetSocketAddress("127.0.0.1", port), 5000);
@@ -198,7 +198,7 @@ public class a {
                                                 }
                                             } while (!"".equals(readLine));
                                             inputStream = socket.getInputStream();
-                                            d.D(a.TAG, "client preload check1: " + bfA);
+                                            d.D(a.TAG, "client preload check1: " + blM);
                                             int i4 = i;
                                             while (true) {
                                                 try {
@@ -250,7 +250,7 @@ public class a {
                                 i = i3;
                                 j = j2;
                             }
-                            d.D(a.TAG, "client preload end: " + bfA);
+                            d.D(a.TAG, "client preload end: " + blM);
                         }
                     }
                 } else {
@@ -293,23 +293,23 @@ public class a {
         this.mThread.start();
     }
 
-    public static a bfz() {
-        if (exS == null) {
+    public static a blL() {
+        if (eMu == null) {
             synchronized (a.class) {
-                if (exS == null) {
-                    exS = new a();
+                if (eMu == null) {
+                    eMu = new a();
                 }
             }
         }
-        return exS;
+        return eMu;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized String bfA() {
+    public synchronized String blM() {
         return this.mUrlList.isEmpty() ? null : this.mUrlList.get(0);
     }
 
-    public synchronized void xU(String str) {
+    public synchronized void zA(String str) {
         this.mUrlList.clear();
         this.mUrlList.add(str);
         synchronized (this.mLock) {

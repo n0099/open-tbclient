@@ -15,15 +15,15 @@ import com.baidu.live.u.a;
 import java.util.Random;
 /* loaded from: classes3.dex */
 public class AudioAnimationView extends View {
-    private int Zr;
-    private int Zs;
-    private boolean Zt;
-    private boolean Zu;
-    private int[] Zw;
-    private int Zx;
-    private int Zy;
-    private final Runnable Zz;
-    private Rect[] aVz;
+    private int ZH;
+    private int ZI;
+    private boolean ZJ;
+    private boolean ZK;
+    private int[] ZM;
+    private int ZN;
+    private int ZO;
+    private final Runnable ZP;
+    private Rect[] bcN;
     private int mCanvasHeight;
     private int mCanvasWidth;
     private Paint mPaint;
@@ -34,118 +34,118 @@ public class AudioAnimationView extends View {
         super(context);
         this.mSkinType = 3;
         this.random = new Random();
-        this.Zr = 0;
-        this.Zs = 8;
-        this.Zt = false;
-        this.Zu = true;
-        this.Zw = new int[]{6, 3, 5, 10, 8, 6, 5, 3, 5, 10, 8, 6, 5, 3, 6, 3, 5, 10, 8, 6, 5, 3};
-        this.Zx = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), a.e.sdk_ds4);
-        this.Zy = a.d.sdk_cp_link_tip_a;
-        this.Zz = new Runnable() { // from class: com.baidu.live.tieba.view.AudioAnimationView.1
+        this.ZH = 0;
+        this.ZI = 8;
+        this.ZJ = false;
+        this.ZK = true;
+        this.ZM = new int[]{6, 3, 5, 10, 8, 6, 5, 3, 5, 10, 8, 6, 5, 3, 6, 3, 5, 10, 8, 6, 5, 3};
+        this.ZN = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), a.e.sdk_ds4);
+        this.ZO = a.d.sdk_cp_link_tip_a;
+        this.ZP = new Runnable() { // from class: com.baidu.live.tieba.view.AudioAnimationView.1
             @Override // java.lang.Runnable
             public void run() {
-                AudioAnimationView.this.qr();
+                AudioAnimationView.this.qx();
             }
         };
-        qs();
-        qr();
+        qy();
+        qx();
     }
 
     public AudioAnimationView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mSkinType = 3;
         this.random = new Random();
-        this.Zr = 0;
-        this.Zs = 8;
-        this.Zt = false;
-        this.Zu = true;
-        this.Zw = new int[]{6, 3, 5, 10, 8, 6, 5, 3, 5, 10, 8, 6, 5, 3, 6, 3, 5, 10, 8, 6, 5, 3};
-        this.Zx = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), a.e.sdk_ds4);
-        this.Zy = a.d.sdk_cp_link_tip_a;
-        this.Zz = new Runnable() { // from class: com.baidu.live.tieba.view.AudioAnimationView.1
+        this.ZH = 0;
+        this.ZI = 8;
+        this.ZJ = false;
+        this.ZK = true;
+        this.ZM = new int[]{6, 3, 5, 10, 8, 6, 5, 3, 5, 10, 8, 6, 5, 3, 6, 3, 5, 10, 8, 6, 5, 3};
+        this.ZN = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), a.e.sdk_ds4);
+        this.ZO = a.d.sdk_cp_link_tip_a;
+        this.ZP = new Runnable() { // from class: com.baidu.live.tieba.view.AudioAnimationView.1
             @Override // java.lang.Runnable
             public void run() {
-                AudioAnimationView.this.qr();
+                AudioAnimationView.this.qx();
             }
         };
-        qs();
-        qr();
+        qy();
+        qx();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void qr() {
-        if (this.Zt) {
+    public void qx() {
+        if (this.ZJ) {
             invalidate();
         }
-        SafeHandler.getInst().removeCallbacks(this.Zz);
-        if (!this.Zu) {
-            SafeHandler.getInst().postDelayed(this.Zz, 250L);
+        SafeHandler.getInst().removeCallbacks(this.ZP);
+        if (!this.ZK) {
+            SafeHandler.getInst().postDelayed(this.ZP, 250L);
         }
     }
 
     @Override // android.view.View
     @SuppressLint({"DrawAllocation"})
     protected void onMeasure(int i, int i2) {
-        if (this.Zr > 0) {
+        if (this.ZH > 0) {
             int mode = View.MeasureSpec.getMode(i);
-            this.mCanvasWidth = this.Zx * ((this.Zr * 2) - 1);
-            this.Zs = this.Zr;
+            this.mCanvasWidth = this.ZN * ((this.ZH * 2) - 1);
+            this.ZI = this.ZH;
             i = View.MeasureSpec.makeMeasureSpec(this.mCanvasWidth, mode);
         }
         super.onMeasure(i, i2);
         this.mCanvasHeight = getMeasuredHeight();
         this.mCanvasWidth = getMeasuredWidth();
-        if (this.Zr <= 0) {
-            this.Zs = (this.mCanvasWidth / this.Zx) / 2;
+        if (this.ZH <= 0) {
+            this.ZI = (this.mCanvasWidth / this.ZN) / 2;
         }
     }
 
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if (this.Zt) {
-            for (int i = 0; i < this.Zs; i++) {
-                qt();
-                if (i < this.aVz.length) {
-                    canvas.drawRect(this.aVz[i], this.mPaint);
+        if (this.ZJ) {
+            for (int i = 0; i < this.ZI; i++) {
+                qz();
+                if (i < this.bcN.length) {
+                    canvas.drawRect(this.bcN[i], this.mPaint);
                 }
             }
         }
     }
 
-    private void qs() {
+    private void qy() {
         this.mPaint = new Paint();
         this.mPaint.setDither(true);
         this.mPaint.setAntiAlias(true);
         this.mPaint.setStyle(Paint.Style.FILL);
-        this.mPaint.setColor(SkinManager.getColor(this.Zy));
+        this.mPaint.setColor(SkinManager.getColor(this.ZO));
     }
 
-    private void qt() {
+    private void qz() {
         int nextInt;
-        if (this.aVz == null || this.aVz.length != this.Zs) {
-            this.aVz = new Rect[this.Zs];
+        if (this.bcN == null || this.bcN.length != this.ZI) {
+            this.bcN = new Rect[this.ZI];
         }
-        for (int i = 0; i < this.Zs; i++) {
-            int i2 = this.Zx * i * 2;
-            if (this.Zu) {
-                nextInt = (int) ((1.0d - (this.Zw[i % 22] / 10.0d)) * this.mCanvasHeight);
+        for (int i = 0; i < this.ZI; i++) {
+            int i2 = this.ZN * i * 2;
+            if (this.ZK) {
+                nextInt = (int) ((1.0d - (this.ZM[i % 22] / 10.0d)) * this.mCanvasHeight);
             } else {
                 nextInt = this.mCanvasHeight > 0 ? this.random.nextInt(this.mCanvasHeight) : 0;
             }
-            int i3 = this.Zx + i2;
+            int i3 = this.ZN + i2;
             int i4 = this.mCanvasHeight;
-            if (this.aVz[i] == null) {
-                this.aVz[i] = new Rect(i2, nextInt, i3, i4);
+            if (this.bcN[i] == null) {
+                this.bcN[i] = new Rect(i2, nextInt, i3, i4);
             } else {
-                this.aVz[i].set(i2, nextInt, i3, i4);
+                this.bcN[i].set(i2, nextInt, i3, i4);
             }
         }
     }
 
     public void setColumnWidth(int i) {
         if (i > 0) {
-            this.Zx = i;
+            this.ZN = i;
         }
     }
 
@@ -153,18 +153,18 @@ public class AudioAnimationView extends View {
         if (this.mPaint != null) {
             this.mPaint.setColor(SkinManager.getColor(i));
         }
-        this.Zy = i;
+        this.ZO = i;
     }
 
     public void setCertainColumnCount(int i) {
         if (i != 0) {
-            this.Zr = i;
+            this.ZH = i;
         }
     }
 
     @Override // android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        SafeHandler.getInst().removeCallbacks(this.Zz);
+        SafeHandler.getInst().removeCallbacks(this.ZP);
     }
 }

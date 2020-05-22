@@ -8,12 +8,12 @@ import java.util.concurrent.Callable;
 /* loaded from: classes7.dex */
 public final class FlowableCollect<T, U> extends a<T, U> {
     final io.reactivex.c.b<? super U, ? super T> collector;
-    final Callable<? extends U> mRV;
+    final Callable<? extends U> nnd;
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super U> cVar) {
         try {
-            this.mRM.a((j) new CollectSubscriber(cVar, io.reactivex.internal.functions.a.h(this.mRV.call(), "The initial value supplied is null"), this.collector));
+            this.nmU.a((j) new CollectSubscriber(cVar, io.reactivex.internal.functions.a.k(this.nnd.call(), "The initial value supplied is null"), this.collector));
         } catch (Throwable th) {
             EmptySubscription.error(th, cVar);
         }
@@ -47,7 +47,7 @@ public final class FlowableCollect<T, U> extends a<T, U> {
         public void onNext(T t) {
             if (!this.done) {
                 try {
-                    this.collector.h((U) this.u, t);
+                    this.collector.i((U) this.u, t);
                 } catch (Throwable th) {
                     io.reactivex.exceptions.a.L(th);
                     this.s.cancel();

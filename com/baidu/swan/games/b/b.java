@@ -1,5 +1,26 @@
 package com.baidu.swan.games.b;
+
+import android.util.Log;
+import com.baidu.searchbox.v8engine.event.EventTargetImpl;
+import com.baidu.searchbox.v8engine.event.JSEvent;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes11.dex */
-public interface b {
-    void dj(boolean z);
+public class b extends EventTargetImpl {
+    public b(com.baidu.swan.games.f.b bVar) {
+        super(bVar);
+        d.axh().a(this);
+    }
+
+    public void Y(int i, String str) throws JSONException {
+        JSONObject jSONObject = new JSONObject();
+        jSONObject.put("state", i);
+        jSONObject.put("msg", str);
+        JSEvent jSEvent = new JSEvent("antiaddiction");
+        jSEvent.data = jSONObject;
+        if (com.baidu.swan.apps.b.DEBUG) {
+            Log.d("AntiAddictionApi", "result: " + jSONObject.toString());
+        }
+        dispatchEvent(jSEvent);
+    }
 }

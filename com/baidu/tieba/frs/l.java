@@ -5,56 +5,56 @@ import android.view.ViewGroup;
 import com.baidu.tbadk.core.view.PullRefreshFrameLayout;
 /* loaded from: classes9.dex */
 public class l {
-    private View hag;
-    private int hah = -1;
-    private int hai = -1;
+    private View hoU;
+    private int hoV = -1;
+    private int hoW = -1;
 
     public l(View view) {
-        this.hag = view;
+        this.hoU = view;
     }
 
     public int getOriginHeight() {
-        return this.hah;
+        return this.hoV;
     }
 
     public void setOriginHeight(int i) {
-        this.hah = i;
+        this.hoV = i;
     }
 
-    public void tg(int i) {
-        this.hai = i;
+    public void tL(int i) {
+        this.hoW = i;
     }
 
     public void setHeight(int i) {
         ViewGroup.LayoutParams layoutParams;
-        if (this.hag != null && (layoutParams = this.hag.getLayoutParams()) != null) {
+        if (this.hoU != null && (layoutParams = this.hoU.getLayoutParams()) != null) {
             layoutParams.height = i;
-            this.hai = i;
-            this.hag.setLayoutParams(layoutParams);
+            this.hoW = i;
+            this.hoU.setLayoutParams(layoutParams);
         }
     }
 
-    public void q(double d) {
-        if (this.hag != null) {
-            int i = (int) (this.hah + (PullRefreshFrameLayout.dGI * d));
-            ViewGroup.LayoutParams layoutParams = this.hag.getLayoutParams();
+    public void r(double d) {
+        if (this.hoU != null) {
+            int i = (int) (this.hoV + (PullRefreshFrameLayout.dUU * d));
+            ViewGroup.LayoutParams layoutParams = this.hoU.getLayoutParams();
             if (layoutParams != null) {
                 layoutParams.height = i;
-                this.hai = layoutParams.height;
-                this.hag.setLayoutParams(layoutParams);
+                this.hoW = layoutParams.height;
+                this.hoU.setLayoutParams(layoutParams);
             }
         }
     }
 
     public int getHeight() {
         ViewGroup.LayoutParams layoutParams;
-        if (this.hag == null || (layoutParams = this.hag.getLayoutParams()) == null) {
+        if (this.hoU == null || (layoutParams = this.hoU.getLayoutParams()) == null) {
             return 0;
         }
         return layoutParams.height;
     }
 
-    public int bPi() {
-        return this.hai;
+    public int bVE() {
+        return this.hoW;
     }
 }

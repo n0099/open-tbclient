@@ -16,8 +16,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes9.dex */
 public class a {
-    private TbPageContext duK;
-    private CustomMessageListener htY = new CustomMessageListener(2921404) { // from class: com.baidu.tieba.frs.sportspage.notification.a.1
+    private TbPageContext dIF;
+    private CustomMessageListener hIL = new CustomMessageListener(2921404) { // from class: com.baidu.tieba.frs.sportspage.notification.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -28,17 +28,17 @@ public class a {
                     String optString2 = jSONObject.optString("gameName");
                     String optString3 = jSONObject.optString("gameTime");
                     String optString4 = jSONObject.optString("gameType");
-                    String string = b.aNT().getString("key_match_id_list_" + optString4, "");
+                    String string = b.aTX().getString("key_match_id_list_" + optString4, "");
                     String str = "match_id_" + optString4 + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + optString;
                     String str2 = TextUtils.isEmpty(string) ? str : Constants.ACCEPT_TIME_SEPARATOR_SP + str;
                     if (TextUtils.isEmpty(string) || !string.contains(str)) {
-                        b.aNT().putString("key_match_id_list_" + optString4, string + str2);
+                        b.aTX().putString("key_match_id_list_" + optString4, string + str2);
                     }
-                    Intent intent = new Intent(a.this.duK.getPageActivity(), AlarmReceiver.class);
+                    Intent intent = new Intent(a.this.dIF.getPageActivity(), AlarmReceiver.class);
                     intent.putExtra("KEY_MATCH_NAME", optString2);
                     intent.putExtra("KEY_MATCH_TYPE", optString4);
                     intent.putExtra("KEY_MATCH_ID", optString);
-                    PendingIntent broadcast = PendingIntent.getBroadcast(a.this.duK.getPageActivity(), 0, intent, 0);
+                    PendingIntent broadcast = PendingIntent.getBroadcast(a.this.dIF.getPageActivity(), 0, intent, 0);
                     Calendar calendar = Calendar.getInstance();
                     long currentTimeMillis = System.currentTimeMillis();
                     calendar.setTimeInMillis(currentTimeMillis);
@@ -46,7 +46,7 @@ public class a {
                     if (j > 0) {
                         calendar.add(14, (int) j);
                     }
-                    ((AlarmManager) a.this.duK.getPageActivity().getSystemService(NotificationCompat.CATEGORY_ALARM)).set(0, calendar.getTimeInMillis(), broadcast);
+                    ((AlarmManager) a.this.dIF.getPageActivity().getSystemService(NotificationCompat.CATEGORY_ALARM)).set(0, calendar.getTimeInMillis(), broadcast);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -55,7 +55,7 @@ public class a {
     };
 
     public a(TbPageContext tbPageContext) {
-        this.duK = tbPageContext;
-        this.duK.registerListener(this.htY);
+        this.dIF = tbPageContext;
+        this.dIF.registerListener(this.hIL);
     }
 }

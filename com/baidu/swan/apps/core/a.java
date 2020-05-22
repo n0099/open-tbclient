@@ -9,10 +9,10 @@ import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.swan.apps.as.ai;
+import com.baidu.swan.apps.aq.aj;
 import com.baidu.swan.apps.runtime.e;
-import com.baidu.swan.apps.statistic.a;
-import com.baidu.swan.d.c;
+import com.baidu.swan.apps.statistic.c;
+import com.baidu.swan.e.d;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -29,8 +29,8 @@ import tv.chushou.basis.http.HttpConsts;
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    public static boolean PJ() {
-        return com.baidu.swan.apps.w.a.abZ().PJ();
+    public static boolean RN() {
+        return com.baidu.swan.apps.u.a.afd().RN();
     }
 
     public static void e(File file, File file2) throws IOException {
@@ -42,14 +42,14 @@ public class a {
                 FileChannel channel2 = new FileOutputStream(file2).getChannel();
                 try {
                     channel2.transferFrom(channel, 0L, channel.size());
-                    c.closeSafely(channel);
-                    c.closeSafely(channel2);
+                    d.closeSafely(channel);
+                    d.closeSafely(channel2);
                 } catch (Throwable th) {
                     fileChannel2 = channel;
                     fileChannel = channel2;
                     th = th;
-                    c.closeSafely(fileChannel2);
-                    c.closeSafely(fileChannel);
+                    d.closeSafely(fileChannel2);
+                    d.closeSafely(fileChannel);
                     throw th;
                 }
             } catch (Throwable th2) {
@@ -63,11 +63,11 @@ public class a {
         }
     }
 
-    public static void hY(String str) {
+    public static void iZ(String str) {
         b(str, null, null, true);
     }
 
-    public static void q(String str, String str2, String str3) {
+    public static void t(String str, String str2, String str3) {
         b(str, str2, str3, false);
     }
 
@@ -88,9 +88,9 @@ public class a {
                 if (file3.exists()) {
                     file3.renameTo(file);
                 }
-                c.closeSafely(null);
-                c.closeSafely(null);
-                c.closeSafely(null);
+                d.closeSafely(null);
+                d.closeSafely(null);
+                d.closeSafely(null);
                 return;
             }
             fileInputStream = new FileInputStream(file);
@@ -122,25 +122,25 @@ public class a {
                             fileInputStream2 = fileInputStream;
                             try {
                                 e.printStackTrace();
-                                c.closeSafely(bufferedReader2);
-                                c.closeSafely(fileInputStream2);
-                                c.closeSafely(bufferedWriter);
+                                d.closeSafely(bufferedReader2);
+                                d.closeSafely(fileInputStream2);
+                                d.closeSafely(bufferedWriter);
                                 return;
                             } catch (Throwable th) {
                                 th = th;
                                 fileInputStream = fileInputStream2;
                                 bufferedReader = bufferedReader2;
-                                c.closeSafely(bufferedReader);
-                                c.closeSafely(fileInputStream);
-                                c.closeSafely(bufferedWriter);
+                                d.closeSafely(bufferedReader);
+                                d.closeSafely(fileInputStream);
+                                d.closeSafely(bufferedWriter);
                                 throw th;
                             }
                         } catch (Throwable th2) {
                             th = th2;
                             bufferedWriter = bufferedWriter2;
-                            c.closeSafely(bufferedReader);
-                            c.closeSafely(fileInputStream);
-                            c.closeSafely(bufferedWriter);
+                            d.closeSafely(bufferedReader);
+                            d.closeSafely(fileInputStream);
+                            d.closeSafely(bufferedWriter);
                             throw th;
                         }
                     }
@@ -150,9 +150,9 @@ public class a {
                     } else {
                         file2.delete();
                     }
-                    c.closeSafely(bufferedReader);
-                    c.closeSafely(fileInputStream);
-                    c.closeSafely(bufferedWriter2);
+                    d.closeSafely(bufferedReader);
+                    d.closeSafely(fileInputStream);
+                    d.closeSafely(bufferedWriter2);
                 } catch (Exception e2) {
                     e = e2;
                     bufferedReader2 = bufferedReader;
@@ -179,7 +179,7 @@ public class a {
         }
     }
 
-    public static void bu(@NonNull Context context) {
+    public static void bE(@NonNull Context context) {
         JSONObject jSONObject = new JSONObject();
         try {
             Class<?> cls = Class.forName("android.content.res.AssetManager");
@@ -236,10 +236,10 @@ public class a {
         if (DEBUG) {
             Log.d("SwanAppCoreUtils", "reportFatalInfo: " + jSONObject2);
         }
-        new a.C0348a(10006).mR(jSONObject2).mQ(e.akO()).aed();
+        new c.a(10006).os(jSONObject2).or(e.aoH()).ahn();
     }
 
-    public static void r(String str, String str2, String str3) {
+    public static void u(String str, String str2, String str3) {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("url", str);
@@ -247,7 +247,7 @@ public class a {
             jSONObject.put("processName", ProcessUtils.getCurProcessName());
             jSONObject.put("appId", str2);
             jSONObject.put("errMessage", str3);
-            jSONObject.put("isMainThread", ai.isOnUiThread());
+            jSONObject.put("isMainThread", aj.isOnUiThread());
             String jSONObject2 = jSONObject.toString();
             if (DEBUG && TextUtils.isEmpty(jSONObject2)) {
                 Log.d("SwanAppCoreUtils", "reportInsertHistoryCrash: empty");
@@ -256,7 +256,7 @@ public class a {
             if (DEBUG) {
                 Log.d("SwanAppCoreUtils", "reportInsertHistoryCrash: " + jSONObject2);
             }
-            new a.C0348a(10008).mR(jSONObject2).mQ(e.akO()).aed();
+            new c.a(10008).os(jSONObject2).or(e.aoH()).ahn();
         } catch (Exception e) {
             if (DEBUG) {
                 e.printStackTrace();

@@ -1,12 +1,14 @@
 package com.baidu.tieba.personPolymeric.tab.b;
 
-import com.baidu.adp.widget.ListView.m;
+import com.baidu.adp.widget.ListView.o;
+import com.baidu.tbadk.a.a.c;
+import com.baidu.tbadk.a.e;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.bj;
+import com.baidu.tbadk.core.data.AbsThreadDataSupport;
+import com.baidu.tbadk.core.data.bk;
 import com.baidu.tbadk.core.util.v;
 import com.baidu.tieba.R;
 import com.baidu.tieba.card.data.CardPersonDynamicThreadData;
-import com.baidu.tieba.card.data.e;
 import com.baidu.tieba.card.data.f;
 import com.baidu.tieba.card.data.k;
 import com.baidu.tieba.card.data.l;
@@ -14,131 +16,123 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes11.dex */
 public class a {
-    private static final int eoI = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds44);
-    private static final int kcG = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds36);
-    private static final int kcH = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds58);
+    private static final int eDk = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds44);
+    private static final int jFU = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds36);
+    private static final int kuy = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds58);
 
-    public static List<m> ed(List<m> list) {
-        bj bjVar;
-        m aX;
+    public static List<o> ek(List<o> list) {
+        bk bkVar;
         ArrayList arrayList = new ArrayList();
         if (v.isEmpty(list)) {
             return arrayList;
         }
-        int i = 0;
-        while (true) {
-            int i2 = i;
-            if (i2 >= list.size()) {
-                return arrayList;
+        e aMx = c.aMx();
+        for (int i = 0; i < list.size(); i++) {
+            o oVar = (o) v.getItem(list, i);
+            if ((oVar instanceof CardPersonDynamicThreadData) && (bkVar = ((CardPersonDynamicThreadData) oVar).dEA) != null) {
+                c.a(aMx, bkVar);
+                com.baidu.tieba.card.data.c aB = aB(bkVar);
+                if (aB != null) {
+                    arrayList.add(aB);
+                }
             }
-            m mVar = (m) v.getItem(list, i2);
-            if ((mVar instanceof CardPersonDynamicThreadData) && (bjVar = ((CardPersonDynamicThreadData) mVar).dqE) != null && (aX = aX(bjVar)) != null) {
-                arrayList.add(aX);
-            }
-            i = i2 + 1;
         }
+        c.a(aMx, arrayList);
+        return arrayList;
     }
 
-    public static List<m> ee(List<bj> list) {
-        m aX;
+    public static List<o> el(List<bk> list) {
         ArrayList arrayList = new ArrayList();
         if (v.isEmpty(list)) {
             return arrayList;
         }
-        int i = 0;
-        while (true) {
-            int i2 = i;
-            if (i2 >= list.size()) {
-                return arrayList;
+        e aMx = c.aMx();
+        for (int i = 0; i < list.size(); i++) {
+            bk bkVar = (bk) v.getItem(list, i);
+            if (bkVar != null) {
+                c.a(aMx, bkVar);
+                com.baidu.tieba.card.data.c aB = aB(bkVar);
+                if (aB != null) {
+                    arrayList.add(aB);
+                }
             }
-            bj bjVar = (bj) v.getItem(list, i2);
-            if (bjVar != null && (aX = aX(bjVar)) != null) {
-                arrayList.add(aX);
-            }
-            i = i2 + 1;
         }
+        c.a(aMx, arrayList);
+        return arrayList;
     }
 
-    public static bj i(m mVar) {
-        if (mVar == null) {
-            return null;
-        }
-        if (mVar instanceof e) {
-            return ((e) mVar).dqE;
-        }
-        if (mVar instanceof f) {
-            return ((f) mVar).dqE;
-        }
-        if (mVar instanceof k) {
-            return ((k) mVar).dqE;
-        }
-        if (mVar instanceof l) {
-            return ((l) mVar).dqE;
+    public static bk i(o oVar) {
+        if (oVar != null && (oVar instanceof AbsThreadDataSupport)) {
+            bk aOi = ((AbsThreadDataSupport) oVar).aOi();
+            c.a(c.aMx(), aOi);
+            return aOi;
         }
         return null;
     }
 
-    public static m aX(bj bjVar) {
-        if (bjVar == null) {
-            return null;
-        }
-        if (bjVar.isShareThread) {
-            k kVar = new k();
-            kVar.dqE = bjVar;
-            return kVar;
-        } else if (e.ab(bjVar)) {
-            return new e(bjVar);
-        } else {
-            if (f.ac(bjVar)) {
-                return new f(bjVar);
-            }
-            if (k.ab(bjVar) || k.ad(bjVar)) {
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:8:0x0013 */
+    public static com.baidu.tieba.card.data.c aB(bk bkVar) {
+        k kVar = null;
+        kVar = null;
+        if (bkVar != null) {
+            bkVar.dHP = true;
+            if (bkVar.isShareThread) {
                 k kVar2 = new k();
-                if (bjVar.isLinkThread()) {
-                    kVar2.isLinkThread = true;
-                } else if (bjVar.aLC()) {
-                    kVar2.dqC = true;
+                kVar2.dEA = bkVar;
+                kVar = kVar2;
+            } else if (com.baidu.tieba.card.data.e.ac(bkVar)) {
+                kVar = new com.baidu.tieba.card.data.e(bkVar);
+            } else if (f.ad(bkVar)) {
+                kVar = new f(bkVar);
+            } else if (k.ac(bkVar) || k.ae(bkVar)) {
+                k kVar3 = new k();
+                if (bkVar.isLinkThread()) {
+                    kVar3.isLinkThread = true;
+                } else if (bkVar.aRB()) {
+                    kVar3.dEy = true;
                 } else {
-                    kVar2.isLinkThread = false;
-                    if (bjVar.aKF()) {
-                        kVar2.gsQ = true;
+                    kVar3.isLinkThread = false;
+                    if (bkVar.aQA()) {
+                        kVar3.gHD = true;
                     } else {
-                        kVar2.gsQ = false;
+                        kVar3.gHD = false;
                     }
                 }
-                kVar2.dqE = bjVar;
-                kVar2.gsR = true;
-                return kVar2;
-            } else if (l.ab(bjVar)) {
-                return new l(bjVar);
-            } else {
-                return null;
+                kVar3.dEA = bkVar;
+                kVar3.gHE = true;
+                kVar = kVar3;
+            } else if (l.ac(bkVar)) {
+                kVar = new l(bkVar);
+            }
+            if (kVar != null) {
+                kVar.bLF();
+                c.a(c.aMx(), kVar);
             }
         }
+        return kVar;
     }
 
-    public static List<m> ef(List<bj> list) {
-        m aX;
+    public static List<o> em(List<bk> list) {
         ArrayList arrayList = new ArrayList();
         if (!v.isEmpty(list)) {
+            e aMx = c.aMx();
             com.baidu.tieba.personPolymeric.c.k kVar = new com.baidu.tieba.personPolymeric.c.k();
-            kVar.paddingBottom = kcH;
-            kVar.paddingTop = kcG;
-            kVar.paddingLeft = eoI;
+            kVar.paddingBottom = kuy;
+            kVar.paddingTop = jFU;
+            kVar.paddingLeft = eDk;
             kVar.titleId = R.string.person_center_tab_main_list_title;
             arrayList.add(kVar);
-            int i = 0;
-            while (true) {
-                int i2 = i;
-                if (i2 >= list.size()) {
-                    break;
+            for (int i = 0; i < list.size(); i++) {
+                bk bkVar = list.get(i);
+                if (bkVar != null) {
+                    c.a(aMx, bkVar);
+                    com.baidu.tieba.card.data.c aB = aB(bkVar);
+                    if (aB != null) {
+                        arrayList.add(aB);
+                    }
                 }
-                bj bjVar = list.get(i2);
-                if (bjVar != null && (aX = aX(bjVar)) != null) {
-                    arrayList.add(aX);
-                }
-                i = i2 + 1;
             }
+            c.a(aMx, arrayList);
         }
         return arrayList;
     }

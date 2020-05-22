@@ -56,9 +56,9 @@ public class VideoCloudSetting {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes11.dex */
     public static class VideoCloudSettingItem {
+        public boolean mIsCloseAll;
+        public boolean mIsEnableAll;
         public int mType;
-        public boolean mIsEnableAll = false;
-        public boolean mIsCloseAll = false;
         public String[] mSubItems = null;
         public boolean mIsAdd = true;
 

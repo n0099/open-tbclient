@@ -33,11 +33,11 @@ public class ADSocketResponseMessage extends SocketResponsedMessage {
                     c cVar = new c();
                     cVar.a(getADListResIdl.data.ad_list.get(i2));
                     if (getADListResIdl.data.ad_list.size() - 1 == i2) {
-                        cVar.mM(true);
+                        cVar.nh(true);
                     } else {
-                        cVar.mM(false);
+                        cVar.nh(false);
                     }
-                    if (cVar.bQJ() == 0 || cVar.bQJ() == 2) {
+                    if (cVar.bXf() == 0 || cVar.bXf() == 2) {
                         this.list.add(cVar);
                     }
                 }

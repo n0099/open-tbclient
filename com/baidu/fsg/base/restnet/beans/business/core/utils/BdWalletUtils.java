@@ -1,13 +1,8 @@
 package com.baidu.fsg.base.restnet.beans.business.core.utils;
 
 import android.app.Activity;
-import android.content.ContentResolver;
 import android.content.Context;
-import android.database.Cursor;
-import android.net.Uri;
-import android.provider.ContactsContract;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.IMConstants;
 import com.baidu.fsg.base.armor.RimArmor;
 import com.baidu.fsg.base.restnet.beans.IBeanResponseCallback;
 import com.baidu.fsg.base.restnet.beans.business.BeanConstants;
@@ -16,7 +11,6 @@ import com.baidu.fsg.base.utils.SharedPreferencesUtils;
 import com.baidu.pass.biometrics.face.liveness.dto.PassFaceRecogDTO;
 import com.baidu.webkit.internal.ETAG;
 import java.io.File;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes4.dex */
@@ -47,35 +41,6 @@ public class BdWalletUtils {
             return RimArmor.getInstance().localDecrypt(str);
         }
         return str;
-    }
-
-    public static ArrayList<String> getPhoneContactsForChargeFragment(Uri uri, Context context) {
-        ArrayList<String> arrayList = new ArrayList<>();
-        ContentResolver contentResolver = context.getContentResolver();
-        try {
-            Cursor query = contentResolver.query(uri, null, null, null, null);
-            if (query != null) {
-                query.moveToFirst();
-                arrayList.add(query.getString(query.getColumnIndex("display_name")));
-                Cursor query2 = contentResolver.query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI, null, "contact_id=" + query.getString(query.getColumnIndex(IMConstants.MSG_ROW_ID)), null, null);
-                query.close();
-                if (query2 == null || query2.getCount() <= 0) {
-                    return null;
-                }
-                query2.moveToFirst();
-                do {
-                    String formatPhoneNumber = StringUtils.formatPhoneNumber(query2.getString(query2.getColumnIndex("data1")));
-                    if (!TextUtils.isEmpty(formatPhoneNumber)) {
-                        arrayList.add(formatPhoneNumber);
-                    }
-                } while (query2.moveToNext());
-                return arrayList;
-            }
-            return null;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
-        }
     }
 
     public static void setDeviceFP(Context context, String str) {

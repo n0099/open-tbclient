@@ -1,167 +1,140 @@
 package com.baidu.swan.apps.ab;
 
 import android.content.Context;
+import android.preference.PreferenceManager;
 import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.live.tbadk.log.LogConfig;
-import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
-import com.baidu.swan.apps.as.ai;
-import com.baidu.swan.apps.b;
-import com.baidu.swan.apps.runtime.d;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.swan.apps.adaptation.a.d;
 import com.baidu.swan.apps.runtime.e;
-import com.baidu.swan.apps.view.SwanAppActionBar;
-import com.baidu.swan.menu.h;
-import com.baidu.swan.pms.model.PMSAppInfo;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
+import com.baidu.swan.apps.w.f;
+import com.baidu.swan.ubc.l;
+import com.baidu.swan.ubc.m;
+import java.util.Random;
+import java.util.concurrent.ExecutorService;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
-public class a {
-    private static boolean DEBUG = b.DEBUG;
+public class a implements l {
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
+    private Boolean cqI = null;
+    private Context mContext = AppRuntime.getAppContext();
 
-    public static void a(final Context context, final SwanAppActionBar swanAppActionBar, final String str) {
-        ExecutorUtilsExt.postOnElastic(new Runnable() { // from class: com.baidu.swan.apps.ab.a.1
-            @Override // java.lang.Runnable
-            public void run() {
-                a.b(context, swanAppActionBar, str);
-            }
-        }, "getRefreshTips", 1);
+    @Override // com.baidu.swan.ubc.l
+    public m ST() {
+        return com.baidu.swan.apps.u.a.afv().ST();
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public static void b(Context context, final SwanAppActionBar swanAppActionBar, String str) {
-        final JSONObject K = com.baidu.swan.apps.w.a.acw().K(context, str);
-        if (K != null && swanAppActionBar != null) {
-            d.getMainHandler().post(new Runnable() { // from class: com.baidu.swan.apps.ab.a.2
-                @Override // java.lang.Runnable
-                public void run() {
-                    a.a(swanAppActionBar, a.aB(K));
-                }
-            });
-        }
+    @Override // com.baidu.swan.ubc.l
+    public String akR() {
+        d aeU = com.baidu.swan.apps.u.a.aeU();
+        return aeU != null ? aeU.Rp() : "";
     }
 
-    public static void a(SwanAppActionBar swanAppActionBar, int i) {
-        if (DEBUG) {
-            Log.i("messageRefresh", "update_red_dots:" + i);
-        }
-        if (swanAppActionBar != null) {
-            swanAppActionBar.setRightRedDotVisibility(i > 0);
-        }
-    }
-
-    public static void a(final Context context, final h hVar, final String str) {
-        ExecutorUtilsExt.postOnElastic(new Runnable() { // from class: com.baidu.swan.apps.ab.a.3
-            @Override // java.lang.Runnable
-            public void run() {
-                a.b(context, hVar, str);
-            }
-        }, "getMenuToolRefreshTips", 1);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public static void b(Context context, final h hVar, String str) {
-        JSONObject K = com.baidu.swan.apps.w.a.acw().K(context, str);
-        if (K != null && hVar != null) {
-            aB(K);
-            final JSONArray optJSONArray = K.optJSONArray("un_read_list");
-            d.getMainHandler().post(new Runnable() { // from class: com.baidu.swan.apps.ab.a.4
-                @Override // java.lang.Runnable
-                public void run() {
-                    int length = optJSONArray.length();
-                    if (optJSONArray != null && length != 0) {
-                        for (int i = 0; i < length; i++) {
-                            JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-                            if (optJSONObject != null) {
-                                hVar.bV(optJSONObject);
-                                a.aC(optJSONObject);
-                            }
-                        }
-                        hVar.aBa();
-                    }
-                }
-            });
-        }
-    }
-
-    public static boolean dW(boolean z) {
-        if (e.akN() == null) {
+    @Override // com.baidu.swan.ubc.l
+    public boolean mj(String str) {
+        int i;
+        d aeU = com.baidu.swan.apps.u.a.aeU();
+        String str2 = aeU != null ? aeU.getSwitch("ANDROID_UBC_SAMPLE_" + str, "") : "";
+        if (TextUtils.isEmpty(str2)) {
             return false;
         }
-        e akN = e.akN();
-        PMSAppInfo adQ = e.akN().akP().adQ();
-        if (akN.ald() || adQ == null || TextUtils.isEmpty(adQ.paNumber)) {
-            return false;
+        try {
+            i = new JSONObject(str2).getInt("probability");
+        } catch (JSONException e) {
+            e.printStackTrace();
+            i = 0;
         }
-        if (z) {
-            return true;
-        }
-        return akN.alc().b("key_unread_counts_message", (Integer) 0).intValue() <= 0;
+        return new Random().nextInt(100) < i;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public static int aB(JSONObject jSONObject) {
-        if (jSONObject == null) {
-            return 0;
-        }
-        JSONArray optJSONArray = jSONObject.optJSONArray("un_read_list");
-        int length = optJSONArray.length();
-        if (optJSONArray == null || length == 0) {
-            return 0;
-        }
-        int i = 0;
-        for (int i2 = 0; i2 < length; i2++) {
-            JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
-            int optInt = optJSONObject.optInt("pa_type");
-            if (optInt == 7) {
-                i += optJSONObject.optInt("pa_unread_sums");
-            }
-            if (ai.apt() && (optInt == 27 || optInt == 17)) {
-                i += optJSONObject.optInt("pa_unread_sums");
-            }
-        }
-        if (i == 0) {
-            for (int i3 = 0; i3 < length; i3++) {
-                JSONObject optJSONObject2 = optJSONArray.optJSONObject(i3);
-                int optInt2 = optJSONObject2.optInt("pa_type");
-                if (optInt2 == 888 || optInt2 == 666 || optInt2 == 999) {
-                    i += optJSONObject2.optInt("pa_unread_sums");
-                }
-            }
-        }
-        if (e.akN() != null) {
-            e.akN().alc().a("key_unread_counts_message", Integer.valueOf(i));
-            return i;
-        }
-        return i;
+    @Override // com.baidu.swan.ubc.l
+    public boolean akS() {
+        return DEBUG && PreferenceManager.getDefaultSharedPreferences(com.baidu.swan.apps.u.a.aeR()).getBoolean("KEY_UBC_DEBUG", true);
     }
 
-    public static void agC() {
-        if (e.akN() != null) {
-            e.akN().alc().a("key_unread_counts_message", (Integer) 0);
-        }
+    @Override // com.baidu.swan.ubc.l
+    public boolean akT() {
+        return com.baidu.swan.apps.af.a.a.akT() && (akS() || com.baidu.swan.apps.b.bHh);
     }
 
-    public static void aC(JSONObject jSONObject) {
-        if (jSONObject != null && Long.valueOf(jSONObject.optLong("pa_unread_sums")).longValue() > 0) {
-            String str = "";
-            switch (jSONObject.optInt("pa_type")) {
-                case 7:
-                    str = "customerService";
-                    break;
-                case 666:
-                    str = LogConfig.KEY_NOTICE;
-                    break;
-                case 888:
-                    str = PushConstants.MZ_PUSH_MESSAGE_METHOD_ACTION_PRIVATE;
-                    break;
-                case 999:
-                    str = "message";
-                    break;
-            }
-            if (!TextUtils.isEmpty(str)) {
-                com.baidu.swan.apps.aa.a.C(str, "1", "show");
-            }
+    @Override // com.baidu.swan.ubc.l
+    public boolean akU() {
+        if (this.cqI == null) {
+            this.cqI = Boolean.valueOf(com.baidu.swan.apps.u.a.aeU().getSwitch("swan_ceres_add_counter", false));
         }
+        return this.cqI.booleanValue();
+    }
+
+    @Override // com.baidu.swan.ubc.l
+    public void a(String str, String str2, int i, String str3, int i2) {
+        com.baidu.swan.apps.u.a.afw().a(str, str2, i, str3, i2);
+    }
+
+    @Override // com.baidu.swan.ubc.l
+    public void a(String str, String str2, int i, String str3, long j, int i2) {
+        com.baidu.swan.apps.u.a.afw().a(str, str2, i, str3, j, i2);
+    }
+
+    @Override // com.baidu.swan.ubc.l
+    public void f(String str, int i, String str2) {
+        com.baidu.swan.apps.u.a.afw().f(str, i, str2);
+    }
+
+    @Override // com.baidu.swan.ubc.l
+    public void a(String str, int i, JSONArray jSONArray) {
+        com.baidu.swan.apps.u.a.afw().a(str, i, jSONArray);
+    }
+
+    @Override // com.baidu.swan.ubc.l
+    public void G(String str, int i) {
+        com.baidu.swan.apps.u.a.afw().G(str, i);
+    }
+
+    @Override // com.baidu.swan.ubc.l
+    public String getDeviceId(Context context) {
+        return com.baidu.swan.apps.u.a.aeW().bc(com.baidu.swan.apps.u.a.aeR());
+    }
+
+    @Override // com.baidu.swan.ubc.l
+    public String getHostName() {
+        return com.baidu.swan.apps.u.a.afB().getHostName();
+    }
+
+    @Override // com.baidu.swan.ubc.l
+    public String cb(Context context) {
+        return com.baidu.swan.uuid.b.dy(context).getUUID();
+    }
+
+    @Override // com.baidu.swan.ubc.l
+    public String getUserId(Context context) {
+        return com.baidu.swan.apps.u.a.aeW().bb(com.baidu.swan.apps.u.a.aeR());
+    }
+
+    @Override // com.baidu.swan.ubc.l
+    public String getAppId() {
+        e Zc = f.ahV().Zc();
+        return Zc != null ? Zc.id : "";
+    }
+
+    @Override // com.baidu.swan.ubc.l
+    public String getAppVersion() {
+        e Zc = f.ahV().Zc();
+        return Zc != null ? Zc.QJ().getVersion() : "";
+    }
+
+    @Override // com.baidu.swan.ubc.l
+    public String afW() {
+        return com.baidu.swan.apps.swancore.b.gZ(Qz());
+    }
+
+    @Override // com.baidu.swan.ubc.l
+    public int Qz() {
+        return com.baidu.swan.apps.runtime.d.aoB().Qz();
+    }
+
+    @Override // com.baidu.swan.ubc.l
+    public ExecutorService St() {
+        return com.baidu.swan.apps.u.a.afw().St();
     }
 }

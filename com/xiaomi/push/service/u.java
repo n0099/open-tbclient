@@ -32,7 +32,7 @@ final class u extends XMPushService.i {
     public void a() {
         try {
             ii a = p.a((Context) this.f930a, this.a);
-            a.m414a().a("absent_target_package", this.f931a);
+            a.m416a().a("absent_target_package", this.f931a);
             w.a(this.f930a, a);
         } catch (gd e) {
             com.xiaomi.channel.commonutils.logger.b.a(e);

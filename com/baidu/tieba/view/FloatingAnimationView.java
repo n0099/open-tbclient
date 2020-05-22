@@ -17,16 +17,16 @@ import com.baidu.tieba.R;
 import java.util.List;
 /* loaded from: classes8.dex */
 public class FloatingAnimationView extends FrameLayout {
-    private TbImageView eSi;
-    private FrameAnimationView luq;
-    private ImageView lur;
-    private a lus;
+    private TbImageView feQ;
+    private FrameAnimationView lMT;
+    private ImageView lMU;
+    private a lMV;
 
     /* loaded from: classes8.dex */
     public interface a {
-        void bGb();
+        void bMu();
 
-        void bGc();
+        void bMv();
     }
 
     public FloatingAnimationView(@NonNull Context context) {
@@ -40,36 +40,36 @@ public class FloatingAnimationView extends FrameLayout {
 
     private void init() {
         Context context = getContext();
-        this.luq = new FrameAnimationView(context);
-        this.luq.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.lMT = new FrameAnimationView(context);
+        this.lMT.setScaleType(ImageView.ScaleType.CENTER_CROP);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(l.getDimens(context, R.dimen.tbds200), l.getDimens(context, R.dimen.tbds200));
         layoutParams.gravity = 17;
-        addView(this.luq, layoutParams);
-        this.eSi = new TbImageView(context);
-        this.eSi.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        addView(this.lMT, layoutParams);
+        this.feQ = new TbImageView(context);
+        this.feQ.setScaleType(ImageView.ScaleType.CENTER_CROP);
         FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(l.getDimens(context, R.dimen.tbds62), l.getDimens(context, R.dimen.tbds62));
         layoutParams2.gravity = 53;
-        this.eSi.setAutoChangeStyle(false);
-        addView(this.eSi, layoutParams2);
-        this.lur = new ImageView(context);
-        this.lur.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.feQ.setAutoChangeStyle(false);
+        addView(this.feQ, layoutParams2);
+        this.lMU = new ImageView(context);
+        this.lMU.setScaleType(ImageView.ScaleType.CENTER_CROP);
         FrameLayout.LayoutParams layoutParams3 = new FrameLayout.LayoutParams(-2, -2);
         layoutParams3.gravity = 51;
         layoutParams3.topMargin = l.getDimens(context, R.dimen.tbds14);
-        addView(this.lur, layoutParams3);
-        this.luq.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.view.FloatingAnimationView.1
+        addView(this.lMU, layoutParams3);
+        this.lMT.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.view.FloatingAnimationView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (FloatingAnimationView.this.lus != null) {
-                    FloatingAnimationView.this.lus.bGb();
+                if (FloatingAnimationView.this.lMV != null) {
+                    FloatingAnimationView.this.lMV.bMu();
                 }
             }
         });
-        this.luq.setOnDrawListener(new TbImageView.c() { // from class: com.baidu.tieba.view.FloatingAnimationView.2
+        this.lMT.setOnDrawListener(new TbImageView.c() { // from class: com.baidu.tieba.view.FloatingAnimationView.2
             @Override // com.baidu.tbadk.widget.TbImageView.c
             public void a(TbImageView tbImageView, Canvas canvas) {
-                if (FloatingAnimationView.this.luq.getBdImage() == null && !aq.isEmpty(FloatingAnimationView.this.luq.getUrl())) {
-                    FloatingAnimationView.this.luq.startLoad(FloatingAnimationView.this.luq.getUrl(), 10, false);
+                if (FloatingAnimationView.this.lMT.getBdImage() == null && !aq.isEmpty(FloatingAnimationView.this.lMT.getUrl())) {
+                    FloatingAnimationView.this.lMT.startLoad(FloatingAnimationView.this.lMT.getUrl(), 10, false);
                 }
             }
 
@@ -77,11 +77,11 @@ public class FloatingAnimationView extends FrameLayout {
             public void b(TbImageView tbImageView, Canvas canvas) {
             }
         });
-        this.eSi.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.view.FloatingAnimationView.3
+        this.feQ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.view.FloatingAnimationView.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (FloatingAnimationView.this.lus != null) {
-                    FloatingAnimationView.this.lus.bGc();
+                if (FloatingAnimationView.this.lMV != null) {
+                    FloatingAnimationView.this.lMV.bMv();
                 }
             }
         });
@@ -90,56 +90,56 @@ public class FloatingAnimationView extends FrameLayout {
 
     public void setData(String str) {
         if (!aq.isEmpty(str)) {
-            this.luq.setData(str);
+            this.lMT.setData(str);
         }
     }
 
     public void setData(List<String> list, int i) {
-        if (this.luq != null) {
-            this.luq.setData(list, i);
+        if (this.lMT != null) {
+            this.lMT.setData(list, i);
         }
     }
 
     public void playAnimation() {
-        if (this.luq != null) {
-            this.luq.setImageResource(R.drawable.transparent_bg);
-            this.luq.playAnimation();
+        if (this.lMT != null) {
+            this.lMT.setImageResource(R.drawable.transparent_bg);
+            this.lMT.playAnimation();
         }
     }
 
     public void stopAnimation() {
-        if (this.luq != null) {
-            this.luq.setImageDrawable(null);
-            this.luq.stopAnimation();
+        if (this.lMT != null) {
+            this.lMT.setImageDrawable(null);
+            this.lMT.stopAnimation();
         }
     }
 
     public void setPageId(BdUniqueId bdUniqueId) {
-        if (this.luq != null) {
-            this.luq.setPageId(bdUniqueId);
+        if (this.lMT != null) {
+            this.lMT.setPageId(bdUniqueId);
         }
     }
 
     public void release() {
-        if (this.luq != null) {
-            this.luq.release();
+        if (this.lMT != null) {
+            this.lMT.release();
         }
     }
 
-    public void uJ(boolean z) {
+    public void vh(boolean z) {
         if (z) {
-            this.lur.setVisibility(0);
-            am.setImageResource(this.lur, R.drawable.icon_front_worldcup_new_n);
+            this.lMU.setVisibility(0);
+            am.setImageResource(this.lMU, R.drawable.icon_front_worldcup_new_n);
             return;
         }
-        this.lur.setVisibility(8);
+        this.lMU.setVisibility(8);
     }
 
     public void setCallback(a aVar) {
-        this.lus = aVar;
+        this.lMV = aVar;
     }
 
     public void onChangeSkinType() {
-        am.setImageResource(this.eSi, R.drawable.icon_live_close_n);
+        am.setImageResource(this.feQ, R.drawable.icon_live_close_n);
     }
 }

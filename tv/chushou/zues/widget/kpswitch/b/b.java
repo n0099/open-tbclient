@@ -4,27 +4,27 @@ import android.content.Context;
 import android.content.SharedPreferences;
 /* loaded from: classes5.dex */
 class b {
-    private static volatile SharedPreferences nvr;
+    private static volatile SharedPreferences nQn;
 
     b() {
     }
 
     public static boolean G(Context context, int i) {
-        return gg(context).edit().putInt("sp.key.keyboard.height", i).commit();
+        return gH(context).edit().putInt("sp.key.keyboard.height", i).commit();
     }
 
-    private static SharedPreferences gg(Context context) {
-        if (nvr == null) {
+    private static SharedPreferences gH(Context context) {
+        if (nQn == null) {
             synchronized (b.class) {
-                if (nvr == null) {
-                    nvr = context.getSharedPreferences("keyboard.common", 0);
+                if (nQn == null) {
+                    nQn = context.getSharedPreferences("keyboard.common", 0);
                 }
             }
         }
-        return nvr;
+        return nQn;
     }
 
     public static int H(Context context, int i) {
-        return gg(context).getInt("sp.key.keyboard.height", i);
+        return gH(context).getInt("sp.key.keyboard.height", i);
     }
 }

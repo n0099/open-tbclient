@@ -20,42 +20,42 @@ public class b extends ActivityDelegation {
 
     @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
     public void onAttachedToWindow() {
-        bjm();
-        az(getAgent(), this.mParams.getString("options"));
+        boD();
+        aA(getAgent(), this.mParams.getString("options"));
     }
 
     @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
     public void onSelfFinish() {
-        bjn();
+        boE();
     }
 
-    private void bjm() {
+    private void boD() {
     }
 
-    private void bjn() {
+    private void boE() {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void iI(boolean z) {
+    public void jc(boolean z) {
         this.mResult.putBoolean("share_result", z);
-        bjn();
+        boE();
         finish();
     }
 
-    private void az(Context context, String str) {
+    private void aA(Context context, String str) {
         if (context == null) {
-            iI(false);
+            jc(false);
             return;
         }
         a aVar = new a();
         try {
-            aVar.cE(new JSONObject(str));
-            TiebaStatic.log(new an("c13530").cI("obj_id", aVar.dQT).af("obj_type", aVar.dQU).cI("obj_source", aVar.dQV));
+            aVar.cK(new JSONObject(str));
+            TiebaStatic.log(new an("c13530").dh("obj_id", aVar.efm).ag("obj_type", aVar.efn).dh("obj_source", aVar.efo));
             ShareDialogConfig shareDialogConfig = new ShareDialogConfig(context, aVar, false);
             shareDialogConfig.onCancelListener = new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.aiapps.apps.share.b.1
                 @Override // android.content.DialogInterface.OnCancelListener
                 public void onCancel(DialogInterface dialogInterface) {
-                    b.this.iI(false);
+                    b.this.jc(false);
                 }
             };
             shareDialogConfig.onDismissListener = new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.aiapps.apps.share.b.2
@@ -65,7 +65,7 @@ public class b extends ActivityDelegation {
             };
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SHARE_DIALOG_SHOW, shareDialogConfig));
         } catch (JSONException e) {
-            iI(false);
+            jc(false);
         }
     }
 }

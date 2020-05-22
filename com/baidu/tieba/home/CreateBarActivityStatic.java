@@ -7,6 +7,8 @@ import com.baidu.tbadk.core.atomData.CreateForumActivityConfig;
 import com.baidu.tbadk.core.atomData.CreateForumSuccessActivityConfig;
 /* loaded from: classes11.dex */
 public class CreateBarActivityStatic {
+    public static String Tag = "tag";
+
     static {
         CreateBarActivityConfig.IS_SUPPORT_CREATE_BAR = true;
         TbadkCoreApplication.getInst().RegisterIntent(CreateBarActivityConfig.class, CreateBarActivity.class);

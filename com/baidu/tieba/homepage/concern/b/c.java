@@ -1,24 +1,24 @@
 package com.baidu.tieba.homepage.concern.b;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.m;
+import com.baidu.adp.widget.ListView.o;
 /* loaded from: classes9.dex */
-public class c implements m {
-    public static final BdUniqueId hJw = BdUniqueId.gen();
-    public static final BdUniqueId hJx = BdUniqueId.gen();
-    public boolean hJA;
-    public int hJy;
-    public boolean hJz;
+public class c implements o {
+    public static final BdUniqueId hYa = BdUniqueId.gen();
+    public static final BdUniqueId hYb = BdUniqueId.gen();
+    public int hYc;
+    public boolean hYd;
+    public boolean hYe;
     public String tipString;
 
-    @Override // com.baidu.adp.widget.ListView.m
+    @Override // com.baidu.adp.widget.ListView.o
     public BdUniqueId getType() {
-        switch (this.hJy) {
+        switch (this.hYc) {
             case 2:
             case 3:
-                return hJx;
+                return hYb;
             default:
-                return hJw;
+                return hYa;
         }
     }
 }

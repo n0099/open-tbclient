@@ -39,4 +39,8 @@ public final class UnitedSchemeInterceptChain {
     public void clearChain() {
         this.mInterceptors.clear();
     }
+
+    public boolean isEmpty() {
+        return this.mInterceptors.isEmpty();
+    }
 }

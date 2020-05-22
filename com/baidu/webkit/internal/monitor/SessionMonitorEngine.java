@@ -48,6 +48,10 @@ public class SessionMonitorEngine implements INoProGuard {
 
     /* loaded from: classes11.dex */
     public interface IPrototype extends INoProGuard {
+        void notifyPageActive(String str, WebView webView);
+
+        void notifyPageLeave(String str, WebView webView);
+
         void onWebkitPaused();
 
         void onWebkitResumed();
@@ -221,6 +225,20 @@ public class SessionMonitorEngine implements INoProGuard {
         }
     }
 
+    public void notifyPageActive(String str, WebView webView) {
+        if (this.sImplement == null || this.sImplement.get() == null) {
+            return;
+        }
+        this.sImplement.get().notifyPageActive(str, webView);
+    }
+
+    public void notifyPageLeave(String str, WebView webView) {
+        if (this.sImplement == null || this.sImplement.get() == null) {
+            return;
+        }
+        this.sImplement.get().notifyPageLeave(str, webView);
+    }
+
     public void onPageKeySectionTimeCost(WebView webView, String str, int i, long j) {
         WebViewFactoryProvider provider = WebViewFactory.getProvider();
         if (provider != null) {
@@ -263,7 +281,7 @@ public class SessionMonitorEngine implements INoProGuard {
     public void recordFrameworkBehaviorValue(int i, Object obj) {
         a aVar = this.sFrameworkBehaviorProvider;
         if (aVar.a == null) {
-            aVar.a = new a.C0716a(aVar, (byte) 0);
+            aVar.a = new a.C0769a(aVar, (byte) 0);
         }
         if (i == 9) {
             aVar.a.a();
@@ -374,7 +392,7 @@ public class SessionMonitorEngine implements INoProGuard {
     }
 
     public final void registerPageSessionExtraCollector(WebView webView, IExtraInfoCollector iExtraInfoCollector) {
-        if (iExtraInfoCollector == null || webView == null || webView.isDestroyed() || TextUtils.equals("true", WebSettingsGlobalBlink.GetCloudSettingsValue("pushstate_statistics_disable"))) {
+        if (iExtraInfoCollector == null || webView == null || webView.isDestroyed()) {
             return;
         }
         if (this.mExtraInfoCollectors == null) {
@@ -406,7 +424,7 @@ public class SessionMonitorEngine implements INoProGuard {
     public void startFrameworkBehaviorMonitor() {
         a aVar = this.sFrameworkBehaviorProvider;
         if (aVar.a == null) {
-            aVar.a = new a.C0716a(aVar, (byte) 0);
+            aVar.a = new a.C0769a(aVar, (byte) 0);
         }
         if (aVar.a.c == -1) {
             aVar.a.a();
@@ -415,6 +433,17 @@ public class SessionMonitorEngine implements INoProGuard {
             return;
         }
         aVar.a.f = true;
+    }
+
+    public void updateCuidIfNeeded() {
+        if (this.mStaticPublicData == null) {
+            return;
+        }
+        try {
+            this.mStaticPublicData.put("cuid", WebKitFactory.getCUIDString());
+        } catch (Throwable th) {
+            Log.printStackTrace(th);
+        }
     }
 
     public void updateWiseSids(String str) {
@@ -442,7 +471,6 @@ public class SessionMonitorEngine implements INoProGuard {
                 jSONArray.put(new JSONObject(str2));
                 jSONObject.put("items", jSONArray);
                 str3 = jSONObject.toString();
-                Log.i("Session11 content = " + str3);
             } else {
                 str3 = getPublicData() + "###" + str2;
             }

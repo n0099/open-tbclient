@@ -114,7 +114,7 @@ public class gl extends gj {
         sb.append(o());
         gn a2 = a();
         if (a2 != null) {
-            sb.append(a2.m314a());
+            sb.append(a2.m316a());
         }
         sb.append("</presence>");
         return sb.toString();

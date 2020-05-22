@@ -12,7 +12,6 @@ import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import com.baidu.android.imsdk.IMConstants;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
-import com.baidu.webkit.net.BdNetEngine;
 import com.baidubce.http.Headers;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -35,34 +34,29 @@ import org.apache.http.cookie.SM;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes11.dex */
 public final class d {
-    private static final Uri c = Uri.parse("content://telephony/carriers/preferapn");
-    private static boolean d = false;
-    private static SSLContext e = null;
-    private static b f = null;
-    private static Object g = new Object();
-    private static boolean h = false;
+    private static boolean d;
+    private static SSLContext e;
+    private static a f;
+    private static boolean h;
     private boolean i;
     private String j;
     private String k;
-    private c l;
-    private boolean p;
-    private boolean t;
-    private a m = null;
+    private b l;
+    private boolean o;
+    private int q;
+    private boolean r;
+    private boolean s;
+    private static final Uri c = Uri.parse("content://telephony/carriers/preferapn");
+    private static Object g = new Object();
     public int a = -1;
     public int b = -1;
+    private Map<String, String> m = new HashMap();
     private Map<String, String> n = new HashMap();
-    private Map<String, String> o = new HashMap();
-    private int q = 5;
-    private int r = 0;
-    private boolean s = false;
+    private int p = 5;
 
     /* loaded from: classes11.dex */
-    public interface a {
-    }
-
-    /* loaded from: classes11.dex */
-    public class b implements HostnameVerifier {
-        public b() {
+    public class a implements HostnameVerifier {
+        public a() {
         }
 
         @Override // javax.net.ssl.HostnameVerifier
@@ -72,7 +66,7 @@ public final class d {
     }
 
     /* loaded from: classes11.dex */
-    public interface c {
+    public interface b {
         boolean a();
 
         boolean a(int i);
@@ -81,31 +75,29 @@ public final class d {
     }
 
     /* JADX WARN: Removed duplicated region for block: B:135:? A[RETURN, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:63:0x0160 A[Catch: SecurityException -> 0x0171, all -> 0x0193, TRY_LEAVE, TryCatch #8 {SecurityException -> 0x0171, all -> 0x0193, blocks: (B:48:0x0129, B:57:0x0143, B:59:0x0149, B:61:0x0156, B:75:0x017d, B:77:0x018a, B:84:0x019b, B:86:0x01a0, B:88:0x01a6, B:90:0x01b3, B:92:0x01bc, B:95:0x01ce, B:97:0x01d7, B:99:0x01e3, B:101:0x01f0, B:102:0x01f5, B:103:0x01fa, B:94:0x01c5, B:104:0x01ff, B:68:0x016d, B:63:0x0160), top: B:125:0x0129 }] */
-    /* JADX WARN: Removed duplicated region for block: B:65:0x0165  */
-    /* JADX WARN: Removed duplicated region for block: B:81:0x0196  */
+    /* JADX WARN: Removed duplicated region for block: B:63:0x0156 A[Catch: SecurityException -> 0x0167, all -> 0x0189, TRY_LEAVE, TryCatch #8 {SecurityException -> 0x0167, all -> 0x0189, blocks: (B:48:0x011f, B:57:0x0139, B:59:0x013f, B:61:0x014c, B:75:0x0173, B:77:0x0180, B:84:0x0191, B:86:0x0196, B:88:0x019c, B:90:0x01a9, B:92:0x01b2, B:95:0x01c4, B:97:0x01cd, B:99:0x01d9, B:101:0x01e6, B:102:0x01eb, B:103:0x01f0, B:94:0x01bb, B:104:0x01f5, B:68:0x0163, B:63:0x0156), top: B:125:0x011f }] */
+    /* JADX WARN: Removed duplicated region for block: B:65:0x015b  */
+    /* JADX WARN: Removed duplicated region for block: B:81:0x018c  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public d(Context context, String str, c cVar) {
+    public d(Context context, String str, b bVar) {
         NetworkInfo activeNetworkInfo;
         Cursor cursor;
         String str2;
         String str3;
         Cursor cursor2 = null;
         String str4 = null;
-        this.l = null;
-        this.t = false;
         this.k = str;
-        this.l = cVar;
+        this.l = bVar;
         if (str.startsWith("https")) {
-            this.t = true;
+            this.s = true;
         }
         String GetCloudSettingsValue = WebSettingsGlobalBlink.GetCloudSettingsValue("https_enable");
         if (GetCloudSettingsValue != null && GetCloudSettingsValue.equals("false")) {
-            this.t = false;
+            this.s = false;
         }
-        if (!this.t && str.startsWith("https")) {
+        if (!this.s && str.startsWith("https")) {
             this.k = HttpHost.DEFAULT_SCHEME_NAME;
             this.k += str.substring(5);
         }
@@ -186,10 +178,10 @@ public final class d {
                                     this.i = false;
                                 }
                             }
-                        } else if (BdNetEngine.URI_PROXY_CMWAP.equals(str2.trim())) {
+                        } else if ("10.0.0.172".equals(str2.trim())) {
                             this.i = true;
                             this.j = "10.0.0.172:80";
-                        } else if (BdNetEngine.URI_PROXY_CTWAP.equals(str2.trim())) {
+                        } else if ("10.0.0.200".equals(str2.trim())) {
                             this.i = true;
                             this.j = "10.0.0.200:80";
                         } else {
@@ -320,9 +312,9 @@ public final class d {
             int r6 = r4.read(r5)     // Catch: java.lang.Throwable -> L98
             r7 = -1
             if (r6 == r7) goto L43
-            com.baidu.webkit.internal.d$c r7 = r9.l     // Catch: java.lang.Throwable -> L98
+            com.baidu.webkit.internal.d$b r7 = r9.l     // Catch: java.lang.Throwable -> L98
             if (r7 == 0) goto L2f
-            com.baidu.webkit.internal.d$c r0 = r9.l     // Catch: java.lang.Throwable -> L98
+            com.baidu.webkit.internal.d$b r0 = r9.l     // Catch: java.lang.Throwable -> L98
             boolean r0 = r0.a(r5, r6)     // Catch: java.lang.Throwable -> L98
             goto L2f
         L41:
@@ -422,11 +414,11 @@ public final class d {
             return null;
         }
         try {
-            if (this.t || !this.i || this.j == null) {
-                if (this.t) {
+            if (this.s || !this.i || this.j == null) {
+                if (this.s) {
                     synchronized (g) {
                         if (!d) {
-                            f = new b();
+                            f = new a();
                             CertificateFactory certificateFactory = CertificateFactory.getInstance("X.509");
                             try {
                                 Certificate generateCertificate = certificateFactory.generateCertificate(new ByteArrayInputStream("-----BEGIN CERTIFICATE-----\nMIICZTCCAc4CAQAwDQYJKoZIhvcNAQEEBQAwezELMAkGA1UEBhMCQ04xCzAJBgNV\nBAgTAkJKMQswCQYDVQQHEwJCSjELMAkGA1UEChMCQkQxCzAJBgNVBAsTAkJEMRYw\nFAYDVQQDEw13d3cuYmFpZHUuY29tMSAwHgYJKoZIhvcNAQkBFhFsaWJpbjAyQGJh\naWR1LmNvbTAeFw0xMjA1MTAwMjMzNTVaFw0xMjA2MDkwMjMzNTVaMHsxCzAJBgNV\nBAYTAkNOMQswCQYDVQQIEwJCSjELMAkGA1UEBxMCQkoxCzAJBgNVBAoTAkJEMQsw\nCQYDVQQLEwJCRDEWMBQGA1UEAxMNd3d3LmJhaWR1LmNvbTEgMB4GCSqGSIb3DQEJ\nARYRbGliaW4wMkBiYWlkdS5jb20wgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGB\nALckGzvn6jcMqYpXrZKuuCYlVJIgN2ETsnvjCtO1va5u3p0EL9CuR5BlHocJadzM\nhTI7rH/nao8mXRIcJ4Q6lOv5TAotcKUv7ri9YZ48smpE3+KXVB+Mjau05OfiYI2h\nqlYy56acRSgyp8Uj65PXL8+gae8Gx+6lq0XOKduolmmNAgMBAAEwDQYJKoZIhvcN\nAQEEBQADgYEAYGPEvv1fc4XySq+9+5jFi4TxlNy9vAWpHOjsmODM9gs5/9PQFG/c\nZc8Fz+T9IVRa8YI0mLuKlApGmvzHxwdWbtBU6AU8ifg1HBA/4VXweiq6fgRfaemd\njgW3PXjbd+OoZ0VI32TvrDErG83OYohQ5CAS2gKHfBXHJvKtmxUSdVE=\n-----END CERTIFICATE-----\n".getBytes()));
@@ -470,7 +462,7 @@ public final class d {
                     Log.d("HttpUtils", "url not https");
                     httpsURLConnection = a(new URL(this.k));
                 }
-            } else if (this.j.startsWith(BdNetEngine.URI_PROXY_CTWAP)) {
+            } else if (this.j.startsWith("10.0.0.200")) {
                 httpsURLConnection = a(new URL(this.k));
             } else {
                 URL url2 = new URL(this.k);
@@ -489,7 +481,7 @@ public final class d {
             if (this.b > 0) {
                 httpsURLConnection.setReadTimeout(this.b);
             }
-            httpsURLConnection.setInstanceFollowRedirects(this.p);
+            httpsURLConnection.setInstanceFollowRedirects(this.o);
             httpsURLConnection.setRequestProperty(HTTP.CONN_DIRECTIVE, HTTP.CONN_CLOSE);
             b(httpsURLConnection);
             return httpsURLConnection;
@@ -538,16 +530,16 @@ public final class d {
     }
 
     private void b(HttpURLConnection httpURLConnection) {
-        if (this.n != null && this.n.size() > 0) {
-            for (Map.Entry<String, String> entry : this.n.entrySet()) {
+        if (this.m != null && this.m.size() > 0) {
+            for (Map.Entry<String, String> entry : this.m.entrySet()) {
                 httpURLConnection.addRequestProperty(entry.getKey(), entry.getValue());
             }
         }
-        if (this.o == null || this.o.size() <= 0) {
+        if (this.n == null || this.n.size() <= 0) {
             return;
         }
         StringBuilder sb = new StringBuilder();
-        for (Map.Entry<String, String> entry2 : this.o.entrySet()) {
+        for (Map.Entry<String, String> entry2 : this.n.entrySet()) {
             sb.append(entry2.getKey().trim());
             sb.append(ETAG.EQUAL);
             sb.append(entry2.getValue().trim());
@@ -562,7 +554,7 @@ public final class d {
     private boolean b(HttpURLConnection httpURLConnection, int i) {
         String headerField;
         boolean z = false;
-        if (!a(i) || this.r >= this.q || (headerField = httpURLConnection.getHeaderField(Headers.LOCATION)) == null) {
+        if (!a(i) || this.q >= this.p || (headerField = httpURLConnection.getHeaderField(Headers.LOCATION)) == null) {
             z = true;
         } else {
             String headerField2 = httpURLConnection.getHeaderField(SM.SET_COOKIE);
@@ -572,7 +564,7 @@ public final class d {
                     for (String str : split) {
                         String[] split2 = str.split(ETAG.EQUAL);
                         if (split2.length >= 2) {
-                            this.o.put(split2[0], split2[1]);
+                            this.n.put(split2[0], split2[1]);
                         }
                     }
                 } catch (Exception e2) {
@@ -581,12 +573,12 @@ public final class d {
             }
             try {
                 this.k = new URI(this.k).resolve(new URI(headerField)).toString();
-                this.s = true;
+                this.r = true;
             } catch (URISyntaxException e3) {
                 com.a.a.a.a.a.a.a.a(e3);
                 z = true;
             }
-            this.r++;
+            this.q++;
         }
         if (!z || this.l == null) {
             return z;
@@ -596,10 +588,10 @@ public final class d {
     }
 
     public final void a(String str, String str2) {
-        if (this.n == null || str2 == null) {
+        if (this.m == null || str2 == null) {
             return;
         }
-        this.n.put(str, str2);
+        this.m.put(str, str2);
     }
 
     public final boolean a() {
@@ -609,7 +601,7 @@ public final class d {
         }
         boolean z = false;
         do {
-            this.s = false;
+            this.r = false;
             b2 = b();
             if (b2 != null && (z = a(b2))) {
                 try {
@@ -622,7 +614,7 @@ public final class d {
                     com.a.a.a.a.a.a.a.a(th);
                 }
             }
-        } while (this.s);
+        } while (this.r);
         if (b2 != null) {
             try {
                 b2.disconnect();

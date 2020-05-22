@@ -4,41 +4,41 @@ import android.content.Context;
 import android.os.Bundle;
 import org.json.JSONObject;
 /* loaded from: classes12.dex */
-public class f extends com.baidu.swan.impl.map.a.a<com.baidu.swan.apps.z.a.e> {
+public class f extends com.baidu.swan.impl.map.a.a<com.baidu.swan.apps.x.a.e> {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static final String TAG = f.class.getSimpleName();
 
-    public static f azZ() {
+    public static f aDR() {
         return new f();
     }
 
-    private boolean a(Context context, com.baidu.swan.apps.z.a.e eVar, com.baidu.swan.apps.z.b bVar, com.baidu.swan.apps.runtime.e eVar2) {
+    private boolean a(Context context, com.baidu.swan.apps.x.a.e eVar, com.baidu.swan.apps.x.b bVar, com.baidu.swan.apps.runtime.e eVar2) {
         com.baidu.swan.apps.console.c.i("map", "OpenLocationAction start");
         if (!eVar.isValid()) {
             com.baidu.swan.apps.console.c.e("map", "model is invalid");
             return false;
         }
-        com.baidu.swan.impl.map.c.a.T(a(eVar)).aAg();
+        com.baidu.swan.impl.map.c.a.Z(a(eVar)).aDY();
         com.baidu.swan.apps.console.c.i("map", "OpenLocationAction end");
         return true;
     }
 
-    private Bundle a(com.baidu.swan.apps.z.a.e eVar) {
+    private Bundle a(com.baidu.swan.apps.x.a.e eVar) {
         Bundle bundle = new Bundle();
-        bundle.putString("slaveId", eVar.bGO);
-        bundle.putDouble("latitude", eVar.bYj.latitude);
-        bundle.putDouble("longitude", eVar.bYj.longitude);
-        bundle.putDouble("scale", eVar.bYk);
-        bundle.putString("name", eVar.bYz);
-        bundle.putString("address", eVar.bYA);
-        bundle.putStringArrayList("ignoredApps", eVar.bYB);
+        bundle.putString("slaveId", eVar.bPG);
+        bundle.putDouble("latitude", eVar.ciL.latitude);
+        bundle.putDouble("longitude", eVar.ciL.longitude);
+        bundle.putDouble("scale", eVar.ciM);
+        bundle.putString("name", eVar.cjb);
+        bundle.putString("address", eVar.cjc);
+        bundle.putStringArrayList("ignoredApps", eVar.cjd);
         return bundle;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.impl.map.a.a
-    public boolean a(Context context, com.baidu.swan.apps.z.a.e eVar, com.baidu.swan.apps.z.b bVar, com.baidu.swan.apps.runtime.e eVar2, JSONObject jSONObject) {
+    public boolean a(Context context, com.baidu.swan.apps.x.a.e eVar, com.baidu.swan.apps.x.b bVar, com.baidu.swan.apps.runtime.e eVar2, JSONObject jSONObject) {
         return a(context, eVar, bVar, eVar2);
     }
 }

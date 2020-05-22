@@ -12,8 +12,8 @@ import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
 public final class FlowableTimeout<T, U, V> extends io.reactivex.internal.operators.flowable.a<T, T> {
     final h<? super T, ? extends org.a.b<V>> itemTimeoutIndicator;
-    final org.a.b<U> mSK;
-    final org.a.b<? extends T> mSn;
+    final org.a.b<U> nnP;
+    final org.a.b<? extends T> nnu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes7.dex */
@@ -23,17 +23,17 @@ public final class FlowableTimeout<T, U, V> extends io.reactivex.internal.operat
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        if (this.mSn == null) {
+        if (this.nnu == null) {
             TimeoutSubscriber timeoutSubscriber = new TimeoutSubscriber(cVar, this.itemTimeoutIndicator);
             cVar.onSubscribe(timeoutSubscriber);
-            timeoutSubscriber.startFirstTimeout(this.mSK);
-            this.mRM.a((j) timeoutSubscriber);
+            timeoutSubscriber.startFirstTimeout(this.nnP);
+            this.nmU.a((j) timeoutSubscriber);
             return;
         }
-        TimeoutFallbackSubscriber timeoutFallbackSubscriber = new TimeoutFallbackSubscriber(cVar, this.itemTimeoutIndicator, this.mSn);
+        TimeoutFallbackSubscriber timeoutFallbackSubscriber = new TimeoutFallbackSubscriber(cVar, this.itemTimeoutIndicator, this.nnu);
         cVar.onSubscribe(timeoutFallbackSubscriber);
-        timeoutFallbackSubscriber.startFirstTimeout(this.mSK);
-        this.mRM.a((j) timeoutFallbackSubscriber);
+        timeoutFallbackSubscriber.startFirstTimeout(this.nnP);
+        this.nmU.a((j) timeoutFallbackSubscriber);
     }
 
     /* loaded from: classes7.dex */
@@ -65,7 +65,7 @@ public final class FlowableTimeout<T, U, V> extends io.reactivex.internal.operat
                 }
                 this.actual.onNext(t);
                 try {
-                    org.a.b bVar2 = (org.a.b) io.reactivex.internal.functions.a.h(this.itemTimeoutIndicator.apply(t), "The itemTimeoutIndicator returned a null Publisher.");
+                    org.a.b bVar2 = (org.a.b) io.reactivex.internal.functions.a.k(this.itemTimeoutIndicator.apply(t), "The itemTimeoutIndicator returned a null Publisher.");
                     TimeoutConsumer timeoutConsumer = new TimeoutConsumer(j + 1, this);
                     if (this.task.replace(timeoutConsumer)) {
                         bVar2.subscribe(timeoutConsumer);
@@ -171,7 +171,7 @@ public final class FlowableTimeout<T, U, V> extends io.reactivex.internal.operat
                 this.consumed++;
                 this.actual.onNext(t);
                 try {
-                    org.a.b bVar2 = (org.a.b) io.reactivex.internal.functions.a.h(this.itemTimeoutIndicator.apply(t), "The itemTimeoutIndicator returned a null Publisher.");
+                    org.a.b bVar2 = (org.a.b) io.reactivex.internal.functions.a.k(this.itemTimeoutIndicator.apply(t), "The itemTimeoutIndicator returned a null Publisher.");
                     TimeoutConsumer timeoutConsumer = new TimeoutConsumer(j + 1, this);
                     if (this.task.replace(timeoutConsumer)) {
                         bVar2.subscribe(timeoutConsumer);

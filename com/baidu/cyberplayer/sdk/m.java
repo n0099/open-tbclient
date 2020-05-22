@@ -515,13 +515,16 @@ public class m {
     public static boolean n() {
         Context applicationContext = CyberPlayerManager.getApplicationContext();
         String packageName = applicationContext.getPackageName();
-        ActivityManager activityManager = (ActivityManager) applicationContext.getSystemService(PushConstants.INTENT_ACTIVITY_NAME);
-        if (activityManager != null) {
-            for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : activityManager.getRunningAppProcesses()) {
-                if (packageName.equals(runningAppProcessInfo.processName)) {
-                    return true;
+        try {
+            ActivityManager activityManager = (ActivityManager) applicationContext.getSystemService(PushConstants.INTENT_ACTIVITY_NAME);
+            if (activityManager != null) {
+                for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : activityManager.getRunningAppProcesses()) {
+                    if (packageName.equals(runningAppProcessInfo.processName)) {
+                        return true;
+                    }
                 }
             }
+        } catch (Exception e2) {
         }
         return false;
     }
@@ -599,9 +602,12 @@ public class m {
     private static String t() {
         int myPid = Process.myPid();
         try {
-            for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : ((ActivityManager) CyberPlayerManager.getApplicationContext().getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getRunningAppProcesses()) {
-                if (runningAppProcessInfo.pid == myPid) {
-                    return runningAppProcessInfo.processName;
+            ActivityManager activityManager = (ActivityManager) CyberPlayerManager.getApplicationContext().getSystemService(PushConstants.INTENT_ACTIVITY_NAME);
+            if (activityManager != null) {
+                for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : activityManager.getRunningAppProcesses()) {
+                    if (runningAppProcessInfo.pid == myPid) {
+                        return runningAppProcessInfo.processName;
+                    }
                 }
             }
         } catch (Exception e2) {

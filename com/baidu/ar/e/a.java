@@ -11,7 +11,7 @@ public class a implements SensorEventListener {
     private Context mContext;
     private SensorManager qm;
     private Sensor ua;
-    private InterfaceC0079a ub;
+    private InterfaceC0081a ub;
     private boolean uc = true;
     private LinkedList<Double> ud = new LinkedList<>();
     private LinkedList<Float> ue = new LinkedList<>();
@@ -24,7 +24,7 @@ public class a implements SensorEventListener {
 
     /* renamed from: com.baidu.ar.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC0079a {
+    public interface InterfaceC0081a {
         void b(float f, float f2, float f3, float f4);
 
         void destroy();
@@ -38,8 +38,8 @@ public class a implements SensorEventListener {
         this.uc = z;
     }
 
-    public void a(InterfaceC0079a interfaceC0079a) {
-        this.ub = interfaceC0079a;
+    public void a(InterfaceC0081a interfaceC0081a) {
+        this.ub = interfaceC0081a;
     }
 
     public void a(LinkedList linkedList, double d) {

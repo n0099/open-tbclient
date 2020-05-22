@@ -8,20 +8,20 @@ import java.util.List;
 public class g extends b<com.baidu.swan.pms.model.g> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.pms.database.a.b
-    /* renamed from: m */
-    public com.baidu.swan.pms.model.g i(Cursor cursor) {
+    /* renamed from: n */
+    public com.baidu.swan.pms.model.g j(Cursor cursor) {
         if (cursor == null || cursor.getCount() <= 0 || !cursor.moveToFirst()) {
             return null;
         }
-        return n(cursor);
+        return o(cursor);
     }
 
     @Override // com.baidu.swan.pms.database.a.b
-    public List<com.baidu.swan.pms.model.g> g(Cursor cursor) {
+    public List<com.baidu.swan.pms.model.g> h(Cursor cursor) {
         ArrayList arrayList = new ArrayList();
         if (cursor != null && cursor.getCount() > 0 && cursor.moveToFirst()) {
             do {
-                arrayList.add(n(cursor));
+                arrayList.add(o(cursor));
             } while (cursor.moveToNext());
             return arrayList;
         }
@@ -31,22 +31,22 @@ public class g extends b<com.baidu.swan.pms.model.g> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.pms.database.a.b
     /* renamed from: k */
-    public ContentValues ab(com.baidu.swan.pms.model.g gVar) {
+    public ContentValues af(com.baidu.swan.pms.model.g gVar) {
         ContentValues e = super.e(gVar);
-        e.put("independent", Integer.valueOf(gVar.independent ? 1 : 0));
+        e.put("independent", Integer.valueOf(gVar.dlI ? 1 : 0));
         e.put("sub_pkg_name", gVar.pkgName);
         e.put("app_id", gVar.appId);
         return e;
     }
 
-    private com.baidu.swan.pms.model.g n(Cursor cursor) {
+    private com.baidu.swan.pms.model.g o(Cursor cursor) {
         if (cursor != null) {
             int columnIndex = cursor.getColumnIndex("independent");
             int columnIndex2 = cursor.getColumnIndex("sub_pkg_name");
             int columnIndex3 = cursor.getColumnIndex("app_id");
             com.baidu.swan.pms.model.g gVar = new com.baidu.swan.pms.model.g();
             if (a(cursor, gVar)) {
-                gVar.independent = cursor.getInt(columnIndex) == 1;
+                gVar.dlI = cursor.getInt(columnIndex) == 1;
                 gVar.pkgName = cursor.getString(columnIndex2);
                 gVar.appId = cursor.getString(columnIndex3);
                 return gVar;

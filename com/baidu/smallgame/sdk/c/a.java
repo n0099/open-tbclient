@@ -4,14 +4,14 @@ import android.text.TextUtils;
 import java.io.File;
 /* loaded from: classes11.dex */
 public final class a {
-    public static boolean gh(String str) {
+    public static boolean gT(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        return n(new File(str));
+        return r(new File(str));
     }
 
-    public static boolean n(File file) {
+    public static boolean r(File file) {
         return file != null && file.exists() && file.isFile();
     }
 }

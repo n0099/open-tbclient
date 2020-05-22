@@ -4,38 +4,43 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.ala.alasquare.live_tab.b.e;
-import com.baidu.tieba.ala.alasquare.live_tab.view.j;
+import com.baidu.tieba.ala.alasquare.live_tab.view.h;
+import com.baidu.tieba.ala.alasquare.live_tab.view.i;
 /* loaded from: classes3.dex */
-public class d extends com.baidu.adp.widget.ListView.a<e, com.baidu.tieba.ala.alasquare.live_tab.view.d> {
-    private j ePN;
+public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasquare.live_tab.b.e, i> {
+    private boolean fcs;
+    private h fcv;
     private TbPageContext mPageContext;
-    private int tabType;
 
-    public d(TbPageContext tbPageContext, int i) {
-        super(tbPageContext.getPageActivity(), e.ePR);
+    public d(TbPageContext tbPageContext) {
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.alasquare.live_tab.b.e.fcA);
+        this.fcs = false;
         this.mPageContext = tbPageContext;
-        this.tabType = i;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: B */
-    public com.baidu.tieba.ala.alasquare.live_tab.view.d b(ViewGroup viewGroup) {
-        this.ePN = new j(this.mPageContext, viewGroup, this.tabType);
-        return new com.baidu.tieba.ala.alasquare.live_tab.view.d(this.ePN);
+    /* renamed from: F */
+    public i b(ViewGroup viewGroup) {
+        this.fcv = new h(this.mPageContext, viewGroup);
+        this.fcv.jl(this.fcs);
+        return new i(this.fcv);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, e eVar, com.baidu.tieba.ala.alasquare.live_tab.view.d dVar) {
-        if (dVar == null || dVar.ePN == null) {
+    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.ala.alasquare.live_tab.b.e eVar, i iVar) {
+        if (iVar == null || iVar.fcv == null) {
             return null;
         }
-        dVar.ePN.a(eVar);
-        dVar.ePN.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        return dVar.getView();
+        iVar.fcv.a(eVar);
+        iVar.fcv.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        return iVar.getView();
+    }
+
+    public void jl(boolean z) {
+        this.fcs = z;
     }
 }

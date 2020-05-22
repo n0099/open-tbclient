@@ -6,69 +6,69 @@ import android.support.annotation.NonNull;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes6.dex */
 public interface a {
-    public static final AtomicReference<a> brU = new AtomicReference<>();
+    public static final AtomicReference<a> bzx = new AtomicReference<>();
+
+    @NonNull
+    String NA();
+
+    @NonNull
+    String NB();
+
+    @NonNull
+    String NC();
+
+    boolean ND();
+
+    @NonNull
+    String NE();
+
+    boolean NF();
+
+    String NG();
+
+    String NH();
+
+    String[] NI();
+
+    String NJ();
+
+    String NK();
 
     @IdRes
-    int LA();
-
-    String LB();
-
-    int LC();
-
-    String LD();
-
-    @NonNull
-    Context Lg();
-
-    @NonNull
-    String Lh();
-
-    @NonNull
-    String Li();
-
-    @NonNull
-    String Lj();
-
-    @NonNull
-    String Lk();
-
-    @NonNull
-    String Ll();
-
-    @NonNull
-    String Lm();
-
-    @NonNull
-    String Ln();
-
-    @NonNull
-    String Lo();
-
-    @NonNull
-    String Lp();
-
-    boolean Lq();
-
-    @NonNull
-    String Lr();
-
-    boolean Ls();
-
-    String Lt();
-
-    String Lu();
-
-    String[] Lv();
-
-    String Lw();
-
-    String Lx();
+    int NL();
 
     @IdRes
-    int Ly();
+    int NM();
 
     @IdRes
-    int Lz();
+    int NN();
+
+    String NO();
+
+    int NP();
+
+    String NQ();
+
+    @NonNull
+    Context Nt();
+
+    @NonNull
+    String Nu();
+
+    @NonNull
+    String Nv();
+
+    @NonNull
+    String Nw();
+
+    @NonNull
+    String Nx();
+
+    @NonNull
+    String Ny();
+
+    @NonNull
+    String Nz();
 
     boolean a(String str, com.baidu.prologue.c.b bVar);
 
@@ -76,7 +76,7 @@ public interface a {
     String androidId();
 
     @NonNull
-    String pw();
+    String pC();
 
     @NonNull
     String userAgent();

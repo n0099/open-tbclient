@@ -61,12 +61,12 @@ public class a extends com.baidu.platform.comapi.walknavi.g.b.b implements View.
     private void a(View view) {
         this.l = (RelativeLayout) view.findViewById(R.raw.imageviewer_drag);
         this.h = (ImageButton) view.findViewById(R.raw.lottie_tab_forum_1);
-        this.j = (LinearLayout) view.findViewById(R.raw.lottie_use_home_refresh_n_1);
-        this.k = (TextView) view.findViewById(R.raw.lottie_use_jinba_cj_n_1);
-        this.i = (ImageButton) view.findViewById(R.raw.lottie_use_home_cj_n_1);
+        this.j = (LinearLayout) view.findViewById(R.raw.lottie_use_home_cj_n_2);
+        this.k = (TextView) view.findViewById(R.raw.lottie_use_home_refresh_n_1);
+        this.i = (ImageButton) view.findViewById(R.raw.lottie_tab_my);
         this.o = (TextView) view.findViewById(R.raw.lottie_tab_home);
         this.p = view.findViewById(R.raw.lottie_tab_forum);
-        this.q = (TextView) view.findViewById(R.raw.lottie_use_home_refresh_n_2);
+        this.q = (TextView) view.findViewById(R.raw.lottie_use_home_refresh_n);
         b(view);
         this.h.setOnClickListener(this);
         this.j.setOnClickListener(this);
@@ -107,7 +107,7 @@ public class a extends com.baidu.platform.comapi.walknavi.g.b.b implements View.
     }
 
     private void b(View view) {
-        this.n = (CustomScrollView) view.findViewById(R.raw.lottie_tab_my);
+        this.n = (CustomScrollView) view.findViewById(R.raw.lottie_tab_msg);
         view.post(new b(this));
         this.s = com.baidu.platform.comapi.wnplatform.o.a.a.a(this.a, R.layout.abc_action_menu_item_layout, null);
         this.n.addContentView(this.s);
@@ -131,9 +131,9 @@ public class a extends com.baidu.platform.comapi.walknavi.g.b.b implements View.
     /* JADX INFO: Access modifiers changed from: private */
     public void b(boolean z) {
         if (z) {
-            new AsyncTaskC0185a(this.n, true).execute(new Integer[0]);
+            new AsyncTaskC0218a(this.n, true).execute(new Integer[0]);
         } else if (this.H != 0) {
-            new AsyncTaskC0185a(this.n, false).execute(new Integer[0]);
+            new AsyncTaskC0218a(this.n, false).execute(new Integer[0]);
         }
     }
 
@@ -245,7 +245,7 @@ public class a extends com.baidu.platform.comapi.walknavi.g.b.b implements View.
                 default:
                     return;
             }
-        } else if (id == R.raw.lottie_use_home_refresh_n_1) {
+        } else if (id == R.raw.lottie_use_home_cj_n_2) {
             this.f = this.f ? false : true;
             com.baidu.platform.comapi.wnplatform.k.a.a().a("BikeNaviPG.overview");
             com.baidu.platform.comapi.walknavi.b.a().F().run("[查看全览]按钮点击");
@@ -257,7 +257,7 @@ public class a extends com.baidu.platform.comapi.walknavi.g.b.b implements View.
             if (com.baidu.platform.comapi.walknavi.b.a().G().a() != null) {
                 com.baidu.platform.comapi.walknavi.b.a().G().a().requestLayout();
             }
-        } else if (id == R.raw.lottie_use_jinba_cj_n_1) {
+        } else if (id == R.raw.lottie_use_home_refresh_n_1) {
             this.f = this.f ? false : true;
             com.baidu.platform.comapi.wnplatform.k.a.a().a("BikeNaviPG.continue");
             com.baidu.platform.comapi.walknavi.b.a().F().run("[3D车头向上]按钮点击");
@@ -270,7 +270,7 @@ public class a extends com.baidu.platform.comapi.walknavi.g.b.b implements View.
             if (com.baidu.platform.comapi.walknavi.b.a().G().a() != null) {
                 com.baidu.platform.comapi.walknavi.b.a().G().a().requestLayout();
             }
-        } else if (id == R.raw.lottie_use_home_cj_n_1) {
+        } else if (id == R.raw.lottie_tab_my) {
             this.g.a(false, R.string.abc_action_bar_up_description);
         }
     }
@@ -278,12 +278,12 @@ public class a extends com.baidu.platform.comapi.walknavi.g.b.b implements View.
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.platform.comapi.bikenavi.widget.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public class AsyncTaskC0185a extends AsyncTask<Integer, Integer, String> {
+    public class AsyncTaskC0218a extends AsyncTask<Integer, Integer, String> {
         private ScrollView b;
         private boolean c;
         private int d = 15;
 
-        public AsyncTaskC0185a(ScrollView scrollView, boolean z) {
+        public AsyncTaskC0218a(ScrollView scrollView, boolean z) {
             this.b = scrollView;
             this.c = z;
         }

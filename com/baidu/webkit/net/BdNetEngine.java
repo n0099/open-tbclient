@@ -49,8 +49,8 @@ public class BdNetEngine extends HandlerThread implements INoProGuard {
     private static final String LOG_TAG = "BdNetEngine";
     public static final int MESSAGE_EXCUTE_TASK = 1;
     public static final int MESSAGE_STOP_ENGINE = 2;
-    public static final String URI_PROXY_CMWAP = "10.0.0.172";
-    public static final String URI_PROXY_CTWAP = "10.0.0.200";
+    private static boolean mFirstWait;
+    private static int sNid;
     private static boolean sUsingChromiumNet;
     private HttpURLConnection mConnection;
     private boolean mIsCmwap;
@@ -64,9 +64,7 @@ public class BdNetEngine extends HandlerThread implements INoProGuard {
     private int mProxyPort;
     private String mProxyUrl;
     private static final Pattern VERIFY_AS_IP_ADDRESS = Pattern.compile("([0-9a-fA-F]*:[0-9a-fA-F:.]*)|([\\d.]+)");
-    private static int sNid = 0;
     public static Object mSelfLock = new Object();
-    private static boolean mFirstWait = false;
     private static long mWaitTime = 10000;
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -347,41 +345,6 @@ public class BdNetEngine extends HandlerThread implements INoProGuard {
         String refer = bdNetTask.getRefer();
         if (refer != null) {
             this.mConnection.addRequestProperty("Referer", refer);
-        }
-    }
-
-    private URL convertToCmwapUrl(URL url) {
-        try {
-            StringBuffer stringBuffer = new StringBuffer();
-            stringBuffer.append("http://");
-            stringBuffer.append(URI_PROXY_CMWAP);
-            String file = url.getFile();
-            if (!TextUtils.isEmpty(file)) {
-                stringBuffer.append(file);
-            }
-            String ref = url.getRef();
-            if (!TextUtils.isEmpty(ref)) {
-                stringBuffer.append("#");
-                stringBuffer.append(ref);
-            }
-            return new URL(stringBuffer.toString());
-        } catch (Exception e) {
-            if (0 == 0) {
-                try {
-                    return new URL("http://10.0.0.172");
-                } catch (Exception e2) {
-                    return url;
-                }
-            }
-            return null;
-        } catch (Throwable th) {
-            if (0 == 0) {
-                try {
-                    new URL("http://10.0.0.172");
-                } catch (Exception e3) {
-                }
-            }
-            throw th;
         }
     }
 

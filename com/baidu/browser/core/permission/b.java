@@ -2,6 +2,7 @@ package com.baidu.browser.core.permission;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.os.Build;
 import com.baidu.browser.core.util.BdLog;
 import com.baidu.webkit.sdk.PermissionRequest;
 /* loaded from: classes11.dex */
@@ -16,7 +17,28 @@ public class b {
             return com.baidu.h.a.a.checkPermissionGranted(context, PermissionRequest.RESOURCE_VIDEO_CAPTURE);
         } catch (Throwable th) {
             BdLog.e(TAG, th);
-            return !com.baidu.h.a.KO();
+            return !com.baidu.h.a.MI();
+        }
+    }
+
+    public static boolean M(Context context) {
+        if (context == null) {
+            return false;
+        }
+        try {
+            boolean checkPermissionGranted = com.baidu.h.a.a.checkPermissionGranted(context, "android.permission.WRITE_EXTERNAL_STORAGE");
+            if (Build.VERSION.SDK_INT >= 16) {
+                if (!checkPermissionGranted) {
+                    if (!com.baidu.h.a.a.checkPermissionGranted(context, "android.permission.READ_EXTERNAL_STORAGE")) {
+                        return false;
+                    }
+                }
+                return true;
+            }
+            return checkPermissionGranted;
+        } catch (Throwable th) {
+            BdLog.e(TAG, th);
+            return !com.baidu.h.a.MI();
         }
     }
 

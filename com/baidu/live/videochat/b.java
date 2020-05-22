@@ -4,9 +4,9 @@ import android.view.View;
 import com.baidu.live.data.AlaLiveUserInfoData;
 /* loaded from: classes3.dex */
 public interface b {
-    void Go();
+    void Ih();
 
-    void Gp();
+    void Ii();
 
     void a(boolean z, long j, View view, View view2);
 
@@ -14,7 +14,7 @@ public interface b {
 
     boolean a(AlaLiveUserInfoData alaLiveUserInfoData, e eVar);
 
-    void cf(boolean z);
+    void cr(boolean z);
 
     void s(int i, String str);
 

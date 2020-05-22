@@ -6,10 +6,11 @@ import android.support.annotation.Keep;
 import android.text.TextUtils;
 import android.util.Log;
 import android.webkit.JavascriptInterface;
-import com.baidu.swan.apps.as.ai;
-import com.baidu.swan.apps.as.s;
+import com.baidu.swan.apps.aq.aj;
+import com.baidu.swan.apps.aq.t;
 import com.baidu.swan.apps.b;
-import com.baidu.swan.apps.w.b.k;
+import com.baidu.swan.apps.performance.a.f;
+import com.baidu.swan.apps.u.b.i;
 import org.json.JSONException;
 import org.json.JSONObject;
 @Keep
@@ -61,7 +62,9 @@ public class SwanAppUtilsJavaScriptInterface {
 
     @JavascriptInterface
     public void callShare(String str, String str2, boolean z, boolean z2, String str3) {
+        f.alH().iq("callShare");
         realCallShare(this.mActivity, this.mSource, str, str2, z, z2, str3);
+        f.alH().ir("callShare");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -71,7 +74,7 @@ public class SwanAppUtilsJavaScriptInterface {
 
     protected void loadJavaScript(final String str) {
         if (this.mWebView != null) {
-            ai.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.jsbridge.SwanAppUtilsJavaScriptInterface.1
+            aj.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.jsbridge.SwanAppUtilsJavaScriptInterface.1
                 @Override // java.lang.Runnable
                 public void run() {
                     String str2 = str;
@@ -91,21 +94,21 @@ public class SwanAppUtilsJavaScriptInterface {
         if (DEBUG) {
             Log.i(TAG, "callShare");
         }
-        JSONObject parseString = s.parseString(str2);
+        JSONObject parseString = t.parseString(str2);
         try {
             parseString.put(KEY_SHARE_SNAPSHOT, z);
             parseString.put(KEY_SHARE_FORCE_LIGHT_THEME, z2);
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        com.baidu.swan.apps.w.a.abO().a(context, parseString, new k.a() { // from class: com.baidu.swan.apps.jsbridge.SwanAppUtilsJavaScriptInterface.2
-            @Override // com.baidu.swan.apps.w.b.k.a
-            public void ada() {
+        com.baidu.swan.apps.u.a.aeS().a(context, parseString, new i.a() { // from class: com.baidu.swan.apps.jsbridge.SwanAppUtilsJavaScriptInterface.2
+            @Override // com.baidu.swan.apps.u.b.i.a
+            public void agk() {
                 SwanAppUtilsJavaScriptInterface.this.notifyCallback(str3, String.valueOf(true));
             }
 
-            @Override // com.baidu.swan.apps.w.b.k.a
-            public void adb() {
+            @Override // com.baidu.swan.apps.u.b.i.a
+            public void agl() {
                 SwanAppUtilsJavaScriptInterface.this.notifyCallback(str4, String.valueOf(false));
             }
         });
@@ -118,30 +121,29 @@ public class SwanAppUtilsJavaScriptInterface {
         }
     }
 
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [257=4] */
     @JavascriptInterface
     public void ubcEvent(String str) {
-        if (!TextUtils.isEmpty(str)) {
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                Long l = 0L;
-                try {
-                    String optString = jSONObject.optString("min_v");
-                    if (!TextUtils.isEmpty(optString)) {
-                        l = Long.valueOf(optString);
-                    }
-                    if (l.longValue() >= UBC_MIN_VERSION) {
-                        String optString2 = jSONObject.optString("actionId");
-                        String optString3 = jSONObject.optString("value");
-                        if (com.baidu.swan.ubc.s.aEh() != null) {
-                            com.baidu.swan.ubc.s.aEh().c(optString2, optString3, 0);
-                        }
-                    }
-                } catch (NumberFormatException e) {
-                    e.printStackTrace();
-                }
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+        try {
+            if (TextUtils.isEmpty(str)) {
+                return;
             }
+            f.alH().iq("ubcEvent");
+            JSONObject jSONObject = new JSONObject(str);
+            try {
+                String optString = jSONObject.optString("min_v");
+                if ((TextUtils.isEmpty(optString) ? 0L : Long.valueOf(optString)).longValue() < UBC_MIN_VERSION) {
+                    return;
+                }
+                jSONObject.optString("actionId");
+                jSONObject.optString("value");
+            } catch (NumberFormatException e) {
+                e.printStackTrace();
+            }
+        } catch (JSONException e2) {
+            e2.printStackTrace();
+        } finally {
+            f.alH().ir("ubcEvent");
         }
     }
 }

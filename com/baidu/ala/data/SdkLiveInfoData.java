@@ -24,6 +24,7 @@ public class SdkLiveInfoData {
     public int routerType;
     public String tid;
     public String title;
+    public UiTransParam uiTransParam;
 
     public void fromJson(JSONObject jSONObject) {
         if (jSONObject != null) {
@@ -49,6 +50,11 @@ public class SdkLiveInfoData {
             JSONObject optJSONObject2 = jSONObject.optJSONObject("ala_info");
             if (optJSONObject2 != null) {
                 this.liveInfo.fromJson(optJSONObject2);
+            }
+            this.uiTransParam = new UiTransParam();
+            JSONObject optJSONObject3 = jSONObject.optJSONObject("ui_transparam");
+            if (optJSONObject3 != null) {
+                this.uiTransParam.fromJson(optJSONObject3);
             }
         }
     }
@@ -103,6 +109,23 @@ public class SdkLiveInfoData {
                     this.challengeInfoData.parserJson(optJSONObject);
                 }
                 this.haveRedpkg = "1".equals(jSONObject.optString("red_packet", ""));
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public static class UiTransParam {
+        public String abTag;
+        public String extra;
+        public String sourceFrom;
+        public String starId;
+
+        public void fromJson(JSONObject jSONObject) {
+            if (jSONObject != null) {
+                this.abTag = jSONObject.optString("ab_tag");
+                this.starId = jSONObject.optString("star_id");
+                this.extra = jSONObject.optString("extra");
+                this.sourceFrom = jSONObject.optString("source_from");
             }
         }
     }

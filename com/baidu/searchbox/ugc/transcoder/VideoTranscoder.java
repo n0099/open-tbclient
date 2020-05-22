@@ -342,7 +342,7 @@ public class VideoTranscoder {
         }
         mediaCodec5 = createAudioEncoder(mediaCodecInfo, mediaFormat);
         mediaCodec3 = createAudioDecoder(trackFormat);
-        MediaCodecInfo selectCodec = selectCodec(OUTPUT_VIDEO_MIME_TYPE);
+        MediaCodecInfo selectCodec = selectCodec("video/avc");
         if (selectCodec == null) {
             throw new Exception("no found videoCodecInfo for video/avc");
         }
@@ -562,7 +562,7 @@ public class VideoTranscoder {
             this.mHeight = 640;
             this.mWidth = (width * this.mHeight) / height;
         }
-        MediaFormat createVideoFormat = MediaFormat.createVideoFormat(OUTPUT_VIDEO_MIME_TYPE, this.mWidth, this.mHeight);
+        MediaFormat createVideoFormat = MediaFormat.createVideoFormat("video/avc", this.mWidth, this.mHeight);
         createVideoFormat.setInteger("color-format", OUTPUT_VIDEO_COLOR_FORMAT);
         createVideoFormat.setInteger(IjkMediaMeta.IJKM_KEY_BITRATE, OUTPUT_VIDEO_BIT_RATE);
         createVideoFormat.setInteger("frame-rate", 25);

@@ -12,7 +12,6 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.searchbox.ugc.model.UgcConstant;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PersonPolymericActivityConfig;
-import com.baidu.tbadk.util.p;
 import com.baidu.tieba.R;
 import com.baidu.webkit.internal.ETAG;
 import java.util.regex.Matcher;
@@ -21,15 +20,15 @@ import java.util.regex.Pattern;
 public class l {
     private String c;
     private static final Pattern pbPattern0 = Pattern.compile("(tieba.baidu.com/p/){1}\\d+");
-    private static final Pattern kSm = Pattern.compile("(tieba.baidu.com/f\\?kz=){1}\\d+");
+    private static final Pattern lkC = Pattern.compile("(tieba.baidu.com/f\\?kz=){1}\\d+");
     private int type = 0;
     private String text = null;
     private String link = null;
-    private String kSk = null;
-    private SpannableStringBuilder kSl = null;
-    private boolean kSj = false;
+    private String lkA = null;
+    private SpannableStringBuilder lkB = null;
+    private boolean lkz = false;
 
-    public static boolean cQ(int i, int i2) {
+    public static boolean cV(int i, int i2) {
         return (i != 0 || i2 == 3 || i2 == 2) ? false : true;
     }
 
@@ -45,23 +44,23 @@ public class l {
         return this.text;
     }
 
-    public String cVZ() {
+    public String ddd() {
         return this.c;
     }
 
-    public SpannableStringBuilder cWa() {
-        return this.kSl;
+    public SpannableStringBuilder dde() {
+        return this.lkB;
     }
 
     public SpannableStringBuilder b(SpannableString spannableString) {
-        if (this.kSl == null) {
-            this.kSl = new SpannableStringBuilder();
+        if (this.lkB == null) {
+            this.lkB = new SpannableStringBuilder();
         }
-        this.kSl.append((CharSequence) spannableString);
-        return this.kSl;
+        this.lkB.append((CharSequence) spannableString);
+        return this.lkB;
     }
 
-    public SpannableString eY(Context context) {
+    public SpannableString fn(Context context) {
         String str;
         switch (this.type) {
             case 0:
@@ -71,30 +70,30 @@ public class l {
                     this.text += " ";
                 }
                 SpannableString spannableString = new SpannableString(this.text);
-                spannableString.setSpan(new p(context) { // from class: com.baidu.tieba.tbadkCore.data.l.2
+                spannableString.setSpan(new com.baidu.tbadk.util.p(context) { // from class: com.baidu.tieba.tbadkCore.data.l.2
                     @Override // com.baidu.tbadk.util.p, android.text.style.ClickableSpan
                     public void onClick(View view) {
                         Matcher matcher = l.pbPattern0.matcher(l.this.link);
                         if (matcher.find()) {
                             try {
                                 String group = matcher.group();
-                                xm(group.substring(group.lastIndexOf("/") + 1));
+                                yS(group.substring(group.lastIndexOf("/") + 1));
                                 return;
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }
                         }
-                        Matcher matcher2 = l.kSm.matcher(l.this.link);
+                        Matcher matcher2 = l.lkC.matcher(l.this.link);
                         if (matcher2.find()) {
                             try {
                                 String group2 = matcher2.group();
-                                xm(group2.substring(group2.lastIndexOf(ETAG.EQUAL) + 1));
+                                yS(group2.substring(group2.lastIndexOf(ETAG.EQUAL) + 1));
                                 return;
                             } catch (Exception e2) {
                                 e2.printStackTrace();
                             }
                         }
-                        xl(l.this.link);
+                        yR(l.this.link);
                     }
                 }, 0, this.text.length() - 1, 33);
                 return spannableString;
@@ -122,7 +121,7 @@ public class l {
                     this.text += " ";
                 }
                 SpannableString spannableString3 = new SpannableString(this.text);
-                spannableString3.setSpan(new p(context) { // from class: com.baidu.tieba.tbadkCore.data.l.3
+                spannableString3.setSpan(new com.baidu.tbadk.util.p(context) { // from class: com.baidu.tieba.tbadkCore.data.l.3
                     @Override // com.baidu.tbadk.util.p, android.text.style.ClickableSpan
                     public void onClick(View view) {
                         if (l.this.text != null) {
@@ -138,10 +137,10 @@ public class l {
                 }
                 String string = context.getString(R.string.video);
                 SpannableString spannableString4 = new SpannableString(string + this.text);
-                spannableString4.setSpan(new p(context) { // from class: com.baidu.tieba.tbadkCore.data.l.1
+                spannableString4.setSpan(new com.baidu.tbadk.util.p(context) { // from class: com.baidu.tieba.tbadkCore.data.l.1
                     @Override // com.baidu.tbadk.util.p, android.text.style.ClickableSpan
                     public void onClick(View view) {
-                        xl(l.this.text);
+                        yR(l.this.text);
                     }
                 }, string.length(), str.length() - 1, 33);
                 return spannableString4;

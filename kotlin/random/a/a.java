@@ -8,14 +8,14 @@ import kotlin.jvm.internal.q;
 /* loaded from: classes7.dex */
 public final class a extends kotlin.random.a {
     @Override // kotlin.random.a
-    public Random dDW() {
+    public Random dLQ() {
         ThreadLocalRandom current = ThreadLocalRandom.current();
-        q.i(current, "ThreadLocalRandom.current()");
+        q.l((Object) current, "ThreadLocalRandom.current()");
         return current;
     }
 
     @Override // kotlin.random.d
-    public int dF(int i, int i2) {
+    public int dK(int i, int i2) {
         return ThreadLocalRandom.current().nextInt(i, i2);
     }
 }

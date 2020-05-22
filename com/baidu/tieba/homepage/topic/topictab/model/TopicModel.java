@@ -6,12 +6,17 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.a;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.lib.util.j;
-import com.baidu.adp.widget.ListView.m;
+import com.baidu.adp.widget.ListView.o;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.homepage.BlessHttpResponseMessage;
 import com.baidu.tieba.homepage.BlessSocketResponseMessage;
+import com.baidu.tieba.homepage.topic.topicdetail.message.ResponseHttpGetTopicDetailMessage;
+import com.baidu.tieba.homepage.topic.topicdetail.message.ResponseHttpGetTopicThreadMessage;
+import com.baidu.tieba.homepage.topic.topicdetail.message.ResponseSocketGetTopicDetailMessage;
+import com.baidu.tieba.homepage.topic.topicdetail.message.ResponseSocketGetTopicThreadMessage;
 import com.baidu.tieba.homepage.topic.topictab.b.b;
 import com.baidu.tieba.homepage.topic.topictab.message.RequestGetTopicListMessage;
 import com.baidu.tieba.homepage.topic.topictab.message.ResponseHttpGetTopicListMessage;
@@ -20,16 +25,16 @@ import com.baidu.tieba.message.RequestBlessMessage;
 import java.util.List;
 /* loaded from: classes9.dex */
 public class TopicModel extends BdBaseModel {
-    private a dho;
-    private a hOj;
-    private com.baidu.tieba.homepage.topic.topictab.a hTo;
+    private a dve;
+    private a icQ;
+    private com.baidu.tieba.homepage.topic.topictab.a ihY;
     private boolean mIsLoading;
-    private List<m> mListData;
+    private List<o> mListData;
     private TbPageContext<?> mPageContext;
 
     public TopicModel(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
-        this.hOj = new a(1003065, CmdConfigSocket.CMD_TOPIC_BLESS) { // from class: com.baidu.tieba.homepage.topic.topictab.model.TopicModel.1
+        this.icQ = new a(1003065, CmdConfigSocket.CMD_TOPIC_BLESS) { // from class: com.baidu.tieba.homepage.topic.topictab.model.TopicModel.1
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 long j;
@@ -50,8 +55,8 @@ public class TopicModel extends BdBaseModel {
                     }
                     long longValue = (j == 0 && responsedMessage.getOrginalMessage() != null && (responsedMessage.getOrginalMessage().getExtra() instanceof RequestBlessMessage)) ? ((RequestBlessMessage) responsedMessage.getOrginalMessage().getExtra()).pk_id.longValue() : j;
                     if (longValue != 0 && TopicModel.this.mListData != null) {
-                        for (m mVar : TopicModel.this.mListData) {
-                            if ((mVar instanceof com.baidu.tieba.homepage.topic.topictab.b.a) && (bVar = ((com.baidu.tieba.homepage.topic.topictab.b.a) mVar).hTa) != null && longValue == bVar.pkId) {
+                        for (o oVar : TopicModel.this.mListData) {
+                            if ((oVar instanceof com.baidu.tieba.homepage.topic.topictab.b.a) && (bVar = ((com.baidu.tieba.homepage.topic.topictab.b.a) oVar).ihK) != null && longValue == bVar.pkId) {
                                 bVar.userPkId = j2;
                                 return;
                             }
@@ -61,12 +66,20 @@ public class TopicModel extends BdBaseModel {
             }
         };
         this.mPageContext = tbPageContext;
-        this.dho = new a(CmdConfigHttp.CMD_TOPIC_LIST, 309628) { // from class: com.baidu.tieba.homepage.topic.topictab.model.TopicModel.2
+        com.baidu.tieba.tbadkCore.a.a.a(309628, ResponseSocketGetTopicListMessage.class, false, false);
+        com.baidu.tieba.tbadkCore.a.a.a(309628, CmdConfigHttp.CMD_TOPIC_LIST, TbConfig.URL_GET_TAB_TOPIC_LIST, ResponseHttpGetTopicListMessage.class, false, false, true, false);
+        com.baidu.tieba.tbadkCore.a.a.a(309629, ResponseSocketGetTopicDetailMessage.class, false, false);
+        com.baidu.tieba.tbadkCore.a.a.a(309629, CmdConfigHttp.CMD_TOPIC_DETAIL, TbConfig.URL_GET_TOPIC_DETAIL, ResponseHttpGetTopicDetailMessage.class, false, false, true, false);
+        com.baidu.tieba.tbadkCore.a.a.a(309631, ResponseSocketGetTopicThreadMessage.class, false, false);
+        com.baidu.tieba.tbadkCore.a.a.a(309631, CmdConfigHttp.CMD_TOPIC_THREAD, TbConfig.URL_GET_TOPIC_THREAD, ResponseHttpGetTopicThreadMessage.class, false, false, true, false);
+        com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_TOPIC_BLESS, BlessSocketResponseMessage.class, false, false);
+        com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_TOPIC_BLESS, 1003065, TbConfig.URL_TOPIC_USER_PK, BlessHttpResponseMessage.class, false, false, true, false);
+        this.dve = new a(CmdConfigHttp.CMD_TOPIC_LIST, 309628) { // from class: com.baidu.tieba.homepage.topic.topictab.model.TopicModel.2
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 TopicModel.this.mIsLoading = false;
-                if (responsedMessage != null && responsedMessage.getOrginalMessage() != null && TopicModel.this.unique_id == responsedMessage.getOrginalMessage().getTag() && TopicModel.this.hTo != null) {
-                    List<m> list = null;
+                if (responsedMessage != null && responsedMessage.getOrginalMessage() != null && TopicModel.this.unique_id == responsedMessage.getOrginalMessage().getTag() && TopicModel.this.ihY != null) {
+                    List<o> list = null;
                     if (responsedMessage instanceof ResponseHttpGetTopicListMessage) {
                         list = ((ResponseHttpGetTopicListMessage) responsedMessage).getTopicDataList();
                     }
@@ -74,29 +87,29 @@ public class TopicModel extends BdBaseModel {
                         list = ((ResponseSocketGetTopicListMessage) responsedMessage).getTopicDataList();
                     }
                     TopicModel.this.mListData = list;
-                    TopicModel.this.hTo.o(responsedMessage.getError(), list);
+                    TopicModel.this.ihY.o(responsedMessage.getError(), list);
                 }
             }
         };
     }
 
     public void setPresenter(com.baidu.tieba.homepage.topic.topictab.a aVar) {
-        this.hTo = aVar;
+        this.ihY = aVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public void setUniqueId(BdUniqueId bdUniqueId) {
         super.setUniqueId(bdUniqueId);
-        this.dho.setTag(bdUniqueId);
-        registerListener(this.dho);
-        this.hOj.setTag(bdUniqueId);
-        registerListener(this.hOj);
+        this.dve.setTag(bdUniqueId);
+        registerListener(this.dve);
+        this.icQ.setTag(bdUniqueId);
+        registerListener(this.icQ);
     }
 
-    public void cau() {
+    public void cgT() {
         if (!j.isNetworkAvailableForImmediately()) {
-            if (this.hTo != null) {
-                this.hTo.o(-1, null);
+            if (this.ihY != null) {
+                this.ihY.o(-1, null);
             }
         } else if (!this.mIsLoading) {
             cancelLoadData();
@@ -121,8 +134,8 @@ public class TopicModel extends BdBaseModel {
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.dho);
-        MessageManager.getInstance().unRegisterListener(this.hOj);
+        MessageManager.getInstance().unRegisterListener(this.dve);
+        MessageManager.getInstance().unRegisterListener(this.icQ);
         this.mIsLoading = false;
     }
 }

@@ -15,10 +15,10 @@ public class f extends b {
     }
 
     @Override // com.baidu.swan.apps.scheme.actions.b.b
-    protected void a(final UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, final String str) {
-        SwanFavorDataManager.ZW().c(this.cqB, 1, new com.baidu.swan.apps.favordata.a.a() { // from class: com.baidu.swan.apps.scheme.actions.b.f.1
+    protected void b(com.baidu.swan.apps.runtime.e eVar, final UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, final String str) {
+        SwanFavorDataManager.acW().c(this.cCs, 1, new com.baidu.swan.apps.favordata.a.a() { // from class: com.baidu.swan.apps.scheme.actions.b.f.1
             @Override // com.baidu.swan.apps.favordata.a.a
-            public void aad() {
+            public void add() {
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put("success", "1");
@@ -31,7 +31,7 @@ public class f extends b {
             }
 
             @Override // com.baidu.swan.apps.favordata.a.a
-            public void aae() {
+            public void ade() {
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put("success", "0");
@@ -46,14 +46,14 @@ public class f extends b {
     }
 
     @Override // com.baidu.swan.apps.scheme.actions.b.b
-    protected boolean o(UnitedSchemeEntity unitedSchemeEntity) {
+    protected boolean b(com.baidu.swan.apps.runtime.e eVar, UnitedSchemeEntity unitedSchemeEntity) {
         String param = unitedSchemeEntity.getParam("params");
         if (TextUtils.isEmpty(param)) {
             return false;
         }
         try {
-            this.cqB = new JSONObject(param).optString("appid");
-            return !TextUtils.isEmpty(this.cqB);
+            this.cCs = new JSONObject(param).optString("appid");
+            return !TextUtils.isEmpty(this.cCs);
         } catch (JSONException e) {
             e.printStackTrace();
             return false;

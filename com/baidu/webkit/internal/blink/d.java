@@ -7,26 +7,27 @@ import com.baidu.webkit.sdk.LoadErrorCode;
 import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.SevenZipUtils;
 import com.baidu.webkit.sdk.WebViewFactory;
+import com.baidu.webkit.sdk.ZeusWebViewPreloadClass;
 import com.baidu.webkit.sdk.performance.ZeusPerformanceTiming;
 import java.lang.Thread;
 import java.util.concurrent.TimeoutException;
 /* loaded from: classes11.dex */
 public final class d {
-    public a a;
+    private static d f;
+    public a a = new a();
     public b b;
-    public WebViewFactory.WebKitUnzipCallback c = null;
+    public WebViewFactory.WebKitUnzipCallback c;
     public Handler d;
-    private static d f = null;
     public static final Object e = new Object();
     private static final Object g = new Object();
 
     /* loaded from: classes11.dex */
     public static class a {
+        String a;
         Context b;
-        String a = null;
-        private boolean e = false;
-        String c = null;
-        public String d = null;
+        String c;
+        public String d;
+        private boolean e;
 
         public final synchronized void a(boolean z) {
             if (z != this.e) {
@@ -46,11 +47,10 @@ public final class d {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes11.dex */
     public class b extends Thread {
-        boolean a = false;
+        boolean a;
         private Context c;
 
         public b(Context context) {
-            this.c = null;
             this.c = context;
         }
 
@@ -70,6 +70,7 @@ public final class d {
             try {
                 if (this.c == null || !SevenZipUtils.getInstance().prepare(this.c, d.this.a.c, d.this.a.d)) {
                     LoadErrorCode.getInstance().trace("502:" + (this.c == null));
+                    ZeusWebViewPreloadClass.getInstance().setIsWebkitNeedUnzipSO(false);
                     a();
                     return;
                 }
@@ -93,8 +94,6 @@ public final class d {
     }
 
     private d(Context context) {
-        this.a = null;
-        this.a = new a();
         a aVar = this.a;
         try {
             aVar.b = context.getApplicationContext();

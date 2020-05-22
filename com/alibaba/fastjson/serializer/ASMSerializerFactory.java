@@ -704,7 +704,7 @@ public class ASMSerializerFactory implements Opcodes {
             methodVisitor.visitJumpInsn(Opcodes.IF_ACMPEQ, label7);
             methodVisitor.visitLabel(label8);
             methodVisitor.visitVarInsn(25, context.var("out"));
-            methodVisitor.visitVarInsn(16, Constants.METHOD_IM_FRIEND_GROUP_QUERY);
+            methodVisitor.visitVarInsn(16, 123);
             methodVisitor.visitMethodInsn(Opcodes.INVOKEVIRTUAL, SerializeWriter, "write", "(I)V");
             methodVisitor.visitVarInsn(25, 0);
             methodVisitor.visitVarInsn(25, 1);
@@ -718,10 +718,10 @@ public class ASMSerializerFactory implements Opcodes {
             methodVisitor.visitVarInsn(16, 44);
             methodVisitor.visitJumpInsn(167, label6);
             methodVisitor.visitLabel(label7);
-            methodVisitor.visitVarInsn(16, Constants.METHOD_IM_FRIEND_GROUP_QUERY);
+            methodVisitor.visitVarInsn(16, 123);
             methodVisitor.visitLabel(label6);
         } else {
-            methodVisitor.visitVarInsn(16, Constants.METHOD_IM_FRIEND_GROUP_QUERY);
+            methodVisitor.visitVarInsn(16, 123);
         }
         methodVisitor.visitVarInsn(54, context.var("seperator"));
         if (!context.writeDirect) {
@@ -774,10 +774,10 @@ public class ASMSerializerFactory implements Opcodes {
         Label label9 = new Label();
         Label label10 = new Label();
         methodVisitor.visitVarInsn(21, context.var("seperator"));
-        methodVisitor.visitIntInsn(16, Constants.METHOD_IM_FRIEND_GROUP_QUERY);
+        methodVisitor.visitIntInsn(16, 123);
         methodVisitor.visitJumpInsn(160, label9);
         methodVisitor.visitVarInsn(25, context.var("out"));
-        methodVisitor.visitVarInsn(16, Constants.METHOD_IM_FRIEND_GROUP_QUERY);
+        methodVisitor.visitVarInsn(16, 123);
         methodVisitor.visitMethodInsn(Opcodes.INVOKEVIRTUAL, SerializeWriter, "write", "(I)V");
         methodVisitor.visitLabel(label9);
         methodVisitor.visitVarInsn(25, context.var("out"));

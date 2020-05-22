@@ -11,11 +11,11 @@ import com.baidu.live.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AlaUserInfoData;
-import com.baidu.tbadk.core.data.bj;
+import com.baidu.tbadk.core.data.bk;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tbadk.util.ad;
+import com.baidu.tbadk.util.ae;
 import com.baidu.tieba.R;
 import com.baidu.tieba.view.AlaPlayAnimationView;
 /* loaded from: classes3.dex */
@@ -59,23 +59,23 @@ public class AlaCardBottomUserInfoLayout extends LinearLayout {
         }
     }
 
-    public void setData(bj bjVar) {
-        if (bjVar != null && bjVar.aKV() != null) {
-            AlaUserInfoData alaUserInfoData = bjVar.aKV().user_info;
+    public void setData(bk bkVar) {
+        if (bkVar != null && bkVar.aQS() != null) {
+            AlaUserInfoData alaUserInfoData = bkVar.aQS().user_info;
             String str = "";
-            if (bjVar.aKC() != null) {
-                str = bjVar.aKC().getName_show();
+            if (bkVar.aQx() != null) {
+                str = bkVar.aQx().getName_show();
             } else if (alaUserInfoData != null) {
                 str = alaUserInfoData.user_name;
             }
-            if (ad.getTextLengthWithEmoji(str) > 10) {
-                str = ad.subStringWithEmoji(str, 10) + StringHelper.STRING_MORE;
+            if (ae.getTextLengthWithEmoji(str) > 10) {
+                str = ae.subStringWithEmoji(str, 10) + StringHelper.STRING_MORE;
             }
             if (alaUserInfoData != null) {
                 this.alaCardUserHeadImg.startLoad(alaUserInfoData.portrait, 28, false);
             }
             this.alaCardUserName.setText(str);
-            this.alaWatchCount.setText(String.format(getContext().getResources().getString(R.string.ala_card_watch_num_text), aq.numFormatOverWan(bjVar.aKV().audience_count)));
+            this.alaWatchCount.setText(String.format(getContext().getResources().getString(R.string.ala_card_watch_num_text), aq.numFormatOverWan(bkVar.aQS().audience_count)));
         }
     }
 

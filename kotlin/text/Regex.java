@@ -17,7 +17,7 @@ public final class Regex implements Serializable {
     private final Pattern nativePattern;
 
     public Regex(Pattern pattern) {
-        kotlin.jvm.internal.q.j(pattern, "nativePattern");
+        kotlin.jvm.internal.q.m(pattern, "nativePattern");
         this.nativePattern = pattern;
     }
 
@@ -27,9 +27,9 @@ public final class Regex implements Serializable {
     */
     public Regex(String str) {
         this(r0);
-        kotlin.jvm.internal.q.j(str, "pattern");
+        kotlin.jvm.internal.q.m(str, "pattern");
         Pattern compile = Pattern.compile(str);
-        kotlin.jvm.internal.q.i(compile, "Pattern.compile(pattern)");
+        kotlin.jvm.internal.q.l((Object) compile, "Pattern.compile(pattern)");
     }
 
     /* JADX WARN: Illegal instructions before constructor call */
@@ -38,10 +38,10 @@ public final class Regex implements Serializable {
     */
     public Regex(String str, RegexOption regexOption) {
         this(r0);
-        kotlin.jvm.internal.q.j(str, "pattern");
-        kotlin.jvm.internal.q.j(regexOption, "option");
-        Pattern compile = Pattern.compile(str, Companion.Jj(regexOption.getValue()));
-        kotlin.jvm.internal.q.i(compile, "Pattern.compile(pattern,…nicodeCase(option.value))");
+        kotlin.jvm.internal.q.m(str, "pattern");
+        kotlin.jvm.internal.q.m(regexOption, "option");
+        Pattern compile = Pattern.compile(str, Companion.JU(regexOption.getValue()));
+        kotlin.jvm.internal.q.l((Object) compile, "Pattern.compile(pattern,…nicodeCase(option.value))");
     }
 
     /* JADX WARN: Illegal instructions before constructor call */
@@ -51,17 +51,17 @@ public final class Regex implements Serializable {
     public Regex(String str, Set<? extends RegexOption> set) {
         this(r0);
         int j;
-        kotlin.jvm.internal.q.j(str, "pattern");
-        kotlin.jvm.internal.q.j(set, "options");
+        kotlin.jvm.internal.q.m(str, "pattern");
+        kotlin.jvm.internal.q.m(set, "options");
         a aVar = Companion;
         j = k.j(set);
-        Pattern compile = Pattern.compile(str, aVar.Jj(j));
-        kotlin.jvm.internal.q.i(compile, "Pattern.compile(pattern,…odeCase(options.toInt()))");
+        Pattern compile = Pattern.compile(str, aVar.JU(j));
+        kotlin.jvm.internal.q.l((Object) compile, "Pattern.compile(pattern,…odeCase(options.toInt()))");
     }
 
     public final String getPattern() {
         String pattern = this.nativePattern.pattern();
-        kotlin.jvm.internal.q.i(pattern, "nativePattern.pattern()");
+        kotlin.jvm.internal.q.l((Object) pattern, "nativePattern.pattern()");
         return pattern;
     }
 
@@ -75,18 +75,18 @@ public final class Regex implements Serializable {
         EnumSet allOf = EnumSet.allOf(RegexOption.class);
         kotlin.collections.o.a(allOf, new Regex$fromInt$$inlined$apply$lambda$1(flags));
         Set<RegexOption> unmodifiableSet = Collections.unmodifiableSet(allOf);
-        kotlin.jvm.internal.q.i(unmodifiableSet, "Collections.unmodifiable…mask == it.value }\n    })");
+        kotlin.jvm.internal.q.l((Object) unmodifiableSet, "Collections.unmodifiable…mask == it.value }\n    })");
         this._options = unmodifiableSet;
         return unmodifiableSet;
     }
 
     public final boolean matches(CharSequence charSequence) {
-        kotlin.jvm.internal.q.j(charSequence, Config.INPUT_PART);
+        kotlin.jvm.internal.q.m(charSequence, Config.INPUT_PART);
         return this.nativePattern.matcher(charSequence).matches();
     }
 
     public final boolean containsMatchIn(CharSequence charSequence) {
-        kotlin.jvm.internal.q.j(charSequence, Config.INPUT_PART);
+        kotlin.jvm.internal.q.m(charSequence, Config.INPUT_PART);
         return this.nativePattern.matcher(charSequence).find();
     }
 
@@ -99,9 +99,9 @@ public final class Regex implements Serializable {
 
     public final i find(CharSequence charSequence, int i) {
         i a2;
-        kotlin.jvm.internal.q.j(charSequence, Config.INPUT_PART);
+        kotlin.jvm.internal.q.m(charSequence, Config.INPUT_PART);
         Matcher matcher = this.nativePattern.matcher(charSequence);
-        kotlin.jvm.internal.q.i(matcher, "nativePattern.matcher(input)");
+        kotlin.jvm.internal.q.l((Object) matcher, "nativePattern.matcher(input)");
         a2 = k.a(matcher, i, charSequence);
         return a2;
     }
@@ -114,31 +114,31 @@ public final class Regex implements Serializable {
     }
 
     public final kotlin.sequences.c<i> findAll(CharSequence charSequence, int i) {
-        kotlin.jvm.internal.q.j(charSequence, Config.INPUT_PART);
+        kotlin.jvm.internal.q.m(charSequence, Config.INPUT_PART);
         return kotlin.sequences.e.a(new Regex$findAll$1(this, charSequence, i), Regex$findAll$2.INSTANCE);
     }
 
     public final i matchEntire(CharSequence charSequence) {
         i a2;
-        kotlin.jvm.internal.q.j(charSequence, Config.INPUT_PART);
+        kotlin.jvm.internal.q.m(charSequence, Config.INPUT_PART);
         Matcher matcher = this.nativePattern.matcher(charSequence);
-        kotlin.jvm.internal.q.i(matcher, "nativePattern.matcher(input)");
+        kotlin.jvm.internal.q.l((Object) matcher, "nativePattern.matcher(input)");
         a2 = k.a(matcher, charSequence);
         return a2;
     }
 
     public final String replace(CharSequence charSequence, String str) {
-        kotlin.jvm.internal.q.j(charSequence, Config.INPUT_PART);
-        kotlin.jvm.internal.q.j(str, "replacement");
+        kotlin.jvm.internal.q.m(charSequence, Config.INPUT_PART);
+        kotlin.jvm.internal.q.m(str, "replacement");
         String replaceAll = this.nativePattern.matcher(charSequence).replaceAll(str);
-        kotlin.jvm.internal.q.i(replaceAll, "nativePattern.matcher(in…).replaceAll(replacement)");
+        kotlin.jvm.internal.q.l((Object) replaceAll, "nativePattern.matcher(in…).replaceAll(replacement)");
         return replaceAll;
     }
 
     public final String replace(CharSequence charSequence, kotlin.jvm.a.b<? super i, ? extends CharSequence> bVar) {
         int i = 0;
-        kotlin.jvm.internal.q.j(charSequence, Config.INPUT_PART);
-        kotlin.jvm.internal.q.j(bVar, "transform");
+        kotlin.jvm.internal.q.m(charSequence, Config.INPUT_PART);
+        kotlin.jvm.internal.q.m(bVar, "transform");
         i find$default = find$default(this, charSequence, 0, 2, null);
         if (find$default == null) {
             return charSequence.toString();
@@ -147,12 +147,12 @@ public final class Regex implements Serializable {
         StringBuilder sb = new StringBuilder(length);
         do {
             if (find$default == null) {
-                kotlin.jvm.internal.q.dDS();
+                kotlin.jvm.internal.q.dLM();
             }
-            sb.append(charSequence, i, find$default.dEn().dEe().intValue());
+            sb.append(charSequence, i, find$default.dMh().dLY().intValue());
             sb.append(bVar.invoke(find$default));
-            i = find$default.dEn().dEf().intValue() + 1;
-            find$default = find$default.dEo();
+            i = find$default.dMh().dLZ().intValue() + 1;
+            find$default = find$default.dMi();
             if (i >= length) {
                 break;
             }
@@ -161,15 +161,15 @@ public final class Regex implements Serializable {
             sb.append(charSequence, i, length);
         }
         String sb2 = sb.toString();
-        kotlin.jvm.internal.q.i(sb2, "sb.toString()");
+        kotlin.jvm.internal.q.l((Object) sb2, "sb.toString()");
         return sb2;
     }
 
     public final String replaceFirst(CharSequence charSequence, String str) {
-        kotlin.jvm.internal.q.j(charSequence, Config.INPUT_PART);
-        kotlin.jvm.internal.q.j(str, "replacement");
+        kotlin.jvm.internal.q.m(charSequence, Config.INPUT_PART);
+        kotlin.jvm.internal.q.m(str, "replacement");
         String replaceFirst = this.nativePattern.matcher(charSequence).replaceFirst(str);
-        kotlin.jvm.internal.q.i(replaceFirst, "nativePattern.matcher(in…replaceFirst(replacement)");
+        kotlin.jvm.internal.q.l((Object) replaceFirst, "nativePattern.matcher(in…replaceFirst(replacement)");
         return replaceFirst;
     }
 
@@ -181,13 +181,13 @@ public final class Regex implements Serializable {
     }
 
     public final List<String> split(CharSequence charSequence, int i) {
-        kotlin.jvm.internal.q.j(charSequence, Config.INPUT_PART);
+        kotlin.jvm.internal.q.m(charSequence, Config.INPUT_PART);
         if (i >= 0) {
             Matcher matcher = this.nativePattern.matcher(charSequence);
             if (!matcher.find() || i == 1) {
-                return kotlin.collections.o.bC(charSequence.toString());
+                return kotlin.collections.o.bI(charSequence.toString());
             }
-            ArrayList arrayList = new ArrayList(i > 0 ? kotlin.b.l.dL(i, 10) : 10);
+            ArrayList arrayList = new ArrayList(i > 0 ? kotlin.b.l.dQ(i, 10) : 10);
             int i2 = i - 1;
             int i3 = 0;
             do {
@@ -205,7 +205,7 @@ public final class Regex implements Serializable {
 
     public String toString() {
         String pattern = this.nativePattern.toString();
-        kotlin.jvm.internal.q.i(pattern, "nativePattern.toString()");
+        kotlin.jvm.internal.q.l((Object) pattern, "nativePattern.toString()");
         return pattern;
     }
 
@@ -215,7 +215,7 @@ public final class Regex implements Serializable {
 
     private final Object writeReplace() {
         String pattern = this.nativePattern.pattern();
-        kotlin.jvm.internal.q.i(pattern, "nativePattern.pattern()");
+        kotlin.jvm.internal.q.l((Object) pattern, "nativePattern.pattern()");
         return new Serialized(pattern, this.nativePattern.flags());
     }
 
@@ -239,7 +239,7 @@ public final class Regex implements Serializable {
         }
 
         public Serialized(String str, int i) {
-            kotlin.jvm.internal.q.j(str, "pattern");
+            kotlin.jvm.internal.q.m(str, "pattern");
             this.pattern = str;
             this.flags = i;
         }
@@ -254,7 +254,7 @@ public final class Regex implements Serializable {
 
         private final Object readResolve() {
             Pattern compile = Pattern.compile(this.pattern, this.flags);
-            kotlin.jvm.internal.q.i(compile, "Pattern.compile(pattern, flags)");
+            kotlin.jvm.internal.q.l((Object) compile, "Pattern.compile(pattern, flags)");
             return new Regex(compile);
         }
     }
@@ -270,7 +270,7 @@ public final class Regex implements Serializable {
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public final int Jj(int i) {
+        public final int JU(int i) {
             return (i & 2) != 0 ? i | 64 : i;
         }
     }

@@ -6,42 +6,42 @@ import android.graphics.RectF;
 import org.json.JSONArray;
 /* loaded from: classes11.dex */
 public class c extends a {
-    private RectF bFf;
-    private float bFg;
-    private float bFh;
-    private boolean bFi;
+    private RectF bNX;
+    private float bNY;
+    private float bNZ;
+    private boolean bOa;
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void parseJson(JSONArray jSONArray) {
         if (jSONArray.length() > 4) {
-            int C = com.baidu.swan.apps.as.af.C((float) jSONArray.optDouble(0));
-            int C2 = com.baidu.swan.apps.as.af.C((float) jSONArray.optDouble(1));
-            int C3 = com.baidu.swan.apps.as.af.C((float) jSONArray.optDouble(2));
+            int B = com.baidu.swan.apps.aq.ag.B((float) jSONArray.optDouble(0));
+            int B2 = com.baidu.swan.apps.aq.ag.B((float) jSONArray.optDouble(1));
+            int B3 = com.baidu.swan.apps.aq.ag.B((float) jSONArray.optDouble(2));
             float degrees = (float) Math.toDegrees((float) jSONArray.optDouble(3));
-            this.bFf = new RectF(C - C3, C2 - C3, C + C3, C2 + C3);
-            this.bFg = degrees;
-            this.bFh = ((float) Math.toDegrees((float) jSONArray.optDouble(4))) - degrees;
+            this.bNX = new RectF(B - B3, B2 - B3, B + B3, B2 + B3);
+            this.bNY = degrees;
+            this.bNZ = ((float) Math.toDegrees((float) jSONArray.optDouble(4))) - degrees;
         }
         if (jSONArray.length() > 5) {
-            this.bFi = jSONArray.optBoolean(5);
+            this.bOa = jSONArray.optBoolean(5);
         }
     }
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void a(b bVar, Canvas canvas) {
-        if (this.bFf != null) {
-            if (!this.bFi && Math.abs(this.bFh) >= 360.0f) {
-                bVar.mPath.addCircle((this.bFf.right + this.bFf.left) / 2.0f, (this.bFf.bottom + this.bFf.top) / 2.0f, (this.bFf.bottom - this.bFf.top) / 2.0f, Path.Direction.CW);
-                bVar.mPath.arcTo(this.bFf, 0.0f, this.bFg);
+        if (this.bNX != null) {
+            if (!this.bOa && Math.abs(this.bNZ) >= 360.0f) {
+                bVar.mPath.addCircle((this.bNX.right + this.bNX.left) / 2.0f, (this.bNX.bottom + this.bNX.top) / 2.0f, (this.bNX.bottom - this.bNX.top) / 2.0f, Path.Direction.CW);
+                bVar.mPath.arcTo(this.bNX, 0.0f, this.bNY);
                 return;
             }
-            float f = this.bFh % 360.0f;
-            if (f < 0.0f && !this.bFi) {
+            float f = this.bNZ % 360.0f;
+            if (f < 0.0f && !this.bOa) {
                 f += 360.0f;
-            } else if (f > 0.0f && this.bFi) {
+            } else if (f > 0.0f && this.bOa) {
                 f -= 360.0f;
             }
-            bVar.mPath.arcTo(this.bFf, this.bFg, f);
+            bVar.mPath.arcTo(this.bNX, this.bNY, f);
         }
     }
 }

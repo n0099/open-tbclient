@@ -8,9 +8,9 @@ import android.graphics.PorterDuffXfermode;
 import com.facebook.imagepipeline.animated.base.AnimatedDrawableFrameInfo;
 /* loaded from: classes13.dex */
 public class AnimatedImageCompositor {
-    private final com.facebook.imagepipeline.animated.base.a lYd;
-    private final a lYf;
-    private final Paint lZI = new Paint();
+    private final com.facebook.imagepipeline.animated.base.a mrX;
+    private final a mrZ;
+    private final Paint mtD = new Paint();
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes13.dex */
@@ -23,60 +23,60 @@ public class AnimatedImageCompositor {
 
     /* loaded from: classes13.dex */
     public interface a {
-        com.facebook.common.references.a<Bitmap> GF(int i);
+        com.facebook.common.references.a<Bitmap> Hr(int i);
 
         void b(int i, Bitmap bitmap);
     }
 
     public AnimatedImageCompositor(com.facebook.imagepipeline.animated.base.a aVar, a aVar2) {
-        this.lYd = aVar;
-        this.lYf = aVar2;
-        this.lZI.setColor(0);
-        this.lZI.setStyle(Paint.Style.FILL);
-        this.lZI.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC));
+        this.mrX = aVar;
+        this.mrZ = aVar2;
+        this.mtD.setColor(0);
+        this.mtD.setStyle(Paint.Style.FILL);
+        this.mtD.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC));
     }
 
     public void c(int i, Bitmap bitmap) {
         Canvas canvas = new Canvas(bitmap);
         canvas.drawColor(0, PorterDuff.Mode.SRC);
-        for (int d = !GL(i) ? d(i - 1, canvas) : i; d < i; d++) {
-            AnimatedDrawableFrameInfo FU = this.lYd.FU(d);
-            AnimatedDrawableFrameInfo.DisposalMethod disposalMethod = FU.lZj;
+        for (int d = !Hx(i) ? d(i - 1, canvas) : i; d < i; d++) {
+            AnimatedDrawableFrameInfo GG = this.mrX.GG(d);
+            AnimatedDrawableFrameInfo.DisposalMethod disposalMethod = GG.mte;
             if (disposalMethod != AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_TO_PREVIOUS) {
-                if (FU.lZi == AnimatedDrawableFrameInfo.BlendOperation.NO_BLEND) {
-                    a(canvas, FU);
+                if (GG.mtd == AnimatedDrawableFrameInfo.BlendOperation.NO_BLEND) {
+                    a(canvas, GG);
                 }
-                this.lYd.c(d, canvas);
-                this.lYf.b(d, bitmap);
+                this.mrX.c(d, canvas);
+                this.mrZ.b(d, bitmap);
                 if (disposalMethod == AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_TO_BACKGROUND) {
-                    a(canvas, FU);
+                    a(canvas, GG);
                 }
             }
         }
-        AnimatedDrawableFrameInfo FU2 = this.lYd.FU(i);
-        if (FU2.lZi == AnimatedDrawableFrameInfo.BlendOperation.NO_BLEND) {
-            a(canvas, FU2);
+        AnimatedDrawableFrameInfo GG2 = this.mrX.GG(i);
+        if (GG2.mtd == AnimatedDrawableFrameInfo.BlendOperation.NO_BLEND) {
+            a(canvas, GG2);
         }
-        this.lYd.c(i, canvas);
+        this.mrX.c(i, canvas);
     }
 
     private int d(int i, Canvas canvas) {
         for (int i2 = i; i2 >= 0; i2--) {
-            switch (GK(i2)) {
+            switch (Hw(i2)) {
                 case REQUIRED:
-                    AnimatedDrawableFrameInfo FU = this.lYd.FU(i2);
-                    com.facebook.common.references.a<Bitmap> GF = this.lYf.GF(i2);
-                    if (GF != null) {
+                    AnimatedDrawableFrameInfo GG = this.mrX.GG(i2);
+                    com.facebook.common.references.a<Bitmap> Hr = this.mrZ.Hr(i2);
+                    if (Hr != null) {
                         try {
-                            canvas.drawBitmap(GF.get(), 0.0f, 0.0f, (Paint) null);
-                            if (FU.lZj == AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_TO_BACKGROUND) {
-                                a(canvas, FU);
+                            canvas.drawBitmap(Hr.get(), 0.0f, 0.0f, (Paint) null);
+                            if (GG.mte == AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_TO_BACKGROUND) {
+                                a(canvas, GG);
                             }
                             return i2 + 1;
                         } finally {
-                            GF.close();
+                            Hr.close();
                         }
-                    } else if (!GL(i2)) {
+                    } else if (!Hx(i2)) {
                         break;
                     } else {
                         return i2;
@@ -91,17 +91,17 @@ public class AnimatedImageCompositor {
     }
 
     private void a(Canvas canvas, AnimatedDrawableFrameInfo animatedDrawableFrameInfo) {
-        canvas.drawRect(animatedDrawableFrameInfo.lZh, animatedDrawableFrameInfo.gpu, animatedDrawableFrameInfo.lZh + animatedDrawableFrameInfo.width, animatedDrawableFrameInfo.gpu + animatedDrawableFrameInfo.height, this.lZI);
+        canvas.drawRect(animatedDrawableFrameInfo.mtc, animatedDrawableFrameInfo.gEj, animatedDrawableFrameInfo.mtc + animatedDrawableFrameInfo.width, animatedDrawableFrameInfo.gEj + animatedDrawableFrameInfo.height, this.mtD);
     }
 
-    private FrameNeededResult GK(int i) {
-        AnimatedDrawableFrameInfo FU = this.lYd.FU(i);
-        AnimatedDrawableFrameInfo.DisposalMethod disposalMethod = FU.lZj;
+    private FrameNeededResult Hw(int i) {
+        AnimatedDrawableFrameInfo GG = this.mrX.GG(i);
+        AnimatedDrawableFrameInfo.DisposalMethod disposalMethod = GG.mte;
         if (disposalMethod == AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_DO_NOT) {
             return FrameNeededResult.REQUIRED;
         }
         if (disposalMethod == AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_TO_BACKGROUND) {
-            if (a(FU)) {
+            if (a(GG)) {
                 return FrameNeededResult.NOT_REQUIRED;
             }
             return FrameNeededResult.REQUIRED;
@@ -112,19 +112,19 @@ public class AnimatedImageCompositor {
         }
     }
 
-    private boolean GL(int i) {
+    private boolean Hx(int i) {
         if (i == 0) {
             return true;
         }
-        AnimatedDrawableFrameInfo FU = this.lYd.FU(i);
-        AnimatedDrawableFrameInfo FU2 = this.lYd.FU(i - 1);
-        if (FU.lZi == AnimatedDrawableFrameInfo.BlendOperation.NO_BLEND && a(FU)) {
+        AnimatedDrawableFrameInfo GG = this.mrX.GG(i);
+        AnimatedDrawableFrameInfo GG2 = this.mrX.GG(i - 1);
+        if (GG.mtd == AnimatedDrawableFrameInfo.BlendOperation.NO_BLEND && a(GG)) {
             return true;
         }
-        return FU2.lZj == AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_TO_BACKGROUND && a(FU2);
+        return GG2.mte == AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_TO_BACKGROUND && a(GG2);
     }
 
     private boolean a(AnimatedDrawableFrameInfo animatedDrawableFrameInfo) {
-        return animatedDrawableFrameInfo.lZh == 0 && animatedDrawableFrameInfo.gpu == 0 && animatedDrawableFrameInfo.width == this.lYd.dpY() && animatedDrawableFrameInfo.height == this.lYd.dpZ();
+        return animatedDrawableFrameInfo.mtc == 0 && animatedDrawableFrameInfo.gEj == 0 && animatedDrawableFrameInfo.width == this.mrX.dxq() && animatedDrawableFrameInfo.height == this.mrX.dxr();
     }
 }

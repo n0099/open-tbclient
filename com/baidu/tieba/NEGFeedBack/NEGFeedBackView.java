@@ -11,15 +11,17 @@ import android.widget.RelativeLayout;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.al;
+import com.baidu.tbadk.core.data.ak;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
 /* loaded from: classes8.dex */
 public class NEGFeedBackView extends AppCompatImageView {
-    private long aBq;
-    c euO;
-    private View.OnClickListener euP;
+    private long aGL;
+    private int aeA;
+    private int aeB;
+    c eJq;
+    private View.OnClickListener eJr;
     private Context mContext;
     private int mPaddingLeft;
     private int mPaddingRight;
@@ -27,41 +29,42 @@ public class NEGFeedBackView extends AppCompatImageView {
 
     /* loaded from: classes8.dex */
     public interface a {
-        void a(al alVar, CompoundButton compoundButton, boolean z);
+        void a(ak akVar, CompoundButton compoundButton, boolean z);
 
-        void a(ArrayList<Integer> arrayList, String str, al alVar);
+        void a(ArrayList<Integer> arrayList, String str, ak akVar);
 
-        void b(al alVar);
+        void b(ak akVar);
     }
 
     public NEGFeedBackView(TbPageContext tbPageContext) {
         super(tbPageContext.getPageActivity());
-        this.mContext = null;
-        this.aBq = 0L;
-        this.euP = new View.OnClickListener() { // from class: com.baidu.tieba.NEGFeedBack.NEGFeedBackView.1
+        this.aGL = 0L;
+        this.aeA = R.drawable.ic_icon_pure_card_delete_svg;
+        this.aeB = R.color.cp_cont_g;
+        this.eJr = new View.OnClickListener() { // from class: com.baidu.tieba.NEGFeedBack.NEGFeedBackView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                NEGFeedBackView.this.beB();
+                NEGFeedBackView.this.bkO();
                 long currentTimeMillis = System.currentTimeMillis();
-                if (currentTimeMillis - NEGFeedBackView.this.aBq > 500) {
-                    NEGFeedBackView.this.T(view);
+                if (currentTimeMillis - NEGFeedBackView.this.aGL > 500) {
+                    NEGFeedBackView.this.S(view);
                 }
-                NEGFeedBackView.this.aBq = currentTimeMillis;
+                NEGFeedBackView.this.aGL = currentTimeMillis;
             }
         };
         this.mContext = tbPageContext.getPageActivity();
-        l(tbPageContext);
+        j(tbPageContext);
     }
 
-    private void l(TbPageContext tbPageContext) {
-        this.euO = new c(tbPageContext, this);
-        setOnClickListener(this.euP);
-        SvgManager.aOR().a(this, R.drawable.ic_icon_pure_card_delete_svg, R.color.cp_cont_g, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+    private void j(TbPageContext tbPageContext) {
+        this.eJq = new c(tbPageContext, this);
+        setOnClickListener(this.eJr);
         setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+        onChangeSkinType();
     }
 
     public void setUniqueId(BdUniqueId bdUniqueId) {
-        this.euO.setUniqueId(bdUniqueId);
+        this.eJq.setUniqueId(bdUniqueId);
     }
 
     public void setDefaultLayout() {
@@ -84,12 +87,12 @@ public class NEGFeedBackView extends AppCompatImageView {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void T(View view) {
-        this.euO.T(view);
+    public void S(View view) {
+        this.eJq.S(view);
     }
 
-    public void beB() {
-        this.euO.beB();
+    public void bkO() {
+        this.eJq.bkO();
     }
 
     public void setCWRotateAnimation() {
@@ -101,39 +104,39 @@ public class NEGFeedBackView extends AppCompatImageView {
     @Override // android.widget.ImageView, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        this.euO.onDetachedFromWindow();
+        this.eJq.onDetachedFromWindow();
     }
 
-    public void setData(al alVar) {
-        this.euO.setData(alVar);
+    public void setData(ak akVar) {
+        this.eJq.setData(akVar);
     }
 
     public void setFirstRowSingleColumn(boolean z) {
-        this.euO.setFirstRowSingleColumn(z);
+        this.eJq.setFirstRowSingleColumn(z);
     }
 
     public void onChangeSkinType() {
-        SvgManager.aOR().a(this, R.drawable.ic_icon_pure_card_delete_svg, R.color.cp_cont_g, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        SvgManager.aUV().a(this, this.aeA, this.aeB, SvgManager.SvgResourceStateType.NORMAL_PRESS);
     }
 
     public void setEventCallback(a aVar) {
-        this.euO.setEventCallback(aVar);
+        this.eJq.setEventCallback(aVar);
     }
 
     public void setAutoProcess(boolean z) {
-        this.euO.setAutoProcess(z);
+        this.eJq.setAutoProcess(z);
     }
 
     public void setHeadText(String str) {
-        this.euO.setHeadText(str);
+        this.eJq.setHeadText(str);
     }
 
-    public void aD(boolean z) {
-        this.euO.aD(z);
+    public void aF(boolean z) {
+        this.eJq.aF(z);
     }
 
     public void setDefaultReasonArray(String[] strArr) {
-        this.euO.setDefaultReasonArray(strArr);
+        this.eJq.setDefaultReasonArray(strArr);
     }
 
     public void a(ViewGroup viewGroup, int i, int i2) {
@@ -166,13 +169,9 @@ public class NEGFeedBackView extends AppCompatImageView {
         }
     }
 
-    public void a(ViewGroup viewGroup, int i, int i2, int i3) {
-        if (viewGroup instanceof FrameLayout) {
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(i, i);
-            layoutParams.rightMargin = i2;
-            layoutParams.bottomMargin = i3;
-            layoutParams.gravity = 85;
-            viewGroup.addView(this, layoutParams);
-        }
+    public void setSvgResId(int i, int i2) {
+        this.aeA = i;
+        this.aeB = i2;
+        SvgManager.aUV().a(this, this.aeA, this.aeB, SvgManager.SvgResourceStateType.NORMAL_PRESS);
     }
 }

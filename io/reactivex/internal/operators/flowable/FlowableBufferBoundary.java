@@ -21,7 +21,7 @@ public final class FlowableBufferBoundary<T, U extends Collection<? super T>, Op
     protected void a(org.a.c<? super U> cVar) {
         BufferBoundarySubscriber bufferBoundarySubscriber = new BufferBoundarySubscriber(cVar, this.bufferOpen, this.bufferClose, this.bufferSupplier);
         cVar.onSubscribe(bufferBoundarySubscriber);
-        this.mRM.a((j) bufferBoundarySubscriber);
+        this.nmU.a((j) bufferBoundarySubscriber);
     }
 
     /* loaded from: classes7.dex */
@@ -35,7 +35,7 @@ public final class FlowableBufferBoundary<T, U extends Collection<? super T>, Op
         volatile boolean done;
         long emitted;
         long index;
-        final io.reactivex.internal.queue.a<C> queue = new io.reactivex.internal.queue.a<>(io.reactivex.g.dCy());
+        final io.reactivex.internal.queue.a<C> queue = new io.reactivex.internal.queue.a<>(io.reactivex.g.dKs());
         final io.reactivex.disposables.a subscribers = new io.reactivex.disposables.a();
         final AtomicLong requested = new AtomicLong();
         final AtomicReference<org.a.d> upstream = new AtomicReference<>();
@@ -125,8 +125,8 @@ public final class FlowableBufferBoundary<T, U extends Collection<? super T>, Op
         /* JADX WARN: Multi-variable type inference failed */
         void open(Open open) {
             try {
-                Collection collection = (Collection) io.reactivex.internal.functions.a.h(this.bufferSupplier.call(), "The bufferSupplier returned a null Collection");
-                org.a.b bVar = (org.a.b) io.reactivex.internal.functions.a.h(this.bufferClose.apply(open), "The bufferClose returned a null Publisher");
+                Collection collection = (Collection) io.reactivex.internal.functions.a.k(this.bufferSupplier.call(), "The bufferSupplier returned a null Collection");
+                org.a.b bVar = (org.a.b) io.reactivex.internal.functions.a.k(this.bufferClose.apply(open), "The bufferClose returned a null Publisher");
                 long j = this.index;
                 this.index = 1 + j;
                 synchronized (this) {

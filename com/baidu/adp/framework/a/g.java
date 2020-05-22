@@ -1,21 +1,14 @@
 package com.baidu.adp.framework.a;
 
-import com.baidu.adp.framework.message.ResponsedMessage;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes.dex */
-public abstract class g<T extends ResponsedMessage<?>> extends h<T> {
-    public abstract T a(T t);
+public interface g<K, V> {
+    boolean containsKey(K k);
 
-    public g(int i) {
-        super(i);
-    }
+    void d(Map<K, V> map);
 
-    public T b(T t) {
-        if (t != null) {
-            if (getCmd() == 0 || getCmd() == t.getCmd()) {
-                return a(t);
-            }
-            return t;
-        }
-        return t;
-    }
+    List<V> r(K k);
+
+    List<V> s(K k);
 }

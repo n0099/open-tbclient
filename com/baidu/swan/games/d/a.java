@@ -1,72 +1,39 @@
 package com.baidu.swan.games.d;
 
-import android.content.Context;
-import android.text.TextUtils;
-import android.widget.Toast;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.swan.apps.a;
+import com.baidu.searchbox.unitedscheme.SchemeRouter;
+import com.baidu.searchbox.v8engine.JsObject;
 import com.baidu.swan.apps.runtime.e;
-import com.baidu.swan.apps.scheme.actions.ab;
-import com.baidu.swan.apps.scheme.j;
-import com.baidu.swan.apps.t.e;
-import com.baidu.swan.d.c;
-import com.baidu.webkit.internal.ETAG;
-import java.io.File;
-import org.json.JSONObject;
+import com.baidu.swan.games.binding.c;
+import java.net.URLEncoder;
 /* loaded from: classes11.dex */
-public class a extends ab {
-    public a(j jVar) {
-        super(jVar, "/swanAPI/debug/dashboardConnect");
-    }
-
-    @Override // com.baidu.swan.apps.scheme.actions.ab
-    public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, e eVar) {
-        if (DEBUG) {
-            JSONObject b = b(unitedSchemeEntity, "params");
-            if (b == null) {
-                showToast(a.h.aiapps_debug_swan_core_params_empty);
-            } else {
-                String optString = b.optString("meterUrl");
-                if (TextUtils.isEmpty(optString)) {
-                    showToast(a.h.aiapps_debug_swan_core_url_empty);
-                } else {
-                    b.ZL();
-                    e.c cVar = new e.c();
-                    cVar.mDownloadUrl = ad(context, optString);
-                    new com.baidu.swan.apps.l.a().a(cVar, b.ZM().getPath(), new e.b() { // from class: com.baidu.swan.games.d.a.1
-                        @Override // com.baidu.swan.apps.t.e.b
-                        public void dm(int i) {
-                        }
-
-                        @Override // com.baidu.swan.apps.t.e.b
-                        public void onSuccess() {
-                            File ZM = b.ZM();
-                            File ZK = b.ZK();
-                            if (!ZM.exists() || !c.unzipFile(ZM.getPath(), ZK.getPath())) {
-                                a.this.showToast(a.h.swangame_dashboard_download_failed);
-                            } else {
-                                a.this.showToast(a.h.swangame_dashboard_download_success);
-                            }
-                        }
-
-                        @Override // com.baidu.swan.apps.t.e.b
-                        public void onFailed() {
-                            a.this.showToast(a.h.swangame_dashboard_download_failed);
-                        }
-                    });
-                }
-            }
+public class a {
+    public static void a(c cVar, JsObject jsObject) {
+        boolean z = false;
+        b bVar = new b();
+        com.baidu.swan.games.binding.model.c e = com.baidu.swan.games.binding.model.c.e(jsObject);
+        if (e == null) {
+            e = new com.baidu.swan.games.binding.model.c();
         }
-        return false;
-    }
-
-    private String ad(Context context, String str) {
-        return str + (str.contains("?") ? ETAG.ITEM_SEPARATOR : "?") + "cuid" + ETAG.EQUAL + new String(com.baidu.swan.games.l.a.axa().h("BASE64", (com.baidu.swan.apps.w.a.abS().aS(context) + "\u0000\u0000").getBytes()));
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void showToast(int i) {
-        Toast.makeText(com.baidu.swan.apps.w.a.abN(), i, 1).show();
+        if (cVar == null) {
+            bVar.errMsg = "openCustomerServiceConversation:fail";
+            com.baidu.swan.games.utils.b.a(e, false, bVar);
+            return;
+        }
+        if (com.baidu.swan.games.glsurface.a.b.aAz()) {
+            e aoF = e.aoF();
+            if (aoF != null) {
+                if (SchemeRouter.invoke(com.baidu.swan.apps.u.a.aeR(), "baiduboxapp://v35/message/deliverMnpAppKey?params=" + URLEncoder.encode("{\"appKey\":\"" + aoF.getAppKey() + "\"}"))) {
+                    bVar.errMsg = "openCustomerServiceConversation:ok";
+                    z = true;
+                } else {
+                    bVar.errMsg = "openCustomerServiceConversation:fail";
+                }
+            } else {
+                bVar.errMsg = "openCustomerServiceConversation:fail";
+            }
+        } else {
+            bVar.errMsg = "openCustomerServiceConversation:fail require user interaction";
+        }
+        com.baidu.swan.games.utils.b.a(e, z, bVar);
     }
 }

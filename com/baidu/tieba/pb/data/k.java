@@ -1,50 +1,60 @@
 package com.baidu.tieba.pb.data;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.AntiData;
-import com.baidu.tbadk.core.data.bj;
-/* loaded from: classes9.dex */
-public class k implements com.baidu.adp.widget.ListView.m {
-    public static final BdUniqueId joG = BdUniqueId.gen();
-    private bj agC;
-    private AntiData dGC;
-    private boolean joH = false;
-    public boolean joI = false;
+import android.graphics.Bitmap;
+/* loaded from: classes.dex */
+public class k {
+    private String content;
+    private String duringTime;
+    private Bitmap jFe;
+    private Bitmap jFf;
+    private String jFg;
+    private boolean jFh;
 
-    public k(bj bjVar, AntiData antiData) {
-        this.agC = bjVar;
-        this.dGC = antiData;
+    public Bitmap cCV() {
+        return this.jFe;
     }
 
-    @Override // com.baidu.adp.widget.ListView.m
-    public BdUniqueId getType() {
-        return joG;
+    public void B(Bitmap bitmap) {
+        this.jFe = bitmap;
     }
 
-    public int aMa() {
-        if (this.agC != null) {
-            return this.agC.aMa();
-        }
-        return 0;
+    public Bitmap cCW() {
+        return this.jFf;
     }
 
-    public boolean cwc() {
-        return this.agC != null && this.agC.aLZ() == 1;
+    public void C(Bitmap bitmap) {
+        this.jFf = bitmap;
     }
 
-    public AntiData getAnti() {
-        return this.dGC;
+    public String getContent() {
+        return this.content;
     }
 
-    public bj aIu() {
-        return this.agC;
+    public void setContent(String str) {
+        this.content = str;
     }
 
-    public void qF(boolean z) {
-        this.joH = z;
+    public String cCX() {
+        return this.duringTime;
     }
 
-    public boolean cwd() {
-        return this.joH;
+    public void Je(String str) {
+        this.duringTime = str;
+    }
+
+    public String getThreadImgUrl() {
+        return this.jFg;
+    }
+
+    public void Jf(String str) {
+        this.jFg = str;
+    }
+
+    public boolean cCY() {
+        return this.jFh;
+    }
+
+    public void rc(boolean z) {
+        this.jFh = z;
     }
 }

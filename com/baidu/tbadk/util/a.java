@@ -5,19 +5,19 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.coreExtra.data.ABTestExtraData;
 /* loaded from: classes.dex */
 public class a {
-    private static a egt;
-    private com.baidu.tbadk.coreExtra.data.a dPJ;
-    private ABTestExtraData dPK;
+    private static a euH;
+    private com.baidu.tbadk.coreExtra.data.a eeb;
+    private ABTestExtraData eec;
 
-    public static a aZX() {
-        if (egt == null) {
+    public static a bgh() {
+        if (euH == null) {
             synchronized (a.class) {
-                if (egt == null) {
-                    egt = new a();
+                if (euH == null) {
+                    euH = new a();
                 }
             }
         }
-        return egt;
+        return euH;
     }
 
     public void a(com.baidu.tbadk.coreExtra.data.a aVar) {
@@ -26,34 +26,34 @@ public class a {
 
     private void b(com.baidu.tbadk.coreExtra.data.a aVar) {
         boolean z = false;
-        z = (aVar == null || this.dPJ == null || aVar.aRx() != this.dPJ.aRx()) ? true : true;
-        this.dPJ = aVar;
+        z = (aVar == null || this.eeb == null || aVar.aXE() != this.eeb.aXE()) ? true : true;
+        this.eeb = aVar;
         if (z) {
-            xh("zan_or_cai_smallflow");
+            yN("zan_or_cai_smallflow");
         }
     }
 
-    public boolean aRx() {
-        if (this.dPJ == null) {
-            this.dPJ = new com.baidu.tbadk.coreExtra.data.a();
-            this.dPJ.aRy();
+    public boolean aXE() {
+        if (this.eeb == null) {
+            this.eeb = new com.baidu.tbadk.coreExtra.data.a();
+            this.eeb.aXF();
         }
-        return this.dPJ.aRx();
+        return this.eeb.aXE();
     }
 
-    private void xh(String str) {
+    private void yN(String str) {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2156670, str));
     }
 
     public void a(ABTestExtraData aBTestExtraData) {
-        this.dPK = aBTestExtraData;
+        this.eec = aBTestExtraData;
     }
 
-    public String aZY() {
-        if (this.dPK == null) {
-            this.dPK = new ABTestExtraData();
-            this.dPK.parserABTestExtraFormSharedPref();
+    public String bgi() {
+        if (this.eec == null) {
+            this.eec = new ABTestExtraData();
+            this.eec.parserABTestExtraFormSharedPref();
         }
-        return this.dPK.getABTestResult();
+        return this.eec.getABTestResult();
     }
 }

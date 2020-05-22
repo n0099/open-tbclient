@@ -19,18 +19,18 @@ public class e implements b<String> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.uuid.a.b
     public void put(String str) {
-        sz(str);
+        ud(str);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.uuid.a.b
-    /* renamed from: aoR */
+    /* renamed from: ats */
     public String get() {
-        return aEA();
+        return aJi();
     }
 
     @Override // com.baidu.swan.uuid.a.b
-    public boolean aEx() {
+    public boolean aJf() {
         return !new File(this.mContext.getFilesDir(), "libuuid.so").exists();
     }
 
@@ -39,7 +39,7 @@ public class e implements b<String> {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private void sz(String str) {
+    private void ud(String str) {
         FileOutputStream fileOutputStream;
         File file = new File(this.mContext.getFilesDir(), "libuuid.so");
         boolean z = Build.VERSION.SDK_INT >= 24;
@@ -79,11 +79,11 @@ public class e implements b<String> {
         }
     }
 
-    private String aEA() {
+    private String aJi() {
         File file = new File(this.mContext.getFilesDir(), "libuuid.so");
         if (!file.exists()) {
             return null;
         }
-        return com.baidu.swan.uuid.b.a.l(file);
+        return com.baidu.swan.uuid.b.a.p(file);
     }
 }

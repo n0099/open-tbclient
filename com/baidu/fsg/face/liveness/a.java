@@ -22,15 +22,15 @@ public class a {
     }
 
     public static a a() {
-        return C0116a.a;
+        return C0119a.a;
     }
 
     /* renamed from: com.baidu.fsg.face.liveness.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    private static class C0116a {
+    private static class C0119a {
         private static a a = new a();
 
-        private C0116a() {
+        private C0119a() {
         }
     }
 
@@ -180,13 +180,17 @@ public class a {
             return livenessRecogDTO;
         }
         livenessRecogDTO.showGuidePage = "1".equals(hashMap.get("showGuidePage") + "");
+        livenessRecogDTO.soundSwitch = "1".equals(hashMap.get("soundSwitch") + "");
+        livenessRecogDTO.randomLiveness = "1".equals(hashMap.get("randomAction") + "");
+        livenessRecogDTO.recordLiveness = "1".equals(hashMap.get("recordVideo") + "");
+        livenessRecogDTO.switchVideo = "1".equals(hashMap.get("switchVideo") + "");
+        livenessRecogDTO.recordAudio = "1".equals(hashMap.get("soundFlag") + "");
         livenessRecogDTO.serviceType = hashMap.get("serviceType") != null ? hashMap.get("serviceType") + "" : "1008";
         String str = hashMap.get("recogType") != null ? hashMap.get("recogType") + "" : "";
         livenessRecogDTO.imageFlag = hashMap.get("imageFlag") != null ? hashMap.get("imageFlag") + "" : "0";
         if ("bduss".equals(str)) {
             livenessRecogDTO.livenessType = LivenessRecogType.RECOG_TYPE_BDUSS;
             livenessRecogDTO.bduss = hashMap.get("bduss") != null ? hashMap.get("bduss") + "" : "";
-            livenessRecogDTO.stoken = hashMap.get("stoken") != null ? hashMap.get("stoken") + "" : "";
             livenessRecogDTO.uid = hashMap.get("uid") != null ? hashMap.get("uid") + "" : "";
         } else if ("certinfo".equals(str)) {
             livenessRecogDTO.livenessType = LivenessRecogType.RECOG_TYPE_CERTINFO;

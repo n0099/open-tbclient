@@ -8,9 +8,8 @@ import java.io.StringWriter;
 import java.lang.Thread;
 import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONObject;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes4.dex */
-public class d implements Thread.UncaughtExceptionHandler {
+class d implements Thread.UncaughtExceptionHandler {
     private Thread.UncaughtExceptionHandler a;
     private Context b;
     private JSONObject c;
@@ -21,9 +20,8 @@ public class d implements Thread.UncaughtExceptionHandler {
         this();
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes4.dex */
-    public static class a {
+    private static class a {
         private static d a = new d(null);
 
         private a() {

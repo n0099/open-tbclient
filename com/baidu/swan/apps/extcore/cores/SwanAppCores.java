@@ -10,14 +10,14 @@ public class SwanAppCores extends SwanAppIPCData {
     public static final Parcelable.Creator<SwanAppCores> CREATOR = new Parcelable.Creator<SwanAppCores>() { // from class: com.baidu.swan.apps.extcore.cores.SwanAppCores.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: p */
+        /* renamed from: q */
         public SwanAppCores createFromParcel(Parcel parcel) {
             return new SwanAppCores(parcel);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: eV */
+        /* renamed from: fg */
         public SwanAppCores[] newArray(int i) {
             return new SwanAppCores[i];
         }
@@ -48,7 +48,7 @@ public class SwanAppCores extends SwanAppIPCData {
         return "SwanAppCores{mSwanCoreVersion=" + this.mSwanCoreVersion + ", mExtensionCore=" + this.mExtensionCore + '}';
     }
 
-    public SwanCoreVersion YH() {
+    public SwanCoreVersion abG() {
         return this.mSwanCoreVersion;
     }
 
@@ -56,7 +56,7 @@ public class SwanAppCores extends SwanAppIPCData {
         this.mSwanCoreVersion = swanCoreVersion;
     }
 
-    public ExtensionCore YI() {
+    public ExtensionCore abH() {
         return this.mExtensionCore;
     }
 

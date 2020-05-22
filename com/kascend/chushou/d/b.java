@@ -8,22 +8,22 @@ public class b {
     private static WeakReference<Activity> a;
 
     public static String a() {
-        tv.chushou.basis.d.a.b.b bVar = (tv.chushou.basis.d.a.b.b) tv.chushou.basis.d.b.dJs().S(tv.chushou.basis.d.a.b.b.class);
-        return bVar != null ? bVar.dyD() : "";
+        tv.chushou.basis.d.a.b.b bVar = (tv.chushou.basis.d.a.b.b) tv.chushou.basis.d.b.dRm().S(tv.chushou.basis.d.a.b.b.class);
+        return bVar != null ? bVar.dFV() : "";
     }
 
     public static String b() {
-        tv.chushou.basis.d.a.b.b bVar = (tv.chushou.basis.d.a.b.b) tv.chushou.basis.d.b.dJs().S(tv.chushou.basis.d.a.b.b.class);
-        return bVar != null ? bVar.YT() : "";
+        tv.chushou.basis.d.a.b.b bVar = (tv.chushou.basis.d.a.b.b) tv.chushou.basis.d.b.dRm().S(tv.chushou.basis.d.a.b.b.class);
+        return bVar != null ? bVar.abU() : "";
     }
 
     public static String c() {
-        tv.chushou.basis.d.a.b.b bVar = (tv.chushou.basis.d.a.b.b) tv.chushou.basis.d.b.dJs().S(tv.chushou.basis.d.a.b.b.class);
+        tv.chushou.basis.d.a.b.b bVar = (tv.chushou.basis.d.a.b.b) tv.chushou.basis.d.b.dRm().S(tv.chushou.basis.d.a.b.b.class);
         return bVar != null ? bVar.getSdkVersion() : "";
     }
 
     public static String d() {
-        tv.chushou.basis.d.a.a.a aVar = (tv.chushou.basis.d.a.a.a) tv.chushou.basis.d.b.dJs().S(tv.chushou.basis.d.a.a.a.class);
+        tv.chushou.basis.d.a.a.a aVar = (tv.chushou.basis.d.a.a.a) tv.chushou.basis.d.b.dRm().S(tv.chushou.basis.d.a.a.a.class);
         return aVar != null ? aVar.getString("token", "") : "";
     }
 

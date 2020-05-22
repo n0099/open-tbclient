@@ -4,7 +4,7 @@ public class PMSConstants {
 
     /* loaded from: classes11.dex */
     public static final class a {
-        public static String iK(int i) {
+        public static String ah(int i, String str) {
             switch (i) {
                 case 1001:
                     return "system error";
@@ -19,6 +19,10 @@ public class PMSConstants {
                 case 1007:
                 case 1008:
                 case 1009:
+                case 1016:
+                case 1017:
+                case 1018:
+                case 1019:
                 default:
                     return "";
                 case 1010:
@@ -33,6 +37,8 @@ public class PMSConstants {
                     return "the framework is not available";
                 case 1015:
                     return "the host app is not support this app";
+                case 1020:
+                    return str;
             }
         }
     }

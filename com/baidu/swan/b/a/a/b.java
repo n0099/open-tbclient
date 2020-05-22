@@ -15,7 +15,7 @@ public class b extends com.baidu.swan.b.d.a {
     }
 
     @Override // com.baidu.swan.b.d.a
-    public com.baidu.swan.apps.api.b.b b(@NonNull JSONObject jSONObject, @NonNull com.baidu.swan.apps.p.b bVar) {
+    public com.baidu.swan.apps.api.c.b b(@NonNull JSONObject jSONObject, @NonNull com.baidu.swan.apps.n.b bVar) {
         if (DEBUG) {
             Log.d("checkAppInstalled", "handle: " + jSONObject);
         }
@@ -34,7 +34,7 @@ public class b extends com.baidu.swan.b.d.a {
                     jSONObject3.put("versionName", packageInfo.versionName);
                     jSONObject3.put("versionCode", packageInfo.versionCode);
                     jSONObject2.put("data", jSONObject3);
-                    bVar.V(jSONObject2);
+                    bVar.aa(jSONObject2);
                 } else {
                     bVar.onFail(31016, "no package info");
                 }

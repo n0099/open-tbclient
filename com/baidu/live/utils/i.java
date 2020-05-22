@@ -40,18 +40,18 @@ public class i {
         return new SimpleDateFormat("mm:ss").format(new Date((l.longValue() * 1000) - 28800000));
     }
 
-    public static String dl(int i) {
+    public static String dq(int i) {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMddHH");
         Date date = new Date();
         date.setHours(date.getHours() - i);
         return simpleDateFormat.format(date);
     }
 
-    public static String Gc() {
+    public static String HV() {
         return new SimpleDateFormat("HH").format(new Date());
     }
 
-    public static String Gd() {
+    public static String HW() {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH");
         Date date = new Date();
         date.setHours(date.getHours() - 1);

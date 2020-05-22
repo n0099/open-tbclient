@@ -9,7 +9,7 @@ public abstract class f extends ContextWrapper {
     }
 
     @NonNull
-    public e ali() {
+    public e apd() {
         return (e) getBaseContext();
     }
 

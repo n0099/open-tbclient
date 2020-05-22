@@ -4,55 +4,55 @@ import android.os.AsyncTask;
 import android.support.annotation.Nullable;
 /* loaded from: classes11.dex */
 public abstract class d {
-    private Exception OG;
-    private b csr;
+    private Exception OP;
+    private b cEn;
 
-    protected abstract boolean ams() throws Exception;
+    protected abstract boolean aqv() throws Exception;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public Exception getException() {
-        return this.OG;
+        return this.OP;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d a(b bVar) {
-        this.csr = bVar;
+        this.cEn = bVar;
         return this;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean isOk() {
-        return this.OG == null;
+        return this.OP == null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public d amt() {
+    public d aqw() {
         AsyncTask.execute(new Runnable() { // from class: com.baidu.swan.apps.setting.oauth.d.1
             @Override // java.lang.Runnable
             public void run() {
                 try {
-                    if (d.this.ams()) {
-                        d.this.amu();
+                    if (d.this.aqv()) {
+                        d.this.aqx();
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
-                    d.this.m(e);
+                    d.this.t(e);
                 }
             }
         });
         return this;
     }
 
-    public void amu() {
-        m(null);
+    public void aqx() {
+        t(null);
     }
 
-    public void m(@Nullable Exception exc) {
-        this.OG = exc;
-        c.j(new Runnable() { // from class: com.baidu.swan.apps.setting.oauth.d.2
+    public void t(@Nullable Exception exc) {
+        this.OP = exc;
+        c.k(new Runnable() { // from class: com.baidu.swan.apps.setting.oauth.d.2
             @Override // java.lang.Runnable
             public void run() {
-                d.this.csr.b(d.this);
+                d.this.cEn.b(d.this);
             }
         });
     }

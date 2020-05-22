@@ -7,21 +7,21 @@ import java.nio.FloatBuffer;
 /* loaded from: classes11.dex */
 public class a {
     public static final float[] IDENTITY_MATRIX = new float[16];
-    public static final float[] bya;
-    public static final float[] byb;
-    public static final float[] byc;
+    public static final float[] bFD;
+    public static final float[] bFE;
+    public static final float[] bFF;
 
     static {
         Matrix.setIdentityM(IDENTITY_MATRIX, 0);
-        bya = new float[16];
-        Matrix.setIdentityM(bya, 0);
-        Matrix.scaleM(bya, 0, -1.0f, 1.0f, 1.0f);
-        byb = new float[16];
-        Matrix.setIdentityM(byb, 0);
-        Matrix.scaleM(byb, 0, 1.0f, -1.0f, 1.0f);
-        byc = new float[16];
-        Matrix.setIdentityM(byc, 0);
-        Matrix.scaleM(byc, 0, -1.0f, -1.0f, 1.0f);
+        bFD = new float[16];
+        Matrix.setIdentityM(bFD, 0);
+        Matrix.scaleM(bFD, 0, -1.0f, 1.0f, 1.0f);
+        bFE = new float[16];
+        Matrix.setIdentityM(bFE, 0);
+        Matrix.scaleM(bFE, 0, 1.0f, -1.0f, 1.0f);
+        bFF = new float[16];
+        Matrix.setIdentityM(bFF, 0);
+        Matrix.scaleM(bFF, 0, -1.0f, -1.0f, 1.0f);
     }
 
     public static FloatBuffer createFloatBuffer(float[] fArr) {

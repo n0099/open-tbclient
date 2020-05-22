@@ -3,7 +3,7 @@ package com.baidu.tbadk.mutiprocess;
 import android.content.Intent;
 /* loaded from: classes.dex */
 public class i {
-    public a I(Intent intent) {
+    public a F(Intent intent) {
         int intExtra = intent.getIntExtra("value_type", -1);
         if (intExtra < 0) {
             return null;

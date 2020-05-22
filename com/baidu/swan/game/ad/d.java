@@ -13,7 +13,7 @@ public class d extends b {
     }
 
     @Override // com.baidu.swan.game.ad.b
-    public View asq() {
+    public View avX() {
         return LayoutInflater.from(this.mContext).inflate(c.f.ng_game_land_play, (ViewGroup) null);
     }
 }

@@ -4,14 +4,15 @@ import com.baidu.adp.lib.util.StringUtils;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d {
+    private String abTag;
     private String currentPageKey;
-    private String dpc;
-    public String edi;
-    private String edj;
-    public String edk;
+    public String erv;
+    private String erw;
+    public String erx;
     private long fid;
     public boolean isRouteStat = false;
     public String isVertical;
+    private String nid;
     public String objID;
     public String objParam1;
     private long pid;
@@ -53,6 +54,14 @@ public class d {
         this.tid = j;
     }
 
+    public String getNid() {
+        return this.nid;
+    }
+
+    public void setNid(String str) {
+        this.nid = str;
+    }
+
     public long getPid() {
         return this.pid;
     }
@@ -73,20 +82,20 @@ public class d {
         return this.task_id;
     }
 
-    public String aZi() {
-        return this.dpc;
+    public String bfs() {
+        return this.abTag;
     }
 
-    public void wY(String str) {
-        this.dpc = str;
+    public void yE(String str) {
+        this.abTag = str;
     }
 
-    public String aZj() {
-        return this.edj;
+    public String bft() {
+        return this.erw;
     }
 
-    public void wZ(String str) {
-        this.edj = str;
+    public void yF(String str) {
+        this.erw = str;
     }
 
     public boolean isDirtyData() {

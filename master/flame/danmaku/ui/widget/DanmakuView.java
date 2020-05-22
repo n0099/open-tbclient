@@ -19,47 +19,47 @@ import master.flame.danmaku.danmaku.model.l;
 /* loaded from: classes5.dex */
 public class DanmakuView extends View implements f, g {
     private boolean mRequestRender;
-    private c.a mZY;
-    private LinkedList<Long> nag;
-    private c neU;
-    private boolean neV;
-    private boolean neW;
-    private f.a neX;
-    private a neY;
-    private boolean neZ;
-    private boolean nfa;
-    protected int nfb;
-    private Object nfk;
-    private boolean nfl;
-    private long nfm;
-    private boolean nfn;
-    private int nfo;
-    private Runnable nfp;
+    private boolean nAa;
+    private boolean nAb;
+    protected int nAc;
+    private Object nAl;
+    private boolean nAm;
+    private long nAn;
+    private boolean nAo;
+    private int nAp;
+    private Runnable nAq;
+    private c.a nvb;
+    private LinkedList<Long> nvj;
+    private c nzV;
+    private boolean nzW;
+    private boolean nzX;
+    private f.a nzY;
+    private a nzZ;
 
     static /* synthetic */ int b(DanmakuView danmakuView) {
-        int i = danmakuView.nfo;
-        danmakuView.nfo = i + 1;
+        int i = danmakuView.nAp;
+        danmakuView.nAp = i + 1;
         return i;
     }
 
     public DanmakuView(Context context) {
         super(context);
-        this.neW = true;
-        this.nfa = true;
-        this.nfb = 0;
-        this.nfk = new Object();
-        this.nfl = false;
+        this.nzX = true;
+        this.nAb = true;
+        this.nAc = 0;
+        this.nAl = new Object();
+        this.nAm = false;
         this.mRequestRender = false;
-        this.nfo = 0;
-        this.nfp = new Runnable() { // from class: master.flame.danmaku.ui.widget.DanmakuView.1
+        this.nAp = 0;
+        this.nAq = new Runnable() { // from class: master.flame.danmaku.ui.widget.DanmakuView.1
             @Override // java.lang.Runnable
             public void run() {
-                if (DanmakuView.this.neU != null) {
+                if (DanmakuView.this.nzV != null) {
                     DanmakuView.b(DanmakuView.this);
-                    if (DanmakuView.this.nfo > 4 || DanmakuView.super.isShown()) {
-                        DanmakuView.this.neU.resume();
+                    if (DanmakuView.this.nAp > 4 || DanmakuView.super.isShown()) {
+                        DanmakuView.this.nzV.resume();
                     } else {
-                        DanmakuView.this.neU.postDelayed(this, DanmakuView.this.nfo * 100);
+                        DanmakuView.this.nzV.postDelayed(this, DanmakuView.this.nAp * 100);
                     }
                 }
             }
@@ -68,31 +68,31 @@ public class DanmakuView extends View implements f, g {
     }
 
     private void init() {
-        this.nfm = Thread.currentThread().getId();
+        this.nAn = Thread.currentThread().getId();
         setBackgroundColor(0);
         setDrawingCacheBackgroundColor(0);
-        d.av(true, false);
-        this.neY = a.b(this);
+        d.ay(true, false);
+        this.nzZ = a.b(this);
     }
 
     public DanmakuView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.neW = true;
-        this.nfa = true;
-        this.nfb = 0;
-        this.nfk = new Object();
-        this.nfl = false;
+        this.nzX = true;
+        this.nAb = true;
+        this.nAc = 0;
+        this.nAl = new Object();
+        this.nAm = false;
         this.mRequestRender = false;
-        this.nfo = 0;
-        this.nfp = new Runnable() { // from class: master.flame.danmaku.ui.widget.DanmakuView.1
+        this.nAp = 0;
+        this.nAq = new Runnable() { // from class: master.flame.danmaku.ui.widget.DanmakuView.1
             @Override // java.lang.Runnable
             public void run() {
-                if (DanmakuView.this.neU != null) {
+                if (DanmakuView.this.nzV != null) {
                     DanmakuView.b(DanmakuView.this);
-                    if (DanmakuView.this.nfo > 4 || DanmakuView.super.isShown()) {
-                        DanmakuView.this.neU.resume();
+                    if (DanmakuView.this.nAp > 4 || DanmakuView.super.isShown()) {
+                        DanmakuView.this.nzV.resume();
                     } else {
-                        DanmakuView.this.neU.postDelayed(this, DanmakuView.this.nfo * 100);
+                        DanmakuView.this.nzV.postDelayed(this, DanmakuView.this.nAp * 100);
                     }
                 }
             }
@@ -102,22 +102,22 @@ public class DanmakuView extends View implements f, g {
 
     public DanmakuView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.neW = true;
-        this.nfa = true;
-        this.nfb = 0;
-        this.nfk = new Object();
-        this.nfl = false;
+        this.nzX = true;
+        this.nAb = true;
+        this.nAc = 0;
+        this.nAl = new Object();
+        this.nAm = false;
         this.mRequestRender = false;
-        this.nfo = 0;
-        this.nfp = new Runnable() { // from class: master.flame.danmaku.ui.widget.DanmakuView.1
+        this.nAp = 0;
+        this.nAq = new Runnable() { // from class: master.flame.danmaku.ui.widget.DanmakuView.1
             @Override // java.lang.Runnable
             public void run() {
-                if (DanmakuView.this.neU != null) {
+                if (DanmakuView.this.nzV != null) {
                     DanmakuView.b(DanmakuView.this);
-                    if (DanmakuView.this.nfo > 4 || DanmakuView.super.isShown()) {
-                        DanmakuView.this.neU.resume();
+                    if (DanmakuView.this.nAp > 4 || DanmakuView.super.isShown()) {
+                        DanmakuView.this.nzV.resume();
                     } else {
-                        DanmakuView.this.neU.postDelayed(this, DanmakuView.this.nfo * 100);
+                        DanmakuView.this.nzV.postDelayed(this, DanmakuView.this.nAp * 100);
                     }
                 }
             }
@@ -127,55 +127,55 @@ public class DanmakuView extends View implements f, g {
 
     @Override // master.flame.danmaku.a.f
     public l getCurrentVisibleDanmakus() {
-        if (this.neU != null) {
-            return this.neU.getCurrentVisibleDanmakus();
+        if (this.nzV != null) {
+            return this.nzV.getCurrentVisibleDanmakus();
         }
         return null;
     }
 
     public void setCallback(c.a aVar) {
-        this.mZY = aVar;
-        if (this.neU != null) {
-            this.neU.setCallback(aVar);
+        this.nvb = aVar;
+        if (this.nzV != null) {
+            this.nzV.setCallback(aVar);
         }
     }
 
     public DanmakuContext getConfig() {
-        if (this.neU == null) {
+        if (this.nzV == null) {
             return null;
         }
-        return this.neU.getConfig();
+        return this.nzV.getConfig();
     }
 
-    private float dGp() {
-        long dGn = master.flame.danmaku.danmaku.c.c.dGn();
-        this.nag.addLast(Long.valueOf(dGn));
-        Long peekFirst = this.nag.peekFirst();
+    private float dOj() {
+        long dOh = master.flame.danmaku.danmaku.c.c.dOh();
+        this.nvj.addLast(Long.valueOf(dOh));
+        Long peekFirst = this.nvj.peekFirst();
         if (peekFirst == null) {
             return 0.0f;
         }
-        float longValue = (float) (dGn - peekFirst.longValue());
-        if (this.nag.size() > 50) {
-            this.nag.removeFirst();
+        float longValue = (float) (dOh - peekFirst.longValue());
+        if (this.nvj.size() > 50) {
+            this.nvj.removeFirst();
         }
-        return longValue > 0.0f ? (this.nag.size() * 1000) / longValue : 0.0f;
+        return longValue > 0.0f ? (this.nvj.size() * 1000) / longValue : 0.0f;
     }
 
     @Override // master.flame.danmaku.a.g
-    public long dEX() {
-        if (!this.neV) {
+    public long dMR() {
+        if (!this.nzW) {
             return 0L;
         }
         if (!isShown()) {
             return -1L;
         }
-        long dGn = master.flame.danmaku.danmaku.c.c.dGn();
-        dGs();
-        return master.flame.danmaku.danmaku.c.c.dGn() - dGn;
+        long dOh = master.flame.danmaku.danmaku.c.c.dOh();
+        dOm();
+        return master.flame.danmaku.danmaku.c.c.dOh() - dOh;
     }
 
     @SuppressLint({"NewApi"})
-    private void dGr() {
+    private void dOl() {
         this.mRequestRender = true;
         if (Build.VERSION.SDK_INT >= 16) {
             postInvalidateOnAnimation();
@@ -184,71 +184,71 @@ public class DanmakuView extends View implements f, g {
         }
     }
 
-    private void dGs() {
-        if (this.nfa) {
-            dGr();
-            synchronized (this.nfk) {
-                while (!this.nfl && this.neU != null) {
+    private void dOm() {
+        if (this.nAb) {
+            dOl();
+            synchronized (this.nAl) {
+                while (!this.nAm && this.nzV != null) {
                     try {
-                        this.nfk.wait(200L);
+                        this.nAl.wait(200L);
                     } catch (InterruptedException e) {
-                        if (!this.nfa || this.neU == null || this.neU.isStop()) {
+                        if (!this.nAb || this.nzV == null || this.nzV.isStop()) {
                             break;
                         }
                         Thread.currentThread().interrupt();
                     }
                 }
-                this.nfl = false;
+                this.nAm = false;
             }
         }
     }
 
-    private void dGt() {
-        this.nfn = true;
-        dGs();
+    private void dOn() {
+        this.nAo = true;
+        dOm();
     }
 
-    private void dGu() {
-        synchronized (this.nfk) {
-            this.nfl = true;
-            this.nfk.notifyAll();
+    private void dOo() {
+        synchronized (this.nAl) {
+            this.nAm = true;
+            this.nAl.notifyAll();
         }
     }
 
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
-        if (!this.nfa && !this.mRequestRender) {
+        if (!this.nAb && !this.mRequestRender) {
             super.onDraw(canvas);
             return;
         }
-        if (this.nfn) {
+        if (this.nAo) {
             d.e(canvas);
-            this.nfn = false;
-        } else if (this.neU != null) {
-            a.b ae = this.neU.ae(canvas);
-            if (this.neZ) {
-                if (this.nag == null) {
-                    this.nag = new LinkedList<>();
+            this.nAo = false;
+        } else if (this.nzV != null) {
+            a.b ag = this.nzV.ag(canvas);
+            if (this.nAa) {
+                if (this.nvj == null) {
+                    this.nvj = new LinkedList<>();
                 }
-                d.c(canvas, String.format(Locale.getDefault(), "fps %.2f,time:%d s,cache:%d,miss:%d", Float.valueOf(dGp()), Long.valueOf(getCurrentTime() / 1000), Long.valueOf(ae.nek), Long.valueOf(ae.nel)));
+                d.c(canvas, String.format(Locale.getDefault(), "fps %.2f,time:%d s,cache:%d,miss:%d", Float.valueOf(dOj()), Long.valueOf(getCurrentTime() / 1000), Long.valueOf(ag.nzm), Long.valueOf(ag.nzn)));
             }
         }
         this.mRequestRender = false;
-        dGu();
+        dOo();
     }
 
     @Override // android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
-        if (this.neU != null) {
-            this.neU.dM(i3 - i, i4 - i2);
+        if (this.nzV != null) {
+            this.nzV.dR(i3 - i, i4 - i2);
         }
-        this.neV = true;
+        this.nzW = true;
     }
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        boolean onTouchEvent = this.neY.onTouchEvent(motionEvent);
+        boolean onTouchEvent = this.nzZ.onTouchEvent(motionEvent);
         if (!onTouchEvent) {
             return super.onTouchEvent(motionEvent);
         }
@@ -256,13 +256,13 @@ public class DanmakuView extends View implements f, g {
     }
 
     @Override // master.flame.danmaku.a.g
-    public boolean dEY() {
-        return this.neW;
+    public boolean dMS() {
+        return this.nzX;
     }
 
     @Override // master.flame.danmaku.a.g
-    public boolean dEW() {
-        return this.neV;
+    public boolean dMQ() {
+        return this.nzW;
     }
 
     public View getView() {
@@ -271,28 +271,28 @@ public class DanmakuView extends View implements f, g {
 
     @Override // master.flame.danmaku.a.g
     public void clear() {
-        if (dEW()) {
-            if (!this.nfa || Thread.currentThread().getId() == this.nfm) {
-                this.nfn = true;
-                dGr();
+        if (dMQ()) {
+            if (!this.nAb || Thread.currentThread().getId() == this.nAn) {
+                this.nAo = true;
+                dOl();
                 return;
             }
-            dGt();
+            dOn();
         }
     }
 
     @Override // android.view.View
     public boolean isShown() {
-        return this.nfa && super.isShown();
+        return this.nAb && super.isShown();
     }
 
     public void setDrawingThreadType(int i) {
-        this.nfb = i;
+        this.nAc = i;
     }
 
     public long getCurrentTime() {
-        if (this.neU != null) {
-            return this.neU.getCurrentTime();
+        if (this.nzV != null) {
+            return this.nzV.getCurrentTime();
         }
         return 0L;
     }
@@ -307,11 +307,11 @@ public class DanmakuView extends View implements f, g {
     }
 
     public void setOnDanmakuClickListener(f.a aVar) {
-        this.neX = aVar;
+        this.nzY = aVar;
     }
 
     @Override // master.flame.danmaku.a.f
     public f.a getOnDanmakuClickListener() {
-        return this.neX;
+        return this.nzY;
     }
 }

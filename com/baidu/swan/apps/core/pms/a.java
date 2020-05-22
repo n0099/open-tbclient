@@ -1,9 +1,13 @@
 package com.baidu.swan.apps.core.pms;
 /* loaded from: classes11.dex */
-public interface a {
-    void WY();
+public abstract class a {
+    public abstract void ZK();
 
-    void WZ();
+    public abstract void ZL();
 
-    void eK(int i);
+    public void eT(int i) {
+    }
+
+    public void a(com.baidu.swan.pms.model.a aVar) {
+    }
 }

@@ -14,8 +14,7 @@ public class b {
         public static String CLICK = "c12586";
     }
 
-    /* renamed from: do  reason: not valid java name */
-    public static CustomDialogData m35do(JSONObject jSONObject) {
+    public static CustomDialogData dv(JSONObject jSONObject) {
         JSONObject optJSONObject;
         if (jSONObject == null || (optJSONObject = jSONObject.optJSONObject("tb_hudong")) == null || TextUtils.isEmpty(optJSONObject.optString("content"))) {
             return null;

@@ -61,7 +61,13 @@ final class a {
                     a.mSystemToast.setView(relativeLayout);
                     a.mSystemToast.setGravity(17, 0, 0);
                     c.setToastAnimation(a.mSystemToast, a.i.toast_animation);
-                    a.mSystemToast.show();
+                    try {
+                        a.mSystemToast.show();
+                    } catch (NullPointerException e) {
+                        if (a.sDebug) {
+                            e.printStackTrace();
+                        }
+                    }
                     if (a.sDebug) {
                         Log.d("SingleToast", "mSystemToast.show() invoked in show");
                     }
@@ -280,7 +286,7 @@ final class a {
         if (uri != null) {
             simpleDraweeView.setImageURI(uri);
             if (i != 1) {
-                simpleDraweeView.getHierarchy().a(new RoundingParams().vH(false));
+                simpleDraweeView.getHierarchy().a(new RoundingParams().wf(false));
             }
         } else {
             simpleDraweeView.setVisibility(8);
@@ -334,7 +340,7 @@ final class a {
                 public boolean onTouch(View view, MotionEvent motionEvent) {
                     switch (motionEvent.getAction()) {
                         case 0:
-                            textView.setAlpha(com.baidu.swan.apps.w.a.acj().getNightModeSwitcherState() ? 0.5f : 0.2f);
+                            textView.setAlpha(com.baidu.swan.apps.u.a.afm().getNightModeSwitcherState() ? 0.5f : 0.2f);
                             return false;
                         case 1:
                         default:

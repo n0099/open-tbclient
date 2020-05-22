@@ -9,6 +9,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import com.baidu.minivideo.plugin.capture.db.AuthoritySharedPreferences;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 import com.baidu.swan.apps.component.a.a.b;
@@ -56,19 +57,19 @@ public abstract class a<V extends SwanEditText, M extends b> extends com.baidu.s
     public com.baidu.swan.apps.component.d.b a(@NonNull M m, @NonNull M m2) {
         com.baidu.swan.apps.component.d.b a = super.a(m, m2);
         if (getView() != 0 && !TextUtils.equals(((SwanEditText) getView()).getText().toString(), m2.text)) {
-            a.en(6);
+            a.ew(6);
         }
         if (m.maxLength != m2.maxLength) {
-            a.en(10);
+            a.ew(10);
         }
-        if (m.bGm != m2.bGm) {
-            a.en(11);
+        if (m.bPe != m2.bPe) {
+            a.ew(11);
         }
         if (m.selectionStart != m2.selectionStart || m.selectionEnd != m2.selectionEnd) {
-            a.en(12);
+            a.ew(12);
         }
-        if (!TextUtils.equals(m.bGn, m2.bGn)) {
-            a.en(13);
+        if (!TextUtils.equals(m.bPf, m2.bPf)) {
+            a.ew(13);
         }
         return a;
     }
@@ -76,16 +77,16 @@ public abstract class a<V extends SwanEditText, M extends b> extends com.baidu.s
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(@NonNull V v, @NonNull M m, @NonNull com.baidu.swan.apps.component.d.b bVar) {
         super.a((a<V, M>) v, (V) m, bVar);
-        if (bVar.eo(11)) {
+        if (bVar.ex(11)) {
             b((a<V, M>) v, (V) m);
         }
-        if (bVar.eo(12)) {
+        if (bVar.ex(12)) {
             c((a<V, M>) v, (V) m);
         }
-        if (bVar.eo(10)) {
+        if (bVar.ex(10)) {
             d((a<V, M>) v, (V) m);
         }
-        if (bVar.eo(13)) {
+        if (bVar.ex(13)) {
             e((a<V, M>) v, (V) m);
         }
     }
@@ -106,8 +107,8 @@ public abstract class a<V extends SwanEditText, M extends b> extends com.baidu.s
         if (text != null) {
             i = text.length();
         }
-        if (m.bGm <= i && m.bGm >= 0) {
-            v.setSelection(m.bGm);
+        if (m.bPe <= i && m.bPe >= 0) {
+            v.setSelection(m.bPe);
         }
     }
 
@@ -137,9 +138,9 @@ public abstract class a<V extends SwanEditText, M extends b> extends com.baidu.s
     /* JADX INFO: Access modifiers changed from: protected */
     public boolean e(@NonNull V v, @NonNull M m) {
         if (DEBUG) {
-            Log.d("Component-EditText", "renderConfirmType:" + m.bGn);
+            Log.d("Component-EditText", "renderConfirmType:" + m.bPf);
         }
-        String str = m.bGn;
+        String str = m.bPf;
         char c = 65535;
         switch (str.hashCode()) {
             case -906336856:
@@ -167,7 +168,7 @@ public abstract class a<V extends SwanEditText, M extends b> extends com.baidu.s
                 }
                 break;
             case 3526536:
-                if (str.equals("send")) {
+                if (str.equals(UbcStatConstant.ContentType.UBC_TYPE_IM_SEND)) {
                     c = 0;
                     break;
                 }

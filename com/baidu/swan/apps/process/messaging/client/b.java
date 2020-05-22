@@ -13,21 +13,21 @@ import java.util.Deque;
 /* loaded from: classes11.dex */
 public class b implements a.b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private final Deque<Message> ciw = new ArrayDeque();
+    private final Deque<Message> ctZ = new ArrayDeque();
 
     @Override // com.baidu.swan.apps.process.messaging.a.b
-    public void aiV() {
-        a ajc = a.ajc();
-        while (ajc.ajg() && !this.ciw.isEmpty()) {
-            Message peek = this.ciw.peek();
-            if (peek == null || z(peek)) {
-                this.ciw.poll();
+    public void amJ() {
+        a amQ = a.amQ();
+        while (amQ.amU() && !this.ctZ.isEmpty()) {
+            Message peek = this.ctZ.peek();
+            if (peek == null || A(peek)) {
+                this.ctZ.poll();
             }
         }
     }
 
     @Override // com.baidu.swan.apps.process.messaging.a.b
-    public void lF(String str) {
+    public void na(String str) {
     }
 
     @Override // com.baidu.swan.apps.process.messaging.a.b
@@ -36,28 +36,28 @@ public class b implements a.b {
 
     @Override // com.baidu.swan.apps.process.messaging.a.b
     public void a(@NonNull c cVar) {
-        Message aiW = cVar.aiW();
-        aiW.arg1 = SwanAppProcessInfo.current().index;
-        if (d.akJ().ajq() && (aiW.obj instanceof Bundle)) {
-            Bundle bundle = (Bundle) aiW.obj;
+        Message amK = cVar.amK();
+        amK.arg1 = SwanAppProcessInfo.current().index;
+        if (d.aoB().ane() && (amK.obj instanceof Bundle)) {
+            Bundle bundle = (Bundle) amK.obj;
             if (!bundle.containsKey("ai_apps_id")) {
-                bundle.putString("ai_apps_id", d.akJ().getAppId());
+                bundle.putString("ai_apps_id", d.aoB().getAppId());
             }
         }
-        if (!z(aiW) && cVar.isSticky()) {
-            this.ciw.offer(aiW);
-            a.ajc().aje();
+        if (!A(amK) && cVar.isSticky()) {
+            this.ctZ.offer(amK);
+            a.amQ().amS();
         }
     }
 
-    private boolean z(Message message) {
-        a ajc = a.ajc();
-        if (message != null && ajc.ajg()) {
+    private boolean A(Message message) {
+        a amQ = a.amQ();
+        if (message != null && amQ.amU()) {
             try {
-                ajc.ajd().send(message);
+                amQ.amR().send(message);
                 return true;
             } catch (RemoteException e) {
-                ajc.ajh();
+                amQ.amV();
                 if (DEBUG) {
                     e.printStackTrace();
                 }

@@ -20,10 +20,10 @@ public class CheckResponse extends JsonHttpResponsedMessage {
                 this.mCheckResponseData = new c();
                 this.mCheckResponseData.appKey = jSONObject.optString("tbopen_app_key");
                 this.mCheckResponseData.appName = jSONObject.optString("tbopen_app_name");
-                this.mCheckResponseData.lAI = jSONObject.optString("tbopen_app_icon");
+                this.mCheckResponseData.lTW = jSONObject.optString("tbopen_app_icon");
                 JSONObject optJSONObject = jSONObject.optJSONObject("config");
                 if (optJSONObject != null) {
-                    this.mCheckResponseData.lAK = optJSONObject.optString("default_pic");
+                    this.mCheckResponseData.lTY = optJSONObject.optString("default_pic");
                 }
             }
         }

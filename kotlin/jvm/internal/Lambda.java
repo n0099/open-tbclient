@@ -17,7 +17,7 @@ public abstract class Lambda<R> implements Serializable, p<R> {
 
     public String toString() {
         String a = t.a((Lambda) this);
-        q.i(a, "Reflection.renderLambdaToString(this)");
+        q.l((Object) a, "Reflection.renderLambdaToString(this)");
         return a;
     }
 }

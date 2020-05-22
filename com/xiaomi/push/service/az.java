@@ -52,17 +52,17 @@ public class az {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m551a() {
+    public void m553a() {
         this.f871a = System.currentTimeMillis();
         this.f872a.a(1);
         this.b = 0;
     }
 
     public void a(boolean z) {
-        if (!this.f872a.m518a()) {
+        if (!this.f872a.m520a()) {
             com.xiaomi.channel.commonutils.logger.b.c("should not reconnect as no client or network.");
         } else if (z) {
-            if (!this.f872a.m519a(1)) {
+            if (!this.f872a.m521a(1)) {
                 this.b++;
             }
             this.f872a.a(1);
@@ -70,16 +70,16 @@ public class az {
             XMPushService xMPushService2 = this.f872a;
             xMPushService2.getClass();
             xMPushService.a(new XMPushService.d());
-        } else if (this.f872a.m519a(1)) {
+        } else if (this.f872a.m521a(1)) {
         } else {
             int a = a();
             this.b++;
-            com.xiaomi.channel.commonutils.logger.b.m50a("schedule reconnect in " + a + "ms");
+            com.xiaomi.channel.commonutils.logger.b.m52a("schedule reconnect in " + a + "ms");
             XMPushService xMPushService3 = this.f872a;
             XMPushService xMPushService4 = this.f872a;
             xMPushService4.getClass();
             xMPushService3.a(new XMPushService.d(), a);
-            if (this.b == 2 && he.m330a().m335a()) {
+            if (this.b == 2 && he.m332a().m337a()) {
                 ad.b();
             }
             if (this.b == 3) {

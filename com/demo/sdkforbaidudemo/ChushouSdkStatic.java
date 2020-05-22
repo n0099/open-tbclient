@@ -14,6 +14,8 @@ import com.baidu.tbadk.coreExtra.data.PersonChangeData;
 import com.kascend.cstvsdk.CSTVSdk;
 /* loaded from: classes5.dex */
 public class ChushouSdkStatic {
+    public static String Tag = "tag";
+
     static {
         MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE) { // from class: com.demo.sdkforbaidudemo.ChushouSdkStatic.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -37,14 +39,14 @@ public class ChushouSdkStatic {
                 }
             }
         });
-        ba.aOV().a(new ba.a() { // from class: com.demo.sdkforbaidudemo.ChushouSdkStatic.3
+        ba.aUZ().a(new ba.a() { // from class: com.demo.sdkforbaidudemo.ChushouSdkStatic.3
             @Override // com.baidu.tbadk.core.util.ba.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (strArr == null) {
                     return 3;
                 }
                 if (strArr[0].startsWith("tiebachushou://liveroom") || strArr[0].startsWith("https://chushou.tv") || strArr[0].startsWith("https://vchushou.com")) {
-                    if ((b.aNT().getInt("chushou_game_tab", 1) == 1) && CSTVSdk.INSTANCE != null && !CSTVSdk.INSTANCE.getInitialized()) {
+                    if ((b.aTX().getInt("chushou_game_tab", 1) == 1) && CSTVSdk.INSTANCE != null && !CSTVSdk.INSTANCE.getInitialized()) {
                         ChushouSdkInit.testInit(TbadkCoreApplication.getInst());
                     }
                     if (strArr[0].startsWith("tiebachushou://liveroom")) {

@@ -1,44 +1,44 @@
 package com.baidu.adp.gif;
 /* loaded from: classes.dex */
 public interface a {
-    com.baidu.adp.widget.ImageView.a bm(String str);
+    com.baidu.adp.widget.ImageView.a bn(String str);
 
     com.baidu.adp.widget.ImageView.a f(byte[] bArr, int i, int i2);
 
     /* renamed from: com.baidu.adp.gif.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0016a implements a {
-        private static a HG;
-        private int HH;
-        private final d HI = new d();
+    public static class C0018a implements a {
+        private static a HR;
+        private int HS;
+        private final d HU = new d();
 
-        public C0016a() {
-            this.HH = 0;
-            if (NSGif.HK) {
-                this.HH = 0;
+        public C0018a() {
+            this.HS = 0;
+            if (NSGif.HW) {
+                this.HS = 0;
             } else {
-                this.HH = 1;
+                this.HS = 1;
             }
         }
 
-        public static synchronized a jM() {
+        public static synchronized a jO() {
             a aVar;
-            synchronized (C0016a.class) {
-                if (HG == null) {
-                    HG = new C0016a();
+            synchronized (C0018a.class) {
+                if (HR == null) {
+                    HR = new C0018a();
                 }
-                aVar = HG;
+                aVar = HR;
             }
             return aVar;
         }
 
         @Override // com.baidu.adp.gif.a
-        public com.baidu.adp.widget.ImageView.a bm(String str) {
-            if (this.HH != 0) {
+        public com.baidu.adp.widget.ImageView.a bn(String str) {
+            if (this.HS != 0) {
                 return null;
             }
             try {
-                return this.HI.bm(str);
+                return this.HU.bn(str);
             } catch (Exception e) {
                 return null;
             }
@@ -46,11 +46,11 @@ public interface a {
 
         @Override // com.baidu.adp.gif.a
         public com.baidu.adp.widget.ImageView.a f(byte[] bArr, int i, int i2) {
-            if (this.HH != 0) {
+            if (this.HS != 0) {
                 return null;
             }
             try {
-                return this.HI.f(bArr, i, i2);
+                return this.HU.f(bArr, i, i2);
             } catch (Exception e) {
                 return null;
             }

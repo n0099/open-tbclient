@@ -25,9 +25,10 @@ public abstract class WebSettings implements Observer {
     public static final int MSG_setUrlSecurityCheckEnable = 101;
     public static final int MSG_setUseGifLoadProxy = 105;
     public static final int MSG_setUseImageLoadProxy = 104;
+    private boolean mAdblockEnable;
     public String mWebviewFrameName;
+    private final Object lockObject = new Object();
     public boolean mEnableJsPrompt = true;
-    private boolean mAdblockEnable = false;
 
     /* loaded from: classes11.dex */
     public static class CodeCacheSetting {
@@ -380,48 +381,35 @@ public abstract class WebSettings implements Observer {
 
     public abstract String getStandardFontFamily();
 
-    /* JADX WARN: Code restructure failed: missing block: B:13:0x0029, code lost:
-        if (r3 == null) goto L21;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:14:0x002b, code lost:
-        r2 = r3;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:15:0x002d, code lost:
-        r2 = com.baidu.webkit.sdk.WebSettings.TextSize.NORMAL;
-     */
     @Deprecated
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public synchronized TextSize getTextSize() {
+    public TextSize getTextSize() {
+        int textZoom;
         TextSize textSize;
-        TextSize textSize2;
-        TextSize textSize3 = null;
+        TextSize textSize2 = null;
         int i = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
-        int textZoom = getTextZoom();
+        synchronized (this.lockObject) {
+            textZoom = getTextZoom();
+        }
         TextSize[] values = TextSize.values();
         int length = values.length;
         int i2 = 0;
-        while (true) {
-            if (i2 >= length) {
-                break;
-            }
-            textSize = values[i2];
-            int abs = Math.abs(textZoom - textSize.value);
+        while (i2 < length) {
+            TextSize textSize3 = values[i2];
+            int abs = Math.abs(textZoom - textSize3.value);
             if (abs == 0) {
-                break;
+                return textSize3;
             }
             if (abs < i) {
-                textSize2 = textSize;
+                textSize = textSize3;
             } else {
                 abs = i;
-                textSize2 = textSize3;
+                textSize = textSize2;
             }
             i2++;
-            textSize3 = textSize2;
+            textSize2 = textSize;
             i = abs;
         }
-        return textSize;
+        return textSize2 != null ? textSize2 : TextSize.NORMAL;
     }
 
     public abstract int getTextZoom();
@@ -605,6 +593,9 @@ public abstract class WebSettings implements Observer {
 
     public abstract void setJavaScriptEnabled(boolean z);
 
+    public void setJsCallFullscreenEnable(boolean z) {
+    }
+
     public void setKeywordExtensionEnabled(boolean z) {
     }
 
@@ -627,6 +618,9 @@ public abstract class WebSettings implements Observer {
     }
 
     public void setMagicFilterEnabledExt(boolean z) {
+    }
+
+    public void setMagicFilterInWhiteList(boolean z) {
     }
 
     public void setMagicFilterJsEnabled(boolean z) {
@@ -718,8 +712,10 @@ public abstract class WebSettings implements Observer {
     public abstract void setSupportZoom(boolean z);
 
     @Deprecated
-    public synchronized void setTextSize(TextSize textSize) {
-        setTextZoom(textSize.value);
+    public void setTextSize(TextSize textSize) {
+        synchronized (this.lockObject) {
+            setTextZoom(textSize.value);
+        }
     }
 
     public abstract void setTextZoom(int i);

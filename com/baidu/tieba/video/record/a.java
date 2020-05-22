@@ -11,7 +11,7 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes10.dex */
 public class a {
-    public static boolean uz(boolean z) {
+    public static boolean uX(boolean z) {
         int numberOfCameras = Camera.getNumberOfCameras();
         Camera.CameraInfo[] cameraInfoArr = new Camera.CameraInfo[numberOfCameras];
         for (int i = 0; i < numberOfCameras; i++) {
@@ -33,7 +33,7 @@ public class a {
         return true;
     }
 
-    public static int uA(boolean z) {
+    public static int uY(boolean z) {
         int numberOfCameras = Camera.getNumberOfCameras();
         Camera.CameraInfo[] cameraInfoArr = new Camera.CameraInfo[numberOfCameras];
         for (int i = 0; i < numberOfCameras; i++) {
@@ -67,20 +67,20 @@ public class a {
         return i2;
     }
 
-    public static int j(Activity activity, int i) {
+    public static int i(Activity activity, int i) {
         if (Build.VERSION.SDK_INT <= 8) {
             return 0;
         }
         Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
         Camera.getCameraInfo(i, cameraInfo);
-        int as = as(activity);
+        int ar = ar(activity);
         if (cameraInfo.facing == 1) {
-            return (360 - ((cameraInfo.orientation + as) % 360)) % 360;
+            return (360 - ((cameraInfo.orientation + ar) % 360)) % 360;
         }
-        return ((cameraInfo.orientation - as) + 360) % 360;
+        return ((cameraInfo.orientation - ar) + 360) % 360;
     }
 
-    public static int as(Activity activity) {
+    public static int ar(Activity activity) {
         switch (activity.getWindowManager().getDefaultDisplay().getRotation()) {
             case 0:
             default:
@@ -99,7 +99,7 @@ public class a {
         Camera.Size size;
         boolean z;
         List<Camera.Size> supportedPreviewSizes = camera.getParameters().getSupportedPreviewSizes();
-        Collections.sort(supportedPreviewSizes, new C0687a());
+        Collections.sort(supportedPreviewSizes, new C0740a());
         if (supportedPreviewSizes == null || supportedPreviewSizes.size() <= 0) {
             return null;
         }
@@ -137,8 +137,8 @@ public class a {
 
     /* renamed from: com.baidu.tieba.video.record.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    private static class C0687a implements Comparator<Camera.Size> {
-        private C0687a() {
+    private static class C0740a implements Comparator<Camera.Size> {
+        private C0740a() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */

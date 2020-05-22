@@ -4,7 +4,6 @@ import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.webkit.internal.CfgFileUtils;
-import com.baidu.webkit.internal.ConectivityUtils;
 import com.baidu.webkit.internal.ETAG;
 import com.baidu.webkit.internal.INoProGuard;
 import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
@@ -12,27 +11,27 @@ import com.baidu.webkit.net.BdNet;
 import com.baidu.webkit.net.BdNetTask;
 import com.baidu.webkit.net.INetListener;
 import com.baidu.webkit.sdk.Log;
-import com.baidu.webkit.sdk.WebKitFactory;
 import java.io.ByteArrayOutputStream;
-import java.util.Iterator;
-import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class HttpDnsCache implements INoProGuard, INetListener {
+    private static final String BACKUP_IP = "{\"area\": \"idc.ct\",   \"backup\": {    \"m.baidu.com\": {      \"ip\": [        \"220.181.38.130\",       \"220.181.38.129\"        ]    },    \"mbd.baidu.com\": {      \"ip\": [       \"180.149.145.177\",         \"112.34.111.104\",        \"111.206.37.66\",        \"180.97.104.214\",        \"117.185.17.20\",        \"112.80.248.204\",       \"14.215.177.166\",        \"183.232.231.184\",        \"163.177.151.106\"       ]    }  },   \"msg\": \"ok\",   \"ttl\": 300,  \"version\": \"v.01\"}";
     private static final String JSON_KEY_DATA = "data";
+    private static final String JSON_KEY_EXTINFO = "ext-info";
     private static final String JSON_KEY_IP = "ip";
+    private static final String JSON_KEY_IPV6 = "ipv6";
+    private static final String JSON_KEY_IPV6_GROUP = "ipv6-group";
     private static final String JSON_KEY_MSG = "msg";
     private static final String LOG_TAG = "HttpDnsCache";
     private static final String MSG_ERR = "error";
-    private static final String SERVER_LABEL = "?label=browser";
-    private static final String SERVER_STATIC_URL = "https://httpsdns.baidu.com/?label=browser";
-    private static final String SERVER_URL = "https://180.76.76.112/?label=browser";
-    private static boolean mRestore = false;
-    public ByteArrayOutputStream mData;
-
-    public HttpDnsCache() {
-        this.mData = null;
-        this.mData = null;
-    }
+    private static final String SERVER_BACKUP_IP = "&backup=v.00";
+    private static final String SERVER_LABEL = "?label=browser&type=ipv4&group=ipv6_11_16";
+    private static final String SERVER_STATIC_URL = "https://httpsdns.baidu.com/v6/0010/?label=browser&type=ipv4&group=ipv6_11_16";
+    private static final String SERVER_URL = "https://180.76.76.112/v6/0010/?label=browser&type=ipv4&group=ipv6_11_16";
+    private static String mBackupIpVersion = "v.00";
+    private static boolean mRestore;
+    public ByteArrayOutputStream mData = null;
+    private String mIpv4Data;
+    private String mIpv6Data;
 
     private void addRawLogItem(StringBuilder sb, String str, long j) {
         if (sb.length() > 0) {
@@ -85,57 +84,38 @@ public class HttpDnsCache implements INoProGuard, INetListener {
         } else {
             Log.w(LOG_TAG, "urlNative==null ");
         }
-        String transHttpsUrl = transHttpsUrl(str);
-        Log.d("cronet", "http_dns cloud url " + transHttpsUrl);
-        return transHttpsUrl;
+        if (!TextUtils.isEmpty(mBackupIpVersion)) {
+            str = (str + "&backup=") + mBackupIpVersion;
+        }
+        Log.d("cronet", "http_dns cloud url " + str);
+        return str;
     }
 
     private static String getUrlStaticIP() {
-        String transHttpsUrl = transHttpsUrl(SERVER_STATIC_URL);
-        Log.d("cronet", "http_dns cloud url static ip " + transHttpsUrl);
-        return transHttpsUrl;
-    }
-
-    private String parseData(String str) {
-        JSONObject jSONObject;
-        String string;
-        try {
-            JSONObject jSONObject2 = new JSONObject(str);
-            if (jSONObject2.has("msg") && !jSONObject2.getString("msg").equals("error") && jSONObject2.has("data")) {
-                JSONObject jSONObject3 = jSONObject2.getJSONObject("data");
-                JSONObject jSONObject4 = new JSONObject();
-                Iterator<String> keys = jSONObject3.keys();
-                while (keys.hasNext()) {
-                    String obj = keys.next().toString();
-                    if (obj != null) {
-                        try {
-                            if (jSONObject3.has(obj) && (jSONObject = jSONObject3.getJSONObject(obj)) != null && (string = jSONObject.getString("ip")) != null) {
-                                jSONObject4.put(obj.toLowerCase(), string);
-                            }
-                        } catch (Exception e) {
-                            Log.w(LOG_TAG, e.toString());
-                        }
-                    }
-                }
-                return jSONObject4.toString();
-            }
-            return null;
-        } catch (Exception e2) {
-            Log.w(LOG_TAG, e2.toString());
-            return null;
+        String str = SERVER_STATIC_URL;
+        if (!TextUtils.isEmpty(mBackupIpVersion)) {
+            str = (SERVER_STATIC_URL + "&backup=") + mBackupIpVersion;
         }
+        Log.d("cronet", "http_dns cloud url static ip " + str);
+        return str;
     }
 
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:15:0x0043 -> B:18:0x0022). Please submit an issue!!! */
     public static void restoreLastCacheFromCfg() {
+        if (WebSettingsGlobalBlink.GetCloudSettingsValue("http_dns_persist_v1") != null && WebSettingsGlobalBlink.GetCloudSettingsValue("http_dns_persist_v1").equals("false")) {
+            Log.i(LOG_TAG, "restoreLastCacheFromCfg http_dns_persist false");
+            return;
+        }
         try {
-            if (mRestore) {
-                return;
-            }
-            mRestore = true;
-            Log.w(LOG_TAG, "restoreLastCacheFromCfg ok  ");
-            String str = CfgFileUtils.get(CfgFileUtils.KEY_HTTP_DNS_CACHE, (String) null);
-            if (str != null) {
-                WebSettingsGlobalBlink.setHttpDnsCache(str);
+            if (!mRestore) {
+                mRestore = true;
+                Log.w(LOG_TAG, "restoreLastCacheFromCfg ok  ");
+                String str = CfgFileUtils.get(CfgFileUtils.KEY_HTTP_DNS_CACHE, (String) null);
+                if (str != null) {
+                    WebSettingsGlobalBlink.setHttpDnsCache(str, 1);
+                } else {
+                    WebSettingsGlobalBlink.setHttpDnsCache(BACKUP_IP, 1);
+                }
             }
         } catch (Throwable th) {
             com.a.a.a.a.a.a.a.a(th);
@@ -165,13 +145,17 @@ public class HttpDnsCache implements INoProGuard, INetListener {
     }
 
     public static void tryToUpdateHttpDnsCache(Context context) {
-        if (WebSettingsGlobalBlink.getNativeHttpdnsEnabled()) {
+        if (WebSettingsGlobalBlink.GetCloudSettingsValue(ETAG.KEY_HTTP_DNS_ENABLE) != null && WebSettingsGlobalBlink.GetCloudSettingsValue(ETAG.KEY_HTTP_DNS_ENABLE).equals("false")) {
+            Log.i(LOG_TAG, "tryToUpdateHttpDnsCache http_dns false");
+        } else if (WebSettingsGlobalBlink.getNativeHttpdnsEnabled()) {
             Log.i(LOG_TAG, "getNativeHttpdnsEnabled enabled");
         } else if (WebSettingsGlobalBlink.isSFSwitchEnabled()) {
             Log.i(LOG_TAG, "tryToUpdateHttpDnsCache festival return");
         } else {
+            Log.i(LOG_TAG, "tryToUpdateHttpDnsCache");
             restoreLastCacheFromCfg();
-            if (ConectivityUtils.getNetType(context).equals("unknown")) {
+            if (WebSettingsGlobalBlink.GetCloudSettingsValue("block_http_dns") != null && WebSettingsGlobalBlink.GetCloudSettingsValue("block_http_dns").equals("true")) {
+                Log.i(LOG_TAG, "block_http_dns1");
                 return;
             }
             try {
@@ -187,32 +171,18 @@ public class HttpDnsCache implements INoProGuard, INetListener {
         }
     }
 
-    public static void tryToUpdateHttpDnsCache(String str) {
-        if (str == null || ConectivityUtils.getNetType(WebKitFactory.getContext()).equals("unknown")) {
-            return;
-        }
-        try {
-            BdNet bdNet = new BdNet(WebKitFactory.getContext());
-            HttpDnsCacheForHost httpDnsCacheForHost = new HttpDnsCacheForHost();
-            httpDnsCacheForHost.setHttpDnsCacheHost(str);
-            bdNet.setEventListener(httpDnsCacheForHost);
-            BdNetTask bdNetTask = new BdNetTask();
-            bdNetTask.setNet(bdNet);
-            bdNetTask.setUrl(httpDnsCacheForHost.getUrl(WebKitFactory.getContext()));
-            bdNet.start(bdNetTask, true);
-        } catch (Exception e) {
-            com.a.a.a.a.a.a.a.a(e);
-        }
-    }
-
     public static void tryToUpdateHttpDnsCacheStaticIP(Context context) {
-        if (WebSettingsGlobalBlink.getNativeHttpdnsEnabled()) {
+        if (WebSettingsGlobalBlink.GetCloudSettingsValue(ETAG.KEY_HTTP_DNS_ENABLE) != null && WebSettingsGlobalBlink.GetCloudSettingsValue(ETAG.KEY_HTTP_DNS_ENABLE).equals("false")) {
+            Log.i(LOG_TAG, "tryToUpdateHttpDnsCacheStaticIP http_dns false");
+        } else if (WebSettingsGlobalBlink.getNativeHttpdnsEnabled()) {
             Log.i(LOG_TAG, "getNativeHttpdnsEnabled enabled1");
         } else if (WebSettingsGlobalBlink.isSFSwitchEnabled()) {
             Log.i(LOG_TAG, "tryToUpdateHttpDnsCacheStaticIP festival return");
         } else {
             restoreLastCacheFromCfg();
-            if (ConectivityUtils.getNetType(context).equals("unknown")) {
+            Log.i(LOG_TAG, "tryToUpdateHttpDnsCacheStaticIP");
+            if (WebSettingsGlobalBlink.GetCloudSettingsValue("block_http_dns") != null && WebSettingsGlobalBlink.GetCloudSettingsValue("block_http_dns").equals("true")) {
+                Log.i(LOG_TAG, "block_http_dns2");
                 return;
             }
             try {
@@ -273,7 +243,10 @@ public class HttpDnsCache implements INoProGuard, INetListener {
         Log.w(LOG_TAG, "onNetDownloadComplete " + byteArray.length);
         Log.w(LOG_TAG, "onNetDownloadComplete url " + bdNetTask.getUrl());
         try {
-            WebSettingsGlobalBlink.setHttpDnsCache(parseData(new String(byteArray, "utf-8")));
+            String str = new String(byteArray, "utf-8");
+            if (!TextUtils.isEmpty(str)) {
+                WebSettingsGlobalBlink.setHttpDnsCache(str, 2);
+            }
             String httpDnsCache = WebSettingsGlobalBlink.getHttpDnsCache();
             if (TextUtils.isEmpty(httpDnsCache)) {
                 return;

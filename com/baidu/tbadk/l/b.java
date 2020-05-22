@@ -6,35 +6,35 @@ import com.baidu.tbadk.core.util.v;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class b {
-    private String edb;
-    private final ArrayList<String> edc = new ArrayList<>();
+    private String ern;
+    private final ArrayList<String> ero = new ArrayList<>();
     private BdUniqueId mId;
 
     public b(BdUniqueId bdUniqueId, String str, Intent intent) {
         this.mId = bdUniqueId;
-        this.edb = str;
-        J(intent);
+        this.ern = str;
+        G(intent);
     }
 
-    public void J(Intent intent) {
-        this.edc.clear();
+    public void G(Intent intent) {
+        this.ero.clear();
         if (intent != null) {
             ArrayList<String> stringArrayListExtra = intent.getStringArrayListExtra("tb_page_extar_source_list");
             if (!v.isEmpty(stringArrayListExtra)) {
-                this.edc.addAll(stringArrayListExtra);
+                this.ero.addAll(stringArrayListExtra);
             }
         }
     }
 
     public String getCurrentPageKey() {
-        return this.edb;
+        return this.ern;
     }
 
-    public ArrayList<String> aZd() {
-        return this.edc;
+    public ArrayList<String> bfn() {
+        return this.ero;
     }
 
-    public ArrayList<String> aZe() {
-        return c.d(this.edc, this.edb);
+    public ArrayList<String> bfo() {
+        return c.d(this.ero, this.ern);
     }
 }

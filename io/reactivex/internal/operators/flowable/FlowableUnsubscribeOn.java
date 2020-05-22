@@ -15,7 +15,7 @@ public final class FlowableUnsubscribeOn<T> extends a<T, T> {
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        this.mRM.a((j) new UnsubscribeSubscriber(cVar, this.scheduler));
+        this.nmU.a((j) new UnsubscribeSubscriber(cVar, this.scheduler));
     }
 
     /* loaded from: classes7.dex */
@@ -69,7 +69,7 @@ public final class FlowableUnsubscribeOn<T> extends a<T, T> {
         @Override // org.a.d
         public void cancel() {
             if (compareAndSet(false, true)) {
-                this.scheduler.H(new a());
+                this.scheduler.J(new a());
             }
         }
 

@@ -15,24 +15,24 @@ public final class FlowableCombineLatest<T, R> extends io.reactivex.g<R> {
     final int bufferSize;
     final h<? super Object[], ? extends R> combiner;
     final boolean delayErrors;
-    final org.a.b<? extends T>[] mRW;
-    final Iterable<? extends org.a.b<? extends T>> mRX;
+    final org.a.b<? extends T>[] nne;
+    final Iterable<? extends org.a.b<? extends T>> nnf;
 
     @Override // io.reactivex.g
     public void a(org.a.c<? super R> cVar) {
         int length;
         org.a.b<? extends T>[] bVarArr;
         org.a.b<? extends T>[] bVarArr2;
-        org.a.b<? extends T>[] bVarArr3 = this.mRW;
+        org.a.b<? extends T>[] bVarArr3 = this.nne;
         if (bVarArr3 == null) {
             org.a.b<? extends T>[] bVarArr4 = new org.a.b[8];
             try {
-                Iterator it = (Iterator) io.reactivex.internal.functions.a.h(this.mRX.iterator(), "The iterator returned is null");
+                Iterator it = (Iterator) io.reactivex.internal.functions.a.k(this.nnf.iterator(), "The iterator returned is null");
                 int i = 0;
                 while (it.hasNext()) {
                     try {
                         try {
-                            org.a.b<? extends T> bVar = (org.a.b) io.reactivex.internal.functions.a.h(it.next(), "The publisher returned by the iterator is null");
+                            org.a.b<? extends T> bVar = (org.a.b) io.reactivex.internal.functions.a.k(it.next(), "The publisher returned by the iterator is null");
                             if (i == bVarArr4.length) {
                                 bVarArr2 = new org.a.b[(i >> 2) + i];
                                 System.arraycopy(bVarArr4, 0, bVarArr2, 0, i);
@@ -232,7 +232,7 @@ public final class FlowableCombineLatest<T, R> extends io.reactivex.g<R> {
                             break;
                         }
                         try {
-                            cVar.onNext((Object) io.reactivex.internal.functions.a.h(this.combiner.apply((Object[]) aVar.poll()), "The combiner returned a null value"));
+                            cVar.onNext((Object) io.reactivex.internal.functions.a.k(this.combiner.apply((Object[]) aVar.poll()), "The combiner returned a null value"));
                             ((CombineLatestInnerSubscriber) poll).requestOne();
                             j2 = 1 + j2;
                         } catch (Throwable th) {
@@ -328,7 +328,7 @@ public final class FlowableCombineLatest<T, R> extends io.reactivex.g<R> {
             if (poll == null) {
                 return null;
             }
-            R r = (R) io.reactivex.internal.functions.a.h(this.combiner.apply((Object[]) this.queue.poll()), "The combiner returned a null value");
+            R r = (R) io.reactivex.internal.functions.a.k(this.combiner.apply((Object[]) this.queue.poll()), "The combiner returned a null value");
             ((CombineLatestInnerSubscriber) poll).requestOne();
             return r;
         }

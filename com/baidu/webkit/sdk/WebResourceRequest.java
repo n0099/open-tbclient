@@ -13,4 +13,6 @@ public interface WebResourceRequest {
     boolean hasGesture();
 
     boolean isForMainFrame();
+
+    boolean isRedirect();
 }

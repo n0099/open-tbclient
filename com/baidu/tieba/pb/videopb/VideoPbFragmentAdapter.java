@@ -12,31 +12,31 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes9.dex */
 public class VideoPbFragmentAdapter extends FragmentPagerAdapter {
-    private List<String> jKZ;
+    private List<String> kcL;
     private ArrayList<BaseFragment> mFragments;
 
     public VideoPbFragmentAdapter(FragmentManager fragmentManager, VideoPbFragment videoPbFragment) {
         super(fragmentManager);
-        if (this.jKZ == null) {
-            this.jKZ = new ArrayList();
+        if (this.kcL == null) {
+            this.kcL = new ArrayList();
         }
-        this.jKZ.clear();
-        this.jKZ.add(TbadkCoreApplication.getInst().getString(R.string.pb_video_detail_info));
-        this.jKZ.add(TbadkCoreApplication.getInst().getString(R.string.pb_video_reply));
+        this.kcL.clear();
+        this.kcL.add(TbadkCoreApplication.getInst().getString(R.string.pb_video_detail_info));
+        this.kcL.add(TbadkCoreApplication.getInst().getString(R.string.pb_video_reply));
         if (this.mFragments == null) {
             this.mFragments = new ArrayList<>();
         }
         this.mFragments.clear();
-        this.mFragments.add(DetailInfoFragment.ab(videoPbFragment));
-        this.mFragments.add(ReplyFragment.ac(videoPbFragment));
+        this.mFragments.add(DetailInfoFragment.aa(videoPbFragment));
+        this.mFragments.add(ReplyFragment.ab(videoPbFragment));
     }
 
     @Override // android.support.v4.app.FragmentPagerAdapter
     public Fragment getItem(int i) {
-        return Af(i);
+        return AQ(i);
     }
 
-    public BaseFragment Af(int i) {
+    public BaseFragment AQ(int i) {
         if (this.mFragments == null || i >= this.mFragments.size()) {
             return null;
         }
@@ -53,17 +53,17 @@ public class VideoPbFragmentAdapter extends FragmentPagerAdapter {
 
     @Override // android.support.v4.view.PagerAdapter
     public CharSequence getPageTitle(int i) {
-        if (this.jKZ == null || i < 0 || i >= this.jKZ.size()) {
+        if (this.kcL == null || i < 0 || i >= this.kcL.size()) {
             return null;
         }
-        return this.jKZ.get(i);
+        return this.kcL.get(i);
     }
 
-    public ArrayList<BaseFragment> cEd() {
+    public ArrayList<BaseFragment> cLa() {
         return this.mFragments;
     }
 
-    public void Ag(int i) {
+    public void AR(int i) {
         if (this.mFragments != null) {
             int i2 = 0;
             while (i2 < this.mFragments.size()) {

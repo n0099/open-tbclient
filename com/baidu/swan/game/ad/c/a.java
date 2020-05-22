@@ -3,7 +3,7 @@ package com.baidu.swan.game.ad.c;
 import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.searchbox.http.callback.ResponseCallback;
-import com.baidu.swan.apps.as.ai;
+import com.baidu.swan.apps.aq.aj;
 import com.baidu.swan.apps.network.SwanAppNetworkUtils;
 import com.baidu.swan.game.ad.a.a;
 import com.baidu.swan.game.ad.entity.AdElementInfo;
@@ -11,7 +11,7 @@ import com.baidu.swan.game.ad.entity.AdResponseInfo;
 import okhttp3.Response;
 /* loaded from: classes11.dex */
 public class a {
-    private a.InterfaceC0378a cGN;
+    private a.InterfaceC0418a cQX;
     private Context mContext;
 
     public a(Context context) {
@@ -23,7 +23,7 @@ public class a {
             ResponseCallback<AdResponseInfo> responseCallback = new ResponseCallback<AdResponseInfo>() { // from class: com.baidu.swan.game.ad.c.a.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.searchbox.http.callback.ResponseCallback
-                /* renamed from: c */
+                /* renamed from: b */
                 public AdResponseInfo parseResponse(Response response, int i) {
                     if (response == null || response.body() == null || !response.isSuccessful()) {
                         return null;
@@ -46,14 +46,14 @@ public class a {
                 /* renamed from: a */
                 public void onSuccess(AdResponseInfo adResponseInfo, int i) {
                     if (adResponseInfo == null) {
-                        a.this.pb("200000");
+                        a.this.qz("200000");
                     } else if (adResponseInfo.getAdInstanceList().size() > 0) {
-                        final AdElementInfo asE = adResponseInfo.asE();
-                        ai.runOnUiThread(new Runnable() { // from class: com.baidu.swan.game.ad.c.a.1.1
+                        final AdElementInfo awl = adResponseInfo.awl();
+                        aj.runOnUiThread(new Runnable() { // from class: com.baidu.swan.game.ad.c.a.1.1
                             @Override // java.lang.Runnable
                             public void run() {
-                                if (a.this.cGN != null) {
-                                    a.this.cGN.b(asE);
+                                if (a.this.cQX != null) {
+                                    a.this.cQX.b(awl);
                                 }
                             }
                         });
@@ -62,38 +62,38 @@ public class a {
                         if (errorCode.equals("0")) {
                             errorCode = "201000";
                         }
-                        a.this.pb(errorCode);
+                        a.this.qz(errorCode);
                     }
                 }
 
                 @Override // com.baidu.searchbox.http.callback.ResponseCallback
                 public void onFail(Exception exc) {
-                    a.this.pb("3010002");
+                    a.this.qz("3010002");
                 }
             };
             if (SwanAppNetworkUtils.isNetworkConnected(this.mContext)) {
-                String asP = dVar.asP();
+                String aww = dVar.aww();
                 if (bVar != null) {
-                    bVar.a(asP, responseCallback);
+                    bVar.a(aww, responseCallback);
                     return;
                 }
                 return;
             }
-            pb("3010003");
+            qz("3010003");
         }
     }
 
-    public void a(a.InterfaceC0378a interfaceC0378a) {
-        this.cGN = interfaceC0378a;
+    public void a(a.InterfaceC0418a interfaceC0418a) {
+        this.cQX = interfaceC0418a;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void pb(final String str) {
-        ai.runOnUiThread(new Runnable() { // from class: com.baidu.swan.game.ad.c.a.2
+    public void qz(final String str) {
+        aj.runOnUiThread(new Runnable() { // from class: com.baidu.swan.game.ad.c.a.2
             @Override // java.lang.Runnable
             public void run() {
-                if (a.this.cGN != null) {
-                    a.this.cGN.oW(str);
+                if (a.this.cQX != null) {
+                    a.this.cQX.qu(str);
                 }
             }
         });

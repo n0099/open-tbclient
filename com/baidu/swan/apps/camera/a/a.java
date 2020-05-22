@@ -4,14 +4,14 @@ import android.text.TextUtils;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.scheme.actions.ab;
+import com.baidu.swan.apps.scheme.actions.aa;
 import com.baidu.swan.apps.scheme.j;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
-abstract class a extends ab {
+abstract class a extends aa {
     protected abstract com.baidu.swan.apps.component.b.b c(UnitedSchemeEntity unitedSchemeEntity);
 
     /* JADX INFO: Access modifiers changed from: package-private */

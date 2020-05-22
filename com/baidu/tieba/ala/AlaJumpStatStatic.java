@@ -13,27 +13,29 @@ import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
 import com.baidu.tbadk.n.n;
 /* loaded from: classes.dex */
 public class AlaJumpStatStatic {
+    public static String Tag = "tag";
+
     static {
-        MessageManager.getInstance().addMessageRule(new com.baidu.adp.framework.a.b(CmdConfigCustom.CMD_ALA_LIVE_ROOM_START) { // from class: com.baidu.tieba.ala.AlaJumpStatStatic.1
+        MessageManager.getInstance().addMessageRule(new com.baidu.adp.framework.b.b(CmdConfigCustom.CMD_ALA_LIVE_ROOM_START) { // from class: com.baidu.tieba.ala.AlaJumpStatStatic.1
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.framework.a.f
+            @Override // com.baidu.adp.framework.b.f
             public CustomMessage<?> process(CustomMessage<?> customMessage, CustomMessageTask customMessageTask) {
                 Object data;
                 if (customMessage != null && customMessageTask == null && (data = customMessage.getData()) != null) {
-                    AlaJumpStatStatic.e(data, data.getClass().getSimpleName());
+                    AlaJumpStatStatic.h(data, data.getClass().getSimpleName());
                 }
                 return customMessage;
             }
         });
-        MessageManager.getInstance().addMessageRule(new com.baidu.adp.framework.a.b(CmdConfigCustom.START_GO_ACTION) { // from class: com.baidu.tieba.ala.AlaJumpStatStatic.2
+        MessageManager.getInstance().addMessageRule(new com.baidu.adp.framework.b.b(CmdConfigCustom.START_GO_ACTION) { // from class: com.baidu.tieba.ala.AlaJumpStatStatic.2
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.framework.a.f
+            @Override // com.baidu.adp.framework.b.f
             public CustomMessage<?> process(CustomMessage<?> customMessage, CustomMessageTask customMessageTask) {
                 Object data;
                 if (customMessage != null && (data = customMessage.getData()) != null) {
                     String simpleName = data.getClass().getSimpleName();
                     if (("AlaLiveRoomActivityConfig".equals(simpleName) || "AlaMasterLiveRoomActivityConfig".equals(simpleName) || "AlaWriteShareInBarActivityConfig".equals(simpleName) || "AlaLiveFloatWindowActivityConfig".equals(simpleName) || "AlaPersonCenterActivityConfig".equals(simpleName)) && TbadkCoreApplication.getInst().getIntentClass(data.getClass()) == null) {
-                        AlaJumpStatStatic.e(data, simpleName);
+                        AlaJumpStatStatic.h(data, simpleName);
                     }
                 }
                 return customMessage;
@@ -42,11 +44,11 @@ public class AlaJumpStatStatic {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final void e(Object obj, String str) {
+    public static final void h(Object obj, String str) {
         com.baidu.adp.lib.stats.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
         statsItem.append("workflow", "ala_jump_fail");
         statsItem.append("config", str);
-        statsItem.append("startTime", Long.valueOf(System.currentTimeMillis() - n.aZD().aZC()));
+        statsItem.append("startTime", Long.valueOf(System.currentTimeMillis() - n.bfN().bfM()));
         if (obj instanceof AlaLiveRoomActivityConfig) {
             AlaLiveRoomActivityConfig alaLiveRoomActivityConfig = (AlaLiveRoomActivityConfig) obj;
             statsItem.append("fromType", alaLiveRoomActivityConfig.getIntent().getStringExtra("live_from_type"));

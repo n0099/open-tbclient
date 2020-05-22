@@ -8,42 +8,42 @@ import com.baidu.ar.arplay.core.engine.ARPScriptEnvironment;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 /* loaded from: classes.dex */
 public class a {
-    private String Mb;
-    protected String Mq;
-    protected String Mt;
-    protected j Mv;
-    private StringBuffer Mc = new StringBuffer();
-    private StringBuffer Me = new StringBuffer();
-    private StringBuffer Mf = new StringBuffer();
-    private int Mg = 0;
-    private int Mh = 0;
-    private int Mi = 0;
-    private long LN = 0;
-    private long Mj = 0;
-    private long Mk = 0;
-    protected long Ml = 0;
-    private long Mm = 0;
-    private long Mn = 0;
-    private long Mo = 0;
-    protected int Mp = 50;
-    protected final String Mr = BdStatsConstant.StatsFile.LOG_FILE_SUFFIX;
+    protected String MD;
+    protected j MF;
+    private String Ml;
+    protected String Mz;
+    private StringBuffer Mm = new StringBuffer();
+    private StringBuffer Mn = new StringBuffer();
+    private StringBuffer Mo = new StringBuffer();
+    private int Mp = 0;
+    private int Mq = 0;
+    private int Mr = 0;
+    private long LZ = 0;
+    private long Ms = 0;
+    private long Mt = 0;
+    protected long Mu = 0;
+    private long Mv = 0;
+    private long Mw = 0;
+    private long Mx = 0;
+    protected int My = 50;
+    protected final String MA = BdStatsConstant.StatsFile.LOG_FILE_SUFFIX;
     protected boolean mUseSdCard = false;
-    protected boolean Ms = false;
+    protected boolean MC = false;
     protected boolean mMustSuccess = false;
     private boolean isUploading = false;
-    private boolean Mu = false;
+    private boolean ME = false;
 
     public a(j jVar) {
-        this.Mv = jVar;
+        this.MF = jVar;
     }
 
     public synchronized void a(com.baidu.adp.lib.stats.a aVar) {
         if (aVar != null) {
             try {
                 try {
-                    this.Mc.append(aVar.toString());
-                    this.Mc.append("\r\n");
-                    this.Mg++;
+                    this.Mm.append(aVar.toString());
+                    this.Mm.append("\r\n");
+                    this.Mp++;
                 } catch (Exception e) {
                     BdLog.e(e);
                 }
@@ -51,19 +51,19 @@ public class a {
                 e2.printStackTrace();
             }
         }
-        if (this.Mv != null) {
-            this.Mv.o(this);
+        if (this.MF != null) {
+            this.MF.o(this);
         }
-        this.LN = System.currentTimeMillis();
+        this.LZ = System.currentTimeMillis();
     }
 
     public synchronized void b(com.baidu.adp.lib.stats.a aVar) {
         if (aVar != null) {
             try {
                 try {
-                    this.Me.append(aVar.toString());
-                    this.Me.append("\r\n");
-                    this.Mh++;
+                    this.Mn.append(aVar.toString());
+                    this.Mn.append("\r\n");
+                    this.Mq++;
                 } catch (Exception e) {
                     BdLog.e(e);
                 }
@@ -71,19 +71,19 @@ public class a {
                 e2.printStackTrace();
             }
         }
-        if (this.Mv != null) {
-            this.Mv.o(this);
+        if (this.MF != null) {
+            this.MF.o(this);
         }
-        this.Mj = System.currentTimeMillis();
+        this.Ms = System.currentTimeMillis();
     }
 
     public synchronized void c(com.baidu.adp.lib.stats.a aVar) {
         if (aVar != null) {
             try {
-                if (aVar.le() != null) {
-                    this.Mf.append(aVar.le().lr().toString());
-                    this.Mf.append("\r\n");
-                    this.Mi++;
+                if (aVar.lg() != null) {
+                    this.Mo.append(aVar.lg().lt().toString());
+                    this.Mo.append("\r\n");
+                    this.Mr++;
                 }
             } catch (Exception e) {
                 BdLog.e(e);
@@ -91,59 +91,59 @@ public class a {
                 e2.printStackTrace();
             }
         }
-        if (this.Mv != null) {
-            this.Mv.o(this);
+        if (this.MF != null) {
+            this.MF.o(this);
         }
-        this.Mk = System.currentTimeMillis();
-    }
-
-    public int lt() {
-        return this.Mg;
-    }
-
-    public int lu() {
-        return this.Mh;
+        this.Mt = System.currentTimeMillis();
     }
 
     public int lv() {
-        return this.Mi;
+        return this.Mp;
     }
 
-    public long lw() {
-        return this.Ml;
+    public int lw() {
+        return this.Mq;
     }
 
-    public void J(long j) {
-        this.Ml = j;
-    }
-
-    public long lx() {
-        return this.LN;
+    public int lx() {
+        return this.Mr;
     }
 
     public long ly() {
-        return this.Mj;
+        return this.Mu;
+    }
+
+    public void J(long j) {
+        this.Mu = j;
     }
 
     public long lz() {
-        return this.Mk;
+        return this.LZ;
     }
 
-    public String lA() {
-        if (TextUtils.isEmpty(this.Mt)) {
-            StringBuilder sb = new StringBuilder(30);
-            sb.append(this.Mq);
-            sb.append(BdStatisticsManager.getInstance().getProcessName());
-            sb.append("Writing");
-            sb.append(BdStatsConstant.StatsFile.LOG_FILE_SUFFIX);
-            this.Mt = sb.toString();
-        }
+    public long lA() {
+        return this.Ms;
+    }
+
+    public long lB() {
         return this.Mt;
     }
 
-    public String lB() {
+    public String lC() {
+        if (TextUtils.isEmpty(this.MD)) {
+            StringBuilder sb = new StringBuilder(30);
+            sb.append(this.Mz);
+            sb.append(BdStatisticsManager.getInstance().getProcessName());
+            sb.append("Writing");
+            sb.append(BdStatsConstant.StatsFile.LOG_FILE_SUFFIX);
+            this.MD = sb.toString();
+        }
+        return this.MD;
+    }
+
+    public String lD() {
         StringBuilder sb = new StringBuilder(40);
-        sb.append(this.Mq);
+        sb.append(this.Mz);
         sb.append(System.currentTimeMillis());
         sb.append(BdStatisticsManager.getInstance().getProcessName());
         sb.append("Uploading");
@@ -151,111 +151,111 @@ public class a {
         return sb.toString();
     }
 
-    public long lC() {
-        return this.Mm;
-    }
-
-    public long lD() {
-        return this.Mn;
-    }
-
     public long lE() {
-        return this.Mo;
+        return this.Mv;
+    }
+
+    public long lF() {
+        return this.Mw;
+    }
+
+    public long lG() {
+        return this.Mx;
     }
 
     public void K(long j) {
-        this.Mm = j;
+        this.Mv = j;
     }
 
     public void L(long j) {
-        this.Mn = j;
+        this.Mw = j;
     }
 
     public void M(long j) {
-        this.Mo = j;
-    }
-
-    public synchronized void lF() {
-        this.Mc = new StringBuffer();
-        this.Mg = 0;
-        this.Mm = 0L;
-    }
-
-    public synchronized void lG() {
-        this.Me = new StringBuffer();
-        this.Mh = 0;
-        this.Mn = 0L;
+        this.Mx = j;
     }
 
     public synchronized void lH() {
-        this.Mf = new StringBuffer();
-        this.Mi = 0;
-        this.Mo = 0L;
+        this.Mm = new StringBuffer();
+        this.Mp = 0;
+        this.Mv = 0L;
     }
 
-    public void bU(String str) {
+    public synchronized void lI() {
+        this.Mn = new StringBuffer();
+        this.Mq = 0;
+        this.Mw = 0L;
+    }
+
+    public synchronized void lJ() {
+        this.Mo = new StringBuffer();
+        this.Mr = 0;
+        this.Mx = 0L;
+    }
+
+    public void bV(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.Mb = str;
+            this.Ml = str;
         }
     }
 
-    public String lI() {
-        return this.Mb;
+    public String lK() {
+        return this.Ml;
     }
 
-    public boolean lJ() {
+    public boolean lL() {
         return this.isUploading;
     }
 
-    public void an(boolean z) {
+    public void ap(boolean z) {
         this.isUploading = z;
     }
 
-    public boolean lK() {
-        return this.Mu;
+    public boolean lM() {
+        return this.ME;
     }
 
-    public void ao(boolean z) {
-        this.Mu = z;
+    public void aq(boolean z) {
+        this.ME = z;
     }
 
-    public String lL() {
+    public String lN() {
         return BdStatsConstant.FILE_OMP;
     }
 
-    public String lM() {
+    public String lO() {
         return ARPScriptEnvironment.KEY_DATA_PIP_TRACK;
     }
 
-    public StringBuffer lN() {
-        return this.Mc;
-    }
-
-    public StringBuffer lO() {
-        return this.Me;
-    }
-
     public StringBuffer lP() {
-        return this.Mf;
+        return this.Mm;
     }
 
-    public boolean lQ() {
-        return this.mUseSdCard;
+    public StringBuffer lQ() {
+        return this.Mn;
     }
 
-    public boolean lR() {
-        return this.Ms;
+    public StringBuffer lR() {
+        return this.Mo;
     }
 
     public boolean lS() {
+        return this.mUseSdCard;
+    }
+
+    public boolean lT() {
+        return this.MC;
+    }
+
+    public boolean lU() {
         return this.mMustSuccess;
     }
 
-    public String lT() {
-        return this.Mq;
+    public String lV() {
+        return this.Mz;
     }
 
-    public static String bV(String str) {
+    public static String bW(String str) {
         if ("net".equals(str) || "op".equals(str) || "crash".equals(str) || "msg".equals(str)) {
             return BdStatsConstant.StatsType.ERROR;
         }

@@ -6,20 +6,20 @@ import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.swan.apps.runtime.e;
-import com.baidu.swan.apps.scheme.actions.ab;
+import com.baidu.swan.apps.scheme.actions.aa;
 import com.baidu.swan.apps.scheme.j;
-import com.baidu.swan.apps.y.f;
+import com.baidu.swan.apps.w.f;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
-public class c extends ab {
-    private a bJp;
+public class c extends aa {
+    private a bSi;
 
     public c(j jVar) {
         super(jVar, "/swanAPI/perfCat");
     }
 
-    @Override // com.baidu.swan.apps.scheme.actions.ab
+    @Override // com.baidu.swan.apps.scheme.actions.aa
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, e eVar) {
         if (DEBUG) {
             Log.d("SwanAppPropertyLogAction", "handle entity: " + unitedSchemeEntity.toString());
@@ -28,8 +28,8 @@ public class c extends ab {
         return false;
     }
 
-    @Override // com.baidu.swan.apps.scheme.actions.ab
-    public boolean e(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, e eVar) {
+    @Override // com.baidu.swan.apps.scheme.actions.aa
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, e eVar) {
         if (DEBUG) {
             Log.d("SwanAppPropertyLogAction", "handleSubAction subAction: " + str);
         }
@@ -61,24 +61,24 @@ public class c extends ab {
         }
         switch (c) {
             case 0:
-                if (this.bJp == null) {
-                    this.bJp = new a();
+                if (this.bSi == null) {
+                    this.bSi = new a();
                 }
-                this.bJp.startMonitor();
+                this.bSi.startMonitor();
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
                 com.baidu.swan.apps.console.c.i("SwanAppPropertyLogAction", " Start property log：");
                 return true;
             case 1:
                 JSONObject jSONObject = new JSONObject();
-                if (this.bJp == null) {
+                if (this.bSi == null) {
                     com.baidu.swan.apps.console.c.e("SwanAppPropertyLogAction", "Property log never start");
                 } else {
-                    String TQ = this.bJp.TQ();
-                    this.bJp = null;
-                    f.aeJ().VP();
+                    String Wx = this.bSi.Wx();
+                    this.bSi = null;
+                    f.ahV().YB();
                     try {
-                        jSONObject.put("wvID", f.aeJ().VP());
-                        jSONObject.put("path", TQ);
+                        jSONObject.put("wvID", f.ahV().YB());
+                        jSONObject.put("path", Wx);
                     } catch (JSONException e) {
                         if (DEBUG) {
                             e.printStackTrace();
@@ -95,8 +95,8 @@ public class c extends ab {
                 if (optParamsAsJo == null) {
                     UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(202));
                 } else {
-                    if (this.bJp != null) {
-                        this.bJp.es(optParamsAsJo.optInt("duration"));
+                    if (this.bSi != null) {
+                        this.bSi.eB(optParamsAsJo.optInt("duration"));
                     }
                     UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
                 }

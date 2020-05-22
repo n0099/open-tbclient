@@ -32,8 +32,8 @@ import java.net.URI;
 import java.net.URISyntaxException;
 /* loaded from: classes11.dex */
 public abstract class a implements com.baidu.tieba.sharesdk.b.a {
-    public static String kGN = m.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_SHARE_DIR_NAME;
-    public static String kGO = "temp_video_thumb.png";
+    public static String kYP = m.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_SHARE_DIR_NAME;
+    public static String kYQ = "temp_video_thumb.png";
     Context context;
     BdUniqueId pageId;
     String tid;
@@ -42,14 +42,14 @@ public abstract class a implements com.baidu.tieba.sharesdk.b.a {
         this.context = context;
     }
 
-    public void v(BdUniqueId bdUniqueId) {
+    public void y(BdUniqueId bdUniqueId) {
         this.pageId = bdUniqueId;
     }
 
     public void onDestroy() {
     }
 
-    public void M(Intent intent) {
+    public void J(Intent intent) {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -62,47 +62,47 @@ public abstract class a implements com.baidu.tieba.sharesdk.b.a {
         return bdUniqueId;
     }
 
-    protected void Kg(String str) {
-        bD(str, R.drawable.icon_toast_game_error);
+    protected void LS(String str) {
+        bE(str, R.drawable.icon_toast_game_error);
     }
 
-    protected void Kh(String str) {
-        bD(str, R.drawable.icon_toast_game_ok);
+    protected void LT(String str) {
+        bE(str, R.drawable.icon_toast_game_ok);
     }
 
-    protected void bD(String str, int i) {
-        BdToast.a(getAppContext(), (CharSequence) str, i, false).aMX();
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void cL(int i, int i2) {
-        l(i, null, i2);
+    protected void bE(String str, int i) {
+        BdToast.a(getAppContext(), (CharSequence) str, i, false).aSY();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void l(int i, String str, int i2) {
+    public void cQ(int i, int i2) {
+        j(i, null, i2);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void j(int i, String str, int i2) {
         if (i == 1) {
             if (TextUtils.isEmpty(str)) {
                 str = getString(R.string.share_success, new Object[0]);
             }
-            Kh(str);
+            LT(str);
         } else if (i == 3) {
             if (TextUtils.isEmpty(str)) {
                 str = getString(R.string.share_cancel, new Object[0]);
             }
-            Kg(str);
+            LS(str);
         } else if (i == 2) {
             if (TextUtils.isEmpty(str)) {
                 str = getString(R.string.share_failed, new Object[0]);
             }
-            Kg(str);
+            LS(str);
         }
         if (!TextUtils.isEmpty(this.tid)) {
-            cM(i, i2);
+            cR(i, i2);
         }
     }
 
-    public void cM(int i, int i2) {
+    public void cR(int i, int i2) {
         ShareEvent shareEvent = new ShareEvent();
         shareEvent.status = i;
         shareEvent.tid = this.tid;
@@ -120,27 +120,27 @@ public abstract class a implements com.baidu.tieba.sharesdk.b.a {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public Bitmap cSq() {
+    public Bitmap cZt() {
         return BitmapHelper.getCashBitmap(R.drawable.tb_launcher_icon);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public Bitmap Cw(int i) {
+    public Bitmap Dg(int i) {
         return BitmapHelper.getCashBitmap(i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public Bitmap Ki(String str) {
+    public Bitmap LU(String str) {
         return BitmapHelper.loadBitmap(str);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public Bitmap x(Uri uri) {
+    public Bitmap A(Uri uri) {
         return BitmapHelper.loadBitmap(uri.getPath());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean y(Uri uri) {
+    public boolean t(Uri uri) {
         if (uri == null) {
             return false;
         }
@@ -155,7 +155,7 @@ public abstract class a implements com.baidu.tieba.sharesdk.b.a {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean vQ(String str) {
+    public boolean xw(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
@@ -163,7 +163,7 @@ public abstract class a implements com.baidu.tieba.sharesdk.b.a {
         return file.isFile() && file.exists();
     }
 
-    public Bitmap f(Bitmap bitmap, int i) {
+    public Bitmap g(Bitmap bitmap, int i) {
         return BitmapHelper.resizeBitmap(bitmap, i, i, false);
     }
 
@@ -191,7 +191,7 @@ public abstract class a implements com.baidu.tieba.sharesdk.b.a {
         cVar.setIsFormatData(z4);
         cVar.setSdCard(z2);
         cVar.setSavedCache(z3);
-        if (com.baidu.adp.lib.Disk.d.jP().b(cVar) && cVar.isSuccess()) {
+        if (com.baidu.adp.lib.Disk.d.jR().b(cVar) && cVar.isSuccess()) {
             cVar.formatData(cVar.getData());
             Bitmap bitmap = cVar.getBitmap();
             if (bitmap != null) {
@@ -210,24 +210,24 @@ public abstract class a implements com.baidu.tieba.sharesdk.b.a {
         if (bitmap == null) {
             return null;
         }
-        Bitmap f = f(bitmap, (l.getDimens(this.context, R.dimen.tbds113) * Math.max(bitmap.getWidth(), bitmap.getHeight())) / Math.min(bitmap.getWidth(), bitmap.getHeight()));
-        Bitmap createBitmap = Bitmap.createBitmap(f.getWidth(), f.getHeight(), Bitmap.Config.ARGB_8888);
+        Bitmap g = g(bitmap, (l.getDimens(this.context, R.dimen.tbds113) * Math.max(bitmap.getWidth(), bitmap.getHeight())) / Math.min(bitmap.getWidth(), bitmap.getHeight()));
+        Bitmap createBitmap = Bitmap.createBitmap(g.getWidth(), g.getHeight(), Bitmap.Config.ARGB_8888);
         Canvas canvas = new Canvas(createBitmap);
-        canvas.drawBitmap(f, 0.0f, 0.0f, (Paint) null);
-        LinearGradient linearGradient = new LinearGradient(0.0f, 0.0f, 0.0f, f.getHeight(), this.context.getResources().getColor(R.color.cp_mask_b_alpha0), this.context.getResources().getColor(R.color.cp_mask_b_alpha33), Shader.TileMode.CLAMP);
+        canvas.drawBitmap(g, 0.0f, 0.0f, (Paint) null);
+        LinearGradient linearGradient = new LinearGradient(0.0f, 0.0f, 0.0f, g.getHeight(), this.context.getResources().getColor(R.color.cp_mask_b_alpha0), this.context.getResources().getColor(R.color.cp_mask_b_alpha33), Shader.TileMode.CLAMP);
         Paint paint = new Paint();
         paint.setShader(linearGradient);
-        canvas.drawRect(0.0f, 0.0f, f.getWidth(), f.getHeight(), paint);
-        Drawable a = SvgManager.aOR().a(R.drawable.ic_icon_share_play_20, R.color.cp_cont_a, (SvgManager.SvgResourceStateType) null, false);
+        canvas.drawRect(0.0f, 0.0f, g.getWidth(), g.getHeight(), paint);
+        Drawable a = SvgManager.aUV().a(R.drawable.ic_icon_share_play_20, R.color.cp_cont_a, (SvgManager.SvgResourceStateType) null, false);
         if (a != null) {
-            int min = (int) (Math.min(f.getWidth(), f.getHeight()) * 0.3f);
-            int width = (f.getWidth() - min) / 2;
-            int height = (f.getHeight() - min) / 2;
+            int min = (int) (Math.min(g.getWidth(), g.getHeight()) * 0.3f);
+            int width = (g.getWidth() - min) / 2;
+            int height = (g.getHeight() - min) / 2;
             a.setBounds(width, height, width + min, min + height);
             a.draw(canvas);
         }
         if (z) {
-            String saveFileAsPNG = m.saveFileAsPNG(kGN, kGO, createBitmap, 100);
+            String saveFileAsPNG = m.saveFileAsPNG(kYP, kYQ, createBitmap, 100);
             if (!StringUtils.isNull(saveFileAsPNG)) {
                 shareEntity.setImageUri(Uri.parse(saveFileAsPNG));
             }

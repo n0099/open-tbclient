@@ -1,7 +1,6 @@
 package com.baidu.searchbox.v8engine;
 
 import android.util.Xml;
-import com.baidu.android.imsdk.db.TableDefine;
 import com.heytap.mcssdk.mode.CommandMessage;
 import java.io.IOException;
 import java.io.InputStream;
@@ -178,7 +177,7 @@ public class FontParser {
         String attributeValue = xmlPullParser.getAttributeValue(null, "index");
         int parseInt = attributeValue == null ? 0 : Integer.parseInt(attributeValue);
         ArrayList arrayList = new ArrayList();
-        String attributeValue2 = xmlPullParser.getAttributeValue(null, TableDefine.SessionColumns.COLUMN_WEIGHT);
+        String attributeValue2 = xmlPullParser.getAttributeValue(null, "weight");
         int parseInt2 = attributeValue2 == null ? 400 : Integer.parseInt(attributeValue2);
         boolean equals = "italic".equals(xmlPullParser.getAttributeValue(null, "style"));
         StringBuilder sb = new StringBuilder();
@@ -216,7 +215,7 @@ public class FontParser {
         Alias alias = new Alias();
         alias.name = xmlPullParser.getAttributeValue(null, "name");
         alias.toName = xmlPullParser.getAttributeValue(null, "to");
-        String attributeValue = xmlPullParser.getAttributeValue(null, TableDefine.SessionColumns.COLUMN_WEIGHT);
+        String attributeValue = xmlPullParser.getAttributeValue(null, "weight");
         if (attributeValue == null) {
             alias.weight = 400;
         } else {

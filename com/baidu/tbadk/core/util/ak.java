@@ -8,51 +8,59 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 /* loaded from: classes.dex */
 public class ak {
-    private static String dzN;
-    private static String dzO;
+    private static String dNR;
+    private static String dNS;
+
+    public static boolean isEmui() {
+        return aUO();
+    }
+
+    public static boolean aUO() {
+        return check(RomUtils.ROM_EMUI) && Build.VERSION.SDK_INT >= 24;
+    }
 
     public static boolean check(String str) {
-        if (dzN != null) {
-            return dzN.equals(str);
+        if (dNR != null) {
+            return dNR.equals(str);
         }
         String prop = getProp("ro.miui.ui.version.name");
-        dzO = prop;
+        dNS = prop;
         if (!TextUtils.isEmpty(prop)) {
-            dzN = RomUtils.ROM_MIUI;
+            dNR = RomUtils.ROM_MIUI;
         } else {
             String prop2 = getProp("ro.build.version.emui");
-            dzO = prop2;
+            dNS = prop2;
             if (!TextUtils.isEmpty(prop2)) {
-                dzN = RomUtils.ROM_EMUI;
+                dNR = RomUtils.ROM_EMUI;
             } else {
                 String prop3 = getProp("ro.build.version.opporom");
-                dzO = prop3;
+                dNS = prop3;
                 if (!TextUtils.isEmpty(prop3)) {
-                    dzN = RomUtils.ROM_OPPO;
+                    dNR = RomUtils.ROM_OPPO;
                 } else {
                     String prop4 = getProp("ro.vivo.os.version");
-                    dzO = prop4;
+                    dNS = prop4;
                     if (!TextUtils.isEmpty(prop4)) {
-                        dzN = RomUtils.ROM_VIVO;
+                        dNR = RomUtils.ROM_VIVO;
                     } else {
                         String prop5 = getProp("ro.smartisan.version");
-                        dzO = prop5;
+                        dNS = prop5;
                         if (!TextUtils.isEmpty(prop5)) {
-                            dzN = RomUtils.ROM_SMARTISAN;
+                            dNR = RomUtils.ROM_SMARTISAN;
                         } else {
-                            dzO = Build.DISPLAY;
-                            if (dzO.toUpperCase().contains(RomUtils.ROM_FLYME)) {
-                                dzN = RomUtils.ROM_FLYME;
+                            dNS = Build.DISPLAY;
+                            if (dNS.toUpperCase().contains(RomUtils.ROM_FLYME)) {
+                                dNR = RomUtils.ROM_FLYME;
                             } else {
-                                dzO = "unknown";
-                                dzN = Build.MANUFACTURER.toUpperCase();
+                                dNS = "unknown";
+                                dNR = Build.MANUFACTURER.toUpperCase();
                             }
                         }
                     }
                 }
             }
         }
-        return dzN.equals(str);
+        return dNR.equals(str);
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [91=4] */

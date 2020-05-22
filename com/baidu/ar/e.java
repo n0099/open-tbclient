@@ -529,8 +529,8 @@ public class e {
             a aVar = new a(aRType, str, str2);
             if (this.al == null || !aVar.equals(this.al)) {
                 this.al = aVar;
-                com.baidu.ar.libloader.b.a(aRType, str, str2, new a.InterfaceC0082a() { // from class: com.baidu.ar.e.1
-                    @Override // com.baidu.ar.libloader.a.InterfaceC0082a
+                com.baidu.ar.libloader.b.a(aRType, str, str2, new a.InterfaceC0084a() { // from class: com.baidu.ar.e.1
+                    @Override // com.baidu.ar.libloader.a.InterfaceC0084a
                     public void a(ARType aRType2, String str3, String str4) {
                         e.this.b(aRType2, str3, str4);
                     }

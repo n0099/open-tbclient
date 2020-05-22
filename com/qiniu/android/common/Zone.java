@@ -6,12 +6,12 @@ public abstract class Zone {
 
     /* loaded from: classes5.dex */
     public interface QueryHandler {
-        void IN(int i);
+        void Jy(int i);
 
         void onSuccess();
     }
 
-    public abstract void OY(String str);
+    public abstract void QO(String str);
 
     public abstract void a(String str, QueryHandler queryHandler);
 
@@ -26,16 +26,16 @@ public abstract class Zone {
         int i = 0;
         synchronized (this) {
             if (str != null) {
-                zoneInfo.OY(URI.create(str).getHost());
+                zoneInfo.QO(URI.create(str).getHost());
             }
             while (true) {
                 int i2 = i;
-                if (i2 >= zoneInfo.mLI.size()) {
+                if (i2 >= zoneInfo.nfM.size()) {
                     str2 = null;
                     break;
                 }
-                str5 = zoneInfo.mLI.get(i2);
-                long longValue = zoneInfo.mLJ.get(str5).longValue();
+                str5 = zoneInfo.nfM.get(i2);
+                long longValue = zoneInfo.nfN.get(str5).longValue();
                 if (longValue == 0 || longValue <= System.currentTimeMillis() / 1000) {
                     break;
                 }
@@ -43,13 +43,13 @@ public abstract class Zone {
             }
             str2 = str5;
             if (str2 != null) {
-                zoneInfo.mLJ.put(str2, 0L);
+                zoneInfo.nfN.put(str2, 0L);
                 str3 = str2;
             } else {
-                for (String str6 : zoneInfo.mLI) {
-                    zoneInfo.mLJ.put(str6, 0L);
+                for (String str6 : zoneInfo.nfM) {
+                    zoneInfo.nfN.put(str6, 0L);
                 }
-                str3 = zoneInfo.mLI.size() > 0 ? zoneInfo.mLI.get(0) : str2;
+                str3 = zoneInfo.nfM.size() > 0 ? zoneInfo.nfM.get(0) : str2;
             }
             if (str3 == null) {
                 str4 = null;

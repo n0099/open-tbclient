@@ -67,7 +67,7 @@ public class MapSerializer extends SerializeFilterable implements ObjectSerializ
                 jSONSerializer.setContext(serialContext, obj, obj2, 0);
                 if (!z) {
                     try {
-                        serializeWriter.write(Constants.METHOD_IM_FRIEND_GROUP_QUERY);
+                        serializeWriter.write(123);
                     } catch (Throwable th) {
                         jSONSerializer.context = serialContext;
                         throw th;

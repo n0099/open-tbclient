@@ -13,14 +13,14 @@ public class b extends f {
 
     @Override // com.baidu.swan.apps.statistic.a.f, com.baidu.swan.apps.statistic.a.e
     public JSONObject toJSONObject() {
-        this.cux = com.baidu.swan.apps.swancore.b.gH(TextUtils.equals(this.mFrom, "swangame") ? 1 : 0);
-        this.cuz = SwanAppNetworkUtils.ahh().type;
-        if (this.cuv == null) {
-            this.cuv = new JSONObject();
+        this.cGw = com.baidu.swan.apps.swancore.b.hb(TextUtils.equals(this.mFrom, "swangame") ? 1 : 0);
+        this.cGy = SwanAppNetworkUtils.akA().type;
+        if (this.cGu == null) {
+            this.cGu = new JSONObject();
         }
         try {
-            this.cuv.put("host", com.baidu.swan.apps.w.a.acy().getHostName());
-            this.cuv.put("package", this.packageName);
+            this.cGu.put("host", com.baidu.swan.apps.u.a.afB().getHostName());
+            this.cGu.put("package", this.packageName);
         } catch (JSONException e) {
             if (DEBUG) {
                 e.printStackTrace();
@@ -38,18 +38,18 @@ public class b extends f {
             this.mFrom = aVar.mFrom;
             this.mAppId = aVar.mAppId;
             this.mSource = aVar.mSource;
-            this.cuA = aVar.cuA;
-            this.cuB = aVar.cuB;
+            this.cGz = aVar.cGz;
+            this.cGB = aVar.cGB;
             this.mScheme = aVar.mScheme;
-            this.cuE = aVar.cuE;
-            this.cox = aVar.cox;
+            this.cGE = aVar.cGE;
+            this.cAi = aVar.cAi;
             this.mAppVersion = aVar.mAppVersion;
-            this.cuy = aVar.cuy;
+            this.cGx = aVar.cGx;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static String pv(String str) {
+    public static String qV(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

@@ -17,48 +17,48 @@ import java.util.Map;
 import org.apache.http.cookie.SM;
 /* loaded from: classes.dex */
 public class d {
-    private static d kxa;
-    private CustomMessageListener kxc = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tieba.recapp.report.d.1
+    private static d kOT;
+    private CustomMessageListener kOV = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tieba.recapp.report.d.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2000994 && j.isNetWorkAvailable() && d.this.kxb != null) {
-                d.this.kxb.cOl();
+            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2000994 && j.isNetWorkAvailable() && d.this.kOU != null) {
+                d.this.kOU.cVm();
             }
         }
     };
-    private e kxb = new h();
+    private e kOU = new h();
 
-    public static d cOj() {
-        if (kxa == null) {
+    public static d cVk() {
+        if (kOT == null) {
             synchronized (d.class) {
-                if (kxa == null) {
-                    kxa = new d();
+                if (kOT == null) {
+                    kOT = new d();
                 }
             }
         }
-        return kxa;
+        return kOT;
     }
 
-    private boolean cOk() {
+    private boolean cVl() {
         return SwitchManager.getInstance().findType(AdUploadSwitch.KEY) != 0;
     }
 
     private d() {
-        MessageManager.getInstance().registerListener(this.kxc);
+        MessageManager.getInstance().registerListener(this.kOV);
     }
 
     public void a(c cVar) {
-        if (cOk() && cVar != null && this.kxb != null) {
+        if (cVl() && cVar != null && this.kOU != null) {
             if (j.isNetWorkAvailable()) {
-                this.kxb.b(cVar);
+                this.kOU.b(cVar);
             } else {
-                this.kxb.c(cVar);
+                this.kOU.c(cVar);
             }
         }
     }
 
-    public void e(String str, HashMap<String, String> hashMap) {
+    public void f(String str, HashMap<String, String> hashMap) {
         if (!TextUtils.isEmpty(str)) {
             StringBuilder sb = new StringBuilder();
             if (hashMap != null && !hashMap.isEmpty()) {
@@ -72,7 +72,7 @@ public class d {
             AdUploadHttpRequest adUploadHttpRequest = new AdUploadHttpRequest(new ArrayList());
             String cookie = CookieManager.getInstance().getCookie("*.baidu.com");
             if (TextUtils.isEmpty(cookie) || !cookie.contains("BAIDUID=")) {
-                cookie = com.baidu.tbadk.browser.a.djW;
+                cookie = com.baidu.tbadk.browser.a.dxW;
             }
             adUploadHttpRequest.addHeader(SM.COOKIE, cookie);
             MessageManager.getInstance().sendMessage(adUploadHttpRequest, httpMessageTask);

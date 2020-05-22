@@ -8,34 +8,34 @@ public final class b {
 
     /* loaded from: classes11.dex */
     public static class a {
-        public int coC;
-        public int coD;
-        public int coE;
-        public int coF;
+        public int cAo;
+        public int cAp;
+        public int cAq;
+        public int cAr;
 
-        public static a aJ(JSONObject jSONObject) {
+        public static a aO(JSONObject jSONObject) {
             if (jSONObject == null) {
-                return alx();
+                return apu();
             }
             JSONObject optJSONObject = jSONObject.optJSONObject("networkTimeout");
             if (optJSONObject == null) {
-                return alx();
+                return apu();
             }
             a aVar = new a();
-            aVar.coC = optJSONObject.optInt("request", 60000);
-            aVar.coD = optJSONObject.optInt("connectSocket", 60000);
-            aVar.coE = optJSONObject.optInt("uploadFile");
-            aVar.coF = optJSONObject.optInt("downloadFile");
+            aVar.cAo = optJSONObject.optInt("request", com.baidu.swan.apps.u.a.aeU().Rj());
+            aVar.cAp = optJSONObject.optInt("connectSocket", 60000);
+            aVar.cAq = optJSONObject.optInt("uploadFile");
+            aVar.cAr = optJSONObject.optInt("downloadFile");
             return aVar;
         }
 
-        private static a alx() {
+        private static a apu() {
             if (b.DEBUG) {
                 Log.e("SwanAppCommonConfigData", "NetworkConfig createNullObject() " + Log.getStackTraceString(new Exception()));
             }
             a aVar = new a();
-            aVar.coC = 60000;
-            aVar.coD = 60000;
+            aVar.cAo = 60000;
+            aVar.cAp = 60000;
             return aVar;
         }
     }

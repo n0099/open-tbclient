@@ -49,12 +49,12 @@ public final class CompletableObserveOn extends a {
         @Override // io.reactivex.c
         public void onError(Throwable th) {
             this.error = th;
-            DisposableHelper.replace(this, this.scheduler.H(this));
+            DisposableHelper.replace(this, this.scheduler.J(this));
         }
 
         @Override // io.reactivex.c
         public void onComplete() {
-            DisposableHelper.replace(this, this.scheduler.H(this));
+            DisposableHelper.replace(this, this.scheduler.J(this));
         }
 
         @Override // java.lang.Runnable

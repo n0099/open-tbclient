@@ -4,7 +4,9 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.adp.lib.util.j;
 import com.baidu.adp.lib.util.l;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
+import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.at;
 import com.baidu.tbadk.core.util.ar;
 import com.baidu.tbadk.util.t;
 import tbclient.Personalized.DataReq;
@@ -90,13 +92,22 @@ public class RecPersonalizeRequest extends NetMessage {
         builder.scr_w = Integer.valueOf(l.getEquipmentWidth(TbadkCoreApplication.getInst()));
         builder.scr_h = Integer.valueOf(l.getEquipmentHeight(TbadkCoreApplication.getInst()));
         builder.scr_dip = Double.valueOf(l.getEquipmentDensity(TbadkCoreApplication.getInst()));
-        builder.q_type = Integer.valueOf(ar.aOS().aOT() ? 2 : 1);
+        builder.q_type = Integer.valueOf(ar.aUW().aUX() ? 2 : 1);
         builder.need_forumlist = Integer.valueOf(this.needForumlist);
         builder.new_net_type = Integer.valueOf(j.netType());
         builder.new_install = Integer.valueOf(TbadkCoreApplication.getInst().checkNewUser() ? 1 : 0);
         builder.request_times = Integer.valueOf(this.requestTime);
         builder.invoke_source = this.sourceFrom;
-        builder.ad_context_list = com.baidu.tieba.recapp.report.b.cOd().cOe();
+        builder.ad_context_list = com.baidu.tieba.recapp.report.b.cVe().cVf();
+        builder.app_pos = com.baidu.tieba.recapp.d.a.cUZ().cVd();
+        if (TbSingleton.getInstance().getPbToHomeUpdateData() != null) {
+            at pbToHomeUpdateData = TbSingleton.getInstance().getPbToHomeUpdateData();
+            builder.from_tid = Long.valueOf(com.baidu.adp.lib.f.b.toLong(pbToHomeUpdateData.tid, 0L));
+            builder.query_eqid = pbToHomeUpdateData.dDx;
+            builder.first_dir = pbToHomeUpdateData.firstDir;
+            builder.second_dir = pbToHomeUpdateData.secondDir;
+            TbSingleton.getInstance().setPbToHomeUpdateData(null);
+        }
         PersonalizedReqIdl.Builder builder2 = new PersonalizedReqIdl.Builder();
         builder2.data = builder.build(false);
         return builder2.build(false);

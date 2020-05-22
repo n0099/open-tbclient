@@ -4,55 +4,55 @@ import android.text.TextUtils;
 import android.util.Log;
 /* loaded from: classes8.dex */
 public final class j {
-    private static int bn = 1000;
-    private static boolean lPk = true;
+    private static int miA = 1000;
+    private static boolean miB = true;
 
     public static void c(boolean z) {
-        lPk = z;
+        miB = z;
     }
 
     public static void I(String str) {
-        if (lPk) {
+        if (miB) {
             a(5, "BaiDuAbSDK", str, null);
         }
     }
 
     public static void b(Throwable th) {
-        if (lPk) {
+        if (miB) {
             a(4, "BaiDuAbSDK", "", th);
         }
     }
 
     public static void G(String str) {
-        if (lPk) {
+        if (miB) {
             a(2, "BaiDuAbSDK", str, null);
         }
     }
 
     public static void a(Throwable th) {
-        if (lPk) {
+        if (miB) {
             a(2, "BaiDuAbSDK", "", th);
         }
     }
 
     private static void a(int i, String str, String str2, Throwable th) {
         if (!TextUtils.isEmpty(str2)) {
-            if (str2.length() >= bn) {
+            if (str2.length() >= miA) {
                 switch (i) {
                     case 1:
-                        Log.v(str, str2.substring(0, bn));
+                        Log.v(str, str2.substring(0, miA));
                         break;
                     case 2:
-                        Log.d(str, str2.substring(0, bn));
+                        Log.d(str, str2.substring(0, miA));
                         break;
                     case 3:
-                        Log.i(str, str2.substring(0, bn));
+                        Log.i(str, str2.substring(0, miA));
                         break;
                     case 4:
-                        Log.w(str, str2.substring(0, bn));
+                        Log.w(str, str2.substring(0, miA));
                         break;
                     case 5:
-                        Log.e(str, str2.substring(0, bn));
+                        Log.e(str, str2.substring(0, miA));
                         break;
                 }
             } else {
@@ -79,23 +79,23 @@ public final class j {
             }
         }
         if (th != null) {
-            String v = v(th);
-            if (!TextUtils.isEmpty(v)) {
+            String j = j(th);
+            if (!TextUtils.isEmpty(j)) {
                 switch (i) {
                     case 1:
-                        Log.v(str, v);
+                        Log.v(str, j);
                         return;
                     case 2:
-                        Log.d(str, v);
+                        Log.d(str, j);
                         return;
                     case 3:
-                        Log.i(str, v);
+                        Log.i(str, j);
                         return;
                     case 4:
-                        Log.w(str, v);
+                        Log.w(str, j);
                         return;
                     case 5:
-                        Log.e(str, v);
+                        Log.e(str, j);
                         return;
                     default:
                         Log.d(str, str2);
@@ -113,7 +113,7 @@ public final class j {
         	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:45)
         	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
         */
-    private static java.lang.String v(java.lang.Throwable r5) {
+    private static java.lang.String j(java.lang.Throwable r5) {
         /*
             r3 = 0
             java.lang.String r0 = ""
@@ -186,6 +186,6 @@ public final class j {
             r3 = r4
             goto L29
         */
-        throw new UnsupportedOperationException("Method not decompiled: com.baidu.ubs.analytics.d.j.v(java.lang.Throwable):java.lang.String");
+        throw new UnsupportedOperationException("Method not decompiled: com.baidu.ubs.analytics.d.j.j(java.lang.Throwable):java.lang.String");
     }
 }

@@ -6,12 +6,12 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
-import com.baidu.swan.apps.media.c.a;
-import com.baidu.swan.apps.media.c.c;
+import com.baidu.swan.apps.media.b.a;
+import com.baidu.swan.apps.media.b.c;
 import com.baidu.swan.apps.runtime.e;
 /* loaded from: classes11.dex */
 public class RewardVideoView extends RelativeLayout {
-    private a bAn;
+    private a bIb;
     private Context mContext;
     private boolean mIsMute;
 
@@ -26,20 +26,20 @@ public class RewardVideoView extends RelativeLayout {
     public RewardVideoView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mContext = context;
-        Mb();
+        Oo();
     }
 
     public void bk(String str) {
-        c asx = asx();
-        asx.mSrc = str;
-        this.bAn.d(asx);
-        this.bAn.dH(false);
+        c awe = awe();
+        awe.mSrc = str;
+        this.bIb.d(awe);
+        this.bIb.dX(false);
     }
 
-    public void dG(boolean z) {
-        if (this.bAn != null) {
+    public void dW(boolean z) {
+        if (this.bIb != null) {
             this.mIsMute = z;
-            this.bAn.dG(z);
+            this.bIb.dW(z);
         }
     }
 
@@ -48,18 +48,16 @@ public class RewardVideoView extends RelativeLayout {
     }
 
     public a getPlayer() {
-        return this.bAn;
+        return this.bIb;
     }
 
-    private void Mb() {
-        e akM = e.akM();
-        if (akM != null) {
-            this.bAn = new a(akM.akI(), asx());
-            this.mIsMute = true;
-            this.bAn.dG(this.mIsMute);
+    private void Oo() {
+        e aoF = e.aoF();
+        if (aoF != null) {
+            this.bIb = new a(aoF.aoz(), awe());
             FrameLayout frameLayout = new FrameLayout(this.mContext);
             addView(frameLayout, new RelativeLayout.LayoutParams(-1, -1));
-            this.bAn.b(frameLayout);
+            this.bIb.b(frameLayout);
         }
     }
 
@@ -69,14 +67,14 @@ public class RewardVideoView extends RelativeLayout {
     }
 
     @NonNull
-    private c asx() {
+    private c awe() {
         c cVar = new c();
-        cVar.bYY = "SwanAdPlayer";
-        cVar.bGN = "SwanAdPlayer";
-        cVar.bZg = true;
-        cVar.cdi = this.mIsMute;
-        cVar.cdr = false;
-        cVar.cdA = false;
+        cVar.cjA = "SwanAdPlayer";
+        cVar.bPF = "SwanAdPlayer";
+        cVar.cjJ = true;
+        cVar.cnK = this.mIsMute;
+        cVar.cnS = false;
+        cVar.cob = false;
         return cVar;
     }
 }

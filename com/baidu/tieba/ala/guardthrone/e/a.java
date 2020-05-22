@@ -63,11 +63,11 @@ public class a {
         return simpleDateFormat.format(new Date((l.longValue() * 1000) - 28800000));
     }
 
-    public static String Ap(String str) {
+    public static String BW(String str) {
         try {
             long parseLong = Long.parseLong(str);
             if (parseLong >= 10000000) {
-                return o((parseLong * 1.0d) / 10000.0d) + "万";
+                return p((parseLong * 1.0d) / 10000.0d) + "万";
             }
             return str;
         } catch (Exception e) {
@@ -75,7 +75,7 @@ public class a {
         }
     }
 
-    private static double o(double d) {
+    private static double p(double d) {
         return new BigDecimal(Double.toString(d)).divide(new BigDecimal("1"), 1, 4).doubleValue();
     }
 }

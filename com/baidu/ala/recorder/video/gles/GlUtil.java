@@ -1,11 +1,13 @@
 package com.baidu.ala.recorder.video.gles;
 
+import android.annotation.TargetApi;
 import android.opengl.GLES20;
 import android.opengl.Matrix;
 import android.util.Log;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
+@TargetApi(16)
 /* loaded from: classes3.dex */
 public class GlUtil {
     public static final float[] IDENTITY_MATRIX = new float[16];
@@ -98,6 +100,21 @@ public class GlUtil {
         asFloatBuffer.put(fArr);
         asFloatBuffer.position(0);
         return asFloatBuffer;
+    }
+
+    public static int createTextureOES() {
+        int[] iArr = new int[1];
+        GLES20.glGenTextures(1, iArr, 0);
+        checkGlError("glGenTextures");
+        int i = iArr[0];
+        GLES20.glBindTexture(36197, i);
+        checkGlError("glBindTexture " + i);
+        GLES20.glTexParameterf(36197, 10241, 9729.0f);
+        GLES20.glTexParameterf(36197, 10240, 9729.0f);
+        GLES20.glTexParameteri(36197, 10242, 33071);
+        GLES20.glTexParameteri(36197, 10243, 33071);
+        checkGlError("glTexParameter");
+        return i;
     }
 
     public static void logVersionInfo() {

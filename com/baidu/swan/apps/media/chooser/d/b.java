@@ -17,14 +17,14 @@ import java.util.Collections;
 import java.util.Iterator;
 /* loaded from: classes11.dex */
 public class b extends a {
-    private static final String[] cca = {MimeType.Image.JPEG, MimeType.Image.PNG, "image/gif"};
-    private String cbd;
-    private ArrayList<com.baidu.swan.apps.media.chooser.model.a> cbZ = new ArrayList<>();
-    private ArrayList<MediaModel> caO = new ArrayList<>();
+    private static final String[] cmE = {MimeType.Image.JPEG, MimeType.Image.PNG, "image/gif"};
+    private String clG;
+    private ArrayList<com.baidu.swan.apps.media.chooser.model.a> cmD = new ArrayList<>();
+    private ArrayList<MediaModel> clr = new ArrayList<>();
 
     public b(String str, d dVar) {
-        this.cbX = this.cbZ;
-        this.cbd = str;
+        this.cmB = this.cmD;
+        this.clG = str;
         a(dVar);
     }
 
@@ -32,16 +32,16 @@ public class b extends a {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.os.AsyncTask
     public Boolean doInBackground(Void... voidArr) {
-        afO();
-        afP();
-        p(this.cbZ);
+        ajd();
+        aje();
+        p(this.cmD);
         com.baidu.swan.apps.media.chooser.model.a aVar = new com.baidu.swan.apps.media.chooser.model.a();
-        aVar.kv(com.baidu.swan.apps.media.chooser.b.d.U(AppRuntime.getAppContext(), this.cbd));
-        aVar.cbV = this.caO;
-        this.cbZ.add(0, aVar);
-        Iterator<com.baidu.swan.apps.media.chooser.model.a> it = this.cbZ.iterator();
+        aVar.lI(com.baidu.swan.apps.media.chooser.b.d.U(AppRuntime.getAppContext(), this.clG));
+        aVar.cmz = this.clr;
+        this.cmD.add(0, aVar);
+        Iterator<com.baidu.swan.apps.media.chooser.model.a> it = this.cmD.iterator();
         while (it.hasNext()) {
-            Collections.sort(it.next().afF());
+            Collections.sort(it.next().aiU());
         }
         return true;
     }
@@ -51,20 +51,20 @@ public class b extends a {
     /* JADX WARN: Type inference failed for: r1v1, types: [android.net.Uri] */
     /* JADX WARN: Type inference failed for: r1v2 */
     /* JADX WARN: Type inference failed for: r1v4, types: [java.io.Closeable] */
-    private void afO() {
+    private void ajd() {
         Cursor cursor;
-        if (!TextUtils.equals(this.cbd, "video")) {
+        if (!TextUtils.equals(this.clG, "video")) {
             ?? r1 = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
             ContentResolver contentResolver = AppRuntime.getAppContext().getContentResolver();
             StringBuilder sb = new StringBuilder();
             sb.append("mime_type").append("=?");
             sb.append(" or ");
             sb.append("mime_type").append("=?");
-            String[] strArr = {cca[0], cca[1]};
-            if (c.cbG) {
+            String[] strArr = {cmE[0], cmE[1]};
+            if (c.cmk) {
                 sb.append(" or ");
                 sb.append("mime_type").append("=?");
-                strArr = cca;
+                strArr = cmE;
             }
             try {
                 try {
@@ -76,9 +76,9 @@ public class b extends a {
                                 long j = cursor.getLong(cursor.getColumnIndexOrThrow("date_added"));
                                 long j2 = cursor.getLong(cursor.getColumnIndexOrThrow("_size"));
                                 File file = new File(string);
-                                if (file.exists() && (c.cbG || !com.baidu.swan.apps.media.chooser.b.d.isGif(string))) {
+                                if (file.exists() && (c.cmk || !com.baidu.swan.apps.media.chooser.b.d.isGif(string))) {
                                     ImageModel imageModel = new ImageModel(string);
-                                    imageModel.aT(j);
+                                    imageModel.ba(j);
                                     imageModel.setSize(j2);
                                     a(file, imageModel);
                                 }
@@ -87,17 +87,17 @@ public class b extends a {
                                 if (c.DEBUG) {
                                     e.printStackTrace();
                                 }
-                                com.baidu.swan.d.c.closeSafely(cursor);
+                                com.baidu.swan.e.d.closeSafely(cursor);
                                 return;
                             }
                         }
-                        com.baidu.swan.d.c.closeSafely(cursor);
+                        com.baidu.swan.e.d.closeSafely(cursor);
                         return;
                     }
-                    com.baidu.swan.d.c.closeSafely(cursor);
+                    com.baidu.swan.e.d.closeSafely(cursor);
                 } catch (Throwable th) {
                     th = th;
-                    com.baidu.swan.d.c.closeSafely(r1);
+                    com.baidu.swan.e.d.closeSafely(r1);
                     throw th;
                 }
             } catch (Exception e2) {
@@ -106,7 +106,7 @@ public class b extends a {
             } catch (Throwable th2) {
                 th = th2;
                 r1 = 0;
-                com.baidu.swan.d.c.closeSafely(r1);
+                com.baidu.swan.e.d.closeSafely(r1);
                 throw th;
             }
         }
@@ -118,11 +118,11 @@ public class b extends a {
     /* JADX WARN: Type inference failed for: r1v0, types: [java.lang.String] */
     /* JADX WARN: Type inference failed for: r1v1, types: [java.io.Closeable] */
     /* JADX WARN: Type inference failed for: r1v2 */
-    private void afP() {
+    private void aje() {
         Cursor cursor;
         ?? r1 = "Image";
         try {
-            if (!TextUtils.equals(this.cbd, "Image")) {
+            if (!TextUtils.equals(this.clG, "Image")) {
                 try {
                     cursor = AppRuntime.getAppContext().getContentResolver().query(MediaStore.Video.Media.EXTERNAL_CONTENT_URI, null, null, null, "date_added DESC");
                     if (cursor != null) {
@@ -137,7 +137,7 @@ public class b extends a {
                                 File file = new File(string);
                                 if (file.exists()) {
                                     VideoModel videoModel = new VideoModel(string);
-                                    videoModel.aT(j);
+                                    videoModel.ba(j);
                                     videoModel.setDuration(j2);
                                     videoModel.setSize(j3);
                                     videoModel.setWidth(i);
@@ -149,21 +149,21 @@ public class b extends a {
                                 if (c.DEBUG) {
                                     e.printStackTrace();
                                 }
-                                com.baidu.swan.d.c.closeSafely(cursor);
+                                com.baidu.swan.e.d.closeSafely(cursor);
                                 return;
                             }
                         }
-                        com.baidu.swan.d.c.closeSafely(cursor);
+                        com.baidu.swan.e.d.closeSafely(cursor);
                         return;
                     }
-                    com.baidu.swan.d.c.closeSafely(cursor);
+                    com.baidu.swan.e.d.closeSafely(cursor);
                 } catch (Exception e2) {
                     e = e2;
                     cursor = null;
                 } catch (Throwable th) {
                     th = th;
                     r1 = 0;
-                    com.baidu.swan.d.c.closeSafely(r1);
+                    com.baidu.swan.e.d.closeSafely(r1);
                     throw th;
                 }
             }
@@ -183,23 +183,23 @@ public class b extends a {
             path = file.getPath();
         }
         com.baidu.swan.apps.media.chooser.model.a aVar = new com.baidu.swan.apps.media.chooser.model.a();
-        aVar.kv(name);
-        aVar.kw(path);
-        int indexOf = this.cbZ.indexOf(aVar);
+        aVar.lI(name);
+        aVar.lJ(path);
+        int indexOf = this.cmD.indexOf(aVar);
         if (indexOf >= 0) {
-            this.cbZ.get(indexOf).h(mediaModel);
+            this.cmD.get(indexOf).h(mediaModel);
         } else {
             aVar.h(mediaModel);
-            this.cbZ.add(aVar);
+            this.cmD.add(aVar);
         }
-        this.caO.add(mediaModel);
+        this.clr.add(mediaModel);
     }
 
     private void p(ArrayList<com.baidu.swan.apps.media.chooser.model.a> arrayList) {
         Iterator<com.baidu.swan.apps.media.chooser.model.a> it = arrayList.iterator();
         while (it.hasNext()) {
             com.baidu.swan.apps.media.chooser.model.a next = it.next();
-            next.aS(new File(next.afK()).lastModified());
+            next.aZ(new File(next.aiZ()).lastModified());
         }
         Collections.sort(arrayList);
     }

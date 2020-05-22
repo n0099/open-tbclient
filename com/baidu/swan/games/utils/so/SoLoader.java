@@ -14,6 +14,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.RandomAccessFile;
+import java.nio.channels.FileChannel;
 import java.nio.channels.FileLock;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -34,23 +35,21 @@ public final class SoLoader {
     private SoLoader() {
     }
 
-    public static void loadV8EngineSo(Context context, boolean z) {
-        if (z) {
-            loadV8EngineSo(context);
-        } else {
-            load(context, e.ayE(), true, false);
+    public static boolean loadV8EngineSo(Context context) {
+        String aCw = e.aCw();
+        if (sLoadedLibraries.contains(aCw)) {
+            return true;
         }
-    }
-
-    public static void loadV8EngineSo(Context context) {
-        String ayE = e.ayE();
-        if (!sLoadedLibraries.contains(ayE) && e.a(context, new SoLoader())) {
-            sLoadedLibraries.add(ayE);
+        boolean a = e.a(context, new SoLoader());
+        if (a) {
+            sLoadedLibraries.add(aCw);
+            return a;
         }
+        return a;
     }
 
     public static String getV8SoDependentFilePath() {
-        if (!sLoadedLibraries.contains(e.ayE())) {
+        if (!sLoadedLibraries.contains(e.aCw())) {
             return null;
         }
         String v8SoDependentFilePath = e.getV8SoDependentFilePath();
@@ -61,20 +60,22 @@ public final class SoLoader {
         return v8SoDependentFilePath;
     }
 
-    public static void load(Context context, String str) {
-        if (!sLoadedLibraries.contains(str) && load(context, str, (b) null, true)) {
+    public static boolean load(Context context, String str) {
+        boolean z = true;
+        if (!sLoadedLibraries.contains(str) && (z = load(context, str, (b) null, true))) {
             sLoadedLibraries.add(str);
         }
+        return z;
     }
 
     public static void load(Context context, String str, boolean z, boolean z2) {
         boolean load;
         if (!sLoadedLibraries.contains(str)) {
-            a ayv = a.ayv();
+            a aCn = a.aCn();
             if (!z) {
-                load = new SoLoader().loadInternalFromLocal(context, str, ayv, z2);
+                load = new SoLoader().loadInternalFromLocal(context, str, aCn, z2);
             } else {
-                load = load(context, str, ayv, z2);
+                load = load(context, str, aCn, z2);
             }
             if (load) {
                 sLoadedLibraries.add(str);
@@ -84,7 +85,7 @@ public final class SoLoader {
 
     private static boolean load(Context context, String str, b bVar, boolean z) {
         if (bVar == null) {
-            bVar = a.ayv();
+            bVar = a.aCn();
         }
         SoLoader soLoader = new SoLoader();
         if (soSources.size() == 0) {
@@ -116,7 +117,7 @@ public final class SoLoader {
         return loadInternalFromLocal(context, str, bVar, z);
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [313=5] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [301=5] */
     private boolean loadInternalFromLocal(Context context, String str, b bVar, boolean z) {
         boolean z2 = false;
         String fullName = SoUtils.getFullName(str);
@@ -129,14 +130,14 @@ public final class SoLoader {
                 File file = new File(getNativeLibraryDir(context), fullName);
                 if (file.exists()) {
                     if (file.length() == getSoSize(apkZipFile, str2) && load(bVar, fullName, file.getAbsolutePath(), "SO_NATIVE_LIB_LOAD")) {
-                        com.baidu.swan.d.c.closeSafely(apkZipFile);
+                        com.baidu.swan.e.d.closeSafely(apkZipFile);
                         z2 = true;
                     }
                 }
                 File file2 = new File(getReleaseSoFilePath(context), fullName);
                 if (file2.exists()) {
                     if (file2.length() == getSoSize(apkZipFile, str2) && load(bVar, fullName, file2.getAbsolutePath(), "SO_RELEASE_LIB_LOAD")) {
-                        com.baidu.swan.d.c.closeSafely(apkZipFile);
+                        com.baidu.swan.e.d.closeSafely(apkZipFile);
                         z2 = true;
                     }
                 }
@@ -145,10 +146,10 @@ public final class SoLoader {
                     while (true) {
                         if (i >= SoUtils.uris.length) {
                             SoUtils.sendLog(this.sb.toString());
-                            com.baidu.swan.d.c.closeSafely(apkZipFile);
+                            com.baidu.swan.e.d.closeSafely(apkZipFile);
                             break;
-                        } else if (executeRelease(context, apkZipFile, fullName, SoUtils.uris[i]) && load(bVar, fullName, file2.getAbsolutePath(), "SO_RELEASE_EXECUTE_LOAD")) {
-                            com.baidu.swan.d.c.closeSafely(apkZipFile);
+                        } else if (executeRelease(apkZipFile, fullName, SoUtils.uris[i], new File(getReleaseSoFilePath(context), str)) && load(bVar, fullName, file2.getAbsolutePath(), "SO_RELEASE_EXECUTE_LOAD")) {
+                            com.baidu.swan.e.d.closeSafely(apkZipFile);
                             z2 = true;
                             break;
                         } else {
@@ -159,7 +160,7 @@ public final class SoLoader {
                     SoUtils.sendLog(this.sb.toString());
                 }
             } finally {
-                com.baidu.swan.d.c.closeSafely(apkZipFile);
+                com.baidu.swan.e.d.closeSafely(apkZipFile);
             }
         }
         return z2;
@@ -207,69 +208,49 @@ public final class SoLoader {
         return this.sb.toString();
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [438=4] */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:36:0x009e */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:53:0x00c4 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:57:0x00cb */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:69:0x004d A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:71:0x0090 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:73:0x0071 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Type inference failed for: r2v0, types: [java.io.File] */
-    /* JADX WARN: Type inference failed for: r2v1 */
-    /* JADX WARN: Type inference failed for: r2v4, types: [java.nio.channels.FileLock] */
-    /* JADX WARN: Type inference failed for: r2v8 */
-    /* JADX WARN: Type inference failed for: r3v0, types: [boolean] */
-    /* JADX WARN: Type inference failed for: r3v1 */
-    /* JADX WARN: Type inference failed for: r3v10, types: [java.io.Closeable] */
-    /* JADX WARN: Type inference failed for: r3v11, types: [java.nio.channels.FileChannel] */
-    /* JADX WARN: Type inference failed for: r3v12 */
-    /* JADX WARN: Type inference failed for: r3v13 */
-    /* JADX WARN: Type inference failed for: r3v2 */
-    /* JADX WARN: Type inference failed for: r3v3, types: [java.io.Closeable] */
-    /* JADX WARN: Type inference failed for: r3v4, types: [java.io.Closeable] */
-    /* JADX WARN: Type inference failed for: r3v6 */
-    /* JADX WARN: Type inference failed for: r3v9 */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [428=4] */
+    /* JADX WARN: Removed duplicated region for block: B:69:0x004f A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:72:0x0092 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:76:0x0073 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:78:0x00b6 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public boolean executeRelease(Context context, ZipFile zipFile, String str, String str2) {
+    public boolean executeRelease(ZipFile zipFile, String str, String str2, File file) {
+        FileLock fileLock;
+        FileChannel fileChannel;
         Throwable th;
         Exception e;
-        FileLock fileLock;
         boolean releaseFileFromApk;
         FileLock fileLock2 = null;
-        if (zipFile == null) {
+        if (zipFile == null || file == null) {
             return false;
         }
-        ?? releaseSoFilePath = getReleaseSoFilePath(context);
-        ?? exists = releaseSoFilePath.exists();
-        if (exists == 0) {
-            releaseSoFilePath.mkdirs();
+        File parentFile = file.getParentFile();
+        if (parentFile == null) {
+            return false;
         }
-        File file = new File((File) releaseSoFilePath, str);
+        if (!parentFile.exists()) {
+            parentFile.mkdirs();
+        }
         try {
-            try {
-                File file2 = new File((File) releaseSoFilePath, str + ".lock");
-                if (!file2.exists()) {
-                    try {
-                        file2.createNewFile();
-                    } catch (IOException e2) {
-                        e2.printStackTrace();
-                    }
-                }
+            File file2 = new File(parentFile, str + ".lock");
+            if (!file2.exists()) {
                 try {
-                    exists = new RandomAccessFile(file2, "rw").getChannel();
-                } catch (FileNotFoundException e3) {
-                    e = e3;
-                    exists = 0;
+                    file2.createNewFile();
+                } catch (IOException e2) {
+                    e2.printStackTrace();
                 }
-            } catch (Throwable th2) {
-                th = th2;
+            }
+            try {
+                fileChannel = new RandomAccessFile(file2, "rw").getChannel();
+            } catch (FileNotFoundException e3) {
+                e = e3;
+                fileChannel = null;
             }
             try {
                 try {
-                    fileLock2 = exists.lock();
+                    fileLock2 = fileChannel.lock();
                 } catch (IOException e4) {
                     try {
                         e4.printStackTrace();
@@ -277,81 +258,87 @@ public final class SoLoader {
                         e = e5;
                         e.printStackTrace();
                         fileLock = null;
-                        exists = exists;
                         if (fileLock != null) {
                         }
                         releaseFileFromApk = true;
                         if (fileLock != null) {
                         }
-                        com.baidu.swan.d.c.closeSafely(exists);
+                        com.baidu.swan.e.d.closeSafely(fileChannel);
                         return releaseFileFromApk;
                     }
                 }
                 fileLock = fileLock2;
-                exists = exists;
                 if (fileLock != null) {
                     try {
-                        if (fileLock.isValid()) {
-                            releaseFileFromApk = releaseFileFromApk(zipFile, file, str2 + File.separator + str);
+                        try {
+                            if (fileLock.isValid()) {
+                                releaseFileFromApk = releaseFileFromApk(zipFile, file, str2 + File.separator + str);
+                                if (fileLock != null) {
+                                    try {
+                                        fileLock.release();
+                                    } catch (IOException e6) {
+                                        e6.printStackTrace();
+                                    }
+                                }
+                                com.baidu.swan.e.d.closeSafely(fileChannel);
+                                return releaseFileFromApk;
+                            }
+                        } catch (Exception e7) {
+                            e = e7;
+                            this.sb.append(Log.getStackTraceString(e));
+                            e.printStackTrace();
                             if (fileLock != null) {
                                 try {
                                     fileLock.release();
-                                } catch (IOException e6) {
-                                    e6.printStackTrace();
+                                } catch (IOException e8) {
+                                    e8.printStackTrace();
                                 }
                             }
-                            com.baidu.swan.d.c.closeSafely(exists);
-                            return releaseFileFromApk;
+                            com.baidu.swan.e.d.closeSafely(fileChannel);
+                            return true;
                         }
-                    } catch (Exception e7) {
-                        e = e7;
-                        this.sb.append(Log.getStackTraceString(e));
-                        e.printStackTrace();
+                    } catch (Throwable th2) {
+                        th = th2;
                         if (fileLock != null) {
                             try {
                                 fileLock.release();
-                            } catch (IOException e8) {
-                                e8.printStackTrace();
+                            } catch (IOException e9) {
+                                e9.printStackTrace();
                             }
                         }
-                        com.baidu.swan.d.c.closeSafely(exists);
-                        return true;
+                        com.baidu.swan.e.d.closeSafely(fileChannel);
+                        throw th;
                     }
                 }
                 releaseFileFromApk = true;
                 if (fileLock != null) {
                 }
-                com.baidu.swan.d.c.closeSafely(exists);
+                com.baidu.swan.e.d.closeSafely(fileChannel);
                 return releaseFileFromApk;
-            } catch (Exception e9) {
+            } catch (Exception e10) {
                 fileLock = null;
-                e = e9;
+                e = e10;
                 this.sb.append(Log.getStackTraceString(e));
                 e.printStackTrace();
                 if (fileLock != null) {
                 }
-                com.baidu.swan.d.c.closeSafely(exists);
+                com.baidu.swan.e.d.closeSafely(fileChannel);
                 return true;
             } catch (Throwable th3) {
-                releaseSoFilePath = 0;
+                fileLock = null;
                 th = th3;
-                if (releaseSoFilePath != 0) {
-                    try {
-                        releaseSoFilePath.release();
-                    } catch (IOException e10) {
-                        e10.printStackTrace();
-                    }
+                if (fileLock != null) {
                 }
-                com.baidu.swan.d.c.closeSafely(exists);
+                com.baidu.swan.e.d.closeSafely(fileChannel);
                 throw th;
             }
         } catch (Exception e11) {
-            exists = 0;
+            fileChannel = null;
             e = e11;
             fileLock = null;
         } catch (Throwable th4) {
-            releaseSoFilePath = 0;
-            exists = 0;
+            fileLock = null;
+            fileChannel = null;
             th = th4;
         }
     }
@@ -375,7 +362,7 @@ public final class SoLoader {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [502=5, 503=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [492=5, 493=4] */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r0v11, types: [java.io.OutputStream, java.io.Closeable, java.io.FileOutputStream] */
     private boolean releaseFileFromApk(ZipFile zipFile, File file, String str) {
@@ -406,8 +393,8 @@ public final class SoLoader {
             try {
                 if (SoUtils.copyStream(inputStream, fileOutputStream, 256) > 0) {
                     boolean renameTo = file2.renameTo(file);
-                    com.baidu.swan.d.c.closeSafely(inputStream);
-                    com.baidu.swan.d.c.closeSafely(fileOutputStream);
+                    com.baidu.swan.e.d.closeSafely(inputStream);
+                    com.baidu.swan.e.d.closeSafely(fileOutputStream);
                     return renameTo;
                 }
                 inputStream2 = inputStream;
@@ -418,21 +405,21 @@ public final class SoLoader {
                 if (DEBUG) {
                     Log.e(TAG, "SoLoader releaseFileFromApk exception.", e);
                 }
-                com.baidu.swan.d.c.closeSafely(inputStream);
-                com.baidu.swan.d.c.closeSafely(inputStream2);
+                com.baidu.swan.e.d.closeSafely(inputStream);
+                com.baidu.swan.e.d.closeSafely(inputStream2);
                 return false;
             } catch (Throwable th3) {
                 inputStream2 = fileOutputStream;
                 th = th3;
-                com.baidu.swan.d.c.closeSafely(inputStream);
-                com.baidu.swan.d.c.closeSafely(inputStream2);
+                com.baidu.swan.e.d.closeSafely(inputStream);
+                com.baidu.swan.e.d.closeSafely(inputStream2);
                 throw th;
             }
         } else {
             closeable = null;
         }
-        com.baidu.swan.d.c.closeSafely(inputStream2);
-        com.baidu.swan.d.c.closeSafely(closeable);
+        com.baidu.swan.e.d.closeSafely(inputStream2);
+        com.baidu.swan.e.d.closeSafely(closeable);
         return false;
     }
 

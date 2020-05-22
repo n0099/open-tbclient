@@ -14,7 +14,7 @@ public final class b implements HostnameVerifier {
         boolean verifyHostName;
         boolean verifyIpAddress;
         try {
-            if (!TextUtils.isEmpty(str) && str.equals("180.76.76.112")) {
+            if (!TextUtils.isEmpty(str) && str.equals("180.76.76.112") && str.equals("240c:4006::6666")) {
                 str = "httpsdns.baidu.com";
             }
             X509Certificate x509Certificate = (X509Certificate) sSLSession.getPeerCertificates()[0];

@@ -12,8 +12,8 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 /* loaded from: classes3.dex */
 public class g extends Drawable {
-    private int[] baN;
-    private int[] baO;
+    private int[] bim;
+    private int[] bin;
     private int mAlpha = 255;
     private ColorFilter mColorFilter;
     private float mCornerRadius;
@@ -30,8 +30,8 @@ public class g extends Drawable {
         Rect bounds = getBounds();
         float strokeWidth = this.mStrokePaint.getStrokeWidth();
         this.mRectF.set(bounds.left + (strokeWidth * 0.5f), bounds.top + (strokeWidth * 0.5f), bounds.right - (strokeWidth * 0.5f), bounds.bottom - (strokeWidth * 0.5f));
-        this.mFillPaint.setShader(new LinearGradient(bounds.left + strokeWidth, bounds.top + strokeWidth, bounds.right - strokeWidth, bounds.top + strokeWidth, this.baN, (float[]) null, Shader.TileMode.CLAMP));
-        this.mStrokePaint.setShader(new LinearGradient(this.mRectF.left, this.mRectF.top, this.mRectF.right, this.mRectF.top, this.baO, (float[]) null, Shader.TileMode.CLAMP));
+        this.mFillPaint.setShader(new LinearGradient(bounds.left + strokeWidth, bounds.top + strokeWidth, bounds.right - strokeWidth, bounds.top + strokeWidth, this.bim, (float[]) null, Shader.TileMode.CLAMP));
+        this.mStrokePaint.setShader(new LinearGradient(this.mRectF.left, this.mRectF.top, this.mRectF.right, this.mRectF.top, this.bin, (float[]) null, Shader.TileMode.CLAMP));
         this.mStrokePaint.setStrokeWidth(strokeWidth);
         float min = Math.min(this.mCornerRadius, Math.min(this.mRectF.width(), this.mRectF.height()) * 0.5f);
         canvas.drawRoundRect(this.mRectF, min, min, this.mFillPaint);
@@ -70,7 +70,7 @@ public class g extends Drawable {
         }
     }
 
-    public void F(int i, int i2) {
+    public void I(int i, int i2) {
         setColors(new int[]{i, i2});
     }
 
@@ -83,8 +83,8 @@ public class g extends Drawable {
     }
 
     public void f(int[] iArr, int[] iArr2) {
-        this.baN = iArr;
-        this.baO = iArr2;
+        this.bim = iArr;
+        this.bin = iArr2;
         invalidateSelf();
     }
 
@@ -98,7 +98,7 @@ public class g extends Drawable {
         invalidateSelf();
     }
 
-    public void G(int i, int i2) {
+    public void J(int i, int i2) {
         this.mStrokePaint.setStrokeWidth(i);
         this.mStrokePaint.setAlpha(i2);
         invalidateSelf();

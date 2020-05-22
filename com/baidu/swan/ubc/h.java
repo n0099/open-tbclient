@@ -1,156 +1,42 @@
 package com.baidu.swan.ubc;
-
-import android.text.TextUtils;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes11.dex */
-public class h {
-    private String Yz;
-    private String cgr;
-    private int ded;
-    private JSONObject dee;
-    private String def;
-    private boolean deg;
-    private String mCategory;
-    private String mContent;
-    private String mId;
-    private int mOption;
+class h {
+    private static String TAG = "ControlData";
+    private final int dpW;
+    private int mCount;
+    private final String mId;
+    private final int mSize;
     private long mTime;
 
-    public h(String str, String str2, int i) {
-        this.mContent = "";
-        this.deg = false;
-        this.Yz = "";
+    public h(String str, int i, int i2) {
         this.mId = str;
-        this.cgr = str;
-        this.ded = -1;
-        this.mContent = str2;
-        this.mOption = i;
-        if ((this.mOption & 2) == 0) {
-            this.mTime = System.currentTimeMillis();
-        }
-        try {
-            this.dee = new JSONObject(this.mContent);
-        } catch (JSONException e) {
-        }
+        this.dpW = i;
+        this.mSize = i2;
     }
 
-    public h(String str, JSONObject jSONObject, int i) {
-        this.mContent = "";
-        this.deg = false;
-        this.Yz = "";
-        this.mId = str;
-        this.cgr = str;
-        this.ded = -1;
-        this.dee = jSONObject;
-        this.mOption = i;
-        if ((this.mOption & 2) == 0) {
-            this.mTime = System.currentTimeMillis();
+    public boolean aIq() {
+        if (this.dpW == 0 || this.mSize == 0) {
+            return false;
         }
+        Long valueOf = Long.valueOf(System.currentTimeMillis());
+        if (this.mTime != 0 && (valueOf.longValue() - this.mTime) / 1000 <= this.dpW && this.mCount >= this.mSize) {
+            return true;
+        }
+        if (this.mTime == 0) {
+            this.mTime = valueOf.longValue();
+        } else if ((valueOf.longValue() - this.mTime) / 1000 > this.dpW) {
+            this.mTime = valueOf.longValue();
+            this.mCount = 0;
+        }
+        this.mCount++;
+        return false;
     }
 
-    public h(String str, String str2, int i, String str3, int i2) {
-        this.mContent = "";
-        this.deg = false;
-        this.Yz = "";
-        this.mId = str2;
-        this.cgr = str;
-        this.ded = i;
-        this.mContent = str3;
-        this.mOption = i2;
-        if ((this.mOption & 2) == 0) {
-            this.mTime = System.currentTimeMillis();
-        }
-        try {
-            this.dee = new JSONObject(this.mContent);
-        } catch (JSONException e) {
-        }
-    }
-
-    public h(String str, String str2, int i, String str3, long j, int i2) {
-        this.mContent = "";
-        this.deg = false;
-        this.Yz = "";
-        this.mId = str2;
-        this.cgr = str;
-        this.ded = i;
-        this.mContent = str3;
-        this.mOption = i2;
-        if ((this.mOption & 2) == 0) {
-            if (j > 0) {
-                this.mTime = j;
-            } else {
-                this.mTime = System.currentTimeMillis();
-            }
-        }
-        if (!TextUtils.isEmpty(this.mContent)) {
-            try {
-                this.dee = new JSONObject(this.mContent);
-            } catch (JSONException e) {
-            }
-        }
+    public boolean aIr() {
+        return this.mCount != 0 && this.mCount == this.mSize;
     }
 
     public String getId() {
         return this.mId;
-    }
-
-    public String ahF() {
-        return this.cgr;
-    }
-
-    public int aDJ() {
-        return this.ded;
-    }
-
-    public String getContent() {
-        return this.mContent;
-    }
-
-    public long getTime() {
-        return this.mTime;
-    }
-
-    public int getOption() {
-        return this.mOption;
-    }
-
-    public String aDK() {
-        return this.def;
-    }
-
-    public void setCategory(String str) {
-        this.mCategory = str;
-    }
-
-    public String getCategory() {
-        return this.mCategory;
-    }
-
-    public JSONObject aDL() {
-        return this.dee;
-    }
-
-    public String getFileName() {
-        return this.Yz;
-    }
-
-    public String aDM() {
-        return this.dee != null ? this.dee.optString("bizId") : "";
-    }
-
-    public void gc(boolean z) {
-        this.deg = z;
-    }
-
-    public boolean aDH() {
-        return this.deg;
-    }
-
-    public void aDN() {
-        if (this.mId != null && this.mId.equals(this.cgr) && d.aDw().sc(this.mId)) {
-            this.def = s.aEh().ahx();
-        }
     }
 }

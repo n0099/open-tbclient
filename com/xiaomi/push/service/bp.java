@@ -22,7 +22,7 @@ public class bp implements ServiceConnection {
         com.xiaomi.channel.commonutils.logger.b.b("onServiceConnected " + iBinder);
         Service a = XMJobService.a();
         if (a == null) {
-            com.xiaomi.channel.commonutils.logger.b.m50a("XMService connected but innerService is null " + iBinder);
+            com.xiaomi.channel.commonutils.logger.b.m52a("XMService connected but innerService is null " + iBinder);
             return;
         }
         XMPushService xMPushService = this.a;

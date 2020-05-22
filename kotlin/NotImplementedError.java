@@ -12,7 +12,7 @@ public final class NotImplementedError extends Error {
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public NotImplementedError(String str) {
         super(str);
-        q.j(str, "message");
+        q.m(str, "message");
     }
 
     public /* synthetic */ NotImplementedError(String str, int i, o oVar) {

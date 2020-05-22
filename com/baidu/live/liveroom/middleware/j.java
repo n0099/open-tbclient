@@ -6,11 +6,11 @@ import android.widget.RelativeLayout;
 import com.baidu.live.data.AlaLivePersonData;
 /* loaded from: classes3.dex */
 public interface j {
-    void D(Object obj);
+    View ES();
 
-    View Du();
+    void ET();
 
-    void Dv();
+    void F(Object obj);
 
     void a(com.baidu.live.liveroom.g.a aVar);
 

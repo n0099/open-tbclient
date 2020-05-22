@@ -107,7 +107,7 @@ public class HttpRequestPublishModule {
     public void requestPublish(String str, Map<String, String> map, final PublishRequestListener publishRequestListener) {
         if (publishRequestListener != null) {
             try {
-                ?? cookieManager = ((PostFormRequest.PostFormRequestBuilder) HttpManager.getDefault(AppRuntime.getAppContext()).postFormRequest().url(b.sj().processUrl(UgcServerApiUtils.getHostAddress() + UgcServerApiUtils.PUBLISHER_ADDRESS_PATH))).addParams(map).cookieManager((CookieManager) UgcRuntime.getUgcInterface().newCookieManagerInstance(false, false));
+                ?? cookieManager = ((PostFormRequest.PostFormRequestBuilder) HttpManager.getDefault(AppRuntime.getAppContext()).postFormRequest().url(b.st().processUrl(UgcServerApiUtils.getHostAddress() + UgcServerApiUtils.PUBLISHER_ADDRESS_PATH))).addParams(map).cookieManager((CookieManager) UgcRuntime.getUgcInterface().newCookieManagerInstance(false, false));
                 String publisherUserAgent = UgcServerApiUtils.getPublisherUserAgent();
                 if (!TextUtils.isEmpty(publisherUserAgent)) {
                     cookieManager.addHeader("User-Agent", publisherUserAgent);

@@ -18,13 +18,13 @@ public class CardHListViewData extends b implements Serializable {
     public String title;
     public boolean showTopDivider = true;
     public boolean showBottomDivider = true;
-    private final List<com.baidu.adp.widget.ListView.m> mList = new ArrayList();
+    private final List<com.baidu.adp.widget.ListView.o> mList = new ArrayList();
 
-    public final List<com.baidu.adp.widget.ListView.m> getDataList() {
+    public final List<com.baidu.adp.widget.ListView.o> getDataList() {
         return this.mList;
     }
 
-    @Override // com.baidu.adp.widget.ListView.m
+    @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.o
     public BdUniqueId getType() {
         return TYPE;
     }

@@ -14,12 +14,10 @@ import org.json.JSONObject;
 public class BdLogNetRequest implements INetListener {
     private static final int TIMEOUT = 30000;
     d mCallback;
-    private ByteArrayOutputStream mData = null;
+    private ByteArrayOutputStream mData;
     private boolean mIsConfig;
 
     BdLogNetRequest(d dVar, boolean z) {
-        this.mCallback = null;
-        this.mIsConfig = false;
         this.mIsConfig = z;
         this.mCallback = dVar;
     }

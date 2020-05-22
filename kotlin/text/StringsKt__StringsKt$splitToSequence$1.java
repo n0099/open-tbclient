@@ -17,7 +17,7 @@ final class StringsKt__StringsKt$splitToSequence$1 extends Lambda implements kot
     /* JADX DEBUG: Method merged with bridge method */
     @Override // kotlin.jvm.a.b
     public final String invoke(kotlin.b.h hVar) {
-        kotlin.jvm.internal.q.j(hVar, AdvanceSetting.NETWORK_TYPE);
+        kotlin.jvm.internal.q.m(hVar, AdvanceSetting.NETWORK_TYPE);
         return l.a(this.$this_splitToSequence, hVar);
     }
 }

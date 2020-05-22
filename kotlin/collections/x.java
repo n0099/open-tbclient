@@ -6,8 +6,8 @@ import java.util.List;
 @kotlin.h
 /* loaded from: classes7.dex */
 public class x extends w {
-    public static final <T> void fk(List<T> list) {
-        kotlin.jvm.internal.q.j(list, "receiver$0");
+    public static final <T> void fr(List<T> list) {
+        kotlin.jvm.internal.q.m(list, "receiver$0");
         Collections.reverse(list);
     }
 }

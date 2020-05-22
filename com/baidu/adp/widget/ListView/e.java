@@ -15,7 +15,7 @@ import com.baidu.adp.lib.util.BdLog;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
-public class e extends BaseAdapter implements n {
+public class e extends BaseAdapter implements p {
     private DataSetObserver mAdapterDataSetObserver;
     private boolean mAreAllFixedViewsSelectable;
     private Context mContext;
@@ -93,7 +93,7 @@ public class e extends BaseAdapter implements n {
         notifyDataSetChanged();
     }
 
-    @Override // android.widget.BaseAdapter, com.baidu.adp.widget.ListView.n
+    @Override // android.widget.BaseAdapter, com.baidu.adp.widget.ListView.p
     public void notifyDataSetChanged() {
         if (com.baidu.adp.lib.util.l.isMainThread()) {
             super.notifyDataSetChanged();
@@ -222,12 +222,12 @@ public class e extends BaseAdapter implements n {
         }
     }
 
-    @Override // android.widget.Adapter, com.baidu.adp.widget.ListView.n
+    @Override // android.widget.Adapter, com.baidu.adp.widget.ListView.p
     public int getCount() {
         return this.mAdapter != null ? getFootersCount() + getHeadersCount() + this.mAdapter.getCount() : getFootersCount() + getHeadersCount();
     }
 
-    @Override // android.widget.Adapter, com.baidu.adp.widget.ListView.n
+    @Override // android.widget.Adapter, com.baidu.adp.widget.ListView.p
     public Object getItem(int i) {
         int headersCount = getHeadersCount();
         if (i < headersCount) {

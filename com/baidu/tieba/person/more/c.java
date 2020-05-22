@@ -2,20 +2,20 @@ package com.baidu.tieba.person.more;
 
 import android.view.View;
 import com.baidu.adp.widget.ListView.BdTypeListView;
-import com.baidu.adp.widget.ListView.m;
+import com.baidu.adp.widget.ListView.o;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
-import com.baidu.tieba.card.z;
+import com.baidu.tieba.card.aa;
 import com.baidu.tieba.personCenter.c.g;
 import java.util.List;
 /* loaded from: classes11.dex */
 public class c {
-    private BdTypeListView eOj;
-    private z<g> hmh;
-    private a jSH;
+    private BdTypeListView faQ;
+    private aa<g> hAV;
+    private a kkz;
     private NavigationBar mNavigationBar;
     private TbPageContext mPageContext;
 
@@ -25,12 +25,12 @@ public class c {
 
     public void ag(View view) {
         this.mNavigationBar = (NavigationBar) view.findViewById(R.id.person_more_navigation_bar);
-        this.eOj = (BdTypeListView) view.findViewById(R.id.person_more_listview);
-        this.jSH = new a(this.mPageContext, this.eOj, this.hmh);
-        blD();
+        this.faQ = (BdTypeListView) view.findViewById(R.id.person_more_listview);
+        this.kkz = new a(this.mPageContext, this.faQ, this.hAV);
+        brb();
     }
 
-    private void blD() {
+    private void brb() {
         this.mNavigationBar.setCenterTextTitle(this.mPageContext.getString(R.string.person_center_more));
         this.mNavigationBar.showBottomLine();
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View.OnClickListener() { // from class: com.baidu.tieba.person.more.c.1
@@ -42,17 +42,17 @@ public class c {
         this.mNavigationBar.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public void setData(List<m> list) {
-        this.eOj.setData(list);
+    public void setData(List<o> list) {
+        this.faQ.setData(list);
     }
 
     public void onChangeSkinType() {
-        this.jSH.notifyDataSetChanged();
-        am.setBackgroundColor(this.eOj, R.color.cp_bg_line_d);
+        this.kkz.notifyDataSetChanged();
+        am.setBackgroundColor(this.faQ, R.color.cp_bg_line_d);
         this.mNavigationBar.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public void c(z<g> zVar) {
-        this.hmh = zVar;
+    public void c(aa<g> aaVar) {
+        this.hAV = aaVar;
     }
 }

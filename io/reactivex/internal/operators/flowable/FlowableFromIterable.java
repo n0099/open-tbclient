@@ -6,12 +6,12 @@ import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import java.util.Iterator;
 /* loaded from: classes7.dex */
 public final class FlowableFromIterable<T> extends io.reactivex.g<T> {
-    final Iterable<? extends T> mSk;
+    final Iterable<? extends T> nnr;
 
     @Override // io.reactivex.g
     public void a(org.a.c<? super T> cVar) {
         try {
-            a(cVar, this.mSk.iterator());
+            a(cVar, this.nnr.iterator());
         } catch (Throwable th) {
             io.reactivex.exceptions.a.L(th);
             EmptySubscription.error(th, cVar);
@@ -63,7 +63,7 @@ public final class FlowableFromIterable<T> extends io.reactivex.g<T> {
             } else if (!this.it.hasNext()) {
                 return null;
             }
-            return (T) io.reactivex.internal.functions.a.h(this.it.next(), "Iterator.next() returned a null value");
+            return (T) io.reactivex.internal.functions.a.k(this.it.next(), "Iterator.next() returned a null value");
         }
 
         @Override // io.reactivex.internal.a.g

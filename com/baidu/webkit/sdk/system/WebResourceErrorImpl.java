@@ -28,4 +28,9 @@ final class WebResourceErrorImpl extends WebResourceError {
     public final int getErrorCode() {
         return this.mError.getErrorCode();
     }
+
+    @Override // com.baidu.webkit.sdk.WebResourceError
+    public final int getOriginErrorCode() {
+        return 0;
+    }
 }

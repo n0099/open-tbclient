@@ -9,7 +9,7 @@ import com.baidu.tieba.homepage.topic.topicdetail.view.TopicTimelineCellCardView
 import java.util.List;
 /* loaded from: classes9.dex */
 public class d extends RecyclerView.Adapter<com.baidu.tieba.homepage.topic.topicdetail.c.a> {
-    private List<e> hRA;
+    private List<e> igk;
     private Context mContext;
 
     public d(Context context) {
@@ -18,14 +18,14 @@ public class d extends RecyclerView.Adapter<com.baidu.tieba.homepage.topic.topic
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.support.v7.widget.RecyclerView.Adapter
-    /* renamed from: z */
+    /* renamed from: x */
     public com.baidu.tieba.homepage.topic.topicdetail.c.a onCreateViewHolder(ViewGroup viewGroup, int i) {
         return new com.baidu.tieba.homepage.topic.topicdetail.c.a(new TopicTimelineCellCardView(this.mContext));
     }
 
     public void setData(List<e> list) {
         if (!v.isEmpty(list)) {
-            this.hRA = list;
+            this.igk = list;
         }
     }
 
@@ -33,9 +33,9 @@ public class d extends RecyclerView.Adapter<com.baidu.tieba.homepage.topic.topic
     @Override // android.support.v7.widget.RecyclerView.Adapter
     /* renamed from: a */
     public void onBindViewHolder(com.baidu.tieba.homepage.topic.topicdetail.c.a aVar, int i) {
-        e eVar = (e) v.getItem(this.hRA, i);
+        e eVar = (e) v.getItem(this.igk, i);
         if (eVar != null) {
-            TopicTimelineCellCardView topicTimelineCellCardView = (TopicTimelineCellCardView) aVar.cak();
+            TopicTimelineCellCardView topicTimelineCellCardView = (TopicTimelineCellCardView) aVar.cgJ();
             topicTimelineCellCardView.setData(eVar);
             topicTimelineCellCardView.onChangeSkinType();
         }
@@ -43,6 +43,6 @@ public class d extends RecyclerView.Adapter<com.baidu.tieba.homepage.topic.topic
 
     @Override // android.support.v7.widget.RecyclerView.Adapter
     public int getItemCount() {
-        return v.getCount(this.hRA);
+        return v.getCount(this.igk);
     }
 }

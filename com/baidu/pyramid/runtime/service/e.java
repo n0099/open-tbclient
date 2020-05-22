@@ -5,13 +5,13 @@ import com.baidu.ubc.ac;
 import java.util.HashMap;
 /* loaded from: classes13.dex */
 public class e {
-    private static final HashMap<d, b<?>> buO = new HashMap<>();
+    private static final HashMap<d, b<?>> bCr = new HashMap<>();
 
     static {
-        MY();
+        Pl();
     }
 
-    private static void MY() {
+    private static void Pl() {
         a("account", com.baidu.sapi2.outsdk.c.k, com.baidu.tieba.write.b.b.b.class);
         a("ubc", UBC.TAG, ac.class);
     }
@@ -27,15 +27,15 @@ public class e {
     }
 
     public static <T> void a(d dVar, b<T> bVar) {
-        synchronized (buO) {
-            buO.put(dVar, bVar);
+        synchronized (bCr) {
+            bCr.put(dVar, bVar);
         }
     }
 
     public static <T> T a(d dVar) {
-        b<?> bVar = buO.get(dVar);
+        b<?> bVar = bCr.get(dVar);
         if (bVar != null) {
-            return (T) bVar.MW();
+            return (T) bVar.Pj();
         }
         return null;
     }

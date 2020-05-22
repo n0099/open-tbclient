@@ -18,12 +18,12 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 /* loaded from: classes11.dex */
 public class c {
-    public final TextView cWS;
-    public final BdTypeListView eOj;
-    public final ImageView fiR;
-    private final RelativeLayout gWJ;
-    public final EditText gWK;
-    public final ImageView giw;
+    public final TextView dhT;
+    public final BdTypeListView faQ;
+    public final ImageView fwy;
+    public final ImageView gxm;
+    private final RelativeLayout hlv;
+    public final EditText hlw;
     private TbPageContext mPageContext;
     public final View mRoot;
     private int mSkinType = 3;
@@ -31,20 +31,20 @@ public class c {
     public c(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
         this.mRoot = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.forum_search_main, (ViewGroup) null);
-        this.gWJ = (RelativeLayout) this.mRoot.findViewById(R.id.search_area_root);
-        this.fiR = (ImageView) this.mRoot.findViewById(R.id.search_bar_icon);
-        this.gWK = (EditText) this.mRoot.findViewById(R.id.home_et_search);
-        this.giw = (ImageView) this.mRoot.findViewById(R.id.home_bt_search_del);
-        this.gWK.setHint(R.string.search_bar_you_want_post_to_share);
-        this.cWS = (TextView) this.mRoot.findViewById(R.id.home_bt_search_cancel_s);
-        this.cWS.setText(tbPageContext.getString(R.string.cancel));
-        this.eOj = (BdTypeListView) this.mRoot.findViewById(R.id.search_bar_list);
-        bNs();
+        this.hlv = (RelativeLayout) this.mRoot.findViewById(R.id.search_area_root);
+        this.fwy = (ImageView) this.mRoot.findViewById(R.id.search_bar_icon);
+        this.hlw = (EditText) this.mRoot.findViewById(R.id.home_et_search);
+        this.gxm = (ImageView) this.mRoot.findViewById(R.id.home_bt_search_del);
+        this.hlw.setHint(R.string.search_bar_you_want_post_to_share);
+        this.dhT = (TextView) this.mRoot.findViewById(R.id.home_bt_search_cancel_s);
+        this.dhT.setText(tbPageContext.getString(R.string.cancel));
+        this.faQ = (BdTypeListView) this.mRoot.findViewById(R.id.search_bar_list);
+        bTN();
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    private void bNs() {
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.gWJ.getLayoutParams();
+    private void bTN() {
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.hlv.getLayoutParams();
         layoutParams.height = l.getDimens(this.mPageContext.getPageActivity(), R.dimen.ds88);
         int dimens = l.getDimens(this.mPageContext.getPageActivity(), R.dimen.ds8);
         layoutParams.rightMargin = dimens;
@@ -53,20 +53,20 @@ public class c {
         if (immersiveStickyBarHeight > 0) {
             layoutParams.topMargin = immersiveStickyBarHeight;
         }
-        this.gWJ.setLayoutParams(layoutParams);
+        this.hlv.setLayoutParams(layoutParams);
     }
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
-            SvgManager.aOR().a(this.fiR, R.drawable.icon_pure_search_import16_svg, R.color.cp_cont_d, (SvgManager.SvgResourceStateType) null);
-            am.setViewTextColor(this.cWS, R.color.cp_link_tip_a, 1);
-            SvgManager.aOR().a(this.giw, R.drawable.icon_pure_search_empty16_svg, R.color.cp_cont_d, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            SvgManager.aUV().a(this.fwy, R.drawable.icon_pure_search_import16_svg, R.color.cp_cont_d, (SvgManager.SvgResourceStateType) null);
+            am.setViewTextColor(this.dhT, R.color.cp_link_tip_a, 1);
+            SvgManager.aUV().a(this.gxm, R.drawable.icon_pure_search_empty16_svg, R.color.cp_cont_d, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             if (i == 2) {
-                this.gWK.setHintTextColor(am.getColor(R.color.s_navbar_title_color));
+                this.hlw.setHintTextColor(am.getColor(R.color.s_navbar_title_color));
             } else {
-                this.gWK.setHintTextColor(am.getColor(R.color.cp_cont_e));
+                this.hlw.setHintTextColor(am.getColor(R.color.cp_cont_e));
             }
-            am.setNavbarTitleColor(this.gWK, R.color.cp_cont_b, R.color.s_navbar_title_color);
+            am.setNavbarTitleColor(this.hlw, R.color.cp_cont_b, R.color.s_navbar_title_color);
             this.mSkinType = i;
         }
     }

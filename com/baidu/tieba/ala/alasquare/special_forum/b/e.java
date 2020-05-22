@@ -4,8 +4,8 @@ import android.view.ViewGroup;
 import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes3.dex */
 public class e {
-    public a eXp;
-    private int eXq = -1;
+    public a fjZ;
+    private int fka = -1;
     private TbPageContext mTbPageContext;
 
     public e(TbPageContext tbPageContext) {
@@ -14,95 +14,95 @@ public class e {
 
     public void a(com.baidu.tieba.ala.alasquare.special_forum.data.a aVar, boolean z) {
         if (aVar == null) {
-            this.eXq = -1;
-            this.eXp = new b(this.mTbPageContext);
+            this.fka = -1;
+            this.fjZ = new b(this.mTbPageContext);
         } else if (z) {
-            this.eXq = aVar.eVy;
-            switch (aVar.eVy) {
+            this.fka = aVar.fih;
+            switch (aVar.fih) {
                 case 1:
-                    this.eXp = new d(this.mTbPageContext);
+                    this.fjZ = new d(this.mTbPageContext);
                     break;
                 case 2:
-                    this.eXp = new f(this.mTbPageContext);
+                    this.fjZ = new f(this.mTbPageContext);
                     break;
                 case 3:
-                    this.eXp = new c(this.mTbPageContext);
+                    this.fjZ = new c(this.mTbPageContext);
                     break;
                 default:
-                    this.eXp = new b(this.mTbPageContext);
+                    this.fjZ = new b(this.mTbPageContext);
                     break;
             }
         }
-        if (this.eXp.b(aVar)) {
+        if (this.fjZ.b(aVar)) {
             if (z) {
-                this.eXp.init();
+                this.fjZ.init();
             }
-            this.eXp.a(aVar);
+            this.fjZ.a(aVar);
             return;
         }
-        this.eXq = -1;
-        this.eXp = new b(this.mTbPageContext);
+        this.fka = -1;
+        this.fjZ = new b(this.mTbPageContext);
         if (z) {
-            this.eXp.init();
+            this.fjZ.init();
         }
-        this.eXp.a(aVar);
+        this.fjZ.a(aVar);
     }
 
     public boolean c(com.baidu.tieba.ala.alasquare.special_forum.data.a aVar) {
-        return aVar == null || this.eXq != aVar.eVy;
+        return aVar == null || this.fka != aVar.fih;
     }
 
     public void pause() {
-        if (this.eXp != null) {
-            this.eXp.pause();
+        if (this.fjZ != null) {
+            this.fjZ.pause();
         }
     }
 
     public void resume() {
-        if (this.eXp != null) {
-            this.eXp.resume();
+        if (this.fjZ != null) {
+            this.fjZ.resume();
         }
     }
 
-    public void iR(boolean z) {
-        if (this.eXp != null) {
-            this.eXp.iR(z);
+    public void jj(boolean z) {
+        if (this.fjZ != null) {
+            this.fjZ.jj(z);
         }
     }
 
-    public void O(ViewGroup viewGroup) {
-        if (this.eXp != null) {
-            this.eXp.O(viewGroup);
+    public void T(ViewGroup viewGroup) {
+        if (this.fjZ != null) {
+            this.fjZ.T(viewGroup);
         }
     }
 
     public void onChangeSkinType(int i) {
-        if (this.eXp != null) {
-            this.eXp.onChangeSkinType(i);
+        if (this.fjZ != null) {
+            this.fjZ.onChangeSkinType(i);
         }
     }
 
     public void startPlay() {
-        if (this.eXp != null) {
-            this.eXp.startPlay();
+        if (this.fjZ != null) {
+            this.fjZ.startPlay();
         }
     }
 
     public void stopPlay() {
-        if (this.eXp != null) {
-            this.eXp.stopPlay();
+        if (this.fjZ != null) {
+            this.fjZ.stopPlay();
         }
     }
 
-    public void bmq() {
-        if (this.eXp != null) {
-            this.eXp.bmq();
+    public void brO() {
+        if (this.fjZ != null) {
+            this.fjZ.brO();
         }
     }
 
     public void onDestroy() {
-        if (this.eXp != null) {
-            this.eXp.onDestroy();
+        if (this.fjZ != null) {
+            this.fjZ.onDestroy();
         }
     }
 }

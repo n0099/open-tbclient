@@ -9,38 +9,38 @@ import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class b extends a {
     public b() {
-        this.dJX = R.color.cp_cont_a;
-        this.dJZ = R.color.cp_link_tip_a;
+        this.dYn = R.color.cp_cont_a;
+        this.dYp = R.color.cp_link_tip_a;
     }
 
-    public void lG(@ColorRes int i) {
-        this.dJZ = i;
-        this.dJX = R.color.cp_cont_a;
-        this.dKi = true;
-        if (this.dKk != null) {
-            this.dKk.aQO();
+    public void mi(@ColorRes int i) {
+        this.dYp = i;
+        this.dYn = R.color.cp_cont_a;
+        this.dYy = true;
+        if (this.dYA != null) {
+            this.dYA.aWW();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.baidu.tbadk.core.view.commonBtn.a
-    public Drawable U(float f) {
-        return V(f);
+    public Drawable T(float f) {
+        return U(f);
     }
 
-    private Drawable V(float f) {
+    private Drawable U(float f) {
         GradientDrawable gradientDrawable;
-        if (!this.dKi) {
-            this.dJX = am.getColor(R.color.cp_cont_a);
+        if (!this.dYy) {
+            this.dYn = am.getColor(R.color.cp_cont_a);
         }
-        int color = this.dKi ? am.getColor(this.dJZ) : this.dJZ;
-        int[] iArr = {com.baidu.tieba.tbadkCore.c.CY(color), color};
+        int color = this.dYy ? am.getColor(this.dYp) : this.dYp;
+        int[] iArr = {com.baidu.tieba.tbadkCore.c.DI(color), color};
         if (Build.VERSION.SDK_INT >= 16) {
             gradientDrawable = new GradientDrawable();
-            gradientDrawable.setOrientation(this.dKj);
+            gradientDrawable.setOrientation(this.dYz);
             gradientDrawable.setColors(iArr);
         } else {
-            gradientDrawable = new GradientDrawable(this.dKj, iArr);
+            gradientDrawable = new GradientDrawable(this.dYz, iArr);
         }
         gradientDrawable.setGradientType(0);
         gradientDrawable.setShape(0);

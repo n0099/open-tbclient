@@ -11,7 +11,7 @@ public class at {
         public static int LOCATE_SIGN = 5;
         public static int LOCATE_CHAT = 6;
         public static int LOCATE_LIKE_BAR = 7;
-        public static int dAg = 8;
-        public static int dAh = 9;
+        public static int dOm = 8;
+        public static int dOn = 9;
     }
 }

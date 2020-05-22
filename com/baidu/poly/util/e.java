@@ -1,54 +1,46 @@
 package com.baidu.poly.util;
 
-import android.content.Context;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
+import android.os.Build;
+import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.ArrayMap;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class e {
-    private static String K(int i, String str) {
-        switch (i) {
-            case 1:
-            case 2:
-            case 4:
-            case 7:
-            case 11:
-            case 16:
-                return "1";
-            case 3:
-            case 5:
-            case 6:
-            case 8:
-            case 9:
-            case 10:
-            case 12:
-            case 14:
-            case 15:
-            case 17:
-                return "2";
-            case 13:
-            case 18:
-            case 19:
-                return "3";
-            default:
-                return (TextUtils.isEmpty(str) || !str.equalsIgnoreCase("LTE_CA")) ? "unknown" : "3";
-        }
+    public static <K, V> Map<K, V> Ni() {
+        return Build.VERSION.SDK_INT >= 19 ? new ArrayMap() : new HashMap();
     }
 
-    private static NetworkInfo getActiveNetworkInfo() {
-        ConnectivityManager connectivityManager;
-        Context La = f.La();
-        if (La != null && (connectivityManager = (ConnectivityManager) La.getSystemService("connectivity")) != null) {
-            return connectivityManager.getActiveNetworkInfo();
+    public static Bundle j(Map<String, String> map) {
+        Bundle bundle = new Bundle();
+        for (String str : map.keySet()) {
+            bundle.putString(str, map.get(str));
         }
-        return null;
+        return bundle;
     }
 
-    public static String getNetworkType() {
-        NetworkInfo activeNetworkInfo = getActiveNetworkInfo();
-        if (activeNetworkInfo == null || !activeNetworkInfo.isConnected()) {
-            return "0";
+    public static JSONObject k(Map<String, String> map) {
+        JSONObject jSONObject = new JSONObject();
+        for (String str : map.keySet()) {
+            jSONObject.put(str, map.get(str));
         }
-        return activeNetworkInfo.getType() == 1 ? "4" : activeNetworkInfo.getType() == 0 ? K(activeNetworkInfo.getSubtype(), activeNetworkInfo.getSubtypeName()) : "unknown";
+        return jSONObject;
+    }
+
+    public static Map<String, String> T(JSONObject jSONObject) {
+        Map<String, String> Ni = Ni();
+        if (jSONObject != null) {
+            Iterator<String> keys = jSONObject.keys();
+            while (keys.hasNext()) {
+                String next = keys.next();
+                if (!TextUtils.isEmpty(next)) {
+                    Ni.put(next, jSONObject.optString(next));
+                }
+            }
+        }
+        return Ni;
     }
 }

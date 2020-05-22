@@ -10,7 +10,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class d {
-    public File eZM = null;
+    public File fmw = null;
     public String mLoadingFile;
     public String mMd5;
     public String mType;
@@ -18,26 +18,26 @@ public class d {
     public String mVersion;
 
     public boolean isLoaded() {
-        return bmU() != null && bmU().exists();
+        return bss() != null && bss().exists();
     }
 
     public String getName() {
         return this.mVersion + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.mMd5;
     }
 
-    public File bmU() {
-        if (this.eZM == null && !TextUtils.isEmpty(this.mVersion)) {
-            this.eZM = new File(bmV(), getName());
+    public File bss() {
+        if (this.fmw == null && !TextUtils.isEmpty(this.mVersion)) {
+            this.fmw = new File(bst(), getName());
         }
-        return this.eZM;
+        return this.fmw;
     }
 
     public String getFilePath() {
-        return bmU().getAbsolutePath();
+        return bss().getAbsolutePath();
     }
 
-    public String bmV() {
-        return TextUtils.equals(this.mType, "so") ? c.bmS().getAbsolutePath() : c.bmT().getAbsolutePath();
+    public String bst() {
+        return TextUtils.equals(this.mType, "so") ? c.bsq().getAbsolutePath() : c.bsr().getAbsolutePath();
     }
 
     public String getLoadingFile() {
@@ -69,21 +69,21 @@ public class d {
                 }
             }
             com.baidu.tieba.ala.a.b.a.unzipFile(file, file2.getAbsolutePath());
-            file2.renameTo(bmU());
+            file2.renameTo(bss());
         } catch (Exception e3) {
             z = false;
             e = e3;
         }
         if (isLoaded()) {
-            if (bmW()) {
+            if (bsu()) {
                 z = true;
                 if (!z) {
                     try {
-                        com.baidu.tieba.ala.a.b.a.deleteDir(bmU());
+                        com.baidu.tieba.ala.a.b.a.deleteDir(bss());
                     } catch (Exception e4) {
                         e = e4;
                         e.printStackTrace();
-                        com.baidu.tieba.ala.a.b.a.deleteDir(bmU());
+                        com.baidu.tieba.ala.a.b.a.deleteDir(bss());
                         return z;
                     }
                 }
@@ -98,10 +98,10 @@ public class d {
         return z;
     }
 
-    public boolean bmW() {
+    public boolean bsu() {
         JSONArray optJSONArray;
         try {
-            File file = new File(bmU(), "files.json");
+            File file = new File(bss(), "files.json");
             if (file == null || !file.exists()) {
                 return false;
             }
@@ -117,7 +117,7 @@ public class d {
             ArrayList<a> arrayList = new ArrayList<>();
             int length = optJSONArray.length();
             for (int i = 0; i < length; i++) {
-                arrayList.add(a.zv(optJSONArray.getString(i)));
+                arrayList.add(a.Bb(optJSONArray.getString(i)));
             }
             return S(arrayList);
         } catch (Exception e) {
@@ -154,7 +154,7 @@ public class d {
         }
     }
 
-    public static d dc(String str, String str2) {
+    public static d dA(String str, String str2) {
         d dVar = new d();
         dVar.mVersion = str;
         String str3 = "https://pic.rmb.bdstatic.com/baidu-ar-so-live-";
@@ -163,7 +163,7 @@ public class d {
         }
         String str4 = str3 + str + ".zip";
         dVar.mUrl = str4;
-        dVar.mMd5 = com.baidu.tieba.ala.a.b.b.dd(str4, "MD5");
+        dVar.mMd5 = com.baidu.tieba.ala.a.b.b.dB(str4, "MD5");
         dVar.mType = str2;
         return dVar;
     }
@@ -174,7 +174,7 @@ public class d {
         public String mName;
         public String mPath;
 
-        public static a zv(String str) {
+        public static a Bb(String str) {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }

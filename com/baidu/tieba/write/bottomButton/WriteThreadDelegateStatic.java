@@ -8,11 +8,11 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
+import com.baidu.tbadk.a.d;
 import com.baidu.tbadk.mainTab.MaintabBottomIndicator;
 import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
 import com.baidu.tbadk.mainTab.b;
 import com.baidu.tbadk.mainTab.c;
-import com.baidu.tbadk.mainTab.d;
 import com.baidu.tieba.R;
 /* loaded from: classes2.dex */
 public class WriteThreadDelegateStatic extends b {
@@ -34,22 +34,24 @@ public class WriteThreadDelegateStatic extends b {
     }
 
     static {
-        CustomMessageListener customMessageListener = new CustomMessageListener(CmdConfigCustom.MAINTAB_ADD_FRAGMENT) { // from class: com.baidu.tieba.write.bottomButton.WriteThreadDelegateStatic.1
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.framework.listener.MessageListener
-            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                c fragmentTabStructure;
-                if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007002 && customResponsedMessage.getData() != null) {
-                    WriteThreadDelegateStatic writeThreadDelegateStatic = new WriteThreadDelegateStatic();
-                    ((d) customResponsedMessage.getData()).a(writeThreadDelegateStatic);
-                    if (((d) customResponsedMessage.getData()).getContext() != null && (fragmentTabStructure = writeThreadDelegateStatic.getFragmentTabStructure()) != null) {
-                        fragmentTabStructure.frag.setArguments(new Bundle());
+        if (!d.aMs()) {
+            CustomMessageListener customMessageListener = new CustomMessageListener(CmdConfigCustom.MAINTAB_ADD_FRAGMENT) { // from class: com.baidu.tieba.write.bottomButton.WriteThreadDelegateStatic.1
+                /* JADX DEBUG: Method merged with bridge method */
+                @Override // com.baidu.adp.framework.listener.MessageListener
+                public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+                    c fragmentTabStructure;
+                    if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007002 && customResponsedMessage.getData() != null) {
+                        WriteThreadDelegateStatic writeThreadDelegateStatic = new WriteThreadDelegateStatic();
+                        ((com.baidu.tbadk.mainTab.d) customResponsedMessage.getData()).a(writeThreadDelegateStatic);
+                        if (((com.baidu.tbadk.mainTab.d) customResponsedMessage.getData()).getContext() != null && (fragmentTabStructure = writeThreadDelegateStatic.getFragmentTabStructure()) != null) {
+                            fragmentTabStructure.frag.setArguments(new Bundle());
+                        }
                     }
                 }
-            }
-        };
-        customMessageListener.setPriority(3);
-        MessageManager.getInstance().registerListener(customMessageListener);
+            };
+            customMessageListener.setPriority(3);
+            MessageManager.getInstance().registerListener(customMessageListener);
+        }
     }
 
     @Override // com.baidu.tbadk.mainTab.b

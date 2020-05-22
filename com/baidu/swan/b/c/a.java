@@ -9,12 +9,12 @@ public class a extends com.baidu.swan.b.d.a {
     }
 
     @Override // com.baidu.swan.b.d.a
-    public com.baidu.swan.apps.api.b.b b(@NonNull JSONObject jSONObject, @NonNull com.baidu.swan.apps.p.b bVar) {
+    public com.baidu.swan.apps.api.c.b b(@NonNull JSONObject jSONObject, @NonNull com.baidu.swan.apps.n.b bVar) {
         int optInt = jSONObject.optInt("status", 0);
         String optString = jSONObject.optString("message");
         JSONObject optJSONObject = jSONObject.optJSONObject("data");
         if (optInt == 0) {
-            bVar.V(optJSONObject);
+            bVar.aa(optJSONObject);
             return null;
         }
         bVar.onFail(optInt, optString);

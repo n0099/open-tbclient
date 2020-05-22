@@ -114,11 +114,11 @@ public class c extends Drawable {
         }
         if (this.mScaleType != scaleType) {
             this.mScaleType = scaleType;
-            ajS();
+            anG();
         }
     }
 
-    private void ajS() {
+    private void anG() {
         float min;
         float width;
         float f;
@@ -234,7 +234,7 @@ public class c extends Drawable {
     protected void onBoundsChange(Rect rect) {
         super.onBoundsChange(rect);
         this.mBounds.set(rect);
-        ajS();
+        anG();
     }
 
     @Override // android.graphics.drawable.Drawable

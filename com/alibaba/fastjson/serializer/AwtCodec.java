@@ -61,7 +61,7 @@ public class AwtCodec implements ObjectDeserializer, ObjectSerializer {
 
     protected char writeClassName(SerializeWriter serializeWriter, Class<?> cls, char c) {
         if (serializeWriter.isEnabled(SerializerFeature.WriteClassName)) {
-            serializeWriter.write(Constants.METHOD_IM_FRIEND_GROUP_QUERY);
+            serializeWriter.write(123);
             serializeWriter.writeFieldName(JSON.DEFAULT_TYPE_KEY);
             serializeWriter.writeString(cls.getName());
             return ',';

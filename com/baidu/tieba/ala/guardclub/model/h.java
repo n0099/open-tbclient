@@ -6,8 +6,8 @@ import com.baidu.live.utils.q;
 import com.baidu.mobstat.Config;
 /* loaded from: classes3.dex */
 public class h extends HttpMessage {
-    private int aIW;
-    private long aps;
+    private int aOF;
+    private long aul;
     private int pn;
     private int ps;
 
@@ -15,7 +15,7 @@ public class h extends HttpMessage {
         super(1021138);
         this.ps = 20;
         this.pn = 1;
-        this.aIW = 2;
+        this.aOF = 2;
     }
 
     public void setPs(int i) {
@@ -26,15 +26,15 @@ public class h extends HttpMessage {
         this.pn = i;
     }
 
-    public void ab(long j) {
-        this.aps = j;
+    public void af(long j) {
+        this.aul = j;
     }
 
     public void setParams() {
-        addParam("scene_from", q.xf());
+        addParam("scene_from", q.yu());
         addParam("ps", this.ps);
         addParam(Config.PACKAGE_NAME, this.pn);
-        addParam("anchor_id", EncryptionHelper.getEncryptionUserId(this.aps + ""));
-        addParam("client_type", this.aIW);
+        addParam("anchor_id", EncryptionHelper.getEncryptionUserId(this.aul + ""));
+        addParam("client_type", this.aOF);
     }
 }

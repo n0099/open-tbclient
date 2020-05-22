@@ -5,9 +5,9 @@ public final class BuildConfig {
     public static final String BUILD_TYPE = "release";
     public static final boolean DEBUG = false;
     public static final String FLAVOR = "";
-    public static final String GIT_BUILD_DATE = "2020-05-10 17:25:22";
-    public static final String GIT_COMMIT_ID = "d5196b49da0a3142336044178da54fb98d97008a";
-    public static final String GIT_VERSION = "d5196b4";
+    public static final String GIT_BUILD_DATE = "2020-05-20 18:34:16";
+    public static final String GIT_COMMIT_ID = "4554551f54e88d6e42b0b8a8393d5b1c4d261e5a";
+    public static final String GIT_VERSION = "4554551";
     public static final int VERSION_CODE = 1;
     public static final String VERSION_NAME = "1.0";
 }

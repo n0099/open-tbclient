@@ -4,16 +4,16 @@ import android.widget.ExpandableListView;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 class a {
-    private static ArrayList<a> aTD = new ArrayList<>(5);
-    public int aTH;
-    public int aTI;
-    int aTJ;
+    private static ArrayList<a> baR = new ArrayList<>(5);
+    public int baV;
+    public int baW;
+    int baX;
     public int type;
 
     private void resetState() {
-        this.aTH = 0;
-        this.aTI = 0;
-        this.aTJ = 0;
+        this.baV = 0;
+        this.baW = 0;
+        this.baX = 0;
         this.type = 0;
     }
 
@@ -21,30 +21,30 @@ class a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public long EU() {
-        return this.type == 1 ? ExpandableListView.getPackedPositionForChild(this.aTH, this.aTI) : ExpandableListView.getPackedPositionForGroup(this.aTH);
+    public long GL() {
+        return this.type == 1 ? ExpandableListView.getPackedPositionForChild(this.baV, this.baW) : ExpandableListView.getPackedPositionForGroup(this.baV);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static a wf(int i) {
-        return A(2, i, 0, 0);
+    public static a wL(int i) {
+        return B(2, i, 0, 0);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static a A(int i, int i2, int i3, int i4) {
-        a caD = caD();
-        caD.type = i;
-        caD.aTH = i2;
-        caD.aTI = i3;
-        caD.aTJ = i4;
-        return caD;
+    public static a B(int i, int i2, int i3, int i4) {
+        a chc = chc();
+        chc.type = i;
+        chc.baV = i2;
+        chc.baW = i3;
+        chc.baX = i4;
+        return chc;
     }
 
-    private static a caD() {
+    private static a chc() {
         a aVar;
-        synchronized (aTD) {
-            if (aTD.size() > 0) {
-                aVar = aTD.remove(0);
+        synchronized (baR) {
+            if (baR.size() > 0) {
+                aVar = baR.remove(0);
                 aVar.resetState();
             } else {
                 aVar = new a();
@@ -54,9 +54,9 @@ class a {
     }
 
     public void recycle() {
-        synchronized (aTD) {
-            if (aTD.size() < 5) {
-                aTD.add(this);
+        synchronized (baR) {
+            if (baR.size() < 5) {
+                baR.add(this);
             }
         }
     }

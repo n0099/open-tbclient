@@ -28,69 +28,69 @@ import com.baidu.tieba.pb.pb.main.PbModel;
 import com.baidu.tieba.pb.videopb.VideoPbFragment;
 import com.baidu.tieba.pb.videopb.a;
 import com.baidu.tieba.pb.videopb.e;
-import com.baidu.tieba.tbadkCore.data.m;
+import com.baidu.tieba.tbadkCore.data.n;
 import java.util.List;
 /* loaded from: classes9.dex */
 public class DetailInfoFragment extends BaseFragment implements a {
-    private PbListView ePr;
-    private BdTypeRecyclerView hcY;
-    private VideoPbFragment jLW;
-    private com.baidu.tieba.pb.videopb.a.a jLY;
-    private String jMa;
-    private String jMb;
-    private e jqh;
-    private PbActivity jsZ;
-    private int jLZ = 0;
+    private PbListView fbY;
+    private BdTypeRecyclerView hrM;
+    private e jGQ;
+    private PbActivity jJW;
+    private VideoPbFragment kdJ;
+    private com.baidu.tieba.pb.videopb.a.a kdL;
+    private String kdN;
+    private String kdO;
+    private int kdM = 0;
     private RecyclerView.OnScrollListener mOnScrollListener = new RecyclerView.OnScrollListener() { // from class: com.baidu.tieba.pb.videopb.fragment.DetailInfoFragment.1
         @Override // android.support.v7.widget.RecyclerView.OnScrollListener
         public void onScrollStateChanged(RecyclerView recyclerView, int i) {
             super.onScrollStateChanged(recyclerView, i);
-            if (i == 1 && DetailInfoFragment.this.jLW != null) {
-                DetailInfoFragment.this.jLW.cAk();
+            if (i == 1 && DetailInfoFragment.this.kdJ != null) {
+                DetailInfoFragment.this.kdJ.cHg();
             }
-            if (i == 0 && !recyclerView.canScrollVertically(-1) && DetailInfoFragment.this.jLW != null && !DetailInfoFragment.this.jLW.cDV()) {
-                DetailInfoFragment.this.jqh.sf(true);
+            if (i == 0 && !recyclerView.canScrollVertically(-1) && DetailInfoFragment.this.kdJ != null && !DetailInfoFragment.this.kdJ.cKS()) {
+                DetailInfoFragment.this.jGQ.sD(true);
             }
         }
 
         @Override // android.support.v7.widget.RecyclerView.OnScrollListener
         public void onScrolled(RecyclerView recyclerView, int i, int i2) {
-            p<Boolean> cEm;
+            p<Boolean> cLj;
             super.onScrolled(recyclerView, i, i2);
             boolean canScrollVertically = recyclerView.canScrollVertically(-1);
-            if (canScrollVertically && i2 > 0 && DetailInfoFragment.this.jLW != null && !DetailInfoFragment.this.jLW.cDV() && ((cEm = DetailInfoFragment.this.jqh.cEm()) == null || cEm.getValue() == null || cEm.getValue().booleanValue())) {
-                DetailInfoFragment.this.jqh.sf(false);
+            if (canScrollVertically && i2 > 0 && DetailInfoFragment.this.kdJ != null && !DetailInfoFragment.this.kdJ.cKS() && ((cLj = DetailInfoFragment.this.jGQ.cLj()) == null || cLj.getValue() == null || cLj.getValue().booleanValue())) {
+                DetailInfoFragment.this.jGQ.sD(false);
             }
             if (!canScrollVertically) {
-                if (Math.abs(i2) > 0 && DetailInfoFragment.this.jLZ != 0 && DetailInfoFragment.this.jLW != null) {
-                    DetailInfoFragment.this.jLW.Ae(8);
+                if (Math.abs(i2) > 0 && DetailInfoFragment.this.kdM != 0 && DetailInfoFragment.this.kdJ != null) {
+                    DetailInfoFragment.this.kdJ.AP(8);
                 }
-                DetailInfoFragment.this.jLZ = 0;
+                DetailInfoFragment.this.kdM = 0;
                 return;
             }
-            if (Math.abs(i2) > 0 && DetailInfoFragment.this.jLW != null && DetailInfoFragment.this.jLZ == 0) {
-                DetailInfoFragment.this.jLW.Ae(0);
+            if (Math.abs(i2) > 0 && DetailInfoFragment.this.kdJ != null && DetailInfoFragment.this.kdM == 0) {
+                DetailInfoFragment.this.kdJ.AP(0);
             }
-            DetailInfoFragment.this.jLZ = 2;
+            DetailInfoFragment.this.kdM = 2;
         }
     };
-    private CustomMessageListener hqk = new CustomMessageListener(CmdConfigCustom.DELETE_AD_FROM_FEED) { // from class: com.baidu.tieba.pb.videopb.fragment.DetailInfoFragment.2
+    private CustomMessageListener hEY = new CustomMessageListener(CmdConfigCustom.DELETE_AD_FROM_FEED) { // from class: com.baidu.tieba.pb.videopb.fragment.DetailInfoFragment.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && DetailInfoFragment.this.cwB() != null && DetailInfoFragment.this.cwB().getPbData() != null) {
-                DetailInfoFragment.this.Hy((String) customResponsedMessage.getData());
-                DetailInfoFragment.this.cwB().cyS();
-                DetailInfoFragment.this.jLY.setData(DetailInfoFragment.this.cwB().getPbData());
+            if (customResponsedMessage != null && DetailInfoFragment.this.cDy() != null && DetailInfoFragment.this.cDy().getPbData() != null) {
+                DetailInfoFragment.this.Jj((String) customResponsedMessage.getData());
+                DetailInfoFragment.this.cDy().cFO();
+                DetailInfoFragment.this.kdL.setData(DetailInfoFragment.this.cDy().getPbData());
             }
         }
     };
 
-    public static DetailInfoFragment ab(VideoPbFragment videoPbFragment) {
+    public static DetailInfoFragment aa(VideoPbFragment videoPbFragment) {
         Bundle bundle = new Bundle();
         DetailInfoFragment detailInfoFragment = new DetailInfoFragment();
         detailInfoFragment.setArguments(bundle);
-        detailInfoFragment.jLW = videoPbFragment;
+        detailInfoFragment.kdJ = videoPbFragment;
         return detailInfoFragment;
     }
 
@@ -98,182 +98,182 @@ public class DetailInfoFragment extends BaseFragment implements a {
     public void onAttach(Context context) {
         super.onAttach(context);
         if (context instanceof PbActivity) {
-            this.jsZ = (PbActivity) context;
+            this.jJW = (PbActivity) context;
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        MessageManager.getInstance().registerListener(this.hqk);
+        MessageManager.getInstance().registerListener(this.hEY);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         View inflate = layoutInflater.inflate(R.layout.pb_detail_info_fragment, viewGroup, false);
-        this.jqh = (e) y.b(getFragmentActivity()).l(e.class);
+        this.jGQ = (e) y.b(getFragmentActivity()).l(e.class);
         bP(inflate);
         return inflate;
     }
 
     private void bP(View view) {
-        this.hcY = (BdTypeRecyclerView) view.findViewById(R.id.pb_detail_info_list);
-        this.hcY.setLayoutManager(new LinearLayoutManager(getContext()));
-        this.hcY.addOnScrollListener(this.mOnScrollListener);
-        this.hcY.setOnTouchListener(cyh().baB());
-        this.ePr = new PbListView(getContext());
-        this.ePr.getView();
-        this.ePr.setText("");
-        this.ePr.setContainerBackgroundColorResId(R.color.cp_bg_line_e);
-        this.ePr.setLineGone();
-        this.ePr.setTextColor(am.getColor(R.color.cp_cont_j));
-        this.ePr.setTextSize(R.dimen.tbfontsize33);
-        this.ePr.setNoMoreTextColorId(R.color.cp_cont_e);
-        this.ePr.setHeight(l.getDimens(getContext(), R.dimen.tbds182));
-        this.ePr.aQa();
-        this.hcY.setNextPage(this.ePr);
-        this.jLY = new com.baidu.tieba.pb.videopb.a.a(this, this.hcY);
+        this.hrM = (BdTypeRecyclerView) view.findViewById(R.id.pb_detail_info_list);
+        this.hrM.setLayoutManager(new LinearLayoutManager(getContext()));
+        this.hrM.addOnScrollListener(this.mOnScrollListener);
+        this.hrM.setOnTouchListener(cFb().bgM());
+        this.fbY = new PbListView(getContext());
+        this.fbY.getView();
+        this.fbY.setText("");
+        this.fbY.setContainerBackgroundColorResId(R.color.cp_bg_line_e);
+        this.fbY.setLineGone();
+        this.fbY.setTextColor(am.getColor(R.color.cp_cont_j));
+        this.fbY.setTextSize(R.dimen.tbfontsize33);
+        this.fbY.setNoMoreTextColorId(R.color.cp_cont_e);
+        this.fbY.setHeight(l.getDimens(getContext(), R.dimen.tbds182));
+        this.fbY.aWe();
+        this.hrM.setNextPage(this.fbY);
+        this.kdL = new com.baidu.tieba.pb.videopb.a.a(this, this.hrM);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         super.onActivityCreated(bundle);
-        if (this.jqh != null) {
-            cEy();
+        if (this.jGQ != null) {
+            cLv();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.hqk);
+        MessageManager.getInstance().unRegisterListener(this.hEY);
         super.onDestroy();
     }
 
-    private void cEy() {
-        com.baidu.tieba.pb.data.e cEf = this.jqh.cEf();
-        if (cEf == null) {
-            cEf = this.jqh.cEe();
+    private void cLv() {
+        com.baidu.tieba.pb.data.e cLc = this.jGQ.cLc();
+        if (cLc == null) {
+            cLc = this.jGQ.cLb();
         }
-        K(cEf);
+        M(cLc);
     }
 
-    private void K(com.baidu.tieba.pb.data.e eVar) {
-        if (this.jqh != null && eVar != null) {
-            L(eVar);
-            M(eVar);
-            this.jLY.setData(eVar);
+    private void M(com.baidu.tieba.pb.data.e eVar) {
+        if (this.jGQ != null && eVar != null) {
+            N(eVar);
+            O(eVar);
+            this.kdL.setData(eVar);
         }
     }
 
-    private void L(com.baidu.tieba.pb.data.e eVar) {
+    private void N(com.baidu.tieba.pb.data.e eVar) {
         String str;
         String str2 = null;
         if (eVar != null) {
-            if (eVar.cvs() != null) {
+            if (eVar.cCi() != null) {
                 str = eVar.getThreadId();
-                if (eVar.cvs().getBaijiahaoData() != null) {
-                    str2 = eVar.cvs().getBaijiahaoData().oriUgcNid;
+                if (eVar.cCi().getBaijiahaoData() != null) {
+                    str2 = eVar.cCi().getBaijiahaoData().oriUgcNid;
                 }
             } else {
                 str = null;
             }
-            if (str != this.jMa || str2 != this.jMb) {
-                cEz();
+            if (str != this.kdN || str2 != this.kdO) {
+                cLw();
             }
-            this.jMa = str;
-            this.jMb = str2;
+            this.kdN = str;
+            this.kdO = str2;
         }
     }
 
-    private void M(com.baidu.tieba.pb.data.e eVar) {
+    private void O(com.baidu.tieba.pb.data.e eVar) {
         if (eVar != null) {
-            if (v.isEmpty(eVar.cvP())) {
-                cEA();
+            if (v.isEmpty(eVar.cCI())) {
+                cLx();
                 return;
             }
-            cEC();
-            this.ePr.setText(getString(R.string.recommend_no_more_data));
+            cLz();
+            this.fbY.setText(getString(R.string.recommend_no_more_data));
         }
     }
 
-    private void cEz() {
-        if (this.hcY != null) {
-            this.hcY.scrollToPosition(0);
+    private void cLw() {
+        if (this.hrM != null) {
+            this.hrM.scrollToPosition(0);
         }
-        cEC();
+        cLz();
     }
 
     @Override // com.baidu.tieba.pb.videopb.a
     public void b(boolean z, int i, int i2, int i3, com.baidu.tieba.pb.data.e eVar, String str, int i4) {
         if (eVar != null && getActivity() != null) {
-            K(eVar);
+            M(eVar);
         }
     }
 
-    public PbActivity cyi() {
-        return this.jsZ != null ? this.jsZ : this.jLW.cyi();
+    public PbActivity cFc() {
+        return this.jJW != null ? this.jJW : this.kdJ.cFc();
     }
 
-    public VideoPbFragment cyh() {
-        if (this.jLW == null && this.jsZ != null) {
-            Fragment cwN = this.jsZ.cwN();
-            if (cwN instanceof VideoPbFragment) {
-                this.jLW = (VideoPbFragment) cwN;
+    public VideoPbFragment cFb() {
+        if (this.kdJ == null && this.jJW != null) {
+            Fragment cDK = this.jJW.cDK();
+            if (cDK instanceof VideoPbFragment) {
+                this.kdJ = (VideoPbFragment) cDK;
             }
         }
-        return this.jLW;
+        return this.kdJ;
     }
 
-    public PbModel cwB() {
-        return cyh().cwB();
+    public PbModel cDy() {
+        return cFb().cDy();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.jLY != null) {
-            this.jLY.notifyDataSetChanged();
+        if (this.kdL != null) {
+            this.kdL.notifyDataSetChanged();
         }
-        if (this.ePr != null) {
-            this.ePr.changeSkin(i);
-        }
-    }
-
-    private void cEA() {
-        if (this.ePr != null) {
-            this.ePr.q(getString(R.string.no_relevant_content), R.drawable.new_pic_emotion_08, l.getDimens(TbadkApplication.getInst(), R.dimen.tbds256));
+        if (this.fbY != null) {
+            this.fbY.changeSkin(i);
         }
     }
 
-    public void cEB() {
-        if (this.jLY != null) {
-            this.jLY.cEu();
+    private void cLx() {
+        if (this.fbY != null) {
+            this.fbY.s(getString(R.string.no_relevant_content), R.drawable.new_pic_emotion_08, l.getDimens(TbadkApplication.getInst(), R.dimen.tbds256));
         }
     }
 
-    private void cEC() {
-        if (this.ePr != null) {
-            this.ePr.aQb();
+    public void cLy() {
+        if (this.kdL != null) {
+            this.kdL.cLr();
         }
     }
 
-    public int cED() {
-        return this.jLZ;
+    private void cLz() {
+        if (this.fbY != null) {
+            this.fbY.aWf();
+        }
     }
 
-    public void si(boolean z) {
-        if (this.hcY != null) {
-            this.hcY.setCanFling(z);
+    public int cLA() {
+        return this.kdM;
+    }
+
+    public void sG(boolean z) {
+        if (this.hrM != null) {
+            this.hrM.setCanFling(z);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Hy(String str) {
+    public void Jj(String str) {
         if (!TextUtils.isEmpty(str)) {
-            List<m> cvU = cwB().getPbData().cvU();
-            for (m mVar : cvU) {
-                if (TextUtils.equals(str, mVar.getAdId())) {
-                    cvU.remove(mVar);
+            List<n> cCN = cDy().getPbData().cCN();
+            for (n nVar : cCN) {
+                if (TextUtils.equals(str, nVar.getAdId())) {
+                    cCN.remove(nVar);
                     return;
                 }
             }

@@ -19,9 +19,9 @@ public final class a {
     }
 
     @WorkerThread
-    public static void r(@Nullable String... strArr) {
-        Application abN;
-        if (com.baidu.swan.apps.w.a.abN() == null || strArr == null) {
+    public static void q(@Nullable String... strArr) {
+        Application aeR;
+        if (com.baidu.swan.apps.u.a.aeR() == null || strArr == null) {
             c.w("SwanAppSubscribeMsg", "deleteAllByAppKey fail");
             return;
         }
@@ -36,6 +36,6 @@ public final class a {
                 }
             }
         }
-        c.d("SwanAppSubscribeMsg", "deleteAllByAppKey count=" + abN.getContentResolver().delete(SwanAppSubscribeMsgProvider.CONTENT_URI, "appKey in (?)", new String[]{sb.toString()}) + ", appKey=" + sb.toString());
+        c.d("SwanAppSubscribeMsg", "deleteAllByAppKey count=" + aeR.getContentResolver().delete(SwanAppSubscribeMsgProvider.CONTENT_URI, "appKey in (?)", new String[]{sb.toString()}) + ", appKey=" + sb.toString());
     }
 }

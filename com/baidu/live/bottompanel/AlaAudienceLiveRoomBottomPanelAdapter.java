@@ -9,27 +9,27 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class AlaAudienceLiveRoomBottomPanelAdapter extends PagerAdapter {
-    private d aon;
+    private d ath;
     private int mSkinType = 0;
     private int mPrimaryPosition = -1;
-    private final List<d> aom = new ArrayList();
+    private final List<d> atg = new ArrayList();
 
     public void setData(List<d> list) {
-        this.aom.clear();
+        this.atg.clear();
         if (!ListUtils.isEmpty(list)) {
-            this.aom.addAll(list);
+            this.atg.addAll(list);
         }
         notifyDataSetChanged();
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public int getCount() {
-        return this.aom.size();
+        return this.atg.size();
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i) {
-        d dVar = (d) ListUtils.getItem(this.aom, i);
+        d dVar = (d) ListUtils.getItem(this.atg, i);
         if (dVar != null && dVar.getPanelView() != null) {
             View panelView = dVar.getPanelView();
             if (panelView.getParent() != null) {
@@ -52,12 +52,12 @@ public class AlaAudienceLiveRoomBottomPanelAdapter extends PagerAdapter {
             this.mPrimaryPosition = i;
             if (obj instanceof d) {
                 d dVar = (d) obj;
-                if (this.aon != viewGroup) {
-                    if (this.aon != null) {
-                        this.aon.enterBackground();
+                if (this.ath != viewGroup) {
+                    if (this.ath != null) {
+                        this.ath.enterBackground();
                     }
                     dVar.enterForeground();
-                    this.aon = dVar;
+                    this.ath = dVar;
                 }
             }
         }
@@ -68,9 +68,9 @@ public class AlaAudienceLiveRoomBottomPanelAdapter extends PagerAdapter {
         return (obj instanceof d) && ((d) obj).getPanelView() == view;
     }
 
-    public void tZ() {
-        if (this.aon != null) {
-            this.aon.enterForeground();
+    public void vg() {
+        if (this.ath != null) {
+            this.ath.enterForeground();
         }
     }
 

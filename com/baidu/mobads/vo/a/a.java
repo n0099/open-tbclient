@@ -29,20 +29,20 @@ public abstract class a {
     protected Context l;
     protected e m;
     protected IXAdSystemUtils n;
-    private C0177a o;
+    private C0210a o;
 
     protected abstract HashMap<String, String> b();
 
     /* renamed from: com.baidu.mobads.vo.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public static class C0177a {
+    public static class C0210a {
         String a;
         String b;
         String c;
         String d;
         String e;
 
-        public C0177a(IXAdInstanceInfo iXAdInstanceInfo, IXAdProdInfo iXAdProdInfo) {
+        public C0210a(IXAdInstanceInfo iXAdInstanceInfo, IXAdProdInfo iXAdProdInfo) {
             this.a = "";
             this.b = "";
             this.c = "";
@@ -60,9 +60,9 @@ public abstract class a {
         }
     }
 
-    public a(C0177a c0177a) {
-        this(c0177a.a, c0177a.b, c0177a.c);
-        this.o = c0177a;
+    public a(C0210a c0210a) {
+        this(c0210a.a, c0210a.b, c0210a.c);
+        this.o = c0210a;
     }
 
     @Deprecated

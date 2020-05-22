@@ -19,38 +19,38 @@ import tv.chushou.zues.utils.e;
 import tv.chushou.zues.utils.h;
 /* loaded from: classes5.dex */
 public class a {
-    private static final tv.chushou.zues.toolkit.b.a mCY = tv.chushou.zues.toolkit.b.a.nsx;
-    private static a mDc;
+    private static final tv.chushou.zues.toolkit.b.a mXc = tv.chushou.zues.toolkit.b.a.nNu;
+    private static a mXf;
     private final Object d = new Object();
     private Map<View, String> e = Collections.synchronizedMap(new WeakHashMap());
-    private final tv.chushou.zues.toolkit.a.b.a<Drawable> mCZ = new tv.chushou.zues.toolkit.a.b.a<>(15, new tv.chushou.zues.toolkit.a.b.b<Drawable>() { // from class: com.kascend.chushou.toolkit.b.a.1
+    private final tv.chushou.zues.toolkit.a.b.a<Drawable> mXd = new tv.chushou.zues.toolkit.a.b.a<>(15, new tv.chushou.zues.toolkit.a.b.b<Drawable>() { // from class: com.kascend.chushou.toolkit.b.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // tv.chushou.zues.toolkit.a.b.b
         /* renamed from: a */
-        public int I(String str, Drawable drawable) {
+        public int L(String str, Drawable drawable) {
             return 1;
         }
     });
-    private tv.chushou.zues.toolkit.a.a.a mDa;
+    private tv.chushou.zues.toolkit.a.a.a mXe;
 
-    public static a dyC() {
-        if (mDc == null) {
+    public static a dFU() {
+        if (mXf == null) {
             synchronized (a.class) {
-                if (mDc == null) {
-                    mDc = new a();
+                if (mXf == null) {
+                    mXf = new a();
                 }
             }
         }
-        return mDc;
+        return mXf;
     }
 
     public static void b() {
     }
 
     private a() {
-        this.mDa = null;
+        this.mXe = null;
         try {
-            this.mDa = tv.chushou.zues.toolkit.a.a.a.b(com.kascend.chushou.d.c.mnH.e(), 1, 1, 10485760L);
+            this.mXe = tv.chushou.zues.toolkit.a.a.a.b(com.kascend.chushou.d.c.mHD.e(), 1, 1, 10485760L);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -64,8 +64,8 @@ public class a {
             }
             this.e.put(view, str);
             Drawable drawable = null;
-            if (this.mCZ != null) {
-                drawable = this.mCZ.get(str);
+            if (this.mXd != null) {
+                drawable = this.mXd.get(str);
             }
             if (drawable != null) {
                 view.setBackgroundDrawable(drawable.getConstantState().newDrawable());
@@ -97,19 +97,19 @@ public class a {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes5.dex */
     public class b implements Runnable {
-        c mDg;
+        c mXj;
 
         b(c cVar) {
-            this.mDg = cVar;
+            this.mXj = cVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            Drawable OO;
-            if (!a.this.a(this.mDg) && !h.isEmpty(this.mDg.a) && (OO = a.this.OO(this.mDg.a)) != null) {
-                a.this.mCZ.put(this.mDg.a, OO);
-                if (!a.this.a(this.mDg)) {
-                    ((Activity) this.mDg.b.getContext()).runOnUiThread(new RunnableC0756a(OO, this.mDg));
+            Drawable QC;
+            if (!a.this.a(this.mXj) && !h.isEmpty(this.mXj.a) && (QC = a.this.QC(this.mXj.a)) != null) {
+                a.this.mXd.put(this.mXj.a, QC);
+                if (!a.this.a(this.mXj)) {
+                    ((Activity) this.mXj.b.getContext()).runOnUiThread(new RunnableC0814a(QC, this.mXj));
                 }
             }
         }
@@ -117,25 +117,25 @@ public class a {
 
     /* renamed from: com.kascend.chushou.toolkit.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    class RunnableC0756a implements Runnable {
+    class RunnableC0814a implements Runnable {
         Drawable a;
-        c mDe;
+        c mXh;
 
-        RunnableC0756a(Drawable drawable, c cVar) {
+        RunnableC0814a(Drawable drawable, c cVar) {
             this.a = drawable;
-            this.mDe = cVar;
+            this.mXh = cVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (!a.this.a(this.mDe)) {
-                this.mDe.b.setBackgroundDrawable(this.a);
+            if (!a.this.a(this.mXh)) {
+                this.mXh.b.setBackgroundDrawable(this.a);
             }
         }
     }
 
     private void b(String str, View view) {
-        tv.chushou.a.a.b.a.dJB().M(new b(new c(str, view)));
+        tv.chushou.a.a.b.a.dRv().O(new b(new c(str, view)));
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [195=5, 197=4, 198=4, 199=4] */
@@ -143,16 +143,16 @@ public class a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private Drawable ON(String str) {
+    private Drawable QB(String str) {
         InputStream inputStream;
         Throwable th;
         InputStream inputStream2 = null;
-        if (this.mDa == null) {
+        if (this.mXe == null) {
             return null;
         }
         try {
-            a.c Qi = this.mDa.Qi(str);
-            if (Qi == null) {
+            a.c So = this.mXe.So(str);
+            if (So == null) {
                 if (0 != 0) {
                     try {
                         inputStream2.close();
@@ -164,7 +164,7 @@ public class a {
                 }
                 return null;
             }
-            inputStream = Qi.JL(0);
+            inputStream = So.Kw(0);
             try {
                 try {
                     BitmapFactory.Options options = new BitmapFactory.Options();
@@ -223,34 +223,34 @@ public class a {
     /* JADX WARN: Type inference failed for: r1v10 */
     /* JADX WARN: Type inference failed for: r1v4 */
     /* JADX WARN: Type inference failed for: r1v7 */
-    public Drawable OO(String str) {
-        Drawable ON;
-        a.C0854a Qj;
+    public Drawable QC(String str) {
+        Drawable QB;
+        a.C0916a Sp;
         Drawable drawable = null;
-        if (this.mDa != null) {
-            ?? r1 = mCY;
-            String Qk = r1.Qk(str);
+        if (this.mXe != null) {
+            ?? r1 = mXc;
+            String Sq = r1.Sq(str);
             try {
                 try {
                     synchronized (this.d) {
                         try {
-                            ON = ON(Qk);
+                            QB = QB(Sq);
                         } catch (Throwable th) {
                             r1 = 0;
                             th = th;
                         }
                         try {
-                            if (ON == null && (Qj = this.mDa.Qj(Qk)) != null) {
-                                OutputStream JI = Qj.JI(0);
-                                Http http = (Http) tv.chushou.basis.d.b.dJs().S(Http.class);
+                            if (QB == null && (Sp = this.mXe.Sp(Sq)) != null) {
+                                OutputStream Kt = Sp.Kt(0);
+                                Http http = (Http) tv.chushou.basis.d.b.dRm().S(Http.class);
                                 if (http == null) {
-                                    Qj.abort();
-                                    drawable = ON;
-                                } else if (http.downloadSync(str, JI)) {
-                                    Qj.commit();
-                                    drawable = ON(Qk);
+                                    Sp.abort();
+                                    drawable = QB;
+                                } else if (http.downloadSync(str, Kt)) {
+                                    Sp.commit();
+                                    drawable = QB(Sq);
                                 } else {
-                                    Qj.abort();
+                                    Sp.abort();
                                 }
                             }
                         } catch (Throwable th2) {
@@ -265,7 +265,7 @@ public class a {
                                 return drawable;
                             }
                         }
-                        drawable = ON;
+                        drawable = QB;
                     }
                 } catch (Throwable th3) {
                     th = th3;

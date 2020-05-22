@@ -41,7 +41,7 @@ public class hd implements fv {
             this.f = TrafficStats.getUidRxBytes(myUid);
             this.e = TrafficStats.getUidTxBytes(myUid);
         } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.m50a("Failed to obtain traffic data during initialization: " + e);
+            com.xiaomi.channel.commonutils.logger.b.m52a("Failed to obtain traffic data during initialization: " + e);
             this.f = -1L;
             this.e = -1L;
         }
@@ -56,7 +56,7 @@ public class hd implements fv {
         if (az.b(this.f424a)) {
             this.f422a = elapsedRealtime;
         }
-        if (this.f424a.m522c()) {
+        if (this.f424a.m524c()) {
             this.c = elapsedRealtime;
         }
     }
@@ -70,7 +70,7 @@ public class hd implements fv {
         fiVar.d((int) (System.currentTimeMillis() / 1000));
         fiVar.b((int) (this.b / 1000));
         fiVar.c((int) (this.d / 1000));
-        he.m330a().a(fiVar);
+        he.m332a().a(fiVar);
         b();
     }
 
@@ -80,9 +80,9 @@ public class hd implements fv {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized void m329a() {
+    public synchronized void m331a() {
         if (this.f424a != null) {
-            String m136a = az.m136a((Context) this.f424a);
+            String m138a = az.m138a((Context) this.f424a);
             boolean b = az.b(this.f424a);
             long elapsedRealtime = SystemClock.elapsedRealtime();
             if (this.f422a > 0) {
@@ -94,14 +94,14 @@ public class hd implements fv {
                 this.c = 0L;
             }
             if (b) {
-                if ((!TextUtils.equals(this.f426a, m136a) && this.b > 30000) || this.b > 5400000) {
+                if ((!TextUtils.equals(this.f426a, m138a) && this.b > 30000) || this.b > 5400000) {
                     c();
                 }
-                this.f426a = m136a;
+                this.f426a = m138a;
                 if (this.f422a == 0) {
                     this.f422a = elapsedRealtime;
                 }
-                if (this.f424a.m522c()) {
+                if (this.f424a.m524c()) {
                     this.c = elapsedRealtime;
                 }
             }
@@ -110,9 +110,9 @@ public class hd implements fv {
 
     @Override // com.xiaomi.push.fv
     public void a(fs fsVar) {
-        m329a();
+        m331a();
         this.c = SystemClock.elapsedRealtime();
-        hg.a(0, fh.CONN_SUCCESS.a(), fsVar.m290a(), fsVar.a());
+        hg.a(0, fh.CONN_SUCCESS.a(), fsVar.m292a(), fsVar.a());
     }
 
     @Override // com.xiaomi.push.fv
@@ -122,24 +122,24 @@ public class hd implements fv {
         if (this.a == 0 && this.f425a == null) {
             this.a = i;
             this.f425a = exc;
-            hg.b(fsVar.m290a(), exc);
+            hg.b(fsVar.m292a(), exc);
         }
         if (i == 22 && this.c != 0) {
-            long m288a = fsVar.m288a() - this.c;
-            if (m288a < 0) {
-                m288a = 0;
+            long m290a = fsVar.m290a() - this.c;
+            if (m290a < 0) {
+                m290a = 0;
             }
-            this.d = m288a + (fy.b() / 2) + this.d;
+            this.d = m290a + (fy.b() / 2) + this.d;
             this.c = 0L;
         }
-        m329a();
+        m331a();
         int myUid = Process.myUid();
         try {
             long uidRxBytes = TrafficStats.getUidRxBytes(myUid);
             j = TrafficStats.getUidTxBytes(myUid);
             j2 = uidRxBytes;
         } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.m50a("Failed to obtain traffic data: " + e);
+            com.xiaomi.channel.commonutils.logger.b.m52a("Failed to obtain traffic data: " + e);
             j = -1;
         }
         com.xiaomi.channel.commonutils.logger.b.c("Stats rx=" + (j2 - this.f) + ", tx=" + (j - this.e));
@@ -149,8 +149,8 @@ public class hd implements fv {
 
     @Override // com.xiaomi.push.fv
     public void a(fs fsVar, Exception exc) {
-        hg.a(0, fh.CHANNEL_CON_FAIL.a(), 1, fsVar.m290a(), az.b(this.f424a) ? 1 : 0);
-        m329a();
+        hg.a(0, fh.CHANNEL_CON_FAIL.a(), 1, fsVar.m292a(), az.b(this.f424a) ? 1 : 0);
+        m331a();
     }
 
     @Override // com.xiaomi.push.fv
@@ -158,7 +158,7 @@ public class hd implements fv {
         this.a = 0;
         this.f425a = null;
         this.f423a = fsVar;
-        this.f426a = az.m136a((Context) this.f424a);
+        this.f426a = az.m138a((Context) this.f424a);
         hg.a(0, fh.CONN_SUCCESS.a());
     }
 }

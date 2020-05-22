@@ -4,6 +4,6 @@ import com.baidu.tieba.lego.card.b;
 /* loaded from: classes13.dex */
 public class RecAppLegoStatic {
     static {
-        b.cmC().a(new a());
+        b.cte().a(new a());
     }
 }

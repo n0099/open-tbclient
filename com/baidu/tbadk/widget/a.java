@@ -17,38 +17,38 @@ import java.util.List;
 public class a extends BaseAdapter {
     private Context mContext;
     private int mType = 0;
-    private List<String> eia = new ArrayList();
-    private List<String> eib = new ArrayList();
-    private List<String> eic = new ArrayList();
+    private List<String> ews = new ArrayList();
+    private List<String> ewt = new ArrayList();
+    private List<String> ewu = new ArrayList();
 
     public a(Context context) {
         this.mContext = context;
     }
 
     public void setData(List<String> list, List<String> list2) {
-        this.eib.clear();
-        this.eic.clear();
+        this.ewt.clear();
+        this.ewu.clear();
         if (!v.isEmpty(list) && !v.isEmpty(list2)) {
-            this.eib.addAll(list);
-            this.eic.addAll(list2);
+            this.ewt.addAll(list);
+            this.ewu.addAll(list2);
         }
         notifyDataSetChanged();
     }
 
     public void setData(List<String> list, List<String> list2, List<String> list3) {
-        this.eia.clear();
+        this.ews.clear();
         if (!v.isEmpty(list)) {
-            this.eia.addAll(list);
+            this.ews.addAll(list);
         }
         setData(list2, list3);
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (v.isEmpty(this.eib)) {
+        if (v.isEmpty(this.ewt)) {
             return 0;
         }
-        return this.eib.size();
+        return this.ewt.size();
     }
 
     @Override // android.widget.Adapter
@@ -75,17 +75,17 @@ public class a extends BaseAdapter {
         if (this.mType == 0) {
             view = LayoutInflater.from(this.mContext).inflate(R.layout.pb_vote_select_rule_item, (ViewGroup) null, false);
             b bVar = new b(view);
-            if (!v.isEmpty(this.eib) && this.eib.size() > i && !TextUtils.isEmpty(this.eib.get(i))) {
-                bVar.eid.setText(this.eib.get(i));
-                bVar.eid.setVisibility(0);
+            if (!v.isEmpty(this.ewt) && this.ewt.size() > i && !TextUtils.isEmpty(this.ewt.get(i))) {
+                bVar.ewv.setText(this.ewt.get(i));
+                bVar.ewv.setVisibility(0);
             } else {
-                bVar.eid.setVisibility(8);
+                bVar.ewv.setVisibility(8);
             }
-            if (!v.isEmpty(this.eic) && this.eic.size() > i && !TextUtils.isEmpty(this.eic.get(i))) {
-                bVar.bNO.setText(this.eic.get(i));
-                bVar.bNO.setVisibility(0);
+            if (!v.isEmpty(this.ewu) && this.ewu.size() > i && !TextUtils.isEmpty(this.ewu.get(i))) {
+                bVar.bWU.setText(this.ewu.get(i));
+                bVar.bWU.setVisibility(0);
             } else {
-                bVar.bNO.setVisibility(8);
+                bVar.bWU.setVisibility(8);
             }
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(0, -2);
             layoutParams.weight = 1.0f;
@@ -93,68 +93,68 @@ public class a extends BaseAdapter {
             a(bVar);
         } else if (this.mType == 1) {
             view = LayoutInflater.from(this.mContext).inflate(R.layout.bar_select_rule_item, (ViewGroup) null, false);
-            C0449a c0449a = new C0449a(view);
-            if (!v.isEmpty(this.eia) && this.eia.size() > i && !TextUtils.isEmpty(this.eia.get(i))) {
-                c0449a.dDD.setDefaultResource(R.drawable.transparent_bg);
-                c0449a.dDD.startLoad(this.eia.get(i), 10, false);
+            C0496a c0496a = new C0496a(view);
+            if (!v.isEmpty(this.ews) && this.ews.size() > i && !TextUtils.isEmpty(this.ews.get(i))) {
+                c0496a.dRP.setDefaultResource(R.drawable.transparent_bg);
+                c0496a.dRP.startLoad(this.ews.get(i), 10, false);
             }
-            if (!v.isEmpty(this.eib) && this.eib.size() > i && !TextUtils.isEmpty(this.eib.get(i))) {
-                c0449a.eid.setText(this.eib.get(i));
-                c0449a.eid.setVisibility(0);
+            if (!v.isEmpty(this.ewt) && this.ewt.size() > i && !TextUtils.isEmpty(this.ewt.get(i))) {
+                c0496a.ewv.setText(this.ewt.get(i));
+                c0496a.ewv.setVisibility(0);
             } else {
-                c0449a.eid.setVisibility(8);
+                c0496a.ewv.setVisibility(8);
             }
-            if (!v.isEmpty(this.eic) && this.eic.size() > i && !TextUtils.isEmpty(this.eic.get(i))) {
-                c0449a.bNO.setText(this.eic.get(i));
-                c0449a.bNO.setVisibility(0);
+            if (!v.isEmpty(this.ewu) && this.ewu.size() > i && !TextUtils.isEmpty(this.ewu.get(i))) {
+                c0496a.bWU.setText(this.ewu.get(i));
+                c0496a.bWU.setVisibility(0);
             } else {
-                c0449a.bNO.setVisibility(8);
+                c0496a.bWU.setVisibility(8);
             }
             LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(0, -2);
             layoutParams2.weight = 1.0f;
             view.setLayoutParams(layoutParams2);
-            a(c0449a);
+            a(c0496a);
         }
         return view;
     }
 
     public void a(b bVar) {
         if (bVar != null) {
-            am.setViewTextColor(bVar.eid, (int) R.color.cp_cont_b);
-            am.setViewTextColor(bVar.bNO, (int) R.color.cp_cont_d);
+            am.setViewTextColor(bVar.ewv, (int) R.color.cp_cont_b);
+            am.setViewTextColor(bVar.bWU, (int) R.color.cp_cont_d);
         }
     }
 
-    public void a(C0449a c0449a) {
-        if (c0449a != null) {
-            am.setViewTextColor(c0449a.eid, R.color.cp_cont_b, 1);
-            am.setViewTextColor(c0449a.bNO, R.color.cp_cont_d, 1);
+    public void a(C0496a c0496a) {
+        if (c0496a != null) {
+            am.setViewTextColor(c0496a.ewv, R.color.cp_cont_b, 1);
+            am.setViewTextColor(c0496a.bWU, R.color.cp_cont_d, 1);
         }
     }
 
     /* loaded from: classes.dex */
     public class b {
-        public TextView bNO;
-        public TextView eid;
+        public TextView bWU;
+        public TextView ewv;
 
         public b(View view) {
-            this.eid = (TextView) view.findViewById(R.id.pb_vote_select_rule_title);
-            this.bNO = (TextView) view.findViewById(R.id.pb_vote_select_rule_content);
+            this.ewv = (TextView) view.findViewById(R.id.pb_vote_select_rule_title);
+            this.bWU = (TextView) view.findViewById(R.id.pb_vote_select_rule_content);
         }
     }
 
     /* renamed from: com.baidu.tbadk.widget.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0449a {
-        public TextView bNO;
-        public TbImageView dDD;
-        public TextView eid;
+    public class C0496a {
+        public TextView bWU;
+        public TbImageView dRP;
+        public TextView ewv;
 
-        public C0449a(View view) {
-            this.dDD = (TbImageView) view.findViewById(R.id.bar_select_rule_head_view);
-            this.dDD.setDefaultBgResource(R.color.cp_bg_line_g);
-            this.eid = (TextView) view.findViewById(R.id.bar_select_rule_title);
-            this.bNO = (TextView) view.findViewById(R.id.bar_select_rule_content);
+        public C0496a(View view) {
+            this.dRP = (TbImageView) view.findViewById(R.id.bar_select_rule_head_view);
+            this.dRP.setDefaultBgResource(R.color.cp_bg_line_g);
+            this.ewv = (TextView) view.findViewById(R.id.bar_select_rule_title);
+            this.bWU = (TextView) view.findViewById(R.id.bar_select_rule_content);
         }
     }
 }

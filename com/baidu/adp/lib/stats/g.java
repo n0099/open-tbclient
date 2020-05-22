@@ -13,9 +13,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class g {
-    private String LY;
-    private String LZ;
-    private Map<String, String> Ma;
+    private String Mi;
+    private String Mj;
+    private Map<String, String> Mk;
     private String mAction;
     private c mCommonData;
     private String mErrorCode;
@@ -27,8 +27,8 @@ public class g {
         this.mCommonData = cVar;
     }
 
-    public void bT(String str) {
-        this.LY = str;
+    public void bU(String str) {
+        this.Mi = str;
     }
 
     public void setAction(String str) {
@@ -44,13 +44,13 @@ public class g {
     }
 
     public void x(String str, String str2) {
-        if (this.Ma == null) {
-            this.Ma = new HashMap();
+        if (this.Mk == null) {
+            this.Mk = new HashMap();
         }
-        this.Ma.put(str, str2);
+        this.Mk.put(str, str2);
     }
 
-    public JSONObject lr() {
+    public JSONObject lt() {
         JSONObject jSONObject = new JSONObject();
         try {
             JSONObject jSONObject2 = new JSONObject();
@@ -58,22 +58,22 @@ public class g {
                 jSONObject2.put("app_version", this.mCommonData.mAppVersion);
                 jSONObject2.put("client_timestamp", Long.toString(System.currentTimeMillis()));
                 jSONObject2.put("cuid", this.mCommonData.mCuid);
-                jSONObject2.put("shoubai_cuid", this.mCommonData.Ly);
+                jSONObject2.put("shoubai_cuid", this.mCommonData.LK);
                 jSONObject2.put("from", this.mCommonData.mChannel);
                 jSONObject2.put("uid", this.mCommonData.mUid);
             }
             jSONObject2.put("client_ip", f.getClientIp());
-            jSONObject2.put("network", ls());
+            jSONObject2.put("network", lu());
             jSONObject2.put("model", Build.MODEL);
             jSONObject2.put(Constants.PHONE_BRAND, Build.BRAND);
             jSONObject2.put(HttpConstants.HTTP_OS_TYPE, AlaLiveBaseInfo.mOSType);
             jSONObject2.put("os_version", Build.VERSION.RELEASE);
-            jSONObject2.put("active_id", f.lp());
-            jSONObject2.put("mission_id", f.lq());
+            jSONObject2.put("active_id", f.lr());
+            jSONObject2.put("mission_id", f.ls());
             jSONObject.put("base_info", jSONObject2);
             JSONObject jSONObject3 = new JSONObject();
-            if (this.LY != null) {
-                jSONObject3.put(BdStatsConstant.StatsKey.TYPE, this.LY);
+            if (this.Mi != null) {
+                jSONObject3.put(BdStatsConstant.StatsKey.TYPE, this.Mi);
             }
             if (this.mAction != null) {
                 jSONObject3.put("action", this.mAction);
@@ -84,9 +84,9 @@ public class g {
             if (this.mErrorMessage != null) {
                 jSONObject3.put("error_message", this.mErrorMessage);
             }
-            if (this.Ma != null) {
+            if (this.Mk != null) {
                 StringBuilder sb = new StringBuilder();
-                for (Map.Entry<String, String> entry : this.Ma.entrySet()) {
+                for (Map.Entry<String, String> entry : this.Mk.entrySet()) {
                     sb.append(entry.getKey());
                     sb.append(":");
                     sb.append(entry.getValue());
@@ -103,8 +103,8 @@ public class g {
             if (this.mTitle != null) {
                 jSONObject3.put("title", this.mTitle);
             }
-            if (this.LZ != null) {
-                jSONObject3.put("abstract", this.LZ);
+            if (this.Mj != null) {
+                jSONObject3.put("abstract", this.Mj);
             }
             jSONObject.put("debug_info", jSONObject3);
             jSONObject.put("kpi", new JSONObject());
@@ -114,7 +114,7 @@ public class g {
         return jSONObject;
     }
 
-    public static String ls() {
+    public static String lu() {
         if (j.isWifiNet()) {
             return "WIFI";
         }

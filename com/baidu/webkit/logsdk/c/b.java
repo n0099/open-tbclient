@@ -8,7 +8,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public final class b {
-    private static boolean c = false;
+    private static boolean c;
     public HashMap<String, Boolean> a = new HashMap<>();
     public c b;
 

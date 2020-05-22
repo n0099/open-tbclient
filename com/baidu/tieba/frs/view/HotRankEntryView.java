@@ -23,10 +23,10 @@ import tbclient.HotUserRankEntry;
 import tbclient.ShortUserInfo;
 /* loaded from: classes9.dex */
 public class HotRankEntryView extends RelativeLayout {
-    private ImageView hCp;
-    private ImageOverlayView hCq;
-    private TextView hCr;
-    private boolean hgr;
+    private ImageView hRc;
+    private ImageOverlayView hRd;
+    private TextView hRe;
+    private boolean hvf;
     private ImageView mArrow;
     private int mSkinType;
 
@@ -42,15 +42,15 @@ public class HotRankEntryView extends RelativeLayout {
 
     private void init(final Context context) {
         LayoutInflater.from(context).inflate(R.layout.hot_rank_entry, (ViewGroup) this, true);
-        this.hCp = (ImageView) findViewById(R.id.first_tag);
+        this.hRc = (ImageView) findViewById(R.id.first_tag);
         int dimensionPixelOffset = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds62);
         int dimensionPixelOffset2 = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds1);
         int dimensionPixelOffset3 = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds20);
-        this.hCq = (ImageOverlayView) findViewById(R.id.image_group);
-        this.hCq.k(3, dimensionPixelOffset, dimensionPixelOffset, dimensionPixelOffset2, R.color.cp_mask_c_alpha50, dimensionPixelOffset3);
-        this.hCq.setStrokeStyle(1);
-        this.hCq.setLoadImageType(12);
-        this.hCr = (TextView) findViewById(R.id.entry_describe);
+        this.hRd = (ImageOverlayView) findViewById(R.id.image_group);
+        this.hRd.k(3, dimensionPixelOffset, dimensionPixelOffset, dimensionPixelOffset2, R.color.cp_mask_c_alpha50, dimensionPixelOffset3);
+        this.hRd.setStrokeStyle(1);
+        this.hRd.setLoadImageType(12);
+        this.hRe = (TextView) findViewById(R.id.entry_describe);
         this.mArrow = (ImageView) findViewById(R.id.arrow);
         setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.HotRankEntryView.1
             @Override // android.view.View.OnClickListener
@@ -69,9 +69,9 @@ public class HotRankEntryView extends RelativeLayout {
                     arrayList.add(shortUserInfo.portrait);
                 }
             }
-            this.hCq.setData(arrayList);
-            this.hgr = z;
-            this.hCr.setText(!aq.isEmpty(hotUserRankEntry.module_name) ? hotUserRankEntry.module_name : getResources().getString(R.string.hot_rank));
+            this.hRd.setData(arrayList);
+            this.hvf = z;
+            this.hRe.setText(!aq.isEmpty(hotUserRankEntry.module_name) ? hotUserRankEntry.module_name : getResources().getString(R.string.hot_rank));
             am.setBackgroundResource(this, z ? R.drawable.frs_red_list_entrance_bg_black : R.drawable.frs_red_list_entrance_bg_white);
         }
     }
@@ -79,11 +79,11 @@ public class HotRankEntryView extends RelativeLayout {
     public void onChangeSkinType(int i) {
         if (i != this.mSkinType) {
             this.mSkinType = i;
-            am.setBackgroundResource(this, this.hgr ? R.drawable.frs_red_list_entrance_bg_black : R.drawable.frs_red_list_entrance_bg_white);
-            SvgManager.aOR().a(this.hCp, R.drawable.svg_icon_mask_first16, SvgManager.SvgResourceStateType.NORMAL);
-            this.hCq.onChangeSkinType();
-            am.setViewTextColor(this.hCr, (int) R.color.cp_cont_a);
-            SvgManager.aOR().a(this.mArrow, R.drawable.icon_pure_arrow12_right_svg, R.color.cp_cont_a, SvgManager.SvgResourceStateType.NORMAL);
+            am.setBackgroundResource(this, this.hvf ? R.drawable.frs_red_list_entrance_bg_black : R.drawable.frs_red_list_entrance_bg_white);
+            SvgManager.aUV().a(this.hRc, R.drawable.svg_icon_mask_first16, SvgManager.SvgResourceStateType.NORMAL);
+            this.hRd.onChangeSkinType();
+            am.setViewTextColor(this.hRe, (int) R.color.cp_cont_a);
+            SvgManager.aUV().a(this.mArrow, R.drawable.icon_pure_arrow12_right_svg, R.color.cp_cont_a, SvgManager.SvgResourceStateType.NORMAL);
         }
     }
 }

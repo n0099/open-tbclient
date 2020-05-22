@@ -314,8 +314,6 @@ public interface WebViewProvider {
 
     void loadUrl(String str, Map<String, String> map, boolean z);
 
-    void notifyFindDialogDismissedZeus();
-
     void notifyUnsafeInvolved(int i, String str);
 
     void onPause();
@@ -350,6 +348,8 @@ public interface WebViewProvider {
 
     void resetClearView();
 
+    void resetLoadingAnimation();
+
     WebBackForwardList restoreStateZeus(Bundle bundle);
 
     void resumeMedia();
@@ -379,6 +379,8 @@ public interface WebViewProvider {
     void setCanvasCacheBmp(Bitmap bitmap);
 
     void setCertificate(SslCertificate sslCertificate);
+
+    void setDefaultViewSize(int i, int i2);
 
     void setDownloadListener(DownloadListener downloadListener);
 

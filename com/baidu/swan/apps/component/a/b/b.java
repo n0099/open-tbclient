@@ -6,18 +6,18 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class b extends com.baidu.swan.apps.component.a.d.b {
-    public String bGq;
+    public String bPi;
 
     public b(String str, @NonNull String str2) {
         super(str, str2);
-        this.bGq = "";
+        this.bPi = "";
     }
 
     @Override // com.baidu.swan.apps.component.a.d.b, com.baidu.swan.apps.component.b.b, com.baidu.swan.apps.model.a
     public void parseFromJson(JSONObject jSONObject) throws JSONException {
         if (jSONObject != null) {
             super.parseFromJson(jSONObject);
-            this.bGq = jSONObject.optString(UserAccountActionItem.KEY_SRC);
+            this.bPi = jSONObject.optString(UserAccountActionItem.KEY_SRC);
         }
     }
 }

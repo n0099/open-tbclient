@@ -18,36 +18,36 @@ import com.baidu.tieba.enterForum.recommend.view.ForumTestView;
 import java.util.List;
 /* loaded from: classes9.dex */
 public class RecommendForumHeaderView extends LinearLayout implements View.OnClickListener {
-    private ForumTestView gFO;
-    private com.baidu.tieba.c.d gFP;
-    private boolean gFQ;
-    private CustomMessageListener gFR;
-    private CustomMessageListener gFS;
+    private CustomMessageListener gUA;
+    private ForumTestView gUw;
+    private com.baidu.tieba.c.d gUx;
+    private boolean gUy;
+    private CustomMessageListener gUz;
     private TbPageContext<?> mPageContext;
     private int mSkinType;
 
     public RecommendForumHeaderView(TbPageContext<?> tbPageContext) {
         super(tbPageContext.getPageActivity());
         this.mSkinType = 3;
-        this.gFQ = true;
-        this.gFR = new CustomMessageListener(2921386) { // from class: com.baidu.tieba.enterForum.recommend.view.RecommendForumHeaderView.1
+        this.gUy = true;
+        this.gUz = new CustomMessageListener(2921386) { // from class: com.baidu.tieba.enterForum.recommend.view.RecommendForumHeaderView.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2921386) {
-                    RecommendForumHeaderView.this.bJq();
+                    RecommendForumHeaderView.this.bPJ();
                 }
             }
         };
-        this.gFS = new CustomMessageListener(2921385) { // from class: com.baidu.tieba.enterForum.recommend.view.RecommendForumHeaderView.2
+        this.gUA = new CustomMessageListener(2921385) { // from class: com.baidu.tieba.enterForum.recommend.view.RecommendForumHeaderView.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2921385) {
-                    if (RecommendForumHeaderView.this.gFO == null || RecommendForumHeaderView.this.gFO.getVisibility() == 8) {
-                        RecommendForumHeaderView.this.gFQ = false;
+                    if (RecommendForumHeaderView.this.gUw == null || RecommendForumHeaderView.this.gUw.getVisibility() == 8) {
+                        RecommendForumHeaderView.this.gUy = false;
                     } else {
-                        RecommendForumHeaderView.this.bJp();
+                        RecommendForumHeaderView.this.bPI();
                     }
                 }
             }
@@ -59,8 +59,8 @@ public class RecommendForumHeaderView extends LinearLayout implements View.OnCli
     private void init() {
         setOrientation(1);
         LayoutInflater.from(getContext()).inflate(R.layout.recom_forum_header_layout, (ViewGroup) this, true);
-        this.gFO = (ForumTestView) findViewById(R.id.recommend_forum_header_test_view);
-        this.gFO.setOnClickListener(this);
+        this.gUw = (ForumTestView) findViewById(R.id.recommend_forum_header_test_view);
+        this.gUw.setOnClickListener(this);
         onChangeSkinType();
     }
 
@@ -70,21 +70,21 @@ public class RecommendForumHeaderView extends LinearLayout implements View.OnCli
     }
 
     public void setOnSecectedListener(ForumTestView.a aVar) {
-        if (this.gFO != null) {
-            this.gFO.setOnSecectedListener(aVar);
+        if (this.gUw != null) {
+            this.gUw.setOnSecectedListener(aVar);
         }
     }
 
     public void setData(List<f> list) {
         if (v.isEmpty(list)) {
-            this.gFO.setVisibility(8);
+            this.gUw.setVisibility(8);
             return;
         }
-        this.gFO.setVisibility(0);
-        this.gFO.setData(list);
-        if (!this.gFQ) {
-            bJp();
-            this.gFQ = true;
+        this.gUw.setVisibility(0);
+        this.gUw.setData(list);
+        if (!this.gUy) {
+            bPI();
+            this.gUy = true;
         }
     }
 
@@ -92,56 +92,56 @@ public class RecommendForumHeaderView extends LinearLayout implements View.OnCli
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         if (skinType != this.mSkinType) {
             this.mSkinType = skinType;
-            if (this.gFO != null) {
-                this.gFO.onChangeSkinType();
+            if (this.gUw != null) {
+                this.gUw.onChangeSkinType();
             }
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view != this.gFO && this.gFP != null) {
-            bJq();
+        if (view != this.gUw && this.gUx != null) {
+            bPJ();
         }
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
-        MessageManager.getInstance().unRegisterListener(this.gFS);
+        MessageManager.getInstance().unRegisterListener(this.gUA);
         super.onDetachedFromWindow();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bJp() {
-        if (this.gFP == null) {
-            this.gFP = new com.baidu.tieba.c.d(this.mPageContext, this.gFO);
-            this.gFP.cz(R.drawable.bg_tip_blue_up);
-            this.gFP.cy(32);
-            this.gFP.setUseDirectOffset(true);
-            this.gFP.cA(3000);
-            this.gFP.setYOffset(0);
-            this.gFP.c(this);
-            this.gFP.al(getContext().getString(R.string.recommend_tab_click_to_test), "key_recommend_tab_click_to_test_tip");
+    public void bPI() {
+        if (this.gUx == null) {
+            this.gUx = new com.baidu.tieba.c.d(this.mPageContext, this.gUw);
+            this.gUx.cG(R.drawable.bg_tip_blue_up);
+            this.gUx.cF(32);
+            this.gUx.setUseDirectOffset(true);
+            this.gUx.cH(3000);
+            this.gUx.setYOffset(0);
+            this.gUx.c(this);
+            this.gUx.aA(getContext().getString(R.string.recommend_tab_click_to_test), "key_recommend_tab_click_to_test_tip");
         }
     }
 
-    public void bJq() {
-        if (this.gFP != null) {
-            this.gFP.ED();
+    public void bPJ() {
+        if (this.gUx != null) {
+            this.gUx.Gu();
         }
     }
 
-    public void bJr() {
-        MessageManager.getInstance().unRegisterListener(this.gFR);
+    public void bPK() {
+        MessageManager.getInstance().unRegisterListener(this.gUz);
     }
 
     public void setPageId(BdUniqueId bdUniqueId) {
-        if (this.gFO != null) {
-            this.gFO.setPageId(bdUniqueId);
+        if (this.gUw != null) {
+            this.gUw.setPageId(bdUniqueId);
         }
-        this.gFS.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.gFS);
-        this.gFR.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.gFR);
+        this.gUA.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.gUA);
+        this.gUz.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.gUz);
     }
 }

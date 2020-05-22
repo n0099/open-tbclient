@@ -14,10 +14,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class f extends com.baidu.live.view.web.a {
-    private SchemeCallback bcF;
+    private SchemeCallback bkf;
 
     public f(SchemeCallback schemeCallback) {
-        this.bcF = schemeCallback;
+        this.bkf = schemeCallback;
     }
 
     @Override // com.baidu.live.view.web.a
@@ -26,33 +26,34 @@ public class f extends com.baidu.live.view.web.a {
     }
 
     @Override // com.baidu.live.view.web.a
-    public void fc(String str) {
+    public void fO(String str) {
         Log.d("JsInterface", "@@ JsInterface-impl PersonalCenterBridgeJsInterface params = " + str);
         try {
             JSONObject jSONObject = new JSONObject(str);
             final String optString = jSONObject.optString(BuyTBeanActivityConfig.CALLBACK);
             boolean z = jSONObject.optInt("is_translucent") == 1;
-            if (this.bcF != null) {
+            String optString2 = jSONObject.optString("from");
+            if (this.bkf != null) {
                 ExtraParamsManager.addEnterBuyTBeanCallback(new ResultCallback() { // from class: com.baidu.live.view.web.a.f.1
                     @Override // com.baidu.live.tbadk.extraparams.ResultCallback
                     public void onCallback(JSONObject jSONObject2) {
                         try {
                             int optInt = jSONObject2.optInt("status", 0);
-                            String optString2 = jSONObject2.optString("message");
-                            String optString3 = jSONObject2.optString("productId");
-                            String optString4 = jSONObject2.optString("total");
-                            String optString5 = jSONObject2.optString("transitionId");
+                            String optString3 = jSONObject2.optString("message");
+                            String optString4 = jSONObject2.optString("productId");
+                            String optString5 = jSONObject2.optString("total");
+                            String optString6 = jSONObject2.optString("transitionId");
                             JSONObject jSONObject3 = new JSONObject();
-                            if (!TextUtils.isEmpty(optString3)) {
-                                jSONObject3.put("productId", optString3);
-                            }
                             if (!TextUtils.isEmpty(optString4)) {
-                                jSONObject3.put("total", optString4);
+                                jSONObject3.put("productId", optString4);
                             }
                             if (!TextUtils.isEmpty(optString5)) {
-                                jSONObject3.put("transitionId", optString5);
+                                jSONObject3.put("total", optString5);
                             }
-                            f.this.bcF.doJsCallback(optInt, optString2, jSONObject3, optString);
+                            if (!TextUtils.isEmpty(optString6)) {
+                                jSONObject3.put("transitionId", optString6);
+                            }
+                            f.this.bkf.doJsCallback(optInt, optString3, jSONObject3, optString);
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
@@ -62,6 +63,9 @@ public class f extends com.baidu.live.view.web.a {
             BuyTBeanActivityConfig buyTBeanActivityConfig = new BuyTBeanActivityConfig(TbadkCoreApplication.getInst(), 0L, true);
             if (!TextUtils.isEmpty(optString)) {
                 buyTBeanActivityConfig.setCallback(optString);
+            }
+            if (!TextUtils.isEmpty(optString2)) {
+                buyTBeanActivityConfig.setFrom(optString2);
             }
             buyTBeanActivityConfig.setIsTranslucent(z);
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, buyTBeanActivityConfig));

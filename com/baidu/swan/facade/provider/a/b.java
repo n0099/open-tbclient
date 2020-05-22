@@ -20,11 +20,11 @@ import javax.crypto.NoSuchPaddingException;
 /* loaded from: classes11.dex */
 public class b {
     public static byte[] a(byte[] bArr, String str, int i) {
-        PublicKey oN;
-        if (bArr == null || bArr.length == 0 || TextUtils.isEmpty(str) || i <= 0 || (oN = oN(str)) == null) {
+        PublicKey ql;
+        if (bArr == null || bArr.length == 0 || TextUtils.isEmpty(str) || i <= 0 || (ql = ql(str)) == null) {
             return null;
         }
-        return a(bArr, oN, i);
+        return a(bArr, ql, i);
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:39:0x0067 */
@@ -138,7 +138,7 @@ public class b {
         return bArr2;
     }
 
-    private static PublicKey oN(String str) {
+    private static PublicKey ql(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

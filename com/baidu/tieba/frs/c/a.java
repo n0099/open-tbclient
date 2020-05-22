@@ -9,7 +9,7 @@ import com.baidu.tieba.lego.card.model.ICardInfo;
 import com.baidu.tieba.lego.card.view.e;
 /* loaded from: classes9.dex */
 public class a extends h<ICardInfo, b> {
-    private ICardInfo hqE;
+    private ICardInfo hFs;
 
     public a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         super(tbPageContext, bdUniqueId, bdUniqueId2);
@@ -18,13 +18,13 @@ public class a extends h<ICardInfo, b> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bg */
+    /* renamed from: br */
     public b b(ViewGroup viewGroup) {
-        e a = com.baidu.tieba.lego.card.b.cmC().a(this.mPageContext, this.hqE, 1);
+        e a = com.baidu.tieba.lego.card.b.cte().a(this.mPageContext, this.hFs, 1);
         if (a == null) {
             return null;
         }
-        a.j(this.mPageId);
+        a.l(this.mPageId);
         return new b(a);
     }
 
@@ -35,7 +35,7 @@ public class a extends h<ICardInfo, b> {
         super.a(i, view, viewGroup, (ViewGroup) iCardInfo, (ICardInfo) bVar);
         View view2 = bVar.getView();
         if (view2 != null && iCardInfo != null) {
-            ((e) view2).aA(iCardInfo);
+            ((e) view2).aD(iCardInfo);
         }
         return view2;
     }
@@ -44,7 +44,7 @@ public class a extends h<ICardInfo, b> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View getView(int i, View view, ViewGroup viewGroup, ICardInfo iCardInfo) {
-        this.hqE = iCardInfo;
+        this.hFs = iCardInfo;
         return super.getView(i, view, viewGroup, iCardInfo);
     }
 }

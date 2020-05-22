@@ -3,12 +3,12 @@ package com.baidu.tieba.frs.entelechy.view;
 import android.content.Context;
 import android.view.View;
 import android.widget.TextView;
-import com.baidu.adp.widget.ListView.y;
+import com.baidu.adp.widget.ListView.aa;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 import com.baidu.tieba.frs.t;
 /* loaded from: classes9.dex */
-public class e extends y.a {
+public class e extends aa.a {
     public Context mContext;
     public View mRoot;
     public TextView mTipView;
@@ -23,11 +23,11 @@ public class e extends y.a {
     public void a(t tVar) {
         if (tVar != null) {
             this.mTipView.setText(R.string.read_here);
-            aQm();
+            aWq();
         }
     }
 
-    public void aQm() {
+    public void aWq() {
         am.setViewTextColor(this.mTipView, (int) R.color.cp_link_tip_a);
         am.setBackgroundResource(this.mRoot, R.color.cp_bg_line_e);
     }

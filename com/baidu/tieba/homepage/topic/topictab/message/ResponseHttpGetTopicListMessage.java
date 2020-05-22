@@ -1,7 +1,7 @@
 package com.baidu.tieba.homepage.topic.topictab.message;
 
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.widget.ListView.m;
+import com.baidu.adp.widget.ListView.o;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.v;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
@@ -15,13 +15,13 @@ import tbclient.NewTopicList.NewTopicList;
 import tbclient.NewTopicList.NewTopicListResIdl;
 /* loaded from: classes9.dex */
 public class ResponseHttpGetTopicListMessage extends TbHttpResponsedMessage {
-    private List<m> mTopicDataList;
+    private List<o> mTopicDataList;
 
     public ResponseHttpGetTopicListMessage() {
         super(CmdConfigHttp.CMD_TOPIC_LIST);
     }
 
-    public List<m> getTopicDataList() {
+    public List<o> getTopicDataList() {
         return this.mTopicDataList;
     }
 
@@ -42,13 +42,13 @@ public class ResponseHttpGetTopicListMessage extends TbHttpResponsedMessage {
                         aVar.a(newTopicList);
                         this.mTopicDataList.add(aVar);
                         c cVar = new c();
-                        cVar.gEI = R.dimen.tbds1;
-                        cVar.hTn = R.color.cp_bg_line_b;
+                        cVar.gTq = R.dimen.tbds1;
+                        cVar.ihX = R.color.cp_bg_line_b;
                         this.mTopicDataList.add(cVar);
                         i2++;
                     }
                 }
-                ((c) v.getItem(this.mTopicDataList, this.mTopicDataList.size() - 1)).gEI = 0;
+                ((c) v.getItem(this.mTopicDataList, this.mTopicDataList.size() - 1)).gTq = 0;
             }
         }
     }

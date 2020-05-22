@@ -18,7 +18,7 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.frsga
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: T */
+    /* renamed from: aa */
     public b.a b(ViewGroup viewGroup) {
         return new b.a(new com.baidu.tieba.ala.frsgamelive.c.b(this.mPageContext));
     }

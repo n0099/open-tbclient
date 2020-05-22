@@ -6,18 +6,18 @@ import java.io.OutputStream;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public abstract class f extends OutputStream {
-    private IOException lMS;
-    private boolean lMT;
     private boolean mClosed;
+    private IOException mgh;
+    private boolean mgi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public abstract void dkd() throws IOException;
+    public abstract void drt() throws IOException;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public abstract void dke() throws IOException;
+    public abstract void dru() throws IOException;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public abstract UploadDataProvider dkf();
+    public abstract UploadDataProvider drv();
 
     @Override // java.io.OutputStream, java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
@@ -25,15 +25,15 @@ public abstract class f extends OutputStream {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void c(IOException iOException) {
-        this.lMS = iOException;
-        this.lMT = true;
+    public void d(IOException iOException) {
+        this.mgh = iOException;
+        this.mgi = true;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void checkNotClosed() throws IOException {
-        if (this.lMT) {
-            dkt();
+        if (this.mgi) {
+            drJ();
             throw new IOException("Writing after request completed.");
         } else if (this.mClosed) {
             throw new IOException("Stream has been closed.");
@@ -41,9 +41,9 @@ public abstract class f extends OutputStream {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void dkt() throws IOException {
-        if (this.lMS != null) {
-            throw this.lMS;
+    public void drJ() throws IOException {
+        if (this.mgh != null) {
+            throw this.mgh;
         }
     }
 }

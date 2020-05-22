@@ -128,9 +128,8 @@ public interface IRemoteUBCService extends IInterface {
             }
         }
 
-        /* JADX INFO: Access modifiers changed from: private */
         /* loaded from: classes11.dex */
-        public static class Proxy implements IRemoteUBCService {
+        private static class Proxy implements IRemoteUBCService {
             private IBinder mRemote;
 
             Proxy(IBinder iBinder) {

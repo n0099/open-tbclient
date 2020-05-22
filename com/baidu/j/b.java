@@ -11,16 +11,16 @@ import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private String bAP;
-    private String dfv;
-    private RTCSession dfz;
+    private String bIH;
+    private String dtj;
+    private RTCSession dtn;
 
     public b(Context context, RtcConfig rtcConfig, String str, String str2) {
-        this.dfv = "";
-        this.bAP = "";
-        this.dfv = str;
-        this.bAP = str2;
-        this.dfz = new RTCSession(context, rtcConfig, new RtcConfig.RtcHandler() { // from class: com.baidu.j.b.1
+        this.dtj = "";
+        this.bIH = "";
+        this.dtj = str;
+        this.bIH = str2;
+        this.dtn = new RTCSession(context, rtcConfig, new RtcConfig.RtcHandler() { // from class: com.baidu.j.b.1
             @Override // com.baidu.rtc.RtcConfig.RtcHandler
             public void onStart(int i, int i2, String str3, String str4) {
                 if (str3 == null) {
@@ -40,7 +40,7 @@ public class b {
                         Log.d("SwanRTCContext", Log.getStackTraceString(e));
                     }
                 }
-                com.baidu.j.c.b.e(b.this.bAP, b.this.dfv, jSONObject);
+                com.baidu.j.c.b.f(b.this.bIH, b.this.dtj, jSONObject);
             }
 
             @Override // com.baidu.rtc.RtcConfig.RtcHandler
@@ -62,7 +62,7 @@ public class b {
                         Log.d("SwanRTCContext", Log.getStackTraceString(e));
                     }
                 }
-                com.baidu.j.c.b.e(b.this.bAP, b.this.dfv, jSONObject);
+                com.baidu.j.c.b.f(b.this.bIH, b.this.dtj, jSONObject);
             }
 
             @Override // com.baidu.rtc.RtcConfig.RtcHandler
@@ -77,7 +77,7 @@ public class b {
                         Log.d("SwanRTCContext", Log.getStackTraceString(e));
                     }
                 }
-                com.baidu.j.c.b.e(b.this.bAP, b.this.dfv, jSONObject);
+                com.baidu.j.c.b.f(b.this.bIH, b.this.dtj, jSONObject);
             }
 
             @Override // com.baidu.rtc.RtcConfig.RtcHandler
@@ -100,7 +100,7 @@ public class b {
                         Log.d("SwanRTCContext", Log.getStackTraceString(e));
                     }
                 }
-                com.baidu.j.c.b.e(b.this.bAP, b.this.dfv, jSONObject);
+                com.baidu.j.c.b.f(b.this.bIH, b.this.dtj, jSONObject);
             }
 
             @Override // com.baidu.rtc.RtcConfig.RtcHandler
@@ -114,7 +114,7 @@ public class b {
                         Log.d("SwanRTCContext", Log.getStackTraceString(e));
                     }
                 }
-                com.baidu.j.c.b.e(b.this.bAP, b.this.dfv, jSONObject);
+                com.baidu.j.c.b.f(b.this.bIH, b.this.dtj, jSONObject);
             }
 
             @Override // com.baidu.rtc.RtcConfig.RtcHandler
@@ -129,7 +129,7 @@ public class b {
                             Log.d("SwanRTCContext", Log.getStackTraceString(e));
                         }
                     }
-                    com.baidu.j.c.b.e(b.this.bAP, b.this.dfv, jSONObject);
+                    com.baidu.j.c.b.f(b.this.bIH, b.this.dtj, jSONObject);
                 }
             }
 
@@ -147,8 +147,8 @@ public class b {
     }
 
     public void bk(String str) {
-        if (this.dfz != null) {
-            this.dfz.start(str);
+        if (this.dtn != null) {
+            this.dtn.start(str);
             if (DEBUG) {
                 Log.d("SwanRTCContext", "===start RTC");
             }
@@ -156,8 +156,8 @@ public class b {
     }
 
     public void stop() {
-        if (this.dfz != null) {
-            this.dfz.stop();
+        if (this.dtn != null) {
+            this.dtn.stop();
             if (DEBUG) {
                 Log.d("SwanRTCContext", "===stop RTC");
             }
@@ -165,8 +165,8 @@ public class b {
     }
 
     public void mute() {
-        if (this.dfz != null) {
-            this.dfz.mute();
+        if (this.dtn != null) {
+            this.dtn.mute();
             if (DEBUG) {
                 Log.d("SwanRTCContext", "===mute RTC");
             }
@@ -174,8 +174,8 @@ public class b {
     }
 
     public void unMute() {
-        if (this.dfz != null) {
-            this.dfz.unMute();
+        if (this.dtn != null) {
+            this.dtn.unMute();
             if (DEBUG) {
                 Log.d("SwanRTCContext", "===unMute RTC");
             }
@@ -183,8 +183,8 @@ public class b {
     }
 
     public void switchCamera() {
-        if (this.dfz != null) {
-            this.dfz.switchCamera();
+        if (this.dtn != null) {
+            this.dtn.switchCamera();
             if (DEBUG) {
                 Log.d("SwanRTCContext", "===switchCamera RTC");
             }
@@ -192,31 +192,31 @@ public class b {
     }
 
     public boolean updateRTCConfig(RtcConfig rtcConfig) {
-        if (this.dfz != null) {
+        if (this.dtn != null) {
             if (DEBUG) {
                 Log.d("SwanRTCContext", "===updateRTCConfig RTC");
             }
-            return this.dfz.updateRTCConfig(rtcConfig);
+            return this.dtn.updateRTCConfig(rtcConfig);
         }
         return false;
     }
 
     public void resetPreview() {
-        if (this.dfz != null) {
-            this.dfz.resetPreview();
+        if (this.dtn != null) {
+            this.dtn.resetPreview();
         }
     }
 
     public View getRecorderView() {
-        if (this.dfz != null) {
-            return this.dfz.getRecorderView();
+        if (this.dtn != null) {
+            return this.dtn.getRecorderView();
         }
         return null;
     }
 
     public View getPlayerView() {
-        if (this.dfz != null) {
-            return this.dfz.getPlayerView();
+        if (this.dtn != null) {
+            return this.dtn.getPlayerView();
         }
         return null;
     }

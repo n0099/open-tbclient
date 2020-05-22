@@ -1,103 +1,64 @@
 package com.baidu.tieba.tblauncher;
 
-import android.net.Uri;
-import com.baidu.live.tbadk.core.util.TiebaInitialize;
-import com.baidu.live.tbadk.log.LogConfig;
-import com.baidu.live.tbadk.ubc.UbcStatConstant;
-import com.baidu.tbadk.BdToken.f;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.an;
+import android.content.Intent;
+import android.text.TextUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
+import com.baidu.tbadk.core.data.ax;
+import com.baidu.tbadk.core.g;
+import com.baidu.tbadk.core.tabHost.FragmentTabHost;
+import com.baidu.tieba.R;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 /* loaded from: classes9.dex */
 public class e {
-    public static void A(Uri uri) {
-        if (uri != null) {
-            String queryParameter = uri.getQueryParameter("obj_source");
-            if (UbcStatConstant.ContentSource.SHOUBAI.equals(queryParameter) || LogConfig.LIVE_SHARE_HK_WEIXIN_FRIEND.equals(queryParameter) || "tbShareH5".equals(queryParameter) || "wise".equals(queryParameter)) {
-                String queryParameter2 = uri.getQueryParameter("obj_locate");
-                String queryParameter3 = uri.getQueryParameter("obj_type");
-                String queryParameter4 = uri.getQueryParameter("obj_param1");
-                String queryParameter5 = uri.getQueryParameter(TiebaInitialize.Params.OBJ_PARAM2);
-                String queryParameter6 = uri.getQueryParameter("tid");
-                String queryParameter7 = uri.getQueryParameter("kw");
-                String queryParameter8 = uri.getQueryParameter(f.dhC);
-                String queryParameter9 = uri.getQueryParameter(f.dhD);
-                String queryParameter10 = uri.getQueryParameter(f.dhE);
-                String queryParameter11 = uri.getQueryParameter(f.dhF);
-                an anVar = new an("c13561");
-                anVar.cI("obj_locate", queryParameter2);
-                anVar.cI("obj_type", queryParameter3);
-                anVar.cI("obj_param1", queryParameter4);
-                anVar.cI(TiebaInitialize.Params.OBJ_PARAM2, queryParameter5);
-                anVar.cI("tid", queryParameter6);
-                anVar.cI("fname", queryParameter7);
-                anVar.cI(f.dhC, queryParameter8);
-                anVar.cI(f.dhD, queryParameter9);
-                anVar.cI(f.dhE, queryParameter10);
-                anVar.cI(f.dhF, queryParameter11);
-                anVar.cI("obj_source", queryParameter);
-                TiebaStatic.log(anVar);
-            }
-        }
+    private TbPageContext dIF;
+
+    public e(TbPageContext tbPageContext) {
+        this.dIF = tbPageContext;
+        MessageManager.getInstance().registerStickyMode(2921453);
     }
 
-    public static void B(Uri uri) {
-        if (uri != null) {
-            String queryParameter = uri.getQueryParameter("obj_source");
-            if (UbcStatConstant.ContentSource.SHOUBAI.equals(queryParameter) || LogConfig.LIVE_SHARE_HK_WEIXIN_FRIEND.equals(queryParameter) || "tbShareH5".equals(queryParameter) || "wise".equals(queryParameter)) {
-                String queryParameter2 = uri.getQueryParameter("obj_locate");
-                String queryParameter3 = uri.getQueryParameter("obj_type");
-                String queryParameter4 = uri.getQueryParameter("obj_param1");
-                String queryParameter5 = uri.getQueryParameter(TiebaInitialize.Params.OBJ_PARAM2);
-                String queryParameter6 = uri.getQueryParameter("kw");
-                an anVar = new an("c13561");
-                anVar.cI("obj_locate", queryParameter2);
-                anVar.cI("obj_type", queryParameter3);
-                anVar.cI("obj_param1", queryParameter4);
-                anVar.cI(TiebaInitialize.Params.OBJ_PARAM2, queryParameter5);
-                anVar.cI("fname", queryParameter6);
-                anVar.cI("obj_source", queryParameter);
-                TiebaStatic.log(anVar);
-            }
-        }
+    public boolean ai(Intent intent) {
+        return intent.getIntExtra(MainTabActivityConfig.PUSH_FOLLOW_UP_ACTION, 0) == 1;
     }
 
-    public static void C(Uri uri) {
-        if (uri != null) {
-            String queryParameter = uri.getQueryParameter("obj_source");
-            if (UbcStatConstant.ContentSource.SHOUBAI.equals(queryParameter) || LogConfig.LIVE_SHARE_HK_WEIXIN_FRIEND.equals(queryParameter) || "tbShareH5".equals(queryParameter) || "wise".equals(queryParameter)) {
-                String queryParameter2 = uri.getQueryParameter("obj_locate");
-                String queryParameter3 = uri.getQueryParameter("obj_type");
-                String queryParameter4 = uri.getQueryParameter("obj_param1");
-                String queryParameter5 = uri.getQueryParameter(TiebaInitialize.Params.OBJ_PARAM2);
-                String queryParameter6 = uri.getQueryParameter("kw");
-                an anVar = new an("c13561");
-                anVar.cI("obj_locate", queryParameter2);
-                anVar.cI("obj_type", queryParameter3);
-                anVar.cI("obj_param1", queryParameter4);
-                anVar.cI(TiebaInitialize.Params.OBJ_PARAM2, queryParameter5);
-                anVar.cI("fname", queryParameter6);
-                anVar.cI("obj_source", queryParameter);
-                TiebaStatic.log(anVar);
+    public void a(Intent intent, d dVar) {
+        int i = 2;
+        if (intent != null) {
+            String stringExtra = intent.getStringExtra(MainTabActivityConfig.PUSH_DES_PAGE);
+            if (!TextUtils.isEmpty(stringExtra)) {
+                String string = this.dIF.getString(R.string.des_page_home_recommend);
+                ax axVar = new ax();
+                Matcher matcher = Pattern.compile("http[s]?://tieba.baidu.com/p/([\\d]+)").matcher(intent.getStringExtra(MainTabActivityConfig.TARGET_SCHEME));
+                if (matcher.find()) {
+                    axVar.tid = matcher.group(1);
+                }
+                if (stringExtra.equals(string)) {
+                    axVar.dDN = 1;
+                } else {
+                    axVar.dDN = 2;
+                    axVar.tabName = stringExtra;
+                }
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921453, axVar));
+                if (stringExtra.equals(string)) {
+                    intent.putExtra("sub_locate_type", 1);
+                } else {
+                    intent.putExtra("sub_locate_type", stringExtra);
+                    i = 1;
+                }
+                if (dVar != null && dVar.bWI() != null) {
+                    dVar.bWI().setCurrentTabByType(i);
+                    FragmentTabHost.b kW = dVar.bWI().kW(i);
+                    if (kW != null && (kW.mContentFragment instanceof g)) {
+                        ((g) kW.mContentFragment).z(intent);
+                    }
+                }
             }
-        }
-    }
-
-    public static void D(Uri uri) {
-        if (uri != null) {
-            String queryParameter = uri.getQueryParameter("obj_source");
-            if (UbcStatConstant.ContentSource.SHOUBAI.equals(queryParameter) || LogConfig.LIVE_SHARE_HK_WEIXIN_FRIEND.equals(queryParameter) || "tbShareH5".equals(queryParameter) || "wise".equals(queryParameter)) {
-                String queryParameter2 = uri.getQueryParameter("obj_locate");
-                String queryParameter3 = uri.getQueryParameter("obj_type");
-                String queryParameter4 = uri.getQueryParameter("obj_param1");
-                String queryParameter5 = uri.getQueryParameter(TiebaInitialize.Params.OBJ_PARAM2);
-                an anVar = new an("c13561");
-                anVar.cI("obj_locate", queryParameter2);
-                anVar.cI("obj_type", queryParameter3);
-                anVar.cI("obj_param1", queryParameter4);
-                anVar.cI(TiebaInitialize.Params.OBJ_PARAM2, queryParameter5);
-                anVar.cI("obj_source", queryParameter);
-                TiebaStatic.log(anVar);
-            }
+            intent.removeExtra(MainTabActivityConfig.PUSH_FOLLOW_UP_ACTION);
+            intent.removeExtra(MainTabActivityConfig.PUSH_DES_PAGE);
         }
     }
 }

@@ -1,8 +1,10 @@
 package com.idlefish.flutterboost;
 
 import android.support.annotation.Nullable;
+import android.text.TextUtils;
 import com.idlefish.flutterboost.FlutterViewContainerManager;
 import com.idlefish.flutterboost.interfaces.IContainerRecord;
+import com.idlefish.flutterboost.interfaces.IFlutterViewContainer;
 import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
 import io.flutter.plugin.common.PluginRegistry;
@@ -146,6 +148,12 @@ public class FlutterBoostPlugin {
             String str = methodCall.method;
             char c = 65535;
             switch (str.hashCode()) {
+                case -2029879373:
+                    if (str.equals("closeFlutterPage")) {
+                        c = 5;
+                        break;
+                    }
+                    break;
                 case -1037220475:
                     if (str.equals("onShownContainerChanged")) {
                         c = 3;
@@ -167,6 +175,12 @@ public class FlutterBoostPlugin {
                 case 1791664180:
                     if (str.equals("pageOnStart")) {
                         c = 0;
+                        break;
+                    }
+                    break;
+                case 1964912673:
+                    if (str.equals("openFlutterPage")) {
+                        c = 4;
                         break;
                     }
                     break;
@@ -222,6 +236,22 @@ public class FlutterBoostPlugin {
                         result.error("onShownContainerChanged", th4.getMessage(), th4);
                         return;
                     }
+                case 4:
+                    IFlutterViewContainer findContainerById = flutterViewContainerManager.findContainerById((String) methodCall.argument("uniqueId"));
+                    if (findContainerById != null) {
+                        findContainerById.onFlutterContainerOpen();
+                        return;
+                    }
+                    return;
+                case 5:
+                    String str2 = (String) methodCall.argument("uniqueId");
+                    String str3 = (String) methodCall.argument("flutterUniqueId");
+                    IFlutterViewContainer findContainerById2 = flutterViewContainerManager.findContainerById(str2);
+                    if (findContainerById2 != null && TextUtils.equals(str2, str3)) {
+                        findContainerById2.onFlutterContainerClose();
+                        return;
+                    }
+                    return;
                 default:
                     result.notImplemented();
                     return;

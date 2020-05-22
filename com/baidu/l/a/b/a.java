@@ -8,21 +8,21 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class a extends d {
     public a(Context context) {
         super(context);
-        this.lPr = "";
-        this.lPp = false;
-        this.lPS = false;
+        this.miI = "";
+        this.miG = false;
+        this.mjj = false;
         this.mStatusCode = -200;
     }
 
-    public com.baidu.l.a.a.c dlO() {
+    public com.baidu.l.a.a.c dta() {
         final Object obj = new Object();
         final AtomicBoolean atomicBoolean = new AtomicBoolean(false);
         com.b.a.a.a(this.mCtx, new a.b() { // from class: com.baidu.l.a.b.a.1
             @Override // com.b.a.a.b
-            public void aI(String str, boolean z) {
-                a.this.lPr = str;
-                a.this.lPp = z;
-                a.this.lPS = true;
+            public void aV(String str, boolean z) {
+                a.this.miI = str;
+                a.this.miG = z;
+                a.this.mjj = true;
                 a.this.mStatusCode = 0;
                 atomicBoolean.set(true);
                 synchronized (obj) {
@@ -31,7 +31,7 @@ public class a extends d {
             }
 
             @Override // com.b.a.a.b
-            public void d(int i, Exception exc) {
+            public void g(int i, Exception exc) {
                 a.this.mStatusCode = i;
                 atomicBoolean.set(true);
                 synchronized (obj) {
@@ -51,7 +51,7 @@ public class a extends d {
     }
 
     @Override // com.baidu.l.a.a.c
-    public com.baidu.l.a.a.c dlK() {
-        return dlO();
+    public com.baidu.l.a.a.c dsZ() {
+        return dta();
     }
 }

@@ -1,54 +1,42 @@
 package com.kascend.chushou.view.b;
 
-import android.content.ClipData;
-import android.content.ClipboardManager;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.widget.Space;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import com.baidu.android.imsdk.db.TableDefine;
+import com.facebook.drawee.span.SimpleDraweeSpanTextView;
+import com.facebook.drawee.span.b;
 import com.kascend.chushou.a;
-import com.kascend.chushou.constants.MyUserInfo;
-import com.kascend.chushou.constants.RoomInfo;
-import com.kascend.chushou.d.h;
-import com.kascend.chushou.toolkit.LoginManager;
-import tv.chushou.zues.utils.g;
+import tv.chushou.zues.widget.fresco.FrescoThumbnailView;
 /* loaded from: classes5.dex */
-public class d extends com.kascend.chushou.view.base.a {
-    private LinearLayout e;
-    private LinearLayout f;
-    private LinearLayout g;
-    private TextView h;
-    private TextView i;
-    private TextView j;
-    private TextView k;
-    private TextView l;
-    private TextView m;
-    private Space mEa;
-    private Space mEb;
-    private boolean n;
-    private String o;
-    private String p;
-    private String q;
+public class d extends com.kascend.chushou.view.base.a implements View.OnClickListener {
+    private TextView e;
+    private TextView f;
+    private String g;
+    private LinearLayout h;
+    private FrescoThumbnailView mTI;
+    private SimpleDraweeSpanTextView mYb;
+    private a mYc;
 
-    public static d wh(boolean z) {
-        Bundle bundle = new Bundle();
-        bundle.putBoolean("mIsOwn", z);
-        d dVar = new d();
-        dVar.setArguments(bundle);
-        return dVar;
+    /* loaded from: classes5.dex */
+    public interface a {
+        void a();
+
+        void b();
     }
 
-    public static d c(boolean z, String str, String str2, String str3) {
+    public void a(a aVar) {
+        this.mYc = aVar;
+    }
+
+    public static d QE(String str) {
         Bundle bundle = new Bundle();
-        bundle.putBoolean("mIsOwn", z);
-        bundle.putString("mNickName", str);
-        bundle.putString("mRoomId", str2);
-        bundle.putString("mUId", str3);
         d dVar = new d();
+        bundle.putString(TableDefine.PaSubscribeColumns.COLUMN_AVATAR, str);
         dVar.setArguments(bundle);
         return dVar;
     }
@@ -57,123 +45,60 @@ public class d extends com.kascend.chushou.view.base.a {
     public void onCreate(@Nullable Bundle bundle) {
         super.onCreate(bundle);
         Bundle arguments = getArguments();
-        this.n = arguments.getBoolean("mIsOwn");
-        this.o = arguments.getString("mNickName");
-        this.p = arguments.getString("mRoomId");
-        this.q = arguments.getString("mUId");
+        if (arguments != null) {
+            this.g = arguments.getString(TableDefine.PaSubscribeColumns.COLUMN_AVATAR, "");
+        }
     }
 
     @Override // com.kascend.chushou.view.base.a
     public View a(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
-        View inflate = layoutInflater.inflate(a.h.dialog_user_info_copy, viewGroup, false);
-        this.e = (LinearLayout) inflate.findViewById(a.f.item_nickname);
-        this.f = (LinearLayout) inflate.findViewById(a.f.item_roomid);
-        this.g = (LinearLayout) inflate.findViewById(a.f.item_uid);
-        this.h = (TextView) this.e.findViewById(a.f.tv_content);
-        this.i = (TextView) this.f.findViewById(a.f.tv_content);
-        this.j = (TextView) this.g.findViewById(a.f.tv_content);
-        this.k = (TextView) this.e.findViewById(a.f.tv_copy);
-        this.l = (TextView) this.f.findViewById(a.f.tv_copy);
-        this.m = (TextView) this.g.findViewById(a.f.tv_copy);
-        this.mEa = (Space) inflate.findViewById(a.f.space_01);
-        this.mEb = (Space) inflate.findViewById(a.f.space_02);
-        c();
+        View inflate = layoutInflater.inflate(a.h.dialog_show_unsubscribe, viewGroup, false);
+        this.mTI = (FrescoThumbnailView) inflate.findViewById(a.f.ivHead);
+        this.mYb = (SimpleDraweeSpanTextView) inflate.findViewById(a.f.tvContent);
+        this.e = (TextView) inflate.findViewById(a.f.tvSure);
+        this.e.setOnClickListener(this);
+        this.f = (TextView) inflate.findViewById(a.f.tvCancel);
+        this.f.setOnClickListener(this);
+        this.h = (LinearLayout) inflate.findViewById(a.f.llContent);
         return inflate;
     }
 
     @Override // com.kascend.chushou.view.base.a
     public void a(View view) {
-        ((TextView) this.e.findViewById(a.f.tv_tag)).setText(this.b.getString(a.i.str_userinfo_nickname));
-        ((TextView) this.f.findViewById(a.f.tv_tag)).setText(this.b.getString(a.i.str_userinfo_roomid));
-        ((TextView) this.g.findViewById(a.f.tv_tag)).setText(this.b.getString(a.i.str_userinfo_uid));
-        if (this.n) {
-            a();
-        } else {
-            a(this.o, this.p, this.q);
-        }
-    }
-
-    private void c() {
-        this.k.setOnClickListener(new tv.chushou.zues.a() { // from class: com.kascend.chushou.view.b.d.1
-            @Override // tv.chushou.zues.a
-            public void dq(View view) {
-                g.c(d.this.b, d.this.b.getString(a.i.str_userinfo_copy_result, d.this.b.getString(a.i.str_userinfo_nickname)));
-                d.this.a(d.this.h.getText());
+        super.a(view);
+        this.h.setVisibility(0);
+        this.mTI.i(this.g, com.kascend.chushou.view.a.a(""), tv.chushou.zues.utils.a.dip2px(this.b, 36.0f), tv.chushou.zues.utils.a.dip2px(this.b, 36.0f));
+        this.f.setText(getString(a.i.cs_exit_subscribes));
+        this.e.setText(getString(a.i.quit_str));
+        tv.chushou.zues.widget.a.c cVar = new tv.chushou.zues.widget.a.c();
+        cVar.J(this.b, a.e.cs_unsubcribe_emjio).append(getString(a.i.cs_follow_me));
+        cVar.a(new b.c() { // from class: com.kascend.chushou.view.b.d.1
+            @Override // com.facebook.drawee.span.b.c
+            public void d(com.facebook.drawee.span.b bVar) {
+                if (d.this.mYb != null) {
+                    d.this.mYb.measure(0, 0);
+                    d.this.mYb.requestLayout();
+                }
             }
         });
-        this.l.setOnClickListener(new tv.chushou.zues.a() { // from class: com.kascend.chushou.view.b.d.2
-            @Override // tv.chushou.zues.a
-            public void dq(View view) {
-                g.c(d.this.b, d.this.b.getString(a.i.str_userinfo_copy_result, d.this.b.getString(a.i.str_userinfo_roomid)));
-                d.this.a(d.this.i.getText());
-            }
-        });
-        this.m.setOnClickListener(new tv.chushou.zues.a() { // from class: com.kascend.chushou.view.b.d.3
-            @Override // tv.chushou.zues.a
-            public void dq(View view) {
-                g.c(d.this.b, d.this.b.getString(a.i.str_userinfo_copy_result, d.this.b.getString(a.i.str_userinfo_uid)));
-                d.this.a(d.this.j.getText());
-            }
-        });
+        this.mYb.setDraweeSpanStringBuilder(cVar);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(CharSequence charSequence) {
-        ((ClipboardManager) this.b.getApplicationContext().getSystemService("clipboard")).setPrimaryClip(ClipData.newPlainText(null, charSequence));
-        dismiss();
-    }
-
-    public void a() {
-        String str;
-        String str2;
-        String str3;
-        MyUserInfo userInfo = LoginManager.Instance().getUserInfo();
-        if (userInfo == null) {
-            str = h.dwI().c();
-            str2 = h.dwI().b();
-        } else {
-            str = userInfo.mNickname;
-            str2 = userInfo.mUserID;
-        }
-        if (userInfo != null && userInfo.mRoomInfos != null && userInfo.mRoomInfos.size() > 0) {
-            RoomInfo roomInfo = userInfo.mRoomInfos.get(0);
-            if (!tv.chushou.zues.utils.h.isEmpty(roomInfo.mRoomID) && !roomInfo.mRoomID.equals("0")) {
-                str3 = roomInfo.mRoomID;
-                a(str, str3, str2);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        int id = view.getId();
+        if (id == a.f.tvCancel) {
+            if (this.mYc != null) {
+                this.mYc.a();
             }
+        } else if (id == a.f.tvSure && this.mYc != null) {
+            this.mYc.b();
         }
-        str3 = "";
-        a(str, str3, str2);
-    }
-
-    public void a(String str, String str2, String str3) {
-        if (tv.chushou.zues.utils.h.isEmpty(str)) {
-            this.e.setVisibility(8);
-        } else {
-            this.e.setVisibility(0);
-            this.h.setText(str);
-        }
-        if (tv.chushou.zues.utils.h.isEmpty(str2)) {
-            this.mEa.setVisibility(8);
-            this.f.setVisibility(8);
-        } else {
-            this.mEa.setVisibility(0);
-            this.f.setVisibility(0);
-            this.i.setText(str2);
-        }
-        if (tv.chushou.zues.utils.h.isEmpty(str3)) {
-            this.mEb.setVisibility(8);
-            this.g.setVisibility(8);
-            return;
-        }
-        this.mEb.setVisibility(0);
-        this.g.setVisibility(0);
-        this.j.setText(str3);
     }
 
     @Override // android.support.v4.app.DialogFragment, android.support.v4.app.Fragment
     public void onStart() {
         super.onStart();
-        a(tv.chushou.zues.utils.a.dip2px(this.b, 300.0f), -2);
+        a(tv.chushou.zues.utils.a.dip2px(this.b, 300.0f), -2, 17, -1);
     }
 }

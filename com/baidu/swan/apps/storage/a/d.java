@@ -7,18 +7,18 @@ import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.scheme.actions.ab;
+import com.baidu.swan.apps.scheme.actions.aa;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
-public class d extends ab {
+public class d extends aa {
     public d(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swanAPI/file/getSavedFileInfo");
     }
 
-    @Override // com.baidu.swan.apps.scheme.actions.ab
+    @Override // com.baidu.swan.apps.scheme.actions.aa
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
-        if (context == null || callbackHandler == null || eVar == null || eVar.akU() == null) {
+        if (context == null || callbackHandler == null || eVar == null || eVar.aoQ() == null) {
             com.baidu.swan.apps.console.c.e("getSavedFile", "execute fail");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
@@ -29,18 +29,18 @@ public class d extends ab {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
         }
-        String by = com.baidu.swan.apps.storage.b.by(optParamsAsJo.optString("filePath"), com.baidu.swan.apps.runtime.e.akO());
+        String bT = com.baidu.swan.apps.storage.b.bT(optParamsAsJo.optString("filePath"), com.baidu.swan.apps.runtime.e.aoH());
         if (DEBUG) {
             Log.d("GetSavedFileInfoAction", "——> handle: fileUrl " + optParamsAsJo.optString("filePath"));
-            Log.d("GetSavedFileInfoAction", "——> handle: filePath " + by);
+            Log.d("GetSavedFileInfoAction", "——> handle: filePath " + bT);
         }
-        if (TextUtils.isEmpty(by)) {
+        if (TextUtils.isEmpty(bT)) {
             com.baidu.swan.apps.console.c.e("getSavedFile", "file path is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
         }
-        com.baidu.swan.apps.storage.a nq = eVar.akU().nq(by);
-        if (nq == null) {
+        com.baidu.swan.apps.storage.a oU = eVar.aoQ().oU(bT);
+        if (oU == null) {
             com.baidu.swan.apps.console.c.e("getSavedFile", "file info is null");
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(2001, com.baidu.swan.apps.scheme.f.getErrMessage(2001)));
             if (DEBUG) {
@@ -51,8 +51,8 @@ public class d extends ab {
         }
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("createTime", Math.round((float) (nq.anm() / 1000)));
-            jSONObject.put(TiebaInitialize.LogFields.SIZE, nq.getSize());
+            jSONObject.put("createTime", Math.round((float) (oU.arv() / 1000)));
+            jSONObject.put(TiebaInitialize.LogFields.SIZE, oU.getSize());
             if (DEBUG) {
                 Log.d("GetSavedFileInfoAction", "——> handle: fileInfo (" + jSONObject.get("createTime") + " , " + jSONObject.get(TiebaInitialize.LogFields.SIZE) + ")");
             }

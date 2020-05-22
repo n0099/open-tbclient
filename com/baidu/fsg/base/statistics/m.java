@@ -1,28 +1,23 @@
 package com.baidu.fsg.base.statistics;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.fsg.base.restnet.beans.IBeanResponseCallback;
 /* loaded from: classes4.dex */
-public class m extends Handler {
-    final /* synthetic */ l a;
+class m implements IBeanResponseCallback {
+    final /* synthetic */ String a;
+    final /* synthetic */ l b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public m(l lVar, Looper looper) {
-        super(looper);
-        this.a = lVar;
+    public m(l lVar, String str) {
+        this.b = lVar;
+        this.a = str;
     }
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        if (RimStatisticsUtil.getAppContext() != null) {
-            if (10000 == message.what) {
-                this.a.b((String) message.obj);
-            } else if (10001 == message.what) {
-                this.a.b(b.p);
-            }
-        }
+    @Override // com.baidu.fsg.base.restnet.beans.IBeanResponseCallback
+    public void onBeanExecSuccess(int i, Object obj, String str, String str2) {
+        f.a().a(this.a);
+    }
+
+    @Override // com.baidu.fsg.base.restnet.beans.IBeanResponseCallback
+    public void onBeanExecFailure(int i, int i2, String str) {
     }
 }

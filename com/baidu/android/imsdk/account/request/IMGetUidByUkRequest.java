@@ -127,6 +127,11 @@ public class IMGetUidByUkRequest implements HttpHelper.Request, HttpHelper.Respo
         return sb.toString().getBytes();
     }
 
+    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
+    public String getContentType() {
+        return "application/x-www-form-urlencoded";
+    }
+
     private String contactWithComma(long[] jArr) {
         StringBuilder sb = new StringBuilder("" + jArr[0]);
         for (int i = 1; i < jArr.length; i++) {

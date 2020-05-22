@@ -1,33 +1,48 @@
 package com.baidu.adp.newwidget.ImageView;
 
-import android.graphics.Bitmap;
 import android.graphics.Canvas;
+import android.graphics.Path;
 import android.graphics.Rect;
-import android.widget.ImageView;
+import android.graphics.RectF;
+import android.graphics.drawable.Drawable;
 /* loaded from: classes.dex */
-public class m extends j {
-    protected Rect mRect = new Rect();
+public class m extends l {
+    private boolean mIsRound;
+    private Rect mRect;
+    private Path path;
 
-    @Override // com.baidu.adp.newwidget.ImageView.b, com.baidu.adp.newwidget.ImageView.a
-    public void b(Canvas canvas, c cVar, ImageView imageView) {
-        if (this.mDrawMatrix != null) {
-            canvas.concat(this.mDrawMatrix);
-        }
-        canvas.save();
-        if (this.isPathAvailable) {
-            try {
-                canvas.clipPath(this.mDefaultPath);
-            } catch (Error e) {
+    private void makePath(Rect rect) {
+        boolean z = false;
+        if (rect != null) {
+            if (this.path == null || this.mIsRound != this.PF.mIsRound) {
+                z = true;
+            }
+            if (this.mRect == null || !this.mRect.contains(rect)) {
+                z = true;
+            }
+            this.mIsRound = this.PF.mIsRound;
+            if (z) {
+                this.mRect = rect;
+                this.path = new Path();
+                if (this.mIsRound) {
+                    this.path.addCircle((rect.right + rect.left) / 2.0f, (rect.top + rect.bottom) / 2.0f, Math.min(rect.width(), rect.height()) / 2.0f, Path.Direction.CCW);
+                } else {
+                    this.path.addRoundRect(new RectF(rect), this.PF.mRadius, this.PF.mRadius, Path.Direction.CCW);
+                }
+                this.path.close();
             }
         }
-        if (cVar.isDrawableAvalible()) {
-            Bitmap bitmap = cVar.drawable.getBitmap();
-            this.mRect.set(0, 0, bitmap.getWidth(), bitmap.getHeight());
-            canvas.drawBitmap(bitmap, this.mRect, this.mBounds, this.mPaint);
-        } else {
-            this.mRect.set(0, 0, cVar.getWidth(), cVar.getHeight());
-            cVar.Pz.drawImageTo(canvas, this.mRect, this.mBounds, this.mPaint);
+    }
+
+    @Override // com.baidu.adp.newwidget.ImageView.a
+    protected void drawBackgroundReal(Canvas canvas, Drawable drawable) {
+        canvas.save();
+        makePath(drawable.getBounds());
+        try {
+            canvas.clipPath(this.path);
+        } catch (Exception e) {
         }
+        drawable.draw(canvas);
         canvas.restore();
     }
 }

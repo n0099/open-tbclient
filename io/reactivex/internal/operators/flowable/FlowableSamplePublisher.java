@@ -8,17 +8,17 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
 public final class FlowableSamplePublisher<T> extends io.reactivex.g<T> {
-    final boolean mSF;
-    final org.a.b<?> mSn;
+    final boolean nnK;
+    final org.a.b<?> nnu;
     final org.a.b<T> source;
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
         io.reactivex.subscribers.b bVar = new io.reactivex.subscribers.b(cVar);
-        if (this.mSF) {
-            this.source.subscribe(new SampleMainEmitLast(bVar, this.mSn));
+        if (this.nnK) {
+            this.source.subscribe(new SampleMainEmitLast(bVar, this.nnu));
         } else {
-            this.source.subscribe(new SampleMainNoLast(bVar, this.mSn));
+            this.source.subscribe(new SampleMainNoLast(bVar, this.nnu));
         }
     }
 
@@ -114,32 +114,32 @@ public final class FlowableSamplePublisher<T> extends io.reactivex.g<T> {
 
     /* loaded from: classes7.dex */
     static final class a<T> implements j<Object> {
-        final SamplePublisherSubscriber<T> mSG;
+        final SamplePublisherSubscriber<T> nnL;
 
         a(SamplePublisherSubscriber<T> samplePublisherSubscriber) {
-            this.mSG = samplePublisherSubscriber;
+            this.nnL = samplePublisherSubscriber;
         }
 
         @Override // io.reactivex.j, org.a.c
         public void onSubscribe(org.a.d dVar) {
-            if (this.mSG.setOther(dVar)) {
+            if (this.nnL.setOther(dVar)) {
                 dVar.request(Long.MAX_VALUE);
             }
         }
 
         @Override // org.a.c
         public void onNext(Object obj) {
-            this.mSG.run();
+            this.nnL.run();
         }
 
         @Override // org.a.c
         public void onError(Throwable th) {
-            this.mSG.error(th);
+            this.nnL.error(th);
         }
 
         @Override // org.a.c
         public void onComplete() {
-            this.mSG.complete();
+            this.nnL.complete();
         }
     }
 

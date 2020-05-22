@@ -8,16 +8,16 @@ import com.baidu.webkit.internal.ETAG;
 import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes8.dex */
 final class l implements Printer {
-    private final Context ajB;
-    private i ajN;
-    private long ajL = 0;
-    private long ajM = 0;
-    private boolean ajO = false;
+    private final Context akf;
+    private i akr;
+    private long akp = 0;
+    private long akq = 0;
+    private boolean aks = false;
 
     public l(i iVar, Context context) {
-        this.ajN = null;
-        this.ajN = iVar;
-        this.ajB = context;
+        this.akr = null;
+        this.akr = iVar;
+        this.akf = context;
     }
 
     @Override // android.util.Printer
@@ -25,24 +25,24 @@ final class l implements Printer {
         if (Debug.isDebuggerConnected()) {
             return;
         }
-        if (!this.ajO) {
-            this.ajL = System.currentTimeMillis();
-            this.ajM = SystemClock.currentThreadTimeMillis();
-            this.ajO = true;
-            if (c.U(this.ajB).ajz != null) {
-                c.U(this.ajB).ajz.start();
+        if (!this.aks) {
+            this.akp = System.currentTimeMillis();
+            this.akq = SystemClock.currentThreadTimeMillis();
+            this.aks = true;
+            if (c.X(this.akf).akd != null) {
+                c.X(this.akf).akd.start();
                 return;
             }
             return;
         }
         long currentTimeMillis = System.currentTimeMillis();
-        this.ajO = false;
-        if (currentTimeMillis - this.ajL >= ((long) a.W)) {
-            com.baidu.crabsdk.c.a.de("BlockCanary ^^ notifyBlockEvent: " + currentTimeMillis + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.ajL + ETAG.EQUAL + (currentTimeMillis - this.ajL) + " >= " + a.W);
-            j.sy().post(new m(this, this.ajL, currentTimeMillis, this.ajM, SystemClock.currentThreadTimeMillis()));
+        this.aks = false;
+        if (currentTimeMillis - this.akp >= ((long) a.W)) {
+            com.baidu.crabsdk.c.a.dg("BlockCanary ^^ notifyBlockEvent: " + currentTimeMillis + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.akp + ETAG.EQUAL + (currentTimeMillis - this.akp) + " >= " + a.W);
+            j.sI().post(new m(this, this.akp, currentTimeMillis, this.akq, SystemClock.currentThreadTimeMillis()));
         }
-        if (c.U(this.ajB).ajz != null) {
-            c.U(this.ajB).ajz.stop();
+        if (c.X(this.akf).akd != null) {
+            c.X(this.akf).akd.stop();
         }
     }
 }

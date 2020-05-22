@@ -7,49 +7,49 @@ import java.util.Iterator;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes6.dex */
 public class a {
-    private static boolean lPz = false;
-    private static long lPA = 10080;
-    private static long lPB = 10;
-    private static final AtomicBoolean lPC = new AtomicBoolean(false);
-    private static HashMap<Integer, Boolean> lPD = new HashMap<>();
-    public static HashMap<Integer, Long> lPE = new HashMap<>();
+    private static boolean miQ = false;
+    private static long miR = 10080;
+    private static long miS = 10;
+    private static final AtomicBoolean miT = new AtomicBoolean(false);
+    private static HashMap<Integer, Boolean> miU = new HashMap<>();
+    public static HashMap<Integer, Long> miV = new HashMap<>();
 
-    public static synchronized void fv(Context context) {
+    public static synchronized void fK(Context context) {
         synchronized (a.class) {
-            if (!lPC.get()) {
-                SharedPreferences fw = fw(context);
-                Iterator<Integer> it = b.lPF.iterator();
+            if (!miT.get()) {
+                SharedPreferences fL = fL(context);
+                Iterator<Integer> it = b.miW.iterator();
                 while (it.hasNext()) {
                     int intValue = it.next().intValue();
-                    lPE.put(Integer.valueOf(intValue), Long.valueOf(fw.getLong("cache_" + intValue, 10080L)));
-                    lPD.put(Integer.valueOf(intValue), Boolean.valueOf(fw.getBoolean("close_" + intValue, false)));
+                    miV.put(Integer.valueOf(intValue), Long.valueOf(fL.getLong("cache_" + intValue, 10080L)));
+                    miU.put(Integer.valueOf(intValue), Boolean.valueOf(fL.getBoolean("close_" + intValue, false)));
                 }
-                lPE.put(20001, Long.MAX_VALUE);
-                lPD.put(20001, true);
-                lPC.set(true);
+                miV.put(20001, Long.MAX_VALUE);
+                miU.put(20001, true);
+                miT.set(true);
             }
         }
     }
 
-    public static boolean dlD() {
+    public static boolean dsS() {
         return false;
     }
 
-    public static boolean FP(int i) {
-        if (lPD.containsKey(Integer.valueOf(i))) {
-            return lPD.get(Integer.valueOf(i)).booleanValue();
+    public static boolean GC(int i) {
+        if (miU.containsKey(Integer.valueOf(i))) {
+            return miU.get(Integer.valueOf(i)).booleanValue();
         }
         return true;
     }
 
-    public static long FQ(int i) {
-        if (lPE.containsKey(Integer.valueOf(i))) {
-            return lPE.get(Integer.valueOf(i)).longValue();
+    public static long GD(int i) {
+        if (miV.containsKey(Integer.valueOf(i))) {
+            return miV.get(Integer.valueOf(i)).longValue();
         }
         return Long.MAX_VALUE;
     }
 
-    private static SharedPreferences fw(Context context) {
+    private static SharedPreferences fL(Context context) {
         return context.getSharedPreferences("CONFIG_RUNTIME", 0);
     }
 }

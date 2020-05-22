@@ -15,9 +15,9 @@ import javax.crypto.spec.OAEPParameterSpec;
 import javax.crypto.spec.PSource;
 /* loaded from: classes13.dex */
 public final class f {
-    private static final Map<String, byte[]> aiR = Collections.synchronizedMap(new HashMap());
-    private MessageDigest aiP;
-    private MessageDigest aiQ;
+    private static final Map<String, byte[]> ajv = Collections.synchronizedMap(new HashMap());
+    private MessageDigest ajt;
+    private MessageDigest aju;
     private final int e;
     private final int f;
     private SecureRandom g;
@@ -61,9 +61,9 @@ public final class f {
                         throw new InvalidKeyException("Digest SHA-1 not available", e);
                     }
                 }
-                this.aiP = MessageDigest.getInstance(str);
-                this.aiQ = MessageDigest.getInstance(str2);
-                this.k = c(this.aiP, bArr);
+                this.ajt = MessageDigest.getInstance(str);
+                this.aju = MessageDigest.getInstance(str2);
+                this.k = c(this.ajt, bArr);
                 this.h = (i2 - 2) - (this.k.length * 2);
                 if (this.h <= 0) {
                     throw new InvalidKeyException("Key is too short for encryption using OAEPPadding with " + str + " and MGF1" + str2);
@@ -88,10 +88,10 @@ public final class f {
         int i5 = i4;
         int i6 = i3;
         while (i5 > 0) {
-            this.aiQ.update(bArr, i, i2);
-            this.aiQ.update(bArr3);
+            this.aju.update(bArr, i, i2);
+            this.aju.update(bArr3);
             try {
-                this.aiQ.digest(bArr4, 0, bArr4.length);
+                this.aju.digest(bArr4, 0, bArr4.length);
                 int i7 = i5;
                 int i8 = i6;
                 for (int i9 = 0; i9 < bArr4.length && i7 > 0; i9++) {
@@ -124,10 +124,10 @@ public final class f {
     private static byte[] c(MessageDigest messageDigest, byte[] bArr) {
         if (bArr == null || bArr.length == 0) {
             String algorithm = messageDigest.getAlgorithm();
-            byte[] bArr2 = aiR.get(algorithm);
+            byte[] bArr2 = ajv.get(algorithm);
             if (bArr2 == null) {
                 byte[] digest = messageDigest.digest();
-                aiR.put(algorithm, digest);
+                ajv.put(algorithm, digest);
                 return digest;
             }
             return bArr2;
@@ -147,7 +147,7 @@ public final class f {
         bArr2[1] = (byte) this.e;
         if (this.e != 1) {
             if (this.g == null) {
-                this.g = b.aiD;
+                this.g = b.ajh;
             }
             byte[] bArr3 = new byte[64];
             int i5 = length;
@@ -220,7 +220,7 @@ public final class f {
 
     private byte[] s(byte[] bArr) {
         if (this.g == null) {
-            this.g = b.aiD;
+            this.g = b.ajh;
         }
         int length = this.k.length;
         byte[] bArr2 = new byte[length];

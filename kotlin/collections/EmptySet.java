@@ -46,7 +46,7 @@ public final class EmptySet implements Serializable, Set {
 
     @Override // java.util.Set, java.util.Collection
     public Object[] toArray() {
-        return kotlin.jvm.internal.n.n(this);
+        return kotlin.jvm.internal.n.p(this);
     }
 
     @Override // java.util.Set, java.util.Collection
@@ -94,19 +94,19 @@ public final class EmptySet implements Serializable, Set {
     }
 
     public boolean contains(Void r2) {
-        kotlin.jvm.internal.q.j(r2, "element");
+        kotlin.jvm.internal.q.m(r2, "element");
         return false;
     }
 
     @Override // java.util.Set, java.util.Collection
     public boolean containsAll(Collection collection) {
-        kotlin.jvm.internal.q.j(collection, "elements");
+        kotlin.jvm.internal.q.m(collection, "elements");
         return collection.isEmpty();
     }
 
     @Override // java.util.Set, java.util.Collection, java.lang.Iterable
     public Iterator iterator() {
-        return aa.mXn;
+        return aa.nsp;
     }
 
     private final Object readResolve() {

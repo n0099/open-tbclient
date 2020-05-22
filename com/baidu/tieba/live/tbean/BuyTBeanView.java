@@ -18,7 +18,6 @@ import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.live.adp.base.BdBaseView;
 import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.message.CustomMessage;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
@@ -38,12 +37,12 @@ import com.baidu.live.tbadk.core.util.UrlManager;
 import com.baidu.live.tbadk.core.view.BdGridView;
 import com.baidu.live.tbadk.log.LogManager;
 import com.baidu.live.u.a;
+import com.baidu.tieba.live.tbean.AbsBuyTBeanView;
 import com.baidu.tieba.live.tbean.adapter.BuyTBeanGridAdapter;
 import com.baidu.tieba.live.tbean.data.CustomData;
 import com.baidu.tieba.live.tbean.data.IconInfoData;
 import com.baidu.tieba.live.tbean.data.IconInfoWrapperData;
 import com.baidu.tieba.live.tbean.data.UserDefineTbeanWrapperData;
-import com.baidu.tieba.live.tbean.data.UserInfoData;
 import com.baidu.tieba.live.tbean.view.WalletPayResultView;
 import com.baidu.webkit.internal.ETAG;
 import java.math.BigDecimal;
@@ -51,7 +50,7 @@ import java.math.RoundingMode;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class BuyTBeanView extends BdBaseView {
+public class BuyTBeanView extends AbsBuyTBeanView {
     private Activity activity;
     private LinearLayout buyBeanCustomLayout;
     private BuyTBeanController buyTBeanController;
@@ -68,7 +67,7 @@ public class BuyTBeanView extends BdBaseView {
     private RelativeLayout mContainer;
     private RelativeLayout mCustomBeanSubmitRoot;
     private BuyTBeanModel mData;
-    private OnPayClickListener mOnPayClickListener;
+    private AbsBuyTBeanView.OnPayClickListener mOnPayClickListener;
     private String mOtherParams;
     private WalletPayResultView mResultView;
     private TextWatcher mTextWatcher;
@@ -79,14 +78,9 @@ public class BuyTBeanView extends BdBaseView {
     private TextView tvCustomSubmitHint;
     private TextView tvExchangeContent;
 
-    /* loaded from: classes3.dex */
-    public interface OnPayClickListener {
-        void onClick(IAdapterData iAdapterData, UserInfoData userInfoData);
-    }
-
     /* JADX INFO: Access modifiers changed from: package-private */
     public BuyTBeanView(TbPageContext<?> tbPageContext, BuyTBeanController buyTBeanController, boolean z, boolean z2, boolean z3) {
-        super(tbPageContext);
+        super(tbPageContext, buyTBeanController, z, z2, z3);
         this.mTextWatcher = new TextWatcher() { // from class: com.baidu.tieba.live.tbean.BuyTBeanView.10
             @Override // android.text.TextWatcher
             public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
@@ -145,6 +139,7 @@ public class BuyTBeanView extends BdBaseView {
         initUI();
     }
 
+    @Override // com.baidu.tieba.live.tbean.AbsBuyTBeanView
     public void setOtherParams(String str) {
         this.mOtherParams = str;
     }
@@ -312,10 +307,12 @@ public class BuyTBeanView extends BdBaseView {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void setOnPayClickListener(OnPayClickListener onPayClickListener) {
+    @Override // com.baidu.tieba.live.tbean.AbsBuyTBeanView
+    public void setOnPayClickListener(AbsBuyTBeanView.OnPayClickListener onPayClickListener) {
         this.mOnPayClickListener = onPayClickListener;
     }
 
+    @Override // com.baidu.tieba.live.tbean.AbsBuyTBeanView
     public void setData(BuyTBeanModel buyTBeanModel) {
         if (buyTBeanModel == null || ListUtils.isEmpty(buyTBeanModel.getCommodityList())) {
             BdUtilHelper.showToast(getPageContext().getPageActivity(), a.i.sdk_tbn_no_data_tip);
@@ -353,11 +350,13 @@ public class BuyTBeanView extends BdBaseView {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
+    @Override // com.baidu.tieba.live.tbean.AbsBuyTBeanView
     public View getRootView() {
         return this.mBuyTBeanRootLayout;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
+    @Override // com.baidu.tieba.live.tbean.AbsBuyTBeanView
     public void showContainerView() {
         if (this.mContainer != null && this.mContainer.getVisibility() != 0) {
             this.mContainer.setVisibility(0);
@@ -371,6 +370,7 @@ public class BuyTBeanView extends BdBaseView {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
+    @Override // com.baidu.tieba.live.tbean.AbsBuyTBeanView
     public void showRootView() {
         if (this.mActivitiyRootRl != null && this.mActivitiyRootRl.getVisibility() != 0) {
             this.mActivitiyRootRl.setVisibility(0);
@@ -378,6 +378,7 @@ public class BuyTBeanView extends BdBaseView {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
+    @Override // com.baidu.tieba.live.tbean.AbsBuyTBeanView
     public void hideRootView() {
         if (this.mActivitiyRootRl != null && this.mActivitiyRootRl.getVisibility() != 8) {
             this.mActivitiyRootRl.setVisibility(8);
@@ -385,6 +386,7 @@ public class BuyTBeanView extends BdBaseView {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
+    @Override // com.baidu.tieba.live.tbean.AbsBuyTBeanView
     public void hideContainerView() {
         if (this.mContainer != null && this.mContainer.getVisibility() != 8) {
             this.mContainer.setVisibility(8);
@@ -398,6 +400,7 @@ public class BuyTBeanView extends BdBaseView {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
+    @Override // com.baidu.tieba.live.tbean.AbsBuyTBeanView
     public void onKeyboardVisibilityChanged(boolean z) {
         if (z) {
             this.mCustomBeanSubmitRoot.setVisibility(0);
@@ -417,6 +420,7 @@ public class BuyTBeanView extends BdBaseView {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
+    @Override // com.baidu.tieba.live.tbean.AbsBuyTBeanView
     public void showPayResultView(boolean z, int i, CustomData customData) {
         this.mResultView.updateResult(z, i, customData);
         this.mResultView.setVisibility(0);
@@ -427,6 +431,7 @@ public class BuyTBeanView extends BdBaseView {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
+    @Override // com.baidu.tieba.live.tbean.AbsBuyTBeanView
     public void hidePayResultView() {
         if (this.mResultView.getVisibility() == 0) {
             this.mResultView.setVisibility(8);

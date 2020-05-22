@@ -2,58 +2,63 @@ package com.baidu.swan.apps.statistic.a;
 
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
-import com.baidu.swan.apps.as.ai;
+import com.baidu.swan.apps.aq.aj;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class d extends f {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static int cgL = 35;
-    private boolean cgN = false;
-    private JSONObject cuu;
+    private static int crI = 35;
+    private JSONObject cGt;
+    private boolean crK = false;
 
     public d() {
         this.mSource = "NA";
     }
 
-    public d e(@NonNull com.baidu.swan.apps.ap.a aVar) {
-        this.mType = String.valueOf(aVar.aor());
-        bx("detail", aVar.aoq().toString());
+    public d gT(int i) {
+        this.mType = String.valueOf(i);
         return this;
     }
 
-    public d eS(boolean z) {
-        this.cgN = z;
+    public d f(@NonNull com.baidu.swan.apps.an.a aVar) {
+        this.mType = String.valueOf(aVar.asM());
+        bS("detail", aVar.asL().toString());
         return this;
     }
 
-    public d mZ(String str) {
+    public d fm(boolean z) {
+        this.crK = z;
+        return this;
+    }
+
+    public d oC(String str) {
         this.mFrom = str;
         return this;
     }
 
-    public d na(String str) {
+    public d oD(String str) {
         this.mAppId = str;
         return this;
     }
 
-    public d nb(String str) {
+    public d oE(String str) {
         this.mSource = str;
         return this;
     }
 
-    public d nc(String str) {
+    public d oF(String str) {
         this.mPage = str;
         return this;
     }
 
-    public d bx(String str, String str2) {
+    public d bS(String str, String str2) {
         if (str != null && str2 != null) {
-            if (this.cuu == null) {
-                this.cuu = new JSONObject();
+            if (this.cGt == null) {
+                this.cGt = new JSONObject();
             }
             try {
-                this.cuu.put(str, str2);
+                this.cGt.put(str, str2);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -61,19 +66,19 @@ public class d extends f {
         return this;
     }
 
-    public d a(com.baidu.swan.apps.x.b.e eVar) {
+    public d a(com.baidu.swan.apps.v.b.e eVar) {
         if (eVar != null) {
-            if (!TextUtils.isEmpty(eVar.adA())) {
-                this.mSource = eVar.adA();
+            if (!TextUtils.isEmpty(eVar.agK())) {
+                this.mSource = eVar.agK();
             }
             if (!TextUtils.isEmpty(eVar.getAppId())) {
                 this.mAppId = eVar.getAppId();
             }
-            if (!TextUtils.isEmpty(eVar.adC())) {
-                this.mScheme = eVar.adC();
+            if (!TextUtils.isEmpty(eVar.agM())) {
+                this.mScheme = eVar.agM();
             }
             if (!TextUtils.isEmpty(eVar.getPage())) {
-                this.cuE = eVar.getPage();
+                this.cGE = eVar.getPage();
             }
         }
         return this;
@@ -81,18 +86,18 @@ public class d extends f {
 
     @Override // com.baidu.swan.apps.statistic.a.f, com.baidu.swan.apps.statistic.a.e
     public JSONObject toJSONObject() {
-        if (this.cuv == null) {
-            this.cuv = new JSONObject();
+        if (this.cGu == null) {
+            this.cGu = new JSONObject();
         }
         try {
-            if (this.cuu != null) {
-                if (this.cgN) {
-                    String hm = ai.hm(cgL);
-                    if (!TextUtils.isEmpty(hm)) {
-                        this.cuu.put("stacktrace", hm);
+            if (this.cGt != null) {
+                if (this.crK) {
+                    String hH = aj.hH(crI);
+                    if (!TextUtils.isEmpty(hH)) {
+                        this.cGt.put("stacktrace", hH);
                     }
                 }
-                this.cuv.put("info", this.cuu);
+                this.cGu.put("info", this.cGt);
             }
         } catch (JSONException e) {
             if (DEBUG) {

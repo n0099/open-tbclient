@@ -7,18 +7,18 @@ public class b {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.facebook.imagepipeline.c.r
             /* renamed from: i */
-            public void bb(com.facebook.cache.common.b bVar) {
+            public void bf(com.facebook.cache.common.b bVar) {
                 n.this.p(bVar);
             }
 
             @Override // com.facebook.imagepipeline.c.r
-            public void dqk() {
-                n.this.dqw();
+            public void dxC() {
+                n.this.dxO();
             }
 
             @Override // com.facebook.imagepipeline.c.r
-            public void dql() {
-                n.this.dqv();
+            public void dxD() {
+                n.this.dxN();
             }
         });
     }

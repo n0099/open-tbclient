@@ -11,6 +11,7 @@ public class UploadContrastPortraitModel implements IBeanResponse, Serializable 
     public String authsid;
     public String callbackkey;
     public int contrastres;
+    public int dxm_recordvideo;
     public int finalres;
     public int finish;
     public String imgdigests;
@@ -50,6 +51,10 @@ public class UploadContrastPortraitModel implements IBeanResponse, Serializable 
 
     public boolean isGotoRecordvideo() {
         return 1 == this.recordvideo;
+    }
+
+    public boolean isGotoDXMRecordvideo() {
+        return 1 == this.dxm_recordvideo;
     }
 
     public boolean isProcessPass() {

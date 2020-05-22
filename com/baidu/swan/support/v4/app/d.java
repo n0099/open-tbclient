@@ -4,7 +4,7 @@ import android.app.Activity;
 /* loaded from: classes11.dex */
 class d {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static void Z(Activity activity) {
+    public static void X(Activity activity) {
         activity.invalidateOptionsMenu();
     }
 }

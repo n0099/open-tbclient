@@ -2,38 +2,17 @@ package com.baidu.tbadk.core.data;
 
 import com.baidu.adp.BdUniqueId;
 import java.util.ArrayList;
-import tbclient.RecommendInfo;
-import tbclient.SchoolRecomUserInfo;
 /* loaded from: classes.dex */
-public class ba extends bj {
-    public static final BdUniqueId dpV = BdUniqueId.gen();
-    private String title = "";
-    private ArrayList<bc> dpW = new ArrayList<>();
+public class ba extends bk {
+    public static final BdUniqueId dDQ = BdUniqueId.gen();
+    private ArrayList<RecommendForumData> dDR = new ArrayList<>();
 
-    public void a(RecommendInfo recommendInfo) {
-        if (recommendInfo != null) {
-            this.title = recommendInfo.title;
-            for (SchoolRecomUserInfo schoolRecomUserInfo : recommendInfo.user_list) {
-                if (schoolRecomUserInfo != null) {
-                    bc bcVar = new bc();
-                    bcVar.a(schoolRecomUserInfo);
-                    this.dpW.add(bcVar);
-                }
-            }
-        }
+    public ArrayList<RecommendForumData> aPG() {
+        return this.dDR;
     }
 
-    @Override // com.baidu.tbadk.core.data.bj
-    public String getTitle() {
-        return this.title;
-    }
-
-    public ArrayList<bc> aJM() {
-        return this.dpW;
-    }
-
-    @Override // com.baidu.tbadk.core.data.bj, com.baidu.adp.widget.ListView.m
+    @Override // com.baidu.tbadk.core.data.bk, com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.o
     public BdUniqueId getType() {
-        return dpV;
+        return dDQ;
     }
 }

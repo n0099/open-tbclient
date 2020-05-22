@@ -9,25 +9,25 @@ import com.baidu.live.message.AlaZMCreateHttpResponseMessage;
 import com.baidu.live.message.AlaZMQueryResultHttpResponseMessage;
 /* loaded from: classes3.dex */
 public class b {
-    private a aQN;
-    private HttpMessageListener aQO = new HttpMessageListener(1021062) { // from class: com.baidu.live.k.b.1
+    private a aWY;
+    private HttpMessageListener aWZ = new HttpMessageListener(1021062) { // from class: com.baidu.live.k.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaZMCreateHttpResponseMessage)) {
-                com.baidu.live.c.tG().putLong("zm_cert_id", ((AlaZMCreateHttpResponseMessage) httpResponsedMessage).DR());
-                if (b.this.aQN != null) {
-                    b.this.aQN.a(1021062L, httpResponsedMessage);
+                com.baidu.live.c.uN().putLong("zm_cert_id", ((AlaZMCreateHttpResponseMessage) httpResponsedMessage).Fp());
+                if (b.this.aWY != null) {
+                    b.this.aWY.a(1021062L, httpResponsedMessage);
                 }
             }
         }
     };
-    private HttpMessageListener aQP = new HttpMessageListener(1021063) { // from class: com.baidu.live.k.b.2
+    private HttpMessageListener aXa = new HttpMessageListener(1021063) { // from class: com.baidu.live.k.b.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaZMQueryResultHttpResponseMessage) && b.this.aQN != null) {
-                b.this.aQN.a(1021063L, httpResponsedMessage);
+            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaZMQueryResultHttpResponseMessage) && b.this.aWY != null) {
+                b.this.aWY.a(1021063L, httpResponsedMessage);
             }
         }
     };
@@ -38,17 +38,17 @@ public class b {
     }
 
     public b() {
-        MessageManager.getInstance().registerListener(this.aQO);
-        MessageManager.getInstance().registerListener(this.aQP);
+        MessageManager.getInstance().registerListener(this.aWZ);
+        MessageManager.getInstance().registerListener(this.aXa);
     }
 
     public void release() {
         cancel();
-        MessageManager.getInstance().unRegisterListener(this.aQO);
-        MessageManager.getInstance().unRegisterListener(this.aQP);
+        MessageManager.getInstance().unRegisterListener(this.aWZ);
+        MessageManager.getInstance().unRegisterListener(this.aXa);
     }
 
-    public void eM(String str) {
+    public void fy(String str) {
         HttpMessage httpMessage = new HttpMessage(1021063);
         httpMessage.addParam("cert_id", str);
         MessageManager.getInstance().sendMessage(httpMessage);

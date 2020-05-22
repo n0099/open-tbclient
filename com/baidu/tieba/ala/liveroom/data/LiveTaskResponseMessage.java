@@ -7,10 +7,10 @@ import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class LiveTaskResponseMessage extends JsonHttpResponsedMessage {
     public String btnText;
-    public long fFX;
-    public int fFY;
-    public String fFZ;
-    public String fGa;
+    public long fTS;
+    public int fTT;
+    public String fTU;
+    public String fTV;
     public String message;
     public String scheme;
     public String url;
@@ -27,15 +27,15 @@ public class LiveTaskResponseMessage extends JsonHttpResponsedMessage {
             if (optJSONObject != null) {
                 this.message = optJSONObject.optString("message");
                 this.btnText = optJSONObject.optString("btnText");
-                this.fFX = optJSONObject.optLong("toastDuration");
+                this.fTS = optJSONObject.optLong("toastDuration");
                 this.url = optJSONObject.optString("url");
                 this.scheme = optJSONObject.optString("schema");
             }
             JSONObject optJSONObject2 = jSONObject.optJSONObject(BdStatsConstant.StatsType.ERROR);
             if (optJSONObject2 != null) {
-                this.fFY = optJSONObject2.optInt(BaseJsonData.TAG_ERRNO);
-                this.fFZ = optJSONObject2.optString(BaseJsonData.TAG_ERRMSG);
-                this.fGa = optJSONObject2.optString("usermsg");
+                this.fTT = optJSONObject2.optInt(BaseJsonData.TAG_ERRNO);
+                this.fTU = optJSONObject2.optString(BaseJsonData.TAG_ERRMSG);
+                this.fTV = optJSONObject2.optString("usermsg");
             }
         }
     }

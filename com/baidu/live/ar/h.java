@@ -11,15 +11,15 @@ public interface h {
 
     void onBlurLevelSelected(int i);
 
-    void onFilterSelected(String str, float f);
+    void onFilterSelected(String str, String str2, float f);
 
     void p(int i, int i2);
 
     void q(int i, int i2);
 
-    void tW();
+    void vd();
 
-    void tX();
+    void ve();
 
-    void tY();
+    void vf();
 }

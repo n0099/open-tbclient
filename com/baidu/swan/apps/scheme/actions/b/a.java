@@ -4,6 +4,8 @@ import android.text.TextUtils;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.a;
+import com.baidu.swan.apps.aq.aj;
 import com.baidu.swan.apps.favordata.SwanFavorDataManager;
 import com.baidu.swan.apps.scheme.j;
 import org.json.JSONException;
@@ -15,10 +17,10 @@ public class a extends b {
     }
 
     @Override // com.baidu.swan.apps.scheme.actions.b.b
-    protected void a(final UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, final String str) {
-        SwanFavorDataManager.ZW().b(this.cqB, 1, new com.baidu.swan.apps.favordata.a.a() { // from class: com.baidu.swan.apps.scheme.actions.b.a.1
+    protected void b(final com.baidu.swan.apps.runtime.e eVar, final UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, final String str) {
+        SwanFavorDataManager.acW().b(this.cCs, 1, new com.baidu.swan.apps.favordata.a.a() { // from class: com.baidu.swan.apps.scheme.actions.b.a.1
             @Override // com.baidu.swan.apps.favordata.a.a
-            public void aad() {
+            public void add() {
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put("success", "1");
@@ -27,11 +29,19 @@ public class a extends b {
                         e.printStackTrace();
                     }
                 }
+                if (a.this.cCt) {
+                    com.baidu.swan.apps.database.favorite.a.acc();
+                    if (com.baidu.swan.apps.y.a.K(eVar.aoz())) {
+                        com.baidu.swan.apps.y.a.bw("addmyswan", aj.atU().getPage());
+                    } else {
+                        com.baidu.swan.apps.res.widget.b.d.k(eVar.getApplicationContext(), a.h.aiapps_fav_success).gG(2).gC(2).showToast();
+                    }
+                }
                 UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), str);
             }
 
             @Override // com.baidu.swan.apps.favordata.a.a
-            public void aae() {
+            public void ade() {
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put("success", "0");
@@ -40,20 +50,23 @@ public class a extends b {
                         e.printStackTrace();
                     }
                 }
+                if (a.this.cCt) {
+                    com.baidu.swan.apps.res.widget.b.d.k(eVar.getApplicationContext(), a.h.aiapps_fav_fail).gG(2).showToast();
+                }
                 UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), str);
             }
         });
     }
 
     @Override // com.baidu.swan.apps.scheme.actions.b.b
-    protected boolean o(UnitedSchemeEntity unitedSchemeEntity) {
+    protected boolean b(com.baidu.swan.apps.runtime.e eVar, UnitedSchemeEntity unitedSchemeEntity) {
         String param = unitedSchemeEntity.getParam("params");
         if (TextUtils.isEmpty(param)) {
             return false;
         }
         try {
-            this.cqB = new JSONObject(param).optString("appid");
-            return !TextUtils.isEmpty(this.cqB);
+            this.cCs = this.cCt ? eVar.getAppId() : new JSONObject(param).optString("appid");
+            return !TextUtils.isEmpty(this.cCs);
         } catch (JSONException e) {
             e.printStackTrace();
             return false;

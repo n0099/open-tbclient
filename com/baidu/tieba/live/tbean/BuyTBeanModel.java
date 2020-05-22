@@ -8,6 +8,8 @@ import com.baidu.live.adp.framework.message.HttpResponsedMessage;
 import com.baidu.live.adp.widget.listview.IAdapterData;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.util.ListUtils;
+import com.baidu.live.tbadk.ubc.UbcDebugItem;
+import com.baidu.live.tbadk.ubc.UbcStatisticManager;
 import com.baidu.live.u.a;
 import com.baidu.tieba.live.tbean.data.CustomData;
 import com.baidu.tieba.live.tbean.data.GiftBagWrapperData;
@@ -118,6 +120,7 @@ public class BuyTBeanModel extends BdBaseModel {
                     return;
                 }
                 GetYinJiHttpResponseMessage getYinJiHttpResponseMessage = (GetYinJiHttpResponseMessage) httpResponsedMessage;
+                UbcStatisticManager.getInstance().debugRequest(new UbcDebugItem("liveroom", "pay"), getYinJiHttpResponseMessage);
                 if (getYinJiHttpResponseMessage.getError() != 0) {
                     if (!TextUtils.isEmpty(getYinJiHttpResponseMessage.getErrorString())) {
                         BuyTBeanModel.this.mCallBack.onFailed(getYinJiHttpResponseMessage.getErrorString());

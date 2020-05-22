@@ -9,9 +9,9 @@ import android.widget.TextView;
 import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class AlaCharmDetailEmptyView extends LinearLayout {
-    private ImageView fbZ;
-    private TextView fca;
-    private TextView fcb;
+    private ImageView fpC;
+    private TextView fpD;
+    private TextView fpE;
 
     public AlaCharmDetailEmptyView(Context context) {
         super(context);
@@ -31,31 +31,31 @@ public class AlaCharmDetailEmptyView extends LinearLayout {
     private void init() {
         setOrientation(1);
         LayoutInflater.from(getContext()).inflate(a.h.ala_charm_empty_view, this);
-        this.fbZ = (ImageView) findViewById(a.g.empty_image);
-        this.fca = (TextView) findViewById(a.g.empty_text);
-        this.fcb = (TextView) findViewById(a.g.empty_sub_text);
+        this.fpC = (ImageView) findViewById(a.g.empty_image);
+        this.fpD = (TextView) findViewById(a.g.empty_text);
+        this.fpE = (TextView) findViewById(a.g.empty_sub_text);
         if (getResources().getConfiguration().orientation == 2) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.fbZ.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.fpC.getLayoutParams();
             layoutParams.topMargin = getResources().getDimensionPixelSize(a.e.sdk_ds20);
-            this.fbZ.setLayoutParams(layoutParams);
+            this.fpC.setLayoutParams(layoutParams);
         }
     }
 
     public void setParams(int i, int i2, int i3) {
         if (i != -1) {
-            this.fbZ.setImageResource(i);
+            this.fpC.setImageResource(i);
         } else {
-            this.fbZ.setVisibility(8);
+            this.fpC.setVisibility(8);
         }
         if (i2 != -1) {
-            this.fca.setText(i2);
+            this.fpD.setText(i2);
         } else {
-            this.fca.setVisibility(8);
+            this.fpD.setVisibility(8);
         }
         if (i3 != -1) {
-            this.fcb.setText(i3);
+            this.fpE.setText(i3);
         } else {
-            this.fcb.setVisibility(8);
+            this.fpE.setVisibility(8);
         }
     }
 }

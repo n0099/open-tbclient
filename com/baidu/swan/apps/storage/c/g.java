@@ -1,129 +1,147 @@
 package com.baidu.swan.apps.storage.c;
 
+import android.annotation.Nullable;
 import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
-import android.text.TextUtils;
-import com.baidu.searchbox.common.runtime.AppRuntime;
+import android.support.annotation.NonNull;
+import java.io.File;
 import java.util.Map;
 import java.util.Set;
+import kotlin.jvm.internal.q;
+@kotlin.h
 /* loaded from: classes11.dex */
-public class g implements SharedPreferences {
-    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private final String mName;
-    private SharedPreferences mSp;
+public class g implements com.baidu.swan.e.b {
+    private final /* synthetic */ com.baidu.swan.e.b cHh;
 
-    public g(String str) {
-        this.mName = TextUtils.isEmpty(str) ? "default" : str;
-        if ("default".equals(this.mName)) {
-            this.mSp = PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext());
-        } else {
-            this.mSp = com.baidu.swan.apps.w.a.abN().getSharedPreferences(str, 0);
-        }
+    @Override // android.content.SharedPreferences.Editor
+    public void apply() {
+        this.cHh.apply();
     }
 
-    public String getName() {
-        return this.mName;
+    @Override // com.baidu.swan.e.b
+    public Set<String> arM() {
+        return this.cHh.arM();
     }
 
-    @Override // android.content.SharedPreferences
-    public Map<String, ?> getAll() {
-        return this.mSp.getAll();
+    @Override // com.baidu.swan.e.b
+    public boolean arN() {
+        return this.cHh.arN();
     }
 
-    @Override // android.content.SharedPreferences
-    public String getString(String str, String str2) {
-        return this.mSp.getString(str, str2);
+    public SharedPreferences.Editor clear() {
+        return this.cHh.clear();
     }
 
-    @Override // android.content.SharedPreferences
-    public Set<String> getStringSet(String str, Set<String> set) {
-        return this.mSp.getStringSet(str, set);
-    }
-
-    @Override // android.content.SharedPreferences
-    public int getInt(String str, int i) {
-        return this.mSp.getInt(str, i);
-    }
-
-    @Override // android.content.SharedPreferences
-    public long getLong(String str, long j) {
-        return this.mSp.getLong(str, j);
-    }
-
-    @Override // android.content.SharedPreferences
-    public float getFloat(String str, float f) {
-        return this.mSp.getFloat(str, f);
-    }
-
-    @Override // android.content.SharedPreferences
-    public boolean getBoolean(String str, boolean z) {
-        return this.mSp.getBoolean(str, z);
+    @Override // android.content.SharedPreferences.Editor
+    public boolean commit() {
+        return this.cHh.commit();
     }
 
     @Override // android.content.SharedPreferences
     public boolean contains(String str) {
-        return this.mSp.contains(str);
+        return this.cHh.contains(str);
     }
 
     @Override // android.content.SharedPreferences
     public SharedPreferences.Editor edit() {
-        return this.mSp.edit();
+        return this.cHh.edit();
+    }
+
+    @Override // com.baidu.swan.e.b, android.content.SharedPreferences
+    public Map<String, ?> getAll() {
+        return this.cHh.getAll();
     }
 
     @Override // android.content.SharedPreferences
+    public boolean getBoolean(String str, boolean z) {
+        return this.cHh.getBoolean(str, z);
+    }
+
+    @Override // com.baidu.swan.e.b
+    public long getContentSize() {
+        return this.cHh.getContentSize();
+    }
+
+    @Override // com.baidu.swan.e.b
+    @NonNull
+    public File getFile() {
+        return this.cHh.getFile();
+    }
+
+    @Override // android.content.SharedPreferences
+    public float getFloat(String str, float f) {
+        return this.cHh.getFloat(str, f);
+    }
+
+    @Override // android.content.SharedPreferences
+    public int getInt(String str, int i) {
+        return this.cHh.getInt(str, i);
+    }
+
+    @Override // android.content.SharedPreferences
+    public long getLong(String str, long j) {
+        return this.cHh.getLong(str, j);
+    }
+
+    @Override // android.content.SharedPreferences
+    @Nullable
+    public String getString(String str, @Nullable String str2) {
+        return this.cHh.getString(str, str2);
+    }
+
+    @Override // android.content.SharedPreferences
+    @Nullable
+    public Set<String> getStringSet(String str, @Nullable Set<String> set) {
+        return this.cHh.getStringSet(str, set);
+    }
+
+    public SharedPreferences.Editor putBoolean(String str, boolean z) {
+        return this.cHh.putBoolean(str, z);
+    }
+
+    public SharedPreferences.Editor putFloat(String str, float f) {
+        return this.cHh.putFloat(str, f);
+    }
+
+    public SharedPreferences.Editor putInt(String str, int i) {
+        return this.cHh.putInt(str, i);
+    }
+
+    public SharedPreferences.Editor putLong(String str, long j) {
+        return this.cHh.putLong(str, j);
+    }
+
+    public SharedPreferences.Editor putString(String str, @Nullable String str2) {
+        return this.cHh.putString(str, str2);
+    }
+
+    public SharedPreferences.Editor putStringSet(String str, @Nullable Set<String> set) {
+        return this.cHh.putStringSet(str, set);
+    }
+
+    @Override // com.baidu.swan.e.b, android.content.SharedPreferences
     public void registerOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener) {
-        this.mSp.registerOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
+        this.cHh.registerOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
     }
 
-    @Override // android.content.SharedPreferences
+    public SharedPreferences.Editor remove(String str) {
+        return this.cHh.remove(str);
+    }
+
+    @Override // com.baidu.swan.e.b, android.content.SharedPreferences
     public void unregisterOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener) {
-        this.mSp.unregisterOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
+        this.cHh.unregisterOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
     }
 
-    public void putString(String str, String str2) {
-        verifyLength(str, str2);
-        this.mSp.edit().putString(str, str2).apply();
+    public g(String str, boolean z) {
+        q.m(str, "fileName");
+        com.baidu.swan.e.b e = com.baidu.swan.apps.u.a.afO().e(com.baidu.swan.apps.u.a.aeR(), str, z);
+        q.l((Object) e, "SwanAppRuntime.getSwanEx…Name, isMultiProcessMode)");
+        this.cHh = e;
     }
 
-    public void putStringSet(String str, Set<String> set) {
-        verifyAllLength(str, set);
-        this.mSp.edit().putStringSet(str, set).apply();
-    }
-
-    public void putInt(String str, int i) {
-        this.mSp.edit().putInt(str, i).apply();
-    }
-
-    public void putLong(String str, long j) {
-        this.mSp.edit().putLong(str, j).apply();
-    }
-
-    public void putFloat(String str, float f) {
-        this.mSp.edit().putFloat(str, f).apply();
-    }
-
-    public void putBoolean(String str, boolean z) {
-        this.mSp.edit().putBoolean(str, z).apply();
-    }
-
-    public void remove(String str) {
-        this.mSp.edit().remove(str).apply();
-    }
-
-    public void clear() {
-        this.mSp.edit().clear().apply();
-    }
-
-    private void verifyLength(String str, String str2) {
-        if (str2 == null || str2.length() <= 256) {
-        }
-    }
-
-    private void verifyAllLength(String str, Set<String> set) {
-        if (set != null) {
-            for (String str2 : set) {
-                verifyLength(str, str2);
-            }
-        }
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public g(String str) {
+        this(str, true);
+        q.m(str, "fileName");
     }
 }

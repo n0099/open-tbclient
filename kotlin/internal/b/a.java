@@ -6,7 +6,7 @@ import kotlin.random.d;
 /* loaded from: classes7.dex */
 public class a extends kotlin.internal.a.a {
     @Override // kotlin.internal.a
-    public d dDO() {
+    public d dLI() {
         return new kotlin.random.a.a();
     }
 }

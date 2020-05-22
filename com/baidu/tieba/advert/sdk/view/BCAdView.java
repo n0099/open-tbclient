@@ -17,14 +17,14 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public class BCAdView extends RelativeLayout {
-    protected com.baidu.tieba.advert.sdk.a.a eDf;
-    protected BCAdView eDg;
-    protected TbImageView eDh;
-    protected AdInfo eDi;
-    protected AdInfo eDj;
-    protected AdType eDk;
-    protected c eDl;
-    public RedirectType eDm;
+    protected com.baidu.tieba.advert.sdk.a.a eRE;
+    protected BCAdView eRF;
+    protected TbImageView eRG;
+    protected AdInfo eRH;
+    protected AdInfo eRI;
+    protected AdType eRJ;
+    protected c eRK;
+    public RedirectType eRL;
     protected Context mContext;
     protected int mHeight;
     protected TbPageContext<?> mPageContext;
@@ -34,47 +34,47 @@ public class BCAdView extends RelativeLayout {
     public BCAdView(TbPageContext<?> tbPageContext, String str, AdType adType, int i, int i2) {
         super(tbPageContext.getPageActivity());
         this.mPageContext = tbPageContext;
-        this.eDg = this;
+        this.eRF = this;
         this.mContext = tbPageContext.getPageActivity();
         this.placeId = str;
-        this.eDk = adType;
+        this.eRJ = adType;
         this.mHeight = i;
         this.mWidth = i2;
     }
 
     public void loadAd() {
-        this.eDj = new AdInfo();
-        this.eDj.placeId = this.placeId;
-        this.eDj.adHeight = this.mHeight;
-        this.eDj.adWidth = this.mWidth;
-        this.eDj.typeId = this.eDk;
-        b.bhs().a(this.mPageContext, new a(this), this.eDj);
+        this.eRI = new AdInfo();
+        this.eRI.placeId = this.placeId;
+        this.eRI.adHeight = this.mHeight;
+        this.eRI.adWidth = this.mWidth;
+        this.eRI.typeId = this.eRJ;
+        b.bnD().a(this.mPageContext, new a(this), this.eRI);
     }
 
     public void setBCAdCallBack(com.baidu.tieba.advert.sdk.a.a aVar) {
         if (aVar != null) {
-            this.eDf = aVar;
+            this.eRE = aVar;
         }
     }
 
-    private void bhx() {
-        if (this.eDf != null) {
-            this.eDf.bhm();
+    private void bnI() {
+        if (this.eRE != null) {
+            this.eRE.bnx();
         }
     }
 
-    public void aso() {
-        if (this.eDf != null) {
-            this.eDf.bhn();
+    public void avV() {
+        if (this.eRE != null) {
+            this.eRE.bny();
         }
-        pA();
+        pG();
     }
 
-    private void pA() {
+    private void pG() {
         try {
-            this.eDh = null;
+            this.eRG = null;
             removeAllViews();
-            this.eDi = null;
+            this.eRH = null;
         } catch (Exception e) {
             BdLog.e("Ad close failed" + e.getMessage());
         }
@@ -84,30 +84,30 @@ public class BCAdView extends RelativeLayout {
     @Override // android.view.ViewGroup, android.view.View
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
-        bhx();
+        bnI();
     }
 
     /* loaded from: classes10.dex */
     static class a implements b.a {
-        AdInfo eDj;
-        AdType eDk;
-        c eDl;
-        final WeakReference<BCAdView> eDn;
+        AdInfo eRI;
+        AdType eRJ;
+        c eRK;
+        final WeakReference<BCAdView> eRM;
 
         public a(BCAdView bCAdView) {
-            this.eDj = bCAdView.eDj;
-            this.eDl = bCAdView.eDl;
-            this.eDk = bCAdView.eDk;
-            this.eDn = new WeakReference<>(bCAdView);
+            this.eRI = bCAdView.eRI;
+            this.eRK = bCAdView.eRK;
+            this.eRJ = bCAdView.eRJ;
+            this.eRM = new WeakReference<>(bCAdView);
         }
 
         @Override // com.baidu.tieba.advert.sdk.b.b.a
-        public void yS(String str) {
+        public void Ay(String str) {
             com.baidu.tieba.advert.sdk.a.a aVar;
             if (!aq.isEmpty(str)) {
-                this.eDj = AdInfo.jsonToObject(str);
-                if (this.eDk == AdType.SPLASH && !aq.isEmpty(this.eDj.adImgUrl)) {
-                    com.baidu.adp.lib.e.c.kV().a(this.eDj.adImgUrl, 10, new com.baidu.adp.lib.e.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.advert.sdk.view.BCAdView.a.1
+                this.eRI = AdInfo.jsonToObject(str);
+                if (this.eRJ == AdType.SPLASH && !aq.isEmpty(this.eRI.adImgUrl)) {
+                    com.baidu.adp.lib.e.c.kX().a(this.eRI.adImgUrl, 10, new com.baidu.adp.lib.e.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.advert.sdk.view.BCAdView.a.1
                         /* JADX DEBUG: Method merged with bridge method */
                         /* JADX INFO: Access modifiers changed from: protected */
                         @Override // com.baidu.adp.lib.e.b
@@ -128,29 +128,29 @@ public class BCAdView extends RelativeLayout {
                         }
                     }, 0, 0, null, new Object[0]);
                 }
-                this.eDl.yR(str);
-                BCAdView bCAdView = this.eDn.get();
-                if (bCAdView != null && (aVar = bCAdView.eDf) != null) {
-                    aVar.bhl();
+                this.eRK.Ax(str);
+                BCAdView bCAdView = this.eRM.get();
+                if (bCAdView != null && (aVar = bCAdView.eRE) != null) {
+                    aVar.bnw();
                 }
             }
         }
 
         @Override // com.baidu.tieba.advert.sdk.b.b.a
-        public void yT(String str) {
-            BCAdView bCAdView = this.eDn.get();
+        public void Az(String str) {
+            BCAdView bCAdView = this.eRM.get();
             if (bCAdView != null) {
                 try {
                     if (!TextUtils.isEmpty(str)) {
                         com.baidu.tieba.advert.sdk.data.a aVar = new com.baidu.tieba.advert.sdk.data.a(new JSONObject(str));
-                        if (bCAdView.eDf != null) {
-                            bCAdView.eDf.a(aVar);
+                        if (bCAdView.eRE != null) {
+                            bCAdView.eRE.a(aVar);
                         }
                     }
-                    if (bCAdView.eDk == AdType.SPLASH) {
-                        bCAdView.eDl.yR("");
+                    if (bCAdView.eRJ == AdType.SPLASH) {
+                        bCAdView.eRK.Ax("");
                     } else {
-                        bCAdView.aso();
+                        bCAdView.avV();
                     }
                 } catch (JSONException e) {
                     BdLog.e(e.getMessage());

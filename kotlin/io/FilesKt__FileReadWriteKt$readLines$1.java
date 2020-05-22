@@ -21,12 +21,12 @@ final class FilesKt__FileReadWriteKt$readLines$1 extends Lambda implements kotli
     @Override // kotlin.jvm.a.b
     public /* bridge */ /* synthetic */ l invoke(String str) {
         invoke2(str);
-        return l.mXc;
+        return l.nse;
     }
 
     /* renamed from: invoke  reason: avoid collision after fix types in other method */
     public final void invoke2(String str) {
-        q.j(str, AdvanceSetting.NETWORK_TYPE);
+        q.m(str, AdvanceSetting.NETWORK_TYPE);
         this.$result.add(str);
     }
 }

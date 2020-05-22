@@ -3,15 +3,15 @@ package com.baidu.live.p;
 import android.view.View;
 /* loaded from: classes3.dex */
 public interface c {
-    View Ec();
+    View FS();
 
-    b Ed();
+    b FT();
 
-    b Ee();
+    b FU();
 
-    void Ef();
+    void FV();
 
-    void Eg();
+    void FW();
 
     void destory();
 }

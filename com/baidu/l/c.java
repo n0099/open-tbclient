@@ -6,7 +6,7 @@ import android.util.Log;
 import com.baidu.l.a.e;
 /* loaded from: classes6.dex */
 public class c {
-    private static c lPu;
+    private static c miL;
     private Context mCtx;
     private static String TAG = "UnionIDHelper";
     private static boolean DEBUG = false;
@@ -15,24 +15,24 @@ public class c {
         this.mCtx = context.getApplicationContext();
     }
 
-    public static c fu(Context context) {
-        if (lPu == null) {
+    public static c fJ(Context context) {
+        if (miL == null) {
             synchronized (c.class) {
-                if (lPu == null) {
-                    lPu = new c(context);
-                    com.baidu.l.a.a.fv(context);
+                if (miL == null) {
+                    miL = new c(context);
+                    com.baidu.l.a.a.fK(context);
                 }
             }
         }
-        return lPu;
+        return miL;
     }
 
     public void a(b bVar) {
-        a(new d().FO(1).vs(false), bVar, Looper.getMainLooper());
+        a(new d().GB(1).vQ(false), bVar, Looper.getMainLooper());
     }
 
     public void a(d dVar, final b bVar, Looper looper) {
-        e.dlG().a(this.mCtx, looper, new com.baidu.l.a.a.b() { // from class: com.baidu.l.c.1
+        e.dsV().a(this.mCtx, looper, new com.baidu.l.a.a.b() { // from class: com.baidu.l.c.1
             @Override // com.baidu.l.a.a.b
             public void a(com.baidu.l.a.a.c cVar) {
                 if (c.DEBUG) {
@@ -40,20 +40,20 @@ public class c {
                     Log.d(c.TAG, "异步回调 (listener != null):" + (bVar != null));
                 }
                 if (bVar != null) {
-                    bVar.a(0, cVar == null ? null : new a(cVar.dlA(), cVar.isSupport(), cVar.dlL(), cVar.dlM(), cVar.dlN(), cVar.getStatusCode()));
+                    bVar.a(0, cVar == null ? null : new a(cVar.dsP(), cVar.isSupport(), cVar.getOAID(), cVar.getAAID(), cVar.getVAID(), cVar.getStatusCode()));
                 }
             }
         });
     }
 
-    public a dlC() {
-        com.baidu.l.a.a.c fx = e.dlG().fx(this.mCtx);
+    public a dsR() {
+        com.baidu.l.a.a.c fM = e.dsV().fM(this.mCtx);
         if (DEBUG) {
-            Log.d(TAG, "同步 结果:" + fx);
+            Log.d(TAG, "同步 结果:" + fM);
         }
-        if (fx == null) {
+        if (fM == null) {
             return null;
         }
-        return new a(fx.dlA(), fx.isSupport(), fx.dlL(), fx.dlM(), fx.dlN(), fx.getStatusCode());
+        return new a(fM.dsP(), fM.isSupport(), fM.getOAID(), fM.getAAID(), fM.getVAID(), fM.getStatusCode());
     }
 }

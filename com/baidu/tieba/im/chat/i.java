@@ -19,7 +19,7 @@ public class i {
             if (this.mUrl == null || this.mUrl.length() <= 0) {
                 showToast(this.mActivity.getPageContext().getString(R.string.save_fail));
             }
-            com.baidu.adp.lib.e.c.kV().a(this.mUrl, 10, new com.baidu.adp.lib.e.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.im.chat.i.1
+            com.baidu.adp.lib.e.c.kX().a(this.mUrl, 10, new com.baidu.adp.lib.e.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.im.chat.i.1
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.adp.lib.e.b

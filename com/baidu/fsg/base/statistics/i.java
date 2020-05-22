@@ -38,53 +38,114 @@ class i extends SQLiteOpenHelper {
     }
 
     public void a(h hVar) {
-        if (hVar != null && !TextUtils.isEmpty(hVar.p)) {
-            ContentValues contentValues = new ContentValues();
-            contentValues.put(h.a, hVar.p);
-            contentValues.put("et", Long.valueOf(hVar.q));
-            contentValues.put("ev", hVar.r);
-            contentValues.put(h.d, hVar.s);
-            contentValues.put(h.e, hVar.t);
-            synchronized (this.c) {
-                this.b.insert(d, null, contentValues);
+        synchronized (this.c) {
+            if (hVar != null) {
+                if (!TextUtils.isEmpty(hVar.p)) {
+                    ContentValues contentValues = new ContentValues();
+                    contentValues.put(h.a, hVar.p);
+                    contentValues.put("et", Long.valueOf(hVar.q));
+                    contentValues.put("ev", hVar.r);
+                    contentValues.put(h.d, hVar.s);
+                    contentValues.put(h.e, hVar.t);
+                    try {
+                        this.b.insert(d, null, contentValues);
+                    } catch (Exception e2) {
+                    }
+                    LogUtil.d(a, "插入一条数据" + hVar.p);
+                }
             }
-            LogUtil.d(a, "插入一条数据" + hVar.p);
         }
     }
 
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [116=4, 117=4] */
     public int a() {
-        Cursor rawQuery = this.b.rawQuery("SELECT COUNT(*) FROM rim_stat_event", null);
-        if (rawQuery == null) {
-            return 0;
-        }
-        if (rawQuery.moveToFirst()) {
-            return rawQuery.getInt(0);
-        }
-        rawQuery.close();
-        return 0;
-    }
-
-    public h[] b() {
-        h[] hVarArr;
         int i2 = 0;
         synchronized (this.c) {
-            Cursor rawQuery = this.b.rawQuery("select * from rim_stat_event", null);
-            if (rawQuery == null) {
-                hVarArr = new h[0];
-            } else {
-                hVarArr = new h[rawQuery.getCount()];
-                while (rawQuery.moveToNext()) {
-                    h hVar = new h();
-                    hVar.p = rawQuery.getString(rawQuery.getColumnIndex(h.a));
-                    hVar.q = rawQuery.getLong(rawQuery.getColumnIndex("et"));
-                    hVar.r = rawQuery.getString(rawQuery.getColumnIndex("ev"));
-                    hVar.s = rawQuery.getString(rawQuery.getColumnIndex(h.d));
-                    hVar.t = rawQuery.getString(rawQuery.getColumnIndex(h.e));
-                    hVar.u = rawQuery.getInt(rawQuery.getColumnIndex(h.f));
-                    hVarArr[i2] = hVar;
-                    i2++;
+            Cursor rawQuery = this.b.rawQuery("SELECT COUNT(*) FROM rim_stat_event", null);
+            if (rawQuery != null) {
+                try {
+                } catch (Exception e2) {
+                    if (rawQuery != null) {
+                        rawQuery.close();
+                    }
+                } catch (Throwable th) {
+                    if (rawQuery != null) {
+                        rawQuery.close();
+                    }
+                    throw th;
                 }
-                rawQuery.close();
+                if (rawQuery.moveToFirst()) {
+                    i2 = rawQuery.getInt(0);
+                    if (rawQuery != null) {
+                        rawQuery.close();
+                    }
+                } else if (rawQuery != null) {
+                    rawQuery.close();
+                }
+            }
+        }
+        return i2;
+    }
+
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [154=5, 155=4] */
+    /* JADX WARN: Removed duplicated region for block: B:20:0x0088 A[Catch: all -> 0x008d, TryCatch #4 {, blocks: (B:9:0x0016, B:10:0x0019, B:33:0x009e, B:34:0x00a1, B:20:0x0088, B:21:0x008b, B:29:0x0094, B:18:0x0083), top: B:39:0x0005 }] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public h[] b() {
+        Cursor cursor;
+        Throwable th;
+        h[] hVarArr = null;
+        int i2 = 0;
+        synchronized (this.c) {
+            try {
+                cursor = this.b.rawQuery("select * from rim_stat_event", null);
+            } catch (Exception e2) {
+                cursor = null;
+            } catch (Throwable th2) {
+                cursor = null;
+                th = th2;
+            }
+            try {
+            } catch (Exception e3) {
+                if (cursor != null) {
+                    cursor.close();
+                }
+                if (hVarArr == null) {
+                }
+                return hVarArr;
+            } catch (Throwable th3) {
+                th = th3;
+                if (cursor != null) {
+                    cursor.close();
+                }
+                throw th;
+            }
+            if (cursor == null) {
+                hVarArr = new h[0];
+                if (cursor != null) {
+                    cursor.close();
+                }
+            } else {
+                hVarArr = new h[cursor.getCount()];
+                while (cursor.moveToNext()) {
+                    h hVar = new h();
+                    hVar.p = cursor.getString(cursor.getColumnIndex(h.a));
+                    hVar.q = cursor.getLong(cursor.getColumnIndex("et"));
+                    hVar.r = cursor.getString(cursor.getColumnIndex("ev"));
+                    hVar.s = cursor.getString(cursor.getColumnIndex(h.d));
+                    hVar.t = cursor.getString(cursor.getColumnIndex(h.e));
+                    hVar.u = cursor.getInt(cursor.getColumnIndex(h.f));
+                    int i3 = i2 + 1;
+                    hVarArr[i2] = hVar;
+                    i2 = i3;
+                }
+                if (cursor != null) {
+                    cursor.close();
+                }
+                if (hVarArr == null) {
+                    hVarArr = new h[0];
+                }
             }
         }
         return hVarArr;

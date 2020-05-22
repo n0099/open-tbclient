@@ -5,26 +5,26 @@ import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import java.util.HashMap;
 /* loaded from: classes11.dex */
 public class e extends d {
-    private String cGX;
-    private String cGY;
-    private String cGZ;
-    private String cHa;
+    private String cRh;
+    private String cRi;
+    private String cRj;
+    private String cRk;
 
     public e(Context context, b bVar) {
         super(context, bVar);
-        this.cGX = "rvideo";
-        this.cGY = "10";
-        this.cGZ = "MSSP,ANTI,VIDEO,NMON";
-        this.cHa = "LP,DL";
+        this.cRh = "rvideo";
+        this.cRi = "10";
+        this.cRj = "MSSP,ANTI,VIDEO,NMON";
+        this.cRk = "LP,DL";
     }
 
     @Override // com.baidu.swan.game.ad.c.d
-    protected HashMap<String, String> asO() {
+    protected HashMap<String, String> awv() {
         HashMap<String, String> hashMap = new HashMap<>();
-        hashMap.put("act", this.cHa);
-        hashMap.put("prod", this.cGX);
-        hashMap.put("at", this.cGY);
-        hashMap.put(IXAdRequestInfo.FET, this.cGZ);
+        hashMap.put("act", this.cRk);
+        hashMap.put("prod", this.cRh);
+        hashMap.put("at", this.cRi);
+        hashMap.put(IXAdRequestInfo.FET, this.cRj);
         return hashMap;
     }
 }

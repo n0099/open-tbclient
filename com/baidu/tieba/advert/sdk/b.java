@@ -24,29 +24,29 @@ import java.lang.ref.WeakReference;
 import java.util.HashMap;
 /* loaded from: classes10.dex */
 public class b {
-    private Float eCO;
-    private RsplashType eCQ;
-    private WeakReference<ViewGroup> eCR;
+    private Float eRn;
+    private RsplashType eRp;
+    private WeakReference<ViewGroup> eRq;
     private int mPattern;
-    private int eCN = 5;
-    private int eCP = -1;
-    private com.baidu.tbadk.g.b eCS = new com.baidu.tbadk.g.b() { // from class: com.baidu.tieba.advert.sdk.b.1
+    private int eRm = 5;
+    private int eRo = -1;
+    private com.baidu.tbadk.g.b eRr = new com.baidu.tbadk.g.b() { // from class: com.baidu.tieba.advert.sdk.b.1
         @Override // com.baidu.tbadk.g.b
-        public void aHo() {
-            if (b.this.eCR != null && ((ViewGroup) b.this.eCR.get()).getParent() != null) {
-                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) ((ViewGroup) b.this.eCR.get()).getLayoutParams();
+        public void aNc() {
+            if (b.this.eRq != null && ((ViewGroup) b.this.eRq.get()).getParent() != null) {
+                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) ((ViewGroup) b.this.eRq.get()).getLayoutParams();
                 if (1 != b.this.mPattern) {
-                    layoutParams.width = l.getEquipmentWidth(((ViewGroup) b.this.eCR.get()).getContext());
-                    layoutParams.height = (int) (l.getEquipmentHeight(((ViewGroup) b.this.eCR.get()).getContext()) * 0.8125d);
+                    layoutParams.width = l.getEquipmentWidth(((ViewGroup) b.this.eRq.get()).getContext());
+                    layoutParams.height = (int) (l.getEquipmentHeight(((ViewGroup) b.this.eRq.get()).getContext()) * 0.8125d);
                 } else {
                     layoutParams.width = -1;
                     layoutParams.height = -1;
                 }
-                ((ViewGroup) b.this.eCR.get()).setLayoutParams(layoutParams);
+                ((ViewGroup) b.this.eRq.get()).setLayoutParams(layoutParams);
             }
         }
     };
-    private CustomMessageTask eCT = new CustomMessageTask(CmdConfigCustom.CMD_START_REQUEST_BES_AD, new CustomMessageTask.CustomRunnable<e>() { // from class: com.baidu.tieba.advert.sdk.b.2
+    private CustomMessageTask eRs = new CustomMessageTask(CmdConfigCustom.CMD_START_REQUEST_BES_AD, new CustomMessageTask.CustomRunnable<e>() { // from class: com.baidu.tieba.advert.sdk.b.2
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
         public CustomResponsedMessage<?> run(CustomMessage<e> customMessage) {
             if (customMessage != null) {
@@ -57,31 +57,31 @@ public class b {
     });
 
     public b() {
-        bho();
+        bnz();
     }
 
-    private void bho() {
-        com.baidu.mobad.a.e.at(TbadkCoreApplication.getInst()).newAdContext().setAdServerRequestingTimeout(1000);
+    private void bnz() {
+        com.baidu.mobad.a.e.aD(TbadkCoreApplication.getInst()).newAdContext().setAdServerRequestingTimeout(1000);
     }
 
-    public void xB() {
-        this.eCT.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
-        MessageManager.getInstance().registerTask(this.eCT);
+    public void Fv() {
+        this.eRs.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
+        MessageManager.getInstance().registerTask(this.eRs);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(e eVar) {
-        if (eVar != null && eVar.aHq() != null && eVar.aHq().getContext() != null) {
-            eVar.djV = this.eCS;
-            final com.baidu.tbadk.g.a aHs = eVar.aHs();
-            this.eCR = new WeakReference<>(eVar.aHq());
+        if (eVar != null && eVar.aNe() != null && eVar.aNe().getContext() != null) {
+            eVar.dxV = this.eRr;
+            final com.baidu.tbadk.g.a aNg = eVar.aNg();
+            this.eRq = new WeakReference<>(eVar.aNe());
             try {
-                new SplashAd(eVar.aHq().getContext(), eVar.aHq(), new SplashAdListener() { // from class: com.baidu.tieba.advert.sdk.b.3
+                new SplashAd(eVar.aNe().getContext(), eVar.aNe(), new SplashAdListener() { // from class: com.baidu.tieba.advert.sdk.b.3
                     @Override // com.baidu.mobads.SplashAdListener
                     public void onAdPresent() {
                         int i;
-                        if (b.this.eCR.get() != null) {
-                            Context context = ((ViewGroup) b.this.eCR.get()).getContext();
+                        if (b.this.eRq.get() != null) {
+                            Context context = ((ViewGroup) b.this.eRq.get()).getContext();
                             int dimensionPixelOffset = context.getResources().getDimensionPixelOffset(R.dimen.ds60);
                             int equipmentWidth = l.getEquipmentWidth(context);
                             int equipmentHeight = l.getEquipmentHeight(context);
@@ -89,9 +89,9 @@ public class b {
                             int i3 = (i2 * 48) / DownloadConstants.STATUS_WAITING_FOR_NETWORK;
                             int dimensionPixelOffset2 = context.getResources().getDimensionPixelOffset(R.dimen.ds144);
                             int dimensionPixelOffset3 = context.getResources().getDimensionPixelOffset(R.dimen.ds60);
-                            if (b.this.eCO.floatValue() > 0.0f) {
-                                dimensionPixelOffset = (int) (((equipmentHeight * b.this.eCO.floatValue()) / 100.0f) - (dimensionPixelOffset3 / 2));
-                                i = (int) (((equipmentHeight * b.this.eCO.floatValue()) / 100.0f) - (i3 / 2));
+                            if (b.this.eRn.floatValue() > 0.0f) {
+                                dimensionPixelOffset = (int) (((equipmentHeight * b.this.eRn.floatValue()) / 100.0f) - (dimensionPixelOffset3 / 2));
+                                i = (int) (((equipmentHeight * b.this.eRn.floatValue()) / 100.0f) - (i3 / 2));
                             } else {
                                 i = dimensionPixelOffset;
                             }
@@ -105,14 +105,14 @@ public class b {
                             gradientDrawable.setColor(color);
                             gradientDrawable.setCornerRadius(context.getResources().getDimension(R.dimen.ds45));
                             countDownTextView.setBackgroundDrawable(gradientDrawable);
-                            countDownTextView.au(string, b.this.eCN);
+                            countDownTextView.av(string, b.this.eRm);
                             countDownTextView.setTextColor(-1);
                             countDownTextView.setGravity(17);
                             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(dimensionPixelOffset2, dimensionPixelOffset3);
                             layoutParams.addRule(10);
                             layoutParams.addRule(11);
                             layoutParams.setMargins(0, dimensionPixelOffset, 45, 0);
-                            ((ViewGroup) b.this.eCR.get()).addView(countDownTextView, layoutParams);
+                            ((ViewGroup) b.this.eRq.get()).addView(countDownTextView, layoutParams);
                             countDownTextView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.advert.sdk.b.3.1
                                 @Override // android.view.View.OnClickListener
                                 public void onClick(View view) {
@@ -121,77 +121,77 @@ public class b {
                             });
                             countDownTextView.setTimeoutListener(new CountDownTextView.b() { // from class: com.baidu.tieba.advert.sdk.b.3.2
                                 @Override // com.baidu.tieba.advert.sdk.widget.CountDownTextView.b
-                                public void br(View view) {
+                                public void bs(View view) {
                                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_ADVERT_SDK_SPLASH_CLICK, "advertevent://ignore"));
                                 }
                             });
-                            if (b.this.eCP != -1) {
+                            if (b.this.eRo != -1) {
                                 ImageView imageView = new ImageView(context);
                                 imageView.setBackgroundResource(R.drawable.bg_bes_splash_logo_white);
                                 RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(i2, i3);
                                 layoutParams2.addRule(10);
                                 layoutParams2.addRule(9);
                                 layoutParams2.setMargins(45, i, 0, 0);
-                                ((ViewGroup) b.this.eCR.get()).addView(imageView, layoutParams2);
+                                ((ViewGroup) b.this.eRq.get()).addView(imageView, layoutParams2);
                             }
                         }
-                        if (aHs != null) {
-                            aHs.o(b.this.eCQ == RsplashType.VIDEO, 1 == b.this.mPattern);
+                        if (aNg != null) {
+                            aNg.r(b.this.eRp == RsplashType.VIDEO, 1 == b.this.mPattern);
                         }
                     }
 
                     @Override // com.baidu.mobads.SplashAdListener
                     public void onAdDismissed() {
-                        if (aHs != null) {
-                            aHs.aHn();
+                        if (aNg != null) {
+                            aNg.aNb();
                         }
                     }
 
                     @Override // com.baidu.mobads.SplashAdListener
                     public void onAdFailed(String str) {
-                        if (aHs != null) {
-                            aHs.sZ(str);
+                        if (aNg != null) {
+                            aNg.uF(str);
                         }
                     }
 
                     @Override // com.baidu.mobads.SplashAdListener
                     public void onAdClick() {
-                        if (aHs != null) {
-                            aHs.p(b.this.eCQ == RsplashType.VIDEO, 1 == b.this.mPattern);
+                        if (aNg != null) {
+                            aNg.s(b.this.eRp == RsplashType.VIDEO, 1 == b.this.mPattern);
                         }
                     }
 
                     @Override // com.baidu.mobads.SplashAdListener
                     public void onAdTypeReady(RsplashType rsplashType, int i) {
-                        b.this.eCQ = rsplashType;
+                        b.this.eRp = rsplashType;
                         int i2 = i / 1000;
                         if (rsplashType != RsplashType.VIDEO) {
-                            b.this.eCN = 3;
+                            b.this.eRm = 3;
                             return;
                         }
                         if (i2 < 3 || i2 > 5) {
                             i2 = 5;
                         }
-                        b.this.eCN = i2;
+                        b.this.eRm = i2;
                     }
 
                     @Override // com.baidu.mobads.SplashAdListener
                     public void onAdLoaded(HashMap hashMap) {
                         b.this.mPattern = ((Integer) hashMap.get(SplashAd.RSPLASH_PATTERN)).intValue();
-                        b.this.eCO = (Float) hashMap.get(SplashAd.RSPLASH_BTN_POS);
-                        if (b.this.eCR != null) {
+                        b.this.eRn = (Float) hashMap.get(SplashAd.RSPLASH_BTN_POS);
+                        if (b.this.eRq != null) {
                             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -1);
                             if (1 != b.this.mPattern) {
-                                layoutParams.width = l.getEquipmentWidth(((ViewGroup) b.this.eCR.get()).getContext());
-                                layoutParams.height = (int) (l.getEquipmentHeight(((ViewGroup) b.this.eCR.get()).getContext()) * 0.8125d);
+                                layoutParams.width = l.getEquipmentWidth(((ViewGroup) b.this.eRq.get()).getContext());
+                                layoutParams.height = (int) (l.getEquipmentHeight(((ViewGroup) b.this.eRq.get()).getContext()) * 0.8125d);
                             }
-                            ((ViewGroup) b.this.eCR.get()).setLayoutParams(layoutParams);
+                            ((ViewGroup) b.this.eRq.get()).setLayoutParams(layoutParams);
                         }
                     }
                 }, "4776976", true);
             } catch (OutOfMemoryError e) {
                 TbadkCoreApplication.getInst().onLowMemory();
-                aHs.sZ("oom");
+                aNg.uF("oom");
             }
         }
     }

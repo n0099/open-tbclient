@@ -79,7 +79,7 @@ public class a implements f {
         return (((this.isHostOnly ? 1 : 0) + (hashCode6 * 7)) * 7) + (this.isSquence ? 1 : 0);
     }
 
-    public boolean dn(JSONObject jSONObject) {
+    public boolean du(JSONObject jSONObject) {
         String optString = jSONObject.optString("forum_name");
         String optString2 = jSONObject.optString("thread_id");
         String optString3 = jSONObject.optString("thread_name");
@@ -177,7 +177,7 @@ public class a implements f {
         return this.threadId;
     }
 
-    public String csR() {
+    public String czt() {
         return this.threadName;
     }
 
@@ -201,27 +201,27 @@ public class a implements f {
         this.forumName = str;
     }
 
-    public String aXi() {
+    public String bdr() {
         return this.postID;
     }
 
-    public void GZ(String str) {
+    public void II(String str) {
         this.postID = str;
     }
 
-    public boolean csS() {
+    public boolean czu() {
         return this.isHostOnly;
     }
 
-    public void qn(boolean z) {
+    public void qK(boolean z) {
         this.isHostOnly = z;
     }
 
-    public boolean csT() {
+    public boolean czv() {
         return this.isSquence;
     }
 
-    public void qo(boolean z) {
+    public void qL(boolean z) {
         this.isSquence = z;
     }
 
@@ -229,7 +229,7 @@ public class a implements f {
         return this.liveId;
     }
 
-    public void eG(String str) {
+    public void fs(String str) {
         this.liveId = str;
     }
 
@@ -255,15 +255,15 @@ public class a implements f {
     }
 
     @Override // com.baidu.tbadk.mvc.b.f
-    public String aYD() {
+    public String beN() {
         return toJsonObject().toString();
     }
 
     @Override // com.baidu.tbadk.mvc.b.f
-    public boolean wT(String str) {
+    public boolean yz(String str) {
         if (str != null) {
             try {
-                return dn(new JSONObject(str));
+                return du(new JSONObject(str));
             } catch (JSONException e) {
                 e.printStackTrace();
             }

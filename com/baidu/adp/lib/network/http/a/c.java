@@ -1,69 +1,69 @@
 package com.baidu.adp.lib.network.http.a;
 /* loaded from: classes.dex */
 public class c {
-    private int JZ;
-    private String KE;
-    private String KH;
-    private int KI;
-    private long KJ;
+    private String KP;
+    private String KS;
+    private int KT;
+    private long KU;
+    private int Kl;
     private String exception;
-    private boolean KF = false;
-    private boolean KG = false;
-    private int JO = 0;
+    private boolean KQ = false;
+    private boolean KR = false;
+    private int JZ = 0;
 
-    public void ai(boolean z) {
-        this.KF = z;
+    public void ak(boolean z) {
+        this.KQ = z;
     }
 
-    public boolean kM() {
-        return this.KG;
+    public boolean kO() {
+        return this.KR;
     }
 
-    public void aj(boolean z) {
-        this.KG = z;
+    public void al(boolean z) {
+        this.KR = z;
     }
 
-    public void bF(String str) {
+    public void setException(String str) {
         this.exception = str;
     }
 
-    public void ad(int i) {
-        this.JO = i;
+    public void ae(int i) {
+        this.JZ = i;
     }
 
-    public void kN() {
+    public void kP() {
         this.exception = "";
     }
 
     public void bG(String str) {
-        this.KH = str;
+        this.KS = str;
     }
 
-    public String kO() {
-        return this.KH;
+    public String kQ() {
+        return this.KS;
     }
 
-    public void ae(int i) {
-        this.KI = i;
+    public void af(int i) {
+        this.KT = i;
     }
 
     public void G(long j) {
-        this.KJ = j;
+        this.KU = j;
     }
 
     public String toString() {
-        return "isFromNet_" + this.KF + "-statType_" + this.KI + "-dnsErr_" + this.exception + "-hasRetry_" + this.JO + "-cost_" + this.KJ + "-ipIndex_" + this.JZ + "-ipResult_" + this.KE;
+        return "isFromNet_" + this.KQ + "-statType_" + this.KT + "-dnsErr_" + this.exception + "-hasRetry_" + this.JZ + "-cost_" + this.KU + "-ipIndex_" + this.Kl + "-ipResult_" + this.KP;
     }
 
-    public String kP() {
-        return this.KE;
+    public String kR() {
+        return this.KP;
     }
 
     public void bH(String str) {
-        this.KE = str;
+        this.KP = str;
     }
 
-    public void aa(int i) {
-        this.JZ = i;
+    public void ab(int i) {
+        this.Kl = i;
     }
 }

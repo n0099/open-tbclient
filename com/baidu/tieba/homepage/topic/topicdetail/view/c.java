@@ -6,19 +6,19 @@ import com.baidu.tbadk.editortools.l;
 import com.baidu.tieba.R;
 /* loaded from: classes9.dex */
 public class c extends l {
-    private EditText dYP;
+    private EditText emY;
 
     public c(Context context) {
         super(context, (String) null, 29);
-        this.dXE = false;
-        this.dXD = 3;
-        this.dWM = new TopicDetaiInputContainer(context);
-        this.dYP = ((TopicDetaiInputContainer) this.dWM).getInputView();
-        ((TopicDetaiInputContainer) this.dWM).setHint(context.getString(R.string.say_your_point));
-        this.dXF = new int[]{4, 13, 24, 3, 9, 6, 12};
+        this.elN = false;
+        this.elM = 3;
+        this.ekV = new TopicDetaiInputContainer(context);
+        this.emY = ((TopicDetaiInputContainer) this.ekV).getInputView();
+        ((TopicDetaiInputContainer) this.ekV).setHint(context.getString(R.string.say_your_point));
+        this.elO = new int[]{4, 13, 24, 3, 9, 6, 12};
     }
 
     public EditText getInputView() {
-        return this.dYP;
+        return this.emY;
     }
 }

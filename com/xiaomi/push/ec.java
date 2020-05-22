@@ -32,19 +32,19 @@ public class ec extends ed {
 
     @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public int mo162a() {
+    public int mo164a() {
         return 12;
     }
 
     @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public ho mo162a() {
+    public ho mo164a() {
         return ho.BroadcastAction;
     }
 
     @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public String mo162a() {
+    public String mo164a() {
         String str = "";
         if (!TextUtils.isEmpty(a)) {
             str = "" + a(dv.f228a, a);

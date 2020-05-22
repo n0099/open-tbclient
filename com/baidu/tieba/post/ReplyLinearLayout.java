@@ -17,8 +17,8 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes11.dex */
 public class ReplyLinearLayout extends LinearLayout {
-    private static ViewGroup.LayoutParams kfa;
-    private List<TextView> keZ;
+    private static ViewGroup.LayoutParams kwQ;
+    private List<TextView> kwP;
     private View.OnClickListener mOnItemClickListener;
 
     public ReplyLinearLayout(Context context) {
@@ -45,24 +45,24 @@ public class ReplyLinearLayout extends LinearLayout {
                 }
             }
         };
-        this.keZ = new ArrayList();
+        this.kwP = new ArrayList();
     }
 
     public void setContent(ArrayList<String[]> arrayList) {
         int i;
-        if (kfa == null) {
-            kfa = new LinearLayout.LayoutParams(-1, -2);
+        if (kwQ == null) {
+            kwQ = new LinearLayout.LayoutParams(-1, -2);
         }
         ViewGroup.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, 1);
         int size = ((arrayList.size() - 1) * 3) + 1;
-        int size2 = size - this.keZ.size();
+        int size2 = size - this.kwP.size();
         for (int i2 = 0; i2 < size2; i2++) {
             TextView textView = new TextView(getContext());
-            this.keZ.add(textView);
+            this.kwP.add(textView);
             addView(textView);
         }
-        for (int i3 = 0; i3 < this.keZ.size(); i3++) {
-            TextView textView2 = this.keZ.get(i3);
+        for (int i3 = 0; i3 < this.kwP.size(); i3++) {
+            TextView textView2 = this.kwP.get(i3);
             if (i3 < size) {
                 if (i3 == 0 || i3 == 1) {
                     i = 0;
@@ -79,11 +79,11 @@ public class ReplyLinearLayout extends LinearLayout {
                 }
                 textView2.setTag(charSequenceArr);
                 textView2.setOnClickListener(this.mOnItemClickListener);
-                g(textView2, i3);
+                h(textView2, i3);
                 if (i3 == 0) {
                     textView2.setTextSize(17.0f);
                     textView2.setMaxLines(3);
-                    textView2.setLayoutParams(kfa);
+                    textView2.setLayoutParams(kwQ);
                     am.setViewTextColor(textView2, R.color.cp_cont_b, 1);
                 } else if (i3 == 1 || i3 % 3 == 1) {
                     textView2.setLayoutParams(layoutParams);
@@ -91,11 +91,11 @@ public class ReplyLinearLayout extends LinearLayout {
                 } else if (i3 % 3 == 2) {
                     textView2.setTextSize(15.0f);
                     textView2.setMaxLines(2);
-                    textView2.setLayoutParams(kfa);
+                    textView2.setLayoutParams(kwQ);
                     am.setViewTextColor(textView2, R.color.cp_cont_f, 1);
                 } else if (i3 % 3 == 0) {
                     textView2.setTextSize(10.0f);
-                    textView2.setLayoutParams(kfa);
+                    textView2.setLayoutParams(kwQ);
                     am.setViewTextColor(textView2, R.color.cp_cont_d, 1);
                 }
                 textView2.setVisibility(0);
@@ -105,7 +105,7 @@ public class ReplyLinearLayout extends LinearLayout {
         }
     }
 
-    private void g(TextView textView, int i) {
+    private void h(TextView textView, int i) {
         if (i == 0) {
             am.setViewTextColor(textView, R.color.common_color_10039, 1);
             textView.setPadding(0, com.baidu.adp.lib.util.l.dip2px(getContext(), 10.0f), 0, com.baidu.adp.lib.util.l.dip2px(getContext(), 10.0f));

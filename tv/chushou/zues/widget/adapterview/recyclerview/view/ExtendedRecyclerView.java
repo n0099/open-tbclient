@@ -11,8 +11,8 @@ import tv.chushou.zues.widget.adapterview.c;
 import tv.chushou.zues.widget.adapterview.recyclerview.a.b;
 /* loaded from: classes5.dex */
 public class ExtendedRecyclerView extends RecyclerView {
-    protected View gmq;
-    protected b ntn;
+    protected View gBg;
+    protected b nOk;
 
     public ExtendedRecyclerView(Context context) {
         super(context);
@@ -29,77 +29,77 @@ public class ExtendedRecyclerView extends RecyclerView {
     @Override // android.support.v7.widget.RecyclerView
     public void setAdapter(RecyclerView.Adapter adapter) {
         if (adapter instanceof b) {
-            this.ntn = (b) adapter;
-            super.setAdapter(this.ntn);
-        } else if (this.ntn == null) {
-            this.ntn = new b(adapter);
-            super.setAdapter(this.ntn);
+            this.nOk = (b) adapter;
+            super.setAdapter(this.nOk);
+        } else if (this.nOk == null) {
+            this.nOk = new b(adapter);
+            super.setAdapter(this.nOk);
         } else {
-            this.ntn.setAdapter(adapter);
+            this.nOk.setAdapter(adapter);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.support.v7.widget.RecyclerView
     public b getAdapter() {
-        return this.ntn;
+        return this.nOk;
     }
 
-    public boolean JU(int i) {
-        return this.ntn != null && this.ntn.JR(i);
+    public boolean KF(int i) {
+        return this.nOk != null && this.nOk.KC(i);
     }
 
     public int getHeaderViewCount() {
-        if (this.ntn == null) {
+        if (this.nOk == null) {
             return 0;
         }
-        return this.ntn.getHeaderViewsCount();
+        return this.nOk.getHeaderViewsCount();
     }
 
-    public boolean dx(View view) {
-        return this.ntn != null && this.ntn.dw(view);
+    public boolean dy(View view) {
+        return this.nOk != null && this.nOk.dx(view);
     }
 
-    public boolean JV(int i) {
-        return this.ntn != null && this.ntn.JS(i);
+    public boolean KG(int i) {
+        return this.nOk != null && this.nOk.KD(i);
     }
 
     public void addFooterView(@NonNull View view, int i) {
-        if (this.ntn == null) {
+        if (this.nOk == null) {
             throw new IllegalStateException("should call setAdapter() first");
         }
-        this.ntn.addFooterView(view, i);
+        this.nOk.addFooterView(view, i);
     }
 
-    public void dv(View view) {
-        if (view != null && this.ntn != null) {
-            this.ntn.dv(view);
+    public void dw(View view) {
+        if (view != null && this.nOk != null) {
+            this.nOk.dw(view);
         }
     }
 
     public int getFooterViewCount() {
-        if (this.ntn == null) {
+        if (this.nOk == null) {
             return 0;
         }
-        return this.ntn.getFooterViewsCount();
+        return this.nOk.getFooterViewsCount();
     }
 
     public void setEmptyView(@NonNull View view) {
-        this.gmq = view;
-        if (this.ntn == null) {
+        this.gBg = view;
+        if (this.nOk == null) {
             throw new IllegalArgumentException("should call setAdapter() first");
         }
-        this.ntn.a(new a() { // from class: tv.chushou.zues.widget.adapterview.recyclerview.view.ExtendedRecyclerView.1
+        this.nOk.a(new a() { // from class: tv.chushou.zues.widget.adapterview.recyclerview.view.ExtendedRecyclerView.1
             @Override // tv.chushou.zues.widget.adapterview.a
-            public void wT(boolean z) {
-                if (ExtendedRecyclerView.this.gmq != null) {
+            public void xq(boolean z) {
+                if (ExtendedRecyclerView.this.gBg != null) {
                     if (z) {
                         ExtendedRecyclerView.this.setVisibility(8);
-                        ExtendedRecyclerView.this.gmq.setVisibility(0);
+                        ExtendedRecyclerView.this.gBg.setVisibility(0);
                         return;
                     }
                     ExtendedRecyclerView.this.setVisibility(0);
-                    ExtendedRecyclerView.this.gmq.setVisibility(8);
+                    ExtendedRecyclerView.this.gBg.setVisibility(8);
                 }
             }
         });
@@ -107,13 +107,13 @@ public class ExtendedRecyclerView extends RecyclerView {
 
     @Nullable
     public View getEmptyView() {
-        return this.gmq;
+        return this.gBg;
     }
 
     public void setLoadMoreProvider(c cVar) {
-        if (this.ntn == null) {
+        if (this.nOk == null) {
             throw new IllegalArgumentException("should call setAdapter() first");
         }
-        this.ntn.setLoadMoreProvider(cVar);
+        this.nOk.setLoadMoreProvider(cVar);
     }
 }

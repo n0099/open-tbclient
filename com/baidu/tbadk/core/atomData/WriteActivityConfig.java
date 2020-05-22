@@ -37,6 +37,7 @@ public class WriteActivityConfig extends IntentConfig {
     public static final String KEY_CALL_FROM = "KEY_CALL_FROM";
     public static final String KEY_FORUM_AVATAR = "forum_avatar";
     public static final String KEY_PROFESSION_ZONE = "profession_zone";
+    public static final String KEY_SHOW_HOMEPAGE_TEST_BTN = "key_show_homepage_test_btn";
     public static final String KEY_TOPIC_ID = "topic_id";
     public static final String KEY_WRITE_IMAGES_INFO_STRING = "KEY_WRITE_IMAGES_INFO_STRING";
     public static final String KEY_WRITE_LEVEL = "key_write_level";
@@ -215,5 +216,9 @@ public class WriteActivityConfig extends IntentConfig {
 
     public void setFrsTabInfo(FrsTabInfoData frsTabInfoData) {
         getIntent().putExtra("tab_list", frsTabInfoData);
+    }
+
+    public void setShowHomepageTestBtn(boolean z) {
+        getIntent().putExtra(KEY_SHOW_HOMEPAGE_TEST_BTN, z);
     }
 }

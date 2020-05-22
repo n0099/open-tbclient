@@ -99,7 +99,7 @@ public class gx {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private static com.xiaomi.push.providers.a m323a(Context context) {
+    private static com.xiaomi.push.providers.a m325a(Context context) {
         if (f408a != null) {
             return f408a;
         }
@@ -108,7 +108,7 @@ public class gx {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private static synchronized String m324a(Context context) {
+    private static synchronized String m326a(Context context) {
         String str;
         synchronized (gx.class) {
             str = !TextUtils.isEmpty(f410a) ? f410a : "";
@@ -117,7 +117,7 @@ public class gx {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m326a(Context context) {
+    public static void m328a(Context context) {
         a = b(context);
     }
 
@@ -129,7 +129,7 @@ public class gx {
         }
         synchronized (f409a) {
             isEmpty = f411a.isEmpty();
-            a(new a(str, j2, a2, z ? 1 : 0, a2 == 0 ? m324a(context) : "", j));
+            a(new a(str, j2, a2, z ? 1 : 0, a2 == 0 ? m326a(context) : "", j));
         }
         if (isEmpty) {
             f407a.a(new gy(context), 5000L);
@@ -151,7 +151,7 @@ public class gx {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static synchronized void m327a(String str) {
+    public static synchronized void m329a(String str) {
         synchronized (gx.class) {
             if (!l.d() && !TextUtils.isEmpty(str)) {
                 f410a = str;
@@ -183,7 +183,7 @@ public class gx {
     public static void b(Context context, List<a> list) {
         try {
             synchronized (com.xiaomi.push.providers.a.f791a) {
-                SQLiteDatabase writableDatabase = m323a(context).getWritableDatabase();
+                SQLiteDatabase writableDatabase = m325a(context).getWritableDatabase();
                 writableDatabase.beginTransaction();
                 for (a aVar : list) {
                     ContentValues contentValues = new ContentValues();

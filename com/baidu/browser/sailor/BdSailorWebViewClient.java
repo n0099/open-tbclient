@@ -9,6 +9,7 @@ import com.baidu.browser.core.INoProGuard;
 import com.baidu.webkit.sdk.ClientCertRequest;
 import com.baidu.webkit.sdk.HttpAuthHandler;
 import com.baidu.webkit.sdk.RenderProcessGoneDetail;
+import com.baidu.webkit.sdk.WebResourceError;
 import com.baidu.webkit.sdk.WebResourceRequest;
 import com.baidu.webkit.sdk.WebResourceResponse;
 /* loaded from: classes11.dex */
@@ -37,6 +38,9 @@ public class BdSailorWebViewClient implements INoProGuard {
     }
 
     public void onReceivedError(BdSailorWebView bdSailorWebView, int i, String str, String str2) {
+    }
+
+    public void onReceivedError(BdSailorWebView bdSailorWebView, WebResourceRequest webResourceRequest, WebResourceError webResourceError) {
     }
 
     public void onReceivedHttpAuthRequest(BdSailorWebView bdSailorWebView, HttpAuthHandler httpAuthHandler, String str, String str2) {

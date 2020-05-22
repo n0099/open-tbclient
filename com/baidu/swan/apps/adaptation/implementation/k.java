@@ -1,15 +1,46 @@
 package com.baidu.swan.apps.adaptation.implementation;
 
-import com.baidu.swan.apps.adaptation.a.ae;
+import android.util.SparseArray;
+import com.baidu.swan.apps.aq.aj;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes11.dex */
-public class k implements ae {
-    @Override // com.baidu.swan.apps.adaptation.a.ae
-    public String sp() {
-        return com.baidu.swan.config.c.c.aro().sp();
+public class k implements com.baidu.swan.menu.b {
+    private SparseArray<String> bHE = new SparseArray<>();
+
+    public k() {
+        this.bHE.put(38, "favor");
     }
 
-    @Override // com.baidu.swan.apps.adaptation.a.ae
-    public String getHostName() {
-        return com.baidu.swan.config.c.c.aro().getHostName();
+    @Override // com.baidu.swan.menu.b
+    public void f(int i, List<com.baidu.swan.menu.i> list) {
+    }
+
+    @Override // com.baidu.swan.menu.b
+    public void g(int i, List<com.baidu.swan.menu.i> list) {
+    }
+
+    @Override // com.baidu.swan.menu.b
+    public void h(int i, List<com.baidu.swan.menu.i> list) {
+        i(i, list);
+    }
+
+    @Override // com.baidu.swan.menu.b
+    public boolean a(com.baidu.swan.menu.i iVar) {
+        return false;
+    }
+
+    private void i(int i, List<com.baidu.swan.menu.i> list) {
+        if (!aj.atS() && list != null && list.size() > 0) {
+            ArrayList arrayList = new ArrayList();
+            for (com.baidu.swan.menu.i iVar : list) {
+                if (this.bHE.get(iVar.getItemId()) != null) {
+                    arrayList.add(iVar);
+                }
+            }
+            if (arrayList.size() > 0) {
+                list.removeAll(arrayList);
+            }
+        }
     }
 }

@@ -15,21 +15,21 @@ import org.json.JSONObject;
 public class a {
     protected static final boolean DEBUG = com.baidu.prologue.a.a.a.GLOBAL_DEBUG;
 
-    public static List<e> ar(String str, String str2) throws ParseError {
+    public static List<e> aG(String str, String str2) throws ParseError {
         if (TextUtils.isEmpty(str)) {
             throw new ParseError(1, "afd/entry retun null");
         }
         try {
-            return j(new JSONObject(str), str2);
+            return o(new JSONObject(str), str2);
         } catch (JSONException e) {
             e.printStackTrace();
             throw new ParseError(1, "afd/entry retun invalid json");
         }
     }
 
-    public static List<e> j(JSONObject jSONObject, String str) throws ParseError {
+    public static List<e> o(JSONObject jSONObject, String str) throws ParseError {
         List<e> list;
-        List<e> LT;
+        List<e> Og;
         if (DEBUG) {
             Log.d("AfdResponseParser", "AFD response : " + jSONObject.toString());
         }
@@ -45,7 +45,7 @@ public class a {
         JSONArray optJSONArray = optJSONObject.optJSONArray("ad");
         if (optJSONObject2 != null) {
             String optString = optJSONObject2.optString("cmd");
-            SplashStyleRecorder.S(optJSONObject2.optJSONObject("style_desc"));
+            SplashStyleRecorder.X(optJSONObject2.optJSONObject("style_desc"));
             if (TextUtils.equals(IMTrack.DbBuilder.ACTION_UPDATE, optString)) {
                 list = a(optJSONArray, str, false);
                 String optString2 = optJSONObject2.optString("empty_ext_info");
@@ -59,9 +59,9 @@ public class a {
                     list = a(optJSONArray, str, true);
                 } else {
                     String optString3 = optJSONObject2.optString("ukey");
-                    if (!TextUtils.isEmpty(optString3) && (LT = d.LT()) != null) {
-                        for (e eVar : LT) {
-                            if (TextUtils.equals(eVar.bsu, optString3)) {
+                    if (!TextUtils.isEmpty(optString3) && (Og = d.Og()) != null) {
+                        for (e eVar : Og) {
+                            if (TextUtils.equals(eVar.bzX, optString3)) {
                                 arrayList.add(eVar);
                                 list = arrayList;
                                 break;
@@ -85,18 +85,18 @@ public class a {
         List<e> o = e.o(jSONArray);
         if (z) {
             for (e eVar : o) {
-                eVar.bsE = true;
+                eVar.bAh = true;
             }
         } else {
             new ArrayList();
-            HashMap<String, e> LU = d.LU();
-            if (LU == null || LU.size() == 0) {
-                d.Q(o);
+            HashMap<String, e> Oh = d.Oh();
+            if (Oh == null || Oh.size() == 0) {
+                d.R(o);
             } else {
-                d.LS();
-                d.Q(o);
+                d.Of();
+                d.R(o);
             }
-            d.R(o);
+            d.S(o);
         }
         return o;
     }

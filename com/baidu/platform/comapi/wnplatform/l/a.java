@@ -21,7 +21,7 @@ public class a extends com.baidu.platform.comapi.walknavi.a {
     private static final Long j = -1L;
     private boolean e = false;
     private int f = 0;
-    private C0197a g = null;
+    private C0230a g = null;
     private com.baidu.platform.comapi.wnplatform.c.b h = null;
     private Object i = new Object();
     private boolean k = true;
@@ -53,7 +53,7 @@ public class a extends com.baidu.platform.comapi.walknavi.a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.platform.comapi.wnplatform.l.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public class C0197a extends Thread {
+    public class C0230a extends Thread {
         final /* synthetic */ a a;
         private volatile boolean b;
 

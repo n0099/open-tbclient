@@ -11,128 +11,129 @@ import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import com.baidu.tbadk.core.atomData.VideoMiddlePageActivityConfig;
 import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
-import com.baidu.tbadk.core.data.bj;
+import com.baidu.tbadk.core.data.bk;
 import com.baidu.tieba.R;
+import com.baidu.tieba.card.m;
 import com.baidu.tieba.play.g;
 import com.baidu.tieba.play.monitor.VideoSerializeVideoThreadInfo;
 import com.baidu.tieba.video.VideoItemData;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class b extends d {
-    private VideoSerializeVideoThreadInfo hzu;
-    private VideoItemData kjg;
-    private bj kjh;
+    private VideoSerializeVideoThreadInfo hOh;
+    private VideoItemData kBb;
+    private bk kBc;
 
     public b(Context context, View view) {
         super(context, view);
-        this.kji = 5000;
+        this.kBd = 5000;
     }
 
     public b(Context context, View view, boolean z) {
         this(context, view);
-        tb(z);
+        tz(z);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.play.operableVideoView.d
     public void init() {
         super.init();
-        this.kjX.setOnTouchListener(null);
-        this.kjX.setOnClickListener(this);
+        this.kBS.setOnTouchListener(null);
+        this.kBS.setOnClickListener(this);
     }
 
     @Override // com.baidu.tieba.play.operableVideoView.d, com.baidu.tieba.play.operableVideoView.a
-    public void setData(bj bjVar) {
-        super.setData(bjVar);
-        this.kjh = bjVar;
-        if (this.ahN) {
-            this.kjg = new VideoItemData();
-            this.kjg.buildWithThreadData(bjVar);
+    public void setData(bk bkVar) {
+        super.setData(bkVar);
+        this.kBc = bkVar;
+        if (this.air) {
+            this.kBb = new VideoItemData();
+            this.kBb.buildWithThreadData(bkVar);
             return;
         }
-        this.hzu = new VideoSerializeVideoThreadInfo();
-        this.hzu.copyFromThreadInfo(bjVar);
-        this.hzu.source = bjVar.mRecomSource;
-        this.hzu.extra = bjVar.mRecomExtra;
-        this.hzu.ab_tag = bjVar.mRecomAbTag;
-        this.hzu.weight = bjVar.mRecomWeight;
+        this.hOh = new VideoSerializeVideoThreadInfo();
+        this.hOh.copyFromThreadInfo(bkVar);
+        this.hOh.source = bkVar.mRecomSource;
+        this.hOh.extra = bkVar.mRecomExtra;
+        this.hOh.ab_tag = bkVar.mRecomAbTag;
+        this.hOh.weight = bkVar.mRecomWeight;
     }
 
     @Override // com.baidu.tieba.play.operableVideoView.d
-    public void cER() {
+    public void cLQ() {
     }
 
     @Override // com.baidu.tieba.play.operableVideoView.d
-    public void cEQ() {
-        this.kjA = 32;
+    public void cLP() {
+        this.kBv = 32;
     }
 
     @Override // com.baidu.tieba.play.operableVideoView.d, android.view.View.OnClickListener
     public void onClick(View view) {
         if (view != null) {
             if (view.getId() == R.id.video_mute) {
-                cKJ();
+                cRJ();
                 return;
             }
             if (!j.isNetWorkAvailable()) {
                 l.showToast(this.mContext, (int) R.string.no_network_guide);
-            } else if (this.ahN) {
-                bEG();
+            } else if (this.air) {
+                bKZ();
             } else if ("index".equals(this.mFrom) || "frs".equals(this.mFrom) || "concern_tab".equals(this.mFrom) || "video_tab".equals(this.mFrom) || "14".equals(this.mFrom)) {
                 if (TbSingleton.getInstance().getNewVideoClickType() == TbSingleton.NEW_VIDEO_CLICK_TEST_SWITCH_OFF) {
-                    bEH();
+                    bLa();
                 } else if (TbSingleton.getInstance().getNewVideoClickType() == TbSingleton.NEW_VIDEO_CLICK_TEST_ENTER_PB) {
-                    cKA();
+                    cRA();
                 } else {
-                    bEH();
+                    bLa();
                 }
             } else {
-                bEH();
+                bLa();
             }
-            if (this.afV != null) {
-                this.afV.onClick(cJo());
+            if (this.ags != null) {
+                this.ags.onClick(cQn());
             }
         }
     }
 
-    private void bEG() {
-        if (this.kjg != null) {
+    private void bKZ() {
+        if (this.kBb != null) {
             ArrayList arrayList = new ArrayList();
-            if (this.kjh != null) {
-                this.kjg.buildWithThreadData(this.kjh);
+            if (this.kBc != null) {
+                this.kBb.buildWithThreadData(this.kBc);
             }
-            arrayList.add(this.kjg);
+            arrayList.add(this.kBb);
             VideoPlayActivityConfig videoPlayActivityConfig = new VideoPlayActivityConfig(this.mContext, arrayList, 0, null, VideoPlayActivityConfig.FROM_NANI_VIDEO, "personalize_page", "", this.mFrom, this.mFrom);
-            if (this.kjh != null && this.kjh.getBaijiahaoData() != null) {
-                videoPlayActivityConfig.setNid(this.kjh.getBaijiahaoData().oriUgcNid);
+            if (this.kBc != null && this.kBc.getBaijiahaoData() != null) {
+                videoPlayActivityConfig.setNid(this.kBc.getBaijiahaoData().oriUgcNid);
             }
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, videoPlayActivityConfig));
         }
     }
 
-    private void bEH() {
-        if (this.hzu != null) {
-            if (this.kjh != null) {
-                this.hzu.copyFromThreadInfo(this.kjh);
+    private void bLa() {
+        if (this.hOh != null) {
+            if (this.kBc != null) {
+                this.hOh.copyFromThreadInfo(this.kBc);
             }
-            VideoMiddlePageActivityConfig videoMiddlePageActivityConfig = new VideoMiddlePageActivityConfig(this.mContext, this.mFrom, this.ahO, com.baidu.tieba.card.l.aKo(), "", this.hzu);
-            if (this.kjh != null && this.kjh.getBaijiahaoData() != null) {
-                videoMiddlePageActivityConfig.setNid(this.kjh.getBaijiahaoData().oriUgcNid);
+            VideoMiddlePageActivityConfig videoMiddlePageActivityConfig = new VideoMiddlePageActivityConfig(this.mContext, this.mFrom, this.ais, m.aQj(), "", this.hOh);
+            if (this.kBc != null && this.kBc.getBaijiahaoData() != null) {
+                videoMiddlePageActivityConfig.setNid(this.kBc.getBaijiahaoData().oriUgcNid);
             }
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, videoMiddlePageActivityConfig));
         }
     }
 
-    private void cKA() {
-        if (this.adf != null) {
-            this.adf.onClick(cJo());
-        } else if (this.hzu != null) {
-            String str = this.hzu.threadId;
-            String str2 = this.hzu.forumId;
+    private void cRA() {
+        if (this.adx != null) {
+            this.adx.onClick(cQn());
+        } else if (this.hOh != null) {
+            String str = this.hOh.threadId;
+            String str2 = this.hOh.forumId;
             PbActivityConfig pbActivityConfig = new PbActivityConfig(this.mContext);
             pbActivityConfig.createNormalCfg(str, null, null);
             pbActivityConfig.setForumId(String.valueOf(str2));
-            pbActivityConfig.setThreadData(this.kjh);
+            pbActivityConfig.setThreadData(this.kBc);
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, pbActivityConfig));
         }
     }
@@ -144,18 +145,18 @@ public class b extends d {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.play.operableVideoView.d
-    public void cEO() {
-        if (this.kjH == this.kjz) {
-            cKB();
+    public void cLN() {
+        if (this.kBC == this.kBu) {
+            cRB();
         }
     }
 
-    public void cKB() {
-        Ah(this.kjA);
+    public void cRB() {
+        AS(this.kBv);
     }
 
     @Override // com.baidu.tieba.play.operableVideoView.d, com.baidu.tieba.play.operableVideoView.a
-    public boolean onBackPress() {
+    public boolean cRz() {
         return false;
     }
 }

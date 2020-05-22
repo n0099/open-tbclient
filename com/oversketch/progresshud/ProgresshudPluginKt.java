@@ -14,26 +14,26 @@ public final class ProgresshudPluginKt {
     public static final SVProgressHUD getDialog() {
         SVProgressHUD sVProgressHUD = dialog;
         if (sVProgressHUD == null) {
-            q.Pz("dialog");
+            q.RF("dialog");
         }
         return sVProgressHUD;
     }
 
     public static final void setDialog(SVProgressHUD sVProgressHUD) {
-        q.j(sVProgressHUD, "<set-?>");
+        q.m(sVProgressHUD, "<set-?>");
         dialog = sVProgressHUD;
     }
 
     public static final SVProgressHUD.SVProgressHUDMaskType getMaskType() {
         SVProgressHUD.SVProgressHUDMaskType sVProgressHUDMaskType = maskType;
         if (sVProgressHUDMaskType == null) {
-            q.Pz("maskType");
+            q.RF("maskType");
         }
         return sVProgressHUDMaskType;
     }
 
     public static final void setMaskType(SVProgressHUD.SVProgressHUDMaskType sVProgressHUDMaskType) {
-        q.j(sVProgressHUDMaskType, "<set-?>");
+        q.m(sVProgressHUDMaskType, "<set-?>");
         maskType = sVProgressHUDMaskType;
     }
 }

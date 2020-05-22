@@ -6,14 +6,14 @@ import android.util.Log;
 import android.webkit.JavascriptInterface;
 /* loaded from: classes3.dex */
 public abstract class a {
-    protected h bcc;
+    protected h bjC;
     protected Handler mHandler;
 
-    public abstract void fc(String str);
+    public abstract void fO(String str);
 
     public abstract String getName();
 
-    public void e(String str, String str2, boolean z) {
+    public void g(String str, String str2, boolean z) {
     }
 
     @JavascriptInterface
@@ -25,10 +25,10 @@ public abstract class a {
         this.mHandler.post(new Runnable() { // from class: com.baidu.live.view.web.a.1
             @Override // java.lang.Runnable
             public void run() {
-                if (a.this.bcc != null) {
-                    a.this.bcc.fj(str);
+                if (a.this.bjC != null) {
+                    a.this.bjC.fV(str);
                 } else {
-                    a.this.fc(str);
+                    a.this.fO(str);
                 }
             }
         });
@@ -43,12 +43,12 @@ public abstract class a {
         this.mHandler.post(new Runnable() { // from class: com.baidu.live.view.web.a.2
             @Override // java.lang.Runnable
             public void run() {
-                a.this.e(str, str2, z);
+                a.this.g(str, str2, z);
             }
         });
     }
 
     public void a(h hVar) {
-        this.bcc = hVar;
+        this.bjC = hVar;
     }
 }

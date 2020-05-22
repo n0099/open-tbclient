@@ -7,27 +7,27 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.BdRecyclerView;
-import com.baidu.adp.widget.ListView.y;
-import com.baidu.adp.widget.ListView.y.a;
+import com.baidu.adp.widget.ListView.aa;
+import com.baidu.adp.widget.ListView.aa.a;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.bi;
+import com.baidu.tbadk.core.data.bj;
 import com.baidu.tbadk.pageInfo.TbPageTag;
 import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.FrsViewData;
 /* loaded from: classes8.dex */
-public abstract class h<T, V extends y.a> extends com.baidu.adp.widget.ListView.a<T, V> {
-    protected static final int gXR;
-    protected static final int gXS;
-    protected static final int gXT;
-    protected com.baidu.adp.widget.ListView.r gEi;
-    protected FrsViewData gXU;
-    protected d gXV;
-    protected int gXW;
-    protected f gXX;
-    private boolean gXY;
-    private boolean gXZ;
-    protected com.baidu.tieba.card.z gYa;
+public abstract class h<T, V extends aa.a> extends com.baidu.adp.widget.ListView.a<T, V> {
+    protected static final int hmD;
+    protected static final int hmE;
+    protected static final int hmF;
+    protected com.baidu.adp.widget.ListView.t gSQ;
+    protected FrsViewData hmG;
+    protected d hmH;
+    protected int hmI;
+    protected f hmJ;
+    private boolean hmK;
+    private boolean hmL;
+    protected com.baidu.tieba.card.aa hmM;
     protected boolean mIsFromCDN;
     protected TbPageContext<?> mPageContext;
     protected int mSkinType;
@@ -35,16 +35,16 @@ public abstract class h<T, V extends y.a> extends com.baidu.adp.widget.ListView.
 
     static {
         Resources resources = TbadkCoreApplication.getInst().getContext().getResources();
-        gXR = resources.getDimensionPixelSize(R.dimen.ds8);
-        gXS = resources.getDimensionPixelSize(R.dimen.ds16);
-        gXT = resources.getDimensionPixelSize(R.dimen.ds1);
+        hmD = resources.getDimensionPixelSize(R.dimen.ds8);
+        hmE = resources.getDimensionPixelSize(R.dimen.ds16);
+        hmF = resources.getDimensionPixelSize(R.dimen.ds1);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public h(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         super(tbPageContext == null ? null : tbPageContext.getPageActivity(), bdUniqueId, bdUniqueId2);
         this.mIsFromCDN = false;
-        this.gXZ = false;
+        this.hmL = false;
         this.mTbPageTag = null;
         a(tbPageContext, bdUniqueId2);
     }
@@ -53,7 +53,7 @@ public abstract class h<T, V extends y.a> extends com.baidu.adp.widget.ListView.
     public h(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext == null ? null : tbPageContext.getPageActivity(), bdUniqueId);
         this.mIsFromCDN = false;
-        this.gXZ = false;
+        this.hmL = false;
         this.mTbPageTag = null;
         a(tbPageContext, tbPageContext != null ? tbPageContext.getUniqueId() : null);
     }
@@ -69,26 +69,26 @@ public abstract class h<T, V extends y.a> extends com.baidu.adp.widget.ListView.
     public void release() {
         this.mContext = null;
         this.mPageContext = null;
-        this.gXV = null;
-        this.Tw = null;
-        this.Tx = null;
-        if (this.gXX != null) {
-            this.gXX.destory();
-            this.gXX = null;
+        this.hmH = null;
+        this.TI = null;
+        this.TJ = null;
+        if (this.hmJ != null) {
+            this.hmJ.destory();
+            this.hmJ = null;
         }
     }
 
-    public void b(com.baidu.adp.widget.ListView.r rVar) {
-        this.gEi = rVar;
+    public void b(com.baidu.adp.widget.ListView.t tVar) {
+        this.gSQ = tVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, T t, V v) {
         this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
-        this.gEi = (com.baidu.adp.widget.ListView.r) viewGroup;
-        if (t instanceof bi) {
-            ((bi) t).dqE.jP(2);
+        this.gSQ = (com.baidu.adp.widget.ListView.t) viewGroup;
+        if (t instanceof bj) {
+            ((bj) t).dEA.kp(2);
             return null;
         }
         return null;
@@ -99,26 +99,26 @@ public abstract class h<T, V extends y.a> extends com.baidu.adp.widget.ListView.
     }
 
     public void b(FrsViewData frsViewData) {
-        this.gXU = frsViewData;
+        this.hmG = frsViewData;
     }
 
     public void a(d dVar) {
-        this.gXV = dVar;
+        this.hmH = dVar;
     }
 
-    public void sZ(int i) {
-        this.gXW = i;
+    public void tE(int i) {
+        this.hmI = i;
     }
 
     public void a(f fVar) {
-        this.gXX = fVar;
+        this.hmJ = fVar;
     }
 
-    public boolean bOj() {
-        return this.gXY;
+    public boolean bUE() {
+        return this.hmK;
     }
 
-    public View u(ViewGroup viewGroup, int i) {
+    public View s(ViewGroup viewGroup, int i) {
         if (viewGroup == null) {
             return null;
         }

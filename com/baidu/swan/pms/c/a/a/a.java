@@ -5,87 +5,76 @@ import com.baidu.swan.pms.c.a.d.f;
 import com.baidu.swan.pms.c.a.d.h;
 import com.baidu.swan.pms.c.a.d.i;
 import com.baidu.swan.pms.c.c.a;
-import com.baidu.swan.pms.c.c.b;
 import com.baidu.swan.pms.c.c.c;
-import com.baidu.swan.pms.c.c.e;
+import com.baidu.swan.pms.model.b;
 import com.baidu.swan.pms.model.d;
 import java.util.List;
 /* loaded from: classes11.dex */
 public class a {
-    public static synchronized void a(b bVar, g gVar) {
+    public static synchronized void a(com.baidu.swan.pms.node.d.a aVar, g gVar) {
         synchronized (a.class) {
-            f<d> b = h.b(bVar.dbl, gVar);
-            f<com.baidu.swan.pms.model.f> a = h.a(bVar.dbh, gVar);
-            f<com.baidu.swan.pms.model.b> b2 = h.b(bVar.dbn, gVar);
-            List<f<com.baidu.swan.pms.model.g>> b3 = h.b(bVar.dbk, gVar);
+            f<d> a = h.a(aVar.dnl, gVar);
+            f<d> a2 = h.a(aVar.dnk, gVar);
+            f<b> a3 = h.a(aVar.dmz, gVar);
             i iVar = new i(gVar);
-            iVar.a(com.baidu.swan.pms.c.a.d.d.aCi().i(b));
-            iVar.a(com.baidu.swan.pms.c.a.d.d.aCi().i(a));
-            iVar.a(com.baidu.swan.pms.c.a.d.d.aCi().i(b2));
-            for (f<com.baidu.swan.pms.model.g> fVar : b3) {
-                iVar.a(com.baidu.swan.pms.c.a.d.d.aCi().i(fVar));
+            if (a != null) {
+                iVar.a(com.baidu.swan.pms.c.a.d.d.aGy().i(a));
             }
-            iVar.aCu();
+            if (a2 != null) {
+                iVar.a(com.baidu.swan.pms.c.a.d.d.aGy().i(a2));
+            }
+            if (a3 != null) {
+                iVar.a(com.baidu.swan.pms.c.a.d.d.aGy().i(a3));
+            }
+            iVar.aGK();
+        }
+    }
+
+    public static synchronized void a(com.baidu.swan.pms.c.c.b bVar, g gVar) {
+        synchronized (a.class) {
+            f<d> a = h.a(bVar.dmx, gVar);
+            f<com.baidu.swan.pms.model.f> a2 = h.a(bVar.dmt, gVar);
+            f<b> a3 = h.a(bVar.dmz, gVar);
+            List<f<com.baidu.swan.pms.model.g>> b = h.b(bVar.dmw, gVar);
+            i iVar = new i(gVar);
+            iVar.a(com.baidu.swan.pms.c.a.d.d.aGy().i(a));
+            iVar.a(com.baidu.swan.pms.c.a.d.d.aGy().i(a2));
+            iVar.a(com.baidu.swan.pms.c.a.d.d.aGy().i(a3));
+            for (f<com.baidu.swan.pms.model.g> fVar : b) {
+                iVar.a(com.baidu.swan.pms.c.a.d.d.aGy().i(fVar));
+            }
+            iVar.aGK();
         }
     }
 
     public static synchronized void a(com.baidu.swan.pms.c.c.a aVar, g gVar) {
         synchronized (a.class) {
-            List<f<a.C0415a>> a = h.a(aVar.dbg, gVar);
+            List<f<a.C0456a>> a = h.a(aVar.dms, gVar);
             i iVar = new i(gVar);
-            for (f<a.C0415a> fVar : a) {
-                iVar.a(com.baidu.swan.pms.c.a.d.d.aCi().i(fVar));
+            for (f<a.C0456a> fVar : a) {
+                iVar.a(com.baidu.swan.pms.c.a.d.d.aGy().i(fVar));
             }
-            iVar.aCu();
-        }
-    }
-
-    public static synchronized void a(e eVar, g gVar) {
-        synchronized (a.class) {
-            f<d> b = h.b(eVar.dbl, gVar);
-            f<com.baidu.swan.pms.model.b> b2 = h.b(eVar.dbn, gVar);
-            i iVar = new i(gVar);
-            iVar.a(com.baidu.swan.pms.c.a.d.d.aCi().i(b));
-            iVar.a(com.baidu.swan.pms.c.a.d.d.aCi().i(b2));
-            iVar.aCu();
+            iVar.aGK();
         }
     }
 
     public static synchronized void a(com.baidu.swan.pms.c.c.d dVar, g gVar) {
         synchronized (a.class) {
-            List<f<com.baidu.swan.pms.model.g>> b = h.b(dVar.dbk, gVar);
+            List<f<com.baidu.swan.pms.model.g>> b = h.b(dVar.dmw, gVar);
             i iVar = new i(gVar);
             for (f<com.baidu.swan.pms.model.g> fVar : b) {
-                iVar.a(com.baidu.swan.pms.c.a.d.d.aCi().i(fVar));
+                iVar.a(com.baidu.swan.pms.c.a.d.d.aGy().i(fVar));
             }
-            iVar.aCu();
+            iVar.aGK();
         }
     }
 
     public static synchronized void a(c cVar, g gVar) {
         synchronized (a.class) {
-            f<com.baidu.swan.pms.model.h> a = h.a(cVar.dbo, gVar);
+            f<com.baidu.swan.pms.model.h> a = h.a(cVar.dmA, gVar);
             i iVar = new i(gVar);
-            iVar.a(com.baidu.swan.pms.c.a.d.d.aCi().i(a));
-            iVar.aCu();
-        }
-    }
-
-    public static synchronized void a(d dVar, g gVar) {
-        synchronized (a.class) {
-            f<d> b = h.b(dVar, gVar);
-            i iVar = new i(gVar);
-            iVar.a(com.baidu.swan.pms.c.a.d.d.aCi().i(b));
-            iVar.aCu();
-        }
-    }
-
-    public static synchronized void a(com.baidu.swan.pms.model.b bVar, g gVar) {
-        synchronized (a.class) {
-            f<com.baidu.swan.pms.model.b> b = h.b(bVar, gVar);
-            i iVar = new i(gVar);
-            iVar.a(com.baidu.swan.pms.c.a.d.d.aCi().i(b));
-            iVar.aCu();
+            iVar.a(com.baidu.swan.pms.c.a.d.d.aGy().i(a));
+            iVar.aGK();
         }
     }
 }

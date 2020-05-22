@@ -25,10 +25,9 @@ import com.baidu.tbadk.core.view.HeadPendantClickableView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.view.DynamicUserLikeButton;
 import java.util.List;
-import tbclient.BaijiahaoInfo;
 /* loaded from: classes9.dex */
 public class o extends RecyclerView.Adapter<a> {
-    private BdUniqueId dKE;
+    private BdUniqueId dYV;
     private Context mContext;
     private List<MetaData> mData;
     private TbPageContext mPageContext;
@@ -44,7 +43,7 @@ public class o extends RecyclerView.Adapter<a> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.support.v7.widget.RecyclerView.Adapter
-    /* renamed from: x */
+    /* renamed from: v */
     public a onCreateViewHolder(ViewGroup viewGroup, int i) {
         return new a(LayoutInflater.from(this.mContext).inflate(R.layout.concern_recommend_item, (ViewGroup) null));
     }
@@ -63,6 +62,7 @@ public class o extends RecyclerView.Adapter<a> {
     public void onBindViewHolder(a aVar, int i) {
         MetaData metaData;
         if (aVar != null && this.mData != null && (metaData = this.mData.get(i)) != null) {
+            aVar.od(metaData.isNewGod());
             a(metaData, aVar);
             c(metaData, aVar);
             d(metaData, aVar);
@@ -72,37 +72,37 @@ public class o extends RecyclerView.Adapter<a> {
     }
 
     private void a(MetaData metaData, a aVar) {
-        aVar.hJd.setData(metaData, true);
-        aVar.hJd.setAfterClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.concern.a.o.1
+        aVar.hXK.setData(metaData, true);
+        aVar.hXK.setAfterClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.concern.a.o.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 an anVar = new an("c13566");
-                anVar.af("obj_locate", 2);
+                anVar.ag("obj_locate", 2);
                 TiebaStatic.log(anVar);
             }
         });
     }
 
     private void b(final MetaData metaData, a aVar) {
-        aVar.hJe.setOnClickEvent(new DynamicUserLikeButton.a() { // from class: com.baidu.tieba.homepage.concern.a.o.2
+        aVar.hXL.setOnClickEvent(new DynamicUserLikeButton.a() { // from class: com.baidu.tieba.homepage.concern.a.o.2
             @Override // com.baidu.tieba.view.DynamicUserLikeButton.a
-            public void G(View view) {
+            public void bO(View view) {
                 if (metaData != null) {
                     if (metaData.getIsLike()) {
                         TiebaStatic.log(new an("c13571"));
                         return;
                     }
                     an anVar = new an("c13566");
-                    anVar.af("obj_locate", 1);
-                    anVar.t("obj_id", TbadkCoreApplication.getCurrentAccountId());
-                    anVar.cI("obj_param1", metaData.getUserId());
+                    anVar.ag("obj_locate", 1);
+                    anVar.s("obj_id", TbadkCoreApplication.getCurrentAccountId());
+                    anVar.dh("obj_param1", metaData.getUserId());
                     TiebaStatic.log(anVar);
                 }
             }
         });
-        com.baidu.tbadk.core.view.userLike.c cVar = aVar.agp;
+        com.baidu.tbadk.core.view.userLike.c cVar = aVar.agS;
         if (cVar != null) {
-            cVar.j(this.dKE);
+            cVar.l(this.dYV);
             cVar.a(metaData);
         }
     }
@@ -115,13 +115,16 @@ public class o extends RecyclerView.Adapter<a> {
             } else if (metaData.getBaijiahaoInfo() != null && !StringUtils.isNull(metaData.getBaijiahaoInfo().name)) {
                 str = metaData.getBaijiahaoInfo().name;
             }
-            aVar.cBd.setText(str);
-            aVar.cBd.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.concern.a.o.3
+            aVar.dXU.setText(str);
+            if (metaData.isNewGod()) {
+                am.setViewTextColor(aVar.dXU, (int) R.color.cp_cont_h);
+            }
+            aVar.dXU.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.concern.a.o.3
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     if (metaData != null && !StringUtils.isNull(metaData.getUserId())) {
                         an anVar = new an("c13566");
-                        anVar.af("obj_locate", 2);
+                        anVar.ag("obj_locate", 2);
                         TiebaStatic.log(anVar);
                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(o.this.mContext, metaData.getUserId(), metaData.getName_show())));
                     }
@@ -131,13 +134,22 @@ public class o extends RecyclerView.Adapter<a> {
     }
 
     private void d(MetaData metaData, a aVar) {
-        BaijiahaoInfo baijiahaoInfo;
-        if (metaData != null && aVar != null && (baijiahaoInfo = metaData.getBaijiahaoInfo()) != null && baijiahaoInfo.auth_id.intValue() > 0) {
-            String str = baijiahaoInfo.auth_desc;
-            if (aq.isEmpty(str)) {
-                str = "";
+        if (metaData != null && aVar != null) {
+            String str = "";
+            if (metaData.isBaijiahaoUser()) {
+                str = metaData.getBaijiahaoInfo().auth_desc;
+                if (aq.isEmpty(str)) {
+                    str = "";
+                }
+            } else if (metaData.isNewGod()) {
+                String fieldName = metaData.getNewGodData().getFieldName();
+                if (!aq.isEmpty(fieldName)) {
+                    str = fieldName + TbadkCoreApplication.getInst().getApp().getString(R.string.field_new_god);
+                } else {
+                    str = "";
+                }
             }
-            aVar.hJc.setText(str);
+            aVar.hXJ.setText(str);
         }
     }
 
@@ -147,34 +159,44 @@ public class o extends RecyclerView.Adapter<a> {
 
     /* loaded from: classes9.dex */
     public class a extends RecyclerView.ViewHolder {
-        public com.baidu.tbadk.core.view.userLike.c agp;
-        public TextView cBd;
-        public TextView hJc;
-        public HeadPendantClickableView hJd;
-        public DynamicUserLikeButton hJe;
+        public com.baidu.tbadk.core.view.userLike.c agS;
+        public TextView dXU;
+        public TextView hXJ;
+        public HeadPendantClickableView hXK;
+        public DynamicUserLikeButton hXL;
+        private boolean hXM;
         public LinearLayout mContainer;
 
         public a(View view) {
             super(view);
+            this.hXM = false;
             this.mContainer = (LinearLayout) view.findViewById(R.id.concern_container);
-            this.hJd = (HeadPendantClickableView) view.findViewById(R.id.concern_user_image);
-            this.hJd.getHeadView().setIsRound(true);
-            this.hJd.getHeadView().setScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.hJd.getHeadView().setDefaultResource(17170445);
-            this.hJd.getHeadView().setDefaultErrorResource(R.drawable.icon_default_avatar100);
-            this.hJd.getHeadView().setPlaceHolder(2);
-            this.hJd.getHeadView().setBorderWidth(com.baidu.adp.lib.util.l.getDimens(o.this.mContext, R.dimen.tbds1));
-            this.hJd.getHeadView().setBorderColor(am.getColor(R.color.cp_border_a));
-            this.cBd = (TextView) view.findViewById(R.id.concern_user_name);
-            this.hJc = (TextView) view.findViewById(R.id.concern_user_desc);
-            this.hJe = (DynamicUserLikeButton) view.findViewById(R.id.user_recommend_like_btn);
-            this.agp = new com.baidu.tbadk.core.view.userLike.c(o.this.mPageContext, this.hJe);
+            this.hXK = (HeadPendantClickableView) view.findViewById(R.id.concern_user_image);
+            this.hXK.getHeadView().setIsRound(true);
+            this.hXK.getHeadView().setScaleType(ImageView.ScaleType.CENTER_CROP);
+            this.hXK.getHeadView().setDefaultResource(17170445);
+            this.hXK.getHeadView().setDefaultErrorResource(R.drawable.icon_default_avatar100);
+            this.hXK.getHeadView().setPlaceHolder(2);
+            this.hXK.getHeadView().setBorderWidth(com.baidu.adp.lib.util.l.getDimens(o.this.mContext, R.dimen.tbds1));
+            this.hXK.getHeadView().setBorderColor(am.getColor(R.color.cp_border_a));
+            this.dXU = (TextView) view.findViewById(R.id.concern_user_name);
+            this.hXJ = (TextView) view.findViewById(R.id.concern_user_desc);
+            this.hXL = (DynamicUserLikeButton) view.findViewById(R.id.user_recommend_like_btn);
+            this.agS = new com.baidu.tbadk.core.view.userLike.c(o.this.mPageContext, this.hXL);
         }
 
         public void onChangeSkinType(int i) {
-            am.setViewTextColor(this.cBd, (int) R.color.cp_cont_b);
-            am.setViewTextColor(this.hJc, (int) R.color.cp_cont_d);
-            this.hJe.onChangeSkinType(i);
+            if (!this.hXM) {
+                am.setViewTextColor(this.dXU, (int) R.color.cp_cont_b);
+            } else {
+                am.setViewTextColor(this.dXU, (int) R.color.cp_cont_h);
+            }
+            am.setViewTextColor(this.hXJ, (int) R.color.cp_cont_d);
+            this.hXL.onChangeSkinType(i);
+        }
+
+        public void od(boolean z) {
+            this.hXM = z;
         }
     }
 
@@ -183,6 +205,6 @@ public class o extends RecyclerView.Adapter<a> {
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        this.dKE = bdUniqueId;
+        this.dYV = bdUniqueId;
     }
 }

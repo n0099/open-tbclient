@@ -175,7 +175,7 @@ public class CyberPlayer {
                 }
                 String str = map.get("User-Agent");
                 if (TextUtils.isEmpty(str)) {
-                    str = "dumedia/7.7.2.14";
+                    str = "dumedia/7.7.2.20";
                 } else if (str.indexOf("dumedia") == -1) {
                     str = str + " dumedia/" + SDKVersion.VERSION;
                 }

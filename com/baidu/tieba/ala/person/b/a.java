@@ -17,25 +17,25 @@ import com.baidu.live.tbadk.coreextra.message.UpdateAttentionMessage;
 import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class a implements e {
-    private boolean aMw;
-    private String aMx;
-    private c fWT;
-    private int fWU;
+    private boolean aSw;
+    private String aSx;
+    private c glN;
+    private int glO;
     private String mGroupId;
     private String mLiveId;
     private TbPageContext mPageContext;
     private String mUserId;
     private String mUserName;
-    private BdUniqueId fbA = BdUniqueId.gen();
-    private InterfaceC0531a fWV = new InterfaceC0531a() { // from class: com.baidu.tieba.ala.person.b.a.1
-        @Override // com.baidu.tieba.ala.person.b.a.InterfaceC0531a
+    private BdUniqueId fpc = BdUniqueId.gen();
+    private InterfaceC0581a glP = new InterfaceC0581a() { // from class: com.baidu.tieba.ala.person.b.a.1
+        @Override // com.baidu.tieba.ala.person.b.a.InterfaceC0581a
         public void a(com.baidu.tieba.ala.person.a.b bVar, View view, int i) {
             if (bVar.live_status != 1) {
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaPersonCardActivityConfig(a.this.mPageContext.getPageActivity(), bVar.id, bVar.name, bVar.portrait, 0, 0, null, null, 0L, 0L, 0L, bVar.fqH, a.this.mGroupId, a.this.mLiveId, a.this.aMw, a.this.aMx, null, bVar.getNameShow(), "")));
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaPersonCardActivityConfig(a.this.mPageContext.getPageActivity(), bVar.id, bVar.name, bVar.portrait, 0, 0, null, null, 0L, 0L, 0L, bVar.fEB, a.this.mGroupId, a.this.mLiveId, a.this.aSw, a.this.aSx, null, bVar.getNameShow(), "")));
             }
         }
     };
-    private CustomMessageListener aKY = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_ATTENTION) { // from class: com.baidu.tieba.ala.person.b.a.2
+    private CustomMessageListener aQM = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_ATTENTION) { // from class: com.baidu.tieba.ala.person.b.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -43,13 +43,13 @@ public class a implements e {
                 UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
                 if (updateAttentionMessage.getData() != null && updateAttentionMessage.getData().toUid != null) {
                     if (updateAttentionMessage.getData().isSucc) {
-                        if (a.this.fWT != null) {
-                            a.this.fWT.af(updateAttentionMessage.getData().toUid, updateAttentionMessage.isAttention());
+                        if (a.this.glN != null) {
+                            a.this.glN.as(updateAttentionMessage.getData().toUid, updateAttentionMessage.isAttention());
                         }
                         Message<?> message = updateAttentionMessage.getmOrginalMessage();
-                        if (message != null && message.getTag() != null && message.getTag().equals(a.this.fbA)) {
+                        if (message != null && message.getTag() != null && message.getTag().equals(a.this.fpc)) {
                             if (updateAttentionMessage.getData().isAttention) {
-                                com.baidu.live.view.a.Hs().a(a.this.mPageContext, true);
+                                com.baidu.live.view.a.Jl().a(a.this.mPageContext, true);
                                 return;
                             } else {
                                 CustomToast.newInstance().showToast(a.this.mPageContext.getPageActivity().getResources().getString(a.i.sdk_unfollow_success_toast));
@@ -58,10 +58,10 @@ public class a implements e {
                         }
                         return;
                     }
-                    if (a.this.fWT != null) {
-                        a.this.fWT.af(updateAttentionMessage.getData().toUid, !updateAttentionMessage.isAttention());
+                    if (a.this.glN != null) {
+                        a.this.glN.as(updateAttentionMessage.getData().toUid, !updateAttentionMessage.isAttention());
                     }
-                    if (!com.baidu.live.view.a.Hs().a(updateAttentionMessage.getData(), (BdPageContext<?>) a.this.mPageContext, false) && updateAttentionMessage.getData().errorString != null) {
+                    if (!com.baidu.live.view.a.Jl().a(updateAttentionMessage.getData(), (BdPageContext<?>) a.this.mPageContext, false) && updateAttentionMessage.getData().errorString != null) {
                         CustomToast.newInstance().showToast(updateAttentionMessage.getData().errorString);
                     }
                 }
@@ -71,36 +71,36 @@ public class a implements e {
 
     /* renamed from: com.baidu.tieba.ala.person.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC0531a {
+    public interface InterfaceC0581a {
         void a(com.baidu.tieba.ala.person.a.b bVar, View view, int i);
     }
 
     public a(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
-        MessageManager.getInstance().registerListener(this.aKY);
+        MessageManager.getInstance().registerListener(this.aQM);
     }
 
     private void createView() {
-        if (this.fWT == null) {
-            this.fWT = new c(this.mPageContext, this.mUserId, this.fbA);
-            if (this.fWU == 1) {
-                this.fWT.re(0);
-            } else if (this.fWU == 2) {
-                this.fWT.re(1);
+        if (this.glN == null) {
+            this.glN = new c(this.mPageContext, this.mUserId, this.fpc);
+            if (this.glO == 1) {
+                this.glN.rG(0);
+            } else if (this.glO == 2) {
+                this.glN.rG(1);
             }
-            this.fWT.a(this.fWV);
+            this.glN.a(this.glP);
         }
     }
 
     @Override // com.baidu.live.liveroom.d.d
     public View getPanelView() {
-        if (this.fWT == null) {
+        if (this.glN == null) {
             createView();
         }
-        if (this.fWT == null) {
+        if (this.glN == null) {
             return null;
         }
-        return this.fWT.getView();
+        return this.glN.getView();
     }
 
     @Override // com.baidu.live.liveroom.d.d
@@ -109,12 +109,12 @@ public class a implements e {
     }
 
     @Override // com.baidu.live.liveroom.d.d
-    public String AS() {
+    public String Ci() {
         return null;
     }
 
     @Override // com.baidu.live.liveroom.d.d
-    public short AT() {
+    public short Cj() {
         return (short) 4;
     }
 
@@ -124,23 +124,23 @@ public class a implements e {
 
     @Override // com.baidu.live.liveroom.d.d
     public void enterForeground() {
-        if (this.fWT != null) {
-            this.fWT.enterForeground();
+        if (this.glN != null) {
+            this.glN.enterForeground();
         }
     }
 
     @Override // com.baidu.live.liveroom.d.d
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.aKY);
-        if (this.fWT != null) {
-            this.fWT.onDestory();
+        MessageManager.getInstance().unRegisterListener(this.aQM);
+        if (this.glN != null) {
+            this.glN.onDestory();
         }
     }
 
     @Override // com.baidu.live.liveroom.d.d
     public void onChangeSkinType(int i) {
-        if (this.fWT != null) {
-            this.fWT.onChangeSkinType(i);
+        if (this.glN != null) {
+            this.glN.onChangeSkinType(i);
         }
     }
 }

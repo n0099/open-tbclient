@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.atomData;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import com.baidu.tbadk.core.data.bj;
+import com.baidu.tbadk.core.data.bk;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
 public class PbVideoActivityConfig extends IntentConfig {
@@ -266,13 +266,13 @@ public class PbVideoActivityConfig extends IntentConfig {
         return this;
     }
 
-    public PbVideoActivityConfig createFromThreadCfg(bj bjVar, String str, String str2, int i, boolean z, boolean z2, boolean z3) {
-        if (bjVar != null) {
+    public PbVideoActivityConfig createFromThreadCfg(bk bkVar, String str, String str2, int i, boolean z, boolean z2, boolean z3) {
+        if (bkVar != null) {
             Intent intent = getIntent();
-            intent.putExtra("thread_id", bjVar.getTid());
-            intent.putExtra("is_good", bjVar.aKy());
-            intent.putExtra("is_top", bjVar.aKx());
-            intent.putExtra("thread_time", bjVar.aKv());
+            intent.putExtra("thread_id", bkVar.getTid());
+            intent.putExtra("is_good", bkVar.aQt());
+            intent.putExtra("is_top", bkVar.aQs());
+            intent.putExtra("thread_time", bkVar.aQq());
             intent.putExtra("st_type", str2);
             intent.putExtra("squence", z);
             intent.putExtra("host_only", z2);
@@ -282,10 +282,10 @@ public class PbVideoActivityConfig extends IntentConfig {
             intent.putExtra("is_start_for_result", "1");
             intent.putExtra("request_code", i);
             intent.putExtra("is_from_thread_config", true);
-            intent.putExtra("extra_pb_cache_key", "zan=" + (bjVar.aKn() == null ? 0L : bjVar.aKn().getNum()));
-            if (bjVar.aKC() != null && bjVar.aKC().getGodUserData().getId() != null) {
-                intent.putExtra("extra_pb_funs_count_key", bjVar.aKC().getFansNum());
-                intent.putExtra("extra_pb_is_attention_key", bjVar.aKC().getGodUserData().getIsLike());
+            intent.putExtra("extra_pb_cache_key", "zan=" + (bkVar.aQi() == null ? 0L : bkVar.aQi().getNum()));
+            if (bkVar.aQx() != null && bkVar.aQx().getGodUserData().getId() != null) {
+                intent.putExtra("extra_pb_funs_count_key", bkVar.aQx().getFansNum());
+                intent.putExtra("extra_pb_is_attention_key", bkVar.aQx().getGodUserData().getIsLike());
             }
             intent.putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
             addMoreIntentExtraParam();

@@ -8,15 +8,15 @@ import com.baidu.searchbox.http.cookie.CookieManager;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class c implements CookieManager {
-    private static String lAc;
-    private boolean lAd;
-    private boolean lAe;
+    private static String lTr;
+    private boolean lOz;
+    private boolean lTs;
 
     public c(boolean z, boolean z2) {
-        this.lAd = true;
-        this.lAe = false;
-        this.lAd = z;
-        this.lAe = z2;
+        this.lOz = true;
+        this.lTs = false;
+        this.lOz = z;
+        this.lTs = z2;
     }
 
     @Override // com.baidu.searchbox.http.cookie.CookieManager
@@ -24,7 +24,7 @@ public class c implements CookieManager {
         if (TextUtils.isEmpty(str2)) {
             return false;
         }
-        return this.lAe || !MB(str2);
+        return this.lTs || !Oo(str2);
     }
 
     @Override // com.baidu.searchbox.http.cookie.CookieManager
@@ -41,7 +41,7 @@ public class c implements CookieManager {
                 for (String str2 : list) {
                     cookieManager.setCookie(str, str2);
                 }
-                if (this.lAd && (cookieSyncManager = CookieSyncManager.getInstance()) != null) {
+                if (this.lOz && (cookieSyncManager = CookieSyncManager.getInstance()) != null) {
                     cookieSyncManager.sync();
                 }
             } catch (Exception e) {
@@ -52,18 +52,18 @@ public class c implements CookieManager {
 
     @Override // com.baidu.searchbox.http.cookie.CookieManager
     public String getCookie(String str) {
-        return lAc;
+        return lTr;
     }
 
     public static void bJ(String str) {
-        lAc = "BAIDUCUID=" + AppCuidRuntime.getAppCuidManager().getCuid() + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR + "BDUSS=" + str;
+        lTr = "BAIDUCUID=" + AppCuidRuntime.getAppCuidManager().getCuid() + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR + "BDUSS=" + str;
     }
 
-    public static void dfM() {
-        lAc = "";
+    public static void dnc() {
+        lTr = "";
     }
 
-    public static boolean MB(String str) {
+    public static boolean Oo(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }

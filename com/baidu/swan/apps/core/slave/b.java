@@ -1,12 +1,14 @@
 package com.baidu.swan.apps.core.slave;
 
 import android.app.Activity;
+import android.content.Context;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.util.Log;
 import com.baidu.swan.apps.adaptation.b.c;
-import com.baidu.swan.apps.as.ai;
-import com.baidu.swan.apps.core.k.d;
-import com.baidu.swan.apps.y.f;
+import com.baidu.swan.apps.aq.aj;
+import com.baidu.swan.apps.core.turbo.d;
+import com.baidu.swan.apps.w.f;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -15,40 +17,35 @@ import java.util.TreeMap;
 /* loaded from: classes11.dex */
 public final class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static LinkedList<a> bQg = new LinkedList<>();
-    private static Map<String, c> bQh = new TreeMap();
+    private static LinkedList<a> bZS = new LinkedList<>();
+    private static Map<String, c> bZT = new TreeMap();
 
     /* loaded from: classes11.dex */
     public static class a {
-        public c bQj;
-        public final ArrayList<InterfaceC0306b> bQk = new ArrayList<>();
-        public long bQl;
-        public long bQm;
+        public c bZV;
+        public final ArrayList<InterfaceC0346b> bZW = new ArrayList<>();
+        public long bZX;
+        public long bZY;
         public boolean isReady;
     }
 
     /* renamed from: com.baidu.swan.apps.core.slave.b$b  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public interface InterfaceC0306b {
+    public interface InterfaceC0346b {
         void onReady();
     }
 
-    public static void F(Activity activity) {
-        if (activity == null || activity.isFinishing()) {
-            if (DEBUG) {
-                Log.e("SwanAppSlavePool", "preloadSlaveManager activity is invalid: " + Log.getStackTraceString(new Exception()));
-                return;
-            }
-            return;
-        }
-        if (bQg.size() < 2) {
+    public static void bJ(Context context) {
+        if (bZS.size() < 2) {
             if (DEBUG) {
                 Log.d("SwanAppSlavePool", "preloadSlaveManager do preload.");
             }
-            bQg.add(H(activity));
+            bZS.add(bL(bK(context)));
+        } else if (DEBUG) {
+            Log.e("SwanAppSlavePool", "preloadSlaveManager max size exceeded");
         }
         if (DEBUG) {
-            Log.d("SwanAppSlavePool", "preloadSlaveManager size: " + bQg.size());
+            Log.d("SwanAppSlavePool", "preloadSlaveManager size: " + bZS.size());
         }
     }
 
@@ -56,13 +53,13 @@ public final class b {
         if (DEBUG) {
             Log.d("SwanAppSlavePool", "preloadSlaveManager delay ms: " + j);
         }
-        ai.c(new Runnable() { // from class: com.baidu.swan.apps.core.slave.b.1
+        aj.c(new Runnable() { // from class: com.baidu.swan.apps.core.slave.b.1
             @Override // java.lang.Runnable
             public void run() {
                 if (b.DEBUG) {
                     Log.d("SwanAppSlavePool", "preloadSlaveManager start.");
                 }
-                b.F(activity);
+                b.bJ(activity);
                 if (b.DEBUG) {
                     Log.d("SwanAppSlavePool", "preloadSlaveManager end.");
                 }
@@ -70,27 +67,41 @@ public final class b {
         }, j);
     }
 
-    public static a G(Activity activity) {
+    private static Context bK(Context context) {
+        if (context == null) {
+            return com.baidu.swan.apps.u.a.aeR();
+        }
+        if ((context instanceof Activity) && ((Activity) context).isFinishing()) {
+            return com.baidu.swan.apps.u.a.aeR();
+        }
+        return context;
+    }
+
+    public static a F(@Nullable Activity activity) {
         if (DEBUG) {
             Log.d("SwanAppSlavePool", "getPreloadSlaveManager");
         }
-        if (bQg.isEmpty()) {
-            return H(activity);
+        if (bZS.isEmpty()) {
+            return bL(bK(activity));
         }
         if (DEBUG) {
-            Log.d("SwanAppSlavePool", "getPreloadSlaveManager : " + bQg.getFirst());
+            Log.d("SwanAppSlavePool", "getPreloadSlaveManager : " + bZS.getFirst());
         }
-        a removeFirst = bQg.removeFirst();
+        a removeFirst = bZS.removeFirst();
+        c cVar = removeFirst.bZV;
+        if (cVar != null && activity != null) {
+            cVar.attachActivity(activity);
+        }
         if (DEBUG) {
             Log.d("SwanAppSlavePool", "getPreloadSlaveManager prepare next.");
         }
-        ai.c(new Runnable() { // from class: com.baidu.swan.apps.core.slave.b.2
+        aj.c(new Runnable() { // from class: com.baidu.swan.apps.core.slave.b.2
             @Override // java.lang.Runnable
             public void run() {
                 if (b.DEBUG) {
                     Log.d("SwanAppSlavePool", "getPreloadSlaveManager prepare next start.");
                 }
-                b.F(f.aeJ().aeu());
+                b.bJ(f.ahV().ahF());
                 if (b.DEBUG) {
                     Log.d("SwanAppSlavePool", "getPreloadSlaveManager prepare next end.");
                 }
@@ -103,37 +114,37 @@ public final class b {
         return removeFirst;
     }
 
-    public static void a(a aVar, InterfaceC0306b interfaceC0306b) {
-        if (interfaceC0306b != null) {
+    public static void a(a aVar, InterfaceC0346b interfaceC0346b) {
+        if (interfaceC0346b != null) {
             if (aVar.isReady) {
-                interfaceC0306b.onReady();
+                interfaceC0346b.onReady();
             } else {
-                aVar.bQk.add(interfaceC0306b);
+                aVar.bZW.add(interfaceC0346b);
             }
         }
     }
 
-    private static a H(Activity activity) {
+    private static a bL(Context context) {
         final a aVar = new a();
-        aVar.bQl = System.currentTimeMillis();
+        aVar.bZX = System.currentTimeMillis();
         aVar.isReady = false;
-        aVar.bQj = d.Yn().a(activity, new com.baidu.swan.apps.core.b() { // from class: com.baidu.swan.apps.core.slave.b.3
+        aVar.bZV = d.abl().a(context, new com.baidu.swan.apps.core.b() { // from class: com.baidu.swan.apps.core.slave.b.3
             @Override // com.baidu.swan.apps.core.b
-            public void fe(String str) {
+            public void fQ(String str) {
                 if (b.DEBUG) {
-                    Log.d("SwanAppSlavePool", "onPageFinished slaveId: " + a.this.bQj.QF() + " url: " + str);
+                    Log.d("SwanAppSlavePool", "onPageFinished slaveId: " + a.this.bZV.Tj() + " url: " + str);
                 }
-                a.this.bQm = System.currentTimeMillis();
+                a.this.bZY = System.currentTimeMillis();
                 a.this.isReady = true;
-                if (!a.this.bQk.isEmpty()) {
-                    Iterator<InterfaceC0306b> it = a.this.bQk.iterator();
+                if (!a.this.bZW.isEmpty()) {
+                    Iterator<InterfaceC0346b> it = a.this.bZW.iterator();
                     while (it.hasNext()) {
-                        InterfaceC0306b next = it.next();
+                        InterfaceC0346b next = it.next();
                         if (next != null) {
                             next.onReady();
                         }
                     }
-                    a.this.bQk.clear();
+                    a.this.bZW.clear();
                 }
             }
         });
@@ -141,23 +152,23 @@ public final class b {
     }
 
     public static void a(@NonNull String str, c cVar) {
-        Map<String, c> map = bQh;
+        Map<String, c> map = bZT;
         if (str == null) {
             str = "";
         }
         map.put(str, cVar);
     }
 
-    public static c iF(@NonNull String str) {
-        c cVar = bQh.get(str != null ? str : "");
+    public static c jL(@NonNull String str) {
+        c cVar = bZT.get(str != null ? str : "");
         if (cVar != null) {
-            bQh.remove(str);
+            bZT.remove(str);
         }
         return cVar;
     }
 
     public static void clearAll() {
-        bQg.clear();
-        bQh.clear();
+        bZS.clear();
+        bZT.clear();
     }
 }

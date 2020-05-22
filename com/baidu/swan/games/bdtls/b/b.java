@@ -2,47 +2,58 @@ package com.baidu.swan.games.bdtls.b;
 
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.swan.games.bdtls.d;
 import com.baidu.swan.games.bdtls.e;
 import com.baidu.swan.games.bdtls.model.i;
+import java.io.IOException;
 /* loaded from: classes11.dex */
 public abstract class b {
-    protected boolean cKJ = false;
-    protected int cKK = 0;
+    protected boolean cVq = false;
+    protected int cVr = 0;
+    private String cVs;
 
-    public abstract void O(byte[] bArr);
+    public abstract void V(byte[] bArr);
 
-    public abstract void hV(int i);
+    public abstract void b(IOException iOException);
 
-    public final String P(byte[] bArr) {
+    public abstract void im(int i);
+
+    public final String W(byte[] bArr) {
         String str = new String(bArr);
         if (com.baidu.swan.games.bdtls.a.DEBUG) {
             Log.d("BDTLS", "processResponseData encodeResponseData=" + str);
         }
-        if (this.cKJ) {
-            i a = d.atZ().a(e.aua().aub(), bArr);
+        if (this.cVq) {
+            i a = com.baidu.swan.games.bdtls.d.axM().a(e.axN().axO(), bArr);
             if (a != null) {
                 if (!TextUtils.isEmpty(a.getResponseMessage())) {
                     str = a.getResponseMessage();
                 }
-                this.cKK = a.auY().intValue();
+                this.cVr = a.ayL().intValue();
             } else {
-                this.cKK = -1;
+                this.cVr = -1;
             }
-            e.aua().aub().hU(this.cKK);
-            if (this.cKK == -1) {
-                com.baidu.swan.games.bdtls.c.atY().setEnable(false);
+            e.axN().axO().il(this.cVr);
+            if (this.cVr == -1) {
+                com.baidu.swan.games.bdtls.c.axL().setEnable(false);
             }
         }
         return str;
     }
 
-    public final void pJ(String str) {
-        this.cKK = 0;
-        com.baidu.swan.games.bdtls.c.atY().a(str, this);
+    public final void rk(String str) {
+        this.cVr = 0;
+        com.baidu.swan.games.bdtls.c.axL().a(str, this);
     }
 
-    public void fy(boolean z) {
-        this.cKJ = z;
+    public void fJ(boolean z) {
+        this.cVq = z;
+    }
+
+    public String getMethod() {
+        return this.cVs;
+    }
+
+    public void rl(String str) {
+        this.cVs = str;
     }
 }

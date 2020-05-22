@@ -96,7 +96,6 @@ public final class WebViewImpl extends WebView implements WebViewProvider {
     /* JADX INFO: Access modifiers changed from: package-private */
     public WebViewImpl(com.baidu.webkit.sdk.WebView webView, WebView.PrivateAccess privateAccess) {
         super(webView.getContext());
-        this.mSettings = null;
         this.mWebView = webView;
         this.mWebViewPrivateAccess = privateAccess;
         com.baidu.webkit.sdk.WebView webView2 = this.mWebView;
@@ -147,6 +146,21 @@ public final class WebViewImpl extends WebView implements WebViewProvider {
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
     public final void clearPrerender() {
+    }
+
+    @Override // android.webkit.WebView, android.view.View
+    public final int computeVerticalScrollExtent() {
+        return super.computeVerticalScrollExtent();
+    }
+
+    @Override // android.webkit.WebView, android.view.View
+    public final int computeVerticalScrollOffset() {
+        return super.computeVerticalScrollOffset();
+    }
+
+    @Override // android.webkit.WebView, android.view.View
+    public final int computeVerticalScrollRange() {
+        return super.computeVerticalScrollRange();
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
@@ -307,9 +321,9 @@ public final class WebViewImpl extends WebView implements WebViewProvider {
     public final int getVisibleTitleHeightZeus() {
         if (Build.VERSION.SDK_INT < 17) {
             try {
-                Method declaredMethod = android.webkit.WebView.class.getDeclaredMethod("getVisibleTitleHeight", null);
+                Method declaredMethod = android.webkit.WebView.class.getDeclaredMethod("getVisibleTitleHeight", new Class[0]);
                 declaredMethod.setAccessible(true);
-                return ((Integer) declaredMethod.invoke(this, null)).intValue();
+                return ((Integer) declaredMethod.invoke(this, new Object[0])).intValue();
             } catch (Throwable th) {
                 Log.d("huangweichai", "", th);
             }
@@ -425,10 +439,6 @@ public final class WebViewImpl extends WebView implements WebViewProvider {
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
-    public final void notifyFindDialogDismissedZeus() {
-    }
-
-    @Override // com.baidu.webkit.sdk.WebViewProvider
     public final void notifyUnsafeInvolved(int i, String str) {
     }
 
@@ -511,6 +521,10 @@ public final class WebViewImpl extends WebView implements WebViewProvider {
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
+    public final void resetLoadingAnimation() {
+    }
+
+    @Override // com.baidu.webkit.sdk.WebViewProvider
     public final WebBackForwardList restoreStateZeus(Bundle bundle) {
         return WebBackForwardListImpl.from(restoreState(bundle));
     }
@@ -573,6 +587,10 @@ public final class WebViewImpl extends WebView implements WebViewProvider {
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
     public final void setCanvasCacheBmp(Bitmap bitmap) {
+    }
+
+    @Override // com.baidu.webkit.sdk.WebViewProvider
+    public final void setDefaultViewSize(int i, int i2) {
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
@@ -689,7 +707,7 @@ public final class WebViewImpl extends WebView implements WebViewProvider {
     }
 
     public final boolean super_onTouchEvent(MotionEvent motionEvent) {
-        if (motionEvent.getAction() == 0) {
+        if (motionEvent.getAction() == 0 && !this.mWebView.isFocused()) {
             this.mWebView.requestFocus();
         }
         return super.onTouchEvent(motionEvent);

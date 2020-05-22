@@ -8,7 +8,7 @@ import org.json.JSONObject;
 public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    public static void e(String str, String str2, JSONObject jSONObject) {
+    public static void f(String str, String str2, JSONObject jSONObject) {
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || jSONObject == null) {
             if (DEBUG) {
                 Log.e("RTCEventCallback", "dispatchStateChangeEvent failed slaveId: " + str + " ,rtcId: " + str2);

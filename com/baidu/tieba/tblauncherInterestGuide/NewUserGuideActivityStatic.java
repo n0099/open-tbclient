@@ -8,6 +8,8 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.atomData.NewUserGuideActivityConfig;
 /* loaded from: classes9.dex */
 public class NewUserGuideActivityStatic {
+    public static String Tag = "tag";
+
     static {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.NEW_USER_GUIDE_PAGE, new CustomMessageTask.CustomRunnable<NewUserGuideActivityConfig>() { // from class: com.baidu.tieba.tblauncherInterestGuide.NewUserGuideActivityStatic.1
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable

@@ -12,12 +12,12 @@ public class c {
             return false;
         }
         com.baidu.adp.lib.network.http.e eVar = new com.baidu.adp.lib.network.http.e();
-        eVar.kB().setUrl(str);
-        eVar.kB().setMethod(HttpMessageTask.HTTP_METHOD.POST);
-        eVar.kB().addPostData("", bArr);
+        eVar.kD().setUrl(str);
+        eVar.kD().setMethod(HttpMessageTask.HTTP_METHOD.POST);
+        eVar.kD().addPostData("", bArr);
         new com.baidu.adp.lib.network.http.c(eVar).f(3, -1, -1);
-        int i = eVar.kC().responseCode;
-        byte[] bArr2 = eVar.kC().retBytes;
+        int i = eVar.kE().responseCode;
+        byte[] bArr2 = eVar.kE().retBytes;
         if (bArr2 == null || i != 200) {
             return false;
         }
@@ -32,7 +32,7 @@ public class c {
         }
     }
 
-    public static byte[] eC(List<String> list) {
+    public static byte[] eJ(List<String> list) {
         if (list == null) {
             return null;
         }
@@ -45,7 +45,7 @@ public class c {
         return sb.toString().getBytes();
     }
 
-    public static byte[] du(JSONObject jSONObject) {
+    public static byte[] dB(JSONObject jSONObject) {
         if (jSONObject == null) {
             return null;
         }

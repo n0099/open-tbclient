@@ -1,68 +1,56 @@
 package com.baidu.swan.apps.r;
 
-import android.support.annotation.Nullable;
-import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.swan.apps.r.d;
-import com.baidu.webkit.sdk.plugin.ZeusPlugin;
-import java.util.HashMap;
+import android.os.Bundle;
+import com.baidu.minivideo.plugin.capture.db.AuthoritySharedPreferences;
+import com.baidu.swan.apps.r.g;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.nio.ByteBuffer;
+import java.nio.channels.Channels;
+import java.nio.channels.Pipe;
+import java.nio.channels.ReadableByteChannel;
+import java.nio.channels.WritableByteChannel;
 /* loaded from: classes11.dex */
-public final class c<W extends d> {
+public class c extends g.a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private final HashMap<String, a<W>> bUY = new HashMap<>();
+    private final File cgl;
 
-    public void a(a<W> aVar) {
-        if (DEBUG) {
-            Log.v("CommandDispatcher", aVar.abj() + " command added to supported command list");
-        }
-        this.bUY.put(aVar.abj(), aVar);
+    public c(File file) {
+        super("dump");
+        this.cgl = file;
     }
 
-    public void b(@Nullable ZeusPlugin.Command command, @Nullable W w) {
-        if (command == null || TextUtils.isEmpty(command.what)) {
+    @Override // com.baidu.swan.apps.r.g.a
+    protected boolean a(Pipe.SourceChannel sourceChannel, Bundle bundle) {
+        com.baidu.swan.apps.v.c.a lk = com.baidu.swan.apps.v.c.a.lk(bundle.getString("launch_id"));
+        lk.ahk().ln("DumpFileProcessor").fE(1);
+        WritableByteChannel writableByteChannel = null;
+        try {
+            writableByteChannel = Channels.newChannel(new FileOutputStream(this.cgl, false));
+            a(sourceChannel, writableByteChannel);
+            lk.bt("DumpFileProcessor", AuthoritySharedPreferences.KEY_CONFIG_PRIVILEGE_DONE);
+            return true;
+        } catch (IOException e) {
+            lk.bt("DumpFileProcessor", "done with exception: " + e.toString());
             if (DEBUG) {
-                Log.e("CommandDispatcher", "command or command.what is null, haven't dispatched");
+                e.printStackTrace();
             }
-        } else if (w == null) {
-            if (DEBUG) {
-                Log.e("CommandDispatcher", "inlineWidget is null, haven't dispatched");
-            }
-        } else {
-            a<W> aVar = this.bUY.get(command.what);
-            if (aVar == null) {
-                if (DEBUG) {
-                    Log.e("CommandDispatcher", command.what + " command is not supported, haven't dispatched");
-                    return;
-                }
-                return;
-            }
-            if (DEBUG) {
-                Log.d("CommandDispatcher", command.what + " command dispatched");
-            }
-            aVar.a(command, w);
+            return false;
+        } finally {
+            com.baidu.swan.apps.aq.b.b.a(sourceChannel);
+            com.baidu.swan.e.d.closeSafely(writableByteChannel);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void a(@Nullable ZeusPlugin.Command command) {
-        if (command == null || TextUtils.isEmpty(command.what)) {
-            if (DEBUG) {
-                Log.e("CommandDispatcher", "command or command.what is null, haven't mocked");
-                return;
+    private void a(ReadableByteChannel readableByteChannel, WritableByteChannel writableByteChannel) throws IOException {
+        if (readableByteChannel != null && writableByteChannel != null) {
+            ByteBuffer allocate = ByteBuffer.allocate(32768);
+            while (readableByteChannel.read(allocate) != -1) {
+                allocate.flip();
+                writableByteChannel.write(allocate);
+                allocate.clear();
             }
-            return;
         }
-        a<W> aVar = this.bUY.get(command.what);
-        if (aVar == null) {
-            if (DEBUG) {
-                Log.e("CommandDispatcher", command.what + " command is not supported, haven't mocked");
-                return;
-            }
-            return;
-        }
-        if (DEBUG) {
-            Log.d("CommandDispatcher", command.what + " cached command return value processed");
-        }
-        aVar.a(command);
     }
 }

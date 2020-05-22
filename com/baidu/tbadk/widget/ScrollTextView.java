@@ -7,50 +7,50 @@ import android.widget.Scroller;
 import android.widget.TextView;
 /* loaded from: classes8.dex */
 public class ScrollTextView extends TextView implements Runnable {
-    private Scroller ehY;
-    private boolean ehZ;
+    private Scroller ewq;
+    private boolean ewr;
     private float speed;
 
     public ScrollTextView(Context context) {
         super(context);
         this.speed = 15.0f;
-        this.ehZ = true;
+        this.ewr = true;
         setup(context);
     }
 
     public ScrollTextView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.speed = 15.0f;
-        this.ehZ = true;
+        this.ewr = true;
         setup(context);
     }
 
     private void setup(Context context) {
-        this.ehY = new Scroller(context, new LinearInterpolator());
-        setScroller(this.ehY);
+        this.ewq = new Scroller(context, new LinearInterpolator());
+        setScroller(this.ewq);
     }
 
     @Override // android.widget.TextView, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
-        if (this.ehY.isFinished()) {
-            baX();
+        if (this.ewq.isFinished()) {
+            bhi();
         }
     }
 
-    private void baX() {
+    private void bhi() {
         int height = (getHeight() - getPaddingBottom()) - getPaddingTop();
         int lineHeight = height + (getLineHeight() * (getLineCount() - 1));
-        this.ehY.startScroll(0, height * (-1), 0, lineHeight, (int) (lineHeight * this.speed));
-        if (this.ehZ) {
+        this.ewq.startScroll(0, height * (-1), 0, lineHeight, (int) (lineHeight * this.speed));
+        if (this.ewr) {
             post(this);
         }
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        if (this.ehY.isFinished()) {
-            baX();
+        if (this.ewq.isFinished()) {
+            bhi();
         } else {
             post(this);
         }
@@ -65,6 +65,6 @@ public class ScrollTextView extends TextView implements Runnable {
     }
 
     public void setContinuousScrolling(boolean z) {
-        this.ehZ = z;
+        this.ewr = z;
     }
 }

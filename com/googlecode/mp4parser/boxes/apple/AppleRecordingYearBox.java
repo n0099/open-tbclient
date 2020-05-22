@@ -14,8 +14,8 @@ import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
 /* loaded from: classes7.dex */
 public class AppleRecordingYearBox extends AppleDataBox {
-    private static final /* synthetic */ a.InterfaceC0826a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0826a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0888a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0888a ajc$tjp_1 = null;
     Date date;
     DateFormat df;
 

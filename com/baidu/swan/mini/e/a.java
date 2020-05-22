@@ -9,18 +9,20 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class a {
     @NonNull
-    public static String rx(@NonNull String str) {
-        return "window.___NA_SWAN_MINI___.___swan_mini_master_loaded___('" + str + "');";
+    public static String b(@NonNull String str, com.baidu.swan.mini.b.a aVar) {
+        String ta = b.ta(aVar.aFr().getAppId());
+        return "window.___NA_SWAN_MINI___.___swan_mini_master_loaded___('" + str + "', '" + ta + "', '" + b.ta(aVar.aFr().getBundleId()) + "');";
     }
 
     @NonNull
-    public static String s(@NonNull String str, @NonNull String str2, boolean z) {
-        return "var event = new Object(); event.type = 'AppReady';event.isShowing = " + z + ";event.appPackagePath = '" + b.ry(str) + "';event.appConfig = '{}'; event.appCodeInfoStr = '" + b.ry(str2) + "'; _naSwan.dispatchEvent(event);";
+    public static String u(@NonNull String str, @NonNull String str2, boolean z) {
+        return "var event = new Object(); event.type = 'AppReady';event.isShowing = " + z + ";event.appPackagePath = '" + b.ta(str) + "';event.appConfig = '{}'; event.appCodeInfoStr = '" + b.ta(str2) + "'; _naSwan.dispatchEvent(event);";
     }
 
     @NonNull
-    public static String a(@NonNull com.baidu.swan.mini.b.a aVar, @NonNull String str) {
-        return "window.___NA_SWAN_MINI___.___swan_mini_slave_app_loaded___('" + b.ry(aVar.aBz().getAppId()) + "', '" + b.ry(aVar.aBz().getBundleId()) + "', " + str + ");";
+    public static String a(String str, @NonNull String str2, @NonNull com.baidu.swan.mini.b.a aVar) {
+        String ta = b.ta(aVar.aFr().getAppId());
+        return "window.___NA_SWAN_MINI___.___swan_mini_slave_app_loaded___('" + ta + "', '" + b.ta(aVar.aFr().getBundleId()) + "', " + str2 + ", '" + str + "');";
     }
 
     @NonNull

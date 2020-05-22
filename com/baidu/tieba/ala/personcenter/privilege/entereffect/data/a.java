@@ -1,22 +1,22 @@
 package com.baidu.tieba.ala.personcenter.privilege.entereffect.data;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.m;
+import com.baidu.adp.widget.ListView.o;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class a implements m {
-    public static final BdUniqueId gcN = BdUniqueId.gen();
-    public String apK;
+public class a implements o {
+    public static final BdUniqueId grH = BdUniqueId.gen();
+    public String auI;
     public int categoryType;
 
-    @Override // com.baidu.adp.widget.ListView.m
+    @Override // com.baidu.adp.widget.ListView.o
     public BdUniqueId getType() {
-        return gcN;
+        return grH;
     }
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.apK = jSONObject.optString("effect_type_name");
+            this.auI = jSONObject.optString("effect_type_name");
             this.categoryType = jSONObject.optInt("effect_type");
         }
     }

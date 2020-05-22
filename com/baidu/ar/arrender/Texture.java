@@ -5,7 +5,7 @@ public class Texture {
     private int in;
 
     /* renamed from: io  reason: collision with root package name */
-    private int f974io = 3553;
+    private int f972io = 3553;
 
     public long getHandle() {
         return this.eu;
@@ -16,7 +16,7 @@ public class Texture {
     }
 
     public int getType() {
-        return this.f974io;
+        return this.f972io;
     }
 
     public void setHandle(long j) {
@@ -28,6 +28,6 @@ public class Texture {
     }
 
     public void setType(int i) {
-        this.f974io = i;
+        this.f972io = i;
     }
 }

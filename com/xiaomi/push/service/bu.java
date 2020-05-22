@@ -16,12 +16,12 @@ class bu extends ContentObserver {
 
     @Override // android.database.ContentObserver
     public void onChange(boolean z) {
-        boolean m512g;
+        boolean m514g;
         super.onChange(z);
-        m512g = this.a.m512g();
-        com.xiaomi.channel.commonutils.logger.b.m50a("SuperPowerMode:" + m512g);
+        m514g = this.a.m514g();
+        com.xiaomi.channel.commonutils.logger.b.m52a("SuperPowerMode:" + m514g);
         this.a.e();
-        if (m512g) {
+        if (m514g) {
             this.a.a(new XMPushService.f(24, null));
         } else {
             this.a.a(true);

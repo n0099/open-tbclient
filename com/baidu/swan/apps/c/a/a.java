@@ -5,7 +5,7 @@ import android.os.Bundle;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
 import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.swan.apps.as.ag;
+import com.baidu.swan.apps.aq.ah;
 import com.baidu.webkit.sdk.CookieManager;
 import com.baidu.webkit.sdk.CookieSyncManager;
 /* loaded from: classes11.dex */
@@ -20,7 +20,7 @@ public class a {
 
     public static void N(Context context, String str) {
         if (context != null) {
-            CookieManager.getInstance().setCookie(".baidu.com", ag.getCookieStr(".baidu.com", "MABDUSS", str, 31449600L));
+            CookieManager.getInstance().setCookie(".baidu.com", ah.getCookieStr(".baidu.com", "BDUSS", str, 31449600L));
             CookieSyncManager.createInstance(AppRuntime.getAppContext());
             CookieSyncManager.getInstance().sync();
         }
@@ -28,7 +28,7 @@ public class a {
 
     private static void O(Context context, String str) {
         Bundle bundle = new Bundle();
-        bundle.putString("ma_bduss", str);
+        bundle.putString("bduss", str);
         DelegateUtils.callOnMainWithContentProvider(context, b.class, bundle);
     }
 }

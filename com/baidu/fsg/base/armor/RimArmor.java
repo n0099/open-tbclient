@@ -26,7 +26,10 @@ public class RimArmor {
     public native String localEncrypt(String str);
 
     static {
-        System.loadLibrary("bd_fsg_rim_v1_3");
+        try {
+            System.loadLibrary("bd_fsg_rim_v1_3");
+        } catch (Throwable th) {
+        }
     }
 
     private RimArmor() {

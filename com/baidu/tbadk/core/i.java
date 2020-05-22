@@ -1,87 +1,49 @@
 package com.baidu.tbadk.core;
 
-import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 /* loaded from: classes.dex */
 public class i {
-    private static i dle;
-    private int mIsAbstractOn = 1;
-    private int mUploadImageQuality = 0;
-    private int mAddImageWater = 0;
-    private String forumName = null;
-    private boolean mIsShowImages = true;
-    private int mViewImageQuality = 0;
-
-    public static i aIc() {
-        i iVar;
-        if (dle == null) {
-            synchronized (i.class) {
-                if (dle == null) {
-                    dle = new i();
+    private static final CustomMessageListener dzd = new CustomMessageListener(0) { // from class: com.baidu.tbadk.core.i.1
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            if (customResponsedMessage != null) {
+                switch (customResponsedMessage.getCmd()) {
+                    case CmdConfigCustom.METHOD_START_SYNC /* 2005009 */:
+                        TbadkCoreApplication.getInst().startSyncService();
+                        return;
+                    case CmdConfigCustom.METHOD_STOP_SYNC /* 2005010 */:
+                        TbadkCoreApplication.getInst().stopSyncService();
+                        return;
+                    case CmdConfigCustom.METHOD_START_ACTIVE /* 2005011 */:
+                        TbadkCoreApplication.getInst().startActiveService();
+                        return;
+                    case CmdConfigCustom.METHOD_STOP_ACTIVE /* 2005012 */:
+                        TbadkCoreApplication.getInst().stopActiveServide();
+                        return;
+                    case CmdConfigCustom.METHOD_START_CLEARTEMP /* 2005013 */:
+                        TbadkCoreApplication.getInst().startClearTempService();
+                        return;
+                    case 2005014:
+                    default:
+                        return;
+                    case CmdConfigCustom.METHOD_PASSV6_SWITCH_INITED /* 2005015 */:
+                        TbadkCoreApplication.getInst().startSyncLoginService();
+                        return;
                 }
-                iVar = dle;
             }
-            return iVar;
         }
-        return dle;
-    }
+    };
 
-    private i() {
-    }
-
-    public void initSetting() {
-        this.mUploadImageQuality = com.baidu.tbadk.core.sharedPref.b.aNT().getInt(SharedPrefConfig.PREFS_IMAGE_QUALITY, 0);
-        this.mIsAbstractOn = com.baidu.tbadk.core.sharedPref.b.aNT().getInt(SharedPrefConfig.PREFS_ABSTRACT_STATE, 0);
-        this.mViewImageQuality = com.baidu.tbadk.core.sharedPref.b.aNT().getInt(SharedPrefConfig.PREFS_VIEW_IMAGE_QUALITY, 0);
-        this.mIsShowImages = com.baidu.tbadk.core.sharedPref.b.aNT().getBoolean(SharedPrefConfig.PREFS_SHOW_IMAGES, true);
-    }
-
-    public int getUploadImageQuality() {
-        this.mUploadImageQuality = com.baidu.tbadk.core.sharedPref.b.aNT().getInt(SharedPrefConfig.PREFS_IMAGE_QUALITY, 0);
-        return this.mUploadImageQuality;
-    }
-
-    public void setImageWaterType(int i) {
-        if (this.mAddImageWater != i) {
-            this.mAddImageWater = i;
-            com.baidu.tbadk.core.sharedPref.b.aNT().putInt(TbadkCoreApplication.getCurrentAccount() + SharedPrefConfig.PREFS_ADD_IMAGE_WATER, i);
-        }
-    }
-
-    public int getImageWaterType() {
-        this.mAddImageWater = com.baidu.tbadk.core.sharedPref.b.aNT().getInt(TbadkCoreApplication.getCurrentAccount() + SharedPrefConfig.PREFS_ADD_IMAGE_WATER, 2);
-        return this.mAddImageWater;
-    }
-
-    public void setForumNameForWaterImage(String str) {
-        this.forumName = str;
-    }
-
-    public String getForumNameForWaterImage() {
-        return this.forumName;
-    }
-
-    public boolean isShowImages() {
-        return this.mIsShowImages;
-    }
-
-    public void setShowImages(boolean z) {
-        if (this.mIsShowImages != z) {
-            this.mIsShowImages = z;
-            com.baidu.tbadk.core.sharedPref.b.aNT().putBoolean(SharedPrefConfig.PREFS_SHOW_IMAGES, z);
-        }
-    }
-
-    public void jy(int i) {
-        if (this.mViewImageQuality != i) {
-            this.mViewImageQuality = i;
-            com.baidu.tbadk.core.sharedPref.b.aNT().putInt(SharedPrefConfig.PREFS_VIEW_IMAGE_QUALITY, i);
-            ar.aOS().updateFrsShowBigImage();
-            ar.aOS().updateUrlQuality();
-        }
-    }
-
-    public int getViewImageQuality() {
-        return this.mViewImageQuality;
+    public static void init() {
+        MessageManager.getInstance().registerListener(CmdConfigCustom.METHOD_START_SYNC, dzd);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.METHOD_STOP_SYNC, dzd);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.METHOD_START_ACTIVE, dzd);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.METHOD_STOP_ACTIVE, dzd);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.METHOD_START_CLEARTEMP, dzd);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.METHOD_PASSV6_SWITCH_INITED, dzd);
     }
 }

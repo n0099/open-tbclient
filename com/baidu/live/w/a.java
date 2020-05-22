@@ -1,18 +1,18 @@
 package com.baidu.live.w;
 
 import android.view.ViewGroup;
-import com.baidu.live.data.n;
+import com.baidu.live.data.q;
 /* loaded from: classes3.dex */
 public interface a {
 
     /* renamed from: com.baidu.live.w.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC0153a {
-        void E(Object obj);
+    public interface InterfaceC0186a {
+        void G(Object obj);
 
-        void Ey();
+        void Gp();
 
-        void Ez();
+        void Gq();
 
         void a(b bVar);
     }
@@ -21,25 +21,25 @@ public interface a {
 
     void a(com.baidu.live.liveroom.b.a aVar);
 
-    void a(InterfaceC0153a interfaceC0153a);
+    void a(InterfaceC0186a interfaceC0186a);
 
-    void bN(boolean z);
+    void bX(boolean z);
 
-    void cw(int i);
+    void cD(int i);
 
-    void cx(int i);
+    void cE(int i);
 
-    void i(ViewGroup viewGroup);
+    void m(ViewGroup viewGroup);
 
-    void j(ViewGroup viewGroup);
+    void n(ViewGroup viewGroup);
 
-    void k(ViewGroup viewGroup);
+    void o(ViewGroup viewGroup);
 
     void onDestroy();
 
     void onKeyboardVisibilityChanged(boolean z);
 
-    void setLiveShowInfo(n nVar);
+    void setLiveShowInfo(q qVar);
 
     void setStickerCanOperate(boolean z);
 

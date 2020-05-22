@@ -1,32 +1,41 @@
 package com.baidu.swan.pms;
 
 import com.baidu.searchbox.http.cookie.CookieManager;
+import com.baidu.swan.pms.node.b.f;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public interface b {
+    void a(com.baidu.swan.pms.node.a.a aVar);
+
+    void a(f fVar);
+
     void a(String str, String str2, String str3, int i, JSONObject jSONObject);
 
-    String acI();
+    String afQ();
 
-    String acJ();
+    String afR();
 
-    String acK();
+    String afS();
 
-    String acL();
+    String afT();
 
-    String acM();
+    String afU();
 
-    String acN();
+    String afV();
 
-    String acO();
+    String afW();
 
-    String acP();
+    String afX();
 
-    String acQ();
+    String afY();
 
-    CookieManager acR();
+    String afZ();
 
-    String acS();
+    CookieManager aga();
+
+    String agb();
+
+    com.baidu.swan.pms.c.f agc();
 
     String getProcessName();
 

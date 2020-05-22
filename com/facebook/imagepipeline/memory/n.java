@@ -1,18 +1,18 @@
 package com.facebook.imagepipeline.memory;
 /* loaded from: classes12.dex */
 public class n implements s {
-    private static n mee = null;
+    private static n mxV = null;
 
     private n() {
     }
 
-    public static synchronized n dtv() {
+    public static synchronized n dAM() {
         n nVar;
         synchronized (n.class) {
-            if (mee == null) {
-                mee = new n();
+            if (mxV == null) {
+                mxV = new n();
             }
-            nVar = mee;
+            nVar = mxV;
         }
         return nVar;
     }
@@ -22,26 +22,26 @@ public class n implements s {
     }
 
     @Override // com.facebook.imagepipeline.memory.s
-    public void Hl(int i) {
+    public void HX(int i) {
     }
 
     @Override // com.facebook.imagepipeline.memory.s
-    public void dtw() {
+    public void dAN() {
     }
 
     @Override // com.facebook.imagepipeline.memory.s
-    public void dtx() {
+    public void dAO() {
     }
 
     @Override // com.facebook.imagepipeline.memory.s
-    public void Hm(int i) {
+    public void HY(int i) {
     }
 
     @Override // com.facebook.imagepipeline.memory.s
-    public void Hn(int i) {
+    public void HZ(int i) {
     }
 
     @Override // com.facebook.imagepipeline.memory.s
-    public void Ho(int i) {
+    public void Ia(int i) {
     }
 }

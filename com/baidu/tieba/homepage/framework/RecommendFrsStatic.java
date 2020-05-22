@@ -11,6 +11,8 @@ import com.baidu.tieba.deletethread.DeleteThreadHttpResponseMessage;
 import com.baidu.tieba.homepage.personalize.bigday.BigdayActivity;
 /* loaded from: classes9.dex */
 public class RecommendFrsStatic {
+    public static String Tag = "tag";
+
     static {
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003184, TbConfig.SERVER_ADDRESS + TbConfig.NEG_FEED_BACK);

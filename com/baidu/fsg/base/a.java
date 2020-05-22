@@ -10,5 +10,6 @@ public final class a {
     public static final String g = "";
     public static final String h = "BgAAAA";
     public static final boolean i = true;
-    public static final String j = "1.9.0.1";
+    public static final boolean j = true;
+    public static final String k = "2.0.1.0";
 }

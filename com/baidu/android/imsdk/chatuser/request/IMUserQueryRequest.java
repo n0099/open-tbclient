@@ -41,6 +41,11 @@ public class IMUserQueryRequest extends IMUserBaseHttpRequest {
     }
 
     @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
+    public String getContentType() {
+        return "application/x-www-form-urlencoded";
+    }
+
+    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
     public boolean shouldAbort() {
         if (AccountManager.isCuidLogin(this.mContext)) {
             onFailure(1000, "Account not login! pls login first!, uid login required".getBytes(), null);
@@ -75,6 +80,7 @@ public class IMUserQueryRequest extends IMUserBaseHttpRequest {
                         ChatUser chatUser = new ChatUser(optLong, 0L, null, null);
                         chatUser.setDisturb(optInt2);
                         chatUser.setBlack(optInt3);
+                        chatUser.setUserExt(jSONObject3.optString(TableDefine.UserInfoColumns.COLUMN_USER_EXT, ""));
                         linkedList.add(chatUser);
                     } else if (1 == optInt) {
                         GroupInfo groupInfo = new GroupInfo(String.valueOf(optLong));

@@ -68,7 +68,7 @@ public class ex implements et {
     @Override // com.xiaomi.push.et
     public void a(Context context, ep epVar) {
         if (epVar != null) {
-            a(context, epVar.m262a(), epVar.c(), epVar.d());
+            a(context, epVar.m264a(), epVar.c(), epVar.d());
         }
     }
 }

@@ -131,10 +131,16 @@ public class BaseActivity extends Activity implements NoProguard {
         this.h = System.currentTimeMillis();
         this.mStatUtil = RimStatisticsUtil.getInstance();
         RimStatisticsUtil.onPush(getClass().getSimpleName());
-        setRequestedOrientation(1);
+        if (isRequestedOrientation()) {
+            setRequestedOrientation(1);
+        }
         super.onCreate(bundle);
         LogUtil.e("debug_msg", "onCreate-----" + getClass().getName(), null);
         addToTask(this);
+    }
+
+    protected boolean isRequestedOrientation() {
+        return true;
     }
 
     @Override // android.app.Activity

@@ -26,24 +26,24 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes13.dex */
 public class i {
-    private static i ksy = null;
-    private static DownloadData dWp = null;
+    private static i kKs = null;
+    private static DownloadData eky = null;
     private static List<DownloadData> mTaskList = new LinkedList();
-    private static HashMap<String, Integer> ksq = new HashMap<>();
+    private static HashMap<String, Integer> kKk = new HashMap<>();
     private final int MAX = 5;
-    private a ksz = null;
-    private HashMap<String, k> ksr = new HashMap<>();
+    private a kKt = null;
+    private HashMap<String, k> kKl = new HashMap<>();
 
     private i() {
     }
 
-    public static i cNy() {
+    public static i cUy() {
         synchronized (i.class) {
-            if (ksy == null) {
-                ksy = new i();
+            if (kKs == null) {
+                kKs = new i();
             }
         }
-        return ksy;
+        return kKs;
     }
 
     public void a(String str, String str2, String str3, int i, int i2, String[] strArr, boolean z, boolean z2, boolean z3, String str4, DownloadStaticsData downloadStaticsData, String str5) {
@@ -66,7 +66,7 @@ public class i {
 
     public void a(DownloadData downloadData) {
         if (downloadData != null) {
-            List<DownloadData> downloadList = com.baidu.tieba.recapp.download.a.cNr().getDownloadList();
+            List<DownloadData> downloadList = com.baidu.tieba.recapp.download.a.cUr().getDownloadList();
             if (downloadList != null && downloadList.size() >= 5) {
                 downloadData.setStatus(2);
                 downloadData.setStatusMsg(TbadkCoreApplication.getInst().getApp().getString(R.string.download_fail_over_max));
@@ -75,18 +75,18 @@ public class i {
                 return;
             }
             mTaskList.add(downloadData);
-            aWI();
+            bcR();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aWI() {
-        if (dWp == null && !mTaskList.isEmpty()) {
-            dWp = mTaskList.get(0);
-            if (dWp != null) {
-                this.ksz = new a();
-                this.ksz.setPriority(3);
-                this.ksz.execute(dWp);
+    public void bcR() {
+        if (eky == null && !mTaskList.isEmpty()) {
+            eky = mTaskList.get(0);
+            if (eky != null) {
+                this.kKt = new a();
+                this.kKt.setPriority(3);
+                this.kKt.execute(eky);
             }
         }
     }
@@ -110,7 +110,7 @@ public class i {
         return sb.toString();
     }
 
-    public String Jw(String str) {
+    public String Li(String str) {
         return getFilePath(str.replace(".", PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS) + ".apk");
     }
 
@@ -158,27 +158,27 @@ public class i {
         /* renamed from: e */
         public void onPostExecute(DownloadData downloadData) {
             super.onPostExecute(downloadData);
-            i.this.ksz = null;
+            i.this.kKt = null;
             if (downloadData != null) {
                 if (downloadData.getStatus() == 3) {
-                    String ar = com.baidu.tieba.ad.download.a.ar(TbadkCoreApplication.getInst(), downloadData.getPath());
-                    com.baidu.tieba.ad.download.b.a.brU.get().bgB().onSuccess(downloadData.getId(), downloadData.getPath());
+                    String as = com.baidu.tieba.ad.download.a.as(TbadkCoreApplication.getInst(), downloadData.getPath());
+                    com.baidu.tieba.ad.download.b.a.bzx.get().bmM().onSuccess(downloadData.getId(), downloadData.getPath());
                     i.this.b(downloadData);
-                    if (downloadData.isNeedInvokeApk() && !com.baidu.tieba.ad.download.a.isAppInstalled(TbadkCoreApplication.getInst(), ar)) {
+                    if (downloadData.isNeedInvokeApk() && !com.baidu.tieba.ad.download.a.isAppInstalled(TbadkCoreApplication.getInst(), as)) {
                         UtilHelper.install_apk(TbadkCoreApplication.getInst().getApp(), downloadData.getId().replace(".", PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS) + ".apk");
                     }
                 } else {
-                    com.baidu.tieba.ad.download.b.a.brU.get().bgB().yt(downloadData.getId());
-                    com.baidu.tieba.recapp.download.a.cNr().a(downloadData, 5);
-                    if (i.this.cQ(downloadData.getId(), downloadData.getName()) <= 0) {
+                    com.baidu.tieba.ad.download.b.a.bzx.get().bmM().zZ(downloadData.getId());
+                    com.baidu.tieba.recapp.download.a.cUr().a(downloadData, 5);
+                    if (i.this.dp(downloadData.getId(), downloadData.getName()) <= 0) {
                         if (downloadData.getDownloadStaticsData() != null) {
                             downloadData.getDownloadStaticsData().setDa_range("0");
                         }
                         if (downloadData.isNeedNotify()) {
                             String string = TbadkCoreApplication.getInst().getApp().getResources().getString(R.string.download_will_begin);
                             k kVar = new k(downloadData, 0);
-                            i.this.ksr.put(downloadData.getUrl(), kVar);
-                            NotificationHelper.showProgressNotification(TbadkCoreApplication.getInst().getApp(), downloadData.getNotifyId(), downloadData.getUser_name() + string, 0, string, downloadData.getUser_name(), i.this.wm(downloadData.getAction()), false, kVar.cNv(), false);
+                            i.this.kKl.put(downloadData.getUrl(), kVar);
+                            NotificationHelper.showProgressNotification(TbadkCoreApplication.getInst().getApp(), downloadData.getNotifyId(), downloadData.getUser_name() + string, 0, string, downloadData.getUser_name(), i.this.xS(downloadData.getAction()), false, kVar.cUv(), false);
                         }
                     } else {
                         if (downloadData.getDownloadStaticsData() != null) {
@@ -187,10 +187,10 @@ public class i {
                         i.this.c(downloadData);
                     }
                 }
-                DownloadData unused = i.dWp = null;
+                DownloadData unused = i.eky = null;
                 if (!i.mTaskList.isEmpty()) {
                     i.mTaskList.remove(0);
-                    i.this.aWI();
+                    i.this.bcR();
                 }
             }
         }
@@ -198,58 +198,58 @@ public class i {
 
     public void c(DownloadData downloadData) {
         if (downloadData != null && downloadData.isNeedNotify()) {
-            int cQ = cQ(downloadData.getId(), downloadData.getName());
-            b.brU.get().bgB().at(downloadData.getId(), cQ);
-            String str = cQ + "%";
-            k kVar = this.ksr.get(downloadData.getUrl());
-            k kVar2 = kVar == null ? new k(downloadData, cQ) : kVar;
+            int dp = dp(downloadData.getId(), downloadData.getName());
+            b.bzx.get().bmM().au(downloadData.getId(), dp);
+            String str = dp + "%";
+            k kVar = this.kKl.get(downloadData.getUrl());
+            k kVar2 = kVar == null ? new k(downloadData, dp) : kVar;
             int status = getStatus(downloadData);
             if (status == 1) {
-                kVar2.cNw();
+                kVar2.cUw();
             } else if (status == 4 || status == 2 || status == 7) {
-                kVar2.cNx();
+                kVar2.cUx();
             } else if (status == 6) {
                 NotificationHelper.cancelNotification(TbadkCoreApplication.getInst().getApp(), downloadData.getNotifyId());
                 return;
             }
-            kVar2.BA(cQ);
-            NotificationHelper.showProgressNotification(TbadkCoreApplication.getInst().getApp(), downloadData.getNotifyId(), null, 0, str, downloadData.getUser_name(), wm(downloadData.getAction()), false, kVar2.cNv(), false);
+            kVar2.Ck(dp);
+            NotificationHelper.showProgressNotification(TbadkCoreApplication.getInst().getApp(), downloadData.getNotifyId(), null, 0, str, downloadData.getUser_name(), xS(downloadData.getAction()), false, kVar2.cUv(), false);
         }
     }
 
     public void i(DownloadData downloadData) {
         if (downloadData != null) {
-            k kVar = this.ksr.get(downloadData.getUrl());
-            k kVar2 = kVar == null ? new k(downloadData, cQ(downloadData.getId(), downloadData.getName())) : kVar;
-            kVar2.cNw();
-            NotificationHelper.showProgressNotification(TbadkCoreApplication.getInst().getApp(), downloadData.getNotifyId(), null, 0, cQ(downloadData.getId(), downloadData.getName()) + "%", downloadData.getUser_name(), wm(downloadData.getAction()), false, kVar2.cNv(), false);
+            k kVar = this.kKl.get(downloadData.getUrl());
+            k kVar2 = kVar == null ? new k(downloadData, dp(downloadData.getId(), downloadData.getName())) : kVar;
+            kVar2.cUw();
+            NotificationHelper.showProgressNotification(TbadkCoreApplication.getInst().getApp(), downloadData.getNotifyId(), null, 0, dp(downloadData.getId(), downloadData.getName()) + "%", downloadData.getUser_name(), xS(downloadData.getAction()), false, kVar2.cUv(), false);
         }
     }
 
     public void j(DownloadData downloadData) {
         if (downloadData != null) {
-            k kVar = this.ksr.get(downloadData.getUrl());
-            int cQ = cQ(downloadData.getId(), downloadData.getName());
+            k kVar = this.kKl.get(downloadData.getUrl());
+            int dp = dp(downloadData.getId(), downloadData.getName());
             if (kVar == null) {
-                kVar = new k(downloadData, cQ);
+                kVar = new k(downloadData, dp);
             }
-            kVar.cNx();
+            kVar.cUx();
         }
     }
 
     public void k(DownloadData downloadData) {
         if (downloadData != null) {
             j(downloadData);
-            com.baidu.tieba.ad.download.b.a.brU.get().bgB().a(downloadData.getId(), StopStatus.DOWNLOAD_FAIL);
-            k kVar = this.ksr.get(downloadData.getUrl());
+            com.baidu.tieba.ad.download.b.a.bzx.get().bmM().a(downloadData.getId(), StopStatus.DOWNLOAD_FAIL);
+            k kVar = this.kKl.get(downloadData.getUrl());
             if (kVar != null) {
-                NotificationHelper.showProgressNotification(TbadkCoreApplication.getInst().getApp(), downloadData.getNotifyId(), null, 0, cQ(downloadData.getId(), downloadData.getName()) + "%", downloadData.getUser_name(), wm(downloadData.getAction()), false, kVar.cNv(), false);
+                NotificationHelper.showProgressNotification(TbadkCoreApplication.getInst().getApp(), downloadData.getNotifyId(), null, 0, dp(downloadData.getId(), downloadData.getName()) + "%", downloadData.getUser_name(), xS(downloadData.getAction()), false, kVar.cUv(), false);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public PendingIntent wm(String str) {
+    public PendingIntent xS(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -276,13 +276,13 @@ public class i {
             }
             if (downloadData.isNeedNotify()) {
                 int process = downloadData.getProcess();
-                NotificationHelper.showProgressNotification(TbadkCoreApplication.getInst().getApp(), downloadData.getNotifyId(), downloadData.getUser_name() + TbadkCoreApplication.getInst().getApp().getResources().getString(R.string.download_fail_tip), process, process + "%", string, wm(downloadData.getAction()), false);
+                NotificationHelper.showProgressNotification(TbadkCoreApplication.getInst().getApp(), downloadData.getNotifyId(), downloadData.getUser_name() + TbadkCoreApplication.getInst().getApp().getResources().getString(R.string.download_fail_tip), process, process + "%", string, xS(downloadData.getAction()), false);
             }
         }
     }
 
-    public boolean wn(String str) {
-        for (DownloadData downloadData : com.baidu.tieba.recapp.download.a.cNr().getDownloadList()) {
+    public boolean xT(String str) {
+        for (DownloadData downloadData : com.baidu.tieba.recapp.download.a.cUr().getDownloadList()) {
             if (downloadData.getId() != null && downloadData.getId().equals(str) && downloadData.getStatus() == 1) {
                 return true;
             }
@@ -290,20 +290,20 @@ public class i {
         return false;
     }
 
-    public int cQ(String str, String str2) {
-        long cR = cR(str, str2);
+    public int dp(String str, String str2) {
+        long dq = dq(str, str2);
         long j = TbadkCoreApplication.getInst().getSharedPreferences(SharedPrefConfig.APP_DOWNLOAD_PROGRESS, 0).getLong(str, 0L);
         if (0 == j) {
             return -1;
         }
-        if (cR <= j) {
-            return (int) ((100 * cR) / j);
+        if (dq <= j) {
+            return (int) ((100 * dq) / j);
         }
         return 0;
     }
 
-    public boolean Jt(String str) {
-        for (DownloadData downloadData : com.baidu.tieba.recapp.download.a.cNr().getDownloadList()) {
+    public boolean Lf(String str) {
+        for (DownloadData downloadData : com.baidu.tieba.recapp.download.a.cUr().getDownloadList()) {
             if (downloadData.getId() != null && downloadData.getId().equals(str) && downloadData.getStatus() == 5) {
                 return true;
             }
@@ -311,47 +311,47 @@ public class i {
         return false;
     }
 
-    public void z(String str, String str2, boolean z) {
+    public void B(String str, String str2, boolean z) {
         if (!StringUtils.isNull(str)) {
             DownloadData downloadData = null;
-            for (DownloadData downloadData2 : com.baidu.tieba.recapp.download.a.cNr().getDownloadList()) {
+            for (DownloadData downloadData2 : com.baidu.tieba.recapp.download.a.cUr().getDownloadList()) {
                 if (downloadData2.getId() == null || !downloadData2.getId().equals(str2)) {
                     downloadData2 = downloadData;
                 }
                 downloadData = downloadData2;
             }
             if (z) {
-                com.baidu.tieba.recapp.download.a.cNr().cancelDownLoadByUrl(str, true);
+                com.baidu.tieba.recapp.download.a.cUr().cancelDownLoadByUrl(str, true);
             } else {
-                com.baidu.tieba.recapp.download.a.cNr().cancelDownLoadByUrl(str);
+                com.baidu.tieba.recapp.download.a.cUr().cancelDownLoadByUrl(str);
             }
             if (downloadData != null) {
-                int cQ = cQ(downloadData.getId(), downloadData.getName());
-                com.baidu.tieba.ad.download.b.a.brU.get().bgB().as(str2, cQ);
-                String str3 = cQ + "%";
-                if (downloadData != null && cQ >= 0) {
-                    k kVar = this.ksr.get(downloadData.getUrl());
-                    k kVar2 = kVar == null ? new k(downloadData, cQ) : kVar;
-                    kVar2.cNx();
-                    NotificationHelper.showProgressNotification(TbadkCoreApplication.getInst().getApp(), downloadData.getNotifyId(), null, 0, str3, downloadData.getUser_name(), wm(downloadData.getAction()), false, kVar2.cNv(), false);
+                int dp = dp(downloadData.getId(), downloadData.getName());
+                com.baidu.tieba.ad.download.b.a.bzx.get().bmM().at(str2, dp);
+                String str3 = dp + "%";
+                if (downloadData != null && dp >= 0) {
+                    k kVar = this.kKl.get(downloadData.getUrl());
+                    k kVar2 = kVar == null ? new k(downloadData, dp) : kVar;
+                    kVar2.cUx();
+                    NotificationHelper.showProgressNotification(TbadkCoreApplication.getInst().getApp(), downloadData.getNotifyId(), null, 0, str3, downloadData.getUser_name(), xS(downloadData.getAction()), false, kVar2.cUv(), false);
                 }
             }
         }
     }
 
     public void m(DownloadData downloadData) {
-        com.baidu.tieba.recapp.download.a.cNr().h(downloadData);
+        com.baidu.tieba.recapp.download.a.cUr().h(downloadData);
         NotificationHelper.cancelNotification(TbadkCoreApplication.getInst().getApp(), downloadData.getNotifyId());
-        com.baidu.tieba.ad.download.b.a.brU.get().bgB().a(downloadData.getId(), StopStatus.DOWNLOAD_UNSTART);
+        com.baidu.tieba.ad.download.b.a.bzx.get().bmM().a(downloadData.getId(), StopStatus.DOWNLOAD_UNSTART);
         b(downloadData);
     }
 
-    public boolean eC(String str, String str2) {
+    public boolean fd(String str, String str2) {
         File GetFile;
         return TbadkCoreApplication.getInst().getSharedPreferences(SharedPrefConfig.APP_DOWNLOAD_PROGRESS, 0).getLong(str, 0L) != 0 && (GetFile = m.GetFile(new StringBuilder().append(str).append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS).append(str2).append(".tmp").toString())) != null && GetFile.exists() && GetFile.isFile();
     }
 
-    public long cR(String str, String str2) {
+    public long dq(String str, String str2) {
         File GetFile = m.GetFile(str + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + str2 + ".tmp");
         if (GetFile != null && GetFile.exists() && GetFile.isFile()) {
             return GetFile.length();
@@ -359,20 +359,20 @@ public class i {
         return -1L;
     }
 
-    public boolean wp(String str) {
+    public boolean xV(String str) {
         return (TextUtils.isEmpty(str) || m.GetFile(new StringBuilder().append(str.replace(".", PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS)).append(".apk").toString()) == null) ? false : true;
     }
 
     public static int getStatus(DownloadData downloadData) {
         String id;
         int i = 6;
-        if (cNy().wp(downloadData.getId())) {
+        if (cUy().xV(downloadData.getId())) {
             i = 3;
-        } else if (cNy().Jt(downloadData.getId())) {
+        } else if (cUy().Lf(downloadData.getId())) {
             i = 5;
-        } else if (cNy().wn(downloadData.getId())) {
+        } else if (cUy().xT(downloadData.getId())) {
             i = 1;
-        } else if (cNy().eC(downloadData.getId(), downloadData.getName())) {
+        } else if (cUy().fd(downloadData.getId(), downloadData.getName())) {
             i = 7;
         }
         DownloadStaticsData downloadStaticsData = downloadData.getDownloadStaticsData();
@@ -381,13 +381,13 @@ public class i {
         } else {
             id = downloadData.getId();
         }
-        if (!TextUtils.isEmpty(id) && com.baidu.tieba.a.bdA().bdC() && cNy().Ju(id)) {
+        if (!TextUtils.isEmpty(id) && com.baidu.tieba.a.bjL().bjN() && cUy().Lg(id)) {
             return 8;
         }
         return i;
     }
 
-    private boolean Ju(String str) {
+    private boolean Lg(String str) {
         TbadkApplication inst = TbadkApplication.getInst();
         if (inst != null) {
             try {
@@ -403,12 +403,12 @@ public class i {
         return false;
     }
 
-    public static Integer Jv(String str) {
-        if (ksq.containsKey(str)) {
-            return ksq.get(str);
+    public static Integer Lh(String str) {
+        if (kKk.containsKey(str)) {
+            return kKk.get(str);
         }
         Integer valueOf = Integer.valueOf(BdUniqueId.gen().getId());
-        ksq.put(str, valueOf);
+        kKk.put(str, valueOf);
         return valueOf;
     }
 }

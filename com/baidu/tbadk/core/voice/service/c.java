@@ -1,13 +1,13 @@
 package com.baidu.tbadk.core.voice.service;
 /* loaded from: classes.dex */
 public interface c {
-    void aRk();
+    void aXr();
 
-    void aRo();
+    void aXv();
 
-    void aRp();
+    void aXw();
 
-    void aRq();
+    void aXx();
 
     int getErrorNo();
 
@@ -15,9 +15,9 @@ public interface c {
 
     boolean isPrepared();
 
-    int mt();
+    int mv();
 
     void seek(int i);
 
-    boolean vy(String str);
+    boolean xe(String str);
 }

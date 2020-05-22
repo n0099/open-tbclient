@@ -8,104 +8,104 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes6.dex */
 public class b implements com.baidu.c.a.b.a.b {
-    private d bfe;
+    private d bmE;
     private Context mContext;
-    private boolean bfd = false;
-    private final Map<String, a> bff = new ConcurrentHashMap();
+    private boolean bmD = false;
+    private final Map<String, a> bmF = new ConcurrentHashMap();
 
     public b(Context context, d dVar) {
         this.mContext = context;
-        this.bfe = dVar;
+        this.bmE = dVar;
     }
 
-    private a f(String str, String str2, boolean z) {
-        a aVar = new a(this.bfe.n(this.mContext, str, str2));
-        this.bff.put(str, aVar);
+    private a h(String str, String str2, boolean z) {
+        a aVar = new a(this.bmE.n(this.mContext, str, str2));
+        this.bmF.put(str, aVar);
         return aVar;
     }
 
-    public a fo(String str) {
-        return this.bff.get(str);
+    public a ga(String str) {
+        return this.bmF.get(str);
     }
 
-    public com.baidu.c.a.b.c fp(String str) {
-        return this.bff.get(str).If();
+    public com.baidu.c.a.b.c gb(String str) {
+        return this.bmF.get(str).JY();
     }
 
     @Override // com.baidu.c.a.b.a.b
     public synchronized void a(String str, String str2, int i, com.baidu.c.a.b.b bVar, boolean z) {
         register();
-        f(str, str2, z).a(str, str2, i, bVar, z);
+        h(str, str2, z).a(str, str2, i, bVar, z);
     }
 
     @Override // com.baidu.c.a.b.a.b
-    public synchronized void fn(String str) {
-        a fo = fo(str);
-        if (fo != null) {
-            fo.fn(str);
-            this.bff.remove(str);
+    public synchronized void fZ(String str) {
+        a ga = ga(str);
+        if (ga != null) {
+            ga.fZ(str);
+            this.bmF.remove(str);
         }
     }
 
     @Override // com.baidu.c.a.b.a.b
-    public synchronized void AY() {
+    public synchronized void Cs() {
         try {
-            for (Map.Entry<String, a> entry : this.bff.entrySet()) {
+            for (Map.Entry<String, a> entry : this.bmF.entrySet()) {
                 String key = entry.getKey();
-                a aVar = this.bff.get(key);
+                a aVar = this.bmF.get(key);
                 if (aVar != null) {
-                    if (aVar.Ig()) {
-                        aVar.AY();
+                    if (aVar.JZ()) {
+                        aVar.Cs();
                     }
-                    this.bff.remove(key);
+                    this.bmF.remove(key);
                 }
             }
-            this.bfe.unregisterConnectListener();
-            this.bfd = false;
+            this.bmE.unregisterConnectListener();
+            this.bmD = false;
         } catch (Exception e) {
         }
     }
 
     @Override // com.baidu.c.a.b.a.b
     public synchronized void a(String str, e eVar, f fVar) {
-        a fo = fo(str);
-        if (fo != null) {
-            fo.a(str, eVar, fVar);
+        a ga = ga(str);
+        if (ga != null) {
+            ga.a(str, eVar, fVar);
         }
     }
 
     @Override // com.baidu.c.a.b.a.b
     public void a(String str, com.baidu.c.a.b.a.d dVar) {
-        a fo = fo(str);
-        if (fo != null) {
-            fo.a(str, dVar);
+        a ga = ga(str);
+        if (ga != null) {
+            ga.a(str, dVar);
         }
     }
 
     private void register() {
-        if (!this.bfd) {
-            this.bfe.unregisterConnectListener();
-            this.bfe.a(new com.baidu.c.a.b.a() { // from class: com.baidu.c.b.a.a.b.1
+        if (!this.bmD) {
+            this.bmE.unregisterConnectListener();
+            this.bmE.a(new com.baidu.c.a.b.a() { // from class: com.baidu.c.b.a.a.b.1
                 @Override // com.baidu.c.a.b.a
                 public void onResult(int i) {
                     if (i == 0) {
                         b.this.reconnect();
                     } else if (1 == i) {
-                        b.this.bfe.HU();
+                        b.this.bmE.JN();
                     }
                 }
             });
-            this.bfd = true;
+            this.bmD = true;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void reconnect() {
         try {
-            for (Map.Entry<String, a> entry : this.bff.entrySet()) {
-                a aVar = this.bff.get(entry.getKey());
+            for (Map.Entry<String, a> entry : this.bmF.entrySet()) {
+                a aVar = this.bmF.get(entry.getKey());
                 if (aVar != null) {
-                    aVar.Df();
+                    aVar.ED();
                 }
             }
         } catch (Exception e) {

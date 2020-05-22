@@ -4,6 +4,7 @@ import android.text.TextUtils;
 import android.webkit.URLUtil;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
+import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.aq;
 import java.io.Serializable;
@@ -36,7 +37,7 @@ public class VersionData implements Serializable {
         if (jSONObject != null) {
             try {
                 this.forceUpdate = jSONObject.optInt("force_update", 0);
-                this.strategy = jSONObject.optInt("strategy", 0);
+                this.strategy = jSONObject.optInt(UbcStatConstant.ContentType.UBC_TYPE_STRATEGY, 0);
                 this.newVer = jSONObject.optString("new_version", null);
                 this.size = jSONObject.optString(TiebaInitialize.LogFields.SIZE, null);
                 String optString = jSONObject.optString("new_four_version", null);

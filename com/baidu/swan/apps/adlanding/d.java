@@ -5,41 +5,41 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class d {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private String bAK;
-    private int bAL;
-    private String bAP;
+    private int bIA;
+    private String bIH;
+    private String bIz;
     private int mVideoHeight;
     private String mVideoUrl;
     private int mVideoWidth;
 
     public d(String str, String str2, String str3, int i, int i2, int i3) {
-        this.bAK = str;
+        this.bIz = str;
         this.mVideoUrl = str2;
-        this.bAP = str3;
+        this.bIH = str3;
         this.mVideoWidth = i;
         this.mVideoHeight = i2;
-        this.bAL = i3;
+        this.bIA = i3;
     }
 
-    public com.baidu.swan.apps.media.c.c QU() {
+    public com.baidu.swan.apps.media.b.c Tz() {
         try {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("showMuteBtn", true);
             jSONObject.put("showCenterPlayBtn", true);
-            com.baidu.swan.apps.media.c.c cVar = new com.baidu.swan.apps.media.c.c();
-            cVar.bYY = "SwanAdPlayer";
-            cVar.bGN = "SwanAdPlayer";
-            cVar.bZg = true;
-            cVar.cdi = false;
-            cVar.cdr = true;
-            cVar.cdA = false;
-            cVar.cdj = this.bAK;
+            com.baidu.swan.apps.media.b.c cVar = new com.baidu.swan.apps.media.b.c();
+            cVar.cjA = "SwanAdPlayer";
+            cVar.bPF = "SwanAdPlayer";
+            cVar.cjJ = true;
+            cVar.cnK = false;
+            cVar.cnS = true;
+            cVar.cob = false;
+            cVar.cnL = this.bIz;
             cVar.mSrc = this.mVideoUrl;
-            cVar.bGO = this.bAP;
-            cVar.bGR = new com.baidu.swan.apps.model.a.a.a(0, 0, this.mVideoWidth, this.mVideoHeight);
-            cVar.bGR.ea(true);
-            cVar.cdk = this.bAL;
-            return com.baidu.swan.apps.media.c.c.a(jSONObject, cVar);
+            cVar.bPG = this.bIH;
+            cVar.bPJ = new com.baidu.swan.apps.model.a.a.a(0, 0, this.mVideoWidth, this.mVideoHeight);
+            cVar.bPJ.er(true);
+            cVar.cnM = this.bIA;
+            return com.baidu.swan.apps.media.b.c.a(jSONObject, cVar);
         } catch (JSONException e) {
             e.printStackTrace();
             return null;

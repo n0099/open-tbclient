@@ -9,50 +9,50 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes11.dex */
 public class PersonCommonForumCardView extends FlowLayout {
-    private List<com.baidu.tieba.personPolymeric.c.f> kdX;
-    private List<PersonCommonForumItemView> kdY;
-    private com.baidu.adp.lib.d.b<PersonCommonForumItemView> kdZ;
+    private List<com.baidu.tieba.personPolymeric.c.f> kvO;
+    private List<PersonCommonForumItemView> kvP;
+    private com.baidu.adp.lib.d.b<PersonCommonForumItemView> kvQ;
     private Context mContext;
 
     public PersonCommonForumCardView(Context context) {
         super(context);
-        this.kdY = new ArrayList();
+        this.kvP = new ArrayList();
         this.mContext = context;
     }
 
     public void setData(List<com.baidu.tieba.personPolymeric.c.f> list) {
-        this.kdX = list;
+        this.kvO = list;
         bindDataToView();
     }
 
     private void bindDataToView() {
-        if (!v.isEmpty(this.kdX)) {
-            for (com.baidu.tieba.personPolymeric.c.f fVar : this.kdX) {
+        if (!v.isEmpty(this.kvO)) {
+            for (com.baidu.tieba.personPolymeric.c.f fVar : this.kvO) {
                 if (fVar != null) {
-                    PersonCommonForumItemView borrowObject = this.kdZ.borrowObject();
+                    PersonCommonForumItemView borrowObject = this.kvQ.borrowObject();
                     borrowObject.setData(fVar);
                     addView(borrowObject, new ViewGroup.LayoutParams(((com.baidu.adp.lib.util.l.getEquipmentWidth(this.mContext) - com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.tbds88)) - com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.tbds96)) / 2, -2));
-                    this.kdY.add(borrowObject);
+                    this.kvP.add(borrowObject);
                 }
             }
         }
     }
 
     public void recycle() {
-        if (!v.isEmpty(this.kdY)) {
-            for (PersonCommonForumItemView personCommonForumItemView : this.kdY) {
-                this.kdZ.returnObject(personCommonForumItemView);
+        if (!v.isEmpty(this.kvP)) {
+            for (PersonCommonForumItemView personCommonForumItemView : this.kvP) {
+                this.kvQ.returnObject(personCommonForumItemView);
             }
             removeAllViews();
         }
     }
 
     public void setForumItemViewBdObjectPool(com.baidu.adp.lib.d.b<PersonCommonForumItemView> bVar) {
-        this.kdZ = bVar;
+        this.kvQ = bVar;
     }
 
     public void onChangeSkinType() {
-        for (PersonCommonForumItemView personCommonForumItemView : this.kdY) {
+        for (PersonCommonForumItemView personCommonForumItemView : this.kvP) {
             if (personCommonForumItemView != null) {
                 personCommonForumItemView.onChangeSkinType();
             }

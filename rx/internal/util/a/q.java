@@ -10,13 +10,13 @@ public final class q<E> extends v<E> {
         if (e == null) {
             throw new NullPointerException("null elements not allowed");
         }
-        E[] eArr = this.mXo;
+        E[] eArr = this.nsq;
         long j = this.producerIndex;
-        long gv = gv(j);
-        if (b(eArr, gv) != null) {
+        long gw = gw(j);
+        if (b(eArr, gw) != null) {
             return false;
         }
-        b(eArr, gv, e);
+        b(eArr, gw, e);
         soProducerIndex(1 + j);
         return true;
     }
@@ -24,53 +24,53 @@ public final class q<E> extends v<E> {
     @Override // java.util.Queue
     public E poll() {
         long j = this.consumerIndex;
-        long gv = gv(j);
-        E[] eArr = this.mXo;
-        E b = b(eArr, gv);
+        long gw = gw(j);
+        E[] eArr = this.nsq;
+        E b = b(eArr, gw);
         if (b == null) {
             return null;
         }
-        b(eArr, gv, null);
+        b(eArr, gw, null);
         soConsumerIndex(j + 1);
         return b;
     }
 
     @Override // java.util.Queue
     public E peek() {
-        return gw(gv(this.consumerIndex));
+        return gx(gw(this.consumerIndex));
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public int size() {
-        long dCT = dCT();
+        long dKN = dKN();
         while (true) {
-            long dCS = dCS();
-            long dCT2 = dCT();
-            if (dCT == dCT2) {
-                return (int) (dCS - dCT2);
+            long dKM = dKM();
+            long dKN2 = dKN();
+            if (dKN == dKN2) {
+                return (int) (dKM - dKN2);
             }
-            dCT = dCT2;
+            dKN = dKN2;
         }
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public boolean isEmpty() {
-        return dCS() == dCT();
+        return dKM() == dKN();
     }
 
     private void soProducerIndex(long j) {
-        ae.noE.a(this, noy, j);
+        ae.nJC.a(this, nJw, j);
     }
 
     private void soConsumerIndex(long j) {
-        ae.noE.a(this, nox, j);
+        ae.nJC.a(this, nJv, j);
     }
 
-    private long dCS() {
-        return ae.noE.e(this, noy);
+    private long dKM() {
+        return ae.nJC.e(this, nJw);
     }
 
-    private long dCT() {
-        return ae.noE.e(this, nox);
+    private long dKN() {
+        return ae.nJC.e(this, nJv);
     }
 }

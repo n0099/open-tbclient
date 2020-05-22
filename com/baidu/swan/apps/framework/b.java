@@ -3,19 +3,19 @@ package com.baidu.swan.apps.framework;
 import android.view.KeyEvent;
 /* loaded from: classes11.dex */
 public interface b {
-    void RA();
+    void TZ();
 
-    void Ry();
+    void Ua();
 
-    void Rz();
+    void Ub();
 
-    void SG();
+    void Vr();
 
-    void aah();
+    void adh();
 
-    void aai();
+    void adi();
 
-    void aaj();
+    void adj();
 
     boolean onKeyDown(int i, KeyEvent keyEvent);
 }

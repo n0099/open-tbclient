@@ -6,27 +6,27 @@ import android.support.annotation.Nullable;
 import android.util.Log;
 /* loaded from: classes11.dex */
 public abstract class a {
-    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public int chS;
-    public Bundle chR = new Bundle();
-    public String chT = "";
-    public Bundle chU = new Bundle();
+    public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
+    public int cti;
+    public Bundle cth = new Bundle();
+    public String ctj = "";
+    public Bundle ctk = new Bundle();
 
-    public abstract void y(@NonNull Bundle bundle);
+    public abstract void A(@NonNull Bundle bundle);
 
     public void finish() {
-        H(this.chU);
+        L(this.ctk);
     }
 
-    public void H(@Nullable Bundle bundle) {
+    public void L(@Nullable Bundle bundle) {
         if (DEBUG) {
             Log.d("MDelegate-Delegation", "messenger delegation finish");
         }
-        if (!com.baidu.swan.apps.process.a.b.d.a.lC(this.chT)) {
+        if (!com.baidu.swan.apps.process.a.b.d.a.mT(this.ctj)) {
             if (DEBUG) {
-                Log.d("MDelegate-Delegation", "messenger delegation finish with send result to client: " + this.chS + " observer: " + this.chT);
+                Log.d("MDelegate-Delegation", "messenger delegation finish with send result to client: " + this.cti + " observer: " + this.ctj);
             }
-            b.a(this.chS, this.chT, bundle);
+            b.a(this.cti, this.ctj, bundle);
         }
     }
 }

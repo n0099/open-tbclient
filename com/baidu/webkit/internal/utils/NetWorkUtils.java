@@ -22,6 +22,7 @@ public final class NetWorkUtils implements INoProGuard {
     private static final int OTHER_OPERATOR = 99;
     private static final int UNKNOWN_OPERATOR = 0;
     private static final int WIFI = 100;
+    private static boolean sLaunchState;
     private static int sConnectionType = 0;
     private static int sOperatorType = 0;
     private static boolean sIsOnline = true;
@@ -109,7 +110,7 @@ public final class NetWorkUtils implements INoProGuard {
             sOperatorType = 99;
             return;
         }
-        if (CommonUtils.checkPhonePermission(context)) {
+        if (sLaunchState && CommonUtils.checkPhonePermission(context)) {
             TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
             if (telephonyManager == null) {
                 return;
@@ -136,5 +137,9 @@ public final class NetWorkUtils implements INoProGuard {
             doNetworkConnectionChanged(context);
         }
         Log.d("linhua01", "network changed: " + sConnectionType + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + sOperatorType);
+    }
+
+    public static void setLaunchState(boolean z) {
+        sLaunchState = z;
     }
 }

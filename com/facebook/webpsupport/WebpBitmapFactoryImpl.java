@@ -21,9 +21,9 @@ import javax.annotation.Nullable;
 @d
 /* loaded from: classes13.dex */
 public class WebpBitmapFactoryImpl implements b {
-    private static b.a mcn;
-    public static final boolean mhb;
-    private static a mhc;
+    public static final boolean mAS;
+    private static a mAT;
+    private static b.a mwe;
 
     @d
     private static native Bitmap nativeDecodeByteArray(byte[] bArr, int i, int i2, BitmapFactory.Options options, float f, byte[] bArr2);
@@ -35,15 +35,15 @@ public class WebpBitmapFactoryImpl implements b {
     private static native long nativeSeek(FileDescriptor fileDescriptor, long j, boolean z);
 
     static {
-        mhb = Build.VERSION.SDK_INT >= 11;
+        mAS = Build.VERSION.SDK_INT >= 11;
     }
 
     @Override // com.facebook.common.g.b
     public void a(a aVar) {
-        mhc = aVar;
+        mAT = aVar;
     }
 
-    private static InputStream H(InputStream inputStream) {
+    private static InputStream I(InputStream inputStream) {
         if (!inputStream.markSupported()) {
             return new BufferedInputStream(inputStream, 20);
         }
@@ -76,7 +76,7 @@ public class WebpBitmapFactoryImpl implements b {
                 if (i2 != 0 && i != i2 && i != options.inScreenDensity && options.inScaled) {
                     bitmap.setDensity(i2);
                 }
-            } else if (mhb && options.inBitmap != null) {
+            } else if (mAS && options.inBitmap != null) {
                 bitmap.setDensity(160);
             }
         }
@@ -84,7 +84,7 @@ public class WebpBitmapFactoryImpl implements b {
 
     @Override // com.facebook.common.g.b
     public void a(b.a aVar) {
-        mcn = aVar;
+        mwe = aVar;
     }
 
     @Override // com.facebook.common.g.b
@@ -95,17 +95,17 @@ public class WebpBitmapFactoryImpl implements b {
     @d
     public static Bitmap hookDecodeByteArray(byte[] bArr, int i, int i2, BitmapFactory.Options options) {
         Bitmap originalDecodeByteArray;
-        com.facebook.imagepipeline.nativecode.b.dmc();
-        if (c.lSt && c.s(bArr, i, i2)) {
+        com.facebook.imagepipeline.nativecode.b.dtv();
+        if (c.mml && c.t(bArr, i, i2)) {
             originalDecodeByteArray = nativeDecodeByteArray(bArr, i, i2, options, getScaleFromOptions(options), getInTempStorageFromOptions(options));
             if (originalDecodeByteArray == null) {
-                Ow("webp_direct_decode_array");
+                Qk("webp_direct_decode_array");
             }
             b(originalDecodeByteArray, options);
         } else {
             originalDecodeByteArray = originalDecodeByteArray(bArr, i, i2, options);
             if (originalDecodeByteArray == null) {
-                Ow("webp_direct_decode_array_failed_on_no_webp");
+                Qk("webp_direct_decode_array_failed_on_no_webp");
             }
         }
         return originalDecodeByteArray;
@@ -129,20 +129,20 @@ public class WebpBitmapFactoryImpl implements b {
     @d
     public static Bitmap hookDecodeStream(InputStream inputStream, Rect rect, BitmapFactory.Options options) {
         Bitmap originalDecodeStream;
-        com.facebook.imagepipeline.nativecode.b.dmc();
-        InputStream H = H(inputStream);
-        byte[] a = a(H, options);
-        if (c.lSt && c.s(a, 0, 20)) {
-            originalDecodeStream = nativeDecodeStream(H, options, getScaleFromOptions(options), getInTempStorageFromOptions(options));
+        com.facebook.imagepipeline.nativecode.b.dtv();
+        InputStream I = I(inputStream);
+        byte[] a = a(I, options);
+        if (c.mml && c.t(a, 0, 20)) {
+            originalDecodeStream = nativeDecodeStream(I, options, getScaleFromOptions(options), getInTempStorageFromOptions(options));
             if (originalDecodeStream == null) {
-                Ow("webp_direct_decode_stream");
+                Qk("webp_direct_decode_stream");
             }
             b(originalDecodeStream, options);
             setPaddingDefaultValues(rect);
         } else {
-            originalDecodeStream = originalDecodeStream(H, rect, options);
+            originalDecodeStream = originalDecodeStream(I, rect, options);
             if (originalDecodeStream == null) {
-                Ow("webp_direct_decode_stream_failed_on_no_webp");
+                Qk("webp_direct_decode_stream_failed_on_no_webp");
             }
         }
         return originalDecodeStream;
@@ -233,7 +233,7 @@ public class WebpBitmapFactoryImpl implements b {
         } catch (Exception e) {
             bitmap = null;
         }
-        if (!mhb || bitmap != null || options == null || options.inBitmap == null) {
+        if (!mAS || bitmap != null || options == null || options.inBitmap == null) {
             return bitmap;
         }
         throw new IllegalArgumentException("Problem decoding into existing bitmap");
@@ -295,16 +295,16 @@ public class WebpBitmapFactoryImpl implements b {
     @d
     public static Bitmap hookDecodeFileDescriptor(FileDescriptor fileDescriptor, Rect rect, BitmapFactory.Options options) {
         Bitmap originalDecodeFileDescriptor;
-        com.facebook.imagepipeline.nativecode.b.dmc();
+        com.facebook.imagepipeline.nativecode.b.dtv();
         long nativeSeek = nativeSeek(fileDescriptor, 0L, false);
         if (nativeSeek != -1) {
-            InputStream H = H(new FileInputStream(fileDescriptor));
+            InputStream I = I(new FileInputStream(fileDescriptor));
             try {
-                byte[] a = a(H, options);
-                if (c.lSt && c.s(a, 0, 20)) {
-                    originalDecodeFileDescriptor = nativeDecodeStream(H, options, getScaleFromOptions(options), getInTempStorageFromOptions(options));
+                byte[] a = a(I, options);
+                if (c.mml && c.t(a, 0, 20)) {
+                    originalDecodeFileDescriptor = nativeDecodeStream(I, options, getScaleFromOptions(options), getInTempStorageFromOptions(options));
                     if (originalDecodeFileDescriptor == null) {
-                        Ow("webp_direct_decode_fd");
+                        Qk("webp_direct_decode_fd");
                     }
                     setPaddingDefaultValues(rect);
                     b(originalDecodeFileDescriptor, options);
@@ -312,7 +312,7 @@ public class WebpBitmapFactoryImpl implements b {
                     nativeSeek(fileDescriptor, nativeSeek, true);
                     originalDecodeFileDescriptor = originalDecodeFileDescriptor(fileDescriptor, rect, options);
                     if (originalDecodeFileDescriptor == null) {
-                        Ow("webp_direct_decode_fd_failed_on_no_webp");
+                        Qk("webp_direct_decode_fd_failed_on_no_webp");
                     }
                 }
                 try {
@@ -322,7 +322,7 @@ public class WebpBitmapFactoryImpl implements b {
                 }
             } finally {
                 try {
-                    H.close();
+                    I.close();
                 } catch (Throwable th2) {
                 }
             }
@@ -365,7 +365,7 @@ public class WebpBitmapFactoryImpl implements b {
 
     @d
     private static Bitmap createBitmap(int i, int i2, BitmapFactory.Options options) {
-        return (!mhb || options == null || options.inBitmap == null || !options.inBitmap.isMutable()) ? mhc.a(i, i2, Bitmap.Config.ARGB_8888) : options.inBitmap;
+        return (!mAS || options == null || options.inBitmap == null || !options.inBitmap.isMutable()) ? mAT.a(i, i2, Bitmap.Config.ARGB_8888) : options.inBitmap;
     }
 
     @d
@@ -392,9 +392,9 @@ public class WebpBitmapFactoryImpl implements b {
         return 1.0f;
     }
 
-    private static void Ow(String str) {
-        if (mcn != null) {
-            mcn.fh(str, "decoding_failure");
+    private static void Qk(String str) {
+        if (mwe != null) {
+            mwe.fJ(str, "decoding_failure");
         }
     }
 }

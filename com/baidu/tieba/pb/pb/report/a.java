@@ -13,12 +13,12 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
-import com.baidu.tbadk.core.view.d;
+import com.baidu.tbadk.core.view.c;
 import com.baidu.tieba.R;
 /* loaded from: classes9.dex */
 public class a implements com.baidu.tieba.ueg.a {
-    private BdUniqueId afD;
-    private HttpMessageListener dzA = new HttpMessageListener(1003402) { // from class: com.baidu.tieba.pb.pb.report.a.2
+    private BdUniqueId afZ;
+    private HttpMessageListener dNE = new HttpMessageListener(1003402) { // from class: com.baidu.tieba.pb.pb.report.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -29,45 +29,45 @@ public class a implements com.baidu.tieba.ueg.a {
                 UEGReportResponsedMessage uEGReportResponsedMessage = (UEGReportResponsedMessage) httpResponsedMessage;
                 String url = uEGReportResponsedMessage.getUrl();
                 if (!StringUtils.isNull(url)) {
-                    a.this.HB(url);
+                    a.this.Jm(url);
                     return;
                 }
                 String errorString = uEGReportResponsedMessage.getErrorString();
                 if (StringUtils.isNull(errorString)) {
                     errorString = a.this.mContext.getString(R.string.neterror);
                 }
-                a.this.jGt.showFailToast(errorString);
+                a.this.jYa.showFailToast(errorString);
             }
         }
     };
-    private b jGs = new b();
-    private d jGt = new d();
+    private b jXZ = new b();
+    private c jYa = new c();
     private Context mContext;
     private com.baidu.tbadk.core.view.a mWaitingDialog;
 
     public a(Context context) {
         this.mContext = context;
-        this.jGt.toastTime = 1000L;
+        this.jYa.toastTime = 1000L;
     }
 
     @Override // com.baidu.tieba.ueg.a
-    public void t(BdUniqueId bdUniqueId) {
-        this.afD = bdUniqueId;
-        this.jGs.setTag(bdUniqueId);
-        this.dzA.setTag(bdUniqueId);
-        this.dzA.setSelfListener(true);
-        MessageManager.getInstance().registerListener(this.dzA);
+    public void w(BdUniqueId bdUniqueId) {
+        this.afZ = bdUniqueId;
+        this.jXZ.setTag(bdUniqueId);
+        this.dNE.setTag(bdUniqueId);
+        this.dNE.setSelfListener(true);
+        MessageManager.getInstance().registerListener(this.dNE);
     }
 
-    public void Ia(String str) {
+    public void JM(String str) {
         showLoadingDialog();
-        this.jGs.Ia(str);
+        this.jXZ.JM(str);
     }
 
     @Override // com.baidu.tieba.ueg.a
-    public void Bm(String str) {
+    public void CU(String str) {
         showLoadingDialog();
-        this.jGs.Bm(str);
+        this.jXZ.CU(str);
     }
 
     private void showLoadingDialog() {
@@ -84,7 +84,7 @@ public class a implements com.baidu.tieba.ueg.a {
                 this.mWaitingDialog.setCancelListener(new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.pb.pb.report.a.1
                     @Override // android.content.DialogInterface.OnCancelListener
                     public void onCancel(DialogInterface dialogInterface) {
-                        MessageManager.getInstance().removeMessage(a.this.afD);
+                        MessageManager.getInstance().removeMessage(a.this.afZ);
                     }
                 });
             } else {
@@ -95,7 +95,7 @@ public class a implements com.baidu.tieba.ueg.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void HB(String str) {
+    public void Jm(String str) {
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new TbWebViewActivityConfig(this.mContext, this.mContext.getString(R.string.pb_web_view_report_title), str, true)));
     }
 }

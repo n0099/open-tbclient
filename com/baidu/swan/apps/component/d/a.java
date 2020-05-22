@@ -5,8 +5,8 @@ import com.baidu.swan.apps.console.c;
 /* loaded from: classes11.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static int bIa = 5;
-    private int[] bIb;
+    private static int bQS = 5;
+    private int[] bQT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(@IntRange(from = 1) int i) {
@@ -27,11 +27,11 @@ public class a {
             }
             i = 500;
         }
-        this.bIb = new int[em(i - 1) + 1];
-        int length = this.bIb.length;
+        this.bQT = new int[ev(i - 1) + 1];
+        int length = this.bQT.length;
         if (z) {
             for (int i2 = 0; i2 < length; i2++) {
-                this.bIb[i2] = -1;
+                this.bQT[i2] = -1;
             }
         }
     }
@@ -44,7 +44,7 @@ public class a {
             }
             return;
         }
-        int length = (this.bIb.length << bIa) - 1;
+        int length = (this.bQT.length << bQS) - 1;
         if (i > length) {
             String str = "diff > " + length + ": " + i;
             c.e("Component-DiffBitMap", str);
@@ -53,9 +53,9 @@ public class a {
             }
             return;
         }
-        int[] iArr = this.bIb;
-        int em = em(i);
-        iArr[em] = iArr[em] | (1 << i);
+        int[] iArr = this.bQT;
+        int ev = ev(i);
+        iArr[ev] = iArr[ev] | (1 << i);
     }
 
     public boolean get(@IntRange(from = 0) int i) {
@@ -66,7 +66,7 @@ public class a {
             }
             return false;
         }
-        int length = (this.bIb.length << bIa) - 1;
+        int length = (this.bQT.length << bQS) - 1;
         if (i > length) {
             String str = "diff > " + length + ": " + i;
             c.e("Component-DiffBitMap", str);
@@ -75,10 +75,10 @@ public class a {
             }
             return false;
         }
-        return (this.bIb[em(i)] & (1 << i)) != 0;
+        return (this.bQT[ev(i)] & (1 << i)) != 0;
     }
 
-    private int em(int i) {
-        return i >> bIa;
+    private int ev(int i) {
+        return i >> bQS;
     }
 }

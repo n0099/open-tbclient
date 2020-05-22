@@ -16,7 +16,7 @@ import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.util.aq;
-import com.baidu.tbadk.util.ad;
+import com.baidu.tbadk.util.ae;
 import com.baidu.tieba.R;
 import com.baidu.tieba.frs.h;
 /* loaded from: classes10.dex */
@@ -38,7 +38,7 @@ public class d extends h<e, f> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aI */
+    /* renamed from: aU */
     public f b(ViewGroup viewGroup) {
         return new f(LayoutInflater.from(this.mContext).inflate(R.layout.manito_item_member, (ViewGroup) null));
     }
@@ -51,21 +51,21 @@ public class d extends h<e, f> {
         if (eVar != null && fVar != null) {
             if (fVar.mSkinType != this.mSkinType) {
                 am.setBackgroundResource(fVar.getView(), R.drawable.frs_member_manito_bg);
-                am.setViewTextColor(fVar.cTw, R.color.cp_cont_f, 1);
-                am.setViewTextColor(fVar.gUD, R.color.cp_cont_d, 1);
+                am.setViewTextColor(fVar.dez, R.color.cp_cont_f, 1);
+                am.setViewTextColor(fVar.hjp, R.color.cp_cont_d, 1);
                 am.setBackgroundColor(fVar.dividerLine, R.color.cp_bg_line_c);
-                am.setViewTextColor(fVar.gUE, R.color.cp_cont_d, 1);
+                am.setViewTextColor(fVar.hjq, R.color.cp_cont_d, 1);
             }
-            fVar.gUC.startLoad(eVar.getHeadUrl(), 12, false);
-            fVar.cTw.setText(ad.interceptString(eVar.getNameShow(), 16));
+            fVar.hjo.startLoad(eVar.getHeadUrl(), 12, false);
+            fVar.dez.setText(ae.interceptString(eVar.getNameShow(), 16));
             if (StringUtils.isNull(eVar.getIntro())) {
-                fVar.gUD.setText(R.string.god_intro_default);
+                fVar.hjp.setText(R.string.god_intro_default);
             } else {
-                fVar.gUD.setText(ad.interceptString(eVar.getIntro(), 30));
+                fVar.hjp.setText(ae.interceptString(eVar.getIntro(), 30));
             }
             int color = am.getColor(R.color.cp_cont_h);
             String numberUniformFormat = aq.numberUniformFormat(eVar.getFansNum());
-            fVar.gUE.setText(a(String.format(this.mContext.getResources().getString(R.string.fans_count), numberUniformFormat), new String[]{numberUniformFormat}, new int[]{color}));
+            fVar.hjq.setText(a(String.format(this.mContext.getResources().getString(R.string.fans_count), numberUniformFormat), new String[]{numberUniformFormat}, new int[]{color}));
             fVar.getView().setTag(eVar);
             fVar.getView().setOnClickListener(this.mOnItemClickListener);
             fVar.mSkinType = this.mSkinType;

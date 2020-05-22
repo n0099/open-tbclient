@@ -14,7 +14,7 @@ import java.lang.reflect.InvocationTargetException;
 public class a {
     public static void install(Context context) {
         if (BuildConfig.isMultidexEnabled()) {
-            if (Build.VERSION.SDK_INT < 21 && !fo(context)) {
+            if (Build.VERSION.SDK_INT < 21 && !fD(context)) {
                 com.baidu.turbonet.base.a.g("base_multidex", "Skipping multidex installation: not needed for process.", new Object[0]);
                 return;
             }
@@ -37,7 +37,7 @@ public class a {
         }
     }
 
-    private static boolean fo(Context context) {
+    private static boolean fD(Context context) {
         try {
             Object invoke = Process.class.getMethod("isIsolated", new Class[0]).invoke(null, new Object[0]);
             if (invoke != null && (invoke instanceof Boolean)) {

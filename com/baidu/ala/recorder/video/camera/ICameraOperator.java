@@ -1,34 +1,29 @@
 package com.baidu.ala.recorder.video.camera;
 
+import android.graphics.SurfaceTexture;
 import android.hardware.Camera;
-import android.os.Handler;
-import android.view.Surface;
 import com.baidu.ala.recorder.video.AlaLiveVideoConfig;
 import com.baidu.ala.recorder.video.IVideoRecorder;
 import com.baidu.ala.recorder.video.VideoFormat;
 /* loaded from: classes3.dex */
 public interface ICameraOperator {
-    Handler getDataThreadHandler();
-
     int getOutputHeight();
 
     int getOutputWidth();
+
+    Camera.PreviewCallback getPreviewCallback();
+
+    SurfaceTexture getSurfaceTexture();
 
     VideoFormat getVideoFormat();
 
     int hasBeauty();
 
-    void initResource();
-
-    boolean isPushMirror();
-
-    boolean onCameraOpened(Camera camera, int i, int i2);
+    boolean onCameraOpened(Camera camera, int i);
 
     void release();
 
     void setBeauty(int i);
-
-    void setEncoderSurface(Surface surface);
 
     void setPreviewFps(int i);
 
@@ -40,7 +35,7 @@ public interface ICameraOperator {
 
     void setVideoDataCallback(IVideoRecorder.IVideoDataCallBack iVideoDataCallBack);
 
-    void startRecorderData();
-
     void surfaceChanged(int i, int i2);
+
+    void willSwitchSense(int i);
 }

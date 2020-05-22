@@ -1,35 +1,29 @@
 package com.baidu.swan.games.e;
 
-import com.baidu.searchbox.unitedscheme.TypedCallbackHandler;
-import com.baidu.searchbox.v8engine.JSExceptionType;
-import com.baidu.searchbox.v8engine.JSRuntime;
-import com.baidu.searchbox.v8engine.JsSerializeValue;
-import com.baidu.searchbox.v8engine.event.EventTarget;
+import com.baidu.swan.e.d;
+import java.io.File;
 /* loaded from: classes11.dex */
-public interface b extends TypedCallbackHandler, JSRuntime, com.baidu.swan.apps.core.container.a {
-    byte[] a(JsSerializeValue jsSerializeValue, boolean z);
+public class b {
+    public static File acK() {
+        return com.baidu.swan.games.l.a.rW("aigames_debug_dashboard");
+    }
 
-    com.baidu.swan.games.e.b.b avK();
+    public static void acL() {
+        File acK = acK();
+        if (acK.exists()) {
+            d.deleteFile(acK);
+        }
+    }
 
-    EventTarget avM();
+    public static File acM() {
+        File acK = acK();
+        if (!acK.exists()) {
+            acK.mkdirs();
+        }
+        return new File(acK, "debugDashboard.zip");
+    }
 
-    EventTarget avN();
-
-    com.baidu.swan.games.e.a.a avO();
-
-    JsSerializeValue b(byte[] bArr, boolean z);
-
-    void bP(String str, String str2);
-
-    String getInitBasePath();
-
-    boolean p(Runnable runnable);
-
-    void postOnJSThread(Runnable runnable);
-
-    void runOnJSThread(Runnable runnable);
-
-    void setPreferredFramesPerSecond(short s);
-
-    void throwJSException(JSExceptionType jSExceptionType, String str);
+    public static String azt() {
+        return "meter.js";
+    }
 }

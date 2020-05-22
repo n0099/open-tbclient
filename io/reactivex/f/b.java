@@ -10,14 +10,14 @@ public final class b<T> {
     public b(T t, long j, TimeUnit timeUnit) {
         this.value = t;
         this.time = j;
-        this.unit = (TimeUnit) io.reactivex.internal.functions.a.h(timeUnit, "unit is null");
+        this.unit = (TimeUnit) io.reactivex.internal.functions.a.k(timeUnit, "unit is null");
     }
 
-    public T dDn() {
+    public T dLh() {
         return this.value;
     }
 
-    public long aid() {
+    public long alB() {
         return this.time;
     }
 

@@ -10,7 +10,6 @@ final class WebBackForwardListImpl extends WebBackForwardList implements Cloneab
     private final android.webkit.WebBackForwardList mList;
 
     static {
-        cloneMethod = null;
         try {
             cloneMethod = android.webkit.WebBackForwardList.class.getDeclaredMethod("clone", null);
         } catch (Exception e) {

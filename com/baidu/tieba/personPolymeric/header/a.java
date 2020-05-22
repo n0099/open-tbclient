@@ -26,9 +26,9 @@ import org.apache.http.NameValuePair;
 import org.apache.http.client.utils.URLEncodedUtils;
 /* loaded from: classes11.dex */
 public class a {
-    private View cXV;
-    private TbImageView kbg;
-    private int kbh;
+    private View diZ;
+    private TbImageView ksY;
+    private int ksZ;
     private View.OnClickListener mClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.personPolymeric.header.a.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
@@ -36,16 +36,16 @@ public class a {
             int i2;
             if (a.this.mIsHost) {
                 if (a.this.mUserData == null || !a.this.mUserData.isBaijiahaoUser()) {
-                    TiebaStatic.log(new an("c12502").cI("obj_locate", "3"));
+                    TiebaStatic.log(new an("c12502").dh("obj_locate", "3"));
                     String userId = a.this.mUserData.getUserId();
                     String bg_pic = a.this.mUserData.getBg_pic();
                     try {
-                        i = com.baidu.adp.lib.f.b.toInt((String) a.this.IE(bg_pic).get("props_id"), -1);
+                        i = com.baidu.adp.lib.f.b.toInt((String) a.this.Kq(bg_pic).get("props_id"), -1);
                     } catch (URISyntaxException e) {
                         i = -1;
                     }
                     if (i == -1 || userId.equals(TbadkCoreApplication.getCurrentAccount())) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonalBackdropGroupActivityConfig(a.this.kbg.getContext())));
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonalBackdropGroupActivityConfig(a.this.ksY.getContext())));
                         return;
                     }
                     AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
@@ -55,10 +55,10 @@ public class a {
                         } else if (bg_pic.equalsIgnoreCase(currentAccountInfo.getPersonalBgUrl())) {
                             i2 = 1;
                         }
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonalBackgroundPreviewActivityConfig(a.this.kbg.getContext(), i, i2)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonalBackgroundPreviewActivityConfig(a.this.ksY.getContext(), i, i2)));
                     }
                     i2 = 0;
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonalBackgroundPreviewActivityConfig(a.this.kbg.getContext(), i, i2)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonalBackgroundPreviewActivityConfig(a.this.ksY.getContext(), i, i2)));
                 }
             }
         }
@@ -69,11 +69,11 @@ public class a {
 
     public a(TbPageContext tbPageContext, TbImageView tbImageView, View view, boolean z) {
         this.mPageContext = tbPageContext;
-        this.kbg = tbImageView;
+        this.ksY = tbImageView;
         this.mIsHost = z;
-        this.kbg.setDefaultBgResource(R.drawable.bg_pic_mine);
-        this.cXV = view;
-        this.cXV.setOnClickListener(this.mClickListener);
+        this.ksY.setDefaultBgResource(R.drawable.bg_pic_mine);
+        this.diZ = view;
+        this.diZ.setOnClickListener(this.mClickListener);
     }
 
     public void e(UserData userData) {
@@ -81,14 +81,14 @@ public class a {
             this.mUserData = userData;
             String bg_pic = this.mUserData.getBg_pic();
             if (!aq.isEmpty(bg_pic)) {
-                com.baidu.adp.lib.e.c.kV().a(bg_pic, 10, new com.baidu.adp.lib.e.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.personPolymeric.header.a.1
+                com.baidu.adp.lib.e.c.kX().a(bg_pic, 10, new com.baidu.adp.lib.e.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.personPolymeric.header.a.1
                     /* JADX DEBUG: Method merged with bridge method */
                     /* JADX INFO: Access modifiers changed from: protected */
                     @Override // com.baidu.adp.lib.e.b
                     public void onLoaded(com.baidu.adp.widget.ImageView.a aVar, String str, int i) {
                         super.onLoaded((AnonymousClass1) aVar, str, i);
                         if (aVar != null) {
-                            aVar.drawImageTo(a.this.kbg);
+                            aVar.drawImageTo(a.this.ksY);
                         }
                     }
 
@@ -108,34 +108,34 @@ public class a {
         }
     }
 
-    public void AJ(int i) {
-        this.kbh = i;
-        ViewGroup.LayoutParams layoutParams = this.kbg.getLayoutParams();
+    public void Bu(int i) {
+        this.ksZ = i;
+        ViewGroup.LayoutParams layoutParams = this.ksY.getLayoutParams();
         if (layoutParams != null) {
-            layoutParams.height = this.kbh;
-            this.kbg.setLayoutParams(layoutParams);
+            layoutParams.height = this.ksZ;
+            this.ksY.setLayoutParams(layoutParams);
         }
     }
 
-    public void r(double d) {
-        int i = (int) (this.kbh + (PullRefreshFrameLayout.dGH * d));
-        ViewGroup.LayoutParams layoutParams = this.kbg.getLayoutParams();
-        if (layoutParams != null) {
-            layoutParams.height = i;
-            this.kbg.setLayoutParams(layoutParams);
-        }
-    }
-
-    public void AK(int i) {
-        ViewGroup.LayoutParams layoutParams = this.kbg.getLayoutParams();
+    public void s(double d) {
+        int i = (int) (this.ksZ + (PullRefreshFrameLayout.dUT * d));
+        ViewGroup.LayoutParams layoutParams = this.ksY.getLayoutParams();
         if (layoutParams != null) {
             layoutParams.height = i;
-            this.kbg.setLayoutParams(layoutParams);
+            this.ksY.setLayoutParams(layoutParams);
         }
     }
 
-    public int bPi() {
-        ViewGroup.LayoutParams layoutParams = this.kbg.getLayoutParams();
+    public void Bv(int i) {
+        ViewGroup.LayoutParams layoutParams = this.ksY.getLayoutParams();
+        if (layoutParams != null) {
+            layoutParams.height = i;
+            this.ksY.setLayoutParams(layoutParams);
+        }
+    }
+
+    public int bVE() {
+        ViewGroup.LayoutParams layoutParams = this.ksY.getLayoutParams();
         if (layoutParams != null) {
             return layoutParams.height;
         }
@@ -143,7 +143,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public Map<String, String> IE(final String str) throws URISyntaxException {
+    public Map<String, String> Kq(final String str) throws URISyntaxException {
         return new HashMap<String, String>() { // from class: com.baidu.tieba.personPolymeric.header.PersonHeaderBackgroundController$3
             /* JADX INFO: Access modifiers changed from: package-private */
             {

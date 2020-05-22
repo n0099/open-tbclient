@@ -19,17 +19,17 @@ public final class CoroutineContext$plus$1 extends Lambda implements m<c, c.b, c
     @Override // kotlin.jvm.a.m
     public final c invoke(c cVar, c.b bVar) {
         CombinedContext combinedContext;
-        q.j(cVar, "acc");
-        q.j(bVar, "element");
-        c minusKey = cVar.minusKey(bVar.dDK());
+        q.m(cVar, "acc");
+        q.m(bVar, "element");
+        c minusKey = cVar.minusKey(bVar.dLE());
         if (minusKey == EmptyCoroutineContext.INSTANCE) {
             return bVar;
         }
-        b bVar2 = (b) minusKey.get(b.mXq);
+        b bVar2 = (b) minusKey.get(b.nss);
         if (bVar2 == null) {
             combinedContext = new CombinedContext(minusKey, bVar);
         } else {
-            c minusKey2 = minusKey.minusKey(b.mXq);
+            c minusKey2 = minusKey.minusKey(b.nss);
             combinedContext = minusKey2 == EmptyCoroutineContext.INSTANCE ? new CombinedContext(bVar, bVar2) : new CombinedContext(new CombinedContext(minusKey2, bVar), bVar2);
         }
         return combinedContext;

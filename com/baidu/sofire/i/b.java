@@ -7,10 +7,11 @@ import android.content.Intent;
 import android.support.v4.app.NotificationCompat;
 import com.baidu.sofire.MyService;
 import com.baidu.sofire.ac.U;
+import com.baidu.tieba.keepLive.jobScheduler.KeepJobService;
 /* loaded from: classes6.dex */
 public final class b {
     public static void a(Context context, int i, boolean z) {
-        long j = 600000;
+        long j = KeepJobService.JOB_CHECK_PERIODIC;
         try {
             if (!"tvshield".equals("sofire")) {
                 AlarmManager alarmManager = (AlarmManager) context.getSystemService(NotificationCompat.CATEGORY_ALARM);

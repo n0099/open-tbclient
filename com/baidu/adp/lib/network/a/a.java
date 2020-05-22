@@ -18,40 +18,45 @@ import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes.dex */
 public class a {
-    private static String KK;
-    private static String KL;
-    private static boolean KM;
-    private static String KN;
-    private static String KO;
-    private static String KP;
+    private static String KV;
+    private static String KW;
+    private static boolean KX;
+    private static String KY;
+    private static String KZ;
+    private static String La;
+    private static String Lb;
     private static String sUid;
-    private e KQ;
-    private c KR;
-    private long KS;
+    private e Lc;
+    private c Ld;
+    private long Le;
 
     public void init() {
         System.setProperty("http.keepAlive", "false");
-        this.KS = BdStatisticsManager.getInstance().getClientLogId();
+        this.Le = BdStatisticsManager.getInstance().getClientLogId();
     }
 
     public static void bJ(String str) {
-        KK = str;
+        KV = str;
     }
 
     public static void setCuid(String str) {
-        KN = str;
+        KY = str;
     }
 
     public static void bK(String str) {
-        KO = str;
+        KZ = str;
     }
 
     public static void bL(String str) {
-        KP = str;
+        La = str;
+    }
+
+    public static void bM(String str) {
+        Lb = str;
     }
 
     public static void setUserAgent(String str) {
-        KL = str;
+        KW = str;
     }
 
     public static void setUid(String str) {
@@ -59,16 +64,16 @@ public class a {
     }
 
     public static void setKeepAlive(boolean z) {
-        KM = z;
+        KX = z;
     }
 
     public g a(String str, boolean z, int i, int i2, int i3, int i4, LinkedList<BasicNameValuePair> linkedList) throws Exception {
-        this.KQ = new e();
-        a(this.KQ, z);
-        this.KQ.kB().setUrl(str);
-        this.KR = new c(this.KQ);
-        this.KR.d(i, i3, i4);
-        return this.KQ.kC();
+        this.Lc = new e();
+        a(this.Lc, z);
+        this.Lc.kD().setUrl(str);
+        this.Ld = new c(this.Lc);
+        this.Ld.d(i, i3, i4);
+        return this.Lc.kE();
     }
 
     public g a(String str, int i, int i2, int i3, int i4, LinkedList<BasicNameValuePair> linkedList) throws Exception {
@@ -76,61 +81,61 @@ public class a {
     }
 
     public g a(String str, List<BasicNameValuePair> list, boolean z, int i, int i2, LinkedList<BasicNameValuePair> linkedList) throws Exception {
-        this.KQ = new e();
-        a(this.KQ, z);
-        this.KQ.kB().setUrl(str);
+        this.Lc = new e();
+        a(this.Lc, z);
+        this.Lc.kD().setUrl(str);
         if (list != null) {
             for (BasicNameValuePair basicNameValuePair : list) {
-                this.KQ.kB().addPostData(basicNameValuePair);
+                this.Lc.kD().addPostData(basicNameValuePair);
             }
         }
         if (linkedList != null) {
             Iterator<BasicNameValuePair> it = linkedList.iterator();
             while (it.hasNext()) {
                 BasicNameValuePair next = it.next();
-                this.KQ.kB().s(next.getName(), next.getValue());
+                this.Lc.kD().s(next.getName(), next.getValue());
             }
         }
-        this.KR = new c(this.KQ);
-        this.KR.f(i, i2, -1);
-        return this.KQ.kC();
+        this.Ld = new c(this.Lc);
+        this.Ld.f(i, i2, -1);
+        return this.Lc.kE();
     }
 
     public g a(String str, boolean z, ArrayList<BasicNameValuePair> arrayList, HashMap<String, byte[]> hashMap, int i, int i2, LinkedList<BasicNameValuePair> linkedList) throws Exception {
-        this.KQ = new e();
-        a(this.KQ, z);
-        this.KQ.kB().setUrl(str);
+        this.Lc = new e();
+        a(this.Lc, z);
+        this.Lc.kD().setUrl(str);
         if (linkedList != null) {
             Iterator<BasicNameValuePair> it = linkedList.iterator();
             while (it.hasNext()) {
                 BasicNameValuePair next = it.next();
-                this.KQ.kB().s(next.getName(), next.getValue());
+                this.Lc.kD().s(next.getName(), next.getValue());
             }
         }
         if (arrayList != null) {
             Iterator<BasicNameValuePair> it2 = arrayList.iterator();
             while (it2.hasNext()) {
                 BasicNameValuePair next2 = it2.next();
-                this.KQ.kB().addPostData(next2.getName(), next2.getValue());
+                this.Lc.kD().addPostData(next2.getName(), next2.getValue());
             }
         }
         if (hashMap != null) {
             for (Map.Entry<String, byte[]> entry : hashMap.entrySet()) {
-                this.KQ.kB().addPostData(entry.getKey(), entry.getValue());
+                this.Lc.kD().addPostData(entry.getKey(), entry.getValue());
             }
         }
-        this.KR = new c(this.KQ);
-        this.KR.f(i, i2, -1);
-        return this.KQ.kC();
+        this.Ld = new c(this.Lc);
+        this.Ld.f(i, i2, -1);
+        return this.Lc.kE();
     }
 
     public boolean a(String str, String str2, boolean z, int i, int i2, int i3, int i4, LinkedList<BasicNameValuePair> linkedList, h hVar, boolean z2, boolean z3, boolean z4) {
-        this.KQ = new e();
-        b(this.KQ);
-        this.KQ.kB().setUrl(str);
-        this.KQ.kB().ah(z4);
-        this.KR = new c(this.KQ);
-        return this.KR.a(str2, hVar, i, i2, i3, i4, z2, z3);
+        this.Lc = new e();
+        b(this.Lc);
+        this.Lc.kD().setUrl(str);
+        this.Lc.kD().aj(z4);
+        this.Ld = new c(this.Lc);
+        return this.Ld.a(str2, hVar, i, i2, i3, i4, z2, z3);
     }
 
     public a() {
@@ -138,64 +143,67 @@ public class a {
     }
 
     public void cancel() {
-        if (this.KR != null) {
-            this.KR.cancel();
+        if (this.Ld != null) {
+            this.Ld.cancel();
         }
     }
 
     public boolean isCanceled() {
-        if (this.KR != null) {
-            return this.KR.isCancel();
+        if (this.Ld != null) {
+            return this.Ld.isCancel();
         }
         return false;
     }
 
     public void setCancel() {
-        if (this.KR != null) {
-            this.KR.setCancel();
+        if (this.Ld != null) {
+            this.Ld.setCancel();
         }
     }
 
-    public c kT() {
-        return this.KR;
+    public c kV() {
+        return this.Ld;
     }
 
-    public e kU() {
-        return this.KQ;
+    public e kW() {
+        return this.Lc;
     }
 
     private void a(e eVar, boolean z) {
         if (eVar != null) {
-            if (!TextUtils.isEmpty(KK)) {
-                eVar.kB().s(SM.COOKIE, KK);
+            if (!TextUtils.isEmpty(KV)) {
+                eVar.kD().s(SM.COOKIE, KV);
             } else {
-                eVar.kB().s(SM.COOKIE, "");
+                eVar.kD().s(SM.COOKIE, "");
             }
             if (!TextUtils.isEmpty(sUid)) {
-                eVar.kB().s("client_user_token", sUid);
+                eVar.kD().s("client_user_token", sUid);
             }
-            if (!TextUtils.isEmpty(KL)) {
-                eVar.kB().s("User-Agent", KL);
+            if (!TextUtils.isEmpty(KW)) {
+                eVar.kD().s("User-Agent", KW);
             }
             if (z) {
-                eVar.kB().s(Headers.ACCEPT_ENCODING, "gzip");
+                eVar.kD().s(Headers.ACCEPT_ENCODING, "gzip");
             } else {
-                eVar.kB().s(Headers.ACCEPT_ENCODING, "");
+                eVar.kD().s(Headers.ACCEPT_ENCODING, "");
             }
-            if (KM) {
-                eVar.kB().s(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
+            if (KX) {
+                eVar.kD().s(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
             } else {
-                eVar.kB().s(HTTP.CONN_DIRECTIVE, "close");
+                eVar.kD().s(HTTP.CONN_DIRECTIVE, "close");
             }
-            eVar.kB().s("client_logid", String.valueOf(this.KS));
-            if (!TextUtils.isEmpty(KN)) {
-                eVar.kB().s("cuid", KN);
+            eVar.kD().s("client_logid", String.valueOf(this.Le));
+            if (!TextUtils.isEmpty(KY)) {
+                eVar.kD().s("cuid", KY);
             }
-            if (!TextUtils.isEmpty(KO)) {
-                eVar.kB().s("cuid_galaxy2", KO);
+            if (!TextUtils.isEmpty(KZ)) {
+                eVar.kD().s("cuid_galaxy2", KZ);
             }
-            if (!TextUtils.isEmpty(KP)) {
-                eVar.kB().s("cuid_gid", KP);
+            if (!TextUtils.isEmpty(La)) {
+                eVar.kD().s("c3_aid", La);
+            }
+            if (!TextUtils.isEmpty(Lb)) {
+                eVar.kD().s("cuid_gid", Lb);
             }
         }
     }

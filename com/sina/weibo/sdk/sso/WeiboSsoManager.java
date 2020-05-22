@@ -36,16 +36,16 @@ public final class WeiboSsoManager {
         bVar.setContext(context);
         bVar.setAppKey(str);
         bVar.setFrom("1478195010");
-        bVar.Pr("1000_0001");
+        bVar.Rh("1000_0001");
         WeiboSsoSdk.a(bVar);
         initAid();
     }
 
     private void initAid() {
         try {
-            this.aid = WeiboSsoSdk.dCs().dCu();
+            this.aid = WeiboSsoSdk.dJL().tP();
             if (TextUtils.isEmpty(this.aid)) {
-                this.aid = WeiboSsoSdk.dCs().dCt().dCu();
+                this.aid = WeiboSsoSdk.dJL().dJM().tP();
             }
         } catch (Exception e) {
             e.printStackTrace();

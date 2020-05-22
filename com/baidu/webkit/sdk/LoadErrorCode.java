@@ -22,6 +22,7 @@ public class LoadErrorCode {
     public static final int GET_PROVIDER_FAIL = 4;
     public static final int GET_PROVIDER_NO_EXCEPTION = 6;
     public static final int GET_SHARED_PACKAGEINFO_FAIL = 3;
+    public static final int MSG_ENABLE_BLACK_LIST = 515;
     public static final int MSG_ERROR_NATIVE_LIB_DIR = 508;
     public static final int MSG_EXPAND_LIB_DIR_FAIL = 509;
     public static final int MSG_FORCE_USING_SYS_WEBVIEW = 511;
@@ -45,7 +46,7 @@ public class LoadErrorCode {
     public static final int UNZIP_LZMA_WRITE_BACK_FAIL = 101;
     public static final int UNZIP_TASK_FAILED = 103;
     public static final int UNZIP_TASK_TIMEOUT = 102;
-    private static LoadErrorCode mInstance = null;
+    private static LoadErrorCode mInstance;
     private volatile StringBuilder mDetails;
     private volatile int mErrorCode;
 
@@ -61,11 +62,11 @@ public class LoadErrorCode {
         private static volatile StringBuilder mInfo;
         private static volatile List<ErrorItem> sBkupList;
         private static volatile List<ErrorItem> sErrorList;
+        private static volatile boolean sIsInited;
+        private static volatile boolean sIsUploading;
         private static volatile File sRecordFile;
         private static final String RECORD_RELATIVE_PATH = "/zeus/statistics/".replace('/', File.separatorChar);
         private static final String RECORD_FILE_NAME = "/load_error.json".replace('/', File.separatorChar);
-        private static volatile boolean sIsInited = false;
-        private static volatile boolean sIsUploading = false;
 
         /* JADX INFO: Access modifiers changed from: private */
         /* loaded from: classes11.dex */
@@ -401,7 +402,7 @@ public class LoadErrorCode {
                     case 93:
                         bytes[i] = 62;
                         break;
-                    case Constants.METHOD_IM_FRIEND_GROUP_QUERY /* 123 */:
+                    case 123:
                         bytes[i] = 40;
                         break;
                     case Constants.METHOD_IM_FRIEND_GROUP_ASSIGN /* 125 */:

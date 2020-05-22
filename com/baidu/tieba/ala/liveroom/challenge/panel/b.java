@@ -12,34 +12,34 @@ import com.baidu.live.tbadk.core.view.HeadImageView;
 import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class b extends e {
-    private TextView fAa;
-    private View fAb;
-    private int fAc;
-    private Runnable foV;
-    private AlaChallengeWaveView fzT;
-    private AlaChallengeWaveView fzU;
-    private HeadImageView fzV;
-    private HeadImageView fzW;
-    private com.baidu.live.challenge.d fzX;
-    private TextView fzY;
-    private TextView fzZ;
+    private Runnable fCJ;
+    private AlaChallengeWaveView fNW;
+    private AlaChallengeWaveView fNX;
+    private HeadImageView fNY;
+    private HeadImageView fNZ;
+    private com.baidu.live.challenge.d fOa;
+    private TextView fOb;
+    private TextView fOc;
+    private TextView fOd;
+    private View fOe;
+    private int fOf;
     private View.OnClickListener mClickListener;
     private Handler mHandler;
 
     static /* synthetic */ int c(b bVar) {
-        int i = bVar.fAc;
-        bVar.fAc = i + 1;
+        int i = bVar.fOf;
+        bVar.fOf = i + 1;
         return i;
     }
 
     public b(Context context, k kVar) {
         super(context, kVar);
         this.mHandler = new Handler();
-        this.fAc = 1;
-        this.foV = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.challenge.panel.b.1
+        this.fOf = 1;
+        this.fCJ = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.challenge.panel.b.1
             @Override // java.lang.Runnable
             public void run() {
-                b.this.fzZ.setText(b.this.mContext.getString(a.i.ala_challenge_panel_random_wait_tip, com.baidu.live.utils.i.stringForLastTime(b.this.fAc)));
+                b.this.fOc.setText(b.this.mContext.getString(a.i.ala_challenge_panel_random_wait_tip, com.baidu.live.utils.i.stringForLastTime(b.this.fOf)));
                 b.c(b.this);
                 b.this.mHandler.postDelayed(this, 1000L);
             }
@@ -47,64 +47,64 @@ public class b extends e {
         this.mClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.panel.b.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (view == b.this.fzY) {
-                    b.this.bud();
+                if (view == b.this.fOb) {
+                    b.this.bAc();
                 }
             }
         };
-        this.fzT = (AlaChallengeWaveView) this.mRootView.findViewById(a.g.ala_challenge_wave_left);
-        this.fzU = (AlaChallengeWaveView) this.mRootView.findViewById(a.g.ala_challenge_wave_right);
-        float[] fArr = {AlaChallengeWaveView.fBf, AlaChallengeWaveView.fBe, AlaChallengeWaveView.fBd};
-        this.fzT.setWaveArray(fArr);
-        this.fzT.setEndWaveArray(fArr);
-        float[] fArr2 = {AlaChallengeWaveView.fBd, AlaChallengeWaveView.fBe, AlaChallengeWaveView.fBf};
-        this.fzU.setWaveArray(fArr2);
-        this.fzU.setEndWaveArray(fArr2);
-        this.fzV = (HeadImageView) this.mRootView.findViewById(a.g.ala_challenge_direct_left_header);
-        this.fzV.setIsRound(true);
-        this.fzV.setAutoChangeStyle(false);
-        this.fzV.setDrawBorder(false);
-        this.fzV.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.fzV.setDefaultBgResource(a.f.icon_challenge_default_avatar);
-        this.fzV.startLoad(TbadkCoreApplication.getCurrentPortrait(), 25, false);
-        this.fzW = (HeadImageView) this.mRootView.findViewById(a.g.ala_challenge_direct_right_header);
-        this.fzW.setIsRound(true);
-        this.fzW.setAutoChangeStyle(false);
-        this.fzV.setDrawBorder(false);
-        this.fzV.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.fzV.setDefaultBgResource(a.f.icon_challenge_default_avatar);
-        this.fzY = (TextView) this.mRootView.findViewById(a.g.ala_challenge_direct_cancle);
-        this.fzY.setOnClickListener(this.mClickListener);
-        this.fzZ = (TextView) this.mRootView.findViewById(a.g.ala_challenge_direct_countdown);
-        this.fAa = (TextView) this.mRootView.findViewById(a.g.ala_challenge_direct_status);
-        this.fAb = this.mRootView.findViewById(a.g.ala_challenge_direct_header_cover);
+        this.fNW = (AlaChallengeWaveView) this.mRootView.findViewById(a.g.ala_challenge_wave_left);
+        this.fNX = (AlaChallengeWaveView) this.mRootView.findViewById(a.g.ala_challenge_wave_right);
+        float[] fArr = {AlaChallengeWaveView.fPi, AlaChallengeWaveView.fPh, AlaChallengeWaveView.fPg};
+        this.fNW.setWaveArray(fArr);
+        this.fNW.setEndWaveArray(fArr);
+        float[] fArr2 = {AlaChallengeWaveView.fPg, AlaChallengeWaveView.fPh, AlaChallengeWaveView.fPi};
+        this.fNX.setWaveArray(fArr2);
+        this.fNX.setEndWaveArray(fArr2);
+        this.fNY = (HeadImageView) this.mRootView.findViewById(a.g.ala_challenge_direct_left_header);
+        this.fNY.setIsRound(true);
+        this.fNY.setAutoChangeStyle(false);
+        this.fNY.setDrawBorder(false);
+        this.fNY.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.fNY.setDefaultBgResource(a.f.icon_challenge_default_avatar);
+        this.fNY.startLoad(TbadkCoreApplication.getCurrentPortrait(), 25, false);
+        this.fNZ = (HeadImageView) this.mRootView.findViewById(a.g.ala_challenge_direct_right_header);
+        this.fNZ.setIsRound(true);
+        this.fNZ.setAutoChangeStyle(false);
+        this.fNY.setDrawBorder(false);
+        this.fNY.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.fNY.setDefaultBgResource(a.f.icon_challenge_default_avatar);
+        this.fOb = (TextView) this.mRootView.findViewById(a.g.ala_challenge_direct_cancle);
+        this.fOb.setOnClickListener(this.mClickListener);
+        this.fOc = (TextView) this.mRootView.findViewById(a.g.ala_challenge_direct_countdown);
+        this.fOd = (TextView) this.mRootView.findViewById(a.g.ala_challenge_direct_status);
+        this.fOe = this.mRootView.findViewById(a.g.ala_challenge_direct_header_cover);
     }
 
     public void b(com.baidu.live.challenge.d dVar) {
         if (dVar != null) {
-            this.fzX = dVar;
+            this.fOa = dVar;
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.challenge.panel.e
-    protected void Cc() {
-        super.Cc();
-        this.fzW.startLoad(this.fzX.avatar, 25, false);
-        this.fzT.startAnimation();
-        this.fzU.startAnimation();
-        this.fAa.setText(this.mContext.getString(a.i.ala_challenge_panel_matching));
-        this.fAb.setVisibility(0);
-        this.fzY.setVisibility(0);
-        this.fzY.setText(a.i.ala_challenge_panel_random_cancel);
-        this.fzY.setBackgroundResource(a.f.ala_challenge_panel_random_ops_cancel_bg_shape);
-        this.fzY.setTextColor(this.mContext.getResources().getColor(a.d.sdk_cp_cont_c));
-        this.fAc = 1;
-        this.mHandler.post(this.foV);
+    protected void Dz() {
+        super.Dz();
+        this.fNZ.startLoad(this.fOa.avatar, 25, false);
+        this.fNW.startAnimation();
+        this.fNX.startAnimation();
+        this.fOd.setText(this.mContext.getString(a.i.ala_challenge_panel_matching));
+        this.fOe.setVisibility(0);
+        this.fOb.setVisibility(0);
+        this.fOb.setText(a.i.ala_challenge_panel_random_cancel);
+        this.fOb.setBackgroundResource(a.f.ala_challenge_panel_random_ops_cancel_bg_shape);
+        this.fOb.setTextColor(this.mContext.getResources().getColor(a.d.sdk_cp_cont_c));
+        this.fOf = 1;
+        this.mHandler.post(this.fCJ);
     }
 
     @Override // com.baidu.tieba.ala.liveroom.challenge.panel.e
     protected boolean onBackKeyDown() {
-        bud();
+        bAc();
         return true;
     }
 
@@ -113,50 +113,50 @@ public class b extends e {
         return LayoutInflater.from(this.mContext).inflate(a.h.ala_challenge_direct_link_view, (ViewGroup) null);
     }
 
-    public void bud() {
-        if (this.fAz != null && this.fzX != null) {
-            this.fAz.dC(this.fzX.userId);
+    public void bAc() {
+        if (this.fOC != null && this.fOa != null) {
+            this.fOC.dD(this.fOa.userId);
         }
     }
 
     public void e(com.baidu.live.challenge.a aVar) {
         if (aVar != null) {
-            if (aVar.uh()) {
-                this.fAa.setText(a.i.ala_challenge_panel_random_succ_title);
-                this.fzZ.setText(a.i.ala_challenge_panel_random_succ_tip);
-                this.fAb.setVisibility(8);
-                this.fzY.setVisibility(8);
+            if (aVar.vo()) {
+                this.fOd.setText(a.i.ala_challenge_panel_random_succ_title);
+                this.fOc.setText(a.i.ala_challenge_panel_random_succ_tip);
+                this.fOe.setVisibility(8);
+                this.fOb.setVisibility(8);
             } else {
-                bue();
+                bAd();
             }
-            this.mHandler.removeCallbacks(this.foV);
+            this.mHandler.removeCallbacks(this.fCJ);
         }
     }
 
-    private void bue() {
-        this.fAa.setText(a.i.ala_challenge_panel_invite_fail);
-        this.fzZ.setText(a.i.ala_challenge_panel_direct_fail_tip);
-        this.fzY.setText(a.i.ala_challenge_panel_again_select);
-        this.fzY.setBackgroundResource(a.f.sdk_red_border_bg);
-        this.fzY.setTextColor(this.mContext.getResources().getColor(a.d.sdk_cp_cont_g));
-        this.fzT.endAnimation();
-        this.fzU.endAnimation();
+    private void bAd() {
+        this.fOd.setText(a.i.ala_challenge_panel_invite_fail);
+        this.fOc.setText(a.i.ala_challenge_panel_direct_fail_tip);
+        this.fOb.setText(a.i.ala_challenge_panel_again_select);
+        this.fOb.setBackgroundResource(a.f.sdk_red_border_bg);
+        this.fOb.setTextColor(this.mContext.getResources().getColor(a.d.sdk_cp_cont_g));
+        this.fNW.endAnimation();
+        this.fNX.endAnimation();
     }
 
     @Override // com.baidu.tieba.ala.liveroom.challenge.panel.e
     protected void hide() {
         super.hide();
-        if (this.fzT != null) {
-            this.fzT.endAnimation();
+        if (this.fNW != null) {
+            this.fNW.endAnimation();
         }
-        if (this.fzU != null) {
-            this.fzU.endAnimation();
+        if (this.fNX != null) {
+            this.fNX.endAnimation();
         }
-        this.mHandler.removeCallbacks(this.foV);
+        this.mHandler.removeCallbacks(this.fCJ);
     }
 
     @Override // com.baidu.tieba.ala.liveroom.challenge.panel.e
-    protected int buc() {
+    protected int bAb() {
         return this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds510);
     }
 }

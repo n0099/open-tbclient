@@ -16,11 +16,11 @@ import tv.chushou.zues.utils.h;
 /* loaded from: classes5.dex */
 public class a extends PopupWindow implements View.OnClickListener {
     private final TextView a;
-    private InterfaceC0770a mIt;
+    private InterfaceC0828a ncr;
 
     /* renamed from: com.kascend.chushou.widget.gifts.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public interface InterfaceC0770a {
+    public interface InterfaceC0828a {
         void a(int i);
 
         void b(int i);
@@ -49,7 +49,7 @@ public class a extends PopupWindow implements View.OnClickListener {
             textView.setOnClickListener(this);
         }
         if (z) {
-            setWidth(tv.chushou.zues.utils.a.fU(context).x);
+            setWidth(tv.chushou.zues.utils.a.gv(context).x);
         } else {
             inflate.findViewById(a.f.space_1).setVisibility(8);
             ((LinearLayout) inflate.findViewById(a.f.ll_keyboard)).setBackgroundColor(Color.parseColor("#4A4A4A"));
@@ -102,8 +102,8 @@ public class a extends PopupWindow implements View.OnClickListener {
         int parseInt = h.parseInt(this.a.getText().toString());
         if (parseInt != 0) {
             dismiss();
-            if (this.mIt != null) {
-                this.mIt.a(parseInt);
+            if (this.ncr != null) {
+                this.ncr.a(parseInt);
             }
         }
     }
@@ -116,8 +116,8 @@ public class a extends PopupWindow implements View.OnClickListener {
         } else if (charSequence.length() < 4) {
             this.a.setText(String.valueOf(charSequence + i));
         }
-        if (this.mIt != null && (parseInt = h.parseInt(this.a.getText().toString())) != 0) {
-            this.mIt.b(parseInt);
+        if (this.ncr != null && (parseInt = h.parseInt(this.a.getText().toString())) != 0) {
+            this.ncr.b(parseInt);
         }
     }
 
@@ -127,12 +127,12 @@ public class a extends PopupWindow implements View.OnClickListener {
         if (charSequence.length() > 0) {
             this.a.setText(charSequence.substring(0, charSequence.length() - 1));
         }
-        if (this.mIt != null && (parseInt = h.parseInt(this.a.getText().toString())) != 0) {
-            this.mIt.b(parseInt);
+        if (this.ncr != null && (parseInt = h.parseInt(this.a.getText().toString())) != 0) {
+            this.ncr.b(parseInt);
         }
     }
 
-    public void a(InterfaceC0770a interfaceC0770a) {
-        this.mIt = interfaceC0770a;
+    public void a(InterfaceC0828a interfaceC0828a) {
+        this.ncr = interfaceC0828a;
     }
 }

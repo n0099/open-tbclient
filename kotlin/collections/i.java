@@ -8,25 +8,25 @@ import java.util.RandomAccess;
 /* loaded from: classes7.dex */
 public class i extends h {
     public static final <T> List<T> asList(T[] tArr) {
-        kotlin.jvm.internal.q.j(tArr, "receiver$0");
+        kotlin.jvm.internal.q.m(tArr, "receiver$0");
         List<T> asList = k.asList(tArr);
-        kotlin.jvm.internal.q.i(asList, "ArraysUtilJVM.asList(this)");
+        kotlin.jvm.internal.q.l((Object) asList, "ArraysUtilJVM.asList(this)");
         return asList;
     }
 
     @kotlin.h
     /* loaded from: classes7.dex */
     public static final class a extends d<Byte> implements RandomAccess {
-        final /* synthetic */ byte[] mXl;
+        final /* synthetic */ byte[] nsn;
 
         a(byte[] bArr) {
-            this.mXl = bArr;
+            this.nsn = bArr;
         }
 
         @Override // kotlin.collections.a, java.util.Collection
         public final boolean contains(Object obj) {
             if (obj instanceof Byte) {
-                return d(((Number) obj).byteValue());
+                return e(((Number) obj).byteValue());
             }
             return false;
         }
@@ -34,7 +34,7 @@ public class i extends h {
         @Override // kotlin.collections.d, java.util.List
         public final int indexOf(Object obj) {
             if (obj instanceof Byte) {
-                return e(((Number) obj).byteValue());
+                return f(((Number) obj).byteValue());
             }
             return -1;
         }
@@ -42,51 +42,51 @@ public class i extends h {
         @Override // kotlin.collections.d, java.util.List
         public final int lastIndexOf(Object obj) {
             if (obj instanceof Byte) {
-                return f(((Number) obj).byteValue());
+                return g(((Number) obj).byteValue());
             }
             return -1;
         }
 
         @Override // kotlin.collections.a
         public int getSize() {
-            return this.mXl.length;
+            return this.nsn.length;
         }
 
         @Override // kotlin.collections.a, java.util.Collection
         public boolean isEmpty() {
-            return this.mXl.length == 0;
+            return this.nsn.length == 0;
         }
 
-        public boolean d(byte b) {
-            return f.a(this.mXl, b);
+        public boolean e(byte b) {
+            return f.a(this.nsn, b);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // kotlin.collections.d, java.util.List
-        /* renamed from: Jd */
+        /* renamed from: JO */
         public Byte get(int i) {
-            return Byte.valueOf(this.mXl[i]);
-        }
-
-        public int e(byte b) {
-            return f.b(this.mXl, b);
+            return Byte.valueOf(this.nsn[i]);
         }
 
         public int f(byte b) {
-            return f.c(this.mXl, b);
+            return f.b(this.nsn, b);
+        }
+
+        public int g(byte b) {
+            return f.c(this.nsn, b);
         }
     }
 
-    public static final List<Byte> al(byte[] bArr) {
-        kotlin.jvm.internal.q.j(bArr, "receiver$0");
+    public static final List<Byte> as(byte[] bArr) {
+        kotlin.jvm.internal.q.m(bArr, "receiver$0");
         return new a(bArr);
     }
 
-    public static final byte[] n(byte[] bArr, int i, int i2) {
-        kotlin.jvm.internal.q.j(bArr, "receiver$0");
-        f.dB(i2, bArr.length);
+    public static final byte[] o(byte[] bArr, int i, int i2) {
+        kotlin.jvm.internal.q.m(bArr, "receiver$0");
+        f.dG(i2, bArr.length);
         byte[] copyOfRange = Arrays.copyOfRange(bArr, i, i2);
-        kotlin.jvm.internal.q.i(copyOfRange, "java.util.Arrays.copyOfR…this, fromIndex, toIndex)");
+        kotlin.jvm.internal.q.l((Object) copyOfRange, "java.util.Arrays.copyOfR…this, fromIndex, toIndex)");
         return copyOfRange;
     }
 }

@@ -1,14 +1,4 @@
 package com.baidu.swan.apps.ac.a;
 /* loaded from: classes11.dex */
-public class a extends c {
-    private com.baidu.swan.apps.res.widget.dialog.a ceW;
-
-    public a(com.baidu.swan.apps.res.widget.dialog.a aVar) {
-        super(5);
-        this.ceW = aVar;
-    }
-
-    public boolean isShow() {
-        return this.ceW != null && "show".equals(this.ceW.getAction());
-    }
+public interface a extends com.baidu.swan.apps.ag.a {
 }

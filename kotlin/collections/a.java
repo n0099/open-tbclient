@@ -45,7 +45,7 @@ public abstract class a<E> implements Collection<E> {
 
     @Override // java.util.Collection
     public boolean containsAll(Collection<? extends Object> collection) {
-        kotlin.jvm.internal.q.j(collection, "elements");
+        kotlin.jvm.internal.q.m(collection, "elements");
         Collection<? extends Object> collection2 = collection;
         if (collection2.isEmpty()) {
             return true;
@@ -71,12 +71,12 @@ public abstract class a<E> implements Collection<E> {
 
     @Override // java.util.Collection
     public Object[] toArray() {
-        return kotlin.jvm.internal.n.n(this);
+        return kotlin.jvm.internal.n.p(this);
     }
 
     @Override // java.util.Collection
     public <T> T[] toArray(T[] tArr) {
-        kotlin.jvm.internal.q.j(tArr, com.baidu.fsg.base.statistics.b.j);
+        kotlin.jvm.internal.q.m(tArr, com.baidu.fsg.base.statistics.b.j);
         T[] tArr2 = (T[]) kotlin.jvm.internal.n.a(this, tArr);
         if (tArr2 == null) {
             throw new TypeCastException("null cannot be cast to non-null type kotlin.Array<T>");
@@ -90,7 +90,7 @@ public abstract class a<E> implements Collection<E> {
             return false;
         }
         for (E e : this) {
-            if (kotlin.jvm.internal.q.k(e, obj)) {
+            if (kotlin.jvm.internal.q.l(e, obj)) {
                 return true;
             }
         }

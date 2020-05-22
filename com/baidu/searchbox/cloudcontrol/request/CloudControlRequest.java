@@ -159,7 +159,7 @@ public class CloudControlRequest {
                     }
                 }
             }
-            httpCommonRequestBuilder.requestBody(RequestBody.create(MediaType.parse(REQUEST_CONTENT_TYPE), new JSONObject(hashMap3).toString())).cookieManager(httpManager.getCookieManager(true, false)).build().executeAsync(cloudControlResponseCallback);
+            httpCommonRequestBuilder.requestBody(RequestBody.create(MediaType.parse("application/json"), new JSONObject(hashMap3).toString())).cookieManager(httpManager.getCookieManager(true, false)).build().executeAsync(cloudControlResponseCallback);
         }
     }
 

@@ -6,29 +6,29 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
 public final class SingleSubject<T> extends w<T> implements y<T> {
-    static final SingleDisposable[] mWQ = new SingleDisposable[0];
-    static final SingleDisposable[] mWR = new SingleDisposable[0];
+    static final SingleDisposable[] nrS = new SingleDisposable[0];
+    static final SingleDisposable[] nrT = new SingleDisposable[0];
     Throwable error;
     T value;
     final AtomicBoolean once = new AtomicBoolean();
-    final AtomicReference<SingleDisposable<T>[]> observers = new AtomicReference<>(mWQ);
+    final AtomicReference<SingleDisposable<T>[]> observers = new AtomicReference<>(nrS);
 
     SingleSubject() {
     }
 
     @Override // io.reactivex.y
     public void onSubscribe(io.reactivex.disposables.b bVar) {
-        if (this.observers.get() == mWR) {
+        if (this.observers.get() == nrT) {
             bVar.dispose();
         }
     }
 
     @Override // io.reactivex.y
     public void onSuccess(T t) {
-        io.reactivex.internal.functions.a.h(t, "onSuccess called with null. Null values are generally not allowed in 2.x operators and sources.");
+        io.reactivex.internal.functions.a.k(t, "onSuccess called with null. Null values are generally not allowed in 2.x operators and sources.");
         if (this.once.compareAndSet(false, true)) {
             this.value = t;
-            for (SingleDisposable<T> singleDisposable : this.observers.getAndSet(mWR)) {
+            for (SingleDisposable<T> singleDisposable : this.observers.getAndSet(nrT)) {
                 singleDisposable.actual.onSuccess(t);
             }
         }
@@ -36,10 +36,10 @@ public final class SingleSubject<T> extends w<T> implements y<T> {
 
     @Override // io.reactivex.y
     public void onError(Throwable th) {
-        io.reactivex.internal.functions.a.h(th, "onError called with null. Null values are generally not allowed in 2.x operators and sources.");
+        io.reactivex.internal.functions.a.k(th, "onError called with null. Null values are generally not allowed in 2.x operators and sources.");
         if (this.once.compareAndSet(false, true)) {
             this.error = th;
-            for (SingleDisposable<T> singleDisposable : this.observers.getAndSet(mWR)) {
+            for (SingleDisposable<T> singleDisposable : this.observers.getAndSet(nrT)) {
                 singleDisposable.actual.onError(th);
             }
             return;
@@ -72,7 +72,7 @@ public final class SingleSubject<T> extends w<T> implements y<T> {
         SingleDisposable<T>[] singleDisposableArr2;
         do {
             singleDisposableArr = this.observers.get();
-            if (singleDisposableArr == mWR) {
+            if (singleDisposableArr == nrT) {
                 return false;
             }
             int length = singleDisposableArr.length;
@@ -104,7 +104,7 @@ public final class SingleSubject<T> extends w<T> implements y<T> {
                 }
                 if (i >= 0) {
                     if (length == 1) {
-                        singleDisposableArr2 = mWQ;
+                        singleDisposableArr2 = nrS;
                     } else {
                         singleDisposableArr2 = new SingleDisposable[length - 1];
                         System.arraycopy(singleDisposableArr, 0, singleDisposableArr2, 0, i);

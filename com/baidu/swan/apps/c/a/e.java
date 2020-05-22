@@ -1,92 +1,90 @@
 package com.baidu.swan.apps.c.a;
 
 import android.os.Bundle;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
-import kotlin.jvm.internal.q;
-import kotlin.text.l;
-@kotlin.h
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import com.baidu.swan.apps.a;
+import com.baidu.swan.support.v4.app.FragmentActivity;
 /* loaded from: classes11.dex */
-public final class e {
-    private static final String TAG;
-    private static com.baidu.swan.apps.a.a bAR;
-    private static com.baidu.swan.apps.a.c bAS;
-    private static boolean bAT;
-    public static final e bAU = new e();
+public class e extends com.baidu.swan.apps.core.d.h {
+    private static final String TAG = e.class.getSimpleName();
 
-    static {
-        String simpleName = bAU.getClass().getSimpleName();
-        q.i(simpleName, "SwanAppAllianceLoginHelper.javaClass.simpleName");
-        TAG = simpleName;
+    @Override // com.baidu.swan.apps.core.d.h
+    public com.baidu.swan.apps.adaptation.b.f Tb() {
+        return com.baidu.swan.apps.core.turbo.d.abl().abm().bj(getContext());
     }
 
-    private e() {
-    }
-
-    public final com.baidu.swan.apps.a.a QZ() {
-        return bAR;
-    }
-
-    public final com.baidu.swan.apps.a.c Ra() {
-        return bAS;
-    }
-
-    public final boolean Rb() {
-        return bAT;
-    }
-
-    public final void cW(boolean z) {
-        bAT = z;
-    }
-
-    public final boolean isLogin() {
-        if (f.Rf() == null) {
-            Re();
-        }
-        if (q.k(f.Rf(), false)) {
-            return false;
-        }
-        String Ri = g.bAX.Ri();
-        if (!(Ri == null || l.isBlank(Ri))) {
-            String uid = h.bAZ.getUid();
-            if (!(uid == null || l.isBlank(uid))) {
-                return true;
+    @Override // com.baidu.swan.apps.core.d.h
+    protected com.baidu.swan.apps.core.f.d Tx() {
+        return new com.baidu.swan.apps.core.f.a() { // from class: com.baidu.swan.apps.c.a.e.1
+            @Override // com.baidu.swan.apps.core.f.a, com.baidu.swan.apps.core.f.d
+            public boolean fS(String str) {
+                return super.fS(str);
             }
+        };
+    }
+
+    @Override // com.baidu.swan.apps.core.d.h, com.baidu.swan.apps.core.d.b
+    protected void ae(View view) {
+        super.ae(view);
+        this.bVa.setRightZoneVisibility(true);
+    }
+
+    @Override // com.baidu.swan.apps.core.d.h, com.baidu.swan.apps.core.d.b
+    protected void TC() {
+        FragmentActivity aHv = aHv();
+        if (aHv != null && this.bVb == null) {
+            this.bVb = new com.baidu.swan.menu.h(aHv, this.bVa, TD(), com.baidu.swan.apps.u.a.aeV(), new com.baidu.swan.apps.view.c.b());
+            new com.baidu.swan.apps.y.a(this.bVb, this).ajG();
         }
+    }
+
+    private int TD() {
+        return Yq() ? 18 : 12;
+    }
+
+    /* JADX WARN: Type inference failed for: r0v4, types: [com.baidu.swan.apps.adaptation.b.d] */
+    @Override // com.baidu.swan.apps.core.d.h, com.baidu.swan.support.v4.app.Fragment
+    public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
+        View inflate = layoutInflater.inflate(a.g.aiapps_webview_fragment, viewGroup, false);
+        ae(inflate);
+        this.bWj = Tb();
+        this.bWj.a(Tx());
+        this.bHi = this.bWj.Th();
+        this.bWj.loadUrl(this.mUrl);
+        FrameLayout frameLayout = (FrameLayout) inflate.findViewById(a.f.aiapps_webView_container);
+        this.bWj.a(frameLayout, this.bHi.covertToView());
+        a(frameLayout);
+        return immersionEnabled() ? initImmersion(inflate) : inflate;
+    }
+
+    @Override // com.baidu.swan.apps.core.d.h, com.baidu.swan.apps.core.d.b
+    protected boolean Ty() {
+        return true;
+    }
+
+    @Override // com.baidu.swan.apps.core.d.h, com.baidu.swan.apps.core.d.b
+    public boolean Tc() {
+        if (this.bHi != null && this.bHi.canGoBack()) {
+            this.bHi.goBack();
+            return true;
+        }
+        TE();
         return false;
     }
 
-    public final void Rc() {
-        g.bAX.Rj();
-        h.bAZ.Rm();
-        cP(false);
+    @Override // com.baidu.swan.apps.core.d.h, com.baidu.swan.support.v4.app.Fragment
+    public void onDestroy() {
+        TE();
+        super.onDestroy();
     }
 
-    public final boolean Rd() {
-        if (f.Rf() == null) {
-            Re();
+    private void TE() {
+        com.baidu.swan.apps.a.a TF;
+        if (!f.bIQ.TH() && (TF = f.bIQ.TF()) != null) {
+            TF.onResult(-2);
         }
-        Boolean Rf = f.Rf();
-        if (Rf == null) {
-            q.dDS();
-        }
-        return Rf.booleanValue();
-    }
-
-    public final void cP(boolean z) {
-        Bundle bundle = new Bundle();
-        bundle.putBoolean("status", z);
-        DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), c.class, bundle);
-    }
-
-    private final void Re() {
-        boolean z;
-        try {
-            Class.forName("com.baidu.sapi2.SapiAccountManager");
-            z = false;
-        } catch (ClassNotFoundException e) {
-            z = true;
-        }
-        f.c(Boolean.valueOf(z));
     }
 }

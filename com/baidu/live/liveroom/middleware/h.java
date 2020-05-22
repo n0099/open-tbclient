@@ -3,5 +3,5 @@ package com.baidu.live.liveroom.middleware;
 public interface h {
     void b(String str, int i, String str2);
 
-    void eK(String str);
+    void fw(String str);
 }

@@ -1,7 +1,7 @@
 package com.baidu.c.a.b.a;
 /* loaded from: classes6.dex */
 public interface b {
-    void AY();
+    void Cs();
 
     void a(String str, d dVar);
 
@@ -9,5 +9,5 @@ public interface b {
 
     void a(String str, String str2, int i, com.baidu.c.a.b.b bVar, boolean z);
 
-    void fn(String str);
+    void fZ(String str);
 }

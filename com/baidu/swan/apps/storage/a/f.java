@@ -6,17 +6,17 @@ import android.util.Log;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.scheme.actions.ab;
+import com.baidu.swan.apps.scheme.actions.aa;
 import org.json.JSONException;
 import org.json.JSONObject;
 @Deprecated
 /* loaded from: classes11.dex */
-public class f extends ab {
+public class f extends aa {
     public f(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swanAPI/getStorage");
     }
 
-    @Override // com.baidu.swan.apps.scheme.actions.ab
+    @Override // com.baidu.swan.apps.scheme.actions.aa
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
         if (DEBUG) {
             Log.d("SwanAppAction", "start get storage");
@@ -35,17 +35,17 @@ public class f extends ab {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "empty key");
             return false;
         }
-        String string = eVar.akU().anp().getString(optString, "");
+        String string = eVar.aoQ().ary().getString(optString, "");
         try {
-            JSONObject hl = com.baidu.swan.apps.api.module.j.a.hl(string);
-            if (hl == null) {
-                hl = new JSONObject();
+            JSONObject ib = com.baidu.swan.apps.api.module.i.a.ib(string);
+            if (ib == null) {
+                ib = new JSONObject();
                 if (TextUtils.isEmpty(string)) {
                     string = "";
                 }
-                hl.put("data", string);
+                ib.put("data", string);
             }
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(hl, 0));
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(ib, 0));
             return true;
         } catch (JSONException e) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "JSONException");

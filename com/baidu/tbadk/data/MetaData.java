@@ -7,9 +7,10 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.db.DBTableDefine;
 import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
+import com.baidu.tbadk.core.data.AlaInfoData;
 import com.baidu.tbadk.core.data.AlaUserInfoData;
 import com.baidu.tbadk.core.data.ThemeCardInUserData;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.coreExtra.data.NewGodData;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,6 +24,7 @@ import tbclient.User;
 /* loaded from: classes.dex */
 public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.userLike.a, Serializable {
     private static final long serialVersionUID = -2658065756886586092L;
+    private AlaInfoData alaInfo;
     public AlaUserInfoData alaUserData;
     private boolean canModifyAvatar;
     private String cantModifyAvatarDesc;
@@ -36,15 +38,16 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
     private int is_manager;
     private int is_myfans;
     private int is_myfriend;
-    private k pendantData;
+    private l pendantData;
     public int rankInfluence;
     public String rankNum;
     private String virtualUserUrl;
-    private boolean isLikeStatusFromNet = false;
+    private boolean isLikeStatusFromNet = true;
     private int is_like = 0;
-    private int likeStatus = 1;
+    private int likeStatus = 0;
     private GodUserData godUserData = new GodUserData();
     private UserTbVipInfoData bigVData = new UserTbVipInfoData();
+    private NewGodData mNewGodData = new NewGodData();
     private String userId = null;
     private int type = 0;
     private int level_id = 0;
@@ -82,7 +85,7 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
     }
 
     public boolean isBaijiahaoUser() {
-        return (this.baijiahaoInfo == null || this.baijiahaoInfo.auth_id.intValue() <= 0 || aq.isEmpty(this.baijiahaoInfo.name)) ? false : true;
+        return this.baijiahaoInfo != null && this.baijiahaoInfo.auth_id.intValue() > 0;
     }
 
     public void setUserId(String str) {
@@ -110,6 +113,10 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
         }
     }
 
+    public boolean isLikeStatusFromNet() {
+        return this.isLikeStatusFromNet;
+    }
+
     @Override // com.baidu.tbadk.core.view.userLike.a
     public boolean isGod() {
         return this.isGod;
@@ -133,10 +140,7 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
 
     @Override // com.baidu.tbadk.core.view.userLike.a
     public boolean getIsLike() {
-        if (isGod()) {
-            return this.godUserData.getIsLike();
-        }
-        return this.is_like == 1;
+        return isGod() ? this.godUserData.getIsLike() || this.mHadConcerned : this.is_like == 1 || this.mHadConcerned;
     }
 
     public void setIsLike(boolean z) {
@@ -145,6 +149,25 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
         if (isGod()) {
             this.godUserData.setIsLike(z);
         }
+    }
+
+    public void setHadConcerned(boolean z) {
+        this.mHadConcerned = z;
+        setIsLike(z);
+    }
+
+    public boolean hadConcerned() {
+        return this.mHadConcerned || this.is_like == 1;
+    }
+
+    @Override // com.baidu.tbadk.core.view.userLike.a
+    public void setLikeStatus(int i) {
+        this.likeStatus = i;
+    }
+
+    @Override // com.baidu.tbadk.core.view.userLike.a
+    public int getLikeStatus() {
+        return this.likeStatus;
     }
 
     public long getUserIdLong() {
@@ -202,6 +225,10 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
 
     public AlaUserInfoData getAlaUserData() {
         return this.alaUserData;
+    }
+
+    public AlaInfoData getAlaInfo() {
+        return this.alaInfo;
     }
 
     public String getPortraitH() {
@@ -322,14 +349,6 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
         return this.threadNum;
     }
 
-    public boolean hadConcerned() {
-        return this.mHadConcerned;
-    }
-
-    public void setHadConcerned(boolean z) {
-        this.mHadConcerned = z;
-    }
-
     @Deprecated
     public GodInfo getGodInfo() {
         return this.godInfo;
@@ -386,7 +405,7 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
             this.is_myfriend = user.is_friend.intValue();
             this.is_myfans = user.is_fans.intValue();
             this.concernNum = user.concern_num.intValue();
-            this.mHadConcerned = user.has_concerned.intValue() == 1;
+            this.mHadConcerned = user.has_concerned.intValue() == 1 || user.has_concerned.intValue() == 2;
             setLikeStatus(user.has_concerned.intValue());
             this.fansNickName = user.fans_nickname;
             this.fansNum = user.fans_num.intValue();
@@ -439,13 +458,21 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
             this.giftNum = user.gift_num.intValue();
             this.themeCard.parser(user.theme_card);
             if (user.pendant != null) {
-                this.pendantData = new k();
+                this.pendantData = new l();
                 this.pendantData.a(user.pendant);
             }
             this.isLikeStatusFromNet = true;
             if (user.ala_info != null) {
                 this.alaUserData = new AlaUserInfoData();
                 this.alaUserData.a(user.ala_info);
+            }
+            if (user.ala_live_info != null) {
+                this.alaInfo = new AlaInfoData();
+                this.alaInfo.parserProtobuf(user.ala_live_info);
+            } else if (this.alaUserData != null) {
+                this.alaInfo = new AlaInfoData();
+                this.alaInfo.live_status = this.alaUserData.live_status;
+                this.alaInfo.live_id = this.alaUserData.live_id;
             }
             this.sealPrefix = user.seal_prefix;
             if (user.spring_virtual_user != null && user.spring_virtual_user.is_virtual.intValue() == 1 && !StringUtils.isNull(user.spring_virtual_user.url)) {
@@ -459,6 +486,9 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
             this.rankNum = user.level_influence;
             this.rankInfluence = user.influence == null ? 0 : user.influence.intValue();
             this.isMask = user.is_mask.intValue() == 1;
+            if (user.new_god_data != null) {
+                this.mNewGodData.parserProtobuf(user.new_god_data);
+            }
         }
     }
 
@@ -546,6 +576,8 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
                 this.isLikeStatusFromNet = true;
                 this.alaUserData = new AlaUserInfoData();
                 this.alaUserData.parserJson(jSONObject.optJSONObject("ala_info"));
+                this.alaInfo = new AlaInfoData();
+                this.alaInfo.parserJson(jSONObject.optJSONObject("ala_live_info"));
                 JSONObject optJSONObject4 = jSONObject.optJSONObject("spring_virtual_user");
                 if (optJSONObject4 != null) {
                     int optInt2 = optJSONObject4.optInt("is_virtual");
@@ -569,6 +601,10 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
                 }
                 this.canModifyAvatar = jSONObject.optInt("can_modify_avatar") == 0;
                 this.cantModifyAvatarDesc = jSONObject.getString("modify_avatar_desc");
+                JSONObject optJSONObject6 = jSONObject.optJSONObject("new_god_data");
+                if (optJSONObject6 != null) {
+                    this.mNewGodData.parserJson(optJSONObject6);
+                }
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
@@ -579,12 +615,12 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
         return this.themeCard;
     }
 
-    public k getPendantData() {
+    public l getPendantData() {
         return this.pendantData;
     }
 
-    public void setPendantData(k kVar) {
-        this.pendantData = kVar;
+    public void setPendantData(l lVar) {
+        this.pendantData = lVar;
     }
 
     public String getVirtualUserUrl() {
@@ -593,16 +629,6 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
 
     public void setVirtualUserUrl(String str) {
         this.virtualUserUrl = str;
-    }
-
-    @Override // com.baidu.tbadk.core.view.userLike.a
-    public void setLikeStatus(int i) {
-        this.likeStatus = i;
-    }
-
-    @Override // com.baidu.tbadk.core.view.userLike.a
-    public int getLikeStatus() {
-        return this.likeStatus;
     }
 
     public boolean canModifyAvatar() {
@@ -639,5 +665,17 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
 
     public String getAvatarH() {
         return (this.baijiahaoInfo == null || TextUtils.isEmpty(this.baijiahaoInfo.avatar_h)) ? this.portraith : this.baijiahaoInfo.avatar_h;
+    }
+
+    public NewGodData getNewGodData() {
+        return this.mNewGodData;
+    }
+
+    public void setNewGodData(NewGodData newGodData) {
+        this.mNewGodData = newGodData;
+    }
+
+    public boolean isNewGod() {
+        return this.mNewGodData != null && this.mNewGodData.isNewGod();
     }
 }

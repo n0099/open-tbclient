@@ -28,9 +28,9 @@ public final class FlowableInterval extends io.reactivex.g<Long> {
         cVar.onSubscribe(intervalSubscriber);
         v vVar = this.scheduler;
         if (vVar instanceof k) {
-            v.c dCD = vVar.dCD();
-            intervalSubscriber.setResource(dCD);
-            dCD.b(intervalSubscriber, this.initialDelay, this.period, this.unit);
+            v.c dKx = vVar.dKx();
+            intervalSubscriber.setResource(dKx);
+            dKx.b(intervalSubscriber, this.initialDelay, this.period, this.unit);
             return;
         }
         intervalSubscriber.setResource(vVar.a(intervalSubscriber, this.initialDelay, this.period, this.unit));

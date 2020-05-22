@@ -29,7 +29,7 @@ final class Regex$findAll$2 extends FunctionReference implements kotlin.jvm.a.b<
     /* JADX DEBUG: Method merged with bridge method */
     @Override // kotlin.jvm.a.b
     public final i invoke(i iVar) {
-        kotlin.jvm.internal.q.j(iVar, "p1");
-        return iVar.dEo();
+        kotlin.jvm.internal.q.m(iVar, "p1");
+        return iVar.dMi();
     }
 }

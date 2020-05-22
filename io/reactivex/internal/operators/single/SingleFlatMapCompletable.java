@@ -48,7 +48,7 @@ public final class SingleFlatMapCompletable<T> extends io.reactivex.a {
         @Override // io.reactivex.y
         public void onSuccess(T t) {
             try {
-                e eVar = (e) io.reactivex.internal.functions.a.h(this.mapper.apply(t), "The mapper returned a null CompletableSource");
+                e eVar = (e) io.reactivex.internal.functions.a.k(this.mapper.apply(t), "The mapper returned a null CompletableSource");
                 if (!isDisposed()) {
                     eVar.a(this);
                 }

@@ -29,7 +29,13 @@ public class LivenessBaseActivity extends BeanActivity {
         } else {
             this.livenessRecogDTO = (LivenessRecogDTO) c.a().a("request_data");
         }
-        customLiuHai();
+        if (isSupportLiuHai()) {
+            customLiuHai();
+        }
+    }
+
+    protected boolean isSupportLiuHai() {
+        return true;
     }
 
     @TargetApi(27)

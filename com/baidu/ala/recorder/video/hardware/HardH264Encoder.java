@@ -63,10 +63,10 @@ public class HardH264Encoder {
 
     private boolean setMediaFormat(MediaCodec mediaCodec, boolean z) {
         try {
-            MediaCodecInfo.CodecCapabilities capabilitiesForType = mediaCodec.getCodecInfo().getCapabilitiesForType(MIME);
+            MediaCodecInfo.CodecCapabilities capabilitiesForType = mediaCodec.getCodecInfo().getCapabilitiesForType("video/avc");
             int selectColorFormat = selectColorFormat(capabilitiesForType);
             int selectProfile = selectProfile(capabilitiesForType);
-            this.mMediaFormat = MediaFormat.createVideoFormat(MIME, this.mRecorder.getOutputWidth(), this.mRecorder.getOutputHeight());
+            this.mMediaFormat = MediaFormat.createVideoFormat("video/avc", this.mRecorder.getOutputWidth(), this.mRecorder.getOutputHeight());
             this.mMediaFormat.setInteger(IjkMediaMeta.IJKM_KEY_BITRATE, this.mRecorder.getBitRate());
             this.mMediaFormat.setInteger("frame-rate", 25);
             this.mMediaFormat.setInteger("color-format", selectColorFormat);
@@ -85,7 +85,7 @@ public class HardH264Encoder {
 
     public boolean initMediaParams() {
         try {
-            this.mMediaCodec = MediaCodec.createEncoderByType(MIME);
+            this.mMediaCodec = MediaCodec.createEncoderByType("video/avc");
             if (setMediaFormat(this.mMediaCodec, false) || setMediaFormat(this.mMediaCodec, true)) {
                 this.mSurface = this.mMediaCodec.createInputSurface();
                 this.mSteamProc = new EncoderOutputStream(this.mMediaCodec);

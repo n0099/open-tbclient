@@ -23,6 +23,7 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class FileSerialDownLoader {
     private static final int CMD_BET_MSG_RESULT = 18;
@@ -55,7 +56,7 @@ public class FileSerialDownLoader {
                     }
                 }
             } else if (message.what == 18) {
-                FileSerialDownLoader.this.processDownloadResult(message.arg1);
+                FileSerialDownLoader.this.processDownloadResult(message.arg1, message.obj);
             }
         }
     };
@@ -308,7 +309,7 @@ public class FileSerialDownLoader {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void processDownloadResult(int i) {
+    public void processDownloadResult(int i, Object obj) {
         String string;
         if (mRun != null) {
             if (i == 0) {
@@ -346,6 +347,7 @@ public class FileSerialDownLoader {
                 }
                 mRun.setStatusMsg(string);
                 mRun.setErrorCode(i);
+                mRun.setNetErrorJson(obj);
                 mRun.setStatus(2);
                 if (mRun.getCallback() != null) {
                     mRun.getCallback().onFileUpdateProgress(mRun);
@@ -417,7 +419,7 @@ public class FileSerialDownLoader {
                     if (!file.exists()) {
                         this.mNetWork.setUrl(downloadDataArr[0].getUrl());
                         this.mNetWork.downloadFile(FileHelper.getCacheFilePath(downloadDataArr[0].getId() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + downloadDataArr[0].getName() + ".tmp"), FileSerialDownLoader.this.mFileHandler, 17, 3, new NetWork.DownloadResultCallback() { // from class: com.baidu.live.tbadk.download.FileSerialDownLoader.AsyFileDownLoadTask.1
-                            /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [516=5, 518=4, 519=4, 520=4] */
+                            /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [518=5, 520=4, 521=4, 522=4] */
                             /* JADX DEBUG: Failed to insert an additional move for type inference into block B:52:0x0133 */
                             /* JADX DEBUG: Failed to insert an additional move for type inference into block B:54:0x0135 */
                             /* JADX DEBUG: Failed to insert an additional move for type inference into block B:59:? */
@@ -443,7 +445,7 @@ public class FileSerialDownLoader {
                             /*
                                 Code decompiled incorrectly, please refer to instructions dump.
                             */
-                            public void onSucess() {
+                            public void onSuccess() {
                                 String str;
                                 Throwable th;
                                 ?? r1;
@@ -557,8 +559,24 @@ public class FileSerialDownLoader {
                             }
 
                             @Override // com.baidu.live.tbadk.core.util.NetWork.DownloadResultCallback
-                            public void onFail(int i) {
-                                AsyFileDownLoadTask.this.sendResultMsg(3);
+                            public void onFail(int i, String str) {
+                                JSONObject jSONObject;
+                                Exception e;
+                                try {
+                                    jSONObject = new JSONObject();
+                                } catch (Exception e2) {
+                                    jSONObject = null;
+                                    e = e2;
+                                }
+                                try {
+                                    jSONObject.put("err_code", i);
+                                    jSONObject.put("exception", str);
+                                } catch (Exception e3) {
+                                    e = e3;
+                                    e.printStackTrace();
+                                    AsyFileDownLoadTask.this.sendResultMsg(3, jSONObject);
+                                }
+                                AsyFileDownLoadTask.this.sendResultMsg(3, jSONObject);
                             }
                         });
                     }
@@ -570,6 +588,13 @@ public class FileSerialDownLoader {
         /* JADX INFO: Access modifiers changed from: private */
         public void sendResultMsg(int i) {
             FileSerialDownLoader.this.mFileHandler.sendMessage(Message.obtain(FileSerialDownLoader.this.mFileHandler, 18, i, 0));
+        }
+
+        /* JADX INFO: Access modifiers changed from: private */
+        public void sendResultMsg(int i, Object obj) {
+            Message obtain = Message.obtain(FileSerialDownLoader.this.mFileHandler, 18, i, 0);
+            obtain.obj = obj;
+            FileSerialDownLoader.this.mFileHandler.sendMessage(obtain);
         }
     }
 }

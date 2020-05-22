@@ -13,32 +13,32 @@ import kotlin.text.l;
 @h
 /* loaded from: classes.dex */
 public final class b {
-    private final String mKG;
-    private Path mKH;
+    private final String neK;
+    private Path neL;
 
     public b(String str) {
-        q.j(str, "originValue");
-        this.mKG = l.a((CharSequence) str, (CharSequence) Constants.ACCEPT_TIME_SEPARATOR_SP, false, 2, (Object) null) ? l.a(str, Constants.ACCEPT_TIME_SEPARATOR_SP, " ", false, 4, (Object) null) : str;
+        q.m(str, "originValue");
+        this.neK = l.a((CharSequence) str, (CharSequence) Constants.ACCEPT_TIME_SEPARATOR_SP, false, 2, (Object) null) ? l.a(str, Constants.ACCEPT_TIME_SEPARATOR_SP, " ", false, 4, (Object) null) : str;
     }
 
     public final void a(Path path) {
         Set set;
-        q.j(path, "toPath");
-        Path path2 = this.mKH;
+        q.m(path, "toPath");
+        Path path2 = this.neL;
         if (path2 != null) {
             path.set(path2);
             return;
         }
         Path path3 = new Path();
-        StringTokenizer stringTokenizer = new StringTokenizer(this.mKG, "MLHVCSQRAZmlhvcsqraz", true);
+        StringTokenizer stringTokenizer = new StringTokenizer(this.neK, "MLHVCSQRAZmlhvcsqraz", true);
         String str = "";
         while (stringTokenizer.hasMoreTokens()) {
             String nextToken = stringTokenizer.nextToken();
-            q.i(nextToken, "segment");
+            q.l((Object) nextToken, "segment");
             if (!(nextToken.length() == 0)) {
-                set = c.mKI;
+                set = c.neM;
                 if (set.contains(nextToken)) {
-                    if (q.k(nextToken, "Z") || q.k(nextToken, "z")) {
+                    if (q.l((Object) nextToken, (Object) "Z") || q.l((Object) nextToken, (Object) "z")) {
                         a(path3, nextToken, new StringTokenizer("", ""));
                     }
                 } else {
@@ -48,7 +48,7 @@ public final class b {
                 str = nextToken;
             }
         }
-        this.mKH = path3;
+        this.neL = path3;
         path.set(path3);
     }
 
@@ -64,7 +64,7 @@ public final class b {
         while (stringTokenizer.hasMoreTokens()) {
             try {
                 String nextToken = stringTokenizer.nextToken();
-                q.i(nextToken, "s");
+                q.l((Object) nextToken, "s");
                 if (!(nextToken.length() == 0)) {
                     if (i == 0) {
                         f7 = Float.parseFloat(nextToken);
@@ -92,41 +92,41 @@ public final class b {
         }
         f = f7;
         com.opensource.svgaplayer.b.a aVar = new com.opensource.svgaplayer.b.a(0.0f, 0.0f, 0.0f);
-        if (q.k(str, "M")) {
+        if (q.l((Object) str, (Object) "M")) {
             path.moveTo(f, f6);
             aVar = new com.opensource.svgaplayer.b.a(f, f6, 0.0f);
-        } else if (q.k(str, "m")) {
+        } else if (q.l((Object) str, (Object) "m")) {
             path.rMoveTo(f, f6);
             aVar = new com.opensource.svgaplayer.b.a(aVar.getX() + f, aVar.getY() + f6, 0.0f);
         }
-        if (q.k(str, "L")) {
+        if (q.l((Object) str, (Object) "L")) {
             path.lineTo(f, f6);
-        } else if (q.k(str, "l")) {
+        } else if (q.l((Object) str, (Object) "l")) {
             path.rLineTo(f, f6);
         }
-        if (q.k(str, "C")) {
+        if (q.l((Object) str, (Object) "C")) {
             path.cubicTo(f, f6, f5, f4, f3, f2);
-        } else if (q.k(str, "c")) {
+        } else if (q.l((Object) str, (Object) "c")) {
             path.rCubicTo(f, f6, f5, f4, f3, f2);
         }
-        if (q.k(str, "Q")) {
+        if (q.l((Object) str, (Object) "Q")) {
             path.quadTo(f, f6, f5, f4);
-        } else if (q.k(str, IXAdRequestInfo.COST_NAME)) {
+        } else if (q.l((Object) str, (Object) IXAdRequestInfo.COST_NAME)) {
             path.rQuadTo(f, f6, f5, f4);
         }
-        if (q.k(str, IEruptionStrategyGroup.STRATEGY_MODIFIER_H)) {
+        if (q.l((Object) str, (Object) IEruptionStrategyGroup.STRATEGY_MODIFIER_H)) {
             path.lineTo(f, aVar.getY());
-        } else if (q.k(str, "h")) {
+        } else if (q.l((Object) str, (Object) "h")) {
             path.rLineTo(f, 0.0f);
         }
-        if (q.k(str, ExifInterface.GPS_MEASUREMENT_INTERRUPTED)) {
+        if (q.l((Object) str, (Object) ExifInterface.GPS_MEASUREMENT_INTERRUPTED)) {
             path.lineTo(aVar.getX(), f);
-        } else if (q.k(str, "v")) {
+        } else if (q.l((Object) str, (Object) "v")) {
             path.rLineTo(0.0f, f);
         }
-        if (q.k(str, "Z")) {
+        if (q.l((Object) str, (Object) "Z")) {
             path.close();
-        } else if (q.k(str, "z")) {
+        } else if (q.l((Object) str, (Object) "z")) {
             path.close();
         }
     }

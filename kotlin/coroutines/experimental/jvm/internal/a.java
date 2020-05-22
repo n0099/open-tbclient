@@ -12,9 +12,9 @@ public final class a {
     /* JADX WARN: Multi-variable type inference failed */
     public static final <T> b<T> a(d dVar, b<? super T> bVar) {
         b<T> a;
-        q.j(dVar, "context");
-        q.j(bVar, "continuation");
-        c cVar = (c) dVar.a(c.mXu);
+        q.m(dVar, "context");
+        q.m(bVar, "continuation");
+        c cVar = (c) dVar.a(c.nsw);
         return (cVar == null || (a = cVar.a(bVar)) == null) ? bVar : a;
     }
 }

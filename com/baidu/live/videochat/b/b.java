@@ -3,41 +3,41 @@ package com.baidu.live.videochat.b;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class b {
-    private long aYR;
-    private int aYS;
-    private long aYT;
-    private long aYU;
-    private long aYV;
-    private long aYW;
+    private long bgn;
+    private int bgo;
+    private long bgp;
+    private long bgq;
+    private long bgr;
+    private long bgt;
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.aYR = jSONObject.optLong("chat_id");
-            this.aYS = jSONObject.optInt("chat_status");
-            this.aYT = jSONObject.optLong("user_id1");
-            this.aYU = jSONObject.optLong("live_id1");
-            this.aYV = jSONObject.optLong("user_id2");
-            this.aYW = jSONObject.optLong("live_id2");
+            this.bgn = jSONObject.optLong("chat_id");
+            this.bgo = jSONObject.optInt("chat_status");
+            this.bgp = jSONObject.optLong("user_id1");
+            this.bgq = jSONObject.optLong("live_id1");
+            this.bgr = jSONObject.optLong("user_id2");
+            this.bgt = jSONObject.optLong("live_id2");
         }
     }
 
-    public boolean GN() {
-        return this.aYS == 2;
+    public boolean IG() {
+        return this.bgo == 2;
     }
 
-    public boolean GO() {
-        return this.aYS == 3 || this.aYS == 4;
+    public boolean IH() {
+        return this.bgo == 3 || this.bgo == 4;
     }
 
-    public long GP() {
-        return this.aYR;
+    public long II() {
+        return this.bgn;
     }
 
-    public int GQ() {
-        return this.aYS;
+    public int IJ() {
+        return this.bgo;
     }
 
-    public long GR() {
-        return this.aYT;
+    public long IK() {
+        return this.bgp;
     }
 }

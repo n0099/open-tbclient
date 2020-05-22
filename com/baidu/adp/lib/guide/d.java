@@ -5,10 +5,10 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d {
-    private a Jv;
+    private a JF;
     private boolean mBuilt;
     private List<b> mComponents = new ArrayList();
-    private Configuration Js = new Configuration();
+    private Configuration JC = new Configuration();
 
     /* loaded from: classes.dex */
     public interface a {
@@ -17,14 +17,14 @@ public class d {
         void onShown();
     }
 
-    public d Y(int i) {
+    public d Z(int i) {
         if (this.mBuilt) {
             throw new BuildException("Already created. rebuild a new one.");
         }
         if (i < 0 || i > 255) {
             throw new BuildException("Illegal alpha value, should between [0-255]");
         }
-        this.Js.mAlpha = i;
+        this.JC.mAlpha = i;
         return this;
     }
 
@@ -35,18 +35,18 @@ public class d {
         if (view == null) {
             throw new BuildException("Illegal view.");
         }
-        this.Js.mTargetView = view;
+        this.JC.mTargetView = view;
         return this;
     }
 
-    public d Z(int i) {
+    public d aa(int i) {
         if (this.mBuilt) {
             throw new BuildException("Already created. rebuild a new one.");
         }
         if (i <= 0) {
             throw new BuildException("Illegal view id.");
         }
-        this.Js.mTargetViewId = i;
+        this.JC.mTargetViewId = i;
         return this;
     }
 
@@ -54,7 +54,7 @@ public class d {
         if (this.mBuilt) {
             throw new BuildException("Already created, rebuild a new one.");
         }
-        this.Js.mAutoDismiss = z;
+        this.JC.mAutoDismiss = z;
         return this;
     }
 
@@ -62,7 +62,7 @@ public class d {
         if (this.mBuilt) {
             throw new BuildException("Already created, rebuild a new one.");
         }
-        this.Js.mOverlayTarget = z;
+        this.JC.mOverlayTarget = z;
         return this;
     }
 
@@ -78,23 +78,23 @@ public class d {
         if (this.mBuilt) {
             throw new BuildException("Already created, rebuild a new one.");
         }
-        this.Jv = aVar;
+        this.JF = aVar;
         return this;
     }
 
     public d af(boolean z) {
-        this.Js.mOutsideTouchable = z;
+        this.JC.mOutsideTouchable = z;
         return this;
     }
 
-    public c km() {
+    public c ko() {
         c cVar = new c();
         cVar.a((b[]) this.mComponents.toArray(new b[this.mComponents.size()]));
-        cVar.a(this.Js);
-        cVar.a(this.Jv);
+        cVar.a(this.JC);
+        cVar.a(this.JF);
         this.mComponents = null;
-        this.Js = null;
-        this.Jv = null;
+        this.JC = null;
+        this.JF = null;
         this.mBuilt = true;
         return cVar;
     }

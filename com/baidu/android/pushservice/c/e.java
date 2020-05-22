@@ -16,7 +16,7 @@ public class e {
     private static e d;
     private Context e;
     private static String b = "PushTrackDatabase";
-    private static C0045e c = null;
+    private static C0047e c = null;
     public static final Object a = new Object();
 
     /* loaded from: classes8.dex */
@@ -67,7 +67,7 @@ public class e {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.android.pushservice.c.e$e  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static class C0045e extends SQLiteOpenHelper {
+    public static class C0047e extends SQLiteOpenHelper {
         private static final String a = "CREATE TABLE crash (" + c.crashId.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + c.exception.name() + " TEXT, " + c.timestamp.name() + " LONG, " + c.ext.name() + " TEXT, " + c.aliasId.name() + " LONG NOT NULL );";
         private static final String b = "CREATE TABLE db (" + d.dbId.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + d.tableName.name() + " TEXT, " + d.className.name() + " TEXT, " + d.method.name() + " TEXT, " + d.action.name() + " TEXT, " + d.startTime.name() + " LONG, " + d.endTime.name() + " LONG, " + d.duration.name() + " LONG, " + d.ext.name() + " TEXT, " + d.aliasId.name() + " LONG NOT NULL );";
         private static final String c = "CREATE TABLE connection (" + b.connectionId.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + b.startTime.name() + " LONG, " + b.stopTime.name() + " LONG, " + b.reason.name() + " TEXT, " + b.retryTime.name() + " LONG, " + b.retryCount.name() + " LONG, " + b.ext.name() + " TEXT, " + b.aliasId.name() + " LONG NOT NULL );";
@@ -75,7 +75,7 @@ public class e {
         private static final String e = "CREATE TABLE ack (" + a.ackId.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + a.type.name() + " TEXT, " + a.value.name() + " TEXT, " + a.timestamp.name() + " LONG, " + a.ext.name() + " TEXT, " + a.aliasId.name() + " LONG NOT NULL);";
         private Context f;
 
-        public C0045e(Context context, String str, int i) {
+        public C0047e(Context context, String str, int i) {
             super(context, str, (SQLiteDatabase.CursorFactory) null, i);
             this.f = context;
         }
@@ -124,7 +124,7 @@ public class e {
 
     private e(Context context) {
         this.e = context;
-        c = new C0045e(context, "push_track.db", 1);
+        c = new C0047e(context, "push_track.db", 1);
     }
 
     public static e a(Context context) {
@@ -140,7 +140,7 @@ public class e {
 
     private static SQLiteDatabase b(Context context) {
         if (c == null) {
-            c = new C0045e(context, "push_track.db", 1);
+            c = new C0047e(context, "push_track.db", 1);
         }
         try {
             return c.getWritableDatabase();

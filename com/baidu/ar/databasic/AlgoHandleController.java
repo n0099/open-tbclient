@@ -19,7 +19,7 @@ public class AlgoHandleController {
     private boolean kS = true;
 
     /* renamed from: io  reason: collision with root package name */
-    private int f975io = 0;
+    private int f973io = 0;
     private long kT = 0;
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -125,7 +125,7 @@ public class AlgoHandleController {
 
     private void v(int i) {
         if (i > 5) {
-            b.aJ("type:" + this.f975io + " destroyIgnoreHandles current size:" + i);
+            b.aJ("type:" + this.f973io + " destroyIgnoreHandles current size:" + i);
             for (int i2 = 0; i2 < i; i2++) {
                 long longValue = this.kR.get(0).longValue();
                 this.kR.remove(0);
@@ -237,7 +237,7 @@ public class AlgoHandleController {
 
     public int setHandleInput(long j, int i, long j2, int i2, int i3, int i4, boolean z, int i5, boolean z2, ByteBuffer byteBuffer) {
         if (this.kQ != null) {
-            this.f975io = i;
+            this.f973io = i;
             AlgoHandleAdapter algoHandleAdapter = this.kQ;
             return AlgoHandleAdapter.setHandleInput(j, i, j2, i2, i3, i4, z, i5, z2, byteBuffer);
         }

@@ -13,31 +13,31 @@ import com.baidu.live.u.a;
 import com.baidu.live.utils.i;
 /* loaded from: classes3.dex */
 public class d extends com.baidu.live.tieba.pb.interactionpopupwindow.b<AlaChallengeRewardData> implements View.OnClickListener {
-    private AlaChallengeRewardData fBG;
-    private com.baidu.live.tieba.pb.interactionpopupwindow.c fBH;
-    private TextView fBI;
-    private TextView fBJ;
-    private TextView fBK;
-    private TextView fBL;
-    private TextView fBM;
-    private TextView fBN;
-    private TextView fBO;
-    private ImageView fBP;
-    private LinearLayout fBQ;
-    private LinearLayout fBR;
-    private LinearLayout fBS;
-    private TbImageView fBT;
-    private TextView fBU;
-    private TextView fBV;
-    private TextView fBW;
-    private ProgressBar fBX;
+    private AlaChallengeRewardData fPJ;
+    private com.baidu.live.tieba.pb.interactionpopupwindow.c fPK;
+    private TextView fPL;
+    private TextView fPM;
+    private TextView fPN;
+    private TextView fPO;
+    private TextView fPP;
+    private TextView fPQ;
+    private TextView fPR;
+    private ImageView fPS;
+    private LinearLayout fPT;
+    private LinearLayout fPU;
+    private LinearLayout fPV;
+    private TbImageView fPW;
+    private TextView fPX;
+    private TextView fPY;
+    private TextView fPZ;
+    private ProgressBar fQa;
 
     public d(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
     }
 
     public void a(com.baidu.live.tieba.pb.interactionpopupwindow.c cVar) {
-        this.fBH = cVar;
+        this.fPK = cVar;
     }
 
     @Override // com.baidu.live.tieba.pb.interactionpopupwindow.d
@@ -49,86 +49,86 @@ public class d extends com.baidu.live.tieba.pb.interactionpopupwindow.b<AlaChall
     @Override // com.baidu.live.tieba.pb.interactionpopupwindow.d
     public void a(AlaChallengeRewardData alaChallengeRewardData) {
         if (alaChallengeRewardData != null) {
-            this.fBG = alaChallengeRewardData;
-            if (this.fBG.isUseAllIn()) {
-                this.fBP.setVisibility(0);
+            this.fPJ = alaChallengeRewardData;
+            if (this.fPJ.isUseAllIn()) {
+                this.fPS.setVisibility(0);
             } else {
-                this.fBP.setVisibility(8);
+                this.fPS.setVisibility(8);
             }
             if (!StringHelper.isEmpty(alaChallengeRewardData.mResultDescription)) {
-                this.fBJ.setText(alaChallengeRewardData.mResultDescription);
-                this.fBJ.setVisibility(0);
+                this.fPM.setText(alaChallengeRewardData.mResultDescription);
+                this.fPM.setVisibility(0);
             } else {
-                this.fBJ.setVisibility(8);
+                this.fPM.setVisibility(8);
             }
-            if (this.fBG.getChallengeResult() == 2) {
-                this.fBI.setText(getTbPageContext().getResources().getString(a.i.ala_pk_success_reward_tip));
-            } else if (this.fBG.getChallengeResult() == 0) {
-                this.fBI.setText(getTbPageContext().getResources().getString(a.i.ala_pk_fail_reward_tip));
-            } else if (this.fBG.getChallengeResult() == 1) {
-                this.fBI.setText(getTbPageContext().getResources().getString(a.i.ala_pk_tie_reward_tip));
+            if (this.fPJ.getChallengeResult() == 2) {
+                this.fPL.setText(getTbPageContext().getResources().getString(a.i.ala_pk_success_reward_tip));
+            } else if (this.fPJ.getChallengeResult() == 0) {
+                this.fPL.setText(getTbPageContext().getResources().getString(a.i.ala_pk_fail_reward_tip));
+            } else if (this.fPJ.getChallengeResult() == 1) {
+                this.fPL.setText(getTbPageContext().getResources().getString(a.i.ala_pk_tie_reward_tip));
             }
-            this.fBR.setVisibility(8);
-            if (JavaTypesHelper.toInt(this.fBG.streakSuccessNum, 0) > 1) {
-                this.fBR.setVisibility(0);
-                this.fBN.setText(this.fBG.streakSuccessNum);
+            this.fPU.setVisibility(8);
+            if (JavaTypesHelper.toInt(this.fPJ.streakSuccessNum, 0) > 1) {
+                this.fPU.setVisibility(0);
+                this.fPQ.setText(this.fPJ.streakSuccessNum);
             }
-            this.fBO.setText(String.format("%s%s", this.fBG.successRateNum, "%"));
-            this.fBK.setText(i.numFormatOverWanNaForAudienceNum(this.fBG.watcherNum));
-            if (this.fBG.isUseAllIn() && this.fBG.getChallengeResult() == 2) {
-                this.fBL.setText(getTbPageContext().getResources().getString(a.i.ala_pk_reward_charm_num_label, i.numFormatOverWanNaForAudienceNum(this.fBG.charmNum), this.fBG.charmExt));
+            this.fPR.setText(String.format("%s%s", this.fPJ.successRateNum, "%"));
+            this.fPN.setText(i.numFormatOverWanNaForAudienceNum(this.fPJ.watcherNum));
+            if (this.fPJ.isUseAllIn() && this.fPJ.getChallengeResult() == 2) {
+                this.fPO.setText(getTbPageContext().getResources().getString(a.i.ala_pk_reward_charm_num_label, i.numFormatOverWanNaForAudienceNum(this.fPJ.charmNum), this.fPJ.charmExt));
             } else {
-                this.fBL.setText(i.numFormatOverWanNaForAudienceNum(this.fBG.charmNum));
+                this.fPO.setText(i.numFormatOverWanNaForAudienceNum(this.fPJ.charmNum));
             }
-            this.fBM.setText(i.numFormatOverWanNaForAudienceNum(this.fBG.giftNum));
-            if (this.fBG.challengeLevelScore < 0 || this.fBG.challengeLevelNextScore <= 0 || this.fBG.challengeLevelScore > this.fBG.challengeLevelNextScore) {
-                this.fBX.setVisibility(8);
-                this.fBV.setVisibility(8);
-                this.fBW.setVisibility(8);
-                this.fBT.setVisibility(8);
-                this.fBU.setVisibility(8);
+            this.fPP.setText(i.numFormatOverWanNaForAudienceNum(this.fPJ.giftNum));
+            if (this.fPJ.challengeLevelScore < 0 || this.fPJ.challengeLevelNextScore <= 0 || this.fPJ.challengeLevelScore > this.fPJ.challengeLevelNextScore) {
+                this.fQa.setVisibility(8);
+                this.fPY.setVisibility(8);
+                this.fPZ.setVisibility(8);
+                this.fPW.setVisibility(8);
+                this.fPX.setVisibility(8);
                 return;
             }
-            this.fBX.setVisibility(0);
-            this.fBV.setVisibility(0);
-            this.fBW.setVisibility(0);
-            this.fBT.setVisibility(0);
-            this.fBU.setVisibility(0);
-            this.fBT.startLoad(this.fBG.challengeLevelIcon, 10, false);
-            this.fBU.setText(this.fBG.challengeLevelName);
-            this.fBX.setProgress((int) ((this.fBG.challengeLevelScore * 100) / this.fBG.challengeLevelNextScore));
-            this.fBV.setText(String.valueOf(this.fBG.challengeLevelScore));
-            this.fBW.setText(String.format("%s%s", "/", Long.valueOf(this.fBG.challengeLevelNextScore)));
+            this.fQa.setVisibility(0);
+            this.fPY.setVisibility(0);
+            this.fPZ.setVisibility(0);
+            this.fPW.setVisibility(0);
+            this.fPX.setVisibility(0);
+            this.fPW.startLoad(this.fPJ.challengeLevelIcon, 10, false);
+            this.fPX.setText(this.fPJ.challengeLevelName);
+            this.fQa.setProgress((int) ((this.fPJ.challengeLevelScore * 100) / this.fPJ.challengeLevelNextScore));
+            this.fPY.setText(String.valueOf(this.fPJ.challengeLevelScore));
+            this.fPZ.setText(String.format("%s%s", "/", Long.valueOf(this.fPJ.challengeLevelNextScore)));
         }
     }
 
     @Override // com.baidu.live.tieba.pb.interactionpopupwindow.d
     public void initView() {
-        this.fBR = (LinearLayout) getViewGroup().findViewById(a.g.reward_streak_win_layout);
-        this.fBI = (TextView) getViewGroup().findViewById(a.g.reward_title);
-        this.fBJ = (TextView) getViewGroup().findViewById(a.g.reward_desc);
-        this.fBK = (TextView) getViewGroup().findViewById(a.g.watch_cnt_value);
-        this.fBL = (TextView) getViewGroup().findViewById(a.g.charm_value);
-        this.fBM = (TextView) getViewGroup().findViewById(a.g.gift_num_value);
-        this.fBN = (TextView) getViewGroup().findViewById(a.g.reward_streak_success);
-        this.fBO = (TextView) getViewGroup().findViewById(a.g.reward_success_rate);
-        this.fBP = (ImageView) getViewGroup().findViewById(a.g.reward_all_in_icon);
-        this.fBS = (LinearLayout) getViewGroup().findViewById(a.g.level_layout);
-        this.fBT = (TbImageView) getViewGroup().findViewById(a.g.level_icon);
-        this.fBT.setAutoChangeStyle(false);
-        this.fBT.setIsNight(false);
-        this.fBU = (TextView) getViewGroup().findViewById(a.g.level_name);
-        this.fBV = (TextView) getViewGroup().findViewById(a.g.level_cur_exp);
-        this.fBW = (TextView) getViewGroup().findViewById(a.g.level_max_exp);
-        this.fBX = (ProgressBar) getViewGroup().findViewById(a.g.ala_challenge_level_progress);
-        this.fBQ = (LinearLayout) getViewGroup().findViewById(a.g.ok);
-        this.fBQ.setOnClickListener(this);
+        this.fPU = (LinearLayout) getViewGroup().findViewById(a.g.reward_streak_win_layout);
+        this.fPL = (TextView) getViewGroup().findViewById(a.g.reward_title);
+        this.fPM = (TextView) getViewGroup().findViewById(a.g.reward_desc);
+        this.fPN = (TextView) getViewGroup().findViewById(a.g.watch_cnt_value);
+        this.fPO = (TextView) getViewGroup().findViewById(a.g.charm_value);
+        this.fPP = (TextView) getViewGroup().findViewById(a.g.gift_num_value);
+        this.fPQ = (TextView) getViewGroup().findViewById(a.g.reward_streak_success);
+        this.fPR = (TextView) getViewGroup().findViewById(a.g.reward_success_rate);
+        this.fPS = (ImageView) getViewGroup().findViewById(a.g.reward_all_in_icon);
+        this.fPV = (LinearLayout) getViewGroup().findViewById(a.g.level_layout);
+        this.fPW = (TbImageView) getViewGroup().findViewById(a.g.level_icon);
+        this.fPW.setAutoChangeStyle(false);
+        this.fPW.setIsNight(false);
+        this.fPX = (TextView) getViewGroup().findViewById(a.g.level_name);
+        this.fPY = (TextView) getViewGroup().findViewById(a.g.level_cur_exp);
+        this.fPZ = (TextView) getViewGroup().findViewById(a.g.level_max_exp);
+        this.fQa = (ProgressBar) getViewGroup().findViewById(a.g.ala_challenge_level_progress);
+        this.fPT = (LinearLayout) getViewGroup().findViewById(a.g.ok);
+        this.fPT.setOnClickListener(this);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view.getId() == a.g.ok && this.fBH != null) {
-            this.fBH.dismiss();
+        if (view.getId() == a.g.ok && this.fPK != null) {
+            this.fPK.dismiss();
         }
     }
 }

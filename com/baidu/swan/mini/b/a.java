@@ -8,52 +8,52 @@ import com.baidu.swan.apps.b;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class a {
-    private String cZF;
-    private com.baidu.swan.pms.b.a cZG;
-    private String cZH;
+    private String dkJ;
+    private com.baidu.swan.pms.b.a dkK;
+    private String dkL;
 
     private a() {
     }
 
     @NonNull
-    public static a bW(@Nullable JSONObject jSONObject) {
+    public static a bX(@Nullable JSONObject jSONObject) {
         a aVar = new a();
         if (jSONObject != null) {
-            aVar.cZF = jSONObject.optString("appInstanceId");
-            aVar.cZG = com.baidu.swan.pms.b.a.bX(jSONObject);
+            aVar.dkJ = jSONObject.optString("appInstanceId");
+            aVar.dkK = com.baidu.swan.pms.b.a.bY(jSONObject);
             JSONObject optJSONObject = jSONObject.optJSONObject("packageInfo");
             if (optJSONObject != null) {
-                aVar.cZH = optJSONObject.optString("minCoreVersion");
+                aVar.dkL = optJSONObject.optString("minCoreVersion");
             }
         }
         return aVar;
     }
 
-    public boolean aBx() {
-        return !TextUtils.isEmpty(this.cZF) && this.cZG.XL();
+    public boolean aFp() {
+        return !TextUtils.isEmpty(this.dkJ) && this.dkK.aaF();
     }
 
-    public String aBy() {
-        return this.cZF;
+    public String aFq() {
+        return this.dkJ;
     }
 
     @NonNull
-    public com.baidu.swan.pms.b.a aBz() {
-        return this.cZG;
+    public com.baidu.swan.pms.b.a aFr() {
+        return this.dkK;
     }
 
-    public boolean bM(long j) {
-        if (TextUtils.isEmpty(this.cZH)) {
+    public boolean bK(long j) {
+        if (TextUtils.isEmpty(this.dkL)) {
             if (b.DEBUG) {
                 Log.e("SwanMiniRuntime", "Param minCoreVersion is null");
             }
         } else {
-            r0 = com.baidu.swan.apps.swancore.b.nB(this.cZH) <= j;
+            r0 = com.baidu.swan.apps.swancore.b.pi(this.dkL) <= j;
             if (b.DEBUG) {
                 if (r0) {
-                    Log.d("SwanMiniRuntime", "SwanCore version check OK, required: " + this.cZH + "; current: " + j);
+                    Log.d("SwanMiniRuntime", "SwanCore version check OK, required: " + this.dkL + "; current: " + j);
                 } else {
-                    Log.e("SwanMiniRuntime", "SwanCore version not match, required: " + this.cZH + "; current: " + j);
+                    Log.e("SwanMiniRuntime", "SwanCore version not match, required: " + this.dkL + "; current: " + j);
                 }
             }
         }

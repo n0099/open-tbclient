@@ -1,120 +1,60 @@
 package com.baidu.poly.a.g;
 
-import android.text.TextUtils;
-import com.baidu.searchbox.suspensionball.SuspensionBallUbc;
-import java.util.ArrayList;
-import java.util.List;
-import org.apache.http.cookie.SM;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.baidu.webkit.internal.ETAG;
+import java.io.DataOutputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.net.URLEncoder;
+import java.util.Map;
 /* loaded from: classes11.dex */
 public class c {
-    public static String bnD;
-    public static String bnE;
-    public static String bnF;
-    public static String bnG;
-    public static String bnH;
-    private static List<com.baidu.poly.a.g.a> bnI;
-
-    /* loaded from: classes11.dex */
-    static class a implements Runnable {
-        a() {
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            c.doFlush();
-        }
-    }
-
-    private static com.baidu.poly.a.a.c KW() {
-        com.baidu.poly.a.a.c cVar = new com.baidu.poly.a.a.c();
-        if (!TextUtils.isEmpty(bnD)) {
-            cVar.f(SM.COOKIE, "BDUSS=" + bnD);
-        }
-        return cVar;
-    }
-
-    private static com.baidu.poly.a.a.b KX() {
-        com.baidu.poly.a.a.b bVar = new com.baidu.poly.a.a.b();
-        bVar.f("dm", "cashier");
-        bVar.f("os", "android");
-        bVar.f("v", "2.6.0");
-        if (!TextUtils.isEmpty(bnH)) {
-            bVar.f("n", bnH);
-        }
-        if (!TextUtils.isEmpty(bnE)) {
-            bVar.f("d", bnE);
-        }
-        if (!TextUtils.isEmpty(bnF)) {
-            bVar.f(SuspensionBallUbc.VALUE_DT, bnF);
-        }
-        if (!TextUtils.isEmpty(bnG)) {
-            bVar.f("dp", bnG);
-        }
-        return bVar;
-    }
-
-    public static void a(com.baidu.poly.a.g.a aVar) {
-        if (bnI == null) {
-            bnI = new ArrayList();
-        }
-        if (aVar != null) {
-            bnI.add(aVar);
-        }
-    }
-
-    private static void clear() {
-        List<com.baidu.poly.a.g.a> list = bnI;
-        if (list != null) {
-            list.clear();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public static synchronized void doFlush() {
-        synchronized (c.class) {
-            List<com.baidu.poly.a.g.a> list = bnI;
-            if (list != null && !list.isEmpty()) {
-                com.baidu.poly.a.a.b KX = KX();
-                JSONArray jSONArray = new JSONArray();
-                for (com.baidu.poly.a.g.a aVar : bnI) {
-                    JSONObject KV = aVar.KV();
-                    if (KV != null) {
-                        jSONArray.put(KV);
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [23=4] */
+    public void a(com.baidu.poly.a.a.c cVar, com.baidu.poly.a.a.b bVar, com.baidu.poly.a.a.a aVar) {
+        DataOutputStream dataOutputStream;
+        try {
+            HttpURLConnection httpURLConnection = (HttpURLConnection) new URL("https://etrade.baidu.com/sgw/common/pingd/trace").openConnection();
+            for (Map.Entry<String, String> entry : cVar.MK().entrySet()) {
+                httpURLConnection.setRequestProperty(entry.getKey(), entry.getValue());
+            }
+            httpURLConnection.setDoInput(true);
+            httpURLConnection.setDoOutput(true);
+            httpURLConnection.setRequestMethod("POST");
+            httpURLConnection.setUseCaches(false);
+            httpURLConnection.setConnectTimeout(5000);
+            httpURLConnection.setReadTimeout(5000);
+            StringBuilder sb = new StringBuilder();
+            for (Map.Entry<String, String> entry2 : bVar.MK().entrySet()) {
+                sb.append(entry2.getKey()).append(ETAG.EQUAL).append(URLEncoder.encode(entry2.getValue(), "utf-8")).append(ETAG.ITEM_SEPARATOR);
+            }
+            byte[] bytes = sb.toString().getBytes();
+            httpURLConnection.setRequestProperty("Content-Length", String.valueOf(bytes.length));
+            httpURLConnection.connect();
+            dataOutputStream = new DataOutputStream(httpURLConnection.getOutputStream());
+            try {
+                dataOutputStream.write(bytes);
+                dataOutputStream.flush();
+                int responseCode = httpURLConnection.getResponseCode();
+                if (aVar != null) {
+                    if (responseCode < 200 || responseCode > 299) {
+                        aVar.a(null, null);
+                    } else {
+                        aVar.a(null);
                     }
                 }
-                KX.f("data", jSONArray.toString());
-                new b().a(KW(), KX);
-                clear();
+                com.baidu.poly.util.c.a(dataOutputStream);
+            } catch (Throwable th) {
+                if (aVar != null) {
+                    try {
+                        aVar.a(null, null);
+                    } catch (Throwable th2) {
+                        com.baidu.poly.util.c.a(dataOutputStream);
+                        throw th2;
+                    }
+                }
+                com.baidu.poly.util.c.a(dataOutputStream);
             }
-        }
-    }
-
-    public static void flush() {
-        com.baidu.poly.b.a.execute(new a());
-    }
-
-    public static void o() {
-        bnD = null;
-        bnE = null;
-        bnF = null;
-        bnG = null;
-        bnH = null;
-    }
-
-    public static void b(int i, String str) {
-        com.baidu.poly.a.g.a aVar = null;
-        if (i == 0) {
-            aVar = new com.baidu.poly.a.g.a("2");
-        } else if (i == 2) {
-            aVar = new com.baidu.poly.a.g.a("4");
-        } else if (i == 3) {
-            aVar = new com.baidu.poly.a.g.a("3");
-        }
-        if (aVar != null) {
-            aVar.fK(str);
-            a(aVar);
+        } catch (Throwable th3) {
+            dataOutputStream = null;
         }
     }
 }

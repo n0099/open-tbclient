@@ -11,24 +11,24 @@ import android.view.View;
 import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes6.dex */
 public class b {
-    private static final b bsk = new b();
-    private final int bsf;
-    private final int bsg;
-    private int bsh;
-    private int bsi;
-    private final int bsj;
-    private final com.baidu.prologue.a.b.a bse = com.baidu.prologue.a.b.a.brU.get();
-    private final boolean DEBUG = this.bse.Lq();
+    private static final b bzN = new b();
+    private final int bzI;
+    private final int bzJ;
+    private int bzK;
+    private int bzL;
+    private final int bzM;
+    private final com.baidu.prologue.a.b.a bzH = com.baidu.prologue.a.b.a.bzx.get();
+    private final boolean DEBUG = this.bzH.ND();
 
     private b() {
-        DisplayMetrics displayMetrics = this.bse.Lg().getResources().getDisplayMetrics();
-        this.bsg = displayMetrics.heightPixels;
-        this.bsf = displayMetrics.widthPixels;
-        this.bsj = displayMetrics.densityDpi;
+        DisplayMetrics displayMetrics = this.bzH.Nt().getResources().getDisplayMetrics();
+        this.bzJ = displayMetrics.heightPixels;
+        this.bzI = displayMetrics.widthPixels;
+        this.bzM = displayMetrics.densityDpi;
     }
 
-    public static b LF() {
-        return bsk;
+    public static b NS() {
+        return bzN;
     }
 
     public String a(@NonNull View view, @NonNull int[] iArr) {
@@ -36,25 +36,25 @@ public class b {
         view.getLocationOnScreen(iArr2);
         int i = iArr2[1];
         int height = i + view.getHeight();
-        Point aa = aa(view);
-        int i2 = this.bsf;
-        int i3 = this.bsg;
-        if (aa != null) {
-            i2 = aa.x;
-            i3 = aa.y;
-            this.bsh = aa.x;
-            this.bsi = aa.y;
+        Point Z = Z(view);
+        int i2 = this.bzI;
+        int i3 = this.bzJ;
+        if (Z != null) {
+            i2 = Z.x;
+            i3 = Z.y;
+            this.bzK = Z.x;
+            this.bzL = Z.y;
         }
         String[] strArr = new String[9];
         strArr[0] = "v2";
-        strArr[1] = this.bse.Ls() ? "1" : "0";
+        strArr[1] = this.bzH.NF() ? "1" : "0";
         strArr[2] = String.valueOf(iArr[0]);
         strArr[3] = String.valueOf(iArr[1]);
         strArr[4] = String.valueOf(i);
         strArr[5] = String.valueOf(height);
         strArr[6] = String.valueOf(i2);
         strArr[7] = String.valueOf(i3);
-        strArr[8] = String.valueOf(this.bsj);
+        strArr[8] = String.valueOf(this.bzM);
         String join = TextUtils.join(Constants.ACCEPT_TIME_SEPARATOR_SP, strArr);
         if (this.DEBUG) {
             Log.d("ClickInfoProvider", "createHotPictureParams info:" + join);
@@ -65,11 +65,11 @@ public class b {
         return join;
     }
 
-    public int[] LG() {
-        return this.bsh != 0 ? new int[]{this.bsh, this.bsi, this.bsj} : new int[]{this.bsf, this.bsg, this.bsj};
+    public int[] NT() {
+        return this.bzK != 0 ? new int[]{this.bzK, this.bzL, this.bzM} : new int[]{this.bzI, this.bzJ, this.bzM};
     }
 
-    private Point aa(@NonNull View view) {
+    private Point Z(@NonNull View view) {
         Display display;
         if (Build.VERSION.SDK_INT < 17 || (display = view.getDisplay()) == null) {
             return null;

@@ -6,7 +6,7 @@ import android.support.annotation.NonNull;
 import android.util.Base64;
 import android.view.View;
 import com.baidu.mobstat.Config;
-import com.baidu.swan.apps.as.af;
+import com.baidu.swan.apps.aq.ag;
 import java.io.ByteArrayOutputStream;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
@@ -20,10 +20,10 @@ public class c extends a {
         super(str);
         try {
             JSONObject jSONObject = new JSONObject(str);
-            this.mX = af.C((float) jSONObject.optDouble(Config.EVENT_HEAT_X));
-            this.mY = af.C((float) jSONObject.optDouble("y"));
-            this.mWidth = af.C((float) jSONObject.optDouble("width"));
-            this.mHeight = af.C((float) jSONObject.optDouble("height"));
+            this.mX = ag.B((float) jSONObject.optDouble(Config.EVENT_HEAT_X));
+            this.mY = ag.B((float) jSONObject.optDouble("y"));
+            this.mWidth = ag.B((float) jSONObject.optDouble("width"));
+            this.mHeight = ag.B((float) jSONObject.optDouble("height"));
         } catch (Exception e) {
             if (DEBUG) {
                 e.printStackTrace();
@@ -52,12 +52,12 @@ public class c extends a {
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             createBitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
             str = Base64.encodeToString(byteArrayOutputStream.toByteArray(), 2);
-            com.baidu.swan.d.c.closeSafely(byteArrayOutputStream);
+            com.baidu.swan.e.d.closeSafely(byteArrayOutputStream);
         }
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("width", af.E(this.mWidth));
-            jSONObject.put("height", af.E(this.mHeight));
+            jSONObject.put("width", ag.D(this.mWidth));
+            jSONObject.put("height", ag.D(this.mHeight));
             jSONObject.put("data", str);
         } catch (Exception e) {
             if (DEBUG) {

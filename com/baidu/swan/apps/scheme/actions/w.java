@@ -7,15 +7,15 @@ import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.as.ai;
+import com.baidu.swan.apps.aq.aj;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
-public class w extends ab {
+public class w extends aa {
     public w(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swanAPI/preloadSwanCore");
     }
 
-    @Override // com.baidu.swan.apps.scheme.actions.ab
+    @Override // com.baidu.swan.apps.scheme.actions.aa
     public boolean a(final Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
         if (DEBUG) {
             Log.d("PreloadSwanCoreAction", "handle entity: " + unitedSchemeEntity.toString());
@@ -32,7 +32,7 @@ public class w extends ab {
         if (DEBUG) {
             Log.d("PreloadSwanCoreAction", "delay: " + optInt);
         }
-        ai.c(new Runnable() { // from class: com.baidu.swan.apps.scheme.actions.w.1
+        aj.c(new Runnable() { // from class: com.baidu.swan.apps.scheme.actions.w.1
             @Override // java.lang.Runnable
             public void run() {
                 Bundle bundle = new Bundle();

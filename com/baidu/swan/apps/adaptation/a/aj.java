@@ -1,9 +1,13 @@
 package com.baidu.swan.apps.adaptation.a;
-
-import com.baidu.searchbox.v8engine.JsObject;
 /* loaded from: classes11.dex */
 public interface aj {
-    com.baidu.swan.games.a.c a(com.baidu.swan.games.e.b bVar, JsObject jsObject);
+    void Sq();
 
-    com.baidu.swan.games.a.b b(com.baidu.swan.games.e.b bVar, JsObject jsObject);
+    void Sr();
+
+    long Ss();
+
+    void aJ(long j);
+
+    String aK(long j);
 }

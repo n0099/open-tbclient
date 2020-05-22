@@ -16,7 +16,7 @@ public final class SingleSubscribeOn<T> extends w<T> {
     protected void b(y<? super T> yVar) {
         SubscribeOnObserver subscribeOnObserver = new SubscribeOnObserver(yVar, this.source);
         yVar.onSubscribe(subscribeOnObserver);
-        subscribeOnObserver.task.replace(this.scheduler.H(subscribeOnObserver));
+        subscribeOnObserver.task.replace(this.scheduler.J(subscribeOnObserver));
     }
 
     /* loaded from: classes7.dex */

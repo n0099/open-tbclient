@@ -6,120 +6,120 @@ import java.io.IOException;
 import java.io.InputStream;
 /* loaded from: classes12.dex */
 public class e {
-    private final com.facebook.common.memory.a lRU;
-    private boolean mds;
-    private int mdo = 0;
-    private int mdn = 0;
-    private int mdp = 0;
-    private int mdr = 0;
-    private int mdq = 0;
-    private int mdm = 0;
+    private final com.facebook.common.memory.a mlM;
+    private boolean mxj;
+    private int mxf = 0;
+    private int mxe = 0;
+    private int mxg = 0;
+    private int mxi = 0;
+    private int mxh = 0;
+    private int mxd = 0;
 
     public e(com.facebook.common.memory.a aVar) {
-        this.lRU = (com.facebook.common.memory.a) g.checkNotNull(aVar);
+        this.mlM = (com.facebook.common.memory.a) g.checkNotNull(aVar);
     }
 
     public boolean a(com.facebook.imagepipeline.g.e eVar) {
-        if (this.mdm != 6 && eVar.getSize() > this.mdo) {
-            com.facebook.common.memory.f fVar = new com.facebook.common.memory.f(eVar.getInputStream(), this.lRU.get(16384), this.lRU);
+        if (this.mxd != 6 && eVar.getSize() > this.mxf) {
+            com.facebook.common.memory.f fVar = new com.facebook.common.memory.f(eVar.getInputStream(), this.mlM.get(16384), this.mlM);
             try {
-                com.facebook.common.util.c.a(fVar, this.mdo);
-                return t(fVar);
+                com.facebook.common.util.c.a(fVar, this.mxf);
+                return u(fVar);
             } catch (IOException e) {
                 l.y(e);
                 return false;
             } finally {
-                com.facebook.common.internal.b.o(fVar);
+                com.facebook.common.internal.b.p(fVar);
             }
         }
         return false;
     }
 
-    private boolean t(InputStream inputStream) {
+    private boolean u(InputStream inputStream) {
         int read;
         boolean z = true;
-        int i = this.mdq;
-        while (this.mdm != 6 && (read = inputStream.read()) != -1) {
+        int i = this.mxh;
+        while (this.mxd != 6 && (read = inputStream.read()) != -1) {
             try {
-                this.mdo++;
-                if (this.mds) {
-                    this.mdm = 6;
-                    this.mds = false;
+                this.mxf++;
+                if (this.mxj) {
+                    this.mxd = 6;
+                    this.mxj = false;
                     return false;
                 }
-                switch (this.mdm) {
+                switch (this.mxd) {
                     case 0:
                         if (read == 255) {
-                            this.mdm = 1;
+                            this.mxd = 1;
                             break;
                         } else {
-                            this.mdm = 6;
+                            this.mxd = 6;
                             break;
                         }
                     case 1:
                         if (read == 216) {
-                            this.mdm = 2;
+                            this.mxd = 2;
                             break;
                         } else {
-                            this.mdm = 6;
+                            this.mxd = 6;
                             break;
                         }
                     case 2:
                         if (read != 255) {
                             break;
                         } else {
-                            this.mdm = 3;
+                            this.mxd = 3;
                             break;
                         }
                     case 3:
                         if (read == 255) {
-                            this.mdm = 3;
+                            this.mxd = 3;
                             break;
                         } else if (read == 0) {
-                            this.mdm = 2;
+                            this.mxd = 2;
                             break;
                         } else if (read == 217) {
-                            this.mds = true;
-                            GS(this.mdo - 2);
-                            this.mdm = 2;
+                            this.mxj = true;
+                            HE(this.mxf - 2);
+                            this.mxd = 2;
                             break;
                         } else {
                             if (read == 218) {
-                                GS(this.mdo - 2);
+                                HE(this.mxf - 2);
                             }
-                            if (GR(read)) {
-                                this.mdm = 4;
+                            if (HD(read)) {
+                                this.mxd = 4;
                                 break;
                             } else {
-                                this.mdm = 2;
+                                this.mxd = 2;
                                 break;
                             }
                         }
                     case 4:
-                        this.mdm = 5;
+                        this.mxd = 5;
                         break;
                     case 5:
-                        int i2 = ((this.mdn << 8) + read) - 2;
+                        int i2 = ((this.mxe << 8) + read) - 2;
                         com.facebook.common.util.c.a(inputStream, i2);
-                        this.mdo = i2 + this.mdo;
-                        this.mdm = 2;
+                        this.mxf = i2 + this.mxf;
+                        this.mxd = 2;
                         break;
                     default:
                         g.checkState(false);
                         break;
                 }
-                this.mdn = read;
+                this.mxe = read;
             } catch (IOException e) {
                 l.y(e);
             }
         }
-        if (this.mdm == 6 || this.mdq == i) {
+        if (this.mxd == 6 || this.mxh == i) {
             z = false;
         }
         return z;
     }
 
-    private static boolean GR(int i) {
+    private static boolean HD(int i) {
         boolean z = true;
         if (i == 1) {
             return false;
@@ -133,24 +133,24 @@ public class e {
         return false;
     }
 
-    private void GS(int i) {
-        if (this.mdp > 0) {
-            this.mdr = i;
+    private void HE(int i) {
+        if (this.mxg > 0) {
+            this.mxi = i;
         }
-        int i2 = this.mdp;
-        this.mdp = i2 + 1;
-        this.mdq = i2;
+        int i2 = this.mxg;
+        this.mxg = i2 + 1;
+        this.mxh = i2;
     }
 
-    public int dsF() {
-        return this.mdr;
+    public int dzX() {
+        return this.mxi;
     }
 
-    public int dsG() {
-        return this.mdq;
+    public int dzY() {
+        return this.mxh;
     }
 
-    public boolean dsH() {
-        return this.mds;
+    public boolean dzZ() {
+        return this.mxj;
     }
 }

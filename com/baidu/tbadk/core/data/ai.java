@@ -1,19 +1,15 @@
 package com.baidu.tbadk.core.data;
 
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.LotteryRegular;
+import tbclient.LotteryTheme;
 /* loaded from: classes.dex */
 public class ai {
-    private String doV;
-    private List<Integer> doW;
+    private String dCW;
+    private String mBgcolor;
 
-    public void a(LotteryRegular lotteryRegular) {
-        this.doV = lotteryRegular.regular;
-        this.doW = new ArrayList();
-        int size = lotteryRegular.chance.size();
-        for (int i = 0; i < size; i++) {
-            this.doW.add(lotteryRegular.chance.get(i));
+    public void a(LotteryTheme lotteryTheme) {
+        if (lotteryTheme != null) {
+            this.mBgcolor = lotteryTheme.bgcolor;
+            this.dCW = lotteryTheme.bgimage;
         }
     }
 }

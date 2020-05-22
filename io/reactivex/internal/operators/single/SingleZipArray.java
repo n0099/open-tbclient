@@ -10,15 +10,15 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
 public final class SingleZipArray<T, R> extends w<R> {
-    final aa<? extends T>[] mUd;
+    final aa<? extends T>[] nph;
     final h<? super Object[], ? extends R> zipper;
 
     @Override // io.reactivex.w
     protected void b(y<? super R> yVar) {
-        aa<? extends T>[] aaVarArr = this.mUd;
+        aa<? extends T>[] aaVarArr = this.nph;
         int length = aaVarArr.length;
         if (length == 1) {
-            aaVarArr[0].a(new a.C0809a(yVar, new a()));
+            aaVarArr[0].a(new a.C0871a(yVar, new a()));
             return;
         }
         ZipCoordinator zipCoordinator = new ZipCoordinator(yVar, length, this.zipper);
@@ -72,7 +72,7 @@ public final class SingleZipArray<T, R> extends w<R> {
             this.values[i] = t;
             if (decrementAndGet() == 0) {
                 try {
-                    this.actual.onSuccess(io.reactivex.internal.functions.a.h(this.zipper.apply(this.values), "The zipper returned a null value"));
+                    this.actual.onSuccess(io.reactivex.internal.functions.a.k(this.zipper.apply(this.values), "The zipper returned a null value"));
                 } catch (Throwable th) {
                     io.reactivex.exceptions.a.L(th);
                     this.actual.onError(th);
@@ -141,7 +141,7 @@ public final class SingleZipArray<T, R> extends w<R> {
         /* JADX WARN: Type inference failed for: r1v1, types: [java.lang.Object[], java.lang.Object] */
         @Override // io.reactivex.c.h
         public R apply(T t) throws Exception {
-            return (R) io.reactivex.internal.functions.a.h(SingleZipArray.this.zipper.apply(new Object[]{t}), "The zipper returned a null value");
+            return (R) io.reactivex.internal.functions.a.k(SingleZipArray.this.zipper.apply(new Object[]{t}), "The zipper returned a null value");
         }
     }
 }

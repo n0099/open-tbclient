@@ -28,7 +28,7 @@ public class SwanAppAdbDebugActivity extends Activity {
             }
             finish();
         }
-        new g.a(this).e(getString(a.h.aiapps_adb_debug)).lV(getString(a.h.aiapps_adb_debug_alert)).a(new com.baidu.swan.apps.view.c.a()).eA(false).c(a.h.aiapps_confirm, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.console.debugger.adbdebug.SwanAppAdbDebugActivity.2
+        new g.a(this).e(getString(a.h.aiapps_adb_debug)).nq(getString(a.h.aiapps_adb_debug_alert)).a(new com.baidu.swan.apps.view.c.a()).eT(false).c(a.h.aiapps_confirm, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.console.debugger.adbdebug.SwanAppAdbDebugActivity.2
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i) {
                 intent.setClass(SwanAppAdbDebugActivity.this, SwanAppLauncherActivity.class);
@@ -40,6 +40,6 @@ public class SwanAppAdbDebugActivity extends Activity {
             public void onClick(DialogInterface dialogInterface, int i) {
                 SwanAppAdbDebugActivity.this.finish();
             }
-        }).akw();
+        }).aon();
     }
 }

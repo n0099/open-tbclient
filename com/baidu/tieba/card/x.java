@@ -1,7 +1,12 @@
 package com.baidu.tieba.card;
+
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes8.dex */
 public interface x {
-    void pV(int i);
+    String NJ();
 
-    void setForumName(String str);
+    void a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId);
+
+    void setFrom(String str);
 }

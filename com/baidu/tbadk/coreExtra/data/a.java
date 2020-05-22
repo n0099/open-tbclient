@@ -4,46 +4,46 @@ import android.text.TextUtils;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private boolean dMe = false;
+    private boolean eav = false;
 
-    public boolean aRx() {
-        return this.dMe;
+    public boolean aXE() {
+        return this.eav;
     }
 
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
                 JSONObject optJSONObject = jSONObject.optJSONObject("zan_or_cai_smallflow");
-                cx(optJSONObject);
-                cy(optJSONObject);
+                cD(optJSONObject);
+                cE(optJSONObject);
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
     }
 
-    private void cx(JSONObject jSONObject) {
+    private void cD(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.dMe = true;
+            this.eav = true;
         }
     }
 
-    public void aRy() {
+    public void aXF() {
         try {
-            String string = com.baidu.tbadk.core.sharedPref.b.aNT().getString("praise_abtest_switch_json", null);
+            String string = com.baidu.tbadk.core.sharedPref.b.aTX().getString("praise_abtest_switch_json", null);
             if (!TextUtils.isEmpty(string)) {
-                cx(new JSONObject(string));
+                cD(new JSONObject(string));
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public void cy(JSONObject jSONObject) {
+    public void cE(JSONObject jSONObject) {
         if (jSONObject != null) {
-            com.baidu.tbadk.core.sharedPref.b.aNT().putString("praise_abtest_switch_json", jSONObject.toString());
+            com.baidu.tbadk.core.sharedPref.b.aTX().putString("praise_abtest_switch_json", jSONObject.toString());
         } else {
-            com.baidu.tbadk.core.sharedPref.b.aNT().putString("praise_abtest_switch_json", "");
+            com.baidu.tbadk.core.sharedPref.b.aTX().putString("praise_abtest_switch_json", "");
         }
     }
 }

@@ -21,7 +21,6 @@ import com.baidu.android.imsdk.shield.IGetUserShieldListener;
 import com.baidu.android.imsdk.task.TaskManager;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
-import com.baidu.fsg.base.statistics.b;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -112,6 +111,7 @@ public class ChatUserDBManager extends DBBase {
         contentValues.put(TableDefine.UserInfoColumns.COLUMN_PHONE_RELATION, Integer.valueOf(chatUser.getPhoneRelation()));
         contentValues.put(TableDefine.UserInfoColumns.COLUMN_HAS_SPECIAL_IDENTITY, Integer.valueOf(chatUser.getHasSpecialIdentity()));
         contentValues.put(TableDefine.UserInfoColumns.COLUMN_SPECIAL_IDENTITY, chatUser.getSpecialIdentity());
+        contentValues.put(TableDefine.UserInfoColumns.COLUMN_USER_EXT, chatUser.getUserExt());
         return contentValues;
     }
 
@@ -142,13 +142,14 @@ public class ChatUserDBManager extends DBBase {
                     contentValues.put(TableDefine.UserInfoColumns.COLUMN_PHONE_RELATION, Integer.valueOf(chatUser.getPhoneRelation()));
                     contentValues.put(TableDefine.UserInfoColumns.COLUMN_HAS_SPECIAL_IDENTITY, Integer.valueOf(chatUser.getHasSpecialIdentity()));
                     contentValues.put(TableDefine.UserInfoColumns.COLUMN_SPECIAL_IDENTITY, chatUser.getSpecialIdentity());
+                    contentValues.put(TableDefine.UserInfoColumns.COLUMN_USER_EXT, chatUser.getUserExt());
                     add(TableDefine.DB_TABLE_USERINFO, new String[]{"buid"}, "buid = ? ", new String[]{String.valueOf(chatUser.getBuid())}, contentValues);
                 }
             }
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [182=5, 183=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [184=5, 185=4] */
     public Long getUkByBuid(long j) {
         Cursor cursor;
         Cursor cursor2 = null;
@@ -215,7 +216,7 @@ public class ChatUserDBManager extends DBBase {
         return chatUser;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [221=5, 222=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [224=4, 223=5] */
     private ChatUser getChatUserByBuid(SQLiteDatabase sQLiteDatabase, long j) {
         Cursor cursor;
         Cursor cursor2 = null;
@@ -357,7 +358,7 @@ public class ChatUserDBManager extends DBBase {
         return chatUser;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [336=5, 337=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [338=5, 339=4] */
     private ChatUser getChatUser(SQLiteDatabase sQLiteDatabase, long j) {
         Cursor cursor;
         Cursor cursor2 = null;
@@ -406,7 +407,7 @@ public class ChatUserDBManager extends DBBase {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [361=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [363=4] */
     /* JADX WARN: Removed duplicated region for block: B:28:0x005e A[Catch: all -> 0x0062, TryCatch #1 {, blocks: (B:4:0x0004, B:6:0x000f, B:22:0x0054, B:23:0x0057, B:18:0x004c, B:19:0x004f, B:28:0x005e, B:29:0x0061), top: B:39:0x0004 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -495,6 +496,7 @@ public class ChatUserDBManager extends DBBase {
         int i9 = cursor.getInt(cursor.getColumnIndex(TableDefine.UserInfoColumns.COLUMN_PHONE_RELATION));
         int i10 = cursor.getInt(cursor.getColumnIndex(TableDefine.UserInfoColumns.COLUMN_HAS_SPECIAL_IDENTITY));
         String string8 = cursor.getString(cursor.getColumnIndex(TableDefine.UserInfoColumns.COLUMN_SPECIAL_IDENTITY));
+        String string9 = cursor.getString(cursor.getColumnIndex(TableDefine.UserInfoColumns.COLUMN_USER_EXT));
         ChatUser chatUser = new ChatUser(j, j2, string, string2);
         chatUser.setVPortrait(string5);
         chatUser.setVipId(string6);
@@ -508,21 +510,22 @@ public class ChatUserDBManager extends DBBase {
         chatUser.setPhoneRelation(i9);
         chatUser.setHasSpecialIdentity(i10);
         chatUser.setSpecialIdentity(string8);
+        chatUser.setUserExt(string9);
         if (i3 == 0) {
             IpInfo ipInfo = new IpInfo();
             ipInfo.setUid(j);
-            String string9 = cursor.getString(cursor.getColumnIndex(TableDefine.UserInfoColumns.COLUMN_IP));
-            String string10 = cursor.getString(cursor.getColumnIndex(TableDefine.UserInfoColumns.COLUMN_IP_ISP));
-            String string11 = cursor.getString(cursor.getColumnIndex(TableDefine.UserInfoColumns.COLUMN_IP_COUNTRY));
-            String string12 = cursor.getString(cursor.getColumnIndex(TableDefine.UserInfoColumns.COLUMN_IP_PROVINCE));
-            String string13 = cursor.getString(cursor.getColumnIndex(TableDefine.UserInfoColumns.COLUMN_IP_CITY));
-            String string14 = cursor.getString(cursor.getColumnIndex(TableDefine.UserInfoColumns.COLUMN_IP_COUNTY));
-            ipInfo.setCity(string13);
-            ipInfo.setProv(string12);
-            ipInfo.setIp(string9);
-            ipInfo.setCountry(string11);
-            ipInfo.setCounty(string14);
-            ipInfo.setIsp(string10);
+            String string10 = cursor.getString(cursor.getColumnIndex(TableDefine.UserInfoColumns.COLUMN_IP));
+            String string11 = cursor.getString(cursor.getColumnIndex(TableDefine.UserInfoColumns.COLUMN_IP_ISP));
+            String string12 = cursor.getString(cursor.getColumnIndex(TableDefine.UserInfoColumns.COLUMN_IP_COUNTRY));
+            String string13 = cursor.getString(cursor.getColumnIndex(TableDefine.UserInfoColumns.COLUMN_IP_PROVINCE));
+            String string14 = cursor.getString(cursor.getColumnIndex(TableDefine.UserInfoColumns.COLUMN_IP_CITY));
+            String string15 = cursor.getString(cursor.getColumnIndex(TableDefine.UserInfoColumns.COLUMN_IP_COUNTY));
+            ipInfo.setCity(string14);
+            ipInfo.setProv(string13);
+            ipInfo.setIp(string10);
+            ipInfo.setCountry(string12);
+            ipInfo.setCounty(string15);
+            ipInfo.setIsp(string11);
             chatUser.setIpInfo(ipInfo);
         }
         chatUser.setIsIpLocationExist(i3);
@@ -652,7 +655,7 @@ public class ChatUserDBManager extends DBBase {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [608=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [612=4] */
     public List<ChatSession> getShieldUsers() {
         Cursor cursor;
         Cursor cursor2 = null;
@@ -701,7 +704,7 @@ public class ChatUserDBManager extends DBBase {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [681=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [685=4] */
     public void getShieldUserByUids(@NonNull List<ChatSession> list, boolean z, @NonNull IGetUserShieldListener iGetUserShieldListener) {
         Cursor cursor;
         ChatSession chatSession;
@@ -755,7 +758,7 @@ public class ChatUserDBManager extends DBBase {
                         } catch (Exception e) {
                             e = e;
                             LogUtils.e(TAG, "getShieldUser:", e);
-                            iGetUserShieldListener.onResult(-1, b.k, null);
+                            iGetUserShieldListener.onResult(-1, "exception", null);
                             if (cursor != null) {
                                 cursor.close();
                             }

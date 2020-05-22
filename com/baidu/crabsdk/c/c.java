@@ -15,18 +15,18 @@ import java.util.zip.DeflaterOutputStream;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public final class c {
-    private static SimpleDateFormat akJ;
-    private static PackageManager akK;
+    private static SimpleDateFormat alo;
+    private static PackageManager alp;
 
     public static String Q(long j) {
         return j / 1000000000 > 0 ? (((float) (j / 100000000)) / 10.0f) + "G" : j / TimeUtils.NANOS_PER_MS > 0 ? (((float) (j / 100000)) / 10.0f) + "M" : j / 1000 > 0 ? (((float) (j / 100)) / 10.0f) + "K" : j + "B";
     }
 
     public static String a(Date date) {
-        if (akJ == null) {
-            akJ = new SimpleDateFormat("MM-dd HH:mm:ss");
+        if (alo == null) {
+            alo = new SimpleDateFormat("MM-dd HH:mm:ss");
         }
-        return akJ.format(date);
+        return alo.format(date);
     }
 
     public static JSONObject a(JSONObject jSONObject, JSONObject jSONObject2) {
@@ -131,7 +131,7 @@ public final class c {
         return bArr2;
     }
 
-    public static byte[] dh(String str) {
+    public static byte[] dj(String str) {
         if (str == null || str.length() == 0) {
             return null;
         }
@@ -139,11 +139,11 @@ public final class c {
     }
 
     public static boolean g(Context context, String str) {
-        if (akK == null) {
-            akK = context.getPackageManager();
+        if (alp == null) {
+            alp = context.getPackageManager();
         }
         try {
-            return akK.checkPermission(str, context.getPackageName()) == 0;
+            return alp.checkPermission(str, context.getPackageName()) == 0;
         } catch (RuntimeException e) {
             return false;
         }
@@ -167,16 +167,16 @@ public final class c {
             th = th.getCause();
         }
         StackTraceElement[] stackTrace = th.getStackTrace();
-        String sB = p.sB();
+        String J = p.J();
         for (int i = 0; i < stackTrace.length; i++) {
-            if (stackTrace[i].getClassName().contains(sB)) {
+            if (stackTrace[i].getClassName().contains(J)) {
                 return stackTrace[i].toString();
             }
         }
         return stackTrace.length > 0 ? stackTrace[0].toString() : "N/A";
     }
 
-    public static String sL() {
+    public static String sT() {
         return new SimpleDateFormat("yyyyMMdd").format(new Date(System.currentTimeMillis()));
     }
 }

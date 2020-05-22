@@ -1,27 +1,27 @@
 package com.baidu.swan.apps.impl.a.a;
 
 import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.swan.apps.r.e;
 import com.baidu.swan.apps.storage.b;
-import com.baidu.swan.apps.t.e;
-import com.baidu.swan.d.c;
+import com.baidu.swan.e.d;
 import java.io.File;
 /* loaded from: classes11.dex */
 public class a {
-    public static File bUF = e.abE();
-    public static String bUG = "swan_core";
-    public static String bUH = "extension_core";
-    public static String bUI = AppRuntime.getAppContext().getCacheDir() + File.separator + "cloneSwanApp";
-    public static String bUJ = "cloneFolder_";
-    public static String bUK = bUI + File.separator + bUJ;
-    public static String bUL = "clone_pkg_folder";
-    public static String bUM = "clone_core_folder";
-    public static String bUN = "clone_sp_folder";
-    public static String bUO = "clone_db_folder";
-    public static String bUP = "cloneZip.zip";
+    public static File ceV = e.aeI();
+    public static String ceW = "swan_core";
+    public static String ceX = "extension_core";
+    public static String ceY = AppRuntime.getAppContext().getCacheDir() + File.separator + "cloneSwanApp";
+    public static String ceZ = "cloneFolder_";
+    public static String cfa = ceY + File.separator + ceZ;
+    public static String cfb = "clone_pkg_folder";
+    public static String cfc = "clone_core_folder";
+    public static String cfd = "clone_sp_folder";
+    public static String cfe = "clone_db_folder";
+    public static String cff = "cloneZip.zip";
 
-    public static File abi() {
-        File file = new File(b.ann());
-        if (c.ensureDirectoryExist(file)) {
+    public static File aej() {
+        File file = new File(b.arw());
+        if (d.ensureDirectoryExist(file)) {
             return file;
         }
         return null;

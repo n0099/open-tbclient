@@ -3,13 +3,13 @@ package rx.a.a;
 import rx.g;
 /* loaded from: classes6.dex */
 public class b {
-    private static final b nje = new b();
+    private static final b nEe = new b();
 
-    public static b dHy() {
-        return nje;
+    public static b dPs() {
+        return nEe;
     }
 
-    public g dHz() {
+    public g dPt() {
         return null;
     }
 

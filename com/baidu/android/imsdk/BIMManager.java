@@ -29,6 +29,7 @@ import com.baidu.android.imsdk.chatmessage.IMediaGetContactorPauidListener;
 import com.baidu.android.imsdk.chatmessage.IMediaSendChatMsgListener;
 import com.baidu.android.imsdk.chatmessage.IMediaSetSessionReadListener;
 import com.baidu.android.imsdk.chatmessage.IMessageReceiveListener;
+import com.baidu.android.imsdk.chatmessage.ISendMessageListener;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import com.baidu.android.imsdk.chatuser.ChatUser;
 import com.baidu.android.imsdk.chatuser.ChatUserManager;
@@ -100,28 +101,21 @@ public class BIMManager extends BaseManager implements NoProGuard {
     }
 
     public static boolean init(Context context, long j, int i, String str) {
-        if (!isNullContext(context) && !TextUtils.isEmpty(str)) {
-            Context applicationContext = context.getApplicationContext();
-            sContext = context;
-            IMService.isSmallFlow = false;
-            boolean appid = AccountManagerImpl.getInstance(context).setAppid(j);
-            if (appid) {
-                if (i == 0 || i == 1 || i == 2 || i == 3) {
-                    Log.d("imsdk", "set env as " + i);
-                    appid = Constants.setEnv(applicationContext, i);
-                    if (!appid) {
-                        return false;
-                    }
-                }
-                IMManagerImpl.getInstance(applicationContext);
-                IMSettings.setContext(context);
-                Utility.setDeviceId(context, str);
-                ConversationManagerImpl.getInstance(applicationContext);
-                return appid;
-            }
+        if (isNullContext(context) || TextUtils.isEmpty(str)) {
             return false;
         }
-        return false;
+        Constants.IM_ENV = i;
+        Context applicationContext = context.getApplicationContext();
+        sContext = applicationContext;
+        IMService.isSmallFlow = false;
+        Log.d("imsdk", "set env as " + i + "， appId:" + j + ", cuid :" + str);
+        AccountManagerImpl.getInstance(applicationContext).setAppid(j);
+        Utility.setDeviceId(applicationContext, str);
+        Constants.setEnv(applicationContext, i);
+        IMManagerImpl.getInstance(applicationContext);
+        IMSettings.setContext(applicationContext);
+        ConversationManagerImpl.getInstance(applicationContext);
+        return true;
     }
 
     public static void imLogoutByLcp(Context context) {
@@ -567,8 +561,15 @@ public class BIMManager extends BaseManager implements NoProGuard {
         ChatMsgManager.fetchMsgRequst(context, j, j2, i, j3, j4, j5, i2, iFetchMsgByIdListener);
     }
 
-    public static void fetchMsgByHostRequest(Context context, long j, long j2, int i, long j3, long j4, long j5, int i2, int i3, IFetchMsgByIdListener iFetchMsgByIdListener) {
-        ChatMsgManager.fetchMsgRequst(context, j, j2, i, j3, j4, j5, i2, iFetchMsgByIdListener);
+    public static void fetchMsgByHostRequest(Context context, long j, int i, long j2, long j3, long j4, int i2, int i3, IFetchMsgByIdListener iFetchMsgByIdListener) {
+        ChatMsgManager.fetchMsgByHostRequst(context, j, i, j2, j3, j4, i2, iFetchMsgByIdListener);
+    }
+
+    public static void sendMsgRequest(Context context, boolean z, ChatMsg chatMsg, ISendMessageListener iSendMessageListener) {
+        if (context != null) {
+            Utility.setStudioHostSendMsg(context, z);
+            ChatMsgManager.sendMessage(context, chatMsg, iSendMessageListener);
+        }
     }
 
     public static boolean isSupportMsgType(int i) {

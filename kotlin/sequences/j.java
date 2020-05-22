@@ -17,33 +17,33 @@ public class j extends i {
     @kotlin.h
     /* loaded from: classes7.dex */
     public static final class a implements Iterable<T> {
-        final /* synthetic */ kotlin.sequences.c mYE;
+        final /* synthetic */ kotlin.sequences.c ntG;
 
         public a(kotlin.sequences.c cVar) {
-            this.mYE = cVar;
+            this.ntG = cVar;
         }
 
         @Override // java.lang.Iterable
         public Iterator<T> iterator() {
-            return this.mYE.iterator();
+            return this.ntG.iterator();
         }
     }
 
     public static final <T> kotlin.sequences.c<T> a(kotlin.sequences.c<? extends T> cVar, kotlin.jvm.a.b<? super T, Boolean> bVar) {
-        q.j(cVar, "receiver$0");
-        q.j(bVar, "predicate");
+        q.m(cVar, "receiver$0");
+        q.m(bVar, "predicate");
         return new kotlin.sequences.a(cVar, true, bVar);
     }
 
     public static final <T> kotlin.sequences.c<T> b(kotlin.sequences.c<? extends T> cVar, kotlin.jvm.a.b<? super T, Boolean> bVar) {
-        q.j(cVar, "receiver$0");
-        q.j(bVar, "predicate");
+        q.m(cVar, "receiver$0");
+        q.m(bVar, "predicate");
         return new kotlin.sequences.a(cVar, false, bVar);
     }
 
     public static final <T, C extends Collection<? super T>> C a(kotlin.sequences.c<? extends T> cVar, C c2) {
-        q.j(cVar, "receiver$0");
-        q.j(c2, "destination");
+        q.m(cVar, "receiver$0");
+        q.m(c2, "destination");
         for (T t : cVar) {
             c2.add(t);
         }
@@ -51,80 +51,80 @@ public class j extends i {
     }
 
     public static final <T> HashSet<T> a(kotlin.sequences.c<? extends T> cVar) {
-        q.j(cVar, "receiver$0");
+        q.m(cVar, "receiver$0");
         return (HashSet) kotlin.sequences.e.a(cVar, new HashSet());
     }
 
     public static final <T> List<T> b(kotlin.sequences.c<? extends T> cVar) {
-        q.j(cVar, "receiver$0");
+        q.m(cVar, "receiver$0");
         return (List) kotlin.sequences.e.a(cVar, new ArrayList());
     }
 
     public static final <T, R> kotlin.sequences.c<R> c(kotlin.sequences.c<? extends T> cVar, kotlin.jvm.a.b<? super T, ? extends R> bVar) {
-        q.j(cVar, "receiver$0");
-        q.j(bVar, "transform");
+        q.m(cVar, "receiver$0");
+        q.m(bVar, "transform");
         return new k(cVar, bVar);
     }
 
     @kotlin.h
     /* loaded from: classes7.dex */
     public static final class b implements kotlin.sequences.c<T> {
-        final /* synthetic */ kotlin.sequences.c mYF;
-        final /* synthetic */ Object mYG;
+        final /* synthetic */ kotlin.sequences.c ntH;
+        final /* synthetic */ Object ntI;
 
         @Override // kotlin.sequences.c
         public Iterator<T> iterator() {
             Ref.BooleanRef booleanRef = new Ref.BooleanRef();
             booleanRef.element = false;
-            return kotlin.sequences.e.a(this.mYF, new SequencesKt___SequencesKt$minus$1$iterator$1(this, booleanRef)).iterator();
+            return kotlin.sequences.e.a(this.ntH, new SequencesKt___SequencesKt$minus$1$iterator$1(this, booleanRef)).iterator();
         }
     }
 
     @kotlin.h
     /* loaded from: classes7.dex */
     public static final class c implements kotlin.sequences.c<T> {
-        final /* synthetic */ kotlin.sequences.c mYF;
-        final /* synthetic */ Object[] mYH;
+        final /* synthetic */ kotlin.sequences.c ntH;
+        final /* synthetic */ Object[] ntJ;
 
         @Override // kotlin.sequences.c
         public Iterator<T> iterator() {
-            return kotlin.sequences.e.b(this.mYF, new SequencesKt___SequencesKt$minus$2$iterator$1(kotlin.collections.f.P(this.mYH))).iterator();
+            return kotlin.sequences.e.b(this.ntH, new SequencesKt___SequencesKt$minus$2$iterator$1(kotlin.collections.f.Q(this.ntJ))).iterator();
         }
     }
 
     @kotlin.h
     /* loaded from: classes7.dex */
     public static final class d implements kotlin.sequences.c<T> {
-        final /* synthetic */ kotlin.sequences.c mYF;
-        final /* synthetic */ Iterable mYI;
+        final /* synthetic */ kotlin.sequences.c ntH;
+        final /* synthetic */ Iterable ntK;
 
         @Override // kotlin.sequences.c
         public Iterator<T> iterator() {
-            Collection c = o.c(this.mYI);
-            return c.isEmpty() ? this.mYF.iterator() : kotlin.sequences.e.b(this.mYF, new SequencesKt___SequencesKt$minus$3$iterator$1(c)).iterator();
+            Collection c = o.c(this.ntK);
+            return c.isEmpty() ? this.ntH.iterator() : kotlin.sequences.e.b(this.ntH, new SequencesKt___SequencesKt$minus$3$iterator$1(c)).iterator();
         }
     }
 
     @kotlin.h
     /* loaded from: classes7.dex */
     public static final class e implements kotlin.sequences.c<T> {
-        final /* synthetic */ kotlin.sequences.c mYF;
-        final /* synthetic */ kotlin.sequences.c mYJ;
+        final /* synthetic */ kotlin.sequences.c ntH;
+        final /* synthetic */ kotlin.sequences.c ntL;
 
         @Override // kotlin.sequences.c
         public Iterator<T> iterator() {
-            HashSet a = kotlin.sequences.e.a(this.mYJ);
-            return a.isEmpty() ? this.mYF.iterator() : kotlin.sequences.e.b(this.mYF, new SequencesKt___SequencesKt$minus$4$iterator$1(a)).iterator();
+            HashSet a = kotlin.sequences.e.a(this.ntL);
+            return a.isEmpty() ? this.ntH.iterator() : kotlin.sequences.e.b(this.ntH, new SequencesKt___SequencesKt$minus$4$iterator$1(a)).iterator();
         }
     }
 
     public static final <T, A extends Appendable> A a(kotlin.sequences.c<? extends T> cVar, A a2, CharSequence charSequence, CharSequence charSequence2, CharSequence charSequence3, int i, CharSequence charSequence4, kotlin.jvm.a.b<? super T, ? extends CharSequence> bVar) {
-        q.j(cVar, "receiver$0");
-        q.j(a2, "buffer");
-        q.j(charSequence, "separator");
-        q.j(charSequence2, "prefix");
-        q.j(charSequence3, "postfix");
-        q.j(charSequence4, "truncated");
+        q.m(cVar, "receiver$0");
+        q.m(a2, "buffer");
+        q.m(charSequence, "separator");
+        q.m(charSequence2, "prefix");
+        q.m(charSequence3, "postfix");
+        q.m(charSequence4, "truncated");
         a2.append(charSequence2);
         int i2 = 0;
         for (T t : cVar) {
@@ -145,18 +145,18 @@ public class j extends i {
     }
 
     public static final <T> String a(kotlin.sequences.c<? extends T> cVar, CharSequence charSequence, CharSequence charSequence2, CharSequence charSequence3, int i, CharSequence charSequence4, kotlin.jvm.a.b<? super T, ? extends CharSequence> bVar) {
-        q.j(cVar, "receiver$0");
-        q.j(charSequence, "separator");
-        q.j(charSequence2, "prefix");
-        q.j(charSequence3, "postfix");
-        q.j(charSequence4, "truncated");
+        q.m(cVar, "receiver$0");
+        q.m(charSequence, "separator");
+        q.m(charSequence2, "prefix");
+        q.m(charSequence3, "postfix");
+        q.m(charSequence4, "truncated");
         String sb = ((StringBuilder) kotlin.sequences.e.a(cVar, new StringBuilder(), charSequence, charSequence2, charSequence3, i, charSequence4, bVar)).toString();
-        q.i(sb, "joinTo(StringBuilder(), …ed, transform).toString()");
+        q.l((Object) sb, "joinTo(StringBuilder(), …ed, transform).toString()");
         return sb;
     }
 
     public static final <T> Iterable<T> c(kotlin.sequences.c<? extends T> cVar) {
-        q.j(cVar, "receiver$0");
+        q.m(cVar, "receiver$0");
         return new a(cVar);
     }
 }

@@ -4,21 +4,21 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.data.MetaData;
 /* loaded from: classes8.dex */
 public class h extends b {
-    public static BdUniqueId gsj = BdUniqueId.gen();
-    public static BdUniqueId gsk = BdUniqueId.gen();
-    public MetaData drO;
+    public static BdUniqueId gGY = BdUniqueId.gen();
+    public static BdUniqueId gGZ = BdUniqueId.gen();
+    public MetaData dFJ;
     public int type = 0;
     public int rank = 1;
 
-    @Override // com.baidu.adp.widget.ListView.m
+    @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.o
     public BdUniqueId getType() {
         switch (this.type) {
             case 0:
-                return gsj;
+                return gGY;
             case 1:
-                return gsk;
+                return gGZ;
             default:
-                return gsj;
+                return gGY;
         }
     }
 }

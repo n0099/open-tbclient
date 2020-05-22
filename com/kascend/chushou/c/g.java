@@ -12,7 +12,7 @@ import org.json.JSONObject;
 import tv.chushou.zues.utils.h;
 /* loaded from: classes5.dex */
 public class g {
-    public static ParserRet dy(JSONObject jSONObject) {
+    public static ParserRet dF(JSONObject jSONObject) {
         String str;
         MyUserInfo myUserInfo;
         int i;
@@ -48,7 +48,7 @@ public class g {
                         myUserInfo2.mGloriouslyUid = jSONObject2.optString("gloriouslyUid");
                         if (jSONObject2.has(MetaBox.TYPE) && (optJSONObject = jSONObject2.optJSONObject(MetaBox.TYPE)) != null) {
                             JSONArray optJSONArray2 = optJSONObject.optJSONArray("avatarFrame");
-                            if (!h.aa(optJSONArray2)) {
+                            if (!h.Z(optJSONArray2)) {
                                 myUserInfo2.mAvatarFrame = new ArrayList();
                                 for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
                                     myUserInfo2.mAvatarFrame.add(optJSONArray2.optString(0));

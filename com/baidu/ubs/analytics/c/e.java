@@ -1,18 +1,18 @@
 package com.baidu.ubs.analytics.c;
 /* loaded from: classes8.dex */
 public final class e {
-    private static final e lOz = new e();
-    private l lOA = new l();
+    private static final e mhO = new e();
+    private l mhP = new l();
 
-    public static e dle() {
-        return lOz;
+    public static e dst() {
+        return mhO;
     }
 
-    public final void NA(String str) {
-        this.lOA.NA(str);
+    public final void Pn(String str) {
+        this.mhP.Pn(str);
     }
 
-    public final void NB(String str) {
-        this.lOA.NB(str);
+    public final void Po(String str) {
+        this.mhP.Po(str);
     }
 }

@@ -1,33 +1,24 @@
 package com.baidu.live.data;
 
-import com.baidu.live.tbadk.core.data.BaseData;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class g extends BaseData {
-    public AlaLiveUserInfoData aqk;
-    public AlaLocationData aql;
-    public AlaRelationData aqm;
-    public long aqn;
+public class g {
+    public int id = 0;
+    public String name;
+    public int number;
 
-    @Override // com.baidu.live.tbadk.core.data.BaseData
-    public void parserJson(JSONObject jSONObject) {
+    public void parser(JSONObject jSONObject) {
         if (jSONObject != null) {
-            JSONObject optJSONObject = jSONObject.optJSONObject("user_info");
-            if (optJSONObject != null) {
-                this.aqk = new AlaLiveUserInfoData();
-                this.aqk.parserJson(optJSONObject);
-            }
-            JSONObject optJSONObject2 = jSONObject.optJSONObject("location_info");
-            if (optJSONObject2 != null) {
-                this.aql = new AlaLocationData();
-                this.aql.parserJson(optJSONObject2);
-            }
-            JSONObject optJSONObject3 = jSONObject.optJSONObject("relation_info");
-            if (optJSONObject3 != null) {
-                this.aqm = new AlaRelationData();
-                this.aqm.parserJson(optJSONObject3);
-            }
-            this.aqn = jSONObject.optLong("rank_num");
+            this.number = jSONObject.optInt("num");
+            this.name = jSONObject.optString("name");
         }
+    }
+
+    public int getNumber() {
+        return this.number;
+    }
+
+    public String getName() {
+        return this.name;
     }
 }

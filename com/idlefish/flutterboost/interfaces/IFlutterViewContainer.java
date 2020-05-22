@@ -18,4 +18,8 @@ public interface IFlutterViewContainer {
     void onContainerHidden();
 
     void onContainerShown();
+
+    void onFlutterContainerClose();
+
+    void onFlutterContainerOpen();
 }

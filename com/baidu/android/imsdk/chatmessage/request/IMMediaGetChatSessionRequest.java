@@ -7,6 +7,7 @@ import com.baidu.android.imsdk.chatmessage.ChatSession;
 import com.baidu.android.imsdk.chatmessage.ChatSessionManagerImpl;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsgFactory;
+import com.baidu.android.imsdk.utils.HttpHelper;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import java.security.NoSuchAlgorithmException;
@@ -93,8 +94,13 @@ public class IMMediaGetChatSessionRequest extends IMMediaBaseHttpRequest {
         return jSONObject.toString().getBytes();
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:30:0x0135  */
-    /* JADX WARN: Removed duplicated region for block: B:39:0x0154  */
+    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
+    public String getContentType() {
+        return HttpHelper.CONTENT_JSON;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:30:0x013d  */
+    /* JADX WARN: Removed duplicated region for block: B:39:0x015f  */
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -105,14 +111,15 @@ public class IMMediaGetChatSessionRequest extends IMMediaBaseHttpRequest {
         int i3;
         int i4;
         String str;
-        String str2 = new String(bArr);
-        LogUtils.d(TAG, "onSuccess resultContent = " + str2);
+        String str2;
+        String str3 = new String(bArr);
+        LogUtils.d(TAG, "onSuccess resultContent = " + str3);
         int i5 = 0;
         int i6 = 0;
         HashMap hashMap = new HashMap();
         HashMap hashMap2 = new HashMap();
         try {
-            JSONObject jSONObject = new JSONObject(str2);
+            JSONObject jSONObject = new JSONObject(str3);
             int optInt = jSONObject.optInt("error_code", 0);
             if (optInt == 0) {
                 int optInt2 = jSONObject.optInt("has_more", 0);
@@ -135,10 +142,13 @@ public class IMMediaGetChatSessionRequest extends IMMediaBaseHttpRequest {
                                 ChatMsg newChatMsg = ChatMsgFactory.getInstance().newChatMsg(this.mContext, 0, optInt4, -1);
                                 if (newChatMsg == null) {
                                     str = "";
+                                    str2 = "";
                                 } else {
                                     newChatMsg.setMsgType(optInt4);
                                     newChatMsg.setMsgContentFromServer(optString);
-                                    str = newChatMsg.getRecommendDescription();
+                                    String recommendDescription = newChatMsg.getRecommendDescription();
+                                    str = newChatMsg.getExtLog();
+                                    str2 = recommendDescription;
                                 }
                                 int optInt5 = jSONObject2.optInt("unread_num");
                                 long optLong2 = jSONObject2.optLong("last_time");
@@ -148,11 +158,12 @@ public class IMMediaGetChatSessionRequest extends IMMediaBaseHttpRequest {
                                 chatSession.setNewMsgSum(optInt5);
                                 chatSession.setLastMsgTime(optLong2);
                                 chatSession.setLastOpenTime(optLong2);
-                                chatSession.setLastMsg(str);
+                                chatSession.setLastMsg(str2);
                                 chatSession.setMarkTop(optInt6);
                                 chatSession.setMarkTopTime(optLong2);
                                 chatSession.setSessionFrom(1);
                                 chatSession.setIsClicked(1);
+                                chatSession.setExt(str);
                                 if (optLong != 0) {
                                     chatSession.setPaid(optLong);
                                     hashMap.put(Long.valueOf(optLong), chatSession);

@@ -1,20 +1,11 @@
 package com.baidu.swan.apps.core.j;
 
-import com.baidu.adp.plugin.install.PluginInstallerService;
-import java.io.File;
+import com.baidu.swan.pms.model.PMSAppInfo;
 /* loaded from: classes11.dex */
-public class d {
-    public static void i(String str, String str2, boolean z) {
-        if (!z) {
-            try {
-                System.loadLibrary(str);
-                return;
-            } catch (Throwable th) {
-            }
-        }
-        try {
-            System.load(str2 + File.separator + "lib" + str + PluginInstallerService.APK_LIB_SUFFIX);
-        } catch (Throwable th2) {
-        }
-    }
+public interface d {
+    void f(PMSAppInfo pMSAppInfo);
+
+    void g(PMSAppInfo pMSAppInfo);
+
+    void onFailed(int i);
 }

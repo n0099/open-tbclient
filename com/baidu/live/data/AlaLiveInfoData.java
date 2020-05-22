@@ -3,13 +3,14 @@ package com.baidu.live.data;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.live.adp.lib.util.BdLog;
-import com.baidu.live.data.l;
+import com.baidu.live.data.o;
 import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.atomdata.AlaLiveRoomActivityConfig;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.live.tbadk.coreextra.data.AlaLiveSwitchData;
 import com.baidu.live.tbadk.extraparams.ExtraParamsManager;
+import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import com.baidu.tbadk.core.atomData.PbChosenActivityConfig;
 import java.io.Serializable;
 import java.util.HashMap;
@@ -71,6 +72,7 @@ public class AlaLiveInfoData implements Serializable {
     public int live_type;
     public String location;
     public AlaLiveSwitchData mAlaLiveSwitchData;
+    public String mRecommendTabSwitch;
     public String media_id;
     public String media_pic;
     public String media_subtitle;
@@ -95,7 +97,8 @@ public class AlaLiveInfoData implements Serializable {
     public String user_name;
     public String user_nickname;
     public int zan_count;
-    public l.a mCastIds = null;
+    public o.a mCastIds = null;
+    public int goodsList = 0;
     public int session_default = 0;
     public long broadGiftMsgId = 0;
     public AlaLiveCloseData mLiveCloseData = new AlaLiveCloseData();
@@ -235,6 +238,7 @@ public class AlaLiveInfoData implements Serializable {
             }
             this.session_default = jSONObject.optInt("session_default");
             this.clarity = jSONObject.optInt("clarity");
+            this.goodsList = jSONObject.optInt(UbcStatConstant.ContentType.UBC_TYPE_GOODS_LIST);
             this.game_id = jSONObject.optString("game_id");
             this.game_label = jSONObject.optString("game_label");
             this.game_icon = jSONObject.optString("game_icon");
@@ -266,7 +270,7 @@ public class AlaLiveInfoData implements Serializable {
             }
             JSONObject optJSONObject4 = jSONObject.optJSONObject(Constants.EXTRA_CAST_IDS);
             if (optJSONObject4 != null) {
-                this.mCastIds = new l.a();
+                this.mCastIds = new o.a();
                 this.mCastIds.parseJson(optJSONObject4);
             }
             JSONObject optJSONObject5 = jSONObject.optJSONObject("switch");
@@ -294,11 +298,16 @@ public class AlaLiveInfoData implements Serializable {
                 this.extraLiveInfo = optJSONObject8.optJSONObject(TbConfig.getSubappType() + "_special");
             }
             this.chat_count = jSONObject.optInt("chat_count", 0);
+            this.mRecommendTabSwitch = jSONObject.optString("recommend_tab_switch", "0");
         }
     }
 
     public String getNameShow() {
         return TextUtils.isEmpty(this.user_nickname) ? this.user_name : this.user_nickname;
+    }
+
+    public boolean isGoodsListVisible() {
+        return this.goodsList == 1;
     }
 
     public int getZanCount() {
@@ -322,6 +331,10 @@ public class AlaLiveInfoData implements Serializable {
             return this.session_info.getPushUrl();
         }
         return null;
+    }
+
+    public boolean isRecommendTabSwitchUnabled() {
+        return TextUtils.equals(this.mRecommendTabSwitch, "0");
     }
 
     public String getJsonString() {
@@ -411,6 +424,7 @@ public class AlaLiveInfoData implements Serializable {
                 jSONObject.put("third_special", jSONObject2.toString());
             }
             jSONObject.put("chat_count", this.chat_count);
+            jSONObject.put("recommend_tab_switch", this.mRecommendTabSwitch);
         } catch (JSONException e) {
             e.printStackTrace();
         }

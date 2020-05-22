@@ -2,6 +2,7 @@ package com.baidu.live.tbadk.pay;
 
 import com.baidu.android.util.io.BaseJsonData;
 import com.baidu.live.tbadk.core.data.BaseData;
+import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
@@ -18,7 +19,7 @@ public class PayInfoResultData extends BaseData implements Serializable {
             this.errmsg = jSONObject.optString(BaseJsonData.TAG_ERRMSG);
             this.errno = jSONObject.optInt(BaseJsonData.TAG_ERRNO);
             this.usermsg = jSONObject.optString("");
-            this.pay_status = jSONObject.optInt("pay_status");
+            this.pay_status = jSONObject.optInt(UbcStatConstant.ContentType.UBC_TYPE_PAY_STATUS);
         }
     }
 

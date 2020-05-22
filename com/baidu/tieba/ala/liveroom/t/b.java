@@ -24,8 +24,8 @@ import com.baidu.live.adp.framework.message.HttpMessage;
 import com.baidu.live.adp.framework.message.HttpResponsedMessage;
 import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.c;
-import com.baidu.live.data.n;
-import com.baidu.live.data.u;
+import com.baidu.live.data.q;
+import com.baidu.live.data.x;
 import com.baidu.live.message.GetSuperCustomerInfoHttpResponseMessage;
 import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.TbPageContext;
@@ -33,6 +33,7 @@ import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.atomdata.CommonWebViewActivityConfig;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.live.tbadk.ubc.UbcStatisticItem;
+import com.baidu.live.tbadk.ubc.UbcStatisticLiveKey;
 import com.baidu.live.tbadk.ubc.UbcStatisticManager;
 import com.baidu.live.tbadk.widget.TbImageView;
 import com.baidu.live.u.a;
@@ -44,50 +45,50 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class b extends BdBaseModel {
-    private Dialog aIB;
-    public u aQF;
-    private n aqW;
+    private Dialog aOk;
+    public x aWQ;
+    private q avW;
     private Context context;
-    private AnimatorSet fGG;
+    private AnimatorSet fUB;
     private View mContentView;
-    private boolean fGH = false;
+    private boolean fUC = false;
     private Handler handler = new Handler();
-    private boolean fGI = false;
-    private boolean fGJ = false;
-    public boolean fPI = false;
-    public boolean fPJ = false;
-    private HttpMessageListener aRK = new HttpMessageListener(1021186) { // from class: com.baidu.tieba.ala.liveroom.t.b.1
+    private boolean fUD = false;
+    private boolean fUE = false;
+    public boolean get = false;
+    public boolean geu = false;
+    private HttpMessageListener aYY = new HttpMessageListener(1021186) { // from class: com.baidu.tieba.ala.liveroom.t.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021186 && (httpResponsedMessage instanceof GetSuperCustomerInfoHttpResponseMessage) && b.this.context != null) {
                 if (httpResponsedMessage.getError() == 0) {
                     GetSuperCustomerInfoHttpResponseMessage getSuperCustomerInfoHttpResponseMessage = (GetSuperCustomerInfoHttpResponseMessage) httpResponsedMessage;
-                    if (getSuperCustomerInfoHttpResponseMessage.DV() != null) {
-                        b.this.aQF = getSuperCustomerInfoHttpResponseMessage.DV();
-                        a.bzX().aQF = b.this.aQF;
-                        b.this.bzY();
+                    if (getSuperCustomerInfoHttpResponseMessage.Ft() != null) {
+                        b.this.aWQ = getSuperCustomerInfoHttpResponseMessage.Ft();
+                        a.bGk().aWQ = b.this.aWQ;
+                        b.this.bGl();
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913189, "refreshInfo"));
                     }
                 }
             }
         }
     };
-    private CustomMessageListener aMs = new CustomMessageListener(2913189) { // from class: com.baidu.tieba.ala.liveroom.t.b.2
+    private CustomMessageListener aSs = new CustomMessageListener(2913189) { // from class: com.baidu.tieba.ala.liveroom.t.b.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if ((customResponsedMessage.getData() instanceof String) && b.this.context != null) {
                 String str = (String) customResponsedMessage.getData();
-                if ("consumeSuc".equals(str) && !b.this.fPJ) {
-                    b.this.fPJ = true;
+                if ("consumeSuc".equals(str) && !b.this.geu) {
+                    b.this.geu = true;
                     BdLog.d("consumeSuc");
-                    b.this.a(b.this.aqW, b.this.aqW.aqD.userId);
+                    b.this.a(b.this.avW, b.this.avW.avC.userId);
                 }
-                if ("chargeSuc".equals(str) && !b.this.fPI) {
+                if ("chargeSuc".equals(str) && !b.this.get) {
                     BdLog.d("chargeSuc");
-                    b.this.fPI = true;
-                    b.this.a(b.this.aqW, b.this.aqW.aqD.userId);
+                    b.this.get = true;
+                    b.this.a(b.this.avW, b.this.avW.avC.userId);
                 }
             }
         }
@@ -95,23 +96,23 @@ public class b extends BdBaseModel {
 
     public b(TbPageContext tbPageContext) {
         this.context = tbPageContext.getPageActivity();
-        this.aRK.setTag(tbPageContext.getUniqueId());
-        this.aMs.setTag(tbPageContext.getUniqueId());
-        MessageManager.getInstance().registerListener(this.aRK);
-        MessageManager.getInstance().registerListener(this.aMs);
+        this.aYY.setTag(tbPageContext.getUniqueId());
+        this.aSs.setTag(tbPageContext.getUniqueId());
+        MessageManager.getInstance().registerListener(this.aYY);
+        MessageManager.getInstance().registerListener(this.aSs);
     }
 
-    public void a(n nVar, long j) {
-        this.aqW = nVar;
+    public void a(q qVar, long j) {
+        this.avW = qVar;
         HttpMessage httpMessage = new HttpMessage(1021186);
         httpMessage.addParam("user_id", j);
         MessageManager.getInstance().sendMessage(httpMessage);
         BdLog.d("requestSuperCustomerInfoMessage user_id:" + j);
     }
 
-    public void xk() {
-        if (this.aIB != null && this.aIB.isShowing()) {
-            Context context = this.aIB.getContext();
+    public void yy() {
+        if (this.aOk != null && this.aOk.isShowing()) {
+            Context context = this.aOk.getContext();
             if (context != null) {
                 if (context instanceof Activity) {
                     Activity activity = (Activity) context;
@@ -123,12 +124,12 @@ public class b extends BdBaseModel {
                         return;
                     }
                 }
-                this.aIB.dismiss();
+                this.aOk.dismiss();
             } else {
                 return;
             }
         }
-        this.aIB = null;
+        this.aOk = null;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -137,15 +138,15 @@ public class b extends BdBaseModel {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void bzY() {
+    public void bGl() {
         JSONArray jSONArray;
-        if (!TbadkCoreApplication.getInst().isMobileBaidu() && this.aqW != null && this.aqW.aqD != null) {
-            if (this.aqW.mLiveInfo == null || this.aqW.mLiveInfo.screen_direction != 2) {
-                BdLog.d("deal--isTiming:" + this.fGH);
-                if (!this.fGH && TbadkCoreApplication.isLogin() && this.aQF != null && this.aQF.ara != 1 && !TextUtils.isEmpty(this.aQF.arb)) {
-                    int i = this.aQF.limit;
+        if (!TbadkCoreApplication.getInst().isMobileBaidu() && this.avW != null && this.avW.avC != null) {
+            if (this.avW.mLiveInfo == null || this.avW.mLiveInfo.screen_direction != 2) {
+                BdLog.d("deal--isTiming:" + this.fUC);
+                if (!this.fUC && TbadkCoreApplication.isLogin() && this.aWQ != null && this.aWQ.awa != 1 && !TextUtils.isEmpty(this.aWQ.auL)) {
+                    int i = this.aWQ.limit;
                     final String b = j.b(new Date());
-                    String string = c.tG().getString("super_constomer_show_trace", "");
+                    String string = c.uN().getString("super_constomer_show_trace", "");
                     BdLog.d("deal-- trace:" + string);
                     if (!TextUtils.isEmpty(string)) {
                         try {
@@ -173,7 +174,7 @@ public class b extends BdBaseModel {
                                     return;
                                 }
                             }
-                            int i3 = this.aQF.aqZ;
+                            int i3 = this.aWQ.avZ;
                             if (i3 <= 0) {
                                 i3 = 20;
                             }
@@ -192,13 +193,13 @@ public class b extends BdBaseModel {
                                             return;
                                         }
                                     }
-                                    if (b.this.aqW != null && b.this.aqW.aqD != null) {
-                                        b.this.a(b.this.context, b.this.aQF);
-                                        b.this.a(b, b.this.aQF);
+                                    if (b.this.avW != null && b.this.avW.avC != null) {
+                                        b.this.a(b.this.context, b.this.aWQ);
+                                        b.this.a(b, b.this.aWQ);
                                     }
                                 }
                             }, i3 * 1000);
-                            this.fGH = true;
+                            this.fUC = true;
                             return;
                         }
                         return;
@@ -213,8 +214,8 @@ public class b extends BdBaseModel {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(final Context context, final u uVar) {
-        xk();
+    public void a(final Context context, final x xVar) {
+        yy();
         View inflate = LayoutInflater.from(context).inflate(a.h.dialog_super_customer, (ViewGroup) null);
         final Dialog dialog = new Dialog(context, a.j.FlowerGuideDialogStyle);
         dialog.requestWindowFeature(1);
@@ -222,23 +223,23 @@ public class b extends BdBaseModel {
         dialog.setContentView(inflate);
         dialog.setCanceledOnTouchOutside(false);
         this.mContentView = inflate;
-        this.aIB = dialog;
+        this.aOk = dialog;
         inflate.findViewById(a.g.main_layout).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.t.b.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 String str;
                 try {
-                    b.this.xk();
-                    if (b.this.aqW != null && b.this.aqW.mLiveInfo != null) {
-                        String str2 = uVar.arb;
+                    b.this.yy();
+                    if (b.this.avW != null && b.this.avW.mLiveInfo != null) {
+                        String str2 = xVar.auL;
                         if (!TextUtils.isEmpty(str2)) {
                             if (str2.contains("?")) {
-                                str = str2 + "&live_id=" + b.this.aqW.mLiveInfo.live_id + "&client_type=2&subapp_type=" + TbConfig.getSubappType();
+                                str = str2 + "&live_id=" + b.this.avW.mLiveInfo.live_id + "&client_type=2&subapp_type=" + TbConfig.getSubappType();
                             } else {
-                                str = str2 + "?live_id=" + b.this.aqW.mLiveInfo.live_id + "&client_type=2&subapp_type=" + TbConfig.getSubappType();
+                                str = str2 + "?live_id=" + b.this.avW.mLiveInfo.live_id + "&client_type=2&subapp_type=" + TbConfig.getSubappType();
                             }
                             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new CommonWebViewActivityConfig(context, str)));
-                            UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem("1396", "click", "liveroom", "largebag_clk").setContentExt(null, "popup", null));
+                            UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", "liveroom", "largebag_clk").setContentExt(null, "popup", null));
                         }
                     }
                 } catch (Exception e) {
@@ -250,7 +251,7 @@ public class b extends BdBaseModel {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 try {
-                    b.this.xk();
+                    b.this.yy();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -260,8 +261,8 @@ public class b extends BdBaseModel {
             @Override // android.content.DialogInterface.OnShowListener
             public void onShow(DialogInterface dialogInterface) {
                 BdLog.d("dialog onShow 播放动画");
-                if (b.this.fGG != null) {
-                    b.this.fGG.start();
+                if (b.this.fUB != null) {
+                    b.this.fUB.start();
                 }
             }
         });
@@ -270,10 +271,10 @@ public class b extends BdBaseModel {
             @Override // android.content.DialogInterface.OnDismissListener
             public void onDismiss(DialogInterface dialogInterface) {
                 BdLog.d("dialog 停止动画");
-                if (b.this.fGG != null) {
-                    b.this.fGG.cancel();
+                if (b.this.fUB != null) {
+                    b.this.fUB.cancel();
                 }
-                b.this.fGH = false;
+                b.this.fUC = false;
             }
         });
         TbImageView tbImageView = (TbImageView) inflate.findViewById(a.g.super_bg);
@@ -293,10 +294,10 @@ public class b extends BdBaseModel {
                         } else if (activity.isFinishing()) {
                             return;
                         }
-                        if (b.this.aqW != null && dialog != null && !dialog.isShowing()) {
+                        if (b.this.avW != null && dialog != null && !dialog.isShowing()) {
                             BdLog.d("dialog.show()");
                             dialog.show();
-                            UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem("1394", "display", "liveroom", "largebag_show").setContentExt(null, "popup", null));
+                            UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1394, "display", "liveroom", "largebag_show").setContentExt(null, "popup", null));
                         }
                     }
                 } catch (Exception e) {
@@ -308,40 +309,40 @@ public class b extends BdBaseModel {
             public void onCancel() {
             }
         });
-        if (!TextUtils.isEmpty(uVar.picUrl)) {
-            BdLog.d("picUrl:" + uVar.picUrl);
-            tbImageView.startLoad(uVar.picUrl, 10, false);
+        if (!TextUtils.isEmpty(xVar.picUrl)) {
+            BdLog.d("picUrl:" + xVar.picUrl);
+            tbImageView.startLoad(xVar.picUrl, 10, false);
         }
         TbImageView tbImageView2 = (TbImageView) inflate.findViewById(a.g.super_entry);
         tbImageView2.setDefaultBgResource(a.f.sdk_shape_transparent);
-        if (!TextUtils.isEmpty(uVar.ard)) {
-            tbImageView2.startLoad(uVar.ard, 10, false);
+        if (!TextUtils.isEmpty(xVar.awc)) {
+            tbImageView2.startLoad(xVar.awc, 10, false);
         }
         ObjectAnimator ofFloat = ObjectAnimator.ofFloat(tbImageView2, "scaleX", 1.0f, 1.2f, 1.0f);
         ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(tbImageView2, "scaleY", 1.0f, 1.2f, 1.0f);
         ofFloat.setRepeatCount(-1);
         ofFloat2.setRepeatCount(-1);
-        this.fGG = new AnimatorSet();
-        this.fGG.play(ofFloat).with(ofFloat2);
-        this.fGG.setInterpolator(new AccelerateDecelerateInterpolator());
-        this.fGG.setDuration(2000L);
-        this.fGG.setStartDelay(0L);
+        this.fUB = new AnimatorSet();
+        this.fUB.play(ofFloat).with(ofFloat2);
+        this.fUB.setInterpolator(new AccelerateDecelerateInterpolator());
+        this.fUB.setDuration(2000L);
+        this.fUB.setStartDelay(0L);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(String str, u uVar) {
+    public void a(String str, x xVar) {
         JSONArray jSONArray;
         int i = 0;
-        if (uVar != null) {
+        if (xVar != null) {
             try {
-                i = uVar.limit;
+                i = xVar.limit;
             } catch (JSONException e) {
                 e.printStackTrace();
                 return;
             }
         }
         if (i >= 0) {
-            String string = c.tG().getString("super_constomer_show_trace", "");
+            String string = c.uN().getString("super_constomer_show_trace", "");
             if (!TextUtils.isEmpty(string)) {
                 jSONArray = new JSONArray(string);
             } else {
@@ -350,27 +351,27 @@ public class b extends BdBaseModel {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("date", str);
             jSONArray.put(jSONObject);
-            c.tG().putString("super_constomer_show_trace", jSONArray.toString());
+            c.uN().putString("super_constomer_show_trace", jSONArray.toString());
         }
     }
 
     public void onResume() {
-        if (this.fGJ || !this.fGI || this.context == null || this.aqW == null || this.aqW.aqD == null) {
+        if (this.fUE || !this.fUD || this.context == null || this.avW == null || this.avW.avC == null) {
         }
     }
 
     public void release() {
-        this.fGH = false;
-        this.aqW = null;
-        this.fPI = false;
-        this.fPJ = false;
+        this.fUC = false;
+        this.avW = null;
+        this.get = false;
+        this.geu = false;
         this.handler.removeCallbacksAndMessages(null);
-        xk();
-        this.aQF = null;
-        a.bzX().aQF = null;
-        if (this.fGG != null) {
-            this.fGG.cancel();
-            this.fGG = null;
+        yy();
+        this.aWQ = null;
+        a.bGk().aWQ = null;
+        if (this.fUB != null) {
+            this.fUB.cancel();
+            this.fUB = null;
         }
         this.context = null;
     }

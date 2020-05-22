@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.net.Uri;
 import android.os.Build;
-import android.os.Environment;
 import android.text.TextUtils;
 import com.baidu.browser.core.INoProGuard;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
@@ -14,8 +13,6 @@ import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.WebKitFactory;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.io.InputStream;
 import java.util.Calendar;
 import java.util.List;
@@ -263,62 +260,8 @@ public final class BdZeusUtil implements INoProGuard {
         return z;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:34:0x0092 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     public static void printKernellog(String str) {
-        FileOutputStream fileOutputStream;
-        if (!Environment.getExternalStorageState().equals("mounted")) {
-            return;
-        }
-        try {
-            StringBuilder sb = new StringBuilder();
-            sb.append(Environment.getExternalStorageDirectory().getPath());
-            sb.append(KERNEL_PATH);
-            new File(sb.toString()).mkdirs();
-            sb.append("kernel.log");
-            fileOutputStream = new FileOutputStream(sb.toString(), true);
-            try {
-                try {
-                    fileOutputStream.write((formatdetailTime(System.currentTimeMillis()) + " " + str + "\r\n").getBytes());
-                    try {
-                        fileOutputStream.close();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                } catch (Exception e2) {
-                    e = e2;
-                    Log.i("soar", e.toString());
-                    if (fileOutputStream != null) {
-                        try {
-                            fileOutputStream.close();
-                        } catch (IOException e3) {
-                            e3.printStackTrace();
-                        }
-                    }
-                }
-            } catch (Throwable th) {
-                th = th;
-                if (fileOutputStream != null) {
-                    try {
-                        fileOutputStream.close();
-                    } catch (IOException e4) {
-                        e4.printStackTrace();
-                    }
-                }
-                throw th;
-            }
-        } catch (Exception e5) {
-            e = e5;
-            fileOutputStream = null;
-        } catch (Throwable th2) {
-            th = th2;
-            fileOutputStream = null;
-            if (fileOutputStream != null) {
-            }
-            throw th;
-        }
+        Log.i(TAG, "printKernelLog: " + formatdetailTime(System.currentTimeMillis()) + " " + str + "\r\n");
     }
 
     public static String processUrl(String str, Context context) {

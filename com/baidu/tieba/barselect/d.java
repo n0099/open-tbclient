@@ -8,7 +8,7 @@ import com.baidu.tieba.barselect.view.VoteCandidateCard;
 import java.util.List;
 /* loaded from: classes8.dex */
 public class d extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-    private List<com.baidu.tieba.barselect.data.d> giJ;
+    private List<com.baidu.tieba.barselect.data.d> gxz;
     private TbPageContext mPageContext;
     private f mVoteData;
 
@@ -19,14 +19,14 @@ public class d extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public void a(f fVar) {
         this.mVoteData = fVar;
         if (fVar != null) {
-            this.giJ = fVar.bDV();
+            this.gxz = fVar.bKm();
         }
         notifyDataSetChanged();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.support.v7.widget.RecyclerView.Adapter
-    /* renamed from: q */
+    /* renamed from: o */
     public e onCreateViewHolder(ViewGroup viewGroup, int i) {
         return new e(new VoteCandidateCard(this.mPageContext.getPageActivity()));
     }
@@ -40,17 +40,17 @@ public class d extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     @Override // android.support.v7.widget.RecyclerView.Adapter
     public int getItemCount() {
-        if (this.giJ != null) {
-            return this.giJ.size();
+        if (this.gxz != null) {
+            return this.gxz.size();
         }
         return 0;
     }
 
     @Override // android.support.v7.widget.RecyclerView.Adapter
     public int getItemViewType(int i) {
-        if (this.giJ == null || this.giJ.size() <= i || this.giJ.get(i).getRank() != 1 || i != 0) {
+        if (this.gxz == null || this.gxz.size() <= i || this.gxz.get(i).getRank() != 1 || i != 0) {
             return 0;
         }
-        return com.baidu.tieba.barselect.a.a.glN;
+        return com.baidu.tieba.barselect.a.a.gAD;
     }
 }

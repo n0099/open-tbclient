@@ -37,10 +37,10 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
 import com.baidu.tbadk.core.util.v;
 import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
-import com.baidu.tbadk.util.ag;
+import com.baidu.tbadk.util.ah;
 import com.baidu.tieba.livesdk.b;
-import com.baidu.tieba.sdk.a.d;
 import com.baidu.tieba.sdk.activity.LivePlayerActivity;
+import com.baidu.tieba.sdk.b.d;
 import com.baidu.tieba.video.g;
 import com.baidu.tieba.wallet.ITiebaPay;
 import com.baidu.util.Base64Encoder;
@@ -58,50 +58,50 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class a {
-    private Application iOX;
+    private Application jdY;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.livesdk.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0609a {
-        private static final a iPb = new a();
+    public static class C0659a {
+        private static final a jec = new a();
     }
 
-    public static a coq() {
-        return C0609a.iPb;
+    public static a cuS() {
+        return C0659a.jec;
     }
 
     public void init(Application application) {
-        this.iOX = application;
+        this.jdY = application;
         Log.e("LiveSdkContext", "LiveSdkContext init()");
-        cor();
-        cos();
+        cuT();
+        cuU();
     }
 
-    private void cor() {
+    private void cuT() {
         Log.e("LiveSdkContext", "initLiveSdk init()");
-        com.baidu.c.b.a.ap(this.iOX).a(new com.baidu.tieba.livesdk.a.b());
+        com.baidu.c.b.a.az(this.jdY).a(new com.baidu.tieba.livesdk.a.b());
         com.baidu.c.b.b bVar = new com.baidu.c.b.b();
-        bVar.beK = TbadkCoreApplication.getCurrentVerson(this.iOX);
+        bVar.bmk = TbadkCoreApplication.getCurrentVerson(this.jdY);
         bVar.cuid = TbadkCoreApplication.getInst().getCuidGalaxy2();
-        com.baidu.c.b.a.ap(this.iOX).a(bVar);
+        com.baidu.c.b.a.az(this.jdY).a(bVar);
     }
 
-    private void cos() {
+    private void cuU() {
         Log.e("LiveSdkContext", "initTbLiveSdk init()");
         com.baidu.tieba.sdk.a.setAppId("tieba");
         com.baidu.tieba.sdk.a.setPackageName("com.baidu.tieba");
-        com.baidu.tieba.sdk.a.cPd().setCustomProtocol("bdtiebalive");
-        com.baidu.tieba.sdk.a.cPd().setSubappVersionName(TbConfig.getVersion());
-        com.baidu.tieba.sdk.a.cPd().setSubappVersionCode(TbadkCoreApplication.getInst().getVersionCode());
-        com.baidu.tieba.sdk.a.cPd().JV(TbConfig.getFrom());
-        com.baidu.tieba.sdk.a.cPd().JW(TbConfig.getCurrentFrom());
-        com.baidu.tieba.sdk.a.cPd().c(new com.baidu.tieba.livesdk.i.b());
-        com.baidu.tieba.sdk.a.cPd().a(new com.baidu.tieba.livesdk.e.a());
-        com.baidu.tieba.sdk.a.cPd().a(new com.baidu.tieba.livesdk.g.a());
-        com.baidu.tieba.sdk.a.cPd().setCustomToast(new com.baidu.tieba.livesdk.k.a());
-        com.baidu.tieba.sdk.a.cPd().a(new com.baidu.live.widget.b());
-        com.baidu.tieba.sdk.a.cPd().a(new IExtraParamsBuilder() { // from class: com.baidu.tieba.livesdk.a.1
+        com.baidu.tieba.sdk.a.cWf().setCustomProtocol("bdtiebalive");
+        com.baidu.tieba.sdk.a.cWf().setSubappVersionName(TbConfig.getVersion());
+        com.baidu.tieba.sdk.a.cWf().setSubappVersionCode(TbadkCoreApplication.getInst().getVersionCode());
+        com.baidu.tieba.sdk.a.cWf().LH(TbConfig.getFrom());
+        com.baidu.tieba.sdk.a.cWf().LI(TbConfig.getCurrentFrom());
+        com.baidu.tieba.sdk.a.cWf().c(new com.baidu.tieba.livesdk.i.b());
+        com.baidu.tieba.sdk.a.cWf().a(new com.baidu.tieba.livesdk.e.a());
+        com.baidu.tieba.sdk.a.cWf().a(new com.baidu.tieba.livesdk.g.a());
+        com.baidu.tieba.sdk.a.cWf().setCustomToast(new com.baidu.tieba.livesdk.k.a());
+        com.baidu.tieba.sdk.a.cWf().a(new com.baidu.live.widget.b());
+        com.baidu.tieba.sdk.a.cWf().a(new IExtraParamsBuilder() { // from class: com.baidu.tieba.livesdk.a.1
             @Override // com.baidu.live.tbadk.extraparams.interfaces.IExtraParamsBuilder
             public IExtraParams build() {
                 return new IExtraParams() { // from class: com.baidu.tieba.livesdk.a.1.1
@@ -127,12 +127,12 @@ public class a {
 
                     @Override // com.baidu.live.tbadk.extraparams.interfaces.IExtraParams
                     public boolean isShouldShowNotWifiToastByMaster() {
-                        return !g.daw().dax();
+                        return !g.dhK().dhL();
                     }
 
                     @Override // com.baidu.live.tbadk.extraparams.interfaces.IExtraParams
                     public boolean isShouldShowNotWifiToastByAudience() {
-                        return !g.daw().dax();
+                        return !g.dhK().dhL();
                     }
 
                     @Override // com.baidu.live.tbadk.extraparams.interfaces.IExtraParams
@@ -151,11 +151,11 @@ public class a {
                         }
                         Object obj = map.get(ExtraParamsManager.KEY_DO_TIEBA_LOG);
                         if (obj instanceof Map) {
-                            com.baidu.tieba.livesdk.j.a.u((Map) obj);
+                            com.baidu.tieba.livesdk.j.a.t((Map) obj);
                             hashMap.put(ExtraParamsManager.KEY_DO_TIEBA_LOG, true);
                         }
                         if (map.containsKey(ExtraParamsManager.KEY_GET_USER_AGENT)) {
-                            hashMap.put(ExtraParamsManager.KEY_GET_USER_AGENT, ag.baK() + " (Baidu; P1 " + Build.VERSION.RELEASE + ")");
+                            hashMap.put(ExtraParamsManager.KEY_GET_USER_AGENT, ah.bgV() + " (Baidu; P1 " + Build.VERSION.RELEASE + ")");
                         }
                         if (map.containsKey(ExtraParamsManager.KEY_GET_BAIDUZID)) {
                             hashMap.put(ExtraParamsManager.KEY_GET_BAIDUZID, FH.gz(TbadkCoreApplication.getInst()));
@@ -191,46 +191,46 @@ public class a {
                 };
             }
         });
-        com.baidu.tieba.sdk.a.cPd().a(new com.baidu.tieba.livesdk.d.a());
-        com.baidu.tieba.sdk.a.cPd().init(this.iOX);
+        com.baidu.tieba.sdk.a.cWf().a(new com.baidu.tieba.livesdk.d.a());
+        com.baidu.tieba.sdk.a.cWf().init(this.jdY);
         e.init();
         UbcStatisticManager.getInstance().setUbcManager(new com.baidu.live.z.a());
-        com.baidu.tieba.sdk.a.cPd().setResourceAdapter(new com.baidu.live.s.a());
-        com.baidu.tieba.sdk.a.cPd().addPayChannelBuilder(PayChannelType.WALLET, new com.baidu.tieba.livesdk.h.a());
-        com.baidu.tieba.sdk.a.cPd().a(new com.baidu.tieba.livesdk.f.a());
-        com.baidu.tieba.sdk.a.cPd().a(new com.baidu.tieba.livesdk.a.a(this.iOX));
-        com.baidu.tieba.sdk.a.cPd().a(new com.baidu.tieba.livesdk.scheme.a());
-        com.baidu.tieba.sdk.a.cPd().a(new com.baidu.tieba.sdk.a.e() { // from class: com.baidu.tieba.livesdk.a.2
-            @Override // com.baidu.tieba.sdk.a.e
-            public void e(Context context, Intent intent) {
+        com.baidu.tieba.sdk.a.cWf().setResourceAdapter(new com.baidu.live.s.a());
+        com.baidu.tieba.sdk.a.cWf().addPayChannelBuilder(PayChannelType.WALLET, new com.baidu.tieba.livesdk.h.a());
+        com.baidu.tieba.sdk.a.cWf().a(new com.baidu.tieba.livesdk.f.a());
+        com.baidu.tieba.sdk.a.cWf().a(new com.baidu.tieba.livesdk.a.a(this.jdY));
+        com.baidu.tieba.sdk.a.cWf().a(new com.baidu.tieba.livesdk.scheme.a());
+        com.baidu.tieba.sdk.a.cWf().a(new com.baidu.tieba.sdk.b.e() { // from class: com.baidu.tieba.livesdk.a.2
+            @Override // com.baidu.tieba.sdk.b.e
+            public void f(Context context, Intent intent) {
                 intent.setClass(context, LivePlayerActivity.class);
                 a.startActivitySafely(context, intent, false, true);
             }
         });
-        com.baidu.tieba.sdk.a.cPd().a(new b());
+        com.baidu.tieba.sdk.a.cWf().a(new b());
         PayManager.getInstance().setWalletPay(new WalletSwan() { // from class: com.baidu.tieba.livesdk.a.3
-            private String iPa = "";
+            private String jeb = "";
 
             @Override // com.baidu.live.tbadk.pay.WalletSwan
             public void getWalletUA(WalletPayCallback walletPayCallback) {
                 ITiebaPay iTiebaPay;
                 if (walletPayCallback != null) {
-                    if (!StringUtils.isNull(this.iPa)) {
-                        walletPayCallback.onResult(0, this.iPa);
+                    if (!StringUtils.isNull(this.jeb)) {
+                        walletPayCallback.onResult(0, this.jeb);
                         return;
                     }
                     CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921432, ITiebaPay.class);
                     if (runTask != null && (iTiebaPay = (ITiebaPay) runTask.getData()) != null) {
-                        this.iPa = iTiebaPay.getWalletUa();
-                        walletPayCallback.onResult(0, this.iPa);
+                        this.jeb = iTiebaPay.getWalletUa();
+                        walletPayCallback.onResult(0, this.jeb);
                     }
                 }
             }
         });
         RealAuthenManager.getInstance().setRealAuthen(new com.baidu.tieba.livesdk.c.a());
-        cou();
-        cot();
-        com.baidu.tieba.sdk.a.cPd().setAttentionStatusChangedFromSDKCallBack(new IAttentionStatusCallBack() { // from class: com.baidu.tieba.livesdk.a.4
+        cuW();
+        cuV();
+        com.baidu.tieba.sdk.a.cWf().setAttentionStatusChangedFromSDKCallBack(new IAttentionStatusCallBack() { // from class: com.baidu.tieba.livesdk.a.4
             @Override // com.baidu.live.tbadk.attention.IAttentionStatusCallBack
             public void updateFromSDK(String str, int i) {
                 UpdateAttentionMessage.a aVar = new UpdateAttentionMessage.a();
@@ -241,26 +241,26 @@ public class a {
                 MessageManager.getInstance().dispatchResponsedMessage(new UpdateAttentionMessage(aVar));
             }
         });
-        com.baidu.tieba.sdk.a.cPd().cPg();
+        com.baidu.tieba.sdk.a.cWf().cWi();
     }
 
-    private void cot() {
+    private void cuV() {
         com.baidu.tieba.livesdk.share.a aVar = new com.baidu.tieba.livesdk.share.a();
-        com.baidu.tieba.sdk.a.cPd().a(new com.baidu.tieba.livesdk.share.b(aVar));
-        com.baidu.tieba.sdk.a.cPd().a(aVar);
+        com.baidu.tieba.sdk.a.cWf().a(new com.baidu.tieba.livesdk.share.b(aVar));
+        com.baidu.tieba.sdk.a.cWf().a(aVar);
     }
 
-    private void cou() {
-        com.baidu.tieba.sdk.a.cPd().a(new com.baidu.tieba.sdk.a.b() { // from class: com.baidu.tieba.livesdk.a.5
-            @Override // com.baidu.tieba.sdk.a.b
+    private void cuW() {
+        com.baidu.tieba.sdk.a.cWf().a(new com.baidu.tieba.sdk.b.b() { // from class: com.baidu.tieba.livesdk.a.5
+            @Override // com.baidu.tieba.sdk.b.b
             public byte[] getAuthPackCert() {
                 return com.baidu.tieba.livesdk.b.a.A();
             }
 
-            @Override // com.baidu.tieba.sdk.a.b
+            @Override // com.baidu.tieba.sdk.b.b
             public byte[] getFaceBeautificationData() {
                 try {
-                    InputStream open = a.this.iOX.getAssets().open("beauty/face_beautification.mp3");
+                    InputStream open = a.this.jdY.getAssets().open("beauty/face_beautification.mp3");
                     byte[] bArr = new byte[open.available()];
                     open.read(bArr);
                     open.close();
@@ -271,10 +271,10 @@ public class a {
                 }
             }
 
-            @Override // com.baidu.tieba.sdk.a.b
+            @Override // com.baidu.tieba.sdk.b.b
             public byte[] getV3Data() {
                 try {
-                    InputStream open = a.this.iOX.getAssets().open("beauty/v3.mp3");
+                    InputStream open = a.this.jdY.getAssets().open("beauty/v3.mp3");
                     byte[] bArr = new byte[open.available()];
                     open.read(bArr);
                     open.close();
@@ -288,7 +288,7 @@ public class a {
         AlaLiveRecorderConfig.setILoadLibraryCallback(new AlaLiveRecorderConfig.ILoadLibrary() { // from class: com.baidu.tieba.livesdk.a.6
             @Override // com.baidu.ala.recorder.AlaLiveRecorderConfig.ILoadLibrary
             public boolean loadlibrary(String str) {
-                PluginSetting findPluginSetting = c.oz().findPluginSetting("com.baidu.tieba.pluginAla");
+                PluginSetting findPluginSetting = c.oA().findPluginSetting("com.baidu.tieba.pluginAla");
                 if (findPluginSetting != null && !TextUtils.isEmpty(findPluginSetting.apkPath)) {
                     try {
                         System.loadLibrary(a.getLibFile(str, findPluginSetting.apkPath));
@@ -336,13 +336,13 @@ public class a {
             return true;
         } catch (ActivityNotFoundException e) {
             if (z2) {
-                Toast.makeText(context, getString(b.C0610b.activity_not_found), 0).show();
+                Toast.makeText(context, getString(b.C0660b.activity_not_found), 0).show();
             }
             e.printStackTrace();
             return false;
         } catch (SecurityException e2) {
             if (z2) {
-                Toast.makeText(context, getString(b.C0610b.activity_not_found), 0).show();
+                Toast.makeText(context, getString(b.C0660b.activity_not_found), 0).show();
             }
             e2.printStackTrace();
             return false;
@@ -350,40 +350,40 @@ public class a {
     }
 
     private static String getString(int i) {
-        coq();
+        cuS();
         return getString(i);
     }
 
-    public boolean NL() {
-        return this.iOX != null;
+    public boolean PY() {
+        return this.jdY != null;
     }
 
     /* loaded from: classes3.dex */
     public class b implements com.baidu.tbadk.m.a, d {
-        private WeakReference<LivePlayerActivity> hjE;
+        private WeakReference<LivePlayerActivity> hys;
         private long lastResumeTime;
         private com.baidu.tbadk.m.d pageStayDurationItem;
 
         public b() {
         }
 
-        @Override // com.baidu.tieba.sdk.a.d
+        @Override // com.baidu.tieba.sdk.b.d
         public void a(LivePlayerActivity livePlayerActivity) {
-            this.hjE = new WeakReference<>(livePlayerActivity);
+            this.hys = new WeakReference<>(livePlayerActivity);
             try {
-                if (!a.coq().NL()) {
-                    a.coq().init(TbadkCoreApplication.getInst());
+                if (!a.cuS().PY()) {
+                    a.cuS().init(TbadkCoreApplication.getInst());
                 }
             } catch (Throwable th) {
                 BdLog.e(th);
             }
         }
 
-        @Override // com.baidu.tieba.sdk.a.d
+        @Override // com.baidu.tieba.sdk.b.d
         public void b(LivePlayerActivity livePlayerActivity) {
         }
 
-        @Override // com.baidu.tieba.sdk.a.d
+        @Override // com.baidu.tieba.sdk.b.d
         public void c(LivePlayerActivity livePlayerActivity) {
             this.lastResumeTime = System.currentTimeMillis();
             TbadkCoreApplication.getInst().AddResumeNum();
@@ -391,34 +391,34 @@ public class a {
             TbSingleton.getInstance().setLastResumeTime(System.currentTimeMillis());
         }
 
-        @Override // com.baidu.tieba.sdk.a.d
+        @Override // com.baidu.tieba.sdk.b.d
         public void d(LivePlayerActivity livePlayerActivity) {
             if (this.lastResumeTime != 0) {
                 long currentTimeMillis = System.currentTimeMillis() - this.lastResumeTime;
                 com.baidu.tbadk.m.d pageStayDurationItem = getPageStayDurationItem();
                 pageStayDurationItem.setStayDurationTime(currentTimeMillis);
-                com.baidu.tbadk.m.e.aZk().a(livePlayerActivity, pageStayDurationItem, getPageStayFilter());
+                com.baidu.tbadk.m.e.bfu().a(livePlayerActivity, pageStayDurationItem, getPageStayFilter());
             }
             TbadkCoreApplication.getInst().DelResumeNum();
             TbadkCoreApplication.getInst().setCurrentActivity(null);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_APP_ENTER_BACKGROUND, livePlayerActivity));
         }
 
-        @Override // com.baidu.tieba.sdk.a.d
+        @Override // com.baidu.tieba.sdk.b.d
         public void e(LivePlayerActivity livePlayerActivity) {
         }
 
-        @Override // com.baidu.tieba.sdk.a.d
+        @Override // com.baidu.tieba.sdk.b.d
         public void f(LivePlayerActivity livePlayerActivity) {
         }
 
-        @Override // com.baidu.tieba.sdk.a.d
+        @Override // com.baidu.tieba.sdk.b.d
         public void g(LivePlayerActivity livePlayerActivity) {
         }
 
-        @Override // com.baidu.tieba.sdk.a.d
+        @Override // com.baidu.tieba.sdk.b.d
         public void h(LivePlayerActivity livePlayerActivity) {
-            this.hjE = null;
+            this.hys = null;
             AlaLiveRoomActivityConfig.isAlreadyEnterLiveRoom = false;
         }
 
@@ -430,7 +430,7 @@ public class a {
         @Override // com.baidu.tbadk.m.a
         public List<String> getCurrentPageSourceKeyList() {
             LivePlayerActivity livePlayerActivity;
-            if (this.hjE != null && (livePlayerActivity = this.hjE.get()) != null) {
+            if (this.hys != null && (livePlayerActivity = this.hys.get()) != null) {
                 Intent intent = livePlayerActivity.getIntent();
                 ArrayList arrayList = new ArrayList();
                 if (intent != null) {

@@ -23,7 +23,7 @@ public final class a {
             cipher.init(1, new SecretKeySpec(this.keyBytes, "DES"));
             return cipher.doFinal(bArr);
         } catch (Exception e) {
-            tv.chushou.basis.d.b.dJr().e("CipherUtil", "", e);
+            tv.chushou.basis.d.b.dRl().e("CipherUtil", "", e);
             return new byte[0];
         }
     }
@@ -34,7 +34,7 @@ public final class a {
             cipher.init(2, new SecretKeySpec(this.keyBytes, "DES"));
             return cipher.doFinal(bArr);
         } catch (Exception e) {
-            tv.chushou.basis.d.b.dJr().e("CipherUtil", "", e);
+            tv.chushou.basis.d.b.dRl().e("CipherUtil", "", e);
             return new byte[0];
         }
     }

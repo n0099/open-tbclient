@@ -19,7 +19,7 @@ public class d extends ExtractorProvider {
     }
 
     public static ExtractorProvider a() {
-        com.baidu.cyberplayer.sdk.remote.a a = a.AbstractBinderC0106a.a(g.a().b());
+        com.baidu.cyberplayer.sdk.remote.a a = a.AbstractBinderC0109a.a(g.a().b());
         if (a != null) {
             return new d(a);
         }

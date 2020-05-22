@@ -2,36 +2,36 @@ package com.baidu.tieba.personCenter.b;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.BdTypeListView;
-import com.baidu.adp.widget.ListView.m;
+import com.baidu.adp.widget.ListView.o;
 import com.baidu.tbadk.TbPageContext;
 import java.util.List;
 /* loaded from: classes9.dex */
 public class c {
-    private BdTypeListView eOj;
-    private a jTf;
+    private BdTypeListView faQ;
+    private a kkX;
 
     public c(BdTypeListView bdTypeListView, TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        this.eOj = bdTypeListView;
-        this.jTf = new a(bdTypeListView, tbPageContext, bdUniqueId);
+        this.faQ = bdTypeListView;
+        this.kkX = new a(bdTypeListView, tbPageContext, bdUniqueId);
     }
 
-    public void setData(List<m> list) {
-        this.eOj.setData(list);
+    public void setData(List<o> list) {
+        this.faQ.setData(list);
     }
 
     public void notifyDataSetChanged() {
-        this.jTf.onChangeSkinType();
+        this.kkX.onChangeSkinType();
     }
 
     public void onChangeSkinType() {
-        this.jTf.onChangeSkinType();
+        this.kkX.onChangeSkinType();
     }
 
-    public void cGf() {
-        this.jTf.cGf();
+    public void cNe() {
+        this.kkX.cNe();
     }
 
-    public void cGg() {
-        this.jTf.cGg();
+    public void cNf() {
+        this.kkX.cNf();
     }
 }

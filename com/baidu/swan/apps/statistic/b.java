@@ -1,33 +1,60 @@
 package com.baidu.swan.apps.statistic;
 
-import android.util.Log;
-import com.baidu.swan.apps.as.m;
-import com.baidu.swan.ubc.s;
+import android.support.annotation.NonNull;
+import com.baidu.swan.ubc.Flow;
+import java.util.Map;
+import org.json.JSONObject;
 /* loaded from: classes11.dex */
-public final class b {
-    public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
+public class b {
+    public static void onEvent(String str, JSONObject jSONObject) {
+        com.baidu.swan.ubc.e.onEvent(str, jSONObject);
+    }
 
-    public static void b(com.baidu.swan.apps.statistic.a.f fVar) {
-        if (fVar == null) {
-            if (DEBUG) {
-                Log.w("SwanAppFuncUbc", "event is null");
-                return;
-            }
-            return;
+    public static void onEvent(String str, String str2) {
+        com.baidu.swan.ubc.e.onEvent(str, str2);
+    }
+
+    public static void onEvent(String str, Map<String, String> map) {
+        com.baidu.swan.ubc.e.onEvent(str, map);
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static a op(String str) {
+        return new a(com.baidu.swan.ubc.e.tL(str));
+    }
+
+    public static void a(@NonNull a aVar, String str, String str2) {
+        Flow arc = aVar.arc();
+        if (arc != null) {
+            arc.addEvent(str, str2);
         }
-        final com.baidu.swan.apps.statistic.a.e eVar = new com.baidu.swan.apps.statistic.a.e();
-        eVar.mAppId = fVar.mAppId;
-        eVar.mFrom = fVar.mFrom;
-        eVar.mPage = fVar.mPage;
-        eVar.mSource = fVar.mSource;
-        eVar.mType = fVar.mType;
-        eVar.mValue = fVar.mValue;
-        eVar.bk(fVar.ani());
-        m.postOnComputation(new Runnable() { // from class: com.baidu.swan.apps.statistic.b.1
-            @Override // java.lang.Runnable
-            public void run() {
-                s.onEvent("934", com.baidu.swan.apps.statistic.a.e.this.toJSONObject());
-            }
-        }, "SwanAppFuncClickUBC");
+    }
+
+    public static void a(@NonNull a aVar, String str, String str2, long j) {
+        Flow arc = aVar.arc();
+        if (arc != null) {
+            arc.addEvent(str, str2, j);
+        }
+    }
+
+    public static void b(@NonNull a aVar) {
+        Flow arc = aVar.arc();
+        if (arc != null) {
+            arc.cancel();
+        }
+    }
+
+    public static void c(@NonNull a aVar) {
+        Flow arc = aVar.arc();
+        if (arc != null) {
+            arc.end();
+        }
+    }
+
+    public static void a(@NonNull a aVar, String str) {
+        Flow arc = aVar.arc();
+        if (arc != null) {
+            arc.setValueWithDuration(str);
+        }
     }
 }

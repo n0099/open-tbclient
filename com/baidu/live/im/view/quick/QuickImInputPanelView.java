@@ -16,14 +16,14 @@ import com.baidu.live.u.a;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class QuickImInputPanelView extends RelativeLayout {
-    private TextView aAu;
-    private FlexLayout aPB;
-    private b aPE;
-    private a aPF;
+    private TextView aFN;
+    private FlexLayout aVK;
+    private b aVN;
+    private a aVO;
 
     /* loaded from: classes3.dex */
     public interface a {
-        void y(String str, int i);
+        void C(String str, int i);
     }
 
     public QuickImInputPanelView(Context context, AttributeSet attributeSet) {
@@ -32,60 +32,60 @@ public class QuickImInputPanelView extends RelativeLayout {
     }
 
     public void setCallback(a aVar) {
-        this.aPF = aVar;
+        this.aVO = aVar;
     }
 
     public void setData(List<String> list) {
-        if (this.aPE == null) {
-            this.aPE = new b(list);
-            this.aPB.setAdapter(this.aPE);
+        if (this.aVN == null) {
+            this.aVN = new b(list);
+            this.aVK.setAdapter(this.aVN);
             return;
         }
-        this.aPE.setDatas(list);
-        this.aPE.notifyDataSetChanged();
+        this.aVN.setDatas(list);
+        this.aVN.notifyDataSetChanged();
     }
 
-    public void Di() {
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.aAu.getLayoutParams();
+    public void EG() {
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.aFN.getLayoutParams();
         if (Build.VERSION.SDK_INT >= 17) {
             layoutParams.removeRule(12);
         } else {
             layoutParams.addRule(12, 0);
         }
-        layoutParams.addRule(3, this.aPB.getId());
-        this.aAu.setLayoutParams(layoutParams);
+        layoutParams.addRule(3, this.aVK.getId());
+        this.aFN.setLayoutParams(layoutParams);
     }
 
-    public void Dj() {
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.aAu.getLayoutParams();
+    public void EH() {
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.aFN.getLayoutParams();
         if (Build.VERSION.SDK_INT >= 17) {
             layoutParams.removeRule(3);
         } else {
             layoutParams.addRule(3, 0);
         }
         layoutParams.addRule(12);
-        this.aAu.setLayoutParams(layoutParams);
+        this.aFN.setLayoutParams(layoutParams);
     }
 
     private void init() {
         setBackgroundColor(0);
         LayoutInflater.from(getContext()).inflate(a.h.ala_quick_im_input_panel, (ViewGroup) this, true);
-        this.aPB = (FlexLayout) findViewById(a.g.layout_quick_input_flow);
-        this.aPB.setHorizontalSpacing(getResources().getDimensionPixelOffset(a.e.sdk_ds20));
-        this.aPB.setVerticalSpacing(getResources().getDimensionPixelOffset(a.e.sdk_ds24));
-        this.aPB.setOnItemClickListener(new FlexLayout.OnItemClickListener() { // from class: com.baidu.live.im.view.quick.QuickImInputPanelView.1
+        this.aVK = (FlexLayout) findViewById(a.g.layout_quick_input_flow);
+        this.aVK.setHorizontalSpacing(getResources().getDimensionPixelOffset(a.e.sdk_ds20));
+        this.aVK.setVerticalSpacing(getResources().getDimensionPixelOffset(a.e.sdk_ds24));
+        this.aVK.setOnItemClickListener(new FlexLayout.OnItemClickListener() { // from class: com.baidu.live.im.view.quick.QuickImInputPanelView.1
             @Override // com.baidu.live.tbadk.widget.flex.FlexLayout.OnItemClickListener
             public void onItemClick(FlexLayout flexLayout, View view, int i) {
-                if (QuickImInputPanelView.this.aPF != null) {
-                    QuickImInputPanelView.this.aPF.y(QuickImInputPanelView.this.aPE.getItem(i), i);
+                if (QuickImInputPanelView.this.aVO != null) {
+                    QuickImInputPanelView.this.aVO.C(QuickImInputPanelView.this.aVN.getItem(i), i);
                 }
             }
         });
-        this.aAu = (TextView) findViewById(a.g.tv_quick_input_tip);
+        this.aFN = (TextView) findViewById(a.g.tv_quick_input_tip);
         ImageSpan imageSpan = new ImageSpan(getContext(), a.f.sdk_icon_live_quickpanel_hi);
         SpannableString spannableString = new SpannableString("点击发言区域的图也可以支持快捷输入");
         spannableString.setSpan(imageSpan, 7, 8, 18);
-        this.aAu.setText(spannableString);
+        this.aFN.setText(spannableString);
     }
 
     /* loaded from: classes3.dex */

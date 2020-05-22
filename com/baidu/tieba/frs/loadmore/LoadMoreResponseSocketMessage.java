@@ -3,12 +3,12 @@ package com.baidu.tieba.frs.loadmore;
 import android.text.TextUtils;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.adp.widget.ListView.m;
+import com.baidu.adp.widget.ListView.o;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.core.data.BannerListData;
 import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.data.ae;
-import com.baidu.tbadk.core.data.bj;
+import com.baidu.tbadk.core.data.ad;
+import com.baidu.tbadk.core.data.bk;
 import com.baidu.tieba.recapp.report.b;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
@@ -21,14 +21,14 @@ import tbclient.User;
 /* loaded from: classes9.dex */
 public class LoadMoreResponseSocketMessage extends SocketResponsedMessage {
     private BannerListData bannerListData;
-    private ArrayList<m> threadList;
+    private ArrayList<o> threadList;
     private HashMap<String, MetaData> userMap;
 
     public LoadMoreResponseSocketMessage() {
         super(CmdConfigSocket.CMD_FRS_LOAD_MORE);
     }
 
-    public ArrayList<m> getThreadList() {
+    public ArrayList<o> getThreadList() {
         return this.threadList;
     }
 
@@ -52,7 +52,7 @@ public class LoadMoreResponseSocketMessage extends SocketResponsedMessage {
                     }
                 }
             }
-            com.baidu.tieba.recapp.d.a.cNZ().JG(threadListResIdl.data.asp_shown_info);
+            com.baidu.tieba.recapp.d.a.cUZ().Ls(threadListResIdl.data.asp_shown_info);
             Message<?> orginalMessage2 = getOrginalMessage();
             boolean isBrandForum = (orginalMessage2 == null || !(orginalMessage2.getExtra() instanceof LoadMoreRequestMessage)) ? false : ((LoadMoreRequestMessage) orginalMessage2.getExtra()).isBrandForum();
             this.threadList = new ArrayList<>();
@@ -61,24 +61,24 @@ public class LoadMoreResponseSocketMessage extends SocketResponsedMessage {
                 ArrayList arrayList = new ArrayList();
                 for (int i3 = 0; i3 < list2.size(); i3++) {
                     ThreadInfo threadInfo = list2.get(i3);
-                    bj bjVar = new bj();
-                    bjVar.setUserMap(this.userMap);
-                    bjVar.a(threadInfo);
-                    bjVar.aLx();
-                    bjVar.dtE = isBrandForum;
-                    if (!TextUtils.isEmpty(bjVar.aLJ())) {
-                        ae aeVar = new ae();
-                        aeVar.tN(bjVar.aLJ());
-                        this.threadList.add(aeVar);
+                    bk bkVar = new bk();
+                    bkVar.setUserMap(this.userMap);
+                    bkVar.a(threadInfo);
+                    bkVar.aRw();
+                    bkVar.dHx = isBrandForum;
+                    if (!TextUtils.isEmpty(bkVar.aRI())) {
+                        ad adVar = new ad();
+                        adVar.vt(bkVar.aRI());
+                        this.threadList.add(adVar);
                     } else {
-                        this.threadList.add(bjVar);
-                        JSONObject e = b.e(threadInfo);
-                        if (e != null) {
-                            arrayList.add(e);
+                        this.threadList.add(bkVar);
+                        JSONObject f = b.f(threadInfo);
+                        if (f != null) {
+                            arrayList.add(f);
                         }
                     }
                 }
-                b.cOd().em(arrayList);
+                b.cVe().et(arrayList);
             }
             this.bannerListData = null;
             if (threadListResIdl.data.banner_list != null && (orginalMessage = getOrginalMessage()) != null && orginalMessage.getExtra() != null && (orginalMessage.getExtra() instanceof LoadMoreRequestMessage)) {

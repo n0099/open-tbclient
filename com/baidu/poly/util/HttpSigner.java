@@ -12,7 +12,7 @@ public class HttpSigner {
 
     public static void a(com.baidu.poly.a.a.b bVar, int i) {
         if (!bVar.getMap().containsKey("nop_appid")) {
-            bVar.f("nop_appid", nativeGetAppId(i));
+            bVar.g("nop_appid", nativeGetAppId(i));
         }
         Map<String, String> map = bVar.getMap();
         ArrayList<String> arrayList = new ArrayList(map.keySet());
@@ -24,7 +24,7 @@ public class HttpSigner {
                 sb.append(str).append(ETAG.EQUAL).append(str2);
             }
         }
-        bVar.f("nop_sign", nativeSignNop(sb.toString(), i));
+        bVar.g("nop_sign", nativeSignNop(sb.toString(), i));
     }
 
     private static native String nativeGetAppId(int i);

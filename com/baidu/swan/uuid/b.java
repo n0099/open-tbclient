@@ -9,39 +9,39 @@ import com.baidu.swan.uuid.a.f;
 import com.baidu.swan.uuid.a.g;
 /* loaded from: classes11.dex */
 public class b {
-    private static b dfb;
-    private final a<String> dfc = new a<>();
-    private String dfd;
+    private static b dqU;
+    private final a<String> dqV = new a<>();
+    private String dqW;
 
     private b(Context context) {
-        this.dfc.a(new c(context));
-        this.dfc.a(new e(context));
-        this.dfc.a(new d(context));
-        this.dfc.a(new g(context));
-        this.dfc.a(new com.baidu.swan.uuid.a.a(context));
-        this.dfc.a(new f(context));
+        this.dqV.a(new c(context));
+        this.dqV.a(new e(context));
+        this.dqV.a(new d(context));
+        this.dqV.a(new g(context));
+        this.dqV.a(new com.baidu.swan.uuid.a.a(context));
+        this.dqV.a(new f(context));
     }
 
-    public static b di(Context context) {
-        if (dfb == null) {
+    public static b dy(Context context) {
+        if (dqU == null) {
             synchronized (b.class) {
-                if (dfb == null) {
-                    dfb = new b(context);
+                if (dqU == null) {
+                    dqU = new b(context);
                 }
             }
         }
-        return dfb;
+        return dqU;
     }
 
     public String getUUID() {
-        if (TextUtils.isEmpty(this.dfd)) {
+        if (TextUtils.isEmpty(this.dqW)) {
             synchronized (this) {
-                if (TextUtils.isEmpty(this.dfd)) {
-                    this.dfd = this.dfc.aEw();
-                    this.dfc.af(this.dfd);
+                if (TextUtils.isEmpty(this.dqW)) {
+                    this.dqW = this.dqV.aJe();
+                    this.dqV.aj(this.dqW);
                 }
             }
         }
-        return this.dfd;
+        return this.dqW;
     }
 }

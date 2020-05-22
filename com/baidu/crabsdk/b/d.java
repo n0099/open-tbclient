@@ -11,38 +11,38 @@ import java.util.Date;
 import java.util.List;
 /* loaded from: classes8.dex */
 public final class d {
-    private static com.baidu.crabsdk.c.b<List> akh = new com.baidu.crabsdk.c.b<>(com.baidu.crabsdk.a.f);
-    private static float aki = 0.0f;
-    private static float akj = 0.0f;
-    private static float akk = 0.0f;
-    private static float akl = 0.0f;
-    private static String akm = "";
-    private static long akn = 0;
-    private static long ako = 0;
-    private static Rect akp = null;
+    private static com.baidu.crabsdk.c.b<List> akN = new com.baidu.crabsdk.c.b<>(com.baidu.crabsdk.a.f);
+    private static float akO = 0.0f;
+    private static float akP = 0.0f;
+    private static float akQ = 0.0f;
+    private static float akR = 0.0f;
+    private static String akS = "";
+    private static long akT = 0;
+    private static long akU = 0;
+    private static Rect akV = null;
 
-    private static List<View> H(View view) {
+    private static List<View> G(View view) {
         ArrayList arrayList = new ArrayList();
         if (view instanceof ViewGroup) {
             ViewGroup viewGroup = (ViewGroup) view;
             for (int i = 0; i < viewGroup.getChildCount(); i++) {
                 View childAt = viewGroup.getChildAt(i);
                 if (childAt.getVisibility() == 0) {
-                    int i2 = (int) aki;
-                    int i3 = (int) akj;
-                    if (akp == null) {
-                        akp = new Rect();
+                    int i2 = (int) akO;
+                    int i3 = (int) akP;
+                    if (akV == null) {
+                        akV = new Rect();
                     }
-                    childAt.getDrawingRect(akp);
+                    childAt.getDrawingRect(akV);
                     int[] iArr = new int[2];
                     childAt.getLocationOnScreen(iArr);
-                    akp.left = iArr[0];
-                    akp.top = iArr[1];
-                    akp.right += iArr[0];
-                    akp.bottom = iArr[1] + akp.bottom;
-                    if (akp.contains(i2, i3)) {
+                    akV.left = iArr[0];
+                    akV.top = iArr[1];
+                    akV.right += iArr[0];
+                    akV.bottom = iArr[1] + akV.bottom;
+                    if (akV.contains(i2, i3)) {
                         arrayList.add(childAt);
-                        arrayList.addAll(H(childAt));
+                        arrayList.addAll(G(childAt));
                     }
                 }
             }
@@ -56,9 +56,9 @@ public final class d {
         arrayList.add(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date(System.currentTimeMillis())));
         StringBuilder sb = new StringBuilder();
         if (activity != null && (decorView = activity.getWindow().getDecorView()) != null) {
-            List<View> H = H(decorView);
+            List<View> G = G(decorView);
             String str = "";
-            for (View view : H) {
+            for (View view : G) {
                 str = view.getClass().getName() + ", id=" + view.getId();
             }
             sb.append(str);
@@ -67,51 +67,51 @@ public final class d {
         switch (i) {
             case 1:
                 arrayList.add("click");
-                arrayList.add("(" + aki + ", " + akj + ")");
+                arrayList.add("(" + akO + ", " + akP + ")");
                 break;
             case 2:
                 arrayList.add("doubleClick");
-                arrayList.add("(" + aki + ", " + akj + ")");
+                arrayList.add("(" + akO + ", " + akP + ")");
                 break;
             case 3:
                 arrayList.add("longPressed");
-                arrayList.add("(" + aki + ", " + akj + ")");
+                arrayList.add("(" + akO + ", " + akP + ")");
                 break;
             case 4:
                 arrayList.add("scroll");
-                arrayList.add("from:(" + aki + ", " + akj + ") to:(" + akk + ", " + akl + ")");
+                arrayList.add("from:(" + akO + ", " + akP + ") to:(" + akQ + ", " + akR + ")");
                 break;
             case 5:
                 arrayList.add("fling");
-                arrayList.add("from:(" + aki + ", " + akj + ") to:(" + akk + ", " + akl + ")");
+                arrayList.add("from:(" + akO + ", " + akP + ") to:(" + akQ + ", " + akR + ")");
                 break;
         }
-        arrayList.add(akm);
-        akh.add(arrayList);
+        arrayList.add(akS);
+        akN.add(arrayList);
     }
 
     public static void dispatchTouchEvent(MotionEvent motionEvent, Activity activity) {
         if (activity == null) {
             return;
         }
-        akm = activity.getClass().getName();
+        akS = activity.getClass().getName();
         switch (motionEvent.getAction()) {
             case 0:
-                aki = motionEvent.getX();
-                akj = motionEvent.getY();
-                akn = System.currentTimeMillis();
+                akO = motionEvent.getX();
+                akP = motionEvent.getY();
+                akT = System.currentTimeMillis();
                 return;
             case 1:
-                akk = motionEvent.getX();
-                akl = motionEvent.getY();
-                ako = System.currentTimeMillis();
-                if (Math.abs(akl - akj) > 30.0f) {
+                akQ = motionEvent.getX();
+                akR = motionEvent.getY();
+                akU = System.currentTimeMillis();
+                if (Math.abs(akR - akP) > 30.0f) {
                     a(4, activity);
                     return;
-                } else if (Math.abs(akk - aki) > 30.0f && Math.abs(akl - akj) < 30.0f) {
+                } else if (Math.abs(akQ - akO) > 30.0f && Math.abs(akR - akP) < 30.0f) {
                     a(5, activity);
                     return;
-                } else if (ako - akn > 300) {
+                } else if (akU - akT > 300) {
                     a(3, activity);
                     return;
                 } else {
@@ -126,9 +126,9 @@ public final class d {
 
     public static String w() {
         StringBuilder sb = new StringBuilder();
-        int size = akh.size();
+        int size = akN.size();
         for (int i = 0; i < size; i++) {
-            List list = akh.get(i);
+            List list = akN.get(i);
             if (list == null || list.size() <= 0) {
                 return sb.toString();
             }

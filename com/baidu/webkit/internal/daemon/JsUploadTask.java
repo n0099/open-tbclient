@@ -18,17 +18,40 @@ public class JsUploadTask implements INoProGuard {
     private static final String TAG = "JsInterface";
     private static String mAppVersion;
     private static String mAppid;
+    private static String mBTranUrl;
+    private static int mBlockedAdCount;
     private static String mCpuType;
-    private static String mCuid;
+    private static boolean mCssLoaded;
+    private static String mCurrentUrl;
+    private static int mDocumentLoadState;
+    private static int mErrorCode;
+    private static boolean mErrorUploadAlreadySet;
+    private static boolean mErrorUploadEnabled;
     private static long mFirstScreenTime;
     private static String mGpuType;
+    private static boolean mHttpDnsEnable;
+    private static boolean mMainLinkDirectAlreadySet;
+    private static int mNetError;
     private static String mNetType;
+    private static boolean mOnePacketAlreadySet;
     private static String mPacUrl;
     private static long mPageFinishedTime;
     private static long mPageStartTime;
+    private static int mParsedTokens;
+    private static boolean mPreloadAlreadySet;
+    private static int mReceivedDataSize;
     private static String mSdkVer;
+    private static String mSearchId;
+    private static boolean mSessionHeaderAlreadySet;
+    private static boolean mSpdyAlreadySet;
+    private static boolean mSpdyCompressAlreadySet;
+    private static boolean mSpdyEncryptionAlreadySet;
     private static String mStatisticsSessionId;
     private static String mTimeStamp;
+    private static int mUpLoadNum;
+    private static boolean mUsingCloudSettingsAlreadySet;
+    private static boolean mWebessenseAlreadySet;
+    private static String mXFirstJumpUrl;
     private static String mZeusVer;
     private Context mContext;
     private String mReferer;
@@ -36,38 +59,15 @@ public class JsUploadTask implements INoProGuard {
     private String mUrl;
     private String mXReferer;
     private boolean responded;
+    private static String mCuid = "0";
     private static int mCurEngine = -1;
     private static boolean mUsingCloudSettings = true;
-    private static boolean mUsingCloudSettingsAlreadySet = false;
-    private static boolean mSpdyAlreadySet = false;
-    private static boolean mMainLinkDirectAlreadySet = false;
-    private static boolean mSpdyCompressAlreadySet = false;
-    private static boolean mPreloadAlreadySet = false;
-    private static boolean mWebessenseAlreadySet = false;
-    private static boolean mSessionHeaderAlreadySet = false;
-    private static boolean mOnePacketAlreadySet = false;
-    private static boolean mSpdyEncryptionAlreadySet = false;
-    private static boolean mErrorUploadAlreadySet = false;
-    private static boolean mErrorUploadEnabled = false;
-    private static String mCurrentUrl = null;
-    private static int mUpLoadNum = 0;
-    private static String mSearchId = null;
-    private static String mBTranUrl = null;
-    private static int mBlockedAdCount = 0;
-    private static int mErrorCode = 0;
-    private static int mReceivedDataSize = 0;
-    private static int mParsedTokens = 0;
-    private static boolean mCssLoaded = false;
-    private static int mNetError = 0;
     private static boolean mIsMobileSite = true;
-    private static boolean mHttpDnsEnable = false;
     private static int mHttpcode = -1;
     private static int mNetcode = -500;
     private static int mWiseLandingPageType = -500;
-    private static String mXFirstJumpUrl = null;
     private static JumpType mFirstJumpType = JumpType.DefaultJump;
     private static JumpType mLastJumpType = JumpType.DefaultJump;
-    private static int mDocumentLoadState = 0;
 
     /* loaded from: classes11.dex */
     public enum JumpType {
@@ -79,21 +79,9 @@ public class JsUploadTask implements INoProGuard {
     }
 
     public JsUploadTask() {
-        this.mReferer = null;
-        this.mUrl = null;
-        this.mTag = null;
-        this.mContext = null;
-        this.responded = false;
-        this.mXReferer = null;
     }
 
     public JsUploadTask(Context context, String str, String str2, String str3, String str4) {
-        this.mReferer = null;
-        this.mUrl = null;
-        this.mTag = null;
-        this.mContext = null;
-        this.responded = false;
-        this.mXReferer = null;
         this.mReferer = str3;
         this.mUrl = str;
         this.mContext = context;

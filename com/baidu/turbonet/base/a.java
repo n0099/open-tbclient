@@ -14,7 +14,7 @@ public class a {
         return str;
     }
 
-    public static String MT(String str) {
+    public static String OG(String str) {
         if (!str.startsWith("cr_")) {
             int i = 0;
             if (str.startsWith("cr.")) {
@@ -26,16 +26,16 @@ public class a {
     }
 
     private static String k(String str, Object... objArr) {
-        return "[" + diz() + "] " + j(str, objArr);
+        return "[" + dpQ() + "] " + j(str, objArr);
     }
 
     private static void f(String str, String str2, Object... objArr) {
         String k = k(str2, objArr);
-        Throwable L = L(objArr);
-        if (L != null) {
-            Log.d(MT(str), k, L);
+        Throwable M = M(objArr);
+        if (M != null) {
+            Log.d(OG(str), k, M);
         } else {
-            Log.d(MT(str), k);
+            Log.d(OG(str), k);
         }
     }
 
@@ -45,25 +45,25 @@ public class a {
 
     public static void g(String str, String str2, Object... objArr) {
         String j = j(str2, objArr);
-        Throwable L = L(objArr);
-        if (L != null) {
-            Log.i(MT(str), j, L);
+        Throwable M = M(objArr);
+        if (M != null) {
+            Log.i(OG(str), j, M);
         } else {
-            Log.i(MT(str), j);
+            Log.i(OG(str), j);
         }
     }
 
     public static void h(String str, String str2, Object... objArr) {
         String j = j(str2, objArr);
-        Throwable L = L(objArr);
-        if (L != null) {
-            Log.e(MT(str), j, L);
+        Throwable M = M(objArr);
+        if (M != null) {
+            Log.e(OG(str), j, M);
         } else {
-            Log.e(MT(str), j);
+            Log.e(OG(str), j);
         }
     }
 
-    private static Throwable L(Object[] objArr) {
+    private static Throwable M(Object[] objArr) {
         if (objArr == null || objArr.length == 0) {
             return null;
         }
@@ -74,7 +74,7 @@ public class a {
         return null;
     }
 
-    private static String diz() {
+    private static String dpQ() {
         StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
         String name = a.class.getName();
         int i = 0;

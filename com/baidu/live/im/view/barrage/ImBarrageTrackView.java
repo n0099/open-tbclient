@@ -10,15 +10,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.LinearInterpolator;
 import android.widget.FrameLayout;
-import com.baidu.live.data.be;
+import com.baidu.live.data.bj;
 import com.baidu.live.im.view.barrage.ImBarrageItemView;
 import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class ImBarrageTrackView extends FrameLayout {
-    private int aOT;
-    private int aOU;
-    private boolean aOV;
-    private a aPs;
+    private a aVB;
+    private int aVc;
+    private int aVd;
+    private boolean aVe;
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -33,40 +33,40 @@ public class ImBarrageTrackView extends FrameLayout {
     }
 
     public void setCallback(a aVar) {
-        this.aPs = aVar;
+        this.aVB = aVar;
     }
 
-    public boolean Da() {
-        return this.aOV;
+    public boolean Ey() {
+        return this.aVe;
     }
 
     public void setCanAddNext() {
-        this.aOV = true;
+        this.aVe = true;
     }
 
-    public void a(be beVar, com.baidu.live.data.a aVar, String str, String str2) {
-        this.aOV = false;
-        bD(false);
-        View b = b(beVar, aVar, str, str2);
+    public void a(bj bjVar, com.baidu.live.data.a aVar, String str, String str2) {
+        this.aVe = false;
+        bM(false);
+        View b = b(bjVar, aVar, str, str2);
         b.measure(View.MeasureSpec.makeMeasureSpec(0, 0), View.MeasureSpec.makeMeasureSpec(0, 0));
         addView(b, new ViewGroup.LayoutParams(b.getMeasuredWidth(), -1));
-        Animator Q = Q(b);
-        b.setTag(a.g.ala_im_barrage_item_anim, Q);
-        Q.start();
+        Animator P = P(b);
+        b.setTag(a.g.ala_im_barrage_item_anim, P);
+        P.start();
     }
 
     public void release() {
-        bD(true);
+        bM(true);
         removeAllViews();
     }
 
     private void init() {
         setBackgroundColor(0);
-        this.aOT = getResources().getDimensionPixelOffset(a.e.sdk_ds110);
-        this.aOU = getResources().getDimensionPixelOffset(a.e.sdk_ds120);
+        this.aVc = getResources().getDimensionPixelOffset(a.e.sdk_ds110);
+        this.aVd = getResources().getDimensionPixelOffset(a.e.sdk_ds120);
     }
 
-    private void bD(boolean z) {
+    private void bM(boolean z) {
         if (getChildCount() > 0) {
             int i = 0;
             while (true) {
@@ -91,15 +91,15 @@ public class ImBarrageTrackView extends FrameLayout {
         }
     }
 
-    private View b(be beVar, com.baidu.live.data.a aVar, String str, String str2) {
+    private View b(bj bjVar, com.baidu.live.data.a aVar, String str, String str2) {
         ImBarrageItemView imBarrageItemView = new ImBarrageItemView(getContext());
         imBarrageItemView.setDisplayInfo(aVar, str2, str);
-        imBarrageItemView.setUIInfo(beVar, false);
+        imBarrageItemView.setUIInfo(bjVar, false);
         imBarrageItemView.setCallback(new ImBarrageItemView.a() { // from class: com.baidu.live.im.view.barrage.ImBarrageTrackView.1
             @Override // com.baidu.live.im.view.barrage.ImBarrageItemView.a
             public void c(com.baidu.live.data.a aVar2) {
-                if (ImBarrageTrackView.this.aPs != null) {
-                    ImBarrageTrackView.this.aPs.c(aVar2);
+                if (ImBarrageTrackView.this.aVB != null) {
+                    ImBarrageTrackView.this.aVB.c(aVar2);
                 }
             }
         });
@@ -107,9 +107,9 @@ public class ImBarrageTrackView extends FrameLayout {
         return imBarrageItemView;
     }
 
-    private Animator Q(final View view) {
+    private Animator P(final View view) {
         ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view, "translationX", getWidth(), -view.getMeasuredWidth());
-        ofFloat.setDuration((((getWidth() + view.getMeasuredWidth()) * 1.0f) / this.aOT) * 1000.0f);
+        ofFloat.setDuration((((getWidth() + view.getMeasuredWidth()) * 1.0f) / this.aVc) * 1000.0f);
         ofFloat.setInterpolator(new LinearInterpolator());
         ofFloat.setRepeatCount(0);
         ofFloat.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.live.im.view.barrage.ImBarrageTrackView.2
@@ -117,7 +117,7 @@ public class ImBarrageTrackView extends FrameLayout {
             public void onAnimationEnd(Animator animator) {
                 super.onAnimationEnd(animator);
                 if (ImBarrageTrackView.this.indexOfChild(view) == ImBarrageTrackView.this.getChildCount() - 1) {
-                    ImBarrageTrackView.this.Dc();
+                    ImBarrageTrackView.this.EA();
                 }
                 ImBarrageTrackView.this.removeView(view);
             }
@@ -125,8 +125,8 @@ public class ImBarrageTrackView extends FrameLayout {
         ofFloat.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.live.im.view.barrage.ImBarrageTrackView.3
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                if (ImBarrageTrackView.this.indexOfChild(view) == ImBarrageTrackView.this.getChildCount() - 1 && ImBarrageTrackView.this.getWidth() - view.getTranslationX() > view.getMeasuredWidth() + ImBarrageTrackView.this.aOU) {
-                    ImBarrageTrackView.this.Dc();
+                if (ImBarrageTrackView.this.indexOfChild(view) == ImBarrageTrackView.this.getChildCount() - 1 && ImBarrageTrackView.this.getWidth() - view.getTranslationX() > view.getMeasuredWidth() + ImBarrageTrackView.this.aVd) {
+                    ImBarrageTrackView.this.EA();
                 }
             }
         });
@@ -134,11 +134,11 @@ public class ImBarrageTrackView extends FrameLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Dc() {
-        if (!this.aOV) {
-            this.aOV = true;
-            if (this.aPs != null) {
-                this.aPs.onNext();
+    public void EA() {
+        if (!this.aVe) {
+            this.aVe = true;
+            if (this.aVB != null) {
+                this.aVB.onNext();
             }
         }
     }

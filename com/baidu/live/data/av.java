@@ -1,68 +1,58 @@
 package com.baidu.live.data;
 
-import com.baidu.tieba.ala.live.walletconfig.CashierData;
+import android.os.Build;
+import android.text.TextUtils;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class av {
-    public long avZ;
-    public int awa;
-    public int awb;
-    public long awc;
-    public long awd;
-    public int awe;
-    public int awf;
-    public au awg;
-    public String awh;
-    public String call_type;
-    public String extData;
-    public String imei;
-    public String itemInfo;
-    public String mobile;
-    public String notifyUrl;
-    public String orderId;
-    public String passuid;
-    public String pay_channel;
-    public String pay_url;
-    public String service;
-    public String sign;
-    public int signType;
-    public String tag;
-    public String title;
-    public String tn;
-    public String url;
+    private String aAA;
+    private String aAB;
+    private String aAC;
+    private String aAy;
+    private String aAz;
 
-    public void parserJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            this.avZ = jSONObject.optInt(CashierData.CUSTOMER_ID);
-            this.service = jSONObject.optString("service");
-            this.orderId = jSONObject.optString(CashierData.ORDERID);
-            this.awa = jSONObject.optInt(CashierData.ORDER_CREATE_TIME);
-            this.awb = jSONObject.optInt(CashierData.DEVICE_TYPE);
-            this.awc = jSONObject.optLong(CashierData.PAY_AMOUNT);
-            this.awd = jSONObject.optLong(CashierData.ORIGINALAMOUNT_AMOUNT);
-            this.notifyUrl = jSONObject.optString(CashierData.NOTIFY_URL);
-            this.passuid = jSONObject.optString(CashierData.PASS_UID);
-            this.title = jSONObject.optString("title");
-            this.tn = jSONObject.optString(CashierData.TN);
-            this.url = jSONObject.optString("url");
-            this.mobile = jSONObject.optString("mobile");
-            this.itemInfo = jSONObject.optString(CashierData.ITEM_INFO);
-            this.imei = jSONObject.optString("imei");
-            this.awe = jSONObject.optInt(CashierData.SDK);
-            this.awf = jSONObject.optInt(CashierData.SDK_STYLE);
-            this.extData = jSONObject.optString(CashierData.EXT_DATA);
-            this.signType = jSONObject.optInt(CashierData.SIGN_TYPE);
-            this.tag = jSONObject.optString("tag");
-            this.sign = jSONObject.optString("sign");
-            JSONObject optJSONObject = jSONObject.optJSONObject("popup");
-            if (optJSONObject != null) {
-                this.awg = new au();
-                this.awg.parserJson(optJSONObject);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public av(String str) {
+        parserJson(str);
+    }
+
+    public boolean ws() {
+        return true;
+    }
+
+    public boolean wt() {
+        return "1".equals(this.aAA);
+    }
+
+    public boolean wu() {
+        return "1".equals(this.aAC);
+    }
+
+    private void parserJson(String str) {
+        if (!TextUtils.isEmpty(str)) {
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                this.aAy = jSONObject.optString("is_prettify");
+                this.aAz = jSONObject.optString("is_stickers");
+                this.aAA = jSONObject.optString("is_privilegewin");
+                this.aAB = jSONObject.optString("unused_text");
+                this.aAC = jSONObject.optString("is_wishlist", "1");
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-            this.pay_url = jSONObject.optString("pay_url");
-            this.call_type = jSONObject.optString("call_type");
-            this.pay_channel = jSONObject.optString("pay_channel");
-            this.awh = jSONObject.optString("real_channel");
         }
+    }
+
+    public static boolean a(ax axVar) {
+        return false;
+    }
+
+    public static boolean b(ax axVar) {
+        return Build.VERSION.SDK_INT > 19 && axVar != null && axVar.aAG != null && "1".equals(axVar.aAG.aAy);
+    }
+
+    public static boolean c(ax axVar) {
+        return !b(axVar);
     }
 }

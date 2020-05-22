@@ -3,9 +3,9 @@ package com.baidu.swan.apps.console.debugger;
 import android.os.Bundle;
 /* loaded from: classes11.dex */
 public interface a {
-    String Tl();
+    String VS();
 
-    void n(Bundle bundle);
+    void p(Bundle bundle);
 
-    void o(Bundle bundle);
+    void q(Bundle bundle);
 }

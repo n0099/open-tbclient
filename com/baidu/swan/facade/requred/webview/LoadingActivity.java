@@ -8,38 +8,38 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.swan.apps.as.ai;
-import com.baidu.swan.apps.as.r;
+import com.baidu.swan.apps.aq.aj;
+import com.baidu.swan.apps.aq.s;
 import com.baidu.swan.apps.runtime.d;
 import com.baidu.swan.apps.runtime.i;
 import com.baidu.swan.facade.a;
 /* loaded from: classes11.dex */
-public class LoadingActivity extends Activity implements com.baidu.swan.apps.as.d.b<i.a> {
-    private static int cFj = 0;
-    private LoadingProgressBar cFg;
-    private TextView cFh;
-    private LinearLayout cFi;
-    private TextView czB;
+public class LoadingActivity extends Activity implements com.baidu.swan.apps.aq.e.b<i.a> {
+    private static int cPt = 0;
+    private TextView cMw;
+    private LoadingProgressBar cPq;
+    private TextView cPr;
+    private LinearLayout cPs;
     private RelativeLayout mRootView;
 
     @Override // android.app.Activity
     protected void onCreate(Bundle bundle) {
-        int releaseFixedOrientation = ai.releaseFixedOrientation(this);
+        int releaseFixedOrientation = aj.releaseFixedOrientation(this);
         super.onCreate(bundle);
-        ai.fixedOrientation(this, releaseFixedOrientation);
+        aj.fixedOrientation(this, releaseFixedOrientation);
         setContentView(a.d.activity_loading);
         initViews();
         registerListener();
-        hG(cFj);
-        ase();
+        hX(cPt);
+        avN();
     }
 
-    private void ase() {
+    private void avN() {
         int safeGetIntExtra;
         Intent intent = getIntent();
-        if (intent != null && (safeGetIntExtra = r.safeGetIntExtra(intent, "current", 0)) == 100) {
-            hG(safeGetIntExtra);
-            ai.c(new Runnable() { // from class: com.baidu.swan.facade.requred.webview.LoadingActivity.1
+        if (intent != null && (safeGetIntExtra = s.safeGetIntExtra(intent, "current", 0)) == 100) {
+            hX(safeGetIntExtra);
+            aj.c(new Runnable() { // from class: com.baidu.swan.facade.requred.webview.LoadingActivity.1
                 @Override // java.lang.Runnable
                 public void run() {
                     LoadingActivity.this.finish();
@@ -50,11 +50,11 @@ public class LoadingActivity extends Activity implements com.baidu.swan.apps.as.
 
     private void initViews() {
         this.mRootView = (RelativeLayout) findViewById(a.c.rl_root);
-        this.cFi = (LinearLayout) findViewById(a.c.ll_container);
-        this.cFg = (LoadingProgressBar) findViewById(a.c.pb_loading_progressbar);
-        this.czB = (TextView) findViewById(a.c.tv_progress);
-        this.cFh = (TextView) findViewById(a.c.tv_hide);
-        this.cFh.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.facade.requred.webview.LoadingActivity.2
+        this.cPs = (LinearLayout) findViewById(a.c.ll_container);
+        this.cPq = (LoadingProgressBar) findViewById(a.c.pb_loading_progressbar);
+        this.cMw = (TextView) findViewById(a.c.tv_progress);
+        this.cPr = (TextView) findViewById(a.c.tv_hide);
+        this.cPr.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.facade.requred.webview.LoadingActivity.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 LoadingActivity.this.finish();
@@ -62,10 +62,10 @@ public class LoadingActivity extends Activity implements com.baidu.swan.apps.as.
         });
     }
 
-    void hG(int i) {
-        if (this.cFg != null && this.czB != null && i > 0) {
-            this.cFg.setProgress(i);
-            this.czB.setText(String.valueOf(i));
+    void hX(int i) {
+        if (this.cPq != null && this.cMw != null && i > 0) {
+            this.cPq.setProgress(i);
+            this.cMw.setText(String.valueOf(i));
         }
     }
 
@@ -76,29 +76,29 @@ public class LoadingActivity extends Activity implements com.baidu.swan.apps.as.
     }
 
     private void registerListener() {
-        d.akJ().e(this);
+        d.aoB().n(this);
     }
 
     private void unregisterListener() {
-        d.akJ().f(this);
+        d.aoB().o(this);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.swan.apps.as.d.b
-    /* renamed from: a */
-    public void F(i.a aVar) {
+    @Override // com.baidu.swan.apps.aq.e.b
+    /* renamed from: b */
+    public void H(i.a aVar) {
         String str = aVar.id;
         if (TextUtils.equals(str, "loading_hide")) {
             finish();
         } else if (TextUtils.equals(str, "t7_loading")) {
             final long j = aVar.getLong("current");
             final long j2 = aVar.getLong("sum");
-            ai.runOnUiThread(new Runnable() { // from class: com.baidu.swan.facade.requred.webview.LoadingActivity.3
+            aj.runOnUiThread(new Runnable() { // from class: com.baidu.swan.facade.requred.webview.LoadingActivity.3
                 @Override // java.lang.Runnable
                 public void run() {
                     int i = (int) ((j / j2) * 100.0d);
-                    int unused = LoadingActivity.cFj = i;
-                    LoadingActivity.this.hG(i);
+                    int unused = LoadingActivity.cPt = i;
+                    LoadingActivity.this.hX(i);
                 }
             });
         }

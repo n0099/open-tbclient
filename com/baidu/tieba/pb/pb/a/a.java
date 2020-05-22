@@ -7,13 +7,13 @@ import com.baidu.tieba.pb.data.e;
 public interface a {
     void Q(View.OnClickListener onClickListener);
 
-    void eA(String str);
+    void fl(String str);
 
-    void qG(boolean z);
+    void re(boolean z);
 
-    void qH(boolean z);
+    void rf(boolean z);
 
-    void qI(boolean z);
+    void rg(boolean z);
 
     void setData(e eVar);
 
@@ -25,5 +25,5 @@ public interface a {
 
     void setOnLongClickListener(View.OnLongClickListener onLongClickListener);
 
-    void z(View.OnClickListener onClickListener);
+    void y(View.OnClickListener onClickListener);
 }

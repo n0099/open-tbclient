@@ -29,10 +29,13 @@ import java.security.InvalidParameterException;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class IntentConfig extends OrmObject {
+    public static final String AB_TAG = "ab_tag";
     public static final String CALL_FROM = "call_from";
+    public static final String CARD_TYPE = "card_type";
     public static final String CLOSE = "close";
     public static final String CMD = "cmd";
     public static final String DATAS = "datas";
+    public static final String EXTRA = "extra";
     public static final String FORUM_AVATAR = "forum_avatar";
     public static final String FORUM_FIRST_DIR = "forum_first_dir";
     public static final String FORUM_ID = "forum_id";
@@ -69,6 +72,7 @@ public class IntentConfig extends OrmObject {
     public static final String MASK_TYPE = "maskType";
     public static final String MEMBER_BUY_SHOW = "member_buy_show";
     public static final String NAME_SHOW = "name_show";
+    public static final String NID = "nid";
     public static final String PKG_ID = "pkg_id";
     public static final String PORTRAIT = "portrait";
     public static final String POST_DESC = "post_desc";
@@ -76,6 +80,7 @@ public class IntentConfig extends OrmObject {
     public static final String PRE_PAGE_ID = "pre_page_id";
     public static final String PUBLISHER_ID = "publisher_id";
     public static final String PUBLISHER_NAME = "publisher_name";
+    public static final String RECOM_SOURCE = "recom_source";
     public static final String REPLAY_URL = "replay_url";
     public static final String REQUEST_CODE = "request_code";
     public static final String SHARE_THREAD_ID = "share_thread_id";
@@ -99,6 +104,7 @@ public class IntentConfig extends OrmObject {
     public static final String USER_NAME = "user_name";
     public static final String USER_SEX = "user_sex";
     public static final String VIDEO_EASTER_EGG_DATA = "video_easter_egg_data";
+    public static final String WEIGHT = "weight";
     private boolean isForResult;
     private ServiceConnection mClientConnection;
     private Messenger mClientMessenger;
@@ -177,25 +183,25 @@ public class IntentConfig extends OrmObject {
                 bVar = ((com.baidu.tbadk.pageInfo.a) F).getTbPageInfo();
             }
             if (bVar != null) {
-                this.mIntent.putExtra("tb_page_tag_source_trace", bVar.aZh());
+                this.mIntent.putExtra("tb_page_tag_source_trace", bVar.bfr());
             }
         }
     }
 
     public void addPreSourceTrace() {
         if (this.mIntent != null && this.mContext != null) {
-            com.baidu.tbadk.l.b dB = com.baidu.tbadk.l.c.dB(this.mContext);
-            ArrayList<String> aZe = dB == null ? null : dB.aZe();
-            if (!v.isEmpty(aZe)) {
-                this.mIntent.putStringArrayListExtra("tb_page_extar_source_list", aZe);
+            com.baidu.tbadk.l.b dS = com.baidu.tbadk.l.c.dS(this.mContext);
+            ArrayList<String> bfo = dS == null ? null : dS.bfo();
+            if (!v.isEmpty(bfo)) {
+                this.mIntent.putStringArrayListExtra("tb_page_extar_source_list", bfo);
             }
         }
     }
 
     public void addPreSourceTrace(String str) {
         if (this.mIntent != null && this.mContext != null) {
-            com.baidu.tbadk.l.b dB = com.baidu.tbadk.l.c.dB(this.mContext);
-            ArrayList<String> d = com.baidu.tbadk.l.c.d(dB == null ? null : dB.aZd(), str);
+            com.baidu.tbadk.l.b dS = com.baidu.tbadk.l.c.dS(this.mContext);
+            ArrayList<String> d = com.baidu.tbadk.l.c.d(dS == null ? null : dS.bfn(), str);
             if (!v.isEmpty(d)) {
                 this.mIntent.putStringArrayListExtra("tb_page_extar_source_list", d);
             }
@@ -333,7 +339,7 @@ public class IntentConfig extends OrmObject {
                             return;
                         }
                     } catch (Exception e) {
-                        com.baidu.adp.plugin.b.a.nF().D("plugin_run_fail", pluginNameByClassloader);
+                        com.baidu.adp.plugin.b.a.nH().D("plugin_run_fail", pluginNameByClassloader);
                         BdLog.detailException(e);
                     }
                 }
@@ -347,10 +353,10 @@ public class IntentConfig extends OrmObject {
                         startActivityForResult(i);
                     }
                 } catch (Throwable th) {
-                    com.baidu.adp.plugin.b.a.nF().D("plugin_run_fail", pluginNameByClassloader);
+                    com.baidu.adp.plugin.b.a.nH().D("plugin_run_fail", pluginNameByClassloader);
                     BdLog.detailException(th);
                 }
-            } else if (!com.baidu.adp.plugin.packageManager.pluginSettings.c.oz().cF(pluginNameByClassloader)) {
+            } else if (!com.baidu.adp.plugin.packageManager.pluginSettings.c.oA().cG(pluginNameByClassloader)) {
                 PluginCenter.getInstance().launchIntent(this.mContext, pluginNameByClassloader, this.mIntent);
             }
         }
@@ -372,17 +378,17 @@ public class IntentConfig extends OrmObject {
                             return;
                         }
                     } catch (Exception e) {
-                        com.baidu.adp.plugin.b.a.nF().D("plugin_run_fail", pluginNameByClassloader);
+                        com.baidu.adp.plugin.b.a.nH().D("plugin_run_fail", pluginNameByClassloader);
                         BdLog.detailException(e);
                     }
                 }
                 try {
                     this.mContext.startService(this.mIntent);
                 } catch (Throwable th) {
-                    com.baidu.adp.plugin.b.a.nF().D("plugin_run_fail", pluginNameByClassloader);
+                    com.baidu.adp.plugin.b.a.nH().D("plugin_run_fail", pluginNameByClassloader);
                     BdLog.detailException(th);
                 }
-            } else if (!com.baidu.adp.plugin.packageManager.pluginSettings.c.oz().cF(pluginNameByClassloader)) {
+            } else if (!com.baidu.adp.plugin.packageManager.pluginSettings.c.oA().cG(pluginNameByClassloader)) {
                 PluginCenter.getInstance().launchIntent(this.mContext, pluginNameByClassloader, this.mIntent);
             }
         }
@@ -417,7 +423,7 @@ public class IntentConfig extends OrmObject {
                         return PluginCenter.getInstance().launchIntent(this.mContext, pluginNameByClassloader, this.mIntent);
                     }
                 } catch (Exception e) {
-                    com.baidu.adp.plugin.b.a.nF().D("plugin_run_fail", pluginNameByClassloader);
+                    com.baidu.adp.plugin.b.a.nH().D("plugin_run_fail", pluginNameByClassloader);
                     BdLog.detailException(e);
                     return false;
                 }
@@ -438,11 +444,11 @@ public class IntentConfig extends OrmObject {
                 }
                 return false;
             } catch (Throwable th) {
-                com.baidu.adp.plugin.b.a.nF().D("plugin_run_fail", pluginNameByClassloader);
+                com.baidu.adp.plugin.b.a.nH().D("plugin_run_fail", pluginNameByClassloader);
                 BdLog.detailException(th);
                 return z;
             }
-        } else if (com.baidu.adp.plugin.packageManager.pluginSettings.c.oz().cF(pluginNameByClassloader)) {
+        } else if (com.baidu.adp.plugin.packageManager.pluginSettings.c.oA().cG(pluginNameByClassloader)) {
             return false;
         } else {
             return PluginCenter.getInstance().launchIntent(this.mContext, pluginNameByClassloader, this.mIntent);
@@ -461,17 +467,17 @@ public class IntentConfig extends OrmObject {
                             return;
                         }
                     } catch (Exception e) {
-                        com.baidu.adp.plugin.b.a.nF().D("plugin_run_fail", pluginNameByClassloader);
+                        com.baidu.adp.plugin.b.a.nH().D("plugin_run_fail", pluginNameByClassloader);
                         BdLog.detailException(e);
                     }
                 }
                 try {
                     this.mContext.bindService(this.mIntent, this.mServiceConnection, this.mServiceConnectionFlags);
                 } catch (Throwable th) {
-                    com.baidu.adp.plugin.b.a.nF().D("plugin_run_fail", pluginNameByClassloader);
+                    com.baidu.adp.plugin.b.a.nH().D("plugin_run_fail", pluginNameByClassloader);
                     BdLog.detailException(th);
                 }
-            } else if (!com.baidu.adp.plugin.packageManager.pluginSettings.c.oz().cF(pluginNameByClassloader)) {
+            } else if (!com.baidu.adp.plugin.packageManager.pluginSettings.c.oA().cG(pluginNameByClassloader)) {
                 PluginCenter.getInstance().bindService(this.mContext, pluginNameByClassloader, this.mIntent, this.mServiceConnection, this.mServiceConnectionFlags);
             }
         }

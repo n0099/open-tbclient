@@ -6,31 +6,31 @@ import com.baidu.adp.lib.cache.l;
 import com.baidu.searchbox.ugc.model.UgcConstant;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.util.ab;
 import com.baidu.tbadk.util.ac;
+import com.baidu.tbadk.util.ad;
 import com.baidu.tieba.im.pushNotify.ChatSetting;
 /* loaded from: classes.dex */
 public class e extends a {
-    private static e ivo = new e();
+    private static e iJU = new e();
 
     private e() {
     }
 
-    public static e ciV() {
-        return ivo;
+    public static e cps() {
+        return iJU;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.settingcache.a
-    /* renamed from: dW */
-    public PersonalSettingItemData dS(String str, String str2) {
+    /* renamed from: ex */
+    public PersonalSettingItemData et(String str, String str2) {
         PersonalSettingItemData personalSettingItemData;
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return null;
         }
         String str3 = str + UgcConstant.AT_RULE_TAG + str2;
-        synchronized (this.ive) {
-            ChatSetting chatSetting = this.ive.get(str3);
+        synchronized (this.iJK) {
+            ChatSetting chatSetting = this.iJK.get(str3);
             personalSettingItemData = (chatSetting == null || !(chatSetting instanceof PersonalSettingItemData)) ? null : (PersonalSettingItemData) chatSetting;
         }
         if (personalSettingItemData == null) {
@@ -43,22 +43,22 @@ public class e extends a {
         return personalSettingItemData;
     }
 
-    public void cfd() {
+    public void clA() {
         super.y(PersonalSettingItemData.class);
     }
 
     public void a(String str, String str2, UserData userData) {
-        PersonalSettingItemData dS;
-        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && userData != null && (dS = dS(str, str2)) != null) {
-            dS.setToPortrait(userData.getPortrait());
-            dS.setToName(userData.getUserName());
-            a(dS);
+        PersonalSettingItemData et;
+        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && userData != null && (et = et(str, str2)) != null) {
+            et.setToPortrait(userData.getPortrait());
+            et.setToName(userData.getUserName());
+            a(et);
         }
     }
 
     @Override // com.baidu.tieba.im.settingcache.a
-    protected l<String> ciR() {
-        return com.baidu.tbadk.core.c.a.aMR().ug("tb.im_personal_chat_setting");
+    protected l<String> cpo() {
+        return com.baidu.tbadk.core.c.a.aSS().vM("tb.im_personal_chat_setting");
     }
 
     @Override // com.baidu.tieba.im.settingcache.a
@@ -73,13 +73,13 @@ public class e extends a {
                 }
                 return;
             }
-            l<String> ciR = ciR();
+            l<String> cpo = cpo();
             String str = myUid + UgcConstant.AT_RULE_TAG + toUid;
             String jsonStrWithObject = OrmObject.jsonStrWithObject(personalSettingItemData);
-            synchronized (this.ive) {
-                this.ive.put(str, personalSettingItemData);
+            synchronized (this.iJK) {
+                this.iJK.put(str, personalSettingItemData);
             }
-            ciR.setForever(str, jsonStrWithObject);
+            cpo.setForever(str, jsonStrWithObject);
         }
     }
 
@@ -96,15 +96,15 @@ public class e extends a {
                 return;
             }
             final String str = myUid + UgcConstant.AT_RULE_TAG + toUid;
-            synchronized (this.ive) {
-                this.ive.put(str, personalSettingItemData);
+            synchronized (this.iJK) {
+                this.iJK.put(str, personalSettingItemData);
             }
-            ac.b(new ab<Void>() { // from class: com.baidu.tieba.im.settingcache.e.1
+            ad.b(new ac<Void>() { // from class: com.baidu.tieba.im.settingcache.e.1
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.baidu.tbadk.util.ab
-                /* renamed from: bgO */
+                @Override // com.baidu.tbadk.util.ac
+                /* renamed from: bmZ */
                 public Void doInBackground() {
-                    e.this.ciR().setForever(str, OrmObject.jsonStrWithObject(personalSettingItemData));
+                    e.this.cpo().setForever(str, OrmObject.jsonStrWithObject(personalSettingItemData));
                     return null;
                 }
             }, lVar);

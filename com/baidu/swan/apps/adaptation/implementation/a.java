@@ -1,55 +1,60 @@
 package com.baidu.swan.apps.adaptation.implementation;
 
 import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.swan.apps.core.container.a.a;
-import com.baidu.swan.apps.core.j.b;
+import com.baidu.swan.apps.core.k.b;
 import com.baidu.webkit.sdk.VideoPlayerFactory;
 /* loaded from: classes11.dex */
-public class a implements com.baidu.swan.apps.adaptation.a.j {
-    @Override // com.baidu.swan.apps.adaptation.a.j
-    public int OO() {
+public class a implements com.baidu.swan.apps.adaptation.a.k {
+    @Override // com.baidu.swan.apps.adaptation.a.k
+    public int Ra() {
         return 10150;
     }
 
-    @Override // com.baidu.swan.apps.adaptation.a.j
-    public boolean OP() {
+    @Override // com.baidu.swan.apps.adaptation.a.k
+    public boolean Rb() {
         return false;
     }
 
-    @Override // com.baidu.swan.apps.adaptation.a.j
-    public boolean OQ() {
+    @Override // com.baidu.swan.apps.adaptation.a.k
+    public boolean Rc() {
         return true;
     }
 
-    @Override // com.baidu.swan.apps.adaptation.a.j
-    public int OR() {
+    @Override // com.baidu.swan.apps.adaptation.a.k
+    public int Rd() {
         return 5000;
     }
 
-    @Override // com.baidu.swan.apps.adaptation.a.j
-    public void dX(int i) {
+    @Override // com.baidu.swan.apps.adaptation.a.k
+    public void ed(int i) {
     }
 
-    @Override // com.baidu.swan.apps.adaptation.a.j
-    public void OS() {
-        com.baidu.swan.apps.core.j.b.bz(AppRuntime.getAppContext()).OS();
+    @Override // com.baidu.swan.apps.adaptation.a.k
+    public void dc(boolean z) {
+        if (z) {
+            com.baidu.swan.apps.core.k.b.bI(AppRuntime.getAppContext()).dK(ProcessUtils.isMainProcess());
+        } else {
+            com.baidu.swan.apps.core.k.b.bI(AppRuntime.getAppContext()).aaN();
+        }
     }
 
-    @Override // com.baidu.swan.apps.adaptation.a.j
-    public void a(final a.InterfaceC0296a interfaceC0296a) {
-        com.baidu.swan.apps.core.j.b.bz(AppRuntime.getAppContext()).a(new b.a() { // from class: com.baidu.swan.apps.adaptation.implementation.a.1
-            @Override // com.baidu.swan.apps.core.j.b.a
-            public void OU() {
-                if (interfaceC0296a != null) {
-                    interfaceC0296a.OU();
+    @Override // com.baidu.swan.apps.adaptation.a.k
+    public void a(final a.InterfaceC0333a interfaceC0333a) {
+        com.baidu.swan.apps.core.k.b.bI(AppRuntime.getAppContext()).a(new b.a() { // from class: com.baidu.swan.apps.adaptation.implementation.a.1
+            @Override // com.baidu.swan.apps.core.k.b.a
+            public void Rf() {
+                if (interfaceC0333a != null) {
+                    interfaceC0333a.Rf();
                 }
-                com.baidu.swan.apps.core.j.b.bz(AppRuntime.getAppContext()).b(this);
+                com.baidu.swan.apps.core.k.b.bI(AppRuntime.getAppContext()).b(this);
             }
         });
     }
 
-    @Override // com.baidu.swan.apps.adaptation.a.j
-    public VideoPlayerFactory OT() {
+    @Override // com.baidu.swan.apps.adaptation.a.k
+    public VideoPlayerFactory Re() {
         return null;
     }
 }

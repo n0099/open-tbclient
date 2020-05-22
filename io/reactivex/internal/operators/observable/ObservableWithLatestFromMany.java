@@ -14,18 +14,18 @@ import java.util.concurrent.atomic.AtomicReferenceArray;
 /* loaded from: classes7.dex */
 public final class ObservableWithLatestFromMany<T, R> extends io.reactivex.internal.operators.observable.a<T, R> {
     final h<? super Object[], R> combiner;
-    final Iterable<? extends t<?>> mSU;
-    final t<?>[] mTU;
+    final Iterable<? extends t<?>> nnY;
+    final t<?>[] noY;
 
     @Override // io.reactivex.q
     protected void a(u<? super R> uVar) {
         int length;
-        t<?>[] tVarArr = this.mTU;
+        t<?>[] tVarArr = this.noY;
         int i = 0;
         if (tVarArr == null) {
             tVarArr = new t[8];
             try {
-                for (t<?> tVar : this.mSU) {
+                for (t<?> tVar : this.nnY) {
                     if (i == tVarArr.length) {
                         tVarArr = (t[]) Arrays.copyOf(tVarArr, (i >> 1) + i);
                     }
@@ -105,7 +105,7 @@ public final class ObservableWithLatestFromMany<T, R> extends io.reactivex.inter
                     }
                 }
                 try {
-                    e.a(this.actual, io.reactivex.internal.functions.a.h(this.combiner.apply(objArr), "combiner returned a null value"), this, this.error);
+                    e.a(this.actual, io.reactivex.internal.functions.a.k(this.combiner.apply(objArr), "combiner returned a null value"), this, this.error);
                 } catch (Throwable th) {
                     io.reactivex.exceptions.a.L(th);
                     dispose();
@@ -225,7 +225,7 @@ public final class ObservableWithLatestFromMany<T, R> extends io.reactivex.inter
         /* JADX WARN: Type inference failed for: r1v1, types: [java.lang.Object[], java.lang.Object] */
         @Override // io.reactivex.c.h
         public R apply(T t) throws Exception {
-            return (R) io.reactivex.internal.functions.a.h(ObservableWithLatestFromMany.this.combiner.apply(new Object[]{t}), "The combiner returned a null value");
+            return (R) io.reactivex.internal.functions.a.k(ObservableWithLatestFromMany.this.combiner.apply(new Object[]{t}), "The combiner returned a null value");
         }
     }
 }

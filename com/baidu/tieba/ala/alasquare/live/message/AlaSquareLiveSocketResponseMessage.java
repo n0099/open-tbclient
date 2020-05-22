@@ -35,7 +35,7 @@ public class AlaSquareLiveSocketResponseMessage extends SocketResponsedMessage {
         if (!hasError()) {
             this.functionList = new LinkedList<>();
             this.categoryList = new LinkedList<>();
-            this.categoryList.addAll(b.bn(liveSquareResIdl.data.live_with_category));
+            this.categoryList.addAll(b.bi(liveSquareResIdl.data.live_with_category));
             this.functionList.addAll(liveSquareResIdl.data.function_list_info);
             this.headLiveInfo = liveSquareResIdl.data.head_live_info;
             this.isSmallFollow = liveSquareResIdl.data.is_small_follow.intValue();
@@ -47,7 +47,7 @@ public class AlaSquareLiveSocketResponseMessage extends SocketResponsedMessage {
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         l<byte[]> b;
-        if (!hasError() && !v.isEmpty(this.categoryList) && this.mPn == 1 && (b = BdCacheService.kd().b("ala_square_space", BdCacheService.CacheStorage.SQLite_CACHE_All_IN_ONE_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 20)) != null) {
+        if (!hasError() && !v.isEmpty(this.categoryList) && this.mPn == 1 && (b = BdCacheService.kf().b("ala_square_space", BdCacheService.CacheStorage.SQLite_CACHE_All_IN_ONE_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 20)) != null) {
             b.set("ala_square_live_key", bArr, 604800000L);
         }
     }

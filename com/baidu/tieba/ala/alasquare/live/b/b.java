@@ -4,16 +4,16 @@ import com.baidu.adp.BdUniqueId;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class b extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId eOq = BdUniqueId.gen();
+    public static final BdUniqueId faX = BdUniqueId.gen();
     public String bitmapRatio;
     public int categoryType;
-    public List<String> eOp;
     public String entryName;
+    public List<String> faW;
     public String labelName;
     public int tabId;
 
-    @Override // com.baidu.adp.widget.ListView.m
+    @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.o
     public BdUniqueId getType() {
-        return eOq;
+        return faX;
     }
 }

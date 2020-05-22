@@ -7,9 +7,9 @@ import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class e {
-    private static e LK;
-    private HashMap<String, a> LI = new HashMap<>();
-    private HashMap<String, b> LJ = new HashMap<>();
+    private static e LX;
+    private HashMap<String, a> LV = new HashMap<>();
+    private HashMap<String, b> LW = new HashMap<>();
     private Handler mHandler = new Handler(Looper.getMainLooper()) { // from class: com.baidu.adp.lib.stats.e.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
@@ -17,9 +17,9 @@ public class e {
             switch (message.what) {
                 case 5:
                     if ((message.obj instanceof a) && (aVar = (a) message.obj) != null) {
-                        aVar.ak(false);
-                        aVar.al(false);
-                        aVar.ah(0);
+                        aVar.am(false);
+                        aVar.an(false);
+                        aVar.ai(0);
                         aVar.I(System.currentTimeMillis());
                         return;
                     }
@@ -30,81 +30,81 @@ public class e {
         }
     };
 
-    public static e lf() {
-        if (LK == null) {
+    public static e lh() {
+        if (LX == null) {
             synchronized (e.class) {
-                if (LK == null) {
-                    LK = new e();
+                if (LX == null) {
+                    LX = new e();
                 }
             }
         }
-        return LK;
+        return LX;
     }
 
     public e() {
         b bVar = new b();
-        bVar.ai(3000);
-        bVar.aj(BdStatisticsManager.UPLOAD_TIMER_INTERVAL);
-        bVar.ak(500);
-        this.LJ.put("net", bVar);
-        this.LJ.put("op", bVar);
-        this.LJ.put("stat", bVar);
-        this.LJ.put("crash", bVar);
-        this.LJ.put(BdStatsConstant.StatsType.PERFORMANCE, bVar);
+        bVar.aj(3000);
+        bVar.ak(BdStatisticsManager.UPLOAD_TIMER_INTERVAL);
+        bVar.al(500);
+        this.LW.put("net", bVar);
+        this.LW.put("op", bVar);
+        this.LW.put("stat", bVar);
+        this.LW.put("crash", bVar);
+        this.LW.put(BdStatsConstant.StatsType.PERFORMANCE, bVar);
         b bVar2 = new b();
-        bVar2.ai(3000);
-        bVar2.aj(BdStatisticsManager.UPLOAD_TIMER_INTERVAL);
-        bVar2.ak(1500);
-        this.LJ.put("file", bVar2);
-        this.LJ.put(BdStatsConstant.OpSubType.DB, bVar2);
-        this.LJ.put("img", bVar2);
-        this.LJ.put("voice", bVar2);
-        this.LJ.put(BdStatsConstant.StatsType.ERROR, bVar2);
+        bVar2.aj(3000);
+        bVar2.ak(BdStatisticsManager.UPLOAD_TIMER_INTERVAL);
+        bVar2.al(1500);
+        this.LW.put("file", bVar2);
+        this.LW.put(BdStatsConstant.OpSubType.DB, bVar2);
+        this.LW.put("img", bVar2);
+        this.LW.put("voice", bVar2);
+        this.LW.put(BdStatsConstant.StatsType.ERROR, bVar2);
         b bVar3 = new b();
-        bVar3.ai(3000);
-        bVar3.aj(BdStatisticsManager.UPLOAD_TIMER_INTERVAL);
-        bVar3.ak(1500);
-        this.LJ.put("dbg", bVar3);
+        bVar3.aj(3000);
+        bVar3.ak(BdStatisticsManager.UPLOAD_TIMER_INTERVAL);
+        bVar3.al(1500);
+        this.LW.put("dbg", bVar3);
     }
 
-    public synchronized boolean bP(String str) {
+    public synchronized boolean bQ(String str) {
         a aVar;
         boolean z;
-        b bVar = this.LJ.get(str);
+        b bVar = this.LW.get(str);
         if (bVar == null) {
             z = false;
         } else {
-            a aVar2 = this.LI.get(str);
+            a aVar2 = this.LV.get(str);
             long currentTimeMillis = System.currentTimeMillis();
             if (aVar2 == null) {
                 a aVar3 = new a();
-                aVar3.al(false);
-                aVar3.ak(false);
+                aVar3.an(false);
+                aVar3.am(false);
                 aVar3.I(currentTimeMillis);
-                this.LI.put(str, aVar3);
+                this.LV.put(str, aVar3);
                 aVar = aVar3;
             } else {
                 aVar = aVar2;
             }
-            if (aVar.lg()) {
+            if (aVar.li()) {
                 z = true;
             } else {
-                if (aVar.lk()) {
-                    aVar.ah(aVar.li() + 1);
-                    if (currentTimeMillis - aVar.lh() < bVar.lm()) {
-                        if (aVar.li() >= bVar.ln()) {
-                            aVar.ak(true);
+                if (aVar.lm()) {
+                    aVar.ai(aVar.lk() + 1);
+                    if (currentTimeMillis - aVar.lj() < bVar.lo()) {
+                        if (aVar.lk() >= bVar.lp()) {
+                            aVar.am(true);
                             BdStatisticsManager.getInstance().op(false, "d", "logfast", null, 0L, BdStatsConstant.ErrorCode.ERR_LOG_FAST, str, new Object[0]);
                             a(aVar);
                             z = true;
                         }
                     } else {
-                        aVar.al(false);
-                        aVar.ah(0);
+                        aVar.an(false);
+                        aVar.ai(0);
                         aVar.I(currentTimeMillis);
                     }
-                } else if (currentTimeMillis - aVar.lj() < bVar.ll()) {
-                    aVar.al(true);
+                } else if (currentTimeMillis - aVar.ll() < bVar.ln()) {
+                    aVar.an(true);
                     aVar.H(currentTimeMillis);
                 } else {
                     aVar.I(currentTimeMillis);
@@ -126,55 +126,55 @@ public class e {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a {
-        private long LN;
-        private long LO;
-        private boolean LQ;
+        private long LZ;
+        private long Ma;
+        private boolean Mb;
         private int mCount;
         private boolean mIsRunning;
 
         private a() {
             this.mIsRunning = false;
             this.mCount = 0;
-            this.LQ = false;
+            this.Mb = false;
         }
 
-        public boolean lg() {
-            return this.LQ;
+        public boolean li() {
+            return this.Mb;
         }
 
-        public void ak(boolean z) {
-            this.LQ = z;
-        }
-
-        public long lh() {
-            return this.LO;
-        }
-
-        public void H(long j) {
-            this.LO = j;
-        }
-
-        public int li() {
-            return this.mCount;
-        }
-
-        public void ah(int i) {
-            this.mCount = i;
+        public void am(boolean z) {
+            this.Mb = z;
         }
 
         public long lj() {
-            return this.LN;
+            return this.Ma;
+        }
+
+        public void H(long j) {
+            this.Ma = j;
+        }
+
+        public int lk() {
+            return this.mCount;
+        }
+
+        public void ai(int i) {
+            this.mCount = i;
+        }
+
+        public long ll() {
+            return this.LZ;
         }
 
         public void I(long j) {
-            this.LN = j;
+            this.LZ = j;
         }
 
-        public boolean lk() {
+        public boolean lm() {
             return this.mIsRunning;
         }
 
-        public void al(boolean z) {
+        public void an(boolean z) {
             this.mIsRunning = z;
         }
     }
@@ -182,35 +182,35 @@ public class e {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class b {
-        private int LR;
-        private int LS;
+        private int Mc;
+        private int Md;
         private int mInterval;
 
         private b() {
         }
 
-        public int ll() {
+        public int ln() {
             return this.mInterval;
         }
 
-        public void ai(int i) {
+        public void aj(int i) {
             this.mInterval = i;
         }
 
-        public int lm() {
-            return this.LR;
-        }
-
-        public void aj(int i) {
-            this.LR = i;
-        }
-
-        public int ln() {
-            return this.LS;
+        public int lo() {
+            return this.Mc;
         }
 
         public void ak(int i) {
-            this.LS = i;
+            this.Mc = i;
+        }
+
+        public int lp() {
+            return this.Md;
+        }
+
+        public void al(int i) {
+            this.Md = i;
         }
     }
 }

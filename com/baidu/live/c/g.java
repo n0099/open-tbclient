@@ -29,27 +29,31 @@ public class g extends IntentConfig {
         setIntentAction(IntentAction.ActivityForResult);
     }
 
-    public void aL(boolean z) {
+    public void aN(boolean z) {
         getIntent().putExtra("is_new_user", z);
     }
 
-    public void aM(boolean z) {
+    public void aO(boolean z) {
         getIntent().putExtra("entry_super_customer", z);
     }
 
-    public void bu(int i) {
+    public void bB(int i) {
         getIntent().putExtra("guard_club_join_amount", i);
     }
 
-    public void aN(boolean z) {
+    public void aP(boolean z) {
         getIntent().putExtra("is_redpkg_unable", z);
     }
 
-    public void aO(boolean z) {
+    public void aQ(boolean z) {
         getIntent().putExtra("throne_enabled", z);
     }
 
-    public void dH(String str) {
+    public void aR(boolean z) {
+        getIntent().putExtra("noble_enabled", z);
+    }
+
+    public void el(String str) {
         getIntent().putExtra("bg_info", str);
     }
 }

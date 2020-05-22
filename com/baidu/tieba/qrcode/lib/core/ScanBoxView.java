@@ -24,57 +24,57 @@ import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tieba.R;
 /* loaded from: classes10.dex */
 public class ScanBoxView extends View {
-    private int byI;
-    private String iXF;
-    private Bitmap koS;
-    private Bitmap koT;
-    private Bitmap koU;
-    private Bitmap koV;
-    private int koW;
-    private int koX;
-    private Rect koY;
-    private float koZ;
-    private boolean kpA;
-    private boolean kpB;
-    private Drawable kpC;
-    private Bitmap kpD;
-    private float kpE;
-    private float kpF;
-    private Bitmap kpG;
-    private Bitmap kpH;
-    private Bitmap kpI;
-    private Bitmap kpJ;
-    private float kpK;
-    private StaticLayout kpL;
-    private int kpM;
-    private boolean kpN;
-    private ColorMatrixColorFilter kpO;
-    private float kpa;
-    private TextPaint kpb;
-    private int kpc;
-    private int kpd;
-    private int kpe;
-    private int kpf;
-    private int kpg;
-    private int kph;
-    private int kpi;
-    private boolean kpj;
-    private Drawable kpk;
-    private Bitmap kpl;
-    private int kpm;
-    private int kpn;
-    private boolean kpo;
-    private int kpp;
-    private boolean kpq;
-    private String kpr;
-    private String kps;
-    private int kpt;
-    private int kpu;
-    private boolean kpv;
-    private int kpw;
-    private boolean kpx;
-    private int kpy;
-    private boolean kpz;
+    private int bGl;
+    private String jmI;
+    private Bitmap kGN;
+    private Bitmap kGO;
+    private Bitmap kGP;
+    private Bitmap kGQ;
+    private int kGR;
+    private int kGS;
+    private Rect kGT;
+    private float kGU;
+    private float kGV;
+    private TextPaint kGW;
+    private int kGX;
+    private int kGY;
+    private int kGZ;
+    private float kHA;
+    private Bitmap kHB;
+    private Bitmap kHC;
+    private Bitmap kHD;
+    private Bitmap kHE;
+    private float kHF;
+    private StaticLayout kHG;
+    private int kHH;
+    private boolean kHI;
+    private ColorMatrixColorFilter kHJ;
+    private int kHa;
+    private int kHb;
+    private int kHc;
+    private int kHd;
+    private boolean kHe;
+    private Drawable kHf;
+    private Bitmap kHg;
+    private int kHh;
+    private int kHi;
+    private boolean kHj;
+    private int kHk;
+    private boolean kHl;
+    private String kHm;
+    private String kHn;
+    private int kHo;
+    private int kHp;
+    private boolean kHq;
+    private int kHr;
+    private boolean kHs;
+    private int kHt;
+    private boolean kHu;
+    private boolean kHv;
+    private boolean kHw;
+    private Drawable kHx;
+    private Bitmap kHy;
+    private float kHz;
     private int mBorderColor;
     private Context mContext;
     private int mMaskColor;
@@ -87,43 +87,43 @@ public class ScanBoxView extends View {
         this.mPaint = new Paint();
         this.mPaint.setAntiAlias(true);
         this.mMaskColor = Color.parseColor("#33FFFFFF");
-        this.kpc = a.dp2px(context, 20.0f);
-        this.kpd = a.dp2px(context, 3.0f);
-        this.kpg = a.dp2px(context, 1.0f);
-        this.kph = -1;
+        this.kGX = a.dp2px(context, 20.0f);
+        this.kGY = a.dp2px(context, 3.0f);
+        this.kHb = a.dp2px(context, 1.0f);
+        this.kHc = -1;
         this.mTopOffset = a.dp2px(context, 90.0f);
-        this.byI = a.dp2px(context, 200.0f);
-        this.kpf = a.dp2px(context, 140.0f);
-        this.kpi = 0;
-        this.kpj = false;
-        this.kpk = null;
-        this.kpl = null;
-        this.kpm = a.dp2px(context, 1.0f);
+        this.bGl = a.dp2px(context, 200.0f);
+        this.kHa = a.dp2px(context, 140.0f);
+        this.kHd = 0;
+        this.kHe = false;
+        this.kHf = null;
+        this.kHg = null;
+        this.kHh = a.dp2px(context, 1.0f);
         this.mBorderColor = -1;
-        this.kpn = 1000;
-        this.kpo = false;
-        this.kpp = 0;
-        this.kpq = false;
-        this.koW = a.dp2px(context, 2.0f);
-        this.iXF = null;
-        this.kpt = a.h(context, 14.0f);
-        this.kpu = -1;
-        this.kpv = false;
-        this.kpw = a.dp2px(context, 20.0f);
-        this.kpx = false;
-        this.kpy = Color.parseColor("#22000000");
-        this.kpz = false;
-        this.kpA = false;
-        this.kpB = false;
-        this.kpb = new TextPaint();
-        this.kpb.setAntiAlias(true);
-        this.kpM = a.dp2px(context, 4.0f);
-        this.kpN = false;
+        this.kHi = 1000;
+        this.kHj = false;
+        this.kHk = 0;
+        this.kHl = false;
+        this.kGR = a.dp2px(context, 2.0f);
+        this.jmI = null;
+        this.kHo = a.h(context, 14.0f);
+        this.kHp = -1;
+        this.kHq = false;
+        this.kHr = a.dp2px(context, 20.0f);
+        this.kHs = false;
+        this.kHt = Color.parseColor("#22000000");
+        this.kHu = false;
+        this.kHv = false;
+        this.kHw = false;
+        this.kGW = new TextPaint();
+        this.kGW.setAntiAlias(true);
+        this.kHH = a.dp2px(context, 4.0f);
+        this.kHI = false;
         ColorMatrix colorMatrix = new ColorMatrix();
         colorMatrix.setScale(1.5f, 1.5f, 1.5f, 1.0f);
         ColorMatrix colorMatrix2 = new ColorMatrix();
         colorMatrix2.postConcat(colorMatrix);
-        this.kpO = new ColorMatrixColorFilter(colorMatrix2);
+        this.kHJ = new ColorMatrixColorFilter(colorMatrix2);
     }
 
     public void j(Context context, AttributeSet attributeSet) {
@@ -133,342 +133,342 @@ public class ScanBoxView extends View {
             a(obtainStyledAttributes.getIndex(i), obtainStyledAttributes);
         }
         obtainStyledAttributes.recycle();
-        cMH();
-        cMG();
+        cTH();
+        cTG();
     }
 
-    private void cMG() {
+    private void cTG() {
         BitmapFactory.Options options = new BitmapFactory.Options();
-        options.outWidth = this.kpc;
-        options.outHeight = this.kpc;
-        this.koS = BitmapHelper.getResBitmap(this.mContext, R.drawable.icon_scan_upperleft, options);
+        options.outWidth = this.kGX;
+        options.outHeight = this.kGX;
+        this.kGN = BitmapHelper.getResBitmap(this.mContext, R.drawable.icon_scan_upperleft, options);
         Matrix matrix = new Matrix();
         matrix.postRotate(90.0f);
-        this.koT = Bitmap.createBitmap(this.koS, 0, 0, this.koS.getWidth(), this.koS.getHeight(), matrix, false);
+        this.kGO = Bitmap.createBitmap(this.kGN, 0, 0, this.kGN.getWidth(), this.kGN.getHeight(), matrix, false);
         matrix.postRotate(180.0f);
-        this.koU = Bitmap.createBitmap(this.koS, 0, 0, this.koS.getWidth(), this.koS.getHeight(), matrix, false);
+        this.kGP = Bitmap.createBitmap(this.kGN, 0, 0, this.kGN.getWidth(), this.kGN.getHeight(), matrix, false);
         matrix.postRotate(270.0f);
-        this.koV = Bitmap.createBitmap(this.koS, 0, 0, this.koS.getWidth(), this.koS.getHeight(), matrix, false);
+        this.kGQ = Bitmap.createBitmap(this.kGN, 0, 0, this.kGN.getWidth(), this.kGN.getHeight(), matrix, false);
     }
 
     private void a(int i, TypedArray typedArray) {
         if (i == 0) {
             this.mTopOffset = typedArray.getDimensionPixelSize(i, this.mTopOffset);
         } else if (i == 1) {
-            this.kpd = typedArray.getDimensionPixelSize(i, this.kpd);
+            this.kGY = typedArray.getDimensionPixelSize(i, this.kGY);
         } else if (i == 2) {
-            this.kpc = typedArray.getDimensionPixelSize(i, this.kpc);
+            this.kGX = typedArray.getDimensionPixelSize(i, this.kGX);
         } else if (i == 6) {
-            this.kpg = typedArray.getDimensionPixelSize(i, this.kpg);
+            this.kHb = typedArray.getDimensionPixelSize(i, this.kHb);
         } else if (i == 3) {
-            this.byI = typedArray.getDimensionPixelSize(i, this.byI);
+            this.bGl = typedArray.getDimensionPixelSize(i, this.bGl);
         } else if (i == 5) {
             this.mMaskColor = typedArray.getColor(i, this.mMaskColor);
         } else if (i == 7) {
-            this.kph = typedArray.getColor(i, this.kph);
+            this.kHc = typedArray.getColor(i, this.kHc);
         } else if (i == 8) {
-            this.kpi = typedArray.getDimensionPixelSize(i, this.kpi);
+            this.kHd = typedArray.getDimensionPixelSize(i, this.kHd);
         } else if (i == 9) {
-            this.kpj = typedArray.getBoolean(i, this.kpj);
+            this.kHe = typedArray.getBoolean(i, this.kHe);
         } else if (i == 10) {
-            this.kpk = typedArray.getDrawable(i);
+            this.kHf = typedArray.getDrawable(i);
         } else if (i == 11) {
-            this.kpm = typedArray.getDimensionPixelSize(i, this.kpm);
+            this.kHh = typedArray.getDimensionPixelSize(i, this.kHh);
         } else if (i == 12) {
             this.mBorderColor = typedArray.getColor(i, this.mBorderColor);
         } else if (i == 13) {
-            this.kpn = typedArray.getInteger(i, this.kpn);
+            this.kHi = typedArray.getInteger(i, this.kHi);
         } else if (i == 14) {
-            this.kpo = typedArray.getBoolean(i, this.kpo);
+            this.kHj = typedArray.getBoolean(i, this.kHj);
         } else if (i == 15) {
-            this.kpp = typedArray.getDimensionPixelSize(i, this.kpp);
+            this.kHk = typedArray.getDimensionPixelSize(i, this.kHk);
         } else if (i == 4) {
-            this.kpf = typedArray.getDimensionPixelSize(i, this.kpf);
+            this.kHa = typedArray.getDimensionPixelSize(i, this.kHa);
         } else if (i == 16) {
-            this.kpq = typedArray.getBoolean(i, this.kpq);
+            this.kHl = typedArray.getBoolean(i, this.kHl);
         } else if (i == 18) {
-            this.kps = typedArray.getString(i);
+            this.kHn = typedArray.getString(i);
         } else if (i == 17) {
-            this.kpr = typedArray.getString(i);
+            this.kHm = typedArray.getString(i);
         } else if (i == 19) {
-            this.kpt = typedArray.getDimensionPixelSize(i, this.kpt);
+            this.kHo = typedArray.getDimensionPixelSize(i, this.kHo);
         } else if (i == 20) {
-            this.kpu = typedArray.getColor(i, this.kpu);
+            this.kHp = typedArray.getColor(i, this.kHp);
         } else if (i == 21) {
-            this.kpv = typedArray.getBoolean(i, this.kpv);
+            this.kHq = typedArray.getBoolean(i, this.kHq);
         } else if (i == 22) {
-            this.kpw = typedArray.getDimensionPixelSize(i, this.kpw);
+            this.kHr = typedArray.getDimensionPixelSize(i, this.kHr);
         } else if (i == 23) {
-            this.kpx = typedArray.getBoolean(i, this.kpx);
+            this.kHs = typedArray.getBoolean(i, this.kHs);
         } else if (i == 24) {
-            this.kpz = typedArray.getBoolean(i, this.kpz);
+            this.kHu = typedArray.getBoolean(i, this.kHu);
         } else if (i == 25) {
-            this.kpy = typedArray.getColor(i, this.kpy);
+            this.kHt = typedArray.getColor(i, this.kHt);
         } else if (i == 26) {
-            this.kpA = typedArray.getBoolean(i, this.kpA);
+            this.kHv = typedArray.getBoolean(i, this.kHv);
         } else if (i == 27) {
-            this.kpB = typedArray.getBoolean(i, this.kpB);
+            this.kHw = typedArray.getBoolean(i, this.kHw);
         } else if (i == 28) {
-            this.kpC = typedArray.getDrawable(i);
+            this.kHx = typedArray.getDrawable(i);
         } else if (i == 29) {
-            this.kpN = typedArray.getBoolean(i, this.kpN);
+            this.kHI = typedArray.getBoolean(i, this.kHI);
         }
     }
 
-    private void cMH() {
-        if (this.kpC != null) {
-            this.kpI = ((BitmapDrawable) this.kpC).getBitmap();
+    private void cTH() {
+        if (this.kHx != null) {
+            this.kHD = ((BitmapDrawable) this.kHx).getBitmap();
         }
-        if (this.kpI == null) {
-            this.kpI = BitmapFactory.decodeResource(getResources(), R.drawable.pc_scan_line);
-            this.kpI = a.e(this.kpI, this.kph);
+        if (this.kHD == null) {
+            this.kHD = BitmapFactory.decodeResource(getResources(), R.drawable.pc_scan_line);
+            this.kHD = a.f(this.kHD, this.kHc);
         }
-        this.kpJ = a.adjustPhotoRotation(this.kpI, 90);
-        this.kpJ = a.adjustPhotoRotation(this.kpJ, 90);
-        this.kpJ = a.adjustPhotoRotation(this.kpJ, 90);
-        if (this.kpk != null) {
-            this.kpG = ((BitmapDrawable) this.kpk).getBitmap();
+        this.kHE = a.e(this.kHD, 90);
+        this.kHE = a.e(this.kHE, 90);
+        this.kHE = a.e(this.kHE, 90);
+        if (this.kHf != null) {
+            this.kHB = ((BitmapDrawable) this.kHf).getBitmap();
         }
-        if (this.kpG == null) {
-            this.kpG = BitmapFactory.decodeResource(getResources(), R.drawable.pc_scan_line);
-            this.kpG = a.e(this.kpG, this.kph);
+        if (this.kHB == null) {
+            this.kHB = BitmapFactory.decodeResource(getResources(), R.drawable.pc_scan_line);
+            this.kHB = a.f(this.kHB, this.kHc);
         }
-        this.kpH = a.adjustPhotoRotation(this.kpG, 90);
-        this.kpK = (1.0f * this.kpd) / 2.0f;
-        this.kpb.setTextSize(this.kpt);
-        this.kpb.setColor(this.kpu);
-        setIsBarcode(this.kpq);
+        this.kHC = a.e(this.kHB, 90);
+        this.kHF = (1.0f * this.kGY) / 2.0f;
+        this.kGW.setTextSize(this.kHo);
+        this.kGW.setColor(this.kHp);
+        setIsBarcode(this.kHl);
     }
 
-    public void cMI() {
-        this.kpb.setColor(this.kpu);
+    public void cTI() {
+        this.kGW.setColor(this.kHp);
         setIsBarcode(false);
         invalidate();
     }
 
     @Override // android.view.View
     public void onDraw(Canvas canvas) {
-        if (this.koY != null) {
-            S(canvas);
+        if (this.kGT != null) {
             T(canvas);
-            V(canvas);
-            W(canvas);
             U(canvas);
-            cMJ();
+            W(canvas);
+            X(canvas);
+            V(canvas);
+            cTJ();
         }
     }
 
-    private void S(Canvas canvas) {
+    private void T(Canvas canvas) {
         int width = canvas.getWidth();
         int height = canvas.getHeight();
         if (this.mMaskColor != 0) {
             this.mPaint.setStyle(Paint.Style.FILL);
             this.mPaint.setColor(this.mMaskColor);
-            canvas.drawRect(0.0f, 0.0f, width, this.koY.top, this.mPaint);
-            canvas.drawRect(0.0f, this.koY.top, this.koY.left, this.koY.bottom + 1, this.mPaint);
-            canvas.drawRect(this.koY.right + 1, this.koY.top, width, this.koY.bottom + 1, this.mPaint);
-            canvas.drawRect(0.0f, this.koY.bottom + 1, width, height, this.mPaint);
-        }
-    }
-
-    private void T(Canvas canvas) {
-        if (this.kpm > 0) {
-            this.mPaint.setStyle(Paint.Style.STROKE);
-            this.mPaint.setColor(this.mBorderColor);
-            this.mPaint.setAntiAlias(false);
-            this.mPaint.setStrokeWidth(this.kpm);
-            canvas.drawRect(this.koY, this.mPaint);
+            canvas.drawRect(0.0f, 0.0f, width, this.kGT.top, this.mPaint);
+            canvas.drawRect(0.0f, this.kGT.top, this.kGT.left, this.kGT.bottom + 1, this.mPaint);
+            canvas.drawRect(this.kGT.right + 1, this.kGT.top, width, this.kGT.bottom + 1, this.mPaint);
+            canvas.drawRect(0.0f, this.kGT.bottom + 1, width, height, this.mPaint);
         }
     }
 
     private void U(Canvas canvas) {
-        this.mPaint.reset();
-        this.mPaint.setAntiAlias(false);
-        canvas.drawBitmap(this.koS, getMainFrameLeft(), getMainFrameTop(), this.mPaint);
-        canvas.drawBitmap(this.koT, getMainFrameRight() - this.koS.getWidth(), getMainFrameTop(), this.mPaint);
-        canvas.drawBitmap(this.koU, getMainFrameLeft(), getMainFrameBottom() - this.koS.getHeight(), this.mPaint);
-        canvas.drawBitmap(this.koV, getMainFrameRight() - this.koS.getWidth(), getMainFrameBottom() - this.koS.getHeight(), this.mPaint);
-    }
-
-    private int getMainFrameLeft() {
-        return (this.koY.left - getBitmapOffset()) - 1;
-    }
-
-    private int getMainFrameRight() {
-        return this.koY.right + getBitmapOffset();
-    }
-
-    private int getMainFrameTop() {
-        return (this.koY.top - getBitmapOffset()) - 1;
-    }
-
-    private int getMainFrameBottom() {
-        return this.koY.bottom + getBitmapOffset();
-    }
-
-    private int getBitmapOffset() {
-        return this.kpm / 2;
+        if (this.kHh > 0) {
+            this.mPaint.setStyle(Paint.Style.STROKE);
+            this.mPaint.setColor(this.mBorderColor);
+            this.mPaint.setAntiAlias(false);
+            this.mPaint.setStrokeWidth(this.kHh);
+            canvas.drawRect(this.kGT, this.mPaint);
+        }
     }
 
     private void V(Canvas canvas) {
-        if (this.kpq) {
-            if (this.kpD != null) {
-                RectF rectF = new RectF(this.koY.left + this.kpK + 0.5f, this.koY.top + this.kpK + this.kpi, this.kpF, (this.koY.bottom - this.kpK) - this.kpi);
-                Rect rect = new Rect((int) (this.kpD.getWidth() - rectF.width()), 0, this.kpD.getWidth(), this.kpD.getHeight());
+        this.mPaint.reset();
+        this.mPaint.setAntiAlias(false);
+        canvas.drawBitmap(this.kGN, getMainFrameLeft(), getMainFrameTop(), this.mPaint);
+        canvas.drawBitmap(this.kGO, getMainFrameRight() - this.kGN.getWidth(), getMainFrameTop(), this.mPaint);
+        canvas.drawBitmap(this.kGP, getMainFrameLeft(), getMainFrameBottom() - this.kGN.getHeight(), this.mPaint);
+        canvas.drawBitmap(this.kGQ, getMainFrameRight() - this.kGN.getWidth(), getMainFrameBottom() - this.kGN.getHeight(), this.mPaint);
+    }
+
+    private int getMainFrameLeft() {
+        return (this.kGT.left - getBitmapOffset()) - 1;
+    }
+
+    private int getMainFrameRight() {
+        return this.kGT.right + getBitmapOffset();
+    }
+
+    private int getMainFrameTop() {
+        return (this.kGT.top - getBitmapOffset()) - 1;
+    }
+
+    private int getMainFrameBottom() {
+        return this.kGT.bottom + getBitmapOffset();
+    }
+
+    private int getBitmapOffset() {
+        return this.kHh / 2;
+    }
+
+    private void W(Canvas canvas) {
+        if (this.kHl) {
+            if (this.kHy != null) {
+                RectF rectF = new RectF(this.kGT.left + this.kHF + 0.5f, this.kGT.top + this.kHF + this.kHd, this.kHA, (this.kGT.bottom - this.kHF) - this.kHd);
+                Rect rect = new Rect((int) (this.kHy.getWidth() - rectF.width()), 0, this.kHy.getWidth(), this.kHy.getHeight());
                 if (rect.left < 0) {
                     rect.left = 0;
                     rectF.left = rectF.right - rect.width();
                 }
-                canvas.drawBitmap(this.kpD, rect, rectF, this.mPaint);
-            } else if (this.kpl != null) {
-                canvas.drawBitmap(this.kpl, (Rect) null, new RectF(this.kpa, this.koY.top + this.kpK + this.kpi, this.kpa + this.kpl.getWidth(), (this.koY.bottom - this.kpK) - this.kpi), this.mPaint);
+                canvas.drawBitmap(this.kHy, rect, rectF, this.mPaint);
+            } else if (this.kHg != null) {
+                canvas.drawBitmap(this.kHg, (Rect) null, new RectF(this.kGV, this.kGT.top + this.kHF + this.kHd, this.kGV + this.kHg.getWidth(), (this.kGT.bottom - this.kHF) - this.kHd), this.mPaint);
             } else {
                 this.mPaint.setStyle(Paint.Style.FILL);
-                this.mPaint.setColor(this.kph);
-                canvas.drawRect(this.kpa, this.kpi + this.koY.top + this.kpK, this.kpg + this.kpa, (this.koY.bottom - this.kpK) - this.kpi, this.mPaint);
+                this.mPaint.setColor(this.kHc);
+                canvas.drawRect(this.kGV, this.kHd + this.kGT.top + this.kHF, this.kHb + this.kGV, (this.kGT.bottom - this.kHF) - this.kHd, this.mPaint);
             }
-        } else if (this.kpD != null) {
-            RectF rectF2 = new RectF(this.koY.left + this.kpK + this.kpi, this.koY.top + this.kpK + 0.5f, (this.koY.right - this.kpK) - this.kpi, this.kpE);
-            Rect rect2 = new Rect(0, (int) (this.kpD.getHeight() - rectF2.height()), this.kpD.getWidth(), this.kpD.getHeight());
+        } else if (this.kHy != null) {
+            RectF rectF2 = new RectF(this.kGT.left + this.kHF + this.kHd, this.kGT.top + this.kHF + 0.5f, (this.kGT.right - this.kHF) - this.kHd, this.kHz);
+            Rect rect2 = new Rect(0, (int) (this.kHy.getHeight() - rectF2.height()), this.kHy.getWidth(), this.kHy.getHeight());
             if (rect2.top < 0) {
                 rect2.top = 0;
                 rectF2.top = rectF2.bottom - rect2.height();
             }
-            this.mPaint.setColorFilter(this.kpO);
-            canvas.drawBitmap(this.kpD, rect2, rectF2, this.mPaint);
-        } else if (this.kpl != null) {
-            canvas.drawBitmap(this.kpl, (Rect) null, new RectF(this.koY.left + this.kpK + this.kpi, this.koZ, (this.koY.right - this.kpK) - this.kpi, this.koZ + this.kpl.getHeight()), this.mPaint);
+            this.mPaint.setColorFilter(this.kHJ);
+            canvas.drawBitmap(this.kHy, rect2, rectF2, this.mPaint);
+        } else if (this.kHg != null) {
+            canvas.drawBitmap(this.kHg, (Rect) null, new RectF(this.kGT.left + this.kHF + this.kHd, this.kGU, (this.kGT.right - this.kHF) - this.kHd, this.kGU + this.kHg.getHeight()), this.mPaint);
         } else {
             this.mPaint.setStyle(Paint.Style.FILL);
-            this.mPaint.setColor(this.kph);
-            canvas.drawRect(this.kpi + this.koY.left + this.kpK, this.koZ, (this.koY.right - this.kpK) - this.kpi, this.kpg + this.koZ, this.mPaint);
+            this.mPaint.setColor(this.kHc);
+            canvas.drawRect(this.kHd + this.kGT.left + this.kHF, this.kGU, (this.kGT.right - this.kHF) - this.kHd, this.kHb + this.kGU, this.mPaint);
         }
     }
 
-    private void W(Canvas canvas) {
-        if (!TextUtils.isEmpty(this.iXF) && this.kpL != null) {
-            if (this.kpv) {
-                if (this.kpz) {
-                    this.mPaint.setColor(this.kpy);
+    private void X(Canvas canvas) {
+        if (!TextUtils.isEmpty(this.jmI) && this.kHG != null) {
+            if (this.kHq) {
+                if (this.kHu) {
+                    this.mPaint.setColor(this.kHt);
                     this.mPaint.setStyle(Paint.Style.FILL);
-                    if (this.kpx) {
+                    if (this.kHs) {
                         Rect rect = new Rect();
-                        this.kpb.getTextBounds(this.iXF, 0, this.iXF.length(), rect);
-                        float width = ((canvas.getWidth() - rect.width()) / 2) - this.kpM;
-                        canvas.drawRoundRect(new RectF(width, (this.koY.bottom + this.kpw) - this.kpM, rect.width() + width + (this.kpM * 2), this.koY.bottom + this.kpw + this.kpL.getHeight() + this.kpM), this.kpM, this.kpM, this.mPaint);
+                        this.kGW.getTextBounds(this.jmI, 0, this.jmI.length(), rect);
+                        float width = ((canvas.getWidth() - rect.width()) / 2) - this.kHH;
+                        canvas.drawRoundRect(new RectF(width, (this.kGT.bottom + this.kHr) - this.kHH, rect.width() + width + (this.kHH * 2), this.kGT.bottom + this.kHr + this.kHG.getHeight() + this.kHH), this.kHH, this.kHH, this.mPaint);
                     } else {
-                        canvas.drawRoundRect(new RectF(this.koY.left, (this.koY.bottom + this.kpw) - this.kpM, this.koY.right, this.koY.bottom + this.kpw + this.kpL.getHeight() + this.kpM), this.kpM, this.kpM, this.mPaint);
+                        canvas.drawRoundRect(new RectF(this.kGT.left, (this.kGT.bottom + this.kHr) - this.kHH, this.kGT.right, this.kGT.bottom + this.kHr + this.kHG.getHeight() + this.kHH), this.kHH, this.kHH, this.mPaint);
                     }
                 }
                 canvas.save();
-                if (this.kpx) {
-                    canvas.translate(0.0f, this.koY.bottom + this.kpw);
+                if (this.kHs) {
+                    canvas.translate(0.0f, this.kGT.bottom + this.kHr);
                 } else {
-                    canvas.translate(this.koY.left + this.kpM, this.koY.bottom + this.kpw);
+                    canvas.translate(this.kGT.left + this.kHH, this.kGT.bottom + this.kHr);
                 }
-                this.kpL.draw(canvas);
+                this.kHG.draw(canvas);
                 canvas.restore();
                 return;
             }
-            if (this.kpz) {
-                this.mPaint.setColor(this.kpy);
+            if (this.kHu) {
+                this.mPaint.setColor(this.kHt);
                 this.mPaint.setStyle(Paint.Style.FILL);
-                if (this.kpx) {
+                if (this.kHs) {
                     Rect rect2 = new Rect();
-                    this.kpb.getTextBounds(this.iXF, 0, this.iXF.length(), rect2);
-                    float width2 = ((canvas.getWidth() - rect2.width()) / 2) - this.kpM;
-                    canvas.drawRoundRect(new RectF(width2, ((this.koY.top - this.kpw) - this.kpL.getHeight()) - this.kpM, rect2.width() + width2 + (this.kpM * 2), (this.koY.top - this.kpw) + this.kpM), this.kpM, this.kpM, this.mPaint);
+                    this.kGW.getTextBounds(this.jmI, 0, this.jmI.length(), rect2);
+                    float width2 = ((canvas.getWidth() - rect2.width()) / 2) - this.kHH;
+                    canvas.drawRoundRect(new RectF(width2, ((this.kGT.top - this.kHr) - this.kHG.getHeight()) - this.kHH, rect2.width() + width2 + (this.kHH * 2), (this.kGT.top - this.kHr) + this.kHH), this.kHH, this.kHH, this.mPaint);
                 } else {
-                    canvas.drawRoundRect(new RectF(this.koY.left, ((this.koY.top - this.kpw) - this.kpL.getHeight()) - this.kpM, this.koY.right, (this.koY.top - this.kpw) + this.kpM), this.kpM, this.kpM, this.mPaint);
+                    canvas.drawRoundRect(new RectF(this.kGT.left, ((this.kGT.top - this.kHr) - this.kHG.getHeight()) - this.kHH, this.kGT.right, (this.kGT.top - this.kHr) + this.kHH), this.kHH, this.kHH, this.mPaint);
                 }
             }
             canvas.save();
-            if (this.kpx) {
-                canvas.translate(0.0f, (this.koY.top - this.kpw) - this.kpL.getHeight());
+            if (this.kHs) {
+                canvas.translate(0.0f, (this.kGT.top - this.kHr) - this.kHG.getHeight());
             } else {
-                canvas.translate(this.koY.left + this.kpM, (this.koY.top - this.kpw) - this.kpL.getHeight());
+                canvas.translate(this.kGT.left + this.kHH, (this.kGT.top - this.kHr) - this.kHG.getHeight());
             }
-            this.kpL.draw(canvas);
+            this.kHG.draw(canvas);
             canvas.restore();
         }
     }
 
-    private void cMJ() {
-        if (this.kpq) {
-            if (this.kpD == null) {
-                this.kpa += this.koW;
-                int i = this.kpg;
-                if (this.kpl != null) {
-                    i = this.kpl.getWidth();
+    private void cTJ() {
+        if (this.kHl) {
+            if (this.kHy == null) {
+                this.kGV += this.kGR;
+                int i = this.kHb;
+                if (this.kHg != null) {
+                    i = this.kHg.getWidth();
                 }
-                if (this.kpA) {
-                    if (i + this.kpa > this.koY.right - this.kpK || this.kpa < this.koY.left + this.kpK) {
-                        this.koW = -this.koW;
+                if (this.kHv) {
+                    if (i + this.kGV > this.kGT.right - this.kHF || this.kGV < this.kGT.left + this.kHF) {
+                        this.kGR = -this.kGR;
                     }
                 } else {
-                    if (i + this.kpa > this.koY.right - this.kpK) {
-                        this.kpa = this.koY.left + this.kpK + 0.5f;
+                    if (i + this.kGV > this.kGT.right - this.kHF) {
+                        this.kGV = this.kGT.left + this.kHF + 0.5f;
                     }
                 }
             } else {
-                this.kpF += this.koW;
-                if (this.kpF > this.koY.right - this.kpK) {
-                    this.kpF = this.koY.left + this.kpK + 0.5f;
+                this.kHA += this.kGR;
+                if (this.kHA > this.kGT.right - this.kHF) {
+                    this.kHA = this.kGT.left + this.kHF + 0.5f;
                 }
             }
-        } else if (this.kpD == null) {
-            this.koZ += this.koW;
-            int i2 = this.kpg;
-            if (this.kpl != null) {
-                i2 = this.kpl.getHeight();
+        } else if (this.kHy == null) {
+            this.kGU += this.kGR;
+            int i2 = this.kHb;
+            if (this.kHg != null) {
+                i2 = this.kHg.getHeight();
             }
-            if (this.kpA) {
-                if (i2 + this.koZ > this.koY.bottom - this.kpK || this.koZ < this.koY.top + this.kpK) {
-                    this.koW = -this.koW;
+            if (this.kHv) {
+                if (i2 + this.kGU > this.kGT.bottom - this.kHF || this.kGU < this.kGT.top + this.kHF) {
+                    this.kGR = -this.kGR;
                 }
             } else {
-                if (i2 + this.koZ > this.koY.bottom - this.kpK) {
-                    this.koZ = this.koY.top + this.kpK + 0.5f;
+                if (i2 + this.kGU > this.kGT.bottom - this.kHF) {
+                    this.kGU = this.kGT.top + this.kHF + 0.5f;
                 }
             }
         } else {
-            this.kpE += this.koW;
-            if (this.kpE > this.koY.bottom - this.kpK) {
-                this.kpE = this.koY.top + this.kpK + 0.5f;
+            this.kHz += this.kGR;
+            if (this.kHz > this.kGT.bottom - this.kHF) {
+                this.kHz = this.kGT.top + this.kHF + 0.5f;
             }
         }
-        postInvalidateDelayed(this.koX, this.koY.left, this.koY.top, this.koY.right, this.koY.bottom);
+        postInvalidateDelayed(this.kGS, this.kGT.left, this.kGT.top, this.kGT.right, this.kGT.bottom);
     }
 
     @Override // android.view.View
     protected void onSizeChanged(int i, int i2, int i3, int i4) {
         super.onSizeChanged(i, i2, i3, i4);
-        cMK();
+        cTK();
     }
 
-    private void cMK() {
+    private void cTK() {
         int i;
-        if (this.kpq) {
-            i = this.mTopOffset + this.kpp;
+        if (this.kHl) {
+            i = this.mTopOffset + this.kHk;
         } else {
             i = this.mTopOffset;
         }
-        int width = (getWidth() - this.byI) / 2;
-        this.koY = new Rect(width, i, this.byI + width, this.kpe + i);
-        if (this.kpq) {
-            float f = this.koY.left + this.kpK + 0.5f;
-            this.kpa = f;
-            this.kpF = f;
+        int width = (getWidth() - this.bGl) / 2;
+        this.kGT = new Rect(width, i, this.bGl + width, this.kGZ + i);
+        if (this.kHl) {
+            float f = this.kGT.left + this.kHF + 0.5f;
+            this.kGV = f;
+            this.kHA = f;
             return;
         }
-        float f2 = this.koY.top + this.kpK + 0.5f;
-        this.koZ = f2;
-        this.kpE = f2;
+        float f2 = this.kGT.top + this.kHF + 0.5f;
+        this.kGU = f2;
+        this.kHz = f2;
     }
 
-    public Rect Bu(int i) {
-        if (this.kpN) {
-            Rect rect = new Rect(this.koY);
+    public Rect Ce(int i) {
+        if (this.kHI) {
+            Rect rect = new Rect(this.kGT);
             float measuredHeight = (1.0f * i) / getMeasuredHeight();
             rect.left = (int) (rect.left * measuredHeight);
             rect.right = (int) (rect.right * measuredHeight);
@@ -480,52 +480,52 @@ public class ScanBoxView extends View {
     }
 
     public void setIsBarcode(boolean z) {
-        this.kpq = z;
-        if (this.kpC != null || this.kpB) {
-            if (this.kpq) {
-                this.kpD = this.kpJ;
+        this.kHl = z;
+        if (this.kHx != null || this.kHw) {
+            if (this.kHl) {
+                this.kHy = this.kHE;
             } else {
-                this.kpD = this.kpI;
+                this.kHy = this.kHD;
             }
-        } else if (this.kpk != null || this.kpj) {
-            if (this.kpq) {
-                this.kpl = this.kpH;
+        } else if (this.kHf != null || this.kHe) {
+            if (this.kHl) {
+                this.kHg = this.kHC;
             } else {
-                this.kpl = this.kpG;
+                this.kHg = this.kHB;
             }
         }
-        if (this.kpq) {
-            this.iXF = this.kps;
-            this.kpe = this.kpf;
-            this.koX = (int) (((this.kpn * 1.0f) * this.koW) / this.byI);
+        if (this.kHl) {
+            this.jmI = this.kHn;
+            this.kGZ = this.kHa;
+            this.kGS = (int) (((this.kHi * 1.0f) * this.kGR) / this.bGl);
         } else {
-            this.iXF = this.kpr;
-            this.kpe = this.byI;
-            this.koX = (int) (((this.kpn * 1.0f) * this.koW) / this.kpe);
+            this.jmI = this.kHm;
+            this.kGZ = this.bGl;
+            this.kGS = (int) (((this.kHi * 1.0f) * this.kGR) / this.kGZ);
         }
-        if (!TextUtils.isEmpty(this.iXF)) {
-            if (this.kpx) {
-                this.kpL = new StaticLayout(this.iXF, this.kpb, a.eR(getContext()).x, Layout.Alignment.ALIGN_CENTER, 1.0f, 0.0f, true);
+        if (!TextUtils.isEmpty(this.jmI)) {
+            if (this.kHs) {
+                this.kHG = new StaticLayout(this.jmI, this.kGW, a.fg(getContext()).x, Layout.Alignment.ALIGN_CENTER, 1.0f, 0.0f, true);
             } else {
-                this.kpL = new StaticLayout(this.iXF, this.kpb, this.byI - (this.kpM * 2), Layout.Alignment.ALIGN_CENTER, 1.0f, 0.0f, true);
+                this.kHG = new StaticLayout(this.jmI, this.kGW, this.bGl - (this.kHH * 2), Layout.Alignment.ALIGN_CENTER, 1.0f, 0.0f, true);
             }
         }
-        if (this.kpo) {
-            int i = a.eR(getContext()).y;
-            if (this.kpp == 0) {
-                this.mTopOffset = (i - this.kpe) / 2;
-            } else if (this.kpq) {
-                this.mTopOffset = ((i - this.kpe) / 2) + (this.kpp / 2);
+        if (this.kHj) {
+            int i = a.fg(getContext()).y;
+            if (this.kHk == 0) {
+                this.mTopOffset = (i - this.kGZ) / 2;
+            } else if (this.kHl) {
+                this.mTopOffset = ((i - this.kGZ) / 2) + (this.kHk / 2);
             } else {
-                this.mTopOffset = (i - this.kpe) / 2;
+                this.mTopOffset = (i - this.kGZ) / 2;
             }
         }
-        cMK();
+        cTK();
         postInvalidate();
     }
 
     public boolean getIsBarcode() {
-        return this.kpq;
+        return this.kHl;
     }
 
     public int getMaskColor() {
@@ -537,43 +537,43 @@ public class ScanBoxView extends View {
     }
 
     public int getCornerLength() {
-        return this.kpc;
+        return this.kGX;
     }
 
     public void setCornerLength(int i) {
-        this.kpc = i;
+        this.kGX = i;
     }
 
     public int getCornerSize() {
-        return this.kpd;
+        return this.kGY;
     }
 
     public void setCornerSize(int i) {
-        this.kpd = i;
+        this.kGY = i;
     }
 
     public int getRectWidth() {
-        return this.byI;
+        return this.bGl;
     }
 
     public void setRectWidth(int i) {
-        this.byI = i;
+        this.bGl = i;
     }
 
     public int getRectHeight() {
-        return this.kpe;
+        return this.kGZ;
     }
 
     public void setRectHeight(int i) {
-        this.kpe = i;
+        this.kGZ = i;
     }
 
     public int getBarcodeRectHeight() {
-        return this.kpf;
+        return this.kHa;
     }
 
     public void setBarcodeRectHeight(int i) {
-        this.kpf = i;
+        this.kHa = i;
     }
 
     public int getTopOffset() {
@@ -585,55 +585,55 @@ public class ScanBoxView extends View {
     }
 
     public int getScanLineSize() {
-        return this.kpg;
+        return this.kHb;
     }
 
     public void setScanLineSize(int i) {
-        this.kpg = i;
+        this.kHb = i;
     }
 
     public int getScanLineColor() {
-        return this.kph;
+        return this.kHc;
     }
 
     public void setScanLineColor(int i) {
-        this.kph = i;
+        this.kHc = i;
     }
 
     public int getScanLineMargin() {
-        return this.kpi;
+        return this.kHd;
     }
 
     public void setScanLineMargin(int i) {
-        this.kpi = i;
+        this.kHd = i;
     }
 
     public void setShowDefaultScanLineDrawable(boolean z) {
-        this.kpj = z;
+        this.kHe = z;
     }
 
     public Drawable getCustomScanLineDrawable() {
-        return this.kpk;
+        return this.kHf;
     }
 
     public void setCustomScanLineDrawable(Drawable drawable) {
-        this.kpk = drawable;
+        this.kHf = drawable;
     }
 
     public Bitmap getScanLineBitmap() {
-        return this.kpl;
+        return this.kHg;
     }
 
     public void setScanLineBitmap(Bitmap bitmap) {
-        this.kpl = bitmap;
+        this.kHg = bitmap;
     }
 
     public int getBorderSize() {
-        return this.kpm;
+        return this.kHh;
     }
 
     public void setBorderSize(int i) {
-        this.kpm = i;
+        this.kHh = i;
     }
 
     public int getBorderColor() {
@@ -645,126 +645,126 @@ public class ScanBoxView extends View {
     }
 
     public int getAnimTime() {
-        return this.kpn;
+        return this.kHi;
     }
 
     public void setAnimTime(int i) {
-        this.kpn = i;
+        this.kHi = i;
     }
 
     public void setCenterVertical(boolean z) {
-        this.kpo = z;
+        this.kHj = z;
     }
 
     public int getToolbarHeight() {
-        return this.kpp;
+        return this.kHk;
     }
 
     public void setToolbarHeight(int i) {
-        this.kpp = i;
+        this.kHk = i;
     }
 
     public String getQRCodeTipText() {
-        return this.kpr;
+        return this.kHm;
     }
 
     public void setQRCodeTipText(String str) {
-        this.kpr = str;
+        this.kHm = str;
     }
 
     public String getBarCodeTipText() {
-        return this.kps;
+        return this.kHn;
     }
 
     public void setBarCodeTipText(String str) {
-        this.kps = str;
+        this.kHn = str;
     }
 
     public String getTipText() {
-        return this.iXF;
+        return this.jmI;
     }
 
     public void setTipText(String str) {
-        this.iXF = str;
+        this.jmI = str;
     }
 
     public int getTipTextColor() {
-        return this.kpu;
+        return this.kHp;
     }
 
     public void setTipTextColor(int i) {
-        this.kpu = i;
+        this.kHp = i;
     }
 
     public int getTipTextSize() {
-        return this.kpt;
+        return this.kHo;
     }
 
     public void setTipTextSize(int i) {
-        this.kpt = i;
+        this.kHo = i;
     }
 
     public void setTipTextBelowRect(boolean z) {
-        this.kpv = z;
+        this.kHq = z;
     }
 
     public int getTipTextMargin() {
-        return this.kpw;
+        return this.kHr;
     }
 
     public void setTipTextMargin(int i) {
-        this.kpw = i;
+        this.kHr = i;
     }
 
     public void setShowTipTextAsSingleLine(boolean z) {
-        this.kpx = z;
+        this.kHs = z;
     }
 
     public void setShowTipBackground(boolean z) {
-        this.kpz = z;
+        this.kHu = z;
     }
 
     public int getTipBackgroundColor() {
-        return this.kpy;
+        return this.kHt;
     }
 
     public void setTipBackgroundColor(int i) {
-        this.kpy = i;
+        this.kHt = i;
     }
 
     public void setScanLineReverse(boolean z) {
-        this.kpA = z;
+        this.kHv = z;
     }
 
     public void setShowDefaultGridScanLineDrawable(boolean z) {
-        this.kpB = z;
+        this.kHw = z;
     }
 
     public float getHalfCornerSize() {
-        return this.kpK;
+        return this.kHF;
     }
 
     public void setHalfCornerSize(float f) {
-        this.kpK = f;
+        this.kHF = f;
     }
 
     public StaticLayout getTipTextSl() {
-        return this.kpL;
+        return this.kHG;
     }
 
     public void setTipTextSl(StaticLayout staticLayout) {
-        this.kpL = staticLayout;
+        this.kHG = staticLayout;
     }
 
     public int getTipBackgroundRadius() {
-        return this.kpM;
+        return this.kHH;
     }
 
     public void setTipBackgroundRadius(int i) {
-        this.kpM = i;
+        this.kHH = i;
     }
 
     public void setOnlyDecodeScanBoxArea(boolean z) {
-        this.kpN = z;
+        this.kHI = z;
     }
 }

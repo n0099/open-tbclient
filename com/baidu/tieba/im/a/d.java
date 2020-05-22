@@ -2,7 +2,7 @@ package com.baidu.tieba.im.a;
 
 import android.support.v4.util.LongSparseArray;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.a.j;
+import com.baidu.adp.framework.b.j;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tieba.im.data.GroupMsgData;
@@ -17,7 +17,7 @@ public class d extends j {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.a.g
+    @Override // com.baidu.adp.framework.b.g
     /* renamed from: e */
     public SocketResponsedMessage a(SocketResponsedMessage socketResponsedMessage) {
         MessageSyncMessage messageSyncMessage = null;
@@ -41,7 +41,7 @@ public class d extends j {
                 }
             }
             if (!a(responsePullMessage)) {
-                b.cib().cii();
+                b.coy().coF();
                 return socketResponsedMessage;
             }
             return socketResponsedMessage;
@@ -67,12 +67,12 @@ public class d extends j {
                 return false;
             }
             LongSparseArray<Long> longSparseArray = new LongSparseArray<>();
-            LongSparseArray<Long> chM = com.baidu.tieba.im.memorycache.b.chB().chM();
+            LongSparseArray<Long> coj = com.baidu.tieba.im.memorycache.b.cnY().coj();
             boolean z = false;
             for (GroupMsgData groupMsgData : groupMsg) {
                 if (groupMsgData != null && groupMsgData.getGroupInfo() != null) {
-                    if (com.baidu.tieba.im.memorycache.c.xm(groupMsgData.getGroupInfo().getCustomType())) {
-                        Long l2 = chM.get(groupMsgData.getGroupInfo().getGroupId());
+                    if (com.baidu.tieba.im.memorycache.c.xS(groupMsgData.getGroupInfo().getCustomType())) {
+                        Long l2 = coj.get(groupMsgData.getGroupInfo().getGroupId());
                         if (l2 != null && (l = messageSyncMessage.getGroupMids().get(groupMsgData.getGroupInfo().getGroupId())) != null) {
                             if (l2.longValue() > l.longValue()) {
                                 z = true;
@@ -88,7 +88,7 @@ public class d extends j {
             if (!z || longSparseArray.size() <= 0) {
                 return false;
             }
-            b.cib().a(longSparseArray);
+            b.coy().a(longSparseArray);
             return true;
         }
         return false;

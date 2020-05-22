@@ -7,94 +7,94 @@ import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.view.web.g;
 /* loaded from: classes3.dex */
 public class a implements c {
-    private long aQm;
-    private CustomMessageListener eZc;
-    private boolean fmp;
-    private b fuf;
-    private long fug;
-    private String fuh;
+    private long aWv;
+    private b fIb;
+    private long fIc;
+    private String fId;
+    private CustomMessageListener flM;
+    private boolean fzW;
     private Activity mActivity;
 
     public a(Activity activity) {
         this.mActivity = activity;
-        bmB();
+        brZ();
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a.c
     public void setHost(boolean z) {
-        this.fmp = z;
+        this.fzW = z;
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a.c
     public void g(long j, String str) {
-        this.fug = j;
-        this.fuh = str;
-        if (this.fuh == null) {
-            this.fuh = "";
+        this.fIc = j;
+        this.fId = str;
+        if (this.fId == null) {
+            this.fId = "";
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a.c
     public void setLiveId(long j) {
-        this.aQm = j;
+        this.aWv = j;
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a.c
-    public void az(String str, int i) {
-        this.fuf = new b(this.mActivity);
+    public void aA(String str, int i) {
+        this.fIb = new b(this.mActivity);
         g gVar = new g();
-        gVar.u(this.mActivity).a(this.fuf).a(this.fuf.bmC().getSchemeCallback()).aw(this.fug).fi(this.fuh).cj(this.fmp).ax(this.aQm);
-        com.baidu.live.view.web.a[] HM = gVar.HM();
-        for (com.baidu.live.view.web.a aVar : HM) {
-            this.fuf.bmC().addJavascriptInterface(aVar, aVar.getName());
+        gVar.u(this.mActivity).a(this.fIb).a(this.fIb.bsa().getSchemeCallback()).aB(this.fIc).fU(this.fId).cv(this.fzW).aC(this.aWv);
+        com.baidu.live.view.web.a[] JF = gVar.JF();
+        for (com.baidu.live.view.web.a aVar : JF) {
+            this.fIb.bsa().addJavascriptInterface(aVar, aVar.getName());
         }
-        this.fuf.aA(str, i);
+        this.fIb.aB(str, i);
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a.c
     public void resume() {
-        if (this.fuf != null && this.fuf.isShowing() && this.fuf.bmC() != null) {
-            this.fuf.bmC().onResume();
+        if (this.fIb != null && this.fIb.isShowing() && this.fIb.bsa() != null) {
+            this.fIb.bsa().onResume();
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a.c
     public void pause() {
-        if (this.fuf != null && this.fuf.isShowing() && this.fuf.bmC() != null) {
-            this.fuf.bmC().onPause();
+        if (this.fIb != null && this.fIb.isShowing() && this.fIb.bsa() != null) {
+            this.fIb.bsa().onPause();
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a.c
-    public void cl(int i) {
-        if (this.fuf != null && this.fuf.isShowing()) {
-            this.fuf.cl(i);
+    public void cs(int i) {
+        if (this.fIb != null && this.fIb.isShowing()) {
+            this.fIb.cs(i);
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a.c
     public void release() {
-        this.fug = 0L;
-        this.fuh = "";
-        MessageManager.getInstance().unRegisterListener(this.eZc);
-        if (this.fuf != null) {
-            this.fuf.bmD();
-            if (this.fuf.bmC() != null) {
-                this.fuf.bmC().release();
+        this.fIc = 0L;
+        this.fId = "";
+        MessageManager.getInstance().unRegisterListener(this.flM);
+        if (this.fIb != null) {
+            this.fIb.bsb();
+            if (this.fIb.bsa() != null) {
+                this.fIb.bsa().release();
             }
         }
     }
 
-    private void bmB() {
-        this.eZc = new CustomMessageListener(2913123) { // from class: com.baidu.tieba.ala.liveroom.a.a.1
+    private void brZ() {
+        this.flM = new CustomMessageListener(2913123) { // from class: com.baidu.tieba.ala.liveroom.a.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (a.this.fuf != null && a.this.fuf.isShowing()) {
-                    a.this.fuf.dismiss();
+                if (a.this.fIb != null && a.this.fIb.isShowing()) {
+                    a.this.fIb.dismiss();
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.eZc);
+        MessageManager.getInstance().registerListener(this.flM);
     }
 }

@@ -132,8 +132,9 @@ public final class IMConnection {
                         String str2 = Constants.URL_SOCKET_SERVER;
                         int i = Constants.SOCKET_PORT_SSL;
                         try {
-                            str2 = str.split(":")[0];
-                            i = Integer.valueOf(str.split(":")[1]).intValue();
+                            int lastIndexOf = str.lastIndexOf(":");
+                            i = Integer.valueOf(str.substring(lastIndexOf + 1)).intValue();
+                            str2 = str.substring(0, lastIndexOf);
                         } catch (Exception e) {
                             e.printStackTrace();
                             new IMTrack.CrashBuilder(IMConnection.this.mContext).exception(Log.getStackTraceString(e)).build();
@@ -391,9 +392,8 @@ public final class IMConnection {
             setName("IM-IMConnection-SendThread");
         }
 
-        /* JADX WARN: Removed duplicated region for block: B:113:0x0056 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-        /* JADX WARN: Removed duplicated region for block: B:135:0x0005 A[SYNTHETIC] */
-        /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:122:? -> B:110:0x02a1). Please submit an issue!!! */
+        /* JADX WARN: Removed duplicated region for block: B:110:0x0056 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+        /* JADX WARN: Removed duplicated region for block: B:128:0x0005 A[SYNTHETIC] */
         @Override // java.lang.Thread, java.lang.Runnable
         /*
             Code decompiled incorrectly, please refer to instructions dump.
@@ -439,9 +439,7 @@ public final class IMConnection {
                                 if (first != null) {
                                     try {
                                         if (!first.isHeartbeat() && first.getType() != 50 && first.getUk() == 0) {
-                                            synchronized (IMConnection.this.mMessageHandler.getMessageQueue()) {
-                                                IMConnection.this.mMessageHandler.getMessageQueue().wait();
-                                            }
+                                            IMConnection.this.mMessageHandler.getMessageQueue().wait();
                                             message = first;
                                         }
                                     } catch (Throwable th2) {

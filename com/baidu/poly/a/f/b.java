@@ -16,7 +16,7 @@ public class b {
         return sb.toString();
     }
 
-    public static String h(String str) {
+    public static String g(String str) {
         try {
             MessageDigest messageDigest = MessageDigest.getInstance("MD5");
             messageDigest.update(str.getBytes());

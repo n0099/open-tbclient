@@ -18,11 +18,11 @@ import tv.chushou.zues.widget.viewpager.KasVerticalViewPager;
 /* loaded from: classes5.dex */
 public class VideoVerticalViewPager extends KasVerticalViewPager {
     private boolean a;
+    private int[] aiU;
     private int b;
     private float c;
     private float d;
     private boolean e;
-    private int[] f;
 
     public VideoVerticalViewPager(Context context) {
         super(context);
@@ -145,7 +145,7 @@ public class VideoVerticalViewPager extends KasVerticalViewPager {
 
     public void setSurfaceLoc(int[] iArr) {
         if (iArr != null && iArr.length == 4) {
-            this.f = iArr;
+            this.aiU = iArr;
         }
     }
 }

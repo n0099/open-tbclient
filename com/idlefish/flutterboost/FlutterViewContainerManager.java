@@ -47,9 +47,11 @@ public class FlutterViewContainerManager implements IContainerManager {
         this.mShowRecord.push(iContainerRecord);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void removeShowRecord(IContainerRecord iContainerRecord) {
-        this.mShowRecord.remove(iContainerRecord);
+    public IContainerRecord peekShowRecord() {
+        if (this.mShowRecord.isEmpty()) {
+            return null;
+        }
+        return this.mShowRecord.peek();
     }
 
     public IContainerRecord popShowRecord() {
@@ -57,6 +59,11 @@ public class FlutterViewContainerManager implements IContainerManager {
             return null;
         }
         return this.mShowRecord.pop();
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public void removeShowRecord(IContainerRecord iContainerRecord) {
+        this.mShowRecord.remove(iContainerRecord);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

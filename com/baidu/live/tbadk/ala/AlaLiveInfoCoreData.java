@@ -10,7 +10,6 @@ public class AlaLiveInfoCoreData extends BaseData implements Serializable {
     private static final long serialVersionUID = 5768965545624138312L;
     public String action;
     public long audienceCount;
-    public int broadcast_type = 0;
     public String feed_id;
     public String flvUrl;
     public long groupID;
@@ -20,6 +19,7 @@ public class AlaLiveInfoCoreData extends BaseData implements Serializable {
     public int liveStatus;
     public String liveTitle;
     public int liveType;
+    public int localBroadcastType = 0;
     public String mediaPic;
     public String otherParams;
     public String rtmpUrl;

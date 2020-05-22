@@ -4,9 +4,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import com.baidu.live.tbadk.core.BaseFragment;
 /* loaded from: classes3.dex */
-public abstract class LazyLoadFragment extends BaseFragment {
+public abstract class LazyLoadFragment extends SupportXFragment {
     private ILazyLoadFragmentController mController;
     protected boolean mInitialed;
     protected boolean mVisible;
@@ -21,15 +20,15 @@ public abstract class LazyLoadFragment extends BaseFragment {
 
     protected abstract void onInitial();
 
-    @Override // android.support.v4.app.Fragment
+    @Override // com.baidu.live.tbadk.core.fragment.SupportXFragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         this.mController = createController();
-        View genRootView = genRootView();
-        onInflate(genRootView, bundle);
-        return genRootView;
+        this.mView = genRootView();
+        onInflate(this.mView, bundle);
+        return this.mView;
     }
 
-    @Override // com.baidu.live.tbadk.core.BaseFragment, android.support.v4.app.Fragment
+    @Override // com.baidu.live.tbadk.core.fragment.SupportXFragment
     public void onActivityCreated(Bundle bundle) {
         super.onActivityCreated(bundle);
         if (!lazy() || (this.mVisible && !this.mInitialed)) {
@@ -37,7 +36,7 @@ public abstract class LazyLoadFragment extends BaseFragment {
         }
     }
 
-    @Override // com.baidu.live.tbadk.core.BaseFragment, android.support.v4.app.Fragment
+    @Override // com.baidu.live.tbadk.core.fragment.SupportXFragment
     public void setUserVisibleHint(boolean z) {
         super.setUserVisibleHint(z);
         this.mVisible = z;
@@ -49,7 +48,7 @@ public abstract class LazyLoadFragment extends BaseFragment {
         }
     }
 
-    @Override // com.baidu.live.tbadk.core.BaseFragment, android.support.v4.app.Fragment
+    @Override // com.baidu.live.tbadk.core.fragment.SupportXFragment
     public void onResume() {
         super.onResume();
         if (this.mController != null) {
@@ -57,7 +56,7 @@ public abstract class LazyLoadFragment extends BaseFragment {
         }
     }
 
-    @Override // com.baidu.live.tbadk.core.BaseFragment, android.support.v4.app.Fragment
+    @Override // com.baidu.live.tbadk.core.fragment.SupportXFragment
     public void onPause() {
         if (this.mController != null) {
             this.mController.onPause();
@@ -65,7 +64,7 @@ public abstract class LazyLoadFragment extends BaseFragment {
         super.onPause();
     }
 
-    @Override // com.baidu.live.tbadk.core.BaseFragment, android.support.v4.app.Fragment
+    @Override // com.baidu.live.tbadk.core.fragment.SupportXFragment
     public void onDestroyView() {
         if (this.mController != null) {
             this.mController.onDestoryView();
@@ -74,7 +73,7 @@ public abstract class LazyLoadFragment extends BaseFragment {
         super.onDestroyView();
     }
 
-    @Override // com.baidu.live.tbadk.core.BaseFragment, android.support.v4.app.Fragment
+    @Override // com.baidu.live.tbadk.core.fragment.SupportXFragment
     public void onDestroy() {
         if (this.mController != null) {
             this.mController.onDestroy();

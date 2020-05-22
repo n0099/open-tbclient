@@ -24,6 +24,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.util.Enumeration;
@@ -132,7 +133,7 @@ public class h {
         return b2.right - b2.left < (iArr2[0] * 192) / 750;
     }
 
-    private static Rect b(int[] iArr) {
+    public static Rect b(int[] iArr) {
         Point point = new Point();
         Point point2 = new Point();
         if (iArr.length > 2) {
@@ -334,5 +335,9 @@ public class h {
             d.a(th);
             return "";
         }
+    }
+
+    public static double a(int i2, int i3) {
+        return new BigDecimal(Double.toString(i2)).divide(new BigDecimal(Double.toString(i3)), 10, 4).doubleValue();
     }
 }

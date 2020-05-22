@@ -9,6 +9,8 @@ import com.baidu.tbadk.core.atomData.GuildActivityConfig;
 import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
 /* loaded from: classes10.dex */
 class GuideActivityStatic {
+    public static String Tag = "tag";
+
     GuideActivityStatic() {
     }
 

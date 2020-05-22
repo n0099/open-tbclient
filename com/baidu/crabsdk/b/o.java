@@ -8,18 +8,18 @@ import com.baidu.android.util.devices.NetWorkUtils;
 import com.baidu.android.util.devices.RomUtils;
 /* loaded from: classes8.dex */
 public final class o {
-    private static TelephonyManager aky;
-    private static ConnectivityManager akz;
+    private static TelephonyManager ale;
+    private static ConnectivityManager alf;
     private static Context mContext;
 
     public static String H() {
         NetworkInfo activeNetworkInfo;
         StringBuilder sb = new StringBuilder();
         try {
-            if (akz == null) {
-                akz = (ConnectivityManager) mContext.getSystemService("connectivity");
+            if (alf == null) {
+                alf = (ConnectivityManager) mContext.getSystemService("connectivity");
             }
-            activeNetworkInfo = akz.getActiveNetworkInfo();
+            activeNetworkInfo = alf.getActiveNetworkInfo();
         } catch (RuntimeException e) {
             com.baidu.crabsdk.c.a.a("getNetworkInfo", e);
         }
@@ -30,10 +30,10 @@ public final class o {
             sb.append("type: ").append(activeNetworkInfo.getTypeName()).append("\n");
             if (activeNetworkInfo.getType() == 0) {
                 sb.append("subType: ").append(activeNetworkInfo.getSubtypeName()).append("\n");
-                if (aky == null) {
-                    aky = (TelephonyManager) mContext.getSystemService("phone");
+                if (ale == null) {
+                    ale = (TelephonyManager) mContext.getSystemService("phone");
                 }
-                sb.append("isRoaming: ").append(aky.isNetworkRoaming() ? "yes" : NetWorkUtils.NETWORK_TYPE_CELL_UN_CONNECTED).append("\n");
+                sb.append("isRoaming: ").append(ale.isNetworkRoaming() ? "yes" : NetWorkUtils.NETWORK_TYPE_CELL_UN_CONNECTED).append("\n");
             }
         } else {
             sb.append("type: none\n");
@@ -43,10 +43,10 @@ public final class o {
 
     public static String I() {
         try {
-            if (akz == null) {
-                akz = (ConnectivityManager) mContext.getSystemService("connectivity");
+            if (alf == null) {
+                alf = (ConnectivityManager) mContext.getSystemService("connectivity");
             }
-            NetworkInfo activeNetworkInfo = akz.getActiveNetworkInfo();
+            NetworkInfo activeNetworkInfo = alf.getActiveNetworkInfo();
             return activeNetworkInfo == null ? RomUtils.UNKNOWN : !activeNetworkInfo.isConnected() ? "NONE" : activeNetworkInfo.getTypeName().toUpperCase();
         } catch (RuntimeException e) {
             return RomUtils.UNKNOWN;

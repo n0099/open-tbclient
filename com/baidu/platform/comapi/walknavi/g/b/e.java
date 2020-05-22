@@ -2,7 +2,7 @@ package com.baidu.platform.comapi.walknavi.g.b;
 
 import com.baidu.platform.comapi.walknavi.widget.a;
 /* loaded from: classes8.dex */
-class e implements a.InterfaceC0194a {
+class e implements a.InterfaceC0227a {
     final /* synthetic */ c a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -10,7 +10,7 @@ class e implements a.InterfaceC0194a {
         this.a = cVar;
     }
 
-    @Override // com.baidu.platform.comapi.walknavi.widget.a.InterfaceC0194a
+    @Override // com.baidu.platform.comapi.walknavi.widget.a.InterfaceC0227a
     public void a() {
     }
 }

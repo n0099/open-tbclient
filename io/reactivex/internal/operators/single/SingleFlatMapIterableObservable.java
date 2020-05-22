@@ -125,7 +125,7 @@ public final class SingleFlatMapIterableObservable<T, R> extends q<R> {
         public R poll() throws Exception {
             Iterator<? extends R> it = this.it;
             if (it != null) {
-                R r = (R) io.reactivex.internal.functions.a.h(it.next(), "The iterator returned a null value");
+                R r = (R) io.reactivex.internal.functions.a.k(it.next(), "The iterator returned a null value");
                 if (!it.hasNext()) {
                     this.it = null;
                     return r;

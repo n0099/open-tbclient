@@ -7,13 +7,13 @@ import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.e;
 import java.util.List;
 /* loaded from: classes13.dex */
-public class b extends com.baidu.adp.framework.a.a {
+public class b extends com.baidu.adp.framework.b.a {
     public b() {
         super(CmdConfigCustom.MEMORY_REQUEST_MEMORY_LIST);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.a.g
+    @Override // com.baidu.adp.framework.b.g
     /* renamed from: j */
     public CustomResponsedMessage a(CustomResponsedMessage customResponsedMessage) {
         List<ImMessageCenterPojo> data;

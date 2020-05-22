@@ -6,29 +6,29 @@ import com.baidu.live.adp.framework.listener.NetMessageListener;
 import com.baidu.live.adp.framework.message.HttpMessage;
 import com.baidu.live.adp.framework.message.ResponsedMessage;
 import com.baidu.live.data.AlaLiveUserInfoData;
-import com.baidu.live.data.h;
+import com.baidu.live.data.k;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.mobstat.Config;
 import com.baidu.tieba.ala.charm.ALaCharmCardActivity;
 /* loaded from: classes3.dex */
 public class b extends BdBaseModel<ALaCharmCardActivity> {
-    private h fbH;
-    private a fbI;
-    private NetMessageListener fbJ;
+    private k fpj;
+    private a fpk;
+    private NetMessageListener fpl;
 
     /* loaded from: classes3.dex */
     public interface a {
-        void a(long j, h hVar, AlaLiveUserInfoData alaLiveUserInfoData, long j2);
+        void a(long j, k kVar, AlaLiveUserInfoData alaLiveUserInfoData, long j2);
 
-        void as(int i, String str);
+        void ax(int i, String str);
     }
 
     public b(TbPageContext<ALaCharmCardActivity> tbPageContext, a aVar) {
         super(tbPageContext);
-        this.fbJ = new NetMessageListener(1021008, 602004) { // from class: com.baidu.tieba.ala.charm.model.b.1
+        this.fpl = new NetMessageListener(1021008, 602004) { // from class: com.baidu.tieba.ala.charm.model.b.1
             @Override // com.baidu.live.adp.framework.listener.NetMessageListener
             public void onMessage(ResponsedMessage<?> responsedMessage) {
-                h hVar;
+                k kVar;
                 long j;
                 long j2 = 0;
                 AlaLiveUserInfoData alaLiveUserInfoData = null;
@@ -36,32 +36,32 @@ public class b extends BdBaseModel<ALaCharmCardActivity> {
                     int error = responsedMessage.getError();
                     if (responsedMessage instanceof OnlineListHttpResponseMessage) {
                         OnlineListHttpResponseMessage onlineListHttpResponseMessage = (OnlineListHttpResponseMessage) responsedMessage;
-                        j = onlineListHttpResponseMessage.bno();
-                        h bnp = onlineListHttpResponseMessage.bnp();
-                        alaLiveUserInfoData = onlineListHttpResponseMessage.bnq();
-                        j2 = onlineListHttpResponseMessage.bnr();
-                        hVar = bnp;
+                        j = onlineListHttpResponseMessage.btg();
+                        k bth = onlineListHttpResponseMessage.bth();
+                        alaLiveUserInfoData = onlineListHttpResponseMessage.bti();
+                        j2 = onlineListHttpResponseMessage.btj();
+                        kVar = bth;
                     } else {
-                        hVar = null;
+                        kVar = null;
                         j = 0;
                     }
                     if (error == 0) {
-                        b.this.fbH = hVar;
-                        if (b.this.fbI != null) {
-                            b.this.fbI.a(j, b.this.fbH, alaLiveUserInfoData, j2);
+                        b.this.fpj = kVar;
+                        if (b.this.fpk != null) {
+                            b.this.fpk.a(j, b.this.fpj, alaLiveUserInfoData, j2);
                         }
-                    } else if (b.this.fbI != null) {
-                        b.this.fbI.as(responsedMessage.getError(), responsedMessage.getErrorString());
+                    } else if (b.this.fpk != null) {
+                        b.this.fpk.ax(responsedMessage.getError(), responsedMessage.getErrorString());
                     }
                 }
             }
         };
-        this.fbI = aVar;
-        MessageManager.getInstance().registerListener(this.fbJ);
+        this.fpk = aVar;
+        MessageManager.getInstance().registerListener(this.fpl);
         com.baidu.live.tieba.f.a.a.a(1021008, "ala/live/getAudienceInfo", OnlineListHttpResponseMessage.class, false, true, true, true);
     }
 
-    public void s(String str, int i, int i2) {
+    public void u(String str, int i, int i2) {
         HttpMessage httpMessage = new HttpMessage(1021008);
         httpMessage.addParam("live_id", str);
         httpMessage.addParam(Config.PACKAGE_NAME, i);
@@ -69,7 +69,7 @@ public class b extends BdBaseModel<ALaCharmCardActivity> {
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
-    public void t(String str, int i, int i2) {
+    public void v(String str, int i, int i2) {
         HttpMessage httpMessage = new HttpMessage(1021008);
         httpMessage.addParam("live_id", str);
         httpMessage.addParam(Config.PACKAGE_NAME, i);
@@ -78,7 +78,7 @@ public class b extends BdBaseModel<ALaCharmCardActivity> {
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.fbJ);
+        MessageManager.getInstance().unRegisterListener(this.fpl);
         MessageManager.getInstance().unRegisterTask(1021008);
         cancelMessage();
     }

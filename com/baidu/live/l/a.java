@@ -29,7 +29,7 @@ public class a {
                     } else {
                         str2 = strArr[2];
                     }
-                    a.l(str3, str4, str2, null);
+                    a.m(str3, str4, str2, null);
                     return;
                 case 2:
                     String[] strArr2 = (String[]) message.obj;
@@ -40,7 +40,7 @@ public class a {
                     } else {
                         str = strArr2[2];
                     }
-                    a.l(str5, str6, null, str);
+                    a.m(str5, str6, null, str);
                     return;
                 default:
                     return;
@@ -49,7 +49,7 @@ public class a {
     };
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void l(String str, String str2, String str3, String str4) {
+    public static void m(String str, String str2, String str3, String str4) {
         HttpMessage httpMessage = new HttpMessage(1021128);
         httpMessage.addParam("live_id", str);
         httpMessage.addParam("content_type", str2);
@@ -61,7 +61,7 @@ public class a {
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
-    public static void af(String str, String str2) {
+    public static void au(String str, String str2) {
         Message message = new Message();
         message.what = 1;
         message.obj = new String[]{str, str2};

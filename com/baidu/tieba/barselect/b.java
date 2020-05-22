@@ -13,7 +13,7 @@ public class b extends RecyclerView.Adapter<c> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.support.v7.widget.RecyclerView.Adapter
-    /* renamed from: p */
+    /* renamed from: n */
     public c onCreateViewHolder(ViewGroup viewGroup, int i) {
         return new c(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.view_candidate_item, (ViewGroup) null));
     }

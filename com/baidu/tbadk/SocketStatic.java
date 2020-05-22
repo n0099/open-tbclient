@@ -14,6 +14,8 @@ import com.baidu.tbadk.lcs.a;
 import org.apache.http.conn.params.ConnRoutePNames;
 /* loaded from: classes.dex */
 public class SocketStatic {
+    public static String Tag = "tag";
+
     static {
         MessageManager.getInstance().registerListener(new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tbadk.SocketStatic.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -26,7 +28,7 @@ public class SocketStatic {
                         BdSocketLinkService.startService(false, "net succ");
                     }
                     synchronized (f.class) {
-                        f.dAH.removeParameter(ConnRoutePNames.DEFAULT_PROXY);
+                        f.dON.removeParameter(ConnRoutePNames.DEFAULT_PROXY);
                         f.proxyHost = null;
                     }
                 }

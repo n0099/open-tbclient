@@ -10,7 +10,7 @@ import com.baidu.webkit.internal.ETAG;
 import com.baidu.webkit.internal.INoProGuard;
 import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
 import com.baidu.webkit.internal.e;
-import com.baidu.webkit.internal.utils.c;
+import com.baidu.webkit.internal.utils.ZeusInitConfigUtils;
 import com.baidu.webkit.net.BdNet;
 import com.baidu.webkit.net.BdNetTask;
 import com.baidu.webkit.net.INetListener;
@@ -29,22 +29,22 @@ public class CloudSettings implements INoProGuard, INetListener {
     private static final String CLOUD_SETTING_URL = "https://browserkernel.baidu.com/config/t5config?cmd=1&";
     private static final String CLOUD_SETTING_URL_HTTP = "http://browserkernel.baidu.com/config/t5config?cmd=1&";
     private static final String LOG_TAG = "CloudSettings";
-    public static a netRecord;
-    private ByteArrayOutputStream mData;
-    private static String sLastGetTime = null;
-    private static boolean mDownloading = false;
-    private static boolean mSuccessDownload = false;
-    private static boolean mReady = false;
     public static List<a> NetRecordList = new ArrayList();
-    private Map<String, String> mHeader = null;
-    private long mStartTime = 0;
+    private static boolean mDownloading;
+    private static boolean mReady;
+    private static boolean mSuccessDownload;
+    public static a netRecord;
+    private static String sLastGetTime;
+    private Map<String, String> mHeader;
+    private long mStartTime;
     private int mNetres = -1;
+    private ByteArrayOutputStream mData = null;
 
     /* loaded from: classes11.dex */
     public class a {
-        public long a = 0;
+        public long a;
         public int b = -1;
-        public boolean c = false;
+        public boolean c;
 
         public a() {
         }
@@ -63,11 +63,6 @@ public class CloudSettings implements INoProGuard, INetListener {
             Log.w(CloudSettings.LOG_TAG, "mCronet " + z);
             this.c = z;
         }
-    }
-
-    public CloudSettings() {
-        this.mData = null;
-        this.mData = null;
     }
 
     private static void addRawLogItem(StringBuilder sb, String str, long j) {
@@ -149,21 +144,21 @@ public class CloudSettings implements INoProGuard, INetListener {
     public static void restoreLastSentTimeFromCfg() {
         Log.w(LOG_TAG, "restoreLastSentTimeFromCfg");
         sLastGetTime = null;
-        c.b();
-        String a2 = com.baidu.webkit.internal.utils.b.a(CfgFileUtils.KEY_ENGINE_CLOUDSETTINGS_TIME);
-        if (a2 == null) {
+        com.baidu.webkit.internal.utils.b.b();
+        String str = ZeusInitConfigUtils.get("engineCloudSettingsTime", (String) null);
+        if (str == null) {
             return;
         }
         try {
-            byte[] decode = Base64.decode(a2.getBytes(), 0);
+            byte[] decode = Base64.decode(str.getBytes(), 0);
             if (decode != null) {
                 sLastGetTime = reverseString(new String(decode, "utf-8"));
-                c.b();
-                String a3 = com.baidu.webkit.internal.utils.b.a(CfgFileUtils.KEY_ENGINE_CLOUDSETTINGS_DATA);
-                if (a3 == null) {
+                com.baidu.webkit.internal.utils.b.b();
+                String str2 = ZeusInitConfigUtils.get("engineCloudSettingsData", (String) null);
+                if (str2 == null) {
                     Log.w(LOG_TAG, "restoreLastSentTimeFromCfg null");
                 } else {
-                    WebSettingsGlobalBlink.setCloudSettings(new String(a3.getBytes("utf-8"), "utf-8"));
+                    WebSettingsGlobalBlink.setCloudSettings(new String(str2.getBytes("utf-8"), "utf-8"));
                 }
             }
         } catch (Throwable th) {
@@ -173,12 +168,12 @@ public class CloudSettings implements INoProGuard, INetListener {
 
     public static void restoreSettingsToFrameWork() {
         try {
-            c.b();
-            String a2 = com.baidu.webkit.internal.utils.b.a(CfgFileUtils.KEY_ENGINE_CLOUDSETTINGS_DATA);
-            if (a2 == null) {
+            com.baidu.webkit.internal.utils.b.b();
+            String str = ZeusInitConfigUtils.get("engineCloudSettingsData", (String) null);
+            if (str == null) {
                 return;
             }
-            WebSettingsGlobalBlink.setCloudSettings(new String(a2.getBytes("utf-8"), "utf-8"));
+            WebSettingsGlobalBlink.setCloudSettings(new String(str.getBytes("utf-8"), "utf-8"));
         } catch (Throwable th) {
             com.a.a.a.a.a.a.a.a(th);
         }
@@ -197,9 +192,9 @@ public class CloudSettings implements INoProGuard, INetListener {
             byte[] encode = Base64.encode(reverseString(refFormatNowDate).getBytes(), 0);
             if (encode != null) {
                 String str = new String(encode, "utf-8");
-                c.b();
-                com.baidu.webkit.internal.utils.b.a(CfgFileUtils.KEY_ENGINE_CLOUDSETTINGS_TIME, str);
-                com.baidu.webkit.internal.utils.b.a(CfgFileUtils.KEY_ENGINE_CLOUDSETTINGS_DATA, new String(bArr, "utf-8"));
+                com.baidu.webkit.internal.utils.b.b();
+                ZeusInitConfigUtils.set("engineCloudSettingsTime", str);
+                ZeusInitConfigUtils.set("engineCloudSettingsData", new String(bArr, "utf-8"));
             }
         } catch (Throwable th) {
             com.a.a.a.a.a.a.a.a(th);
@@ -207,11 +202,16 @@ public class CloudSettings implements INoProGuard, INetListener {
     }
 
     public static void tryToUpdateCloudSettings(Context context) {
-        if (!ConectivityUtils.getNetType(context).equals("unknown") && tryToUploadCloudSettings()) {
-            if (!WebKitFactory.getNeedDownloadCloudResource()) {
-                Log.w(LOG_TAG, " tryToUpdateCloudSettings festival return");
-                return;
-            }
+        if (ConectivityUtils.getNetType(context).equals("unknown")) {
+            return;
+        }
+        if (!WebKitFactory.getNeedDownloadCloudResource()) {
+            Log.w(LOG_TAG, " tryToUpdateCloudSettings festival return");
+        } else if (!WebKitFactory.isUserPrivacyEnabled()) {
+            Log.i(LOG_TAG, " tryToUpdateCloudSettings isUserPrivacy return");
+        } else if (!tryToUploadCloudSettings()) {
+            Log.i(LOG_TAG, " tryToUpdateCloudSettings tryToUploadCloudSettings return");
+        } else {
             Log.w(LOG_TAG, "tryToUpdateCloudSettings " + WebKitFactory.getNeedDownloadCloudResource());
             try {
                 BdNet bdNet = new BdNet(context);

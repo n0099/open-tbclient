@@ -1,11 +1,12 @@
 package com.baidu.webkit.sdk;
 /* loaded from: classes11.dex */
 public class GeolocationServiceBridge {
-    static GeolocationServiceBridge sInstance = null;
+    static GeolocationServiceBridge sInstance;
+    private static final Object sLockObject = new Object();
 
-    public static synchronized GeolocationServiceBridge getInstance() {
+    public static GeolocationServiceBridge getInstance() {
         GeolocationServiceBridge geolocationServiceBridge;
-        synchronized (GeolocationServiceBridge.class) {
+        synchronized (sLockObject) {
             if (sInstance != null) {
                 geolocationServiceBridge = sInstance;
             } else {

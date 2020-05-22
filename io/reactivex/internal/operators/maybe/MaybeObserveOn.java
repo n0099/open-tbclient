@@ -46,18 +46,18 @@ public final class MaybeObserveOn<T> extends a<T, T> {
         @Override // io.reactivex.m
         public void onSuccess(T t) {
             this.value = t;
-            DisposableHelper.replace(this, this.scheduler.H(this));
+            DisposableHelper.replace(this, this.scheduler.J(this));
         }
 
         @Override // io.reactivex.m
         public void onError(Throwable th) {
             this.error = th;
-            DisposableHelper.replace(this, this.scheduler.H(this));
+            DisposableHelper.replace(this, this.scheduler.J(this));
         }
 
         @Override // io.reactivex.m
         public void onComplete() {
-            DisposableHelper.replace(this, this.scheduler.H(this));
+            DisposableHelper.replace(this, this.scheduler.J(this));
         }
 
         @Override // java.lang.Runnable

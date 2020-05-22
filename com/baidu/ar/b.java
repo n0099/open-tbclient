@@ -77,8 +77,8 @@ public class b {
             try {
                 switch (message.what) {
                     case 1001:
-                        C0076b c0076b = (C0076b) message.obj;
-                        b.this.a(c0076b.mClassName, c0076b.G, c0076b.H, c0076b.I, c0076b.J, c0076b.K);
+                        C0078b c0078b = (C0078b) message.obj;
+                        b.this.a(c0078b.mClassName, c0078b.G, c0078b.H, c0078b.I, c0078b.J, c0078b.K);
                         break;
                     case 1002:
                         c cVar = (c) message.obj;
@@ -95,7 +95,7 @@ public class b {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.ar.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0076b {
+    public class C0078b {
         List<String> G;
         boolean H;
         HashMap<String, Object> I;
@@ -103,7 +103,7 @@ public class b {
         com.baidu.ar.c.e K;
         String mClassName;
 
-        C0076b(String str, String str2, boolean z, HashMap<String, Object> hashMap) {
+        C0078b(String str, String str2, boolean z, HashMap<String, Object> hashMap) {
             this.mClassName = str;
             this.G = new ArrayList();
             this.G.add(str2);
@@ -111,14 +111,14 @@ public class b {
             this.I = hashMap;
         }
 
-        C0076b(String str, HashMap<String, Object> hashMap, String str2, com.baidu.ar.c.e eVar) {
+        C0078b(String str, HashMap<String, Object> hashMap, String str2, com.baidu.ar.c.e eVar) {
             this.mClassName = str;
             this.J = str2;
             this.I = hashMap;
             this.K = eVar;
         }
 
-        C0076b(String str, List<String> list, boolean z, HashMap<String, Object> hashMap) {
+        C0078b(String str, List<String> list, boolean z, HashMap<String, Object> hashMap) {
             this.mClassName = str;
             this.G = list;
             this.H = z;
@@ -273,8 +273,8 @@ public class b {
     }
 
     private void a(final List<String> list) {
-        com.baidu.ar.libloader.b.a(ARType.FACE, null, null, new a.InterfaceC0082a() { // from class: com.baidu.ar.b.2
-            @Override // com.baidu.ar.libloader.a.InterfaceC0082a
+        com.baidu.ar.libloader.b.a(ARType.FACE, null, null, new a.InterfaceC0084a() { // from class: com.baidu.ar.b.2
+            @Override // com.baidu.ar.libloader.a.InterfaceC0084a
             public void a(ARType aRType, String str, String str2) {
                 b.this.t.addAll(b.this.s);
                 String str3 = (String) b.this.i.get("ability_face_filter");
@@ -282,7 +282,7 @@ public class b {
                     return;
                 }
                 if (b.this.k.get(str3) == null) {
-                    b.this.b.sendMessage(b.this.b.obtainMessage(1001, new C0076b(str3, (List<String>) list, true, (HashMap<String, Object>) null)));
+                    b.this.b.sendMessage(b.this.b.obtainMessage(1001, new C0078b(str3, (List<String>) list, true, (HashMap<String, Object>) null)));
                     return;
                 }
                 ((com.baidu.ar.c) b.this.k.get(str3)).o();
@@ -490,7 +490,7 @@ public class b {
                 if (b.this.j != null && b.this.j.containsKey(str)) {
                     String str2 = (String) b.this.j.get(str);
                     if (!TextUtils.isEmpty(str2) && b.this.b != null) {
-                        b.this.b.sendMessage(b.this.b.obtainMessage(1001, new C0076b(str2, hashMap, str, eVar)));
+                        b.this.b.sendMessage(b.this.b.obtainMessage(1001, new C0078b(str2, hashMap, str, eVar)));
                         return true;
                     }
                 }
@@ -563,7 +563,7 @@ public class b {
             return;
         }
         this.t.add(str2);
-        this.b.sendMessage(this.b.obtainMessage(1001, new C0076b(str3, str2, false, (HashMap<String, Object>) null)));
+        this.b.sendMessage(this.b.obtainMessage(1001, new C0078b(str3, str2, false, (HashMap<String, Object>) null)));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -828,7 +828,7 @@ public class b {
             }
             f(str);
             if (this.b != null) {
-                this.b.sendMessage(this.b.obtainMessage(1001, new C0076b(str2, str, false, hashMap)));
+                this.b.sendMessage(this.b.obtainMessage(1001, new C0078b(str2, str, false, hashMap)));
                 return true;
             }
             return false;

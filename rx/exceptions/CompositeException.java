@@ -131,8 +131,8 @@ public final class CompositeException extends RuntimeException {
                 appendStackTrace(sb, it.next(), "\t");
                 i = i2 + 1;
             } else {
-                synchronized (aVar.dHC()) {
-                    aVar.bu(sb.toString());
+                synchronized (aVar.dPw()) {
+                    aVar.bA(sb.toString());
                 }
                 return;
             }
@@ -153,9 +153,9 @@ public final class CompositeException extends RuntimeException {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes6.dex */
     public static abstract class a {
-        abstract void bu(Object obj);
+        abstract void bA(Object obj);
 
-        abstract Object dHC();
+        abstract Object dPw();
 
         a() {
         }
@@ -164,39 +164,39 @@ public final class CompositeException extends RuntimeException {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes6.dex */
     public static final class b extends a {
-        private final PrintStream mRn;
+        private final PrintStream nmv;
 
         b(PrintStream printStream) {
-            this.mRn = printStream;
+            this.nmv = printStream;
         }
 
         @Override // rx.exceptions.CompositeException.a
-        Object dHC() {
-            return this.mRn;
+        Object dPw() {
+            return this.nmv;
         }
 
         @Override // rx.exceptions.CompositeException.a
-        void bu(Object obj) {
-            this.mRn.println(obj);
+        void bA(Object obj) {
+            this.nmv.println(obj);
         }
     }
 
     /* loaded from: classes6.dex */
     static final class c extends a {
-        private final PrintWriter mRo;
+        private final PrintWriter nmw;
 
         c(PrintWriter printWriter) {
-            this.mRo = printWriter;
+            this.nmw = printWriter;
         }
 
         @Override // rx.exceptions.CompositeException.a
-        Object dHC() {
-            return this.mRo;
+        Object dPw() {
+            return this.nmw;
         }
 
         @Override // rx.exceptions.CompositeException.a
-        void bu(Object obj) {
-            this.mRo.println(obj);
+        void bA(Object obj) {
+            this.nmw.println(obj);
         }
     }
 

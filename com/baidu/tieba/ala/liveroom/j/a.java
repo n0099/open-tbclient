@@ -7,7 +7,7 @@ import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.message.CustomMessage;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.c.f;
-import com.baidu.live.data.n;
+import com.baidu.live.data.q;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
@@ -17,6 +17,7 @@ import com.baidu.live.tbadk.statics.AlaStaticsManager;
 import com.baidu.live.tbadk.statics.HKStaticManager;
 import com.baidu.live.tbadk.statics.SdkStaticKeys;
 import com.baidu.live.tbadk.ubc.UbcStatisticItem;
+import com.baidu.live.tbadk.ubc.UbcStatisticLiveKey;
 import com.baidu.live.tbadk.ubc.UbcStatisticManager;
 import com.baidu.live.u.a;
 import com.baidu.live.view.PriorityVerticalLinearLayout;
@@ -24,30 +25,30 @@ import com.baidu.live.x.b;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class a extends com.baidu.tieba.ala.liveroom.a {
-    private b fGN;
-    private ViewGroup faV;
-    private com.baidu.live.liveroom.a.a fyI;
+    private com.baidu.live.liveroom.a.a fMJ;
+    private b fUI;
+    private ViewGroup fox;
     private String otherParams;
 
     public a(TbPageContext tbPageContext, com.baidu.live.liveroom.a.a aVar) {
         super(tbPageContext);
-        this.fyI = aVar;
+        this.fMJ = aVar;
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a
-    public void ah(ViewGroup viewGroup) {
-        super.ah(viewGroup);
+    public void ao(ViewGroup viewGroup) {
+        super.ao(viewGroup);
         d(viewGroup, null);
     }
 
     public void d(ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams) {
         CustomResponsedMessage runTask;
-        if (com.baidu.live.v.a.En().aQu.uT()) {
-            if (this.fGN == null && (runTask = MessageManager.getInstance().runTask(2913034, b.class, getPageContext().getPageActivity())) != null && runTask.getData() != null) {
-                this.fGN = (b) runTask.getData();
+        if (com.baidu.live.v.a.Ge().aWF.wf()) {
+            if (this.fUI == null && (runTask = MessageManager.getInstance().runTask(2913034, b.class, getPageContext().getPageActivity())) != null && runTask.getData() != null) {
+                this.fUI = (b) runTask.getData();
             }
-            if (this.fGN != null) {
-                this.fGN.EA();
+            if (this.fUI != null) {
+                this.fUI.Gr();
             }
             e(viewGroup, layoutParams);
         }
@@ -56,8 +57,8 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
     private void e(ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams) {
         View view;
         if (viewGroup != null) {
-            this.faV = viewGroup;
-            if (this.fGN != null && (view = this.fGN.getView()) != null) {
+            this.fox = viewGroup;
+            if (this.fUI != null && (view = this.fUI.getView()) != null) {
                 view.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.j.a.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view2) {
@@ -65,15 +66,15 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
                             AlaStaticItem alaStaticItem = new AlaStaticItem(SdkStaticKeys.CLICK_FLOWER);
                             alaStaticItem.addParams("feed_id", HKStaticManager.FEED_ID);
                             alaStaticItem.addParams("live_id", HKStaticManager.LIVE_ID);
-                            alaStaticItem.addParams("other_params", a.this.Cq());
+                            alaStaticItem.addParams("other_params", a.this.DN());
                             AlaStaticsManager.getInst().onStatic(alaStaticItem);
                         }
-                        a.this.bvy();
+                        a.this.bBx();
                         if (TbadkCoreApplication.isLogin()) {
-                            if (a.this.fyI != null) {
-                                a.this.fyI.cr(8);
+                            if (a.this.fMJ != null) {
+                                a.this.fMJ.cy(8);
                             }
-                            a.this.bvA();
+                            a.this.bBz();
                             return;
                         }
                         ViewHelper.skipToLoginActivity(a.this.getPageContext().getPageActivity());
@@ -81,7 +82,7 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
                 });
                 if (viewGroup.indexOfChild(view) < 0) {
                     if (layoutParams == null) {
-                        layoutParams = bvz();
+                        layoutParams = bBy();
                     }
                     if (viewGroup instanceof PriorityVerticalLinearLayout) {
                         view.setTag(a.g.sdk_pvl_layout_priority_tag_key, 2);
@@ -93,11 +94,11 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bvy() {
-        UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem("1396", "click", "liveroom", "petal_clk"));
+    public void bBx() {
+        UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", "liveroom", "petal_clk"));
     }
 
-    private ViewGroup.LayoutParams bvz() {
+    private ViewGroup.LayoutParams bBy() {
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams.addRule(11);
         layoutParams.rightMargin = getPageContext().getPageActivity().getResources().getDimensionPixelSize(a.e.sdk_ds24);
@@ -106,61 +107,61 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a
-    public void uf() {
-        super.uf();
-        if (this.fGN != null) {
-            View view = this.fGN.getView();
+    public void vm() {
+        super.vm();
+        if (this.fUI != null) {
+            View view = this.fUI.getView();
             if (view != null && view.getParent() != null) {
                 ((ViewGroup) view.getParent()).removeView(view);
             }
-            this.fGN.EB();
+            this.fUI.Gs();
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a
     public void onDestroy() {
-        if (this.fGN != null) {
-            View view = this.fGN.getView();
+        if (this.fUI != null) {
+            View view = this.fUI.getView();
             if (view != null && view.getParent() != null) {
                 ((ViewGroup) view.getParent()).removeView(view);
             }
-            this.fGN.onDestroy();
+            this.fUI.onDestroy();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bvA() {
+    public void bBz() {
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new f(getPageContext().getPageActivity())));
     }
 
-    public void A(JSONObject jSONObject) {
-        if (this.fGN != null) {
-            this.fGN.B(jSONObject);
+    public void E(JSONObject jSONObject) {
+        if (this.fUI != null) {
+            this.fUI.G(jSONObject);
         }
     }
 
-    public void s(n nVar) {
+    public void s(q qVar) {
         if (!TbadkCoreApplication.isLogin()) {
-            bvB();
+            bBA();
         }
-        if (this.fGN != null && this.fGN.getView() != null && nVar != null && nVar.aqN != null) {
-            this.fGN.a(nVar.aqN);
+        if (this.fUI != null && this.fUI.getView() != null && qVar != null && qVar.avM != null) {
+            this.fUI.a(qVar.avM);
         }
     }
 
     public void setCanVisible(boolean z) {
-        if (this.fGN != null) {
-            this.fGN.setCanVisible(z);
+        if (this.fUI != null) {
+            this.fUI.setCanVisible(z);
         }
     }
 
-    public void bvB() {
-        if (this.fGN != null && this.fGN.getView() != null) {
-            this.fGN.getView().setVisibility(8);
+    public void bBA() {
+        if (this.fUI != null && this.fUI.getView() != null) {
+            this.fUI.getView().setVisibility(8);
         }
     }
 
-    public String Cq() {
+    public String DN() {
         return this.otherParams;
     }
 

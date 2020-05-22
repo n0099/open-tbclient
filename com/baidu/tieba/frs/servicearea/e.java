@@ -21,17 +21,17 @@ public class e {
                 tbPageContext = ((BaseFragmentActivity) context).getPageContext();
             }
             if (tbPageContext != null) {
-                if (zVar.kRz != null) {
-                    com.baidu.tieba.aiapps.a.b(zVar.kRz.id, zVar.kRz.link, "1191003700000000", zVar.kRz.dhV);
+                if (zVar.ljP != null) {
+                    com.baidu.tieba.aiapps.a.b(zVar.ljP.id, zVar.ljP.link, "1191003700000000", zVar.ljP.dvQ);
                 } else {
-                    ba.aOV().b(tbPageContext, new String[]{zVar.link});
+                    ba.aUZ().b(tbPageContext, new String[]{zVar.link});
                 }
-                if (zVar.gBy) {
+                if (zVar.gQh) {
                     if (view != null) {
                         view.setVisibility(8);
                     }
-                    zVar.gBy = false;
-                    com.baidu.tbadk.core.sharedPref.b.aNT().putString("frs_service_version_" + zVar.forumName + zVar.name, zVar.version);
+                    zVar.gQh = false;
+                    com.baidu.tbadk.core.sharedPref.b.aTX().putString("frs_service_version_" + zVar.forumName + zVar.name, zVar.version);
                 }
             }
         }
@@ -40,10 +40,11 @@ public class e {
     public static void b(z zVar) {
         if (zVar != null) {
             an anVar = new an("c13627");
-            anVar.cI("fid", zVar.forumId);
-            anVar.af("obj_type", zVar.kRz == null ? 1 : 2);
-            anVar.af("obj_locate", zVar.index);
-            anVar.cI("uid", TbadkCoreApplication.getCurrentAccount());
+            anVar.dh("fid", zVar.forumId);
+            anVar.ag("obj_type", zVar.ljP == null ? 1 : 2);
+            anVar.ag("obj_locate", zVar.index);
+            anVar.dh("uid", TbadkCoreApplication.getCurrentAccount());
+            anVar.dh("obj_name", zVar.name);
             TiebaStatic.log(anVar);
         }
     }
@@ -51,10 +52,11 @@ public class e {
     public static void c(z zVar) {
         if (zVar != null) {
             an anVar = new an("c13626");
-            anVar.cI("fid", zVar.forumId);
-            anVar.af("obj_type", zVar.kRz == null ? 1 : 2);
-            anVar.af("obj_locate", zVar.index);
-            anVar.cI("uid", TbadkCoreApplication.getCurrentAccount());
+            anVar.dh("fid", zVar.forumId);
+            anVar.ag("obj_type", zVar.ljP == null ? 1 : 2);
+            anVar.ag("obj_locate", zVar.index);
+            anVar.dh("uid", TbadkCoreApplication.getCurrentAccount());
+            anVar.dh("obj_name", zVar.name);
             TiebaStatic.log(anVar);
         }
     }

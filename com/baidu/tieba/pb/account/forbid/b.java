@@ -13,39 +13,39 @@ public class b {
 
     /* renamed from: com.baidu.tieba.pb.account.forbid.b$b  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public interface InterfaceC0631b {
+    public interface InterfaceC0684b {
         void a(ForbidTplData forbidTplData);
 
         void b(ForbidTplData forbidTplData);
     }
 
-    public static void a(String str, String str2, InterfaceC0631b interfaceC0631b) {
-        new a(str, str2, interfaceC0631b).execute(new String[0]);
+    public static void a(String str, String str2, InterfaceC0684b interfaceC0684b) {
+        new a(str, str2, interfaceC0684b).execute(new String[0]);
     }
 
     /* loaded from: classes9.dex */
     private static class a extends BdAsyncTask<String, Object, ForbidTplData> {
-        private String jlU;
-        private String jlV;
-        private InterfaceC0631b jlW;
+        private String jCr;
+        private String jCs;
+        private InterfaceC0684b jCt;
 
-        public a(String str, String str2, InterfaceC0631b interfaceC0631b) {
-            this.jlU = str;
-            this.jlV = str2;
-            this.jlW = interfaceC0631b;
+        public a(String str, String str2, InterfaceC0684b interfaceC0684b) {
+            this.jCr = str;
+            this.jCs = str2;
+            this.jCt = interfaceC0684b;
             setPriority(3);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: M */
+        /* renamed from: P */
         public ForbidTplData doInBackground(String... strArr) {
             x xVar = new x(b.BAWU_LIST_REASON);
-            xVar.addPostData("forum_id", this.jlU);
-            xVar.addPostData("user_id", this.jlV);
+            xVar.addPostData("forum_id", this.jCr);
+            xVar.addPostData("user_id", this.jCs);
             String postNetData = xVar.postNetData();
-            if (xVar.aOw().aOX().isRequestSuccess()) {
+            if (xVar.aUA().aVb().isRequestSuccess()) {
                 try {
                     return (ForbidTplData) OrmObject.objectWithJsonStr(postNetData, ForbidTplData.class);
                 } catch (Exception e) {
@@ -67,11 +67,11 @@ public class b {
         /* renamed from: c */
         public void onPostExecute(ForbidTplData forbidTplData) {
             super.onPostExecute(forbidTplData);
-            if (this.jlW != null) {
+            if (this.jCt != null) {
                 if (forbidTplData.error.errno == 0 && aq.isEmpty(forbidTplData.error.errMsg)) {
-                    this.jlW.a(forbidTplData);
+                    this.jCt.a(forbidTplData);
                 } else {
-                    this.jlW.b(forbidTplData);
+                    this.jCt.b(forbidTplData);
                 }
             }
         }

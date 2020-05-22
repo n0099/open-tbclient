@@ -50,7 +50,7 @@ public class c extends com.facebook.drawee.span.b {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.text.SpannableStringBuilder, android.text.Editable, java.lang.Appendable
-    /* renamed from: v */
+    /* renamed from: w */
     public c append(CharSequence charSequence) {
         super.append(charSequence);
         return this;

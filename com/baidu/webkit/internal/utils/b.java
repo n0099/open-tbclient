@@ -1,29 +1,31 @@
 package com.baidu.webkit.internal.utils;
 
-import android.content.SharedPreferences;
+import com.baidu.webkit.sdk.WebKitFactory;
 import com.baidu.webkit.sdk.WebViewFactory;
+import java.io.File;
+import java.io.IOException;
 /* loaded from: classes11.dex */
-public class b {
-    private static SharedPreferences a = null;
+public final class b {
+    private static boolean a;
+    private static int b = -1;
 
-    private static SharedPreferences a() {
-        if (a == null) {
-            synchronized (b.class) {
-                if (a == null) {
-                    a = WebViewFactory.getContext().getSharedPreferences("zeus_init_config", 0);
-                }
+    public static synchronized void a() {
+        synchronized (b.class) {
+            try {
+                new File(WebViewFactory.getContext().getFilesDir(), WebKitFactory.getProcessTypeString() + "zeus_init_model_opt").createNewFile();
+            } catch (IOException e) {
+                com.a.a.a.a.a.a.a.a(e);
             }
         }
-        return a;
     }
 
-    public static String a(String str) {
-        return a().getString(str, null);
-    }
-
-    public static void a(String str, String str2) {
-        SharedPreferences.Editor edit = a().edit();
-        edit.putString(str, str2);
-        edit.apply();
+    public static synchronized int b() {
+        synchronized (b.class) {
+            if (!a) {
+                b = new File(WebViewFactory.getContext().getFilesDir(), new StringBuilder().append(WebKitFactory.getProcessTypeString()).append("zeus_init_model_opt").toString()).exists() ? 1 : -1;
+                a = true;
+            }
+        }
+        return 1;
     }
 }

@@ -6,6 +6,7 @@ import android.util.Pair;
 import com.baidu.android.imsdk.chatmessage.IMediaSetSessionReadListener;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.ListenerManager;
+import com.baidu.android.imsdk.utils.HttpHelper;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import java.security.NoSuchAlgorithmException;
@@ -81,6 +82,11 @@ public class IMMediaSetSessionReadRequest extends IMMediaBaseHttpRequest {
             LogUtils.e(TAG, "getRequestParameter Exception ", e);
         }
         return jSONObject.toString().getBytes();
+    }
+
+    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
+    public String getContentType() {
+        return HttpHelper.CONTENT_JSON;
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request

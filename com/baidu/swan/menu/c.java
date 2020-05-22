@@ -23,7 +23,7 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static ObjectAnimator aK(View view) {
+    public static ObjectAnimator aJ(View view) {
         ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view, "alpha", 0.0f);
         ofFloat.setDuration(160L);
         ofFloat.setInterpolator(new LinearInterpolator());
@@ -39,6 +39,6 @@ public class c {
     }
 
     private static long c(BaseMenuView baseMenuView) {
-        return baseMenuView.aAY() ? 240L : 200L;
+        return baseMenuView.aEQ() ? 240L : 200L;
     }
 }

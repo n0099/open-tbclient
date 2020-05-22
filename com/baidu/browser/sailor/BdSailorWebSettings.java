@@ -823,6 +823,12 @@ public class BdSailorWebSettings implements INoProGuard {
         }
     }
 
+    public void setJsCallFullscreenEnable(boolean z) {
+        if (this.mWebSettings != null) {
+            this.mWebSettings.setJsCallFullscreenEnable(z);
+        }
+    }
+
     public synchronized void setLayoutAlgorithm(WebSettings.LayoutAlgorithm layoutAlgorithm) {
         this.mWebSettings.setLayoutAlgorithm(layoutAlgorithm);
     }

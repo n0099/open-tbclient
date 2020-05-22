@@ -17,33 +17,33 @@ import com.baidu.tieba.interestlabel.view.b;
 import java.util.List;
 /* loaded from: classes10.dex */
 public class LabelRecommendActivity extends BaseActivity<LabelRecommendActivity> {
-    private LabelSettingModel iFT;
-    private b iFU;
-    private a iFV = new a() { // from class: com.baidu.tieba.interestlabel.activity.LabelRecommendActivity.1
+    private LabelSettingModel iUR;
+    private b iUS;
+    private a iUT = new a() { // from class: com.baidu.tieba.interestlabel.activity.LabelRecommendActivity.1
         @Override // com.baidu.tieba.interestlabel.model.a
-        public void clO() {
+        public void csq() {
         }
 
         @Override // com.baidu.tieba.interestlabel.model.a
-        public void dr(List<Integer> list) {
+        public void dp(List<Integer> list) {
         }
 
         @Override // com.baidu.tieba.interestlabel.model.a
         public void a(LabelRequestEnum labelRequestEnum, com.baidu.tieba.interestlabel.b.b bVar, int i) {
-            switch (AnonymousClass2.iFX[labelRequestEnum.ordinal()]) {
+            switch (AnonymousClass2.iUV[labelRequestEnum.ordinal()]) {
                 case 1:
-                    LabelRecommendActivity.this.hideLoadingView(LabelRecommendActivity.this.iFU.getRootView());
-                    if (bVar == null || v.isEmpty(bVar.clR()) || v.isEmpty(bVar.clS())) {
-                        LabelRecommendActivity.this.showNetRefreshView(LabelRecommendActivity.this.iFU.getRootView(), TbadkCoreApplication.getInst().getString(R.string.neterror), true);
+                    LabelRecommendActivity.this.hideLoadingView(LabelRecommendActivity.this.iUS.getRootView());
+                    if (bVar == null || v.isEmpty(bVar.cst()) || v.isEmpty(bVar.csu())) {
+                        LabelRecommendActivity.this.showNetRefreshView(LabelRecommendActivity.this.iUS.getRootView(), TbadkCoreApplication.getInst().getString(R.string.neterror), true);
                         return;
                     }
-                    LabelRecommendActivity.this.hideNetRefreshView(LabelRecommendActivity.this.iFU.getRootView());
-                    LabelRecommendActivity.this.iFU.setData(bVar);
+                    LabelRecommendActivity.this.hideNetRefreshView(LabelRecommendActivity.this.iUS.getRootView());
+                    LabelRecommendActivity.this.iUS.setData(bVar);
                     return;
                 case 2:
                     if (i == 0) {
-                        com.baidu.tbadk.core.sharedPref.b.aNT().putBoolean(SharedPrefConfig.SET_RECOMMEND_LABEL, true);
-                        LabelRecommendActivity.this.clN();
+                        com.baidu.tbadk.core.sharedPref.b.aTX().putBoolean(SharedPrefConfig.SET_RECOMMEND_LABEL, true);
+                        LabelRecommendActivity.this.csp();
                         LabelRecommendActivity.this.finish();
                         return;
                     }
@@ -58,15 +58,15 @@ public class LabelRecommendActivity extends BaseActivity<LabelRecommendActivity>
     /* renamed from: com.baidu.tieba.interestlabel.activity.LabelRecommendActivity$2  reason: invalid class name */
     /* loaded from: classes10.dex */
     static /* synthetic */ class AnonymousClass2 {
-        static final /* synthetic */ int[] iFX = new int[LabelRequestEnum.values().length];
+        static final /* synthetic */ int[] iUV = new int[LabelRequestEnum.values().length];
 
         static {
             try {
-                iFX[LabelRequestEnum.GET_LABEL.ordinal()] = 1;
+                iUV[LabelRequestEnum.GET_LABEL.ordinal()] = 1;
             } catch (NoSuchFieldError e) {
             }
             try {
-                iFX[LabelRequestEnum.SUB_LABEL.ordinal()] = 2;
+                iUV[LabelRequestEnum.SUB_LABEL.ordinal()] = 2;
             } catch (NoSuchFieldError e2) {
             }
         }
@@ -76,56 +76,56 @@ public class LabelRecommendActivity extends BaseActivity<LabelRecommendActivity>
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.iFU = new b(this);
-        this.iFU.setOnClickListener(this);
-        this.iFT = new LabelSettingModel(getPageContext());
-        this.iFT.a(this.iFV);
+        this.iUS = new b(this);
+        this.iUS.setOnClickListener(this);
+        this.iUR = new LabelSettingModel(getPageContext());
+        this.iUR.a(this.iUT);
         if (getIntent() != null) {
             this.mFrom = getIntent().getIntExtra("from", -1);
         }
-        TiebaStatic.log(new an("c12243").af("obj_type", this.mFrom));
+        TiebaStatic.log(new an("c12243").ag("obj_type", this.mFrom));
         loadData();
-        com.baidu.tbadk.core.sharedPref.b.aNT().putBoolean(SharedPrefConfig.SHOW_RECOMMEND_LABEL, true);
+        com.baidu.tbadk.core.sharedPref.b.aTX().putBoolean(SharedPrefConfig.SHOW_RECOMMEND_LABEL, true);
     }
 
     private void loadData() {
-        this.iFT.clU();
-        showLoadingView(this.iFU.getRootView(), true);
+        this.iUR.csw();
+        showLoadingView(this.iUS.getRootView(), true);
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.iFU.cma()) {
-            TiebaStatic.log(new an("c12245").af("obj_type", this.mFrom));
+        if (view == this.iUS.csC()) {
+            TiebaStatic.log(new an("c12245").ag("obj_type", this.mFrom));
             finish();
-        } else if (view == this.iFU.cmb()) {
-            this.iFT.ds(this.iFU.cmd());
+        } else if (view == this.iUS.csD()) {
+            this.iUR.dq(this.iUS.csF());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
-        hideNetRefreshView(this.iFU.getRootView());
+        hideNetRefreshView(this.iUS.getRootView());
         loadData();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void clN() {
-        List<Integer> cmd = this.iFU.cmd();
-        if (!v.isEmpty(cmd)) {
+    public void csp() {
+        List<Integer> csF = this.iUS.csF();
+        if (!v.isEmpty(csF)) {
             StringBuilder sb = new StringBuilder();
-            int size = cmd.size();
+            int size = csF.size();
             for (int i = 0; i < size; i++) {
-                if (cmd.get(i) != null) {
-                    sb.append(cmd.get(i));
+                if (csF.get(i) != null) {
+                    sb.append(csF.get(i));
                     if (i < size - 1) {
                         sb.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
                     }
                 }
             }
-            TiebaStatic.log(new an("c12244").af("obj_type", this.mFrom).cI("obj_name", sb.toString()));
+            TiebaStatic.log(new an("c12244").ag("obj_type", this.mFrom).dh("obj_name", sb.toString()));
         }
     }
 }

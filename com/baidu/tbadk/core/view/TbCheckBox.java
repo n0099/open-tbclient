@@ -8,9 +8,9 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class TbCheckBox extends ImageView {
-    private int dHd;
-    private int dHe;
-    private a dHf;
+    private int dVp;
+    private int dVq;
+    private a dVr;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -26,58 +26,58 @@ public class TbCheckBox extends ImageView {
 
     public void setTagData(b bVar) {
         setTag(bVar);
-        aQm();
+        aWq();
     }
 
     public TbCheckBox(Context context) {
         super(context);
-        this.dHd = R.drawable.icon_set_list_ok_s;
-        this.dHe = R.drawable.icon_set_list_ok_n;
+        this.dVp = R.drawable.icon_set_list_ok_s;
+        this.dVq = R.drawable.icon_set_list_ok_n;
         initialize();
     }
 
     public TbCheckBox(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.dHd = R.drawable.icon_set_list_ok_s;
-        this.dHe = R.drawable.icon_set_list_ok_n;
+        this.dVp = R.drawable.icon_set_list_ok_s;
+        this.dVq = R.drawable.icon_set_list_ok_n;
         initialize();
     }
 
     public void setBackgroundDrawableId(int i, int i2) {
-        this.dHd = i;
-        this.dHe = i2;
+        this.dVp = i;
+        this.dVq = i2;
     }
 
     private void initialize() {
         setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.TbCheckBox.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                TbCheckBox.this.setChecked(!TbCheckBox.this.aQn());
+                TbCheckBox.this.setChecked(!TbCheckBox.this.aWr());
             }
         });
-        aQm();
+        aWq();
     }
 
     public void setStatedChangedListener(a aVar) {
-        this.dHf = aVar;
+        this.dVr = aVar;
     }
 
-    public void aQm() {
-        if (aQn()) {
-            am.setImageResource(this, this.dHd);
+    public void aWq() {
+        if (aWr()) {
+            am.setImageResource(this, this.dVp);
             setContentDescription(getResources().getString(R.string.check_box_checked));
             return;
         }
-        am.setImageResource(this, this.dHe);
+        am.setImageResource(this, this.dVq);
         setContentDescription(getResources().getString(R.string.check_box_not_checked));
     }
 
     public boolean isChecked() {
-        return aQn();
+        return aWr();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean aQn() {
+    public boolean aWr() {
         Object tag = getTag();
         if (tag == null || !(tag instanceof b)) {
             return false;
@@ -90,9 +90,9 @@ public class TbCheckBox extends ImageView {
         if (tag != null && (tag instanceof b)) {
             ((b) tag).setChecked(z);
         }
-        aQm();
-        if (this.dHf != null) {
-            this.dHf.a(this, z, getTag());
+        aWq();
+        if (this.dVr != null) {
+            this.dVr.a(this, z, getTag());
         }
     }
 }

@@ -1,7 +1,7 @@
 package com.kascend.chushou.widget.a;
 /* loaded from: classes5.dex */
 public interface d<T> {
-    long C(T t);
+    long E(T t);
 
     long a();
 

@@ -11,7 +11,7 @@ public abstract class a implements e {
 
     @Override // io.reactivex.e
     public final void a(c cVar) {
-        io.reactivex.internal.functions.a.h(cVar, "s is null");
+        io.reactivex.internal.functions.a.k(cVar, "s is null");
         try {
             b(io.reactivex.e.a.a(this, cVar));
         } catch (NullPointerException e) {

@@ -8,12 +8,7 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Message;
 import android.text.TextUtils;
-import com.baidu.fsg.base.statistics.j;
-import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
-import com.baidu.webkit.internal.ETAG;
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONObject;
@@ -22,16 +17,16 @@ public class b implements Handler.Callback {
     public static final List<Message> e = new ArrayList();
     @SuppressLint({"StaticFieldLeak"})
     private static b g;
+    public boolean a;
     public com.baidu.webkit.logsdk.c b;
     public Handler c;
     public Context d;
+    private boolean h;
     private com.baidu.webkit.logsdk.b i;
     private com.baidu.webkit.logsdk.b.b k;
     private com.baidu.webkit.logsdk.upload.b l;
     private a m;
     private com.baidu.webkit.logsdk.c.c n;
-    private boolean h = false;
-    public boolean a = false;
     public ConcurrentHashMap<String, String> f = new ConcurrentHashMap<>();
     private HandlerThread j = new HandlerThread("BdLogSDK");
 
@@ -41,11 +36,9 @@ public class b implements Handler.Callback {
     }
 
     public static b a() {
-        if (g == null) {
-            synchronized (b.class) {
-                if (g == null) {
-                    g = new b();
-                }
+        synchronized (b.class) {
+            if (g == null) {
+                g = new b();
             }
         }
         return g;
@@ -112,67 +105,6 @@ public class b implements Handler.Callback {
             }
             this.c.sendMessage(message);
         }
-    }
-
-    public final String a(String str, String str2) {
-        if ("full".equals(str2)) {
-            return g().a(this.d, str);
-        }
-        a g2 = g();
-        Context context = this.d;
-        com.baidu.webkit.logsdk.b.c c = a().e().c(str2);
-        if ("full".equals(c.a)) {
-            return g2.a(context, str);
-        }
-        HashSet<String> hashSet = c.b;
-        if (hashSet != null) {
-            String str3 = "";
-            String str4 = "";
-            String str5 = "";
-            StringBuilder sb = new StringBuilder(str);
-            if (!hashSet.isEmpty() && str.indexOf("?") < 0) {
-                sb.append("?");
-            }
-            com.baidu.webkit.logsdk.b c2 = a().c();
-            Iterator<String> it = hashSet.iterator();
-            while (it.hasNext()) {
-                String next = it.next();
-                String a = g2.a(next, context, c2);
-                if (j.c.equals(next)) {
-                    str3 = a;
-                } else if ("cuid".equals(next)) {
-                    str4 = a;
-                } else if ("uid".equals(next)) {
-                    str5 = a;
-                }
-                if (TextUtils.isEmpty(a)) {
-                    int a2 = g2.a(next, context);
-                    if (a2 > 0) {
-                        sb.append(ETAG.ITEM_SEPARATOR).append(next).append(ETAG.EQUAL).append(a2);
-                    }
-                } else {
-                    sb.append(ETAG.ITEM_SEPARATOR).append(next).append(ETAG.EQUAL).append(a);
-                }
-            }
-            String str6 = TextUtils.isEmpty(str3) ? "" : "" + j.c;
-            if (!TextUtils.isEmpty(str4)) {
-                if (!TextUtils.isEmpty(str3)) {
-                    str6 = str6 + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS;
-                }
-                str6 = str6 + "cuid";
-            }
-            if (!TextUtils.isEmpty(str5)) {
-                if (!TextUtils.isEmpty(str4) || !TextUtils.isEmpty(str3)) {
-                    str6 = str6 + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS;
-                }
-                str6 = str6 + "uid";
-            }
-            if (!TextUtils.isEmpty(str6)) {
-                sb.append("&cen=").append(str6);
-            }
-            return sb.toString();
-        }
-        return str;
     }
 
     public final void a(long j) {

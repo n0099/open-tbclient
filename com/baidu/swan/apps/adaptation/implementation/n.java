@@ -1,49 +1,21 @@
 package com.baidu.swan.apps.adaptation.implementation;
 
 import android.content.Context;
-import com.baidu.swan.apps.adaptation.a.ai;
+import java.io.File;
+import org.json.JSONObject;
 /* loaded from: classes11.dex */
-public class n implements ai {
-    @Override // com.baidu.swan.apps.adaptation.a.ai
-    public void PD() {
+public class n implements com.baidu.swan.apps.adaptation.a.l {
+    @Override // com.baidu.swan.apps.adaptation.a.l
+    public void aM(String str, String str2) {
     }
 
-    @Override // com.baidu.swan.apps.adaptation.a.ai
-    public boolean onBackPressed() {
-        return false;
-    }
-
-    @Override // com.baidu.swan.apps.adaptation.a.ai
-    public ai PE() {
+    @Override // com.baidu.swan.apps.adaptation.a.l
+    public File K(Context context, String str) {
         return null;
     }
 
-    @Override // com.baidu.swan.apps.adaptation.a.ai
-    public void a(com.baidu.swan.apps.media.d.c cVar, Context context) {
-    }
-
-    @Override // com.baidu.swan.apps.adaptation.a.ai
-    public void resume() {
-    }
-
-    @Override // com.baidu.swan.apps.adaptation.a.ai
-    public void pause() {
-    }
-
-    @Override // com.baidu.swan.apps.adaptation.a.ai
-    public void stop() {
-    }
-
-    @Override // com.baidu.swan.apps.adaptation.a.ai
-    public boolean isPlaying() {
-        return false;
-    }
-
-    @Override // com.baidu.swan.apps.adaptation.a.ai
-    public void PF() {
-    }
-
-    @Override // com.baidu.swan.apps.adaptation.a.ai
-    public void a(com.baidu.swan.apps.media.d.c cVar, boolean z) {
+    @Override // com.baidu.swan.apps.adaptation.a.l
+    public JSONObject L(Context context, String str) {
+        return null;
     }
 }

@@ -1,5 +1,6 @@
 package com.baidu.swan.pms.c.a.c;
 
+import android.support.annotation.NonNull;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -7,7 +8,7 @@ import java.util.List;
 public class a<T> {
     protected final List<T> mQueue = new ArrayList();
 
-    public synchronized T aCe() {
+    public synchronized T aGt() {
         T t;
         if (this.mQueue.isEmpty()) {
             t = null;
@@ -28,7 +29,7 @@ public class a<T> {
         return t;
     }
 
-    public T ac(T t) {
+    public T ag(T t) {
         if (t != null) {
             for (int size = this.mQueue.size() - 1; size >= 0; size--) {
                 if (t.equals(this.mQueue.get(size))) {
@@ -37,6 +38,11 @@ public class a<T> {
             }
         }
         return null;
+    }
+
+    @NonNull
+    public Iterator<T> aGu() {
+        return this.mQueue.iterator();
     }
 
     public String toString() {

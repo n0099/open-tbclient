@@ -3,9 +3,8 @@ package com.baidu.sapi2;
 import android.content.Context;
 import com.baidu.sapi2.V;
 import com.baidu.sapi2.X;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes6.dex */
-public class O implements V.a {
+class O implements V.a {
     final /* synthetic */ Context a;
     final /* synthetic */ V b;
 
@@ -16,12 +15,12 @@ public class O implements V.a {
     }
 
     @Override // com.baidu.sapi2.V.a
-    public void a(X.a.C0227a c0227a, String str) {
-        this.b.a(c0227a.a, str);
+    public void a(X.a.C0260a c0260a, String str) {
+        this.b.a(c0260a.a, str);
     }
 
     @Override // com.baidu.sapi2.V.a
-    public void a(X.a.C0227a c0227a) {
-        this.b.a(this.a, c0227a);
+    public void a(X.a.C0260a c0260a) {
+        this.b.a(this.a, c0260a);
     }
 }

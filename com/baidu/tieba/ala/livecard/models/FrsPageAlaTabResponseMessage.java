@@ -1,9 +1,9 @@
 package com.baidu.tieba.ala.livecard.models;
 
-import com.baidu.adp.widget.ListView.m;
+import com.baidu.adp.widget.ListView.o;
 import com.baidu.android.util.io.BaseJsonData;
 import com.baidu.mobstat.Config;
-import com.baidu.tbadk.core.data.bj;
+import com.baidu.tbadk.core.data.bk;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.frs.av;
 import java.util.ArrayList;
@@ -14,8 +14,8 @@ public class FrsPageAlaTabResponseMessage extends JsonHttpResponsedMessage {
     public int alaLiveCount;
     public int errCode;
     public String errMsg;
-    public ArrayList<m> mAltList;
-    public ArrayList<m> mThreadList;
+    public ArrayList<o> mAltList;
+    public ArrayList<o> mThreadList;
     public av pageInfo;
 
     public FrsPageAlaTabResponseMessage(int i) {
@@ -44,10 +44,10 @@ public class FrsPageAlaTabResponseMessage extends JsonHttpResponsedMessage {
                 this.mThreadList = new ArrayList<>();
                 for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                     JSONObject jSONObject2 = optJSONArray.getJSONObject(i2);
-                    bj bjVar = new bj();
-                    bjVar.tU("frs_live_play");
-                    bjVar.parserJson(jSONObject2);
-                    this.mThreadList.add(bjVar);
+                    bk bkVar = new bk();
+                    bkVar.vA("frs_live_play");
+                    bkVar.parserJson(jSONObject2);
+                    this.mThreadList.add(bkVar);
                 }
             }
             JSONArray optJSONArray2 = jSONObject.optJSONArray("alt_list");
@@ -55,10 +55,10 @@ public class FrsPageAlaTabResponseMessage extends JsonHttpResponsedMessage {
                 this.mAltList = new ArrayList<>();
                 for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
                     JSONObject jSONObject3 = optJSONArray2.getJSONObject(i3);
-                    bj bjVar2 = new bj();
-                    bjVar2.tU("frs_live_play");
-                    bjVar2.parserJson(jSONObject3);
-                    this.mAltList.add(bjVar2);
+                    bk bkVar2 = new bk();
+                    bkVar2.vA("frs_live_play");
+                    bkVar2.parserJson(jSONObject3);
+                    this.mAltList.add(bkVar2);
                 }
             }
         }

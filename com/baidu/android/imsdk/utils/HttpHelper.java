@@ -25,17 +25,21 @@ import org.apache.http.conn.ConnectTimeoutException;
 @SuppressLint({"TrulyRandom"})
 /* loaded from: classes3.dex */
 public class HttpHelper {
+    public static final String CONTENT_FORM = "application/x-www-form-urlencoded";
+    public static final String CONTENT_JSON = "application/json";
     private static final String COOKIE_KEY = "Cookie";
     public static final int ERROR_EXCEPTION = -10;
-    private static final int GET = 1;
-    private static final int POST = 16;
-    private static final int PUT = 256;
+    public static final int GET = 1;
+    public static final int POST = 16;
+    public static final int PUT = 256;
     public static final String TAG = HttpHelper.class.getSimpleName();
     private static Context mContext;
 
     /* loaded from: classes3.dex */
     public interface Request {
         int getConnectTimeout();
+
+        String getContentType();
 
         Map<String, String> getHeaders();
 
@@ -115,7 +119,7 @@ public class HttpHelper {
                             } else {
                                 i = 256;
                             }
-                            HttpHelper.executor(i, Request.this.getHost(), Request.this.getRequestParameter(), Request.this.getHeaders(), Request.this.getConnectTimeout(), Request.this.getReadTimeout(), responseHandler);
+                            HttpExecutor.getInstance().execute(i, Request.this.getHost(), Request.this.getRequestParameter(), Request.this.getHeaders(), Request.this.getContentType(), responseHandler);
                         } catch (Exception e) {
                             LogUtils.e(HttpHelper.TAG, "Http Unknown exception :", e);
                             responseHandler.onFailure(-1003, "Http Unknown exception".getBytes(), e);
@@ -126,7 +130,7 @@ public class HttpHelper {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [163=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [176=4] */
     public static void executor(int i, String str, byte[] bArr, Map<String, String> map, int i2, int i3, ResponseHandler responseHandler) throws SocketTimeoutException, ConnectTimeoutException, MalformedURLException, IOException {
         HttpURLConnection httpURLConnection;
         InputStream inputStream = null;

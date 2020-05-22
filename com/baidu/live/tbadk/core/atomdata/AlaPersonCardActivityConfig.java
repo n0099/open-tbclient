@@ -17,6 +17,7 @@ public class AlaPersonCardActivityConfig extends IntentConfig {
     public static final String PERSON_LIVE_ID = "PERSON_LIVE_ID";
     public static final String PERSON_LIVE_OWNER_FLAG = "PERSON_LIVE_OWNER_FLAG";
     public static final String PERSON_LIVE_OWNER_UID = "PERSON_LIVE_OWNER_UID";
+    public static final String PERSON_LIVE_VID = "vid";
     public static final String PERSON_LOCATION = "PERSON_LOCATION";
     public static final String PERSON_PORTRAIT_URL = "PERSON_PORTRAIT_URL";
     public static final String PERSON_SEND_COUNT = "PERSON_SEND_COUNT";
@@ -32,10 +33,14 @@ public class AlaPersonCardActivityConfig extends IntentConfig {
     }
 
     public AlaPersonCardActivityConfig(Context context, String str, String str2, String str3, int i, int i2, String str4, String str5, long j, long j2, long j3, int i3, String str6, String str7, boolean z, String str8, String str9, String str10, String str11) {
-        this(context, str, str2, str3, i, i2, str4, str5, j, j2, j3, i3, str6, str7, z, str8, str9, str10, str11, false);
+        this(context, str, str2, str3, i, i2, str4, str5, j, j2, j3, i3, str6, str7, z, str8, str9, str10, "", str11, false);
     }
 
-    public AlaPersonCardActivityConfig(Context context, String str, String str2, String str3, int i, int i2, String str4, String str5, long j, long j2, long j3, int i3, String str6, String str7, boolean z, String str8, String str9, String str10, String str11, boolean z2) {
+    public AlaPersonCardActivityConfig(Context context, String str, String str2, String str3, int i, int i2, String str4, String str5, long j, long j2, long j3, int i3, String str6, String str7, boolean z, String str8, String str9, String str10, String str11, String str12) {
+        this(context, str, str2, str3, i, i2, str4, str5, j, j2, j3, i3, str6, str7, z, str8, str9, str10, str11, str12, false);
+    }
+
+    public AlaPersonCardActivityConfig(Context context, String str, String str2, String str3, int i, int i2, String str4, String str5, long j, long j2, long j3, int i3, String str6, String str7, boolean z, String str8, String str9, String str10, String str11, String str12, boolean z2) {
         super(context);
         getIntent().putExtra("PERSON_USER_ID", str);
         getIntent().putExtra("PERSON_USER_NAME", str2);
@@ -54,7 +59,8 @@ public class AlaPersonCardActivityConfig extends IntentConfig {
         getIntent().putExtra("PERSON_APP_ID", str9);
         getIntent().putExtra(PERSON_SHOW_NAME, str10);
         getIntent().putExtra(PERSON_IS_FROM_GUARD_CLUB, z2);
-        getIntent().putExtra("other_params", str11);
+        getIntent().putExtra("vid", str11);
+        getIntent().putExtra("other_params", str12);
         setRequestCode(RequestResponseCode.REQUEST_ALA_PERSON_CARD);
         setIntentAction(IntentAction.ActivityForResult);
     }

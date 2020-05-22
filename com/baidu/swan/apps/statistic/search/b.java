@@ -5,12 +5,12 @@ import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.live.tbadk.pay.PayHelper;
 import com.baidu.swan.apps.statistic.search.SearchFlowEvent;
-import com.baidu.swan.apps.x.b.e;
+import com.baidu.swan.apps.v.b.e;
 import com.baidu.webkit.internal.ETAG;
 /* loaded from: classes11.dex */
 public final class b {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public static a cuL;
+    public static a cGK;
 
     public static synchronized void a(SearchFlowEvent searchFlowEvent) {
         synchronized (b.class) {
@@ -19,23 +19,23 @@ public final class b {
                     Log.d("SwanAppSearchFlowUBC", "Event is null...");
                 }
             } else {
-                switch (searchFlowEvent.cuK) {
+                switch (searchFlowEvent.cGJ) {
                     case START:
-                        anl();
-                        if (cuL != null) {
-                            cuL.a(searchFlowEvent);
+                        aru();
+                        if (cGK != null) {
+                            cGK.a(searchFlowEvent);
                             break;
                         }
                         break;
                     case END:
-                        if (cuL != null) {
-                            cuL.a(searchFlowEvent);
+                        if (cGK != null) {
+                            cGK.a(searchFlowEvent);
                         }
-                        TB();
+                        Wi();
                         break;
                     case NORMAL:
-                        if (cuL != null) {
-                            cuL.a(searchFlowEvent);
+                        if (cGK != null) {
+                            cGK.a(searchFlowEvent);
                             break;
                         }
                         break;
@@ -47,13 +47,13 @@ public final class b {
         }
     }
 
-    public static synchronized void o(com.baidu.swan.apps.x.b.b bVar) {
+    public static synchronized void q(com.baidu.swan.apps.v.b.b bVar) {
         synchronized (b.class) {
             if (bVar != null) {
-                d(bVar.adF(), bVar.adA());
-                if (cuL != null) {
-                    cuL.setAppId(bVar.getAppId());
-                    cuL.setSource(bVar.adA());
+                e(bVar.agP(), bVar.agK());
+                if (cGK != null) {
+                    cGK.setAppId(bVar.getAppId());
+                    cGK.setSource(bVar.agK());
                 }
             }
         }
@@ -62,30 +62,30 @@ public final class b {
     public static synchronized void e(e eVar) {
         synchronized (b.class) {
             if (eVar != null) {
-                d(eVar.adG(), eVar.adA());
-                if (cuL != null) {
-                    cuL.setAppId(eVar.getAppId());
-                    cuL.setSource(eVar.adA());
+                e(eVar.agQ(), eVar.agK());
+                if (cGK != null) {
+                    cGK.setAppId(eVar.getAppId());
+                    cGK.setSource(eVar.agK());
                 }
             }
         }
     }
 
-    private static void anl() {
-        if (cuL != null) {
-            cuL.destroy();
-            cuL = null;
+    private static void aru() {
+        if (cGK != null) {
+            cGK.destroy();
+            cGK = null;
         }
-        cuL = new a("772");
+        cGK = new a("772");
     }
 
-    private static void TB() {
-        if (cuL != null) {
-            cuL.send();
+    private static void Wi() {
+        if (cGK != null) {
+            cGK.send();
         }
     }
 
-    private static void d(Bundle bundle, String str) {
+    private static void e(Bundle bundle, String str) {
         if (bundle != null) {
             String string = bundle.getString("search_id");
             if (TextUtils.isEmpty(string) && !TextUtils.equals(PayHelper.STATUS_FAIL, str)) {
@@ -96,9 +96,9 @@ public final class b {
                 return;
             }
             a(new SearchFlowEvent("dom_click", bundle.getLong("search_dom_click_timestamp"), "", "", SearchFlowEvent.EventType.START));
-            if (cuL != null) {
-                cuL.addExt(ETAG.KEY_SEARCH_ID, string == null ? "" : string);
-                cuL.addExt("url", bundle.getString("search_url"));
+            if (cGK != null) {
+                cGK.addExt(ETAG.KEY_SEARCH_ID, string == null ? "" : string);
+                cGK.addExt("url", bundle.getString("search_url"));
             }
         }
     }

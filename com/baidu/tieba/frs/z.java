@@ -2,11 +2,11 @@ package com.baidu.tieba.frs;
 
 import com.baidu.adp.BdUniqueId;
 /* loaded from: classes9.dex */
-public class z implements com.baidu.adp.widget.ListView.m {
-    public static final BdUniqueId hce = BdUniqueId.gen();
+public class z implements com.baidu.adp.widget.ListView.o {
+    public static final BdUniqueId hqS = BdUniqueId.gen();
 
-    @Override // com.baidu.adp.widget.ListView.m
+    @Override // com.baidu.adp.widget.ListView.o
     public BdUniqueId getType() {
-        return hce;
+        return hqS;
     }
 }

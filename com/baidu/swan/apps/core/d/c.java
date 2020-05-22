@@ -14,7 +14,7 @@ import com.baidu.swan.apps.a;
 /* loaded from: classes11.dex */
 public class c extends b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private com.baidu.swan.apps.x.b.b bzB;
+    private com.baidu.swan.apps.v.b.b bHf;
 
     @Override // com.baidu.swan.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
@@ -31,32 +31,32 @@ public class c extends b {
     @Override // com.baidu.swan.apps.core.d.b
     public void ae(View view) {
         super.ae(view);
-        ey(-1);
-        ez(ViewCompat.MEASURED_STATE_MASK);
-        dn(true);
+        eH(-1);
+        eI(ViewCompat.MEASURED_STATE_MASK);
+        dC(true);
         setRightZoneVisibility(false);
-        String YS = this.bzB == null ? "" : this.bzB.YS();
-        if (!TextUtils.isEmpty(YS)) {
-            ig(YS);
+        String abT = this.bHf == null ? "" : this.bHf.abT();
+        if (!TextUtils.isEmpty(abT)) {
+            ji(abT);
         }
-        this.bLW.setLeftBackViewClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.core.d.c.1
+        this.bVa.setLeftBackViewClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.core.d.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                c.this.Vw();
+                c.this.Ye();
             }
         });
     }
 
     public void ag(View view) {
-        if (aCO() == null) {
+        if (aHv() == null) {
             if (DEBUG) {
                 Log.e("SwanAppErrorFragment", "getIntent() is null");
                 return;
             }
             return;
         }
-        this.bzB = ((SwanAppErrorActivity) aCO()).OJ();
-        if (this.bzB == null) {
+        this.bHf = ((SwanAppErrorActivity) aHv()).QV();
+        if (this.bHf == null) {
             if (DEBUG) {
                 Log.e("SwanAppErrorFragment", "launchInfo is null,error");
                 return;
@@ -65,34 +65,34 @@ public class c extends b {
         }
         ((LinearLayout) view.findViewById(a.f.error_layout)).setBackgroundColor(getResources().getColor(a.c.aiapps_error_fragment_background));
         TextView textView = (TextView) view.findViewById(a.f.ai_apps_error_msg);
-        textView.setText(this.bzB.ado());
+        textView.setText(this.bHf.agy());
         textView.setTextColor(getResources().getColor(a.c.aiapps_error_msg_color));
         TextView textView2 = (TextView) view.findViewById(a.f.ai_apps_error_text_one);
-        textView2.setText(this.bzB.adn());
+        textView2.setText(this.bHf.agx());
         textView2.setTextColor(getResources().getColor(a.c.aiapps_error_detail_color));
     }
 
     @Override // com.baidu.swan.apps.core.d.b
-    protected void Vk() {
+    protected void XP() {
     }
 
     @Override // com.baidu.swan.apps.core.d.b
-    protected boolean QT() {
+    protected boolean Ty() {
         return false;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.core.d.b
-    public boolean Vl() {
+    public boolean XQ() {
         return false;
     }
 
     @Override // com.baidu.swan.apps.core.d.b
-    public boolean Qy() {
+    public boolean Tc() {
         return false;
     }
 
     @Override // com.baidu.swan.apps.core.d.b
-    protected void QW() {
+    protected void TC() {
     }
 }

@@ -20,10 +20,10 @@ public class FrsTabViewPager extends BdBaseViewPager {
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         switch (motionEvent.getAction()) {
             case 0:
-                mH(true);
+                nc(true);
                 break;
             case 1:
-                mH(false);
+                nc(false);
                 break;
         }
         return super.dispatchTouchEvent(motionEvent);
@@ -33,46 +33,46 @@ public class FrsTabViewPager extends BdBaseViewPager {
     public boolean onTouchEvent(MotionEvent motionEvent) {
         switch (motionEvent.getAction()) {
             case 1:
-                mH(false);
+                nc(false);
                 break;
         }
         return super.onTouchEvent(motionEvent);
     }
 
-    public void mH(boolean z) {
+    public void nc(boolean z) {
         a aVar = new a();
-        aVar.mI(bQs());
-        aVar.mJ(z);
+        aVar.nd(bWO());
+        aVar.ne(z);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921369, aVar));
     }
 
-    public void bQr() {
-        mH(false);
+    public void bWN() {
+        nc(false);
     }
 
-    private boolean bQs() {
+    private boolean bWO() {
         return getCurrentItem() == getAdapter().getCount() + (-1);
     }
 
     /* loaded from: classes9.dex */
     public static class a {
-        private boolean hcm;
-        private boolean hcn;
+        private boolean hra;
+        private boolean hrb;
 
-        public boolean bQt() {
-            return this.hcm;
+        public boolean bWP() {
+            return this.hra;
         }
 
-        public void mI(boolean z) {
-            this.hcm = z;
+        public void nd(boolean z) {
+            this.hra = z;
         }
 
-        public boolean bQu() {
-            return this.hcn;
+        public boolean bWQ() {
+            return this.hrb;
         }
 
-        public void mJ(boolean z) {
-            this.hcn = z;
+        public void ne(boolean z) {
+            this.hrb = z;
         }
     }
 }

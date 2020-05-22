@@ -14,11 +14,11 @@ public class e extends Handler {
     public void handleMessage(Message message) {
         super.handleMessage(message);
         f fVar = (f) message.obj;
-        ImageView imageView = fVar.bmT;
+        ImageView imageView = fVar.buq;
         if (((String) imageView.getTag()).equals(fVar.url)) {
             imageView.setImageBitmap(fVar.bitmap);
         } else {
-            com.baidu.poly.util.c.info("不是最新数据");
+            com.baidu.poly.util.d.info("不是最新数据");
         }
     }
 }

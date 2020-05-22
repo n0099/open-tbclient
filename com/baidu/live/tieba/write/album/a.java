@@ -1,121 +1,96 @@
 package com.baidu.live.tieba.write.album;
 
-import android.support.v4.app.Fragment;
 import android.view.View;
 import com.baidu.live.adp.base.BdBaseView;
-import com.baidu.live.tbadk.core.BaseFragmentActivity;
-import java.util.ArrayList;
-import java.util.List;
+import com.baidu.live.tbadk.BaseActivity;
 /* loaded from: classes3.dex */
-public class a extends BdBaseView<BaseFragmentActivity> {
-    private String aWg;
-    private String aWh;
-    private AlbumActivity aWi;
-    private String[] aWj;
-    private ImageListFragment aWk;
-    private AlbumImageBrowseFragment aWl;
-    private List<Fragment> mFragments;
+public class a extends BdBaseView<BaseActivity> {
+    private String bdD;
+    private String bdE;
+    private String[] bdF;
+    private j bdG;
+    private h bdH;
+    private AlbumActivity bdw;
 
     public a(AlbumActivity albumActivity) {
         super(albumActivity.getPageContext());
-        this.aWg = "tag_image";
-        this.aWh = "tag_b_image";
-        this.aWi = albumActivity;
+        this.bdD = "tag_image";
+        this.bdE = "tag_b_image";
+        this.bdw = albumActivity;
     }
 
-    public void Fv() {
-        this.mFragments = new ArrayList(2);
-        this.aWj = new String[2];
-        this.aWk = new ImageListFragment();
-        this.mFragments.add(this.aWk);
-        this.aWj[0] = this.aWg;
-        this.aWl = new AlbumImageBrowseFragment();
-        this.mFragments.add(this.aWl);
-        this.aWj[1] = this.aWh;
-    }
-
-    public Fragment dc(int i) {
-        if (i < 0 || this.mFragments == null || i >= this.mFragments.size()) {
-            return null;
-        }
-        return this.mFragments.get(i);
-    }
-
-    public String dd(int i) {
-        if (i < 0 || i > 1) {
-            return null;
-        }
-        return this.aWj[i];
+    public void Hp() {
+        this.bdF = new String[2];
+        this.bdG = new j(this.bdw.getPageContext(), this.bdw);
+        this.bdF[0] = this.bdD;
+        this.bdH = new h(this.bdw.getPageContext(), this.bdw);
+        this.bdF[1] = this.bdE;
     }
 
     public void onChangeSkinType(int i) {
-        if (this.mFragments != null && !this.mFragments.isEmpty()) {
-            int i2 = 0;
-            while (true) {
-                int i3 = i2;
-                if (i3 < this.mFragments.size()) {
-                    if (this.mFragments.get(i3) instanceof ImageListFragment) {
-                        ((ImageListFragment) this.mFragments.get(i3)).onChangeSkinType(i);
-                    }
-                    i2 = i3 + 1;
-                } else {
-                    return;
-                }
-            }
-        }
+        this.bdG.onChangeSkinType(i);
+        this.bdH.onChangeSkinType(i);
     }
 
-    public View Fw() {
-        if (this.aWk == null) {
+    public View Hq() {
+        if (this.bdG == null) {
             return null;
         }
-        return this.aWk.FE();
+        return this.bdG.HI();
     }
 
-    public View Fx() {
-        if (this.aWk == null) {
+    public View Hr() {
+        if (this.bdG == null) {
             return null;
         }
-        return this.aWk.FT();
+        return this.bdG.HM();
     }
 
-    public View Fy() {
-        if (this.aWl == null) {
+    public View Hs() {
+        if (this.bdH == null) {
             return null;
         }
-        return this.aWl.FE();
+        return this.bdH.HI();
     }
 
-    public View Fz() {
-        if (this.aWl == null) {
+    public View Ht() {
+        if (this.bdH == null) {
             return null;
         }
-        return this.aWl.FF();
+        return this.bdH.HJ();
     }
 
-    public View FA() {
-        if (this.aWl == null) {
+    public View Hu() {
+        if (this.bdH == null) {
             return null;
         }
-        return this.aWl.FA();
+        return this.bdH.Hu();
     }
 
-    public View FB() {
-        if (this.aWk == null) {
+    public View Hv() {
+        if (this.bdG == null) {
             return null;
         }
-        return this.aWk.FA();
+        return this.bdG.Hu();
     }
 
     public void onDestroy() {
     }
 
-    public void bY(boolean z) {
-        if (this.aWl != null) {
-            this.aWl.bY(z);
+    public h Hw() {
+        return this.bdH;
+    }
+
+    public j Hx() {
+        return this.bdG;
+    }
+
+    public void ci(boolean z) {
+        if (this.bdH != null) {
+            this.bdH.ci(z);
         }
-        if (this.aWk != null) {
-            this.aWk.bY(z);
+        if (this.bdG != null) {
+            this.bdG.ci(z);
         }
     }
 }

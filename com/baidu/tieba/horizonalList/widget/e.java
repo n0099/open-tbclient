@@ -1,15 +1,15 @@
 package com.baidu.tieba.horizonalList.widget;
 
 import android.view.View;
-import com.baidu.adp.widget.ListView.y;
+import com.baidu.adp.widget.ListView.aa;
 /* loaded from: classes.dex */
-public abstract class e extends y.a {
-    public View.OnClickListener dRK;
-    public int hVq;
+public abstract class e extends aa.a {
+    public View.OnClickListener ege;
+    public int ikb;
 
     public abstract void a(c cVar);
 
-    public abstract e bI(View view);
+    public abstract e bH(View view);
 
     public abstract void onChangeSkinType(int i);
 
@@ -18,6 +18,6 @@ public abstract class e extends y.a {
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.dRK = onClickListener;
+        this.ege = onClickListener;
     }
 }

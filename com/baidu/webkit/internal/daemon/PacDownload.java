@@ -18,18 +18,13 @@ import java.util.Map;
 /* loaded from: classes11.dex */
 public class PacDownload implements IResourceTask, INetListener {
     private static final String LOG_TAG = "PacDownload";
-    private ByteArrayOutputStream mData;
-    private boolean mFreeFlowEnabled = false;
-    private Map<String, String> mHeader = null;
+    private static boolean mDownloading;
+    public static boolean mPacFreeFlowSucced;
+    public static boolean mPacSucced;
     private static WebSettings.ProxyType mPacType = WebSettings.ProxyType.NO_PROXY;
-    public static boolean mPacSucced = false;
-    public static boolean mPacFreeFlowSucced = false;
-    private static boolean mDownloading = false;
-
-    public PacDownload() {
-        this.mData = null;
-        this.mData = null;
-    }
+    private ByteArrayOutputStream mData = null;
+    private boolean mFreeFlowEnabled;
+    private Map<String, String> mHeader;
 
     private boolean getFreeFlowEnabled() {
         return this.mFreeFlowEnabled;
@@ -274,5 +269,10 @@ public class PacDownload implements IResourceTask, INetListener {
 
     public void setFreeFlowEnabled(boolean z) {
         this.mFreeFlowEnabled = z;
+    }
+
+    @Override // com.baidu.webkit.internal.resource.IResourceTask
+    public boolean shouldForceLoadFromFile() {
+        return false;
     }
 }

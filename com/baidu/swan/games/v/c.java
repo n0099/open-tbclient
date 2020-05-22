@@ -1,91 +1,100 @@
 package com.baidu.swan.games.v;
 
-import android.support.annotation.NonNull;
-import android.util.Base64;
-import com.baidu.searchbox.v8engine.JsSerializeValue;
-import com.baidu.swan.apps.ap.e;
-import com.baidu.swan.games.v.a.d;
+import com.baidu.adp.lib.stats.BdStatisticsManager;
+import com.baidu.android.imsdk.IMConstants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 /* loaded from: classes11.dex */
 public class c {
-    protected com.baidu.swan.games.e.b cJn;
-    protected b cRD = new b();
-
-    public c(com.baidu.swan.games.e.b bVar) {
-        this.cJn = bVar;
+    public static void sp(String str) {
+        com.baidu.swan.games.v.a.d dVar = new com.baidu.swan.games.v.a.d();
+        dVar.errMsg = str;
+        b.aBJ().a(new a(10000, dVar));
     }
 
-    @NonNull
-    public d qS(String str) {
-        Object obj = null;
-        if (str == null) {
-            return d.qV("parameter error: the key cannot be null.");
-        }
-        String string = this.cRD.getString(str, null);
-        if (string != null) {
-            obj = this.cJn.b(Base64.decode(string, 2), true);
-        }
-        if (obj == null) {
-            obj = d.aye();
-        }
-        return d.Z(obj);
+    public static void sq(String str) {
+        com.baidu.swan.games.v.a.d dVar = new com.baidu.swan.games.v.a.d();
+        dVar.errMsg = str;
+        b.aBJ().a(new a(20000, dVar));
     }
 
-    @NonNull
-    public d a(String str, JsSerializeValue jsSerializeValue) {
-        if (str == null) {
-            a(jsSerializeValue);
-            return d.qV("parameter error: the key cannot be null.");
-        } else if (jsSerializeValue == null) {
-            return d.Z(null);
-        } else {
-            byte[] a = this.cJn.a(jsSerializeValue, true);
-            a(jsSerializeValue);
-            if (a == null) {
-                return d.qV("parameter error: the data parse failed.");
-            }
-            String encodeToString = Base64.encodeToString(a, 2);
-            String string = this.cRD.getString(str, null);
-            int length = str.getBytes().length;
-            if (this.cRD.ans() - this.cRD.anr() < (encodeToString.length() + length) - (string == null ? 0 : string.length() + length)) {
-                return d.qV("storage error: the storage space insufficient.");
-            }
-            boolean putString = this.cRD.putString(str, encodeToString);
-            e.cxa.update();
-            return putString ? d.Z(null) : d.qV("storage error: the storage is invalid.");
+    public static void cy(String str, String str2) {
+        com.baidu.swan.games.v.a.b bVar = new com.baidu.swan.games.v.a.b();
+        bVar.key = str;
+        bVar.errMsg = str2;
+        b.aBJ().a(new a(30000, bVar));
+    }
+
+    public static void e(CallbackHandler callbackHandler, String str) {
+        if (UnitedSchemeUtility.isInvokedFromSwanGame(callbackHandler)) {
+            com.baidu.swan.games.v.a.d dVar = new com.baidu.swan.games.v.a.d();
+            dVar.errMsg = str;
+            b.aBJ().a(new a(40000, dVar));
         }
     }
 
-    @NonNull
-    public d qT(String str) {
-        if (str == null) {
-            return d.qV("parameter error: the key cannot be null.");
+    public static void f(CallbackHandler callbackHandler, String str) {
+        if (UnitedSchemeUtility.isInvokedFromSwanGame(callbackHandler)) {
+            com.baidu.swan.games.v.a.d dVar = new com.baidu.swan.games.v.a.d();
+            dVar.errMsg = str;
+            b.aBJ().a(new a(IMConstants.ERROR_BASE, dVar));
         }
-        this.cRD.remove(str);
-        e.cxa.update();
-        return d.Z(null);
     }
 
-    @NonNull
-    public d ayc() {
-        this.cRD.axZ();
-        e.cxa.update();
-        return d.Z(null);
+    public static void g(CallbackHandler callbackHandler, String str) {
+        if (UnitedSchemeUtility.isInvokedFromSwanGame(callbackHandler)) {
+            com.baidu.swan.games.v.a.d dVar = new com.baidu.swan.games.v.a.d();
+            dVar.errMsg = str;
+            b.aBJ().a(new a(60000, dVar));
+        }
     }
 
-    @NonNull
-    public com.baidu.swan.games.v.a.c getStorageInfoSync() {
-        String[] axY = this.cRD.axY();
+    public static void a(String str, int i, String str2, boolean z) {
+        com.baidu.swan.games.v.a.a aVar = new com.baidu.swan.games.v.a.a();
+        aVar.url = str;
+        aVar.errCode = i;
+        aVar.dcy = z ? 1 : 0;
+        aVar.errMsg = str2;
+        b.aBJ().a(new a(70000, aVar));
+    }
+
+    public static void b(String str, int i, String str2, boolean z) {
+        com.baidu.swan.games.v.a.a aVar = new com.baidu.swan.games.v.a.a();
+        aVar.url = str;
+        aVar.errCode = i;
+        aVar.dcy = z ? 1 : 0;
+        aVar.errMsg = str2;
+        b.aBJ().a(new a(100000, aVar));
+    }
+
+    public static void c(String str, int i, String str2, boolean z) {
+        com.baidu.swan.games.v.a.a aVar = new com.baidu.swan.games.v.a.a();
+        aVar.url = str;
+        aVar.errCode = i;
+        aVar.dcy = z ? 1 : 0;
+        aVar.errMsg = str2;
+        b.aBJ().a(new a(110000, aVar));
+    }
+
+    public static void k(String str, int i, String str2) {
         com.baidu.swan.games.v.a.c cVar = new com.baidu.swan.games.v.a.c();
-        cVar.keys = axY;
-        cVar.currentSize = this.cRD.anr() / 1024;
-        cVar.limitSize = this.cRD.ans() / 1024;
-        cVar.errMsg = com.baidu.swan.games.v.a.a.qU("getStorageInfoSync");
-        return cVar;
+        cVar.packageName = str;
+        cVar.errCode = i;
+        cVar.errMsg = str2;
+        b.aBJ().a(new a(80000, cVar));
     }
 
-    private void a(JsSerializeValue jsSerializeValue) {
-        if (jsSerializeValue != null) {
-            jsSerializeValue.release();
+    public static void h(CallbackHandler callbackHandler, String str) {
+        if (UnitedSchemeUtility.isInvokedFromSwanGame(callbackHandler)) {
+            com.baidu.swan.games.v.a.d dVar = new com.baidu.swan.games.v.a.d();
+            dVar.errMsg = str;
+            b.aBJ().a(new a(90000, dVar));
         }
+    }
+
+    public static void ss(String str) {
+        com.baidu.swan.games.v.a.d dVar = new com.baidu.swan.games.v.a.d();
+        dVar.errMsg = str;
+        b.aBJ().a(new a(BdStatisticsManager.UPLOAD_TIMER_INTERVAL, dVar));
     }
 }

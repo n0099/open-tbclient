@@ -8,8 +8,8 @@ import org.aspectj.lang.a;
 /* loaded from: classes7.dex */
 public class ItemDataBox extends AbstractBox {
     public static final String TYPE = "idat";
-    private static final /* synthetic */ a.InterfaceC0826a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0826a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0888a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0888a ajc$tjp_1 = null;
     ByteBuffer data;
 
     static {

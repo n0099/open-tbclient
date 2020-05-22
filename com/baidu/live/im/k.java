@@ -6,32 +6,34 @@ public interface k {
 
     /* loaded from: classes3.dex */
     public interface a {
-        boolean Bg();
+        boolean CC();
 
-        void Bh();
+        void CD();
 
-        void Bi();
+        void CE();
 
-        void Bj();
+        void CF();
 
-        boolean Bk();
+        boolean CG();
 
-        void eE(String str);
+        int CH();
+
+        void fq(String str);
     }
 
-    void AJ();
+    void BZ();
 
-    j Be();
+    j CA();
 
-    com.baidu.live.view.input.a Bf();
+    com.baidu.live.view.input.a CB();
 
     void a(a aVar);
 
+    void a(String str, String str2, String str3, String str4, String str5, boolean z);
+
     void a(boolean z, int i, int i2, String str);
 
-    void e(String str, String str2, String str3, String str4, String str5);
-
-    void e(Map<String, Integer> map);
+    void f(Map<String, Integer> map);
 
     void onDestroy();
 

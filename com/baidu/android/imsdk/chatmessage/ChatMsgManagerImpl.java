@@ -35,6 +35,7 @@ import com.baidu.android.imsdk.chatmessage.request.IMMediaDeleteMsgHttpRequest;
 import com.baidu.android.imsdk.chatmessage.request.IMMediaFetchMsgHttpRequest;
 import com.baidu.android.imsdk.chatmessage.request.IMMediaSendMsgHttpRequest;
 import com.baidu.android.imsdk.chatmessage.request.IMSendMsg;
+import com.baidu.android.imsdk.chatmessage.request.IMSendMsgRequest;
 import com.baidu.android.imsdk.chatmessage.request.IMSyncDialog;
 import com.baidu.android.imsdk.chatmessage.request.IMSyncPushMsg;
 import com.baidu.android.imsdk.chatmessage.request.IMUnBindPushMsg;
@@ -67,6 +68,7 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.imsdk.IMService;
 import com.baidu.tieba.imMessageCenter.mention.FeedData;
+import com.baidu.tieba.keepLive.jobScheduler.KeepJobService;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -89,6 +91,7 @@ public class ChatMsgManagerImpl {
     private HashMap<String, ILiveMsgReceiveListener> mReceiveStudioListeners = new HashMap<>();
     private List<IMessageSyncListener> mMessageSyncListener = new LinkedList();
     private HashMap<Integer, IMediaChatMsgChangedListener> mMediaMsgChangedListeners = new HashMap<>();
+    private boolean mUseRequestSendMsg = false;
     Dispatcher.MsgListener onReceiveListener = new Dispatcher.MsgListener() { // from class: com.baidu.android.imsdk.chatmessage.ChatMsgManagerImpl.3
         @Override // com.baidu.android.imsdk.internal.Dispatcher.MsgListener
         public void dealMessage(int i, ChatMsg chatMsg) {
@@ -390,6 +393,7 @@ public class ChatMsgManagerImpl {
     }
 
     public void sendMessage(ChatMsg chatMsg, ISendMessageListener iSendMessageListener) {
+        this.mUseRequestSendMsg = false;
         if (chatMsg == null) {
             if (iSendMessageListener != null) {
                 iSendMessageListener.onSendMessageResult(1005, null);
@@ -506,6 +510,10 @@ public class ChatMsgManagerImpl {
     }
 
     private void onSendStudioMsgResult(int i, ChatMsg chatMsg, long j, String str) {
+        if (i != 0 && !hitMcastSendMsgErrorCode(i) && useRequestSendMsg() && !this.mUseRequestSendMsg) {
+            sendMessageRequest(chatMsg, str);
+            return;
+        }
         IMListener removeListener = ListenerManager.getInstance().removeListener(str);
         if (removeListener != null && (removeListener instanceof ISendMessageListener)) {
             ((ISendMessageListener) removeListener).onSendMessageResult(i, chatMsg);
@@ -519,6 +527,22 @@ public class ChatMsgManagerImpl {
         if (chatMsg != null) {
             ListenerManager.getInstance().removeListener(chatMsg.mListenerKey);
         }
+    }
+
+    private boolean useRequestSendMsg() {
+        long appId = Utility.getAppId(mContext);
+        return appId == Constants.APPID_HAOKAN || appId == Constants.APPID_HAOKAN_JISU || appId == Constants.APPID_QUANMIN || appId == Constants.APPID_TIEBA;
+    }
+
+    private boolean hitMcastSendMsgErrorCode(int i) {
+        return i == 22 || i == 1 || i == 24 || i == 1000 || i == 1203 || i == 1204 || i == 1207 || i == 1306 || i == 1316 || i == 1314;
+    }
+
+    public void sendMessageRequest(ChatMsg chatMsg, String str) {
+        LogUtils.d(TAG, "sendMessageRequest ---> msg :" + chatMsg.toString());
+        this.mUseRequestSendMsg = true;
+        IMSendMsgRequest iMSendMsgRequest = new IMSendMsgRequest(mContext, chatMsg, str);
+        HttpHelper.executor(mContext, iMSendMsgRequest, iMSendMsgRequest);
     }
 
     private int saveGroupMessage(ChatMsg chatMsg) {
@@ -756,7 +780,7 @@ public class ChatMsgManagerImpl {
             return;
         }
         final ArrayList arrayList3 = new ArrayList(hashSet);
-        List<Long> notExpiredChatUserByBduids = ChatUserDBManager.getInstance(mContext).getNotExpiredChatUserByBduids(arrayList3, System.currentTimeMillis() - 600000);
+        List<Long> notExpiredChatUserByBduids = ChatUserDBManager.getInstance(mContext).getNotExpiredChatUserByBduids(arrayList3, System.currentTimeMillis() - KeepJobService.JOB_CHECK_PERIODIC);
         ArrayList arrayList4 = new ArrayList(arrayList3);
         arrayList4.removeAll(notExpiredChatUserByBduids);
         ChatUserManagerImpl.getInstance(mContext).updateUserIdentity(arrayList4, new IGetUserIdentityListener() { // from class: com.baidu.android.imsdk.chatmessage.ChatMsgManagerImpl.8
@@ -1174,7 +1198,7 @@ public class ChatMsgManagerImpl {
                 IMService.enqueueWork(mContext, creatMethodIntent);
                 return;
             } catch (Exception e) {
-                onUnRegisterNotifyResult(addListener, 6, "start service exception");
+                onUnRegisterNotifyResult(addListener, 1003, Constants.ERROR_MSG_SERVICE_ERROR);
                 LogUtils.e(TAG, "Exception ", e);
                 return;
             }
@@ -1245,11 +1269,7 @@ public class ChatMsgManagerImpl {
     private void onDeliverResponse(String str, JSONArray jSONArray, ILiveMsgReceiveListener iLiveMsgReceiveListener, List<Long> list) {
         if (iLiveMsgReceiveListener != null) {
             iLiveMsgReceiveListener.onReceiveMessage(0, jSONArray);
-            if (list.size() > 0) {
-                LogUtils.d(TAG, "deliver reliableMsgs cast arr size :" + list.size() + ", ids :" + list.toString());
-                new IMTrack.RequestBuilder(mContext).method(list.toString()).requestId("" + str).requestTime(System.currentTimeMillis()).ext("deliver msgIs size :" + jSONArray.length()).aliasId(501104L).build();
-                return;
-            }
+            LogUtils.d(TAG, "deliver reliableMsgs cast arr size :" + list.size() + ", ids :" + list.toString());
             return;
         }
         LogUtils.d(TAG, "mReceiveStudioListener is null");
@@ -1261,9 +1281,9 @@ public class ChatMsgManagerImpl {
         HttpHelper.executor(mContext, iMFetchMsgRequest, iMFetchMsgRequest);
     }
 
-    public void fetchMsgByHostRequst(long j, long j2, int i, long j3, long j4, long j5, int i2, IFetchMsgByIdListener iFetchMsgByIdListener) {
-        LogUtils.d(TAG, "fetchMsgByHostRequst ---> begin :" + j4 + ", end :" + j5);
-        IMFetchMsgByHostRequest iMFetchMsgByHostRequest = new IMFetchMsgByHostRequest(mContext, ListenerManager.getInstance().addListener(iFetchMsgByIdListener), j, j2, j3, i, i2, j4, j5);
+    public void fetchMsgByHostRequst(long j, int i, long j2, long j3, long j4, int i2, IFetchMsgByIdListener iFetchMsgByIdListener) {
+        LogUtils.d(TAG, "fetchMsgByHostRequst ---> begin :" + j3 + ", end :" + j4);
+        IMFetchMsgByHostRequest iMFetchMsgByHostRequest = new IMFetchMsgByHostRequest(mContext, ListenerManager.getInstance().addListener(iFetchMsgByIdListener), j, j2, i, i2, j3, j4);
         HttpHelper.executor(mContext, iMFetchMsgByHostRequest, iMFetchMsgByHostRequest);
     }
 
@@ -1381,10 +1401,6 @@ public class ChatMsgManagerImpl {
 
     public long getMaxReliableMsgId(long j) {
         return ChatMessageDBManager.getInstance(mContext).getMaxReliableMsgId(j);
-    }
-
-    public long getReliableMsgCount(long j) {
-        return ChatMessageDBManager.getInstance(mContext).getReliableMsgCount(j);
     }
 
     public void setInterActiveMsgStatus(long j, long j2, int i, int i2) {

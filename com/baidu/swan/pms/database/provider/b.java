@@ -18,33 +18,33 @@ import com.baidu.swan.pms.d;
 import com.baidu.webkit.internal.ETAG;
 /* loaded from: classes11.dex */
 public class b {
-    public static final String cEW = AppRuntime.getAppContext().getPackageName() + ".aiapp.pms";
-    public static final Uri dae = Uri.parse("content://" + cEW + "/framework");
-    public static final Uri daf = Uri.parse("content://" + cEW + "/swan_app");
-    public static final Uri dag = Uri.parse("content://" + cEW + "/pkg_main");
-    public static final Uri dah = Uri.parse("content://" + cEW + "/pkg_sub");
-    public static final Uri dai = Uri.parse("content://" + cEW + "/" + ETAG.KEY_EXTENSION);
-    public static final Uri daj = Uri.parse("content://" + cEW + "/swan_plugin");
-    public static final Uri dak = Uri.parse("content://" + cEW + "/swan_mini_pkg");
-    private static UriMatcher dal = new UriMatcher(-1);
+    public static final String cPg = AppRuntime.getAppContext().getPackageName() + ".aiapp.pms";
+    public static final Uri dlo = Uri.parse("content://" + cPg + "/framework");
+    public static final Uri dlp = Uri.parse("content://" + cPg + "/swan_app");
+    public static final Uri dlq = Uri.parse("content://" + cPg + "/pkg_main");
+    public static final Uri dlr = Uri.parse("content://" + cPg + "/pkg_sub");
+    public static final Uri dls = Uri.parse("content://" + cPg + "/" + ETAG.KEY_EXTENSION);
+    public static final Uri dlt = Uri.parse("content://" + cPg + "/swan_plugin");
+    public static final Uri dlu = Uri.parse("content://" + cPg + "/swan_mini_pkg");
+    private static UriMatcher dlv = new UriMatcher(-1);
     private Context mContext;
 
     static {
-        dal.addURI(cEW, "framework", 2);
-        dal.addURI(cEW, "pkg_main", 0);
-        dal.addURI(cEW, "pkg_sub", 1);
-        dal.addURI(cEW, ETAG.KEY_EXTENSION, 3);
-        dal.addURI(cEW, "swan_app", 4);
-        dal.addURI(cEW, "swan_plugin", 5);
-        dal.addURI(cEW, "swan_mini_pkg", 6);
+        dlv.addURI(cPg, "framework", 2);
+        dlv.addURI(cPg, "pkg_main", 0);
+        dlv.addURI(cPg, "pkg_sub", 1);
+        dlv.addURI(cPg, ETAG.KEY_EXTENSION, 3);
+        dlv.addURI(cPg, "swan_app", 4);
+        dlv.addURI(cPg, "swan_plugin", 5);
+        dlv.addURI(cPg, "swan_mini_pkg", 6);
     }
 
     public b(Context context) {
         this.mContext = context;
     }
 
-    private String m(Uri uri) {
-        switch (dal.match(uri)) {
+    private String o(Uri uri) {
+        switch (dlv.match(uri)) {
             case 0:
                 return "pkg_main";
             case 1:
@@ -71,13 +71,13 @@ public class b {
 
     @Nullable
     public Cursor query(@NonNull Uri uri, @Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
-        String m = m(uri);
-        if (!TextUtils.isEmpty(m)) {
+        String o = o(uri);
+        if (!TextUtils.isEmpty(o)) {
             if (d.DEBUG) {
                 Log.e("PMSDBProvider", "query");
             }
             try {
-                return YP().getReadableDatabase().query(m, strArr, str, strArr2, null, null, str2, null);
+                return abQ().getReadableDatabase().query(o, strArr, str, strArr2, null, null, str2, null);
             } catch (SQLException e) {
                 if (d.DEBUG) {
                     e.printStackTrace();
@@ -90,13 +90,13 @@ public class b {
     @Nullable
     public Uri insert(@NonNull Uri uri, @Nullable ContentValues contentValues) {
         Log.e("PMSDBProvider", "name:" + Thread.currentThread().getName());
-        String m = m(uri);
-        if (!TextUtils.isEmpty(m) && contentValues != null) {
+        String o = o(uri);
+        if (!TextUtils.isEmpty(o) && contentValues != null) {
             if (d.DEBUG) {
                 Log.e("PMSDBProvider", "insert:" + contentValues.toString());
             }
             try {
-                long insertWithOnConflict = YP().getWritableDatabase().insertWithOnConflict(m, null, contentValues, 5);
+                long insertWithOnConflict = abQ().getWritableDatabase().insertWithOnConflict(o, null, contentValues, 5);
                 if (insertWithOnConflict > 0) {
                     Uri withAppendedId = ContentUris.withAppendedId(uri, insertWithOnConflict);
                     this.mContext.getContentResolver().notifyChange(withAppendedId, null);
@@ -113,13 +113,13 @@ public class b {
     }
 
     public int delete(@NonNull Uri uri, @Nullable String str, @Nullable String[] strArr) {
-        String m = m(uri);
-        if (!TextUtils.isEmpty(m)) {
+        String o = o(uri);
+        if (!TextUtils.isEmpty(o)) {
             if (d.DEBUG) {
                 Log.e("PMSDBProvider", "delete");
             }
             try {
-                int delete = YP().getWritableDatabase().delete(m, str, strArr);
+                int delete = abQ().getWritableDatabase().delete(o, str, strArr);
                 if (delete > 0) {
                     this.mContext.getContentResolver().notifyChange(uri, null);
                     return delete;
@@ -135,13 +135,13 @@ public class b {
     }
 
     public int update(@NonNull Uri uri, @Nullable ContentValues contentValues, @Nullable String str, @Nullable String[] strArr) {
-        String m = m(uri);
-        if (!TextUtils.isEmpty(m)) {
+        String o = o(uri);
+        if (!TextUtils.isEmpty(o)) {
             if (d.DEBUG) {
                 Log.e("PMSDBProvider", IMTrack.DbBuilder.ACTION_UPDATE);
             }
             try {
-                int update = YP().getWritableDatabase().update(m, contentValues, str, strArr);
+                int update = abQ().getWritableDatabase().update(o, contentValues, str, strArr);
                 if (update > 0) {
                     this.mContext.getContentResolver().notifyChange(uri, null);
                     return update;
@@ -157,7 +157,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public SQLiteOpenHelper YP() {
-        return a.aBP();
+    public SQLiteOpenHelper abQ() {
+        return a.aGc();
     }
 }

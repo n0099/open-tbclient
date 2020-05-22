@@ -45,11 +45,11 @@ public class p implements com.baidu.b.a.b.c {
         }
         if (view instanceof CriusTbClipImageView) {
             float f = view.getResources().getDisplayMetrics().density;
-            if (aVar.alt > 0.0f) {
-                int x = x(aVar.alt, f);
+            if (aVar.amV > 0.0f) {
+                int x = x(aVar.amV, f);
                 ((CriusTbClipImageView) view).setRadius(x, x, x, x);
             } else {
-                ((CriusTbClipImageView) view).setRadius(x(aVar.alu, f), x(aVar.alv, f), x(aVar.alw, f), x(aVar.alx, f));
+                ((CriusTbClipImageView) view).setRadius(x(aVar.amW, f), x(aVar.amX, f), x(aVar.amY, f), x(aVar.amZ, f));
             }
             ((CriusTbClipImageView) view).startLoad(aVar.src, 30, false);
             return true;
@@ -94,7 +94,7 @@ public class p implements com.baidu.b.a.b.c {
                 return true;
             }
         }
-        com.baidu.adp.lib.e.c.kV().a(str2, 17, new com.baidu.adp.lib.e.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.recapp.p.1
+        com.baidu.adp.lib.e.c.kX().a(str2, 17, new com.baidu.adp.lib.e.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.recapp.p.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.e.b

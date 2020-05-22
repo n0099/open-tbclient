@@ -12,56 +12,56 @@ import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public class e {
-    private List<String> lgA;
-    private List<String> lgB;
-    private String lgz;
+    private String lzk;
+    private List<String> lzl;
+    private List<String> lzm;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes10.dex */
     public static class a {
-        private static final e lgD = new e();
+        private static final e lzo = new e();
     }
 
     private e() {
-        this.lgA = new ArrayList();
-        this.lgB = new ArrayList();
+        this.lzl = new ArrayList();
+        this.lzm = new ArrayList();
         if (f.checkSD()) {
-            dac();
+            dhq();
         }
     }
 
-    private void dac() {
+    private void dhq() {
         new BdAsyncTask<Void, Void, Void>() { // from class: com.baidu.tieba.u.e.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
             public Void doInBackground(Void... voidArr) {
-                com.baidu.tieba.k.d.GE(c.a.exE);
-                com.baidu.tieba.k.d.GE(c.a.jbD);
-                com.baidu.tieba.k.d.GE(c.a.jbE);
-                com.baidu.tieba.k.d.GE(c.a.jbG);
-                com.baidu.tieba.k.d.GE(c.a.jbH);
+                com.baidu.tieba.k.d.In(c.a.eMg);
+                com.baidu.tieba.k.d.In(c.a.jqG);
+                com.baidu.tieba.k.d.In(c.a.jqH);
+                com.baidu.tieba.k.d.In(c.a.jqJ);
+                com.baidu.tieba.k.d.In(c.a.jqK);
                 return null;
             }
         }.execute(new Void[0]);
     }
 
-    public static e dad() {
-        return a.lgD;
+    public static e dhr() {
+        return a.lzo;
     }
 
-    public void cZZ() {
+    public void dhn() {
         if (f.checkSD()) {
             new BdAsyncTask<Void, Void, Void>() { // from class: com.baidu.tieba.u.e.2
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                 public Void doInBackground(Void... voidArr) {
-                    List LA = e.LA(c.a.jbF);
-                    if (LA != null) {
-                        int size = LA.size();
+                    List Nn = e.Nn(c.a.jqI);
+                    if (Nn != null) {
+                        int size = Nn.size();
                         for (int i = 0; i < size; i++) {
-                            e.this.a((d) LA.get(i));
+                            e.this.a((d) Nn.get(i));
                         }
                     }
                     return null;
@@ -71,7 +71,7 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static List<d> LA(String str) {
+    public static List<d> Nn(String str) {
         File[] listFiles;
         ArrayList arrayList = null;
         if (!StringUtils.isNull(str)) {
@@ -80,14 +80,14 @@ public class e {
                 int length = listFiles.length;
                 arrayList = new ArrayList(length);
                 for (int i = 0; i < length; i++) {
-                    arrayList.add(new d(LB(com.baidu.tieba.k.d.O(listFiles[i])), listFiles[i].getAbsolutePath()));
+                    arrayList.add(new d(No(com.baidu.tieba.k.d.S(listFiles[i])), listFiles[i].getAbsolutePath()));
                 }
             }
         }
         return arrayList;
     }
 
-    private static List<String> LB(String str) {
+    private static List<String> No(String str) {
         if (StringUtils.isNull(str)) {
             return null;
         }
@@ -102,33 +102,33 @@ public class e {
         return arrayList;
     }
 
-    public synchronized void e(JSONObject jSONObject, boolean z) {
+    public synchronized void f(JSONObject jSONObject, boolean z) {
         if (jSONObject != null) {
-            this.lgA.add(jSONObject.toString());
-            String crZ = crZ();
+            this.lzl.add(jSONObject.toString());
+            String cyC = cyC();
             if (f.checkSD()) {
-                r(jSONObject, crZ);
+                y(jSONObject, cyC);
             }
-            if (this.lgA.size() >= com.baidu.tbadk.coreExtra.model.f.aUy() || z) {
-                a(new d(this.lgA, crZ));
-                this.lgA.clear();
-                this.lgz = null;
+            if (this.lzl.size() >= com.baidu.tbadk.coreExtra.model.f.baI() || z) {
+                a(new d(this.lzl, cyC));
+                this.lzl.clear();
+                this.lzk = null;
             }
         }
     }
 
-    private String crZ() {
-        if (StringUtils.isNull(this.lgz)) {
+    private String cyC() {
+        if (StringUtils.isNull(this.lzk)) {
             if (f.checkSD()) {
-                this.lgz = String.valueOf(System.currentTimeMillis());
+                this.lzk = String.valueOf(System.currentTimeMillis());
             } else {
                 return null;
             }
         }
-        return c.a.jbF + this.lgz;
+        return c.a.jqI + this.lzk;
     }
 
-    private void r(JSONObject jSONObject, String str) {
+    private void y(JSONObject jSONObject, String str) {
         if (!StringUtils.isNull(str) && f.checkSD()) {
             new BdAsyncTask<String, Void, Void>() { // from class: com.baidu.tieba.u.e.3
                 /* JADX DEBUG: Method merged with bridge method */
@@ -136,7 +136,7 @@ public class e {
                 @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                 public Void doInBackground(String... strArr) {
                     if (strArr != null && strArr.length == 2 && !StringUtils.isNull(strArr[0]) && !StringUtils.isNull(strArr[1])) {
-                        e.this.eU(strArr[0], strArr[1]);
+                        e.this.fv(strArr[0], strArr[1]);
                     }
                     return null;
                 }
@@ -145,9 +145,9 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized boolean eU(String str, String str2) {
+    public synchronized boolean fv(String str, String str2) {
         boolean g;
-        if (this.lgB.contains(str)) {
+        if (this.lzm.contains(str)) {
             g = false;
         } else {
             File file = new File(str);
@@ -177,9 +177,9 @@ public class e {
     /* JADX INFO: Access modifiers changed from: private */
     public synchronized void b(d dVar) {
         try {
-            if (c.e(c.eC(dVar.lgx), TbConfig.SERVER_ADDRESS + TbConfig.URL_VIDEO_MONITOR_REPORT) && !StringUtils.isNull(dVar.lgy)) {
-                m.deleteFile(new File(dVar.lgy));
-                this.lgB.add(dVar.lgy);
+            if (c.e(c.eJ(dVar.lzi), TbConfig.SERVER_ADDRESS + TbConfig.URL_VIDEO_MONITOR_REPORT) && !StringUtils.isNull(dVar.lzj)) {
+                m.deleteFile(new File(dVar.lzj));
+                this.lzm.add(dVar.lzj);
             }
         } catch (Exception e) {
             e.printStackTrace();

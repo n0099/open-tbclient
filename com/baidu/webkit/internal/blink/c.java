@@ -9,7 +9,6 @@ public final class c extends a {
 
     public c(String str, EngineManager engineManager, WebKitFactory.WebkitInstallListener webkitInstallListener) {
         super(engineManager, webkitInstallListener);
-        this.c = null;
         if (str != null) {
             String substring = str.substring(7);
             if (new File(substring).isFile()) {

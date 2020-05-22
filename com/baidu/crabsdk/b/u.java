@@ -13,26 +13,26 @@ import java.util.List;
 import org.json.JSONArray;
 /* loaded from: classes8.dex */
 public final class u {
-    private static com.baidu.crabsdk.c.b<List> akD = new com.baidu.crabsdk.c.b<>(com.baidu.crabsdk.a.g);
-    private static String akE = "";
-    private static String akm = "";
-    private static int akF = 0;
-    private static int akG = 0;
+    private static com.baidu.crabsdk.c.b<List> alj = new com.baidu.crabsdk.c.b<>(com.baidu.crabsdk.a.g);
+    private static String bv = "";
+    private static String akS = "";
+    private static int alk = 0;
+    private static int alm = 0;
 
-    private static WebView I(View view) {
+    private static WebView H(View view) {
         if (view instanceof ViewGroup) {
             ViewGroup viewGroup = (ViewGroup) view;
             for (int i = 0; i < viewGroup.getChildCount(); i++) {
                 View childAt = viewGroup.getChildAt(i);
                 if (childAt.getVisibility() == 0) {
-                    if (!(childAt.getLocalVisibleRect(new Rect(0, 0, akF, akG)))) {
+                    if (!(childAt.getLocalVisibleRect(new Rect(0, 0, alk, alm)))) {
                         continue;
                     } else if (childAt instanceof WebView) {
                         return (WebView) childAt;
                     } else {
-                        WebView I = I(childAt);
-                        if (I != null) {
-                            return I;
+                        WebView H = H(childAt);
+                        if (H != null) {
+                            return H;
                         }
                     }
                 }
@@ -41,12 +41,12 @@ public final class u {
         return null;
     }
 
-    public static String sJ() {
-        return akD.size() > 0 ? new JSONArray((Collection) akD).toString() : "";
+    public static String sR() {
+        return alj.size() > 0 ? new JSONArray((Collection) alj).toString() : "";
     }
 
-    public static boolean sK() {
-        return sJ().length() > 0;
+    public static boolean sS() {
+        return sR().length() > 0;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:20:0x005a A[Catch: Exception -> 0x00d0, TryCatch #0 {Exception -> 0x00d0, blocks: (B:16:0x004a, B:18:0x0054, B:20:0x005a, B:22:0x0066), top: B:27:0x004a }] */
@@ -55,43 +55,43 @@ public final class u {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static void urlRecordEvent(MotionEvent motionEvent, Activity activity) {
-        WebView I;
+        WebView H;
         if (activity == null) {
             return;
         }
-        if (akF == 0 || akG == 0) {
+        if (alk == 0 || alm == 0) {
             DisplayMetrics displayMetrics = new DisplayMetrics();
             activity.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-            akG = displayMetrics.heightPixels;
-            akF = displayMetrics.widthPixels;
+            alm = displayMetrics.heightPixels;
+            alk = displayMetrics.widthPixels;
         }
         switch (motionEvent.getAction()) {
             case 0:
                 String name = activity.getClass().getName();
-                if (!name.equals(akm)) {
+                if (!name.equals(akS)) {
                     com.baidu.crabsdk.c.a.v("***** !tempName.equals(activityName) *****");
-                    akm = name;
-                    akD.clear();
+                    akS = name;
+                    alj.clear();
                 }
                 if (activity != null) {
                     try {
                         View decorView = activity.getWindow().getDecorView();
                         if (decorView != null) {
-                            I = I(decorView);
-                            if (I == null) {
-                                String url = I.getUrl();
-                                if (url.equals(akE)) {
+                            H = H(decorView);
+                            if (H == null) {
+                                String url = H.getUrl();
+                                if (url.equals(bv)) {
                                     return;
                                 }
                                 com.baidu.crabsdk.c.a.v("-------- !tempUrl.equals(mUrl) --------");
-                                akE = url;
+                                bv = url;
                                 ArrayList arrayList = new ArrayList();
                                 arrayList.add(Integer.valueOf((int) (System.currentTimeMillis() / 1000)));
-                                arrayList.add(I.getTitle());
-                                arrayList.add(akE);
-                                com.baidu.crabsdk.c.a.v("title:" + I.getTitle() + "; url:" + akE);
-                                akD.add(arrayList);
-                                com.baidu.crabsdk.c.a.v("###### jsonArray.toString() : " + sJ());
+                                arrayList.add(H.getTitle());
+                                arrayList.add(bv);
+                                com.baidu.crabsdk.c.a.v("title:" + H.getTitle() + "; url:" + bv);
+                                alj.add(arrayList);
+                                com.baidu.crabsdk.c.a.v("###### jsonArray.toString() : " + sR());
                                 return;
                             }
                             return;
@@ -101,8 +101,8 @@ public final class u {
                         return;
                     }
                 }
-                I = null;
-                if (I == null) {
+                H = null;
+                if (H == null) {
                 }
             default:
                 return;

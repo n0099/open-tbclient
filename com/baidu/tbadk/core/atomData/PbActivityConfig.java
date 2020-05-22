@@ -7,8 +7,8 @@ import android.graphics.Rect;
 import android.net.Uri;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.data.BaijiahaoData;
-import com.baidu.tbadk.core.data.ax;
-import com.baidu.tbadk.core.data.bj;
+import com.baidu.tbadk.core.data.ay;
+import com.baidu.tbadk.core.data.bk;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
 public class PbActivityConfig extends IntentConfig {
@@ -331,16 +331,16 @@ public class PbActivityConfig extends IntentConfig {
         return this;
     }
 
-    public PbActivityConfig createFromThreadCfg(bj bjVar, String str, String str2, int i, boolean z, boolean z2, boolean z3) {
-        if (bjVar != null) {
+    public PbActivityConfig createFromThreadCfg(bk bkVar, String str, String str2, int i, boolean z, boolean z2, boolean z3) {
+        if (bkVar != null) {
             Intent intent = getIntent();
-            intent.putExtra("thread_id", bjVar.getTid());
-            if (bjVar.aMc() != null && !StringUtils.isNull(bjVar.aMc().getId())) {
-                intent.putExtra(KEY_GOD_REPLY_ID, bjVar.aMc().getId());
+            intent.putExtra("thread_id", bkVar.getTid());
+            if (bkVar.aSb() != null && !StringUtils.isNull(bkVar.aSb().getId())) {
+                intent.putExtra(KEY_GOD_REPLY_ID, bkVar.aSb().getId());
             }
-            intent.putExtra("is_good", bjVar.aKy());
-            intent.putExtra("is_top", bjVar.aKx());
-            intent.putExtra("thread_time", bjVar.aKv());
+            intent.putExtra("is_good", bkVar.aQt());
+            intent.putExtra("is_top", bkVar.aQs());
+            intent.putExtra("thread_time", bkVar.aQq());
             intent.putExtra("st_type", str2);
             intent.putExtra("squence", z);
             intent.putExtra("host_only", z2);
@@ -350,22 +350,22 @@ public class PbActivityConfig extends IntentConfig {
             intent.putExtra("is_start_for_result", "1");
             intent.putExtra("request_code", i);
             intent.putExtra("is_from_thread_config", true);
-            intent.putExtra("extra_pb_cache_key", "zan=" + (bjVar.aKn() == null ? 0L : bjVar.aKn().getNum()));
-            if (bjVar.aKC() != null && bjVar.aKC().getGodUserData().getId() != null) {
-                intent.putExtra("extra_pb_funs_count_key", bjVar.aKC().getFansNum());
-                intent.putExtra("extra_pb_is_attention_key", bjVar.aKC().getGodUserData().getIsLike());
+            intent.putExtra("extra_pb_cache_key", "zan=" + (bkVar.aQi() == null ? 0L : bkVar.aQi().getNum()));
+            if (bkVar.aQx() != null && bkVar.aQx().getGodUserData().getId() != null) {
+                intent.putExtra("extra_pb_funs_count_key", bkVar.aQx().getFansNum());
+                intent.putExtra("extra_pb_is_attention_key", bkVar.aQx().getGodUserData().getIsLike());
             }
             intent.putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
-            String valueOf = String.valueOf(bjVar.getFid());
-            String aKH = bjVar.aKH();
-            if (bjVar.dtD != null) {
+            String valueOf = String.valueOf(bkVar.getFid());
+            String aQC = bkVar.aQC();
+            if (bkVar.dHw != null) {
                 setFromForumId(valueOf);
-                valueOf = bjVar.dtD.id;
-                aKH = bjVar.dtD.ori_fname;
+                valueOf = bkVar.dHw.id;
+                aQC = bkVar.dHw.ori_fname;
             }
-            setThreadData(bjVar);
+            setThreadData(bkVar);
             setForumId(String.valueOf(valueOf));
-            setForumName(aKH);
+            setForumName(aQC);
             addMoreIntentExtraParam();
         }
         return this;
@@ -629,28 +629,28 @@ public class PbActivityConfig extends IntentConfig {
         }
     }
 
-    public void setRecomData(ax axVar) {
+    public void setRecomData(ay ayVar) {
         Intent intent = getIntent();
-        if (intent != null && axVar != null) {
-            axVar.E(intent);
+        if (intent != null && ayVar != null) {
+            ayVar.B(intent);
         }
     }
 
-    public PbActivityConfig setThreadData(bj bjVar) {
+    public PbActivityConfig setThreadData(bk bkVar) {
         Intent intent = getIntent();
-        if (intent != null && bjVar != null) {
-            BaijiahaoData baijiahaoData = bjVar.getBaijiahaoData();
+        if (intent != null && bkVar != null) {
+            BaijiahaoData baijiahaoData = bkVar.getBaijiahaoData();
             if (baijiahaoData != null) {
-                intent.putExtra("key_is_from_dynamic", bjVar.aMy());
+                intent.putExtra("key_is_from_dynamic", bkVar.aSx());
                 intent.putExtra("key_ori_ugc_nid", baijiahaoData.oriUgcNid);
                 intent.putExtra("key_ori_ugc_tid", baijiahaoData.oriUgcTid);
                 intent.putExtra("key_ori_ugc_type", baijiahaoData.oriUgcType);
                 intent.putExtra("key_ori_ugc_vid", baijiahaoData.oriUgcVid);
             }
-            intent.putExtra(KEY_REC_WEIGHT, bjVar.mRecomWeight);
-            intent.putExtra(KEY_REC_SOURCE, bjVar.mRecomSource);
-            intent.putExtra(KEY_REC_AB_TAG, bjVar.mRecomAbTag);
-            intent.putExtra(KEY_REC_EXTRA, bjVar.mRecomExtra);
+            intent.putExtra(KEY_REC_WEIGHT, bkVar.mRecomWeight);
+            intent.putExtra(KEY_REC_SOURCE, bkVar.mRecomSource);
+            intent.putExtra(KEY_REC_AB_TAG, bkVar.mRecomAbTag);
+            intent.putExtra(KEY_REC_EXTRA, bkVar.mRecomExtra);
         }
         return this;
     }

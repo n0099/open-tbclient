@@ -8,69 +8,68 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.live.adp.lib.util.StringUtils;
-import com.baidu.live.data.g;
-import com.baidu.live.data.h;
+import com.baidu.live.data.j;
+import com.baidu.live.data.k;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.util.StringHelper;
 import com.baidu.live.tbadk.core.view.HeadImageView;
 import com.baidu.live.u.a;
-import com.baidu.live.utils.k;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a extends BaseAdapter {
-    private List<g> aqp;
+    private List<j> avo;
     private Context mContext;
 
     public a(Context context) {
         this.mContext = context;
     }
 
-    public void d(h hVar) {
-        this.aqp = new ArrayList();
-        if (hVar != null && hVar.getList() != null && !hVar.getList().isEmpty()) {
-            for (g gVar : hVar.getList()) {
-                if (gVar != null && gVar.aqk != null) {
-                    this.aqp.add(gVar);
+    public void d(k kVar) {
+        this.avo = new ArrayList();
+        if (kVar != null && kVar.getList() != null && !kVar.getList().isEmpty()) {
+            for (j jVar : kVar.getList()) {
+                if (jVar != null && jVar.avj != null) {
+                    this.avo.add(jVar);
                 }
             }
         }
     }
 
-    public boolean b(g gVar) {
-        if (gVar == null || gVar.aqk == null) {
+    public boolean b(j jVar) {
+        if (jVar == null || jVar.avj == null) {
             return false;
         }
-        if (this.aqp == null) {
+        if (this.avo == null) {
             return false;
         }
-        if (this.aqp.size() == 0) {
-            this.aqp.add(gVar);
+        if (this.avo.size() == 0) {
+            this.avo.add(jVar);
             return true;
         }
-        for (g gVar2 : this.aqp) {
-            if (gVar2 != null && gVar2.aqk != null && gVar.aqk.userId == gVar2.aqk.userId) {
+        for (j jVar2 : this.avo) {
+            if (jVar2 != null && jVar2.avj != null && jVar.avj.userId == jVar2.avj.userId) {
                 return false;
             }
         }
-        this.aqp.add(gVar);
+        this.avo.add(jVar);
         return true;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.aqp == null) {
+        if (this.avo == null) {
             return 0;
         }
-        return this.aqp.size();
+        return this.avo.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.aqp == null) {
+        if (this.avo == null) {
             return null;
         }
-        return this.aqp.get(i);
+        return this.avo.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -80,67 +79,67 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0511a c0511a;
+        C0558a c0558a;
         if (view == null) {
             view = LayoutInflater.from(this.mContext).inflate(a.h.ala_live_audience_header_image, (ViewGroup) null);
-            C0511a c0511a2 = new C0511a(view);
+            C0558a c0558a2 = new C0558a(view);
             if (TbadkCoreApplication.getInst().isHaokan()) {
-                c0511a2.fyB.setDefaultResource(a.f.sdk_icon_default_avatar100_hk);
+                c0558a2.fMC.setDefaultResource(a.f.sdk_icon_default_avatar100_hk);
             } else {
-                c0511a2.fyB.setDefaultResource(a.f.sdk_icon_default_avatar100);
+                c0558a2.fMC.setDefaultResource(a.f.sdk_icon_default_avatar100);
             }
-            c0511a2.fyB.setIsRound(true);
-            c0511a2.fyB.setDrawBorder(true);
-            c0511a2.fyB.setBorderColor(this.mContext.getResources().getColor(a.d.sdk_cp_bg_line_k_alpha10_1));
-            c0511a2.fyB.setAutoChangeStyle(false);
-            c0511a2.fyB.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            c0511a2.fyC.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-            view.setTag(c0511a2);
-            c0511a = c0511a2;
+            c0558a2.fMC.setIsRound(true);
+            c0558a2.fMC.setDrawBorder(true);
+            c0558a2.fMC.setBorderColor(this.mContext.getResources().getColor(a.d.sdk_cp_bg_line_k_alpha10_1));
+            c0558a2.fMC.setAutoChangeStyle(false);
+            c0558a2.fMC.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            c0558a2.fMD.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+            view.setTag(c0558a2);
+            c0558a = c0558a2;
         } else {
-            c0511a = (C0511a) view.getTag();
+            c0558a = (C0558a) view.getTag();
         }
-        g gVar = (g) getItem(i);
-        c0511a.fyB.setDrawBorder(true);
-        if (gVar.aqn == 1 && gVar.aqk.totalPrice > 0) {
-            c0511a.fyC.setVisibility(0);
-            c0511a.fyC.setImageResource(a.f.pic_live_top1);
-            c0511a.fyD.setBackgroundResource(a.f.round_header_day_list_bg_1);
-        } else if (gVar.aqn == 2 && gVar.aqk.totalPrice > 0) {
-            c0511a.fyC.setVisibility(0);
-            c0511a.fyC.setImageResource(a.f.pic_live_top2);
-            c0511a.fyD.setBackgroundResource(a.f.round_header_day_list_bg_2);
-        } else if (gVar.aqn == 3 && gVar.aqk.totalPrice > 0) {
-            c0511a.fyC.setVisibility(0);
-            c0511a.fyC.setImageResource(a.f.pic_live_top3);
-            c0511a.fyD.setBackgroundResource(a.f.round_header_day_list_bg_3);
+        j jVar = (j) getItem(i);
+        c0558a.fMC.setDrawBorder(true);
+        if (jVar.avm == 1 && jVar.avj.totalPrice > 0) {
+            c0558a.fMD.setVisibility(0);
+            c0558a.fMD.setImageResource(a.f.pic_live_top1);
+            c0558a.fME.setBackgroundResource(a.f.round_header_day_list_bg_1);
+        } else if (jVar.avm == 2 && jVar.avj.totalPrice > 0) {
+            c0558a.fMD.setVisibility(0);
+            c0558a.fMD.setImageResource(a.f.pic_live_top2);
+            c0558a.fME.setBackgroundResource(a.f.round_header_day_list_bg_2);
+        } else if (jVar.avm == 3 && jVar.avj.totalPrice > 0) {
+            c0558a.fMD.setVisibility(0);
+            c0558a.fMD.setImageResource(a.f.pic_live_top3);
+            c0558a.fME.setBackgroundResource(a.f.round_header_day_list_bg_3);
         } else {
-            c0511a.fyC.setVisibility(8);
-            c0511a.fyD.setBackgroundResource(a.f.round_header_day_list_bg_normal);
+            c0558a.fMD.setVisibility(8);
+            c0558a.fME.setBackgroundResource(a.f.round_header_day_list_bg_normal);
         }
-        c0511a.fyD.setText(StringHelper.formatForHeaderDayCharmValue(gVar.aqk.totalPrice));
-        if (gVar.aqk.totalPrice <= 0) {
-            c0511a.fyD.setVisibility(4);
+        c0558a.fME.setText(StringHelper.formatForHeaderDayCharmValue(jVar.avj.totalPrice));
+        if (jVar.avj.totalPrice <= 0) {
+            c0558a.fME.setVisibility(4);
         } else {
-            c0511a.fyD.setVisibility(0);
+            c0558a.fME.setVisibility(0);
         }
-        k.a(c0511a.fyB, gVar.aqk.portrait, true, !StringUtils.isNull(gVar.aqk.appId));
+        com.baidu.live.utils.k.a(c0558a.fMC, jVar.avj.portrait, true, !StringUtils.isNull(jVar.avj.appId));
         return view;
     }
 
     /* renamed from: com.baidu.tieba.ala.liveroom.audiencelist.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0511a {
-        public HeadImageView fyB;
-        public ImageView fyC;
-        public TextView fyD;
+    public static class C0558a {
+        public HeadImageView fMC;
+        public ImageView fMD;
+        public TextView fME;
         public View rootView;
 
-        public C0511a(View view) {
+        public C0558a(View view) {
             this.rootView = view;
-            this.fyB = (HeadImageView) view.findViewById(a.g.ala_live_room_audience_header_img);
-            this.fyC = (ImageView) view.findViewById(a.g.ala_live_room_audience_pendant);
-            this.fyD = (TextView) view.findViewById(a.g.ala_live_room_audience_charm_count);
+            this.fMC = (HeadImageView) view.findViewById(a.g.ala_live_room_audience_header_img);
+            this.fMD = (ImageView) view.findViewById(a.g.ala_live_room_audience_pendant);
+            this.fME = (TextView) view.findViewById(a.g.ala_live_room_audience_charm_count);
         }
     }
 }

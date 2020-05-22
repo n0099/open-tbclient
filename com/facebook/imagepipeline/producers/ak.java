@@ -6,19 +6,19 @@ import com.facebook.imagepipeline.request.ImageRequest;
 public interface ak {
     void a(al alVar);
 
-    Object dou();
+    ImageRequest dBi();
 
-    ImageRequest dtR();
+    am dBj();
 
-    am dtS();
+    ImageRequest.RequestLevel dBk();
 
-    ImageRequest.RequestLevel dtT();
+    boolean dBl();
 
-    boolean dtU();
+    Priority dBm();
 
-    Priority dtV();
+    boolean dBn();
 
-    boolean dtW();
+    Object dvM();
 
     String getId();
 }

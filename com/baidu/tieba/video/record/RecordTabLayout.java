@@ -11,49 +11,49 @@ import android.widget.TextView;
 import com.baidu.tieba.R;
 /* loaded from: classes10.dex */
 public class RecordTabLayout extends LinearLayout {
-    private int hqi;
-    private LinearLayout loI;
-    private View loJ;
-    private boolean loK;
-    private a loL;
+    private int hEW;
+    private LinearLayout lHn;
+    private View lHo;
+    private boolean lHp;
+    private a lHq;
 
     /* loaded from: classes10.dex */
     public interface a {
-        void Z(int i, boolean z);
+        void ad(int i, boolean z);
     }
 
     public RecordTabLayout(Context context) {
         super(context);
-        this.loK = true;
+        this.lHp = true;
         initView();
     }
 
     public RecordTabLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.loK = true;
+        this.lHp = true;
         initView();
     }
 
     public RecordTabLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.loK = true;
+        this.lHp = true;
         initView();
     }
 
     private void initView() {
         setOrientation(1);
-        this.loI = new LinearLayout(getContext());
-        this.loI.setOrientation(0);
-        this.loI.setGravity(17);
-        addView(this.loI, new ViewGroup.LayoutParams(-1, -2));
-        this.loJ = new View(getContext());
-        this.loJ.setBackgroundColor(getResources().getColor(R.color.cp_cont_a));
+        this.lHn = new LinearLayout(getContext());
+        this.lHn.setOrientation(0);
+        this.lHn.setGravity(17);
+        addView(this.lHn, new ViewGroup.LayoutParams(-1, -2));
+        this.lHo = new View(getContext());
+        this.lHo.setBackgroundColor(getResources().getColor(R.color.cp_cont_a));
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.ds44), com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.ds4));
         layoutParams.topMargin = com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.ds18);
-        addView(this.loJ, layoutParams);
+        addView(this.lHo, layoutParams);
     }
 
-    public void bw(final int i, String str) {
+    public void bB(final int i, String str) {
         TextView textView = new TextView(getContext());
         textView.setTextSize(0, com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.fontsize28));
         textView.setTextColor(getResources().getColor(R.color.cp_cont_a));
@@ -62,29 +62,29 @@ public class RecordTabLayout extends LinearLayout {
         textView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.video.record.RecordTabLayout.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (RecordTabLayout.this.hqi != i) {
+                if (RecordTabLayout.this.hEW != i) {
                     RecordTabLayout.this.setCurrentTab(i, true);
-                    if (RecordTabLayout.this.loL != null) {
-                        RecordTabLayout.this.loL.Z(i, true);
+                    if (RecordTabLayout.this.lHq != null) {
+                        RecordTabLayout.this.lHq.ad(i, true);
                     }
                 }
             }
         });
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-        if (this.loI.getChildCount() != 0) {
+        if (this.lHn.getChildCount() != 0) {
             layoutParams.leftMargin = com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.ds44);
         }
-        this.loI.addView(textView, layoutParams);
+        this.lHn.addView(textView, layoutParams);
     }
 
     public void setCurrentTab(int i, final boolean z) {
         TextView textView;
-        if (this.hqi != i) {
-            this.hqi = i;
+        if (this.hEW != i) {
+            this.hEW = i;
             final TextView textView2 = null;
             int i2 = 0;
-            while (i2 < this.loI.getChildCount()) {
-                View childAt = this.loI.getChildAt(i2);
+            while (i2 < this.lHn.getChildCount()) {
+                View childAt = this.lHn.getChildAt(i2);
                 if (childAt instanceof TextView) {
                     Object tag = childAt.getTag();
                     if ((tag instanceof Integer) && ((Integer) tag).intValue() == i) {
@@ -100,19 +100,19 @@ public class RecordTabLayout extends LinearLayout {
                 i2++;
                 textView2 = textView;
             }
-            if (this.loK) {
+            if (this.lHp) {
                 textView2.post(new Runnable() { // from class: com.baidu.tieba.video.record.RecordTabLayout.2
                     @Override // java.lang.Runnable
                     public void run() {
-                        float x = (textView2.getX() + ((textView2.getWidth() - RecordTabLayout.this.loJ.getWidth()) / 2)) - RecordTabLayout.this.loJ.getLeft();
+                        float x = (textView2.getX() + ((textView2.getWidth() - RecordTabLayout.this.lHo.getWidth()) / 2)) - RecordTabLayout.this.lHo.getLeft();
                         if (z) {
-                            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(RecordTabLayout.this.loJ, "translationX", RecordTabLayout.this.loJ.getTranslationX(), x);
+                            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(RecordTabLayout.this.lHo, "translationX", RecordTabLayout.this.lHo.getTranslationX(), x);
                             ofFloat.setDuration(500L);
                             ofFloat.setInterpolator(new OvershootInterpolator(1.0f));
                             ofFloat.start();
                             return;
                         }
-                        RecordTabLayout.this.loJ.setTranslationX(x);
+                        RecordTabLayout.this.lHo.setTranslationX(x);
                     }
                 });
             }
@@ -120,17 +120,17 @@ public class RecordTabLayout extends LinearLayout {
     }
 
     public int getCurrentTab() {
-        return this.hqi;
+        return this.hEW;
     }
 
     public void setListener(a aVar) {
-        this.loL = aVar;
+        this.lHq = aVar;
     }
 
     public void setShowIndicator(boolean z) {
-        this.loK = z;
-        if (!this.loK) {
-            this.loJ.setVisibility(4);
+        this.lHp = z;
+        if (!this.lHp) {
+            this.lHo.setVisibility(4);
         }
     }
 }

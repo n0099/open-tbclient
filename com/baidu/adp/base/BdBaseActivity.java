@@ -14,7 +14,7 @@ import com.baidu.adp.framework.listener.MessageListener;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.adp.lib.util.l;
-import com.baidu.adp.widget.ListView.p;
+import com.baidu.adp.widget.ListView.r;
 import com.baidu.megapp.ma.MAActivity;
 /* loaded from: classes.dex */
 public abstract class BdBaseActivity<T> extends MAActivity implements DialogInterface.OnClickListener, Handler.Callback, View.OnClickListener, View.OnLongClickListener, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener, f<T>, h {
@@ -143,7 +143,7 @@ public abstract class BdBaseActivity<T> extends MAActivity implements DialogInte
         super.onDestroy();
         MessageManager.getInstance().unRegisterListener(this.mId);
         MessageManager.getInstance().removeMessage(this.mId);
-        com.baidu.adp.lib.e.c.kV().d(this.mId);
+        com.baidu.adp.lib.e.c.kX().d(this.mId);
         a.jm().popActivity(getPageContext().getPageActivity());
         this.mHandler.removeCallbacks(this.preLoadRunnable);
     }
@@ -152,7 +152,7 @@ public abstract class BdBaseActivity<T> extends MAActivity implements DialogInte
     @Override // android.app.Activity
     public void onPause() {
         super.onPause();
-        com.baidu.adp.lib.e.c.kV().e(this.mId);
+        com.baidu.adp.lib.e.c.kX().e(this.mId);
         this.mHandler.removeCallbacks(this.preLoadRunnable);
     }
 
@@ -167,7 +167,7 @@ public abstract class BdBaseActivity<T> extends MAActivity implements DialogInte
     @Override // android.app.Activity
     public void onStop() {
         super.onStop();
-        p onGetPreLoadListView = onGetPreLoadListView();
+        r onGetPreLoadListView = onGetPreLoadListView();
         if (onGetPreLoadListView != null) {
             onGetPreLoadListView.cancelRefresh();
         }
@@ -184,10 +184,10 @@ public abstract class BdBaseActivity<T> extends MAActivity implements DialogInte
     }
 
     @Override // com.baidu.adp.base.h
-    public void onPreLoad(p pVar) {
+    public void onPreLoad(r rVar) {
     }
 
-    public p onGetPreLoadListView() {
+    public r onGetPreLoadListView() {
         return null;
     }
 
@@ -203,8 +203,8 @@ public abstract class BdBaseActivity<T> extends MAActivity implements DialogInte
 
     private void refreshImage(View view) {
         if (view != null) {
-            if (view instanceof com.baidu.adp.newwidget.ImageView.h) {
-                ((com.baidu.adp.newwidget.ImageView.h) view).refresh();
+            if (view instanceof com.baidu.adp.newwidget.ImageView.i) {
+                ((com.baidu.adp.newwidget.ImageView.i) view).refresh();
             }
             if (view instanceof ViewGroup) {
                 ViewGroup viewGroup = (ViewGroup) view;

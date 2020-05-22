@@ -15,25 +15,25 @@ import org.json.JSONObject;
 /* loaded from: classes13.dex */
 public abstract class a implements u {
     private static final boolean DEBUG = AppConfig.isDebug();
-    protected ad lMW = new ad();
+    protected ad mgl = new ad();
 
     public abstract ab a(String str, byte[] bArr, Map<String, String> map) throws IOException;
 
     @Override // com.baidu.ubc.u
-    public boolean g(JSONObject jSONObject, boolean z) {
+    public boolean h(JSONObject jSONObject, boolean z) {
         return a("https://tcbox.baidu.com", jSONObject, z);
     }
 
     public boolean a(String str, JSONObject jSONObject, boolean z) {
         String str2;
-        boolean dkN = this.lMW.dkN();
-        if (dkN) {
+        boolean dsd = this.mgl.dsd();
+        if (dsd) {
             str2 = "http://bjyz-mco-searchbox201609-m12xi3-044.bjyz.baidu.com:8080/ztbox?action=zubc";
         } else {
             str2 = str + "/ztbox?action=zubc";
         }
-        String processUrl = com.baidu.a.b.b.sj().processUrl(str2);
-        if (dkN && !TextUtils.isEmpty(processUrl)) {
+        String processUrl = com.baidu.a.b.b.st().processUrl(str2);
+        if (dsd && !TextUtils.isEmpty(processUrl)) {
             processUrl = UrlUtil.addParam(processUrl, "debug", "1");
         }
         if (z) {
@@ -66,11 +66,11 @@ public abstract class a implements u {
                     if (!DEBUG) {
                         JSONObject jSONObject2 = new JSONObject();
                         try {
-                            String dv = dv(jSONObject);
+                            String dC = dC(jSONObject);
                             jSONObject2.put("type", "sendFail");
                             jSONObject2.put("error_no", i);
-                            if (!TextUtils.isEmpty(dv)) {
-                                jSONObject2.put("md5", dv);
+                            if (!TextUtils.isEmpty(dC)) {
+                                jSONObject2.put("md5", dC);
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -93,7 +93,7 @@ public abstract class a implements u {
         }
     }
 
-    protected String dv(JSONObject jSONObject) {
+    protected String dC(JSONObject jSONObject) {
         if (jSONObject == null || !jSONObject.has("metadata")) {
             return "";
         }

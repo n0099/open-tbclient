@@ -47,7 +47,7 @@ public final class SingleFlatMap<T, R> extends w<R> {
         @Override // io.reactivex.y
         public void onSuccess(T t) {
             try {
-                aa aaVar = (aa) io.reactivex.internal.functions.a.h(this.mapper.apply(t), "The single returned by the mapper is null");
+                aa aaVar = (aa) io.reactivex.internal.functions.a.k(this.mapper.apply(t), "The single returned by the mapper is null");
                 if (!isDisposed()) {
                     aaVar.a(new a(this, this.actual));
                 }
@@ -65,16 +65,16 @@ public final class SingleFlatMap<T, R> extends w<R> {
         /* loaded from: classes7.dex */
         static final class a<R> implements y<R> {
             final y<? super R> actual;
-            final AtomicReference<io.reactivex.disposables.b> mRE;
+            final AtomicReference<io.reactivex.disposables.b> nmM;
 
             a(AtomicReference<io.reactivex.disposables.b> atomicReference, y<? super R> yVar) {
-                this.mRE = atomicReference;
+                this.nmM = atomicReference;
                 this.actual = yVar;
             }
 
             @Override // io.reactivex.y
             public void onSubscribe(io.reactivex.disposables.b bVar) {
-                DisposableHelper.replace(this.mRE, bVar);
+                DisposableHelper.replace(this.nmM, bVar);
             }
 
             @Override // io.reactivex.y

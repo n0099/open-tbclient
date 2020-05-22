@@ -42,17 +42,17 @@ public class EmbeddedButtonLayout extends LinearLayout implements View.OnClickLi
     private int k;
     private long l;
     private Runnable m;
-    public ListItem mnw;
-    private FrescoThumbnailView mpu;
-    private FrameLayout mzd;
-    private EggacheDisplayView mze;
-    private RoundProgressBar mzf;
-    private FrescoThumbnailView mzg;
-    private FoodView mzh;
-    private IconConfig.Config mzi;
-    private FrescoThumbnailView mzj;
-    private ImageView mzk;
-    private RelativeLayout mzl;
+    public ListItem mHs;
+    private FrescoThumbnailView mJq;
+    private FrameLayout mTe;
+    private EggacheDisplayView mTf;
+    private RoundProgressBar mTg;
+    private FrescoThumbnailView mTh;
+    private FoodView mTi;
+    private IconConfig.Config mTk;
+    private FrescoThumbnailView mTl;
+    private ImageView mTm;
+    private RelativeLayout mTn;
     private Runnable n;
     private boolean p;
     private boolean q;
@@ -74,7 +74,7 @@ public class EmbeddedButtonLayout extends LinearLayout implements View.OnClickLi
         super(context, attributeSet, i);
         this.k = 0;
         this.l = 0L;
-        this.mzi = new IconConfig.Config();
+        this.mTk = new IconConfig.Config();
         this.p = false;
         this.q = false;
         this.r = 0;
@@ -93,39 +93,39 @@ public class EmbeddedButtonLayout extends LinearLayout implements View.OnClickLi
         setOrientation(1);
         this.r = ContextCompat.getColor(this.b, a.c.kas_red_n);
         View inflate = LayoutInflater.from(context).inflate(a.h.view_embedded_button_layout, (ViewGroup) this, true);
-        this.mzd = (FrameLayout) inflate.findViewById(a.f.fl_pao);
-        this.mpu = (FrescoThumbnailView) inflate.findViewById(a.f.gift_popup_gift);
+        this.mTe = (FrameLayout) inflate.findViewById(a.f.fl_pao);
+        this.mJq = (FrescoThumbnailView) inflate.findViewById(a.f.gift_popup_gift);
         this.f = (LinearLayout) findViewById(a.f.btn_paopao);
-        this.mzf = (RoundProgressBar) findViewById(a.f.progress_paopao);
-        this.mzf.setRoundColor(color);
-        this.mzf.setRoundProgressColor(color2);
-        this.mzg = (FrescoThumbnailView) findViewById(a.f.iv_paoicon);
-        this.mzj = (FrescoThumbnailView) findViewById(a.f.ic_shopwindow);
-        this.mzk = (ImageView) findViewById(a.f.iv_shopwindow_close);
-        this.mzl = (RelativeLayout) findViewById(a.f.rl_shopwindow);
+        this.mTg = (RoundProgressBar) findViewById(a.f.progress_paopao);
+        this.mTg.setRoundColor(color);
+        this.mTg.setRoundProgressColor(color2);
+        this.mTh = (FrescoThumbnailView) findViewById(a.f.iv_paoicon);
+        this.mTl = (FrescoThumbnailView) findViewById(a.f.ic_shopwindow);
+        this.mTm = (ImageView) findViewById(a.f.iv_shopwindow_close);
+        this.mTn = (RelativeLayout) findViewById(a.f.rl_shopwindow);
         this.i = (TextView) findViewById(a.f.tv_paopao);
         this.i.setBackgroundResource(resourceId);
         this.f.setOnClickListener(this);
-        this.mpu.setOnClickListener(this);
-        this.mze = (EggacheDisplayView) inflate.findViewById(a.f.menu_display_layout);
-        this.mzh = (FoodView) inflate.findViewById(a.f.iv_ad);
+        this.mJq.setOnClickListener(this);
+        this.mTf = (EggacheDisplayView) inflate.findViewById(a.f.menu_display_layout);
+        this.mTi = (FoodView) inflate.findViewById(a.f.iv_ad);
         a();
-        this.mzj.setOnClickListener(this);
-        this.mzk.setOnClickListener(this);
+        this.mTl.setOnClickListener(this);
+        this.mTm.setOnClickListener(this);
     }
 
     private void a() {
         if (this.t == 0) {
-            this.mzd.setBackgroundResource(a.e.bg_paoicon_p);
+            this.mTe.setBackgroundResource(a.e.bg_paoicon_p);
         } else {
-            this.mpu.setVisibility(8);
+            this.mJq.setVisibility(8);
         }
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         this.f.removeCallbacks(this.m);
-        this.mzg.removeCallbacks(this.n);
+        this.mTh.removeCallbacks(this.n);
         super.onDetachedFromWindow();
     }
 
@@ -137,26 +137,26 @@ public class EmbeddedButtonLayout extends LinearLayout implements View.OnClickLi
         } else if (id == a.f.gift_popup_gift) {
             tv.chushou.zues.a.a.post(new b(8, null));
         } else if (id == a.f.ic_shopwindow) {
-            if (this.mnw != null) {
-                e.a(this.b, this.mnw, (JSONObject) null);
+            if (this.mHs != null) {
+                e.a(this.b, this.mHs, (JSONObject) null);
             }
-        } else if (id == a.f.iv_shopwindow_close && this.mzl != null) {
-            this.mzl.setVisibility(8);
+        } else if (id == a.f.iv_shopwindow_close && this.mTn != null) {
+            this.mTn.setVisibility(8);
         }
     }
 
     public void a(ListItem listItem) {
-        if (this.t != 1 && this.mpu != null && listItem != null && !h.isEmpty(listItem.mPackIcon)) {
-            this.mpu.setVisibility(0);
-            this.mpu.setAnim(true);
-            this.mpu.a(listItem.mPackIcon, a.e.default_color_bg, tv.chushou.zues.widget.fresco.b.nua, b.C0861b.nuc, 0);
+        if (this.t != 1 && this.mJq != null && listItem != null && !h.isEmpty(listItem.mPackIcon)) {
+            this.mJq.setVisibility(0);
+            this.mJq.setAnim(true);
+            this.mJq.a(listItem.mPackIcon, a.e.default_color_bg, tv.chushou.zues.widget.fresco.b.nOX, b.C0923b.nOZ, 0);
         }
     }
 
     public void a(IconConfig.Config config) {
         if (config != null) {
-            this.mzi = config;
-            if (!this.mzi.display) {
+            this.mTk = config;
+            if (!this.mTk.display) {
                 this.f.setVisibility(8);
             }
             b();
@@ -164,15 +164,15 @@ public class EmbeddedButtonLayout extends LinearLayout implements View.OnClickLi
     }
 
     public void a(List<ListItem> list) {
-        if (this.mzj != null && !h.isEmpty(list) && this.t != 1) {
-            this.mnw = list.get(0);
-            this.mzj.setVisibility(0);
-            this.mzj.a(this.mnw.mCover, 0, 0, 0, 1);
-            if (this.mzk != null) {
-                if (this.mnw.mShowClose) {
-                    this.mzk.setVisibility(0);
+        if (this.mTl != null && !h.isEmpty(list) && this.t != 1) {
+            this.mHs = list.get(0);
+            this.mTl.setVisibility(0);
+            this.mTl.a(this.mHs.mCover, 0, 0, 0, 1);
+            if (this.mTm != null) {
+                if (this.mHs.mShowClose) {
+                    this.mTm.setVisibility(0);
                 } else {
-                    this.mzk.setVisibility(8);
+                    this.mTm.setVisibility(8);
                 }
             }
         }
@@ -180,16 +180,16 @@ public class EmbeddedButtonLayout extends LinearLayout implements View.OnClickLi
 
     public void a(BangInfo bangInfo, String str) {
         if (bangInfo != null) {
-            if (!this.mzi.display) {
+            if (!this.mTk.display) {
                 this.f.setVisibility(8);
                 b();
                 return;
             }
-            this.mze.setVisibility(0);
+            this.mTf.setVisibility(0);
             this.f.setVisibility(0);
-            this.mzg.bU(str, a.e.pao_circle_default);
+            this.mTh.bV(str, a.e.pao_circle_default);
             int i = (int) ((((float) bangInfo.mCurPoint) / ((float) bangInfo.mEndPoint)) * 100.0f);
-            this.mzf.setProgress(i);
+            this.mTg.setProgress(i);
             if (!this.q) {
                 long j = bangInfo.mEndPoint - bangInfo.mCurPoint;
                 c cVar = new c();
@@ -216,19 +216,19 @@ public class EmbeddedButtonLayout extends LinearLayout implements View.OnClickLi
             this.f.removeCallbacks(this.m);
             this.f.postDelayed(this.m, 400L);
             if (this.l != i) {
-                Animation loadAnimation = AnimationUtils.loadAnimation(this.b, a.C0736a.pao_beat_anim);
+                Animation loadAnimation = AnimationUtils.loadAnimation(this.b, a.C0794a.pao_beat_anim);
                 loadAnimation.setAnimationListener(new Animation.AnimationListener() { // from class: com.kascend.chushou.player.ui.button.EmbeddedButtonLayout.2
                     @Override // android.view.animation.Animation.AnimationListener
                     public void onAnimationStart(Animation animation) {
-                        if (EmbeddedButtonLayout.this.mze != null) {
-                            EmbeddedButtonLayout.this.mze.e();
+                        if (EmbeddedButtonLayout.this.mTf != null) {
+                            EmbeddedButtonLayout.this.mTf.e();
                         }
                     }
 
                     @Override // android.view.animation.Animation.AnimationListener
                     public void onAnimationEnd(Animation animation) {
-                        if (EmbeddedButtonLayout.this.mze != null) {
-                            EmbeddedButtonLayout.this.mze.c();
+                        if (EmbeddedButtonLayout.this.mTf != null) {
+                            EmbeddedButtonLayout.this.mTf.c();
                         }
                     }
 
@@ -236,7 +236,7 @@ public class EmbeddedButtonLayout extends LinearLayout implements View.OnClickLi
                     public void onAnimationRepeat(Animation animation) {
                     }
                 });
-                this.mzg.startAnimation(loadAnimation);
+                this.mTh.startAnimation(loadAnimation);
                 this.l = i;
             }
             if (this.k != bangInfo.mLevel) {
@@ -244,26 +244,26 @@ public class EmbeddedButtonLayout extends LinearLayout implements View.OnClickLi
                     this.n = new Runnable() { // from class: com.kascend.chushou.player.ui.button.EmbeddedButtonLayout.3
                         @Override // java.lang.Runnable
                         public void run() {
-                            if (ViewCompat.isAttachedToWindow(EmbeddedButtonLayout.this) && EmbeddedButtonLayout.this.mzg != null) {
-                                EmbeddedButtonLayout.this.mzg.clearAnimation();
-                                com.kascend.chushou.widget.b.a aVar = new com.kascend.chushou.widget.b.a(0.0f, -360.0f, 0.0f, 0.0f, EmbeddedButtonLayout.this.mzg.getWidth() / 2, EmbeddedButtonLayout.this.mzg.getHeight() / 2);
+                            if (ViewCompat.isAttachedToWindow(EmbeddedButtonLayout.this) && EmbeddedButtonLayout.this.mTh != null) {
+                                EmbeddedButtonLayout.this.mTh.clearAnimation();
+                                com.kascend.chushou.widget.b.a aVar = new com.kascend.chushou.widget.b.a(0.0f, -360.0f, 0.0f, 0.0f, EmbeddedButtonLayout.this.mTh.getWidth() / 2, EmbeddedButtonLayout.this.mTh.getHeight() / 2);
                                 aVar.setDuration(1000L);
-                                EmbeddedButtonLayout.this.mzg.startAnimation(aVar);
+                                EmbeddedButtonLayout.this.mTh.startAnimation(aVar);
                             }
                         }
                     };
                 }
-                this.mzg.removeCallbacks(this.n);
-                this.mzg.postDelayed(this.n, 500L);
+                this.mTh.removeCallbacks(this.n);
+                this.mTh.postDelayed(this.n, 500L);
                 this.k = bangInfo.mLevel;
             }
         }
     }
 
     public void a(long j, BangInfo bangInfo, String str) {
-        if (this.mzi.display && this.f != null) {
+        if (this.mTk.display && this.f != null) {
             if (j > 0) {
-                this.mze.setVisibility(0);
+                this.mTf.setVisibility(0);
                 this.f.setVisibility(0);
                 this.q = true;
                 c cVar = new c();
@@ -280,14 +280,14 @@ public class EmbeddedButtonLayout extends LinearLayout implements View.OnClickLi
         if (this.f != null) {
             this.p = true;
             this.f.removeCallbacks(this.m);
-            this.mzg.clearAnimation();
-            this.mzg.removeCallbacks(this.n);
+            this.mTh.clearAnimation();
+            this.mTh.removeCallbacks(this.n);
             c();
         }
     }
 
     public void b(List<ListItem> list) {
-        if (this.mze != null) {
+        if (this.mTf != null) {
             this.x.clear();
             this.y = true;
             int i = 0;
@@ -308,33 +308,33 @@ public class EmbeddedButtonLayout extends LinearLayout implements View.OnClickLi
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c() {
-        if (this.p && this.mze != null && this.y) {
+        if (this.p && this.mTf != null && this.y) {
             this.y = false;
-            if (!this.mzi.display && h.isEmpty(this.x)) {
-                this.mze.setVisibility(8);
+            if (!this.mTk.display && h.isEmpty(this.x)) {
+                this.mTf.setVisibility(8);
                 return;
             }
-            this.mze.setVisibility(0);
-            this.mze.a(this.x, 1);
-            this.mze.postDelayed(new Runnable() { // from class: com.kascend.chushou.player.ui.button.EmbeddedButtonLayout.4
+            this.mTf.setVisibility(0);
+            this.mTf.a(this.x, 1);
+            this.mTf.postDelayed(new Runnable() { // from class: com.kascend.chushou.player.ui.button.EmbeddedButtonLayout.4
                 @Override // java.lang.Runnable
                 public void run() {
-                    EmbeddedButtonLayout.this.mze.b();
+                    EmbeddedButtonLayout.this.mTf.b();
                 }
             }, 3000L);
         }
     }
 
     public void a(@DrawableRes int i, @DrawableRes int i2) {
-        if (this.mze != null) {
-            this.mze.setDownRes(i);
-            this.mze.setUpRes(i2);
+        if (this.mTf != null) {
+            this.mTf.setDownRes(i);
+            this.mTf.setUpRes(i2);
         }
     }
 
     public void a(ListItem listItem, FoodView.a aVar) {
-        if (this.mzh != null && listItem != null && this.t != 1) {
-            this.mzh.a(listItem, 0, aVar);
+        if (this.mTi != null && listItem != null && this.t != 1) {
+            this.mTi.a(listItem, 0, aVar);
         }
     }
 }
